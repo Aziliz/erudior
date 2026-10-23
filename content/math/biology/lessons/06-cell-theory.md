@@ -21,6 +21,20 @@ Most cells are between about 1 and 100 micrometers across. One micrometer (µm) 
 - *Theodor Schwann, 1839,* extended this to animals: animals, too, are made of cells and cell products.
 - *Rudolf Virchow, 1855,* popularized the principle *omnis cellula e cellula*, "every cell from a cell," building on the observations of Robert Remak and others, who had watched cells divide. New cells do not form from nonliving material; they come from the division of existing cells.
 
+The timeline puts these steps in order. Notice the gap of almost two centuries between seeing cells and understanding them: better lenses, staining methods and many observers were needed before anyone could generalize.
+
+```mermaid
+timeline
+  accTitle: Milestones in the discovery of cells
+  accDescr: A timeline. 1665, Robert Hooke sees and names cells in cork. 1670s, Antonie van Leeuwenhoek sees living microbes. 1838, Matthias Schleiden concludes plants are made of cells. 1839, Theodor Schwann extends this to animals. 1855, Rudolf Virchow popularizes every cell from a cell. Early 1860s, Louis Pasteur's swan-neck flasks refute spontaneous generation of microbes.
+  1665 : Hooke names cells in cork
+  1670s : Leeuwenhoek sees living microbes
+  1838 : Schleiden - plants are made of cells
+  1839 : Schwann - animals are too
+  1855 : Virchow - every cell from a cell
+  1860s : Pasteur's swan-neck flasks
+```
+
 ## The cell theory
 
 Together these findings became the **cell theory**, which has three parts:
@@ -36,6 +50,8 @@ Modern biology adds that cells contain hereditary information (DNA) that is pass
 The third part of the theory clashed with an old idea. Redi (Lesson 2) had shown that maggots come from flies, but many scientists still believed microbes arose spontaneously in broth. In the early 1860s Louis Pasteur settled the matter with an elegant experiment.
 
 He boiled nutrient broth in flasks whose necks he had heated and drawn into a long S-shaped "swan neck." Air could flow freely in and out, but dust and microbes settled in the bend of the neck and never reached the broth. The broth stayed clear and sterile for months. When he snapped off the neck, or tipped the flask so broth touched the dust in the bend, the broth soon clouded with microbes.
+
+![Two round-bottomed flasks of boiled broth. Flask A has a long S-shaped neck open to the air; dust and microbes are trapped in the low bend of the neck, and the broth stays clear. Flask B's neck has been broken off short, dust and microbes fall straight in, and the broth is cloudy.](images/m2-swan-neck.svg)
 
 ### Example 1: Interpreting Pasteur's results
 
@@ -55,7 +71,11 @@ The conclusion: microbes come from other microbes, as cell theory predicts. Noti
 
 ## Microscopes and magnification
 
-A compound light microscope uses two lenses in series: an ocular (eyepiece) lens, usually 10×, and one of several objective lenses, commonly 4×, 10×, 40× and 100×. The **magnification** is how many times larger the image appears than the real object. For a compound microscope,
+A compound light microscope uses two lenses in series: an ocular (eyepiece) lens, usually 10×, and one of several objective lenses, commonly 4×, 10×, 40× and 100×. Follow the light in the drawing: it leaves the light source in the base, passes through the diaphragm (which controls how much light gets through), through the thin specimen on a glass slide resting on the stage, and into the objective lens. The objectives sit on a revolving nosepiece, so you can click a different one into place. The image travels up the body tube to the eyepiece. The coarse focus knob moves the stage (or the tube, on some models) a long way for rough focusing at low power; the fine focus knob makes the small adjustments needed at high power.
+
+![A compound light microscope seen from the side, with its parts labeled: eyepiece (ocular lens) at the top of the body tube, revolving nosepiece holding three objective lenses, stage holding a slide, diaphragm under the stage, light source in the base, the curved arm, and coarse and fine focus knobs on the arm.](images/m2-microscope.svg)
+
+The **magnification** is how many times larger the image appears than the real object. For a compound microscope,
 
 $$\text{total magnification} = \text{ocular magnification} \times \text{objective magnification}.$$
 

@@ -104,3 +104,110 @@
 - term: dichotomous key
   definition: 'An identification tool made of paired, mutually exclusive choices that narrow down an organism step by step.'
   topic: Classification
+# ---- m8 honors: plant physiology (bio-h-plant-physiology)
+- term: auxin
+  aliases: [auxins, IAA, indole-3-acetic acid]
+  definition: 'A plant hormone (mainly indole-3-acetic acid, IAA) made in shoot tips that drives cell elongation, phototropism, gravitropism, apical dominance and root formation; its effects depend on tissue and concentration.'
+  topic: Plant hormones
+- term: polar auxin transport
+  definition: 'One-way, cell-to-cell movement of auxin from the shoot tip toward the base, caused by auxin-exporting carrier proteins (PIN proteins) located at one end of each cell.'
+  topic: Plant hormones
+- term: acid growth hypothesis
+  definition: 'The idea that auxin makes cells elongate by activating proton pumps that acidify the cell wall, which activates wall-loosening proteins (expansins) so turgor pressure can stretch the wall.'
+  topic: Plant hormones
+- term: gravitropism
+  definition: 'Growth in response to gravity: shoots curve upward and roots curve downward, guided by auxin redistributed to the lower side.'
+  topic: Plant responses
+- term: apical dominance
+  definition: 'Suppression of side-bud growth by an actively growing shoot tip; removing the tip releases the buds.'
+  topic: Plant hormones
+- term: gibberellin
+  aliases: [gibberellins, GA]
+  definition: 'A class of plant hormones that promote stem elongation and seed germination; in cereal grains they trigger the making of amylase to digest stored starch.'
+  topic: Plant hormones
+- term: cytokinin
+  aliases: [cytokinins]
+  definition: 'A class of plant hormones that promote cell division, favor shoot formation in tissue culture (with auxin), and delay the aging of leaves.'
+  topic: Plant hormones
+- term: abscisic acid
+  aliases: [ABA]
+  definition: 'A plant stress hormone that closes stomata during drought and keeps seeds dormant.'
+  topic: Plant hormones
+- term: ethylene
+  definition: 'A gaseous plant hormone that triggers fruit ripening and the shedding of leaves, flowers and fruit.'
+  topic: Plant hormones
+- term: phytochrome
+  aliases: [phytochromes]
+  definition: 'A plant pigment that switches to its active form (Pfr) in red light and back to the inactive form (Pr) in far-red light; it controls germination, shade responses and photoperiodism.'
+  topic: Plant responses
+- term: photoperiodism
+  definition: 'A response, such as flowering, to the relative lengths of day and night; plants actually measure the length of uninterrupted darkness.'
+  topic: Plant responses
+- term: critical night length
+  definition: 'The night length that a photoperiodic plant compares against: short-day plants flower when nights are longer than it, long-day plants when nights are shorter.'
+  topic: Plant responses
+- term: florigen
+  definition: 'The flowering signal made in leaves and carried in the phloem to the shoot tip; identified in 2007 as the FT protein.'
+  topic: Plant responses
+- term: cavitation
+  aliases: [embolism]
+  definition: 'Formation of a gas bubble in a xylem conduit under high tension, which breaks the water column and puts the conduit out of use.'
+  topic: Water transport
+- term: root pressure
+  definition: 'Positive pressure in the xylem produced when roots pump ions into it and water follows by osmosis; it causes guttation but is too weak to lift water up tall trees.'
+  topic: Water transport
+- term: guard cell
+  aliases: [guard cells]
+  definition: 'One of the pair of cells around a stoma; they swell and bow apart to open the pore and go limp to close it.'
+  topic: Water transport
+# ---- m8 honors: microbes (bio-h-microbes)
+- term: plaque
+  aliases: [plaques, PFU, plaque-forming unit, plaque-forming units]
+  definition: 'A clear spot in a lawn of bacteria where one phage and its offspring have killed the cells; plaques are counted as plaque-forming units (PFU) to measure phage numbers.'
+  topic: Viral replication
+- term: burst size
+  definition: 'The average number of new viruses released by one infected cell when it bursts.'
+  topic: Viral replication
+- term: prophage
+  aliases: [prophages]
+  definition: 'Phage DNA integrated into a bacterial chromosome during the lysogenic cycle and copied along with it.'
+  topic: Viral replication
+- term: lysogenic conversion
+  definition: 'A change in a bacterium''s traits caused by genes carried on a prophage, such as the ability to make cholera or diphtheria toxin.'
+  topic: Viral replication
+- term: reverse transcriptase
+  definition: 'A viral enzyme that copies RNA into DNA; retroviruses such as HIV use it to make a DNA copy of their genome.'
+  topic: Viral replication
+- term: provirus
+  aliases: [proviruses]
+  definition: 'Retroviral DNA that has been inserted into a host cell''s chromosome.'
+  topic: Viral replication
+- term: antigenic drift
+  definition: 'Gradual change in a virus''s surface proteins through point mutations, so that existing antibodies fit less well; the reason flu vaccines are updated each year.'
+  topic: Viral replication
+- term: antigenic shift
+  definition: 'A sudden major change in an influenza virus when two strains infecting the same cell swap genome segments, producing new surface proteins; it can cause pandemics.'
+  topic: Viral replication
+- term: minimum inhibitory concentration
+  aliases: [MIC]
+  definition: 'The lowest concentration of an antibiotic that prevents visible growth of a bacterial strain in a lab test.'
+  topic: Antibiotic resistance
+- term: conjugation
+  aliases: [bacterial conjugation]
+  definition: 'Transfer of DNA, usually a plasmid, from one bacterium to another through a connecting pilus.'
+  topic: Antibiotic resistance
+- term: transformation
+  aliases: [bacterial transformation]
+  definition: 'Uptake by a bacterium of naked DNA from its surroundings, which can give it new genes.'
+  topic: Antibiotic resistance
+- term: transduction
+  definition: 'Transfer of bacterial DNA from one cell to another by a phage that packaged it by mistake.'
+  topic: Antibiotic resistance
+- term: beta-lactamase
+  aliases: [beta-lactamases, β-lactamase]
+  definition: 'A bacterial enzyme that breaks the beta-lactam ring of penicillins and related antibiotics, making the bacterium resistant.'
+  topic: Antibiotic resistance
+- term: microbiome
+  aliases: [microbiomes, gut microbiome]
+  definition: 'The community of microorganisms living on and in a body, mostly bacteria in the large intestine.'
+  topic: Antibiotic resistance

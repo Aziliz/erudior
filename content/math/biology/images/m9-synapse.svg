@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 460" width="700" height="460" font-family="sans-serif">
+<rect width="700" height="460" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e5f8a"/></marker></defs>
+<path d="M260,0 L260,60 Q170,90 170,170 Q170,235 260,240 L440,240 Q530,235 530,170 Q530,90 440,60 L440,0 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M110,300 L590,300 L590,440 L110,440 Z" fill="#dde8f3" stroke="none"/>
+<path d="M110,300 L590,300" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="240" cy="130" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="240.1" cy="131.1" r="2.6" fill="#6c3483"/>
+<circle cx="238.6" cy="131.0" r="2.6" fill="#6c3483"/>
+<circle cx="244.0" cy="131.8" r="2.6" fill="#6c3483"/>
+<circle cx="247.6" cy="125.6" r="2.6" fill="#6c3483"/>
+<circle cx="240.2" cy="127.6" r="2.6" fill="#6c3483"/>
+<circle cx="300" cy="110" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="297.0" cy="109.3" r="2.6" fill="#6c3483"/>
+<circle cx="300.5" cy="111.0" r="2.6" fill="#6c3483"/>
+<circle cx="302.3" cy="119.9" r="2.6" fill="#6c3483"/>
+<circle cx="304.2" cy="102.2" r="2.6" fill="#6c3483"/>
+<circle cx="300.7" cy="108.0" r="2.6" fill="#6c3483"/>
+<circle cx="360" cy="140" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="357.5" cy="146.4" r="2.6" fill="#6c3483"/>
+<circle cx="358.9" cy="130.7" r="2.6" fill="#6c3483"/>
+<circle cx="360.7" cy="139.3" r="2.6" fill="#6c3483"/>
+<circle cx="354.2" cy="135.5" r="2.6" fill="#6c3483"/>
+<circle cx="358.0" cy="139.9" r="2.6" fill="#6c3483"/>
+<circle cx="420" cy="115" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="419.0" cy="115.2" r="2.6" fill="#6c3483"/>
+<circle cx="428.7" cy="111.2" r="2.6" fill="#6c3483"/>
+<circle cx="416.8" cy="114.0" r="2.6" fill="#6c3483"/>
+<circle cx="425.3" cy="111.6" r="2.6" fill="#6c3483"/>
+<circle cx="426.9" cy="108.7" r="2.6" fill="#6c3483"/>
+<circle cx="300" cy="175" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="295.5" cy="174.8" r="2.6" fill="#6c3483"/>
+<circle cx="296.1" cy="172.2" r="2.6" fill="#6c3483"/>
+<circle cx="301.8" cy="177.8" r="2.6" fill="#6c3483"/>
+<circle cx="300.2" cy="174.6" r="2.6" fill="#6c3483"/>
+<circle cx="306.6" cy="177.0" r="2.6" fill="#6c3483"/>
+<circle cx="395" cy="185" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="393.9" cy="190.8" r="2.6" fill="#6c3483"/>
+<circle cx="391.3" cy="185.7" r="2.6" fill="#6c3483"/>
+<circle cx="397.2" cy="185.0" r="2.6" fill="#6c3483"/>
+<circle cx="393.1" cy="186.2" r="2.6" fill="#6c3483"/>
+<circle cx="393.0" cy="182.8" r="2.6" fill="#6c3483"/>
+<circle cx="470" cy="160" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="464.9" cy="166.5" r="2.6" fill="#6c3483"/>
+<circle cx="467.4" cy="165.6" r="2.6" fill="#6c3483"/>
+<circle cx="470.9" cy="159.4" r="2.6" fill="#6c3483"/>
+<circle cx="472.3" cy="160.9" r="2.6" fill="#6c3483"/>
+<circle cx="470.6" cy="153.3" r="2.6" fill="#6c3483"/>
+<path d="M318,240 Q318,212 340,212 Q362,212 362,240" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="319" y="238" width="42" height="4" fill="#f7ebcf"/>
+<circle cx="330" cy="252" r="2.8" fill="#6c3483"/>
+<circle cx="345" cy="262" r="2.8" fill="#6c3483"/>
+<circle cx="352" cy="250" r="2.8" fill="#6c3483"/>
+<circle cx="338" cy="272" r="2.8" fill="#6c3483"/>
+<circle cx="360" cy="280" r="2.8" fill="#6c3483"/>
+<circle cx="325" cy="284" r="2.8" fill="#6c3483"/>
+<circle cx="372" cy="265" r="2.8" fill="#6c3483"/>
+<circle cx="390" cy="282" r="2.8" fill="#6c3483"/>
+<circle cx="315" cy="258" r="2.8" fill="#6c3483"/>
+<path d="M288,318 L288,296 Q288,290 294,290 L297,290 L297,318 Z M303,318 L303,290 L306,290 Q312,290 312,296 L312,318 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M348,318 L348,296 Q348,290 354,290 L357,290 L357,318 Z M363,318 L363,290 L366,290 Q372,290 372,296 L372,318 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M408,318 L408,296 Q408,290 414,290 L417,290 L417,318 Z M423,318 L423,290 L426,290 Q432,290 432,296 L432,318 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="360" y1="286" x2="360" y2="345" stroke="#2e5f8a" stroke-width="2.5" marker-end="url(#ahb)"/>
+<text x="370" y="345" font-size="15" text-anchor="start" font-weight="bold" fill="#2e5f8a">Na⁺</text>
+<rect x="268" y="229" width="9" height="22" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="283" y="229" width="9" height="22" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="280" y1="292" x2="280" y2="205" stroke="#b03a2e" stroke-width="2.5" marker-end="url(#ahr)"/>
+<text x="272" y="288" font-size="15" text-anchor="end" font-weight="bold" fill="#b03a2e">Ca²⁺</text>
+<ellipse cx="480" cy="238" rx="14" ry="10" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M455,280 Q470,262 478,250" fill="none" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<circle cx="452" cy="284" r="2.8" fill="#6c3483"/>
+<line x1="350" y1="8" x2="350" y2="55" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
+<text x="365" y="32" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" font-style="italic">action potential arrives</text>
+<text x="350" y="425" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">Postsynaptic cell</text>
+<line x1="210" y1="47" x2="210" y2="90" stroke="#1c2833" stroke-width="1"/>
+<circle cx="210" cy="90" r="2.2" fill="#1c2833"/>
+<text x="120" y="40" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">Axon terminal</text>
+<line x1="489.8" y1="97" x2="488" y2="150" stroke="#1c2833" stroke-width="1"/>
+<circle cx="488" cy="150" r="2.2" fill="#1c2833"/>
+<text x="620" y="90" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833">Synaptic vesicle</text>
+<line x1="118.4" y1="212" x2="268" y2="236" stroke="#1c2833" stroke-width="1"/>
+<circle cx="268" cy="236" r="2.2" fill="#1c2833"/>
+<text x="20" y="205" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">Ca²⁺ channel</text>
+<line x1="134.3" y1="268" x2="190" y2="268" stroke="#1c2833" stroke-width="1"/>
+<circle cx="190" cy="268" r="2.2" fill="#1c2833"/>
+<text x="20" y="262" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">Synaptic cleft</text>
+<line x1="150.2" y1="324" x2="325" y2="284" stroke="#1c2833" stroke-width="1"/>
+<circle cx="325" cy="284" r="2.2" fill="#1c2833"/>
+<text x="20" y="340" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">Neurotransmitter</text>
+<line x1="437" y1="359" x2="425" y2="312" stroke="#1c2833" stroke-width="1"/>
+<circle cx="425" cy="312" r="2.2" fill="#1c2833"/>
+<text x="440" y="375" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">Receptor (ligand-gated channel)</text>
+<line x1="518.0" y1="269" x2="492" y2="240" stroke="#1c2833" stroke-width="1"/>
+<circle cx="492" cy="240" r="2.2" fill="#1c2833"/>
+<text x="680" y="285" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833">Reuptake transporter</text>
+</svg>

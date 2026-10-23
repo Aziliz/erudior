@@ -60,6 +60,14 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
+## Question types, pictures, diagrams, honors (v0.22.0)
+
+- **Question kinds** (`src/lib/questions.ts`): choice (single or select-all), `text` (fill in the blank: `___` blanks, `accept` lists, normalized matching), `match`, `label` (image + percent `markers`), `order`. Every kind keeps `choices`/`answer`; answers are `Chosen = (number|string)[]`. All scored all-or-nothing; reviews mark each part. UI: `src/components/QuestionBody.tsx` (Runner + Results), bank editor `src/components/QuestionKindEditor.tsx` (all kinds, picture upload, click-to-place markers). Live rooms use choice questions without pictures only. Community courses stay choice-only.
+- **Pictures:** any question can have `image {src, alt, caption?}`. Bundled courses keep SVGs in `<course>/images/`; build.py embeds them as data URLs (lessons `![alt](images/x.svg)` and questions); 400 KB cap; SVG safety check. `scripts/preview-figure.mjs` renders an SVG (with label markers) or a `.mmd` diagram to PNG for checking.
+- **Mermaid:** ```mermaid blocks in lessons/reference sheets (`src/lib/diagram.ts` placeholder, `src/lib/mermaidRender.ts` lazy-loads mermaid 11.17.2, theme colors from CSS vars, redraws on theme change, min 70% scale then scrolls). accTitle/accDescr required (build + checker; checker parses with mermaid under jsdom).
+- **Honors:** `honors: true` on lessons or modules (`isHonorsLesson`, `coreLessons`, `moduleCoreLessons` in course.ts). Optional: not needed for module/course completion, excluded from module quizzes, grades (via catalog `honorsLessonIds/honorsModuleIds`), full exams and default practice (opt-in checkbox); study time still counts. Catalog counts core `lessons` and `honors` separately. Jon: every school course gets honors lessons (professional courses don't); "more is better as long as it's accurate"; no transcript designation.
+- Tests: `tests/questions.test.mts`; walkthrough `scripts/questions-walkthrough.mjs` with fixture `tests/fixtures/math/demo` (build it with build.py; serve on 5182).
+
 ## Biology course (v0.21.0)
 
 - First K–12 core course: `content/math/biology` (id `science-biology`, catalog order 16, Science, High school, one credit). 10 modules, 40 lessons, 458 questions, 72 drills, 296 cards, 313 terms, 4 reference sheets (lab math, cell energy, genetics incl. codon table, evolution/ecology). Scope: NGSS HS-LS1–4 and Texas TEKS Biology (RESEARCH.md).
@@ -169,6 +177,8 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/App.tsx` | View router, the app API passed to pages, startup seeding, resume, course-update and app-update banners, top-bar search |
 | `src/lib/types.ts` | All data types: Bank, Question, Course, Lesson, Deck, Card, Drill, Progress, etc. |
 | `src/lib/validate.ts` | Bank parsing and normalizing, warnings, serializing |
+| `src/lib/questions.ts`, `src/components/QuestionBody.tsx`, `QuestionKindEditor.tsx` | Question kinds: grading, answer UI, editor |
+| `src/lib/diagram.ts`, `mermaidRender.ts` | Mermaid diagrams in Markdown |
 | `src/lib/course.ts` | Course parsing and normalizing. Banks inside a course get the runtime id `${courseId}__${localId}`. |
 | `src/lib/storage.ts` | Tauri invoke calls, with a localStorage fallback when the UI runs in a plain browser; backup and restore; the session file |
 | `src/lib/session.ts` | Drawing exam questions, timed blocks, practice pools, scoring, `finishSession`, `attemptPassed`, saving and restoring a run, `defaultExamOptions` |

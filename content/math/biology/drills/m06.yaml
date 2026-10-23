@@ -1060,3 +1060,135 @@
 
 
     Circle: there are no ends, so two cuts make two pieces: **{ca}** bp between the sites, and {L} − {ca} = **{cb}** bp for the rest (the left and right pieces joined).'
+- id: bio-h-splice-isoforms
+  title: Counting alternatively spliced mRNAs
+  topic: Eukaryotic gene regulation
+  vars:
+    c1:
+      min: 2
+      max: 12
+    c2:
+      min: 2
+      max: 12
+    c3:
+      min: 2
+      max: 8
+    ncas:
+      choices:
+      - label: no optional cassette exons
+        value: 0
+      - label: one optional cassette exon, which can be included or skipped
+        value: 1
+      - label: two optional cassette exons, each of which can be included or skipped independently
+        value: 2
+      - label: three optional cassette exons, each of which can be included or skipped independently
+        value: 3
+  calc:
+    nc: ncas
+    base: c1*c2*c3
+    pw: 2^ncas
+    tot: c1*c2*c3*2^ncas
+  prompt: A gene has three clusters of mutually exclusive exons, with {c1}, {c2} and {c3} alternatives. Every mRNA includes exactly one exon from each cluster. The gene also has {ncas}. How many different mRNAs can the gene make?
+  answers:
+  - name: tot
+    label: mRNAs
+    format: integer
+  solution: 'Independent choices multiply. The three clusters give ${c1} \times {c2} \times {c3} = {base}$ combinations. Each optional cassette exon doubles the count, so the cassette exons multiply it by $2^{{nc}} = {pw}$.
+
+
+    Total: ${base} \times {pw} =$ **{tot:int}** different mRNAs.'
+- id: bio-h-coverage
+  title: Reads needed for sequencing coverage
+  topic: Genomics
+  vars:
+    org:
+      choices:
+      - label: a bacterial genome of 5 million base pairs
+        value: 5
+      - label: a yeast genome of 12 million base pairs
+        value: 12
+      - label: a fruit fly genome of 140 million base pairs
+        value: 140
+      - label: a human genome of 3,100 million base pairs
+        value: 3100
+    rlen:
+      choices:
+      - 100
+      - 150
+      - 250
+    cov:
+      choices:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+      - 60
+  calc:
+    gm: org
+    nr: cov*org/rlen
+  prompt: You want an average coverage of {cov}× for {org}, using reads {rlen} bases long. How many reads do you need, in millions? Give 3 significant figures.
+  answers:
+  - name: nr
+    label: Reads (millions)
+    relTolerance: 0.005
+  solution: 'Coverage is $C = \dfrac{\text{number of reads} \times \text{read length}}{\text{genome size}}$, so the number of reads is $\dfrac{C \times \text{genome size}}{\text{read length}}$.
+
+
+    Reads $= \dfrac{{cov} \times {gm} \text{ million}}{{rlen}} =$ **{nr:sig3} million**.'
+- id: bio-h-chance-matches
+  title: Chance matches of a short sequence in a genome
+  topic: Gene editing
+  vars:
+    k:
+      min: 8
+      max: 16
+    gs:
+      choices:
+      - label: 12 million
+        value: 12000000
+      - label: 140 million
+        value: 140000000
+      - label: 3.1 billion
+        value: 3100000000
+  calc:
+    pos: 2*gs
+    seqs: 4^k
+    ex: 2*gs/4^k
+  prompt: A genome has {gs} base pairs. If its sequence were random, how many times would one particular {k}-base sequence be expected to appear by chance, counting both strands? Give 3 significant figures.
+  answers:
+  - name: ex
+    label: Expected matches
+    relTolerance: 0.005
+  solution: 'Every position on each strand starts one {k}-base window, so there are about ${pos:texsci}$ windows. A random window matches a given sequence with probability $1/4^{{k}}$, and $4^{{k}} = {seqs:int}$.
+
+
+    Expected matches $= \dfrac{{pos:texsci}}{{seqs:int}} \approx$ **{ex:sig3}**.'
+- id: bio-h-percent-identity
+  title: Percent identity of an alignment
+  topic: Genomics
+  vars:
+    alen:
+      min: 40
+      max: 300
+      step: 10
+    mm:
+      min: 1
+      max: 30
+    gp:
+      min: 0
+      max: 12
+  where:
+  - mm + gp < alen/4
+  calc:
+    idn: alen - mm - gp
+    pid: 100*(alen - mm - gp)/alen
+  prompt: Two DNA sequences are aligned over {alen} positions, counting gap positions. The alignment has {mm} mismatches and {gp} gap positions, and every other position is identical. What is the percent identity? Give one decimal place.
+  answers:
+  - name: pid
+    label: Identity (%)
+    tolerance: 0.051
+  solution: 'Identical positions: ${alen} - {mm} - {gp} = {idn}$.
+
+
+    Percent identity $= \dfrac{{idn}}{{alen}} \times 100 =$ **{pid:num1}%**.'

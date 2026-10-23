@@ -483,3 +483,534 @@
   answer: 0
   explanation: |-
     Human oocytes begin meiosis I before birth and pause until ovulation, so an egg released at 40 has been paused for about 40 years; errors in separating chromosomes become more likely. Nondisjunction also occurs in sperm formation, but it accounts for a smaller share of trisomy 21.
+# Round 2: new question types for the core lessons
+- id: bio-q-0559
+  lesson: bio-mendel
+  module_quiz: true
+  type: label
+  topic: Mendelian genetics
+  stem: 'This picture follows Mendel''s flower-color experiment. Name each numbered generation.'
+  image: {src: images/m5-mendel-cross-blank.svg, alt: 'Three rows of pea flowers joined by arrows. Row 1: a purple PP flower crossed with a white pp flower. Row 2, reached by crossing: four purple Pp flowers. Row 3, reached by self-pollination: three purple flowers (PP, Pp, Pp) and one white flower (pp).'}
+  labels:
+    - {x: 8, y: 16.3, text: P generation}
+    - {x: 8, y: 48.8, text: F1 generation}
+    - {x: 8, y: 82.6, text: F2 generation}
+  distractors: [F3 generation, Test-cross offspring]
+  explanation: |-
+    Row 1 is the parental (P) generation: two true-breeding plants, PP and pp. Their offspring are the first filial generation, F1, all Pp and purple. Letting the F1 self-pollinate gives the F2, with 3 purple : 1 white. No row is a test cross, which would need a cross with a homozygous recessive (pp) plant.
+- id: bio-q-0560
+  lesson: bio-mendel
+  type: text
+  topic: Mendelian genetics
+  stem: 'A pea plant with two identical alleles for a gene, such as PP, is ___ for that gene; a plant with two different alleles, Pp, is ___.'
+  accept:
+    - [homozygous, homozygote, homozygotic]
+    - [heterozygous, heterozygote, heterozygotic]
+  explanation: |-
+    "Homo-" means same and "hetero-" means different. PP and pp are homozygous; Pp is heterozygous. PP and Pp plants look alike (purple), which is why a genotype can't be read from the phenotype alone.
+- id: bio-q-0561
+  lesson: bio-mendel
+  type: match
+  topic: Mendelian genetics
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Gene, A stretch of DNA that affects a trait]
+    - [Allele, One version of a gene]
+    - [Genotype, The pair of alleles an individual carries]
+    - [Phenotype, The trait you can observe]
+  distractors: [The cell formed when two gametes fuse]
+  explanation: |-
+    A gene (such as the flower-color gene) comes in alleles (P and p). The genotype is the allele pair (PP, Pp or pp); the phenotype is what shows (purple or white). The cell formed by fertilization is a zygote, which isn't one of these terms.
+- id: bio-q-0562
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'Purple (P) is dominant to white (p). Which statements about the cross Pp × Pp are true? Select all that apply.'
+  choices: ['About 3/4 of the offspring are expected to be purple', 'The expected genotype ratio is 1 PP : 2 Pp : 1 pp', 'About half of the offspring are expected to be PP', 'Each gamete carries exactly one allele of the flower-color gene']
+  answer: [0, 1, 3]
+  explanation: |-
+    The Punnett square has four equally likely boxes, PP, Pp, Pp and pp: genotypes 1 : 2 : 1 and phenotypes 3 purple : 1 white. Every gamete carries one allele (the law of segregation). PP is only 1/4 of the offspring; half are Pp, not PP.
+- id: bio-q-0563
+  lesson: bio-mendel
+  module_quiz: true
+  type: text
+  caseSensitive: true
+  topic: Mendelian genetics
+  stem: 'The offspring of a cross come out 1 PP : 2 Pp : 1 pp. Type each parent''s genotype, using P and p: ___ and ___.'
+  accept:
+    - [Pp, pP]
+    - [Pp, pP]
+  explanation: |-
+    PP offspring need a P from each parent, and pp offspring need a p from each parent, so both parents carry both alleles: Pp × Pp. That cross gives exactly 1 PP : 2 Pp : 1 pp. (Capital letters matter: P is the dominant allele and p the recessive one.)
+- id: bio-q-0564
+  lesson: bio-dihybrid
+  type: text
+  topic: Probability in genetics
+  stem: 'The probability that two independent events both happen is found by multiplying their probabilities. This is called the ___ rule.'
+  accept: [product, multiplication, multiplicative]
+  explanation: |-
+    The product rule: $P(A \text{ and } B) = P(A) \times P(B)$ for independent events. The sum rule is for "or" with mutually exclusive outcomes.
+- id: bio-q-0565
+  lesson: bio-dihybrid
+  module_quiz: true
+  type: order
+  topic: Dihybrid crosses
+  stem: 'Put these events in order, from the start of meiosis in an RrYy plant to its gametes.'
+  items:
+    - 'DNA replicates, so each chromosome has two sister chromatids'
+    - 'Homologous pairs line up at the metaphase plate, each pair oriented at random'
+    - 'Homologs separate in anaphase I'
+    - 'Sister chromatids separate in meiosis II'
+    - 'Four haploid cells form, each carrying one allele of each gene (RY, Ry, rY or ry)'
+  explanation: |-
+    DNA is copied before meiosis begins (interphase). In metaphase I the R/r pair and the Y/y pair line up independently, which is the source of independent assortment. Anaphase I separates homologs, meiosis II separates sister chromatids, and the result is four haploid cells. Across many meioses, RY, Ry, rY and ry each make up 1/4.
+- id: bio-q-0566
+  lesson: bio-dihybrid
+  type: match
+  topic: Probability in genetics
+  stem: 'In the cross RrYy × RrYy (round and yellow dominant, genes unlinked), match each phenotype to its probability.'
+  pairs:
+    - ['Round and yellow', '9/16']
+    - ['Round and green', '3/16']
+    - ['Wrinkled and green', '1/16']
+    - ['Wrinkled, any color', '1/4']
+  distractors: ['3/8', '1/2']
+  explanation: |-
+    Gene by gene: round 3/4, wrinkled 1/4; yellow 3/4, green 1/4. Round and yellow $= \tfrac34 \times \tfrac34 = \tfrac{9}{16}$; round and green $= \tfrac34 \times \tfrac14 = \tfrac{3}{16}$; wrinkled and green $= \tfrac14 \times \tfrac14 = \tfrac{1}{16}$. "Wrinkled, any color" ignores the color gene, so it is just $\tfrac14$ (equal to $\tfrac{3}{16} + \tfrac{1}{16}$).
+- id: bio-q-0567
+  lesson: bio-dihybrid
+  topic: Probability in genetics
+  stem: 'Which of these calculations for the offspring of Aa × Aa are correct? Select all that apply.'
+  choices: ['P(AA or aa) = 1/4 + 1/4 = 1/2', 'P(two children, both aa) = 1/4 × 1/4 = 1/16', 'P(Aa) = 1/2 × 1/2 = 1/4', 'P(not aa) = 1 − 1/4 = 3/4']
+  answer: [0, 1, 3]
+  explanation: |-
+    AA and aa are mutually exclusive, so add: 1/2. Two children are independent, so multiply: 1/16. "Not aa" is the complement of aa: 3/4. The Aa calculation is wrong: Aa can form two ways (A from the mother and a from the father, or the reverse), so $P(\text{Aa}) = \tfrac14 + \tfrac14 = \tfrac12$, not $\tfrac14$.
+- id: bio-q-0568
+  lesson: bio-dihybrid
+  topic: Probability in genetics
+  stem: 'A branch diagram is drawn for AaBbCc × AaBbCc (three unlinked genes, complete dominance), splitting each branch into "dominant" and "recessive" for each gene in turn. How many end branches (phenotype classes) does it have?'
+  choices: ['3', '6', '8', '27']
+  answer: 2
+  explanation: |-
+    Each gene doubles the number of branches (dominant or recessive phenotype): $2 \times 2 \times 2 = 8$ phenotype classes, in a 27 : 9 : 9 : 9 : 3 : 3 : 3 : 1 ratio. 27 is the number of genotypes (3 per gene, $3^3$) and also the size of the largest class out of 64; 6 adds instead of multiplying.
+- id: bio-q-0569
+  lesson: bio-beyond-mendel
+  module_quiz: true
+  type: label
+  topic: Multiple alleles
+  stem: 'Each red blood cell carries the antigens shown by the key. Name the ABO blood type of each numbered cell.'
+  image: {src: images/m5-abo-cells-blank.svg, alt: 'Four red blood cells. Cell 1 has both triangle and circle antigens on its surface, cell 2 has none, cell 3 has only triangles, and cell 4 has only circles. A key shows that triangles are A antigens and circles are B antigens.'}
+  labels:
+    - {x: 13.9, y: 41.7, text: Type AB}
+    - {x: 37.9, y: 41.7, text: Type O}
+    - {x: 61.9, y: 41.7, text: Type A}
+    - {x: 86, y: 41.7, text: Type B}
+  explanation: |-
+    Blood type is named for the antigens on the red cells: A antigens only, type A (cell 3); B only, type B (cell 4); both, type AB (cell 1, from codominant $I^A$ and $I^B$); neither, type O (cell 2, genotype $ii$).
+- id: bio-q-0570
+  lesson: bio-beyond-mendel
+  type: match
+  topic: Codominance
+  stem: 'Match each example to the kind of inheritance it shows.'
+  pairs:
+    - ['Red × white snapdragons give pink offspring', Incomplete dominance]
+    - ['Roan cattle have separate red hairs and white hairs', Codominance]
+    - ['A person with $I^AI^B$ has both A and B antigens', Codominance]
+    - ['Adult height varies continuously in a bell curve', Polygenic inheritance]
+    - ['Any ee Labrador is yellow, whatever its B gene', Epistasis]
+  distractors: [Sex linkage]
+  explanation: |-
+    Pink is an intermediate heterozygote (incomplete dominance). Roan coats and AB blood show both alleles fully (codominance). Continuous variation comes from many genes with small effects (polygenic). The E gene masking the B gene is epistasis. None of these genes is on the X chromosome.
+- id: bio-q-0571
+  lesson: bio-beyond-mendel
+  type: text
+  caseSensitive: true
+  topic: Multiple alleles
+  stem: 'Using the ABO allele symbols, a person with type O blood has the genotype ___ (type the two lower-case letters).'
+  accept: [ii]
+  explanation: |-
+    Type O needs two copies of the recessive $i$ allele, so the genotype is $ii$. Any $I^A$ or $I^B$ allele would add an A or B antigen.
+- id: bio-q-0572
+  lesson: bio-beyond-mendel
+  topic: Multiple alleles
+  stem: 'Considering ABO type only, which donors could give red blood cells to a patient with type B blood? Select all that apply.'
+  choices: [A type O donor, A type B donor, A type A donor, A type AB donor]
+  answer: [0, 1]
+  explanation: |-
+    A type B patient has anti-A antibodies in their plasma, which attack red cells carrying the A antigen. Type O cells (no A or B antigen) and type B cells (B antigen only) are safe. Type A and type AB cells carry the A antigen and would be attacked.
+- id: bio-q-0573
+  lesson: bio-beyond-mendel
+  topic: Polygenic traits
+  stem: 'Cuttings from one hydrangea plant are planted in two gardens. In acidic soil they bloom blue; in more alkaline soil they bloom pink. What does this show?'
+  choices: ['The two gardens selected plants with different flower-color alleles', 'Flower color in hydrangeas shows incomplete dominance', 'Soil pH causes mutations in the flower-color genes', 'Phenotype depends on the environment as well as the genotype']
+  answer: 3
+  explanation: |-
+    Cuttings of one plant are genetically identical, so the different colors come from the environment acting on the same genotype. No selection or mutation happened between cuttings, and incomplete dominance is about heterozygotes, not about the same genotype in different conditions.
+- id: bio-q-0574
+  lesson: bio-sex-linked
+  module_quiz: true
+  type: label
+  topic: Pedigrees
+  stem: 'Name each numbered pedigree symbol or line.'
+  image: {src: images/m5-pedigree-symbols-blank.svg, alt: 'A row of five pedigree symbols: a circle with a dot in it, an open square, a filled circle, an open circle and a filled square. Below, a small family: a square and a circle joined by a horizontal line, with a line leading down to a son (filled square) and a daughter (open circle).'}
+  labels:
+    - {x: 11.8, y: 30.4, text: Carrier female}
+    - {x: 30.9, y: 30.4, text: Unaffected male}
+    - {x: 50, y: 30.4, text: Affected female}
+    - {x: 69.1, y: 30.4, text: Unaffected female}
+    - {x: 88.2, y: 30.4, text: Affected male}
+    - {x: 38.2, y: 56.3, text: Mating line joining two parents}
+  distractors: [Line to their children]
+  explanation: |-
+    Squares are males and circles females; filled means affected, open means unaffected, and a dot marks a known carrier. Marker 6 sits on the horizontal line joining a man and a woman, which shows a mating; the line that drops from it leads to their children.
+- id: bio-q-0575
+  lesson: bio-sex-linked
+  module_quiz: true
+  topic: Pedigrees
+  stem: 'This pedigree shows a rare condition, so assume people who marry into the family don''t carry the allele. Which inheritance pattern fits best?'
+  image: {src: images/m5-pedigree-dominant.svg, alt: 'Three generations. Generation I: an affected man (I-1) and an unaffected woman (I-2). Generation II: their affected son II-2, who has children with unaffected II-1; an unaffected daughter II-3; and an affected daughter II-4, who has children with unaffected II-5. Generation III: II-1 and II-2 have an affected daughter and an unaffected son; II-4 and II-5 have an affected son and an unaffected daughter.'}
+  choices: ['Autosomal recessive', 'Autosomal dominant', 'X-linked recessive', 'Y-linked']
+  answer: 1
+  explanation: |-
+    Every affected person has an affected parent, and the trait appears in every generation, in both sexes. Autosomal recessive would need each unaffected spouse to be a carrier, which is unlikely for a rare allele. X-linked recessive is ruled out because I-1 passes the condition to his son II-2 (fathers give sons a Y, not an X) and because an affected father with a non-carrier wife would have no affected children. Y-linked is ruled out by the affected daughters.
+- id: bio-q-0576
+  lesson: bio-sex-linked
+  type: text
+  topic: Sex linkage
+  stem: 'A son always receives his X chromosome from his ___.'
+  accept: [mother, mom, mum, mother's]
+  explanation: |-
+    A son is XY: his Y must come from his father, so his only X comes from his mother. That is why an X-linked trait in a son traces back through his mother, and why fathers never pass X-linked alleles to sons.
+- id: bio-q-0577
+  lesson: bio-sex-linked
+  topic: Sex linkage
+  stem: 'This pedigree shows an X-linked recessive trait. Which people must carry at least one copy of the recessive allele? Select all that apply.'
+  image: {src: images/m5-pedigree-xlinked.svg, alt: 'Generation I: an affected man (I-1) and an unaffected woman (I-2). Generation II: their unaffected son II-1 and two carrier daughters, II-2 and II-3; II-3 has children with an unaffected man, II-4. Generation III: an affected son III-1, an unaffected daughter III-2 and an unaffected son III-3.'}
+  choices: ['I-1', 'II-1', 'II-2', 'III-2']
+  answer: [0, 2]
+  explanation: |-
+    I-1 is affected, so he carries the allele on his X. Every daughter gets her father's only X, so II-2 must be a carrier. II-1 is an unaffected male: with only one X, any recessive allele would show, so he has none. III-2's mother is a carrier and her father is unaffected, so she has a 1/2 chance of being a carrier; she doesn't have to be one.
+- id: bio-q-0578
+  lesson: bio-sex-linked
+  type: match
+  topic: Pedigrees
+  stem: 'Match each inheritance pattern to a pedigree clue that points to it.'
+  pairs:
+    - ['Autosomal recessive', 'Two unaffected parents have an affected daughter']
+    - ['Autosomal dominant', 'Every affected person has an affected parent, and two affected parents have an unaffected child']
+    - ['X-linked recessive', 'Mostly affected males, with unaffected mothers, and never passed from father to son']
+  distractors: ['Only females are ever affected']
+  explanation: |-
+    An affected daughter of unaffected parents rules out dominance and X-linked recessive, leaving autosomal recessive. Two affected parents with an unaffected child means both are heterozygous for a dominant allele. Mostly affected males with carrier mothers and no father-to-son transmission is the X-linked recessive signature. No pattern in this lesson affects only females.
+- id: bio-q-0579
+  lesson: bio-chromosomes
+  module_quiz: true
+  type: label
+  topic: Chromosomal disorders
+  stem: 'Name the numbered parts of this replicated chromosome, as it appears in a karyotype.'
+  image: {src: images/m5-chromosome-parts-blank.svg, alt: 'A replicated chromosome: two identical side-by-side strands joined at a narrow point, with a short section above the narrow point and a long section below. Dark stripes cross both strands. Brackets mark the upper section, the lower section and the pair of strands.'}
+  labels:
+    - {x: 60.6, y: 33.3, text: Centromere}
+    - {x: 66.7, y: 44.4, text: Band}
+    - {x: 43, y: 22.2, text: Short arm (p)}
+    - {x: 43, y: 59.6, text: Long arm (q)}
+    - {x: 60.6, y: 89.3, text: Sister chromatids}
+  distractors: [Homologous chromosome]
+  explanation: |-
+    The narrow point is the centromere, which joins the two sister chromatids (identical copies made in S phase). It divides the chromosome into a short arm, p, and a long arm, q. Dark stripes are stained bands, used to identify each chromosome. A homologous chromosome would be a second, separate chromosome, the matching one from the other parent.
+- id: bio-q-0580
+  lesson: bio-chromosomes
+  module_quiz: true
+  type: order
+  topic: Chi-square test
+  stem: 'Put the steps of a chi-square test in order.'
+  items:
+    - 'State the hypothesis and the ratio it predicts'
+    - 'Calculate the expected count in each category'
+    - 'Compute (O − E)²/E for each category and add them up'
+    - 'Find the degrees of freedom: number of categories − 1'
+    - 'Compare chi-square with the critical value and decide whether to reject'
+  explanation: |-
+    The hypothesis comes first, because it fixes the expected counts. Then compute $\chi^2 = \sum (O - E)^2/E$, find df = categories − 1, and compare with the critical value at $p = 0.05$. (Finding df could also come earlier; it must come before the comparison.)
+- id: bio-q-0581
+  lesson: bio-chromosomes
+  type: text
+  topic: Chromosomal disorders
+  stem: 'Having an abnormal number of one or more chromosomes, as in trisomy 21 or 45,X, is called ___.'
+  accept: [aneuploidy, aneuploid, aneuploidies]
+  explanation: |-
+    Aneuploidy means a number of chromosomes that isn't an exact multiple of the haploid set: one extra (trisomy) or one missing (monosomy). Whole extra sets are polyploidy instead.
+- id: bio-q-0582
+  lesson: bio-chromosomes
+  topic: Chromosomal disorders
+  stem: 'Using the figure, which statements about nondisjunction are correct? Select all that apply.'
+  image: {src: images/m5-nondisjunction.svg, alt: 'Two diagrams following one chromosome pair through meiosis. Left, nondisjunction in meiosis I: the four gametes are n + 1, n + 1, n − 1 and n − 1. Right, nondisjunction in meiosis II in one of the two cells: the gametes are n + 1, n − 1, n and n.'}
+  choices: ['When nondisjunction happens in meiosis I, all four gametes are abnormal', 'When nondisjunction happens in meiosis II, half of the gametes can be normal', 'An n + 1 gamete fertilized by a normal gamete gives a trisomic zygote', 'Nondisjunction in meiosis II produces two n + 1 gametes']
+  answer: [0, 1, 2]
+  explanation: |-
+    In meiosis I both homologs go to one cell, so its two gametes are n + 1 and the other cell's two are n − 1. In meiosis II only one cell's chromatids fail to separate: one n + 1, one n − 1, and two normal gametes, so there is only one n + 1 gamete, not two. An n + 1 gamete plus a normal n gamete gives three copies of that chromosome, a trisomy.
+- id: bio-q-0583
+  lesson: bio-chromosomes
+  type: match
+  topic: Chromosomal disorders
+  stem: 'Match each karyotype to the condition it describes.'
+  pairs:
+    - ['47,XX,+21', Down syndrome]
+    - ['45,X', Turner syndrome]
+    - ['47,XXY', Klinefelter syndrome]
+    - ['47,XY,+18', Trisomy 18 (Edwards syndrome)]
+  distractors: [Cri-du-chat syndrome]
+  explanation: |-
+    +21 means an extra chromosome 21 (Down syndrome); 45,X is one X and no second sex chromosome (Turner); 47,XXY is an extra X in a male (Klinefelter); +18 is trisomy 18 (Edwards). Cri-du-chat is a deletion on chromosome 5, which changes structure rather than the number of chromosomes.
+# Round 2: honors lesson bio-h-linkage
+- id: bio-qh-0501
+  lesson: bio-h-linkage
+  topic: Linkage
+  stem: 'Fruit fly geneticists measuring linkage test-cross a heterozygous female, not a heterozygous male. Why?'
+  choices: ['Male fruit flies have no crossing over in meiosis, so a heterozygous male would give no recombinant offspring', 'Males carry only one copy of every gene, so they cannot be heterozygous', 'Females produce more offspring, which is the only reason', 'Recombinant offspring of males do not survive']
+  answer: 0
+  explanation: |-
+    In Drosophila, meiosis in males lacks crossing over, so a doubly heterozygous male passes on only his two parental chromosomes. Males do have two copies of autosomal genes (only X-linked genes are single-copy). Offspring numbers and survival are not the reason.
+- id: bio-qh-0502
+  lesson: bio-h-linkage
+  topic: Linkage
+  stem: 'A dihybrid test cross gives 412 AaBb, 398 aabb, 96 Aabb and 94 aaBb offspring. What is the recombination frequency between A and B?'
+  choices: ['9.5%', '19%', '23.5%', '38%']
+  answer: 1
+  explanation: |-
+    The two large classes (AaBb, aabb) are parental; the two small ones are recombinant. $\dfrac{96 + 94}{1000} = 0.19$, or 19% (19 map units). 9.5% counts only one recombinant class; 23.5% divides by the parental total (810) instead of all offspring; 38% doubles the right answer.
+- id: bio-qh-0503
+  lesson: bio-h-linkage
+  topic: Gene mapping
+  stem: 'Recombination frequencies among three linked genes are: A–B 12%, B–C 7%, A–C 19%. What is the gene order?'
+  choices: ['B is at one end: B–A–C', 'C is in the middle: A–C–B', 'A is in the middle: B–A–C', 'B is in the middle: A–B–C']
+  answer: 3
+  explanation: |-
+    The largest distance (A–C, 19) spans the two outer genes, so B is between them; check $12 + 7 = 19$. The order is A–B–C (equivalently C–B–A). The other orders would need A–C to be one of the smaller distances.
+- id: bio-qh-0504
+  lesson: bio-h-linkage
+  topic: Gene mapping
+  stem: 'Why does the recombination frequency between two genes on the same chromosome never meaningfully exceed 50%, however far apart they are?'
+  choices: ['Genes more than 50 map units apart move to different chromosomes', 'Each crossover involves only two of the four chromatids, and multiple crossovers between distant genes randomize the alleles', 'Crossing over happens in only half of all meioses', 'Recombinant gametes are less likely than parental gametes to be used in fertilization']
+  answer: 1
+  explanation: |-
+    Crossing over happens at the four-chromatid stage. Even if every meiosis has a crossover between the genes, only two of four chromatids are recombinant, and with several crossovers some swap the alleles back. The result approaches the 50% of independent assortment. Genes don't move between chromosomes; crossovers aren't limited to half of meioses; gametes aren't chosen by type.
+- id: bio-qh-0505
+  lesson: bio-h-linkage
+  topic: Gene mapping
+  stem: 'In a three-point test cross, the parental classes are D E F and d e f, and the two rarest classes are D e F and d E f. Which gene is in the middle?'
+  choices: ['D', 'F', 'It cannot be told without the map distances', 'E']
+  answer: 3
+  explanation: |-
+    A double crossover swaps only the middle gene relative to the two outer genes. Comparing D E F with D e F, only E has changed, so E is in the middle (order D–E–F). The map distances aren't needed to find the order.
+- id: bio-qh-0506
+  lesson: bio-h-linkage
+  topic: Gene mapping
+  stem: 'Genes A and B are 10 map units apart. A plant that is Ab / aB is test-crossed with ab / ab and produces 1000 offspring. About how many offspring are expected to be AaBb (from AB gametes)?'
+  choices: ['50', '100', '450', '250']
+  answer: 0
+  explanation: |-
+    In this plant the parental gametes are Ab and aB (repulsion). AB is a recombinant gamete: recombinants make up 10%, split equally between AB and ab, so AB is 5%, and $0.05 \times 1000 = 50$. 100 is all recombinants together; 450 is one parental class; 250 assumes no linkage.
+- id: bio-qh-0507
+  lesson: bio-h-linkage
+  topic: Gene mapping
+  stem: 'What does it mean to say two genes are 25 map units apart?'
+  choices: ['They are 25,000 base pairs apart', 'They are on chromosomes 25 positions apart in the karyotype', 'About 25% of gametes are recombinant for the two genes', 'They have a 25% chance of being on different chromosomes']
+  answer: 2
+  explanation: |-
+    One map unit (centimorgan) is defined as 1% recombination, so 25 map units means about 25% recombinant gametes. Map units measure crossover frequency, not physical length, and have nothing to do with karyotype position.
+- id: bio-qh-0508
+  lesson: bio-h-linkage
+  topic: Gene mapping
+  stem: 'In a three-point cross, 20 double-crossover offspring are expected if crossovers in the two intervals are independent, but only 12 are observed. What is the interference?'
+  choices: ['0.6', '0.4', '1.67', '0.12']
+  answer: 1
+  explanation: |-
+    Coefficient of coincidence = observed ÷ expected $= 12/20 = 0.6$. Interference $= 1 - 0.6 = 0.4$. 0.6 is the coefficient of coincidence itself; 1.67 divides the wrong way; 0.12 has no meaning here.
+- id: bio-qh-0509
+  lesson: bio-h-linkage
+  topic: Linkage
+  stem: 'Two genes show a recombination frequency of 50% in a test cross. What can you conclude?'
+  choices: ['They are certainly on different chromosomes', 'They are certainly on the same chromosome, very close together', 'The test cross must have been done wrong', 'They are either on different chromosomes or far apart on the same chromosome']
+  answer: 3
+  explanation: |-
+    50% recombination is what independent assortment gives, and genes far apart on one chromosome also approach 50% because of multiple crossovers. The test can't tell the two cases apart; mapping intermediate genes can. Close genes would show low recombination.
+- id: bio-qh-0510
+  lesson: bio-h-linkage
+  type: label
+  topic: Gene mapping
+  stem: 'Three linked genes have these recombination frequencies: R–S 22%, S–T 9%, R–T 13%. On the map, which gene is at each numbered position?'
+  image: {src: images/m5-linkage-map-blank.svg, alt: 'A horizontal chromosome with three numbered gene positions: position 1 at the left end, position 2 thirteen map units to its right, and position 3 nine map units beyond position 2.'}
+  labels:
+    - {x: 9.7, y: 51, text: Gene R}
+    - {x: 57.3, y: 51, text: Gene T}
+    - {x: 90.3, y: 51, text: Gene S}
+  explanation: |-
+    The largest frequency, R–S (22), spans the outer genes, so T is in the middle ($13 + 9 = 22$). The left interval is 13 units, which matches R–T, and the right interval is 9, matching T–S. So position 1 is R, position 2 is T and position 3 is S.
+- id: bio-qh-0511
+  lesson: bio-h-linkage
+  type: text
+  topic: Gene mapping
+  stem: 'One map unit, a recombination frequency of 1%, is also called a ___.'
+  accept: [centimorgan, centimorgans, cM, centi-morgan]
+  explanation: |-
+    The centimorgan (cM) is named after Thomas Hunt Morgan, whose fly lab discovered linkage; his student Alfred Sturtevant built the first map.
+- id: bio-qh-0512
+  lesson: bio-h-linkage
+  type: order
+  topic: Gene mapping
+  stem: 'Put the steps of analyzing a three-point test cross in order.'
+  items:
+    - 'Identify the parental classes (the two most common)'
+    - 'Identify the double-crossover classes (the two rarest)'
+    - 'Find the middle gene by comparing the parental and double-crossover classes'
+    - 'Calculate each interval''s distance, counting the double crossovers in both intervals'
+    - 'Compare observed and expected double crossovers to find the interference'
+  explanation: |-
+    You need the parental and double-crossover classes to find the gene order; you need the order to know which single-crossover classes belong to which interval; and you need both interval distances to compute the expected number of double crossovers for the interference.
+- id: bio-qh-0513
+  lesson: bio-h-linkage
+  topic: Linkage
+  stem: 'Which results show that genes A and B are linked? Select all that apply.'
+  choices: ['In an AaBb × aabb test cross, two classes far outnumber the other two', 'The recombination frequency between A and B is 8%', 'An AaBb × aabb test cross gives about 1 : 1 : 1 : 1', 'An AaBb × AaBb cross gives about 9 : 3 : 3 : 1']
+  answer: [0, 1]
+  explanation: |-
+    Linkage shows up as an excess of parental classes, which means a recombination frequency well below 50% (8% here). A 1 : 1 : 1 : 1 test cross and a 9 : 3 : 3 : 1 F2 are what independent assortment predicts, so they give no evidence of linkage.
+- id: bio-qh-0514
+  lesson: bio-h-linkage
+  type: match
+  topic: Linkage
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - ['Parental type', 'Offspring with an allele combination found on one of the heterozygous parent''s chromosomes']
+    - ['Recombinant', 'Offspring with a new allele combination made by crossing over']
+    - ['Map unit', 'A recombination frequency of 1%']
+    - ['Interference', 'One crossover making another nearby less likely']
+  distractors: ['A physical length of 1,000 base pairs']
+  explanation: |-
+    Parental and recombinant types are defined by allele combinations relative to the heterozygote's chromosomes. A map unit is 1% recombination, a measure of crossover frequency rather than a physical length. Interference is the shortfall of double crossovers below the product-rule expectation.
+# Round 2: honors lesson bio-h-gene-interaction
+- id: bio-qh-0515
+  lesson: bio-h-gene-interaction
+  topic: Epistasis
+  stem: 'Two true-breeding white-flowered lines are crossed. The F1 are all purple, and the F2 has about 9 purple : 7 white. What is the best explanation?'
+  choices: ['Two genes are involved, and a plant needs a dominant allele at both to make purple pigment', 'One gene with incomplete dominance controls flower color', 'Purple is a new mutation that arose in the F1', 'One gene is involved, and white is dominant to purple']
+  answer: 0
+  explanation: |-
+    A ratio in sixteenths points to two genes and a doubly heterozygous F1. Only C_P_ (9/16) is purple; the other 7/16 lack one of the two enzymes. Each white parent supplied the working allele the other lacked, which is why the F1 is purple (complementation). One gene can't give 9 : 7, and a mutation wouldn't appear in every F1 plant.
+- id: bio-qh-0516
+  lesson: bio-h-gene-interaction
+  topic: Epistasis
+  stem: 'In summer squash, W_ fruit are white; ww fruit are yellow if Y_ and green if yy. A WwYy plant is test-crossed with a wwyy plant. What phenotype ratio is expected?'
+  choices: ['12 white : 3 yellow : 1 green', '2 white : 1 yellow : 1 green', '1 white : 1 yellow : 1 green', '1 white : 2 yellow : 1 green']
+  answer: 1
+  explanation: |-
+    Ww × ww gives W_ (white) 1/2 and ww 1/2. Among the ww half, Yy × yy gives yellow 1/2 and green 1/2, so yellow 1/4 and green 1/4. Result: 1/2 white : 1/4 yellow : 1/4 green = 2 : 1 : 1. The 12 : 3 : 1 ratio belongs to WwYy × WwYy, not a test cross.
+- id: bio-qh-0517
+  lesson: bio-h-gene-interaction
+  topic: Epistasis
+  stem: 'An F2 of shepherd''s purse has 151 plants with triangular seed capsules and 9 with oval capsules. Which explanation fits these data?'
+  choices: ['One gene, with triangular dominant (3 : 1)', 'Two complementary genes (9 : 7)', 'Two duplicate genes, where a dominant allele at either gene gives a triangular capsule (15 : 1)', 'Two genes with recessive epistasis (9 : 3 : 4)']
+  answer: 2
+  explanation: |-
+    For 15 : 1 the expected counts out of 160 are 150 and 10, very close to 151 and 9 ($\chi^2 \approx 0.11$). A 3 : 1 ratio predicts 120 : 40, far off; 9 : 7 predicts 90 : 70; 9 : 3 : 4 would need three classes.
+- id: bio-qh-0518
+  lesson: bio-h-gene-interaction
+  topic: Epistasis
+  stem: 'Two yellow mice ($A^YA$) are mated repeatedly and have 90 surviving pups. $A^YA^Y$ embryos die before birth. About how many of the 90 pups are expected to be yellow?'
+  choices: ['45', '67.5', '30', '60']
+  answer: 3
+  explanation: |-
+    The cross gives 1/4 $A^YA^Y$ (dies) : 1/2 $A^YA$ (yellow) : 1/4 $AA$ (agouti). Among survivors, yellow is $\dfrac{1/2}{3/4} = \dfrac23$, and $\tfrac23 \times 90 = 60$. 67.5 uses the 3 : 1 ratio, forgetting the lethal class; 30 is the agouti count.
+- id: bio-qh-0519
+  lesson: bio-h-gene-interaction
+  topic: Epistasis
+  stem: 'Two true-breeding fruit fly lines both have the same recessive eye-color mutation phenotype. When they are crossed, all the F1 have that mutant eye color. What does this complementation test show?'
+  choices: ['The two mutations are in the same gene', 'The two mutations are in different genes', 'The mutations are dominant', 'The mutations are linked but in different genes']
+  answer: 0
+  explanation: |-
+    If the mutations were in different genes, each parent would supply a working copy of the gene the other lacks, and the F1 would be normal. A mutant F1 means neither parent has a working copy of that gene, so both mutations are in the same gene. The parents are true-breeding for a recessive phenotype, so the mutations aren't dominant.
+- id: bio-qh-0520
+  lesson: bio-h-gene-interaction
+  topic: Quantitative genetics
+  stem: 'Two true-breeding wheat lines differ in kernel color. In the F2, about 1 in 64 kernels is as pale as the pale parent. Assuming equal, additive genes, how many genes differ between the lines?'
+  choices: ['6', '3', '4', '64']
+  answer: 1
+  explanation: |-
+    Each F2 extreme needs homozygous recessive at every gene: $\left(\tfrac14\right)^n = \tfrac{1}{64}$, so $n = 3$. (6 is the number of alleles involved, $2n$; 64 is the denominator, not the number of genes.)
+- id: bio-qh-0521
+  lesson: bio-h-gene-interaction
+  topic: Quantitative genetics
+  stem: 'In one population, the heritability of adult height is estimated at 0.8. Which statement is correct?'
+  choices: ['80% of each person''s height is caused by genes', 'Height in this population cannot be changed by diet', 'About 80% of the variation in height among people in this population is associated with genetic differences', 'Any height difference between this population and another must be genetic']
+  answer: 2
+  explanation: |-
+    Heritability is a ratio of variances in a particular population: $V_G/V_P$. It says nothing about the share of one person's height due to genes, doesn't mean a trait is fixed (average heights rose with better nutrition), and can't explain differences between populations, which may be environmental.
+- id: bio-qh-0522
+  lesson: bio-h-gene-interaction
+  topic: Quantitative genetics
+  stem: 'A flock has a mean egg mass of 50 g. Hens averaging 58 g are chosen as parents. If the narrow-sense heritability is 0.25, what mean egg mass is predicted for their daughters?'
+  choices: ['58 g', '54 g', '56 g', '52 g']
+  answer: 3
+  explanation: |-
+    Selection differential $S = 58 - 50 = 8$ g. Response $R = h^2 S = 0.25 \times 8 = 2$ g, so the daughters' mean is about $50 + 2 = 52$ g. 58 g would require $h^2 = 1$; 54 g uses $h^2 = 0.5$.
+- id: bio-qh-0523
+  lesson: bio-h-gene-interaction
+  topic: Quantitative genetics
+  stem: 'Genetically uniform inbred lines of a plant have a variance in height of 3 cm². A genetically varied population grown in the same conditions has a variance of 12 cm². What is the broad-sense heritability of height in that population?'
+  choices: ['0.75', '0.25', '0.33', '4']
+  answer: 0
+  explanation: |-
+    In the uniform lines all variance is environmental, so $V_E = 3$. Then $V_G = 12 - 3 = 9$ and $H^2 = 9/12 = 0.75$. 0.25 is $V_E/V_P$; 0.33 is $V_E/V_G$; 4 is $V_P/V_E$, and heritability can't exceed 1.
+- id: bio-qh-0524
+  lesson: bio-h-gene-interaction
+  type: label
+  topic: Epistasis
+  stem: 'Each numbered row shows the 16 F2 outcomes of AaBb × AaBb, with same-colored boxes having the same phenotype. The top row (9 : 3 : 3 : 1) is for comparison. Name the kind of gene interaction in each numbered row.'
+  image: {src: images/m5-epistasis-ratios-blank.svg, alt: 'A reference row of 16 boxes in four colors grouped 9 A_B_, 3 A_bb, 3 aaB_ and 1 aabb, labeled 9:3:3:1 no interaction. Below are four numbered rows. Row 1: A_B_ and A_bb share one color, aaB_ a second and aabb a third. Row 2: A_B_ one color, A_bb a second, and aaB_ and aabb share a third. Row 3: all boxes share one color except aabb. Row 4: all A_B_ boxes share one color, and all the other boxes share a second.'}
+  labels:
+    - {x: 12, y: 36.6, text: 'Dominant epistasis (12 : 3 : 1)'}
+    - {x: 12, y: 50.8, text: 'Recessive epistasis (9 : 3 : 4)'}
+    - {x: 12, y: 65.1, text: 'Duplicate dominant genes (15 : 1)'}
+    - {x: 12, y: 79.3, text: 'Complementary genes (9 : 7)'}
+  explanation: |-
+    Row 1 merges A_B_ with A_bb (12), so one dominant allele, A, hides the B gene: dominant epistasis. Row 2 merges aaB_ with aabb (4), so aa hides the B gene: recessive epistasis. Row 3 has 15 alike and only aabb different: one dominant allele at either gene is enough. Row 4 has only A_B_ (9) different from the other 7: both dominant alleles are needed, as with complementary genes.
+- id: bio-qh-0525
+  lesson: bio-h-gene-interaction
+  type: match
+  topic: Epistasis
+  stem: 'Match each F2 ratio to the example that produces it.'
+  pairs:
+    - ['9 : 3 : 4', 'Mouse coat color: agouti, black and albino']
+    - ['9 : 7', 'Sweet pea flowers from two different white lines']
+    - ['12 : 3 : 1', 'Summer squash fruit: white, yellow and green']
+    - ['15 : 1', 'Shepherd''s purse seed capsules: triangular and oval']
+  distractors: ['Snapdragon flowers: red, pink and white']
+  explanation: |-
+    cc albino mice hide the agouti gene (9 : 3 : 4). Sweet pea purple needs C_P_ (9 : 7). Dominant W makes squash white (12 : 3 : 1). Either dominant allele makes a triangular capsule (15 : 1). Snapdragon color is one gene with incomplete dominance, 1 : 2 : 1.
+- id: bio-qh-0526
+  lesson: bio-h-gene-interaction
+  type: text
+  topic: Quantitative genetics
+  stem: 'The range of phenotypes that a single genotype produces across different environments is called its ___.'
+  accept: [norm of reaction, reaction norm, norms of reaction, reaction norms]
+  explanation: |-
+    A norm of reaction can be drawn as a line of phenotype against environment for each genotype, as for the cloned yarrow plants grown at different elevations. Lines that cross show a genotype-by-environment interaction.
+- id: bio-qh-0527
+  lesson: bio-h-gene-interaction
+  topic: Quantitative genetics
+  stem: 'Which statements about heritability are correct? Select all that apply.'
+  choices: ['It describes a particular population in a particular environment', 'A trait with high heritability can still change when the environment changes', 'A heritability of 0.8 for height means 80% of each person''s height comes from genes', 'Making the environment more uniform tends to raise heritability']
+  answer: [0, 1, 3]
+  explanation: |-
+    $H^2 = V_G/V_P$ is measured in one population and environment. A more uniform environment shrinks $V_E$, so the ratio rises. High heritability doesn't stop environmental change from shifting the trait (heights rose with nutrition). Heritability is about variation among people, not the makeup of one person's trait.
+- id: bio-qh-0528
+  lesson: bio-h-gene-interaction
+  type: order
+  topic: Epistasis
+  stem: 'In the sweet pea pigment pathway, put the substances in the order they are made.'
+  items:
+    - 'Colorless precursor'
+    - 'Colorless intermediate, made by the enzyme from gene C'
+    - 'Purple pigment, made by the enzyme from gene P'
+  explanation: |-
+    The enzyme encoded by C converts the precursor to the intermediate, and the enzyme encoded by P converts the intermediate to purple pigment. A cc plant stops at the precursor and a pp plant at the intermediate; both are white, which is why only C_P_ plants are purple.

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 285" width="640" height="285" font-family="sans-serif" fill="none" stroke-linejoin="round">
+<title>Structure of ATP</title>
+<rect x="0" y="0" width="640" height="285" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f5d8a"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a33b2a"/></marker></defs>
+<circle cx="70" cy="190" r="24" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="70" y="196" font-size="18" text-anchor="middle" font-weight="bold" fill="#1c2833">P</text>
+<line x1="94" y1="190" x2="136" y2="190" stroke="#1c2833" stroke-width="2"/>
+<circle cx="160" cy="190" r="24" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="160" y="196" font-size="18" text-anchor="middle" font-weight="bold" fill="#1c2833">P</text>
+<line x1="184" y1="190" x2="226" y2="190" stroke="#1c2833" stroke-width="2"/>
+<circle cx="250" cy="190" r="24" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="250" y="196" font-size="18" text-anchor="middle" font-weight="bold" fill="#1c2833">P</text>
+<line x1="274" y1="190" x2="330.05562631560355" y2="187.02128623625222" stroke="#1c2833" stroke-width="2"/>
+<line x1="409.94437368439645" y1="187.0212862362522" x2="445.9739676659184" y2="130.0" stroke="#1c2833" stroke-width="2"/>
+<polygon points="370.0,158.0 409.9,187.0 394.7,234.0 345.3,234.0 330.1,187.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="370.0" y="182.0" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">O</text>
+<polygon points="446.0,130.0 469.5,97.6 507.5,110.0 507.5,150.0 469.5,162.4" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<polygon points="542.2,90.0 576.8,110.0 576.8,150.0 542.2,170.0 507.5,150.0 507.5,110.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="530" y="200" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">adenine (base)</text>
+<text x="370" y="268" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">ribose (sugar)</text>
+<path d="M46,226 L46,236 L274,236 L274,226" stroke="#1c2833" stroke-width="1.2"/>
+<line x1="160" y1="236" x2="160" y2="242" stroke="#1c2833" stroke-width="1.2"/>
+<text x="160" y="260" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">three phosphate groups</text>
+<path d="M326,72 L326,64 L600,64 L600,72" stroke="#1c2833" stroke-width="1.2"/>
+<text x="463" y="52" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">adenosine = adenine + ribose</text>
+<line x1="115" y1="160" x2="115" y2="222" stroke="#a33b2a" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="115" y="112" font-size="14" text-anchor="middle" font-weight="normal" fill="#a33b2a">this bond is broken</text>
+<text x="115" y="130" font-size="14" text-anchor="middle" font-weight="normal" fill="#a33b2a">by hydrolysis:</text>
+<text x="115" y="148" font-size="14" text-anchor="middle" font-weight="normal" fill="#a33b2a">ATP → ADP + Pᵢ</text>
+</svg>

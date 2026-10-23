@@ -17,7 +17,21 @@ $$\text{C}_6\text{H}_{12}\text{O}_6 + 6\,\text{O}_2 \rightarrow 6\,\text{CO}_2 +
 
 Burning glucose in a flame gives the same products and the same total energy, about 2,870 kJ per mole. The difference is control. A flame releases it all at once as heat and light. A cell breaks glucose down in dozens of enzyme-catalyzed steps, stripping off electrons a few at a time with the carriers NAD⁺ and FAD (last lesson's redox ideas), and captures about a third of the energy as ATP.
 
-**Aerobic** processes need oxygen; **anaerobic** ones do not. Respiration has three main stages, and only the first works without oxygen.
+**Aerobic** processes need oxygen; **anaerobic** ones do not. Respiration has three main stages, and only the first works without oxygen. The flowchart is a map of this lesson: follow the "yes" branch for aerobic respiration, or the "no" branch for fermentation.
+
+```mermaid
+flowchart TD
+  accTitle: The pathways that break down glucose
+  accDescr: Glucose is split by glycolysis in the cytoplasm into 2 pyruvate, with a net gain of 2 ATP and 2 NADH. If oxygen is present, pyruvate oxidation and the Krebs cycle in the mitochondrial matrix release 6 CO2 and make 2 ATP, 8 NADH and 2 FADH2; the electron transport chain and ATP synthase on the inner membrane then make about 26 to 28 more ATP, and oxygen accepts the electrons, forming water. If oxygen is absent, fermentation in the cytoplasm turns pyruvate into lactate, or ethanol and CO2, and recycles NAD+ so glycolysis can continue.
+  G["Glucose"] --> GL["Glycolysis (cytoplasm): net 2 ATP, 2 NADH"]
+  GL --> P["2 pyruvate"]
+  P --> Q{"Oxygen present?"}
+  Q -- yes --> K["Pyruvate oxidation and Krebs cycle (matrix): 2 ATP, 8 NADH, 2 FADH₂, 6 CO₂"]
+  K --> E["Electron transport chain and ATP synthase (inner membrane): about 26 to 28 ATP"]
+  E --> W["O₂ accepts the electrons, forming H₂O"]
+  Q -- no --> F["Fermentation (cytoplasm): lactate, or ethanol + CO₂"]
+  F -- "NAD+ recycled" --> GL
+```
 
 ## Stage 1: glycolysis
 
@@ -26,11 +40,15 @@ Burning glucose in a flame gives the same products and the same total energy, ab
 - Investment phase: the cell spends 2 ATP to phosphorylate glucose, making it reactive enough to split.
 - Payoff phase: each three-carbon half yields 2 ATP and 1 NADH, so 4 ATP and 2 NADH in all.
 
-Net result per glucose: 2 ATP (4 made − 2 spent), 2 NADH, and 2 pyruvate. Glycolysis is found in nearly every living cell, bacteria and archaea included, which suggests it evolved very early in the history of life, before oxygen was abundant in the atmosphere. The ATP in glycolysis is made by transferring a phosphate group directly from a substrate molecule to ADP, a process called substrate-level phosphorylation.
+Net result per glucose: 2 ATP (4 made − 2 spent), 2 NADH, and 2 pyruvate. Glycolysis is found in nearly every living cell, bacteria and archaea included, which suggests it evolved very early in the history of life, before oxygen was abundant in the atmosphere. The ATP in glycolysis is made by transferring a phosphate group directly from a substrate molecule to ADP, a process called **substrate-level phosphorylation**.
 
 ## Stage 2: pyruvate oxidation and the Krebs cycle
 
-If oxygen is available, pyruvate enters the mitochondrion. In the matrix (the fluid inside the inner membrane), each pyruvate loses one carbon as CO₂, gives up electrons to NAD⁺, and is attached to a carrier molecule (coenzyme A) as a two-carbon **acetyl-CoA**.
+If oxygen is available, pyruvate enters the mitochondrion. Recall its structure from module 2: a smooth outer membrane, and an inner membrane folded into cristae. The narrow gap between the two membranes is the intermembrane space, and the fluid inside the inner membrane is the matrix.
+
+![A mitochondrion drawn as an oval. A smooth outer membrane surrounds an inner membrane that folds inward many times into finger-like cristae. The space between the two membranes is the intermembrane space, and the fluid enclosed by the inner membrane is the matrix.](images/m3-mitochondrion.svg)
+
+In the matrix, each pyruvate loses one carbon as CO₂, gives up electrons to NAD⁺, and is attached to a carrier molecule (coenzyme A) as a two-carbon **acetyl-CoA**.
 
 Acetyl-CoA then enters the **Krebs cycle** (also called the citric acid cycle, worked out by Hans Krebs in 1937 using minced pigeon flight muscle). The two-carbon acetyl group joins a four-carbon molecule to make six-carbon citrate. Over eight steps, citrate loses two carbons as CO₂ and is rebuilt into the four-carbon starting molecule, so the cycle can turn again. Along the way it loads electrons onto carriers.
 
@@ -46,7 +64,7 @@ So far, only 4 ATP have been made per glucose. Most of glucose's energy is now h
 
 The inner mitochondrial membrane is folded into cristae, packed with an electron transport chain: a series of proteins that pass electrons from one to the next, like a bucket brigade, each holding them a little more tightly. NADH and FADH₂ drop off their electrons at the start of the chain.
 
-1. As electrons move down the chain, they release energy in small steps. The proteins use it to pump H⁺ ions from the matrix into the intermembrane space, building a steep H⁺ gradient.
+1. As electrons move down the chain, they release energy in small steps. The proteins use it to pump H⁺ ions from the matrix into the intermembrane space (look back at the drawing of the mitochondrion), building a steep H⁺ gradient.
 2. At the end of the chain, the electrons are handed to oxygen, which combines with H⁺ to form water. Oxygen is the final electron acceptor. This is the reason you need to breathe: without O₂ to clear electrons off the end of the chain, the whole chain backs up and stops.
 3. H⁺ flows back into the matrix through ATP synthase, which turns like a tiny rotor and makes ATP from ADP and Pᵢ. This is chemiosmosis, the same mechanism as in the thylakoid.
 

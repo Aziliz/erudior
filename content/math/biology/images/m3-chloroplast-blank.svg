@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 370" width="860" height="370" font-family="sans-serif" fill="none" stroke-linejoin="round">
+<title>An organelle with numbered parts</title>
+<rect x="0" y="0" width="860" height="370" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f5d8a"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a33b2a"/></marker></defs>
+<ellipse cx="430" cy="195" rx="262" ry="150" fill="#eef7f0" stroke="#1c2833" stroke-width="2.5"/>
+<ellipse cx="430" cy="195" rx="234" ry="122" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M298,192 L352,209" stroke="#1c2833" stroke-width="7" stroke-linecap="round"/>
+<path d="M298,192 L352,209" stroke="#a9d4b5" stroke-width="4" stroke-linecap="round"/>
+<path d="M408,217 L462,166" stroke="#1c2833" stroke-width="7" stroke-linecap="round"/>
+<path d="M408,217 L462,166" stroke="#a9d4b5" stroke-width="4" stroke-linecap="round"/>
+<path d="M518,174 L562,199" stroke="#1c2833" stroke-width="7" stroke-linecap="round"/>
+<path d="M518,174 L562,199" stroke="#a9d4b5" stroke-width="4" stroke-linecap="round"/>
+<rect x="238" y="155" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="238" y="169" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="238" y="183" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="238" y="197" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="238" y="211" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="348" y="180" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="348" y="194" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="348" y="208" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="348" y="222" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="348" y="236" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="458" y="137" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="458" y="151" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="458" y="165" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="458" y="179" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="458" y="193" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="558" y="170" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="558" y="184" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="558" y="198" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="558" y="212" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="558" y="226" width="64" height="12" rx="6" fill="#a9d4b5" stroke="#1c2833" stroke-width="1.5"/>
+</svg>

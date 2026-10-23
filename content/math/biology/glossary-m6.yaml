@@ -123,3 +123,99 @@
   aliases: [DNA fingerprinting]
   definition: 'Comparing the lengths of highly variable DNA regions, such as short tandem repeats (STRs), to tell individuals apart.'
   topic: Biotechnology
+- term: inducible operon
+  aliases: [inducible operons, inducible]
+  definition: 'An operon that is normally off and is switched on when a small molecule (the inducer) inactivates its repressor, as lactose (allolactose) does for the lac operon.'
+  topic: Operons
+- term: repressible operon
+  aliases: [repressible operons, repressible]
+  definition: 'An operon that is normally on and is switched off when a small molecule (a corepressor) activates its repressor, as tryptophan does for the trp operon.'
+  topic: Operons
+- term: corepressor
+  aliases: [corepressors]
+  definition: 'A small molecule that binds an inactive repressor and lets it bind the operator, turning genes off; tryptophan is the corepressor of the trp operon.'
+  topic: Operons
+- term: CAP
+  aliases: [catabolite activator protein, CAP–cAMP, CAP-cAMP]
+  definition: 'Catabolite activator protein: a bacterial activator that, with cAMP bound (when glucose is low), binds next to the lac promoter and boosts transcription.'
+  topic: Operons
+- term: trans-acting
+  aliases: [acts in trans]
+  definition: 'Describes a diffusible product, such as a repressor protein, that can act on any copy of its target, including copies on other DNA molecules.'
+  topic: Operons
+- term: cis-acting
+  aliases: [acts in cis]
+  definition: 'Describes a DNA site, such as an operator, promoter or enhancer, that controls only the genes on the same DNA molecule.'
+  topic: Operons
+- term: general transcription factors
+  aliases: [general transcription factor]
+  definition: 'Proteins that assemble at a eukaryotic core promoter (often at a TATA box) and position RNA polymerase II; alone they give only a low, basal rate of transcription.'
+  topic: Eukaryotic gene regulation
+- term: enhancer
+  aliases: [enhancers]
+  definition: 'A DNA control region bound by activator proteins that raises transcription of a gene; it can lie far upstream, downstream or in an intron and works in either orientation, reaching the promoter by DNA looping.'
+  topic: Eukaryotic gene regulation
+- term: histone
+  aliases: [histones, histone proteins]
+  definition: 'One of the small, positively charged proteins that DNA wraps around in eukaryotic chromosomes; eight histones form the core of a nucleosome.'
+  topic: Epigenetics
+- term: nucleosome
+  aliases: [nucleosomes]
+  definition: 'The basic unit of DNA packing: about 147 base pairs of DNA wrapped around a core of eight histone proteins.'
+  topic: Epigenetics
+- term: chromatin
+  aliases: [heterochromatin, euchromatin]
+  definition: 'The complex of DNA and proteins (mainly histones) that makes up eukaryotic chromosomes. Tightly packed chromatin (heterochromatin) is mostly silent; loosely packed chromatin (euchromatin) can be transcribed.'
+  topic: Epigenetics
+- term: DNA methylation
+  aliases: [methylation, methylated DNA]
+  definition: 'Addition of methyl groups to DNA bases, in mammals mostly to cytosines followed by guanine (CpG); methylated promoters are usually silenced, and the pattern is copied after replication.'
+  topic: Epigenetics
+- term: epigenetics
+  aliases: [epigenetic, epigenetic inheritance]
+  definition: 'The study of changes in gene activity that are passed on through cell divisions without a change in the DNA sequence, such as DNA methylation patterns and X inactivation.'
+  topic: Epigenetics
+- term: alternative splicing
+  aliases: [alternatively spliced]
+  definition: 'Joining a pre-mRNA''s exons in different combinations, so one gene can make several different mRNAs and proteins.'
+  topic: Eukaryotic gene regulation
+- term: microRNA
+  aliases: [microRNAs, miRNA, miRNAs]
+  definition: 'A small noncoding RNA, about 22 nucleotides long, that pairs with target mRNAs (usually in their 3′ untranslated region) and reduces their translation and stability.'
+  topic: Eukaryotic gene regulation
+- term: dideoxynucleotide
+  aliases: [dideoxynucleotides, ddNTP, ddNTPs]
+  definition: 'A nucleotide lacking the 3′-OH group, so no nucleotide can be added after it; labeled ones stop strands in Sanger sequencing.'
+  topic: Genomics
+- term: Sanger sequencing
+  aliases: [chain-termination sequencing]
+  definition: 'DNA sequencing in which labeled dideoxynucleotides stop new strands at every position; sorting the strands by length and reading their end labels gives the sequence (about 1,000 bases per read).'
+  topic: Genomics
+- term: next-generation sequencing
+  aliases: [NGS, high-throughput sequencing]
+  definition: 'Sequencing methods that read millions to billions of DNA fragments in parallel, giving short reads (often about 150 bases) or, in long-read methods, single molecules thousands of bases long.'
+  topic: Genomics
+- term: coverage
+  aliases: [sequencing coverage, read depth]
+  definition: 'The average number of sequencing reads covering each base: $C = NL/G$ for $N$ reads of length $L$ on a genome of size $G$.'
+  topic: Genomics
+- term: genome
+  aliases: [genomes]
+  definition: 'The complete set of DNA in an organism (or in one set of its chromosomes); the human genome has about 3.1 billion base pairs.'
+  topic: Genomics
+- term: SNP
+  aliases: [SNPs, single-nucleotide polymorphism, single-nucleotide polymorphisms]
+  definition: 'Single-nucleotide polymorphism: a position in the genome where people differ by one base; unrelated people differ at about 1 base in 1,000.'
+  topic: Genomics
+- term: guide RNA
+  aliases: [guide RNAs, sgRNA, single guide RNA]
+  definition: 'The RNA that directs Cas9: its first 20 bases match the target DNA and pair with it, and the rest binds Cas9.'
+  topic: Gene editing
+- term: PAM
+  aliases: [protospacer adjacent motif, PAMs]
+  definition: 'Protospacer adjacent motif: a short sequence (5′-NGG-3′ for the common Cas9) that must sit next to the target for Cas9 to bind and cut.'
+  topic: Gene editing
+- term: gene therapy
+  aliases: [gene therapies]
+  definition: 'Treating disease by adding, repairing or silencing genes in a patient''s cells, either outside the body (ex vivo) or inside it (in vivo).'
+  topic: Gene editing

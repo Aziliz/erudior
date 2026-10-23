@@ -34,3 +34,12 @@ modules:
     title: The human body
   - id: bio-m10
     title: Ecology
+  - id: bio-h1
+    title: 'Honors: Research and biostatistics'
+    honors: true
+  - id: bio-h2
+    title: 'Honors: Development, stem cells, and the genome'
+    honors: true
+  - id: bio-h3
+    title: 'Honors: Behavior, disease, and conservation'
+    honors: true

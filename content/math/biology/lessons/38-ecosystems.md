@@ -25,6 +25,10 @@ Each feeding step is a **trophic level** (from the Greek *trophē*, "nourishment
 
 Arrows in food chains and webs point in the direction energy moves: from the food to the eater. "Grass → rabbit" means the rabbit eats the grass.
 
+The food web below is a simplified meadow. Trace any path from a producer to the owl and you have a food chain; the owl sits at level 3 when it eats a mouse but at level 4 when it eats a snake that ate a mouse. Dead remains and wastes from every organism, not just the two shown with dashed arrows, end up with the decomposers.
+
+![A meadow food web. Grass and an oak tree are at the bottom. Grass is eaten by a grasshopper, a rabbit and a mouse; acorns from the oak are eaten by the mouse. The grasshopper is eaten by a shrew; the mouse by a snake, a fox and an owl; the rabbit by the fox; the shrew and the snake by the owl. Dashed arrows lead from the oak tree and the fox to fungi and bacteria, labeled dead remains and wastes.](images/m10-food-web.svg)
+
 ## Where the energy comes from: primary productivity
 
 Almost all energy in ecosystems starts as sunlight captured by producers. Only a small fraction of the sunlight reaching a field, typically around 1%, ends up stored in plant molecules; the rest is reflected, passes through, or evaporates water.
@@ -51,6 +55,24 @@ When a rabbit eats grass, most of the energy in that grass never becomes rabbit.
 1. *Not all of it is eaten.* Roots, woody stems and leaves the rabbit never reaches stay behind (and eventually feed decomposers).
 2. *Not all that is eaten is absorbed.* Cellulose and other hard-to-digest material leaves as feces.
 3. *Most of what is absorbed is used, not stored.* The rabbit spends it on cellular respiration to run its muscles, keep warm and repair cells, and that energy ends as heat that radiates away. Only the remainder builds new rabbit tissue that a fox could eat.
+
+The flowchart follows those three branches.
+
+```mermaid
+flowchart TD
+  accTitle: Where the energy in eaten grass goes
+  accDescr: The energy stored in grass splits several ways. Parts that are not eaten, such as roots and woody stems, go to decomposers. Of the part a rabbit eats, material it cannot digest leaves as feces and also goes to decomposers. Of the energy the rabbit absorbs, most is used in cellular respiration and leaves the ecosystem as heat. Only about 10 percent builds new rabbit tissue, which is what the next trophic level can eat.
+  G["Energy stored in grass"] --> N["Not eaten: roots, woody stems"]
+  G --> E["Eaten by a rabbit"]
+  E --> F["Not absorbed: leaves in feces"]
+  E --> A["Absorbed into the body"]
+  N --> D["Decomposers"]
+  F --> D
+  A --> R["Used in cellular respiration"]
+  R --> H["Lost as heat"]
+  A --> T["New rabbit tissue, about 10 percent"]
+  T --> X["Food for the next trophic level"]
+```
 
 The result is the **ten percent rule**: on average, about 10% of the energy at one trophic level becomes available at the next. Real values range from under 1% to around 20%. Endotherms such as birds and mammals usually pass on less than ectotherms such as insects and fish, because keeping a body warm costs so much energy.
 

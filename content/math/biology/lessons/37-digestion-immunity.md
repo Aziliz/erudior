@@ -32,6 +32,10 @@ Digestion is both mechanical (chewing and churning, which make smaller pieces wi
 4. Small intestine: several meters long (about 3 m in a living adult; the often-quoted 6 m is its relaxed length after death) and the site of most digestion and nearly all absorption. The pancreas releases enzymes for every class of macromolecule plus bicarbonate to neutralize stomach acid. The liver makes bile, stored in the gallbladder, which emulsifies fats, breaking large droplets into tiny ones so lipase has more surface to work on. Bile contains no enzymes.
 5. Large intestine (colon): absorbs water and salts and houses trillions of bacteria that ferment leftover fiber and make some vitamins, such as vitamin K.
 
+The drawing shows the organs in place. Food passes only through the tube (mouth, esophagus, stomach, small and large intestine); the liver, gallbladder and pancreas send their secretions into the small intestine through ducts.
+
+![The human digestive system drawn schematically. A mouth at the top leads to a long esophagus running down to a J-shaped stomach on the body's left. The large liver lies on the body's right, with the small gallbladder beneath it. The pancreas lies in a narrow band under the stomach. The coiled small intestine fills the center of the abdomen, framed on three sides by the wider large intestine, which ends at the bottom.](images/m9-digestive.svg)
+
 The inner wall of the small intestine is folded, and the folds are covered with **villi**, finger-like projections about a millimeter tall, whose cells bear microscopic microvilli. Together these give the small intestine an absorbing surface of very roughly 30 m² (estimates vary with how it's measured). Each villus holds capillaries that absorb sugars and amino acids and a lymph vessel that absorbs fats.
 
 ### Example 1: what digestion is chemical?
@@ -85,6 +89,22 @@ Pathogens (lesson 31) include bacteria, viruses, fungi, protists and parasitic w
 
 - **B cells** make **antibodies**, Y-shaped proteins whose two tips each bind one specific antigen. Antibodies don't kill directly: they neutralize viruses and toxins, clump microbes together, and mark them for phagocytes.
 - **T cells** come in two main types. Helper T cells coordinate the response, activating B cells and other cells. Cytotoxic (killer) T cells find body cells infected by viruses and destroy them, removing the virus's factories.
+
+Adaptive responses usually begin when phagocytes that have engulfed a pathogen display pieces of its antigens on their surface. Helper T cells that match those antigens are activated and in turn activate the matching B cells and cytotoxic T cells, as the diagram shows.
+
+```mermaid
+flowchart TD
+  accTitle: The adaptive immune response
+  accDescr: A pathogen enters the body and phagocytes engulf it and display its antigens. Helper T cells that match the antigen are activated. They activate matching B cells, which multiply and make antibodies that neutralize and mark the pathogen, and matching cytotoxic T cells, which kill infected body cells. Both branches also leave memory cells for a faster response next time.
+  P["Pathogen enters"] --> M["Phagocytes engulf it and display its antigens"]
+  M --> H["Matching helper T cells activated"]
+  H --> B["Matching B cells multiply"]
+  H --> C["Matching cytotoxic T cells multiply"]
+  B --> A["Antibodies neutralize and mark the pathogen"]
+  C --> K["Infected body cells killed"]
+  B --> Mem["Memory cells remain"]
+  C --> Mem
+```
 
 Each lymphocyte carries receptors for just one antigen, and the body makes millions of different lymphocytes before ever meeting an infection. When an antigen appears, only the few cells that match it are activated, and they multiply into a large clone of identical cells, a process called clonal selection. That multiplication is why the first response takes about one to two weeks. Afterwards, most of the clone dies, but long-lived **memory cells** remain. On a second exposure they respond within days, faster and much more strongly, often clearing the pathogen before you feel sick. That's immunity.
 

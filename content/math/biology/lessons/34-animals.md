@@ -34,6 +34,27 @@ Many animals have a **coelom**, a fluid-filled body cavity completely lined by t
 
 Bilateral animals split into two great lineages, first recognized by how the embryo develops. In protostomes (including mollusks, annelids and arthropods, and, DNA shows, flatworms and roundworms too), the first opening in the embryo becomes the mouth. In deuterostomes (echinoderms and chordates), it becomes the anus and the mouth forms later. This embryological detail, confirmed by DNA, is why sea stars are closer relatives of humans than insects are.
 
+The tree puts these branch points together. Each fork is a feature that one branch has and the other lacks, and every phylum in the table below sits at one of its tips.
+
+```mermaid
+flowchart TD
+  accTitle: Simplified evolutionary tree of the major animal phyla
+  accDescr: The animal ancestor first splits into sponges, which lack true tissues, and animals with true tissues. Among animals with tissues, cnidarians have radial symmetry, while the rest have bilateral symmetry. Bilateral animals split into protostomes and deuterostomes. Protostomes include flatworms, mollusks, annelids, roundworms and arthropods. Deuterostomes include echinoderms and chordates.
+  A((Animal ancestor)) --> P[Sponges]
+  A -- true tissues --> T(( ))
+  T -- radial symmetry --> C[Cnidarians]
+  T -- bilateral symmetry --> B(( ))
+  B -- protostomes --> PR(( ))
+  B -- deuterostomes --> DE(( ))
+  PR --> FW[Flatworms]
+  PR --> MO[Mollusks]
+  PR --> AN[Annelids]
+  PR --> NE[Roundworms]
+  PR --> AR[Arthropods]
+  DE --> EC[Echinoderms]
+  DE --> CH[Chordates]
+```
+
 ## A tour of the major phyla
 
 | Phylum | Examples | Symmetry | Body cavity | Notable features |
@@ -58,6 +79,10 @@ A **chordate** is an animal that, at some point in its life, has all four of the
 2. a hollow nerve cord running along the back (dorsal), above the notochord;
 3. pharyngeal slits (or pouches) in the throat region;
 4. a tail extending past the anus.
+
+![A simplified lancelet-like chordate, with labels: a dorsal hollow nerve cord along the back, the notochord just below it, pharyngeal slits behind the mouth, the gut leading to the anus, and a post-anal tail.](images/m8-chordate.svg)
+
+A lancelet, a small filter-feeding marine chordate, keeps all four features as an adult, so it makes a good model of the chordate body plan.
 
 In humans, the notochord and slits appear only in the embryo; the notochord is replaced by the vertebral column, and the pouches develop into parts of the ear and throat glands. Most chordates are vertebrates, with a backbone of vertebrae around the nerve cord, but a few, such as lancelets and sea squirts, are invertebrate chordates.
 

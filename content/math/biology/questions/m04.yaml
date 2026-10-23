@@ -402,3 +402,552 @@
   answer: 3
   explanation: |-
     Unequal division of the cytoplasm gives one large egg (keeping stored nutrients) plus polar bodies that break down, while each male meiosis gives four sperm. Both sexes complete both divisions, and crossing over happens in both.
+- id: bio-q-0438
+  lesson: bio-cell-cycle
+  module_quiz: true
+  topic: Mitosis
+  type: label
+  stem: 'Each numbered animal cell is at a different stage of mitosis. Name the stage of each cell.'
+  image: {src: images/m4-mitosis-q.svg, alt: 'Four animal cells, each with four chromosomes, at different stages of division, shown in mixed order. Cell 1 is long with single chromatids near both ends; cell 2 has condensed chromosomes inside a dashed nuclear outline; cell 3 is pinching in two with a nucleus in each half; cell 4 has chromosomes in a column at its middle with spindle fibers from both ends.'}
+  labels:
+    - {x: 6, y: 8, text: Anaphase}
+    - {x: 56, y: 8, text: Prophase}
+    - {x: 6, y: 58, text: Telophase}
+    - {x: 56, y: 58, text: Metaphase}
+  distractors: [Interphase]
+  explanation: |-
+    Cell 1: single chromatids are being pulled toward opposite poles, so the sisters have separated: anaphase. Cell 2: the chromosomes are condensed and doubled, the nuclear envelope (dashed) is breaking down, and the spindle poles are just moving apart: prophase. Cell 3: two new nuclei with uncoiling chromosomes in a cell that is pinching in two: telophase with cytokinesis. Cell 4: duplicated chromosomes lined up at the middle, attached to fibers from both poles: metaphase. Interphase cells show no condensed chromosomes at all.
+- id: bio-q-0439
+  lesson: bio-cell-cycle
+  topic: Cell cycle
+  type: order
+  stem: 'Starting just after a cell forms, put these parts of the cell cycle in order.'
+  items: [G1, S phase, G2, Prophase, Metaphase, Anaphase, Telophase]
+  explanation: |-
+    Interphase comes first: G1 (growth), S (DNA copied), G2 (preparation). Then mitosis: prophase (condense, spindle forms), metaphase (line up), anaphase (chromatids separate), telophase (nuclei re-form), with cytokinesis overlapping telophase.
+- id: bio-q-0440
+  lesson: bio-cell-cycle
+  topic: Cell cycle
+  type: text
+  stem: 'After S phase, each chromosome consists of two identical ___ joined at a constricted region called the ___.'
+  accept:
+    - [sister chromatids, chromatids, sister chromatid, chromatid]
+    - [centromere, centromeres]
+  explanation: |-
+    Copying the DNA in S phase turns each chromosome into two identical sister chromatids, held together most tightly at the centromere. It still counts as one chromosome until the chromatids separate in anaphase.
+- id: bio-q-0441
+  lesson: bio-cell-cycle
+  module_quiz: true
+  topic: Cell cycle
+  stem: 'Which of these happen during interphase? Select all that apply.'
+  choices:
+    - 'The DNA is replicated.'
+    - 'The cell grows and makes proteins and organelles.'
+    - 'Sister chromatids separate.'
+    - 'The cell makes proteins it will need for the spindle.'
+    - 'The nuclear envelope breaks down.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Interphase includes G1 (growth), S (DNA replication) and G2 (making proteins for division, such as spindle components). Sister chromatids separate in anaphase and the nuclear envelope breaks down in prophase, both during mitosis.
+- id: bio-q-0442
+  lesson: bio-cell-cycle
+  topic: Mitosis
+  type: match
+  stem: 'Match each stage to what happens in it.'
+  pairs:
+    - [Prophase, Chromosomes condense and the spindle forms]
+    - [Metaphase, Chromosomes line up at the middle of the cell]
+    - [Anaphase, Sister chromatids move to opposite poles]
+    - [Telophase, Nuclear envelopes re-form around two sets of chromosomes]
+    - [Cytokinesis, The cytoplasm divides into two cells]
+  distractors: [The DNA is copied]
+  explanation: |-
+    The four stages of mitosis divide the nucleus: condense (prophase), line up (metaphase), separate (anaphase), re-form nuclei (telophase). Cytokinesis then divides the cytoplasm. DNA copying belongs to S phase of interphase, not to any stage of mitosis.
+- id: bio-q-0443
+  lesson: bio-cancer
+  module_quiz: true
+  topic: Cancer
+  type: label
+  stem: 'The drawing shows a layer of tissue, a blood vessel and a distant organ. Name each numbered part.'
+  image: {src: images/m4-tumor-spread-q.svg, alt: 'A cross-section of tissue: a single layer of cells on a thin membrane, a dome of extra cells in the middle of the layer, a cluster of irregular cells on the right breaking through the membrane into the tissue below, a blood vessel with one irregular cell inside it, and a separate organ containing a small cluster of irregular cells.'}
+  labels:
+    - {x: 17, y: 21, text: Normal tissue}
+    - {x: 46, y: 7, text: Benign tumor}
+    - {x: 75, y: 46, text: Cancer cells invading nearby tissue}
+    - {x: 84, y: 58, text: Cancer cell traveling in the blood}
+    - {x: 71, y: 88, text: Secondary tumor (metastasis)}
+  distractors: [Stem cells repairing the tissue]
+  explanation: |-
+    1 is the orderly normal layer. 2 is a mass of extra cells that stays above the basement membrane: a benign tumor. 3 shows malignant cells that have broken through the membrane and are invading the tissue below. 4 is a cancer cell carried in the blood, and 5 is a new tumor it seeded in a distant organ, which is metastasis.
+- id: bio-q-0444
+  lesson: bio-cancer
+  topic: Cell cycle regulation
+  type: match
+  stem: 'Match each checkpoint to what it checks.'
+  pairs:
+    - [G1 checkpoint, 'Cell size, growth signals and DNA damage']
+    - [G2 checkpoint, DNA copied completely and correctly]
+    - [Spindle checkpoint, Every chromosome attached to fibers from both poles]
+  distractors: [Nuclear envelopes re-formed around both sets]
+  explanation: |-
+    The G1 checkpoint decides whether to divide at all (size, nutrients, growth factors, DNA damage). The G2 checkpoint makes sure replication is complete and correct before mitosis. The spindle checkpoint holds anaphase until every chromosome is attached to both poles. No checkpoint waits on nuclear envelopes re-forming.
+- id: bio-q-0445
+  lesson: bio-cancer
+  module_quiz: true
+  topic: Cancer
+  stem: 'Which statements describe tumor suppressor genes? Select all that apply.'
+  choices:
+    - 'Their normal proteins slow division, repair DNA or trigger apoptosis.'
+    - 'p53 and RB are examples.'
+    - 'One overactive mutant copy is enough to push a cell toward cancer.'
+    - 'Inheriting one faulty copy can raise a person''s cancer risk.'
+    - 'They are genes that viruses insert into cells.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Tumor suppressors are the brakes (p53, RB). Usually both copies must be lost in a cell, but inheriting one faulty copy means only one more hit is needed, as in inherited retinoblastoma. A single overactive copy describes an oncogene, and tumor suppressors are normal cell genes, not viral ones.
+- id: bio-q-0446
+  lesson: bio-cancer
+  topic: Cell cycle regulation
+  type: text
+  stem: 'Orderly, programmed cell death that removes damaged or unneeded cells without causing inflammation is called ___.'
+  accept: [apoptosis]
+  explanation: |-
+    Apoptosis is a tidy self-destruction: the cell dismantles itself and is eaten by neighbors. It removes cells with unrepairable DNA damage and sculpts the body during development, such as removing the webbing between fingers.
+- id: bio-q-0447
+  lesson: bio-cancer
+  topic: Stem cells
+  type: match
+  stem: 'Match each cell to its potency. (Answers can be used more than once.)'
+  pairs:
+    - [Zygote, Totipotent]
+    - [Embryonic stem cell, Pluripotent]
+    - [Induced pluripotent stem cell, Pluripotent]
+    - [Blood stem cell in bone marrow, Multipotent]
+  distractors: [Unable to divide]
+  explanation: |-
+    The zygote can make every cell type including the placenta (totipotent). Embryonic stem cells and iPSCs can make every body cell type (pluripotent). Blood stem cells make only the related blood cell types (multipotent). All of these can divide.
+- id: bio-q-0448
+  lesson: bio-meiosis
+  module_quiz: true
+  topic: Meiosis
+  type: label
+  stem: 'All four cells come from an organism with 2n = 4. Red marks chromosomes from the mother and blue from the father. Name the stage of each numbered cell.'
+  image: {src: images/m4-which-division.svg, alt: 'Four dividing cells. Cell 1 is small with two duplicated chromosomes, one long and one short, lined up singly at its middle. Cell 2 has four duplicated chromosomes lined up singly in a column at its middle. Cell 3 has duplicated chromosomes, still with both chromatids, being pulled toward the two poles, two to each side. Cell 4 has duplicated chromosomes lined up at the middle in side-by-side pairs, a red and a blue chromosome of the same size in each pair.'}
+  labels:
+    - {x: 6, y: 8, text: Metaphase II}
+    - {x: 56, y: 8, text: Metaphase of mitosis}
+    - {x: 6, y: 58, text: Anaphase I}
+    - {x: 56, y: 58, text: Metaphase I}
+  distractors: [Anaphase II]
+  explanation: |-
+    Cell 4 has homologs lined up as pairs, which happens only in metaphase I. Cell 3 shows whole duplicated chromosomes (two chromatids still joined) moving apart: homologs separating in anaphase I. Cell 2 has all four chromosomes in a single column with homologs not paired: metaphase of mitosis. Cell 1 has only two chromosomes, one of each size, so it is haploid, and they line up singly: metaphase II. In anaphase II, single chromatids would be moving apart.
+- id: bio-q-0449
+  lesson: bio-meiosis
+  topic: Meiosis
+  type: order
+  stem: 'Put these events in the order they happen, from before meiosis to the end.'
+  items:
+    - DNA is replicated in S phase
+    - Homologous chromosomes pair and cross over
+    - Homologous pairs line up at the middle of the cell
+    - Homologous chromosomes move to opposite poles
+    - Chromosomes line up singly in two haploid cells
+    - Sister chromatids move to opposite poles
+    - Four haploid cells form
+  explanation: |-
+    DNA is copied once, before meiosis. Meiosis I: prophase I (pairing and crossing over), metaphase I (pairs line up), anaphase I (homologs separate). Meiosis II, with no new replication: metaphase II (chromosomes line up singly), anaphase II (sister chromatids separate), then telophase II and cytokinesis give four haploid cells.
+- id: bio-q-0450
+  lesson: bio-meiosis
+  topic: Meiosis
+  type: text
+  stem: 'In humans, body cells are diploid with 2n = ___, and gametes are haploid with n = ___.'
+  accept:
+    - ['46']
+    - ['23']
+  explanation: |-
+    Human body cells have 23 pairs, 46 chromosomes. Meiosis puts one chromosome of each pair into a gamete, 23 in all, and fertilization restores 46.
+- id: bio-q-0451
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'A cell from a species with 2n = 4 completes meiosis normally. Which statements about the four cells it produces are true? Select all that apply.'
+  choices:
+    - 'Each is haploid.'
+    - 'Each has 2 chromosomes.'
+    - 'They are genetically identical to one another.'
+    - 'Each chromosome consists of a single chromatid.'
+    - 'Each has the same chromosome number as the parent cell.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Meiosis halves the number (n = 2) and ends with sister chromatids separated, so each cell has 2 single-chromatid chromosomes. Crossing over and independent assortment make the four cells genetically different, and their chromosome number is half the parent's, not equal to it.
+- id: bio-q-0452
+  lesson: bio-meiosis
+  module_quiz: true
+  topic: Meiosis
+  type: match
+  stem: 'Match each term to its description.'
+  pairs:
+    - [Homologous chromosomes, 'One from each parent; same genes, possibly different versions']
+    - [Sister chromatids, Identical copies made in S phase and joined at a centromere]
+    - [Gamete, A haploid egg or sperm]
+    - [Zygote, The diploid cell formed when an egg and sperm join]
+  distractors: [A cell with three complete sets of chromosomes]
+  explanation: |-
+    Homologs pair up in meiosis I and carry the same genes but can differ in versions; sister chromatids are exact copies. Gametes are haploid, and fertilization joins two of them into a diploid zygote. A cell with three sets is a triploid, which is not one of these terms.
+- id: bio-qh-0401
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'Cytoplasm from a mature frog egg, injected into an immature oocyte that received no hormone, made the oocyte''s nucleus break down and its chromosomes condense. Cytoplasm from an immature oocyte had no effect. What does this show?'
+  choices:
+    - 'The hormone that triggers maturation is stored in the nucleus.'
+    - 'The cytoplasm of a cell in M phase contains a factor that can drive another cell into M phase.'
+    - 'Injecting any cytoplasm damages the oocyte and breaks down its nucleus.'
+    - 'Immature oocytes lack chromosomes until they are injected.'
+  answer: 1
+  explanation: |-
+    Only cytoplasm from an M-phase cell had the effect, so the injection itself is not the cause (the control rules that out). Something in that cytoplasm, named maturation-promoting factor (MPF), triggers M phase. The oocyte already has chromosomes; they were simply not condensed.
+- id: bio-qh-0402
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'MPF activity could be passed from oocyte to oocyte through many serial injections without diluting away, even when protein synthesis was blocked. Which explanation fits best?'
+  choices:
+    - 'Each oocyte makes new MPF protein from mRNA after injection.'
+    - 'MPF is a mutation that copies itself into each oocyte''s DNA.'
+    - 'The injected MPF is too stable to be diluted.'
+    - 'Oocytes store inactive MPF, and a little active MPF switches the stored MPF on.'
+  answer: 3
+  explanation: |-
+    With protein synthesis blocked, no new MPF can be made, yet activity rises in each recipient. The oocyte must hold MPF in an inactive form that injected active MPF converts, through positive feedback (active CDK1 activates Cdc25 and inhibits Wee1). Simple stability could not prevent dilution over many transfers, and MPF is a protein complex, not a mutation.
+- id: bio-qh-0403
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'When MPF was purified and identified, it turned out to be'
+  choices:
+    - 'cyclin B bound to the kinase CDK1'
+    - 'the tumor suppressor p53 bound to MDM2'
+    - 'cyclin D bound to the kinase CDK4'
+    - 'a caspase bound to cytochrome c'
+  answer: 0
+  explanation: |-
+    MPF is cyclin B with CDK1 (the product of the yeast gene cdc2). Cyclin D–CDK4 acts in G1 on Rb, p53–MDM2 is the damage-response pair, and caspases with cytochrome c belong to apoptosis.
+- id: bio-qh-0404
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'Yeast cells lacking the kinase Wee1 enter mitosis early and divide at about half the normal size. Why?'
+  choices:
+    - 'Without Wee1, cyclin B cannot be destroyed, so cells stay in mitosis.'
+    - 'Wee1 is the cyclin that activates CDK1.'
+    - 'Without Wee1 adding inhibitory phosphates, cyclin B–CDK1 becomes active before the cell has grown to its usual size.'
+    - 'Wee1 removes the activating phosphate from CDK1, so its loss blocks mitosis.'
+  answer: 2
+  explanation: |-
+    Wee1 adds inhibitory phosphates that hold cyclin B–CDK1 off during G2 while the cell grows. Without it, the complex switches on early, so the cell divides when smaller. Cyclin destruction is the APC/C's job, Wee1 is a kinase not a cyclin, and its loss speeds mitosis rather than blocking it.
+- id: bio-qh-0405
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'A modified cyclin B that the APC/C cannot tag with ubiquitin is added to a cycling frog egg extract. What happens?'
+  choices:
+    - 'The extract cycles faster than normal.'
+    - 'MPF stays active and the extract is stuck in M phase.'
+    - 'MPF never becomes active, so the extract stays in interphase.'
+    - 'DNA replication repeats many times without mitosis.'
+  answer: 1
+  explanation: |-
+    MPF switches on as usual, but leaving mitosis requires destroying cyclin B. A cyclin that cannot be tagged is never sent to the proteasome, so CDK1 stays active and the extract stays in M phase. This experiment showed cyclin destruction is needed to exit mitosis.
+- id: bio-qh-0406
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'A mutant Rb protein cannot bind E2F at all. How would cells carrying only this mutant Rb most likely behave?'
+  choices:
+    - 'They enter S phase without needing growth factors, because E2F is always free.'
+    - 'They can never enter S phase, because E2F is permanently blocked.'
+    - 'They stop at the spindle checkpoint.'
+    - 'They undergo apoptosis as soon as they reach G1.'
+  answer: 0
+  explanation: |-
+    Rb's job is to hold E2F until cyclin–CDKs phosphorylate it. If Rb cannot bind E2F, E2F is free all the time and switches on S-phase genes without any growth-factor signal, the same effect as losing Rb. That is why RB is a tumor suppressor.
+- id: bio-qh-0407
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'Some tumors keep normal p53 genes but make far too much MDM2. What is the likely effect?'
+  choices:
+    - 'p53 levels rise, so the cells arrest permanently.'
+    - 'MDM2 repairs DNA damage in place of p53.'
+    - 'The cells become more sensitive to DNA damage and die by apoptosis.'
+    - 'p53 is destroyed even after DNA damage, so the cells behave as if p53 were missing.'
+  answer: 3
+  explanation: |-
+    MDM2 tags p53 for destruction. With excess MDM2, p53 cannot build up after damage, so p21 is not made, damaged cells keep dividing, and apoptosis is not triggered. Overactive MDM2 therefore acts much like losing p53. MDM2 is not a repair enzyme.
+- id: bio-qh-0408
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'In a model of an inherited tumor-suppressor mutation, the number of tumors per carrier is a Poisson count with a mean of 2. What fraction of carriers develop no tumor?'
+  choices: ['86.5%', '27.1%', '13.5%', '50%']
+  answer: 2
+  explanation: |-
+    For a Poisson count, $P(0) = e^{-m} = e^{-2} = 0.135$, so 13.5% get no tumor. 86.5% is the fraction with at least one tumor ($1 - e^{-2}$); 27.1% is the chance of exactly one ($2e^{-2}$).
+- id: bio-qh-0409
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'In a flow cytometer, an unsynchronized culture with a 24-hour cycle shows 60% of cells with 2C DNA, 25% between 2C and 4C, and 15% with 4C. About how long is S phase?'
+  choices: ['14.4 hours', '6 hours', '3.6 hours', '25 hours']
+  answer: 1
+  explanation: |-
+    Cells between 2C and 4C are replicating, so they are in S. Time in S is about $0.25 \times 24 = 6$ hours. 14.4 h is G1 (the 2C cells) and 3.6 h is G2 + M (the 4C cells); 25 treats the percent as hours.
+- id: bio-qh-0410
+  lesson: bio-h-cycle-control
+  topic: Apoptosis
+  stem: 'A pathologist sees cells that have shrunk, with condensed chromatin, membrane blebs, and DNA cut into fragments in multiples of about 180 base pairs, and no inflammation nearby. What is happening?'
+  choices:
+    - 'Apoptosis'
+    - 'Necrosis'
+    - 'Mitosis'
+    - 'Metastasis'
+  answer: 0
+  explanation: |-
+    Shrinkage, chromatin condensation, blebbing and a DNA ladder (cuts between nucleosomes) with no inflammation are the signs of apoptosis. Necrosis makes cells swell and burst and triggers inflammation. Mitosis does not fragment DNA, and metastasis is the spread of cancer.
+- id: bio-qh-0411
+  lesson: bio-h-cycle-control
+  topic: Apoptosis
+  stem: 'In most follicular lymphomas, a translocation makes B cells produce far too much Bcl-2. Why does this contribute to cancer?'
+  choices:
+    - 'Bcl-2 is a cyclin that drives cells through G1.'
+    - 'Bcl-2 cuts cohesin and causes nondisjunction.'
+    - 'Bcl-2 activates executioner caspases.'
+    - 'Bcl-2 blocks the release of cytochrome c, so cells that should die by apoptosis survive.'
+  answer: 3
+  explanation: |-
+    Bcl-2 keeps the mitochondrial pores closed, preventing cytochrome c release and the caspase cascade of the intrinsic pathway. Too much Bcl-2 lets damaged or unneeded B cells survive and accumulate. It is not a cyclin, does not cut cohesin, and blocks rather than activates caspases.
+- id: bio-qh-0412
+  lesson: bio-h-cycle-control
+  topic: Apoptosis
+  type: order
+  stem: 'Put the steps of the intrinsic (mitochondrial) pathway of apoptosis in order.'
+  items:
+    - DNA damage stabilizes p53
+    - BAX opens pores in the outer membrane of mitochondria
+    - Cytochrome c leaks into the cytoplasm
+    - The apoptosome activates caspase 9
+    - Executioner caspases cut hundreds of cell proteins
+    - Phagocytes engulf the cell's fragments
+  explanation: |-
+    Damage stabilizes p53, which switches on pro-apoptotic genes such as BAX. BAX pores release cytochrome c, which joins Apaf-1 in the apoptosome to activate the initiator caspase 9. Caspase 9 activates executioner caspases (3 and 7), which dismantle the cell, and phagocytes clear the fragments without inflammation.
+- id: bio-qh-0413
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  type: match
+  stem: 'Match each protein to its role.'
+  pairs:
+    - [Wee1, Adds inhibitory phosphates to CDK1]
+    - [Cdc25, Removes inhibitory phosphates from CDK1]
+    - [APC/C, Tags cyclin B and securin for destruction]
+    - [Separase, Cuts cohesin so sister chromatids separate]
+    - [p21, Blocks cyclin–CDK complexes after DNA damage]
+  distractors: [Releases cytochrome c from mitochondria]
+  explanation: |-
+    Wee1 and Cdc25 set the timing of CDK1 activation from opposite sides. The APC/C ends mitosis and starts anaphase by tagging cyclin B and securin, which frees separase to cut cohesin. p21 is the CDK inhibitor that p53 switches on. Cytochrome c release is done by BAX pores in apoptosis.
+- id: bio-qh-0414
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  stem: 'Which changes can turn a proto-oncogene into an oncogene? Select all that apply.'
+  choices:
+    - 'A point mutation that locks its protein in the active state'
+    - 'Amplification of the gene into many copies'
+    - 'A translocation that fuses it to another gene'
+    - 'Loss of both copies of the gene'
+    - 'A mutation that destroys the protein''s function'
+  answer: [0, 1, 2]
+  explanation: |-
+    Oncogenes arise by gain of function: a stuck-on protein (RAS), too much protein (HER2 amplification), or a new fusion protein (BCR-ABL). Losing both copies or destroying function is the loss-of-function route that inactivates tumor suppressor genes.
+- id: bio-qh-0415
+  lesson: bio-h-cycle-control
+  topic: Apoptosis
+  type: text
+  stem: 'The protein-cutting enzymes that carry out apoptosis, made as inactive precursors and activated in a cascade, are called ___.'
+  accept: [caspases, caspase]
+  explanation: |-
+    Caspases are cysteine proteases that cut just after aspartate. Initiator caspases (8 and 9) activate executioner caspases (3 and 7), which dismantle the cell.
+- id: bio-qh-0416
+  lesson: bio-h-cycle-control
+  topic: Cyclins and CDKs
+  type: text
+  stem: 'A tumor from a person who inherited one faulty copy of a tumor suppressor gene has lost the good copy by deletion. This kind of second hit is called loss of ___.'
+  accept: [heterozygosity]
+  explanation: |-
+    The person was heterozygous (one good, one faulty copy). Losing the good copy by deletion, chromosome loss or mitotic recombination leaves only faulty copies: loss of heterozygosity, a common second hit.
+- id: bio-qh-0417
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  stem: 'What is the main job of chiasmata during meiosis I?'
+  choices:
+    - 'They attach chromosomes to the nuclear envelope.'
+    - 'They copy the DNA a second time before meiosis II.'
+    - 'They hold each homologous pair together so the spindle can pull the two homologs to opposite poles.'
+    - 'They keep sister chromatids together until anaphase II.'
+  answer: 2
+  explanation: |-
+    Because chromatid arms have been swapped at a chiasma, cohesion along the arms ties the homologs together until anaphase I, letting them attach to opposite poles under tension. Pairs with no crossover are prone to nondisjunction. Keeping sisters together until anaphase II is the job of centromere cohesin protected by shugoshin.
+- id: bio-qh-0418
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  stem: 'In a mutant lacking shugoshin, all cohesin is cut at anaphase I. What is the most likely result?'
+  choices:
+    - 'Sister chromatids separate too early, so they segregate randomly in meiosis II and many gametes are aneuploid.'
+    - 'Homologs never separate, so all gametes are diploid.'
+    - 'Crossing over cannot occur.'
+    - 'Meiosis proceeds normally because shugoshin acts only in mitosis.'
+  answer: 0
+  explanation: |-
+    Shugoshin protects centromere cohesin during anaphase I so sisters stay joined until anaphase II. Without it, sisters come apart early and can no longer be pulled evenly to opposite poles in meiosis II, giving gametes with extra or missing chromosomes. Crossing over happens earlier, in prophase I, and homologs still separate.
+- id: bio-qh-0419
+  lesson: bio-h-meiosis-variation
+  topic: Genetic variation
+  type: label
+  stem: 'A cell heterozygous AB/ab undergoes meiosis with one crossover between the two genes. Classify each numbered product chromatid as parental or recombinant.'
+  image: {src: images/m4-crossover-q.svg, alt: 'On the left, a homologous pair in prophase I: two red chromatids carrying A and B and two blue chromatids carrying a and b, with the two inner chromatids crossing between the genes. On the right, four separate chromatids, numbered 1 to 4, carrying A and B, A and b, a and B, and a and b.'}
+  labels:
+    - {x: 53, y: 95, text: Parental}
+    - {x: 66, y: 95, text: Recombinant}
+    - {x: 78.5, y: 95, text: Recombinant}
+    - {x: 91, y: 95, text: Parental}
+  explanation: |-
+    The crossover involved only the two inner chromatids, swapping the parts beyond the crossover point. Chromatids 2 (A b) and 3 (a B) carry new combinations, so they are recombinant. Chromatids 1 (A B) and 4 (a b) were not involved and keep the parental combinations. One crossover between two genes therefore gives 2 recombinant and 2 parental chromatids.
+- id: bio-qh-0420
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  stem: 'At a marker near the centromere of chromosome 21, a mother has M1 and M2 and the father has P1 and P2. A child with trisomy 21 has M2, M2 and P1. Where did the error most likely happen?'
+  choices:
+    - 'Maternal meiosis I'
+    - 'Maternal meiosis II'
+    - 'Paternal meiosis I'
+    - 'Paternal meiosis II'
+  answer: 1
+  explanation: |-
+    The extra copy came from the mother (two maternal markers). They are identical (M2 and M2), so they are sister chromatids that failed to separate: maternal meiosis II. A maternal meiosis I error would give two different homologs, M1 and M2.
+- id: bio-qh-0421
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  stem: 'Using the same family (mother M1/M2, father P1/P2), a child with trisomy 21 has M1, P1 and P2. Where did the error most likely happen?'
+  choices:
+    - 'Maternal meiosis I'
+    - 'Maternal meiosis II'
+    - 'Paternal meiosis I'
+    - 'Paternal meiosis II'
+  answer: 2
+  explanation: |-
+    Two markers come from the father, and they are different (P1 and P2), so both of his homologs went into one sperm: paternal meiosis I. Paternal meiosis II would give two identical markers, such as P1 and P1.
+- id: bio-qh-0422
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  stem: 'A person has the karyotype 47,XYY. In which parent and division did nondisjunction occur?'
+  choices:
+    - 'Father, meiosis II'
+    - 'Mother, meiosis I'
+    - 'Father, meiosis I'
+    - 'Mother, meiosis II'
+  answer: 0
+  explanation: |-
+    Only the father can supply a Y, so the sperm was YY. Two Y chromosomes in one sperm must be sister chromatids that failed to separate, which happens in meiosis II. A father's meiosis I error would give an XY sperm instead.
+- id: bio-qh-0423
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  stem: 'A child has three copies of chromosome 21 in about 30% of blood cells and two copies in the rest. What is the most likely explanation?'
+  choices:
+    - 'Nondisjunction in maternal meiosis I'
+    - 'Crossing over between chromosome 21 and its homolog'
+    - 'Polyploidy in all of the child''s cells'
+    - 'Nondisjunction in a mitotic division of the early embryo, producing mosaicism'
+  answer: 3
+  explanation: |-
+    A meiotic error would put the extra chromosome in the zygote and so in every cell. A mix of normal and trisomic cells means the error happened in a mitosis after fertilization, creating two cell lines: mosaicism. Crossing over does not change chromosome number, and polyploidy would add whole sets.
+- id: bio-qh-0424
+  lesson: bio-h-meiosis-variation
+  topic: Genetic variation
+  stem: 'An organism with 2n = 8 is heterozygous for two genes on every chromosome pair. Suppose crossovers occur between the two genes in 2 of the 4 pairs and never in the other 2. How many kinds of gamete are possible?'
+  choices: ['16', '64', '256', '32']
+  answer: 1
+  explanation: |-
+    Each pair with a crossover between the genes can contribute 4 kinds of chromatid; each pair without one, 2. So $4^2 \times 2^2 = 16 \times 4 = 64$. 16 ignores crossing over ($2^4$), 256 assumes crossovers in all four pairs ($4^4$), and 32 counts only one crossover pair.
+- id: bio-qh-0425
+  lesson: bio-h-meiosis-variation
+  topic: Genetic variation
+  stem: 'A triploid plant has a basic set of x = 7 chromosomes. If each set of three homologs splits 1 and 2 at random, independently, what fraction of its gametes is balanced (exactly one or exactly two of every chromosome)?'
+  choices: ['1/128', '1/7', '1/64', '1/2']
+  answer: 2
+  explanation: |-
+    All-one-copy has probability $\left(\tfrac12\right)^7 = \tfrac1{128}$, and all-two-copies the same, so the total is $2 \times \tfrac1{128} = \tfrac1{64}$. 1/128 counts only one of the two balanced outcomes.
+- id: bio-qh-0426
+  lesson: bio-h-meiosis-variation
+  topic: Genetic variation
+  stem: 'Species A (2n = 14) and species B (2n = 20) form a sterile hybrid. Later, the hybrid''s chromosome number doubles, giving a fertile allopolyploid. How many chromosomes does the fertile plant have?'
+  choices: ['17', '34', '68', '24']
+  answer: 1
+  explanation: |-
+    The hybrid gets a gamete from each parent: $7 + 10 = 17$ chromosomes, with no partners to pair with, so it is sterile. Doubling gives $2 \times 17 = 34$, in which every chromosome has an identical partner. 68 doubles twice; 24 adds the wrong numbers.
+- id: bio-qh-0427
+  lesson: bio-h-meiosis-variation
+  topic: Genetic variation
+  stem: 'Bread wheat is hexaploid, 2n = 6x = 42. How many chromosomes are in a normal wheat gamete, and how many in one basic set (x)?'
+  choices:
+    - '42 in a gamete, 7 in a set'
+    - '21 in a gamete, 14 in a set'
+    - '7 in a gamete, 21 in a set'
+    - '21 in a gamete, 7 in a set'
+  answer: 3
+  explanation: |-
+    A gamete has half the body-cell number: $n = 42 \div 2 = 21$, which is three basic sets. One basic set is $x = 42 \div 6 = 7$. Wheat is an allopolyploid of three ancestral grass genomes, each with 7 chromosomes.
+- id: bio-qh-0428
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  type: order
+  stem: 'Put these events in the order they happen in normal meiosis.'
+  items:
+    - Homologs pair and the synaptonemal complex forms
+    - Crossovers form between non-sister chromatids
+    - The synaptonemal complex comes apart; homologs stay joined at chiasmata
+    - Homologs attach to opposite poles under tension
+    - Arm cohesin is cut and homologs separate
+    - Centromere cohesin is cut and sister chromatids separate
+  explanation: |-
+    Prophase I: synapsis, crossing over, then disassembly of the synaptonemal complex leaving chiasmata. Metaphase I: homologs attach to opposite poles, held under tension by the chiasmata. Anaphase I: arm cohesin is cut, releasing homologs, while shugoshin protects centromere cohesin. Anaphase II: centromere cohesin is cut and sisters separate.
+- id: bio-qh-0429
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  type: match
+  stem: 'Match each finding to where the chromosome error most likely happened.'
+  pairs:
+    - [A 47 XYY karyotype, Paternal meiosis II]
+    - [Trisomy with two different maternal markers near the centromere, Maternal meiosis I]
+    - [Trisomy with two identical maternal markers near the centromere, Maternal meiosis II]
+    - [A mix of cells with 46 and 47 chromosomes, A mitotic division after fertilization]
+  distractors: [Paternal meiosis I]
+  explanation: |-
+    YY sperm come only from sister chromatids failing to separate in the father's meiosis II. Two different homologs from one parent mean meiosis I; two identical copies mean sister chromatids, meiosis II. A mixture of cell lines (mosaicism) means the error happened in a mitosis after the zygote formed.
+- id: bio-qh-0430
+  lesson: bio-h-meiosis-variation
+  topic: Genetic variation
+  stem: 'Which statements about polyploidy are true? Select all that apply.'
+  choices:
+    - 'Colchicine can double the chromosome number by blocking spindle formation.'
+    - 'An allopolyploid combines chromosome sets from two different species.'
+    - 'Triploid plants usually make mostly balanced gametes.'
+    - 'Polyploidy can produce a new plant species in a single step.'
+    - 'Polyploidy means having one extra chromosome.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Colchicine stops the spindle so chromosomes double without division. Allopolyploids join genomes from two species, and because they cannot breed successfully with either parent they can be new species at once (Karpechenko's radish-cabbage). Triploids make very few balanced gametes, and one extra chromosome is aneuploidy, not polyploidy.
+- id: bio-qh-0431
+  lesson: bio-h-meiosis-variation
+  topic: Nondisjunction
+  type: text
+  stem: 'After crossing over, homologs stay joined at X-shaped points, each called a ___.'
+  accept: [chiasma, chiasmata, chiasm]
+  explanation: |-
+    A chiasma (plural chiasmata) is the visible sign of a crossover. Together with cohesion along the chromatid arms, it holds the homologs together until anaphase I.
+- id: bio-qh-0432
+  lesson: bio-h-meiosis-variation
+  topic: Genetic variation
+  type: text
+  stem: 'A fertile plant whose chromosomes come from two different species, formed by hybridization followed by chromosome doubling, is called an ___.'
+  accept: [allopolyploid, allopolyploids, allotetraploid, allopolyploidy]
+  explanation: |-
+    An allopolyploid carries full chromosome sets from two (or more) species. Doubling gives every chromosome a partner, which restores fertility, as in Karpechenko's radish-cabbage and in bread wheat.

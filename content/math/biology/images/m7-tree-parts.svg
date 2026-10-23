@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="sans-serif">
+<rect width="760" height="400" fill="#ffffff"/>
+<rect x="285.0" y="158.0" width="305.0" height="165.0" rx="14" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.2" stroke-dasharray="6 4"/>
+<line x1="160.0" y1="90.0" x2="160.0" y2="225.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="380.0" y1="60.0" x2="380.0" y2="120.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="300.0" y1="180.0" x2="300.0" y2="270.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="420.0" y1="240.0" x2="420.0" y2="300.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="70.0" y1="157.5" x2="160.0" y2="157.5" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="160.0" y1="90.0" x2="380.0" y2="90.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="160.0" y1="225.0" x2="300.0" y2="225.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="380.0" y1="60.0" x2="470.0" y2="60.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="380.0" y1="120.0" x2="470.0" y2="120.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="300.0" y1="180.0" x2="470.0" y2="180.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="300.0" y1="270.0" x2="420.0" y2="270.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="420.0" y1="240.0" x2="470.0" y2="240.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="420.0" y1="300.0" x2="470.0" y2="300.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<circle cx="160.0" cy="157.5" r="6" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="380.0" cy="90.0" r="6" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="300.0" cy="225.0" r="6" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="420.0" cy="270.0" r="6" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="484.0" y="66.0" font-size="16" text-anchor="start" fill="#1c2833">Species A</text>
+<text x="484.0" y="126.0" font-size="16" text-anchor="start" fill="#1c2833">Species B</text>
+<text x="484.0" y="186.0" font-size="16" text-anchor="start" fill="#1c2833">Species C</text>
+<text x="484.0" y="246.0" font-size="16" text-anchor="start" fill="#1c2833">Species D</text>
+<text x="484.0" y="306.0" font-size="16" text-anchor="start" fill="#1c2833">Species E</text>
+<line x1="70.0" y1="360.0" x2="461.0" y2="360.0" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/><polygon points="470.0,360.0 461.0,355.5 461.0,364.5" fill="#1c2833"/>
+<text x="270.0" y="385.0" font-size="15" text-anchor="middle" fill="#1c2833">time (past to present)</text>
+<line x1="72.0" y1="157.5" x2="60.0" y2="200.0" stroke="#1c2833" stroke-width="1.2" stroke-linecap="round"/>
+<text x="20.0" y="218.0" font-size="14" text-anchor="start" fill="#1c2833" font-weight="bold">Root: ancestor</text>
+<text x="20.0" y="236.0" font-size="14" text-anchor="start" fill="#1c2833">of the whole tree</text>
+<line x1="420.0" y1="270.0" x2="360.0" y2="330.0" stroke="#1c2833" stroke-width="1.2" stroke-linecap="round"/>
+<text x="360.0" y="348.0" font-size="14" text-anchor="middle" fill="#1c2833" font-weight="bold">Node: a common ancestor</text>
+<line x1="250.0" y1="90.0" x2="230.0" y2="40.0" stroke="#1c2833" stroke-width="1.2" stroke-linecap="round"/>
+<text x="230.0" y="32.0" font-size="14" text-anchor="middle" fill="#1c2833" font-weight="bold">Branch: a lineage through time</text>
+<line x1="470.0" y1="60.0" x2="520.0" y2="26.0" stroke="#1c2833" stroke-width="1.2" stroke-linecap="round"/>
+<text x="525.0" y="24.0" font-size="14" text-anchor="start" fill="#1c2833" font-weight="bold">Tip: a group compared</text>
+<text x="605.0" y="214.0" font-size="15" text-anchor="start" fill="#1c2833" font-weight="bold">Clade:</text>
+<text x="605.0" y="232.0" font-size="14" text-anchor="start" fill="#1c2833">ancestor and</text>
+<text x="605.0" y="250.0" font-size="14" text-anchor="start" fill="#1c2833">all descendants</text>
+</svg>

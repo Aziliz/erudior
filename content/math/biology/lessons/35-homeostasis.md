@@ -31,6 +31,19 @@ A runner's core temperature rises to 38.5 °C on a hot day. Trace the negative f
 4. Effectors: sweat glands release sweat, whose evaporation removes heat; blood vessels in the skin widen (vasodilation), carrying warm blood to the surface to lose heat (that's why the runner's face flushes).
 5. Result: temperature falls toward 37 °C, and as it does, the signals weaken. The response shuts itself off.
 
+The diagram shows the same loop. Follow the arrows around: the dashed arrow back to the start is what makes it feedback, because the response removes the stimulus that caused it.
+
+```mermaid
+flowchart TD
+  accTitle: Negative feedback loop for body temperature
+  accDescr: A rise in core temperature above about 37 degrees C is the stimulus. Temperature sensors in the skin and hypothalamus detect it and signal the hypothalamus, the control center, which compares the reading with the set point. It sends nerve signals to the effectors, sweat glands and skin blood vessels, which respond with sweating and vasodilation. Heat is lost, temperature falls back toward 37 degrees C, and a dashed arrow back to the stimulus shows that the response removes the stimulus, so the signals weaken.
+  S["Stimulus: core temperature rises above 37 °C"] --> R["Sensors: temperature-sensitive neurons in skin and hypothalamus"]
+  R --> C["Control center: hypothalamus compares with set point"]
+  C --> E["Effectors: sweat glands and skin blood vessels"]
+  E --> O["Response: sweating and vasodilation, heat lost"]
+  O -. "temperature falls, stimulus removed" .-> S
+```
+
 In the cold, the same center does the opposite: skin vessels narrow (vasoconstriction) to keep heat in the core, and skeletal muscles shiver, releasing heat.
 
 In **positive feedback**, the response amplifies the change, pushing the variable further from where it started until some event ends the loop. During childbirth, the baby's head stretches the cervix; stretch receptors signal the brain to release the hormone oxytocin, which strengthens contractions, which stretch the cervix more, and so on until the birth. Blood clotting is another example: activated platelets release chemicals that activate more platelets. Positive feedback is useful for events that must be completed quickly, never for holding a value steady.
@@ -46,7 +59,9 @@ A typical neuron has:
 - an axon, a single long extension that carries the signal away, in some cases more than a meter long;
 - axon terminals that pass the signal to the next cell.
 
-Many axons are wrapped in myelin, a fatty insulating sheath made by supporting cells, with small gaps between segments.
+Many axons are wrapped in myelin, a fatty insulating sheath made by supporting cells, with small gaps between segments. The drawing shows these parts; the impulse always runs from the dendrites and cell body along the axon to the terminals.
+
+![A neuron. Branching dendrites surround a rounded cell body containing a nucleus. A long axon leaves the cell body, wrapped in yellow myelin segments separated by small gaps, and ends in several branched axon terminals. An arrow beneath shows the impulse traveling from the cell body toward the terminals.](images/m9-neuron.svg)
 
 ### The action potential
 
@@ -89,6 +104,20 @@ Blood glucose control is the textbook example of hormonal negative feedback, wit
 
 - After a meal, glucose rises. Beta cells release **insulin**, which makes liver, muscle and fat cells take up glucose and makes the liver store it as glycogen. Glucose falls.
 - Between meals, glucose falls. Alpha cells release **glucagon**, which makes the liver break glycogen down and release glucose. Glucose rises.
+
+The two hormones form two negative feedback loops around one set point, as the diagram shows. Each loop switches itself off as glucose returns to normal.
+
+```mermaid
+flowchart LR
+  accTitle: Insulin and glucagon hold blood glucose near its set point
+  accDescr: Blood glucose near its set point, about 90 mg/dL, sits on the left. Upper loop: after a meal glucose rises, beta cells in the pancreas release insulin, body cells take up glucose and the liver stores it as glycogen, so glucose falls back to the set point. Lower loop: between meals glucose falls, alpha cells release glucagon, and the liver breaks down glycogen and releases glucose, so glucose rises back to the set point. Both loops are negative feedback.
+  N(["Blood glucose near set point, about 90 mg/dL"]) -- "meal: glucose rises" --> B["Beta cells release insulin"]
+  B --> U["Cells take up glucose; liver stores glycogen"]
+  U -- "glucose falls" --> N
+  N -- "fasting: glucose falls" --> A["Alpha cells release glucagon"]
+  A --> G["Liver breaks down glycogen, releases glucose"]
+  G -- "glucose rises" --> N
+```
 
 In type 1 diabetes, the immune system destroys the beta cells, so the body makes little or no insulin; people with it need insulin every day. In type 2 diabetes, about 90–95% of diagnosed cases, cells respond less to insulin (insulin resistance), and the pancreas eventually can't keep up. In both, blood glucose stays high, which over years damages blood vessels and nerves. Insulin was first isolated in 1921 by Frederick Banting and Charles Best in Toronto, and within a year it was saving the lives of children with type 1 diabetes.
 

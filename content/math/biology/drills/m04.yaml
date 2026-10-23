@@ -126,3 +126,102 @@
     Rules: DNA is copied once, before meiosis I, so from then until meiosis II each chromosome has 2 chromatids. Meiosis I separates homologs (2n → n = {hn} chromosomes, each still double). Meiosis II separates sister chromatids, giving gametes with {hn} single chromosomes.
 
     At {st}: **{chr} chromosomes** and **{dna} DNA molecules**.
+- id: bio-h-two-hit
+  title: Two-hit model with Poisson tumor counts
+  topic: Cyclins and CDKs
+  vars:
+    cm: {choices: [1, 2, 3, 4, 5]}
+    mu: {choices: [0.2, 0.5, 1, 1.5, 2]}
+  calc:
+    m: cm*mu
+    p1: 1 - exp(-m)
+    p0: exp(-m)
+  where: ['m >= 0.4', 'm <= 6']
+  prompt: 'A child inherits one faulty copy of a tumor suppressor gene. In a simple model, {cm} million cells are at risk, and each has a {mu}-in-a-million chance of losing its good copy, so the number of tumors is a Poisson count. What is the expected number of tumors, and what is the probability of at least one tumor? Give the probability as a decimal to 3 places.'
+  answers:
+    - {name: m, label: 'Expected tumors', relTolerance: 0.01}
+    - {name: p1, label: 'P(at least one)', tolerance: 0.002}
+  solution: |-
+    Expected number: $m = N\mu = {cm} \text{ million} \times \dfrac{{mu}}{1 \text{ million}} =$ **{m}**.
+
+    For a Poisson count, $P(0) = e^{-m} = e^{-{m}} = {p0:dp3}$, so $P(\text{at least one}) = 1 - {p0:dp3} =$ **{p1:dp3}**.
+- id: bio-h-flow-phases
+  title: Phase lengths from flow cytometry
+  topic: Cyclins and CDKs
+  vars:
+    tot: {choices: [200, 400, 500, 1000]}
+    g1p: {min: 35, max: 65, step: 5}
+    sp: {min: 15, max: 35, step: 5}
+    cyc: {choices: [16, 18, 20, 22, 24]}
+  calc:
+    g2p: 100 - g1p - sp
+    c1: tot*g1p/100
+    cs: tot*sp/100
+    c2: tot*g2p/100
+    t1: cyc*g1p/100
+    ts: cyc*sp/100
+    t2: cyc*g2p/100
+  where: ['g2p >= 10', 'g2p <= 30']
+  prompt: 'A flow cytometer measures the DNA content of {tot} cells from an unsynchronized culture with a {cyc}-hour cycle: {c1} cells have 2C DNA, {cs} are between 2C and 4C, and {c2} have 4C. Estimate the length of G1, S, and G2 + M in hours.'
+  answers:
+    - {name: t1, label: 'G1 (h)', relTolerance: 0.01}
+    - {name: ts, label: 'S (h)', relTolerance: 0.01}
+    - {name: t2, label: 'G2 + M (h)', relTolerance: 0.01}
+  solution: |-
+    2C cells are in G1, cells between 2C and 4C are replicating (S), and 4C cells are in G2 or M. Each group's share of the cells estimates its share of the cycle.
+
+    G1: $\dfrac{{c1}}{{tot}} \times {cyc} =$ **{t1} h**. S: $\dfrac{{cs}}{{tot}} \times {cyc} =$ **{ts} h**. G2 + M: $\dfrac{{c2}}{{tot}} \times {cyc} =$ **{t2} h**.
+- id: bio-h-gamete-crossover
+  title: Gamete kinds with crossing over
+  topic: Genetic variation
+  vars:
+    np: {min: 2, max: 8}
+    cx: {min: 1, max: 8}
+  where: ['cx <= np']
+  calc:
+    n2: 2*np
+    noc: 2^np
+    gam: 4^cx * 2^(np - cx)
+    rest: np - cx
+  prompt: 'A species has 2n = {n2}. An individual is heterozygous for two genes on every chromosome pair. How many kinds of gamete can it make if no crossovers occur between the genes? How many if crossovers occur between the two genes in {cx} of the pairs (and never in the others)?'
+  answers:
+    - {name: noc, label: 'No crossovers', format: integer}
+    - {name: gam, label: 'With crossovers', format: integer}
+  solution: |-
+    There are {np} pairs. Without crossovers, each pair contributes 2 kinds of chromatid: $2^{{np}} =$ **{noc}**.
+
+    A pair with a crossover between the genes can contribute 4 kinds (two parental, two recombinant). With {cx} such pairs and {rest} without: $4^{{cx}} \times 2^{{rest}} =$ **{gam}**.
+- id: bio-h-grandparent-share
+  title: Grandparental chromosomes in a gamete
+  topic: Genetic variation
+  vars:
+    np: {choices: [3, 4, 5, 6, 8, 10]}
+    k: {min: 0, max: 10}
+  where: ['k <= np']
+  calc:
+    num: nCr(np, k)
+    den: 2^np
+    p: num/den
+  prompt: 'A species has {np} pairs of chromosomes. Ignoring crossing over, each chromosome in a gamete came from the grandmother or the grandfather on that side with probability 1/2, independently. What is the probability that exactly {k} of the {np} chromosomes in a gamete came from the grandmother? Answer as a fraction.'
+  answers:
+    - {name: p, label: 'Probability', kind: fraction}
+  solution: |-
+    The count is binomial: $P(k) = \dbinom{{np}}{{k}} \left(\tfrac12\right)^{{np}} = \dfrac{{num}}{{den}}$.
+
+    So the probability is **{num}/{den}** (any equivalent fraction is fine).
+- id: bio-h-triploid-balance
+  title: Balanced gametes from a triploid
+  topic: Genetic variation
+  vars:
+    xb: {min: 3, max: 12}
+  calc:
+    t3: 3*xb
+    one: 2^xb
+    p: 2/one
+  prompt: 'A triploid plant has a basic set of x = {xb} chromosomes (3x = {t3}). At meiosis I each set of three homologs sends 1 copy to one pole and 2 to the other, each way equally likely and independently for each set. What fraction of gametes is balanced (exactly one or exactly two of every chromosome)? Answer as a fraction.'
+  answers:
+    - {name: p, label: 'Fraction balanced', kind: fraction}
+  solution: |-
+    A gamete gets one copy of every chromosome with probability $\left(\tfrac12\right)^{{xb}} = \tfrac{1}{{one}}$, and two copies of every chromosome with the same probability.
+
+    Balanced: $2 \times \dfrac{1}{{one}} =$ **{p:frac}**.

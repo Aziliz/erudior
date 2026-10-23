@@ -22,7 +22,9 @@ Earth formed about 4.54 billion years ago, a date measured by radiometric dating
 | Mesozoic era | 252–66 | Age of reptiles: dinosaurs; first mammals, birds and flowering plants |
 | Cenozoic era | 66–now | Age of mammals; humans |
 
-The Paleozoic, Mesozoic and Cenozoic together form the Phanerozoic eon ("visible life"), the time of abundant animal fossils. Everything before it is informally called the Precambrian, nearly 90% of Earth's history.
+The Paleozoic, Mesozoic and Cenozoic together form the Phanerozoic eon ("visible life"), the time of abundant animal fossils. Everything before it is informally called the Precambrian, nearly 90% of Earth's history. The timeline below draws the eons to scale, then zooms in on the Phanerozoic.
+
+![A timeline bar of Earth's 4,540 million years, split into the Hadean, Archean, Proterozoic and Phanerozoic eons, with the first fossils, the buildup of oxygen, the first eukaryotes and the Cambrian explosion marked. A second bar zooms into the last 539 million years, split into the Paleozoic, Mesozoic and Cenozoic eras, with land plants, the first dinosaurs, the end-Permian and end-Cretaceous extinctions and Homo sapiens marked.](images/m7-geologic-timeline.svg)
 
 ### Example 1
 
@@ -52,6 +54,17 @@ Cyanobacteria evolved oxygen-releasing photosynthesis. Their oxygen at first rea
 
 Eukaryotes appear around 2 billion years ago (estimates range from about 1.6 to 2.1). They arose from a partnership between the two older branches of the tree (lesson 29). The host was most likely an archaeon related to today's Asgard archaea, and it took in an oxygen-using bacterium that became the mitochondrion. Later, one eukaryote lineage that already had mitochondria took in a cyanobacterium, which became the chloroplast of algae and plants. This is the endosymbiotic theory from module 2: mitochondria and chloroplasts have their own circular DNA and bacterial-type ribosomes, and divide by splitting like bacteria. Multicellular algae appear over a billion years ago, and soft-bodied animals by about 575 million years ago.
 
+```mermaid
+flowchart LR
+  accTitle: Endosymbiosis and the origin of eukaryotes
+  accDescr: An archaeal host cell took in an oxygen-using bacterium, which became the mitochondrion, giving an early eukaryote with mitochondria. Its descendants include animals, fungi and many protists. Later, one eukaryote lineage that already had mitochondria took in a cyanobacterium, which became the chloroplast, giving algae and plants.
+  A["Archaeal host cell"] --> C["Early eukaryote with mitochondria"]
+  B["Oxygen-using bacterium"] -- "becomes the mitochondrion" --> C
+  C --> E["Animals, fungi and many protists"]
+  C --> F["Algae and plants"]
+  D["Cyanobacterium"] -- "becomes the chloroplast" --> F
+```
+
 Then, starting about 539 million years ago, the Cambrian explosion: within roughly 20 to 25 million years, most of the major animal groups alive today appear in the fossil record, many with shells, skeletons and eyes. Predators and prey drove one another's evolution, and hard parts fossilize well, so the record suddenly becomes rich.
 
 ## Life moves onto land
@@ -75,6 +88,8 @@ The end-Permian was the worst: by most estimates 80 to 90 percent or more of mar
 ### Example 2
 
 A cliff shows these layers, from bottom to top: (1) sandstone with trilobite fossils; (2) a volcanic ash layer dated at 260 million years; (3) shale with early dinosaur fossils; (4) an iridium-rich clay layer; (5) rock with fossils of early primates. Put the events in order and estimate their ages.
+
+![A cliff cross-section with five rock layers. From bottom to top: sandstone with trilobite fossils, a thin volcanic ash layer dated at 260 million years, shale with dinosaur bones, a thin clay layer rich in iridium, and rock with early primate teeth. An arrow at the side points up toward younger layers.](images/m7-rock-layers.svg)
 
 - By superposition, lower layers are older: trilobites, then the ash, then dinosaurs, then the iridium layer, then primates.
 - The trilobites are older than 260 million years (they lie below the dated ash). That fits the fossil record, since trilobites died out in the end-Permian extinction, 252 million years ago.

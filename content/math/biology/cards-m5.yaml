@@ -29,3 +29,24 @@
 - {front: Chromosome structural changes, back: 'Deletion (segment lost), duplication (repeated), inversion (flipped), translocation (moved to a non-homologous chromosome).', topic: Chromosomal disorders}
 - {front: Chi-square formula and degrees of freedom, back: '$\chi^2 = \sum \dfrac{(O-E)^2}{E}$ using counts; df = number of categories − 1.', topic: Chi-square test}
 - {front: 'Chi-square critical values at p = 0.05', back: 'df 1: 3.84; df 2: 5.99; df 3: 7.81; df 4: 9.49. Below the value: fail to reject. At or above: reject.', topic: Chi-square test}
+# Round 2: honors lessons
+- {front: Linked genes, back: 'Genes close together on one chromosome; they are inherited together more often than independent assortment predicts, unless a crossover falls between them.', topic: Linkage}
+- {front: Parental vs recombinant offspring (test cross), back: 'Parental: allele combinations already on the heterozygote''s chromosomes, the two most common classes. Recombinant: new combinations from crossing over, the two least common classes.', topic: Linkage}
+- {front: Recombination frequency, back: 'Recombinant offspring ÷ total offspring × 100%. Example: 450 recombinants of 2500 = 18%.', topic: Linkage}
+- {front: Why use heterozygous female fruit flies for mapping, back: 'Male Drosophila have no crossing over in meiosis, so a heterozygous male gives no recombinants.', topic: Linkage}
+- {front: Map unit (centimorgan), back: '1 map unit = 1 cM = 1% recombination frequency. Measures crossover frequency, not physical length.', topic: Gene mapping}
+- {front: Ordering three genes from pairwise distances, back: 'The largest distance spans the two outer genes; the third gene is in the middle. Short distances roughly add up.', topic: Gene mapping}
+- {front: Why recombination frequency stops near 50%, back: 'One crossover affects only 2 of the 4 chromatids, and multiple crossovers between distant genes cancel out, randomizing the alleles as independent assortment would.', topic: Gene mapping}
+- {front: 'Three-point cross: finding the middle gene', back: 'Parental classes = most common; double crossovers = rarest. The gene that differs between them is in the middle.', topic: Gene mapping}
+- {front: 'Three-point cross: interval distances', back: 'For each interval, (single crossovers in that interval + all double crossovers) ÷ total × 100.', topic: Gene mapping}
+- {front: Coefficient of coincidence and interference, back: 'Coefficient of coincidence = observed ÷ expected double crossovers (expected = RF1 × RF2 × total). Interference = 1 − coefficient of coincidence.', topic: Gene mapping}
+- {front: Coupling vs repulsion, back: 'Coupling: AB / ab (dominant alleles on one chromosome). Repulsion: Ab / aB. In a test cross the parental (common) classes differ accordingly.', topic: Gene mapping}
+- {front: 'Modified dihybrid ratios', back: '9 : 3 : 4 recessive epistasis (mouse albino); 9 : 7 complementary genes (sweet pea); 12 : 3 : 1 dominant epistasis (squash); 15 : 1 duplicate genes (shepherd''s purse).', topic: Epistasis}
+- {front: 'Clue that an F2 involves two genes', back: 'Classes come out in sixteenths (9 : 7, 12 : 3 : 1, 15 : 1, 9 : 3 : 4), from a doubly heterozygous F1.', topic: Epistasis}
+- {front: Complementation test, back: 'Cross two true-breeding recessive mutants with the same phenotype. Normal F1: mutations in different genes. Mutant F1: same gene.', topic: Epistasis}
+- {front: Recessive lethal allele ratio, back: 'Two heterozygotes give 1 : 2 : 1, but the homozygous lethal class dies, leaving 2 : 1 among survivors (yellow mice: 2 yellow : 1 agouti).', topic: Epistasis}
+- {front: Number of genes from F2 extremes, back: 'With n equal additive genes, each F2 extreme is (1/4)^n and there are 2n + 1 phenotype classes. 1/64 means 3 genes; 1/256 means 4.', topic: Quantitative genetics}
+- {front: Norm of reaction, back: 'The range of phenotypes one genotype produces across environments (cloned yarrow grown at different elevations).', topic: Quantitative genetics}
+- {front: Broad- vs narrow-sense heritability, back: '$H^2 = V_G/V_P$ (all genetic variance). $h^2 = V_A/V_P$ (additive variance only); $h^2$ predicts response to selection.', topic: Quantitative genetics}
+- {front: "Breeder's equation", back: '$R = h^2 S$. Example: mean 120 cm, selected parents 130 cm, $h^2 = 0.4$: R = 4 cm, offspring mean 124 cm.', topic: Quantitative genetics}
+- {front: What heritability does not mean, back: 'Not the share of one person''s trait due to genes; not a sign the trait can''t change; not an explanation of differences between groups. It applies to one population in one environment.', topic: Quantitative genetics}

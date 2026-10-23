@@ -1,0 +1,466 @@
+# ---- h1 Honors: Research and biostatistics
+- id: bio-qh-h1-01
+  lesson: bio-h-investigation
+  module_quiz: true
+  topic: Experimental design
+  stem: A researcher tests whether a soil fungus increases tomato growth. She grows plants with the fungus, plants without it, and a third group given a fertilizer already known to increase growth. What is the third group?
+  choices: [A positive control, A negative control, The experimental group, A confounding variable]
+  answer: 0
+  explanation: A positive control gets a treatment known to produce the effect, so it shows the method can detect growth increases. The plants without fungus are the negative control; the fungus plants are the experimental group; a confounding variable is an unwanted factor, not a group.
+- id: bio-qh-h1-02
+  lesson: bio-h-investigation
+  topic: Experimental design
+  stem: Paper disks soaked in garlic extract, and disks soaked in the solvent alone, are placed on a lawn of bacteria. Clear rings with no bacteria appear around both kinds of disk. What is the best conclusion?
+  choices: [Garlic extract kills bacteria, 'The solvent itself kills bacteria, so the effect cannot be credited to garlic', 'The positive control failed, so the plates are faulty', Garlic has no effect on bacteria]
+  answer: 1
+  explanation: The solvent-only disk is the negative control and should show no effect. A clear ring around it means the solvent kills bacteria, so the rings around the garlic disks could be caused by the solvent. The experiment can neither confirm nor rule out an effect of garlic. (No positive control is described.)
+- id: bio-qh-h1-03
+  lesson: bio-h-investigation
+  topic: Experimental design
+  stem: A student puts one tray of 30 seedlings under a red lamp and one tray of 30 seedlings under a blue lamp, then measures all 60 seedlings. How many independent experimental units does each light treatment have?
+  choices: ['30', '60', '1', '2']
+  answer: 2
+  explanation: 'The lamp treatment is applied to whole trays, so the tray is the experimental unit: one per treatment. Anything else that differs between the two trays (position, a draft, watering) affects all 30 seedlings in a tray together. Counting the 30 seedlings as replicates is pseudoreplication.'
+- id: bio-qh-h1-04
+  lesson: bio-h-investigation
+  module_quiz: true
+  topic: Experimental design
+  stem: Pilot data show that a measurement has a standard deviation of 12. What is the smallest number of units per group that makes the standard error of a group mean no more than 3?
+  choices: ['4', '36', '144', '16']
+  answer: 3
+  explanation: SE = SD/√n, so 12/√n ≤ 3 gives √n ≥ 4 and n ≥ 16. (4 is √n, not n; 144 is 12²; 36 would make the SE 2.)
+- id: bio-qh-h1-05
+  lesson: bio-h-investigation
+  topic: Experimental design
+  stem: A lab quadruples the number of animals in each group, from 10 to 40. What happens to the standard error of each group mean, assuming the animals vary as before?
+  choices: [It is cut in half, It is cut to one quarter, It doubles, It stays the same]
+  answer: 0
+  explanation: SE = SD/√n. Multiplying n by 4 multiplies √n by 2, so the SE halves. Uncertainty falls with the square root of sample size, not in proportion to it, which is why precision is expensive.
+- id: bio-qh-h1-06
+  lesson: bio-h-investigation
+  topic: Experimental design
+  stem: Why do researchers assign individuals to treatment groups at random?
+  choices: [So that the groups are exactly identical, 'So that groups differ only by chance, even in factors no one measured', So that the sample represents the whole population, So that the researchers do not know which group is which]
+  answer: 1
+  explanation: Random assignment cannot make groups identical, but it makes any differences between them a matter of chance, including in unknown factors, and statistics can allow for chance. Representing a population is the job of random sampling; hiding group identity is blinding.
+- id: bio-qh-h1-07
+  lesson: bio-h-investigation
+  module_quiz: true
+  topic: Experimental design
+  stem: In the randomized 1954 polio vaccine trial, unvaccinated children whose parents refused consent had a lower polio rate (46 per 100,000) than unvaccinated children given the placebo (71 per 100,000). What explains this?
+  choices: [The placebo caused some cases of polio, The vaccine protected children who were not vaccinated, Families who consented differed from those who refused in ways that affected polio risk, The no-consent group was too small to measure accurately]
+  answer: 2
+  explanation: Neither group received vaccine, so the difference reflects who the families were. Children from better-off, more hygienic homes were both more likely to have consenting parents and more vulnerable to paralytic polio. This is why the fair comparison is vaccine versus placebo among consenting families, assigned at random. The placebo was salt water, and the no-consent group was large (about 350,000).
+- id: bio-qh-h1-08
+  lesson: bio-h-investigation
+  topic: Experimental design
+  stem: In a double-blind drug trial,
+  choices: ['the participants do not know who gets the drug, but the researchers do', two separate teams test the drug and compare results, every participant receives both the drug and the placebo, neither the participants nor the researchers who treat and assess them know who gets the drug]
+  answer: 3
+  explanation: Single-blind hides the treatment from participants; double-blind also hides it from the people giving treatment and measuring outcomes, which prevents observer bias. Using two teams is replication, and giving each person both treatments is a crossover design.
+- id: bio-qh-h1-09
+  lesson: bio-h-investigation
+  topic: Experimental design
+  stem: Which principle of the Belmont Report requires that the burdens and benefits of research be shared fairly, so that one group is not chosen as subjects just because it is easy to use?
+  choices: [Justice, Respect for persons, Beneficence, Replacement]
+  answer: 0
+  explanation: The Belmont Report (1979) lists respect for persons (informed consent), beneficence (maximize benefits, minimize harms) and justice (fair selection and sharing of burdens and benefits). Replacement is one of the 3Rs for animal research.
+- id: bio-qh-h1-10
+  lesson: bio-h-investigation
+  topic: Experimental design
+  type: text
+  stem: In animal research, the "R" that means using cell cultures, computer models or invertebrates instead of vertebrate animals where possible is ___.
+  accept: [replacement, replace]
+  explanation: The 3Rs (Russell and Burch, 1959) are replacement, reduction (using the fewest animals that give a clear answer) and refinement (minimizing pain and distress).
+- id: bio-qh-h1-11
+  lesson: bio-h-investigation
+  module_quiz: true
+  topic: Experimental design
+  type: match
+  stem: Match each term to an example of it.
+  pairs:
+  - [Operational definition, Growth is measured as dry mass after 21 days]
+  - [Confounding variable, All the treated plants were kept on the warmer shelf]
+  - [Placebo, A sugar pill that looks exactly like the drug]
+  - [Negative control, A paper disk soaked in the solvent only]
+  distractors: [A paper disk soaked in a known antibiotic]
+  explanation: An operational definition states exactly how a variable is measured. Temperature differing along with treatment is a confounder. A placebo is an inactive look-alike treatment. A solvent-only disk is a negative control; a disk with a known antibiotic would be a positive control.
+- id: bio-qh-h1-12
+  lesson: bio-h-investigation
+  topic: Experimental design
+  stem: A student picks the most active-looking water fleas for her caffeine group, then counts heartbeats herself while knowing which dish is which. Which changes would reduce bias in her study? Select all that apply.
+  choices: [Assign animals to groups with a random number generator, Have a classmate label the dishes with codes so the counter does not know the treatments, Test more animals chosen the same way, Count beats for 30 seconds instead of 15]
+  answer: [0, 1]
+  explanation: Random assignment removes the selection bias, and coding the dishes blinds the observer. Testing more animals chosen the same way only gives a more precise biased answer, and counting longer improves precision, not bias.
+- id: bio-qh-h1-13
+  lesson: bio-h-investigation
+  module_quiz: true
+  topic: Experimental design
+  type: order
+  stem: Put the steps of planning and carrying out an experiment in order.
+  items: [Ask a question, Write operational definitions and a hypothesis, Get approval from an ethics committee, Randomly assign units to groups, Collect the data blind, Analyze the data]
+  explanation: A question becomes a measurable hypothesis; the design (including controls and sample size) is reviewed for ethics before any subjects are used; units are then randomly assigned, measured without knowledge of their treatment, and the data analyzed.
+- id: bio-qh-h1-14
+  lesson: bio-h-investigation
+  topic: Experimental design
+  type: text
+  stem: Treating repeated measurements of the same experimental unit (for example, ten leaves from one plant) as if they were independent replicates is called ___.
+  accept: [pseudoreplication, pseudo-replication, pseudoreplicating]
+  explanation: Measurements from one unit share everything that happened to that unit, so they are not independent. Pseudoreplication makes results look far more certain than they are.
+- id: bio-qh-h1-15
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  stem: 'Bacterial colonies counted on seven plates: 2, 3, 3, 4, 5, 6, 47. What is the median?'
+  choices: ['10', '4', '3', '45']
+  answer: 1
+  explanation: In order, the middle (4th) of 7 values is 4. The mean is 70/7 = 10, pulled up by the outlier 47; 3 is the most common value (the mode); 45 is the range.
+- id: bio-qh-h1-16
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  stem: Most deer in a forest carry a few ticks, but a handful carry hundreds. Which single number best describes the tick load of a typical deer?
+  choices: [The mean, The range, The median, The standard deviation]
+  answer: 2
+  explanation: The data are strongly skewed, so the few heavily infested deer pull the mean far above what most deer carry. The median resists outliers. The range and SD describe spread, not a typical value.
+- id: bio-qh-h1-17
+  lesson: bio-h-statistics
+  module_quiz: true
+  topic: Descriptive statistics
+  stem: What is the sample standard deviation of the values 4, 6 and 8?
+  choices: ['1.63', '4', '2.83', '2']
+  answer: 3
+  explanation: 'The mean is 6; deviations −2, 0, 2; squares sum to 8. Divide by n − 1 = 2 to get 4 (the variance), then take the square root: 2. Dividing by n gives 1.63; 4 forgets the square root; 2.83 is √8, which skips dividing.'
+- id: bio-qh-h1-18
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  stem: The lengths of 36 leaves have a standard deviation of 12 mm. What is the standard error of the mean length?
+  choices: [2 mm, 0.33 mm, 6 mm, 12 mm]
+  answer: 0
+  explanation: SE = s/√n = 12/√36 = 12/6 = 2 mm. 0.33 is 12/36 (dividing by n instead of √n); 6 is √36; 12 mm is the SD itself.
+- id: bio-qh-h1-19
+  lesson: bio-h-statistics
+  module_quiz: true
+  topic: Descriptive statistics
+  stem: A researcher keeps adding plants to a sample that started with 10. As the sample grows, what happens to the standard deviation and the standard error of plant height?
+  choices: [Both shrink toward zero, 'The SD settles near the populations true spread, while the SE keeps shrinking', Both stay the same, 'The SD shrinks, while the SE stays the same']
+  answer: 1
+  explanation: The SD describes how much individual plants vary, which doesnt depend on how many you measure. The SE (SD/√n) describes the precision of the mean, which improves as n grows.
+- id: bio-qh-h1-20
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  stem: A study reports a 95% confidence interval for mean beak depth of 9.2 to 9.8 mm. Which statement is correct?
+  choices: [95% of the birds have beak depths between 9.2 and 9.8 mm, There is a 95% chance that the next bird measured will fall in this range, 'If the study were repeated many times, about 95% of intervals made this way would contain the true mean', The sample mean is 95% accurate]
+  answer: 2
+  explanation: A confidence interval is about the population mean, and the 95% describes how often the method captures it. The range containing about 95% of individual birds would be roughly the mean ± 2 SD, much wider.
+- id: bio-qh-h1-21
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  stem: Body lengths in a population of fish are roughly normal with mean 50 mm and SD 10 mm. About what percent of fish are between 30 and 70 mm long?
+  choices: [68%, 99.7%, 50%, 95%]
+  answer: 3
+  explanation: 30 and 70 are each 2 SD from the mean, and about 95% of normal data lie within 2 SD. 68% would be 40 to 60 mm (1 SD); 99.7% is 3 SD.
+- id: bio-qh-h1-22
+  lesson: bio-h-statistics
+  module_quiz: true
+  topic: Descriptive statistics
+  stem: A graph shows means with standard error bars for two independent groups of 15 animals. The SE bars overlap. What can you conclude?
+  choices: [The difference is not statistically significant at the 0.05 level, The difference is significant at the 0.05 level, The two groups have the same mean, 'Nothing, because SE bars cannot be compared']
+  answer: 0
+  explanation: 'For independent groups of similar size, overlapping SE bars mean p > 0.05. That is not the same as showing the means are equal: a real difference may exist that the study could not detect.'
+- id: bio-qh-h1-23
+  lesson: bio-h-statistics
+  module_quiz: true
+  topic: Descriptive statistics
+  stem: A sample mean is 120 with a standard error of 4. What is the approximate 95% confidence interval?
+  choices: [116 to 124, 112 to 128, 104 to 136, 118 to 122]
+  answer: 1
+  explanation: Mean ± 2 SE = 120 ± 8. 116 to 124 uses only 1 SE; 104 to 136 uses 4 SE; 118 to 122 uses half an SE.
+- id: bio-qh-h1-24
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  stem: A biologist has body mass and resting metabolic rate for 30 mammal species and wants to show how the two are related. Which graph fits best?
+  choices: [A bar graph of the two means, A box plot of metabolic rate, A scatter plot, A pie chart of body mass]
+  answer: 2
+  explanation: Two measured variables for the same individuals (species) call for a scatter plot, where each point is one species. Bar graphs compare groups; box plots and histograms show one variables distribution.
+- id: bio-qh-h1-25
+  lesson: bio-h-statistics
+  module_quiz: true
+  topic: Descriptive statistics
+  type: label
+  stem: This box plot shows tick counts on 15 mice. Name the numbered parts.
+  image: {src: images/h1-boxplot.svg, alt: 'A horizontal box plot of ticks per mouse on a scale from 0 to 35, with a box, a line inside it, whiskers on both sides and one separate point far to the right. Five parts are numbered.'}
+  distractors: [Mean, Standard error]
+  labels:
+  - {x: 12.7, y: 22.7, text: Lower quartile}
+  - {x: 20, y: 22.7, text: Median}
+  - {x: 34.4, y: 50, text: Upper quartile}
+  - {x: 53.6, y: 36.4, text: End of whisker (largest non-outlier)}
+  - {x: 89.7, y: 36.4, text: Outlier}
+  explanation: The box runs from the lower quartile (2) to the upper quartile (11), with the median (5) inside. The right whisker ends at 19, the largest value that is not an outlier; 34 is more than 1.5 box-lengths beyond the box, so it is plotted as an outlier. A box plot does not show the mean or the standard error.
+- id: bio-qh-h1-26
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  stem: Which statements about the sample standard deviation are true? Select all that apply.
+  choices: [It is in the same units as the data, It measures how much individual values spread around the mean, It shrinks toward zero as the sample size grows, It is always smaller than the standard error]
+  answer: [0, 1]
+  explanation: Taking the square root returns the SD to the datas units, and it describes spread of individuals. It does not shrink with more data (the SE does), and the SE = SD/√n is smaller than the SD whenever n > 1.
+- id: bio-qh-h1-27
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  type: match
+  stem: Match each kind of error bar to what it shows.
+  pairs:
+  - [Standard deviation, How much individual values vary]
+  - [Standard error, How precisely the mean is known (s/√n)]
+  - [95% confidence interval, A range of plausible values for the true mean]
+  distractors: [The difference between the largest and smallest values]
+  explanation: SD bars describe the data; SE bars describe the precision of the mean; a 95% CI (about ±2 SE) gives plausible values for the population mean. The difference between the extremes is the range, which is rarely drawn as an error bar.
+- id: bio-qh-h1-28
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  type: text
+  stem: Nine plants have a mean height of 12.4 cm and a standard deviation of 3.0 cm. The standard error of the mean is ___ cm.
+  accept: ['1', '1.0']
+  explanation: SE = s/√n = 3.0/√9 = 3.0/3 = 1.0 cm.
+- id: bio-qh-h1-29
+  lesson: bio-h-statistics
+  topic: Descriptive statistics
+  type: order
+  stem: Put the steps for calculating a sample standard deviation in order.
+  items: [Find the mean, Subtract the mean from each value, Square each deviation, Add the squared deviations, Divide by n − 1, Take the square root]
+  explanation: 's = √(Σ(x − x̄)²/(n − 1)): deviations from the mean, squared so they dont cancel, summed, divided by n − 1, and square-rooted to return to the original units.'
+- id: bio-qh-h1-30
+  lesson: bio-h-hypothesis-tests
+  module_quiz: true
+  topic: Hypothesis testing
+  stem: A biologist tests whether caffeine changes the heart rate of water fleas. What is the null hypothesis?
+  choices: [Caffeine increases mean heart rate, Caffeine changes mean heart rate, Water fleas in caffeine have a different heart rate, Caffeine has no effect on mean heart rate]
+  answer: 3
+  explanation: The null hypothesis is the specific "no effect" statement that the test assumes. The other three are versions of the alternative hypothesis.
+- id: bio-qh-h1-31
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: A test gives p = 0.03. What does this mean?
+  choices: ['If the null hypothesis were true, a result at least this extreme would happen about 3% of the time', There is a 3% chance that the null hypothesis is true, There is a 97% chance that the treatment works, The treatment changed the outcome by 3%]
+  answer: 0
+  explanation: A p-value is calculated assuming the null hypothesis is true, so it cannot be the probability that the null is true or that the treatment works. It also says nothing directly about the size of the effect.
+- id: bio-qh-h1-32
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: A Type I error is
+  choices: [failing to reject a null hypothesis that is actually false, rejecting a null hypothesis that is actually true, using the wrong statistical test, making a mistake in the arithmetic]
+  answer: 1
+  explanation: 'A Type I error is a false positive: concluding there is an effect when there is none. Failing to detect a real effect is a Type II error.'
+- id: bio-qh-h1-33
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: A lab tests 40 genes to see whether each ones activity differs between two groups of mice. In fact none of the genes differ. Testing each at the 0.05 level, about how many "significant" results should the lab expect by chance?
+  choices: ['0', '1', '2', '5']
+  answer: 2
+  explanation: 'With a true null, each test has a 5% chance of a false positive: 40 × 0.05 = 2. This is why testing many things and reporting only the hits produces false discoveries.'
+- id: bio-qh-h1-34
+  lesson: bio-h-hypothesis-tests
+  module_quiz: true
+  topic: Hypothesis testing
+  stem: In a study of 100 seedlings, 60 were treated and 40 untreated; 70 survived and 30 died. If survival is independent of treatment, how many treated seedlings are expected to survive?
+  choices: ['35', '30', '60', '42']
+  answer: 3
+  explanation: Expected = row total × column total ÷ grand total = 60 × 70 / 100 = 42. Equivalently, 70% of all seedlings survived, so 70% of the 60 treated ones are expected to.
+- id: bio-qh-h1-35
+  lesson: bio-h-hypothesis-tests
+  module_quiz: true
+  topic: Hypothesis testing
+  stem: A chi-square test of independence uses a contingency table with 3 rows and 4 columns. How many degrees of freedom does it have?
+  choices: ['6', '11', '12', '7']
+  answer: 0
+  explanation: df = (rows − 1)(columns − 1) = 2 × 3 = 6. 11 is cells − 1 (the goodness-of-fit rule misapplied); 12 is the number of cells; 7 is rows + columns.
+- id: bio-qh-h1-36
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: Kettlewell recaptured 27.5% of dark peppered moths and 13.1% of pale ones released in a sooty wood; a chi-square test of independence gave χ² = 11.84 with 1 degree of freedom. Which conclusion is best supported?
+  choices: [Birds were proven to eat more pale moths, 'In that wood, recapture rate depended on the moths form', Moth color and recapture are independent, Dark moths are a different species from pale moths]
+  answer: 1
+  explanation: 'Since 11.84 > 3.84, independence is rejected: the forms were recaptured at different rates. The test shows an association, not its cause; bird predation was supported by other evidence, including Majeruss later experiment.'
+- id: bio-qh-h1-37
+  lesson: bio-h-hypothesis-tests
+  module_quiz: true
+  topic: Hypothesis testing
+  stem: Group 1 has mean 30 (SE 1.5) and group 2 has mean 36 (SE 2.0). What is the t statistic for the difference?
+  choices: ['1.71', '3.0', '2.4', '0.96']
+  answer: 2
+  explanation: SE of the difference = √(1.5² + 2.0²) = √6.25 = 2.5, so t = 6/2.5 = 2.4. 1.71 adds the SEs instead of combining their squares; 3.0 uses only one SE; 0.96 divides by 6.25 without taking the square root.
+- id: bio-qh-h1-38
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: Across 25 populations of a lizard species, altitude and mean body length have a correlation coefficient of r = −0.85. What does this tell you?
+  choices: [High altitude causes lizards to be shorter, 'There is almost no relationship, since r is negative', 85% of lizards are shorter at higher altitude, 'There is a strong negative straight-line relationship: higher populations tend to have shorter lizards']
+  answer: 3
+  explanation: An r near −1 means a strong negative linear relationship. The sign gives the direction, not the strength. Correlation alone does not show that altitude causes the difference, and r is not a percentage of individuals.
+- id: bio-qh-h1-39
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: Countries with higher chocolate consumption per person have won more Nobel prizes per person (r = 0.79). Which is the best interpretation?
+  choices: ['A third factor, such as national wealth, could raise both, so the correlation alone shows no cause', 'Eating chocolate improves the brain, causing more prizes', The correlation is too weak to mean anything, Winning prizes makes people eat more chocolate]
+  answer: 0
+  explanation: A strong correlation can arise from a confounding variable; wealth plausibly raises both chocolate consumption and research output. Claiming either direction of cause needs other evidence, such as experiments.
+- id: bio-qh-h1-40
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: For cricket chirp rate, the least-squares line is ŷ = −28.9 + 6.93x, where x is temperature in °C. What chirp rate does it predict at 24 °C?
+  choices: [About 166 chirps per minute, About 137 chirps per minute, About 195 chirps per minute, About 124 chirps per minute]
+  answer: 1
+  explanation: −28.9 + 6.93 × 24 = −28.9 + 166.3 = 137.4. 166 forgets the intercept; 195 adds 28.9 instead of subtracting it; 124 is the mean chirp rate of the data.
+- id: bio-qh-h1-41
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  type: text
+  stem: A chi-square test of independence on a 2 × 2 contingency table has ___ degree(s) of freedom.
+  accept: ['1', one]
+  explanation: df = (2 − 1)(2 − 1) = 1. Once the row and column totals are fixed, choosing one cell determines the other three.
+- id: bio-qh-h1-42
+  lesson: bio-h-hypothesis-tests
+  module_quiz: true
+  topic: Hypothesis testing
+  type: match
+  stem: Match each study to the statistical tool that fits it.
+  pairs:
+  - ['Comparing F2 phenotype counts with a 9 : 3 : 3 : 1 ratio', Chi-square goodness of fit]
+  - [Asking whether eye color is associated with sex in 200 flies, Chi-square test of independence]
+  - [Comparing mean leaf length of plants in two light treatments, t-test]
+  - [Relating wing length to body mass in 50 birds, Correlation and linear regression]
+  explanation: 'Counts compared with a predicted ratio: goodness of fit. Two categorical variables cross-classified: test of independence. Two group means: t-test. Two measured variables on the same individuals: correlation and regression.'
+- id: bio-qh-h1-43
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  stem: Which statements about p-values are correct? Select all that apply.
+  choices: [A p-value is calculated assuming the null hypothesis is true, p = 0.04 means there is a 4% chance that the null hypothesis is true, A very small p-value can come from a tiny effect in a very large sample, p > 0.05 proves that the treatment has no effect]
+  answer: [0, 2]
+  explanation: The p-value assumes the null and asks how surprising the data are, so it is not the probability that the null is true. Huge samples can make trivial effects significant, so report effect sizes too. A non-significant result may simply reflect low power.
+- id: bio-qh-h1-44
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  type: text
+  stem: A regression of y on x has a correlation coefficient of r = 0.90. The line explains ___ percent of the variation in y.
+  accept: ['81', 81%, 81 percent]
+  explanation: The coefficient of determination is r² = 0.90² = 0.81, so the line explains 81% of the variation in y.
+- id: bio-qh-h1-45
+  lesson: bio-h-hypothesis-tests
+  topic: Hypothesis testing
+  type: order
+  stem: Put the steps of a chi-square test of independence in order.
+  items: [State the null and alternative hypotheses, Compute expected counts from the row and column totals, Calculate chi-square from observed and expected counts, Find the degrees of freedom, Compare chi-square with the critical value and decide]
+  explanation: The hypotheses come first; the null (independence) gives the expected counts; χ² = Σ(O − E)²/E; df = (r − 1)(c − 1) determines the critical value used to decide.
+- id: bio-qh-h1-46
+  lesson: bio-h-papers
+  topic: Scientific communication
+  stem: In which section of a research paper would you look to find the sample sizes, the concentrations used and the statistical tests?
+  choices: [Abstract, Results, Methods, Discussion]
+  answer: 2
+  explanation: The methods give enough detail for someone else to repeat the study, including organisms, sample sizes, procedures and statistics. The abstract summarizes; results report findings; the discussion interprets them.
+- id: bio-qh-h1-47
+  lesson: bio-h-papers
+  topic: Scientific communication
+  stem: What belongs in the results section of a lab report?
+  choices: [An explanation of why the results support the hypothesis, Background on why the question matters, A step-by-step description of the procedure, 'The findings, with numbers, units, sample sizes and test results, but no interpretation']
+  answer: 3
+  explanation: Results report what was found. Interpretation goes in the discussion, background in the introduction, and procedures in the methods.
+- id: bio-qh-h1-48
+  lesson: bio-h-papers
+  topic: Scientific communication
+  stem: A review article on antibiotic resistance is best described as
+  choices: [a secondary source that summarizes many primary studies, a primary source reporting a new experiment, a preprint that has not been peer reviewed, a news story based on one study]
+  answer: 0
+  explanation: Review articles survey and summarize the primary literature, usually written by experts and usually peer reviewed. A primary source reports original research by the people who did it.
+- id: bio-qh-h1-49
+  lesson: bio-h-papers
+  topic: Scientific communication
+  stem: An abstract says a drug "strongly improved survival." What is the best way to check whether the papers data support this?
+  choices: [Read the title again, 'Look at the figures, their legends and the sample sizes', Check how many times the paper has been shared online, Read the introduction]
+  answer: 1
+  explanation: 'Figures and legends show the actual evidence: effect size, variation, n and test results. Abstracts sometimes claim more than the data show. Popularity and background say nothing about the data.'
+- id: bio-qh-h1-50
+  lesson: bio-h-papers
+  module_quiz: true
+  topic: Scientific communication
+  stem: Which problem is peer review least able to catch?
+  choices: [A conclusion that goes beyond the data shown, A missing control group, Data that the authors fabricated, An inappropriate statistical test]
+  answer: 2
+  explanation: 'Reviewers judge what the authors report: design, controls, statistics and whether conclusions follow. They usually cannot see raw data or lab notebooks, so fabrication rarely shows up. Replication after publication is the deeper check.'
+- id: bio-qh-h1-51
+  lesson: bio-h-papers
+  module_quiz: true
+  topic: Scientific communication
+  stem: A news story reports a "new study" posted on bioRxiv last week. What should a careful reader keep in mind?
+  choices: ['It has been peer reviewed, since it is on a science website', 'It must be false, since it was not published in a journal', It has already been replicated by other labs, 'It is a preprint, so it has not yet been checked by peer review']
+  answer: 3
+  explanation: 'bioRxiv hosts preprints: complete manuscripts posted before or during peer review. They can be valuable and many are later published, but they should be treated as claims not yet checked by reviewers.'
+- id: bio-qh-h1-52
+  lesson: bio-h-papers
+  module_quiz: true
+  topic: Scientific communication
+  stem: A figure shows a control mean of 2.5 units and a treated mean of 3.5 units. What is the percent change from control to treated?
+  choices: [40%, 29%, 1.4%, 140%]
+  answer: 0
+  explanation: (3.5 − 2.5)/2.5 × 100% = 40%. 29% divides by the treated value; 1.4 is the fold change (not a percent); 140% confuses the fold change with the percent change.
+- id: bio-qh-h1-53
+  lesson: bio-h-papers
+  topic: Scientific communication
+  stem: A genes activity is 0.80 units in control cells and 0.20 units in treated cells. What is the fold change (treated ÷ control)?
+  choices: ['4, a 300% increase', '0.25, a 75% decrease', '0.60, a 60% decrease', '0.75, a 25% decrease']
+  answer: 1
+  explanation: 0.20/0.80 = 0.25, so activity fell to a quarter, a 75% decrease. 4 divides the wrong way; 0.60 is the difference, not the ratio; 0.75 is the fraction lost, not the fraction left.
+- id: bio-qh-h1-54
+  lesson: bio-h-papers
+  topic: Scientific communication
+  stem: A study finding that a sports drink improves endurance was funded by the drinks maker. What is the best response?
+  choices: ['Reject the study, since industry funding makes results false', 'Accept the study, since funding does not affect science', Examine the methods closely and look for independent studies that test the same claim, 'Ignore the funding, since it was peer reviewed']
+  answer: 2
+  explanation: A conflict of interest is a reason for extra scrutiny, not automatic rejection. Funding can influence design, analysis or which results get published, so check the methods and look for independent replication.
+- id: bio-qh-h1-55
+  lesson: bio-h-papers
+  topic: Scientific communication
+  type: label
+  stem: Name the numbered parts of this research figure.
+  image: {src: images/h1-figure-parts.svg, alt: 'A two-panel figure. Panel A plots plant dry mass for a control and a nitrogen group as dots with means, error bars and a bracket above; panel B is a scatter plot with a dashed line. Text below the panels describes the figure. Six parts are numbered.'}
+  distractors: [Abstract, Regression line]
+  labels:
+  - {x: 3.5, y: 6.2, text: Panel letter}
+  - {x: 3.8, y: 40.4, text: Axis title with units}
+  - {x: 18.7, y: 62.5, text: Individual data point}
+  - {x: 42.5, y: 32.7, text: Error bar}
+  - {x: 27.8, y: 12.1, text: Significance marker}
+  - {x: 3, y: 86.2, text: Figure legend}
+  explanation: The letter A marks the first panel; the y-axis title gives the variable and its units (g); each dot is one plant; the short vertical bar beside each group shows mean ± SE; the asterisk over the bracket marks a significant difference; the text below is the figure legend, which defines all of these. The dashed regression line is in panel B but is not numbered.
+- id: bio-qh-h1-56
+  lesson: bio-h-papers
+  module_quiz: true
+  topic: Scientific communication
+  type: order
+  stem: Put the parts of a research paper in their usual order.
+  items: [Abstract, Introduction, Methods, Results, Discussion, References]
+  explanation: 'Papers follow IMRaD: a summary abstract, then introduction, methods, results and discussion, with references at the end.'
+- id: bio-qh-h1-57
+  lesson: bio-h-papers
+  topic: Scientific communication
+  stem: A headline says "Coffee drinkers live longer," based on an observational study of 500,000 adults. Which are valid concerns about the headline? Select all that apply.
+  choices: [Coffee drinkers may differ from non-drinkers in other ways that affect lifespan, An observational study cannot by itself show that coffee causes longer life, 'With 500,000 people, the association must be due to chance', 'Because the study was large, confounding is ruled out']
+  answer: [0, 1]
+  explanation: 'Large size makes chance an unlikely explanation and gives precise estimates, but it does nothing about confounding: coffee drinkers might differ in income, health or habits. Only randomized experiments, or many studies with different weaknesses agreeing, can support a causal claim.'
+- id: bio-qh-h1-58
+  lesson: bio-h-papers
+  module_quiz: true
+  topic: Scientific communication
+  type: match
+  stem: Match each sentence from a lab report to the section where it belongs.
+  pairs:
+  - ['Caffeine stimulates the human heart, but its effect on invertebrate hearts is less studied.', Introduction]
+  - [Eight water fleas per group were randomly assigned to 2 mg/mL caffeine or pond water., Methods]
+  - ['Mean heart rate was 245 bpm in caffeine and 213 bpm in pond water (t = 6.0, p < 0.001).', Results]
+  - [These results support the hypothesis that caffeine stimulates the water flea heart., Discussion]
+  explanation: Background goes in the introduction, procedures in the methods, numbers and test results in the results, and interpretation in the discussion.
+- id: bio-qh-h1-59
+  lesson: bio-h-papers
+  topic: Scientific communication
+  type: text
+  stem: When a journal formally withdraws a published paper because its findings are seriously flawed or the result of misconduct, the paper is said to have received a ___.
+  accept: [retraction, retractions]
+  explanation: A retraction removes a paper from the scientific record. The 1998 paper claiming a link between the MMR vaccine and autism was retracted in 2010.

@@ -36,7 +36,22 @@ Single-celled protists move in three classic ways, each tied to a structure you 
 
 Photosynthetic protists and cyanobacteria in the oceans, the phytoplankton, carry out roughly half of all photosynthesis on Earth. Every other breath you take uses oxygen they released, and they form the base of most ocean food chains. Diatoms build glassy silica shells; their fossil remains are mined as diatomaceous earth.
 
-Some protists are serious pathogens. Malaria is caused by *Plasmodium*, a single-celled parasite carried by *Anopheles* mosquitoes. The parasite has a complex life cycle: it multiplies in the liver, then repeatedly invades red blood cells and bursts them, which causes the cycles of fever. Malaria still kills hundreds of thousands of people a year, mostly young children in sub-Saharan Africa. Other protist diseases include African sleeping sickness (*Trypanosoma*, spread by tsetse flies) and the intestinal infection giardiasis (*Giardia*, from contaminated water).
+Some protists are serious pathogens. Malaria is caused by *Plasmodium*, a single-celled parasite carried by *Anopheles* mosquitoes. The parasite has a complex life cycle: it multiplies in the liver, then repeatedly invades red blood cells and bursts them, which causes the cycles of fever. Some parasites in the blood become sexual forms, which a mosquito swallows when it bites; they fuse in the mosquito, and the cycle continues, as the diagram traces. Malaria still kills hundreds of thousands of people a year, mostly young children in sub-Saharan Africa.
+
+```mermaid
+flowchart TD
+  accTitle: Life cycle of the malaria parasite Plasmodium
+  accDescr: An infected Anopheles mosquito bites a person and injects the parasite. The parasites travel to the liver and multiply there, then are released into the blood, where they repeatedly invade red blood cells, multiply and burst them, causing fever. Some develop into sexual forms that a feeding mosquito takes up. In the mosquito the sexual forms fuse and the parasite develops and moves to the salivary glands, ready to infect the next person.
+  A[Mosquito bite injects parasites] --> B[Liver: parasites multiply]
+  B --> C[Red blood cells invaded]
+  C -- "cells burst: fever" --> C
+  C --> D[Some become sexual forms]
+  D -- taken up when a mosquito feeds --> E[Mosquito: sexual forms fuse, parasite develops]
+  E --> F[Parasites reach mosquito salivary glands]
+  F --> A
+```
+
+Other protist diseases include African sleeping sickness (*Trypanosoma*, spread by tsetse flies) and the intestinal infection giardiasis (*Giardia*, from contaminated water).
 
 A water mold, *Phytophthora infestans*, destroyed Ireland's potato crops in the 1840s and contributed to a famine that killed about a million people. It was long called a fungus because it grows in threads like one, but its cell walls are made of cellulose rather than chitin and its DNA places it among the protists, near diatoms and brown algae. Looks can mislead; ancestry decides.
 
@@ -64,6 +79,10 @@ DNA comparisons confirm what these clues suggest: fungi and animals share a more
 ### The body of a fungus
 
 Except for single-celled yeasts, a fungus is built from **hyphae**: thread-like filaments, often only one cell wide. A mass of branching hyphae is a **mycelium**, which spreads through soil, wood or food, mostly unseen. A mushroom is only the fruiting body, a short-lived structure the mycelium pushes up to release spores. Mycelia can be huge: a single honey fungus (*Armillaria*) in an Oregon forest spreads through roughly 9 square kilometers of soil and is among the largest known organisms.
+
+![A mushroom above ground, with a cap, gills underneath dropping spores, and a stalk. Below the soil surface, a widespread network of thread-like hyphae forms the mycelium.](images/m8-mushroom.svg)
+
+The drawing shows the proportions that matter: the cap, gills and stalk are only the visible tip of a fungus whose mycelium threads through the soil.
 
 Fungi feed by absorption. Hyphae release digestive enzymes into their surroundings, break down food outside the body, and absorb the small molecules. The long, thin hyphae give a huge surface area for that absorption, the same surface-area-to-volume logic you saw for cells.
 

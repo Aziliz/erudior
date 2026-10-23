@@ -17,6 +17,24 @@ There are exceptions to the simple arrow. Retroviruses such as HIV copy RNA back
 
 Why use an RNA middleman at all? In eukaryotes the DNA stays in the nucleus, while ribosomes work in the cytoplasm. A gene can be transcribed into many RNA copies, each translated many times, so one gene can make thousands of protein molecules quickly while the master copy stays protected.
 
+The diagram traces that path in a eukaryotic cell, with the steps this lesson covers in order.
+
+```mermaid
+flowchart TB
+  accTitle: Gene expression in a eukaryotic cell
+  accDescr: Inside the nucleus, DNA is copied by replication and transcribed into pre-mRNA. The pre-mRNA gets a cap and tail and its introns are spliced out, giving mature mRNA. The mRNA leaves the nucleus through a nuclear pore. In the cytoplasm a ribosome translates its codons into a polypeptide, which folds into a working protein.
+  subgraph N[Nucleus]
+    DNA -- transcription --> PRE[pre-mRNA]
+    PRE -- "cap, tail, splicing" --> MRNA[mature mRNA]
+  end
+  subgraph C[Cytoplasm]
+    RIB[Ribosome reads codons] -- translation --> POLY[Polypeptide]
+    POLY -- folding --> PROT[Working protein]
+  end
+  DNA -- replication --> DNA
+  MRNA -- "leaves through a pore" --> RIB
+```
+
 ## RNA is not DNA
 
 RNA is a nucleic acid too, but it differs from DNA in three ways:
@@ -42,6 +60,10 @@ Transcription copies one gene, not a whole chromosome, and it uses only one of t
 3. *Termination.* At a terminator sequence the polymerase releases the RNA and the DNA rewinds.
 
 The DNA strand that is read is the template strand. The other strand is called the coding strand, because its sequence matches the mRNA (with T in place of U).
+
+![A stretch of double-stranded DNA with a bubble where the strands are pulled apart inside an RNA polymerase. A shaded promoter sits upstream on the left. The top coding strand runs 5′ to 3′ left to right; the bottom template strand runs 3′ to 5′. Inside the bubble a new RNA strand pairs with the template strand, and its 5′ end trails out of the polymerase to the upper left. An arrow shows the polymerase moving to the right.](images/m6-transcription.svg)
+
+In the picture, notice which strand the RNA pairs with (the template), and that the RNA's free end is its 5′ end: the RNA was started first at that end and is growing at its 3′ end inside the polymerase.
 
 In eukaryotes the new RNA is processed before it leaves the nucleus. A protective cap is added to its 5′ end and a tail of many A's to its 3′ end. Most genes also contain **introns**, stretches that are cut out, and **exons**, the stretches that are spliced together and expressed. Splicing can join exons in different combinations, which is one reason humans make far more kinds of protein than their roughly 20,000 protein-coding genes.
 
@@ -92,6 +114,10 @@ Translation happens on ribosomes. Each tRNA has, at one end, an **anticodon**: t
 1. *Initiation.* The small ribosomal subunit attaches to the mRNA near its 5′ end and slides to the first AUG. A tRNA with anticodon UAC, carrying Met, pairs with it, and the large subunit joins. The AUG sets the reading frame: from here the mRNA is read in non-overlapping groups of three.
 2. *Elongation.* The next tRNA whose anticodon matches the next codon enters the ribosome. The rRNA joins its amino acid to the growing chain with a peptide bond. The ribosome shifts one codon along the mRNA (toward the 3′ end), the empty tRNA leaves to be reloaded, and the cycle repeats.
 3. *Termination.* When a stop codon enters the ribosome, a release factor (a protein, not a tRNA) binds, the finished chain is let go, and the ribosome comes apart.
+
+The figure freezes one moment of elongation on the mRNA from Example 2 below. The tRNA holding the chain Met–Phe sits on codon UUU, and the next tRNA, carrying Gly, has just paired its anticodon CCG with codon GGC. Next, the chain will be moved onto Gly, the ribosome will shift one codon to the right, and the tRNA on UUU will leave, just as the empty tRNA for AUG is leaving on the left.
+
+![A ribosome with a large upper subunit and a small lower subunit clamped around an mRNA that reads 5′ AUG UUU GGC AAA UGA 3′. Two tRNAs sit in the ribosome: one with anticodon AAA paired to codon UUU and carrying a chain of Met and Phe, the other with anticodon CCG paired to codon GGC and carrying Gly. An empty tRNA with anticodon UAC drifts away on the left. An arrow shows the ribosome moving toward the 3′ end.](images/m6-translation.svg)
 
 The new chain then folds into its three-dimensional shape, sometimes helped by other proteins, and may be modified or sent to the endoplasmic reticulum and Golgi apparatus you met in module 2.
 

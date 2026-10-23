@@ -19,7 +19,16 @@ Look at the 46 chromosomes of a human body cell arranged by size and you will se
 
 Of the 23 pairs, 22 pairs are autosomes, matched in everyone. The 23rd pair is the sex chromosomes: two X chromosomes in most females, an X and a Y in most males. The X and Y differ in size but pair up during meiosis through a small shared region. (Module 5 covers how sex chromosomes affect inheritance.)
 
-A cell with two complete sets of chromosomes, one from each parent, is **diploid**, written 2n. A cell with one set is **haploid**, written n. In humans 2n = 46 and n = 23. Body cells are diploid. Sex cells, or **gametes** (eggs and sperm), are haploid. Fertilization joins two haploid gametes into a diploid zygote, the first cell of a new organism: n + n = 2n. Every species has its own number: fruit flies 2n = 8, dogs 2n = 78, garden peas 2n = 14.
+A cell with two complete sets of chromosomes, one from each parent, is **diploid**, written 2n. A cell with one set is **haploid**, written n. In humans 2n = 46 and n = 23. Body cells are diploid. Sex cells, or **gametes** (eggs and sperm), are haploid. Fertilization joins two haploid gametes into a diploid zygote, the first cell of a new organism: n + n = 2n. Every species has its own number: fruit flies 2n = 8, dogs 2n = 78, garden peas 2n = 14. The diagram shows how meiosis and fertilization alternate in the human life cycle.
+
+```mermaid
+flowchart LR
+  accTitle: The human life cycle
+  accDescr: A diploid adult with 46 chromosomes makes haploid eggs or sperm with 23 chromosomes by meiosis. At fertilization an egg and a sperm join to form a diploid zygote with 46 chromosomes. The zygote divides by mitosis many times to grow into a diploid adult, and the cycle repeats.
+  A["Adult: diploid, 2n = 46"] -- meiosis --> G["Eggs or sperm: haploid, n = 23"]
+  G -- fertilization --> Z["Zygote: diploid, 2n = 46"]
+  Z -- "mitosis, many times" --> A
+```
 
 ## Meiosis step by step
 
@@ -34,7 +43,9 @@ Meiosis starts after a normal interphase, so the cell enters it with every chrom
 
 *Meiosis II separates the sister chromatids.* No DNA replication happens between the two divisions. Each haploid cell goes through prophase II, metaphase II (chromosomes line up singly), anaphase II (sister chromatids separate), and telophase II. Meiosis II works just like mitosis, but in a haploid cell.
 
-The result: four haploid cells, each genetically different from the parent cell and from each other.
+The result: four haploid cells, each genetically different from the parent cell and from each other. The drawing follows a cell with 2n = 4 through both divisions. Red marks the chromosomes inherited from the mother and blue those from the father; the small patches of the other color are the segments swapped by crossing over.
+
+![Seven drawings of a cell with two pairs of chromosomes, one long and one short, each pair with a red and a blue homolog. Prophase I: homologs paired side by side with tips swapped. Metaphase I: the pairs lined up side by side at the middle. Anaphase I: whole duplicated homologs pulled to opposite poles. Telophase I: two cells, each with one long and one short duplicated chromosome. Metaphase II: in each cell the two chromosomes line up singly. Anaphase II: sister chromatids separate. Result: four small cells, each with one long and one short single chromosome in different color combinations.](images/m4-meiosis-stages.svg)
 
 ### Example 1
 

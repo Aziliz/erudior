@@ -15,6 +15,10 @@ The last lesson described how the body senses and corrects changes. This one cov
 
 The human heart is a muscular pump with four chambers: two thin-walled atria on top that receive blood, and two thick-walled ventricles below that pump it out. One-way valves between chambers and at the exits keep blood moving forward; their closing makes the "lub-dub" sounds.
 
+In the schematic below, blue marks oxygen-poor blood and red-pink oxygen-rich blood. Diagrams of the heart are drawn as if you were facing the person, so the heart's right side appears on your left.
+
+![Schematic of the human heart seen from the front. On the viewer's left, the right atrium and right ventricle, shaded blue, receive blood from the vena cava and pump it up the pulmonary artery to the lungs. On the viewer's right, the left atrium receives blood from the pulmonary veins and the thick-walled left ventricle, shaded pink, pumps it up the aorta, which arches over to the body. Valves sit between each atrium and ventricle and at the bases of the two arteries; arrows show the direction of flow.](images/m9-heart.svg)
+
 The heart is really two pumps side by side, so blood makes two loops:
 
 - Pulmonary circuit: the right ventricle pumps oxygen-poor blood to the lungs, where it picks up oxygen and drops off carbon dioxide, then returns to the left atrium.
@@ -63,7 +67,9 @@ No one eats or drinks 7,000 liters a day, and the body holds only about 5 L of b
 
 Air enters through the nose and mouth, passes the pharynx and larynx, and goes down the trachea, which branches into two bronchi, then into thousands of narrower bronchioles, ending in clusters of tiny air sacs called **alveoli**. The adult lungs hold several hundred million alveoli with a total surface area of very roughly 70 m², about a third of a tennis court, folded into the chest.
 
-Gas exchange is pure diffusion. Alveolar walls and capillary walls are each one thin cell, so air and blood are separated by well under a micrometer. Oxygen is more concentrated in alveolar air than in the blood arriving from the body, so it diffuses into the blood and binds hemoglobin; carbon dioxide is more concentrated in that blood, so it diffuses out into the alveoli. In the body's tissues, the gradients run the other way.
+Gas exchange is pure diffusion. Alveolar walls and capillary walls are each one thin cell, so air and blood are separated by well under a micrometer. The figure zooms in on that barrier (the layers are drawn much thicker than they really are). Oxygen is more concentrated in alveolar air than in the blood arriving from the body, so it diffuses into the blood and binds hemoglobin; carbon dioxide is more concentrated in that blood, so it diffuses out into the alveoli. In the body's tissues, the gradients run the other way.
+
+![Left: a bronchiole ending in a grape-like cluster of alveoli wrapped in a capillary network. Right: a zoomed-in cross-section of the barrier, with air in the alveolus on top, then the alveolar wall and capillary wall, each one cell thick, then blood plasma with red blood cells. An arrow shows oxygen diffusing down from the air into a red blood cell, and another shows carbon dioxide diffusing up from the blood into the air.](images/m9-alveolus.svg)
 
 Breathing moves air by changing pressure. To inhale, the diaphragm (a dome-shaped muscle under the lungs) contracts and flattens, and rib muscles lift the rib cage; the chest volume increases, pressure in the lungs drops below air pressure, and air flows in. Quiet exhaling is mostly passive: the muscles relax and the elastic lungs recoil.
 
@@ -92,7 +98,22 @@ Each kidney contains about a million **nephrons**, its filtering units. A nephro
 2. Reabsorption: as this filtrate flows along the tubule, needed substances (nearly all the glucose and amino acids, most water and salts) are moved back into surrounding capillaries.
 3. Secretion: some wastes and excess ions (hydrogen, potassium, some drugs) are moved from the blood into the tubule.
 
-What remains drains through collecting ducts to the ureters, bladder and out. The amount of water reabsorbed is set by negative feedback: when the blood becomes too concentrated, the hypothalamus senses it and the pituitary releases antidiuretic hormone (ADH), which makes the collecting ducts more permeable to water. More water returns to the blood and the urine becomes concentrated and darker. When you drink a lot, ADH falls and you make plenty of dilute urine.
+The sketch shows where each step happens. The tubule has named sections: most reabsorption happens in the first, the proximal tubule; the hairpin loop of Henle helps make the tissue around it very salty, so that water can later be drawn out of the collecting duct.
+
+![A nephron. Blood enters a knot of capillaries, the glomerulus, inside a cup-shaped capsule, where filtration pushes fluid into the tubule. The fluid flows through the winding proximal tubule, where arrows show glucose, amino acids, most water and salts being reabsorbed; down and back up the hairpin loop of Henle; through the distal tubule, where an arrow shows hydrogen ions, potassium ions and some drugs being secreted; and into the collecting duct, where water is reabsorbed, more when ADH is high. Urine leaves at the bottom toward the ureter.](images/m9-nephron.svg)
+
+What remains drains through collecting ducts to the ureters, bladder and out. The amount of water reabsorbed is set by negative feedback: when the blood becomes too concentrated, the hypothalamus senses it and the pituitary releases antidiuretic hormone (ADH), which makes the collecting ducts more permeable to water. More water returns to the blood and the urine becomes concentrated and darker. When you drink a lot, ADH falls and you make plenty of dilute urine. The diagram traces the loop.
+
+```mermaid
+flowchart TD
+  accTitle: ADH controls water reabsorption by negative feedback
+  accDescr: Water loss, for example from sweating without drinking, makes the blood too concentrated. The hypothalamus senses this and the pituitary releases more ADH. ADH makes the collecting ducts more permeable to water, so more water returns to the blood and a small volume of concentrated urine is made. The blood becomes less concentrated, which turns ADH release back down.
+  W["Water lost: blood too concentrated"] --> Hy["Hypothalamus senses it"]
+  Hy --> P["Pituitary releases more ADH"]
+  P --> K["Collecting ducts let more water back into the blood"]
+  K --> R["Blood less concentrated; small volume of dark urine"]
+  R -. "ADH release falls" .-> Hy
+```
 
 ### Example 3: how much is reabsorbed?
 

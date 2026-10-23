@@ -15,7 +15,9 @@ The last lesson ended with a contrast: energy passes through an ecosystem once a
 
 A **biogeochemical cycle** is the path an element or compound takes as it moves between living things (*bio*), rocks, soil, water and air (*geo*), changing chemical form (*chemical*) along the way. Each cycle has reservoirs, places where the substance is stored, and fluxes, the processes that move it between reservoirs. Some reservoirs turn over quickly (carbon in the air is exchanged with plants within years); others hold material for millions of years (carbon locked in limestone).
 
-The water cycle is the simplest: evaporation and transpiration from plants carry water up, condensation and precipitation bring it down, and runoff and groundwater return it to the oceans. Water also carries dissolved nutrients, linking the other cycles.
+The water cycle is the simplest: evaporation and transpiration from plants carry water up, condensation and precipitation bring it down, and runoff and groundwater return it to the oceans. Water also carries dissolved nutrients, linking the other cycles. The sun powers the whole cycle by evaporating water; gravity brings it back down and downhill.
+
+![The water cycle. The sun shines on an ocean at left and land with a tree and a mountain at right. Wavy arrows rise from the ocean to a cloud (evaporation), and an arrow rises from the tree to the cloud (transpiration). Water vapor forms the cloud (condensation) and drifts to a second cloud over the mountain, where rain falls (precipitation). An arrow runs down the land surface into the ocean (runoff), and a dashed arrow underground carries groundwater to the ocean.](images/m10-water-cycle.svg)
 
 ## The carbon cycle
 
@@ -30,6 +32,10 @@ Other parts of the cycle:
 - Under some conditions dead organisms are buried before they decompose. Over millions of years heat and pressure turn them into coal, oil and natural gas: fossil fuels.
 - Combustion of fossil fuels and wood, and volcanic eruptions, return carbon to the air.
 
+The diagram puts these reservoirs and fluxes together. The fast cycle (top) runs through living things in years to centuries; the slow cycle (bottom) runs through fossil fuels and rock over millions of years.
+
+![The carbon cycle. Atmospheric carbon dioxide is at the top. On land, photosynthesis moves carbon into plants; plants are eaten by animals; plants and animals return CO₂ by respiration; their dead matter and wastes go to soil and decomposers, which return CO₂ by decomposition; some dead matter is buried and becomes fossil fuels, which return CO₂ by combustion. In the ocean, CO₂ dissolves into and is released from seawater; marine life takes it up by photosynthesis and returns it by respiration; shells and remains settle into limestone and sediments, which return CO₂ through volcanoes.](images/m10-carbon-cycle.svg)
+
 Before industrialization, the fluxes in and out of the atmosphere were nearly balanced. Burning fossil fuels moves carbon from a slow reservoir into the fast cycle. Fossil fuel use released roughly 37 billion tonnes of CO₂ in 2024. About half of the CO₂ humans emit stays in the air; the oceans and land plants absorb the rest. As a result, atmospheric CO₂ has risen from about 280 parts per million (ppm) before 1750 to about 424 ppm (global average) in 2024. The dissolved CO₂ also makes seawater more acidic, which makes building carbonate shells harder.
 
 The best evidence for the cycle's living side comes from the Keeling curve, the CO₂ record kept at Mauna Loa, Hawaii, since 1958. Besides its steady rise, the curve wiggles every year: CO₂ falls during the Northern Hemisphere's spring and summer, when its vast forests photosynthesize, and rises in fall and winter, when respiration and decay dominate. The planet's land plants visibly "breathe."
@@ -43,6 +49,23 @@ Nitrogen is needed for proteins and nucleic acids. The air is 78% nitrogen gas (
 3. Nitrifying bacteria oxidize ammonium to nitrite (NO₂⁻) and then nitrate (NO₃⁻), a process called nitrification.
 4. Plants absorb ammonium and nitrate and build them into amino acids and nucleotides; animals get nitrogen by eating plants or other animals.
 5. **Denitrification**: in waterlogged, low-oxygen soils, denitrifying bacteria convert nitrate back to N₂, closing the cycle.
+
+```mermaid
+flowchart TD
+  accTitle: The nitrogen cycle
+  accDescr: Nitrogen gas in the air is converted to ammonium by nitrogen fixation, carried out by bacteria, lightning and the industrial Haber-Bosch process. Nitrifying bacteria convert ammonium to nitrate. Plants absorb both ammonium and nitrate; animals get nitrogen by eating plants. Dead matter and wastes from plants and animals are broken down by decomposers, releasing ammonium again, a step called ammonification. In waterlogged, low-oxygen soils, denitrifying bacteria convert nitrate back to nitrogen gas, closing the cycle.
+  N2["Nitrogen gas N₂ in the air"] -- "nitrogen fixation" --> NH4["Ammonium NH₄⁺"]
+  NH4 -- "nitrification" --> NO3["Nitrate NO₃⁻"]
+  NH4 -- "absorbed" --> P["Plants"]
+  NO3 -- "absorbed" --> P
+  P -- "eaten" --> A["Animals"]
+  P --> DW["Dead matter and wastes"]
+  A --> DW
+  DW -- "ammonification" --> NH4
+  NO3 -- "denitrification" --> N2
+```
+
+Follow the diagram around once: every nitrogen atom in your proteins was fixed from the air by a microbe or a factory, passed through plants, and will eventually return to the air by denitrification.
 
 Excess fertilizer washes into rivers and coasts. The extra nitrate feeds algal blooms; when the algae die, decomposers use up the dissolved oxygen, creating low-oxygen "dead zones" such as the one that forms most summers in the Gulf of Mexico. This process is eutrophication. The phosphorus cycle, by contrast, has no gas stage: phosphorus moves from weathering rock to soil, organisms and sediments, which is why it is often the nutrient in shortest supply in lakes.
 

@@ -13,7 +13,15 @@ Lesson 20 linked a gene to a chromosome. This lesson zooms out to whole chromoso
 
 A **karyotype** is an organized picture of all the chromosomes in one cell, arranged in pairs by size, centromere position and banding pattern. To make one, a lab grows cells (often white blood cells), adds a chemical that stops division in metaphase, when chromosomes are most condensed, then spreads, stains and photographs them. The stain gives each chromosome a characteristic pattern of light and dark bands, so each pair can be identified.
 
+Each chromosome in a karyotype has been copied (the cells were stopped in metaphase), so it consists of two identical sister chromatids joined at the centromere. The centromere divides the chromosome into a short arm, called p, and a long arm, called q. Geneticists name places on a chromosome by number, arm and band: 7q31 is band 31 on the long arm of chromosome 7, the region that holds the cystic fibrosis gene.
+
+![A replicated chromosome: two sister chromatids side by side, joined at a narrow centromere. The part above the centromere is the short arm (p) and the longer part below is the long arm (q); dark stripes across both chromatids are stained bands.](images/m5-chromosome-parts.svg)
+
 A typical human karyotype has 46 chromosomes: 22 pairs of autosomes, numbered 1 to 22 from roughly largest to smallest, and the sex chromosomes, XX or XY. It is written as 46,XX or 46,XY. Karyotypes can reveal an extra or missing chromosome and large structural changes such as a missing or moved piece; small changes inside a single gene need DNA methods (module 6).
+
+![A sketch of a male karyotype with chromosomes arranged in pairs from 1 (largest) to 22 (among the smallest), followed by one X and one Y. Chromosome 21 has three copies, outlined with a dashed box. The karyotype is written 47,XY,+21.](images/m5-karyotype.svg)
+
+The sketch above shows how a karyotype gives away a trisomy: every numbered position has a pair except 21, which has three. The notation 47,XY,+21 records the total count, the sex chromosomes, and the extra chromosome.
 
 ## Nondisjunction and aneuploidy
 
@@ -21,6 +29,8 @@ Lesson 16 introduced nondisjunction: in meiosis, a homologous pair (anaphase I) 
 
 - Nondisjunction in meiosis I: all four gametes are abnormal. Two have an extra chromosome (n + 1 = 24 in humans) and two lack one (n − 1 = 22).
 - Nondisjunction in meiosis II: two gametes are normal, one is n + 1 and one is n − 1.
+
+![Two side-by-side diagrams following one chromosome pair through meiosis. Left, nondisjunction in meiosis I: both homologs go to one cell, so the four gametes are n + 1, n + 1, n − 1 and n − 1. Right, nondisjunction in meiosis II: meiosis I is normal, but in one cell the sister chromatids fail to separate, so the gametes are n + 1, n − 1, n and n.](images/m5-nondisjunction.svg)
 
 If an abnormal gamete is fertilized by a normal one, the zygote has 47 or 45 chromosomes. Having an abnormal number of one or more chromosomes is **aneuploidy**. Three copies of a chromosome is a trisomy; one copy (where there should be two) is a monosomy.
 

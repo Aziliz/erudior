@@ -42,18 +42,35 @@ A graph of how much light a pigment absorbs at each wavelength is its **absorpti
 
 ## Where it happens: inside the chloroplast
 
-You met the chloroplast as a structure in the last module. Inside its double membrane is a third membrane system, the **thylakoids**, flattened sacs stacked into piles (grana). Chlorophyll sits in the thylakoid membranes. The fluid surrounding the thylakoids is the **stroma**. Photosynthesis runs as two linked stages in these two places:
+You met the chloroplast as a structure in the last module. Inside its double membrane is a third membrane system, the **thylakoids**, flattened sacs stacked into piles (grana). Chlorophyll sits in the thylakoid membranes. The fluid surrounding the thylakoids is the **stroma**, as the drawing shows.
+
+![A chloroplast drawn as an oval with two membranes, an outer membrane and an inner membrane. Inside, in the fluid stroma, are four stacks of disc-shaped thylakoids, each stack a granum, joined by thin membrane links.](images/m3-chloroplast.svg)
+
+Photosynthesis runs as two linked stages in these two places:
 
 | Stage | Location | Inputs | Outputs |
 |---|---|---|---|
 | Light-dependent reactions | Thylakoid membranes | Light, H₂O, ADP + Pᵢ, NADP⁺ | O₂, ATP, NADPH |
 | Calvin cycle | Stroma | CO₂, ATP, NADPH | Sugar (G3P), ADP + Pᵢ, NADP⁺ |
 
-The two stages feed each other: the first makes ATP and NADPH, the second spends them and returns ADP and NADP⁺ to be recharged.
+The two stages feed each other: the first makes ATP and NADPH, the second spends them and returns ADP and NADP⁺ to be recharged. The flowchart shows the loop.
+
+```mermaid
+flowchart LR
+  accTitle: The two stages of photosynthesis
+  accDescr: Light and water enter the light-dependent reactions in the thylakoid membranes, which release oxygen and make ATP and NADPH. ATP and NADPH power the Calvin cycle in the stroma, which takes in carbon dioxide and makes the sugar G3P. The Calvin cycle sends ADP, phosphate and NADP+ back to the light-dependent reactions to be recharged.
+  L["Light"] --> LR
+  W["H₂O"] --> LR
+  LR["Light-dependent reactions (thylakoid membranes)"] --> O["O₂ released"]
+  LR -- "ATP + NADPH" --> CC["Calvin cycle (stroma)"]
+  C["CO₂"] --> CC
+  CC --> S["Sugar (G3P)"]
+  CC -- "ADP + Pi, NADP+" --> LR
+```
 
 ## Stage 1: the light-dependent reactions
 
-The **light-dependent reactions** convert light energy into chemical energy in ATP and NADPH. In the thylakoid membrane, pigments are organized into clusters called photosystems, each with a reaction center that passes energized electrons on. There are two, named in the order they were discovered: photosystem II acts first and photosystem I second.
+The **light-dependent reactions** convert light energy into chemical energy in ATP and NADPH. In the thylakoid membrane, pigments are organized into clusters called **photosystems**, each with a reaction center that passes energized electrons on. There are two, named in the order they were discovered: photosystem II acts first and photosystem I second.
 
 1. Light strikes photosystem II and boosts electrons in its reaction-center chlorophyll to a high energy level. They are passed to an **electron transport chain** in the membrane.
 2. To replace those electrons, photosystem II splits water: $2\,\text{H}_2\text{O} \rightarrow 4\,\text{H}^+ + 4\,e^- + \text{O}_2$. This is the source of the oxygen gas (as Ruben and Kamen showed).
@@ -65,7 +82,7 @@ The **light-dependent reactions** convert light energy into chemical energy in A
 
 The **Calvin cycle** uses ATP and NADPH to build sugar from CO₂. Melvin Calvin, Andrew Benson, and James Bassham worked it out in the late 1940s and 1950s by feeding algae CO₂ made with radioactive carbon-14, stopping the reaction after a few seconds, and identifying which molecules held the label first.
 
-1. *Carbon fixation.* The enzyme rubisco attaches CO₂ to a five-carbon sugar (RuBP). Rubisco is probably the most abundant protein on Earth. Fixing carbon means turning carbon from a gas into part of an organic molecule.
+1. *Carbon fixation.* The enzyme **rubisco** attaches CO₂ to a five-carbon sugar, **RuBP** (ribulose bisphosphate). Rubisco is probably the most abundant protein on Earth. **Carbon fixation** means turning carbon from a gas into part of an organic molecule.
 2. *Reduction.* ATP and NADPH convert the products into a three-carbon sugar, **G3P** (glyceraldehyde-3-phosphate).
 3. *Regeneration.* Most G3P is rearranged, using more ATP, to rebuild RuBP so the cycle can continue.
 

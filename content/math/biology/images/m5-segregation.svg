@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 390" width="720" height="390" role="img">
+<title>Segregation of the P and p alleles in meiosis</title>
+<rect x="0" y="0" width="720" height="390" fill="#ffffff"/>
+<ellipse cx="120.0" cy="175.0" rx="95.0" ry="105.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="81.5" y="120.0" width="12.0" height="110.0" rx="6" fill="#7fa6d1" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="96.5" y="120.0" width="12.0" height="110.0" rx="6" fill="#7fa6d1" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="95.0" cy="175.0" r="5.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="81.5" y="143.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="96.5" y="143.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="69.0" y="153.5" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">P</text>
+<rect x="134.5" y="120.0" width="12.0" height="110.0" rx="6" fill="#e79a8c" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="149.5" y="120.0" width="12.0" height="110.0" rx="6" fill="#e79a8c" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="148.0" cy="175.0" r="5.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="134.5" y="143.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="149.5" y="143.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="174.0" y="153.5" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">p</text>
+<text x="120.0" y="312.0" font-family="sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">Pp cell</text>
+<text x="120.0" y="332.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">(homologs paired)</text>
+<line x1="225.0" y1="175.0" x2="285.0" y2="175.0" stroke="#1c2833" stroke-width="2"/>
+<polygon points="285.0,175.0 275.8,178.9 275.8,171.1" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
+<text x="255.0" y="160.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">meiosis I</text>
+<ellipse cx="350.0" cy="90.0" rx="52.0" ry="52.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="331.5" y="55.0" width="12.0" height="70.0" rx="6" fill="#7fa6d1" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="346.5" y="55.0" width="12.0" height="70.0" rx="6" fill="#7fa6d1" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="345.0" cy="90.0" r="5.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="331.5" y="68.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="346.5" y="68.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="371.0" y="78.5" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">P</text>
+<ellipse cx="350.0" cy="260.0" rx="52.0" ry="52.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="331.5" y="225.0" width="12.0" height="70.0" rx="6" fill="#e79a8c" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="346.5" y="225.0" width="12.0" height="70.0" rx="6" fill="#e79a8c" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="345.0" cy="260.0" r="5.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="331.5" y="238.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="346.5" y="238.5" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="371.0" y="248.5" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">p</text>
+<text x="350.0" y="345.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">homologs separate</text>
+<line x1="410.0" y1="90.0" x2="468.0" y2="50.0" stroke="#1c2833" stroke-width="2"/>
+<polygon points="468.0,50.0 462.6,58.4 458.2,52.0" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
+<line x1="410.0" y1="90.0" x2="468.0" y2="130.0" stroke="#1c2833" stroke-width="2"/>
+<polygon points="468.0,130.0 458.2,128.0 462.6,121.6" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
+<line x1="410.0" y1="260.0" x2="468.0" y2="220.0" stroke="#1c2833" stroke-width="2"/>
+<polygon points="468.0,220.0 462.6,228.4 458.2,222.0" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
+<line x1="410.0" y1="260.0" x2="468.0" y2="300.0" stroke="#1c2833" stroke-width="2"/>
+<polygon points="468.0,300.0 458.2,298.0 462.6,291.6" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
+<text x="437.0" y="180.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">meiosis II</text>
+<circle cx="510.0" cy="45.0" r="33.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="499.0" y="23.0" width="12.0" height="44.0" rx="6" fill="#7fa6d1" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="499.0" y="30.0" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<circle cx="505.0" cy="45.0" r="4.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="525.0" y="40.0" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">P</text>
+<circle cx="510.0" cy="135.0" r="33.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="499.0" y="113.0" width="12.0" height="44.0" rx="6" fill="#7fa6d1" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="499.0" y="120.0" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<circle cx="505.0" cy="135.0" r="4.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="525.0" y="130.0" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">P</text>
+<circle cx="510.0" cy="215.0" r="33.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="499.0" y="193.0" width="12.0" height="44.0" rx="6" fill="#e79a8c" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="499.0" y="200.0" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<circle cx="505.0" cy="215.0" r="4.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="525.0" y="210.0" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">p</text>
+<circle cx="510.0" cy="305.0" r="33.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="499.0" y="283.0" width="12.0" height="44.0" rx="6" fill="#e79a8c" stroke="#1c2833" stroke-width="1.8"/>
+<rect x="499.0" y="290.0" width="12.0" height="8.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<circle cx="505.0" cy="305.0" r="4.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="525.0" y="300.0" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">p</text>
+<text x="510.0" y="365.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">four gametes</text>
+<rect x="580.0" y="120.0" width="125.0" height="110.0" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="642.0" y="150.0" font-family="sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">Gametes:</text>
+<text x="642.0" y="180.0" font-family="sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">1/2 carry P</text>
+<text x="642.0" y="207.0" font-family="sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">1/2 carry p</text>
+</svg>

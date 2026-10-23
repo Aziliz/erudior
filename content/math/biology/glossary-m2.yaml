@@ -111,3 +111,119 @@
   aliases: [organs]
   definition: 'A structure made of two or more tissue types working together for a particular function, such as the stomach or a leaf.'
   topic: Cell specialization
+- term: endomembrane system
+  definition: 'The set of eukaryotic membranes linked by vesicle traffic: nuclear envelope, endoplasmic reticulum, Golgi apparatus, endosomes, lysosomes, vesicles and the plasma membrane. Mitochondria and chloroplasts are not part of it.'
+  topic: Endomembrane system
+- term: cytoskeleton
+  definition: 'The network of protein fibers (microtubules, intermediate filaments and microfilaments) that gives a eukaryotic cell its shape, moves things within it and lets it move.'
+  topic: Cytoskeleton
+- term: signal sequence
+  aliases: [signal sequences, signal peptide]
+  definition: 'A stretch of about 15–30 amino acids with a hydrophobic core at the start of a protein that directs the ribosome making it to the ER; usually cut off inside the ER.'
+  topic: Endomembrane system
+- term: signal recognition particle
+  aliases: [signal recognition particle (SRP), SRP]
+  definition: 'An RNA–protein complex that binds a signal sequence as it leaves the ribosome, pauses translation and brings the ribosome to the ER membrane.'
+  topic: Endomembrane system
+- term: glycosylation
+  definition: 'Adding sugar chains to a protein (or lipid); in the ER a ready-made branch of 14 sugars is attached to certain asparagines and later trimmed and rebuilt in the Golgi.'
+  topic: Endomembrane system
+- term: SNARE
+  aliases: [SNAREs, SNARE proteins, SNARE protein]
+  definition: 'Membrane proteins on a vesicle and on its target membrane that wind tightly together and pull the two membranes close enough to fuse. Botulinum and tetanus toxins cut them.'
+  topic: Endomembrane system
+- term: mannose-6-phosphate
+  aliases: [M6P]
+  definition: 'A phosphate-tagged sugar added in the Golgi to lysosomal enzymes; receptors in the trans-Golgi network bind it and send the enzymes to lysosomes.'
+  topic: Endomembrane system
+- term: receptor-mediated endocytosis
+  definition: 'Uptake of specific molecules that bind receptors clustered in clathrin-coated pits of the plasma membrane, which pinch off as coated vesicles (for example, cholesterol-carrying LDL).'
+  topic: Endomembrane system
+- term: endosome
+  aliases: [endosomes]
+  definition: 'An acidic membrane compartment that receives material brought in by endocytosis, sends receptors back to the surface and passes cargo on to lysosomes.'
+  topic: Endomembrane system
+- term: autophagy
+  definition: 'The process by which a cell wraps its own worn-out organelles or cytoplasm in a membrane and delivers them to lysosomes to be digested and recycled.'
+  topic: Endomembrane system
+- term: microtubule
+  aliases: [microtubules]
+  definition: 'A hollow cytoskeleton fiber about 25 nm wide built from tubulin; it serves as a track for kinesin and dynein and forms the spindle, cilia and flagella.'
+  topic: Cytoskeleton
+- term: intermediate filament
+  aliases: [intermediate filaments]
+  definition: 'A ropelike cytoskeleton fiber about 8–12 nm wide (keratins, lamins, vimentin) that resists pulling forces; not used as a motor track.'
+  topic: Cytoskeleton
+- term: microfilament
+  aliases: [microfilaments, actin filament, actin filaments]
+  definition: 'The thinnest cytoskeleton fiber, about 7 nm wide, made of actin; with myosin it drives muscle contraction, cell crawling and cytokinesis.'
+  topic: Cytoskeleton
+- term: dynamic instability
+  definition: 'The behavior of microtubules, which switch between steady growth and rapid shrinking, letting the microtubule network rebuild itself quickly.'
+  topic: Cytoskeleton
+- term: motor protein
+  aliases: [motor proteins]
+  definition: 'A protein that uses ATP to move along a cytoskeleton fiber, carrying cargo: kinesin (mostly toward microtubule plus ends), dynein (toward minus ends) and myosin (along actin).'
+  topic: Cytoskeleton
+- term: ligand
+  aliases: [ligands]
+  definition: 'A molecule that binds specifically to another molecule, especially a signal molecule that binds a receptor.'
+  topic: Cell signaling
+- term: receptor
+  aliases: [receptors, receptor protein, receptor proteins]
+  definition: 'A protein, on the cell surface or inside the cell, whose shape fits a particular signal molecule; binding changes the receptor and starts the cell''s response.'
+  topic: Cell signaling
+- term: signal transduction
+  definition: 'The conversion of a signal received at a receptor into a change inside the cell, usually through a chain of relay molecules; the middle stage of cell signaling.'
+  topic: Cell signaling
+- term: G protein-coupled receptor
+  aliases: [G protein-coupled receptors, G protein-coupled receptors (GPCRs), G protein-coupled receptor (GPCR), GPCR, GPCRs]
+  definition: 'A receptor that crosses the membrane seven times and, when its ligand binds, activates a G protein inside the cell; the largest family of receptors.'
+  topic: Cell signaling
+- term: G protein
+  aliases: [G proteins]
+  definition: 'A relay protein on the inner face of the membrane that is active when it holds GTP and inactive when it holds GDP; it switches itself off by breaking down its GTP.'
+  topic: Cell signaling
+- term: receptor tyrosine kinase
+  aliases: [receptor tyrosine kinases, receptor tyrosine kinase (RTK), RTK, RTKs]
+  definition: 'A membrane receptor that is also an enzyme: ligand binding makes two receptor molecules pair up and add phosphates to tyrosines on each other, which then bind relay proteins.'
+  topic: Cell signaling
+- term: ligand-gated ion channel
+  aliases: [ligand-gated ion channels]
+  definition: 'A membrane channel protein that opens and lets specific ions through when a particular ligand binds it, such as the acetylcholine receptor of muscle cells.'
+  topic: Cell signaling
+- term: intracellular receptor
+  aliases: [intracellular receptors]
+  definition: 'A receptor in the cytoplasm or nucleus for signals that reach the inside of the cell, such as steroid hormones; many act as transcription factors.'
+  topic: Cell signaling
+- term: dissociation constant
+  aliases: [K_d, Kd]
+  definition: 'For a ligand and its receptor, the ligand concentration at which half the receptors are occupied; a smaller value means tighter binding. Occupancy $f = [L]/([L] + K_d)$.'
+  topic: Cell signaling
+- term: protein kinase
+  aliases: [protein kinases, kinase, kinases]
+  definition: 'An enzyme that transfers a phosphate group from ATP to a protein, changing its shape and activity.'
+  topic: Cell signaling
+- term: protein phosphatase
+  aliases: [protein phosphatases, phosphatase, phosphatases]
+  definition: 'An enzyme that removes phosphate groups from proteins, reversing the work of protein kinases.'
+  topic: Cell signaling
+- term: phosphorylation cascade
+  aliases: [phosphorylation cascades]
+  definition: 'A chain of protein kinases in which each one phosphorylates and activates the next, relaying and amplifying a signal.'
+  topic: Cell signaling
+- term: second messenger
+  aliases: [second messengers]
+  definition: 'A small non-protein molecule or ion, such as cAMP or calcium ions, that spreads a signal through the cell after a receptor is activated.'
+  topic: Cell signaling
+- term: cyclic AMP
+  aliases: [cyclic AMP (cAMP), cAMP]
+  definition: 'A second messenger made from ATP by adenylyl cyclase; it activates protein kinase A and is broken down by phosphodiesterase.'
+  topic: Cell signaling
+- term: amplification
+  aliases: [signal amplification]
+  definition: 'The multiplication of a signal at each step of a cascade, so that a few signal molecules produce a large response.'
+  topic: Cell signaling
+- term: Ras
+  definition: 'A small G protein that relays signals from receptor tyrosine kinases to the MAP kinase cascade; mutations that lock it in the active, GTP-bound form are common in cancer.'
+  topic: Cell signaling

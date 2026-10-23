@@ -62,6 +62,16 @@ Often there is too little DNA to study: a drop of blood at a crime scene, a sing
 2. Anneal, about 50–65 °C: primers bind to their matching sequences on each strand.
 3. Extend, about 72 °C: the polymerase builds new strands starting from the primers.
 
+```mermaid
+flowchart LR
+  accTitle: One cycle of PCR
+  accDescr: Each PCR cycle has three temperature steps. Denature at about 95 degrees Celsius, which separates the two DNA strands. Anneal at about 50 to 65 degrees, which lets the primers bind. Extend at about 72 degrees, as Taq polymerase builds new strands from the primers. The number of target copies doubles, and the cycle repeats, usually 25 to 35 times.
+  D["Denature, about 95 °C: strands separate"] --> A["Anneal, about 50-65 °C: primers bind"]
+  A --> E["Extend, about 72 °C: Taq builds new strands"]
+  E --> X["Target copies double"]
+  X -- "repeat 25-35 times" --> D
+```
+
 Each cycle takes a few minutes and, ideally, doubles the number of copies of the target. Starting with $N_0$ copies, after $n$ cycles there are
 
 $$N = N_0 \times 2^n.$$
@@ -96,6 +106,10 @@ Your genome differs from a stranger's at millions of places. **DNA profiling** c
 ### Example 4
 
 At one STR region, evidence from a crime scene shows bands at 9 and 12 repeats. Suspect A has 9 and 12; suspect B has 9 and 14. What can be concluded from this one region?
+
+The gel below shows this result. The ladder lane holds fragments with 8 to 15 repeats, so each sample band can be read against it like a ruler.
+
+![A gel with the negative electrode at the top and the positive electrode at the bottom; DNA moves down from the wells. Four lanes: a ladder with bands for 8 to 15 repeats (8 farthest from the wells, 15 nearest), the evidence with bands at 9 and 12, suspect A with bands at 9 and 12, and suspect B with bands at 9 and 14. Longer pieces stay near the wells and shorter pieces travel farthest.](images/m6-gel.svg)
 
 Suspect B has a 14-repeat allele not in the evidence, so B is excluded as the source. Suspect A matches, but many people share any one pair of alleles, so one region can't identify A. Labs compare all regions; a match at every one is strong evidence, while a single mismatch excludes.
 

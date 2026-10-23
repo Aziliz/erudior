@@ -18,7 +18,17 @@ Natural selection follows from four observations about any population:
 3. *Overproduction.* Populations produce more offspring than the environment can support. A single cod can release millions of eggs; most die young.
 4. *Differential success.* Which individuals survive and reproduce is not entirely random. Individuals whose traits suit the environment better tend to leave more offspring.
 
-Put these together and the conclusion follows: heritable traits that help survival and reproduction become more common in the next generation, and over many generations the population changes. That process is **natural selection**.
+Put these together and the conclusion follows: heritable traits that help survival and reproduction become more common in the next generation, and over many generations the population changes. That process is **natural selection**. The diagram shows how the pieces of the argument fit together.
+
+```mermaid
+flowchart TD
+  accTitle: The logic of natural selection
+  accDescr: Two observations, heritable variation in a trait and more offspring than the environment can support, lead together to the conclusion that individuals whose traits suit the environment leave more offspring. As a result, the helpful alleles are more common in the next generation, and repeating this over many generations produces adaptation.
+  A["Heritable variation in a trait"] --> C["Individuals with helpful traits leave more offspring"]
+  B["More offspring than the environment can support"] --> C
+  C --> D["Helpful alleles are more common in the next generation"]
+  D --> E["Repeated over many generations: adaptation"]
+```
 
 Biologists measure success with **fitness**: an individual's reproductive success, the number of offspring it contributes to the next generation, compared with others in the population. Fitness is not strength or speed. A strong animal that leaves no offspring has zero fitness; a small one that leaves many has high fitness.
 
@@ -31,6 +41,8 @@ A common misunderstanding is that the environment *causes* the helpful variation
 ### Example 1
 
 The Lederbergs grew many bacterial colonies on a dish with no antibiotic. They pressed a velvet pad onto it, picking up a few cells from every colony in the same arrangement, and pressed the pad onto a dish containing the antibiotic. A few colonies grew there, all from cells at the same positions, say positions 7 and 19. Then they went back to the original dish, which had never touched the antibiotic, and tested colonies 7 and 19. Predict: are they resistant?
+
+![Replica plating in four steps. A master plate without antibiotic has many colonies. A velvet pad on a block is pressed onto it and then onto an antibiotic plate, where only two colonies grow. Those two positions are circled on both plates, and an arrow leads back to test the matching colonies on the master plate.](images/m7-replica-plating.svg)
 
 If resistance arose in response to the antibiotic, colonies on the original dish would not be resistant, because they were never exposed. If resistant mutants already existed by chance, colonies 7 and 19 on the original dish would be resistant. The Lederbergs found the second result: cells from those colonies grew on antibiotic even though they had never met it. Conclusion: the mutations arose randomly, before exposure. The antibiotic did not create resistance; it selected the cells that already had it.
 

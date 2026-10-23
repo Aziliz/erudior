@@ -45,6 +45,10 @@ Two strands make the **double helix**, a twisted ladder. The sugar–phosphate b
 
 Each rung is one purine plus one pyrimidine, so every rung is the same width and the helix is a uniform 2 nm wide. The strands are **antiparallel**: they run in opposite directions, one 5′ → 3′ and its partner 3′ → 5′.
 
+The figure shows the helix and, beside it, four rungs untwisted into a flat ladder: phosphates and sugars alternate along each backbone, and the bases meet in the middle. Follow the arrows to see that the strands point opposite ways.
+
+![Left: a double helix drawn as two twisting strands joined by rungs, 2 nm wide, with one full turn of 3.4 nm holding about 10 base pairs. Right: four base pairs untwisted into a ladder. Each backbone alternates phosphate circles and pentagon-shaped deoxyribose sugars. The pairs from top to bottom are A–T, G–C, T–A and C–G; A–T pairs are joined by two dashed hydrogen bonds and G–C pairs by three. The left strand runs 5′ to 3′ downward and the right strand runs 5′ to 3′ upward. A dashed box marks one nucleotide: a phosphate, a sugar and a base.](images/m6-dna-structure.svg)
+
 The model came together in 1953. Rosalind Franklin's X-ray photographs, taken at King's College London (where Maurice Wilkins also studied DNA), showed a helix of constant width with a repeating pattern every 3.4 nm. James Watson and Francis Crick, who saw her data without her knowledge, combined it with a key clue from chemistry, Chargaff's measurements, and built the model.
 
 ## Chargaff's rules
@@ -91,7 +95,9 @@ Predict the bands after one and two generations in light nitrogen if replication
 - Generation 1: each helix has one old heavy strand and one new light strand: one band, halfway between heavy and light (hybrid). This alone rules out the conservative model, which would give separate heavy and light bands.
 - Generation 2: the two strands of each hybrid separate. The heavy strand gets a light partner (hybrid); the light strand gets a light partner (light). Half the DNA is hybrid, half is light: two bands of equal amount.
 
-That is exactly what Meselson and Stahl saw. The dispersive model predicts a single band that just drifts lighter each generation, so the two bands in generation 2 ruled it out too. In general, after $n$ generations the two original heavy strands sit in exactly two of the $2^n$ helices, so the hybrid fraction is $2/2^n$.
+![Three centrifuge tubes with dashed reference lines for light (14N/14N) DNA at the top, hybrid (15N/14N) in the middle and heavy (15N/15N) at the bottom. Generation 0 has one heavy band, generation 1 one hybrid band, and generation 2 two equal bands, one hybrid and one light.](images/m6-meselson-stahl.svg)
+
+That is exactly what Meselson and Stahl saw, as the tubes above show. The dispersive model predicts a single band that just drifts lighter each generation, so the two bands in generation 2 ruled it out too. In general, after $n$ generations the two original heavy strands sit in exactly two of the $2^n$ helices, so the hybrid fraction is $2/2^n$.
 
 ## The replication machinery
 
@@ -103,6 +109,10 @@ Copying is done by a team of enzymes:
 4. **DNA polymerase** reads the template and adds matching nucleotides. It can only add to the 3′ end of a growing strand, so new DNA is always built 5′ → 3′.
 5. Because the two template strands are antiparallel, one new strand (the leading strand) is built continuously toward the fork. The other (the lagging strand) must be built in short pieces, working away from the fork each time a new stretch opens up. These pieces are **Okazaki fragments**, named for Reiji and Tsuneko Okazaki, who found them in the 1960s.
 6. The RNA primers are replaced with DNA, and DNA ligase seals the gaps between fragments.
+
+The drawing puts these steps in one picture: the leading strand grows in one piece toward the fork, while the lagging strand is a row of Okazaki fragments, each started from its own primer and pointing away from the fork.
+
+![A replication fork. On the right, unopened parent DNA; at the fork, helicase (a hexagon) separates the strands. The top template, 3′ at its left end, has a new leading strand built continuously toward the fork by DNA polymerase. The bottom template, 5′ at its left end, has a lagging strand made of Okazaki fragments that each grow away from the fork: the newest fragment has an RNA primer and a DNA polymerase at its growing end, primase lays down a new primer near the fork, and DNA ligase seals the nick between the two oldest fragments.](images/m6-replication-fork.svg)
 
 DNA polymerase also proofreads: it backs up and removes a wrongly paired base. With proofreading and later repair, the final error rate is roughly one mistake per billion bases copied. Errors that slip through are mutations, a topic in lesson 24.
 

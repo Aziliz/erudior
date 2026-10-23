@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" font-family="sans-serif">
+<rect width="720" height="300" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e5f8a"/></marker></defs>
+<line x1="150" y1="150" x2="70" y2="70" stroke="#1c2833" stroke-width="5"/>
+<line x1="150" y1="150" x2="60" y2="150" stroke="#1c2833" stroke-width="5"/>
+<line x1="150" y1="150" x2="80" y2="235" stroke="#1c2833" stroke-width="5"/>
+<line x1="150" y1="150" x2="150" y2="55" stroke="#1c2833" stroke-width="5"/>
+<line x1="150" y1="150" x2="140" y2="250" stroke="#1c2833" stroke-width="5"/>
+<line x1="70" y1="70" x2="52" y2="56" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="70" y1="70" x2="50" y2="80" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="70" y1="70" x2="74" y2="50" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="60" y1="150" x2="42" y2="136" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="60" y1="150" x2="40" y2="160" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="60" y1="150" x2="64" y2="130" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="80" y1="235" x2="62" y2="221" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="80" y1="235" x2="60" y2="245" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="80" y1="235" x2="84" y2="215" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="150" y1="55" x2="132" y2="41" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="150" y1="55" x2="130" y2="65" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="150" y1="55" x2="154" y2="35" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="140" y1="250" x2="122" y2="236" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="140" y1="250" x2="120" y2="260" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="140" y1="250" x2="144" y2="230" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="190" y="146" width="400" height="8" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M150,95 C185,98 205,125 200,150 C205,180 182,205 150,205 C118,205 95,182 98,150 C95,120 115,95 150,95 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<circle cx="148" cy="150" r="20" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="230" y="137" width="60" height="26" rx="12" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="302" y="137" width="60" height="26" rx="12" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="374" y="137" width="60" height="26" rx="12" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="446" y="137" width="60" height="26" rx="12" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M590,150 Q620,150 650,95" fill="none" stroke="#1c2833" stroke-width="4"/>
+<circle cx="656" cy="95" r="10" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<path d="M590,150 Q620,150 668,150" fill="none" stroke="#1c2833" stroke-width="4"/>
+<circle cx="674" cy="150" r="10" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<path d="M590,150 Q620,150 650,205" fill="none" stroke="#1c2833" stroke-width="4"/>
+<circle cx="656" cy="205" r="10" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<line x1="300" y1="268" x2="500" y2="268" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="400" y="290" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">direction of the impulse</text>
+</svg>

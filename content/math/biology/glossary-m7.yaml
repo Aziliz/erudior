@@ -99,3 +99,59 @@
 - term: punctuated equilibrium
   definition: 'The pattern of long periods of little change in a species broken by relatively rapid change, often linked to speciation; contrasted with gradualism.'
   topic: History of life
+- term: absolute fitness
+  definition: 'The average number of offspring that individuals of a genotype leave in the next generation, counting only offspring that survive to breed.'
+  topic: Selection models
+- term: relative fitness
+  definition: 'A genotype''s absolute fitness divided by that of the fittest genotype, so the fittest has $w = 1$.'
+  topic: Selection models
+- term: selection coefficient
+  aliases: [selection coefficients]
+  definition: 'How much lower a genotype''s fitness is than the fittest genotype''s: $s = 1 - w$.'
+  topic: Selection models
+- term: mean fitness
+  definition: 'The average relative fitness of a population, $\bar w = p^2 w_{AA} + 2pq\,w_{Aa} + q^2 w_{aa}$; dividing by it rescales genotype frequencies after selection.'
+  topic: Selection models
+- term: heterozygote advantage
+  definition: 'Selection in which heterozygotes have higher fitness than either homozygote, keeping both alleles in the population (as with sickle-cell hemoglobin where malaria is common).'
+  topic: Selection models
+- term: balancing selection
+  definition: 'Selection that keeps two or more alleles in a population instead of fixing one, for example through heterozygote advantage.'
+  topic: Selection models
+- term: fixation
+  definition: 'The point at which an allele reaches a frequency of 1, so it is the only allele left at that gene in the population.'
+  topic: Genetic drift
+- term: shared derived character
+  aliases: [shared derived characters, synapomorphy]
+  definition: 'A trait state that arose in the most recent common ancestor of a group and was inherited by its members, such as hair in mammals; it marks a clade.'
+  topic: Cladistics
+- term: shared ancestral character
+  aliases: [shared ancestral characters]
+  definition: 'A trait state inherited from an older ancestor, so it is also found outside the group, such as a backbone in mammals; it can''t define the group.'
+  topic: Cladistics
+- term: paraphyletic group
+  aliases: [paraphyletic]
+  definition: 'A group that contains a common ancestor and some, but not all, of its descendants, such as reptiles defined without birds.'
+  topic: Cladistics
+- term: outgroup
+  aliases: [outgroups]
+  definition: 'A species known to have branched off before the group being studied; its character states are taken as ancestral, and it roots the tree.'
+  topic: Cladistics
+- term: homoplasy
+  definition: 'A similarity in a character that was not inherited from a common ancestor, arising from convergent evolution or a reversal.'
+  topic: Cladistics
+- term: maximum parsimony
+  aliases: [parsimony]
+  definition: 'Choosing the phylogenetic tree that requires the fewest evolutionary changes in total.'
+  topic: Cladistics
+- term: molecular clock
+  aliases: [molecular clocks]
+  definition: 'A gene or protein that collects changes at a roughly steady rate, so the number of differences between two species estimates the time since they split: $T = d/(2r)$.'
+  topic: Molecular clocks
+- term: calibration
+  definition: 'For a molecular clock, finding the rate of change from a split whose date is known independently, from fossils or geology.'
+  topic: Molecular clocks
+- term: horizontal gene transfer
+  aliases: [lateral gene transfer]
+  definition: 'Movement of genes between organisms other than from parent to offspring, often between species; common in bacteria (transformation, transduction, conjugation).'
+  topic: Cladistics

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="sans-serif" fill="none" stroke-linejoin="round">
+<title>The C4 pathway in two cell types</title>
+<rect x="0" y="0" width="960" height="420" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f5d8a"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a33b2a"/></marker></defs>
+<rect x="15" y="45" width="455" height="355" rx="24" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<rect x="505" y="45" width="440" height="355" rx="24" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="242" y="75" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">Mesophyll cell</text>
+<text x="725" y="75" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">Bundle-sheath cell</text>
+<text x="170" y="112" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">CO₂ from air</text>
+<text x="170" y="130" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">(as HCO₃⁻)</text>
+<line x1="170" y1="136" x2="170" y2="182" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="25.0" y="170" width="100.0" height="40" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.8"/><text x="75" y="195" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">PEP (3C)</text>
+<rect x="200.0" y="170" width="150.0" height="40" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.8"/><text x="275" y="195" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">oxaloacetate (4C)</text>
+<line x1="125" y1="190" x2="198" y2="190" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="165" y="228" font-size="14" text-anchor="middle" font-weight="bold" fill="#2f5d8a">PEP</text>
+<text x="165" y="245" font-size="14" text-anchor="middle" font-weight="bold" fill="#2f5d8a">carboxylase</text>
+<rect x="360.0" y="170" width="100.0" height="40" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.8"/><text x="410" y="195" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">malate (4C)</text>
+<line x1="350" y1="190" x2="358" y2="190" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="340.0" y="310" width="120.0" height="40" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.8"/><text x="400" y="335" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">pyruvate (3C)</text>
+<path d="M340,330 L75,330 L75,214" stroke="#1c2833" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<text x="210" y="320" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">ATP → AMP</text>
+<text x="210" y="352" font-size="13" text-anchor="middle" font-weight="normal" fill="#1c2833">(costs 2 ATP equivalents)</text>
+<line x1="460" y1="190" x2="528" y2="190" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="528" y1="330" x2="462" y2="330" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="535.0" y="170" width="100.0" height="40" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.8"/><text x="585" y="195" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">malate</text>
+<rect x="535.0" y="310" width="100.0" height="40" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.8"/><text x="585" y="335" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">pyruvate</text>
+<line x1="585" y1="210" x2="585" y2="308" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="685.0" y="170" width="60.0" height="40" rx="8" fill="#ffffff" stroke="#1c2833" stroke-width="1.8"/><text x="715" y="195" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">CO₂</text>
+<line x1="635" y1="190" x2="683" y2="190" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="715" y="240" font-size="14" text-anchor="middle" font-weight="bold" fill="#2f5d8a">high CO₂</text>
+<text x="715" y="257" font-size="14" text-anchor="middle" font-weight="bold" fill="#2f5d8a">around rubisco</text>
+<circle cx="858" cy="190" r="62" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<text x="858" y="186" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">Calvin</text>
+<text x="858" y="204" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">cycle</text>
+<line x1="745" y1="190" x2="794" y2="190" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="858" y1="252" x2="858" y2="318" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
+<text x="858" y="340" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">sugars</text>
+<text x="858" y="358" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">to the vein</text>
+</svg>

@@ -29,3 +29,23 @@
 - {front: 'How enzymes speed reactions', back: 'They lower the activation energy; they are not used up and do not change the overall energy of the reaction.', topic: Enzymes}
 - {front: 'Effect of temperature on enzyme activity', back: 'Rises to an optimum (≈37 °C for human enzymes), then falls steeply as the enzyme denatures. Cold slows enzymes but does not denature them.', topic: Enzymes}
 - {front: 'Competitive vs noncompetitive inhibitor', back: 'Competitive: binds the active site; overcome by more substrate. Noncompetitive: binds elsewhere and changes shape; extra substrate does not help.', topic: Enzymes}
+# ---- m1 honors (round 2)
+- {front: 'Why the peptide bond does not rotate', back: 'Partial double-bond character (shared electrons) holds its six atoms flat; the chain twists only at the bonds on either side of each alpha carbon.', topic: Protein structure}
+- {front: 'α helix numbers', back: '3.6 amino acids per turn; 0.15 nm rise per amino acid (0.54 nm per turn); C=O of amino acid n hydrogen bonds to N–H of n + 4.', topic: Protein structure}
+- {front: 'α helix vs β sheet', back: 'Helix: one coiled segment, H-bonds within it. Sheet: extended strands (≈0.34 nm per amino acid) side by side, H-bonds between strands. Both are backbone hydrogen bonds.', topic: Protein structure}
+- {front: 'Main driving force of protein folding', back: 'The hydrophobic effect: burying nonpolar R groups in the core releases ordered water. H-bonds, ionic bonds, van der Waals contacts and disulfides refine the fold.', topic: Protein structure}
+- {front: 'Special amino acids in folding', back: 'Glycine: tiny, flexible, common in turns. Proline: rigid ring, no N–H, breaks helices. Cysteine: forms S–S disulfide bonds.', topic: Protein structure}
+- {front: 'Anfinsen''s 1% result', back: '8 cysteines can pair 7 × 5 × 3 × 1 = 105 ways; random pairing gives the native set 1/105 ≈ 1% of the time.', topic: Protein structure}
+- {front: 'Levinthal''s paradox', back: 'A random search of 3^100 shapes would take ~10^27 years, yet proteins fold in seconds or less; folding follows an energy funnel, not a random search.', topic: Protein structure}
+- {front: 'What chaperones do', back: 'Bind exposed hydrophobic stretches (Hsp70) or give a sheltered chamber (GroEL/GroES) so chains don''t aggregate; they hold no shape information.', topic: Protein structure}
+- {front: 'Sickle cell at the molecular level', back: 'β-globin glutamate 6 → valine on the surface; the nonpolar patch sticks to neighboring deoxyhemoglobin, forming fibers that sickle red cells.', topic: Protein structure}
+- {front: 'Prion', back: 'A misfolded, β-rich form of the protein PrP that converts normal PrP to the misfolded form; infectious with no DNA or RNA.', topic: Protein structure}
+- {front: 'Michaelis–Menten equation', back: '$v = \dfrac{V_{\max}[\text{S}]}{K_m + [\text{S}]}$; at $[\text{S}] = K_m$, $v = V_{\max}/2$', topic: Enzyme kinetics}
+- {front: 'Fraction of Vmax at [S] = Km, 3Km, 9Km', back: '50%, 75%, 90% (fraction = [S] / (Km + [S]))', topic: Enzyme kinetics}
+- {front: 'Turnover number and catalytic efficiency', back: '$k_{\text{cat}} = V_{\max}/[\text{E}]_{\text{total}}$ (per second). Efficiency $k_{\text{cat}}/K_m$, capped by diffusion near $10^8$–$10^9$ M⁻¹ s⁻¹.', topic: Enzyme kinetics}
+- {front: 'Lineweaver–Burk plot', back: '$1/v$ vs $1/[\text{S}]$: slope $K_m/V_{\max}$, y-intercept $1/V_{\max}$, x-intercept $-1/K_m$.', topic: Enzyme kinetics}
+- {front: 'Inhibitor fingerprints', back: 'Competitive: Km up, Vmax same. Pure noncompetitive: Vmax down, Km same. Uncompetitive: both down. Irreversible: covalent, permanent.', topic: Enzyme kinetics}
+- {front: 'Competitive inhibitor: apparent Km', back: '$K_m^{\text{app}} = K_m(1 + [\text{I}]/K_i)$; $V_{\max}$ unchanged', topic: Enzyme kinetics}
+- {front: 'Allosteric enzyme kinetics', back: 'Several subunits bind substrate cooperatively → S-shaped curve. Activators shift it left, inhibitors right. Example: ATCase (CTP inhibits, ATP activates).', topic: Enzyme regulation}
+- {front: 'Feedback inhibition example', back: 'In E. coli, isoleucine allosterically inhibits threonine deaminase, the first of five enzymes in its own pathway.', topic: Enzyme regulation}
+- {front: 'Zymogen', back: 'Inactive precursor activated by cutting, e.g. trypsinogen → trypsin by enteropeptidase in the small intestine; protects the cells that make it.', topic: Enzyme regulation}

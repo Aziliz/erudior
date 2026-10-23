@@ -33,6 +33,10 @@ Typical prokaryotic features:
 - Many have *flagella* (long whip-like tails for swimming) and *pili* (short hair-like projections for attachment and for transferring DNA).
 - Ribosomes that are smaller than eukaryotic ribosomes and differ in structure.
 
+The drawing shows these parts on a rod-shaped bacterium. Work from the outside in: capsule, cell wall, plasma membrane, then the cytoplasm with its nucleoid, plasmids and ribosomes. Notice what is missing: there is no membrane around the DNA and no membrane-bound compartment anywhere inside.
+
+![A rod-shaped bacterial cell with its parts labeled: an outer capsule, the cell wall, the plasma membrane, cytoplasm, a tangled nucleoid of DNA with no membrane around it, two small plasmid loops, ribosomes as dots, short pili on the surface and a long whip-like flagellum at one end.](images/m2-prokaryote.svg)
+
 Prokaryotes fall into two very different domains. Bacteria include the familiar ones in soil, water and your gut (and a few that cause disease). Archaea look similar under the microscope but differ chemically: they have no peptidoglycan, their membranes are built from unusual lipids, and some of their machinery for reading genes resembles that of eukaryotes. Many archaea live in extreme places like hot springs and salt lakes, but they are also common in oceans, soils and the human gut.
 
 The split was discovered in 1977 when Carl Woese compared the sequences of ribosomal RNA, a molecule every cell has, across many organisms. The "prokaryotes" fell into two groups as different from each other as either is from eukaryotes. In 1990 Woese and colleagues formally proposed dividing life into three domains: Bacteria, Archaea and Eukarya. (Module 8 returns to classification.)
@@ -68,6 +72,24 @@ A researcher studies three unknown cells with an electron microscope. Which is p
 3. Y has no nucleus and no membrane-bound organelles, is small, and has a peptidoglycan wall: it is a bacterium, a prokaryote.
 
 Note that every cell has ribosomes, so ribosomes cannot tell the types apart; a nucleus can.
+
+The same reasoning can be written as a key: a series of yes-or-no questions that sorts any sample. The first question comes from the end of this lesson (viruses are not cells); the rest come from the table above.
+
+```mermaid
+flowchart TD
+  accTitle: A key for classifying a cell or particle
+  accDescr: Start with an unknown sample. If it is not a cell, with no cytoplasm or ribosomes, only genetic material in a protein coat, it is a virus. If it is a cell, ask whether it has a nucleus. If not, it is a prokaryote; a peptidoglycan wall (present in most) means bacteria, and no peptidoglycan with unusual membrane lipids means archaea. If it has a nucleus, it is a eukaryote; a cellulose wall suggests a plant cell or an alga, a chitin wall suggests a fungus, and no wall suggests an animal cell or one of the many protists without a wall.
+  A[Unknown sample] --> B{Is it a cell?}
+  B -- "No: just DNA or RNA in a protein coat" --> V[Virus]
+  B -- Yes --> C{Has a nucleus?}
+  C -- No --> P[Prokaryote]
+  P --> P1["Bacteria: peptidoglycan wall (most)"]
+  P --> P2[Archaea: no peptidoglycan, unusual lipids]
+  C -- Yes --> E[Eukaryote]
+  E --> E1["Cellulose wall: plant or alga"]
+  E --> E2[Chitin wall: fungus]
+  E --> E3[No wall: animal or many protists]
+```
 
 ### Example 2: Comparing sizes
 

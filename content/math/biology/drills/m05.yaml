@@ -362,3 +362,172 @@
     Four categories, so df $= 4 - 1 =$ **3**; the critical value is **7.81**.
 
     Reject only if $\chi^2 \ge 7.81$. Here $\chi^2 = {chi:num2}$, so the answer is **{rej}** (1 = reject: perhaps the genes are linked or some offspring survive less well; 0 = fail to reject: consistent with independent assortment).
+- id: bio-h-recomb-freq
+  title: Recombination frequency from a test cross
+  topic: Linkage
+  vars:
+    p1: {min: 300, max: 520}
+    p2: {min: 300, max: 520}
+    r1: {min: 20, max: 140}
+    r2: {min: 20, max: 140}
+    ph: {choices: [0, 1]}
+  where: ['max(r1, r2) < min(p1, p2) - 120']
+  calc:
+    gn: if(ph == 1, p1, r1)
+    gv: if(ph == 1, r1, p1)
+    bn: if(ph == 1, r2, p2)
+    bv: if(ph == 1, p2, r2)
+    total: p1 + p2 + r1 + r2
+    rec: r1 + r2
+    rf: (r1 + r2)/(p1 + p2 + r1 + r2)*100
+  prompt: 'In fruit flies, gray body (b+) is dominant to black (b) and normal wings (vg+) are dominant to vestigial (vg). A female heterozygous for both genes is test-crossed with a black, vestigial male. The offspring: {gn} gray with normal wings, {gv} gray with vestigial wings, {bn} black with normal wings, and {bv} black with vestigial wings. (a) How many offspring are recombinant? (b) What is the recombination frequency, as a percent to 1 decimal place? (This is also the distance between the genes in map units.)'
+  answers:
+    - {name: rec, format: integer, label: '(a) Recombinant offspring'}
+    - {name: rf, format: num1, tolerance: 0.06, label: '(b) Recombination frequency (%)'}
+  solution: |-
+    In a test cross the two most common classes are the parental types and the two least common are the recombinants. Here the two smallest classes are {r1} and {r2}, so there are ${r1} + {r2} =$ **{rec}** recombinant offspring.
+
+    Total: ${gn} + {gv} + {bn} + {bv} = {total}$.
+
+    $$\text{recombination frequency} = \frac{{rec}}{{total}} \times 100\% = {rf:num1}\%$$
+
+    So the recombination frequency is **{rf:num1}%**, and the genes are about {rf:num1} map units apart.
+- id: bio-h-linkage-predict
+  title: Predict test-cross offspring from a map distance
+  topic: Gene mapping
+  vars:
+    d: {min: 4, max: 40}
+    n: {choices: [400, 600, 800, 1000, 1200]}
+    ph: {choices: [{label: 'AB / ab (A and B on the same chromosome)', value: 1}, {label: 'Ab / aB (A on the same chromosome as b)', value: 0}]}
+    cls: {choices: [{label: AB, value: 1}, {label: Ab, value: 2}, {label: aB, value: 3}, {label: ab, value: 4}]}
+  calc:
+    isrec: if((ph == 1 and (cls == 2 or cls == 3)) or (ph == 0 and (cls == 1 or cls == 4)), 1, 0)
+    pct: if((ph == 1 and (cls == 2 or cls == 3)) or (ph == 0 and (cls == 1 or cls == 4)), d/2, (100 - d)/2)
+    cnt: n*if((ph == 1 and (cls == 2 or cls == 3)) or (ph == 0 and (cls == 1 or cls == 4)), d/2, (100 - d)/2)/100
+    nrec: n*d/100
+    half: d/2
+    phalf: (100 - d)/2
+  prompt: 'Genes A and B are {d} map units apart on the same chromosome. A plant whose chromosomes are {ph} is test-crossed with an ab / ab plant, giving {n} offspring. (a) How many offspring in total are expected to be recombinant? (b) How many are expected to have received an {cls} chromosome from the heterozygous parent?'
+  answers:
+    - {name: nrec, format: integer, label: '(a) Recombinant offspring'}
+    - {name: cnt, format: integer, label: '(b) Offspring from that gamete type'}
+  solution: |-
+    {d} map units means {d}% of the heterozygote's gametes are recombinant: (a) {d}% of {n} = **{nrec}**.
+
+    The plant's own two chromosomes, {ph}, are the parental gametes. Together they make up $100\% - {d}\%$ of the gametes, so {phalf:num1}% each. The other two combinations are recombinant, {half:num1}% each.
+
+    (b) An {cls} gamete makes up {pct:num1}% of the gametes here, so expect {pct:num1}% × {n} = **{cnt}** offspring.
+- id: bio-h-interference
+  title: Coefficient of coincidence and interference
+  topic: Gene mapping
+  vars:
+    r1: {min: 5, max: 20}
+    r2: {min: 5, max: 20}
+    n: {choices: [1000, 2000, 4000, 5000]}
+    obs: {min: 1, max: 40}
+  where: ['r1*r2*n/10000 >= 5', 'obs < r1*r2*n/10000']
+  calc:
+    ex: r1*r2*n/10000
+    coc: obs/(r1*r2*n/10000)
+    intf: 1 - obs/(r1*r2*n/10000)
+    f1: r1/100
+    f2: r2/100
+  prompt: 'In a three-point test cross with {n} offspring, the two intervals measure {r1} map units and {r2} map units, and {obs} double-crossover offspring are seen. Find (a) the number of double crossovers expected if crossovers in the two intervals were independent (1 decimal place), (b) the coefficient of coincidence (2 decimal places), and (c) the interference (2 decimal places).'
+  answers:
+    - {name: ex, format: num1, tolerance: 0.06, label: '(a) Expected double crossovers'}
+    - {name: coc, format: num2, tolerance: 0.012, label: '(b) Coefficient of coincidence'}
+    - {name: intf, format: num2, tolerance: 0.012, label: '(c) Interference'}
+  solution: |-
+    (a) Product rule: the expected double-crossover frequency is ${f1} \times {f2}$, so the expected number is ${f1} \times {f2} \times {n} =$ **{ex:num1}**.
+
+    (b) Coefficient of coincidence = observed ÷ expected $= \dfrac{{obs}}{{ex:num1}} =$ **{coc:num2}**.
+
+    (c) Interference $= 1 - {coc:num2} =$ **{intf:num2}**. A positive value means fewer double crossovers than expected: one crossover makes another nearby less likely.
+- id: bio-h-epistasis-count
+  title: Expected counts with epistasis
+  topic: Epistasis
+  vars:
+    k: {min: 8, max: 40}
+    sc:
+      choices:
+        - {label: 'In mice, A_ gives agouti fur and aa black fur, but any cc mouse is albino. In AaCc × AaCc, how many offspring are expected to be albino?', value: 4}
+        - {label: 'In mice, A_ gives agouti fur and aa black fur, but any cc mouse is albino. In AaCc × AaCc, how many offspring are expected to be black?', value: 3}
+        - {label: 'In mice, A_ gives agouti fur and aa black fur, but any cc mouse is albino. In AaCc × AaCc, how many offspring are expected to be agouti?', value: 9}
+        - {label: 'In sweet peas, a plant has purple flowers only if it has at least one C allele and at least one P allele; otherwise it is white. In CcPp × CcPp, how many offspring are expected to be white?', value: 7}
+        - {label: 'In sweet peas, a plant has purple flowers only if it has at least one C allele and at least one P allele; otherwise it is white. In CcPp × CcPp, how many offspring are expected to be purple?', value: 9}
+        - {label: 'In summer squash, W_ fruit are white; ww fruit are yellow if Y_ and green if yy. In WwYy × WwYy, how many offspring are expected to have white fruit?', value: 12}
+        - {label: 'In summer squash, W_ fruit are white; ww fruit are yellow if Y_ and green if yy. In WwYy × WwYy, how many offspring are expected to have yellow fruit?', value: 3}
+        - {label: 'In summer squash, W_ fruit are white; ww fruit are yellow if Y_ and green if yy. In WwYy × WwYy, how many offspring are expected to have green fruit?', value: 1}
+        - {label: 'In shepherd''s purse, seed capsules are triangular if the plant has a dominant allele at either of two genes, and oval only if it is aabb. In AaBb × AaBb, how many offspring are expected to have triangular capsules?', value: 15}
+  calc:
+    total: 16*k
+    cnt: k*sc
+  prompt: 'The two genes assort independently, and the cross produces {total} offspring. {sc}'
+  answers:
+    - {name: cnt, format: integer, label: 'Expected number'}
+  solution: |-
+    A cross of two double heterozygotes gives 16 equally likely outcomes: 9 with dominant alleles at both genes, 3 and 3 with a dominant allele at only one gene, and 1 homozygous recessive at both. Epistasis merges some of these classes:
+
+    - mice: 9 agouti (A_C_) : 3 black (aaC_) : 4 albino (A_cc and aacc);
+    - sweet peas: 9 purple (C_P_) : 7 white (C_pp, ccP_ and ccpp);
+    - squash: 12 white (W_Y_ and W_yy) : 3 yellow (wwY_) : 1 green (wwyy);
+    - shepherd's purse: 15 triangular : 1 oval (aabb).
+
+    The class asked about makes up $\dfrac{{sc:int}}{16}$ of the offspring, so expect $\dfrac{{sc:int}}{16} \times {total} =$ **{cnt}**.
+- id: bio-h-polygenes
+  title: How many genes control a quantitative trait?
+  topic: Quantitative genetics
+  vars:
+    n: {min: 2, max: 5}
+    m: {min: 1, max: 6}
+    low: {min: 20, max: 60, step: 2}
+    c: {min: 1, max: 5}
+  calc:
+    total: m*4^n
+    high: low + 2*n*c
+    mid: low + n*c
+    classes: 2*n + 1
+    ratio: 4^n
+    adds: 2*n
+  prompt: 'Two true-breeding plant lines are {low} cm and {high} cm tall; their F1 is {mid} cm. Of {total} F2 plants, about {m} are as short as the short parent. Assume height is controlled by genes with equal, additive effects and no environmental effect. Find (a) the number of genes that differ between the lines, (b) the number of height classes expected in the F2, and (c) how many cm each adding allele contributes.'
+  answers:
+    - {name: n, format: integer, label: '(a) Number of genes'}
+    - {name: classes, format: integer, label: '(b) Height classes'}
+    - {name: c, label: '(c) cm per adding allele'}
+  solution: |-
+    The shortest F2 plants must be homozygous for the non-adding allele at every gene. With $n$ genes that has probability $\left(\tfrac14\right)^n$.
+
+    Observed: $\dfrac{{m}}{{total}} = \dfrac{1}{{ratio}}$, and $\left(\tfrac14\right)^{{n}} = \dfrac{1}{{ratio}}$, so (a) $n =$ **{n}**.
+
+    (b) An F2 plant can have 0 to $2n = {adds}$ adding alleles: **{classes}** classes.
+
+    (c) The tall line has {adds} adding alleles and the short line none, so each adds $\dfrac{{high} - {low}}{{adds}} =$ **{c}** cm. Check: the F1 has {n} adding alleles, and ${low} + {n} \times {c} = {mid}$ cm.
+- id: bio-h-heritability
+  title: Heritability and the breeder's equation
+  topic: Quantitative genetics
+  vars:
+    ve: {min: 2, max: 8, step: 0.5}
+    vg: {min: 2, max: 12, step: 0.5}
+    mu: {min: 80, max: 150}
+    s: {min: 4, max: 20}
+    h2: {choices: [0.2, 0.25, 0.3, 0.4, 0.5, 0.6]}
+  calc:
+    vp: ve + vg
+    bh: vg/(ve + vg)
+    resp: h2*s
+    newm: mu + h2*s
+    sel: mu + s
+  prompt: '(a) Two inbred lines of a crop and their F1 are genetically uniform; within them, a trait has a variance of {ve}. In the genetically varied F2 the variance is {vp}. Find $V_G$ and the broad-sense heritability $H^2$ (2 decimal places). (b) In a different population with mean {mu} cm and narrow-sense heritability $h^2 = {h2}$, a breeder selects parents averaging {sel} cm. Find the response to selection $R$ and the predicted mean of the offspring.'
+  answers:
+    - {name: vg, label: '(a) $V_G =$'}
+    - {name: bh, format: num2, tolerance: 0.011, label: '(a) $H^2 =$'}
+    - {name: resp, label: '(b) $R =$ (cm)'}
+    - {name: newm, label: '(b) Offspring mean (cm)'}
+  solution: |-
+    (a) Genetically uniform groups vary only because of the environment, so $V_E = {ve}$. In the F2, $V_G = V_P - V_E = {vp} - {ve} =$ **{vg}**, and
+
+    $$H^2 = \frac{V_G}{V_P} = \frac{{vg}}{{vp}} = {bh:num2}$$
+
+    so $H^2 \approx$ **{bh:num2}**.
+
+    (b) Selection differential $S = {sel} - {mu} = {s}$ cm. Breeder's equation: $R = h^2 S = {h2} \times {s} =$ **{resp}** cm, so the offspring mean is about ${mu} + {resp} =$ **{newm}** cm.

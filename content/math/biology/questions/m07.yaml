@@ -618,3 +618,524 @@
   - The oxygen it built up made aerobic respiration possible, which yields much more ATP.
   answer: 3
   explanation: Oxygen accumulated from about 2.4 billion years ago. Aerobic respiration gives about 30 ATP per glucose versus 2 from fermentation, which supports larger, more active organisms.
+- id: bio-q-0756
+  lesson: bio-evidence
+  module_quiz: true
+  topic: Evidence for evolution
+  type: label
+  stem: The picture shows the bones of a human arm, from shoulder (top) to fingertips. Name the numbered parts. The same parts appear in a cat's foreleg, a whale's flipper and a bat's wing.
+  image: {src: images/m7-arm-bones.svg, alt: 'The bones of a human arm drawn from the shoulder at the top down to the fingertips, with five numbered markers from top to bottom.'}
+  labels:
+  - {x: 50, y: 16.2, text: Upper arm bone (humerus)}
+  - {x: 47.3, y: 39.1, text: Forearm bones (radius and ulna)}
+  - {x: 50, y: 51.7, text: Wrist bones (carpals)}
+  - {x: 49.7, y: 63.1, text: Palm bones (metacarpals)}
+  - {x: 49.2, y: 73.8, text: Finger bones (phalanges)}
+  explanation: 'From the shoulder down: one upper-arm bone, two forearm bones side by side, a cluster of small wrist bones, the palm bones, then the finger bones. A cat, whale and bat have the same parts in the same order, only resized and reshaped, which is why these forelimbs are homologous.'
+- id: bio-q-0757
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  type: text
+  stem: Body parts that share the same underlying structure because they were inherited from a common ancestor, even if they now do different jobs, are called ___ structures.
+  accept: [homologous, homologous structure, homologous structures]
+  explanation: 'Homologous structures, such as the human arm and the bat wing, share a parts list inherited from a common ancestor. Structures that do the same job but are built differently are analogous.'
+- id: bio-q-0758
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  type: match
+  stem: Sort each pair or structure into the kind of evidence it shows.
+  pairs:
+  - [A bat's wing and a whale's flipper, Homologous]
+  - [A bird's wing and a butterfly's wing, Analogous]
+  - [Tiny hip bones inside some whales, Vestigial]
+  - [A human arm and a cat's foreleg, Homologous]
+  - [The human tailbone, Vestigial]
+  explanation: 'Bat wings, whale flippers, human arms and cat forelegs share the same bones from a common ancestor: homologous. Bird and butterfly wings do the same job but are built differently and evolved separately: analogous. Whale hip bones and the human tailbone are reduced remnants of structures that were larger in ancestors: vestigial.'
+- id: bio-q-0759
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: Which observations are evidence that the organisms involved share a common ancestor? Select all that apply.
+  choices:
+  - Human arms and bat wings have the same set of bones in the same order.
+  - Humans and monkeys carry the same broken vitamin C gene, with some of the same disabling mutations.
+  - Birds and butterflies both have wings that they use to fly.
+  - Nearly all organisms use the same genetic code.
+  answer: [0, 1, 3]
+  explanation: 'Shared bone patterns, a shared broken gene and a shared genetic code are all most simply explained by inheritance from a common ancestor. Bird and butterfly wings are analogous: they evolved separately, so they show similar selection pressures, not shared ancestry.'
+- id: bio-q-0760
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  type: text
+  stem: A piece of wood has 1/32 as much carbon-14 as living wood. ___ half-lives of carbon-14 have passed since the tree died.
+  accept: [5, five]
+  explanation: '$\tfrac{1}{32} = \left(\tfrac12\right)^5$, so 5 half-lives have passed, about $5 \times 5{,}730 = 28{,}650$ years.'
+- id: bio-q-0761
+  lesson: bio-natural-selection
+  module_quiz: true
+  topic: Natural selection
+  type: order
+  stem: Put the steps of the Lederbergs' replica-plating experiment in order.
+  items:
+  - Grow many colonies on a master plate with no antibiotic.
+  - Press a velvet pad onto the master plate to pick up cells from every colony.
+  - Press the same pad onto a plate that contains the antibiotic.
+  - Note the positions of the few colonies that grow on the antibiotic plate.
+  - Test colonies from the same positions on the master plate for resistance.
+  explanation: 'The pad copies the pattern of colonies onto the antibiotic plate, so the colonies that grow there can be matched to colonies on the master plate. Those master-plate colonies turn out to be resistant even though they never met the antibiotic: the mutations came first and the antibiotic only selected them.'
+- id: bio-q-0762
+  lesson: bio-natural-selection
+  topic: Natural selection
+  type: text
+  stem: In evolutionary biology, an individual's reproductive success compared with others in its population is called its ___.
+  accept: [fitness, biological fitness, evolutionary fitness, Darwinian fitness, reproductive fitness]
+  explanation: 'Fitness is measured by offspring contributed to the next generation, not by strength, speed or how long the individual lives.'
+- id: bio-q-0763
+  lesson: bio-natural-selection
+  topic: Adaptation
+  type: match
+  stem: Match each example to the kind of selection it shows.
+  pairs:
+  - ['In a drought, finches with deeper beaks survive better and the average beak deepens.', Directional selection]
+  - [Babies of average birth weight historically survived best., Stabilizing selection]
+  - [Seedcrackers with small or large bills do well and those with medium bills do poorly., Disruptive selection]
+  - [Farmers bred kale and broccoli from wild cabbage., Artificial selection]
+  distractors: [Genetic drift]
+  explanation: 'Directional selection moves the average toward one extreme (deeper beaks). Stabilizing selection favors the middle (average birth weight). Disruptive selection favors both extremes over the middle (small and large bills). Artificial selection is breeding chosen by people. None of these is genetic drift, which is change by chance.'
+- id: bio-q-0764
+  lesson: bio-natural-selection
+  topic: Natural selection
+  stem: The figure shows the Lederbergs' replica-plating experiment. Which conclusions does it support? Select all that apply.
+  image: {src: images/m7-replica-plating.svg, alt: 'Replica plating: a master plate without antibiotic, a velvet pad, and an antibiotic plate where only two colonies grow; the matching positions are circled on both plates.'}
+  choices:
+  - Some cells were resistant before they ever met the antibiotic.
+  - The antibiotic selected resistant cells that were already present.
+  - The antibiotic caused the mutations that made cells resistant.
+  - Resistance appeared only after the cells were exposed to the antibiotic.
+  answer: [0, 1]
+  explanation: 'The colonies at the circled positions on the master plate were resistant although they had never touched the antibiotic, so the resistance mutations arose first, by chance. The antibiotic only revealed and favored them; it did not cause them.'
+- id: bio-q-0765
+  lesson: bio-natural-selection
+  topic: Natural selection
+  type: text
+  stem: A moth population has 300 light and 200 dark moths. On sooty bark, 50% of light moths and 80% of dark moths survive. To the nearest whole percent, ___% of the survivors are dark.
+  accept: [52]
+  explanation: 'Light survivors: $300 \times 0.50 = 150$. Dark survivors: $200 \times 0.80 = 160$. Dark share: $\dfrac{160}{150 + 160} = \dfrac{160}{310} \approx 0.516$, about 52%, up from 40% before selection.'
+- id: bio-q-0766
+  lesson: bio-population-genetics
+  topic: Hardy-Weinberg
+  type: text
+  stem: In a population in Hardy-Weinberg equilibrium, the frequency of allele a is $q = 0.3$. The expected frequency of heterozygotes ($2pq$), as a decimal, is ___.
+  accept: [0.42, '.42']
+  explanation: '$p = 1 - 0.3 = 0.7$, so $2pq = 2(0.7)(0.3) = 0.42$.'
+- id: bio-q-0767
+  lesson: bio-population-genetics
+  module_quiz: true
+  topic: Mechanisms of evolution
+  type: match
+  stem: Match each mechanism of evolution to an example of it.
+  pairs:
+  - [Gene flow, Wind carries pollen from one pine population to another.]
+  - [Genetic drift, By chance a few individuals happen to leave most of the offspring in a small population.]
+  - [Mutation, A copying error in DNA creates a new allele.]
+  - [Natural selection, Insects with a resistance allele survive spraying and leave more offspring.]
+  - [Nonrandom mating, Self-pollinating plants produce more homozygotes than expected.]
+  explanation: 'Gene flow moves alleles between populations; drift changes frequencies by chance; mutation creates new alleles; selection changes frequencies because genotypes differ in survival and reproduction; nonrandom mating (here self-fertilization) changes genotype frequencies, raising homozygotes.'
+- id: bio-q-0768
+  lesson: bio-population-genetics
+  topic: Mechanisms of evolution
+  stem: The figure shows the bottleneck effect with colored marbles standing for alleles. Which statements about a bottleneck are correct? Select all that apply.
+  image: {src: images/m7-bottleneck-founder.svg, alt: 'Colored marbles show the bottleneck effect, where a few survivors regrow a population with fewer colors, and the founder effect, where a few founders start an island population with different color proportions.'}
+  choices:
+  - The survivors are a random sample of the original alleles.
+  - The recovered population can lack alleles that the original population had.
+  - The alleles that pass through the bottleneck are always the best-adapted ones.
+  - Once the population regrows to its old size, its lost alleles return.
+  answer: [0, 1]
+  explanation: 'A bottleneck is a form of genetic drift: which alleles survive is a matter of chance, not fitness, so some alleles are lost. Regrowing the population does not bring them back; only mutation or gene flow can, which is why northern elephant seals still have very little variation.'
+- id: bio-q-0769
+  lesson: bio-population-genetics
+  topic: Hardy-Weinberg
+  type: order
+  stem: Put the steps for checking whether a population is in Hardy-Weinberg equilibrium at one gene in order.
+  items:
+  - Count the individuals of each genotype.
+  - Calculate the allele frequencies p and q from the counts.
+  - Calculate the expected genotype frequencies p², 2pq and q².
+  - Multiply by the population size to get expected counts.
+  - Compare the observed counts with the expected counts.
+  explanation: 'Allele frequencies come from the observed counts first; the Hardy-Weinberg equations then predict genotype frequencies, which become expected counts. A large gap between observed and expected counts means something is acting on the gene.'
+- id: bio-q-0770
+  lesson: bio-population-genetics
+  topic: Mechanisms of evolution
+  type: text
+  stem: When a few individuals start a new, isolated population that carries only some of the original population's alleles, the resulting genetic drift is called the ___ effect.
+  accept: [founder, founders, founder's]
+  explanation: 'The founder effect: the founders are a small random sample, so rare alleles they happen to carry can become common, as with Ellis–van Creveld syndrome among the Old Order Amish.'
+- id: bio-q-0771
+  lesson: bio-speciation
+  module_quiz: true
+  topic: Phylogeny
+  type: label
+  stem: Name the numbered parts of this phylogenetic tree.
+  image: {src: images/m7-tree-blank.svg, alt: 'A phylogenetic tree of five species, A to E, with time running left to right and four numbered markers on different parts of the tree.'}
+  labels:
+  - {x: 11.2, y: 39.4, text: Root}
+  - {x: 55.3, y: 67.5, text: Node (a common ancestor)}
+  - {x: 32.9, y: 22.5, text: Branch (a lineage through time)}
+  - {x: 62.1, y: 75, text: Tip (a group being compared)}
+  distractors: [Character, Population]
+  explanation: 'The root (1) is the base of the tree, the ancestor of everything on it. A node (2) is a branch point, standing for the common ancestor of the groups above it, here species D and E. A branch (3) is a line between nodes, a lineage evolving through time. A tip (4) is the end of a branch, one of the groups being compared.'
+- id: bio-q-0772
+  lesson: bio-speciation
+  topic: Speciation
+  type: match
+  stem: Sort each barrier as prezygotic (acts before fertilization) or postzygotic (acts after fertilization).
+  pairs:
+  - [Mules are almost always sterile., Postzygotic]
+  - [Two frog species breed in different months., Prezygotic]
+  - [Females answer only their own species' flash pattern., Prezygotic]
+  - [Hybrid embryos die before hatching., Postzygotic]
+  - [Sperm cannot bind to another species' eggs., Prezygotic]
+  explanation: 'Timing (temporal), courtship signals (behavioral) and sperm–egg binding (gametic) all stop fertilization from happening: prezygotic. Hybrid sterility and hybrid inviability act on a zygote that has already formed: postzygotic.'
+- id: bio-q-0773
+  lesson: bio-speciation
+  topic: Speciation
+  stem: Which of these can lead to sympatric speciation, without any geographic barrier? Select all that apply.
+  choices:
+  - A plant's chromosome number doubles, so it can't make fertile offspring with its parent species.
+  - Some flies switch to laying eggs on a new host fruit that ripens at a different time.
+  - A new mountain range splits a population in two.
+  - A river changes course and isolates part of a population.
+  answer: [0, 1]
+  explanation: 'Polyploidy and a host shift (as in apple maggot flies) can isolate groups living in the same place: sympatric speciation. Mountains and rivers are geographic barriers, the start of allopatric speciation.'
+- id: bio-q-0774
+  lesson: bio-speciation
+  topic: Phylogeny
+  type: text
+  stem: An ancestor and all of its descendants, one complete branch of a phylogenetic tree, is called a ___.
+  accept: [clade, monophyletic group]
+  explanation: 'A clade includes a common ancestor and every one of its descendants. Clades are identified by shared derived characters, such as the amniotic egg for lizards and humans.'
+- id: bio-q-0775
+  lesson: bio-speciation
+  topic: Phylogeny
+  type: order
+  stem: Using the vertebrate tree from the lesson, put these animals in order from most closely related to humans to least closely related.
+  items: [Lizard, Frog, Trout, Shark, Lamprey]
+  explanation: 'Relatedness follows how recently each animal shares a common ancestor with humans. Lizards share the amniote ancestor, frogs the four-limbed ancestor, trout the bony-skeleton ancestor, sharks the jawed ancestor, and lampreys only the oldest node on the tree.'
+- id: bio-q-0776
+  lesson: bio-history-life
+  topic: Geologic time
+  type: label
+  stem: The top bar shows Earth's whole history split into four eons; the bottom bar zooms into the most recent eon, split into three eras. Numbers are millions of years ago. Name the numbered intervals.
+  image: {src: images/m7-timeline-blank.svg, alt: 'Two unlabeled timeline bars. The top bar runs from 4,540 million years ago to now, with boundaries at 4,000, 2,500 and 539. The bottom bar zooms into the last 539 million years, with boundaries at 252 and 66.'}
+  labels:
+  - {x: 9.9, y: 33.3, text: Hadean}
+  - {x: 30.3, y: 33.3, text: Archean}
+  - {x: 65.1, y: 33.3, text: Proterozoic}
+  - {x: 28.7, y: 81, text: Paleozoic}
+  - {x: 68.7, y: 81, text: Mesozoic}
+  - {x: 90, y: 81, text: Cenozoic}
+  explanation: 'Eons: Hadean (4,540–4,000), Archean (4,000–2,500), Proterozoic (2,500–539), then the Phanerozoic. The Phanerozoic splits into the Paleozoic (539–252), Mesozoic (252–66) and Cenozoic (66–now) eras. The two big extinctions mark the era boundaries: end-Permian at 252, end-Cretaceous at 66.'
+- id: bio-q-0777
+  lesson: bio-history-life
+  module_quiz: true
+  topic: History of life
+  type: order
+  stem: Put these events in the history of life in order, from oldest to most recent.
+  items:
+  - Earliest widely accepted fossils of prokaryotes
+  - Oxygen builds up in the atmosphere
+  - First eukaryotes
+  - Cambrian explosion
+  - Plants reach land
+  - End-Cretaceous extinction
+  explanation: 'About 3.5 billion years ago, 2.4 billion, about 2 billion, 539 million, about 470 million, and 66 million years ago.'
+- id: bio-q-0778
+  lesson: bio-history-life
+  topic: Geologic time
+  type: match
+  stem: Match each mass extinction to its leading explanation.
+  pairs:
+  - [End-Ordovician, Glaciation and falling sea level]
+  - [Late Devonian, Loss of oxygen in the oceans]
+  - [End-Permian, Huge volcanic eruptions in Siberia]
+  - [End-Triassic, Volcanic eruptions as Pangaea split apart]
+  - [End-Cretaceous, Asteroid impact at Chicxulub]
+  explanation: 'These are the leading explanations from the lesson''s table. The end-Permian (about 252 million years ago) was the largest; the end-Cretaceous (66 million years ago) ended the non-bird dinosaurs, with volcanic eruptions in India also contributing.'
+- id: bio-q-0779
+  lesson: bio-history-life
+  topic: Geologic time
+  stem: 'Use the cliff in the figure. Which conclusions are supported? Select all that apply.'
+  image: {src: images/m7-rock-layers.svg, alt: 'Five rock layers in a cliff, from bottom to top: sandstone with trilobites, volcanic ash dated at 260 million years, shale with dinosaur bones, an iridium-rich clay layer, and rock with early primate fossils.'}
+  choices:
+  - The trilobites are older than 260 million years.
+  - The dinosaur bones are younger than 260 million years.
+  - The primate fossils are younger than the iridium layer.
+  - The trilobites are younger than the dinosaur bones.
+  answer: [0, 1, 2]
+  explanation: 'By superposition, lower layers are older. The trilobites lie below the dated ash, so they are older than 260 million years; the dinosaur bones lie above it, so they are younger. The primates lie above the iridium layer, which matches the 66-million-year end-Cretaceous boundary. The trilobites are the oldest fossils in the cliff, not younger than the dinosaurs.'
+- id: bio-q-0780
+  lesson: bio-history-life
+  topic: History of life
+  type: text
+  stem: The pattern in which species change little for long periods and then change relatively quickly, often around speciation, is called ___.
+  accept: [punctuated equilibrium, punctuated equilibria]
+  explanation: 'Punctuated equilibrium, named by Niles Eldredge and Stephen Jay Gould in 1972. "Relatively quickly" still means tens of thousands of years. The contrasting pattern of slow, steady change is gradualism.'
+- id: bio-qh-0701
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  stem: In a plant population, AA plants leave an average of 4.0 offspring, Aa plants 5.0 and aa plants 2.5. What is the relative fitness of AA?
+  choices: ['0.8', '1.25', '0.2', '1.0']
+  answer: 0
+  explanation: 'Divide by the fittest genotype, Aa: $w_{AA} = 4.0/5.0 = 0.8$. 1.25 divides the wrong way; 0.2 is the selection coefficient $s = 1 - w$; 1.0 would be right only if AA were the fittest genotype.'
+- id: bio-qh-0702
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  stem: A population starts in Hardy-Weinberg proportions with $p = q = 0.5$. Relative fitnesses are $w_{AA} = w_{Aa} = 1$ and $w_{aa} = 0.5$. What is $q$ among the adults after one generation of selection?
+  choices: ['0.375', '0.43', '0.25', '0.5']
+  answer: 1
+  explanation: 'Zygotes 0.25, 0.50, 0.25; times $w$: 0.25, 0.50, 0.125; mean fitness $\bar w = 0.875$. $q'' = \dfrac{0.125 + \tfrac12(0.50)}{0.875} = \dfrac{0.375}{0.875} \approx 0.43$. 0.375 forgets to divide by $\bar w$; 0.25 is $q^2$; 0.5 assumes nothing changes.'
+- id: bio-qh-0703
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  stem: Selection against a recessive phenotype ($aa$) lowers $q$ quickly when $q$ is large, but very slowly once $q$ is small. Why?
+  choices:
+  - Rare alleles mutate back into the dominant allele.
+  - Selection stops acting once an allele falls below 10%.
+  - When $q$ is small, most copies of $a$ are in heterozygotes, which have normal fitness.
+  - Heterozygotes have lower fitness than $aa$ individuals.
+  answer: 2
+  explanation: 'Only $aa$ individuals are selected against. When $q = 0.1$, just 1% of individuals are $aa$ but 18% are carriers, so about 90% of $a$ copies are hidden in heterozygotes. Selection keeps acting at every frequency; it simply has little to act on.'
+- id: bio-qh-0704
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  stem: At a gene with heterozygote advantage, $w_{AA} = 0.9$, $w_{Aa} = 1$ and $w_{aa} = 0.6$. At what frequency $q$ of allele $a$ does selection stop changing the population?
+  choices: ['0.8', '0.25', '0.1', '0.2']
+  answer: 3
+  explanation: '$s = 1 - w_{AA} = 0.1$ and $t = 1 - w_{aa} = 0.4$, so $\hat q = \dfrac{s}{s + t} = \dfrac{0.1}{0.5} = 0.2$. 0.8 is the equilibrium $p$, not $q$; 0.25 is $s/t$; 0.1 is $s$ alone.'
+- id: bio-qh-0705
+  lesson: bio-h-evolution-models
+  topic: Genetic drift
+  stem: A neutral allele has a frequency of 0.15 in a small population with no selection, mutation or gene flow. What is the probability that drift eventually fixes it?
+  choices: ['0.15', '0.85', '0.5', '0.0225']
+  answer: 0
+  explanation: 'For a neutral allele, the chance of eventual fixation equals its current frequency, 0.15; it is lost the other 85% of the time. 0.5 assumes every allele has an even chance; 0.0225 is $0.15^2$.'
+- id: bio-qh-0706
+  lesson: bio-h-evolution-models
+  topic: Genetic drift
+  stem: In an idealized population of 50 breeders with no mutation, gene flow or selection, about what fraction of the starting heterozygosity remains after 100 generations?
+  choices: ['0.13', '0.37', '0.99', '0.5']
+  answer: 1
+  explanation: '$H_t / H_0 = \left(1 - \tfrac{1}{2N}\right)^t = \left(1 - \tfrac{1}{100}\right)^{100} \approx 0.37$. 0.13 uses $1 - \tfrac1N$ instead of $1 - \tfrac{1}{2N}$ (forgetting that diploids carry $2N$ gene copies).'
+- id: bio-qh-0707
+  lesson: bio-h-evolution-models
+  topic: Genetic drift
+  stem: Over four generations a population has 500, 20, 500 and 500 breeding adults. What is its effective population size over this stretch?
+  choices: ['380', '500', 'About 71', '20']
+  answer: 2
+  explanation: 'Use the harmonic mean: $N_e = \dfrac{4}{\tfrac{1}{500} + \tfrac{1}{20} + \tfrac{1}{500} + \tfrac{1}{500}} = \dfrac{4}{0.056} \approx 71$. 380 is the ordinary average, which hides the bottleneck; the single generation of 20 dominates, but the other generations still count.'
+- id: bio-qh-0708
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  stem: When you test genotype counts at one gene with two alleles against Hardy-Weinberg using chi-square, how many degrees of freedom do you use?
+  choices:
+  - 2, because there are three genotype categories
+  - 3, one for each genotype
+  - 0, because the expected counts come from the data
+  - '1: three categories minus 1, minus 1 more because p was estimated from the same data'
+  answer: 3
+  explanation: 'Three genotype categories give $3 - 1 = 2$, and estimating $p$ from the same counts uses up one more, leaving df = 1 (critical value 3.84 at $p = 0.05$). Using 2 is the usual mistake; it makes the test too lenient.'
+- id: bio-qh-0709
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  stem: A sample of 100 individuals has 40 $AA$, 20 $Aa$ and 40 $aa$. Test for Hardy-Weinberg proportions (critical value 3.84). What do you find?
+  choices:
+  - $\chi^2 = 36$; fail to reject, since chance can explain the gap.
+  - $\chi^2 = 0$; the data fit perfectly because $p = 0.5$.
+  - $\chi^2 = 36$; reject, with too few heterozygotes, as inbreeding would cause.
+  - $\chi^2 = 3.6$; fail to reject.
+  answer: 2
+  explanation: '$p = \dfrac{2(40) + 20}{200} = 0.5$, so expected counts are 25, 50, 25. $\chi^2 = \dfrac{15^2}{25} + \dfrac{30^2}{50} + \dfrac{15^2}{25} = 9 + 18 + 9 = 36 > 3.84$: reject. Getting $p = 0.5$ says nothing about genotype proportions, and 3.6 comes from a slip in the arithmetic.'
+- id: bio-qh-0710
+  lesson: bio-h-evolution-models
+  topic: Genetic drift
+  type: text
+  stem: A captive population has 10 breeding males and 40 breeding females. Using $N_e = \dfrac{4N_m N_f}{N_m + N_f}$, its effective population size is ___.
+  accept: [32]
+  explanation: '$N_e = \dfrac{4(10)(40)}{10 + 40} = \dfrac{1600}{50} = 32$, well below the 50 adults counted. The scarcer sex limits how many lineages are passed on.'
+- id: bio-qh-0711
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  type: text
+  stem: The selection coefficient of a genotype is $s = 1 - w$, where $w$ is the genotype's ___ fitness.
+  accept: [relative]
+  explanation: 'Relative fitness: the genotype''s average offspring number divided by that of the fittest genotype. A genotype with $w = 0.75$ has $s = 0.25$.'
+- id: bio-qh-0712
+  lesson: bio-h-evolution-models
+  topic: Selection models
+  type: order
+  stem: Put the steps for calculating one generation of selection in order.
+  items:
+  - Write the zygote genotype frequencies p², 2pq and q².
+  - Multiply each genotype frequency by its relative fitness.
+  - Add the three products to get the mean fitness.
+  - Divide each product by the mean fitness.
+  - Count alleles among the breeders to get the new p and q.
+  explanation: 'Selection acts on genotypes, so start from Hardy-Weinberg zygotes, weight each genotype by its fitness, rescale by the mean fitness so the frequencies add to 1, and only then count alleles.'
+- id: bio-qh-0713
+  lesson: bio-h-evolution-models
+  topic: Genetic drift
+  type: match
+  stem: Match each term to its meaning.
+  pairs:
+  - [Fixation, An allele reaches a frequency of 1 and is the only one left.]
+  - [Effective population size, The size of an idealized population that would lose variation by drift at the same rate.]
+  - [Heterozygote advantage, The heterozygote has higher fitness than either homozygote.]
+  - [Selection coefficient, How much lower a genotype's fitness is than the fittest genotype's.]
+  - [Mean fitness, The average relative fitness of the population.]
+  distractors: [Movement of alleles between populations.]
+  explanation: 'Movement of alleles between populations is gene flow, which is not one of these terms.'
+- id: bio-qh-0714
+  lesson: bio-h-evolution-models
+  topic: Genetic drift
+  stem: Which of these make a population's effective size smaller than its census size? Select all that apply.
+  choices:
+  - Many more breeding females than breeding males
+  - A crash to a few individuals some generations ago
+  - A constant size, equal numbers of each sex, and every adult equally likely to breed
+  - A few adults producing most of the offspring
+  answer: [0, 1, 3]
+  explanation: 'Unequal sex ratios, past bottlenecks (through the harmonic mean) and unequal family sizes all mean fewer lineages are passed on, so drift acts as in a smaller population. A constant size with equal sexes and equal chances to breed is the idealized case, where $N_e$ equals the census size.'
+- id: bio-qh-0715
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: In a study of vertebrates (fish, frogs, lizards, mammals), which character is a shared derived character that marks the mammals as a clade?
+  choices: [A backbone, Four limbs, Lungs, Hair]
+  answer: 3
+  explanation: 'Hair arose in the common ancestor of mammals and is found in no other vertebrates. A backbone, four limbs and lungs are shared with other vertebrates, so for mammals they are shared ancestral characters and can''t define the group.'
+- id: bio-qh-0716
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: Why do biologists include an outgroup when building a phylogenetic tree?
+  choices:
+  - It shows which character states are ancestral and where to root the tree.
+  - It is the most advanced species in the study.
+  - It is the ancestor of all the species in the ingroup.
+  - It is the species with the most derived characters.
+  answer: 0
+  explanation: 'A state found in the outgroup, which branched off earlier, is taken as ancestral, and the root goes on the branch leading to it. An outgroup is a living relative, not the ancestor, and no living species is "more advanced".'
+- id: bio-qh-0717
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: The figure shows Trees 1 and 2 from the lesson's six-character table. How many changes would Tree 3, in which species B and C are closest, require?
+  image: {src: images/m7-parsimony.svg, alt: 'Two trees of species A, B and C plus an outgroup, with numbered bars for character changes: Tree 1 (A and B closest) has 7, Tree 2 (A and C closest) has 9.', caption: 'Character states, outgroup all 0. A: 1 1 1 1 1 0. B: 1 1 1 0 1 1. C: 0 0 0 1 1 0.'}
+  choices: ['7', '10', '9', '6']
+  answer: 1
+  explanation: 'On Tree 3, characters 1, 2 and 3 (shared by A and B) each need 2 changes: 6. Character 4 (shared by A and C) needs 2. Characters 5 and 6 need 1 each. Total $6 + 2 + 1 + 1 = 10$, the worst of the three trees; Tree 1, with 7, is the most parsimonious.'
+- id: bio-qh-0718
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: Which of these is an example of homoplasy?
+  choices:
+  - Hair in mice and in humans
+  - A backbone in trout and in frogs
+  - Wings in bats and in birds, considered as wings
+  - An amniotic egg in lizards and in humans
+  answer: 2
+  explanation: 'Bats and birds evolved flight separately; their common ancestor had no wings, so wings are a similarity not inherited from a common ancestor: homoplasy by convergence. (Their forelimb bones are homologous; the wings built from them are not.) The other traits were inherited from a common ancestor.'
+- id: bio-qh-0719
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: How many different rooted trees, with two branches at every node, are possible for 5 species?
+  choices: ['15', '25', '120', '105']
+  answer: 3
+  explanation: '$1 \times 3 \times 5 \times 7 = 105$ (the product of odd numbers up to $2n - 3 = 7$). 15 is the number for 4 species; 120 is $5!$; 25 is $5^2$.'
+- id: bio-qh-0720
+  lesson: bio-h-phylogenetics
+  topic: Molecular clocks
+  stem: Fossils date the split between two lineages to 30 million years ago, and a gene differs between them at 9% of sites. Two other species in the group differ at 3%. About how long ago did they split?
+  choices: [10 million years, 20 million years, 5 million years, 90 million years]
+  answer: 0
+  explanation: 'The two lineages diverge at $9\% / 30 = 0.30\%$ per million years ($r = 0.15\%$ per lineage), so $T = \dfrac{3}{2 \times 0.15} = 10$ million years. 20 divides by $r$ instead of $2r$; 5 divides by 2 twice; 90 multiplies instead of dividing.'
+- id: bio-qh-0721
+  lesson: bio-h-phylogenetics
+  topic: Molecular clocks
+  stem: For splits hundreds of millions of years old, a fast-changing gene tends to make the split look more recent than it is. Why?
+  choices:
+  - Fossils of old splits are always dated wrongly.
+  - Sites that change more than once hide earlier changes, so differences stop growing in step with time.
+  - Mutation rates were much higher in the distant past.
+  - Older species have fewer genes to compare.
+  answer: 1
+  explanation: 'This is saturation: once a site has changed, a later change at the same site may hide the first or even restore the original base, so the count of differences underestimates the changes that happened. Slower genes, many genes and models of multiple changes are used for old splits.'
+- id: bio-qh-0722
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: A tree built from one antibiotic-resistance gene places two distantly related bacteria side by side, but trees built from 100 other genes place them far apart. What is the most likely explanation?
+  choices:
+  - The trees from the 100 other genes are all wrong.
+  - The two bacteria are really the same species.
+  - The resistance gene moved between their lineages by horizontal gene transfer.
+  - Resistance genes never change, so they cannot be used.
+  answer: 2
+  explanation: 'When one gene disagrees with the species tree supported by many others, transfer of that gene between lineages is the usual explanation, and resistance genes often travel on plasmids. The single gene''s tree is real; it just records the gene''s history, not the species''.'
+- id: bio-qh-0723
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: The traditional group "reptiles" includes turtles, lizards, snakes and crocodiles but not birds. Why is that group not a clade?
+  choices:
+  - Turtles are not really reptiles.
+  - It leaves out birds, which descend from the same common ancestor.
+  - Lizards and snakes are not closely related.
+  - The animals in it have no shared derived characters at all.
+  answer: 1
+  explanation: 'Crocodiles share a more recent common ancestor with birds than with lizards, so a group with crocodiles but without birds leaves out some descendants: a paraphyletic group. Adding birds makes the reptiles a clade. Snakes are in fact closely related to lizards.'
+- id: bio-qh-0724
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  type: text
+  stem: A species known to have branched off before the group being studied, used to decide which character states are ancestral, is called an ___.
+  accept: [outgroup, out-group, out group]
+  explanation: 'The outgroup also roots the tree. It should be close enough to the ingroup that its states still reflect the ingroup''s ancestor.'
+- id: bio-qh-0725
+  lesson: bio-h-phylogenetics
+  topic: Molecular clocks
+  type: text
+  stem: A gene changes at 0.4% per million years in each lineage. Two species differ in this gene at 4.8% of sites. They split about ___ million years ago.
+  accept: [6, six]
+  explanation: '$T = \dfrac{d}{2r} = \dfrac{4.8}{2 \times 0.4} = 6$ million years. Dividing by $r$ alone would give 12, forgetting that both lineages changed.'
+- id: bio-qh-0726
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  type: match
+  stem: Match each term to its meaning.
+  pairs:
+  - [Shared derived character, A trait state that arose in a group's common ancestor and marks the group]
+  - [Shared ancestral character, A trait state inherited from an older ancestor and found outside the group too]
+  - [Homoplasy, A similarity not inherited from a common ancestor]
+  - [Maximum parsimony, Choosing the tree that needs the fewest changes]
+  - [Horizontal gene transfer, Movement of genes between organisms other than from parent to offspring]
+  explanation: 'Shared derived characters define clades; shared ancestral characters don''t. Homoplasy (convergence or reversal) is what makes characters conflict, parsimony is one way to choose among the resulting trees, and horizontal transfer can give a gene a different history from its species.'
+- id: bio-qh-0727
+  lesson: bio-h-phylogenetics
+  topic: Molecular clocks
+  type: order
+  stem: Put the steps for dating a split with a molecular clock in order.
+  items:
+  - Sequence the same gene in all the species being compared.
+  - Find a split dated independently by fossils or geology.
+  - Calculate the rate of change from the difference across that dated split.
+  - Measure the difference between the two species of interest.
+  - Divide that difference by twice the rate per lineage.
+  explanation: 'The clock has to be calibrated with a known date before it can be used: rate = difference ÷ (2 × known time), then time = difference ÷ (2 × rate).'
+- id: bio-qh-0728
+  lesson: bio-h-phylogenetics
+  topic: Cladistics
+  stem: Which of these are ways bacteria transfer genes horizontally? Select all that apply.
+  choices:
+  - 'Transformation: taking up DNA released by other cells'
+  - 'Transduction: receiving DNA carried by a virus'
+  - 'Conjugation: passing a plasmid through direct contact'
+  - 'Binary fission: dividing into two daughter cells'
+  answer: [0, 1, 2]
+  explanation: 'Transformation, transduction and conjugation move DNA between cells that are not parent and offspring. Binary fission is ordinary reproduction, passing genes vertically from a parent cell to its daughters.'

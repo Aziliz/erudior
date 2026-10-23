@@ -52,6 +52,20 @@ Communities change over time in fairly predictable ways after a disturbance. **E
 - Primary succession begins where there is no soil: bare rock after a lava flow, or ground exposed by a retreating glacier. Pioneer species such as lichens and mosses colonize first; they break down rock and add organic matter, slowly forming soil that grasses, then shrubs, then trees can use.
 - Secondary succession follows a disturbance that leaves soil in place: a wildfire, a hurricane, or an abandoned farm field. It is much faster, because seeds, roots and soil organisms survive. An abandoned field in the eastern United States can pass from weeds to grasses and shrubs to young forest within a few decades.
 
+The flowchart shows both kinds. Secondary succession skips the slow soil-building start.
+
+```mermaid
+flowchart TD
+  accTitle: Primary and secondary succession
+  accDescr: Primary succession starts on bare rock with no soil. Pioneer lichens and mosses colonize first and slowly build a thin soil. Grasses and small plants follow, then shrubs, then fast-growing trees, and finally a mature forest. Secondary succession starts after a disturbance such as a fire or an abandoned farm field, where soil is already present, so it skips the pioneer stage and begins with grasses and small plants, which is why it is much faster.
+  R["Bare rock, no soil"] --> L["Lichens and mosses: pioneers"]
+  L --> G["Grasses and small plants"]
+  G --> S["Shrubs"]
+  S --> T["Fast-growing trees"]
+  T --> F["Mature forest"]
+  D["Fire or abandoned field: soil remains"] -. "secondary succession" .-> G
+```
+
 Older textbooks described succession ending in a fixed "climax community." Ecologists now see mature communities as dynamic: small disturbances (a fallen tree, a patch fire) keep resetting parts of them.
 
 ## Biomes
@@ -67,6 +81,10 @@ A **biome** is a large region with a characteristic climate and the community of
 | Temperate deciduous forest | Four seasons; rain spread through the year | Trees that drop leaves in fall (oak, maple) |
 | Boreal forest (taiga) | Long, cold winters; short summers | Conifers (spruce, fir); moose, lynx |
 | Tundra | Very cold; permafrost; little precipitation | Mosses, lichens, low shrubs; no trees |
+
+Plotting each biome by its average temperature and yearly precipitation shows how climate sorts them. The chart is a simplified sketch: real boundaries blur into one another, and soil, fire and how rain is spread through the year also matter (a savanna and a forest can get similar rainfall, but the savanna has a long dry season and frequent fires).
+
+![A chart with average yearly temperature from minus 15 to 30 degrees Celsius on the horizontal axis and yearly precipitation from 0 to 450 centimeters on the vertical axis, divided into biome regions. Tundra is coldest and dry. Boreal forest is cold with moderate precipitation. Temperate grassland is cool to mild and fairly dry. Desert spans mild to hot temperatures with under 25 centimeters of rain. Temperate deciduous forest is mild and moist. Savanna is hot with moderate rain, and tropical rainforest is hot and very wet.](images/m10-biomes.svg)
 
 Aquatic systems are classified by salinity, depth and light instead: freshwater lakes and rivers, wetlands, estuaries where rivers meet the sea, coral reefs, and the open ocean.
 

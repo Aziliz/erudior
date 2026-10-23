@@ -72,3 +72,66 @@
     Area $= \pi r^2 = \pi({rad:num4})^2 =$ **{fov:num4} mm²**.
 
     Density $= {count} \div {fov:num4} \approx$ **{dens:int} stomata per mm²**.
+- id: bio-h-xylem-tension
+  title: How hard the xylem must pull
+  topic: Water transport
+  vars:
+    h: {min: 20, max: 110, step: 5}
+    soil: {choices: [-0.1, -0.2, -0.3, -0.4, -0.5]}
+    fr: {choices: [0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0]}
+  calc:
+    grav: 1000*9.81*h/1000000
+    top: soil - grav - fr
+  prompt: 'A tree is {h} m tall. The soil water near its roots has a water potential of {soil} MPa, and friction in the xylem along the path costs a further {fr} MPa. Using $\rho = 1000$ kg/m³ and $g = 9.81$ m/s², find (a) the pressure difference needed just to hold up a water column {h} m tall, and (b) the water potential at the top of the tree. Give both in MPa to 2 decimal places.'
+  answers:
+    - {name: grav, label: '(a) Gravity (MPa)', format: num2, relTolerance: 0.01}
+    - {name: top, label: '(b) Water potential at the top (MPa)', format: num2, relTolerance: 0.01}
+  solution: |-
+    (a) $\rho g h = 1000 \times 9.81 \times {h} = {grav:num4} \times 10^{6}$ Pa $=$ **{grav:num2} MPa** (about 0.01 MPa per meter).
+
+    (b) Start from the soil and subtract what gravity and friction cost on the way up: ${soil} - {grav:num2} - {fr} =$ **{top:num2} MPa**. The answer is negative: the water at the top is under tension, pulled up by transpiration.
+- id: bio-h-phage-burst
+  title: Burst size from a plaque count
+  topic: Viral replication
+  vars:
+    inf: {choices: [2, 2.5, 4, 5, 8]}
+    dexp: {choices: [4, 5, 6]}
+    vol: {choices: [0.1, 0.2]}
+    plq: {min: 30, max: 300}
+  calc:
+    pfu: plq/(10^(-dexp)*vol)
+    burst: pfu/(inf*100000)
+  where: ["burst >= 10", "burst <= 400"]
+  prompt: 'A culture contains ${inf} \times 10^{5}$ infected bacteria per mL. After all of them have burst, a sample is diluted to $10^{-{dexp}}$ and {vol} mL is plated with fresh bacteria, giving {plq} plaques. Find the phage concentration (PFU per mL) and the burst size (phages released per infected cell, 1 decimal place). You can type scientific notation, such as 6.2e7.'
+  answers:
+    - {name: pfu, label: 'PFU per mL', format: sci, relTolerance: 0.01}
+    - {name: burst, label: 'Burst size', format: num1, relTolerance: 0.01}
+  solution: |-
+    Each plaque came from one phage, so
+
+    $\text{PFU/mL} = \dfrac{\text{plaques}}{\text{dilution} \times \text{volume}} = \dfrac{{plq}}{10^{-{dexp}} \times {vol}} =$ **{pfu:sci}** PFU/mL.
+
+    Burst size $= \dfrac{\text{phages released}}{\text{infected cells}} = \dfrac{{pfu:sci}}{{inf} \times 10^{5}} =$ **{burst:num1}** phages per cell.
+- id: bio-h-resistant-mutants
+  title: Resistant mutants and combination therapy
+  topic: Antibiotic resistance
+  vars:
+    nexp: {choices: [8, 9, 10]}
+    aexp: {choices: [5, 6, 7, 8]}
+    bexp: {choices: [5, 6, 7, 8]}
+  where: ["nexp - aexp >= 1", "nexp - aexp - bexp <= -2"]
+  calc:
+    ra: 10^(nexp - aexp)
+    dbl: 10^(nexp - aexp - bexp)
+    dbls: log2(10^aexp)
+  prompt: 'An infection contains $10^{{nexp}}$ bacteria. Resistance to drug A arises in 1 cell in $10^{{aexp}}$, and resistance to drug B in 1 cell in $10^{{bexp}}$, independently. Find (a) the expected number of cells resistant to drug A, (b) the expected number resistant to both drugs, and (c) how many doublings the drug-A-resistant cells need to regrow to $10^{{nexp}}$ cells if drug A alone is used (1 decimal place). You can type scientific notation, such as 1e-4.'
+  answers:
+    - {name: ra, label: '(a) Resistant to A', relTolerance: 0.01}
+    - {name: dbl, label: '(b) Resistant to both', format: sci, relTolerance: 0.01}
+    - {name: dbls, label: '(c) Doublings', format: num1, relTolerance: 0.01}
+  solution: |-
+    (a) $10^{{nexp}} \times 10^{-{aexp}} =$ **{ra}** cells. Under drug A alone, these survive.
+
+    (b) Both mutations must occur in the same cell: $10^{-{aexp}} \times 10^{-{bexp}}$ per cell, so the expected number is $10^{{nexp}} \times 10^{-{aexp}} \times 10^{-{bexp}} =$ **{dbl:sci}**. A number far below 1 means almost certainly no doubly resistant cell exists, which is why combination therapy works.
+
+    (c) Doublings needed: $2^{n} = 10^{{nexp}} \div {ra}$, so $n = \log_2(10^{{aexp}}) = {aexp} \times \log_2 10 \approx$ **{dbls:num1}** doublings.

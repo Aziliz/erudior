@@ -30,6 +30,10 @@ Other parts of the mosaic:
 - *Receptor proteins* bind signal molecules such as hormones.
 - *Glycoproteins and glycolipids*, with sugar chains on the outside surface, act as identification tags that let cells recognize each other (and let the immune system recognize foreign cells).
 
+The drawing puts the mosaic together. The sugar chains all point outward, away from the cytoplasm, and every protein that spans the membrane has to cross the oily core, so the part of it buried in the tails is itself hydrophobic.
+
+![A section of plasma membrane. Two rows of phospholipids face each other, with round hydrophilic heads on the outer and inner surfaces and wavy hydrophobic fatty acid tails pointing inward. Labeled parts: a channel protein with a pore through the middle, a large carrier protein, a glycoprotein and a glycolipid carrying branched sugar chains on the outside surface, and small cholesterol molecules tucked among the tails.](images/m2-membrane.svg)
+
 ## Selective permeability
 
 A membrane is **selectively permeable**: some substances cross it easily and others cannot cross without help. What decides it is how well a molecule can pass through the oily, hydrophobic core.
@@ -55,6 +59,10 @@ The direction of osmosis depends on the solution outside the cell compared with 
 - An **isotonic** solution has the same solute concentration as the cell. Water moves in and out equally, with no net change.
 
 That is why the standard hospital IV fluid is isotonic saline (about 0.9% NaCl).
+
+The picture shows all six cases. Read each column as "the cell sits in this solution" and follow the blue arrows for the net movement of water. The animal cell has nothing to stop it bursting; the plant cell's wall turns the same inflow into firmness.
+
+![A grid of six cells. Columns are hypertonic, isotonic and hypotonic solutions. Top row, red blood cells: in hypertonic solution water leaves and the cell shrinks into a spiky shape; in isotonic solution water moves both ways equally and the cell is a normal disc; in hypotonic solution water enters and the cell swells and may burst. Bottom row, plant cells: hypertonic, the membrane and shrunken vacuole pull away from the wall (plasmolyzed); isotonic, the membrane just touches the wall (flaccid); hypotonic, the large vacuole presses the cell against its wall (turgid).](images/m2-tonicity.svg)
 
 ### Example 1: Red blood cells in salt solutions
 
@@ -111,7 +119,20 @@ Classify each movement.
 3. *A gut cell takes in glucose even though its own glucose concentration is already higher than in the gut.* Against the gradient: active transport (it needs energy). Here the energy comes indirectly: the carrier lets Na⁺ flow back in down the gradient built by the sodium–potassium pump and uses that flow to drag glucose along.
 4. *Water enters a root cell from wet soil through aquaporins.* Osmosis (passive).
 
-The test is the direction relative to the gradient, not whether a protein is involved.
+The test is the direction relative to the gradient, not whether a protein is involved. The flowchart turns that test into a set of questions you can ask about any small molecule or ion. (Bulk transport by vesicles, endocytosis and exocytosis, is a separate case that always uses energy.)
+
+```mermaid
+flowchart TD
+  accTitle: Deciding which kind of transport is happening
+  accDescr: First ask whether the substance moves down or against its concentration gradient. Against the gradient means active transport, which needs energy, as in the sodium-potassium pump. Down the gradient means passive transport, which needs no energy. For passive transport, if the substance is water crossing a membrane, it is osmosis. Otherwise, if it crosses through a channel or carrier protein, it is facilitated diffusion, and if it slips straight through the lipid bilayer, it is simple diffusion.
+  A["Down or against the concentration gradient?"] -- Against --> AT["Active transport: needs energy"]
+  A -- Down --> P["Passive transport: no energy"]
+  P --> W["Is it water?"]
+  W -- Yes --> O[Osmosis]
+  W -- No --> Q["Through a protein?"]
+  Q -- Yes --> FD[Facilitated diffusion]
+  Q -- No --> D[Simple diffusion]
+```
 
 ## Common mistakes
 

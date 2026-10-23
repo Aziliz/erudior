@@ -58,7 +58,18 @@ Equilibrium holds only under five conditions:
 4. random mating;
 5. no natural selection (all genotypes survive and reproduce equally).
 
-Real populations never meet all five perfectly, and that is the point. Hardy-Weinberg is a null model, like a control group: it says what happens if nothing is causing evolution. When real data differ from it, something on the list is happening.
+Real populations never meet all five perfectly, and that is the point. Hardy-Weinberg is a null model, like a control group: it says what happens if nothing is causing evolution. When real data differ from it, something on the list is happening. The diagram shows the reasoning, and Example 3 below works through it.
+
+```mermaid
+flowchart TD
+  accTitle: Using Hardy-Weinberg as a null model
+  accDescr: Count the genotypes in a sample. Calculate the allele frequencies p and q. Calculate the expected counts p squared times N, 2pq times N and q squared times N. Compare the observed counts with the expected ones. If they are close, there is no evidence of evolution at this gene. If they are far apart, something is acting on the gene: mutation, gene flow, drift, nonrandom mating or selection.
+  A["Count genotypes in a sample"] --> B["Calculate p and q"]
+  B --> C["Expected counts: p²N, 2pqN, q²N"]
+  C --> D["Compare observed with expected counts"]
+  D -- close --> E["No evidence of evolution at this gene"]
+  D -- far apart --> F["Something is acting: mutation, gene flow, drift, nonrandom mating or selection"]
+```
 
 ### Example 2
 
@@ -98,6 +109,10 @@ Each broken condition is a way allele frequencies change.
 
 - The **bottleneck effect**: a disaster or overhunting shrinks a population to a few survivors, whose alleles are a random, reduced sample. Northern elephant seals were hunted down to perhaps a few dozen animals by the 1890s. They now number more than 200,000, but have very little genetic variation.
 - The **founder effect**: a few individuals start a new, isolated population, carrying only some of the original alleles. Among the Old Order Amish of Lancaster County, Pennsylvania, descended from a small group of founders, a rare recessive form of dwarfism with extra fingers (Ellis–van Creveld syndrome) is far more common than in the general population.
+
+![Two rows of colored marbles, each color an allele. Top row, bottleneck effect: an original population with four colors in about equal numbers passes through a narrow bottle neck as four survivors, three blue and one green, and the recovered population has only blue and green. Bottom row, founder effect: a mainland population with four colors sends four founders to an island, and the island population that grows from them is mostly yellow and red, with a few blue and no green.](images/m7-bottleneck-founder.svg)
+
+In both cases the survivors or founders are a small random sample, so some alleles are lost and others become much more common, by chance alone.
 
 *Nonrandom mating* changes genotype frequencies. Mating with relatives raises homozygotes; mate choice (sexual selection) can also change allele frequencies.
 

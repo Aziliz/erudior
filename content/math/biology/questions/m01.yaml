@@ -605,3 +605,649 @@
   answer: 0
   explanation: |-
     The end product binds an early enzyme and slows it, turning down the whole pathway when the product builds up. This is how cells avoid wasting materials. It is regulation, not denaturation.
+# ---- Honors: bio-h-protein-structure
+- id: bio-qh-0101
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'Why can a polypeptide chain twist at the bonds next to each alpha carbon but not around the peptide bond itself?'
+  choices:
+    - 'The peptide bond is an ionic bond, and ionic bonds cannot rotate'
+    - 'The peptide bond has partial double-bond character, which holds the atoms around it flat'
+    - 'R groups sit on both sides of the peptide bond and block it'
+    - 'The peptide bond is a hydrogen bond that breaks whenever it rotates'
+  answer: 1
+  explanation: |-
+    Electrons are shared partly across the C=O and C–N bonds, so the C–N peptide bond behaves partly like a double bond and does not rotate; the six atoms around it lie in one plane. Rotation happens only at the single bonds on either side of each alpha carbon. The peptide bond is covalent, not ionic or a hydrogen bond, and R groups hang off the alpha carbons, not the peptide bond.
+- id: bio-qh-0102
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'What holds an α helix in its coiled shape?'
+  choices:
+    - 'Disulfide bonds between neighboring cysteines'
+    - 'Ionic bonds between charged R groups on opposite sides of the coil'
+    - 'Hydrogen bonds between the backbone C=O of one amino acid and the backbone N–H of the amino acid four positions along'
+    - 'Hydrogen bonds between the R groups of neighboring strands lying side by side'
+  answer: 2
+  explanation: |-
+    Secondary structure is held by hydrogen bonds between backbone atoms, which is why any sequence can in principle form it. In the α helix each C=O pairs with the N–H four amino acids further on. Side-by-side strands describe a β sheet (and even there the hydrogen bonds are between backbone atoms); disulfide and ionic bonds between R groups belong to tertiary structure.
+- id: bio-qh-0103
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'What is the main driving force that makes a soluble protein fold into a compact shape with an oily core?'
+  choices:
+    - 'The hydrophobic effect: burying nonpolar R groups frees the ordered water around them'
+    - 'Disulfide bonds, which form between every pair of amino acids in the core'
+    - 'Peptide bonds forming between distant parts of the chain'
+    - 'Chaperones, which carry a template of the final shape'
+  answer: 0
+  explanation: |-
+    Nonpolar R groups force nearby water into ordered arrangements; clustering them in the interior releases that water, which is favorable. Hydrogen bonds, ionic bonds and disulfide bonds then refine the shape. Disulfides form only between cysteines, peptide bonds join neighbors in the chain only, and chaperones prevent wrong interactions but hold no template.
+- id: bio-qh-0104
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'Anfinsen let ribonuclease (8 cysteines, 4 disulfide bonds) re-form its disulfide bonds while urea kept the chain unfolded. Only about 1% of the activity returned. Which explanation fits the data best?'
+  choices:
+    - 'Urea had broken the peptide bonds, so most of the chains were destroyed'
+    - 'The enzyme needs a chaperone, so it can never refold in a test tube'
+    - 'Only 1% of the cysteines formed disulfide bonds at all'
+    - 'The bonds paired at random: 8 cysteines can pair 105 ways, and only 1 way is native, about 1%'
+  answer: 3
+  explanation: |-
+    With the chain unfolded, nothing guided which cysteines met, so pairings were random. The number of ways is $7 \times 5 \times 3 \times 1 = 105$ and $1/105 \approx 0.95\%$, matching the data. Urea breaks weak interactions, not peptide bonds; and the same enzyme refolded fully without chaperones when urea was removed first.
+- id: bio-qh-0105
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'Levinthal calculated that a 100-amino-acid chain trying shapes at random would need far longer than the age of the universe to find its fold, yet real proteins fold in seconds or less. What does this show?'
+  choices:
+    - 'Proteins never reach their native shape inside cells'
+    - 'Folding is not a random search: local structures form fast and are kept, narrowing the options like a funnel'
+    - 'Each amino acid can take only one position, so there is just one possible shape'
+    - 'Proteins fold only after they reach their final location in the cell'
+  answer: 1
+  explanation: |-
+    The paradox disappears if folding is guided: helices and turns form within microseconds and are kept because they lower the energy, and hydrophobic collapse limits the remaining options. Proteins do reach native shapes; each amino acid does have several possible positions, which is what makes a random search impossible.
+- id: bio-qh-0106
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'In sickle cell hemoglobin, a glutamate on the surface of the β chain is replaced by valine. Why does this one change cause disease?'
+  choices:
+    - 'The chain can no longer form any α helices'
+    - 'Valine breaks the peptide bonds near the heme groups'
+    - 'The nonpolar valine creates a sticky patch that binds a neighboring hemoglobin, so molecules link into long fibers'
+    - 'Valine is charged, so it pulls the iron out of the heme group'
+  answer: 2
+  explanation: |-
+    Glutamate is charged and sits happily in water; valine is nonpolar. On the surface of deoxygenated hemoglobin the valine fits into a hydrophobic pocket on another molecule, so molecules join into fibers that deform red blood cells. Each molecule still folds normally, and valine is nonpolar, not charged.
+- id: bio-qh-0107
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'The oily core of a cell membrane is about 3.0 nm thick. An α helix rises 0.15 nm per amino acid (0.54 nm per turn). About how many amino acids must a helix have to span the core?'
+  choices:
+    - 'about 6'
+    - 'about 9'
+    - 'about 200'
+    - 'about 20'
+  answer: 3
+  explanation: |-
+    Amino acids needed $= 3.0 \div 0.15 = 20$, which matches the roughly 20-amino-acid nonpolar helices that cross real membranes. Dividing by 0.54 nm gives about 6, the number of turns, not amino acids. About 9 comes from using the β strand rise of 0.34 nm.
+- id: bio-qh-0108
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'A proline is placed in the middle of a sequence that would otherwise form a long α helix. What is the most likely result?'
+  choices:
+    - 'The helix is broken or kinked, because proline''s ring locks its rotation and it lacks the backbone N–H the helix needs'
+    - 'The helix becomes longer, because proline is nonpolar'
+    - 'A disulfide bond forms at the proline'
+    - 'Nothing changes, because secondary structure depends only on the backbone'
+  answer: 0
+  explanation: |-
+    Proline's R group bonds back to its own backbone nitrogen, so it has no N–H to donate a hydrogen bond and its swivel is locked; prolines usually break or kink helices. Disulfide bonds need cysteine. Secondary structure is held by the backbone, but which pattern forms depends on the R groups.
+- id: bio-qh-0109
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'How do molecular chaperones such as Hsp70 help proteins fold in the cell?'
+  choices:
+    - 'They carry instructions for the final shape of each protein'
+    - 'They add disulfide bonds to every new protein in the cytoplasm'
+    - 'They bind exposed hydrophobic stretches, preventing wrong interactions and aggregation, and release the chain to try again'
+    - 'They cut misfolded chains into individual amino acids'
+  answer: 2
+  explanation: |-
+    Chaperones shield hydrophobic patches, especially on chains still coming off the ribosome, so they don't stick to other chains. The shape information is still in the sequence, as Anfinsen showed. Breaking down misfolded chains is the job of the proteasome, and the cytoplasm rarely forms disulfide bonds.
+- id: bio-qh-0110
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'What makes a prion different from a virus or bacterium as an infectious agent?'
+  choices:
+    - 'It is a short RNA molecule that codes for a toxic protein'
+    - 'It is a misfolded protein with no DNA or RNA, and it converts normal copies of the protein into its misfolded form'
+    - 'It is a bacterium that lives inside brain cells'
+    - 'It is a normal protein that has lost all of its amino acids'
+  answer: 1
+  explanation: |-
+    A prion is a misfolded, β-sheet-rich form of a normal protein (PrP). Contact with it converts normally folded PrP into the misfolded form, so the misfolding spreads without any genetic material. This is why prion diseases such as Creutzfeldt–Jakob disease were so puzzling.
+- id: bio-qh-0111
+  lesson: bio-h-protein-structure
+  topic: Protein structure
+  stem: 'Which interactions help hold a protein''s tertiary structure? Select all that apply.'
+  choices:
+    - 'Hydrophobic interactions among nonpolar R groups'
+    - 'Disulfide bonds between cysteines'
+    - 'Peptide bonds between neighboring amino acids'
+    - 'Ionic bonds between oppositely charged R groups'
+  answer: [0, 1, 3]
+  explanation: |-
+    Tertiary structure comes from interactions between R groups: hydrophobic clustering, disulfide bonds, ionic bonds (salt bridges) and hydrogen bonds. Peptide bonds join neighbors in the chain and make up the primary structure; they are not broken when a protein unfolds.
+- id: bio-qh-0112
+  lesson: bio-h-protein-structure
+  type: text
+  topic: Protein structure
+  stem: 'The covalent bond that links the sulfur atoms of two cysteines is called a ___ bond.'
+  accept: [disulfide, disulphide, S-S, S–S, disulfide bridge]
+  explanation: |-
+    A disulfide bond (S–S) is the only covalent bond among the interactions that hold tertiary structure. It is common in proteins that work outside cells, such as antibodies and insulin.
+- id: bio-qh-0113
+  lesson: bio-h-protein-structure
+  type: match
+  topic: Protein structure
+  stem: 'Match each level of protein structure to what holds it together.'
+  pairs:
+    - [Primary, Peptide bonds between neighboring amino acids]
+    - [Secondary, Hydrogen bonds between backbone C=O and N–H groups]
+    - [Tertiary, Interactions among R groups of one chain]
+    - [Quaternary, Interactions between separate polypeptide chains]
+  distractors: [Phosphodiester bonds between nucleotides]
+  explanation: |-
+    The sequence is fixed by covalent peptide bonds. Helices and sheets come from backbone hydrogen bonds. The 3-D fold of one chain depends on R-group interactions (hydrophobic, ionic, hydrogen and disulfide bonds), and the same kinds of interactions join separate chains. Phosphodiester bonds link nucleotides in DNA and RNA.
+- id: bio-qh-0114
+  lesson: bio-h-protein-structure
+  type: label
+  topic: Protein structure
+  stem: 'The gray line is the backbone of one folded polypeptide. Name the numbered interactions between R groups.'
+  image: {src: images/m1-tertiary-bonds-blank.svg, alt: 'A folded polypeptide backbone running back and forth three times, with four kinds of contact between side chains: two S atoms joined by a line, a cluster of four plain circles inside a dashed outline, a COO minus group facing an NH3 plus group, and an OH group facing an O atom.'}
+  labels:
+    - {x: 27.8, y: 37.5, text: Disulfide bond}
+    - {x: 56.2, y: 37.5, text: Hydrophobic interactions}
+    - {x: 29.2, y: 73.6, text: Ionic bond}
+    - {x: 58.3, y: 73.6, text: Hydrogen bond}
+  distractors: [Peptide bond, Phosphodiester bond]
+  explanation: |-
+    1: two cysteine sulfurs joined covalently, a disulfide bond. 2: nonpolar R groups clustered away from water, hydrophobic interactions. 3: a negative carboxylate attracting a positive amino group, an ionic bond (salt bridge). 4: an OH sharing its hydrogen with an O, a hydrogen bond. Peptide bonds are in the backbone itself.
+- id: bio-qh-0115
+  lesson: bio-h-protein-structure
+  type: order
+  topic: Protein structure
+  stem: 'Put the steps of Anfinsen''s ribonuclease experiment in order.'
+  items:
+    - 'Add urea and mercaptoethanol to the active enzyme'
+    - 'The chain unfolds, its disulfide bonds break, and activity is lost'
+    - 'Slowly remove urea and mercaptoethanol'
+    - 'The chain refolds and its disulfide bonds re-form correctly'
+    - 'Nearly all the enzyme activity returns'
+  explanation: |-
+    Urea breaks the weak interactions and mercaptoethanol breaks the S–S bonds, so the enzyme unfolds and stops working. When both are removed slowly, the chain refolds on its own and activity returns, showing that the amino acid sequence holds the information for the shape.
+# ---- Honors: bio-h-enzyme-kinetics
+- id: bio-qh-0116
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'What does the Michaelis constant, $K_m$, of an enzyme measure?'
+  choices:
+    - 'Half of the maximum rate, $V_{\max}/2$'
+    - 'The amount of enzyme needed to reach the maximum rate'
+    - 'The substrate concentration at which the rate is half of $V_{\max}$'
+    - 'The number of substrate molecules one enzyme converts per second'
+  answer: 2
+  explanation: |-
+    $K_m$ is a substrate concentration: substitute $[\text{S}] = K_m$ into $v = V_{\max}[\text{S}]/(K_m + [\text{S}])$ and you get $V_{\max}/2$. $V_{\max}/2$ itself is a rate, not $K_m$. Molecules converted per enzyme per second is the turnover number, $k_{\text{cat}}$.
+- id: bio-qh-0117
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'A researcher doubles the amount of enzyme in a reaction mixture and keeps everything else the same. How do $V_{\max}$ and $K_m$ change?'
+  choices:
+    - '$V_{\max}$ doubles; $K_m$ stays the same'
+    - 'Both double'
+    - '$V_{\max}$ stays the same; $K_m$ halves'
+    - 'Neither changes'
+  answer: 0
+  explanation: |-
+    $V_{\max} = k_{\text{cat}}[\text{E}]_{\text{total}}$, so twice the enzyme gives twice the maximum rate. $K_m$ is a property of the enzyme with its substrate, not of how much enzyme is present, so the half-speed substrate concentration is unchanged.
+- id: bio-qh-0118
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'An enzyme has $V_{\max} = 80$ µmol/min and $K_m = 5$ mM. What is the initial rate when $[\text{S}] = 15$ mM?'
+  choices:
+    - '40 µmol/min'
+    - '20 µmol/min'
+    - 'about 53 µmol/min'
+    - '60 µmol/min'
+  answer: 3
+  explanation: |-
+    $v = \dfrac{80 \times 15}{5 + 15} = \dfrac{1200}{20} = 60$ µmol/min, which is 75% of $V_{\max}$ because $[\text{S}] = 3K_m$. 40 is $V_{\max}/2$, the rate at $[\text{S}] = K_m$. 20 comes from putting $K_m$ in the numerator, and 53 from $80 \times (15 - 5)/15$.
+- id: bio-qh-0119
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'A Lineweaver–Burk plot ($1/v$ in min per µmol against $1/[\text{S}]$ in per mM) is a straight line with $y$-intercept 0.025 and slope 0.1. What are $V_{\max}$ and $K_m$?'
+  choices:
+    - '$V_{\max} = 0.025$ µmol/min, $K_m = 0.1$ mM'
+    - '$V_{\max} = 40$ µmol/min, $K_m = 4$ mM'
+    - '$V_{\max} = 40$ µmol/min, $K_m = 0.0025$ mM'
+    - '$V_{\max} = 4$ µmol/min, $K_m = 40$ mM'
+  answer: 1
+  explanation: |-
+    The $y$-intercept is $1/V_{\max}$, so $V_{\max} = 1/0.025 = 40$ µmol/min. The slope is $K_m/V_{\max}$, so $K_m = 0.1 \times 40 = 4$ mM. Reading the intercept and slope directly as the constants forgets the reciprocals; dividing the slope by $V_{\max}$ gives 0.0025.
+- id: bio-qh-0120
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'With an inhibitor present, an enzyme''s apparent $K_m$ rises from 2 mM to 6 mM, but its $V_{\max}$ is unchanged. What kind of inhibitor is it, and what is $1 + [\text{I}]/K_i$?'
+  choices:
+    - 'Competitive; 3'
+    - 'Noncompetitive; 3'
+    - 'Uncompetitive; 4'
+    - 'Competitive; 4'
+  answer: 0
+  explanation: |-
+    Raised $K_m$ with unchanged $V_{\max}$ is the competitive pattern: enough substrate outcompetes the inhibitor. For a competitive inhibitor $K_m^{\text{app}} = K_m(1 + [\text{I}]/K_i)$, so $1 + [\text{I}]/K_i = 6/2 = 3$. A noncompetitive inhibitor lowers $V_{\max}$; an uncompetitive one lowers both constants. 4 is the difference $6 - 2$, not the ratio.
+- id: bio-qh-0121
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'A solution contains 5 nM of an enzyme. At saturating substrate, product forms at 10 µM per second. What is the turnover number, $k_{\text{cat}}$?'
+  choices:
+    - '2 per second'
+    - '50 per second'
+    - '2000 per second'
+    - '0.0005 per second'
+  answer: 2
+  explanation: |-
+    $k_{\text{cat}} = V_{\max}/[\text{E}] = (10 \times 10^{-6} \text{ M/s}) / (5 \times 10^{-9} \text{ M}) = 2000$ per second. Dividing 10 by 5 without converting µM and nM to the same unit gives 2; multiplying gives 50; dividing the wrong way gives 0.0005.
+- id: bio-qh-0122
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme regulation
+  stem: 'A plot of rate against substrate concentration for an enzyme is S-shaped (sigmoid) rather than a smooth hyperbola. What does this most likely indicate?'
+  choices:
+    - 'The enzyme has been denatured'
+    - 'A competitive inhibitor is present'
+    - 'The substrate is being used up during the measurement'
+    - 'The enzyme has several subunits that bind substrate cooperatively, as allosteric enzymes do'
+  answer: 3
+  explanation: |-
+    Cooperativity, where binding at one active site makes binding at the others easier, gives the S-shape typical of allosteric enzymes. A competitive inhibitor shifts a hyperbola to the right but leaves it a hyperbola. Initial rates are measured before much substrate is used, and a denatured enzyme shows little activity at all.
+- id: bio-qh-0123
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme regulation
+  stem: 'In bacteria, isoleucine inhibits threonine deaminase, the first of five enzymes that make isoleucine from threonine. Why is inhibiting the first enzyme an advantage?'
+  choices:
+    - 'It stops the whole pathway at once, so intermediates don''t pile up and no energy is wasted making them'
+    - 'Isoleucine has the same shape as threonine, so it can only bind the first enzyme'
+    - 'The first enzyme is the only one that can be inhibited'
+    - 'It speeds up isoleucine production when isoleucine is plentiful'
+  answer: 0
+  explanation: |-
+    Blocking the first committed step shuts down every later step for lack of substrate. Isoleucine doesn't resemble threonine; it binds an allosteric site. Feedback inhibition slows production when the product is plentiful, rather than speeding it up.
+- id: bio-qh-0124
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'Methanol is toxic because alcohol dehydrogenase converts it to formaldehyde and formic acid. Doctors can treat methanol poisoning by giving ethanol. Why does this work?'
+  choices:
+    - 'Ethanol denatures alcohol dehydrogenase permanently'
+    - 'Ethanol reacts with methanol directly and neutralizes it'
+    - 'Ethanol competes with methanol for the active site, so less methanol is converted and more is excreted unchanged'
+    - 'Ethanol raises the $V_{\max}$ of alcohol dehydrogenase'
+  answer: 2
+  explanation: |-
+    Ethanol is another substrate of the same enzyme. With both present they compete for the active site, so methanol is converted much more slowly and the body has time to excrete it. Ethanol does not denature the enzyme or react with methanol.
+- id: bio-qh-0125
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme regulation
+  stem: 'Why does the pancreas make the protein-digesting enzyme trypsin as an inactive zymogen, trypsinogen?'
+  choices:
+    - 'Trypsinogen digests proteins faster than trypsin does'
+    - 'So the enzyme doesn''t digest the pancreas; it is activated only in the small intestine, by cutting off part of the chain'
+    - 'Trypsin can only be activated by adding a phosphate group'
+    - 'Zymogens are needed to carry the enzyme through the blood'
+  answer: 1
+  explanation: |-
+    An active protease would attack the proteins of the cells that make it. Trypsinogen is cut into active trypsin by enteropeptidase on the intestinal lining, where it is needed. Activation is by cutting, not phosphorylation, and digestive enzymes travel through ducts, not the blood. Early activation inside the pancreas causes pancreatitis.
+- id: bio-qh-0126
+  lesson: bio-h-enzyme-kinetics
+  type: text
+  topic: Enzyme kinetics
+  stem: 'For an enzyme that follows the Michaelis–Menten equation, when the substrate concentration equals $3K_m$ the rate is ___ percent of $V_{\max}$.'
+  accept: ['75', '75%']
+  explanation: |-
+    The fraction of the maximum is $[\text{S}]/(K_m + [\text{S}]) = 3K_m/(K_m + 3K_m) = 3/4$, so the rate is 75% of $V_{\max}$.
+- id: bio-qh-0127
+  lesson: bio-h-enzyme-kinetics
+  type: text
+  topic: Enzyme kinetics
+  stem: 'On a Lineweaver–Burk plot, the $y$-intercept equals 1 divided by ___.'
+  accept: [Vmax, V max, V_max, maximum rate, maximum velocity, the maximum rate, the maximum velocity]
+  explanation: |-
+    Taking reciprocals of the Michaelis–Menten equation gives $1/v = (K_m/V_{\max})(1/[\text{S}]) + 1/V_{\max}$, so the $y$-intercept is $1/V_{\max}$ and the slope is $K_m/V_{\max}$.
+- id: bio-qh-0128
+  lesson: bio-h-enzyme-kinetics
+  type: match
+  topic: Enzyme kinetics
+  stem: 'Match each type of inhibitor to its effect.'
+  pairs:
+    - [Competitive, Km increases; Vmax unchanged]
+    - [Pure noncompetitive, Vmax decreases; Km unchanged]
+    - [Uncompetitive, Vmax and Km both decrease]
+    - [Irreversible, Enzyme permanently inactivated by a covalent bond]
+  distractors: [Vmax increases; Km decreases]
+  explanation: |-
+    A competitive inhibitor is outcompeted by substrate, so only the apparent Km rises. A pure noncompetitive inhibitor takes a fraction of the enzyme out of action at any substrate level. An uncompetitive inhibitor binds only the enzyme–substrate complex and lowers both. An irreversible inhibitor bonds covalently, as aspirin does to cyclooxygenase. No inhibitor raises Vmax.
+- id: bio-qh-0129
+  lesson: bio-h-enzyme-kinetics
+  topic: Enzyme kinetics
+  stem: 'An enzyme that follows the Michaelis–Menten equation is working at a substrate concentration equal to its $K_m$. Which changes would increase its initial rate? Select all that apply.'
+  choices:
+    - 'Adding more substrate'
+    - 'Adding more enzyme'
+    - 'Adding a competitive inhibitor'
+    - 'Heating it far above its optimum temperature'
+  answer: [0, 1]
+  explanation: |-
+    At $[\text{S}] = K_m$ the enzyme runs at half of $V_{\max}$, so more substrate raises the rate, and more enzyme raises $V_{\max}$ and with it every rate. A competitive inhibitor slows the reaction, and overheating denatures the enzyme.
+- id: bio-qh-0130
+  lesson: bio-h-enzyme-kinetics
+  type: order
+  topic: Enzyme regulation
+  stem: 'Put the events of feedback inhibition in order, starting when the cell has made more end product than it needs.'
+  items:
+    - 'The end product builds up in the cell'
+    - 'The end product binds the allosteric site of the first enzyme in the pathway'
+    - 'The first enzyme changes shape and its activity drops'
+    - 'The pathway slows and less end product is made'
+    - 'As the end product is used up, it leaves the enzyme and the pathway speeds up again'
+  explanation: |-
+    Feedback inhibition is a negative feedback loop: a high level of product shuts down the first committed step through an allosteric shape change, and a low level releases the brake. Because binding is reversible, the pathway restarts on its own when the product runs low.
+# ---- Round 2 core additions (new question types)
+- id: bio-q-0157
+  lesson: bio-life
+  type: text
+  topic: Characteristics of life
+  stem: 'Keeping internal conditions such as temperature, water content and pH within a narrow range, even when the outside changes, is called ___.'
+  accept: [homeostasis]
+  explanation: |-
+    Homeostasis is one of the characteristics of life. It usually works by negative feedback: a change triggers a response that pushes the condition back toward its set point.
+- id: bio-q-0158
+  lesson: bio-life
+  type: order
+  module_quiz: true
+  topic: Levels of organization
+  stem: 'Put these levels of organization in order from smallest to largest.'
+  items: [Molecule, Organelle, Cell, Tissue, Organ, Organ system]
+  explanation: |-
+    Molecules build organelles, organelles are parts of cells, similar cells form tissues, different tissues form organs, and organs work together in organ systems. Ask "what is this made of?" at each step.
+- id: bio-q-0159
+  lesson: bio-life
+  type: match
+  module_quiz: true
+  topic: Levels of organization
+  stem: 'Match each level of organization to its description.'
+  pairs:
+    - [Population, All the members of one species in an area]
+    - [Community, All the populations of different species in an area]
+    - [Ecosystem, A community plus its nonliving surroundings]
+    - [Biosphere, All the ecosystems on Earth]
+  distractors: [A group of similar cells working together]
+  explanation: |-
+    A population is one species; a community is every species; an ecosystem adds sunlight, water, soil and climate; the biosphere is the whole living planet. A group of similar cells is a tissue.
+- id: bio-q-0160
+  lesson: bio-life
+  topic: Characteristics of life
+  stem: 'Which of these does a virus have? Select all that apply.'
+  choices:
+    - 'Genetic information'
+    - 'Populations that evolve over generations'
+    - 'A metabolism of its own'
+    - 'A body made of one or more cells'
+  answer: [0, 1]
+  explanation: |-
+    Viruses carry genes (DNA or RNA) and their populations evolve, which is why flu vaccines must be updated. But they are not made of cells and have no metabolism of their own; they reproduce only inside a living host cell. That is why most biologists do not call them alive.
+- id: bio-q-0161
+  lesson: bio-life
+  topic: Characteristics of life
+  stem: 'In the negative feedback loop that controls body temperature on a hot day, which step is the response?'
+  choices:
+    - 'Body temperature rises above about 37 °C'
+    - 'Sensors in the skin and brain detect the rise'
+    - 'The brain sends signals to the sweat glands'
+    - 'Sweat evaporates from the skin and carries heat away'
+  answer: 3
+  explanation: |-
+    The rise in temperature is the stimulus, the sensors detect it, and the brain is the control center that signals the sweat glands. The response is the action that changes the condition: evaporating sweat removes heat, pushing temperature back toward the set point.
+- id: bio-q-0162
+  lesson: bio-method
+  type: label
+  module_quiz: true
+  topic: Experimental design
+  stem: 'This picture shows Redi''s experiment on where maggots come from. Name the numbered parts.'
+  image: {src: images/m1-redi-blank.svg, alt: 'Two jars, each with a piece of meat at the bottom. Flies fly into the left jar, which is open, and its meat has maggots. The right jar is covered with a mesh cover; flies sit on top of the cover and have laid eggs there, and its meat has no maggots.'}
+  labels:
+    - {x: 80, y: 29.5, text: Gauze (lets air in but keeps flies out)}
+    - {x: 23.4, y: 64, text: Control group}
+    - {x: 76.6, y: 64, text: Experimental group}
+  distractors: [Controlled variable, Dependent variable]
+  explanation: |-
+    The open jars are the control group: the normal condition, used as a baseline. The gauze-covered jars are the experimental group, receiving the treatment (no fly access). The gauze lets air in, so lack of air can't explain the result. Controlled variables are conditions kept the same (type of meat, room), and the dependent variable is what was observed (maggots on the meat).
+- id: bio-q-0163
+  lesson: bio-method
+  type: match
+  topic: Experimental design
+  stem: 'Match each part of an experiment to the matching feature of Redi''s experiment.'
+  pairs:
+    - [Independent variable, Whether flies can reach the meat]
+    - [Dependent variable, Whether maggots appear on the meat]
+    - [Controlled variable, The same kind of meat in every jar]
+    - [Control group, The open jars]
+  distractors: [The idea that maggots come from fly eggs]
+  explanation: |-
+    Redi changed only whether flies could reach the meat (independent variable) and observed maggots (dependent variable), keeping the meat, jars and room the same (controlled variables). The open jars were the baseline (control group). The idea that maggots come from fly eggs is his hypothesis.
+- id: bio-q-0164
+  lesson: bio-method
+  type: order
+  topic: Scientific method
+  stem: 'Put the steps of a scientific investigation in order.'
+  items:
+    - 'Make an observation that raises a question'
+    - 'Propose a testable hypothesis'
+    - 'Make an if-then prediction'
+    - 'Run a controlled experiment'
+    - 'Analyze the data'
+    - 'Share the results for peer review and replication'
+  explanation: |-
+    A hypothesis explains the observation; a prediction says what the experiment should show if the hypothesis is right; the data are analyzed to see whether they support it; and other scientists check the work before it is accepted. If the data do not support the hypothesis, it is revised and tested again.
+- id: bio-q-0165
+  lesson: bio-method
+  type: text
+  topic: Scientific method
+  stem: 'A broad, well-tested explanation that ties together many observations and has survived repeated attempts to disprove it, such as cell theory, is called a scientific ___.'
+  accept: [theory]
+  explanation: |-
+    In science a theory is close to the opposite of a guess. A hypothesis is a testable explanation of one observation, and a law describes a pattern without explaining it.
+- id: bio-q-0166
+  lesson: bio-method
+  topic: Experimental design
+  stem: 'Which features make the results of an experiment more trustworthy? Select all that apply.'
+  choices:
+    - 'A larger number of individuals in each group'
+    - 'Repeating the trials'
+    - 'Changing two variables at once to save time'
+    - 'A control group for comparison'
+  answer: [0, 1, 3]
+  explanation: |-
+    Larger samples and repeated trials make it less likely that a difference is due to chance, and a control group gives a baseline. Changing two variables at once makes it impossible to tell which one caused the effect.
+- id: bio-q-0167
+  lesson: bio-chemistry
+  type: label
+  module_quiz: true
+  topic: Water
+  stem: 'The picture shows five water molecules. Name the numbered parts.'
+  image: {src: images/m1-water-hbonds-blank.svg, alt: 'Five water molecules, each an O atom bonded by solid lines to two H atoms. The center molecule is linked by dashed lines to the four molecules around it.'}
+  labels:
+    - {x: 62.9, y: 17.6, text: Covalent bond}
+    - {x: 51.2, y: 38.2, text: Hydrogen bond}
+    - {x: 48.5, y: 47.1, text: Slightly negative (δ−) oxygen}
+    - {x: 65.9, y: 86, text: Slightly positive (δ+) hydrogen}
+  distractors: [Ionic bond, Slightly positive (δ+) oxygen]
+  explanation: |-
+    1 is a solid line within one molecule: a covalent bond, where O and H share electrons. 2 is a dashed line between molecules: a hydrogen bond. Oxygen pulls the shared electrons toward itself, so it is slightly negative (3) and each hydrogen is slightly positive (4). There are no ionic bonds in pure water.
+- id: bio-q-0168
+  lesson: bio-chemistry
+  type: text
+  topic: pH
+  stem: 'A solution at pH 4 has ___ times the hydrogen ion concentration of a solution at pH 8.'
+  accept: ['10000', '10,000', '10^4', '1e4']
+  explanation: |-
+    The pH values differ by 4 units, and each unit is a factor of 10, so the ratio is $10^4 = 10\,000$. The lower pH has more H⁺. (Not 4 times, and not 2 times: the scale is logarithmic.)
+- id: bio-q-0169
+  lesson: bio-chemistry
+  type: match
+  topic: Water
+  stem: 'Match each property of water to the example it explains.'
+  pairs:
+    - [Cohesion, A water strider standing on a pond]
+    - [High specific heat, Coastal cities having mild climates]
+    - [Ice being less dense than liquid water, Fish surviving under a frozen pond]
+    - [Being a polar solvent, Salt and sugar dissolving in blood]
+  distractors: [Iron rusting in damp air]
+  explanation: |-
+    Cohesion gives water surface tension. High specific heat means oceans change temperature slowly. Ice floats and insulates the water below. Water's polarity lets it surround and separate ions and polar molecules. Rusting is a reaction of iron with oxygen, not one of these properties.
+- id: bio-q-0170
+  lesson: bio-chemistry
+  type: order
+  topic: pH
+  stem: 'Put these from most acidic to most basic.'
+  items: [Stomach acid (pH about 2), Black coffee (pH about 5), Pure water, Human blood, Household ammonia]
+  explanation: |-
+    Lower pH means more H⁺ and more acid. Stomach acid is near pH 2, coffee near 5, pure water 7, blood 7.35–7.45 (slightly basic) and household ammonia about 11.
+- id: bio-q-0171
+  lesson: bio-chemistry
+  topic: Water
+  stem: 'Which substances dissolve well in water? Select all that apply.'
+  choices:
+    - 'Table salt (NaCl)'
+    - 'Glucose'
+    - 'Olive oil'
+    - 'Amino acids'
+  answer: [0, 1, 3]
+  explanation: |-
+    Water's partial charges surround ions such as Na⁺ and Cl⁻ and polar molecules such as glucose and amino acids, pulling them into solution. Olive oil is nonpolar (hydrophobic), so it does not dissolve.
+- id: bio-q-0172
+  lesson: bio-macromolecules
+  type: label
+  module_quiz: true
+  topic: Macromolecules
+  stem: 'Name the numbered parts of this amino acid.'
+  image: {src: images/m1-amino-acid-blank.svg, alt: 'The general structure of an amino acid: a central atom bonded to H above, an H2N group on the left, a C double-bonded to O and bonded to OH on the right, and a group marked R below.'}
+  labels:
+    - {x: 22.4, y: 53.1, text: Amino group}
+    - {x: 69.9, y: 33.8, text: Carboxyl group}
+    - {x: 55, y: 83.1, text: R group (side chain)}
+    - {x: 48.5, y: 53.1, text: Central carbon}
+  distractors: [Phosphate group, Peptide bond]
+  explanation: |-
+    Every amino acid has a central carbon bonded to an amino group (–NH₂), a carboxyl group (–COOH), a hydrogen and an R group. Only the R group differs among the 20 amino acids. Phosphate groups belong to nucleotides, and a peptide bond forms only when two amino acids join.
+- id: bio-q-0173
+  lesson: bio-macromolecules
+  type: match
+  topic: Macromolecules
+  stem: 'Match each class of macromolecule to its building block.'
+  pairs:
+    - [Carbohydrates, Monosaccharides]
+    - [Proteins, Amino acids]
+    - [Nucleic acids, Nucleotides]
+    - [Lipids, No true repeating monomer]
+  distractors: [Nitrogen bases only]
+  explanation: |-
+    Polysaccharides are built from simple sugars, proteins from amino acids and nucleic acids from nucleotides (each a sugar, a phosphate and a base). Lipids are not true polymers; a fat is one glycerol plus three fatty acids. A nitrogen base is only one part of a nucleotide.
+- id: bio-q-0174
+  lesson: bio-macromolecules
+  type: text
+  topic: Macromolecules
+  stem: 'Joining 25 amino acids into one unbranched chain by dehydration synthesis releases ___ water molecules.'
+  accept: ['24']
+  explanation: |-
+    A chain of 25 monomers has $25 - 1 = 24$ bonds, and each bond releases one water. Picture a train of 25 cars: 24 couplings.
+- id: bio-q-0175
+  lesson: bio-macromolecules
+  type: order
+  topic: Macromolecules
+  stem: 'Put the levels of protein structure in order, from the first to form (simplest) to the last.'
+  items: [Sequence of amino acids, Local helices and sheets, Overall 3-D fold of one chain, Several folded chains joined together]
+  explanation: |-
+    Primary structure (the sequence) determines where secondary structures (helices and sheets) form; these pack into the tertiary structure of one chain; and in some proteins, such as hemoglobin, several chains assemble into quaternary structure.
+- id: bio-q-0176
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'Which of these contain nitrogen? Select all that apply.'
+  choices:
+    - 'Proteins'
+    - 'DNA'
+    - 'Starch'
+    - 'A triglyceride fat'
+  answer: [0, 1]
+  explanation: |-
+    Every amino acid has an amino group, and every nucleotide has a nitrogen-containing base, so proteins and nucleic acids contain N. Starch is made of glucose (C, H, O) and a triglyceride of glycerol and fatty acids (C, H, O).
+- id: bio-q-0177
+  lesson: bio-enzymes
+  type: label
+  module_quiz: true
+  topic: Enzymes
+  stem: 'The picture shows an enzyme at work in three steps. Name the numbered parts.'
+  image: {src: images/m1-induced-fit-blank.svg, alt: 'Three panels joined by arrows. In the first, a small wedge-shaped molecule sits above a matching notch in a larger molecule. In the second, the wedge sits in the notch, whose edges have closed around it. In the third, the wedge has split into two pieces that have moved away, and the larger molecule looks as it did at the start.'}
+  labels:
+    - {x: 15, y: 82, text: Enzyme}
+    - {x: 15, y: 62.5, text: Active site}
+    - {x: 15, y: 31.8, text: Substrate}
+    - {x: 94, y: 29.6, text: Product}
+  distractors: [Inhibitor, Cofactor]
+  explanation: |-
+    The large molecule is the enzyme (1), and the notch where the reactant binds is its active site (2). The molecule it acts on is the substrate (3). After the reaction the substrate has become two products (4), and the enzyme is released unchanged.
+- id: bio-q-0178
+  lesson: bio-enzymes
+  type: order
+  topic: Enzymes
+  stem: 'Put the steps of an enzyme''s catalytic cycle in order.'
+  items:
+    - 'The substrate binds to the active site'
+    - 'The enzyme changes shape slightly to grip the substrate (induced fit)'
+    - 'The reaction takes place'
+    - 'The products are released'
+    - 'The unchanged enzyme binds another substrate'
+  explanation: |-
+    Binding forms the enzyme–substrate complex; induced fit strains bonds or holds substrates in place, lowering the activation energy; the reaction happens; the products leave; and the enzyme, not used up, starts again.
+- id: bio-q-0179
+  lesson: bio-enzymes
+  type: text
+  topic: Enzymes
+  stem: 'Enzymes speed up reactions by lowering the ___ energy, the energy needed to start the reaction.'
+  accept: [activation]
+  explanation: |-
+    Enzymes lower the activation energy by providing an easier pathway. They do not change the energy of the reactants or products, so the overall energy released or absorbed is the same.
+- id: bio-q-0180
+  lesson: bio-enzymes
+  type: match
+  topic: Enzymes
+  stem: 'Match each change to its effect on a human enzyme such as catalase.'
+  pairs:
+    - [Boiling it for 5 minutes, Destroys its shape permanently]
+    - [Cooling it to 5 °C, Slows it but activity returns on warming]
+    - [Adding much more substrate when a competitive inhibitor is present, Restores nearly the full rate]
+    - [Adding a noncompetitive inhibitor, Reduces activity by binding away from the active site]
+  distractors: [Adds energy to the reaction]
+  explanation: |-
+    Heat breaks the weak bonds that hold the enzyme's shape, usually for good; cold only slows molecular motion. Extra substrate outcompetes a competitive inhibitor for the active site, but not a noncompetitive one, which acts elsewhere. Enzymes never add energy to a reaction.
+- id: bio-q-0181
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'Which statements about enzymes are true? Select all that apply.'
+  choices:
+    - 'One enzyme molecule can be used again and again'
+    - 'Enzymes lower the activation energy of a reaction'
+    - 'Enzymes change the total energy released by a reaction'
+    - 'Each enzyme has an optimum pH'
+  answer: [0, 1, 3]
+  explanation: |-
+    Enzymes are catalysts: they are released unchanged, lower the activation energy and work best at a particular pH (pepsin near 2, trypsin near 8). They do not change the starting or ending energy, so the overall energy change is the same with or without them.

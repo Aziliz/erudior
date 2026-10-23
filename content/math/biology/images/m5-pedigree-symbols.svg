@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 355" width="680" height="355" role="img">
+<title>Pedigree symbols</title>
+<rect x="0" y="0" width="680" height="355" fill="#ffffff"/>
+<rect x="62.0" y="42.0" width="36.0" height="36.0" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<text x="80.0" y="104.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">unaffected</text>
+<text x="80.0" y="123.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">male</text>
+<circle cx="210.0" cy="60.0" r="18.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<text x="210.0" y="104.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">unaffected</text>
+<text x="210.0" y="123.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">female</text>
+<rect x="322.0" y="42.0" width="36.0" height="36.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
+<text x="340.0" y="104.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">affected</text>
+<text x="340.0" y="123.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">male</text>
+<circle cx="470.0" cy="60.0" r="18.0" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
+<text x="470.0" y="104.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">affected</text>
+<text x="470.0" y="123.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">female</text>
+<circle cx="600.0" cy="60.0" r="18.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="600.0" cy="60.0" r="5.0" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<text x="600.0" y="104.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">carrier</text>
+<text x="600.0" y="123.0" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">female</text>
+<rect x="182.0" y="182.0" width="36.0" height="36.0" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="400.0" cy="200.0" r="18.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="218.0" y1="200.0" x2="382.0" y2="200.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="300.0" y1="200.0" x2="300.0" y2="245.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="240.0" y1="245.0" x2="360.0" y2="245.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="240.0" y1="245.0" x2="240.0" y2="272.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="360.0" y1="245.0" x2="360.0" y2="272.0" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="222.0" y="272.0" width="36.0" height="36.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="360.0" cy="290.0" r="18.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="300.0" y1="200.0" x2="470.0" y2="175.0" stroke="#1c2833" stroke-width="1"/>
+<text x="476.0" y="172.0" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">mating line (parents)</text>
+<line x1="330.0" y1="245.0" x2="470.0" y2="245.0" stroke="#1c2833" stroke-width="1"/>
+<text x="476.0" y="250.0" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">line to their children</text>
+<text x="60.0" y="205.0" font-family="sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#1c2833">I</text>
+<text x="60.0" y="295.0" font-family="sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#1c2833">II</text>
+<text x="40.0" y="340.0" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">Roman numerals number the generations</text>
+</svg>

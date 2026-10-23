@@ -35,13 +35,19 @@ Pathways come in two kinds:
 
 Chemists sort individual reactions the same way. An **exergonic reaction** releases free energy: its products hold less usable energy than its reactants, so it can happen on its own (though an enzyme may be needed to make it happen quickly). An **endergonic reaction** absorbs free energy: its products hold more energy than its reactants, so it cannot happen unless energy is supplied from somewhere else.
 
+The difference shows up clearly on an energy diagram. Both kinds of reaction first have to climb over a hill, the activation energy you met with enzymes in module 1; what decides exergonic or endergonic is whether the products end up lower or higher than where the reactants started.
+
+![Two energy diagrams side by side. In the exergonic reaction on the left, the curve rises over an activation-energy hill and ends at products lower than the reactants, with an arrow showing energy released. In the endergonic reaction on the right, the curve ends at products higher than the reactants, with an arrow showing energy absorbed.](images/m3-energy-diagram.svg)
+
 Every cell faces the same problem. The reactions it needs most (building proteins, pumping ions, contracting muscle) are endergonic. The reactions that release energy (breaking down food) happen somewhere else, at a different time. The cell needs a go-between: a molecule that can be charged up by exergonic reactions and then spent to drive endergonic ones.
 
 ## ATP, the energy currency
 
 That go-between is **ATP** (adenosine triphosphate). It is a nucleotide, close kin to the building blocks of RNA you met in module 1: the base adenine, the sugar ribose, and a chain of three phosphate groups.
 
-The three phosphates each carry negative charges, and they sit packed together, repelling one another. When water is used to break off the last phosphate (hydrolysis), ATP becomes **ADP** (adenosine diphosphate) plus a free phosphate group, written Pᵢ ("inorganic phosphate"):
+![Diagram of ATP: a chain of three phosphate groups attached to the sugar ribose, which is attached to the double-ring base adenine. A bracket marks adenine plus ribose as adenosine, and a dashed line marks the bond to the last phosphate, which is broken in hydrolysis.](images/m3-atp.svg)
+
+The drawing shows the layout. Adenine plus ribose is called adenosine; add the chain of phosphates and you have adenosine triphosphate. The three phosphates each carry negative charges, and they sit packed together, repelling one another. When water is used to break off the last phosphate (hydrolysis), ATP becomes **ADP** (adenosine diphosphate) plus a free phosphate group, written Pᵢ ("inorganic phosphate"):
 
 $$\text{ATP} + \text{H}_2\text{O} \rightarrow \text{ADP} + \text{P}_i + \text{energy}$$
 

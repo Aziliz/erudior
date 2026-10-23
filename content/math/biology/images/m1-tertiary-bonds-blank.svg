@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="sans-serif">
+<rect width="720" height="360" fill="#ffffff"/>
+<path d="M580,70 L140,70 C65,70 65,200 140,200 L580,200 C655,200 655,330 580,330 L140,330" fill="none" stroke="#5b6b78" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="594" y="76" font-size="16" text-anchor="start" font-weight="normal" fill="#1c2833">N</text>
+<text x="126" y="336" font-size="16" text-anchor="end" font-weight="normal" fill="#1c2833">C</text>
+<line x1="200" y1="70" x2="200" y2="100" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="200" y1="200" x2="200" y2="170" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="200" y1="114" x2="200" y2="156" stroke="#1c2833" stroke-width="5"/>
+<rect x="185.0" y="100" width="30" height="28" rx="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="200" y="120" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">S</text>
+<rect x="185.0" y="142" width="30" height="28" rx="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="200" y="162" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">S</text>
+<line x1="380" y1="70" x2="380" y2="100" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="380" y1="200" x2="380" y2="170" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="380" cy="117" r="17" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="380" cy="153" r="17" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<line x1="430" y1="70" x2="430" y2="100" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="430" y1="200" x2="430" y2="170" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="430" cy="117" r="17" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="430" cy="153" r="17" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<ellipse cx="405" cy="135.0" rx="62" ry="42" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="210" y1="200" x2="210" y2="222" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="210" y1="330" x2="210" y2="308" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="178.0" y="222" width="64" height="28" rx="8" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<text x="210" y="242" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">COO⁻</text>
+<rect x="178.0" y="280" width="64" height="28" rx="8" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="210" y="300" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">NH₃⁺</text>
+<line x1="210" y1="250" x2="210" y2="280" stroke="#1c2833" stroke-width="2.5" stroke-dasharray="3 4"/>
+<line x1="420" y1="200" x2="420" y2="222" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="420" y1="330" x2="420" y2="308" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="397.0" y="222" width="46" height="28" rx="8" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<text x="420" y="242" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">OH</text>
+<rect x="403.0" y="280" width="34" height="28" rx="8" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<text x="420" y="300" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">O</text>
+<line x1="420" y1="250" x2="420" y2="280" stroke="#1c2833" stroke-width="2" stroke-dasharray="6 4"/>
+</svg>

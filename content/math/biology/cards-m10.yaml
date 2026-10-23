@@ -28,3 +28,24 @@
 - {front: 'Species richness vs evenness', back: 'Richness: number of species. Evenness: how equally individuals are spread among them. Diversity indexes combine both.', topic: Biodiversity}
 - {front: 'Main human threats to biodiversity', back: 'Habitat loss (largest), climate change, invasive species, pollution, overexploitation.', topic: Human impact}
 - {front: 'Biomagnification', back: 'A persistent, fat-soluble toxin (such as DDT) becomes more concentrated at each higher trophic level.', topic: Human impact}
+- {front: 'Life table columns', back: '$l_x = n_x/n_0$ (survivorship), $d_x = n_x - n_{x+1}$ (deaths), $q_x = d_x/n_x$ (mortality rate), $e_x = T_x/n_x$ (life expectancy).', topic: Life tables}
+- {front: '$l_x$ vs $q_x$', back: '$l_x$: fraction of the cohort surviving from birth to age $x$. $q_x$: fraction of those alive at age $x$ that die before $x+1$.', topic: Life tables}
+- {front: 'Why can $e_1$ be larger than $e_0$?', back: 'When first-year mortality is high, an individual that survives its first year has escaped that risk and can expect to live longer than a newborn.', topic: Life tables}
+- {front: 'Survivorship curve types', back: 'Type I: most die old (humans, large mammals). Type II: constant fraction dies each age, straight line on a log scale (many lizards). Type III: most die young (oysters, most fish).', topic: Life tables}
+- {front: 'Net reproductive rate', back: '$R_0 = \sum l_x m_x$, daughters per female per lifetime. $R_0 > 1$: grows; $= 1$: steady; $< 1$: shrinks.', topic: Life tables}
+- {front: 'r-selected vs K-selected', back: 'r: early maturity, many small offspring, little care, short life. K: late maturity, few large offspring, much care, long life. A continuum; age-specific mortality explains life histories better.', topic: Population models}
+- {front: 'Reznick and Endler guppy experiment', back: 'Guppies moved to a stream where predators eat mainly juveniles evolved later maturity and fewer, larger young in about 11 years: mortality by age shapes life histories.', topic: Population models}
+- {front: 'Lotka–Volterra predator–prey equations', back: '$dH/dt = rH - aHP$; $dP/dt = baHP - mP$. Prey steady at $P = r/a$; predators steady at $H = m/(ab)$. Cycles with predator peaks lagging.', topic: Population models}
+- {front: 'Kluane hare experiment results', back: 'Averaged over peak and decline: food added 3×, predators excluded 2×, both about 11× hare density. Food and predation interact.', topic: Population models}
+- {front: 'When do two competitors coexist (Lotka–Volterra)?', back: 'When each limits itself more than it limits the other: $\alpha_{12} < K_1/K_2$ and $\alpha_{21} < K_2/K_1$. Otherwise one excludes the other.', topic: Population models}
+- {front: 'Estimating K from density data', back: 'Plot per capita growth against $N$; fit a line $r(1 - N/K)$. The intercept is $r$, and where the line hits zero is $K$.', topic: Population models}
+- {front: 'GPP, NPP, NEP', back: 'NPP = GPP − producer respiration. NEP = NPP − consumer and decomposer respiration. NEP > 0 means the ecosystem stores carbon.', topic: Primary productivity}
+- {front: 'Light and dark bottle formulas', back: 'Respiration = initial − dark. Net production = light − initial. GPP = light − dark.', topic: Primary productivity}
+- {front: 'Converting O₂ to carbon fixed', back: 'One O₂ released per CO₂ fixed, so mg C = mg O₂ × 12/32 = mg O₂ × 0.375 (approximate).', topic: Primary productivity}
+- {front: 'Classic nutrient-limitation experiments', back: 'Lake 226 (1973): phosphorus limits lakes. Ryther and Dunstan (1971): nitrogen limits coastal seas. IronEx II (1995): iron limits parts of the open ocean.', topic: Primary productivity}
+- {front: 'Redfield ratio', back: 'C : N : P ≈ 106 : 16 : 1 in ocean plankton. N:P well below 16 suggests N limitation; well above suggests P limitation.', topic: Primary productivity}
+- {front: 'Ocean vs land NPP', back: 'About half of global NPP (roughly 105 GtC per year) is in the ocean, though phytoplankton are under 1% of producer biomass: they turn over in days.', topic: Primary productivity}
+- {front: 'Nitrogen cycle microbes', back: 'Fixers (nitrogenase, N₂ → NH₄⁺); nitrifiers (NH₄⁺ → NO₂⁻ → NO₃⁻, need O₂); denitrifiers (NO₃⁻ → N₂O → N₂, low O₂); anammox (NH₄⁺ + NO₂⁻ → N₂).', topic: Global change}
+- {front: 'Global carbon budget 2023', back: 'Emitted 11.1 GtC (fossil 10.1, land use 1.0). Atmosphere +5.9, ocean 2.9, land 2.3. Airborne fraction about 53%. 2.12 GtC ≈ 1 ppm.', topic: Global change}
+- {front: 'Evidence that rising CO₂ comes from fossil fuels', back: 'Falling carbon-13 and carbon-14 fractions in air CO₂, falling atmospheric O₂, and emissions inventories that match the rise.', topic: Global change}
+- {front: 'Ice-core CO₂ record', back: 'For 800,000 years CO₂ stayed between about 180 and 300 ppm; today it is about 424 ppm (2024).', topic: Global change}

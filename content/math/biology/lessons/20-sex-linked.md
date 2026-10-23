@@ -77,6 +77,8 @@ Geneticists can't arrange human matings, so they work backward from family histo
 - a horizontal line joining a male and a female = a mating; a vertical line down from it leads to their children, drawn left to right in birth order;
 - generations are labeled with Roman numerals (I, II, III).
 
+![A key to pedigree symbols: an open square is an unaffected male, an open circle an unaffected female, a filled square an affected male, a filled circle an affected female, and a circle with a dot a carrier female. Below, a square and a circle joined by a horizontal mating line, with a vertical line down to a horizontal line connecting their two children, an affected son and an unaffected daughter; Roman numerals I and II number the generations.](images/m5-pedigree-symbols.svg)
+
 ```shape
 {"x": [-1.5, 6], "y": [0.8, 5], "polygons": [{"points": [[0.5, 3.5], [1.5, 3.5], [1.5, 4.5], [0.5, 4.5]]}, {"points": [[0, 1.5], [1, 1.5], [1, 2.5], [0, 2.5]], "fill": true}, {"points": [[4, 1.5], [5, 1.5], [5, 2.5], [4, 2.5]]}], "circles": [{"center": [4, 4], "r": 0.5}, {"center": [4, 4], "r": 0.12, "fill": true}, {"center": [2.5, 2], "r": 0.5}], "segments": [{"from": [1.5, 4], "to": [3.5, 4]}, {"from": [2.5, 4], "to": [2.5, 2.9]}, {"from": [0.5, 2.9], "to": [4.5, 2.9]}, {"from": [0.5, 2.9], "to": [0.5, 2.5]}, {"from": [2.5, 2.9], "to": [2.5, 2.5]}, {"from": [4.5, 2.9], "to": [4.5, 2.5]}], "labels": [{"at": [-1, 4], "text": "I"}, {"at": [-1, 2], "text": "II"}], "caption": "An X-linked recessive pattern: an unaffected father and a carrier mother (dot) have an affected son, an unaffected daughter and an unaffected son"}
 ```
@@ -90,6 +92,10 @@ The main inheritance patterns leave recognizable signatures:
 | X-linked recessive | Many more affected males than females; affected sons usually have unaffected (carrier) mothers; never passed from father to son |
 
 Examples: cystic fibrosis and sickle-cell disease are autosomal recessive; Huntington's disease and achondroplasia are autosomal dominant; hemophilia A, Duchenne muscular dystrophy and red-green color blindness are X-linked recessive.
+
+The pedigree below shows the X-linked recessive pattern of Example 2 over three generations. The affected grandfather (I-1) passes his X to every daughter, so both II-2 and II-3 are carriers; his son II-1 gets his Y and is unaffected. Carrier II-3 then has an affected son (III-1). The trait jumps from grandfather to grandson through a mother who doesn't show it.
+
+![A three-generation pedigree. Generation I: an affected man (I-1) and an unaffected woman (I-2). Generation II: their children, an unaffected son (II-1) and two carrier daughters (II-2 and II-3, circles with dots); II-3 has children with an unaffected man (II-4). Generation III: their children, an affected son (III-1), an unaffected daughter (III-2) and an unaffected son (III-3).](images/m5-pedigree-xlinked.svg)
 
 ### Example 3
 

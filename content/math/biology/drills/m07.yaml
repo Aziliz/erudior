@@ -242,3 +242,107 @@
 
 
     Clock time $= 24 \times \dfrac{{el:dp0}}{4{,}540} \approx$ **{hr:num1} hours** after midnight, which is {left:num2} hours before the end of the day.'
+- id: bio-h-selection-gen
+  title: One generation of selection against a recessive phenotype
+  topic: Selection models
+  vars:
+    q: {min: 0.1, max: 0.9, step: 0.1}
+    w: {min: 0.1, max: 0.9, step: 0.1}
+  calc:
+    p: 1 - q
+    zAA: (1 - q)^2
+    zAa: 2*(1 - q)*q
+    zaa: q^2
+    caa: q^2*w
+    pq: (1 - q)*q
+    wbar: (1 - q)^2 + 2*(1 - q)*q + q^2*w
+    qn: (q^2*w + (1 - q)*q)/((1 - q)^2 + 2*(1 - q)*q + q^2*w)
+  prompt: 'A population starts in Hardy-Weinberg proportions with $q = {q}$, the frequency of allele $a$. Relative fitnesses are $w_{AA} = w_{Aa} = 1$ and $w_{aa} = {w}$. Find the mean fitness $\bar w$ and the frequency $q''$ of $a$ among the breeding adults after one generation of selection. Give both to 3 decimal places.'
+  answers:
+  - {name: wbar, label: 'Mean fitness $\bar w$', tolerance: 0.0015}
+  - {name: qn, label: '$q''$', tolerance: 0.0015}
+  solution: 'Zygotes: $AA$ ${zAA:dp4}$, $Aa$ ${zAa:dp4}$, $aa$ ${zaa:dp4}$.
+
+
+    Multiply by fitness: only $aa$ changes, to ${zaa:dp4} \times {w} = {caa:dp4}$.
+
+
+    Mean fitness: $\bar w = {zAA:dp4} + {zAa:dp4} + {caa:dp4} =$ **{wbar:dp3}**.
+
+
+    New frequency: $q'' = \dfrac{q^2 w_{aa} + pq}{\bar w} = \dfrac{{caa:dp4} + {pq:dp4}}{{wbar:dp4}} =$ **{qn:dp3}**, down from {q}.'
+- id: bio-h-ne-bottleneck
+  title: Effective size through a bottleneck
+  topic: Genetic drift
+  vars:
+    big: {min: 200, max: 1000, step: 100}
+    nb: {min: 4, max: 40, step: 2}
+  calc:
+    inv: 4/big + 1/nb
+    ne: 5/(4/big + 1/nb)
+    am: (4*big + nb)/5
+    keep: (1 - 1/(2*big))^4*(1 - 1/(2*nb))
+    lossb: 100/(2*nb)
+    lossg: 100/(2*big)
+  prompt: 'Over five generations a population has {big}, {big}, {nb}, {big} and {big} breeding adults. Find its effective population size $N_e$ over the five generations (1 decimal place), and the fraction of its starting heterozygosity expected to remain after the five generations, multiplying $\left(1 - \tfrac{1}{2N}\right)$ for each generation (3 decimal places).'
+  answers:
+  - {name: ne, label: '$N_e$', tolerance: 0.06}
+  - {name: keep, label: Fraction of heterozygosity left, tolerance: 0.0015}
+  solution: 'Use the harmonic mean: $N_e = \dfrac{5}{\tfrac{4}{{big}} + \tfrac{1}{{nb}}} = \dfrac{5}{{inv:sig4}} =$ **{ne:num1}**, far below the ordinary average of {am:num1}.
+
+
+    Heterozygosity left: $\left(1 - \tfrac{1}{2 \times {big}}\right)^4 \left(1 - \tfrac{1}{2 \times {nb}}\right) =$ **{keep:dp3}**. The single bottleneck generation alone removes {lossb:num1}% of the heterozygosity, while each large generation removes only {lossg:num2}%.'
+- id: bio-h-hw-chisq
+  title: Chi-square test of Hardy-Weinberg proportions
+  topic: Selection models
+  vars:
+    k: {min: 6, max: 14}
+    dv: {min: -24, max: 24, step: 3}
+  where: ['dv != 0']
+  calc:
+    nAA: k^2 + dv
+    nAa: 2*k*(20 - k) - 2*dv
+    naa: (20 - k)^2 + dv
+    cA: 2*(k^2 + dv) + 2*k*(20 - k) - 2*dv
+    p: k/20
+    q: 1 - k/20
+    eAA: k^2
+    eAa: 2*k*(20 - k)
+    eaa: (20 - k)^2
+    chi: dv^2/k^2 + 4*dv^2/(2*k*(20 - k)) + dv^2/(20 - k)^2
+  prompt: 'A sample of 400 individuals has {nAA} $AA$, {nAa} $Aa$ and {naa} $aa$. Find $p$, the frequency of allele $A$ (2 decimal places), and the chi-square value for a test of Hardy-Weinberg proportions (2 decimal places).'
+  answers:
+  - {name: p, label: '$p$', tolerance: 0.005}
+  - {name: chi, label: '$\chi^2$', tolerance: 0.03}
+  solution: '$p = \dfrac{2({nAA}) + {nAa}}{800} = \dfrac{{cA}}{800} =$ **{p:dp2}**, and $q = {q:dp2}$.
+
+
+    Expected counts: $AA$: ${p:dp2}^2 \times 400 = {eAA}$; $Aa$: $2({p:dp2})({q:dp2}) \times 400 = {eAa}$; $aa$: ${q:dp2}^2 \times 400 = {eaa}$.
+
+
+    $\chi^2 = \dfrac{({nAA} - {eAA})^2}{{eAA}} + \dfrac{({nAa} - {eAa})^2}{{eAa}} + \dfrac{({naa} - {eaa})^2}{{eaa}} =$ **{chi:dp2}**.
+
+
+    Compare with 3.84 (df = 1, because $p$ was estimated from the same counts): 3.84 or more means reject Hardy-Weinberg proportions; less means the counts are consistent with them.'
+- id: bio-h-mol-clock
+  title: Calibrating and using a molecular clock
+  topic: Molecular clocks
+  vars:
+    tcal: {min: 10, max: 60, step: 5}
+    rate: {choices: [0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5]}
+    tnew: {min: 2, max: 40}
+  where: ['tnew != tcal']
+  calc:
+    dcal: 2*rate*tcal
+    dnew: 2*rate*tnew
+  prompt: 'Fossils show that two lineages split {tcal} million years ago, and a gene differs between them at {dcal:num2}% of sites. Two other species in the same group differ in this gene at {dnew:num2}% of sites. Find the rate of change per lineage (percent per million years) and the time since the two species split (millions of years).'
+  answers:
+  - {name: rate, label: Rate per lineage (% per million years), tolerance: 0.0051}
+  - {name: tnew, label: Time since split (million years), relTolerance: 0.01}
+  solution: 'Both lineages change after a split, so the difference grows at twice the per-lineage rate.
+
+
+    Rate: $r = \dfrac{d}{2T} = \dfrac{{dcal:num2}}{2 \times {tcal}} =$ **{rate}% per million years** in each lineage.
+
+
+    Time: $T = \dfrac{d}{2r} = \dfrac{{dnew:num2}}{2 \times {rate}} =$ **{tnew} million years**.'

@@ -17,7 +17,23 @@ The definition has limits. It can't be applied to organisms that reproduce asexu
 
 ## Reproductive isolation
 
-**Reproductive isolation** is anything that prevents members of two groups from interbreeding or from producing fertile offspring. Once gene flow between two groups stops, mutation, selection and drift act on each separately, and they drift further apart.
+**Reproductive isolation** is anything that prevents members of two groups from interbreeding or from producing fertile offspring. Once gene flow between two groups stops, mutation, selection and drift act on each separately, and they drift further apart. The barriers fall into two families, sorted by whether they act before or after an egg is fertilized:
+
+```mermaid
+flowchart LR
+  accTitle: Kinds of reproductive isolation
+  accDescr: Reproductive isolation splits into prezygotic barriers, which act before fertilization, and postzygotic barriers, which act after it. Prezygotic barriers are habitat, temporal, behavioral, mechanical and gametic isolation. Postzygotic barriers are hybrid inviability, hybrid sterility and hybrid breakdown.
+  A["Reproductive isolation"] --> B["Prezygotic: before fertilization"]
+  A --> C["Postzygotic: after fertilization"]
+  B --> B1[Habitat]
+  B --> B2[Temporal]
+  B --> B3[Behavioral]
+  B --> B4[Mechanical]
+  B --> B5[Gametic]
+  C --> C1[Hybrid inviability]
+  C --> C2[Hybrid sterility]
+  C --> C3[Hybrid breakdown]
+```
 
 Barriers that act before fertilization (prezygotic barriers):
 
@@ -60,6 +76,10 @@ A **phylogenetic tree** is a diagram of the evolutionary relationships among org
 - Each branch point (node) stands for a common ancestor, and the branches above it are its descendants.
 - The root, at the base, is the common ancestor of everything on the tree.
 - Relatedness is measured by how recently two groups share a common ancestor, not by how close they sit on the page. Branches can be rotated around a node like a mobile without changing the tree.
+
+![A tree of five species with its parts labeled: the root at the base, the branches as lines through time, the nodes as circles where lines split, and the tips at the species names. A shaded box around species C, D and E and their common ancestor is labeled as a clade.](images/m7-tree-parts.svg)
+
+In the figure, species D and E are each other's closest relatives; C is equally related to D and E; and A and B form their own clade.
 
 A **clade** is an ancestor and all of its descendants: one complete branch. Biologists build trees from shared derived characters, traits that arose in a common ancestor and were passed on to its descendants (fur in mammals, for example). A descendant can later lose such a trait, as snakes lost their legs, which is one reason trees are built from many characters, and today mostly from DNA. Traits shared with distant groups, like a backbone among vertebrates, don't help sort the vertebrates.
 

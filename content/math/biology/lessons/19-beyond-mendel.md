@@ -41,6 +41,10 @@ In **codominance**, a heterozygote shows the full phenotypes of both alleles at 
 
 The difference from incomplete dominance is what you see in the heterozygote. Pink petals are an in-between color everywhere; a roan coat has both pure colors present. Both cases still give a 1 : 2 : 1 phenotype ratio when two heterozygotes are crossed.
 
+The figure puts the three relationships side by side. Read the middle column, the heterozygote: under complete dominance it looks like one parent, under incomplete dominance it is in between, and under codominance both parental forms are present at once.
+
+![A three-by-three grid. Rows: complete dominance in pea flowers, incomplete dominance in snapdragons, and codominance in roan cattle. Columns: one homozygote, the heterozygote, the other homozygote. Peas: PP purple, Pp purple, pp white. Snapdragons: red, pink, white. Cattle hair patches: all red hairs, a mix of separate red and white hairs (roan), all white hairs.](images/m5-dominance-types.svg)
+
 ## Multiple alleles: the ABO blood groups
 
 A single person has only two alleles of a gene, but a population can carry many. A gene with three or more alleles in the population has **multiple alleles**. The ABO blood-group gene has three common alleles:
@@ -57,6 +61,8 @@ $I^A$ and $I^B$ are codominant with each other, and both are dominant to $i$. Th
 | B | $I^BI^B$, $I^Bi$ | B | anti-A |
 | AB | $I^AI^B$ | A and B | neither |
 | O | $ii$ | neither | anti-A and anti-B |
+
+![Four red blood cells. The type A cell carries only A antigens (triangles) on its surface, the type B cell only B antigens (circles), the type AB cell both kinds, and the type O cell neither.](images/m5-abo-cells.svg)
 
 The antibodies matter for transfusions: a person's plasma attacks red cells carrying an antigen they lack. Type O red cells carry no A or B antigen, so they can be given to people of any ABO type, while a person with type AB has no anti-A or anti-B antibodies and can receive red cells of any ABO type. (Real transfusions also match the separate Rh factor, controlled by a different gene, and other markers.)
 

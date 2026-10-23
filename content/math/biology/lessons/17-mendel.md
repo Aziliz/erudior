@@ -23,6 +23,10 @@ Mendel, a monk and trained scientist in Brno (now in the Czech Republic), bred g
 
 His basic experiment had three generations. The parental generation (P) was two true-breeding plants that differed in one trait, for example purple × white flowers. Their offspring are the first filial generation, F1. He then let the F1 plants self-pollinate to get the F2 generation.
 
+The picture follows flower color through all three generations (the letters under each flower are explained below).
+
+![Three rows of pea flowers. Row P: a purple flower (PP) crossed with a white flower (pp). Row F1, after crossing: four purple flowers, all Pp. Row F2, after self-pollination: three purple flowers (PP, Pp, Pp) and one white flower (pp), a 3 purple to 1 white ratio.](images/m5-mendel-cross.svg)
+
 The results were the same for all seven traits:
 
 1. Every F1 plant looked like one parent. Purple × white gave all purple; the white trait seemed to vanish.
@@ -54,6 +58,10 @@ Since P is dominant, PP and Pp plants are both purple. Only pp plants are white.
 Mendel explained his data with what we now call the **law of segregation**: the two alleles of a gene separate (segregate) when gametes form, so each gamete carries just one allele, and the two are equally likely. At fertilization, an egg and a sperm each contribute one allele, restoring the pair.
 
 Meiosis is the physical reason. The two alleles sit on the two homologous chromosomes, and homologs go to opposite poles in anaphase I. A Pp plant therefore makes gametes that are half P and half p.
+
+![A Pp cell with a blue chromosome carrying P paired with a pink homolog carrying p. Meiosis I separates the homologs into two cells, one with P and one with p; meiosis II splits each into two gametes, giving two P gametes and two p gametes, so half the gametes carry P and half carry p.](images/m5-segregation.svg)
+
+In the figure, meiosis I pulls the homologs apart and meiosis II splits the sister chromatids: two gametes carry P and two carry p.
 
 Run the experiment with this model. The P generation is PP × pp, so every F1 plant gets P from one parent and p from the other: all Pp, all purple. Each F1 plant makes P and p gametes in equal numbers. A cross of Pp × Pp gives the F2.
 

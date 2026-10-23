@@ -275,3 +275,412 @@
   answer: 0
   explanation: |-
     Abundant hares feed more lynx, so lynx numbers rise after hares do; when hares crash, lynx follow. Predators cannot peak before their food supply has grown. Field experiments show food supply and predation together drive the hare cycle.
+- id: bio-q-1034
+  lesson: bio-ecosystems
+  module_quiz: true
+  type: label
+  topic: Ecosystems
+  stem: 'In this meadow food web, name the role of each numbered organism.'
+  image: {src: images/m10-food-web.svg, alt: 'A meadow food web with grass and an oak tree at the bottom, a grasshopper, rabbit and mouse above them, a shrew, snake and fox above those, an owl at the top, and fungi and bacteria at the side receiving dead remains. Arrows point from food to eater. Four organisms are numbered.'}
+  labels:
+    - {x: 17.1, y: 89.4, text: Producer}
+    - {x: 28.3, y: 66.3, text: Primary consumer}
+    - {x: 32.9, y: 42.3, text: Secondary consumer}
+    - {x: 75.0, y: 76.9, text: Decomposer}
+  distractors: [Abiotic factor, Tertiary consumer]
+  explanation: |-
+    1 Grass makes its own food by photosynthesis: a producer. 2 The rabbit eats only grass: a primary consumer (level 2). 3 The snake eats the mouse, a primary consumer, so it is a secondary consumer (level 3). 4 Fungi and bacteria break down dead remains and wastes: decomposers. Nothing here is abiotic, and none of the numbered organisms eats a secondary consumer, so none is a tertiary consumer (the owl can be, when it eats a snake).
+- id: bio-q-1035
+  lesson: bio-ecosystems
+  type: text
+  topic: Ecosystems
+  stem: 'In the food chain grass → mouse → snake → owl, the owl is at trophic level ___. (Type a number.)'
+  image: {src: images/m10-food-web.svg, alt: 'A meadow food web in which grass is eaten by a mouse, the mouse by a snake, and the snake by an owl, among other feeding links.'}
+  accept: ['4', four]
+  explanation: |-
+    Count the levels from the producer: grass is level 1, the mouse (primary consumer) level 2, the snake (secondary consumer) level 3, and the owl level 4, a tertiary consumer. When the owl eats a mouse directly it is at level 3, so in the whole web the owl feeds at more than one level.
+- id: bio-q-1036
+  lesson: bio-ecosystems
+  type: order
+  topic: Energy flow
+  stem: 'In the chain grass → grasshopper → shrew → owl, put the organisms in order from the trophic level with the MOST energy available per year to the level with the LEAST.'
+  items: [Grass, Grasshopper, Shrew, Owl]
+  explanation: |-
+    Energy is lost at every transfer, mostly as heat from respiration, so each level up has roughly a tenth of the energy of the one below it. Grass (producers) has the most, then grasshoppers, then shrews, and the owl at the top has the least. This is why the energy pyramid is always upright.
+- id: bio-q-1037
+  lesson: bio-ecosystems
+  topic: Energy flow
+  stem: 'Which statements about energy in ecosystems are true? Select all that apply.'
+  choices: ['Most energy an animal absorbs is used in cellular respiration and leaves as heat', 'Decomposers recycle energy back to the producers', 'Uneaten plant parts and feces pass energy to decomposers', 'A pyramid of energy can be inverted in the open ocean', 'Food chains rarely have more than four or five levels because so little energy reaches the top']
+  answer: [0, 2, 4]
+  explanation: |-
+    True: respiration uses most absorbed energy and releases it as heat; uneaten parts and feces feed decomposers; and with about 10% passed on per step, little energy is left after four or five levels. False: decomposers recycle nutrients, not energy (energy flows one way and leaves as heat). It is the biomass pyramid, not the energy pyramid, that can be inverted in the open ocean.
+- id: bio-q-1038
+  lesson: bio-ecosystems
+  type: match
+  topic: Energy flow
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Net primary productivity, Energy producers store as new tissue after their own respiration]
+    - [Biomass, Total dry mass of living organisms in an area]
+    - [Trophic level, One feeding step in a food chain]
+    - [Ten percent rule, About a tenth of the energy at one level reaches the next]
+  distractors: [Energy recycled by decomposers each year]
+  explanation: |-
+    NPP is GPP minus producer respiration, the energy available to consumers. Biomass is measured as dry mass because water content varies. A trophic level is a feeding step (producers are level 1). The ten percent rule describes the average transfer between levels. The distractor describes something that does not happen: energy is not recycled.
+- id: bio-q-1039
+  lesson: bio-cycles-populations
+  module_quiz: true
+  type: label
+  topic: Biogeochemical cycles
+  stem: 'Name the process shown at each numbered point of the water cycle.'
+  image: {src: images/m10-water-cycle-blank.svg, alt: 'A water cycle diagram without process labels: the sun over an ocean, arrows rising from the ocean and from a tree toward a cloud, a second cloud with rain over a mountain, an arrow running down the land into the ocean, and groundwater flowing underground. Five points are numbered.'}
+  labels:
+    - {x: 20.6, y: 53.2, text: Evaporation}
+    - {x: 41.2, y: 19.6, text: Condensation}
+    - {x: 75.0, y: 33.6, text: Precipitation}
+    - {x: 58.5, y: 37.2, text: Transpiration}
+    - {x: 50.6, y: 70.9, text: Runoff}
+  distractors: [Nitrogen fixation, Combustion]
+  explanation: |-
+    1 Water evaporates from the ocean surface, powered by the sun. 2 Water vapor cools and condenses into the droplets that make a cloud. 3 Water falls from clouds as precipitation. 4 Plants release water vapor from their leaves: transpiration. 5 Water flowing over the land surface back to the ocean is runoff. Nitrogen fixation belongs to the nitrogen cycle and combustion to the carbon cycle.
+- id: bio-q-1040
+  lesson: bio-cycles-populations
+  type: order
+  topic: Biogeochemical cycles
+  stem: 'Put these steps in the order a nitrogen atom could follow, starting from the air.'
+  items: ['Soil bacteria convert N₂ gas to ammonium', 'Nitrifying bacteria convert the ammonium to nitrate', 'A bean plant absorbs the nitrate and builds it into protein', 'A rabbit eats the bean plant', 'Decomposers release ammonium from the rabbit''s wastes']
+  explanation: |-
+    Nitrogen enters living things only after fixation (N₂ to ammonium). Nitrification then turns ammonium into nitrate, which plants absorb and build into amino acids and proteins. Animals get nitrogen by eating plants, and decomposers return it to the soil as ammonium (ammonification), ready to be nitrified, absorbed or denitrified again.
+- id: bio-q-1041
+  lesson: bio-cycles-populations
+  type: text
+  topic: Population ecology
+  stem: 'The largest population an environment can support over the long term is its ___, written $K$.'
+  accept: [carrying capacity, the carrying capacity]
+  explanation: |-
+    Carrying capacity ($K$) is set by limiting resources such as food, water and space. In logistic growth, the population's growth slows as $N$ approaches $K$ and stops when $N = K$.
+- id: bio-q-1042
+  lesson: bio-cycles-populations
+  topic: Biogeochemical cycles
+  stem: 'Which processes add carbon dioxide to the atmosphere? Select all that apply.'
+  image: {src: images/m10-carbon-cycle.svg, alt: 'The carbon cycle, showing atmospheric CO₂ exchanged with land plants, animals, soil and decomposers, fossil fuels, the ocean, marine life and limestone.'}
+  choices: [Cellular respiration, Photosynthesis, Burning fossil fuels, Decomposition, Formation of limestone from shells, Volcanic eruptions]
+  answer: [0, 2, 3, 5]
+  explanation: |-
+    Respiration, decomposition (respiration by decomposers), combustion of fossil fuels and volcanoes all release CO₂ to the air. Photosynthesis removes CO₂, and the formation of limestone from settled shells locks carbon away in rock for millions of years.
+- id: bio-q-1043
+  lesson: bio-cycles-populations
+  module_quiz: true
+  type: match
+  topic: Population ecology
+  stem: 'Classify each factor limiting a deer population.'
+  pairs:
+    - [A disease that spreads faster in crowded herds, Density-dependent]
+    - [A sudden hard freeze, Density-independent]
+    - [Competition for winter food, Density-dependent]
+    - [A wildfire, Density-independent]
+    - [More wolves hunting where deer are plentiful, Density-dependent]
+  explanation: |-
+    Density-dependent factors hit harder when the population is denser: disease spreads faster in crowds, competition for food intensifies, and predators concentrate where prey are plentiful. Density-independent factors such as a freeze or a wildfire kill about the same fraction whatever the density.
+- id: bio-q-1044
+  lesson: bio-communities-humans
+  module_quiz: true
+  type: label
+  topic: Biomes
+  stem: 'The chart plots biomes by average yearly temperature and yearly precipitation. Name the biome at each numbered region.'
+  image: {src: images/m10-biomes-blank.svg, alt: 'A chart with average yearly temperature from minus 15 to 30 degrees Celsius across the bottom and yearly precipitation from 0 to 450 centimeters up the side, divided into seven unlabeled biome regions. Five regions are numbered.'}
+  labels:
+    - {x: 21.9, y: 81.7, text: Tundra}
+    - {x: 40.2, y: 70.2, text: Boreal forest}
+    - {x: 72.1, y: 84.9, text: Desert}
+    - {x: 85.8, y: 69.3, text: Savanna}
+    - {x: 85.8, y: 34.0, text: Tropical rainforest}
+  distractors: [Temperate grassland, Temperate deciduous forest]
+  explanation: |-
+    1 The coldest, dry corner (below about −5 °C) is tundra. 2 Cold but wetter (about −5 to 5 °C) is boreal forest. 3 Under about 25 cm of rain a year, whatever the temperature range, is desert. 4 Hot with moderate rain and a long dry season is savanna. 5 Hot and very wet (over about 200 cm) is tropical rainforest. Temperate grassland and temperate deciduous forest are the two unnumbered regions in the middle temperatures.
+- id: bio-q-1045
+  lesson: bio-communities-humans
+  type: order
+  topic: Community ecology
+  stem: 'Put the stages of primary succession on a new lava flow in order.'
+  items: [Bare rock with no soil, Lichens and mosses colonize, Grasses and small plants grow in thin soil, Shrubs move in, Trees form a forest]
+  explanation: |-
+    Primary succession starts without soil. Pioneer lichens and mosses break down rock and add organic matter, slowly building soil. Grasses and small plants follow, then shrubs, then trees. Secondary succession (after a fire or on an abandoned field) skips the pioneer stage because soil is already there.
+- id: bio-q-1046
+  lesson: bio-communities-humans
+  type: match
+  topic: Community ecology
+  stem: 'Match each interaction to its effect on the two species (+ helped, − harmed, 0 unaffected).'
+  pairs:
+    - [Mutualism, '+/+']
+    - [Commensalism, '+/0']
+    - [Parasitism, '+/−']
+    - [Competition, '−/−']
+  distractors: ['0/0']
+  explanation: |-
+    In mutualism both partners gain (legumes and Rhizobium). In commensalism one gains and the other is unaffected (barnacles on a whale). In parasitism one gains at the other's expense, usually over a long time (a tick on a deer). In competition both are harmed because they use the same limited resource.
+- id: bio-q-1047
+  lesson: bio-communities-humans
+  topic: Biodiversity
+  stem: 'Which changes to a community would increase its Simpson''s diversity index $D = 1 - \frac{\sum n(n-1)}{N(N-1)}$? Select all that apply.'
+  choices: ['A new species arrives and becomes moderately common', 'The species'' numbers become more even', 'One species grows until it makes up most of the individuals', 'The rarest species, represented by a single individual, disappears']
+  answer: [0, 1]
+  explanation: |-
+    Simpson's index rises with richness (more species) and with evenness (individuals spread more equally). A new, moderately common species adds richness; more even numbers add evenness. One species taking over lowers evenness, so $D$ falls. Losing a species with a single individual leaves $\sum n(n-1)$ unchanged but shrinks $N(N-1)$, so the fraction grows and $D$ falls.
+- id: bio-q-1048
+  lesson: bio-communities-humans
+  type: text
+  topic: Community ecology
+  stem: 'A species whose removal causes a large change in its community, like the sea star Pisaster on rocky shores, is called a ___ species.'
+  accept: [keystone]
+  explanation: |-
+    Keystone species have effects far out of proportion to their abundance. When Robert Paine removed Pisaster, mussels took over and the number of species fell from 15 to 8. Sea otters, which keep sea urchins from destroying kelp forests, are another example.
+- id: bio-qh-1001
+  lesson: bio-h-population-models
+  topic: Life tables
+  stem: 'In a cohort of beetles, 300 are alive at the start of age 2 and 180 at the start of age 3. What is the age-specific mortality rate $q_2$?'
+  choices: ['0.40', '0.12', '0.60', '120']
+  answer: 0
+  explanation: |-
+    $d_2 = 300 - 180 = 120$ beetles die during age 2, and $q_2 = d_2/n_2 = 120/300 = 0.40$. 0.60 is the fraction that survive ($180/300$). 0.12 divides the deaths by an original cohort of 1,000, which is $d_x/n_0$, not a rate for those alive at age 2. 120 is the number of deaths, $d_2$, not a rate.
+- id: bio-qh-1002
+  lesson: bio-h-population-models
+  topic: Life tables
+  stem: 'In a lizard life table, life expectancy at birth is $e_0 = 1.4$ years but at age 1 it is $e_1 = 1.8$ years. What best explains this?'
+  choices: ['The table must contain an arithmetic error, because life expectancy always falls with age', 'Many lizards die in their first year; a one-year-old has already survived that risky period', 'Older lizards have lower mortality at every age than younger ones', 'Life expectancy counts only the years an animal spends reproducing']
+  answer: 1
+  explanation: |-
+    $e_0$ averages over all newborns, including the 60% that die in their first year. A lizard that reaches age 1 has escaped that high early mortality, so its expected remaining life can be longer. This happens whenever first-year mortality is very high. Life expectancy does not always fall with age, mortality in this table later rises again with age, and $e_x$ counts all remaining years, not just breeding years.
+- id: bio-qh-1003
+  lesson: bio-h-population-models
+  type: label
+  topic: Life tables
+  stem: 'Survivors per 1,000 are plotted on a log scale against age. Identify each numbered survivorship curve.'
+  image: {src: images/m10-survivorship-blank.svg, alt: 'Graph of survivors per 1,000 on a log scale against age as a percent of maximum life span, with three unlabeled curves that all start at 1,000. One stays high until late life and then plunges, one is a straight diagonal line, and one plunges at very young ages and then levels off. Each curve is numbered.'}
+  labels:
+    - {x: 76.3, y: 24.2, text: Type I}
+    - {x: 53.8, y: 45.6, text: Type II}
+    - {x: 33.7, y: 68.0, text: Type III}
+  distractors: [Logistic curve]
+  explanation: |-
+    1 High survival until old age, then a steep drop: Type I (humans, large mammals). 2 A straight line on a log scale means the same fraction dies every year: Type II (many lizards, some adult birds). 3 Very high mortality among the young and then low mortality for survivors: Type III (oysters, most marine fish). A logistic curve shows population size over time, not survival with age.
+- id: bio-qh-1004
+  lesson: bio-h-population-models
+  topic: Life tables
+  stem: 'On a survivorship graph with a log-scale vertical axis, a population''s curve is a straight line sloping down. What does this tell you?'
+  choices: ['The same number of individuals dies each year', 'Most individuals die in old age', 'The same fraction of the survivors dies each year', 'Most individuals die soon after birth']
+  answer: 2
+  explanation: |-
+    On a log scale, equal vertical steps are equal ratios, so a straight line means a constant proportion of survivors dies each age interval: a Type II curve. A constant number of deaths per year would be a straight line on a linear axis instead. Death mostly in old age is Type I, and death mostly soon after birth is Type III.
+- id: bio-qh-1005
+  lesson: bio-h-population-models
+  topic: Life tables
+  stem: 'A fish population has survivorship $l_x$ = 1, 0.5, 0.2, 0.05 at ages 0 to 3 and fecundity $m_x$ = 0, 2, 4, 2 daughters per female. What is the net reproductive rate $R_0$, and what will the population do?'
+  choices: ['$R_0 = 8$; it grows', '$R_0 = 0.475$; it shrinks', '$R_0 = 1.8$; it grows', '$R_0 = 1.9$; it grows']
+  answer: 3
+  explanation: |-
+    $R_0 = \sum l_x m_x = 1(0) + 0.5(2) + 0.2(4) + 0.05(2) = 0 + 1.0 + 0.8 + 0.1 = 1.9$. Each female leaves 1.9 daughters, so the population grows. 8 adds the $m_x$ values without weighting by survival. 1.8 leaves out the age-3 term. 0.475 averages the four products instead of adding them; $R_0$ is a lifetime total.
+- id: bio-qh-1006
+  lesson: bio-h-population-models
+  topic: Population models
+  stem: 'Which traits are traditionally associated with r-selected species? Select all that apply.'
+  choices: [Many small offspring, Early maturity, Extensive parental care, Long life span, Populations that boom and crash far below carrying capacity]
+  answer: [0, 1, 4]
+  explanation: |-
+    r-selected species are favored where populations are usually below $K$ and fast multiplication pays: early maturity, many small offspring, and boom-and-bust numbers. Extensive parental care and long lives are K-selected traits. Remember the caveat: real species are mixtures, and age-specific mortality explains life histories better than the r/K labels.
+- id: bio-qh-1007
+  lesson: bio-h-population-models
+  topic: Population models
+  stem: 'Guppies moved from a stream where predators eat mainly adults to one where the only predator eats mainly juveniles evolved, within about 11 years, later maturity and fewer, larger offspring. Which conclusion do these results best support?'
+  choices: ['Which ages suffer the most mortality can drive the evolution of life-history traits', 'Guppies changed their traits by choice to avoid the new predator', 'Population density alone determines life-history traits', 'Life-history traits cannot evolve in fewer than a thousand generations']
+  answer: 0
+  explanation: |-
+    When adults face high mortality, breeding early and often is favored; when juveniles are the ones eaten, it pays to mature later and invest in fewer, larger young that grow past the danger. The change was evolution by natural selection, not choice, and it happened in about 30–60 generations. The experiment changed the pattern of mortality by age, which is why it challenges the density-based r/K explanation.
+- id: bio-qh-1008
+  lesson: bio-h-population-models
+  topic: Population models
+  stem: 'A population''s per capita growth rate was 0.30 per year when it numbered 100 and 0.10 per year when it numbered 300. Assuming per capita growth falls in a straight line with density, estimate the carrying capacity $K$.'
+  choices: ['300', '400', '500', '200']
+  answer: 1
+  explanation: |-
+    Slope: $(0.10 - 0.30)/(300 - 100) = -0.001$ per individual. At $N = 0$ the rate is $0.30 + 0.001 \times 100 = 0.40$, so $r = 0.40$. The rate reaches zero when $0.40 - 0.001N = 0$, at $N = 400$. 300 is the last data point, not where growth stops; 500 and 200 come from slips in the slope or intercept.
+- id: bio-qh-1009
+  lesson: bio-h-population-models
+  type: text
+  topic: Population models
+  stem: 'In the Lotka–Volterra predator–prey model, predators hold steady when the prey number is $H = m/(ab)$. If the predator death rate is $m = 0.5$, the attack rate is $a = 0.01$ and the conversion efficiency is $b = 0.2$, the prey number at which predators hold steady is ___.'
+  accept: ['250']
+  explanation: |-
+    $H = \dfrac{m}{ab} = \dfrac{0.5}{0.01 \times 0.2} = \dfrac{0.5}{0.002} = 250$ prey. Below 250 prey, predators decline; above it, they increase.
+- id: bio-qh-1010
+  lesson: bio-h-population-models
+  topic: Population models
+  stem: 'In both the Lotka–Volterra model and the hare–lynx records, why do predator peaks come after prey peaks?'
+  choices: ['Predators reproduce faster than prey', 'Predators switch to other prey when hares are common', 'Predator numbers grow only after abundant prey has let them raise more young, and keep rising until prey become scarce', 'Prey numbers are set by weather, which changes after predator numbers']
+  answer: 2
+  explanation: |-
+    Predators respond to food with a delay: abundant prey must first be eaten and turned into new predators. Predators keep increasing while prey are plentiful, and their numbers peak just as heavy predation drives prey down. Predators such as lynx actually reproduce more slowly than hares, switching prey would weaken the cycle, and weather does not explain the regular lag.
+- id: bio-qh-1011
+  lesson: bio-h-population-models
+  topic: Population models
+  stem: 'At Kluane Lake, averaged over the peak and decline years, adding food tripled hare density, excluding mammal predators roughly doubled it, and doing both increased it about elevenfold. What do these results show?'
+  choices: ['Food alone drives the hare cycle', 'Predators alone drive the hare cycle', 'Neither food nor predators matter to hares', 'Food and predation act together, and their combined effect is larger than either alone']
+  answer: 3
+  explanation: |-
+    Each treatment alone had an effect, so neither factor can be ignored, and the combined effect (11×) was much more than either (3× or 2×) and more than the 6× expected if the effects simply multiplied. The cycle is driven by food and predation interacting, along with predator-caused stress on breeding.
+- id: bio-qh-1012
+  lesson: bio-h-population-models
+  type: match
+  topic: Population models
+  stem: 'In the predator–prey model $\frac{dH}{dt} = rH - aHP$ and $\frac{dP}{dt} = baHP - mP$, match each term to what it represents.'
+  pairs:
+    - [$rH$, Prey births minus deaths with no predators]
+    - [$aHP$, Prey killed by predators]
+    - [$baHP$, New predators produced from prey eaten]
+    - [$mP$, Predator deaths]
+  distractors: [Prey carrying capacity]
+  explanation: |-
+    $rH$ is exponential prey growth. $aHP$ removes prey in proportion to how often predators meet prey. $baHP$ converts a fraction $b$ of prey eaten into new predators. $mP$ is predator mortality. The basic model has no carrying capacity for prey, one of the reasons it is unrealistic.
+- id: bio-qh-1013
+  lesson: bio-h-population-models
+  type: order
+  topic: Population models
+  stem: 'Starting from a hare peak, put these events in a predator–prey cycle in order.'
+  items: [Hare numbers peak, Lynx numbers peak, Hare numbers reach their low, Lynx numbers reach their low]
+  explanation: |-
+    Abundant hares feed lynx, so lynx peak a little after hares. Heavy predation then drives hares to their low, and with little food the lynx decline to their own low afterward. With predation eased, hares recover and the cycle repeats.
+- id: bio-qh-1014
+  lesson: bio-h-population-models
+  topic: Population models
+  stem: 'In the Lotka–Volterra competition model, species 1 has $K_1 = 600$ and species 2 has $K_2 = 500$. Each species-2 individual affects species 1 like 0.4 of its own ($\alpha_{12} = 0.4$), but each species-1 individual affects species 2 like 1.5 of its own ($\alpha_{21} = 1.5$). Coexistence requires $\alpha_{12} < K_1/K_2$ and $\alpha_{21} < K_2/K_1$. What does the model predict?'
+  choices: ['Species 1 excludes species 2', 'Species 2 excludes species 1', 'The two species coexist', 'Both species go extinct']
+  answer: 0
+  explanation: |-
+    $K_1/K_2 = 1.2$ and $\alpha_{12} = 0.4 < 1.2$, so species 2 cannot exclude species 1. But $K_2/K_1 \approx 0.83$ and $\alpha_{21} = 1.5 > 0.83$: species 1 suppresses species 2 more than species 2 limits itself. Species 1 wins. Coexistence would need both conditions to hold, and the model never drives both species extinct.
+- id: bio-qh-1015
+  lesson: bio-h-population-models
+  topic: Population models
+  stem: 'Which is the most important caution when treating Hudson''s Bay Company pelt records as counts of lynx populations?'
+  choices: ['Lynx pelts cannot be told apart from hare pelts', 'The number of pelts also depended on trapping effort and fur prices, not only on how many lynx were alive', 'Lynx do not eat hares', 'The records cover too few years to show any cycle']
+  answer: 1
+  explanation: |-
+    Pelt counts measure the catch, which rises and falls with how hard trappers worked and how much fur paid, as well as with lynx numbers. That is why ecologists confirmed the cycle with field studies and experiments. The records span about a century and show many cycles, lynx do eat mostly hares, and the pelts are easy to distinguish.
+- id: bio-qh-1016
+  lesson: bio-h-ecosystem-ecology
+  topic: Primary productivity
+  stem: 'Lake water starts with 7.0 mg O₂/L. After 4 hours the light bottle reads 8.1 mg/L and the dark bottle 6.4 mg/L. What is the gross primary productivity over the 4 hours?'
+  image: {src: images/m10-light-dark-bottles.svg, alt: 'An initial bottle of lake water with algae, a clear light bottle and a dark bottle wrapped to block light, suspended in the lake.'}
+  choices: ['1.1 mg O₂/L', '0.6 mg O₂/L', '1.7 mg O₂/L', '0.5 mg O₂/L']
+  answer: 2
+  explanation: |-
+    GPP = light − dark = $8.1 - 6.4 = 1.7$ mg O₂/L. Equivalently, net production ($8.1 - 7.0 = 1.1$) plus respiration ($7.0 - 6.4 = 0.6$) = 1.7. 1.1 is net production only, 0.6 is respiration only, and 0.5 subtracts respiration from net production instead of adding it.
+- id: bio-qh-1017
+  lesson: bio-h-ecosystem-ecology
+  type: text
+  topic: Primary productivity
+  stem: 'In a light and dark bottle experiment, the initial oxygen is 7.6 mg/L, the light bottle ends at 8.5 mg/L and the dark bottle at 7.0 mg/L. Gross primary productivity is ___ mg O₂ per liter for the run.'
+  accept: ['1.5']
+  explanation: |-
+    GPP = light − dark = $8.5 - 7.0 = 1.5$ mg O₂/L. Check: net production $8.5 - 7.6 = 0.9$ plus respiration $7.6 - 7.0 = 0.6$ gives 1.5.
+- id: bio-qh-1018
+  lesson: bio-h-ecosystem-ecology
+  topic: Primary productivity
+  stem: 'Why does the light and dark bottle method need the dark bottle?'
+  choices: ['To measure how much light reaches the depth where the bottles hang', 'To prevent the algae from photosynthesizing too fast', 'To provide a bottle in which algae cannot grow at all', 'To measure respiration, which goes on in the light bottle too and hides part of the oxygen produced']
+  answer: 3
+  explanation: |-
+    In the light bottle, respiration uses up some of the oxygen photosynthesis makes, so its oxygen gain shows only net production. The dark bottle, where only respiration occurs, measures that loss so it can be added back: GPP = light − dark. The dark bottle does not measure light, and it does not merely stop growth: it is a measurement of respiration.
+- id: bio-qh-1019
+  lesson: bio-h-ecosystem-ecology
+  topic: Primary productivity
+  stem: 'Tower measurements show that a forest''s net ecosystem production (NEP) averaged +2 tonnes of carbon per hectare per year over a decade. What does this mean?'
+  choices: ['The forest took in more carbon by photosynthesis than plants, animals and decomposers released by respiration, so it stored carbon', 'The forest''s plants did no respiration', 'The forest released 2 tonnes more carbon than it absorbed', 'The forest''s net primary productivity was zero']
+  answer: 0
+  explanation: |-
+    NEP = GPP − plant respiration − heterotrophic respiration. A positive value means more carbon was fixed than respired, so the forest acted as a carbon sink, storing carbon in wood and soil. A net release would make NEP negative. Plants still respire, and NPP must be greater than NEP whenever consumers and decomposers respire.
+- id: bio-qh-1020
+  lesson: bio-h-ecosystem-ecology
+  topic: Primary productivity
+  stem: 'In the Lake 226 experiment, one basin received carbon, nitrogen and phosphorus and developed a dense algal bloom; the other received the same carbon and nitrogen but no phosphorus and stayed clear. What does this show?'
+  choices: ['Nitrogen was the limiting nutrient', 'Phosphorus was the limiting nutrient', 'Carbon was the limiting nutrient', 'Algae need no nutrients besides light']
+  answer: 1
+  explanation: |-
+    The only difference between the basins was phosphorus, and only the phosphorus basin bloomed, so phosphorus limited algal growth. Both basins got nitrogen and carbon, so neither of those can explain the difference. The result helped lead to limits on phosphate detergents.
+- id: bio-qh-1021
+  lesson: bio-h-ecosystem-ecology
+  topic: Primary productivity
+  stem: 'Some regions of the open ocean have plenty of nitrate and phosphate but few phytoplankton. When iron was added to a patch of the equatorial Pacific in 1995, a large bloom followed. Which conclusion is best supported?'
+  choices: ['Nitrate was limiting there', 'Light was limiting there', 'Iron was limiting there', 'Adding iron is a proven way to stop climate change']
+  answer: 2
+  explanation: |-
+    Adding iron, and nothing else, produced the bloom, so iron was the limiting nutrient in that patch; nitrate and phosphate were already plentiful, and light was unchanged. Whether iron fertilization would store carbon for long is a separate, unresolved question, so the experiment does not show it can stop climate change.
+- id: bio-qh-1022
+  lesson: bio-h-ecosystem-ecology
+  topic: Global change
+  stem: 'Which processes return nitrogen to the atmosphere as N₂ gas? Select all that apply.'
+  choices: [Denitrification, Nitrification, Anammox, Nitrogen fixation, Ammonification]
+  answer: [0, 2]
+  explanation: |-
+    Denitrifying bacteria reduce nitrate step by step to N₂, and anammox bacteria combine ammonium with nitrite to make N₂; both happen where oxygen is low. Nitrification turns ammonium into nitrite and nitrate, fixation does the opposite of returning N₂ (it removes N₂ from the air), and ammonification releases ammonium from dead matter.
+- id: bio-qh-1023
+  lesson: bio-h-ecosystem-ecology
+  type: order
+  topic: Global change
+  stem: 'Ammonium in a farm field is nitrified, and the nitrate later washes into a waterlogged wetland and is denitrified. Put the forms of nitrogen in the order they appear.'
+  items: ['Ammonium (NH₄⁺)', 'Nitrite (NO₂⁻)', 'Nitrate (NO₃⁻)', 'Nitrous oxide (N₂O)', 'Nitrogen gas (N₂)']
+  explanation: |-
+    Nitrification needs oxygen: ammonia oxidizers make nitrite, then nitrite oxidizers make nitrate. In the low-oxygen wetland, denitrifiers reduce nitrate (through nitrite and nitric oxide) to nitrous oxide and finally N₂. If denitrification stops partway, N₂O, a strong greenhouse gas, escapes.
+- id: bio-qh-1024
+  lesson: bio-h-ecosystem-ecology
+  topic: Global change
+  stem: 'In 2023, human activities emitted about 11.1 billion tonnes of carbon (GtC) as CO₂, and the atmosphere gained about 5.9 GtC. What was the airborne fraction?'
+  choices: ['About 47%', 'About 1.9%', 'About 188%', 'About 53%']
+  answer: 3
+  explanation: |-
+    Airborne fraction = $5.9/11.1 \approx 0.53$, about 53%. The other 47% (5.2 GtC) went into the ocean and land sinks, so 47% is the sink share, not the airborne fraction. 188% divides the wrong way, and 1.9% is not a ratio of these two numbers at all.
+- id: bio-qh-1025
+  lesson: bio-h-ecosystem-ecology
+  type: text
+  topic: Global change
+  stem: 'One part per million (ppm) of atmospheric CO₂ contains about 2.12 GtC. If the atmosphere gains 5.3 GtC in a year, CO₂ rises by about ___ ppm. (Give one decimal place.)'
+  accept: ['2.5']
+  explanation: |-
+    $5.3 \div 2.12 = 2.5$ ppm. Multiplying instead of dividing would give about 11, far more than any year on record.
+- id: bio-qh-1026
+  lesson: bio-h-ecosystem-ecology
+  topic: Global change
+  stem: 'As CO₂ has risen, the fraction of carbon-13 and carbon-14 in atmospheric CO₂ has fallen. Why does this point to fossil fuels as the source?'
+  choices: ['Fossil fuels formed from ancient plants, which are low in carbon-13, and are so old that their carbon-14 has decayed away', 'Volcanoes release CO₂ that is rich in carbon-14', 'The ocean releases CO₂ with no carbon-13', 'Carbon-14 is destroyed by rising temperature']
+  answer: 0
+  explanation: |-
+    Photosynthesis favors carbon-12, so plant-derived carbon is low in carbon-13; fossil fuels are millions of years old, far longer than carbon-14's half-life of about 5,700 years, so they contain none. Adding such carbon dilutes both isotopes in the air, exactly as observed. Volcanic carbon has no carbon-14 either but is not depleted in carbon-13 the same way, ocean carbon is not carbon-13-free, and temperature does not destroy carbon-14.
+- id: bio-qh-1027
+  lesson: bio-h-ecosystem-ecology
+  type: match
+  topic: Global change
+  stem: 'Match each line of evidence to what it shows.'
+  pairs:
+    - [Antarctic ice-core air bubbles, 'CO₂ today is higher than at any time in 800,000 years']
+    - [Yearly wiggle in the Keeling curve, Northern Hemisphere land plants take up CO₂ in summer]
+    - [Slowly falling atmospheric oxygen, The added CO₂ comes from burning fuel]
+    - [Falling surface ocean pH, Seawater is absorbing CO₂]
+  distractors: [The Sun has grown much brighter since 1950]
+  explanation: |-
+    Ice cores preserve ancient air, showing CO₂ between about 180 and 300 ppm for 800,000 years. The seasonal Keeling wiggle tracks northern photosynthesis and decay. Combustion uses oxygen as it makes CO₂, so falling O₂ fingerprints burning. Dissolved CO₂ forms carbonic acid, lowering pH. The distractor is false: solar output has not risen enough to explain recent warming.
+- id: bio-qh-1028
+  lesson: bio-h-ecosystem-ecology
+  topic: Primary productivity
+  stem: 'Ocean producers are well under 1% of Earth''s producer biomass, yet they account for about half of global net primary productivity. How is that possible?'
+  choices: ['Ocean producers are larger than land plants', 'Phytoplankton grow and are eaten so quickly that a small standing biomass is replaced many times a year', 'Ocean producers do not respire', 'Ocean producers photosynthesize at night as well as during the day']
+  answer: 1
+  explanation: |-
+    Productivity is a rate, and biomass is a stock. Phytoplankton divide every few days and are grazed almost as fast, so a tiny standing stock produces a huge flow, the same reason open-ocean biomass pyramids can be inverted. Phytoplankton are microscopic, they do respire, and photosynthesis needs light.
+- id: bio-qh-1029
+  lesson: bio-h-ecosystem-ecology
+  topic: Primary productivity
+  stem: 'Pond-water flasks are given nutrients for a week. Final chlorophyll (µg/L): control 6, nitrogen added 22, phosphorus added 7, both added 45. What do the results show?'
+  choices: ['Phosphorus is the primary limiting nutrient', 'Neither nutrient limits the algae', 'Nitrogen is the primary limiting nutrient, and phosphorus becomes limiting once nitrogen is added', 'Both nutrients are toxic to the algae']
+  answer: 2
+  explanation: |-
+    Adding nitrogen alone nearly quadruples growth (6 to 22), while phosphorus alone does almost nothing (6 to 7), so nitrogen is the first limit. With nitrogen supplied, adding phosphorus too doubles growth again (22 to 45): the algae are co-limited, with nitrogen first. Both additions raised growth, so neither is toxic.

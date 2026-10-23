@@ -19,9 +19,26 @@ A **hypothesis** is a proposed, testable explanation for an observation. Redi's 
 
 Notice what a hypothesis must be: testable and falsifiable, meaning some possible result would show it is wrong. "Maggots come from an undetectable life force" cannot be tested, so it is not a scientific hypothesis.
 
+The flowchart shows how these pieces fit into an investigation. It is a loop, not a straight line: a hypothesis the data don't support is revised and tested again, and a supported one is checked by other scientists before it is accepted.
+
+```mermaid
+flowchart TD
+  accTitle: How a scientific investigation proceeds
+  accDescr: An observation raises a question. A testable hypothesis is proposed, leading to an if-then prediction. A controlled experiment tests the prediction, and the data are analyzed. If the data do not support the hypothesis, it is revised or replaced and tested again. If the data support it, the results are shared for peer review and other scientists try to replicate them; many supported tests can build into a broad theory.
+  A["Observation raises a question"] --> C["Hypothesis: a testable explanation"]
+  C --> D["Prediction: if... then..."]
+  D --> E["Controlled experiment"]
+  E --> F["Analyze the data"]
+  F -- "does not support" --> H["Revise or replace the hypothesis"]
+  H --> C
+  F -- "supports" --> G["Share results: peer review, replication; many tests can build a theory"]
+```
+
 ## Designing a controlled experiment
 
-Redi's experiment (1668) is a model of good design. He put pieces of meat in jars. Some jars were left open; others were covered with fine gauze that let air in but kept flies out. Maggots appeared on the meat in the open jars. In the covered jars no maggots appeared on the meat, though flies laid eggs on the gauze itself.
+Redi's experiment (1668) is a model of good design. He put pieces of meat in jars. Some jars were left open; others were covered with fine gauze that let air in but kept flies out. Maggots appeared on the meat in the open jars. In the covered jars no maggots appeared on the meat, though flies laid eggs on the gauze itself. The picture shows the two setups side by side.
+
+![Two glass jars, each with a piece of meat at the bottom. The left jar, labeled open jar (control group), has flies flying in and maggots on the meat. The right jar, labeled gauze-covered jar (experimental group), has a gauze cover that lets air in but keeps flies out; flies sit on the gauze and have laid eggs on it, and there are no maggots on the meat.](images/m1-redi.svg)
 
 Every controlled experiment has the same parts.
 

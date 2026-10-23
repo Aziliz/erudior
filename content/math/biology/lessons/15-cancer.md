@@ -19,6 +19,21 @@ The cell cycle has built-in inspection points called **checkpoints**, where the 
 - *G2 checkpoint.* Has all the DNA been copied, and copied correctly? Damaged DNA is repaired before the cell is allowed into mitosis.
 - *Spindle (metaphase) checkpoint.* Is every chromosome attached to spindle fibers from both poles? Anaphase is delayed until they are, so that each daughter cell gets exactly one copy of every chromosome.
 
+```mermaid
+flowchart TD
+  accTitle: The three main checkpoints of the cell cycle
+  accDescr: At the G1 checkpoint the cell asks whether it is big enough, has growth signals, and has undamaged DNA. If yes, it goes on through S phase and G2; if not, it pauses or leaves the cycle for G0. The G2 checkpoint asks whether all the DNA was copied completely and correctly; if yes, mitosis begins, and if not, the cell pauses for repair. During mitosis the spindle checkpoint asks whether every chromosome is attached to both poles; if yes, anaphase and division follow, and if not, anaphase waits. If damage is too great to repair, the cell undergoes apoptosis.
+  A["G1 checkpoint: big enough, growth signals, DNA undamaged?"] -- yes --> B["S phase, then G2"]
+  A -- no --> C["Pause, or leave the cycle for G0"]
+  B --> D["G2 checkpoint: DNA copied completely and correctly?"]
+  D -- yes --> E["Mitosis begins"]
+  D -- no --> F["Pause for repair"]
+  E --> G["Spindle checkpoint: every chromosome attached to both poles?"]
+  G -- yes --> H["Anaphase and division"]
+  G -- no --> I["Anaphase waits"]
+  F -. "damage too great" .-> J["Apoptosis"]
+```
+
 If the damage at a checkpoint is too great to fix, the cell can trigger **apoptosis**, a tidy, programmed cell death in which the cell dismantles itself and is eaten by neighbors without causing inflammation. Apoptosis also sculpts the body during development: the webbing between your fingers disappeared before birth by apoptosis.
 
 ## The molecular clock: cyclins and CDKs
@@ -44,7 +59,11 @@ In 1971 Alfred Knudson studied retinoblastoma, a rare eye cancer in children. Ch
 
 One mutation is almost never enough. Most cancers need several, in both kinds of genes, which is one reason cancer risk rises sharply with age. Mutations come from copying errors, from mutagens such as tobacco smoke and ultraviolet light, and from certain viruses (for example, some types of HPV cause cervical cancer, which is why the HPV vaccine prevents many cases). Some people inherit a mutation that raises their risk, such as a faulty BRCA1 gene.
 
-A mass of abnormally dividing cells is a tumor. A benign tumor stays in one place and can often be removed completely. A malignant tumor invades nearby tissue, and its cells can break away, travel in blood or lymph, and form new tumors elsewhere, a spread called **metastasis**. Most cancer deaths are caused by metastasis. Treatments include surgery, radiation and chemotherapy (which damage rapidly dividing cells, explaining side effects in hair follicles and the gut lining), and newer drugs targeting specific mutated proteins or helping the immune system attack cancer cells.
+A mass of abnormally dividing cells is a tumor. A benign tumor stays in one place and can often be removed completely. A malignant tumor invades nearby tissue, and its cells can break away, travel in blood or lymph, and form new tumors elsewhere, a spread called **metastasis**. Most cancer deaths are caused by metastasis. The drawing traces these steps in a layer of tissue.
+
+![A cross-section of tissue. On the left, an orderly layer of cells sits on a thin basement membrane. In the middle, a benign tumor forms a dome of extra cells that stays above the membrane. On the right, irregular malignant cells break through a gap in the basement membrane, invade the tissue below, and one enters a blood vessel. An arrow leads from the vessel to a distant organ, where a small secondary tumor has formed.](images/m4-tumor-spread.svg)
+
+Treatments include surgery, radiation and chemotherapy (which damage rapidly dividing cells, explaining side effects in hair follicles and the gut lining), and newer drugs targeting specific mutated proteins or helping the immune system attack cancer cells.
 
 ### Example 1
 
@@ -75,6 +94,18 @@ Most of your cells are specialized and divide rarely, if at all. **Stem cells** 
 | Totipotent | Every cell type, including the placenta | Zygote and the first few cells of an embryo |
 | **Pluripotent** | Every cell type of the body | Embryonic stem cells from an early embryo |
 | Multipotent | Several related cell types | Blood stem cells in bone marrow |
+
+```mermaid
+flowchart TD
+  accTitle: Stem cell potency from the zygote to specialized cells
+  accDescr: The zygote is totipotent. It gives rise to the early embryo, whose inner cells are pluripotent embryonic stem cells. These give rise to multipotent adult stem cells such as blood stem cells in bone marrow, which make red blood cells, white blood cells and platelets. A separate path shows that a specialized skin cell can be reprogrammed in the lab into an induced pluripotent stem cell, which is pluripotent again.
+  Z["Zygote: totipotent"] --> E["Embryonic stem cells: pluripotent"]
+  E --> B["Blood stem cell: multipotent"]
+  B --> RBC["Red blood cells"]
+  B --> WBC["White blood cells"]
+  B --> PL["Platelets"]
+  SK["Skin cell: specialized"] -- "reprogrammed in the lab" --> IPS["iPSC: pluripotent"]
+```
 
 Adult stem cells, such as those in bone marrow and the skin, replace cells that wear out; bone marrow transplants treat leukemia by supplying healthy blood stem cells. In 2006 Shinya Yamanaka showed that adding just four genes could reprogram ordinary mouse fibroblasts (connective-tissue cells, such as those in skin) into induced pluripotent stem cells (**iPSCs**), which behave much like embryonic stem cells; in 2007 his team and others did the same with human skin cells. He shared the 2012 Nobel Prize. iPSCs avoid the use of embryos, which some people object to on ethical grounds, and can be made from a patient's own cells.
 

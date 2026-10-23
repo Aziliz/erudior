@@ -19,7 +19,9 @@ Every division must solve one problem perfectly: each new cell needs a complete,
 
 A eukaryotic cell's DNA is divided among several long molecules, each wrapped around proteins to form a **chromosome**. Human body cells have 46 chromosomes. Most of the time chromosomes are long, thin, and tangled in the nucleus, which is ideal for reading genes but terrible for sorting them. Before division they coil up tightly, becoming short and thick enough to see under a light microscope.
 
-Before a cell divides, it copies each chromosome. The two identical copies, still joined together, are called **sister chromatids**. They are held together most tightly at a constricted region called the **centromere**, which gives a duplicated chromosome its familiar X shape. The counting rule that trips people up: a duplicated chromosome is still one chromosome, even though it contains two chromatids (two DNA molecules). When the sister chromatids separate, each becomes a chromosome in its own right.
+Before a cell divides, it copies each chromosome. The two identical copies, still joined together, are called **sister chromatids**. They are held together most tightly at a constricted region called the **centromere**, which gives a duplicated chromosome its familiar X shape. The counting rule that trips people up: a duplicated chromosome is still one chromosome, even though it contains two chromatids (two DNA molecules). When the sister chromatids separate, each becomes a chromosome in its own right. The drawing shows one chromosome before and after it is copied.
+
+![A single chromosome drawn as one rod before S phase, and after S phase as two identical rods side by side joined at a dark dot. Labels mark the two sister chromatids and the centromere.](images/m4-chromosome.svg)
 
 ## The cell cycle
 
@@ -31,7 +33,20 @@ The **cell cycle** is the life of a cell from the moment it forms by division to
 - S (synthesis): the cell replicates its DNA, so each chromosome becomes two sister chromatids.
 - G2 (second gap): the cell keeps growing and makes the proteins needed for division, such as the components of the spindle.
 
-The M phase (mitotic phase) is division itself. It includes **mitosis**, the division of the nucleus, and **cytokinesis**, the division of the cytoplasm into two cells.
+The M phase (mitotic phase) is division itself. It includes **mitosis**, the division of the nucleus, and **cytokinesis**, the division of the cytoplasm into two cells. The diagram traces one turn of the cycle; cells that stop dividing leave it for a resting branch called G0 (lesson 15).
+
+```mermaid
+flowchart LR
+  accTitle: The cell cycle
+  accDescr: A new cell enters G1, where it grows. It then enters S phase, where the DNA is copied, then G2, where it prepares to divide, then mitosis, where the nucleus divides, then cytokinesis, which makes two new cells that each start again in G1. From G1 a cell can instead leave the cycle and enter G0, a non-dividing state, and some cells can return from G0 to G1.
+  G1["G1: growth"] --> S["S: DNA copied"]
+  S --> G2["G2: prepare to divide"]
+  G2 --> M["Mitosis: nucleus divides"]
+  M --> C["Cytokinesis: two cells"]
+  C -- "each new cell" --> G1
+  G1 -. "stop dividing" .-> G0["G0: not dividing"]
+  G0 -. "some return" .-> G1
+```
 
 For a typical human cell growing in culture, a full cycle takes about 24 hours: roughly 11 hours in G1, 8 in S, 4 in G2, and only about 1 in M. Cycle length varies enormously. Early frog embryo cells divide every 30 minutes or so; some liver cells divide only once a year or two.
 
@@ -50,7 +65,9 @@ Mitosis was first described in detail by Walther Flemming in 1882. He stained ce
 
 Cytokinesis usually overlaps telophase. In animal cells, a ring of protein filaments pinches the cell in two, forming a cleavage furrow, like pulling a drawstring. Plant cells have rigid walls and cannot pinch; instead, vesicles gather at the middle and fuse into a cell plate that grows outward into a new wall.
 
-The result: two daughter cells, each with the same number of chromosomes as the parent and genetically identical to it (apart from rare copying errors).
+The result: two daughter cells, each with the same number of chromosomes as the parent and genetically identical to it (apart from rare copying errors). The drawing follows an animal cell with four chromosomes through the whole process. The red and blue colors mark chromosomes inherited from the mother and from the father; in mitosis they do not pair up, they simply line up one by one.
+
+![Five drawings of an animal cell with four chromosomes. Interphase: a nucleus with thin tangled chromatin. Prophase: four X-shaped duplicated chromosomes inside a breaking nuclear envelope, with two spindle poles starting to separate. Metaphase: the four chromosomes lined up in a column at the middle, attached to spindle fibers from both poles. Anaphase: single chromatids pulled toward the two poles. Telophase and cytokinesis: two new nuclei in a cell pinching in two.](images/m4-mitosis-stages.svg)
 
 Prokaryotes have no nucleus and usually a single circular chromosome. They divide by a simpler process, binary fission: the chromosome is copied, the copies move apart as the cell lengthens, and the cell splits.
 

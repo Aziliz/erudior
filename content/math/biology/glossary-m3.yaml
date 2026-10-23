@@ -129,3 +129,112 @@
 - term: fermentation
   definition: 'Anaerobic pathways that regenerate NAD⁺ by passing NADH''s electrons to pyruvate or a product of it, so glycolysis can continue making 2 ATP per glucose. Lactic acid fermentation makes lactate; alcoholic fermentation makes ethanol and CO₂.'
   topic: Fermentation
+- term: photosystem
+  aliases: [photosystems, photosystem I, photosystem II, PSI, PSII]
+  definition: 'A cluster of chlorophyll and other pigments with proteins in the thylakoid membrane that captures light and passes energized electrons on from its reaction center. Photosystem II acts first and splits water; photosystem I passes electrons toward NADP⁺.'
+  topic: Photosynthesis
+- term: rubisco
+  aliases: [RuBisCO, Rubisco]
+  definition: 'The enzyme that fixes CO₂ by attaching it to RuBP in the first step of the Calvin cycle; slow, extremely abundant, and also able to react with O₂ (which causes photorespiration).'
+  topic: Photosynthesis
+- term: RuBP
+  aliases: [ribulose bisphosphate, ribulose 1,5-bisphosphate]
+  definition: 'Ribulose 1,5-bisphosphate, the five-carbon sugar that accepts CO₂ in the Calvin cycle and is regenerated at the end of each turn.'
+  topic: Photosynthesis
+- term: carbon fixation
+  aliases: [fixing carbon, fixes CO₂]
+  definition: 'Incorporating carbon from CO₂ gas into an organic molecule, as rubisco does in the Calvin cycle.'
+  topic: Photosynthesis
+- term: substrate-level phosphorylation
+  definition: 'Making ATP by transferring a phosphate group directly from a substrate molecule to ADP, as in glycolysis and the Krebs cycle, without an electron transport chain.'
+  topic: Cellular respiration
+- term: enthalpy
+  aliases: [enthalpy change, ΔH]
+  definition: 'The heat content of a system; its change, ΔH, is negative when a reaction releases heat and positive when it absorbs heat.'
+  topic: Bioenergetics
+- term: entropy
+  aliases: [ΔS]
+  definition: 'A measure of disorder: of how many ways the energy and matter in a system can be arranged. Its change is ΔS; the entropy of the universe increases in every real process.'
+  topic: Bioenergetics
+- term: Gibbs free energy
+  aliases: [free energy, free energy change, ΔG]
+  definition: 'The energy available to do work at constant temperature and pressure. ΔG = ΔH − TΔS; a reaction with negative ΔG can proceed on its own, and ΔG = 0 at equilibrium.'
+  topic: Bioenergetics
+- term: standard free energy change
+  aliases: ['ΔG°′', "ΔG°'"]
+  definition: 'ΔG°′, the free energy change of a reaction with every reactant and product at 1 M, at pH 7 (and usually 25 °C); a reference value listed in tables.'
+  topic: Bioenergetics
+- term: reaction quotient
+  definition: 'Q, the product concentrations multiplied together divided by the reactant concentrations multiplied together, at any moment. ΔG = ΔG°′ + RT ln Q.'
+  topic: Bioenergetics
+- term: equilibrium constant
+  aliases: ["K′", "K'"]
+  definition: 'K′, the value of the reaction quotient when a reaction is at equilibrium; related to the standard free energy change by ΔG°′ = −RT ln K′.'
+  topic: Bioenergetics
+- term: reduction potential
+  aliases: [standard reduction potential, redox potential, 'E°′']
+  definition: 'A measure in volts of how strongly the oxidized form of a redox pair attracts electrons. Electrons flow from pairs with more negative to pairs with more positive potentials; ΔG°′ = −nFΔE°′.'
+  topic: Bioenergetics
+- term: ubiquinone
+  aliases: [coenzyme Q, ubiquinol, QH₂]
+  definition: 'A small, fat-soluble electron carrier that moves within the inner mitochondrial membrane, carrying electrons (as ubiquinol, QH₂) from complexes I and II to complex III.'
+  topic: Electron transport
+- term: cytochrome c
+  definition: 'A small heme protein on the outer face of the inner mitochondrial membrane that carries one electron at a time from complex III to complex IV.'
+  topic: Electron transport
+- term: proton-motive force
+  aliases: [proton motive force, protonmotive force, PMF, Δp]
+  definition: 'The energy stored in a proton gradient across a membrane, made of an electrical part (membrane potential) and a chemical part (pH difference); about 200 mV across the inner mitochondrial membrane.'
+  topic: Chemiosmosis
+- term: binding-change mechanism
+  definition: 'Paul Boyer''s model of ATP synthase: the rotating central stalk drives each β subunit in turn through three shapes, one that binds ADP and phosphate, one that forms ATP, and one that releases ATP.'
+  topic: Chemiosmosis
+- term: P/O ratio
+  aliases: [P/O ratios]
+  definition: 'The number of ATP made per oxygen atom reduced (per pair of electrons sent down the chain): about 2.5 for NADH and 1.5 for FADH₂ (succinate).'
+  topic: Chemiosmosis
+- term: cyclic electron flow
+  aliases: [cyclic photophosphorylation]
+  definition: 'In chloroplasts, a path in which electrons from photosystem I return through ferredoxin to the plastoquinone pool and cytochrome b₆f complex, pumping protons to make ATP without making NADPH or splitting water.'
+  topic: Electron transport
+- term: respiratory control
+  definition: 'The coupling of electron transport to ATP synthesis through the proton gradient: electrons flow fast only when ADP is available and protons can flow back through ATP synthase.'
+  topic: Chemiosmosis
+- term: uncoupler
+  aliases: [uncouplers, uncoupling agent]
+  definition: 'A substance or protein that lets protons cross the inner mitochondrial membrane without passing through ATP synthase, so electron transport speeds up but little ATP is made and the energy becomes heat (for example DNP, or thermogenin).'
+  topic: Chemiosmosis
+- term: brown adipose tissue
+  aliases: [brown fat]
+  definition: 'Fat tissue whose mitochondria contain uncoupling protein 1 (thermogenin), which lets protons leak back across the inner membrane to produce heat; found in newborns, hibernators and some adults.'
+  topic: Chemiosmosis
+- term: 3-phosphoglycerate
+  aliases: [3-PGA, 3-phosphoglyceric acid, PGA]
+  definition: 'The three-carbon product of carbon fixation by rubisco; two form from each CO₂ added to RuBP, and they are then reduced to G3P.'
+  topic: Calvin cycle
+- term: photorespiration
+  definition: 'The salvage pathway that follows when rubisco adds O₂ instead of CO₂ to RuBP; it uses O₂, releases previously fixed CO₂ (1 per 2 oxygenations) and costs ATP, lowering a plant''s net carbon gain.'
+  topic: Calvin cycle
+- term: C3 plant
+  aliases: [C3 plants, C3]
+  definition: 'A plant that fixes CO₂ directly with rubisco, so the first stable product is the three-carbon 3-PGA; most plants, including wheat, rice and trees.'
+  topic: Photosynthetic adaptations
+- term: C4 plant
+  aliases: [C4 plants, C4, C4 photosynthesis]
+  definition: 'A plant that first fixes CO₂ with PEP carboxylase into a four-carbon acid in mesophyll cells, then releases it to rubisco in bundle-sheath cells, suppressing photorespiration; for example corn and sugarcane.'
+  topic: Photosynthetic adaptations
+- term: Kranz anatomy
+  definition: 'The leaf arrangement of C4 plants: a ring of bundle-sheath cells tightly around each vein, surrounded by mesophyll cells ("Kranz" is German for wreath).'
+  topic: Photosynthetic adaptations
+- term: PEP carboxylase
+  aliases: [PEPC, phosphoenolpyruvate carboxylase]
+  definition: 'The enzyme that attaches CO₂ (as bicarbonate) to the three-carbon PEP, making four-carbon oxaloacetate; it does not react with O₂ and does the first fixation in C4 and CAM plants.'
+  topic: Photosynthetic adaptations
+- term: bundle-sheath cell
+  aliases: [bundle-sheath cells, bundle sheath cells, bundle sheath]
+  definition: 'A cell of the tightly packed layer around a leaf vein; in C4 plants, the site of rubisco and the Calvin cycle, where CO₂ released from malate is concentrated.'
+  topic: Photosynthetic adaptations
+- term: CAM
+  aliases: [crassulacean acid metabolism, CAM plants, CAM plant]
+  definition: 'Crassulacean acid metabolism: photosynthesis in which stomata open at night and CO₂ is stored as malic acid, then released to the Calvin cycle during the day with stomata closed; for example cacti and pineapple.'
+  topic: Photosynthetic adaptations

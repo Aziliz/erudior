@@ -27,6 +27,10 @@ A separate gene, always on, makes a **repressor** protein that binds the operato
 - *No lactose:* the repressor sits on the operator and blocks RNA polymerase. The genes are off.
 - *Lactose present:* a form of lactose binds the repressor and changes its shape, so it falls off the operator. RNA polymerase can now transcribe the genes. When the lactose is used up, the repressor binds again and the genes switch off.
 
+The figure shows the two states side by side.
+
+![Two drawings of the lac operon DNA. Each shows, from left to right, the lacI gene, a promoter (P), an operator (O), and the three genes lacZ, lacY and lacA. Top, no lactose: a repressor protein sits on the operator and RNA polymerase waits on the promoter, unable to pass, so the genes are off. Bottom, lactose present: lactose is bound to the repressor, which has left the DNA, and RNA polymerase moves along the genes making mRNA, so the genes are on. The lacI gene makes the repressor all the time.](images/m6-lac-operon.svg)
+
 The system is a negative feedback loop: the enzymes destroy the very signal that turns them on. (A second control, through an activator protein, keeps the operon low when glucose is also present, because the cell prefers glucose.)
 
 ### Example 1
@@ -93,6 +97,23 @@ The normal mRNA is 5′-AUG GAA UGG CUA AAA UAA-3′, which codes for Met–Glu�
 4. The G of codon 2 is deleted. Re-read in threes from AUG: AUG AAU GGC UAA. The protein is Met–Asn–Gly, then stop. Every codon after the deletion changed, and a stop codon appeared early: frameshift.
 
 Notice the method: write the new sequence, re-split it into codons starting from AUG, and translate. Don't just translate the one codon you think changed.
+
+The flowchart sums up the decisions you just made.
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a mutation in a coding region
+  accDescr: Start by comparing the mutant and normal sequences. If one base was swapped for another and the number of bases is unchanged, ask whether the new codon codes for the same amino acid. If yes, the mutation is silent. If not, ask whether the new codon is a stop codon. If yes, it is nonsense; if no, it is missense. If bases were added or lost, ask whether the number is a multiple of three. If not, it is a frameshift. If it is, the reading frame is kept and amino acids are added or removed.
+  A[Compare mutant and normal sequence] --> B{Bases added or lost?}
+  B -- "no: one base swapped" --> C{Same amino acid?}
+  C -- yes --> S[Silent]
+  C -- no --> D{New codon is a stop?}
+  D -- yes --> N[Nonsense]
+  D -- no --> M[Missense]
+  B -- yes --> E{Multiple of 3?}
+  E -- no --> F[Frameshift]
+  E -- yes --> G[In frame: amino acids added or removed]
+```
 
 ## Mutations are the raw material of variation
 

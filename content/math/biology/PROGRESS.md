@@ -63,3 +63,55 @@ potential section and drill (kept).
 | 38 | m10 | bio-ecosystems | Ecosystems and energy flow | Ecosystems; Energy flow | bio-ten-percent, bio-biomass |
 | 39 | m10 | bio-cycles-populations | Matter cycles and population growth | Biogeochemical cycles; Population ecology | bio-exp-growth, bio-logistic, bio-mark-recapture |
 | 40 | m10 | bio-communities-humans | Communities, biomes, biodiversity, and human impact | Community ecology; Biomes; Biodiversity; Human impact | bio-diversity-index |
+
+## Round 2 (v0.22.0): honors, pictures, diagrams, new question types
+
+Honors lessons are optional (`honors: true`); they don't count toward finishing a module and
+stay out of module quizzes. Honors modules (`bio-h1`…`bio-h3`, `honors: true` in course.yaml)
+have their own module quizzes. Brief: WRITERS-2.md. Question ids: new core questions continue
+`bio-q-NNxx`; honors-lesson questions in core modules are `bio-qh-NNxx` (NN = module, xx 01–99);
+honors-module questions are `bio-qh-h1-01`…; drill ids `bio-h-…`.
+
+### Honors lessons in core modules (22)
+
+| Module | File | Lesson id | Title | Topics |
+|---|---|---|---|---|
+| m1 | 05h1-protein-structure.md | bio-h-protein-structure | Protein structure and folding | Protein structure |
+| m1 | 05h2-enzyme-kinetics.md | bio-h-enzyme-kinetics | Enzyme kinetics and regulation | Enzyme kinetics; Enzyme regulation |
+| m2 | 10h1-endomembrane.md | bio-h-endomembrane | The endomembrane system and the cytoskeleton | Endomembrane system; Cytoskeleton |
+| m2 | 10h2-cell-signaling.md | bio-h-cell-signaling | Cell communication and signal transduction | Cell signaling |
+| m3 | 13h1-free-energy.md | bio-h-free-energy | Free energy, coupled reactions, and redox | Bioenergetics |
+| m3 | 13h2-chemiosmosis.md | bio-h-chemiosmosis | Electron transport and chemiosmosis | Electron transport; Chemiosmosis |
+| m3 | 13h3-c4-cam.md | bio-h-c4-cam | The Calvin cycle in depth: photorespiration, C4 and CAM | Calvin cycle; Photosynthetic adaptations |
+| m4 | 16h1-cycle-control.md | bio-h-cycle-control | Molecular control of the cell cycle and apoptosis | Cyclins and CDKs; Apoptosis |
+| m4 | 16h2-meiosis-variation.md | bio-h-meiosis-variation | Meiosis errors and the sources of variation | Nondisjunction; Genetic variation |
+| m5 | 21h1-linkage.md | bio-h-linkage | Linked genes and gene mapping | Linkage; Gene mapping |
+| m5 | 21h2-gene-interaction.md | bio-h-gene-interaction | Epistasis, pleiotropy, and quantitative traits | Epistasis; Quantitative genetics |
+| m6 | 25h1-regulation-depth.md | bio-h-regulation-depth | Operons, transcription factors, and epigenetics | Operons; Eukaryotic gene regulation; Epigenetics |
+| m6 | 25h2-genomics.md | bio-h-genomics | Sequencing, genomics, and gene editing | Genomics; Gene editing |
+| m7 | 30h1-evolution-models.md | bio-h-evolution-models | Modeling evolution: selection, drift, and testing Hardy-Weinberg | Selection models; Genetic drift |
+| m7 | 30h2-phylogenetics.md | bio-h-phylogenetics | Building phylogenies and molecular clocks | Cladistics; Molecular clocks |
+| m8 | 34h1-plant-physiology.md | bio-h-plant-physiology | Plant hormones, responses, and water transport | Plant hormones; Plant responses; Water transport |
+| m8 | 34h2-microbes.md | bio-h-microbes | Viruses, bacteria, and antibiotic resistance in depth | Viral replication; Antibiotic resistance |
+| m9 | 37h1-neurons.md | bio-h-neurons | Neurons, action potentials, and synapses | Action potential; Synapses |
+| m9 | 37h2-immunology.md | bio-h-immunology | Immunology in depth | Adaptive immunity; Vaccines |
+| m9 | 37h3-endocrine.md | bio-h-endocrine | Hormones and feedback in depth | Hormone signaling; Glucose regulation |
+| m10 | 40h1-population-models.md | bio-h-population-models | Life tables, survivorship, and predator-prey models | Life tables; Population models |
+| m10 | 40h2-ecosystem-ecology.md | bio-h-ecosystem-ecology | Productivity, nutrient limits, and global change | Primary productivity; Global change |
+
+### Honors modules (12 lessons)
+
+| Module | File | Lesson id | Title | Topics |
+|---|---|---|---|---|
+| h1 Research and biostatistics | 41-investigation.md | bio-h-investigation | Designing an investigation | Experimental design |
+| h1 | 42-statistics.md | bio-h-statistics | Describing data: variation, error bars, and confidence | Descriptive statistics |
+| h1 | 43-hypothesis-tests.md | bio-h-hypothesis-tests | Testing hypotheses: chi-square, t-tests, and correlation | Hypothesis testing |
+| h1 | 44-papers.md | bio-h-papers | Reading and writing science | Scientific communication |
+| h2 Development, stem cells, and the genome | 45-early-development.md | bio-h-early-development | From zygote to embryo | Embryonic development |
+| h2 | 46-differentiation.md | bio-h-differentiation | How cells become different: signals and Hox genes | Cell differentiation; Pattern formation |
+| h2 | 47-stem-cells.md | bio-h-stem-cells | Stem cells, cloning, and regeneration | Stem cells; Cloning |
+| h2 | 48-genome-evolution.md | bio-h-genome-evolution | Genomes and evo-devo | Genome evolution; Evo-devo |
+| h3 Behavior, disease, and conservation | 49-behavior.md | bio-h-behavior | Animal behavior | Animal behavior |
+| h3 | 50-social-behavior.md | bio-h-social-behavior | Social behavior, altruism, and kin selection | Social behavior |
+| h3 | 51-epidemiology.md | bio-h-epidemiology | Epidemiology and public health | Epidemiology |
+| h3 | 52-conservation.md | bio-h-conservation | Conservation biology | Conservation biology |

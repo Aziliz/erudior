@@ -48,11 +48,19 @@ For most of the twentieth century, living things were split into prokaryotes and
 
 The table shows the surprise: in their machinery for copying DNA and making proteins, archaea resemble eukaryotes more than they resemble bacteria. Lesson 29 explained why. Most recent genome studies place eukaryotes inside the archaeal branch, closest to the Asgard archaea: the first eukaryote seems to have been an archaeal cell that took in a bacterium, which became the mitochondrion. On those trees there are only two primary branches, Bacteria and Archaea. (Eukaryotes are a mosaic: their membrane lipids are bacterial-type, as the table shows, possibly inherited partly from that bacterial partner.) Biologists still use the three domains to classify life, because eukaryotes are so distinctive, and this course does too. Either way, "prokaryote" names a cell plan, not a single evolutionary group.
 
+The tree below shows the three domains, with archaea and eukaryotes as closest relatives and a bacterium joining the eukaryote line as the mitochondrion. In the newer two-domain view, the eukaryote branch would sprout from inside the archaea, next to the Asgard archaea.
+
+![A tree diagram. A common ancestor of all cells splits into Bacteria and a second branch, which splits into Archaea and Eukarya. A dashed arrow runs from the Bacteria branch to Eukarya, labeled: a bacterium taken in became the mitochondrion.](images/m8-three-domains.svg)
+
 Archaea are famous for extreme habitats: near-boiling hot springs, salt flats, acid mine drainage. But they also live in ordinary soil, oceans and the human gut, and every known methanogen (a microbe that makes methane as the end product of its energy metabolism) is an archaeon.
 
 ## Bacteria: small, fast, everywhere
 
 Bacteria are classified partly by shape (spheres, or cocci; rods, or bacilli; spirals) and by cell wall. The Gram stain, developed in 1884, colors thick-walled Gram-positive bacteria purple and thin-walled Gram-negative bacteria, which have an extra outer membrane, pink. The distinction matters in medicine because the two groups respond differently to some antibiotics.
+
+The drawing shows a typical rod-shaped bacterium. Its circular chromosome lies in the nucleoid, with no membrane around it; small DNA circles called plasmids often carry extra genes such as antibiotic resistance. Many bacteria also have a sticky capsule, pili for attaching to surfaces, and a spinning flagellum.
+
+![A rod-shaped bacterium with labeled parts: pili, capsule, cell wall, plasma membrane, nucleoid with its tangled DNA, ribosomes, a plasmid, and a flagellum.](images/m8-bacterium.svg)
 
 Bacteria reproduce by **binary fission**: the cell copies its single circular chromosome, grows, and pinches in two. There's no mitosis and no spindle. Under ideal conditions, the time between divisions, the **generation time**, can be as short as about 20 minutes for *E. coli*. Since every generation doubles the number of cells,
 
@@ -95,10 +103,26 @@ In one step: $\text{CFU/mL} = \dfrac{\text{colonies}}{\text{dilution} \times \te
 
 You met viruses in the cell module: a protein coat around DNA or RNA, with no ribosomes and no metabolism of their own. Because they can only reproduce inside a host cell, they aren't placed in any domain, and whether to call them alive is a matter of definition. What they do have is genes, mutation and evolution by natural selection, which is why flu vaccines are updated every year.
 
+![Two simplified viruses. Left, a bacteriophage: a many-sided protein head holding DNA, on top of a tail sheath, base plate and tail fibers. Right, an enveloped virus: an RNA genome inside a protein capsid, wrapped in a membrane envelope studded with spike proteins.](images/m8-viruses.svg)
+
+A bacteriophage lands on a bacterium with its tail fibers and injects its DNA through the tail. An enveloped virus such as influenza wraps its capsid in membrane taken from the last cell it left, studded with spike proteins that fit receptors on its next host.
+
 A virus attaches to specific receptor molecules on a host cell, which is why each virus infects only certain species and tissues. Viruses that infect bacteria, called phages, show the two classic replication strategies:
 
 - In the **lytic cycle**, the viral genome takes over the cell at once: it is copied, viral proteins are made, new viruses assemble, and the cell bursts (lyses), releasing them. Many viruses behave this way in our cells, killing the cells they multiply in.
 - In the **lysogenic cycle**, the viral DNA is inserted into the host chromosome and copied along with it every time the cell divides, causing no harm for a while. A trigger such as radiation or stress can switch it into the lytic cycle later. Herpes viruses use a similar dormant stage, which is why cold sores come back.
+
+```mermaid
+flowchart TD
+  accTitle: Lytic and lysogenic cycles of a phage
+  accDescr: A phage attaches to a bacterium and injects its DNA. In the lytic cycle the phage DNA directs the cell to copy phage DNA and make phage proteins, new phages assemble, and the cell bursts, releasing them. In the lysogenic cycle the phage DNA joins the bacterial chromosome as a prophage and is copied every time the cell divides. A trigger such as UV damage can switch the prophage into the lytic cycle.
+  A[Phage attaches and injects its DNA] -- lytic --> L1[Cell copies phage DNA and makes phage proteins]
+  L1 --> L2[New phages assemble]
+  L2 --> L3[Cell bursts and releases new phages]
+  A -- lysogenic --> Y1[Phage DNA joins the chromosome as a prophage]
+  Y1 --> Y2[Prophage is copied each time the cell divides]
+  Y2 -- "trigger such as UV damage" --> L1
+```
 
 HIV is a retrovirus: it carries RNA and an enzyme, reverse transcriptase, that copies the RNA into DNA, which then integrates into the host genome. Antibiotics have no effect on viruses since there's no cell wall or bacterial ribosome to target; antiviral drugs block virus-specific enzymes instead, and vaccines prevent infection (lesson 37).
 

@@ -98,3 +98,106 @@
     At 20 °C: ${v1} \div {t} =$ **{r1:num2} mL/s**. At 35 °C: ${v2} \div {t} =$ **{r2:num2} mL/s**.
 
     Percent increase in rate: the times are equal, so compare the volumes directly (this avoids rounding the rates): $\dfrac{{v2} - {v1}}{{v1}} \times 100\% =$ **{pc:num1}%**. Warming toward the optimum speeds collisions between enzyme and substrate.
+- id: bio-h-helix
+  title: Sizing an alpha helix and a beta strand
+  topic: Protein structure
+  vars:
+    n: {min: 18, max: 72, step: 9}
+  calc:
+    turns: n / 3.6
+    hlen: n * 0.15
+    slen: n * 0.34
+  prompt: 'A stretch of {n} amino acids folds into an α helix, which has 3.6 amino acids per turn and rises 0.15 nm per amino acid. (a) How many turns does the helix make? (b) How long is it, in nm? (c) If the same stretch formed a β strand instead, at 0.34 nm per amino acid, how long would it be, in nm? Give lengths to 2 decimal places.'
+  answers:
+    - {name: turns, label: '(a) turns', tolerance: 0.05, format: num1}
+    - {name: hlen, label: '(b) helix length (nm)', tolerance: 0.01, format: num2}
+    - {name: slen, label: '(c) strand length (nm)', tolerance: 0.01, format: num2}
+  solution: |-
+    (a) Turns $=$ amino acids $\div$ 3.6 $= {n} \div 3.6 =$ **{turns:num1}**.
+
+    (b) Helix length $= {n} \times 0.15 \text{ nm} =$ **{hlen:num2} nm**.
+
+    (c) Strand length $= {n} \times 0.34 \text{ nm} =$ **{slen:num2} nm**. The strand is more than twice as long because its backbone is stretched out instead of coiled.
+- id: bio-h-disulfide
+  title: Random disulfide pairings
+  topic: Protein structure
+  vars:
+    k: {choices: [4, 6, 8, 10]}
+  calc:
+    pairs: k / 2
+    ways: fact(k) / (2^(k/2) * fact(k/2))
+    pct: 100 / ways
+  prompt: 'A small protein has {k} cysteines, which form {pairs} disulfide bonds in the native shape. If the bonds formed at random in an unfolded chain, (a) how many different sets of pairings are possible, and (b) what percent of the time would the native set form? Give (b) to 2 significant figures.'
+  answers:
+    - {name: ways, label: '(a) possible pairings', format: integer}
+    - {name: pct, label: '(b) percent native', sigfigs: 2, format: sig2}
+  solution: |-
+    (a) Pair the first unpaired cysteine with any of the others, then repeat: the number of choices is $({k} - 1) \times ({k} - 3) \times \dots \times 1$, which equals $\dfrac{{k}!}{2^{{pairs}} \cdot {pairs}!} =$ **{ways}**.
+
+    (b) Only one set is native: $\dfrac{1}{{ways}} \times 100\% =$ **{pct:sig2}%**. Anfinsen found about 1% activity when ribonuclease (8 cysteines, 105 pairings) formed its bonds while unfolded, matching this random-pairing prediction.
+- id: bio-h-mm-rate
+  title: Rate from the Michaelis–Menten equation
+  topic: Enzyme kinetics
+  vars:
+    vmax: {choices: [40, 60, 80, 100, 120, 150, 200]}
+    km: {choices: [1, 2, 4, 5, 8, 10]}
+    f: {choices: [0.25, 0.5, 1, 2, 3, 4, 9]}
+  calc:
+    sconc: f * km
+    frac: sconc / (km + sconc)
+    rate: vmax * sconc / (km + sconc)
+    pct: 100 * sconc / (km + sconc)
+    den: km + sconc
+  prompt: 'An enzyme has $V_{\max} = {vmax}$ µmol/min and $K_m = {km}$ mM. Find the initial rate when the substrate concentration is {sconc} mM (1 decimal place), and give that rate as a percent of $V_{\max}$ (1 decimal place).'
+  answers:
+    - {name: rate, label: 'Rate (µmol/min)', tolerance: 0.05, format: num1}
+    - {name: pct, label: 'Percent of $V_{\max}$', tolerance: 0.05, format: num1}
+  solution: |-
+    $$v = \frac{V_{\max}\,[\text{S}]}{K_m + [\text{S}]} = \frac{{vmax} \times {sconc}}{{km} + {sconc}} = \frac{{vmax} \times {sconc}}{{den}}$$
+
+    So $v =$ **{rate:num1} µmol/min**. As a fraction of the maximum, $\dfrac{{sconc}}{{den}} = {frac:num4}$, which is **{pct:num1}%** of $V_{\max}$. (At $[\text{S}] = K_m$ the answer is always 50%.)
+- id: bio-h-lineweaver
+  title: Km and Vmax from a Lineweaver–Burk line
+  topic: Enzyme kinetics
+  vars:
+    vmax: {choices: [10, 20, 25, 40, 50, 100]}
+    km: {choices: [0.5, 1, 2, 4, 5]}
+  calc:
+    yint: 1 / vmax
+    lbslope: km / vmax
+    xint: -1 / km
+  prompt: 'A Lineweaver–Burk plot of $1/v$ (min per µmol) against $1/[\text{S}]$ (per mM) for an enzyme gives a straight line with $y$-intercept {yint} and slope {lbslope}. Find $V_{\max}$ (µmol/min) and $K_m$ (mM).'
+  answers:
+    - {name: vmax, label: '$V_{\max}$ (µmol/min)', relTolerance: 0.01}
+    - {name: km, label: '$K_m$ (mM)', relTolerance: 0.01}
+  solution: |-
+    The line is $\dfrac{1}{v} = \dfrac{K_m}{V_{\max}} \cdot \dfrac{1}{[\text{S}]} + \dfrac{1}{V_{\max}}$.
+
+    The $y$-intercept is $1/V_{\max}$, so $V_{\max} = 1 / {yint} =$ **{vmax} µmol/min**.
+
+    The slope is $K_m / V_{\max}$, so $K_m = \text{slope} \times V_{\max} = {lbslope} \times {vmax} =$ **{km} mM**. (Check: the $x$-intercept, $-1/K_m$, is {xint}.)
+- id: bio-h-competitive
+  title: Effect of a competitive inhibitor
+  topic: Enzyme kinetics
+  vars:
+    vmax: {choices: [50, 80, 100, 120]}
+    km: {choices: [1, 2, 4, 5]}
+    ki: {choices: [1, 2, 5, 10]}
+    inh: {min: 1, max: 20}
+    f: {choices: [1, 2, 4]}
+  where: ['mod(inh, ki) == 0', 'inh / ki <= 6']
+  calc:
+    sconc: f * km
+    fac: 1 + inh / ki
+    kmapp: km * (1 + inh / ki)
+    v0: vmax * sconc / (km + sconc)
+    vi: vmax * sconc / (kmapp + sconc)
+    den: kmapp + sconc
+  prompt: 'An enzyme has $V_{\max} = {vmax}$ µmol/min and $K_m = {km}$ mM. A competitive inhibitor with $K_i = {ki}$ µM is added at {inh} µM. (a) What is the apparent $K_m$ (mM)? (b) What is the rate at a substrate concentration of {sconc} mM, with the inhibitor present (1 decimal place)?'
+  answers:
+    - {name: kmapp, label: '(a) apparent $K_m$ (mM)', relTolerance: 0.01}
+    - {name: vi, label: '(b) rate (µmol/min)', tolerance: 0.05, format: num1}
+  solution: |-
+    (a) A competitive inhibitor multiplies $K_m$ by $1 + [\text{I}]/K_i = 1 + {inh}/{ki} = {fac}$, so $K_m^{\text{app}} = {km} \times {fac} =$ **{kmapp} mM**. $V_{\max}$ is unchanged.
+
+    (b) $v = \dfrac{{vmax} \times {sconc}}{{kmapp} + {sconc}} = \dfrac{{vmax} \times {sconc}}{{den}} =$ **{vi:num1} µmol/min**, compared with {v0:num1} µmol/min without the inhibitor. More substrate would close the gap.

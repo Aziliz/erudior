@@ -111,3 +111,69 @@
 - term: nondisjunction
   definition: 'Failure of homologous chromosomes (meiosis I) or sister chromatids (meiosis II) to separate, producing gametes with an extra or missing chromosome.'
   topic: Meiosis
+- term: maturation-promoting factor
+  aliases: [MPF, M-phase promoting factor]
+  definition: 'The cytoplasmic factor that drives a cell into M phase, first found by injecting mature frog egg cytoplasm into immature oocytes; it is cyclin B bound to CDK1.'
+  topic: Cyclins and CDKs
+- term: anaphase-promoting complex
+  aliases: [APC/C, APC]
+  definition: 'An enzyme complex that tags cyclin B and securin with ubiquitin for destruction, which starts anaphase and ends mitosis; the spindle checkpoint holds it back.'
+  topic: Cyclins and CDKs
+- term: cohesin
+  aliases: [cohesins]
+  definition: 'Ring-shaped protein complexes that hold sister chromatids together from S phase until they are cut by separase at anaphase.'
+  topic: Cyclins and CDKs
+- term: kinetochore
+  aliases: [kinetochores]
+  definition: 'The protein structure on a chromosome''s centromere where spindle fibers attach; an unattached kinetochore signals the spindle checkpoint to delay anaphase.'
+  topic: Cyclins and CDKs
+- term: CDK inhibitor
+  aliases: [CDK inhibitors, CKI]
+  definition: 'A protein, such as p21 or p16, that binds cyclin–CDK complexes and blocks their activity, pausing the cell cycle.'
+  topic: Cyclins and CDKs
+- term: restriction point
+  definition: 'The point late in G1 after which a cell is committed to finishing the cycle even if growth factors are removed; controlled by phosphorylation of Rb.'
+  topic: Cyclins and CDKs
+- term: E2F
+  definition: 'A transcription factor that switches on genes needed for S phase; it is held inactive by unphosphorylated Rb and released when cyclin–CDKs phosphorylate Rb.'
+  topic: Cyclins and CDKs
+- term: caspase
+  aliases: [caspases]
+  definition: 'A protein-cutting enzyme (a cysteine protease that cuts after aspartate) that carries out apoptosis; caspases are made inactive and switch each other on in a cascade.'
+  topic: Apoptosis
+- term: Bcl-2
+  definition: 'A protein that blocks apoptosis by keeping mitochondria from releasing cytochrome c; too much Bcl-2 lets cells survive that should die, as in follicular lymphoma.'
+  topic: Apoptosis
+- term: necrosis
+  definition: 'Uncontrolled cell death from injury, in which cells swell and burst and their contents cause inflammation; compare apoptosis.'
+  topic: Apoptosis
+- term: loss of heterozygosity
+  aliases: [LOH]
+  definition: 'Loss of the remaining good copy of a gene in a cell that had one good and one faulty copy, by deletion, chromosome loss or mitotic recombination; a common second hit in cancer.'
+  topic: Cyclins and CDKs
+- term: synapsis
+  definition: 'The close pairing of homologous chromosomes along their length in prophase I of meiosis.'
+  topic: Genetic variation
+- term: synaptonemal complex
+  definition: 'The ladder-like protein structure that zips homologous chromosomes together during synapsis in prophase I.'
+  topic: Genetic variation
+- term: chiasma
+  aliases: [chiasmata]
+  definition: 'The X-shaped point where homologous chromosomes stay joined after a crossover; chiasmata hold homologs together until anaphase I.'
+  topic: Nondisjunction
+- term: mosaicism
+  aliases: [mosaic]
+  definition: 'Having two or more genetically different cell lines in one body, for example some cells with 47 chromosomes and some with 46, from an error in mitosis after fertilization.'
+  topic: Nondisjunction
+- term: polyploidy
+  aliases: [polyploid, polyploids]
+  definition: 'Having three or more complete sets of chromosomes (3x, 4x, 6x and so on); common in plants, rare in animals.'
+  topic: Genetic variation
+- term: autopolyploid
+  aliases: [autopolyploids, autopolyploidy]
+  definition: 'A polyploid whose extra chromosome sets come from its own species, for example from unreduced gametes or colchicine treatment.'
+  topic: Genetic variation
+- term: allopolyploid
+  aliases: [allopolyploids, allopolyploidy, allotetraploid]
+  definition: 'A polyploid that combines full chromosome sets from two or more species, formed by hybridization followed by chromosome doubling; bread wheat is one.'
+  topic: Genetic variation

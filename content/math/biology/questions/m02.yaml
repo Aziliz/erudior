@@ -590,3 +590,644 @@
   answer: 3
   explanation: |-
     A tissue is a group of similar cells with a shared job, such as muscle tissue. An organ combines several tissues; an organelle is a structure inside a cell; a population is a group of organisms of one species.
+- id: bio-q-0258
+  lesson: bio-cell-theory
+  topic: Microscopy
+  type: label
+  stem: 'Name the numbered parts of this compound light microscope.'
+  image: {src: images/m2-microscope-blank.svg, alt: 'A compound light microscope seen from the side, with five numbered parts: one at the top of the tube where you look in, one among the lenses pointing down at the slide, one on the flat platform holding the slide, one on the large knob on the arm, and one in the base below the platform.'}
+  labels:
+    - {x: 36.4, y: 10.8, text: Eyepiece (ocular lens)}
+    - {x: 36.4, y: 58.8, text: Objective lens}
+    - {x: 11.1, y: 68.4, text: Stage}
+    - {x: 82.8, y: 72.5, text: Coarse focus knob}
+    - {x: 36.4, y: 86.3, text: Light source}
+  distractors: [Mirror, Electron gun]
+  explanation: |-
+    You look into the eyepiece (1) at the top of the body tube. The objective lenses (2) on the revolving nosepiece sit just above the slide, which rests on the stage (3). The large coarse focus knob (4) moves the stage a long way for rough focusing, and light comes up from the light source (5) in the base. Some old microscopes use a mirror instead of a lamp, but this one has a lamp; an electron gun belongs to an electron microscope.
+- id: bio-q-0259
+  lesson: bio-cell-theory
+  module_quiz: true
+  topic: Microscopy
+  type: text
+  stem: 'The smallest distance between two points at which a microscope can still show them as separate is called its ___.'
+  accept: [resolution, resolving power]
+  explanation: |-
+    That is resolution. For a light microscope it is about 0.2 µm, set by the wavelength of light; magnifying more than the resolution allows only enlarges the blur.
+- id: bio-q-0260
+  lesson: bio-cell-theory
+  topic: Cell theory
+  type: order
+  stem: 'Put these steps in the history of cell theory in order, earliest first.'
+  items:
+    - Hooke names cells after looking at cork
+    - Leeuwenhoek sees living microbes in pond water
+    - Schleiden concludes that plants are made of cells
+    - Schwann extends the idea to animals
+    - Virchow popularizes "every cell from a cell"
+    - Pasteur's swan-neck flasks refute spontaneous generation of microbes
+  explanation: |-
+    Hooke (1665), Leeuwenhoek (1670s), Schleiden (1838), Schwann (1839), Virchow (1855) and Pasteur (early 1860s). Seeing cells came nearly two centuries before the theory that explained them.
+- id: bio-q-0261
+  lesson: bio-cell-theory
+  topic: Microscopy
+  stem: 'Which can a light microscope do that an electron microscope cannot? Select all that apply.'
+  choices:
+    - 'Show living cells moving and dividing'
+    - 'Show stained cells in true color'
+    - 'Show individual ribosomes'
+    - 'Show the two layers of a membrane'
+  answer: [0, 1]
+  explanation: |-
+    An electron microscope needs a vacuum and dead, specially prepared specimens, and its images are black and white (color is added later), so only a light microscope can show living cells in true color. Ribosomes (about 25 nm) and membrane layers are far below the light microscope's 0.2 µm resolution; seeing them needs an electron microscope.
+- id: bio-q-0262
+  lesson: bio-cell-theory
+  topic: Cell theory
+  stem: 'In the swan-neck flask experiment shown, why did Pasteur use an open, curved neck instead of simply sealing the boiled broth in a closed flask?'
+  image: {src: images/m2-swan-neck.svg, alt: 'Flask A has a long S-shaped neck open to the air, with dust trapped in the low bend, and its broth stays clear. Flask B has its neck broken off, and its broth turns cloudy.'}
+  choices:
+    - 'A sealed flask would have cracked when the broth was boiled'
+    - 'The curved neck let microbes in slowly so he could count them'
+    - 'Air could still reach the broth, answering critics who said air was needed for life to arise'
+    - 'The curved neck kept the broth warm enough for microbes to grow'
+  answer: 2
+  explanation: |-
+    Supporters of spontaneous generation argued that sealing a flask kept out something in air that life needed. With the swan neck, air reached the broth freely while dust and microbes were trapped in the bend, and still nothing grew. The neck let microbes in only when it was broken or tipped, and the experiment was about where microbes come from, not counting them or warmth.
+- id: bio-q-0263
+  lesson: bio-cell-types
+  module_quiz: true
+  topic: Cell types
+  type: label
+  stem: 'Name the numbered parts of this bacterial cell.'
+  image: {src: images/m2-prokaryote-blank.svg, alt: 'A rod-shaped bacterial cell with five numbered parts: the outermost dashed layer, the layer just inside it, the tangled region of DNA in the middle of the cytoplasm, the long whip-like tail at one end, and one of the short projections on the surface.'}
+  labels:
+    - {x: 36.4, y: 19.3, text: Capsule}
+    - {x: 36.4, y: 74.2, text: Cell wall}
+    - {x: 31.8, y: 46.7, text: Nucleoid}
+    - {x: 84.2, y: 50, text: Flagellum}
+    - {x: 57.7, y: 6.5, text: Pilus}
+  distractors: [Nucleus, Mitochondrion]
+  explanation: |-
+    From the outside: the sticky capsule (1), then the cell wall (2) with the plasma membrane inside it. The DNA lies in the nucleoid (3) with no membrane around it, so it is not a nucleus. The long flagellum (4) is for swimming and the short pili (5) are for attachment and passing DNA. Bacteria have no nucleus and no mitochondria.
+- id: bio-q-0264
+  lesson: bio-cell-types
+  topic: Cell types
+  type: match
+  stem: 'Match each structure to the kind of thing that has it.'
+  pairs:
+    - [Nucleus, Eukaryotic cells only]
+    - [Nucleoid, Prokaryotic cells only]
+    - [Ribosomes, Both prokaryotic and eukaryotic cells]
+    - [Plasma membrane, Both prokaryotic and eukaryotic cells]
+    - [Protein capsid around DNA or RNA, Viruses only]
+  explanation: |-
+    Every cell has a plasma membrane and ribosomes. Only eukaryotes enclose their DNA in a nucleus; prokaryotes keep it in a nucleoid. A capsid is the protein coat of a virus, which is not a cell at all.
+- id: bio-q-0265
+  lesson: bio-cell-types
+  topic: Cell types
+  type: text
+  stem: 'In a prokaryotic cell, the DNA lies in a region of the cytoplasm called the ___, which has no membrane around it.'
+  accept: [nucleoid, nucleoid region]
+  explanation: |-
+    The nucleoid is the DNA-containing region of a prokaryote. Unlike a nucleus, it is not enclosed by a membrane.
+- id: bio-q-0266
+  lesson: bio-cell-types
+  topic: Cell types
+  stem: 'Which of these do a bacterium and a human cell both have? Select all that apply.'
+  choices: [Ribosomes, Plasma membrane, Nucleus, DNA, Peptidoglycan cell wall]
+  answer: [0, 1, 3]
+  explanation: |-
+    All cells have a plasma membrane, cytoplasm, DNA and ribosomes. Only the human cell has a nucleus, and only the bacterium has a peptidoglycan wall; human cells have no wall at all.
+- id: bio-q-0267
+  lesson: bio-cell-types
+  topic: Cell types
+  stem: 'Using the classification key in the lesson, a cell that has a nucleus and a cell wall made of chitin is most likely'
+  choices: ['an animal cell', 'a bacterium', 'a plant cell', 'a fungal cell']
+  answer: 3
+  explanation: |-
+    A nucleus makes it a eukaryote, and chitin walls are the mark of fungi. Plant walls are cellulose, bacterial walls are peptidoglycan (and bacteria have no nucleus), and animal cells have no wall.
+- id: bio-q-0268
+  lesson: bio-organelles
+  module_quiz: true
+  topic: Organelles
+  type: label
+  stem: 'Name the numbered organelles in this animal cell.'
+  image: {src: images/m2-animal-cell-blank.svg, alt: 'An animal cell with five numbered structures: a large round structure in the center, a bean-shaped structure with a folded inner membrane, a stack of curved flattened sacs, curved sheets with dots along them wrapped around the large central structure, and a small round sac with dots inside.'}
+  labels:
+    - {x: 35.8, y: 43.8, text: Nucleus}
+    - {x: 82.1, y: 65.6, text: Mitochondrion}
+    - {x: 77.4, y: 35.6, text: Golgi apparatus}
+    - {x: 57.2, y: 31.6, text: Rough ER}
+    - {x: 15.1, y: 52.2, text: Lysosome}
+  distractors: [Chloroplast, Smooth ER]
+  explanation: |-
+    The large central organelle with a nucleolus is the nucleus (1). The bean shape with folded inner membrane (cristae) is a mitochondrion (2). The stack of flattened sacs is the Golgi apparatus (3). The membranes studded with ribosome dots, next to the nucleus, are rough ER (4); smooth ER has no ribosomes. The small sac of digestive enzymes is a lysosome (5). Animal cells have no chloroplasts.
+- id: bio-q-0269
+  lesson: bio-organelles
+  topic: Organelles
+  type: label
+  stem: 'Name the numbered structures in this plant cell.'
+  image: {src: images/m2-plant-cell-blank.svg, alt: 'A plant cell with five numbered structures: the thick outer layer, a huge sac filling the middle of the cell, a green oval with stacked internal membranes, a round structure in the upper corner, and a small bean-shaped structure with a folded inner membrane.'}
+  labels:
+    - {x: 4.4, y: 54.5, text: Cell wall}
+    - {x: 56, y: 50, text: Central vacuole}
+    - {x: 44, y: 11.7, text: Chloroplast}
+    - {x: 12.3, y: 27.5, text: Nucleus}
+    - {x: 28.2, y: 89.4, text: Mitochondrion}
+  distractors: [Centriole, Lysosome]
+  explanation: |-
+    The thick outer layer is the cellulose cell wall (1), with the plasma membrane just inside. The central vacuole (2) fills most of the cell. Chloroplasts (3) have stacks of membranes inside. The nucleus (4) is pushed to the side by the vacuole. The small structure with folded inner membranes is a mitochondrion (5): plant cells have mitochondria as well as chloroplasts. Most plant cells have no centrioles, and lysosomes are rare.
+- id: bio-q-0270
+  lesson: bio-organelles
+  topic: Organelles
+  type: order
+  stem: 'Put the stops of a digestive enzyme made by a pancreas cell in order, from where it is built to where it ends up.'
+  items:
+    - Ribosome on the rough ER
+    - Inside the rough ER
+    - Transport vesicle
+    - Golgi apparatus
+    - Secretory vesicle
+    - Outside the cell
+  explanation: |-
+    A ribosome on the rough ER threads the new enzyme into the ER, where it folds. A transport vesicle carries it to the Golgi, which modifies and packages it into a secretory vesicle; the vesicle fuses with the plasma membrane and releases it outside (exocytosis). This is the path Palade's pulse–chase experiment traced.
+- id: bio-q-0271
+  lesson: bio-organelles
+  topic: Organelles
+  type: match
+  stem: 'Match each cell to the organelle it has in unusually large amounts.'
+  pairs:
+    - [Heart muscle cell that never stops contracting, Mitochondria]
+    - [Liver cell that breaks down drugs and alcohol, Smooth ER]
+    - [White blood cell that digests engulfed bacteria, Lysosomes]
+    - [Leaf cell on a sunny upper surface, Chloroplasts]
+  distractors: [Centrioles]
+  explanation: |-
+    Constant contraction needs constant ATP from mitochondria. Detoxification happens in smooth ER. Digesting engulfed bacteria needs lysosomes. Photosynthesis happens in chloroplasts. Centrioles help organize microtubules and are not the answer for any of these jobs.
+- id: bio-q-0272
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'Which observations about mitochondria support the endosymbiotic theory? Select all that apply.'
+  choices:
+    - 'They have their own circular DNA'
+    - 'They are surrounded by two membranes'
+    - 'Their ribosomes resemble bacterial ribosomes'
+    - 'They are found in both plant and animal cells'
+    - 'They contain enzymes'
+  answer: [0, 1, 2]
+  explanation: |-
+    Circular DNA, a double membrane and bacteria-like ribosomes are just what the theory predicts for descendants of engulfed bacteria. Being in both plant and animal cells only shows that mitochondria are widespread among eukaryotes, and every organelle contains enzymes, so neither points to a bacterial origin.
+- id: bio-q-0273
+  lesson: bio-organelles
+  topic: Organelles
+  type: text
+  stem: 'A plant cell stores water, ions and pigments in a large central ___, which presses against the cell wall and keeps the plant firm.'
+  accept: [vacuole, central vacuole]
+  explanation: |-
+    The central vacuole can fill most of a plant cell. When it is full of water it pushes outward against the wall; when it loses water the plant wilts.
+- id: bio-q-0274
+  lesson: bio-membranes
+  module_quiz: true
+  topic: Cell membrane
+  type: label
+  stem: 'Name the numbered parts of this section of plasma membrane.'
+  image: {src: images/m2-membrane-blank.svg, alt: 'A section of membrane: two rows of phospholipids with round heads facing outward and wavy tails facing inward, with proteins embedded. Five parts are numbered: a round head on the lower surface, the wavy tails in the upper layer, a small molecule tucked among the tails, a protein with a pore through its middle, and a protein carrying a branched chain of sugars on the outer surface.'}
+  labels:
+    - {x: 12.9, y: 83.3, text: Hydrophilic phospholipid head}
+    - {x: 6.5, y: 51.7, text: Hydrophobic fatty acid tails}
+    - {x: 41.1, y: 56.7, text: Cholesterol}
+    - {x: 33.3, y: 76.7, text: Channel protein}
+    - {x: 79.3, y: 76.7, text: Glycoprotein}
+  distractors: [Peptidoglycan, Ribosome]
+  explanation: |-
+    The round heads (1) are hydrophilic and face the water on each side; the tails (2) are hydrophobic and hide in the middle. Cholesterol (3) sits among the tails of animal membranes and steadies their fluidity. The channel protein (4) forms a pore for specific ions, and the glycoprotein (5) carries sugar chains on the outer surface that act as identification tags. Peptidoglycan is a bacterial wall material and ribosomes are not part of the membrane.
+- id: bio-q-0275
+  lesson: bio-membranes
+  topic: Transport
+  type: match
+  stem: 'Match each movement to the kind of transport.'
+  pairs:
+    - [Carbon dioxide leaves a working muscle cell through the bilayer, Simple diffusion]
+    - [Potassium ions flow out of a cell through an open channel, Facilitated diffusion]
+    - [Water leaves a cell placed in salt water, Osmosis]
+    - [A root cell takes in nitrate from soil where nitrate is scarcer, Active transport]
+    - [A gland cell releases mucus from vesicles, Exocytosis]
+  explanation: |-
+    CO₂ is small and nonpolar, so it diffuses straight through. Ions need a protein but flowing down their gradient is still passive: facilitated diffusion. Water crossing a membrane toward more solute is osmosis. Moving nitrate from low to high concentration needs energy: active transport. Releasing vesicle contents is exocytosis.
+- id: bio-q-0276
+  lesson: bio-membranes
+  topic: Cell membrane
+  type: text
+  stem: 'Water crosses a phospholipid bilayer slowly on its own, but much faster through channel proteins called ___.'
+  accept: [aquaporins, aquaporin]
+  explanation: |-
+    Aquaporins are water channels, discovered by Peter Agre in 1992. Water moving through them is still osmosis, a form of passive transport.
+- id: bio-q-0277
+  lesson: bio-membranes
+  topic: Cell membrane
+  stem: 'Which of these can cross a phospholipid bilayer directly, without a transport protein? Select all that apply.'
+  choices: [Oxygen, Carbon dioxide, Sodium ions, Glucose]
+  answer: [0, 1]
+  explanation: |-
+    Small nonpolar molecules such as O₂ and CO₂ dissolve in the hydrophobic core and slip through. Ions such as Na⁺ are charged, and glucose is large and polar; both are blocked by the core and need channel or carrier proteins.
+- id: bio-q-0278
+  lesson: bio-membranes
+  module_quiz: true
+  topic: Transport
+  stem: 'Under the microscope, the membrane and cytoplasm of an onion cell have shrunk away from its cell wall. What kind of solution is the cell most likely in, and which way did water move?'
+  choices:
+    - 'Hypertonic; water left the cell'
+    - 'Hypotonic; water left the cell'
+    - 'Isotonic; water entered the cell'
+    - 'Hypotonic; water entered the cell'
+  answer: 0
+  explanation: |-
+    The cell is plasmolyzed: water left by osmosis toward the higher solute concentration outside, so the solution is hypertonic. In a hypotonic solution water enters and the cell becomes turgid against its wall; in an isotonic one there is no net movement.
+- id: bio-q-0279
+  lesson: bio-cell-size
+  topic: Surface area to volume
+  type: text
+  stem: 'A cube-shaped model cell has sides of 5 µm. Its surface-area-to-volume ratio is ___ per µm. (Give a decimal.)'
+  accept: ['1.2']
+  explanation: |-
+    SA $= 6 \times 5^2 = 150\ \mu$m² and $V = 5^3 = 125\ \mu$m³, so SA:V $= 150/125 = 1.2$ per µm. The shortcut $6/s = 6/5$ gives the same answer.
+- id: bio-q-0280
+  lesson: bio-cell-size
+  module_quiz: true
+  topic: Cell specialization
+  type: order
+  stem: 'Put these in order from the smallest level of organization to the largest.'
+  items:
+    - A cardiac muscle cell
+    - Cardiac muscle tissue
+    - The heart
+    - The circulatory system
+    - A human
+  explanation: |-
+    Cells form tissues, tissues of several types form an organ (the heart also contains connective, nervous and epithelial tissue), organs form an organ system, and organ systems make up the organism.
+- id: bio-q-0281
+  lesson: bio-cell-size
+  topic: Cell specialization
+  type: match
+  stem: 'Match each specialized cell to the feature that suits it to its job.'
+  pairs:
+    - [Mammalian red blood cell, No nucleus and packed with hemoglobin]
+    - [Neuron, Long extensions that reach distant cells]
+    - [Sperm cell, Flagellum and many mitochondria]
+    - [Root hair cell, Long thin projection that increases surface area]
+  distractors: [Cell wall made of chitin]
+  explanation: |-
+    Each structure fits a job: room for hemoglobin to carry oxygen, long extensions to carry signals, a powered flagellum to swim, and extra surface area to absorb water and minerals. Chitin walls belong to fungi, not to any of these cells.
+- id: bio-q-0282
+  lesson: bio-cell-size
+  topic: Surface area to volume
+  stem: 'Which features help cells or organisms get around the surface-area-to-volume problem? Select all that apply.'
+  choices:
+    - 'Microvilli on intestinal cells'
+    - 'A thin, flattened disc shape'
+    - 'One large, round cell instead of many small ones'
+    - 'Lungs with a huge internal surface'
+    - 'Doubling the side length of a cube-shaped cell'
+  answer: [0, 1, 3]
+  explanation: |-
+    Folding the surface (microvilli), flattening the cell, and building large exchange surfaces like lungs all raise surface area or shorten diffusion distances. A single large round cell and a larger cube both lower SA:V; doubling the side halves it.
+- id: bio-q-0283
+  lesson: bio-cell-size
+  topic: Surface area to volume
+  stem: 'The picture shows agar cubes after a colored solution diffused 0.5 cm in from every face. If a 4 cm cube were soaked the same way, what percent of its volume would be colored?'
+  image: {src: images/m2-agar-cubes.svg, alt: 'Cross-sections of 1, 2 and 3 cm agar cubes, each with a colored rim 0.5 cm deep. The 1 cm cube is all colored (100%), the 2 cm cube 87.5% and the 3 cm cube about 70.4%.'}
+  choices: ['42.2%', '57.8%', '33.0%', '87.5%']
+  answer: 1
+  explanation: |-
+    Total volume $= 4^3 = 64$ cm³. The uncolored center is a cube of side $4 - 2(0.5) = 3$ cm, volume 27 cm³. Colored $= 64 - 27 = 37$ cm³, and $37/64 \approx 57.8\%$. 42.2% is the uncolored fraction; 33.0% subtracts the 0.5 cm only once (a center of side 3.5 cm); 87.5% is the 2 cm cube.
+- id: bio-qh-0201
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'A mutation deletes the signal sequence from a protein that a cell normally secretes. Where will the mutant protein most likely end up?'
+  choices:
+    - 'Secreted from the cell as usual'
+    - 'In the cytosol'
+    - 'In lysosomes'
+    - 'Held inside the ER'
+  answer: 1
+  explanation: |-
+    Without a signal sequence, SRP never brings the ribosome to the ER, so the protein is finished on a free ribosome and stays in the cytosol. It never enters the endomembrane system, so it can be neither secreted, held in the ER, nor sent to lysosomes.
+- id: bio-qh-0202
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'What does the signal recognition particle (SRP) do?'
+  choices:
+    - 'It cuts the signal sequence off proteins inside the ER'
+    - 'It adds a 14-sugar branch to proteins in the ER'
+    - 'It carries finished proteins from the ER to the Golgi'
+    - 'It binds the signal sequence, pauses translation and brings the ribosome to the ER'
+  answer: 3
+  explanation: |-
+    SRP recognizes the signal sequence as it emerges from the ribosome, pauses translation and docks the ribosome at its receptor on the ER, handing it to a translocon. Signal peptidase cuts off the signal, a different ER enzyme adds sugars, and COPII vesicles carry cargo to the Golgi.
+- id: bio-qh-0203
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'A chaperone protein that normally works inside the ER ends in the sequence KDEL. Researchers delete the KDEL. Where will most of the chaperone end up?'
+  choices:
+    - 'Secreted from the cell'
+    - 'Still held in the ER'
+    - 'In the cytosol'
+    - 'In the nucleus'
+  answer: 0
+  explanation: |-
+    The protein still has its signal sequence, so it enters the ER. Without KDEL, copies that escape to the Golgi are no longer caught and returned, so they follow the default route out of the cell. It never reaches the cytosol or nucleus because it was threaded into the ER.
+- id: bio-qh-0204
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'In I-cell disease, lysosomal enzymes are found at high levels in the blood, while the patients'' lysosomes fill with undigested material. What is the best explanation?'
+  choices:
+    - 'The enzymes are made without a signal sequence'
+    - 'The lysosomes burst and release their enzymes'
+    - 'The enzymes are never tagged with mannose-6-phosphate, so they follow the default route and are secreted'
+    - 'The enzymes are too acidic to work inside lysosomes'
+  answer: 2
+  explanation: |-
+    The Golgi enzyme that adds the mannose-6-phosphate tag is missing, so the receptors that send enzymes to lysosomes cannot recognize them. The enzymes still enter the ER (their signal sequence is fine) and take the default route out of the cell. Lysosomes, lacking enzymes, cannot digest their contents.
+- id: bio-qh-0205
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'At high temperature, yeast mutant P piles up Golgi membranes and mutant Q piles up ER. The double mutant PQ piles up ER. What does this show?'
+  choices:
+    - 'P and Q block the same step'
+    - 'The P step comes before the Q step'
+    - 'The double mutant cannot secrete, so nothing can be concluded'
+    - 'The Q step comes before the P step'
+  answer: 3
+  explanation: |-
+    Cargo stops at the first block it meets. The double mutant looks like Q (ER piles up), so the Q block comes first, at the exit from the ER, and the P block later, at the exit from the Golgi. If P's step were first, PQ would pile up Golgi. Different pile-ups show the mutants block different steps.
+- id: bio-qh-0206
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'Botulinum toxin is an enzyme that cuts particular SNARE proteins in nerve cells. Which process fails?'
+  choices:
+    - 'Making neurotransmitter on ribosomes'
+    - 'Fusion of synaptic vesicles with the plasma membrane to release neurotransmitter'
+    - 'Transport of vesicles along microtubules'
+    - 'Endocytosis of LDL'
+  answer: 1
+  explanation: |-
+    SNAREs on the vesicle and the plasma membrane zip together to drive fusion. Cut them, and vesicles full of neurotransmitter dock but cannot release it, so muscles are not stimulated and paralysis follows. Synthesis and motor transport do not depend on these SNAREs, and LDL uptake is not a nerve-signaling process.
+- id: bio-qh-0207
+  lesson: bio-h-endomembrane
+  topic: Cytoskeleton
+  stem: 'In a fish skin cell, pigment granules spread out from the center toward the cell edge along microtubules whose plus ends point outward. Which motor protein most likely carries them outward?'
+  choices: ['Kinesin', 'Dynein', 'Myosin', 'Tubulin']
+  answer: 0
+  explanation: |-
+    Kinesins mostly walk toward microtubule plus ends, which point to the cell edge. Dynein walks toward minus ends (it gathers the granules back to the center). Myosin moves on actin, not microtubules, and tubulin is the building block of microtubules, not a motor.
+- id: bio-qh-0208
+  lesson: bio-h-endomembrane
+  topic: Cytoskeleton
+  stem: 'A vesicle is carried 50 cm down an axon at 2 µm/s. About how long does the trip take?'
+  choices: ['About 69 days', 'About 2.9 hours', 'About 2.9 days', 'About 29 days']
+  answer: 2
+  explanation: |-
+    50 cm $= 5 \times 10^5$ µm, and $5 \times 10^5 / 2 = 2.5 \times 10^5$ s. That is $2.5 \times 10^5 / 3600 \approx 69$ hours, or about 2.9 days. 69 days forgets to divide hours by 24; 2.9 hours calls the number of days hours; 29 days converts 1 cm to $10^5$ µm instead of $10^4$ µm.
+- id: bio-qh-0209
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'Cells from a person with familial hypercholesterolemia have too few working LDL receptors. What is the main result?'
+  choices:
+    - 'Cells take in too much cholesterol and their lysosomes overflow'
+    - 'LDL is secreted from cells into the blood by exocytosis'
+    - 'Lysosomes cannot digest LDL once it is inside'
+    - 'LDL stays in the blood because cells cannot take it in by receptor-mediated endocytosis'
+  answer: 3
+  explanation: |-
+    LDL enters cells only after binding its receptors in clathrin-coated pits. With too few receptors, LDL builds up in the blood, raising the risk of early heart disease. The defect is in uptake, not in digestion or secretion.
+- id: bio-qh-0210
+  lesson: bio-h-endomembrane
+  topic: Cytoskeleton
+  stem: 'Paclitaxel (Taxol) stops microtubules from shrinking. Why does it stop cancer cells from dividing?'
+  choices:
+    - 'It stops cells from making ATP'
+    - 'The spindle cannot work properly, so cells stall in mitosis'
+    - 'It dissolves the nuclear envelope'
+    - 'It blocks actin, so the cell cannot pinch in two'
+  answer: 1
+  explanation: |-
+    The spindle depends on microtubules growing and shrinking; frozen microtubules cannot pull chromosomes apart, so dividing cells stall in mitosis. Paclitaxel acts on microtubules, not on ATP production, the nuclear envelope or actin.
+- id: bio-qh-0211
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  type: text
+  stem: 'A ribosome making a secreted protein is brought to the ER when the ___ binds the protein''s ___ as it emerges from the ribosome.'
+  accept:
+    - [signal recognition particle, SRP, signal recognition particle (SRP)]
+    - [signal sequence, signal peptide, signal]
+  explanation: |-
+    The signal recognition particle (SRP) binds the signal sequence at the start of the new chain, pauses translation and docks the ribosome at the ER.
+- id: bio-qh-0212
+  lesson: bio-h-endomembrane
+  topic: Cytoskeleton
+  type: match
+  stem: 'Match each cytoskeleton fiber to its description.'
+  pairs:
+    - [Microtubule, 'Hollow tube of tubulin, about 25 nm; track for kinesin and dynein']
+    - [Intermediate filament, 'Ropelike fiber about 10 nm wide, such as keratin; resists pulling']
+    - [Microfilament, 'Thinnest fiber, made of actin; works with myosin']
+  distractors: ['Rigid layer of cellulose outside the membrane']
+  explanation: |-
+    Microtubules are the widest, hollow tubulin fibers used as tracks and in the spindle, cilia and flagella. Intermediate filaments give mechanical strength. Microfilaments are actin, used in muscle contraction, crawling and cytokinesis. A cellulose layer is a plant cell wall, not part of the cytoskeleton.
+- id: bio-qh-0213
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  type: order
+  stem: 'Put the steps of LDL uptake by receptor-mediated endocytosis in order.'
+  items:
+    - LDL binds receptors clustered in a clathrin-coated pit
+    - The pit pinches off as a coated vesicle
+    - The coat falls away and the vesicle fuses with an endosome
+    - Acid in the endosome makes LDL let go of its receptors
+    - Receptors return to the surface while LDL goes on to a lysosome
+  explanation: |-
+    Binding gathers cargo in coated pits, which bud inward as vesicles. After the coat is shed, the vesicle joins an endosome, whose acidity releases the cargo. Receptors are recycled to the plasma membrane and the LDL is digested in a lysosome, freeing cholesterol for the cell.
+- id: bio-qh-0214
+  lesson: bio-h-endomembrane
+  topic: Cytoskeleton
+  type: label
+  stem: 'These three cytoskeleton fibers are drawn to the same scale. Name each numbered fiber.'
+  image: {src: images/m2-cytoskeleton-blank.svg, alt: 'Three fibers drawn to the same scale and numbered from top to bottom: a wide tube built from rows of paired round subunits, a medium-width rope of twisted strands, and the thinnest fiber, two twisted strands of small beads.'}
+  labels:
+    - {x: 50, y: 18.3, text: Microtubule}
+    - {x: 50, y: 56.7, text: Intermediate filament}
+    - {x: 50, y: 90, text: Microfilament}
+  distractors: [Cellulose microfibril, DNA double helix]
+  explanation: |-
+    The widest fiber, built from paired tubulin subunits, is the microtubule (about 25 nm). The ropelike middle one is an intermediate filament (about 10 nm). The thinnest, two twisted strands of actin, is a microfilament (about 7 nm). Cellulose and DNA are not cytoskeleton fibers.
+- id: bio-qh-0215
+  lesson: bio-h-endomembrane
+  topic: Endomembrane system
+  stem: 'Which of these proteins pass through the rough ER on their way to their final location? Select all that apply.'
+  choices:
+    - 'Insulin, secreted by pancreas cells'
+    - 'A digestive enzyme inside lysosomes'
+    - 'A receptor protein in the plasma membrane'
+    - 'An enzyme of glycolysis in the cytosol'
+    - 'A DNA polymerase in the nucleus'
+  answer: [0, 1, 2]
+  explanation: |-
+    Secreted proteins, lysosomal enzymes and plasma membrane proteins all begin with a signal sequence and travel ER → Golgi → their destination. Cytosolic enzymes are made and stay in the cytosol, and nuclear proteins are made in the cytosol and imported through nuclear pores; neither enters the ER.
+- id: bio-qh-0216
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'Epinephrine binds a receptor on a liver cell, and the cell then makes cAMP, which activates protein kinase A. Making cAMP belongs to which stage of cell signaling?'
+  choices: ['Reception', 'Response', 'Transduction', 'Amplification only, not one of the three stages']
+  answer: 2
+  explanation: |-
+    Reception is the binding of epinephrine to its receptor; the response is the final change, such as glycogen breakdown. Everything in between, including making the second messenger cAMP, is transduction. Amplification happens during transduction rather than being a separate stage.
+- id: bio-qh-0217
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'Why can testosterone act on receptors inside its target cells, while epinephrine acts only on receptors at the cell surface?'
+  choices:
+    - 'Testosterone is a nonpolar steroid that crosses the lipid bilayer; epinephrine is polar and cannot'
+    - 'Testosterone is a larger molecule than epinephrine'
+    - 'Epinephrine is destroyed by the plasma membrane'
+    - 'Only testosterone is carried in the blood'
+  answer: 0
+  explanation: |-
+    The hydrophobic core of the membrane lets nonpolar steroids pass but blocks polar molecules like epinephrine, which must signal through surface receptors. Size is not the reason (testosterone is the bigger molecule), and both hormones travel in the blood.
+- id: bio-qh-0218
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'Sutherland added epinephrine to the soluble fraction of broken liver cells (no membranes), and glycogen phosphorylase was not activated. What does this result show?'
+  choices:
+    - 'Epinephrine has no effect on liver cells'
+    - 'Glycogen phosphorylase was destroyed when the cells were broken'
+    - 'Epinephrine must enter the nucleus to act'
+    - 'Epinephrine acts through something in the membranes, not directly on the enzyme'
+  answer: 3
+  explanation: |-
+    The enzyme was present and could be activated (it was activated when membranes treated with epinephrine supplied a heat-stable factor, cAMP), but the hormone alone did nothing to it. The hormone's target is in the membrane fraction: the receptor. Whole liver cells do respond to epinephrine, and nothing here involves the nucleus.
+- id: bio-qh-0219
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'A hormone binds its receptor with $K_d = 4$ nM. What fraction of the receptors is occupied when the hormone concentration is 12 nM?'
+  choices: ['25%', '75%', '33%', '67%']
+  answer: 1
+  explanation: |-
+    $f = \dfrac{[L]}{[L] + K_d} = \dfrac{12}{12 + 4} = 0.75$. 25% is $K_d/([L] + K_d)$, the unoccupied fraction; 33% is $K_d/[L]$; 67% is $([L] - K_d)/[L]$.
+- id: bio-qh-0220
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'One activated receptor switches on 20 G proteins, each activating one adenylyl cyclase that makes 50 cAMP. Every 2 cAMP free one active protein kinase A subunit, and each subunit activates 10 target enzymes. How many target enzymes are activated?'
+  choices: ['5,000', '10,000', '500', '82']
+  answer: 0
+  explanation: |-
+    cAMP $= 20 \times 50 = 1000$; active PKA subunits $= 1000 / 2 = 500$; target enzymes $= 500 \times 10 = 5000$. 10,000 forgets that 2 cAMP are needed per subunit; 500 stops one step early; 82 adds the numbers instead of multiplying.
+- id: bio-qh-0221
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'Epinephrine makes liver cells release glucose but makes heart muscle cells beat faster and harder. What best explains the different responses?'
+  choices:
+    - 'The heart receives a different form of epinephrine'
+    - 'Only liver cells have receptors for epinephrine'
+    - 'The two cell types have different receptors, relay proteins or target proteins'
+    - 'Epinephrine enters heart cells but not liver cells'
+  answer: 2
+  explanation: |-
+    Both cell types respond, so both have receptors, and the hormone is the same molecule in the same blood. What differs is the equipment inside each cell: the receptor subtypes, relay proteins and targets that turn the signal into a response. Epinephrine acts at the surface of both.
+- id: bio-qh-0222
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'What happens first after a growth factor binds a receptor tyrosine kinase?'
+  choices:
+    - 'The receptor enters the nucleus and binds DNA'
+    - 'A G protein swaps GDP for GTP'
+    - 'Adenylyl cyclase makes cAMP'
+    - 'Two receptor molecules pair up and add phosphates to tyrosines on each other'
+  answer: 3
+  explanation: |-
+    Ligand binding brings two receptor molecules together, and each kinase phosphorylates its partner's tyrosines, creating docking sites for relay proteins. G protein activation and cAMP are features of GPCR pathways, and a membrane RTK does not enter the nucleus.
+- id: bio-qh-0223
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'A mutation leaves Ras unable to break down its GTP. What is the most likely effect on the cell?'
+  choices:
+    - 'Ras can no longer be activated, so the cell stops dividing'
+    - 'Ras stays active, sending a divide signal even without growth factor'
+    - 'The receptor tyrosine kinase is destroyed'
+    - 'cAMP levels fall to zero'
+  answer: 1
+  explanation: |-
+    Like other G proteins, Ras is on with GTP and switches itself off by hydrolyzing it. If it cannot, it stays on and keeps the MAP kinase cascade running, which is why such mutations are common in cancers. The receptor is unaffected, and Ras is not part of the cAMP pathway.
+- id: bio-qh-0224
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'A drug blocks phosphodiesterase in liver cells responding to epinephrine. What happens to the response?'
+  choices:
+    - 'cAMP stays high longer, so the response is stronger and lasts longer'
+    - 'cAMP cannot be made, so there is no response'
+    - 'The receptor can no longer bind epinephrine'
+    - 'Nothing changes, because phosphodiesterase acts only in the nucleus'
+  answer: 0
+  explanation: |-
+    Phosphodiesterase breaks cAMP down and is one of the off switches. Blocking it lets cAMP build up and persist, prolonging PKA activity. cAMP is still made by adenylyl cyclase, the receptor is unaffected, and phosphodiesterase works in the cytosol.
+- id: bio-qh-0225
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  type: text
+  stem: 'Small molecules or ions such as cAMP and calcium ions, which spread a signal through the cell after a receptor is activated, are called ___ messengers.'
+  accept: [second]
+  explanation: |-
+    They are second messengers: the hormone or other ligand is the first messenger, which brings the message to the receptor, and the second messenger carries it on inside the cell.
+- id: bio-qh-0226
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  type: match
+  stem: 'Match each receptor type to an example.'
+  pairs:
+    - [G protein-coupled receptor, Epinephrine receptor that activates adenylyl cyclase]
+    - [Receptor tyrosine kinase, Insulin receptor]
+    - [Ligand-gated ion channel, Acetylcholine receptor on muscle cells]
+    - [Intracellular receptor, Estrogen receptor that binds DNA]
+  distractors: [Aquaporin]
+  explanation: |-
+    The epinephrine receptor works through a G protein; the insulin receptor is a tyrosine kinase; the acetylcholine receptor opens an ion pore when acetylcholine binds; and steroid hormones such as estrogen bind receptors inside the cell that act on genes. An aquaporin is a water channel, not a receptor.
+- id: bio-qh-0227
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  type: order
+  stem: 'Put the steps of a GPCR–cAMP pathway in order.'
+  items:
+    - The ligand binds the G protein-coupled receptor
+    - The receptor changes shape and the G protein swaps GDP for GTP
+    - The G protein's α subunit activates adenylyl cyclase
+    - Adenylyl cyclase converts ATP into cAMP
+    - cAMP activates protein kinase A, which phosphorylates target proteins
+  explanation: |-
+    Reception (ligand binding) changes the receptor, which activates the G protein by GDP–GTP exchange; the α subunit switches on adenylyl cyclase, which makes cAMP from ATP; cAMP activates PKA, whose phosphorylations produce the response.
+- id: bio-qh-0228
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  type: label
+  stem: 'Name the numbered parts of this signaling pathway.'
+  image: {src: images/m2-gpcr-blank.svg, alt: 'A signaling pathway across a membrane. Numbered parts: a protein crossing the membrane seven times with a signal molecule bound on its outer side; a three-part protein on the inner surface next to it; a large enzyme spanning the membrane; a cluster of small six-sided molecules in the cytoplasm; and an oval protein that the small molecules activate.'}
+  labels:
+    - {x: 15, y: 34.7, text: G protein-coupled receptor}
+    - {x: 34.8, y: 44.8, text: G protein}
+    - {x: 59.4, y: 34.7, text: Adenylyl cyclase}
+    - {x: 72, y: 80.5, text: cAMP (second messenger)}
+    - {x: 91.2, y: 82.7, text: Protein kinase A}
+  distractors: [Receptor tyrosine kinase, Ligand-gated ion channel]
+  explanation: |-
+    The seven-pass receptor (1) binds the signal and activates the three-subunit G protein (2), whose α subunit switches on adenylyl cyclase (3). The cyclase makes cAMP (4) from ATP, and cAMP activates protein kinase A (5). A receptor tyrosine kinase passes the membrane once and works as a pair; an ion channel would form a pore.
+- id: bio-qh-0229
+  lesson: bio-h-cell-signaling
+  topic: Cell signaling
+  stem: 'Which of these help switch off a GPCR–cAMP signal? Select all that apply.'
+  choices:
+    - 'The G protein''s α subunit hydrolyzes its GTP to GDP'
+    - 'Phosphodiesterase converts cAMP to AMP'
+    - 'Protein phosphatases remove phosphates from target proteins'
+    - 'More adenylyl cyclase is made'
+    - 'Receptors are taken into the cell by endocytosis'
+  answer: [0, 1, 2, 4]
+  explanation: |-
+    GTP hydrolysis turns off the G protein, phosphodiesterase destroys cAMP, phosphatases undo the kinases' work, and removing receptors from the surface makes the cell less sensitive. Making more adenylyl cyclase would strengthen the signal, not end it.

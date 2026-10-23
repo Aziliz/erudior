@@ -1,0 +1,503 @@
+# Questions for honors module bio-h3 (Behavior, disease, and conservation)
+# ---- Lesson 49: Animal behavior ----
+- id: bio-qh-h3-01
+  lesson: bio-h-behavior
+  module_quiz: true
+  topic: Animal behavior
+  stem: 'Which statement gives an ultimate explanation for why male field crickets chirp?'
+  choices: ['A neural circuit in the thorax fires rhythmically and drives the wings', 'Chirping speeds up as the temperature rises', 'Males that chirp attract more females and leave more offspring than silent males', 'Young males copy the chirps of older males nearby']
+  answer: 2
+  explanation: |-
+    An ultimate explanation says how the behavior affects fitness and why it evolved, so the mate-attraction answer is ultimate. The neural circuit and the temperature effect are proximate (mechanism). Copying older males would be a proximate developmental claim, and cricket song is in fact largely unlearned.
+- id: bio-qh-h3-02
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  stem: 'A nesting greylag goose starts rolling an egg back into her nest. Partway through, a researcher removes the egg. What does the goose do, and what does that show?'
+  choices: ['She finishes the rolling movement anyway, so the behavior is a fixed action pattern', 'She stops at once, so the behavior is controlled by constant feedback from the egg', 'She searches for the egg, so the behavior is learned by trial and error', 'She abandons the nest, so the behavior is a habituated response']
+  answer: 0
+  explanation: |-
+    Lorenz and Tinbergen saw the goose complete the tucking motion with no egg there. Running to completion once triggered is the mark of a fixed action pattern. Stopping or searching would point to feedback control or learning, which is not what happens; habituation is a fading response to a repeated harmless stimulus.
+- id: bio-qh-h3-03
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  stem: 'Male sticklebacks in breeding season attacked crude models with red undersides but mostly ignored a realistic fish model with no red. What is the best conclusion?'
+  choices: ['Sticklebacks cannot see shapes, only colors', 'Male sticklebacks learn to attack red objects by trial and error', 'Realistic models frighten male sticklebacks away', 'A red underside is the sign stimulus that triggers the attack']
+  answer: 3
+  explanation: |-
+    The one feature that predicted attack was red underneath, regardless of how fish-like the model was, so red is the sign stimulus. The experiment doesn't show that shape is invisible (only that it doesn't trigger attack), says nothing about learning, and the realistic model was ignored rather than fled from.
+- id: bio-qh-h3-04
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  stem: 'Which of these are examples of learning? Select all that apply.'
+  choices: ['Birds in a field stop flying off when a motionless scarecrow is put up', 'A goose rolls a golf ball into her nest the first time she sees one nearby', 'Ducklings follow the first moving object they see after hatching', 'A toad that was stung while trying to eat a bee stops striking at bees']
+  answer: [0, 2, 3]
+  explanation: |-
+    Ignoring a harmless scarecrow is habituation, following the first moving object is imprinting (learning in a sensitive period), and the toad shows operant conditioning. Rolling a golf ball is a fixed action pattern triggered by a rounded object: unlearned.
+- id: bio-qh-h3-05
+  lesson: bio-h-behavior
+  module_quiz: true
+  topic: Animal behavior
+  type: match
+  stem: 'Match each type of learning to an example.'
+  pairs:
+    - [Habituation, 'Sea anemones stop retracting when touched again and again by harmless water currents']
+    - [Classical conditioning, 'A dog salivates at the sound of a can opener that always comes before its food']
+    - [Operant conditioning, 'A rat presses a lever more often after each press delivers a food pellet']
+    - [Imprinting, 'A newly hatched gosling bonds with the first moving object it sees']
+  distractors: ['A spider builds a perfect web without ever having seen one']
+  explanation: |-
+    Habituation is a fading response to a harmless repeated stimulus. Classical conditioning links two stimuli (sound and food). Operant conditioning links the animal's own action to a consequence. Imprinting happens in a sensitive period early in life. The spider's web is unlearned, so it matches none of them.
+- id: bio-qh-h3-06
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  stem: 'Tinbergen placed a ring of pine cones around a digger wasp''s nest entrance, and after she left, moved the ring a short distance away. Where did returning wasps search, and what does that show?'
+  choices: ['At the real entrance, showing they navigate by the smell of the nest', 'In the center of the moved ring, showing they learned landmarks around the nest', 'Randomly, showing the cones confused their sun compass', 'At the real entrance, showing they ignore landmarks entirely']
+  answer: 1
+  explanation: |-
+    Wasps searched inside the displaced ring, so they had learned the landmarks around the nest (spatial learning). If they used smell, or ignored landmarks, they would have gone to the real entrance. Random search would not single out the ring's center.
+- id: bio-qh-h3-07
+  lesson: bio-h-behavior
+  module_quiz: true
+  topic: Animal behavior
+  stem: 'A forager''s waggle runs point 30° to the left of straight up and last 1.5 s. The sun is at a compass bearing of 200°, and in this colony 1 s of waggling stands for about 1,000 m. Where is the food?'
+  choices: ['At a bearing of 230°, about 1.5 km away', 'At a bearing of 330°, about 1.5 km away', 'At a bearing of 170°, about 1.0 km away', 'At a bearing of 170°, about 1.5 km away']
+  answer: 3
+  explanation: |-
+    Up stands for the sun (200°); left of up means counterclockwise from the sun: $200° - 30° = 170°$. Distance: $1.5 \times 1{,}000 = 1{,}500$ m. 230° turns the wrong way; 330° measures the angle from north instead of from the sun; 1.0 km ignores the extra half second.
+- id: bio-qh-h3-08
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  type: text
+  stem: 'In the honeybee waggle dance, the angle of the waggle run measured from straight up on the comb equals the angle between the direction of the food and the direction of the ___.'
+  accept: [sun, the sun]
+  explanation: |-
+    Straight up on the vertical comb stands for the sun's direction (its compass bearing). A dance 40° right of vertical means food 40° clockwise from the sun, so the same food gets a different dance angle as the sun moves across the sky.
+- id: bio-qh-h3-09
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  stem: 'Stephen Emlen raised indigo buntings in a planetarium whose sky rotated around the bright star Betelgeuse instead of the North Star. In migration season the birds oriented as if Betelgeuse were north. What does this show?'
+  choices: ['Buntings are born knowing the shape of the northern constellations', 'Buntings navigate by Earth''s magnetic field, not by stars', 'Young buntings learn north as the point the night sky rotates around', 'Buntings cannot orient at all without seeing the sun']
+  answer: 2
+  explanation: |-
+    The birds took whatever point the sky turned around as north, so they learn the center of rotation rather than inheriting a star map. A built-in map would point them to the real North Star. Magnetic cues were the same in either sky, so they can't explain the shift, and the birds clearly oriented at night without the sun.
+- id: bio-qh-h3-10
+  lesson: bio-h-behavior
+  module_quiz: true
+  topic: Animal behavior
+  stem: 'Pigeons are kept on a light schedule that sets their internal clock 6 hours behind real time. They are released at noon in the Northern Hemisphere, south of their loft, so home is north. If they rely on a time-compensated sun compass, which way should they head (use the simple model of 15° of sun movement per hour)?'
+  choices: ['East, about 90° clockwise from home', 'North, because the sun compass corrects itself', 'West, about 90° counterclockwise from home', 'South, about 180° away from home']
+  answer: 0
+  explanation: |-
+    The birds think it is 6 am, when the sun should be in the east. To fly north with the sun in the east, they keep the sun on their right. The real sun is in the south, and keeping the south on your right means facing east: a 90° clockwise error. West is the answer for a clock shifted 6 hours ahead. A correct northward flight would mean they weren't using the sun compass.
+- id: bio-qh-h3-11
+  lesson: bio-h-behavior
+  module_quiz: true
+  topic: Animal behavior
+  stem: 'A bird can eat three kinds of prey. A: 400 J, 50 s to handle. B: 900 J, 150 s. C: 150 J, 25 s. Which does optimal foraging theory predict it should prefer?'
+  choices: ['A, because it gives the most energy per second of handling', 'B, because it holds the most energy', 'C, because it takes the least time to handle', 'All three equally, because each is worth eating']
+  answer: 0
+  explanation: |-
+    Profitability = energy ÷ handling time: A $400/50 = 8$ J/s, B $900/150 = 6$ J/s, C $150/25 = 6$ J/s. A is best. Choosing B looks only at energy and C only at time; the theory compares their ratio.
+- id: bio-qh-h3-12
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  type: order
+  stem: 'Put the steps of Tinbergen''s digger wasp experiment in order.'
+  items: ['The wasp is inside her nest', 'A ring of pine cones is placed around the entrance', 'The wasp flies over the nest on an orientation flight and leaves to hunt', 'The ring is moved a short distance away', 'The returning wasp searches in the center of the moved ring']
+  explanation: |-
+    The cones must be in place before the wasp's orientation flight so she can learn them; they are moved only after she leaves, and her return tests what she learned.
+- id: bio-qh-h3-13
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  type: text
+  stem: 'Herring gull chicks pecked more at a thin red rod with white bands than at a realistic model of a parent''s head. An exaggerated cue that draws a stronger response than the natural one is called a ___ stimulus.'
+  accept: [supernormal, super-normal, super normal]
+  explanation: |-
+    The chicks' pecking is triggered by a red spot on the parent's bill. The banded red rod exaggerated that cue, making it a supernormal stimulus.
+- id: bio-qh-h3-14
+  lesson: bio-h-behavior
+  topic: Animal behavior
+  stem: 'Researchers played recordings of vervet monkey alarm calls with no predator present. Monkeys ran into trees at "leopard" calls, looked up or dived into bushes at "eagle" calls, and scanned the ground at "snake" calls. What do these playback results show?'
+  choices: ['Vervets only respond to alarm calls when they can see the predator', 'The calls carry specific information about the type of predator', 'Vervets give one general alarm call for all predators', 'The responses are fixed action patterns triggered by any loud sound']
+  answer: 1
+  explanation: |-
+    Different recorded calls produced different, fitting escapes with no predator in view, so the calls themselves carry information about predator type. That rules out needing to see the predator and rules out a single general call; a response to any loud sound would be the same for every call.
+# ---- Lesson 50: Social behavior ----
+- id: bio-qh-h3-15
+  lesson: bio-h-social-behavior
+  module_quiz: true
+  topic: Social behavior
+  stem: 'Which behavior is altruism in the evolutionary sense?'
+  choices: ['A mother bear feeding her own cubs', 'A worker honeybee stinging an intruder and dying as a result', 'A cleaner fish eating parasites off a larger fish', 'A lion taking a kill from a group of hyenas']
+  answer: 1
+  explanation: |-
+    The stinging worker gives up her life (and any chance of reproducing) to benefit the colony: a cost to the actor and a benefit to others. Feeding one's own young raises the parent's own reproductive success. The cleaner fish is mutualism (both gain), and the lion gains at the hyenas' expense.
+- id: bio-qh-h3-16
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  stem: 'Two half siblings share a mother but have different fathers. What is their coefficient of relatedness?'
+  choices: ['$\tfrac12$', '$\tfrac18$', '$\tfrac14$', '$\tfrac34$']
+  answer: 2
+  explanation: |-
+    There is one path through the shared mother, with 2 steps: $(\tfrac12)^2 = \tfrac14$. $\tfrac12$ is full siblings (two such paths). $\tfrac18$ is first cousins, and $\tfrac34$ is haplodiploid full sisters.
+- id: bio-qh-h3-17
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  type: text
+  stem: 'Using the path method, what is the coefficient of relatedness $r$ between first cousins? (Give a fraction or decimal.)'
+  accept: ['1/8', '0.125', '.125']
+  explanation: |-
+    First cousins share two grandparents. Each path (cousin → parent → grandparent → aunt or uncle → cousin) has 4 steps: $(\tfrac12)^4 = \tfrac{1}{16}$. Two paths: $\tfrac{1}{16} + \tfrac{1}{16} = \tfrac18$.
+- id: bio-qh-h3-18
+  lesson: bio-h-social-behavior
+  module_quiz: true
+  topic: Social behavior
+  stem: 'Helping a half sibling costs an animal 1 offspring of its own. What is the smallest whole number of extra offspring the half sibling must gain for Hamilton''s rule to favor helping?'
+  choices: ['2', '3', '4', '5']
+  answer: 3
+  explanation: |-
+    Need $rB > C$ with $r = \tfrac14$ and $C = 1$: $\tfrac14 B > 1$, so $B > 4$. The smallest whole number is 5. $B = 4$ gives $rB = 1$, which only ties. 2 uses $r = \tfrac12$ (full sibling) and only ties too.
+- id: bio-qh-h3-19
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  stem: 'Which observation from Belding''s ground squirrels best supports the idea that their alarm calls evolved by kin selection?'
+  choices: ['Females living near close relatives call more often than males, which move away from their birth area', 'Callers are stalked and caught by predators more often than non-callers', 'Squirrels call more often when hawks are overhead than when no predator is present', 'Squirrels that hear a call run to their burrows']
+  answer: 0
+  explanation: |-
+    Kin selection predicts that costly help is aimed at relatives. Calls come mostly from females surrounded by kin, while dispersing males call less. That callers are caught more shows the call is costly (the puzzle), not why it persists. Calling at predators and responding to calls are true but say nothing about relatedness.
+- id: bio-qh-h3-20
+  lesson: bio-h-social-behavior
+  module_quiz: true
+  topic: Social behavior
+  stem: 'In ants, bees and wasps, why are two full sisters related by $r = \tfrac34$ when their mother mated only once?'
+  choices: ['Each sister gets three quarters of her genes from her mother', 'Sisters develop from unfertilized eggs and are haploid', 'The queen is haploid, so all her eggs are identical', 'Their haploid father gives every daughter the same genes, and their mother''s half is shared with probability one half']
+  answer: 3
+  explanation: |-
+    Half of each sister's genome comes from the father and is identical (shared with probability 1); the other half comes from the diploid mother and is shared with probability $\tfrac12$: $\tfrac12(1) + \tfrac12(\tfrac12) = \tfrac34$. Females come from fertilized eggs and are diploid; males are the haploid ones, and the queen is diploid.
+- id: bio-qh-h3-21
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  stem: 'Which findings weaken the idea that haplodiploidy by itself explains the evolution of eusociality? Select all that apply.'
+  choices: ['Termites are fully diploid yet eusocial', 'Honeybee queens typically mate with a dozen or more males', 'A worker''s relatedness to her brothers is only $\tfrac14$', 'Workers are more related to full sisters than to their own daughters']
+  answer: [0, 1, 2]
+  explanation: |-
+    Diploid eusocial termites show haplodiploidy isn't necessary. Multiple mating makes most workers half sisters ($r = \tfrac14$), removing the advantage. Low relatedness to brothers cancels the sister advantage unless workers bias investment toward sisters. The last statement (sisters at $\tfrac34$ versus daughters at $\tfrac12$) is the basis of the hypothesis, so it supports rather than weakens it.
+- id: bio-qh-h3-22
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  type: text
+  stem: 'A queen mates with 2 males, each fathering half her daughters. What is the average coefficient of relatedness between two of her worker daughters? (Give a fraction or decimal.)'
+  accept: ['1/2', '0.5', '.5', '2/4']
+  explanation: |-
+    With $n$ fathers, $\bar r = \tfrac14 + \tfrac{1}{2n}$. For $n = 2$: $\tfrac14 + \tfrac14 = \tfrac12$. Equivalently, half the pairs are full sisters ($\tfrac34$) and half are half sisters ($\tfrac14$), averaging $\tfrac12$: no more than a worker's relatedness to her own daughter.
+- id: bio-qh-h3-23
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  stem: 'In which situation is reciprocal altruism most likely to evolve?'
+  choices: ['Short-lived animals that meet strangers once and never again', 'Animals that cannot tell one individual from another', 'Long-lived animals in stable groups that recognize each other and meet often', 'Animals that always help any individual, whether or not it helped them before']
+  answer: 2
+  explanation: |-
+    Reciprocity needs repeated meetings, recognition of partners and the ability to stop helping cheaters. One-time meetings and no recognition let cheaters win, and helping everyone unconditionally gives cheaters a free ride.
+- id: bio-qh-h3-24
+  lesson: bio-h-social-behavior
+  module_quiz: true
+  topic: Social behavior
+  type: match
+  stem: 'Match each mating system to an example.'
+  pairs:
+    - [Polygyny, 'A bull elephant seal controls a beach with dozens of females']
+    - [Polyandry, 'A female jacana defends a territory holding several males that incubate her eggs']
+    - [Social monogamy, 'A pair of songbirds raises chicks together through the season']
+    - [Promiscuity, 'Chimpanzees of both sexes mate with several partners without lasting bonds']
+  distractors: ['A worker ant helps raise her mother''s eggs']
+  explanation: |-
+    Polygyny is one male with several females; polyandry is one female with several males; social monogamy is one pair raising young together (even if some chicks have other fathers); promiscuity has no lasting bonds. A worker ant helping is eusocial cooperation, not a mating system.
+- id: bio-qh-h3-25
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  stem: 'Malte Andersson cut the tails of some male long-tailed widowbirds and glued the pieces onto others. Males with lengthened tails attracted more females than males with normal or shortened tails. What does this show?'
+  choices: ['Intrasexual selection: long tails help males win fights', 'Intersexual selection: females prefer males with long tails', 'Natural selection: long tails help males escape predators', 'Kin selection: females prefer related males']
+  answer: 1
+  explanation: |-
+    The tail length was changed experimentally and female settlement followed it, so females choose on tail length: intersexual selection (mate choice). The study didn't test fighting or predation, and nothing about relatedness was involved.
+- id: bio-qh-h3-26
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  stem: 'In a group of four females and four males, the females have 2, 2, 2 and 2 offspring and the males have 8, 0, 0 and 0. Which statement is correct?'
+  choices: ['The sexes have the same mean but males vary far more, so sexual selection is stronger on males', 'Males have a higher mean number of offspring than females', 'Females vary more, so sexual selection is stronger on females', 'The data are impossible, because each male must have 2 offspring']
+  answer: 0
+  explanation: |-
+    Both means are 2: every offspring has one mother and one father, and the sexes are equal in number. But males range from 0 to 8 while every female has 2, so male success varies much more, which means stronger sexual selection on males. The data are possible; one male simply fathered all the offspring.
+- id: bio-qh-h3-27
+  lesson: bio-h-social-behavior
+  module_quiz: true
+  topic: Social behavior
+  stem: 'In some pipefish species, males carry the eggs in a brood pouch and so invest more in each offspring than females do. What does parental investment theory predict for these species?'
+  choices: ['Males compete for females and are the more ornamented sex', 'Neither sex is choosy, because both invest heavily', 'Females compete for males and may be the more ornamented sex', 'Females stop producing eggs until a male is found']
+  answer: 2
+  explanation: |-
+    The sex that invests more becomes the limiting resource and the choosier sex, so the roles flip: females compete for pregnant-capable males, and in several pipefish species females are the brighter sex. Predicting male competition ignores the reversal of investment.
+- id: bio-qh-h3-28
+  lesson: bio-h-social-behavior
+  topic: Social behavior
+  type: order
+  stem: 'Put these relatives of a diploid animal in order from most to least closely related to it.'
+  items: ['Identical twin', 'Full sibling', 'Half sibling', 'First cousin']
+  explanation: |-
+    Identical twin $r = 1$; full sibling $\tfrac12$; half sibling $\tfrac14$; first cousin $\tfrac18$.
+# ---- Lesson 51: Epidemiology ----
+- id: bio-qh-h3-29
+  lesson: bio-h-epidemiology
+  module_quiz: true
+  topic: Epidemiology
+  stem: 'A new drug keeps people with an incurable chronic disease alive much longer but does not cure them or prevent new cases. What happens over the following years?'
+  choices: ['Incidence falls and prevalence falls', 'Incidence stays the same and prevalence rises', 'Incidence rises and prevalence stays the same', 'Incidence stays the same and prevalence falls']
+  answer: 1
+  explanation: |-
+    New cases (incidence) are unaffected, but each case lasts longer, so more people are living with the disease at any time: prevalence ≈ incidence × duration rises. The drug prevents nothing, so incidence doesn't fall; people aren't removed from the sick pool faster, so prevalence doesn't fall.
+- id: bio-qh-h3-30
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  stem: 'A town of 40,000 people records 80 new cases of a disease in one year. What is the incidence?'
+  choices: ['200 per 100,000 per year', '80 per 100,000 per year', '0.2 per 100,000 per year', '2,000 per 100,000 per year']
+  answer: 0
+  explanation: |-
+    $\dfrac{80}{40{,}000} = 0.002$ per year; $0.002 \times 100{,}000 = 200$ per 100,000 per year. 80 forgets to scale to 100,000, 0.2 is per 100 people, and 2,000 slips a decimal place.
+- id: bio-qh-h3-31
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  type: text
+  stem: 'A disease is in a steady state with a prevalence of 0.02 and an incidence of 0.004 per year. About how many years does a case last on average? (Give a number.)'
+  accept: ['5', '5 years', 'five']
+  explanation: |-
+    Prevalence ≈ incidence × duration, so duration ≈ $\dfrac{0.02}{0.004 \text{ per year}} = 5$ years.
+- id: bio-qh-h3-32
+  lesson: bio-h-epidemiology
+  module_quiz: true
+  topic: Epidemiology
+  stem: 'A disease has $R_0 = 4$. In a well-mixed population where 60% of people are immune, what is $R_e$, and what happens to the number of cases?'
+  choices: ['$R_e = 2.4$; cases grow', '$R_e = 1.6$; cases grow', '$R_e = 0.6$; cases shrink', '$R_e = 4$; cases grow']
+  answer: 1
+  explanation: |-
+    $R_e = R_0 \times s = 4 \times 0.40 = 1.6$, above 1, so cases grow. 2.4 multiplies by the immune fraction instead of the susceptible fraction; 0.6 forgets $R_0$; 4 ignores immunity.
+- id: bio-qh-h3-33
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  stem: 'An SIR model has $N = 5{,}000$, $S = 4{,}000$, $I = 500$, $\beta = 0.5$ per day and $\gamma = 0.25$ per day. What is $I$ one day later?'
+  choices: ['700', '625', '575', '375']
+  answer: 2
+  explanation: |-
+    New infections $= \dfrac{0.5 \times 4{,}000 \times 500}{5{,}000} = 200$; recoveries $= 0.25 \times 500 = 125$. $I = 500 + 200 - 125 = 575$. 700 forgets recoveries; 625 uses $S/N = 1$ (250 new) and then subtracts recoveries; 375 subtracts the new infections instead of adding them.
+- id: bio-qh-h3-34
+  lesson: bio-h-epidemiology
+  module_quiz: true
+  topic: Epidemiology
+  type: label
+  stem: 'These curves come from an SIR model of one epidemic. Name the compartment each numbered curve shows.'
+  image: {src: images/h3-sir-blank.svg, alt: 'A graph of fraction of the population against time in days for an epidemic model, with three numbered curves: one starts near 100% and falls in an S-shape, one rises to a peak and falls back to zero, and a dashed one rises in an S-shape and levels off near the top.'}
+  labels:
+    - {x: 21.9, y: 16.2, text: Susceptible}
+    - {x: 38, y: 66.8, text: Infectious}
+    - {x: 64.8, y: 15.6, text: Removed}
+  distractors: [Exposed]
+  explanation: |-
+    Almost everyone starts susceptible, so curve 1 falls from near 100%. The infectious fraction (2) rises, peaks when the susceptible fraction reaches $1/R_0$, and dies away. The removed fraction (3) only ever grows. The basic SIR model has no exposed compartment (that would be SEIR).
+- id: bio-qh-h3-35
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  stem: 'In a simple SIR epidemic with $R_0 = 4$, at what susceptible fraction does the number of infectious people peak?'
+  choices: ['75%', '50%', '0%, when everyone has been infected', '25%']
+  answer: 3
+  explanation: |-
+    Infections peak when $R_e = R_0 s = 1$, so $s = 1/R_0 = \tfrac14 = 25\%$. 75% is the herd immunity threshold ($1 - 1/R_0$), which is the immune fraction, not the susceptible one. The epidemic peaks long before everyone is infected.
+- id: bio-qh-h3-36
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  stem: 'Which are assumptions of the basic SIR model? Select all that apply.'
+  choices: ['Everyone mixes at random with everyone else', 'Recovered people stay immune', 'People with symptoms reduce their contacts', 'The transmission rate $\beta$ stays constant']
+  answer: [0, 1, 3]
+  explanation: |-
+    The basic model assumes random mixing, permanent immunity in the removed group and fixed rates $\beta$ and $\gamma$. Changing behavior during an outbreak is exactly what the basic model leaves out; adding it requires a more complex model.
+- id: bio-qh-h3-37
+  lesson: bio-h-epidemiology
+  module_quiz: true
+  topic: Epidemiology
+  stem: 'Why was John Snow''s comparison of the two south London water companies such strong evidence that cholera spread through water?'
+  choices: ['Homes on the two supplies were mixed together on the same streets, so they differed mainly in their water', 'Snow identified the cholera bacterium in the Southwark and Vauxhall water under a microscope', 'The Lambeth Company served only wealthy districts, so its customers were healthier', 'Snow randomly assigned households to each water company']
+  answer: 0
+  explanation: |-
+    Because pipes of both companies ran down the same streets, wealth, air and neighborhood were matched; only the water differed, a natural experiment with an 8-fold difference in death rates. Snow never saw the bacterium (Koch identified it in 1883–84), the supplies were not split by wealth, and Snow did not assign households: the arrangement already existed.
+- id: bio-qh-h3-38
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  stem: 'At a wedding, 30 of the 40 guests who ate the crab cakes became ill, and 3 of the 20 who didn''t eat them became ill. What is the relative risk for eating the crab cakes?'
+  choices: ['10', '0.2', '5', '1.25']
+  answer: 2
+  explanation: |-
+    Attack rates: $30/40 = 75\%$ and $3/20 = 15\%$. Relative risk $= 75/15 = 5$. 10 compares the numbers of ill people (30 ÷ 3) instead of rates; 0.2 is the ratio upside down.
+- id: bio-qh-h3-39
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  type: match
+  stem: 'Match each epidemic curve shape to the kind of outbreak it suggests.'
+  pairs:
+    - ['One sharp peak lasting about one incubation period', 'A point source, such as one contaminated meal']
+    - ['Cases rise and stay at a plateau for weeks', 'A continuing common source, such as a contaminated water supply']
+    - ['A series of growing peaks about one incubation period apart', 'Person-to-person (propagated) spread']
+  distractors: ['A disease with no infectious cause']
+  explanation: |-
+    A single exposure makes cases cluster within one incubation period. A source that keeps exposing people keeps cases coming at a steady level. Each generation of person-to-person cases infects the next one incubation period later, giving successive waves.
+- id: bio-qh-h3-40
+  lesson: bio-h-epidemiology
+  module_quiz: true
+  topic: Epidemiology
+  type: order
+  stem: 'Put these steps of an outbreak investigation in order.'
+  items: ['Confirm that there is an outbreak and verify the diagnosis', 'Write a case definition and find cases', 'Describe the cases by time, place and person', 'Form hypotheses about the source', 'Test the hypotheses with an analytic study']
+  explanation: |-
+    You need to know there is a real outbreak before defining cases; you need cases before you can describe them; the description (including the epidemic curve) suggests hypotheses; and an analytic study comparing ill and well people tests them. Control measures can start as soon as a likely source is known.
+- id: bio-qh-h3-41
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  stem: 'The Lyme disease bacterium normally lives in white-footed mice and other small animals and reaches people through tick bites. In this system, the mice are the'
+  choices: ['vector', 'reservoir', 'intermediate host that must be eaten', 'case definition']
+  answer: 1
+  explanation: |-
+    A reservoir is the population in which a pathogen normally lives and multiplies. The tick is the vector that carries it to people. Nothing here is passed by being eaten, and a case definition is a set of criteria for counting cases.
+- id: bio-qh-h3-42
+  lesson: bio-h-epidemiology
+  topic: Epidemiology
+  stem: 'Which action is an example of good antibiotic stewardship?'
+  choices: ['Giving antibiotics for a cold just in case', 'Using a broad-spectrum antibiotic when a test shows a narrow-spectrum one will work', 'Keeping leftover antibiotics to take at the next sign of illness', 'Not prescribing antibiotics for a viral sore throat']
+  answer: 3
+  explanation: |-
+    Antibiotics don't work on viruses, so withholding them for a viral infection avoids needless selection for resistance. Prescribing "just in case," choosing broad-spectrum drugs when a narrow one will do, and self-treating with leftovers all add use without benefit.
+# ---- Lesson 52: Conservation biology ----
+- id: bio-qh-h3-43
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  stem: 'A group of 2,000 species has 30 documented extinctions in the last 500 years. What is its extinction rate in extinctions per million species-years (E/MSY)?'
+  choices: ['3 E/MSY', '30 E/MSY', '300 E/MSY', '0.03 E/MSY']
+  answer: 1
+  explanation: |-
+    $\dfrac{30}{2{,}000 \times 500} \times 1{,}000{,}000 = \dfrac{30}{1{,}000{,}000} \times 1{,}000{,}000 = 30$ E/MSY, about 300 times a background rate of 0.1. 300 is that ratio, not the rate; 3 and 0.03 come from slipping powers of ten.
+- id: bio-qh-h3-44
+  lesson: bio-h-conservation
+  module_quiz: true
+  topic: Conservation biology
+  stem: 'According to the theory of island biogeography, which island should hold the most species at equilibrium?'
+  choices: ['A small island far from the mainland', 'A small island near the mainland', 'A large island far from the mainland', 'A large island near the mainland']
+  answer: 3
+  explanation: |-
+    Nearness raises the immigration rate, and large size lowers the extinction rate (bigger populations), so the curves cross at the highest species number for a large, near island. A small, far island has the fewest.
+- id: bio-qh-h3-45
+  lesson: bio-h-conservation
+  module_quiz: true
+  topic: Conservation biology
+  type: label
+  stem: 'This graph shows the MacArthur–Wilson model. Identify each numbered curve.'
+  image: {src: images/h3-island-model-blank.svg, alt: 'A graph of rate against number of species on an island, from 0 to P. Two falling curves start on the rate axis, one high and solid and one lower and dashed. Two rising curves start at zero, one steep and solid and one shallow and dashed. Each curve has a numbered marker.'}
+  labels:
+    - {x: 24.2, y: 35.9, text: 'Immigration, near island'}
+    - {x: 24.2, y: 59.6, text: 'Immigration, far island'}
+    - {x: 78.6, y: 26.7, text: 'Extinction, small island'}
+    - {x: 78.6, y: 60.2, text: 'Extinction, large island'}
+  distractors: ['Speciation, large island']
+  explanation: |-
+    Immigration falls as an island fills (fewer new species left to arrive), and it is higher for near islands, so 1 is near and 2 is far. Extinction rises with the number of species and is higher on small islands with small populations, so 3 is small and 4 is large.
+- id: bio-qh-h3-46
+  lesson: bio-h-conservation
+  module_quiz: true
+  topic: Conservation biology
+  stem: 'A forest holds 100 species of birds. Clearing leaves 10% of its area. Using $S = cA^z$ with $z = 0.3$, about how many species should eventually remain?'
+  choices: ['10', '90', '70', '50']
+  answer: 3
+  explanation: |-
+    $S_{\text{new}} = 100 \times 0.1^{0.3} = 100 \times 0.50 \approx 50$. 10 assumes species fall in proportion to area; 90 subtracts 10% instead of keeping 10% of the area; 70 uses half the exponent ($0.1^{0.15}$). The power law means a 90% habitat loss costs about half the species here, eventually.
+- id: bio-qh-h3-47
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  type: text
+  stem: 'With $z = 0.3$ in the species-area relationship $S = cA^z$, an area 10 times larger holds about ___ times as many species. (Give a whole number.)'
+  accept: ['2', 'two']
+  explanation: |-
+    $10^{0.3} \approx 1.995$, so about 2 times as many species.
+- id: bio-qh-h3-48
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  stem: 'A square forest fragment measures 400 m by 400 m (16 ha). If edge effects reach 100 m in from every side, how much core habitat is left?'
+  choices: ['4 ha', '9 ha', '12 ha', '1 ha']
+  answer: 0
+  explanation: |-
+    The core is $(400 - 2 \times 100)^2 = 200^2 = 40{,}000$ m² $= 4$ ha, only a quarter of the fragment. 9 ha subtracts the edge from one side only ($300^2$). 12 ha subtracts an edge area as if it were a single 100 m strip; 1 ha subtracts 300 m.
+- id: bio-qh-h3-49
+  lesson: bio-h-conservation
+  module_quiz: true
+  topic: Conservation biology
+  stem: 'A captive population breeds from 5 males and 45 females. What is its effective population size?'
+  choices: ['50', '18', '25', '9']
+  answer: 1
+  explanation: |-
+    $N_e = \dfrac{4N_mN_f}{N_m + N_f} = \dfrac{4 \times 5 \times 45}{50} = 18$. 50 is the census count; 25 is the average of the two sexes; 9 forgets the factor of 4 and uses 2. The few males limit genetic diversity.
+- id: bio-qh-h3-50
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  stem: 'A population has $N_e = 25$. Using $H_t = H_0\left(1 - \frac{1}{2N_e}\right)^t$, about what fraction of its heterozygosity remains after 10 generations?'
+  choices: ['60%', '98%', '82%', '67%']
+  answer: 2
+  explanation: |-
+    $\left(1 - \tfrac{1}{50}\right)^{10} = 0.98^{10} \approx 0.82$. 98% is one generation only. 60% subtracts $10 \times 4\%$, using $1/N_e$ instead of $1/(2N_e)$; 67% compounds that same wrong rate ($0.96^{10}$).
+- id: bio-qh-h3-51
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  type: order
+  stem: 'Put the stages of the extinction vortex in order, starting from a small population.'
+  items: ['A population becomes small', 'Inbreeding and genetic drift increase', 'Genetic diversity is lost and inbreeding depression appears', 'Survival and reproduction fall', 'The population becomes smaller still']
+  explanation: |-
+    Small size increases inbreeding and drift, which strip out genetic variation and expose harmful recessive alleles; lower survival and reproduction then shrink the population further, which restarts the loop.
+- id: bio-qh-h3-52
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  stem: 'Which are edge effects in a forest fragment? Select all that apply.'
+  choices: ['More light, wind and drying near the boundary', 'More nest parasitism by cowbirds near the boundary', 'More invasive plants spreading in from the boundary', 'More interior-dwelling species near the boundary']
+  answer: [0, 1, 2]
+  explanation: |-
+    Edges are brighter, windier and drier, and they let in invasive plants, nest predators and nest parasites such as brown-headed cowbirds. Interior species are those that avoid edges, so they are found farther in, not near the boundary.
+- id: bio-qh-h3-53
+  lesson: bio-h-conservation
+  module_quiz: true
+  topic: Conservation biology
+  stem: 'A population alternates years of growth $\lambda = 1.2$ and decline $\lambda = 0.8$. What is its long-run trend?'
+  choices: ['Stable, because the average $\lambda$ is exactly 1', 'Slowly growing, because good years come first', 'Rapidly crashing, because half the years are bad', 'Slowly declining, by about 4% every two years']
+  answer: 3
+  explanation: |-
+    Over two years the population is multiplied by $1.2 \times 0.8 = 0.96$, a 4% loss every two years (geometric mean $\sqrt{0.96} \approx 0.98$ per year). The arithmetic mean of 1 is misleading; the order of years doesn't change the product; and the decline is slow, not a crash.
+- id: bio-qh-h3-54
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  stem: 'In a mark–recapture study, animals that have been caught once learn to avoid the traps. How does this bias the Lincoln–Petersen estimate $N = MC/R$?'
+  choices: ['It has no effect, because the marks stay on', 'It underestimates the population, because $R$ is too high', 'It overestimates the population, because $R$ is too low', 'It overestimates the population, because $M$ is too high']
+  answer: 2
+  explanation: |-
+    Trap-shy marked animals are under-represented in the second sample, so recaptures $R$ are too low, and dividing by a too-small $R$ inflates $N$. Trap-happy animals would cause the opposite bias. $M$ is just the number marked, which is known exactly.
+- id: bio-qh-h3-55
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  type: match
+  stem: 'Match each case to the approach to invasive species it illustrates.'
+  pairs:
+    - ['Helicopter baiting removes all rats and mice from South Georgia', Eradication]
+    - ['Vedalia beetles from Australia control cottony cushion scale on California citrus', Biological control]
+    - ['Inspectors check incoming cargo for hitchhiking insects', Prevention]
+    - ['Cane toads released to eat sugarcane beetles spread and poison native predators', A failed biological control introduction]
+  distractors: [Genetic rescue]
+  explanation: |-
+    Island baiting removes the invader completely (eradication). The vedalia beetle is a classic biological control success, while the cane toad is a classic failure that became an invader itself. Cargo inspection stops invaders arriving (prevention), the cheapest option. Genetic rescue is about inbred populations, not invaders.
+- id: bio-qh-h3-56
+  lesson: bio-h-conservation
+  topic: Conservation biology
+  stem: 'By the early 1990s only about 20–30 Florida panthers remained, many with heart defects and kinked tails. Which result best shows that the 1995 release of eight Texas pumas worked as genetic rescue?'
+  choices: ['Panthers with Texas ancestry had fewer defects and survived better, and the population grew', 'The Texas pumas stayed in a separate area and did not breed with the panthers', 'Panther numbers kept falling after 1995', 'The released pumas were all males']
+  answer: 0
+  explanation: |-
+    Genetic rescue works by mixing new alleles into an inbred population; fewer defects and better survival among mixed-ancestry panthers, followed by population growth to an estimated 120–230, show that happened. Pumas that didn't breed couldn't rescue anything, falling numbers would show failure, and the release was of eight females.

@@ -32,6 +32,10 @@ Electrons are not always shared equally. Oxygen pulls on shared electrons much h
 
 Opposite charges attract, so the slightly positive hydrogen of one water molecule is drawn to the slightly negative oxygen of a neighbor. This attraction between a hydrogen on one polar molecule and an electronegative atom (oxygen or nitrogen) on another is a **hydrogen bond**. A hydrogen bond is much weaker than a covalent bond, roughly a twentieth as strong, and hydrogen bonds constantly break and re-form in liquid water. But there are enormous numbers of them, and together they explain almost everything special about water. They also hold the two strands of DNA together and help proteins keep their shapes, as you will see in the next two lessons.
 
+![Five water molecules. The center molecule's oxygen is joined by dashed hydrogen bonds to the hydrogens of two molecules above it, and its two hydrogens are joined by dashed hydrogen bonds to the oxygens of two molecules below it. Labels point out a covalent bond inside one molecule, a hydrogen bond between molecules, the slightly negative oxygen end and the slightly positive hydrogen end.](images/m1-water-hbonds.svg)
+
+In the picture, each solid line is a covalent bond holding a single water molecule together, and each dashed line is a hydrogen bond between two molecules. One water molecule can hydrogen bond with up to four neighbors: its two hydrogens each point at another molecule's oxygen, and its oxygen attracts the hydrogens of two more.
+
 ## The properties of water
 
 *Cohesion and adhesion.* **Cohesion** is the attraction of water molecules to each other, through hydrogen bonds. It gives water high surface tension, which is why a water strider can stand on a pond. Adhesion is the attraction of water to other substances, such as the walls of a glass tube. Together they produce capillary action, water creeping up a narrow tube. In plants, cohesion holds a continuous column of water together all the way up the thin xylem tubes from root to leaf, so that evaporation from the leaves pulls the whole column upward.

@@ -35,6 +35,10 @@ The **law of independent assortment** says that the alleles of different genes s
 
 For genes on different chromosomes, the cellular reason is the way homologous pairs line up in metaphase I of meiosis. Each pair orients at random, independently of the other pairs, so the chromosome carrying R is as likely to end up with the Y chromosome as with the y chromosome. An RrYy plant therefore makes four kinds of gametes in equal numbers: RY, Ry, rY and ry, each $\tfrac14$.
 
+![A cell at metaphase I with two homologous pairs, a long pair carrying R and r and a short pair carrying Y and y, shown in two arrangements. In arrangement 1, R and Y face the same pole, giving RY and ry gametes. In arrangement 2, R and y face the same pole, giving Ry and rY gametes. Both arrangements are equally likely, so each of the four gamete types makes up one quarter.](images/m5-independent-assortment.svg)
+
+The figure shows why. Which way the R/r pair faces at metaphase I has no effect on which way the Y/y pair faces, so the two arrangements are equally common, and across many meioses the four gamete types come out in equal numbers.
+
 An important exception: genes that sit close together on the *same* chromosome tend to be inherited together because they ride on one piece of DNA. Such linked genes do not assort independently, although crossing over in meiosis sometimes separates them. Genes very far apart on one chromosome are separated by crossing over so often that they behave as if unlinked, but the reason is crossing over, not the random orientation of homologous pairs. Thomas Hunt Morgan's fruit-fly work around 1910 first showed linkage. Mendel's seven traits happen to behave independently, and in this module we assume genes are unlinked unless told otherwise.
 
 ## The 16-box Punnett square
@@ -69,6 +73,20 @@ Because genes assort independently, a multi-gene cross splits into one-gene cros
 - Seed shape, Rr × Rr: round $\tfrac34$, wrinkled $\tfrac14$.
 - Seed color, Yy × Yy: yellow $\tfrac34$, green $\tfrac14$.
 - Round and green: $\tfrac34 \times \tfrac14 = \tfrac{3}{16}$. The 9 : 3 : 3 : 1 is just $(3 : 1) \times (3 : 1)$.
+
+A branch diagram (sometimes called a forked-line diagram) lays out the same reasoning: split by the first gene, then split each branch by the second gene, and multiply the probabilities along each path.
+
+```mermaid
+flowchart LR
+  accTitle: Branch diagram for the cross RrYy × RrYy
+  accDescr: The cross RrYy × RrYy first splits by seed shape into round, probability 3/4, and wrinkled, probability 1/4. Each of those then splits by seed color into yellow, 3/4, and green, 1/4. Multiplying along each path gives round yellow 9/16, round green 3/16, wrinkled yellow 3/16 and wrinkled green 1/16.
+  S["RrYy × RrYy"] -- "3/4" --> R["Round"]
+  S -- "1/4" --> W["Wrinkled"]
+  R -- "3/4" --> RY["Round, yellow: 9/16"]
+  R -- "1/4" --> RG["Round, green: 3/16"]
+  W -- "3/4" --> WY["Wrinkled, yellow: 3/16"]
+  W -- "1/4" --> WG["Wrinkled, green: 1/16"]
+```
 
 The sum rule handles "either way" outcomes. Within one gene, Aa × Aa gives a heterozygote two ways (A from the mother and a from the father, or the reverse), each $\tfrac12 \times \tfrac12 = \tfrac14$, so $P(\text{Aa}) = \tfrac14 + \tfrac14 = \tfrac12$.
 

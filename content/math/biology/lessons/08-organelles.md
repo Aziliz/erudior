@@ -10,6 +10,10 @@ refs: [bio-ref-lab]
 
 The last lesson split cells into two plans and showed that eukaryotic cells are divided into membrane-bound compartments. This lesson opens those compartments. A useful picture is a factory with a head office, assembly lines, shipping, power plants and recycling. Each organelle has a job, and the jobs connect. As you read, keep asking two questions: what does this part do, and how does its structure suit that job?
 
+Use the drawing of an animal cell below as a map; each organelle in it gets its own section in this lesson. Real cells are crowded, three-dimensional and constantly moving, and they hold hundreds of mitochondria and millions of ribosomes, so a drawing like this is a simplified diagram, not a photograph.
+
+![A labeled animal cell: the plasma membrane around the outside; cytoplasm; a large central nucleus with a nucleolus; curved stacks of rough ER studded with ribosomes beside the nucleus; tubes of smooth ER; a Golgi apparatus of curved stacked sacs with small vesicles nearby; several mitochondria with folded inner membranes; lysosomes; free ribosomes as dots; and a pair of centrioles.](images/m2-animal-cell.svg)
+
 ## The nucleus: the instructions
 
 The **nucleus** is the large organelle that holds the cell's DNA and controls its activities by deciding which genes are used. It is surrounded by the nuclear envelope, a double membrane pierced by thousands of nuclear pores. The pores let messenger RNA, copied from DNA, leave for the cytoplasm and let proteins needed inside enter. Most of the DNA is spread out as chromatin (DNA wound around proteins); it condenses into visible chromosomes only when the cell divides. A dense region called the nucleolus assembles the parts of ribosomes.
@@ -27,7 +31,18 @@ The **endoplasmic reticulum** (ER) is a network of folded membranes and tubes co
 
 Small membrane sacs called vesicles bud off the ER, carrying new proteins to the **Golgi apparatus**, a stack of flattened membrane sacs. The Golgi modifies proteins further (for example, trimming and adding sugars), sorts them by destination, and packages them into new vesicles. Some vesicles fuse with the plasma membrane and release their contents outside the cell (this is how cells secrete hormones, enzymes and mucus). Others deliver membrane proteins to the surface or carry digestive enzymes to lysosomes.
 
-Together, the nuclear envelope, ER, Golgi, vesicles, lysosomes and plasma membrane form the endomembrane system: a set of membranes connected by moving vesicles.
+Together, the nuclear envelope, ER, Golgi, vesicles, lysosomes and plasma membrane form the endomembrane system: a set of membranes connected by moving vesicles. The flowchart traces one protein made for export through the system; Example 1 shows how this route was discovered.
+
+```mermaid
+flowchart LR
+  accTitle: The path of a secreted protein
+  accDescr: DNA in the nucleus is copied into mRNA, which leaves through a nuclear pore. Ribosomes on the rough ER build the protein and thread it into the ER, where it folds. A transport vesicle carries it to the Golgi apparatus, which modifies, sorts and packages it. A secretory vesicle then carries it to the plasma membrane, where exocytosis releases it outside the cell. Other Golgi vesicles carry enzymes to lysosomes instead.
+  N["Nucleus: DNA to mRNA"] --> R["Rough ER: protein built and folded"]
+  R -- transport vesicle --> G["Golgi: modify, sort, package"]
+  G -- secretory vesicle --> M["Plasma membrane"]
+  M -- exocytosis --> O["Outside the cell"]
+  G -- vesicle --> L["Lysosome"]
+```
 
 ### Example 1: Tracing a secreted protein (Palade's pulse–chase)
 
@@ -64,6 +79,10 @@ A **chloroplast** is the organelle in plants and algae where photosynthesis capt
 The cytoskeleton is a network of protein fibers running through the cytoplasm. *Microtubules*, hollow tubes, act as tracks for motor proteins that carry vesicles and organelles, and they pull chromosomes apart during cell division. *Microfilaments*, thinner fibers of the protein actin, let cells change shape and crawl and, with myosin, contract muscle. *Intermediate filaments* give mechanical strength. Cilia and flagella in eukaryotic cells are built from microtubules. Animal cells also have a pair of centrioles, made of microtubules, near the nucleus.
 
 Plants, fungi and many protists have a **cell wall** outside the plasma membrane: a rigid layer that supports the cell and keeps it from bursting when water enters. Plant walls are made mainly of cellulose; fungal walls of chitin.
+
+Compare the plant cell below with the animal cell at the start of the lesson. The plant cell keeps all the shared organelles (nucleus, ER, Golgi, mitochondria) but adds a cell wall, chloroplasts and a central vacuole so large that it pushes the rest of the cytoplasm into a thin layer against the wall. The table sums up the differences.
+
+![A labeled plant cell: a thick rectangular cell wall with the plasma membrane just inside it; a large central vacuole filling most of the cell; the nucleus and rough ER squeezed into a corner; several chloroplasts with stacked internal membranes; mitochondria; a Golgi apparatus; and a thin layer of cytoplasm.](images/m2-plant-cell.svg)
 
 | Structure | Plant cell | Animal cell |
 |---|---|---|

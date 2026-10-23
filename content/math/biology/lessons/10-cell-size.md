@@ -25,6 +25,8 @@ Surface area grows with the square of the side, volume with the cube. Double the
 
 Find the surface area, volume and SA:V for cubes with sides 1, 2 and 4 units.
 
+![Three cubes drawn with unit grid lines. The side-1 cube has surface area 6, volume 1 and SA:V 6 to 1. The side-2 cube has surface area 24, volume 8 and SA:V 3 to 1. The side-4 cube has surface area 96, volume 64 and SA:V 1.5 to 1.](images/m2-sa-cubes.svg)
+
 | Side | Surface area $6s^2$ | Volume $s^3$ | SA:V |
 |---|---|---|---|
 | 1 | 6 | 1 | 6 : 1 |
@@ -55,7 +57,9 @@ The uncolored part is a smaller cube in the center whose side is $s - 2(0.5) = s
 | 2 cm | 8 cm³ | $1^3 = 1$ cm³ | 7 cm³ | 87.5% |
 | 3 cm | 27 cm³ | $2^3 = 8$ cm³ | 19 cm³ | ≈ 70.4% |
 
-The diffusion distance was the same for every cube, but the bigger the cube, the smaller the fraction of its volume that was reached. In a cell, the unreached center is the part that would be short of oxygen and nutrients.
+![Cross-sections through the middle of three agar cubes, 1, 2 and 3 cm across, after the colored solution spread 0.5 cm in from every face. The 1 cm cube is colored all the way through (100% reached). The 2 cm cube has an uncolored 1 cm square in the center (87.5% reached). The 3 cm cube has an uncolored 2 cm square in the center (about 70.4% reached).](images/m2-agar-cubes.svg)
+
+The cross-sections show the result. The diffusion distance was the same for every cube, but the bigger the cube, the smaller the fraction of its volume that was reached. In a cell, the unreached center is the part that would be short of oxygen and nutrients.
 
 ## How cells and organisms beat the limit
 
@@ -95,7 +99,14 @@ Gurdon shared the 2012 Nobel Prize for this work. The same principle underlies c
 
 Specialized cells cooperate in groups. A **tissue** is a group of similar cells that perform a common function. Animals have four main tissue types: epithelial tissue (covers surfaces and lines organs), connective tissue (supports and binds, including bone, blood and fat), muscle tissue (contracts) and nervous tissue (carries signals). Plants have their own tissues: dermal (outer covering), vascular (xylem and phloem for transport) and ground tissue (photosynthesis and storage).
 
-An **organ** is a structure made of two or more tissue types working together for a particular function. The stomach has epithelial tissue that secretes acid and enzymes, muscle tissue that churns, connective tissue that holds it together and nervous tissue that controls it. A leaf is a plant organ. Organs that work together form organ systems, completing the hierarchy from Lesson 1: cell → tissue → organ → organ system → organism.
+An **organ** is a structure made of two or more tissue types working together for a particular function. The stomach has epithelial tissue that secretes acid and enzymes, muscle tissue that churns, connective tissue that holds it together and nervous tissue that controls it. A leaf is a plant organ. Organs that work together form organ systems, completing the hierarchy from Lesson 1: cell → tissue → organ → organ system → organism. The chart follows one example up the levels.
+
+```mermaid
+flowchart TD
+  accTitle: Levels of organization in a multicellular organism
+  accDescr: Cells, such as smooth muscle cells, make up tissues, such as smooth muscle tissue. Several tissues make up an organ, such as the stomach. Organs make up an organ system, such as the digestive system. Organ systems together make up the organism, here a human.
+  C["Cell: smooth muscle cell"] --> T["Tissue: smooth muscle"] --> O["Organ: stomach"] --> S["Organ system: digestive system"] --> R["Organism: human"]
+```
 
 ## Common mistakes
 

@@ -119,3 +119,81 @@
   aliases: [inhibitors, competitive inhibitor, noncompetitive inhibitor]
   definition: 'A molecule that reduces an enzyme''s activity. A competitive inhibitor blocks the active site (overcome by adding substrate); a noncompetitive inhibitor binds elsewhere and changes the enzyme''s shape.'
   topic: Enzymes
+# ---- m1 honors (round 2)
+- term: peptide bond
+  aliases: [peptide bonds]
+  definition: 'The covalent C–N bond joining the carboxyl carbon of one amino acid to the amino nitrogen of the next. It has partial double-bond character, so it is flat and does not rotate.'
+  topic: Protein structure
+- term: α helix
+  aliases: [alpha helix, α helices, alpha helices, α-helix, alpha-helix]
+  definition: 'A right-handed coil of protein backbone held by hydrogen bonds between each C=O and the N–H four amino acids along; 3.6 amino acids per turn, rising 0.15 nm per amino acid.'
+  topic: Protein structure
+- term: β sheet
+  aliases: [beta sheet, β sheets, beta sheets, β-sheet, beta-sheet, β pleated sheet]
+  definition: 'A protein secondary structure made of extended strands (about 0.34 nm per amino acid) lying side by side, parallel or antiparallel, and hydrogen bonded through their backbones.'
+  topic: Protein structure
+- term: hydrophobic effect
+  definition: 'The tendency of nonpolar groups to cluster together in water, because hiding them frees the ordered water around them; the main driving force of protein folding and membrane formation.'
+  topic: Protein structure
+- term: disulfide bond
+  aliases: [disulfide bonds, disulfide bridge, disulfide bridges, disulphide bond]
+  definition: 'A covalent S–S bond between the sulfur atoms of two cysteine side chains; it stabilizes the tertiary or quaternary structure of many proteins that work outside cells.'
+  topic: Protein structure
+- term: protein domain
+  aliases: [protein domains]
+  definition: 'A compact region of a protein, typically 50–250 amino acids, that folds on its own and often has its own function; domains are reused in many proteins.'
+  topic: Protein structure
+- term: molecular chaperone
+  aliases: [molecular chaperones, chaperone, chaperones, chaperonin, chaperonins]
+  definition: 'A protein that helps other proteins fold by shielding exposed hydrophobic regions and preventing aggregation; it does not supply the shape, which is coded in the sequence.'
+  topic: Protein structure
+- term: prion
+  aliases: [prions]
+  definition: 'An infectious, misfolded form of a normal protein (PrP) that converts normal copies into the misfolded form; causes diseases such as Creutzfeldt–Jakob disease and BSE.'
+  topic: Protein structure
+- term: Michaelis–Menten equation
+  aliases: [Michaelis-Menten equation, Michaelis–Menten kinetics, Michaelis-Menten kinetics]
+  definition: 'The rate law $v = \dfrac{V_{\max}[\text{S}]}{K_m + [\text{S}]}$ for the initial rate of a simple enzyme reaction at substrate concentration [S].'
+  topic: Enzyme kinetics
+- term: Vmax
+  aliases: [V max, maximum rate, maximum velocity]
+  definition: 'The maximum initial rate of an enzyme reaction, reached when all enzyme molecules are saturated with substrate; proportional to the amount of enzyme.'
+  topic: Enzyme kinetics
+- term: Michaelis constant
+  aliases: [Km, K m]
+  definition: 'The substrate concentration at which an enzyme works at half its maximum rate ($K_m$); a property of the enzyme and substrate, not of the amount of enzyme.'
+  topic: Enzyme kinetics
+- term: turnover number
+  aliases: [turnover numbers, kcat]
+  definition: 'The number of substrate molecules one enzyme molecule converts per second when saturated: $k_{\text{cat}} = V_{\max}/[\text{E}]_{\text{total}}$.'
+  topic: Enzyme kinetics
+- term: catalytic efficiency
+  definition: 'The ratio $k_{\text{cat}}/K_m$, which measures how well an enzyme works at low substrate concentration; it cannot exceed the diffusion limit of about $10^8$–$10^9$ per molar per second.'
+  topic: Enzyme kinetics
+- term: Lineweaver–Burk plot
+  aliases: [Lineweaver-Burk plot, double-reciprocal plot, Lineweaver–Burk plots]
+  definition: 'A graph of $1/v$ against $1/[\text{S}]$ that turns the Michaelis–Menten curve into a straight line: slope $K_m/V_{\max}$, $y$-intercept $1/V_{\max}$, $x$-intercept $-1/K_m$.'
+  topic: Enzyme kinetics
+- term: uncompetitive inhibitor
+  aliases: [uncompetitive inhibitors, uncompetitive inhibition]
+  definition: 'A reversible inhibitor that binds only the enzyme–substrate complex, lowering both $V_{\max}$ and $K_m$.'
+  topic: Enzyme kinetics
+- term: irreversible inhibitor
+  aliases: [irreversible inhibitors, irreversible inhibition]
+  definition: 'An inhibitor that bonds covalently to an enzyme, usually at the active site, and inactivates it permanently, such as aspirin on cyclooxygenase or penicillin on bacterial wall enzymes.'
+  topic: Enzyme kinetics
+- term: allosteric regulation
+  aliases: [allosteric, allosteric site, allosteric enzyme, allosteric enzymes, allosteric inhibitor, allosteric activator]
+  definition: 'Control of an enzyme by a molecule binding at a regulatory (allosteric) site separate from the active site, shifting the enzyme between more and less active shapes.'
+  topic: Enzyme regulation
+- term: cooperativity
+  aliases: [cooperative binding, cooperative]
+  definition: 'In a protein with several subunits, binding at one site makes binding at the others easier, giving an S-shaped (sigmoid) curve; seen in hemoglobin and allosteric enzymes.'
+  topic: Enzyme regulation
+- term: feedback inhibition
+  definition: 'Regulation in which the end product of a pathway inhibits an enzyme early in the pathway, usually the first committed step, so production slows when the product is plentiful.'
+  topic: Enzyme regulation
+- term: zymogen
+  aliases: [zymogens, proenzyme]
+  definition: 'An inactive enzyme precursor that is activated by cutting off part of its chain, such as trypsinogen, which becomes trypsin in the small intestine.'
+  topic: Enzyme regulation

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" height="470" font-family="sans-serif" fill="none" stroke-linejoin="round">
+<title>Reduction potentials along the electron transport chain</title>
+<rect x="0" y="0" width="760" height="470" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f5d8a"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a33b2a"/></marker></defs>
+<line x1="330" y1="64.00000000000001" x2="330" y2="454.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="322" y1="70.0" x2="330" y2="70.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="316" y="75.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">−0.4</text>
+<line x1="322" y1="130.0" x2="330" y2="130.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="316" y="135.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">−0.2</text>
+<line x1="322" y1="190.0" x2="330" y2="190.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="316" y="195.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">0.0</text>
+<line x1="322" y1="250.00000000000003" x2="330" y2="250.00000000000003" stroke="#1c2833" stroke-width="1.5"/>
+<text x="316" y="255.00000000000003" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">+0.2</text>
+<line x1="322" y1="310.0" x2="330" y2="310.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="316" y="315.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">+0.4</text>
+<line x1="322" y1="370.0" x2="330" y2="370.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="316" y="375.0" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">+0.6</text>
+<line x1="322" y1="430.00000000000006" x2="330" y2="430.00000000000006" stroke="#1c2833" stroke-width="1.5"/>
+<text x="316" y="435.00000000000006" font-size="14" text-anchor="end" font-weight="normal" fill="#1c2833">+0.8</text>
+<text x="250" y="262.0" font-size="15" text-anchor="middle" fill="#1c2833" transform="rotate(-90 250 262.0)">standard reduction potential E°′ (volts)</text>
+<circle cx="330" cy="94.0" r="6" fill="#2f5d8a"/>
+<text x="348" y="99.0" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833">NAD⁺ / NADH   −0.32 V</text>
+<circle cx="330" cy="203.5" r="6" fill="#2f5d8a"/>
+<text x="348" y="208.5" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833">ubiquinone (Q) / QH₂   +0.05 V</text>
+<circle cx="330" cy="265.0" r="6" fill="#2f5d8a"/>
+<text x="348" y="270.0" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833">cytochrome c (Fe³⁺ / Fe²⁺)   +0.25 V</text>
+<circle cx="330" cy="436.0" r="6" fill="#2f5d8a"/>
+<text x="348" y="441.0" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833">½O₂ / H₂O   +0.82 V</text>
+<text x="40" y="52" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833">more negative: gives up</text>
+<text x="40" y="70" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833">electrons easily</text>
+<text x="40" y="438" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833">more positive: holds</text>
+<text x="40" y="456" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833">electrons tightly</text>
+<line x1="690" y1="110.0" x2="690" y2="422.0" stroke="#2f5d8a" stroke-width="3" stroke-dasharray="8 5" marker-end="url(#ahb)"/>
+<text x="675" y="340.0" font-size="15" text-anchor="end" font-weight="normal" fill="#2f5d8a">electrons fall from NADH to O₂:</text>
+<text x="675" y="360.0" font-size="15" text-anchor="end" font-weight="bold" fill="#2f5d8a">ΔE°′ = 1.14 V, ΔG°′ ≈ −220 kJ/mol</text>
+</svg>

@@ -101,3 +101,93 @@
 - term: invasive species
   definition: 'A species introduced to a region outside its native range that spreads and causes ecological or economic harm, often because its natural predators and competitors are missing.'
   topic: Human impact
+- term: life table
+  aliases: [life tables]
+  definition: 'A table that records, age by age, how many individuals of a population survive and die (and often how many offspring they have), giving survivorship $l_x$, mortality rate $q_x$ and life expectancy $e_x$.'
+  topic: Life tables
+- term: cohort
+  aliases: [cohorts]
+  definition: 'A group of individuals born at about the same time and followed together through their lives, as in a cohort life table.'
+  topic: Life tables
+- term: life expectancy
+  definition: 'The average number of further years an individual of a given age can expect to live, $e_x = T_x / n_x$ in a life table.'
+  topic: Life tables
+- term: survivorship curve
+  aliases: [survivorship curves]
+  definition: 'A graph of the number of survivors of a cohort (usually on a log scale) against age. Type I: most die old; Type II: a constant fraction dies at each age; Type III: most die young.'
+  topic: Life tables
+- term: fecundity
+  definition: 'The average number of offspring (in life tables, usually female offspring) produced by an individual of a given age, written $m_x$.'
+  topic: Life tables
+- term: net reproductive rate
+  definition: 'The average number of daughters a newborn female produces over her lifetime, $R_0 = \sum l_x m_x$. The population grows if $R_0 > 1$ and shrinks if $R_0 < 1$.'
+  topic: Life tables
+- term: life history
+  aliases: [life histories]
+  definition: 'A species'' schedule of growth, reproduction and survival: age at first breeding, number and size of offspring, and life span, shaped by trade-offs.'
+  topic: Population models
+- term: r-selected species
+  aliases: [r-selected, r-selection]
+  definition: 'Species with traits favored when populations are usually below carrying capacity: early maturity, many small offspring, little parental care, short lives. One end of a continuum, not a strict category.'
+  topic: Population models
+- term: K-selected species
+  aliases: [K-selected, K-selection]
+  definition: 'Species with traits favored when populations stay near carrying capacity: later maturity, few large offspring, much parental care, long lives. One end of a continuum, not a strict category.'
+  topic: Population models
+- term: Lotka–Volterra model
+  aliases: [Lotka-Volterra model, Lotka–Volterra models, Lotka-Volterra models]
+  definition: 'A pair of equations for two interacting species. The predation version, $dH/dt = rH - aHP$ and $dP/dt = baHP - mP$, produces cycles in which predator peaks lag prey peaks; the competition version adds competition coefficients to logistic growth.'
+  topic: Population models
+- term: competition coefficient
+  aliases: [competition coefficients]
+  definition: 'In the Lotka–Volterra competition model, $\alpha_{12}$: the effect of one individual of species 2 on species 1, measured in species 1 individuals.'
+  topic: Population models
+- term: intraspecific competition
+  definition: 'Competition among members of the same species. Two competing species coexist only if each limits itself through intraspecific competition more than it limits the other (interspecific competition).'
+  topic: Population models
+- term: gross primary productivity
+  aliases: [GPP]
+  definition: 'The total rate at which producers fix carbon or capture energy by photosynthesis, before subtracting their own respiration. NPP = GPP − producer respiration.'
+  topic: Primary productivity
+- term: net ecosystem production
+  aliases: [NEP]
+  definition: 'GPP minus the respiration of producers, consumers and decomposers. Positive NEP means an ecosystem is storing carbon; negative means it is losing carbon.'
+  topic: Primary productivity
+- term: light and dark bottle method
+  definition: 'A way to measure aquatic productivity from dissolved oxygen: respiration = initial − dark bottle, net production = light bottle − initial, GPP = light − dark.'
+  topic: Primary productivity
+- term: limiting nutrient
+  aliases: [limiting nutrients]
+  definition: 'The nutrient in shortest supply relative to need, so that adding it increases growth (Liebig''s law of the minimum). Often phosphorus in lakes, nitrogen in coastal seas, iron in some open oceans.'
+  topic: Primary productivity
+- term: Redfield ratio
+  definition: 'The average atomic ratio of carbon, nitrogen and phosphorus in ocean plankton, about 106 : 16 : 1.'
+  topic: Primary productivity
+- term: eutrophication
+  definition: 'Nutrient enrichment of a body of water, usually by nitrogen and phosphorus from fertilizer or sewage, causing algal blooms and often oxygen loss when the algae decompose.'
+  topic: Primary productivity
+- term: nitrogenase
+  definition: 'The enzyme in nitrogen-fixing bacteria that converts N₂ to ammonia, using 16 ATP per N₂. It is destroyed by oxygen.'
+  topic: Global change
+- term: ammonification
+  definition: 'The release of ammonium from the proteins and nucleic acids of dead organisms and wastes by decomposers.'
+  topic: Global change
+- term: nitrification
+  definition: 'The oxidation of ammonium to nitrite and then nitrate by bacteria and archaea, a process that requires oxygen.'
+  topic: Global change
+- term: anammox
+  definition: 'Anaerobic ammonium oxidation: bacteria combine ammonium with nitrite to make N₂ gas, a major route of nitrogen loss from the oceans.'
+  topic: Global change
+- term: airborne fraction
+  definition: 'The share of human CO₂ emissions that stays in the atmosphere, about half; the rest is taken up by ocean and land sinks.'
+  topic: Global change
+- term: carbon sink
+  aliases: [carbon sinks]
+  definition: 'A reservoir that absorbs more carbon than it releases, such as the ocean or growing forests.'
+  topic: Global change
+- term: greenhouse effect
+  definition: 'Warming of a planet''s surface because gases such as CO₂, methane, nitrous oxide and water vapor let sunlight through but absorb and re-emit infrared radiation given off by the surface.'
+  topic: Global change
+- term: ocean acidification
+  definition: 'The drop in seawater pH as the ocean absorbs CO₂, which forms carbonic acid; surface pH has fallen about 0.1 since preindustrial times.'
+  topic: Global change

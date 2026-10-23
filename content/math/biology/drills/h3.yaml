@@ -1,0 +1,226 @@
+# Drills for honors module bio-h3 (Behavior, disease, and conservation)
+- id: bio-h-waggle-dance
+  title: Decoding a waggle dance
+  topic: Animal behavior
+  vars:
+    sunaz: {min: 90, max: 270, step: 10}
+    ang: {min: 10, max: 80, step: 5}
+    side: {choices: [{label: right, value: 1}, {label: left, value: -1}]}
+    dur: {choices: [0.5, 1, 1.5, 2, 2.5, 3, 4]}
+    cal: {choices: [500, 750, 1000]}
+  calc:
+    sang: side * ang
+    bearing: sunaz + side * ang
+    dist: dur * cal
+  prompt: 'A honeybee''s waggle runs point {ang}° to the {side} of straight up on the comb and last {dur} s. The sun is at a compass bearing of {sunaz}°, and in this colony 1 s of waggling stands for about {cal} m. Give the compass bearing of the food (in degrees) and its distance (in meters).'
+  answers:
+    - {name: bearing, label: 'Bearing (degrees)', tolerance: 0.5}
+    - {name: dist, label: 'Distance (m)', tolerance: 0.5}
+  solution: |-
+    Straight up on the comb stands for the sun's direction, and {side} of up means {side} of the sun (right is clockwise, left counterclockwise).
+
+    Bearing: ${sunaz}° {sang:signed}° =$ **{bearing}°**.
+
+    Distance: ${dur} \text{ s} \times {cal} \text{ m per s} =$ **{dist} m**.
+- id: bio-h-prey-profitability
+  title: Prey profitability
+  topic: Animal behavior
+  vars:
+    e1: {min: 100, max: 900, step: 50}
+    h1: {min: 10, max: 120, step: 10}
+    e2: {min: 300, max: 2400, step: 100}
+    h2: {min: 40, max: 400, step: 20}
+  calc:
+    p1: e1 / h1
+    p2: e2 / h2
+  where: ['abs(p1 - p2) >= 1', 'e2 > e1', 'p1 <= 20', 'p2 <= 20']
+  prompt: 'A predator can eat small prey worth {e1} J that take {h1} s to catch and eat, or large prey worth {e2} J that take {h2} s. Find the profitability (energy per second of handling time) of each, to 1 decimal place.'
+  answers:
+    - {name: p1, label: 'Small prey (J/s)', tolerance: 0.06}
+    - {name: p2, label: 'Large prey (J/s)', tolerance: 0.06}
+  solution: |-
+    Profitability = energy ÷ handling time.
+
+    Small prey: $\dfrac{{e1:dp0}}{{h1:dp0}} =$ **{p1:num1} J/s**. Large prey: $\dfrac{{e2:dp0}}{{h2:dp0}} =$ **{p2:num1} J/s**.
+
+    Optimal foraging theory predicts a preference for the prey with the higher value, even if it is the smaller item.
+- id: bio-h-hamilton
+  title: Hamilton's rule
+  topic: Social behavior
+  vars:
+    rel: {choices: [{label: 'a full sibling', value: 0.5}, {label: 'a half sibling', value: 0.25}, {label: 'a first cousin', value: 0.125}, {label: 'a niece', value: 0.25}, {label: 'its own offspring', value: 0.5}]}
+    bb: {min: 1, max: 12}
+    cc: {choices: [0.5, 1, 1.5, 2, 3]}
+  calc:
+    rv: rel * 1
+    rb: rel * bb
+    net: rel * bb - cc
+  where: ['net != 0']
+  prompt: 'An animal can help {rel}, at a cost of $C = {cc}$ offspring of its own, giving the recipient $B = {bb}$ extra offspring. Give the coefficient of relatedness $r$ (as a fraction) and the value of $rB - C$. (Helping is favored when $rB - C$ is positive.)'
+  answers:
+    - {name: rv, label: '$r =$', kind: fraction, lowestTerms: true}
+    - {name: net, label: '$rB - C =$', tolerance: 0.01}
+  solution: |-
+    For {rel}, $r = {rv:texfrac}$.
+
+    $$rB - C = {rv:texfrac} \times {bb} - {cc} = {rb:num4} - {cc} = {net:num4}$$
+
+    So $rB - C =$ **{net:num4}**. A positive value means Hamilton's rule favors helping; a negative one means it doesn't.
+- id: bio-h-worker-relatedness
+  title: Relatedness of workers with a multiply mated queen
+  topic: Social behavior
+  vars:
+    n: {min: 1, max: 20}
+  calc:
+    rbar: 1/4 + 1/(2*n)
+    pn: 1/n
+  prompt: 'A honeybee queen mated with {n} drone(s), each fathering an equal share of her daughters. What is the average coefficient of relatedness between two of her worker daughters? Give an exact fraction.'
+  answers:
+    - {name: rbar, label: '$\bar r =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Two workers share a father with probability $\tfrac{1}{{n}}$ ($r = \tfrac34$); otherwise they are half sisters ($r = \tfrac14$).
+
+    $$\bar r = \frac{1}{{n}}\cdot\frac34 + \left(1 - \frac{1}{{n}}\right)\frac14 = \frac14 + \frac{1}{2 \times {n}} = {rbar:texfrac}$$
+
+    Average relatedness: **{rbar:frac}**.
+- id: bio-h-incidence-prevalence
+  title: Incidence, prevalence, and duration
+  topic: Epidemiology
+  vars:
+    pop: {choices: [20000, 40000, 50000, 80000, 100000, 200000]}
+    newc: {min: 10, max: 400, step: 10}
+    prevc: {min: 50, max: 4000, step: 50}
+  calc:
+    inc: newc / pop * 100000
+    prv: prevc / pop * 100000
+    dura: prevc / newc
+  where: ['dura >= 2', 'dura <= 20', 'inc == round(inc)', 'prv == round(prv)']
+  prompt: 'A city of {pop} people records {newc} new cases of a long-lasting disease in one year, and on one day in the middle of that year {prevc} residents have the disease. Find the incidence (per 100,000 per year), the prevalence (per 100,000), and the average duration of the disease in years, assuming a steady state.'
+  answers:
+    - {name: inc, label: 'Incidence (per 100,000 per year)', relTolerance: 0.01}
+    - {name: prv, label: 'Prevalence (per 100,000)', relTolerance: 0.01}
+    - {name: dura, label: 'Duration (years)', relTolerance: 0.01}
+  solution: |-
+    Incidence: $\dfrac{{newc:dp0}}{{pop:dp0}} \times 100{,}000 =$ **{inc} per 100,000 per year**.
+
+    Prevalence: $\dfrac{{prevc:dp0}}{{pop:dp0}} \times 100{,}000 =$ **{prv} per 100,000**.
+
+    Duration ≈ prevalence ÷ incidence $= \dfrac{{prv:dp0}}{{inc:dp0}} =$ **{dura:num2} years**.
+- id: bio-h-sir-step
+  title: One day of an SIR model
+  topic: Epidemiology
+  vars:
+    nn: {choices: [1000, 2000, 5000, 10000]}
+    ifr: {choices: [0.01, 0.02, 0.05, 0.1]}
+    rfr: {choices: [0, 0.1, 0.2, 0.3]}
+    beta: {choices: [0.2, 0.25, 0.3, 0.4, 0.5]}
+    gam: {choices: [0.1, 0.2, 0.25]}
+  calc:
+    ii: nn * ifr
+    rr: nn * rfr
+    ss: nn - ii - rr
+    r0: beta / gam
+    re: r0 * ss / nn
+    newi: beta * ss * ii / nn
+    rec: gam * ii
+    ii1: ii + newi - rec
+  prompt: 'A town of {nn} people has $S = {ss:dp0}$ susceptible, $I = {ii:dp0}$ infectious and $R = {rr:dp0}$ removed. The infection has $\beta = {beta}$ per day and $\gamma = {gam}$ per day. Find $R_e$ now (2 decimals), the number of new infections in the next day, and $I$ one day later.'
+  answers:
+    - {name: re, label: '$R_e =$', tolerance: 0.006}
+    - {name: newi, label: 'New infections', relTolerance: 0.01}
+    - {name: ii1, label: '$I$ next day', relTolerance: 0.01}
+  solution: |-
+    $R_0 = \beta/\gamma = {beta}/{gam} = {r0:num2}$, and $R_e = R_0 \times \dfrac{S}{N} = {r0:num2} \times \dfrac{{ss:dp0}}{{nn:dp0}} =$ **{re:num2}**.
+
+    New infections $= \dfrac{\beta S I}{N} = \dfrac{{beta} \times {ss:dp0} \times {ii:dp0}}{{nn:dp0}} =$ **{newi:num1}**.
+
+    Recoveries $= \gamma I = {gam} \times {ii:dp0} = {rec:num1}$, so $I$ becomes ${ii:dp0} + {newi:num1} - {rec:num1} =$ **{ii1:num1}**.
+- id: bio-h-relative-risk
+  title: Attack rates and relative risk
+  topic: Epidemiology
+  vars:
+    ea: {choices: [20, 40, 50, 60, 80, 100]}
+    ia: {min: 4, max: 90}
+    na: {choices: [10, 20, 25, 40, 50]}
+    ib: {min: 1, max: 20}
+  calc:
+    ara: ia / ea * 100
+    arb: ib / na * 100
+    rsk: ara / arb
+  where: ['ia < ea', 'ib < na', 'ara > arb', 'ara == round(ara)', 'arb == round(arb)']
+  prompt: 'After a banquet, {ia} of the {ea} guests who ate the shrimp became ill, and {ib} of the {na} guests who did not eat it became ill. Find the attack rate in each group (as a percent, without the % sign) and the relative risk for eating the shrimp (2 decimals).'
+  answers:
+    - {name: ara, label: 'Attack rate, ate (%)', tolerance: 0.5}
+    - {name: arb, label: 'Attack rate, did not eat (%)', tolerance: 0.5}
+    - {name: rsk, label: 'Relative risk', relTolerance: 0.01}
+  solution: |-
+    Ate: $\dfrac{{ia}}{{ea}} \times 100 =$ **{ara:dp0}%**. Did not eat: $\dfrac{{ib}}{{na}} \times 100 =$ **{arb:dp0}%**.
+
+    Relative risk $= \dfrac{{ara:dp0}}{{arb:dp0}} =$ **{rsk:num2}**. The further above 1, the stronger the link between the food and the illness.
+- id: bio-h-species-area
+  title: Species-area predictions
+  topic: Conservation biology
+  vars:
+    s0: {min: 50, max: 400, step: 10}
+    keep: {choices: [50, 25, 20, 10, 5]}
+    z: {choices: [0.15, 0.2, 0.25, 0.3, 0.35]}
+  calc:
+    fr: keep / 100
+    fac: fr^z
+    s1: s0 * fr^z
+    lost: s0 - s0 * fr^z
+  prompt: 'A habitat holds {s0} species of beetles. Clearing leaves only {keep}% of its original area. Using $S = cA^z$ with $z = {z}$, how many species should it eventually support, and how many will be lost? (Round to whole species.)'
+  answers:
+    - {name: s1, label: 'Species remaining', tolerance: 0.6}
+    - {name: lost, label: 'Species lost', tolerance: 0.6}
+  solution: |-
+    The constant $c$ cancels: $\dfrac{S_{\text{new}}}{S_{\text{old}}} = \left(\dfrac{A_{\text{new}}}{A_{\text{old}}}\right)^z = {fr}^{{z}} = {fac:num4}$.
+
+    $S_{\text{new}} = {s0} \times {fac:num4} = {s1:num1}$, about **{s1:dp0} species**, so about **{lost:dp0}** are eventually lost.
+- id: bio-h-core-area
+  title: Core area of habitat fragments
+  topic: Conservation biology
+  vars:
+    tot: {choices: [36, 64, 100, 144, 196, 256, 400]}
+    nb: {choices: [{label: 'one square block', value: 1}, {label: 'four equal square blocks', value: 4}]}
+    dd: {choices: [50, 100, 150]}
+  calc:
+    each: tot / nb
+    side: 100 * sqrt(tot / nb)
+    inner: side - 2 * dd
+    inner2: inner^2
+    core: nb * inner^2 / 10000
+    pc: 100 * core / tot
+  where: ['inner >= 50']
+  prompt: 'A reserve of {tot} hectares (1 ha = 10,000 m²) is protected as {nb}. Edge effects reach {dd} m into the habitat. How many hectares of core habitat are there in total, and what percent of the reserve is core? (Percent to 1 decimal place.)'
+  answers:
+    - {name: core, label: 'Core area (ha)', relTolerance: 0.005}
+    - {name: pc, label: 'Core (%)', tolerance: 0.06}
+  solution: |-
+    Each block is {each:dp0} ha $= {each:dp0} \times 10{,}000$ m², so its side is $\sqrt{{each:dp0} \times 10{,}000} = {side:dp0}$ m.
+
+    Removing a {dd} m edge on every side leaves a core ${side:dp0} - 2 \times {dd} = {inner:dp0}$ m on a side, or ${inner:dp0}^2 = {inner2:dp0}$ m² per block.
+
+    Total core: **{core} ha**, which is $\dfrac{{core}}{{tot}} \times 100 =$ **{pc:num1}%** of the reserve.
+- id: bio-h-heterozygosity
+  title: Effective population size and lost heterozygosity
+  topic: Conservation biology
+  vars:
+    nm: {min: 2, max: 30}
+    nf: {min: 2, max: 60}
+    t: {choices: [5, 10, 20, 50]}
+  calc:
+    ne: 4 * nm * nf / (nm + nf)
+    keepf: (1 - 1 / (2 * ne))^t
+    pk: 100 * keepf
+  where: ['nm != nf', 'ne == round(ne, 1)']
+  prompt: 'A small population breeds from {nm} males and {nf} females. Find its effective population size $N_e$, and the percent of its heterozygosity that remains after {t} generations, using $H_t = H_0\left(1 - \frac{1}{2N_e}\right)^t$. (Percent to 1 decimal place.)'
+  answers:
+    - {name: ne, label: '$N_e =$', tolerance: 0.06}
+    - {name: pk, label: 'Heterozygosity left (%)', tolerance: 0.15}
+  solution: |-
+    $$N_e = \frac{4N_mN_f}{N_m + N_f} = \frac{4 \times {nm} \times {nf}}{{nm} + {nf}} = {ne:num1}$$
+
+    $$\frac{H_{{t}}}{H_0} = \left(1 - \frac{1}{2 \times {ne:num1}}\right)^{{t}} = {keepf:num4}$$
+
+    So $N_e =$ **{ne:num1}** and about **{pk:num1}%** of the heterozygosity remains.

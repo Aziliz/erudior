@@ -21,6 +21,10 @@ Cells build polymers by **dehydration synthesis**: two monomers are joined by a 
 
 The bookkeeping is simple. Joining $n$ monomers in a single chain makes $n - 1$ bonds, so it releases $n - 1$ water molecules. Breaking the chain back into monomers uses $n - 1$ water molecules.
 
+![Two ring-shaped monomers, numbered 1 and 2. Monomer 1 carries an OH group and monomer 2 an H, highlighted together. An arrow pointing right, labeled dehydration synthesis (builds; releases water), leads to the two rings joined through an oxygen atom, plus a separate water molecule. An arrow pointing back left is labeled hydrolysis (breaks; adds water).](images/m1-dehydration.svg)
+
+The diagram shows where the water comes from: an –OH from one monomer and an –H from the other leave as H₂O. Hydrolysis runs the reaction backward.
+
 ### Example 1: Counting water and mass
 
 Glucose has a molar mass of 180 g/mol and water 18 g/mol. (a) What is the molar mass of a disaccharide made from two glucose molecules? (b) A short chain of 10 glucose units is built by dehydration synthesis. How many water molecules are released, and what is the mass of the chain?
@@ -53,6 +57,10 @@ A **lipid** is a member of a diverse group of molecules that are mostly nonpolar
 
 A **protein** is a polymer of amino acids folded into a specific three-dimensional shape. An **amino acid** has a central carbon bonded to an amino group (–NH₂), a carboxyl group (–COOH), a hydrogen and a side chain called the R group. Twenty different R groups, some polar, some nonpolar, some charged, give the 20 common amino acids their different properties. Amino acids join by dehydration synthesis; the bond between them is a peptide bond, and a chain of amino acids is a polypeptide. Proteins contain C, H, O and N, and most also contain sulfur.
 
+![The general structure of an amino acid: a central carbon atom bonded to a hydrogen above, an H2N amino group on the left, a COOH carboxyl group on the right (a carbon double-bonded to O and bonded to OH), and an R group, the side chain, below. Labels name each part and note that the R group differs among the 20 amino acids.](images/m1-amino-acid.svg)
+
+The picture labels the four groups attached to the central carbon. Only the R group changes from one amino acid to another. When two join, the carboxyl group of one meets the amino group of the next and a water leaves, as in the diagram above.
+
 Proteins do more kinds of jobs than any other class: enzymes speed up reactions, hemoglobin carries oxygen, antibodies fight infection, collagen gives structure, actin and myosin move muscles, and insulin carries signals.
 
 A protein's job depends on its shape, which is described at four levels:
@@ -61,6 +69,10 @@ A protein's job depends on its shape, which is described at four levels:
 2. *Secondary structure*: local coils (α helices) and folded sheets (β sheets), held by hydrogen bonds along the backbone.
 3. *Tertiary structure*: the overall 3-D fold of one chain, held by interactions between R groups.
 4. *Quaternary structure*: two or more chains assembled together. Hemoglobin has four.
+
+![A four-panel diagram. Panel 1, primary: a chain of beads labeled Met, Ala, Lys, Gly, Leu, Ser, Cys, joined by peptide bonds. Panel 2, secondary: a coiled alpha helix and a beta sheet of three side-by-side arrows linked by dashed hydrogen bonds. Panel 3, tertiary: one chain, including a helix and a strand, folded into a compact shape. Panel 4, quaternary: four subunits, two alpha and two beta, packed together as in hemoglobin.](images/m1-protein-levels.svg)
+
+In the picture, each level is built from the one before it.
 
 How do we know the sequence determines the shape? In the late 1950s Christian Anfinsen treated the enzyme ribonuclease with chemicals that broke its internal bonds and unfolded it completely; it lost all activity. When he slowly removed the chemicals, the chains refolded on their own into the correct shape, and nearly all the activity returned. No other information was present, so the amino acid sequence alone must hold the instructions for folding. A single change in sequence can matter enormously: in sickle cell disease, one amino acid substitution in hemoglobin changes how the molecules stack, distorting red blood cells.
 

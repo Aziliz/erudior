@@ -52,6 +52,10 @@ A volcanic ash layer contains 25% of its original potassium-40. A fossil lies ju
 
 **Homologous structures** are body parts that share an underlying structure because they were inherited from a common ancestor, even if they now do different jobs. The forelimbs of a human (grasping), a cat (walking), a whale (swimming) and a bat (flying) all have one upper-arm bone, two forearm bones, a group of wrist bones and five sets of finger bones. An engineer designing each limb from scratch would not use the same parts list; shared ancestry explains it.
 
+The figure colors the matching bones: the upper-arm bone (humerus), the two forearm bones (radius and ulna), the wrist bones (carpals), and the palm and finger bones (metacarpals and phalanges). Sizes and shapes differ enormously, from the bat's long, thin fingers to the whale's short, flat forearm, but the parts and their order from shoulder to fingertip are the same.
+
+![The forelimbs of a human, a cat, a whale and a bat drawn side by side, with the upper-arm bone in blue, the two forearm bones in green, the wrist bones in yellow and the palm and finger bones in pink. The whale's bones are short and enclosed in a flipper; the bat's finger bones are very long and support a wing membrane.](images/m7-forelimbs.svg)
+
 **Analogous structures** do similar jobs but are built differently and evolved separately. Bird wings and insect wings both fly, but a bird wing is a modified forelimb with bones and feathers, while an insect wing is a thin outgrowth of the body wall. Similar environments can shape unrelated lineages in similar ways, a pattern called convergent evolution. Analogous structures are evidence for natural selection, but not of close relationship.
 
 **Vestigial structures** are reduced remnants of parts that were functional in ancestors. Some whales and snakes have tiny hip bones not attached to any leg. Humans have a tailbone and small muscles that once moved the ears. "Vestigial" doesn't always mean useless (a tailbone anchors muscles); it means much reduced from its ancestral role.

@@ -43,7 +43,9 @@ Because metabolism is so central, it is what scientists look for when they hunt 
 
 ## Levels of organization
 
-Life is organized in a hierarchy, each level built from the one below.
+Life is organized in a hierarchy, each level built from the one below. The picture runs through the twelve levels in order, and the table gives an example of each.
+
+![Twelve numbered tiles, read left to right and top to bottom: 1 atom, 2 molecule (a water molecule), 3 organelle (a mitochondrion), 4 cell, 5 tissue (a sheet of similar cells), 6 organ (a heart), 7 organ system (a heart inside a loop of vessels), 8 organism (one person), 9 population (three people), 10 community (a tree, an animal, a mushroom and a person), 11 ecosystem (living things with sun, water and ground), 12 biosphere (the globe).](images/m1-levels.svg)
 
 | Level | What it is | Example |
 |---|---|---|
@@ -87,7 +89,18 @@ That is why biologists study every level: knowing every molecule in a cell does 
 
 ## Homeostasis in action
 
-Homeostasis usually works by negative feedback: a change triggers a response that pushes the condition back toward its set point. (Module 9 studies feedback in detail; here you only need the idea.)
+Homeostasis usually works by negative feedback: a change triggers a response that pushes the condition back toward its set point. (Module 9 studies feedback in detail; here you only need the idea.) The diagram traces the loop for body temperature on a hot day: the response (sweating) undoes the change that triggered it, and as the temperature returns to normal the response winds down.
+
+```mermaid
+flowchart TD
+  accTitle: Negative feedback keeps body temperature near its set point
+  accDescr: A loop of five steps. Body temperature rises above the set point of about 37 °C. Sensors in the skin and brain detect the rise. The brain signals the sweat glands to release more sweat. Sweat evaporates and carries heat away. Temperature falls back toward the set point, the sensors detect the return, and sweating slows. The response opposes the change that triggered it.
+  A["Stimulus: body temperature rises above about 37 °C"] --> B["Sensors in skin and brain detect the rise"]
+  B --> C["Control center: the brain signals sweat glands"]
+  C --> D["Response: sweat evaporates and carries heat away"]
+  D --> E["Temperature falls back toward the set point"]
+  E -- "sensors detect the return; sweating slows" --> B
+```
 
 ### Example 3: Reading homeostasis data
 

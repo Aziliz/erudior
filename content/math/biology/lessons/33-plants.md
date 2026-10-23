@@ -33,6 +33,17 @@ Plant life cycles have a twist that animal life cycles lack. In **alternation of
 - the gametophyte, which is haploid and makes gametes (egg and sperm) by mitosis;
 - the sporophyte, which is diploid and makes haploid spores by meiosis.
 
+```mermaid
+flowchart TD
+  accTitle: Alternation of generations in plants
+  accDescr: A diploid sporophyte makes haploid spores by meiosis. Each spore grows by mitosis into a haploid gametophyte, which makes eggs and sperm by mitosis. An egg and a sperm fuse at fertilization to form a diploid zygote, which grows by mitosis into a new sporophyte, completing the cycle.
+  SP["Sporophyte (2n)"] -- meiosis --> S["Spores (n)"]
+  S -- mitosis --> G["Gametophyte (n)"]
+  G -- mitosis --> GA["Egg and sperm (n)"]
+  GA -- fertilization --> Z["Zygote (2n)"]
+  Z -- mitosis --> SP
+```
+
 A spore grows into a gametophyte; gametes fuse into a zygote, which grows into a sporophyte, which makes spores, and the cycle repeats. Over plant evolution, the sporophyte became dominant. In a moss, the green carpet is the gametophyte, and the sporophyte is a small stalk growing out of it. In a fern, the leafy plant is the sporophyte. In seed plants, the gametophytes have shrunk to a few cells: a pollen grain is a male gametophyte, and the female gametophyte lives inside the ovule.
 
 ## How a plant is built
@@ -45,6 +56,10 @@ Running through all three is vascular tissue of two kinds:
 - **Phloem** carries sugars and other organic molecules from where they are made or stored (a source, such as a mature leaf) to where they are used or stored (a sink, such as a root, fruit or growing tip). Its conducting cells, sieve-tube elements, are alive. Phloem flow can go up or down.
 
 On a leaf's surface, mostly underneath, are **stomata** (singular stoma): pores, each between two guard cells. When guard cells take up water and swell, they bow apart and the pore opens; when they lose water, it closes. Stomata let carbon dioxide in for photosynthesis, but every open stoma also lets water vapor out. Plants constantly trade water for carbon.
+
+A cross-section of a leaf shows how these parts fit together. Under a waxy cuticle and a clear upper epidermis, tall palisade cells packed with chloroplasts catch most of the light. Below them, loosely packed spongy mesophyll cells are surrounded by air spaces that connect to the stomata, so carbon dioxide can diffuse to every cell. A vein runs through the middle, with xylem on the upper side and phloem below.
+
+![Cross-section of a leaf, labeled from top to bottom: cuticle, upper epidermis, palisade mesophyll, spongy mesophyll with air spaces, a vein containing xylem and phloem, and the lower epidermis with a stoma between two guard cells.](images/m8-leaf.svg)
 
 ## How water reaches the top of a tree
 
@@ -83,7 +98,9 @@ Remember to halve the diameter; using 0.40 mm as the radius makes the area four 
 
 ## Plant reproduction
 
-In a flower, the male parts are stamens, each an anther (which makes pollen) on a stalk called a filament. The female part is the carpel (or pistil): a sticky stigma that catches pollen, a style, and an ovary containing ovules. Petals often attract animals.
+In a flower, the male parts are stamens, each an anther (which makes pollen) on a stalk called a filament. The female part is the carpel (or pistil): a sticky stigma that catches pollen, a style, and an ovary containing ovules. Petals often attract animals. The drawing shows a flower cut in half lengthwise.
+
+![A flower cut lengthwise, labeled: anther and filament (together the stamen); stigma, style and ovary with ovules inside (together the carpel); petals, sepals and the receptacle at the top of the stem.](images/m8-flower.svg)
 
 **Pollination** is the transfer of pollen from anther to stigma, by wind, insects, birds, bats or water. A pollen grain on a compatible stigma grows a tube down through the style to an ovule, and its sperm cells travel down the tube. Angiosperms then undergo double fertilization: one sperm fertilizes the egg to form the diploid zygote, and the other joins two other nuclei to form triploid endosperm, the seed's food store. The ovule becomes the seed and the ovary wall becomes the fruit. That's why a tomato, a cucumber and a bean pod are botanically fruits: each holds seeds and grew from an ovary.
 

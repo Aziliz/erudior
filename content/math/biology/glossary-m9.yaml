@@ -104,3 +104,154 @@
 - term: herd immunity
   definition: 'Protection of a whole population when enough people are immune that a pathogen cannot keep spreading; threshold $1 - 1/R_0$.'
   topic: Immune system
+# ---- m9 honors: neurons
+- term: sodium-potassium pump
+  aliases: [Na⁺/K⁺ pump, sodium-potassium pumps]
+  definition: 'A membrane protein that uses one ATP to move 3 Na⁺ out of a cell and 2 K⁺ in, maintaining the ion gradients that neurons rely on.'
+  topic: Action potential
+- term: equilibrium potential
+  aliases: [equilibrium potentials]
+  definition: 'The membrane voltage at which the electrical pull on an ion exactly balances its concentration gradient, so there is no net flow; given by the Nernst equation.'
+  topic: Action potential
+- term: Nernst equation
+  definition: 'The formula for an ion''s equilibrium potential: at 37 °C, $E = \dfrac{61.5 \text{ mV}}{z}\log_{10}\dfrac{[\text{out}]}{[\text{in}]}$.'
+  topic: Action potential
+- term: voltage-gated channel
+  aliases: [voltage-gated channels]
+  definition: 'An ion channel that opens or closes in response to the membrane voltage, such as the Na⁺ and K⁺ channels that produce the action potential.'
+  topic: Action potential
+- term: threshold
+  aliases: [threshold potential]
+  definition: 'In a neuron, the membrane voltage (about −55 mV) at which enough voltage-gated Na⁺ channels open to fire an action potential.'
+  topic: Action potential
+- term: depolarization
+  aliases: [depolarize, depolarized]
+  definition: 'A change that makes the inside of a cell less negative, moving the membrane potential toward zero or above.'
+  topic: Action potential
+- term: repolarization
+  definition: 'The falling phase of an action potential, when Na⁺ channels inactivate and K⁺ flows out, returning the inside to a negative voltage.'
+  topic: Action potential
+- term: hyperpolarization
+  aliases: [undershoot]
+  definition: 'A change that makes the inside of a cell more negative than rest, as in the undershoot after an action potential.'
+  topic: Action potential
+- term: refractory period
+  aliases: [refractory periods, absolute refractory period, relative refractory period]
+  definition: 'The time after an action potential when a second one cannot fire (absolute) or needs a stronger stimulus (relative); it makes conduction one-way.'
+  topic: Action potential
+- term: myelin
+  aliases: [myelin sheath]
+  definition: 'Layers of insulating membrane wrapped around an axon by Schwann cells or oligodendrocytes, which greatly speed conduction.'
+  topic: Action potential
+- term: node of Ranvier
+  aliases: [nodes of Ranvier]
+  definition: 'A short gap between myelin segments, rich in voltage-gated Na⁺ channels, where the action potential is regenerated.'
+  topic: Action potential
+- term: saltatory conduction
+  definition: 'Fast conduction along a myelinated axon in which the action potential is regenerated only at the nodes of Ranvier.'
+  topic: Action potential
+- term: reuptake
+  definition: 'Removal of a neurotransmitter from the synaptic cleft by transporter proteins that carry it back into the axon terminal.'
+  topic: Synapses
+- term: excitatory postsynaptic potential
+  aliases: [EPSP, EPSPs, excitatory postsynaptic potential (EPSP)]
+  definition: 'EPSP: a small depolarization of a postsynaptic cell, usually from Na⁺ entry, that brings it closer to threshold.'
+  topic: Synapses
+- term: inhibitory postsynaptic potential
+  aliases: [IPSP, IPSPs, inhibitory postsynaptic potential (IPSP)]
+  definition: 'IPSP: a small hyperpolarization of a postsynaptic cell, for example from Cl⁻ entry, that moves it away from threshold.'
+  topic: Synapses
+- term: summation
+  aliases: [temporal summation, spatial summation]
+  definition: 'The adding together of postsynaptic potentials arriving close together in time (temporal) or at many synapses at once (spatial).'
+  topic: Synapses
+# ---- m9 honors: immunology
+- term: clonal selection
+  definition: 'The selection and multiplication of the few lymphocytes whose pre-made receptors match an antigen, producing a clone of effector and memory cells.'
+  topic: Adaptive immunity
+- term: V(D)J recombination
+  aliases: [VDJ recombination]
+  definition: 'The cutting and rejoining of gene segments in developing lymphocytes that assembles a unique antibody or T-cell receptor gene in each cell.'
+  topic: Adaptive immunity
+- term: heavy chain
+  aliases: [heavy chains]
+  definition: 'One of the two larger polypeptides of an antibody; they form the stem and part of each arm, and their constant region sets the antibody class.'
+  topic: Adaptive immunity
+- term: light chain
+  aliases: [light chains]
+  definition: 'One of the two smaller polypeptides of an antibody, lying along the outside of each arm (kappa or lambda type).'
+  topic: Adaptive immunity
+- term: variable region
+  aliases: [variable regions]
+  definition: 'The tip of an antibody chain, whose sequence differs between antibodies; heavy and light variable regions form the antigen-binding site.'
+  topic: Adaptive immunity
+- term: constant region
+  aliases: [constant regions]
+  definition: 'The part of an antibody chain that is the same in all antibodies of a class; the heavy-chain constant region decides what the antibody does.'
+  topic: Adaptive immunity
+- term: antibody class
+  aliases: [antibody classes, isotype, IgM, IgG, IgA, IgE, IgD]
+  definition: 'One of the five kinds of antibody (IgM, IgG, IgA, IgE, IgD), defined by the heavy-chain constant region and differing in form and function.'
+  topic: Adaptive immunity
+- term: class switching
+  definition: 'A change in the antibody class a B cell makes (for example IgM to IgG), keeping the same variable region and so the same antigen.'
+  topic: Adaptive immunity
+- term: major histocompatibility complex
+  aliases: [MHC, HLA, major histocompatibility complex (MHC)]
+  definition: 'MHC: genes for cell-surface proteins that display peptides to T cells; class I on nearly all nucleated cells, class II on antigen-presenting cells.'
+  topic: Adaptive immunity
+- term: antigen-presenting cell
+  aliases: [antigen-presenting cells]
+  definition: 'A cell such as a dendritic cell, macrophage or B cell that engulfs antigen and displays its peptides on MHC class II to helper T cells.'
+  topic: Adaptive immunity
+- term: cytokine
+  aliases: [cytokines]
+  definition: 'A small signaling protein released by immune cells, such as helper T cells, that activates or directs other cells.'
+  topic: Adaptive immunity
+- term: cytotoxic T cell
+  aliases: [cytotoxic T cells, killer T cell, killer T cells]
+  definition: 'A CD8 T cell that recognizes foreign peptides on MHC class I and kills the infected or abnormal cell, using perforin and granzymes.'
+  topic: Adaptive immunity
+- term: helper T cell
+  aliases: [helper T cells]
+  definition: 'A CD4 T cell that recognizes peptides on MHC class II and releases cytokines that activate B cells, cytotoxic T cells and macrophages.'
+  topic: Adaptive immunity
+- term: passive immunity
+  definition: 'Short-lived protection from antibodies made by another person or source (across the placenta, in breast milk, or given as treatment); no memory forms.'
+  topic: Vaccines
+# ---- m9 honors: endocrine
+- term: peptide hormone
+  aliases: [peptide hormones]
+  definition: 'A water-soluble hormone made of amino acids, such as insulin or ADH, that binds a receptor on the target cell''s surface.'
+  topic: Hormone signaling
+- term: steroid hormone
+  aliases: [steroid hormones]
+  definition: 'A lipid-soluble hormone made from cholesterol, such as cortisol or estrogen, that enters the cell and binds an internal receptor to change gene expression.'
+  topic: Hormone signaling
+- term: hypothalamus
+  definition: 'A small region at the base of the brain that senses conditions in the blood and controls the pituitary, body temperature, thirst and more.'
+  topic: Hormone signaling
+- term: anterior pituitary
+  definition: 'The front lobe of the pituitary, a true gland controlled by hypothalamic releasing hormones; it secretes TSH, ACTH, LH, FSH, growth hormone and prolactin.'
+  topic: Hormone signaling
+- term: posterior pituitary
+  definition: 'The back lobe of the pituitary, an extension of the brain that releases ADH and oxytocin made by hypothalamic neurons.'
+  topic: Hormone signaling
+- term: tropic hormone
+  aliases: [tropic hormones]
+  definition: 'A hormone whose target is another endocrine gland, such as TSH acting on the thyroid.'
+  topic: Hormone signaling
+- term: GLUT4
+  definition: 'The insulin-regulated glucose transporter of muscle and fat cells; insulin moves it from internal vesicles into the plasma membrane.'
+  topic: Glucose regulation
+- term: antidiuretic hormone
+  aliases: [ADH, vasopressin, antidiuretic hormone (ADH)]
+  definition: 'ADH: a hormone made in the hypothalamus and released from the posterior pituitary that makes the kidney''s collecting ducts reabsorb more water.'
+  topic: Hormone signaling
+- term: aquaporin
+  aliases: [aquaporins]
+  definition: 'A membrane channel protein that lets water cross the membrane quickly; ADH adds aquaporins to collecting-duct cells.'
+  topic: Hormone signaling
+- term: diabetes insipidus
+  definition: 'A condition in which ADH is lacking (central) or the kidney cannot respond to it (nephrogenic), so large volumes of dilute urine are made.'
+  topic: Hormone signaling

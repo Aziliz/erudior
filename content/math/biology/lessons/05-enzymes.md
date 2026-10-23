@@ -40,6 +40,10 @@ The steps are:
 3. The reaction occurs and the products are released.
 4. The enzyme is free to bind another substrate.
 
+![Three panels connected by arrows. Panel 1, substrate meets active site: a substrate shaped like a wedge sits above a matching notch, the active site, in a larger enzyme. Panel 2, enzyme-substrate complex: the substrate sits in the active site, whose edges have closed around it (induced fit). Panel 3, products released: the substrate has split into two pieces that move away, and the enzyme is unchanged and ready to act again.](images/m1-induced-fit.svg)
+
+The picture follows one trip around this cycle. Notice that the enzyme in panel 3 is identical to the one in panel 1: that is what it means for a catalyst not to be used up.
+
 Many enzymes need a helper to work: a *cofactor* such as a metal ion (zinc, magnesium, iron) or an organic *coenzyme*, many of which come from vitamins. That is one reason vitamins are needed in the diet.
 
 ## Measuring enzyme activity
@@ -95,7 +99,20 @@ An **inhibitor** is a molecule that reduces an enzyme's activity.
 - A *competitive inhibitor* resembles the substrate and binds the active site, blocking it. Because inhibitor and substrate compete for the same spot, flooding the reaction with substrate can outcompete the inhibitor and restore nearly the full maximum rate.
 - A *noncompetitive inhibitor* binds elsewhere on the enzyme and changes its shape so the active site works poorly. Adding more substrate does not help, because the problem is not competition for the site.
 
-Cells use inhibition to regulate themselves. In *feedback inhibition*, the end product of a chain of reactions inhibits an enzyme early in the chain, so the cell stops making a product when it has enough. Many drugs and poisons are inhibitors: ibuprofen blocks an enzyme that makes inflammation signals, and some nerve agents and insecticides block an enzyme needed by nerves.
+Cells use inhibition to regulate themselves. In *feedback inhibition*, the end product of a chain of reactions inhibits an enzyme early in the chain, so the cell stops making a product when it has enough. The diagram shows the pattern: product D, three steps away, shuts down enzyme 1.
+
+```mermaid
+flowchart LR
+  accTitle: Feedback inhibition of a metabolic pathway
+  accDescr: Enzyme 1 converts a starting molecule A into B, enzyme 2 converts B into C, and enzyme 3 converts C into the end product D. When D builds up, it binds enzyme 1 and inhibits it, slowing the whole pathway so the cell stops making D when it has enough.
+  A["A"] --> E1{{"Enzyme 1"}}
+  E1 --> B["B"]
+  B -- "enzyme 2" --> C["C"]
+  C -- "enzyme 3" --> D["End product D"]
+  D -. "inhibits" .-> E1
+```
+
+Many drugs and poisons are inhibitors: ibuprofen blocks an enzyme that makes inflammation signals, and some nerve agents and insecticides block an enzyme needed by nerves.
 
 ```plot
 {"x": [0, 30], "y": [0, 110], "xLabel": "substrate concentration", "yLabel": "reaction rate", "functions": [{"f": "100*x/(2+x)", "label": "no inhibitor"}, {"f": "100*x/(8+x)", "label": "competitive inhibitor", "dashed": true}, {"f": "50*x/(2+x)", "label": "noncompetitive inhibitor", "dashed": true}], "caption": "Extra substrate overcomes a competitive inhibitor but not a noncompetitive one"}
