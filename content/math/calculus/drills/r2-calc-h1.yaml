@@ -81,7 +81,7 @@
     c1: cc + bb
   prompt: 'Let $a_1 = 1$ and $a_{n+1} = \sqrt{{cc} {bb:signedcoef}a_n}$. This sequence is increasing and bounded above, so it converges. Find $a_3$ (to 3 decimal places) and the limit $L$.'
   answers:
-    - {name: a3, label: '$a_3 \approx$', tolerance: 0.0006}
+    - {name: a3, label: '$a_3 \approx$', format: dp3, tolerance: 0.0006}
     - {name: L, label: '$L =$', tolerance: 0.000001}
   solution: |-
     $a_2 = \sqrt{{cc} + {bb}\cdot 1} = \sqrt{{c1}} \approx {a2:dp3}$, and $a_3 = \sqrt{{cc} {bb:signedcoef}a_2} \approx$ **{a3:dp3}** (keep the unrounded $a_2$).

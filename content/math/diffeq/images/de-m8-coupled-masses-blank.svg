@@ -44,5 +44,7 @@
 <line x1="435" y1="238" x2="435" y2="258" stroke="#1c2833" stroke-width="2"/>
 <text x="258" y="282" text-anchor="middle" font-size="16">x₁</text>
 <text x="468" y="282" text-anchor="middle" font-size="16">x₂</text>
+<text x="225" y="162" text-anchor="middle" font-size="20" font-weight="bold">m₁</text>
+<text x="435" y="162" text-anchor="middle" font-size="20" font-weight="bold">m₂</text>
 <text x="330" y="22" text-anchor="middle" font-size="15">Displacements are measured from equilibrium, right is positive.</text>
 </svg>

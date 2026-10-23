@@ -235,8 +235,8 @@
   lesson: de-m4-h-harvesting
   topic: Harvesting models
   stem: 'A stock follows $P'' = 0.5P\left(1 - \dfrac{P}{800}\right) - 0.2P$ (constant effort). What is its stable equilibrium?'
-  choices: ['$P^* = 480$', '$P^* = 320$', '$P^* = 640$', '$P^* = 160$']
-  answer: 0
+  choices: ['$P^* = 320$', '$P^* = 640$', '$P^* = 480$', '$P^* = 160$']
+  answer: 2
   explanation: |-
     $P^* = K(1 - E/r) = 800(1 - 0.2/0.5) = 800(0.6) = 480$. The value 320 is $800 \cdot 0.4$, using $E/r$ instead of $1 - E/r$; 640 is $800(1 - 0.2)$, forgetting to divide by $r$; 160 is $800 \cdot 0.2$.
 - id: de-m4-r2-h02
@@ -251,8 +251,8 @@
   lesson: de-m4-h-harvesting
   topic: Harvesting models
   stem: 'For $r = 0.6$ and $K = 1000$ with constant-effort harvesting, which effort maximizes the sustainable yield, and what is that yield?'
-  choices: ['$E = 0.3$, $Y = 150$', '$E = 0.6$, $Y = 150$', '$E = 0.3$, $Y = 300$', '$E = 0.15$, $Y = 112.5$']
-  answer: 0
+  choices: ['$E = 0.6$, $Y = 150$', '$E = 0.3$, $Y = 150$', '$E = 0.3$, $Y = 300$', '$E = 0.15$, $Y = 112.5$']
+  answer: 1
   explanation: |-
     $Y(E) = EK(1 - E/r)$ peaks at $E = r/2 = 0.3$, where $P^* = K/2 = 500$ and $Y = 0.3 \times 500 = 150 = rK/4$. At $E = r = 0.6$ the stock is driven to zero, so the yield there is 0. $Y = 300$ forgets that the stock at MSY is $K/2$, not $K$. $E = 0.15$ gives only $0.15 \times 750 = 112.5$.
 - id: de-m4-r2-h04
@@ -267,8 +267,8 @@
   lesson: de-m4-h-harvesting
   topic: Harvesting models
   stem: 'A stock with $r = 1.2$ per year is fished with constant effort $E = 0.7$ per year. What is the return time of its stable equilibrium?'
-  choices: ['2 years', '0.83 years', '1.43 years', '0.5 years']
-  answer: 0
+  choices: ['0.83 years', '1.43 years', '0.5 years', '2 years']
+  answer: 3
   explanation: |-
     $f'(P^*) = -(r - E) = -0.5$, so $T_R = 1/0.5 = 2$ years. 0.83 is $1/r$ (no fishing), 1.43 is $1/E$, and 0.5 is $r - E$ itself rather than its reciprocal.
 - id: de-m4-r2-h06
@@ -319,8 +319,8 @@
   lesson: de-m4-h-harvesting
   topic: Harvesting models
   stem: 'With $r = 1$ and $K = 100$, a quota $h = 21$ and an effort $E = 0.3$ both settle at $P^* = 70$ with yield 21. A disease then cuts the stock to 25. What happens?'
-  choices: ['Under the quota it collapses; under the effort it recovers to 70', 'Under both policies it recovers to 70', 'Under the quota it recovers; under the effort it collapses', 'Under both policies it collapses']
-  answer: 0
+  choices: ['Under both policies it recovers to 70', 'Under the quota it recovers; under the effort it collapses', 'Under the quota it collapses; under the effort it recovers to 70', 'Under both policies it collapses']
+  answer: 2
   explanation: |-
     Quota: the equilibria are $50 \pm 20$, so the threshold is 30. At 25, $f = 25 - 6.25 - 21 = -2.25 < 0$: the stock keeps falling. Effort: $f(25) = 25(0.75) - 0.3(25) = 11.25 > 0$, and the model is logistic with capacity 70, so it recovers. The smaller stock means a smaller catch under effort control.
 - id: de-m4-r2-h11
@@ -335,16 +335,16 @@
   lesson: de-m4-h-harvesting
   topic: Harvesting models
   stem: 'For $r = 0.8$ and $K = 500$, compare constant efforts $E = 0.2$ and $E = 0.6$.'
-  choices: ['Both give a yield of 75, but $E = 0.2$ keeps a stock three times larger', '$E = 0.6$ gives three times the yield of $E = 0.2$', '$E = 0.6$ gives both a larger yield and a larger stock', '$E = 0.2$ gives a larger yield and a larger stock']
-  answer: 0
+  choices: ['$E = 0.6$ gives three times the yield of $E = 0.2$', 'Both give a yield of 75, but $E = 0.2$ keeps a stock three times larger', '$E = 0.6$ gives both a larger yield and a larger stock', '$E = 0.2$ gives a larger yield and a larger stock']
+  answer: 1
   explanation: |-
     $E = 0.2$: $P^* = 500(0.75) = 375$, $Y = 75$. $E = 0.6$: $P^* = 500(0.25) = 125$, $Y = 75$. The yield curve $EK(1 - E/r)$ is symmetric about $E = r/2 = 0.4$, so efforts equally far from 0.4 give the same yield, but the lower effort leaves three times as many fish.
 - id: de-m4-r2-h13
   lesson: de-m4-h-harvesting
   topic: Harvesting models
   stem: 'Why can''t the return time predict what a large shock does to a stock under a quota?'
-  choices: ['It comes from linearizing near the equilibrium, and a large shock can push the stock past the threshold', 'Return times only apply to constant-effort models', 'Large shocks always recover faster than small ones', 'The return time depends on the size of the shock']
-  answer: 0
+  choices: ['Return times only apply to constant-effort models', 'Large shocks always recover faster than small ones', 'The return time depends on the size of the shock', 'It comes from linearizing near the equilibrium, and a large shock can push the stock past the threshold']
+  answer: 3
   explanation: |-
     $T_R = 1/\lvert f'(P^*)\rvert$ comes from $u' \approx f'(P^*)u$, valid only for small $u$. A large drop can cross the unstable threshold $P_1$, and then the stock collapses rather than returning. Return time applies to both policies, and within its range of validity it does not depend on the shock size.
 - id: de-m4-r2-h14
@@ -402,16 +402,16 @@
   lesson: de-m4-h-stiff
   topic: Stiff equations
   stem: 'Which description of a stiff equation is best?'
-  choices: ['Stability, not accuracy, forces explicit methods to take very small steps', 'Its solution changes very rapidly over the whole interval', 'It has no solution formula, so it must be solved numerically', 'It is nonlinear, so its slope field has no pattern']
-  answer: 0
+  choices: ['Its solution changes very rapidly over the whole interval', 'It has no solution formula, so it must be solved numerically', 'Stability, not accuracy, forces explicit methods to take very small steps', 'It is nonlinear, so its slope field has no pattern']
+  answer: 2
   explanation: |-
     In a stiff problem the solution you care about is usually smooth, but a fast-decaying component (a large negative $\partial f/\partial y$) makes explicit methods unstable unless $h$ is tiny. Stiffness has nothing to do with whether a formula exists, and linear equations such as $y' = -1000(y - \cos t)$ can be stiff.
 - id: de-m4-r2-h20
   lesson: de-m4-h-stiff
   topic: Stiff equations
   stem: 'Euler''s method with $h = 0.1$ is applied to $y'' = -1000(y - \cos t)$. By about what factor is an error multiplied each step?'
-  choices: ['$-99$', '$-100$', '$0.99$', '$\tfrac{1}{101}$']
-  answer: 0
+  choices: ['$-100$', '$-99$', '$0.99$', '$\tfrac{1}{101}$']
+  answer: 1
   explanation: |-
     Here $\partial f/\partial y = -1000$, so $z = h\lambda = -100$ and $R(z) = 1 + z = -99$. The error flips sign and grows about 99-fold every step. $\tfrac1{101}$ is backward Euler's factor, $1/(1 - z)$; $-100$ is $z$ itself.
 - id: de-m4-r2-h21
@@ -434,8 +434,8 @@
   lesson: de-m4-h-stiff
   topic: Stiff equations
   stem: 'The trapezoidal method with $h = 0.1$ is used on $y'' = -1000(y - \cos t)$, $y(0) = 0$. How does the computed solution behave at first?'
-  choices: ['It swings above and below the true solution, and the swings shrink only about 4% per step', 'It blows up, with errors growing about 99-fold per step', 'It matches the true solution after one step', 'It stays at 0 for several steps']
-  answer: 0
+  choices: ['It blows up, with errors growing about 99-fold per step', 'It matches the true solution after one step', 'It stays at 0 for several steps', 'It swings above and below the true solution, and the swings shrink only about 4% per step']
+  answer: 3
   explanation: |-
     With $z = -100$, $R(z) = \dfrac{1 - 50}{1 + 50} \approx -0.96$: stable, but the initial transient flips sign each step and loses only 4% of its size. The computed values go $1.956, 0.057, 1.843, \dots$ around a true solution near 0.98. Blowing up is explicit Euler's behavior; backward Euler, with $R = \tfrac{1}{101}$, is the one that settles almost at once.
 - id: de-m4-r2-h24
@@ -463,8 +463,8 @@
   lesson: de-m4-h-stiff
   topic: Stiff equations
   stem: 'What is the largest stable step size for RK4 on $y'' = -100y$?'
-  choices: ['About 0.028', 'About 0.020', 'About 0.010', 'About 0.28']
-  answer: 0
+  choices: ['About 0.020', 'About 0.010', 'About 0.028', 'About 0.28']
+  answer: 2
   explanation: |-
     RK4's stability interval on the negative real axis is about $-2.785 \le z \le 0$, so $h \le 2.785/100 \approx 0.028$. 0.020 is Euler's limit $2/100$, 0.010 is $1/100$, and 0.28 misplaces the decimal point.
 - id: de-m4-r2-h27
@@ -479,8 +479,8 @@
   lesson: de-m4-h-stiff
   topic: Stiff equations
   stem: 'A method is called L-stable when it is'
-  choices: ['A-stable, and $R(z) \to 0$ as $\lvert z\rvert \to \infty$', 'stable only for step sizes below $2/\lvert\lambda\rvert$', 'stable on the imaginary axis only', 'A-stable, and $R(z) \to -1$ as $\lvert z\rvert \to \infty$']
-  answer: 0
+  choices: ['stable only for step sizes below $2/\lvert\lambda\rvert$', 'A-stable, and $R(z) \to 0$ as $\lvert z\rvert \to \infty$', 'stable on the imaginary axis only', 'A-stable, and $R(z) \to -1$ as $\lvert z\rvert \to \infty$']
+  answer: 1
   explanation: |-
     L-stability adds to A-stability the requirement that very stiff components are damped out at once: $R(z) \to 0$. Backward Euler ($1/(1 - z) \to 0$) is L-stable. The trapezoidal method has $R(z) \to -1$, so it is A-stable but not L-stable, which is why stiff transients ring for many steps.
 # Honors lesson 17h3: error estimates and adaptive step size
@@ -498,8 +498,8 @@
   lesson: de-m4-h-adaptive
   topic: Adaptive step size
   stem: 'For RK4 ($p = 4$), Richardson''s estimate of the error of $A(h/2)$ is $A(h/2) - A(h)$ divided by'
-  choices: ['15', '16', '4', '3']
-  answer: 0
+  choices: ['16', '4', '3', '15']
+  answer: 3
   explanation: |-
     The divisor is $2^p - 1 = 16 - 1 = 15$. Dividing by $2^p = 16$ is a common slip; 3 is the divisor for a second-order method.
 - id: de-m4-r2-h31
@@ -542,8 +542,8 @@
   lesson: de-m4-h-adaptive
   topic: Adaptive step size
   stem: 'A Dormand–Prince solver estimates the error of its fourth-order result. In $h_{\text{new}} = \sigma h(\text{tol}/\text{est})^{q}$, the exponent $q$ is'
-  choices: ['$1/5$', '$1/4$', '$1/6$', '$1/2$']
-  answer: 0
+  choices: ['$1/4$', '$1/6$', '$1/5$', '$1/2$']
+  answer: 2
   explanation: |-
     A fourth-order method has local error about $Ch^5$, so $q = 1/(p + 1) = 1/5$. Using $1/4$ confuses local and global order.
 - id: de-m4-r2-h36
@@ -563,16 +563,16 @@
   lesson: de-m4-h-adaptive
   topic: Adaptive step size
   stem: 'A Heun–Euler step with $h = 0.1$ has $k_1 = 2$ and $k_2 = 2.4$. The tolerance is $0.01$ and the safety factor $0.9$. What happens?'
-  choices: ['Reject; retry with $h \approx 0.064$', 'Accept; next $h \approx 0.064$', 'Reject; retry with $h \approx 0.045$', 'Accept; next $h \approx 0.127$']
-  answer: 0
+  choices: ['Accept; next $h \approx 0.064$', 'Reject; retry with $h \approx 0.064$', 'Reject; retry with $h \approx 0.045$', 'Accept; next $h \approx 0.127$']
+  answer: 1
   explanation: |-
     est $= \tfrac{0.1}{2}\lvert 2.4 - 2\rvert = 0.02 > 0.01$, so the step is rejected. $h_{\text{new}} = 0.9(0.1)(0.01/0.02)^{1/2} \approx 0.064$. Forgetting the square root gives 0.045; flipping the ratio gives 0.127.
 - id: de-m4-r2-h38
   lesson: de-m4-h-adaptive
   topic: Adaptive step size
   stem: 'A first-order method gives $A(0.2) = 1.7280$ and $A(0.1) = 1.7716$. What is the Richardson extrapolated value?'
-  choices: ['$1.8152$', '$1.7861$', '$1.7934$', '$1.7498$']
-  answer: 0
+  choices: ['$1.7861$', '$1.7934$', '$1.7498$', '$1.8152$']
+  answer: 3
   explanation: |-
     With $p = 1$ the divisor is $2^1 - 1 = 1$: $1.7716 + (1.7716 - 1.7280) = 1.8152$. Dividing by 3 (the second-order divisor) gives 1.7861, dividing by 2 gives 1.7934, and subtracting the correction gives 1.7498.
 - id: de-m4-r2-h39
