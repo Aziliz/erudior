@@ -1,0 +1,128 @@
+# Round 2 drills for mv-m7 (honors lessons 32h1 and 32h2)
+- id: mv-m7-r2-shoelace
+  title: Area of a polygon by the shoelace formula
+  topic: Shoelace formula
+  vars:
+    x1: {min: 1, max: 5}
+    y1: {min: -5, max: -1}
+    x2: {min: 1, max: 5}
+    y2: {min: 1, max: 5}
+    x3: {min: -5, max: -1}
+    y3: {min: 1, max: 5}
+    x4: {min: -5, max: -1}
+    y4: {min: -5, max: -1}
+    h: {min: 0, max: 4}
+    k: {min: 0, max: 4}
+  calc:
+    X1: x1 + h
+    Y1: y1 + k
+    X2: x2 + h
+    Y2: y2 + k
+    X3: x3 + h
+    Y3: y3 + k
+    X4: x4 + h
+    Y4: y4 + k
+    c1: X1*Y2 - X2*Y1
+    c2: X2*Y3 - X3*Y2
+    c3: X3*Y4 - X4*Y3
+    c4: X4*Y1 - X1*Y4
+    S: c1 + c2 + c3 + c4
+    A: S/2
+  prompt: 'Use the shoelace formula to find the area of the quadrilateral with vertices $({X1}, {Y1})$, $({X2}, {Y2})$, $({X3}, {Y3})$, $({X4}, {Y4})$, listed counterclockwise.'
+  figure:
+    type: plot
+    x: [-6, 10]
+    y: [-6, 10]
+    equal: true
+    polygons:
+      - {points: [[X1, Y1], [X2, Y2], [X3, Y3], [X4, Y4]], fill: true}
+    points:
+      - {at: [X1, Y1], label: '1'}
+      - {at: [X2, Y2], label: '2'}
+      - {at: [X3, Y3], label: '3'}
+      - {at: [X4, Y4], label: '4'}
+    caption: 'The quadrilateral, vertices numbered in counterclockwise order'
+  answers:
+    - {name: A, label: 'Area'}
+  solution: |-
+    For each edge, from $(x_i, y_i)$ to $(x_{i+1}, y_{i+1})$, compute $x_iy_{i+1} - x_{i+1}y_i$, wrapping around from the last vertex to the first:
+    $({X1})({Y2}) - ({X2})({Y1}) = {c1}$, $\;({X2})({Y3}) - ({X3})({Y2}) = {c2}$, $\;({X3})({Y4}) - ({X4})({Y3}) = {c3}$, $\;({X4})({Y1}) - ({X1})({Y4}) = {c4}$.
+    The sum is ${S}$, and half of it is the area: $A =$ **{A}**.
+- id: mv-m7-r2-poly-centroid
+  title: Centroid of a polygon from its vertices
+  topic: Centroids from line integrals
+  vars:
+    x1: {min: 1, max: 4}
+    y1: {min: -4, max: -1}
+    x2: {min: 1, max: 4}
+    y2: {min: 1, max: 4}
+    x3: {min: -4, max: -1}
+    y3: {min: 1, max: 4}
+    x4: {min: -4, max: -1}
+    y4: {min: -4, max: -1}
+    h: {min: 0, max: 3}
+    k: {min: 0, max: 3}
+  calc:
+    X1: x1 + h
+    Y1: y1 + k
+    X2: x2 + h
+    Y2: y2 + k
+    X3: x3 + h
+    Y3: y3 + k
+    X4: x4 + h
+    Y4: y4 + k
+    c1: X1*Y2 - X2*Y1
+    c2: X2*Y3 - X3*Y2
+    c3: X3*Y4 - X4*Y3
+    c4: X4*Y1 - X1*Y4
+    A: (c1 + c2 + c3 + c4)/2
+    Sx: (X1 + X2)*c1 + (X2 + X3)*c2 + (X3 + X4)*c3 + (X4 + X1)*c4
+    Sy: (Y1 + Y2)*c1 + (Y2 + Y3)*c2 + (Y3 + Y4)*c3 + (Y4 + Y1)*c4
+    A6: 6*A
+    xbar: Sx/(6*A)
+    ybar: Sy/(6*A)
+  prompt: 'Find the centroid $(\bar x, \bar y)$ of the quadrilateral with vertices $({X1}, {Y1})$, $({X2}, {Y2})$, $({X3}, {Y3})$, $({X4}, {Y4})$, listed counterclockwise. (2 decimal places.)'
+  figure:
+    type: plot
+    x: [-5, 8]
+    y: [-5, 8]
+    equal: true
+    polygons:
+      - {points: [[X1, Y1], [X2, Y2], [X3, Y3], [X4, Y4]], fill: true}
+    caption: 'The quadrilateral'
+  answers:
+    - {name: xbar, label: '$\bar x =$', tolerance: 0.006}
+    - {name: ybar, label: '$\bar y =$', tolerance: 0.006}
+  solution: |-
+    Edge terms $c_i = x_iy_{i+1} - x_{i+1}y_i$: $c_1 = {c1}$, $c_2 = {c2}$, $c_3 = {c3}$, $c_4 = {c4}$, so $A = \tfrac12({c1} + {c2} + {c3} + {c4}) = {A}$ and $6A = {A6}$.
+    $\sum(x_i + x_{i+1})c_i = ({X1} + {X2})({c1}) + ({X2} + {X3})({c2}) + ({X3} + {X4})({c3}) + ({X4} + {X1})({c4}) = {Sx}$, so $\bar x = \dfrac{{Sx}}{{A6}} \approx$ **{xbar:num2}**.
+    $\sum(y_i + y_{i+1})c_i = ({Y1} + {Y2})({c1}) + ({Y2} + {Y3})({c2}) + ({Y3} + {Y4})({c3}) + ({Y4} + {Y1})({c4}) = {Sy}$, so $\bar y = \dfrac{{Sy}}{{A6}} \approx$ **{ybar:num2}**.
+- id: mv-m7-r2-winding-circ
+  title: Circulation from the winding number
+  topic: Winding number
+  vars:
+    a: {min: 1, max: 3}
+    c: {min: -3, max: 3}
+    h: {min: -3, max: 3}
+    k: {min: -3, max: 3}
+    R: {min: 1, max: 4}
+    n: {choices: [{label: once, value: 1}, {label: twice, value: 2}]}
+    dir: {choices: [{label: counterclockwise, value: 1}, {label: clockwise, value: -1}]}
+  where: ["c != 0", "h != 0", "k != 0", "h^2 + k^2 != R^2"]
+  calc:
+    mc: -c
+    mh: -h
+    mk: -k
+    d2: h^2 + k^2
+    R2: R^2
+    inside: if(h^2 + k^2 < R^2, 1, 0)
+    w: inside*n*dir
+    coefC: 2*c*w
+    ans: 2*pi*c*w
+  prompt: 'Let $\mathbf F = \left\langle\dfrac{{a:coef}x {mc:signedcoef}y}{x^2 + y^2},\; \dfrac{{a:coef}y {c:signedcoef}x}{x^2 + y^2}\right\rangle$. Evaluate $\displaystyle\oint_C\mathbf F\cdot d\mathbf r$, where $C$ is the circle $(x {mh:signed})^2 + (y {mk:signed})^2 = {R2}$ traversed {n}, {dir}. (An exact answer such as 6pi is fine.)'
+  answers:
+    - {name: ans, label: 'Value'}
+  solution: |-
+    Split the field: $\mathbf F = {a}\,\nabla\!\left(\ln\sqrt{x^2 + y^2}\right) + ({c})\,\mathbf V$, where $\mathbf V = \left\langle\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}\right\rangle$ is the vortex field. The gradient part contributes 0 around any closed curve, and $\oint_C\mathbf V\cdot d\mathbf r = 2\pi w$, where $w$ is the winding number of $C$ around the origin.
+    The circle has center $({h}, {k})$ and radius ${R}$. The origin is inside exactly when $h^2 + k^2 < R^2$; here $h^2 + k^2 = {d2}$ and $R^2 = {R2}$. So $w = {w}$: from inside, the circle traversed {n} winds that many times around the origin, positive counterclockwise and negative clockwise; from outside it winds 0 times.
+    $\oint_C\mathbf F\cdot d\mathbf r = 2\pi\cdot({c})\cdot({w}) =$ **${coefC}\pi \approx {ans:num2}$**.

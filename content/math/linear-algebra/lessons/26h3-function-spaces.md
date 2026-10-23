@@ -21,7 +21,7 @@ Both use the same tools: subspaces, bases, coordinates, dimension and isomorphis
 
 ## Interpolation through the lens of bases
 
-Pick three different numbers $t_0, t_1, t_2$ (the **nodes**) and consider the evaluation map
+Pick three different numbers $t_0, t_1, t_2$ (the *nodes*) and consider the evaluation map
 
 $$E: \mathbb{P}_2 \to \mathbb{R}^3, \qquad E(p) = (p(t_0), p(t_1), p(t_2)).$$
 

@@ -25,6 +25,12 @@ The name comes from the surface $r = c$: all points at distance $c$ from the $z$
 circular cylinder. The surface $\theta = c$ is a vertical half-plane, and $z = c$ is a
 horizontal plane.
 
+In the picture, $r$ and $\theta$ locate the shadow of $P$ in the $xy$-plane exactly as polar
+coordinates would, and $z$ lifts it straight up to $P$. Every point with the same $r$ lies on
+the dashed cylinder around the $z$-axis.
+
+![A point P in space with its cylindrical coordinates. The segment r runs from the origin to the shadow of P in the xy-plane, the angle θ is marked in the xy-plane from the positive x-axis to that segment, and the vertical segment z rises from the shadow to P. A dashed cylinder around the z-axis passes through P.](images/mv-m6-cyl-point.svg)
+
 ### Example 1: converting points
 
 1. Cylindrical $\left(2, \tfrac{2\pi}{3}, 1\right)$ to rectangular: $x = 2\cos\tfrac{2\pi}{3} = -1$, $y = 2\sin\tfrac{2\pi}{3} = \sqrt3$, $z = 1$. So $(-1, \sqrt3, 1)$.
@@ -55,7 +61,18 @@ described in polar coordinates by $\alpha \le \theta \le \beta$, $h_1(\theta) \l
 $$\iiint_E f\,dV = \int_\alpha^\beta\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r\cos\theta,\,r\sin\theta)}^{u_2(r\cos\theta,\,r\sin\theta)} f(r\cos\theta, r\sin\theta, z)\,r\,dz\,dr\,d\theta.$$
 
 In words: do $z$ first (bottom surface to top surface), then the shadow in polar form, and
-never forget the $r$.
+never forget the $r$. As a checklist:
+
+```mermaid
+flowchart TD
+  accTitle: Setting up an integral in cylindrical coordinates
+  accDescr: Check that the solid is symmetric about the z-axis or that the integrand contains x squared plus y squared. Rewrite the top and bottom surfaces in terms of r and theta to get the z-limits. Describe the shadow in polar form to get the r and theta limits. Replace x squared plus y squared by r squared in the integrand, multiply by the extra factor r, and integrate in the order z, then r, then theta.
+  A["Axis symmetry or x² + y² in the problem?"] --> B["Write bottom and top surfaces with r and θ: z-limits"]
+  B --> C["Shadow in polar form: r and θ limits"]
+  C --> D["Rewrite the integrand: x² + y² becomes r²"]
+  D --> E["Multiply by r: dV = r dz dr dθ"]
+  E --> F["Integrate z, then r, then θ"]
+```
 
 ### Example 2: a volume
 

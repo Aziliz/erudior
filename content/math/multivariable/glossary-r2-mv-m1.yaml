@@ -1,0 +1,46 @@
+# Round 2 glossary for mv-m1 (honors lessons 06h1 and 06h2)
+- term: Cauchy–Schwarz inequality
+  aliases: [Cauchy-Schwarz inequality, Cauchy–Schwarz, Cauchy-Schwarz]
+  definition: '$|\mathbf a\cdot\mathbf b| \le |\mathbf a||\mathbf b|$ for any vectors, with equality exactly when one is a scalar multiple of the other. It guarantees $|\cos\theta| \le 1$ in any dimension.'
+  topic: Vector identities
+- term: triangle inequality
+  definition: '$|\mathbf u + \mathbf v| \le |\mathbf u| + |\mathbf v|$: one side of a triangle is never longer than the other two together. Equality holds when the vectors point the same way.'
+  topic: Vector identities
+- term: vector triple product
+  aliases: [BAC-CAB rule, BAC−CAB]
+  definition: 'The vector $\mathbf a\times(\mathbf b\times\mathbf c) = \mathbf b(\mathbf a\cdot\mathbf c) - \mathbf c(\mathbf a\cdot\mathbf b)$, which lies in the plane of $\mathbf b$ and $\mathbf c$.'
+  topic: Vector identities
+- term: foot of the perpendicular
+  definition: 'The point of a line (or plane) closest to a given point; for the line $P + t\mathbf v$ and point $Q$ it is at $t = \overrightarrow{PQ}\cdot\mathbf v/(\mathbf v\cdot\mathbf v)$.'
+  topic: Distances in space
+- term: common perpendicular
+  definition: 'The shortest segment joining two skew lines. It meets both lines at right angles, points along $\mathbf v_1\times\mathbf v_2$, and its length is the distance between the lines.'
+  topic: Distances in space
+- term: cross term
+  aliases: [cross terms]
+  definition: 'A second-degree term with two different variables, such as $xy$, $yz$ or $xz$. Cross terms tilt a conic or quadric away from the coordinate axes.'
+  topic: Rotated quadrics
+- term: quadratic form
+  aliases: [quadratic forms]
+  definition: 'A polynomial whose terms all have degree exactly 2, such as $Ax^2 + Bxy + Cy^2$; it can be written $\mathbf x^{T}M\mathbf x$ with a symmetric matrix $M$.'
+  topic: Quadratic forms
+- term: symmetric matrix
+  definition: 'A square matrix equal to its transpose ($m_{ij} = m_{ji}$). The matrix of $Ax^2 + Bxy + Cy^2$ is symmetric, with diagonal $A, C$ and both off-diagonal entries $B/2$.'
+  topic: Quadratic forms
+- term: rotation of axes
+  definition: 'New coordinates on axes turned by an angle $\theta$: $x = x''\cos\theta - y''\sin\theta$, $y = x''\sin\theta + y''\cos\theta$. Choosing $\cot2\theta = (A - C)/B$ removes the $xy$ term.'
+  topic: Rotated quadrics
+- term: eigenvalue
+  aliases: [eigenvalues]
+  definition: 'A number $\lambda$ with $M\mathbf u = \lambda\mathbf u$ for some nonzero vector $\mathbf u$; for a $2\times2$ matrix, a root of $\det(M - \lambda I) = 0$.'
+  topic: Quadratic forms
+- term: eigenvector
+  aliases: [eigenvectors]
+  definition: 'A nonzero vector $\mathbf u$ that a matrix only stretches: $M\mathbf u = \lambda\mathbf u$. Any nonzero multiple of an eigenvector is also one.'
+  topic: Quadratic forms
+- term: principal axes theorem
+  definition: 'A real symmetric matrix has real eigenvalues and perpendicular unit eigenvectors; in coordinates along them a quadratic form becomes $\lambda_1x''^2 + \lambda_2y''^2 (+\,\lambda_3z''^2)$. (A linear algebra result, stated without proof in this course.)'
+  topic: Quadratic forms
+- term: principal axes
+  definition: 'The perpendicular eigenvector directions of a quadratic form, along which a tilted conic or quadric lines up with its standard form.'
+  topic: Rotated quadrics

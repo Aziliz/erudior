@@ -41,6 +41,12 @@ $z$-axis is $r = \rho\sin\phi$. Combining with $x = r\cos\theta$, $y = r\sin\the
 
 $$x = \rho\sin\phi\cos\theta,\qquad y = \rho\sin\phi\sin\theta,\qquad z = \rho\cos\phi,\qquad \rho^2 = x^2 + y^2 + z^2.$$
 
+The 3D picture puts all three coordinates together: $\rho$ along the segment from the
+origin, $\phi$ measured down from the $z$-axis, $\theta$ measured in the $xy$-plane, and the
+two dashed legs $r = \rho\sin\phi$ and $z = \rho\cos\phi$ of the right triangle.
+
+![A point P in space with its spherical coordinates. The segment ρ runs from the origin to P. The angle φ is marked between the positive z-axis and that segment. The angle θ is marked in the xy-plane from the positive x-axis to the shadow of the segment. Dashed segments show r = ρ sin φ along the xy-plane and z = ρ cos φ straight up to P.](images/mv-m6-sph-point.svg)
+
 Basic surfaces: $\rho = c$ is a sphere; $\phi = c$ is a cone around the $z$-axis (for
 example $\phi = \tfrac\pi4$ is $z = \sqrt{x^2 + y^2}$); $\theta = c$ is a vertical half-plane.
 
@@ -96,6 +102,19 @@ coordinates.
 | Box or region bounded by planes | rectangular |
 | Axis symmetry, $x^2 + y^2$ in the problem, cylinders, paraboloids | cylindrical |
 | Point symmetry, $x^2 + y^2 + z^2$ in the problem, spheres, cones from the origin | spherical |
+
+The same choice as a decision chart. Ask the spherical question first: a ball is also
+symmetric about an axis, but spherical coordinates describe it more simply.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a coordinate system for a triple integral
+  accDescr: If the solid is centered on a point, such as a ball, a spherical shell or a cone with its tip at the origin, or the problem contains x squared plus y squared plus z squared, use spherical coordinates with dV equal to rho squared sine phi. Otherwise, if the solid has an axis of symmetry, such as a cylinder or paraboloid, or the problem contains x squared plus y squared, use cylindrical coordinates with dV equal to r dz dr dtheta. Otherwise use rectangular coordinates with dV equal to dx dy dz.
+  A{"Centered on a point, or x² + y² + z² in the problem?"} -- yes --> S["Spherical: dV = ρ² sin φ dρ dθ dφ"]
+  A -- no --> B{"Symmetric about an axis, or x² + y² in the problem?"}
+  B -- yes --> C["Cylindrical: dV = r dz dr dθ"]
+  B -- no --> R["Rectangular: dV = dx dy dz"]
+```
 
 ### Example 5: the centroid of a solid hemisphere
 

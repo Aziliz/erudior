@@ -53,7 +53,7 @@ Write a block as $J = \lambda I + N$, where $N$ has 1s on the superdiagonal. $N$
 ($N\mathbf{e}_1 = \mathbf{0}$, $N\mathbf{e}_2 = \mathbf{e}_1$, ...), so $N^k = 0$ for a $k \times k$ block.
 A matrix with some power equal to zero is called **nilpotent**.
 
-> **Jordan form theorem.** If every eigenvalue of the $n \times n$ matrix $A$ is real, there is an invertible real $P$ with $A = PJP^{-1}$, where $J$ is block diagonal with Jordan blocks on its diagonal. $J$, the **Jordan form** of $A$, is unique except for the order of the blocks. (Allowing complex numbers, every square matrix has a Jordan form.)
+> *Jordan form theorem.* If every eigenvalue of the $n \times n$ matrix $A$ is real, there is an invertible real $P$ with $A = PJP^{-1}$, where $J$ is block diagonal with Jordan blocks on its diagonal. $J$, the **Jordan form** of $A$, is unique except for the order of the blocks. (Allowing complex numbers, every square matrix has a Jordan form.)
 
 The proof, which builds a basis out of Jordan chains, belongs to a second course. What you can
 read off $J$:

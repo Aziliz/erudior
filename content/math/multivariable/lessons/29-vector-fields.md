@@ -88,7 +88,7 @@ them.
 The diagram sums up how a potential and its gradient field are tied together.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: How a potential and its gradient field are related
   accDescr: A scalar function f gives the gradient field F equals the gradient of f, by taking partial derivatives. Going back, finding a potential recovers f from a conservative field, as in Lesson 31. The arrows of the gradient field cross the level curves of f at right angles, and the arrows are tangent to the flow lines of the gradient field, which are the paths of steepest ascent of f.
   f["Scalar function f"] -- "take the gradient" --> F["Gradient field F = ∇f"]

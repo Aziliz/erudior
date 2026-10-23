@@ -82,6 +82,13 @@ Find its volume and $\iiint_E z\,dV$.
 1. Bottom $z = 0$, top $z = 1 - x - y$.
 2. The shadow $D$ is where the top plane meets $z = 0$: the triangle $x \ge 0$, $y \ge 0$, $x + y \le 1$.
 
+The picture shows the solid with its shadow drawn a little below it so the two do not
+overlap. The green segment is one vertical line through the solid: it enters through the
+bottom face $z = 0$ and leaves through the slanted top face, and the inner integral adds up
+along exactly such a segment.
+
+![The tetrahedron with vertices at the origin, (1, 0, 0), (0, 1, 0) and (0, 0, 1). Its slanted top face is the plane z = 1 − x − y and its bottom face lies in the xy-plane. A green vertical segment runs from the bottom face up to the top face, and below the solid its triangular shadow D, where x + y ≤ 1, is drawn with dashed lines dropping to it from the corners.](images/mv-m6-tetra-slice.svg)
+
 ```plot
 {"x": [-0.2, 1.3], "y": [-0.2, 1.3], "equal": true, "functions": [{"f": "1-x", "from": 0, "to": 1, "label": "x + y = 1"}], "shade": [{"f": "1-x", "from": 0, "to": 1}], "caption": "Projection of the tetrahedron on the xy-plane: 0 ≤ x ≤ 1, 0 ≤ y ≤ 1 − x"}
 ```

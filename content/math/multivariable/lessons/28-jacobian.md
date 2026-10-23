@@ -35,6 +35,12 @@ parallelogram spanned by those two vectors is the absolute value of a $2\times2$
 
 $$\Delta A \approx \left|\det\begin{bmatrix} x_u & x_v\\ y_u & y_v\end{bmatrix}\right|\Delta u\,\Delta v.$$
 
+The picture shows this for a curved transformation: the grid of the $uv$-plane becomes a
+curved grid, and the small rectangle becomes a curved patch that is almost the parallelogram
+spanned by the two red and green tangent vectors.
+
+![On the left, a small rectangle with sides Δu and Δv at the corner (u₀, v₀) in a square uv grid. A curved arrow labeled T leads to the right, where the grid has become a curved grid in the xy-plane and the rectangle has become a curved four-sided patch. From the patch's corner, a red vector r_u Δu runs along the image of the u-side and a green vector r_v Δv along the image of the v-side; the patch area is about |J| Δu Δv.](images/mv-m6-jacobian-map.svg)
+
 The **Jacobian** of $T$ is that determinant:
 
 $$\frac{\partial(x, y)}{\partial(u, v)} = \begin{vmatrix}\dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v}\\[2mm] \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}\end{vmatrix} = x_uy_v - x_vy_u.$$
@@ -52,6 +58,22 @@ $$\iint_R f(x, y)\,dA = \iint_S f\big(x(u, v),\, y(u, v)\big)\left|\frac{\partia
 
 Note the **absolute value**: areas are positive even if the transformation flips
 orientation.
+
+In practice the work goes in this order (the examples below follow it):
+
+```mermaid
+flowchart TD
+  accTitle: The change of variables procedure
+  accDescr: Read the boundary curves of the region and choose u and v so that each boundary becomes u equals a constant or v equals a constant. Find the new region S, ideally a rectangle. If x and y are easy to write in terms of u and v, compute the Jacobian of x and y with respect to u and v directly; otherwise take the reciprocal of the Jacobian of u and v with respect to x and y. Take its absolute value. Rewrite the integrand in u and v, multiply by the absolute Jacobian, and integrate over S.
+  A["Read the boundary curves of R"] --> B["Choose u, v so each boundary is u = const or v = const"]
+  B --> C["Find the new region S, ideally a rectangle"]
+  C --> D{"x, y easy to write in terms of u, v?"}
+  D -- yes --> E["Jacobian ∂(x,y)/∂(u,v) directly"]
+  D -- no --> F["Reciprocal of ∂(u,v)/∂(x,y)"]
+  E --> G["Take the absolute value"]
+  F --> G
+  G --> H["Rewrite the integrand in u, v and integrate over S"]
+```
 
 ### Example 1: a tilted square
 

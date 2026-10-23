@@ -64,9 +64,8 @@ $$\frac{d\mathbf T}{ds} = \kappa\mathbf N,\qquad \frac{d\mathbf N}{ds} = -\kappa
 
 Read them as a story about turning. Curvature swaps $\mathbf T$ and $\mathbf N$: the frame
 rotates within the osculating plane. Torsion swaps $\mathbf N$ and $\mathbf B$: the frame
-rotates about $\mathbf T$, tipping the osculating plane. The coefficients appear in matched
-pairs with opposite signs ($\kappa$ and $-\kappa$, $\tau$ and $-\tau$), which is exactly what
-keeps the three vectors unit length and mutually perpendicular as they move.
+rotates about $\mathbf T$, tipping the osculating plane. The coefficients come in pairs with opposite signs, which is what keeps
+the three vectors unit length and mutually perpendicular as they move.
 
 ```mermaid
 flowchart LR
@@ -120,8 +119,7 @@ Find $\kappa$ and $\tau$ for $\mathbf r(t) = \langle a\cos t,\, a\sin t,\, bt\ra
 Both are constant, as they should be for a curve that looks the same everywhere. For the
 unit helix ($a = b = 1$), $\kappa = \tau = \tfrac12$. With $b < 0$ the helix winds the other
 way (left-handed) and $\tau < 0$. Letting $b \to 0$ flattens it into a circle: $\tau \to 0$
-and $\kappa \to 1/a$. Making $a$ very small gives a tight, nearly straight spiral with small
-curvature.
+and $\kappa \to 1/a$.
 
 ### Example 2: the twisted cubic
 

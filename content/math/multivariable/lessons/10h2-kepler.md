@@ -154,7 +154,7 @@ flowchart TD
 Earth's semi-major axis is $a \approx 1.496\times10^{11}$ m and the Sun's
 $GM \approx 1.327\times10^{20}\text{ m}^3/\text{s}^2$. Then
 
-$$T = 2\pi\sqrt{\frac{a^3}{GM}} \approx 2\pi\sqrt{\frac{3.348\times10^{33}}{1.327\times10^{20}}} \approx 3.156\times10^{7}\text{ s} \approx 365.26\text{ days}.$$
+$$T = 2\pi\sqrt{\frac{a^3}{GM}} \approx 2\pi\sqrt{\frac{3.348\times10^{33}}{1.327\times10^{20}}} \approx 3.156\times10^{7}\text{ s} \approx 365.3\text{ days}.$$
 
 In units of years and **astronomical units** (AU, about Earth's average distance from the Sun), the constant is 1
 for anything orbiting the Sun: $T_{\text{years}}^2 = a_{\text{AU}}^3$. Mars, with

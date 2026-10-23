@@ -12,7 +12,7 @@ refs: [la-ref-factor]
 
 In the characteristic equation lesson, the characteristic polynomial $p(\lambda) = \det(A - \lambda I)$
 was a tool for *finding* eigenvalues: plug in numbers, look for zeros. This lesson plugs in
-something else: the matrix $A$ itself. The surprising result, the Cayley–Hamilton theorem, is
+something else: the matrix $A$ itself. The surprising result, the **Cayley–Hamilton theorem**, is
 that the answer is always the zero matrix. It turns high powers of $A$ into low ones, gives a
 formula for $A^{-1}$ without row reduction, and leads to the *minimal polynomial*, which
 decides whether a matrix is diagonalizable without finding a single eigenvector.
@@ -36,7 +36,7 @@ matrix polynomials easy to work with.
 
 ## The Cayley–Hamilton theorem
 
-> **Cayley–Hamilton theorem.** If $p(\lambda) = \det(A - \lambda I)$ is the characteristic polynomial of an $n \times n$ matrix $A$, then $p(A) = 0$, the $n \times n$ zero matrix.
+> *Cayley–Hamilton theorem.* If $p(\lambda) = \det(A - \lambda I)$ is the characteristic polynomial of an $n \times n$ matrix $A$, then $p(A) = 0$, the $n \times n$ zero matrix.
 
 For a $2 \times 2$ matrix the characteristic polynomial is $\lambda^2 - (\operatorname{tr} A)\lambda + \det A$, so
 the theorem says

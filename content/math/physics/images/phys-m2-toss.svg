@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 660" width="640" height="660" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="640" height="660" fill="#ffffff"/>
+<line x1="150.0" y1="545.0" x2="490.0" y2="545.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="320.0" y="535.0" text-anchor="middle" font-size="15">release and catch height</text>
+<circle cx="210.0" cy="545.0" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="210.0" y1="532.0" x2="210.0" y2="483.2" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="210.0,471.2 215.4,483.2 204.6,483.2" fill="#244d76"/>
+<line x1="180.0" y1="523.0" x2="180.0" y2="561.0" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="180.0,571.0 175.5,561.0 184.5,561.0" fill="#9b2d20"/>
+<circle cx="210.0" cy="377.8" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="210.0" y1="364.8" x2="210.0" y2="331.2" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="210.0,319.2 215.4,331.2 204.6,331.2" fill="#244d76"/>
+<line x1="180.0" y1="355.8" x2="180.0" y2="393.8" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="180.0,403.8 175.5,393.8 184.5,393.8" fill="#9b2d20"/>
+<circle cx="210.0" cy="258.3" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="210.0" y1="245.3" x2="210.0" y2="227.0" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="210.0,215.0 215.4,227.0 204.6,227.0" fill="#244d76"/>
+<line x1="180.0" y1="236.3" x2="180.0" y2="274.3" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="180.0,284.3 175.5,274.3 184.5,274.3" fill="#9b2d20"/>
+<circle cx="210.0" cy="186.7" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="210.0" y1="173.7" x2="210.0" y2="170.5" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="210.0,158.5 215.4,170.5 204.6,170.5" fill="#244d76"/>
+<line x1="180.0" y1="164.7" x2="180.0" y2="202.7" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="180.0,212.7 175.5,202.7 184.5,202.7" fill="#9b2d20"/>
+<circle cx="320.0" cy="162.8" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="350.0" y1="140.8" x2="350.0" y2="178.8" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="350.0,188.8 345.5,178.8 354.5,178.8" fill="#9b2d20"/>
+<circle cx="430.0" cy="186.7" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="430.0" y1="199.7" x2="430.0" y2="202.9" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="430.0,214.9 424.6,202.9 435.4,202.9" fill="#244d76"/>
+<line x1="460.0" y1="164.7" x2="460.0" y2="202.7" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="460.0,212.7 455.5,202.7 464.5,202.7" fill="#9b2d20"/>
+<circle cx="430.0" cy="258.3" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="430.0" y1="271.3" x2="430.0" y2="289.7" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="430.0,301.7 424.6,289.7 435.4,289.7" fill="#244d76"/>
+<line x1="460.0" y1="236.3" x2="460.0" y2="274.3" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="460.0,284.3 455.5,274.3 464.5,274.3" fill="#9b2d20"/>
+<circle cx="430.0" cy="377.8" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="430.0" y1="390.8" x2="430.0" y2="424.4" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="430.0,436.4 424.6,424.4 435.4,424.4" fill="#244d76"/>
+<line x1="460.0" y1="355.8" x2="460.0" y2="393.8" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="460.0,403.8 455.5,393.8 464.5,393.8" fill="#9b2d20"/>
+<circle cx="430.0" cy="545.0" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="430.0" y1="558.0" x2="430.0" y2="606.8" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="430.0,618.8 424.6,606.8 435.4,606.8" fill="#244d76"/>
+<line x1="460.0" y1="523.0" x2="460.0" y2="561.0" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="460.0,571.0 455.5,561.0 464.5,561.0" fill="#9b2d20"/>
+<text x="164.0" y="337.8" text-anchor="end" font-size="16">going up:</text>
+<text x="164.0" y="357.8" text-anchor="end" font-size="16">slowing</text>
+<text x="478.0" y="218.3" text-anchor="start" font-size="16">coming down:</text>
+<text x="478.0" y="238.3" text-anchor="start" font-size="16">speeding up</text>
+<text x="320.0" y="136.8" text-anchor="middle" font-size="16">top: v = 0, but a ≠ 0</text>
+<line x1="30.0" y1="30.0" x2="58.0" y2="30.0" stroke="#244d76" stroke-width="3.5"/>
+<polygon points="70.0,30.0 58.0,35.4 58.0,24.6" fill="#244d76"/>
+<text x="80.0" y="36.0" text-anchor="start" font-size="16">velocity</text>
+<line x1="30.0" y1="62.0" x2="60.0" y2="62.0" stroke="#9b2d20" stroke-width="2.5" stroke-dasharray="5 3"/>
+<polygon points="70.0,62.0 60.0,66.5 60.0,57.5" fill="#9b2d20"/>
+<text x="80.0" y="68.0" text-anchor="start" font-size="16">acceleration (9.8 m/s² down, same at every point)</text>
+<text x="320.0" y="645.0" text-anchor="middle" font-size="14">Positions every 0.25 s; up and down paths drawn side by side for clarity</text>
+</svg>

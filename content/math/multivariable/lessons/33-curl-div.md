@@ -37,6 +37,10 @@ It spins fastest when its axle points along $\operatorname{curl}\mathbf F$, and 
 $|\operatorname{curl}\mathbf F|$ is twice the angular speed of that spin. A field with
 $\operatorname{curl}\mathbf F = \mathbf 0$ everywhere is called **irrotational**.
 
+The picture shows the paddle wheel in the swirling field of Example 2 below. The fluid turns counterclockwise as seen from above, so the wheel spins counterclockwise too, and by the right-hand rule the curl points straight up its axle.
+
+![A paddle wheel with a vertical axle sits in fluid swirling counterclockwise around it, seen at a slant. A curved arrow around the top of the axle shows the wheel spinning counterclockwise, and a long arrow labeled curl F points straight up along the axle.](images/mv-m8-paddle-wheel.svg)
+
 ### Example 1
 
 Find the curl of $\mathbf F = \langle x^2y,\; yz,\; xz^2\rangle$.
@@ -106,6 +110,19 @@ is $-2 + 1 - 2 = -3$, a sink.
 
 - $\operatorname{div}(\operatorname{curl}\mathbf F) = 0$ for smooth $\mathbf F$ (again by Clairaut). So a field with nonzero divergence cannot be the curl of anything.
 - $\operatorname{div}(\nabla f) = f_{xx} + f_{yy} + f_{zz} = \nabla^2f$, the **Laplacian** of $f$. Functions with $\nabla^2f = 0$ are **harmonic**; they describe steady-state temperatures and electrostatic potentials in empty space.
+
+The three derivatives fit together in a chain, and taking two steps of the chain in a row always gives zero:
+
+```mermaid
+flowchart TD
+  accTitle: The gradient, curl and divergence chain
+  accDescr: A scalar function goes to a vector field by the gradient. A vector field goes to another vector field by the curl. A vector field goes to a scalar function by the divergence. Two steps in a row give zero: the curl of a gradient is the zero vector and the divergence of a curl is zero. The divergence of a gradient, which skips the curl, is the Laplacian.
+  A["Scalar function f"] -- "gradient" --> B["Vector field"]
+  B -- "curl" --> C["Vector field"]
+  C -- "divergence" --> D["Scalar function"]
+  E["Two steps in a row give zero: curl of grad f = 0, div of curl F = 0"]
+  F["Skipping the curl: div of grad f = Laplacian of f"]
+```
 
 ## Common mistakes
 

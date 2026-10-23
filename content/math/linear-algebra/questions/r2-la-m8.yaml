@@ -1,0 +1,778 @@
+# Round 2 questions for module la-m8 (Eigenvalues and eigenvectors)
+# Core lessons 27-32: la-m8-r2-q01 ... ; honors lessons 32h1-32h3: la-m8-r2-h01 ...
+
+# --- Lesson 27: eigenvalues and eigenvectors ---
+- id: la-m8-r2-q01
+  lesson: la-eigen
+  module_quiz: true
+  type: text
+  topic: Eigenvalues and eigenvectors
+  stem: '$\mathbf{v} = (2, 1)$ is an eigenvector of $A = \begin{bmatrix} 5 & 2 \\ 2 & 2\end{bmatrix}$. Its eigenvalue is ___. (Give only the number.)'
+  accept: ['6']
+  explanation: |-
+    $A\mathbf{v} = (5 \cdot 2 + 2 \cdot 1,\ 2 \cdot 2 + 2 \cdot 1) = (12, 6) = 6(2, 1)$, so the eigenvalue is 6.
+
+- id: la-m8-r2-q02
+  lesson: la-eigen
+  type: order
+  topic: Eigenvalues and eigenvectors
+  stem: 'Put the steps for finding a basis of the eigenspace of $A$ for a given eigenvalue $\lambda$ in order.'
+  items:
+    - 'Subtract $\lambda$ from each diagonal entry to form $A - \lambda I$'
+    - 'Row-reduce $A - \lambda I$'
+    - 'Identify the free variables'
+    - 'Write the solutions of $(A - \lambda I)\mathbf{x} = \mathbf{0}$ in parametric vector form'
+    - 'Take the vectors multiplying the free variables as the basis'
+  explanation: |-
+    The eigenspace is $\operatorname{Nul}(A - \lambda I)$, so it is found exactly like any null space: form the matrix, row-reduce it, read off the free variables, write the general solution in parametric vector form, and keep the vectors that multiply the free variables.
+
+- id: la-m8-r2-q03
+  lesson: la-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'Which of these are eigenvectors of $A = \begin{bmatrix} 4 & -2 \\ 1 & 1\end{bmatrix}$? Select all that apply.'
+  choices: ['$(1, 1)$', '$(1, 0)$', '$(-4, -2)$', '$(0, 0)$']
+  answer: [0, 2]
+  explanation: |-
+    $A(1, 1) = (2, 2)$, twice $(1, 1)$: eigenvalue 2. $A(-4, -2) = (-16 + 4,\ -4 - 2) = (-12, -6) = 3(-4, -2)$: eigenvalue 3 (it is a multiple of the eigenvector $(2, 1)$). $A(1, 0) = (4, 1)$ is not a multiple of $(1, 0)$. The zero vector is never an eigenvector, even though $A\mathbf{0} = \mathbf{0}$.
+
+- id: la-m8-r2-q04
+  lesson: la-eigen
+  module_quiz: true
+  type: label
+  topic: Eigenvalues and eigenvectors
+  stem: 'The picture shows the reflection $T$ across the line $x_2 = x_1$. Solid arrows are vectors and dashed arrows are their images. Name the numbered parts.'
+  image: {src: images/la-m8-reflection-blank.svg, alt: 'Coordinate axes with a dashed green line through the origin at 45 degrees. A blue arrow lies along the line. A second blue arrow points down and to the right, perpendicular to the line, with a dashed blue arrow pointing the opposite way labeled Tv. An orange arrow points right and slightly up, with a dashed orange image labeled Tw pointing up and slightly right.'}
+  labels:
+    - {x: 23.9, y: 79.1, text: Mirror line}
+    - {x: 60.5, y: 35.6, text: Eigenvector with eigenvalue 1}
+    - {x: 58.9, y: 66.1, text: Eigenvector with eigenvalue -1}
+    - {x: 72.0, y: 41.9, text: Vector that is not an eigenvector}
+  distractors: [Eigenvector with eigenvalue 0, Eigenvector with eigenvalue 2]
+  explanation: |-
+    1 is the mirror line $x_2 = x_1$. 2 lies on the mirror, so the reflection leaves it unchanged: eigenvalue 1. 3 is perpendicular to the mirror, so its image (dashed) points the opposite way: eigenvalue $-1$. 4 is sent to a vector in a different direction (its dashed image), so it is not an eigenvector. A reflection never has eigenvalue 0 (it is invertible) or 2 (it doesn't change lengths).
+
+- id: la-m8-r2-q05
+  lesson: la-eigen
+  type: match
+  topic: Eigenvalues and eigenvectors
+  stem: 'Match each transformation of the plane to its real eigenvalues.'
+  pairs:
+    - ['Reflection across a line through the origin', '1 and -1']
+    - ['Projection onto a line through the origin', '1 and 0']
+    - ['Rotation by 90°', 'No real eigenvalues']
+    - ['Multiplying every vector by 3', '3 only']
+  distractors: ['0 and -1']
+  explanation: |-
+    A reflection keeps vectors on the mirror (1) and flips those perpendicular to it ($-1$). A projection keeps vectors on the line (1) and sends perpendicular ones to $\mathbf{0}$ (0). A $90^\circ$ rotation turns every nonzero vector, so no real eigenvector exists (its eigenvalues are $\pm i$). Scaling by 3 makes every nonzero vector an eigenvector with eigenvalue 3.
+
+# --- Lesson 28: the characteristic equation ---
+- id: la-m8-r2-q06
+  lesson: la-char-eq
+  type: text
+  topic: Characteristic equation
+  stem: 'The characteristic polynomial of $\begin{bmatrix} 5 & 2 \\ 1 & 4\end{bmatrix}$ is $\lambda^2 - b\lambda + c$ with $b =$ ___ and $c =$ ___. (Give only the numbers.)'
+  accept:
+    - ['9']
+    - ['18']
+  explanation: |-
+    For a $2 \times 2$ matrix the characteristic polynomial is $\lambda^2 - (\operatorname{tr} A)\lambda + \det A$. Here $\operatorname{tr} A = 5 + 4 = 9$ and $\det A = 20 - 2 = 18$, so it is $\lambda^2 - 9\lambda + 18 = (\lambda - 3)(\lambda - 6)$.
+
+- id: la-m8-r2-q07
+  lesson: la-char-eq
+  type: match
+  topic: Characteristic equation
+  stem: 'Match each matrix to its characteristic polynomial.'
+  pairs:
+    - ['$\begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}$', 'λ² − 5λ − 2']
+    - ['$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$', 'λ² + 1']
+    - ['$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$', 'λ² − 4λ + 4']
+    - ['$\begin{bmatrix} 3 & 0 \\ 0 & -1\end{bmatrix}$', 'λ² − 2λ − 3']
+  distractors: ['λ² + 5λ − 2']
+  explanation: |-
+    Use $\lambda^2 - (\operatorname{tr} A)\lambda + \det A$. First matrix: trace 5, determinant $4 - 6 = -2$. Rotation: trace 0, determinant 1. Triangular matrix: trace 4, determinant 4. Diagonal matrix: trace 2, determinant $-3$. The distractor has the wrong sign on the middle term.
+
+- id: la-m8-r2-q08
+  lesson: la-char-eq
+  module_quiz: true
+  topic: Characteristic equation
+  stem: '$B = P^{-1}AP$ for an invertible matrix $P$. Which must $A$ and $B$ have in common? Select all that apply.'
+  choices: ['The characteristic polynomial', 'The determinant', 'The trace', 'The eigenvectors', 'The diagonal entries']
+  answer: [0, 1, 2]
+  explanation: |-
+    $\det(B - \lambda I) = \det P^{-1}\det(A - \lambda I)\det P = \det(A - \lambda I)$, so the characteristic polynomials agree, and with them the eigenvalues, their sum (the trace) and their product (the determinant). Eigenvectors generally change: if $A\mathbf{v} = \lambda\mathbf{v}$, then $B(P^{-1}\mathbf{v}) = \lambda P^{-1}\mathbf{v}$, so the eigenvectors of $B$ are $P^{-1}$ times those of $A$. The diagonal entries can differ too; only their sum is fixed.
+
+- id: la-m8-r2-q09
+  lesson: la-char-eq
+  type: order
+  topic: Characteristic equation
+  stem: 'Put the steps for finding the eigenvalues of a $3 \times 3$ matrix $A$ by hand in order.'
+  items:
+    - 'Subtract $\lambda$ from each diagonal entry to get $A - \lambda I$'
+    - 'Expand $\det(A - \lambda I)$ along a row or column with many zeros'
+    - 'Set the characteristic polynomial equal to 0 and factor it'
+    - 'Check that the roots add up to the trace of $A$'
+  explanation: |-
+    The characteristic polynomial is $\det(A - \lambda I)$, so first form $A - \lambda I$, then expand the determinant (choosing a row or column with zeros keeps it short), then solve the characteristic equation. The trace check comes last because it needs the roots.
+
+- id: la-m8-r2-q10
+  lesson: la-char-eq
+  type: text
+  topic: Characteristic equation
+  stem: 'A $2 \times 2$ matrix has trace 7 and determinant 10. Its larger eigenvalue is ___.'
+  accept: ['5']
+  explanation: |-
+    The characteristic equation is $\lambda^2 - 7\lambda + 10 = (\lambda - 2)(\lambda - 5) = 0$, so the eigenvalues are 2 and 5. Check: $2 + 5 = 7$ and $2 \cdot 5 = 10$.
+
+# --- Lesson 29: diagonalization ---
+- id: la-m8-r2-q11
+  lesson: la-diagonalization
+  type: text
+  topic: Diagonalization
+  stem: '$A = PDP^{-1}$ with $D = \begin{bmatrix} 2 & 0 \\ 0 & -1\end{bmatrix}$. Then $A^5 = PD^5P^{-1}$, where $D^5$ has diagonal entries ___ and ___ (in order).'
+  accept:
+    - ['32']
+    - ['-1']
+  explanation: |-
+    A power of a diagonal matrix just raises each diagonal entry to that power: $2^5 = 32$ and $(-1)^5 = -1$.
+
+- id: la-m8-r2-q12
+  lesson: la-diagonalization
+  type: order
+  topic: Diagonalization
+  stem: 'Put the steps for diagonalizing an $n \times n$ matrix $A$ in order.'
+  items:
+    - 'Find the eigenvalues of $A$'
+    - 'Find a basis for each eigenspace'
+    - 'Check that there are $n$ independent eigenvectors in all'
+    - 'Form $P$ from the eigenvectors and $D$ from the matching eigenvalues'
+    - 'Check that $AP = PD$'
+  explanation: |-
+    Eigenvectors are found from the eigenvalues, and only after counting them do you know whether $A$ is diagonalizable at all. Then build $P$ and $D$ (in matching order) and confirm with $AP = PD$, which avoids computing $P^{-1}$.
+
+- id: la-m8-r2-q13
+  lesson: la-diagonalization
+  module_quiz: true
+  topic: Diagonalization
+  stem: 'Which of these matrices are diagonalizable using real matrices $P$ and $D$? Select all that apply.'
+  choices: ['$\begin{bmatrix} 2 & 1 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$']
+  answer: [0, 3]
+  explanation: |-
+    The first matrix is triangular with distinct eigenvalues 2 and 3, so it is diagonalizable. The all-ones matrix has trace 2 and determinant 0, so its eigenvalues are 2 and 0, also distinct. $\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$ has eigenvalue 2 twice but only a 1-dimensional eigenspace. The rotation has eigenvalues $\pm i$, which are not real.
+
+- id: la-m8-r2-q14
+  lesson: la-diagonalization
+  type: match
+  topic: Diagonalization
+  stem: 'Match each $3 \times 3$ matrix description to the conclusion.'
+  pairs:
+    - ['Eigenvalues 1, 2 and 3', 'Diagonalizable']
+    - ['Eigenvalues 2, 2, 5; the eigenspace for 2 is 1-dimensional', 'Not diagonalizable: too few eigenvectors']
+    - ['Eigenvalues 4 and $1 \pm i$', 'Not diagonalizable with real matrices']
+    - ['Eigenvalues 2, 2, 5; the eigenspace for 2 is 2-dimensional', 'Diagonalizable']
+  distractors: ['Diagonalizable only if it is invertible']
+  explanation: |-
+    Three distinct real eigenvalues guarantee three independent eigenvectors. With a repeated eigenvalue, compare the eigenspace dimension with the multiplicity: 1 is less than 2 (not diagonalizable), 2 equals 2 (diagonalizable, $2 + 1 = 3$ eigenvectors). Non-real eigenvalues rule out a real $D$. Invertibility has nothing to do with diagonalizability.
+
+- id: la-m8-r2-q15
+  lesson: la-diagonalization
+  type: text
+  topic: Diagonalization
+  stem: 'For $S = \begin{bmatrix} 3 & 1 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3\end{bmatrix}$, the eigenspace for $\lambda = 3$ has dimension ___.'
+  accept: ['2', 'two']
+  explanation: |-
+    $S - 3I = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0\end{bmatrix}$ has one pivot, so it has $3 - 1 = 2$ free variables. The geometric multiplicity is 2, less than the algebraic multiplicity 3, so $S$ is not diagonalizable.
+
+# --- Lesson 30: complex eigenvalues ---
+- id: la-m8-r2-q16
+  lesson: la-complex-eig
+  module_quiz: true
+  type: text
+  topic: Complex eigenvalues
+  stem: 'The matrix $C = \begin{bmatrix} 5 & -12 \\ 12 & 5\end{bmatrix}$ rotates every vector and multiplies its length by ___.'
+  accept: ['13']
+  explanation: |-
+    $C$ has the form $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$ with $a = 5$, $b = 12$, so its eigenvalues are $5 \pm 12i$ and the scale factor is $r = \sqrt{25 + 144} = 13$.
+
+- id: la-m8-r2-q17
+  lesson: la-complex-eig
+  type: label
+  topic: Complex eigenvalues
+  stem: 'The picture shows a complex eigenvalue $\lambda = a + bi$ of a real $2 \times 2$ matrix, plotted in the complex plane. Name the numbered parts.'
+  image: {src: images/la-m8-complex-plane-blank.svg, alt: 'Horizontal real axis and vertical imaginary axis. A point labeled lambda up and to the right of the origin, joined to the origin by a blue segment. An arc marks the angle between that segment and the real axis. An orange segment runs along the real axis from 0 to directly below lambda, and a green dashed segment runs up from there to lambda. A second point lies the same distance below the real axis, joined to the origin by a dashed line.'}
+  labels:
+    - {x: 46.5, y: 38.3, text: 'Modulus |λ| (the scale factor)'}
+    - {x: 40.1, y: 47.8, text: Angle (the rotation angle)}
+    - {x: 55.8, y: 52.1, text: Real part a}
+    - {x: 66.4, y: 38.8, text: Imaginary part b}
+    - {x: 66.4, y: 78.6, text: Conjugate eigenvalue a - bi}
+  distractors: [Trace of the matrix]
+  explanation: |-
+    1: the distance from 0 to $\lambda$ is $r = |\lambda| = \sqrt{a^2 + b^2}$, the factor by which the matrix scales lengths. 2: the angle of $(a, b)$ is the rotation angle. 3 and 4: $\lambda$ sits at the point $(a, b)$, so the horizontal leg is the real part and the vertical leg the imaginary part. 5: complex eigenvalues of a real matrix come in conjugate pairs, and $a - bi$ is the mirror image of $a + bi$ across the real axis. (The trace is $2a$, not a part of the picture.)
+
+- id: la-m8-r2-q18
+  lesson: la-complex-eig
+  type: match
+  topic: Complex eigenvalues
+  stem: 'Match each matrix to the transformation it performs.'
+  pairs:
+    - ['$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$', 'Rotation by 90° with no scaling']
+    - ['$\begin{bmatrix} 1 & -1 \\ 1 & 1\end{bmatrix}$', 'Rotation by 45° and scaling by √2']
+    - ['$\begin{bmatrix} 0 & -2 \\ 2 & 0\end{bmatrix}$', 'Rotation by 90° and scaling by 2']
+    - ['$\begin{bmatrix} 0.6 & -0.8 \\ 0.8 & 0.6\end{bmatrix}$', 'Rotation by about 53° with no scaling']
+  distractors: ['Rotation by 45° and scaling by 2']
+  explanation: |-
+    Each matrix is $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$: it scales by $r = \sqrt{a^2 + b^2}$ and rotates by the angle of the point $(a, b)$. $(0, 1)$: $r = 1$, angle $90^\circ$. $(1, 1)$: $r = \sqrt2$, angle $45^\circ$. $(0, 2)$: $r = 2$, angle $90^\circ$. $(0.6, 0.8)$: $r = 1$, angle $\tan^{-1}(0.8/0.6) \approx 53.1^\circ$.
+
+- id: la-m8-r2-q19
+  lesson: la-complex-eig
+  topic: Complex eigenvalues
+  stem: 'A real $2 \times 2$ matrix $A$ has eigenvalue $1 + 2i$. Which statements must be true? Select all that apply.'
+  choices: ['$1 - 2i$ is also an eigenvalue of $A$', '$\det A = 5$', '$A$ has a real eigenvector', '$\operatorname{tr} A = 1$']
+  answer: [0, 1]
+  explanation: |-
+    Complex eigenvalues of a real matrix come in conjugate pairs, so the eigenvalues are $1 \pm 2i$. Their product is $1 + 4 = 5 = \det A$ and their sum is $2 = \operatorname{tr} A$, not 1. A real $2 \times 2$ matrix whose eigenvalues are both non-real has no real eigenvector: every real vector is turned.
+
+# --- Lesson 31: discrete dynamical systems and Markov chains ---
+- id: la-m8-r2-q20
+  lesson: la-dynamics
+  module_quiz: true
+  type: text
+  topic: Markov chains
+  stem: 'The steady-state vector of $P = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8\end{bmatrix}$ has first entry ___ and second entry ___. (Give decimals or fractions.)'
+  accept:
+    - ['0.4', '2/5']
+    - ['0.6', '3/5']
+  explanation: |-
+    $(P - I)\mathbf{x} = \mathbf{0}$ gives $-0.3x_1 + 0.2x_2 = 0$, so $x_1 = \tfrac23x_2$. Taking $x_2 = 3$ gives $(2, 3)$; dividing by $2 + 3 = 5$ gives $\mathbf{q} = (0.4, 0.6)$. Check: $P\mathbf{q} = (0.28 + 0.12,\ 0.12 + 0.48) = (0.4, 0.6)$.
+
+- id: la-m8-r2-q21
+  lesson: la-dynamics
+  type: order
+  topic: Markov chains
+  stem: 'Put the steps for finding the steady-state vector of a regular stochastic matrix $P$ in order.'
+  items:
+    - 'Form $P - I$'
+    - 'Row-reduce to solve $(P - I)\mathbf{x} = \mathbf{0}$'
+    - 'Choose one nonzero solution $\mathbf{x}$'
+    - 'Divide $\mathbf{x}$ by the sum of its entries to get $\mathbf{q}$'
+    - 'Check that $P\mathbf{q} = \mathbf{q}$'
+  explanation: |-
+    The steady state is an eigenvector for eigenvalue 1, so solve $(P - I)\mathbf{x} = \mathbf{0}$, pick a nonzero solution, and scale it into a probability vector. The check uses the finished $\mathbf{q}$, so it comes last.
+
+- id: la-m8-r2-q22
+  lesson: la-dynamics
+  topic: Markov chains
+  stem: 'Which of these are regular stochastic matrices? Select all that apply.'
+  choices: ['$\begin{bmatrix} 0.5 & 0.5 \\ 0.5 & 0.5\end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 0.5 \\ 0 & 0.5\end{bmatrix}$', '$\begin{bmatrix} 0.9 & 0.4 \\ 0.1 & 0.6\end{bmatrix}$']
+  answer: [0, 3]
+  explanation: |-
+    All four are stochastic (columns sum to 1). The first and last already have all entries positive ($k = 1$). The swap matrix alternates between itself and $I$, so every power has zeros. In $\begin{bmatrix} 1 & 0.5 \\ 0 & 0.5\end{bmatrix}$ state 1 is never left, so the bottom-left entry of every power is 0 (for example $P^2 = \begin{bmatrix} 1 & 0.75 \\ 0 & 0.25\end{bmatrix}$).
+
+- id: la-m8-r2-q23
+  lesson: la-dynamics
+  type: match
+  topic: Dynamical systems
+  stem: 'A $2 \times 2$ system $\mathbf{x}_{k+1} = A\mathbf{x}_k$ has the given eigenvalues. Match each to the behavior at the origin.'
+  pairs:
+    - ['$0.5$ and $0.9$', 'Attractor']
+    - ['$1.1$ and $2$', 'Repeller']
+    - ['$0.4$ and $1.3$', 'Saddle point']
+    - ['$-0.8$ and $0.3$', 'Attractor']
+  distractors: ['Center']
+  explanation: |-
+    For discrete systems the absolute value decides: both $|\lambda| < 1$ is an attractor, both $|\lambda| > 1$ a repeller, one of each a saddle point. A negative eigenvalue like $-0.8$ makes that component flip sign each step, but $|{-0.8}| < 1$ still shrinks it.
+
+- id: la-m8-r2-q24
+  lesson: la-dynamics
+  module_quiz: true
+  type: label
+  topic: Dynamical systems
+  stem: 'Each panel shows trajectories of $\mathbf{x}_{k+1} = A\mathbf{x}_k$ near the origin, one dot per step, with arrows showing the direction of motion. Name the behavior of the origin in each panel.'
+  image: {src: images/la-m8-portraits-blank.svg, alt: 'Three square panels with axes through the origin. Panel 1: dotted paths from the edges step inward and end at the origin. Panel 2: dotted paths start near the origin and step outward to the edges. Panel 3: dotted paths come in along the vertical axis toward the origin, then turn and leave along the horizontal axis.'}
+  labels:
+    - {x: 17.4, y: 88.2, text: Attractor}
+    - {x: 50.0, y: 88.2, text: Repeller}
+    - {x: 82.6, y: 88.2, text: Saddle point}
+  distractors: [Center, Steady state]
+  explanation: |-
+    1: every path moves toward the origin, an attractor (both $|\lambda| < 1$). 2: every path moves away, a repeller (both $|\lambda| > 1$). 3: paths approach along one eigenvector direction and leave along the other, a saddle point (one $|\lambda| < 1$, one $|\lambda| > 1$). A center (closed loops) belongs to differential equations with purely imaginary eigenvalues.
+
+# --- Lesson 32: systems of differential equations ---
+- id: la-m8-r2-q25
+  lesson: la-ode-systems
+  type: text
+  topic: Systems of differential equations
+  stem: 'For $\mathbf{x}'' = A\mathbf{x}$ with $A = \begin{bmatrix} 1 & 3 \\ 3 & 1\end{bmatrix}$, the eigenvalues of $A$ are ___ (the larger) and ___.'
+  accept:
+    - ['4']
+    - ['-2']
+  explanation: |-
+    $\operatorname{tr} A = 2$ and $\det A = 1 - 9 = -8$, so $\lambda^2 - 2\lambda - 8 = (\lambda - 4)(\lambda + 2) = 0$. Solutions are combinations of $e^{4t}(1, 1)$ and $e^{-2t}(1, -1)$; with eigenvalues of opposite signs the origin is a saddle point.
+
+- id: la-m8-r2-q26
+  lesson: la-ode-systems
+  type: order
+  topic: Systems of differential equations
+  stem: 'Put the steps for solving $\mathbf{x}'' = A\mathbf{x}$ with a given $\mathbf{x}(0)$ in order ($A$ is $2 \times 2$ with real eigenvalues $\lambda_1 \ne \lambda_2$).'
+  items:
+    - 'Find the eigenvalues $\lambda_1, \lambda_2$ of $A$'
+    - 'Find eigenvectors $\mathbf{v}_1, \mathbf{v}_2$'
+    - 'Solve $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 = \mathbf{x}(0)$ for the weights'
+    - 'Write $\mathbf{x}(t) = c_1e^{\lambda_1t}\mathbf{v}_1 + c_2e^{\lambda_2t}\mathbf{v}_2$'
+    - 'Check that the formula gives $\mathbf{x}(0)$ at $t = 0$'
+  explanation: |-
+    Eigenvectors need the eigenvalues; the weights need the eigenvectors; the formula needs all three; and the check needs the formula.
+
+- id: la-m8-r2-q27
+  lesson: la-ode-systems
+  topic: Systems of differential equations
+  stem: 'For which matrices $A$ does every solution of $\mathbf{x}'' = A\mathbf{x}$ tend to $\mathbf{0}$? Select all that apply.'
+  choices: ['$\begin{bmatrix} -2 & 0 \\ 0 & -5\end{bmatrix}$', '$\begin{bmatrix} -1 & 3 \\ 3 & -1\end{bmatrix}$', '$\begin{bmatrix} -1 & -2 \\ 2 & -1\end{bmatrix}$', '$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$']
+  answer: [0, 2]
+  explanation: |-
+    The test is trace negative and determinant positive. $\operatorname{diag}(-2, -5)$: eigenvalues $-2$, $-5$, a sink. $\begin{bmatrix} -1 & -2 \\ 2 & -1\end{bmatrix}$: trace $-2$, determinant 5, eigenvalues $-1 \pm 2i$, a spiral sink. $\begin{bmatrix} -1 & 3 \\ 3 & -1\end{bmatrix}$ has determinant $1 - 9 = -8 < 0$ (eigenvalues 2 and $-4$), a saddle. The rotation has eigenvalues $\pm i$: a center, whose solutions circle forever without approaching $\mathbf{0}$.
+
+- id: la-m8-r2-q28
+  lesson: la-ode-systems
+  module_quiz: true
+  type: match
+  topic: Systems of differential equations
+  stem: 'Match the eigenvalues of a real $2 \times 2$ matrix $A$ to the behavior of $\mathbf{x}'' = A\mathbf{x}$ at the origin.'
+  pairs:
+    - ['$-2$ and $-5$', 'Sink']
+    - ['$3$ and $-1$', 'Saddle point']
+    - ['$-1 \pm 2i$', 'Spiral sink']
+    - ['$\pm 3i$', 'Center']
+  distractors: ['Spiral source', 'Source']
+  explanation: |-
+    For differential equations the sign of the real part decides. Both negative: sink. Opposite signs: saddle point. Complex with negative real part: spiral sink. Real part 0: center (closed loops). A source or spiral source would need positive real parts.
+
+- id: la-m8-r2-q29
+  lesson: la-ode-systems
+  type: label
+  topic: Systems of differential equations
+  stem: 'The picture shows the trace–determinant plane for $\mathbf{x}'' = A\mathbf{x}$, with $\operatorname{tr} A$ across and $\det A$ up. Name the numbered regions (region 6 is the positive vertical axis).'
+  image: {src: images/la-m8-trace-det-blank.svg, alt: 'Axes labeled trace (horizontal) and determinant (vertical). A dashed parabola opens upward from the origin. Region 1 is inside the parabola on the left, region 2 inside it on the right, region 3 outside it on the left above the axis, region 4 outside it on the right above the axis, region 5 is everything below the horizontal axis, and 6 marks the positive vertical axis.'}
+  labels:
+    - {x: 31.1, y: 24.7, text: Spiral sink}
+    - {x: 68.9, y: 24.7, text: Spiral source}
+    - {x: 18.7, y: 45.9, text: Sink}
+    - {x: 81.3, y: 45.9, text: Source}
+    - {x: 63.8, y: 80.1, text: Saddle point}
+    - {x: 50.0, y: 35.8, text: Center}
+  explanation: |-
+    The eigenvalues satisfy $\lambda_1 + \lambda_2 = \operatorname{tr} A$ and $\lambda_1\lambda_2 = \det A$. Below the axis ($\det A < 0$) they are real with opposite signs: saddle (5). Above the parabola $\det A = (\operatorname{tr} A)^2/4$ they are complex with real part $\tfrac12\operatorname{tr} A$: spirals in on the left (1), out on the right (2), and closed loops on the vertical axis where the trace is 0 (6). Between the parabola and the axis they are real with the same sign: both negative on the left (sink, 3), both positive on the right (source, 4).
+
+# ===================== Honors 32h1: Cayley–Hamilton and the minimal polynomial =====================
+- id: la-m8-r2-h01
+  lesson: la-m8-h-cayley-hamilton
+  topic: Cayley–Hamilton theorem
+  stem: 'For a $2 \times 2$ matrix $A$, what does the Cayley–Hamilton theorem say?'
+  choices: ['$A^2 - (\det A)A + (\operatorname{tr} A)I = 0$', '$A^2 - (\operatorname{tr} A)A + (\det A)I = 0$', '$A^2 + (\operatorname{tr} A)A + (\det A)I = 0$', '$A^2 - (\operatorname{tr} A)A + \det A = 0$']
+  answer: 1
+  explanation: |-
+    The characteristic polynomial is $\lambda^2 - (\operatorname{tr} A)\lambda + \det A$, and the theorem says $A$ satisfies it, with the constant term becoming $(\det A)I$. Swapping trace and determinant or changing the sign of the middle term gives a different polynomial. Writing "$+ \det A$" without $I$ adds a number to a matrix, which is undefined.
+
+- id: la-m8-r2-h02
+  lesson: la-m8-h-cayley-hamilton
+  topic: Cayley–Hamilton theorem
+  stem: 'For $A = \begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}$, write $A^2$ as $\alpha A + \beta I$.'
+  choices: ['$5A - 2I$', '$-5A + 2I$', '$2A + 5I$', '$5A + 2I$']
+  answer: 3
+  explanation: |-
+    $\operatorname{tr} A = 5$ and $\det A = -2$, so $A^2 - 5A - 2I = 0$ and $A^2 = 5A + 2I$. Check: $A^2 = \begin{bmatrix} 7 & 10 \\ 15 & 22\end{bmatrix}$ and $5A + 2I = \begin{bmatrix} 7 & 10 \\ 15 & 22\end{bmatrix}$. $5A - 2I$ forgets that $\det A$ is negative.
+
+- id: la-m8-r2-h03
+  lesson: la-m8-h-cayley-hamilton
+  topic: Cayley–Hamilton theorem
+  stem: 'Use Cayley–Hamilton to find $A^{-1}$ for $A = \begin{bmatrix} 2 & 1 \\ 1 & 1\end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 1 & -1 \\ -1 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 1 & 2\end{bmatrix}$', '$\begin{bmatrix} -1 & 1 \\ 1 & -2\end{bmatrix}$', '$\begin{bmatrix} 2 & -1 \\ -1 & 1\end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $\operatorname{tr} A = 3$, $\det A = 1$, so $A^2 - 3A + I = 0$, i.e. $A(3I - A) = I$. Then $A^{-1} = 3I - A = \begin{bmatrix} 1 & -1 \\ -1 & 2\end{bmatrix}$. Check: $A A^{-1} = \begin{bmatrix} 2 - 1 & -2 + 2 \\ 1 - 1 & -1 + 2\end{bmatrix} = I$. The matrix with a 2 in the top left is $A - I$ with signs changed off the diagonal, not the inverse; the all-negative-diagonal one is $A - 3I$.
+
+- id: la-m8-r2-h04
+  lesson: la-m8-h-cayley-hamilton
+  topic: Cayley–Hamilton theorem
+  stem: 'A student "proves" Cayley–Hamilton by writing $p(A) = \det(A - A\,I) = \det 0 = 0$. What is wrong?'
+  choices: ['Nothing; this is the standard proof', 'It only works when $A$ is invertible', '$\det(A - \lambda I)$ is a number for each number $\lambda$; the theorem is about the matrix $c_0I + c_1A + \cdots$, which this never computes', 'It only works for diagonal matrices']
+  answer: 2
+  explanation: |-
+    The argument produces the scalar 0, but $p(A)$ is an $n \times n$ matrix built from powers of $A$. Showing that a determinant is zero says nothing about whether that matrix is zero. The real proof uses the adjugate (or, for diagonalizable matrices, $p(A) = Pp(D)P^{-1}$). Invertibility and diagonal form are beside the point.
+
+- id: la-m8-r2-h05
+  lesson: la-m8-h-cayley-hamilton
+  type: text
+  topic: Cayley–Hamilton theorem
+  stem: 'A $2 \times 2$ matrix $A$ has trace 4 and determinant 3. Then $A^3 = \alpha A + \beta I$ with $\alpha =$ ___ and $\beta =$ ___. (Give only the numbers.)'
+  accept:
+    - ['13']
+    - ['-12']
+  explanation: |-
+    Cayley–Hamilton: $A^2 = 4A - 3I$. Then $A^3 = 4A^2 - 3A = 4(4A - 3I) - 3A = 13A - 12I$. Check with the eigenvalues 1 and 3: $13(1) - 12 = 1 = 1^3$ and $13(3) - 12 = 27 = 3^3$.
+
+- id: la-m8-r2-h06
+  lesson: la-m8-h-cayley-hamilton
+  type: text
+  topic: Cayley–Hamilton theorem
+  stem: 'If $A\mathbf{v} = 3\mathbf{v}$, then $(A^2 - 4A + I)\mathbf{v} = c\mathbf{v}$ with $c =$ ___. (Give only the number.)'
+  accept: ['-2']
+  explanation: |-
+    A matrix polynomial acts on an eigenvector by plugging in the eigenvalue: $q(3) = 9 - 12 + 1 = -2$, so $(A^2 - 4A + I)\mathbf{v} = -2\mathbf{v}$.
+
+- id: la-m8-r2-h07
+  lesson: la-m8-h-cayley-hamilton
+  topic: Cayley–Hamilton theorem
+  stem: 'A $2 \times 2$ matrix $A$ has eigenvalues 1 and 4. Write $A^3 = \alpha A + \beta I$.'
+  choices: ['$21A - 20I$', '$20A - 21I$', '$64A + I$', '$5A - 4I$']
+  answer: 0
+  explanation: |-
+    The remainder $r(t) = \alpha t + \beta$ must match $t^3$ at both eigenvalues: $\alpha + \beta = 1$ and $4\alpha + \beta = 64$. Subtracting, $3\alpha = 63$, so $\alpha = 21$ and $\beta = -20$. $20A - 21I$ gives $-1$ at $t = 1$. $5A - 4I$ is $A^2$ (it matches $t^2$: $1$ and $16$), not $A^3$.
+
+- id: la-m8-r2-h08
+  lesson: la-m8-h-cayley-hamilton
+  topic: Minimal polynomial
+  stem: 'Which statements are true for every $n \times n$ matrix $A$ and its minimal polynomial $m(t)$? Select all that apply.'
+  choices: ['$m$ divides the characteristic polynomial of $A$', 'Every eigenvalue of $A$ is a root of $m$', '$m$ always equals the characteristic polynomial up to sign', 'The degree of $m$ is at most $n$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $m$ divides every polynomial that sends $A$ to 0, including the characteristic polynomial (Cayley–Hamilton), so its degree is at most $n$. If $A\mathbf{v} = \lambda\mathbf{v}$ then $m(\lambda)\mathbf{v} = m(A)\mathbf{v} = \mathbf{0}$, so $m(\lambda) = 0$. But $m$ can be smaller: for $I$ it is $t - 1$, while the characteristic polynomial has degree $n$.
+
+- id: la-m8-r2-h09
+  lesson: la-m8-h-cayley-hamilton
+  topic: Minimal polynomial
+  stem: 'What is the minimal polynomial of $\begin{bmatrix} 3 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 7\end{bmatrix}$?'
+  choices: ['$(t - 3)^2(t - 7)$', '$t - 3$', '$(t - 3)(t - 7)$', '$(t - 3)(t - 7)^2$']
+  answer: 2
+  explanation: |-
+    Both eigenvalues must be roots. $(A - 3I)(A - 7I)$ is diagonal with entries $0 \cdot (-4)$, $0 \cdot (-4)$ and $4 \cdot 0$, all zero, so $(t - 3)(t - 7)$ already works and nothing of smaller degree containing both roots exists. $(t - 3)^2(t - 7)$ is the characteristic polynomial (up to sign), which also kills $A$ but isn't minimal. $t - 3$ misses the eigenvalue 7.
+
+- id: la-m8-r2-h10
+  lesson: la-m8-h-cayley-hamilton
+  topic: Minimal polynomial
+  stem: 'A $4 \times 4$ matrix has minimal polynomial $(t - 1)^2(t + 2)$. Is it diagonalizable?'
+  choices: ['Yes, because all its eigenvalues are real', 'Yes, because it has only two distinct eigenvalues', 'Only if it is invertible', 'No, because the minimal polynomial has a repeated factor']
+  answer: 3
+  explanation: |-
+    A real matrix is diagonalizable exactly when its minimal polynomial is a product of distinct real linear factors. The factor $(t - 1)^2$ is repeated, so the matrix is not diagonalizable (the eigenvalue 1 is short of eigenvectors). Real eigenvalues are necessary but not enough, and the number of distinct eigenvalues or invertibility doesn't decide it.
+
+- id: la-m8-r2-h11
+  lesson: la-m8-h-cayley-hamilton
+  type: match
+  topic: Minimal polynomial
+  stem: 'Match each matrix to its minimal polynomial.'
+  pairs:
+    - ['$\begin{bmatrix} 2 & 0 \\ 0 & 2\end{bmatrix}$', 't − 2']
+    - ['$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$', '(t − 2)²']
+    - ['$\begin{bmatrix} 2 & 0 \\ 0 & 5\end{bmatrix}$', '(t − 2)(t − 5)']
+    - ['$\begin{bmatrix} 0 & 1 \\ 0 & 0\end{bmatrix}$', 't²']
+  distractors: ['(t − 2)(t − 5)²']
+  explanation: |-
+    $2I - 2I = 0$, so $t - 2$ works for $2I$. For $\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$, $A - 2I = \begin{bmatrix} 0 & 1 \\ 0 & 0\end{bmatrix} \ne 0$ but its square is 0. The diagonal matrix with 2 and 5 needs both roots, once each. $\begin{bmatrix} 0 & 1 \\ 0 & 0\end{bmatrix}$ is not 0 but its square is.
+
+- id: la-m8-r2-h12
+  lesson: la-m8-h-cayley-hamilton
+  type: order
+  topic: Minimal polynomial
+  stem: 'Put the steps for testing whether a real matrix $A$ with only real eigenvalues is diagonalizable, using the minimal polynomial, in order.'
+  items:
+    - 'Find the characteristic polynomial of $A$'
+    - 'Find its distinct roots $\lambda_1, \dots, \lambda_s$'
+    - 'Compute the product $(A - \lambda_1I)\cdots(A - \lambda_sI)$'
+    - 'Conclude: diagonalizable exactly when the product is the zero matrix'
+  explanation: |-
+    The distinct eigenvalues come from the characteristic polynomial. The product with each distinct eigenvalue used once is the only candidate for a minimal polynomial with no repeated factor, and it is the minimal polynomial exactly when it sends $A$ to 0.
+
+- id: la-m8-r2-h13
+  lesson: la-m8-h-cayley-hamilton
+  topic: Cayley–Hamilton theorem
+  stem: 'Who gave the first general proof of the Cayley–Hamilton theorem?'
+  choices: ['Arthur Cayley, in 1858', 'Ferdinand Georg Frobenius, in 1878', 'William Rowan Hamilton, in 1853', 'Camille Jordan, in 1870']
+  answer: 1
+  explanation: |-
+    Hamilton proved a special case for quaternions in 1853. Cayley stated the theorem in 1858, checked the $2 \times 2$ case, said he had verified $3 \times 3$, and gave no general proof. Frobenius proved it in general in 1878. Jordan's 1870 work is the source of the Jordan form.
+
+- id: la-m8-r2-h14
+  lesson: la-m8-h-cayley-hamilton
+  topic: Minimal polynomial
+  stem: 'A matrix $B$ satisfies $(B - 2I)(B - 5I) = 0$. Which formula gives $B^{-1}$?'
+  choices: ['$\tfrac{1}{10}(B - 7I)$', '$\tfrac{1}{7}(10I - B)$', '$\tfrac{1}{10}(7I - B)$', '$\tfrac{1}{10}(B + 7I)$']
+  answer: 2
+  explanation: |-
+    Expand: $B^2 - 7B + 10I = 0$, so $B(7I - B) = 10I$ and $B^{-1} = \tfrac{1}{10}(7I - B)$. (0 is not a root of $(t - 2)(t - 5)$, so $B$ is invertible.) $\tfrac{1}{10}(B - 7I)$ has the wrong sign: it gives $-B^{-1}$. The version divided by 7 mixes up which coefficient is the constant term.
+
+# ===================== Honors 32h2: defective matrices and the Jordan form =====================
+- id: la-m8-r2-h15
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'A square matrix is called defective when:'
+  choices: ['it is not invertible', 'some eigenvalue has fewer independent eigenvectors than its algebraic multiplicity', 'it has a complex eigenvalue', 'it has a repeated eigenvalue']
+  answer: 1
+  explanation: |-
+    Defective means there is no eigenvector basis: some geometric multiplicity is smaller than the algebraic multiplicity. A repeated eigenvalue alone isn't enough ($2I$ is not defective), a singular matrix can be diagonalizable ($\operatorname{diag}(1, 0)$), and complex eigenvalues are a different issue.
+
+- id: la-m8-r2-h16
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: '$\mathbf{v}_1$ is an eigenvector of $A$ for $\lambda$. Which equation does the next vector $\mathbf{v}_2$ of a Jordan chain satisfy?'
+  choices: ['$(A - \lambda I)\mathbf{v}_2 = \mathbf{0}$', '$A\mathbf{v}_2 = \mathbf{v}_1$', '$(A - \lambda I)\mathbf{v}_1 = \mathbf{v}_2$', '$(A - \lambda I)\mathbf{v}_2 = \mathbf{v}_1$']
+  answer: 3
+  explanation: |-
+    The chain runs backward to the eigenvector: $(A - \lambda I)\mathbf{v}_2 = \mathbf{v}_1$, which means $A\mathbf{v}_2 = \lambda\mathbf{v}_2 + \mathbf{v}_1$. The homogeneous equation only finds more eigenvectors. $(A - \lambda I)\mathbf{v}_1$ is $\mathbf{0}$, not a new vector. $A\mathbf{v}_2 = \mathbf{v}_1$ drops the $\lambda\mathbf{v}_2$ term.
+
+- id: la-m8-r2-h17
+  lesson: la-m8-h-jordan-form
+  type: text
+  topic: Jordan form
+  stem: 'For $J = \begin{bmatrix} 3 & 1 \\ 0 & 3\end{bmatrix}$, the matrix $J^4$ has diagonal entries ___ and top-right entry ___.'
+  accept:
+    - ['81']
+    - ['108']
+  explanation: |-
+    $J = 3I + N$ with $N^2 = 0$, so $J^4 = 3^4I + 4 \cdot 3^3N$. The diagonal is $81$ and the corner is $4 \cdot 27 = 108$.
+
+- id: la-m8-r2-h18
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'What is the Jordan form of $A = \begin{bmatrix} 4 & 1 \\ -1 & 2\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} 3 & 0 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 0 & 4\end{bmatrix}$', '$\begin{bmatrix} 3 & 1 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & 4\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $\operatorname{tr} A = 6$ and $\det A = 8 + 1 = 9$, so $(\lambda - 3)^2 = 0$: eigenvalue 3 twice. $A - 3I = \begin{bmatrix} 1 & 1 \\ -1 & -1\end{bmatrix}$ has rank 1, so there is only one independent eigenvector and one $2 \times 2$ block. $3I$ would require $A = 3I$. The diagonal entries 2 and 4 are not eigenvalues of $A$.
+
+- id: la-m8-r2-h19
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'In the Jordan form of $A$, the number of Jordan blocks for an eigenvalue $\lambda$ equals:'
+  choices: ['the algebraic multiplicity of $\lambda$', 'the size of the largest block for $\lambda$', 'the rank of $A - \lambda I$', 'the geometric multiplicity of $\lambda$']
+  answer: 3
+  explanation: |-
+    Each block contributes exactly one eigenvector (the first vector of its chain), so the number of blocks is $\dim\operatorname{Nul}(A - \lambda I)$, the geometric multiplicity. The algebraic multiplicity is the total size of the blocks. The rank of $A - \lambda I$ is $n$ minus the geometric multiplicity.
+
+- id: la-m8-r2-h20
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'Which of these matrices are already in Jordan form? Select all that apply.'
+  choices: ['$\begin{bmatrix} 2 & 1 \\ 0 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 1 & 2\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & 3\end{bmatrix}$']
+  answer: [0, 1]
+  explanation: |-
+    A single $2 \times 2$ block and a diagonal matrix (three $1 \times 1$ blocks) are Jordan forms. The matrix with the 1 below the diagonal is not (that is the convention used here: 1s go above the diagonal). A 1 between two different diagonal entries, as in $\begin{bmatrix} 2 & 1 \\ 0 & 3\end{bmatrix}$, is not allowed: inside a block all diagonal entries are equal, and that matrix is diagonalizable, with Jordan form $\operatorname{diag}(2, 3)$.
+
+- id: la-m8-r2-h21
+  lesson: la-m8-h-jordan-form
+  type: match
+  topic: Jordan form
+  stem: 'A $3 \times 3$ matrix $A$ has 5 as its only eigenvalue. Match the rank of $A - 5I$ to the Jordan blocks of $A$.'
+  pairs:
+    - ['Rank 0', 'Three 1 × 1 blocks']
+    - ['Rank 1', 'One 2 × 2 block and one 1 × 1 block']
+    - ['Rank 2', 'One 3 × 3 block']
+  distractors: ['Two 2 × 2 blocks']
+  explanation: |-
+    The number of blocks is the eigenspace dimension, $3 - \operatorname{rank}(A - 5I)$: 3, 2 or 1 blocks, and their sizes must add to 3. Two $2 \times 2$ blocks would need a $4 \times 4$ matrix.
+
+- id: la-m8-r2-h22
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'What is $e^{Jt}$ for $J = \begin{bmatrix} -1 & 1 \\ 0 & -1\end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} e^{-t} & e^{t} \\ 1 & e^{-t}\end{bmatrix}$', '$e^{-t}\begin{bmatrix} 1 & t \\ 0 & 1\end{bmatrix}$', '$\begin{bmatrix} e^{-t} & 0 \\ 0 & e^{-t}\end{bmatrix}$', '$e^{-t}\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    $J = -I + N$ with $N^2 = 0$, and $-I$ commutes with $N$, so $e^{Jt} = e^{-t}(I + tN)$. Exponentiating entries is never right. Dropping the $tN$ term treats $J$ as diagonalizable. A constant 1 in the corner forgets the factor $t$ from the series.
+
+- id: la-m8-r2-h23
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: '$A$ has eigenvalue $-2$ with a Jordan chain $\mathbf{v}_1, \mathbf{v}_2$ and no other eigenvectors. Which formula gives every solution of $\mathbf{x}'' = A\mathbf{x}$?'
+  choices: ['$c_1e^{-2t}\mathbf{v}_1 + c_2e^{-2t}\mathbf{v}_2$', '$c_1e^{-2t}\mathbf{v}_1 + c_2e^{-2t}(\mathbf{v}_1 + t\mathbf{v}_2)$', '$c_1e^{-2t}\mathbf{v}_1 + c_2te^{-2t}\mathbf{v}_2$', '$c_1e^{-2t}\mathbf{v}_1 + c_2e^{-2t}(t\mathbf{v}_1 + \mathbf{v}_2)$']
+  answer: 3
+  explanation: |-
+    The second solution is $e^{\lambda t}(t\mathbf{v}_1 + \mathbf{v}_2)$: its derivative is $\lambda e^{\lambda t}(t\mathbf{v}_1 + \mathbf{v}_2) + e^{\lambda t}\mathbf{v}_1$, which matches $A$ times it because $A\mathbf{v}_2 = \lambda\mathbf{v}_2 + \mathbf{v}_1$. $e^{-2t}\mathbf{v}_2$ alone is not a solution since $\mathbf{v}_2$ is not an eigenvector, and putting the $t$ on $\mathbf{v}_2$ instead of $\mathbf{v}_1$ fails the same check.
+
+- id: la-m8-r2-h24
+  lesson: la-m8-h-jordan-form
+  type: order
+  topic: Jordan form
+  stem: 'Put the steps for finding $P$ and $J$ with $A = PJP^{-1}$, for a defective $2 \times 2$ matrix $A$, in order.'
+  items:
+    - 'Find the repeated eigenvalue $\lambda$'
+    - 'Find an eigenvector $\mathbf{v}_1$ (the eigenspace is only a line)'
+    - 'Solve $(A - \lambda I)\mathbf{v}_2 = \mathbf{v}_1$'
+    - 'Put $\mathbf{v}_1$ and $\mathbf{v}_2$ in the columns of $P$, in that order'
+  explanation: |-
+    The eigenvector needs $\lambda$, the chain vector needs the eigenvector on the right-hand side, and $P$ needs both, with the eigenvector first so that $J = \begin{bmatrix} \lambda & 1 \\ 0 & \lambda\end{bmatrix}$.
+
+- id: la-m8-r2-h25
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'For a small number $\varepsilon > 0$, what are the eigenvalues of $\begin{bmatrix} 2 & 1 \\ \varepsilon & 2\end{bmatrix}$, and is it diagonalizable?'
+  choices: ['$2$ twice; not diagonalizable', '$2 \pm \varepsilon$; diagonalizable', '$2 \pm \sqrt{\varepsilon}$; diagonalizable', '$2 \pm \sqrt{\varepsilon}\,i$; not diagonalizable with real matrices']
+  answer: 2
+  explanation: |-
+    The characteristic equation is $(2 - \lambda)^2 - \varepsilon = 0$, so $\lambda = 2 \pm \sqrt{\varepsilon}$: two distinct real eigenvalues, hence diagonalizable. At $\varepsilon = 0$ it is a single Jordan block. A tiny change in an entry changes the Jordan form completely, which is why software avoids it. The imaginary version would come from $-\varepsilon$ in that corner.
+
+- id: la-m8-r2-h26
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'The Jordan form of $A$ has two blocks for the eigenvalue 4, of sizes 3 and 1, and no other eigenvalues. What is the minimal polynomial of $A$?'
+  choices: ['$(t - 4)^4$', '$(t - 4)^3$', '$(t - 4)^2$', '$t - 4$']
+  answer: 1
+  explanation: |-
+    For a $k \times k$ block, $(J - 4I)^k = N^k = 0$ but $N^{k-1} \ne 0$. The $3 \times 3$ block needs the power 3, and that power also kills the $1 \times 1$ block. So $m(t) = (t - 4)^3$, while the characteristic polynomial is $(t - 4)^4$.
+
+- id: la-m8-r2-h27
+  lesson: la-m8-h-jordan-form
+  topic: Jordan form
+  stem: 'For $J = \begin{bmatrix} 0.9 & 1 \\ 0 & 0.9\end{bmatrix}$, the top-right entry of $J^k$ is $k(0.9)^{k-1}$. What does it do as $k$ increases?'
+  choices: ['It stays equal to 1', 'It grows for a while, then tends to 0', 'It decreases to 0 from the start, like $0.9^k$', 'It grows without bound']
+  answer: 1
+  explanation: |-
+    The values are 1, 1.8, 2.43, 2.92, ... and peak near $k = 9$ or 10 at about 3.9, then the factor $0.9^{k-1}$ wins and the entry tends to 0. Because $|\lambda| < 1$, the system still decays in the long run, but the factor $k$ produces temporary growth that a diagonalizable matrix with the same eigenvalue would not show.
+
+- id: la-m8-r2-h28
+  lesson: la-m8-h-jordan-form
+  type: text
+  topic: Jordan form
+  stem: 'How many Jordan blocks does $A = \begin{bmatrix} 4 & 0 & 1 \\ 0 & 4 & 0 \\ 0 & 0 & 4\end{bmatrix}$ have? ___'
+  accept: ['2', 'two']
+  explanation: |-
+    The only eigenvalue is 4. $A - 4I = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0\end{bmatrix}$ has rank 1, so the eigenspace has dimension $3 - 1 = 2$, and there is one block per independent eigenvector: two blocks, of sizes 2 and 1.
+
+# ===================== Honors 32h3: population models and Perron–Frobenius =====================
+- id: la-m8-r2-h29
+  lesson: la-m8-h-perron-frobenius
+  topic: Leslie models
+  stem: 'Where do the survival rates go in a Leslie matrix?'
+  choices: ['On the main diagonal', 'In the first column', 'Just below the main diagonal', 'In the first row']
+  answer: 2
+  explanation: |-
+    Survivors of class $i$ move into class $i + 1$, so $s_i$ is in row $i + 1$, column $i$: just below the diagonal. The first row holds the fecundities, because every newborn enters class 1. Nothing stays in its own class, so the diagonal is zero apart from $f_1$ in the corner.
+
+- id: la-m8-r2-h30
+  lesson: la-m8-h-perron-frobenius
+  type: text
+  topic: Leslie models
+  stem: 'A population has Leslie matrix $L = \begin{bmatrix} 0 & 3 & 2 \\ 0.5 & 0 & 0 \\ 0 & 0.4 & 0\end{bmatrix}$ and counts $\mathbf{x}_0 = (40, 20, 10)$. Next step, $\mathbf{x}_1 = L\mathbf{x}_0$ has ___ in class 1, ___ in class 2 and ___ in class 3.'
+  accept:
+    - ['80']
+    - ['20']
+    - ['8']
+  explanation: |-
+    Newborns: $3(20) + 2(10) = 80$. Class 2 gets the surviving newborns of last year: $0.5(40) = 20$. Class 3 gets $0.4(20) = 8$.
+
+- id: la-m8-r2-h31
+  lesson: la-m8-h-perron-frobenius
+  topic: Leslie models
+  stem: 'A population has two age classes and $L = \begin{bmatrix} 1 & 0.4 \\ 0.6 & 0\end{bmatrix}$. What is its long-run growth factor per step?'
+  choices: ['$1.0$', '$1.2$', '$1.4$', '$0.24$']
+  answer: 1
+  explanation: |-
+    The characteristic equation is $\lambda^2 - \lambda - 0.24 = (\lambda - 1.2)(\lambda + 0.2) = 0$. The dominant eigenvalue is 1.2: the population grows 20% per step in the long run. 1.0 is the fecundity of class 1 (the trace), 1.4 adds the two fecundities, and 0.24 is $f_2s_1$.
+
+- id: la-m8-r2-h32
+  lesson: la-m8-h-perron-frobenius
+  type: text
+  topic: Leslie models
+  stem: 'For $L = \begin{bmatrix} 1 & 0.4 \\ 0.6 & 0\end{bmatrix}$ (dominant eigenvalue 1.2), the stable age distribution has ___ class-1 individuals for every class-2 individual.'
+  accept: ['2', 'two']
+  explanation: |-
+    The eigenvector for $r = 1.2$ is $(1, s_1/r) = (1, 0.6/1.2) = (1, 0.5)$, a ratio of $1 : 0.5 = 2 : 1$. In shares: $\tfrac23$ in class 1 and $\tfrac13$ in class 2.
+
+- id: la-m8-r2-h33
+  lesson: la-m8-h-perron-frobenius
+  topic: Perron–Frobenius theorem
+  stem: 'Which conclusion does the Perron–Frobenius theorem give for a primitive matrix $A$?'
+  choices: ['Every eigenvalue of $A$ is positive', '$A$ is diagonalizable', 'Its largest eigenvalue equals its largest entry', 'It has a positive real eigenvalue $r$ with a positive eigenvector, and every other eigenvalue has $|\lambda| < r$']
+  answer: 3
+  explanation: |-
+    That is the theorem: a simple, dominant, positive eigenvalue with a positive eigenvector. The other eigenvalues can be negative or complex (in Example 1 of the lesson they are about $-1.085$ and $-0.415$). Diagonalizability is not guaranteed, and $r$ is bounded by the row sums, not by the largest entry.
+
+- id: la-m8-r2-h34
+  lesson: la-m8-h-perron-frobenius
+  topic: Perron–Frobenius theorem
+  stem: 'Which of these nonnegative matrices are primitive? Select all that apply.'
+  choices: ['$\begin{bmatrix} 0.5 & 0.5 \\ 0.5 & 0.5\end{bmatrix}$', '$\begin{bmatrix} 0 & 4 \\ 0.25 & 0\end{bmatrix}$', '$\begin{bmatrix} 0.2 & 4 \\ 0.25 & 0\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$']
+  answer: [0, 2]
+  explanation: |-
+    Primitive means some power has all entries positive. The first matrix already does. For $\begin{bmatrix} 0.2 & 4 \\ 0.25 & 0\end{bmatrix}$, the square is $\begin{bmatrix} 1.04 & 0.8 \\ 0.05 & 1\end{bmatrix}$, all positive. $\begin{bmatrix} 0 & 4 \\ 0.25 & 0\end{bmatrix}$ squares to $I$, so its powers alternate and always contain zeros. Every power of $\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$ is $\begin{bmatrix} 1 & k \\ 0 & 1\end{bmatrix}$, with a zero in the corner.
+
+- id: la-m8-r2-h35
+  lesson: la-m8-h-perron-frobenius
+  topic: Perron–Frobenius theorem
+  stem: 'A species breeds only in its second year: $L = \begin{bmatrix} 0 & 4 \\ 0.25 & 0\end{bmatrix}$. Starting from $(100, 0)$, the counts alternate $(100, 0), (0, 25), (100, 0), \dots$ forever. Why does the population never settle into a stable age distribution?'
+  choices: ['The eigenvalues are $1$ and $-1$: no single eigenvalue is dominant', 'The population is shrinking', 'The matrix has a negative entry', 'The matrix has no eigenvalues']
+  answer: 0
+  explanation: |-
+    $\lambda^2 = 4(0.25) = 1$ gives $\pm1$. Two eigenvalues share the largest absolute value, so neither term outgrows the other and the $(-1)^k$ term keeps flipping. The matrix is nonnegative but not primitive. The total doesn't shrink (it returns to 100), every entry is nonnegative, and there are two real eigenvalues.
+
+- id: la-m8-r2-h36
+  lesson: la-m8-h-perron-frobenius
+  type: text
+  topic: Leslie models
+  stem: 'For $L = \begin{bmatrix} 0 & 2 & 3 \\ 0.5 & 0 & 0 \\ 0 & 0.4 & 0\end{bmatrix}$, the net reproductive number is $R_0 =$ ___.'
+  accept: ['1.6', '8/5']
+  explanation: |-
+    The chance of reaching each class is $\ell_1 = 1$, $\ell_2 = 0.5$, $\ell_3 = 0.5 \cdot 0.4 = 0.2$. So $R_0 = 0(1) + 2(0.5) + 3(0.2) = 1 + 0.6 = 1.6$. Since $R_0 > 1$, the population grows ($r > 1$).
+
+- id: la-m8-r2-h37
+  lesson: la-m8-h-perron-frobenius
+  topic: Leslie models
+  stem: 'A Leslie matrix whose last class reproduces has net reproductive number $R_0 = 0.8$. What can you conclude about its dominant eigenvalue $r$?'
+  choices: ['$r = 0.8$', '$r > 1$, because some fecundities exceed 1', '$r < 1$: the population declines in the long run', 'Nothing without computing the eigenvalues']
+  answer: 2
+  explanation: |-
+    $r$ and $R_0$ are always on the same side of 1, so $R_0 < 1$ forces $r < 1$. They are generally not equal: $R_0$ counts daughters per generation, $r$ is the growth factor per time step. Individual fecundities above 1 don't matter if few females survive to use them.
+
+- id: la-m8-r2-h38
+  lesson: la-m8-h-perron-frobenius
+  type: match
+  topic: Leslie models
+  stem: 'Match each part of a Leslie model to what it means.'
+  pairs:
+    - ['Fecundity $f_i$', 'Average number of daughters per female in class i']
+    - ['Survival rate $s_i$', 'Fraction of class i alive one step later']
+    - ['Dominant eigenvalue $r$', 'Long-run growth factor per step']
+    - ['Perron eigenvector scaled to sum 1', 'Stable age distribution']
+  distractors: ['Lifetime daughters expected from one newborn female']
+  explanation: |-
+    The fecundities fill the first row and the survival rates the subdiagonal. The dominant eigenvalue is the long-run growth factor, and its positive eigenvector, scaled to sum 1, gives the long-run shares of the age classes. The distractor describes $R_0$, which is not an entry of $L$ or an eigenvalue.
+
+- id: la-m8-r2-h39
+  lesson: la-m8-h-perron-frobenius
+  type: order
+  topic: Leslie models
+  stem: 'Put the steps for finding the stable age distribution of a population in order.'
+  items:
+    - 'Write the Leslie matrix from the fecundities and survival rates'
+    - 'Find the dominant eigenvalue $r$'
+    - 'Solve $(L - rI)\mathbf{v} = \mathbf{0}$ for a positive eigenvector $\mathbf{v}$'
+    - 'Divide $\mathbf{v}$ by the sum of its entries'
+  explanation: |-
+    The eigenvalue comes from the matrix, the eigenvector from the eigenvalue, and the shares from the eigenvector.
+
+- id: la-m8-r2-h40
+  lesson: la-m8-h-perron-frobenius
+  topic: Perron–Frobenius theorem
+  stem: 'A matrix with nonnegative entries has row sums 3, 4 and 5. What can you say about its largest eigenvalue $r = \rho(A)$ without solving anything?'
+  choices: ['$r = 4$, the average row sum', '$3 \le r \le 5$', '$r \le 3$', '$r \ge 12$']
+  answer: 1
+  explanation: |-
+    For a nonnegative matrix, $r$ lies between the smallest and largest row sums. It equals the average only in special cases, and 12 is the sum of all the entries, an overestimate.
+
+- id: la-m8-r2-h41
+  lesson: la-m8-h-perron-frobenius
+  topic: Perron–Frobenius theorem
+  stem: 'Two populations both have dominant eigenvalue $1.5$. The second-largest eigenvalues (in absolute value) are $-1.2$ for population A and $0.3$ for population B. Which settles into its stable age distribution faster?'
+  choices: ['A, because its second eigenvalue is negative', 'They settle equally fast, since $r$ is the same', 'Neither ever settles', 'B, because $0.3/1.5$ is much smaller than $1.2/1.5$']
+  answer: 3
+  explanation: |-
+    The leftover part shrinks by a factor of about $|\lambda_2|/r$ per step: $0.2$ for B but $0.8$ for A. A negative $\lambda_2$ makes the approach oscillate, but its size is what sets the speed. Both settle eventually because each has a dominant eigenvalue.
+
+- id: la-m8-r2-h42
+  lesson: la-m8-h-perron-frobenius
+  topic: Perron–Frobenius theorem
+  stem: 'Why is the largest eigenvalue of a regular stochastic matrix exactly 1?'
+  choices: ['Because every entry is at most 1', 'Because its trace is 1', 'Because every column sums to 1, and $\rho(A)$ lies between the smallest and largest column sums', 'Because it is symmetric']
+  answer: 2
+  explanation: |-
+    $A$ and $A^T$ have the same eigenvalues, so the row-sum bound also holds for column sums; with all column sums equal to 1, $\rho = 1$. Small entries alone don't force this (the $2 \times 2$ matrix of all 0.9s has eigenvalue 1.8). The trace of a stochastic matrix is usually not 1, and stochastic matrices are usually not symmetric.

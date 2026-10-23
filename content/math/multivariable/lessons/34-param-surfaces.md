@@ -35,6 +35,20 @@ of grid curves form a mesh over the surface, like lines of latitude and longitud
 | Cone $z = \sqrt{x^2 + y^2}$ | $\langle r\cos\theta,\, r\sin\theta,\, r\rangle$ | $r \ge 0$, $0 \le \theta \le 2\pi$ |
 | Plane through $P_0$ containing $\mathbf a$, $\mathbf b$ | $\mathbf r_0 + u\mathbf a + v\mathbf b$ | all $u, v$ |
 
+To choose a parametrization, look at the shape first:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a parametrization for a surface
+  accDescr: If the surface is a graph z equals f of x and y, use x and y as the parameters. If not, and it is a sphere centered at the origin, use the spherical angles phi and theta. If it is a cylinder around the z-axis, use theta and z. If it is a cone around the z-axis, use r and theta. If it is a plane, use a point plus u times one vector plus v times another vector in the plane.
+  A{"Is it a graph z = f(x, y)?"} -- "yes" --> B["Parameters x and y"]
+  A -- "no" --> C{"What shape?"}
+  C -- "sphere" --> D["Angles phi and theta (rho fixed)"]
+  C -- "cylinder about the z-axis" --> E["theta and z (r fixed)"]
+  C -- "cone about the z-axis" --> F["r and theta (z tied to r)"]
+  C -- "plane" --> G["Point plus u a plus v b"]
+```
+
 The sphere comes straight from spherical coordinates with $\rho = a$ fixed; the cylinder from
 cylindrical coordinates with $r = a$ fixed.
 
@@ -51,6 +65,10 @@ $$\mathbf N = \mathbf r_u\times\mathbf r_v$$
 
 is a **normal vector** to the surface. If $\mathbf N \ne \mathbf 0$ everywhere, the surface is
 called **smooth** (no corners or cusps).
+
+The picture shows how a small rectangle in the parameter domain maps to a curved patch on $S$.
+
+![On the left, a rectangle D in the uv-plane with a grid: blue lines along which u varies and green lines along which v varies, and one small cell of sides delta u and delta v. An arrow labeled r(u, v) maps it to a curved surface S on the right with the matching blue and green grid curves. At one point, a blue tangent vector r_u runs along a blue curve, a green tangent vector r_v runs along a green curve, and a red normal vector N = r_u × r_v sticks out of the surface.](images/mv-m8-param-patch.svg)
 
 ### Example 1: a tangent plane
 

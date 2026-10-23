@@ -56,7 +56,7 @@ With linear terms present, a zero discriminant usually gives a parabola; the tab
 
 There is a faster way to find $A'$ and $C'$ directly. A number $\lambda$ is an **eigenvalue** of a matrix $M$ if $M\mathbf u = \lambda\mathbf u$ for some nonzero vector $\mathbf u$, called an **eigenvector**: the matrix only stretches $\mathbf u$, without turning it. For a $2\times2$ matrix, $\lambda$ is an eigenvalue exactly when $\det(M - \lambda I) = 0$, a quadratic equation in $\lambda$.
 
-**The principal axes theorem** (from linear algebra; stated here without proof). Every real symmetric matrix has real eigenvalues and a set of mutually perpendicular unit eigenvectors. Rotating the axes to point along those eigenvectors turns $Q$ into a sum of squares, with the eigenvalues as coefficients:
+The **principal axes theorem** (from linear algebra; stated here without proof). Every real symmetric matrix has real eigenvalues and a set of mutually perpendicular unit eigenvectors. Rotating the axes to point along those eigenvectors turns $Q$ into a sum of squares, with the eigenvalues as coefficients:
 
 $$Q = \lambda_1x'^2 + \lambda_2y'^2 \quad\text{(or } \lambda_1x'^2 + \lambda_2y'^2 + \lambda_3z'^2 \text{ in space)}.$$
 
@@ -77,7 +77,7 @@ Identify $5x^2 - 4xy + 8y^2 = 36$ and find its axes.
 5. Check with the angle formula: $\cot2\theta = \dfrac{5-8}{-4} = \dfrac34$, so $\tan 2\theta = \tfrac43$ and $\theta \approx 26.57^\circ$. Indeed $\tan\theta = \tfrac12$, the slope of $\langle 2,1\rangle$.
 
 ```plot
-{"x": [-4, 4], "y": [-3.5, 3.5], "equal": true, "curves": [{"x": "(6*cos(t) - 2*sin(t))/sqrt(5)", "y": "(3*cos(t) + 4*sin(t))/sqrt(5)", "t": [0, "2pi"], "label": "5x² − 4xy + 8y² = 36"}], "segments": [{"from": [-3.6, -1.8], "to": [3.6, 1.8], "dashed": true, "arrow": true, "label": "x′"}, {"from": [1.4, -2.8], "to": [-1.4, 2.8], "dashed": true, "arrow": true, "label": "y′"}], "points": [{"at": [2.683, 1.342]}, {"at": [-0.894, 1.789]}], "caption": "The tilted ellipse with its principal axes: semi-axis 3 along x′ (direction ⟨2, 1⟩) and 2 along y′ (direction ⟨−1, 2⟩)"}
+{"x": [-4, 4], "y": [-3.5, 3.5], "equal": true, "curves": [{"x": "(6*cos(t) - 2*sin(t))/sqrt(5)", "y": "(3*cos(t) + 4*sin(t))/sqrt(5)", "t": [0, "2pi"]}], "segments": [{"from": [-3.6, -1.8], "to": [3.6, 1.8], "dashed": true, "arrow": true}, {"from": [1.4, -2.8], "to": [-1.4, 2.8], "dashed": true, "arrow": true}], "points": [{"at": [2.683, 1.342]}, {"at": [-0.894, 1.789]}], "labels": [{"at": [3.75, 1.35], "text": "x′"}, {"at": [-1.05, 3.05], "text": "y′"}], "caption": "The tilted ellipse with its principal axes: semi-axis 3 along x′ (direction ⟨2, 1⟩) and 2 along y′ (direction ⟨−1, 2⟩)"}
 ```
 
 ### Example 2: the saddle $z = xy$

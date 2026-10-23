@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" font-family="sans-serif">
+<rect width="640" height="420" fill="#ffffff"/>
+<circle cx="320" cy="1300" r="1000" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<text x="320.0" y="380.0" font-size="18" text-anchor="middle" fill="#1c2833" font-weight="normal">Earth</text>
+<rect x="170.0" y="160.0" width="300.0" height="20.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5" />
+<rect x="190.0" y="180.0" width="15.0" height="60.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5" />
+<rect x="435.0" y="180.0" width="15.0" height="60.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5" />
+<text x="445.0" y="152.0" font-size="17" text-anchor="middle" fill="#1c2833" font-weight="normal">Table</text>
+<rect x="260.0" y="70.0" width="120.0" height="40.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5" />
+<text x="320.0" y="96.0" font-size="17" text-anchor="middle" fill="#1c2833" font-weight="normal">Book</text>
+<line x1="295.0" y1="92.0" x2="295.0" y2="138.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="295.0,152.0 288.7,138.0 301.3,138.0" fill="#a3341f"/>
+<line x1="345.0" y1="88.0" x2="345.0" y2="40.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="345.0,26.0 351.3,40.0 338.7,40.0" fill="#a3341f"/>
+<line x1="345.0" y1="162.0" x2="345.0" y2="218.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="345.0,232.0 338.7,218.0 351.3,218.0" fill="#a3341f"/>
+<line x1="295.0" y1="302.0" x2="295.0" y2="250.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="295.0,236.0 301.3,250.0 288.7,250.0" fill="#a3341f"/>
+</svg>

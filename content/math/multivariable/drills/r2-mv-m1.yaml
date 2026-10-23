@@ -128,7 +128,7 @@
     twoth: if(b > 0, raw, raw + 180)
     th: twoth/2
   where: ["a != 0", "c != 0", "b != 0"]
-  prompt: 'Find the angle $\theta$ with $0^\circ < \theta < 90^\circ$ such that rotating the axes by $\theta$ removes the $xy$ term from ${a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y^2 = 10$. (Degrees, 1 decimal place.)'
+  prompt: 'Find the angle $\theta$ with $0^\circ < \theta < 90^\circ$ such that rotating the axes by $\theta$ removes the $xy$ term from the quadratic form ${a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y^2$. (Degrees, 1 decimal place.)'
   answers:
     - {name: th, label: '$\theta =$', tolerance: 0.06}
   solution: |-

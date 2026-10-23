@@ -82,7 +82,7 @@ at $t = 1$. The secant vectors to $\mathbf r(1 + h)$ swing toward the tangent di
 $h$ shrinks; divided by $h$, they approach $\mathbf r'(1) = \langle 1, 1\rangle$.
 
 ```plot
-{"x": [-0.5, 3], "y": [-0.5, 3], "equal": true, "curves": [{"x": "t", "y": "0.5*t^2", "t": [-0.6, 2.4]}], "points": [{"at": [1, 0.5], "label": "r(1)"}], "segments": [{"from": [1, 0.5], "to": [2.2, 2.42], "arrow": true, "dashed": true, "label": "h = 1.2"}, {"from": [1, 0.5], "to": [1.6, 1.28], "arrow": true, "dashed": true}, {"from": [1, 0.5], "to": [2.4, 1.9], "arrow": true, "label": "direction of r′(1)"}], "caption": "Secant vectors from r(1) to r(1 + h), for h = 1.2 and h = 0.6, tilt toward the tangent direction ⟨1, 1⟩ as h shrinks"}
+{"x": [-0.5, 3.2], "y": [-0.5, 3], "equal": true, "curves": [{"x": "t", "y": "0.5*t^2", "t": [-0.6, 2.4]}], "points": [{"at": [1, 0.5]}], "segments": [{"from": [1, 0.5], "to": [2.2, 2.42], "arrow": true, "dashed": true}, {"from": [1, 0.5], "to": [1.6, 1.28], "arrow": true, "dashed": true}, {"from": [1, 0.5], "to": [2.4, 1.9], "arrow": true}], "labels": [{"at": [1.45, 2.4], "text": "h = 1.2"}, {"at": [0.95, 1.35], "text": "h = 0.6"}, {"at": [2.75, 1.6], "text": "tangent"}, {"at": [1.35, 0.25], "text": "r(1)"}], "caption": "Secant vectors from r(1) to r(1 + h), for h = 1.2 and h = 0.6 (dashed), tilt toward the tangent direction ⟨1, 1⟩ (solid) as h shrinks"}
 ```
 
 ### Differentiation rules

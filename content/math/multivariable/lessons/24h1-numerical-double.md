@@ -40,11 +40,11 @@ Four times as many points, one quarter of the error: that is order 2.
 
 A pond fits in a rectangle 40 m long and 30 m wide. Divide it into twelve squares, 10 m on a side, and measure the depth (in meters) at the center of each:
 
-| | 0–10 m | 10–20 m | 20–30 m | 30–40 m |
+| | $x$: 0–10 m | 10–20 m | 20–30 m | 30–40 m |
 |---|---|---|---|---|
-| **20–30 m** | 0.4 | 1.1 | 1.3 | 0.6 |
-| **10–20 m** | 0.9 | 2.0 | 2.4 | 1.2 |
-| **0–10 m** | 0.5 | 1.4 | 1.6 | 0.7 |
+| $y$: 20–30 m | 0.4 | 1.1 | 1.3 | 0.6 |
+| $y$: 10–20 m | 0.9 | 2.0 | 2.4 | 1.2 |
+| $y$: 0–10 m | 0.5 | 1.4 | 1.6 | 0.7 |
 
 The volume of water is $\iint_R(\text{depth})\,dA$, and the table *is* a midpoint rule. The depths add up to $3.4 + 6.5 + 4.2 = 14.1$, and $\Delta A = 100\text{ m}^2$, so the volume is about $14.1\times100 = 1410\text{ m}^3$. There is no formula to integrate here at all; a sum of samples is the only option, and the error formula tells a surveyor that halving the grid spacing (four times as many soundings) should make the estimate about four times as accurate, if the bottom is smooth.
 

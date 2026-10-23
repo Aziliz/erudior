@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" width="600" height="470" font-family="sans-serif">
+<rect width="600" height="470" fill="#ffffff"/>
+<circle cx="230" cy="235" r="165" fill="none" stroke="#1c2833" stroke-width="5"/>
+<circle cx="230" cy="235" r="4" fill="#1c2833"/>
+<text x="230.0" y="259.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="normal">center</text>
+<rect x="204.0" y="74.0" width="52.0" height="22.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5" />
+<line x1="218.0" y1="96.0" x2="218.0" y2="132.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="218.0,146.0 211.7,132.0 224.3,132.0" fill="#a3341f"/>
+<line x1="242.0" y1="96.0" x2="242.0" y2="152.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="242.0,166.0 235.7,152.0 248.3,152.0" fill="#a3341f"/>
+<text x="210.0" y="136.0" font-size="18" text-anchor="end" fill="#1c2833" font-weight="normal" font-style="italic">n</text>
+<text x="250.0" y="162.0" font-size="18" text-anchor="start" fill="#1c2833" font-weight="normal" font-style="italic">mg</text>
+<rect x="204.0" y="374.0" width="52.0" height="22.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5" />
+<line x1="218.0" y1="374.0" x2="218.0" y2="298.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="218.0,284.0 224.3,298.0 211.7,298.0" fill="#a3341f"/>
+<line x1="242.0" y1="396.0" x2="242.0" y2="442.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="242.0,456.0 235.7,442.0 248.3,442.0" fill="#a3341f"/>
+<text x="210.0" y="320.0" font-size="18" text-anchor="end" fill="#1c2833" font-weight="normal" font-style="italic">n</text>
+<text x="250.0" y="450.0" font-size="18" text-anchor="start" fill="#1c2833" font-weight="normal" font-style="italic">mg</text>
+<text x="410.0" y="70.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">Top: both point to</text>
+<text x="410.0" y="94.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">the center</text>
+<text x="410.0" y="122.0" font-size="17" text-anchor="start" fill="#1c2833" font-weight="normal" font-style="italic">n + mg = mv²/r</text>
+<text x="410.0" y="350.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">Bottom: n points to</text>
+<text x="410.0" y="374.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">the center, mg away</text>
+<text x="410.0" y="402.0" font-size="17" text-anchor="start" fill="#1c2833" font-weight="normal" font-style="italic">n − mg = mv²/r</text>
+</svg>

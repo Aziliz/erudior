@@ -65,7 +65,8 @@ where $J$ is the $n \times n$ matrix of all ones. Every column of $G$ is still a
 vector, and now every entry of $G$ is positive. So $G$ is a regular stochastic matrix, and
 the theorem from the Markov chain lesson applies: $G$ has a *unique* steady-state vector,
 and every starting distribution converges to it. That vector is the PageRank vector. (The
-general fact behind this is the **Perron–Frobenius theorem**: a square matrix with all
+general fact behind this is the Perron–Frobenius theorem, met in the population models honors
+lesson: a square matrix with all
 entries positive has a positive eigenvalue that is larger in absolute value than every
 other eigenvalue, with an eigenvector whose entries are all positive.)
 

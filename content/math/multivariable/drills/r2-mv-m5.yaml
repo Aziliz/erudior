@@ -1,0 +1,126 @@
+# Round 2 drills for module mv-m5 (honors lessons 24h1 and 24h2)
+- id: mv-m5-r2-midpoint
+  title: Midpoint rule and its error
+  topic: Numerical double integration
+  vars:
+    wid: {min: 1, max: 4}
+    hgt: {min: 1, max: 4}
+    pc: {min: 1, max: 3}
+    qc: {min: 1, max: 3}
+    sc: {min: -2, max: 3}
+  where: ["sc != 0"]
+  calc:
+    x1: wid/4
+    x2: 3*wid/4
+    y1: hgt/4
+    y2: 3*hgt/4
+    dA: wid*hgt/4
+    mid: (5/16)*wid*hgt*(pc*wid^2 + qc*hgt^2) + sc*wid^2*hgt^2/4
+    exact: wid*hgt*(pc*wid^2 + qc*hgt^2)/3 + sc*wid^2*hgt^2/4
+    err: exact - mid
+  prompt: 'Use the midpoint rule with $2\times2$ equal sub-rectangles to estimate $\displaystyle\iint_R({pc:coef}x^2 + {qc:coef}y^2 {sc:signedcoef}xy)\,dA$ over $R = [0, {wid}]\times[0, {hgt}]$. Then find the error, exact value minus estimate. (Exact or 2 decimals.)'
+  figure:
+    type: plot
+    x: [-0.5, 4.5]
+    y: [-0.5, 4.5]
+    equal: true
+    polygons:
+      - {points: [[0, 0], [wid, 0], [wid, hgt], [0, hgt]]}
+    segments:
+      - {from: ['wid/2', 0], to: ['wid/2', hgt], dashed: true}
+      - {from: [0, 'hgt/2'], to: [wid, 'hgt/2'], dashed: true}
+    points:
+      - [x1, y1]
+      - [x2, y1]
+      - [x1, y2]
+      - [x2, y2]
+    caption: 'R = [0, {wid}] × [0, {hgt}] cut into four sub-rectangles, with their midpoints'
+  answers:
+    - {name: mid, label: 'Estimate $M =$'}
+    - {name: err, label: 'Error $=$'}
+  solution: |-
+    The midpoints are $x = {x1}, {x2}$ and $y = {y1}, {y2}$, and each sub-rectangle has area $\Delta A = {dA}$.
+    Adding $f$ at the four midpoints and multiplying by $\Delta A$ gives $M =$ **{mid:num4}** (about {mid:num2}).
+    Exactly, $\displaystyle\iint_R f\,dA = {pc}\cdot\frac{{wid}^3\cdot{hgt}}{3} + {qc}\cdot\frac{{wid}\cdot{hgt}^3}{3} + ({sc})\cdot\frac{{wid}^2\cdot{hgt}^2}{4} \approx {exact:num4}$.
+    The error is **{err:num4}** (about {err:num2}). Check with the error formula: the $xy$ term contributes no error (the midpoint rule is exact for it), and $\frac{h^2}{24}\iint f_{xx} + \frac{k^2}{24}\iint f_{yy}$ with $h = {wid}/2$, $k = {hgt}/2$ gives the same number, exactly, because $f$ is quadratic.
+- id: mv-m5-r2-simpson
+  title: Simpson's rule on one panel
+  topic: Numerical double integration
+  vars:
+    wid: {choices: [1, 2]}
+    hgt: {choices: [1, 2]}
+    cc: {choices: [-1, -0.5, 0.5, 1]}
+  calc:
+    uu: cc*wid*hgt
+    hh: wid/2
+    kk: hgt/2
+    e1: exp(uu)
+    e2: exp(uu/2)
+    e4: exp(uu/4)
+    bracket: 3 + e1 + 4*(2 + 2*e2) + 16*e4
+    est: hh*kk/9*bracket
+  prompt: 'Use Simpson''s rule with one panel (a $3\times3$ grid, $h = {hh}$, $k = {kk}$) to estimate $\displaystyle\iint_R e^{{cc}xy}\,dA$ over $R = [0, {wid}]\times[0, {hgt}]$. (4 decimals.)'
+  answers:
+    - {name: est, label: 'Estimate', tolerance: 0.0001}
+  solution: |-
+    The grid is $x\in\{0, {hh}, {wid}\}$, $y\in\{0, {kk}, {hgt}\}$. Wherever $x = 0$ or $y = 0$ the integrand is $e^0 = 1$.
+    Corners (weight 1): $1 + 1 + 1 + e^{{uu}} \approx {e1:num4} + 3$. Edge midpoints (weight 4): $1 + 1 + 2e^{{uu}/2} \approx 2 + 2({e2:num4})$. Center (weight 16): $e^{{uu}/4} \approx {e4:num4}$.
+    The weighted sum is about {bracket:num4}, and $\dfrac{hk}{9} = \dfrac{{hh}\cdot{kk}}{9}$, so the estimate is **{est:num4}**.
+- id: mv-m5-r2-monte-carlo
+  title: A Monte Carlo area estimate
+  topic: Monte Carlo integration
+  vars:
+    wid: {min: 2, max: 6}
+    hgt: {min: 2, max: 5}
+    npts: {choices: [200, 400, 500, 1000]}
+    pct: {min: 20, max: 80}
+    fac: {choices: [2, 3, 4, 5, 10]}
+  calc:
+    hits: npts*pct/100
+    box: wid*hgt
+    est: box*hits/npts
+    newn: npts*fac^2
+  prompt: 'A region $D$ lies inside the rectangle $[0, {wid}]\times[0, {hgt}]$. Of {npts} points chosen uniformly at random in the rectangle, {hits} land in $D$. Estimate the area of $D$. Then: how many points would make the standard error about {fac} times smaller?'
+  answers:
+    - {name: est, label: 'Area of $D \approx$'}
+    - {name: newn, label: 'Points needed', format: integer}
+  solution: |-
+    The rectangle has area ${wid}\cdot{hgt} = {box}$, and the fraction of hits is ${hits}/{npts}$, so the area of $D$ is about ${box}\cdot\dfrac{{hits}}{{npts}} =$ **{est:num2}**.
+    The standard error shrinks like $1/\sqrt N$, so dividing it by {fac} needs ${fac}^2$ times as many points: ${npts}\cdot{fac}^2 =$ **{newn}**.
+- id: mv-m5-r2-power-disk
+  title: An improper integral over a disk
+  topic: Improper double integrals
+  vars:
+    rad: {min: 1, max: 5}
+    qq: {choices: [{label: '\tfrac14', value: 0.5}, {label: '\tfrac12', value: 1}, {label: '\tfrac34', value: 1.5}]}
+  calc:
+    rq: qq
+    pw: 2 - qq
+    val: 2*pi*rad^pw/pw
+  prompt: 'The integrand below blows up at the origin. Evaluate the improper integral $\displaystyle\iint_{x^2 + y^2\le {rad}^2}\frac{dA}{(x^2 + y^2)^{{qq}}}$. (2 decimals.)'
+  answers:
+    - {name: val, label: 'Value', tolerance: 0.01}
+  solution: |-
+    In polar coordinates $(x^2 + y^2)^{{qq}} = r^{{rq}}$, and the exponent ${rq}$ is less than 2, so the integral converges. Exhaust the disk by rings $\varepsilon \le r \le {rad}$ and let $\varepsilon\to0$:
+    $\displaystyle\int_0^{2\pi}\int_0^{{rad}}r^{-{rq}}\,r\,dr\,d\theta = 2\pi\int_0^{{rad}}r^{{pw} - 1}\,dr = 2\pi\cdot\frac{{rad}^{{pw}}}{{pw}} \approx$ **{val:num2}**.
+- id: mv-m5-r2-exp-race
+  title: Which waiting time ends first?
+  topic: Improper double integrals
+  vars:
+    ra: {min: 1, max: 5}
+    rb: {min: 1, max: 5}
+    tx: {choices: [0.5, 1, 2]}
+    ty: {choices: [0.5, 1, 2]}
+  where: ["ra != rb"]
+  calc:
+    pless: ra/(ra + rb)
+    sumr: ra + rb
+    pbox: (1 - exp(-ra*tx))*(1 - exp(-rb*ty))
+  prompt: '$X$ and $Y$ are independent waiting times (in hours) with densities ${ra}e^{-{ra}x}$ for $x \ge 0$ and ${rb}e^{-{rb}y}$ for $y \ge 0$. Find $P(X < Y)$ as an exact fraction, and $P(X \le {tx},\ Y \le {ty})$ to 3 decimals.'
+  answers:
+    - {name: pless, kind: fraction, label: '$P(X < Y) =$'}
+    - {name: pbox, label: '$P(X \le {tx},\ Y \le {ty}) \approx$', tolerance: 0.0006}
+  solution: |-
+    The joint density is $f(x, y) = {ra}\cdot{rb}\,e^{-{ra}x - {rb}y}$ on the first quadrant. It is nonnegative, so Tonelli's theorem lets us iterate the improper integrals.
+    $\displaystyle P(X < Y) = \int_0^\infty\int_x^\infty {ra}\cdot{rb}\,e^{-{ra}x - {rb}y}\,dy\,dx = \int_0^\infty {ra}\,e^{-{sumr}x}\,dx = \frac{{ra}}{{sumr}}$, so $P(X < Y) =$ **${pless:texfrac}$**.
+    The box probability factors because the density is a product: $\left(1 - e^{-{ra}\cdot{tx}}\right)\left(1 - e^{-{rb}\cdot{ty}}\right) \approx$ **{pbox:dp3}**.

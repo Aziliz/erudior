@@ -20,7 +20,7 @@ Let $f \ge 0$ be continuous on a region $D$ (except perhaps at a few points or a
 
 $$\iint_D f\,dA = \lim_{n\to\infty}\iint_{D_n} f\,dA.$$
 
-Because $f \ge 0$ and the regions grow, the integrals $\iint_{D_n}f\,dA$ increase with $n$, so the limit always exists, though it may be $+\infty$. If it is finite the integral **converges**; otherwise it **diverges**. The key fact for nonnegative integrands is that *every* exhaustion gives the same limit. So you may choose whatever pieces are easiest: disks, squares, rings.
+Because $f \ge 0$ and the regions grow, the integrals $\iint_{D_n}f\,dA$ increase with $n$, so the limit always exists, though it may be $+\infty$. If it is finite the integral *converges*; otherwise it *diverges*. The key fact for nonnegative integrands is that *every* exhaustion gives the same limit. So you may choose whatever pieces are easiest: disks, squares, rings.
 
 For an integrand that changes sign, the standard definition asks first that $\iint_D |f|\,dA$ converge; such an $f$ is called **absolutely integrable**, and then $\iint_D f\,dA$ is the integral of the positive part minus the integral of the negative part. Unlike in one variable, where $\int_1^\infty \frac{\sin x}{x}\,dx$ converges without absolute convergence, a double integral that is not absolutely convergent is simply not defined this way: different exhaustions could give different answers. (This is a simplified account. The full theory is Lebesgue integration, met in a course on real analysis.)
 

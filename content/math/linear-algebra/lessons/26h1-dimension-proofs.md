@@ -72,11 +72,11 @@ $\mathbb{R}^3$ and the independent set $\mathbf{u}_1 = (1, 1, 0)$, $\mathbf{u}_2
 
 ## Consequences
 
-**Every basis has the same size.** If $\mathcal{B}$ and $\mathcal{C}$ are bases with $m$ and $n$
+*Every basis has the same size.* If $\mathcal{B}$ and $\mathcal{C}$ are bases with $m$ and $n$
 vectors, then $\mathcal{B}$ is independent and $\mathcal{C}$ spans, so $m \le n$; switching
 roles, $n \le m$. So $\dim V$ is well defined.
 
-**Extension theorem.** In a finite-dimensional space $V$, every linearly independent set can be
+*Extension theorem.* In a finite-dimensional space $V$, every linearly independent set can be
 enlarged to a basis, and every spanning set can be trimmed to one. The trimming half is the
 spanning set theorem. For the enlarging half: if an independent set $S$ doesn't span $V$, pick
 any $\mathbf{v}$ in $V$ outside $\operatorname{Span} S$. Then $S \cup \{\mathbf{v}\}$ is still
@@ -85,7 +85,7 @@ nonzero (the vectors of $S$ alone are independent), and then $\mathbf{v}$ would 
 $\operatorname{Span} S$. Repeat. By the exchange lemma an independent set has at most
 $\dim V$ vectors, so the process stops, and it can only stop at a basis.
 
-**Subspaces are no bigger than the space.** If $H$ is a subspace of a finite-dimensional
+*Subspaces are no bigger than the space.* If $H$ is a subspace of a finite-dimensional
 space $V$, then $H$ is finite-dimensional and $\dim H \le \dim V$, with equality only when
 $H = V$. (A basis of $H$ is an independent set in $V$; if it has $\dim V$ vectors, the basis
 theorem says it spans $V$.)

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" font-family="sans-serif">
+<rect width="600" height="400" fill="#ffffff"/>
+<rect x="90" y="24" width="140" height="16" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="96.0" y1="24.0" x2="106.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="113.0" y1="24.0" x2="123.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="130.0" y1="24.0" x2="140.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="147.0" y1="24.0" x2="157.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="164.0" y1="24.0" x2="174.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="181.0" y1="24.0" x2="191.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="198.0" y1="24.0" x2="208.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="215.0" y1="24.0" x2="225.0" y2="14.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="170.0" y1="40.0" x2="170.0" y2="220.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="230.0" y1="220.0" x2="230.0" y2="92.0" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M 170 220 A 30 30 0 0 0 230 220" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="200" cy="220" r="27" fill="#e8e2f3" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="200" cy="220" r="4" fill="#1c2833"/>
+<line x1="200.0" y1="247.0" x2="200.0" y2="290.0" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="155.0" y="290.0" width="90.0" height="60.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5" />
+<text x="200.0" y="326.0" font-size="17" text-anchor="middle" fill="#1c2833" font-weight="normal">load</text>
+<line x1="150.0" y1="200.0" x2="150.0" y2="144.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="150.0,130.0 156.3,144.0 143.7,144.0" fill="#a3341f"/>
+<line x1="255.0" y1="200.0" x2="255.0" y2="144.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="255.0,130.0 261.3,144.0 248.7,144.0" fill="#a3341f"/>
+<line x1="230.0" y1="92.0" x2="230.0" y2="62.0" stroke="#1f5f8b" stroke-width="3.5"/>
+<polygon points="230.0,48.0 236.3,62.0 223.7,62.0" fill="#1f5f8b"/>
+<line x1="200.0" y1="350.0" x2="200.0" y2="381.0" stroke="#a3341f" stroke-width="3.5"/>
+<polygon points="200.0,395.0 193.7,381.0 206.3,381.0" fill="#a3341f"/>
+<text x="142.0" y="168.0" font-size="18" text-anchor="end" fill="#1c2833" font-weight="normal" font-style="italic">T</text>
+<text x="264.0" y="168.0" font-size="18" text-anchor="start" fill="#1c2833" font-weight="normal" font-style="italic">T</text>
+<text x="240.0" y="62.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">you pull</text>
+<text x="212.0" y="388.0" font-size="18" text-anchor="start" fill="#1c2833" font-weight="normal" font-style="italic">W</text>
+<text x="320.0" y="200.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">Two strands hold the load:</text>
+<text x="320.0" y="224.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">2T = W, so T = W/2</text>
+<text x="320.0" y="270.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">Pull 2 m of rope and each</text>
+<text x="320.0" y="294.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">strand shortens by 1 m:</text>
+<text x="320.0" y="318.0" font-size="16" text-anchor="start" fill="#1c2833" font-weight="normal">the load rises 1 m.</text>
+</svg>

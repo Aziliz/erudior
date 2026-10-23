@@ -65,11 +65,11 @@ The closer that ratio is to 1, the slower the population settles.
 
 Write $\rho(A)$ for the largest absolute value of an eigenvalue of $A$ (its *spectral radius*). An
 eigenvalue equal to $\rho(A)$ and strictly larger in absolute value than every other eigenvalue is a
-**dominant eigenvalue**. A square matrix $A$ with nonnegative entries is a **primitive matrix** if
+*dominant eigenvalue*. A square matrix $A$ with nonnegative entries is a **primitive matrix** if
 some power $A^k$ has all entries strictly positive. (A regular stochastic matrix is exactly a
-primitive stochastic matrix.)
+primitive stochastic matrix.) The *Perron–Frobenius theorem* describes the eigenvalues of primitive matrices:
 
-> **Perron–Frobenius theorem** (for primitive matrices). If $A$ is primitive, then:
+> *Perron–Frobenius theorem (for primitive matrices).* If $A$ is primitive, then:
 > 1. $r = \rho(A)$ is a positive real eigenvalue of $A$, and it is dominant: $|\lambda| < r$ for every other eigenvalue $\lambda$.
 > 2. $r$ is a simple root of the characteristic polynomial, so its eigenspace is a line.
 > 3. That line contains a vector with all entries positive.

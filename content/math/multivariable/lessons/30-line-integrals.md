@@ -110,7 +110,7 @@ Both kinds of line integral follow the same steps; they differ only in what mult
 flowchart TD
   accTitle: Steps for evaluating a line integral
   accDescr: First parametrize the curve as r of t for t from a to b, in the direction of travel if it is a vector line integral. Then compute r prime of t. Then decide which kind of integral it is. For a scalar line integral of f ds, the integrand is f of r of t times the length of r prime of t. For a vector line integral of F dot dr, the integrand is F of r of t dotted with r prime of t. In both cases, integrate from t equals a to t equals b. For a piecewise curve, repeat for each piece and add.
-  A["Parametrize C: r(t), a ≤ t ≤ b (in the direction of travel for F · dr)"] --> B["Compute r′(t)"]
+  A["Parametrize C: r(t), a ≤ t ≤ b, in the direction of travel"] --> B["Compute r′(t)"]
   B --> K{"Which integral?"}
   K -- "scalar, ∫ f ds" --> S["Integrand: f(r(t)) |r′(t)|"]
   K -- "vector, ∫ F · dr" --> V["Integrand: F(r(t)) · r′(t)"]
