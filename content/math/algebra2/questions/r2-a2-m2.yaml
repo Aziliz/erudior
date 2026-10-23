@@ -301,7 +301,7 @@
   choices: ['$\sqrt{119}$', '$17$', '$13$', '$7$']
   answer: 2
   explanation: |-
-    $|-5 + 12i| = \sqrt{(-5)^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13$. $\sqrt{119}$ comes from $144 - 25$ (treating the $i^2$ as $-1$ inside the modulus), 17 adds the parts, and 7 adds them with their signs.
+    $|-5 + 12i| = \sqrt{(-5)^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13$. $\sqrt{119} = \sqrt{144 - 25}$ subtracts the squares instead of adding them, 17 adds the parts without their signs, and 7 adds them with their signs; none of these squares both parts and adds.
 - id: a2-m2-r2-h02
   lesson: a2-m2-h-complex-plane
   topic: Complex plane geometry

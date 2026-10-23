@@ -39,7 +39,7 @@ flowchart TD
   D --> E["Keep the intervals with the sign you want"]
   E --> F{"What kind of critical value is the endpoint?"}
   F -- "numerator zero, with ≤ or ≥" --> G["Include it"]
-  F -- "numerator zero, with < or >" --> H["Leave it out"]
+  F -- "numerator zero, with #lt; or #gt;" --> H["Leave it out"]
   F -- "denominator zero" --> I["Always leave it out"]
 ```
 
