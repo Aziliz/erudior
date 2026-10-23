@@ -1,6 +1,6 @@
 # Erudior (formerly Examiner): handoff
 
-State as of 2026-10-23, v0.19.0. Read this first in a new chat.
+State as of 2026-10-23, v0.20.0. Read this first in a new chat.
 
 ## What it is
 
@@ -59,6 +59,13 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **Course updates:** each course has a `revision` number. A newer bundled revision is offered in-app and keeps progress, because progress is keyed by ids.
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
+
+## Live room (v0.20.0)
+
+- Jon: hosts are parents/teachers in the desktop app with no account; host chooses untimed (host reveals, 1 point per right answer) or timed (countdown, right answers score 500 + up to 500 for speed); students see only their own result and class totals, never names.
+- Server: `worker/src/live.ts`, Durable Object `LiveRoom` (binding `LIVE`, `new_sqlite_classes` migration in wrangler.toml), all state in memory. `POST /live/rooms` → `{code, token, joinUrl}` (6-char code, host token hashed; 30 rooms/hour per daily-salted IP hash in D1 table `live_rooms`, migration 0002). `GET /live/rooms/<code>/ws?role=host&token=…` or `?role=player[&player=<id>]` (WebSocket). Host messages: setup (title, questions ≤100, timed, seconds 5–120), show, reveal, end, remove, close; players: join (nickname ≤20, unique per room), answer (first answer counts). Reveal happens early when every connected player answered, or at the deadline. Players never get the answer before the reveal; reveal gives counts per choice, how many right, their own answer. Rooms close 10 min after the host leaves, after 4 h, or when the host closes; players can reconnect with their id.
+- App: `lib/live.ts` (open room, reconnecting socket), Parent/Teacher area → Live room (`pages/LiveHost.tsx`: pick a course's random questions or a lesson/module quiz, pace, open; big code; players with Remove; question, answer counts, reveal/next/finish; summary per question and scores on the host's screen only). Players: Library → "Join a live room" or `/?live=CODE` (`pages/LivePlay.tsx`). Needs `VITE_COMMUNITY_API`; desktop CSP allows `wss://api.erudior.com`.
+- Tests: `worker/test/live.test.mjs` (protocol: host token, setup, duplicate nicknames, no answer leak, early reveal, multi-answer, reconnect, timed scoring + auto reveal, remove, close); `scripts/live-walkthrough.mjs` (host + two students), clean light/dark 1280 and 320.
 
 ## Classroom mode (v0.19.0, desktop app)
 
@@ -165,6 +172,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/lib/vocab.ts` | Language vocabulary reviews: unlocking, due cards, stage ladder (`applyAnswer`), typed-answer checking (`checkMeaning`, `checkRecall`) |
 | `src/lib/speech.ts`, `src/lib/ime.ts` | Device text-to-speech; input-converter registry for non-Roman scripts (empty until Japanese/Chinese) |
 | `src/pages/VocabRunner.tsx`, `src/pages/VocabTabs.tsx` | Vocabulary review/practice screen; Vocabulary and Reading list tabs |
+| `worker/src/live.ts`; `src/lib/live.ts`; `src/pages/LiveHost.tsx`, `LivePlay.tsx` | Live room: Durable Object, client socket, host tab, join/play screen |
 | `src/lib/classroom.ts`; `src/pages/TeacherTabs.tsx`; `src/components/ClassViews.tsx` | Classroom mode: class file / hand-in / merge; teacher tabs; Library class sections |
 | `worker/`; `src/lib/communityFormat.ts`, `community.ts`; `src/pages/CreateHome.tsx`, `CommunityEditor.tsx`, `ReviewQueue.tsx`; `src/components/CommunityCatalog.tsx` | Community courses: API, format/converter, client, editor, review, Library section |
 | `src/lib/grades.ts`, `reports.ts`, `portfolio.ts`; `src/pages/ParentRecords.tsx`; `src/components/ReportDocs.tsx` | Homeschool records: grades/GPA, report data, photos; Grades and Reports tabs; printable documents |
@@ -311,7 +319,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Possible next steps
 
-- Rest of Phase 4: Live room (Jon: through api.erudior.com, e.g. a Durable Object room, join code + nickname, nothing stored); K-12 courses. Ask Jon first.
+- Roadmap phases 1–4 are built. Next: K-12 courses, and going live (docs/HOSTING.md). Ask Jon first.
 - Jon's hosting setup (docs/HOSTING.md) now uses erudior.com.
 
 - The Van Ed refinement pass.

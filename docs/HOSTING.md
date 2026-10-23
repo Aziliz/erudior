@@ -91,10 +91,17 @@ marks that version **Reviewed**.
    courses** so the web app picks up `COMMUNITY_API`. Sign in at app.erudior.com → Create.
    Admins can give others the Reviewer role from the review queue's People section.
 
+**Live rooms** run in the same Worker as a Durable Object (`LiveRoom`, SQLite-backed so it
+works on the free plan; declared in `wrangler.toml`, created on the first deploy). Hosts are
+the desktop app's parent or teacher area (no account); students join at app.erudior.com
+(`/?live=CODE`). Rooms live in memory only and close 10 minutes after the host leaves or after
+4 hours; D1 keeps only a daily-salted IP hash per room opened, to limit 30 rooms an hour.
+
 Local development: `cd worker && npm install && npm run migrate:local && npm run dev`
 (http://localhost:8787 with a development sign-in), then
 `VITE_COMMUNITY_API=http://localhost:8787 npx vite --port 5181`. `node test/api.test.mjs`
-checks the API; `node scripts/community-walkthrough.mjs` checks the whole flow in a browser.
+checks the API and `node test/live.test.mjs` the live rooms; `node scripts/community-walkthrough.mjs`
+and `node scripts/live-walkthrough.mjs` check the whole flows in a browser.
 
 ## Day to day
 

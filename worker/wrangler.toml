@@ -16,6 +16,14 @@ GOOGLE_CLIENT_ID = ""
 GITHUB_CLIENT_ID = ""
 # Secrets (wrangler secret put): GOOGLE_CLIENT_SECRET, GITHUB_CLIENT_SECRET
 
+[[durable_objects.bindings]]
+name = "LIVE"
+class_name = "LiveRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["LiveRoom"]
+
 [[d1_databases]]
 binding = "DB"
 database_name = "erudior-community"
@@ -39,6 +47,9 @@ ADMIN_EMAILS = "admin@example.test"
 GOOGLE_CLIENT_ID = ""
 GITHUB_CLIENT_ID = ""
 DEV_LOGIN = "1"
+[[env.dev.durable_objects.bindings]]
+name = "LIVE"
+class_name = "LiveRoom"
 [[env.dev.d1_databases]]
 binding = "DB"
 database_name = "erudior-community"

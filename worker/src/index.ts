@@ -12,7 +12,11 @@
 
 import { LIMITS, IMAGE_TYPES, checkDoc, emptyDoc, imageIds, type CommunityDoc } from "../../src/lib/communityFormat.ts";
 
+export { LiveRoom } from "./live.ts";
+import { sha256 as liveHash } from "./live.ts";
+
 export interface Env {
+  LIVE: DurableObjectNamespace;
   DB: D1Database;
   FILES: R2Bucket;
   APP_ORIGIN: string;
@@ -318,6 +322,32 @@ async function log(env: Env, courseId: string, version: number, actor: string, a
     .run();
 }
 
+// ---------- live rooms ----------
+
+const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+async function createRoom(req: Request, env: Env): Promise<Response> {
+  const ip = await sha256(`live:${req.headers.get("CF-Connecting-IP") ?? "local"}:${new Date().toISOString().slice(0, 10)}`);
+  const hour = new Date(Date.now() - 3600_000).toISOString();
+  const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM live_rooms WHERE ip_hash = ? AND created_at > ?").bind(ip, hour).first<{ n: number }>();
+  if ((n?.n ?? 0) >= 30) throw new HttpError(429, "Too many rooms opened from here in the last hour.");
+  const token = b64url(crypto.getRandomValues(new Uint8Array(24)));
+  for (let tries = 0; tries < 6; tries++) {
+    const bytes = crypto.getRandomValues(new Uint8Array(6));
+    const code = [...bytes].map((b) => CODE_CHARS[b % CODE_CHARS.length]).join("");
+    const res = await env.LIVE.get(env.LIVE.idFromName(code)).fetch("https://room/init", {
+      method: "POST",
+      body: JSON.stringify({ tokenHash: await liveHash(token) }),
+    });
+    if (res.ok) {
+      await env.DB.prepare("INSERT INTO live_rooms (ip_hash, created_at) VALUES (?, ?)").bind(ip, now()).run();
+      await env.DB.prepare("DELETE FROM live_rooms WHERE created_at < ?").bind(new Date(Date.now() - 86400_000).toISOString()).run();
+      return json({ code, token, joinUrl: `${env.APP_ORIGIN}/?live=${code}` }, 201);
+    }
+  }
+  throw new HttpError(503, "Couldn't open a room; try again.");
+}
+
 // ---------- router ----------
 
 async function route(req: Request, env: Env): Promise<Response> {
@@ -327,6 +357,13 @@ async function route(req: Request, env: Env): Promise<Response> {
   const method = req.method;
 
   // Signed-in, state-changing calls must come from the app (CSRF guard; JSON forces a preflight).
+  // Live rooms: hosted from the desktop app (no account), joined from any browser.
+  if (p === "/live/rooms" && method === "POST") return createRoom(req, env);
+  let lr = m(/^\/live\/rooms\/([A-Z0-9]{6})\/ws$/);
+  if (lr && method === "GET") return env.LIVE.get(env.LIVE.idFromName(lr[1])).fetch(req);
+  lr = m(/^\/live\/rooms\/([^/]+)\/ws$/);
+  if (lr) throw new HttpError(404, "No room with that code.");
+
   if (method !== "GET" && method !== "HEAD" && !p.startsWith("/courses/")) {
     const origin = req.headers.get("Origin") ?? "";
     if (!origins(env).includes(origin)) throw new HttpError(403, "Bad origin.");
@@ -603,7 +640,15 @@ async function route(req: Request, env: Env): Promise<Response> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const p = new URL(req.url).pathname;
-    const pub = req.method === "GET" && (p === "/catalog" || p.startsWith("/courses/") || p.startsWith("/images/"));
+    const pub = (req.method === "GET" && (p === "/catalog" || p.startsWith("/courses/") || p.startsWith("/images/"))) || p === "/live/rooms";
+    // WebSocket upgrades go straight to the room.
+    if (req.headers.get("Upgrade") === "websocket") {
+      try {
+        return await route(req, env);
+      } catch (e) {
+        return new Response(e instanceof HttpError ? e.message : "Error", { status: e instanceof HttpError ? e.status : 500 });
+      }
+    }
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(req, env, true) });
     let res: Response;
     try {

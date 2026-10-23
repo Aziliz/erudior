@@ -3022,3 +3022,136 @@ fieldset.block-edit > legend {
   color: var(--bad);
   font-weight: 600;
 }
+
+/* ---------- Live room ---------- */
+.live-code-input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.live-stage {
+  margin-top: 16px;
+}
+.live-big {
+  font-size: 1.375rem;
+  font-weight: 650;
+  margin: 16px 0;
+}
+.live-big.good {
+  color: var(--ok);
+}
+.live-big.bad {
+  color: var(--bad);
+}
+.live-stem {
+  font-size: 1.375rem;
+  line-height: 1.4;
+  margin: 8px 0 16px;
+}
+.live-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 10px;
+}
+.live-choice {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+  min-height: 56px;
+  padding: 12px 16px;
+  font-size: 1.125rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 2px solid var(--field);
+  border-radius: var(--r-md);
+  cursor: pointer;
+}
+.live-choice:hover,
+.live-choice.on {
+  border-color: var(--accent);
+}
+.live-choice > b {
+  min-width: 1.5rem;
+}
+.live-totals {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: grid;
+  gap: 8px;
+}
+.live-totals li {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(4rem, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--rule);
+}
+.live-totals li.right {
+  border: 2px solid var(--ok);
+}
+.live-total-label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.live-bar {
+  position: relative;
+  height: 12px;
+  background: var(--sheet);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.live-bar > i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent);
+}
+.live-totals li.right .live-bar > i {
+  background: var(--ok);
+}
+.live-code-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.live-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+.live-host .panel + .panel {
+  margin-top: 16px;
+}
+.live-host-choices {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 8px;
+  font-size: 1.125rem;
+}
+.live-host-choices li {
+  padding: 10px 14px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+}
+@media (max-width: 560px) {
+  .live-totals li {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .live-totals .live-bar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}

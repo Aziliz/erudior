@@ -39,6 +39,8 @@ import { AUTHORING, downloadCommunityCourse, isCommunityId } from "./lib/communi
 import CreateHome from "./pages/CreateHome";
 import CommunityEditor from "./pages/CommunityEditor";
 import ReviewQueue from "./pages/ReviewQueue";
+import LivePlay from "./pages/LivePlay";
+import { LIVE } from "./lib/live";
 
 export type View =
   | { name: "library" }
@@ -62,7 +64,8 @@ export type View =
   | { name: "parent"; tab?: ParentTab }
   | { name: "create" }
   | { name: "communityEdit"; id: string }
-  | { name: "review" };
+  | { name: "review" }
+  | { name: "live"; code?: string };
 
 export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
@@ -130,9 +133,15 @@ export default function App() {
   // Signing in on the website returns to /?create.
   const [view, setView] = useState<View>(() => {
     try {
-      if (AUTHORING && new URLSearchParams(window.location.search).has("create")) {
+      const q = new URLSearchParams(window.location.search);
+      if (AUTHORING && q.has("create")) {
         window.history.replaceState(null, "", window.location.pathname);
         return { name: "create" };
+      }
+      // A live room link (app.erudior.com/?live=CODE) opens the join screen.
+      if (LIVE && q.has("live")) {
+        window.history.replaceState(null, "", window.location.pathname);
+        return { name: "live", code: q.get("live") ?? "" };
       }
     } catch {
       /* not in a browser */
@@ -646,6 +655,7 @@ export default function App() {
     body = <CommunityEditor key={view.id} api={api} id={view.id} />;
   }
   if (view.name === "review" && AUTHORING) body = <ReviewQueue api={api} />;
+  if (view.name === "live" && LIVE) body = <LivePlay key={view.code ?? ""} api={api} initialCode={view.code} />;
   // Students pick who they are before anything else.
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 

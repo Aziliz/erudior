@@ -4,6 +4,7 @@ import { CATALOG, courseFinished, facets, prerequisites, type CatalogEntry } fro
 import { currentAssignments, isClassroom } from "../lib/family";
 import { ClassAssignments, MyClasses } from "../components/ClassViews";
 import { COMMUNITY } from "../lib/community";
+import { LIVE } from "../lib/live";
 import CommunityCatalog, { ReviewPill } from "../components/CommunityCatalog";
 import { REMOTE } from "../lib/courseSource";
 import type { Bank } from "../lib/types";
@@ -85,6 +86,11 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           <p className="muted">Each course keeps its own lessons, questions, notecards and progress.</p>
         </div>
         <div className="row">
+          {LIVE && (
+            <button className="btn" onClick={() => api.go({ name: "live" })}>
+              Join a live room
+            </button>
+          )}
           <button className="btn" onClick={newCourse}>
             New course
           </button>
