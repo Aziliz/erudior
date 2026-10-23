@@ -18,8 +18,8 @@ at the same place. If the RREF depended on the order of your row operations, so 
 answer to "how many free variables?", and the existence and uniqueness theorem would be
 ambiguous.
 
-This lesson proves the promise. The proof is short, and the idea behind it is worth more than
-the theorem: instead of tracking what row operations *change*, ask what they *keep*.
+This lesson proves the promise. The idea behind the proof is worth more than the theorem:
+instead of tracking what row operations *change*, ask what they *keep*.
 
 ## Echelon forms really are not unique
 
@@ -36,8 +36,7 @@ Row-reduce $M = \begin{bmatrix} 3 & 6 & 3 \\ 1 & 4 & 5\end{bmatrix}$ in two ways
 4. Finish path 1: $R_2 \leftarrow \tfrac12 R_2$ gives $[\,0 \;\; 1 \;\; 2\,]$; $R_1 \leftarrow R_1 - 6R_2$ gives $[\,3 \;\; 0 \;\; {-9}\,]$; $R_1 \leftarrow \tfrac13 R_1$ gives $[\,1 \;\; 0 \;\; {-3}\,]$.
 5. Finish path 2: $R_2 \leftarrow -\tfrac16 R_2$ gives $[\,0 \;\; 1 \;\; 2\,]$; $R_1 \leftarrow R_1 - 4R_2$ gives $[\,1 \;\; 0 \;\; {-3}\,]$.
 
-Both paths end at $\begin{bmatrix} 1 & 0 & -3 \\ 0 & 1 & 2\end{bmatrix}$. One example is not a proof, of course: there are
-infinitely many possible sequences of row operations, so we need an argument that covers them all.
+Both paths end at $\begin{bmatrix} 1 & 0 & -3 \\ 0 & 1 & 2\end{bmatrix}$. One example proves nothing about the infinitely many other ways to reduce, so we need an argument.
 
 ## What row operations keep
 

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c2833">
+<rect x="0" y="0" width="560" height="380" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker></defs>
+<polygon points="210.9,192.0 46.4,317.6 368.4,317.6 532.9,192.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" fill-opacity="1"/>
+<line x1="250.0" y1="250.0" x2="337.4" y2="288.6" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="250.0" y1="250.0" x2="250.0" y2="84.4" stroke="#2e7d4f" stroke-width="3" marker-end="url(#ah)"/>
+<path d="M260.9,254.8 L260.9,234.1 L250.0,229.3" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="250.0" cy="250.0" r="5" fill="#1c2833"/>
+<circle cx="337.4" cy="288.6" r="5" fill="#1c2833"/>
+<text x="238.0" y="130.4" text-anchor="end" font-size="16" font-weight="bold">n</text>
+<text x="240.0" y="272.0" text-anchor="end" font-size="16">P₀</text>
+<text x="347.4" y="308.6" text-anchor="start" font-size="16">P(x, y, z)</text>
+<text x="299.7" y="293.3" text-anchor="start" font-size="16">r − r₀</text>
+<text x="471.3" y="213.5" text-anchor="middle" font-size="15">n · (r − r₀) = 0</text>
+</svg>

@@ -105,7 +105,7 @@
     - {name: nx, label: '$N$: $x =$'}
     - {name: ny, label: '$y =$'}
   solution: |-
-    $G$ is one-third of the way from $O$ to $H$, so $H = 3G - 2O = (3 \cdot {gx} - 2 \cdot {ox},\ 3 \cdot {gy} - 2 \cdot {oy}) =$ **({hx}, {hy})**. The nine-point center is the midpoint of $\overline{OH}$: $N = \left(\tfrac{ {ox} + {hx} }{2}, \tfrac{ {oy} + {hy} }{2}\right) =$ **({nx}, {ny})**.
+    $G$ is one-third of the way from $O$ to $H$, so $H = 3G - 2O = \big(3({gx}) - 2({ox}),\ 3({gy}) - 2({oy})\big) =$ **({hx}, {hy})**. The nine-point center is the midpoint of $\overline{OH}$: $N = \left(\tfrac{({ox}) + ({hx})}{2}, \tfrac{({oy}) + ({hy})}{2}\right) =$ **({nx}, {ny})**.
 
 - id: geo-h1-r2-right-euler
   title: Euler line of a right triangle
@@ -126,7 +126,7 @@
     - {name: og, label: '$OG =$', tolerance: 0.006}
     - {name: rn, label: 'Nine-point radius', tolerance: 0.006}
   solution: |-
-    The hypotenuse is $\sqrt{ {la}^2 + {lb}^2 } = {hyp}$. The circumcenter $O$ is its midpoint, so $R = {oh}$, and the orthocenter $H$ is the right-angle vertex. $OH$ is the median to the hypotenuse, which is half the hypotenuse: $OH =$ **{oh}**. Then $OG = \tfrac13 OH =$ **{og:num2}** and the nine-point radius is $\tfrac R2 =$ **{rn:num2}**.
+    The hypotenuse is $\sqrt{ {la}^2 + {lb}^2 } = {hyp}$. The circumcenter $O$ is its midpoint, so $R = {oh}$, and the orthocenter $H$ is the right-angle vertex. $OH$ is the median to the hypotenuse, which is half the hypotenuse: $OH =$ **{oh}**. Then $OG = \tfrac13 OH = \tfrac{ {oh} }{3} \approx$ **{og:num2}** and the nine-point radius is $\tfrac R2 =$ **{rn}**.
 
 - id: geo-h1-r2-trap-diagonal
   title: Diagonal of an isosceles trapezoid by Ptolemy
@@ -168,7 +168,7 @@
   answers:
     - {name: area, label: 'Area', tolerance: 0.006}
   solution: |-
-    Semiperimeter $s = \tfrac{ {sa} + {sb} + {sc} + {sd} }{2} = {s}$. Then $K = \sqrt{(s - a)(s - b)(s - c)(s - d)} = \sqrt{ {pa} \cdot {pb} \cdot {pc} \cdot {pd} } = \sqrt{ {prod} } \approx$ **{area:num2}**.
+    Semiperimeter $s = \tfrac{ {sa} + {sb} + {sc} + {sd} }{2} = {s}$. Then $K = \sqrt{(s - a)(s - b)(s - c)(s - d)} = \sqrt{ {pa} \cdot {pb} \cdot {pc} \cdot {pd} } = \sqrt{ {prod:dp0} } \approx$ **{area:num2}**.
 
 - id: geo-h1-r2-equilateral-arc
   title: A point on the circumcircle of an equilateral triangle
