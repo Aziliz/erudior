@@ -57,7 +57,7 @@
   choices: ['A dominant allele is always the most common allele in a population', 'A dominant allele shows its effect even in a heterozygote', 'A dominant allele is always better for survival', 'A dominant allele is passed to offspring more often than a recessive one']
   answer: 1
   explanation: |-
-    Dominant only describes how alleles interact in a heterozygote. It says nothing about frequency (the dominant allele for Huntington''s disease is rare), benefit, or how often it is inherited: a heterozygote passes each allele with probability 1/2.
+    Dominant only describes how alleles interact in a heterozygote. It says nothing about frequency (the dominant allele for Huntington's disease is rare), benefit, or how often it is inherited: a heterozygote passes each allele with probability 1/2.
 - id: bio-q-0508
   lesson: bio-mendel
   module_quiz: true
@@ -66,7 +66,7 @@
   choices: ['Homologous chromosomes separating in anaphase I', 'DNA replicating during the S phase', 'Sister chromatids separating in mitosis', 'Crossing over between homologous chromosomes in prophase I']
   answer: 0
   explanation: |-
-    The two alleles of a gene sit on the two homologous chromosomes, and homologs go to opposite poles in anaphase I, so each gamete gets one allele. Replication copies alleles rather than separating them, mitosis doesn''t make gametes, and crossing over swaps segments between homologs but doesn''t separate the allele pair.
+    The two alleles of a gene sit on the two homologous chromosomes, and homologs go to opposite poles in anaphase I, so each gamete gets one allele. Replication copies alleles rather than separating them, mitosis doesn't make gametes, and crossing over swaps segments between homologs but doesn't separate the allele pair.
 - id: bio-q-0509
   lesson: bio-mendel
   topic: Mendelian genetics
@@ -90,7 +90,7 @@
   choices: ['1', '1/256', '3/4', '1/4']
   answer: 3
   explanation: |-
-    Each fertilization is independent, so the earlier children don''t change the odds: P(aa) = 1/4 for every child. Expecting the recessive child to be "due" is the gambler''s fallacy; 1/256 is the chance that all four children are aa.
+    Each fertilization is independent, so the earlier children don't change the odds: P(aa) = 1/4 for every child. Expecting the recessive child to be "due" is the gambler's fallacy; 1/256 is the chance that all four children are aa.
 - id: bio-q-0512
   lesson: bio-mendel
   topic: Mendelian genetics
@@ -182,7 +182,7 @@
   choices: ['Sister chromatids separate at anaphase II', 'DNA is copied before meiosis begins', 'Each pair of homologous chromosomes lines up at metaphase I independently of the other pairs', 'The cytoplasm divides at the end of telophase II']
   answer: 2
   explanation: |-
-    Whether the chromosome with R goes to the same pole as the chromosome with Y or the one with y depends on how the two pairs happen to orient at metaphase I, and each pair orients at random. The other events occur in meiosis but don''t determine which alleles of different genes end up together.
+    Whether the chromosome with R goes to the same pole as the chromosome with Y or the one with y depends on how the two pairs happen to orient at metaphase I, and each pair orients at random. The other events occur in meiosis but don't determine which alleles of different genes end up together.
 - id: bio-q-0523
   lesson: bio-dihybrid
   topic: Dihybrid crosses
@@ -249,7 +249,7 @@
   choices: ['Type O blood contains no antibodies at all', 'Type O red cells carry the A antigen, which matches the patient', 'Type O red cells carry neither the A nor the B antigen, so the patient''s anti-B antibodies have nothing to attack', 'The $i$ allele is dominant to $I^A$']
   answer: 2
   explanation: |-
-    The danger in a transfusion is the patient''s antibodies attacking antigens on donor red cells. A type A patient has anti-B antibodies, and type O cells have no A or B antigen. Type O plasma actually contains both anti-A and anti-B antibodies, and $i$ is recessive.
+    The danger in a transfusion is the patient's antibodies attacking antigens on donor red cells. A type A patient has anti-B antibodies, and type O cells have no A or B antigen. Type O plasma actually contains both anti-A and anti-B antibodies, and $i$ is recessive.
 - id: bio-q-0531
   lesson: bio-beyond-mendel
   topic: Multiple alleles
@@ -298,7 +298,7 @@
   choices: ['Cold temperatures cause a mutation in the fur-color gene', 'The pigment enzyme works only at low temperature, so the environment affects the phenotype', 'Dark fur is a polygenic trait', 'The dark allele is dominant only on the ears and paws']
   answer: 1
   explanation: |-
-    The rabbit''s genotype didn''t change; the same genes produced dark fur where the skin was cooler. This shows an environmental effect on gene expression. A mutation would not appear reliably wherever cold is applied.
+    The rabbit's genotype didn't change; the same genes produced dark fur where the skin was cooler. This shows an environmental effect on gene expression. A mutation would not appear reliably wherever cold is applied.
 - id: bio-q-0537
   lesson: bio-sex-linked
   module_quiz: true
@@ -316,7 +316,7 @@
   choices: ['1/4', '0', '1/2', '1']
   answer: 2
   explanation: |-
-    A son gets Y from his father and one of his mother''s X chromosomes, $X^H$ or $X^h$, with equal probability, so 1/2. The answer 1/4 is the probability that a child of unknown sex is an affected son.
+    A son gets Y from his father and one of his mother's X chromosomes, $X^H$ or $X^h$, with equal probability, so 1/2. The answer 1/4 is the probability that a child of unknown sex is an affected son.
 - id: bio-q-0539
   lesson: bio-sex-linked
   topic: Sex linkage
@@ -324,7 +324,7 @@
   choices: ['All are carriers with normal vision', 'All are color-blind', 'Half are color-blind and half are carriers', 'Half are carriers and half are $X^BX^B$']
   answer: 0
   explanation: |-
-    Every daughter receives her father''s only X, $X^b$, and an $X^B$ from her mother, so all are $X^BX^b$: normal vision, carriers. None can be color-blind, because the mother has no $X^b$ to give.
+    Every daughter receives her father's only X, $X^b$, and an $X^B$ from her mother, so all are $X^BX^b$: normal vision, carriers. None can be color-blind, because the mother has no $X^b$ to give.
 - id: bio-q-0540
   lesson: bio-sex-linked
   topic: Sex linkage
@@ -332,7 +332,7 @@
   choices: ['The allele is recessive, so it is masked in all sons', 'A father passes his Y chromosome, not his X, to every son', 'X-linked alleles are passed only to daughters by mothers', 'Sons inherit both sex chromosomes from their mother']
   answer: 1
   explanation: |-
-    A child is male because he got his father''s Y, so his single X came from his mother. The father''s X goes to every daughter instead. Sons get only one sex chromosome from their mother, not both.
+    A child is male because he got his father's Y, so his single X came from his mother. The father's X goes to every daughter instead. Sons get only one sex chromosome from their mother, not both.
 - id: bio-q-0541
   lesson: bio-sex-linked
   module_quiz: true
@@ -365,7 +365,7 @@
   choices: ['The eye-color gene is on the X chromosome', 'White eyes are dominant in males', 'The eye-color gene is on the Y chromosome', 'Eye color is a polygenic trait']
   answer: 0
   explanation: |-
-    F2 sons get their only X from their carrier mother, so half are white-eyed, while daughters all get the father''s red-eye X. A Y-linked gene would pass from father to all sons and appear in the F1 males. The all-red F1 shows white is recessive.
+    F2 sons get their only X from their carrier mother, so half are white-eyed, while daughters all get the father's red-eye X. A Y-linked gene would pass from father to all sons and appear in the F1 males. The all-red F1 shows white is recessive.
 - id: bio-q-0545
   lesson: bio-sex-linked
   module_quiz: true
@@ -374,7 +374,7 @@
   choices: ['1/2', '1/4', '1', '0']
   answer: 2
   explanation: |-
-    A son''s X comes from his mother, and every X she has carries $b$. So every son is $X^bY$ and color-blind. (Every daughter is an $X^BX^b$ carrier.)
+    A son's X comes from his mother, and every X she has carries $b$. So every son is $X^bY$ and color-blind. (Every daughter is an $X^BX^b$ carrier.)
 - id: bio-q-0546
   lesson: bio-sex-linked
   topic: Pedigrees
@@ -382,7 +382,7 @@
   choices: ['Autosomal recessive', 'X-linked recessive', 'Y-linked', 'Autosomal dominant']
   answer: 3
   explanation: |-
-    Two affected parents can each be Aa for a dominant condition and have an aa child. For an autosomal recessive condition, two aa parents can only have aa children; for X-linked recessive, an affected mother and father give only affected children. A Y-linked trait can''t affect the mother.
+    Two affected parents can each be Aa for a dominant condition and have an aa child. For an autosomal recessive condition, two aa parents can only have aa children; for X-linked recessive, an affected mother and father give only affected children. A Y-linked trait can't affect the mother.
 - id: bio-q-0547
   lesson: bio-sex-linked
   topic: Sex linkage
@@ -407,7 +407,7 @@
   choices: ['All four are normal', 'Two have an extra chromosome and two are missing one', 'Two are normal, one has an extra chromosome and one is missing one', 'All four have an extra chromosome']
   answer: 1
   explanation: |-
-    In meiosis I both homologs go to one cell, so that cell''s two products are n + 1 and the other cell''s two products are n − 1. Two normal gametes plus one n + 1 and one n − 1 is the result of nondisjunction in meiosis II.
+    In meiosis I both homologs go to one cell, so that cell's two products are n + 1 and the other cell's two products are n − 1. Two normal gametes plus one n + 1 and one n − 1 is the result of nondisjunction in meiosis II.
 - id: bio-q-0550
   lesson: bio-chromosomes
   module_quiz: true

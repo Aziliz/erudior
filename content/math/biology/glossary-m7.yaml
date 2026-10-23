@@ -1,0 +1,101 @@
+- term: evolution
+  definition: 'Change in the inherited traits of a population over generations; over long times it produces new species, and all life shares common ancestry.'
+  topic: Evidence for evolution
+- term: transitional fossil
+  aliases: [transitional fossils]
+  definition: 'A fossil with a mix of features of an older group and a later group, such as Tiktaalik (fish and tetrapod) or Archaeopteryx (dinosaur and bird).'
+  topic: Evidence for evolution
+- term: radiometric dating
+  definition: 'Finding the age of rock or remains from the known decay rate of radioactive isotopes, such as carbon-14 or potassium-40.'
+  topic: Evidence for evolution
+- term: half-life
+  aliases: [half-lives]
+  definition: 'The time for half of the atoms of a radioactive isotope to decay. After $h$ half-lives, $\left(\tfrac12\right)^h$ remains.'
+  topic: Evidence for evolution
+- term: homologous structures
+  aliases: [homologous structure, homologous]
+  definition: 'Body parts with the same underlying structure, inherited from a common ancestor, even if used differently (human arm, bat wing, whale flipper).'
+  topic: Evidence for evolution
+- term: analogous structures
+  aliases: [analogous structure, analogous]
+  definition: 'Body parts with a similar function but different structure and origin, produced by convergent evolution (bird wing and insect wing).'
+  topic: Evidence for evolution
+- term: vestigial structures
+  aliases: [vestigial structure, vestigial]
+  definition: 'Reduced remnants of structures that were functional in ancestors, such as hip bones in whales.'
+  topic: Evidence for evolution
+- term: biogeography
+  definition: 'The study of where species live and how their distribution reflects their history, such as island species resembling those of the nearest mainland.'
+  topic: Evidence for evolution
+- term: natural selection
+  definition: 'The process in which individuals with heritable traits better suited to their environment leave more offspring, so those traits become more common over generations.'
+  topic: Natural selection
+- term: fitness
+  definition: 'An individual''s reproductive success compared with others in the population: how many offspring it contributes to the next generation.'
+  topic: Natural selection
+- term: adaptation
+  aliases: [adaptations]
+  definition: 'A heritable trait that increases fitness in a particular environment.'
+  topic: Adaptation
+- term: directional selection
+  definition: 'Selection that favors one extreme of a trait, shifting the population average in that direction.'
+  topic: Adaptation
+- term: stabilizing selection
+  definition: 'Selection that favors intermediate values of a trait and removes both extremes, narrowing variation.'
+  topic: Adaptation
+- term: disruptive selection
+  definition: 'Selection that favors both extremes of a trait over the intermediate, which can split a population into two groups.'
+  topic: Adaptation
+- term: artificial selection
+  definition: 'Breeding by people, who choose which individuals reproduce based on desired traits, as in dog breeds and crop varieties.'
+  topic: Adaptation
+- term: gene pool
+  definition: 'All the alleles of all the genes in a population.'
+  topic: Hardy-Weinberg
+- term: allele frequency
+  aliases: [allele frequencies]
+  definition: 'The fraction of all copies of a gene in a population that are a particular allele; for two alleles, $p + q = 1$.'
+  topic: Hardy-Weinberg
+- term: Hardy-Weinberg equilibrium
+  aliases: [Hardy-Weinberg, Hardy-Weinberg principle]
+  definition: 'The state in which allele and genotype frequencies stay constant ($p^2 + 2pq + q^2 = 1$); it requires no mutation, no gene flow, a very large population, random mating and no selection.'
+  topic: Hardy-Weinberg
+- term: genetic drift
+  definition: 'Random change in allele frequencies from chance in which individuals reproduce; strongest in small populations.'
+  topic: Mechanisms of evolution
+- term: bottleneck effect
+  definition: 'Genetic drift after a population is sharply reduced in size, leaving survivors with a small, random sample of the original alleles.'
+  topic: Mechanisms of evolution
+- term: founder effect
+  definition: 'Genetic drift when a few individuals start a new, isolated population that carries only some of the original alleles.'
+  topic: Mechanisms of evolution
+- term: gene flow
+  definition: 'Movement of alleles between populations through migrating individuals or gametes, which makes populations more alike.'
+  topic: Mechanisms of evolution
+- term: speciation
+  definition: 'The formation of new species, when one lineage splits into two that are reproductively isolated.'
+  topic: Speciation
+- term: reproductive isolation
+  definition: 'Any barrier that keeps two groups from interbreeding or from producing fertile offspring: prezygotic (habitat, timing, behavior, mechanics, gametes) or postzygotic (hybrid inviability, sterility, breakdown).'
+  topic: Speciation
+- term: allopatric speciation
+  definition: 'Speciation after a population is split by a geographic barrier, so the separated groups evolve independently.'
+  topic: Speciation
+- term: phylogenetic tree
+  aliases: [phylogenetic trees, cladogram]
+  definition: 'A branching diagram showing hypothesized evolutionary relationships; nodes stand for common ancestors.'
+  topic: Phylogeny
+- term: clade
+  aliases: [clades]
+  definition: 'An ancestor and all of its descendants: one complete branch of a phylogenetic tree.'
+  topic: Phylogeny
+- term: geologic time scale
+  definition: 'The division of Earth''s 4.54-billion-year history into eons, eras and periods, with many boundaries at major changes in the fossil record.'
+  topic: Geologic time
+- term: mass extinction
+  aliases: [mass extinctions]
+  definition: 'A geologically brief event in which a large fraction of the world''s species die out; there have been five major ones.'
+  topic: Geologic time
+- term: punctuated equilibrium
+  definition: 'The pattern of long periods of little change in a species broken by relatively rapid change, often linked to speciation; contrasted with gradualism.'
+  topic: History of life

@@ -214,11 +214,7 @@
   lesson: bio-cell-types
   topic: Viruses
   stem: 'Arrange from smallest to largest: a typical virus, a typical bacterium, a typical animal cell.'
-  choices:
-    - 'bacterium, virus, animal cell'
-    - 'virus, animal cell, bacterium'
-    - 'virus (about 100 nm), bacterium (about 2 µm), animal cell (about 20 µm)'
-    - 'animal cell, bacterium, virus'
+  choices: ['bacterium, virus, animal cell', 'virus, animal cell, bacterium', 'virus, bacterium, animal cell', 'animal cell, bacterium, virus']
   answer: 2
   explanation: |-
     Most viruses are 20–300 nm, bacteria about 1–5 µm and eukaryotic cells about 10–100 µm. Since 1 µm = 1000 nm, a 100 nm virus is a fraction of a bacterium's size, and the bacterium is about a tenth the width of an animal cell.

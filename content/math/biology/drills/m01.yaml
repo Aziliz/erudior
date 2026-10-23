@@ -49,7 +49,7 @@
     hconc: 10^(-pA)
   prompt: 'Solution A has a pH of {pA} and solution B has a pH of {pB}. (a) What is the hydrogen ion concentration of A in mol/L? (You can type a power of ten such as 10^-3 or 1e-3.) (b) How many times greater is the H⁺ concentration in A than in B?'
   answers:
-    - {name: hconc, label: '(a) $[\text{H}^+]$ in A (mol/L)', relTolerance: 0.01}
+    - {name: hconc, label: '(a) $[\text{H}^+]$ in A (mol/L)', relTolerance: 0.01, format: sci}
     - {name: fold, label: '(b) times greater', format: integer}
   solution: |-
     (a) $[\text{H}^+] = 10^{-\text{pH}} =$ **$10^{-{pA}}$ mol/L**.

@@ -1,0 +1,31 @@
+# ---- m2 Cells
+- {front: 'The three parts of the cell theory', back: 'All living things are made of cells; the cell is the basic unit of structure and function; all cells come from preexisting cells.', topic: Cell theory}
+- {front: 'Who contributed what to cell theory', back: 'Hooke (1665) named cells; Leeuwenhoek saw microbes; Schleiden (plants) and Schwann (animals) are made of cells; Virchow: every cell from a cell.', topic: Cell theory}
+- {front: 'Pasteur''s swan-neck flasks', back: 'Boiled broth open to air via an S-shaped neck stayed sterile; breaking the neck let dust and microbes in. Microbes come from microbes, not spontaneous generation.', topic: Cell theory}
+- {front: 'Total magnification', back: 'Ocular × objective (e.g. 10× × 40× = 400×)', topic: Microscopy}
+- {front: 'Actual size from an image', back: 'Actual size = image size ÷ magnification (convert mm to µm: × 1000)', topic: Microscopy}
+- {front: 'Field of view at higher power', back: 'Shrinks in proportion: new diameter = old diameter × (low mag ÷ high mag). Cell size ≈ field diameter ÷ number of cells across.', topic: Microscopy}
+- {front: 'Magnification vs resolution', back: 'Magnification: how much bigger the image is. Resolution: smallest separation still seen as two points (≈ 0.2 µm light, ≈ 1 nm or better electron).', topic: Microscopy}
+- {front: 'Light vs electron microscope', back: 'Light: living cells, color, ≈ 1000×. Electron: far higher resolution, but dead specimens in a vacuum. TEM: thin slices; SEM: surfaces.', topic: Microscopy}
+- {front: 'Four things every cell has', back: 'Plasma membrane, cytoplasm, DNA, ribosomes', topic: Cell types}
+- {front: 'Prokaryote vs eukaryote', back: 'Prokaryote: no nucleus or membrane-bound organelles, DNA in nucleoid, 1–5 µm (bacteria, archaea). Eukaryote: nucleus and organelles, 10–100 µm (animals, plants, fungi, protists).', topic: Cell types}
+- {front: 'The three domains of life', back: 'Bacteria, Archaea (both prokaryotic) and Eukarya; found by comparing ribosomal RNA (Woese, 1977).', topic: Cell types}
+- {front: 'Virus vs bacterium', back: 'Virus: not a cell, DNA or RNA in a capsid, 20–300 nm, no ribosomes or metabolism, reproduces only in a host, not affected by antibiotics. Bacterium: a living cell, 1–5 µm.', topic: Viruses}
+- {front: 'Why antibiotics don''t treat viral infections', back: 'They target bacterial structures (peptidoglycan walls, bacterial ribosomes) that viruses don''t have.', topic: Viruses}
+- {front: 'Nucleus', back: 'Holds DNA; double envelope with pores; nucleolus makes ribosome parts.', topic: Organelles}
+- {front: 'Rough ER vs smooth ER', back: 'Rough ER: ribosomes, makes proteins for export and membranes. Smooth ER: makes lipids, detoxifies (liver), stores calcium (muscle).', topic: Organelles}
+- {front: 'Path of a secreted protein', back: 'Ribosome on rough ER → ER → vesicle → Golgi apparatus → secretory vesicle → exocytosis (shown by Palade''s pulse–chase experiments).', topic: Organelles}
+- {front: 'Lysosome', back: 'Membrane sac of digestive enzymes, acidic inside (≈ pH 5); digests food particles, bacteria and worn-out organelles.', topic: Organelles}
+- {front: 'Mitochondrion vs chloroplast', back: 'Mitochondrion: cellular respiration, makes ATP (plants and animals). Chloroplast: photosynthesis, makes sugar (plants and algae).', topic: Organelles}
+- {front: 'Plant cells have, animal cells lack', back: 'Cell wall (cellulose), chloroplasts, large central vacuole', topic: Organelles}
+- {front: 'Evidence for the endosymbiotic theory', back: 'Mitochondria and chloroplasts have double membranes, their own circular DNA, bacteria-like ribosomes, divide by splitting, and have DNA most similar to particular bacteria.', topic: Organelles}
+- {front: 'Fluid mosaic model', back: 'Membrane = fluid phospholipid bilayer with a mosaic of proteins that move sideways (Frye–Edidin cell fusion experiment).', topic: Cell membrane}
+- {front: 'What crosses a bilayer easily?', back: 'Small nonpolar molecules (O₂, CO₂). Water slowly (fast via aquaporins). Ions and large polar molecules need transport proteins.', topic: Cell membrane}
+- {front: 'Passive vs active transport', back: 'Passive (diffusion, facilitated diffusion, osmosis): down the gradient, no energy. Active: against the gradient, needs ATP and a pump.', topic: Transport}
+- {front: 'Direction of osmosis', back: 'Water moves toward the higher solute concentration ("water follows solute").', topic: Transport}
+- {front: 'Hypertonic, hypotonic, isotonic solutions', back: 'Hypertonic: cell loses water (shrinks, plasmolysis). Hypotonic: cell gains water (animal cell may burst, plant cell turgid). Isotonic: no net change.', topic: Transport}
+- {front: 'Water potential', back: '$\Psi = \Psi_s + \Psi_p$, with $\Psi_s = -iCRT$; water moves from higher to lower $\Psi$.', topic: Transport}
+- {front: 'Sodium–potassium pump', back: 'Active transport: each ATP moves 3 Na⁺ out and 2 K⁺ in.', topic: Transport}
+- {front: 'SA:V of a cube of side $s$', back: 'SA $= 6s^2$, $V = s^3$, so SA:V $= 6/s$; it falls as the cube grows.', topic: Surface area to volume}
+- {front: 'Why cells are small', back: 'Needs grow with volume but supply through the membrane grows only with surface area; diffusion is only fast over short distances.', topic: Surface area to volume}
+- {front: 'Differentiation', back: 'A cell specializes by switching genes on and off; nearly all body cells have the same DNA (Gurdon''s frog nuclear transfer).', topic: Cell specialization}

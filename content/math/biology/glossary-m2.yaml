@@ -1,0 +1,113 @@
+# ---- m2 Cells
+- term: cell theory
+  definition: 'The theory that all living things are made of one or more cells, the cell is the basic unit of structure and function, and all cells come from preexisting cells.'
+  topic: Cell theory
+- term: magnification
+  definition: 'How many times larger an image is than the real object. For a compound microscope, total magnification = ocular × objective; actual size = image size ÷ magnification.'
+  topic: Microscopy
+- term: field of view
+  definition: 'The circular area visible through a microscope; its diameter shrinks in proportion as magnification increases.'
+  topic: Microscopy
+- term: resolution
+  aliases: [resolving power]
+  definition: 'The smallest distance between two points at which they can still be seen as separate; about 0.2 µm for a light microscope and about 1 nm or better for an electron microscope.'
+  topic: Microscopy
+- term: electron microscope
+  aliases: [electron microscopes, TEM, SEM]
+  definition: 'A microscope that uses a beam of electrons instead of light, giving far higher resolution. A transmission EM (TEM) shows thin slices; a scanning EM (SEM) shows surfaces. Specimens must be dead and in a vacuum.'
+  topic: Microscopy
+- term: plasma membrane
+  aliases: [cell membrane, plasma membranes, cell membranes]
+  definition: 'The thin, flexible boundary of every cell, a phospholipid bilayer with proteins, that controls what enters and leaves.'
+  topic: Cell types
+- term: ribosome
+  aliases: [ribosomes]
+  definition: 'A small structure of RNA and protein, not surrounded by a membrane, that builds proteins; found in every cell.'
+  topic: Cell types
+- term: prokaryote
+  aliases: [prokaryotes, prokaryotic, prokaryotic cell]
+  definition: 'A single-celled organism (a bacterium or archaeon) whose cell has no nucleus and no membrane-bound organelles; its DNA lies in a nucleoid region.'
+  topic: Cell types
+- term: eukaryote
+  aliases: [eukaryotes, eukaryotic, eukaryotic cell]
+  definition: 'An organism whose cells have a nucleus and membrane-bound organelles: animals, plants, fungi and protists.'
+  topic: Cell types
+- term: virus
+  aliases: [viruses]
+  definition: 'A noncellular infectious particle of DNA or RNA inside a protein coat (capsid), sometimes with an envelope; it has no metabolism and reproduces only inside a host cell.'
+  topic: Viruses
+- term: nucleus
+  aliases: [nuclei]
+  definition: 'The organelle that holds a eukaryotic cell''s DNA, surrounded by a double nuclear envelope with pores; it contains the nucleolus, which makes ribosome parts.'
+  topic: Organelles
+- term: endoplasmic reticulum
+  aliases: [ER, rough ER, smooth ER]
+  definition: 'A network of membranes continuous with the nuclear envelope. Rough ER has ribosomes and makes proteins for export and membranes; smooth ER makes lipids, detoxifies and stores calcium.'
+  topic: Organelles
+- term: Golgi apparatus
+  aliases: [Golgi, Golgi body]
+  definition: 'A stack of flattened membrane sacs that modifies, sorts and packages proteins from the ER into vesicles for secretion or delivery.'
+  topic: Organelles
+- term: lysosome
+  aliases: [lysosomes]
+  definition: 'A membrane sac of digestive enzymes with an acidic interior that breaks down food particles, engulfed bacteria and worn-out organelles.'
+  topic: Organelles
+- term: mitochondrion
+  aliases: [mitochondria]
+  definition: 'The double-membrane organelle where cellular respiration releases energy from food and stores it in ATP; it has its own DNA and ribosomes.'
+  topic: Organelles
+- term: chloroplast
+  aliases: [chloroplasts]
+  definition: 'The double-membrane organelle in plants and algae where photosynthesis captures light energy to make sugar; it contains chlorophyll and its own DNA.'
+  topic: Organelles
+- term: cell wall
+  aliases: [cell walls]
+  definition: 'A rigid layer outside the plasma membrane of plants (cellulose), fungi (chitin), bacteria (peptidoglycan) and archaea that supports the cell and prevents bursting.'
+  topic: Organelles
+- term: endosymbiotic theory
+  aliases: [endosymbiosis]
+  definition: 'The theory that mitochondria and chloroplasts descend from free-living prokaryotes engulfed by an ancestral host cell, supported by their double membranes, circular DNA, bacteria-like ribosomes, division by splitting and DNA sequences.'
+  topic: Organelles
+- term: phospholipid
+  aliases: [phospholipids, phospholipid bilayer]
+  definition: 'A lipid with a polar, hydrophilic phosphate head and two nonpolar, hydrophobic fatty acid tails; in water phospholipids form the bilayer of cell membranes.'
+  topic: Cell membrane
+- term: fluid mosaic model
+  definition: 'The model of a membrane as a fluid phospholipid bilayer in which a mosaic of proteins (and cholesterol, in animals) floats and moves sideways.'
+  topic: Cell membrane
+- term: selectively permeable
+  aliases: [selective permeability, semipermeable]
+  definition: 'Letting some substances cross easily (small nonpolar molecules) while blocking or controlling others (ions, large polar molecules).'
+  topic: Cell membrane
+- term: diffusion
+  definition: 'The net movement of particles from higher to lower concentration (down a concentration gradient) by random motion, needing no energy from the cell.'
+  topic: Transport
+- term: facilitated diffusion
+  definition: 'Passive diffusion of a substance down its concentration gradient through a channel or carrier protein.'
+  topic: Transport
+- term: osmosis
+  definition: 'The diffusion of water across a selectively permeable membrane, from the side with lower solute concentration to the side with higher solute concentration.'
+  topic: Transport
+- term: tonicity
+  aliases: [hypertonic, hypotonic, isotonic]
+  definition: 'How a solution compares with a cell in solute concentration. Hypertonic: more solute than the cell, so the cell loses water. Hypotonic: less solute, so the cell gains water. Isotonic: equal, so no net change.'
+  topic: Transport
+- term: active transport
+  definition: 'Movement of a substance against its concentration gradient (low to high) by a pump protein, using energy, usually from ATP; e.g. the sodium–potassium pump.'
+  topic: Transport
+- term: surface-area-to-volume ratio
+  aliases: [SA:V, surface area to volume ratio]
+  definition: 'Surface area divided by volume; for a cube of side $s$ it is $6/s$, so it falls as size increases, which limits how large cells can be.'
+  topic: Surface area to volume
+- term: differentiation
+  aliases: [cell differentiation]
+  definition: 'The process by which a cell becomes specialized in structure and function by switching particular genes on and others off; its DNA stays the same.'
+  topic: Cell specialization
+- term: tissue
+  aliases: [tissues]
+  definition: 'A group of similar cells that work together to perform a common function, such as muscle or epithelial tissue.'
+  topic: Cell specialization
+- term: organ
+  aliases: [organs]
+  definition: 'A structure made of two or more tissue types working together for a particular function, such as the stomach or a leaf.'
+  topic: Cell specialization

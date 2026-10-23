@@ -1,0 +1,609 @@
+- id: bio-q-0701
+  lesson: bio-evidence
+  module_quiz: true
+  topic: Evidence for evolution
+  stem: A bone sample contains 1/16 of the carbon-14 found in living tissue. The half-life of carbon-14 is 5,730 years. About how old is the bone?
+  choices:
+  - 91,680 years
+  - 22,920 years
+  - 45,840 years
+  - 11,460 years
+  answer: 1
+  explanation: '$\tfrac{1}{16} = \left(\tfrac12\right)^4$, so 4 half-lives have passed: $4 \times 5{,}730 = 22{,}920$ years. 91,680 multiplies by 16 instead of using 4 half-lives; 45,840 uses 8 half-lives (taking 1/16 as 16 ÷ 2); 11,460 is 2 half-lives.'
+- id: bio-q-0702
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: Why can't carbon-14 be used to date a 70-million-year-old dinosaur fossil?
+  choices:
+  - Dinosaurs did not contain carbon.
+  - After so many half-lives, essentially no carbon-14 would be left to measure.
+  - Carbon-14 decays faster in older rocks.
+  - Carbon-14 is only found in volcanic rock.
+  answer: 1
+  explanation: 70 million years is over 12,000 half-lives of carbon-14, so the amount left would be immeasurably small; carbon-14 works to about 50,000 years. Dinosaur fossils are dated with long-lived isotopes in nearby volcanic layers. Decay rates don't depend on the age of the rock.
+- id: bio-q-0703
+  lesson: bio-evidence
+  module_quiz: true
+  topic: Evidence for evolution
+  stem: The forelimbs of a human, a bat, a whale and a cat have the same set of bones arranged in the same pattern, though they are used for different tasks. These are
+  choices:
+  - analogous structures, evidence of a common ancestor
+  - homologous structures, evidence of a common ancestor
+  - vestigial structures with no function
+  - analogous structures that evolved separately
+  answer: 1
+  explanation: 'Same underlying structure, different jobs: that is homology, explained by inheritance from a shared ancestor. Analogous structures do similar jobs with different structures. These limbs are fully functional, so they are not vestigial.'
+- id: bio-q-0704
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: A bird's wing and a butterfly's wing both allow flight, but one is a modified forelimb with bones and the other is a thin outgrowth of the body wall. What are they an example of?
+  choices:
+  - Analogous structures produced by convergent evolution
+  - Homologous structures inherited from a winged ancestor
+  - Vestigial structures
+  - Transitional fossils
+  answer: 0
+  explanation: Similar function but different structure and origin means analogous. The common ancestor of birds and insects had no wings; flight evolved separately in each line.
+- id: bio-q-0705
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: Some whales have small hip bones embedded in their bodies, not attached to any legs. What is the best description?
+  choices:
+  - Vestigial structures inherited from four-legged ancestors
+  - Analogous structures
+  - Structures that the whale grew because it needed them
+  - Evidence that whales are fish
+  answer: 0
+  explanation: Reduced remnants of structures that were functional in ancestors are vestigial. Fossil whales show a series from four-legged land mammals to fully aquatic forms, consistent with these bones being leftovers.
+- id: bio-q-0706
+  lesson: bio-evidence
+  module_quiz: true
+  topic: Evidence for evolution
+  stem: Before 2004, fish fossils were known from rocks about 385 million years old and four-legged animals from rocks about 365 million years old. Where were researchers most likely to find a fish–tetrapod transitional fossil?
+  choices:
+  - In deep-ocean rocks about 500 million years old
+  - In any rock younger than 300 million years
+  - In shallow freshwater rocks about 375 million years old
+  - In rocks older than 400 million years
+  answer: 2
+  explanation: A transition should lie between the ages of the two groups and in the environment where early tetrapods lived. That prediction led to Tiktaalik, found in about 375-million-year-old rocks on Ellesmere Island. Rocks much older or younger would be the wrong time.
+- id: bio-q-0707
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: Cytochrome c differs from the human version by 0 amino acids in chimpanzees, 13 in chickens and 21 in tuna. Which conclusion do these data support?
+  choices:
+  - Tuna evolved from chickens.
+  - Humans share a more recent common ancestor with chickens than with tuna.
+  - Chimpanzees and humans are the same species.
+  - Cytochrome c has not changed since the first cells.
+  answer: 1
+  explanation: Fewer differences mean less time since two lines split. Chickens differ by fewer amino acids than tuna, so the human–chicken split is more recent. Identical cytochrome c doesn't make two species the same (they differ in many other genes), and no living species evolved from another living species.
+- id: bio-q-0708
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: Species on the Galápagos Islands most closely resemble species from which place?
+  choices:
+  - Islands with a similar climate on the other side of the world
+  - The nearby South American mainland
+  - Africa
+  - Europe, where Darwin lived
+  answer: 1
+  explanation: Biogeography shows island species resemble those on the nearest mainland, the source of their ancestors, not species in similar climates far away. That pattern makes sense if species descend from colonists.
+- id: bio-q-0709
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: A volcanic ash layer contains 1/4 of its original potassium-40 (half-life 1.25 billion years). A fossil lies in the rock layer directly below the ash. What can be said about the fossil's age?
+  choices:
+  - It is at least 2.5 billion years old.
+  - It is at most 2.5 billion years old.
+  - It is exactly 1.25 billion years old.
+  - It is about 5 billion years old.
+  answer: 0
+  explanation: '1/4 remaining means 2 half-lives: $2 \times 1.25 = 2.5$ billion years. Lower layers are older, so the fossil is at least that old. 1.25 billion is one half-life (1/2 remaining); 5 billion uses 4 half-lives.'
+- id: bio-q-0710
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: Which statement about humans and chimpanzees is accurate?
+  choices:
+  - Humans evolved from modern chimpanzees.
+  - They share a common ancestor that lived roughly 6 to 7 million years ago.
+  - Chimpanzees evolved from humans.
+  - They have no ancestors in common.
+  answer: 1
+  explanation: Both are living species that descend from a shared ancestor; neither evolved from the other. Both lines have been evolving for the same length of time since the split.
+- id: bio-q-0711
+  lesson: bio-evidence
+  topic: Evidence for evolution
+  stem: Why is the near-universal genetic code considered evidence for evolution?
+  choices:
+  - It shows that all organisms have the same genes.
+  - It proves that the code can never change.
+  - It is most simply explained if all life inherited the code from a common ancestor.
+  - It shows that bacteria evolved from humans.
+  answer: 2
+  explanation: Many different codes would work chemically, yet almost all life uses the same one, which points to a single origin. Organisms share the code, not all their genes, and minor variant codes do exist.
+- id: bio-q-0712
+  lesson: bio-natural-selection
+  module_quiz: true
+  topic: Natural selection
+  stem: Which set of conditions is enough for natural selection to change a population?
+  choices:
+  - Variation in a trait, inheritance of that trait, and differences in reproductive success linked to it
+  - A changing environment and individuals that try to adapt
+  - A large population with no variation
+  - Variation caused only by the environment, such as muscles built by exercise
+  answer: 0
+  explanation: Selection needs heritable variation that affects survival or reproduction. Effort doesn't change genes, a population with no variation has nothing to select, and traits acquired during life (like gym muscles) aren't inherited.
+- id: bio-q-0713
+  lesson: bio-natural-selection
+  topic: Natural selection
+  stem: In evolutionary terms, which individual has the highest fitness?
+  choices:
+  - A small, weak bird that raises 8 offspring that survive to breed
+  - A large, strong bird that lives 15 years but raises 2 offspring
+  - The fastest bird, which raises no offspring
+  - A bird that lives longest without breeding
+  answer: 0
+  explanation: 'Fitness is reproductive success relative to others: the number of offspring contributed to the next generation. Size, strength, speed and lifespan matter only if they lead to more offspring.'
+- id: bio-q-0714
+  lesson: bio-natural-selection
+  module_quiz: true
+  topic: Natural selection
+  stem: In the Lederbergs' replica-plating experiment, colonies that grew on antibiotic plates were traced back to the original plate, which had never been exposed to the antibiotic. Those original colonies were already resistant. What does this show?
+  choices:
+  - The antibiotic caused the resistance mutations.
+  - Bacteria become resistant because they need to survive.
+  - Resistance is not inherited.
+  - Resistance mutations arose randomly before exposure; the antibiotic selected them.
+  answer: 3
+  explanation: The original colonies were resistant without ever meeting the antibiotic, so the mutations came first and the antibiotic only revealed and favored them. Mutation is random with respect to need.
+- id: bio-q-0715
+  lesson: bio-natural-selection
+  module_quiz: true
+  topic: Natural selection
+  stem: A moth population has 500 light and 500 dark moths. On sooty bark, 30% of light moths and 60% of dark moths survive. What percent of the survivors are dark?
+  choices:
+  - About 66.7%
+  - 50%
+  - 60%
+  - 90%
+  answer: 0
+  explanation: 'Survivors: light $500 \times 0.30 = 150$, dark $500 \times 0.60 = 300$. Dark fraction $= 300/450 \approx 66.7\%$. 50% is the starting share; 60% is the dark survival rate, not the share of survivors; 90% adds the two rates.'
+- id: bio-q-0716
+  lesson: bio-natural-selection
+  topic: Natural selection
+  stem: During the 1977 drought on Daphne Major, mostly large, hard seeds remained. Medium ground finch survivors had deeper beaks than those that died. What happened to the next generation?
+  choices:
+  - Its average beak depth was unchanged, because selection acts only on individuals.
+  - Its average beak depth was larger, because beak depth is heritable.
+  - Its beaks were smaller, because birds ate less.
+  - Every bird developed a deeper beak by cracking hard seeds.
+  answer: 1
+  explanation: Deeper-beaked birds survived and bred, and beak depth is inherited, so the average in the offspring generation rose. Individual birds didn't change their beaks by use; the population's makeup changed.
+- id: bio-q-0717
+  lesson: bio-natural-selection
+  topic: Adaptation
+  stem: Human birth weight historically had the highest survival near the average, with lower survival for very small and very large babies. What type of selection is this?
+  choices:
+  - Directional selection
+  - Disruptive selection
+  - Stabilizing selection
+  - Artificial selection
+  answer: 2
+  explanation: 'Favoring the middle and removing both extremes is stabilizing selection: the average stays and the spread narrows. Directional selection would shift the average; disruptive would favor both extremes.'
+- id: bio-q-0718
+  lesson: bio-natural-selection
+  topic: Adaptation
+  stem: In a finch population, birds with small bills eat soft seeds well and birds with large bills crack hard seeds well, but intermediate bills do neither well. Over time, what pattern of selection is expected?
+  choices:
+  - Disruptive selection, favoring both extremes
+  - Stabilizing selection, favoring intermediate bills
+  - Directional selection toward small bills
+  - No selection, because all bills are used
+  answer: 0
+  explanation: When both extremes do better than the middle, selection is disruptive and can split the distribution into two peaks, as in the black-bellied seedcracker.
+- id: bio-q-0719
+  lesson: bio-natural-selection
+  topic: Adaptation
+  stem: Cabbage, broccoli, kale and Brussels sprouts were all bred from one species of wild mustard. This is an example of
+  choices:
+  - natural selection
+  - genetic drift
+  - artificial selection
+  - convergent evolution
+  answer: 2
+  explanation: 'People chose which plants to breed for leaves, buds, flowers or stems: artificial selection. In natural selection, the environment does the choosing through survival and reproduction.'
+- id: bio-q-0720
+  lesson: bio-natural-selection
+  topic: Adaptation
+  stem: Lamarck proposed that giraffes got long necks by stretching to reach leaves and passing the longer necks to their young. Why is this rejected?
+  choices:
+  - Changes acquired during an animal's life are not written into its DNA, so they are not inherited.
+  - Giraffes do not eat leaves.
+  - Neck length is not variable in giraffes.
+  - Natural selection cannot act on body size.
+  answer: 0
+  explanation: Stretching doesn't change the genes in eggs or sperm. The accepted explanation is that giraffes with heritably longer necks left more offspring.
+- id: bio-q-0721
+  lesson: bio-natural-selection
+  topic: Natural selection
+  stem: Which statement about natural selection is correct?
+  choices:
+  - Individuals evolve during their lifetimes to fit the environment.
+  - Selection produces the mutations a population needs.
+  - Selection plans ahead for future environments.
+  - Individuals are selected, but populations evolve.
+  answer: 3
+  explanation: Selection acts on individuals (who survives and reproduces), and the result is a change in the population over generations. It has no foresight and doesn't create mutations; it sorts existing variation.
+- id: bio-q-0722
+  lesson: bio-population-genetics
+  module_quiz: true
+  topic: Hardy-Weinberg
+  stem: In a population in Hardy-Weinberg equilibrium, 9% of individuals show a recessive trait. What is the frequency of heterozygous carriers?
+  choices:
+  - '0.09'
+  - '0.21'
+  - '0.42'
+  - '0.49'
+  answer: 2
+  explanation: '$q^2 = 0.09$, so $q = 0.3$ and $p = 0.7$. Carriers: $2pq = 2(0.7)(0.3) = 0.42$. 0.09 is $q^2$ itself; 0.21 forgets the 2; 0.49 is $p^2$.'
+- id: bio-q-0723
+  lesson: bio-population-genetics
+  topic: Hardy-Weinberg
+  stem: A population of 500 has 180 AA, 240 Aa and 80 aa individuals. What is the frequency of allele A?
+  choices:
+  - '0.36'
+  - '0.48'
+  - '0.4'
+  - '0.6'
+  answer: 3
+  explanation: 'Gene copies: $2 \times 500 = 1{,}000$. Copies of A: $2(180) + 240 = 600$. $p = 600/1000 = 0.6$. 0.36 is the AA genotype frequency; 0.48 is the Aa frequency; 0.4 is $q$.'
+- id: bio-q-0724
+  lesson: bio-population-genetics
+  module_quiz: true
+  topic: Hardy-Weinberg
+  stem: A recessive disorder affects 1 in 10,000 people. Assuming Hardy-Weinberg equilibrium, about what fraction of people are carriers?
+  choices:
+  - About 1 in 100
+  - About 1 in 5,000
+  - About 1 in 50
+  - About 1 in 10,000
+  answer: 2
+  explanation: $q^2 = 1/10{,}000$, so $q = 1/100 = 0.01$ and $p = 0.99$. $2pq = 2(0.99)(0.01) \approx 0.02$, about 1 in 50. 1 in 100 is $q$, not $2pq$. Carriers are far more common than affected people.
+- id: bio-q-0725
+  lesson: bio-population-genetics
+  topic: Hardy-Weinberg
+  stem: Which is NOT one of the conditions for Hardy-Weinberg equilibrium?
+  choices:
+  - No natural selection
+  - Random mating
+  - The dominant allele must be more common than the recessive allele.
+  - A very large population
+  answer: 2
+  explanation: The conditions are no mutation, no gene flow, a very large population (no drift), random mating and no selection. Allele frequencies can be anything; equilibrium says they stay constant, not that dominant alleles are common.
+- id: bio-q-0726
+  lesson: bio-population-genetics
+  topic: Hardy-Weinberg
+  stem: With $p = 0.6$ and $q = 0.4$, a population of 1,000 is expected to have 480 heterozygotes under Hardy-Weinberg. A survey finds only 200. Which explanation best fits this shortage?
+  choices:
+  - Inbreeding or self-fertilization (nonrandom mating)
+  - Random mating in a very large population
+  - Gene flow that adds heterozygotes
+  - A counting method that only finds homozygotes for A
+  answer: 0
+  explanation: Too few heterozygotes and too many homozygotes is the signature of mating with relatives or self-fertilization. Random mating in a large population is the equilibrium case and would give about 480.
+- id: bio-q-0727
+  lesson: bio-population-genetics
+  module_quiz: true
+  topic: Mechanisms of evolution
+  stem: Northern elephant seals were hunted to a few dozen animals in the 1890s. Today there are over 200,000, but they have very little genetic variation. What explains the low variation?
+  choices:
+  - Gene flow from other seal species
+  - Stabilizing selection on body size
+  - The bottleneck effect
+  - A high mutation rate
+  answer: 2
+  explanation: 'The few survivors carried only a small, random sample of the original alleles, and the population regrew from them: a bottleneck, a form of genetic drift. Gene flow and mutation would add variation, not remove it.'
+- id: bio-q-0728
+  lesson: bio-population-genetics
+  topic: Mechanisms of evolution
+  stem: A rare recessive form of dwarfism is much more common among the Old Order Amish of Lancaster County than in the general population. The best explanation is
+  choices:
+  - the founder effect
+  - natural selection favoring the allele
+  - gene flow into the community
+  - a high mutation rate in the community
+  answer: 0
+  explanation: 'The community descends from a small number of founders, at least one of whom happened to carry the allele, so it became more common by chance: the founder effect. Nothing suggests the allele is favored.'
+- id: bio-q-0729
+  lesson: bio-population-genetics
+  topic: Mechanisms of evolution
+  stem: Why does genetic drift have a much larger effect in small populations than in large ones?
+  choices:
+  - Chance deviations from expected numbers are proportionally larger in small samples.
+  - Small populations have higher mutation rates.
+  - Natural selection is stronger in small populations.
+  - Large populations have no random events.
+  answer: 0
+  explanation: 'Like coin flips: 10 tosses can easily give 70% heads, but 10,000 tosses will be very close to 50%. Each generation is a sample of the parents'' alleles, and small samples wander more.'
+- id: bio-q-0730
+  lesson: bio-population-genetics
+  topic: Mechanisms of evolution
+  stem: Pollen carried by wind from one population of pines to another, distant population is an example of
+  choices:
+  - genetic drift
+  - gene flow
+  - mutation
+  - the founder effect
+  answer: 1
+  explanation: Moving alleles between populations (through migrating individuals or their gametes) is gene flow. It tends to make populations more alike.
+- id: bio-q-0731
+  lesson: bio-population-genetics
+  topic: Mechanisms of evolution
+  stem: Which mechanism of evolution consistently makes a population better adapted to its environment?
+  choices:
+  - Genetic drift
+  - Gene flow
+  - Natural selection
+  - Mutation
+  answer: 2
+  explanation: Only selection favors alleles because they improve survival and reproduction. Drift is random, gene flow depends on who migrates, and mutation is random with respect to need, though it supplies the raw variation.
+- id: bio-q-0732
+  lesson: bio-population-genetics
+  topic: Hardy-Weinberg
+  stem: Polydactyly (extra fingers) is caused by a dominant allele, yet it is rare. How can this be?
+  choices:
+  - Dominant alleles always become more common, so it must not really be dominant.
+  - Dominance describes how an allele shows up in heterozygotes, not how common it is.
+  - The allele is recessive in most people.
+  - Hardy-Weinberg does not apply to humans.
+  answer: 1
+  explanation: An allele can be dominant and still have a low frequency $p$. Hardy and Weinberg showed that dominant alleles do not automatically spread; frequencies stay constant unless something like selection or drift changes them.
+- id: bio-q-0733
+  lesson: bio-speciation
+  module_quiz: true
+  topic: Speciation
+  stem: Horses and donkeys can mate and produce mules, but mules are almost always sterile. Under the biological species concept, horses and donkeys are
+  choices:
+  - the same species, because they can mate
+  - separate species, isolated by mechanical isolation
+  - separate species, isolated by hybrid sterility
+  - the same species, because mules are healthy
+  answer: 2
+  explanation: The test is fertile offspring. Mules are sterile, a postzygotic barrier, so horses and donkeys are separate species. Mating can happen, so it is not mechanical isolation.
+- id: bio-q-0734
+  lesson: bio-speciation
+  topic: Speciation
+  stem: Two species of frogs live in the same ponds; one breeds in early spring and the other in early summer. What kind of barrier keeps them apart?
+  choices:
+  - Habitat isolation (prezygotic)
+  - Hybrid inviability (postzygotic)
+  - Gametic isolation (prezygotic)
+  - Temporal isolation (prezygotic)
+  answer: 3
+  explanation: Breeding at different times is temporal isolation, which acts before fertilization. They share a habitat, so it isn't habitat isolation, and no hybrids form, so postzygotic barriers don't come into play.
+- id: bio-q-0735
+  lesson: bio-speciation
+  topic: Speciation
+  stem: Sea urchins of two species release eggs and sperm into the same water, but sperm of one species can't bind to the other species' eggs. This is
+  choices:
+  - behavioral isolation
+  - hybrid sterility
+  - temporal isolation
+  - gametic isolation
+  answer: 3
+  explanation: 'Egg-surface proteins bind only sperm of the same species, so fertilization fails: gametic isolation, a prezygotic barrier. Behavior and timing are not the issue here.'
+- id: bio-q-0736
+  lesson: bio-speciation
+  module_quiz: true
+  topic: Speciation
+  stem: When the Isthmus of Panama formed about 3 million years ago, populations of snapping shrimp were split into Caribbean and Pacific groups that have since become separate species. This is an example of
+  choices:
+  - sympatric speciation by polyploidy
+  - gene flow
+  - convergent evolution
+  - allopatric speciation
+  answer: 3
+  explanation: A geographic barrier split the populations and stopped gene flow; each side then evolved separately. That is allopatric speciation. Sympatric speciation happens without geographic separation.
+- id: bio-q-0737
+  lesson: bio-speciation
+  topic: Speciation
+  stem: An error in cell division doubles a plant's chromosome number. The new plant can't produce fertile offspring with its parent species but can reproduce with itself or other plants like it. What has happened?
+  choices:
+  - Allopatric speciation
+  - Sympatric speciation by polyploidy
+  - A bottleneck
+  - Directional selection
+  answer: 1
+  explanation: The polyploid is reproductively isolated from its parents in a single generation, in the same place. This is a common route to new plant species, with no geographic barrier needed.
+- id: bio-q-0738
+  lesson: bio-speciation
+  topic: Speciation
+  stem: Why is the biological species concept hard to apply to bacteria?
+  choices:
+  - Bacteria have no DNA.
+  - Bacteria never evolve.
+  - Bacteria reproduce asexually, so interbreeding can't be the test.
+  - Bacteria all belong to one species.
+  answer: 2
+  explanation: The concept is defined by interbreeding. Organisms that reproduce asexually, and fossils, are grouped instead by shared features or DNA sequences.
+- id: bio-q-0739
+  lesson: bio-speciation
+  module_quiz: true
+  topic: Phylogeny
+  stem: On a phylogenetic tree, how do you tell which of two species is more closely related to a third?
+  choices:
+  - Choose the species printed next to it at the tips.
+  - Find which pair shares the most recent common ancestor (the node closest to the tips).
+  - Choose the species that looks most similar.
+  - Count how many tips separate them on the page.
+  answer: 1
+  explanation: Relatedness is about the most recent shared ancestor. Tip order can change by rotating branches around nodes without changing the tree, and similar appearance can come from convergent evolution.
+- id: bio-q-0740
+  lesson: bio-speciation
+  topic: Phylogeny
+  stem: Using the vertebrate tree from the lesson (lamprey, shark, trout, frog, lizard, human), which group is a clade?
+  choices:
+  - Shark and frog
+  - Frog, lizard and human
+  - Trout and lizard
+  - Lamprey, frog and human
+  answer: 1
+  explanation: A clade is an ancestor and all its descendants. Frog, lizard and human are all the descendants of the four-limbed ancestor. The other groups each leave out some descendants of their common ancestor.
+- id: bio-q-0741
+  lesson: bio-speciation
+  topic: Phylogeny
+  stem: In a character table, which trait would be useful for sorting relationships among mammals, birds and lizards?
+  choices:
+  - Hair, which is present only in mammals
+  - A backbone, which all three have
+  - Living on land, which all three do
+  - Body size, which varies within each group
+  answer: 0
+  explanation: Shared derived traits mark branches. A backbone or land life is shared by all three, so it can't separate them. Hair arose in the mammal line and marks that clade. Body size varies too much and can evolve repeatedly.
+- id: bio-q-0742
+  lesson: bio-speciation
+  topic: Phylogeny
+  stem: A student says the lamprey, which branches off first on a vertebrate tree, is "less evolved" than humans. What is wrong with this?
+  choices:
+  - Lampreys are actually the ancestors of humans.
+  - Lampreys appeared after humans.
+  - Nothing; early branches are less evolved.
+  - The lamprey's lineage has been evolving for exactly as long as ours since the two split.
+  answer: 3
+  explanation: All living groups at the tips have had the same amount of time to evolve since their common ancestor. Living lampreys are not our ancestors; ancestors sit at the nodes, not the tips.
+- id: bio-q-0743
+  lesson: bio-speciation
+  topic: Speciation
+  stem: About 14 to 18 species of Galápagos finches, with beaks suited to seeds, insects or cactus, descend from one ancestral species. This pattern is called
+  choices:
+  - a bottleneck
+  - stabilizing selection
+  - an adaptive radiation
+  - gene flow
+  answer: 2
+  explanation: One ancestor diversifying into many species, each adapted to a different way of life, is an adaptive radiation.
+- id: bio-q-0744
+  lesson: bio-history-life
+  module_quiz: true
+  topic: Geologic time
+  stem: If Earth's 4.54 billion years were compressed into 24 hours, about when would the Cambrian explosion (539 million years ago) occur?
+  choices:
+  - About 3 a.m.
+  - About noon
+  - About 11:59 p.m.
+  - About 9 p.m.
+  answer: 3
+  explanation: The time elapsed before the Cambrian is $4{,}540 - 539 = 4{,}001$ million years, and $24 \times 4001/4540 \approx 21.2$ hours, about 9 p.m. 3 a.m. comes from using 539/4540 of the day from midnight instead of time remaining.
+- id: bio-q-0745
+  lesson: bio-history-life
+  topic: History of life
+  stem: In the Miller–Urey experiment, electric sparks passed through a mixture of gases and water produced amino acids. What did this show?
+  choices:
+  - Life arose from sparks in a single week.
+  - The first cells contained DNA.
+  - Oxygen was necessary for life to begin.
+  - Some building blocks of life can form from simple chemicals without living things.
+  answer: 3
+  explanation: The experiment made molecules, not cells, so it shows only that life's building blocks can form without life. Early Earth had almost no free oxygen; the experiment used no oxygen gas.
+- id: bio-q-0746
+  lesson: bio-history-life
+  topic: History of life
+  stem: Why is the ability of RNA to act as a catalyst important for ideas about the origin of life?
+  choices:
+  - It proves that proteins came before nucleic acids.
+  - RNA can store information and speed up reactions, so early life may have used RNA for both before DNA and proteins.
+  - It shows that DNA is unnecessary in modern cells.
+  - It means RNA can make energy from sunlight.
+  answer: 1
+  explanation: The RNA world hypothesis rests on RNA doing both jobs (as rRNA still does when forming peptide bonds). It doesn't make DNA unnecessary today, and it suggests nucleic acids, not proteins, came first.
+- id: bio-q-0747
+  lesson: bio-history-life
+  module_quiz: true
+  topic: History of life
+  stem: 'Put these events in order from oldest to most recent: (1) Great Oxidation Event, (2) first eukaryotes, (3) earliest widely accepted fossils of prokaryotes, (4) Cambrian explosion.'
+  choices:
+  - 1, 3, 2, 4
+  - 3, 2, 1, 4
+  - 2, 3, 1, 4
+  - 3, 1, 2, 4
+  answer: 3
+  explanation: Prokaryote fossils about 3.5 billion years ago; oxygen buildup about 2.4 billion; eukaryotes about 2 billion; Cambrian explosion about 539 million years ago.
+- id: bio-q-0748
+  lesson: bio-history-life
+  topic: History of life
+  stem: Which observation supports the endosymbiotic origin of mitochondria?
+  choices:
+  - Mitochondria are found only in plant cells.
+  - Mitochondria are made by the Golgi apparatus.
+  - Mitochondria contain no ribosomes.
+  - Mitochondria have their own circular DNA and divide by splitting, like bacteria.
+  answer: 3
+  explanation: Their own circular DNA, bacterial-type ribosomes and division by splitting all point to descent from engulfed bacteria. Mitochondria are found in nearly all eukaryotes, including animals.
+- id: bio-q-0749
+  lesson: bio-history-life
+  topic: Geologic time
+  stem: Which mass extinction was the largest, wiping out roughly 90% of marine species?
+  choices:
+  - End-Permian, about 252 million years ago
+  - End-Cretaceous, about 66 million years ago
+  - End-Ordovician, about 445 million years ago
+  - End-Triassic, about 201 million years ago
+  answer: 0
+  explanation: The end-Permian extinction, linked to massive volcanic eruptions in Siberia, was the worst. The end-Cretaceous, which ended the non-bird dinosaurs, is the best known but was smaller.
+- id: bio-q-0750
+  lesson: bio-history-life
+  module_quiz: true
+  topic: Geologic time
+  stem: A thin clay layer rich in iridium is found worldwide at the boundary between rocks of the Cretaceous and the following period. What does it most strongly support?
+  choices:
+  - A large asteroid impact about 66 million years ago
+  - A slow decline in sea level over millions of years
+  - The first appearance of flowering plants
+  - A global ice age 252 million years ago
+  answer: 0
+  explanation: Iridium is rare in Earth's crust but common in asteroids. A worldwide layer at that boundary, plus the Chicxulub crater of the right age, points to an impact. The 252-million-year date belongs to the end-Permian.
+- id: bio-q-0751
+  lesson: bio-history-life
+  topic: Geologic time
+  stem: 'Layers in a cliff, bottom to top: sandstone with trilobites, volcanic ash dated at 300 million years, shale with dinosaur bones. What can be said about the trilobite fossils?'
+  choices:
+  - They are younger than 300 million years.
+  - They are older than 300 million years.
+  - They are exactly 300 million years old.
+  - They are younger than the dinosaurs.
+  answer: 1
+  explanation: By superposition, lower layers are older, so the trilobites predate the ash, and the dinosaurs postdate it. A fossil's age is usually a range bracketed by dated layers.
+- id: bio-q-0752
+  lesson: bio-history-life
+  topic: History of life
+  stem: After the end-Cretaceous extinction, mammals diversified rapidly into many new forms, including whales, bats and grazers. This is best described as
+  choices:
+  - a mass extinction of mammals
+  - a population bottleneck in dinosaurs
+  - stabilizing selection on mammal size
+  - an adaptive radiation into roles left empty
+  answer: 3
+  explanation: Extinctions open ecological roles; surviving groups then diversify to fill them. Mammals had been mostly small for over 100 million years before this radiation.
+- id: bio-q-0753
+  lesson: bio-history-life
+  topic: History of life
+  stem: Fossils of a snail lineage show almost no change for 3 million years, then a fairly quick shift (over tens of thousands of years) to a new form that stays stable again. Which model does this pattern match?
+  choices:
+  - Gradualism
+  - Hardy-Weinberg equilibrium
+  - Punctuated equilibrium
+  - Endosymbiosis
+  answer: 2
+  explanation: Long stability broken by relatively rapid change is punctuated equilibrium (Eldredge and Gould, 1972). Gradualism predicts slow, steady change throughout.
+- id: bio-q-0754
+  lesson: bio-history-life
+  topic: History of life
+  stem: Why did oxygen-releasing photosynthesis by cyanobacteria matter so much for later life?
+  choices:
+  - It removed all carbon dioxide from the atmosphere.
+  - It produced the first amino acids.
+  - It caused the end-Cretaceous extinction.
+  - The oxygen it built up made aerobic respiration possible, which yields much more ATP.
+  answer: 3
+  explanation: Oxygen accumulated from about 2.4 billion years ago. Aerobic respiration gives about 30 ATP per glucose versus 2 from fermentation, which supports larger, more active organisms.
