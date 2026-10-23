@@ -34,6 +34,7 @@
 <polyline points="313.4,315.0 470.0,230.0" fill="none" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
 <text x="474.0" y="228.0" text-anchor="start" font-size="16">slice area</text>
 <text x="474.0" y="248.0" text-anchor="start" font-size="16" font-style="italic">A(x)</text>
-<polyline points="176.7,306.8 95.0,410.0" fill="none" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
-<text x="20.0" y="400.0" text-anchor="start" font-size="15">column: f(x*, y*) ΔA</text>
+<polyline points="176.7,306.8 60.0,200.0" fill="none" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<text x="8.0" y="192.0" text-anchor="start" font-size="15">column:</text>
+<text x="8.0" y="172.0" text-anchor="start" font-size="15">f(x*, y*) ΔA</text>
 </svg>

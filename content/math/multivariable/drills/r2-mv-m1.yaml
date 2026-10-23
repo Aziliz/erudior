@@ -1,0 +1,136 @@
+# Round 2 drills for mv-m1 (honors lessons 06h1 and 06h2)
+- id: mv-m1-r2-point-line
+  title: Distance from a point to a line
+  topic: Distances in space
+  vars:
+    px: {min: -3, max: 3}
+    py: {min: -3, max: 3}
+    pz: {min: -3, max: 3}
+    v1: {min: -3, max: 3}
+    v2: {min: -3, max: 3}
+    v3: {min: -3, max: 3}
+    qx: {min: -4, max: 4}
+    qy: {min: -4, max: 4}
+    qz: {min: -4, max: 4}
+  calc:
+    a1: qx - px
+    a2: qy - py
+    a3: qz - pz
+    c1: a2*v3 - a3*v2
+    c2: a3*v1 - a1*v3
+    c3: a1*v2 - a2*v1
+    cc: c1^2 + c2^2 + c3^2
+    vv: v1^2 + v2^2 + v3^2
+    dist: sqrt(cc/vv)
+  where: ["vv > 0", "cc > 0", "(v1 != 0) + (v2 != 0) + (v3 != 0) >= 2"]
+  prompt: 'Find the distance from $Q({qx}, {qy}, {qz})$ to the line through $P({px}, {py}, {pz})$ with direction $\mathbf v = \langle {v1}, {v2}, {v3}\rangle$. (Exact value or 2 decimal places.)'
+  answers:
+    - {name: dist, label: '$D =$', tolerance: 0.006}
+  solution: |-
+    $\overrightarrow{PQ} = \langle {a1}, {a2}, {a3}\rangle$ and $\overrightarrow{PQ}\times\mathbf v = \langle {c1}, {c2}, {c3}\rangle$, whose length is $\sqrt{{cc}}$. Also $|\mathbf v| = \sqrt{{vv}}$.
+    Area over base: $D = \dfrac{\sqrt{{cc}}}{\sqrt{{vv}}} \approx$ **{dist:num2}**.
+- id: mv-m1-r2-skew-dist
+  title: Distance between skew lines
+  topic: Distances in space
+  vars:
+    ax: {min: -3, max: 3}
+    ay: {min: -3, max: 3}
+    az: {min: -3, max: 3}
+    u1: {min: -2, max: 2}
+    u2: {min: -2, max: 2}
+    u3: {min: -2, max: 2}
+    bx: {min: -3, max: 3}
+    by: {min: -3, max: 3}
+    bz: {min: -3, max: 3}
+    w1: {min: -2, max: 2}
+    w2: {min: -2, max: 2}
+    w3: {min: -2, max: 2}
+  calc:
+    n1: u2*w3 - u3*w2
+    n2: u3*w1 - u1*w3
+    n3: u1*w2 - u2*w1
+    nn: n1^2 + n2^2 + n3^2
+    d1: bx - ax
+    d2: by - ay
+    d3: bz - az
+    trip: d1*n1 + d2*n2 + d3*n3
+    atrip: abs(trip)
+    dist: atrip/sqrt(nn)
+  where: ["nn > 0", "trip != 0", "(u1 != 0) + (u2 != 0) + (u3 != 0) >= 2", "(w1 != 0) + (w2 != 0) + (w3 != 0) >= 2"]
+  prompt: 'Find the distance between the skew lines $\mathbf r_1 = \langle {ax}, {ay}, {az}\rangle + t\langle {u1}, {u2}, {u3}\rangle$ and $\mathbf r_2 = \langle {bx}, {by}, {bz}\rangle + s\langle {w1}, {w2}, {w3}\rangle$. (Exact value or 2 decimal places.)'
+  answers:
+    - {name: dist, label: '$D =$', tolerance: 0.006}
+  solution: |-
+    $\mathbf n = \mathbf v_1\times\mathbf v_2 = \langle {n1}, {n2}, {n3}\rangle$, with $|\mathbf n| = \sqrt{{nn}}$. $\overrightarrow{P_1P_2} = \langle {d1}, {d2}, {d3}\rangle$ and $\overrightarrow{P_1P_2}\cdot\mathbf n = {trip}$.
+    Box height: $D = \dfrac{{atrip}}{\sqrt{{nn}}} \approx$ **{dist:num2}**.
+- id: mv-m1-r2-triple-vec
+  title: Vector triple product by BAC−CAB
+  topic: Vector identities
+  vars:
+    a1: {min: -3, max: 3}
+    a2: {min: -3, max: 3}
+    a3: {min: -3, max: 3}
+    b1: {min: -3, max: 3}
+    b2: {min: -3, max: 3}
+    b3: {min: -3, max: 3}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+    c3: {min: -3, max: 3}
+  calc:
+    ac: a1*c1 + a2*c2 + a3*c3
+    ab: a1*b1 + a2*b2 + a3*b3
+    r1: ac*b1 - ab*c1
+    r2: ac*b2 - ab*c2
+    r3: ac*b3 - ab*c3
+  where: ["ac != 0", "ab != 0", "abs(r1) + abs(r2) + abs(r3) > 0"]
+  prompt: 'For $\mathbf a = \langle {a1}, {a2}, {a3}\rangle$, $\mathbf b = \langle {b1}, {b2}, {b3}\rangle$, $\mathbf c = \langle {c1}, {c2}, {c3}\rangle$, find $\mathbf a\times(\mathbf b\times\mathbf c)$.'
+  answers:
+    - {name: r1, label: 'first component'}
+    - {name: r2, label: 'second component'}
+    - {name: r3, label: 'third component'}
+  solution: |-
+    Use $\mathbf a\times(\mathbf b\times\mathbf c) = \mathbf b\,(\mathbf a\cdot\mathbf c) - \mathbf c\,(\mathbf a\cdot\mathbf b)$.
+    $\mathbf a\cdot\mathbf c = {ac}$ and $\mathbf a\cdot\mathbf b = {ab}$, so the result is $({ac})\langle {b1}, {b2}, {b3}\rangle - ({ab})\langle {c1}, {c2}, {c3}\rangle =$ **$\langle {r1}, {r2}, {r3}\rangle$**.
+- id: mv-m1-r2-eigen2
+  title: Eigenvalues of a quadratic form
+  topic: Quadratic forms
+  vars:
+    a: {min: -5, max: 9}
+    c: {min: -5, max: 9}
+    h: {min: -6, max: 6}
+  calc:
+    b: 2*h
+    dif: a - c
+    sq: dif^2 + 4*h^2
+    s: sqrt(sq)
+    tr: a + c
+    lam1: (a + c + s)/2
+    lam2: (a + c - s)/2
+  where: ["a != 0", "c != 0", "h != 0", "s == round(s)", "mod(a + c + s, 2) == 0"]
+  prompt: 'Find the eigenvalues of the symmetric matrix of the quadratic form $Q(x, y) = {a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y^2$. Give the larger one first.'
+  answers:
+    - {name: lam1, label: '$\lambda_1 =$'}
+    - {name: lam2, label: '$\lambda_2 =$'}
+  solution: |-
+    The matrix is $\begin{bmatrix} {a} & {h}\\ {h} & {c}\end{bmatrix}$ (half of the $xy$ coefficient off the diagonal).
+    $\lambda = \dfrac{A + C}{2} \pm \sqrt{\left(\dfrac{A - C}{2}\right)^2 + h^2} = \dfrac{{tr} \pm \sqrt{({dif})^2 + 4({h})^2}}{2} = \dfrac{{tr} \pm {s}}{2}$,
+    so $\lambda_1 =$ **{lam1}** and $\lambda_2 =$ **{lam2}**. (Check: their sum is ${tr}$, the sum of the diagonal entries.)
+- id: mv-m1-r2-rot-angle
+  title: Angle that removes the xy term
+  topic: Rotated quadrics
+  vars:
+    a: {min: -6, max: 9}
+    c: {min: -6, max: 9}
+    b: {min: -8, max: 8}
+  calc:
+    dif: a - c
+    raw: atan2d(b, dif)
+    twoth: if(b > 0, raw, raw + 180)
+    th: twoth/2
+  where: ["a != 0", "c != 0", "b != 0"]
+  prompt: 'Find the angle $\theta$ with $0^\circ < \theta < 90^\circ$ such that rotating the axes by $\theta$ removes the $xy$ term from ${a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y^2 = 10$. (Degrees, 1 decimal place.)'
+  answers:
+    - {name: th, label: '$\theta =$', tolerance: 0.06}
+  solution: |-
+    The cross term vanishes when $\cot 2\theta = \dfrac{A - C}{B} = \dfrac{{dif}}{{b}}$.
+    With $0^\circ < 2\theta < 180^\circ$ this gives $2\theta \approx {twoth:num2}^\circ$, so $\theta \approx$ **{th:num1}°**.

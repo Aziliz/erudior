@@ -86,7 +86,7 @@ $H\mathbf{x} = \mathbf{x} - \mathbf{u} = \alpha\mathbf{e}_1$. Geometrically, the
 halfway between $\mathbf{x}$ and $\alpha\mathbf{e}_1$.
 
 ```plot
-{"x": [-1, 6], "y": [-1.5, 5], "equal": true, "functions": [{"f": "2*x", "dashed": true, "label": "mirror"}], "segments": [{"from": [0, 0], "to": [3, 4], "arrow": true, "label": "x"}, {"from": [0, 0], "to": [5, 0], "arrow": true, "label": "Hx = 5e₁"}, {"from": [3, 4], "to": [5, 0], "dashed": true}, {"from": [0, 0], "to": [-2, 4], "arrow": true, "label": "u = x − 5e₁"}], "caption": "For x = (3, 4), u = x − 5e₁ = (−2, 4); H reflects x across the line perpendicular to u (y = 2x) onto (5, 0)"}
+{"x": [-1, 6], "y": [-1.5, 5], "equal": true, "functions": [{"f": "x/2", "dashed": true, "label": "mirror"}], "segments": [{"from": [0, 0], "to": [3, 4], "arrow": true, "label": "x"}, {"from": [0, 0], "to": [5, 0], "arrow": true, "label": "Hx = 5e₁"}, {"from": [3, 4], "to": [5, 0], "dashed": true}, {"from": [0, 0], "to": [-2, 4], "arrow": true, "label": "u = x − 5e₁"}], "caption": "For x = (3, 4), u = x − 5e₁ = (−2, 4); H reflects x across the line perpendicular to u (y = x/2) onto (5, 0)"}
 ```
 
 *Which sign?* By hand, either works. Software takes $\alpha = -\operatorname{sign}(x_1)\|\mathbf{x}\|$
@@ -155,7 +155,7 @@ dot products are around $10^{-16}$, against 0.5 for classical Gram–Schmidt. (T
 $R$ and of a least-squares solution still depends on the conditioning of $A$; no method can
 fix a problem that is itself sensitive.)
 
-Two practical notes. Software never forms $H$ as a matrix: applying $H$ to a vector is
+Two practical notes. Software usually doesn't form $H$ as a matrix: applying $H$ to a vector is
 $\mathbf{y} - \dfrac{2\,\mathbf{u}^T\mathbf{y}}{\mathbf{u}^T\mathbf{u}}\mathbf{u}$, one dot product and one vector
 update. And the cost is modest: for an $m \times n$ matrix, Householder QR takes roughly
 $2mn^2 - \tfrac23n^3$ arithmetic operations, against about $2mn^2$ for Gram–Schmidt (standard
