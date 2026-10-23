@@ -94,6 +94,8 @@ base, and $|\mathbf a||\cos\phi|$, where $\phi$ is the angle between $\mathbf a$
 base's normal $\mathbf b\times\mathbf c$, is the height. If the triple product is zero, the
 box is flat: the three vectors are **coplanar**.
 
+![A slanted box (parallelepiped) on a shaded base spanned by b and c. The normal b × c points straight up from a base corner, a is the slanted edge, and a dashed segment from the tip of a down to the base is the height](images/mv-m1-parallelepiped.svg)
+
 ### Example 3
 
 Are $\mathbf a = \langle 1,2,3\rangle$, $\mathbf b = \langle 0,1,4\rangle$, $\mathbf c = \langle 2,5,10\rangle$ coplanar?
@@ -108,6 +110,19 @@ If a force $\mathbf F$ acts at the tip of a position vector $\mathbf r$ (from a 
 $|\mathbf r||\mathbf F|\sin\theta$ measures the turning effect, and its direction is the axis
 of rotation. A 0.3 m wrench with a 40 N push at right angles gives torque $12$ N·m; pushing
 along the handle ($\theta = 0$) gives none.
+
+## Which product?
+
+The three products answer different questions, and the first step in a problem is often choosing the right one:
+
+```mermaid
+flowchart TD
+  accTitle: Which vector product to use
+  accDescr: If the question is about an angle, work, or a projection, use the dot product, which gives a number. If it is about a direction perpendicular to two vectors, an area, a normal vector or torque, use the cross product, which gives a vector. If it is about the volume of a box or whether three vectors are coplanar, use the scalar triple product, which gives a number.
+  Q{"What does the problem ask for?"} -- "angle, work, projection" --> D["Dot product a · b: a number"]
+  Q -- "perpendicular direction, area, normal, torque" --> C["Cross product a × b: a vector"]
+  Q -- "volume, coplanar test" --> T["Triple product a · (b × c): a number"]
+```
 
 ## Common mistakes
 

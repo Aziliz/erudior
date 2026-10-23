@@ -76,6 +76,24 @@ You will also meet the trig identities $\sin^2\theta = \tfrac12(1-\cos 2\theta)$
 $\cos^2\theta = \tfrac12(1+\cos 2\theta)$ often in polar and spherical integrals, and the
 values $\int_0^{2\pi}\sin^2\theta\,d\theta = \int_0^{2\pi}\cos^2\theta\,d\theta = \pi$.
 
+When you meet a new integral, a quick sequence of questions usually tells you which tool to try first:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an integration technique
+  accDescr: Start with the integrand. If it matches a basic antiderivative, integrate directly. If not, check whether an inner function appears with its derivative as a factor; if so, use substitution. If not, check whether it is a product of a polynomial with an exponential, trig or log function; if so, use integration by parts. If it is a square of sine or cosine, use a half-angle identity first.
+  A["Look at the integrand"] --> B{"A basic antiderivative you know?"}
+  B -- yes --> R1["Integrate directly"]
+  B -- no --> C{"Inner function with its derivative as a factor?"}
+  C -- yes --> R2["Substitution u = inner function"]
+  C -- no --> D{"Polynomial times exp, trig or log?"}
+  D -- yes --> R3["Integration by parts"]
+  D -- no --> E{"Square of sin or cos?"}
+  E -- yes --> R4["Half-angle identity, then integrate"]
+```
+
+The chart is a starting point, not a law: some integrals need two tools in a row (a substitution followed by parts), and a few need neither.
+
 ### Example 2
 
 Evaluate $\displaystyle\int_0^2 x\sqrt{x^2+5}\,dx$.
@@ -116,6 +134,12 @@ The area enclosed by a polar curve $r = f(\theta)$ for $\alpha\le\theta\le\beta$
 $\tfrac12\int_\alpha^\beta f(\theta)^2\,d\theta$, because a thin wedge of angle $d\theta$
 is nearly a triangle of area $\tfrac12 r^2\,d\theta$. That wedge reappears in Lesson 23 as
 the area element $dA = r\,dr\,d\theta$.
+
+The picture shows one such wedge cut from the cardioid $r = 1 + \cos\theta$: two radii a small angle apart, closed off by a short piece of the curve.
+
+```plot
+{"x": [-0.3, 2.3], "y": [-0.3, 1.6], "equal": true, "curves": [{"x": "(1+cos(t))*cos(t)", "y": "(1+cos(t))*sin(t)", "t": [0, 1.6]}], "polygons": [{"points": [[0, 0], [1.648, 0.9], [1.579, 0.968], [1.507, 1.031], [1.43, 1.087], [1.35, 1.137]], "fill": true}], "labels": [{"at": [1.85, 1.15], "text": "dθ wedge"}, {"at": [0.55, 0.6], "text": "r"}], "caption": "A thin polar wedge of angle dθ is nearly a triangle with two sides r, so its area is about ½ r² dθ"}
+```
 
 ```plot
 {"x": [-2.5, 2.5], "y": [-2.5, 2.5], "equal": true, "curves": [{"x": "(1+cos(t))*cos(t)", "y": "(1+cos(t))*sin(t)", "t": [0, "2pi"]}, {"x": "1.5*cos(t)", "y": "1.5*sin(t)", "t": ["-1.25*pi", "0.75*pi"], "dashed": true}], "caption": "Polar curves: the cardioid r = 1 + cos θ (solid) and the circle r = 1.5 (dashed)"}

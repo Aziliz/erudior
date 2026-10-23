@@ -108,6 +108,22 @@ Find the distance between $\mathbf r_1 = \langle 1,0,2\rangle + t\langle 2,2,1\r
 5. The first gives $s = 3t - 1$; substituting, $1 + 3t - 6t + 2 = 0$, so $t = 1$ and $s = 2$.
 6. The points are $\mathbf r_1(1) = (3,2,3)$ and $\mathbf r_2(2) = (5,1,1)$. Their difference is $\langle 2,-1,-2\rangle = \mathbf n$, of length 3 ✓.
 
+## Choosing a distance formula
+
+All the distance problems of this module come down to a handful of cases:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a distance formula
+  accDescr: For a point and a plane, use the point-to-plane formula. For a point and a line, use the length of PQ cross v divided by the length of v. For two parallel planes, use the point-to-plane formula with any point of one plane. For two lines, compute v1 cross v2: if it is the zero vector the lines are parallel, so use the point-to-line formula with a point of one line; otherwise use the skew-line formula, and a result of zero means the lines intersect.
+  S{"Which two objects?"} -- "point and plane" --> PP["Absolute value of ax + by + cz − d, over length of n"]
+  S -- "point and line" --> PL["Length of PQ × v, over length of v"]
+  S -- "two parallel planes" --> TP["Point-to-plane, using any point of one plane"]
+  S -- "two lines" --> X{"Is v1 × v2 the zero vector?"}
+  X -- "yes, parallel" --> PL2["Point-to-line, using a point of one line"]
+  X -- no --> SK["Triple product over length of v1 × v2; zero means they meet"]
+```
+
 ## Common mistakes
 
 - Dividing by $|\mathbf v|^2$ in the point-to-line formula. Area over base means dividing by $|\mathbf v|$ once.

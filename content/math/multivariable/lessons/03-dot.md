@@ -44,6 +44,18 @@ Consequences:
   negative means obtuse.
 - $\mathbf a$ and $\mathbf b$ are **orthogonal** (perpendicular) exactly when $\mathbf a\cdot\mathbf b = 0$.
 
+Since $|\mathbf a||\mathbf b|$ is positive, the sign of $\mathbf a\cdot\mathbf b$ is the sign of $\cos\theta$:
+
+```mermaid
+flowchart LR
+  accTitle: What the sign of a dot product says about the angle
+  accDescr: Compute a dot b for two nonzero vectors. If it is positive the angle between them is acute, if it is zero they are orthogonal, and if it is negative the angle is obtuse.
+  A["Compute a · b"] --> P{"Sign?"}
+  P -- positive --> Q["Acute angle, less than 90°"]
+  P -- zero --> R["Orthogonal, exactly 90°"]
+  P -- negative --> S["Obtuse angle, more than 90°"]
+```
+
 ### Example 1
 
 Find the angle between $\mathbf a = \langle 2, 2, -1\rangle$ and $\mathbf b = \langle 5, -3, 2\rangle$.
@@ -82,6 +94,10 @@ $$\operatorname{proj}_{\mathbf a}\mathbf b = \frac{\mathbf a\cdot\mathbf b}{|\ma
 The leftover $\mathbf b - \operatorname{proj}_{\mathbf a}\mathbf b$ is orthogonal to
 $\mathbf a$; you can check by dotting it with $\mathbf a$ and getting zero. So every vector
 splits as "along $\mathbf a$" plus "perpendicular to $\mathbf a$."
+
+The picture puts the pieces together: $\mathbf b$ is the sum of its projection along $\mathbf a$ and the perpendicular remainder, and the three form a right triangle.
+
+![Vector b split into its projection along a (a thick arrow on a's line) and the perpendicular remainder b minus proj_a b (a dashed arrow up to the tip of b), with the angle theta between a and b and a right-angle mark](images/mv-m1-projection.svg)
 
 ### Example 2
 

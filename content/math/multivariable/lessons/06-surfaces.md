@@ -44,6 +44,10 @@ traces (constants $a, b, c > 0$):
 | **Hyperboloid of one sheet** | $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2} = 1$ | horizontal: ellipses; vertical: hyperbolas |
 | **Hyperboloid of two sheets** | $-\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2} = 1$ | horizontal ($\lvert z\rvert>c$): ellipses; vertical: hyperbolas |
 
+Here is what each one looks like, drawn as a wire frame of traces with the axis vertical:
+
+![Six wire-frame sketches: an ellipsoid; an elliptic paraboloid shaped like a bowl; a saddle-shaped hyperbolic paraboloid; a double cone meeting at a point; an hourglass-shaped hyperboloid of one sheet; and a hyperboloid of two sheets, made of two separate bowls opening away from each other](images/mv-m1-quadrics.svg)
+
 How to tell them apart quickly:
 
 - Count the squared terms. Three squares and a constant: ellipsoid, a hyperboloid, or (with
@@ -52,6 +56,25 @@ How to tell them apart quickly:
   One minus: one sheet. Two minuses: two sheets.
 - The variable that is linear (paraboloids) or has the odd sign (hyperboloids, cones) is the
   **axis** of the surface.
+
+The same checks as a key. Put the equation in standard form first, with the constant on the right side and not negative (multiply through by $-1$ if needed):
+
+```mermaid
+flowchart TD
+  accTitle: A key for identifying quadric surfaces
+  accDescr: First, if a variable is missing, the surface is a cylinder. Otherwise, if one variable appears only to the first power, it is a paraboloid: elliptic if the two squares have the same sign, hyperbolic if opposite signs. If all three variables are squared, put it in the form with the constant on the right. If the constant is zero it is a cone. If the constant is positive, count the minus signs: none gives an ellipsoid, one gives a hyperboloid of one sheet, two give a hyperboloid of two sheets.
+  A{"Is a variable missing?"} -- yes --> CY["Cylinder"]
+  A -- no --> B{"Is one variable only to the first power?"}
+  B -- yes --> S{"Do the two squares have the same sign?"}
+  S -- yes --> EP["Elliptic paraboloid"]
+  S -- no --> HP["Hyperbolic paraboloid"]
+  B -- no --> K{"Constant on the right side?"}
+  K -- zero --> CO["Cone"]
+  K -- positive --> M{"Number of minus signs on the left?"}
+  M -- none --> EL["Ellipsoid"]
+  M -- one --> H1["Hyperboloid of one sheet"]
+  M -- two --> H2["Hyperboloid of two sheets"]
+```
 
 ### Example 1: identify from traces
 

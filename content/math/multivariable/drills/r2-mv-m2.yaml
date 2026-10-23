@@ -1,0 +1,112 @@
+# Round 2 drills for mv-m2 (honors lessons 10h1 and 10h2)
+- id: mv-m2-r2-torsion-helix
+  title: Curvature and torsion of a helix
+  topic: Torsion
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: -4, max: 4}
+  where: ["b != 0"]
+  calc:
+    den: a^2 + b^2
+    kap: a/den
+    tau: b/den
+    ab: a*b
+    mab: -a*b
+    a2: a^2
+    cs: a^2*den
+    a2b: a^2*b
+  prompt: 'Find the curvature $\kappa$ and torsion $\tau$ of the helix $\mathbf r(t) = \langle {a:coef}\cos t,\; {a:coef}\sin t,\; {b:coef}t\rangle$. (Exact fractions.)'
+  answers:
+    - {name: kap, kind: fraction, label: '$\kappa =$'}
+    - {name: tau, kind: fraction, label: '$\tau =$'}
+  solution: |-
+    $\mathbf r' = \langle -{a:coef}\sin t,\; {a:coef}\cos t,\; {b}\rangle$, $\mathbf r'' = \langle -{a:coef}\cos t,\; -{a:coef}\sin t,\; 0\rangle$, $\mathbf r''' = \langle {a:coef}\sin t,\; -{a:coef}\cos t,\; 0\rangle$.
+    $\mathbf r'\times\mathbf r'' = \langle {ab:coef}\sin t,\; {mab:coef}\cos t,\; {a2}\rangle$, so $|\mathbf r'\times\mathbf r''|^2 = {a2}\cdot{den} = {cs}$ and $(\mathbf r'\times\mathbf r'')\cdot\mathbf r''' = {a2b}$.
+    $\tau = \dfrac{{a2b}}{{cs}} =$ **${tau:texfrac}$**, and $\kappa = \dfrac{|\mathbf r'\times\mathbf r''|}{|\mathbf r'|^3} = \dfrac{a}{a^2 + b^2} =$ **${kap:texfrac}$**.
+- id: mv-m2-r2-torsion-cubic
+  title: Torsion of a cubic curve
+  topic: Torsion
+  vars:
+    p: {min: 1, max: 3}
+    q: {min: -2, max: 2}
+    t0: {min: -1, max: 2}
+  calc:
+    r1y: 2*p*t0
+    r1z: 3*q*t0^2
+    r2y: 2*p
+    r2z: 6*q*t0
+    r3z: 6*q
+    cx: r1y*r2z - r1z*r2y
+    cy: -r2z
+    cz: r2y
+    trip: cz*r3z
+    nn: cx^2 + cy^2 + cz^2
+    tau: trip/nn
+  where: ["q != 0", "abs(tau) >= 0.02"]
+  prompt: 'Find the torsion of $\mathbf r(t) = \langle t,\; {p:coef}t^2,\; {q:coef}t^3\rangle$ at $t = {t0}$. (Exact fraction, or 3 decimal places.)'
+  answers:
+    - {name: tau, label: '$\tau =$', tolerance: 0.0006}
+  solution: |-
+    At $t = {t0}$: $\mathbf r' = \langle 1,\; {r1y},\; {r1z}\rangle$, $\mathbf r'' = \langle 0,\; {r2y},\; {r2z}\rangle$, $\mathbf r''' = \langle 0,\; 0,\; {r3z}\rangle$.
+    $\mathbf r'\times\mathbf r'' = \langle {cx},\; {cy},\; {cz}\rangle$, so $|\mathbf r'\times\mathbf r''|^2 = {nn}$.
+    Triple product: $(\mathbf r'\times\mathbf r'')\cdot\mathbf r''' = ({cz})({r3z}) = {trip}$.
+    $\tau = \dfrac{{trip}}{{nn}} = {tau:texfrac} \approx$ **{tau:dp3}**.
+- id: mv-m2-r2-transition
+  title: Designing a transition curve
+  topic: Torsion
+  vars:
+    v: {min: 15, max: 45, step: 5}
+    R: {min: 300, max: 1200, step: 100}
+    L: {min: 40, max: 160, step: 20}
+  calc:
+    th: L/(2*R)
+    thdeg: deg(th)
+    aN: v^2/R
+    tt: L/v
+    jerk: v^3/(R*L)
+  prompt: 'A clothoid transition of length {L} m joins a straight track to a circular curve of radius {R} m. Trains run at a constant {v} m/s. Find the total angle the transition turns through (in degrees), the sideways acceleration $v^2/R$ at its end, and the lateral jerk. (Angle and acceleration to 2 decimals, jerk to 3 decimals; ignore cant.)'
+  answers:
+    - {name: thdeg, label: 'Angle (°)'}
+    - {name: aN, label: 'Acceleration (m/s²)'}
+    - {name: jerk, label: 'Jerk (m/s³)', tolerance: 0.0006}
+  solution: |-
+    The curvature grows linearly from 0 to $1/R$, so the tangent angle is $\theta = \dfrac{L}{2R} = \dfrac{{L}}{2\cdot{R}} \approx {th:num4}$ rad $\approx$ **{thdeg:num2}°**.
+    At the end, $a_N = \kappa v^2 = \dfrac{{v}^2}{{R}} \approx$ **{aN:num2} m/s²**, reached after $L/v \approx {tt:num2}$ s.
+    Because $a_N$ rises linearly in time, the jerk is $\dfrac{v^3}{RL} = \dfrac{{v}^3}{{R}\cdot{L}} \approx$ **{jerk:dp3} m/s³**.
+- id: mv-m2-r2-circular-orbit
+  title: Speed and period of a circular orbit
+  topic: Kepler's laws
+  vars:
+    alt: {min: 200, max: 2000, step: 50}
+  calc:
+    r: 6371 + alt
+    v: sqrt(398600/r)
+    T: 2*pi*r/v/60
+  prompt: 'A satellite is in a circular orbit {alt} km above Earth''s surface. Take Earth''s radius as 6,371 km and $GM = 3.986\times10^{5}\text{ km}^3/\text{s}^2$. Find its speed (km/s, 2 decimals) and its period (minutes, 1 decimal).'
+  answers:
+    - {name: v, label: 'Speed (km/s)'}
+    - {name: T, label: 'Period (min)', tolerance: 0.051}
+  solution: |-
+    Distances are from Earth's center: $r = 6{,}371 + {alt} = {r}$ km.
+    Gravity supplies the centripetal acceleration: $v^2/r = GM/r^2$, so $v = \sqrt{GM/r} = \sqrt{398{,}600/{r}} \approx$ **{v:num2} km/s**.
+    $T = \dfrac{2\pi r}{v} \approx {T:num2}\cdot60$ s, that is $T \approx$ **{T:num1} minutes**.
+- id: mv-m2-r2-kepler-third
+  title: Orbit size and period from perihelion and aphelion
+  topic: Kepler's laws
+  vars:
+    q: {min: 0.3, max: 3, step: 0.1}
+    Q: {min: 1, max: 40, step: 0.5}
+  where: ["Q > q + 0.5"]
+  calc:
+    a: (q + Q)/2
+    ecc: (Q - q)/(Q + q)
+    T: a^1.5
+  prompt: 'A comet orbits the Sun with perihelion distance {q} AU and aphelion distance {Q} AU. Find the semi-major axis $a$ (AU), the eccentricity $e$ (3 decimals) and the period (years, 2 decimals).'
+  answers:
+    - {name: a, label: '$a$ (AU)'}
+    - {name: ecc, label: '$e =$', tolerance: 0.0006}
+    - {name: T, label: 'Period (years)'}
+  solution: |-
+    The semi-major axis is the average of the closest and farthest distances: $a = \dfrac{{q} + {Q}}{2} =$ **{a:num2} AU**.
+    From $r_p = a(1 - e)$ and $r_a = a(1 + e)$: $e = \dfrac{r_a - r_p}{r_a + r_p} = \dfrac{{Q} - {q}}{{Q} + {q}} \approx$ **{ecc:dp3}**.
+    For the Sun in years and AU, Kepler's third law is $T^2 = a^3$, so $T = a^{3/2} \approx$ **{T:num2} years**.

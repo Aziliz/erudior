@@ -120,9 +120,10 @@ shrinks by a factor of 4. Gauss–Seidel is often faster, but not for every syst
 
 Iterating does not always work. A square matrix is **strictly diagonally dominant** if in every
 row the diagonal entry is larger in absolute value than the sum of the absolute values of the
-other entries in that row. The plate matrix is: $|4| > |-1| + |-1|$ in every row (some rows
-have only two other nonzero entries; none has more than four, and $4 > 2$ anyway for those).
-Check row by row: row 1 of the plate system has $4$ against $1 + 1 = 2$.
+other entries in that row. The plate matrix of Example 1 is: every row has a 4 on the diagonal
+and two entries $-1$, and $4 > 1 + 1$. (On a larger grid, a point whose four neighbors are all
+unknowns gives a row with $4 = 1 + 1 + 1 + 1$, which is not *strictly* dominant; the methods
+still converge there, by a stronger theorem beyond this course.)
 
 > *Convergence theorem (stated without proof).* If the coefficient matrix is strictly diagonally dominant, the system has exactly one solution, and both the Jacobi and the Gauss–Seidel iterations converge to it from any starting guess.
 
@@ -148,8 +149,8 @@ is solved for, and that decided whether the method converges.
 - *Stopping.* In practice you stop when the change between sweeps is below a chosen tolerance. That is a rule of thumb: a small change usually, but not always, means a small error.
 
 The methods are named after the 19th-century German mathematicians Carl Gustav Jacobi and
-Philipp Ludwig von Seidel; Gauss used a similar method by hand decades before Seidel published
-his. Modern software uses faster relatives of these ideas, but the core move, improving a guess
+Philipp Ludwig von Seidel; Gauss described a similar method in a letter decades before Seidel
+published his. Modern software uses faster relatives of these ideas, but the core move, improving a guess
 using one equation at a time, is the same.
 
 ## Common mistakes
@@ -164,6 +165,6 @@ using one equation at a time, is the same.
 
 - Large models produce sparse systems; iterative methods update a guess using only the nonzero coefficients.
 - Jacobi: solve equation $i$ for $x_i$ and plug in the previous sweep's values. Gauss–Seidel: the same, but use each new value as soon as it is computed.
-- In the plate model each interior temperature is the average of its four neighbors, giving a sparse, strictly diagonally dominant system.
+- In the plate model each interior temperature is the average of its four neighbors, giving a sparse system; Example 1's matrix is strictly diagonally dominant.
 - If the matrix is strictly diagonally dominant, both methods converge to the unique solution from any start. Reordering equations can create diagonal dominance.
 - Direct methods are exact in a fixed number of steps; iterative methods trade exactness for cheap sweeps on huge sparse systems.

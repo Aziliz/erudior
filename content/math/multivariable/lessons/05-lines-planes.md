@@ -50,6 +50,22 @@ passing over a railway). To classify two lines:
    Solve two of the three equations; if the solution satisfies the third, the lines
    intersect; if not, they are skew.
 
+The same steps as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying two lines in space
+  accDescr: First compare the direction vectors. If they are parallel, check whether a point of one line lies on the other: if so the lines are identical, otherwise parallel. If the directions are not parallel, set the parametric equations equal using different parameters t and s, solve two of the equations, and test the third. If the third holds the lines intersect; if not they are skew.
+  A["Compare direction vectors"] --> B{"Parallel directions?"}
+  B -- yes --> C{"Does a point of one line lie on the other?"}
+  C -- yes --> D["Same line"]
+  C -- no --> E["Parallel lines"]
+  B -- no --> F["Set equations equal with t and s; solve two of them"]
+  F --> G{"Does the third equation hold?"}
+  G -- yes --> H["The lines intersect"]
+  G -- no --> I["Skew lines"]
+```
+
 ## Planes
 
 A plane is determined by a point $P_0$ on it and a **normal vector** $\mathbf n = \langle a,b,c\rangle$
@@ -60,6 +76,8 @@ $$\mathbf n\cdot(\mathbf r - \mathbf r_0) = 0 \quad\Longleftrightarrow\quad a(x-
 
 Expanding gives the **scalar equation** $ax + by + cz = d$. The key fact to read off
 instantly: *the coefficients of $x, y, z$ are a normal vector.*
+
+![A shaded plane with a fixed point P0 and another point P on it. The vector r minus r0 from P0 to P lies in the plane, and the normal vector n stands up from P0 at a right angle to it](images/mv-m1-plane-normal.svg)
 
 ### Example 2: plane through three points
 

@@ -19,6 +19,10 @@ from the positive $x$-axis toward the positive $y$-axis, and your thumb points a
 positive $z$-axis. A point is an ordered triple $(x, y, z)$. The three **coordinate planes** ($xy$, $yz$, $xz$) split space into eight octants; the first octant is where all
 three coordinates are positive.
 
+The picture shows the axes drawn the usual right-handed way: $x$ toward you, $y$ to the right, $z$ up. To reach the point $P(2, 4, 3)$, move 2 units along the $x$-axis, 4 parallel to the $y$-axis, then 3 straight up.
+
+![Right-handed x, y and z axes from the origin O, with the xy-plane shaded and the point P(2, 4, 3) joined by dashed lines to its shadow (2, 4, 0) in the xy-plane](images/mv-m1-axes.svg)
+
 Equations in space describe surfaces, not curves. The equation $z = 3$ is not a line: it is
 the horizontal plane of all points with height 3. The equation $y = x$ is a vertical plane
 containing the $z$-axis.
@@ -40,6 +44,18 @@ $$(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2.$$
 
 When the equation arrives expanded, complete the square in each variable to find the center
 and radius.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the center and radius of a sphere
+  accDescr: Group the x, y and z terms and move the constant to the right side. Complete the square in each variable, adding the same amounts to the right side. Read off the center from the shifts, with signs flipped, and the radius as the square root of the right side. If the right side is zero the equation is a single point, and if it is negative there are no points.
+  A["Group x, y and z terms; constant to the right"] --> B["Complete the square in each variable"]
+  B --> C["Add the same amounts to the right side"]
+  C --> D{"Right side positive?"}
+  D -- yes --> E["Center from the shifts with signs flipped; radius = square root of right side"]
+  D -- zero --> F["A single point"]
+  D -- negative --> G["No points at all"]
+```
 
 ### Example 1
 

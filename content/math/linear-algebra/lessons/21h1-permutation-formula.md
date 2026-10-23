@@ -93,7 +93,7 @@ Only 2 of the 24 terms survive, so this is quicker than cofactor expansion. For 
 though, the formula is hopeless for computing: $10! = 3{,}628{,}800$ terms for a $10 \times 10$
 matrix. Its value is in proofs.
 
-A special case: the **permutation matrix** $P_\sigma$ with a 1 in row $i$, column $\sigma(i)$ and
+A special case: the permutation matrix $P_\sigma$ with a 1 in row $i$, column $\sigma(i)$ and
 zeros elsewhere has exactly one nonzero term, so $\det P_\sigma = \operatorname{sgn}\sigma$.
 
 ## Three properties that pin down the determinant
@@ -106,7 +106,7 @@ Read off the formula, the determinant has three properties.
 2. **Alternating**: swapping two rows multiplies it by $-1$. Swapping rows $i$ and $k$ turns the
    term for $\sigma$ into the term for $\sigma$ with entries $i$ and $k$ swapped, which has the
    opposite sign.
-3. **Normalized**: $\det I = 1$ (only the identity permutation gives a nonzero term).
+3. *Normalized*: $\det I = 1$ (only the identity permutation gives a nonzero term).
 
 Be careful with the first one: linear in *each row separately* does not mean
 $\det(A + B) = \det A + \det B$, which changes every row at once.
