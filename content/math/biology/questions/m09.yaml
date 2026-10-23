@@ -831,7 +831,7 @@
   stem: 'Name the numbered parts of this antibody and what it is binding.'
   image: {src: images/m9-antibody-blank.svg, alt: 'A Y-shaped antibody made of four chains, with a small irregular shape bound at the tip of the left arm. Numbered markers sit on the bound shape, the stem, the outer chain of the right arm, and the very tip of the right arm.'}
   labels:
-    - {x: 25.8, y: 25.3, text: Antigen}
+    - {x: 25.0, y: 22.5, text: Antigen}
     - {x: 51.9, y: 85.4, text: Heavy chain}
     - {x: 62.8, y: 43.7, text: Light chain}
     - {x: 71.9, y: 26.3, text: Antigen-binding site}

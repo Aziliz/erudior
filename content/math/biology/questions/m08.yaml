@@ -670,7 +670,7 @@
     - {x: 40.9, y: 47.8, text: Filament}
     - {x: 50, y: 21.3, text: Stigma}
     - {x: 50, y: 36, text: Style}
-    - {x: 55.5, y: 57, text: Ovary}
+    - {x: 53.6, y: 57.8, text: Ovary}
     - {x: 27.3, y: 37, text: Petal}
   distractors: [Sepal, Receptacle]
   explanation: 'The stamen is an anther (1, makes pollen) on a filament (2). The carpel is a sticky stigma (3) that catches pollen, a style (4), and an ovary (5) that holds the ovules and later becomes the fruit. Petals (6) often attract animals. Sepals are the green leaf-like parts below the petals.'
