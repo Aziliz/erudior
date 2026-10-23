@@ -139,7 +139,7 @@
     - {x: 41.6, y: 69.2, text: Osculating plane}
   distractors: [Position vector, Normal plane]
   explanation: |-
-    1: $\mathbf T$ points along the curve. 2: $\mathbf N$ lies in the shaded plane and points toward the side the curve is bending to. 3: $\mathbf B = \mathbf T\times\mathbf N$ is perpendicular to both. 4: the plane containing $\mathbf T$ and $\mathbf N$ is the osculating plane. (The *normal plane* is a different plane: the one perpendicular to $\mathbf T$, spanned by $\mathbf N$ and $\mathbf B$.)
+    1: $\mathbf T$ points along the curve. 2: $\mathbf N$ lies in the shaded plane and points toward the side the curve is bending to. 3: $\mathbf B = \mathbf T\times\mathbf N$ is perpendicular to both. 4: the plane containing $\mathbf T$ and $\mathbf N$ is the osculating plane. (The normal plane is a different plane: the one perpendicular to $\mathbf T$, spanned by $\mathbf N$ and $\mathbf B$.)
 - id: mv-m2-r2-q12
   lesson: mv-tnb
   type: text
