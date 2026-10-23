@@ -10,14 +10,14 @@
 - {front: 'Centroid of triangle $ABC$', back: '$\mathbf{g} = \dfrac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3}$, two-thirds of the way along each median from the vertex', topic: Vector proofs}
 - {front: 'Varignon''s theorem', back: 'The midpoints of the sides of any quadrilateral form a parallelogram, since $\overrightarrow{PQ} = \overrightarrow{SR} = \tfrac12\overrightarrow{AC}$', topic: Vector proofs}
 - {front: 'Vector proof: how to show two points coincide; how to show parallel', back: 'Show the two position-vector expressions are equal; show one vector is a scalar multiple of the other', topic: Vector proofs}
-# 03h2 Sensitive systems, round-off and pivoting
-- {front: 'Ill-conditioned system', back: 'Small changes in the data cause large changes in the solution (nearly parallel lines); a property of the problem', topic: Conditioning}
-- {front: 'How a change $\Delta\mathbf{b}$ moves the solution of $A\mathbf{x} = \mathbf{b}$', back: '$\Delta\mathbf{x} = A^{-1}\Delta\mathbf{b}$: large entries of $A^{-1}$ amplify errors', topic: Conditioning}
-- {front: 'Row-sum norm $\|A\|_\infty$', back: 'The largest sum of absolute values along a row', topic: Conditioning}
-- {front: '$\kappa_\infty(A)$', back: '$\|A\|_\infty\|A^{-1}\|_\infty \ge 1$; bounds the magnification of relative error: $\frac{\|\Delta\mathbf{x}\|_\infty}{\|\mathbf{x}\|_\infty} \le \kappa_\infty\frac{\|\Delta\mathbf{b}\|_\infty}{\|\mathbf{b}\|_\infty}$', topic: Conditioning}
-- {front: 'Rule of thumb for $\kappa \approx 10^k$', back: 'Expect to lose up to about $k$ significant digits (a guide, not a theorem)', topic: Conditioning}
-- {front: 'Is a small determinant a sign of ill-conditioning?', back: 'Not by itself: $0.001I$ has a tiny determinant but $\kappa = 1$. Compare $ad - bc$ with the size of the entries.', topic: Conditioning}
-- {front: 'Partial pivoting', back: 'In each column, swap up the entry of largest absolute value before eliminating, so every multiplier is at most 1 in size', topic: Pivoting and round-off}
-- {front: 'Why a tiny pivot is dangerous with rounding', back: 'Its huge multiplier swamps the other equation, and rounding erases that equation''s information', topic: Pivoting and round-off}
-- {front: 'Pivoting vs. conditioning', back: 'Pivoting protects against an unstable method; nothing fixes an ill-conditioned problem', topic: Pivoting and round-off}
-- {front: 'Cost of elimination on an $n \times n$ system', back: 'About $\frac{n^3}{3}$ multiplications (doubling $n$ multiplies the work by 8); back-substitution about $\frac{n^2}{2}$', topic: Pivoting and round-off}
+# 03h2 The Leontief input–output model
+- {front: 'Entry $c_{ij}$ of a consumption matrix', back: 'Units of sector $i$''s output used to make one unit of sector $j$''s output (column $j$ = sector $j$''s inputs)', topic: Input–output model}
+- {front: 'Intermediate demand', back: '$C\mathbf{x}$: what the sectors use up to produce $\mathbf{x}$', topic: Input–output model}
+- {front: 'Leontief production equation', back: '$\mathbf{x} = C\mathbf{x} + \mathbf{d}$, so $(I - C)\mathbf{x} = \mathbf{d}$', topic: Input–output model}
+- {front: 'Solve for production in the input–output model', back: '$\mathbf{x} = (I - C)^{-1}\mathbf{d}$ (or solve $(I - C)\mathbf{x} = \mathbf{d}$ by elimination)', topic: Input–output model}
+- {front: 'Why $I - C$ and not $1 - C$?', back: '$\mathbf{x} - C\mathbf{x} = I\mathbf{x} - C\mathbf{x} = (I - C)\mathbf{x}$; a number minus a matrix is undefined', topic: Input–output model}
+- {front: 'Who built the input–output model?', back: 'Wassily Leontief (1905–1999); Nobel Memorial Prize in Economic Sciences, 1973', topic: Input–output model}
+- {front: 'Meaning of column $j$ of $(I - C)^{-1}$', back: 'Total production needed for one extra unit of final demand for sector $j$', topic: The Leontief inverse}
+- {front: 'Effect of a demand change $\Delta\mathbf{d}$', back: '$\Delta\mathbf{x} = (I - C)^{-1}\Delta\mathbf{d}$', topic: The Leontief inverse}
+- {front: 'Rounds of production', back: '$\mathbf{x} = \mathbf{d} + C\mathbf{d} + C^2\mathbf{d} + \cdots = (I - C)^{-1}\mathbf{d}$ when $C$ is productive', topic: The Leontief inverse}
+- {front: 'Test for a productive consumption matrix', back: 'Nonnegative entries and every column sum below 1 (sufficient, not necessary); then $(I - C)^{-1} \ge 0$', topic: The Leontief inverse}

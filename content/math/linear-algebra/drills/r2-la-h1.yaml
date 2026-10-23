@@ -1,0 +1,328 @@
+# Honors module la-h1 (Linear algebra at work) drills.
+# Graph used in lesson 90: edges e1 1->2, e2 2->3, e3 1->3, e4 3->4, e5 1->4.
+
+- id: la-h1-r2-edge-diffs
+  title: Potential differences on a graph
+  topic: Graphs and networks
+  vars:
+    pa: {min: -5, max: 5}
+    pb: {min: -5, max: 5}
+    pc: {min: -5, max: 5}
+    pd: {min: -5, max: 5}
+  where: ["pa != pb or pb != pc or pc != pd"]
+  calc:
+    b1: pb - pa + 0
+    b2: pc - pb + 0
+    b3: pc - pa + 0
+    b4: pd - pc + 0
+    b5: pd - pa + 0
+  prompt: |-
+    The graph has edges $e_1: 1 \to 2$, $e_2: 2 \to 3$, $e_3: 1 \to 3$, $e_4: 3 \to 4$, $e_5: 1 \to 4$, and node potentials $(x_1, x_2, x_3, x_4) = ({pa}, {pb}, {pc}, {pd})$. Find $A\mathbf{x}$, where $A$ is the incidence matrix ($-1$ at each edge's tail, $+1$ at its head).
+  figure:
+    type: shape
+    segments:
+      - {from: [0, 3], to: [4, 3], arrow: true, label: e1}
+      - {from: [4, 3], to: [4, 0], arrow: true, label: e2}
+      - {from: [0, 3], to: [4, 0], arrow: true, label: e3}
+      - {from: [4, 0], to: [0, 0], arrow: true, label: e4}
+      - {from: [0, 3], to: [0, 0], arrow: true, label: e5}
+    points:
+      - {at: [0, 3], label: '1'}
+      - {at: [4, 3], label: '2'}
+      - {at: [4, 0], label: '3'}
+      - {at: [0, 0], label: '4'}
+  answers:
+    - {name: b1, label: 'Edge $e_1$'}
+    - {name: b2, label: 'Edge $e_2$'}
+    - {name: b3, label: 'Edge $e_3$'}
+    - {name: b4, label: 'Edge $e_4$'}
+    - {name: b5, label: 'Edge $e_5$'}
+  solution: |-
+    Each entry of $A\mathbf{x}$ is (potential at the head) minus (potential at the tail):
+    $e_1$: ${pb} - ({pa}) = {b1}$; $e_2$: ${pc} - ({pb}) = {b2}$; $e_3$: ${pc} - ({pa}) = {b3}$; $e_4$: ${pd} - ({pc}) = {b4}$; $e_5$: ${pd} - ({pa}) = {b5}$.
+    So $A\mathbf{x} =$ **({b1}, {b2}, {b3}, {b4}, {b5})**. (Check the loop $1 \to 2 \to 3 \to 1$: ${b1} + ({b2}) - ({b3}) = 0$.)
+
+- id: la-h1-r2-laplacian-energy
+  title: The Laplacian quadratic form
+  topic: Graphs and networks
+  vars:
+    pa: {min: -4, max: 4}
+    pb: {min: -4, max: 4}
+    pc: {min: -4, max: 4}
+    pd: {min: -4, max: 4}
+  where: ["pa != pb or pb != pc or pc != pd"]
+  calc:
+    q1: (pb - pa)^2
+    q2: (pc - pb)^2
+    q3: (pc - pa)^2
+    q4: (pd - pc)^2
+    q5: (pd - pa)^2
+    en: q1 + q2 + q3 + q4 + q5
+  prompt: |-
+    The graph with edges $1 \to 2$, $2 \to 3$, $1 \to 3$, $3 \to 4$, $1 \to 4$ has Laplacian $L = \begin{bmatrix} 3 & -1 & -1 & -1 \\ -1 & 2 & -1 & 0 \\ -1 & -1 & 3 & -1 \\ -1 & 0 & -1 & 2\end{bmatrix}$. For $\mathbf{x} = ({pa}, {pb}, {pc}, {pd})$, find $\mathbf{x}^TL\mathbf{x}$.
+  answer: en
+  format: integer
+  solution: |-
+    $\mathbf{x}^TL\mathbf{x} = \|A\mathbf{x}\|^2$ is the sum of the squared differences across the edges:
+    $({pb} - ({pa}))^2 + ({pc} - ({pb}))^2 + ({pc} - ({pa}))^2 + ({pd} - ({pc}))^2 + ({pd} - ({pa}))^2 = {q1} + {q2} + {q3} + {q4} + {q5} =$ **{en}**.
+
+- id: la-h1-r2-circuit
+  title: Potentials in a three-resistor circuit
+  topic: Graphs and networks
+  vars:
+    ca: {min: 1, max: 4}
+    cb: {min: 1, max: 4}
+    cc: {min: 1, max: 4}
+    kk: {min: 1, max: 2}
+  where: ["ca*cb + ca*cc + cb*cc <= 20"]
+  calc:
+    dt: ca*cb + ca*cc + cb*cc
+    cur: kk*dt
+    l11: ca + cb
+    l22: ca + cc
+    v1: kk*(ca + cc)
+    v2: kk*ca
+  prompt: |-
+    Node 3 of a triangle circuit is grounded ($x_3 = 0$). The conductances are {ca} S between nodes 1 and 2, {cb} S between nodes 1 and 3, and {cc} S between nodes 2 and 3. A current of {cur} A is fed into node 1 and leaves at node 3. Solve $A^TCA\mathbf{x} = \mathbf{s}$ for the potentials $x_1$ and $x_2$ (in volts).
+  answers:
+    - {name: v1, label: '$x_1 =$'}
+    - {name: v2, label: '$x_2 =$'}
+  solution: |-
+    Grounding node 3 leaves the rows and columns of nodes 1 and 2. Diagonal entries are the total conductance at each node, off-diagonal entries are minus the conductance between them:
+    $\begin{bmatrix} {l11} & -{ca} \\ -{ca} & {l22}\end{bmatrix}\begin{bmatrix} x_1 \\ x_2\end{bmatrix} = \begin{bmatrix} {cur} \\ 0\end{bmatrix}$.
+    The determinant is $({l11})({l22}) - {ca}^2 = {dt}$, so $x_1 = \dfrac{{cur}\cdot {l22}}{{dt}}$ and $x_2 = \dfrac{{cur}\cdot {ca}}{{dt}}$.
+    **$x_1 = {v1}$ V, $x_2 = {v2}$ V.**
+
+- id: la-h1-r2-google-step
+  title: One step of the PageRank iteration
+  topic: PageRank and the power method
+  vars:
+    xa: {min: 1, max: 8}
+    xb: {min: 1, max: 8}
+    alpha: {choices: [0.8, 0.85, 0.9]}
+  where: ["xa + xb <= 9"]
+  calc:
+    xc: 10 - xa - xb
+    fa: xa/10
+    fb: xb/10
+    fc: xc/10
+    sa: fc
+    sb: fa/2
+    sc: fa/2 + fb
+    jump: (1 - alpha)/3
+    na: alpha*sa + jump
+    nb: alpha*sb + jump
+    nc: alpha*sc + jump
+  prompt: |-
+    Three pages: A links to B and C, B links to C, and C links to A. With damping factor $\alpha = {alpha}$, compute one step $\mathbf{x}_1 = G\mathbf{x}_0$ of the PageRank iteration from $\mathbf{x}_0 = ({fa}, {fb}, {fc})$ (pages in the order A, B, C). Give each entry to 3 decimal places.
+  answers:
+    - {name: na, label: 'A', tolerance: 0.0006, format: dp3}
+    - {name: nb, label: 'B', tolerance: 0.0006, format: dp3}
+    - {name: nc, label: 'C', tolerance: 0.0006, format: dp3}
+  solution: |-
+    The link matrix is $S = \begin{bmatrix} 0 & 0 & 1 \\ \tfrac12 & 0 & 0 \\ \tfrac12 & 1 & 0\end{bmatrix}$, so $S\mathbf{x}_0 = ({fc},\ {fa}/2,\ {fa}/2 + {fb}) = ({sa}, {sb}, {sc})$.
+    For a probability vector, $G\mathbf{x}_0 = \alpha S\mathbf{x}_0 + \tfrac{1 - \alpha}{3}(1, 1, 1)$, and $\tfrac{1 - {alpha}}{3} \approx {jump:num4}$.
+    $\mathbf{x}_1 \approx$ **({na:dp3}, {nb:dp3}, {nc:dp3})**.
+
+- id: la-h1-r2-power-step
+  title: One step of the power method
+  topic: PageRank and the power method
+  vars:
+    a11: {min: 1, max: 6}
+    a12: {min: 1, max: 6}
+    a21: {min: 1, max: 6}
+    a22: {min: 1, max: 6}
+    qq: {choices: [0.5, 0.25, 0.75, 2]}
+  calc:
+    y1: a11 + a12*qq
+    y2: a21 + a22*qq
+    mm: max(y1, y2)
+    z1: y1/mm
+    z2: y2/mm
+  prompt: |-
+    Apply one step of the power method to $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22}\end{bmatrix}$ with $\mathbf{x}_k = (1, {qq})$: multiply, then divide by the largest entry. Give the scale factor (the eigenvalue estimate) and the entries of $\mathbf{x}_{k+1}$, to 3 decimal places.
+  answers:
+    - {name: mm, label: 'Scale factor', tolerance: 0.0006, format: dp3}
+    - {name: z1, label: 'First entry', tolerance: 0.0006, format: dp3}
+    - {name: z2, label: 'Second entry', tolerance: 0.0006, format: dp3}
+  solution: |-
+    $A\mathbf{x}_k = ({a11} + {a12}({qq}),\ {a21} + {a22}({qq})) = ({y1}, {y2})$. The largest entry is {mm}, so the eigenvalue estimate is **{mm:dp3}** and $\mathbf{x}_{k+1} = ({y1}, {y2})/{mm} \approx$ **({z1:dp3}, {z2:dp3})**.
+
+- id: la-h1-r2-power-iters
+  title: How many power-method steps?
+  topic: PageRank and the power method
+  vars:
+    lb: {choices: [5, 6, 7, 9]}
+    la: {min: 1, max: 8}
+    dd: {choices: [3, 4, 6]}
+  where: ["la < lb"]
+  calc:
+    rr: la/lb
+    kk: floor(ln(10^(-dd))/ln(rr)) + 1
+  prompt: |-
+    A matrix has dominant eigenvalue $\lambda_1 = {lb}$ and next-largest $|\lambda_2| = {la}$. Assuming the power method's error shrinks by exactly the factor $|\lambda_2/\lambda_1|$ each step, what is the smallest number of steps $k$ for which $|\lambda_2/\lambda_1|^k < 10^{-{dd}}$?
+  answer: kk
+  format: integer
+  solution: |-
+    The ratio is ${la}/{lb} \approx {rr:num4}$. We need $k \ln({la}/{lb}) < \ln(10^{-{dd}})$; dividing by the negative number $\ln({la}/{lb})$ flips the inequality: $k > \dfrac{\ln 10^{-{dd}}}{\ln({la}/{lb})}$. The smallest whole number that works is $k =$ **{kk}**.
+
+- id: la-h1-r2-covariance
+  title: Covariance matrix of four points
+  topic: Principal component analysis
+  vars:
+    xa: {min: 0, max: 8}
+    xb: {min: 0, max: 8}
+    xc: {min: 0, max: 8}
+    xd: {min: 0, max: 8}
+    ya: {min: 0, max: 8}
+    yb: {min: 0, max: 8}
+    yc: {min: 0, max: 8}
+    yd: {min: 0, max: 8}
+  where: ["mod(xa + xb + xc + xd, 4) == 0", "mod(ya + yb + yc + yd, 4) == 0", "xa != xb", "ya != yc"]
+  calc:
+    mx: (xa + xb + xc + xd)/4
+    my: (ya + yb + yc + yd)/4
+    da: xa - mx + 0
+    db: xb - mx + 0
+    dc: xc - mx + 0
+    dd: xd - mx + 0
+    ea: ya - my + 0
+    eb: yb - my + 0
+    ec: yc - my + 0
+    ed: yd - my + 0
+    sxx: (da^2 + db^2 + dc^2 + dd^2)/3
+    syy: (ea^2 + eb^2 + ec^2 + ed^2)/3
+    sxy: (da*ea + db*eb + dc*ec + dd*ed)/3
+    nxx: da^2 + db^2 + dc^2 + dd^2
+    nyy: ea^2 + eb^2 + ec^2 + ed^2
+    nxy: da*ea + db*eb + dc*ec + dd*ed
+  prompt: |-
+    Four data points $(x, y)$: $({xa}, {ya})$, $({xb}, {yb})$, $({xc}, {yc})$, $({xd}, {yd})$. Find the entries of the sample covariance matrix $S = \tfrac{1}{N-1}BB^T$, to 2 decimal places.
+  answers:
+    - {name: sxx, label: 'Variance of $x$', tolerance: 0.006, format: num2}
+    - {name: syy, label: 'Variance of $y$', tolerance: 0.006, format: num2}
+    - {name: sxy, label: 'Covariance', tolerance: 0.006, format: num2}
+  solution: |-
+    Means: $\bar x = {mx}$, $\bar y = {my}$. Deviations: $x$: ${da}, {db}, {dc}, {dd}$; $y$: ${ea}, {eb}, {ec}, {ed}$.
+    Sums: $\sum d_x^2 = {nxx}$, $\sum d_y^2 = {nyy}$, $\sum d_xd_y = {nxy}$. Divide each by $N - 1 = 3$.
+    $S \approx$ **$\begin{bmatrix} {sxx:num2} & {sxy:num2} \\ {sxy:num2} & {syy:num2}\end{bmatrix}$**.
+
+- id: la-h1-r2-explained
+  title: Variance explained by principal components
+  topic: Principal component analysis
+  vars:
+    l1: {min: 8, max: 30}
+    l2: {min: 2, max: 12}
+    l3: {min: 1, max: 5}
+    kk: {choices: [1, 2]}
+  where: ["l1 > l2", "l2 > l3"]
+  calc:
+    tot: l1 + l2 + l3
+    kept: if(kk == 1, l1, l1 + l2)
+    pct: 100*kept/tot
+  prompt: |-
+    A covariance matrix of three variables has eigenvalues {l1}, {l2} and {l3}. What percent of the total variance do the first {kk} principal component(s) explain? Give the percent to 1 decimal place.
+  answer: pct
+  format: num1
+  tolerance: 0.06
+  solution: |-
+    Total variance = trace = sum of the eigenvalues = ${l1} + {l2} + {l3} = {tot}$. The first {kk} component(s) carry {kept} of it: ${kept}/{tot} \approx$ **{pct:num1}%**.
+
+- id: la-h1-r2-lowrank
+  title: Error and storage of a low-rank approximation
+  topic: Low-rank approximation
+  vars:
+    s1: {min: 20, max: 40}
+    s2: {min: 8, max: 19}
+    s3: {min: 3, max: 7}
+    s4: {min: 1, max: 2}
+    kk: {choices: [1, 2]}
+    rows: {choices: [100, 200, 300]}
+    cols: {choices: [150, 400, 500]}
+  calc:
+    err2: if(kk == 1, s2^2 + s3^2 + s4^2, s3^2 + s4^2)
+    err: sqrt(err2)
+    store: kk*(rows + cols + 1)
+  prompt: |-
+    A {rows} × {cols} matrix has rank 4 with singular values {s1}, {s2}, {s3}, {s4}. For its best rank-{kk} approximation $A_{kk}$, find the Frobenius-norm error $\|A - A_{kk}\|_F$ (2 decimal places) and how many numbers must be stored for $A_{kk}$ (the $\sigma$'s, $\mathbf{u}$'s and $\mathbf{v}$'s).
+  answers:
+    - {name: err, label: 'Error', tolerance: 0.006, format: num2}
+    - {name: store, label: 'Numbers stored', format: integer}
+  solution: |-
+    Eckart–Young: the error is the square root of the sum of the squares of the dropped singular values: $\sqrt{{err2}} \approx$ **{err:num2}**.
+    Each rank-one piece needs $1 + {rows} + {cols}$ numbers, so {kk} piece(s) need **{store}**.
+
+- id: la-h1-r2-hamming-encode
+  title: Encode with the Hamming (7,4) code
+  topic: Error-correcting codes
+  vars:
+    d3: {choices: [0, 1]}
+    d5: {choices: [0, 1]}
+    d6: {choices: [0, 1]}
+    d7: {choices: [0, 1]}
+  calc:
+    p1: mod(d3 + d5 + d7, 2)
+    p2: mod(d3 + d6 + d7, 2)
+    p4: mod(d5 + d6 + d7, 2)
+  prompt: |-
+    Encode the data bits $x_3 x_5 x_6 x_7 = {d3}{d5}{d6}{d7}$ with the Hamming (7,4) code (parity bits in positions 1, 2 and 4, with $H$'s column $j$ equal to $j$ in binary). Find the parity bits.
+  answers:
+    - {name: p1, label: '$x_1 =$', format: integer}
+    - {name: p2, label: '$x_2 =$', format: integer}
+    - {name: p4, label: '$x_4 =$', format: integer}
+  solution: |-
+    Work mod 2: $x_1 = x_3 + x_5 + x_7 = {d3} + {d5} + {d7}$, $x_2 = x_3 + x_6 + x_7 = {d3} + {d6} + {d7}$, $x_4 = x_5 + x_6 + x_7 = {d5} + {d6} + {d7}$, each reduced mod 2.
+    **$x_1 = {p1}$, $x_2 = {p2}$, $x_4 = {p4}$**, so the codeword is $({p1}, {p2}, {d3}, {p4}, {d5}, {d6}, {d7})$.
+
+- id: la-h1-r2-syndrome
+  title: Find a single error with the syndrome
+  topic: Error-correcting codes
+  vars:
+    d3: {choices: [0, 1]}
+    d5: {choices: [0, 1]}
+    d6: {choices: [0, 1]}
+    d7: {choices: [0, 1]}
+    jj: {min: 1, max: 7}
+  calc:
+    c1: mod(d3 + d5 + d7, 2)
+    c2: mod(d3 + d6 + d7, 2)
+    c4: mod(d5 + d6 + d7, 2)
+    r1: mod(c1 + (jj == 1), 2)
+    r2: mod(c2 + (jj == 2), 2)
+    r3: mod(d3 + (jj == 3), 2)
+    r4: mod(c4 + (jj == 4), 2)
+    r5: mod(d5 + (jj == 5), 2)
+    r6: mod(d6 + (jj == 6), 2)
+    r7: mod(d7 + (jj == 7), 2)
+    t4: mod(r4 + r5 + r6 + r7, 2)
+    t2: mod(r2 + r3 + r6 + r7, 2)
+    t1: mod(r1 + r3 + r5 + r7, 2)
+    pos: 4*t4 + 2*t2 + t1
+  prompt: |-
+    A Hamming (7,4) codeword was sent and exactly one bit was flipped. The received word is $({r1}, {r2}, {r3}, {r4}, {r5}, {r6}, {r7})$. Using $H = \begin{bmatrix} 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 1 & 0 & 1 & 0 & 1 & 0 & 1\end{bmatrix}$, find the syndrome and the position of the flipped bit.
+  answers:
+    - {name: t4, label: 'Syndrome, top entry', format: integer}
+    - {name: t2, label: 'Syndrome, middle entry', format: integer}
+    - {name: t1, label: 'Syndrome, bottom entry', format: integer}
+    - {name: pos, label: 'Flipped position', format: integer}
+  solution: |-
+    Row 1 adds positions 4–7: ${r4} + {r5} + {r6} + {r7} \equiv {t4}$. Row 2 adds positions 2, 3, 6, 7: ${r2} + {r3} + {r6} + {r7} \equiv {t2}$. Row 3 adds positions 1, 3, 5, 7: ${r1} + {r3} + {r5} + {r7} \equiv {t1}$ (all mod 2).
+    The syndrome **({t4}, {t2}, {t1})** is binary {t4}{t2}{t1} $= 4({t4}) + 2({t2}) + {t1} =$ **{pos}**, so bit {pos} was flipped.
+
+- id: la-h1-r2-block-error
+  title: Block failure rate with and without coding
+  topic: Error-correcting codes
+  vars:
+    pp: {choices: [0.001, 0.002, 0.005, 0.01, 0.02, 0.05]}
+  calc:
+    fail4: 1 - (1 - pp)^4
+    fail7: 1 - (1 - pp)^7 - 7*pp*(1 - pp)^6
+    ratio: fail4/fail7
+  prompt: |-
+    Each bit is flipped independently with probability $p = {pp}$. Find the probability that a block of 4 data bits is damaged when sent unprotected, and the probability that a Hamming (7,4) block is decoded wrongly (that is, has 2 or more errors). Give each to 3 significant figures.
+  answers:
+    - {name: fail4, label: 'Unprotected, 4 bits', sigfigs: 3, format: sig3}
+    - {name: fail7, label: 'Hamming (7,4)', sigfigs: 3, format: sig3}
+  solution: |-
+    Unprotected: $1 - (1 - {pp})^4 \approx$ **{fail4:sig3}**.
+    Hamming: the block is fine with 0 or 1 errors, so it fails with probability $1 - (1 - {pp})^7 - 7({pp})(1 - {pp})^6 \approx$ **{fail7:sig3}**, about {ratio:num1} times smaller.

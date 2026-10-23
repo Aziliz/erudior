@@ -94,7 +94,7 @@ Find the point of the disk $x^2 + y^2 \le 4$ closest to $(3, 0)$.
 The sign test did real work: plain Lagrange multipliers on the circle find both $(\pm2, 0)$, and only the sign of $\lambda$ separates the nearest point from the farthest.
 
 ```plot
-{"x": [-3, 4], "y": [-2.8, 2.8], "equal": true, "circles": [{"center": [0, 0], "r": 2}], "points": [{"at": [3, 0], "label": "(3, 0)"}, {"at": [2, 0], "label": "nearest, λ = 1/2"}, {"at": [-2, 0], "label": "farthest, λ = −5/2"}], "segments": [{"from": [2, 0], "to": [2, 1.2], "arrow": true, "label": "∇g"}], "caption": "The disk x² + y² ≤ 4. Both (2, 0) and (−2, 0) satisfy ∇f = λ∇g, but only (2, 0) has λ ≥ 0"}
+{"x": [-3, 4], "y": [-2.8, 2.8], "equal": true, "circles": [{"center": [0, 0], "r": 2}], "points": [{"at": [3, 0]}, {"at": [2, 0]}, {"at": [-2, 0]}], "labels": [{"at": [3.3, 0.45], "text": "(3, 0)"}, {"at": [1.75, -0.5], "text": "nearest, λ = 1/2"}, {"at": [-1.9, 0.5], "text": "farthest, λ = −5/2"}], "caption": "The disk x² + y² ≤ 4 and the point (3, 0). Both (2, 0) and (−2, 0) satisfy ∇f = λ∇g on the circle, but only the nearest point, (2, 0), has λ ≥ 0"}
 ```
 
 ## Common mistakes

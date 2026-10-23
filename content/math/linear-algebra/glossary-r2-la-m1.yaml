@@ -23,33 +23,26 @@
 - term: centroid
   definition: 'The point where the three medians of a triangle meet, $\mathbf{g} = \frac{\mathbf{a} + \mathbf{b} + \mathbf{c}}{3}$; it is two-thirds of the way along each median from the vertex.'
   topic: Vector proofs
-- term: ill-conditioned
-  aliases: [ill-conditioning, ill conditioned]
-  definition: 'Describes a system (or matrix) whose solution changes a lot when the data change a little, as with nearly parallel lines; the condition number is large.'
-  topic: Conditioning
-- term: well-conditioned
-  aliases: [well conditioned]
-  definition: 'Describes a system whose solution changes only a little when the data change a little; the condition number is small (close to 1).'
-  topic: Conditioning
-- term: maximum norm
-  aliases: [max norm]
-  definition: 'The size of a vector measured by its largest component in absolute value: $\|\mathbf{v}\|_\infty = \max_i |v_i|$.'
-  topic: Conditioning
-- term: row-sum norm
-  definition: 'The size of a matrix measured by its largest absolute row sum, $\|A\|_\infty = \max_i \sum_j |a_{ij}|$; it satisfies $\|A\mathbf{v}\|_\infty \le \|A\|_\infty\|\mathbf{v}\|_\infty$.'
-  topic: Conditioning
-- term: infinity-norm condition number
-  aliases: ['κ∞']
-  definition: '$\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$ for invertible $A$. It is at least 1 and bounds how much the relative error in $\mathbf{b}$ can be magnified in the solution of $A\mathbf{x} = \mathbf{b}$.'
-  topic: Conditioning
-- term: floating-point arithmetic
-  aliases: [floating point, floating-point]
-  definition: 'Computer arithmetic that stores each number as a fixed number of significant digits times a power of the base, rounding every result to fit.'
-  topic: Pivoting and round-off
-- term: round-off error
-  aliases: [round-off errors, rounding error, roundoff error]
-  definition: 'The small error made each time a result is rounded to the digits a computer (or calculator) keeps.'
-  topic: Pivoting and round-off
-- term: partial pivoting
-  definition: 'In elimination, swapping up the row whose entry in the current column (at or below the current row) is largest in absolute value, so every multiplier is at most 1 in size.'
-  topic: Pivoting and round-off
+- term: input–output model
+  aliases: [input-output model, Leontief model, Leontief input–output model, input–output analysis]
+  definition: 'A model of an economy in which production $\mathbf{x}$ must cover what the sectors use up, $C\mathbf{x}$, plus final demand $\mathbf{d}$: $\mathbf{x} = C\mathbf{x} + \mathbf{d}$, so $(I - C)\mathbf{x} = \mathbf{d}$.'
+  topic: Input–output model
+- term: consumption matrix
+  definition: 'In the input–output model, the matrix $C$ whose entry $c_{ij}$ is the amount of sector $i$''s output used to make one unit of sector $j$''s output; column $j$ is sector $j$''s list of inputs.'
+  topic: Input–output model
+- term: production vector
+  definition: 'In the input–output model, the vector $\mathbf{x}$ of total output of each sector.'
+  topic: Input–output model
+- term: intermediate demand
+  definition: 'In the input–output model, $C\mathbf{x}$: the output the sectors use up in producing $\mathbf{x}$.'
+  topic: Input–output model
+- term: final demand
+  definition: 'In the input–output model, the vector $\mathbf{d}$ of output wanted outside production (households, government, exports).'
+  topic: Input–output model
+- term: Leontief inverse
+  definition: 'The matrix $(I - C)^{-1}$. Column $j$ is the total production needed to deliver one extra unit of final demand for sector $j$.'
+  topic: The Leontief inverse
+- term: productive
+  aliases: [productive consumption matrix, productive economy]
+  definition: 'A consumption matrix $C$ is productive when every nonnegative final demand can be met by nonnegative production. If $C$ has nonnegative entries and every column sum is below 1, it is productive and $(I - C)^{-1}$ has no negative entries.'
+  topic: The Leontief inverse

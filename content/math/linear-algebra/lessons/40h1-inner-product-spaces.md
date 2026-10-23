@@ -101,7 +101,7 @@ Adrien-Marie Legendre introduced in the 1780s while studying gravitational attra
 usual scaling makes each equal 1 at $t = 1$: $P_2(t) = \tfrac12(3t^2 - 1)$ and $P_3(t) = \tfrac12(5t^3 - 3t)$.
 
 ```plot
-{"x": [-1, 1], "y": [-1.2, 1.2], "functions": [{"f": "1", "label": "P₀"}, {"f": "x", "label": "P₁"}, {"f": "(3*x^2 - 1)/2", "label": "P₂"}, {"f": "(5*x^3 - 3*x)/2", "label": "P₃"}], "caption": "The first four Legendre polynomials, orthogonal under the integral inner product on [−1, 1]"}
+{"xLabel": "t", "x": [-1, 1], "y": [-1.2, 1.2], "functions": [{"f": "1"}, {"f": "x"}, {"f": "(3*x^2 - 1)/2"}, {"f": "(5*x^3 - 3*x)/2"}], "labels": [{"at": [-0.6, 1.1], "text": "P₀"}, {"at": [0.62, 0.72], "text": "P₁"}, {"at": [0.08, -0.65], "text": "P₂"}, {"at": [-0.45, 0.6], "text": "P₃"}], "caption": "The first four Legendre polynomials, orthogonal under the integral inner product on [−1, 1]"}
 ```
 
 ### Example 2
@@ -119,7 +119,7 @@ No Taylor polynomial exists here ($|t|$ has a corner at 0), yet the projection g
 quadratic that is closest *on average over the whole interval*.
 
 ```plot
-{"x": [-1, 1], "y": [-0.1, 1.2], "functions": [{"f": "abs(x)", "label": "|t|"}, {"f": "(15*x^2 + 3)/16", "label": "best quadratic", "dashed": true}], "caption": "|t| and its least-squares quadratic (15t² + 3)/16 on [−1, 1]"}
+{"xLabel": "t", "x": [-1, 1], "y": [-0.1, 1.2], "functions": [{"f": "abs(x)", "label": "|t|"}, {"f": "(15*x^2 + 3)/16", "label": "best quadratic", "dashed": true}], "caption": "|t| and its least-squares quadratic (15t² + 3)/16 on [−1, 1]"}
 ```
 
 ## Fourier approximation
@@ -157,7 +157,7 @@ Find the Fourier approximations of $f(t) = t$ on $[-\pi, \pi]$.
 4. The error $\|f - \hat f\|$ shrinks as $n$ grows: about 2.85 for $n = 1$, 1.89 for $n = 3$ and 1.09 for $n = 10$, against $\|f\| \approx 4.55$. That it tends to 0 for every continuous $f$ (and many others) is a theorem of analysis that we state without proof.
 
 ```plot
-{"x": [-3.2, 3.2], "y": [-3.6, 3.6], "functions": [{"f": "x", "label": "t"}, {"f": "2*sin(x)", "dashed": true, "label": "n = 1"}, {"f": "2*sin(x) - sin(2*x) + 2*sin(3*x)/3", "label": "n = 3"}], "caption": "f(t) = t on [−π, π] with its Fourier approximations of order 1 and 3"}
+{"xLabel": "t", "x": [-3.2, 3.2], "y": [-3.6, 3.6], "functions": [{"f": "x", "label": "t"}, {"f": "2*sin(x)", "dashed": true}, {"f": "2*sin(x) - sin(2*x) + 2*sin(3*x)/3"}], "labels": [{"at": [1.6, 2.3], "text": "n = 1"}, {"at": [-2.45, -3.25], "text": "n = 3"}], "caption": "f(t) = t on [−π, π] with its Fourier approximations of order 1 and 3"}
 ```
 
 Near $t = \pm\pi$ the approximations stay poor: every term is 0 there, while $f$ is near

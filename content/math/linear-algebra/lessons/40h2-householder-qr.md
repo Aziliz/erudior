@@ -86,7 +86,7 @@ $H\mathbf{x} = \mathbf{x} - \mathbf{u} = \alpha\mathbf{e}_1$. Geometrically, the
 halfway between $\mathbf{x}$ and $\alpha\mathbf{e}_1$.
 
 ```plot
-{"x": [-1, 6], "y": [-1.5, 5], "equal": true, "functions": [{"f": "x/2", "dashed": true, "label": "mirror"}], "segments": [{"from": [0, 0], "to": [3, 4], "arrow": true, "label": "x"}, {"from": [0, 0], "to": [5, 0], "arrow": true, "label": "Hx = 5e₁"}, {"from": [3, 4], "to": [5, 0], "dashed": true}, {"from": [0, 0], "to": [-2, 4], "arrow": true, "label": "u = x − 5e₁"}], "caption": "For x = (3, 4), u = x − 5e₁ = (−2, 4); H reflects x across the line perpendicular to u (y = x/2) onto (5, 0)"}
+{"x": [-2.5, 6], "y": [-1.5, 5], "equal": true, "functions": [{"f": "x/2", "dashed": true, "label": "mirror"}], "segments": [{"from": [0, 0], "to": [3, 4], "arrow": true, "label": "x"}, {"from": [0, 0], "to": [5, 0], "arrow": true, "label": "Hx = 5e₁"}, {"from": [3, 4], "to": [5, 0], "dashed": true}, {"from": [0, 0], "to": [-2, 4], "arrow": true, "label": "u = x − 5e₁"}], "caption": "For x = (3, 4), u = x − 5e₁ = (−2, 4); H reflects x across the line perpendicular to u (y = x/2) onto (5, 0)"}
 ```
 
 *Which sign?* By hand, either works. Software takes $\alpha = -\operatorname{sign}(x_1)\|\mathbf{x}\|$

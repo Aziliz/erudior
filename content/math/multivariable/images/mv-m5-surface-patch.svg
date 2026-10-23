@@ -30,10 +30,10 @@
 <polyline points="289.1,155.0 420.0,258.0" fill="none" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
 <text x="424.0" y="254.0" text-anchor="start" font-size="16">tangent-plane</text>
 <text x="424.0" y="274.0" text-anchor="start" font-size="16">piece</text>
-<text x="282.6" y="40.2" text-anchor="end" font-size="16">n = ⟨−f<tspan font-size="12" dy="4">x</tspan><tspan dy="-4">, −f</tspan><tspan font-size="12" dy="4">y</tspan><tspan dy="-4">, 1⟩</tspan></text>
-<polyline points="346.3,107.6 430.0,100.0" fill="none" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
-<text x="434.0" y="96.0" text-anchor="start" font-size="16">surface</text>
-<text x="434.0" y="116.0" text-anchor="start" font-size="16" font-style="italic">z = f(x, y)</text>
+<text x="304.6" y="56.2" text-anchor="start" font-size="16">n = ⟨−f<tspan font-size="12" dy="4">x</tspan><tspan dy="-4">, −f</tspan><tspan font-size="12" dy="4">y</tspan><tspan dy="-4">, 1⟩</tspan></text>
+<polyline points="346.3,107.6 474.0,186.0" fill="none" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<text x="478.0" y="186.0" text-anchor="start" font-size="16">surface</text>
+<text x="478.0" y="206.0" text-anchor="start" font-size="16" font-style="italic">z = f(x, y)</text>
 <text x="230.3" y="181.1" text-anchor="end" font-size="17" font-weight="bold">a</text>
 <text x="315.1" y="189.4" text-anchor="middle" font-size="17" font-weight="bold">b</text>
 </svg>
