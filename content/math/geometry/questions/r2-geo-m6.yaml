@@ -578,7 +578,7 @@
     - 'Find the third angle from the $180^\circ$ sum'
     - 'Use the Law of Sines to find the two new sides'
   explanation: |-
-    The Law of Sines needs each side''s opposite angle, so the third angle (opposite the baseline) must be found before the new sides can be computed.
+    The Law of Sines needs each side's opposite angle, so the third angle (opposite the baseline) must be found before the new sides can be computed.
 - id: geo-m6-r2-h23
   lesson: geo-m6-h-triangulation
   type: match

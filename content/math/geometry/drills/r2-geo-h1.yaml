@@ -1,0 +1,189 @@
+# Honors module geo-h1 (Constructions and classic theorems), round 2
+- id: geo-h1-r2-parallel-product
+  title: Multiply with parallel lines
+  topic: Constructible lengths
+  vars:
+    u: {choices: [1, 2, 3, 4]}
+    av: {min: 2, max: 12}
+    bv: {min: 2, max: 12}
+  where: ["mod(av*bv, u) == 0", "bv != u", "av*bv/u <= 60"]
+  calc:
+    op: av*bv/u
+  prompt: 'On one side of an angle with vertex $O$, points $U$ and $B$ have $OU = {u}$ and $OB = {bv}$. On the other side, $OA = {av}$. The line through $B$ parallel to $\overline{UA}$ meets the second side at $P$. Find $OP$.'
+  answers:
+    - {name: op, label: '$OP =$'}
+  solution: |-
+    $\overline{BP} \parallel \overline{UA}$, so $\triangle OUA \sim \triangle OBP$ and $\dfrac{OP}{OA} = \dfrac{OB}{OU}$. So $OP = {av} \cdot \dfrac{ {bv} }{ {u} } =$ **{op}**. (With $OU = 1$ this construction multiplies: $OP = OA \cdot OB$.)
+
+- id: geo-h1-r2-root-height
+  title: Square root from a semicircle
+  topic: Constructible lengths
+  vars:
+    p: {min: 2, max: 15}
+    q: {min: 1, max: 9}
+  where: ["p != q"]
+  calc:
+    h: sqrt(p*q)
+    pq: p*q
+  prompt: 'Points $A$, $B$, $C$ lie on a line in that order with $AB = {p}$ and $BC = {q}$. A semicircle is drawn on diameter $\overline{AC}$, and the perpendicular to $\overline{AC}$ at $B$ meets it at $D$. Find $BD$. Give the exact value (such as sqrt(10)) or a decimal to 2 places.'
+  answers:
+    - {name: h, label: '$BD =$', tolerance: 0.006}
+  solution: |-
+    $\angle ADC$ is inscribed in a semicircle, so it is a right angle, and $\overline{DB}$ is the altitude to the hypotenuse. It is the geometric mean of the pieces: $BD = \sqrt{AB \cdot BC} = \sqrt{ {pq} } \approx$ **{h:num2}**.
+
+- id: geo-h1-r2-ceva-third
+  title: Ceva's theorem, find the third ratio
+  topic: Ceva's theorem
+  vars:
+    af: {min: 2, max: 9}
+    fb: {min: 2, max: 9}
+    bd: {min: 2, max: 9}
+    dc: {min: 2, max: 9}
+    m: {choices: [1, 2, 3]}
+  calc:
+    num: fb*dc
+    den: af*bd
+    g: gcd(num, den)
+    pp: num/g
+    qq: den/g
+    ce: m*pp
+    ea: m*qq
+    ca: ce + ea
+  where: ["pp + qq <= 12", "pp != qq", "af != fb or bd != dc"]
+  prompt: 'In $\triangle ABC$, cevians $\overline{AD}$, $\overline{BE}$ and $\overline{CF}$ are concurrent, with $D$ on $\overline{BC}$, $E$ on $\overline{CA}$ and $F$ on $\overline{AB}$. $AF = {af}$, $FB = {fb}$, $BD = {bd}$, $DC = {dc}$ and $CA = {ca}$. Find $CE$ and $EA$.'
+  answers:
+    - {name: ce, label: '$CE =$'}
+    - {name: ea, label: '$EA =$'}
+  solution: |-
+    Ceva: $\dfrac{AF}{FB} \cdot \dfrac{BD}{DC} \cdot \dfrac{CE}{EA} = 1$, so $\dfrac{CE}{EA} = \dfrac{FB \cdot DC}{AF \cdot BD} = \dfrac{ {num} }{ {den} } = \dfrac{ {pp} }{ {qq} }$. Split $CA = {ca}$ in the ratio ${pp} : {qq}$: $CE =$ **{ce}** and $EA =$ **{ea}**.
+
+- id: geo-h1-r2-menelaus
+  title: Menelaus's theorem with an extended side
+  topic: Menelaus's theorem
+  vars:
+    af: {min: 2, max: 9}
+    fb: {min: 2, max: 9}
+    bc: {min: 4, max: 12}
+    cd: {min: 2, max: 10}
+    m: {choices: [1, 2]}
+  calc:
+    bd: bc + cd
+    num: fb*cd
+    den: af*bd
+    g: gcd(num, den)
+    pp: num/g
+    qq: den/g
+    ce: m*pp
+    ea: m*qq
+    ac: ce + ea
+  where: ["pp + qq <= 14", "pp != qq"]
+  prompt: 'A line crosses side $\overline{AB}$ of $\triangle ABC$ at $F$, side $\overline{AC}$ at $E$, and the extension of $\overline{BC}$ beyond $C$ at $D$. $AF = {af}$, $FB = {fb}$, $BC = {bc}$, $CD = {cd}$ and $AC = {ac}$. Find $CE$ and $EA$.'
+  answers:
+    - {name: ce, label: '$CE =$'}
+    - {name: ea, label: '$EA =$'}
+  solution: |-
+    $D$ is beyond $C$, so $BD = {bc} + {cd} = {bd}$. Menelaus: $\dfrac{AF}{FB} \cdot \dfrac{BD}{DC} \cdot \dfrac{CE}{EA} = 1$, so $\dfrac{CE}{EA} = \dfrac{FB \cdot DC}{AF \cdot BD} = \dfrac{ {fb} \cdot {cd} }{ {af} \cdot {bd} } = \dfrac{ {pp} }{ {qq} }$. Split $AC = {ac}$ in the ratio ${pp} : {qq}$: $CE =$ **{ce}** and $EA =$ **{ea}**.
+
+- id: geo-h1-r2-euler-coords
+  title: Orthocenter and nine-point center from O and G
+  topic: Euler line
+  vars:
+    ox: {min: -6, max: 6}
+    oy: {min: -6, max: 6}
+    gx: {min: -6, max: 6}
+    gy: {min: -6, max: 6}
+  where: ["ox != gx or oy != gy", "abs(3*gx - 2*ox) <= 20", "abs(3*gy - 2*oy) <= 20"]
+  calc:
+    hx: 3*gx - 2*ox
+    hy: 3*gy - 2*oy
+    nx: (ox + hx)/2
+    ny: (oy + hy)/2
+  prompt: 'A triangle has circumcenter $O({ox}, {oy})$ and centroid $G({gx}, {gy})$. Find its orthocenter $H$ and its nine-point center $N$. (Decimals such as 2.5 are fine.)'
+  answers:
+    - {name: hx, label: '$H$: $x =$'}
+    - {name: hy, label: '$y =$'}
+    - {name: nx, label: '$N$: $x =$'}
+    - {name: ny, label: '$y =$'}
+  solution: |-
+    $G$ is one-third of the way from $O$ to $H$, so $H = 3G - 2O = (3 \cdot {gx} - 2 \cdot {ox},\ 3 \cdot {gy} - 2 \cdot {oy}) =$ **({hx}, {hy})**. The nine-point center is the midpoint of $\overline{OH}$: $N = \left(\tfrac{ {ox} + {hx} }{2}, \tfrac{ {oy} + {hy} }{2}\right) =$ **({nx}, {ny})**.
+
+- id: geo-h1-r2-right-euler
+  title: Euler line of a right triangle
+  topic: Nine-point circle
+  vars:
+    t: {choices: [{label: '3-4-5', value: 1}, {label: '5-12-13', value: 2}, {label: '8-15-17', value: 3}]}
+    k: {min: 1, max: 4}
+  calc:
+    la: k*if(t == 1, 3, if(t == 2, 5, 8))
+    lb: k*if(t == 1, 4, if(t == 2, 12, 15))
+    hyp: hypot(la, lb)
+    oh: hyp/2
+    og: hyp/6
+    rn: hyp/4
+  prompt: 'A right triangle has legs {la} and {lb}. Find the distance $OH$ from its circumcenter to its orthocenter, the distance $OG$ from its circumcenter to its centroid, and the radius of its nine-point circle. Give exact values or decimals to 2 places.'
+  answers:
+    - {name: oh, label: '$OH =$', tolerance: 0.006}
+    - {name: og, label: '$OG =$', tolerance: 0.006}
+    - {name: rn, label: 'Nine-point radius', tolerance: 0.006}
+  solution: |-
+    The hypotenuse is $\sqrt{ {la}^2 + {lb}^2 } = {hyp}$. The circumcenter $O$ is its midpoint, so $R = {oh}$, and the orthocenter $H$ is the right-angle vertex. $OH$ is the median to the hypotenuse, which is half the hypotenuse: $OH =$ **{oh}**. Then $OG = \tfrac13 OH =$ **{og:num2}** and the nine-point radius is $\tfrac R2 =$ **{rn:num2}**.
+
+- id: geo-h1-r2-trap-diagonal
+  title: Diagonal of an isosceles trapezoid by Ptolemy
+  topic: Ptolemy's theorem
+  vars:
+    b1: {min: 2, max: 10}
+    b2: {min: 4, max: 16}
+    leg: {min: 3, max: 12}
+  where: ["b2 > b1", "2*leg > b2 - b1"]
+  calc:
+    d: sqrt(leg^2 + b1*b2)
+    dd: leg^2 + b1*b2
+    lsq: leg^2
+    prod: b1*b2
+  prompt: 'An isosceles trapezoid has bases {b1} and {b2} and legs {leg}. Use Ptolemy''s theorem to find the length of a diagonal. Give the exact value (such as sqrt(97)) or a decimal to 2 places.'
+  answers:
+    - {name: d, label: 'Diagonal', tolerance: 0.006}
+  solution: |-
+    An isosceles trapezoid is cyclic and its diagonals are congruent; call each $d$. The opposite sides are the bases and the legs, so Ptolemy gives $d \cdot d = {b1} \cdot {b2} + {leg} \cdot {leg} = {prod} + {lsq} = {dd}$. So $d = \sqrt{ {dd} } \approx$ **{d:num2}**.
+
+- id: geo-h1-r2-brahmagupta
+  title: Area of a cyclic quadrilateral
+  topic: Cyclic quadrilaterals
+  vars:
+    sa: {min: 3, max: 12}
+    sb: {min: 3, max: 12}
+    sc: {min: 3, max: 12}
+    sd: {min: 3, max: 12}
+  where: ["2*max(sa, sb, sc, sd) < sa + sb + sc + sd", "mod(sa + sb + sc + sd, 2) == 0"]
+  calc:
+    s: (sa + sb + sc + sd)/2
+    pa: s - sa
+    pb: s - sb
+    pc: s - sc
+    pd: s - sd
+    prod: pa*pb*pc*pd
+    area: sqrt(prod)
+  prompt: 'A cyclic quadrilateral has sides {sa}, {sb}, {sc} and {sd}. Use Brahmagupta''s formula to find its area to 2 decimal places.'
+  answers:
+    - {name: area, label: 'Area', tolerance: 0.006}
+  solution: |-
+    Semiperimeter $s = \tfrac{ {sa} + {sb} + {sc} + {sd} }{2} = {s}$. Then $K = \sqrt{(s - a)(s - b)(s - c)(s - d)} = \sqrt{ {pa} \cdot {pb} \cdot {pc} \cdot {pd} } = \sqrt{ {prod} } \approx$ **{area:num2}**.
+
+- id: geo-h1-r2-equilateral-arc
+  title: A point on the circumcircle of an equilateral triangle
+  topic: Ptolemy's theorem
+  vars:
+    pb: {min: 1, max: 12}
+    pc: {min: 1, max: 12}
+  where: ["pb != pc"]
+  calc:
+    pa: pb + pc
+    ssq: pb^2 + pb*pc + pc^2
+    side: sqrt(ssq)
+  prompt: 'Equilateral triangle $ABC$ is inscribed in a circle. $P$ is on arc $BC$ (the arc not containing $A$), with $PB = {pb}$ and $PC = {pc}$. Find $PA$, and the side length of the triangle (exact, such as sqrt(49), or to 2 decimal places).'
+  answers:
+    - {name: pa, label: '$PA =$'}
+    - {name: side, label: 'Side', tolerance: 0.006}
+  solution: |-
+    Ptolemy in cyclic quadrilateral $ABPC$: $PA \cdot BC = AB \cdot PC + AC \cdot PB$. All three sides equal $s$, so dividing by $s$ gives $PA = PB + PC =$ **{pa}**. For the side, $\angle BPC$ is inscribed in a $240^\circ$ arc, so it measures $120^\circ$, and the Law of Cosines gives $s^2 = {pb}^2 + {pc}^2 - 2({pb})({pc})\cos 120^\circ = {ssq}$. So $s = \sqrt{ {ssq} } \approx$ **{side:num2}**.

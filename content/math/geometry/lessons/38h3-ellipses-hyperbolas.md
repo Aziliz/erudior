@@ -18,7 +18,7 @@ An **ellipse** is the set of points $P$ whose distances to two fixed points $F_1
 
 The parts:
 
-- the **center** is the midpoint of $\overline{F_1F_2}$; each focus is $c$ units from it;
+- the center is the midpoint of $\overline{F_1F_2}$; each focus is $c$ units from it;
 - the **major axis** is the chord through the foci; its endpoints are the **vertices of the ellipse**;
 - the **minor axis** is the chord through the center perpendicular to the major axis; its endpoints are the **co-vertices**.
 

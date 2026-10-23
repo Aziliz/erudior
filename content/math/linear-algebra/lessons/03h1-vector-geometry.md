@@ -170,7 +170,7 @@ $P = (3, 0)$, $Q = (7, 2.5)$, $R = (4.5, 5.5)$, $S = (0.5, 3)$, and
 $\overrightarrow{PQ} = (4, 2.5) = \overrightarrow{SR}$.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [6, 0], [8, 5], [1, 6]]}, {"points": [[3, 0], [7, 2.5], [4.5, 5.5], [0.5, 3]], "dashed": true}], "points": [{"at": [3, 0], "label": "P"}, {"at": [7, 2.5], "label": "Q"}, {"at": [4.5, 5.5], "label": "R"}, {"at": [0.5, 3], "label": "S"}], "labels": [{"at": [-0.4, -0.4], "text": "A"}, {"at": [6.4, -0.4], "text": "B"}, {"at": [8.4, 5.3], "text": "C"}, {"at": [0.7, 6.4], "text": "D"}], "caption": "Varignon: the midpoints P, Q, R, S always form a parallelogram"}
+{"polygons": [{"points": [[0, 0], [6, 0], [8, 5], [1, 6]]}], "segments": [{"from": [3, 0], "to": [7, 2.5], "dashed": true}, {"from": [7, 2.5], "to": [4.5, 5.5], "dashed": true}, {"from": [4.5, 5.5], "to": [0.5, 3], "dashed": true}, {"from": [0.5, 3], "to": [3, 0], "dashed": true}], "points": [{"at": [3, 0], "label": "P"}, {"at": [7, 2.5], "label": "Q"}, {"at": [4.5, 5.5], "label": "R"}, {"at": [0.5, 3], "label": "S"}], "labels": [{"at": [-0.4, -0.4], "text": "A"}, {"at": [6.4, -0.4], "text": "B"}, {"at": [8.4, 5.3], "text": "C"}, {"at": [0.7, 6.4], "text": "D"}], "caption": "Varignon: the midpoints P, Q, R, S always form a parallelogram"}
 ```
 
 The proof never used convexity, so the theorem holds for non-convex quadrilaterals too.
