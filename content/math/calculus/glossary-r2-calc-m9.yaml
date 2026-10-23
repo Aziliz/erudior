@@ -1,0 +1,53 @@
+# Round 2 glossary for module calc-m9 (honors lessons 39h1 and 39h2)
+- term: phase line
+  aliases: [phase lines, phase diagram]
+  definition: 'For an autonomous equation $\frac{dy}{dt} = g(y)$, a vertical line marking the equilibria (roots of $g$) with arrows showing whether solutions rise ($g > 0$) or fall ($g < 0$) between them.'
+  topic: Phase lines and stability
+- term: stable
+  aliases: [stable equilibrium, stable equilibria, asymptotically stable]
+  definition: 'Describes an equilibrium that nearby solutions approach as $t \to \infty$. For $y'' = g(y)$, $g''(y^*) < 0$ guarantees it.'
+  topic: Phase lines and stability
+- term: unstable
+  aliases: [unstable equilibrium, unstable equilibria]
+  definition: 'Describes an equilibrium that nearby solutions move away from. For $y'' = g(y)$, $g''(y^*) > 0$ guarantees it.'
+  topic: Phase lines and stability
+- term: semi-stable
+  aliases: [semistable, semi-stable equilibrium]
+  definition: 'Describes an equilibrium that attracts solutions from one side and repels them on the other, as $y = 2$ does for $y'' = (y - 2)^2$. Some books count it as unstable.'
+  topic: Phase lines and stability
+- term: bifurcation
+  aliases: [bifurcations]
+  definition: 'A sudden change in the number or type of equilibria as a parameter passes a critical value; for $kP(1 - \frac PM) - H$ the two equilibria merge and vanish at $H = \frac{kM}{4}$.'
+  topic: Phase lines and stability
+- term: maximum sustainable yield
+  aliases: [MSY]
+  definition: 'In the harvesting model $\frac{dP}{dt} = kP(1 - \frac PM) - H$, the largest constant harvest that still leaves an equilibrium: $H = \frac{kM}{4}$, at $P = \frac M2$. A simplified-model idea, treated in practice as a ceiling.'
+  topic: Phase lines and stability
+- term: existence and uniqueness theorem
+  aliases: [Picard–Lindelöf theorem, Picard-Lindelöf theorem, Picard's theorem]
+  definition: 'If $F$ and $\frac{\partial F}{\partial y}$ are continuous on an open rectangle containing $(x_0, y_0)$, then $y'' = F(x, y)$, $y(x_0) = y_0$ has exactly one solution on some open interval around $x_0$.'
+  topic: Existence and uniqueness
+- term: local truncation error
+  aliases: [local error]
+  definition: 'The error a numerical method makes in a single step, assuming the step starts on the true solution; about $\frac12y''''h^2$ for Euler''s method.'
+  topic: Numerical methods for differential equations
+- term: global error
+  aliases: [global truncation error]
+  definition: 'The total error of a numerical solution at a fixed point after all its steps; for a method of order $p$ it is roughly proportional to $h^p$.'
+  topic: Numerical methods for differential equations
+- term: improved Euler method
+  aliases: [improved Euler, Heun's method, Heun method]
+  definition: 'Predict with an Euler step, then step with the average slope: $y_{n+1} = y_n + \frac h2\left[F(x_n, y_n) + F(x_n + h, y_n + hk_1)\right]$. Order 2; for $y'' = f(x)$ it is the trapezoidal rule.'
+  topic: Numerical methods for differential equations
+- term: Runge–Kutta method
+  aliases: [Runge-Kutta method, RK4, classical Runge–Kutta method, Runge–Kutta methods]
+  definition: 'The classical fourth-order method: $y_{n+1} = y_n + \frac h6(k_1 + 2k_2 + 2k_3 + k_4)$ with slopes at the start, twice at the midpoint, and at the end. For $y'' = f(x)$ it is Simpson''s rule.'
+  topic: Numerical methods for differential equations
+- term: numerical instability
+  aliases: [numerically unstable]
+  definition: 'Growth of a numerical solution''s errors that the true solution does not have, caused by the method and step size; Euler''s method on $y'' = -ky$ is unstable when $h > \frac2k$.'
+  topic: Numerical methods for differential equations
+- term: stiff
+  aliases: [stiff equation, stiff equations, stiffness]
+  definition: 'Describes a differential equation whose solutions mix very fast and very slow decay, so explicit methods need tiny steps for stability; implicit methods such as backward Euler are used instead.'
+  topic: Numerical methods for differential equations

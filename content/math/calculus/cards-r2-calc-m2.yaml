@@ -1,0 +1,20 @@
+# Round 2 cards, module calc-m2 (honors lessons)
+- {front: 'Forward, backward and central differences', back: '$\dfrac{f(a + h) - f(a)}{h}$, $\dfrac{f(a) - f(a - h)}{h}$, $\dfrac{f(a + h) - f(a - h)}{2h}$; the central one is the average of the other two.', topic: Numerical differentiation}
+- {front: 'Truncation error of the forward difference', back: 'About $\dfrac{f''''(a)}{2}h$: first order (halve $h$, roughly halve the error).', topic: Numerical differentiation}
+- {front: 'Truncation error of the central difference', back: 'About $\dfrac{f''''''(a)}{6}h^2$: second order (halve $h$, error divided by about 4). Exact for quadratics.', topic: Numerical differentiation}
+- {front: 'Central difference of $x^3$ at $a$', back: '$3a^2 + h^2$: the error is exactly $h^2$.', topic: Numerical differentiation}
+- {front: 'Richardson extrapolation (first-order method)', back: '$2D(h/2) - D(h)$ cancels the error term proportional to $h$.', topic: Numerical differentiation}
+- {front: 'Richardson extrapolation (central differences)', back: '$\dfrac{4D_c(h/2) - D_c(h)}{3}$ cancels the $h^2$ term, leaving an error of about $h^4$.', topic: Numerical differentiation}
+- {front: 'Why tiny $h$ fails on a computer', back: 'Subtractive cancellation: $f(a + h)$ and $f(a)$ share most digits, and dividing by $h$ magnifies the round-off, which grows like $1/h$.', topic: Numerical differentiation}
+- {front: 'Best step in double precision (well-scaled functions)', back: 'About $10^{-8}$ for a forward difference, about $10^{-5}$ for a central difference (rules of thumb).', topic: Numerical differentiation}
+- {front: 'Minimizing $Ah + \dfrac{B}{h}$', back: 'Make the terms equal: $h = \sqrt{B/A}$, giving a minimum of $2\sqrt{AB}$.', topic: Numerical differentiation}
+- {front: 'Noisy data and difference quotients', back: 'Readings off by up to $\delta$ can put a forward difference off by up to $2\delta/h$: smaller $h$ magnifies noise.', topic: Numerical differentiation}
+- {front: 'Piece-by-piece shortcut for one-sided derivatives', back: 'Valid only if $f$ is continuous at the seam (and the pieces'' derivatives have limits there). Check continuity first.', topic: Smoothness}
+- {front: '$x^2\sin(1/x)$, with $f(0) = 0$', back: 'Differentiable everywhere with $f''(0) = 0$, but $f''$ is not continuous at 0: differentiable, not $C^1$.', topic: Smoothness}
+- {front: 'Darboux''s theorem', back: 'A derivative on an interval takes every value between any two of its values, so it can never jump.', topic: Smoothness}
+- {front: 'Smoothness ladder', back: '$C^\infty \subset \dots \subset C^2 \subset C^1 \subset$ differentiable $\subset C^0$; no step reverses.', topic: Smoothness}
+- {front: '$\lvert x\rvert$, $x\lvert x\rvert$, $\lvert x\rvert^3$ at 0', back: 'Continuous but not differentiable; $C^1$ but not $C^2$; $C^2$ but not $C^3$.', topic: Smoothness}
+- {front: 'Conditions for a $C^2$ join at $x = c$', back: 'The pieces agree in value, first derivative and second derivative at $c$.', topic: Smoothness}
+- {front: 'Why roads and railways use transition curves', back: 'A tangent join of a straight and an arc is only $C^1$: curvature, and so sideways acceleration $v^2\kappa$, would jump. A transition makes it rise gradually.', topic: Smoothness}
+- {front: 'Cubic spline', back: 'Cubic pieces through data points with matching value, slope and second derivative at each joint: a $C^2$ curve.', topic: Smoothness}
+- {front: 'Weierstrass function (1872)', back: '$\sum a^n\cos(b^n\pi x)$ with $0 < a < 1$, $b$ odd, $ab > 1 + \frac{3\pi}{2}$: continuous everywhere, differentiable nowhere.', topic: Smoothness}

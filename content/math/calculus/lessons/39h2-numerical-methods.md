@@ -14,7 +14,7 @@ In Lesson 37, Euler's method with four steps of size $h = 0.5$ estimated $y(2) \
 
 One Euler step follows the tangent line from $(x_n, y_n)$, the linearization of Lesson 15. Over a step of length $h$ a tangent line misses a smooth curve by about $\frac12 y''\,h^2$: the gap grows with the curve's bending and with the square of the step. (This is the first term the tangent line leaves out; Lesson 44 makes it precise with Taylor polynomials.) That error made in a single step is the **local truncation error**, and for Euler's method it is proportional to $h^2$.
 
-To reach a fixed point $x = b$ from $x_0$ you take $N = \frac{b - x_0}{h}$ steps. Roughly $N$ errors of size $Ch^2$ pile up, giving a total, the **global error**, of about $\frac{b - x_0}{h}\cdot Ch^2 = C(b - x_0)\,h$, proportional to $h$. (This is a heuristic: each step starts from a slightly wrong point, and earlier errors can grow or shrink as they travel. Under mild conditions on $F$ the conclusion holds anyway.) A method whose global error is proportional to $h^p$ is said to have **order** $p$; Euler's method has order 1. Halving the step halves the error and doubles the work.
+To reach a fixed point $x = b$ from $x_0$ you take $N = \frac{b - x_0}{h}$ steps. Roughly $N$ errors of size $Ch^2$ pile up, giving a total, the **global error**, of about $\frac{b - x_0}{h}\cdot Ch^2 = C(b - x_0)\,h$, proportional to $h$. (This is a heuristic: each step starts from a slightly wrong point, and earlier errors can grow or shrink as they travel. Under mild conditions on $F$ the conclusion holds anyway.) A method whose global error is proportional to $h^p$ has **order of accuracy** $p$ (usually just called order $p$); Euler's method has order 1. Halving the step halves the error and doubles the work.
 
 ### Example 1
 
@@ -36,7 +36,7 @@ In real problems the exact value is unknown. But if the error is about $Ch$, the
 
 $$Y - y_{h/2} \approx y_{h/2} - y_h, \qquad Y \approx 2y_{h/2} - y_h.$$
 
-So comparing two runs estimates the error of the better one, and the combination $2y_{h/2} - y_h$ cancels the leading error term. Combining runs this way is **Richardson extrapolation**. In Example 1, $y_{0.05} - y_{0.1} = 0.059555$, a good estimate of the true error 0.064984, and $2(2.653298) - 2.593742 = 2.712853$ is off by only 0.0054, better than either run.
+So comparing two runs estimates the error of the better one, and the combination $2y_{h/2} - y_h$ cancels the leading error term. Combining runs this way is **Richardson extrapolation**. (If you studied the honors lessons on numerical derivatives or Romberg integration, this is the same idea applied to a new kind of approximation.) In Example 1, $y_{0.05} - y_{0.1} = 0.059555$, a good estimate of the true error 0.064984, and $2(2.653298) - 2.593742 = 2.712853$ is off by only 0.0054, better than either run.
 
 ## The improved Euler method
 

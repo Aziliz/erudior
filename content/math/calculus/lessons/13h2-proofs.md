@@ -5,7 +5,7 @@ title: Proving the chain rule and the inverse function rule
 minutes: 45
 honors: true
 topics: [Proofs of derivative rules, Inverse function derivatives]
-drills: [calc-m3-r2-e-limit, calc-m3-r2-inverse-exp]
+drills: [calc-m3-r2-e-limit, calc-d-inverse-fn-deriv]
 refs: [calc-ref-derivatives]
 ---
 ## Closing two gaps

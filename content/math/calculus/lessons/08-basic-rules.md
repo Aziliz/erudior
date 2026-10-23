@@ -62,18 +62,12 @@ Until the product, quotient and chain rules arrive in the next module, the job i
 ```mermaid
 flowchart TD
   accTitle: Rewriting before you differentiate
-  accDescr: Look at each term. A root becomes a fractional power, for example the square root of x becomes x to the one half. One over a power of x becomes a negative power. A sum divided by a single power of x is split and each piece divided. A product of polynomials is multiplied out. Once every term is a constant times x to a power, a constant times e to the x, or a constant, use the power rule, the e to the x rule and the constant rule term by term.
-  A["Look at each term"] --> B{"What does it look like?"}
-  B -- "a root" --> R["Fractional power: √x = x^(1/2)"]
-  B -- "1 over a power" --> Q["Negative power: 1/x³ = x^(−3)"]
-  B -- "sum over one power of x" --> S["Split and divide each term"]
-  B -- "product of polynomials" --> P["Multiply out"]
-  R --> D["Every term is c·xⁿ, c·eˣ or a constant"]
-  Q --> D
-  S --> D
-  P --> D
-  B -- "already c·xⁿ, c·eˣ or a constant" --> D
-  D --> E["Differentiate term by term"]
+  accDescr: A checklist, top to bottom. Write roots as fractional powers, for example the square root of x as x to the one half. Write one over a power of x as a negative power, for example 1 over x cubed as x to the minus 3. Split a sum divided by a single power of x and divide each term. Multiply out a product of polynomials. Now every term is a constant times a power of x, a constant times e to the x, or a constant, so differentiate term by term with the power, e to the x and constant rules.
+  A["Roots: write √x as x^(1/2)"] --> B["Reciprocals: write 1/x³ as x^(−3)"]
+  B --> C["Sum over one power of x: split, divide each term"]
+  C --> D["Product of polynomials: multiply out"]
+  D --> E["Every term is now c·xⁿ, c·eˣ or a constant"]
+  E --> F["Differentiate term by term"]
 ```
 
 ## The natural exponential

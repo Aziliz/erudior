@@ -10,7 +10,7 @@ refs: [calc-ref-series]
 ---
 ## From "it converges" to "here are the digits"
 
-Lessons 41 to 44 gave you tests that say *whether* a series converges and error bounds that say how far a partial sum can be from the total. This lesson puts those bounds to work on a practical question: how do you actually get the digits of $\pi$, $e$ or $\ln 2$? The answer is rarely "add up the obvious series". Some convergent series are hopelessly slow, and most of the skill lies in rewriting a problem so that a fast series does the work. Along the way you will see how to sharpen the integral-test bounds, how fast the harmonic series grows, and the idea behind how calculators evaluate $e^x$.
+Lessons 41 to 44 gave you tests that say *whether* a series converges and error bounds that say how far a partial sum can be from the total. This lesson puts those bounds to work on a practical question: how do you actually get the digits of $\pi$, $e$ or $\ln 2$? The answer is rarely "add up the obvious series". Some convergent series are hopelessly slow, and most of the skill lies in rewriting a problem so that a fast series does the work. Along the way you will see how to sharpen the integral-test bounds and the idea behind how calculators evaluate $e^x$.
 
 ## Fast and slow series
 
@@ -49,23 +49,7 @@ $S_{10} = 1.549768$ (to 6 decimals). The tail integrals are $\int_{11}^\infty\fr
 $$1.640677 \le S \le 1.649768.$$
 The midpoint is $1.645222$. The exact sum is $\frac{\pi^2}{6} = 1.644934$, so the midpoint is off by about $0.0003$, while $S_{10}$ alone was off by $0.095$. Ten terms plus one integral beat a thousand terms added blindly. (In the 1730s, before he found the exact value, Euler computed this sum to many decimal places using more refined ways of estimating the tail.)
 
-### How fast does the harmonic series grow?
-
-The same picture works for a divergent series. With $f(x) = \frac1x$, the rectangles give
-$$\ln(N + 1) \le H_N \le 1 + \ln N, \qquad H_N = 1 + \frac12 + \cdots + \frac1N.$$
-So $H_N$ grows like $\ln N$: without bound, but extremely slowly. In fact the gap $H_N - \ln N$ decreases toward a limit, the **Euler–Mascheroni constant**
-$$\gamma = \lim_{N\to\infty}\left(H_N - \ln N\right) \approx 0.5772.$$
-(Nobody knows whether $\gamma$ is rational or irrational; it is a famous open problem.)
-
-```plot
-{"x": [0, 13], "y": [-0.2, 3.5], "points": [{"at": [1, 1]}, {"at": [2, 1.5]}, {"at": [3, 1.8333]}, {"at": [4, 2.0833]}, {"at": [5, 2.2833]}, {"at": [6, 2.45]}, {"at": [7, 2.5929]}, {"at": [8, 2.7179]}, {"at": [9, 2.829]}, {"at": [10, 2.929]}, {"at": [11, 3.0199]}, {"at": [12, 3.1032]}], "functions": [{"f": "ln(x)", "from": 0.8, "label": "ln x"}, {"f": "ln(x) + 0.5772", "from": 0.6, "dashed": true, "label": "ln x + γ"}], "xLabel": "N", "caption": "Harmonic partial sums H_N (dots) run parallel to ln N, about 0.58 above it"}
-```
-
-### Example 3
-
-About how many terms of the harmonic series are needed for the partial sum to pass 100?
-
-Using $H_N \approx \ln N + \gamma$, solve $\ln N + 0.5772 = 100$: $N \approx e^{99.42} \approx 1.5\times10^{43}$. The bounds above confirm the size: $H_N \le 1 + \ln N$ means $N$ must be at least $e^{99} \approx 10^{43}$. Adding a trillion terms per second, that would take far longer than the age of the universe. The series diverges, but you would never see it happen by adding.
+The same rectangles work for a divergent series, where they measure how fast the partial sums grow. With $f(x) = \frac1x$ they give $\ln(N + 1) \le H_N \le 1 + \ln N$ for the harmonic partial sums $H_N = 1 + \frac12 + \cdots + \frac1N$, and the gap $H_N - \ln N$ settles down to the Euler–Mascheroni constant $\gamma \approx 0.5772$. (The honors lesson on sums and integrals in the integrals module works this out.) So the harmonic series diverges, but so slowly that you would never see it happen by adding terms: passing 100 takes more than $e^{99}$ terms.
 
 ## Faster logarithms
 
@@ -75,7 +59,7 @@ Subtracting, the even powers cancel and the odd ones double:
 $$\ln\frac{1 + x}{1 - x} = 2\left(x + \frac{x^3}{3} + \frac{x^5}{5} + \cdots\right), \qquad |x| < 1.$$
 Every positive number $y$ equals $\frac{1 + x}{1 - x}$ for exactly one $x$ in $(-1, 1)$, namely $x = \frac{y - 1}{y + 1}$, so this one series gives every logarithm. The closer $y$ is to 1, the smaller $x$ is and the faster the series converges.
 
-### Example 4
+### Example 3
 
 Compute $\ln 2$ to about 4 decimal places.
 
@@ -93,7 +77,7 @@ $$\frac{\pi}{4} = 4\arctan\frac15 - \arctan\frac{1}{239}.$$
 $$\tan\left(4\alpha - \frac\pi4\right) = \frac{\frac{120}{119} - 1}{1 + \frac{120}{119}} = \frac{1}{239}.$$
 So $4\alpha - \frac\pi4 = \arctan\frac{1}{239}$, which rearranges to Machin's formula. Machin used it to compute 100 decimal places of $\pi$ by hand, and formulas of this kind remained the main way of computing $\pi$ for more than two centuries.
 
-### Example 5
+### Example 4
 
 Estimate $\pi$ from Machin's formula using three terms of the series for $\arctan\frac15$ and one term for $\arctan\frac{1}{239}$.
 
@@ -117,7 +101,7 @@ flowchart TD
   D --> E["eˣ = 2ᵏ · eʳ (multiplying by 2ᵏ is exact in binary)"]
 ```
 
-### Example 6
+### Example 5
 
 Compute $e^{10}$ this way with the degree-5 Taylor polynomial.
 
@@ -129,13 +113,12 @@ $\frac{10}{\ln2} \approx 14.43$, so $k = 14$ and $r = 10 - 14\ln2 \approx 0.2959
 - *Forgetting the conditions on the tail bounds.* The integral sandwich needs positive, decreasing terms; the "first omitted term" bound needs an alternating series with decreasing terms.
 - *Using $\frac{1}{(n + 1)!}$ alone as the error for $e$.* The tail is a little bigger than its first term; $\frac{1}{n!\,n}$ is a safe bound.
 - *Plugging $y$ into the log series instead of $x$.* For $\ln y$ use $x = \frac{y - 1}{y + 1}$, then $\ln y = 2\left(x + \frac{x^3}{3} + \cdots\right)$; don't forget the factor 2.
-- *Confusing absolute and relative error* after scaling, as in Example 6.
+- *Confusing absolute and relative error* after scaling, as in Example 5.
 
 ## Key points
 
 - The speed of a series matters: the Leibniz series for $\pi$ needs millions of terms for 6 decimals; $\sum\frac{1}{k!}$ gets $e$ to 10 decimals in 14 terms, with $0 < e - \sum_{k\le n}\frac{1}{k!} < \frac{1}{n!\,n}$.
 - For positive decreasing terms, $S_N + \int_{N+1}^\infty f \le S \le S_N + \int_N^\infty f$; the midpoint is often a very good estimate.
-- $\ln(N + 1) \le H_N \le 1 + \ln N$, and $H_N - \ln N \to \gamma \approx 0.5772$.
 - $\ln\frac{1 + x}{1 - x} = 2\left(x + \frac{x^3}{3} + \frac{x^5}{5} + \cdots\right)$ with $x = \frac{y - 1}{y + 1}$ gives fast logarithms.
 - Machin's formula $\frac\pi4 = 4\arctan\frac15 - \arctan\frac1{239}$ turns slow arctangent sums into fast ones.
 - Argument reduction: shrink the input, then use a short polynomial.

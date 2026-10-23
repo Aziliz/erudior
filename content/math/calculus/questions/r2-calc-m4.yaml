@@ -412,11 +412,11 @@
   topic: Orders of growth
   stem: 'At $x = 10^{100}$, which is larger: $x^{0.01}$ or $(\ln x)^5$?'
   choices:
+    - '$(\ln x)^5$, even though $x^{0.01}$ wins eventually'
     - '$x^{0.01}$, because powers of $x$ beat powers of $\ln x$'
     - '$(\ln x)^5$, which shows $x^{0.01}$ never catches up'
-    - '$(\ln x)^5$, even though $x^{0.01}$ wins eventually'
     - 'They are equal'
-  answer: 2
+  answer: 0
   explanation: |-
     $x^{0.01} = 10^{1} = 10$, while $\ln x = 100\ln 10 \approx 230.3$ and $(\ln x)^5 \approx 6.5\times10^{11}$. The ladder is still right, but $x^{0.01}$ only takes the lead beyond about $x = 10^{1810}$: "eventually" can be very far away.
 - id: calc-m4-r2-h25
@@ -452,10 +452,10 @@
   topic: Cauchy's mean value theorem
   stem: 'Picture the path $(g(t), f(t))$ for $a \le t \le b$. Cauchy''s mean value theorem says that at some $t = c$ the path is'
   choices:
-    - 'horizontal'
     - 'parallel to the chord joining its two endpoints'
+    - 'horizontal'
     - 'vertical'
     - 'parallel to its tangent at $t = a$'
-  answer: 1
+  answer: 0
   explanation: |-
     The path's slope is $\frac{dy}{dx} = \frac{f'(t)}{g'(t)}$ and the chord's slope is $\frac{f(b) - f(a)}{g(b) - g(a)}$; the theorem says they agree at some $c$. With $g(t) = t$ this is the ordinary MVT picture: a tangent parallel to the secant line.

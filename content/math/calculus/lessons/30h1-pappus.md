@@ -44,7 +44,7 @@ The centroid is $\left(\frac12, \frac25\right)$. Sanity check: it must lie insid
 
 ## The first theorem of Pappus: volume
 
-**Theorem.** If a plane region of area $A$ is rotated about a line in its plane that does not pass through the region's interior, the volume of the solid is
+*Theorem.* If a plane region of area $A$ is rotated about a line in its plane that does not pass through the region's interior, the volume of the solid is
 
 $$V = 2\pi\bar r\,A,$$
 
@@ -108,7 +108,7 @@ $$\bar x = \frac1L\int x\,ds, \qquad \bar y = \frac1L\int y\,ds,$$
 
 where $L$ is the curve's length and $ds$ is the arc-length element of Lesson 29.
 
-**Second theorem of Pappus.** If a curve of length $L$ is rotated about a line in its plane that doesn't cross the curve, the area of the surface swept out is
+The **second theorem of Pappus** says: if a curve of length $L$ is rotated about a line in its plane that doesn't cross the curve, the area of the surface swept out is
 
 $$S = 2\pi\bar r\,L,$$
 

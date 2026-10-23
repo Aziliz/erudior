@@ -1,0 +1,23 @@
+# Round 2 cards for calc-m11 (honors lessons 46h1 and 46h2)
+- {front: 'Surface area, parametric curve rotated about the $x$-axis', back: '$S = 2\pi\displaystyle\int_\alpha^\beta y(t)\sqrt{x''(t)^2 + y''(t)^2}\,dt$ (need $y \ge 0$, traced once)', topic: Parametric surface area}
+- {front: 'Surface area, parametric curve rotated about the $y$-axis', back: '$S = 2\pi\displaystyle\int_\alpha^\beta x(t)\,ds$ with $ds = \sqrt{x''^2 + y''^2}\,dt$', topic: Parametric surface area}
+- {front: 'Surface area, polar curve rotated about the polar axis', back: '$S = 2\pi\displaystyle\int_\alpha^\beta r\sin\theta\sqrt{r^2 + (r'')^2}\,d\theta$', topic: Parametric surface area}
+- {front: 'Why rotating $x = R\cos t$, $y = R\sin t$ over $[0, 2\pi]$ gives surface area 0', back: 'The lower half has $y < 0$ and cancels the upper half; rotate only $0 \le t \le \pi$ to get $4\pi R^2$.', topic: Parametric surface area}
+- {front: 'Speed and slope on the cycloid $x = a(t - \sin t)$, $y = a(1 - \cos t)$', back: 'Speed $2a\lvert\sin\frac t2\rvert$; slope $\cot\frac t2$, so the tangent is vertical at each cusp.', topic: Cycloid descent}
+- {front: 'One cycloid arch (wheel radius $a$): length, area under it, surface area when rotated', back: 'Length $8a$; area $3\pi a^2$; surface area $\dfrac{64\pi a^2}{3}$', topic: Cycloid descent}
+- {front: 'Speed of a frictionless bead that has dropped height $h$ from rest', back: '$v = \sqrt{2gh}$, whatever the shape of the track', topic: Cycloid descent}
+- {front: 'Travel time along a track', back: '$T = \displaystyle\int\frac{ds}{v}$', topic: Cycloid descent}
+- {front: 'Descent time on an upside-down cycloid (wheel radius $a$)', back: '$\pi\sqrt{a/g}$, from the cusp or from any other starting point (tautochrone)', topic: Cycloid descent}
+- {front: 'Brachistochrone', back: 'The fastest frictionless track between two points: an upside-down cycloid (Johann Bernoulli''s 1696 problem).', topic: Cycloid descent}
+- {front: 'Cycloid vs straight ramp from $(0, 0)$ to $(\pi a, -2a)$', back: '$\pi\sqrt{a/g} \approx 3.14\sqrt{a/g}$ vs $\sqrt{\pi^2 + 4}\sqrt{a/g} \approx 3.72\sqrt{a/g}$: the shortest path is slower.', topic: Cycloid descent}
+- {front: 'Focus–directrix definition of a conic', back: '$PF = e\cdot PD$: ellipse if $e < 1$, parabola if $e = 1$, hyperbola if $e > 1$', topic: Polar conics}
+- {front: 'Polar conic with focus at the pole and directrix $x = d$', back: '$r = \dfrac{ed}{1 + e\cos\theta}$ ($x = -d$: $1 - e\cos\theta$; $y = \pm d$: $1 \pm e\sin\theta$)', topic: Polar conics}
+- {front: 'First step in reading $r = \dfrac{k}{m + n\cos\theta}$', back: 'Divide by $m$ so the constant term is 1; then $e = \frac nm$ and $ed = \frac km$.', topic: Polar conics}
+- {front: 'Ellipse in polar form with semi-major axis $a$', back: '$r = \dfrac{a(1 - e^2)}{1 + e\cos\theta}$; $r_{\min} = a(1 - e)$, $r_{\max} = a(1 + e)$', topic: Polar conics}
+- {front: 'Eccentricity from nearest and farthest distances', back: '$e = \dfrac{r_{\max} - r_{\min}}{r_{\max} + r_{\min}}$', topic: Polar conics}
+- {front: 'Asymptote directions of $r = \dfrac{ed}{1 + e\cos\theta}$ with $e > 1$', back: 'Where $\cos\theta = -\frac1e$ (the denominator is 0); negative $r$ traces the far branch.', topic: Polar conics}
+- {front: 'Kepler''s three laws', back: '(1) Ellipse with the Sun at a focus. (2) Equal areas in equal times. (3) $T^2 \propto a^3$.', topic: Kepler's laws}
+- {front: 'Kepler''s second law in polar calculus', back: '$\dfrac{dA}{dt} = \frac12r^2\dfrac{d\theta}{dt}$ is constant, so $\dfrac{d\theta}{dt} = \dfrac{h}{r^2}$.', topic: Kepler's laws}
+- {front: 'Speed ratio, perihelion to aphelion', back: '$\dfrac{v_p}{v_a} = \dfrac{r_{\max}}{r_{\min}} = \dfrac{1 + e}{1 - e}$', topic: Kepler's laws}
+- {front: 'Kepler''s third law with the constant', back: '$T^2 = \dfrac{4\pi^2}{GM}a^3$; in years and AU (orbits around the Sun), $T = a^{3/2}$.', topic: Kepler's laws}
+- {front: 'Time to travel part of an orbit', back: 'Proportional to the area swept: fraction of the period $= \dfrac{\frac12\int r^2\,d\theta}{\pi ab}$.', topic: Kepler's laws}

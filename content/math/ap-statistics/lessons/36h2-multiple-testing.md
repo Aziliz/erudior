@@ -2,7 +2,7 @@
 id: stat-m8-h-multiple-testing
 module: stat-m8
 honors: true
-title: Many tests at once: multiple comparisons and false discoveries
+title: 'Many tests at once: multiple comparisons and false discoveries'
 minutes: 45
 topics: [Multiple testing]
 drills: [stat-m8-r2-fwer, stat-m8-r2-holm-bh, stat-m8-r2-false-share]

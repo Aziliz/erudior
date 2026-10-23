@@ -1,0 +1,713 @@
+# Round 2 questions for calc-m8: core lessons 31-36 (q) and honors lessons 36h1-36h3 (h)
+
+# 31 Integration by parts
+- id: calc-m8-r2-q01
+  lesson: calc-by-parts
+  module_quiz: true
+  topic: Integration by parts
+  type: text
+  stem: 'Evaluate $\displaystyle\int_0^\pi x\sin x\,dx$. Give the exact value: ___'
+  accept: [pi, π, 1pi, 1π]
+  explanation: |-
+    Parts with $u = x$, $dv = \sin x\,dx$, so $du = dx$ and $v = -\cos x$:
+    $$\int_0^\pi x\sin x\,dx = \Big[-x\cos x\Big]_0^\pi + \int_0^\pi\cos x\,dx = (-\pi\cos\pi - 0) + \Big[\sin x\Big]_0^\pi = \pi + 0 = \pi.$$
+- id: calc-m8-r2-q02
+  lesson: calc-by-parts
+  topic: Integration by parts
+  type: order
+  stem: 'Put the steps for finding $\displaystyle\int x^2\ln x\,dx$ by parts in order.'
+  items:
+    - 'Choose $u = \ln x$ and $dv = x^2\,dx$ (LIATE)'
+    - 'Compute $du = \frac1x\,dx$ and $v = \frac{x^3}{3}$'
+    - 'Write $\frac{x^3}{3}\ln x - \int\frac{x^3}{3}\cdot\frac1x\,dx$'
+    - 'Integrate the new integral: $\frac{x^3}{3}\ln x - \frac{x^3}{9} + C$'
+    - 'Check by differentiating the result'
+  explanation: |-
+    You can't find $du$ and $v$ until $u$ and $dv$ are chosen, and the formula $uv - \int v\,du$ needs all four. The leftover integral $\int\frac{x^2}{3}\,dx = \frac{x^3}{9}$ is done next, and the check comes last: $\frac{d}{dx}\left(\frac{x^3}{3}\ln x - \frac{x^3}{9}\right) = x^2\ln x + \frac{x^2}{3} - \frac{x^2}{3} = x^2\ln x$.
+- id: calc-m8-r2-q03
+  lesson: calc-by-parts
+  module_quiz: true
+  topic: Integration by parts
+  stem: 'For which integrals is integration by parts the natural first method (rather than a plain substitution)? Select all that apply.'
+  choices: ['$\displaystyle\int xe^{2x}\,dx$', '$\displaystyle\int\arctan x\,dx$', '$\displaystyle\int xe^{x^2}\,dx$', '$\displaystyle\int x^2\ln x\,dx$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $xe^{2x}$ is algebraic times exponential ($u = x$). $\arctan x$ alone is done with $u = \arctan x$, $dv = dx$, like $\int\ln x\,dx$. $x^2\ln x$ is a log times a power ($u = \ln x$). But in $\int xe^{x^2}\,dx$ the factor $x$ is half the derivative of the inner function $x^2$, so $w = x^2$ gives $\frac12e^{x^2} + C$ at once.
+- id: calc-m8-r2-q04
+  lesson: calc-by-parts
+  topic: Integration by parts
+  type: label
+  stem: 'The curve runs from $(u_1, v_1)$ to $(u_2, v_2)$ in the $uv$-plane. Name the area of each numbered region.'
+  image: {src: images/calc-m8-parts-area-blank.svg, alt: 'The uv-plane with an increasing curve from (u1, v1) to (u2, v2). The rectangle from the origin to (u2, v2) is split into three numbered regions: one under the curve, one to the left of the curve, and a small rectangle at the lower left.'}
+  labels:
+    - {x: 62.5, y: 74.4, text: Integral of v du}
+    - {x: 38.5, y: 40.0, text: Integral of u dv}
+    - {x: 21.9, y: 75.0, text: Area u1·v1}
+  distractors: [Area u2·v2, Integral of u du]
+  explanation: |-
+    The region under the curve, between $u_1$ and $u_2$ on the $u$-axis, has area $\int v\,du$. The region between the curve and the $v$-axis, from $v_1$ to $v_2$, has area $\int u\,dv$. The small rectangle has area $u_1v_1$. Together they fill the big rectangle $u_2v_2$, so $\int u\,dv = u_2v_2 - u_1v_1 - \int v\,du$: integration by parts.
+- id: calc-m8-r2-q05
+  lesson: calc-by-parts
+  topic: Integration by parts
+  type: match
+  stem: 'Match each integral to its antiderivative.'
+  pairs:
+    - ['$\displaystyle\int\ln x\,dx$', 'x ln x − x + C']
+    - ['$\displaystyle\int xe^x\,dx$', 'x eˣ − eˣ + C']
+    - ['$\displaystyle\int x\cos x\,dx$', 'x sin x + cos x + C']
+    - ['$\displaystyle\int\arctan x\,dx$', 'x arctan x − ½ ln(1 + x²) + C']
+  distractors: ['x sin x − cos x + C', '1/x + C']
+  explanation: |-
+    Each is one round of parts. $\ln x$: $u = \ln x$, $v = x$. $xe^x$: $u = x$, $v = e^x$. $x\cos x$: $u = x$, $v = \sin x$, then $-\int\sin x\,dx = +\cos x$ (the distractor $-\cos x$ is the sign slip). $\arctan x$: $u = \arctan x$, $v = x$, then $\int\frac{x}{1 + x^2}\,dx = \frac12\ln(1 + x^2)$. $\frac1x$ is the derivative of $\ln x$, not its antiderivative.
+
+# 32 Trigonometric integrals and trigonometric substitution
+- id: calc-m8-r2-q06
+  lesson: calc-trig-integrals
+  module_quiz: true
+  topic: Trig integrals
+  type: text
+  stem: 'Evaluate $\displaystyle\int_0^{\pi/2}\sin^3x\,dx$. Give an exact fraction: ___'
+  accept: ['2/3']
+  explanation: |-
+    The sine power is odd: $\sin^3x = (1 - \cos^2x)\sin x$. With $u = \cos x$, $du = -\sin x\,dx$, and the limits $x = 0 \to u = 1$, $x = \frac\pi2 \to u = 0$:
+    $$\int_1^0 -(1 - u^2)\,du = \int_0^1(1 - u^2)\,du = 1 - \tfrac13 = \tfrac23.$$
+- id: calc-m8-r2-q07
+  lesson: calc-trig-integrals
+  topic: Trig substitution
+  type: match
+  stem: 'Match each expression in an integrand to the trig substitution that removes the root.'
+  pairs:
+    - ['$\sqrt{16 - x^2}$', 'x = 4 sin θ']
+    - ['$\sqrt{x^2 + 16}$', 'x = 4 tan θ']
+    - ['$\sqrt{x^2 - 16}$', 'x = 4 sec θ']
+  distractors: ['x = 16 sin θ', 'x = 16 tan θ']
+  explanation: |-
+    With $a = 4$ (not $a^2 = 16$): $16 - 16\sin^2\theta = 16\cos^2\theta$, $16\tan^2\theta + 16 = 16\sec^2\theta$, and $16\sec^2\theta - 16 = 16\tan^2\theta$. Each root becomes $4\cos\theta$, $4\sec\theta$ or $4\tan\theta$. Using 16 in place of 4 leaves $256\sin^2\theta$ under the root, which doesn't combine with 16.
+- id: calc-m8-r2-q08
+  lesson: calc-trig-integrals
+  module_quiz: true
+  topic: Trig integrals
+  stem: 'For $\displaystyle\int\sin^5x\cos^2x\,dx$, which statements are true? Select all that apply.'
+  choices: ['The sine power is odd, so save one $\sin x$ and substitute $u = \cos x$', '$\sin^4x$ can be rewritten as $(1 - \cos^2x)^2$', 'The substitution $u = \sin x$ works directly, because $du = \cos x\,dx$ is present', 'Both powers are odd, so either substitution works']
+  answer: [0, 1]
+  explanation: |-
+    Save one $\sin x$ for $du$ and convert $\sin^4x = (\sin^2x)^2 = (1 - \cos^2x)^2$; then $u = \cos x$ gives $-\int(1 - u^2)^2u^2\,du$. The cosine power, 2, is even: using one $\cos x$ for $du = \cos x\,dx$ leaves a single $\cos x = \sqrt{1 - u^2}$, a root, so $u = \sin x$ does not work directly.
+- id: calc-m8-r2-q09
+  lesson: calc-trig-integrals
+  topic: Trig substitution
+  type: label
+  stem: 'These are the reference triangles for the three trig substitutions. Name the numbered sides.'
+  image: {src: images/calc-m8-trig-sub-triangles-blank.svg, alt: 'Three right triangles with angle theta at the lower left, titled x = a sin theta, x = a tan theta and x = a sec theta. Some sides are labeled x or a; five sides are numbered.'}
+  labels:
+    - {x: 13.6, y: 40.4, text: a}
+    - {x: 14.5, y: 74.2, text: √(a² − x²)}
+    - {x: 46.2, y: 40.4, text: √(a² + x²)}
+    - {x: 77.4, y: 40.4, text: x}
+    - {x: 91.0, y: 43.8, text: √(x² − a²)}
+  distractors: [a²]
+  explanation: |-
+    Read each triangle from its substitution. $\sin\theta = \frac xa$ = opposite over hypotenuse: hypotenuse $a$ (1), opposite $x$, and the adjacent side (2) is $\sqrt{a^2 - x^2}$. $\tan\theta = \frac xa$ = opposite over adjacent, so the hypotenuse (3) is $\sqrt{a^2 + x^2}$. $\sec\theta = \frac xa$ = hypotenuse over adjacent: hypotenuse $x$ (4), adjacent $a$, and the opposite side (5) is $\sqrt{x^2 - a^2}$.
+- id: calc-m8-r2-q10
+  lesson: calc-trig-integrals
+  topic: Trig integrals
+  stem: 'Find $\displaystyle\int\tan x\sec^3x\,dx$.'
+  choices: ['$\tfrac14\sec^4x + C$', '$\tfrac13\tan^3x + C$', '$\tfrac13\sec^3x + C$', '$\tfrac12\tan^2x\sec x + C$']
+  answer: 2
+  explanation: |-
+    The tangent power is odd. Save $\sec x\tan x$: the integrand is $\sec^2x\cdot\sec x\tan x$. With $u = \sec x$, $du = \sec x\tan x\,dx$, this is $\int u^2\,du = \frac{u^3}{3} = \frac13\sec^3x + C$. The answer $\frac14\sec^4x$ treats $\sec^3x\,dx$ as if it were $du$ for $u = \sec x$, missing that $du$ uses one $\sec x$ together with the $\tan x$.
+
+# 33 Partial fractions
+- id: calc-m8-r2-q11
+  lesson: calc-partial-fractions
+  module_quiz: true
+  topic: Partial fractions
+  type: text
+  stem: 'Write $\dfrac{3x + 1}{(x - 1)(x + 1)} = \dfrac{A}{x - 1} + \dfrac{B}{x + 1}$. Then $A =$ ___ and $B =$ ___.'
+  accept:
+    - ['2']
+    - ['1']
+  explanation: |-
+    Clear denominators: $3x + 1 = A(x + 1) + B(x - 1)$. At $x = 1$: $4 = 2A$, so $A = 2$. At $x = -1$: $-2 = -2B$, so $B = 1$. Check: $2(x + 1) + (x - 1) = 3x + 1$.
+- id: calc-m8-r2-q12
+  lesson: calc-partial-fractions
+  topic: Partial fractions
+  type: match
+  stem: 'Match each denominator to the form of its partial fraction decomposition (numerator of lower degree).'
+  pairs:
+    - ['$(x - 1)(x + 3)$', 'A/(x − 1) + B/(x + 3)']
+    - ['$x^2(x + 1)$', 'A/x + B/x² + C/(x + 1)']
+    - ['$(x - 2)(x^2 + 4)$', 'A/(x − 2) + (Bx + C)/(x² + 4)']
+    - ['$(x + 1)^3$', 'A/(x + 1) + B/(x + 1)² + C/(x + 1)³']
+  distractors: ['A/x² + B/(x + 1)', 'A/(x − 2) + B/(x² + 4)']
+  explanation: |-
+    Distinct linear factors get one constant each. A repeated factor $x^2$ needs both $\frac Ax$ and $\frac B{x^2}$, and $(x + 1)^3$ needs one term for each power 1, 2, 3. The irreducible quadratic $x^2 + 4$ needs a linear numerator $Bx + C$. The distractors leave out a power of $x$ or use a constant over the quadratic.
+- id: calc-m8-r2-q13
+  lesson: calc-partial-fractions
+  topic: Partial fractions
+  stem: 'Which rational functions need polynomial long division before partial fractions? Select all that apply.'
+  choices: ['$\dfrac{x^3 + 1}{x^2 - 1}$', '$\dfrac{x^2 + 3}{x^2 - 4}$', '$\dfrac{5x + 2}{x^2 + x}$', '$\dfrac{x + 7}{x^3 - x}$']
+  answer: [0, 1]
+  explanation: |-
+    Division is needed when the numerator's degree is at least the denominator's (an improper fraction). Degrees 3 over 2 and 2 over 2 are improper; for instance $\frac{x^2 + 3}{x^2 - 4} = 1 + \frac{7}{x^2 - 4}$. Degrees 1 over 2 and 1 over 3 are already proper.
+- id: calc-m8-r2-q14
+  lesson: calc-partial-fractions
+  topic: Partial fractions
+  type: order
+  stem: 'Put the steps for integrating a rational function by partial fractions in order.'
+  items:
+    - 'If the fraction is improper, divide first'
+    - 'Factor the denominator completely'
+    - 'Write one term for each factor, with extra terms for repeated factors'
+    - 'Clear denominators and solve for the constants'
+    - 'Integrate each term'
+  explanation: |-
+    The decomposition only exists for a proper fraction, so division comes first. The factors determine which terms to write, the terms must be set up before their constants can be found, and only then can each simple piece be integrated (logs, powers and arctangents).
+- id: calc-m8-r2-q15
+  lesson: calc-partial-fractions
+  module_quiz: true
+  topic: Partial fractions
+  stem: 'Find $\displaystyle\int\frac{dx}{x^2 + 2x}$.'
+  choices: ['$\ln|x(x + 2)| + C$', '$\tfrac12\ln\left|\dfrac{x}{x + 2}\right| + C$', '$\tfrac12\ln\left|\dfrac{x + 2}{x}\right| + C$', '$\ln|x| - \ln|x + 2| + C$']
+  answer: 1
+  explanation: |-
+    $\dfrac{1}{x(x + 2)} = \dfrac{A}{x} + \dfrac{B}{x + 2}$ with $1 = A(x + 2) + Bx$: $x = 0$ gives $A = \frac12$, and $x = -2$ gives $B = -\frac12$. So the integral is $\frac12\ln|x| - \frac12\ln|x + 2| + C = \frac12\ln\left|\frac{x}{x + 2}\right| + C$. Forgetting the $\frac12$ gives $\ln|x| - \ln|x + 2|$, and swapping the signs of $A$ and $B$ flips the fraction.
+
+# 34 Integration strategy and numerical integration
+- id: calc-m8-r2-q16
+  lesson: calc-numerical-integration
+  module_quiz: true
+  topic: Numerical integration
+  type: text
+  stem: 'For $\displaystyle\int_0^2x^3\,dx$ with $n = 2$, the trapezoidal rule gives $T_2 =$ ___ and Simpson''s rule gives $S_2 =$ ___.'
+  accept:
+    - ['5']
+    - ['4']
+  explanation: |-
+    $\Delta x = 1$ and the values are $f(0) = 0$, $f(1) = 1$, $f(2) = 8$. $T_2 = \frac12[0 + 2(1) + 8] = 5$. $S_2 = \frac13[0 + 4(1) + 8] = 4$, which is exactly $\int_0^2x^3\,dx = \frac{16}{4} = 4$: Simpson's rule is exact for cubics. The trapezoid overestimates because $x^3$ is concave up on $[0, 2]$.
+- id: calc-m8-r2-q17
+  lesson: calc-numerical-integration
+  topic: Integration strategy
+  type: match
+  stem: 'Match each integral to the method to try first.'
+  pairs:
+    - ['$\displaystyle\int x\sqrt{x^2 + 4}\,dx$', 'Substitution']
+    - ['$\displaystyle\int x^2e^x\,dx$', 'Integration by parts']
+    - ['$\displaystyle\int\frac{x + 5}{x^2 + x - 2}\,dx$', 'Partial fractions']
+    - ['$\displaystyle\int\sin^3x\,dx$', 'Trig identity, then substitution']
+    - ['$\displaystyle\int\sqrt{9 - x^2}\,dx$', 'Trig substitution']
+  distractors: ['A numerical method only']
+  explanation: |-
+    $x$ is half the derivative of $x^2 + 4$, so $u = x^2 + 4$. $x^2e^x$ is a power times an exponential: parts (twice). $x^2 + x - 2 = (x - 1)(x + 2)$, so split the fraction. $\sin^3x = (1 - \cos^2x)\sin x$, then $u = \cos x$. $\sqrt{9 - x^2}$ with no matching $x$ outside calls for $x = 3\sin\theta$. All five have elementary antiderivatives, so none needs a numerical method.
+- id: calc-m8-r2-q18
+  lesson: calc-numerical-integration
+  module_quiz: true
+  topic: Numerical integration
+  stem: 'A function $f$ is concave up on $[a, b]$. Which statements are true? Select all that apply.'
+  choices: ['The trapezoidal rule $T_n$ overestimates $\int_a^b f(x)\,dx$', 'The midpoint rule $M_n$ underestimates $\int_a^b f(x)\,dx$', 'The trapezoidal rule $T_n$ underestimates $\int_a^b f(x)\,dx$', 'Doubling $n$ cuts the trapezoidal error by a factor of about 2']
+  answer: [0, 1]
+  explanation: |-
+    For a concave-up function the chords lie above the curve, so $T_n$ is too big, and the tangent line at each midpoint lies below it, so $M_n$ is too small. Doubling $n$ cuts the trapezoidal error by about 4, since the error behaves like $\frac{1}{n^2}$.
+- id: calc-m8-r2-q19
+  lesson: calc-numerical-integration
+  topic: Numerical integration
+  type: order
+  stem: 'Put the steps for applying Simpson''s rule to $\int_a^b f(x)\,dx$ with an even $n$ in order.'
+  items:
+    - 'Compute $\Delta x = \frac{b - a}{n}$'
+    - 'List the points $x_0 = a, x_1, \dots, x_n = b$'
+    - 'Evaluate $f$ at every point'
+    - 'Form the weighted sum with weights $1, 4, 2, 4, \dots, 4, 1$'
+    - 'Multiply the sum by $\frac{\Delta x}{3}$'
+  explanation: |-
+    The points are spaced $\Delta x$ apart, so $\Delta x$ comes first; $f$ can only be evaluated once the points are known; the weights apply to those values; and the factor $\frac{\Delta x}{3}$ multiplies the finished sum.
+- id: calc-m8-r2-q20
+  lesson: calc-numerical-integration
+  topic: Numerical integration
+  stem: 'Use $|E_S| \le \dfrac{K(b - a)^5}{180n^4}$ with $K = e$ (since $f^{(4)}(x) = e^x \le e$ on $[0, 1]$). What is the smallest $n$ that guarantees Simpson''s rule approximates $\displaystyle\int_0^1e^x\,dx$ within $0.0001$?'
+  choices: ['$n = 2$', '$n = 8$', '$n = 48$', '$n = 4$']
+  answer: 3
+  explanation: |-
+    Need $\frac{e}{180n^4} \le 0.0001$, so $n^4 \ge \frac{e}{0.018} \approx 151.0$ and $n \ge 3.51$. Simpson's rule needs an even $n$, so $n = 4$. Rounding 3.51 down gives 2, which is too small. $n = 48$ is what the trapezoidal bound $\frac{e}{12n^2} \le 0.0001$ would require ($n \ge 47.6$).
+
+# 35 Improper integrals
+- id: calc-m8-r2-q21
+  lesson: calc-improper
+  module_quiz: true
+  topic: Improper integrals
+  type: text
+  stem: 'Evaluate $\displaystyle\int_0^\infty e^{-2x}\,dx$. Give an exact fraction: ___'
+  accept: ['1/2']
+  explanation: |-
+    $\displaystyle\lim_{t\to\infty}\int_0^te^{-2x}\,dx = \lim_{t\to\infty}\left[-\tfrac12e^{-2x}\right]_0^t = \lim_{t\to\infty}\left(\tfrac12 - \tfrac12e^{-2t}\right) = \tfrac12.$
+- id: calc-m8-r2-q22
+  lesson: calc-improper
+  topic: Improper integrals
+  type: match
+  stem: 'Match each improper integral to its behavior.'
+  pairs:
+    - ['$\displaystyle\int_1^\infty\frac{dx}{x^{3/2}}$', 'Converges to 2']
+    - ['$\displaystyle\int_1^\infty\frac{dx}{\sqrt x}$', 'Diverges']
+    - ['$\displaystyle\int_0^1\frac{dx}{\sqrt x}$', 'Converges to 2']
+    - ['$\displaystyle\int_0^1\frac{dx}{x^2}$', 'Diverges']
+  distractors: ['Converges to 1/2']
+  explanation: |-
+    On $[1, \infty)$, $\frac{1}{x^p}$ converges iff $p > 1$, to $\frac{1}{p - 1}$: $p = \frac32$ gives 2, while $p = \frac12$ diverges. On $(0, 1]$ the condition flips to $p < 1$, with value $\frac{1}{1 - p}$: $p = \frac12$ gives 2, while $p = 2$ diverges.
+- id: calc-m8-r2-q23
+  lesson: calc-improper
+  topic: Improper integrals
+  stem: 'Which of these integrals are improper? Select all that apply.'
+  choices: ['$\displaystyle\int_0^1\ln x\,dx$', '$\displaystyle\int_{-1}^1\frac{dx}{x}$', '$\displaystyle\int_0^2\frac{dx}{x^2 + 1}$', '$\displaystyle\int_0^{\pi/4}\tan x\,dx$']
+  answer: [0, 1]
+  explanation: |-
+    $\ln x \to -\infty$ as $x \to 0^+$, an endpoint. $\frac1x$ is unbounded at 0, inside $[-1, 1]$ (and that integral diverges). $\frac{1}{x^2 + 1}$ is continuous everywhere, and $\tan x$ is continuous on $[0, \frac\pi4]$ (its asymptote is at $\frac\pi2$), so those two are ordinary definite integrals.
+- id: calc-m8-r2-q24
+  lesson: calc-improper
+  topic: Improper integrals
+  type: order
+  stem: 'Put the steps for evaluating $\displaystyle\int_1^\infty\frac{dx}{x^2}$ in order.'
+  items:
+    - 'Replace $\infty$ by $t$: $\displaystyle\lim_{t\to\infty}\int_1^t\frac{dx}{x^2}$'
+    - 'Find the antiderivative $-\frac1x$'
+    - 'Evaluate from 1 to $t$: $1 - \frac1t$'
+    - 'Take the limit as $t \to \infty$: the integral converges to 1'
+  explanation: |-
+    An improper integral is defined as a limit of ordinary integrals, so set up the limit first. Inside it, integrate and evaluate at the finite limits; the limit is taken last.
+- id: calc-m8-r2-q25
+  lesson: calc-improper
+  module_quiz: true
+  topic: Improper integrals
+  stem: 'Evaluate $\displaystyle\int_{-1}^{1}\frac{dx}{x^{2/3}}$.'
+  choices: ['$0$', '$3$', '$6$', 'It diverges']
+  answer: 2
+  explanation: |-
+    The integrand blows up at 0, inside the interval, so split there. On $(0, 1]$: $\lim_{t\to0^+}\Big[3x^{1/3}\Big]_t^1 = 3$ (a p-integral with $p = \frac23 < 1$). The integrand is even, so the left piece is also 3. Total: 6. The integrand $\frac{1}{x^{2/3}} = \frac{1}{(x^{1/3})^2}$ is positive on both sides of 0, so the halves add rather than cancel (0 would treat it as odd). 3 counts only one half, and "diverges" assumes every blow-up makes the integral infinite.
+
+# 36 Hyperbolic functions
+- id: calc-m8-r2-q26
+  lesson: calc-hyperbolic
+  module_quiz: true
+  topic: Hyperbolic functions
+  type: text
+  stem: 'Find $\sinh(\ln 3)$ as an exact fraction: ___'
+  accept: ['4/3']
+  explanation: |-
+    $\sinh(\ln 3) = \dfrac{e^{\ln 3} - e^{-\ln 3}}{2} = \dfrac{3 - \frac13}{2} = \dfrac{8/3}{2} = \dfrac43.$
+- id: calc-m8-r2-q27
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  type: match
+  stem: 'Match each function to its derivative.'
+  pairs:
+    - ['$\sinh x$', 'cosh x']
+    - ['$\cosh x$', 'sinh x']
+    - ['$\tanh x$', 'sech² x']
+    - ['$\sinh^{-1}x$', '1/√(x² + 1)']
+  distractors: ['−sinh x', '1/√(1 − x²)']
+  explanation: |-
+    From the definitions, $(\sinh x)' = \cosh x$ and $(\cosh x)' = \sinh x$, with no minus sign (that's the trig version). The quotient rule and $\cosh^2x - \sinh^2x = 1$ give $(\tanh x)' = \operatorname{sech}^2x$. Implicit differentiation gives $(\sinh^{-1}x)' = \frac{1}{\sqrt{x^2 + 1}}$; $\frac{1}{\sqrt{1 - x^2}}$ is the derivative of $\arcsin x$.
+- id: calc-m8-r2-q28
+  lesson: calc-hyperbolic
+  module_quiz: true
+  topic: Hyperbolic functions
+  stem: 'Which statements are true for every real number $x$? Select all that apply.'
+  choices: ['$\cosh^2x - \sinh^2x = 1$', '$\cosh x \ge 1$', '$\cosh(-x) = -\cosh x$', '$\sinh x = \sinh(x + 2\pi)$']
+  answer: [0, 1]
+  explanation: |-
+    The identity $\cosh^2x - \sinh^2x = 1$ comes from squaring the definitions. $\cosh x$ is the average of $e^x$ and $e^{-x}$, whose product is 1, so it is at least 1. But $\cosh$ is even, so $\cosh(-x) = +\cosh x$, and no hyperbolic function is periodic: $\sinh$ is increasing, so $\sinh(x + 2\pi) > \sinh x$.
+- id: calc-m8-r2-q29
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  type: order
+  stem: 'Put the steps for deriving the formula $\sinh^{-1}x = \ln\left(x + \sqrt{x^2 + 1}\right)$ in order.'
+  items:
+    - 'Set $x = \sinh y = \frac{e^y - e^{-y}}{2}$'
+    - 'Multiply by $2e^y$: $(e^y)^2 - 2x\,e^y - 1 = 0$'
+    - 'Solve the quadratic in $e^y$: $e^y = x \pm\sqrt{x^2 + 1}$'
+    - 'Keep the plus sign, since $e^y > 0$'
+    - 'Take the natural log: $y = \ln\left(x + \sqrt{x^2 + 1}\right)$'
+  explanation: |-
+    The inverse is found by solving $x = \sinh y$ for $y$. Clearing the negative exponent turns it into a quadratic in $e^y$. Of its two roots, $x - \sqrt{x^2 + 1}$ is always negative, so only the plus sign can equal $e^y$. A log then gives $y$.
+- id: calc-m8-r2-q30
+  lesson: calc-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'A cable hangs in the shape $y = 10\cosh\frac{x}{10}$ between $x = -10$ and $x = 10$ (meters). How long is it?'
+  choices: ['$20\cosh 1 \approx 30.86$ m', '$10\sinh 1 \approx 11.75$ m', '$20(\cosh 1 - 1) \approx 10.86$ m', '$20\sinh 1 \approx 23.50$ m']
+  answer: 3
+  explanation: |-
+    $y' = \sinh\frac{x}{10}$, so $\sqrt{1 + (y')^2} = \cosh\frac{x}{10}$ and $L = \int_{-10}^{10}\cosh\frac{x}{10}\,dx = \Big[10\sinh\frac{x}{10}\Big]_{-10}^{10} = 20\sinh 1 \approx 23.50$ m. $10\sinh 1$ covers only half the cable, and $20\cosh 1$ integrates the wrong function. The sag is $10(\cosh 1 - 1) \approx 5.43$ m, a height; $20(\cosh 1 - 1)$ is twice that, and neither is the cable's length.
+
+# 36h1 Reduction formulas and the Wallis product (honors)
+- id: calc-m8-r2-h01
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Which reduction formula is correct for $I_n = \displaystyle\int x^ne^x\,dx$?'
+  choices: ['$I_n = x^ne^x - nI_{n-1}$', '$I_n = x^ne^x + nI_{n-1}$', '$I_n = nx^{n-1}e^x - I_{n-1}$', '$I_n = x^ne^x - I_{n-1}$']
+  answer: 0
+  explanation: |-
+    One round of parts with $u = x^n$, $dv = e^x\,dx$: $du = nx^{n-1}\,dx$, $v = e^x$, so $I_n = x^ne^x - \int e^x\cdot nx^{n-1}\,dx = x^ne^x - nI_{n-1}$. Dropping the $n$ from $du$ gives the last choice; the plus sign ignores the minus in $uv - \int v\,du$.
+- id: calc-m8-r2-h02
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  type: text
+  stem: 'Using $I_n = x^ne^x - nI_{n-1}$ and $I_0 = e^x$, write $\displaystyle\int x^2e^x\,dx = e^x(x^2 + px + q) + C$. Then $p =$ ___ and $q =$ ___.'
+  accept:
+    - ['-2']
+    - ['2']
+  explanation: |-
+    $I_1 = xe^x - I_0 = xe^x - e^x$. Then $I_2 = x^2e^x - 2I_1 = x^2e^x - 2xe^x + 2e^x = e^x(x^2 - 2x + 2)$. So $p = -2$ and $q = 2$.
+- id: calc-m8-r2-h03
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  type: text
+  stem: '$\displaystyle\int_0^{\pi/2}\sin^4x\,dx = c\pi$. Give $c$ as an exact fraction: ___'
+  accept: ['3/16']
+  explanation: |-
+    $W_4 = \frac34W_2 = \frac34\cdot\frac12W_0 = \frac34\cdot\frac12\cdot\frac\pi2 = \frac{3\pi}{16}$, so $c = \frac{3}{16}$.
+- id: calc-m8-r2-h04
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Evaluate $\displaystyle\int_0^{\pi/2}\sin^7x\,dx$.'
+  choices: ['$\dfrac{8}{15}$', '$\dfrac{5\pi}{32}$', '$\dfrac{35\pi}{256}$', '$\dfrac{16}{35}$']
+  answer: 3
+  explanation: |-
+    The power is odd, so the chain ends at $W_1 = 1$: $W_7 = \frac67\cdot\frac45\cdot\frac23\cdot1 = \frac{48}{105} = \frac{16}{35}$. $\frac{8}{15}$ is $W_5$, and the choices with $\pi$ are even-power values ($W_6$ and $W_8$).
+- id: calc-m8-r2-h05
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Given that $\displaystyle\int_0^{\pi/2}\sin^5x\,dx = \frac{8}{15}$, what is $\displaystyle\int_0^{\pi/2}\cos^5x\,dx$?'
+  choices: ['$\dfrac{8}{15}$', '$0$', '$-\dfrac{8}{15}$', '$\dfrac{4}{15}$']
+  answer: 0
+  explanation: |-
+    The substitution $x \to \frac\pi2 - x$ maps $[0, \frac\pi2]$ to itself and turns $\cos x$ into $\sin x$, so the two integrals are equal: $\frac{8}{15}$. Over $[0, \frac\pi2]$ cosine is nonnegative, so the integral can't be 0 or negative.
+- id: calc-m8-r2-h06
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  type: order
+  stem: 'Put the steps in the derivation of the reduction formula for $I_n = \displaystyle\int\sin^nx\,dx$ in order.'
+  items:
+    - 'Choose $u = \sin^{n-1}x$ and $dv = \sin x\,dx$'
+    - 'Apply parts: $I_n = -\sin^{n-1}x\cos x + (n - 1)\int\sin^{n-2}x\cos^2x\,dx$'
+    - 'Replace $\cos^2x$ by $1 - \sin^2x$'
+    - 'Rewrite the integral as $(n - 1)I_{n-2} - (n - 1)I_n$'
+    - 'Move the $I_n$ terms to the left and divide by $n$'
+  explanation: |-
+    Parts needs the choice of $u$ and $dv$ first. The identity turns $\sin^{n-2}x\cos^2x$ into $\sin^{n-2}x - \sin^nx$, which is what makes $I_{n-2}$ and $I_n$ appear. With $I_n$ on both sides, collecting gives $nI_n = -\sin^{n-1}x\cos x + (n - 1)I_{n-2}$.
+- id: calc-m8-r2-h07
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  type: match
+  stem: 'Match each Wallis integral $W_n = \displaystyle\int_0^{\pi/2}\sin^nx\,dx$ to its value.'
+  pairs:
+    - ['$W_0$', 'π/2']
+    - ['$W_1$', '1']
+    - ['$W_2$', 'π/4']
+    - ['$W_3$', '2/3']
+  distractors: ['0', 'π']
+  explanation: |-
+    $W_0 = \int_0^{\pi/2}1\,dx = \frac\pi2$ and $W_1 = \Big[-\cos x\Big]_0^{\pi/2} = 1$. Then $W_2 = \frac12W_0 = \frac\pi4$ and $W_3 = \frac23W_1 = \frac23$.
+- id: calc-m8-r2-h08
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Which statements about the Wallis integrals $W_n = \displaystyle\int_0^{\pi/2}\sin^nx\,dx$ are true? Select all that apply.'
+  choices: ['$W_{n+1} < W_n$ for every $n \ge 0$', 'Every $W_{2k}$ is a rational number times $\pi$', 'Every $W_{2k+1}$ is a rational number', '$W_n = \dfrac{n - 1}{n}W_{n-1}$']
+  answer: [0, 1, 2]
+  explanation: |-
+    On $(0, \frac\pi2)$, $0 < \sin x < 1$, so $\sin^{n+1}x < \sin^nx$ and the integrals decrease. Even powers end at $W_0 = \frac\pi2$ after multiplying rational factors, and odd powers end at $W_1 = 1$. The reduction rule steps down by 2, not 1: $W_n = \frac{n - 1}{n}W_{n-2}$.
+- id: calc-m8-r2-h09
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Use $\displaystyle\int\tan^nx\,dx = \frac{\tan^{n-1}x}{n - 1} - \int\tan^{n-2}x\,dx$ to evaluate $\displaystyle\int_0^{\pi/4}\tan^2x\,dx$.'
+  choices: ['$\dfrac\pi4 - 1$', '$1 + \dfrac\pi4$', '$1 - \dfrac\pi4$', '$\dfrac\pi4$']
+  answer: 2
+  explanation: |-
+    With $n = 2$: $\Big[\tan x\Big]_0^{\pi/4} - \int_0^{\pi/4}1\,dx = 1 - \frac\pi4 \approx 0.215$. The integrand is positive, so $\frac\pi4 - 1 < 0$ can't be right; $1 + \frac\pi4$ adds the second integral instead of subtracting it.
+- id: calc-m8-r2-h10
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Evaluate $\displaystyle\int_0^{\pi/4}\tan^3x\,dx$, using $\displaystyle\int_0^{\pi/4}\tan x\,dx = \tfrac12\ln 2$.'
+  choices: ['$\tfrac12 + \tfrac12\ln 2$', '$\tfrac12 - \tfrac12\ln 2$', '$\tfrac12\ln 2$', '$1 - \ln 2$']
+  answer: 1
+  explanation: |-
+    The reduction formula with $n = 3$ on $[0, \frac\pi4]$: $T_3 = \frac{1}{2} - T_1 = \frac12 - \frac12\ln 2 \approx 0.153$. (Here $T_1 = \Big[\ln|\sec x|\Big]_0^{\pi/4} = \ln\sqrt2 = \frac12\ln 2$.) $1 - \ln 2$ is twice the answer, from using $\tan^{n-1}x$ without dividing by $n - 1 = 2$.
+- id: calc-m8-r2-h11
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'The Wallis product $\dfrac21\cdot\dfrac23\cdot\dfrac43\cdot\dfrac45\cdot\dfrac65\cdot\dfrac67\cdots$ converges to'
+  choices: ['$\pi$', '$\dfrac\pi4$', '$\dfrac2\pi$', '$\dfrac\pi2$']
+  answer: 3
+  explanation: |-
+    The squeeze $W_{2k+1} \le W_{2k} \le W_{2k-1}$ forces $\frac{W_{2k}}{W_{2k+1}} \to 1$, and solving that ratio for $\frac\pi2$ gives the product. The partial products increase toward $\frac\pi2 \approx 1.5708$ (for example, the first four factors give $\frac{64}{45} \approx 1.42$), so it can't be $\pi$ or less than 1.
+- id: calc-m8-r2-h12
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Which facts are used in the proof of the Wallis product given in the lesson? Select all that apply.'
+  choices: ['On $[0, \frac\pi2]$, $0 \le \sin x \le 1$, so a higher power of $\sin x$ is never larger', '$\dfrac{W_{2k-1}}{W_{2k+1}} = \dfrac{2k + 1}{2k} \to 1$', 'The value $\Gamma\left(\frac12\right) = \sqrt\pi$', 'Simpson''s rule is exact for cubic polynomials']
+  answer: [0, 1]
+  explanation: |-
+    The first fact gives $W_{2k+1} \le W_{2k} \le W_{2k-1}$. Dividing by $W_{2k+1}$ and using the reduction rule gives the upper bound $\frac{2k + 1}{2k}$, which tends to 1, so the squeeze theorem finishes the proof. Neither the gamma function nor numerical integration plays any part.
+- id: calc-m8-r2-h13
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  stem: 'Computing $J_n = \int_0^1x^ne^x\,dx$ forward with $J_n = e - nJ_{n-1}$ in ordinary computer arithmetic gives $J_{20} \approx -129$, though the true value is about $0.124$. Why?'
+  choices: ['The formula $J_n = e - nJ_{n-1}$ is only valid for $n \le 15$', '$J_n$ really does become negative for large $n$', 'Each step multiplies the existing error by $n$, so a tiny rounding error grows by about $n!$', 'Integration by parts fails for definite integrals']
+  answer: 2
+  explanation: |-
+    The recurrence is exact. But if $J_{n-1}$ carries an error $\varepsilon$, then $J_n = e - nJ_{n-1}$ carries $-n\varepsilon$. After 20 steps, a rounding error near $10^{-16}$ has been multiplied by about $20! \approx 2.4\times10^{18}$. Every $J_n$ is positive, since the integrand is positive. Running the recurrence backward divides the error by $n$ at each step instead.
+- id: calc-m8-r2-h14
+  lesson: calc-m8-h-reduction
+  topic: Reduction formulas
+  type: text
+  stem: 'The partial product of the first four Wallis factors is $\dfrac21\cdot\dfrac23\cdot\dfrac43\cdot\dfrac45 =$ ___ (an exact fraction).'
+  accept: ['64/45']
+  explanation: |-
+    Numerators $2\cdot2\cdot4\cdot4 = 64$, denominators $1\cdot3\cdot3\cdot5 = 45$: $\frac{64}{45} \approx 1.422$, still well below $\frac\pi2 \approx 1.571$. The product converges slowly.
+
+# 36h2 The gamma function (honors)
+- id: calc-m8-r2-h15
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'Which value of the gamma function equals $\displaystyle\int_0^\infty x^{3/2}e^{-x}\,dx$?'
+  choices: ['$\Gamma\left(\tfrac32\right)$', '$\Gamma\left(\tfrac52\right)$', '$\Gamma\left(\tfrac12\right)$', '$\Gamma(3)$']
+  answer: 1
+  explanation: |-
+    $\Gamma(s)$ has the power $x^{s-1}$. Here $s - 1 = \frac32$, so $s = \frac52$, and the value is $\Gamma(\frac52) = \frac{3\sqrt\pi}{4}$. Choosing $\Gamma(\frac32)$ forgets the shift by one.
+- id: calc-m8-r2-h16
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  type: text
+  stem: 'Evaluate $\displaystyle\int_0^\infty x^4e^{-x}\,dx$: ___'
+  accept: ['24']
+  explanation: |-
+    This is $\Gamma(5) = 4! = 24$. (Four rounds of parts give the same answer; each boundary term vanishes because $x^ke^{-x} \to 0$.)
+- id: calc-m8-r2-h17
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  type: text
+  stem: 'Evaluate $\displaystyle\int_0^\infty x^2e^{-3x}\,dx$ as an exact fraction: ___'
+  accept: ['2/27']
+  explanation: |-
+    With $u = 3x$: $\displaystyle\int_0^\infty\left(\frac u3\right)^2e^{-u}\,\frac{du}{3} = \frac{\Gamma(3)}{3^3} = \frac{2}{27}$. Forgetting the $\frac13$ from $dx$ gives $\frac29$.
+- id: calc-m8-r2-h18
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'Given $\Gamma\left(\tfrac12\right) = \sqrt\pi$, find $\Gamma\left(\tfrac52\right)$.'
+  choices: ['$\dfrac{3\sqrt\pi}{2}$', '$\dfrac{\sqrt\pi}{2}$', '$\dfrac{3\sqrt\pi}{4}$', '$\dfrac{15\sqrt\pi}{8}$']
+  answer: 2
+  explanation: |-
+    $\Gamma(\frac52) = \frac32\Gamma(\frac32) = \frac32\cdot\frac12\Gamma(\frac12) = \frac34\sqrt\pi$. $\frac{\sqrt\pi}{2}$ is $\Gamma(\frac32)$ and $\frac{15\sqrt\pi}{8}$ is $\Gamma(\frac72)$.
+- id: calc-m8-r2-h19
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  type: order
+  stem: 'Put the steps in the proof that $\Gamma(s + 1) = s\,\Gamma(s)$ for $s > 0$ in order.'
+  items:
+    - 'Write $\Gamma(s + 1) = \int_0^\infty x^se^{-x}\,dx$'
+    - 'Choose $u = x^s$ and $dv = e^{-x}\,dx$'
+    - 'Apply parts: $\Big[-x^se^{-x}\Big]_0^\infty + s\int_0^\infty x^{s-1}e^{-x}\,dx$'
+    - 'Show the boundary term is 0 at both ends'
+    - 'Recognize the remaining integral as $s\,\Gamma(s)$'
+  explanation: |-
+    Start from the definition with $s + 1$ in place of $s$. Choosing $u$ and $dv$ comes before applying the formula. Once the boundary term is shown to vanish ($x^s \to 0$ at $0^+$ and $x^se^{-x} \to 0$ at $\infty$), what is left is exactly $s\,\Gamma(s)$.
+- id: calc-m8-r2-h20
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  type: match
+  stem: 'Match each integral to its value.'
+  pairs:
+    - ['$\displaystyle\int_0^\infty x^3e^{-x}\,dx$', '6']
+    - ['$\displaystyle\int_0^\infty\sqrt x\,e^{-x}\,dx$', '√π/2']
+    - ['$\displaystyle\int_0^\infty\frac{e^{-x}}{\sqrt x}\,dx$', '√π']
+    - ['$\displaystyle\int_0^\infty x^2e^{-x^2}\,dx$', '√π/4']
+  distractors: ['24', 'π']
+  explanation: |-
+    $\Gamma(4) = 3! = 6$ (24 would be $\Gamma(5)$). $\sqrt x = x^{3/2 - 1}$ gives $\Gamma(\frac32) = \frac{\sqrt\pi}{2}$, and $x^{-1/2} = x^{1/2 - 1}$ gives $\Gamma(\frac12) = \sqrt\pi$. For the last, $u = x^2$ gives $\frac12\Gamma(\frac32) = \frac{\sqrt\pi}{4}$.
+- id: calc-m8-r2-h21
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'For which values of $s$ does $\displaystyle\int_0^\infty x^{s-1}e^{-x}\,dx$ converge? Select all that apply.'
+  choices: ['$s = \tfrac12$', '$s = 3$', '$s = 0$', '$s = -\tfrac12$']
+  answer: [0, 1]
+  explanation: |-
+    Near $\infty$ the exponential wins for every $s$. Near 0 the integrand behaves like $x^{s-1} = \frac{1}{x^{1-s}}$, a p-integral on $(0, 1]$ that converges only when $1 - s < 1$, that is, $s > 0$. So $s = \frac12$ and $s = 3$ converge, while $s = 0$ ($\frac1x$ near 0) and $s = -\frac12$ diverge.
+- id: calc-m8-r2-h22
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  type: text
+  stem: '$\Gamma\left(\tfrac72\right) = c\sqrt\pi$. Give $c$ as an exact fraction: ___'
+  accept: ['15/8']
+  explanation: |-
+    $\Gamma(\frac72) = \frac52\cdot\frac32\cdot\frac12\cdot\Gamma(\frac12) = \frac{15}{8}\sqrt\pi$, so $c = \frac{15}{8}$.
+- id: calc-m8-r2-h23
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'In the proof of $\Gamma(s + 1) = s\Gamma(s)$, why is the boundary term $\Big[-x^se^{-x}\Big]_0^\infty$ equal to 0 when $s > 0$?'
+  choices: ['Because $e^{-x} = 0$ at $x = 0$', 'Because $x^s \to 0$ as $x \to 0^+$, and $x^se^{-x} \to 0$ as $x \to \infty$', 'Because $x^se^{-x}$ is an odd function', 'Because both ends give the same nonzero number, which cancels']
+  answer: 1
+  explanation: |-
+    At the lower end, $x^s \to 0$ for $s > 0$ while $e^{-x} \to 1$. At the upper end, the exponential decays faster than any power grows. ($e^{-0} = 1$, not 0, and the function isn't odd.)
+- id: calc-m8-r2-h24
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'Evaluate $\displaystyle\int_0^1(\ln x)^2\,dx$.'
+  choices: ['$1$', '$6$', '$-2$', '$2$']
+  answer: 3
+  explanation: |-
+    $(\ln x)^2 = (-\ln x)^2$. With $x = e^{-u}$, $dx = -e^{-u}\,du$, and the limits $x = 1 \to u = 0$, $x \to 0^+ \to u \to \infty$: $\int_0^\infty u^2e^{-u}\,du = \Gamma(3) = 2$. The integrand is positive, so the answer can't be $-2$; 6 is $\Gamma(4)$.
+- id: calc-m8-r2-h25
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'Customers arrive at an average rate of $\lambda = 3$ per minute, and the waiting time until the next arrival is modeled by the density $3e^{-3x}$ ($x$ in minutes). What is the mean waiting time $\int_0^\infty x\cdot3e^{-3x}\,dx$?'
+  choices: ['$\tfrac13$ minute (20 seconds)', '3 minutes', '$\tfrac19$ minute', '$\tfrac23$ minute']
+  answer: 0
+  explanation: |-
+    $\int_0^\infty x\,e^{-3x}\,dx = \frac{1!}{3^2} = \frac19$, and multiplying by 3 gives $\frac13$ minute. In general the mean is $\frac1\lambda$: 3 arrivals per minute means one every third of a minute on average. $\frac19$ forgets the factor $\lambda = 3$ in the density.
+- id: calc-m8-r2-h26
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'Which statements about the gamma function are true? Select all that apply.'
+  choices: ['$\Gamma(1) = \Gamma(2) = 1$', '$\Gamma(n) = n!$ for whole numbers $n \ge 1$', '$\Gamma(s) \to \infty$ as $s \to 0^+$', 'The minimum of $\Gamma$ on $(0, \infty)$ is at $s = 1$']
+  answer: [0, 2]
+  explanation: |-
+    $\Gamma(1) = 0! = 1$ and $\Gamma(2) = 1! = 1$. In general $\Gamma(n) = (n - 1)!$, not $n!$. Near 0, $\Gamma(s) = \frac{\Gamma(s + 1)}{s}$ with $\Gamma(s + 1) \to 1$, so it blows up. Since $\Gamma(1) = \Gamma(2)$, the minimum is between them, near $s \approx 1.46$ (value about 0.886).
+- id: calc-m8-r2-h27
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'The integral does not define $\Gamma\left(-\tfrac12\right)$, but the rule $\Gamma(s) = \dfrac{\Gamma(s + 1)}{s}$ extends it. What value does that give?'
+  choices: ['$2\sqrt\pi$', '$-2\sqrt\pi$', '$-\dfrac{\sqrt\pi}{2}$', '$\dfrac{\sqrt\pi}{2}$']
+  answer: 1
+  explanation: |-
+    With $s = -\frac12$: $\Gamma(-\frac12) = \dfrac{\Gamma(\frac12)}{-\frac12} = -2\sqrt\pi \approx -3.545$. Multiplying by $-\frac12$ in place of dividing gives $-\frac{\sqrt\pi}{2}$.
+- id: calc-m8-r2-h28
+  lesson: calc-m8-h-gamma
+  topic: Gamma function
+  stem: 'Stirling''s approximation $n! \approx \sqrt{2\pi n}\left(\frac ne\right)^n$ gives about $3.5987\times10^6$ for $n = 10$, while $10! = 3{,}628{,}800$. The relative error is about'
+  choices: ['$8\%$', '$0.08\%$', '$3\%$', '$0.8\%$']
+  answer: 3
+  explanation: |-
+    $\frac{3{,}628{,}800 - 3{,}598{,}696}{3{,}628{,}800} \approx \frac{30{,}104}{3{,}628{,}800} \approx 0.0083$, about $0.8\%$. Stirling's approximation slightly underestimates $n!$, and its relative error shrinks as $n$ grows.
+
+# 36h3 Richardson extrapolation and Romberg integration (honors)
+- id: calc-m8-r2-h29
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'For a smooth function, by about what factor does the trapezoidal rule''s error shrink when $n$ is doubled?'
+  choices: ['4', '2', '16', '8']
+  answer: 0
+  explanation: |-
+    The error is about $ch^2$, and doubling $n$ halves $h$, so the error is multiplied by about $\frac14$. Simpson's rule (error about $ch^4$) would improve by about 16.
+- id: calc-m8-r2-h30
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  type: text
+  stem: 'The trapezoidal rule gives $T_2 = 1.20$ and $T_4 = 1.11$ for a smooth integrand. One Richardson step gives the estimate ___'
+  accept: ['1.08']
+  explanation: |-
+    $\dfrac{4T_4 - T_2}{3} = \dfrac{4.44 - 1.20}{3} = \dfrac{3.24}{3} = 1.08$. Equivalently, $T_4 + \frac{T_4 - T_2}{3} = 1.11 - 0.03$.
+- id: calc-m8-r2-h31
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  type: order
+  stem: 'Put the steps for computing $R_{2,2}$ by Romberg integration in order.'
+  items:
+    - 'Compute the trapezoid values $T_1$, $T_2$ and $T_4$'
+    - 'Combine neighbors with weights 4 and $-1$ over 3 to get $R_{1,1}$ and $R_{2,1}$'
+    - 'Combine $R_{1,1}$ and $R_{2,1}$ with weights 16 and $-1$ over 15 to get $R_{2,2}$'
+  explanation: |-
+    Each column of the table is built from the one before it: trapezoid values, then the first extrapolation (cancelling $h^2$; these are Simpson values), then the second (cancelling $h^4$).
+- id: calc-m8-r2-h32
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  type: match
+  stem: 'For a smooth integrand, match each method to how its error behaves as the step size $h$ shrinks.'
+  pairs:
+    - ['Left Riemann sum', 'proportional to h']
+    - ['Trapezoidal rule', 'proportional to h²']
+    - ['Simpson''s rule', 'proportional to h⁴']
+    - ['Romberg value $R_{2,2}$', 'proportional to h⁶']
+  distractors: ['proportional to h³']
+  explanation: |-
+    A one-sided Riemann sum has error of order $h$. The trapezoidal rule's Euler–Maclaurin series starts with $h^2$. One Richardson step (Simpson) cancels $h^2$, leaving $h^4$, and the next Romberg column cancels $h^4$, leaving $h^6$. Only even powers appear for the trapezoidal family, so $h^3$ fits none of them.
+- id: calc-m8-r2-h33
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['$\dfrac{4T_{2n} - T_n}{3}$ equals Simpson''s rule $S_{2n}$', 'In the second Romberg column, values are combined with weights 16 and $-1$, divided by 15', 'In $\dfrac{4T_{2n} - T_n}{3}$, the finer value $T_{2n}$ gets the weight $-1$', 'Extrapolation improves an estimate equally well whether or not the integrand is smooth']
+  answer: [0, 1]
+  explanation: |-
+    Expanding $4T_{2n} - T_n$ gives the weights $1, 4, 2, 4, \dots, 4, 1$ times $\frac h3$, which is $S_{2n}$. Simpson errors go like $h^4$, so the next step uses $2^4 = 16$ and $15$. The finer value gets the big weight 4, not $-1$. And extrapolation relies on the error being a series in $h^2$, which fails for rough integrands like $\sqrt x$ near 0.
+- id: calc-m8-r2-h34
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  type: text
+  stem: 'For $\displaystyle\int_0^1e^x\,dx$, the leading term of the trapezoidal error is $\dfrac{h^2}{12}\left[f''(1) - f''(0)\right]$. With $h = 0.5$, this term equals ___ (3 decimal places).'
+  accept: ['0.036']
+  explanation: |-
+    $f'(x) = e^x$, so $f'(1) - f'(0) = e - 1 \approx 1.71828$, and $\frac{0.25}{12}(1.71828) \approx 0.03580$, which is $0.036$. The actual error of $T_2 \approx 1.75393$ is $1.75393 - 1.71828 \approx 0.03565$, very close.
+- id: calc-m8-r2-h35
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'The central difference $D(h) = \dfrac{f(x + h) - f(x - h)}{2h}$ has error about $ch^2$. Which combination of $D(0.2)$ and $D(0.1)$ cancels that error?'
+  choices: ['$\dfrac{4D(0.2) - D(0.1)}{3}$', '$\dfrac{16D(0.1) - D(0.2)}{15}$', '$2D(0.1) - D(0.2)$', '$\dfrac{4D(0.1) - D(0.2)}{3}$']
+  answer: 3
+  explanation: |-
+    The error is $\propto h^2$, so $p = 2$ and the factor is $2^2 = 4$, applied to the smaller step: $\frac{4D(0.1) - D(0.2)}{3}$. $2D(0.1) - D(0.2)$ would cancel an error $\propto h$, and 16 and 15 are for $h^4$ errors. Weighting the coarse value by 4 makes the error worse.
+- id: calc-m8-r2-h36
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'A method has error about $ch^3$. Which combination of $A(h)$ and $A(h/2)$ cancels it?'
+  choices: ['$\dfrac{8A(h/2) - A(h)}{7}$', '$\dfrac{4A(h/2) - A(h)}{3}$', '$\dfrac{16A(h/2) - A(h)}{15}$', '$\dfrac{3A(h/2) - A(h)}{2}$']
+  answer: 0
+  explanation: |-
+    Halving $h$ multiplies the error by $\frac18$: $A(h/2) \approx I + \frac{ch^3}{8}$. Then $8A(h/2) - A(h) \approx 7I$, so $I \approx \frac{8A(h/2) - A(h)}{7}$. In general the weights are $2^p$ and $2^p - 1$.
+- id: calc-m8-r2-h37
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'Why does Romberg integration improve $\displaystyle\int_0^1\sqrt x\,dx$ only slightly?'
+  choices: ['The integral diverges', 'The derivative of $\sqrt x$ is unbounded at 0, so the error isn''t a series in $h^2, h^4, \dots$', 'Simpson''s rule needs an odd number of subintervals', 'The trapezoidal rule is already exact for $\sqrt x$']
+  answer: 1
+  explanation: |-
+    The Euler–Maclaurin series needs smooth derivatives on the whole interval, but $\frac{1}{2\sqrt x}$ is unbounded at 0. The trapezoid error then shrinks like $h^{3/2}$, so the factors 4, 16, … cancel the wrong thing. The integral converges (to $\frac23$), the trapezoidal rule is not exact for it, and Simpson's rule needs an even $n$.
+- id: calc-m8-r2-h38
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'For $\displaystyle\int_0^{2\pi}e^{\sin x}\,dx$, the plain trapezoidal rule with 16 subintervals is accurate to about 15 digits. Why?'
+  choices: ['$e^{\sin x}$ is concave up everywhere', 'The trapezoidal rule is exact whenever $n \ge 16$', 'For a smooth periodic function over a whole period, every correction term in the Euler–Maclaurin series is 0', '$e^{\sin x}$ is a polynomial of degree less than 16']
+  answer: 2
+  explanation: |-
+    Each correction term contains $f^{(k)}(b) - f^{(k)}(a)$, and for a smooth function with period $2\pi$ integrated over $[0, 2\pi]$ these differences all vanish. (This explains the remarkable accuracy, though the series is only asymptotic.) $e^{\sin x}$ is not a polynomial and not concave up everywhere, and no $n$ makes the rule exact in general.
+- id: calc-m8-r2-h39
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  type: text
+  stem: 'Given $T_1 = 1.8591$ and $T_2 = 1.7539$, compute $R_{1,1} = \dfrac{4T_2 - T_1}{3}$ to 4 decimal places: ___'
+  accept: ['1.7188', '1.71883']
+  explanation: |-
+    $4(1.7539) = 7.0156$, and $\frac{7.0156 - 1.8591}{3} = \frac{5.1565}{3} \approx 1.71883$, so $1.7188$. These are the rounded trapezoid values for $\int_0^1e^x\,dx = e - 1 \approx 1.71828$.
+- id: calc-m8-r2-h40
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'Which statements about the Euler–Maclaurin error series $T(h) = I + c_2h^2 + c_4h^4 + \cdots$ for a smooth $f$ are true? Select all that apply.'
+  choices: ['It contains only even powers of $h$', '$c_2 = \frac{1}{12}\left[f''(b) - f''(a)\right]$', 'It gives the exact error after finitely many terms for every smooth function', 'It applies only to periodic functions']
+  answer: [0, 1]
+  explanation: |-
+    Only even powers appear, which is why each Romberg column gains two orders. The leading coefficient is $\frac{1}{12}[f'(b) - f'(a)]$. The series is asymptotic: useful for small $h$, but not in general a finite or convergent formula. It holds for any sufficiently smooth $f$; periodicity is the special case where all its corrections vanish.
+- id: calc-m8-r2-h41
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  stem: 'For $\int_1^2\frac{dx}{x}$, $T_2 = 0.708333$ and $T_4 = 0.697024$. What correction does Richardson extrapolation add to $T_4$?'
+  choices: ['$-0.003770$', '$+0.003770$', '$-0.011309$', '$-0.000754$']
+  answer: 0
+  explanation: |-
+    The correction is $\frac{T_4 - T_2}{3} = \frac{-0.011309}{3} \approx -0.003770$, giving $0.693254$. That's negative because the trapezoid overestimates for the concave-up $\frac1x$. $-0.011309$ is the whole change from $T_2$ to $T_4$, not a third of it, and $-0.000754$ divides by 15 instead of 3.
+- id: calc-m8-r2-h42
+  lesson: calc-m8-h-romberg
+  topic: Richardson extrapolation
+  type: order
+  stem: 'In the lesson''s Romberg table for $\int_0^1e^x\,dx$ (built from $T_1, T_2, T_4, T_8$), order these entries from least accurate to most accurate.'
+  items:
+    - '$T_8 = R_{3,0}$'
+    - '$R_{3,1}$'
+    - '$R_{3,2}$'
+    - '$R_{3,3}$'
+  explanation: |-
+    Their errors are about $2.2\times10^{-3}$, $2.3\times10^{-6}$, $1.4\times10^{-8}$ and $3\times10^{-10}$. Each column to the right cancels one more even power of $h$.

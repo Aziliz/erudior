@@ -1,0 +1,252 @@
+# Round 2, module stat-m8: drills for the three honors lessons.
+
+# ---- Honors 1: power and sample size
+- id: stat-m8-r2-n-mean
+  title: Sample size for a one-sided z test of a mean
+  topic: Power and sample size
+  vars:
+    sig: {min: 4, max: 30}
+    del: {min: 1, max: 12}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}]}
+    pw: {choices: [{label: '0.80', value: 0.8}, {label: '0.90', value: 0.9}]}
+  calc:
+    za: invnorm(1 - al)
+    zb: invnorm(pw)
+    nraw: ((za + zb)*sig/del)^2
+    nn: ceil(nraw)
+    fr: nraw - floor(nraw)
+  where: ['nraw >= 10', 'nraw <= 300', 'fr >= 0.25', 'fr <= 0.9']
+  prompt: |-
+    A one-sided z test of $H_0: \mu = \mu_0$ at $\alpha = {al}$ should have power {pw} to detect a true
+    mean {del} units above $\mu_0$. The standard deviation of individual measurements is $\sigma = {sig}$.
+    What is the smallest sample size that does this? Use $z$ values to 3 decimals.
+  answers:
+    - {name: nn, label: '$n =$', format: int, tolerance: 0}
+  solution: |-
+    $z_\alpha = {za:dp3}$ and $z_\beta = {zb:dp3}$. Then
+    $n = \left(\dfrac{({za:dp3} + {zb:dp3})({sig})}{{del}}\right)^2 \approx {nraw:num2}$. Always round up: $n =$ **{nn:int}**.
+
+- id: stat-m8-r2-power-prop
+  title: Power of a one-proportion z test
+  topic: Power and sample size
+  vars:
+    p0: {choices: [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9]}
+    gap: {min: 0.02, max: 0.08, step: 0.01}
+    nn: {min: 100, max: 800, step: 50}
+  calc:
+    p1: p0 - gap
+    se0: sqrt(p0*(1 - p0)/nn)
+    cut: p0 - 1.645*se0
+    se1: sqrt(p1*(1 - p1)/nn)
+    zz: (cut - p1)/se1
+    pw: normcdf(zz)
+  where: ['pw >= 0.15', 'pw <= 0.97']
+  prompt: |-
+    A one-proportion z test of $H_0: p = {p0}$ against $H_a: p < {p0}$ uses $n = {nn}$ and
+    $\alpha = 0.05$. Find the cutoff for $\hat{p}$ (reject when $\hat{p}$ is at or below it; 4 decimals),
+    and the power of the test if the true proportion is {p1:num2} (3 decimals).
+  answers:
+    - {name: cut, label: 'cutoff', tolerance: 0.0006, format: num4}
+    - {name: pw, label: 'power', tolerance: 0.005, format: dp3}
+  solution: |-
+    Under $H_0$: $SE = \sqrt{{p0}(1 - {p0})/{nn}} \approx {se0:num4}$, so reject when
+    $\hat{p} \le {p0} - 1.645({se0:num4}) \approx$ **{cut:num4}**. If $p = {p1:num2}$, the SD of $\hat{p}$ is
+    $\sqrt{{p1:num2}(1 - {p1:num2})/{nn}} \approx {se1:num4}$, and the power is
+    $P\!\left(Z \le \dfrac{{cut:num4} - {p1:num2}}{{se1:num4}}\right) = P(Z \le {zz:num2}) \approx$ **{pw:dp3}**.
+
+- id: stat-m8-r2-n-two-sample
+  title: Sample size per group for comparing two means
+  topic: Power and sample size
+  vars:
+    sig: {min: 3, max: 25}
+    del: {min: 1, max: 10}
+    pw: {choices: [{label: '0.80', value: 0.8}, {label: '0.90', value: 0.9}]}
+  calc:
+    za: invnorm(0.975)
+    zb: invnorm(pw)
+    nraw: 2*((za + zb)*sig/del)^2
+    nn: ceil(nraw)
+    fr: nraw - floor(nraw)
+    tot: 2*nn
+  where: ['nraw >= 10', 'nraw <= 250', 'fr >= 0.25', 'fr <= 0.9']
+  prompt: |-
+    Two independent groups of equal size will be compared with a two-sided test at $\alpha = 0.05$.
+    The common standard deviation is about $\sigma = {sig}$, and the study should have power {pw} to
+    detect a difference in means of {del}. How many subjects are needed in each group? Use $z$ values
+    to 3 decimals.
+  answers:
+    - {name: nn, label: 'per group', format: int, tolerance: 0}
+  solution: |-
+    Two-sided, so use $z_{\alpha/2} = {za:dp3}$; for power {pw}, $z_\beta = {zb:dp3}$.
+    $n = 2\left(\dfrac{({za:dp3} + {zb:dp3})({sig})}{{del}}\right)^2 \approx {nraw:num2}$, rounded up to
+    **{nn:int}** per group ({tot:int} subjects in all).
+
+# ---- Honors 2: multiple testing
+- id: stat-m8-r2-fwer
+  title: Family-wise error rate and the Bonferroni level
+  topic: Multiple testing
+  vars:
+    mm: {min: 2, max: 30}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}, {label: '0.10', value: 0.1}]}
+  calc:
+    fw: 1 - (1 - al)^mm
+    bon: al/mm
+    keep: (1 - al)^mm
+  prompt: |-
+    A study runs {mm} independent significance tests, each at level $\alpha = {al}$, and every null
+    hypothesis is true. Find the probability of at least one Type I error (3 decimals). Then give the
+    per-test level the Bonferroni correction would use to keep this probability at or below {al}
+    (3 significant figures).
+  answers:
+    - {name: fw, label: 'FWER', tolerance: 0.0006, format: dp3}
+    - {name: bon, label: 'Bonferroni level', sigfigs: 3, format: sig3}
+  solution: |-
+    All {mm} tests avoid a false alarm with probability $(1 - {al})^{{mm}} \approx {keep:num4}$, so
+    FWER $= 1 - {keep:num4} \approx$ **{fw:dp3}**. Bonferroni tests each at $\alpha/m = {al}/{mm} \approx$ **{bon:sig3}**.
+
+- id: stat-m8-r2-holm-bh
+  title: Bonferroni, Holm and Benjamini–Hochberg
+  topic: Multiple testing
+  vars:
+    k1: {min: 1, max: 14}
+    g2: {min: 1, max: 12}
+    g3: {min: 1, max: 14}
+    g4: {min: 1, max: 22}
+    g5: {min: 2, max: 60}
+  calc:
+    k2: k1 + g2
+    k3: k2 + g3
+    k4: k3 + g4
+    k5: k4 + g5
+    p1: k1/1000
+    p2: k2/1000
+    p3: k3/1000
+    p4: k4/1000
+    p5: k5/1000
+    bon: (k1 <= 10) + (k2 <= 10) + (k3 <= 10) + (k4 <= 10) + (k5 <= 10)
+    holm: if(k1 > 10, 0, if(k2 > 12.5, 1, if(k3 > 50/3, 2, if(k4 > 25, 3, if(k5 > 50, 4, 5)))))
+    bh: if(k5 <= 50, 5, if(k4 <= 40, 4, if(k3 <= 30, 3, if(k2 <= 20, 2, if(k1 <= 10, 1, 0)))))
+  where: ['bh >= 1', 'bh > bon']
+  prompt: |-
+    Five hypotheses are tested. The sorted p-values are {p1:dp3}, {p2:dp3}, {p3:dp3}, {p4:dp3} and
+    {p5:dp3}. Using $\alpha = q = 0.05$, how many hypotheses are rejected by the Bonferroni correction,
+    by Holm's method, and by the Benjamini–Hochberg procedure?
+  answers:
+    - {name: bon, label: 'Bonferroni', format: int, tolerance: 0}
+    - {name: holm, label: 'Holm', format: int, tolerance: 0}
+    - {name: bh, label: 'Benjamini–Hochberg', format: int, tolerance: 0}
+  solution: |-
+    *Bonferroni*: compare every p-value with $0.05/5 = 0.01$: **{bon:int}** rejected.
+    *Holm*: compare the sorted p-values with 0.0100, 0.0125, 0.0167, 0.0250, 0.0500 in turn and stop at
+    the first one above its threshold: **{holm:int}** rejected.
+    *Benjamini–Hochberg*: thresholds $0.05\,i/5$ = 0.01, 0.02, 0.03, 0.04, 0.05; find the largest rank
+    whose p-value is at or below its threshold and reject up to it: **{bh:int}** rejected.
+
+- id: stat-m8-r2-false-share
+  title: How many significant results are false?
+  topic: Multiple testing
+  vars:
+    nh: {choices: [500, 1000, 2000, 5000]}
+    rr: {min: 0.05, max: 0.5, step: 0.05}
+    pw: {min: 0.2, max: 0.95, step: 0.05}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}]}
+  calc:
+    real: nh*rr
+    nulls: nh - real
+    td: pw*real
+    fd: al*nulls
+    share: fd/(td + fd)
+    rpct: 100*rr
+  prompt: |-
+    A field tests {nh} hypotheses at $\alpha = {al}$. Suppose {rpct:int}% of them are real effects and the
+    studies have power {pw:num2}. Find the expected number of false discoveries and the expected share of
+    significant results that are false (3 decimals).
+  answers:
+    - {name: fd, label: 'false discoveries', tolerance: 0.05, format: num1}
+    - {name: share, label: 'share false', tolerance: 0.0006, format: dp3}
+  solution: |-
+    Real effects: {real:int}; true nulls: {nulls:int}. True discoveries: ${pw:num2} \times {real:int} = {td:num1}$.
+    False discoveries: ${al} \times {nulls:int} =$ **{fd:num1}**. Share false $= \dfrac{{fd:num1}}{{td:num1} + {fd:num1}} \approx$ **{share:dp3}**.
+
+# ---- Honors 3: exact tests
+- id: stat-m8-r2-exact-binom
+  title: Exact binomial test (one-sided)
+  topic: Exact tests
+  vars:
+    nn: {min: 10, max: 60}
+    p0: {choices: [0.05, 0.1, 0.2, 0.25, 0.3, 0.5]}
+    xx: {min: 2, max: 40}
+  calc:
+    pv: 1 - binomcdf(nn, p0, xx - 1)
+    mu: nn*p0
+    xm: xx - 1
+  where: ['xx <= nn', 'xx > nn*p0', 'pv >= 0.001', 'pv <= 0.3']
+  prompt: |-
+    Under $H_0: p = {p0}$, a process produces successes independently. In {nn} trials there were {xx}
+    successes. Find the exact binomial p-value for $H_a: p > {p0}$ (4 decimals).
+  answers:
+    - {name: pv, label: 'p-value', tolerance: 0.0001, format: num4}
+  solution: |-
+    Under $H_0$, $X \sim B({nn}, {p0})$ with mean {mu:num1}. The p-value is
+    $P(X \ge {xx}) = 1 - P(X \le {xm}) = 1 - \text{binomcdf}({nn}, {p0}, {xm}) \approx$ **{pv:num4}**.
+
+- id: stat-m8-r2-sign-test
+  title: Sign test for paired data
+  topic: Exact tests
+  vars:
+    npos: {min: 4, max: 18}
+    nneg: {min: 0, max: 8}
+    nzero: {min: 0, max: 3}
+  calc:
+    nn: npos + nneg
+    tot: nn + nzero
+    pv: 1 - binomcdf(nn, 0.5, npos - 1)
+    nm: npos - 1
+  where: ['npos > nneg', 'nn >= 6', 'nn <= 22', 'pv >= 0.0005', 'pv <= 0.3']
+  prompt: |-
+    In a paired study with {tot} pairs, {npos} differences (after − before) are positive, {nneg} are
+    negative and {nzero} are exactly 0. Use the sign test of $H_0$: the median difference is 0, against
+    $H_a$: the median difference is positive. How many differences does the test use, and what is the
+    p-value (4 decimals)?
+  answers:
+    - {name: nn, label: '$n =$', format: int, tolerance: 0}
+    - {name: pv, label: 'p-value', tolerance: 0.0001, format: num4}
+  solution: |-
+    Drop the {nzero} zero differences: $n = {npos} + {nneg} =$ **{nn:int}**. Under $H_0$ the number of
+    positive signs is $B({nn:int}, 0.5)$, so the p-value is $P(X \ge {npos}) = 1 - \text{binomcdf}({nn:int}, 0.5, {nm:int}) \approx$ **{pv:num4}**.
+
+- id: stat-m8-r2-fisher
+  title: Fisher's exact test (one-sided)
+  topic: Exact tests
+  vars:
+    n1: {min: 6, max: 12}
+    n2: {min: 6, max: 12}
+    xa: {min: 3, max: 12}
+    xb: {min: 0, max: 8}
+  funcs:
+    'h(x)': 'nCr(st, x)*nCr(nt - st, n1 - x)/nCr(nt, n1)'
+  calc:
+    st: xa + xb
+    nt: n1 + n2
+    top: min(n1, st)
+    pv: sum(h, xa, top)
+    fa: n1 - xa
+    fb: n2 - xb
+    ff: nt - st
+  where: ['xa <= n1', 'xb <= n2', 'xa*n2 > xb*n1', 'pv >= 0.001', 'pv <= 0.3']
+  prompt: |-
+    In a randomized trial, {xa} of {n1} patients on a new treatment improved, and {xb} of {n2} on the
+    standard treatment improved. Use Fisher's exact test of no association against the alternative that the
+    new treatment has a higher improvement rate. Find the p-value (4 decimals).
+
+    | | Improved | Not improved | Total |
+    |---|---|---|---|
+    | New | {xa} | {fa:int} | {n1} |
+    | Standard | {xb} | {fb:int} | {n2} |
+    | Total | {st:int} | {ff:int} | {nt:int} |
+  answers:
+    - {name: pv, label: 'p-value', tolerance: 0.0001, format: num4}
+  solution: |-
+    With the margins fixed, the number $X$ of improvers in the new group is hypergeometric:
+    $P(X = x) = \dfrac{\binom{{st:int}}{x}\binom{{ff:int}}{{n1} - x}}{\binom{{nt:int}}{{n1}}}$. The p-value adds these
+    probabilities for $x = {xa}$ up to {top:int}: $P(X \ge {xa}) \approx$ **{pv:num4}**.

@@ -1,0 +1,575 @@
+# Round 2 questions for stat-m9 (Chi-square and regression inference)
+# ---- Lesson 37: chi-square goodness of fit
+- id: stat-m9-r2-q01
+  lesson: stat-chi-gof
+  type: label
+  module_quiz: true
+  topic: Chi-square goodness of fit
+  stem: 'The picture shows the chi-square distribution with 5 df for the fair-die test ($\chi^2 = 6.5$, $\alpha = 0.05$). Name each numbered part.'
+  image: {src: images/stat-m9-chi-curve-blank.svg, alt: 'A right-skewed chi-square density curve over an axis from 0 to 20. Marker 1 is at a solid line and triangle on the axis at 6.5. Marker 2 is at the top of a dashed line at about 11.07. Marker 3 is at the top of a dotted line at 5. Marker 4 is inside the shaded region to the right of 6.5.'}
+  labels:
+    - {x: 36.2, y: 81.7, text: Observed chi-square statistic}
+    - {x: 56.2, y: 37.7, text: Critical value for alpha = 0.05}
+    - {x: 29.7, y: 30.1, text: Mean of the distribution (the df)}
+    - {x: 46.3, y: 71.6, text: P-value}
+  distractors: [Expected count, Lower-tail area]
+  explanation: |-
+    1: the computed statistic, 6.5, sits on the axis. 2: the dashed line at 11.07 cuts off an upper-tail area of 0.05; a statistic beyond it would be significant. 3: a chi-square distribution's mean equals its df, here 5 (the peak is to the left of the mean because of the right skew). 4: the p-value is the whole area to the right of the observed statistic, about 0.26. Chi-square tests never use the lower tail.
+
+- id: stat-m9-r2-q02
+  lesson: stat-chi-gof
+  type: text
+  topic: Chi-square goodness of fit
+  stem: 'In a goodness-of-fit test, a category has observed count 98 and expected count 80. Its contribution to $\chi^2$ is ___. Give the number to 2 decimal places.'
+  accept: ['4.05']
+  explanation: |-
+    Contribution $= (O - E)^2/E = (98 - 80)^2/80 = 324/80 = 4.05$. This is the fastener category in lesson 37's Example 1, the largest of the four contributions.
+
+- id: stat-m9-r2-q03
+  lesson: stat-chi-gof
+  type: order
+  topic: Chi-square goodness of fit
+  stem: 'Put the steps of a chi-square goodness-of-fit test in order.'
+  items:
+    - 'State $H_0$, giving a proportion for every category'
+    - 'Compute the expected counts $np_i$'
+    - 'Check that every expected count is at least 5'
+    - 'Add the contributions $(O - E)^2/E$ to get $\chi^2$'
+    - 'Find the p-value as the upper-tail area beyond $\chi^2$'
+    - 'Compare the p-value with $\alpha$ and conclude in context'
+  explanation: |-
+    The expected counts come from the proportions in $H_0$, and the large-counts condition is about expected counts, so it can only be checked after they are computed. The statistic needs the expected counts, the p-value needs the statistic, and the conclusion comes last.
+
+- id: stat-m9-r2-q04
+  lesson: stat-chi-gof
+  module_quiz: true
+  topic: Chi-square goodness of fit
+  stem: 'Which statements about the chi-square goodness-of-fit test are true? Select all that apply.'
+  choices: ['The p-value is the area in the upper tail of a chi-square distribution', 'The degrees of freedom equal the number of categories minus 1', 'Every observed count must be at least 5', 'A larger value of $\chi^2$ is stronger evidence against $H_0$', 'The statistic should be computed from percentages, not counts']
+  answer: [0, 1, 3]
+  explanation: |-
+    Only large values of $\chi^2$ count against $H_0$, so the p-value is always an upper-tail area, and df $= k - 1$. The large-counts condition is about expected counts; observed counts can be small or even 0. Percentages throw away the sample size, so the statistic must use counts.
+
+- id: stat-m9-r2-q05
+  lesson: stat-chi-gof
+  type: match
+  topic: Chi-square goodness of fit
+  stem: 'Match each category''s observed and expected counts to its contribution $(O - E)^2/E$.'
+  pairs:
+    - ['$O = 25,\ E = 20$', '1.25']
+    - ['$O = 12,\ E = 20$', '3.2']
+    - ['$O = 60,\ E = 50$', '2']
+    - ['$O = 45,\ E = 50$', '0.5']
+  distractors: ['0.25']
+  explanation: |-
+    $5^2/20 = 1.25$; $(-8)^2/20 = 64/20 = 3.2$; $10^2/50 = 2$; $(-5)^2/50 = 0.5$. Notice that a miss of 10 counts for less when 50 were expected than a miss of 8 when 20 were expected. 0.25 is $5/20$, the miss divided by $E$ without squaring.
+
+# ---- Lesson 38: chi-square tests for two-way tables
+- id: stat-m9-r2-q06
+  lesson: stat-chi-two-way
+  type: label
+  module_quiz: true
+  topic: Chi-square two-way tables
+  stem: 'To find the expected count for the Under 30 / Train cell of the transit survey, which numbers do you use? Name each numbered part of the table.'
+  image: {src: images/stat-m9-expected-cell-blank.svg, alt: 'The transit survey table with rows Under 30, 30–50, Over 50 and Total, and columns Train, Bus, Car and Total. Four cells are shaded and numbered: 1 is the Under 30 row''s Total, 60; 2 is the Train column''s Total, 70; 3 is the bottom-right cell, 200; 4 is the Under 30 / Train cell, 30.'}
+  labels:
+    - {x: 91.7, y: 34.3, text: Row total}
+    - {x: 41.7, y: 81.4, text: Column total}
+    - {x: 91.7, y: 81.4, text: Grand total}
+    - {x: 41.7, y: 34.3, text: Observed count}
+  distractors: [Expected count, Degrees of freedom]
+  explanation: |-
+    1 (60) is the total of the Under 30 row, 2 (70) the total of the Train column, 3 (200) the grand total, and 4 (30) the observed count in the cell. The expected count is not in the table at all: it is computed as $60 \times 70/200 = 21$ and then compared with the observed 30.
+
+- id: stat-m9-r2-q07
+  lesson: stat-chi-two-way
+  type: text
+  topic: Chi-square two-way tables
+  stem: 'In a two-way table with grand total 200, a cell''s row total is 80 and its column total is 45. Under $H_0$, the expected count for that cell is ___. Give only the number.'
+  accept: ['18']
+  explanation: |-
+    Expected $= \dfrac{\text{row total} \times \text{column total}}{\text{grand total}} = \dfrac{80 \times 45}{200} = 18$. (This is the 30–50 / Bus cell of the transit survey.)
+
+- id: stat-m9-r2-q08
+  lesson: stat-chi-two-way
+  type: match
+  topic: Chi-square two-way tables
+  stem: 'Match each study to the procedure that fits it.'
+  pairs:
+    - ['One random sample of 400 workers, each asked their shift and their commute mode', 'Test of independence']
+    - ['Separate random samples from three cities, each asked their preferred ticket type', 'Test of homogeneity']
+    - ['One sample of 200 defects, compared with the historical percentages of four defect types', 'Goodness-of-fit test']
+    - ['Two groups, a yes/no outcome, and the question "is group A''s rate higher?"', 'Two-proportion z test']
+  distractors: ['t test for the slope']
+  explanation: |-
+    One sample with two categorical variables per person: independence. Several samples (or treatment groups) and one variable: homogeneity. One variable against a claimed distribution: goodness of fit. A one-sided comparison of two proportions needs the z test, because chi-square tests are two-sided by nature. A slope test needs a quantitative response.
+
+- id: stat-m9-r2-q09
+  lesson: stat-chi-two-way
+  topic: Chi-square two-way tables
+  stem: 'A chi-square test of independence is run on a table with 4 rows and 3 columns (not counting totals). Which statements are true? Select all that apply.'
+  choices: ['The total row and total column count toward $r$ and $c$', 'The test has $(4 - 1)(3 - 1) = 6$ degrees of freedom', '$H_0$ says the two variables are independent in the population', 'A significant result on observational data shows that one variable causes the other', 'Each expected count is (row total)(column total)/(grand total)']
+  answer: [1, 2, 4]
+  explanation: |-
+    $r$ and $c$ count only the categories, so df $= 3 \times 2 = 6$. The null hypothesis is independence (no association), and expected counts come from the margins. A small p-value shows association; without random assignment it does not show causation.
+
+- id: stat-m9-r2-q10
+  lesson: stat-chi-two-way
+  module_quiz: true
+  topic: Chi-square two-way tables
+  stem: 'The grid shows each cell''s contribution to $\chi^2 = 24.45$ for the transit survey. Which conclusion does it support best?'
+  image: {src: images/stat-m9-contributions.svg, alt: 'A 3 by 3 grid of contributions with observed and expected counts. Under 30: Train 3.86 above, Bus 3.13 above, Car 9.42 below. 30 to 50: Train 0.32 below, Bus 0.50 below, Car 1.06 above. Over 50: Train 1.71 below, Bus 0.91 below, Car 3.54 above.'}
+  choices: ['The 30–50 group drives the association, since it is the largest group', 'Every cell differs significantly from its expected count', 'Under-30 commuters drive much less than independence predicts, and over-50s drive more', 'Bus riders contribute most of the evidence of association']
+  answer: 2
+  explanation: |-
+    The largest contribution, 9.42, is under-30 car commuters, below expectation (10 vs. 25.5); over-50 car commuters are above expectation (3.54). The 30–50 row's contributions are all small, so it fits independence well, and the bus column adds only about 4.5 of the 24.45. Small contributions such as 0.32 are not evidence of anything.
+
+# ---- Lesson 39: inference for the regression slope
+- id: stat-m9-r2-q11
+  lesson: stat-reg-inference
+  type: label
+  module_quiz: true
+  topic: Regression inference
+  stem: 'The picture shows the regression model $y = \beta_0 + \beta_1 x + \varepsilon$. Name each numbered part.'
+  image: {src: images/stat-m9-reg-model-blank.svg, alt: 'A rising straight line with sideways bell curves centered on it at three x-values, all the same width. Marker 1 is on the straight line near its right end. Marker 2 is on the bell curve at the first x-value. Marker 3 is beside a short double arrow on the middle bell curve, running from the line down one unit of spread. Marker 4 is beside a vertical double arrow from the line up to an open circle above it at the third x-value.'}
+  labels:
+    - {x: 91.5, y: 26.4, text: Population regression line}
+    - {x: 24.8, y: 66.9, text: Distribution of y at one x}
+    - {x: 60.2, y: 51.1, text: Standard deviation sigma}
+    - {x: 69.5, y: 28.4, text: Error of one observation}
+  distractors: [Least-squares slope b, Correlation r]
+  explanation: |-
+    1 is the population line $\mu_y = \beta_0 + \beta_1 x$, the mean response at each $x$. 2: at a fixed $x$, the $y$-values vary normally around that mean. 3: the spread of each normal curve is $\sigma$, the same at every $x$ (the Equal SD condition). 4: one observation sits above the line by its error $\varepsilon = y - \mu_y$. The statistic $b$ and the correlation $r$ come from a sample; they are not parts of the population model.
+
+- id: stat-m9-r2-q12
+  lesson: stat-reg-inference
+  type: label
+  topic: Regression inference
+  stem: 'Name each numbered entry of this regression output (wear depth on tonnage, $n = 20$).'
+  image: {src: images/stat-m9-output-blank.svg, alt: 'A regression output table. Header: Predictor, Coef, SE Coef, T, P. Constant row: 1.84, 1.10, 1.67, 0.112. Tonnage row: 2.35, 1 marked; 0.82, 2 marked; 2.87, 3 marked; 0.010, 4 marked. Marker 5 is on the Constant row''s Coef, 1.84. Below the table, S = 2.61 has marker 6, and R-sq = 31.3% is unmarked.'}
+  labels:
+    - {x: 41.9, y: 53.7, text: Slope b}
+    - {x: 59.5, y: 53.7, text: Standard error of the slope}
+    - {x: 75.8, y: 53.7, text: t statistic for the slope}
+    - {x: 92.6, y: 53.7, text: Two-sided p-value for the slope}
+    - {x: 41.9, y: 36.7, text: Intercept a}
+    - {x: 21.0, y: 74.8, text: Residual standard deviation s}
+  distractors: [Correlation r, One-sided p-value for the slope]
+  explanation: |-
+    The row named after the explanatory variable (Tonnage) is about the slope: $b = 2.35$, $SE_b = 0.82$, $t = 2.35/0.82 = 2.87$ and the two-sided p-value 0.010 (halve it for a one-sided test when $b$ has the right sign). The Constant row gives the intercept $a = 1.84$. S is the residual standard deviation $s = \sqrt{\text{SSE}/(n - 2)}$. The output does not print $r$; it could be found from R-sq.
+
+- id: stat-m9-r2-q13
+  lesson: stat-reg-inference
+  type: text
+  topic: Regression inference
+  stem: 'Computer output gives slope $b = 2.35$ with $SE_b = 0.82$. The t statistic for $H_0: \beta_1 = 0$ is ___. Give the number to 2 decimal places.'
+  accept: ['2.87']
+  explanation: |-
+    $t = (b - 0)/SE_b = 2.35/0.82 = 2.866 \approx 2.87$, with df $= n - 2$.
+
+- id: stat-m9-r2-q14
+  lesson: stat-reg-inference
+  type: order
+  module_quiz: true
+  topic: Regression inference
+  stem: 'Put the steps of a t test for the regression slope in order.'
+  items:
+    - 'State $H_0: \beta_1 = 0$ and $H_a$ about the population slope'
+    - 'Check the LINER conditions with the scatterplot and residual plot'
+    - 'Compute $t = b/SE_b$'
+    - 'Find the p-value from a t distribution with $n - 2$ df'
+    - 'Compare with $\alpha$ and conclude in context'
+  explanation: |-
+    As in every significance test: hypotheses first, then conditions (so you don't compute something that isn't valid), then the statistic, then its p-value (which needs $t$), and the conclusion last.
+
+- id: stat-m9-r2-q15
+  lesson: stat-reg-inference
+  topic: Regression inference
+  stem: 'Which features would make a t test for the slope unreliable? Select all that apply.'
+  choices: ['A clear curved pattern in the residual plot', 'Residuals that fan out as $x$ increases', 'Residuals scattered in a horizontal band of constant width', 'A strongly skewed residual distribution with an outlier, with $n = 8$', '$x$ values spread widely across their range']
+  answer: [0, 1, 3]
+  explanation: |-
+    A curve breaks Linear, a fan breaks Equal SD, and strong skew with an outlier in a small sample breaks Normal. A horizontal band of constant width is exactly what the conditions want, and widely spread $x$ values make the slope more precise (larger $s_x$, smaller $SE_b$).
+
+# ---- Honors 39h1: where the chi-square test comes from
+- id: stat-m9-r2-h01
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'Which description defines the chi-square distribution with $k$ degrees of freedom?'
+  choices: ['The distribution of the sum of $k$ independent standard normal variables', 'The distribution of the sum of the squares of $k$ independent standard normal variables', 'The distribution of a t statistic with $k$ df, squared', 'Any right-skewed distribution with mean $k$']
+  answer: 1
+  explanation: |-
+    $\chi^2_k$ is the distribution of $Z_1^2 + \cdots + Z_k^2$ for independent standard normals. A sum of normals (without squaring) is normal, not chi-square. A squared $t$ with $k$ df has an F distribution, and "right-skewed with mean $k$" describes many distributions.
+
+- id: stat-m9-r2-h02
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'What are the mean and variance of a chi-square distribution with 6 degrees of freedom?'
+  choices: ['Mean 6, variance 6', 'Mean 5, variance 10', 'Mean 6, variance 12', 'Mean 12, variance 6']
+  answer: 2
+  explanation: |-
+    Each $Z^2$ has mean 1 and variance $E(Z^4) - 1 = 3 - 1 = 2$. Six independent terms: mean 6, variance 12. (Mean 5 would be the df for a 6-category goodness-of-fit test, not for $\chi^2_6$.)
+
+- id: stat-m9-r2-h03
+  lesson: stat-m9-h-chi-theory
+  type: text
+  topic: Chi-square theory
+  stem: 'The 0.05 critical value of the chi-square distribution with 1 df is 3.841, which is the square of ___. Give only the number.'
+  accept: ['1.96']
+  explanation: |-
+    $\chi^2_1$ is the distribution of $Z^2$, so $P(\chi^2_1 \ge c) = P(|Z| \ge \sqrt{c})$. The two-sided 0.05 critical value of $Z$ is 1.96, and $1.96^2 = 3.8416$.
+
+- id: stat-m9-r2-h04
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'A claim says 25% of trips are late. In a random sample of 400 trips, 115 are late. What is the two-category goodness-of-fit statistic $\chi^2$?'
+  choices: ['3.0', '2.25', '1.73', '0.75']
+  answer: 0
+  explanation: |-
+    Expected: 100 late, 300 on time. Misses: +15 and −15. $\chi^2 = 225/100 + 225/300 = 2.25 + 0.75 = 3.0$. Check: $z = (0.2875 - 0.25)/\sqrt{0.25(0.75)/400} = 0.0375/0.02165 = 1.732$ and $z^2 = 3.0$. 2.25 uses only the "late" term, and 1.73 is $z$ itself.
+
+- id: stat-m9-r2-h05
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'In any goodness-of-fit test, why do the misses $O - E$ always add to zero?'
+  choices: ['Because positive and negative misses are equally likely', 'Because $H_0$ is assumed true', 'Because each miss is divided by its expected count', 'Because the observed counts and the expected counts both add to $n$']
+  answer: 3
+  explanation: |-
+    $\sum O = n$ and $\sum E = \sum np_i = n$, so $\sum (O - E) = 0$ for every data set, whether or not $H_0$ is true. That constraint is the reason one degree of freedom is lost.
+
+- id: stat-m9-r2-h06
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'A goodness-of-fit test has 8 categories, and $H_0$ is true. What is the expected value of the statistic $\chi^2$?'
+  choices: ['7, but only approximately for large $n$', '7, exactly, for any sample size', '8, exactly', '0, since $H_0$ is true']
+  answer: 1
+  explanation: |-
+    Each term has expected value $\text{Var}(O_i)/(np_i) = np_i(1 - p_i)/(np_i) = 1 - p_i$, so $E(\chi^2) = \sum (1 - p_i) = 8 - 1 = 7$. The calculation uses only the binomial variance, so it is exact for every $n$. Even when $H_0$ is true, chance misses make $\chi^2$ positive.
+
+- id: stat-m9-r2-h07
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['The degrees of freedom of a goodness-of-fit test grow with the sample size', 'Under $H_0$, the goodness-of-fit statistic averages exactly $k - 1$', 'For two categories, the goodness-of-fit $\chi^2$ equals the square of the one-proportion z statistic', 'A chi-square variable with 1 df is the square of a standard normal variable', 'For a 3 × 3 table, $\chi^2$ equals the square of a two-proportion z statistic']
+  answer: [1, 2, 3]
+  explanation: |-
+    df depends on the number of categories (and estimated parameters), never on $n$. $E(\chi^2) = k - 1$ exactly; two categories give $\chi^2 = z^2$ exactly; and $\chi^2_1 = Z^2$ by definition. The $\chi^2 = z^2$ link holds for 2 × 2 tables, not larger ones.
+
+- id: stat-m9-r2-h08
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'Counts of defects per box are tested against a binomial model with $p$ estimated from the data. After combining sparse values, 5 categories remain. How many degrees of freedom?'
+  choices: ['3', '4', '5', '2']
+  answer: 0
+  explanation: |-
+    df $= k - 1 - m = 5 - 1 - 1 = 3$: one df for the total and one for the estimated $p$. 4 forgets the estimated parameter; 2 subtracts it twice.
+
+- id: stat-m9-r2-h09
+  lesson: stat-m9-h-chi-theory
+  type: text
+  topic: Chi-square theory
+  stem: 'A normal model, with its mean and standard deviation estimated from the data, is tested by a chi-square goodness-of-fit test with 8 categories. The test has ___ degrees of freedom. Give only the number.'
+  accept: ['5']
+  explanation: |-
+    Two parameters are estimated, so df $= 8 - 1 - 2 = 5$. (As the lesson notes, if the mean and SD come from the raw data rather than the grouped counts, the true distribution lies between $\chi^2_5$ and $\chi^2_7$.)
+
+- id: stat-m9-r2-h10
+  lesson: stat-m9-h-chi-theory
+  type: match
+  topic: Chi-square theory
+  stem: 'Match each chi-square test to its degrees of freedom.'
+  pairs:
+    - ['Goodness of fit, 6 categories, all proportions stated in $H_0$', '5']
+    - ['Goodness of fit, 6 categories, binomial $p$ estimated from the data', '4']
+    - ['Test of independence on a 3 × 4 table', '6']
+    - ['Test of homogeneity on a 2 × 2 table', '1']
+  distractors: ['11']
+  explanation: |-
+    $6 - 1 = 5$; $6 - 1 - 1 = 4$; $(3 - 1)(4 - 1) = 6$; $(2 - 1)(2 - 1) = 1$. 11 is $rc - 1$ for the 3 × 4 table, Pearson's original count before Fisher's correction.
+
+- id: stat-m9-r2-h11
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'Which argument explains why a test of independence on an $r \times c$ table has $(r - 1)(c - 1)$ degrees of freedom?'
+  choices: ['There are $rc$ cells, and the largest row and column are dropped', 'Each row loses one df and each column loses one df, so $rc - r - c$', 'Start from $rc - 1$ free cells and subtract the $r - 1$ row proportions and $c - 1$ column proportions estimated from the margins', 'The statistic is a sum of $(r - 1)(c - 1)$ squared z statistics computed from the table''s rows']
+  answer: 2
+  explanation: |-
+    The rule df $= k - 1 - m$ with $k = rc$ cells and $m = (r - 1) + (c - 1)$ estimated parameters gives $rc - 1 - (r - 1) - (c - 1) = (r - 1)(c - 1)$. $rc - r - c$ is off by one, because it forgets that the total was already counted.
+
+- id: stat-m9-r2-h12
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'In the bulb-box example, the binomial model fit badly: there were more boxes with 0 defects and more with 3 or 4 than the model predicts. What is the most reasonable explanation?'
+  choices: ['The sample of boxes was too large', 'Defective bulbs cluster in boxes, so bulbs in a box do not fail independently', 'The estimate of $p$ was too high', 'The expected counts were too small for any conclusion']
+  answer: 1
+  explanation: |-
+    The binomial model needs independent bulbs with a common $p$. Too many empty boxes and too many bad ones is the signature of clustering, as when a box's bulbs share a bad batch. Large samples make the test more sensitive, not wrong, and the sparse categories were combined so every expected count was at least 5.
+
+- id: stat-m9-r2-h13
+  lesson: stat-m9-h-chi-theory
+  type: order
+  topic: Chi-square theory
+  stem: 'Put the steps of testing whether counts follow a binomial model with unknown $p$ in order.'
+  items:
+    - 'Estimate $p$ from the total count of successes'
+    - 'Compute the expected count for each value from the binomial model'
+    - 'Combine values whose expected counts are below 5'
+    - 'Add $(O - E)^2/E$ over the remaining categories'
+    - 'Use df = categories − 2 to find the p-value'
+  explanation: |-
+    The expected counts need $\hat{p}$; which values to combine depends on the expected counts; the statistic is computed on the combined categories; and the df subtracts 1 for the total and 1 for the estimated $p$.
+
+- id: stat-m9-r2-h14
+  lesson: stat-m9-h-chi-theory
+  topic: Chi-square theory
+  stem: 'In the bulb-box example, suppose the supplier had claimed $p = 0.2$ and the test used the same 3 categories. How many degrees of freedom would the test have?'
+  choices: ['1', '3', '0', '2']
+  answer: 3
+  explanation: |-
+    A value stated in $H_0$ is not estimated from the data, so only the total costs a df: $3 - 1 = 2$. With $p$ estimated, the lesson used $3 - 1 - 1 = 1$.
+
+# ---- Honors 39h2: after the chi-square test
+- id: stat-m9-r2-h15
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'In the transit survey, the 30–50 / Car cell has $O = 40$ and $E = 34$, with row total 80, column total 85 and $n = 200$. What is its adjusted residual?'
+  choices: ['1.03', '1.75', '6.00', '1.06']
+  answer: 1
+  explanation: |-
+    $\dfrac{40 - 34}{\sqrt{34(1 - 0.40)(1 - 0.425)}} = \dfrac{6}{\sqrt{11.73}} = \dfrac{6}{3.425} = 1.75$. 1.03 is the standardized residual $6/\sqrt{34}$, 1.06 is the cell's contribution $36/34$, and 6 is the raw miss.
+
+- id: stat-m9-r2-h16
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'Why is the adjusted residual of a cell always larger in size than its standardized residual $(O - E)/\sqrt{E}$?'
+  choices: ['Because adjusted residuals use observed counts in the denominator', 'Because adjusted residuals are squared', 'Because standardized residuals have variance less than 1 under $H_0$, so the adjustment divides by a smaller number', 'Because adjusted residuals include a continuity correction']
+  answer: 2
+  explanation: |-
+    With the margins fixed, cells can't vary as freely as independent counts, so $(O - E)/\sqrt{E}$ has variance below 1. Multiplying $E$ by $(1 - \text{row}/n)(1 - \text{col}/n) < 1$ shrinks the denominator and puts the residual on the standard normal scale.
+
+- id: stat-m9-r2-h17
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'The transit survey''s adjusted residuals are: Under 30 / Train 2.91, Under 30 / Bus 2.40, Under 30 / Car −4.84, 30–50 / Car 1.75, Over 50 / Train −1.94, Over 50 / Car 2.97. Using the ±2 guideline, which cells depart from independence? Select all that apply.'
+  choices: ['Under 30 / Train', 'Under 30 / Bus', 'Under 30 / Car', '30–50 / Car', 'Over 50 / Train', 'Over 50 / Car']
+  answer: [0, 1, 2, 5]
+  explanation: |-
+    Cells beyond ±2: 2.91, 2.40, −4.84 and 2.97. 1.75 and −1.94 are inside the band. With nine cells, values just past 2 deserve some caution: under a stricter ±3 cutoff only −4.84 would remain (2.97 narrowly misses).
+
+- id: stat-m9-r2-h18
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'A 3 × 4 table from $n = 500$ people gives $\chi^2 = 36$. What is Cramér''s V?'
+  choices: ['0.268', '0.155', '0.036', '0.190']
+  answer: 3
+  explanation: |-
+    $\min(r - 1, c - 1) = \min(2, 3) = 2$, so $V = \sqrt{36/(500 \times 2)} = \sqrt{0.036} = 0.190$. 0.268 forgets the factor 2; 0.155 uses 3 instead of 2; 0.036 forgets the square root.
+
+- id: stat-m9-r2-h19
+  lesson: stat-m9-h-chi-followup
+  type: text
+  topic: Chi-square follow-up
+  stem: 'A 2 × 2 table with $n = 320$ gives $\chi^2 = 12.8$. The phi coefficient is $\phi =$ ___. Give only the number.'
+  accept: ['0.2']
+  explanation: |-
+    $\phi = \sqrt{\chi^2/n} = \sqrt{12.8/320} = \sqrt{0.04} = 0.2$, a small-to-moderate association by Cohen's rough conventions, even though $p \approx 0.0003$.
+
+- id: stat-m9-r2-h20
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'Every count in a two-way table is multiplied by 4 (same percentages, four times the people). What happens to $\chi^2$ and to Cramér''s V?'
+  choices: ['$\chi^2$ is multiplied by 4; V stays the same', 'Both stay the same', '$\chi^2$ is multiplied by 16; V is multiplied by 4', '$\chi^2$ is multiplied by 4; V is multiplied by 2']
+  answer: 0
+  explanation: |-
+    Every $(O - E)^2$ grows by 16 and every $E$ by 4, so each contribution, and $\chi^2$, grows by 4. $V = \sqrt{\chi^2/(n \min(r-1, c-1))}$ has $n$ growing by 4 as well, so it is unchanged: more evidence, same strength.
+
+- id: stat-m9-r2-h21
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'A survey of 20,000 riders finds satisfaction of 51% on line A and 49% on line B, with $p = 0.005$ and $\phi = 0.02$. Which summary is best?'
+  choices: ['The lines differ hugely in satisfaction', 'There is no real difference, since $\phi$ is small', 'The p-value is wrong because the sample is too large', 'There is convincing evidence of a difference, but the difference is very small']
+  answer: 3
+  explanation: |-
+    The p-value says the 2-point difference is unlikely to be chance (evidence), and $\phi = 0.02$ says it is tiny (strength). Both are correct at once; whether 2 points matters is a practical judgment, not a statistical one.
+
+- id: stat-m9-r2-h22
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'In a tea-tasting test with 6 cups, 3 milk-first and 3 tea-first, the taster must pick the 3 milk-first cups. If she is only guessing, what is the probability that she gets all 3 right?'
+  choices: ['0.125', '0.05', '0.5', '0.0143']
+  answer: 1
+  explanation: |-
+    There are $\binom{6}{3} = 20$ equally likely ways to choose 3 cups, and one is all correct: $1/20 = 0.05$. Even a perfect score would only just reach significance at $\alpha = 0.05$, which is why Fisher used 8 cups ($1/70 = 0.0143$). 0.125 is $(1/2)^3$, which wrongly treats the cups as independent guesses.
+
+- id: stat-m9-r2-h23
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'When is Fisher''s exact test the right choice instead of the chi-square test?'
+  choices: ['For a 2 × 2 table in which some expected count is below 5', 'For any table with more than 1,000 observations', 'For a goodness-of-fit test with many categories', 'Whenever the chi-square p-value is above 0.05']
+  answer: 0
+  explanation: |-
+    Fisher's test computes the exact (hypergeometric) probabilities of 2 × 2 tables with the observed margins, so it needs no large-counts condition. Large samples are exactly where the chi-square approximation works well, and switching tests because of the p-value is never legitimate.
+
+- id: stat-m9-r2-h24
+  lesson: stat-m9-h-chi-followup
+  type: match
+  topic: Chi-square follow-up
+  stem: 'Match each tool to the question it answers.'
+  pairs:
+    - ['Chi-square p-value', 'Is there convincing evidence of an association?']
+    - ['Adjusted residuals', 'Which cells depart from independence?']
+    - ['Cramér''s V', 'How strong is the association?']
+    - ['Fisher''s exact test', 'What is the exact p-value for a small 2 by 2 table?']
+  distractors: ['Does one variable cause the other?']
+  explanation: |-
+    The p-value measures evidence, adjusted residuals locate it, and V measures strength on a 0-to-1 scale; Fisher's test replaces the chi-square p-value when counts are small. None of them settles causation, which depends on how the data were produced.
+
+- id: stat-m9-r2-h25
+  lesson: stat-m9-h-chi-followup
+  type: order
+  topic: Chi-square follow-up
+  stem: 'Put the steps of Fisher''s exact test (one-sided) in order.'
+  items:
+    - 'Treat the row and column totals as fixed'
+    - 'Write the hypergeometric probability of each possible top-left count'
+    - 'Identify the tables at least as extreme as the observed one in the direction of $H_a$'
+    - 'Add the probabilities of those tables to get the p-value'
+    - 'Compare the p-value with $\alpha$ and conclude'
+  explanation: |-
+    The probabilities only make sense once the margins are fixed; then you list them, pick out the extreme tables (which needs the list and $H_a$), add, and conclude.
+
+- id: stat-m9-r2-h26
+  lesson: stat-m9-h-chi-followup
+  topic: Chi-square follow-up
+  stem: 'For the brake-pad table (1 of 10 new pads and 6 of 10 old pads failed), the chi-square test gives $p = 0.019$ and Fisher''s two-sided test gives $p = 0.057$. Which p-value should be reported, and why?'
+  choices: ['0.019, because chi-square tests are more powerful', 'The average, 0.038', '0.057, because the expected counts (3.5) are below 5, so the chi-square approximation is not valid', '0.019, because Fisher''s test only works for one-sided alternatives']
+  answer: 2
+  explanation: |-
+    Expected failures are $10 \times 7/20 = 3.5$ in each row, so the chi-square curve can't be trusted; here it gives a p-value far too small. Fisher's test has a two-sided version (0.057) and a one-sided one (0.0286, used in the lesson for $H_a$: the new design fails less often).
+
+- id: stat-m9-r2-h27
+  lesson: stat-m9-h-chi-followup
+  type: text
+  topic: Chi-square follow-up
+  stem: 'A 2 × 2 table has row totals 5 and 5, and 4 of the 10 units failed. With the margins fixed and no association, the probability that none of the first row''s 5 units failed is ___. Give the answer to 4 decimal places.'
+  accept: ['0.0238', '1/42', '5/210']
+  explanation: |-
+    $P(a = 0) = \dfrac{\binom{5}{0}\binom{5}{4}}{\binom{10}{4}} = \dfrac{1 \times 5}{210} = 0.0238$: all 4 failures must come from the second row.
+
+# ---- Honors 39h3: confidence and prediction intervals for regression
+- id: stat-m9-r2-h28
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'A planner wants an interval for the average wear of all rail segments that carry 30 million tons per year. Which interval fits?'
+  choices: ['A prediction interval at $x^* = 30$', 'A confidence interval for the slope', 'A confidence interval for the mean response at $x^* = 30$', 'A one-sample t interval for the mean wear']
+  answer: 2
+  explanation: |-
+    "The average of all segments at 30" is the mean response $\mu_y$ at $x^* = 30$. A prediction interval is for one segment, the slope interval is about the change per million tons, and a one-sample t interval ignores tonnage altogether.
+
+- id: stat-m9-r2-h29
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'A regression on $n = 10$ points has $\bar{x} = 50$, $s_x = 10$ and $s = 4$. What is $SE_{\hat{\mu}}$, the standard error of the mean response, at $x^* = 65$?'
+  choices: ['2.00', '2.28', '4.65', '2.37']
+  answer: 3
+  explanation: |-
+    $(n - 1)s_x^2 = 9 \times 100 = 900$, so $SE_{\hat{\mu}} = 4\sqrt{1/10 + 15^2/900} = 4\sqrt{0.35} = 2.37$. 2.28 uses $n s_x^2 = 1000$; 2.00 drops the $1/n$ term; 4.65 is the prediction standard error $4\sqrt{1.35}$.
+
+- id: stat-m9-r2-h30
+  lesson: stat-m9-h-reg-intervals
+  type: text
+  topic: Regression intervals
+  stem: 'At some $x^*$, a regression has residual SD $s = 4$ and $SE_{\hat{\mu}} = 3$. The standard error for predicting one new $y$ there is ___. Give only the number.'
+  accept: ['5']
+  explanation: |-
+    $SE_{\text{pred}} = \sqrt{s^2 + SE_{\hat{\mu}}^2} = \sqrt{16 + 9} = 5$. Adding the two (7) is the classic slip: variances add, not standard deviations.
+
+- id: stat-m9-r2-h31
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'Which changes make a 95% confidence interval for the mean response narrower? Select all that apply.'
+  choices: ['A larger sample size $n$', 'Choosing $x^*$ closer to $\bar{x}$', 'A larger residual SD $s$', 'More widely spread $x$ values (larger $s_x$)', 'A 99% confidence level instead']
+  answer: [0, 1, 3]
+  explanation: |-
+    $SE_{\hat{\mu}} = s\sqrt{1/n + (x^* - \bar{x})^2/((n - 1)s_x^2)}$ shrinks with larger $n$, smaller $|x^* - \bar{x}|$ and larger $s_x$ (a larger $n$ also lowers $t^*$). A larger $s$ and a higher confidence level both widen it.
+
+- id: stat-m9-r2-h32
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'As the sample size grows without limit (conditions holding), what happens to a 95% prediction interval at a fixed $x^*$?'
+  choices: ['Its width shrinks toward 0', 'Its width approaches about $2 \times 1.96\sigma$, never less', 'Its width grows without limit', 'It becomes the same as the confidence interval for the slope']
+  answer: 1
+  explanation: |-
+    $SE_{\hat{\mu}} \to 0$, but $SE_{\text{pred}} = \sqrt{s^2 + SE_{\hat{\mu}}^2} \to \sigma$ and $t^* \to 1.96$, so the interval approaches $\hat{y} \pm 1.96\sigma$. A new individual's own scatter never averages away.
+
+- id: stat-m9-r2-h33
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'Where along the $x$-axis are the confidence and prediction bands narrowest?'
+  choices: ['At the smallest $x$ in the data', 'At $x = 0$', 'At the largest $x$ in the data', 'At $\bar{x}$, the mean of the $x$ values']
+  answer: 3
+  explanation: |-
+    Both standard errors contain $(x^* - \bar{x})^2$, which is 0 at $x^* = \bar{x}$ and grows in both directions. At $\bar{x}$ only the height of the line is uncertain; farther out, error in the slope adds to it.
+
+- id: stat-m9-r2-h34
+  lesson: stat-m9-h-reg-intervals
+  type: match
+  topic: Regression intervals
+  stem: 'A railway regresses fuel use on train weight. Match each question to the procedure that answers it.'
+  pairs:
+    - ['Mean fuel use of all 800-ton trains', 'Confidence interval for the mean response']
+    - ['Fuel use of tomorrow''s 800-ton train', 'Prediction interval']
+    - ['Extra mean fuel use for each additional ton', 'Confidence interval for the slope']
+    - ['Is there any linear relationship at all?', 't test for the slope']
+  distractors: ['Chi-square test of independence']
+  explanation: |-
+    An average over all trains of one weight is the mean response; one particular train needs a prediction interval; "per additional ton" is the slope; and "any relationship" is the test of $H_0: \beta_1 = 0$. A chi-square test is for categorical variables.
+
+- id: stat-m9-r2-h35
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'A random sample of 14 pairs has $r = 0.5$. What is the t statistic for $H_0: \rho = 0$?'
+  choices: ['2.00', '1.73', '2.16', '2.31']
+  answer: 0
+  explanation: |-
+    $t = r\sqrt{n - 2}/\sqrt{1 - r^2} = 0.5\sqrt{12}/\sqrt{0.75} = 1.732/0.866 = 2.00$, with 12 df. 1.73 forgets to divide by $\sqrt{1 - r^2}$; 2.16 uses $\sqrt{n}$ instead of $\sqrt{n - 2}$; 2.31 divides by $1 - r^2$ without the square root.
+
+- id: stat-m9-r2-h36
+  lesson: stat-m9-h-reg-intervals
+  type: text
+  topic: Regression intervals
+  stem: 'For a sample of $n = 27$ pairs with $r = 0.6$, the t statistic for testing $\rho = 0$ is ___. Give only the number.'
+  accept: ['3.75']
+  explanation: |-
+    $t = 0.6\sqrt{25}/\sqrt{1 - 0.36} = 3/0.8 = 3.75$, with 25 df. This is the same $t$ that $b/SE_b$ would give for the slope.
+
+- id: stat-m9-r2-h37
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'Why does the Normal condition matter more for a prediction interval than for a confidence interval for the slope?'
+  choices: ['Because a prediction interval is about one new error $\varepsilon$, which the Central Limit Theorem does not make normal', 'Because prediction intervals use $z^*$ instead of $t^*$', 'Because the slope is never affected by skewness', 'Because prediction intervals use df $= n - 1$']
+  answer: 0
+  explanation: |-
+    Estimates such as $b$ and $\hat{\mu}$ are averages of many errors, so they are close to normal for large $n$ even when the errors aren't. A single new $y$ carries one error with whatever shape the error distribution has, so skewed residuals make a prediction interval wrong at any $n$.
+
+- id: stat-m9-r2-h38
+  lesson: stat-m9-h-reg-intervals
+  topic: Regression intervals
+  stem: 'In the lesson''s rail example, the 95% prediction interval at 30 million tons is 8.18 to 12.82 mm. Which interpretation is correct?'
+  choices: ['95% of all segments carrying 30 million tons have mean wear in this range', 'We are 95% confident that the slope is between 8.18 and 12.82', 'We are 95% confident that one new segment carrying 30 million tons will have wear between 8.18 and 12.82 mm', 'The mean wear at 30 million tons is exactly 10.5 mm']
+  answer: 2
+  explanation: |-
+    A prediction interval is about a single new value. The mean-response interval (9.34 to 11.66 mm) is the one about the average of all such segments; 10.5 is only the estimate of that mean, and the slope is about 0.30 mm per million tons.
+
+- id: stat-m9-r2-h39
+  lesson: stat-m9-h-reg-intervals
+  type: order
+  topic: Regression intervals
+  stem: 'In the lesson''s rail example ($\bar{x} = 20$), put these 95% intervals in order from narrowest to widest.'
+  items:
+    - 'Mean response at $x^* = 20$'
+    - 'Mean response at $x^* = 30$'
+    - 'One new segment at $x^* = 20$'
+    - 'One new segment at $x^* = 30$'
+  explanation: |-
+    Half-widths: 0.58, 1.16, 2.09 and 2.32 mm. Mean-response intervals are narrower than prediction intervals, and each kind widens as $x^*$ moves away from $\bar{x}$.

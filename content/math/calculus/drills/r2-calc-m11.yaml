@@ -1,0 +1,146 @@
+# Round 2 drills, module calc-m11 (honors lessons calc-h-cycloid-surface and calc-h-polar-conics)
+- id: calc-m11-r2-param-surface
+  title: Surface area from a parametric curve (numerical)
+  topic: Parametric surface area
+  vars:
+    p: {min: 1, max: 3}
+    q: {min: 1, max: 2}
+    T: {choices: [1, 1.5, 2]}
+  funcs:
+    band(t): 2*pi*q*t^2*sqrt(p^2 + 4*q^2*t^2)
+  calc:
+    S: integ(band, 0, T)
+    p2: p^2
+    q2: 2*q
+    q4: 4*q^2
+  prompt: 'The curve $x = {p:coef}t$, $y = {q:coef}t^2$, $0 \le t \le {T}$, is rotated about the $x$-axis. Find the area of the surface it sweeps out, to 2 decimal places. (Use a calculator for the integral.)'
+  answers:
+    - {name: S, label: 'Surface area $\approx$', tolerance: 0.006, format: num2}
+  figure:
+    type: plot
+    x: [-0.5, 'p*T + 0.5']
+    y: ['-q*T^2 - 0.5', 'q*T^2 + 0.5']
+    equal: true
+    curves: [{x: 'p*t', y: 'q*t^2', t: [0, T]}, {x: 'p*t', y: '-q*t^2', t: [0, T], dashed: true}]
+    caption: The curve and its mirror image outline the surface of revolution
+  solution: |-
+    The radius of each band is $y = {q:coef}t^2 \ge 0$, and $x' = {p}$, $y' = {q2}t$, so $ds = \sqrt{{p2} + {q4}t^2}\,dt$. Then
+    $$S = 2\pi\int_0^{{T}}{q:coef}t^2\sqrt{{p2} + {q4}t^2}\,dt \approx \mathbf{{S:num2}}.$$
+- id: calc-m11-r2-cycloid-time
+  title: Descent times on a cycloid and a straight ramp
+  topic: Cycloid descent
+  vars:
+    a: {min: 0.5, max: 5, step: 0.5}
+  calc:
+    grav: 9.8
+    root: sqrt(a/grav)
+    Tc: pi*sqrt(a/grav)
+    Tl: sqrt(pi^2 + 4)*sqrt(a/grav)
+    width: pi*a
+    depth: 2*a
+  prompt: 'A bead starts from rest and slides without friction from $(0, 0)$ down to the point ${width:num2}$ m to the right and ${depth}$ m lower. Track A is the upside-down cycloid made by a wheel of radius ${a}$ m; track B is the straight ramp between the two points. Using $9.8$ m/s² for gravity, find each descent time in seconds, to 3 significant figures.'
+  answers:
+    - {name: Tc, label: 'Cycloid: $T \approx$', sigfigs: 3, format: sig3}
+    - {name: Tl, label: 'Straight ramp: $T \approx$', sigfigs: 3, format: sig3}
+  figure:
+    type: plot
+    x: [-0.3, 'pi*a + 0.3']
+    y: ['-2*a - 0.3', 0.3]
+    equal: true
+    curves: [{x: 'a*(t - sin(t))', y: '-a*(1 - cos(t))', t: [0, pi]}]
+    segments: [{from: [0, 0], to: ['pi*a', '-2*a'], dashed: true}]
+  solution: |-
+    On the cycloid the sines cancel in $\frac{ds}{v}$, leaving $dT = \sqrt{a/9.8}\,dt$ for $0 \le t \le \pi$, so $T = \pi\sqrt{{a}/9.8} \approx \pi({root:num4}) \approx$ **{Tc:sig3}** s.
+
+    On the ramp of length $L = {a}\sqrt{\pi^2 + 4}$ the acceleration is constant, and $L = \frac12(g\sin\alpha)T^2$ with $\sin\alpha = \frac{2({a})}{L}$ gives $T = \sqrt{\pi^2 + 4}\,\sqrt{{a}/9.8} \approx$ **{Tl:sig3}** s, slower even though the ramp is shorter.
+- id: calc-m11-r2-polar-conic
+  title: Read an ellipse from its polar equation
+  topic: Polar conics
+  vars:
+    m: {min: 2, max: 6}
+    n: {min: 1, max: 5}
+    k: {choices: [6, 8, 10, 12, 15, 20, 24]}
+  where: ["n < m"]
+  calc:
+    ecc: n/m
+    rmin: k/(m + n)
+    rmax: k/(m - n)
+    amaj: (k/(m + n) + k/(m - n))/2
+    ell: k/m
+    mn: m + n
+    mmn: m - n
+  prompt: 'The ellipse $r = \dfrac{{k}}{{m} + {n:coef}\cos\theta}$ has a focus at the pole. Find its eccentricity, its nearest and farthest distances from the focus, and its semi-major axis. (Exact fractions, or decimals to 3 places.)'
+  answers:
+    - {name: ecc, label: '$e =$', tolerance: 0.001, format: num4}
+    - {name: rmin, label: '$r_{\min} =$', tolerance: 0.001, format: num4}
+    - {name: rmax, label: '$r_{\max} =$', tolerance: 0.001, format: num4}
+    - {name: amaj, label: '$a =$', tolerance: 0.001, format: num4}
+  figure:
+    type: plot
+    x: ['-rmax - 0.5', 'rmin + 0.5']
+    y: ['-amaj - 0.5', 'amaj + 0.5']
+    equal: true
+    curves: [{x: 'k*cos(t)/(m + n*cos(t))', y: 'k*sin(t)/(m + n*cos(t))', t: [0, '2*pi']}]
+    points: [{at: [0, 0], label: focus}]
+  solution: |-
+    Divide the top and bottom by ${m}$ so the constant term is 1: $r = \dfrac{{ell:num4}}{1 + ({n}/{m})\cos\theta}$, so $e = \frac{{n}}{{m}} \approx$ **{ecc:num4}**.
+
+    Nearest at $\theta = 0$: $r_{\min} = \frac{{k}}{{mn}} \approx$ **{rmin:num4}**. Farthest at $\theta = \pi$: $r_{\max} = \frac{{k}}{{mmn}} \approx$ **{rmax:num4}**. The major axis runs between them, so $a = \frac12(r_{\min} + r_{\max}) \approx$ **{amaj:num4}**.
+- id: calc-m11-r2-orbit
+  title: An orbit from its semi-major axis and eccentricity
+  topic: Kepler's laws
+  vars:
+    amaj: {min: 1.5, max: 40, step: 0.5}
+    ecc: {choices: [0.1, 0.2, 0.25, 0.4, 0.5, 0.6, 0.75, 0.8, 0.9]}
+  calc:
+    peri: amaj*(1 - ecc)
+    aphe: amaj*(1 + ecc)
+    per: amaj^1.5
+    ratio: (1 + ecc)/(1 - ecc)
+  prompt: 'A small body orbits the Sun with semi-major axis ${amaj}$ AU and eccentricity ${ecc}$. Find its perihelion and aphelion distances (AU), its period (years, using $T = a^{3/2}$), and how many times faster it moves at perihelion than at aphelion. Give each to 3 significant figures.'
+  answers:
+    - {name: peri, label: 'Perihelion (AU)', sigfigs: 3, format: sig3}
+    - {name: aphe, label: 'Aphelion (AU)', sigfigs: 3, format: sig3}
+    - {name: per, label: 'Period (years)', sigfigs: 3, format: sig3}
+    - {name: ratio, label: '$v_p / v_a$', sigfigs: 3, format: sig3}
+  figure:
+    type: plot
+    x: ['-aphe*1.1', 'peri + 0.1*amaj']
+    y: ['-amaj*1.05', 'amaj*1.05']
+    equal: true
+    curves: [{x: 'amaj*(1 - ecc^2)*cos(t)/(1 + ecc*cos(t))', y: 'amaj*(1 - ecc^2)*sin(t)/(1 + ecc*cos(t))', t: [0, '2*pi']}]
+    points: [{at: [0, 0], label: Sun}]
+  solution: |-
+    Perihelion $a(1 - e) = {amaj}(1 - {ecc}) \approx$ **{peri:sig3}** AU; aphelion $a(1 + e) = {amaj}(1 + {ecc}) \approx$ **{aphe:sig3}** AU.
+
+    Period $T = a^{3/2} = {amaj}^{1.5} \approx$ **{per:sig3}** years.
+
+    At the two ends of the orbit the speed is $\frac hr$, so $\frac{v_p}{v_a} = \frac{r_{\max}}{r_{\min}} = \frac{1 + e}{1 - e} \approx$ **{ratio:sig3}**.
+- id: calc-m11-r2-kepler-time
+  title: Fraction of an orbit's period spent on an arc
+  topic: Kepler's laws
+  vars:
+    ecc: {choices: [0.1, 0.2, 0.3, 0.5, 0.7]}
+    th1: {choices: [{label: '\tfrac{\pi}{3}', value: 1.0471975511965976}, {label: '\tfrac{\pi}{2}', value: 1.5707963267948966}, {label: '\tfrac{2\pi}{3}', value: 2.0943951023931953}]}
+  funcs:
+    wedge(t): 0.5/(1 + ecc*cos(t))^2
+  calc:
+    Asec: integ(wedge, 0, th1)
+    total: pi/(1 - ecc^2)^1.5
+    frac: integ(wedge, 0, th1)/(pi/(1 - ecc^2)^1.5)
+    naive: th1/(2*pi)
+  prompt: 'A planet follows $r = \dfrac{1}{1 + {ecc}\cos\theta}$ (in some unit of length) with the Sun at the pole. What fraction of its period does it take to move from perihelion ($\theta = 0$) to $\theta = {th1}$? Use a calculator for the integral and give the fraction to 3 decimal places.'
+  answers:
+    - {name: frac, label: 'Fraction of the period $\approx$', tolerance: 0.0006, format: dp3}
+  figure:
+    type: plot
+    x: ['-1/(1 - ecc) - 0.2', '1/(1 + ecc) + 0.2']
+    y: ['-1/sqrt(1 - ecc^2) - 0.2', '1/sqrt(1 - ecc^2) + 0.2']
+    equal: true
+    curves: [{x: 'cos(t)/(1 + ecc*cos(t))', y: 'sin(t)/(1 + ecc*cos(t))', t: [0, '2*pi']}]
+    segments: [{from: [0, 0], to: ['1/(1 + ecc)', 0]}, {from: [0, 0], to: ['cos(th1)/(1 + ecc*cos(th1))', 'sin(th1)/(1 + ecc*cos(th1))']}]
+    points: [{at: [0, 0], label: Sun}]
+  solution: |-
+    By Kepler's second law, time is proportional to area swept. The swept area is
+    $$\frac12\int_0^{{th1}}\frac{d\theta}{(1 + {ecc}\cos\theta)^2} \approx {Asec:num4}.$$
+    The whole ellipse has $\ell = 1$, so $a = \frac{1}{1 - e^2}$, $b = \frac{1}{\sqrt{1 - e^2}}$ and area $\pi ab = \frac{\pi}{(1 - e^2)^{3/2}} \approx {total:num4}$. The fraction is $\frac{{Asec:num4}}{{total:num4}} \approx$ **{frac:dp3}**, less than the ${naive:dp3}$ you would get at constant angular speed, because the planet moves fastest near perihelion.

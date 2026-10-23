@@ -1,0 +1,20 @@
+# Round 2 cards for calc-m10 (honors lessons 44h1 and 44h2)
+- {front: 'Error bound for $e \approx \sum_{k=0}^{n}\frac{1}{k!}$', back: '$0 < e - \sum_{k=0}^{n}\frac{1}{k!} < \dfrac{1}{n!\,n}$', topic: Computing with series}
+- {front: 'Leibniz series', back: '$\frac{\pi}{4} = 1 - \frac13 + \frac15 - \cdots$; error after $N$ terms at most $\frac{1}{2N + 1}$, so it is very slow.', topic: Computing with series}
+- {front: 'Integral bounds on the sum of a positive decreasing series', back: '$S_N + \int_{N+1}^\infty f \le S \le S_N + \int_N^\infty f$; the midpoint is often a very good estimate.', topic: Computing with series}
+- {front: 'Fast series for logarithms', back: '$\ln\dfrac{1 + x}{1 - x} = 2\left(x + \dfrac{x^3}{3} + \dfrac{x^5}{5} + \cdots\right)$, $|x| < 1$', topic: Computing with series}
+- {front: 'To compute $\ln y$ with the $\ln\frac{1 + x}{1 - x}$ series, use $x =$', back: '$\dfrac{y - 1}{y + 1}$ (for $\ln 2$, $x = \frac13$)', topic: Computing with series}
+- {front: 'Machin''s formula', back: '$\dfrac{\pi}{4} = 4\arctan\dfrac15 - \arctan\dfrac{1}{239}$ (1706)', topic: Computing with series}
+- {front: 'Argument reduction for $e^x$', back: '$e^x = 2^ke^r$ with $k$ the whole number nearest $x/\ln2$ and $r = x - k\ln2$, so $|r| \le 0.35$.', topic: Computing with series}
+- {front: 'Scaling a result by a constant $c$', back: 'Multiplies the absolute error by $|c|$; leaves the relative error unchanged.', topic: Computing with series}
+- {front: 'Modulus of $a + bi$', back: '$|a + bi| = \sqrt{a^2 + b^2}$, its distance from 0; $|zw| = |z|\,|w|$.', topic: Complex power series}
+- {front: 'Powers of $i$', back: '$i, -1, -i, 1$, then repeat (period 4).', topic: Complex power series}
+- {front: 'Where a complex power series converges', back: 'On a disk $|z - a| < R$; the real interval of convergence is its slice on the real axis.', topic: Complex power series}
+- {front: 'Euler''s formula', back: '$e^{i\theta} = \cos\theta + i\sin\theta$ (θ in radians)', topic: Euler's formula}
+- {front: 'Euler''s identity', back: '$e^{i\pi} + 1 = 0$', topic: Euler's formula}
+- {front: 'Multiplying $r_1e^{i\theta_1}$ by $r_2e^{i\theta_2}$', back: '$r_1r_2e^{i(\theta_1 + \theta_2)}$: moduli multiply, angles add.', topic: Euler's formula}
+- {front: 'De Moivre''s formula', back: '$(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta$', topic: Euler's formula}
+- {front: '$\cos\theta$ and $\sin\theta$ as exponentials', back: '$\cos\theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2}$, $\sin\theta = \dfrac{e^{i\theta} - e^{-i\theta}}{2i}$', topic: Euler's formula}
+- {front: '$\int e^x\cos x\,dx$ via complex exponentials', back: 'Real part of $\int e^{(1 + i)x}dx$: $\dfrac{e^x}{2}(\cos x + \sin x) + C$', topic: Euler's formula}
+- {front: 'Radius of convergence of the Taylor series of a rational function at $a$', back: 'The distance from $a$ to the nearest zero of the denominator, real or complex.', topic: Complex power series}
+- {front: 'Why $\frac{1}{1 + x^2}$ has $R = 1$ at 0', back: 'It blows up at the complex points $\pm i$, which are 1 away from 0.', topic: Complex power series}

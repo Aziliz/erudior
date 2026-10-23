@@ -17,7 +17,7 @@
     - {name: n, label: '$n =$', format: integer}
     - {name: terms, label: 'Terms', format: integer}
   solution: |-
-    We need $n!\,n > 10^{{k}}$. For $n = {nm}$: ${nm}!\cdot{nm} = {small:sci}$, too small. For $n = {n}$: ${n}!\cdot{n} = {big:sci}$, which is bigger than $10^{{k}}$. So $n =$ **{n}**, using the terms $j = 0, 1, \dots, {n}$: **{terms}** terms.
+    We need $n!\,n > 10^{{k}}$. For $n = {nm}$: ${nm}!\cdot{nm} = {small:texsci}$, too small. For $n = {n}$: ${n}!\cdot{n} = {big:texsci}$, which is bigger than $10^{{k}}$. So $n =$ **{n}**, using the terms $j = 0, 1, \dots, {n}$: **{terms}** terms.
 - id: calc-m10-r2-integral-bounds
   title: Trap a p-series sum between two integral bounds
   topic: Computing with series

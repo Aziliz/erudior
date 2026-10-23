@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 345" width="680" height="345" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="680" height="345" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker></defs>
+<rect x="20" y="50" width="300" height="280" rx="10" fill="#dde8f3" fill-opacity="0.45"/>
+<polyline points="60,90 60,150" fill="none" stroke="#1c2833" stroke-width="3"/>
+<line x1="60" y1="150" x2="60" y2="182" stroke="#1c2833" stroke-width="3"/>
+<line x1="38" y1="182" x2="82" y2="182" stroke="#1c2833" stroke-width="3"/>
+<line x1="48" y1="196" x2="72" y2="196" stroke="#1c2833" stroke-width="6"/>
+<line x1="60" y1="196" x2="60" y2="230" stroke="#1c2833" stroke-width="3"/>
+<polyline points="60,230 60,290" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="60,90 90,90" fill="none" stroke="#1c2833" stroke-width="3"/>
+<circle cx="90" cy="90" r="4" fill="#1c2833"/><circle cx="130" cy="90" r="4" fill="#1c2833"/>
+<line x1="90" y1="90" x2="124" y2="68" stroke="#1c2833" stroke-width="3"/>
+<polyline points="130,90 150,90" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="150.0,90.0 160.0,90.0 166.7,78.0 180.0,102.0 193.3,78.0 206.7,102.0 220.0,78.0 233.3,102.0 240.0,90.0 250.0,90.0" fill="none" stroke="#1c2833" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="250,90 280,90" fill="none" stroke="#1c2833" stroke-width="3"/>
+<path d="M280,130 L280,140 A12.5,12.5 0 0 1 280,165.0 A12.5,12.5 0 0 1 280,190.0 A12.5,12.5 0 0 1 280,215.0 A12.5,12.5 0 0 1 280,240.0 L280,250" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="280,90 280,130" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="280,250 280,290" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="60,290 280,290" fill="none" stroke="#1c2833" stroke-width="3"/>
+<text x="170" y="40" text-anchor="middle" font-size="16" font-weight="bold">RL circuit</text>
+<text x="30" y="168" text-anchor="middle" font-size="16" font-weight="normal">+</text>
+<text x="90" y="210" text-anchor="start" font-size="16" font-weight="normal">E</text>
+<text x="200" y="68" text-anchor="middle" font-size="16" font-weight="normal">R</text>
+<text x="110" y="120" text-anchor="middle" font-size="15" font-weight="normal">switch</text>
+<text x="264" y="196" text-anchor="end" font-size="16" font-weight="normal">L</text>
+<text x="170" y="318" text-anchor="middle" font-size="15" font-weight="normal">L dI/dt + RI = E</text>
+<rect x="360" y="50" width="300" height="280" rx="10" fill="#dcf0e3" fill-opacity="0.45"/>
+<polyline points="400,90 400,150" fill="none" stroke="#1c2833" stroke-width="3"/>
+<line x1="400" y1="150" x2="400" y2="182" stroke="#1c2833" stroke-width="3"/>
+<line x1="378" y1="182" x2="422" y2="182" stroke="#1c2833" stroke-width="3"/>
+<line x1="388" y1="196" x2="412" y2="196" stroke="#1c2833" stroke-width="6"/>
+<line x1="400" y1="196" x2="400" y2="230" stroke="#1c2833" stroke-width="3"/>
+<polyline points="400,230 400,290" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="400,90 430,90" fill="none" stroke="#1c2833" stroke-width="3"/>
+<circle cx="430" cy="90" r="4" fill="#1c2833"/><circle cx="470" cy="90" r="4" fill="#1c2833"/>
+<line x1="430" y1="90" x2="464" y2="68" stroke="#1c2833" stroke-width="3"/>
+<polyline points="470,90 490,90" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="490.0,90.0 500.0,90.0 506.7,78.0 520.0,102.0 533.3,78.0 546.7,102.0 560.0,78.0 573.3,102.0 580.0,90.0 590.0,90.0" fill="none" stroke="#1c2833" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="590,90 620,90" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="620,90 620,184" fill="none" stroke="#1c2833" stroke-width="3"/>
+<line x1="596" y1="184" x2="644" y2="184" stroke="#1c2833" stroke-width="4"/>
+<line x1="596" y1="196" x2="644" y2="196" stroke="#1c2833" stroke-width="4"/>
+<polyline points="620,196 620,290" fill="none" stroke="#1c2833" stroke-width="3"/>
+<polyline points="400,290 620,290" fill="none" stroke="#1c2833" stroke-width="3"/>
+<text x="510" y="40" text-anchor="middle" font-size="16" font-weight="bold">RC circuit</text>
+<text x="370" y="168" text-anchor="middle" font-size="16" font-weight="normal">+</text>
+<text x="430" y="210" text-anchor="start" font-size="16" font-weight="normal">E</text>
+<text x="540" y="68" text-anchor="middle" font-size="16" font-weight="normal">R</text>
+<text x="450" y="120" text-anchor="middle" font-size="15" font-weight="normal">switch</text>
+<text x="586" y="196" text-anchor="end" font-size="16" font-weight="normal">C</text>
+<text x="510" y="318" text-anchor="middle" font-size="15" font-weight="normal">R dq/dt + q/C = E</text>
+</svg>

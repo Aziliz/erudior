@@ -1,0 +1,43 @@
+# Round 2, honors module stat-h1: cards for its four lessons.
+# Resampling methods
+- {front: 'Bootstrap sample', back: '$n$ values drawn with replacement from the $n$ data values. Some repeat, some are left out.', topic: 'Resampling methods'}
+- {front: 'Bootstrap standard error', back: 'SD of the statistic over thousands of bootstrap samples. Estimates the statistic''s SE.', topic: 'Resampling methods'}
+- {front: 'Bootstrap SE of the mean', back: '$\sqrt{(n-1)/n}\cdot s/\sqrt{n}$: slightly below the usual $s/\sqrt{n}$.', topic: 'Resampling methods'}
+- {front: 'Bootstrap percentile interval (95%)', back: '2.5th to 97.5th percentile of the bootstrap distribution. Rough, and often too narrow, for small $n$.', topic: 'Resampling methods'}
+- {front: 'Why bootstrap with replacement?', back: 'Without replacement every resample is the data reordered, so the statistic never varies.', topic: 'Resampling methods'}
+- {front: 'Chance a value is left out of a bootstrap resample', back: '$(1 - 1/n)^n \approx 0.37$ for large $n$; a resample uses about 63% of the distinct values.', topic: 'Resampling methods'}
+- {front: 'Permutation test', back: 'Under $H_0$ (no effect) group labels are interchangeable. p-value = share of all splits at least as extreme as observed. Needs random assignment, not normality.', topic: 'Resampling methods'}
+- {front: 'Number of splits in a two-group permutation test', back: '$\binom{n_1 + n_2}{n_1}$, all equally likely under $H_0$.', topic: 'Resampling methods'}
+- {front: 'Bootstrap vs permutation', back: 'Bootstrap: with replacement, "how precise?" (SE, interval). Permutation: reshuffle labels, "could it be chance?" (p-value).', topic: 'Resampling methods'}
+- {front: 'Limits of the bootstrap', back: 'Cannot fix a biased sample; fails for the maximum or minimum; rough for tiny $n$; needs special versions for dependent data.', topic: 'Resampling methods'}
+# Bayesian inference
+- {front: 'Bayes'' theorem for a parameter', back: 'Posterior ∝ prior × likelihood, then rescale so the total is 1.', topic: 'Bayesian inference'}
+- {front: 'Likelihood', back: '$P(\text{data} \mid \theta)$ as a function of $\theta$. Binomial: $\binom{n}{x}p^x(1-p)^{n-x}$.', topic: 'Bayesian inference'}
+- {front: 'Beta distribution', back: '$\text{Beta}(a, b)$: density ∝ $p^{a-1}(1-p)^{b-1}$ on $[0, 1]$, mean $a/(a+b)$. $\text{Beta}(1, 1)$ is flat.', topic: 'Bayesian inference'}
+- {front: 'Beta-binomial update', back: '$\text{Beta}(a, b)$ prior + $x$ successes in $n$ trials → $\text{Beta}(a + x,\ b + n - x)$.', topic: 'Bayesian inference'}
+- {front: 'Posterior mean (beta-binomial)', back: '$\dfrac{a + x}{a + b + n}$: weight $\dfrac{n}{a+b+n}$ on $\hat{p}$, the rest on the prior mean.', topic: 'Bayesian inference'}
+- {front: 'Rule of succession', back: 'Flat prior: posterior mean $(x + 1)/(n + 2)$ (Laplace, 1774).', topic: 'Bayesian inference'}
+- {front: 'Credible vs confidence interval', back: 'Credible: P(parameter in interval | data, prior) = 0.95. Confidence: the method captures the parameter in 95% of repeated samples.', topic: 'Bayesian inference'}
+- {front: 'Shrinkage', back: 'Estimates pulled from $\hat{p}$ toward the prior mean; less pull as $n$ grows.', topic: 'Bayesian inference'}
+- {front: 'Sensitivity analysis (Bayesian)', back: 'Rerun with several reasonable priors; if the conclusion holds, the prior didn''t drive it.', topic: 'Bayesian inference'}
+# Multiple testing
+- {front: 'Familywise error rate', back: 'P(at least one false positive). $m$ independent true nulls at $\alpha$: $1 - (1-\alpha)^m$ (0.64 for 20 tests at 0.05).', topic: 'Multiple testing'}
+- {front: 'Expected false positives', back: '$m\alpha$ when all $m$ nulls are true, independent or not.', topic: 'Multiple testing'}
+- {front: 'Bonferroni correction', back: 'Test each at $\alpha/m$ (or multiply p-values by $m$). FWER ≤ α by the union bound; no independence needed.', topic: 'Multiple testing'}
+- {front: 'Holm''s method', back: 'Sort p-values; compare the smallest with $\alpha/m$, the next with $\alpha/(m-1)$, …; stop at the first failure. Never less powerful than Bonferroni.', topic: 'Multiple testing'}
+- {front: 'False discovery rate', back: 'Expected share of rejected nulls that are actually true.', topic: 'Multiple testing'}
+- {front: 'Benjamini–Hochberg procedure', back: 'Sort p-values; largest $k$ with $p_{(k)} \le kq/m$; reject the $k$ smallest.', topic: 'Multiple testing'}
+- {front: 'Share of significant results that are false', back: '$\dfrac{\alpha(1-\pi)}{\alpha(1-\pi) + \text{power}\cdot\pi}$, with $\pi$ the share of true hypotheses. 0.36 for $\pi = 0.1$, power 0.8, $\alpha = 0.05$.', topic: 'Multiple testing'}
+- {front: 'p-hacking', back: 'Trying several analyses and reporting the one that reaches significance. Hidden multiplicity.', topic: 'Multiple testing'}
+- {front: 'Defenses against false positives', back: 'Preregistration, corrections for multiple tests, adequate power, replication, effect sizes with intervals.', topic: 'Multiple testing'}
+# Effect sizes and meta-analysis
+- {front: 'Cohen''s d', back: '$d = (\bar{x}_1 - \bar{x}_2)/s_p$. 0.2 / 0.5 / 0.8 ≈ small / medium / large (rough conventions).', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Pooled standard deviation', back: '$s_p = \sqrt{\dfrac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}}$', topic: 'Effect sizes and meta-analysis'}
+- {front: 't from d (two equal groups of $n$)', back: '$t = d\sqrt{n/2}$: the p-value mixes effect size with sample size.', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Inverse-variance weight', back: '$w_i = 1/\text{SE}_i^2$.', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Fixed-effect pooled estimate', back: '$\hat{\theta} = \sum w_i y_i / \sum w_i$, $\text{SE} = 1/\sqrt{\sum w_i}$.', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Cochran''s Q and I²', back: '$Q = \sum w_i(y_i - \hat{\theta})^2$ vs $k - 1$ df; $I^2 = \max(0, (Q - (k-1))/Q)$.', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Random-effects model', back: 'True effects vary with variance $\tau^2$; weights $1/(\text{SE}_i^2 + \tau^2)$ are more equal and the pooled CI is wider.', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Forest plot', back: 'Square = study estimate (size = weight), line = its CI, diamond = pooled estimate and CI, vertical line = no effect.', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Vote counting', back: 'Tallying significant vs non-significant studies. Misleading: pool the estimates instead.', topic: 'Effect sizes and meta-analysis'}
+- {front: 'Publication bias and funnel plots', back: 'Significant results get published more, inflating pooled effects. A lopsided funnel plot (missing small null studies) is a warning sign.', topic: 'Effect sizes and meta-analysis'}

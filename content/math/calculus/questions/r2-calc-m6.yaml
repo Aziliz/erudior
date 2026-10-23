@@ -121,7 +121,7 @@
   answer:
   - 0
   - 1
-  explanation: For a decreasing function the left end of each subinterval is the highest point, so left rectangles stick out above the curve (overestimate) and right rectangles sit under it (underestimate). That makes the left sum *greater* than the right sum. The midpoint sum is usually close, but it is exact only for special functions such as lines.
+  explanation: For a decreasing function the left end of each subinterval is the highest point, so left rectangles stick out above the curve (overestimate) and right rectangles sit under it (underestimate). That makes the left sum greater than the right sum. The midpoint sum is usually close, but it is exact only for special functions such as lines.
 - id: calc-m6-r2-q09
   lesson: calc-riemann-sums
   type: match
@@ -174,7 +174,7 @@
   distractors:
   - Local maximum of f
   - Point where g is undefined
-  explanation: '$g'' = f$. At 1 ($t = 2$), $f$ changes from positive to negative, so $g$ stops increasing and starts decreasing: a local maximum of $g$. At 3 ($t = 6$), $f$ changes from negative to positive: a local minimum of $g$. At 2 ($t = 4$), $f$ has its lowest point, so $g'''' = f''$ changes sign there: an inflection point of $g$. Point 2 is a local *minimum* of $f$, not a maximum, and $g$ is defined everywhere because $f$ is continuous.'
+  explanation: '$g'' = f$. At 1 ($t = 2$), $f$ changes from positive to negative, so $g$ stops increasing and starts decreasing: a local maximum of $g$. At 3 ($t = 6$), $f$ changes from negative to positive: a local minimum of $g$. At 2 ($t = 4$), $f$ has its lowest point, so $g'''' = f''$ changes sign there: an inflection point of $g$. Point 2 is a local minimum of $f$, not a maximum, and $g$ is defined everywhere because $f$ is continuous.'
 - id: calc-m6-r2-q12
   lesson: calc-ftc
   type: text

@@ -1,0 +1,52 @@
+# calc-m7 round 2: terms introduced in the honors lessons 30h1 (Pappus) and 30h2 (probability densities)
+- term: moment about the y-axis
+  aliases: [M_y]
+  definition: 'For a uniform region between $y = g(x)$ and $y = f(x)$ on $[a, b]$, $M_y = \int_a^b x\,[f(x) - g(x)]\,dx$ (area times distance from the $y$-axis); $\bar x = M_y/A$.'
+  topic: Center of mass
+- term: moment about the x-axis
+  aliases: [M_x]
+  definition: 'For a uniform region between $y = g(x)$ and $y = f(x)$ on $[a, b]$, $M_x = \int_a^b \tfrac12\left[f(x)^2 - g(x)^2\right]dx$ (area times height of each strip''s midpoint); $\bar y = M_x/A$.'
+  topic: Center of mass
+- term: torus
+  aliases: [tori]
+  definition: 'The doughnut-shaped solid made by rotating a disk of radius $r$ about a line in its plane at distance $R \ge r$ from its center. By Pappus, $V = 2\pi^2Rr^2$ and its surface area is $4\pi^2Rr$.'
+  topic: Theorems of Pappus
+- term: centroid of a curve
+  definition: 'The balance point of a thin uniform wire along the curve: $\bar x = \frac1L\int x\,ds$, $\bar y = \frac1L\int y\,ds$, where $L$ is the length. For a semicircle of radius $r$ it is $\frac{2r}{\pi}$ from the diameter.'
+  topic: Theorems of Pappus
+- term: second theorem of Pappus
+  aliases: [Pappus's theorem for surface area]
+  definition: 'Rotating a curve of length $L$ about a line in its plane that doesn''t cross it gives a surface of area $S = 2\pi\bar r L$, where $\bar r$ is the distance from the curve''s centroid to the line.'
+  topic: Theorems of Pappus
+- term: continuous random variable
+  aliases: [continuous random variables]
+  definition: 'A random quantity that can take any value in an interval, such as a waiting time. Probabilities are areas under its density, and any single value has probability 0.'
+  topic: Probability density functions
+- term: probability density function
+  aliases: [probability density functions, PDF, probability density, density function]
+  definition: 'A function $f \ge 0$ with total area $\int_{-\infty}^{\infty}f(x)\,dx = 1$ that gives probabilities as areas: $P(a \le X \le b) = \int_a^b f(x)\,dx$. Its values can exceed 1.'
+  topic: Probability density functions
+- term: cumulative distribution function
+  aliases: [cumulative distribution functions, CDF]
+  definition: '$F(x) = P(X \le x) = \int_{-\infty}^{x}f(t)\,dt$. It never decreases, runs from 0 to 1, and $F'' = f$ where $f$ is continuous.'
+  topic: Probability density functions
+- term: expected value
+  aliases: [expectation, expected values]
+  definition: 'The mean of a random variable: $\mu = E(X) = \int_{-\infty}^{\infty}x\,f(x)\,dx$, the balance point (centroid $x$-coordinate) of the region under the density.'
+  topic: Probability density functions
+- term: median
+  aliases: [medians]
+  definition: 'For a continuous random variable, the value $m$ with $F(m) = \frac12$: half the area under the density lies on each side of it.'
+  topic: Probability density functions
+- term: variance
+  aliases: [variances]
+  definition: 'The spread of a random variable about its mean: $\sigma^2 = \int(x - \mu)^2f(x)\,dx = \int x^2f(x)\,dx - \mu^2$. Its square root $\sigma$ is the standard deviation.'
+  topic: Probability density functions
+- term: exponential distribution
+  aliases: [exponential distributions]
+  definition: 'The density $f(x) = \lambda e^{-\lambda x}$ for $x \ge 0$ (0 for $x < 0$), a common model for waiting times. $P(X > x) = e^{-\lambda x}$, mean $\frac1\lambda$, median $\frac{\ln 2}{\lambda}$.'
+  topic: Probability density functions
+- term: uniform distribution
+  aliases: [uniform distributions]
+  definition: 'The density $f(x) = \frac{1}{b - a}$ on $[a, b]$ (0 elsewhere): equal-length subintervals are equally likely, and the mean is $\frac{a + b}{2}$.'
+  topic: Probability density functions

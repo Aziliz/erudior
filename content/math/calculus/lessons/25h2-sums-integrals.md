@@ -12,8 +12,8 @@ refs: [calc-ref-integrals]
 
 Lesson 22 defined $\int_a^b f(x)\,dx$ as a limit of Riemann sums, and Lesson 23 gave a fast way to evaluate it. The bridge between sums and integrals runs both ways, and this lesson crosses it in each direction:
 
-- **Sum to integral.** A limit of a complicated sum may be a Riemann sum in disguise. Recognize it, and FTC 2 evaluates it in one line.
-- **Integral to sum.** A sum with many terms, like $1 + \frac12 + \frac13 + \cdots + \frac{1}{1000}$, has no simple closed form, but integrals trap it between two easy numbers.
+- *Sum to integral.* A limit of a complicated sum may be a Riemann sum in disguise. Recognize it, and FTC 2 evaluates it in one line.
+- *Integral to sum.* A sum with many terms, like $1 + \frac12 + \frac13 + \cdots + \frac{1}{1000}$, has no simple closed form, but integrals trap it between two easy numbers.
 
 Along the way we'll prove the summation formulas Lesson 22 used without proof, and measure exactly how far a left or right sum can be from the integral.
 

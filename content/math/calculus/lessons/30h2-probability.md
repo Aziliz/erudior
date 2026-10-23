@@ -66,7 +66,7 @@ The **expected value** or mean of $X$ is
 
 $$\mu = E(X) = \int_{-\infty}^{\infty}x\,f(x)\,dx.$$
 
-Compare Lesson 30's centroid, $\bar x = \frac1A\int x\,f(x)\,dx$. The region under a density has area $A = 1$, so **the mean is the $x$-coordinate of the centroid of the region under the density**: if you cut the region out of cardboard, it would balance on a knife edge at $x = \mu$. This is why a long tail on one side drags the mean toward it.
+Compare Lesson 30's centroid, $\bar x = \frac1A\int x\,f(x)\,dx$. The region under a density has area $A = 1$, so *the mean is the $x$-coordinate of the centroid of the region under the density*: if you cut the region out of cardboard, it would balance on a knife edge at $x = \mu$. This is why a long tail on one side drags the mean toward it.
 
 The **median** $m$ splits the probability in half: $F(m) = \frac12$, so half the area lies on each side of $x = m$. The mean balances the region; the median halves its area. They agree for a symmetric density and usually differ otherwise.
 

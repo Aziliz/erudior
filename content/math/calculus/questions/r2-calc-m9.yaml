@@ -18,7 +18,7 @@
     - {x: 75.6, y: 57.7, text: Error of the step}
   distractors: [Equilibrium solution, Slope at the end of the step]
   explanation: |-
-    An Euler step starts at the known point $(x_n, y_n)$ (1), runs $h$ to the right (2) and rises $h\,F(x_n, y_n)$ (3), using the slope at the *start*. It lands at the estimate $y_{n+1}$ (4). The true solution at $x_{n+1}$ is on the curve (5), and the gap between them (6) is the error. Because this curve is concave up, the tangent segment falls below it: Euler's method underestimates.
+    An Euler step starts at the known point $(x_n, y_n)$ (1), runs $h$ to the right (2) and rises $h\,F(x_n, y_n)$ (3), using the slope at the start. It lands at the estimate $y_{n+1}$ (4). The true solution at $x_{n+1}$ is on the curve (5), and the gap between them (6) is the error. Because this curve is concave up, the tangent segment falls below it: Euler's method underestimates.
 - id: calc-m9-r2-q02
   lesson: calc-slope-fields-euler
   type: text
@@ -92,7 +92,7 @@
   lesson: calc-separable
   type: text
   topic: Exponential and logistic models
-  stem: 'The solution of $\dfrac{dy}{dt} = -0.2y$, $y(0) = 50$ is $y = $ ___ $e^{-0.2t}$. Its half-life is $\dfrac{\ln 2}{c}$ with $c = $ ___. Give numbers only.'
+  stem: 'The solution of $\dfrac{dy}{dt} = -0.2y$, $y(0) = 50$ is $y =$ ___ $e^{-0.2t}$. Its half-life is $\dfrac{\ln 2}{c}$ with $c =$ ___. Give numbers only.'
   accept:
     - ['50']
     - ['0.2', '1/5']
@@ -137,7 +137,7 @@
     - ['$\dfrac{dP}{dt} = 0.3P\left(1 - \dfrac{P}{500}\right)$', Logistic growth]
   distractors: [Growth by a constant amount per hour]
   explanation: |-
-    $ky$ with $k > 0$ is growth and with $k < 0$ decay. A rate proportional to the *difference* from 20 is Newton's law of cooling (surroundings at 20). The factor $1 - \frac{P}{500}$ makes growth stall at the carrying capacity 500: logistic. Constant-amount growth would be $\frac{dP}{dt} = c$, which none of these is.
+    $ky$ with $k > 0$ is growth and with $k < 0$ decay. A rate proportional to the difference from 20 is Newton's law of cooling (surroundings at 20). The factor $1 - \frac{P}{500}$ makes growth stall at the carrying capacity 500: logistic. Constant-amount growth would be $\frac{dP}{dt} = c$, which none of these is.
 
 # ---------- Lesson 39: first-order linear equations ----------
 - id: calc-m9-r2-q11
@@ -154,7 +154,7 @@
     - {x: 38.3, y: 19.0, text: Stirrer that keeps the mixture uniform}
   distractors: [Outflow at the incoming concentration c, Inflow of pure salt]
   explanation: |-
-    Brine enters at concentration $c$ (1), so salt enters at $c \times$ (flow in). The stirrer (4) keeps the tank's contents (2) uniform, so the liquid leaving (3) has the tank's *current* concentration $\frac QV$, not the incoming one. That gives $\frac{dQ}{dt} = c\,(\text{flow in}) - \frac QV(\text{flow out})$.
+    Brine enters at concentration $c$ (1), so salt enters at $c \times$ (flow in). The stirrer (4) keeps the tank's contents (2) uniform, so the liquid leaving (3) has the tank's current concentration $\frac QV$, not the incoming one. That gives $\frac{dQ}{dt} = c\,(\text{flow in}) - \frac QV(\text{flow out})$.
 - id: calc-m9-r2-q12
   lesson: calc-linear-de
   type: order
@@ -246,7 +246,7 @@
   lesson: calc-m9-h-phase-lines
   type: text
   topic: Phase lines and stability
-  stem: 'For $\dfrac{dy}{dt} = (y - 1)(y - 3)$, a solution starting near the stable equilibrium $y = 1$ approaches it with its distance shrinking roughly like $e^{-kt}$, where $k = $ ___. Give only the number.'
+  stem: 'For $\dfrac{dy}{dt} = (y - 1)(y - 3)$, a solution starting near the stable equilibrium $y = 1$ approaches it with its distance shrinking roughly like $e^{-kt}$, where $k =$ ___. Give only the number.'
   accept: ['2']
   explanation: |-
     $g(y) = y^2 - 4y + 3$, so $g'(y) = 2y - 4$ and $g'(1) = -2$. Near $y = 1$, $u = y - 1$ satisfies $u' \approx -2u$, so $u \approx u_0e^{-2t}$: $k = 2$.
@@ -282,7 +282,7 @@
   lesson: calc-m9-h-phase-lines
   type: text
   topic: Phase lines and stability
-  stem: 'Find the equilibria of $\dfrac{dP}{dt} = 0.4P\left(1 - \dfrac{P}{1000}\right) - 64$. Smaller: $P = $ ___; larger: $P = $ ___.'
+  stem: 'Find the equilibria of $\dfrac{dP}{dt} = 0.4P\left(1 - \dfrac{P}{1000}\right) - 64$. Smaller: $P =$ ___; larger: $P =$ ___.'
   accept:
     - ['200']
     - ['800']
@@ -357,7 +357,7 @@
   choices: ['All real numbers', '$(0, \tfrac{\pi}{2})$', '$(-\pi, \pi)$', '$(-\tfrac{\pi}{2}, \tfrac{\pi}{2})$']
   answer: 3
   explanation: |-
-    Check: $(\tan x)' = \sec^2x = 1 + \tan^2x$. The right side $1 + y^2$ is smooth everywhere, yet $\tan x$ blows up at $x = \pm\frac\pi2$. The theorem only promises a solution on *some* interval around 0; here that interval is $(-\frac\pi2, \frac\pi2)$.
+    Check: $(\tan x)' = \sec^2x = 1 + \tan^2x$. The right side $1 + y^2$ is smooth everywhere, yet $\tan x$ blows up at $x = \pm\frac\pi2$. The theorem only promises a solution on some interval around 0; here that interval is $(-\frac\pi2, \frac\pi2)$.
 
 # ---------- Honors 39h2: better numerical methods ----------
 - id: calc-m9-r2-h15
@@ -440,7 +440,7 @@
   lesson: calc-m9-h-numerical-methods
   type: text
   topic: Numerical methods for differential equations
-  stem: 'Euler''s method with $h = 0.75$ on $y'' = -4y$, $y(0) = 1$ gives $y_1 = $ ___ and $y_3 = $ ___.'
+  stem: 'Euler''s method with $h = 0.75$ on $y'' = -4y$, $y(0) = 1$ gives $y_1 =$ ___ and $y_3 =$ ___.'
   accept:
     - ['-2', '−2']
     - ['-8', '−8']

@@ -1,0 +1,20 @@
+# calc-m6 round 2: cards for the honors lessons 25h1 (functions defined by integrals) and 25h2 (sums and integrals)
+- {front: 'Natural log defined as an integral', back: '$\ln x = \int_1^x \frac{dt}{t}$ for $x > 0$; then $(\ln x)'' = \frac1x$ by FTC 1.', topic: Functions defined by integrals}
+- {front: 'Proof idea for $\ln(ax) = \ln a + \ln x$', back: 'Both sides have derivative $\frac1x$, so they differ by a constant; at $x = 1$ both equal $\ln a$.', topic: Functions defined by integrals}
+- {front: 'Why $2 < e < 4$ (from the integral definition)', back: '$\frac12 < \ln 2 < 1$ and $\ln 4 = 2\ln 2 > 1$; by the IVT, $\ln x = 1$ for some $x$ between 2 and 4.', topic: Functions defined by integrals}
+- {front: 'Does every continuous function have an antiderivative?', back: 'Yes: $\int_a^x f(t)\,dt$ (FTC 1). It may not be an elementary function.', topic: Functions defined by integrals}
+- {front: 'Error function', back: '$\operatorname{erf}(x) = \frac{2}{\sqrt\pi}\int_0^x e^{-t^2}\,dt$; odd, increasing, tends to 1.', topic: Functions defined by integrals}
+- {front: 'Sine integral', back: '$\operatorname{Si}(x) = \int_0^x \frac{\sin t}{t}\,dt$; local max at $\pi, 3\pi, \ldots$, local min at $2\pi, 4\pi, \ldots$; tends to $\frac\pi2$.', topic: Functions defined by integrals}
+- {front: 'If $f$ is even, $\int_0^x f(t)\,dt$ is…', back: 'Odd. (If $f$ is odd, it is even.)', topic: Functions defined by integrals}
+- {front: '$\displaystyle\lim_{x\to a}\frac{\int_a^x f(t)\,dt}{g(x)}$ with $g(a) = 0$', back: 'A $\frac00$ form: use L''Hôpital, with FTC 1 giving the numerator''s derivative $f(x)$.', topic: Functions defined by integrals}
+- {front: 'Solving an integral equation', back: 'Differentiate both sides (FTC 1), then set $x$ to the lower limit, where the integral is 0, to get the initial value.', topic: Functions defined by integrals}
+- {front: 'Only solutions of $f'' = kf$', back: '$f = Ce^{kx}$: $h = fe^{-kx}$ has $h'' = 0$.', topic: Functions defined by integrals}
+- {front: 'Decoding $\lim\sum f(x_i)\Delta x$', back: 'Find the width $\Delta x$, the sample point $x_i = a + i\Delta x$ and $f$; the limit is $\int_a^b f(x)\,dx$ with $b = a + n\Delta x$.', topic: Sums and integrals}
+- {front: '$\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\frac1n f\left(\frac in\right)$', back: '$\int_0^1 f(x)\,dx$', topic: Sums and integrals}
+- {front: 'Telescoping sum', back: '$\sum_{i=1}^n[g(i + 1) - g(i)] = g(n + 1) - g(1)$', topic: Sums and integrals}
+- {front: '$\sum_{i=1}^n i^3$', back: '$\left[\frac{n(n + 1)}{2}\right]^2$', topic: Sums and integrals}
+- {front: '$R_n - L_n$ for monotone $f$', back: '$\pm[f(b) - f(a)]\Delta x$; the integral lies between $L_n$ and $R_n$, so each is within $\frac{|f(b) - f(a)|(b - a)}{n}$.', topic: Sums and integrals}
+- {front: 'Trapping $\sum_{i=1}^n f(i)$ for positive decreasing $f$', back: '$\int_1^{n+1} f \le \sum_{i=1}^n f(i) \le f(1) + \int_1^n f$', topic: Sums and integrals}
+- {front: 'Trapping $\sum_{i=1}^n f(i)$ for increasing $f$', back: '$\int_0^n f \le \sum_{i=1}^n f(i) \le \int_1^{n+1} f$', topic: Sums and integrals}
+- {front: 'Bounds on $H_n$', back: '$\ln(n + 1) \le H_n \le 1 + \ln n$', topic: Sums and integrals}
+- {front: 'Euler–Mascheroni constant', back: '$\gamma = \lim(H_n - \ln n) \approx 0.5772$, so $H_n \approx \ln n + 0.5772$.', topic: Sums and integrals}

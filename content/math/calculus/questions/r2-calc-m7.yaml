@@ -1,0 +1,624 @@
+# Round 2, module 7 (Applications of integration): new question types and honors questions
+# ---------- Lesson 26: area between curves ----------
+- id: calc-m7-r2-q01
+  lesson: calc-area-between
+  type: text
+  module_quiz: true
+  topic: Area between curves
+  stem: 'The area of the region between $y = x^2$ and the line $y = 4$ is ___. Give an exact fraction.'
+  accept: ['32/3']
+  explanation: |-
+    The curves meet where $x^2 = 4$, at $x = -2$ and $x = 2$, and the line is on top. $\int_{-2}^{2}(4 - x^2)\,dx = 16 - \frac{16}{3} = \frac{32}{3} \approx 10.67$.
+- id: calc-m7-r2-q02
+  lesson: calc-area-between
+  type: order
+  topic: Area between curves
+  stem: 'Put the steps for finding the area between two curves with vertical slices in order.'
+  items:
+    - 'Solve $f(x) = g(x)$ to find the limits of integration'
+    - 'Test a point between the limits to see which curve is on top'
+    - 'Write $\int_a^b(\text{top} - \text{bottom})\,dx$'
+    - 'Find an antiderivative of top minus bottom'
+    - 'Evaluate the antiderivative at $b$ and at $a$ and subtract'
+  explanation: |-
+    The intersections give the limits, and you need them before you can pick a test point between them. The test point tells you which curve is the top, which fixes the integrand; then integrate and evaluate.
+- id: calc-m7-r2-q03
+  lesson: calc-area-between
+  topic: Area between curves
+  stem: 'Which of these give the area of the region between $y = x + 2$ and $y = x^2$? Select all that apply.'
+  choices:
+    - '$\int_{-1}^{2}(x + 2 - x^2)\,dx$'
+    - '$\int_{-1}^{2}\lvert x^2 - x - 2\rvert\,dx$'
+    - '$\int_{-1}^{2}(x^2 - x - 2)\,dx$'
+    - '$\int_{0}^{2}(x + 2 - x^2)\,dx$'
+  answer: [0, 1]
+  explanation: |-
+    The curves meet at $x = -1$ and $x = 2$, and the line is on top between them, so the area is $\int_{-1}^{2}(x + 2 - x^2)\,dx = \frac92$. The absolute value version is the same integral, since $\lvert x^2 - x - 2\rvert = x + 2 - x^2$ on that interval. Bottom minus top gives $-\frac92$, and starting at 0 leaves out the part of the region with $-1 \le x \le 0$.
+- id: calc-m7-r2-q04
+  lesson: calc-area-between
+  type: label
+  topic: Area between curves
+  stem: 'The picture shows the region between a line and a parabola. Name the numbered parts.'
+  image: {src: images/calc-m7-area-slice-blank.svg, alt: 'A line and an upward parabola crossing at two points, with the region between them shaded. Marker 1 is on the line, past the right crossing. Marker 2 is on the left arm of the parabola. Marker 3 is on the left crossing point. Marker 4 is on a thin vertical rectangle inside the region. Marker 5 is on a small bracket on the x-axis under that rectangle.'}
+  labels:
+    - {x: 85.5, y: 12.0, text: Top curve}
+    - {x: 12.2, y: 47.8, text: Bottom curve}
+    - {x: 21.3, y: 67.7, text: Intersection point}
+    - {x: 54.3, y: 56.6, text: Typical vertical slice}
+    - {x: 54.3, y: 87.7, text: Slice width}
+  distractors: [Axis of rotation, Centroid]
+  explanation: |-
+    Between the crossings the line is above the parabola, so the line is the top curve and the parabola the bottom curve. The crossing points give the limits of integration. The thin rectangle is a typical slice: its height is top minus bottom and its width, marked on the x-axis, is $\Delta x$. Nothing is being rotated, so there is no axis of rotation.
+- id: calc-m7-r2-q05
+  lesson: calc-area-between
+  type: match
+  module_quiz: true
+  topic: Area between curves
+  stem: 'Match each situation to the integrand that gives the area or amount.'
+  pairs:
+    - [Vertical slices, top minus bottom with dx]
+    - [Horizontal slices, right minus left with dy]
+    - [Curves that cross inside the interval, absolute value of the difference or split at the crossing]
+    - ['Net gain from an inflow rate $R(t)$ above an outflow rate $D(t)$', R(t) minus D(t) with dt]
+  distractors: [bottom minus top with dx]
+  explanation: |-
+    Vertical slices run from the bottom curve to the top curve; horizontal slices run from the left curve to the right curve. If the curves cross, the difference changes sign, so integrate its absolute value or split at the crossing. The area between two rate graphs over a time interval is the net accumulated difference. Bottom minus top gives a negative number.
+# ---------- Lesson 27: disks and washers ----------
+- id: calc-m7-r2-q06
+  lesson: calc-volumes-disks
+  type: text
+  module_quiz: true
+  topic: Volumes by slicing
+  stem: 'Rotating the region under $y = x$ for $0 \le x \le 3$ about the $x$-axis gives a cone of volume $k\pi$. What is $k$? Give only the number.'
+  accept: ['9']
+  explanation: |-
+    Disks of radius $x$: $V = \pi\int_0^3x^2\,dx = \pi\cdot\frac{27}{3} = 9\pi$. Check with the cone formula: radius 3, height 3, $\frac13\pi(3)^2(3) = 9\pi$.
+- id: calc-m7-r2-q07
+  lesson: calc-volumes-disks
+  type: order
+  topic: Volumes by slicing
+  stem: 'Put the steps for setting up a disk or washer volume in order.'
+  items:
+    - 'Sketch the region and the axis of rotation'
+    - 'Draw a slice perpendicular to the axis'
+    - 'Decide whether the slice is a disk or a washer and measure its radii from the axis'
+    - 'Write $V = \pi\int(R^2 - r^2)$ with limits along the axis'
+    - 'Evaluate the integral'
+  explanation: |-
+    You can't draw the slice without the sketch, can't measure radii without the slice, and can't write the integral without the radii. Only then do you evaluate.
+- id: calc-m7-r2-q08
+  lesson: calc-volumes-disks
+  topic: Volumes by slicing
+  stem: 'The region between $y = x$ and $y = x^2$ for $0 \le x \le 1$ is rotated about the line $y = -1$. Which statements are true? Select all that apply.'
+  choices:
+    - 'The outer radius is $R = x + 1$'
+    - 'The inner radius is $r = x^2 + 1$'
+    - 'The volume is $\frac{7\pi}{15}$'
+    - 'The volume is $\pi\int_0^1\left[(x + 1) - (x^2 + 1)\right]^2dx$'
+  answer: [0, 1, 2]
+  explanation: |-
+    On $[0, 1]$, $x \ge x^2$, so the line is farther from the axis $y = -1$. Distances to the axis add 1: $R = x + 1$, $r = x^2 + 1$. Then $V = \pi\int_0^1\left[(x + 1)^2 - (x^2 + 1)^2\right]dx = \pi\int_0^1(2x - x^2 - x^4)\,dx = \pi\left(1 - \frac13 - \frac15\right) = \frac{7\pi}{15}$. The last choice squares $R - r$ instead of subtracting $r^2$ from $R^2$.
+- id: calc-m7-r2-q09
+  lesson: calc-volumes-disks
+  type: label
+  topic: Volumes by slicing
+  stem: 'The picture shows one slice of a solid of revolution. Name the numbered parts.'
+  image: {src: images/calc-m7-washer-blank.svg, alt: 'A thin washer, a disk with a hole, standing on a horizontal dash-dot line that passes through the center of the hole. Marker 1 is on the dash-dot line to the right of the washer. Marker 2 is on an arrow from the center to the outside edge. Marker 3 is on a shorter arrow from the center to the edge of the hole. Marker 4 is on a bracket across the washer''s thickness at the top.'}
+  labels:
+    - {x: 83.3, y: 50.0, text: Axis of rotation}
+    - {x: 44.4, y: 56.4, text: Outer radius R}
+    - {x: 49.2, y: 42.4, text: Inner radius r}
+    - {x: 51.7, y: 8.0, text: Thickness of the slice}
+  distractors: [Height of a shell, Slant width]
+  explanation: |-
+    The washer is centered on the axis of rotation. The long arrow reaches the outside edge (the boundary farther from the axis), so it is $R$; the short one reaches the edge of the hole (the nearer boundary), so it is $r$. The bracket measures the thickness $\Delta x$ along the axis. The slice's volume is about $\pi(R^2 - r^2)\Delta x$.
+- id: calc-m7-r2-q10
+  lesson: calc-volumes-disks
+  type: match
+  module_quiz: true
+  topic: Volumes by slicing
+  stem: 'A solid''s cross sections are built on a base width $s$. Match each cross-section shape to its area.'
+  pairs:
+    - [Square with side s, s²]
+    - [Semicircle with diameter s, πs²/8]
+    - [Equilateral triangle with side s, (√3/4)s²]
+    - [Isosceles right triangle with leg s, s²/2]
+  distractors: [πs²/4]
+  explanation: |-
+    A semicircle of diameter $s$ has radius $\frac s2$, so its area is $\frac12\pi\left(\frac s2\right)^2 = \frac{\pi s^2}{8}$; $\frac{\pi s^2}{4}$ is a whole circle of diameter $s$. An equilateral triangle of side $s$ has height $\frac{\sqrt3}{2}s$, giving $\frac{\sqrt3}{4}s^2$. An isosceles right triangle with legs $s$ has area $\frac12s^2$.
+# ---------- Lesson 28: shells ----------
+- id: calc-m7-r2-q11
+  lesson: calc-volumes-shells
+  type: text
+  module_quiz: true
+  topic: Shell method
+  stem: 'Rotating the region under $y = x^2$ for $0 \le x \le 1$ about the $y$-axis gives volume $k\pi$. Use shells. What is $k$? Give only the number.'
+  accept: ['1/2']
+  explanation: |-
+    Radius $x$, height $x^2$: $V = 2\pi\int_0^1x\cdot x^2\,dx = 2\pi\cdot\frac14 = \frac{\pi}{2}$, so $k = \frac12$.
+- id: calc-m7-r2-q12
+  lesson: calc-volumes-shells
+  type: order
+  topic: Shell method
+  stem: 'Put the steps of the shell-method derivation in order.'
+  items:
+    - 'Take a thin strip of the region parallel to the axis, at distance $x$ from it'
+    - 'Rotate the strip about the axis to sweep out a thin cylindrical shell'
+    - 'Cut the shell and unroll it into a nearly flat slab'
+    - 'Multiply length $2\pi x$, height $h(x)$ and thickness $\Delta x$'
+    - 'Add the shells and take the limit to get $2\pi\int x\,h(x)\,dx$'
+  explanation: |-
+    The strip makes the shell, unrolling the shell makes a slab whose volume is length × height × thickness, and adding the slabs in the limit gives the integral.
+- id: calc-m7-r2-q13
+  lesson: calc-volumes-shells
+  topic: Shell method
+  stem: 'The region between $y = x$ and $y = x^2$ for $0 \le x \le 1$ is rotated about the $y$-axis. Which integrals give the volume? Select all that apply.'
+  choices:
+    - '$2\pi\int_0^1x(x - x^2)\,dx$'
+    - '$\pi\int_0^1\left(y - y^2\right)dy$'
+    - '$2\pi\int_0^1x(x^2 - x)\,dx$'
+    - '$\pi\int_0^1\left(x^2 - x^4\right)dx$'
+  answer: [0, 1]
+  explanation: |-
+    Shells: a vertical strip at $x$ has radius $x$ and height $x - x^2$, giving $\frac{\pi}{6}$. Washers: at height $y$ the region runs from $x = y$ (the line) to $x = \sqrt y$ (the parabola), so $R = \sqrt y$, $r = y$ and $\pi\int_0^1(y - y^2)\,dy = \frac{\pi}{6}$ too. The third choice has the height upside down (it gives $-\frac{\pi}{6}$), and the last is the washer integral for rotation about the $x$-axis ($\frac{2\pi}{15}$).
+- id: calc-m7-r2-q14
+  lesson: calc-volumes-shells
+  type: label
+  topic: Shell method
+  stem: 'The picture shows a thin cylindrical shell and the same shell cut and unrolled. Name the numbered parts.'
+  image: {src: images/calc-m7-shell-blank.svg, alt: 'Left: a thin-walled cylinder around a vertical dash-dot line. Marker 1 is on the dash-dot line below the cylinder. Marker 2 is on an arrow from the dash-dot line to the wall at the top. Marker 3 is on a double arrow beside the cylinder running from top to bottom. Marker 4 is on a small bracket across the wall at the top. Right: a thin rectangular slab, with marker 5 on a double arrow along its bottom edge.'}
+  labels:
+    - {x: 21.5, y: 90.5, text: Axis of rotation}
+    - {x: 28.0, y: 22.5, text: Radius}
+    - {x: 38.2, y: 50.0, text: Height}
+    - {x: 34.4, y: 14.0, text: Thickness}
+    - {x: 72.8, y: 84.5, text: Circumference}
+  distractors: [Outer radius of a washer, Arc length]
+  explanation: |-
+    The shell surrounds the axis of rotation. Its radius $x$ runs from the axis to the wall, its height is $h(x)$, and its wall is $\Delta x$ thick. Unrolled, the slab's length is the shell's circumference $2\pi x$, so the volume is about $2\pi x\,h(x)\,\Delta x$.
+- id: calc-m7-r2-q15
+  lesson: calc-volumes-shells
+  type: match
+  module_quiz: true
+  topic: Shell method
+  stem: 'Match each axis of rotation to the shell radius.'
+  pairs:
+    - ['The $y$-axis, vertical strips at $x \ge 0$', x]
+    - ['The line $x = 5$, region to its left', 5 − x]
+    - ['The $x$-axis, horizontal strips at $y \ge 0$', y]
+    - ['The line $y = -2$, region above it', y + 2]
+  distractors: [x − 5, y − 2]
+  explanation: |-
+    The radius is the distance from the strip to the axis. A strip at $x$ to the left of $x = 5$ is $5 - x$ away; a strip at height $y$ above $y = -2$ is $y - (-2) = y + 2$ away. The distractors are negative for these regions.
+# ---------- Lesson 29: arc length and surface area ----------
+- id: calc-m7-r2-q16
+  lesson: calc-arc-length-surface
+  type: text
+  module_quiz: true
+  topic: Arc length
+  stem: 'Use the arc length formula to find the length of $y = \frac34x$ from $x = 0$ to $x = 4$. Give only the number.'
+  accept: ['5']
+  explanation: |-
+    $y' = \frac34$, so $L = \int_0^4\sqrt{1 + \frac{9}{16}}\,dx = \int_0^4\frac54\,dx = 5$. That matches the distance formula: the segment runs from $(0, 0)$ to $(4, 3)$.
+- id: calc-m7-r2-q17
+  lesson: calc-arc-length-surface
+  type: order
+  topic: Arc length
+  stem: 'Put the steps of the arc length derivation in order.'
+  items:
+    - 'Chop the curve into small pieces over steps $\Delta x$'
+    - 'Replace each piece by the straight segment joining its ends'
+    - 'Write each segment''s length as $\sqrt{(\Delta x)^2 + (\Delta y)^2}$'
+    - 'Use $\Delta y \approx f''(x)\,\Delta x$ to get $\sqrt{1 + [f''(x)]^2}\,\Delta x$'
+    - 'Add the pieces and take the limit to get an integral'
+  explanation: |-
+    This is the slicing pattern again: slice the curve, approximate each piece by a segment (whose length comes from the Pythagorean theorem), write it in terms of $\Delta x$, then add and take the limit.
+- id: calc-m7-r2-q18
+  lesson: calc-arc-length-surface
+  topic: Surface area
+  stem: 'The curve $y = f(x) \ge 0$ is rotated about the $x$-axis, and $S = 2\pi\int_a^b f(x)\sqrt{1 + [f''(x)]^2}\,dx$. Which statements are true? Select all that apply.'
+  choices:
+    - '$2\pi f(x)$ is the circumference of the thin band at $x$'
+    - '$\sqrt{1 + [f''(x)]^2}\,dx$ is the slant width $ds$ of the band'
+    - 'Using $dx$ in place of $ds$ still gives the right area for a slanted curve'
+    - 'For rotation about the $y$-axis, the radius is still $f(x)$'
+  answer: [0, 1]
+  explanation: |-
+    Each band has radius $y = f(x)$, so circumference $2\pi f(x)$, and width $ds$ along the curve. Using $dx$ treats every band as a straight-sided cylinder and underestimates the area of a slanted curve. About the $y$-axis the radius is $x$, giving $S = \int2\pi x\,ds$.
+- id: calc-m7-r2-q19
+  lesson: calc-arc-length-surface
+  type: label
+  topic: Surface area
+  stem: 'The picture shows a thin band of a surface of revolution. Name the numbered parts.'
+  image: {src: images/calc-m7-band-blank.svg, alt: 'A curve above a horizontal dash-dot line, mirrored as a dashed curve below it. A thin shaded band wraps around the dash-dot line between two ellipses. Marker 1 is on the dash-dot line. Marker 2 is on a vertical arrow from the dash-dot line up to the curve inside the band. Marker 3 is on a short thick piece of the curve at the top of the band. Marker 4 is on the right-hand ellipse of the band. Marker 5 is on the upper curve far to the right.'}
+  labels:
+    - {x: 81.7, y: 50.0, text: Axis of rotation}
+    - {x: 53.7, y: 34.4, text: Radius}
+    - {x: 55.0, y: 18.7, text: Slant width ds}
+    - {x: 63.9, y: 70.9, text: Circumference of the band}
+    - {x: 85.0, y: 12.1, text: The curve y = f(x)}
+  distractors: [Thickness Δx, Centroid]
+  explanation: |-
+    The curve is rotated about the axis. The band's radius is the height $y$ of the curve above the axis, so the band's circumference is $2\pi y$. Its width is the slanted piece of curve $ds$, which is why the formula uses $ds$ rather than $dx$.
+- id: calc-m7-r2-q20
+  lesson: calc-arc-length-surface
+  type: match
+  module_quiz: true
+  topic: Arc length
+  stem: 'Match each curve to what happens to $1 + (y'')^2$ in its arc length integral.'
+  pairs:
+    - ['$y = \frac23x^{3/2}$', It equals 1 + x]
+    - ['$y = \ln(\cos x)$', It equals sec² x]
+    - ['$y = \frac{x^3}{6} + \frac{1}{2x}$', It is a perfect square]
+    - ['$y = x^2$', It equals 1 + 4x² and needs trig substitution or numerics]
+  distractors: [It equals 1 + x²]
+  explanation: |-
+    $\frac23x^{3/2}$ has $y' = x^{1/2}$, so $1 + (y')^2 = 1 + x$. $\ln(\cos x)$ has $y' = -\tan x$, and $1 + \tan^2x = \sec^2x$. For $\frac{x^3}{6} + \frac1{2x}$, adding 1 turns $\left(\frac{x^2}{2} - \frac1{2x^2}\right)^2$ into $\left(\frac{x^2}{2} + \frac1{2x^2}\right)^2$. For $x^2$, $y' = 2x$ gives $1 + 4x^2$, which has no designed simplification.
+# ---------- Lesson 30: work, fluid force, center of mass ----------
+- id: calc-m7-r2-q21
+  lesson: calc-physics-apps
+  type: text
+  module_quiz: true
+  topic: Work
+  stem: 'A spring has spring constant $k = 200$ N/m. The work needed to stretch it from its natural length to 0.3 m beyond natural length is ___ J. Give only the number.'
+  accept: ['9']
+  explanation: |-
+    $W = \int_0^{0.3}200x\,dx = 100(0.3)^2 = 9$ J.
+- id: calc-m7-r2-q22
+  lesson: calc-physics-apps
+  type: order
+  topic: Work
+  stem: 'Put the steps for finding the work to pump liquid out of a tank in order.'
+  items:
+    - 'Put a coordinate on the tank, such as $y = 0$ at the bottom'
+    - 'Slice the liquid into a thin horizontal layer at height $y$'
+    - 'Find the layer''s weight, $\rho g\,A(y)\,\Delta y$'
+    - 'Multiply the weight by the distance the layer is lifted to the outlet'
+    - 'Integrate over the heights the liquid fills'
+  explanation: |-
+    The coordinate lets you describe a layer's position; the layer's weight times its lift distance is the work for that layer; integrating adds the layers.
+- id: calc-m7-r2-q23
+  lesson: calc-physics-apps
+  topic: Fluid force
+  stem: 'A flat plate is under water. Which statements are true? Select all that apply.'
+  choices:
+    - 'The pressure at a point of the plate depends on its depth below the surface'
+    - 'For a vertical plate, depth should be measured up from the bottom of the plate'
+    - 'A horizontal plate at depth $d$ feels force $\rho g d$ times its area'
+    - 'The force on a vertical plate is the pressure at its top edge times its area'
+  answer: [0, 2]
+  explanation: |-
+    Pressure is $\rho g d$ with $d$ the depth below the surface. On a horizontal plate every point is at the same depth, so force = pressure × area. On a vertical plate the depth varies, so you slice into horizontal strips and integrate; using the top-edge pressure for the whole plate underestimates the force. (For a rectangle, the pressure at the center times the area happens to work.)
+- id: calc-m7-r2-q24
+  lesson: calc-physics-apps
+  type: label
+  topic: Fluid force
+  stem: 'The picture shows a plate submerged vertically in water, with one thin horizontal strip. Name the numbered parts.'
+  image: {src: images/calc-m7-dam-gate-blank.svg, alt: 'A trapezoid-shaped plate under water, wider at the top. Marker 1 is on the top edge of the water. Marker 2 is on a vertical double arrow from that edge down to the level of a thin horizontal strip across the plate. Marker 3 is on a double arrow across the strip from edge to edge. Marker 4 is on a small bracket beside the strip spanning its top and bottom. Marker 5 is on the plate below the strip.'}
+  labels:
+    - {x: 86.7, y: 11.9, text: Water surface}
+    - {x: 18.3, y: 34.4, text: Depth of the strip}
+    - {x: 53.3, y: 56.9, text: Width of the strip}
+    - {x: 76.1, y: 56.9, text: Thickness of the strip}
+    - {x: 53.3, y: 73.8, text: Submerged plate}
+  distractors: [Lift distance, Centroid]
+  explanation: |-
+    Depth is measured down from the water surface to the strip. The strip's force is about $\rho g\cdot(\text{depth})\cdot(\text{width})\cdot(\text{thickness})$. Because the plate narrows with depth, the width is a function of depth. Lift distance belongs to pumping problems, not fluid force.
+- id: calc-m7-r2-q25
+  lesson: calc-physics-apps
+  type: match
+  module_quiz: true
+  topic: Center of mass
+  stem: 'Match each quantity to the integral that computes it.'
+  pairs:
+    - [Work to stretch a spring, integral of kx dx]
+    - [Work to pump out a tank, integral of weight density × layer area × lift distance]
+    - [Force on a vertical plate under water, integral of weight density × depth × width]
+    - ['$\bar x$ for the region under $y = f(x)$', integral of x f(x) dx divided by the area]
+  distractors: [integral of ½ f(x)² dx with no division]
+  explanation: |-
+    Each comes from slicing: force × distance for springs, weight × lift for each layer of liquid, pressure × area for each strip of the plate, and moment ÷ area for the centroid. $\int\frac12f^2\,dx$ is the moment that gives $\bar y$, and it still has to be divided by the area.
+# ---------- Honors: centroids and the theorems of Pappus ----------
+- id: calc-m7-r2-h01
+  lesson: calc-m7-h-pappus
+  topic: Center of mass
+  stem: 'Find the centroid of the region between $y = x$ and $y = x^2$ for $0 \le x \le 1$.'
+  choices: ['$\left(\tfrac12, \tfrac12\right)$', '$\left(\tfrac25, \tfrac12\right)$', '$\left(\tfrac12, \tfrac25\right)$', '$\left(\tfrac13, \tfrac13\right)$']
+  answer: 2
+  explanation: |-
+    $A = \frac16$. $M_y = \int_0^1x(x - x^2)\,dx = \frac1{12}$, so $\bar x = \frac12$. $M_x = \int_0^1\frac12(x^2 - x^4)\,dx = \frac1{15}$, so $\bar y = \frac{6}{15} = \frac25$. Swapping the coordinates gives $\left(\frac25, \frac12\right)$.
+- id: calc-m7-r2-h02
+  lesson: calc-m7-h-pappus
+  topic: Center of mass
+  stem: 'A uniform plate fills the region between $y = f(x)$ on top and $y = g(x)$ below for $a \le x \le b$. Which integral is its moment about the $x$-axis, $M_x$?'
+  choices:
+    - '$\int_a^b\tfrac12\left[f(x)^2 - g(x)^2\right]dx$'
+    - '$\int_a^b\tfrac12\left[f(x) - g(x)\right]^2dx$'
+    - '$\int_a^b x\left[f(x) - g(x)\right]dx$'
+    - '$\int_a^b\tfrac12\left[f(x) + g(x)\right]dx$'
+  answer: 0
+  explanation: |-
+    A strip has area $(f - g)\,dx$ and its midpoint at height $\frac12(f + g)$, so its moment about the $x$-axis is $\frac12(f + g)(f - g)\,dx = \frac12(f^2 - g^2)\,dx$. The third choice is $M_y$, and the second squares the difference by mistake.
+- id: calc-m7-r2-h03
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'A disk of radius 2 is rotated about a line in its plane 5 units from its center. What is the volume of the torus?'
+  choices: ['$20\pi^2$', '$40\pi^2$', '$80\pi^2$', '$10\pi^2$']
+  answer: 1
+  explanation: |-
+    The disk's area is $4\pi$ and its centroid (the center) travels a circle of length $2\pi\cdot5 = 10\pi$. $V = 4\pi\cdot10\pi = 40\pi^2 \approx 394.8$. In general $V = 2\pi^2Rr^2$.
+- id: calc-m7-r2-h04
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'The triangle with vertices $(2, 0)$, $(4, 0)$ and $(2, 3)$ is rotated about the $y$-axis. Use Pappus to find the volume.'
+  choices: ['$12\pi$', '$8\pi$', '$24\pi$', '$16\pi$']
+  answer: 3
+  explanation: |-
+    The area is $\frac12\cdot2\cdot3 = 3$. The centroid is the average of the vertices, $\bar x = \frac{2 + 4 + 2}{3} = \frac83$, so $V = 2\pi\cdot\frac83\cdot3 = 16\pi$. (Shells agree: $2\pi\int_2^4x\left(3 - \frac32(x - 2)\right)dx = 16\pi$.) Using the left edge $x = 2$ gives $12\pi$, and using the far vertex $x = 4$ gives $24\pi$.
+- id: calc-m7-r2-h05
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'The upper half of the disk $x^2 + y^2 \le 9$ is rotated about the $x$-axis to make a sphere. Use this to find the height $\bar y$ of the half-disk''s centroid.'
+  choices: ['$\dfrac{4}{\pi}$', '$\dfrac{6}{\pi}$', '$\dfrac32$', '$\dfrac{2}{\pi}$']
+  answer: 0
+  explanation: |-
+    The sphere's volume is $\frac43\pi(27) = 36\pi$ and the half-disk's area is $\frac92\pi$. Pappus: $36\pi = 2\pi\bar y\cdot\frac92\pi$, so $\bar y = \frac{36\pi}{9\pi^2} = \frac4\pi \approx 1.27$, which is $\frac{4r}{3\pi}$ with $r = 3$. $\frac6\pi$ is the centroid of the semicircular arc, $\frac{2r}{\pi}$.
+- id: calc-m7-r2-h06
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'A whole disk is rotated about one of its diameters, making a sphere. Why doesn''t $V = 2\pi\bar r A$ give the sphere''s volume?'
+  choices:
+    - 'Pappus only works for regions bounded by straight lines'
+    - 'The centroid of a disk is not at its center'
+    - 'The axis cuts through the disk, so its two halves sweep through the same space'
+    - 'The formula needs the centroid of the boundary circle instead'
+  answer: 2
+  explanation: |-
+    The centroid lies on the axis, so $2\pi\bar r A = 0$, which is clearly wrong. The theorem requires the axis not to pass through the region's interior; here the halves on either side each sweep out the same sphere. Rotating just one half-disk works, as in the lesson.
+- id: calc-m7-r2-h07
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'A circle of radius 1 is rotated about a line in its plane 4 units from its center. What is the area of the torus''s surface?'
+  choices: ['$8\pi^2$', '$32\pi^2$', '$4\pi^2$', '$16\pi^2$']
+  answer: 3
+  explanation: |-
+    The circle has length $2\pi$, and its centroid (the center) travels $2\pi\cdot4 = 8\pi$. $S = 2\pi\cdot8\pi = 16\pi^2 \approx 157.9$, matching $4\pi^2Rr$.
+- id: calc-m7-r2-h08
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'A half-disk of radius $r$ has centroid $\frac{4r}{3\pi} \approx 0.42r$ above its diameter, but a semicircular wire of radius $r$ has centroid $\frac{2r}{\pi} \approx 0.64r$ above it. Why is the wire''s higher?'
+  choices:
+    - 'The wire is longer than the half-disk is wide'
+    - 'All of the wire''s mass is out on the arc, while the half-disk also has area near the diameter'
+    - 'The wire''s centroid is computed with $dx$ instead of $ds$'
+    - 'The half-disk''s centroid is measured from its top'
+  answer: 1
+  explanation: |-
+    The half-disk includes the region near its diameter, which pulls its balance point down. The wire has no mass there; every bit of it is at distance $r$ from the center, much of it high up.
+- id: calc-m7-r2-h09
+  lesson: calc-m7-h-pappus
+  type: text
+  topic: Theorems of Pappus
+  stem: 'A region of area 6 has its centroid 4 units from a line that does not cross the region. Rotating it about that line gives volume $k\pi$. What is $k$? Give only the number.'
+  accept: ['48']
+  explanation: |-
+    $V = 2\pi\bar r A = 2\pi\cdot4\cdot6 = 48\pi$.
+- id: calc-m7-r2-h10
+  lesson: calc-m7-h-pappus
+  type: text
+  topic: Center of mass
+  stem: 'The centroid of the triangle with vertices $(0, 0)$, $(6, 0)$ and $(0, 3)$ has $\bar x =$ ___. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    A triangle's centroid is the average of its vertices: $\bar x = \frac{0 + 6 + 0}{3} = 2$ (and $\bar y = 1$). With moments: $A = 9$ and $M_y = \int_0^6x\left(3 - \frac x2\right)dx = 54 - 36 = 18$, so $\bar x = 2$.
+- id: calc-m7-r2-h11
+  lesson: calc-m7-h-pappus
+  type: order
+  topic: Theorems of Pappus
+  stem: 'Put the steps for finding the centroid of a half-disk of radius $r$ with Pappus in order.'
+  items:
+    - 'Rotate the half-disk about its diameter'
+    - 'Recognize the solid as a sphere of volume $\frac43\pi r^3$'
+    - 'Set $\frac43\pi r^3 = 2\pi\bar y\cdot\frac12\pi r^2$'
+    - 'Solve to get $\bar y = \frac{4r}{3\pi}$'
+  explanation: |-
+    Running the theorem backward: choose a rotation whose volume you already know, write Pappus's equation with the unknown $\bar y$, and solve.
+- id: calc-m7-r2-h12
+  lesson: calc-m7-h-pappus
+  type: match
+  topic: Theorems of Pappus
+  stem: 'Match each quantity to how it is computed.'
+  pairs:
+    - [Moment about the y-axis, integral of x(f − g) dx]
+    - [Moment about the x-axis, integral of ½(f² − g²) dx]
+    - [Volume by Pappus, 2π × centroid distance × area of the region]
+    - [Surface area by Pappus, 2π × centroid distance of the curve × length of the curve]
+  distractors: [integral of ½(f − g)² dx]
+  explanation: |-
+    $M_y$ uses distances $x$ from the $y$-axis and $M_x$ uses strip midpoints $\frac12(f + g)$, which times $(f - g)$ gives $\frac12(f^2 - g^2)$. The volume theorem uses the region's centroid and area; the surface theorem uses the curve's centroid and length.
+- id: calc-m7-r2-h13
+  lesson: calc-m7-h-pappus
+  type: label
+  topic: Theorems of Pappus
+  stem: 'The picture shows a torus made by rotating a disk about an axis. Name the numbered parts.'
+  image: {src: images/calc-m7-torus-blank.svg, alt: 'A ring-shaped torus seen from slightly above, around a vertical dash-dot line, with a shaded disk standing at its right side. Marker 1 is on the dash-dot line above the torus. Marker 2 is on the shaded disk. Marker 3 is on a dot at the disk''s center. Marker 4 is on a horizontal arrow from the dash-dot line to that dot. Marker 5 is on a dashed ellipse running around the torus through the dot.'}
+  labels:
+    - {x: 50.0, y: 14.3, text: Axis of rotation}
+    - {x: 83.6, y: 59.5, text: Region being rotated}
+    - {x: 78.1, y: 51.2, text: Centroid of the region}
+    - {x: 64.1, y: 51.2, text: Distance from centroid to axis}
+    - {x: 50.0, y: 66.9, text: Path of the centroid}
+  distractors: [Slant width ds, Inner radius of a washer]
+  explanation: |-
+    The disk is the region being rotated about the vertical axis. Its centroid is its center, at distance $R$ from the axis, and as it rotates the centroid travels the dashed circle of length $2\pi R$. Pappus: $V = (\text{area}) \times 2\pi R = 2\pi^2Rr^2$.
+- id: calc-m7-r2-h14
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'For which of these rotations can $V = 2\pi\bar r A$ be used directly? Select all that apply.'
+  choices:
+    - 'A square rotated about a line along one of its sides'
+    - 'A disk rotated about a line 10 units from its center (radius 3)'
+    - 'A disk rotated about a line through its center'
+    - 'A rectangle rotated about a line that cuts through its middle'
+  answer: [0, 1]
+  explanation: |-
+    The axis may touch the region's edge (a side of the square: the result is a cylinder, and Pappus gives $2\pi\cdot\frac s2\cdot s^2 = \pi s^3$, which is right) or miss it entirely (the torus). When the axis cuts through the interior, parts on both sides sweep out the same space and the theorem fails.
+- id: calc-m7-r2-h15
+  lesson: calc-m7-h-pappus
+  topic: Theorems of Pappus
+  stem: 'Which best describes the history of the theorems of Pappus?'
+  choices:
+    - 'Newton proved them in his work on gravity in the 1680s'
+    - 'Archimedes stated them along with his sphere results around 250 BC'
+    - 'Pappus of Alexandria stated them around AD 320, and Paul Guldin restated them in 1640'
+    - 'They were first discovered when shells were invented in the 1900s'
+  answer: 2
+  explanation: |-
+    Pappus gave the rules in Book VII of his Collection (around AD 320). Paul Guldin restated them in 1640, so they are also called the Pappus–Guldinus theorems. With integrals, each is a short computation: the volume integral is $2\pi$ times a moment.
+# ---------- Honors: probability density functions ----------
+- id: calc-m7-r2-h16
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'For which $k$ is $f(x) = kx$ on $[0, 4]$ (and 0 elsewhere) a probability density?'
+  choices: ['$\tfrac14$', '$\tfrac18$', '$\tfrac1{16}$', '$\tfrac12$']
+  answer: 1
+  explanation: |-
+    The total area must be 1: $\int_0^4kx\,dx = 8k = 1$, so $k = \frac18$. $\frac1{16}$ forgets the $\frac12$ in $\frac{x^2}{2}$.
+- id: calc-m7-r2-h17
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'With $f(x) = \frac x8$ on $[0, 4]$ (and 0 elsewhere), find $P(X \le 2)$.'
+  choices: ['$\tfrac12$', '$\tfrac18$', '$\tfrac34$', '$\tfrac14$']
+  answer: 3
+  explanation: |-
+    $\int_0^2\frac x8\,dx = \frac{4}{16} = \frac14$. It isn't $\frac12$ even though 2 is halfway: the density is larger on the right, so more of the probability lies there.
+- id: calc-m7-r2-h18
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'Which of these is a valid probability density? (Each is 0 outside the interval given.)'
+  choices:
+    - '$f(x) = 2$ on $\left[0, \tfrac12\right]$'
+    - '$f(x) = x$ on $[0, 1]$'
+    - '$f(x) = 1 - x$ on $[0, 2]$'
+    - '$f(x) = \tfrac12$ on $[0, 1]$'
+  answer: 0
+  explanation: |-
+    $f = 2$ on $\left[0, \frac12\right]$ is never negative and has area 1; a density may exceed 1. $x$ on $[0, 1]$ and $\frac12$ on $[0, 1]$ have area $\frac12$, and $1 - x$ is negative on $(1, 2]$ (its total area is 0).
+- id: calc-m7-r2-h19
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: '$X$ is a continuous random variable with density $f$, and $f(3) = 0.4$. What is $P(X = 3)$?'
+  choices: ['$0.4$', '$0.6$', '$0$', 'It can''t be found without $F$']
+  answer: 2
+  explanation: |-
+    For a continuous random variable, $P(X = 3) = \int_3^3f(x)\,dx = 0$. The value $f(3)$ is a density, not a probability; it describes how much probability is near 3 per unit of $x$.
+- id: calc-m7-r2-h20
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'Find the mean of the density $f(x) = 2x$ on $[0, 1]$ (and 0 elsewhere).'
+  choices: ['$\tfrac12$', '$\tfrac{1}{\sqrt2}$', '$\tfrac13$', '$\tfrac23$']
+  answer: 3
+  explanation: |-
+    $\mu = \int_0^1x\cdot2x\,dx = \frac23$. The median is $\frac1{\sqrt2} \approx 0.707$ (from $F(m) = m^2 = \frac12$), and $\frac12$ is just the middle of the interval.
+- id: calc-m7-r2-h21
+  lesson: calc-m7-h-probability
+  type: text
+  topic: Probability density functions
+  stem: 'Find the median of the density $f(x) = 2x$ on $[0, 1]$ (and 0 elsewhere), to 3 decimal places.'
+  accept: ['0.707']
+  explanation: |-
+    $F(x) = \int_0^x2t\,dt = x^2$ for $0 \le x \le 1$. Solve $m^2 = \frac12$: $m = \frac1{\sqrt2} \approx 0.707$.
+- id: calc-m7-r2-h22
+  lesson: calc-m7-h-probability
+  type: text
+  topic: Probability density functions
+  stem: 'The wait for a bus is modeled as exponential with mean 5 minutes. Find the probability of waiting more than 5 minutes, to 3 decimal places.'
+  accept: ['0.368']
+  explanation: |-
+    $\lambda = \frac15$, and $P(X > x) = e^{-\lambda x}$, so $P(X > 5) = e^{-1} \approx 0.368$. For any exponential distribution, the chance of waiting longer than the mean is $e^{-1}$, a bit over a third.
+- id: calc-m7-r2-h23
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'Lifetimes of a part are modeled as exponential with mean 10 years. What is the median lifetime?'
+  choices: ['About 6.93 years', '10 years', '5 years', 'About 14.43 years']
+  answer: 0
+  explanation: |-
+    $\lambda = \frac1{10}$. The median solves $1 - e^{-m/10} = \frac12$, so $m = 10\ln2 \approx 6.93$ years. Half the parts fail before 6.93 years; a few very long-lived parts pull the mean up to 10. (14.43 is $\frac{10}{\ln 2}$, dividing instead of multiplying.)
+- id: calc-m7-r2-h24
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'What is the CDF of the exponential distribution with rate $\lambda$, for $x \ge 0$?'
+  choices: ['$\lambda e^{-\lambda x}$', '$1 - e^{-\lambda x}$', '$e^{-\lambda x}$', '$1 - \lambda e^{-\lambda x}$']
+  answer: 1
+  explanation: |-
+    $F(x) = \int_0^x\lambda e^{-\lambda t}\,dt = \left[-e^{-\lambda t}\right]_0^x = 1 - e^{-\lambda x}$. $\lambda e^{-\lambda x}$ is the density itself and $e^{-\lambda x}$ is $P(X > x)$.
+- id: calc-m7-r2-h25
+  lesson: calc-m7-h-probability
+  type: order
+  topic: Probability density functions
+  stem: 'A function $f(x) = kg(x)$ on an interval is supposed to be a density. Put the steps for finding the median in order.'
+  items:
+    - 'Choose $k$ so that the total area under $f$ is 1'
+    - 'Integrate $f$ to get the CDF $F(x)$'
+    - 'Set $F(m) = \frac12$'
+    - 'Solve for $m$ and check that it lies in the interval'
+  explanation: |-
+    You can't find the CDF until the constant is known, the median equation needs the CDF, and you solve it last.
+- id: calc-m7-r2-h26
+  lesson: calc-m7-h-probability
+  type: match
+  topic: Probability density functions
+  stem: 'Match each quantity for a continuous random variable $X$ with density $f$ and CDF $F$ to how it is found.'
+  pairs:
+    - [Total probability, integral of f over all x equals 1]
+    - ['$P(a \le X \le b)$', area under f from a to b]
+    - [Mean, integral of x f(x) dx]
+    - [Median, the m with F(m) = 1/2]
+    - [CDF at x, integral of f from −∞ up to x]
+  distractors: [the x where f is largest]
+  explanation: |-
+    Probabilities are areas under the density, and the CDF accumulates that area from the left. The mean is the balance point $\int xf\,dx$ and the median halves the area. The $x$ where $f$ is largest is called the mode, which is none of these.
+- id: calc-m7-r2-h27
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'Which are true of the CDF $F$ of every continuous random variable? Select all that apply.'
+  choices:
+    - '$F$ never decreases'
+    - '$F''(x) = f(x)$ wherever the density $f$ is continuous'
+    - '$F(x) \to 0$ as $x \to -\infty$ and $F(x) \to 1$ as $x \to \infty$'
+    - '$F(x)$ can be greater than 1 when $f$ is large'
+  answer: [0, 1, 2]
+  explanation: |-
+    $F$ accumulates nonnegative area, so it never decreases, it starts at 0 and it ends at the total area, 1. By the Fundamental Theorem, $F' = f$ where $f$ is continuous. $F(x)$ is a probability, so it never exceeds 1, even though $f$ can.
+- id: calc-m7-r2-h28
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'For the density $f(x) = \frac38x^2$ on $[0, 2]$ (and 0 elsewhere), the mean is $\frac32$. What is the variance?'
+  choices: ['$\tfrac{12}{5}$', '$\tfrac94$', '$\tfrac{3}{20}$', '$\tfrac32$']
+  answer: 2
+  explanation: |-
+    $\int_0^2x^2\cdot\frac38x^2\,dx = \frac38\cdot\frac{32}{5} = \frac{12}{5}$, so $\sigma^2 = \frac{12}{5} - \left(\frac32\right)^2 = \frac{12}{5} - \frac94 = \frac{3}{20}$. $\frac{12}{5}$ forgets to subtract $\mu^2$.
+- id: calc-m7-r2-h29
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'Why is the mean of a density the $x$-coordinate of the centroid of the region under its graph?'
+  choices:
+    - 'Because the centroid always lies at the highest point of the graph'
+    - 'Because both are found by setting $F(x) = \frac12$'
+    - 'Because the region under a density is always symmetric'
+    - 'Because $\bar x = \frac1A\int xf(x)\,dx$, and the region under a density has area $A = 1$'
+  answer: 3
+  explanation: |-
+    With $A = 1$, Lesson 30's centroid formula becomes $\bar x = \int xf(x)\,dx = \mu$. So the mean is the balance point. Setting $F = \frac12$ gives the median, which halves the area instead.
+- id: calc-m7-r2-h30
+  lesson: calc-m7-h-probability
+  topic: Probability density functions
+  stem: 'For an exponential distribution, why is the median smaller than the mean?'
+  choices:
+    - 'The long right tail of rare long waits pulls the mean up but barely moves the median'
+    - 'The density is largest at the mean'
+    - 'The median is always half the mean'
+    - 'The mean is computed with an improper integral but the median is not'
+  answer: 0
+  explanation: |-
+    The median ($\frac{\ln2}{\lambda} \approx 0.693\cdot\frac1\lambda$) only cares about where half the area is. The mean is a balance point, and a long tail far to the right acts like a long lever arm, moving the balance point right. The density is largest at $x = 0$, not at the mean.

@@ -30,11 +30,11 @@ Everything we know about $\ln$ can be recovered from this definition.
 
 - $\ln 1 = \int_1^1 \frac1t\,dt = 0$.
 - By FTC 1, $\frac{d}{dx}\ln x = \frac1x$, which is positive, so $\ln$ is increasing; its second derivative $-\frac{1}{x^2}$ is negative, so it is concave down.
-- **The product law.** Fix $a > 0$. Then $\frac{d}{dx}\ln(ax) = \frac{1}{ax}\cdot a = \frac1x$, the same derivative as $\ln x$. Two functions with the same derivative on an interval differ by a constant: $\ln(ax) = \ln x + C$. Setting $x = 1$ gives $C = \ln a$. So $\ln(ax) = \ln a + \ln x$.
+- *The product law.* Fix $a > 0$. Then $\frac{d}{dx}\ln(ax) = \frac{1}{ax}\cdot a = \frac1x$, the same derivative as $\ln x$. Two functions with the same derivative on an interval differ by a constant: $\ln(ax) = \ln x + C$. Setting $x = 1$ gives $C = \ln a$. So $\ln(ax) = \ln a + \ln x$.
 
 That last argument proves a law of logarithms with no exponentials anywhere. From it follow $\ln\frac{a}{b} = \ln a - \ln b$ and $\ln(a^n) = n\ln a$ for whole numbers $n$.
 
-**Where $e$ comes from.** The smallest value of $\frac1t$ on $[1, 2]$ is $\frac12$ and the largest is 1, so the bounds property from Lesson 22 gives $\frac12 \le \ln 2 \le 1$ (in fact strictly, since $\frac1t$ isn't constant). Then $\ln 4 = 2\ln 2 > 1$. Because $\ln$ is continuous and increasing, the Intermediate Value Theorem gives exactly one number between 2 and 4 whose logarithm is 1. That number is *defined* to be $e$. The same doubling shows $\ln(2^n) = n\ln 2 > \frac n2$, so $\ln x \to \infty$ as $x \to \infty$, even though it grows very slowly.
+*Where $e$ comes from.* The smallest value of $\frac1t$ on $[1, 2]$ is $\frac12$ and the largest is 1, so the bounds property from Lesson 22 gives $\frac12 \le \ln 2 \le 1$ (in fact strictly, since $\frac1t$ isn't constant). Then $\ln 4 = 2\ln 2 > 1$. Because $\ln$ is continuous and increasing, the Intermediate Value Theorem gives exactly one number between 2 and 4 whose logarithm is 1. That number is *defined* to be $e$. The same doubling shows $\ln(2^n) = n\ln 2 > \frac n2$, so $\ln x \to \infty$ as $x \to \infty$, even though it grows very slowly.
 
 ### Example 1 (pinning down $\ln 2$ with sums)
 

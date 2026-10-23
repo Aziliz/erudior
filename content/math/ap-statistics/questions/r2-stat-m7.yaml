@@ -1,0 +1,671 @@
+# Round 2, module stat-m7 (Sampling distributions and confidence intervals): new question types
+# for the core lessons (stat-m7-r2-q..) and questions for the two honors lessons (stat-m7-r2-h..).
+
+# ---- Lesson 28: sampling distributions
+- id: stat-m7-r2-q01
+  lesson: stat-sampling-dist
+  type: label
+  module_quiz: true
+  topic: Sampling distributions
+  stem: 'The three panels describe 50,000 commuters, 60% of whom favor longer service hours. Name the distribution shown in each numbered panel.'
+  image: {src: images/stat-m7-three-dists-blank.svg, alt: 'Three unlabeled panels numbered 1 to 3. Panel 1, marked N = 50,000: bars at 0.60 favor and 0.40 oppose. Panel 2, marked n = 150: bars at 0.57 favor and 0.43 oppose. Panel 3, marked 1,000 samples of n = 150, one p-hat each: a bell-shaped histogram of p-hat values from about 0.48 to 0.72, centered at 0.60.'}
+  labels:
+    - {x: 25.0, y: 4.9, text: Population distribution}
+    - {x: 25.0, y: 37.7, text: Distribution of one sample's data}
+    - {x: 25.0, y: 70.6, text: Sampling distribution}
+  distractors: [Binomial distribution, Standard normal distribution]
+  explanation: |-
+    Panel 1 describes all 50,000 individuals, so it is the population distribution; its 0.60 is the parameter $p$. Panel 2 describes the 150 people in one sample; its 0.57 is one value of the statistic $\hat{p}$. Panel 3 shows the values of the statistic across 1,000 samples, so it is (an approximation to) the sampling distribution of $\hat{p}$. It is centered at $p = 0.60$, with spread about 0.04.
+
+- id: stat-m7-r2-q02
+  lesson: stat-sampling-dist
+  type: text
+  topic: Sampling distributions
+  stem: 'In a large population, $p = 0.2$. For SRSs of size $n = 100$, the standard deviation of $\hat{p}$ is ___. Give only the number.'
+  accept: ['0.04']
+  explanation: |-
+    $\sigma_{\hat{p}} = \sqrt{p(1-p)/n} = \sqrt{0.2(0.8)/100} = \sqrt{0.0016} = 0.04$. (0.0016 is the variance; forgetting the square root is the usual slip.)
+
+- id: stat-m7-r2-q03
+  lesson: stat-sampling-dist
+  type: match
+  module_quiz: true
+  topic: Sampling distributions
+  stem: 'Match each item about the sampling distribution of $\hat{p}$ to what it equals or requires.'
+  pairs:
+    - ['$\mu_{\hat{p}}$', 'The population proportion p']
+    - ['$\sigma_{\hat{p}}$', 'The square root of p(1 − p)/n']
+    - ['Large counts condition', 'np and n(1 − p) both at least 10']
+    - ['10% condition', 'Sample size at most a tenth of the population']
+  distractors: ['Sample size at least 30']
+  explanation: |-
+    $\hat{p}$ is unbiased, so its mean is $p$. Its standard deviation is $\sqrt{p(1-p)/n}$, which is accurate when the sample is at most 10% of the population. Large counts (at least 10 expected successes and failures) justifies the normal shape. "$n \ge 30$" is a guideline for sample means, not the condition for proportions.
+
+- id: stat-m7-r2-q04
+  lesson: stat-sampling-dist
+  topic: Sampling distributions
+  stem: 'Which statements about the sampling distribution of $\hat{p}$ (random samples, sample under 10% of the population) are true? Select all that apply.'
+  choices:
+    - 'Its mean equals $p$ for every sample size.'
+    - 'Its standard deviation gets smaller as $n$ increases.'
+    - 'Its standard deviation gets smaller as the population size increases.'
+    - 'It is approximately normal whenever $n \ge 30$.'
+    - 'Multiplying $n$ by 4 cuts its standard deviation in half.'
+  answer: [0, 1, 4]
+  explanation: |-
+    $\hat{p}$ is unbiased at every $n$, and $\sqrt{p(1-p)/n}$ shrinks like $1/\sqrt{n}$, so quadrupling $n$ halves it. The population size barely matters once the sample is a small fraction of it. Normality needs large counts ($np \ge 10$ and $n(1-p) \ge 10$), not $n \ge 30$: with $p = 0.01$ and $n = 30$ the distribution is very skewed.
+
+- id: stat-m7-r2-q05
+  lesson: stat-sampling-dist
+  topic: Sampling distributions
+  stem: 'In the picture, the bottom panel shows $\hat{p}$ from 1,000 samples of 150 commuters, with SD about 0.04. If every sample had 600 commuters instead, the new histogram would be'
+  image: {src: images/stat-m7-three-dists.svg, alt: 'Three panels: the population distribution with p = 0.60, one sample of 150 with p-hat = 0.57, and the sampling distribution of p-hat from 1,000 samples of 150, centered at 0.60 with SD about 0.04.'}
+  choices:
+    - 'centered at 0.60 with SD about 0.01'
+    - 'centered at 0.60 with SD about 0.04, but smoother'
+    - 'centered at 0.60 with SD about 0.02'
+    - 'centered nearer 0.57, the value in the one sample shown'
+  answer: 2
+  explanation: |-
+    The center stays at $p = 0.60$ because $\hat{p}$ is unbiased. The SD is $\sqrt{0.6(0.4)/600} = 0.02$: four times the sample size halves the SD. 0.01 would need 16 times the sample size. One sample's $\hat{p}$ has no effect on where the sampling distribution is centered.
+
+# ---- Lesson 29: the sample mean and the CLT
+- id: stat-m7-r2-q06
+  lesson: stat-clt
+  type: label
+  module_quiz: true
+  topic: Central Limit Theorem
+  stem: 'Wait times have mean 10 minutes and SD 10 minutes and are strongly skewed right. Name each numbered curve.'
+  image: {src: images/stat-m7-clt-shapes-blank.svg, alt: 'Three unlabeled curves over 0 to 40 minutes with a dotted line at mu = 10. Curve 1 is highest at 0 and falls with a long right tail. Curve 2 (dashed) peaks near 7.5 and is skewed right. Curve 3 is tall, narrow and nearly symmetric around 10.'}
+  labels:
+    - {x: 15.3, y: 60.7, text: Population (one wait time)}
+    - {x: 37.6, y: 68.8, text: 'Sample mean, n = 4'}
+    - {x: 34.4, y: 41.4, text: 'Sample mean, n = 30'}
+  distractors: ['Sample mean, n = 1,000']
+  explanation: |-
+    The population itself (1) is the skewed curve with its peak at 0. Averages are less variable and less skewed: the mean of 4 (2) is still skewed right but more concentrated, and the mean of 30 (3) is nearly normal with SD $10/\sqrt{30} \approx 1.83$, as the CLT says. A mean of 1,000 would be far narrower still (SD about 0.32).
+
+- id: stat-m7-r2-q07
+  lesson: stat-clt
+  type: text
+  topic: Central Limit Theorem
+  stem: 'Delivery times have mean 50 minutes and standard deviation 12 minutes. For random samples of 36 deliveries, $\sigma_{\bar{x}} =$ ___ minutes. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    $\sigma_{\bar{x}} = \sigma/\sqrt{n} = 12/\sqrt{36} = 12/6 = 2$. Dividing by $n$ (giving 0.33) instead of $\sqrt{n}$ is the common error.
+
+- id: stat-m7-r2-q08
+  lesson: stat-clt
+  type: order
+  topic: Central Limit Theorem
+  stem: 'Delivery times have $\sigma = 12$ minutes. Order these from the MOST variable to the LEAST variable.'
+  items:
+    - 'A single delivery time'
+    - 'The mean of 4 deliveries'
+    - 'The mean of 36 deliveries'
+    - 'The mean of 144 deliveries'
+  explanation: |-
+    The standard deviations are $12$, $12/\sqrt{4} = 6$, $12/\sqrt{36} = 2$ and $12/\sqrt{144} = 1$. Averages vary less than individuals, by a factor of $\sqrt{n}$.
+
+- id: stat-m7-r2-q09
+  lesson: stat-clt
+  module_quiz: true
+  topic: Central Limit Theorem
+  stem: 'Delivery times are strongly right-skewed with $\mu = 50$ and $\sigma = 12$ minutes. Which statements are true? Select all that apply.'
+  choices:
+    - 'For random samples of 100 deliveries, $\bar{x}$ is approximately normal.'
+    - 'A histogram of one random sample of 100 delivery times will look roughly normal.'
+    - 'For random samples of 4 deliveries, $\sigma_{\bar{x}} = 6$ minutes.'
+    - 'For random samples of 4 deliveries, $P(\bar{x} > 56) \approx 0.16$ from a normal table.'
+    - 'The mean of the sampling distribution of $\bar{x}$ is 50 for every sample size.'
+  answer: [0, 2, 4]
+  explanation: |-
+    The CLT makes $\bar{x}$ approximately normal for $n = 100$, but the data in one sample still look like the skewed population. The formulas $\mu_{\bar{x}} = \mu$ and $\sigma_{\bar{x}} = \sigma/\sqrt{n}$ hold for any shape, so $\sigma_{\bar{x}} = 12/2 = 6$ for $n = 4$. A normal calculation for $n = 4$ is not justified, because with so few observations from a skewed population $\bar{x}$ is still skewed.
+
+- id: stat-m7-r2-q10
+  lesson: stat-clt
+  topic: Central Limit Theorem
+  stem: 'Rail lengths from a production line are known to be normally distributed. For random samples of $n = 5$ rails, the sampling distribution of $\bar{x}$ is'
+  choices:
+    - 'exactly normal, because the population is normal'
+    - 'approximately normal, by the Central Limit Theorem'
+    - 'skewed, because $n$ is less than 30'
+    - 'impossible to describe without simulation'
+  answer: 0
+  explanation: |-
+    When the population is normal, $\bar{x}$ is exactly normal for every sample size; no large-sample argument is needed. The CLT and the $n \ge 30$ guideline are for populations that are not normal.
+
+# ---- Lesson 30: confidence intervals for a proportion
+- id: stat-m7-r2-q11
+  lesson: stat-ci-prop
+  type: label
+  module_quiz: true
+  topic: Confidence intervals for proportions
+  stem: 'A 95% confidence interval for a proportion is $0.45 \pm 1.96(0.0144)$, or (0.422, 0.478). Name each numbered part.'
+  image: {src: images/stat-m7-ci-anatomy-blank.svg, alt: 'A number line from 0.40 to 0.50 with an interval from 0.422 to 0.478. Marker 1 is on the dot at 0.45, marker 2 on the arrow from 0.45 to the right end (0.028 on each side), and marker 3 on the left end of the interval. Below, the calculation 0.45 plus or minus 1.96 times 0.0144 has marker 4 on 1.96 and marker 5 on 0.0144.'}
+  labels:
+    - {x: 50.0, y: 39.7, text: Point estimate}
+    - {x: 61.7, y: 27.3, text: Margin of error}
+    - {x: 26.4, y: 33.3, text: Lower endpoint}
+    - {x: 48.4, y: 67.3, text: Critical value}
+    - {x: 74.2, y: 67.3, text: Standard error}
+  distractors: [Confidence level, Parameter]
+  explanation: |-
+    The interval is point estimate ± margin of error, with margin = critical value × standard error. Here $\hat{p} = 0.45$ (1), the margin $1.96 \times 0.0144 \approx 0.028$ (2) on each side, the lower endpoint $0.45 - 0.028 = 0.422$ (3), the critical value $z^* = 1.96$ (4) for 95% confidence, and the standard error $\sqrt{\hat{p}(1-\hat{p})/n} \approx 0.0144$ (5). The confidence level (95%) and the parameter $p$ are not parts drawn on the picture: $p$ is unknown.
+
+- id: stat-m7-r2-q12
+  lesson: stat-ci-prop
+  type: order
+  topic: Confidence intervals for proportions
+  stem: 'Put the four steps for reporting a confidence interval in order.'
+  items:
+    - 'State the parameter in context and the confidence level'
+    - 'Name the procedure and check the conditions'
+    - 'Compute the estimate, standard error, margin of error and interval'
+    - 'Interpret the interval in context and answer the question'
+  explanation: |-
+    State, Plan, Do, Conclude. The parameter must be defined before you can choose a procedure; conditions are checked before calculating so a broken method isn't used; and the interpretation needs the finished interval.
+
+- id: stat-m7-r2-q13
+  lesson: stat-ci-prop
+  type: text
+  topic: Confidence intervals for proportions
+  stem: 'A 95% confidence interval for a proportion is (0.38, 0.46). The point estimate is ___ and the margin of error is ___.'
+  accept:
+    - ['0.42']
+    - ['0.04']
+  explanation: |-
+    The interval is symmetric about the point estimate: $\hat{p} = (0.38 + 0.46)/2 = 0.42$. The margin of error is half the width: $(0.46 - 0.38)/2 = 0.04$.
+
+- id: stat-m7-r2-q14
+  lesson: stat-ci-prop
+  module_quiz: true
+  topic: Confidence intervals for proportions
+  stem: 'From a random sample of riders, a 95% confidence interval for the proportion of all riders who want later trains is (0.52, 0.60). Which statements are correct interpretations? Select all that apply.'
+  choices:
+    - 'We are 95% confident that the interval from 0.52 to 0.60 captures the proportion of all riders who want later trains.'
+    - 'There is a 95% probability that the true proportion is between 0.52 and 0.60.'
+    - '95% of all riders want later trains between 52% and 60% of the time.'
+    - 'If many random samples were taken and an interval built from each, about 95% of the intervals would capture the true proportion.'
+    - '95% of all random samples will have a sample proportion between 0.52 and 0.60.'
+  answer: [0, 3]
+  explanation: |-
+    The first interprets the interval and the fourth interprets the confidence level. The true proportion is a fixed number, so this particular interval either contains it or not; the 95% describes the method's long-run success rate, not a probability about this interval. The third statement is nonsense, and the last confuses the interval with the sampling distribution, which is centered at the unknown $p$, not at 0.56.
+
+- id: stat-m7-r2-q15
+  lesson: stat-ci-prop
+  topic: Confidence intervals for proportions
+  stem: 'A poll of 400 adults has a 95% margin of error of about 4.9 percentage points. Roughly how many adults are needed for a margin of about 2.45 points (same confidence, similar $\hat{p}$)?'
+  choices: ['800', '3,200', '6,400', '1,600']
+  answer: 3
+  explanation: |-
+    The margin of error is proportional to $1/\sqrt{n}$. Halving it requires $\sqrt{n}$ to double, so $n$ must be multiplied by 4: $4 \times 400 = 1{,}600$. Doubling to 800 only shrinks the margin by a factor of $\sqrt{2}$, to about 3.5 points.
+
+# ---- Lesson 31: confidence intervals for a mean
+- id: stat-m7-r2-q16
+  lesson: stat-ci-mean
+  type: label
+  topic: Confidence intervals for means
+  stem: 'The curve is a t distribution with 9 degrees of freedom, set up for a 95% confidence interval. Name each numbered part.'
+  image: {src: images/stat-m7-tstar-areas-blank.svg, alt: 'A t distribution curve, df = 9. The middle region from minus 2.262 to 2.262 is shaded, with 0.95 written in it and marker 1 above that. Each tail is shaded and marked 0.025; marker 2 is in the right tail. Marker 3 is under the cutoff 2.262 and marker 4 under the cutoff minus 2.262.'}
+  labels:
+    - {x: 50.0, y: 44.0, text: Middle area C}
+    - {x: 79.8, y: 76.9, text: 'Tail area (1 − C)/2'}
+    - {x: 74.5, y: 91.7, text: Critical value t*}
+    - {x: 25.5, y: 91.7, text: Critical value −t*}
+  distractors: [Standard error, Degrees of freedom]
+  explanation: |-
+    For confidence level $C = 0.95$, the critical value $t^* = 2.262$ (df = 9) leaves the middle area $C$ between $-t^*$ and $t^*$ and $(1 - C)/2 = 0.025$ in each tail. That is why invT uses the area $0.975$ to its left. The standard error and the degrees of freedom are numbers used in the interval, not regions of this picture.
+
+- id: stat-m7-r2-q17
+  lesson: stat-ci-mean
+  type: text
+  module_quiz: true
+  topic: Confidence intervals for means
+  stem: 'For a 95% one-sample t interval from a sample of $n = 10$, df $=$ ___ and $t^* =$ ___ (3 decimal places).'
+  accept:
+    - ['9']
+    - ['2.262']
+  explanation: |-
+    df $= n - 1 = 9$. The 95% critical value leaves 0.025 in the upper tail: $t^* = \text{invT}(0.975, 9) \approx 2.262$. Using df = 10 would give 2.228.
+
+- id: stat-m7-r2-q18
+  lesson: stat-ci-mean
+  type: match
+  topic: Confidence intervals for means
+  stem: 'Match each situation to the procedure it calls for.'
+  pairs:
+    - ['Estimating the proportion of 500 polled voters who agree', One-proportion z interval]
+    - ['Estimating a mean from 12 measurements, $\sigma$ unknown', One-sample t interval]
+    - ['Estimating a mean when $\sigma$ is known from long experience', z interval for a mean]
+    - ['Choosing $n$ so a future interval for a mean has margin 2', Sample size formula with z* and a planning sigma]
+  distractors: [Two-sample t interval]
+  explanation: |-
+    Proportions use z. Means with $\sigma$ estimated by $s$ use t with $n - 1$ df; the rare case of known $\sigma$ uses z. Sample-size planning uses $z^*$ and a planning value for $\sigma$, because $t^*$ depends on the $n$ you are trying to find. Nothing here compares two groups.
+
+- id: stat-m7-r2-q19
+  lesson: stat-ci-mean
+  topic: Confidence intervals for means
+  stem: 'Each data set is a random sample from a large population. For which is a one-sample t interval for the mean appropriate? Select all that apply.'
+  choices:
+    - '$n = 12$; a dotplot is roughly symmetric with no outliers'
+    - '$n = 10$; one value is far above all the others'
+    - '$n = 50$; a histogram is moderately skewed to the right'
+    - '$n = 8$; a dotplot is strongly skewed to the right'
+    - '$n = 15$; the population is known to be normal'
+  answer: [0, 2, 4]
+  explanation: |-
+    Small samples are fine when the data show no strong skew or outliers, or when the population is known to be normal. With $n = 50$ the CLT covers moderate skew. An outlier in a sample of 10, or strong skew in a sample of 8, can distort $\bar{x}$ and $s$, so the t interval is not trustworthy there.
+
+- id: stat-m7-r2-q20
+  lesson: stat-ci-mean
+  topic: Confidence intervals for means
+  stem: 'Other things equal, which change makes a one-sample t interval narrower?'
+  choices:
+    - 'Raising the confidence level from 95% to 99%'
+    - 'Increasing the sample size from 10 to 40'
+    - 'A larger sample standard deviation'
+    - 'Using fewer degrees of freedom for $t^*$'
+  answer: 1
+  explanation: |-
+    A larger $n$ shrinks $s/\sqrt{n}$ and also lowers $t^*$ (from 2.262 at df 9 to 2.023 at df 39). Higher confidence, a larger $s$ and fewer degrees of freedom all make the interval wider.
+
+# ---- Lesson 32: two-sample intervals
+- id: stat-m7-r2-q21
+  lesson: stat-ci-two
+  type: match
+  module_quiz: true
+  topic: Two-sample intervals
+  stem: 'Match each study to the interval it calls for.'
+  pairs:
+    - ['The same 20 rail segments measured before and after grinding', Paired t interval]
+    - ['Commute times of random samples of 60 workers from each of two cities', Two-sample t interval]
+    - ['Pass renewals of 400 riders randomly assigned to each of two messages', Two-proportion z interval]
+    - ['Mean tasks completed by one random sample of 25 crews', One-sample t interval]
+  distractors: [One-proportion z interval]
+  explanation: |-
+    Before-and-after measurements on the same segments are paired: use the differences. Two independent samples of a quantitative variable use the two-sample t interval; two groups with a yes/no response use the two-proportion z interval. A single group's mean is a one-sample problem.
+
+- id: stat-m7-r2-q22
+  lesson: stat-ci-two
+  type: text
+  topic: Two-sample intervals
+  stem: 'A 95% confidence interval for $\mu_1 - \mu_2$ is $(-1.2, 3.8)$. The point estimate of the difference is ___ and the margin of error is ___.'
+  accept:
+    - ['1.3']
+    - ['2.5']
+  explanation: |-
+    The estimate is the midpoint, $(-1.2 + 3.8)/2 = 1.3$, and the margin is half the width, $(3.8 - (-1.2))/2 = 2.5$. Because the interval contains 0, "no difference" is plausible.
+
+- id: stat-m7-r2-q23
+  lesson: stat-ci-two
+  topic: Two-sample intervals
+  stem: 'In a randomized experiment, the 95% confidence interval for $p_A - p_B$ (renewal rates with message A and message B) is (0.023, 0.157). Which conclusions are justified? Select all that apply.'
+  choices:
+    - '0 is not a plausible value for $p_A - p_B$.'
+    - 'Message A plausibly raises the renewal rate by between 2.3 and 15.7 percentage points.'
+    - 'Message A causes a higher renewal rate than message B.'
+    - 'Message A raises the renewal rate by exactly 9 percentage points.'
+    - '95% of riders who receive message A renew their pass.'
+  answer: [0, 1, 2]
+  explanation: |-
+    The interval lies entirely above 0, so a real difference in favor of A is supported, of plausible size 2.3 to 15.7 points. Random assignment allows a cause-and-effect conclusion. 0.09 is only the point estimate, not an exact value, and the interval says nothing about 95% of riders.
+
+- id: stat-m7-r2-q24
+  lesson: stat-ci-two
+  topic: Two-sample intervals
+  stem: 'Two independent sample means have standard errors 3 and 4. What is the standard error of their difference?'
+  choices: ['7', '1', '5', '25']
+  answer: 2
+  explanation: |-
+    Variances add for independent quantities, even for a difference: $SE = \sqrt{3^2 + 4^2} = \sqrt{25} = 5$. Adding SEs gives 7, subtracting them gives 1, and 25 is the variance, not the standard error.
+
+- id: stat-m7-r2-q25
+  lesson: stat-ci-two
+  type: order
+  topic: Two-sample intervals
+  stem: 'Put the steps of a paired t interval in order.'
+  items:
+    - 'Compute the difference for each pair'
+    - 'Find the mean $\bar{d}$ and standard deviation $s_d$ of the differences'
+    - 'Compute the margin $t^* s_d/\sqrt{n}$ with df = number of pairs − 1'
+    - 'Report $\bar{d} \pm$ margin and interpret it in context'
+  explanation: |-
+    A paired interval is a one-sample t interval on the differences, so the differences come first, then their summary statistics, then the margin built from $s_d$, and finally the interval and its interpretation.
+
+# ---- Honors: better intervals for a proportion
+- id: stat-m7-r2-h01
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'The coverage probability of a confidence interval method (for a given $n$ and true $p$) is'
+  choices:
+    - 'the long-run proportion of intervals from the method that capture the true parameter'
+    - 'the confidence level that the method is designed to achieve'
+    - 'the probability that the true parameter lies in the one interval you computed'
+    - 'the proportion of the population whose values fall inside the interval'
+  answer: 0
+  explanation: |-
+    Coverage is what the method actually achieves over many samples. The level it aims for (such as 95%) is the nominal confidence level; for the Wald interval the two can differ a lot. Once computed, a single interval either contains $p$ or not.
+
+- id: stat-m7-r2-h02
+  lesson: stat-m7-h-proportion-intervals
+  type: text
+  topic: Better proportion intervals
+  stem: 'With $n = 4$ and true $p = 0.5$, the 95% Wald intervals for $x = 0, 1, 2, 3, 4$ successes are (0, 0), (−0.174, 0.674), (0.010, 0.990), (0.326, 1.174) and (1, 1). The coverage of the method is ___. Give an exact decimal or fraction.'
+  accept: ['0.875', '7/8']
+  explanation: |-
+    The intervals for $x = 1, 2, 3$ contain 0.5; those for $x = 0$ and $x = 4$ have zero width and miss. $P(X = 0) = P(X = 4) = 1/16$, so coverage $= 1 - 2/16 = 14/16 = 0.875$, well short of 95%.
+
+- id: stat-m7-r2-h03
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'A random sample of 20 rides finds 6 that ran late. What is the 95% plus four interval for the proportion of late rides?'
+  choices: ['(0.099, 0.501)', '(0.127, 0.540)', '(0.117, 0.483)', '(0.145, 0.522)']
+  answer: 3
+  explanation: |-
+    $\tilde{p} = (6 + 2)/(20 + 4) = 8/24 \approx 0.3333$; $SE = \sqrt{0.3333(0.6667)/24} \approx 0.0962$; $ME = 1.96(0.0962) \approx 0.1886$, so the interval is (0.145, 0.522). (0.099, 0.501) is the Wald interval; (0.127, 0.540) uses $n = 20$ instead of 24 in the SE; (0.117, 0.483) centers at $\hat{p} = 0.3$ instead of $\tilde{p}$.
+
+- id: stat-m7-r2-h04
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'For $x = 3$ successes in $n = 30$, where is the center of the 95% Wilson interval?'
+  choices: ['0.100', '0.145', '0.147', '0.050']
+  answer: 1
+  explanation: |-
+    The Wilson center is $(x + z^{*2}/2)/(n + z^{*2}) = (3 + 1.92)/(30 + 3.84) = 4.92/33.84 \approx 0.145$. 0.100 is $\hat{p}$ (the Wald center), and 0.147 is the plus four center $5/34$, a close approximation.
+
+- id: stat-m7-r2-h05
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'Which statements about the Wilson score interval are true? Select all that apply.'
+  choices:
+    - 'Its endpoints always lie between 0 and 1.'
+    - 'Its center lies between $\hat{p}$ and 0.5.'
+    - 'It is centered exactly at $\hat{p}$.'
+    - 'It has zero width when there are no successes.'
+    - 'With large counts, it nearly matches the Wald interval.'
+  answer: [0, 1, 4]
+  explanation: |-
+    The center $(\hat{p} + z^{*2}/(2n))/(1 + z^{*2}/n)$ is a weighted average of $\hat{p}$ and 0.5, so it is pulled toward 0.5, and the endpoints are roots of a quadratic that stay in [0, 1]. With 0 successes the interval is (0, upper) with positive width, for example (0, 0.071) for $n = 50$. For 540 of 1,200 it agrees with Wald to three decimals.
+
+- id: stat-m7-r2-h06
+  lesson: stat-m7-h-proportion-intervals
+  type: match
+  topic: Better proportion intervals
+  stem: 'Match each interval for a proportion to its description.'
+  pairs:
+    - [Wald, 'Centered at p-hat with SE from p-hat; can have zero width']
+    - [Plus four, Add two successes and two failures first]
+    - [Wilson score, 'All p0 within z* standard deviations computed from p0']
+    - [Clopper–Pearson, 'Built from binomial probabilities; coverage at least the nominal level']
+  distractors: [Uses s and the t distribution]
+  explanation: |-
+    The Wald interval plugs $\hat{p}$ into the SD and collapses to a point when $x = 0$ or $n$. Plus four adds 2 and 2. Wilson inverts the z test, using $p_0$ in the SD. Clopper–Pearson uses exact binomial tail probabilities and is conservative. t distributions are for means, not proportions.
+
+- id: stat-m7-r2-h07
+  lesson: stat-m7-h-proportion-intervals
+  type: text
+  topic: Better proportion intervals
+  stem: 'A random sample of 120 track welds shows no defects. By the rule of three, a 95% upper bound for the defect rate is about ___. Give a decimal.'
+  accept: ['0.025', '1/40']
+  explanation: |-
+    Rule of three: $3/n = 3/120 = 0.025$. We are 95% confident that at most about 2.5% of welds are defective. (The exact one-sided bound $1 - 0.05^{1/120}$ is about 0.0247.)
+
+- id: stat-m7-r2-h08
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'Zero failures are seen in a random sample of $n = 60$. What is the exact one-sided 95% upper bound $1 - 0.05^{1/60}$ for the failure rate?'
+  choices: ['0.0500', '0.0008', '0.0487', '0.9513']
+  answer: 2
+  explanation: |-
+    $0.05^{1/60} \approx 0.9513$, so the bound is $1 - 0.9513 = 0.0487$, close to the rule-of-three value $3/60 = 0.05$. 0.9513 forgets to subtract from 1, and 0.0008 is $0.05/60$.
+
+- id: stat-m7-r2-h09
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'Which statement about the Clopper–Pearson ("exact") 95% interval is correct?'
+  choices:
+    - 'Its coverage is at least 95% for every $p$, and often higher.'
+    - 'Its coverage is exactly 95% for every $p$.'
+    - 'It is the narrowest of the intervals in the lesson.'
+    - 'It requires at least 10 successes and 10 failures.'
+  answer: 0
+  explanation: |-
+    "Exact" refers to using binomial probabilities instead of a normal approximation. Because counts are discrete, guaranteeing at least 95% everywhere forces coverage above 95% for most $p$ (usually about 96–99% when $n = 40$), so the intervals are wider than Wilson or plus four. It needs no large counts condition.
+
+- id: stat-m7-r2-h10
+  lesson: stat-m7-h-proportion-intervals
+  type: order
+  topic: Better proportion intervals
+  stem: 'Put the steps for computing the exact coverage of an interval method (for a given $n$ and $p$) in order.'
+  items:
+    - 'List every possible count x = 0, 1, …, n'
+    - 'Compute the interval the method gives for each count'
+    - 'Mark the counts whose intervals contain p'
+    - 'Add the binomial probabilities of the marked counts'
+  explanation: |-
+    Coverage is a sum of binomial probabilities over the counts whose intervals capture $p$, so you need every count, then each count's interval, then which ones capture $p$, and finally the sum, as in the lesson's table for $n = 10$, $p = 0.3$.
+
+- id: stat-m7-r2-h11
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'The figure shows the exact coverage of two nominal 95% methods for $n = 40$. Which statement does it support?'
+  image: {src: images/stat-m7-coverage-n40.svg, alt: 'Coverage against the true p from 0 to 1 for n = 40, with a dashed line at 0.95. The Wald curve zigzags mostly between 0.90 and 0.95 and plunges below 0.80 near 0 and 1. The plus four curve zigzags around 0.95, mostly between 0.94 and 0.97.'}
+  choices:
+    - 'The plus four interval has coverage of exactly 0.95 for every p.'
+    - 'The Wald interval''s coverage is lowest near p = 0.5.'
+    - 'Both methods have coverage below 0.90 for every p.'
+    - 'The Wald interval usually covers less than 0.95, even for p between 0.2 and 0.8.'
+  answer: 3
+  explanation: |-
+    In the middle range the Wald curve zigzags between about 0.905 and 0.956, mostly below the dashed line, and it is worst near 0 and 1, not near 0.5. Plus four stays close to 0.95 but zigzags too (about 0.94 to 0.97), so "exactly 0.95" is wrong.
+
+- id: stat-m7-r2-h12
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'For which random samples is the Wald interval unreliable, so plus four or Wilson should be used instead? Select all that apply.'
+  choices:
+    - '2 successes in 40 trials'
+    - '0 successes in 50 trials'
+    - '540 successes in 1,200 trials'
+    - '47 successes in 50 trials'
+    - '30 successes in 60 trials'
+  answer: [0, 1, 3]
+  explanation: |-
+    The Wald interval needs at least 10 successes and 10 failures. 2 of 40 has only 2 successes, 0 of 50 has none (the Wald interval collapses to a point), and 47 of 50 has only 3 failures. 540/660 and 30/30 have plenty of both, and there all the methods agree closely.
+
+- id: stat-m7-r2-h13
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'The plus four interval for a difference of two proportions (Agresti and Caffo) adjusts the data by'
+  choices:
+    - 'adding two successes and two failures to each group'
+    - 'adding one success and one failure to each group'
+    - 'adding two successes and two failures in total, split between the groups'
+    - 'adding one success to each group'
+  answer: 1
+  explanation: |-
+    For two groups, each gets one extra success and one extra failure, four added observations in all, which matches the "plus four" total. The one-sample version adds two of each to its single group.
+
+- id: stat-m7-r2-h14
+  lesson: stat-m7-h-proportion-intervals
+  topic: Better proportion intervals
+  stem: 'The 95% Wilson interval computed from a sample consists of exactly the values $p_0$ that'
+  choices:
+    - 'lie within $1.96\sqrt{\hat{p}(1-\hat{p})/n}$ of $\hat{p}$'
+    - 'have probability at least 0.95 of producing the observed count'
+    - 'a two-sided one-proportion z test at $\alpha = 0.05$ would not reject'
+    - 'lie between the 2.5th and 97.5th percentiles of the sample'
+  answer: 2
+  explanation: |-
+    The Wilson interval collects all $p_0$ with $|\hat{p} - p_0| \le 1.96\sqrt{p_0(1-p_0)/n}$. That is exactly the non-rejection condition of the two-sided z test of $H_0: p = p_0$, whose standard deviation also uses $p_0$. The first choice describes the Wald interval.
+
+# ---- Honors: where t comes from
+- id: stat-m7-r2-h15
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: '"Student," who published the t distribution in 1908, was'
+  choices:
+    - 'R. A. Fisher, writing about agricultural field trials'
+    - 'Karl Pearson, the editor of the journal that published the paper'
+    - 'a university student whose name was never discovered'
+    - 'W. S. Gosset, a chemist at the Guinness brewery in Dublin'
+  answer: 3
+  explanation: |-
+    William Sealy Gosset worked with small samples at Guinness and published in *Biometrika* under the pen name Student. Fisher later recast the result into today's form; Pearson edited *Biometrika*.
+
+- id: stat-m7-r2-h16
+  lesson: stat-m7-h-student-t
+  type: text
+  topic: The t distribution in depth
+  stem: 'With $n = 5$ observations from a normal population, an analyst uses $\bar{x} \pm 1.96\,s/\sqrt{n}$. Its true coverage, $2\,\text{tcdf}(1.96, 4) - 1$, is ___. Give 2 decimal places.'
+  accept: ['0.88']
+  explanation: |-
+    $\text{tcdf}(1.96, 4) \approx 0.9392$, so coverage $\approx 2(0.9392) - 1 = 0.878$, or 0.88. The "95%" interval captures $\mu$ only about 88% of the time; the correct multiplier is $t^* = 2.776$.
+
+- id: stat-m7-r2-h17
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'Why does a sample of $n$ values carry only $n - 1$ degrees of freedom for estimating spread?'
+  choices:
+    - 'The deviations from $\bar{x}$ add to zero, so any $n - 1$ of them determine the last.'
+    - 'One observation is always discarded as a possible outlier.'
+    - 'The largest and smallest values are not used in computing $s$.'
+    - 'Dividing by $n - 1$ makes $s$ exactly equal to $\sigma$.'
+  answer: 0
+  explanation: |-
+    Because $\sum(x_i - \bar{x}) = 0$, only $n - 1$ deviations are free to vary. Dividing by $n - 1$ makes $s^2$ unbiased for $\sigma^2$ on average, not equal to it, and $s$ itself still averages a little below $\sigma$.
+
+- id: stat-m7-r2-h18
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'For a random sample from a normal population, which facts combine to show that $(\bar{x} - \mu)/(s/\sqrt{n})$ has a t distribution with $n - 1$ df? Select all that apply.'
+  choices:
+    - '$(\bar{x} - \mu)/(\sigma/\sqrt{n})$ is standard normal.'
+    - '$(n - 1)s^2/\sigma^2$ has a chi-square distribution with $n - 1$ df.'
+    - '$\bar{x}$ and $s$ are independent.'
+    - '$s$ is exactly equal to $\sigma$.'
+    - 'The sample size is at least 30.'
+  answer: [0, 1, 2]
+  explanation: |-
+    $t = Z/(s/\sigma)$: a standard normal divided by an independent factor built from a chi-square variable. All three facts need a normal population; no minimum sample size is involved. If $s$ equaled $\sigma$, the statistic would simply be $Z$.
+
+- id: stat-m7-r2-h19
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'Writing $t = Z/(s/\sigma)$, why does $t$ have heavier tails than $Z$?'
+  choices:
+    - 'Because $\bar{x}$ is more variable than $Z$ suggests'
+    - 'Because samples with an unusually small $s$ give unusually large values of $t$'
+    - 'Because $s$ is always larger than $\sigma$'
+    - 'Because $t$ is skewed to the right'
+  answer: 1
+  explanation: |-
+    The denominator $s/\sigma$ is random and hovers around 1. When it happens to be small, $t$ is stretched far from 0, which puts extra probability in the tails, especially with few degrees of freedom. $t$ is symmetric, and $s$ is not always larger than $\sigma$ (on average it is slightly smaller).
+
+- id: stat-m7-r2-h20
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'In the lesson''s simulation, 95% t intervals from a strongly right-skewed (exponential) population with $n = 10$ captured $\mu$ about 90% of the time. How were the misses distributed?'
+  choices:
+    - 'Evenly: about half entirely above $\mu$ and half entirely below'
+    - 'Mostly entirely above $\mu$'
+    - 'There were almost no misses once $n$ reached 10'
+    - 'Mostly entirely below $\mu$'
+  answer: 3
+  explanation: |-
+    About 9.5% of intervals lay entirely below $\mu$ and only 0.4% entirely above. Samples that miss the long right tail have both a small $\bar{x}$ and a small $s$, giving intervals that are too low and too short at the same time.
+
+- id: stat-m7-r2-h21
+  lesson: stat-m7-h-student-t
+  type: match
+  topic: The t distribution in depth
+  stem: 'Match each population to how 95% t intervals for its mean behaved in the lesson''s simulation.'
+  pairs:
+    - [Normal, Coverage 95% for every sample size]
+    - [Uniform (flat), Close to 95% already at n = 10]
+    - [Exponential (strongly skewed), 'Below 95% even at n = 30, with lopsided misses']
+    - [Normal with rare wild values, 'Above 95%, but the intervals are wide']
+  distractors: [Exactly 95% only once n is at least 30]
+  explanation: |-
+    For a normal population the t interval is exact at every $n$. Symmetric non-normal shapes like the uniform are nearly fine by $n = 10$ (0.946). Strong skew still gave 0.926 at $n = 30$. Rare wild values inflate $s$, which raises coverage but makes intervals wide.
+
+- id: stat-m7-r2-h22
+  lesson: stat-m7-h-student-t
+  type: text
+  topic: The t distribution in depth
+  stem: 'A random sample of 25 track gauge readings from a normal population has $\bar{x} = 80$ and $s = 8$. Using $t^* = 2.064$, the upper endpoint of the 95% prediction interval for one new reading is ___. Give 1 decimal place.'
+  accept: ['96.8']
+  explanation: |-
+    Margin $= t^* s\sqrt{1 + 1/n} = 2.064(8)\sqrt{1.04} \approx 16.51(1.0198) \approx 16.84$, so the upper endpoint is $80 + 16.84 = 96.84$, or 96.8. (The confidence interval for the mean would use $8/\sqrt{25} = 1.6$ and reach only 83.3.)
+
+- id: stat-m7-r2-h23
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'From the same sample, a 95% confidence interval for $\mu$ and a 95% prediction interval for one new observation are computed. As the sample size grows very large,'
+  choices:
+    - 'both intervals shrink toward a single point'
+    - 'both intervals stay about the same width'
+    - 'the confidence interval shrinks toward a point, but the prediction interval settles near $\mu \pm 1.96\sigma$'
+    - 'the prediction interval shrinks toward a point, but the confidence interval settles near $\mu \pm 1.96\sigma$'
+  answer: 2
+  explanation: |-
+    The confidence interval's margin $t^* s/\sqrt{n}$ goes to 0. The prediction interval's margin $t^* s\sqrt{1 + 1/n}$ approaches $1.96\sigma$, because a new individual still varies with SD $\sigma$ no matter how well $\mu$ is known.
+
+- id: stat-m7-r2-h24
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'Which statements about the prediction interval $\bar{x} \pm t^* s\sqrt{1 + 1/n}$ are true? Select all that apply.'
+  choices:
+    - 'It needs a normal population, even when $n$ is large.'
+    - 'It is wider than the confidence interval for $\mu$ from the same data.'
+    - 'The 1 under the square root accounts for the variation of one new value around $\mu$.'
+    - 'The CLT justifies it for any population once $n \ge 30$.'
+    - 'It gives a range for the population mean.'
+  answer: [0, 1, 2]
+  explanation: |-
+    $\text{Var}(X_{\text{new}} - \bar{x}) = \sigma^2 + \sigma^2/n$: the $\sigma^2$ (the 1) is the new value's own spread, which makes the interval wider than $t^* s/\sqrt{n}$. The CLT is about averages, so it cannot make a single new value normal. A range for the mean is the confidence interval's job.
+
+- id: stat-m7-r2-h25
+  lesson: stat-m7-h-student-t
+  type: text
+  topic: The t distribution in depth
+  stem: 'Two independent samples each have $n = 12$ and $s = 5$. Their Welch–Satterthwaite degrees of freedom equal ___.'
+  accept: ['22']
+  explanation: |-
+    $a = b = 25/12$, so df $= (2a)^2/(a^2/11 + a^2/11) = 4a^2/(2a^2/11) = 22$. With equal sizes and equal SDs, Welch's df reaches its maximum, $n_1 + n_2 - 2 = 22$.
+
+- id: stat-m7-r2-h26
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'Two independent samples have $n_1 = 15$ and $n_2 = 40$. Whatever the sample SDs, the Welch–Satterthwaite df must lie between'
+  choices: ['14 and 53', '15 and 55', '14 and 39', '1 and 54']
+  answer: 0
+  explanation: |-
+    Welch df is never below $\min(n_1, n_2) - 1 = 14$ (the conservative choice) and never above $n_1 + n_2 - 2 = 53$. It is near 14 when the smaller group contributes almost all of the uncertainty, and near 53 when the groups contribute in proportion to their degrees of freedom.
+
+- id: stat-m7-r2-h27
+  lesson: stat-m7-h-student-t
+  type: order
+  topic: The t distribution in depth
+  stem: 'Order these 95% critical values from LARGEST to SMALLEST.'
+  items:
+    - '$t^*$ with df = 2'
+    - '$t^*$ with df = 5'
+    - '$t^*$ with df = 20'
+    - '$z^*$ (standard normal)'
+  explanation: |-
+    The values are 4.303, 2.571, 2.086 and 1.960. Fewer degrees of freedom mean heavier tails and a larger multiplier; as df grows, $t^*$ falls toward $z^* = 1.96$.
+
+- id: stat-m7-r2-h28
+  lesson: stat-m7-h-student-t
+  topic: The t distribution in depth
+  stem: 'For random samples of 5 from a normal population, the long-run average of the sample standard deviation $s$ is'
+  choices:
+    - 'exactly $\sigma$, because $s$ is unbiased'
+    - 'about $0.94\sigma$'
+    - 'about $1.06\sigma$'
+    - 'about $\sigma/\sqrt{5}$'
+  answer: 1
+  explanation: |-
+    $s^2$ is unbiased for $\sigma^2$, but taking a square root pulls the average down, so $s$ averages about $0.94\sigma$ when $n = 5$ (about $0.97\sigma$ when $n = 10$). $\sigma/\sqrt{5}$ is the standard deviation of $\bar{x}$, a different quantity.

@@ -138,7 +138,8 @@ With $x = 2$, $n = 40$, $z^* = 1.96$: $z^{*2}/n = 3.8416/40 = 0.09604$.
 
 The last row is the **Clopper–Pearson interval** (1934), often called the "exact" interval
 because it is computed from binomial probabilities directly. It guarantees coverage of *at
-least* 95% for every $p$, but the price is width: for $n = 40$ its coverage is often 97% to 99%.
+least* 95% for every $p$, but the price is width: for $n = 40$ its coverage is usually between
+about 96% and 99%.
 "Exact" describes the method, not the coverage. With large counts (the right column), all four
 agree to about three decimals, which is why the Wald interval is fine in the core course's
 setting.

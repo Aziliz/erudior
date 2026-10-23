@@ -1,0 +1,270 @@
+# Round 2, honors module stat-h1: drills for its four lessons.
+
+# ---- Lesson 90: resampling
+- id: stat-h1-r2-boot-se-mean
+  title: Bootstrap standard error of a mean
+  topic: Resampling methods
+  vars:
+    nn: {choices: [4, 5, 6, 8, 9, 10, 12, 15, 16, 20, 25, 30]}
+    sd: {min: 2, max: 30}
+  calc:
+    se: sd / sqrt(nn)
+    fac: sqrt((nn - 1) / nn)
+    bse: fac * se
+  prompt: |-
+    A sample of $n = {nn}$ values has standard deviation $s = {sd}$. Find the usual standard error
+    $s/\sqrt{n}$ and the exact bootstrap standard error of the mean,
+    $\sqrt{(n-1)/n}\cdot s/\sqrt{n}$. Give both to 2 decimal places.
+  answers:
+    - {name: se, label: '$s/\sqrt{n} =$', tolerance: 0.006}
+    - {name: bse, label: '$\text{SE}_{\text{boot}} =$', tolerance: 0.006}
+  solution: |-
+    $s/\sqrt{n} = {sd}/\sqrt{{nn}} =$ **{se:dp2}**. The bootstrap factor is $\sqrt{({nn} - 1)/{nn}} = {fac:num4}$,
+    so $\text{SE}_{\text{boot}} = {fac:num4} \times {se:num4} =$ **{bse:dp2}**, a little smaller because
+    resampling uses the sample's spread with divisor $n$.
+
+- id: stat-h1-r2-perm-pvalue
+  title: Exact permutation test p-value
+  topic: Resampling methods
+  vars:
+    na: {min: 3, max: 6}
+    nb: {min: 3, max: 6}
+    cnt: {min: 1, max: 12}
+  calc:
+    tot: nCr(na + nb, na)
+    pv: cnt / tot
+  where: ['cnt <= tot / 4']
+  prompt: |-
+    In a randomized experiment, {na} subjects got the treatment and {nb} the control. Listing every
+    possible way to split the {na}+{nb} responses into groups of {na} and {nb}, you find that {cnt} of the
+    splits (including the observed one) give a difference in means at least as large as the observed
+    difference. How many splits are there, and what is the exact one-sided p-value (4 decimal places)?
+  answers:
+    - {name: tot, label: 'Number of splits', tolerance: 0.001}
+    - {name: pv, label: 'p-value', tolerance: 0.00006}
+  solution: |-
+    Choose which {na} of the {na}+{nb} responses are "treatment": $\binom{{na}+{nb}}{{na}} =$ **{tot}** splits,
+    all equally likely if the treatment has no effect. p-value $= {cnt}/{tot} =$ **{pv:dp4}**.
+
+- id: stat-h1-r2-boot-count
+  title: Values left out of a bootstrap resample
+  topic: Resampling methods
+  vars:
+    nn: {min: 5, max: 60}
+  calc:
+    miss: (1 - 1/nn)^nn
+    used: nn * (1 - miss)
+  prompt: |-
+    A data set has $n = {nn}$ distinct values. In one bootstrap resample of size {nn}, what is the probability
+    that a particular value is never drawn (4 decimal places)? On average, how many distinct original
+    values appear in a resample (2 decimal places)?
+  answers:
+    - {name: miss, label: 'P(value left out)', tolerance: 0.00006}
+    - {name: used, label: 'Expected distinct values', tolerance: 0.006}
+  solution: |-
+    Each of the {nn} draws misses the value with probability $1 - 1/{nn}$, independently, so
+    $P = (1 - 1/{nn})^{{nn}} =$ **{miss:dp4}**. Each value appears with probability $1 - {miss:num4}$, so the
+    expected number of distinct values is ${nn}(1 - {miss:num4}) =$ **{used:dp2}**, about 63% of them.
+
+# ---- Lesson 91: Bayesian inference
+- id: stat-h1-r2-beta-update
+  title: Beta-binomial update
+  topic: Bayesian inference
+  vars:
+    pa: {min: 1, max: 12}
+    pb: {min: 1, max: 12}
+    nt: {min: 5, max: 60}
+    xs: {min: 0, max: 60}
+  where: ['xs <= nt']
+  calc:
+    qa: pa + xs
+    qb: pb + nt - xs
+    pm: qa / (qa + qb)
+    wd: nt / (pa + pb + nt)
+  prompt: |-
+    A proportion $p$ has prior $\text{Beta}({pa}, {pb})$. In {nt} trials there are {xs} successes. Find the
+    posterior $\text{Beta}(a', b')$, the posterior mean (3 decimal places) and the weight the posterior mean
+    gives to the sample proportion (3 decimal places).
+  answers:
+    - {name: qa, label: '$a'' =$', tolerance: 0.001}
+    - {name: qb, label: '$b'' =$', tolerance: 0.001}
+    - {name: pm, label: 'Posterior mean', tolerance: 0.0006}
+    - {name: wd, label: 'Weight on data', tolerance: 0.0006}
+  solution: |-
+    Add successes to $a$ and failures to $b$: $a' = {pa} + {xs} =$ **{qa}**, $b' = {pb} + ({nt} - {xs}) =$ **{qb}**.
+    Posterior mean $= \dfrac{{qa}}{{qa} + {qb}} =$ **{pm:dp3}**. Weight on the data
+    $= \dfrac{{nt}}{{pa} + {pb} + {nt}} =$ **{wd:dp3}**.
+
+- id: stat-h1-r2-grid-posterior
+  title: Posterior probability for two possible values of p
+  topic: Bayesian inference
+  vars:
+    pone: {choices: [0.2, 0.3, 0.4, 0.5]}
+    ptwo: {choices: [0.6, 0.7, 0.8, 0.9]}
+    prone: {choices: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]}
+    nt: {min: 4, max: 12}
+    xs: {min: 0, max: 12}
+  where: ['xs <= nt']
+  calc:
+    lone: binompdf(nt, pone, xs)
+    ltwo: binompdf(nt, ptwo, xs)
+    jone: prone * lone
+    jtwo: (1 - prone) * ltwo
+    post: jtwo / (jone + jtwo)
+    prtwo: 1 - prone
+  prompt: |-
+    A success rate is either $p = {pone}$ (prior probability {prone}) or $p = {ptwo}$ (prior probability
+    {prtwo:num2}). In {nt} independent trials there are {xs} successes. Find the posterior probability that
+    $p = {ptwo}$ (3 decimal places).
+  answers:
+    - {name: post, label: 'Posterior probability', tolerance: 0.0006}
+  solution: |-
+    Likelihoods: $\binom{{nt}}{{xs}}({pone})^{{xs}}(1 - {pone})^{{nt} - {xs}} = {lone:sig3}$ and
+    $\binom{{nt}}{{xs}}({ptwo})^{{xs}}(1 - {ptwo})^{{nt} - {xs}} = {ltwo:sig3}$.
+    Prior × likelihood: ${prone} \times {lone:sig3} = {jone:sig3}$ and ${prtwo:num2} \times {ltwo:sig3} = {jtwo:sig3}$.
+    Posterior: $\dfrac{{jtwo:sig3}}{{jone:sig3} + {jtwo:sig3}} =$ **{post:dp3}**.
+
+# ---- Lesson 92: multiple testing
+- id: stat-h1-r2-fwer
+  title: Familywise error rate
+  topic: Multiple testing
+  vars:
+    mt: {min: 2, max: 60}
+    al: {choices: [0.01, 0.05, 0.10]}
+  calc:
+    fw: 1 - (1 - al)^mt
+    ef: mt * al
+  prompt: |-
+    {mt} independent tests are run at $\alpha = {al}$, and every null hypothesis is true. Find the probability
+    of at least one false positive (3 decimal places) and the expected number of false positives.
+  answers:
+    - {name: fw, label: 'P(at least one)', tolerance: 0.0006}
+    - {name: ef, label: 'Expected number', tolerance: 0.006}
+  solution: |-
+    Complement rule: $1 - (1 - {al})^{{mt}} =$ **{fw:dp3}**. Expected false positives
+    $= m\alpha = {mt} \times {al} =$ **{ef:num2}**.
+
+- id: stat-h1-r2-bonferroni
+  title: Bonferroni threshold and adjusted p-value
+  topic: Multiple testing
+  vars:
+    mt: {choices: [4, 5, 8, 10, 12, 15, 20, 25, 40, 50]}
+    al: {choices: [0.01, 0.05, 0.10]}
+    praw: {min: 0.001, max: 0.03, step: 0.001}
+  calc:
+    thr: al / mt
+    padj: min(1, mt * praw)
+    rej: if(praw <= thr, 1, 0)
+  where: ['abs(praw - al / mt) > 0.0002']
+  prompt: |-
+    A study runs {mt} tests and wants a familywise error rate of at most {al}. Find the Bonferroni level for
+    each test (3 significant figures) and the Bonferroni-adjusted p-value for a test with raw p-value
+    {praw} (3 decimal places). Is that test significant? (Type 1 for yes, 0 for no.)
+  answers:
+    - {name: thr, label: 'Per-test level', sigfigs: 3}
+    - {name: padj, label: 'Adjusted p-value', tolerance: 0.0006}
+    - {name: rej, label: 'Significant (1/0)', tolerance: 0.001}
+  solution: |-
+    Per-test level: ${al}/{mt} =$ **{thr:sig3}**. Adjusted p-value: $\min(1,\ {mt} \times {praw}) =$ **{padj:dp3}**.
+    The test is significant exactly when the raw p-value is at most the per-test level (equivalently, the
+    adjusted p-value is at most {al}): answer **{rej}**.
+
+- id: stat-h1-r2-false-discovery
+  title: Share of significant results that are false
+  topic: Multiple testing
+  vars:
+    pt: {choices: [0.05, 0.1, 0.2, 0.3, 0.5]}
+    pw: {choices: [0.2, 0.35, 0.5, 0.8, 0.9]}
+    al: {choices: [0.01, 0.05]}
+  calc:
+    tp: 1000 * pt * pw
+    fp: 1000 * (1 - pt) * al
+    fs: fp / (tp + fp)
+  prompt: |-
+    In a field, a fraction {pt} of tested hypotheses are true. Studies have power {pw} and use
+    $\alpha = {al}$. Per 1,000 hypotheses tested, how many true positives and false positives are expected,
+    and what share of the significant results are false (3 decimal places)?
+  answers:
+    - {name: tp, label: 'True positives', tolerance: 0.06}
+    - {name: fp, label: 'False positives', tolerance: 0.06}
+    - {name: fs, label: 'Share false', tolerance: 0.0006}
+  solution: |-
+    True effects: $1000 \times {pt}$; detected: $\times {pw}$, giving **{tp:num1}** true positives. Null effects:
+    $1000 \times (1 - {pt})$; significant by chance: $\times {al}$, giving **{fp:num1}** false positives.
+    Share false $= \dfrac{{fp:num1}}{{tp:num1} + {fp:num1}} =$ **{fs:dp3}**.
+
+# ---- Lesson 93: effect sizes and meta-analysis
+- id: stat-h1-r2-cohens-d
+  title: Pooled SD and Cohen's d
+  topic: Effect sizes and meta-analysis
+  vars:
+    na: {min: 10, max: 60}
+    nb: {min: 10, max: 60}
+    ma: {min: 60, max: 90}
+    mb: {min: 60, max: 90}
+    sa: {min: 6, max: 16}
+    sb: {min: 6, max: 16}
+  where: ['ma != mb']
+  calc:
+    vp: ((na - 1)*sa^2 + (nb - 1)*sb^2) / (na + nb - 2)
+    sp: sqrt(vp)
+    dd: (ma - mb) / sp
+  prompt: |-
+    Group 1: $n_1 = {na}$, $\bar{x}_1 = {ma}$, $s_1 = {sa}$. Group 2: $n_2 = {nb}$, $\bar{x}_2 = {mb}$,
+    $s_2 = {sb}$. Find the pooled standard deviation and Cohen's $d = (\bar{x}_1 - \bar{x}_2)/s_p$, each to
+    2 decimal places.
+  answers:
+    - {name: sp, label: '$s_p =$', tolerance: 0.006}
+    - {name: dd, label: '$d =$', tolerance: 0.006}
+  solution: |-
+    $s_p^2 = \dfrac{({na} - 1)({sa})^2 + ({nb} - 1)({sb})^2}{{na} + {nb} - 2} = {vp:num2}$, so $s_p =$ **{sp:dp2}**.
+    $d = \dfrac{{ma} - {mb}}{{sp:num4}} =$ **{dd:dp2}**.
+
+- id: stat-h1-r2-pooled-estimate
+  title: Fixed-effect pooled estimate of three studies
+  topic: Effect sizes and meta-analysis
+  vars:
+    ya: {min: -2, max: 8, step: 0.5}
+    yb: {min: -2, max: 8, step: 0.5}
+    yc: {min: -2, max: 8, step: 0.5}
+    ea: {choices: [0.5, 1, 1.5, 2, 2.5, 3]}
+    eb: {choices: [0.5, 1, 1.5, 2, 2.5, 3]}
+    ec: {choices: [0.5, 1, 1.5, 2, 2.5, 3]}
+  calc:
+    wa: 1 / ea^2
+    wb: 1 / eb^2
+    wc: 1 / ec^2
+    ws: wa + wb + wc
+    est: (wa*ya + wb*yb + wc*yc) / ws
+    sep: 1 / sqrt(ws)
+  prompt: |-
+    Three studies estimate the same effect: {ya} (SE {ea}), {yb} (SE {eb}) and {yc} (SE {ec}). Find the
+    fixed-effect pooled estimate and its standard error, each to 2 decimal places (keep full precision in
+    the weights).
+  answers:
+    - {name: est, label: 'Pooled estimate', tolerance: 0.006}
+    - {name: sep, label: 'Pooled SE', tolerance: 0.006}
+  solution: |-
+    Weights $1/\text{SE}^2$: {wa:num4}, {wb:num4}, {wc:num4}; total {ws:num4}.
+    Pooled estimate $= \dfrac{{wa:num4}({ya}) + {wb:num4}({yb}) + {wc:num4}({yc})}{{ws:num4}} =$ **{est:dp2}**.
+    Pooled SE $= 1/\sqrt{{ws:num4}} =$ **{sep:dp2}**.
+
+- id: stat-h1-r2-i-squared
+  title: Heterogeneity from Cochran's Q
+  topic: Effect sizes and meta-analysis
+  vars:
+    ks: {min: 3, max: 15}
+    qq: {min: 0.5, max: 45, step: 0.1}
+  calc:
+    df: ks - 1
+    isq: max(0, (qq - df) / qq)
+    pq: 1 - chi2cdf(qq, df)
+  prompt: |-
+    A meta-analysis of {ks} studies has Cochran's $Q = {qq}$. Find $I^2$ as a decimal and the p-value of the
+    chi-square test for heterogeneity, each to 3 decimal places.
+  answers:
+    - {name: isq, label: '$I^2 =$', tolerance: 0.0006}
+    - {name: pq, label: 'p-value', tolerance: 0.0006}
+  solution: |-
+    Degrees of freedom $k - 1 = {df}$. $I^2 = \max\!\left(0,\ \dfrac{Q - {df}}{Q}\right) = \max\!\left(0,\ \dfrac{{qq} - {df}}{{qq}}\right) =$ **{isq:dp3}**.
+    p-value $= P(\chi^2_{{df}} \ge {qq}) =$ **{pq:dp3}**.

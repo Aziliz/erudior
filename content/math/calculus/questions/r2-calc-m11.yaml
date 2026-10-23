@@ -1,0 +1,455 @@
+# Round 2, module calc-m11 (parametric equations and polar coordinates): new question types for the
+# core lessons (q01-q10) and the two honors lessons (h01-h30).
+
+# ---------- Lesson 45: calc-parametric ----------
+- id: calc-m11-r2-q01
+  lesson: calc-parametric
+  type: text
+  module_quiz: true
+  topic: Parametric equations
+  stem: 'For the curve $x = t^2 + 1$, $y = 2t^3$, the slope $\dfrac{dy}{dx}$ at $t = 1$ is ___. Give only the number.'
+  accept: ['3']
+  explanation: |-
+    $\frac{dx}{dt} = 2t$ and $\frac{dy}{dt} = 6t^2$, so $\frac{dy}{dx} = \frac{6t^2}{2t} = 3t$, which is 3 at $t = 1$. (Dividing the other way gives $\frac13$, the reciprocal.)
+- id: calc-m11-r2-q02
+  lesson: calc-parametric
+  type: order
+  topic: Parametric equations
+  stem: 'Put the steps for finding $\dfrac{d^2y}{dx^2}$ of a parametric curve in order.'
+  items:
+    - 'Find $\frac{dx}{dt}$ and $\frac{dy}{dt}$'
+    - 'Divide them to get $\frac{dy}{dx}$ as a function of $t$'
+    - 'Differentiate $\frac{dy}{dx}$ with respect to $t$'
+    - 'Divide that result by $\frac{dx}{dt}$'
+  explanation: |-
+    The first derivative comes first: $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$. It is a function of $t$, so differentiating it gives a rate with respect to $t$; dividing by $\frac{dx}{dt}$ converts that into a rate with respect to $x$. Each step uses the result of the one before.
+- id: calc-m11-r2-q03
+  lesson: calc-parametric
+  topic: Parametric equations
+  stem: 'A particle moves in the plane with velocity $\mathbf v(t)$ for $a \le t \le b$. Which of these are vectors (not single numbers)? Select all that apply.'
+  choices:
+    - 'The displacement $\int_a^b\mathbf v(t)\,dt$'
+    - 'The acceleration $\mathbf v''(t)$'
+    - 'The speed $\lvert\mathbf v(t)\rvert$'
+    - 'The distance traveled $\int_a^b\lvert\mathbf v(t)\rvert\,dt$'
+  answer: [0, 1]
+  explanation: |-
+    Integrating or differentiating a vector one component at a time gives a vector, so displacement and acceleration are vectors. Speed is the length of the velocity vector, a single number at each time, and distance traveled is the integral of that number, so it is a number too.
+- id: calc-m11-r2-q04
+  lesson: calc-parametric
+  type: label
+  module_quiz: true
+  topic: Parametric equations
+  stem: 'A particle moves along the curved path. Name the numbered parts of the picture.'
+  image: {src: images/calc-m11-velocity-blank.svg, alt: 'A curved path with a point on it. One arrow runs from the origin to the point. A second arrow starts at the point and points along the path. Two dashed segments, one horizontal and one vertical, form a right triangle with the second arrow.'}
+  labels:
+    - {x: 31.3, y: 69.3, text: Position vector}
+    - {x: 57.8, y: 41.0, text: Velocity vector}
+    - {x: 58.8, y: 51.1, text: Horizontal component dx/dt}
+    - {x: 68.3, y: 39.9, text: Vertical component dy/dt}
+  distractors: [Acceleration vector, Normal line]
+  explanation: |-
+    The position vector $\mathbf r(t) = \langle x(t), y(t)\rangle$ runs from the origin to the particle. The velocity vector $\mathbf v(t) = \langle x'(t), y'(t)\rangle$ starts at the particle and is tangent to the path, and its horizontal and vertical components are $\frac{dx}{dt}$ and $\frac{dy}{dt}$. Their ratio is the slope of the path.
+- id: calc-m11-r2-q05
+  lesson: calc-parametric
+  type: match
+  topic: Parametric equations
+  stem: 'Eliminate the parameter in your head: match each pair of parametric equations to the curve it traces.'
+  pairs:
+    - ['$x = 3\cos t,\ y = 3\sin t$', Circle]
+    - ['$x = 2\cos t,\ y = \sin t$', Ellipse]
+    - ['$x = t,\ y = t^2$', Parabola]
+    - ['$x = 1 + t,\ y = 2 - 3t$', Line]
+  distractors: [Hyperbola]
+  explanation: |-
+    $x^2 + y^2 = 9$ is a circle of radius 3; $\left(\frac x2\right)^2 + y^2 = 1$ is an ellipse; $y = x^2$ is a parabola; and $t = x - 1$ gives $y = 2 - 3(x - 1) = 5 - 3x$, a line. A hyperbola would come from something like $x = \sec t$, $y = \tan t$, where $x^2 - y^2 = 1$.
+
+# ---------- Lesson 46: calc-polar ----------
+- id: calc-m11-r2-q06
+  lesson: calc-polar
+  type: label
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'The picture shows a point described in polar coordinates. Name the numbered parts.'
+  image: {src: images/calc-m11-polar-point-blank.svg, alt: 'A point joined to the origin by a slanted segment that makes an angle with the positive x-axis. A thick segment along the axis and a dashed vertical segment up to the point form a right triangle with the slanted segment.'}
+  labels:
+    - {x: 17.3, y: 84.2, text: Pole (origin)}
+    - {x: 44.6, y: 55.0, text: Distance r from the pole}
+    - {x: 30.0, y: 78.2, text: Angle θ from the polar axis}
+    - {x: 47.7, y: 84.2, text: x = r cos θ}
+    - {x: 62.8, y: 59.9, text: y = r sin θ}
+  distractors: [Arc length rθ, tan θ]
+  explanation: |-
+    The pole is the origin, $r$ is the distance from it to the point, and $\theta$ is measured counterclockwise from the polar axis (the positive $x$-axis). The right triangle with hypotenuse $r$ has legs $x = r\cos\theta$ along the axis and $y = r\sin\theta$ straight up.
+- id: calc-m11-r2-q07
+  lesson: calc-polar
+  type: text
+  topic: Polar coordinates
+  stem: 'The polar curve $r = 6\sin\theta$ is a circle. Its center is on the $y$-axis at height ___, and its radius is ___. Give only the numbers.'
+  accept:
+    - ['3']
+    - ['3']
+  explanation: |-
+    Multiply by $r$: $r^2 = 6r\sin\theta$, so $x^2 + y^2 = 6y$. Completing the square, $x^2 + (y - 3)^2 = 9$: center $(0, 3)$ and radius 3. It passes through the origin, as every circle $r = 2a\sin\theta$ does.
+- id: calc-m11-r2-q08
+  lesson: calc-polar
+  type: order
+  topic: Polar coordinates
+  stem: 'As $\theta$ increases from $0$ to $\pi$, the cardioid $r = 1 + \cos\theta$ passes through these rectangular points. Put them in the order it reaches them.'
+  items:
+    - '$(2, 0)$'
+    - '$(0, 1)$'
+    - '$\left(-\tfrac14, \tfrac{\sqrt3}{4}\right)$'
+    - '$(0, 0)$'
+  explanation: |-
+    At $\theta = 0$, $r = 2$: the point $(2, 0)$. At $\theta = \frac\pi2$, $r = 1$: the point $(0, 1)$. At $\theta = \frac{2\pi}{3}$, $r = \frac12$: the point $\left(\frac12\cos\frac{2\pi}{3}, \frac12\sin\frac{2\pi}{3}\right) = \left(-\frac14, \frac{\sqrt3}{4}\right)$. At $\theta = \pi$, $r = 0$: the cusp at the origin.
+- id: calc-m11-r2-q09
+  lesson: calc-polar
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'Which polar coordinates name the same point as $\left(2, \frac\pi3\right)$? Select all that apply.'
+  choices:
+    - '$\left(2, \frac{7\pi}{3}\right)$'
+    - '$\left(-2, \frac{4\pi}{3}\right)$'
+    - '$\left(-2, \frac{\pi}{3}\right)$'
+    - '$\left(2, -\frac{\pi}{3}\right)$'
+  answer: [0, 1]
+  explanation: |-
+    $\left(2, \frac\pi3\right)$ is the rectangular point $(1, \sqrt3)$. Adding $2\pi$ to the angle changes nothing, and $(-r, \theta + \pi)$ is the same point as $(r, \theta)$: $-2\left(\cos\frac{4\pi}3, \sin\frac{4\pi}3\right) = (1, \sqrt3)$. But $\left(-2, \frac\pi3\right)$ is $(-1, -\sqrt3)$, the opposite point, and $\left(2, -\frac\pi3\right)$ is $(1, -\sqrt3)$, its mirror image across the $x$-axis.
+- id: calc-m11-r2-q10
+  lesson: calc-polar
+  type: match
+  topic: Polar coordinates
+  stem: 'Match each polar equation to its shape.'
+  pairs:
+    - ['$r = 3$', Circle centered at the pole]
+    - ['$r = 4\sin\theta$', Circle through the pole]
+    - ['$r = 2 + 2\cos\theta$', Cardioid]
+    - ['$r = 1 + 2\cos\theta$', Limaçon with an inner loop]
+    - ['$r = 3\cos 2\theta$', Rose with four petals]
+  distractors: [Spiral, Rose with two petals]
+  explanation: |-
+    $r = a$ is a circle about the pole; $r = 2a\sin\theta$ is a circle through it. $a(1 + \cos\theta)$ with equal numbers is a cardioid, while $a + b\cos\theta$ with $\lvert a\rvert < \lvert b\rvert$ is a limaçon with an inner loop. $r = a\cos(n\theta)$ with $n = 2$ (even) has $2n = 4$ petals. A spiral would be something like $r = \theta$.
+
+# ---------- Honors: calc-h-cycloid-surface ----------
+- id: calc-m11-r2-h01
+  lesson: calc-h-cycloid-surface
+  topic: Parametric surface area
+  stem: 'The curve $x = x(t)$, $y = y(t) \ge 0$, $\alpha \le t \le \beta$, traced once, is rotated about the $x$-axis. Which integral gives the surface area?'
+  choices:
+    - '$2\pi\displaystyle\int_\alpha^\beta x(t)\sqrt{x''(t)^2 + y''(t)^2}\,dt$'
+    - '$2\pi\displaystyle\int_\alpha^\beta y(t)\,x''(t)\,dt$'
+    - '$2\pi\displaystyle\int_\alpha^\beta y(t)\sqrt{x''(t)^2 + y''(t)^2}\,dt$'
+    - '$\pi\displaystyle\int_\alpha^\beta y(t)^2\,x''(t)\,dt$'
+  answer: 2
+  explanation: |-
+    Each piece of curve of length $ds = \sqrt{x'^2 + y'^2}\,dt$ sweeps a band of area about $2\pi y\,ds$. Using radius $x$ gives rotation about the $y$-axis; using $x'(t)\,dt$ (that is, $dx$) instead of $ds$ ignores the slant of the band; and $\pi\int y^2\,dx$ is the volume of the solid, not its surface area.
+- id: calc-m11-r2-h02
+  lesson: calc-h-cycloid-surface
+  topic: Parametric surface area
+  stem: 'A student rotates $x = 2\cos t$, $y = 2\sin t$, $0 \le t \le 2\pi$, about the $x$-axis with $S = 2\pi\int_0^{2\pi}y\,ds$ and gets $0$. What went wrong?'
+  choices:
+    - 'The speed of this curve is not constant'
+    - 'For $\pi < t < 2\pi$ the radius $y$ is negative, and the sphere is covered twice anyway; use $0 \le t \le \pi$'
+    - 'The formula needs $dx$ instead of $ds$'
+    - 'Circles cannot be written parametrically'
+  answer: 1
+  explanation: |-
+    On the lower half $y < 0$, so those bands contribute negative "area" that cancels the upper half exactly. The upper half alone already sweeps the whole sphere: $2\pi\int_0^\pi 2\sin t\cdot2\,dt = 16\pi = 4\pi(2)^2$. The speed here is the constant 2, and using $dx$ would be a different (wrong) formula.
+- id: calc-m11-r2-h03
+  lesson: calc-h-cycloid-surface
+  topic: Parametric surface area
+  stem: 'The upper half of the astroid $x = \cos^3t$, $y = \sin^3t$, $0 \le t \le \pi$, is rotated about the $x$-axis. Its speed is $3\lvert\sin t\cos t\rvert$. Find the surface area.'
+  choices: ['$\tfrac{6\pi}{5}$', '$\tfrac{8\pi}{3}$', '$\tfrac{24\pi}{5}$', '$\tfrac{12\pi}{5}$']
+  answer: 3
+  explanation: |-
+    By symmetry, double the part from $0$ to $\frac\pi2$, where $\sin t\cos t \ge 0$:
+    $$S = 2\cdot2\pi\int_0^{\pi/2}\sin^3t\cdot3\sin t\cos t\,dt = 12\pi\int_0^{\pi/2}\sin^4t\cos t\,dt = 12\pi\cdot\frac15 = \frac{12\pi}{5}.$$
+    $\frac{6\pi}{5}$ forgets to double; $\frac{24\pi}{5}$ doubles twice; $\frac{8\pi}{3} = 2\pi\int_0^\pi\sin^3t\,dt$ uses $dt$ in place of $ds$.
+- id: calc-m11-r2-h04
+  lesson: calc-h-cycloid-surface
+  topic: Parametric surface area
+  stem: 'Rotating one arch of the cycloid with wheel radius 1 about the $x$-axis gives a surface of area $\frac{64\pi}{3}$. What is the area for a wheel of radius 2?'
+  choices: ['$\tfrac{128\pi}{3}$', '$\tfrac{256\pi}{3}$', '$\tfrac{512\pi}{3}$', '$\tfrac{64\pi}{3}$']
+  answer: 1
+  explanation: |-
+    Doubling the radius doubles every length, so it multiplies every area by $2^2 = 4$: $4\cdot\frac{64\pi}{3} = \frac{256\pi}{3}$. Multiplying by 2 treats area like length, and by 8 treats it like volume.
+- id: calc-m11-r2-h05
+  lesson: calc-h-cycloid-surface
+  topic: Cycloid descent
+  stem: 'For the cycloid $x = t - \sin t$, $y = 1 - \cos t$, the slope is $\dfrac{dy}{dx} = \cot\dfrac t2$. What happens at the cusp $t = 2\pi$?'
+  choices:
+    - 'The slope tends to $-\infty$ from the left and $+\infty$ from the right: the tangent is vertical'
+    - 'The slope is $0$: the tangent is horizontal'
+    - 'The slope is $\frac00$, so there is no tangent direction at all'
+    - 'The slope tends to $1$ from both sides'
+  answer: 0
+  explanation: |-
+    As $t \to 2\pi^-$, $\frac t2 \to \pi^-$ and $\cot\frac t2 \to -\infty$; as $t \to 2\pi^+$, $\cot\frac t2 \to +\infty$. The curve comes straight down to the ground and leaves straight up. Both $x'$ and $y'$ are 0 there, which is why the limit is needed; it does not mean there is no tangent direction.
+- id: calc-m11-r2-h06
+  lesson: calc-h-cycloid-surface
+  topic: Cycloid descent
+  stem: 'A bead slides without friction from the cusp to the lowest point of an upside-down cycloid made by a wheel of radius $a = 2.45$ m. Using $g = 9.8$ m/s², how long does it take?'
+  choices: ['$0.785$ s', '$3.142$ s', '$1.571$ s', '$0.500$ s']
+  answer: 2
+  explanation: |-
+    $T = \pi\sqrt{a/g} = \pi\sqrt{2.45/9.8} = \pi\sqrt{0.25} = \frac\pi2 \approx 1.571$ s. $0.500$ s is $\sqrt{a/g}$ without the $\pi$; $0.785$ s halves the answer; $3.142$ s doubles it.
+- id: calc-m11-r2-h07
+  lesson: calc-h-cycloid-surface
+  topic: Cycloid descent
+  stem: 'On a frictionless upside-down cycloid, one bead is released from rest at the cusp and another, at the same moment, from rest halfway down the arch. What happens?'
+  choices:
+    - 'The bead from halfway down arrives first, since it is closer'
+    - 'The bead from the cusp arrives first, since it is going faster'
+    - 'It depends on the masses of the beads'
+    - 'They arrive at the lowest point at the same moment'
+  answer: 3
+  explanation: |-
+    The cycloid is a tautochrone: from rest at any starting point the descent time is $\pi\sqrt{a/g}$. The higher bead has farther to go but gains more speed, and on a cycloid the two effects cancel exactly. Mass cancels out of $v = \sqrt{2gh}$.
+- id: calc-m11-r2-h08
+  lesson: calc-h-cycloid-surface
+  topic: Cycloid descent
+  stem: 'A bead starts from rest and slides without friction along any track until it is a vertical distance $h$ below its start. What is its speed?'
+  choices: ['$2gh$', '$\sqrt{gh}$', 'It depends on the shape of the track', '$\sqrt{2gh}$']
+  answer: 3
+  explanation: |-
+    Conservation of energy: $\frac12mv^2 = mgh$, so $v = \sqrt{2gh}$, whatever the track's shape (with no friction, the track's push is perpendicular to the motion and does no work). The shape affects how long the trip takes, not the speed at a given depth.
+- id: calc-m11-r2-h09
+  lesson: calc-h-cycloid-surface
+  topic: Parametric surface area
+  stem: 'The polar curve $r = f(\theta)$, $\alpha \le \theta \le \beta$, lies above the polar axis and is traced once. Which integral gives the area of the surface formed by rotating it about the polar axis?'
+  choices:
+    - '$2\pi\displaystyle\int_\alpha^\beta r\sqrt{r^2 + (r'')^2}\,d\theta$'
+    - '$2\pi\displaystyle\int_\alpha^\beta r\sin\theta\sqrt{r^2 + (r'')^2}\,d\theta$'
+    - '$\dfrac12\displaystyle\int_\alpha^\beta r^2\,d\theta$'
+    - '$2\pi\displaystyle\int_\alpha^\beta r\cos\theta\sqrt{r^2 + (r'')^2}\,d\theta$'
+  answer: 1
+  explanation: |-
+    The radius of rotation about the polar axis is the height $y = r\sin\theta$, and $ds = \sqrt{r^2 + (r')^2}\,d\theta$. Using $r$ itself as the radius is wrong (it is the distance to the pole, not to the axis); $r\cos\theta = x$ is the radius for rotation about the $y$-axis; and $\frac12\int r^2\,d\theta$ is the flat area inside the curve.
+- id: calc-m11-r2-h10
+  lesson: calc-h-cycloid-surface
+  type: text
+  topic: Cycloid descent
+  stem: 'The descent time on an upside-down cycloid is $\pi\sqrt{a/g}$. For a wheel of radius 4 m the descent time is ___ times the time for a wheel of radius 1 m.'
+  accept: ['2', two]
+  explanation: |-
+    The time is proportional to $\sqrt a$, and $\sqrt{4/1} = 2$. Lengths scale by 4, but the bead also goes faster on the bigger track, so the time only doubles.
+- id: calc-m11-r2-h11
+  lesson: calc-h-cycloid-surface
+  type: text
+  topic: Cycloid descent
+  stem: 'The problem of finding the track along which a bead slides from one point to a lower one in the least time is called the ___ problem.'
+  accept: [brachistochrone, brachistochrone curve, brachystochrone]
+  explanation: |-
+    Brachistochrone comes from Greek words for "shortest" and "time." Johann Bernoulli posed it in 1696; the answer is an upside-down cycloid. A curve on which the descent time is the same from every starting point is a tautochrone, and the cycloid is that too.
+- id: calc-m11-r2-h12
+  lesson: calc-h-cycloid-surface
+  type: order
+  topic: Cycloid descent
+  stem: 'A bead slides without friction from $(0, 0)$ to $(\pi a, -2a)$. Put these tracks in order from fastest to slowest. (For the drop-then-slide track, assume the corner is rounded so no speed is lost.)'
+  items:
+    - 'Upside-down cycloid'
+    - 'Straight down, then horizontally along the bottom'
+    - 'Straight line from start to end'
+  explanation: |-
+    In units of $\sqrt{a/g}$ the times are $\pi \approx 3.142$ for the cycloid, $2 + \frac\pi2 \approx 3.571$ for drop-then-slide, and $\sqrt{\pi^2 + 4} \approx 3.724$ for the straight line. The shortest path is the slowest: a steep start builds speed that is used for the whole trip.
+- id: calc-m11-r2-h13
+  lesson: calc-h-cycloid-surface
+  type: match
+  topic: Parametric surface area
+  stem: 'For a parametric curve with $ds = \sqrt{x''(t)^2 + y''(t)^2}\,dt$, match each integral to what it measures.'
+  pairs:
+    - ['$\int ds$', Arc length]
+    - ['$2\pi\int y\,ds$', Surface area about the x-axis]
+    - ['$2\pi\int x\,ds$', Surface area about the y-axis]
+    - ['$\int y\,dx$', Area under the curve]
+  distractors: [Volume of the solid of revolution]
+  explanation: |-
+    $\int ds$ adds up lengths. Rotating a piece of length $ds$ at radius $y$ (about the $x$-axis) or $x$ (about the $y$-axis) sweeps a band of area $2\pi\cdot$radius$\cdot ds$. $\int y\,dx = \int y(t)x'(t)\,dt$ is the area under the curve, from Lesson 45. The volume of revolution would be $\pi\int y^2\,dx$.
+- id: calc-m11-r2-h14
+  lesson: calc-h-cycloid-surface
+  topic: Cycloid descent
+  stem: 'Which statements about the cycloid $x = a(t - \sin t)$, $y = a(1 - \cos t)$ are true? Select all that apply.'
+  choices:
+    - 'One arch has length $8a$'
+    - 'The area under one arch is $3\pi a^2$, three times the area of the wheel'
+    - 'The tangent line at each cusp is horizontal'
+    - 'The highest point of an arch is at height $a$'
+  answer: [0, 1]
+  explanation: |-
+    The speed is $2a\lvert\sin\frac t2\rvert$, and $\int_0^{2\pi}2a\sin\frac t2\,dt = 8a$. The area is $\int y\,dx = a^2\int_0^{2\pi}(1 - \cos t)^2\,dt = 3\pi a^2$. At the cusps the slope $\cot\frac t2$ blows up, so the tangent is vertical, not horizontal; and the top of an arch, at $t = \pi$, is at height $2a$, the wheel's diameter.
+- id: calc-m11-r2-h15
+  lesson: calc-h-cycloid-surface
+  type: label
+  topic: Cycloid descent
+  stem: 'A wheel of radius $a$ rolls along the ground, and a point on its rim traces a cycloid. Name the numbered parts.'
+  image: {src: images/calc-m11-rolling-circle-blank.svg, alt: 'A wheel resting on a horizontal line, with its center marked and its contact point with the line marked. A point on the rim is joined to the center by a segment. A thick arc of the wheel runs from the contact point back to that rim point, and a thick segment on the ground runs from the starting point to the contact point. A dashed arch shows the curve the rim point traces.'}
+  labels:
+    - {x: 37.5, y: 56.2, text: Center of the wheel}
+    - {x: 37.5, y: 87.0, text: Point of contact with the ground}
+    - {x: 25.5, y: 40.7, text: Tracing point P}
+    - {x: 31.5, y: 48.4, text: Radius a}
+    - {x: 22.9, y: 87.0, text: Distance rolled (a times t)}
+  distractors: [Length of the cycloid traced so far]
+  explanation: |-
+    The center is at height $a$ above the contact point. Rolling without slipping lays the arc from the contact point to $P$, of length $at$, onto the ground, so the distance rolled is $at$ and the center is at $(at, a)$. The cycloid traced so far is the curved path from the start to $P$, not the straight segment on the ground.
+
+# ---------- Honors: calc-h-polar-conics ----------
+- id: calc-m11-r2-h16
+  lesson: calc-h-polar-conics
+  topic: Polar conics
+  stem: 'A conic has its focus at the pole, eccentricity $e$, and directrix $x = d$ with $d > 0$. Which is its polar equation?'
+  choices:
+    - '$r = \dfrac{ed}{1 - e\cos\theta}$'
+    - '$r = \dfrac{ed}{1 + e\cos\theta}$'
+    - '$r = \dfrac{ed}{1 + e\sin\theta}$'
+    - '$r = \dfrac{d}{1 + e\cos\theta}$'
+  answer: 1
+  explanation: |-
+    $PF = r$ and the distance to the line $x = d$ is $d - r\cos\theta$. So $r = e(d - r\cos\theta)$, which gives $r(1 + e\cos\theta) = ed$. The minus sign belongs to the directrix $x = -d$, the sine to a horizontal directrix, and the numerator must be $ed$, not $d$.
+- id: calc-m11-r2-h17
+  lesson: calc-h-polar-conics
+  topic: Polar conics
+  stem: 'Identify the conic $r = \dfrac{10}{5 + 3\cos\theta}$.'
+  choices:
+    - 'Hyperbola, $e = 3$'
+    - 'Parabola, $e = 1$'
+    - 'Ellipse, $e = \tfrac35$'
+    - 'Ellipse, $e = \tfrac53$'
+  answer: 2
+  explanation: |-
+    Divide the top and bottom by 5: $r = \frac{2}{1 + \frac35\cos\theta}$. So $e = \frac35 < 1$, an ellipse (with $ed = 2$, so $d = \frac{10}{3}$). Reading $e = 3$ skips the step of making the constant term 1, and an ellipse can't have $e > 1$.
+- id: calc-m11-r2-h18
+  lesson: calc-h-polar-conics
+  topic: Polar conics
+  stem: 'Describe the conic $r = \dfrac{8}{2 + 4\sin\theta}$.'
+  choices:
+    - 'Hyperbola with $e = 2$ and directrix $y = 2$'
+    - 'Hyperbola with $e = 2$ and directrix $x = 2$'
+    - 'Ellipse with $e = \tfrac12$ and directrix $y = 4$'
+    - 'Hyperbola with $e = 4$ and directrix $y = 1$'
+  answer: 0
+  explanation: |-
+    $r = \frac{4}{1 + 2\sin\theta}$: $e = 2 > 1$, a hyperbola, and $ed = 4$ gives $d = 2$. With $+\sin\theta$ the directrix is the horizontal line above the focus, $y = 2$. A cosine would mean a vertical directrix.
+- id: calc-m11-r2-h19
+  lesson: calc-h-polar-conics
+  topic: Polar conics
+  stem: 'Find the semi-major axis $a$ of the ellipse $r = \dfrac{12}{3 + \cos\theta}$.'
+  choices: ['$3$', '$6$', '$4$', '$\tfrac92$']
+  answer: 3
+  explanation: |-
+    $r_{\min} = \frac{12}{3 + 1} = 3$ at $\theta = 0$ and $r_{\max} = \frac{12}{3 - 1} = 6$ at $\theta = \pi$. The major axis has length $3 + 6 = 9$, so $a = \frac92$. (Check: $e = \frac13$ and $ed = 4$, so $a = \frac{ed}{1 - e^2} = \frac{4}{8/9} = \frac92$.) 3 and 6 are the nearest and farthest distances from the focus, and 4 is the numerator after dividing by 3.
+- id: calc-m11-r2-h20
+  lesson: calc-h-polar-conics
+  topic: Kepler's laws
+  stem: 'A planet''s swept area is $A(t) = \frac12\int_{\theta_0}^{\theta(t)}r^2\,d\varphi$. What does Kepler''s second law (equal areas in equal times) say?'
+  choices:
+    - '$r\dfrac{d\theta}{dt}$ is constant'
+    - '$\dfrac{d\theta}{dt}$ is constant'
+    - '$r^2\dfrac{d\theta}{dt}$ is constant'
+    - '$\dfrac{dr}{dt}$ is constant'
+  answer: 2
+  explanation: |-
+    By the Fundamental Theorem and the chain rule, $\frac{dA}{dt} = \frac12r^2\frac{d\theta}{dt}$. Equal areas in equal times means this rate is constant, so $r^2\frac{d\theta}{dt}$ is constant. Then $\frac{d\theta}{dt}$ itself is largest where $r$ is smallest, so neither $\frac{d\theta}{dt}$ nor $r\frac{d\theta}{dt}$ is constant on a non-circular orbit.
+- id: calc-m11-r2-h21
+  lesson: calc-h-polar-conics
+  topic: Kepler's laws
+  stem: 'Earth''s distance from the Sun ranges from about 147.1 to about 152.1 million km. About how many times faster does Earth move at perihelion than at aphelion?'
+  choices: ['$1.034$', '$0.967$', '$1.069$', '$1.000$']
+  answer: 0
+  explanation: |-
+    At perihelion and aphelion the speed is $\frac hr$, so the ratio is $\frac{r_{\max}}{r_{\min}} = \frac{152.1}{147.1} \approx 1.034$. $0.967$ is the ratio upside down (aphelion over perihelion speed), $1.069$ squares it (that is the ratio of the angular rates $\frac{d\theta}{dt} = \frac{h}{r^2}$), and $1.000$ would mean constant speed.
+- id: calc-m11-r2-h22
+  lesson: calc-h-polar-conics
+  topic: Kepler's laws
+  stem: 'Halley''s comet has semi-major axis about 17.8 AU. Using $T = a^{3/2}$ (years and AU), what is its period?'
+  choices: ['About 4.2 years', 'About 75 years', 'About 17.8 years', 'About 317 years']
+  answer: 1
+  explanation: |-
+    $17.8^{3/2} = 17.8\sqrt{17.8} \approx 17.8\times4.22 \approx 75.1$ years. 4.2 is $\sqrt{17.8}$, 17.8 forgets the exponent, and 317 is $17.8^2$.
+- id: calc-m11-r2-h23
+  lesson: calc-h-polar-conics
+  topic: Polar conics
+  stem: 'Find the area enclosed by the ellipse $r = \dfrac{6}{2 + \cos\theta}$.'
+  choices: ['$16\pi$', '$12\pi$', '$8\sqrt3\,\pi$', '$4\sqrt3\,\pi$']
+  answer: 2
+  explanation: |-
+    The vertices are at $r = 2$ ($\theta = 0$) and $r = 6$ ($\theta = \pi$), so $a = 4$; with $e = \frac12$, $c = 2$ and $b = \sqrt{16 - 4} = 2\sqrt3$. Area $= \pi ab = 8\sqrt3\,\pi \approx 43.53$. $16\pi$ uses $a$ for both axes (a circle), $12\pi$ uses $b = 3$ (the semi-latus rectum), and $4\sqrt3\,\pi$ halves the area.
+- id: calc-m11-r2-h24
+  lesson: calc-h-polar-conics
+  topic: Polar conics
+  stem: 'An orbit has semi-major axis $a = 5$ and eccentricity $e = 0.6$. What is $r$ at $\theta = \frac\pi2$ (the semi-latus rectum)?'
+  choices: ['$3.2$', '$2$', '$8$', '$3$']
+  answer: 0
+  explanation: |-
+    $\ell = a(1 - e^2) = 5(1 - 0.36) = 3.2$, and at $\theta = \frac\pi2$ the cosine is 0, so $r = \ell$. 2 and 8 are $r_{\min} = a(1 - e)$ and $r_{\max} = a(1 + e)$, and 3 is $c = ae$, the distance from the focus to the center.
+- id: calc-m11-r2-h25
+  lesson: calc-h-polar-conics
+  type: text
+  topic: Polar conics
+  stem: 'For the conic $r = \dfrac{9}{3 + 3\cos\theta}$, the eccentricity is $e =$ ___ and the conic is a ___.'
+  accept:
+    - ['1']
+    - [parabola, a parabola]
+  explanation: |-
+    Divide by 3: $r = \frac{3}{1 + \cos\theta}$, so $e = 1$, a parabola, with $ed = 3$ and directrix $x = 3$. It opens to the left, running off to infinity as $\theta \to \pi$, where the denominator is 0.
+- id: calc-m11-r2-h26
+  lesson: calc-h-polar-conics
+  type: text
+  topic: Kepler's laws
+  stem: 'An asteroid''s distance from the Sun ranges from 2 AU at perihelion to 6 AU at aphelion. The eccentricity of its orbit is ___.'
+  accept: ['0.5']
+  explanation: |-
+    $e = \frac{r_{\max} - r_{\min}}{r_{\max} + r_{\min}} = \frac{6 - 2}{6 + 2} = \frac12$. (Also $a = 4$ AU, so $r_{\min} = a(1 - e) = 2$ checks, and its period is $4^{3/2} = 8$ years.)
+- id: calc-m11-r2-h27
+  lesson: calc-h-polar-conics
+  type: match
+  topic: Polar conics
+  stem: 'Match each conic (focus at the pole) to its type.'
+  pairs:
+    - ['$r = \dfrac{2}{1 + 0.3\cos\theta}$', Ellipse]
+    - ['$r = \dfrac{4}{2 + 2\cos\theta}$', Parabola]
+    - ['$r = \dfrac{3}{1 - 1.5\sin\theta}$', Hyperbola]
+    - ['$r = \dfrac{5}{4 + 2\sin\theta}$', Ellipse]
+  distractors: [Circle centered at the pole]
+  explanation: |-
+    Make the constant term 1 and read $e$: $0.3$ (ellipse); $\frac22 = 1$ (parabola); $1.5$ (hyperbola); $\frac24 = \frac12$ (ellipse). A circle centered at the pole has the form $r = $ constant, with no cosine or sine.
+- id: calc-m11-r2-h28
+  lesson: calc-h-polar-conics
+  type: order
+  topic: Kepler's laws
+  stem: 'A planet follows $r = \dfrac{2}{1 + 0.5\cos\theta}$ around the Sun. Put these positions in order from where its angle $\theta$ changes fastest to where it changes slowest.'
+  items:
+    - '$\theta = 0$'
+    - '$\theta = \frac{\pi}{2}$'
+    - '$\theta = \frac{2\pi}{3}$'
+    - '$\theta = \pi$'
+  explanation: |-
+    By the second law $\frac{d\theta}{dt} = \frac{h}{r^2}$, so the angle changes fastest where $r$ is smallest. Here $r = \frac43, 2, \frac83, 4$ at $\theta = 0, \frac\pi2, \frac{2\pi}3, \pi$, increasing as $\cos\theta$ decreases. Perihelion ($\theta = 0$) is fastest and aphelion ($\theta = \pi$) slowest.
+- id: calc-m11-r2-h29
+  lesson: calc-h-polar-conics
+  topic: Kepler's laws
+  stem: 'Which statements agree with Kepler''s laws? Select all that apply.'
+  choices:
+    - 'A planet''s orbit is an ellipse with the Sun at one focus'
+    - 'A planet moves fastest when it is nearest the Sun'
+    - 'The Sun is at the center of each planet''s ellipse'
+    - 'A planet moves along its orbit at constant speed'
+  answer: [0, 1]
+  explanation: |-
+    The first law puts the Sun at a focus, not the center (the two coincide only for a circle). The second law, equal areas in equal times, means $r^2\frac{d\theta}{dt}$ is constant, so the planet moves fastest at perihelion and slowest at aphelion; its speed is not constant unless the orbit is a circle.
+- id: calc-m11-r2-h30
+  lesson: calc-h-polar-conics
+  type: label
+  topic: Polar conics
+  stem: 'The picture shows the focus–directrix definition of an ellipse. Name the numbered parts.'
+  image: {src: images/calc-m11-focus-directrix-blank.svg, alt: 'An ellipse with a marked point inside it and a vertical line to its right. A segment joins a point P on the ellipse to the marked point, and a dashed horizontal segment joins P to the vertical line. A dot marks where the ellipse crosses the horizontal axis on the side nearer the line.'}
+  labels:
+    - {x: 51.9, y: 50.0, text: Focus (at the pole)}
+    - {x: 79.6, y: 79.4, text: Directrix}
+    - {x: 47.9, y: 34.8, text: Distance from P to the focus}
+    - {x: 61.8, y: 19.6, text: Distance from P to the directrix}
+    - {x: 62.3, y: 50.0, text: Vertex nearest the focus}
+  distractors: [Center of the ellipse, Second focus]
+  explanation: |-
+    Every point $P$ of the conic satisfies $PF = e\cdot PD$: its distance to the focus is $e$ times its distance to the directrix. With $e < 1$, points are closer to the focus than to the line, giving an ellipse. The vertex between the focus and the directrix is the point nearest the focus ($r_{\min}$, the perihelion if the Sun is at the focus). The center of the ellipse lies on the far side of the focus from the directrix and is not marked.

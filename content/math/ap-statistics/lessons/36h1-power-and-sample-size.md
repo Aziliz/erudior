@@ -2,7 +2,7 @@
 id: stat-m8-h-power-planning
 module: stat-m8
 honors: true
-title: Planning a study: power curves and sample size
+title: 'Planning a study: power curves and sample size'
 minutes: 45
 topics: [Power and sample size]
 drills: [stat-m8-r2-n-mean, stat-m8-r2-power-prop, stat-m8-r2-n-two-sample]

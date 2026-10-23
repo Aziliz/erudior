@@ -1,0 +1,617 @@
+# Round 2 questions, module calc-m1 (Limits and continuity)
+# Core lessons 01-05: calc-m1-r2-q01..q25. Honors 05h1: h01..h14. Honors 05h2: h15..h28.
+
+# ---- Lesson 1: What a limit is ----
+- id: calc-m1-r2-q01
+  lesson: calc-limits-intro
+  type: label
+  module_quiz: true
+  topic: Limits
+  stem: 'The graph has a jump at $x = a$. Name the numbered parts.'
+  image: {src: images/calc-m1-limit-reading-blank.svg, alt: 'A graph with a jump at x = 2. From the left, a curve rises to an open circle at height 2 (marker 1). From the right, a line comes down to an open circle at height 3.5 (marker 2). A solid dot sits alone at height 5 above x = 2 (marker 3). Marker 4 is on the x-axis at x = 2.'}
+  labels:
+    - {x: 45, y: 58.1, text: Left-hand limit}
+    - {x: 55, y: 39.3, text: Right-hand limit}
+    - {x: 55, y: 20.4, text: Value of the function at a}
+    - {x: 50, y: 87, text: The input a}
+  distractors: [Two-sided limit, Vertical asymptote]
+  explanation: |-
+    The open circle at the end of the left piece is where the curve heads from the left (the left-hand limit, 2); the open circle at the start of the right piece is the right-hand limit, 3.5. The solid dot is the function's actual value, $f(2) = 5$, and it doesn't affect either limit. The two-sided limit does not exist here, because the one-sided limits differ, so no part of the picture shows it.
+- id: calc-m1-r2-q02
+  lesson: calc-limits-intro
+  type: text
+  topic: Limits
+  stem: 'Let $f(x) = x^2 + 1$ for $x < 3$ and $f(x) = 2x + 4$ for $x > 3$ ($f(3)$ is undefined). Give only the numbers: $\lim_{x\to3^-} f(x) =$ ___ and $\lim_{x\to3^+} f(x) =$ ___.'
+  accept:
+    - ['10']
+    - ['10']
+  explanation: |-
+    From the left use $x^2 + 1 \to 9 + 1 = 10$. From the right use $2x + 4 \to 6 + 4 = 10$. The one-sided limits agree, so $\lim_{x\to3} f(x) = 10$ even though $f(3)$ is undefined.
+- id: calc-m1-r2-q03
+  lesson: calc-limits-intro
+  type: match
+  module_quiz: true
+  topic: Limits
+  stem: 'Each description says what a graph does near $x = a$. Match it to the conclusion about $\lim_{x\to a} f(x)$.'
+  pairs:
+    - ['Both sides head to height 4, with a hole at $x = a$', The limit is 4]
+    - ['Both sides head to height 4, but a solid dot sits at height 7', The limit is 4]
+    - ['The left side heads to 2 and the right side heads to 5', 'Jump: the limit does not exist']
+    - ['The outputs grow without bound on both sides', 'Unbounded: the limit does not exist']
+    - ['The outputs swing between $-1$ and $1$ faster and faster', 'Oscillation: the limit does not exist']
+  distractors: [The limit is 7]
+  explanation: |-
+    A limit reads the curve's approach from both sides and ignores what happens exactly at $x = a$, so a hole or a misplaced dot doesn't change a limit of 4 (the dot at 7 is only the value). The three ways a limit fails are a jump (sides disagree), unbounded growth, and oscillation (outputs never settle).
+- id: calc-m1-r2-q04
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'Which statements about $\lim_{x\to a} f(x)$ are true? Select all that apply.'
+  choices:
+    - 'If $f(a)$ is undefined, the limit can still exist'
+    - 'If both one-sided limits exist and are equal, the two-sided limit exists'
+    - 'If $f(a) = 5$, the limit must be 5'
+    - 'A table with $x = 0.1, 0.01, 0.001$ on one side of $a$ proves the limit'
+  answer: [0, 1]
+  explanation: |-
+    The limit ignores $x = a$ itself, so $f(a)$ can be missing (as for $\frac{x^2 - 1}{x - 1}$ at 1) or different from the limit. Equal one-sided limits are exactly the condition for the two-sided limit. A one-sided table is only evidence: it says nothing about the other side and can miss oscillation.
+- id: calc-m1-r2-q05
+  lesson: calc-limits-intro
+  topic: Limits
+  stem: 'A table gives $\sin(\pi/x) = 0$ at $x = 0.1, 0.01, 0.001$. What is $\sin(\pi/x)$ at $x = \tfrac{2}{201} \approx 0.00995$, an input even closer to 0?'
+  choices: ['$0$', '$-1$', '$1$', '$\tfrac12$']
+  answer: 2
+  explanation: |-
+    At $x = \tfrac{2}{201}$, $\pi/x = \tfrac{201\pi}{2} = 100\pi + \tfrac{\pi}{2}$, and $\sin(100\pi + \tfrac\pi2) = \sin\tfrac\pi2 = 1$. Inputs as close to 0 as you like give 0, 1 or $-1$, so the outputs never settle: the limit doesn't exist. The "friendly" inputs in the table happened to all land on zeros.
+
+# ---- Lesson 2: Limit laws ----
+- id: calc-m1-r2-q06
+  lesson: calc-limit-laws
+  type: text
+  module_quiz: true
+  topic: Algebraic limits
+  stem: 'Find $\displaystyle\lim_{x\to 4}\frac{x^2 - 16}{x^2 - 3x - 4}$. Give only the number: ___'
+  accept: ['8/5']
+  explanation: |-
+    Substitution gives $\frac00$. Factor: $\dfrac{(x - 4)(x + 4)}{(x - 4)(x + 1)}$. Cancel $x - 4$ and substitute: $\dfrac{4 + 4}{4 + 1} = \dfrac85 = 1.6$.
+- id: calc-m1-r2-q07
+  lesson: calc-limit-laws
+  type: order
+  topic: Algebraic limits
+  stem: 'Put the steps for finding $\displaystyle\lim_{x\to 5}\frac{\sqrt{x + 4} - 3}{x - 5}$ in order.'
+  items:
+    - 'Substitute $x = 5$ and get $\frac00$'
+    - 'Multiply top and bottom by $\sqrt{x + 4} + 3$'
+    - 'Simplify the top: $(x + 4) - 9 = x - 5$'
+    - 'Cancel the factor $x - 5$, leaving $\dfrac{1}{\sqrt{x + 4} + 3}$'
+    - 'Substitute $x = 5$ to get $\tfrac16$'
+  explanation: |-
+    The $\frac00$ check comes first and tells you to rewrite. A square root calls for the conjugate; multiplying turns the top into $x - 5$, which can then cancel with the bottom. Only after canceling does substitution give a number: $\frac{1}{3 + 3} = \frac16$.
+- id: calc-m1-r2-q08
+  lesson: calc-limit-laws
+  topic: Algebraic limits
+  stem: 'Direct substitution gives the indeterminate form $\frac00$ for which of these limits? Select all that apply.'
+  choices:
+    - '$\displaystyle\lim_{x\to 2}\frac{x^2 - 4}{x - 2}$'
+    - '$\displaystyle\lim_{x\to 1}\frac{x^2 + 1}{x - 1}$'
+    - '$\displaystyle\lim_{x\to 0}\frac{\sqrt{x + 1} - 1}{x}$'
+    - '$\displaystyle\lim_{x\to 3}\frac{x + 3}{x^2 + 9}$'
+  answer: [0, 2]
+  explanation: |-
+    At $x = 2$: $\frac{4 - 4}{0} = \frac00$. At $x = 0$: $\frac{1 - 1}{0} = \frac00$. The second gives $\frac{2}{0}$, nonzero over zero, which signals an infinite limit, not an indeterminate form. The last gives $\frac{6}{18} = \frac13$, a number, so that's the limit.
+- id: calc-m1-r2-q09
+  lesson: calc-limit-laws
+  type: match
+  topic: Algebraic limits
+  stem: 'Each limit gives $\frac00$ (or needs care) when you substitute. Match it to the technique that works.'
+  pairs:
+    - ['$\displaystyle\lim_{x\to 3}\frac{x^2 - 9}{x^2 - 2x - 3}$', Factor and cancel]
+    - ['$\displaystyle\lim_{x\to 4}\frac{\sqrt{x + 5} - 3}{x - 4}$', Multiply by the conjugate]
+    - ['$\displaystyle\lim_{x\to 3}\frac{\frac1x - \frac13}{x - 3}$', Combine over a common denominator]
+    - ['$\displaystyle\lim_{x\to 0}\frac{|x|}{x}$', Compare the one-sided limits]
+  distractors: [Special trig limits]
+  explanation: |-
+    Polynomials with a common zero share a factor ($x - 3$). A square root minus a number calls for the conjugate. Fractions inside a fraction are combined over a common denominator so a factor of $x - 3$ appears. An absolute value is piecewise, so look at each side: here the left limit is $-1$ and the right limit is 1.
+- id: calc-m1-r2-q10
+  lesson: calc-limit-laws
+  module_quiz: true
+  topic: Algebraic limits
+  stem: 'Finding $\displaystyle\lim_{x\to 2}\frac{x(x - 2)^2}{(x - 2)^2}$, a student cancels one factor of $x - 2$, gets $\dfrac{x(x - 2)}{x - 2}$, substitutes 2 and again gets $\frac00$. What should she do?'
+  choices:
+    - 'Conclude that the limit does not exist'
+    - 'Cancel the remaining factor $x - 2$ and substitute: the limit is 2'
+    - 'Conclude that the limit is 0, since the top is 0'
+    - 'Conclude that the limit is 1, since $\frac00 = 1$'
+  answer: 1
+  explanation: |-
+    A second $\frac00$ just means the rewriting isn't finished; go around the loop again. After canceling the other factor, the expression is $x$ for $x \ne 2$, so the limit is 2. $\frac00$ is never a value by itself.
+
+# ---- Lesson 3: Infinite limits and limits at infinity ----
+- id: calc-m1-r2-q11
+  lesson: calc-limits-infinity
+  type: label
+  module_quiz: true
+  topic: Infinite limits
+  stem: 'This is the graph of $y = \dfrac{x^2 - x - 2}{x^2 - 4}$. Name the numbered features.'
+  image: {src: images/calc-m1-asymptotes-blank.svg, alt: 'Graph of y = (x² − x − 2)/(x² − 4) with two dashed lines, one vertical at x = −2 and one horizontal at y = 1. Marker 1 is on an open circle on the right branch at (2, 3/4). Marker 2 is on the dashed vertical line. Marker 3 is on the dashed horizontal line. Marker 4 is where the right branch crosses the x-axis at (−1, 0).'}
+  labels:
+    - {x: 68.6, y: 50.5, text: Hole}
+    - {x: 43.8, y: 21.2, text: Vertical asymptote}
+    - {x: 33.9, y: 48.8, text: Horizontal asymptote}
+    - {x: 50, y: 55.6, text: x-intercept}
+  distractors: [Slant asymptote, Jump discontinuity]
+  explanation: |-
+    Factor: $\dfrac{(x - 2)(x + 1)}{(x - 2)(x + 2)}$. The factor $x - 2$ cancels, so $x = 2$ is a hole (at height $\frac34$), while $x + 2$ remains in the denominator, giving the vertical asymptote $x = -2$. Equal degrees give the horizontal asymptote $y = \frac11 = 1$. The numerator's other factor, $x + 1$, makes $(-1, 0)$ the $x$-intercept.
+- id: calc-m1-r2-q12
+  lesson: calc-limits-infinity
+  type: text
+  topic: Infinite limits
+  stem: 'For $f(x) = \dfrac{3x^2 - 12}{x^2 + x - 6}$, the vertical asymptote is $x =$ ___ and the hole is at $x =$ ___. Give only the numbers.'
+  accept:
+    - ['-3']
+    - ['2']
+  explanation: |-
+    Factor: $\dfrac{3(x - 2)(x + 2)}{(x + 3)(x - 2)}$. The factor $x - 2$ cancels, so $x = 2$ is a hole (at height $\frac{12}{5}$). After canceling, the function is $\dfrac{3(x + 2)}{x + 3}$, whose denominator is 0 at $x = -3$ while its top is $3(-1) = -3 \ne 0$, so $x = -3$ is a vertical asymptote.
+- id: calc-m1-r2-q13
+  lesson: calc-limits-infinity
+  type: match
+  topic: Limits at infinity
+  stem: 'Match each function to its horizontal asymptote.'
+  pairs:
+    - ['$\dfrac{4x^2 + 1}{2x^2 - x}$', y = 2]
+    - ['$\dfrac{6x^3 - x}{3x^3 + 2}$', y = 2]
+    - ['$\dfrac{3x + 1}{x^2 + 5}$', y = 0]
+    - ['$\dfrac{x^3}{x^2 + 1}$', No horizontal asymptote]
+  distractors: [y = 4, y = 3]
+  explanation: |-
+    Compare degrees. Equal degrees give the ratio of leading coefficients: $\frac42 = 2$ and $\frac63 = 2$. A smaller top degree gives $y = 0$. A larger top degree means the function grows without bound; $\frac{x^3}{x^2 + 1}$ has the slant asymptote $y = x$ instead.
+- id: calc-m1-r2-q14
+  lesson: calc-limits-infinity
+  module_quiz: true
+  topic: Limits at infinity
+  stem: 'Which of these are indeterminate forms, where the limit could turn out to be anything? Select all that apply.'
+  choices: ['$\frac00$', '$\infty - \infty$', '$\frac{\infty}{\infty}$', '$\frac{1}{0}$', '$\infty + \infty$']
+  answer: [0, 1, 2]
+  explanation: |-
+    In $\frac00$, $\infty - \infty$ and $\frac\infty\infty$ two effects compete, and the result depends on which wins: $\sqrt{x^2 + 6x} - x \to 3$ while $x^2 - x \to \infty$, both of the form $\infty - \infty$. A nonzero number over something tending to 0 always blows up (an infinite limit, sign from each side), and $\infty + \infty$ is always $\infty$.
+- id: calc-m1-r2-q15
+  lesson: calc-limits-infinity
+  topic: Infinite limits
+  stem: 'Find $\displaystyle\lim_{x\to 2^-}\frac{x - 5}{x - 2}$.'
+  choices: ['$+\infty$', '$-\infty$', '$0$', '$-\tfrac32$']
+  answer: 0
+  explanation: |-
+    Substitution gives $\frac{-3}{0}$: an infinite limit, so check signs. For $x$ slightly less than 2, the top is about $-3$ (negative) and the bottom $x - 2$ is a tiny negative number. Negative over negative is positive, so the quotient goes to $+\infty$.
+
+# ---- Lesson 4: Squeeze theorem and ε-δ ----
+- id: calc-m1-r2-q16
+  lesson: calc-squeeze-epsilon
+  type: label
+  topic: Formal limit definition
+  stem: 'The picture shows the ε-δ definition for a rising curve through $(a, L)$. Name the numbered lines.'
+  image: {src: images/calc-m1-epsilon-delta-blank.svg, alt: 'A rising curve through a point, with a shaded horizontal band and a shaded vertical band. Marker 1 is on the y-axis at the top edge of the horizontal band and marker 2 at its bottom edge. On the x-axis, marker 3 is at the left edge of the vertical band, marker 4 at its right edge, and marker 5 in the middle, below the point on the curve.'}
+  labels:
+    - {x: 12.5, y: 36.5, text: L + ε}
+    - {x: 12.5, y: 57.9, text: L − ε}
+    - {x: 45.7, y: 89, text: a − δ}
+    - {x: 65.1, y: 89, text: a + δ}
+    - {x: 55.4, y: 89, text: a}
+  distractors: [L, a + ε]
+  explanation: |-
+    The output tolerance ε makes the horizontal band from $L - \varepsilon$ to $L + \varepsilon$; the input tolerance δ makes the vertical band from $a - \delta$ to $a + \delta$, centered at $a$. The definition holds when, inside the vertical band (except possibly at $a$ itself), the graph stays inside the horizontal band. ε belongs to outputs, never to inputs.
+- id: calc-m1-r2-q17
+  lesson: calc-squeeze-epsilon
+  type: text
+  module_quiz: true
+  topic: Squeeze theorem
+  stem: 'Find $\displaystyle\lim_{x\to 0}\frac{\sin 3x}{\sin 5x}$. Give only the number: ___'
+  accept: ['3/5']
+  explanation: |-
+    Make each sine match its argument: $\dfrac{\sin 3x}{\sin 5x} = \dfrac{\sin 3x}{3x}\cdot\dfrac{5x}{\sin 5x}\cdot\dfrac{3x}{5x}$. As $x \to 0$ the first two factors tend to 1, and $\frac{3x}{5x} = \frac35$. The limit is $\frac35 = 0.6$.
+- id: calc-m1-r2-q18
+  lesson: calc-squeeze-epsilon
+  type: order
+  topic: Formal limit definition
+  stem: 'Put the steps of the ε-δ argument that $\lim_{x\to 2}(4x - 3) = 5$ in order: the scratch work first, then the written proof.'
+  items:
+    - 'Scratch work: $|(4x - 3) - 5| = 4|x - 2|$'
+    - 'Scratch work: $4|x - 2| < \varepsilon$ exactly when $|x - 2| < \varepsilon/4$'
+    - 'Proof: let $\varepsilon > 0$ and set $\delta = \varepsilon/4$'
+    - 'Proof: suppose $0 < |x - 2| < \delta$'
+    - 'Proof: then $|(4x - 3) - 5| = 4|x - 2| < 4\delta = \varepsilon$'
+  explanation: |-
+    The scratch work runs backward from the goal to find δ; the proof runs forward. In the proof, ε is given first, δ is chosen from it, then an arbitrary $x$ in the window is taken, and the conclusion $|f(x) - L| < \varepsilon$ comes last.
+- id: calc-m1-r2-q19
+  lesson: calc-squeeze-epsilon
+  topic: Squeeze theorem
+  stem: 'Which of these limits equal 0? Select all that apply.'
+  choices:
+    - '$\displaystyle\lim_{x\to0} x^2\sin(1/x)$'
+    - '$\displaystyle\lim_{x\to0} x\cos(1/x)$'
+    - '$\displaystyle\lim_{x\to0}\frac{1 - \cos x}{x}$'
+    - '$\displaystyle\lim_{x\to0}\frac{\sin x}{x}$'
+    - '$\displaystyle\lim_{x\to0}\sin(1/x)$'
+  answer: [0, 1, 2]
+  explanation: |-
+    Squeeze the first between $-x^2$ and $x^2$, and the second between $-|x|$ and $|x|$: both bounds go to 0. The third is the companion trig limit, 0. But $\frac{\sin x}{x} \to 1$, and $\sin(1/x)$ oscillates between $-1$ and 1 with no limit; without a factor shrinking to 0 there is nothing to squeeze it.
+- id: calc-m1-r2-q20
+  lesson: calc-squeeze-epsilon
+  topic: Formal limit definition
+  stem: 'Near $a = 3$, a rising curve passes through $(3, L)$. It reaches height $L + \varepsilon$ at $x = 3.5$ and height $L - \varepsilon$ at $x = 2.4$. What is the largest $\delta$ that works for this ε?'
+  choices: ['$1.1$', '$0.6$', '$0.55$', '$0.5$']
+  answer: 3
+  explanation: |-
+    The window must fit on both sides of 3. On the right the curve stays in the band only up to $3.5$ (distance 0.5); on the left down to $2.4$ (distance 0.6). δ is the smaller distance, 0.5: a window of half-width 0.6 would let $x$ between 3.5 and 3.6 escape the band. The 1.1 is the band's total width and 0.55 its average.
+
+# ---- Lesson 5: Continuity and the IVT ----
+- id: calc-m1-r2-q21
+  lesson: calc-continuity
+  type: label
+  module_quiz: true
+  topic: Continuity
+  stem: 'Name the kind of discontinuity in each numbered graph.'
+  image: {src: images/calc-m1-discontinuities-blank.svg, alt: 'Three small graphs side by side, numbered 1 to 3 below. Graph 1: a curve with an open circle, and a solid dot drawn above the circle. Graph 2: a line that stops at an open circle and restarts higher at a solid dot. Graph 3: a curve that goes down on the left of a dashed vertical line and comes down from the top on its right.'}
+  labels:
+    - {x: 21, y: 90, text: Removable discontinuity}
+    - {x: 53.6, y: 90, text: Jump discontinuity}
+    - {x: 86.2, y: 90, text: Infinite discontinuity}
+  distractors: [Oscillating discontinuity, Continuous point]
+  explanation: |-
+    In graph 1 both sides head to the open circle, so the limit exists, but the value sits elsewhere: redefining one point would fix it (removable). In graph 2 the one-sided limits exist but differ (jump). In graph 3 the outputs blow up beside a vertical asymptote (infinite).
+- id: calc-m1-r2-q22
+  lesson: calc-continuity
+  type: text
+  topic: Continuity
+  stem: 'Find $k$ so that $f(x) = x^2 + k$ for $x < 1$ and $f(x) = 3x - k$ for $x \ge 1$ is continuous everywhere. Give only the number: $k =$ ___'
+  accept: ['1']
+  explanation: |-
+    Both pieces are polynomials, so only $x = 1$ matters. The left piece heads to $1 + k$; the right piece gives $3 - k$, which is also $f(1)$. Setting $1 + k = 3 - k$ gives $2k = 2$, so $k = 1$.
+- id: calc-m1-r2-q23
+  lesson: calc-continuity
+  type: match
+  module_quiz: true
+  topic: Continuity
+  stem: 'Match each function and point to what happens there.'
+  pairs:
+    - ['$\dfrac{x^2 - 4}{x - 2}$ at $x = 2$', Removable discontinuity]
+    - ['$\dfrac{1}{x - 2}$ at $x = 2$', Infinite discontinuity]
+    - ['$\dfrac{|x - 2|}{x - 2}$ at $x = 2$', Jump discontinuity]
+    - ['$\sin(1/x)$ at $x = 0$', Oscillating discontinuity]
+    - ['$x^2$ at $x = 2$', Continuous]
+  explanation: |-
+    $\frac{x^2 - 4}{x - 2} = x + 2$ away from 2, so the limit exists (4) but the value is missing: removable. $\frac{1}{x-2}$ blows up: infinite. $\frac{|x-2|}{x-2}$ is $-1$ on the left and 1 on the right: jump. $\sin(1/x)$ never settles near 0: oscillating. A polynomial is continuous everywhere.
+- id: calc-m1-r2-q24
+  lesson: calc-continuity
+  topic: Intermediate Value Theorem
+  stem: '$f(x) = x^3 - 6x^2 + 9x + 1$ is continuous on $[0, 4]$, with $f(0) = 1$ and $f(4) = 5$. Which statements does the IVT guarantee? Select all that apply.'
+  choices:
+    - '$f(c) = 3$ for at least one $c$ in $(0, 4)$'
+    - '$f(c) = 4.5$ for at least one $c$ in $(0, 4)$'
+    - '$f(c) = 3$ for exactly one $c$ in $(0, 4)$'
+    - '$f(c) = 6$ for at least one $c$ in $(0, 4)$'
+  answer: [0, 1]
+  explanation: |-
+    3 and 4.5 are strictly between $f(0) = 1$ and $f(4) = 5$, so each is reached at least once. The IVT never counts solutions: $f(c) = 3$ actually happens three times ($c = 2 - \sqrt3$, $2$, $2 + \sqrt3$). And 6 is outside the range from 1 to 5, so the IVT says nothing about it (in fact this $f$ never exceeds 5 on $[0, 4]$).
+- id: calc-m1-r2-q25
+  lesson: calc-continuity
+  topic: Continuity
+  stem: 'Let $g(x) = \dfrac{x^2 - x - 6}{x - 3}$ for $x \ne 3$ and $g(3) = k$. Which value of $k$ makes $g$ continuous at 3?'
+  choices: ['$0$', '$5$', '$3$', '$-2$']
+  answer: 1
+  explanation: |-
+    Factor: $\frac{(x - 3)(x + 2)}{x - 3} = x + 2$ for $x \ne 3$, so $\lim_{x\to3} g(x) = 5$. Continuity needs $g(3)$ equal to the limit, so $k = 5$. The discontinuity was removable. ($-2$ is the other zero of the top, and 0 comes from substituting into the top only.)
+
+# ---- Honors 05h1: Precise limits ----
+- id: calc-m1-r2-h01
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'For $\displaystyle\lim_{x\to 2}\frac{1}{(x - 2)^2} = \infty$ and the height $M = 400$, what is the largest $\delta$ such that $0 < |x - 2| < \delta$ guarantees $\frac{1}{(x-2)^2} > 400$?'
+  choices: ['$0.05$', '$0.0025$', '$0.5$', '$20$']
+  answer: 0
+  explanation: |-
+    $\frac{1}{(x - 2)^2} > 400$ exactly when $(x - 2)^2 < \frac{1}{400}$, that is, $|x - 2| < \frac{1}{20} = 0.05$. So $\delta = 1/\sqrt{M} = 0.05$. ($0.0025 = 1/400$ forgets the square root, and 20 is $\sqrt{M}$ itself.)
+- id: calc-m1-r2-h02
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'For $\displaystyle\lim_{x\to\infty}\frac{3x + 1}{x + 2} = 3$ and $\varepsilon = 0.1$, what is the smallest $N$ such that $x > N$ guarantees $\left|\frac{3x + 1}{x + 2} - 3\right| < 0.1$?'
+  choices: ['$50$', '$48$', '$52$', '$0.48$']
+  answer: 1
+  explanation: |-
+    The distance to 3 is $\frac{5}{x + 2}$ for $x > -2$. It is less than 0.1 exactly when $x + 2 > 50$, so $N = 48$. (50 forgets to subtract the 2.)
+- id: calc-m1-r2-h03
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'Which statement is the precise meaning of $\displaystyle\lim_{x\to -\infty} f(x) = L$?'
+  choices:
+    - 'For every $\varepsilon > 0$ there is an $N$ such that $x > N$ implies $|f(x) - L| < \varepsilon$'
+    - 'For every $N$ there is an $\varepsilon > 0$ such that $x < -N$ implies $|f(x) - L| < \varepsilon$'
+    - 'For every $\varepsilon > 0$ there is an $N$ such that $x < -N$ implies $|f(x) - L| < \varepsilon$'
+    - 'There is an $\varepsilon > 0$ such that $x < -N$ implies $|f(x) - L| < \varepsilon$ for every $N$'
+  answer: 2
+  explanation: |-
+    The output tolerance comes first and is arbitrary ("for every ε"); the input threshold is then found ("there is an $N$"). For $x \to -\infty$ the inputs that matter are far to the left: $x < -N$. The first choice describes $x \to +\infty$, and the other two have the quantifiers in the wrong order.
+- id: calc-m1-r2-h04
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'In the proof of the sum law, why does each function get the tolerance $\varepsilon/2$ instead of $\varepsilon$?'
+  choices:
+    - 'Because the definition only allows tolerances smaller than 1'
+    - 'Because $\delta$ must be half of $\varepsilon$'
+    - 'Because $f$ and $g$ might have different limits'
+    - 'Because the triangle inequality adds the two errors, and $\tfrac\varepsilon2 + \tfrac\varepsilon2 = \varepsilon$'
+  answer: 3
+  explanation: |-
+    The total error is at most $|f(x) - L| + |g(x) - K|$. Giving each piece half the budget makes the sum less than ε. With ε for each, the proof would end with $2\varepsilon$.
+- id: calc-m1-r2-h05
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'The sum-law proof gets $\delta_1$ for $f$ and $\delta_2$ for $g$, then uses $\delta = \min(\delta_1, \delta_2)$. Why the minimum?'
+  choices:
+    - 'So that every $x$ in the window satisfies both requirements at once'
+    - 'Because a smaller $\delta$ makes $\varepsilon$ smaller'
+    - 'Because the maximum would make $\delta$ negative'
+    - 'Because $\delta_1$ and $\delta_2$ are always equal'
+  answer: 0
+  explanation: |-
+    If $0 < |x - a| < \min(\delta_1, \delta_2)$, then $x$ is within $\delta_1$ (so $f$ is close) and within $\delta_2$ (so $g$ is close). With the larger one, some $x$ could satisfy only one of the two.
+- id: calc-m1-r2-h06
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'Which statement says that $\displaystyle\lim_{x\to a} f(x) = L$ is false?'
+  choices:
+    - 'For every $\varepsilon > 0$ there is a $\delta > 0$ such that some $x$ with $0 < |x - a| < \delta$ has $|f(x) - L| \ge \varepsilon$'
+    - 'There is an $\varepsilon > 0$ such that for every $\delta > 0$ some $x$ with $0 < |x - a| < \delta$ has $|f(x) - L| \ge \varepsilon$'
+    - 'There is a $\delta > 0$ such that $0 < |x - a| < \delta$ implies $|f(x) - L| \ge \varepsilon$'
+    - 'For every $\varepsilon > 0$ and every $\delta > 0$, $|f(x) - L| \ge \varepsilon$'
+  answer: 1
+  explanation: |-
+    Negating swaps the quantifiers and negates the conclusion: one ε exists that defeats every δ, because each window contains a point whose output is at least ε from $L$. The first choice is too weak (a single bad δ always exists), and the last two demand that every nearby output be far away, which is too strong.
+- id: calc-m1-r2-h07
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'To prove $\lim_{x\to 0} H(x)$ does not exist for the Heaviside step function, a student shows that $L = \tfrac12$ is not the limit. What else is needed?'
+  choices:
+    - 'Nothing: $\tfrac12$ is halfway between the one-sided limits, so it was the only candidate'
+    - 'A check that $H(0) = 1$'
+    - 'A proof that no number $L$ is the limit, not just $\tfrac12$'
+    - 'A proof that $H$ is unbounded near 0'
+  answer: 2
+  explanation: |-
+    "The limit does not exist" means no number works. The argument in the lesson takes an arbitrary $L$ and shows that the outputs 0 and 1, both found in every window, can't both be within $\tfrac12$ of it. The value $H(0)$ is irrelevant to the limit, and $H$ is bounded.
+- id: calc-m1-r2-h08
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'Which inputs, all shrinking toward 0, give $\sin(1/x) = -1$?'
+  choices:
+    - '$x = \dfrac{1}{2\pi n}$'
+    - '$x = \dfrac{1}{\pi/2 + 2\pi n}$'
+    - '$x = \dfrac{1}{\pi n}$'
+    - '$x = \dfrac{1}{3\pi/2 + 2\pi n}$'
+  answer: 3
+  explanation: |-
+    At $x = \frac{1}{3\pi/2 + 2\pi n}$, $\frac1x = \frac{3\pi}{2} + 2\pi n$ and the sine is $-1$. The inputs $\frac{1}{\pi/2 + 2\pi n}$ give 1, and $\frac{1}{2\pi n}$ and $\frac{1}{\pi n}$ give 0.
+- id: calc-m1-r2-h09
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'Which identity is the key step in proving the product law, where $f \to L$ and $g \to K$?'
+  choices:
+    - '$fg - LK = f\,(g - K) + K\,(f - L)$'
+    - '$fg - LK = (f - L)(g - K)$'
+    - '$fg - LK = f\,(g - L) + g\,(f - K)$'
+    - '$fg - LK = (f - g)(L - K)$'
+  answer: 0
+  explanation: |-
+    Expand: $f(g - K) + K(f - L) = fg - fK + Kf - KL = fg - LK$. Each term has a small factor, $g - K$ or $f - L$. The second choice expands to $fg - fK - Lg + LK$, which is not $fg - LK$.
+- id: calc-m1-r2-h10
+  lesson: calc-m1-h-precise-limits
+  type: text
+  topic: Precise limit definitions
+  stem: 'For $\displaystyle\lim_{x\to 5}\frac{4}{(x - 5)^2} = \infty$ and $M = 100$, the largest $\delta$ that works is ___. Give only the number.'
+  accept: ['0.2']
+  explanation: |-
+    $\frac{4}{(x - 5)^2} > 100$ exactly when $(x - 5)^2 < 0.04$, that is, $|x - 5| < 0.2$. So $\delta = \sqrt{4/100} = 0.2$ (also written $\frac15$).
+- id: calc-m1-r2-h11
+  lesson: calc-m1-h-precise-limits
+  type: label
+  topic: Precise limit definitions
+  stem: 'The picture illustrates $\lim_{x\to\infty} f(x) = L$. Name the numbered lines.'
+  image: {src: images/calc-m1-epsilon-n-blank.svg, alt: 'A curve rising toward a dotted horizontal line, with a shaded horizontal band around it. Marker 1 is on the y-axis at the top edge of the band, marker 2 at the dotted center line, and marker 3 at the bottom edge. Marker 4 is on the x-axis at a dashed vertical line, to the right of which the curve stays inside the band.'}
+  labels:
+    - {x: 11.7, y: 16.4, text: L + ε}
+    - {x: 11.7, y: 26.3, text: L}
+    - {x: 11.7, y: 36.2, text: L − ε}
+    - {x: 28, y: 89, text: N}
+  distractors: [δ, M]
+  explanation: |-
+    The band from $L - \varepsilon$ to $L + \varepsilon$ is the output tolerance around the limit $L$. The vertical line at $x = N$ is the threshold: for every $x > N$ the curve stays in the band. There is no δ in a limit at infinity, and $M$ belongs to infinite limits.
+- id: calc-m1-r2-h12
+  lesson: calc-m1-h-precise-limits
+  type: match
+  topic: Precise limit definitions
+  stem: 'Match each statement to the condition in its precise definition (for every ε or $M$ there is a δ or $N$ such that…).'
+  pairs:
+    - ['$\lim_{x\to a^+} f(x) = L$', 'a < x < a + δ gives |f(x) − L| < ε']
+    - ['$\lim_{x\to a^-} f(x) = L$', 'a − δ < x < a gives |f(x) − L| < ε']
+    - ['$\lim_{x\to a} f(x) = \infty$', '0 < |x − a| < δ gives f(x) > M']
+    - ['$\lim_{x\to \infty} f(x) = L$', 'x > N gives |f(x) − L| < ε']
+    - ['$\lim_{x\to \infty} f(x) = \infty$', 'x > N gives f(x) > M']
+  distractors: ['x > N gives |f(x) − L| > ε']
+  explanation: |-
+    One-sided limits keep only one half of the window around $a$. An infinite limit replaces the ε-band with "above height $M$". A limit at infinity replaces the δ-window with "past $N$". The distractor has the inequality backward: outputs must get close, not far.
+- id: calc-m1-r2-h13
+  lesson: calc-m1-h-precise-limits
+  topic: Precise limit definitions
+  stem: 'Given $\varepsilon > 0$, which choices of $N$ make a valid proof that $\displaystyle\lim_{x\to\infty}\frac{3x + 1}{x + 2} = 3$? Select all that apply.'
+  choices:
+    - '$N = \max\!\left(0, \dfrac{5}{\varepsilon} - 2\right)$'
+    - '$N = \dfrac{5}{\varepsilon}$'
+    - '$N = \dfrac{5}{\varepsilon} - 3$'
+    - '$N = x + 1$'
+  answer: [0, 1]
+  explanation: |-
+    The distance to 3 is $\frac{5}{x + 2}$ for $x > -2$, which is less than ε once $x > \frac5\varepsilon - 2$. Any larger $N$ also works, so $\frac5\varepsilon$ is fine. $\frac5\varepsilon - 3$ is too small: for $x$ between $\frac5\varepsilon - 3$ and $\frac5\varepsilon - 2$ the distance is at least ε. And $N$ can't depend on $x$.
+- id: calc-m1-r2-h14
+  lesson: calc-m1-h-precise-limits
+  type: order
+  topic: Precise limit definitions
+  stem: 'Put the steps of the proof of the sum law, $\lim (f + g) = L + K$, in order.'
+  items:
+    - 'Let $\varepsilon > 0$ be given'
+    - 'Get $\delta_1$ for $f$ and $\delta_2$ for $g$, each with tolerance $\varepsilon/2$'
+    - 'Set $\delta = \min(\delta_1, \delta_2)$'
+    - 'Suppose $0 < |x - a| < \delta$'
+    - 'Use the triangle inequality: $|(f + g) - (L + K)| < \tfrac\varepsilon2 + \tfrac\varepsilon2 = \varepsilon$'
+  explanation: |-
+    ε comes first because everything depends on it. The two deltas come from the definitions of the given limits, the minimum combines them, an arbitrary $x$ in the window is taken, and the triangle inequality finishes.
+
+# ---- Honors 05h2: The IVT at work ----
+- id: calc-m1-r2-h15
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'Bisection starts on $[0, 3]$. How long is the bracket after 6 steps?'
+  choices: ['$\tfrac{3}{128}$', '$\tfrac{1}{64}$', '$\tfrac{3}{64}$', '$\tfrac{3}{32}$']
+  answer: 2
+  explanation: |-
+    Each step halves the length: $\frac{3}{2^6} = \frac{3}{64} \approx 0.047$. $\frac{3}{128}$ is the midpoint's error bound after 6 steps, and $\frac{3}{32}$ is the length after 5 steps.
+- id: calc-m1-r2-h16
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'Starting from a bracket of length 1, how many bisection steps guarantee a bracket of length at most $0.001$?'
+  choices: ['$9$', '$10$', '$3$', '$1000$']
+  answer: 1
+  explanation: |-
+    We need $2^n \ge 1000$. $2^9 = 512$ is too small and $2^{10} = 1024$ is enough, so 10 steps. (3 would be right for dividing by 10 each step, but bisection divides by 2.)
+- id: calc-m1-r2-h17
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'Bisection runs 4 steps on $[2, 4]$, and the midpoint of the final bracket is reported. What is the guaranteed bound on its error?'
+  choices: ['$\tfrac18$', '$\tfrac14$', '$\tfrac1{32}$', '$\tfrac1{16}$']
+  answer: 3
+  explanation: |-
+    After 4 steps the bracket has length $\frac{2}{2^4} = \frac18$. The root is at most half a bracket from the midpoint: $\frac{2}{2^5} = \frac1{16}$. ($\frac18$ is the bracket length, not the midpoint's error.)
+- id: calc-m1-r2-h18
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'For which function on $[0, 1]$ do all the hypotheses of the fixed-point theorem hold?'
+  choices:
+    - '$f(x) = \tfrac12 x^2 + \tfrac14$'
+    - '$f(x) = 2x + \tfrac12$'
+    - '$f(x) = x + 1$'
+    - '$f(x) = \dfrac1x$'
+  answer: 0
+  explanation: |-
+    $\frac12x^2 + \frac14$ is continuous and its outputs on $[0, 1]$ run from $\frac14$ to $\frac34$, inside $[0, 1]$. The outputs of $2x + \frac12$ reach $2.5$ and those of $x + 1$ reach 2, so they leave the interval; $\frac1x$ isn't even defined at 0.
+- id: calc-m1-r2-h19
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'In the two-day hike, $u(t)$ and $d(t)$ are the hiker''s distances from the bottom of the trail at clock time $t$ on day 1 (going up) and day 2 (coming down). Which function should the IVT be applied to?'
+  choices:
+    - '$u(t) + d(t)$'
+    - '$u(t) - d(t)$'
+    - 'The hiker''s speed on day 1'
+    - '$u(t)$ alone'
+  answer: 1
+  explanation: |-
+    $u(t) - d(t)$ is continuous, negative at 7:00 a.m. ($0 - D$) and positive at 5:00 p.m. ($D - 0$), so it is 0 at some time: the same spot at the same time. The sum doesn't change sign, and speeds play no part.
+- id: calc-m1-r2-h20
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'Which polynomial must have a real root?'
+  choices:
+    - '$x^4 + x + 3$'
+    - '$x^2 + 1$'
+    - '$x^6 - 2x^3 + 5$'
+    - '$x^5 - 3x^2 + 7$'
+  answer: 3
+  explanation: |-
+    $x^5 - 3x^2 + 7$ has odd degree, so it tends to $-\infty$ on the left and $+\infty$ on the right, and the IVT gives a root. The even-degree ones have no such guarantee; in fact none of these three has a real root ($x^6 - 2x^3 + 5 = (x^3 - 1)^2 + 4 > 0$, for example).
+- id: calc-m1-r2-h21
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'A runner covers 10 km in exactly 50 minutes without stopping. Besides a 5 km stretch in exactly 25 minutes, which of these must also happen?'
+  choices:
+    - 'A 2 km stretch in exactly 10 minutes'
+    - 'A 4 km stretch in exactly 20 minutes'
+    - 'A 3 km stretch in exactly 15 minutes'
+    - 'A 6 km stretch in exactly 30 minutes'
+  answer: 0
+  explanation: |-
+    2 km is $\frac15$ of the distance, and the universal chord theorem guarantees a stretch at exactly the average pace for every length $\frac{10}{n}$ km. 4, 3 and 6 km are not of that form, and for each one some pace plan avoids it.
+- id: calc-m1-r2-h22
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'The Dirichlet function equals 0 at $x = \sqrt2$ (irrational) and 1 at $x = 2$ (rational), yet it never equals $\tfrac12$. Why doesn''t this contradict the IVT?'
+  choices:
+    - 'The IVT only applies to polynomials'
+    - 'The value $\tfrac12$ is not between 0 and 1'
+    - 'The function is not continuous on $[\sqrt2, 2]$; in fact it is continuous nowhere'
+    - 'The interval $[\sqrt2, 2]$ is too short'
+  answer: 2
+  explanation: |-
+    The IVT needs continuity on the whole interval. Every interval contains both rational and irrational numbers, so near any point the outputs keep jumping between 0 and 1 and never settle: the function is continuous nowhere, and the hypothesis fails. The IVT applies to every continuous function, on intervals of any length.
+- id: calc-m1-r2-h23
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'On a number line containing only rational numbers, $f(x) = x^2 - 2$ is negative at 1 and positive at 2 but is never 0. What property of the real numbers does the IVT depend on that this example lacks?'
+  choices:
+    - 'That every number has a decimal expansion'
+    - 'That polynomials are continuous'
+    - 'That between any two numbers there is another number'
+    - 'That the number line has no gaps (completeness)'
+  answer: 3
+  explanation: |-
+    The only zeros of $x^2 - 2$ are $\pm\sqrt2$, which are irrational, so the rational line has a "hole" exactly where the graph crosses 0. The real line has no holes; that completeness is what the IVT rests on. The rationals already have numbers between any two numbers, and $x^2 - 2$ is a continuous polynomial there too, so neither of those is the missing ingredient.
+- id: calc-m1-r2-h24
+  lesson: calc-m1-h-ivt-at-work
+  type: text
+  topic: IVT applications
+  stem: 'Starting from the bracket $[0, 1]$, the fewest bisection steps that guarantee a bracket of length at most $0.01$ is ___.'
+  accept: ['7']
+  explanation: |-
+    We need $\frac{1}{2^n} \le 0.01$, so $2^n \ge 100$. $2^6 = 64$ is too small and $2^7 = 128$ is enough: 7 steps. ($\log_2 100 \approx 6.64$, rounded up.)
+- id: calc-m1-r2-h25
+  lesson: calc-m1-h-ivt-at-work
+  type: text
+  topic: IVT applications
+  stem: 'The fixed points of $f(x) = x^2 - 6$ are ___ (the negative one) and ___ (the positive one). Give only the numbers.'
+  accept:
+    - ['-2']
+    - ['3']
+  explanation: |-
+    A fixed point solves $f(x) = x$: $x^2 - 6 = x$, so $x^2 - x - 6 = 0$, $(x - 3)(x + 2) = 0$, and $x = -2$ or $x = 3$. Check: $f(-2) = 4 - 6 = -2$ and $f(3) = 9 - 6 = 3$.
+- id: calc-m1-r2-h26
+  lesson: calc-m1-h-ivt-at-work
+  type: order
+  topic: IVT applications
+  stem: 'Put one step of bisection on the bracket $[a, b]$ in order (assume $f(m) \ne 0$).'
+  items:
+    - 'Compute the midpoint $m = \frac{a + b}{2}$'
+    - 'Evaluate $f(m)$'
+    - 'Compare the sign of $f(m)$ with the sign of $f(a)$'
+    - 'Keep $[a, m]$ if the signs differ, otherwise keep $[m, b]$'
+  explanation: |-
+    You can't evaluate $f(m)$ before finding $m$, can't compare its sign before evaluating it, and can't choose the half before comparing. The kept half is the one whose ends still have opposite signs, so the root stays trapped.
+- id: calc-m1-r2-h27
+  lesson: calc-m1-h-ivt-at-work
+  type: match
+  topic: IVT applications
+  stem: 'Match each existence question to the continuous function the IVT is applied to.'
+  pairs:
+    - ['$\cos x = x$ has a solution in $[0, 1]$', 'g(x) = cos x − x']
+    - ['A hiker is at the same spot at the same time on both days', 'The difference of the two days'' positions']
+    - ['A runner covers some 5 km stretch in exactly 25 minutes', 'The time for the stretch from x to x + 5 km, minus 25']
+    - ['An odd-degree polynomial has a real root', 'The polynomial itself']
+  distractors: ['The hiker''s speed on day 1', 'g(x) = cos x + x']
+  explanation: |-
+    In each case the IVT is aimed at height 0 of a function built so that a zero answers the question: $\cos c - c = 0$ means $\cos c = c$; a zero difference of positions means the same spot; a zero in the stretch function means exactly 25 minutes; and a zero of the polynomial is the root itself.
+- id: calc-m1-r2-h28
+  lesson: calc-m1-h-ivt-at-work
+  topic: IVT applications
+  stem: 'Which statements are true? Select all that apply.'
+  choices:
+    - 'If $f$ is continuous and changes sign on the starting bracket, every bisection bracket contains a root'
+    - 'Every continuous function that maps $[0, 1]$ into $[0, 1]$ has a fixed point'
+    - 'No polynomial of even degree has a real root'
+    - 'The IVT tells you how many solutions $f(x) = N$ has'
+  answer: [0, 1]
+  explanation: |-
+    Bisection keeps a half with a sign change, so the IVT applies to every bracket. The fixed-point theorem covers any continuous $f$ mapping $[0, 1]$ into itself. Even-degree polynomials can have roots ($x^2 - 1$ does); they just aren't guaranteed one. The IVT promises at least one solution and never counts them.

@@ -8,7 +8,7 @@ topics: [Phase lines and stability, Existence and uniqueness]
 drills: [calc-m9-r2-phase-line, calc-m9-r2-harvest]
 refs: [calc-ref-applications]
 ---
-Lesson 37 read the long-run behavior of $\frac{dy}{dx} = y(4 - y)$ straight off its slope field: solutions between 0 and 4 rise toward 4. Lesson 38 found the same thing for the logistic equation by solving it with partial fractions. This honors lesson shows that for an **autonomous** equation $\frac{dy}{dt} = g(y)$ you rarely need either the picture or the formula. A one-dimensional sketch, the phase line, and one derivative tell you where every solution goes and how fast it gets there. Then we use the idea on a real question (how hard can you fish a lake before the fish disappear?), and finish with the theorem that makes all of this reasoning safe: when a solution exists and when it is the only one.
+Lesson 37 read the long-run behavior of $\frac{dy}{dx} = y(4 - y)$ straight off its slope field: solutions between 0 and 4 rise toward 4. Lesson 38 found the same thing for the logistic equation by solving it with partial fractions. This honors lesson shows that for an autonomous equation $\frac{dy}{dt} = g(y)$ you rarely need either the picture or the formula. A one-dimensional sketch, the phase line, and one derivative tell you where every solution goes and how fast it gets there. Then we use the idea on a real question (how hard can you fish a lake before the fish disappear?), and finish with the theorem that makes all of this reasoning safe: when a solution exists and when it is the only one.
 
 ## The phase line
 
@@ -86,7 +86,7 @@ Find and classify the equilibria for $H = 90$. What happens if the lake starts w
 
 Set $0.6P - 0.0006P^2 = 90$, that is $P^2 - 1000P + 150{,}000 = 0$:
 $$P = 500 \pm \sqrt{250{,}000 - 150{,}000} = 500 \pm 100\sqrt{10} \approx 183.8 \text{ and } 816.2.$$
-Between them the hump is above the axis ($g > 0$, arrows up); outside them it is below ($g < 0$, arrows down). So 816.2 is stable and 183.8 is unstable, a **threshold**: starting with 400 fish, the population climbs to about 816. Starting with 100 fish, it is below the threshold and declines; the model reaches $P = 0$ in finite time (the lake is fished out), since $g(0) = -90 \ne 0$ means 0 is no longer an equilibrium.
+Between them the hump is above the axis ($g > 0$, arrows up); outside them it is below ($g < 0$, arrows down). So 816.2 is stable and 183.8 is unstable, a threshold: starting with 400 fish, the population climbs to about 816. Starting with 100 fish, it is below the threshold and declines; the model reaches $P = 0$ in finite time (the lake is fished out), since $g(0) = -90 \ne 0$ means 0 is no longer an equilibrium.
 
 As $H$ grows the hump drops, and the two equilibria slide toward each other. They merge at $P = 500$ when $H = 150$, and for $H > 150$ the curve lies entirely below the axis: every population declines to zero, however large it starts. A sudden change like this in the number or type of equilibria as a parameter crosses a critical value is a **bifurcation**. For $\frac{dP}{dt} = kP\left(1 - \frac PM\right) - H$ the critical harvest is the top of the hump, $H = \frac{kM}{4}$ (here $\frac{0.6 \cdot 1000}{4} = 150$), reached at $P = \frac M2$. It is called the **maximum sustainable yield**.
 
@@ -96,7 +96,7 @@ That answer comes with a warning. Harvesting exactly 150 a year leaves only a se
 
 All of this used the claim that solution curves cannot cross or merge. Here is the theorem behind it, in the form usually taught (it is often credited to Picard and Lindelöf, 1890s).
 
-**Existence and uniqueness theorem.** If $F(x, y)$ and $\dfrac{\partial F}{\partial y}$ are continuous on an open rectangle containing $(x_0, y_0)$, then the initial value problem $\frac{dy}{dx} = F(x, y)$, $y(x_0) = y_0$ has exactly one solution on some open interval containing $x_0$.
+The **existence and uniqueness theorem** says: if $F(x, y)$ and $\dfrac{\partial F}{\partial y}$ are continuous on an open rectangle containing $(x_0, y_0)$, then the initial value problem $\frac{dy}{dx} = F(x, y)$, $y(x_0) = y_0$ has exactly one solution on some open interval containing $x_0$.
 
 Here $\frac{\partial F}{\partial y}$ means the derivative of $F$ with respect to $y$, treating $x$ as a constant. (Continuity of $F$ alone already guarantees that a solution exists, a result of Peano; uniqueness needs more.) Notice what the theorem does *not* promise: the interval may be short. It is a local statement.
 
