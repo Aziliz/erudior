@@ -4,6 +4,7 @@
 
 import { inApp, loadBaseProgress, loadState, saveState, loadSessionState } from "./storage";
 import { uid } from "./util";
+import { DEFAULT_WEIGHTS, MIN_CUTOFFS, type Cutoffs, type Weights } from "./grades";
 
 /** Homeschool features are for the desktop app (VITE_HOMESCHOOL=1 turns them on in a browser for testing). */
 export const HOMESCHOOL = inApp || import.meta.env?.VITE_HOMESCHOOL === "1";
@@ -37,6 +38,10 @@ export interface Student {
   assigned: Assignment[];
   /** May the student start courses that aren't assigned? */
   freeChoice: boolean;
+  /** Optional, printed on the transcript. YYYY-MM-DD. */
+  birthDate?: string;
+  /** Expected or actual graduation date, for the transcript. YYYY-MM-DD. */
+  graduation?: string;
 }
 
 export interface Secret {
@@ -73,7 +78,13 @@ export interface Family {
   reminders: CustomReminder[];
   /** Reminder keys the parent marked done. */
   done: string[];
+  /** Printed on reports. */
+  school?: { name: string; administrator: string; address: string };
+  /** Letter-grade cutoffs (never looser than MIN_CUTOFFS) and how course percents are weighted. */
+  grading?: { cutoffs: Cutoffs; weights: Weights };
 }
+
+export const gradingOf = (f: Family) => ({ cutoffs: f.grading?.cutoffs ?? MIN_CUTOFFS, weights: f.grading?.weights ?? DEFAULT_WEIGHTS });
 
 // ---------- storage ----------
 

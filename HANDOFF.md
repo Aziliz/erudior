@@ -1,6 +1,6 @@
 # Examiner: handoff
 
-State as of 2026-10-23, v0.15.0. Read this first in a new chat.
+State as of 2026-10-23, v0.16.0. Read this first in a new chat.
 
 ## What it is
 
@@ -59,6 +59,17 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **Course updates:** each course has a `revision` number. A newer bundled revision is offered in-app and keeps progress, because progress is keyed by ids.
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
+
+## Homeschool records (v0.16.0)
+
+- **Grades** (`lib/grades.ts`; Parent area → Grades): course percent = weighted mean of best score per lesson quiz, best per module test, best full exam, and work the parent graded (default weights 25/35/25/15, editable; parts with no scores are skipped). Parent can set the percent with a reason (printed). Letters A–F with +/- (plus = top 30% of a band, minus = bottom 30%); cutoffs default 90/80/70/60 and can only be made stricter (`cutoffProblem`), per Jon. GPA 4.0 (A+ = 4.0); weighted adds 0.5 Honors, 1.0 AP/dual credit on passing grades. Credits default 1.0 for high school, college and language-level catalog courses, else 0; editable per course with level, grade level, comment.
+- **Placement by school year** (`lib/reports.ts`): a course belongs to the year it was finished (last lesson or passing full exam), else the year it was last worked on; the parent can pin it. Past years use the family's start day.
+- Also on Grades: courses taken elsewhere (transcript), standardized tests/evaluations.
+- **Reports** (Parent area → Reports, `components/ReportDocs.tsx`): report card (per year), high school transcript (credits ≥ 9th grade or any finished credit course, outside courses, yearly and cumulative GPA, credits by subject, DOB/graduation if set on Students), state progress report (whole year or quarters: attendance calendars, days/hours vs state minimum, hours by subject, material covered = lessons finished + tests per course by subject, other learning, grades to date, parent's evaluation per subject, tests; titled "Quarterly report" for NY quarters), portfolio (materials, lesson log, best module test/exam per module with questions and answers, photos of paper work). Every report has the school letterhead (Settings → Home school), a signature line for the administrator and an accuracy statement.
+- **Output:** "Print or save as PDF" uses the system print dialog (print CSS shows only the report); "Save as web page" writes a standalone .html with the report's styles. Check window.print() in the Linux and Windows builds before relying on it.
+- Photos: `portfolio-<id>.json`, shrunk to 1600 px JPEG; in the encrypted backup.
+- Tests: `tests/records.test.mts`; the walkthrough now covers grading scale, a parent grade, comment, test result, every report, print view, web-page save and a photo.
+- Not done from Phase 3 of the roadmap's feature table: records storage (attached documents), reading log and activities. Rename to Erudior not done (Jon: no preference on timing).
 
 ## Homeschool (v0.15.0, desktop app only)
 
@@ -120,6 +131,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/lib/vocab.ts` | Language vocabulary reviews: unlocking, due cards, stage ladder (`applyAnswer`), typed-answer checking (`checkMeaning`, `checkRecall`) |
 | `src/lib/speech.ts`, `src/lib/ime.ts` | Device text-to-speech; input-converter registry for non-Roman scripts (empty until Japanese/Chinese) |
 | `src/pages/VocabRunner.tsx`, `src/pages/VocabTabs.tsx` | Vocabulary review/practice screen; Vocabulary and Reading list tabs |
+| `src/lib/grades.ts`, `reports.ts`, `portfolio.ts`; `src/pages/ParentRecords.tsx`; `src/components/ReportDocs.tsx` | Homeschool records: grades/GPA, report data, photos; Grades and Reports tabs; printable documents |
 | `src/lib/family.ts`, `records.ts`, `states.ts`, `timer.ts`, `backup.ts` | Homeschool: family/students/parent lock, records + attendance + reminders, state rules, active study timer, encrypted backup |
 | `src/pages/FamilySetup.tsx`, `WhoPage.tsx`, `ParentGate.tsx`, `ParentArea.tsx` | Homeschool screens |
 | `src/pages/*` | Library, CourseHome (all the tabs), LessonView, Runner (exams and practice), Results, BankHome, Editor (banks), CourseEditor, DeckEditor, CardsRunner, DrillRunner, RefView, ProgressPage, SearchPage |
@@ -218,9 +230,9 @@ Data lives in `~/.local/share/com.aziliz.examiner/` on Linux and `%APPDATA%\com.
 - `progress.json`: attempts, question stats, card states, completed lessons, plans, activity, drill stats, flags and notes, and `seededCourses`
 - `session.json`: the unfinished exam or practice session
 
-- Homeschool families: `family.json`, and per student `progress-<id>.json`, `session-<id>.json`, `records-<id>.json` (ids lowercase letters/digits, ≤24)
+- Homeschool families: `family.json`, and per student `progress-<id>.json`, `session-<id>.json`, `records-<id>.json`, `portfolio-<id>.json` (ids lowercase letters/digits, ≤24)
 
-Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `courses`), `load_progress`, `save_progress`, `load_state`, `save_state` (`session`, `family`, `progress-<id>`, `session-<id>`, `records-<id>`; checked by `valid_state_name`), `read_text_file`, `write_text_file`, `data_location`, `install_kind`.
+Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `courses`), `load_progress`, `save_progress`, `load_state`, `save_state` (`session`, `family`, `progress-<id>`, `session-<id>`, `records-<id>`, `portfolio-<id>`; checked by `valid_state_name`), `read_text_file`, `write_text_file`, `data_location`, `install_kind`.
 
 ## Releases (updates are off)
 
@@ -263,7 +275,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Possible next steps
 
-- Homeschool Phase 3 per the roadmap (records/transcripts, more K-12 courses). Ask Jon first.
+- Phase 4 per the roadmap (community course editor + review queue on the website, Classroom mode, Live room), the remaining records items (attached documents, reading log/activities), the Erudior rename, and K-12 courses. Ask Jon first.
 
 - The Van Ed refinement pass.
 - A CCNA course pack. The drill engine can't do subnetting yet: it may need bitwise operators or a custom drill type.

@@ -7,6 +7,17 @@ import { addDays, daysBetween, today } from "./srs";
 import { hoursFor, stateInfo, type StateInfo } from "./states";
 import { loadState, saveState } from "./storage";
 import { uid } from "./util";
+import type { CourseRecord, OutsideCourse, ParentGrade } from "./grades";
+
+/** A standardized test or outside evaluation. */
+export interface TestResult {
+  id: string;
+  date: string;
+  name: string;
+  /** Free text: score, percentile, stanine, or the evaluator's conclusion. */
+  result: string;
+  notes: string;
+}
 
 export interface ManualEntry {
   id: string;
@@ -25,9 +36,30 @@ export interface Records {
   manual: ManualEntry[];
   /** Days the parent confirmed. Days missing here are only proposals. */
   days: Record<string, "present" | "absent">;
+  /** Parent's settings per course (credits, Honors/AP, override, comment). */
+  courses: Record<string, CourseRecord>;
+  /** Grades the parent entered for work outside the app. */
+  grades: ParentGrade[];
+  /** Courses taken elsewhere, for the transcript. */
+  outside: OutsideCourse[];
+  /** Standardized tests and evaluations. */
+  tests: TestResult[];
+  /** Parent's per-subject evaluation for a report period, keyed `${from}..${to}` then subject. */
+  narratives: Record<string, Record<string, string>>;
 }
 
-export const emptyRecords = (): Records => ({ format: "examiner-records", version: 1, time: {}, manual: [], days: {} });
+export const emptyRecords = (): Records => ({
+  format: "examiner-records",
+  version: 1,
+  time: {},
+  manual: [],
+  days: {},
+  courses: {},
+  grades: [],
+  outside: [],
+  tests: [],
+  narratives: {},
+});
 
 export async function loadRecords(studentId: string): Promise<Records> {
   const text = await loadState(`records-${studentId}`);

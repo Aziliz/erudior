@@ -5,6 +5,7 @@ import {
   GRADES,
   SUBJECTS,
   gradeLabel,
+  gradingOf,
   makeSecret,
   newStudent,
   passwordProblem,
@@ -31,13 +32,17 @@ import * as store from "../lib/storage";
 import { decryptText, exportEncrypted, isEncryptedBackup, restoreContents } from "../lib/backup";
 import { uid } from "../lib/util";
 import type { Progress } from "../lib/types";
+import { GradesTab, ReportsTab } from "./ParentRecords";
+import { DEFAULT_WEIGHTS, MIN_CUTOFFS as MIN, cutoffProblem, type Cutoffs, type Weights } from "../lib/grades";
 
-export type ParentTab = "overview" | "attendance" | "courses" | "students" | "state" | "settings";
+export type ParentTab = "overview" | "attendance" | "courses" | "grades" | "reports" | "students" | "state" | "settings";
 
 const TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
+  { id: "grades", label: "Grades" },
+  { id: "reports", label: "Reports" },
   { id: "students", label: "Students" },
   { id: "state", label: "State rules" },
   { id: "settings", label: "Settings and backup" },
@@ -68,7 +73,7 @@ export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; 
 
   return (
     <div className="page">
-      <div className="page-head">
+      <div className="page-head no-print">
         <div>
           <h1>Parent area</h1>
           <p className="muted">
@@ -79,7 +84,7 @@ export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; 
           Lock
         </button>
       </div>
-      <nav className="tabs" aria-label="Parent sections">
+      <nav className="tabs no-print" aria-label="Parent sections">
         {TABS.map((t) => (
           <button key={t.id} aria-current={tab === t.id ? "page" : undefined} onClick={() => api.go({ name: "parent", tab: t.id })}>
             {t.label}
@@ -93,6 +98,8 @@ export default function ParentArea({ api, family, tab, onLock }: { api: AppApi; 
           {tab === "overview" && <Overview api={api} family={family} records={records} />}
           {tab === "attendance" && <Attendance api={api} family={family} records={records} saveRec={saveRec} />}
           {tab === "courses" && <Courses api={api} family={family} />}
+          {tab === "grades" && <GradesTab api={api} family={family} />}
+          {tab === "reports" && <ReportsTab api={api} family={family} />}
           {tab === "students" && <Students api={api} family={family} />}
           {tab === "state" && <StateTab api={api} family={family} />}
           {tab === "settings" && <Settings api={api} family={family} />}
@@ -575,6 +582,7 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
     await store.saveState(`progress-${st.id}`, null);
     await store.saveState(`records-${st.id}`, null);
     await store.saveState(`session-${st.id}`, null);
+    await store.saveState(`portfolio-${st.id}`, null);
     await api.setFamily({ ...family, students: family.students.filter((x) => x.id !== st.id) });
     api.toast(`Removed ${st.name}`);
   }
@@ -601,6 +609,18 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
                 ))}
               </select>
             </label>
+            {st.grade >= 8 && (
+              <>
+                <label className="field">
+                  <span>Date of birth (transcript, optional)</span>
+                  <input className="input" type="date" value={st.birthDate ?? ""} onChange={(e) => update({ ...st, birthDate: e.target.value || undefined })} />
+                </label>
+                <label className="field">
+                  <span>Graduation date (optional)</span>
+                  <input className="input" type="date" value={st.graduation ?? ""} onChange={(e) => update({ ...st, graduation: e.target.value || undefined })} />
+                </label>
+              </>
+            )}
             <button className="btn sm ghost" onClick={() => remove(st)}>
               Remove<span className="sr-only"> {st.name}</span>
             </button>
@@ -806,6 +826,8 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
 
   return (
     <>
+      <SchoolInfo api={api} family={family} />
+      <Grading api={api} family={family} />
       <section className="panel">
         <div className="panel-head">
           <h2>School year</h2>
@@ -948,5 +970,122 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
         </ul>
       </section>
     </>
+  );
+}
+
+function SchoolInfo({ api, family }: { api: AppApi; family: Family }) {
+  const [f, setF] = useState(family.school ?? { name: "", administrator: "", address: "" });
+  return (
+    <section className="panel">
+      <div className="panel-head">
+        <h2>Home school</h2>
+        <span className="small muted">Printed on report cards, transcripts and reports.</span>
+      </div>
+      <form
+        className="form-grid"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await api.setFamily({ ...family, school: { name: f.name.trim(), administrator: f.administrator.trim(), address: f.address.trim() } });
+          api.toast("Saved");
+        }}
+      >
+        <label className="field">
+          <span>School name</span>
+          <input className="input" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} placeholder="e.g. Maple Street Academy" />
+        </label>
+        <label className="field">
+          <span>Administrator (the parent who signs)</span>
+          <input className="input" value={f.administrator} onChange={(e) => setF({ ...f, administrator: e.target.value })} autoComplete="name" />
+        </label>
+        <label className="field span-2">
+          <span>Address (optional)</span>
+          <input className="input" value={f.address} onChange={(e) => setF({ ...f, address: e.target.value })} autoComplete="street-address" />
+        </label>
+        <div className="span-2">
+          <button className="btn primary" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+}
+
+function Grading({ api, family }: { api: AppApi; family: Family }) {
+  const g = gradingOf(family);
+  const [c, setC] = useState<Record<keyof Cutoffs, string>>({ A: String(g.cutoffs.A), B: String(g.cutoffs.B), C: String(g.cutoffs.C), D: String(g.cutoffs.D) });
+  const [w, setW] = useState<Record<keyof Weights, string>>({
+    lessons: String(g.weights.lessons),
+    modules: String(g.weights.modules),
+    final: String(g.weights.final),
+    parent: String(g.weights.parent),
+  });
+  const [msg, setMsg] = useState("");
+  const W: [keyof Weights, string][] = [
+    ["lessons", "Lesson quizzes"],
+    ["modules", "Module tests"],
+    ["final", "Final exam"],
+    ["parent", "Work you graded"],
+  ];
+  return (
+    <section className="panel">
+      <div className="panel-head">
+        <h2>Grading</h2>
+        <span className="small muted">A from 90, B from 80, C from 70, D from 60 at the loosest; you can raise them.</span>
+      </div>
+      <form
+        noValidate
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const cutoffs = { A: Number(c.A), B: Number(c.B), C: Number(c.C), D: Number(c.D) };
+          const weights = { lessons: Number(w.lessons), modules: Number(w.modules), final: Number(w.final), parent: Number(w.parent) };
+          const p = cutoffProblem(cutoffs) || (Object.values(weights).some((x) => !(x >= 0 && x <= 100)) && "Weights go from 0 to 100.") || (Object.values(weights).every((x) => x === 0) && "At least one weight has to be above 0.") || "";
+          setMsg(p);
+          if (p) return;
+          await api.setFamily({ ...family, grading: { cutoffs, weights } });
+          api.toast("Grading saved");
+        }}
+      >
+        <fieldset className="plain-fieldset">
+          <legend className="small">Lowest percent for each letter</legend>
+          <div className="form-grid four">
+            {(["A", "B", "C", "D"] as const).map((k) => (
+              <label key={k} className="field">
+                <span>{k}</span>
+                <input className="input" type="number" min={MIN[k]} max={100} value={c[k]} onChange={(e) => setC({ ...c, [k]: e.target.value })} />
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset className="plain-fieldset">
+          <legend className="small">What the course percent is made of (weights; parts with no scores yet are skipped)</legend>
+          <div className="form-grid four">
+            {W.map(([k, label]) => (
+              <label key={k} className="field">
+                <span>{label}</span>
+                <input className="input" type="number" min={0} max={100} value={w[k]} onChange={(e) => setW({ ...w, [k]: e.target.value })} />
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <p className={msg ? "notice error" : "sr-only"} role="alert" style={{ marginBottom: 12 }}>
+          {msg}
+        </p>
+        <div className="row">
+          <button className="btn primary" type="submit">
+            Save
+          </button>
+          <button
+            className="btn ghost"
+            type="button"
+            onClick={() => {
+              setW({ lessons: String(DEFAULT_WEIGHTS.lessons), modules: String(DEFAULT_WEIGHTS.modules), final: String(DEFAULT_WEIGHTS.final), parent: String(DEFAULT_WEIGHTS.parent) });
+            }}
+          >
+            Default weights
+          </button>
+        </div>
+      </form>
+    </section>
   );
 }

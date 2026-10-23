@@ -5,6 +5,8 @@
 import type { Bank, Course, Progress } from "./types";
 import { loadFamily, saveFamily, type Family } from "./family";
 import { loadRecords, saveRecords, type Records } from "./records";
+import { loadPhotos, savePhotos } from "./portfolio";
+import type { PortfolioPhoto } from "./reports";
 import * as store from "./storage";
 import { serializeCourse, normalizeCourse } from "./course";
 import { parseBank, serializeBank } from "./validate";
@@ -22,7 +24,7 @@ interface Contents {
   version: 1;
   createdAt: string;
   family: Family | null;
-  students: Record<string, { progress: Progress; records: Records }>;
+  students: Record<string, { progress: Progress; records: Records; photos?: PortfolioPhoto[] }>;
   progress: Progress;
   courses: unknown[];
   banks: unknown[];
@@ -86,6 +88,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     students[s.id] = {
       progress: progressText ? (JSON.parse(progressText) as Progress) : store.emptyProgress(),
       records: await loadRecords(s.id),
+      photos: await loadPhotos(s.id),
     };
   }
   return {
@@ -122,6 +125,7 @@ export async function restoreContents(
   for (const [id, s] of Object.entries(b.students)) {
     await store.saveState(`progress-${id}`, JSON.stringify(s.progress));
     await saveRecords(id, s.records);
+    await savePhotos(id, s.photos ?? []);
   }
   store.useStudentFiles(null);
   await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true });
