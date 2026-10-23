@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" font-family="sans-serif">
-<rect width="700" height="360" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="700" height="350" font-family="sans-serif">
+<rect width="700" height="350" fill="#ffffff"/>
 <rect x="154" y="92" width="28" height="28" fill="#ffffff" stroke="none" stroke-width="0" rx="4"/>
 <text x="168.0" y="112.0" font-size="17" fill="#1c2833" text-anchor="middle" font-weight="normal">•</text>
 <rect x="190" y="92" width="28" height="28" fill="#ffffff" stroke="none" stroke-width="0" rx="4"/>
@@ -62,9 +62,9 @@
 <text x="366" y="52" font-size="22" fill="#1c2833" text-anchor="middle" font-weight="bold" font-style="italic">B</text>
 <text x="506" y="70" font-size="22" fill="#1c2833" text-anchor="middle" font-weight="bold" font-style="italic">AB</text>
 <text x="430" y="150" font-size="30" fill="#1c2833" text-anchor="middle" font-weight="normal">=</text>
-<text x="222" y="250" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="normal">(3 × 4)</text>
-<text x="366" y="250" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="normal">(4 × 2)</text>
-<text x="506" y="250" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="normal">3 × 2</text>
-<path d="M244,258 Q294.0,298 344,258" fill="none" stroke="#2e7d4f" stroke-width="2.5"/>
-<path d="M200,258 Q294.0,358 388,258" fill="none" stroke="#6a4c9c" stroke-width="2.5"/>
+<text x="222" y="278" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="normal">(3 × 4)</text>
+<text x="366" y="278" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="normal">(4 × 2)</text>
+<text x="506" y="278" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="normal">3 × 2</text>
+<path d="M244,286 Q294.0,314 344,286" fill="none" stroke="#2e7d4f" stroke-width="2.5"/>
+<path d="M200,286 Q294.0,370 388,286" fill="none" stroke="#6a4c9c" stroke-width="2.5"/>
 </svg>
