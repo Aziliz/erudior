@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" font-family="sans-serif">
+<rect width="600" height="420" fill="#ffffff"/>
+<circle cx="160.0" cy="230.0" r="130.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="316.0" cy="230.0" r="93.7" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="264.0" y1="401.6" x2="264.0" y2="32.4" stroke="#a93226" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="264.0" y1="308.0" x2="264.0" y2="152.0" stroke="#a93226" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="121.0" y1="230.0" x2="446.0" y2="230.0" stroke="#1c2833" stroke-width="1.8" stroke-linecap="round"/>
+<polyline points="264.0,219.0 275.0,219.0 275.0,230.0" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+<line x1="264.0" y1="61.0" x2="121.0" y2="106.0" stroke="#1f5f99" stroke-width="3" stroke-linecap="round"/>
+<line x1="264.0" y1="61.0" x2="377.4" y2="159.1" stroke="#1f5f99" stroke-width="3" stroke-linecap="round"/>
+<circle cx="160.0" cy="230.0" r="4" fill="#1c2833"/>
+<circle cx="316.0" cy="230.0" r="4" fill="#1c2833"/>
+<circle cx="264.0" cy="61.0" r="4" fill="#1c2833"/>
+<circle cx="121.0" cy="106.0" r="4" fill="#1c2833"/>
+<circle cx="377.4" cy="159.1" r="4" fill="#1c2833"/>
+<circle cx="264.0" cy="152.0" r="4" fill="#1c2833"/>
+<circle cx="264.0" cy="308.0" r="4" fill="#1c2833"/>
+<text x="160.0" y="254.0" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">O₁</text>
+<text x="320.0" y="254.0" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">O₂</text>
+<text x="276.0" y="55.0" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">P</text>
+<text x="274.0" y="146.0" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">X</text>
+<text x="274.0" y="328.0" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">Y</text>
+<text x="113.0" y="100.0" font-size="17" text-anchor="end" font-weight="bold" fill="#1c2833">T₁</text>
+<text x="385.4" y="153.1" font-size="17" text-anchor="start" font-weight="bold" fill="#1c2833">T₂</text>
+<text x="274.0" y="397.6" font-size="16" text-anchor="start" font-weight="bold" fill="#a93226">radical axis</text>
+<text x="300.0" y="26.0" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">PT₁ = PT₂ for every P on the radical axis</text>
+</svg>

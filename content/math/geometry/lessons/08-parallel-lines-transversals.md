@@ -28,6 +28,27 @@ The region between $\ell$ and $m$ is the *interior*; outside them is the *exteri
 
 These names describe *positions* only. They say nothing about measures until we know the lines are parallel.
 
+The picture below shades one example of each named pair.
+
+![Four copies of two horizontal lines cut by a slanted transversal, with angles numbered 1 to 8. The shaded pairs are angles 1 and 5 (corresponding), 3 and 6 (alternate interior), 1 and 8 (alternate exterior), and 4 and 6 (consecutive interior).](images/geo-m3-angle-pairs.svg)
+
+To name a pair, ask the questions in this chart in order.
+
+```mermaid
+flowchart TD
+  accTitle: Naming a pair of angles formed by a transversal
+  accDescr: Start with two angles at different intersections. If they are in the same position at each intersection, they are corresponding angles. If not, ask whether both lie between the two lines. If they do, angles on the same side of the transversal are consecutive interior angles and angles on opposite sides are alternate interior angles. If they are not both between the lines, ask whether both lie outside the lines on opposite sides of the transversal: if so they are alternate exterior angles; otherwise the pair is not one of the four named pairs.
+  S["Two angles at different intersections"] --> Q1{"Same position at each intersection?"}
+  Q1 -- yes --> C["Corresponding angles"]
+  Q1 -- no --> Q2{"Both between the two lines?"}
+  Q2 -- yes --> Q3{"Same side of the transversal?"}
+  Q3 -- yes --> CI["Consecutive interior angles"]
+  Q3 -- no --> AI["Alternate interior angles"]
+  Q2 -- no --> Q4{"Both outside the lines, on opposite sides of the transversal?"}
+  Q4 -- yes --> AE["Alternate exterior angles"]
+  Q4 -- no --> N["Not one of the four named pairs"]
+```
+
 ## When the lines are parallel
 
 **Corresponding Angles Postulate.** If two parallel lines are cut by a transversal, then corresponding angles are congruent.
@@ -43,6 +64,17 @@ This is accepted as a postulate. Intuitively, sliding line $\ell$ along $t$ onto
 **Consecutive Interior Angles Theorem.** Consecutive interior angles are supplementary.
 
 *Proof (for $\angle 4$ and $\angle 6$).* $\angle 4$ and $\angle 3$ form a linear pair, so $m\angle 4 + m\angle 3 = 180^\circ$. From the theorem above, $m\angle 3 = m\angle 6$. Substituting, $m\angle 4 + m\angle 6 = 180^\circ$. $\blacksquare$
+
+This chart shows how the three theorems grow out of the one postulate.
+
+```mermaid
+flowchart TD
+  accTitle: How the parallel-line theorems follow from one postulate
+  accDescr: The Corresponding Angles Postulate, combined with the Vertical Angles Theorem, gives the Alternate Interior Angles Theorem and the Alternate Exterior Angles Theorem. The Alternate Interior Angles Theorem, combined with the Linear Pair Postulate, gives the Consecutive Interior Angles Theorem.
+  P["Corresponding Angles Postulate"] -- "plus vertical angles" --> AI["Alternate interior angles are congruent"]
+  P -- "plus vertical angles" --> AE["Alternate exterior angles are congruent"]
+  AI -- "plus a linear pair" --> CI["Consecutive interior angles are supplementary"]
+```
 
 The upshot: with parallel lines, every one of the eight angles is either equal to $\angle 1$ or supplementary to it. Angles that look the same size (both acute or both obtuse) are congruent; an acute and an obtuse one are supplementary.
 

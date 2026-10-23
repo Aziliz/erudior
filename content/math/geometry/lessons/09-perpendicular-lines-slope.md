@@ -45,6 +45,10 @@ Also: every vertical line is parallel to every other vertical line and perpendic
 *Why negative reciprocals?* Take a line with slope $\tfrac{a}{b}$: it goes $b$ right and $a$ up. Rotate that step by $90^\circ$ counterclockwise: going right $b$ becomes going up $b$, and going up $a$ becomes going left $a$. The new step is $-a$ across and $b$ up, so its slope is $\tfrac{b}{-a} = -\tfrac{b}{a}$. Rotating a line by $90^\circ$ flips and negates its slope.
 
 ```plot
+{"x": [-4, 5], "y": [-1, 5], "equal": true, "segments": [{"from": [0, 0], "to": [3, 2], "arrow": true, "label": "3 right, 2 up"}, {"from": [0, 0], "to": [-2, 3], "arrow": true, "label": "2 left, 3 up"}], "rightAngles": [[[0, 0], [3, 2], [-2, 3]]], "caption": "Turning the step (3 right, 2 up) by 90° gives (2 left, 3 up): slope 2/3 becomes −3/2."}
+```
+
+```plot
 {"x": [-6, 6], "y": [-5, 5], "equal": true, "functions": [{"f": "0.5x + 1", "label": "m = 1/2"}, {"f": "-2x + 1", "label": "m = −2"}], "caption": "Slopes 1/2 and −2 multiply to −1, so the lines are perpendicular."}
 ```
 
@@ -84,11 +88,35 @@ Are the lines $3x + 4y = 12$ and $8x - 6y = 5$ parallel, perpendicular or neithe
 
 A shortcut: for $Ax + By = C$ the slope is $-\tfrac{A}{B}$.
 
+The whole decision, including the vertical-line cases, fits in one chart.
+
+```mermaid
+flowchart TD
+  accTitle: Parallel, perpendicular or neither
+  accDescr: Find each line's slope. If both lines are vertical, they are parallel, or the same line if they have the same x-intercept. If exactly one is vertical, the lines are perpendicular when the other is horizontal and neither otherwise. If neither is vertical, compare slopes. Equal slopes with the same y-intercept mean the same line; equal slopes with different y-intercepts mean parallel lines. Unequal slopes whose product is negative 1 mean perpendicular lines; any other unequal slopes mean neither.
+  A["Find each line's slope"] --> B{"Is either line vertical?"}
+  B -- "both are" --> V2["Parallel, or the same line"]
+  B -- "one is" --> V1{"Is the other one horizontal?"}
+  V1 -- yes --> PP1["Perpendicular"]
+  V1 -- no --> N1["Neither"]
+  B -- "neither is" --> E{"Are the slopes equal?"}
+  E -- yes --> I{"Same y-intercept?"}
+  I -- yes --> S["Same line"]
+  I -- no --> PA["Parallel"]
+  E -- no --> R{"Do the slopes multiply to negative 1?"}
+  R -- yes --> PP2["Perpendicular"]
+  R -- no --> N2["Neither"]
+```
+
 ## Distance from a point to a line, by formula
 
 To find the distance from $P$ to a line with coordinates, you could write the perpendicular through $P$, find where it meets the line, and measure. All of that collapses into one formula. The distance from $(x_0, y_0)$ to the line $Ax + By + C = 0$ is
 
 $$d = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}}.$$
+
+The picture puts the pieces of this lesson together for the line $y = 0.75x + 1$, which is $3x - 4y + 4 = 0$. Its slope triangle has run 4 and rise 3. The point where the perpendicular from $P$ meets the line is called the **foot of the perpendicular**; $PF$ is the distance from $P$ to the line, and any slanted segment from $P$ is longer.
+
+![A line on a grid rising to the right. A shaded slope triangle under it has a horizontal leg labeled run = 4 and a vertical leg labeled rise = 3. From a point P below the line, a solid segment marked shortest meets the line at a right angle at the foot F, and a dotted segment marked longer runs from P to another point on the line.](images/geo-m3-slope-perp.svg)
 
 ### Example 4
 
