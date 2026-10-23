@@ -84,9 +84,10 @@ disk of convergence, Euler's formula, Euler's identity, De Moivre's formula, sin
 None. No existing question, drill, card or glossary entry was changed.
 
 ## Sources
-OpenStax Calculus Vol. 2 ch. 5–6 (series tests, power and Taylor series); Paul's Online Notes
-(Lamar) Calc II series pages (estimating series, integral test bounds); MacTutor biographies of
-Machin, Gregory, Madhava, Euler and de Moivre (dates); standard complex-analysis results
-(radius = distance to nearest singularity; zeros of cos z are real). Every number in lessons,
-questions and drill samples recomputed in Python (mpmath/sympy), including Taylor coefficients of
-$1/(1+x^2)$ at 1 and $\tan x$ at 0 to confirm $R = \sqrt2$ and $\pi/2$.
+Checked in this session: Wikipedia "Leibniz formula for π" (Leibniz 1673, Gregory 1671, Madhava or
+his followers 14th–15th century); MAA Convergence, "How to calculate π: Machin's inverse tangents"
+(Machin, 100 digits, 1706). From standard references, not re-fetched here: Leibniz's 1682
+publication (Acta Eruditorum), Euler's Introductio (1748), de Moivre's dates, the radius =
+distance-to-nearest-singularity theorem and that cos z has only real zeros. Every number in the
+lessons, questions and drill samples was recomputed in Python (mpmath/sympy), including Taylor
+coefficients of $1/(1+x^2)$ at 1 and $\tan x$ at 0 to confirm $R = \sqrt2$ and $\pi/2$.

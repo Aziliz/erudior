@@ -646,7 +646,7 @@
   choices: ['$F(x, y) = 0$', '$F_x(x, y) = 0$', '$F_y(x, y) = 0$', '$\dfrac{dy}{dx} = 0$']
   answer: [0, 1, 2]
   explanation: |-
-    A singular point is a point *on the curve* where both partial derivatives vanish. There the slope formula gives $\frac00$, so it does not say $\frac{dy}{dx} = 0$; the curve may have two tangent lines (as the folium does at the origin) or a sharp point.
+    A singular point is a point on the curve where both partial derivatives vanish. There the slope formula gives $\frac00$, so it does not say $\frac{dy}{dx} = 0$; the curve may have two tangent lines (as the folium does at the origin) or a sharp point.
 - id: calc-m3-r2-h35
   lesson: calc-m3-h-implicit-curves
   topic: Implicit curves

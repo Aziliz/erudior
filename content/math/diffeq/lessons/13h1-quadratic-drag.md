@@ -118,7 +118,7 @@ to reach 90% of it, and the distance fallen by then.
   $x = \dfrac{2903.7}{9.8}(0.830) \approx 246$ m.
 
 Without air, 8.1 s of falling would cover about 321 m and reach 79 m/s. Drag has already
-cost a quarter of the distance.
+cost nearly a quarter of the distance.
 
 ## Speed against distance
 
