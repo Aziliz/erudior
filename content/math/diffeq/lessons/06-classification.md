@@ -122,7 +122,7 @@ For $y'' + y = 0$, all solutions have the form $y = c_1\cos t + c_2\sin t$ (Modu
 - BVP $y(0) = 0$, $y(\pi) = 1$: $c_1 = 0$ forces $y(\pi) = 0 \ne 1$. No solution.
 
 ```plot
-{"x": [-0.3, 3.6], "y": [-2.2, 2.4], "xLabel": "t", "functions": [{"f": "2sin(x)", "from": 0, "to": 3.14159}, {"f": "sin(x)", "from": 0, "to": 3.14159}, {"f": "-1.5sin(x)", "from": 0, "to": 3.14159}], "points": [{"at": [0, 0], "label": "(0, 0)"}, {"at": [3.14159, 0], "label": "(π, 0)"}, {"at": [3.14159, 1], "open": true, "label": "(π, 1)"}], "labels": [{"at": [1.57, 2.2], "text": "c₂ = 2"}, {"at": [1.57, 1.18], "text": "c₂ = 1"}, {"at": [1.57, -1.25], "text": "c₂ = −1.5"}], "caption": "Solutions y = c₂ sin t of y″ + y = 0 with y(0) = 0. Every one of them also has y(π) = 0, so that BVP has infinitely many solutions; none reaches the open point (π, 1), so that BVP has none."}
+{"x": [-0.3, 3.6], "y": [-2.2, 2.4], "xLabel": "t", "functions": [{"f": "2sin(x)", "from": 0, "to": 3.14159}, {"f": "sin(x)", "from": 0, "to": 3.14159}, {"f": "-1.5sin(x)", "from": 0, "to": 3.14159}], "points": [{"at": [0, 0]}, {"at": [3.14159, 0]}, {"at": [3.14159, 1], "open": true, "label": "(π, 1)"}], "labels": [{"at": [1.57, 2.2], "text": "c₂ = 2"}, {"at": [1.57, 1.18], "text": "c₂ = 1"}, {"at": [1.57, -1.25], "text": "c₂ = −1.5"}], "caption": "Solutions y = c₂ sin t of y″ + y = 0 with y(0) = 0. Every one of them also has y(π) = 0, so that BVP has infinitely many solutions; none reaches the open point (π, 1), so that BVP has none."}
 ```
 
 ## Putting it together

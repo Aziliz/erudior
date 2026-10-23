@@ -76,7 +76,7 @@ flowchart TD
   A["Sort the m p-values from smallest to largest"] --> B["Threshold for the k-th smallest: k × q ÷ m"]
   B --> C["Find the LARGEST k whose p-value is at or below its threshold"]
   C --> D["Reject the k smallest p-values"]
-  C -- "no p-value is below its threshold" --> E["Reject nothing"]
+  C -- "none is at or below its threshold" --> E["Reject nothing"]
 ```
 
 ### Example 2: ten p-values three ways

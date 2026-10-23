@@ -74,11 +74,11 @@
     upper bound $1 - 0.05^{1/n}$ for the failure rate, and the rule-of-three approximation. Give
     both to 4 decimal places.
   answers:
-    - {name: exact, label: 'Exact bound', tolerance: 0.0001, format: num4}
-    - {name: three, label: 'Rule of three', tolerance: 0.0001, format: num4}
+    - {name: exact, label: 'Exact bound', tolerance: 0.0001, format: dp4}
+    - {name: three, label: 'Rule of three', tolerance: 0.0001, format: dp4}
   solution: |-
-    The largest $p$ with $(1 - p)^{{nn}} \ge 0.05$ is $1 - 0.05^{1/{nn}} = 1 - {root:num4} =$ **{exact:num4}**.
-    The rule of three gives $3/{nn} =$ **{three:num4}**, a close approximation because
+    The largest $p$ with $(1 - p)^{{nn}} \ge 0.05$ is $1 - 0.05^{1/{nn}} = 1 - {root:dp4} =$ **{exact:dp4}**.
+    The rule of three gives $3/{nn} =$ **{three:dp4}**, a close approximation because
     $(1 - p)^n \approx e^{-np}$ and $e^{-3} \approx 0.05$.
 
 # ---- Honors: where t comes from
@@ -129,8 +129,8 @@
     $s = {sx}$ min. Find a 95% prediction interval for the loading time of one new train.
     Give the endpoints to 2 decimal places.
   answers:
-    - {name: lo, label: 'Lower', tolerance: 0.02, format: num2}
-    - {name: hi, label: 'Upper', tolerance: 0.02, format: num2}
+    - {name: lo, label: 'Lower', tolerance: 0.015, format: num2}
+    - {name: hi, label: 'Upper', tolerance: 0.015, format: num2}
   solution: |-
     df $= {dfree}$, $t^* \approx {ts:dp3}$, and $\sqrt{1 + 1/{nn}} \approx {fac:num4}$.
     Margin $= t^* s\sqrt{1 + 1/n} = {ts:dp3}({sx})({fac:num4}) \approx {me:num4}$.

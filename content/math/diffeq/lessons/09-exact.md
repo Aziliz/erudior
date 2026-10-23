@@ -70,7 +70,7 @@ The solutions are the level curves of $F = x^2y + y^3$. Each value of $C$ gives 
 and the initial condition picks the one through $(1, 1)$.
 
 ```plot
-{"x": [-4, 4], "y": [-1.8, 1.8], "curves": [{"x": "sqrt((2 - t^3)/t)", "y": "t", "t": [0.125, 1.2599]}, {"x": "-sqrt((2 - t^3)/t)", "y": "t", "t": [0.125, 1.2599]}, {"x": "sqrt((0.5 - t^3)/t)", "y": "t", "t": [0.032, 0.7937]}, {"x": "-sqrt((0.5 - t^3)/t)", "y": "t", "t": [0.032, 0.7937]}, {"x": "sqrt((-2 - t^3)/t)", "y": "t", "t": [-1.2599, -0.125]}, {"x": "-sqrt((-2 - t^3)/t)", "y": "t", "t": [-1.2599, -0.125]}], "points": [{"at": [1, 1], "label": "(1, 1)"}], "labels": [{"at": [0, 1.45], "text": "C = 2"}, {"at": [0, 0.95], "text": "C = 0.5"}, {"at": [0, -1.45], "text": "C = −2"}], "caption": "Level curves x²y + y³ = C of the potential function. The solution through (1, 1) is the curve with C = 2."}
+{"x": [-4, 4], "y": [-1.8, 1.8], "curves": [{"x": "sqrt((2 - t^3)/t)", "y": "t", "t": [0.125, 1.2599]}, {"x": "-sqrt((2 - t^3)/t)", "y": "t", "t": [0.125, 1.2599]}, {"x": "sqrt((0.5 - t^3)/t)", "y": "t", "t": [0.032, 0.7937]}, {"x": "-sqrt((0.5 - t^3)/t)", "y": "t", "t": [0.032, 0.7937]}, {"x": "sqrt((-2 - t^3)/t)", "y": "t", "t": [-1.2599, -0.125]}, {"x": "-sqrt((-2 - t^3)/t)", "y": "t", "t": [-1.2599, -0.125]}], "points": [{"at": [1, 1], "label": "(1, 1)"}], "caption": "Level curves x²y + y³ = C of the potential function. The upper curve is C = 2, the solution through (1, 1); the curve just below it is C = 0.5, and the lower curve is C = −2, the mirror image of C = 2."}
 ```
 
 ### Example 2

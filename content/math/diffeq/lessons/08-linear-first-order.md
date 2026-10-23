@@ -94,7 +94,7 @@ This confirms what the slope field showed: every solution approaches the line $y
 since $Ce^{-t} \to 0$.
 
 ```plot
-{"x": [0, 5], "y": [-2.5, 4.5], "xLabel": "t", "functions": [{"f": "x - 1", "dashed": true}, {"f": "x - 1 + 2exp(-x)"}, {"f": "x - 1 + 4exp(-x)"}, {"f": "x - 1 - exp(-x)"}], "points": [{"at": [0, 1], "label": "(0, 1)"}], "labels": [{"at": [4.1, 2.45], "text": "y = t − 1"}], "caption": "Solutions y = t − 1 + Ce^(−t) of y′ + y = t for C = 4, 2 (through (0, 1)) and −1. The transient Ce^(−t) dies out and every curve merges with the line y = t − 1 (dashed)."}
+{"x": [0, 5], "y": [-2.5, 4.5], "xLabel": "t", "functions": [{"f": "x - 1", "dashed": true}, {"f": "x - 1 + 2exp(-x)"}, {"f": "x - 1 + 4exp(-x)"}, {"f": "x - 1 - exp(-x)"}], "points": [{"at": [0, 1], "label": "(0, 1)"}], "labels": [{"at": [4.1, 2.45], "text": "y = t − 1"}], "caption": "Solutions y = t − 1 + Ce⁻ᵗ of y′ + y = t for C = 4, 2 (through (0, 1)) and −1. The transient Ce⁻ᵗ dies out and every curve merges with the line y = t − 1 (dashed)."}
 ```
 
 ### Example 3
