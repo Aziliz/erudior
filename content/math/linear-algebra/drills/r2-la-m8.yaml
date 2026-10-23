@@ -23,8 +23,8 @@
     - {name: al, label: '$\alpha =$'}
     - {name: be, label: '$\beta =$'}
   solution: |-
-    $\operatorname{tr} A = {tr}$ and $\det A = {dt}$, so Cayley–Hamilton gives $A^2 - ({tr})A + ({dt})I = 0$, that is, $A^2 = {tr}A + ({ndt})I$.
-    Multiply by $A$ and replace $A^2$ again: $A^3 = {tr}A^2 + ({ndt})A = {tr}\big({tr}A + ({ndt})I\big) + ({ndt})A = ({trsq} + ({ndt}))A + ({tr})({ndt})I$.
+    $\operatorname{tr} A = {tr}$ and $\det A = {dt}$, so Cayley–Hamilton gives $A^2 - ({tr})A + ({dt})I = 0$, that is, $A^2 = {tr:coef}A + ({ndt})I$.
+    Multiply by $A$: $A^3 = {tr:coef}A^2 + ({ndt})A$. Replace $A^2$ again: $A^3 = ({tr})\big({tr:coef}A + ({ndt})I\big) + ({ndt})A = ({trsq} + ({ndt}))A + ({tr})({ndt})I$.
     So $\alpha =$ **{al}** and $\beta =$ **{be}**. (In general $\alpha = (\operatorname{tr} A)^2 - \det A$ and $\beta = -(\operatorname{tr} A)(\det A)$.)
 
 - id: la-m8-r2-ch-inverse

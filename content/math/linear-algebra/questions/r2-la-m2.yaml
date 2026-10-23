@@ -407,145 +407,153 @@
   explanation: |-
     With no nontrivial relation, no column is a combination of the columns to its left (column 1 is not even zero), so all three columns are pivot columns: $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$. That is the identity matrix. The RREF never depends on the row operations used.
 
-# ---------- Honors 07h2: the cost and accuracy of elimination ----------
+# ---------- Honors 07h2: iterative methods ----------
 - id: la-m2-r2-h15
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'How many flops does the forward phase take on the augmented matrix of a $3 \times 3$ system (no row swaps)?'
-  choices: ['9', '18', '28', '19']
-  answer: 3
-  explanation: |-
-    Clearing column 1: 2 rows, each 1 division plus 3 entries at 2 flops, so $2 \times 7 = 14$. Clearing column 2: 1 row, $1 + 2 \times 2 = 5$. Total 19, matching $\tfrac23 n^3 + \tfrac12 n^2 - \tfrac76 n$ at $n = 3$.
-    18 is just the leading term $\tfrac23 \cdot 27$; 9 is back-substitution; 28 is the whole solve.
-
-- id: la-m2-r2-h16
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  type: text
-  stem: 'How many flops does back-substitution take for a $10 \times 10$ triangular system? Give only the number: ___'
-  accept: ['100']
-  explanation: |-
-    Finding $x_i$ takes $n - i$ multiplications, $n - i$ subtractions and 1 division, which adds up to exactly $n^2$ flops; here $10^2 = 100$.
-
-- id: la-m2-r2-h17
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'Elimination solves a dense $1000 \times 1000$ system in 0.2 seconds. About how long should a $3000 \times 3000$ system take on the same machine?'
-  choices: ['0.6 seconds', '1.8 seconds', '5.4 seconds', '3.6 seconds']
-  answer: 2
-  explanation: |-
-    The work grows like $n^3$. Tripling $n$ multiplies it by $3^3 = 27$, so about $0.2 \times 27 = 5.4$ seconds.
-    0.6 s assumes the work grows like $n$, 1.8 s like $n^2$; 3.6 s doubles 1.8 by mistake.
-
-- id: la-m2-r2-h18
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'About how many flops does the forward phase take for a $300 \times 300$ system?'
-  choices: ['$1.8 \times 10^7$', '$9 \times 10^4$', '$2.7 \times 10^7$', '$6 \times 10^4$']
-  answer: 0
-  explanation: |-
-    The leading term is $\tfrac23 n^3 = \tfrac23 (2.7 \times 10^7) = 1.8 \times 10^7$; the lower-order terms add only about $4.5 \times 10^4$.
-    $9 \times 10^4$ is $n^2$ (back-substitution), $2.7 \times 10^7$ is $n^3$ without the $\tfrac23$, and $6 \times 10^4$ is $\tfrac23 n^2$.
-
-- id: la-m2-r2-h19
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  type: order
-  stem: 'Put the steps for clearing one column with partial pivoting in order.'
-  items:
-    - 'Look at the entries of the current column from the pivot row down'
-    - 'Find the one with the largest absolute value'
-    - 'Swap its row into the pivot position'
-    - 'Subtract multiples of the pivot row to create zeros below the pivot'
-  explanation: |-
-    Partial pivoting chooses the pivot before any elimination: scan the candidates, pick the largest in absolute value, swap it into place. Only then are the entries below cleared, and every multiplier has absolute value at most 1.
-
-- id: la-m2-r2-h20
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'Which statements about partial pivoting are true? Select all that apply.'
-  choices: ['Every multiplier has absolute value at most 1', 'It picks the candidate pivot with the largest absolute value', 'It turns an ill-conditioned system into a well-behaved one', 'It is needed only when a pivot is exactly 0', 'It changes the solution of the system']
-  answer: [0, 1]
-  explanation: |-
-    The pivot is the largest candidate in absolute value, so each multiplier (entry $\div$ pivot) is at most 1 in size.
-    Pivoting cannot fix an ill-conditioned problem, which is sensitive to its data however it is solved. A tiny nonzero pivot is already dangerous in floating-point arithmetic (as in $0.0001x + y = 1$). Swapping rows never changes the solution set.
-
-- id: la-m2-r2-h21
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'With partial pivoting, the first column of a matrix is $(0.5, -4, 2)$. Which entry becomes the first pivot?'
-  choices: ['$0.5$, the entry already on top', '$2$, the largest positive entry', '$-4$, the entry of largest absolute value', '$0.5$, the entry of smallest absolute value']
-  answer: 2
-  explanation: |-
-    Partial pivoting compares absolute values: $|0.5| = 0.5$, $|-4| = 4$, $|2| = 2$. So row 2 is swapped to the top and $-4$ is the pivot. The multipliers are then $0.5/(-4) = -0.125$ and $2/(-4) = -0.5$, both at most 1 in size.
-
-- id: la-m2-r2-h22
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  type: text
-  stem: 'Solve $x + y = 2$, $x + 1.001y = 2.003$. Then $y =$ ___ and $x =$ ___.'
-  accept:
-    - ['3']
-    - ['-1']
-  explanation: |-
-    Subtract the first equation from the second: $0.001y = 0.003$, so $y = 3$ and $x = 2 - 3 = -1$. Changing the right side from $2.001$ (solution $(1, 1)$) to $2.003$ moved the solution to $(-1, 3)$: the system is ill-conditioned.
-
-- id: la-m2-r2-h23
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  type: match
-  stem: 'Match each term with its meaning.'
-  pairs:
-    - ['Flop', 'One floating-point addition, subtraction, multiplication or division']
-    - ['Round-off error', 'The difference between a computed and an exact value caused by rounding']
-    - ['Partial pivoting', 'Swapping the largest available entry, in absolute value, into the pivot position']
-    - ['Ill-conditioned system', 'Small changes in the data cause large changes in the solution']
-  distractors: ['A pivot that is exactly zero']
-  explanation: |-
-    A flop is the unit of cost; round-off error is what rounding leaves behind; partial pivoting chooses pivots to keep multipliers small; an ill-conditioned system is sensitive to its data. A zero pivot is simply a reason to swap rows; none of the terms means that.
-
-- id: la-m2-r2-h24
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'Solving $0.0001x + y = 1$, $x + y = 2$ with 3-digit arithmetic and no row swap gives $x = 0$, far from the true $x \approx 1$. What went wrong?'
-  choices: ['The system is inconsistent', 'The tiny pivot gave a huge multiplier, and rounding wiped out the other numbers in row 2', 'Back-substitution was done in the wrong order', 'Three digits are too few to store the number 2']
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'Apply one Jacobi sweep to $4x + y = 9$, $x + 3y = 5$, starting from $(x_0, y_0) = (1, 1)$. What is $(x_1, y_1)$?'
+  choices: ['$(2, 1)$', '$\left(2, \tfrac43\right)$', '$\left(\tfrac94, \tfrac53\right)$', '$(8, 4)$']
   answer: 1
   explanation: |-
-    The multiplier was $1/0.0001 = 10000$, so row 2 became $-9999y = -9998$, and both numbers rounded to $-10000$. The information in the "2" and the "1" was lost, giving $y = 1.00$, and then dividing by the tiny pivot turned the leftover error into $x = 0$. The system has a unique solution, and swapping rows first fixes the problem.
+    Jacobi uses only the old values: $x_1 = \tfrac14(9 - y_0) = \tfrac14(9 - 1) = 2$ and $y_1 = \tfrac13(5 - x_0) = \tfrac13(5 - 1) = \tfrac43$.
+    $(2, 1)$ is the Gauss–Seidel result (it uses the new $x_1 = 2$ for $y$); $\left(\tfrac94, \tfrac53\right)$ starts from $(0, 0)$; $(8, 4)$ forgets to divide by the diagonal coefficients.
 
-- id: la-m2-r2-h25
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'Suppose that at every column you scale the pivot row and clear the entries both above and below the pivot, in one pass. For an $n \times n$ system this costs about'
-  choices: ['$n^3$ flops', '$\tfrac23 n^3$ flops', '$n^2$ flops', '$2n^3$ flops']
-  answer: 0
+- id: la-m2-r2-h16
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  type: text
+  stem: 'Apply one Gauss–Seidel sweep to $4x + y = 9$, $x + 3y = 5$, starting from $(x_0, y_0) = (1, 1)$. Then $x_1 =$ ___ and $y_1 =$ ___.'
+  accept:
+    - ['2']
+    - ['1']
   explanation: |-
-    Each of the $n$ steps updates $n - 1$ rows, giving about $n^3$ flops: half again as much as the $\tfrac23 n^3$ of elimination followed by back-substitution (or a bottom-up backward phase), which costs only about $n^2$ more. Computing $A^{-1}$ costs about $2n^3$.
+    First $x_1 = \tfrac14(9 - y_0) = \tfrac14(9 - 1) = 2$. Gauss–Seidel uses this new value at once: $y_1 = \tfrac13(5 - x_1) = \tfrac13(5 - 2) = 1$. So $(x_1, y_1) = (2, 1)$, which happens to be the exact solution.
 
-- id: la-m2-r2-h26
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'A computed answer to an ill-conditioned system satisfies the equations to within $0.001$. What can you conclude?'
-  choices: ['It is correct to about three decimal places', 'It is exactly right, since only rounding is left', 'It must be wrong, because the system is ill-conditioned', 'Not much: it may still be far from the true solution']
+- id: la-m2-r2-h17
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'Which matrices are strictly diagonally dominant? Select all that apply.'
+  choices: ['$\begin{bmatrix} 4 & 1 \\ 2 & 5\end{bmatrix}$', '$\begin{bmatrix} 3 & -1 & 1 \\ 1 & 4 & 2 \\ 0 & 2 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 2 \\ 1 & 3\end{bmatrix}$', '$\begin{bmatrix} 1 & 3 \\ 4 & 2\end{bmatrix}$', '$\begin{bmatrix} -6 & 2 & 3 \\ 1 & 3 & 1 \\ -1 & 1 & 4\end{bmatrix}$']
+  answer: [0, 1, 4]
+  explanation: |-
+    Compare each diagonal entry's absolute value with the sum of the absolute values of the rest of its row. $\begin{bmatrix} 4 & 1 \\ 2 & 5\end{bmatrix}$: $4 > 1$, $5 > 2$. The first $3 \times 3$: $3 > 2$, $4 > 3$, $3 > 2$. The second $3 \times 3$: $|-6| = 6 > 5$, $3 > 2$, $4 > 2$.
+    $\begin{bmatrix} 2 & 2 \\ 1 & 3\end{bmatrix}$ fails in row 1 ($2$ is not greater than $2$), and $\begin{bmatrix} 1 & 3 \\ 4 & 2\end{bmatrix}$ fails in both rows.
+
+- id: la-m2-r2-h18
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  type: label
+  stem: 'The edges of this plate are held at the temperatures shown. For each numbered interior point, choose the sum of its neighbors that lie on the edge.'
+  image: {src: images/la-m2-h-plate-blank.svg, alt: 'A square plate with four numbered interior points in a 2 by 2 grid: 1 top left, 2 top right, 3 bottom left, 4 bottom right. Edge points above the top row are at 80 degrees, below the bottom row at 20 degrees, left of the left column at 40 degrees and right of the right column at 60 degrees.'}
+  labels:
+    - {x: 46.1, y: 39.6, text: 'Edge neighbors add to 120'}
+    - {x: 61.8, y: 39.6, text: 'Edge neighbors add to 140'}
+    - {x: 46.1, y: 64.6, text: 'Edge neighbors add to 60'}
+    - {x: 61.8, y: 64.6, text: 'Edge neighbors add to 80'}
+  distractors: ['Edge neighbors add to 100']
+  explanation: |-
+    Point 1 (top left) touches the top edge (80) and the left edge (40): 120. Point 2 touches top (80) and right (60): 140. Point 3 touches left (40) and bottom (20): 60. Point 4 touches right (60) and bottom (20): 80. These sums are the right-hand sides of $4T_i - (\text{interior neighbors}) = \text{sum}$. No point touches both the top and the bottom edge, so no sum is $80 + 20 = 100$.
+
+- id: la-m2-r2-h19
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'In the plate of the lesson, $T_4$ (bottom right) has neighbors $T_2$ (above), $T_3$ (left), 60 (right) and 20 (below). Which equation does the averaging rule give?'
+  choices: ['$4T_4 - T_2 - T_3 = 45$', '$-T_1 + 4T_4 = 80$', '$4T_4 - T_2 - T_3 = 20$', '$-T_2 - T_3 + 4T_4 = 80$']
   answer: 3
   explanation: |-
-    In the lesson, $(0, 2)$ satisfies $x + y = 2$, $x + 1.001y = 2.001$ to within $0.001$, yet the true solution is $(1, 1)$. For an ill-conditioned system a small leftover in the equations says little about the error in the answer. It need not be wrong either; you just can't tell from the leftover.
+    $T_4 = \tfrac14(T_2 + T_3 + 60 + 20)$. Multiply by 4 and move the unknowns left: $4T_4 - T_2 - T_3 = 80$.
+    45 is the value of $T_4$, not the right side; $T_1$ is diagonal to $T_4$, not a neighbor; 20 uses only one edge neighbor.
+
+- id: la-m2-r2-h20
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  type: order
+  stem: 'Put the steps of one Gauss–Seidel sweep for three unknowns in order.'
+  items:
+    - 'Compute the new $x_1$ from equation 1, using the old $x_2$ and $x_3$'
+    - 'Compute the new $x_2$ from equation 2, using the new $x_1$ and the old $x_3$'
+    - 'Compute the new $x_3$ from equation 3, using the new $x_1$ and $x_2$'
+    - 'Compare with the previous guess to decide whether to stop'
+  explanation: |-
+    Gauss–Seidel updates the unknowns in turn, each time using the newest values available, so $x_2$ needs the new $x_1$ and $x_3$ needs both. The stopping test compares the finished sweep with the previous guess, so it comes last.
+
+- id: la-m2-r2-h21
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'Jacobi on $x + 2y = 3$, $3x + y = 4$ produces $(3, 4)$, $(-5, -5)$, $(13, 19)$, … Why does it fail?'
+  choices: ['In the order written, the coefficient matrix is not diagonally dominant', 'The system has no solution', 'Jacobi only works for systems with more than two unknowns', 'The starting guess $(0, 0)$ is too far from the solution']
+  answer: 0
+  explanation: |-
+    Row 1 has diagonal 1 against 2, and row 2 has 1 against 3, so the guesses can (and do) blow up. The system has the solution $(1, 1)$. Swapping the equations gives $3x + y = 4$, $x + 2y = 3$, which is strictly diagonally dominant, and then Jacobi converges from any start, including $(0, 0)$.
+
+- id: la-m2-r2-h22
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  type: match
+  stem: 'Match each term with its description.'
+  pairs:
+    - ['Direct method', 'Reaches the exact answer in a fixed number of steps']
+    - ['Iterative method', 'Improves a guess sweep by sweep']
+    - ['Sparse matrix', 'Most of its entries are zero']
+    - ['Strictly diagonally dominant matrix', 'Each diagonal entry outweighs the rest of its row']
+  distractors: ['Every entry is nonzero']
+  explanation: |-
+    Row reduction is a direct method; Jacobi and Gauss–Seidel are iterative. Grid models give sparse matrices. "Outweighs" means the diagonal entry's absolute value is larger than the sum of the absolute values of the other entries in its row. A matrix with every entry nonzero is called dense.
+
+- id: la-m2-r2-h23
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'Which statement about the Jacobi and Gauss–Seidel methods is true?'
+  choices: ['Jacobi uses each new value as soon as it is computed', 'Both need the exact solution as their starting guess', 'Gauss–Seidel uses each new value as soon as it is computed', 'They always produce the same guesses after each sweep']
+  answer: 2
+  explanation: |-
+    That is the only difference between them: Gauss–Seidel uses new values immediately, while Jacobi waits for the next sweep. Their guesses therefore differ (in the lesson, $y_1 \approx 1.6667$ for Jacobi and $0.9167$ for Gauss–Seidel). Any starting guess works when the matrix is strictly diagonally dominant.
+
+- id: la-m2-r2-h24
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  type: text
+  stem: 'In the equilibrium model, an interior point has neighbors at 70°, 50°, 62° and 58°. What is its temperature, in degrees? Give only the number: ___'
+  accept: ['60']
+  explanation: |-
+    Each interior temperature is the average of its four neighbors: $\tfrac14(70 + 50 + 62 + 58) = \tfrac{240}{4} = 60$.
+
+- id: la-m2-r2-h25
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'Which change makes the Jacobi method for $2x + 7y = 9$, $5x - y = 4$ certain to converge?'
+  choices: ['Multiply the first equation by 10', 'Put $5x - y = 4$ first and $2x + 7y = 9$ second', 'Keep the equations in the order given', 'Start from the guess $(1, 1)$ instead of $(0, 0)$']
+  answer: 1
+  explanation: |-
+    Reordered, the matrix is $\begin{bmatrix} 5 & -1 \\ 2 & 7\end{bmatrix}$: $5 > 1$ and $7 > 2$, so it is strictly diagonally dominant and Jacobi converges from any start.
+    As given, row 1 has $2 < 7$. Multiplying a row by 10 scales the diagonal entry and the rest of the row alike, so the comparison doesn't change. A different starting guess doesn't create a guarantee. (The exact solution is $(1, 1)$, but you rarely know it in advance.)
+
+- id: la-m2-r2-h26
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'A plate model on a $1000 \times 1000$ grid has a million unknowns. Why are iterative methods attractive for it?'
+  choices: ['Each sweep uses only the few nonzero coefficients, so it is cheap and the matrix stays sparse', 'They give the exact answer in fewer steps than row reduction', 'They need no stopping rule', 'They converge for every linear system']
+  answer: 0
+  explanation: |-
+    Each equation has at most 5 nonzero coefficients, so a sweep costs a few operations per unknown, while row reduction would take on the order of $n^3$ operations and fill in many zeros. Iterative methods give approximations, need a stopping rule, and can diverge (as in the lesson's Example 4).
 
 - id: la-m2-r2-h27
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
-  stem: 'Which statements about solving an $n \times n$ system are true? Select all that apply.'
-  choices: ['For large $n$, the forward phase takes far more work than back-substitution', 'Doubling $n$ multiplies the work by about 8', 'Back-substitution costs about as much as the forward phase', 'Computing $A^{-1}$ and then $A^{-1}\mathbf{b}$ is cheaper than elimination']
-  answer: [0, 1]
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['If the coefficient matrix is strictly diagonally dominant, Jacobi converges from any starting guess', 'A system that is not diagonally dominant can never be solved by Gauss–Seidel', 'Swapping two equations can change whether Jacobi converges', 'A small change between two sweeps proves that the answer is accurate', 'A system with a strictly diagonally dominant matrix has exactly one solution']
+  answer: [0, 2, 4]
   explanation: |-
-    The forward phase costs about $\tfrac23 n^3$ and back-substitution $n^2$, so for large $n$ the forward phase dominates, and doubling $n$ multiplies $n^3$ by $2^3 = 8$.
-    Computing the inverse costs about $2n^3$, three times as much as elimination.
+    The convergence theorem gives the first and last statements, and Example 4 shows a swap turning divergence into convergence.
+    Diagonal dominance is sufficient, not necessary: some other systems still converge (larger plate grids, for example). A small change between sweeps is only a practical stopping rule, not a proof of accuracy.
 
 - id: la-m2-r2-h28
-  lesson: la-m2-h-cost-accuracy
-  topic: Cost and accuracy of elimination
+  lesson: la-m2-h-iterative
+  topic: Iterative methods
   type: text
-  stem: 'Use $\tfrac23 n^3 + \tfrac12 n^2 - \tfrac76 n$ to find the number of flops in the forward phase for a $4 \times 4$ system. Give only the number: ___'
-  accept: ['46']
+  stem: 'Apply one Jacobi sweep to $2x - y = 6$, $x + 4y = 8$, starting from $(0, 0)$. Then $x_1 =$ ___ and $y_1 =$ ___.'
+  accept:
+    - ['3']
+    - ['2']
   explanation: |-
-    $\tfrac23(64) + \tfrac12(16) - \tfrac76(4) = \tfrac{128}{3} + 8 - \tfrac{14}{3} = 38 + 8 = 46$. Counting directly: clearing column 1 is $3 \times (1 + 2 \cdot 4) = 27$, column 2 is $2 \times (1 + 2 \cdot 3) = 14$, column 3 is $1 \times (1 + 2 \cdot 2) = 5$, total 46.
+    Solve equation 1 for $x$: $x = \tfrac12(6 + y)$, and equation 2 for $y$: $y = \tfrac14(8 - x)$. With the old values $x_0 = y_0 = 0$: $x_1 = 3$ and $y_1 = 2$. (The next sweep gives $x_2 = \tfrac12(6 + 2) = 4$ and $y_2 = \tfrac14(8 - 3) = 1.25$.)
