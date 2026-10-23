@@ -25,6 +25,10 @@ A function is **concave up** on an interval if its slopes are increasing there (
 {"x": [-3, 3], "y": [-5, 5], "functions": [{"f": "x^3 - 3x", "label": "y = x³ − 3x"}], "points": [{"at": [0, 0], "label": "inflection point"}], "labels": [{"at": [-2.6, -3.5], "text": "concave down"}, {"at": [1.2, 3.5], "text": "concave up"}], "caption": "f″(x) = 6x: concave down for x < 0, up for x > 0"}
 ```
 
+Direction (from $f'$) and bending (from $f''$) are independent, so they combine in four ways. One period of $y = \sin x$ shows all four:
+
+![One period of y = sin x from 0 to 2π, split into quarters by dashed lines at π/2, π and 3π/2. From 0 to π/2 the graph is increasing and concave down; from π/2 to π, decreasing and concave down; from π to 3π/2, decreasing and concave up; from 3π/2 to 2π, increasing and concave up. The point at π, where the concavity changes, is marked as an inflection point.](images/calc-m5-shapes.svg)
+
 A point on the graph where concavity changes is an **inflection point**. Inflection points can occur only where $f'' = 0$ or $f''$ is undefined, but (as with critical numbers) that's only a candidate list; you must check that $f''$ actually changes sign.
 
 ### Example 1
@@ -59,6 +63,20 @@ Use the second derivative test on $f(x) = x^4 - 6x^2 + 3$ from Example 1.
 $f'(x) = 4x(x^2 - 3)$: critical numbers $0$ and $\pm\sqrt3$. With $f''(x) = 12x^2 - 12$:
 - $f''(0) = -12 < 0$: local max $f(0) = 3$.
 - $f''(\pm\sqrt3) = 36 - 12 = 24 > 0$: local minima $f(\pm\sqrt3) = 9 - 18 + 3 = -6$.
+
+Which test to use at a critical number:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing between the second and first derivative tests
+  accDescr: Start with a critical number c. If f'(c) is undefined, the second derivative test does not apply, so use the first derivative test. If f'(c) = 0, compute f''(c). If it is positive, f has a local minimum at c. If it is negative, a local maximum. If it is zero, the second derivative test is inconclusive, so use the first derivative test.
+  S["Critical number c"] --> Q{"Is f'(c) = 0?"}
+  Q -- "no: f'(c) undefined" --> FD["Use the first derivative test"]
+  Q -- "yes" --> SD["Compute f''(c)"]
+  SD -- "positive" --> MIN["Local minimum: cup shape"]
+  SD -- "negative" --> MAX["Local maximum: cap shape"]
+  SD -- "zero: inconclusive" --> FD
+```
 
 When the test is inconclusive anything can happen: $x^4$ (min), $-x^4$ (max), and $x^3$ (neither) all have $f'(0) = f''(0) = 0$.
 

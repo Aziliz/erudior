@@ -28,6 +28,22 @@ Every variable picks up a $\frac{d}{dt}$ factor, just as $y$ picked up $\frac{dy
 
 The most important rule: *don't substitute the changing values until after you differentiate.* If you plug in $r = 5$ first, $r$ becomes a constant and its rate vanishes.
 
+The flowchart shows the same procedure, with the one place where a shortcut is allowed (eliminating a variable) and the one place where it isn't (substituting the instant's values early).
+
+```mermaid
+flowchart TD
+  accTitle: The related-rates procedure
+  accDescr: Draw and label a picture with letters for changing quantities. List the given rates, the wanted rate and the instant. Write an equation relating the quantities. If it has more variables than you have rates for, use similar triangles or another given relationship to eliminate one, then continue. Differentiate both sides with respect to t. Only now substitute the values at the instant, finding any missing value from the original equation. Solve for the unknown rate and state it with units and the meaning of its sign.
+  A["Draw and label: letters for changing quantities"] --> B["List given rates, wanted rate, the instant"]
+  B --> C["Write an equation relating the quantities"]
+  C --> D{"Too many variables?"}
+  D -- yes --> E["Eliminate one: similar triangles or a given relation"]
+  E --> F
+  D -- no --> F["Differentiate both sides with respect to t"]
+  F --> G["Now substitute the values at the instant"]
+  G --> H["Solve; give units and the meaning of the sign"]
+```
+
 ### Example 1 (an expanding ripple)
 
 A stone dropped in a pond makes a circular ripple whose radius grows at 3 cm/s. How fast is the area growing when the radius is 10 cm?

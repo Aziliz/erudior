@@ -20,6 +20,23 @@ What dimensions make a can that holds a liter with the least metal? Where should
 5. *Optimize*: find critical numbers; use the closed interval method (if the domain is closed) or the first/second derivative test (if it isn't).
 6. *Answer the question asked*, with units. Sometimes that's the input, sometimes the optimal value, sometimes both.
 
+The same steps as a flowchart, with the branch that decides how to finish:
+
+```mermaid
+flowchart TD
+  accTitle: The optimization procedure
+  accDescr: Draw and label the situation. Write a formula for the objective. Use the constraint to rewrite the objective in one variable. Find that variable's domain. Find the critical numbers. If the domain is a closed interval, compare the objective's values at the critical numbers and the endpoints. If the domain is open, use the first or second derivative test; a lone local extremum is the absolute one. Finally answer the question that was asked, with units.
+  D["Draw and label"] --> O["Write the objective"]
+  O --> C["Use the constraint to get one variable"]
+  C --> DOM["Find the domain"]
+  DOM --> CN["Find the critical numbers"]
+  CN --> Q{"Closed interval?"}
+  Q -- "yes" --> CI["Compare values at critical numbers and endpoints"]
+  Q -- "no" --> DT["Derivative test: a lone local extremum is absolute"]
+  CI --> ANS["Answer the question asked, with units"]
+  DT --> ANS
+```
+
 ### Example 1 (the open box)
 
 A box with no lid is made from a 12-in by 12-in sheet of cardboard by cutting equal squares from the corners and folding up the sides. What size squares give the largest volume?
@@ -40,6 +57,10 @@ Cut **2-inch squares**; the box holds 128 in³.
 ### Example 2 (fencing along a river)
 
 A farmer has 600 m of fence for a rectangular field along a straight river; no fence is needed on the river side. What dimensions maximize the area?
+
+```shape
+{"polygons": [{"points": [[0, 0], [6, 0], [6, 3], [0, 3]], "fill": true}], "segments": [{"from": [-1, 3], "to": [7, 3], "dashed": true}, {"from": [0, 3], "to": [0, 0], "label": "x"}, {"from": [0, 0], "to": [6, 0], "label": "y"}, {"from": [6, 0], "to": [6, 3], "label": "x"}], "labels": [{"at": [3, 3.6], "text": "river (no fence)"}, {"at": [3, 1.5], "text": "area A = xy"}], "caption": "Fence on three sides: 2x + y = 600"}
+```
 
 - Let $x$ = each side perpendicular to the river, $y$ = the side parallel to it.
 - Objective: $A = xy$. Constraint: $2x + y = 600$, so $y = 600 - 2x$.

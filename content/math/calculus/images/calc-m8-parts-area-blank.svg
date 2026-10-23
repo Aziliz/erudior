@@ -17,5 +17,5 @@
 <text x="50" y="235" font-size="16" text-anchor="end" fill="#1c2833">v₁</text>
 <text x="50" y="75" font-size="16" text-anchor="end" fill="#1c2833">v₂</text>
 <text x="412" y="62" font-size="15" fill="#1c2833">(u₂, v₂)</text>
-<text x="160" y="222" font-size="15" fill="#1c2833" dx="4">(u₁, v₁)</text>
+<text x="158" y="252" font-size="15" fill="#1c2833">(u₁, v₁)</text>
 </svg>

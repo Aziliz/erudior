@@ -52,6 +52,18 @@ Suppose $c$ is a critical number of a continuous function $f$.
 - If $f'$ changes from *negative to positive* at $c$, then $f$ has a **local minimum** at $c$.
 - If $f'$ does *not change sign* at $c$, there's no local extremum at $c$.
 
+The decision fits in a small chart:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a critical number with the first derivative test
+  accDescr: Start with a critical number c of a continuous function, where f' is zero or undefined. Check the sign of f' just to the left and just to the right of c. If f' changes from positive to negative, f has a local maximum at c. If it changes from negative to positive, f has a local minimum at c. If the sign is the same on both sides, there is no local extremum at c.
+  A["Critical number c: f' = 0 or undefined"] --> B["Sign of f' just left and just right of c"]
+  B -- "plus, then minus" --> MAX["Local maximum at c"]
+  B -- "minus, then plus" --> MIN["Local minimum at c"]
+  B -- "same sign on both sides" --> NO["No local extremum at c"]
+```
+
 That's the **first derivative test**. In Example 1: $f'$ goes $+$ to $-$ at $x = -1$, so $f(-1) = 12$ is a local max; $-$ to $+$ at $x = 2$, so $f(2) = -15$ is a local min.
 
 ```plot
@@ -96,6 +108,12 @@ AP problems often give the graph of $f'$, not $f$. Read signs from it:
 - Where the graph of $f'$ is above the $x$-axis, $f$ is increasing.
 - Where $f'$ crosses the axis from above to below, $f$ has a local max; from below to above, a local min.
 - Where $f'$ touches the axis without crossing, no extremum.
+
+The picture shows all three readings on one graph of $f'(x) = -\tfrac14(x + 2)(x - 1)(x - 4)$:
+
+![The graph of y = f prime of x, a cubic. It crosses the x-axis going down at x = −2, marked as a local maximum of f; crosses going up at x = 1, marked as a local minimum of f; peaks between 2 and 3, marked as an inflection point of f; and crosses going down again at x = 4.](images/calc-m5-fprime.svg)
+
+(At $x = 4$, where $f'$ crosses from above to below, $f$ has another local max.)
 
 Don't read the max of the $f'$ graph as a max of $f$. The peak of $f'$ is where $f$ is *steepest*, an inflection point of $f$ (next lesson).
 

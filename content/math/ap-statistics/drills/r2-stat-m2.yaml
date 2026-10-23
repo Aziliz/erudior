@@ -54,18 +54,18 @@
   vars:
     tgt: {choices: [25, 40, 80, 150, 250]}
     w: {min: 1.5, max: 6, step: 0.5}
-    off: {min: -1, max: 1, step: 0.1}
+    dm: {min: -1, max: 1, step: 0.1}
     sd: {choices: [0.5, 1, 1.25, 2, 2.5]}
   calc:
     lsl: tgt - w
     usl: tgt + w
-    mu: tgt + off
+    mu: tgt + dm
     zl: (lsl - mu) / sd
     zu: (usl - mu) / sd
     pl: normcdf(zl)
     pu: 1 - normcdf(zu)
     pout: pl + pu
-  where: ['zl <= -1.5', 'zl >= -3.5', 'zu >= 1.5', 'zu <= 3.5', 'off != 0']
+  where: ['zl <= -1.5', 'zl >= -3.5', 'zu >= 1.5', 'zu <= 3.5', 'dm != 0']
   prompt: |-
     Part lengths are normal with mean {mu} mm and standard deviation {sd} mm. The
     specification is {lsl} to {usl} mm. What proportion of parts are out of specification?
@@ -83,17 +83,17 @@
   vars:
     tgt: {choices: [12, 30, 50, 100, 150]}
     w: {min: 1, max: 6, step: 0.5}
-    off: {min: -1.5, max: 1.5, step: 0.1}
+    dm: {min: -1.5, max: 1.5, step: 0.1}
     sd: {choices: [0.2, 0.25, 0.4, 0.5, 0.75, 1]}
   calc:
     lsl: tgt - w
     usl: tgt + w
-    mu: tgt + off
+    mu: tgt + dm
     du: usl - mu
     dl: mu - lsl
     cp: (usl - lsl) / (6*sd)
     cpk: min(du, dl) / (3*sd)
-  where: ['abs(off) < w', 'cp >= 0.5', 'cp <= 3', 'off != 0']
+  where: ['abs(dm) < w', 'cp >= 0.5', 'cp <= 3', 'dm != 0']
   prompt: |-
     A specification is {lsl} to {usl}. The process mean is {mu} and its standard deviation
     is {sd}. Find $C_p$ and $C_{pk}$ (2 decimal places).
@@ -111,15 +111,15 @@
   vars:
     tgt: {choices: [20, 45, 60, 120, 300]}
     w: {min: 1, max: 5, step: 0.5}
-    off: {min: -0.8, max: 0.8, step: 0.1}
+    dm: {min: -0.8, max: 0.8, step: 0.1}
     ck: {choices: [1, 1.2, 1.5, 2]}
   calc:
     lsl: tgt - w
     usl: tgt + w
-    mu: tgt + off
+    mu: tgt + dm
     dn: min(usl - mu, mu - lsl)
     smax: dn / (3*ck)
-  where: ['abs(off) < w']
+  where: ['abs(dm) < w']
   prompt: |-
     A specification is {lsl} to {usl}, and the process mean is {mu}. What is the largest
     standard deviation that gives $C_{pk}$ of at least {ck}? Give 3 decimal places.

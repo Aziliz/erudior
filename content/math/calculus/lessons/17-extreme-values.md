@@ -20,6 +20,10 @@ Let $c$ be in the domain of $f$.
 
 "Extremum" (plural "extrema") means either a max or a min.
 
+The picture below shows the kinds side by side on a closed interval $[a, b]$. An extremum can sit at a smooth peak or valley, at a corner, or at an endpoint, and a local max (or min) need not be the absolute one.
+
+![The graph of a function on a closed interval from a to b. It starts at its lowest point, the absolute minimum, at the left endpoint a; rises to a smooth local maximum; falls to a local minimum at a sharp corner, where the derivative is undefined; rises to the highest point, the absolute maximum, at a smooth peak; and falls to the right endpoint b.](images/calc-m5-extrema.svg)
+
 ```plot
 {"x": [-0.5, 6.5], "y": [-6, 14], "functions": [{"f": "0.5x^3 - 4.5x^2 + 12x - 5", "from": 0, "to": 6}], "points": [{"at": [0, -5], "label": "abs min"}, {"at": [2, 5], "label": "local max"}, {"at": [4, 3], "label": "local min"}, {"at": [6, 13]}], "caption": "Local extrema at x = 2 and x = 4; on [0, 6] the absolute min is at the left endpoint"}
 ```
@@ -115,6 +119,20 @@ The MVT turns information about $f'$ into information about $f$:
 - **If $f' = g'$ on an interval, then $f = g + C$.** Functions with the same derivative differ by a constant; this is the foundation of antiderivatives (Lesson 21).
 - **If $f' > 0$ on an interval, $f$ is increasing there** (next lesson).
 - *Bounds:* if $|f'| \le M$, then $|f(b) - f(a)| \le M|b - a|$.
+
+The theorems of this lesson form a chain, each one proved from the ones before it:
+
+```mermaid
+flowchart TD
+  accTitle: How the theorems of this lesson build on each other
+  accDescr: The Extreme Value Theorem and Fermat's theorem together prove Rolle's theorem. Tilting the picture turns Rolle's theorem into the Mean Value Theorem. The Mean Value Theorem has three consequences: a zero derivative means the function is constant, equal derivatives mean the functions differ by a constant, and a positive derivative means the function is increasing.
+  EVT["Extreme Value Theorem: a max and a min exist"] --> R["Rolle's theorem"]
+  F["Fermat's theorem: f' = 0 at an interior extremum"] --> R
+  R -- "tilt the picture" --> MVT["Mean Value Theorem"]
+  MVT --> C1["f' = 0 means f is constant"]
+  MVT --> C2["f' = g' means f = g + C"]
+  MVT --> C3["f' #gt; 0 means f is increasing"]
+```
 
 ## Common mistakes
 
