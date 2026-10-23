@@ -4,13 +4,13 @@ module: mv-m4
 title: 'Why the second-derivative test works: quadratic forms and the Hessian'
 minutes: 45
 topics: [Quadratic forms and the Hessian]
-drills: [mv-m4-r2-minors, mv-m4-r2-eigen]
+drills: [mv-m4-r2-minors, mv-m4-r2-crit3]
 refs: [mv-ref-differential]
 honors: true
 ---
 ## Opening the black box
 
-Lesson 17 gave you a rule: compute $D = f_{xx}f_{yy} - f_{xy}^2$ at a critical point, and read off minimum, maximum or saddle from the signs of $D$ and $f_{xx}$. It works, but as stated it is a black box. This honors lesson opens it. You will see where the rule comes from (completing the square in a quadratic), what the Hessian matrix has to do with the shape of a surface, and how the same idea classifies critical points of functions of three variables, where Lesson 17's rule says nothing. The tools here, quadratic forms, eigenvalues and principal minors, are the ones used throughout engineering, physics and statistics whenever something is optimized in many variables.
+Lesson 17 gave you a rule: compute $D = f_{xx}f_{yy} - f_{xy}^2$ at a critical point, and read off minimum, maximum or saddle from the signs of $D$ and $f_{xx}$. It works, but as stated it is a black box. This honors lesson opens it. You will see where the rule comes from (completing the square in a quadratic), what the Hessian matrix has to do with the shape of a surface, and how the same idea classifies critical points of functions of three variables, where Lesson 17's rule says nothing. (The optional module 1 lesson on quadratic forms met the same algebra while tilting conics and quadric surfaces, and took the link to the second-derivative test on trust; this lesson supplies the proof. You do not need that lesson to follow this one.) The tools here, quadratic forms, eigenvalues and principal minors, are the ones used throughout engineering, physics and statistics whenever something is optimized in many variables.
 
 ## The quadratic that decides
 
@@ -22,7 +22,7 @@ with every partial evaluated at $(a, b)$. At a critical point $f_x = f_y = 0$, s
 
 $$f(a + h, b + k) - f(a, b) \approx \tfrac12\,Q(h, k),\qquad Q(h, k) = Ah^2 + 2Bhk + Ck^2,$$
 
-where $A = f_{xx}$, $B = f_{xy}$, $C = f_{yy}$ at the point. A homogeneous quadratic like $Q$ (every term of degree exactly 2) is called a **quadratic form**. Whether $f$ goes up or down as you leave the critical point depends, to a first approximation, only on the sign of $Q$.
+where $A = f_{xx}$, $B = f_{xy}$, $C = f_{yy}$ at the point. A homogeneous quadratic like $Q$ (every term of degree exactly 2) is called a quadratic form. Whether $f$ goes up or down as you leave the critical point depends, to a first approximation, only on the sign of $Q$.
 
 There are three main cases. $Q$ is **positive definite** if $Q(h, k) > 0$ for every $(h, k) \ne (0, 0)$: then $f$ rises in every direction, a local minimum. It is **negative definite** if $Q(h, k) < 0$ for every $(h, k) \ne (0, 0)$: a local maximum. It is **indefinite** if it takes both positive and negative values: a saddle.
 
@@ -48,7 +48,7 @@ The coefficients of $Q$ form the **Hessian** matrix
 
 $$H = \begin{bmatrix} f_{xx} & f_{xy}\\ f_{xy} & f_{yy}\end{bmatrix},\qquad Q(h, k) = \begin{bmatrix} h & k\end{bmatrix} H \begin{bmatrix} h\\ k\end{bmatrix}.$$
 
-$H$ is symmetric (by Clairaut's theorem), and a symmetric matrix has real **eigenvalues** $\lambda_1, \lambda_2$ with perpendicular eigenvectors. In coordinates $(u, v)$ along those eigenvectors, the cross term disappears and $Q = \lambda_1u^2 + \lambda_2v^2$. The classification becomes a statement about signs:
+$H$ is symmetric (by Clairaut's theorem), and a symmetric matrix has real eigenvalues $\lambda_1, \lambda_2$ (numbers with $H\mathbf v = \lambda\mathbf v$ for some nonzero vector $\mathbf v$, the eigenvector; they solve $\det(H - \lambda I) = 0$) with perpendicular eigenvectors. In coordinates $(u, v)$ along those eigenvectors, the cross term disappears and $Q = \lambda_1u^2 + \lambda_2v^2$. The classification becomes a statement about signs:
 
 | Eigenvalues of $H$ | Quadratic form | Critical point |
 |---|---|---|

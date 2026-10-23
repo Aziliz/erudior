@@ -41,7 +41,7 @@
 <circle cx="588" cy="414" r="6.5" fill="#1c2833"/>
 <circle cx="552" cy="362" r="6.5" fill="#1c2833"/>
 <text x="200" y="280" font-size="20" text-anchor="middle" fill="#1c2833">Accurate and precise</text>
-<text x="600" y="280" font-size="20" text-anchor="middle" fill="#1c2833">Precise, not accurate</text>
-<text x="200" y="550" font-size="20" text-anchor="middle" fill="#1c2833">Accurate, not precise</text>
-<text x="600" y="550" font-size="20" text-anchor="middle" fill="#1c2833">Neither</text>
+<text x="600" y="280" font-size="20" text-anchor="middle" fill="#1c2833">Precise but not accurate</text>
+<text x="200" y="550" font-size="20" text-anchor="middle" fill="#1c2833">Accurate but not precise</text>
+<text x="600" y="550" font-size="20" text-anchor="middle" fill="#1c2833">Neither accurate nor precise</text>
 </svg>
