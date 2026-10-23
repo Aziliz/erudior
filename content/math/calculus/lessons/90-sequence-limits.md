@@ -15,7 +15,7 @@ Sequences come first because they are the simplest limits, and because the later
 
 ## The ε–N definition
 
-The **ε–N definition** of a sequence limit: $\displaystyle\lim_{n\to\infty} a_n = L$ means
+The precise definition of the **limit of a sequence** has the same ε–N form as a limit at infinity, with whole numbers $n$ in place of $x$. $\displaystyle\lim_{n\to\infty} a_n = L$ means
 
 > for every $\varepsilon > 0$ there is a number $N$ such that $|a_n - L| < \varepsilon$ for every $n > N$.
 
@@ -81,7 +81,7 @@ a contradiction. So $L = M$.
 *Proof.* Let $\varepsilon > 0$. Use the tolerance $\frac\varepsilon2$ on each sequence: there is $N_1$ with $|a_n - L| < \frac\varepsilon2$ for $n > N_1$, and $N_2$ with $|b_n - M| < \frac\varepsilon2$ for $n > N_2$. Let $N = \max(N_1, N_2)$. For $n > N$, both hold, and the triangle inequality gives
 $$|(a_n + b_n) - (L + M)| \le |a_n - L| + |b_n - M| < \tfrac\varepsilon2 + \tfrac\varepsilon2 = \varepsilon.$$
 
-The "$\frac\varepsilon2$ trick" and "take the max of the cutoffs" appear in almost every proof of this kind. The product and quotient laws are proved the same way, with more bookkeeping.
+The "$\frac\varepsilon2$ trick" and "take the max of the cutoffs" appear in almost every proof of this kind. (The Module 1 honors lesson on precise limits proves the same law for functions of $x$, taking the minimum of two δ's where we take the maximum of two cutoffs.) The product and quotient laws are proved the same way, with more bookkeeping.
 
 ## Subsequences
 

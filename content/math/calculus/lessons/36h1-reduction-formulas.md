@@ -81,7 +81,7 @@ Evaluate $\displaystyle\int_0^{\pi/2}\sin^5x\,dx$ and $\displaystyle\int_0^{\pi/
 Compare the work with Lesson 32's methods: $\cos^6x$ would need the half-angle identity three times and a $\cos^32x$ term along the way. The reduction formula does it in one line.
 
 ```plot
-{"x": [0, 1.7], "y": [0, 1.15], "functions": [{"f": "sin(x)", "from": 0, "to": 1.5708, "label": "n = 1"}, {"f": "sin(x)^2", "from": 0, "to": 1.5708, "label": "n = 2"}, {"f": "sin(x)^4", "from": 0, "to": 1.5708, "label": "n = 4"}, {"f": "sin(x)^8", "from": 0, "to": 1.5708, "label": "n = 8"}], "caption": "sinⁿx on [0, π/2] for n = 1, 2, 4, 8: each higher power lies below the one before, so the areas Wₙ shrink as n grows"}
+{"x": [0, 1.7], "y": [0, 1.15], "functions": [{"f": "sin(x)", "from": 0, "to": 1.5708}, {"f": "sin(x)^2", "from": 0, "to": 1.5708}, {"f": "sin(x)^4", "from": 0, "to": 1.5708}, {"f": "sin(x)^8", "from": 0, "to": 1.5708}], "caption": "sinⁿx on [0, π/2] for n = 1, 2, 4, 8 (top curve to bottom curve): each higher power lies below the one before, so the areas Wₙ shrink as n grows"}
 ```
 
 ## Tangent: a formula without parts

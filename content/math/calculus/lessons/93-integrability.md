@@ -78,7 +78,7 @@ The upper integral is 1, the lower integral is 0, and $D$ is not integrable. In 
 $$U - L = \sum_{i=1}^n \big[f(x_i) - f(x_{i-1})\big]\Delta x = \big[f(b) - f(a)\big]\frac{b - a}{n},$$
 because the sum telescopes. Choosing $n > \frac{[f(b) - f(a)](b - a)}{\varepsilon}$ makes $U - L < \varepsilon$, so Riemann's criterion applies. Decreasing functions work the same way. ∎
 
-The picture explains the telescoping. Each sliver between the upper and lower rectangles has width $\Delta x$; slide them all sideways into one column and they stack up to height $f(b) - f(a)$.
+The picture explains the telescoping (the Module 6 honors lesson "From sums to integrals and back" used the same picture to bound the error of left and right sums; here it proves integrability). Each sliver between the upper and lower rectangles has width $\Delta x$; slide them all sideways into one column and they stack up to height $f(b) - f(a)$.
 
 ![An increasing curve over [a, b] split into four equal pieces. On each piece a lower rectangle sits under the curve and a taller upper rectangle covers it; the difference between them is a shaded sliver at the top of each upper rectangle. At the right, the four slivers are slid sideways and stacked into one column of width Δx whose height equals f(b) − f(a).](images/calc-h1-darboux.svg)
 

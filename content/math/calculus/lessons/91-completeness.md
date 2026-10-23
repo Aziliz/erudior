@@ -13,7 +13,7 @@ Lesson 40 stated that a bounded monotone sequence converges, with the reason "th
 $$1,\quad 1.4,\quad 1.41,\quad 1.414,\quad 1.4142,\quad \dots$$
 (the decimal places of $\sqrt2$, cut off one at a time) is increasing, bounded above by 2, and made entirely of rational numbers. If the rational numbers were the only numbers, it would have no limit at all, because $\sqrt2$ is not rational. The same holes would wreck the Intermediate Value Theorem: on the rationals, $x^2 - 2$ is negative at 1, positive at 2, and zero nowhere.
 
-So the theorems of calculus depend on some property that the real numbers have and the rationals lack. This lesson names that property, completeness, and derives from it the tools that Lessons 92 and 93 use.
+The Module 1 honors lesson on the IVT put it this way: the IVT "is really a statement that the real line has no holes." So the theorems of calculus depend on some property that the real numbers have and the rationals lack. This lesson names that property, completeness, and derives from it the tools that Lessons 92 and 93 use.
 
 ## Bounds, suprema and infima
 
