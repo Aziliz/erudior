@@ -1,0 +1,461 @@
+# Round 2, module calc-m4 (Rates and approximation): new question types for the core lessons,
+# and the two honors lessons (16h1, 16h2).
+
+# ---------- Lesson 14: related rates ----------
+- id: calc-m4-r2-q01
+  lesson: calc-related-rates
+  module_quiz: true
+  topic: Related rates
+  type: label
+  stem: 'A person walks away from a streetlight. Name the numbered parts of the setup.'
+  image: {src: images/calc-m4-streetlight-blank.svg, alt: 'A light post on the left with a lamp at the top, a person standing to the right, and a dashed light ray from the lamp over the person''s head to a point on the ground. Below the ground are two distance arrows side by side and a longer arrow under both. Five numbered markers: on the post, on the person, on the left distance arrow, on the right distance arrow, and on the point where the ray meets the ground.'}
+  labels:
+    - {x: 12.5, y: 47.5, text: Light post (15 ft)}
+    - {x: 50, y: 63, text: Person (6 ft)}
+    - {x: 31.25, y: 83.75, text: Distance x from post to person}
+    - {x: 62.5, y: 83.75, text: Length of the shadow}
+    - {x: 75, y: 75, text: Tip of the shadow}
+  distractors: [Height of the lamp above the person's head, Speed of the person]
+  explanation: |-
+    The post (1) holds the light; the person (2) blocks the ray that grazes their head, and that ray hits the ground at the tip of the shadow (5). Along the ground, $x$ (3) runs from the post to the person and the shadow (4) runs from the person to the tip, so the long arrow underneath is $s = x + \text{shadow}$. Similar triangles give $\frac{15}{s} = \frac{6}{s - x}$.
+- id: calc-m4-r2-q02
+  lesson: calc-related-rates
+  topic: Related rates
+  type: order
+  stem: 'Water drains from an inverted cone (height 12 m, top radius 4 m) at 2 m³/min. Put the steps for finding $\frac{dh}{dt}$ when $h = 6$ in order.'
+  items:
+    - 'Write $V = \frac13\pi r^2h$'
+    - 'Use similar triangles, $r = \frac h3$, to get $V = \frac{\pi}{27}h^3$'
+    - 'Differentiate with respect to $t$: $\frac{dV}{dt} = \frac{\pi}{9}h^2\frac{dh}{dt}$'
+    - 'Substitute $h = 6$ and $\frac{dV}{dt} = -2$'
+    - 'Solve: $\frac{dh}{dt} = -\frac{1}{2\pi}$ m/min'
+  explanation: |-
+    Each step needs the one before it: the volume formula, then eliminating $r$ (so only one rate is unknown), then differentiating, and only after that substituting the instant's values $h = 6$ and $\frac{dV}{dt} = -2$. Substituting before differentiating would freeze $h$ and lose $\frac{dh}{dt}$.
+- id: calc-m4-r2-q03
+  lesson: calc-related-rates
+  module_quiz: true
+  topic: Related rates
+  type: text
+  stem: 'A circle''s radius grows at 4 cm/s. When $r = 3$ cm, its area grows at ___$\pi$ cm²/s. (Give only the number that multiplies $\pi$.)'
+  accept: ['24']
+  explanation: |-
+    $A = \pi r^2$, so $\frac{dA}{dt} = 2\pi r\frac{dr}{dt} = 2\pi(3)(4) = 24\pi$ cm²/s.
+- id: calc-m4-r2-q04
+  lesson: calc-related-rates
+  topic: Related rates
+  stem: 'Which of these are mistakes in a related-rates solution? Select all that apply.'
+  choices:
+    - 'Substituting $r = 5$ into the equation before differentiating'
+    - 'Writing $\frac{dV}{dt} = +2$ for a tank that is draining at 2 m³/min'
+    - 'Differentiating $y^2$ with respect to $t$ as $2y$, with no $\frac{dy}{dt}$'
+    - 'Using the original equation to find $y$ at the instant'
+  answer: [0, 1, 2]
+  explanation: |-
+    Substituting early turns $r$ into a constant, so its rate disappears. Draining means $V$ is decreasing, so $\frac{dV}{dt} = -2$. By the chain rule $\frac{d}{dt}y^2 = 2y\frac{dy}{dt}$. Using the original equation to get a missing value at the instant (like the ladder's $y = 12$) is exactly right, not a mistake.
+- id: calc-m4-r2-q05
+  lesson: calc-related-rates
+  topic: Related rates
+  stem: 'A 6-ft person walks away from an 18-ft streetlight at 4 ft/s. How fast is the length of the shadow growing?'
+  choices: ['$6$ ft/s', '$4$ ft/s', '$3$ ft/s', '$2$ ft/s']
+  answer: 3
+  explanation: |-
+    With $x$ = person's distance and $s$ = tip's distance from the post, similar triangles give $\frac{18}{s} = \frac{6}{s - x}$, so $18s - 18x = 6s$ and $s = \frac32x$. The shadow's length is $s - x = \frac12x$, so it grows at $\frac12(4) = 2$ ft/s. ($6$ ft/s is the speed of the tip, $\frac{ds}{dt}$.)
+
+# ---------- Lesson 15: linearization, differentials, Newton ----------
+- id: calc-m4-r2-q06
+  lesson: calc-linearization
+  module_quiz: true
+  topic: Linearization
+  type: label
+  stem: 'Name the numbered parts of this picture of differentials.'
+  image: {src: images/calc-m4-differentials-blank.svg, alt: 'An upward-bending curve and a straight line touching it at a point above x = a. A dashed horizontal segment runs from the touching point to x = a + dx. Above its right end, a short green vertical segment rises to the straight line, and a longer arrow beside it rises to the curve. Five numbered markers: on the curve, on the straight line, on the dashed horizontal segment, on the green segment, and on the longer arrow.'}
+  labels:
+    - {x: 65.2, y: 36.9, text: Curve y = f(x)}
+    - {x: 54.2, y: 58.3, text: Tangent line at a}
+    - {x: 54.9, y: 72.6, text: dx (the change in x)}
+    - {x: 72, y: 57.7, text: dy (rise along the tangent line)}
+    - {x: 77.4, y: 54.8, text: Δy (rise along the curve)}
+  distractors: [Secant line, Relative error]
+  explanation: |-
+    The curve (1) and its tangent line at $a$ (2) start together. Moving right by $dx$ (3), the tangent line rises by $dy = f'(a)\,dx$ (4), while the curve itself rises by $\Delta y$ (5). Here the curve bends upward, so $\Delta y > dy$; the gap is the error of the linear approximation.
+- id: calc-m4-r2-q07
+  lesson: calc-linearization
+  topic: Linearization
+  type: text
+  stem: 'Use the linearization of $f(x) = \sqrt x$ at $a = 25$ to estimate $\sqrt{25.5}$. The estimate is ___ (exact decimal).'
+  accept: ['5.05']
+  explanation: |-
+    $f(25) = 5$ and $f'(25) = \frac{1}{2\sqrt{25}} = \frac1{10}$, so $L(25.5) = 5 + \frac1{10}(0.5) = 5.05$. The true value is $5.04975\ldots$; $\sqrt x$ is concave down, so the estimate is slightly high.
+- id: calc-m4-r2-q08
+  lesson: calc-linearization
+  topic: Linearization
+  type: match
+  stem: 'Match each function to its linearization at $x = 0$.'
+  pairs:
+    - ['$e^x$', 1 + x]
+    - ['$\sin x$', x]
+    - ['$\cos x$', '1']
+    - ['$\sqrt{1 + x}$', 1 + x/2]
+    - ['$(1 + x)^3$', 1 + 3x]
+  distractors: [1 - x]
+  explanation: |-
+    $L(x) = f(0) + f'(0)x$. For $e^x$: $1 + 1\cdot x$. For $\sin x$: $0 + 1\cdot x$. For $\cos x$: $1 + 0\cdot x = 1$ (the slope at 0 is 0). For $\sqrt{1 + x}$: $f'(0) = \frac12$, so $1 + \frac x2$. For $(1 + x)^3$: $f'(0) = 3$, so $1 + 3x$ (the rule $(1 + x)^k \approx 1 + kx$).
+- id: calc-m4-r2-q09
+  lesson: calc-linearization
+  topic: Newton's method
+  type: order
+  stem: 'Put the steps for approximating $\sqrt{10}$ with Newton''s method from $x_0 = 3$ in order.'
+  items:
+    - 'Write $\sqrt{10}$ as the positive root of $f(x) = x^2 - 10$'
+    - 'Differentiate: $f''(x) = 2x$'
+    - 'Compute $x_1 = 3 - \frac{9 - 10}{6} \approx 3.1667$'
+    - 'Compute $x_2 = x_1 - \frac{f(x_1)}{f''(x_1)}$'
+    - 'Stop once further steps no longer change the digits you need'
+  explanation: |-
+    You need the equation before you can differentiate it, and $f'$ before the first step $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}$. Each new guess uses the previous one, and you stop when the digits settle ($x_2 \approx 3.16228$ already matches $\sqrt{10}$ to 5 decimals).
+- id: calc-m4-r2-q10
+  lesson: calc-linearization
+  module_quiz: true
+  topic: Linearization
+  stem: 'For which of these does the tangent-line approximation at the given point give an overestimate (for $x$ near the point)? Select all that apply.'
+  choices:
+    - '$\sqrt x$ at $a = 4$'
+    - '$e^x$ at $a = 0$'
+    - '$\ln x$ at $a = 1$'
+    - '$x^2$ at $a = 3$'
+    - '$\cos x$ at $a = 0$'
+  answer: [0, 2, 4]
+  explanation: |-
+    The tangent line overestimates where the curve is concave down ($f'' < 0$). $\sqrt x$: $f'' = -\frac{1}{4x^{3/2}} < 0$. $\ln x$: $f'' = -\frac{1}{x^2} < 0$. $\cos x$ at 0: $f''(0) = -1 < 0$ (indeed $\cos x \le 1 = L(x)$). But $e^x$ and $x^2$ are concave up, so their tangent lines underestimate.
+
+# ---------- Lesson 16: L'Hôpital's rule ----------
+- id: calc-m4-r2-q11
+  lesson: calc-lhopital
+  topic: L'Hôpital's rule
+  type: match
+  stem: 'Match each indeterminate form to the first thing to do with it.'
+  pairs:
+    - ['$0\cdot\infty$', Rewrite the product as a quotient]
+    - ['$\infty - \infty$', Combine into one fraction]
+    - ['$1^\infty$', 'Take ln, find its limit, then exponentiate']
+    - ['$0^0$', 'Take ln, find its limit, then exponentiate']
+    - ['$\dfrac{0}{0}$', Apply L'Hôpital's rule (or algebra) directly]
+  distractors: [Not indeterminate; just substitute]
+  explanation: |-
+    Only $\frac00$ and $\frac\infty\infty$ go straight into L'Hôpital's rule. A product $fg$ becomes $\frac{f}{1/g}$; a difference is combined over a common denominator; and the power forms $1^\infty$, $0^0$, $\infty^0$ are handled by $\ln y = g\ln f$, a $0\cdot\infty$ form, with $e^L$ at the end.
+- id: calc-m4-r2-q12
+  lesson: calc-lhopital
+  module_quiz: true
+  topic: L'Hôpital's rule
+  type: text
+  stem: '$\displaystyle\lim_{x\to0}\frac{e^{3x} - 1}{x} =$ ___'
+  accept: ['3']
+  explanation: |-
+    The form is $\frac00$. L'Hôpital's rule: $\lim_{x\to0}\frac{3e^{3x}}{1} = 3$.
+- id: calc-m4-r2-q13
+  lesson: calc-lhopital
+  topic: L'Hôpital's rule
+  stem: 'Which of these limit forms are indeterminate? Select all that apply.'
+  choices: ['$\dfrac{0}{0}$', '$\dfrac{1}{0}$', '$0^0$', '$\infty^0$', '$0^\infty$']
+  answer: [0, 2, 3]
+  explanation: |-
+    $\frac00$, $0^0$ and $\infty^0$ can come out to anything, so they are indeterminate. $\frac10$ means the limit is infinite or does not exist (check signs), and $0^\infty$ is always 0: a base heading to 0 raised to ever larger powers just shrinks.
+- id: calc-m4-r2-q14
+  lesson: calc-lhopital
+  module_quiz: true
+  topic: L'Hôpital's rule
+  type: order
+  stem: 'Put the steps for finding $\displaystyle\lim_{x\to\infty}\left(1 + \frac2x\right)^x$ in order.'
+  items:
+    - 'Let $y = \left(1 + \frac2x\right)^x$'
+    - 'Take logs: $\ln y = x\ln\left(1 + \frac2x\right)$'
+    - 'Rewrite as $\dfrac{\ln(1 + 2/x)}{1/x}$, a $\frac00$ form'
+    - 'Apply L''Hôpital''s rule: $\ln y \to 2$'
+    - 'Exponentiate: $y \to e^2$'
+  explanation: |-
+    The $1^\infty$ recipe: name the expression, take logs to get a $0\cdot\infty$ form, rewrite it as a quotient, apply L'Hôpital's rule, and only at the end exponentiate. The limit of $\ln y$ is 2, but the answer is $e^2$.
+- id: calc-m4-r2-q15
+  lesson: calc-lhopital
+  topic: L'Hôpital's rule
+  stem: 'Find $\displaystyle\lim_{x\to0^+}(1 + 4x)^{1/x}$.'
+  choices: ['$1$', '$e^4$', '$4$', '$e^{1/4}$']
+  answer: 1
+  explanation: |-
+    This is $1^\infty$. $\ln y = \dfrac{\ln(1 + 4x)}{x}$, a $\frac00$ form; L'Hôpital gives $\dfrac{4/(1 + 4x)}{1} \to 4$. So $y \to e^4$. Answering 1 treats $1^\infty$ as 1; answering 4 forgets to exponentiate.
+
+# ---------- Honors 16h1: error bounds and the speed of Newton's method ----------
+- id: calc-m4-r2-h01
+  lesson: calc-m4-h-error-convergence
+  topic: Approximation error
+  stem: 'The linearization of $\sqrt x$ at $a = 9$ estimates $\sqrt{9.2} \approx 3.0\overline{3}$. Using $|f''''(x)| \le M$ on $[9, 9.2]$ with the best such $M$, the error bound $\frac M2(x - a)^2$ is'
+  choices: ['$\tfrac{1}{1080} \approx 0.00093$', '$\tfrac{1}{2700} \approx 0.00037$', '$\tfrac{1}{5400} \approx 0.000185$', '$\tfrac{1}{1800} \approx 0.00056$']
+  answer: 2
+  explanation: |-
+    $f''(x) = -\frac{1}{4x^{3/2}}$, largest in size at $x = 9$: $M = \frac{1}{4\cdot27} = \frac1{108}$. The bound is $\frac{1}{216}(0.2)^2 = \frac{0.04}{216} = \frac{1}{5400}$. (The actual error is about 0.000183.) $\frac1{2700}$ drops the $\frac12$, $\frac1{1080}$ forgets to square $0.2$, and $\frac1{1800}$ uses $\frac{1}{4x}$ instead of $\frac{1}{4x^{3/2}}$.
+- id: calc-m4-r2-h02
+  lesson: calc-m4-h-error-convergence
+  topic: Approximation error
+  stem: 'With the same $M$, you move $x$ three times closer to $a$. The error bound $\frac M2(x - a)^2$ is multiplied by'
+  choices: ['$\tfrac13$', '$\tfrac19$', '$\tfrac1{27}$', '$\tfrac16$']
+  answer: 1
+  explanation: |-
+    The bound has $(x - a)^2$, so dividing the distance by 3 divides the bound by $3^2 = 9$.
+- id: calc-m4-r2-h03
+  lesson: calc-m4-h-error-convergence
+  topic: Approximation error
+  type: text
+  stem: 'If $|f''''(t)| \le 6$ for every $t$ between $a$ and $x$, and $|x - a| = 0.1$, then $|f(x) - L(x)|$ is at most ___.'
+  accept: ['0.03']
+  explanation: |-
+    $\frac M2(x - a)^2 = \frac62(0.1)^2 = 3(0.01) = 0.03$.
+- id: calc-m4-r2-h04
+  lesson: calc-m4-h-error-convergence
+  topic: Approximation error
+  stem: 'You use $e^x \approx 1 + x$ for $0 \le x \le 0.5$. Which value of $M$ gives a valid error bound on that whole interval?'
+  choices: ['$M = 1$, the value of $f''''$ at $a = 0$', '$M = e^{0.25}$, the value at the midpoint', '$M = 0.5$', '$M = e^{0.5} \approx 1.65$']
+  answer: 3
+  explanation: |-
+    $M$ must bound $|f''(t)| = e^t$ for every $t$ in $[0, 0.5]$, and $e^t$ is largest at the right end: $M = e^{0.5}$. Using $f''(0) = 1$ or the midpoint value gives a bound that can be too small, a false guarantee.
+- id: calc-m4-r2-h05
+  lesson: calc-m4-h-error-convergence
+  topic: Approximation error
+  stem: 'Which statements about the bound $|f(x) - L(x)| \le \frac M2(x - a)^2$ are true? Select all that apply.'
+  choices:
+    - 'It holds whenever $|f''''| \le M$ at every point between $a$ and $x$'
+    - 'A larger valid $M$ still gives a true bound, just a looser one'
+    - 'It always equals the actual error'
+    - 'If $f'''' = 0$ everywhere between $a$ and $x$, then $L(x) = f(x)$ exactly'
+    - 'You may take $M = |f''''(a)|$, the value at the point of tangency'
+  answer: [0, 1, 3]
+  explanation: |-
+    The bound is a guarantee under the hypothesis $|f''| \le M$ on the interval; any larger $M$ also satisfies the hypothesis, so it also gives a true (weaker) bound. With $f'' = 0$ you can take $M = 0$: the function is linear there and equals its tangent line. The bound is usually larger than the actual error, and $|f''(a)|$ alone need not bound $|f''|$ on the interval.
+- id: calc-m4-r2-h06
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  stem: 'Near a simple root, Newton''s method has $e_{n+1} \approx Ce_n^2$. If $C \approx 1$ and the error is now about $10^{-3}$, the error after one more step is about'
+  choices: ['$10^{-4}$', '$2\times10^{-3}$', '$10^{-6}$', '$10^{-9}$']
+  answer: 2
+  explanation: |-
+    $e_{n+1} \approx 1\cdot(10^{-3})^2 = 10^{-6}$: three correct decimals become about six. That is the "digits double" behavior of quadratic convergence.
+- id: calc-m4-r2-h07
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  type: text
+  stem: 'Near a simple root, Newton''s method converges ___ (the error is roughly squared each step); at a double root it converges only linearly.'
+  accept: [quadratically, quadratic, with quadratic convergence]
+  explanation: |-
+    Quadratic convergence: $e_{n+1} \approx \frac{f''(r)}{2f'(r)}e_n^2$. At a double root $f'(r) = 0$, and the error only shrinks by a fixed factor (about $\frac12$) per step.
+- id: calc-m4-r2-h08
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  stem: 'Apply Newton''s method to $f(x) = (x - 2)^2$ from $x_0 = 3$. What is $x_2$?'
+  choices: ['$2.25$', '$2.5$', '$2$', '$2.125$']
+  answer: 0
+  explanation: |-
+    $\frac{f}{f'} = \frac{(x - 2)^2}{2(x - 2)} = \frac{x - 2}{2}$, so each step halves the distance to 2: $x_1 = 3 - \frac12 = 2.5$, $x_2 = 2.5 - \frac14 = 2.25$. This is linear convergence at a double root, $e_{n+1} = \frac12e_n$.
+- id: calc-m4-r2-h09
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  type: match
+  stem: 'Match each situation to how the iteration behaves.'
+  pairs:
+    - [Newton's method at a simple root from a nearby start, Quadratic convergence (digits roughly double)]
+    - [Newton's method at a double root, 'Linear convergence (error roughly halves)']
+    - ['Newton''s method on $x^3 - 2x + 2$ from $x_0 = 0$', Cycles between 0 and 1 forever]
+    - ['Newton''s method on $x^{1/3}$ from $x_0 = 1$', Moves away; the distance doubles each step]
+    - [The secant method at a simple root, Order about 1.618 (between linear and quadratic)]
+  distractors: [Reaches the root exactly in one step]
+  explanation: |-
+    Near a simple root Newton's errors square. At a double root the error ratio tends to $\frac{m - 1}{m} = \frac12$. For $x^3 - 2x + 2$, the tangent at 0 hits the axis at 1 and the tangent at 1 hits it at 0. For $x^{1/3}$, $x_{n+1} = -2x_n$. The secant method's order is the golden ratio, about 1.618.
+- id: calc-m4-r2-h10
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  type: order
+  stem: 'Put the steps of the argument that Newton''s method converges quadratically in order.'
+  items:
+    - 'Write $0 = f(r) = f(x_n) + f''(x_n)(r - x_n) + \frac12f''''(\xi)(r - x_n)^2$'
+    - 'Divide through by $f''(x_n)$'
+    - 'Replace $\frac{f(x_n)}{f''(x_n)}$ by $x_n - x_{n+1}$, from Newton''s formula'
+    - 'Conclude $x_{n+1} - r = \frac{f''''(\xi)}{2f''(x_n)}(x_n - r)^2$, so $e_{n+1} \approx Ce_n^2$'
+  explanation: |-
+    Start from the exact tangent-line error at $x_n$ evaluated at the root, divide by $f'(x_n)$ so that $\frac{f}{f'}$ appears, use Newton's formula to turn it into $x_n - x_{n+1}$, and rearrange: the new error is a constant times the old error squared.
+- id: calc-m4-r2-h11
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  stem: '$f(x) = (x - 1)^3(x + 4)$ has a triple root at $x = 1$. Which iteration restores fast (quadratic) convergence to it?'
+  choices: ['$x_{n+1} = x_n - \dfrac{f(x_n)}{3f''(x_n)}$', '$x_{n+1} = x_n - 2\dfrac{f(x_n)}{f''(x_n)}$', '$x_{n+1} = x_n - \dfrac{f(x_n)}{f''(x_n)}$', '$x_{n+1} = x_n - 3\dfrac{f(x_n)}{f''(x_n)}$']
+  answer: 3
+  explanation: |-
+    At a root of multiplicity $m$, plain Newton gives $e_{n+1} \approx \frac{m - 1}{m}e_n$ (here $\frac23$, slow). Multiplying the step by $m = 3$ cancels that factor and restores quadratic convergence. Dividing by 3 makes the step even shorter.
+- id: calc-m4-r2-h12
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  stem: 'One step of the secant method on $f(x) = x^2 - 5$ with $x_0 = 2$, $x_1 = 3$ gives $x_2 =$'
+  choices: ['$2.25$', '$2.2$', '$2.4$', '$2.5$']
+  answer: 1
+  explanation: |-
+    $f(2) = -1$, $f(3) = 4$. $x_2 = 3 - 4\cdot\dfrac{3 - 2}{4 - (-1)} = 3 - \dfrac45 = 2.2$. ($\sqrt5 \approx 2.236$; $2.25$ is what one Newton step from 2 gives.)
+- id: calc-m4-r2-h13
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  stem: 'Which of these can make Newton''s method fail or converge slowly? Select all that apply.'
+  choices:
+    - 'A starting point where $f''(x_0) = 0$'
+    - 'A double root'
+    - 'A vertical tangent at the root, as for $x^{1/3}$'
+    - 'A simple root with a starting point very close to it'
+  answer: [0, 1, 2]
+  explanation: |-
+    $f'(x_0) = 0$ makes the first step undefined. A double root slows convergence to linear. A vertical tangent at the root (as for $x^{1/3}$, where $x_{n+1} = -2x_n$) drives the guesses away. A simple root with a close start is the ideal case: quadratic convergence.
+- id: calc-m4-r2-h14
+  lesson: calc-m4-h-error-convergence
+  topic: Convergence of Newton's method
+  stem: 'For $f(x) = (x - r)^4$, Newton''s method gives $e_{n+1} = k\,e_n$. What is $k$?'
+  choices: ['$\tfrac14$', '$\tfrac12$', '$\tfrac34$', '$\tfrac43$']
+  answer: 2
+  explanation: |-
+    $\frac{f}{f'} = \frac{(x - r)^4}{4(x - r)^3} = \frac{x - r}{4}$, so $x_{n+1} - r = (x_n - r) - \frac{x_n - r}{4} = \frac34(x_n - r)$. In general $k = \frac{m - 1}{m}$ for multiplicity $m$.
+
+# ---------- Honors 16h2: Cauchy's MVT, the proof of L'Hôpital's rule, orders of growth ----------
+- id: calc-m4-r2-h15
+  lesson: calc-m4-h-cauchy-growth
+  topic: Cauchy's mean value theorem
+  stem: 'Find the $c$ promised by Cauchy''s mean value theorem for $f(x) = x^2$ and $g(x) = x^3$ on $[0, 3]$.'
+  choices: ['$\tfrac32$', '$\sqrt3$', '$1$', '$2$']
+  answer: 3
+  explanation: |-
+    $\frac{f(3) - f(0)}{g(3) - g(0)} = \frac{9}{27} = \frac13$ and $\frac{f'(c)}{g'(c)} = \frac{2c}{3c^2} = \frac{2}{3c}$. Setting $\frac{2}{3c} = \frac13$ gives $c = 2$. ($\frac32$ and $\sqrt3$ are the separate MVT points for $f$ and for $g$.)
+- id: calc-m4-r2-h16
+  lesson: calc-m4-h-cauchy-growth
+  topic: Cauchy's mean value theorem
+  type: text
+  stem: 'Cauchy''s mean value theorem with $g(x) =$ ___ is exactly the ordinary Mean Value Theorem.'
+  accept: [x]
+  explanation: |-
+    With $g(x) = x$, $g'(c) = 1$ and $g(b) - g(a) = b - a$, so the theorem reads $\frac{f(b) - f(a)}{b - a} = f'(c)$.
+- id: calc-m4-r2-h17
+  lesson: calc-m4-h-cauchy-growth
+  topic: Cauchy's mean value theorem
+  type: order
+  stem: 'Put the steps of the proof of Cauchy''s mean value theorem in order.'
+  items:
+    - 'Define $h(x) = [f(b) - f(a)]g(x) - [g(b) - g(a)]f(x)$'
+    - 'Check that $h(a) = h(b)$'
+    - 'Apply Rolle''s theorem: $h''(c) = 0$ for some $c$ in $(a, b)$'
+    - 'Write out $h''(c) = 0$: $[f(b) - f(a)]g''(c) = [g(b) - g(a)]f''(c)$'
+    - 'Divide to get $\dfrac{f(b) - f(a)}{g(b) - g(a)} = \dfrac{f''(c)}{g''(c)}$'
+  explanation: |-
+    The auxiliary function is built so that its end values match; Rolle's theorem then provides a $c$ with $h'(c) = 0$, and that equation rearranges into the theorem. The division is allowed because $g'(c) \ne 0$ and $g(b) \ne g(a)$.
+- id: calc-m4-r2-h18
+  lesson: calc-m4-h-cauchy-growth
+  topic: Cauchy's mean value theorem
+  stem: 'Why can''t the proof of L''Hôpital''s rule just apply the ordinary Mean Value Theorem to $f$ and to $g$ separately?'
+  choices:
+    - 'It gives two possibly different points, so the ratio is $\frac{f''(c_1)}{g''(c_2)}$, not $\frac{f''(c)}{g''(c)}$'
+    - 'The ordinary MVT does not apply to differentiable functions'
+    - 'The ordinary MVT needs $f(a) = f(b)$'
+    - 'The ordinary MVT only works on intervals of length 1'
+  answer: 0
+  explanation: |-
+    Separately, $f(x) - f(a) = f'(c_1)(x - a)$ and $g(x) - g(a) = g'(c_2)(x - a)$ with $c_1 \ne c_2$ in general. Cauchy's theorem supplies one point $c$ that works for both, which is what turns $\frac fg$ into $\frac{f'}{g'}$. (The condition $f(a) = f(b)$ belongs to Rolle's theorem.)
+- id: calc-m4-r2-h19
+  lesson: calc-m4-h-cauchy-growth
+  topic: Cauchy's mean value theorem
+  stem: 'Which of these are used in the proof of the $\frac00$ case of L''Hôpital''s rule as $x \to a^+$? Select all that apply.'
+  choices:
+    - 'Setting $f(a) = g(a) = 0$ so that $f$ and $g$ are continuous on $[a, x]$'
+    - 'Cauchy''s mean value theorem on $[a, x]$'
+    - 'The point $c_x$ lies between $a$ and $x$, so $c_x \to a^+$'
+    - 'The derivatives $f''(a)$ and $g''(a)$ exist, with $g''(a) \ne 0$'
+    - 'The quotient rule'
+  answer: [0, 1, 2]
+  explanation: |-
+    The proof fills in $f(a) = g(a) = 0$, applies Cauchy's theorem to write $\frac{f(x)}{g(x)} = \frac{f'(c_x)}{g'(c_x)}$, and squeezes $c_x$ toward $a$. It never uses $f'(a)$ or $g'(a)$, which is why the rule can be applied again when $\frac{f'}{g'}$ is still $\frac00$, and it never uses the quotient rule.
+- id: calc-m4-r2-h20
+  lesson: calc-m4-h-cauchy-growth
+  topic: Cauchy's mean value theorem
+  stem: 'In Stolz''s example, $f(x) = x + \sin x\cos x$ and $g(x) = e^{\sin x}f(x)$. After cancelling a common $\cos x$, $\frac{f''}{g''} \to 0$, yet $\frac fg = e^{-\sin x}$ has no limit as $x \to \infty$. Which hypothesis of L''Hôpital''s rule fails?'
+  choices: ['$f$ and $g$ are differentiable', 'The form is $\frac\infty\infty$', '$g''(x) \ne 0$ for all large $x$', '$f(x) \to \infty$']
+  answer: 2
+  explanation: |-
+    $g'(x) = e^{\sin x}\cos x\,(x + \sin x\cos x + 2\cos x)$ is 0 whenever $\cos x = 0$, at points as far out as you like. The other three conditions hold: both functions are differentiable, $f \to \infty$, and $g \ge e^{-1}f \to \infty$, so the form really is $\frac\infty\infty$.
+- id: calc-m4-r2-h21
+  lesson: calc-m4-h-cauchy-growth
+  topic: Orders of growth
+  type: match
+  stem: 'As $x \to \infty$, match each pair $f$, $g$ to how they compare.'
+  pairs:
+    - ['$f = (\ln x)^3$, $g = x^{0.5}$', f grows more slowly (f = o(g))]
+    - ['$f = x^2 + 5x$, $g = x^2$', Asymptotically equivalent (f ~ g)]
+    - ['$f = 2^x$, $g = x^{100}$', f grows faster (g = o(f))]
+    - ['$f = \ln(x^3)$, $g = \ln x$', Same order; the ratio tends to 3]
+  explanation: |-
+    Powers of $\ln x$ lose to every positive power of $x$. $\frac{x^2 + 5x}{x^2} = 1 + \frac5x \to 1$. Exponentials beat every power. And $\ln(x^3) = 3\ln x$, so the ratio is exactly 3: neither is little-o of the other, and they are not asymptotically equivalent either.
+- id: calc-m4-r2-h22
+  lesson: calc-m4-h-cauchy-growth
+  topic: Orders of growth
+  type: order
+  stem: 'Order these from slowest to fastest growth as $x \to \infty$.'
+  items: ['$(\ln x)^3$', '$x^{0.2}$', '$x^2$', '$1.01^x$', '$x^x$']
+  explanation: |-
+    The ladder: powers of $\ln x$, then powers of $x$ (smaller exponent first), then exponentials $b^x$ with $b > 1$, then $x^x$. Even $1.01^x$ eventually passes $x^2$, and $x^x = e^{x\ln x}$ beats every fixed base.
+- id: calc-m4-r2-h23
+  lesson: calc-m4-h-cauchy-growth
+  topic: Orders of growth
+  type: text
+  stem: '$\displaystyle\lim_{x\to\infty}\frac{\ln(x^4 + 1)}{\ln x} =$ ___'
+  accept: ['4']
+  explanation: |-
+    $\frac\infty\infty$. L'Hôpital: $\dfrac{4x^3/(x^4 + 1)}{1/x} = \dfrac{4x^4}{x^4 + 1} \to 4$. So $\ln(x^4 + 1) \sim 4\ln x$.
+- id: calc-m4-r2-h24
+  lesson: calc-m4-h-cauchy-growth
+  topic: Orders of growth
+  stem: 'At $x = 10^{100}$, which is larger: $x^{0.01}$ or $(\ln x)^5$?'
+  choices:
+    - '$x^{0.01}$, because powers of $x$ beat powers of $\ln x$'
+    - '$(\ln x)^5$, which shows $x^{0.01}$ never catches up'
+    - '$(\ln x)^5$, even though $x^{0.01}$ wins eventually'
+    - 'They are equal'
+  answer: 2
+  explanation: |-
+    $x^{0.01} = 10^{1} = 10$, while $\ln x = 100\ln 10 \approx 230.3$ and $(\ln x)^5 \approx 6.5\times10^{11}$. The ladder is still right, but $x^{0.01}$ only takes the lead beyond about $x = 10^{1810}$: "eventually" can be very far away.
+- id: calc-m4-r2-h25
+  lesson: calc-m4-h-cauchy-growth
+  topic: Orders of growth
+  stem: 'What does $x^2 + x \sim x^2$ (as $x \to \infty$) say?'
+  choices:
+    - 'The difference $(x^2 + x) - x^2$ tends to 0'
+    - 'The ratio $\frac{x^2 + x}{x^2}$ tends to 1'
+    - 'The two functions are equal for large $x$'
+    - '$x^2 + x$ grows more slowly than $x^2$'
+  answer: 1
+  explanation: |-
+    Asymptotic equivalence is about the ratio: $\frac{x^2 + x}{x^2} = 1 + \frac1x \to 1$. The difference is $x$, which goes to infinity, so "difference tends to 0" is false.
+- id: calc-m4-r2-h26
+  lesson: calc-m4-h-cauchy-growth
+  topic: Orders of growth
+  stem: 'How many applications of L''Hôpital''s rule turn $\dfrac{x^{100}}{e^x}$ into a quotient whose limit is obvious?'
+  choices: ['$1$', '$99$', '$101$', '$100$']
+  answer: 3
+  explanation: |-
+    Each application lowers the power by one and leaves $e^x$ unchanged: after 100 steps the quotient is $\frac{100!}{e^x} \to 0$. (Each intermediate quotient is still $\frac\infty\infty$, so every step is allowed.)
+- id: calc-m4-r2-h27
+  lesson: calc-m4-h-cauchy-growth
+  topic: Orders of growth
+  stem: 'Which of these are $o(x)$ as $x \to \infty$ (that is, $\frac{f(x)}{x} \to 0$)? Select all that apply.'
+  choices: ['$\sqrt x$', '$(\ln x)^{10}$', '$\dfrac{x}{\ln x}$', '$0.5x$', '$x\ln x$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $\frac{\sqrt x}{x} = \frac{1}{\sqrt x} \to 0$; $\frac{(\ln x)^{10}}{x} \to 0$ (powers of $\ln x$ lose to $x$); $\frac{x/\ln x}{x} = \frac{1}{\ln x} \to 0$. But $\frac{0.5x}{x} = 0.5$ and $\frac{x\ln x}{x} = \ln x \to \infty$.
+- id: calc-m4-r2-h28
+  lesson: calc-m4-h-cauchy-growth
+  topic: Cauchy's mean value theorem
+  stem: 'Picture the path $(g(t), f(t))$ for $a \le t \le b$. Cauchy''s mean value theorem says that at some $t = c$ the path is'
+  choices:
+    - 'horizontal'
+    - 'parallel to the chord joining its two endpoints'
+    - 'vertical'
+    - 'parallel to its tangent at $t = a$'
+  answer: 1
+  explanation: |-
+    The path's slope is $\frac{dy}{dx} = \frac{f'(t)}{g'(t)}$ and the chord's slope is $\frac{f(b) - f(a)}{g(b) - g(a)}$; the theorem says they agree at some $c$. With $g(t) = t$ this is the ordinary MVT picture: a tangent parallel to the secant line.
