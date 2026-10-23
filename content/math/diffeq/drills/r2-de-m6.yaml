@@ -10,11 +10,12 @@
     b: -2*a
     a2: a^2
     c: 6*B
+    na: -a
   prompt: 'Find a particular solution of $y'''' {b:signedcoef}y'' {a2:signed}y = {c:coef}te^{{a:coef}t}$. Type products with a star, e.g. t^3*e^(2t).'
   answers:
     - {kind: expression, expression: 'B*t^3*exp(a*t)', variables: [t], label: '$Y =$', show: '$Y = {B:coef}t^3e^{{a:coef}t}$'}
   solution: |-
-    The operator is $(D {a:signed})^2$ written as $(D - ({a}))^2$, a double root ${a}$, so $e^{{a:coef}t}$ and $te^{{a:coef}t}$ are in $y_c$. Write $Y = e^{{a:coef}t}v$. The exponential shift rule turns $(D - ({a}))^2$ into $D^2$: $e^{{a:coef}t}v'' = {c:coef}te^{{a:coef}t}$, so $v'' = {c:coef}t$ and $v = {B:coef}t^3$ (dropping the $c_1 + c_2t$ that would only reproduce $y_c$). Answer: **$Y = {B:coef}t^3e^{{a:coef}t}$**.
+    The characteristic polynomial is $r^2 {b:signedcoef}r {a2:signed} = (r {na:signed})^2$, a double root $r = {a}$, so $e^{{a:coef}t}$ and $te^{{a:coef}t}$ are in $y_c$. Write $Y = e^{{a:coef}t}v$. The exponential shift rule turns $(D {na:signed})^2$ into $D^2$: $e^{{a:coef}t}v'' = {c:coef}te^{{a:coef}t}$, so $v'' = {c:coef}t$ and $v = {B:coef}t^3$ (dropping the $c_1 + c_2t$ that would only reproduce $y_c$). Answer: **$Y = {B:coef}t^3e^{{a:coef}t}$**.
 - id: de-m6-r2-annihilator-pick
   title: Smallest annihilator
   topic: Annihilators
@@ -25,13 +26,14 @@
   where: ['al != 0']
   calc:
     m: tp + 1
-    tal: 2*al
     cst: al^2 + be^2
+    nal: -al
+    ntal: -2*al
   prompt: 'Find the smallest annihilator of $f(t) = {tp}e^{{al:coef}t}\cos {be:coef}t$. Give it as a polynomial $A(r)$ in $r$ with leading coefficient 1 (factored is fine), e.g. ((r-1)^2+4)^2.'
   answers:
-    - {kind: expression, expression: '((r - al)^2 + be^2)^(tp + 1)', variables: [r], label: '$A(r) =$', show: '$A(r) = \big((r {al:signed})^2 + {be}^2\big)^{{m}}$'}
+    - {kind: expression, expression: '((r - al)^2 + be^2)^(tp + 1)', variables: [r], label: '$A(r) =$', show: '$A(r) = \big((r {nal:signed})^2 + {be}^2\big)^{{m}}$'}
   solution: |-
-    $e^{{al:coef}t}\cos {be:coef}t$ comes from the complex pair $r = {al} \pm {be:coef}i$, whose quadratic is $(r - ({al}))^2 + {be}^2 = r^2 {tal:signedcoef}r + ... $ with constant term ${cst}$. The factor ${tp}$ means the pair must have multiplicity ${m}$, one more than the power of $t$. Answer: **$A(r) = \big((r - ({al}))^2 + {be}^2\big)^{{m}}$**.
+    $e^{{al:coef}t}\cos {be:coef}t$ comes from the complex pair $r = {al} \pm {be:coef}i$, whose quadratic is $(r {nal:signed})^2 + {be}^2 = r^2 {ntal:signedcoef}r + {cst}$. The factor ${tp}$ means the pair must have multiplicity ${m}$, one more than the power of $t$. Answer: **$A(r) = \big((r {nal:signed})^2 + {be}^2\big)^{{m}}$**.
 - id: de-m6-r2-q-bandwidth
   title: Quality factor and bandwidth
   topic: Quality factor

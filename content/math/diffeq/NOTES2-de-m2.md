@@ -17,8 +17,8 @@
 - Mermaid: 7 diagrams (5 core, 2 honors), all rendered with preview-figure.mjs. Plots: 5 core (incl. 1 numberline), 3 honors; all rendered with the app's renderFigure and inspected.
 
 ## Questions: `questions/r2-de-m2.yaml` (64)
-- Core, de-m2-r2-q01 … q25 (5 per lesson): 2 label, 4 match, 5 order, 5 text, 5 select-all, 4 multiple choice. Module quiz: q01, q02, q06, q08, q11, q15, q17, q20, q22, q25 (2 per lesson).
-- Honors, de-m2-r2-h01 … h39 (13 per lesson): Picard h01–h13, Grönwall h14–h26, Riccati/Clairaut h27–h39. Types: 1 label, 2 match, 3 order, 6 text, 3 select-all, 24 multiple choice (note: 6 of 13 per lesson are new types). Single-answer multiple-choice positions are balanced (6 at each index across the file).
+- Core, de-m2-r2-q01 … q25 (5 per lesson): 2 label, 5 match, 5 order, 5 text, 5 select-all, 3 multiple choice. Module quiz: q01, q02, q06, q08, q11, q15, q17, q20, q22, q25 (2 per lesson).
+- Honors, de-m2-r2-h01 … h39 (13 per lesson): Picard h01–h13, Grönwall h14–h26, Riccati/Clairaut h27–h39. Types: 1 label, 3 match, 3 order, 7 text, 4 select-all, 21 multiple choice (6 of the 13 in each lesson are new types). Single-answer multiple-choice positions are balanced (6 at each index across the file).
 
 ## Drills: `drills/r2-de-m2.yaml` (6)
 de-m2-r2-picard-iterate (expression), de-m2-r2-picard-h (exact fraction), de-m2-r2-gronwall-bound and de-m2-r2-gronwall-precision (sigfigs 3), de-m2-r2-riccati (expression), de-m2-r2-clairaut (two numbers). Linked from the honors lessons.

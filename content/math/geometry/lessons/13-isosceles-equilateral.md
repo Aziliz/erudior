@@ -13,6 +13,8 @@ Isosceles triangles are everywhere: roof gables, the two radii and chord of a ci
 
 In an isosceles triangle with exactly two congruent sides, those sides are the **legs**, the third side is the **base**, the angle between the legs is the **vertex angle**, and the two angles touching the base are the **base angles**.
 
+![An isosceles triangle ABC with apex B. The two equal sides AB and CB carry tick marks and are labeled leg; the bottom side AC is labeled base; the angle at B is labeled vertex angle; the angles at A and C are labeled base angle.](images/geo-m4-isosceles.svg)
+
 ```shape
 {"polygons": [{"points": [[0, 0], [6, 0], [3, 5]]}], "segments": [{"from": [1.3, 2.6], "to": [1.7, 2.4]}, {"from": [4.7, 2.4], "to": [4.3, 2.6]}, {"from": [3, 5], "to": [3, 0], "dashed": true}], "rightAngles": [[[3, 0], [6, 0], [3, 5]]], "labels": [{"at": [-0.4, -0.4], "text": "A"}, {"at": [6.4, -0.4], "text": "C"}, {"at": [3, 5.5], "text": "B"}, {"at": [3, -0.5], "text": "D"}], "caption": "Legs AB and CB are congruent; base angles are at A and C. The dashed segment BD bisects the vertex angle and the base."}
 ```
@@ -26,6 +28,20 @@ In an isosceles triangle with exactly two congruent sides, those sides are the *
 The same pair of congruent triangles gives more for free. By CPCTC, $\overline{AD} \cong \overline{CD}$, so $D$ is the midpoint of the base. Also $\angle ADB \cong \angle CDB$, and they form a linear pair, so each is $90^\circ$. So:
 
 **The bisector of the vertex angle of an isosceles triangle is the perpendicular bisector of the base.**
+
+This one pair of congruent triangles does a lot of work. The chart traces each conclusion back to it.
+
+```mermaid
+flowchart TD
+  accTitle: Everything that follows from one pair of congruent triangles in an isosceles triangle
+  accDescr: Start with isosceles triangle ABC with AB congruent to CB, and draw BD, the bisector of angle B. Then triangle ABD is congruent to triangle CBD by SAS. By CPCTC this gives three results: angle A is congruent to angle C, which is the Base Angles Theorem; AD is congruent to CD, so D is the midpoint of the base; and angles ADB and CDB are congruent, and since they form a linear pair each is 90 degrees, so BD is perpendicular to the base. Together the last two say BD is the perpendicular bisector of the base.
+  G["Given: AB = CB; draw BD bisecting angle B"] --> C["Triangle ABD ≅ triangle CBD by SAS"]
+  C --> R1["Angle A ≅ angle C (base angles)"]
+  C --> R2["AD ≅ CD: D is the midpoint of AC"]
+  C --> R3["Angle ADB ≅ angle CDB, a linear pair, so both are 90°"]
+  R2 --> P["BD is the perpendicular bisector of the base"]
+  R3 --> P
+```
 
 **Converse of the Base Angles Theorem.** If two angles of a triangle are congruent, the sides opposite them are congruent. (Proof: draw the bisector of the third angle and use AAS.)
 

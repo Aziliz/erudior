@@ -33,6 +33,10 @@ This looks like SSA, which normally fails. It works here because the angle is $9
 |---|---|
 | SSS, SAS, ASA, AAS, HL (right triangles) | SSA (in general), AAA |
 
+Here are all five valid tests side by side. In each triangle, tick marks show sides and arcs show angles that are known to match the other triangle; the little square in the HL triangle is its right angle.
+
+![Five triangles labeled SSS, SAS, ASA, AAS and HL. SSS has all three sides marked. SAS has two sides and the angle between them marked. ASA has two angles and the side between them marked. AAS has two angles and a side that is not between them marked. HL is a right triangle with its hypotenuse and one leg marked.](images/geo-m4-congruence-tests.svg)
+
 ```shape
 {"polygons": [{"points": [[0, 0], [6, 0], [2, 3]]}, {"points": [[9, 0], [15, 0], [11, 3]]}], "curves": [{"x": "0.9cos(t)", "y": "0.9sin(t)", "t": [0, 0.98]}, {"x": "9 + 0.9cos(t)", "y": "0.9sin(t)", "t": [0, 0.98]}, {"x": "6 - 0.9cos(t)", "y": "0.9sin(t)", "t": [0, 0.64]}, {"x": "6 - 1.1cos(t)", "y": "1.1sin(t)", "t": [0, 0.64]}, {"x": "15 - 0.9cos(t)", "y": "0.9sin(t)", "t": [0, 0.64]}, {"x": "15 - 1.1cos(t)", "y": "1.1sin(t)", "t": [0, 0.64]}], "segments": [{"from": [3, -0.25], "to": [3, 0.25]}, {"from": [12, -0.25], "to": [12, 0.25]}], "caption": "ASA: two angles and the side between them match."}
 ```
@@ -100,6 +104,24 @@ When deciding which shortcut to use, list the three pairs of parts you know and 
 - Right triangles with a hypotenuse and a leg: **HL**.
 
 If what you have is two sides and an angle *not* between them, look for something else: perhaps a right angle (making HL available) or another pair of angles.
+
+The same choice as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a congruence test
+  accDescr: A decision chart. If the triangles are right triangles with a known hypotenuse and leg pair, use HL. Otherwise, with three pairs of sides use SSS. With two pairs of sides and one pair of angles, use SAS if the angle is between the sides; if not, SSA proves nothing, so look for more information. With two pairs of angles and one pair of sides, use ASA if the side is between the angles and AAS if it is not.
+  Q0["What matching parts do you know?"] --> Q1{"Right triangles with hypotenuse and a leg?"}
+  Q1 -- yes --> HL["HL"]
+  Q1 -- no --> Q2{"Which three parts?"}
+  Q2 -- "3 sides" --> SSS["SSS"]
+  Q2 -- "2 sides, 1 angle" --> Q3{"Is the angle between the sides?"}
+  Q3 -- yes --> SAS["SAS"]
+  Q3 -- no --> NO["SSA: not enough, look for more"]
+  Q2 -- "2 angles, 1 side" --> Q4{"Is the side between the angles?"}
+  Q4 -- yes --> ASA["ASA"]
+  Q4 -- no --> AAS["AAS"]
+```
 
 ### Example 4
 

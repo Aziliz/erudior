@@ -1,0 +1,23 @@
+# Round 2 glossary terms for de-m5 (honors lessons 21h1, 21h2)
+- term: solution space
+  aliases: [space of solutions]
+  definition: 'The set of all solutions of a linear homogeneous equation; it is a vector space, and for $y'''' + py'' + qy = 0$ with continuous coefficients it has dimension 2.'
+  topic: Solution spaces
+- term: principal fundamental set
+  aliases: [principal fundamental solutions]
+  definition: 'The two solutions $u_1$, $u_2$ with $u_1(t_0) = 1$, $u_1''(t_0) = 0$ and $u_2(t_0) = 0$, $u_2''(t_0) = 1$; the solution with $y(t_0) = a$, $y''(t_0) = b$ is then $au_1 + bu_2$.'
+  topic: Solution spaces
+- term: Sturm separation theorem
+  definition: 'Between any two consecutive zeros of a solution of $y'''' + py'' + qy = 0$ ($p$, $q$ continuous), every linearly independent solution has exactly one zero.'
+  topic: Oscillation theory
+- term: Sturm comparison theorem
+  definition: 'If $Q_2 \ge Q_1$ (and not identically equal) between consecutive zeros of a solution of $u'''' + Q_1u = 0$, then every solution of $v'''' + Q_2v = 0$ has a zero strictly between them: a larger $Q$ means faster oscillation.'
+  topic: Oscillation theory
+- term: interlace
+  aliases: [interlacing, interlaced]
+  definition: 'Two sets of zeros interlace when they alternate: between any two consecutive zeros of one function lies exactly one zero of the other.'
+  topic: Oscillation theory
+- term: oscillatory
+  aliases: [oscillatory equation, oscillatory solution]
+  definition: 'Having infinitely many zeros on an interval $[t_0, \infty)$. By the Sturm separation theorem, if one solution of a second-order linear equation is oscillatory, all of its nonzero solutions are.'
+  topic: Oscillation theory

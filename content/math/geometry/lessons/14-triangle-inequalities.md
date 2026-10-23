@@ -41,6 +41,18 @@ Intuitively, the straight path from $A$ to $C$ is shorter than the detour throug
 
 If the two shorter sides add to *exactly* the longest, the "triangle" collapses into a segment (it is called degenerate) and isn't a triangle.
 
+The whole test fits in one small chart:
+
+```mermaid
+flowchart TD
+  accTitle: Testing whether three lengths make a triangle
+  accDescr: First sort the three lengths so that a is at most b and b is at most c. Then compare a plus b with c. If a plus b is greater than c, the lengths make a triangle. If a plus b equals c, the figure collapses into a segment, a degenerate triangle, which does not count. If a plus b is less than c, the two short sides cannot meet, so there is no triangle.
+  S["Sort the lengths: a ≤ b ≤ c"] --> C{"Compare a + b with c"}
+  C -- "a + b greater than c" --> Y["A triangle"]
+  C -- "a + b equal to c" --> D["A flat segment: not a triangle"]
+  C -- "a + b less than c" --> N["No triangle: the short sides can't meet"]
+```
+
 ### Example 2
 
 Can segments of lengths 4, 7 and 12 form a triangle? What about 6, 8, 13?
@@ -68,6 +80,10 @@ Picture two sides of a triangle as the arms of a door hinge. Open the hinge wide
 **Hinge Theorem (SAS Inequality).** If two sides of one triangle are congruent to two sides of another, and the included angle of the first is larger, then the third side of the first is longer.
 
 **Converse Hinge Theorem (SSS Inequality).** If two sides of one triangle are congruent to two sides of another, and the third side of the first is longer, then the included angle of the first is larger.
+
+Here is the Hinge Theorem with numbers. Both triangles have sides 5 and 3; opening the included angle from $40^\circ$ to $100^\circ$ nearly doubles the third side (the lengths come from the Law of Cosines, Lesson 26).
+
+![Two triangles, each with sides 5 and 3 meeting at an angle. In the left triangle the angle is 40 degrees and the dashed third side is about 3.32. In the right triangle the angle is 100 degrees and the dashed third side is about 6.26.](images/geo-m4-hinge.svg)
 
 ### Example 4
 

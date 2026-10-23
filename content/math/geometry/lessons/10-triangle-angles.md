@@ -30,6 +30,22 @@ A **triangle** $\triangle ABC$ is the figure formed by three segments joining th
 {"polygons": [{"points": [[0, 0], [4, 0], [2, 3.46]]}, {"points": [[6, 0], [10, 0], [8, 3]]}, {"points": [[12, 0], [16, 0], [12, 3]]}, {"points": [[18, 0], [23, 0], [19, 1.5]]}], "rightAngles": [[[12, 0], [16, 0], [12, 3]]], "labels": [{"at": [2, -1.3], "text": "equilateral"}, {"at": [8, -1.3], "text": "isosceles"}, {"at": [14, -1.3], "text": "right"}, {"at": [20.5, -1.3], "text": "obtuse"}]}
 ```
 
+Every triangle gets one name from each list: a triangle can be, say, an obtuse isosceles triangle or a right scalene triangle. The chart sums up the two questions to ask.
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a triangle by sides and by angles
+  accDescr: A decision chart with two branches. By sides, count the congruent sides: three congruent sides means equilateral, exactly two means isosceles, none means scalene. By angles, look at the largest angle: less than 90 degrees means acute, exactly 90 degrees means right, more than 90 degrees means obtuse. Every triangle gets one name from each branch.
+  T["A triangle"] --> S["By sides: how many sides are congruent?"]
+  T --> G["By angles: how big is the largest angle?"]
+  S -- "3" --> EQ["Equilateral"]
+  S -- "2" --> IS["Isosceles"]
+  S -- "0" --> SC["Scalene"]
+  G -- "less than 90°" --> AC["Acute"]
+  G -- "exactly 90°" --> RT["Right"]
+  G -- "more than 90°" --> OB["Obtuse"]
+```
+
 A triangle can't have two right angles or two obtuse angles, as we're about to see: two such angles would already use up $180^\circ$ or more.
 
 ## The Triangle Angle Sum Theorem
@@ -102,6 +118,10 @@ At each vertex of a triangle, draw one exterior angle. What do the three exterio
 **Step 2.** The three interior angles account for $180^\circ$ of that.
 
 **Step 3.** The exterior angles therefore total $540 - 180 = 360^\circ$.
+
+```shape
+{"polygons": [{"points": [[0, 0], [6, 0], [2, 4]]}], "segments": [{"from": [6, 0], "to": [8.5, 0]}, {"from": [2, 4], "to": [0.4, 5.6]}, {"from": [0, 0], "to": [-0.8, -1.6]}], "labels": [{"at": [-0.5, 0.3], "text": "A"}, {"at": [6, -0.5], "text": "B"}, {"at": [2.45, 4.35], "text": "C"}, {"at": [6.31, 0.74], "text": "1"}, {"at": [1.21, 3.87], "text": "2"}, {"at": [0.42, -0.68], "text": "3"}], "caption": "One exterior angle at each vertex (1, 2 and 3), made by extending each side in turn."}
+```
 
 You can check this with the Exterior Angle Theorem too: the three exterior angles are $(B + C) + (A + C) + (A + B) = 2(A + B + C) = 360^\circ$. In Lesson 17 you'll see that *every* convex polygon's exterior angles add to $360^\circ$.
 

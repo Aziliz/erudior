@@ -51,6 +51,10 @@ Picture a door hinge: two fixed-length boards joined at a fixed angle. The dista
 
 The angle must be *included*. Two sides and a non-included angle (SSA) does *not* guarantee congruence: with sides 5 and 7 and a $30^\circ$ angle opposite the 5, two different triangles fit. That's the "ambiguous case", and it's why there is no SSA shortcut. (Lesson 25 finds both triangles.)
 
+The picture shows why. Fix $\angle A$ and the side $\overline{AC}$ of length $b$. The third vertex $B$ must lie on the bottom ray at distance $a$ from $C$, so it lies on the circle of radius $a$ around $C$. That circle can cross the ray twice, at $B_1$ and $B_2$, and $\triangle AB_1C$ and $\triangle AB_2C$ share the same two sides and the same non-included angle while being clearly different triangles.
+
+![Angle A opens to the right along a horizontal ray. Point C sits up and to the right of A at distance b along the angle's upper side. A dashed circle of radius a centered at C crosses the horizontal ray at two points, B1 and B2, and segments of length a join C to each. A dashed perpendicular CF of length d drops from C to the ray. Triangles AB1C and AB2C share angle A, side b and side a but have different shapes.](images/geo-m4-ssa-swing.svg)
+
 ### Example 2
 
 In the figure below, $\overline{AB} \cong \overline{CB}$ and $\overline{BD}$ bisects $\angle ABC$. Prove $\triangle ABD \cong \triangle CBD$.
@@ -82,6 +86,10 @@ Points $A(0, 0)$, $B(4, 0)$, $C(0, 3)$ and $D(10, 2)$, $E(10, 6)$, $F(13, 2)$. I
 ### Example 4: an SSS proof with a shared side
 
 *Given:* $\overline{AB} \cong \overline{AD}$ and $\overline{CB} \cong \overline{CD}$ in quadrilateral $ABCD$ (a kite shape). *Prove:* $\triangle ABC \cong \triangle ADC$.
+
+```shape
+{"polygons": [{"points": [[0, 0], [2, 2.5], [8, 0], [2, -2.5]]}], "segments": [{"from": [0, 0], "to": [8, 0]}, {"from": [1.17, 1.11], "to": [0.83, 1.39]}, {"from": [0.83, -1.39], "to": [1.17, -1.11]}, {"from": [5.19, 1.41], "to": [5.02, 1.0]}, {"from": [4.98, 1.5], "to": [4.81, 1.09]}, {"from": [5.02, -1.0], "to": [5.19, -1.41]}, {"from": [4.81, -1.09], "to": [4.98, -1.5]}], "labels": [{"at": [-0.45, 0], "text": "A"}, {"at": [2, 2.95], "text": "B"}, {"at": [8.45, 0], "text": "C"}, {"at": [2, -2.95], "text": "D"}], "caption": "Kite ABCD: AB ≅ AD (one tick), CB ≅ CD (two ticks), and diagonal AC is shared."}
+```
 
 | Statements | Reasons |
 |---|---|
