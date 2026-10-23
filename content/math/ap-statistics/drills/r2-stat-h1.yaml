@@ -117,12 +117,12 @@
     {prtwo}). In {nt} independent trials there are {xs} successes. Find the posterior probability that
     $p = {ptwo}$ (3 decimal places).
   answers:
-    - {name: post, label: 'Posterior probability', tolerance: 0.0006, format: dp3}
+    - {name: post, label: 'Posterior probability', tolerance: 0.001, format: dp3}
   solution: |-
-    Likelihoods: $\binom{{nt}}{{xs}}({pone})^{{xs}}(1 - {pone})^{{nt} - {xs}} = {lone:sig3}$ and
-    $\binom{{nt}}{{xs}}({ptwo})^{{xs}}(1 - {ptwo})^{{nt} - {xs}} = {ltwo:sig3}$.
-    Prior × likelihood: ${prone} \times {lone:sig3} = {jone:sig3}$ and ${prtwo} \times {ltwo:sig3} = {jtwo:sig3}$.
-    Posterior: $\dfrac{{jtwo:sig3}}{{jone:sig3} + {jtwo:sig3}} =$ **{post:dp3}**.
+    Likelihoods: $\binom{{nt}}{{xs}}({pone})^{{xs}}(1 - {pone})^{{nt} - {xs}} = {lone:sig4}$ and
+    $\binom{{nt}}{{xs}}({ptwo})^{{xs}}(1 - {ptwo})^{{nt} - {xs}} = {ltwo:sig4}$.
+    Prior × likelihood: ${prone} \times {lone:sig4} = {jone:sig4}$ and ${prtwo} \times {ltwo:sig4} = {jtwo:sig4}$.
+    Posterior: $\dfrac{{jtwo:sig4}}{{jone:sig4} + {jtwo:sig4}} =$ **{post:dp3}**.
 
 # ---- Lesson 92: multiple testing
 - id: stat-h1-r2-fwer
