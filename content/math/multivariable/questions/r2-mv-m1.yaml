@@ -578,8 +578,8 @@
   lesson: mv-m1-h-quadratic-forms
   topic: Rotated quadrics
   stem: 'The symmetric matrix of a quadratic form $Q(x, y, z)$ has eigenvalues 2, 3 and 5. What is the surface $Q(x, y, z) = 1$?'
-  choices: ['A hyperboloid of one sheet', 'An ellipsoid', 'An elliptic paraboloid', 'A hyperboloid of two sheets']
-  answer: 1
+  choices: ['An ellipsoid', 'A hyperboloid of one sheet', 'An elliptic paraboloid', 'A hyperboloid of two sheets']
+  answer: 0
   explanation: |-
     In principal-axis coordinates the surface is $2x'^2 + 3y'^2 + 5z'^2 = 1$: three positive coefficients, so an ellipsoid with semi-axes $\tfrac{1}{\sqrt2}$, $\tfrac{1}{\sqrt3}$, $\tfrac{1}{\sqrt5}$. A paraboloid needs a linear term, and hyperboloids need negative eigenvalues.
 - id: mv-m1-r2-h25
@@ -595,10 +595,10 @@
   lesson: mv-m1-h-quadratic-forms
   topic: Quadratic forms
   stem: 'At a critical point of $f(x, y)$, $f_{xx} = 2$, $f_{xy} = 3$ and $f_{yy} = 1$. What do the level curves of the quadratic part look like, and what kind of point is it?'
-  choices: ['Ellipses, so a local minimum', 'Hyperbolas, so a saddle point', 'Ellipses, so a local maximum', 'Parallel lines, so the test fails']
-  answer: 1
+  choices: ['Hyperbolas, so a saddle point', 'Ellipses, so a local minimum', 'Ellipses, so a local maximum', 'Parallel lines, so the test fails']
+  answer: 0
   explanation: |-
-    The quadratic part $2h^2 + 6hk + k^2$ has discriminant $36 - 8 = 28 > 0$, so its level curves are hyperbolas. Equivalently $D = f_{xx}f_{yy} - f_{xy}^2 = 2 - 9 = -7 < 0$: a saddle point. A positive $f_{xx}$ alone does not make it a minimum.
+    The quadratic part is $\tfrac12(2h^2 + 6hk + k^2)$, and $2h^2 + 6hk + k^2$ has discriminant $36 - 8 = 28 > 0$, so its level curves are hyperbolas. Equivalently $D = f_{xx}f_{yy} - f_{xy}^2 = 2 - 9 = -7 < 0$: a saddle point. A positive $f_{xx}$ alone does not make it a minimum.
 - id: mv-m1-r2-h27
   lesson: mv-m1-h-quadratic-forms
   topic: Rotated quadrics

@@ -50,13 +50,13 @@ The steps, in order:
 ```mermaid
 flowchart TD
   accTitle: Finding the center of mass of a lamina
-  accDescr: Start with a lamina occupying a region D with density rho. First look for symmetry: if both the region and the density are symmetric about a line, the center of mass lies on that line, which settles one coordinate. Then compute the mass m as the double integral of rho, compute the moments M_y as the double integral of x rho and M_x as the double integral of y rho (skipping any settled by symmetry), and divide: x bar equals M_y over m and y bar equals M_x over m. Finally check that the point is pulled toward the heavier part of the plate.
+  accDescr: Start with a lamina occupying a region D with density rho. First look for symmetry: if both the region and the density are symmetric about a line, the center of mass lies on that line, which settles one coordinate. Then compute the mass m as the double integral of rho, compute the moments My as the double integral of x rho and Mx as the double integral of y rho (skipping any settled by symmetry), and divide: x bar equals My over m and y bar equals Mx over m. Finally check that the point is pulled toward the heavier part of the plate.
   A["Lamina on D with density ρ"] --> B{"Are D and ρ symmetric about a line?"}
   B -- yes --> C["The center of mass lies on that line"]
   B -- no --> D["Mass: m = ∬ ρ dA"]
   C --> D
-  D --> E["Moments: M_y = ∬ xρ dA, M_x = ∬ yρ dA"]
-  E --> F["Divide: x̄ = M_y / m, ȳ = M_x / m"]
+  D --> E["Moments: My = ∬ xρ dA, Mx = ∬ yρ dA"]
+  E --> F["Divide: x̄ = My / m, ȳ = Mx / m"]
   F --> G["Check: is the point pulled toward the heavier part?"]
 ```
 

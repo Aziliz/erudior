@@ -58,6 +58,22 @@ The recipe:
 Solids can equally be projected onto the $yz$- or $xz$-plane, with $x$ or $y$ as the inner
 variable; choose whichever makes the description simplest.
 
+The flowchart sums up the whole setup, including the easy case of a box.
+
+```mermaid
+flowchart TD
+  accTitle: Setting up a triple integral over a solid
+  accDescr: First sketch the solid. If it is a box, use constant limits in any order. Otherwise pick the direction of the inner variable, usually z. A line in that direction enters the solid through a bottom surface and leaves through a top surface; these give the inner limits. Next find the shadow of the solid on the plane of the other two variables, describe that shadow as a Type I or Type II plane region to get the middle and outer limits, and integrate from the inside out.
+  A["Sketch the solid"] --> B{"Is it a box?"}
+  B -- yes --> C["Constant limits, any order"]
+  B -- no --> D["Choose the inner variable, usually z"]
+  D --> E["Inner limits: bottom surface to top surface"]
+  E --> F["Find the shadow D on the other plane"]
+  F --> G["Describe D as Type I or Type II"]
+  G --> H["Integrate inside out"]
+  C --> H
+```
+
 ### Example 2: the tetrahedron
 
 Let $E$ be the tetrahedron bounded by the coordinate planes and the plane $x + y + z = 1$.
