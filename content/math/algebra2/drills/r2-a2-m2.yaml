@@ -1,0 +1,199 @@
+# Round 2 drills for the a2-m2 honors lessons
+- id: a2-m2-r2-modulus
+  title: Modulus and distance in the complex plane
+  topic: Complex plane geometry
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -6, max: 6}
+    d: {min: -6, max: 6}
+  calc:
+    dr: a - c
+    di: b - d
+    m2: (a - c)^2 + (b - d)^2
+    dist: sqrt((a - c)^2 + (b - d)^2)
+    mz: sqrt(a^2 + b^2)
+    mz2: a^2 + b^2
+  where: ['a != 0', 'b != 0', 'c != 0', 'd != 0', 'dr != 0', 'di != 0']
+  prompt: 'Let $z = {a} {b:signedcoef}i$ and $w = {c} {d:signedcoef}i$. Find $|z|$ and the distance $|z - w|$ between the two points. Give exact values (type a root as sqrt(13)) or decimals to 2 places.'
+  answers:
+    - {name: mz, label: '$|z| =$', tolerance: 0.006}
+    - {name: dist, label: '$|z - w| =$', tolerance: 0.006}
+  solution: |-
+    $|z| = \sqrt{({a})^2 + ({b})^2} = \sqrt{{mz2}} \approx$ **{mz:num2}**.
+    $z - w = ({a} - ({c})) + ({b} - ({d}))i = {dr} {di:signedcoef}i$, so $|z - w| = \sqrt{({dr})^2 + ({di})^2} = \sqrt{{m2}} \approx$ **{dist:num2}**.
+
+- id: a2-m2-r2-complex-sqrt
+  title: Square root of a complex number
+  topic: Complex plane geometry
+  vars:
+    x: {min: 1, max: 7}
+    y: {min: -7, max: 7}
+  calc:
+    p: x^2 - y^2
+    q: 2*x*y
+    m: x^2 + y^2
+    hq: x*y
+    x2: x^2
+    y2: y^2
+    ny: -y
+  where: ['y != 0', 'p != 0']
+  prompt: 'Find the square root of ${p} {q:signedcoef}i$ that has a positive real part. Write it as $x + yi$ and enter $x$ and $y$.'
+  answers:
+    - {name: x, label: '$x =$'}
+    - {name: y, label: '$y =$'}
+  solution: |-
+    Set $(x + yi)^2 = (x^2 - y^2) + 2xyi$ equal to ${p} {q:signedcoef}i$: $x^2 - y^2 = {p}$ and $2xy = {q}$.
+    The modulus gives a third equation: $x^2 + y^2 = \sqrt{({p})^2 + ({q})^2} = {m}$.
+    Adding: $2x^2 = {p} + {m}$, so $x^2 = {x2}$; subtracting: $2y^2 = {m} - ({p})$, so $y^2 = {y2}$.
+    Since $xy = {hq}$ has the same sign as $q = {q}$, choosing $x > 0$ fixes $y$: **$x = {x}$, $y = {y}$**. The two square roots are $\pm({x} {y:signedcoef}i)$.
+
+- id: a2-m2-r2-matrix-sum
+  title: Combine matrices
+  topic: Matrix operations
+  vars:
+    k: {choices: [-3, -2, 2, 3, 4]}
+    m: {choices: [-2, -1, 1, 2, 3]}
+    a1: {min: -5, max: 5}
+    a2: {min: -5, max: 5}
+    a3: {min: -5, max: 5}
+    a4: {min: -5, max: 5}
+    b1: {min: -5, max: 5}
+    b2: {min: -5, max: 5}
+    b3: {min: -5, max: 5}
+    b4: {min: -5, max: 5}
+  calc:
+    r1: k*a1 + m*b1
+    r2: k*a2 + m*b2
+    r3: k*a3 + m*b3
+    r4: k*a4 + m*b4
+  prompt: |-
+    For $A = \begin{bmatrix} {a1} & {a2} \\ {a3} & {a4} \end{bmatrix}$ and $B = \begin{bmatrix} {b1} & {b2} \\ {b3} & {b4} \end{bmatrix}$, find ${k}A {m:signedcoef}B$.
+  answers:
+    - {name: r1, label: 'Row 1, column 1'}
+    - {name: r2, label: 'Row 1, column 2'}
+    - {name: r3, label: 'Row 2, column 1'}
+    - {name: r4, label: 'Row 2, column 2'}
+  solution: |-
+    Scale each matrix, then add entry by entry. For example, row 1, column 1 is ${k}({a1}) + ({m})({b1}) = {r1}$.
+    The result is **$\begin{bmatrix} {r1} & {r2} \\ {r3} & {r4} \end{bmatrix}$**.
+
+- id: a2-m2-r2-matrix-product
+  title: Multiply 2 × 2 matrices
+  topic: Matrix operations
+  vars:
+    a: {min: -4, max: 5}
+    b: {min: -4, max: 5}
+    c: {min: -4, max: 5}
+    d: {min: -4, max: 5}
+    s1: {min: -4, max: 5}
+    s2: {min: -4, max: 5}
+    s3: {min: -4, max: 5}
+    s4: {min: -4, max: 5}
+  calc:
+    p1: a*s1 + b*s3
+    p2: a*s2 + b*s4
+    p3: c*s1 + d*s3
+    p4: c*s2 + d*s4
+  where: ['b != 0', 'c != 0', 's2 != 0', 's3 != 0']
+  prompt: |-
+    Compute $\begin{bmatrix} {a} & {b} \\ {c} & {d} \end{bmatrix}\begin{bmatrix} {s1} & {s2} \\ {s3} & {s4} \end{bmatrix}$.
+  answers:
+    - {name: p1, label: 'Row 1, column 1'}
+    - {name: p2, label: 'Row 1, column 2'}
+    - {name: p3, label: 'Row 2, column 1'}
+    - {name: p4, label: 'Row 2, column 2'}
+  solution: |-
+    Each entry is a row of the first matrix times a column of the second:
+    row 1 · column 1 $= ({a})({s1}) + ({b})({s3}) = {p1}$; row 1 · column 2 $= ({a})({s2}) + ({b})({s4}) = {p2}$;
+    row 2 · column 1 $= ({c})({s1}) + ({d})({s3}) = {p3}$; row 2 · column 2 $= ({c})({s2}) + ({d})({s4}) = {p4}$.
+    The product is **$\begin{bmatrix} {p1} & {p2} \\ {p3} & {p4} \end{bmatrix}$**.
+
+- id: a2-m2-r2-cramer2
+  title: Cramer's rule for two equations
+  topic: Determinants and Cramer's rule
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -6, max: 6}
+    d: {min: -6, max: 6}
+    u: {min: -9, max: 9}
+    v: {min: -9, max: 9}
+  calc:
+    D: a*d - b*c
+    Dx: u*d - b*v
+    Dy: a*v - u*c
+    x: (u*d - b*v)/(a*d - b*c)
+    y: (a*v - u*c)/(a*d - b*c)
+  where: ['a != 0', 'b != 0', 'c != 0', 'd != 0', 'D != 0', 'abs(D) <= 30', 'u != 0 or v != 0']
+  prompt: 'Solve ${a:coef}x {b:signedcoef}y = {u}$, ${c:coef}x {d:signedcoef}y = {v}$ by Cramer''s rule. Enter $D$, then $x$ and $y$ as exact fractions or whole numbers.'
+  answers:
+    - {name: D, label: '$D =$'}
+    - {name: x, label: '$x =$', kind: fraction, lowestTerms: true}
+    - {name: y, label: '$y =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    $D = \begin{vmatrix} {a} & {b} \\ {c} & {d} \end{vmatrix} = ({a})({d}) - ({b})({c}) =$ **{D}**.
+    $D_x = \begin{vmatrix} {u} & {b} \\ {v} & {d} \end{vmatrix} = {Dx}$ and $D_y = \begin{vmatrix} {a} & {u} \\ {c} & {v} \end{vmatrix} = {Dy}$.
+    So $x = \dfrac{{Dx}}{{D}} =$ **${x:texfrac}$** and $y = \dfrac{{Dy}}{{D}} =$ **${y:texfrac}$**.
+
+- id: a2-m2-r2-det3
+  title: Determinant of a 3 × 3 matrix
+  topic: Determinants and Cramer's rule
+  vars:
+    a1: {min: -3, max: 4}
+    b1: {min: -3, max: 4}
+    c1: {min: -3, max: 4}
+    a2: {min: -3, max: 4}
+    b2: {min: -3, max: 4}
+    c2: {min: -3, max: 4}
+    a3: {min: -3, max: 4}
+    b3: {min: -3, max: 4}
+    c3: {min: -3, max: 4}
+  calc:
+    m1: b2*c3 - c2*b3
+    m2: a2*c3 - c2*a3
+    m3: a2*b3 - b2*a3
+    det: a1*(b2*c3 - c2*b3) - b1*(a2*c3 - c2*a3) + c1*(a2*b3 - b2*a3)
+  where: ['a1 != 0', 'b1 != 0', 'c1 != 0']
+  prompt: |-
+    Evaluate $\begin{vmatrix} {a1} & {b1} & {c1} \\ {a2} & {b2} & {c2} \\ {a3} & {b3} & {c3} \end{vmatrix}$.
+  answer: det
+  format: integer
+  solution: |-
+    Expand along row 1 with signs $+, -, +$:
+    ${a1}\begin{vmatrix} {b2} & {c2} \\ {b3} & {c3} \end{vmatrix} - ({b1})\begin{vmatrix} {a2} & {c2} \\ {a3} & {c3} \end{vmatrix} + ({c1})\begin{vmatrix} {a2} & {b2} \\ {a3} & {b3} \end{vmatrix} = {a1}({m1}) - ({b1})({m2}) + ({c1})({m3}) =$ **{det}**.
+
+- id: a2-m2-r2-triangle-area
+  title: Triangle area with a determinant
+  topic: Determinants and Cramer's rule
+  vars:
+    x1: {min: -5, max: 5}
+    y1: {min: -5, max: 5}
+    x2: {min: -5, max: 5}
+    y2: {min: -5, max: 5}
+    x3: {min: -5, max: 5}
+    y3: {min: -5, max: 5}
+  calc:
+    m1: y2 - y3
+    m2: x2 - x3
+    m3: x2*y3 - y2*x3
+    det: x1*(y2 - y3) - y1*(x2 - x3) + (x2*y3 - y2*x3)
+    area: abs(x1*(y2 - y3) - y1*(x2 - x3) + (x2*y3 - y2*x3))/2
+  where: ['det != 0', 'x1 < x2', 'x2 < x3']
+  prompt: 'Find the area of the triangle with vertices $({x1}, {y1})$, $({x2}, {y2})$ and $({x3}, {y3})$.'
+  figure:
+    type: plot
+    x: [-6, 6]
+    y: [-6, 6]
+    equal: true
+    polygons:
+      - {points: [[x1, y1], [x2, y2], [x3, y3]]}
+    points:
+      - {at: [x1, y1], label: '({x1}, {y1})'}
+      - {at: [x2, y2], label: '({x2}, {y2})'}
+      - {at: [x3, y3], label: '({x3}, {y3})'}
+  answer: area
+  tolerance: 0
+  solution: |-
+    $\begin{vmatrix} {x1} & {y1} & 1 \\ {x2} & {y2} & 1 \\ {x3} & {y3} & 1 \end{vmatrix} = {x1}({m1}) - ({y1})({m2}) + 1({m3}) = {det}$.
+    Area $= \tfrac12|{det}| =$ **{area}** square units.

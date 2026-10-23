@@ -1,0 +1,853 @@
+# Round 2, module stat-m1 (Exploring one-variable data): new question types for the core
+# lessons (stat-m1-r2-q..) and questions for the three honors lessons (stat-m1-r2-h..).
+
+# ---- Lesson 1: data, variables and types
+- id: stat-m1-r2-q01
+  lesson: stat-data-types
+  type: label
+  topic: Types of data
+  stem: 'In this data table, one row, one column and one cell are highlighted. Name each numbered part.'
+  image: {src: images/stat-m1-data-table-blank.svg, alt: 'A data table with columns Student, Grade, Sleep (h), Favorite subject and Commute (min) and rows for students A to D. Marker 1 points to the highlighted row for student B, marker 2 to the highlighted Sleep column, and marker 3 to the single highlighted cell for student D''s favorite subject.'}
+  labels:
+    - {x: 84.6, y: 48.7, text: Individual}
+    - {x: 34.1, y: 12.3, text: Variable}
+    - {x: 50.7, y: 85.1, text: Data value}
+  distractors: [Parameter, Population]
+  explanation: |-
+    1: a row describes one individual (here, student B). 2: a column records one characteristic for every individual, so it is a variable (hours of sleep). 3: one cell is a single data value, the value of one variable for one individual. A parameter is a number describing a whole population, and the population is the entire group of interest; neither is a part of the table.
+
+- id: stat-m1-r2-q02
+  lesson: stat-data-types
+  type: match
+  module_quiz: true
+  topic: Types of data
+  stem: 'Match each variable to its type.'
+  pairs:
+    - [Number of siblings, 'Quantitative, discrete']
+    - [Height in centimeters, 'Quantitative, continuous']
+    - [Blood type, 'Categorical, nominal']
+    - ['Shirt size (S, M, L, XL)', 'Categorical, ordinal']
+  explanation: |-
+    Siblings are counted (discrete); height is measured (continuous, even when rounded). Blood types are groups with no natural order (nominal). Shirt sizes are groups with a natural order, but the gaps between sizes aren't measured amounts (ordinal).
+
+- id: stat-m1-r2-q03
+  lesson: stat-data-types
+  type: text
+  topic: Types of data
+  stem: 'A number computed from a sample, such as $\bar{x}$ or $\hat{p}$, is called a ___.'
+  accept: [statistic, sample statistic, a statistic, statistics]
+  explanation: |-
+    Sample–statistic, population–parameter. A statistic is known once the sample is collected, but it changes from sample to sample; it is used to estimate the matching parameter ($\mu$ or $p$).
+
+- id: stat-m1-r2-q04
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'Which of these numbers are parameters? Select all that apply.'
+  choices:
+    - 'The mean age of all 2,400 employees of a company, computed from the records of every employee'
+    - 'The proportion of all ballots cast in a city election that were for Measure A, from the official count'
+    - 'The mean commute time of 60 randomly chosen employees of the company'
+    - 'The proportion of 1,000 polled voters who say they will vote for Measure A'
+  answer: [0, 1]
+  explanation: |-
+    The first two describe every member of the population (a census of employees, the official count of all ballots), so they are parameters. The last two are computed from samples (60 employees, 1,000 polled voters), so they are statistics that estimate parameters.
+
+- id: stat-m1-r2-q05
+  lesson: stat-data-types
+  topic: Types of data
+  stem: 'A survey records each guest''s rating of a hotel stay as 1, 2, 3, 4 or 5 stars. The gaps between star levels are not guaranteed to be equal. Following the lesson''s classification flowchart, how should the rating be classified?'
+  choices: ['Quantitative, continuous', 'Categorical, ordinal', 'Categorical, nominal', 'Quantitative, discrete']
+  answer: 1
+  explanation: |-
+    The stars label ordered categories (1 is worse than 2, and so on), but because the gaps aren't equal amounts, averages are not fully meaningful: the variable is categorical and ordinal. Nominal categories have no order. Ratings are often averaged in practice, which is why the lesson says to treat such averages with care.
+
+# ---- Lesson 2: categorical displays
+- id: stat-m1-r2-q06
+  lesson: stat-cat-displays
+  type: text
+  topic: Categorical displays
+  stem: 'Of 400 riders surveyed, 64 arrived by bike. In a pie chart, the bike slice has an angle of ___ degrees. Give only the number.'
+  accept: ['57.6']
+  explanation: |-
+    Relative frequency $= 64/400 = 0.16$, and the angle is $0.16 \times 360^\circ = 57.6^\circ$. (Multiplying the count by 360 instead of the relative frequency is the common mistake.)
+
+- id: stat-m1-r2-q07
+  lesson: stat-cat-displays
+  module_quiz: true
+  topic: Categorical displays
+  stem: 'The segmented bar chart compares how 300 weekday riders and 100 weekend riders reached the station. Which statement is supported by the chart?'
+  image: {src: images/stat-m1-segmented-bar.svg, alt: 'Segmented bar chart, each bar stacked to 100 percent. Weekday (n = 300): walk 40 percent, bus 28 percent, car 18 percent, bike 14 percent. Weekend (n = 100): walk 32 percent, bus 12 percent, car 34 percent, bike 22 percent.'}
+  choices:
+    - 'More weekend riders than weekday riders walked to the station.'
+    - 'The bus share is about the same on weekdays and weekends.'
+    - 'A larger share of weekend riders than weekday riders came by car.'
+    - 'There were more weekend riders than weekday riders.'
+  answer: 2
+  explanation: |-
+    Car is 34% of weekend riders but only 18% of weekday riders. The chart shows percentages within each group, not counts: 32% of 100 weekend riders is 32 walkers, far fewer than 40% of 300 = 120 weekday walkers. The bus share drops from 28% to 12%, and the group sizes (300 and 100) are printed under the bars.
+
+- id: stat-m1-r2-q08
+  lesson: stat-cat-displays
+  topic: Categorical displays
+  stem: 'For which of these data sets would a pie chart be appropriate? Select all that apply.'
+  choices:
+    - 'Blood types of 500 donors (each donor has exactly one type)'
+    - 'Shares of a city''s budget spent on each department'
+    - 'Percent of students who play each sport, where a student may play several'
+    - 'Average rainfall in each month of the year'
+  answer: [0, 1]
+  explanation: |-
+    A pie chart needs parts of one whole: every individual in exactly one slice, slices adding to 100%. Blood types and budget shares qualify. Sports that students can combine add to more than 100%, and monthly average rainfall amounts are not shares of a whole; use bar charts for those.
+
+- id: stat-m1-r2-q09
+  lesson: stat-cat-displays
+  type: match
+  module_quiz: true
+  topic: Categorical displays
+  stem: 'Match each display to the job it does best.'
+  pairs:
+    - [Pie chart, Showing the parts of one whole]
+    - [Bar chart, Comparing counts or percents across categories]
+    - [Segmented bar chart, Comparing category percents across groups]
+    - [Pareto chart, Showing categories from most to least frequent]
+  distractors: [Showing the shape of a quantitative distribution]
+  explanation: |-
+    Pie charts show shares of a whole; bar charts compare categories by bar length; segmented (stacked to 100%) bars compare distributions between groups of different sizes; a Pareto chart is a bar chart sorted from tallest to shortest. The shape of a quantitative distribution needs a histogram, dotplot or stemplot.
+
+- id: stat-m1-r2-q10
+  lesson: stat-cat-displays
+  type: order
+  topic: Categorical displays
+  stem: 'Put the steps for turning category counts into a pie chart in order.'
+  items:
+    - 'Add the counts to get the total'
+    - 'Divide each count by the total to get its relative frequency'
+    - 'Multiply each relative frequency by 360° to get its angle'
+    - 'Draw the slices with those angles and label each one'
+  explanation: |-
+    Each step needs the result of the one before: relative frequencies need the total, angles need the relative frequencies, and the slices need the angles. As a check, the angles should add to 360°.
+
+# ---- Lesson 3: quantitative displays
+- id: stat-m1-r2-q11
+  lesson: stat-quant-displays
+  type: label
+  module_quiz: true
+  topic: Quantitative displays
+  stem: 'Name the shape of each numbered histogram.'
+  image: {src: images/stat-m1-shapes-blank.svg, alt: 'Four unlabeled histograms numbered 1 to 4. 1: one central peak with matching tails. 2: peak near the left with a long tail to the right. 3: peak near the right with a long tail to the left. 4: two separate peaks.'}
+  labels:
+    - {x: 26.7, y: 47.9, text: Symmetric}
+    - {x: 73.3, y: 47.9, text: Skewed right}
+    - {x: 26.7, y: 94.7, text: Skewed left}
+    - {x: 73.3, y: 94.7, text: Bimodal}
+  distractors: [Uniform]
+  explanation: |-
+    1 has mirror-image halves (symmetric). 2 has its long tail to the right (skewed right), even though its peak is on the left. 3 has its long tail to the left (skewed left). 4 has two distinct peaks (bimodal), often a sign of two groups mixed together. None is flat, so none is uniform.
+
+- id: stat-m1-r2-q12
+  lesson: stat-quant-displays
+  type: text
+  topic: Quantitative displays
+  stem: 'A histogram of household incomes has its peak at the low end and a long tail stretching toward high incomes. The distribution is skewed ___. (One word.)'
+  accept: [right, to the right, positively, positive, right-skewed, rightward]
+  explanation: |-
+    Skew is named for the direction of the long tail, not the peak. A tail toward large values means skewed right (positively skewed), which is typical of incomes and prices.
+
+- id: stat-m1-r2-q13
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'Which displays let you recover every individual data value? Select all that apply.'
+  choices: [Histogram, Dotplot, Ogive, Stemplot]
+  answer: [1, 3]
+  explanation: |-
+    A dotplot draws one dot per value, and a stemplot writes every value as a stem and a leaf. A histogram shows only how many values fall in each bin, and an ogive shows only cumulative proportions at bin boundaries.
+
+- id: stat-m1-r2-q14
+  lesson: stat-quant-displays
+  type: order
+  module_quiz: true
+  topic: Quantitative displays
+  stem: 'Put the steps for making and using a histogram of raw data in order.'
+  items:
+    - 'Choose equal-width bins that cover all the data'
+    - 'Count the values in each bin (a boundary value goes in the bin that starts there)'
+    - 'Draw touching bars with heights equal to the counts'
+    - 'Describe the shape, center, spread and unusual values in context'
+  explanation: |-
+    You can't count until the bins are set, can't draw bars until you have counts, and can't describe the distribution until it is drawn. Bars touch because the bins cover the number line without gaps.
+
+- id: stat-m1-r2-q15
+  lesson: stat-quant-displays
+  topic: Quantitative displays
+  stem: 'An analyst has the incomes of 2,000 households and wants to see the shape of the distribution. Which display is the best choice?'
+  choices: ['A dotplot', 'A stemplot', 'A pie chart', 'A histogram']
+  answer: 3
+  explanation: |-
+    With thousands of values, dotplots and stemplots become unreadable; a histogram groups the values into bins and shows the shape clearly. A pie chart is for categorical data.
+
+# ---- Lesson 4: measures of center
+- id: stat-m1-r2-q16
+  lesson: stat-center
+  type: text
+  topic: Measures of center
+  stem: 'The mean of 4, 8, 9, 11 and 18 is ___. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    Sum $= 4 + 8 + 9 + 11 + 18 = 50$, and $50/5 = 10$. (The median is 9, the middle value.)
+
+- id: stat-m1-r2-q17
+  lesson: stat-center
+  type: match
+  module_quiz: true
+  topic: Measures of center
+  stem: 'Match each situation to the best measure of center.'
+  pairs:
+    - [Most common blood type among donors, Mode]
+    - [Typical sale price of homes in a city, Median]
+    - [Typical height of adult women (roughly symmetric), Mean]
+    - [GPA from courses with different credit hours, Weighted mean]
+  distractors: [Range]
+  explanation: |-
+    Blood type is categorical, so only the mode works. Home prices are skewed right, so the resistant median is better. Heights are roughly symmetric, so the mean uses all the data well. Credits are weights, so the GPA is a weighted mean. The range measures spread, not center.
+
+- id: stat-m1-r2-q18
+  lesson: stat-center
+  topic: Measures of center
+  stem: 'A distribution is strongly skewed to the right. Which statements are true? Select all that apply.'
+  choices:
+    - 'The mean is greater than the median.'
+    - 'The mean and median are about equal.'
+    - 'The median is the better summary of a typical value.'
+    - 'The long tail is on the right.'
+    - 'The tallest peak is on the right.'
+  answer: [0, 2, 3]
+  explanation: |-
+    Right skew means a long tail toward large values, which pulls the non-resistant mean above the median, so the median better describes a typical value. The peak of a right-skewed distribution is on the left, and the mean and median are about equal only for roughly symmetric data.
+
+- id: stat-m1-r2-q19
+  lesson: stat-center
+  module_quiz: true
+  topic: Measures of center
+  stem: 'The balance-beam picture shows nine values (9, 9, 11, 12, 13, 14, 15, 22, 30) balancing at their mean, 15. If the value 30 is moved out to 39, what happens?'
+  image: {src: images/stat-m1-balance.svg, alt: 'Nine dots on a beam at 9, 9, 11, 12, 13, 14, 15, 22 and 30, balanced on a triangle at the mean, 15. A dashed line marks the median at 13.'}
+  choices:
+    - 'The beam now balances at 16; the median stays at 13.'
+    - 'The beam still balances at 15, because the mean is resistant.'
+    - 'The beam now balances at 16, and the median moves to 14.'
+    - 'The beam now balances at 24, halfway to the new value.'
+  answer: 0
+  explanation: |-
+    The total rises by $39 - 30 = 9$, from 135 to 144, so the mean becomes $144/9 = 16$: it moves by $9/9 = 1$. The sorted order is unchanged and the 5th value is still 13, so the median doesn't move. That is the difference between a non-resistant and a resistant measure.
+
+- id: stat-m1-r2-q20
+  lesson: stat-center
+  type: order
+  topic: Measures of center
+  stem: 'For the data 2, 3, 3, 4, 5, 7, 18, put these summaries in order from smallest to largest.'
+  items:
+    - 'Mode'
+    - 'Median'
+    - 'Trimmed mean (drop the lowest and highest value)'
+    - 'Mean'
+  explanation: |-
+    Mode: 3 (appears twice). Median: the 4th of 7 sorted values, 4. Trimmed mean: drop 2 and 18 and average 3, 3, 4, 5, 7 to get $22/5 = 4.4$. Mean: $42/7 = 6$. The outlier 18 pulls the mean far above the median; trimming it removes most of that pull.
+
+# ---- Lesson 5: measures of spread
+- id: stat-m1-r2-q21
+  lesson: stat-spread
+  type: order
+  module_quiz: true
+  topic: Measures of spread
+  stem: 'Put the steps for computing a sample standard deviation in order.'
+  items:
+    - 'Find the mean $\bar{x}$'
+    - 'Subtract the mean from each value to get the deviations'
+    - 'Square each deviation'
+    - 'Add the squared deviations'
+    - 'Divide the sum by $n - 1$'
+    - 'Take the square root'
+  explanation: |-
+    Deviations need the mean; squaring keeps them from cancelling; the sum divided by $n - 1$ is the sample variance $s^2$; the square root returns to the original units and gives $s$.
+
+- id: stat-m1-r2-q22
+  lesson: stat-spread
+  type: text
+  topic: Measures of spread
+  stem: 'Commute times have a sample variance of 36 square minutes. Their sample standard deviation is ___ minutes. Give only the number.'
+  accept: ['6']
+  explanation: |-
+    The standard deviation is the square root of the variance: $s = \sqrt{36} = 6$ minutes. The variance is in squared units, which is why we take the root.
+
+- id: stat-m1-r2-q23
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'Which statements about the sample standard deviation $s$ are true? Select all that apply.'
+  choices:
+    - 'It has the same units as the data.'
+    - 'It equals 0 only when all the values are equal.'
+    - 'It is resistant to outliers.'
+    - 'It can be negative when most values are below the mean.'
+    - 'Dividing by $n - 1$ makes $s^2$ an unbiased estimator of $\sigma^2$.'
+  answer: [0, 1, 4]
+  explanation: |-
+    $s$ is the square root of an average squared deviation, so it is in the data's units and is never negative; it is 0 only if every deviation is 0. Squaring makes far-out values count heavily, so $s$ is not resistant. Dividing by $n - 1$ corrects the tendency of deviations from $\bar{x}$ to run small, making $s^2$ unbiased for $\sigma^2$.
+
+- id: stat-m1-r2-q24
+  lesson: stat-spread
+  topic: Measures of spread
+  stem: 'The picture shows the squared deviations of 4, 7, 8, 10, 11 from their mean, 8 (total 30). If the value 4 is changed to 0, what is the new sum of squared deviations?'
+  image: {src: images/stat-m1-deviations.svg, alt: 'The values 4, 7, 8, 10 and 11 with a dashed line at the mean, 8, and a square on each deviation with areas 16, 1, 0, 4 and 9.'}
+  choices: ['30', '78', '18.7', '74.8']
+  answer: 3
+  explanation: |-
+    The mean changes too: $(0 + 7 + 8 + 10 + 11)/5 = 7.2$. Deviations: −7.2, −0.2, 0.8, 2.8, 3.8; squares $51.84 + 0.04 + 0.64 + 7.84 + 14.44 = 74.8$. Using the old mean 8 gives 78 (forgetting to recompute the mean), and 18.7 is the new variance $74.8/4$, not the sum.
+
+- id: stat-m1-r2-q25
+  lesson: stat-spread
+  type: match
+  module_quiz: true
+  topic: Measures of spread
+  stem: 'Match each measure of spread to its description.'
+  pairs:
+    - [Range, Maximum minus minimum]
+    - [IQR, Spread of the middle half of the data]
+    - [Variance, Sum of squared deviations divided by n − 1]
+    - [Standard deviation, Typical distance from the mean in the data's units]
+  distractors: [Middle value of the sorted data]
+  explanation: |-
+    The range uses only the two extremes; the IQR $= Q_3 - Q_1$ covers the middle 50%; the sample variance is $\sum (x_i - \bar{x})^2/(n-1)$ in squared units; the standard deviation is its square root. The middle value is the median, a measure of center.
+
+# ---- Lesson 6: boxplots and outliers
+- id: stat-m1-r2-q26
+  lesson: stat-boxplots
+  type: label
+  module_quiz: true
+  topic: Boxplots and outliers
+  stem: 'This modified boxplot shows 10 delivery times. Name each numbered part.'
+  image: {src: images/stat-m1-boxplot-parts-blank.svg, alt: 'A modified boxplot above a number line from 5 to 35: left whisker from 9 to the box, box from 12 to 18 with a line at 14.5, right whisker to 22, and a separate open circle at 30. Markers: 1 at the left whisker end, 2 at the left edge of the box, 3 at the line inside the box, 4 at the right edge of the box, 5 at the right whisker end, 6 at the separate circle.'}
+  labels:
+    - {x: 18.1, y: 41.7, text: Minimum}
+    - {x: 26.8, y: 48.3, text: Q1}
+    - {x: 34.0, y: 35.0, text: Median}
+    - {x: 44.2, y: 48.3, text: Q3}
+    - {x: 55.8, y: 41.7, text: Largest value that is not an outlier}
+    - {x: 79.0, y: 41.7, text: Outlier}
+  distractors: [Mean, Upper fence]
+  explanation: |-
+    The box runs from $Q_1$ (12) to $Q_3$ (18) with the median (14.5) inside. The left whisker reaches the minimum, 9, since there are no low outliers. The upper fence is $18 + 1.5 \times 6 = 27$, so 30 is plotted separately as an outlier and the right whisker stops at 22, the largest value that is not an outlier. A boxplot doesn't show the mean, and the fence itself is not drawn.
+
+- id: stat-m1-r2-q27
+  lesson: stat-boxplots
+  type: text
+  topic: Boxplots and outliers
+  stem: 'A data set has $Q_1 = 40$ and $Q_3 = 52$. By the $1.5 \times \text{IQR}$ rule, the upper fence is ___. Give only the number.'
+  accept: ['70']
+  explanation: |-
+    $\text{IQR} = 52 - 40 = 12$ and $1.5 \times 12 = 18$, so the upper fence is $52 + 18 = 70$. (The lower fence is $40 - 18 = 22$.)
+
+- id: stat-m1-r2-q28
+  lesson: stat-boxplots
+  type: order
+  module_quiz: true
+  topic: Boxplots and outliers
+  stem: 'Put the steps for drawing the whiskers of a modified boxplot in order.'
+  items:
+    - 'Find the five-number summary'
+    - 'Compute the IQR'
+    - 'Compute the fences $Q_1 - 1.5\,\text{IQR}$ and $Q_3 + 1.5\,\text{IQR}$'
+    - 'Mark every value beyond a fence as an outlier'
+    - 'Draw each whisker to the most extreme value that is not an outlier'
+  explanation: |-
+    The IQR needs the quartiles, the fences need the IQR, outliers are defined by the fences, and the whiskers can only be drawn once you know which values are outliers.
+
+- id: stat-m1-r2-q29
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'Which of these can you read from a modified boxplot? Select all that apply.'
+  choices:
+    - 'The mean'
+    - 'The median'
+    - 'The IQR'
+    - 'Whether the distribution has two peaks'
+    - 'Which values are outliers by the 1.5 × IQR rule'
+  answer: [1, 2, 4]
+  explanation: |-
+    A boxplot is drawn from the five-number summary plus the outliers, so it shows the median, the quartiles (hence the IQR) and the flagged outliers. It does not show the mean, and it cannot show modality: a bimodal and a uniform distribution can have the same boxplot.
+
+- id: stat-m1-r2-q30
+  lesson: stat-boxplots
+  topic: Boxplots and outliers
+  stem: 'Data: 5, 7, 8, 9, 10, 12, 13, 14, 31. In a modified boxplot, where does the upper whisker end?'
+  choices: ['At 13.5', 'At 22.5', 'At 14', 'At 31']
+  answer: 2
+  explanation: |-
+    Median: 10 (5th of 9). Leaving it out, $Q_1 = (7 + 8)/2 = 7.5$ and $Q_3 = (13 + 14)/2 = 13.5$, so $\text{IQR} = 6$ and the upper fence is $13.5 + 9 = 22.5$. The value 31 is an outlier, so the whisker ends at the largest value inside the fence, 14. It never ends at the fence itself (22.5) or at $Q_3$.
+
+# ---- Honors: density histograms, bin widths and smooth curves
+- id: stat-m1-r2-h01
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'A histogram bin runs from 20 to 35 and contains 45 of 300 values. What is the height of its bar on a density scale?'
+  choices: ['0.15', '0.01', '3', '0.0043']
+  answer: 1
+  explanation: |-
+    Relative frequency $= 45/300 = 0.15$; width $= 35 - 20 = 15$; density $= 0.15/15 = 0.01$ per unit. Check: area $= 0.01 \times 15 = 0.15$. The value 0.15 forgets to divide by the width, 3 is the count per unit ($45/15$), and 0.0043 divides by the upper boundary 35 instead of the width.
+
+- id: stat-m1-r2-h02
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'Why is a histogram misleading when it draws counts over bins of unequal width?'
+  choices:
+    - 'A wide bin collects more values partly because it is wide, and its large area overstates its share.'
+    - 'Counts cannot be shown on a histogram; only percents can.'
+    - 'Unequal bins make the total of the counts larger than $n$.'
+    - 'The bars of a count histogram must not touch when bins are unequal.'
+  answer: 0
+  explanation: |-
+    The eye reads area. With unequal widths, a count-height bar's area is count × width, which inflates wide bins. Using density $=$ relative frequency ÷ width makes each bar's area equal its share of the data. Counts still add to $n$, and histogram bars touch whatever the widths.
+
+- id: stat-m1-r2-h03
+  lesson: stat-m1-h-density
+  type: text
+  topic: Density histograms and smoothing
+  stem: 'In a density histogram, the areas of all the bars add up to ___. Give only the number.'
+  accept: ['1', 'one', '100%']
+  explanation: |-
+    Each bar's area is its bin's relative frequency, and the relative frequencies add to 1. The same is true of a kernel density estimate and of every density curve.
+
+- id: stat-m1-r2-h04
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'By Sturges'' rule, about how many bins should a histogram of $n = 500$ values have?'
+  choices: ['10', '9', '23', '250']
+  answer: 0
+  explanation: |-
+    $k = 1 + \log_2 500 \approx 1 + 8.97 = 9.97$, rounded up to 10 bins. Nine bins comes from rounding down; 23 is about $\sqrt{500}$, a different rule; 250 is $n/2$.
+
+- id: stat-m1-r2-h05
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'A data set has $n = 1000$ values with $\text{IQR} = 20$. What bin width does the Freedman–Diaconis rule suggest?'
+  choices: ['40', '2', '6.98', '4']
+  answer: 3
+  explanation: |-
+    $h = 2 \cdot \text{IQR} \cdot n^{-1/3} = 2 \times 20 \times 1000^{-1/3} = 40/10 = 4$. Forgetting the $n^{-1/3}$ factor gives 40, and 6.98 is Scott's rule $3.49\,s\,n^{-1/3}$ with $s = 20$ wrongly used for the IQR.
+
+- id: stat-m1-r2-h06
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'A data set has several extreme outliers. Why is the Freedman–Diaconis rule a better guide to bin width than Scott''s rule here?'
+  choices:
+    - 'It uses the IQR, which the outliers barely affect, while Scott''s rule uses $s$, which they inflate.'
+    - 'It always gives more bins than Sturges'' rule.'
+    - 'It removes the outliers before drawing the histogram.'
+    - 'It uses $n^{-1/2}$, which shrinks faster as $n$ grows.'
+  answer: 0
+  explanation: |-
+    Both rules have the form (spread) × $n^{-1/3}$. Outliers inflate $s$, so Scott's rule makes the bins too wide and can hide detail in the bulk of the data; the IQR is resistant. Neither rule removes any data.
+
+- id: stat-m1-r2-h07
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'With the data held fixed, which of these can change the shape of a histogram? Select all that apply.'
+  choices:
+    - 'Listing the data in a different order before binning'
+    - 'The bin width'
+    - 'Where the first bin starts'
+    - 'Switching from counts to densities when all bins are equally wide'
+    - 'Which bin receives a value that falls exactly on a boundary'
+  answer: [1, 2, 4]
+  explanation: |-
+    Bin width, starting point and the boundary rule all change which values share a bar, so they can merge or split peaks. The order of the list doesn't affect any count. With equal widths, every density is the count divided by the same number, so only the axis scale changes, not the shape.
+
+- id: stat-m1-r2-h08
+  lesson: stat-m1-h-density
+  type: label
+  topic: Density histograms and smoothing
+  stem: 'The picture shows a kernel density estimate built from five data values. Name each numbered part.'
+  image: {src: images/stat-m1-kde-blank.svg, alt: 'Five red tick marks on an axis at 2, 3, 3.6, 6 and 7, a dashed normal bump centered over each tick, and a thick solid curve formed by adding the bumps. Marker 1 is on a tick mark, marker 2 at the top of the bump over 2, marker 3 on the thick curve, and marker 4 on a short horizontal arrow from the center of the bump over 6 to its side.'}
+  labels:
+    - {x: 66.9, y: 83.3, text: Data value}
+    - {x: 24.7, y: 53.9, text: Kernel}
+    - {x: 35.7, y: 19.8, text: Kernel density estimate}
+    - {x: 61.8, y: 60.5, text: Bandwidth}
+  distractors: [Bin width, Outlier]
+  explanation: |-
+    1: each tick marks a data value. 2: each dashed bump is a kernel, a normal curve of area $1/n$ centered on one value. 3: the thick curve is their sum, the kernel density estimate. 4: the arrow spans one standard deviation of a bump, the bandwidth $h$. A KDE has no bins.
+
+- id: stat-m1-r2-h09
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'A kernel density estimate of the five values 2, 3, 3.6, 6, 7 with bandwidth $h = 0.8$ shows two peaks. What is most likely to happen if $h$ is increased to 2?'
+  choices:
+    - 'The bumps widen and the two clusters merge into one smooth hump.'
+    - 'A separate spike appears at every data value.'
+    - 'The area under the curve doubles.'
+    - 'The curve stays the same, because the data did not change.'
+  answer: 0
+  explanation: |-
+    A larger bandwidth makes each bump wider and flatter, so nearby features blur together; the lesson's plot shows the two groups merging at $h = 2$. Spikes at every value come from a *small* bandwidth. The total area stays 1 for any $h$.
+
+- id: stat-m1-r2-h10
+  lesson: stat-m1-h-density
+  type: text
+  topic: Density histograms and smoothing
+  stem: 'In a kernel density estimate, the number $h$ that sets how wide each bump is, and so how smooth the curve is, is called the ___.'
+  accept: [bandwidth, the bandwidth, band width, window width, smoothing bandwidth]
+  explanation: |-
+    The bandwidth plays the role a bin width plays in a histogram: too small gives a noisy curve, too large hides real features.
+
+- id: stat-m1-r2-h11
+  lesson: stat-m1-h-density
+  type: match
+  topic: Density histograms and smoothing
+  stem: 'Match each rule of thumb to what it says.'
+  pairs:
+    - ['Sturges'' rule', 'Number of bins = 1 + log2(n), rounded up']
+    - ['Scott''s rule', 'Bin width based on the standard deviation']
+    - ['Freedman–Diaconis rule', 'Bin width based on the IQR']
+    - ['Silverman''s rule of thumb', 'A starting bandwidth for a kernel density estimate']
+  distractors: ['Outlier fences 1.5 IQR beyond the quartiles']
+  explanation: |-
+    Sturges: $k = 1 + \log_2 n$. Scott: $h = 3.49\,s\,n^{-1/3}$. Freedman–Diaconis: $h = 2\,\text{IQR}\,n^{-1/3}$. Silverman: $h = 0.9\min(s, \text{IQR}/1.34)\,n^{-1/5}$ for a normal kernel. The 1.5 × IQR fences are Tukey's outlier rule.
+
+- id: stat-m1-r2-h12
+  lesson: stat-m1-h-density
+  type: order
+  topic: Density histograms and smoothing
+  stem: 'Put the steps for drawing a density histogram from a table of bin counts in order.'
+  items:
+    - 'Divide each count by $n$ to get its relative frequency'
+    - 'Divide each relative frequency by its bin''s width to get the density'
+    - 'Draw each bar with height equal to its density'
+    - 'Check that the bar areas (height × width) add to 1'
+  explanation: |-
+    Density is relative frequency per unit width, so relative frequencies come first; the bars use the densities; and the check uses the finished bars.
+
+- id: stat-m1-r2-h13
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'For the values 2, 3, 3.6, 6, 7, a normal kernel with $h = 0.8$ gives $K\big((3 - x_i)/0.8\big) \approx 0.1826, 0.3989, 0.3011, 0.0004, 0.0000$. What is the kernel density estimate $\hat{f}(3)$?'
+  choices: ['0.883', '0.177', '0.221', '0.143']
+  answer: 2
+  explanation: |-
+    The kernel values add to about 0.883. Divide by $nh = 5 \times 0.8 = 4$: $\hat{f}(3) \approx 0.221$. Stopping at 0.883 forgets to divide; 0.177 divides by $n$ only; 0.143 is $\hat{f}(4)$ from the lesson.
+
+- id: stat-m1-r2-h14
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'A plain kernel density estimate with a normal kernel is drawn for waiting times in minutes, many of them close to 0. What problem should you expect?'
+  choices:
+    - 'The curve will have more than one peak.'
+    - 'The total area under the curve will be more than 1.'
+    - 'The bandwidth must be a whole number of minutes.'
+    - 'Some area falls below 0 minutes, an impossible value, and too little sits just above 0.'
+  answer: 3
+  explanation: |-
+    Normal bumps centered near 0 spill past the boundary, so part of their area lands on negative waiting times. The total area is still 1, but some of it is in the wrong place. This is the boundary problem; software offers corrections.
+
+- id: stat-m1-r2-h15
+  lesson: stat-m1-h-density
+  topic: Density histograms and smoothing
+  stem: 'A density histogram has a bar from 10 to 30 with height 0.02. Assuming the values are spread evenly within the bin, about what proportion of all the data lies between 15 and 30?'
+  choices: ['0.02', '0.3', '0.4', '0.6']
+  answer: 1
+  explanation: |-
+    Proportion is area: the stretch from 15 to 30 is 15 units wide, so about $15 \times 0.02 = 0.3$. The whole bar holds $20 \times 0.02 = 0.4$; 0.02 is a density, not a proportion.
+
+# ---- Honors: robust statistics
+- id: stat-m1-r2-h16
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'For the data 1, 4, 4, 11, which value of $c$ makes $\sum (x_i - c)^2$ as small as possible?'
+  choices: ['4', '6', '5', '4.5']
+  answer: 2
+  explanation: |-
+    The sum of squared distances is smallest at the mean: $(1 + 4 + 4 + 11)/4 = 5$. By the identity $\sum (x_i - c)^2 = \sum (x_i - \bar{x})^2 + n(\bar{x} - c)^2$, any other $c$ adds $4(5 - c)^2$. The median (4) minimizes the sum of *absolute* distances; 6 is the midrange.
+
+- id: stat-m1-r2-h17
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'For the data 3, 8, 10, 21, which values of $c$ make $\sum |x_i - c|$ as small as possible?'
+  choices:
+    - 'Only $c = 9$, the median'
+    - 'Every $c$ from 8 to 10'
+    - 'Only $c = 10.5$, the mean'
+    - 'Only $c = 12$, the midrange'
+  answer: 1
+  explanation: |-
+    Between 8 and 10 there are two values on each side of $c$, so moving $c$ either way adds as much distance as it removes: the sum is constant at $(21 - 3) + (10 - 8) = 20$. Outside that interval the sum increases. The usual median, 9, is one of these minimizers but not the only one.
+
+- id: stat-m1-r2-h18
+  lesson: stat-m1-h-robust
+  type: text
+  topic: Robust statistics
+  stem: 'The breakdown point of the median is about ___ percent. Give only the number.'
+  accept: ['50', '50%']
+  explanation: |-
+    To drag the median anywhere you like, the wild values must outnumber the good ones, so about half the data must be corrupted. No sensible summary can do better than 50%.
+
+- id: stat-m1-r2-h19
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'Find the 10% trimmed mean of 3, 12, 14, 15, 15, 16, 18, 19, 21, 47.'
+  choices: ['16.25', '18', '15.5', '16.3']
+  answer: 0
+  explanation: |-
+    10% of 10 values is 1 from each end: drop 3 and 47. The remaining eight values add to 130, and $130/8 = 16.25$. The ordinary mean is 18, the median is 15.5, and 16.3 is the 10% winsorized mean.
+
+- id: stat-m1-r2-h20
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'Find the 10% winsorized mean of 3, 12, 14, 15, 15, 16, 18, 19, 21, 47.'
+  choices: ['18', '16.25', '15.5', '16.3']
+  answer: 3
+  explanation: |-
+    Winsorizing replaces instead of dropping: 3 becomes 12 (the next value up) and 47 becomes 21. The ten values 12, 12, 14, 15, 15, 16, 18, 19, 21, 21 add to 163, so the mean is $163/10 = 16.3$. Dropping the extremes instead gives the trimmed mean, 16.25.
+
+- id: stat-m1-r2-h21
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'Find the median absolute deviation (MAD) of 2, 4, 5, 7, 20.'
+  choices: ['4.2', '3.6', '2', '7.6']
+  answer: 2
+  explanation: |-
+    The median is 5. Distances from 5: 3, 1, 0, 2, 15; sorted, 0, 1, 2, 3, 15, with median 2. So $\text{MAD} = 2$. The mean of those distances is 4.2; measuring distances from the mean 7.6 and taking their median gives 3.6.
+
+- id: stat-m1-r2-h22
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'Roughly normal data have $\text{MAD} = 4$. What is the MAD-based estimate of $\sigma$?'
+  choices: ['5.93', '2.70', '4', '8']
+  answer: 0
+  explanation: |-
+    For normal data, $\text{MAD} \approx 0.6745\sigma$, so $\sigma \approx \text{MAD}/0.6745 = 1.4826 \times 4 \approx 5.93$. Multiplying by 0.6745 instead gives 2.70.
+
+- id: stat-m1-r2-h23
+  lesson: stat-m1-h-robust
+  type: match
+  topic: Robust statistics
+  stem: 'Match each statistic to its breakdown point.'
+  pairs:
+    - [Mean, One bad value is enough]
+    - [10% trimmed mean, About 10%]
+    - [IQR, About 25%]
+    - [Median, About 50%]
+  distractors: [100%]
+  explanation: |-
+    One wild value moves the mean anywhere. A 10% trimmed mean discards the most extreme 10% at each end, so it survives about that much contamination. Moving a quartile takes about a quarter of the data. The median needs the wild values to outnumber the good ones. No summary can reach 100%.
+
+- id: stat-m1-r2-h24
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'Which statistics can be made as large as you like by changing just one data value? Select all that apply.'
+  choices: [Median, Mean, IQR, Standard deviation, Range, MAD]
+  answer: [1, 3, 4]
+  explanation: |-
+    The mean, standard deviation and range each use every value's size (or the extremes), so one value moved far enough drags them anywhere: breakdown point essentially 0. The median, IQR and MAD depend on the order of the middle values, so one wild value can shift them only a little.
+
+- id: stat-m1-r2-h25
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'A data set has median 40 and $\text{MAD} = 5$. What is the modified z-score of the value 70, and is it flagged?'
+  choices:
+    - '$M = 6$; flagged, since $6 > 3.5$'
+    - '$M \approx 4.05$; flagged, since $4.05 > 3.5$'
+    - '$M \approx 4.05$; not flagged, since it is below 6'
+    - '$M \approx 8.90$; flagged, since $8.90 > 3.5$'
+  answer: 1
+  explanation: |-
+    $M = 0.6745 \times (70 - 40)/5 = 0.6745 \times 6 \approx 4.05$, which exceeds the cutoff 3.5. Forgetting the 0.6745 gives 6, and dividing by it instead gives 8.90.
+
+- id: stat-m1-r2-h26
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'Eighteen sensor readings are near 10, and two are 100 and 102. Why might the ordinary z-scores of 100 and 102 look less extreme than they really are?'
+  choices:
+    - 'Z-scores can never exceed 3.'
+    - 'The readings are not normally distributed, so z-scores cannot be computed.'
+    - 'The two large values cancel each other out in the mean.'
+    - 'The two values pull the mean up and inflate $s$, which shrinks their own z-scores.'
+  answer: 3
+  explanation: |-
+    This is masking. The mean and standard deviation are not resistant, so the outliers move both in a way that makes themselves look closer to "typical." The median and MAD are barely affected, so the modified z-score still flags them.
+
+- id: stat-m1-r2-h27
+  lesson: stat-m1-h-robust
+  type: order
+  topic: Robust statistics
+  stem: 'Put the steps for estimating $\sigma$ robustly with the MAD in order.'
+  items:
+    - 'Find the median of the data'
+    - 'Find each value''s distance from the median'
+    - 'Take the median of those distances to get the MAD'
+    - 'Multiply the MAD by 1.4826 (for roughly normal data)'
+  explanation: |-
+    The distances are measured from the median, the MAD is the median of the distances, and the factor $1.4826 = 1/0.6745$ converts it to the scale of a normal standard deviation.
+
+- id: stat-m1-r2-h28
+  lesson: stat-m1-h-robust
+  topic: Robust statistics
+  stem: 'Ten values have mean 12, and their squared deviations from the mean add to 200. What is $\sum (x_i - 15)^2$?'
+  choices: ['230', '209', '290', '200']
+  answer: 2
+  explanation: |-
+    $\sum (x_i - c)^2 = \sum (x_i - \bar{x})^2 + n(\bar{x} - c)^2 = 200 + 10(12 - 15)^2 = 200 + 90 = 290$. Using $n(\bar{x} - c)$ without squaring gives 230; forgetting the factor $n$ gives 209.
+
+- id: stat-m1-r2-h29
+  lesson: stat-m1-h-robust
+  type: text
+  topic: Robust statistics
+  stem: 'The midrange, $(\min + \max)/2$, is the value of $c$ that minimizes the ___ of the distances $|x_i - c|$. (One word.)'
+  accept: [largest, maximum, max, greatest, biggest, largest one, maximum one]
+  explanation: |-
+    Any $c$ other than the midpoint of the two extremes is farther from one of them. Because it depends only on the minimum and maximum, the midrange is the least resistant measure of center.
+
+# ---- Honors: summaries from grouped and combined data
+- id: stat-m1-r2-h30
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'A frequency table shows values 1, 2, 3, 4 with frequencies 5, 9, 4, 2. What is the mean?'
+  choices: ['2.5', '10.75', '2', '2.15']
+  answer: 3
+  explanation: |-
+    $n = 5 + 9 + 4 + 2 = 20$ and $\sum fx = 5 + 18 + 12 + 8 = 43$, so $\bar{x} = 43/20 = 2.15$. 2.5 averages the four values without their frequencies, 10.75 divides by 4 instead of 20, and 2 is the median.
+
+- id: stat-m1-r2-h31
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'For the same table (values 1, 2, 3, 4 with frequencies 5, 9, 4, 2), what is the median?'
+  choices: ['2.5', '2', '3', '2.15']
+  answer: 1
+  explanation: |-
+    With $n = 20$, the median averages the 10th and 11th values. The cumulative counts are 5 (through 1) and 14 (through 2), so both are 2 and the median is 2.
+
+- id: stat-m1-r2-h32
+  lesson: stat-m1-h-combining
+  type: text
+  topic: Grouped and combined data
+  stem: 'In a frequency table, the number of data values $n$ equals the sum of the ___.'
+  accept: [frequencies, frequency, counts, f, the frequencies, the counts, f values]
+  explanation: |-
+    Each frequency counts how many times its value occurs, so $n = \sum f$. Adding the values themselves gives $\sum x$ for the distinct values, which is not $n$.
+
+- id: stat-m1-r2-h33
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'Grouped data: 0–<5: 4 values, 5–<10: 10, 10–<15: 12, 15–<20: 4. Estimate the median by linear interpolation.'
+  choices: ['12.5', '10.63', '10.42', '15']
+  answer: 2
+  explanation: |-
+    $n = 30$, so $n/2 = 15$. Below 10 lie $F = 14$ values, so the median is in 10–<15 ($f = 12$, $w = 5$): $10 + \frac{15 - 14}{12} \times 5 \approx 10.42$. Using position $(n+1)/2 = 15.5$ gives 10.63, 12.5 is just the bin's midpoint, and 15 is the position $n/2$ mistaken for a value.
+
+- id: stat-m1-r2-h34
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'Estimating a median by interpolation within a bin of grouped data relies on which assumption?'
+  choices:
+    - 'All values in the bin equal the bin''s lower boundary.'
+    - 'The values are spread evenly across the bin.'
+    - 'Every bin contains the same number of values.'
+    - 'The distribution is normal.'
+  answer: 1
+  explanation: |-
+    Interpolation assumes the values are spread evenly within the bin, so reaching a fraction of the bin's count means going the same fraction of its width; it is the straight line between two points of the ogive. No normality or equal counts are needed, but the answer is still an estimate.
+
+- id: stat-m1-r2-h35
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'Group 1 has 10 values with mean 60; group 2 has 40 values with mean 70. What is the mean of all 50 values?'
+  choices: ['68', '65', '66', '62']
+  answer: 0
+  explanation: |-
+    Weight each mean by its group size: $(10 \times 60 + 40 \times 70)/50 = (600 + 2800)/50 = 68$. The unweighted average of the two means is 65; swapping the weights gives 62.
+
+- id: stat-m1-r2-h36
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'Two groups of 10 values each have standard deviation 2; their means are 20 and 30. What is the standard deviation of all 20 values combined?'
+  choices: ['2', '5.13', '5.49', '7.07']
+  answer: 2
+  explanation: |-
+    The combined mean is 25. Within groups: $9 \times 4 + 9 \times 4 = 72$. Between groups: $10(20 - 25)^2 + 10(30 - 25)^2 = 500$. So $s^2 = (72 + 500)/19 \approx 30.1$ and $s \approx 5.49$. Averaging the two SDs gives 2 (it ignores the gap between the means); leaving out the within-group part gives 5.13.
+
+- id: stat-m1-r2-h37
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'You have only summary reports for several groups. Which pieces of information about each group, taken together, are enough to find the exact standard deviation of all the data combined? Select all that apply.'
+  choices: ['The group''s size', 'The group''s mean', 'The group''s median', 'The group''s standard deviation', 'The group''s IQR']
+  answer: [0, 1, 3]
+  explanation: |-
+    From $n$, $\bar{x}$ and $s$ you get each group's $\sum x = n\bar{x}$ and $\sum x^2 = (n-1)s^2 + n\bar{x}^2$, and those totals are all the combined variance needs. Medians and IQRs describe order, not sums, and are not needed.
+
+- id: stat-m1-r2-h38
+  lesson: stat-m1-h-combining
+  type: match
+  topic: Grouped and combined data
+  stem: 'Match each expression (for one group with $n$ values, mean $\bar{x}$ and standard deviation $s$) to what it equals.'
+  pairs:
+    - ['$n\bar{x}$', 'The sum of the group''s values']
+    - ['$(n-1)s^2 + n\bar{x}^2$', 'The sum of the squares of the group''s values']
+    - ['$(n-1)s^2$', 'The sum of squared deviations from the group''s own mean']
+    - ['$\bar{x} + (x - \bar{x})/(n+1)$', 'The mean after one new value x is added']
+  distractors: ['The median of the combined data']
+  explanation: |-
+    $\bar{x} = \sum x/n$ gives the first. The shortcut formula $s^2 = (\sum x^2 - n\bar{x}^2)/(n-1)$ rearranges to the second. The definition $s^2 = \sum (x - \bar{x})^2/(n-1)$ gives the third. The fourth is the updating formula. No expression in $n$, $\bar{x}$ and $s$ gives a combined median.
+
+- id: stat-m1-r2-h39
+  lesson: stat-m1-h-combining
+  type: order
+  topic: Grouped and combined data
+  stem: 'Put the steps for finding the combined standard deviation of several groups from their summaries in order.'
+  items:
+    - 'For each group, compute $\sum x = n\bar{x}$ and $\sum x^2 = (n-1)s^2 + n\bar{x}^2$'
+    - 'Add the sums, the sums of squares and the group sizes across groups'
+    - 'Divide the total sum by the total size $N$ to get the combined mean'
+    - 'Compute the variance $(\sum x^2 - N\bar{x}^2)/(N-1)$'
+    - 'Take the square root'
+  explanation: |-
+    Each step uses the previous one: group totals, then grand totals, then the combined mean, which the variance formula needs, then the root.
+
+- id: stat-m1-r2-h40
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'The mean of 24 test scores is 80. A 25th student scores 105. What is the new mean?'
+  choices: ['81', '92.5', '80', '81.04']
+  answer: 0
+  explanation: |-
+    $\bar{x}_{25} = 80 + (105 - 80)/25 = 80 + 1 = 81$. Averaging 80 and 105 (92.5) treats one student like the other 24 together; dividing by 24 instead of 25 gives 81.04.
+
+- id: stat-m1-r2-h41
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'Two stores report median sales of 120 and 160 items per day. Why can''t you compute the median of the two stores'' days combined from this alone?'
+  choices:
+    - 'Medians can only be computed for symmetric data.'
+    - 'You must average the two medians, weighted by the number of days.'
+    - 'The combined median is always the smaller of the two.'
+    - 'The combined median depends on how the values are arranged within each store, which the medians don''t tell you.'
+  answer: 3
+  explanation: |-
+    Means combine because each group's total is $n\bar{x}$; medians have no such total. Different sets of daily sales with the same two medians can give different combined medians, so you need the raw data or common bins.
+
+- id: stat-m1-r2-h42
+  lesson: stat-m1-h-combining
+  topic: Grouped and combined data
+  stem: 'Two groups of 50 values both have standard deviation 5, but their means are 40 and 60. About what is the standard deviation of all 100 values?'
+  choices:
+    - '5, the common standard deviation'
+    - 'About 11.2, because the gap between the means adds spread'
+    - 'About 7.1, the square root of 50'
+    - 'About 2.5, half the common standard deviation'
+  answer: 1
+  explanation: |-
+    Within groups: $49 \times 25 \times 2 = 2450$. Between groups: $50(40 - 50)^2 + 50(60 - 50)^2 = 10{,}000$. So $s^2 = 12{,}450/99 \approx 125.8$ and $s \approx 11.2$. The combined spread is much larger than either group's because of the between-group term.
+
+- id: stat-m1-r2-h43
+  lesson: stat-m1-h-combining
+  type: text
+  topic: Grouped and combined data
+  stem: 'Grouped data: 0–<10: 2 values, 10–<20: 4, 20–<30: 8, 30–<40: 16, 40–<50: 10. By linear interpolation, $Q_1$ is about ___. Give only the number.'
+  accept: ['25']
+  explanation: |-
+    $n = 40$, so $Q_1$ is at position $n/4 = 10$. Below 20 lie $2 + 4 = 6$ values, and the 20–<30 bin holds 8, so $Q_1 \approx 20 + \frac{10 - 6}{8} \times 10 = 25$.

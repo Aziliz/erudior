@@ -1,14 +1,14 @@
 ---
-id: alg-m1-h-decimals-proof
+id: alg-m1-h-decimals-fractions
 module: alg-m1
 honors: true
-title: 'Inside the real numbers: repeating decimals and a proof of irrationality'
+title: 'Inside the real numbers: decimals, fractions and density'
 minutes: 45
 topics: [Decimals and irrationality]
 drills: [alg-m1-r2-repeating-two, alg-m1-r2-repeating-delayed]
 refs: [alg-ref-equations]
 ---
-Lesson 1 made two claims without proving them. First, a number is rational exactly when its decimal either stops or repeats. Second, $\sqrt2$ is irrational. This honors lesson proves both. Along the way you will use the linear equations of Lesson 3 to turn any repeating decimal into a fraction, meet the strange but true fact that $0.999\ldots = 1$, and write your first real proof, the same argument Greek mathematicians used more than two thousand years ago.
+Lesson 1 made a claim without proving it: a number is rational exactly when its decimal either stops or repeats. This honors lesson proves it, in both directions. Along the way you will use the linear equations of Lesson 3 to turn any repeating decimal into a fraction, meet the strange but true fact that $0.999\ldots = 1$, see that between any two numbers there are infinitely many others, and write your first proof by contradiction.
 
 ## From fractions to decimals: why the digits must repeat
 
@@ -80,54 +80,51 @@ Apply the method to $x = 0.999\ldots$ Then $10x = 9.999\ldots$, and subtracting 
 
 Many people feel this must be wrong: surely $0.999\ldots$ is "just below" 1. But two different real numbers always have other numbers between them (their average, for example). There is no number between $0.999\ldots$ and 1, because the 9s never stop, so they are not two different numbers. Another way to see it: $\tfrac13 = 0.333\ldots$, and multiplying by 3 gives $1 = 0.999\ldots$ The lesson is that some numbers have two decimal names. Every terminating decimal has a twin ending in repeating 9s: $0.5 = 0.4999\ldots$ and $2.37 = 2.36999\ldots$
 
-## Proving that $\sqrt{2}$ is irrational
+## Which method when
 
-We now know that $\sqrt2$ is irrational if and only if no fraction equals it. Checking fractions one at a time can never prove that, since there are infinitely many. Instead we use a **proof by contradiction**: assume the opposite of what you want to prove, reason correctly from it, and arrive at something impossible. Then the assumption must have been false.
-
-We need one fact about **even** numbers (multiples of 2, written $2k$) and **odd** numbers (written $2k + 1$, for an integer $k$): the square of an odd number is odd, because
-
-$$(2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1.$$
-
-So if a whole number's square is even, the number itself cannot be odd; it must be even.
-
-*Claim.* $\sqrt2$ is irrational.
-
-*Proof.* Suppose, to the contrary, that $\sqrt2 = \tfrac{p}{q}$ for positive integers $p$ and $q$. We may reduce the fraction, so assume it is in lowest terms: $p$ and $q$ have no common factor except 1.
-
-1. Square both sides: $2 = \tfrac{p^2}{q^2}$, so $p^2 = 2q^2$. That makes $p^2$ even.
-2. By the fact above, $p$ is even. Write $p = 2k$.
-3. Substitute: $(2k)^2 = 2q^2$, so $4k^2 = 2q^2$, and $q^2 = 2k^2$. So $q^2$ is even, and $q$ is even.
-4. Now $p$ and $q$ are both even, so they share the factor 2. That contradicts lowest terms.
-
-The assumption led to a contradiction, so no such fraction exists, and $\sqrt2$ is irrational. ∎
+Every decimal falls into one of four cases, and each case has its own route to a fraction, or a reason there isn't one.
 
 ```mermaid
 flowchart TD
-  accTitle: The structure of the proof that the square root of 2 is irrational
-  accDescr: Assume the square root of 2 equals p over q in lowest terms. Squaring gives p squared equals 2 q squared, so p squared is even, so p is even; write p as 2k. Substituting gives q squared equals 2 k squared, so q is even. Then p and q are both even, which contradicts lowest terms. So the assumption is false, and the square root of 2 is irrational.
-  A["Assume √2 = p/q in lowest terms"] --> B["Square: p² = 2q², so p² is even"]
-  B --> C["So p is even: p = 2k"]
-  C --> D["Substitute: q² = 2k², so q is even"]
-  D --> E["p and q share the factor 2"]
-  E --> F["Contradiction with lowest terms"]
-  F --> G["So √2 is irrational"]
+  accTitle: Turning a decimal into a fraction
+  accDescr: Look at the decimal. If it terminates, write it over a power of 10 with as many zeros as there are decimal places, then reduce. If a block repeats starting right after the decimal point, write the block over as many 9s as it has digits, then reduce. If some digits come before the repeating block, multiply x by two powers of 10 so the repeating tails line up, subtract and solve. If the decimal never ends and never repeats, there is no fraction: the number is irrational.
+  A["Look at the decimal"] --> B{"Does it end?"}
+  B -- Yes --> C["Over a power of 10, then reduce"]
+  B -- No --> D{"Does a block repeat?"}
+  D -- "Yes, right after the point" --> E["Block over that many 9s, then reduce"]
+  D -- "Yes, after a delay" --> F["Two multiples of x, subtract, solve"]
+  D -- Never --> G["No fraction: irrational"]
 ```
 
-Because $\sqrt2$ is irrational, its decimal $1.41421356\ldots$ can never settle into a repeating block, no matter how far you compute it.
+The last branch is how you can recognize, and even build, irrational numbers. The decimal $0.101001000100001\ldots$, with one more 0 between the 1s each time, follows a clear pattern, but no block of digits ever repeats forever, so by the result above it is not a fraction: it is irrational. Likewise, Lesson 1 told you that $\sqrt2$ is irrational, so its decimal $1.41421356\ldots$ can never settle into a repeating block, however far you compute it. (Why $\sqrt2$ is irrational takes a separate argument; an honors lesson in Module 7 proves it.)
 
-A note on history: the discovery that the diagonal of a square cannot be measured exactly by any fraction of its side goes back to Greek mathematicians of the fifth century BCE and is usually credited to the Pythagoreans. Stories that one of them, Hippasus, was drowned for revealing it are legends, not history. About a century later Aristotle referred to an argument of exactly this odd-and-even kind.
+## Numbers in between: density
+
+Between two different rational numbers $a$ and $b$ there is always another one: their average $\tfrac{a + b}{2}$, which is a fraction of integers when $a$ and $b$ are. Then there is another between $a$ and that average, and so on, without end. So between any two different rationals there are infinitely many more. Mathematicians say the rational numbers are **dense** on the number line: no gap between two of them is too small to hold another.
+
+Irrational numbers are just as crowded. Between any two different decimals you can write one that never repeats, by copying the digits they share and then continuing with a non-repeating pattern.
 
 ### Example 4
 
-Prove that $\sqrt3$ is irrational.
+Find a rational number and an irrational number between $\tfrac27$ and $\tfrac{3}{10}$.
 
-The same plan works, with multiples of 3 in place of even numbers. First the needed fact: every integer is $3k$, $3k + 1$ or $3k + 2$. Squaring the last two gives $9k^2 + 6k + 1 = 3(3k^2 + 2k) + 1$ and $9k^2 + 12k + 4 = 3(3k^2 + 4k + 1) + 1$, neither a multiple of 3. So if $p^2$ is a multiple of 3, then $p$ is too.
+1. As decimals, $\tfrac27 = 0.285714\ldots$ and $\tfrac{3}{10} = 0.3$.
+2. A rational number between them: the average, $\tfrac12\left(\tfrac{20}{70} + \tfrac{21}{70}\right) = \tfrac{41}{140} \approx 0.2929$. A simpler choice is $0.29 = \tfrac{29}{100}$, since $0.2857\ldots < 0.29 < 0.3$.
+3. An irrational number between them: $0.29010010001\ldots$ (start with $0.29$, then 1s separated by more and more 0s). It is bigger than $0.29$ and smaller than $0.3$, and it never repeats.
 
-1. Suppose $\sqrt3 = \tfrac{p}{q}$ in lowest terms. Then $p^2 = 3q^2$, a multiple of 3, so $p = 3k$.
-2. Substitute: $9k^2 = 3q^2$, so $q^2 = 3k^2$, a multiple of 3, so $q$ is a multiple of 3.
-3. Both $p$ and $q$ are multiples of 3, contradicting lowest terms. So $\sqrt3$ is irrational. ∎
+## A first proof by contradiction
 
-Why doesn't the same argument "prove" that $\sqrt4$ is irrational? Try it: $p^2 = 4q^2$ makes $p$ even, $p = 2k$, and then $4k^2 = 4q^2$ gives $k^2 = q^2$. Nothing forces $q$ to be even, so there is no contradiction, and indeed $\sqrt4 = \tfrac21$. A proof is only as good as each of its steps; checking where an argument breaks is a good way to understand why it works.
+How do you show that something is impossible, such as finding a *smallest* positive fraction? Checking fractions one at a time can never finish, since there are infinitely many. Instead, use a **proof by contradiction**: assume the opposite of what you want to prove, reason correctly from it, and arrive at something impossible. Then the assumption must have been false.
+
+*Claim.* There is no smallest positive rational number.
+
+*Proof.* Suppose, to the contrary, that $r$ is the smallest positive rational number.
+
+1. Then $\tfrac{r}{2}$ is also rational (if $r = \tfrac{p}{q}$, then $\tfrac{r}{2} = \tfrac{p}{2q}$) and also positive.
+2. But $\tfrac{r}{2} < r$, so $r$ is not the smallest after all.
+3. That contradicts the assumption. So no smallest positive rational number exists. ∎
+
+The argument for $0.999\ldots = 1$ in the previous section had the same shape: if the two were different numbers, their average would lie strictly between them, and no decimal fits there. Proof by contradiction will come back many times in this course, most famously in the proof that $\sqrt2$ is irrational.
 
 ## Common mistakes
 
@@ -135,13 +132,15 @@ Why doesn't the same argument "prove" that $\sqrt4$ is irrational? Try it: $p^2 
 - Multiplying by the wrong power of 10. For $0.\overline{27}$, $10x = 2.727\ldots$ does not line up with $x = 0.2727\ldots$; you need $100x$, one shift per digit in the block.
 - Forgetting the non-repeating digits. For $0.4\overline{6}$, subtracting $x$ from $10x$ leaves $9x = 4.2$, which works but is messy; using $100x - 10x$ keeps everything whole.
 - Believing a calculator display. A screen showing $1.414213562$ has rounded; $\sqrt2$ is not that fraction. And $\tfrac{22}{7}$ is a rational approximation of $\pi$, not $\pi$.
-- Thinking examples prove a claim. Checking that $\tfrac75$, $\tfrac{17}{12}$ and $\tfrac{41}{29}$ are not exactly $\sqrt2$ proves nothing about the infinitely many other fractions; the proof by contradiction covers them all at once.
-- Saying "$p^2$ is even, so $p$ is even" without a reason. The reason is that odd numbers have odd squares.
+- Thinking a decimal with a pattern must repeat. $0.101001000100001\ldots$ has a pattern, but no block repeats, so it is irrational.
+- Thinking examples prove a claim. Showing that $\tfrac{1}{1000}$ and $\tfrac{1}{1000000}$ each have a smaller positive fraction below them says nothing about the infinitely many others; the proof by contradiction covers them all at once.
 
 ## Key points
 
 - In long division by $q$ there are only $q$ possible remainders, so the decimal of $\tfrac{p}{q}$ must terminate or repeat, with a block at most $q - 1$ digits long.
 - A fraction in lowest terms terminates exactly when its denominator's only prime factors are 2 and 5.
 - To turn a repeating decimal into a fraction, let $x$ be the decimal, multiply by powers of 10 so the repeating tails line up, subtract and solve.
+- A number is rational exactly when its decimal terminates or repeats; a decimal that does neither is irrational.
 - $0.999\ldots = 1$: some numbers have two decimal names.
-- Proof by contradiction: assume the opposite and reason to something impossible. Assuming $\sqrt2 = \tfrac{p}{q}$ in lowest terms forces $p$ and $q$ both to be even.
+- The rationals are dense: between any two different numbers there are infinitely many rationals, and infinitely many irrationals too.
+- Proof by contradiction: assume the opposite and reason to something impossible.

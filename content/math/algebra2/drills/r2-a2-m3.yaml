@@ -76,13 +76,13 @@
   where: ['q != 0', 'abs(root*8 - round(root*8)) > 0.01']
   prompt: '$f(x) = x^3 {p:signedcoef}x {q:signed}$ is always increasing, so it has exactly one real zero, and $f({lo}) < 0 < f({hi})$. Starting from the interval from {lo} to {hi}, do three steps of bisection. Between which two numbers is the zero after the third step?'
   answers:
-    - {name: L3, label: 'Left endpoint', tolerance: 0.0001}
-    - {name: R3, label: 'Right endpoint', tolerance: 0.0001}
+    - {name: L3, label: 'Left endpoint', format: num4, tolerance: 0.0001}
+    - {name: R3, label: 'Right endpoint', format: num4, tolerance: 0.0001}
   solution: |-
     Since $f$ is increasing, a positive $f(m)$ means the zero is to the left of $m$, and a negative one means it's to the right.
-    Step 1: $f({m1}) \approx {f1:dp3}$, so the zero is between {L1} and {R1}.
-    Step 2: $f({m2}) \approx {f2:dp3}$, so the zero is between {L2} and {R2}.
-    Step 3: $f({m3}) \approx {f3:dp3}$, so the zero is between **{L3}** and **{R3}**.
+    Step 1: $f({m1:num4}) \approx {f1:dp3}$, so the zero is between {L1:num4} and {R1:num4}.
+    Step 2: $f({m2:num4}) \approx {f2:dp3}$, so the zero is between {L2:num4} and {R2:num4}.
+    Step 3: $f({m3:num4}) \approx {f3:dp3}$, so the zero is between **{L3:num4}** and **{R3:num4}**.
 
 - id: a2-m3-r2-vieta
   title: Vieta's formulas for a cubic
@@ -98,9 +98,9 @@
     S3: -D/A
   prompt: 'Let $r$, $s$, $t$ be the roots of ${A:coef}x^3 {B:signedcoef}x^2 {C:signedcoef}x {D:signed}$. Without solving, find $r + s + t$, $rs + rt + st$ and $rst$. (Fractions are fine.)'
   answers:
-    - {name: S1, label: '$r + s + t =$'}
-    - {name: S2, label: '$rs + rt + st =$'}
-    - {name: S3, label: '$rst =$'}
+    - {name: S1, label: '$r + s + t =$', format: fraction, tolerance: 0.005}
+    - {name: S2, label: '$rs + rt + st =$', format: fraction, tolerance: 0.005}
+    - {name: S3, label: '$rst =$', format: fraction, tolerance: 0.005}
   solution: |-
     For $ax^3 + bx^2 + cx + d$, Vieta's formulas give $r + s + t = -\tfrac ba$, $rs + rt + st = \tfrac ca$ and $rst = -\tfrac da$.
     Here: $r + s + t = -\tfrac{{B}}{{A}} =$ **${S1:texfrac}$**, $rs + rt + st = \tfrac{{C}}{{A}} =$ **${S2:texfrac}$**, $rst = -\tfrac{{D}}{{A}} =$ **${S3:texfrac}$**.
@@ -121,7 +121,7 @@
   prompt: 'Let $r$, $s$, $t$ be the roots of $x^3 {b:signedcoef}x^2 {c:signedcoef}x {d:signed}$. Find $r^2 + s^2 + t^2$ and $\tfrac1r + \tfrac1s + \tfrac1t$. (Fractions are fine.)'
   answers:
     - {name: sq, label: '$r^2 + s^2 + t^2 =$'}
-    - {name: rec, label: '$\tfrac1r + \tfrac1s + \tfrac1t =$'}
+    - {name: rec, label: '$\tfrac1r + \tfrac1s + \tfrac1t =$', format: fraction, tolerance: 0.005}
   solution: |-
     Vieta: $r + s + t = {e1}$, $rs + rt + st = {e2}$, $rst = {e3}$.
     $r^2 + s^2 + t^2 = (r + s + t)^2 - 2(rs + rt + st) = ({e1})^2 - 2({e2}) =$ **{sq}**.

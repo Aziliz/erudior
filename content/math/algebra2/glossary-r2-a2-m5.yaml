@@ -1,0 +1,33 @@
+# Round 2 glossary terms for a2-m5 (honors lessons 19h1 and 19h2)
+- term: proper rational function
+  aliases: [proper rational functions, proper rational expression]
+  definition: 'A rational function whose numerator has smaller degree than its denominator, such as $\dfrac{3x + 1}{x^2 - 4}$. It approaches 0 as $|x|$ grows.'
+  topic: Slant asymptotes
+- term: improper rational function
+  aliases: [improper rational functions, improper rational expression]
+  definition: 'A rational function whose numerator has degree greater than or equal to its denominator''s. Division writes it as a polynomial plus a proper rational function.'
+  topic: Slant asymptotes
+- term: AM–GM inequality
+  aliases: [AM-GM inequality, AM-GM, AM–GM, arithmetic mean–geometric mean inequality]
+  definition: 'For $a, b \ge 0$, the arithmetic mean is at least the geometric mean: $\dfrac{a + b}{2} \ge \sqrt{ab}$, or $a + b \ge 2\sqrt{ab}$, with equality exactly when $a = b$.'
+  topic: Average cost
+- term: average cost
+  aliases: [average cost per item]
+  definition: 'Total cost divided by the number of items made, $A(x) = \dfrac{C(x)}{x}$.'
+  topic: Average cost
+- term: partial fraction decomposition
+  aliases: [partial fractions, partial fraction]
+  definition: 'Writing a rational expression as a sum of simpler fractions, one or more for each factor of its denominator; the reverse of adding fractions.'
+  topic: Partial fractions
+- term: cover-up method
+  aliases: [Heaviside cover-up method]
+  definition: 'A shortcut for partial fractions: the numerator over a linear factor $x - r$ that appears once is the original fraction with that factor covered up, evaluated at $x = r$.'
+  topic: Partial fractions
+- term: irreducible quadratic
+  aliases: [irreducible quadratics, irreducible quadratic factor]
+  definition: 'A quadratic with no real roots (negative discriminant), such as $x^2 + 1$, so it cannot be factored into linear factors with real coefficients.'
+  topic: Partial fractions
+- term: telescoping sum
+  aliases: [telescoping sums, telescoping series]
+  definition: 'A sum in which each term cancels part of a later one, so only a few pieces at the start and end survive. Example: $\sum_{k=1}^{n} \left(\tfrac1k - \tfrac{1}{k+1}\right) = 1 - \tfrac{1}{n+1}$.'
+  topic: Partial fractions

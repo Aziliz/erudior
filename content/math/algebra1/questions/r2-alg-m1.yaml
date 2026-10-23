@@ -267,9 +267,9 @@
   explanation: |-
     Moving apart, their distances add: $3t + 4.5t = 15$, so $7.5t = 15$ and $t = 2$ hours. Check: 6 miles plus 9 miles is 15. Ten hours comes from subtracting the speeds, which would be right only if they walked in the same direction.
 
-# --- Honors: repeating decimals and irrationality ---
+# --- Honors: decimals, fractions and density ---
 - id: alg-m1-r2-h01
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
   stem: 'Which fraction has a terminating decimal?'
   choices: ['$\tfrac{7}{12}$', '$\tfrac{9}{60}$', '$\tfrac{5}{6}$', '$\tfrac{4}{15}$']
@@ -277,7 +277,7 @@
   explanation: |-
     Reduce first: $\tfrac{9}{60} = \tfrac{3}{20}$, and $20 = 2^2 \cdot 5$ has only 2s and 5s, so it terminates: $0.15$. The others are in lowest terms with a factor 3 in the denominator ($12$, $6$, $15$), so they repeat.
 - id: alg-m1-r2-h02
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
   stem: 'Using only the remainder argument, what is the greatest possible length of the repeating block of $\tfrac{p}{13}$, where $p$ is not a multiple of 13?'
   choices: ['12 digits', '13 digits', '6 digits', '26 digits']
@@ -285,7 +285,7 @@
   explanation: |-
     Dividing by 13 leaves a remainder from 0 to 12. Remainder 0 never appears (13 does not divide $p$ times a power of 10), so only the 12 nonzero remainders are possible, and the block can be at most 12 digits long. (In fact $\tfrac{1}{13} = 0.\overline{076923}$ has a block of 6; the argument gives only an upper limit.)
 - id: alg-m1-r2-h03
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   type: text
   topic: Decimals and irrationality
   stem: 'Written as a fraction in lowest terms, $0.\overline{81}$ has denominator 11. Its numerator is ___.'
@@ -293,7 +293,7 @@
   explanation: |-
     Let $x = 0.\overline{81}$. Then $100x = 81.\overline{81}$, and subtracting gives $99x = 81$, so $x = \tfrac{81}{99} = \tfrac{9}{11}$.
 - id: alg-m1-r2-h04
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
   stem: 'Write $0.2\overline{7} = 0.2777\ldots$ as a fraction in lowest terms.'
   choices: ['$\tfrac{3}{11}$', '$\tfrac{7}{25}$', '$\tfrac{25}{99}$', '$\tfrac{5}{18}$']
@@ -301,7 +301,7 @@
   explanation: |-
     Let $x = 0.2777\ldots$ Then $10x = 2.777\ldots$ and $100x = 27.777\ldots$ Subtract: $90x = 25$, so $x = \tfrac{25}{90} = \tfrac{5}{18}$. $\tfrac{3}{11} = 0.\overline{27}$ repeats both digits, and $\tfrac{7}{25} = 0.28$ terminates.
 - id: alg-m1-r2-h05
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
   stem: 'To turn $x = 0.\overline{2025} = 0.20252025\ldots$ into a fraction, you multiply by a power of 10 and subtract $x$. Which multiple of $x$ makes the tails cancel?'
   choices: ['$10x$', '$100x$', '$1000x$', '$10000x$']
@@ -309,39 +309,39 @@
   explanation: |-
     The repeating block has 4 digits, so shift by 4 places: $10000x = 2025.2025\ldots$ Then $9999x = 2025$ and $x = \tfrac{2025}{9999} = \tfrac{225}{1111}$. A smaller shift leaves the tails misaligned.
 - id: alg-m1-r2-h06
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
   stem: 'Which of these numbers are rational? Select all that apply.'
   choices: ['$0.\overline{9}$', '$0.101001000100001\ldots$ (one more 0 between the 1s each time)', '$\sqrt{0.25}$', '$\tfrac{\sqrt3}{2}$', '$3.14159$']
   answer: [0, 2, 4]
   explanation: |-
-    $0.\overline{9} = 1$. $\sqrt{0.25} = 0.5$. $3.14159$ terminates, so it is $\tfrac{314159}{100000}$ (it is close to $\pi$ but is not $\pi$). The decimal $0.1010010001\ldots$ never ends and its pattern never settles into a repeating block, so it is irrational. If $\tfrac{\sqrt3}{2}$ were a fraction, $\sqrt3$ would be twice that fraction, also a fraction; so it is irrational.
+    $0.\overline{9} = 1$. $\sqrt{0.25} = 0.5$. $3.14159$ terminates, so it is $\tfrac{314159}{100000}$ (it is close to $\pi$ but is not $\pi$). The decimal $0.1010010001\ldots$ never ends and its pattern never settles into a repeating block, so it is irrational. If $\tfrac{\sqrt3}{2}$ were a fraction, $\sqrt3$ would be twice that fraction, also a fraction. But 3 is not a perfect square, so $\sqrt3$ is irrational (Lesson 1), and therefore so is $\tfrac{\sqrt3}{2}$.
 - id: alg-m1-r2-h07
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   type: order
   topic: Decimals and irrationality
-  stem: 'Put the steps of the proof that $\sqrt2$ is irrational in order.'
-  items: ['Assume $\sqrt2 = \tfrac{p}{q}$ in lowest terms', 'Square both sides: $p^2 = 2q^2$, so $p$ is even', 'Write $p = 2k$ and substitute: $q^2 = 2k^2$, so $q$ is even', 'Then $p$ and $q$ share the factor 2, contradicting lowest terms', 'So the assumption is false: $\sqrt2$ is irrational']
+  stem: 'Put the steps of the proof that there is no smallest positive rational number in order.'
+  items: ['Assume $r$ is the smallest positive rational number', 'Then $\tfrac{r}{2}$ is also a positive rational number', 'But $\tfrac{r}{2} < r$, so $r$ is not the smallest', 'This contradicts the assumption, so no smallest positive rational exists']
   explanation: |-
     A proof by contradiction starts from the assumption, reasons step by step (each step uses the one before it) until it reaches something impossible, and then concludes that the assumption was false.
 - id: alg-m1-r2-h08
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
-  stem: 'In the proof that $\sqrt2$ is irrational, what justifies the step "$p^2$ is even, so $p$ is even"?'
-  choices: ['Every perfect square is even', '$p$ and $q$ are in lowest terms', 'The square of an odd number is odd', '$\sqrt2$ is about 1.414']
+  stem: 'Which number lies strictly between $0.\overline{3}$ and $0.34$?'
+  choices: ['$0.3\overline{4}$', '$0.33$', '$0.335$', '$\tfrac13$']
   answer: 2
   explanation: |-
-    $(2k + 1)^2 = 2(2k^2 + 2k) + 1$ is odd, so an odd $p$ would make $p^2$ odd. Since $p^2$ is even, $p$ can't be odd. Not every square is even ($9$ isn't), and lowest terms is used later, to reach the contradiction.
+    $0.\overline{3} = 0.3333\ldots$ and $0.335$ is bigger (compare the third decimal place: 5 > 3) but smaller than $0.340$. $0.3\overline{4} = 0.3444\ldots$ is bigger than $0.34$, $0.33$ is smaller than $0.333\ldots$, and $\tfrac13$ is $0.\overline{3}$ itself, not strictly between.
 - id: alg-m1-r2-h09
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
-  stem: 'Someone runs the same argument on $\sqrt4 = \tfrac{p}{q}$ (lowest terms). Where does it stop working?'
-  choices: ['At the start: you cannot assume $\sqrt4$ is a fraction', 'After $p = 2k$: it gives $k^2 = q^2$, which does not force $q$ to be even', 'At the first step: $p^2 = 4q^2$ does not make $p$ even', 'Nowhere: the argument shows that $\sqrt4$ is irrational']
+  stem: 'Which number is irrational?'
+  choices: ['$0.\overline{12}$', '$0.121121112\ldots$ (one more 1 each time)', '$0.12\overline{1}$', '$0.1212$']
   answer: 1
   explanation: |-
-    $p^2 = 4q^2$ does make $p$ even, but substituting $p = 2k$ gives $4k^2 = 4q^2$, so $k^2 = q^2$. Nothing says $q$ is even, so no contradiction appears, which is right, since $\sqrt4 = \tfrac21$. Assuming something is a fraction is always allowed in a proof by contradiction; the point is to see whether it leads to something impossible.
+    $0.121121112\ldots$ follows a pattern, but because the run of 1s keeps growing, no block ever repeats forever, so it is not a fraction. $0.\overline{12} = \tfrac{12}{99}$ and $0.12\overline{1}$ repeat, and $0.1212$ terminates; all three are rational.
 - id: alg-m1-r2-h10
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   type: match
   topic: Decimals and irrationality
   stem: 'Match each decimal to the fraction it equals.'
@@ -354,7 +354,7 @@
   explanation: |-
     $0.\overline{3} = \tfrac39 = \tfrac13$. For $x = 0.1666\ldots$, $100x - 10x = 16.\overline{6} - 1.\overline{6} = 15$, so $x = \tfrac{15}{90} = \tfrac16$. $0.\overline{09} = \tfrac{9}{99} = \tfrac{1}{11}$. $0.375 = \tfrac{375}{1000} = \tfrac38$. ($\tfrac{3}{10} = 0.3$, which matches none of them.)
 - id: alg-m1-r2-h11
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
   stem: 'Which statement about $0.999\ldots$ (9s forever) is true?'
   choices: ['It equals 1 exactly', 'It is the largest number less than 1', 'It is irrational, because its digits never end', 'It is very close to 1 but not equal to it']
@@ -362,7 +362,7 @@
   explanation: |-
     With $x = 0.999\ldots$, $10x - x = 9$, so $x = 1$. Also $3 \times 0.333\ldots = 0.999\ldots$ and $3 \times \tfrac13 = 1$. There is no "largest number less than 1" (between any number below 1 and 1 lies their average), and a repeating decimal is rational even though its digits never end.
 - id: alg-m1-r2-h12
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   type: text
   topic: Decimals and irrationality
   stem: 'The decimal of $\tfrac{3}{7}$ repeats a block of how many digits? ___'
@@ -370,13 +370,13 @@
   explanation: |-
     Long division of 3 by 7 gives remainders 3, 2, 6, 4, 5, 1 and then 3 again, writing the digits 4, 2, 8, 5, 7, 1: $\tfrac37 = 0.\overline{428571}$, a block of 6 digits, the most possible for a denominator of 7.
 - id: alg-m1-r2-h13
-  lesson: alg-m1-h-decimals-proof
+  lesson: alg-m1-h-decimals-fractions
   topic: Decimals and irrationality
-  stem: 'The proof that $\sqrt3$ is irrational follows the $\sqrt2$ proof. Which fact takes the place of "odd numbers have odd squares"?'
-  choices: ['Every multiple of 3 is odd', 'If $p^2$ is even, then $p$ is a multiple of 3', 'If $p^2$ is a multiple of 3, then $p$ is a multiple of 3', 'Every perfect square is a multiple of 3']
+  stem: 'Why is there no smallest positive rational number?'
+  choices: ['The smallest positive rational number is 0', 'Rational numbers have decimals that repeat', 'Half of any positive rational number is a smaller positive rational number', 'There is one, but it is too small to write down']
   answer: 2
   explanation: |-
-    The proof needs: from $p^2 = 3q^2$, conclude $3$ divides $p$. That holds because numbers of the form $3k + 1$ and $3k + 2$ have squares that leave remainder 1 when divided by 3. The other statements are false ($6$ is even; $4$ is a square that is not a multiple of 3).
+    If $r = \tfrac pq$ is positive, then $\tfrac r2 = \tfrac{p}{2q}$ is a positive rational number smaller than $r$, so no candidate can be the smallest. 0 is not positive, and repeating decimals have nothing to do with the argument.
 
 # --- Honors: rates, work and averages ---
 - id: alg-m1-r2-h14

@@ -32,7 +32,7 @@ $$M = \begin{bmatrix} 12 & 8 & 5 \\ 9 & 11 & 7 \end{bmatrix} \text{ (Monday)}, \
 
 ## Multiplying matrices
 
-Matrix multiplication is *not* entry by entry. It extends the row-times-column rule from the matrices lesson: the entry in row $i$, column $j$ of $AB$ is row $i$ of $A$ times column $j$ of $B$, multiplying matching entries and adding.
+**Matrix multiplication** is *not* entry by entry. It extends the row-times-column rule from the matrices lesson: the entry in row $i$, column $j$ of $AB$ is row $i$ of $A$ times column $j$ of $B$, multiplying matching entries and adding.
 
 $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix} = \begin{bmatrix} 1 \cdot 5 + 2 \cdot 7 & 1 \cdot 6 + 2 \cdot 8 \\ 3 \cdot 5 + 4 \cdot 7 & 3 \cdot 6 + 4 \cdot 8 \end{bmatrix} = \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}.$$
 

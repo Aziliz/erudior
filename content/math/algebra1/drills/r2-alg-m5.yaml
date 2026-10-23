@@ -52,7 +52,7 @@
     - {name: rem, label: 'Remainder'}
   solution: |-
     By the remainder theorem, the remainder on dividing by $x - ({cz})$ is $P({cz})$:
-    $P({cz}) = {a3}({cz})^3 + ({a2})({cz})^2 + ({a1})({cz}) + ({a0}) = {t3} + ({t2}) + ({t1}) + ({a0}) =$ **{rem}**.
+    $P({cz}) = {a3:coef}({cz})^3 + ({a2})({cz})^2 + ({a1})({cz}) + ({a0}) = {t3} + ({t2}) + ({t1}) + ({a0}) =$ **{rem}**.
 
 - id: alg-m5-r2-cubic-roots
   title: Find the other zeros of a cubic
@@ -83,9 +83,9 @@
   title: One coefficient of a binomial power
   topic: Binomial expansion
   vars:
-    nn: {min: 3, max: 6}
-    kk: {min: 1, max: 5}
-    p: {min: 1, max: 3}
+    nn: {min: 4, max: 7}
+    kk: {min: 2, max: 5}
+    p: {min: 2, max: 3}
     q: {choices: [-4, -3, -2, -1, 1, 2, 3, 4]}
   calc:
     j: nn - kk
@@ -93,7 +93,7 @@
     pk: p^kk
     qj: q^(nn - kk)
     coef: nCr(nn, kk)*p^kk*q^(nn - kk)
-  where: ['kk < nn', 'abs(coef) <= 20000']
+  where: ['kk <= nn - 2', 'abs(coef) <= 20000']
   prompt: 'Find the coefficient of $x^{{kk}}$ in the expansion of $({p:coef}x {q:signed})^{{nn}}$.'
   answers:
     - {name: coef, label: 'Coefficient'}

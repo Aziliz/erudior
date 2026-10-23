@@ -1,0 +1,41 @@
+# Round 2 glossary: alg-m4 honors lessons
+- term: matrix
+  aliases: [matrices]
+  definition: 'A rectangular array of numbers arranged in rows and columns. The coefficients of a system of two linear equations in two unknowns form a $2 \times 2$ matrix.'
+  topic: Determinants and Cramer's rule
+- term: determinant
+  aliases: [determinants]
+  definition: 'A number computed from a square matrix. For a $2 \times 2$ matrix, $\begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc$. A system''s coefficient determinant is nonzero exactly when the system has one solution.'
+  topic: Determinants and Cramer's rule
+- term: Cramer's rule
+  definition: 'For $ax + by = e$, $cx + dy = f$ with $D = ad - bc \ne 0$: $x = D_x/D$ and $y = D_y/D$, where $D_x$ and $D_y$ are $D$ with the $x$-column or the $y$-column replaced by the constants $e, f$. Published by Gabriel Cramer in 1750.'
+  topic: Determinants and Cramer's rule
+- term: ill-conditioned
+  aliases: [ill-conditioned system]
+  definition: 'Describes a system whose solution changes a lot when its numbers change a little. For two lines this happens when they are nearly parallel (the determinant is close to 0 compared with the coefficients).'
+  topic: Determinants and Cramer's rule
+- term: level line
+  aliases: [level lines, isoprofit line, isoprofit lines]
+  definition: 'In linear programming, a line on which the objective function has one fixed value, such as $30x + 20y = 200$. The level lines of one objective are all parallel.'
+  topic: Linear programming
+- term: sensitivity analysis
+  definition: 'Studying how much the numbers in a problem (such as a profit per item) can change before the best answer changes.'
+  topic: Linear programming
+- term: bounded region
+  aliases: [bounded]
+  definition: 'A region of the plane that fits inside some rectangle, such as a feasible region shaped like a closed polygon.'
+  topic: Linear programming
+- term: unbounded region
+  aliases: [unbounded, unbounded feasible region]
+  definition: 'A region that goes on forever in some direction. On an unbounded feasible region an objective may have no maximum or no minimum.'
+  topic: Linear programming
+- term: infeasible
+  aliases: [infeasible problem]
+  definition: 'Describes a linear programming problem whose constraints contradict each other, so the feasible region is empty and no plan meets every constraint.'
+  topic: Linear programming
+- term: integer programming
+  definition: 'Linear programming in which some or all variables must be whole numbers. The best whole-number plan need not be the rounded best corner, and such problems are much harder in general.'
+  topic: Linear programming
+- term: simplex method
+  definition: 'The standard procedure for linear programming, invented by George Dantzig in 1947: start at a vertex and move along edges to neighboring vertices with better objective values until no neighbor is better.'
+  topic: Linear programming

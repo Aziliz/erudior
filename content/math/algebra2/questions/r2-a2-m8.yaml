@@ -283,7 +283,7 @@
   choices: ['By the law of large numbers, red is now more likely than usual', 'Each spin is independent, so red has the same probability as on any other spin', 'The losses must be made up within the next few spins', 'The expected value guarantees the player will break even eventually']
   answer: 1
   explanation: |-
-    The wheel has no memory: each spin is independent. The law of large numbers says the long-run *average* approaches the expected value; it doesn't make a win "due" (that's the gambler's fallacy), and it guarantees nothing about breaking even. In fact roulette has a negative expected value for the player.
+    The wheel has no memory: each spin is independent. The law of large numbers says the long-run average approaches the expected value; it doesn't make a win "due" (that's the gambler's fallacy), and it guarantees nothing about breaking even. In fact roulette has a negative expected value for the player.
 - id: a2-m8-r2-h06
   lesson: a2-h-expected-value
   type: text
@@ -540,7 +540,7 @@
   choices: ['97%', '0%', '3%', 'It can''t be found without the sensitivity']
   answer: 2
   explanation: |-
-    Among people without the disease, every result is negative or positive, so $P(+ \mid \text{no disease}) = 1 - 0.97 = 0.03$. The sensitivity describes people *with* the disease, so it isn't needed.
+    Among people without the disease, every result is negative or positive, so $P(+ \mid \text{no disease}) = 1 - 0.97 = 0.03$. The sensitivity describes people who have the disease, so it isn't needed.
 - id: a2-m8-r2-h35
   lesson: a2-h-bayes
   topic: Bayes' theorem
