@@ -14,8 +14,8 @@ importance, so report the size of an effect, not just its p-value. The last less
 warning: single studies, especially small ones, are often wrong. This capstone lesson puts those
 together. It shows how to measure an effect on a common scale, and how a **meta-analysis**
 combines many studies of the same question into one estimate that is more precise than any of them.
-Meta-analyses sit at the top of most evidence rankings in medicine and education, so knowing how
-they work, and how they fail, is part of reading science.
+Well-conducted meta-analyses sit at or near the top of most evidence rankings in medicine, so knowing
+how they work, and how they fail, is part of reading science.
 
 ## Effect sizes
 

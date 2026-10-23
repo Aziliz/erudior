@@ -57,7 +57,7 @@
   solution: |-
     $\hat{p} = {xx}/{nn} = {ph:num4}$ and $z^{*2}/n = 3.8416/{nn} \approx {kz:num4}$.
     Center: $\dfrac{\hat{p} + z^{*2}/(2n)}{1 + z^{*2}/n} \approx {cen:num4}$.
-    Half-width: $\dfrac{1.96}{1 + z^{*2}/n}\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n} + \dfrac{z^{*2}}{4n^2}} = \dfrac{1.96}{1 + {kz:num4}}\sqrt{{vv:num4} + {kk:num4}} \approx {hw:num4}$.
+    Half-width: $\dfrac{1.96}{1 + z^{*2}/n}\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n} + \dfrac{z^{*2}}{4n^2}} = \dfrac{1.96}{1 + {kz:num4}}\sqrt{{vv:dp6} + {kk:dp6}} \approx {hw:num4}$.
     Interval: from **{lo:dp3}** to **{hi:dp3}** (a lower endpoint of 0 occurs when $\hat{p} = 0$).
 
 - id: stat-m7-r2-zero-successes

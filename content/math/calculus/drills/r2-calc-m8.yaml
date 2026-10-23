@@ -15,14 +15,14 @@
       - {label: '\tfrac{8}{9} \cdot \tfrac{6}{7} \cdot \tfrac{4}{5} \cdot \tfrac{2}{3} \cdot 1 = \tfrac{128}{315}', value: 9}
       - {label: '\tfrac{9}{10} \cdot \tfrac{7}{8} \cdot \tfrac{5}{6} \cdot \tfrac{3}{4} \cdot \tfrac{1}{2} \cdot \tfrac{\pi}{2} = \tfrac{63\pi}{512}', value: 10}
   calc:
-    n: c
-    W: sqrt(pi)*gamma((n + 1)/2)/(2*gamma(n/2 + 1))
-  prompt: 'Evaluate $\displaystyle\int_0^{\pi/2}{fn}^{{n}}x\,dx$ exactly. (Type pi for $\pi$, e.g. 3pi/16.)'
+    pw: c
+    W: sqrt(pi)*gamma((pw + 1)/2)/(2*gamma(pw/2 + 1))
+  prompt: 'Evaluate $\displaystyle\int_0^{\pi/2}{fn}^{{pw}}x\,dx$ exactly. (Type pi for $\pi$, e.g. 3pi/16.)'
   answers:
-    - {name: W, label: 'Value', relTolerance: 0.000001}
+    - {kind: expression, expression: W, variables: [x], label: 'Value', show: '${c}$'}
   solution: |-
     On $[0, \tfrac\pi2]$ the reduction formula becomes $W_n = \dfrac{n - 1}{n}W_{n-2}$, with $W_0 = \tfrac\pi2$ and $W_1 = 1$ (the same for sine and cosine). Apply it until the power reaches 0 or 1:
-    $$W_{{n}} = {c}.$$
+    $$W_{{pw}} = {c}.$$
     So the integral is **${c}$** $\approx$ {W:num4}.
 
 - id: calc-m8-r2-gamma-moment
@@ -60,8 +60,8 @@
   answers:
     - {name: cc, label: '$c =$', kind: fraction}
   solution: |-
-    Use $\Gamma(s + 1) = s\,\Gamma(s)$ to step down by 1 a total of {k} times, from $\tfrac{{m}}{2}$ to $\tfrac12$, and finish with $\Gamma\left(\tfrac12\right) = \sqrt\pi$. The factors are $\tfrac12, \tfrac32, \dots, \tfrac{{m2}}{2}$, {k} of them. Their numerators are the odd numbers from 1 to {m2}, whose product is {df}, and their denominators multiply to $2^{{k}} = {p2}$.
-    $$\Gamma\left(\tfrac{{m}}{2}\right) = \frac{{df}}{{p2}}\sqrt\pi,$$
+    Use $\Gamma(s + 1) = s\,\Gamma(s)$ to step down by 1 a total of {k} times, from $\tfrac{{m}}{2}$ to $\tfrac12$, and finish with $\Gamma\left(\tfrac12\right) = \sqrt\pi$. The factors are $\tfrac12, \tfrac32, \dots, \tfrac{{m2}}{2}$, {k} of them. Their numerators are the odd numbers from 1 to {m2}, whose product is {df:dp0}, and their denominators multiply to $2^{{k}} = {p2}$.
+    $$\Gamma\left(\tfrac{{m}}{2}\right) = \frac{{df:dp0}}{{p2}}\sqrt\pi,$$
     so **$c = {cc:texfrac}$**.
 
 - id: calc-m8-r2-richardson
@@ -84,7 +84,7 @@
     errR: abs(R - ex)
   prompt: 'For $\displaystyle\int_{{lo}}^{{b}}\frac{dx}{x}$, the trapezoidal rule gives $T_2 = {T2:dp6}$ and $T_4 = {T4:dp6}$. Use one step of Richardson extrapolation to improve the estimate. (4 decimal places)'
   answers:
-    - {name: R, label: 'Estimate', tolerance: 0.0001}
+    - {name: R, label: 'Estimate', tolerance: 0.0001, format: num4}
   solution: |-
     The trapezoid error is about $ch^2$, and $T_4$ has half the step size of $T_2$, so its error is about a quarter as big. Cancel the $h^2$ term:
     $$\frac{4T_4 - T_2}{3} = \frac{4({T4:dp6}) - {T2:dp6}}{3} \approx \mathbf{{R:num4}}.$$
@@ -107,9 +107,9 @@
     ex: (e^c - 1)/c
   prompt: 'For $\displaystyle\int_0^1 e^{{c:coef}x}\,dx$, the trapezoidal rule gives $T_1 = {T1:dp6}$, $T_2 = {T2:dp6}$ and $T_4 = {T4:dp6}$. Build the Romberg table: find $R_{1,1}$, $R_{2,1}$ and $R_{2,2}$. (4 decimal places)'
   answers:
-    - {name: R11, label: '$R_{1,1} =$', tolerance: 0.0001}
-    - {name: R21, label: '$R_{2,1} =$', tolerance: 0.0001}
-    - {name: R22, label: '$R_{2,2} =$', tolerance: 0.0001}
+    - {name: R11, label: '$R_{1,1} =$', tolerance: 0.0001, format: num4}
+    - {name: R21, label: '$R_{2,1} =$', tolerance: 0.0001, format: num4}
+    - {name: R22, label: '$R_{2,2} =$', tolerance: 0.0001, format: num4}
   solution: |-
     First column of extrapolations (factor 4, for $h^2$ errors):
     $R_{1,1} = \dfrac{4T_2 - T_1}{3} \approx$ **{R11:num4}** and $R_{2,1} = \dfrac{4T_4 - T_2}{3} \approx$ **{R21:num4}** (these are Simpson's $S_2$ and $S_4$).
