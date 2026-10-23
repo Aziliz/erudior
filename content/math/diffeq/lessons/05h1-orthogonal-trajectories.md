@@ -50,7 +50,7 @@ whenever the constant stands alone on one side.
 
 ## Orthogonal trajectories
 
-Two curves are **orthogonal** at a point where they cross if their tangent lines there
+Two curves are *orthogonal* at a point where they cross if their tangent lines there
 are perpendicular. A family of **orthogonal trajectories** of a given family is a second
 family whose every member crosses every member of the first family at a right angle.
 

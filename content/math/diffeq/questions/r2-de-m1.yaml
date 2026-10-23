@@ -6,7 +6,7 @@
   module_quiz: true
   type: text
   topic: DE basics
-  stem: 'Solve $\dfrac{dy}{dx} = 4x^3$ with $y(1) = 6$. The particular solution is $y = x^4 + $ ___. Give only the number.'
+  stem: 'Solve $\dfrac{dy}{dx} = 4x^3$ with $y(1) = 6$. The particular solution is $y = x^4 + C$ with $C =$ ___. Give only the number.'
   accept: ['5']
   explanation: |-
     The general solution is $y = x^4 + C$. At $x = 1$: $6 = 1 + C$, so $C = 5$ and $y = x^4 + 5$.
@@ -155,7 +155,7 @@
   module_quiz: true
   type: text
   topic: Separable equations
-  stem: 'The solution of $\dfrac{dy}{dx} = y^2$, $y(0) = \tfrac12$, blows up at $x = $ ___ (the first positive value). Give only the number.'
+  stem: 'The solution of $\dfrac{dy}{dx} = y^2$, $y(0) = \tfrac12$, blows up at $x =$ ___ (the first positive value). Give only the number.'
   accept: ['2']
   explanation: |-
     Separate: $y^{-2}\,dy = dx$, so $-\dfrac1y = x + C$. At $x = 0$: $-2 = C$. Then $-\dfrac1y = x - 2$, giving $y = \dfrac{1}{2 - x}$, which blows up at $x = 2$.
@@ -205,7 +205,7 @@
   module_quiz: true
   type: text
   topic: Logistic growth
-  stem: 'Write $\dfrac{dP}{dt} = 0.004P(250 - P)$ in the form $kP\left(1 - \dfrac{P}{K}\right)$. Then $K = $ ___ and $k = $ ___.'
+  stem: 'Write $\dfrac{dP}{dt} = 0.004P(250 - P)$ in the form $kP\left(1 - \dfrac{P}{K}\right)$. Then $K =$ ___ and $k =$ ___.'
   accept:
     - ['250']
     - ['1']
@@ -279,7 +279,7 @@
     - 'Move along that slope for a step $h$ to the new point $(x_{n+1}, y_{n+1})$'
     - 'Repeat from the new point until you reach the target $x$'
   explanation: |-
-    The method starts at the initial condition, uses the slope at the *start* of each step, moves a distance $h$ along it, and then repeats from the point it has reached.
+    The method starts at the initial condition, uses the slope at the start of each step, moves a distance $h$ along it, and then repeats from the point it has reached.
 
 - id: de-m1-r2-q23
   lesson: de-euler
@@ -439,7 +439,7 @@
   lesson: de-m1-h-orthogonal
   type: text
   topic: Orthogonal trajectories
-  stem: 'The orthogonal trajectories of $y = Cx^5$ are $x^2 + 5y^2 = K$. The one through $(2, 1)$ is $x^2 + 5y^2 = $ ___.'
+  stem: 'The orthogonal trajectories of $y = Cx^5$ are $x^2 + 5y^2 = K$. The one through $(2, 1)$ is $x^2 + 5y^2 = K$ with $K =$ ___.'
   accept: ['9']
   explanation: |-
     Substitute $x = 2$, $y = 1$: $4 + 5 = 9$. (Check of the family: $y' = 5y/x$, trajectories $y' = -\dfrac{x}{5y}$, so $5y\,dy = -x\,dx$ and $x^2 + 5y^2 = K$.)
@@ -476,7 +476,7 @@
   lesson: de-m1-h-beyond-logistic
   type: text
   topic: Logistic growth
-  stem: 'In the SI model for a closed population of 600 people, the number infected is growing fastest when $I = $ ___.'
+  stem: 'In the SI model for a closed population of 600 people, the number infected is growing fastest when $I =$ ___.'
   accept: ['300']
   explanation: |-
     The SI model is logistic with $K = N = 600$, and logistic growth is fastest at $K/2 = 300$.

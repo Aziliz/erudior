@@ -14,11 +14,11 @@
     mf: fact(m)
     ap: a^(n - m)
     ans: nCr(n, m)*fact(m)*a^(n - m)
-  prompt: 'Use Leibniz''s rule to find $y^{({n})}(0)$ for $y = {m}e^{{a}x}$.'
+  prompt: 'Use Leibniz''s rule to find $y^{({n})}(0)$ for $y = {m}e^{{a:coef}x}$.'
   answers:
     - {name: ans, format: integer, label: '$y^{({n})}(0) =$'}
   solution: |-
-    Write $y = g\cdot f$ with $g = {m}$ and $f = e^{{a}x}$, so $f^{(j)} = ({a})^{j}e^{{a}x}$, which is $({a})^{j}$ at $x = 0$. Every derivative of $g$ of order below ${mv}$ is 0 at $x = 0$, and every derivative above ${mv}$ is 0 everywhere; only $g^{({mv})} = {mf}$ survives. Leibniz's rule leaves the single term
+    Write $y = g\cdot f$ with $g = {m}$ and $f = e^{{a:coef}x}$, so $f^{(j)} = ({a})^{j}e^{{a:coef}x}$, which is $({a})^{j}$ at $x = 0$. Every derivative of $g$ of order below ${mv}$ is 0 at $x = 0$, and every derivative above ${mv}$ is 0 everywhere; only $g^{({mv})} = {mf}$ survives. Leibniz's rule leaves the single term
     $$y^{({n})}(0) = \binom{{n}}{{mv}}\,f^{({p})}(0)\,g^{({mv})}(0) = {bin}\cdot({a})^{{p}}\cdot{mf} = {bin}\cdot({ap})\cdot{mf} = \mathbf{{ans}}.$$
 - id: calc-m3-r2-nth-reciprocal
   title: nth derivative of a reciprocal
@@ -28,7 +28,7 @@
     c: {min: -5, max: 5}
     d: {choices: [-3, -2, -1, 1, 2, 3]}
   calc:
-    p: c + d
+    p: d - c
     n1: n + 1
     sgn: (-1)^n
     nf: fact(n)
@@ -39,7 +39,7 @@
     - {name: ans, kind: fraction, lowestTerms: true, label: '$f^{({n})}({p}) =$'}
   solution: |-
     The pattern for a reciprocal is $\dfrac{d^n}{dx^n}\dfrac{1}{x - k} = \dfrac{(-1)^n\,n!}{(x - k)^{n + 1}}$. Here $x - k = x {c:signed}$, which equals ${d}$ at $x = {p}$. So
-    $$f^{({n})}({p}) = \frac{({sgn})\cdot{nf}}{({d})^{{n1}}} = \frac{{sgn}\cdot{nf}}{{den}} = \mathbf{{ans:frac}}.$$
+    $$f^{({n})}({p}) = \frac{({sgn})\cdot{nf}}{({d})^{{n1}}} = \frac{{sgn}\cdot{nf}}{{den}} = \mathbf{{ans:texfrac}}.$$
 - id: calc-m3-r2-nth-sine
   title: nth derivative of sin(ax)
   topic: Higher derivatives
@@ -61,7 +61,7 @@
       label: '$\dfrac{d^{{n}}}{dx^{{n}}}\sin({a}x) =$'
       show: '${sg}{an}{fn}({a}x)$'
   solution: |-
-    Each derivative of $\sin({a}x)$ multiplies by ${a}$ and moves one step around the cycle $\sin \to \cos \to -\sin \to -\cos \to \sin$. After ${n} = {q4} + {s}$ steps the cycle has gone round completely and then ${s}$ more steps, and the factor is ${a}^{{n}} = {an}$. So the answer is **$\dfrac{d^{{n}}}{dx^{{n}}}\sin({a}x) = {sg}{an}{fn}({a}x)$**.
+    Each derivative of $\sin({a}x)$ multiplies by ${a}$ and moves one step around the cycle $\sin \to \cos \to -\sin \to -\cos \to \sin$. Since ${n} = {q4} + {s}$ and every 4 steps bring the function back to $\sin({a}x)$, the result has the form of the derivative after ${s}$ steps (0 steps means $\sin$ itself), and the factor is ${a}^{{n}} = {an}$. So the answer is **$\dfrac{d^{{n}}}{dx^{{n}}}\sin({a}x) = {sg}{an}{fn}({a}x)$**.
 - id: calc-m3-r2-e-limit
   title: A limit equal to a power of e
   topic: Proofs of derivative rules
@@ -79,7 +79,7 @@
   answers:
     - {name: L, format: dp3, tolerance: 0.001, label: 'Limit'}
   solution: |-
-    Take the log: ${bv}n\ln\left(1 {sg} \dfrac{{aa}}{n}\right) = {bv}\cdot({a})\cdot\dfrac{\ln(1 + h)}{h}$ with $h = \dfrac{{a}}{n} \to 0$. Since $\dfrac{\ln(1 + h)}{h} \to 1$ (the derivative of $\ln$ at 1), the log tends to ${ab}$, so the limit is $e^{{ab}} \approx$ **{L:dp3}**.
+    Take the log: ${b}n\ln\left(1 {sg} \dfrac{{aa}}{n}\right) = {bv}\cdot({a})\cdot\dfrac{\ln(1 + h)}{h}$ with $h = \dfrac{{a}}{n} \to 0$. Since $\dfrac{\ln(1 + h)}{h} \to 1$ (the derivative of $\ln$ at 1), the log tends to ${ab}$, so the limit is $e^{{ab}} \approx$ **{L:dp3}**.
 - id: calc-m3-r2-horizontal-tangent
   title: Horizontal tangent of a tilted ellipse
   topic: Implicit curves
@@ -88,7 +88,7 @@
     b: {min: 1, max: 3}
     k: {min: -4, max: 4}
     c: {min: 2, max: 30}
-  where: ["k != 0", "4*a*b > k^2"]
+  where: ["k != 0", "4*a*b > k^2", "abs(k) != 2*a"]
   calc:
     a2: 2*a
     b2: 2*b

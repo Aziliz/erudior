@@ -75,8 +75,8 @@ two failures*, then use the usual formula. With
 $$\tilde{p} = \frac{x + 2}{n + 4}, \qquad \text{the interval is} \qquad \tilde{p} \pm z^*\sqrt{\frac{\tilde{p}(1 - \tilde{p})}{n + 4}}.$$
 
 This **plus four interval** pulls the center toward 0.5 and never has zero width. Its coverage
-stays close to 95% for every $p$ (the blue curve, between about 0.94 and 0.97 for $p$ from 0.2
-to 0.8 when $n = 40$). A common textbook guideline is to use it for confidence levels from 90% to
+stays near or above 95% for every $p$ (the blue curve: between about 0.94 and 0.97 for $p$ from
+0.2 to 0.8 when $n = 40$, and higher near the ends). A common textbook guideline is to use it for confidence levels from 90% to
 99% with $n \ge 10$; it still needs a random sample and the 10% condition, but not large counts.
 The point estimate you report is still $\hat{p}$; only the interval is built around $\tilde{p}$.
 

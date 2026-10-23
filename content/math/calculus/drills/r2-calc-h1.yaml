@@ -1,0 +1,156 @@
+# Honors module calc-h1 (Honors: Toward analysis), round 2 drills
+- id: calc-h1-r2-epsilon-n
+  title: Find the cutoff N for a given ε
+  topic: Proving sequence limits
+  vars:
+    p: {min: 2, max: 6}
+    c: {min: 1, max: 5}
+    r: {min: -9, max: 15}
+    m: {choices: [10, 20, 50, 100]}
+  where: ['r != 0', 'r - p*c != 0', 'abs(r - p*c)*m - c >= 1']
+  calc:
+    k: r - p*c
+    d: abs(k)
+    eps: 1/m
+    dm: d*m
+    N: d*m - c
+  prompt: 'The sequence $a_n = \dfrac{{p}n {r:signed}}{n + {c}}$ converges to ${p}$. For $\varepsilon = {eps}$, find the smallest whole number $N$ such that $|a_n - {p}| < \varepsilon$ for every $n > N$.'
+  answer: N
+  format: integer
+  solution: |-
+    Simplify the distance: $a_n - {p} = \dfrac{{p}n {r:signed} - {p}(n + {c})}{n + {c}} = \dfrac{{k}}{n + {c}}$, so $|a_n - {p}| = \dfrac{{d}}{n + {c}}$.
+    This is less than ${eps}$ exactly when $n + {c} > \dfrac{{d}}{{eps}} = {dm}$, that is, when $n > {dm} - {c} = {N}$.
+    So $N =$ **{N}** (with $n = {N}$ itself the distance is exactly $\dfrac{{d}}{{dm}} = {eps}$, which is not less than ${eps}$).
+
+- id: calc-h1-r2-geometric-n
+  title: Cutoff for a geometric sequence
+  topic: Proving sequence limits
+  vars:
+    r: {choices: [0.5, 0.6, 0.8, 0.9, 0.95]}
+    m: {choices: [100, 1000, 10000]}
+  calc:
+    eps: 1/m
+    ratio: ln(eps)/ln(r)
+    first: floor(ratio) + 1
+    N: first - 1
+    before: r^N
+    after: r^first
+  prompt: 'The sequence $a_n = {r}^n$ converges to 0. For $\varepsilon = {eps}$, find the smallest whole number $N$ such that ${r}^n < \varepsilon$ for every $n > N$.'
+  answer: N
+  format: integer
+  solution: |-
+    The terms decrease, so once one term is below ${eps}$, all later ones are too. Solve ${r}^n < {eps}$ with logarithms: $n\ln {r} < \ln {eps}$. Since $\ln {r} < 0$, dividing flips the inequality: $n > \dfrac{\ln {eps}}{\ln {r}} \approx {ratio:num2}$.
+    The first term below ${eps}$ is $n = {first}$ (${r}^{{first}} \approx {after:sig3}$, while ${r}^{{N}} \approx {before:sig3}$ is not below it). Every $n > N$ must be at least {first}, so $N =$ **{N}**.
+
+- id: calc-h1-r2-sup-inf
+  title: Supremum and infimum of a set of fractions
+  topic: Completeness
+  vars:
+    p: {min: 1, max: 5}
+    c: {min: 1, max: 4}
+    kk: {min: 1, max: 9}
+    dir: {choices: [{label: decreasing, value: 1}, {label: increasing, value: -1}]}
+  where: ['dir*kk + p*c != 0']
+  calc:
+    k: dir*kk
+    q: k + p*c
+    first: (p + q)/(1 + c)
+    sv: if(dir > 0, first, p)
+    iv: if(dir > 0, p, first)
+    c1: 1 + c
+    pq: p + q
+  prompt: 'Let $S = \left\{\dfrac{{p:coef}n {q:signed}}{n + {c}} : n = 1, 2, 3, \dots\right\}$. Find $\sup S$ and $\inf S$ (exact values; fractions are fine).'
+  answers:
+    - {name: sv, label: '$\sup S =$', tolerance: 0.0001}
+    - {name: iv, label: '$\inf S =$', tolerance: 0.0001}
+  solution: |-
+    Split off the limit: ${p}(n + {c}) {k:signed} = {p:coef}n {q:signed}$, so each element is ${p} + \dfrac{{k}}{n + {c}}$.
+    As $n$ grows, $\dfrac{{k}}{n + {c}}$ shrinks toward 0, so the terms are {dir} and approach ${p}$, never reaching it.
+    The first term ($n = 1$) is $\dfrac{{pq}}{{c1}} = {first:texfrac}$.
+    So $\sup S =$ **${sv:texfrac}$** and $\inf S =$ **${iv:texfrac}$**. The one equal to the first term is attained (a maximum or minimum); the one equal to ${p}$ is not.
+
+- id: calc-h1-r2-recursive-limit
+  title: A recursive sequence and its limit
+  topic: Completeness
+  vars:
+    L: {min: 3, max: 8}
+    bb: {min: 1, max: 3}
+  calc:
+    cc: L*L - bb*L
+    a2: sqrt(cc + bb)
+    a3: sqrt(cc + bb*a2)
+    c1: cc + bb
+  prompt: 'Let $a_1 = 1$ and $a_{n+1} = \sqrt{{cc} {bb:signedcoef}a_n}$. This sequence is increasing and bounded above, so it converges. Find $a_3$ (to 3 decimal places) and the limit $L$.'
+  answers:
+    - {name: a3, label: '$a_3 \approx$', tolerance: 0.0006}
+    - {name: L, label: '$L =$', tolerance: 0.000001}
+  solution: |-
+    $a_2 = \sqrt{{cc} {bb:signedcoef}\cdot 1} = \sqrt{{c1}} \approx {a2:dp3}$, and $a_3 = \sqrt{{cc} {bb:signedcoef}a_2} \approx$ **{a3:dp3}** (keep the unrounded $a_2$).
+    Because the limit exists (monotone convergence theorem), let $n \to \infty$ in the recursion: $L = \sqrt{{cc} {bb:signedcoef}L}$, so $L^2 = {cc} {bb:signedcoef}L$, that is $L^2 - {bb:coef}L - {cc} = 0$.
+    Its roots are ${L}$ and a negative number; the terms are positive, so $L =$ **{L}**.
+
+- id: calc-h1-r2-bisection-steps
+  title: How many halvings?
+  topic: Proving the IVT and EVT
+  vars:
+    a0: {min: -3, max: 3}
+    w: {min: 1, max: 5}
+    m: {choices: [100, 1000, 10000]}
+  calc:
+    b0: a0 + w
+    tol: 1/m
+    ratio: w*m
+    k: floor(log2(ratio)) + 1
+    km1: k - 1
+    lo2: 2^(k - 1)
+    hi2: 2^k
+  prompt: 'The bisection proof of the IVT starts with $[{a0}, {b0}]$ and halves the interval at every step. After how many halvings is the kept interval first shorter than ${tol}$?'
+  answer: k
+  format: integer
+  solution: |-
+    After $k$ halvings the length is $\dfrac{{w}}{2^k}$. We need $\dfrac{{w}}{2^k} < {tol}$, that is $2^k > {ratio}$.
+    Since $2^{{km1}} = {lo2}$ is not more than {ratio} but $2^{{k}} = {hi2}$ is, the answer is **{k}** halvings.
+
+- id: calc-h1-r2-upper-lower
+  title: Upper and lower sums for x²
+  topic: Upper and lower sums
+  vars:
+    top: {min: 1, max: 4}
+    pcs: {min: 2, max: 6}
+  calc:
+    dxv: top/pcs
+    s1: (pcs - 1)*pcs*(2*pcs - 1)/6
+    s2: pcs*(pcs + 1)*(2*pcs + 1)/6
+    lo: dxv^3*s1
+    up: dxv^3*s2
+    gap: up - lo
+    last: pcs - 1
+  prompt: 'Split $[0, {top}]$ into {pcs} equal pieces. Find the lower sum $L$ and the upper sum $U$ for $f(x) = x^2$ (exact fractions or 3 decimal places).'
+  answers:
+    - {name: lo, label: '$L =$', tolerance: 0.0006}
+    - {name: up, label: '$U =$', tolerance: 0.0006}
+  solution: |-
+    The width is $\Delta x = {dxv:texfrac}$ and the points are $x_i = i\,\Delta x$. Since $x^2$ increases on $[0, {top}]$, the infimum on each piece is at its left end and the supremum at its right end, and each term $f(x_i)\Delta x = i^2(\Delta x)^3$.
+    $L = (\Delta x)^3\,(0^2 + 1^2 + \cdots + {last}^2) = \left({dxv:texfrac}\right)^3\cdot {s1} =$ **${lo:texfrac}$**.
+    $U = (\Delta x)^3\,(1^2 + 2^2 + \cdots + {pcs}^2) = \left({dxv:texfrac}\right)^3\cdot {s2} =$ **${up:texfrac}$**.
+    Check: $U - L = [f({top}) - f(0)]\,\Delta x = {gap:texfrac}$.
+
+- id: calc-h1-r2-darboux-n
+  title: How many pieces make U − L small?
+  topic: Integrability
+  vars:
+    pw: {min: 2, max: 3}
+    top: {min: 1, max: 3}
+    m: {choices: [10, 20, 50, 100]}
+  calc:
+    eps: 1/m
+    fb: top^pw
+    prodv: fb*top
+    K: prodv*m
+    nmin: K + 1
+  prompt: 'For $f(x) = x^{{pw}}$ on $[0, {top}]$ with $n$ equal pieces, what is the smallest $n$ that makes $U - L < {eps}$?'
+  answer: nmin
+  format: integer
+  solution: |-
+    $f$ is increasing on $[0, {top}]$, so $U - L = [f({top}) - f(0)]\cdot\dfrac{{top} - 0}{n} = \dfrac{{fb}\cdot{top}}{n} = \dfrac{{prodv}}{n}$.
+    We need $\dfrac{{prodv}}{n} < {eps}$, that is $n > \dfrac{{prodv}}{{eps}} = {K}$. With $n = {K}$ the gap is exactly ${eps}$, so the smallest is $n =$ **{nmin}**.

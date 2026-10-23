@@ -125,7 +125,7 @@ Lesson 31's sample of 16 freight trains had $\bar{x} = 31.2$ min and $s = 4.8$ m
 3. Prediction interval: $31.2 \pm 10.54 = (20.66, 41.74)$ min.
 
 ```shape
-{"segments": [{"from": [18, 0], "to": [44, 0]}, {"from": [20.66, 1], "to": [41.74, 1]}, {"from": [28.64, 2], "to": [33.76, 2]}, {"from": [31.2, -0.2], "to": [31.2, 2.6], "dashed": true}], "points": [{"at": [31.2, 1]}, {"at": [31.2, 2]}], "labels": [{"at": [31.2, 2.45], "text": "95% CI for the mean: 28.64 to 33.76"}, {"at": [31.2, 1.45], "text": "95% prediction interval: 20.66 to 41.74"}, {"at": [20, -0.4], "text": "20"}, {"at": [25, -0.4], "text": "25"}, {"at": [30, -0.4], "text": "30"}, {"at": [35, -0.4], "text": "35"}, {"at": [40, -0.4], "text": "40"}], "caption": "Loading time (min): the interval for one new train is about four times as wide as the interval for the mean"}
+{"segments": [{"from": [-3.0, 0], "to": [3.0, 0]}, {"from": [-2.585, 1.2], "to": [2.685, 1.2]}, {"from": [-0.59, 2.4], "to": [0.69, 2.4]}], "points": [{"at": [0.05, 1.2]}, {"at": [0.05, 2.4]}], "labels": [{"at": [0.05, 2.8], "text": "95% CI for the mean: 28.64 to 33.76"}, {"at": [0.05, 1.6], "text": "95% prediction interval: 20.66 to 41.74"}, {"at": [-2.75, -0.45], "text": "20"}, {"at": [-1.5, -0.45], "text": "25"}, {"at": [-0.25, -0.45], "text": "30"}, {"at": [1.0, -0.45], "text": "35"}, {"at": [2.25, -0.45], "text": "40"}], "caption": "Loading time in minutes: the interval for one new train is about four times as wide as the interval for the mean"}
 ```
 
 The prediction interval is about four times as wide. More data shrink the confidence interval

@@ -95,7 +95,7 @@ $$\ln\!\left(\frac{a_1 + \cdots + a_n}{n}\right) \ge \frac{\ln a_1 + \cdots + \l
 Since $\ln$ is increasing, the arithmetic mean is at least the geometric mean. For example, for 2, 8 and 4: AM $= \frac{14}{3} \approx 4.67$ and GM $= \sqrt[3]{64} = 4$.
 
 ```plot
-{"x": [-0.3, 7], "y": [-1, 2.3], "functions": [{"f": "ln(x)", "from": 0.25, "label": "y = ln x"}], "segments": [{"from": [1, 0], "to": [6, 1.7918], "dashed": true}], "points": [{"at": [1, 0]}, {"at": [6, 1.7918]}, {"at": [3.5, 1.2528], "label": "ln(average)"}, {"at": [3.5, 0.8959], "label": "average of ln"}], "caption": "ln x is concave: the chord from x = 1 to x = 6 lies below the graph, so ln of the average beats the average of the logs"}
+{"x": [-0.3, 7], "y": [-1, 2.3], "functions": [{"f": "ln(x)", "from": 0.25, "label": "y = ln x"}], "segments": [{"from": [1, 0], "to": [6, 1.7918], "dashed": true}], "points": [{"at": [1, 0]}, {"at": [6, 1.7918]}, {"at": [3.5, 1.2528]}, {"at": [3.5, 0.8959]}], "labels": [{"at": [2.2, 1.5], "text": "ln(average)"}, {"at": [4.6, 0.55], "text": "average of ln"}], "caption": "ln x is concave: the chord from x = 1 to x = 6 lies below the graph, so ln of the average beats the average of the logs"}
 ```
 
 The whole chain of ideas, from the second derivative to AM–GM:

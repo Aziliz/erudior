@@ -27,8 +27,8 @@ extended far into the future.
 ## A mechanism for logistic growth: the SI epidemic model
 
 Consider a disease (or a rumor) spreading through a closed population of $N$ people.
-Split them into two groups: $I(t)$ people already **infected** and $N - I$ people still
-**susceptible**. Assume the population is well mixed: everyone is equally likely to meet
+Split them into two groups: $I(t)$ people already *infected* and $N - I$ people still
+*susceptible*. Assume the population is well mixed: everyone is equally likely to meet
 everyone else. New infections happen when an infected person meets a susceptible one,
 so the rate of new infections is proportional to the number of such pairs,
 $I(N - I)$. Writing the constant as $\beta/N$,

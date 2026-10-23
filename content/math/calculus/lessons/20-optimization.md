@@ -59,7 +59,7 @@ Cut **2-inch squares**; the box holds 128 in³.
 A farmer has 600 m of fence for a rectangular field along a straight river; no fence is needed on the river side. What dimensions maximize the area?
 
 ```shape
-{"polygons": [{"points": [[0, 0], [6, 0], [6, 3], [0, 3]], "fill": true}], "segments": [{"from": [-1, 3], "to": [7, 3], "dashed": true}, {"from": [0, 3], "to": [0, 0], "label": "x"}, {"from": [0, 0], "to": [6, 0], "label": "y"}, {"from": [6, 0], "to": [6, 3], "label": "x"}], "labels": [{"at": [3, 3.6], "text": "river (no fence)"}, {"at": [3, 1.5], "text": "area A = xy"}], "caption": "Fence on three sides: 2x + y = 600"}
+{"segments": [{"from": [-1, 3], "to": [7, 3], "dashed": true}, {"from": [0, 3], "to": [0, 0], "label": "x"}, {"from": [0, 0], "to": [6, 0], "label": "y"}, {"from": [6, 0], "to": [6, 3], "label": "x"}], "labels": [{"at": [3, 3.6], "text": "river (no fence)"}, {"at": [3, 1.5], "text": "area A = xy"}], "caption": "Fence on three sides: 2x + y = 600"}
 ```
 
 - Let $x$ = each side perpendicular to the river, $y$ = the side parallel to it.

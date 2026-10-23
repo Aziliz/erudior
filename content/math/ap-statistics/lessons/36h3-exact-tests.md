@@ -2,10 +2,10 @@
 id: stat-m8-h-exact-tests
 module: stat-m8
 honors: true
-title: 'Exact tests: binomial, sign, permutation and Fisher'
+title: 'Exact tests: binomial, sign and signed-rank'
 minutes: 45
 topics: [Exact tests]
-drills: [stat-m8-r2-exact-binom, stat-m8-r2-sign-test, stat-m8-r2-fisher]
+drills: [stat-m8-r2-exact-binom, stat-m8-r2-exact-two-sided, stat-m8-r2-sign-test]
 refs: [stat-ref-inference]
 ---
 ## When the normal curve isn't good enough
@@ -16,7 +16,9 @@ large counts and "no strong skew." Lesson 35's Example 4 met a case where the ap
 (only 3 cancellations expected) and switched to an exact binomial calculation. This lesson
 develops that idea. An **exact test** computes its p-value from the exact distribution of the test
 statistic under $H_0$, with no normal approximation. Exact tests work for any sample size, which
-makes them the tool of choice for small samples, rare events and skewed data.
+makes them the tool of choice for small samples, rare events and skewed data. Here we build three
+of them for the situations of this module: one proportion, and paired data analyzed without
+assuming normality.
 
 ## The exact binomial test
 
@@ -82,83 +84,54 @@ the sizes of the differences and assumes they come from a roughly normal populat
 uses only their directions and assumes nothing about shape. Throwing away the sizes costs power,
 but the sign test can't be fooled by an outlier: a difference of +50 counts the same as +2.
 
-## Permutation tests
+## The Wilcoxon signed-rank test
 
-Lesson 20 introduced the randomization test: shuffle the group labels many times and see how often
-chance alone produces a difference as large as the observed one. With small groups we can list
-*every* possible shuffle instead of sampling them. The result is a **permutation test**, whose
-p-value is exact.
+The sign test ignores how big the differences are; the t test uses their sizes but leans on
+normality. The **Wilcoxon signed-rank test** (Frank Wilcoxon, 1945) sits in between: it uses the
+*ranks* of the sizes.
 
-The logic rests on the random assignment itself. If the treatment has no effect, each subject's
-response would have been the same in either group, so the only randomness is which subjects
-landed in which group, and every possible split was equally likely.
+1. Drop zero differences. Rank the remaining differences by absolute value, from 1 (smallest) to
+   $n$; tied absolute values share the average of their ranks.
+2. Add up the ranks of the positive differences. Call the sum $W^+$.
+3. Under $H_0$ (the differences come from a distribution symmetric about 0), each rank is equally
+   likely to carry a plus or a minus sign, independently. So all $2^n$ sign patterns are equally
+   likely, and the p-value is the share of patterns giving a $W^+$ at least as extreme as the
+   observed one.
 
-### Example 3: four against four
+The ranks always add to $1 + 2 + \dots + n = n(n+1)/2$, so a large $W^+$ means the negative
+differences hold only a few small ranks.
 
-Eight new drivers are randomly split into two groups of 4: one trains on a simulator, one in the
-usual way. Their scores on a skills test:
+### Example 3: the jig data, ranked
 
-- Simulator: 14, 17, 19, 22 (mean 18.00)
-- Usual: 10, 12, 15, 16 (mean 13.25)
+The seven nonzero differences are 3, −1, 4, 2, 5, 3, 2.
 
-The observed difference in means is $18.00 - 13.25 = 4.75$. Is that convincing evidence that the
-simulator helps?
+| Difference | −1 | 2 | 2 | 3 | 3 | 4 | 5 |
+|---|---|---|---|---|---|---|---|
+| Rank of size | 1 | 2.5 | 2.5 | 4.5 | 4.5 | 6 | 7 |
 
-1. *Count the splits.* There are $\binom{8}{4} = 70$ ways to choose which 4 of the 8 scores form the
-   simulator group, all equally likely under $H_0$.
-2. *A shortcut.* The 8 scores total 125, so a group with sum $S$ has difference in means
-   $\frac{S}{4} - \frac{125 - S}{4} = \frac{2S - 125}{4}$. A larger difference means a larger $S$; the
-   observed group has $S = 72$.
-3. *Find the splits with $S \ge 72$.* Starting from the largest scores: $22 + 19 + 17 + 16 = 74$,
-   $22 + 19 + 17 + 15 = 73$, $22 + 19 + 17 + 14 = 72$, $22 + 19 + 16 + 15 = 72$. Every other choice
-   sums to 71 or less. That is 4 splits.
-4. *p-value* $= 4/70 \approx 0.057$. At $\alpha = 0.05$, fail to reject, narrowly.
+1. The ranks add to $7(8)/2 = 28$. Only the −1 is negative, with rank 1, so $W^+ = 28 - 1 = 27$.
+2. $W^+ \ge 27$ happens only when the negative ranks add to at most 1: either no negative ranks (one
+   pattern) or only rank 1 negative (one pattern).
+3. p-value $= 2/2^7 = 2/128 \approx 0.0156$ (one-sided, $H_a$: the new jig tends to increase output).
+
+So the three tests of the same data give 0.0625 (sign), 0.0156 (signed-rank) and 0.0074 (t). Each
+uses more of the information in the differences than the one before, and each assumes a bit more:
+nothing about shape, then symmetry, then near-normality. Statisticians call tests like the sign and
+signed-rank tests **nonparametric** (or distribution-free), because their null distributions don't
+depend on a normal or any other parametric model.
 
 ```plot
-{"x": [-6.5, 6.5], "y": [-0.4, 6], "xLabel": "difference in means (simulator − usual)", "yLabel": "number of splits", "bars": [{"x": -5.75, "height": 1, "width": 0.4}, {"x": -5.25, "height": 1, "width": 0.4}, {"x": -4.75, "height": 2, "width": 0.4}, {"x": -4.25, "height": 1, "width": 0.4}, {"x": -3.75, "height": 3, "width": 0.4}, {"x": -3.25, "height": 2, "width": 0.4}, {"x": -2.75, "height": 3, "width": 0.4}, {"x": -2.25, "height": 5, "width": 0.4}, {"x": -1.75, "height": 3, "width": 0.4}, {"x": -1.25, "height": 5, "width": 0.4}, {"x": -0.75, "height": 4, "width": 0.4}, {"x": -0.25, "height": 5, "width": 0.4}, {"x": 0.25, "height": 5, "width": 0.4}, {"x": 0.75, "height": 4, "width": 0.4}, {"x": 1.25, "height": 5, "width": 0.4}, {"x": 1.75, "height": 3, "width": 0.4}, {"x": 2.25, "height": 5, "width": 0.4}, {"x": 2.75, "height": 3, "width": 0.4}, {"x": 3.25, "height": 2, "width": 0.4}, {"x": 3.75, "height": 3, "width": 0.4}, {"x": 4.25, "height": 1, "width": 0.4}, {"x": 4.75, "height": 2, "width": 0.4, "color": "#c2570c"}, {"x": 5.25, "height": 1, "width": 0.4, "color": "#c2570c"}, {"x": 5.75, "height": 1, "width": 0.4, "color": "#c2570c"}], "segments": [{"from": [4.5, 0], "to": [4.5, 5.5], "dashed": true}], "labels": [{"at": [5.1, 3.2], "text": "4 of 70"}], "caption": "All 70 equally likely splits; 4 give a difference of 4.75 or more"}
+{"x": [-0.7, 7.7], "y": [-0.03, 0.32], "xLabel": "number of positive signs out of 7", "yLabel": "probability", "bars": [{"x": 0, "height": 0.0078, "width": 0.7}, {"x": 1, "height": 0.0547, "width": 0.7}, {"x": 2, "height": 0.1641, "width": 0.7}, {"x": 3, "height": 0.2734, "width": 0.7}, {"x": 4, "height": 0.2734, "width": 0.7}, {"x": 5, "height": 0.1641, "width": 0.7}, {"x": 6, "height": 0.0547, "width": 0.7, "color": "#c2570c"}, {"x": 7, "height": 0.0078, "width": 0.7, "color": "#c2570c"}], "labels": [{"at": [6.5, 0.1], "text": "p = 8/128"}], "caption": "The sign test's null distribution B(7, 0.5); the shaded bars (6 or 7 positive) give the p-value 0.0625"}
 ```
 
-A one-sided two-sample t test on the same data (Welch df) gives a p-value of about 0.037. Part of the gap is
-discreteness: with only 70 splits, the smallest possible p-value is $1/70 \approx 0.014$. For larger
-groups the number of splits explodes ($\binom{20}{10} = 184{,}756$), and software either enumerates
-them or, as in lesson 20, samples a few thousand at random to estimate the exact p-value.
+## The same idea elsewhere
 
-## Fisher's exact test
-
-For a two-way table of two groups and a yes/no outcome, fix the row and column totals. Under $H_0$
-(no association), the count in one cell then follows a hypergeometric distribution: it is like
-dealing the "yes" outcomes at random among the subjects. Using that distribution to get the
-p-value is **Fisher's exact test**, the standard choice when expected counts are too small for the
-two-proportion z test.
-
-R. A. Fisher introduced the idea in *The Design of Experiments* (1935) with a famous story: a lady
-claimed she could taste whether milk or tea had been poured into the cup first. Eight cups, 4 of
-each kind, are presented in random order, and she must pick the 4 with milk first. If she is only
-guessing, every set of 4 is equally likely, so $P(\text{all 4 right}) = 1/\binom{8}{4} = 1/70 \approx 0.014$.
-Getting at least 3 right is far less impressive: $\binom{4}{3}\binom{4}{1} = 16$ sets have exactly 3
-right, so $P(\ge 3 \text{ right}) = (16 + 1)/70 \approx 0.243$.
-
-### Example 4: a small trial
-
-In a small randomized trial, 7 of 9 patients on a new treatment improved, compared with 2 of 8 on the
-standard treatment. Is there evidence that the new treatment works better?
-
-| | Improved | Not improved | Total |
-|---|---|---|---|
-| New | 7 | 2 | 9 |
-| Standard | 2 | 6 | 8 |
-| Total | 9 | 8 | 17 |
-
-1. *Large counts?* The pooled rate is $9/17$; the expected count of "not improved" in the standard
-   group is $8 \cdot 8/17 \approx 3.8$, far below 10. The z test is out.
-2. *Null distribution.* With the margins fixed, the number $X$ of improvers in the new group is the
-   number of the 9 improvers that land among the 9 new-treatment patients when 9 of the 17 are chosen at
-   random:
-   $$P(X = x) = \frac{\binom{9}{x}\binom{8}{9 - x}}{\binom{17}{9}}, \qquad \binom{17}{9} = 24{,}310.$$
-3. *One-sided p-value* $= P(X \ge 7) = \dfrac{\binom{9}{7}\binom{8}{2} + \binom{9}{8}\binom{8}{1} + \binom{9}{9}\binom{8}{0}}{24{,}310} = \dfrac{1{,}008 + 72 + 1}{24{,}310} \approx 0.0445.$
-4. At $\alpha = 0.05$, reject $H_0$: convincing evidence (though not overwhelming) that the new
-   treatment raises the improvement rate. Because patients were randomly assigned, the conclusion
-   is causal for patients like these.
+Two other exact tests use the same recipe of listing equally likely outcomes. A permutation test
+lists every way the random assignment could have split the observed responses between groups (see
+the honors lesson on resampling in the final honors module), and Fisher's exact test does the same
+for a two-way table with fixed totals, using hypergeometric probabilities (see the honors lesson
+after the chi-square tests in module 9). Both are the standard fallbacks when two-sample z or t
+conditions fail.
 
 ## Choosing between exact and approximate tests
 
@@ -171,17 +144,20 @@ strongly skewed, use an exact test, and say which one.
 
 - Keeping zero differences in a sign test; they carry no sign and are dropped.
 - Using $B(n, 0.5)$ for a sign test with $n$ = all pairs instead of the nonzero pairs.
-- Counting only the observed arrangement, not all arrangements "at least as extreme."
+- Counting only the observed outcome, not all outcomes "at least as extreme."
+- In the signed-rank test, ranking the signed differences instead of their absolute values.
 - Doubling a lopsided binomial tail without saying so, or expecting it to match software.
 - Assuming an exact test's actual Type I error rate equals $\alpha$; it is usually smaller.
-- Running a permutation test on an observational study and calling the conclusion causal.
+- Thinking "nonparametric" means "no assumptions": the data must still be random, and the signed-rank
+  test assumes symmetry.
 
 ## Key points
 
 - Exact tests take p-values from the exact null distribution, so they work for any sample size.
 - Exact binomial: tail probabilities of $B(n, p_0)$; two-sided p-values depend on the convention.
 - Sign test: count positive differences among the nonzero ones; compare with $B(n, 0.5)$.
-- Permutation test: under $H_0$ every split is equally likely; p-value = share of splits at least as
-  extreme as observed.
-- Fisher's exact test: hypergeometric probabilities for a two-way table with fixed margins.
+- Signed-rank test: rank the sizes of the nonzero differences, add the ranks of the positive ones,
+  and compare with all $2^n$ equally likely sign patterns.
+- Sign, signed-rank and t tests use more and more of the data's information and need more and more
+  assumptions.
 - Discreteness makes exact tests conservative; they trade some power for guaranteed error control.

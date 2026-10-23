@@ -29,7 +29,7 @@ constant-coefficient operator after another works exactly like multiplying polyn
 $$(D - a)\big[(D - b)y\big] = (D - a)(y' - by) = y'' - by' - ay' + aby = \big(D^2 - (a + b)D + ab\big)y.$$
 
 So $(D - a)(D - b) = D^2 - (a + b)D + ab$, and since that is symmetric in $a$ and $b$, the
-order doesn't matter: constant-coefficient operators **commute**. That is why we may factor
+order doesn't matter: constant-coefficient operators *commute*. That is why we may factor
 $p(D)$ the same way we factor the characteristic polynomial $p(r)$.
 
 This is special to constant coefficients. With a variable coefficient, order matters:

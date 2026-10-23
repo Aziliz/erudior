@@ -82,7 +82,7 @@ Step 2: compare $g(x) = \cos x$ and $f(x) = 1 - \frac{x^2}{2}$. Both equal 1 at 
 So $\cos 0.2 \ge 1 - 0.02 = 0.98$; the true value is $0.98007$. One more round (compare $\sin x$ with $x - \frac{x^3}{6}$) gives $\sin x \ge x - \frac{x^3}{6}$ for $x \ge 0$. The polynomials appearing here, $1 - \frac{x^2}{2}$ and $x - \frac{x^3}{6}$, are exactly the Taylor polynomials of Lesson 44; this is one way to see why those approximations work.
 
 ```plot
-{"x": [-3.5, 3.5], "y": [-2.2, 1.6], "functions": [{"f": "cos(x)", "label": "y = cos x"}, {"f": "1 - x^2/2", "dashed": true}], "points": [{"at": [0, 1]}], "labels": [{"at": [2.6, -1.6], "text": "y = 1 − x²/2"}], "caption": "cos x stays on or above the parabola 1 − x²/2, touching it only at x = 0"}
+{"x": [-3.5, 3.5], "y": [-2.2, 1.6], "functions": [{"f": "cos(x)"}, {"f": "1 - x^2/2", "dashed": true}], "points": [{"at": [0, 1]}], "caption": "Solid: y = cos x. Dashed: y = 1 − x²/2. The cosine stays on or above the parabola, touching it only at x = 0"}
 ```
 
 ## Counting roots with Rolle's theorem
