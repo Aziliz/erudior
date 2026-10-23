@@ -29,9 +29,9 @@ the solution is periodic: $\mathbf{x}(t + T) = \mathbf{x}(t)$ for some period $T
 **limit cycle** is a closed orbit that is isolated: nearby trajectories are not closed, they
 spiral toward it or away from it.
 
-- **Stable** limit cycle: nearby trajectories on both sides spiral toward it as $t \to \infty$.
-- **Unstable**: they spiral away on both sides.
-- **Semistable**: toward it on one side, away on the other.
+- *Stable* limit cycle: nearby trajectories on both sides spiral toward it as $t \to \infty$.
+- *Unstable*: they spiral away on both sides.
+- *Semistable*: toward it on one side, away on the other.
 
 The centers of Lesson 35 and the Lotka–Volterra loops of Lesson 37 are closed orbits but not
 limit cycles: their neighbors are closed orbits too.
@@ -82,7 +82,7 @@ Most systems have no polar shortcut, and finding a limit cycle exactly is usuall
 impossible. Proving that one *exists* is often easy, though, thanks to a theorem of Henri
 Poincaré (1880s) and Ivar Bendixson (1901).
 
-**Poincaré–Bendixson theorem (a common form).** Suppose $x' = F(x, y)$, $y' = G(x, y)$ has
+**Poincaré–Bendixson theorem** (a common form). Suppose $x' = F(x, y)$, $y' = G(x, y)$ has
 continuously differentiable $F$ and $G$, and $R$ is a closed, bounded region of the plane
 that contains **no equilibrium points**. If a trajectory starts in $R$ and stays in $R$ for
 all $t \ge 0$, then it is a closed orbit or it spirals toward a closed orbit as $t \to \infty$.
@@ -126,7 +126,7 @@ proves existence; it doesn't say how many cycles there are or give their shape.
 
 Sometimes you want the opposite: a guarantee that there is no oscillation.
 
-**Dulac's criterion.** Let $D$ be a simply connected region (no holes). If there is a
+**Dulac's criterion**. Let $D$ be a simply connected region (no holes). If there is a
 continuously differentiable function $g(x, y)$ such that
 $\dfrac{\partial (gF)}{\partial x} + \dfrac{\partial (gG)}{\partial y}$ is continuous, has one
 sign throughout $D$, and is not zero everywhere, then $D$ contains no closed orbit. The case

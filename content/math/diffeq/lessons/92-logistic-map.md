@@ -159,8 +159,7 @@ $|e_n| \approx |e_0|\,|f'(x_0)f'(x_1)\cdots f'(x_{n-1})|$. Writing that product 
 $$\lambda = \lim_{n \to \infty} \frac1n \sum_{k=0}^{n-1} \ln|f'(x_k)|,$$
 
 the average exponential rate of separation per step. A negative $\lambda$ means nearby
-orbits converge (a stable fixed point or cycle); a positive $\lambda$ means **sensitive
-dependence on initial conditions**, the signature of chaos.
+orbits converge (a stable fixed point or cycle); a positive $\lambda$ means **sensitive dependence on initial conditions**, the signature of chaos.
 
 ### Example 3
 

@@ -68,7 +68,7 @@ $\mathbb{R}^3$ and the independent set $\mathbf{u}_1 = (1, 1, 0)$, $\mathbf{u}_2
 
 1. $\mathbf{u}_1 = 1\mathbf{e}_1 + 1\mathbf{e}_2 + 0\mathbf{e}_3$. The coefficient of $\mathbf{e}_1$ is nonzero, so swap: $\{\mathbf{u}_1, \mathbf{e}_2, \mathbf{e}_3\}$ spans $\mathbb{R}^3$. (Indeed $\mathbf{e}_1 = \mathbf{u}_1 - \mathbf{e}_2$.)
 2. Write $\mathbf{u}_2$ in the new set: $(0, 1, 1) = 0\mathbf{u}_1 + 1\mathbf{e}_2 + 1\mathbf{e}_3$. The coefficient of $\mathbf{e}_2$ is nonzero, so swap: $\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{e}_3\}$ spans $\mathbb{R}^3$. (Here $\mathbf{e}_2 = \mathbf{u}_2 - \mathbf{e}_3$.)
-3. Three vectors spanning $\mathbb{R}^3$, and the lemma's count says no independent set has more than 3 vectors, so this is a basis. We could not have swapped $\mathbf{u}_1$ for $\mathbf{e}_3$: its $\mathbf{e}_3$-coefficient is 0.
+3. Three vectors that span the 3-dimensional space $\mathbb{R}^3$ form a basis, by the basis theorem. We could not have swapped $\mathbf{u}_1$ for $\mathbf{e}_3$: its $\mathbf{e}_3$-coefficient is 0.
 
 ## Consequences
 
@@ -173,7 +173,7 @@ it has $x_1 - x_2 - x_3 + x_4 = 0$, a check you can do on each of the four spann
 - *Extending to a basis with the new vectors first.* Put the given independent vectors at the front of the matrix; otherwise row reduction may keep standard vectors and drop some of yours.
 - *Extending inclusion–exclusion to three subspaces.* Three different lines through the origin in $\mathbb{R}^2$ have pairwise and triple intersections $\{\mathbf{0}\}$, so the "formula" would give $1 + 1 + 1 = 3$, but their sum is $\mathbb{R}^2$, of dimension 2. The formula is for two subspaces only.
 - *Calling a complement unique.* A subspace has many complementary subspaces; only the orthogonal complement is singled out.
-- *Forgetting finite dimension.* "A subspace of the same dimension equals the whole space" needs $\dim V$ finite. The polynomials with zero constant term form a subspace of all polynomials that is just as "infinite" but not equal to it.
+- *Forgetting finite dimension.* "A subspace of the same dimension equals the whole space" needs $\dim V$ finite. The polynomials with zero constant term form an infinite-dimensional subspace of the space of all polynomials, yet they are not all of it.
 
 ## Key points
 

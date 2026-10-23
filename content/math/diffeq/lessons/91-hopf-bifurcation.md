@@ -82,7 +82,7 @@ proved in general by Eberhard Hopf in 1942 (Aleksandr Andronov's school had trea
 planar case in the 1930s, and the idea goes back to Poincaré, so it is also called the
 Andronov–Hopf bifurcation).
 
-**Hopf bifurcation theorem (informal).** Suppose that at $\mu = \mu_0$ an equilibrium has
+**Hopf bifurcation theorem** (informal). Suppose that at $\mu = \mu_0$ an equilibrium has
 Jacobian eigenvalues $\pm i\omega_0$ with $\omega_0 \ne 0$, and that the real part $\alpha(\mu)$
 of the eigenvalues crosses zero with nonzero speed: $\alpha'(\mu_0) \ne 0$. Then, apart from a
 degenerate borderline case, a one-parameter family of periodic orbits is born at $\mu_0$.
@@ -143,8 +143,7 @@ trajectory starting at $r = 0.3$ decays to the origin; one starting at $r = 0.4$
 the big cycle. Now raise $\mu$ slowly past 0. The state that sat at the origin suddenly
 leaves and ends up on a cycle of radius about 1, a jump from no oscillation to a large one.
 Lowering $\mu$ again, the large oscillation persists below 0, all the way down to
-$\mu = -\tfrac14$, where the two cycles collide and vanish (a **saddle-node bifurcation of
-cycles**). Only then does the state drop back to the origin.
+$\mu = -\tfrac14$, where the two cycles collide and vanish (a **saddle-node bifurcation of cycles**). Only then does the state drop back to the origin.
 
 The behavior depends on the history, not just the current $\mu$: this is **hysteresis**. In
 engineering, a subcritical Hopf bifurcation is the dangerous kind, since the warning signs
