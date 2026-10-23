@@ -44,7 +44,7 @@ best Lipschitz constant. (The previous lesson called it $K$.)
 
 ## Grönwall's inequality
 
-**Grönwall's inequality.** Let $u(t) \ge 0$ be continuous on $[t_0, T]$, and let $C \ge 0$
+**Grönwall's inequality**. Let $u(t) \ge 0$ be continuous on $[t_0, T]$, and let $C \ge 0$
 and $L \ge 0$ be constants. If
 
 $$u(t) \le C + L\int_{t_0}^{t} u(s)\,ds \quad \text{for } t_0 \le t \le T,$$
@@ -171,8 +171,8 @@ equation exactly.
 
 The factor $e^{L(t - t_0)}$ is finite for every fixed time, but it can be enormous for long
 times. In some systems the exponential separation is real, not just a pessimistic bound:
-nearby states stay close for a while and then become unrelated. This **sensitive dependence
-on initial conditions** is the hallmark of chaos, made famous by Edward Lorenz's 1963 study of
+nearby states stay close for a while and then become unrelated. This
+**sensitive dependence on initial conditions** is the hallmark of chaos, made famous by Edward Lorenz's 1963 study of
 a simplified three-variable convection model. A single first-order autonomous equation can't
 be chaotic (its solutions are monotone, as Module 4 shows), but systems of three or more
 equations can. Continuous dependence still holds for them on every finite interval; it just

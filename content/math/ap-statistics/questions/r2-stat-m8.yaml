@@ -665,8 +665,8 @@
   lesson: stat-m8-h-exact-tests
   topic: Exact tests
   stem: 'Of the sign test, the Wilcoxon signed-rank test and the paired t test, which makes the weakest assumption about the shape of the distribution of the differences?'
-  choices: ['The paired t test', 'The Wilcoxon signed-rank test', 'All three make the same assumption', 'The sign test']
-  answer: 3
+  choices: ['The sign test', 'The Wilcoxon signed-rank test', 'All three make the same assumption', 'The paired t test']
+  answer: 0
   explanation: |-
     The sign test needs only that, under $H_0$, each nonzero difference is equally likely to be positive or negative (median 0). The signed-rank test adds symmetry about 0, and the t test needs the differences to be roughly normal (or the sample to be large). The price of the weaker assumptions is less power.
 
@@ -702,11 +702,11 @@
   topic: Exact tests
   stem: 'The sign and signed-rank tests are called nonparametric. What does that mean?'
   choices:
+    - 'Their null distributions don''t depend on a normal or other parametric model for the data.'
     - 'They have no assumptions at all.'
     - 'They can only be used with fewer than 30 observations.'
     - 'They don''t estimate anything, so they give no p-value.'
-    - 'Their null distributions don''t depend on a normal or other parametric model for the data.'
-  answer: 3
+  answer: 0
   explanation: |-
     Their p-values come from counting equally likely sign patterns, not from a normal or t curve, so they are also called distribution-free. They still have assumptions: random data, and for the signed-rank test, symmetry. They give p-values, and they work for any sample size.
 

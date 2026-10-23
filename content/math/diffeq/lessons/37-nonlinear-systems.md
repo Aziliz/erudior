@@ -46,6 +46,22 @@ The borderline cases are the exception. If $J$ has a center (purely imaginary ei
 the nonlinear terms decide: the true picture may be a center, a slow spiral sink, or a slow
 spiral source. Linearization alone can't tell.
 
+The whole procedure, for each equilibrium in turn:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying the equilibria of a nonlinear system by linearization
+  accDescr: Solve F = 0 and G = 0 together to find every equilibrium. Compute the Jacobian matrix of partial derivatives and evaluate it at one equilibrium. Find its trace, determinant and discriminant, or its eigenvalues. If no eigenvalue has zero real part, the nonlinear system has the same type and stability as the linearization there. If some eigenvalue has zero real part, linearization is inconclusive and another argument is needed, such as a conserved quantity. Then repeat for the next equilibrium.
+  A["Solve F = 0 and G = 0 together: all equilibria"] --> B["Compute the Jacobian J of partial derivatives"]
+  B --> C["Evaluate J at one equilibrium"]
+  C --> D["Find T, D and T² − 4D (or the eigenvalues)"]
+  D --> E{"Any eigenvalue with zero real part?"}
+  E -- no --> F["Same type and stability as the linearization"]
+  E -- yes --> G["Inconclusive: try another argument, such as a conserved quantity"]
+  F --> H["Repeat for the next equilibrium"]
+  G --> H
+```
+
 ### Example 1
 
 Find and classify the equilibria of $x' = x - y$, $y' = x^2 - 4$.
@@ -119,6 +135,15 @@ $T = -1$, $D = 0.25 - 0.125 = 0.125$, $T^2 - 4D = 0.5 > 0$: a nodal sink. The sp
 $\theta'' + \sin\theta = 0$ becomes $x' = y$, $y' = -\sin x$. Equilibria at $x = k\pi$, $y = 0$.
 $J = \begin{bmatrix} 0 & 1 \\ -\cos x & 0 \end{bmatrix}$: at $x = 0$, eigenvalues $\pm i$ (center: small swings);
 at $x = \pi$, $D = -1 < 0$ (saddle: balanced upside down, unstable).
+
+Here the center *is* a true center, because energy $\tfrac12y^2 - \cos x$ is conserved. The
+phase plane shows closed loops (swinging back and forth) around each hanging equilibrium,
+and wavy curves above and below (whirling over the top). They are separated by the
+separatrices $y = \pm 2|\cos(x/2)|$, which run into the saddles.
+
+```plot
+{"x": [-7, 7], "y": [-3.5, 3.5], "xLabel": "angle x", "yLabel": "angular velocity y", "vectorField": {"u": "y", "v": "-sin(x)", "step": 0.7}, "functions": [{"f": "2*abs(cos(x/2))", "dashed": true}, {"f": "-2*abs(cos(x/2))", "dashed": true}], "points": [{"at": [0, 0], "label": "center"}, {"at": [-3.14159, 0], "label": "saddle"}, {"at": [3.14159, 0], "label": "saddle"}, {"at": [6.28319, 0]}, {"at": [-6.28319, 0]}], "caption": "Pendulum phase plane x′ = y, y′ = −sin x: centers at x = 0, ±2π, saddles at x = ±π, and the dashed separatrices between swinging and whirling motion."}
+```
 
 ## Common mistakes
 

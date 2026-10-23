@@ -54,6 +54,19 @@ coefficient 1 on $y''$. For $ay'' + by' + cy = f(t)$, use $g = f/a$.
 Constants of integration can be dropped: they just add multiples of $y_1$ and $y_2$, which
 are already in $y_c$.
 
+The steps, in order:
+
+```mermaid
+flowchart TD
+  accTitle: Steps of variation of parameters
+  accDescr: Put the equation in standard form, with coefficient 1 on y double prime, to read off g. Find a fundamental set y1, y2 of the homogeneous equation. Compute the Wronskian W = y1 y2' minus y1' y2. Compute u1' = minus y2 g over W and u2' = y1 g over W. Integrate to get u1 and u2, dropping constants of integration. Then Y = u1 y1 + u2 y2.
+  A["Standard form: divide by the coefficient of y''"] --> B["Find y1, y2 solving the homogeneous equation"]
+  B --> C["Wronskian W = y1 y2' − y1' y2"]
+  C --> D["u1' = −y2 g / W and u2' = y1 g / W"]
+  D --> E["Integrate to get u1, u2 (drop constants)"]
+  E --> F["Y = u1 y1 + u2 y2"]
+```
+
 ### Example 1
 
 Find a particular solution of $y'' + y = \sec t$ on $-\pi/2 < t < \pi/2$.
@@ -119,6 +132,18 @@ a convolution integral you'll meet again with Laplace transforms.
 | Constant coefficients, $g$ = polynomial / exponential / sine / cosine (or products, sums) | Undetermined coefficients |
 | $g$ like $\sec t$, $\tan t$, $\ln t$, $1/t$, $e^t/t$ | Variation of parameters |
 | Variable coefficients (with $y_1, y_2$ known) | Variation of parameters |
+
+The same choice as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a particular solution
+  accDescr: If the coefficients are not constant, use variation of parameters, which needs a known fundamental set y1, y2. If they are constant, ask whether g is built from polynomials, exponentials, sines and cosines (sums and products of them). If yes, use undetermined coefficients. If not, for example sec t, tan t, ln t or 1/t, use variation of parameters.
+  A{"Constant coefficients?"} -- no --> V["Variation of parameters (needs y1, y2)"]
+  A -- yes --> B{"Is g built from polynomials, exponentials, sines and cosines?"}
+  B -- yes --> U["Undetermined coefficients"]
+  B -- "no: sec t, tan t, ln t, 1/t, ..." --> V
+```
 
 ## Common mistakes
 

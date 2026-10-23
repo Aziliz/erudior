@@ -180,8 +180,8 @@ solution with $c_1$, $c_2$ not both zero. The function $\phi = c_1y_1 + c_2y_2$ 
 equation with $\phi(t_0) = \phi'(t_0) = 0$, and so does the zero function. By uniqueness,
 $\phi \equiv 0$: the solutions are dependent. The functions $t^2$ and $t\lvert t\rvert$ escape
 this argument because they do not solve any single equation $y'' + py' + qy = 0$ with $p$,
-$q$ continuous on $(-1, 1)$ (both vanish with zero slope at $t = 0$, which uniqueness would
-forbid for two different nonzero solutions).
+$q$ continuous on $(-1, 1)$ (both have value 0 and slope 0 at $t = 0$, and uniqueness would
+force a solution with those initial values to be identically zero).
 
 ```mermaid
 flowchart TD

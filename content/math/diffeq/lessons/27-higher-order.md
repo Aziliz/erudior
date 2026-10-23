@@ -45,6 +45,17 @@ root contributes solutions:
 
 Altogether you always get exactly $n$ independent solutions.
 
+```mermaid
+flowchart TD
+  accTitle: From characteristic roots to solutions
+  accDescr: Factor the characteristic polynomial of degree n and list its roots with multiplicity. A real root r of multiplicity k gives e^(rt), t e^(rt), up to t^(k−1) e^(rt). A complex pair lambda plus or minus i mu of multiplicity k gives e^(lambda t) cos mu t and e^(lambda t) sin mu t, each multiplied by 1, t, up to t^(k−1). Altogether there are exactly n solutions, and the general solution is a linear combination of them.
+  A["Factor the degree-n characteristic polynomial"] --> B{"For each root: real, or a complex pair?"}
+  B -- "real r, multiplicity k" --> R["e^(rt), t e^(rt), ..., t^(k−1) e^(rt)"]
+  B -- "pair λ ± iμ, multiplicity k" --> C["e^(λt) cos μt and e^(λt) sin μt, each times 1, t, ..., t^(k−1)"]
+  R --> N["n solutions in all: y = c1 y1 + ... + cn yn"]
+  C --> N
+```
+
 ## Factoring the characteristic polynomial
 
 Useful tools:
@@ -122,6 +133,11 @@ $EI\,y^{(4)} = w$. With constant $w$, integrating four times gives
 $y = \dfrac{w}{24EI}x^4 + c_3x^3 + c_2x^2 + c_1x + c_0$, and the four constants come from
 **boundary conditions** at the two ends (for a clamped end, $y = y' = 0$). Engineers use
 exactly this to size floor joists and bridge girders.
+
+![Two beams. Top: a simply supported beam on a pin support and a roller support under a uniform load, sagging most in the middle. Bottom: a cantilever built into a wall at the left end and free at the right end under a uniform load, drooping most at the free end.](images/de-m6-beams.svg)
+
+The pictures show the two most common setups; the honors lesson on beams and buckling solves
+both.
 
 ## Common mistakes
 

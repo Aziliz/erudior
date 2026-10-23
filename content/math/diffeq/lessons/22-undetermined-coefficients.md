@@ -56,6 +56,13 @@ Find a particular solution of $y'' + 2y' + 5y = 10t + 9$.
 - Substitute: $2A + 5(At + B) = 5At + (2A + 5B) = 10t + 9$.
 - Match: $5A = 10$, so $A = 2$; $2A + 5B = 9$, so $B = 1$. $Y = 2t + 1$.
 
+The general solution of Example 2 is $y = e^{-t}(c_1\cos 2t + c_2\sin 2t) + 2t + 1$. Because the
+complementary part decays, every solution ends up hugging the line $Y = 2t + 1$:
+
+```plot
+{"x": [0, 5], "y": [-2, 12], "xLabel": "t", "yLabel": "y", "functions": [{"f": "2x + 1", "dashed": true, "label": "Y = 2t + 1"}, {"f": "exp(-x)*2cos(2x) + 2x + 1"}, {"f": "exp(-x)*(-2cos(2x) + sin(2x)) + 2x + 1"}], "caption": "Two solutions of y″ + 2y′ + 5y = 10t + 9 (solid) with different starting values. The decaying complementary part dies out and both approach the particular solution Y = 2t + 1 (dashed)."}
+```
+
 ### Example 3
 
 Find a particular solution of $y'' + y' - 2y = 10\sin t$.
@@ -117,6 +124,21 @@ Solve $y'' + y' - 2y = 2t$, $y(0) = 0$, $y'(0) = 1$.
 - $y = e^t - \tfrac12e^{-2t} - t - \tfrac12$.
 
 Apply initial conditions to the full $y_c + Y$, never to $y_c$ alone.
+
+## The whole procedure
+
+```mermaid
+flowchart TD
+  accTitle: Steps of the method of undetermined coefficients
+  accDescr: First solve the homogeneous equation to get the complementary solution y_c. Then write the basic guess for each piece of g from the table. If any term of a guess solves the homogeneous equation, multiply that guess by t and check again; a double root needs t squared. When there is no overlap, substitute Y into the equation and match coefficients. The general solution is y = y_c + Y, and initial conditions are applied to this full solution.
+  A["1. Find y_c from the characteristic equation"] --> B["2. Write the basic guess for each piece of g"]
+  B --> C{"Does a term of the guess solve the homogeneous equation?"}
+  C -- yes --> D["Multiply that guess by t"]
+  D --> C
+  C -- no --> E["3. Substitute Y and match coefficients"]
+  E --> F["4. General solution y = y_c + Y"]
+  F --> G["5. Apply initial conditions to the full y"]
+```
 
 ## Limits of the method
 

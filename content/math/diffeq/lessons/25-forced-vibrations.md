@@ -68,6 +68,10 @@ rest at equilibrium. Find the motion.
   $u'(0) = 2c_2 = 0$ gives $c_2 = 0$.
 - $u = \tfrac34t\sin 2t$, growing amplitude $\tfrac34t$.
 
+```plot
+{"x": [0, 15], "y": [-12, 12], "xLabel": "t", "yLabel": "u", "functions": [{"f": "0.75x*sin(2x)", "label": "u = ¾t sin 2t"}, {"f": "0.75x", "dashed": true}, {"f": "-0.75x", "dashed": true}], "caption": "Resonance in Example 1: the oscillation stays at the natural frequency while its envelope ±¾t (dashed) grows without bound."}
+```
+
 ## Damped forcing: transient and steady state
 
 With $\gamma > 0$, the free part $u_c$ decays (all its roots have negative real part), so it's
@@ -106,6 +110,13 @@ Find the steady-state response of $u'' + 2u' + 5u = 10\cos t$ and its amplitude.
 - Whatever the initial conditions, $u(t) \to 2\cos t + \sin t$ as the transient
   $e^{-t}(\cdots)$ dies away.
 
+The plot shows this for the solution that starts at rest at equilibrium,
+$u = e^{-t}\left(-2\cos 2t - \tfrac32\sin 2t\right) + 2\cos t + \sin t$:
+
+```plot
+{"x": [0, 12], "y": [-3, 3], "xLabel": "t", "yLabel": "u", "functions": [{"f": "exp(-x)*(-2cos(2x) - 1.5sin(2x)) + 2cos(x) + sin(x)", "label": "u(t)"}, {"f": "2cos(x) + sin(x)", "dashed": true}], "caption": "u″ + 2u′ + 5u = 10 cos t from rest at equilibrium (solid). The transient dies out within a few time units, leaving the steady state 2 cos t + sin t (dashed)."}
+```
+
 ## RLC circuits
 
 A resistor, inductor and capacitor in series with a voltage source $E(t)$ obey Kirchhoff's
@@ -123,6 +134,8 @@ It's the spring–mass equation with a new dictionary:
 | displacement $u$ | charge $q$ |
 | velocity $u'$ | current $I$ |
 | external force $F(t)$ | voltage $E(t)$ |
+
+![A series circuit loop: a voltage source E(t) on the left side, a resistor R drawn as a zigzag on the top side with an arrow for the current I, an inductor L drawn as coils on the right side, and a capacitor C drawn as two parallel plates on the bottom side.](images/de-m6-rlc.svg)
 
 So everything carries over: the circuit is underdamped when $R^2 < 4L/C$, critically damped
 when $R^2 = 4L/C$, overdamped when $R^2 > 4L/C$; its natural frequency is $\omega_0 = 1/\sqrt{LC}$.

@@ -1,0 +1,32 @@
+# Round 2 cards for module de-m2 (honors lessons 10h1-10h3)
+# Picard iteration
+- {front: 'Integral equation equivalent to $y'' = f(t, y)$, $y(t_0) = y_0$', back: '$y(t) = y_0 + \displaystyle\int_{t_0}^{t} f(s, y(s))\,ds$', topic: Picard iteration}
+- {front: 'Picard iterates', back: '$\varphi_0 = y_0$, $\ \varphi_{n+1}(t) = y_0 + \displaystyle\int_{t_0}^{t} f(s, \varphi_n(s))\,ds$', topic: Picard iteration}
+- {front: 'Picard iterates of $y'' = y$, $y(0) = 1$', back: 'The Taylor polynomials $\varphi_n = \sum_{k=0}^n t^k/k!$ of $e^t$.', topic: Picard iteration}
+- {front: 'Guaranteed interval in the Picard–Lindelöf theorem', back: '$|t - t_0| \le h = \min(a, b/M)$, where $R$: $|t - t_0| \le a$, $|y - y_0| \le b$ and $|f| \le M$ on $R$.', topic: Picard iteration}
+- {front: 'Why the Picard iterates converge', back: 'Gaps satisfy $|\varphi_{n+1} - \varphi_n| \le MK^nh^{n+1}/(n+1)!$, the terms of a convergent exponential series.', topic: Picard iteration}
+- {front: 'Error of the Picard iterate $\varphi_n$', back: '$|\varphi - \varphi_n| \le \dfrac{MK^nh^{n+1}}{(n+1)!}e^{Kh}$ on $|t - t_0| \le h$.', topic: Picard iteration}
+- {front: 'Guaranteed interval for $y'' = y^2$, $y(0) = 1$', back: 'At most $|t| \le \frac14$ (best choice $b = 1$), though the solution $\frac{1}{1 - t}$ lasts on $(-\infty, 1)$.', topic: Picard iteration}
+- {front: 'Peano vs Picard–Lindelöf', back: 'Peano: $f$ continuous gives existence only. Picard–Lindelöf: $f$ also Lipschitz in $y$ gives existence and uniqueness.', topic: Picard iteration}
+- {front: 'Picard iteration for $y'' = \sqrt{y}$, $y(0) = 0$', back: 'Every iterate is 0: it finds $y = 0$ and misses the other solutions such as $t^2/4$.', topic: Picard iteration}
+# Grönwall and continuous dependence
+- {front: 'Lipschitz condition in $y$', back: '$|f(t, y) - f(t, z)| \le L|y - z|$; implied by $|f_y| \le L$ on a rectangle.', topic: Continuous dependence}
+- {front: 'Lipschitz constant of $\sin y$', back: '$L = 1$ on the whole plane, since $|\cos y| \le 1$.', topic: Continuous dependence}
+- {front: 'Is $\sqrt{y}$ Lipschitz near $y = 0$?', back: 'No: $\sqrt{y}/y = 1/\sqrt{y}$ is unbounded as $y \to 0^+$. (Uniqueness fails there.)', topic: Continuous dependence}
+- {front: 'Grönwall''s inequality', back: '$u \le C + L\int_{t_0}^t u$ (with $u, C, L \ge 0$) implies $u \le Ce^{L(t - t_0)}$.', topic: Continuous dependence}
+- {front: 'Continuous dependence estimate', back: '$|y(t) - z(t)| \le |y_0 - z_0|\,e^{L|t - t_0|}$ for $f$ Lipschitz with constant $L$.', topic: Continuous dependence}
+- {front: 'Uniqueness from Grönwall', back: 'If $y_0 = z_0$, the continuous dependence estimate gives $|y - z| \le 0$, so $y = z$.', topic: Continuous dependence}
+- {front: 'One-sided bound for one equation', back: 'If $f_y \le \lambda$: $|y(t) - z(t)| \le |y_0 - z_0|e^{\lambda(t - t_0)}$ for $t \ge t_0$ (shrinks if $\lambda < 0$).', topic: Continuous dependence}
+- {front: 'Error from changing the equation by at most $\varepsilon$', back: '$|y - z| \le |y_0 - z_0|e^{L(t - t_0)} + \frac{\varepsilon}{L}\left(e^{L(t - t_0)} - 1\right)$', topic: Continuous dependence}
+- {front: 'Initial accuracy needed to predict within $E$ at time $T$', back: '$\delta \le Ee^{-L(T - t_0)}$ (from the continuous dependence estimate).', topic: Continuous dependence}
+# Riccati and Clairaut
+- {front: 'Riccati equation', back: '$y'' = q_0(t) + q_1(t)y + q_2(t)y^2$, $q_2 \ne 0$', topic: Riccati and Clairaut equations}
+- {front: 'Riccati with a known solution $y_1$', back: 'Set $y = y_1 + \frac1v$: $v'' = -(q_1 + 2q_2y_1)v - q_2$ (linear).', topic: Riccati and Clairaut equations}
+- {front: 'Riccati to second-order linear', back: '$y = -\dfrac{u''}{q_2u}$ gives $u'''' - \left(q_1 + \dfrac{q_2''}{q_2}\right)u'' + q_0q_2u = 0$; zeros of $u$ are blow-ups of $y$.', topic: Riccati and Clairaut equations}
+- {front: 'Solutions of $y'' = 1 + y^2$', back: '$y = \tan(t - c)$, from $u'''' + u = 0$; each blows up within an interval of length $\pi$.', topic: Riccati and Clairaut equations}
+- {front: 'Liouville (1841) on $y'' = t^2 + y^2$', back: 'No solution can be written with finitely many elementary functions and integrals.', topic: Riccati and Clairaut equations}
+- {front: 'Clairaut equation', back: '$y = xy'' + f(y'')$', topic: Riccati and Clairaut equations}
+- {front: 'Solutions of a Clairaut equation', back: 'Lines $y = Cx + f(C)$, plus the singular solution $x = -f''(p)$, $y = f(p) - pf''(p)$.', topic: Riccati and Clairaut equations}
+- {front: 'Singular solution of $y = xy'' - (y'')^2$', back: '$y = x^2/4$; every line $y = Cx - C^2$ is tangent to it at $(2C, C^2)$.', topic: Riccati and Clairaut equations}
+- {front: 'Lines of $y = xy'' - (y'')^2$ through $(x_0, y_0)$', back: 'Roots of $C^2 - x_0C + y_0 = 0$: two below the parabola, one on it, none above.', topic: Riccati and Clairaut equations}
+- {front: 'Singular solution', back: 'A solution not given by any value of the constant in the general solution; uniqueness fails along it.', topic: Riccati and Clairaut equations}

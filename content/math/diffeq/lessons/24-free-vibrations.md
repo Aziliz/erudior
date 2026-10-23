@@ -20,6 +20,8 @@ further. Three forces act on the moving mass:
   $\gamma \ge 0$ is the damping coefficient.
 - An external force $F(t)$ (next lesson; zero for now).
 
+![A mass hanging from a ceiling by a spring, with a damper (a piston in a cylinder) beside the spring also connecting the ceiling to the mass. A dashed horizontal line marks the equilibrium position; the mass is drawn below it, with an arrow showing the displacement u(t), measured downward. An arrow below the mass shows an external force F(t).](images/de-m6-spring-mass.svg)
+
 Newton's second law $mu'' = \text{total force}$ gives
 
 $$mu'' + \gamma u' + ku = F(t).$$
@@ -79,6 +81,19 @@ switches is the **critical damping** coefficient.
 
 In every damped case all roots have negative real part ($\lambda = -\gamma/(2m)$ in the
 underdamped case), so $u \to 0$: friction eventually stops the motion.
+
+The classification as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a free spring–mass system
+  accDescr: For m u'' + gamma u' + k u = 0, if gamma is zero the motion is undamped simple harmonic motion. Otherwise compare gamma squared with 4km. If gamma squared is less than 4km the motion is underdamped, a decaying oscillation with complex roots. If it equals 4km the motion is critically damped, with a repeated root. If it is greater, the motion is overdamped, with two negative real roots, and returns without oscillating.
+  A{"Is γ = 0?"} -- yes --> S["Undamped: simple harmonic motion"]
+  A -- no --> B{"Compare γ² with 4km"}
+  B -- "γ² less than 4km" --> U["Underdamped: decaying oscillation"]
+  B -- "γ² = 4km" --> C["Critically damped: repeated root"]
+  B -- "γ² greater than 4km" --> O["Overdamped: two negative real roots"]
+```
 
 ### Underdamped motion
 

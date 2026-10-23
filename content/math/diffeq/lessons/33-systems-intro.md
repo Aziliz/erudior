@@ -58,6 +58,11 @@ $$Q_1' = -\frac{10}{100}Q_1 + \frac{5}{100}Q_2, \qquad Q_2' = \frac{10}{100}Q_1 
 so $A = \begin{bmatrix} -0.1 & 0.05 \\ 0.1 & -0.1 \end{bmatrix}$. (Tank 2 loses 10 L/min in
 total: 5 back to tank 1 and 5 out.)
 
+The picture shows the four flows. Each pipe leaving a tank carries salt out at
+(flow ÷ 100 L) × amount, and each pipe entering a tank brings in what the other tank lost.
+
+![Two side-by-side tanks of 100 liters each, holding Q1 and Q2 grams of salt. Pure water enters tank 1 at 5 liters per minute. A lower pipe carries 10 liters per minute from tank 1 to tank 2, an upper pipe carries 5 liters per minute from tank 2 back to tank 1, and 5 liters per minute leave tank 2.](images/de-m8-two-tanks.svg)
+
 ## The structure of solutions
 
 The theory parallels Lesson 18:
@@ -109,6 +114,19 @@ Find the eigenvalues and eigenvectors of $A = \begin{bmatrix} 1 & 1 \\ 4 & 1 \en
 For Example 1's matrix $\begin{bmatrix} 0 & 1 \\ -2 & -3 \end{bmatrix}$: trace $-3$, determinant $2$,
 so $\lambda^2 + 3\lambda + 2 = 0$. That's exactly the characteristic equation of
 $y'' + 3y' + 2y = 0$. Eigenvalues of the system are the characteristic roots of the equation.
+
+The whole method for a $2 \times 2$ system with distinct eigenvalues fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Solving x' = Ax with eigenvalues
+  accDescr: Write the system as x' = Ax. Compute the trace T and determinant D, and solve lambda squared minus T lambda plus D equals 0 for the eigenvalues. For each eigenvalue, solve (A minus lambda I) v = 0 using one row to get an eigenvector. Combine the two eigen-solutions with constants c1 and c2, and fit the constants to the initial condition.
+  A["Write the system as x' = Ax"] --> B["Compute trace T and determinant D"]
+  B --> C["Solve λ² − Tλ + D = 0 for the eigenvalues"]
+  C --> D["For each λ, solve (A − λI)v = 0 using one row"]
+  D --> E["x = c₁e^(λ₁t)v₁ + c₂e^(λ₂t)v₂"]
+  E --> F["Fit c₁ and c₂ to x(0)"]
+```
 
 ## Phase plane
 

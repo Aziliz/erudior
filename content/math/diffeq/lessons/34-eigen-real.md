@@ -80,6 +80,19 @@ positive eigenvalue).
 | both negative | nodal sink | asymptotically stable |
 | both positive | nodal source | unstable |
 
+The same classification as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying the origin when the eigenvalues are real
+  accDescr: Start from two real eigenvalues. If they have opposite signs, which happens exactly when det A is negative, the origin is a saddle point and unstable. If both are negative, it is a nodal sink and asymptotically stable. If both are positive, it is a nodal source and unstable. If one eigenvalue is zero, det A is zero and there is a whole line of equilibria.
+  S["Two real eigenvalues λ₁, λ₂"] --> Q{"What are their signs?"}
+  Q -- "opposite (det A negative)" --> Sa["Saddle point: unstable"]
+  Q -- "both negative" --> Si["Nodal sink: asymptotically stable"]
+  Q -- "both positive" --> So["Nodal source: unstable"]
+  Q -- "one is zero (det A = 0)" --> Z["Line of equilibria"]
+```
+
 ### Example 3
 
 Classify the origin for $\mathbf{x}' = \begin{bmatrix} 3 & -2 \\ 2 & -2 \end{bmatrix}\mathbf{x}$.
@@ -99,6 +112,11 @@ If $\det A = 0$, one eigenvalue is 0 and $A$ is not invertible: there's a whole 
 equilibria (the eigenvector for $\lambda = 0$). Trajectories are parallel straight lines moving
 toward that line (if the other eigenvalue is negative) or away from it. This is a borderline
 case that rarely matters in applications but makes good exam questions.
+
+Here are the four real-eigenvalue pictures side by side. Dashed lines are eigenvector
+directions; in the last one the thick line is the line of equilibria.
+
+![Four phase portraits in a grid. Top left, saddle point: trajectories come in along one dashed eigenvector line and leave along the other. Top right, nodal sink: all trajectories flow into the origin, curving to become tangent to one eigenvector line. Bottom left, nodal source: the same shape with all arrows pointing away from the origin. Bottom right: a thick line of equilibria through the origin, with straight parallel trajectories moving toward it from both sides.](images/de-m8-real-portraits.svg)
 
 ## Reading solutions from the picture
 

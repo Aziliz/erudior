@@ -1,0 +1,51 @@
+# Round 2 glossary terms for module de-m2 (honors lessons 10h1-10h3)
+- term: integral equation
+  aliases: [integral equations]
+  definition: 'An equation with the unknown function inside an integral. The IVP $y'' = f(t, y)$, $y(t_0) = y_0$ is equivalent to $y(t) = y_0 + \int_{t_0}^t f(s, y(s))\,ds$.'
+  topic: Picard iteration
+- term: Picard iteration
+  aliases: [Picard iterates, Picard iterate, method of successive approximations, successive approximations]
+  definition: 'Building a solution of $y'' = f(t, y)$, $y(t_0) = y_0$ from the guesses $\varphi_0 = y_0$, $\varphi_{n+1}(t) = y_0 + \int_{t_0}^t f(s, \varphi_n(s))\,ds$, which converge to the solution near $t_0$ when $f$ is Lipschitz.'
+  topic: Picard iteration
+- term: Picard–Lindelöf theorem
+  aliases: [Picard-Lindelöf theorem, Picard-Lindelof theorem]
+  definition: 'If $f$ is continuous and Lipschitz in $y$ on the rectangle $|t - t_0| \le a$, $|y - y_0| \le b$, with $|f| \le M$, then $y'' = f(t, y)$, $y(t_0) = y_0$ has exactly one solution for $|t - t_0| \le \min(a, b/M)$.'
+  topic: Picard iteration
+- term: Lipschitz condition
+  aliases: [Lipschitz, Lipschitz constant, Lipschitz continuous]
+  definition: 'An inequality $|f(t, y) - f(t, z)| \le L|y - z|$ for all points in a region; $L$ is a Lipschitz constant. It holds with $L = \max|f_y|$ when $f_y$ is continuous on a rectangle.'
+  topic: Continuous dependence
+- term: Peano existence theorem
+  aliases: [Peano's theorem, Peano existence]
+  definition: 'If $f$ is merely continuous near $(t_0, y_0)$, then $y'' = f(t, y)$, $y(t_0) = y_0$ has at least one solution near $t_0$, though possibly more than one.'
+  topic: Picard iteration
+- term: continuous dependence
+  aliases: [continuous dependence on initial conditions]
+  definition: 'The property that a small change in the initial value (or the equation) causes only a small change in the solution over any fixed finite time interval.'
+  topic: Continuous dependence
+- term: Grönwall's inequality
+  aliases: [Gronwall's inequality, Grönwall inequality, Gronwall inequality, Grönwall–Bellman inequality]
+  definition: 'If a continuous $u \ge 0$ satisfies $u(t) \le C + L\int_{t_0}^t u(s)\,ds$ with constants $C, L \ge 0$, then $u(t) \le Ce^{L(t - t_0)}$ for $t \ge t_0$.'
+  topic: Continuous dependence
+- term: continuous dependence estimate
+  definition: 'For two solutions of $y'' = f(t, y)$ with $f$ Lipschitz (constant $L$): $|y(t) - z(t)| \le |y(t_0) - z(t_0)|\,e^{L|t - t_0|}$.'
+  topic: Continuous dependence
+- term: one-sided Lipschitz condition
+  definition: 'A bound from above only, such as $f_y \le \lambda$ ($\lambda$ may be negative). For a single equation it gives $|y(t) - z(t)| \le |y_0 - z_0|\,e^{\lambda(t - t_0)}$ for $t \ge t_0$.'
+  topic: Continuous dependence
+- term: sensitive dependence on initial conditions
+  aliases: [sensitive dependence]
+  definition: 'Nearby starting states that separate roughly exponentially until they become unrelated; the hallmark of chaos, possible in systems of three or more first-order equations.'
+  topic: Continuous dependence
+- term: Riccati equation
+  aliases: [Riccati equations]
+  definition: 'A first-order equation quadratic in $y$: $y'' = q_0(t) + q_1(t)y + q_2(t)y^2$ with $q_2 \ne 0$. One known solution $y_1$ and $y = y_1 + 1/v$ make it linear in $v$.'
+  topic: Riccati and Clairaut equations
+- term: Clairaut equation
+  aliases: [Clairaut equations, Clairaut's equation]
+  definition: 'An equation $y = xy'' + f(y'')$. Its solutions are the lines $y = Cx + f(C)$ and a singular solution $x = -f''(p)$, $y = f(p) - pf''(p)$ that all the lines touch.'
+  topic: Riccati and Clairaut equations
+- term: singular solution
+  aliases: [singular solutions]
+  definition: 'A solution that is not obtained from the general solution by any choice of the constant, such as the curve touched by all the straight-line solutions of a Clairaut equation.'
+  topic: Riccati and Clairaut equations

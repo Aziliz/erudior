@@ -149,6 +149,21 @@ Here $r = -1$ is an eigenvalue, so the simple guess fails.
 - The $te^{-t}$ terms are the system's version of resonance: the forcing rate matches an
   eigenvalue. Substituting back confirms the answer.
 
+## Choosing a method
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a particular solution of x' = Ax + g(t)
+  accDescr: If the forcing g is not built from constants, polynomials, exponentials, sines and cosines, use variation of parameters. If it is, check whether its exponential rate matches an eigenvalue of A. If it does not, use undetermined coefficients with a vector guess of the same form as g. If it does, variation of parameters is usually simpler. Either way, add the homogeneous solution to get x = x_c + x_p and then fit the initial condition.
+  G["x' = Ax + g(t)"] --> Q1{"Is g built from constants, polynomials, exponentials, sines, cosines?"}
+  Q1 -- no --> VP["Variation of parameters: x_p = Ψ ∫ Ψ⁻¹ g dt"]
+  Q1 -- yes --> Q2{"Does its rate match an eigenvalue of A?"}
+  Q2 -- no --> UC["Undetermined coefficients: vector guess of the same form"]
+  Q2 -- "yes (usually simpler)" --> VP
+  UC --> S["x = x_c + x_p, then fit x(0)"]
+  VP --> S
+```
+
 ## Common mistakes
 
 - **Scalar thinking with matrices.** $e^{At}$ is not the matrix of entrywise exponentials

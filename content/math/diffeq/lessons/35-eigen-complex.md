@@ -93,6 +93,11 @@ Solve $\mathbf{x}' = \begin{bmatrix} 1 & -1 \\ 1 & 3 \end{bmatrix}\mathbf{x}$.
 - $\mathbf{x} = c_1e^{2t}\begin{bmatrix} 1 \\ -1 \end{bmatrix} + c_2e^{2t}\left(t\begin{bmatrix} 1 \\ -1 \end{bmatrix} + \begin{bmatrix} 0 \\ -1 \end{bmatrix}\right)$.
   Unstable improper node.
 
+The pictures below collect the new portrait types from this lesson. (The improper node shown
+is a stable one; an unstable one looks the same with the arrows reversed.)
+
+![Four phase portraits in a grid. Top left, spiral sink: a trajectory spirals inward to the origin. Top right, spiral source: a trajectory spirals outward from the origin. Bottom left, center: nested closed ellipses around the origin. Bottom right, improper node: trajectories flow into the origin, all becoming tangent to a single dashed eigenvector line.](images/de-m8-complex-portraits.svg)
+
 ## The trace–determinant chart
 
 With $T = \operatorname{tr}A$ and $D = \det A$, the eigenvalues are $\dfrac{T \pm \sqrt{T^2 - 4D}}{2}$, so $T$
@@ -112,6 +117,23 @@ and $D$ alone decide the type of the origin:
 
 Asymptotic stability holds exactly when $T < 0$ and $D > 0$: both eigenvalues have negative
 real parts.
+
+To classify from $T$ and $D$ step by step, follow the chart:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying the origin from the trace and determinant
+  accDescr: Compute T equal to the trace of A and D equal to the determinant. If D is negative, the origin is a saddle. If D is zero, there is a line of equilibria. If D is positive, look at T squared minus 4D. If it is positive, the origin is a node, a sink when T is negative and a source when T is positive. If it is zero, the eigenvalue is repeated and the origin is a proper or improper node. If it is negative and T is zero, the origin is a center; if it is negative and T is not zero, it is a spiral, a sink when T is negative and a source when T is positive.
+  A["Compute T = tr A and D = det A"] --> B{"Sign of D?"}
+  B -- negative --> S["Saddle: unstable"]
+  B -- zero --> L["Line of equilibria"]
+  B -- positive --> C{"Sign of T² − 4D?"}
+  C -- positive --> N["Node: sink if T negative, source if T positive"]
+  C -- zero --> R["Repeated eigenvalue: proper or improper node"]
+  C -- negative --> E{"Is T = 0?"}
+  E -- yes --> Ce["Center"]
+  E -- no --> Sp["Spiral: sink if T negative, source if T positive"]
+```
 
 ### Example 4
 

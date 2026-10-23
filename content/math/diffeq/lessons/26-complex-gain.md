@@ -80,6 +80,11 @@ For the spring $p(i\omega) = (k - m\omega^2) + i\gamma\omega$, so
 
 $$g = \frac{1}{\sqrt{(k - m\omega^2)^2 + \gamma^2\omega^2}}, \qquad \tan\phi = \frac{\gamma\omega}{k - m\omega^2}.$$
 
+In the complex plane, $p(i\omega)$ is the point with horizontal coordinate $k - m\omega^2$ and
+vertical coordinate $\gamma\omega$. Its distance from 0 is $1/g$ and its angle is the phase lag:
+
+![The complex plane with a vector from the origin to the point p(iω) in the first quadrant. The horizontal leg, along the real axis, is the real part k − mω²; the vertical dashed leg is the imaginary part γω; the vector's length is |p(iω)|, equal to 1 over the gain; and the angle φ between the real axis and the vector is the phase lag.](images/de-m6-complex-gain.svg)
+
 The gain times $F_0$ is exactly the amplitude $R$ from Lesson 25, and its peak is the
 practical resonance found there. Because the imaginary part $\gamma\omega$ is positive,
 $p(i\omega)$ lies in the upper half-plane and $0 < \phi < \pi$. Use the quadrant, not just
@@ -137,6 +142,21 @@ $$z_p = \frac{F_0\,t\,e^{i\omega t}}{p'(i\omega)}.$$
 For $x'' + 4x = 3\cos 2t$: $p'(r) = 2r$, $p'(2i) = 4i$, and
 $z_p = \dfrac{3t}{4i}e^{2it} = -\dfrac{3i}{4}t(\cos 2t + i\sin 2t)$, whose real part is
 $\dfrac34t\sin 2t$, the growing resonance response of Lesson 25.
+
+## The procedure at a glance
+
+```mermaid
+flowchart TD
+  accTitle: Steady-state response by complex replacement
+  accDescr: Start with p(D)x = F0 cos omega t. Replace the input by F0 e to the i omega t. Ask whether p(i omega) is zero. If not, z_p = F0 e^(i omega t) divided by p(i omega); write p(i omega) in polar form with modulus |p(i omega)| and angle phi; then x_p, the real part of z_p, is F0 over |p(i omega)| times cos(omega t minus phi). If p(i omega) is zero, the input is at resonance: use z_p = F0 t e^(i omega t) divided by p'(i omega) and take its real part.
+  A["p(D)x = F0 cos ωt"] --> B["Complexify: p(D)z = F0 e^(iωt)"]
+  B --> C{"Is p(iω) = 0?"}
+  C -- no --> D["z_p = F0 e^(iωt) / p(iω)"]
+  D --> E["Polar form: p(iω) = |p(iω)| e^(iφ)"]
+  E --> F["x_p = Re z_p = (F0 / |p(iω)|) cos(ωt − φ)"]
+  C -- "yes (resonance)" --> G["z_p = F0 t e^(iωt) / p'(iω)"]
+  G --> H["x_p = Re z_p"]
+```
 
 ## Common mistakes
 
