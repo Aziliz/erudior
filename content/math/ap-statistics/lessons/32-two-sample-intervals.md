@@ -48,6 +48,10 @@ Construct a 95% interval for $p_A - p_B$.
 *Reading a two-sample interval*: if it contains 0, "no difference" is plausible; if it is
 entirely above (below) 0, the first parameter is plausibly larger (smaller).
 
+```shape
+{"segments": [{"from": [-2.2, 0], "to": [2.2, 0]}, {"from": [0, -0.1], "to": [0, 3.6], "dashed": true}, {"from": [0.23, 3], "to": [1.57, 3]}, {"from": [-0.4, 2], "to": [0.7, 2]}, {"from": [-1.5, 1], "to": [-0.3, 1]}], "points": [{"at": [0.9, 3]}, {"at": [0.15, 2]}, {"at": [-0.9, 1]}], "labels": [{"at": [0.9, 3.35], "text": "Example 1: entirely above 0"}, {"at": [0.15, 2.35], "text": "contains 0: no difference plausible"}, {"at": [-0.9, 1.35], "text": "entirely below 0"}, {"at": [-2, -0.35], "text": "−0.2"}, {"at": [-1, -0.35], "text": "−0.1"}, {"at": [0, -0.35], "text": "0"}, {"at": [1, -0.35], "text": "0.1"}, {"at": [2, -0.35], "text": "0.2"}], "caption": "Three 95% intervals for p₁ − p₂, read against the dashed line at 0"}
+```
+
 ## Difference of two means
 
 For independent random samples, $\bar{x}_1 - \bar{x}_2$ has standard deviation
@@ -108,6 +112,20 @@ group, other changes over time could also explain the improvement.)
 Pairing usually helps: differences within a pair remove person-to-person variability, so
 $s_d$ is often much smaller than the SDs of the separate measurements, giving a narrower
 interval.
+
+## Choosing the right interval
+
+The type of response and the way the data were collected decide the procedure:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an interval to compare two groups
+  accDescr: Ask whether the response is categorical, giving proportions, or quantitative, giving means. For proportions from two independent groups, use the two-proportion z interval. For means, ask whether the data are paired, meaning each value in one group has a natural partner in the other, such as the same subject measured twice. If paired, take the differences and use a one-sample t interval on them, the paired t interval. If the groups are independent, use the two-sample t interval with technology or conservative degrees of freedom.
+  A{"Categorical or quantitative response?"} -- "categorical: proportions" --> B["Two-proportion z interval"]
+  A -- "quantitative: means" --> C{"Paired? Each value has a natural partner"}
+  C -- yes --> D["Find each difference; paired t interval, df = pairs - 1"]
+  C -- "no, independent groups" --> E["Two-sample t interval, Welch or conservative df"]
+```
 
 ## Common mistakes
 

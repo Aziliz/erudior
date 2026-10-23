@@ -581,10 +581,10 @@
   stem: 'Flight instructors noticed that after they praised an excellent landing, the next landing was usually worse, and after they criticized a poor one, the next was usually better. What is the best explanation?'
   choices:
     - 'Praise makes pilots overconfident and criticism makes them careful'
-    - 'Landings vary partly by chance, so an extreme landing is usually followed by a less extreme one whatever the instructor says'
     - 'The instructors judged the landings inconsistently'
     - 'Pilots deliberately alternate good and bad landings'
-  answer: 1
+    - 'Landings vary partly by chance, so an extreme landing is usually followed by a less extreme one whatever the instructor says'
+  answer: 3
   explanation: |-
     This is the regression fallacy that Daniel Kahneman describes. Both patterns are exactly what regression to the mean predicts when performance is skill plus luck, even if praise and criticism have no effect at all. Testing the psychological explanation would need a comparison, such as randomly varying the feedback.
 
@@ -736,8 +736,8 @@
   lesson: stat-m3-h-risk-odds
   topic: Relative risk and odds ratios
   stem: 'A hospital''s survival rate is 90% for mild cases and 50% for severe cases, and 30% of its patients are severe. What is its overall survival rate?'
-  choices: ['70%', '78%', '62%', '82%']
-  answer: 1
+  choices: ['70%', '82%', '62%', '78%']
+  answer: 3
   explanation: |-
     The overall rate is a weighted average: $0.7(0.90) + 0.3(0.50) = 0.63 + 0.15 = 0.78$. 70% is the unweighted average of 90% and 50%; 62% swaps the weights.
 

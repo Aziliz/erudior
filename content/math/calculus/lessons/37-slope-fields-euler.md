@@ -67,6 +67,24 @@ $$x_{n+1} = x_n + h, \qquad y_{n+1} = y_n + h\cdot F(x_n, y_n).$$
 
 Each step is a linear approximation (Lesson 15) with the slope supplied by the differential equation.
 
+The picture shows a single step: from the known point, move $h$ to the right and $h\cdot F(x_n, y_n)$ up along the tangent line. The gap between where the step lands and the true solution is the error made in that step.
+
+![One Euler step. From the point (x_n, y_n) on a solution curve that bends upward, a straight tangent segment runs a horizontal distance h and rises h times F(x_n, y_n), landing at the Euler estimate y_(n+1). Directly above it, the solution curve is at the true value; a bracket marks the gap between them as the error.](images/calc-m9-euler-step.svg)
+
+The method is a loop that repeats the same two updates until it reaches the target $x$:
+
+```mermaid
+flowchart TD
+  accTitle: Euler's method as a loop
+  accDescr: Start with the initial point x0, y0, a step size h and the target x. Compute the slope F at the current point. Set the new y to the old y plus h times that slope, and the new x to the old x plus h. If the target x has not been reached, repeat from the slope step with the new point. When it has, the last y is the estimate.
+  A["Start: (x0, y0), step h, target x"] --> B["Slope at the current point: F(x_n, y_n)"]
+  B --> C["y_(n+1) = y_n + h · slope"]
+  C --> D["x_(n+1) = x_n + h"]
+  D --> E{"Reached the target x?"}
+  E -->|no| B
+  E -->|yes| F["Last y is the estimate"]
+```
+
 ### Example 4
 
 Use Euler's method with step size $h = 0.5$ to approximate $y(2)$ for $\frac{dy}{dx} = x + y$, $y(0) = 1$.

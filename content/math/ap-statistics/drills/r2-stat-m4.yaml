@@ -29,9 +29,9 @@
     to 3 decimal places).
   answers:
     - {name: wa, label: 'Weight in stratum A', tolerance: 0.001}
-    - {name: est, label: 'Estimated proportion', tolerance: 0.0006}
+    - {name: est, label: 'Estimated proportion', tolerance: 0.0006, format: dp3}
   solution: |-
-    Weight in A: $N_A/n_A = {biga}/{na} =$ **{wa}** (each respondent stands for {wa} people).
+    Weight in A: $N_A/n_A = {biga:dp0}/{na} =$ **{wa}** (each respondent stands for {wa} people).
     Stratum results: $\hat{p}_A = {xa}/{na} = {pa:num4}$ and $\hat{p}_B = {xb}/{nb} = {pb:num4}$.
     Population shares: A is {biga} of {biga} + {bigb}, about {sa:num4}; B about {sb:num4}.
     Estimate: ${sa:num4}({pa:num4}) + {sb:num4}({pb:num4}) \approx$ **{est:dp3}**.
@@ -64,8 +64,8 @@
     - {name: n2, label: 'Stratum 2', tolerance: 0.001}
   solution: |-
     Neyman allocation: $n_h = n \cdot \dfrac{N_h S_h}{\sum N_k S_k}$.
-    $N_1 S_1 = {big1}({s1}) = {p1}$ and $N_2 S_2 = {big2}({s2}) = {p2}$, total {p1} + {p2}.
-    Stratum 1: ${nn} \times {p1}/({p1} + {p2}) =$ **{n1}**. Stratum 2: ${nn} - {n1} =$ **{n2}**.
+    $N_1 S_1 = {big1}({s1}) = {p1:dp0}$ and $N_2 S_2 = {big2}({s2}) = {p2:dp0}$.
+    Stratum 1: ${nn} \times {p1:dp0}/({p1:dp0} + {p2:dp0}) =$ **{n1}**. Stratum 2: ${nn} - {n1} =$ **{n2}**.
 
 - id: stat-m4-r2-design-effect
   title: Design effect of a cluster sample
@@ -83,8 +83,8 @@
     people. The intraclass correlation is about {rho}. Find the approximate design effect (to 2 decimal
     places) and the effective sample size (to the nearest whole number).
   answers:
-    - {name: dfx, label: 'Design effect', tolerance: 0.006}
-    - {name: neff, label: 'Effective sample size', tolerance: 0.51}
+    - {name: dfx, label: 'Design effect', tolerance: 0.006, format: dp2}
+    - {name: neff, label: 'Effective sample size', tolerance: 0.501, format: dp0}
   solution: |-
     $\text{deff} \approx 1 + (m - 1)\rho = 1 + ({mm} - 1)({rho}) =$ **{dfx:dp2}**.
     Effective sample size: $n/\text{deff} = {nn}/{dfx:dp2} \approx$ **{neff:int}**.
@@ -131,7 +131,7 @@
     ra2: {min: 30, max: 75}
     rb1: {min: 70, max: 98}
     rb2: {min: 30, max: 75}
-    ww: {min: 30, max: 80, step: 5}
+    ww: {min: 30, max: 80, step: 10}
   where: ['ra1 > ra2 + 5', 'rb1 > rb2 + 5', 'ra1 != rb1']
   calc:
     w2: 100 - ww
@@ -143,12 +143,12 @@
     population that is {ww}% mild and {w2}% severe, find each clinic's standardized recovery rate, in
     percent to 1 decimal place.
   answers:
-    - {name: sta, label: 'Clinic A (%)', tolerance: 0.06}
-    - {name: stb, label: 'Clinic B (%)', tolerance: 0.06}
+    - {name: sta, label: 'Clinic A (%)', tolerance: 0.06, format: dp1}
+    - {name: stb, label: 'Clinic B (%)', tolerance: 0.06, format: dp1}
   solution: |-
     Apply each clinic's rates to the same mix of patients.
-    Clinic A: $({ww} \times {ra1} + {w2} \times {ra2})/100 =$ **{sta:dp2}%**.
-    Clinic B: $({ww} \times {rb1} + {w2} \times {rb2})/100 =$ **{stb:dp2}%**.
+    Clinic A: $({ww} \times {ra1} + {w2} \times {ra2})/100 =$ **{sta:dp1}%**.
+    Clinic B: $({ww} \times {rb1} + {w2} \times {rb2})/100 =$ **{stb:dp1}%**.
     Because both use the same severity mix, the difference no longer reflects which clinic sees more severe cases.
 
 - id: stat-m4-r2-rate-ratio
@@ -158,7 +158,7 @@
     ha: {min: 10, max: 50}
     da: {min: 100, max: 900}
     hb: {min: 10, max: 50}
-    db: {min: 10, max: 200}
+    db: {min: 40, max: 200}
   where: ['(da/ha) >= 1.5*(db/hb)']
   calc:
     housa: ha*1000
@@ -172,10 +172,10 @@
     rate per 10,000 houses (to 1 decimal place) and how many times larger A's rate is than B's (to 2
     decimal places).
   answers:
-    - {name: ratea, label: 'Rate A per 10,000', tolerance: 0.06}
-    - {name: rateb, label: 'Rate B per 10,000', tolerance: 0.06}
-    - {name: ratio, label: 'Rate A ÷ rate B', relTolerance: 0.01}
+    - {name: ratea, label: 'Rate A per 10,000', tolerance: 0.06, format: dp1}
+    - {name: rateb, label: 'Rate B per 10,000', tolerance: 0.06, format: dp1}
+    - {name: ratio, label: 'Rate A ÷ rate B', relTolerance: 0.01, format: dp2}
   solution: |-
-    Rate A: ${da}/{housa} \times 10{,}000 =$ **{ratea:dp1}**. Rate B: ${db}/{housb} \times 10{,}000 =$ **{rateb:dp1}**.
-    Ratio: ${ratea:dp1}/{rateb:dp1} \approx$ **{ratio:dp2}**. Rates per house, not raw death counts, make
+    Rate A: ${da}/{housa:dp0} \times 10{,}000 =$ **{ratea:dp1}**. Rate B: ${db}/{housb:dp0} \times 10{,}000 =$ **{rateb:dp1}**.
+    Ratio: $\dfrac{{da}/{housa:dp0}}{{db}/{housb:dp0}} \approx$ **{ratio:dp2}**. Rates per house, not raw death counts, make
     the companies comparable when they supply different numbers of houses.

@@ -32,6 +32,12 @@ regression line** $\mu_y = \beta_0 + \beta_1 x$ gives the mean response at each 
 LSRL $\hat{y} = a + bx$ estimates it: $b$ estimates $\beta_1$, $a$ estimates $\beta_0$, and the
 residual standard deviation $s = \sqrt{\text{SSE}/(n-2)}$ estimates $\sigma$.
 
+The picture shows the model: at every $x$ the possible $y$-values form a normal distribution
+centered on the population line, all with the same standard deviation $\sigma$. An observed point
+sits above or below the line by its error $\varepsilon$.
+
+![The regression model. A rising straight line labeled population line, mu-y = beta-0 + beta-1 x. At three x-values, x1, x2 and x3, a sideways normal curve is drawn centered on the line, showing the distribution of y at that x; all three curves have the same width. An arrow beside the middle curve marks one standard deviation sigma, the same at every x. At x3 an open circle above the line is one observation, and a vertical arrow from the line to it is labeled error epsilon = y minus mu-y.](images/stat-m9-reg-model.svg)
+
 ### Conditions (LINER)
 
 - L — *Linear*: the true relationship is linear (scatterplot and residual plot show no curve).
@@ -40,6 +46,23 @@ residual standard deviation $s = \sqrt{\text{SSE}/(n-2)}$ estimates $\sigma$.
   no strong skew or outliers — less important for large $n$).
 - E — *Equal SD*: the spread about the line is the same for all $x$ (no fan shape in the residual plot).
 - R — *Random*: data from a random sample or randomized experiment.
+
+In practice the conditions are checked in this order, mostly from the residual plot:
+
+```mermaid
+flowchart TD
+  accTitle: Checking the conditions for inference about the slope
+  accDescr: Fit the least-squares line and make a residual plot. If the residual plot shows a curve, the Linear condition fails, so try a transformation. If it shows a fan shape, the Equal SD condition fails. Next look at a histogram or normal probability plot of the residuals; strong skewness or outliers make the Normal condition doubtful when n is small. Then check how the data were produced: a random sample or randomized experiment for Random, and the 10 percent condition for Independent. If all conditions are reasonable, carry out the t test or interval for the slope with n minus 2 degrees of freedom.
+  A["Fit the LSRL; plot the residuals against x"] --> B{"Curved pattern?"}
+  B -- yes --> B1["Linear fails: transform or use a curve"]
+  B -- no --> C{"Fan shape: spread changes with x?"}
+  C -- yes --> C1["Equal SD fails"]
+  C -- no --> D{"Residuals strongly skewed or outliers, small n?"}
+  D -- yes --> D1["Normal doubtful: be cautious"]
+  D -- no --> E{"Random sample or randomized experiment; n at most 10% of population?"}
+  E -- no --> E1["Random or Independent fails: limit conclusions"]
+  E -- yes --> F["t test or interval for the slope, df = n minus 2"]
+```
 
 ## The sampling distribution of b
 
@@ -74,6 +97,8 @@ Software prints a table like this (wear depth in mm vs. tonnage in millions of t
 | Tonnage | 2.35 | 0.82 | 2.87 | 0.010 |
 
 $s = 2.61$, R-sq $= 31.3\%$.
+
+![The same regression output drawn as a table: Constant row Coef 1.84, SE Coef 1.10, T 1.67, P 0.112; Tonnage row Coef 2.35, SE Coef 0.82, T 2.87, P 0.010, highlighted. Below: S = 2.61, R-sq = 31.3%. A note reads: Tonnage row, slope b = 2.35, SE of b = 0.82, t = b divided by SE = 2.87, two-sided p-value 0.010; Constant row, intercept a = 1.84; S is the residual standard deviation s with df = n minus 2 = 18.](images/stat-m9-output.svg)
 
 - The slope is $b = 2.35$ (row "Tonnage", column "Coef"); $SE_b = 0.82$.
 - T $= 2.35/0.82 \approx 2.87$, and P is the **two-sided** p-value for $H_0: \beta_1 = 0$.

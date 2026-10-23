@@ -62,6 +62,18 @@ The random condition is the important one; no formula can fix a biased sample. T
 of error covers *only* sampling variability — not undercoverage, nonresponse or bad
 wording.
 
+Every confidence interval in this course is reported with the same four steps, so the
+conditions are never skipped and the answer always ends in context:
+
+```mermaid
+flowchart TD
+  accTitle: The four-step process for a confidence interval
+  accDescr: Step 1, State: name the parameter in context and the confidence level. Step 2, Plan: name the procedure, such as a one-proportion z interval, and check the random, 10 percent and large counts conditions. Step 3, Do: compute the point estimate, the standard error, the margin of error and the interval. Step 4, Conclude: interpret the interval in context, saying we are C percent confident the interval captures the parameter, and answer the question that was asked.
+  S["1. State: parameter in context and confidence level"] --> P["2. Plan: name the interval; check random, 10% and large counts"]
+  P --> D["3. Do: estimate, standard error, margin of error, interval"]
+  D --> C["4. Conclude: interpret in context and answer the question"]
+```
+
 ### Example 1
 
 In an SRS of 1,200 voters, 540 support a measure. Construct a 95% confidence interval for
@@ -77,6 +89,10 @@ the proportion of all voters who support it.
 
 Since every plausible value is below 50%, the data give convincing evidence that a
 majority does *not* support it.
+
+The picture labels each part of this interval and where each number comes from.
+
+![A number line from 0.40 to 0.50 with an interval drawn from 0.422 to 0.478. A dot at 0.45 is labeled point estimate p-hat = 0.45; arrows from the dot to each end are labeled margin of error = 0.028 on each side; the ends are labeled lower endpoint 0.422 and upper endpoint 0.478. Below, the calculation 0.45 plus or minus 1.96 times 0.0144 has its three numbers labeled point estimate, critical value z-star and standard error.](images/stat-m7-ci-anatomy.svg)
 
 ## Interpreting confidence
 
@@ -105,6 +121,15 @@ $$ME = z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
   the margin of error.
 - $\hat{p}(1-\hat{p})$ is largest at $\hat{p} = 0.5$, so proportions near 50% have the widest
   intervals.
+
+The graph shows the square-root law for a 95% interval with $\hat{p} = 0.5$: going from 100 to
+400 people cuts the margin from about 9.8 points to 4.9, and going on to 1,600 cuts it to about
+2.5. Each halving costs four times as many people, which is why polls rarely go far past 1,000
+to 1,500 respondents.
+
+```plot
+{"x": [0, 2000], "y": [0, 0.15], "grid": true, "xLabel": "sample size n", "yLabel": "margin of error", "functions": [{"f": "0.98/sqrt(x)", "from": 40, "to": 2000}], "points": [{"at": [100, 0.098], "label": "n = 100: 0.098"}, {"at": [400, 0.049], "label": "n = 400: 0.049"}, {"at": [1600, 0.0245], "label": "n = 1,600: 0.0245"}], "caption": "95% margin of error 1.96·√(0.25/n): each fourfold increase in n halves it"}
+```
 
 ## Choosing the sample size
 

@@ -29,6 +29,11 @@ matters.
 Only one of the two is possible in a given situation: if $H_0$ is true you can only make a
 Type I error; if it's false, only a Type II.
 
+The same table as a picture, with the probability of each outcome. Read it down the columns:
+once the truth is fixed, the two possible decisions have probabilities that add to 1.
+
+![A two-by-two grid. Columns: H0 is true, H0 is false. Rows: reject H0, fail to reject H0. Reject when H0 is true: Type I error, probability alpha. Reject when H0 is false: correct, the power, probability 1 − beta. Fail to reject when H0 is true: correct decision, probability 1 − alpha. Fail to reject when H0 is false: Type II error, probability beta.](images/stat-m8-error-grid.svg)
+
 ### Example 1: consequences in context
 
 A track inspector tests $H_0$: the rail segment is sound, versus $H_a$: the segment has a
@@ -86,6 +91,14 @@ $\alpha = 0.05$. What is the power if the true mean is 55?
 ```plot
 {"x": [43, 62], "y": [-0.03, 0.22], "grid": false, "functions": [{"f": "normpdf(x, 50, 2)"}, {"f": "normpdf(x, 55, 2)"}], "shade": [{"f": "normpdf(x, 55, 2)", "from": 53.29, "to": 62}, {"f": "normpdf(x, 50, 2)", "from": 53.29, "to": 62}], "segments": [{"from": [43, 0], "to": [62, 0]}, {"from": [53.29, 0], "to": [53.29, 0.21], "dashed": true}], "labels": [{"at": [50, -0.018], "text": "50"}, {"at": [55, -0.018], "text": "55"}, {"at": [53.29, -0.018], "text": "53.29"}, {"at": [57.2, 0.15], "text": "power"}, {"at": [48, 0.205], "text": "H₀"}, {"at": [56.6, 0.205], "text": "μ = 55"}], "caption": "Right of the cutoff: area under the H₀ curve is α; area under the μ = 55 curve is the power"}
 ```
+
+The next picture shows all three probabilities at once. Everything is decided by the cutoff
+53.29: area to its right under the $H_0$ curve is $\alpha$, area to its left under the true
+($\mu = 55$) curve is $\beta$, and area to its right under the true curve is the power. Sliding the
+cutoff right (a smaller $\alpha$) shrinks the power and grows $\beta$; pulling the two curves apart
+(a bigger effect) or making both narrower (a larger $n$) shrinks the overlap and raises the power.
+
+![Two normal curves of the sample mean, each with SD 2: a solid curve centered at 50 (H0) and a dashed curve centered at 55 (the true mean). A vertical line at 53.29 is the cutoff; H0 is rejected to its right. The small area right of the cutoff under the solid curve is alpha = 0.05. Under the dashed curve, the area left of the cutoff is beta, about 0.20, and the area right of the cutoff is the power, about 0.80.](images/stat-m8-alpha-beta.svg)
 
 How the levers move power in this example:
 

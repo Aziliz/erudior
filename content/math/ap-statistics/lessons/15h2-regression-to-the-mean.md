@@ -54,7 +54,7 @@ The weaker the relationship, the stronger the pull toward the mean.
 
 Two misreadings are worth heading off.
 
-- Regression to the mean does **not** make a population more uniform over time. In a stable
+- Regression to the mean does *not* make a population more uniform over time. In a stable
   population, children's heights are about as spread out as their parents'. The *predictions* are pulled in, but the
   actual values are prediction plus scatter, and the scatter refills the tails. New extreme
   individuals keep appearing; they just aren't the same individuals as before.
@@ -100,14 +100,14 @@ The **regression fallacy** is explaining a change that is just regression to the
 cause: a treatment, a punishment, a jinx. It is easy to fall into because extreme cases are
 exactly the ones that get attention, and so they are the ones selected for action.
 
-- **Praise and punishment.** The psychologist Daniel Kahneman describes flight instructors in
+- *Praise and punishment.* The psychologist Daniel Kahneman describes flight instructors in
   the Israeli Air Force who believed that praising a very good landing made the next one worse
   and shouting at a bad landing made the next one better. Both patterns are what regression
   predicts when landings vary partly by chance, with no effect from praise or shouting at all.
-- **Sports.** A player with an outstanding first season usually has a less outstanding second
+- *Sports.* A player with an outstanding first season usually has a less outstanding second
   one (the "sophomore slump"). Magazine-cover "jinxes" are popular stories with the same
   explanation: athletes make the cover after unusually good stretches.
-- **Medicine and policy.** Patients often join a study or see a doctor when their symptoms
+- *Medicine and policy.* Patients often join a study or see a doctor when their symptoms
   are at their worst, so many improve whatever is done. Road-safety cameras are often placed at
   sites that just had an unusually bad year, so crash counts there tend to fall even without the
   camera.

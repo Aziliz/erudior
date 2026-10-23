@@ -57,6 +57,14 @@ quantities — which are themselves sums of many small effects — look normal.
 {"x": [20, 80], "y": [0, 0.21], "grid": false, "functions": [{"f": "normpdf(x, 50, 12)"}, {"f": "normpdf(x, 50, 6)"}, {"f": "normpdf(x, 50, 2)"}], "labels": [{"at": [70, 0.025], "text": "n = 1"}, {"at": [61, 0.06], "text": "n = 4"}, {"at": [55.5, 0.19], "text": "n = 36"}], "caption": "Sampling distributions of x̄ from a population with μ = 50, σ = 12"}
 ```
 
+Those curves are drawn as normal to show the shrinking spread. The CLT's real surprise is what
+happens to a population that is *not* normal. The picture below uses wait times with mean 10
+minutes and standard deviation 10 minutes, a strongly right-skewed (exponential) population. The
+exact sampling distribution of $\bar{x}$ is still clearly skewed for $n = 4$, but for $n = 30$ it is
+nearly symmetric and bell-shaped, centered at 10 with standard deviation $10/\sqrt{30} \approx 1.83$.
+
+![A strongly right-skewed population curve of wait times, highest at 0 minutes and decreasing with a long right tail, labeled population (one wait time). A dashed curve labeled x-bar for n = 4 rises to a peak near 7.5 minutes and is still skewed right. A tall, narrow, nearly symmetric curve labeled x-bar for n = 30 peaks near 10 minutes. A dotted vertical line marks mu = 10.](images/stat-m7-clt-shapes.svg)
+
 ### Example 1
 
 Delivery times have mean 50 minutes and standard deviation 12 minutes, and are right-skewed.
@@ -96,6 +104,20 @@ population, the sampling distribution of $\bar{x}$ is still noticeably skewed, a
 not yet apply. If instead the delivery times were known to be *normal*, $\bar{x}$ would be exactly
 normal with $\sigma_{\bar{x}} = 12/\sqrt4 = 6$, and $P(\bar{x} > 56) = P(Z > 1) \approx 0.16$. The
 shape of the population matters most when $n$ is small.
+
+The decision comes down to two questions, asked in this order:
+
+```mermaid
+flowchart TD
+  accTitle: Can a normal model be used for the sample mean?
+  accDescr: First ask whether the population itself is normal. If yes, x-bar is exactly normal for every sample size. If not, or if the shape is unknown, ask whether n is large, about 30 or more, for a mildly skewed population, with even larger n needed for very skewed populations or extreme outliers. If n is large enough, the Central Limit Theorem says x-bar is approximately normal. If n is small and the population is skewed, x-bar's distribution is still skewed, so a normal model is not safe; use simulation or another method.
+  A{"Is the population normal?"} -- yes --> B["x-bar is exactly normal for any n"]
+  A -- "no or unknown" --> C{"Is n large enough? About 30 or more; more for heavy skew or outliers"}
+  C -- yes --> D["CLT: x-bar is approximately normal"]
+  C -- no --> E["x-bar is still skewed: no normal model"]
+  B --> F["Mean mu, SD sigma divided by square root of n"]
+  D --> F
+```
 
 ## The CLT and proportions
 

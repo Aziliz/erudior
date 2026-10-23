@@ -81,6 +81,8 @@ $$\frac{dQ}{dt} = \underbrace{(\text{concentration in})(\text{flow in})}_{\text{
 
 The outflow carries the tank's *current* concentration $\frac QV$, which is what makes the equation linear in $Q$.
 
+![A stirred tank. Brine with concentration c enters through a pipe at the top left, so salt comes in at c times the inflow rate. The tank holds volume V(t) containing Q(t) of salt, kept well mixed by a stirrer. Mixture leaves through a pipe at the bottom right with concentration Q/V, so salt leaves at Q/V times the outflow rate.](images/calc-m9-mixing-tank.svg)
+
 ### Example 3
 
 A 200-liter tank starts with pure water. Brine with 0.5 kg of salt per liter flows in at 4 L/min, and the mixture drains at 4 L/min. How much salt is in the tank after 30 minutes, and in the long run?
@@ -117,6 +119,23 @@ Standard form: $I' + 3I = 15$. Steady state $\frac{15}{3} = 5$ A (which is $\fra
 
 ```plot
 {"x": [0, 2], "y": [0, 6], "functions": [{"f": "5 - 5e^(-3x)"}, {"f": "5", "dashed": true}], "labels": [{"at": [1.2, 5.4], "text": "steady state 5 A"}, {"at": [1.2, 4.4], "text": "I(t)"}], "points": [{"at": [0.3333, 3.1606], "label": "one time constant: 63% of the way"}], "xLabel": "t (s)", "yLabel": "I (A)", "caption": "Current in the RL circuit of Example 5 rising toward E/R = 5 A"}
+```
+
+## Choosing a method
+
+This module has now given three exact methods and one approximate one. Faced with a first-order equation $\frac{dy}{dx} = F(x, y)$, ask the questions in this order. Some equations, like $y' + ky = b$, are both separable and linear; then either method works.
+
+```mermaid
+flowchart TD
+  accTitle: Which method for a first-order equation dy/dx = F(x, y)?
+  accDescr: If F depends on x only, antidifferentiate directly as in Lesson 21. Otherwise, if F factors as g of x times h of y, separate variables as in Lesson 38. Otherwise, if the equation can be written y prime plus P of x times y equals Q of x, use an integrating factor. If none of these apply, use a slope field or Euler's method from Lesson 37. Equations such as y prime equals k y are both separable and linear, so either method works.
+  A["dy/dx = F(x, y)"] --> B{"F depends on x only?"}
+  B -->|yes| C["Antidifferentiate (Lesson 21)"]
+  B -->|no| D{"F = g(x) · h(y)?"}
+  D -->|yes| E["Separate variables (Lesson 38)"]
+  D -->|no| G{"Can it be written y' + P(x)y = Q(x)?"}
+  G -->|yes| H["Integrating factor (this lesson)"]
+  G -->|no| I["Slope field or Euler's method (Lesson 37)"]
 ```
 
 ## Common mistakes

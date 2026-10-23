@@ -62,6 +62,24 @@ Five more forms reduce to $0/0$ or $\infty/\infty$.
 | $\infty - \infty$ | Combine into one fraction (common denominator, conjugate) |
 | $1^\infty$, $0^0$, $\infty^0$ | Let $y = f^g$, take $\ln y = g\ln f$ (a $0\cdot\infty$ form), find its limit $L$; then the answer is $e^L$ |
 
+The flowchart puts the whole lesson in one place: every road leads to a $\frac00$ or $\frac\infty\infty$ quotient, and only then does L'Hôpital's rule (or algebra) take over.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a strategy for a limit
+  accDescr: First try direct substitution. If it gives a number, that is the limit. If it gives a nonzero number over zero, the limit is infinite or does not exist, so check the signs on each side. If it gives 0 over 0 or infinity over infinity, use algebra or L'Hôpital's rule. A 0 times infinity form is rewritten as a quotient, and an infinity minus infinity form is combined into one fraction, both leading back to 0 over 0 or infinity over infinity. The forms 1 to the infinity, 0 to the 0 and infinity to the 0 are handled by taking the logarithm, which gives a 0 times infinity form, and exponentiating at the end.
+  S["Substitute: what form do you get?"] --> N["Not indeterminate: a number is the limit; nonzero over 0 means infinite or DNE"]
+  S --> I{"Indeterminate: which form?"}
+  I --> X["1^∞, 0^0, ∞^0"]
+  I --> P["0 · ∞"]
+  I --> D["∞ − ∞"]
+  I --> Q["0/0 or ∞/∞"]
+  X -- "take ln; exponentiate at the end" --> P
+  P -- "rewrite as a quotient" --> Q
+  D -- "combine into one fraction" --> Q
+  Q --> L["Algebra, or L'Hôpital: f' over g' separately"]
+```
+
 ### Example 3 ($0\cdot\infty$)
 
 Find $\displaystyle\lim_{x\to0^+}x\ln x$.
@@ -80,6 +98,12 @@ $$\ln y = x\ln\left(1 + \frac3x\right) = \frac{\ln(1 + 3/x)}{1/x} \quad\left(\tf
 L'Hôpital: $\dfrac{\frac{1}{1 + 3/x}\cdot\left(-\frac{3}{x^2}\right)}{-\frac{1}{x^2}} = \dfrac{3}{1 + 3/x} \to 3$.
 
 So $\ln y \to 3$ and $y \to \mathbf{e^3}$. In general $\left(1 + \frac ax\right)^x \to e^a$, the continuous compounding formula.
+
+The graph shows why "$1^\infty = 1$" is wrong: the base heads to 1, but the function climbs toward $e^3 \approx 20.09$, not 1.
+
+```plot
+{"x": [0, 60], "y": [0, 24], "functions": [{"f": "(1 + 3/x)^x", "from": 0.2, "label": "y = (1 + 3/x)^x"}, {"f": "e^3", "dashed": true, "label": "y = e³ ≈ 20.09"}, {"f": "1", "dashed": true, "label": "y = 1"}], "caption": "(1 + 3/x)^x rises toward e³, not toward 1"}
+```
 
 ### Example 5 ($\infty - \infty$)
 

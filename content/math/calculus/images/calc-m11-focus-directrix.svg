@@ -11,7 +11,7 @@
 <circle cx="228.3" cy="66.7" r="6" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="324.0" cy="170.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
 <text x="266.0" y="196.0" font-size="16" text-anchor="middle" font-weight="normal" fill="#1c2833">F (focus)</text>
-<text x="422.0" y="40.0" font-size="16" text-anchor="start" font-weight="normal" fill="#1c2833">directrix x = d</text>
+<text x="422.0" y="40.0" font-size="16" text-anchor="start" font-weight="normal" fill="#1c2833">directrix</text>
 <text x="222.3" y="54.7" font-size="17" text-anchor="end" font-weight="bold" fill="#1c2833">P</text>
 <text x="237.1" y="122.3" font-size="19" text-anchor="end" font-weight="bold" fill="#1e7a46" font-style="italic">r</text>
 <text x="321.1" y="54.7" font-size="16" text-anchor="middle" font-weight="normal" fill="#a83a2a">d − r cos θ</text>

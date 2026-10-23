@@ -102,6 +102,10 @@ Car A drives north from an intersection at 60 mph; car B drives east from the sa
 
 At time $t$ hours, A is $y = 60t$ north and B is $x = 80t$ east; distance $D$ satisfies $D^2 = x^2 + y^2$. Differentiate: $2D\dfrac{dD}{dt} = 2x\dfrac{dx}{dt} + 2y\dfrac{dy}{dt}$. At $t = 2$: $x = 160$, $y = 120$, $D = 200$. So $200\dfrac{dD}{dt} = 160(80) + 120(60) = 20{,}000$, and $\dfrac{dD}{dt} = 100$ mph.
 
+Shadow problems are another classic setup that uses similar triangles, as in Example 3. In the picture, a person walks away from a streetlight: $x$ is the person's distance from the post, and $s$ is the distance from the post to the tip of the shadow. The big triangle (post, light, tip) and the small one (person, head, tip) are similar, so $\frac{15}{s} = \frac{6}{s - x}$, which links $s$ to $x$.
+
+![A 15-foot light post on the left and a 6-foot person to its right. A dashed ray from the light passes over the person's head to the tip of the shadow on the ground. Below the ground, x marks the distance from post to person, the shadow runs from the person to the tip, and s marks the whole distance from post to tip.](images/calc-m4-streetlight.svg)
+
 ## Common mistakes
 
 - *Substituting too early.* Plug in the instant's values only after differentiating.

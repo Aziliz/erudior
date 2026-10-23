@@ -146,9 +146,9 @@ residual $7 - 5.8 = 1.2$, and $0.8 + 1.2 = 2$. The squares do *not* add for one 
 
 Write $e_i = y_i - \hat{y}_i = (y_i - \bar{y}) - \hat{b}(x_i - \bar{x})$.
 
-- **They add to zero.** $\sum e_i = 0 - \hat{b} \cdot 0 = 0$, because deviations from a mean
+- *They add to zero.* $\sum e_i = 0 - \hat{b} \cdot 0 = 0$, because deviations from a mean
   add to zero.
-- **They are uncorrelated with $x$.** $\sum (x_i - \bar{x})e_i = S_{xy} - \hat{b}S_{xx} = 0$
+- *They are uncorrelated with $x$.* $\sum (x_i - \bar{x})e_i = S_{xy} - \hat{b}S_{xx} = 0$
   because $\hat{b} = S_{xy}/S_{xx}$.
 
 The second fact explains a feature of residual plots: after a least-squares fit, a residual

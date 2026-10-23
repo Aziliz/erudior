@@ -51,6 +51,10 @@ $$dy = f'(x)\,dx.$$
 
 $dy$ is the change along the tangent line; $\Delta y = f(x + dx) - f(x)$ is the actual change along the curve. For small $dx$, $\Delta y \approx dy$.
 
+![A curve bending upward with its tangent line at point P above x = a. A dashed horizontal segment dx runs from P to x = a + dx. Above it, a green segment dy rises to the tangent line, and a longer arrow Δy rises to the curve itself; the gap between the tangent line and the curve is the error.](images/calc-m4-differentials.svg)
+
+In this picture the curve bends upward, so it pulls away above the tangent line and $\Delta y$ is larger than $dy$; the gap between them is the error of the linear approximation, and it shrinks quickly as $dx$ gets small.
+
 ```plot
 {"x": [0, 3], "y": [0, 6], "functions": [{"f": "x^2/1.5", "label": "y = f(x)"}], "tangents": [{"f": "x^2/1.5", "at": 1.5}], "segments": [{"from": [1.5, 1.5], "to": [2.3, 1.5], "dashed": true, "label": "dx"}, {"from": [2.3, 1.5], "to": [2.3, 3.1], "label": "dy"}, {"from": [2.3, 1.5], "to": [2.45, 1.5], "dashed": true}, {"from": [2.3, 3.527], "to": [2.45, 3.527], "dashed": true}, {"from": [2.45, 1.5], "to": [2.45, 3.527], "dashed": true, "label": "Δy"}], "points": [{"at": [2.3, 3.527]}], "caption": "dy is the rise along the tangent; Δy is the rise along the curve"}
 ```
@@ -72,6 +76,20 @@ The tangent at $x_n$ is $y = f(x_n) + f'(x_n)(x - x_n)$. Setting $y = 0$ and sol
 $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.$$
 
 Repeat until the digits stop changing. Near a simple root, Newton's method roughly doubles the number of correct digits at each step.
+
+```mermaid
+flowchart TD
+  accTitle: Newton's method as a loop
+  accDescr: Choose a starting guess near the root, using a graph or the Intermediate Value Theorem. Compute f and f prime at the current guess. If f prime is zero, the tangent is horizontal, so pick a new starting guess. Otherwise compute the next guess as the current guess minus f over f prime. If the digits have stopped changing, accept the guess as the root; if not, repeat from computing f and f prime.
+  A["Choose a starting guess near the root (graph or IVT)"] --> B["Compute f and f' at the current guess"]
+  B --> C{"Is f' zero?"}
+  C -- yes --> R["Horizontal tangent: pick a new start"]
+  R --> B
+  C -- no --> D["New guess = old guess minus f over f'"]
+  D --> E{"Digits stopped changing?"}
+  E -- no --> B
+  E -- yes --> F["Accept it as the root"]
+```
 
 ```plot
 {"x": [1.5, 3.2], "y": [-4, 18], "functions": [{"f": "x^3 - 2x - 5", "label": "f"}], "tangents": [{"f": "x^3 - 2x - 5", "at": 3}], "points": [{"at": [3, 16]}, {"at": [2.36, 0], "label": "x₁"}, {"at": [2.0946, 0], "label": "root"}], "caption": "The tangent at x₀ = 3 meets the axis at x₁ ≈ 2.36, closer to the root"}

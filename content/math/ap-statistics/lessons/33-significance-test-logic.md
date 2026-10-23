@@ -84,6 +84,15 @@ Before collecting data, choose a **significance level** $\alpha$ — the thresho
   there is convincing evidence for $H_a$.
 - If p-value $> \alpha$: *fail to reject $H_0$*. There is not convincing evidence for $H_a$.
 
+The picture puts the pieces of Example 1 on one sampling distribution. At $\alpha = 0.05$, any
+$\hat{p}$ at or below the **critical value** 0.7535 ($z = -1.645$) would lead to rejecting $H_0$;
+that stretch of values is the **rejection region**, with total area $\alpha$. The observed 0.74
+falls inside it, and the p-value (the darker tail) is smaller than $\alpha$. Comparing the p-value
+with $\alpha$ and comparing the observed statistic with the critical value always give the same
+decision.
+
+![The sampling distribution of p-hat if p = 0.80, a normal curve centered at the null value 0.80. A dashed line at the critical value 0.7535 (z = −1.645) marks the edge of the rejection region, whose total area is α = 0.05. A solid line at the observed p-hat = 0.74 (z = −2.12) cuts off a darker left tail: the p-value, about 0.017.](images/stat-m8-test-anatomy.svg)
+
 We never "accept $H_0$." Failing to find evidence of a difference is not evidence of no
 difference — the sample may simply have been too small. Courtrooms use the same logic: a
 "not guilty" verdict means the evidence wasn't strong enough, not that innocence was proven.
@@ -118,6 +127,19 @@ effect can fail to be significant if the sample is small.
 2. *Plan*: name the test and check conditions (random, 10%, normal/large counts).
 3. *Do*: compute the test statistic and p-value.
 4. *Conclude*: compare with $\alpha$ and answer the question in context.
+
+```mermaid
+flowchart TD
+  accTitle: The four-step significance test
+  accDescr: State the hypotheses about a parameter and choose the significance level alpha before looking at the data. Plan: name the test and check its conditions. Do: compute the test statistic and the p-value, assuming the null hypothesis is true. Then ask whether the p-value is at most alpha. If yes, reject the null hypothesis: there is convincing evidence for the alternative. If no, fail to reject it: the evidence is not convincing, which does not prove the null hypothesis true. Either way, finish with a conclusion in the context of the problem.
+  S["State: H₀, Hₐ, the parameter in words, and α"] --> P["Plan: name the test and check conditions"]
+  P --> D["Do: test statistic and p-value, assuming H₀ is true"]
+  D --> Q{"Is the p-value at most α?"}
+  Q -->|"Yes"| R["Reject H₀: convincing evidence for Hₐ"]
+  Q -->|"No"| F["Fail to reject H₀: not convincing evidence (H₀ is not proven)"]
+  R --> C["Conclude in context"]
+  F --> C
+```
 
 ## Common mistakes
 

@@ -26,6 +26,20 @@ Why this is legitimate: if $y(x)$ is a solution, then $\frac{1}{h(y)}\frac{dy}{d
 3. Use the initial condition to find $C$ (it's usually easiest right after integrating).
 4. Solve for $y$ if possible, and check the domain.
 
+One more thing to watch: dividing by $h(y)$ assumes $h(y) \ne 0$. If $h(c) = 0$, the constant function $y = c$ is also a solution (both sides of the equation are 0), and separating can lose it. The chart puts the whole procedure together.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a separable equation
+  accDescr: First ask whether dy/dx can be written as g of x times h of y. If not, the equation is not separable; try the integrating factor of Lesson 39 if it is linear, or a slope field or Euler's method. If it can, note any constant solutions y equals c where h of c is 0, since dividing by h of y loses them. Then separate to dy over h of y equals g of x dx, integrate both sides with one constant C, use the initial condition to find C, and solve for y, choosing the sign and interval that contain the initial point.
+  A["Can dy/dx be written as g(x) · h(y)?"] -->|no| N["Not separable: integrating factor if linear (Lesson 39), else slope field or Euler"]
+  A -->|yes| B["Note constant solutions y = c where h(c) = 0"]
+  B --> C["Separate: dy / h(y) = g(x) dx"]
+  C --> D["Integrate both sides, one constant C"]
+  D --> E["Use the initial condition to find C"]
+  E --> F["Solve for y; keep the sign and interval of the initial point"]
+```
+
 ### Example 1
 
 Solve $\dfrac{dy}{dx} = \dfrac{x}{y}$, $y(0) = -3$.
@@ -85,6 +99,10 @@ $$P(t) = \frac{M}{1 + Ae^{-kt}}, \qquad A = \frac{M - P_0}{P_0}.$$
 ```plot
 {"x": [0, 12], "y": [0, 1100], "functions": [{"f": "1000/(1 + 9e^(-0.6x))", "label": "P(t)"}, {"f": "1000", "dashed": true, "label": "M = 1000"}, {"f": "500", "dashed": true}], "points": [{"at": [3.662, 500], "label": "fastest growth at P = M/2"}], "xLabel": "t", "yLabel": "P", "caption": "Logistic growth from P₀ = 100 toward M = 1000 (k = 0.6)"}
 ```
+
+The parts of the S-shaped curve have names worth knowing:
+
+![A logistic curve P(t). It starts at P₀ near the bottom, rises slowly at first in a nearly exponential phase, climbs most steeply where it crosses the dotted line P = M/2 (the inflection point, fastest growth), then levels off just below a dashed horizontal line marking the carrying capacity M.](images/calc-m9-logistic-parts.svg)
 
 Facts AP exams test without the formula:
 

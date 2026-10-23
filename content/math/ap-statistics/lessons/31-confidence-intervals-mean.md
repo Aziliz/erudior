@@ -46,6 +46,11 @@ Critical values $t^*$ come from a t table or technology (`invT` on a calculator)
 confidence: df = 9 gives $t^* = 2.262$; df = 29 gives 2.045; df = 99 gives 1.984 —
 approaching $z^* = 1.96$.
 
+The picture shows what $t^*$ means for df = 9 and 95% confidence: it is the value that leaves
+the middle area $C = 0.95$ between $-t^*$ and $t^*$, with $(1 - C)/2 = 0.025$ in each tail.
+
+![A t distribution curve with 9 degrees of freedom. The middle region between minus 2.262 and 2.262 is shaded and labeled middle area C, 0.95. Each tail beyond the cutoffs is shaded and labeled tail area 0.025. The cutoffs are labeled minus t-star and t-star.](images/stat-m7-tstar-areas.svg)
+
 ## The one-sample t interval
 
 $$\bar{x} \pm t^*\frac{s}{\sqrt{n}}, \qquad \text{df} = n - 1.$$
@@ -62,6 +67,19 @@ The **standard error of the mean** is $SE_{\bar{x}} = s/\sqrt{n}$.
 t procedures are **robust**: they work well even when the population is not exactly normal,
 as long as there are no outliers and no strong skewness (relative to $n$). Outliers are the
 real danger because $\bar{x}$ and $s$ are not resistant.
+
+Which interval to use depends on the parameter and on what is known:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing between a z interval and a t interval
+  accDescr: First ask what parameter is being estimated. For a population proportion, use the one-proportion z interval with the standard error built from p-hat. For a population mean, ask whether the population standard deviation sigma is known. If sigma is known, which is rare, a z interval with sigma over root n can be used. Usually sigma is unknown, so use the one-sample t interval with s over root n and n minus 1 degrees of freedom. Before using it, check that the population is normal, or n is at least 30, or a graph of a small sample shows no strong skew and no outliers.
+  A{"What is the parameter?"} -- "a proportion p" --> B["One-proportion z interval"]
+  A -- "a mean mu" --> C{"Is sigma known?"}
+  C -- "yes (rare)" --> D["z interval with sigma divided by root n"]
+  C -- "no (usual)" --> E["t interval with s divided by root n, df = n - 1"]
+  E --> F["Check: normal population, n at least 30, or no strong skew or outliers"]
+```
 
 ### Example 1
 

@@ -35,6 +35,13 @@ Keep three distributions apart:
 | Distribution of the sample data | the values in *one* sample |
 | Sampling distribution | the values of a *statistic* across many samples |
 
+The picture shows all three for the commuters. The population has 60% in favor (the parameter
+$p = 0.60$). One SRS of 150 happened to contain 85 supporters, so its data show $\hat{p} \approx 0.57$.
+The bottom panel is a real simulation: 1,000 SRSs of 150, one $\hat{p}$ from each. Their mean is
+0.600 and their standard deviation is about 0.040, matching the formulas below.
+
+![Three panels. Top, population distribution of all 50,000 commuters: bars at 0.60 favor and 0.40 oppose, labeled parameter p = 0.60. Middle, distribution of the data in one sample of n = 150: bars at 0.57 favor and 0.43 oppose, labeled statistic p-hat = 0.57. Bottom, sampling distribution of p-hat: a bell-shaped histogram of 1,000 sample proportions from about 0.48 to 0.72, centered at p = 0.60 with SD about 0.04.](images/stat-m7-three-dists.svg)
+
 ## Bias and variability of a statistic
 
 A statistic used to estimate a parameter is an **estimator**. It is an **unbiased
@@ -67,6 +74,22 @@ $$\mu_{\hat{p}} = p, \qquad \sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}.$$
 
 The **10% condition** ($n \le 0.10N$) justifies the standard deviation formula when sampling
 without replacement.
+
+The checks fit together in a fixed order: the center needs nothing, the standard deviation
+formula needs the 10% condition, and the normal shape needs large counts.
+
+```mermaid
+flowchart TD
+  accTitle: Checking the sampling distribution of a sample proportion
+  accDescr: Start with a random sample of size n from a population with proportion p. The mean of p-hat is always p. Next check the 10 percent condition, n at most 10 percent of the population size N. If it holds, the standard deviation is the square root of p times 1 minus p over n; if it fails, that formula overstates the spread. Then check large counts, n p at least 10 and n times 1 minus p at least 10. If both hold, p-hat is approximately normal and z calculations are fine. If not, the sampling distribution is skewed, so use exact binomial probabilities or a simulation instead.
+  A["Random sample of size n, population proportion p"] --> B["Center: mean of p-hat = p"]
+  B --> C{"10% condition: n at most 0.10 N?"}
+  C -- yes --> D["SD = square root of p(1 - p)/n"]
+  C -- no --> E["Formula overstates the spread: the true SD is smaller"]
+  D --> F{"Large counts: np and n(1 - p) both at least 10?"}
+  F -- yes --> G["Approximately normal: use z"]
+  F -- no --> H["Skewed: use the binomial or a simulation"]
+```
 
 ### Example 1
 

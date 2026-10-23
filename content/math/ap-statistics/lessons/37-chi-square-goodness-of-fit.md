@@ -63,6 +63,22 @@ against $H_0$.
 2. *10%*: $n \le 0.10N$ when sampling without replacement.
 3. **Large counts**: all *expected* counts are at least 5. (Observed counts can be small.)
 
+The whole procedure, from hypotheses to follow-up, at a glance:
+
+```mermaid
+flowchart TD
+  accTitle: Steps of a chi-square goodness-of-fit test
+  accDescr: State the null hypothesis that gives a proportion for every category. Multiply each proportion by n to get the expected counts. Check that the data come from a random sample and that every expected count is at least 5; if not, combine categories or do not use the test. Compute the contribution of each category, observed minus expected squared, divided by expected, and add them to get chi-square. Find df as the number of categories minus 1 and the upper-tail p-value. Compare with alpha and conclude in context, then look at the largest contributions to see which categories differ.
+  A["1. State H0: a proportion for every category"] --> B["2. Expected counts: E = n times each proportion"]
+  B --> C{"3. Random sample and every E at least 5?"}
+  C -- no --> X["Combine categories or do not use the test"]
+  C -- yes --> D["4. Each category: (O minus E) squared, divided by E"]
+  D --> E["5. Add the contributions: chi-square"]
+  E --> F["6. df = categories minus 1; p-value = upper-tail area"]
+  F --> G["7. Compare p with alpha; conclude in context"]
+  G --> H["8. Largest contributions show which categories differ"]
+```
+
 ### Example 1
 
 Historically, rail defects on a network are 40% fastener problems, 30% worn rail, 20% drainage
@@ -90,6 +106,12 @@ and 16. Has the distribution changed? Use $\alpha = 0.05$.
 (4.05, more than expected) and worn rail (3.27, fewer than expected). Some books use
 **standardized residuals** $(O - E)/\sqrt{E}$ for this: $+2.01$ and $-1.81$ here.
 
+The bar chart puts the observed and expected counts side by side, with each category's
+contribution underneath. Drainage matches exactly and adds nothing; fasteners and worn rail
+supply almost all of $\chi^2$.
+
+![Side-by-side bar chart of observed and expected counts for four rail defect types. Fasteners: observed 98, expected 80, contribution 4.05. Worn rail: observed 46, expected 60, contribution 3.27. Drainage: observed 40, expected 40, contribution 0. Cracked ties: observed 16, expected 20, contribution 0.80. The contributions add to chi-square = 8.12.](images/stat-m9-gof-bars.svg)
+
 ### Example 2: a fair die?
 
 A die is rolled 120 times: faces 1–6 appear 15, 25, 18, 22, 14, 26 times. If the die is fair,
@@ -98,6 +120,11 @@ each expected count is 20.
 $\chi^2 = \dfrac{25 + 25 + 4 + 4 + 36 + 36}{20} = \dfrac{130}{20} = 6.5$, df $= 5$, p-value
 $\approx 0.26$. Fail to reject $H_0$: the counts are consistent with a fair die. (The observed
 variation is typical of chance.)
+
+The picture shows where this result sits. The p-value is the whole area to the right of the
+observed statistic; the critical value for $\alpha = 0.05$ is much farther out.
+
+![Chi-square density curve with 5 degrees of freedom, peaking near 3 and skewed right. A dotted line marks the mean, 5, which equals the df. A solid line at 6.5 marks the observed statistic, and the area to its right is shaded: the p-value, about 0.26. A dashed line at 11.07 marks the critical value that cuts off an upper-tail area of 0.05.](images/stat-m9-chi-curve.svg)
 
 ## Reading a chi-square table
 

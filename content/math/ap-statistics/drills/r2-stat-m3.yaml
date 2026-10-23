@@ -95,8 +95,8 @@
     - {name: closer, label: 'Points closer to the mean', tolerance: 0.06, format: dp1}
   solution: |-
     The first score is $z = ({xs} - {mu})/{sd} = {zx:num4}$. The line predicts
-    $\hat{z} = r z = {rr} \times {zx:num4} = {zy:num4}$, so the predicted retest is
-    ${mu} + {zy:num4} \times {sd} =$ **{pred:dp1}**. (With equal SDs this is just
+    $\hat{z} = r z = {rr} \times ({zx:num4}) = {zy:num4}$, so the predicted retest is
+    ${mu} + ({zy:num4})({sd}) =$ **{pred:dp1}**. (With equal SDs this is just
     ${mu} + {rr}({xs} - {mu})$.) The first score was {ad} points from the mean; the prediction is
     ${rr} \times {ad}$ points from it, which is **{closer:dp1}** points closer.
 
