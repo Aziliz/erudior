@@ -139,7 +139,7 @@ century), a bowed shape $c\sin(\pi x/L)$ becomes possible and the column **buckl
 sideways in a half sine wave.
 
 ```plot
-{"x": [0, 1], "y": [-1.2, 1.2], "xLabel": "x / L", "yLabel": "y", "functions": [{"f": "sin(pi*x)", "label": "n = 1"}, {"f": "sin(2pi*x)", "dashed": true, "label": "n = 2"}], "caption": "Buckled shapes of a pinned column. The first mode (n = 1) appears at the critical load π²EI/L²; the second (n = 2) would need four times that load, so in practice the column buckles in the first mode."}
+{"x": [0, 1], "y": [-1.2, 1.2], "xLabel": "x / L", "yLabel": "y", "functions": [{"f": "sin(pi*x)"}, {"f": "sin(2pi*x)", "dashed": true}], "labels": [{"at": [0.5, 1.1], "text": "n = 1"}, {"at": [0.75, -1.1], "text": "n = 2 (dashed)"}], "caption": "Buckled shapes of a pinned column. The first mode (n = 1) appears at the critical load π²EI/L²; the second (n = 2) would need four times that load, so in practice the column buckles in the first mode."}
 ```
 
 ### Example 3

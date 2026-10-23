@@ -55,7 +55,7 @@ Through each vertex of $\triangle ABC$, draw the line parallel to the opposite s
 
 ![A small acute triangle ABC sits inside a larger triangle A′B′C′. A is the midpoint of side B′C′, B is the midpoint of side A′C′, and C is the midpoint of side A′B′, shown by matching tick marks. The three altitudes of ABC are drawn dashed; each one meets a side of ABC at a right angle, and all three cross at the point H.](images/geo-m5-anticomplementary.svg)
 
-**Step 1.** $\overline{AC'} \parallel \overline{BC}$ and $\overline{BC'} \parallel \overline{AC}$ by construction, so $AC'BC$ is a parallelogram and $AC' = BC$. Likewise $AB'CB$... more simply, $ABCB'$ is a parallelogram ($\overline{AB'} \parallel \overline{BC}$ and $\overline{B'C} \parallel \overline{AB}$), so $AB' = BC$.
+**Step 1.** $C'$ is where the line through $A$ parallel to $\overline{BC}$ meets the line through $B$ parallel to $\overline{AC}$. So $AC'BC$ has both pairs of opposite sides parallel: it's a parallelogram, and $AC' = BC$. In the same way $AB'CB$ is a parallelogram, so $AB' = BC$.
 
 **Step 2.** So $AB' = AC'$: $A$ is the midpoint of $\overline{B'C'}$. In the same way $B$ is the midpoint of $\overline{A'C'}$ and $C$ is the midpoint of $\overline{A'B'}$.
 
@@ -73,7 +73,7 @@ Find the orthocenter of $A(0, 0)$, $B(4, 0)$, $C(6, 3)$, and check it with the b
 
 **Step 2.** The slope of $\overline{BC}$ is $\tfrac{3 - 0}{6 - 4} = \tfrac32$, so the altitude from $A$ has slope $-\tfrac23$ and passes through the origin: $y = -\tfrac23 x$.
 
-**Step 3.** At $x = 6$, $y = -4$. The orthocenter is $H(6, -4)$, *below* the triangle. That fits: the angle at $B$ is obtuse (the vectors from $B$ to $A$ and to $C$ point "backward" and "forward-up", making an angle over $90^\circ$), and an obtuse triangle's orthocenter is outside.
+**Step 3.** At $x = 6$, $y = -4$. The orthocenter is $H(6, -4)$, *below* the triangle. That fits: the angle at $B$ is obtuse ($\overrightarrow{BA}$ points left along the $x$-axis while $\overrightarrow{BC}$ points right and up, so the angle between them is more than $90^\circ$), and an obtuse triangle's orthocenter is outside.
 
 **Check.** Each vertex of the big triangle is the sum of two vertices minus the third: $A' = B + C - A = (10, 3)$, $B' = A + C - B = (2, 3)$, $C' = A + B - C = (-2, -3)$. The squared distances from $H(6, -4)$ are $4^2 + 7^2 = 65$, $4^2 + 7^2 = 65$ and $8^2 + 1^2 = 65$. All equal, so $H$ is the circumcenter of $\triangle A'B'C'$, as the proof promised.
 
@@ -81,7 +81,7 @@ Find the orthocenter of $A(0, 0)$, $B(4, 0)$, $C(6, 3)$, and check it with the b
 
 **Euler Line Theorem.** In any triangle that isn't equilateral, the circumcenter $O$, the centroid $G$ and the orthocenter $H$ lie on one line, the Euler line, with $G$ between them and $HG = 2\,GO$. (In an equilateral triangle the three points are the same point.)
 
-Leonhard Euler published this in 1767 (in a paper written in 1763), working with distances algebraically. A coordinate proof is short if the axes are chosen well. Put side $\overline{AB}$ on the $x$-axis and the altitude from $C$ on the $y$-axis:
+Leonhard Euler found this in the 1760s by long algebra with the side lengths. A coordinate proof is short if the axes are chosen well. Put side $\overline{AB}$ on the $x$-axis and the altitude from $C$ on the $y$-axis:
 
 $$A(a, 0), \qquad B(b, 0), \qquad C(0, c), \qquad c \ne 0.$$
 
@@ -140,7 +140,7 @@ So $M$ is equidistant from all three vertices: it's the circumcenter. In a right
 - **Assuming concurrency because a drawing looks right.** A careful drawing suggests a theorem; only a proof shows it holds for *every* triangle.
 - **Reversing the Euler ratio.** The centroid is closer to the circumcenter: $OG : GH = 1 : 2$, so $H = 3G - 2O$, not $3G - 2H$ or $\tfrac{O + H}{2}$.
 - **Using the altitude itself instead of its line.** In an obtuse triangle the altitudes don't meet; the *lines* containing them do, outside the triangle.
-- **Thinking the incenter is on the Euler line.** In general it isn't. It is only when the triangle is isosceles, where all four centers lie on the axis of symmetry.
+- **Thinking the incenter is on the Euler line.** In general it isn't. It is on the Euler line only when the triangle is isosceles, where all four centers lie on the axis of symmetry.
 
 ## Key points
 

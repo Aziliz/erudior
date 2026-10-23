@@ -99,6 +99,24 @@ For an *acute* $\angle A$:
 
 For a *right or obtuse* $\angle A$ there is one triangle if $a > b$ and none if $a \le b$ (the side opposite the largest angle must be the longest).
 
+The same tests as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Counting the triangles in the SSA case
+  accDescr: You know angle A, the side b next to it, and the side a opposite it. If angle A is right or obtuse, there is one triangle when a is greater than b and none otherwise. If angle A is acute, compute h equals b times sine A. If a is less than h, there is no triangle. If a equals h, there is one right triangle. If a is at least b, there is one triangle. If a is between h and b, there are two triangles.
+  S["Know angle A, side b, and side a opposite A"] --> Q{"Is angle A acute?"}
+  Q -- "no: right or obtuse" --> R{"Is a greater than b?"}
+  R -- yes --> R1["One triangle"]
+  R -- no --> R0["No triangle"]
+  Q -- yes --> H["Compute h = b sin A"]
+  H --> C{"Compare a with h and b"}
+  C -- "a less than h" --> N0["No triangle"]
+  C -- "a equal to h" --> N1["One right triangle"]
+  C -- "h less than a, a less than b" --> N2["Two triangles"]
+  C -- "a at least b" --> N3["One triangle"]
+```
+
 This is the **ambiguous case**: two sides and a non-included angle may fit two different triangles, which is exactly why SSA is not a congruence test. Algebraically it shows up when you solve for $\sin B$: if $\sin B > 1$ there is no triangle; otherwise $B$ could be the calculator's acute angle $B_1 = \sin^{-1}(\cdots)$ *or* its supplement $B_2 = 180^\circ - B_1$, and $B_2$ is a real triangle only if $A + B_2 < 180^\circ$.
 
 ### Example 3: two triangles

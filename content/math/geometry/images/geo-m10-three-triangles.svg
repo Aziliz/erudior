@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" width="640" height="340" font-family="sans-serif">
+<rect width="640" height="340" fill="#ffffff"/>
+<polygon points="105.0,70.0 35.0,230.0 175.0,230.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="320" cy="170" r="105" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 5"/>
+<path d="M 320 82 Q 264.5 137.4 252 222 Q 320.0 248.0 388 222 Q 375.5 137.4 320 82 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 535 70 Q 523.8 168.3 465 230 Q 535.0 200.0 605 230 Q 546.2 168.3 535 70 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="105.0" y="268.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">Euclidean</text>
+<text x="105.0" y="290.0" font-size="16" text-anchor="middle" fill="#1c2833">sum = 180°</text>
+<text x="320.0" y="300.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">Spherical</text>
+<text x="320.0" y="322.0" font-size="16" text-anchor="middle" fill="#1c2833">sum &gt; 180°</text>
+<text x="535.0" y="268.0" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="bold">Hyperbolic</text>
+<text x="535.0" y="290.0" font-size="16" text-anchor="middle" fill="#1c2833">sum &lt; 180°</text>
+</svg>

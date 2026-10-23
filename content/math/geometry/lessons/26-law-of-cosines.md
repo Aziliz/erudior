@@ -71,6 +71,10 @@ If the sides fail the triangle inequality, the formula tells you: for sides 3, 4
 
 Two boats leave a harbor at the same time. One travels 12 km in a straight line, the other 9 km, and the angle between their paths is $115^\circ$. How far apart are they?
 
+```shape
+{"segments": [{"from": [0, 0], "to": [11.28, 4.1], "label": "12 km"}, {"from": [0, 0], "to": [-6.36, 6.36], "label": "9 km"}, {"from": [-6.36, 6.36], "to": [11.28, 4.1], "dashed": true, "label": "d"}], "points": [{"at": [0, 0], "label": "harbor"}, {"at": [11.28, 4.1]}, {"at": [-6.36, 6.36]}], "labels": [{"at": [0.2, 1.6], "text": "115°"}], "caption": "Two paths from the harbor with 115° between them; d is the distance between the boats."}
+```
+
 The paths are two sides with the $115^\circ$ angle between them (SAS):
 $d^2 = 12^2 + 9^2 - 2(12)(9)\cos 115^\circ \approx 144 + 81 - 216(-0.4226) \approx 225 + 91.29 = 316.29$, so $d \approx 17.78$ km.
 
@@ -87,6 +91,24 @@ To **solve a triangle** is to find all three sides and all three angles. Three p
 | SSS | Law of Cosines for the largest angle | either law for a second angle, then angle sum |
 | SSA | Law of Sines for the second angle | check for 0, 1 or 2 triangles (last lesson) |
 | AAA | no unique triangle | the angles fix only the shape (similar triangles) |
+
+The same plan as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Planning the solution of any triangle
+  accDescr: Sort the three known pieces into a case. ASA or AAS: find the third angle from the 180 degree sum, then each side by the Law of Sines. SAS: find the third side by the Law of Cosines, then the smaller remaining angle, then the last angle by the angle sum. SSS: find the largest angle by the Law of Cosines, then a second angle, then the last angle by the angle sum. SSA: use the Law of Sines for a second angle and check for zero, one or two triangles. AAA: there is no unique triangle, only a family of similar ones.
+  K["Three known pieces"] --> A["ASA or AAS"]
+  K --> B["SAS"]
+  K --> C["SSS"]
+  K --> D["SSA"]
+  K --> E["AAA"]
+  A --> A1["Angle sum, then Law of Sines for the sides"]
+  B --> B1["Law of Cosines for the third side, then the smaller angle, then the angle sum"]
+  C --> C1["Law of Cosines for the largest angle, then a second angle, then the angle sum"]
+  D --> D1["Law of Sines; check for 0, 1 or 2 triangles"]
+  E --> E1["No unique triangle: only the shape is fixed"]
+```
 
 **The safe-order rule.** A triangle has at most one obtuse angle, and it is always the largest angle, opposite the longest side. If you settle the largest angle with the Law of Cosines (or find it last by subtraction), every other angle is acute, and the Law of Sines' acute answer is correct for each.
 

@@ -54,6 +54,12 @@ Reflect $P(5, -2)$ in (a) the $y$-axis, (b) the line $y = x$, (c) the line $x = 
 
 **(a)** $(-5, -2)$. **(b)** $(-2, 5)$. **(c)** $(2 \cdot 1 - 5, -2) = (-3, -2)$.
 
+The picture shows part (b): the line $y = x$ is the perpendicular bisector of the segment from $P$ to its image.
+
+```plot
+{"x": [-5, 7], "y": [-4, 7], "equal": true, "functions": [{"f": "x", "dashed": true, "label": "y = x"}], "segments": [{"from": [5, -2], "to": [-2, 5], "dashed": true}], "rightAngles": [[[1.5, 1.5], [5, -2], [4, 4]]], "points": [{"at": [5, -2], "label": "P(5, −2)"}, {"at": [-2, 5], "label": "P′(−2, 5)"}, {"at": [1.5, 1.5], "label": "(1.5, 1.5)"}], "caption": "Reflecting in y = x swaps the coordinates; the midpoint (1.5, 1.5) lies on the mirror line."}
+```
+
 ## Rotations
 
 A **rotation** turns every point about a fixed **center of rotation** through a given angle. Positive angles are counterclockwise. Each point stays the same distance from the center, and the angle from $P$ to $P'$ at the center equals the angle of rotation.
@@ -79,6 +85,15 @@ Rotate $Q(2, 5)$ about the origin by $90^\circ$, $180^\circ$ and $270^\circ$ cou
 $90^\circ$: $(-5, 2)$. $180^\circ$: $(-2, -5)$. $270^\circ$: $(5, -2)$.
 
 To rotate about a point $C$ other than the origin: translate so $C$ moves to the origin, rotate, then translate back.
+
+```mermaid
+flowchart TD
+  accTitle: Rotating a point about a center C that is not the origin
+  accDescr: Four steps. First subtract the coordinates of the center C from the point, which slides C to the origin. Second apply the rotation rule for the origin, such as (x, y) to (negative y, x) for 90 degrees counterclockwise. Third add the coordinates of C back. Fourth check that the image is the same distance from C as the original point.
+  A["1. Subtract C: slide the center to the origin"] --> B["2. Apply the origin rule, e.g. 90° counterclockwise: (x, y) to (−y, x)"]
+  B --> C["3. Add C back: slide the center home"]
+  C --> D["4. Check: the image is as far from C as the original point"]
+```
 
 ### Example 4
 

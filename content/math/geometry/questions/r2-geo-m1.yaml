@@ -1,0 +1,503 @@
+# Round 2, module geo-m1: new question types for the core lessons (q) and the honors lessons (h)
+
+# ---------- Lesson 1: Points, lines and planes ----------
+- id: geo-m1-r2-q01
+  lesson: geo-basics
+  module_quiz: true
+  type: label
+  topic: Undefined terms
+  stem: 'Name each numbered figure.'
+  image: {src: images/geo-m1-figures-blank.svg, alt: 'Five figures: a straight path through A and B with arrowheads at both ends; a straight path starting at a dot C, passing D, with an arrowhead only at the far end; a straight path from dot E to dot F with no arrowheads; a single dot G; and a shaded parallelogram marked P.'}
+  labels:
+    - {x: 25.0, y: 23.3, text: Line}
+    - {x: 83.3, y: 23.3, text: Ray}
+    - {x: 21.2, y: 66.7, text: Segment}
+    - {x: 48.5, y: 66.7, text: Point}
+    - {x: 78.8, y: 68.3, text: Plane}
+  distractors: [Angle, Opposite rays]
+  explanation: |-
+    1 goes on forever both ways (arrows at both ends): a line. 2 has one endpoint, $C$, and goes on forever through $D$: a ray. 3 stops at both endpoints: a segment. 4 is a single location: a point. 5 is a flat surface drawn as a parallelogram: a plane. Opposite rays would be two rays from one endpoint pointing opposite ways.
+- id: geo-m1-r2-q02
+  lesson: geo-basics
+  type: text
+  topic: Postulates
+  stem: 'Through any two points there is exactly ___ line. Two distinct planes that intersect meet in a ___.'
+  accept:
+    - [one, '1', exactly one, a single]
+    - [line, straight line, a line]
+  explanation: |-
+    These are two of the basic postulates: two points determine exactly one line, and two intersecting planes meet in a line (like the crease where two walls meet).
+- id: geo-m1-r2-q03
+  lesson: geo-basics
+  module_quiz: true
+  type: match
+  topic: Postulates
+  stem: 'In the box (top face $ABCD$, bottom face $EFGH$, with $E$ under $A$, $F$ under $B$, $G$ under $C$, $H$ under $D$), match each pair of lines to how they are related.'
+  image: {src: images/geo-m1-box.svg, alt: 'A rectangular box with top face ABCD and bottom face EFGH; E is under A, F under B, G under C and H under D.'}
+  pairs:
+    - ['$\overleftrightarrow{AB}$ and $\overleftrightarrow{GH}$', Parallel]
+    - ['$\overleftrightarrow{BF}$ and $\overleftrightarrow{FG}$', Perpendicular]
+    - ['$\overleftrightarrow{EF}$ and $\overleftrightarrow{CG}$', Skew]
+  distractors: [Opposite rays, The same line]
+  explanation: |-
+    $\overleftrightarrow{AB}$ (top front edge) and $\overleftrightarrow{GH}$ (bottom back edge) run the same direction and lie in the slanted plane $ABGH$, so they are parallel. $\overleftrightarrow{BF}$ (a vertical edge) meets $\overleftrightarrow{FG}$ (a bottom edge) at $F$ in a right angle, so they are perpendicular. $\overleftrightarrow{EF}$ (bottom front edge) and $\overleftrightarrow{CG}$ (back right vertical edge) never meet and point different ways, so no plane holds both: they are skew.
+- id: geo-m1-r2-q04
+  lesson: geo-basics
+  topic: Postulates
+  stem: 'Which statements are always true? Select all that apply.'
+  choices: ['Any three points lie in at least one plane.', 'Any four points lie in one plane.', 'Two distinct points lie on exactly one line.', 'Two lines that never meet are parallel.']
+  answer: [0, 2]
+  explanation: |-
+    Any three points are coplanar (exactly one plane if they are noncollinear, infinitely many if collinear), and two points determine one line. Four points need not be coplanar (the wobbly four-legged chair), and lines in space that never meet may be skew rather than parallel.
+- id: geo-m1-r2-q05
+  lesson: geo-basics
+  type: order
+  topic: Postulates
+  stem: '$B$ is between $A$ and $C$, with $AB = 4x - 3$, $BC = x + 8$ and $AC = 30$. Put the steps for finding $AB$ in order.'
+  items:
+    - 'Write $(4x - 3) + (x + 8) = 30$'
+    - 'Combine like terms: $5x + 5 = 30$'
+    - 'Solve: $x = 5$'
+    - 'Substitute: $AB = 17$ and $BC = 13$'
+    - 'Check: $17 + 13 = 30$'
+  explanation: |-
+    Segment addition gives the equation first. Combining like terms gives $5x + 5 = 30$, so $5x = 25$ and $x = 5$. Then $AB = 4(5) - 3 = 17$ and $BC = 5 + 8 = 13$, and the check $17 + 13 = 30$ can only come after both lengths are known.
+
+# ---------- Lesson 2: Measuring segments and angles ----------
+- id: geo-m1-r2-q06
+  lesson: geo-measure
+  module_quiz: true
+  type: label
+  topic: Angle measure
+  stem: 'Name the numbered parts of this angle.'
+  image: {src: images/geo-m1-angle-parts-blank.svg, alt: 'Two rays start at a common point at the lower left, one going right and one going up and to the right; the region between them is shaded.'}
+  labels:
+    - {x: 18.3, y: 83.3, text: Vertex}
+    - {x: 78.3, y: 83.3, text: Side}
+    - {x: 66.7, y: 61.7, text: Interior}
+    - {x: 28.3, y: 30.0, text: Exterior}
+  distractors: [Midpoint, Angle bisector]
+  explanation: |-
+    1 is the common endpoint of the two rays: the vertex. 2 is on one of the rays: a side. 3 is between the sides (shaded): the interior. 4 is outside the sides: the exterior. A bisector would be a third ray splitting the angle in half.
+- id: geo-m1-r2-q07
+  lesson: geo-measure
+  type: text
+  topic: Angle measure
+  stem: 'A protractor is centered at $B$. Ray $\overrightarrow{BC}$ passes the 25 mark and ray $\overrightarrow{BA}$ passes the 140 mark on the same scale. $m\angle ABC =$ ___ degrees (give only the number), so $\angle ABC$ is an ___ angle.'
+  accept:
+    - ['115']
+    - [obtuse]
+  explanation: |-
+    By the Protractor Postulate, subtract the readings: $140 - 25 = 115^\circ$. That is between $90^\circ$ and $180^\circ$, so the angle is obtuse.
+- id: geo-m1-r2-q08
+  lesson: geo-measure
+  type: match
+  topic: Angle measure
+  stem: 'Match each angle measure to its type.'
+  pairs:
+    - ['$m\angle 1 = 90^\circ$', Right angle]
+    - ['$m\angle 2 = 180^\circ$', Straight angle]
+    - ['$m\angle 3 = 37^\circ$', Acute angle]
+    - ['$m\angle 4 = 145^\circ$', Obtuse angle]
+  distractors: [Vertical angle]
+  explanation: |-
+    Acute is between $0^\circ$ and $90^\circ$, right is exactly $90^\circ$, obtuse is between $90^\circ$ and $180^\circ$, and straight is exactly $180^\circ$. "Vertical" describes a pair of angles at an intersection, not a size.
+- id: geo-m1-r2-q09
+  lesson: geo-measure
+  module_quiz: true
+  type: order
+  topic: Segments and midpoints
+  stem: '$M$ is the midpoint of $\overline{PQ}$, with $PM = 3x + 4$ and $MQ = 5x - 6$. Put the steps for finding $PQ$ in order.'
+  items:
+    - 'Set the halves equal: $3x + 4 = 5x - 6$'
+    - 'Solve: $x = 5$'
+    - 'Find one half: $PM = 19$'
+    - 'Double it: $PQ = 38$'
+  explanation: |-
+    A midpoint makes the halves equal, so $3x + 4 = 5x - 6$ gives $10 = 2x$ and $x = 5$. Then $PM = 3(5) + 4 = 19$ (and $MQ = 5(5) - 6 = 19$ agrees), and the whole is twice a half: $PQ = 38$.
+- id: geo-m1-r2-q10
+  lesson: geo-measure
+  topic: Segments and midpoints
+  stem: 'On a number line, $A$ is at $-4$ and $B$ is at $10$, and $M$ is the midpoint of $\overline{AB}$. Which statements are true? Select all that apply.'
+  choices: ['$M$ is at $3$', '$AB = 14$', '$AM = 7$', '$MB = 6$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $AB = |10 - (-4)| = 14$. The midpoint is $\tfrac{-4 + 10}{2} = 3$. Each half is $7$: $AM = |3 - (-4)| = 7$ and $MB = |10 - 3| = 7$, not 6.
+
+# ---------- Lesson 3: Angle pairs ----------
+- id: geo-m1-r2-q11
+  lesson: geo-anglepairs
+  type: match
+  topic: Angle pairs
+  stem: 'Match each description to the name of the angle pair.'
+  pairs:
+    - ['Two angles whose measures add to $90^\circ$', Complementary angles]
+    - ['Two angles whose measures add to $180^\circ$', Supplementary angles]
+    - ['Adjacent angles whose outer sides are opposite rays', Linear pair]
+    - ['Nonadjacent angles formed by two intersecting lines', Vertical angles]
+  distractors: [Perpendicular lines]
+  explanation: |-
+    Complementary means a sum of $90^\circ$ and supplementary a sum of $180^\circ$, whether or not the angles touch. A linear pair is adjacent with outer sides making a line. Vertical angles sit across from each other at an intersection and are not adjacent.
+- id: geo-m1-r2-q12
+  lesson: geo-anglepairs
+  module_quiz: true
+  type: text
+  topic: Angle pairs
+  stem: 'The complement of a $28^\circ$ angle measures ___ degrees and its supplement measures ___ degrees. Give only the numbers.'
+  accept:
+    - ['62']
+    - ['152']
+  explanation: |-
+    Complement: $90 - 28 = 62^\circ$. Supplement: $180 - 28 = 152^\circ$. The supplement is always $90^\circ$ more than the complement.
+- id: geo-m1-r2-q13
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'Which pairs of angles must be supplementary? Select all that apply.'
+  choices: ['A linear pair', 'Two vertical angles', 'Two angles that each measure $90^\circ$', 'Two adjacent angles']
+  answer: [0, 2]
+  explanation: |-
+    A linear pair always adds to $180^\circ$, and $90 + 90 = 180$. Vertical angles are equal, not necessarily supplementary (two $40^\circ$ vertical angles add to $80^\circ$), and adjacent angles can have any sum.
+- id: geo-m1-r2-q14
+  lesson: geo-anglepairs
+  module_quiz: true
+  type: order
+  topic: Angle pairs
+  stem: 'Two lines cross. One angle measures $(3x + 10)^\circ$ and the angle vertical to it measures $(5x - 30)^\circ$. Put the steps for finding all four angles in order.'
+  items:
+    - 'Set the vertical angles equal: $3x + 10 = 5x - 30$'
+    - 'Solve: $x = 20$'
+    - 'Find that angle: $3(20) + 10 = 70^\circ$'
+    - 'Use a linear pair: $180 - 70 = 110^\circ$'
+    - 'Check: $70 + 110 + 70 + 110 = 360$'
+  explanation: |-
+    Vertical angles are congruent, so $3x + 10 = 5x - 30$, giving $40 = 2x$ and $x = 20$. The vertical pair measures $70^\circ$ each; the other two angles form linear pairs with them, so they are $110^\circ$ each. The four angles around the point add to $360^\circ$.
+- id: geo-m1-r2-q15
+  lesson: geo-anglepairs
+  topic: Angle pairs
+  stem: 'In the right-hand panel of the picture, the $120^\circ$ and $60^\circ$ angles are supplementary. Why are they not a linear pair?'
+  image: {src: images/geo-m1-pairs-compare.svg, alt: 'Three panels: adjacent complementary angles of 35 and 55 degrees; a linear pair of 60 and 120 degrees; and two separate angles of 120 and 60 degrees.'}
+  choices: ['They are not adjacent.', 'Their measures do not add to $180^\circ$.', 'Neither of them is acute.', 'Supplementary angles can never form a linear pair.']
+  answer: 0
+  explanation: |-
+    A linear pair must be adjacent, sharing a vertex and a side, with the outer sides forming a line. These two angles are in different places, so they are only supplementary. Their sum is $180^\circ$, the $60^\circ$ angle is acute, and every linear pair is in fact supplementary.
+
+# ---------- Lesson 4: Constructions ----------
+- id: geo-m1-r2-q16
+  lesson: geo-construct
+  module_quiz: true
+  type: label
+  topic: Constructions
+  stem: 'This is the perpendicular bisector construction for $\overline{AB}$. Name the numbered parts.'
+  image: {src: images/geo-m1-perp-bisector-blank.svg, alt: 'Segment AB with equal compass arcs from A and from B crossing above and below it, a dashed line through the two crossings, and a right-angle box where the dashed line meets AB.'}
+  labels:
+    - {x: 43.5, y: 32.6, text: Compass arc}
+    - {x: 50.0, y: 18.5, text: Crossing of two equal arcs}
+    - {x: 50.0, y: 50.0, text: Midpoint of AB}
+    - {x: 50.0, y: 67.3, text: Perpendicular bisector}
+  distractors: [Angle bisector, Vertex]
+  explanation: |-
+    1 lies on one of the arcs drawn with the compass. 2 is where an arc from $A$ and an arc from $B$ cross; it is the same distance from $A$ and $B$. 3 is where the new line meets $\overline{AB}$, the midpoint. 4 lies on the dashed line through the two crossings, the perpendicular bisector of $\overline{AB}$.
+- id: geo-m1-r2-q17
+  lesson: geo-construct
+  type: order
+  topic: Constructions
+  stem: 'Put the steps for constructing the perpendicular bisector of $\overline{AB}$ in order.'
+  items:
+    - 'Open the compass to more than half of $AB$'
+    - 'With the point on $A$, draw arcs above and below $\overline{AB}$'
+    - 'With the same opening and the point on $B$, draw arcs crossing the first two'
+    - 'Draw the line through the two crossing points'
+  explanation: |-
+    The opening must be set first (more than half of $AB$, or the arcs won't meet). The arcs from $B$ must cross arcs already drawn from $A$, and the line can only be drawn once both crossing points exist.
+- id: geo-m1-r2-q18
+  lesson: geo-construct
+  type: match
+  topic: Constructions
+  stem: 'Match each construction to the reason it works.'
+  pairs:
+    - [Angle bisector, Two triangles are congruent by SSS]
+    - [Copy a segment, The compass holds the same distance]
+    - ['Equilateral triangle on $\overline{AB}$', 'All three sides are radii of length AB']
+    - [Regular hexagon in a circle, Six equilateral triangles meet at the center]
+  explanation: |-
+    The angle bisector gives $\triangle BXZ \cong \triangle BYZ$ by SSS. Copying a segment just transfers the compass opening. In Euclid's equilateral triangle, $AC$ and $BC$ are radii of circles with radius $AB$. Stepping the radius around a circle works because the hexagon is six equilateral triangles with sides equal to the radius.
+- id: geo-m1-r2-q19
+  lesson: geo-construct
+  type: text
+  topic: Constructions
+  stem: 'To construct a regular hexagon in a circle of radius $5$ cm, you keep the compass opening at ___ cm while stepping around the circle. The hexagon''s perimeter is ___ cm. Give only the numbers.'
+  image: {src: images/geo-m1-hexagon.svg, alt: 'A circle with center O and radius r; six points stepped around it with the compass set to r form a regular hexagon split into six equilateral triangles.'}
+  accept:
+    - ['5']
+    - ['30']
+  explanation: |-
+    The compass stays at the radius, $5$ cm. Each side of the hexagon is a side of an equilateral triangle whose other sides are radii, so each side is $5$ cm and the perimeter is $6 \times 5 = 30$ cm.
+- id: geo-m1-r2-q20
+  lesson: geo-construct
+  module_quiz: true
+  topic: Constructions
+  stem: 'Which of these can be done exactly with compass and straightedge alone? Select all that apply.'
+  choices: ['Bisect any angle', 'Trisect any angle', 'Construct a regular hexagon', 'Mark a segment exactly 3.7 cm long']
+  answer: [0, 2]
+  explanation: |-
+    Angle bisection and the regular hexagon are standard constructions. Trisecting an arbitrary angle was proved impossible in the 1800s, and the straightedge has no scale, so there is no way to measure out 3.7 cm.
+
+# ---------- Honors lesson: Betweenness, half-planes and Pasch's axiom ----------
+- id: geo-m1-r2-h01
+  lesson: geo-m1-h-plane-separation
+  topic: Betweenness and convexity
+  stem: 'Points $X$, $Y$ and $Z$ on a line have coordinates $9$, $-5$ and $2$. Which statement is true?'
+  choices: ['$X$ is between $Y$ and $Z$', '$Y$ is between $X$ and $Z$', '$Z$ is between $X$ and $Y$', 'None of the points is between the other two']
+  answer: 2
+  explanation: |-
+    In order, $-5 < 2 < 9$, so $Z$ (at 2) is in the middle. Check: $YZ + ZX = 7 + 7 = 14 = YX$. Of three distinct points on a line, exactly one is between the other two, so the last choice is impossible.
+- id: geo-m1-r2-h02
+  lesson: geo-m1-h-plane-separation
+  topic: Betweenness and convexity
+  stem: 'Three collinear points have $AB = 7$, $BC = 3$ and $AC = 4$. Which point is between the other two?'
+  choices: ['$A$', '$C$', '$B$', 'It cannot be decided']
+  answer: 1
+  explanation: |-
+    The middle point's two distances add to the third. $AC + CB = 4 + 3 = 7 = AB$, so $C$ is between $A$ and $B$. ($AB + BC = 10 \ne 4$ and $BA + AC = 11 \ne 3$.)
+- id: geo-m1-r2-h03
+  lesson: geo-m1-h-plane-separation
+  topic: Betweenness and convexity
+  stem: 'Which of these sets are convex? Select all that apply.'
+  choices: ['A ray', 'A circle (the curve only)', 'A half-plane', 'A line with one point removed']
+  answer: [0, 2]
+  explanation: |-
+    A ray contains the segment between any two of its points, and a half-plane is convex by the Plane Separation Postulate. The segment joining two points of a circle passes through the inside, which is not on the curve, and on a line with a gap, the segment joining points on either side of the gap needs the missing point.
+- id: geo-m1-r2-h04
+  lesson: geo-m1-h-plane-separation
+  topic: Betweenness and convexity
+  stem: 'Sets $S$ and $T$ are both convex. What can you say about their intersection (the points in both)?'
+  choices: ['It is never convex', 'It is convex only if $S$ and $T$ have the same shape', 'It is convex only if one set contains the other', 'It is always convex']
+  answer: 3
+  explanation: |-
+    If $P$ and $Q$ are in both sets, then $\overline{PQ}$ is in $S$ (because $S$ is convex) and in $T$ (because $T$ is convex), so it is in the intersection. That is why interiors of angles and triangles, which are intersections of half-planes, are convex.
+- id: geo-m1-r2-h05
+  lesson: geo-m1-h-plane-separation
+  topic: Plane separation
+  stem: 'Line $\ell$ is $y = 3x - 2$. Where does the segment from $P(1, 4)$ to $Q(2, 1)$ cross $\ell$?'
+  choices: ['$(1.5, 2.5)$', '$(2, 4)$', '$(1.25, 1.75)$', 'It does not cross $\ell$']
+  answer: 0
+  explanation: |-
+    With $d = y - (3x - 2)$: $d_P = 4 - 1 = 3$ and $d_Q = 1 - 4 = -3$. Opposite signs, so the segment crosses $\ell$, at $t = \tfrac{3}{3 - (-3)} = \tfrac12$ of the way from $P$: the midpoint $(1.5, 2.5)$. Check: $3(1.5) - 2 = 2.5$. The point $(1.25, 1.75)$ is on $\ell$ but not on $\overline{PQ}$, and $(2, 4)$ is on $\ell$ but beyond $Q$.
+- id: geo-m1-r2-h06
+  lesson: geo-m1-h-plane-separation
+  type: text
+  topic: Plane separation
+  stem: 'Line $\ell$ is $y = x + 1$. For $P(2, 5)$, $y - (x + 1) =$ ___. For $Q(4, 1)$, $y - (x + 1) =$ ___. So $P$ and $Q$ lie on ___ sides of $\ell$.'
+  accept:
+    - ['2']
+    - ['-4']
+    - [opposite, different]
+  explanation: |-
+    $P$: $5 - 3 = 2$. $Q$: $1 - 5 = -4$. The values have opposite signs ($P$ is above the line, $Q$ below), so the points are on opposite sides and $\overline{PQ}$ must cross $\ell$.
+- id: geo-m1-r2-h07
+  lesson: geo-m1-h-plane-separation
+  topic: Plane separation
+  stem: 'Which describes the interior of $\angle ABC$?'
+  choices: ['The points on the same side of $\overleftrightarrow{BA}$ as $C$ or on the same side of $\overleftrightarrow{BC}$ as $A$', 'The points on the same side of $\overleftrightarrow{BA}$ as $C$ and on the same side of $\overleftrightarrow{BC}$ as $A$', 'The points on segment $\overline{AC}$', 'The points closer to $B$ than to $A$ or $C$']
+  answer: 1
+  explanation: |-
+    The interior is the intersection of two half-planes, so a point must pass both tests ("and"). With "or" you would also get points on the far side of one of the lines. The points of $\overline{AC}$ between $A$ and $C$ are in the interior, but they are only a small part of it.
+- id: geo-m1-r2-h08
+  lesson: geo-m1-h-plane-separation
+  topic: Plane separation
+  stem: '$B = (0, 0)$, $A = (0, 4)$ and $C = (5, 0)$. Which point is in the interior of $\angle ABC$?'
+  choices: ['$(-1, 2)$', '$(3, 0)$', '$(2, 3)$', '$(2, -1)$']
+  answer: 2
+  explanation: |-
+    The interior is on $C$'s side of the $y$-axis ($x > 0$) and on $A$'s side of the $x$-axis ($y > 0$): the open first quadrant. Only $(2, 3)$ passes both tests. $(3, 0)$ is on the side $\overrightarrow{BC}$ itself, which is not interior.
+- id: geo-m1-r2-h09
+  lesson: geo-m1-h-plane-separation
+  type: order
+  topic: Plane separation
+  stem: 'Line $\ell$ crosses $\overline{AB}$ between $A$ and $B$ and passes through no vertex of $\triangle ABC$. Put the steps of the proof that $\ell$ crosses another side in order.'
+  items:
+    - '$\overline{AB}$ meets $\ell$, so $A$ and $B$ are on opposite sides of $\ell$'
+    - '$C$ is not on $\ell$, so $C$ is on the same side as $A$ or as $B$'
+    - 'Suppose $C$ is on the same side as $A$; then $C$ and $B$ are on opposite sides'
+    - 'So $\overline{BC}$ meets $\ell$ by the Plane Separation Postulate'
+  explanation: |-
+    First locate $A$ and $B$ (opposite sides, since a segment within one half-plane can't meet $\ell$). Then place $C$ in one of the two half-planes, take a case, and conclude with the postulate. The other case ($C$ on $B$'s side) gives a crossing of $\overline{AC}$ the same way.
+- id: geo-m1-r2-h10
+  lesson: geo-m1-h-plane-separation
+  type: match
+  topic: Plane separation
+  stem: 'Match each name to its statement.'
+  pairs:
+    - ['Pasch''s axiom', A line entering a triangle through one side leaves through another side]
+    - [Crossbar Theorem, A ray from the vertex into an angle's interior meets a segment joining the two sides]
+    - [Plane Separation Postulate, A line splits the rest of the plane into two convex half-planes]
+    - [Betweenness, 'B is on segment AC, with AB + BC = AC']
+  distractors: [Two points determine exactly one line]
+  explanation: |-
+    Pasch's axiom is about a line and a triangle; the Crossbar Theorem is about a ray inside an angle; the Plane Separation Postulate defines half-planes; betweenness is the relation behind segments and rays. "Two points determine a line" is the first incidence postulate of Lesson 1.
+- id: geo-m1-r2-h11
+  lesson: geo-m1-h-plane-separation
+  topic: Plane separation
+  stem: 'In the false proof that every triangle is isosceles, which step is the one that fails?'
+  choices: ['$\triangle AEP \cong \triangle AFP$ by AAS', '$PB = PC$ because $P$ is on the perpendicular bisector of $\overline{BC}$', '$\triangle PEB \cong \triangle PFC$ by HL', '$AB = AE + EB$ and $AC = AF + FC$']
+  answer: 3
+  explanation: |-
+    The congruences and $PB = PC$ are all correct. The last step assumes $E$ is between $A$ and $B$ and $F$ is between $A$ and $C$. In an accurate drawing of a non-isosceles triangle, one foot lands on an extension of a side, so one of the sums is really a difference, such as $AB = AE - EB$.
+- id: geo-m1-r2-h12
+  lesson: geo-m1-h-plane-separation
+  topic: Plane separation
+  stem: 'In an accurate drawing for the false proof, with a triangle where $AB < AC$, which statements are true? Select all that apply.'
+  image: {src: images/geo-m1-isosceles-fallacy.svg, alt: 'Left, the false drawing with P inside the triangle and E and F on the sides. Right, an accurate drawing where P is below BC, outside the triangle, E is on line AB beyond B and F is on side AC.'}
+  choices: ['$P$ lies outside the triangle', '$AE = AF$', 'Both $E$ and $F$ lie on the sides of the triangle', '$P$ lies inside the triangle']
+  answer: [0, 1]
+  explanation: |-
+    Steps 1 to 3 of the argument are valid, so $AE = AF$ still holds. But $P$ is outside the triangle (on the circle through $A$, $B$ and $C$), and only one of the feet, here $F$, is on a side; $E$ is on $\overleftrightarrow{AB}$ beyond $B$.
+- id: geo-m1-r2-h13
+  lesson: geo-m1-h-plane-separation
+  type: text
+  topic: Plane separation
+  stem: 'A line in a plane separates the points of the plane not on it into two ___. A plane separates the points of space not on it into two ___.'
+  accept:
+    - [half-planes, half planes, halfplanes, half-plane, half plane]
+    - [half-spaces, half spaces, halfspaces, half-space, half space]
+  explanation: |-
+    That is the Plane Separation Postulate and its version in space. The line (or plane) is the edge and belongs to neither part.
+- id: geo-m1-r2-h14
+  lesson: geo-m1-h-plane-separation
+  topic: Plane separation
+  stem: 'Line $\ell$ in the plane of $\triangle ABC$ crosses side $\overline{AB}$ between $A$ and $B$ and passes through no vertex. How many sides of the triangle does $\ell$ cross in all?'
+  choices: ['1', '2', '3', 'It depends on the triangle']
+  answer: 1
+  explanation: |-
+    By Pasch's axiom it crosses one more side, and the proof shows it cannot cross the third: $A$ and $B$ are on opposite sides of $\ell$, and $C$ is on the same side as one of them, so the segment joining $C$ to that vertex stays in one half-plane. Exactly 2 sides.
+
+# ---------- Honors lesson: Counting lines, planes, regions and angles ----------
+- id: geo-m1-r2-h15
+  lesson: geo-m1-h-counting
+  topic: Counting lines and planes
+  stem: 'Seven points are marked, no three collinear. How many lines pass through two of them?'
+  choices: ['21', '42', '7', '35']
+  answer: 0
+  explanation: |-
+    One line per pair: $\binom{7}{2} = \tfrac{7 \cdot 6}{2} = 21$. 42 counts ordered pairs, so each line twice, and 35 is $\binom{7}{3}$, the number of triples.
+- id: geo-m1-r2-h16
+  lesson: geo-m1-h-counting
+  topic: Counting lines and planes
+  stem: 'Nine points are marked. Five lie on one line, and no other three of the points are collinear. How many lines pass through at least two of the points?'
+  choices: ['36', '26', '31', '27']
+  answer: 3
+  explanation: |-
+    Without the collinear points there would be $\binom{9}{2} = 36$ lines. The five collinear points make $\binom{5}{2} = 10$ pairs, all giving one line, so remove 10 and add that line back once: $36 - 10 + 1 = 27$. 26 forgets to add it back.
+- id: geo-m1-r2-h17
+  lesson: geo-m1-h-counting
+  type: text
+  topic: Counting lines and planes
+  stem: 'Eight points in space are placed so that no four are coplanar. They determine ___ planes and ___ lines.'
+  accept:
+    - ['56']
+    - ['28']
+  explanation: |-
+    Each plane comes from a triple: $\binom{8}{3} = \tfrac{8 \cdot 7 \cdot 6}{6} = 56$. Each line comes from a pair: $\binom{8}{2} = 28$ (no three are collinear, since three collinear points plus any fourth would be coplanar).
+- id: geo-m1-r2-h18
+  lesson: geo-m1-h-counting
+  topic: Counting regions and angles
+  stem: 'Five lines are drawn in general position. Into how many regions do they divide the plane?'
+  choices: ['15', '32', '16', '11']
+  answer: 2
+  explanation: |-
+    $\tfrac{25 + 5 + 2}{2} = 16$. Step by step: 1 region, then each new line adds as many regions as its position number: $1 + 1 + 2 + 3 + 4 + 5 = 16$. 32 is the false $2^n$ pattern, and 11 is the count for four lines.
+- id: geo-m1-r2-h19
+  lesson: geo-m1-h-counting
+  type: text
+  topic: Counting regions and angles
+  stem: 'Seven lines in general position cross at ___ points and divide the plane into ___ regions, of which ___ are bounded.'
+  accept:
+    - ['21']
+    - ['29']
+    - ['15']
+  explanation: |-
+    Crossings: $\binom{7}{2} = 21$. Regions: $\tfrac{49 + 7 + 2}{2} = 29$. Unbounded regions: $2 \cdot 7 = 14$, so bounded: $29 - 14 = 15$, which matches $\binom{6}{2} = 15$.
+- id: geo-m1-r2-h20
+  lesson: geo-m1-h-counting
+  topic: Counting regions and angles
+  stem: 'How many lines in general position are needed to divide the plane into exactly 56 regions?'
+  choices: ['28', '10', '9', '11']
+  answer: 1
+  explanation: |-
+    Solve $\tfrac{n^2 + n + 2}{2} = 56$: $n^2 + n - 110 = 0$, so $(n + 11)(n - 10) = 0$ and $n = 10$. Check: $\tfrac{100 + 10 + 2}{2} = 56$. Nine lines give 46 and eleven give 67.
+- id: geo-m1-r2-h21
+  lesson: geo-m1-h-counting
+  type: order
+  topic: Counting regions and angles
+  stem: 'Put these counts in order from smallest to largest.'
+  items:
+    - 'Crossing points of 6 lines in general position'
+    - 'Planes through 6 points in space, no four coplanar'
+    - 'Lines through 7 points, no three collinear'
+    - 'Regions made by 6 lines in general position'
+  explanation: |-
+    The counts are $\binom{6}{2} = 15$, $\binom{6}{3} = 20$, $\binom{7}{2} = 21$ and $\tfrac{36 + 6 + 2}{2} = 22$.
+- id: geo-m1-r2-h22
+  lesson: geo-m1-h-counting
+  topic: Counting regions and angles
+  stem: 'Three lines pass through one point. How many pairs of vertical angles are formed?'
+  choices: ['6', '3', '12', '9']
+  answer: 0
+  explanation: |-
+    The lines make 6 rays. Of the $\binom{6}{2} = 15$ pairs of rays, 3 are opposite (straight angles), leaving 12 angles, which come in $n(n - 1) = 3 \cdot 2 = 6$ vertical pairs. 12 is the number of angles, not pairs.
+- id: geo-m1-r2-h23
+  lesson: geo-m1-h-counting
+  type: text
+  topic: Counting regions and angles
+  stem: 'Five lines pass through one point with equal angles between neighboring rays. The smallest angle measures ___ degrees, and there are ___ pairs of vertical angles. Give only the numbers.'
+  accept:
+    - ['36']
+    - ['20']
+  explanation: |-
+    Ten rays split $360^\circ$ into ten equal angles of $36^\circ$ (that is, $\tfrac{180^\circ}{5}$). Vertical pairs: $n(n - 1) = 5 \cdot 4 = 20$.
+- id: geo-m1-r2-h24
+  lesson: geo-m1-h-counting
+  type: match
+  topic: Counting lines and planes
+  stem: 'Match each count to its formula.'
+  pairs:
+    - ['Lines through $n$ points, no three collinear', 'n(n − 1)/2']
+    - ['Planes through $n$ points in space, no four coplanar', 'n(n − 1)(n − 2)/6']
+    - ['Regions made by $n$ lines in general position', '(n² + n + 2)/2']
+    - ['Bounded regions made by $n$ lines in general position', '(n − 1)(n − 2)/2']
+  distractors: ['2 to the power n']
+  explanation: |-
+    Lines and planes are $\binom{n}{2}$ and $\binom{n}{3}$. Regions are $1 + n + \binom{n}{2} = \tfrac{n^2 + n + 2}{2}$; removing the $2n$ unbounded ones leaves $\binom{n-1}{2} = \tfrac{(n-1)(n-2)}{2}$. Doubling ($2^n$) matches only up to two lines.
+- id: geo-m1-r2-h25
+  lesson: geo-m1-h-counting
+  topic: Counting regions and angles
+  stem: 'Seven points on a circle are joined by every possible chord, and no three chords pass through one interior point. How many regions are inside the circle?'
+  choices: ['64', '63', '50', '57']
+  answer: 3
+  explanation: |-
+    $1 + \binom{7}{2} + \binom{7}{4} = 1 + 21 + 35 = 57$. The doubling pattern would predict 64, but it already failed at six points (31, not 32).
+- id: geo-m1-r2-h26
+  lesson: geo-m1-h-counting
+  topic: Counting regions and angles
+  stem: 'Which changes make $n$ lines (with $n \ge 3$) divide the plane into fewer than $\frac{n^2 + n + 2}{2}$ regions? Select all that apply.'
+  choices: ['Two of the lines are parallel', 'Three of the lines pass through one point', 'The lines are drawn longer', 'The lines are drawn in a different order']
+  answer: [0, 1]
+  explanation: |-
+    Each line adds one region per piece, and its pieces come from crossings. Parallel lines lose a crossing, and three lines through one point merge crossings, so both give fewer regions. Lines are already infinite, and the order of drawing doesn't change the final picture.
+- id: geo-m1-r2-h27
+  lesson: geo-m1-h-counting
+  topic: Counting regions and angles
+  stem: 'Three parallel lines are crossed by two transversals, which meet each other at a point not on any of the parallel lines. Into how many regions is the plane divided?'
+  choices: ['12', '16', '13', '11']
+  answer: 2
+  explanation: |-
+    The parallels make 4 strips. The first transversal crosses 3 lines, so it is cut into 4 pieces and adds 4 regions: 8. The second crosses the 3 parallels and the first transversal, 4 points, so it adds 5: 13. (16 is the general-position count for five lines.)
+- id: geo-m1-r2-h28
+  lesson: geo-m1-h-counting
+  topic: Counting regions and angles
+  stem: 'The picture shows 4 lines in general position. How many of its 11 regions are unbounded, and why?'
+  image: {src: images/geo-m1-four-lines.svg, alt: 'Four lines crossing at six points and cutting the plane into eleven numbered regions: three small enclosed ones and eight that reach the edge of the picture.'}
+  choices: ['8, because a large circle around the crossings is cut by each line twice', '4, because each line makes one unbounded region', '3, because the bounded regions are triangles', '6, because there are six crossing points']
+  answer: 0
+  explanation: |-
+    A big circle around all the crossings meets each line twice, in $2 \cdot 4 = 8$ points, which cut the circle into 8 arcs, one per unbounded region. That leaves $11 - 8 = 3$ bounded regions.

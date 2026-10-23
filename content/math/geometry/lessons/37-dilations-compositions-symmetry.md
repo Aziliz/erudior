@@ -16,6 +16,8 @@ A **dilation** with center $C$ and scale factor $k > 0$ maps each point $P$ to t
 - If $k > 1$ it's an **enlargement**; if $0 < k < 1$, a **reduction**; $k = 1$ changes nothing.
 - A dilation multiplies every length by $k$, keeps angle measures, and maps each line to a parallel line (or to itself, if the line passes through the center).
 
+![A dilation with center C and scale factor 2.5. Dashed rays start at C and pass through each vertex of a small blue triangle and on to the matching vertex of a large tan triangle. The top vertex P of the small triangle goes to P′, two and a half times as far from C.](images/geo-m9-dilation.svg)
+
 With center at the origin:
 
 $$(x, y) \to (kx,\; ky).$$
@@ -65,6 +67,21 @@ Some compositions have simple descriptions:
 
 Every rigid motion of the plane is one of four kinds: a translation, a reflection, a rotation, or a glide reflection.
 
+Two questions tell them apart: does the motion keep orientation or reverse it, and does it leave any point where it was (a fixed point)?
+
+```mermaid
+flowchart TD
+  accTitle: The four kinds of rigid motion of the plane
+  accDescr: Ask two questions about a rigid motion other than the identity. First, does it keep orientation (labels that run counterclockwise still run counterclockwise) or reverse it? Second, does it leave any point fixed? Orientation kept with a fixed point: a rotation. Orientation kept with no fixed point: a translation. Orientation reversed with fixed points: a reflection, which fixes every point of its mirror line. Orientation reversed with no fixed point: a glide reflection.
+  A["A rigid motion (not the identity)"] --> B{"Keeps orientation?"}
+  B -- yes --> C{"Any fixed point?"}
+  B -- no --> D{"Any fixed point?"}
+  C -- yes --> E["Rotation about that point"]
+  C -- no --> F["Translation"]
+  D -- yes --> G["Reflection: fixes its whole mirror line"]
+  D -- no --> H["Glide reflection"]
+```
+
 ### Example 4
 
 Reflect $P(2, 5)$ in $x = 1$ and then in $x = 4$. Compare with a translation.
@@ -74,6 +91,10 @@ Reflect $P(2, 5)$ in $x = 1$ and then in $x = 4$. Compare with a translation.
 **Step 2.** In $x = 4$: $(2 \cdot 4 - 0, 5) = (8, 5)$.
 
 The point moved 6 units right, twice the distance (3) between the lines.
+
+```plot
+{"x": [-1, 9], "y": [0, 8], "equal": true, "segments": [{"from": [1, 0], "to": [1, 8], "dashed": true, "label": "x = 1"}, {"from": [4, 0], "to": [4, 8], "dashed": true, "label": "x = 4"}, {"from": [2, 5], "to": [0, 5], "arrow": true}, {"from": [0, 5.6], "to": [8, 5.6], "arrow": true}], "points": [{"at": [2, 5], "label": "P(2, 5)"}, {"at": [0, 5], "label": "(0, 5)"}, {"at": [8, 5], "label": "(8, 5)"}], "caption": "Reflect in x = 1, then in x = 4: P ends up 6 units to the right, twice the gap of 3 between the lines."}
+```
 
 ## Symmetry
 

@@ -236,7 +236,7 @@
   choices: ['No rectangle is a square.', 'All squares are rectangles.', 'Some rectangle is not a square.', 'Some square is not a rectangle.']
   answer: 2
   explanation: |-
-    To negate "All A are B", switch to "some" and negate what follows: some A is not B. "No rectangle is a square" is the opposite extreme, and it is false (a square is a rectangle), while the original is also false; a statement and its negation can't both be false. "All squares are rectangles" is the converse.
+    To negate "All A are B", switch to "some" and negate what follows: some A is not B. "No rectangle is a square" is the opposite extreme: it is false (a square is a rectangle), just like the original, so it can't be the negation, which always has the opposite truth value. "All squares are rectangles" is the converse.
 - id: geo-m2-r2-h06
   lesson: geo-m2-h-symbolic-logic
   type: match
@@ -424,7 +424,7 @@
   type: text
   topic: Proof methods
   stem: 'In the proof that an odd number has an odd square, $n = 2k + 1$ gives $n^2 = 2m + 1$, where $m =$ ___ (write $m$ in terms of $k$).'
-  accept: ['2k^2+2k', '2k²+2k', '2k+2k^2', '2k+2k²', '2k(k+1)', '2(k^2+k)', '2(k²+k)', '2k*k+2k', '2*k^2+2*k', '2k^2+2k^1']
+  accept: ['2k^2+2k', '2k²+2k', '2k+2k^2', '2k+2k²', '2k(k+1)', '2(k^2+k)', '2(k²+k)', '2k*k+2k', '2*k^2+2*k']
   explanation: |-
     $n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$, so $m = 2k^2 + 2k$. Since $m$ is a whole number, $n^2$ is one more than an even number, so it is odd.
 - id: geo-m2-r2-h23

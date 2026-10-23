@@ -15,6 +15,8 @@ A **parabola** is the set of all points in a plane that are the same distance fr
 
 Two more names follow from the definition. The line through the focus perpendicular to the directrix is the **axis of symmetry**; the parabola is its own mirror image across this line. The point of the parabola on the axis, halfway between the focus and the directrix, is the **vertex of the parabola**.
 
+![A parabola opening upward. Its focus F sits on the dotted vertical axis of symmetry, a little above the vertex V, and the dashed horizontal directrix lies the same distance below V. A point P on the parabola is joined to F and, by a perpendicular segment, to the directrix; tick marks show the two segments are equal.](images/geo-m9-parabola-parts.svg)
+
 ```plot
 {"x": [-6, 6], "y": [-2, 7], "equal": true, "functions": [{"f": "x^2/4", "label": "x² = 4y"}, {"f": "-1", "dashed": true, "label": "directrix y = -1"}], "points": [{"at": [0, 1], "label": "F"}, {"at": [4, 4], "label": "P (4, 4)"}, {"at": [0, 0], "label": "V"}], "segments": [{"from": [4, 4], "to": [0, 1], "label": "5"}, {"from": [4, 4], "to": [4, -1], "dashed": true, "label": "5"}], "caption": "Focus F(0, 1), vertex V(0, 0). P is 5 units from F and 5 units from the directrix."}
 ```
