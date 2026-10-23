@@ -37,6 +37,19 @@ A pyramid's volume is one-third of the prism with the same base and height:
 
 $$V_{\text{pyramid}} = \tfrac13 Bh, \qquad V_{\text{cone}} = \tfrac13 \pi r^2 h.$$
 
+Which formula applies depends on the solid's shape:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a volume formula
+  accDescr: If the solid has the same cross section all the way up, it is a prism or cylinder and its volume is base area times height. If it narrows to a point, it is a pyramid or cone and its volume is one third of base area times height. If it is a ball, its volume is four thirds pi r cubed. In every case the height is the perpendicular height, never the slant height.
+  A{"What happens to the cross sections as you go up?"} -->|"they stay the same"| B["Prism or cylinder: V = Bh"]
+  A -->|"they shrink to a point"| C["Pyramid or cone: V = ⅓Bh"]
+  A -->|"it is a ball"| D["Sphere: V = (4/3)πr³"]
+  B --> E["Use the perpendicular height, not the slant height"]
+  C --> E
+```
+
 *Where the $\tfrac13$ comes from.* A cube can be cut into three congruent square pyramids, each with the cube's face as base and the cube's edge as height (all three share one corner of the cube as their apex). So each is $\tfrac13$ of the cube. Cavalieri's principle then extends the $\tfrac13$ to every pyramid with the same base area and height, and cones are the limit of pyramids. You can test it by filling a cone with water: three cones fill the cylinder with the same base and height.
 
 ### Example 1
@@ -49,6 +62,10 @@ $V = \tfrac13 \pi (36)(10) = 120\pi \approx 376.99$.
 
 A square pyramid has base edge 9 and slant height 7.5. Find its volume.
 
+The picture shows the right triangle that connects the two heights: the height $h$, half the base edge $\tfrac{s}{2}$, and the slant height $\ell$ up the middle of a face. A lateral edge (from the apex to a corner of the base) is longer than the slant height, so don't mix them up either.
+
+![A square pyramid. A dashed height h drops from the apex to the center of the base. A dashed segment of length s over 2 runs from the center to the midpoint of a base edge, and a dotted slant height l runs up the middle of that triangular face to the apex, forming a right triangle with h and s over 2. A lateral edge runs from the apex to a base corner, and a base edge s is labeled along the front.](images/geo-m8-pyramid-parts.svg)
+
 **Step 1.** We need the height, not the slant height. The height, half the base edge and the slant height form a right triangle: $h = \sqrt{7.5^2 - 4.5^2} = \sqrt{56.25 - 20.25} = \sqrt{36} = 6$.
 
 **Step 2.** $V = \tfrac13 (81)(6) = 162$.
@@ -57,9 +74,15 @@ A square pyramid has base edge 9 and slant height 7.5. Find its volume.
 
 $$V_{\text{sphere}} = \tfrac43 \pi r^3.$$
 
+A neat way to remember the $\tfrac13$ and the $\tfrac43$: a cone, a sphere and a cylinder with the same radius $r$ and the same height $2r$ have volumes $\tfrac23 \pi r^3$, $\tfrac43 \pi r^3$ and $2\pi r^3$, in the ratio $1 : 2 : 3$.
+
+![A cone, a sphere and a cylinder side by side, each with radius r and height 2r. Their volumes are two thirds pi r cubed, four thirds pi r cubed and 2 pi r cubed, in the ratio 1 to 2 to 3.](images/geo-m8-archimedes.svg)
+
 *Archimedes' argument (via Cavalieri).* Compare a hemisphere of radius $r$ with a cylinder of radius $r$ and height $r$ that has a cone (apex down) removed from it. At height $y$, the hemisphere's cross section is a circle of radius $\sqrt{r^2 - y^2}$, with area $\pi(r^2 - y^2)$. The other solid's cross section is a ring: the cylinder's circle $\pi r^2$ minus the cone's circle $\pi y^2$, again $\pi(r^2 - y^2)$. Equal cross sections at every level, so equal volumes:
 
 $$V_{\text{hemisphere}} = \pi r^2 \cdot r - \tfrac13 \pi r^2 \cdot r = \tfrac23 \pi r^3.$$
+
+![On the left, a hemisphere of radius r sliced by a plane at height y; the slice is a disk of radius the square root of r squared minus y squared. On the right, a cylinder of radius r and height r with a cone removed, its apex at the bottom center; the same plane slices it in a ring with outer radius r and inner radius y.](images/geo-m8-hemisphere-slice.svg)
 
 Doubling gives the sphere: $\tfrac43 \pi r^3$. Archimedes was so pleased with this result that he asked for a sphere inside a cylinder to be carved on his tomb.
 

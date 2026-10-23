@@ -21,6 +21,10 @@ Cut a circle into many equal wedges and lay them out alternately point-up and po
 
 $$A = \pi r \cdot r = \pi r^2.$$
 
+Here it is with 12 wedges. Each wedge's curved edge is $\tfrac{1}{12}$ of the circumference, and half the wedges point each way, so the top and the bottom of the new shape are each half the circumference. With more wedges the bumps flatten out and the slanted ends stand up straight.
+
+![On the left, a circle cut into 12 equal wedges in alternating colors. On the right, the same wedges laid side by side, alternately point-up and point-down, forming a bumpy shape close to a parallelogram whose height is the radius r and whose bottom edge is about half the circumference, pi r.](images/geo-m8-circle-wedges.svg)
+
 ### Example 1
 
 A circle has circumference $18\pi$. Find its area.
@@ -60,6 +64,10 @@ For a regular polygon:
 - the **apothem** $a$ is the distance from the center to a side (perpendicular to it);
 - the **central angle** is $\tfrac{360^\circ}{n}$.
 
+The picture labels these parts on a regular octagon, whose central angle is $\tfrac{360^\circ}{8} = 45^\circ$.
+
+![A regular octagon with its center marked. A solid segment from the center to a vertex is the radius r, a dashed segment from the center meeting the bottom side at a right angle is the apothem a, a shaded wedge between two neighboring radii shows a 45 degree central angle, and one side is labeled s.](images/geo-m8-regular-polygon.svg)
+
 Segments from the center to every vertex cut a regular $n$-gon into $n$ congruent isosceles triangles, each with base $s$ (a side) and height $a$. Their total area is $n \cdot \tfrac12 sa = \tfrac12 a(ns)$, and $ns$ is the perimeter $P$:
 
 $$A = \tfrac12 aP.$$
@@ -71,6 +79,19 @@ $$A = \tfrac12 aP.$$
 To find the apothem, use the right triangle formed by the apothem, half a side, and a radius. The angle at the center in that triangle is half the central angle, $\tfrac{180^\circ}{n}$, so
 
 $$a = \frac{s/2}{\tan(180^\circ/n)}.$$
+
+Put together, finding a regular polygon's area always follows the same steps:
+
+```mermaid
+flowchart TD
+  accTitle: Steps for the area of a regular polygon
+  accDescr: First find the number of sides n and the side length s. Then the central angle is 360 degrees divided by n. Half of it, 180 degrees divided by n, is the angle at the center of the right triangle made by the apothem, half a side and a radius. The apothem is half the side divided by the tangent of that angle. The perimeter is n times s. Finally the area is one half times the apothem times the perimeter.
+  A["Find n (number of sides) and s (side)"] --> B["Central angle = 360° ÷ n"]
+  B --> C["Half of it, 180° ÷ n, sits at the center of the right triangle"]
+  C --> D["Apothem a = (s/2) ÷ tan(180° ÷ n)"]
+  D --> E["Perimeter P = n × s"]
+  E --> F["Area = ½ × a × P"]
+```
 
 ### Example 3
 

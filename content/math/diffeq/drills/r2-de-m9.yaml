@@ -43,13 +43,13 @@
   title: Steady temperature in a rectangular plate
   topic: Laplace's equation
   vars:
-    wid: {choices: [1, 2, 3]}
+    wid: {choices: [2, 3]}
     ht: {choices: [1, 2]}
     n: {choices: [1, 2, 3]}
     A: {min: 10, max: 50, step: 5}
     xf: {choices: [0.25, 0.5, 0.75]}
     yf: {choices: [0.25, 0.5, 0.75]}
-  where: ['abs(u) > 0.05']
+  where: ['abs(u) > 0.05', 'gcd(n, wid) == 1']
   calc:
     x0: xf*wid
     y0: yf*ht

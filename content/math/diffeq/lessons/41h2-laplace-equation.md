@@ -76,7 +76,7 @@ The isotherms (curves of constant temperature) of this solution show how the hea
 the top edge spreads down into the plate:
 
 ```plot
-{"x": [0, 2], "y": [0, 1], "equal": true, "functions": [{"f": "(2/pi)*asinh(1*2.3012989/(10*sin(pi*x/2)))", "label": "u = 1"}, {"f": "(2/pi)*asinh(3*2.3012989/(10*sin(pi*x/2)))", "label": "u = 3"}, {"f": "(2/pi)*asinh(5*2.3012989/(10*sin(pi*x/2)))", "label": "u = 5"}, {"f": "(2/pi)*asinh(8*2.3012989/(10*sin(pi*x/2)))", "label": "u = 8"}], "caption": "Isotherms u = 1, 3, 5 and 8 for Example 1 on the plate 0 < x < 2, 0 < y < 1. The hottest curves hug the middle of the top edge, where f is largest."}
+{"x": [0, 2], "y": [0, 1], "equal": true, "functions": [{"f": "(2/pi)*asinh(1*2.3012989/(10*sin(pi*x/2)))"}, {"f": "(2/pi)*asinh(3*2.3012989/(10*sin(pi*x/2)))"}, {"f": "(2/pi)*asinh(5*2.3012989/(10*sin(pi*x/2)))"}, {"f": "(2/pi)*asinh(8*2.3012989/(10*sin(pi*x/2)))"}], "caption": "Isotherms of Example 1 on the plate 0 < x < 2, 0 < y < 1: from bottom to top, u = 1, 3, 5 and 8. The hotter the isotherm, the closer it stays to the middle of the top edge, where f is largest."}
 ```
 
 ### Example 2: a whole edge at 100°, and a symmetry check

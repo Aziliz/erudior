@@ -71,7 +71,7 @@ $f(x) = \max(0,\ 1 - |x|)$: height 1 at $x = 0$, zero outside $|x| < 1$.
   the peak of the right-moving half has reached $x = 2$.
 
 ```plot
-{"x": [-3.5, 3.5], "y": [-0.1, 1.1], "functions": [{"f": "max(0, 1 - abs(x))", "dashed": true, "label": "t = 0"}, {"f": "0.5*max(0, 1 - abs(x - 0.5)) + 0.5*max(0, 1 - abs(x + 0.5))", "label": "t = 0.25"}, {"f": "0.5*max(0, 1 - abs(x - 1.5)) + 0.5*max(0, 1 - abs(x + 1.5))", "label": "t = 0.75"}], "caption": "Example 1 (a = 2): the initial triangle (dashed) splits into two half-height copies moving apart at speed 2, shown at t = 0.25 (still overlapping) and t = 0.75 (separated)."}
+{"x": [-3.5, 3.5], "y": [-0.1, 1.1], "functions": [{"f": "max(0, 1 - abs(x))", "dashed": true}, {"f": "0.5*max(0, 1 - abs(x - 0.5)) + 0.5*max(0, 1 - abs(x + 0.5))"}, {"f": "0.5*max(0, 1 - abs(x - 1.5)) + 0.5*max(0, 1 - abs(x + 1.5))"}], "caption": "Example 1 (a = 2): the initial triangle (dashed, t = 0) splits into two half-height copies moving apart at speed 2. At t = 0.25 they still overlap, giving the flat-topped shape; at t = 0.75 they are two separate triangles centred at x = ±1.5."}
 ```
 
 ## Domain of dependence and finite speed

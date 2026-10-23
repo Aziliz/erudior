@@ -105,7 +105,7 @@ How you prove or disprove a statement depends on its quantifier:
 ## Choosing a method
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Choosing a proof method
   accDescr: Look at the statement you want to prove. If the givens lead forward naturally to the conclusion, use a direct proof. If the conclusion says "not", "no", "neither" or "at most", try a proof by contrapositive or by contradiction. If the hypothesis splits into possibilities, use proof by cases. If the claim is that something exists, find one example. If you doubt a claim about every object, look for a counterexample.
   S["Statement to prove"] --> A("What does it look like?")

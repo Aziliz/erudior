@@ -52,6 +52,10 @@ $$A = \tfrac12 (b_1 + b_2) h.$$
 
 Equivalently, area $=$ midsegment × height, since the midsegment is $\tfrac{b_1 + b_2}{2}$.
 
+The picture names the parts of a trapezoid. Only the two bases and the height go into the area formula; the legs matter only for the perimeter (or for finding a missing height, as in Example 2).
+
+![A trapezoid with its shorter base b1 on top and longer base b2 on the bottom, a dashed perpendicular height h between them, a slanted leg on each side, and a dotted midsegment joining the midpoints of the legs.](images/geo-m8-trapezoid-parts.svg)
+
 ### Example 2
 
 A trapezoid has bases 9 and 15 and legs of 5 (isosceles). Find its area.
@@ -111,6 +115,28 @@ Find the area of the triangle with vertices $(1, 1)$, $(7, 3)$ and $(3, 6)$.
 **Step 2.** Subtract the three right triangles in the corners: $\tfrac12 \cdot 6 \cdot 2 = 6$ (bottom), $\tfrac12 \cdot 4 \cdot 3 = 6$ (right), and $\tfrac12 \cdot 2 \cdot 5 = 5$ (left).
 
 **Step 3.** $30 - 6 - 6 - 5 = 13$.
+
+```plot
+{"x": [0, 8], "y": [0, 7], "equal": true, "polygons": [{"points": [[1, 1], [7, 3], [3, 6]], "fill": true}], "segments": [{"from": [1, 1], "to": [7, 1], "dashed": true}, {"from": [7, 1], "to": [7, 6], "dashed": true}, {"from": [7, 6], "to": [1, 6], "dashed": true}, {"from": [1, 6], "to": [1, 1], "dashed": true}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [7, 3], "label": "(7, 3)"}, {"at": [3, 6], "label": "(3, 6)"}], "labels": [{"at": [5.2, 1.6], "text": "6"}, {"at": [5.6, 4.9], "text": "6"}, {"at": [1.6, 4.4], "text": "5"}], "caption": "The 6 × 5 rectangle around the triangle; the three corner right triangles (areas 6, 6 and 5) are cut away, leaving 13."}
+```
+
+## Choosing a formula
+
+The chart sums up which formula to reach for. When none fits, cut the figure into pieces or subtract it from a rectangle.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a polygon area formula
+  accDescr: Start by naming the shape. A parallelogram or rectangle uses base times height. A trapezoid uses one half times the sum of the bases times the height. A rhombus or kite uses one half times the product of the diagonals. For a triangle, if you know a base and its height use one half base times height; if you know two sides and the angle between them use one half a b sine C; if you know only the three sides use Heron's formula. Any other polygon is split into pieces or subtracted from a rectangle.
+  A{"What shape is it?"} -->|"parallelogram or rectangle"| P["A = bh"]
+  A -->|"trapezoid"| T["A = ½(b1 + b2)h"]
+  A -->|"rhombus or kite"| K["A = ½ d1 d2"]
+  A -->|"triangle"| B{"What do you know?"}
+  B -->|"a base and its height"| B1["A = ½bh"]
+  B -->|"two sides and the angle between"| B2["A = ½ab sin C"]
+  B -->|"only the three sides"| B3["Heron's formula"]
+  A -->|"some other polygon"| C["Split it into pieces, or subtract from a rectangle"]
+```
 
 ## Common mistakes
 

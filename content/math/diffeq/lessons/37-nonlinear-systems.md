@@ -142,7 +142,7 @@ and wavy curves above and below (whirling over the top). They are separated by t
 separatrices $y = \pm 2|\cos(x/2)|$, which run into the saddles.
 
 ```plot
-{"x": [-7, 7], "y": [-3.5, 3.5], "xLabel": "angle x", "yLabel": "angular velocity y", "vectorField": {"u": "y", "v": "-sin(x)", "step": 0.7}, "functions": [{"f": "2*abs(cos(x/2))", "dashed": true}, {"f": "-2*abs(cos(x/2))", "dashed": true}], "points": [{"at": [0, 0], "label": "center"}, {"at": [-3.14159, 0], "label": "saddle"}, {"at": [3.14159, 0], "label": "saddle"}, {"at": [6.28319, 0]}, {"at": [-6.28319, 0]}], "caption": "Pendulum phase plane x′ = y, y′ = −sin x: centers at x = 0, ±2π, saddles at x = ±π, and the dashed separatrices between swinging and whirling motion."}
+{"x": [-7, 7], "y": [-3.5, 3.5], "xLabel": "angle x", "yLabel": "angular velocity y", "vectorField": {"u": "y", "v": "-sin(x)", "step": 0.7}, "functions": [{"f": "2*abs(cos(x/2))", "dashed": true}, {"f": "-2*abs(cos(x/2))", "dashed": true}], "points": [{"at": [0, 0], "label": "center"}, {"at": [-3.14159, 0]}, {"at": [3.14159, 0]}, {"at": [6.28319, 0]}, {"at": [-6.28319, 0]}], "caption": "Pendulum phase plane x′ = y, y′ = −sin x: centers at x = 0, ±2π, saddles at x = ±π, and the dashed separatrices between swinging and whirling motion."}
 ```
 
 ## Common mistakes

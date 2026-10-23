@@ -40,7 +40,7 @@ For $A(0, 0)$, $B(10, 0)$, $C(8, 6)$, $D(2, 8)$, find the Varignon parallelogram
 
 **Step 3.** $EF = \sqrt{4^2 + 3^2} = 5$ and $FG = \sqrt{(-4)^2 + 4^2} = 4\sqrt2$, so the perimeter is $10 + 8\sqrt2 \approx 21.31$. The diagonals are $AC = 10$ and $BD = \sqrt{8^2 + 8^2} = 8\sqrt2$, with the same sum. ✓
 
-**Step 4.** The shoelace formula (Module 9) gives $ABCD$ an area of 56. The parallelogram's area is $|4 \cdot 4 - 3 \cdot (-4)| = 28$, using the cross product of the side vectors $(4, 3)$ and $(-4, 4)$. Half of 56. ✓
+**Step 4.** For the area, enclose each figure in a box and subtract the right triangles at the corners (the "box method"). $ABCD$: split it along $\overline{AC}$. $\triangle ABC$ has base $AB = 10$ and height 6, so area 30. $\triangle ACD$ sits in the box from $(0, 0)$ to $(8, 8)$, area 64, minus corner right triangles of areas $\tfrac12 \cdot 8 \cdot 6 = 24$, $\tfrac12 \cdot 6 \cdot 2 = 6$ and $\tfrac12 \cdot 2 \cdot 8 = 8$, so area 26. Total: 56. $EFGH$ sits in the box from $(1, 0)$ to $(9, 7)$, area 56, minus four corner triangles of areas 6, 8, 6 and 8, so area 28. Half of 56. ✓
 
 ## What shape is the Varignon parallelogram?
 
@@ -119,7 +119,7 @@ True or false: "A quadrilateral whose diagonals are congruent and perpendicular 
 
 This course defines a trapezoid as having *exactly* one pair of parallel sides, and a kite as having no congruent opposite sides. Those are **exclusive definitions**: they leave out the parallelograms and rhombuses. Many mathematicians and some textbooks use **inclusive definitions** instead: a trapezoid has *at least* one pair of parallel sides, and a kite has two pairs of congruent consecutive sides, with no further condition. Then every parallelogram is a trapezoid and every rhombus is a kite, just as every square is a rectangle in both systems.
 
-Neither choice is wrong; definitions are agreements. The argument for inclusive definitions is that theorems reach further. Under the inclusive definition, the Trapezoid Midsegment Theorem automatically covers parallelograms (a segment joining the midpoints of two opposite sides has length $\tfrac{b + b}{2} = b$, which is true), and every kite theorem (perpendicular diagonals, one diagonal bisecting the other) automatically covers rhombuses. The argument for exclusive definitions is that "trapezoid" then names a distinct shape. When you read another book or take a test, check which definition it uses: some statements, like "a trapezoid has exactly one pair of base angles that are supplementary to the other pair", change truth value between the two systems.
+Neither choice is wrong; definitions are agreements. The argument for inclusive definitions is that theorems reach further. Under the inclusive definition, the Trapezoid Midsegment Theorem automatically covers parallelograms (a segment joining the midpoints of two opposite sides has length $\tfrac{b + b}{2} = b$, which is true), and the kite theorems about diagonals (perpendicular, one bisecting the other) automatically cover rhombuses. The argument for exclusive definitions is that "trapezoid" then names a distinct shape. When you read another book or take a test, check which definition it uses: some statements, like "no trapezoid is a parallelogram", are true in one system and false in the other.
 
 ## Common mistakes
 

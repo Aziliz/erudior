@@ -19,6 +19,21 @@ A **polyhedron** is a solid bounded by polygons, called **faces**. Faces meet in
 - A **cone** has one circular base and a curved surface rising to an apex.
 - A **sphere** is the set of points in space at a fixed distance $r$ from a center.
 
+To name a solid, ask whether every face is flat, then count its bases:
+
+```mermaid
+flowchart TD
+  accTitle: Naming a solid
+  accDescr: If every face of the solid is a flat polygon, it is a polyhedron. A polyhedron with two congruent parallel bases is a prism; one with a single base and lateral faces meeting at an apex is a pyramid. If the solid has a curved surface, count its flat circular bases: two means a cylinder, one means a cone, and none means a sphere.
+  A{"Are all its faces flat polygons?"} -->|"yes: a polyhedron"| B{"Two congruent parallel bases?"}
+  B -->|"yes"| P["Prism"]
+  B -->|"no: one base and an apex"| Q["Pyramid"]
+  A -->|"no: it has a curved surface"| C{"How many flat circular bases?"}
+  C -->|"two"| Cy["Cylinder"]
+  C -->|"one"| Co["Cone"]
+  C -->|"none"| S["Sphere"]
+```
+
 ```shape
 {"polygons": [{"points": [[0, 0], [4, 0], [4, 3], [0, 3]]}, {"points": [[4, 0], [6, 1.5], [6, 4.5], [4, 3]]}, {"points": [[0, 3], [4, 3], [6, 4.5], [2, 4.5]]}, {"points": [[9, 0], [13, 0], [11, 4]]}, {"points": [[13, 0], [14.5, 1], [11, 4]]}], "segments": [{"from": [0, 0], "to": [2, 1.5], "dashed": true}, {"from": [2, 1.5], "to": [6, 1.5], "dashed": true}, {"from": [2, 1.5], "to": [2, 4.5], "dashed": true}, {"from": [9, 0], "to": [10.5, 1], "dashed": true}, {"from": [10.5, 1], "to": [14.5, 1], "dashed": true}, {"from": [10.5, 1], "to": [11, 4], "dashed": true}], "caption": "A rectangular prism and a square pyramid (hidden edges dashed)."}
 ```
@@ -49,6 +64,8 @@ where $B$ is the area of one base. A cylinder works the same way: its curved sid
 
 $$L = 2\pi r h, \qquad S = 2\pi r h + 2\pi r^2.$$
 
+![On the left, a cylinder with radius r and height h. An arrow points to its net on the right: a rectangle of height h whose width is 2 pi r, the circumference, with a circle of radius r attached above and below.](images/geo-m8-cylinder-net.svg)
+
 ### Example 1
 
 Find the surface area of a box 8 by 5 by 3.
@@ -73,7 +90,11 @@ A cone is the limit of regular pyramids as the number of base sides grows (the b
 
 $$L = \pi r\ell, \qquad S = \pi r\ell + \pi r^2.$$
 
-The slant height is *not* the height. In a right cone, the height $h$, radius $r$ and slant height $\ell$ form a right triangle: $\ell = \sqrt{r^2 + h^2}$. In a square pyramid with base edge $s$, use half the base edge: $\ell = \sqrt{(s/2)^2 + h^2}$.
+The slant height is *not* the height. In a right cone, the height $h$, radius $r$ and slant height $\ell$ form a right triangle: $\ell = \sqrt{r^2 + h^2}$. The picture shows that right triangle inside a cone.
+
+![A right cone. A dashed height h runs from the apex straight down to the center of the circular base, meeting a radius r at a right angle. The slanted side from the apex to the edge of the base is the slant height l, the hypotenuse of the right triangle formed by h and r.](images/geo-m8-cone-parts.svg)
+
+In a square pyramid with base edge $s$, use half the base edge: $\ell = \sqrt{(s/2)^2 + h^2}$.
 
 ### Example 3
 
