@@ -74,7 +74,7 @@ For $\varepsilon = 0.01$: $N = 500 - 2 = 498$. At $x = 499$ the distance is $5/5
 
 ## Proving the sum law
 
-**Sum law.** If $\lim_{x\to a} f(x) = L$ and $\lim_{x\to a} g(x) = K$, then $\lim_{x\to a}\,[f(x) + g(x)] = L + K$.
+*Sum law.* If $\lim_{x\to a} f(x) = L$ and $\lim_{x\to a} g(x) = K$, then $\lim_{x\to a}\,[f(x) + g(x)] = L + K$.
 
 The proof needs one tool, the **triangle inequality**:
 
@@ -89,8 +89,8 @@ $$\big|(f(x) + g(x)) - (L + K)\big| = \big|(f(x) - L) + (g(x) - K)\big| \le |f(x
 
 Two moves carry the whole proof, and they come back in nearly every analysis proof:
 
-1. **Split the error budget.** Two errors are coming, so ask each one for half.
-2. **Take the minimum of the deltas**, so that every requirement holds in one window.
+1. *Split the error budget.* Two errors are coming, so ask each one for half.
+2. *Take the minimum of the deltas*, so that every requirement holds in one window.
 
 *The product law, in outline.* The key is an algebra identity that adds and subtracts $f(x)K$:
 $$f(x)g(x) - LK = f(x)\,\big(g(x) - K\big) + K\,\big(f(x) - L\big).$$
@@ -102,7 +102,7 @@ To prove "$\lim_{x\to a} f(x) = L$" is *false*, you need the **negation** of the
 
 > There is some $\varepsilon > 0$ such that for every $\delta > 0$ there is an $x$ with $0 < |x - a| < \delta$ but $|f(x) - L| \ge \varepsilon$.
 
-In game terms, the skeptic has one winning tolerance: whatever window you offer, they can find a point in it whose output is too far from $L$. To show the limit doesn't exist *at all*, you must win this game against **every** candidate $L$, not just the obvious ones.
+In game terms, the skeptic has one winning tolerance: whatever window you offer, they can find a point in it whose output is too far from $L$. To show the limit doesn't exist *at all*, you must win this game against *every* candidate $L$, not just the obvious ones.
 
 ```mermaid
 flowchart TD

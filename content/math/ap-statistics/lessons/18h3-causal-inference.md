@@ -134,8 +134,8 @@ poverty or neighborhood couldn't explain a difference that size. Snow's conclusi
 spread through water came nearly thirty years before Robert Koch isolated the cholera bacterium
 in 1883–84.
 
-```plot
-{"x": [0, 3], "y": [0, 350], "xLabel": "water company", "yLabel": "deaths per 10,000 houses", "bars": [{"x": 1, "height": 315, "width": 0.6, "label": "Southwark and Vauxhall"}, {"x": 2, "height": 37, "width": 0.6, "label": "Lambeth"}], "caption": "Cholera deaths per 10,000 houses in Snow's 1854 comparison"}
+```shape
+{"bars": [{"x": 1.5, "height": 6.3, "width": 1.6, "label": "Southwark and Vauxhall"}, {"x": 5, "height": 0.74, "width": 1.6, "label": "Lambeth"}], "segments": [{"from": [0, 0], "to": [6.5, 0]}], "labels": [{"at": [1.5, 6.8], "text": "315"}, {"at": [5, 1.25], "text": "37"}], "caption": "Cholera deaths per 10,000 houses in Snow's 1854 comparison (bar heights to scale)"}
 ```
 
 ## Weighing the evidence: smoking and lung cancer

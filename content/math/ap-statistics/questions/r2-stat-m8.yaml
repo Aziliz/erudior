@@ -1,0 +1,259 @@
+# Round 2, module stat-m8 (Significance tests): new question types for the core lessons
+# (stat-m8-r2-q..) and questions for the three honors lessons (stat-m8-r2-h..).
+
+# ---- Lesson 33: the logic of significance tests
+- id: stat-m8-r2-q01
+  lesson: stat-test-logic
+  type: label
+  module_quiz: true
+  topic: Significance tests
+  stem: 'A one-sided test of $H_0: p = 0.80$ against $H_a: p < 0.80$ uses $n = 200$ and $\alpha = 0.05$. The curve is the sampling distribution of $\hat{p}$ if $H_0$ is true; the sample gave $\hat{p} = 0.74$, and $\hat{p} = 0.7535$ is the boundary of the rejection region. Name each numbered part.'
+  image: {src: images/stat-m8-test-anatomy-blank.svg, alt: 'A normal curve over a sample-proportion axis from 0.72 to 0.88, centered at 0.80 with a dotted center line (marker 1). A dashed vertical line at about 0.7535 (marker 2) and a solid vertical line at 0.74 (marker 3). The region left of the dashed line is shaded; the small tail left of the solid line is shaded darker (marker 4).'}
+  labels:
+    - {x: 58.5, y: 55.3, text: Null value}
+    - {x: 40.5, y: 19.7, text: Critical value}
+    - {x: 35.4, y: 19.7, text: Observed statistic}
+    - {x: 31.5, y: 77.1, text: p-value}
+  distractors: [Power, Margin of error]
+  explanation: |-
+    1: the curve is centered at the null value $p_0 = 0.80$, because it is drawn assuming $H_0$ is true. 2: the dashed line at 0.7535 ($z = -1.645$) is the critical value; everything to its left is the rejection region, with area $\alpha = 0.05$. 3: the solid line is the observed $\hat{p} = 0.74$ ($z = -2.12$). 4: the darker tail beyond the observed value is the p-value, about 0.017. Power needs a curve drawn for a specific alternative, and a margin of error belongs to a confidence interval.
+
+- id: stat-m8-r2-q02
+  lesson: stat-test-logic
+  type: order
+  module_quiz: true
+  topic: Significance tests
+  stem: 'Put the steps of a significance test in order.'
+  items:
+    - 'State $H_0$, $H_a$ and $\alpha$ before looking at the data'
+    - 'Name the test and check its conditions'
+    - 'Compute the test statistic and the p-value, assuming $H_0$ is true'
+    - 'Compare the p-value with $\alpha$ and conclude in context'
+  explanation: |-
+    This is State, Plan, Do, Conclude. The hypotheses and $\alpha$ come first so the data can't influence them; the conditions are checked before any probability is trusted; the p-value has to exist before it can be compared with $\alpha$.
+
+- id: stat-m8-r2-q03
+  lesson: stat-test-logic
+  type: text
+  topic: Significance tests
+  stem: 'A test of $H_0: \mu = 80$ against $H_a: \mu \ne 80$ gives $z = -1.70$. The p-value, rounded to 3 decimal places, is ___.'
+  accept: ['0.089']
+  explanation: |-
+    $P(Z \le -1.70) \approx 0.0446$. The alternative is two-sided, so double it: $2(0.0446) \approx 0.089$. (Forgetting to double gives 0.045, which would wrongly look significant at $\alpha = 0.05$.)
+
+- id: stat-m8-r2-q04
+  lesson: stat-test-logic
+  topic: Significance tests
+  stem: 'A test of $H_0: p = 0.5$ against $H_a: p > 0.5$ gives a p-value of 0.03. Which statements are correct? Select all that apply.'
+  choices:
+    - 'If $p$ really were 0.5, about 3% of samples would give a result at least as extreme as this one.'
+    - 'There is a 3% chance that the null hypothesis is true.'
+    - 'At $\alpha = 0.05$ the result is statistically significant.'
+    - 'At $\alpha = 0.01$ the test shows that $p = 0.5$.'
+  answer: [0, 2]
+  explanation: |-
+    The p-value is computed assuming $H_0$, so it is a probability about the data, not about $H_0$. Since $0.03 \le 0.05$, the result is significant at the 5% level. At $\alpha = 0.01$ we would fail to reject $H_0$, which is not the same as showing that $H_0$ is true.
+
+- id: stat-m8-r2-q05
+  lesson: stat-test-logic
+  topic: Significance tests
+  stem: 'A 95% confidence interval for a mean $\mu$ is $(48.2, 53.6)$. A two-sided test at $\alpha = 0.05$ would reject which null hypothesis?'
+  choices: ['$H_0: \mu = 49$', '$H_0: \mu = 53.5$', '$H_0: \mu = 47.5$', '$H_0: \mu = 50.9$']
+  answer: 2
+  explanation: |-
+    A two-sided test at level $\alpha$ rejects exactly the null values that fall outside the $(1 - \alpha)$ confidence interval. Only 47.5 is outside $(48.2, 53.6)$. The other three values are plausible, so those tests would fail to reject.
+
+# ---- Lesson 34: Type I and Type II errors and power
+- id: stat-m8-r2-q06
+  lesson: stat-errors-power
+  type: label
+  module_quiz: true
+  topic: Errors and power
+  stem: 'The grid crosses the truth (columns: $H_0$ true, $H_0$ false) with the decision (rows: reject $H_0$, fail to reject $H_0$). Name each numbered cell.'
+  image: {src: images/stat-m8-error-grid-blank.svg, alt: 'A two-by-two grid with column headings H0 is true and H0 is false and row headings Reject H0 and Fail to reject H0. Marker 1: reject, H0 true. Marker 2: reject, H0 false. Marker 3: fail to reject, H0 true. Marker 4: fail to reject, H0 false.'}
+  labels:
+    - {x: 48.4, y: 40.6, text: Type I error}
+    - {x: 80.6, y: 40.6, text: Power (correct rejection)}
+    - {x: 48.4, y: 70.6, text: 'Correct decision, probability 1 − α'}
+    - {x: 80.6, y: 70.6, text: Type II error}
+  distractors: [p-value, Margin of error]
+  explanation: |-
+    1: rejecting a true $H_0$ is a Type I error (probability $\alpha$). 2: rejecting a false $H_0$ is the correct detection whose probability is the power, $1 - \beta$. 3: failing to reject a true $H_0$ is correct, with probability $1 - \alpha$. 4: failing to reject a false $H_0$ is a Type II error (probability $\beta$).
+
+- id: stat-m8-r2-q07
+  lesson: stat-errors-power
+  type: label
+  topic: Errors and power
+  stem: 'Test $H_0: \mu = 50$ against $H_a: \mu > 50$ with $\sigma_{\bar{x}} = 2$ and $\alpha = 0.05$. The solid curve is the sampling distribution of $\bar{x}$ if $H_0$ is true; the dashed curve is the sampling distribution if the true mean is 55. Name each numbered part.'
+  image: {src: images/stat-m8-alpha-beta-blank.svg, alt: 'Two normal curves over a sample-mean axis from 44 to 60: a solid one centered at 50 and a dashed one centered at 55. A vertical line at about 53.3 (marker 4). Marker 1 is on the small shaded area right of the line under the solid curve; marker 2 is on the shaded area left of the line under the dashed curve; marker 3 is on the large shaded area right of the line under the dashed curve.'}
+  labels:
+    - {x: 57.8, y: 76.6, text: 'α, the Type I error probability'}
+    - {x: 50.3, y: 72.4, text: 'β, the Type II error probability'}
+    - {x: 73.3, y: 52.6, text: Power}
+    - {x: 54.5, y: 19.7, text: Rejection cutoff}
+  distractors: [p-value, Confidence level]
+  explanation: |-
+    The vertical line is the cutoff $50 + 1.645(2) = 53.29$: reject $H_0$ when $\bar{x}$ lands to its right. 1: the area right of the cutoff under the $H_0$ curve is $\alpha = 0.05$, the chance of rejecting when $H_0$ is true. 2: the area left of the cutoff under the true ($\mu = 55$) curve is $\beta \approx 0.20$, the chance of missing the effect. 3: the area right of the cutoff under the true curve is the power, about 0.80. A p-value would need an observed $\bar{x}$, which this picture doesn't have.
+
+- id: stat-m8-r2-q08
+  lesson: stat-errors-power
+  type: match
+  topic: Errors and power
+  stem: 'Match each description to its name.'
+  pairs:
+    - [Rejecting a null hypothesis that is true, Type I error]
+    - [Failing to reject a null hypothesis that is false, Type II error]
+    - ['The probability of rejecting $H_0$ when a specific alternative is true', Power]
+    - ['The probability of rejecting $H_0$ when $H_0$ is true', Significance level]
+  distractors: [p-value]
+  explanation: |-
+    A Type I error is a false alarm and a Type II error a missed effect. Power is the probability of correctly rejecting against a stated alternative ($1 - \beta$), and the significance level $\alpha$ is the Type I error probability, fixed before the data are collected. A p-value is computed from the data, after the fact.
+
+- id: stat-m8-r2-q09
+  lesson: stat-errors-power
+  topic: Errors and power
+  stem: 'A one-sided z test for a mean is planned. With everything else unchanged, which changes increase its power against a fixed alternative? Select all that apply.'
+  choices:
+    - 'Increasing the sample size from 25 to 64'
+    - 'Raising $\alpha$ from 0.01 to 0.05'
+    - 'A true mean closer to the null value'
+    - 'Measuring more precisely, so $\sigma$ is smaller'
+    - 'Switching to a two-sided alternative'
+  answer: [0, 1, 3]
+  explanation: |-
+    A larger $n$ or a smaller $\sigma$ shrinks the standard error, so the two sampling distributions overlap less. A larger $\alpha$ moves the cutoff toward the null value, so more outcomes reject. A true mean closer to $\mu_0$ is a smaller effect, which is harder to detect. A two-sided test splits $\alpha$ between two tails, so it has less power in the true direction than the one-sided test.
+
+- id: stat-m8-r2-q10
+  lesson: stat-errors-power
+  type: text
+  topic: Errors and power
+  stem: 'Test $H_0: \mu = 50$ against $H_a: \mu > 50$ with $\sigma = 10$, $n = 25$ and $\alpha = 0.05$, so the test rejects when $\bar{x} \ge 53.29$. If the true mean is 54, the power, rounded to 2 decimal places, is ___.'
+  accept: ['0.64']
+  explanation: |-
+    If $\mu = 54$, $\bar{x}$ is $N(54, 2)$. Power $= P(\bar{x} \ge 53.29) = P\!\left(Z \ge \dfrac{53.29 - 54}{2}\right) = P(Z \ge -0.355) \approx 0.64$. It lies between the lesson's 0.44 (for $\mu = 53$) and 0.80 (for $\mu = 55$), as it should.
+
+# ---- Lesson 35: tests for proportions
+- id: stat-m8-r2-q11
+  lesson: stat-test-prop
+  type: text
+  topic: Tests for proportions
+  stem: 'A one-proportion z test of $H_0: p = 0.40$ uses a sample of $n = 150$. The standard error in the test statistic is ___. Give only the number.'
+  accept: ['0.04']
+  explanation: |-
+    A test uses the null value: $SE = \sqrt{p_0(1 - p_0)/n} = \sqrt{0.40(0.60)/150} = \sqrt{0.0016} = 0.04$. The sample proportion is not needed for the standard error.
+
+- id: stat-m8-r2-q12
+  lesson: stat-test-prop
+  type: match
+  module_quiz: true
+  topic: Tests for proportions
+  stem: 'Match each standard error to the procedure that uses it.'
+  pairs:
+    - ['$\sqrt{p_0(1-p_0)/n}$', One-proportion z test]
+    - ['$\sqrt{\hat{p}(1-\hat{p})/n}$', One-proportion z interval]
+    - ['$\sqrt{\hat{p}_c(1-\hat{p}_c)\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$', Two-proportion z test]
+    - ['$\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}+\frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$', Two-proportion z interval]
+  explanation: |-
+    Tests compute probabilities assuming $H_0$, so they use what $H_0$ implies: the null value $p_0$ for one sample, and the pooled proportion $\hat{p}_c$ for two samples (since $H_0$ says $p_1 = p_2$). Intervals assume nothing about the parameter, so they use the sample proportions.
+
+- id: stat-m8-r2-q13
+  lesson: stat-test-prop
+  topic: Tests for proportions
+  stem: 'A one-proportion z test of $H_0: p = 0.06$ will use a simple random sample of 150 parts from a batch of 5,000. Which conditions are met? Select all that apply.'
+  choices:
+    - 'Random: the data come from a simple random sample'
+    - '10%: the sample is at most 10% of the batch'
+    - 'Large counts: $np_0 \ge 10$'
+    - 'Large counts: $n(1 - p_0) \ge 10$'
+  answer: [0, 1, 3]
+  explanation: |-
+    The sample is random, and $150 \le 0.10(5{,}000) = 500$. Large counts uses $p_0$: $150(0.06) = 9$, which is below 10, while $150(0.94) = 141$ is fine. With one large-counts check failing, the normal approximation is doubtful; an exact binomial calculation is the safer choice, as in the lesson's Example 4.
+
+- id: stat-m8-r2-q14
+  lesson: stat-test-prop
+  type: order
+  topic: Tests for proportions
+  stem: 'Put the calculation steps of a two-proportion z test in order.'
+  items:
+    - 'Pool: $\hat{p}_c = (X_1 + X_2)/(n_1 + n_2)$'
+    - 'Compute the standard error from $\hat{p}_c$, $n_1$ and $n_2$'
+    - 'Divide $\hat{p}_1 - \hat{p}_2$ by the standard error to get $z$'
+    - 'Find the tail area(s) beyond $z$ named by $H_a$'
+    - 'Compare the p-value with $\alpha$'
+  explanation: |-
+    Each step uses the result of the one before: the pooled standard error needs $\hat{p}_c$, the z statistic needs the standard error, the p-value needs $z$, and the decision needs the p-value.
+
+- id: stat-m8-r2-q15
+  lesson: stat-test-prop
+  topic: Tests for proportions
+  stem: 'Before an experiment, researchers stated that they expected treatment 1 to have a higher success rate than treatment 2. The two-proportion z test gives $z = 2.10$. What is the p-value?'
+  choices: ['0.0357', '0.9821', '0.0089', '0.0179']
+  answer: 3
+  explanation: |-
+    The alternative $H_a: p_1 > p_2$ was set in advance, so the p-value is the upper tail only: $P(Z \ge 2.10) \approx 0.0179$. Doubling (0.0357) is for a two-sided test, 0.9821 is the area to the left, and 0.0089 halves the tail instead of using it.
+
+# ---- Lesson 36: tests for means
+- id: stat-m8-r2-q16
+  lesson: stat-test-mean
+  topic: Tests for means
+  stem: 'The picture shows eight operators'' output with an old and a new jig (the differences match the lesson''s Example 2). Why is a paired t test the right choice here rather than a two-sample t test?'
+  image: {src: images/stat-m8-paired-lines.svg, alt: 'A slope graph joining each of eight operators'' old-jig and new-jig outputs. Operators range from about 16 to 31 units per hour, and six of the eight lines rise by 2 to 5 units.'}
+  choices:
+    - 'Pairing uses twice as many observations as the two-sample test.'
+    - 'The two-sample test needs the two groups to have different sizes.'
+    - 'Each operator used both jigs, so the two columns are not independent; the differences remove the large operator-to-operator variation.'
+    - 'Most operators did worse with the new jig, which only a paired test can detect.'
+  answer: 2
+  explanation: |-
+    The same operator appears in both columns, so the samples are dependent, and the two-sample test's independence condition fails. Working with each operator's difference removes the operator-to-operator spread (16 to 31 units), leaving the much smaller jig effect. Both tests use the same 16 numbers, the two-sample test doesn't need different sizes, and six of the eight operators improved.
+
+- id: stat-m8-r2-q17
+  lesson: stat-test-mean
+  type: match
+  module_quiz: true
+  topic: Tests for means
+  stem: 'Match each study to the significance test it calls for.'
+  pairs:
+    - ['Mean weight of 30 randomly chosen bags compared with the labeled 500 g', One-sample t test]
+    - ['Blood pressure of 20 patients measured before and after a medication', Paired t test]
+    - ['Test scores of 25 students taught online and 28 different students taught in person, randomly assigned', Two-sample t test]
+    - ['Defect rates of parts from two machines', Two-proportion z test]
+  distractors: [One-proportion z test]
+  explanation: |-
+    One sample compared with a standard: one-sample t. The same patients measured twice: paired t on the differences. Two separate randomly assigned groups: two-sample t. Defect rates are proportions (a categorical response), so the two-machine comparison is a two-proportion z test, not a t test.
+
+- id: stat-m8-r2-q18
+  lesson: stat-test-mean
+  type: text
+  topic: Tests for means
+  stem: 'A random sample of $n = 16$ has $\bar{x} = 52.4$ and $s = 6$. For $H_0: \mu = 50$, the t statistic is $t =$ ___. Give only the number.'
+  accept: ['1.6']
+  explanation: |-
+    $SE = s/\sqrt{n} = 6/\sqrt{16} = 1.5$, so $t = (52.4 - 50)/1.5 = 1.6$, with $\text{df} = 15$.
+
+- id: stat-m8-r2-q19
+  lesson: stat-test-mean
+  topic: Tests for means
+  stem: 'In which situations are the conditions for a one-sample t test for a mean met? Select all that apply.'
+  choices:
+    - 'A random sample of 40 values whose dotplot is moderately skewed, with no outliers'
+    - 'A random sample of 10 values from a population known to be normal'
+    - 'A random sample of 12 values with one extreme outlier'
+    - 'The first 50 volunteers who answered an online ad'
+  answer: [0, 1]
+  explanation: |-
+    With $n = 40 \ge 30$, moderate skew is fine (the central limit theorem helps). A small sample from a normal population is fine too. A small sample with an extreme outlier violates the normal condition, and volunteers who answer an ad are not a random sample, so the random condition fails.
+
+- id: stat-m8-r2-q20
+  lesson: stat-test-mean
+  type: order
+  module_quiz: true
+  topic: Tests for means
+  stem: 'Put the calculation steps of a paired t test in order.'
+  items:
+    - 'Subtract within each pair to get the differences'
+    - 'Find the mean $\bar{d}$ and standard deviation $s_d$ of the differences'
+    - 'Compute $t = \bar{d}/(s_d/\sqrt{n})$'
+    - 'Find the p-value from the t distribution with $n - 1$ df'
+  explanation: |-
+    A paired t test is a one-sample t test on the differences, so the differences come first; their mean and SD give $t$, and $t$ gives the p-value, with $n$ the number of pairs.

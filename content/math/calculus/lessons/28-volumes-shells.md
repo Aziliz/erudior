@@ -29,6 +29,10 @@ $$V = 2\pi\int_a^b(\text{radius})(\text{height})\,dx = 2\pi\int_a^b x\,h(x)\,dx 
 {"x": [-3, 3], "y": [-0.5, 2], "functions": [{"f": "2x^2 - x^3", "from": 0, "to": 2}, {"f": "2x^2 + x^3", "from": -2, "to": 0, "dashed": true}], "segments": [{"from": [1.2, 0], "to": [1.2, 1.152]}, {"from": [-1.2, 0], "to": [-1.2, 1.152], "dashed": true}, {"from": [0, 0.05], "to": [1.2, 0.05], "label": "radius x"}], "labels": [{"at": [2.1, 1.5], "text": "y = 2x² − x³"}], "caption": "A strip at distance x from the y-axis sweeps out a shell of radius x and height h(x)"}
 ```
 
+Here is the cut-and-unroll step as a picture. The shell's wall becomes a thin slab whose length is the circumference $2\pi x$:
+
+![Left: a thin cylindrical shell around a vertical axis, with radius x, height h(x) and wall thickness Δx. Right: the same shell cut and unrolled into a thin slab of length 2πx (the circumference), height h(x) and thickness Δx.](images/calc-m7-shell.svg)
+
 ### Example 1
 
 Find the volume when the region under $y = 2x^2 - x^3$, $0 \le x \le 2$, is rotated about the $y$-axis.
@@ -79,6 +83,22 @@ $$V = 2\pi\int_0^2y(4 - y^2)\,dy = 2\pi\left[2y^2 - \frac{y^4}{4}\right]_0^2 = 8
 | Are the radii easy as functions of the variable along the axis? | washers |
 | Would washers need solving for $x$ in terms of $y$ (or vice versa) awkwardly? | shells |
 | Does the region's boundary change partway along the axis direction? | try the other method |
+
+Or as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing disks and washers or shells
+  accDescr: Sketch the region and the axis. If slices perpendicular to the axis would need you to solve a curve's equation for the other variable in an awkward way, use shells, made from strips parallel to the axis. If the radii are easy, ask whether the far and near boundaries stay the same curves all along the axis: if yes, use disks or washers; if a boundary changes partway, use shells or split the washer integral into pieces. When both methods are easy, do both as a check.
+  A["Sketch the region and the axis"] --> B{"Are radii of slices perpendicular to the axis easy to write?"}
+  B -- no --> S["Shells: strips parallel to the axis"]
+  B -- yes --> C{"Do the far and near boundaries stay the same curves all along?"}
+  C -- yes --> D["Disks or washers"]
+  C -- no --> E["Shells, or split the washer integral"]
+  S --> G["If both methods are easy, do both as a check"]
+  D --> G
+  E --> G
+```
 
 Both always give the same answer when set up correctly, so a second method is a good check.
 

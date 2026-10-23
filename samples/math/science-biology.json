@@ -3,9 +3,10 @@
  "version": 1,
  "id": "science-biology",
  "title": "Biology",
- "description": "High school biology for one full credit, written for learners studying on their own: the chemistry of life, cells and membranes, photosynthesis and respiration, cell division, Mendelian and molecular genetics, biotechnology, evolution and population genetics, the diversity of life, human body systems and homeostasis, and ecology. Later lessons reach the depth of an honors course, with the math biologists use (probability, Hardy-Weinberg, chi-square, population growth).",
+ "description": "High school biology for one full credit, written for learners studying on their own: the chemistry of life, cells and membranes, photosynthesis and respiration, cell division, Mendelian and molecular genetics, biotechnology, evolution and population genetics, the diversity of life, human body systems and homeostasis, and ecology, with the math biologists use (probability, Hardy-Weinberg, chi-square, population growth). Optional honors material goes further: 22 honors lessons inside the modules and three honors modules (research and biostatistics; development, stem cells and the genome; behavior, disease and conservation).",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
+ "changelog": "34 optional honors lessons (22 in the modules, three honors modules), pictures and diagrams in every lesson, and new question types: fill in the blank, match, put in order, label the picture, and select all that apply.",
  "modules": [
   {
    "id": "bio-m1",
@@ -24784,3710 +24785,3710 @@
    "title": "Biology notecards",
    "cards": [
     {
-     "id": "c1",
+     "id": "c297",
      "front": "Operational definition",
      "back": "Exactly how a variable is measured or applied, e.g. \"growth = dry mass after 21 days\". Makes a study repeatable.",
      "topic": "Experimental design"
     },
     {
-     "id": "c2",
+     "id": "c298",
      "front": "Positive control vs negative control",
      "back": "Positive: a treatment known to give the effect (shows the method works). Negative: everything but the tested factor, expected to show no effect (e.g. solvent only).",
      "topic": "Experimental design"
     },
     {
-     "id": "c3",
+     "id": "c299",
      "front": "Confounding variable",
      "back": "A factor that changes along with the treatment and also affects the outcome, e.g. all treated plants on the warmer shelf.",
      "topic": "Experimental design"
     },
     {
-     "id": "c4",
+     "id": "c300",
      "front": "Experimental unit and pseudoreplication",
      "back": "The unit is what independently gets the treatment (pot, cage, dish). Counting many measurements of one unit as replicates is pseudoreplication.",
      "topic": "Experimental design"
     },
     {
-     "id": "c5",
+     "id": "c301",
      "front": "Sample size needed for a target SE",
      "back": "$n \\ge (\\text{SD}/\\text{SE}_{\\text{target}})^2$, rounded up. Halving the SE takes 4 times the sample.",
      "topic": "Experimental design"
     },
     {
-     "id": "c6",
+     "id": "c302",
      "front": "Statistical power",
      "back": "The chance a study detects a real effect of a given size. Small studies have low power, so \"no significant difference\" from them means little.",
      "topic": "Experimental design"
     },
     {
-     "id": "c7",
+     "id": "c303",
      "front": "Random assignment vs blinding",
      "back": "Random assignment: chance decides who gets which treatment, so groups differ only by chance. Blinding: people don't know who got what, preventing observer bias.",
      "topic": "Experimental design"
     },
     {
-     "id": "c8",
+     "id": "c304",
      "front": "Single-blind vs double-blind",
      "back": "Single-blind: subjects don't know their treatment. Double-blind: neither subjects nor the researchers treating and measuring them know.",
      "topic": "Experimental design"
     },
     {
-     "id": "c9",
+     "id": "c305",
      "front": "Why more data don't fix bias",
      "back": "Bias is systematic: a bigger biased sample just gives a more precise wrong answer. Fix the design (randomize, blind, sample fairly).",
      "topic": "Experimental design"
     },
     {
-     "id": "c10",
+     "id": "c306",
      "front": "Belmont Report principles (1979)",
      "back": "Respect for persons (informed consent), beneficence (maximize benefits, minimize harms), justice (share burdens and benefits fairly). An IRB reviews studies on people.",
      "topic": "Experimental design"
     },
     {
-     "id": "c11",
+     "id": "c307",
      "front": "The 3Rs of animal research",
      "back": "Replace animals where possible, reduce the number used, refine procedures to minimize pain and distress (Russell and Burch, 1959).",
      "topic": "Experimental design"
     },
     {
-     "id": "c12",
+     "id": "c308",
      "front": "1954 polio vaccine trial lesson",
      "back": "Randomized placebo trial: 28 vs 71 cases per 100,000. Comparing volunteers with non-volunteers was biased, because consenting families differed in polio risk.",
      "topic": "Experimental design"
     },
     {
-     "id": "c13",
+     "id": "c309",
      "front": "Mean vs median",
      "back": "Mean = sum/n, pulled by outliers. Median = middle value, resists outliers. Use the median for skewed data such as parasite counts.",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c14",
+     "id": "c310",
      "front": "Sample standard deviation",
      "back": "$s = \\sqrt{\\dfrac{\\sum (x - \\bar{x})^2}{n - 1}}$: deviations from the mean, squared, summed, divided by $n - 1$, square-rooted.",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c15",
+     "id": "c311",
      "front": "Normal distribution: the 68–95 rule",
      "back": "About 68% of values lie within 1 SD of the mean and about 95% within 2 SD (1.96 exactly).",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c16",
+     "id": "c312",
      "front": "Standard error of the mean",
      "back": "$\\text{SE} = s/\\sqrt{n}$. Measures how precisely the mean is known; shrinks as $n$ grows.",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c17",
+     "id": "c313",
      "front": "SD vs SE",
      "back": "SD: spread of individuals; settles near the true spread with more data. SE: precision of the mean; keeps shrinking with more data.",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c18",
+     "id": "c314",
      "front": "Approximate 95% confidence interval",
      "back": "$\\bar{x} \\pm 2\\,\\text{SE}$. Small samples need a larger multiplier from the t distribution (2.36 for n = 8).",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c19",
+     "id": "c315",
      "front": "What \"95% confidence\" means",
      "back": "About 95% of intervals made this way, in repeated studies, would contain the true mean. Not \"95% of the data lie inside.\"",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c20",
+     "id": "c316",
      "front": "Reading error bars (independent groups)",
      "back": "Check the legend first. Overlapping SE bars: not significant. Non-overlapping 95% CIs: significant (p < 0.05). Slightly overlapping CIs can still be significant.",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c21",
+     "id": "c317",
      "front": "Choosing a graph",
      "back": "Groups: dot plot with mean and error bars. Change over time or dose: line graph. Two measured variables: scatter plot. One distribution: histogram or box plot.",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c22",
+     "id": "c318",
      "front": "Parts of a box plot",
      "back": "Box from lower to upper quartile, line at the median, whiskers to the most extreme non-outliers, outliers (beyond 1.5 box-lengths) as points.",
      "topic": "Descriptive statistics"
     },
     {
-     "id": "c23",
+     "id": "c319",
      "front": "p-value",
      "back": "The probability, if the null hypothesis is true, of a result at least as extreme as the one observed. Reject $H_0$ when $p \\le \\alpha$ (usually 0.05).",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c24",
+     "id": "c320",
      "front": "What a p-value is NOT",
      "back": "Not the chance $H_0$ is true; not the size or importance of the effect; p > 0.05 is not proof of no effect.",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c25",
+     "id": "c321",
      "front": "Type I vs Type II error",
      "back": "Type I: rejecting a true $H_0$ (false positive, rate $\\alpha$). Type II: failing to reject a false $H_0$ (missing a real effect).",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c26",
+     "id": "c322",
      "front": "Chi-square test of independence",
      "back": "Expected = row total × column total ÷ grand total; $\\chi^2 = \\sum (O - E)^2/E$; df = (rows − 1)(columns − 1).",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c27",
+     "id": "c323",
      "front": "t statistic for two means",
      "back": "$t = \\dfrac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{\\text{SE}_1^2 + \\text{SE}_2^2}}$, df = $n_1 + n_2 - 2$. For moderate samples, $|t| >$ about 2 is significant.",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c28",
+     "id": "c324",
      "front": "Which test?",
      "back": "Counts vs a predicted ratio: chi-square goodness of fit. Two categorical variables: chi-square independence. Two means: t-test. Two measured variables: correlation and regression.",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c29",
+     "id": "c325",
      "front": "Correlation coefficient r",
      "back": "From −1 to 1: sign gives direction, size gives strength of a straight-line relationship. Correlation can come from a confounder, reverse cause or chance.",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c30",
+     "id": "c326",
      "front": "Least-squares regression line",
      "back": "$\\hat{y} = a + bx$ with $b = \\dfrac{\\sum (x - \\bar{x})(y - \\bar{y})}{\\sum (x - \\bar{x})^2}$ and $a = \\bar{y} - b\\bar{x}$; $r^2$ = fraction of variation explained. Don't extrapolate.",
      "topic": "Hypothesis testing"
     },
     {
-     "id": "c31",
+     "id": "c327",
      "front": "IMRaD",
      "back": "Introduction (why), Methods (what was done), Results (what was found), Discussion (what it means); after the title and abstract.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c32",
+     "id": "c328",
      "front": "How to read a paper efficiently",
      "back": "Abstract, then figures and legends, then discussion, then methods to judge whether the evidence can be trusted.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c33",
+     "id": "c329",
      "front": "Peer review: what it can and can't do",
      "back": "Experts check design, statistics and conclusions before publication. It can't usually see raw data or detect fraud; replication is the real test.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c34",
+     "id": "c330",
      "front": "Preprint",
      "back": "A manuscript posted publicly (bioRxiv, medRxiv) before peer review. Fast and open, but not yet checked: treat as a claim.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c35",
+     "id": "c331",
      "front": "Evaluating a source: five questions",
      "back": "Where is it from? Who did it and who paid? What kind of evidence (experiment or observation; cells, mice or people; n)? Does the claim match the data? Do other studies agree?",
      "topic": "Scientific communication"
     },
     {
-     "id": "c36",
+     "id": "c332",
      "front": "Percent change vs fold change",
      "back": "Percent change = (new − old)/old × 100%. Fold change = new/old. A fold change of 1.5 is a 50% increase; 0.25 is a 75% decrease.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c37",
+     "id": "c333",
      "front": "Lab report: results vs discussion",
      "back": "Results: numbers, units, n, variation and test results, no interpretation. Discussion: whether the hypothesis is supported, comparison with other work, limitations, next steps.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c38",
+     "id": "c334",
      "front": "Conflict of interest",
      "back": "A financial or personal stake in a study's outcome (e.g. a company funding a test of its own product). A reason to look harder and seek independent replication, not to reject outright.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c39",
+     "id": "c335",
      "front": "Primary source vs review article",
      "back": "Primary: original research reported by those who did it. Review: a secondary source summarizing many primary studies.",
      "topic": "Scientific communication"
     },
     {
-     "id": "c40",
+     "id": "c336",
      "front": "Stages of early animal development, in order",
      "back": "Fertilization → cleavage → blastula (blastocyst in mammals) → gastrulation (three germ layers) → neurulation (neural tube) → organ formation.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c41",
+     "id": "c337",
      "front": "Fast block vs slow block to polyspermy (sea urchin)",
      "back": "Fast: membrane voltage jumps positive within seconds (temporary). Slow: calcium wave triggers the cortical reaction, which lifts a fertilization envelope (permanent).",
      "topic": "Embryonic development"
     },
     {
-     "id": "c42",
+     "id": "c338",
      "front": "Cleavage",
      "back": "Rapid divisions without growth (G1 and G2 mostly skipped): cell number doubles each round, cells get smaller, the embryo stays the same size. After n divisions: 2ⁿ cells.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c43",
+     "id": "c339",
      "front": "How yolk shapes cleavage",
      "back": "Little yolk (sea urchin, mammal): complete, equal. Moderate yolk in the lower half (frog): complete but unequal. Huge yolk (chick): partial, only a disc on top divides.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c44",
+     "id": "c340",
      "front": "Cell diameter after n cleavages",
      "back": "Volume ÷ 2ⁿ, so diameter ÷ 2^(n/3): every 3 divisions halve the diameter.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c45",
+     "id": "c341",
      "front": "Midblastula transition",
      "back": "In frogs at about the 12th cleavage (about 4,000 cells): divisions slow and the embryo starts transcribing its own genes. Triggered by the DNA-to-cytoplasm ratio (adding DNA makes it come earlier).",
      "topic": "Embryonic development"
     },
     {
-     "id": "c46",
+     "id": "c342",
      "front": "Blastula vs blastocyst",
      "back": "Blastula: ball of cells around a blastocoel. Blastocyst (mammals): trophoblast (→ placenta) around a cavity plus an inner cell mass (→ the embryo itself).",
      "topic": "Embryonic development"
     },
     {
-     "id": "c47",
+     "id": "c343",
      "front": "What each germ layer forms",
      "back": "Ectoderm: epidermis, nervous system, lens, neural crest. Mesoderm: notochord, muscle, bone, blood, heart, kidneys, gonads. Endoderm: lining of gut and lungs, liver, pancreas.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c48",
+     "id": "c344",
      "front": "Gastrulation in sea urchin vs frog vs chick and human",
      "back": "Sea urchin: vegetal sheet buckles in to form the archenteron. Frog: cells roll in over the dorsal lip of the blastopore. Chick and human: cells move in through the primitive streak of a flat disc.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c49",
+     "id": "c345",
      "front": "Neurulation",
      "back": "Notochord induces the ectoderm above it to form the neural plate; its edges fold up and fuse into the neural tube (brain and spinal cord). Neural crest cells break away and migrate; somites form beside the tube.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c50",
+     "id": "c346",
      "front": "Neural tube closure and folic acid",
      "back": "The human neural tube closes by about day 28 after fertilization, often before pregnancy is known; 400 µg of folic acid daily lowers the risk of spina bifida and anencephaly.",
      "topic": "Embryonic development"
     },
     {
-     "id": "c51",
+     "id": "c347",
      "front": "Determination vs differentiation",
      "back": "Determination: fate fixed (tested by transplant), no visible change yet. Differentiation: the cell actually specializes in structure and function.",
      "topic": "Cell differentiation"
     },
     {
-     "id": "c52",
+     "id": "c348",
      "front": "Spemann's early vs late gastrula transplants",
      "back": "Early gastrula: transplanted tissue follows its new position (not determined). Late gastrula: presumptive neural tissue makes neural tissue anywhere (determined).",
      "topic": "Cell differentiation"
     },
     {
-     "id": "c53",
+     "id": "c349",
      "front": "Cytoplasmic determinants vs induction",
      "back": "Determinants: molecules unevenly placed in the egg and inherited by some cells. Induction: signals from neighboring cells change a group's fate (responding cells must be competent).",
      "topic": "Cell differentiation"
     },
     {
-     "id": "c54",
+     "id": "c350",
      "front": "Spemann–Mangold organizer experiment (1924)",
      "back": "Dorsal lip from a light newt gastrula grafted to the belly side of a dark one: a second body axis formed, its neural tube mostly from dark host cells. The graft induced its neighbors.",
      "topic": "Cell differentiation"
     },
     {
-     "id": "c55",
+     "id": "c351",
      "front": "How the organizer makes neural tissue",
      "back": "It secretes BMP blockers (chordin, noggin). BMP4 tells ectoderm to become epidermis; shielded ectoderm becomes neural.",
      "topic": "Cell differentiation"
     },
     {
-     "id": "c56",
+     "id": "c352",
      "front": "Morphogen threshold position",
      "back": "For C(x) = C₀e^(−x/λ), the boundary at threshold T is x = λ ln(C₀/T). Doubling the dose shifts it by λ ln 2 ≈ 0.69λ.",
      "topic": "Pattern formation"
     },
     {
-     "id": "c57",
+     "id": "c353",
      "front": "Evidence that Bicoid is a morphogen",
      "back": "No maternal Bicoid: no head or thorax. Bicoid mRNA injected elsewhere: head forms there. Extra gene copies: head region enlarges and boundaries shift back.",
      "topic": "Pattern formation"
     },
     {
-     "id": "c58",
+     "id": "c354",
      "front": "Maternal effect gene",
      "back": "The embryo's phenotype follows the mother's genotype (she loads the mRNA into the egg). A bcd/bcd female is normal, but all her embryos lack head and thorax.",
      "topic": "Pattern formation"
     },
     {
-     "id": "c59",
+     "id": "c355",
      "front": "Fly segmentation cascade",
      "back": "Maternal genes (bicoid gradient) → gap genes (blocks) → pair-rule genes (7 stripes) → segment polarity genes (14 segments); Hox genes give each segment its identity.",
      "topic": "Pattern formation"
     },
     {
-     "id": "c60",
+     "id": "c356",
      "front": "Homeotic mutants",
      "back": "Antennapedia: legs in place of antennae. Ultrabithorax-region mutations: third thoracic segment becomes a second one, giving four wings.",
      "topic": "Pattern formation"
     },
     {
-     "id": "c61",
+     "id": "c357",
      "front": "Key facts about Hox genes",
      "back": "Homeobox (180 bp) codes for a DNA-binding homeodomain; genes are colinear (chromosome order = body order); flies have 8 in one split cluster, mammals 39 in four clusters.",
      "topic": "Pattern formation"
     },
     {
-     "id": "c62",
+     "id": "c358",
      "front": "Potency, from most to least",
      "back": "Totipotent (zygote; also placenta) → pluripotent (inner cell mass, ES cells, iPSCs; whole body) → multipotent (blood stem cells; one family) → unipotent (one cell type).",
      "topic": "Stem cells"
     },
     {
-     "id": "c63",
+     "id": "c359",
      "front": "Till and McCulloch (1961)",
      "back": "Irradiated mice given marrow cells grew spleen colonies with several blood cell types; colony number was proportional to cells injected and each colony was a clone: the first proof of blood stem cells.",
      "topic": "Stem cells"
     },
     {
-     "id": "c64",
+     "id": "c360",
      "front": "Stem cell frequency from colony counts",
      "back": "Detected frequency = colonies ÷ cells injected. True frequency = detected ÷ fraction of stem cells that reach the spleen.",
      "topic": "Stem cells"
     },
     {
-     "id": "c65",
+     "id": "c361",
      "front": "Embryonic stem cells",
      "back": "Pluripotent cells from the inner cell mass, grown indefinitely in culture (mouse 1981, human 1998). Tested by teratoma formation. Taking them destroys the embryo.",
      "topic": "Stem cells"
     },
     {
-     "id": "c66",
+     "id": "c362",
      "front": "Teratoma test",
      "back": "Cells injected into an immune-deficient mouse form a tumor with tissues of all three germ layers if they are pluripotent; also shows the tumor risk of leftover undifferentiated cells.",
      "topic": "Stem cells"
     },
     {
-     "id": "c67",
+     "id": "c363",
      "front": "Nuclear transfer milestones",
      "back": "Briggs and King 1952 (frog blastula nuclei), Gurdon 1962 (tadpole intestine nuclei), Dolly 1996 (adult sheep udder cell). Success falls as donor cells become more specialized.",
      "topic": "Cloning"
     },
     {
-     "id": "c68",
+     "id": "c364",
      "front": "Dolly by the numbers",
      "back": "277 eggs fused with udder cells → 29 embryos transferred → 1 lamb (about 0.36% per fused egg). Low success reflects incomplete epigenetic reprogramming.",
      "topic": "Cloning"
     },
     {
-     "id": "c69",
+     "id": "c365",
      "front": "Reproductive vs therapeutic cloning",
      "back": "Reproductive: nuclear transfer embryo grown into a whole organism. Therapeutic: nuclear transfer embryo used only to derive patient-matched embryonic stem cells.",
      "topic": "Cloning"
     },
     {
-     "id": "c70",
+     "id": "c366",
      "front": "Yamanaka factors",
      "back": "Oct4, Sox2, Klf4, c-Myc. Found (2006) by starting with 24 candidates and removing one at a time; together they reprogram fibroblasts into iPSCs.",
      "topic": "Stem cells"
     },
     {
-     "id": "c71",
+     "id": "c367",
      "front": "Planarian regeneration",
      "back": "Driven by neoblasts, dividing adult stem cells; a single transplanted neoblast can rebuild all tissues of an irradiated worm, so some neoblasts are pluripotent.",
      "topic": "Stem cells"
     },
     {
-     "id": "c72",
+     "id": "c368",
      "front": "Salamander limb regeneration",
      "back": "Wound cells dedifferentiate into a blastema that regrows the limb; it needs nerves, and its cells mostly keep a memory of their origin (cartilage → cartilage).",
      "topic": "Stem cells"
     },
     {
-     "id": "c73",
+     "id": "c369",
      "front": "Empirical vs value claims in stem cell ethics",
      "back": "Empirical: testable with evidence (e.g. iPSCs can form tumors). Value: about what we ought to do (e.g. embryo research should stop at day 14).",
      "topic": "Stem cells"
     },
     {
-     "id": "c74",
+     "id": "c370",
      "front": "C-value paradox",
      "back": "Genome size varies over 10,000-fold among eukaryotes (onion about 5× human, a fern about 50×) while gene number varies only a few-fold; the difference is mostly noncoding DNA.",
      "topic": "Genome evolution"
     },
     {
-     "id": "c75",
+     "id": "c371",
      "front": "Gene density",
      "back": "Genes ÷ genome size. E. coli about 935 per Mb (about 88% coding); human about 6.5 per Mb (about 1–1.5% coding).",
      "topic": "Genome evolution"
     },
     {
-     "id": "c76",
+     "id": "c372",
      "front": "Human genome composition (approx.)",
      "back": "About 1.5% protein-coding, about 45% derived from transposable elements, introns a quarter or more; about 10% appears conserved by selection.",
      "topic": "Genome evolution"
     },
     {
-     "id": "c77",
+     "id": "c373",
      "front": "DNA transposons vs retrotransposons",
      "back": "DNA transposons: cut and paste with transposase. Retrotransposons: copy and paste through RNA and reverse transcriptase (LINE-1 about 17%, Alu about 10% of the human genome).",
      "topic": "Genome evolution"
     },
     {
-     "id": "c78",
+     "id": "c374",
      "front": "How genes get duplicated",
      "back": "Unequal crossing over, retrotransposition of an mRNA (intron-less copy), and whole-genome duplication (two rounds early in vertebrates: 1 Hox cluster in lancelets, 4 in mammals).",
      "topic": "Genome evolution"
     },
     {
-     "id": "c79",
+     "id": "c375",
      "front": "Paralogs vs orthologs",
      "back": "Paralogs: related by duplication within a lineage (human α- and β-globin). Orthologs: separated by speciation (human and mouse β-globin).",
      "topic": "Genome evolution"
     },
     {
-     "id": "c80",
+     "id": "c376",
      "front": "Fates of a duplicated gene",
      "back": "Pseudogene (most common: disabled and decays), neofunctionalization (one copy gains a new job), subfunctionalization (copies split the old jobs).",
      "topic": "Genome evolution"
     },
     {
-     "id": "c81",
+     "id": "c377",
      "front": "Pax6 and deep homology",
      "back": "Mouse Pax6 switched on in fly legs makes extra fly compound eyes: the same ancestral control gene directs non-homologous eyes.",
      "topic": "Evo-devo"
     },
     {
-     "id": "c82",
+     "id": "c378",
      "front": "Stickleback pelvic loss",
      "back": "Lake sticklebacks lost a pelvic enhancer of Pitx1 in independent populations; the protein and its other jobs (jaw, pituitary) are intact. Restoring the enhancer restores the pelvis.",
      "topic": "Evo-devo"
     },
     {
-     "id": "c83",
+     "id": "c379",
      "front": "Why form often evolves by cis-regulatory change",
      "back": "Toolkit genes have many jobs; changing the protein affects all of them, while changing one tissue-specific enhancer changes only one. In a hybrid, a cis change affects only its own allele.",
      "topic": "Evo-devo"
     },
     {
-     "id": "c84",
+     "id": "c380",
      "front": "Proximate vs ultimate causes of behavior",
      "back": "Proximate: how it works (stimuli, nerves, hormones, development). Ultimate: why it evolved (effect on fitness, evolutionary history). Both explain the same behavior at different levels.",
      "topic": "Animal behavior"
     },
     {
-     "id": "c85",
+     "id": "c381",
      "front": "Tinbergen's four questions",
      "back": "Mechanism and development (proximate); function and evolutionary history (ultimate).",
      "topic": "Animal behavior"
     },
     {
-     "id": "c86",
+     "id": "c382",
      "front": "Fixed action pattern",
      "back": "An unlearned behavior sequence triggered by a sign stimulus that runs to completion once started, e.g. a greylag goose rolling an egg (or a doorknob) back into the nest.",
      "topic": "Animal behavior"
     },
     {
-     "id": "c87",
+     "id": "c383",
      "front": "Imprinting",
      "back": "Learning during a sensitive period early in life that is hard to reverse; Lorenz's goslings followed him. The capacity is built in; what is learned depends on experience.",
      "topic": "Animal behavior"
     },
     {
-     "id": "c88",
+     "id": "c384",
      "front": "Types of learning",
      "back": "Imprinting, habituation, classical conditioning (stimulus–stimulus), operant conditioning (action–consequence), spatial learning, social learning.",
      "topic": "Animal behavior"
     },
     {
-     "id": "c89",
+     "id": "c385",
      "front": "Tinbergen's digger wasp experiment",
      "back": "He ringed a nest with pine cones, then moved the ring; returning wasps searched in the moved ring, showing they navigate by learned landmarks.",
      "topic": "Animal behavior"
     },
     {
-     "id": "c90",
+     "id": "c386",
      "front": "Reading a waggle dance",
      "back": "Angle of the waggle run from straight up = angle of the food from the sun's direction. Longer waggle run = farther food (calibration varies by colony).",
      "topic": "Animal behavior"
     },
     {
-     "id": "c91",
+     "id": "c387",
      "front": "Three levels of animal navigation",
      "back": "Piloting (landmarks), compass orientation (sun, stars, magnetic field), true navigation (map plus compass from unfamiliar places).",
      "topic": "Animal behavior"
     },
     {
-     "id": "c92",
+     "id": "c388",
      "front": "Clock-shift experiment",
      "back": "Shifting a pigeon's internal clock by 6 h shifts its sun-compass heading by about 90° (15° per hour in the simple model), evidence for a time-compensated sun compass.",
      "topic": "Animal behavior"
     },
     {
-     "id": "c93",
+     "id": "c389",
      "front": "Prey profitability",
      "back": "Energy gained ÷ handling time. Optimal foraging theory predicts animals prefer the most profitable prey, which is not always the largest.",
      "topic": "Animal behavior"
     },
     {
-     "id": "c94",
+     "id": "c390",
      "front": "Hamilton's rule",
      "back": "Helping is favored when $rB > C$ ($r$ = relatedness of actor to recipient, $B$ = recipient's extra offspring, $C$ = actor's lost offspring).",
      "topic": "Social behavior"
     },
     {
-     "id": "c95",
+     "id": "c391",
      "front": "Coefficients of relatedness (diploid)",
      "back": "Parent–child $\\tfrac12$; full siblings $\\tfrac12$; half siblings, grandparent, aunt or uncle $\\tfrac14$; first cousins $\\tfrac18$. Add $(\\tfrac12)^L$ over all paths.",
      "topic": "Social behavior"
     },
     {
-     "id": "c96",
+     "id": "c392",
      "front": "Inclusive fitness",
      "back": "Own reproduction plus the extra reproduction of relatives one causes, weighted by relatedness. Kin selection acts on it.",
      "topic": "Social behavior"
     },
     {
-     "id": "c97",
+     "id": "c393",
      "front": "Haplodiploid relatedness (queen mated once)",
      "back": "Worker to full sister $\\tfrac34$; to brother $\\tfrac14$; to her own offspring $\\tfrac12$.",
      "topic": "Social behavior"
     },
     {
-     "id": "c98",
+     "id": "c394",
      "front": "Caveats to the haplodiploidy hypothesis",
      "back": "Brothers are only $\\tfrac14$ related; many queens mate multiply (average $r = \\tfrac14 + \\tfrac{1}{2n}$); termites and naked mole-rats are diploid yet eusocial; most haplodiploid species aren't eusocial; ecology matters.",
      "topic": "Social behavior"
     },
     {
-     "id": "c99",
+     "id": "c395",
      "front": "Conditions for reciprocal altruism",
      "back": "Repeated meetings between the same individuals, recognition of partners, and the ability to stop helping cheaters (e.g. vampire bats sharing blood).",
      "topic": "Social behavior"
     },
     {
-     "id": "c100",
+     "id": "c396",
      "front": "Parental investment and choosiness",
      "back": "The sex that invests more per offspring (usually females) tends to be choosier; the other sex competes. In role-reversed species such as some pipefish and jacanas, females compete.",
      "topic": "Social behavior"
     },
     {
-     "id": "c101",
+     "id": "c397",
      "front": "Intrasexual vs intersexual selection",
      "back": "Intrasexual: competition within a sex (elephant seal fights). Intersexual: mate choice by the other sex (widowbird females prefer long tails).",
      "topic": "Social behavior"
     },
     {
-     "id": "c102",
+     "id": "c398",
      "front": "Mating systems",
      "back": "Monogamy (1 male, 1 female), polygyny (1 male, several females), polyandry (1 female, several males), promiscuity (no lasting bonds).",
      "topic": "Social behavior"
     },
     {
-     "id": "c103",
+     "id": "c399",
      "front": "Incidence vs prevalence",
      "back": "Incidence: new cases per population per time. Prevalence: existing cases per population at one time. Prevalence ≈ incidence × duration (steady state).",
      "topic": "Epidemiology"
     },
     {
-     "id": "c104",
+     "id": "c400",
      "front": "$R_0$ vs $R_e$",
      "back": "$R_0$: infections per case in a fully susceptible population. $R_e = R_0 \\times s$: infections per case now. Cases grow if $R_e > 1$, shrink if $R_e < 1$.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c105",
+     "id": "c401",
      "front": "SIR model, one time step",
      "back": "New infections $= \\beta SI/N$; recoveries $= \\gamma I$; $S$ falls by new infections, $I$ rises by new infections minus recoveries, $R$ rises by recoveries. $R_0 = \\beta/\\gamma$.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c106",
+     "id": "c402",
      "front": "When does an SIR epidemic peak?",
      "back": "When the susceptible fraction falls to $1/R_0$ (so $R_e = 1$). The epidemic then overshoots: about 94% are eventually infected when $R_0 = 3$.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c107",
+     "id": "c403",
      "front": "Herd immunity threshold (population view)",
      "back": "Set $R_0 s = 1$: an infection can't grow once more than $1 - 1/R_0$ of the population is immune.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c108",
+     "id": "c404",
      "front": "John Snow's evidence",
      "back": "1854: deaths clustered around the Broad Street pump, with telling exceptions; homes supplied by the downstream Southwark and Vauxhall Company had about 8 times the cholera death rate of Lambeth homes.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c109",
+     "id": "c405",
      "front": "Epidemic curve shapes",
      "back": "One sharp peak: point source. Plateau: continuing common source. Successive growing peaks one incubation period apart: person-to-person spread.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c110",
+     "id": "c406",
      "front": "Attack rate and relative risk",
      "back": "Attack rate = ill ÷ exposed in a group. Relative risk = attack rate among exposed ÷ attack rate among unexposed.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c111",
+     "id": "c407",
      "front": "Zoonoses",
      "back": "Diseases spread between animals and people (rabies, Lyme, avian flu, Ebola). More than 6 in 10 known human infectious diseases and about 3 in 4 emerging ones come from animals.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c112",
+     "id": "c408",
      "front": "Antibiotic stewardship",
      "back": "Antibiotics only when needed (not for viruses), the right narrow-spectrum drug, dose and duration; prevent infections; limit farm use. Every use selects for resistance.",
      "topic": "Epidemiology"
     },
     {
-     "id": "c113",
+     "id": "c409",
      "front": "Extinction rates",
      "back": "Background about 0.1 extinctions per million species-years (E/MSY); current estimates near 100 E/MSY, about 1,000 times higher.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c114",
+     "id": "c410",
      "front": "Island biogeography",
      "back": "Species number is an equilibrium of immigration (falls with distance from the mainland) and extinction (higher on small islands). Large, near islands hold the most species.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c115",
+     "id": "c411",
      "front": "Species-area relationship",
      "back": "$S = cA^z$, with $z \\approx 0.2$–$0.35$ on islands. Ratio form: $S_2/S_1 = (A_2/A_1)^z$. With $z = 0.3$, 10 times the area holds about twice the species.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c116",
+     "id": "c412",
      "front": "Edge effects and core area",
      "back": "Edges are lighter, windier, drier and have more invaders and nest predators. A square of side $L$ with edge depth $d$ keeps core $(L - 2d)^2$; one large block keeps more core than several small ones of the same total area.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c117",
+     "id": "c413",
      "front": "Effective population size, unequal sexes",
      "back": "$N_e = \\dfrac{4N_mN_f}{N_m + N_f}$. 10 males and 40 females give $N_e = 32$, not 50.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c118",
+     "id": "c414",
      "front": "Loss of heterozygosity by drift",
      "back": "$H_t = H_0\\left(1 - \\dfrac{1}{2N_e}\\right)^t$: a fraction $1/(2N_e)$ is lost each generation.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c119",
+     "id": "c415",
      "front": "Extinction vortex",
      "back": "Small population → inbreeding and drift → lost diversity and inbreeding depression → lower survival and reproduction → smaller population.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c120",
+     "id": "c416",
      "front": "Genetic rescue example",
      "back": "Florida panthers (about 20–30 left, with heart defects and kinked tails) received 8 female Texas pumas in 1995; defects fell and numbers grew to an estimated 120–230.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c121",
+     "id": "c417",
      "front": "Variable growth and population viability",
      "back": "The long-run growth rate is the geometric mean of yearly $\\lambda$ values: alternating 1.5 and 0.6 averages 1.05 but gives $\\sqrt{0.9} \\approx 0.95$, a decline.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c122",
+     "id": "c418",
      "front": "Mark–recapture biases",
      "back": "Trap-shy marked animals → too few recaptures → overestimate. Trap-happy → underestimate. Chapman: $N = \\dfrac{(M+1)(C+1)}{R+1} - 1$.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c123",
+     "id": "c419",
      "front": "Invasive species management, cheapest first",
      "back": "Prevention, early detection and rapid response, eradication (works best on islands, e.g. South Georgia rats), then long-term control, including tested biological control.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c124",
+     "id": "c420",
      "front": "Conservation successes",
      "back": "California condor (27 birds in 1987, about 600 by 2025), Yellowstone wolves (reintroduced 1995–96), humpback whales after hunting bans (1966, 1986), Florida panther genetic rescue.",
      "topic": "Conservation biology"
     },
     {
-     "id": "c125",
+     "id": "c1",
      "front": "The characteristics of life",
      "back": "Made of cells; metabolism (uses energy); homeostasis; responds to stimuli; grows and develops; reproduces; heritable DNA; populations evolve.",
      "topic": "Characteristics of life"
     },
     {
-     "id": "c126",
+     "id": "c2",
      "front": "Why is a flame or a growing crystal not alive?",
      "back": "It shows one or two features (growth, energy release) but has no cells, metabolism, homeostasis or DNA. Life needs the whole set.",
      "topic": "Characteristics of life"
     },
     {
-     "id": "c127",
+     "id": "c3",
      "front": "Homeostasis",
      "back": "Keeping internal conditions stable despite outside changes, usually by negative feedback (e.g. sweating when hot).",
      "topic": "Characteristics of life"
     },
     {
-     "id": "c128",
+     "id": "c4",
      "front": "Levels of organization, smallest to largest",
      "back": "atom → molecule → organelle → cell → tissue → organ → organ system → organism → population → community → ecosystem → biosphere",
      "topic": "Levels of organization"
     },
     {
-     "id": "c129",
+     "id": "c5",
      "front": "Population vs community vs ecosystem",
      "back": "Population: one species in an area. Community: all species in an area. Ecosystem: the community plus nonliving surroundings.",
      "topic": "Levels of organization"
     },
     {
-     "id": "c130",
+     "id": "c6",
      "front": "Emergent property",
      "back": "A new ability that arises from how parts interact at a higher level, e.g. a heart pumps but a single muscle cell cannot.",
      "topic": "Levels of organization"
     },
     {
-     "id": "c131",
+     "id": "c7",
      "front": "Independent vs dependent variable",
      "back": "Independent: the one factor you change (x-axis). Dependent: what you measure (y-axis).",
      "topic": "Experimental design"
     },
     {
-     "id": "c132",
+     "id": "c8",
      "front": "Control group vs controlled variables",
      "back": "Control group: subjects without the treatment, used as a baseline. Controlled variables: conditions kept the same in all groups.",
      "topic": "Experimental design"
     },
     {
-     "id": "c133",
+     "id": "c9",
      "front": "Why replicate an experiment?",
      "back": "Individuals vary; more subjects and repeated trials make it less likely a difference is due to chance.",
      "topic": "Experimental design"
     },
     {
-     "id": "c134",
+     "id": "c10",
      "front": "Percent change formula",
      "back": "$\\dfrac{\\text{new} - \\text{original}}{\\text{original}} \\times 100\\%$ (negative = decrease)",
      "topic": "Scientific method"
     },
     {
-     "id": "c135",
+     "id": "c11",
      "front": "Hypothesis vs theory vs law",
      "back": "Hypothesis: testable explanation of one observation. Theory: broad, well-tested explanation. Law: describes a pattern without explaining it.",
      "topic": "Scientific method"
     },
     {
-     "id": "c136",
+     "id": "c12",
      "front": "Correlation vs causation",
      "back": "Two variables changing together does not show one causes the other; a third variable may drive both. Controlled experiments test causation.",
      "topic": "Scientific method"
     },
     {
-     "id": "c137",
+     "id": "c13",
      "front": "CHNOPS",
      "back": "Carbon, hydrogen, nitrogen, oxygen, phosphorus, sulfur: about 98% of living mass.",
      "topic": "Chemistry of life"
     },
     {
-     "id": "c138",
+     "id": "c14",
      "front": "Why water is polar",
      "back": "Oxygen pulls shared electrons harder than hydrogen, and the molecule is bent: O end δ−, H ends δ+.",
      "topic": "Water"
     },
     {
-     "id": "c139",
+     "id": "c15",
      "front": "Properties of water caused by hydrogen bonds",
      "back": "Cohesion and surface tension, adhesion and capillary action, high specific heat, ice floats, excellent solvent for polar and ionic substances.",
      "topic": "Water"
     },
     {
-     "id": "c140",
+     "id": "c16",
      "front": "Cohesion vs adhesion",
      "back": "Cohesion: water attracted to water. Adhesion: water attracted to other substances.",
      "topic": "Water"
     },
     {
-     "id": "c141",
+     "id": "c17",
      "front": "pH formula",
      "back": "$\\text{pH} = -\\log[\\text{H}^+]$, so $[\\text{H}^+] = 10^{-\\text{pH}}$ mol/L",
      "topic": "pH"
     },
     {
-     "id": "c142",
+     "id": "c18",
      "front": "A difference of 3 pH units means…",
      "back": "A $10^3 = 1000$-fold difference in H⁺ concentration; the lower pH has more H⁺.",
      "topic": "pH"
     },
     {
-     "id": "c143",
+     "id": "c19",
      "front": "Buffer",
      "back": "Resists pH change by taking up or releasing H⁺; blood is buffered near pH 7.4 by bicarbonate/carbonic acid.",
      "topic": "pH"
     },
     {
-     "id": "c144",
+     "id": "c20",
      "front": "Dehydration synthesis vs hydrolysis",
      "back": "Dehydration synthesis joins monomers and releases water; hydrolysis splits polymers and uses water.",
      "topic": "Macromolecules"
     },
     {
-     "id": "c145",
+     "id": "c21",
      "front": "Water released when $n$ monomers form one chain",
      "back": "$n - 1$ molecules (one per bond)",
      "topic": "Macromolecules"
     },
     {
-     "id": "c146",
+     "id": "c22",
      "front": "Four classes of macromolecules and their monomers",
      "back": "Carbohydrates: monosaccharides. Proteins: amino acids. Nucleic acids: nucleotides. Lipids: no true monomer (fats are glycerol + 3 fatty acids).",
      "topic": "Macromolecules"
     },
     {
-     "id": "c147",
+     "id": "c23",
      "front": "Starch vs glycogen vs cellulose",
      "back": "All glucose polymers. Starch: plant energy store. Glycogen: animal energy store. Cellulose: plant cell walls (different linkage, indigestible to humans).",
      "topic": "Macromolecules"
     },
     {
-     "id": "c148",
+     "id": "c24",
      "front": "Saturated vs unsaturated fat",
      "back": "Saturated: no C=C double bonds, straight chains, solid (butter). Unsaturated: double bonds kink the chains, liquid (oils).",
      "topic": "Macromolecules"
     },
     {
-     "id": "c149",
+     "id": "c25",
      "front": "Food tests",
      "back": "Benedict's (heated): simple sugars → orange/brick-red. Iodine: starch → blue-black. Biuret: protein → violet. Paper spot or Sudan III: lipid.",
      "topic": "Macromolecules"
     },
     {
-     "id": "c150",
+     "id": "c26",
      "front": "Four levels of protein structure",
      "back": "Primary: amino acid sequence. Secondary: helices and sheets. Tertiary: 3-D fold of one chain. Quaternary: several chains together.",
      "topic": "Macromolecules"
     },
     {
-     "id": "c151",
+     "id": "c27",
      "front": "DNA vs RNA",
      "back": "DNA: deoxyribose, A T G C, double-stranded, stores information. RNA: ribose, A U G C, usually single-stranded, helps make proteins.",
      "topic": "Macromolecules"
     },
     {
-     "id": "c152",
+     "id": "c28",
      "front": "How enzymes speed reactions",
      "back": "They lower the activation energy; they are not used up and do not change the overall energy of the reaction.",
      "topic": "Enzymes"
     },
     {
-     "id": "c153",
+     "id": "c29",
      "front": "Effect of temperature on enzyme activity",
      "back": "Rises to an optimum (≈37 °C for human enzymes), then falls steeply as the enzyme denatures. Cold slows enzymes but does not denature them.",
      "topic": "Enzymes"
     },
     {
-     "id": "c154",
+     "id": "c30",
      "front": "Competitive vs noncompetitive inhibitor",
      "back": "Competitive: binds the active site; overcome by more substrate. Noncompetitive: binds elsewhere and changes shape; extra substrate does not help.",
      "topic": "Enzymes"
     },
     {
-     "id": "c155",
+     "id": "c421",
      "front": "Why the peptide bond does not rotate",
      "back": "Partial double-bond character (shared electrons) holds its six atoms flat; the chain twists only at the bonds on either side of each alpha carbon.",
      "topic": "Protein structure"
     },
     {
-     "id": "c156",
+     "id": "c422",
      "front": "α helix numbers",
      "back": "3.6 amino acids per turn; 0.15 nm rise per amino acid (0.54 nm per turn); C=O of amino acid n hydrogen bonds to N–H of n + 4.",
      "topic": "Protein structure"
     },
     {
-     "id": "c157",
+     "id": "c423",
      "front": "α helix vs β sheet",
      "back": "Helix: one coiled segment, H-bonds within it. Sheet: extended strands (≈0.34 nm per amino acid) side by side, H-bonds between strands. Both are backbone hydrogen bonds.",
      "topic": "Protein structure"
     },
     {
-     "id": "c158",
+     "id": "c424",
      "front": "Main driving force of protein folding",
      "back": "The hydrophobic effect: burying nonpolar R groups in the core releases ordered water. H-bonds, ionic bonds, van der Waals contacts and disulfides refine the fold.",
      "topic": "Protein structure"
     },
     {
-     "id": "c159",
+     "id": "c425",
      "front": "Special amino acids in folding",
      "back": "Glycine: tiny, flexible, common in turns. Proline: rigid ring, no N–H, breaks helices. Cysteine: forms S–S disulfide bonds.",
      "topic": "Protein structure"
     },
     {
-     "id": "c160",
+     "id": "c426",
      "front": "Anfinsen's 1% result",
      "back": "8 cysteines can pair 7 × 5 × 3 × 1 = 105 ways; random pairing gives the native set 1/105 ≈ 1% of the time.",
      "topic": "Protein structure"
     },
     {
-     "id": "c161",
+     "id": "c427",
      "front": "Levinthal's paradox",
      "back": "A random search of 3^100 shapes would take ~10^27 years, yet proteins fold in seconds or less; folding follows an energy funnel, not a random search.",
      "topic": "Protein structure"
     },
     {
-     "id": "c162",
+     "id": "c428",
      "front": "What chaperones do",
      "back": "Bind exposed hydrophobic stretches (Hsp70) or give a sheltered chamber (GroEL/GroES) so chains don't aggregate; they hold no shape information.",
      "topic": "Protein structure"
     },
     {
-     "id": "c163",
+     "id": "c429",
      "front": "Sickle cell at the molecular level",
      "back": "β-globin glutamate 6 → valine on the surface; the nonpolar patch sticks to neighboring deoxyhemoglobin, forming fibers that sickle red cells.",
      "topic": "Protein structure"
     },
     {
-     "id": "c164",
+     "id": "c430",
      "front": "Prion",
      "back": "A misfolded, β-rich form of the protein PrP that converts normal PrP to the misfolded form; infectious with no DNA or RNA.",
      "topic": "Protein structure"
     },
     {
-     "id": "c165",
+     "id": "c431",
      "front": "Michaelis–Menten equation",
      "back": "$v = \\dfrac{V_{\\max}[\\text{S}]}{K_m + [\\text{S}]}$; at $[\\text{S}] = K_m$, $v = V_{\\max}/2$",
      "topic": "Enzyme kinetics"
     },
     {
-     "id": "c166",
+     "id": "c432",
      "front": "Fraction of Vmax at [S] = Km, 3Km, 9Km",
      "back": "50%, 75%, 90% (fraction = [S] / (Km + [S]))",
      "topic": "Enzyme kinetics"
     },
     {
-     "id": "c167",
+     "id": "c433",
      "front": "Turnover number and catalytic efficiency",
      "back": "$k_{\\text{cat}} = V_{\\max}/[\\text{E}]_{\\text{total}}$ (per second). Efficiency $k_{\\text{cat}}/K_m$, capped by diffusion near $10^8$–$10^9$ M⁻¹ s⁻¹.",
      "topic": "Enzyme kinetics"
     },
     {
-     "id": "c168",
+     "id": "c434",
      "front": "Lineweaver–Burk plot",
      "back": "$1/v$ vs $1/[\\text{S}]$: slope $K_m/V_{\\max}$, y-intercept $1/V_{\\max}$, x-intercept $-1/K_m$.",
      "topic": "Enzyme kinetics"
     },
     {
-     "id": "c169",
+     "id": "c435",
      "front": "Inhibitor fingerprints",
      "back": "Competitive: Km up, Vmax same. Pure noncompetitive: Vmax down, Km same. Uncompetitive: both down. Irreversible: covalent, permanent.",
      "topic": "Enzyme kinetics"
     },
     {
-     "id": "c170",
+     "id": "c436",
      "front": "Competitive inhibitor: apparent Km",
      "back": "$K_m^{\\text{app}} = K_m(1 + [\\text{I}]/K_i)$; $V_{\\max}$ unchanged",
      "topic": "Enzyme kinetics"
     },
     {
-     "id": "c171",
+     "id": "c437",
      "front": "Allosteric enzyme kinetics",
      "back": "Several subunits bind substrate cooperatively → S-shaped curve. Activators shift it left, inhibitors right. Example: ATCase (CTP inhibits, ATP activates).",
      "topic": "Enzyme regulation"
     },
     {
-     "id": "c172",
+     "id": "c438",
      "front": "Feedback inhibition example",
      "back": "In E. coli, isoleucine allosterically inhibits threonine deaminase, the first of five enzymes in its own pathway.",
      "topic": "Enzyme regulation"
     },
     {
-     "id": "c173",
+     "id": "c439",
      "front": "Zymogen",
      "back": "Inactive precursor activated by cutting, e.g. trypsinogen → trypsin by enteropeptidase in the small intestine; protects the cells that make it.",
      "topic": "Enzyme regulation"
     },
     {
-     "id": "c174",
+     "id": "c31",
      "front": "Biotic vs abiotic factors",
      "back": "Biotic: living parts of an ecosystem (organisms, dead leaves, dung). Abiotic: nonliving conditions (light, temperature, water, pH, minerals).",
      "topic": "Ecosystems"
     },
     {
-     "id": "c175",
+     "id": "c32",
      "front": "Producer, consumer, decomposer",
      "back": "Producers make their own food (photosynthesis or chemosynthesis). Consumers eat other organisms. Decomposers (bacteria, fungi) break down dead matter and return nutrients.",
      "topic": "Ecosystems"
     },
     {
-     "id": "c176",
+     "id": "c33",
      "front": "Which way do food-chain arrows point?",
      "back": "From the food to the eater: the direction energy moves (grass → rabbit means the rabbit eats the grass).",
      "topic": "Ecosystems"
     },
     {
-     "id": "c177",
+     "id": "c34",
      "front": "Food chain vs food web",
      "back": "A food chain is one feeding path; a food web shows all the interlinked feeding relationships in a community.",
      "topic": "Ecosystems"
     },
     {
-     "id": "c178",
+     "id": "c35",
      "front": "Net primary productivity",
      "back": "NPP = GPP − producer respiration: the energy producers store as new biomass, available to consumers.",
      "topic": "Energy flow"
     },
     {
-     "id": "c179",
+     "id": "c36",
      "front": "Ten percent rule",
      "back": "About 10% (roughly 1–20%) of the energy at one trophic level reaches the next. Energy at level $n$ above producers $= E_0 \\times 0.1^n$.",
      "topic": "Energy flow"
     },
     {
-     "id": "c180",
+     "id": "c37",
      "front": "Why is so little energy passed up a trophic level?",
      "back": "Not everything is eaten, not everything eaten is absorbed (feces), and most absorbed energy is used in cellular respiration and lost as heat.",
      "topic": "Energy flow"
     },
     {
-     "id": "c181",
+     "id": "c38",
      "front": "Energy vs matter in ecosystems",
      "back": "Energy flows one way (sunlight in, heat out). Matter (carbon, nitrogen, water) cycles and is reused.",
      "topic": "Energy flow"
     },
     {
-     "id": "c182",
+     "id": "c39",
      "front": "Which ecological pyramid is always upright?",
      "back": "The pyramid of energy. Pyramids of numbers (one tree, many insects) and biomass (open-ocean plankton) can be inverted.",
      "topic": "Energy flow"
     },
     {
-     "id": "c183",
+     "id": "c40",
      "front": "Why measure biomass as dry mass?",
      "back": "Water content varies with weather and time of day, so drying gives a consistent measure of living material.",
      "topic": "Energy flow"
     },
     {
-     "id": "c184",
+     "id": "c41",
      "front": "Carbon cycle: processes that add vs remove atmospheric CO₂",
      "back": "Remove: photosynthesis, dissolving in the ocean. Add: cellular respiration, decomposition, combustion of fuels, volcanoes.",
      "topic": "Biogeochemical cycles"
     },
     {
-     "id": "c185",
+     "id": "c42",
      "front": "Atmospheric CO₂ then and now",
      "back": "About 280 ppm before 1750; about 424 ppm in 2024, mainly from burning fossil fuels.",
      "topic": "Biogeochemical cycles"
     },
     {
-     "id": "c186",
+     "id": "c43",
      "front": "Nitrogen cycle in order",
      "back": "N₂ → (fixation by bacteria) ammonium → (nitrification) nitrite → nitrate → absorbed by plants → animals → (decomposers) ammonium; denitrification returns nitrate to N₂.",
      "topic": "Biogeochemical cycles"
     },
     {
-     "id": "c187",
+     "id": "c44",
      "front": "Eutrophication",
      "back": "Excess nutrients (fertilizer runoff) cause algal blooms; decomposers breaking down dead algae use up dissolved oxygen, creating dead zones.",
      "topic": "Biogeochemical cycles"
     },
     {
-     "id": "c188",
+     "id": "c45",
      "front": "Change in population size",
      "back": "$\\Delta N = B - D + I - E$ (births − deaths + immigration − emigration).",
      "topic": "Population ecology"
     },
     {
-     "id": "c189",
+     "id": "c46",
      "front": "Exponential growth equations",
      "back": "Continuous: $dN/dt = rN$. Discrete (yearly): $N_t = N_0\\lambda^t$. J-shaped curve.",
      "topic": "Population ecology"
     },
     {
-     "id": "c190",
+     "id": "c47",
      "front": "Logistic growth equation",
      "back": "$dN/dt = rN\\dfrac{K-N}{K}$. S-shaped curve; fastest at $N = K/2$; levels off at $K$.",
      "topic": "Population ecology"
     },
     {
-     "id": "c191",
+     "id": "c48",
      "front": "Density-dependent vs density-independent factors",
      "back": "Dependent (stronger when crowded): competition, predation, disease, parasites. Independent (same regardless of density): frost, drought, flood, fire.",
      "topic": "Population ecology"
     },
     {
-     "id": "c192",
+     "id": "c49",
      "front": "Lincoln–Petersen (mark–recapture) estimate",
      "back": "$N = \\dfrac{M \\times C}{R}$: $M$ marked first, $C$ caught second, $R$ marked in the second catch.",
      "topic": "Population ecology"
     },
     {
-     "id": "c193",
+     "id": "c50",
      "front": "Mark–recapture assumptions",
      "back": "Marked animals mix evenly, marks are not lost, marking does not change catchability, and no births, deaths or migration between samples.",
      "topic": "Population ecology"
     },
     {
-     "id": "c194",
+     "id": "c51",
      "front": "Symbiotic interactions and their signs",
      "back": "Mutualism +/+, commensalism +/0, parasitism +/−. (Predation is +/−, competition −/−.)",
      "topic": "Community ecology"
     },
     {
-     "id": "c195",
+     "id": "c52",
      "front": "Competitive exclusion principle",
      "back": "Two species cannot share the same niche in the same place indefinitely; one wins, or they partition resources (MacArthur's warblers).",
      "topic": "Community ecology"
     },
     {
-     "id": "c196",
+     "id": "c53",
      "front": "Keystone species (example)",
      "back": "A species with an effect far larger than its abundance. Paine removed the sea star Pisaster and species on the shore fell from 15 to 8.",
      "topic": "Community ecology"
     },
     {
-     "id": "c197",
+     "id": "c54",
      "front": "Primary vs secondary succession",
      "back": "Primary: starts with no soil (lava, retreating glacier), pioneers are lichens and mosses. Secondary: soil remains (after fire or farming), faster.",
      "topic": "Community ecology"
     },
     {
-     "id": "c198",
+     "id": "c55",
      "front": "What mainly determines which biome develops?",
      "back": "Climate: temperature and precipitation.",
      "topic": "Biomes"
     },
     {
-     "id": "c199",
+     "id": "c56",
      "front": "Tundra vs boreal forest vs desert",
      "back": "Tundra: very cold, permafrost, no trees. Boreal forest: cold winters, conifers. Desert: under about 25 cm of rain a year.",
      "topic": "Biomes"
     },
     {
-     "id": "c200",
+     "id": "c57",
      "front": "Simpson's diversity index",
      "back": "$D = 1 - \\dfrac{\\sum n(n-1)}{N(N-1)}$. Near 0: one species dominates. Near 1: many evenly represented species.",
      "topic": "Biodiversity"
     },
     {
-     "id": "c201",
+     "id": "c58",
      "front": "Species richness vs evenness",
      "back": "Richness: number of species. Evenness: how equally individuals are spread among them. Diversity indexes combine both.",
      "topic": "Biodiversity"
     },
     {
-     "id": "c202",
+     "id": "c59",
      "front": "Main human threats to biodiversity",
      "back": "Habitat loss (largest), climate change, invasive species, pollution, overexploitation.",
      "topic": "Human impact"
     },
     {
-     "id": "c203",
+     "id": "c60",
      "front": "Biomagnification",
      "back": "A persistent, fat-soluble toxin (such as DDT) becomes more concentrated at each higher trophic level.",
      "topic": "Human impact"
     },
     {
-     "id": "c204",
+     "id": "c440",
      "front": "Life table columns",
      "back": "$l_x = n_x/n_0$ (survivorship), $d_x = n_x - n_{x+1}$ (deaths), $q_x = d_x/n_x$ (mortality rate), $e_x = T_x/n_x$ (life expectancy).",
      "topic": "Life tables"
     },
     {
-     "id": "c205",
+     "id": "c441",
      "front": "$l_x$ vs $q_x$",
      "back": "$l_x$: fraction of the cohort surviving from birth to age $x$. $q_x$: fraction of those alive at age $x$ that die before $x+1$.",
      "topic": "Life tables"
     },
     {
-     "id": "c206",
+     "id": "c442",
      "front": "Why can $e_1$ be larger than $e_0$?",
      "back": "When first-year mortality is high, an individual that survives its first year has escaped that risk and can expect to live longer than a newborn.",
      "topic": "Life tables"
     },
     {
-     "id": "c207",
+     "id": "c443",
      "front": "Survivorship curve types",
      "back": "Type I: most die old (humans, large mammals). Type II: constant fraction dies each age, straight line on a log scale (many lizards). Type III: most die young (oysters, most fish).",
      "topic": "Life tables"
     },
     {
-     "id": "c208",
+     "id": "c444",
      "front": "Net reproductive rate",
      "back": "$R_0 = \\sum l_x m_x$, daughters per female per lifetime. $R_0 > 1$: grows; $= 1$: steady; $< 1$: shrinks.",
      "topic": "Life tables"
     },
     {
-     "id": "c209",
+     "id": "c445",
      "front": "r-selected vs K-selected",
      "back": "r: early maturity, many small offspring, little care, short life. K: late maturity, few large offspring, much care, long life. A continuum; age-specific mortality explains life histories better.",
      "topic": "Population models"
     },
     {
-     "id": "c210",
+     "id": "c446",
      "front": "Reznick and Endler guppy experiment",
      "back": "Guppies moved to a stream where predators eat mainly juveniles evolved later maturity and fewer, larger young in about 11 years: mortality by age shapes life histories.",
      "topic": "Population models"
     },
     {
-     "id": "c211",
+     "id": "c447",
      "front": "Lotka–Volterra predator–prey equations",
      "back": "$dH/dt = rH - aHP$; $dP/dt = baHP - mP$. Prey steady at $P = r/a$; predators steady at $H = m/(ab)$. Cycles with predator peaks lagging.",
      "topic": "Population models"
     },
     {
-     "id": "c212",
+     "id": "c448",
      "front": "Kluane hare experiment results",
      "back": "Averaged over peak and decline: food added 3×, predators excluded 2×, both about 11× hare density. Food and predation interact.",
      "topic": "Population models"
     },
     {
-     "id": "c213",
+     "id": "c449",
      "front": "When do two competitors coexist (Lotka–Volterra)?",
      "back": "When each limits itself more than it limits the other: $\\alpha_{12} < K_1/K_2$ and $\\alpha_{21} < K_2/K_1$. Otherwise one excludes the other.",
      "topic": "Population models"
     },
     {
-     "id": "c214",
+     "id": "c450",
      "front": "Estimating K from density data",
      "back": "Plot per capita growth against $N$; fit a line $r(1 - N/K)$. The intercept is $r$, and where the line hits zero is $K$.",
      "topic": "Population models"
     },
     {
-     "id": "c215",
+     "id": "c451",
      "front": "GPP, NPP, NEP",
      "back": "NPP = GPP − producer respiration. NEP = NPP − consumer and decomposer respiration. NEP > 0 means the ecosystem stores carbon.",
      "topic": "Primary productivity"
     },
     {
-     "id": "c216",
+     "id": "c452",
      "front": "Light and dark bottle formulas",
      "back": "Respiration = initial − dark. Net production = light − initial. GPP = light − dark.",
      "topic": "Primary productivity"
     },
     {
-     "id": "c217",
+     "id": "c453",
      "front": "Converting O₂ to carbon fixed",
      "back": "One O₂ released per CO₂ fixed, so mg C = mg O₂ × 12/32 = mg O₂ × 0.375 (approximate).",
      "topic": "Primary productivity"
     },
     {
-     "id": "c218",
+     "id": "c454",
      "front": "Classic nutrient-limitation experiments",
      "back": "Lake 226 (1973): phosphorus limits lakes. Ryther and Dunstan (1971): nitrogen limits coastal seas. IronEx II (1995): iron limits parts of the open ocean.",
      "topic": "Primary productivity"
     },
     {
-     "id": "c219",
+     "id": "c455",
      "front": "Redfield ratio",
      "back": "C : N : P ≈ 106 : 16 : 1 in ocean plankton. N:P well below 16 suggests N limitation; well above suggests P limitation.",
      "topic": "Primary productivity"
     },
     {
-     "id": "c220",
+     "id": "c456",
      "front": "Ocean vs land NPP",
      "back": "About half of global NPP (a total of roughly 105 GtC per year) is in the ocean, though phytoplankton are under 1% of producer biomass: they turn over in days.",
      "topic": "Primary productivity"
     },
     {
-     "id": "c221",
+     "id": "c457",
      "front": "Nitrogen cycle microbes",
      "back": "Fixers (nitrogenase, N₂ → NH₄⁺); nitrifiers (NH₄⁺ → NO₂⁻ → NO₃⁻, need O₂); denitrifiers (NO₃⁻ → N₂O → N₂, low O₂); anammox (NH₄⁺ + NO₂⁻ → N₂).",
      "topic": "Global change"
     },
     {
-     "id": "c222",
+     "id": "c458",
      "front": "Global carbon budget 2023",
      "back": "Emitted 11.1 GtC (fossil 10.1, land use 1.0). Atmosphere +5.9, ocean 2.9, land 2.3. Airborne fraction about 53%. 2.12 GtC ≈ 1 ppm.",
      "topic": "Global change"
     },
     {
-     "id": "c223",
+     "id": "c459",
      "front": "Evidence that rising CO₂ comes from fossil fuels",
      "back": "Falling carbon-13 and carbon-14 fractions in air CO₂, falling atmospheric O₂, and emissions inventories that match the rise.",
      "topic": "Global change"
     },
     {
-     "id": "c224",
+     "id": "c460",
      "front": "Ice-core CO₂ record",
      "back": "For 800,000 years CO₂ stayed between about 180 and 300 ppm; today it is about 424 ppm (2024).",
      "topic": "Global change"
     },
     {
-     "id": "c225",
+     "id": "c61",
      "front": "The three parts of the cell theory",
      "back": "All living things are made of cells; the cell is the basic unit of structure and function; all cells come from preexisting cells.",
      "topic": "Cell theory"
     },
     {
-     "id": "c226",
+     "id": "c62",
      "front": "Who contributed what to cell theory",
      "back": "Hooke (1665) named cells; Leeuwenhoek saw microbes; Schleiden (plants) and Schwann (animals) are made of cells; Virchow: every cell from a cell.",
      "topic": "Cell theory"
     },
     {
-     "id": "c227",
+     "id": "c63",
      "front": "Pasteur's swan-neck flasks",
      "back": "Boiled broth open to air via an S-shaped neck stayed sterile; breaking the neck let dust and microbes in. Microbes come from microbes, not spontaneous generation.",
      "topic": "Cell theory"
     },
     {
-     "id": "c228",
+     "id": "c64",
      "front": "Total magnification",
      "back": "Ocular × objective (e.g. 10× × 40× = 400×)",
      "topic": "Microscopy"
     },
     {
-     "id": "c229",
+     "id": "c65",
      "front": "Actual size from an image",
      "back": "Actual size = image size ÷ magnification (convert mm to µm: × 1000)",
      "topic": "Microscopy"
     },
     {
-     "id": "c230",
+     "id": "c66",
      "front": "Field of view at higher power",
      "back": "Shrinks in proportion: new diameter = old diameter × (low mag ÷ high mag). Cell size ≈ field diameter ÷ number of cells across.",
      "topic": "Microscopy"
     },
     {
-     "id": "c231",
+     "id": "c67",
      "front": "Magnification vs resolution",
      "back": "Magnification: how much bigger the image is. Resolution: smallest separation still seen as two points (≈ 0.2 µm light, ≈ 1 nm or better electron).",
      "topic": "Microscopy"
     },
     {
-     "id": "c232",
+     "id": "c68",
      "front": "Light vs electron microscope",
      "back": "Light: living cells, color, ≈ 1000×. Electron: far higher resolution, but dead specimens in a vacuum. TEM: thin slices; SEM: surfaces.",
      "topic": "Microscopy"
     },
     {
-     "id": "c233",
+     "id": "c69",
      "front": "Four things every cell has",
      "back": "Plasma membrane, cytoplasm, DNA, ribosomes",
      "topic": "Cell types"
     },
     {
-     "id": "c234",
+     "id": "c70",
      "front": "Prokaryote vs eukaryote",
      "back": "Prokaryote: no nucleus or membrane-bound organelles, DNA in nucleoid, 1–5 µm (bacteria, archaea). Eukaryote: nucleus and organelles, 10–100 µm (animals, plants, fungi, protists).",
      "topic": "Cell types"
     },
     {
-     "id": "c235",
+     "id": "c71",
      "front": "The three domains of life",
      "back": "Bacteria, Archaea (both prokaryotic) and Eukarya; found by comparing ribosomal RNA (Woese, 1977; domains formally proposed 1990).",
      "topic": "Cell types"
     },
     {
-     "id": "c236",
+     "id": "c72",
      "front": "Virus vs bacterium",
      "back": "Virus: not a cell, DNA or RNA in a capsid, 20–300 nm, no ribosomes or metabolism, reproduces only in a host, not affected by antibiotics. Bacterium: a living cell, 1–5 µm.",
      "topic": "Viruses"
     },
     {
-     "id": "c237",
+     "id": "c73",
      "front": "Why antibiotics don't treat viral infections",
      "back": "They target bacterial structures (peptidoglycan walls, bacterial ribosomes) that viruses don't have.",
      "topic": "Viruses"
     },
     {
-     "id": "c238",
+     "id": "c74",
      "front": "Nucleus",
      "back": "Holds DNA; double envelope with pores; nucleolus makes ribosome parts.",
      "topic": "Organelles"
     },
     {
-     "id": "c239",
+     "id": "c75",
      "front": "Rough ER vs smooth ER",
      "back": "Rough ER: ribosomes, makes proteins for export and membranes. Smooth ER: makes lipids, detoxifies (liver), stores calcium (muscle).",
      "topic": "Organelles"
     },
     {
-     "id": "c240",
+     "id": "c76",
      "front": "Path of a secreted protein",
      "back": "Ribosome on rough ER → ER → vesicle → Golgi apparatus → secretory vesicle → exocytosis (shown by Palade's pulse–chase experiments).",
      "topic": "Organelles"
     },
     {
-     "id": "c241",
+     "id": "c77",
      "front": "Lysosome",
      "back": "Membrane sac of digestive enzymes, acidic inside (≈ pH 5); digests food particles, bacteria and worn-out organelles.",
      "topic": "Organelles"
     },
     {
-     "id": "c242",
+     "id": "c78",
      "front": "Mitochondrion vs chloroplast",
      "back": "Mitochondrion: cellular respiration, makes ATP (plants and animals). Chloroplast: photosynthesis, makes sugar (plants and algae).",
      "topic": "Organelles"
     },
     {
-     "id": "c243",
+     "id": "c79",
      "front": "Plant cells have, animal cells lack",
      "back": "Cell wall (cellulose), chloroplasts, large central vacuole",
      "topic": "Organelles"
     },
     {
-     "id": "c244",
+     "id": "c80",
      "front": "Evidence for the endosymbiotic theory",
      "back": "Mitochondria and chloroplasts have double membranes, their own circular DNA, bacteria-like ribosomes, divide by splitting, and have DNA most similar to particular bacteria.",
      "topic": "Organelles"
     },
     {
-     "id": "c245",
+     "id": "c81",
      "front": "Fluid mosaic model",
      "back": "Membrane = fluid phospholipid bilayer with a mosaic of proteins that move sideways (Frye–Edidin cell fusion experiment).",
      "topic": "Cell membrane"
     },
     {
-     "id": "c246",
+     "id": "c82",
      "front": "What crosses a bilayer easily?",
      "back": "Small nonpolar molecules (O₂, CO₂). Water slowly (fast via aquaporins). Ions and large polar molecules need transport proteins.",
      "topic": "Cell membrane"
     },
     {
-     "id": "c247",
+     "id": "c83",
      "front": "Passive vs active transport",
      "back": "Passive (diffusion, facilitated diffusion, osmosis): down the gradient, no energy. Active: against the gradient, needs ATP and a pump.",
      "topic": "Transport"
     },
     {
-     "id": "c248",
+     "id": "c84",
      "front": "Direction of osmosis",
      "back": "Water moves toward the higher solute concentration (\"water follows solute\").",
      "topic": "Transport"
     },
     {
-     "id": "c249",
+     "id": "c85",
      "front": "Hypertonic, hypotonic, isotonic solutions",
      "back": "Hypertonic: cell loses water (shrinks, plasmolysis). Hypotonic: cell gains water (animal cell may burst, plant cell turgid). Isotonic: no net change.",
      "topic": "Transport"
     },
     {
-     "id": "c250",
+     "id": "c86",
      "front": "Water potential",
      "back": "$\\Psi = \\Psi_s + \\Psi_p$, with $\\Psi_s = -iCRT$; water moves from higher to lower $\\Psi$.",
      "topic": "Transport"
     },
     {
-     "id": "c251",
+     "id": "c87",
      "front": "Sodium–potassium pump",
      "back": "Active transport: each ATP moves 3 Na⁺ out and 2 K⁺ in.",
      "topic": "Transport"
     },
     {
-     "id": "c252",
+     "id": "c88",
      "front": "SA:V of a cube of side $s$",
      "back": "SA $= 6s^2$, $V = s^3$, so SA:V $= 6/s$; it falls as the cube grows.",
      "topic": "Surface area to volume"
     },
     {
-     "id": "c253",
+     "id": "c89",
      "front": "Why cells are small",
      "back": "Needs grow with volume but supply through the membrane grows only with surface area; diffusion is only fast over short distances.",
      "topic": "Surface area to volume"
     },
     {
-     "id": "c254",
+     "id": "c90",
      "front": "Differentiation",
      "back": "A cell specializes by switching genes on and off; nearly all body cells have the same DNA (Gurdon's frog nuclear transfer).",
      "topic": "Cell specialization"
     },
     {
-     "id": "c255",
+     "id": "c461",
      "front": "Signal hypothesis",
      "back": "Proteins carry built-in address labels. A signal sequence at the start of a protein is bound by SRP, which brings the ribosome to the ER; the chain is threaded into the ER through a translocon (Blobel).",
      "topic": "Endomembrane system"
     },
     {
-     "id": "c256",
+     "id": "c462",
      "front": "Sorting signals in the endomembrane system",
      "back": "Signal sequence only → secreted (default); + KDEL → returned to and kept in the ER; + mannose-6-phosphate → lysosome. No signal sequence → stays in the cytosol.",
      "topic": "Endomembrane system"
     },
     {
-     "id": "c257",
+     "id": "c463",
      "front": "COPII vs COPI vs clathrin coats",
      "back": "COPII: ER → Golgi. COPI: Golgi → ER and between Golgi sacs. Clathrin: from the trans-Golgi network and the plasma membrane (endocytosis).",
      "topic": "Endomembrane system"
     },
     {
-     "id": "c258",
+     "id": "c464",
      "front": "How a vesicle fuses with the right membrane",
      "back": "Rab proteins help it dock; SNAREs on the vesicle and target wind together and pull the membranes into fusion. Botulinum and tetanus toxins cut SNAREs.",
      "topic": "Endomembrane system"
     },
     {
-     "id": "c259",
+     "id": "c465",
      "front": "I-cell disease",
      "back": "Lysosomal enzymes are never tagged with mannose-6-phosphate, so they are secreted into the blood instead of reaching lysosomes, which fill with undigested material.",
      "topic": "Endomembrane system"
     },
     {
-     "id": "c260",
+     "id": "c466",
      "front": "Receptor-mediated endocytosis of LDL",
      "back": "LDL binds receptors in clathrin-coated pits → coated vesicle → endosome (acid releases LDL) → receptors recycled, LDL to lysosome. Too few receptors: familial hypercholesterolemia.",
      "topic": "Endomembrane system"
     },
     {
-     "id": "c261",
+     "id": "c467",
      "front": "Ordering steps with double mutants",
      "back": "Cargo stops at the first block it meets, so a double mutant looks like the single mutant whose step comes earlier (Schekman's yeast sec mutants).",
      "topic": "Endomembrane system"
     },
     {
-     "id": "c262",
+     "id": "c468",
      "front": "Microtubule vs intermediate filament vs microfilament",
      "back": "Microtubule: hollow, 25 nm, tubulin; tracks, spindle, cilia. Intermediate filament: 8–12 nm ropes (keratin, lamins); strength. Microfilament: 7 nm, actin; shape, crawling, contraction.",
      "topic": "Cytoskeleton"
     },
     {
-     "id": "c263",
+     "id": "c469",
      "front": "Kinesin vs dynein vs myosin",
      "back": "Kinesin: along microtubules, mostly toward plus ends (outward). Dynein: toward minus ends (inward); also bends cilia and flagella. Myosin: along actin.",
      "topic": "Cytoskeleton"
     },
     {
-     "id": "c264",
+     "id": "c470",
      "front": "Kinesin step size",
      "back": "8 nm per step, one ATP per step; 1 m of axon takes $1.25 \\times 10^8$ steps.",
      "topic": "Cytoskeleton"
     },
     {
-     "id": "c265",
+     "id": "c471",
      "front": "Colchicine vs paclitaxel (Taxol)",
      "back": "Colchicine stops microtubules growing; paclitaxel stops them shrinking. Both wreck the spindle and stall mitosis.",
      "topic": "Cytoskeleton"
     },
     {
-     "id": "c266",
+     "id": "c472",
      "front": "Three stages of cell signaling",
      "back": "Reception (ligand binds receptor) → transduction (relay proteins, second messengers) → response (enzyme, channel or gene activity changes).",
      "topic": "Cell signaling"
     },
     {
-     "id": "c267",
+     "id": "c473",
      "front": "Four kinds of receptor",
      "back": "G protein-coupled receptor; receptor tyrosine kinase; ligand-gated ion channel (surface); intracellular receptor for steroids and other signals that get inside.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c268",
+     "id": "c474",
      "front": "GPCR–cAMP pathway",
      "back": "Ligand binds GPCR → G protein swaps GDP for GTP → α subunit activates adenylyl cyclase → ATP → cAMP → protein kinase A → response.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c269",
+     "id": "c475",
      "front": "RTK pathway",
      "back": "Growth factor → two receptors pair up → cross-phosphorylate tyrosines → relay proteins activate Ras → MAP kinase cascade → transcription factors → cell division genes.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c270",
+     "id": "c476",
      "front": "Receptor occupancy",
      "back": "$f = \\dfrac{[L]}{[L] + K_d}$: 50% at $K_d$, 75% at $3K_d$, 90% at $9K_d$.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c271",
+     "id": "c477",
      "front": "Sutherland's experiment",
      "back": "Epinephrine plus liver membranes made a heat-stable small molecule (cAMP) that activated phosphorylase in the cytosol: the second messenger.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c272",
+     "id": "c478",
      "front": "Switching a cAMP signal off",
      "back": "Ligand leaves the receptor; Gα hydrolyzes GTP; phosphodiesterase breaks down cAMP; phosphatases remove phosphates; receptors are taken inside.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c273",
+     "id": "c479",
      "front": "Cholera toxin",
      "back": "Locks the Gα that activates adenylyl cyclase in its GTP form → cAMP stays high → chloride and water pour into the gut → severe diarrhea.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c274",
+     "id": "c480",
      "front": "Amplification",
      "back": "Each enzyme in a cascade activates many molecules of the next, so multiply the factors: in the lesson's illustrative liver-cell example, one hormone molecule releases about a million glucose units per second.",
      "topic": "Cell signaling"
     },
     {
-     "id": "c275",
+     "id": "c91",
      "front": "First law of thermodynamics",
      "back": "Energy is converted from one form to another, never created or destroyed.",
      "topic": "Energy"
     },
     {
-     "id": "c276",
+     "id": "c92",
      "front": "Second law of thermodynamics",
      "back": "Every energy conversion loses some energy as unusable heat, so entropy increases; living things need a constant energy input.",
      "topic": "Energy"
     },
     {
-     "id": "c277",
+     "id": "c93",
      "front": "Catabolism vs anabolism",
      "back": "Catabolism breaks molecules down and releases energy (respiration). Anabolism builds molecules and requires energy (protein synthesis, Calvin cycle).",
      "topic": "Energy"
     },
     {
-     "id": "c278",
+     "id": "c94",
      "front": "Exergonic vs endergonic",
      "back": "Exergonic reactions release free energy and can proceed on their own; endergonic reactions absorb free energy and need an input, usually from ATP.",
      "topic": "Energy"
     },
     {
-     "id": "c279",
+     "id": "c95",
      "front": "Structure of ATP",
      "back": "Adenine + ribose + three phosphate groups (adenosine triphosphate).",
      "topic": "ATP"
     },
     {
-     "id": "c280",
+     "id": "c96",
      "front": "ATP hydrolysis",
      "back": "ATP + H₂O → ADP + Pᵢ + energy (about 30.5 kJ/mol under standard conditions).",
      "topic": "ATP"
     },
     {
-     "id": "c281",
+     "id": "c97",
      "front": "Energy coupling",
      "back": "Using ATP hydrolysis to drive an endergonic process, usually by transferring a phosphate group to another molecule; works if the total energy change is negative.",
      "topic": "ATP"
     },
     {
-     "id": "c282",
+     "id": "c98",
      "front": "The ATP cycle",
      "back": "Catabolism recharges ADP + Pᵢ into ATP; cellular work spends ATP back to ADP. A cell holds little ATP and remakes it constantly.",
      "topic": "ATP"
     },
     {
-     "id": "c283",
+     "id": "c99",
      "front": "Oxidation vs reduction (OIL RIG)",
      "back": "Oxidation Is Loss of electrons; Reduction Is Gain. NAD⁺ is reduced to NADH.",
      "topic": "ATP"
     },
     {
-     "id": "c284",
+     "id": "c100",
      "front": "Electron carriers",
      "back": "NADH and FADH₂ carry electrons in respiration; NADPH carries them in photosynthesis.",
      "topic": "ATP"
     },
     {
-     "id": "c285",
+     "id": "c101",
      "front": "Photosynthesis equation",
      "back": "6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c286",
+     "id": "c102",
      "front": "Autotroph vs heterotroph",
      "back": "Autotrophs make their own food from inorganic materials (plants, algae). Heterotrophs eat other organisms (animals, fungi).",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c287",
+     "id": "c103",
      "front": "Source of O₂ in photosynthesis",
      "back": "Water, split by photosystem II (shown with ¹⁸O by Ruben and Kamen, 1941).",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c288",
+     "id": "c104",
      "front": "Classic photosynthesis experiments, in order",
      "back": "Van Helmont (mass not from soil) → Priestley (plants restore air) → Ingenhousz (only in light) → Engelmann (action spectrum) → Ruben and Kamen (O₂ from water) → Calvin (carbon path, ¹⁴C).",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c289",
+     "id": "c105",
      "front": "Why leaves are green",
      "back": "Chlorophyll absorbs mostly blue-violet and red light and reflects green.",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c290",
+     "id": "c106",
      "front": "Absorption spectrum vs action spectrum",
      "back": "Absorption: how much light a pigment absorbs at each wavelength. Action: how fast photosynthesis runs at each wavelength.",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c291",
+     "id": "c107",
      "front": "Light-dependent reactions",
      "back": "Thylakoid membranes. In: light, H₂O, ADP, NADP⁺. Out: O₂, ATP, NADPH.",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c292",
+     "id": "c108",
      "front": "Calvin cycle",
      "back": "Stroma. Rubisco fixes CO₂; ATP and NADPH reduce it to G3P. Per glucose: 6 CO₂, 18 ATP, 12 NADPH.",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c293",
+     "id": "c109",
      "front": "Limiting factors of photosynthesis",
      "back": "Light intensity, CO₂ concentration, temperature; the scarcest one sets the rate.",
      "topic": "Photosynthesis"
     },
     {
-     "id": "c294",
+     "id": "c110",
      "front": "Cellular respiration equation",
      "back": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy (about 30–32 ATP)",
      "topic": "Cellular respiration"
     },
     {
-     "id": "c295",
+     "id": "c111",
      "front": "Stages of aerobic respiration, in order",
      "back": "Glycolysis (cytoplasm) → pyruvate oxidation and Krebs cycle (mitochondrial matrix) → electron transport chain and chemiosmosis (inner membrane).",
      "topic": "Cellular respiration"
     },
     {
-     "id": "c296",
+     "id": "c112",
      "front": "Glycolysis yield",
      "back": "Glucose → 2 pyruvate; net 2 ATP and 2 NADH; no O₂ needed.",
      "topic": "Cellular respiration"
     },
     {
-     "id": "c297",
+     "id": "c113",
      "front": "Krebs cycle yield (per glucose)",
      "back": "With pyruvate oxidation: 6 CO₂, 8 NADH, 2 FADH₂, 2 ATP.",
      "topic": "Cellular respiration"
     },
     {
-     "id": "c298",
+     "id": "c114",
      "front": "Role of oxygen in respiration",
      "back": "Final electron acceptor at the end of the electron transport chain; forms water.",
      "topic": "Cellular respiration"
     },
     {
-     "id": "c299",
+     "id": "c115",
      "front": "ATP per glucose",
      "back": "About 30–32 (2.5 per NADH, 1.5 per FADH₂, 4 direct). Older books: 36–38, using 3 and 2.",
      "topic": "Cellular respiration"
     },
     {
-     "id": "c300",
+     "id": "c116",
      "front": "Chemiosmosis",
      "back": "H⁺ pumped across a membrane by an electron transport chain flows back through ATP synthase, which makes ATP. Used in both mitochondria and chloroplasts.",
      "topic": "Cellular respiration"
     },
     {
-     "id": "c301",
+     "id": "c117",
      "front": "Purpose of fermentation",
      "back": "Regenerates NAD⁺ so glycolysis can keep making 2 ATP per glucose without oxygen.",
      "topic": "Fermentation"
     },
     {
-     "id": "c302",
+     "id": "c118",
      "front": "Lactic acid vs alcoholic fermentation",
      "back": "Lactic acid: pyruvate → lactate (muscle, yogurt bacteria). Alcoholic: pyruvate → ethanol + CO₂ (yeast).",
      "topic": "Fermentation"
     },
     {
-     "id": "c303",
+     "id": "c119",
      "front": "Aerobic respiration vs fermentation",
      "back": "Aerobic: needs O₂, about 30 ATP per glucose, CO₂ + H₂O. Fermentation: no O₂, 2 ATP, lactate or ethanol + CO₂.",
      "topic": "Fermentation"
     },
     {
-     "id": "c304",
+     "id": "c481",
      "front": "Gibbs free energy equation",
      "back": "$\\Delta G = \\Delta H - T\\Delta S$. Negative $\\Delta G$: can proceed on its own; positive: needs an energy input; zero: equilibrium.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c305",
+     "id": "c482",
      "front": "Actual vs standard free energy change",
      "back": "$\\Delta G = \\Delta G^{\\circ\\prime} + RT\\ln Q$. $RT \\approx 2.58$ kJ/mol at 37 °C. Small $Q$ (products scarce) pushes a reaction forward.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c306",
+     "id": "c483",
      "front": "Free energy and the equilibrium constant",
      "back": "$\\Delta G^{\\circ\\prime} = -RT\\ln K^{\\prime}$. At 25 °C, every 5.7 kJ/mol is a factor of 10 in $K^{\\prime}$; $\\Delta G^{\\circ\\prime} = 0$ means $K^{\\prime} = 1$.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c307",
+     "id": "c484",
      "front": "ATP hydrolysis in a cell vs standard",
      "back": "About −30.5 kJ/mol under standard conditions but about −50 kJ/mol in cells, because ATP is kept far above equilibrium relative to ADP and phosphate.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c308",
+     "id": "c485",
      "front": "Coupled reactions (hexokinase)",
      "back": "Glucose + Pᵢ → glucose-6-P: +13.8 kJ/mol. Coupled to ATP hydrolysis (−30.5): −16.7 kJ/mol. Free energies add; equilibrium constants multiply.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c309",
+     "id": "c486",
      "front": "Phosphoryl-transfer scale",
      "back": "PEP (−61.9) > 1,3-bisphosphoglycerate (−49.3) > phosphocreatine (−43.0) > ATP (−30.5) > glucose-6-P (−13.8) kJ/mol. ATP in the middle can be made from those above and phosphorylate those below.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c310",
+     "id": "c487",
      "front": "Redox free energy equation",
      "back": "$\\Delta G^{\\circ\\prime} = -nF\\Delta E^{\\circ\\prime}$, with $\\Delta E^{\\circ\\prime} = E^{\\circ\\prime}_{\\text{acceptor}} - E^{\\circ\\prime}_{\\text{donor}}$ and $F = 96.5$ kJ/(mol·V).",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c311",
+     "id": "c488",
      "front": "Reduction potentials along the respiratory chain",
      "back": "NAD⁺/NADH −0.32 V; Q/QH₂ +0.05 V; cytochrome c +0.25 V; ½O₂/H₂O +0.82 V. Electrons flow toward more positive values.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c312",
+     "id": "c489",
      "front": "Energy from NADH to oxygen",
      "back": "$\\Delta E^{\\circ\\prime} = 1.14$ V, so $\\Delta G^{\\circ\\prime} = -2 \\times 96.5 \\times 1.14 \\approx -220$ kJ/mol, released in steps along the chain.",
      "topic": "Bioenergetics"
     },
     {
-     "id": "c313",
+     "id": "c490",
      "front": "Mitochondrial electron transport chain (order)",
      "back": "NADH → complex I → ubiquinone (Q) → complex III → cytochrome c → complex IV → O₂. Succinate enters at complex II → Q.",
      "topic": "Electron transport"
     },
     {
-     "id": "c314",
+     "id": "c491",
      "front": "Protons pumped per pair of electrons",
      "back": "Complex I: 4, complex III: 4, complex IV: 2, complex II: 0. NADH gives 10 H⁺; succinate (FADH₂) gives 6.",
      "topic": "Electron transport"
     },
     {
-     "id": "c315",
+     "id": "c492",
      "front": "Proton-motive force",
      "back": "$\\Delta p = \\Delta\\psi + 61.5 \\text{ mV} \\times \\Delta\\text{pH}$ (37 °C). About 200 mV in mitochondria, mostly membrane potential; thylakoids store more as a pH difference.",
      "topic": "Chemiosmosis"
     },
     {
-     "id": "c316",
+     "id": "c493",
      "front": "ATP synthase as a rotary motor",
      "back": "Protons turn the c-ring (F₀) and central stalk; each β subunit of F₁ binds ADP + Pᵢ, makes ATP, releases it (binding-change mechanism). 3 ATP per turn; H⁺ per ATP = c subunits ÷ 3.",
      "topic": "Chemiosmosis"
     },
     {
-     "id": "c317",
+     "id": "c494",
      "front": "P/O ratios",
      "back": "With about 4 H⁺ per ATP (3 through the synthase + 1 for transport): NADH 10 ÷ 4 = 2.5 ATP; FADH₂ 6 ÷ 4 = 1.5 ATP. Approximate, not whole numbers.",
      "topic": "Chemiosmosis"
     },
     {
-     "id": "c318",
+     "id": "c495",
      "front": "Thylakoid electron transport chain (order)",
      "back": "H₂O → photosystem II → plastoquinone → cytochrome b₆f → plastocyanin → photosystem I → ferredoxin → FNR → NADPH.",
      "topic": "Electron transport"
     },
     {
-     "id": "c319",
+     "id": "c496",
      "front": "Why chloroplasts need cyclic electron flow",
      "back": "Linear flow gives about 12 H⁺ per 2 NADPH; with 14 c subunits that is about 1.29 ATP per NADPH, short of the 1.5 the Calvin cycle uses. Cyclic flow makes ATP without NADPH.",
      "topic": "Electron transport"
     },
     {
-     "id": "c320",
+     "id": "c497",
      "front": "Jagendorf acid-bath experiment (1966)",
      "back": "Thylakoids soaked at pH 4, then moved to pH 8 with ADP + Pᵢ in the dark, made ATP: a proton gradient alone drives ATP synthesis.",
      "topic": "Chemiosmosis"
     },
     {
-     "id": "c321",
+     "id": "c498",
      "front": "Oligomycin vs DNP",
      "back": "Both stop ATP synthesis. Oligomycin blocks ATP synthase, so O₂ use slows (respiratory control). DNP is an uncoupler, so O₂ use speeds up and the energy becomes heat.",
      "topic": "Chemiosmosis"
     },
     {
-     "id": "c322",
+     "id": "c499",
      "front": "Calvin cycle carbon bookkeeping (3 turns)",
      "back": "3 RuBP (15 C) + 3 CO₂ → 6 3-PGA (18 C) → 6 G3P (6 ATP, 6 NADPH) → 1 G3P out; 5 G3P + 3 ATP → 3 RuBP. Total 9 ATP + 6 NADPH per G3P.",
      "topic": "Calvin cycle"
     },
     {
-     "id": "c323",
+     "id": "c500",
      "front": "Light-to-dark transient in the Calvin cycle",
      "back": "Light off: 3-PGA rises, RuBP falls (no ATP/NADPH for reduction or regeneration). CO₂ cut off: RuBP rises, 3-PGA falls.",
      "topic": "Calvin cycle"
     },
     {
-     "id": "c324",
+     "id": "c501",
      "front": "Photorespiration",
      "back": "Rubisco adds O₂ to RuBP → 3-PGA + 2-phosphoglycolate. Salvage through chloroplast, peroxisome and mitochondrion releases 1 CO₂ per 2 oxygenations and costs ATP. Worse when hot and when stomata close.",
      "topic": "Calvin cycle"
     },
     {
-     "id": "c325",
+     "id": "c502",
      "front": "C3 vs C4 vs CAM",
      "back": "C3: rubisco fixes CO₂ directly. C4: PEP carboxylase fixes CO₂ in mesophyll, rubisco in bundle sheath (separated in space). CAM: PEP carboxylase at night, Calvin cycle by day (separated in time).",
      "topic": "Photosynthetic adaptations"
     },
     {
-     "id": "c326",
+     "id": "c503",
      "front": "Cost of C4 photosynthesis",
      "back": "About 5 ATP + 2 NADPH per CO₂ (2 extra ATP to regenerate PEP) vs 3 ATP + 2 NADPH for C3. Per glucose: 30 vs 18 ATP. Pays off in hot, bright, dry conditions.",
      "topic": "Photosynthetic adaptations"
     },
     {
-     "id": "c327",
+     "id": "c504",
      "front": "PEP carboxylase vs rubisco",
      "back": "PEP carboxylase: fixes HCO₃⁻ onto PEP, no reaction with O₂, used to concentrate CO₂ in C4 and CAM plants. Rubisco: fixes CO₂ onto RuBP, also reacts with O₂.",
      "topic": "Photosynthetic adaptations"
     },
     {
-     "id": "c328",
+     "id": "c505",
      "front": "Kranz anatomy",
      "back": "C4 leaf structure: bundle-sheath cells (rubisco, Calvin cycle) packed around each vein, surrounded by mesophyll cells (PEP carboxylase).",
      "topic": "Photosynthetic adaptations"
     },
     {
-     "id": "c329",
+     "id": "c506",
      "front": "Examples of C3",
      "C4 and CAM plants": null,
      "back": "C3: wheat, rice, soybeans, trees. C4: corn, sugarcane, sorghum, millets. CAM: cacti, agaves, pineapple, jade plant, many orchids.",
      "topic": "Photosynthetic adaptations"
     },
     {
-     "id": "c330",
+     "id": "c507",
      "front": "Water lost per CO₂ fixed (rough figures)",
      "back": "About 500 water molecules per CO₂ for C3, about 250 for C4, about 50 for CAM; varies widely with conditions.",
      "topic": "Photosynthetic adaptations"
     },
     {
-     "id": "c331",
+     "id": "c120",
      "front": "Phases of the cell cycle",
      "back": "Interphase: G1 (growth) → S (DNA replication) → G2 (preparation); then M phase: mitosis and cytokinesis.",
      "topic": "Cell cycle"
     },
     {
-     "id": "c332",
+     "id": "c121",
      "front": "Typical human cell cycle (24 h)",
      "back": "G1 about 11 h, S about 8 h, G2 about 4 h, M about 1 h.",
      "topic": "Cell cycle"
     },
     {
-     "id": "c333",
+     "id": "c122",
      "front": "Chromosome vs sister chromatid",
      "back": "After S phase a chromosome has two identical sister chromatids joined at the centromere; it is still one chromosome. Count centromeres to count chromosomes.",
      "topic": "Cell cycle"
     },
     {
-     "id": "c334",
+     "id": "c123",
      "front": "Stages of mitosis, in order",
      "back": "Prophase → metaphase → anaphase → telophase (then cytokinesis).",
      "topic": "Mitosis"
     },
     {
-     "id": "c335",
+     "id": "c124",
      "front": "Prophase",
      "back": "Chromosomes condense; spindle forms; nuclear envelope breaks down.",
      "topic": "Mitosis"
     },
     {
-     "id": "c336",
+     "id": "c125",
      "front": "Metaphase",
      "back": "Chromosomes line up at the middle of the cell, attached to spindle fibers from both poles.",
      "topic": "Mitosis"
     },
     {
-     "id": "c337",
+     "id": "c126",
      "front": "Anaphase",
      "back": "Sister chromatids separate and move to opposite poles; chromosome count in the cell briefly doubles.",
      "topic": "Mitosis"
     },
     {
-     "id": "c338",
+     "id": "c127",
      "front": "Telophase",
      "back": "Chromosomes reach the poles; nuclear envelopes re-form; chromosomes uncoil.",
      "topic": "Mitosis"
     },
     {
-     "id": "c339",
+     "id": "c128",
      "front": "Cytokinesis in animal vs plant cells",
      "back": "Animal: cleavage furrow pinches the cell. Plant: a cell plate forms and becomes a new wall.",
      "topic": "Mitosis"
     },
     {
-     "id": "c340",
+     "id": "c129",
      "front": "Mitotic index",
      "back": "(cells in mitosis ÷ total cells) × 100%",
      "topic": "Mitosis"
     },
     {
-     "id": "c341",
+     "id": "c130",
      "front": "Time in a stage from a snapshot",
      "back": "Time in stage = (cells in stage ÷ total cells) × length of the cell cycle.",
      "topic": "Cell cycle"
     },
     {
-     "id": "c342",
+     "id": "c131",
      "front": "Cell cycle checkpoints",
      "back": "G1: size, nutrients, growth factors, DNA damage. G2: DNA fully and correctly copied. Spindle (metaphase): all chromosomes attached.",
      "topic": "Cell cycle regulation"
     },
     {
-     "id": "c343",
+     "id": "c132",
      "front": "G0",
      "back": "A non-dividing state outside the cycle (mature nerve and heart muscle cells); cells are active but not dividing.",
      "topic": "Cell cycle regulation"
     },
     {
-     "id": "c344",
+     "id": "c133",
      "front": "Cyclins and CDKs",
      "back": "Cyclin levels rise and fall each cycle; a CDK is active only when bound to its cyclin and then phosphorylates targets to drive the next phase.",
      "topic": "Cell cycle regulation"
     },
     {
-     "id": "c345",
+     "id": "c134",
      "front": "Apoptosis",
      "back": "Programmed cell death that removes damaged or unneeded cells without inflammation.",
      "topic": "Cell cycle regulation"
     },
     {
-     "id": "c346",
+     "id": "c135",
      "front": "Proto-oncogene vs tumor suppressor gene",
      "back": "Proto-oncogene = gas pedal (RAS); overactive mutation → oncogene, one copy enough. Tumor suppressor = brake (p53, RB); usually both copies must be lost.",
      "topic": "Cancer"
     },
     {
-     "id": "c347",
+     "id": "c136",
      "front": "p53",
      "back": "Tumor suppressor that halts the cycle when DNA is damaged and triggers apoptosis if repair fails; mutated in about half of human cancers.",
      "topic": "Cancer"
     },
     {
-     "id": "c348",
+     "id": "c137",
      "front": "Benign vs malignant tumor",
      "back": "Benign stays in place. Malignant invades nearby tissue and can metastasize (spread through blood or lymph).",
      "topic": "Cancer"
     },
     {
-     "id": "c349",
+     "id": "c138",
      "front": "Cell number after n doublings",
      "back": "N = N₀ × 2ⁿ; 10 doublings ≈ ×1,000; 30 doublings ≈ ×1 billion.",
      "topic": "Cancer"
     },
     {
-     "id": "c350",
+     "id": "c139",
      "front": "Totipotent vs pluripotent vs multipotent",
      "back": "Totipotent: every cell type including placenta (zygote). Pluripotent: every body cell type (embryonic stem cells, iPSCs). Multipotent: several related types (blood stem cells).",
      "topic": "Stem cells"
     },
     {
-     "id": "c351",
+     "id": "c140",
      "front": "Induced pluripotent stem cells",
      "back": "Body cells reprogrammed by adding four genes to act like embryonic stem cells (Yamanaka: mouse fibroblasts 2006, human skin cells 2007).",
      "topic": "Stem cells"
     },
     {
-     "id": "c352",
+     "id": "c141",
      "front": "Diploid vs haploid",
      "back": "Diploid (2n): two sets of chromosomes, as in body cells (human 46). Haploid (n): one set, as in gametes (human 23).",
      "topic": "Meiosis"
     },
     {
-     "id": "c353",
+     "id": "c142",
      "front": "Homologous chromosomes vs sister chromatids",
      "back": "Homologs: one from each parent, same genes, possibly different versions. Sister chromatids: identical copies made in S phase.",
      "topic": "Meiosis"
     },
     {
-     "id": "c354",
+     "id": "c143",
      "front": "Meiosis I vs meiosis II",
      "back": "Meiosis I separates homologs (2n → n, reduction). Meiosis II separates sister chromatids (like mitosis).",
      "topic": "Meiosis"
     },
     {
-     "id": "c355",
+     "id": "c144",
      "front": "Mitosis vs meiosis",
      "back": "Mitosis: 1 division, 2 identical diploid cells. Meiosis: 2 divisions, 4 genetically different haploid cells; homologs pair and cross over.",
      "topic": "Meiosis"
     },
     {
-     "id": "c356",
+     "id": "c145",
      "front": "Three sources of genetic variation in sexual reproduction",
      "back": "Crossing over (prophase I), independent assortment (metaphase I), random fertilization.",
      "topic": "Meiosis"
     },
     {
-     "id": "c357",
+     "id": "c146",
      "front": "Gamete combinations from independent assortment",
      "back": "2ⁿ, where n = number of homologous pairs; humans 2²³ = 8,388,608.",
      "topic": "Meiosis"
     },
     {
-     "id": "c358",
+     "id": "c147",
      "front": "Nondisjunction in meiosis I vs II",
      "back": "Meiosis I: all four gametes abnormal (two n + 1, two n − 1). Meiosis II: two normal, one n + 1, one n − 1.",
      "topic": "Meiosis"
     },
     {
-     "id": "c359",
+     "id": "c148",
      "front": "Egg vs sperm production",
      "back": "Each female meiosis gives one egg plus polar bodies; each male meiosis gives four sperm.",
      "topic": "Meiosis"
     },
     {
-     "id": "c360",
+     "id": "c508",
      "front": "MPF (maturation-promoting factor)",
      "back": "Cyclin B bound to CDK1. Found by injecting mature frog egg cytoplasm into immature oocytes (Masui and Markert, 1971); drives cells into M phase.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c361",
+     "id": "c509",
      "front": "Three conditions for an active CDK",
      "back": "Cyclin bound; activating phosphate added; inhibitory phosphates (added by Wee1) removed by Cdc25.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c362",
+     "id": "c510",
      "front": "Why entry into mitosis is switch-like",
      "back": "Positive feedback: active cyclin B–CDK1 activates Cdc25 and inhibits Wee1, freeing more CDK1.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c363",
+     "id": "c511",
      "front": "APC/C",
      "back": "Tags cyclin B and securin with ubiquitin for destruction; freed separase cuts cohesin to start anaphase; held back by unattached kinetochores.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c364",
+     "id": "c512",
      "front": "Mammalian cyclin–CDK pairs",
      "back": "Cyclin D–CDK4/6 (G1), cyclin E–CDK2 (G1/S), cyclin A–CDK2 (S), cyclin B–CDK1 (G2/M).",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c365",
+     "id": "c513",
      "front": "Rb and E2F",
      "back": "Unphosphorylated Rb holds E2F. Cyclin D–CDK4/6 then cyclin E–CDK2 phosphorylate Rb, freeing E2F to switch on S-phase genes: the restriction point.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c366",
+     "id": "c514",
      "front": "p53 pathway",
      "back": "MDM2 normally destroys p53. DNA damage (via ATM/ATR) stabilizes p53, which switches on p21 (G1 arrest), repair genes and apoptosis genes such as BAX.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c367",
+     "id": "c515",
      "front": "Intrinsic vs extrinsic apoptosis",
      "back": "Intrinsic: BAX pores release cytochrome c → apoptosome → caspase 9 (blocked by Bcl-2). Extrinsic: Fas ligand binds Fas death receptor → caspase 8. Both activate caspases 3 and 7.",
      "topic": "Apoptosis"
     },
     {
-     "id": "c368",
+     "id": "c516",
      "front": "Apoptosis vs necrosis",
      "back": "Apoptosis: shrinks, DNA ladder, blebs, eaten by phagocytes, no inflammation. Necrosis: swells and bursts, inflammation.",
      "topic": "Apoptosis"
     },
     {
-     "id": "c369",
+     "id": "c517",
      "front": "C. elegans cell death genes",
      "back": "131 of 1,090 somatic cells die. ced-3 = caspase, ced-4 = Apaf-1 relative, ced-9 = Bcl-2 relative (protects).",
      "topic": "Apoptosis"
     },
     {
-     "id": "c370",
+     "id": "c518",
      "front": "How proto-oncogenes become oncogenes",
      "back": "Gain of function: activating point mutation (RAS), amplification (HER2), translocation or fusion (BCR-ABL). Dominant in the cell.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c371",
+     "id": "c519",
      "front": "Two-hit model with a Poisson count",
      "back": "Carrier tumors ~ Poisson with mean m: P(no tumor) = e^(−m). Knudson: m ≈ 3, so about 95% of carriers get a tumor.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c372",
+     "id": "c520",
      "front": "Flow cytometry DNA content",
      "back": "2C = G1; between 2C and 4C = S; 4C = G2 or M. Fraction of cells in each estimates fraction of cycle time.",
      "topic": "Cyclins and CDKs"
     },
     {
-     "id": "c373",
+     "id": "c521",
      "front": "Role of chiasmata",
      "back": "Crossovers plus arm cohesion tie homologs together so they attach to opposite poles under tension; pairs with no crossover risk nondisjunction.",
      "topic": "Nondisjunction"
     },
     {
-     "id": "c374",
+     "id": "c522",
      "front": "Shugoshin",
      "back": "Protects centromere cohesin at anaphase I so sister chromatids stay together until anaphase II.",
      "topic": "Nondisjunction"
     },
     {
-     "id": "c375",
+     "id": "c523",
      "front": "One crossover between two genes",
      "back": "Involves 2 of the 4 chromatids: 2 recombinant and 2 parental products, so recombinant gametes are at most about 50%.",
      "topic": "Genetic variation"
     },
     {
-     "id": "c376",
+     "id": "c524",
      "front": "Telling meiosis I from meiosis II errors",
      "back": "Markers near the centromere: two different homologs from one parent = meiosis I; two identical copies = meiosis II.",
      "topic": "Nondisjunction"
     },
     {
-     "id": "c377",
+     "id": "c525",
      "front": "Origin of trisomy 21",
      "back": "About 90% maternal (roughly 70% of all cases maternal meiosis I, 20% maternal meiosis II), about 5% paternal, a few percent mitotic (mosaic).",
      "topic": "Nondisjunction"
     },
     {
-     "id": "c378",
+     "id": "c526",
      "front": "47 XYY origin",
      "back": "Usually paternal meiosis II: a YY sperm from sister chromatids that failed to separate (less often, a mitotic error after fertilization).",
      "topic": "Nondisjunction"
     },
     {
-     "id": "c379",
+     "id": "c527",
      "front": "Gamete kinds with crossovers",
      "back": "4^c × 2^(n−c) for n pairs each heterozygous for two genes, with c pairs having a crossover between them.",
      "topic": "Genetic variation"
     },
     {
-     "id": "c380",
+     "id": "c528",
      "front": "Grandparental share of a gamete",
      "back": "Number of chromosomes from one grandparent is binomial: P(k) = C(n, k)/2^n; humans average 11.5 of 23.",
      "topic": "Genetic variation"
     },
     {
-     "id": "c381",
+     "id": "c529",
      "front": "Autopolyploid vs allopolyploid",
      "back": "Auto: extra sets from its own species (unreduced gametes, colchicine). Allo: sets from two species, hybrid plus doubling (Karpechenko radish-cabbage, bread wheat 6x = 42).",
      "topic": "Genetic variation"
     },
     {
-     "id": "c382",
+     "id": "c530",
      "front": "Why triploids are sterile",
      "back": "Sets of three cannot split evenly; a balanced gamete needs all sets to go the same way: probability 2 × (1/2)^x (bananas, seedless watermelons, x = 11: about 1/1024).",
      "topic": "Genetic variation"
     },
     {
-     "id": "c383",
+     "id": "c149",
      "front": "Gene vs allele",
      "back": "A gene is a unit of inheritance (a stretch of DNA affecting a trait). Alleles are the different versions of one gene, such as P (purple) and p (white).",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c384",
+     "id": "c150",
      "front": "Genotype vs phenotype",
      "back": "Genotype: the alleles an individual has (PP, Pp, pp). Phenotype: the observable trait (purple or white).",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c385",
+     "id": "c151",
      "front": "Homozygous vs heterozygous",
      "back": "Homozygous: two identical alleles (PP or pp). Heterozygous: two different alleles (Pp).",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c386",
+     "id": "c152",
      "front": "Dominant vs recessive allele",
      "back": "A dominant allele shows its effect with one copy (in a heterozygote). A recessive allele shows only when there are two copies. Dominant does not mean common or beneficial.",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c387",
+     "id": "c153",
      "front": "Law of segregation",
      "back": "The two alleles of a gene separate into different gametes, each gamete getting one, with equal probability. Physical basis: homologous chromosomes separate in anaphase I.",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c388",
+     "id": "c154",
      "front": "Aa × Aa: genotype and phenotype ratios",
      "back": "Genotypes 1 AA : 2 Aa : 1 aa. Phenotypes 3 dominant : 1 recessive.",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c389",
+     "id": "c155",
      "front": "Test cross",
      "back": "Cross a dominant-phenotype individual of unknown genotype with a homozygous recessive. All dominant offspring suggests AA; any recessive offspring proves Aa (expected 1 : 1).",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c390",
+     "id": "c156",
      "front": "Of the dominant-phenotype offspring of Aa × Aa, what fraction are heterozygous?",
      "back": "2/3 (two Aa boxes out of three non-aa boxes).",
      "topic": "Mendelian genetics"
     },
     {
-     "id": "c391",
+     "id": "c157",
      "front": "Law of independent assortment",
      "back": "Alleles of different (unlinked) genes go into gametes independently. Physical basis for genes on different chromosomes: each homologous pair orients at random at metaphase I. Genes close together on one chromosome travel together unless crossing over separates them.",
      "topic": "Dihybrid crosses"
     },
     {
-     "id": "c392",
+     "id": "c158",
      "front": "AaBb × AaBb phenotype ratio",
      "back": "9 : 3 : 3 : 1 (two dominant : first dominant only : second dominant only : both recessive), out of 16.",
      "topic": "Dihybrid crosses"
     },
     {
-     "id": "c393",
+     "id": "c159",
      "front": "Product rule",
      "back": "For independent events, P(A and B) = P(A) × P(B). Example: P(aabbcc) from AaBbCc × AaBbCc = (1/4)³ = 1/64.",
      "topic": "Probability in genetics"
     },
     {
-     "id": "c394",
+     "id": "c160",
      "front": "Sum rule",
      "back": "For mutually exclusive events, P(A or B) = P(A) + P(B). Example: P(AA or aa) from Aa × Aa = 1/4 + 1/4 = 1/2.",
      "topic": "Probability in genetics"
     },
     {
-     "id": "c395",
+     "id": "c161",
      "front": "Number of gamete types from n heterozygous unlinked genes",
      "back": "$2^n$. AaBbCc makes 8; homozygous genes add no variety.",
      "topic": "Probability in genetics"
     },
     {
-     "id": "c396",
+     "id": "c162",
      "front": "Probability that exactly k of n children are affected (probability p each)",
      "back": "$\\binom{n}{k}p^k(1-p)^{n-k}$. For two carrier parents and 2 children, exactly one affected = 2 × (1/4)(3/4) = 3/8.",
      "topic": "Probability in genetics"
     },
     {
-     "id": "c397",
+     "id": "c163",
      "front": "Incomplete dominance vs codominance",
      "back": "Incomplete dominance: heterozygote is intermediate (pink from red × white). Codominance: heterozygote shows both traits fully (AB blood, roan cattle).",
      "topic": "Codominance"
     },
     {
-     "id": "c398",
+     "id": "c164",
      "front": "Incomplete dominance: F1 × F1 ratio",
      "back": "1 : 2 : 1 for both genotypes and phenotypes (red : pink : white), since each genotype has its own phenotype.",
      "topic": "Incomplete dominance"
     },
     {
-     "id": "c399",
+     "id": "c165",
      "front": "ABO blood types and genotypes",
      "back": "A: $I^AI^A$ or $I^Ai$. B: $I^BI^B$ or $I^Bi$. AB: $I^AI^B$. O: $ii$. $I^A$ and $I^B$ are codominant; both dominant to $i$.",
      "topic": "Multiple alleles"
     },
     {
-     "id": "c400",
+     "id": "c166",
      "front": "ABO antigens and antibodies",
      "back": "A: A antigen, anti-B antibodies. B: B antigen, anti-A. AB: both antigens, no antibodies. O: no antigens, both antibodies.",
      "topic": "Multiple alleles"
     },
     {
-     "id": "c401",
+     "id": "c167",
      "front": "Polygenic trait",
      "back": "A trait controlled by many genes with small additive effects (height, skin color); gives continuous, bell-shaped variation.",
      "topic": "Polygenic traits"
     },
     {
-     "id": "c402",
+     "id": "c168",
      "front": "Pleiotropy vs epistasis",
      "back": "Pleiotropy: one gene affects many traits (sickle-cell allele). Epistasis: one gene masks another (ee Labradors are yellow; 9 : 3 : 4).",
      "topic": "Polygenic traits"
     },
     {
-     "id": "c403",
+     "id": "c169",
      "front": "Why X-linked recessive traits are more common in males",
      "back": "Males have one X, so one recessive allele is expressed. Females need two copies.",
      "topic": "Sex linkage"
     },
     {
-     "id": "c404",
+     "id": "c170",
      "front": "Carrier mother × unaffected father (X-linked recessive)",
      "back": "Sons: 1/2 affected. Daughters: none affected, 1/2 carriers. Any child: 1/4 is an affected son.",
      "topic": "Sex linkage"
     },
     {
-     "id": "c405",
+     "id": "c171",
      "front": "Affected father × homozygous normal mother (X-linked recessive)",
      "back": "All daughters are carriers; no sons are affected (sons get the father's Y).",
      "topic": "Sex linkage"
     },
     {
-     "id": "c406",
+     "id": "c172",
      "front": "Pedigree symbols",
      "back": "Square = male, circle = female, filled = affected, dot or half-filled = carrier, horizontal line = mating, Roman numerals = generations.",
      "topic": "Pedigrees"
     },
     {
-     "id": "c407",
+     "id": "c173",
      "front": "Pedigree clues: autosomal recessive vs dominant vs X-linked recessive",
      "back": "Autosomal recessive: unaffected parents can have an affected child. Autosomal dominant: affected people have an affected parent; affected parents can have an unaffected child. X-linked recessive: mostly males, never father to son.",
      "topic": "Pedigrees"
     },
     {
-     "id": "c408",
+     "id": "c174",
      "front": "Nondisjunction in meiosis I vs meiosis II",
      "back": "Meiosis I: all four gametes abnormal (two n + 1, two n − 1). Meiosis II: two normal, one n + 1, one n − 1.",
      "topic": "Chromosomal disorders"
     },
     {
-     "id": "c409",
+     "id": "c175",
      "front": "Karyotypes: Down, Turner, Klinefelter",
      "back": "Down syndrome: 47,+21 (trisomy 21). Turner syndrome: 45,X. Klinefelter syndrome: 47,XXY.",
      "topic": "Chromosomal disorders"
     },
     {
-     "id": "c410",
+     "id": "c176",
      "front": "Chromosome structural changes",
      "back": "Deletion (segment lost), duplication (repeated), inversion (flipped), translocation (moved to a non-homologous chromosome).",
      "topic": "Chromosomal disorders"
     },
     {
-     "id": "c411",
+     "id": "c177",
      "front": "Chi-square formula and degrees of freedom",
      "back": "$\\chi^2 = \\sum \\dfrac{(O-E)^2}{E}$ using counts; df = number of categories − 1.",
      "topic": "Chi-square test"
     },
     {
-     "id": "c412",
+     "id": "c178",
      "front": "Chi-square critical values at p = 0.05",
      "back": "df 1: 3.84; df 2: 5.99; df 3: 7.81; df 4: 9.49. Below the value: fail to reject. At or above: reject.",
      "topic": "Chi-square test"
     },
     {
-     "id": "c413",
+     "id": "c531",
      "front": "Linked genes",
      "back": "Genes close together on one chromosome; they are inherited together more often than independent assortment predicts, unless a crossover falls between them.",
      "topic": "Linkage"
     },
     {
-     "id": "c414",
+     "id": "c532",
      "front": "Parental vs recombinant offspring (test cross)",
      "back": "Parental: allele combinations already on the heterozygote's chromosomes, the two most common classes. Recombinant: new combinations from crossing over, the two least common classes.",
      "topic": "Linkage"
     },
     {
-     "id": "c415",
+     "id": "c533",
      "front": "Recombination frequency",
      "back": "Recombinant offspring ÷ total offspring × 100%. Example: 450 recombinants of 2500 = 18%.",
      "topic": "Linkage"
     },
     {
-     "id": "c416",
+     "id": "c534",
      "front": "Why use heterozygous female fruit flies for mapping",
      "back": "Male Drosophila have no crossing over in meiosis, so a heterozygous male gives no recombinants.",
      "topic": "Linkage"
     },
     {
-     "id": "c417",
+     "id": "c535",
      "front": "Map unit (centimorgan)",
      "back": "1 map unit = 1 cM = 1% recombination frequency. Measures crossover frequency, not physical length.",
      "topic": "Gene mapping"
     },
     {
-     "id": "c418",
+     "id": "c536",
      "front": "Ordering three genes from pairwise distances",
      "back": "The largest distance spans the two outer genes; the third gene is in the middle. Short distances roughly add up.",
      "topic": "Gene mapping"
     },
     {
-     "id": "c419",
+     "id": "c537",
      "front": "Why recombination frequency stops near 50%",
      "back": "One crossover affects only 2 of the 4 chromatids, and multiple crossovers between distant genes cancel out, randomizing the alleles as independent assortment would.",
      "topic": "Gene mapping"
     },
     {
-     "id": "c420",
+     "id": "c538",
      "front": "Three-point cross: finding the middle gene",
      "back": "Parental classes = most common; double crossovers = rarest. The gene that differs between them is in the middle.",
      "topic": "Gene mapping"
     },
     {
-     "id": "c421",
+     "id": "c539",
      "front": "Three-point cross: interval distances",
      "back": "For each interval, (single crossovers in that interval + all double crossovers) ÷ total × 100.",
      "topic": "Gene mapping"
     },
     {
-     "id": "c422",
+     "id": "c540",
      "front": "Coefficient of coincidence and interference",
      "back": "Coefficient of coincidence = observed ÷ expected double crossovers (expected = RF1 × RF2 × total). Interference = 1 − coefficient of coincidence.",
      "topic": "Gene mapping"
     },
     {
-     "id": "c423",
+     "id": "c541",
      "front": "Coupling vs repulsion",
      "back": "Coupling: AB / ab (dominant alleles on one chromosome). Repulsion: Ab / aB. In a test cross the parental (common) classes differ accordingly.",
      "topic": "Gene mapping"
     },
     {
-     "id": "c424",
+     "id": "c542",
      "front": "Modified dihybrid ratios",
      "back": "9 : 3 : 4 recessive epistasis (mouse albino); 9 : 7 complementary genes (sweet pea); 12 : 3 : 1 dominant epistasis (squash); 15 : 1 duplicate genes (shepherd's purse).",
      "topic": "Epistasis"
     },
     {
-     "id": "c425",
+     "id": "c543",
      "front": "Clue that an F2 involves two genes",
      "back": "Classes come out in sixteenths (9 : 7, 12 : 3 : 1, 15 : 1, 9 : 3 : 4), from a doubly heterozygous F1.",
      "topic": "Epistasis"
     },
     {
-     "id": "c426",
+     "id": "c544",
      "front": "Complementation test",
      "back": "Cross two true-breeding recessive mutants with the same phenotype. Normal F1: mutations in different genes. Mutant F1: same gene.",
      "topic": "Epistasis"
     },
     {
-     "id": "c427",
+     "id": "c545",
      "front": "Recessive lethal allele ratio",
      "back": "Two heterozygotes give 1 : 2 : 1, but the homozygous lethal class dies, leaving 2 : 1 among survivors (yellow mice: 2 yellow : 1 agouti).",
      "topic": "Epistasis"
     },
     {
-     "id": "c428",
+     "id": "c546",
      "front": "Number of genes from F2 extremes",
      "back": "With n equal additive genes, each F2 extreme is (1/4)^n and there are 2n + 1 phenotype classes. 1/64 means 3 genes; 1/256 means 4.",
      "topic": "Quantitative genetics"
     },
     {
-     "id": "c429",
+     "id": "c547",
      "front": "Norm of reaction",
      "back": "The range of phenotypes one genotype produces across environments (cloned yarrow grown at different elevations).",
      "topic": "Quantitative genetics"
     },
     {
-     "id": "c430",
+     "id": "c548",
      "front": "Broad- vs narrow-sense heritability",
      "back": "$H^2 = V_G/V_P$ (all genetic variance). $h^2 = V_A/V_P$ (additive variance only); $h^2$ predicts response to selection.",
      "topic": "Quantitative genetics"
     },
     {
-     "id": "c431",
+     "id": "c549",
      "front": "Breeder's equation",
      "back": "$R = h^2 S$. Example: mean 120 cm, selected parents 130 cm, $h^2 = 0.4$: R = 4 cm, offspring mean 124 cm.",
      "topic": "Quantitative genetics"
     },
     {
-     "id": "c432",
+     "id": "c550",
      "front": "What heritability does not mean",
      "back": "Not the share of one person's trait due to genes; not a sign the trait can't change; not an explanation of differences between groups. It applies to one population in one environment.",
      "topic": "Quantitative genetics"
     },
     {
-     "id": "c433",
+     "id": "c179",
      "front": "Griffith, Avery, Hershey–Chase: what did each show?",
      "back": "Griffith (1928): something from dead S bacteria transforms R bacteria. Avery (1944): only destroying DNA stops transformation, so the transforming principle is DNA. Hershey–Chase (1952): phage DNA (³²P), not protein (³⁵S), enters bacteria.",
      "topic": "DNA structure"
     },
     {
-     "id": "c434",
+     "id": "c180",
      "front": "Parts of a nucleotide",
      "back": "A phosphate group, a five-carbon sugar (deoxyribose in DNA, ribose in RNA) and a nitrogen base.",
      "topic": "DNA structure"
     },
     {
-     "id": "c435",
+     "id": "c181",
      "front": "Base-pairing rules",
      "back": "DNA: A–T (2 hydrogen bonds), G–C (3 hydrogen bonds). RNA: A–U, G–C. Each pair is one purine (A, G) with one pyrimidine (T, C, U).",
      "topic": "DNA structure"
     },
     {
-     "id": "c436",
+     "id": "c182",
      "front": "Chargaff's rules",
      "back": "In double-stranded DNA, %A = %T and %G = %C, so %A + %G = 50%. Example: 22% G gives 22% C and 28% each of A and T.",
      "topic": "DNA structure"
     },
     {
-     "id": "c437",
+     "id": "c183",
      "front": "Antiparallel strands",
      "back": "The two DNA strands run in opposite directions: under 5′-ATG-3′ lies 3′-TAC-5′.",
      "topic": "DNA structure"
     },
     {
-     "id": "c438",
+     "id": "c184",
      "front": "Meselson–Stahl results (15N then 14N)",
      "back": "Generation 0: one heavy band. Generation 1: one hybrid band (rules out conservative). Generation 2: half hybrid, half light (rules out dispersive). Replication is semiconservative.",
      "topic": "DNA replication"
     },
     {
-     "id": "c439",
+     "id": "c185",
      "front": "Replication enzymes in order",
      "back": "Helicase unwinds → primase lays RNA primers → DNA polymerase builds 5′ → 3′ (leading strand continuous, lagging strand in Okazaki fragments) → primers replaced → ligase joins fragments.",
      "topic": "DNA replication"
     },
     {
-     "id": "c440",
+     "id": "c186",
      "front": "Leading vs lagging strand",
      "back": "Leading: built continuously toward the replication fork. Lagging: built in Okazaki fragments away from the fork, because polymerase adds only to 3′ ends.",
      "topic": "DNA replication"
     },
     {
-     "id": "c441",
+     "id": "c187",
      "front": "Central dogma",
      "back": "DNA → RNA → protein. Transcription makes RNA from DNA; translation makes protein from mRNA.",
      "topic": "Transcription"
     },
     {
-     "id": "c442",
+     "id": "c188",
      "front": "DNA vs RNA",
      "back": "DNA: deoxyribose, thymine, usually double-stranded. RNA: ribose, uracil, usually single-stranded.",
      "topic": "Transcription"
     },
     {
-     "id": "c443",
+     "id": "c189",
      "front": "mRNA, tRNA, rRNA",
      "back": "mRNA carries the codons; tRNA brings amino acids and has the anticodon; rRNA forms the ribosome core and makes peptide bonds.",
      "topic": "Translation"
     },
     {
-     "id": "c444",
+     "id": "c190",
      "front": "Steps of transcription",
      "back": "Initiation (RNA polymerase binds the promoter) → elongation (RNA built 5′ → 3′, complementary to the template strand) → termination. In eukaryotes: add cap and tail, splice out introns.",
      "topic": "Transcription"
     },
     {
-     "id": "c445",
+     "id": "c191",
      "front": "Template strand vs coding strand",
      "back": "The template strand is read by RNA polymerase. The coding strand has the same sequence as the mRNA, with T in place of U.",
      "topic": "Transcription"
     },
     {
-     "id": "c446",
+     "id": "c192",
      "front": "Genetic code facts",
      "back": "64 triplet codons; AUG = start (Met); UAA, UAG, UGA = stop; redundant (several codons per amino acid), unambiguous, nearly universal.",
      "topic": "Genetic code"
     },
     {
-     "id": "c447",
+     "id": "c193",
      "front": "How to translate an mRNA",
      "back": "Find the first AUG from the 5′ end, read non-overlapping triplets, look each codon up in the table, stop at the first stop codon (which adds no amino acid).",
      "topic": "Genetic code"
     },
     {
-     "id": "c448",
+     "id": "c194",
      "front": "Codons vs amino acids in a coding region",
      "back": "A coding region of $n$ codons (start through stop) makes $n - 1$ amino acids; it has $3n$ nucleotides.",
      "topic": "Genetic code"
     },
     {
-     "id": "c449",
+     "id": "c195",
      "front": "Steps of translation",
      "back": "Initiation (small subunit finds AUG, Met-tRNA pairs, large subunit joins) → elongation (tRNAs match codons, peptide bonds form, ribosome moves one codon) → termination (release factor at the stop codon).",
      "topic": "Translation"
     },
     {
-     "id": "c450",
+     "id": "c196",
      "front": "The lac operon",
      "back": "No lactose: repressor binds the operator, genes off. Lactose present: lactose binds the repressor, which leaves the operator, genes on.",
      "topic": "Gene regulation"
     },
     {
-     "id": "c451",
+     "id": "c197",
      "front": "Promoter vs operator",
      "back": "RNA polymerase binds the promoter; the repressor binds the operator, blocking polymerase.",
      "topic": "Gene regulation"
     },
     {
-     "id": "c452",
+     "id": "c198",
      "front": "Ways eukaryotes regulate genes",
      "back": "Transcription factors and enhancers, DNA packing and epigenetic tags (DNA methylation, histone changes), RNA splicing, mRNA lifespan, microRNAs, and protein activation or breakdown.",
      "topic": "Gene regulation"
     },
     {
-     "id": "c453",
+     "id": "c199",
      "front": "Silent vs missense vs nonsense",
      "back": "Silent: codon changes, same amino acid. Missense: different amino acid (sickle cell GAG → GUG, Glu → Val). Nonsense: becomes a stop codon, protein cut short.",
      "topic": "Mutations"
     },
     {
-     "id": "c454",
+     "id": "c200",
      "front": "Frameshift mutation",
      "back": "Insertion or deletion of a number of bases that is not a multiple of three; every codon after it changes and an early stop often appears. Deleting exactly 3 bases removes one amino acid and keeps the frame.",
      "topic": "Mutations"
     },
     {
-     "id": "c455",
+     "id": "c201",
      "front": "Somatic vs germline mutation",
      "back": "Somatic: in body cells, not inherited (may contribute to cancer). Germline: in cells that make eggs or sperm, can be passed to offspring.",
      "topic": "Mutations"
     },
     {
-     "id": "c456",
+     "id": "c202",
      "front": "PCR formula and steps",
      "back": "Denature (~95 °C) → anneal primers (~50–65 °C) → extend (~72 °C). Copies after $n$ cycles: $N = N_0 \\times 2^n$.",
      "topic": "PCR"
     },
     {
-     "id": "c457",
+     "id": "c203",
      "front": "Reading a gel",
      "back": "DNA is negative and moves toward the positive electrode. Small fragments move farthest. Distance is roughly linear in log(size), so estimate sizes from a ladder on a log scale.",
      "topic": "Gel electrophoresis"
     },
     {
-     "id": "c458",
+     "id": "c204",
      "front": "Fragments from restriction cuts",
      "back": "$n$ cuts give $n + 1$ fragments of a linear DNA molecule but $n$ fragments of a circular one (such as a plasmid).",
      "topic": "Biotechnology"
     },
     {
-     "id": "c459",
+     "id": "c205",
      "front": "Making a recombinant plasmid",
      "back": "Cut plasmid and gene with the same restriction enzyme → sticky ends pair → ligase seals → put into bacteria → select with antibiotic → bacteria express the gene (for example, human insulin).",
      "topic": "Biotechnology"
     },
     {
-     "id": "c460",
+     "id": "c206",
      "front": "How DNA profiling excludes or matches",
      "back": "Compare STR lengths at about 20 regions. One mismatch excludes a person; a match at every region is strong evidence (identical twins share a profile).",
      "topic": "Biotechnology"
     },
     {
-     "id": "c461",
+     "id": "c551",
      "front": "Inducible vs repressible operon",
      "back": "Inducible (lac): normally off; an inducer inactivates the repressor to turn genes on. Repressible (trp): normally on; a corepressor activates the repressor to turn genes off.",
      "topic": "Operons"
     },
     {
-     "id": "c462",
+     "id": "c552",
      "front": "Which pathways are inducible and which repressible?",
      "back": "Breakdown (catabolic) pathways are usually inducible: run only when the food is present. Building (anabolic) pathways are usually repressible: shut off by their own product.",
      "topic": "Operons"
     },
     {
-     "id": "c463",
+     "id": "c553",
      "front": "The trp operon with high tryptophan",
      "back": "Tryptophan (corepressor) binds the trp repressor, which then binds the operator and blocks transcription of the five tryptophan-making genes.",
      "topic": "Operons"
     },
     {
-     "id": "c464",
+     "id": "c554",
      "front": "Lac operon: glucose and lactose",
      "back": "High transcription only with lactose present (repressor released) and glucose absent (cAMP high, CAP–cAMP bound). Glucose + lactose: low. No lactose: essentially none.",
      "topic": "Operons"
     },
     {
-     "id": "c465",
+     "id": "c555",
      "front": "Cis-acting vs trans-acting",
      "back": "Cis: a DNA site (operator, promoter, enhancer) that controls only genes on its own molecule. Trans: a diffusible product (repressor, CAP, transcription factor) that can act on any copy.",
      "topic": "Operons"
     },
     {
-     "id": "c466",
+     "id": "c556",
      "front": "Lac partial diploids: $I^-$, $O^C$, $I^S$",
      "back": "$I^-$ (no repressor): recessive, since normal repressor acts in trans. $O^C$ (operator can't bind repressor): constitutive for genes on the same molecule only (cis). $I^S$ (repressor can't bind inducer): dominant, uninducible.",
      "topic": "Operons"
     },
     {
-     "id": "c467",
+     "id": "c557",
      "front": "How an enhancer works",
      "back": "Activators bind the enhancer, which can be far away and in either orientation; the DNA loops, and Mediator links the activators to RNA polymerase II and the general transcription factors at the promoter.",
      "topic": "Eukaryotic gene regulation"
     },
     {
-     "id": "c468",
+     "id": "c558",
      "front": "Reporter assay",
      "back": "Join candidate control DNA to an easily measured reporter gene (such as luciferase), remove or move pieces, and see which pieces change output. A piece that works far away and backwards is an enhancer.",
      "topic": "Eukaryotic gene regulation"
     },
     {
-     "id": "c469",
+     "id": "c559",
      "front": "Histone acetylation vs DNA methylation",
      "back": "Acetyl groups on histone tails loosen chromatin and usually activate genes. Methyl groups on CpG cytosines in promoters usually silence genes.",
      "topic": "Epigenetics"
     },
     {
-     "id": "c470",
+     "id": "c560",
      "front": "How a methylation pattern is copied",
      "back": "CpG pairs with CpG, so both strands are marked. After replication each site is half-methylated; a maintenance enzyme methylates the new strand to match.",
      "topic": "Epigenetics"
     },
     {
-     "id": "c471",
+     "id": "c561",
      "front": "Examples of epigenetic inheritance",
      "back": "X inactivation in female mammals (calico cats), genomic imprinting (only the father's IGF2 copy is active), and cell types keeping their identity through divisions.",
      "topic": "Epigenetics"
     },
     {
-     "id": "c472",
+     "id": "c562",
      "front": "Counting splice variants",
      "back": "Mutually exclusive clusters multiply: Dscam has $12 \\times 48 \\times 33 \\times 2 = 38{,}016$ possible mRNAs. Each optional cassette exon doubles the count ($2^n$ for $n$ of them).",
      "topic": "Eukaryotic gene regulation"
     },
     {
-     "id": "c473",
+     "id": "c563",
      "front": "How a microRNA works",
      "back": "Transcribed as a hairpin, cut by Drosha and Dicer to about 22 bases, loaded into Argonaute; its seed (bases 2–8) pairs with sites in target mRNA 3′ untranslated regions, reducing translation and speeding decay.",
      "topic": "Eukaryotic gene regulation"
     },
     {
-     "id": "c474",
+     "id": "c564",
      "front": "How Sanger sequencing works",
      "back": "A little of each fluorescent ddNTP stops new strands at every position; capillary electrophoresis sorts them by length, and the color of each end, read shortest first, spells the new strand 5′ → 3′.",
      "topic": "Genomics"
     },
     {
-     "id": "c475",
+     "id": "c565",
      "front": "Coverage formula",
      "back": "$C = NL/G$ (reads × read length ÷ genome size). The fraction of bases missed by chance is about $e^{-C}$: 37% at 1×, essentially none at 30×.",
      "topic": "Genomics"
     },
     {
-     "id": "c476",
+     "id": "c566",
      "front": "Short reads vs long reads",
      "back": "Short reads (about 150 bases): cheap, accurate, billions per run, but can't place long repeats. Long reads (thousands of bases or more, e.g. nanopore): span repeats and structural changes.",
      "topic": "Genomics"
     },
     {
-     "id": "c477",
+     "id": "c567",
      "front": "Human genome by the numbers",
      "back": "About 3.1 billion bp per set; about 20,000 protein-coding genes; about 1.5% codes for protein; about half derived from transposable elements; unrelated people differ at about 1 base in 1,000.",
      "topic": "Genomics"
     },
     {
-     "id": "c478",
+     "id": "c568",
      "front": "Percent identity",
      "back": "Identical positions ÷ aligned positions (gaps included) × 100. Silent third-codon-position differences are usually the most common.",
      "topic": "Genomics"
     },
     {
-     "id": "c479",
+     "id": "c569",
      "front": "How Cas9 finds and cuts its target",
      "back": "Scans for a PAM (5′-NGG-3′) → unwinds the DNA beside it → the 20-base guide pairs with the target strand → both strands are cut about 3 bases from the PAM.",
      "topic": "Gene editing"
     },
     {
-     "id": "c480",
+     "id": "c570",
      "front": "Designing a guide RNA",
      "back": "Find NGG; take the 20 bases just 5′ of it; the guide spacer has that sequence with U for T. The cut falls 3 bases from the PAM.",
      "topic": "Gene editing"
     },
     {
-     "id": "c481",
+     "id": "c571",
      "front": "End joining vs template repair after a Cas9 cut",
      "back": "Nonhomologous end joining: frequent, leaves small insertions or deletions, used to knock genes out. Homology-directed repair: needs a supplied template, less frequent, makes precise edits.",
      "topic": "Gene editing"
     },
     {
-     "id": "c482",
+     "id": "c572",
      "front": "Somatic vs germline gene editing",
      "back": "Somatic: changes only the patient's body cells (e.g. Casgevy, edited blood stem cells); not inherited. Germline: changes embryos, eggs or sperm, so the change passes to future generations; widely considered unacceptable for now.",
      "topic": "Gene editing"
     },
     {
-     "id": "c483",
+     "id": "c207",
      "front": "Lines of evidence for evolution",
      "back": "Fossil record (order, transitional fossils), radiometric dating, homologous and vestigial structures, embryos, molecular similarities, biogeography, and evolution observed directly (antibiotic resistance).",
      "topic": "Evidence for evolution"
     },
     {
-     "id": "c484",
+     "id": "c208",
      "front": "Radioactive dating formula",
      "back": "Fraction left after $h$ half-lives $= \\left(\\tfrac12\\right)^h$; age $= h \\times$ half-life. Carbon-14: 5,730 years (up to ~50,000 years). Potassium-40: 1.25 billion years.",
      "topic": "Evidence for evolution"
     },
     {
-     "id": "c485",
+     "id": "c209",
      "front": "Homologous vs analogous structures",
      "back": "Homologous: same structure from a common ancestor, possibly different jobs (human arm, bat wing). Analogous: same job, different structure and origin (bird wing, insect wing).",
      "topic": "Evidence for evolution"
     },
     {
-     "id": "c486",
+     "id": "c210",
      "front": "Vestigial structure examples",
      "back": "Hip bones in whales and some snakes, the human tailbone, small human ear muscles: reduced remnants of ancestral structures.",
      "topic": "Evidence for evolution"
     },
     {
-     "id": "c487",
+     "id": "c211",
      "front": "Why Tiktaalik matters",
      "back": "A fish with neck, lungs and limb-like fin bones (~375 million years old), found by predicting the age and type of rock where a fish–tetrapod transition should be.",
      "topic": "Evidence for evolution"
     },
     {
-     "id": "c488",
+     "id": "c212",
      "front": "Molecular differences and relatedness",
      "back": "More differences in a gene or protein (like cytochrome c) between two species means a longer time since their common ancestor.",
      "topic": "Evidence for evolution"
     },
     {
-     "id": "c489",
+     "id": "c213",
      "front": "Darwin–Wallace argument for natural selection",
      "back": "Variation + inheritance + overproduction + differential reproductive success → heritable traits that help become more common over generations.",
      "topic": "Natural selection"
     },
     {
-     "id": "c490",
+     "id": "c214",
      "front": "Fitness (biology)",
      "back": "Reproductive success relative to others in the population, not strength or speed.",
      "topic": "Natural selection"
     },
     {
-     "id": "c491",
+     "id": "c215",
      "front": "Lederberg replica plating",
      "back": "Resistant colonies existed on a plate never exposed to the antibiotic: mutations arise randomly before selection; the environment selects, it does not create them.",
      "topic": "Natural selection"
     },
     {
-     "id": "c492",
+     "id": "c216",
      "front": "Grant finches (Daphne Major 1977)",
      "back": "Drought left large, hard seeds; deeper-beaked medium ground finches survived; the next generation had deeper beaks on average. Wet years later reversed the direction.",
      "topic": "Natural selection"
     },
     {
-     "id": "c493",
+     "id": "c217",
      "front": "Phenotype share after selection",
      "back": "Multiply each group by its survival rate, then divide: dark share $= \\dfrac{n_D s_D}{n_L s_L + n_D s_D}$.",
      "topic": "Natural selection"
     },
     {
-     "id": "c494",
+     "id": "c218",
      "front": "Directional vs stabilizing vs disruptive selection",
      "back": "Directional: one extreme favored, average shifts. Stabilizing: average favored, spread narrows. Disruptive: both extremes favored, middle declines.",
      "topic": "Adaptation"
     },
     {
-     "id": "c495",
+     "id": "c219",
      "front": "Artificial vs natural selection",
      "back": "Artificial: people choose which individuals breed (dogs, cabbage and broccoli). Natural: the environment determines who survives and reproduces.",
      "topic": "Adaptation"
     },
     {
-     "id": "c496",
+     "id": "c220",
      "front": "What natural selection cannot do",
      "back": "Change individuals (populations evolve), plan ahead, create needed mutations, or pass on traits acquired during life.",
      "topic": "Adaptation"
     },
     {
-     "id": "c497",
+     "id": "c221",
      "front": "Hardy-Weinberg equations",
      "back": "$p + q = 1$ (alleles); $p^2 + 2pq + q^2 = 1$ (genotypes $AA$, $Aa$, $aa$).",
      "topic": "Hardy-Weinberg"
     },
     {
-     "id": "c498",
+     "id": "c222",
      "front": "Five Hardy-Weinberg conditions",
      "back": "No mutation, no gene flow, very large population (no drift), random mating, no natural selection.",
      "topic": "Hardy-Weinberg"
     },
     {
-     "id": "c499",
+     "id": "c223",
      "front": "Finding carriers from disease frequency",
      "back": "$q = \\sqrt{\\text{frequency of } aa}$, $p = 1 - q$, carriers $= 2pq$. Example: 1 in 2,500 affected → $q = 0.02$, carriers ≈ 0.039 (about 1 in 25).",
      "topic": "Hardy-Weinberg"
     },
     {
-     "id": "c500",
+     "id": "c224",
      "front": "Allele frequency from genotype counts",
      "back": "$p = \\dfrac{2(\\text{number } AA) + (\\text{number } Aa)}{2N}$, because each individual carries two copies.",
      "topic": "Hardy-Weinberg"
     },
     {
-     "id": "c501",
+     "id": "c225",
      "front": "Mechanisms of evolution",
      "back": "Mutation, gene flow, genetic drift (bottleneck and founder effects), nonrandom mating, natural selection. Only selection consistently produces adaptation.",
      "topic": "Mechanisms of evolution"
     },
     {
-     "id": "c502",
+     "id": "c226",
      "front": "Bottleneck vs founder effect",
      "back": "Bottleneck: a population crashes and regrows from few survivors (northern elephant seals). Founder: a few individuals start a new population (Ellis–van Creveld syndrome among the Old Order Amish).",
      "topic": "Mechanisms of evolution"
     },
     {
-     "id": "c503",
+     "id": "c227",
      "front": "Biological species concept",
      "back": "Populations that can interbreed in nature and produce fertile offspring, isolated from other such groups. Does not work for asexual organisms or fossils.",
      "topic": "Speciation"
     },
     {
-     "id": "c504",
+     "id": "c228",
      "front": "Prezygotic vs postzygotic barriers",
      "back": "Prezygotic (before fertilization): habitat, temporal, behavioral, mechanical, gametic. Postzygotic: hybrid inviability, hybrid sterility (mules), hybrid breakdown.",
      "topic": "Speciation"
     },
     {
-     "id": "c505",
+     "id": "c229",
      "front": "Allopatric vs sympatric speciation",
      "back": "Allopatric: a geographic barrier splits the population (snapping shrimp across the Isthmus of Panama). Sympatric: no barrier, for example polyploidy in plants or a host shift in apple maggot flies.",
      "topic": "Speciation"
     },
     {
-     "id": "c506",
+     "id": "c230",
      "front": "Reading a phylogenetic tree",
      "back": "Nodes are common ancestors; tips are the groups compared (usually living ones). Two groups are most closely related if they share the most recent node. Rotating branches changes nothing.",
      "topic": "Phylogeny"
     },
     {
-     "id": "c507",
+     "id": "c231",
      "front": "Clade and shared derived characters",
      "back": "A clade is an ancestor and all its descendants. Clades are identified by shared derived traits that arose in their common ancestor (hair for mammals).",
      "topic": "Phylogeny"
     },
     {
-     "id": "c508",
+     "id": "c232",
      "front": "Major eras of the Phanerozoic",
      "back": "Paleozoic 539–252 million years ago, Mesozoic 252–66, Cenozoic 66–present. Everything before 539 is the Precambrian, nearly 90% of Earth's history.",
      "topic": "Geologic time"
     },
     {
-     "id": "c509",
+     "id": "c233",
      "front": "Key dates in the history of life",
      "back": "Earth 4.54 billion years ago; first fossils ~3.5 billion; oxygen builds up ~2.4 billion; eukaryotes ~2 billion; Cambrian explosion ~539 million; Homo sapiens ~300,000 years.",
      "topic": "History of life"
     },
     {
-     "id": "c510",
+     "id": "c234",
      "front": "The five mass extinctions",
      "back": "End-Ordovician (~445), Late Devonian (~372), End-Permian (~252, the largest), End-Triassic (~201), End-Cretaceous (66, asteroid impact). Dates in millions of years ago.",
      "topic": "Geologic time"
     },
     {
-     "id": "c511",
+     "id": "c235",
      "front": "Gradualism vs punctuated equilibrium",
      "back": "Gradualism: slow, steady change. Punctuated equilibrium: long stability broken by relatively rapid change (Eldredge and Gould, 1972). Both occur.",
      "topic": "History of life"
     },
     {
-     "id": "c512",
+     "id": "c236",
      "front": "Origin of eukaryotes (current view)",
      "back": "An archaeal host cell, related to today's Asgard archaea, took in an oxygen-using bacterium that became the mitochondrion; later one eukaryote lineage took in a cyanobacterium that became the chloroplast. So many trees show eukaryotes branching from within the archaea.",
      "topic": "History of life"
     },
     {
-     "id": "c513",
+     "id": "c573",
      "front": "Relative fitness and selection coefficient",
      "back": "$w$ = genotype's offspring number ÷ fittest genotype's, so the fittest has $w = 1$. Selection coefficient $s = 1 - w$.",
      "topic": "Selection models"
     },
     {
-     "id": "c514",
+     "id": "c574",
      "front": "One generation of selection (steps)",
      "back": "Zygotes $p^2, 2pq, q^2$ → multiply each by its $w$ → add to get $\\bar w$ → divide each by $\\bar w$ → count alleles: $q' = (q^2 w_{aa} + pq\\,w_{Aa})/\\bar w$.",
      "topic": "Selection models"
     },
     {
-     "id": "c515",
+     "id": "c575",
      "front": "Why rare recessive alleles persist",
      "back": "When $q$ is small, almost every copy is in a heterozygote with normal fitness, so selection against $aa$ lowers $q$ very slowly.",
      "topic": "Selection models"
     },
     {
-     "id": "c516",
+     "id": "c576",
      "front": "Heterozygote advantage equilibrium",
      "back": "With $w_{AA} = 1 - s$, $w_{Aa} = 1$, $w_{aa} = 1 - t$: both alleles stay, at $\\hat q = s/(s + t)$. Example: sickle-cell hemoglobin where malaria is common.",
      "topic": "Selection models"
     },
     {
-     "id": "c517",
+     "id": "c577",
      "front": "Chi-square test of Hardy-Weinberg",
      "back": "Estimate $p$ from the counts; expected $p^2N$, $2pqN$, $q^2N$; $\\chi^2 = \\sum (O - E)^2/E$; df = 3 − 1 − 1 = 1, critical value 3.84.",
      "topic": "Selection models"
     },
     {
-     "id": "c518",
+     "id": "c578",
      "front": "Fixation by drift",
      "back": "A neutral allele is eventually fixed with probability equal to its current frequency; a new mutation (one copy of $2N$) with probability $1/(2N)$.",
      "topic": "Genetic drift"
     },
     {
-     "id": "c519",
+     "id": "c579",
      "front": "Heterozygosity lost to drift",
      "back": "$H_t = H_0\\left(1 - \\tfrac{1}{2N}\\right)^t$. With $N = 25$, about 64% is lost in 50 generations; with $N = 500$, about 5%.",
      "topic": "Genetic drift"
     },
     {
-     "id": "c520",
+     "id": "c580",
      "front": "Effective population size formulas",
      "back": "Unequal sexes: $N_e = 4N_mN_f/(N_m + N_f)$. Changing size over $t$ generations: harmonic mean, $N_e = t / \\sum (1/N_i)$, dominated by the smallest generation.",
      "topic": "Genetic drift"
     },
     {
-     "id": "c521",
+     "id": "c581",
      "front": "When does drift beat selection?",
      "back": "Roughly, when $s$ is smaller than about $1/(2N_e)$, an allele behaves as if neutral; in small populations even harmful alleles can be fixed.",
      "topic": "Genetic drift"
     },
     {
-     "id": "c522",
+     "id": "c582",
      "front": "Testing Hardy-Weinberg needs every genotype",
      "back": "You must count $AA$, $Aa$ and $aa$ separately, so use codominant traits (MN blood group) or DNA typing. Failing to reject doesn't prove no evolution.",
      "topic": "Selection models"
     },
     {
-     "id": "c523",
+     "id": "c583",
      "front": "Shared derived vs shared ancestral character",
      "back": "Derived: arose in the group's common ancestor (hair for mammals), defines a clade. Ancestral: inherited from an older ancestor and found outside the group too (backbone for mammals).",
      "topic": "Cladistics"
     },
     {
-     "id": "c524",
+     "id": "c584",
      "front": "Clade vs paraphyletic group",
      "back": "Clade: an ancestor and all its descendants. Paraphyletic: an ancestor and only some descendants, like reptiles without birds.",
      "topic": "Cladistics"
     },
     {
-     "id": "c525",
+     "id": "c585",
      "front": "Role of the outgroup",
      "back": "A relative that branched off earlier: its states are taken as ancestral, and the root goes on its branch.",
      "topic": "Cladistics"
     },
     {
-     "id": "c526",
+     "id": "c586",
      "front": "Homoplasy",
      "back": "Similarity not from common ancestry: convergence (bat and bird wings, as wings) or reversal (snakes losing legs). On a tree it appears as the same change happening more than once.",
      "topic": "Cladistics"
     },
     {
-     "id": "c527",
+     "id": "c587",
      "front": "Maximum parsimony",
      "back": "Count the changes each tree needs and choose the fewest. Only states shared by some but not all ingroup species are informative.",
      "topic": "Cladistics"
     },
     {
-     "id": "c528",
+     "id": "c588",
      "front": "Number of possible rooted trees",
      "back": "$1 \\times 3 \\times 5 \\times \\cdots \\times (2n - 3)$: 3 for 3 species, 15 for 4, 105 for 5, about 34 million for 10.",
      "topic": "Cladistics"
     },
     {
-     "id": "c529",
+     "id": "c589",
      "front": "Molecular clock equation",
      "back": "Difference between two species $d = 2rT$ ($r$ per lineage), so $T = d/(2r)$. Calibrate $r$ from a split dated by fossils or geology.",
      "topic": "Molecular clocks"
     },
     {
-     "id": "c530",
+     "id": "c590",
      "front": "Limits of molecular clocks",
      "back": "Rates differ among genes and lineages; old splits saturate (repeated changes at a site hide earlier ones), making them look too young. Use many genes, several calibrations and relaxed clocks.",
      "topic": "Molecular clocks"
     },
     {
-     "id": "c531",
+     "id": "c591",
      "front": "Horizontal gene transfer in bacteria",
      "back": "Transformation (taking up DNA), transduction (DNA carried by a virus), conjugation (plasmids passed by contact). Spreads antibiotic resistance between species.",
      "topic": "Cladistics"
     },
     {
-     "id": "c532",
+     "id": "c592",
      "front": "Gene tree vs species tree",
      "back": "One gene's history can differ from the species' history, for example after horizontal transfer, so species trees are built from many genes.",
      "topic": "Cladistics"
     },
     {
-     "id": "c533",
+     "id": "c237",
      "front": "Taxonomic ranks, broadest to narrowest",
      "back": "Domain, kingdom, phylum, class, order, family, genus, species (\"Dear King Philip Came Over For Good Soup\").",
      "topic": "Classification"
     },
     {
-     "id": "c534",
+     "id": "c238",
      "front": "Rules for writing a binomial name",
      "back": "Genus capitalized, species epithet lowercase, both italicized (or underlined): Homo sapiens. Genus may be abbreviated after first use: E. coli.",
      "topic": "Classification"
     },
     {
-     "id": "c535",
+     "id": "c239",
      "front": "The three domains",
      "back": "Bacteria, Archaea, Eukarya (Woese, from ribosomal RNA comparisons). Current evidence suggests eukaryotes arose from within the archaea, closest to the Asgard archaea.",
      "topic": "Classification"
     },
     {
-     "id": "c536",
+     "id": "c240",
      "front": "Goal of modern classification",
      "back": "Groups should reflect ancestry: each group contains an ancestor and all its descendants. Classifications change as DNA evidence comes in.",
      "topic": "Classification"
     },
     {
-     "id": "c537",
+     "id": "c241",
      "front": "Dichotomous key",
      "back": "A series of paired, mutually exclusive choices about observable features that leads step by step to an identification.",
      "topic": "Classification"
     },
     {
-     "id": "c538",
+     "id": "c242",
      "front": "Bacteria vs archaea",
      "back": "Both lack a nucleus. Bacteria: peptidoglycan walls, ester-linked lipids, many pathogens. Archaea: no peptidoglycan, ether-linked lipids, eukaryote-like gene machinery, no known human pathogens.",
      "topic": "Bacteria and archaea"
     },
     {
-     "id": "c539",
+     "id": "c243",
      "front": "Gram-positive vs Gram-negative",
      "back": "Gram-positive: thick peptidoglycan wall, stains purple. Gram-negative: thin wall plus outer membrane, stains pink.",
      "topic": "Bacteria and archaea"
     },
     {
-     "id": "c540",
+     "id": "c244",
      "front": "Exponential growth of bacteria",
      "back": "$N = N_0 \\times 2^{n}$, where $n$ = elapsed time $\\div$ generation time.",
      "topic": "Bacteria and archaea"
     },
     {
-     "id": "c541",
+     "id": "c245",
      "front": "Phases of a bacterial growth curve",
      "back": "Lag, exponential (log), stationary, death.",
      "topic": "Bacteria and archaea"
     },
     {
-     "id": "c542",
+     "id": "c246",
      "front": "Concentration from a plate count",
      "back": "$\\text{CFU/mL} = \\dfrac{\\text{colonies}}{\\text{dilution} \\times \\text{volume plated}}$; count plates with 30–300 colonies.",
      "topic": "Bacteria and archaea"
     },
     {
-     "id": "c543",
+     "id": "c247",
      "front": "Lytic vs lysogenic cycle",
      "back": "Lytic: virus replicates at once and bursts the cell. Lysogenic: viral DNA joins the host chromosome and is copied silently until a trigger switches it to lytic.",
      "topic": "Viruses"
     },
     {
-     "id": "c544",
+     "id": "c248",
      "front": "Why antibiotics don't work on viruses",
      "back": "Viruses have no cell wall, ribosomes or metabolism of their own for antibiotics to target.",
      "topic": "Viruses"
     },
     {
-     "id": "c545",
+     "id": "c249",
      "front": "Retrovirus (e.g. HIV)",
      "back": "An RNA virus whose reverse transcriptase copies its RNA into DNA, which integrates into the host genome.",
      "topic": "Viruses"
     },
     {
-     "id": "c546",
+     "id": "c250",
      "front": "Protist",
      "back": "Any eukaryote that is not a plant, animal or fungus; not a natural evolutionary group.",
      "topic": "Protists"
     },
     {
-     "id": "c547",
+     "id": "c251",
      "front": "Three ways protists move",
      "back": "Pseudopods (amoeba), cilia (Paramecium), flagella (Euglena).",
      "topic": "Protists"
     },
     {
-     "id": "c548",
+     "id": "c252",
      "front": "Malaria",
      "back": "Caused by the protist Plasmodium, spread by Anopheles mosquitoes; multiplies in liver and red blood cells.",
      "topic": "Protists"
     },
     {
-     "id": "c549",
+     "id": "c253",
      "front": "Fungi vs plants",
      "back": "Fungi: heterotrophs, chitin walls, store glycogen, digest externally and absorb. Plants: photosynthesize, cellulose walls, store starch.",
      "topic": "Fungi"
     },
     {
-     "id": "c550",
+     "id": "c254",
      "front": "Hypha vs mycelium",
      "back": "A hypha is one thread-like filament; a mycelium is the whole branching network of hyphae.",
      "topic": "Fungi"
     },
     {
-     "id": "c551",
+     "id": "c255",
      "front": "Mycorrhiza vs lichen",
      "back": "Mycorrhiza: fungus + plant roots (minerals for sugar). Lichen: fungus + alga or cyanobacterium.",
      "topic": "Fungi"
     },
     {
-     "id": "c552",
+     "id": "c256",
      "front": "Four plant groups and their innovations",
      "back": "Mosses (no vascular tissue), ferns (vascular tissue), gymnosperms (seeds on cones, pollen), angiosperms (flowers and fruit).",
      "topic": "Plants"
     },
     {
-     "id": "c553",
+     "id": "c257",
      "front": "Alternation of generations",
      "back": "Haploid gametophyte makes gametes by mitosis; zygote grows into diploid sporophyte, which makes spores by meiosis. Sporophyte dominant in ferns and seed plants.",
      "topic": "Plants"
     },
     {
-     "id": "c554",
+     "id": "c258",
      "front": "Xylem vs phloem",
      "back": "Xylem: dead tubes, water and minerals up from roots. Phloem: living sieve tubes, sugars from source to sink (up or down).",
      "topic": "Plants"
     },
     {
-     "id": "c555",
+     "id": "c259",
      "front": "Cohesion-tension mechanism",
      "back": "Transpiration pulls water out of leaves; cohesion (hydrogen bonds) transmits the pull down unbroken xylem columns; adhesion helps; roots take in water by osmosis. Powered by the sun.",
      "topic": "Plants"
     },
     {
-     "id": "c556",
+     "id": "c260",
      "front": "Potometer calculation",
      "back": "Volume = tube cross-section area × distance bubble moves; rate = volume ÷ time.",
      "topic": "Plants"
     },
     {
-     "id": "c557",
+     "id": "c261",
      "front": "Flower parts",
      "back": "Stamen = anther + filament (male). Carpel/pistil = stigma + style + ovary with ovules (female). Ovule → seed; ovary → fruit.",
      "topic": "Plants"
     },
     {
-     "id": "c558",
+     "id": "c262",
      "front": "Darwin and Went phototropism experiments",
      "back": "Darwin: the seedling tip senses light. Went: the signal is a chemical that diffuses into agar (auxin), which makes the shaded side elongate.",
      "topic": "Plants"
     },
     {
-     "id": "c559",
+     "id": "c263",
      "front": "Radial vs bilateral symmetry",
      "back": "Radial: many planes through a central axis (jellyfish). Bilateral: one plane, left and right halves, front end with cephalization.",
      "topic": "Animals"
     },
     {
-     "id": "c560",
+     "id": "c264",
      "front": "Four chordate features",
      "back": "Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail (at some stage).",
      "topic": "Animals"
     },
     {
-     "id": "c561",
+     "id": "c265",
      "front": "Protostome vs deuterostome",
      "back": "Protostome: first embryo opening becomes mouth (mollusks, annelids, arthropods). Deuterostome: it becomes the anus (echinoderms, chordates).",
      "topic": "Animals"
     },
     {
-     "id": "c562",
+     "id": "c266",
      "front": "Endotherm vs ectotherm",
      "back": "Endotherm: heat from metabolism, constant body temperature, high food cost (birds, mammals). Ectotherm: heat from environment, body temperature tracks surroundings.",
      "topic": "Animals"
     },
     {
-     "id": "c563",
+     "id": "c593",
      "front": "Boysen-Jensen's experiments (1913)",
      "back": "Gelatin between tip and stump still allowed bending (the signal is a diffusible chemical); mica on the shaded side blocked it (the signal travels down the shaded side).",
      "topic": "Plant hormones"
     },
     {
-     "id": "c564",
+     "id": "c594",
      "front": "Went's agar block experiment (1926)",
      "back": "Agar that held coleoptile tips, set off-center on a cut seedling in the dark, made it bend away from the block; bending grew with the number of tips. The chemical was later identified as auxin (IAA).",
      "topic": "Plant hormones"
     },
     {
-     "id": "c565",
+     "id": "c595",
      "front": "Cholodny-Went hypothesis",
      "back": "One-sided light moves auxin laterally to the shaded side (rather than destroying it), so shaded cells elongate more and the shoot bends toward light.",
      "topic": "Plant responses"
     },
     {
-     "id": "c566",
+     "id": "c596",
      "front": "Polar auxin transport",
      "back": "Auxin moves one way, tip to base, cell by cell, because auxin-exporting PIN proteins sit at the lower end of each cell; it works even upside down.",
      "topic": "Plant hormones"
     },
     {
-     "id": "c567",
+     "id": "c597",
      "front": "Acid growth hypothesis",
      "back": "Auxin → proton pumps → acidified wall → expansins loosen it → turgor stretches the cell.",
      "topic": "Plant hormones"
     },
     {
-     "id": "c568",
+     "id": "c598",
      "front": "Gravitropism in shoots vs roots",
      "back": "Auxin collects on the lower side of both. Shoots: it speeds elongation, so they curve up. Roots (more sensitive): it slows elongation, so they curve down.",
      "topic": "Plant responses"
     },
     {
-     "id": "c569",
+     "id": "c599",
      "front": "Five classic plant hormones and a main effect",
      "back": "Auxin: elongation, tropisms. Gibberellins: stem growth, germination. Cytokinins: cell division. Abscisic acid: stomatal closing, seed dormancy. Ethylene: ripening, leaf drop.",
      "topic": "Plant hormones"
     },
     {
-     "id": "c570",
+     "id": "c600",
      "front": "Auxin-to-cytokinin ratio in tissue culture",
      "back": "High auxin:cytokinin → roots; low → shoots; intermediate → undifferentiated callus (Skoog and Miller).",
      "topic": "Plant hormones"
     },
     {
-     "id": "c571",
+     "id": "c601",
      "front": "Phytochrome forms",
      "back": "Pr absorbs red (about 660 nm) and becomes active Pfr; Pfr absorbs far-red (about 730 nm) and returns to Pr. The last flash in a red/far-red series decides the response.",
      "topic": "Plant responses"
     },
     {
-     "id": "c572",
+     "id": "c602",
      "front": "Short-day vs long-day plants",
      "back": "Both measure unbroken night. Short-day (long-night) plants flower when night > critical night length; long-day plants when night < theirs. A red flash mid-night breaks the night; far-red after it cancels the break.",
      "topic": "Plant responses"
     },
     {
-     "id": "c573",
+     "id": "c603",
      "front": "Florigen",
      "back": "Flowering signal made in leaves, carried in phloem to the shoot tip; identified as the FT protein (2007).",
      "topic": "Plant responses"
     },
     {
-     "id": "c574",
+     "id": "c604",
      "front": "Pressure to hold up a water column",
      "back": "$\\rho g h$: about 0.01 MPa per meter (1.08 MPa for 110 m), plus friction. Suction alone can lift water only about 10.3 m.",
      "topic": "Water transport"
     },
     {
-     "id": "c575",
+     "id": "c605",
      "front": "Root pressure vs transpiration pull",
      "back": "Root pressure: a push from ions pumped into xylem, at most a few tenths of a MPa, causes guttation. Transpiration pull: tension from evaporation, lifts water up tall trees.",
      "topic": "Water transport"
     },
     {
-     "id": "c576",
+     "id": "c606",
      "front": "Plaque assay",
      "back": "Phages spread on a bacterial lawn each make one clear plaque; PFU/mL = plaques ÷ (dilution × volume plated).",
      "topic": "Viral replication"
     },
     {
-     "id": "c577",
+     "id": "c607",
      "front": "One-step growth curve",
      "back": "After a short infection and dilution, phage count stays flat during the latent period, then jumps as cells burst. Burst size = phages released ÷ infected cells.",
      "topic": "Viral replication"
     },
     {
-     "id": "c578",
+     "id": "c608",
      "front": "When temperate phages choose lysogeny",
      "back": "When many phages infect each cell or hosts are starving (fresh hosts scarce). DNA damage destroys the repressor and induces the lytic cycle.",
      "topic": "Viral replication"
     },
     {
-     "id": "c579",
+     "id": "c609",
      "front": "Lysogenic conversion",
      "back": "Prophage genes give the host new traits; cholera, diphtheria and Shiga toxin genes arrive on phages.",
      "topic": "Viral replication"
     },
     {
-     "id": "c580",
+     "id": "c610",
      "front": "HIV replication cycle",
      "back": "Bind CD4 + coreceptor and fuse → reverse transcription → integration (provirus) → transcription and translation → budding → maturation by protease.",
      "topic": "Viral replication"
     },
     {
-     "id": "c581",
+     "id": "c611",
      "front": "Why HIV is controlled but not cured",
      "back": "Error-prone reverse transcriptase (about 0.3 new mutations per genome copy) makes single drugs fail, so combinations are used; silent provirus in resting cells survives treatment.",
      "topic": "Viral replication"
     },
     {
-     "id": "c582",
+     "id": "c612",
      "front": "Antigenic drift vs antigenic shift",
      "back": "Drift: gradual point mutations in surface proteins (yearly vaccine updates). Shift: two strains in one cell swap genome segments, making a new subtype (pandemics).",
      "topic": "Viral replication"
     },
     {
-     "id": "c583",
+     "id": "c613",
      "front": "Antibiotic targets",
      "back": "Peptidoglycan wall synthesis (penicillins), 70S ribosomes (tetracyclines, macrolides), DNA gyrase (fluoroquinolones), folate synthesis (sulfonamides).",
      "topic": "Antibiotic resistance"
     },
     {
-     "id": "c584",
+     "id": "c614",
      "front": "Four resistance mechanisms",
      "back": "Destroy the drug (beta-lactamase), alter the target (MRSA), pump the drug out (efflux), keep it out (fewer membrane pores).",
      "topic": "Antibiotic resistance"
     },
     {
-     "id": "c585",
+     "id": "c615",
      "front": "Luria-Delbrück fluctuation test (1943)",
      "back": "Separate cultures varied wildly in resistant mutants (\"jackpots\"), samples of one culture did not: mutations arise at random before exposure, and the agent only selects.",
      "topic": "Antibiotic resistance"
     },
     {
-     "id": "c586",
+     "id": "c616",
      "front": "Conjugation vs transformation vs transduction",
      "back": "Conjugation: plasmid through a pilus. Transformation: uptake of naked DNA. Transduction: a phage carries bacterial DNA.",
      "topic": "Antibiotic resistance"
     },
     {
-     "id": "c587",
+     "id": "c617",
      "front": "Why combination therapy works",
      "back": "Probabilities multiply: with rates $10^{-8}$ and $10^{-6}$, a double mutant arises in 1 cell in $10^{14}$, far more than the $10^{9}$ cells in an infection.",
      "topic": "Antibiotic resistance"
     },
     {
-     "id": "c588",
+     "id": "c618",
      "front": "Gut microbiome roles",
      "back": "Ferments fiber to short-chain fatty acids, makes vitamin K, trains the immune system, crowds out pathogens; antibiotics can disrupt it (C. difficile).",
      "topic": "Antibiotic resistance"
     },
     {
-     "id": "c589",
+     "id": "c267",
      "front": "Three parts of a homeostatic control loop",
      "back": "Sensor (receptor), control center (often the brain), effector (muscle or gland).",
      "topic": "Homeostasis"
     },
     {
-     "id": "c590",
+     "id": "c268",
      "front": "Negative vs positive feedback",
      "back": "Negative: response opposes the change (temperature, glucose). Positive: response amplifies the change until an event ends it (childbirth, clotting).",
      "topic": "Homeostasis"
     },
     {
-     "id": "c591",
+     "id": "c269",
      "front": "Responses to overheating",
      "back": "Sweating and vasodilation of skin vessels, triggered by the hypothalamus.",
      "topic": "Homeostasis"
     },
     {
-     "id": "c592",
+     "id": "c270",
      "front": "Responses to cold",
      "back": "Vasoconstriction of skin vessels and shivering.",
      "topic": "Homeostasis"
     },
     {
-     "id": "c593",
+     "id": "c271",
      "front": "Parts of a neuron",
      "back": "Dendrites (receive), cell body (nucleus), axon (carries impulse away, often myelinated), axon terminals (release neurotransmitter).",
      "topic": "Nervous system"
     },
     {
-     "id": "c594",
+     "id": "c272",
      "front": "Steps of an action potential",
      "back": "Rest at about −70 mV; threshold reached; sodium channels open, Na⁺ in (inside becomes positive); potassium channels open, K⁺ out (restores negative).",
      "topic": "Nervous system"
     },
     {
-     "id": "c595",
+     "id": "c273",
      "front": "All-or-none principle",
      "back": "Every action potential has the same size; stimulus strength is coded by firing frequency.",
      "topic": "Nervous system"
     },
     {
-     "id": "c596",
+     "id": "c274",
      "front": "Measuring conduction speed (Helmholtz)",
      "back": "Stimulate at two distances; speed = difference in distance ÷ difference in time (mm/ms = m/s).",
      "topic": "Nervous system"
     },
     {
-     "id": "c597",
+     "id": "c275",
      "front": "What happens at a synapse",
      "back": "Impulse arrives; neurotransmitter released; diffuses across gap; binds receptors on next cell; then broken down or taken back up.",
      "topic": "Nervous system"
     },
     {
-     "id": "c598",
+     "id": "c276",
      "front": "Nervous vs endocrine signaling",
      "back": "Nervous: electrical plus neurotransmitter, milliseconds, brief, targeted. Endocrine: hormones in blood, seconds to hours, longer lasting, any cell with the receptor.",
      "topic": "Endocrine system"
     },
     {
-     "id": "c599",
+     "id": "c277",
      "front": "Insulin vs glucagon",
      "back": "Insulin (beta cells): lowers blood glucose; cells take up glucose, liver stores glycogen. Glucagon (alpha cells): raises it; liver breaks down glycogen.",
      "topic": "Endocrine system"
     },
     {
-     "id": "c600",
+     "id": "c278",
      "front": "Type 1 vs type 2 diabetes",
      "back": "Type 1: autoimmune destruction of beta cells, little insulin. Type 2: cells respond poorly to insulin (insulin resistance).",
      "topic": "Endocrine system"
     },
     {
-     "id": "c601",
+     "id": "c279",
      "front": "Path of blood through the heart",
      "back": "Right atrium → right ventricle → pulmonary artery → lungs → pulmonary vein → left atrium → left ventricle → aorta → body → veins → right atrium.",
      "topic": "Circulatory system"
     },
     {
-     "id": "c602",
+     "id": "c280",
      "front": "Artery vs vein vs capillary",
      "back": "Artery: away from heart, thick elastic wall. Vein: toward heart, thin wall, valves. Capillary: one cell thick, exchange.",
      "topic": "Circulatory system"
     },
     {
-     "id": "c603",
+     "id": "c281",
      "front": "Cardiac output",
      "back": "Heart rate × stroke volume; about 70 × 70 mL ≈ 5 L/min at rest.",
      "topic": "Circulatory system"
     },
     {
-     "id": "c604",
+     "id": "c282",
      "front": "Stroke volume from ventricle volumes",
      "back": "Volume at end of filling − volume left after contraction.",
      "topic": "Circulatory system"
     },
     {
-     "id": "c605",
+     "id": "c283",
      "front": "Harvey's 1628 argument",
      "back": "The heart pumps thousands of liters a day, far more than is eaten or contained in the body, so blood must circulate.",
      "topic": "Circulatory system"
     },
     {
-     "id": "c606",
+     "id": "c284",
      "front": "Path of air into the lungs",
      "back": "Nose/mouth → pharynx → larynx → trachea → bronchi → bronchioles → alveoli.",
      "topic": "Respiratory system"
     },
     {
-     "id": "c607",
+     "id": "c285",
      "front": "Mechanism of inhaling",
      "back": "Diaphragm contracts and flattens, ribs lift, chest volume up, lung pressure down, air flows in.",
      "topic": "Respiratory system"
     },
     {
-     "id": "c608",
+     "id": "c286",
      "front": "Main chemical trigger for breathing",
      "back": "Rising carbon dioxide, which lowers blood pH, detected in the medulla.",
      "topic": "Respiratory system"
     },
     {
-     "id": "c609",
+     "id": "c287",
      "front": "Minute and alveolar ventilation",
      "back": "Minute = tidal volume × rate. Alveolar = (tidal volume − dead space) × rate.",
      "topic": "Respiratory system"
     },
     {
-     "id": "c610",
+     "id": "c288",
      "front": "Energy from oxygen use",
      "back": "About 20 kJ per liter of oxygen; resting use about 3.5 mL O₂ per kg per minute.",
      "topic": "Respiratory system"
     },
     {
-     "id": "c611",
+     "id": "c289",
      "front": "Three steps of urine formation",
      "back": "Filtration (glomerulus), reabsorption (tubule back to blood), secretion (blood into tubule).",
      "topic": "Excretory system"
     },
     {
-     "id": "c612",
+     "id": "c290",
      "front": "Role of ADH",
      "back": "Released when blood is too concentrated; makes collecting ducts reabsorb more water, giving concentrated urine (negative feedback).",
      "topic": "Excretory system"
     },
     {
-     "id": "c613",
+     "id": "c291",
      "front": "Digestion products",
      "back": "Carbohydrates → simple sugars; proteins → amino acids; fats → fatty acids and glycerol; nucleic acids → nucleotides.",
      "topic": "Digestive system"
     },
     {
-     "id": "c614",
+     "id": "c292",
      "front": "Roles of stomach, small intestine, large intestine",
      "back": "Stomach: acid, pepsin, churning. Small intestine: most digestion and nearly all absorption (villi). Large intestine: water absorption, gut bacteria.",
      "topic": "Digestive system"
     },
     {
-     "id": "c615",
+     "id": "c293",
      "front": "Energy per gram of nutrient",
      "back": "Carbohydrate 4 kcal, protein 4 kcal, fat 9 kcal (1 kcal = 4.184 kJ).",
      "topic": "Digestive system"
     },
     {
-     "id": "c616",
+     "id": "c294",
      "front": "Innate vs adaptive immunity",
      "back": "Innate: fast, general, from birth (barriers, inflammation, phagocytes). Adaptive: slower first time, specific, memory (B cells, antibodies, T cells).",
      "topic": "Immune system"
     },
     {
-     "id": "c617",
+     "id": "c295",
      "front": "Primary vs secondary immune response",
      "back": "Primary: about 1–2 weeks to peak, smaller. Secondary: within days, much larger, because of memory cells.",
      "topic": "Immune system"
     },
     {
-     "id": "c618",
+     "id": "c296",
      "front": "Herd immunity threshold",
      "back": "$1 - \\dfrac{1}{R_0}$; e.g. $R_0 = 15$ gives about 93%.",
      "topic": "Immune system"

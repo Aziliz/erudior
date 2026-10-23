@@ -51,12 +51,12 @@ Each use lowers the power by 2, ending at $\int\sin^0x\,dx = x$ (if $n$ is even)
 flowchart TD
   accTitle: How to derive a reduction formula
   accDescr: Start with the integral I sub n with the power n kept as a letter. Do one round of integration by parts, or use an identity, to lower the power. Ask whether I sub n appeared again on the right side. If yes, collect the I sub n terms on the left and solve for I sub n. In either case the result expresses I sub n through I sub n minus 1 or I sub n minus 2. Then apply it repeatedly down to I sub 0 or I sub 1, which are integrated directly.
-  A["Write I_n with the power n as a letter"] --> B["One round of parts, or an identity"]
-  B --> C{"Does I_n appear again on the right?"}
-  C -- yes --> D["Collect the I_n terms and solve for I_n"]
-  C -- no --> E["Formula: I_n in terms of a lower power"]
+  A["Write Iₙ with the power n as a letter"] --> B["One round of parts, or an identity"]
+  B --> C{"Does Iₙ appear again on the right?"}
+  C -- yes --> D["Collect the Iₙ terms and solve for Iₙ"]
+  C -- no --> E["Formula: Iₙ in terms of a lower power"]
   D --> E
-  E --> F["Repeat down to I_0 or I_1, then integrate directly"]
+  E --> F["Repeat down to I₀ or I₁, then integrate directly"]
 ```
 
 ## The Wallis integrals

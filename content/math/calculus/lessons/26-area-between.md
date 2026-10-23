@@ -29,6 +29,10 @@ This works whether the curves are above or below the $x$-axis: the height top mi
 {"x": [-2, 3], "y": [-1, 7], "functions": [{"f": "x + 2", "label": "top: y = x + 2"}, {"f": "x^2", "label": "bottom: y = x²"}], "shade": [{"f": "x + 2", "g": "x^2", "from": -1, "to": 2}], "segments": [{"from": [0.8, 0.64], "to": [0.8, 2.8], "dashed": true}], "caption": "A typical vertical slice has height top − bottom"}
 ```
 
+The same setup with every part named: the two curves, the points where they meet (which give the limits), and one thin slice with its height and width.
+
+![The region between the line y = x + 2 and the parabola y = x², which meet at (−1, 1) and (2, 4). A thin vertical slice at one x has height (x + 2) − x² and width Δx.](images/calc-m7-area-slice.svg)
+
 ### Example 1
 
 Find the area between $y = x + 2$ and $y = x^2$.
@@ -61,6 +65,19 @@ Some regions are easier sliced horizontally. If the region is bounded on the rig
 $$A = \int_c^d\left[f(y) - g(y)\right]dy = \int_c^d(\text{right} - \text{left})\,dy.$$
 
 Use this when the boundaries are naturally functions of $y$ (like $x = y^2$), or when vertical slices would hit different curves in different places.
+
+This chart sums up the choice:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing vertical or horizontal slices for an area
+  accDescr: First sketch the region and find where the curves meet. If every vertical slice runs from the same bottom curve to the same top curve, use vertical slices and integrate top minus bottom with respect to x. If not, ask whether every horizontal slice runs from the same left curve to the same right curve; if so, use horizontal slices and integrate right minus left with respect to y. If neither works, split the region where a boundary changes and add the areas of the pieces.
+  A["Sketch the region and find where the curves meet"] --> B{"Does every vertical slice run from the same bottom curve to the same top curve?"}
+  B -- yes --> C["Vertical slices: integrate top minus bottom, dx"]
+  B -- no --> D{"Does every horizontal slice run from the same left curve to the same right curve?"}
+  D -- yes --> E["Horizontal slices: integrate right minus left, dy"]
+  D -- no --> F["Split the region where a boundary changes and add the pieces"]
+```
 
 ### Example 3
 

@@ -1,0 +1,118 @@
+# Round 2 drills for calc-m8 (honors lessons 36h1, 36h2, 36h3)
+- id: calc-m8-r2-wallis
+  title: Wallis integrals by reduction
+  topic: Reduction formulas
+  vars:
+    fn: {choices: [{label: '\sin', value: 1}, {label: '\cos', value: 2}]}
+    c:
+      choices:
+      - {label: '\tfrac{2}{3} \cdot 1 = \tfrac{2}{3}', value: 3}
+      - {label: '\tfrac{3}{4} \cdot \tfrac{1}{2} \cdot \tfrac{\pi}{2} = \tfrac{3\pi}{16}', value: 4}
+      - {label: '\tfrac{4}{5} \cdot \tfrac{2}{3} \cdot 1 = \tfrac{8}{15}', value: 5}
+      - {label: '\tfrac{5}{6} \cdot \tfrac{3}{4} \cdot \tfrac{1}{2} \cdot \tfrac{\pi}{2} = \tfrac{5\pi}{32}', value: 6}
+      - {label: '\tfrac{6}{7} \cdot \tfrac{4}{5} \cdot \tfrac{2}{3} \cdot 1 = \tfrac{16}{35}', value: 7}
+      - {label: '\tfrac{7}{8} \cdot \tfrac{5}{6} \cdot \tfrac{3}{4} \cdot \tfrac{1}{2} \cdot \tfrac{\pi}{2} = \tfrac{35\pi}{256}', value: 8}
+      - {label: '\tfrac{8}{9} \cdot \tfrac{6}{7} \cdot \tfrac{4}{5} \cdot \tfrac{2}{3} \cdot 1 = \tfrac{128}{315}', value: 9}
+      - {label: '\tfrac{9}{10} \cdot \tfrac{7}{8} \cdot \tfrac{5}{6} \cdot \tfrac{3}{4} \cdot \tfrac{1}{2} \cdot \tfrac{\pi}{2} = \tfrac{63\pi}{512}', value: 10}
+  calc:
+    n: c
+    W: sqrt(pi)*gamma((n + 1)/2)/(2*gamma(n/2 + 1))
+  prompt: 'Evaluate $\displaystyle\int_0^{\pi/2}{fn}^{{n}}x\,dx$ exactly. (Type pi for $\pi$, e.g. 3pi/16.)'
+  answers:
+    - {name: W, label: 'Value', relTolerance: 0.000001}
+  solution: |-
+    On $[0, \tfrac\pi2]$ the reduction formula becomes $W_n = \dfrac{n - 1}{n}W_{n-2}$, with $W_0 = \tfrac\pi2$ and $W_1 = 1$ (the same for sine and cosine). Apply it until the power reaches 0 or 1:
+    $$W_{{n}} = {c}.$$
+    So the integral is **${c}$** $\approx$ {W:num4}.
+
+- id: calc-m8-r2-gamma-moment
+  title: Integrals of the form x^n e^(-ax)
+  topic: Gamma function
+  vars:
+    n: {min: 1, max: 5}
+    a: {min: 2, max: 5}
+  calc:
+    n1: n + 1
+    nf: fact(n)
+    den: a^(n + 1)
+    I: fact(n)/a^(n + 1)
+  where: ['den <= 20000']
+  prompt: 'Evaluate $\displaystyle\int_0^\infty x^{{n}}e^{-{a}x}\,dx$. Give an exact fraction.'
+  answers:
+    - {name: I, label: 'Value', kind: fraction}
+  solution: |-
+    Substitute $u = {a}x$, so $x = \dfrac{u}{{a}}$ and $dx = \dfrac{du}{{a}}$; the limits stay $0$ and $\infty$:
+    $$\int_0^\infty\left(\frac{u}{{a}}\right)^{{n}}e^{-u}\,\frac{du}{{a}} = \frac{\Gamma({n1})}{{a}^{{n1}}} = \frac{{n}!}{{a}^{{n1}}} = \frac{{nf}}{{den}}.$$
+    In lowest terms: **${I:texfrac}$**.
+
+- id: calc-m8-r2-gamma-half
+  title: Gamma at a half-integer
+  topic: Gamma function
+  vars:
+    k: {min: 3, max: 7}
+  calc:
+    m: 2*k + 1
+    m2: 2*k - 1
+    df: fact(2*k)/(2^k*fact(k))
+    p2: 2^k
+    cc: fact(2*k)/(4^k*fact(k))
+  prompt: 'Write $\Gamma\left(\tfrac{{m}}{2}\right)$ in the form $c\sqrt\pi$. Find $c$ as an exact fraction.'
+  answers:
+    - {name: cc, label: '$c =$', kind: fraction}
+  solution: |-
+    Use $\Gamma(s + 1) = s\,\Gamma(s)$ to step down by 1 a total of {k} times, from $\tfrac{{m}}{2}$ to $\tfrac12$, and finish with $\Gamma\left(\tfrac12\right) = \sqrt\pi$. The factors are $\tfrac12, \tfrac32, \dots, \tfrac{{m2}}{2}$, {k} of them. Their numerators are the odd numbers from 1 to {m2}, whose product is {df}, and their denominators multiply to $2^{{k}} = {p2}$.
+    $$\Gamma\left(\tfrac{{m}}{2}\right) = \frac{{df}}{{p2}}\sqrt\pi,$$
+    so **$c = {cc:texfrac}$**.
+
+- id: calc-m8-r2-richardson
+  title: One Richardson step
+  topic: Richardson extrapolation
+  vars:
+    lo: {min: 1, max: 3}
+    d: {min: 1, max: 3}
+  funcs:
+    f(x): 1/x
+  calc:
+    b: lo + d
+    h2: d/2
+    h4: d/4
+    T2: round(h2/2*(f(lo) + 2*f(lo + h2) + f(b)), 6)
+    T4: round(h4/2*(f(lo) + 2*(f(lo + h4) + f(lo + 2*h4) + f(lo + 3*h4)) + f(b)), 6)
+    R: (4*T4 - T2)/3
+    ex: ln(b/lo)
+    err4: abs(T4 - ex)
+    errR: abs(R - ex)
+  prompt: 'For $\displaystyle\int_{{lo}}^{{b}}\frac{dx}{x}$, the trapezoidal rule gives $T_2 = {T2:dp6}$ and $T_4 = {T4:dp6}$. Use one step of Richardson extrapolation to improve the estimate. (4 decimal places)'
+  answers:
+    - {name: R, label: 'Estimate', tolerance: 0.0001}
+  solution: |-
+    The trapezoid error is about $ch^2$, and $T_4$ has half the step size of $T_2$, so its error is about a quarter as big. Cancel the $h^2$ term:
+    $$\frac{4T_4 - T_2}{3} = \frac{4({T4:dp6}) - {T2:dp6}}{3} \approx \mathbf{{R:num4}}.$$
+    (This is Simpson's $S_4$.) The exact value is $\ln\tfrac{{b}}{{lo}} \approx {ex:num4}$: the error fell from about {err4:sig2} for $T_4$ to about {errR:sig2}.
+
+- id: calc-m8-r2-romberg
+  title: A small Romberg table
+  topic: Richardson extrapolation
+  vars:
+    c: {choices: [-3, -2, -1, 1, 2, 3]}
+  funcs:
+    f(x): e^(c*x)
+  calc:
+    T1: round((f(0) + f(1))/2, 6)
+    T2: round(0.25*(f(0) + 2*f(0.5) + f(1)), 6)
+    T4: round(0.125*(f(0) + 2*(f(0.25) + f(0.5) + f(0.75)) + f(1)), 6)
+    R11: (4*T2 - T1)/3
+    R21: (4*T4 - T2)/3
+    R22: (16*R21 - R11)/15
+    ex: (e^c - 1)/c
+  prompt: 'For $\displaystyle\int_0^1 e^{{c:coef}x}\,dx$, the trapezoidal rule gives $T_1 = {T1:dp6}$, $T_2 = {T2:dp6}$ and $T_4 = {T4:dp6}$. Build the Romberg table: find $R_{1,1}$, $R_{2,1}$ and $R_{2,2}$. (4 decimal places)'
+  answers:
+    - {name: R11, label: '$R_{1,1} =$', tolerance: 0.0001}
+    - {name: R21, label: '$R_{2,1} =$', tolerance: 0.0001}
+    - {name: R22, label: '$R_{2,2} =$', tolerance: 0.0001}
+  solution: |-
+    First column of extrapolations (factor 4, for $h^2$ errors):
+    $R_{1,1} = \dfrac{4T_2 - T_1}{3} \approx$ **{R11:num4}** and $R_{2,1} = \dfrac{4T_4 - T_2}{3} \approx$ **{R21:num4}** (these are Simpson's $S_2$ and $S_4$).
+    Second column (factor 16, for $h^4$ errors):
+    $R_{2,2} = \dfrac{16R_{2,1} - R_{1,1}}{15} \approx$ **{R22:num4}**.
+    The exact value is $\dfrac{e^{{c}} - 1}{{c}} \approx {ex:num4}$.

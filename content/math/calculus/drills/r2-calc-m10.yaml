@@ -1,0 +1,108 @@
+# Round 2 drills for calc-m10 (honors lessons 44h1 and 44h2)
+- id: calc-m10-r2-e-terms
+  title: Terms of the series for e needed for a given accuracy
+  topic: Computing with series
+  vars:
+    k: {min: 3, max: 12}
+  funcs:
+    t(m): if(fact(m)*m <= 10^k, 1, 0)
+  calc:
+    n: round(sum(t, 1, 20)) + 1
+    terms: n + 1
+    nm: n - 1
+    big: fact(n)*n
+    small: fact(n - 1)*(n - 1)
+  prompt: 'If you stop $\displaystyle e = \sum_{j=0}^\infty\frac{1}{j!}$ after the $\frac{1}{n!}$ term, the error is less than $\frac{1}{n!\,n}$. What is the smallest $n$ for which this bound guarantees an error below $10^{-{k}}$, and how many terms (counting the $j = 0$ term) does that use?'
+  answers:
+    - {name: n, label: '$n =$', format: integer}
+    - {name: terms, label: 'Terms', format: integer}
+  solution: |-
+    We need $n!\,n > 10^{{k}}$. For $n = {nm}$: ${nm}!\cdot{nm} = {small:sci}$, too small. For $n = {n}$: ${n}!\cdot{n} = {big:sci}$, which is bigger than $10^{{k}}$. So $n =$ **{n}**, using the terms $j = 0, 1, \dots, {n}$: **{terms}** terms.
+- id: calc-m10-r2-integral-bounds
+  title: Trap a p-series sum between two integral bounds
+  topic: Computing with series
+  vars:
+    p: {choices: [2, 3, 4]}
+    N: {min: 4, max: 10}
+  funcs:
+    t(m): 1/m^p
+  calc:
+    S: sum(t, 1, N)
+    N1: N + 1
+    pm: p - 1
+    lo: sum(t, 1, N) + 1/((p - 1)*(N + 1)^(p - 1))
+    hi: sum(t, 1, N) + 1/((p - 1)*N^(p - 1))
+    mid: (lo + hi)/2
+  prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{1}{n^{p}}$, use $S_{{N}}$ and the integral test to find a lower bound and an upper bound for the sum $S$. Give each to 4 decimal places.'
+  answers:
+    - {name: lo, label: '$S \ge$', tolerance: 0.0001, format: num4}
+    - {name: hi, label: '$S \le$', tolerance: 0.0001, format: num4}
+  solution: |-
+    Adding the first {N} terms: $S_{{N}} \approx {S:num4}$ (keep more digits while working). The terms are positive and decreasing, so
+    $$S_{{N}} + \int_{{N1}}^\infty\frac{dx}{x^{p}} \le S \le S_{{N}} + \int_{{N}}^\infty\frac{dx}{x^{p}}, \qquad \int_c^\infty\frac{dx}{x^{p}} = \frac{1}{{pm}\,c^{{pm}}}.$$
+    Lower bound: **{lo:num4}**. Upper bound: **{hi:num4}**. (Their midpoint, {mid:num4}, is an even better estimate.)
+- id: calc-m10-r2-log-series
+  title: A logarithm from the fast series
+  topic: Computing with series
+  vars:
+    num: {min: 2, max: 9}
+    den: {min: 1, max: 8}
+  where: ["num > den", "gcd(num, den) == 1", "(num - den)/(num + den) <= 0.5"]
+  calc:
+    y: num/den
+    x: (num - den)/(num + den)
+    a1: 2*x
+    a2: 2*x^3/3
+    a3: 2*x^5/5
+    approx: 2*(x + x^3/3 + x^5/5)
+    tru: ln(num/den)
+    dn: num - den
+    sn: num + den
+  prompt: 'To compute $\ln{y:texfrac}$ with $\ln\dfrac{1 + x}{1 - x} = 2\left(x + \dfrac{x^3}{3} + \dfrac{x^5}{5} + \cdots\right)$, which $x$ do you use (exact fraction)? Then give the three-term approximation $2\left(x + \frac{x^3}{3} + \frac{x^5}{5}\right)$ to 5 decimal places.'
+  answers:
+    - {name: x, kind: fraction, lowestTerms: true, label: '$x =$'}
+    - {name: approx, label: '$\ln{y:texfrac} \approx$', tolerance: 0.00001, format: dp5}
+  solution: |-
+    Solve $\frac{1 + x}{1 - x} = y$: $x = \frac{y - 1}{y + 1}$. With $y = {y:texfrac}$ this is $x = \frac{{dn}}{{sn}} =$ **{x:frac}**. The three terms are $2x \approx {a1:dp5}$, $\frac{2x^3}{3} \approx {a2:dp5}$ and $\frac{2x^5}{5} \approx {a3:dp5}$, so $\ln{y:texfrac} \approx$ **{approx:dp5}**. (The true value is {tru:dp5}.)
+- id: calc-m10-r2-complex-radius
+  title: Radius of convergence from complex zeros
+  topic: Complex power series
+  vars:
+    p: {min: -4, max: 4}
+    q: {min: 1, max: 4}
+    a: {min: -3, max: 3}
+  where: ["p != 0"]
+  calc:
+    b: -2*p
+    c: p^2 + q^2
+    R2: (a - p)^2 + q^2
+    R: sqrt((a - p)^2 + q^2)
+    dx: a - p
+  prompt: 'Find the radius of convergence of the Taylor series of $f(x) = \dfrac{1}{x^2 {b:signedcoef}x {c:signed}}$ centered at $a = {a}$. (Exact answers such as sqrt(10) are fine; decimals need 3 places.)'
+  answers:
+    - {name: R, label: '$R =$', tolerance: 0.001, format: dp3}
+  solution: |-
+    The denominator has no real zeros; completing the square, $x^2 {b:signedcoef}x {c:signed} = (x - ({p}))^2 + {q}^2$, so its zeros are $x = {p} \pm {q}i$. The radius is the distance from the center ${a}$ to the nearest zero (both are equally far):
+    $$R = \sqrt{({a} - ({p}))^2 + {q}^2} = \sqrt{{R2}} \approx \mathbf{{R:dp3}}.$$
+- id: calc-m10-r2-de-moivre
+  title: A power of a complex number in exponential form
+  topic: Euler's formula
+  vars:
+    w: {choices: [{label: '1 + i', value: 1}, {label: '1 - i', value: 2}, {label: '-1 + i', value: 3}, {label: '-1 - i', value: 4}]}
+    n: {min: 2, max: 10}
+  calc:
+    th: if(w == 1, pi/4, if(w == 2, -pi/4, if(w == 3, 3*pi/4, -3*pi/4)))
+    thd: if(w == 1, 45, if(w == 2, -45, if(w == 3, 135, -135)))
+    md: 2^(n/2)
+    re: round(2^(n/2)*cos(n*th))
+    im: round(2^(n/2)*sin(n*th))
+    ang: n*thd
+    angr: mod(n*thd, 360)
+  prompt: 'Use $re^{i\theta}$ form to compute $({w})^{n}$. Give the real part and the imaginary part.'
+  answers:
+    - {name: re, label: 'Real part', format: integer}
+    - {name: im, label: 'Imaginary part', format: integer}
+  solution: |-
+    ${w} = \sqrt2\,e^{i\theta}$ with $\theta = {thd}^\circ$. Raising to the power {n}, the modulus becomes $(\sqrt2)^{{n}} \approx {md:num2}$ and the angle ${n}\theta = {ang}^\circ$, which points the same way as ${angr}^\circ$:
+    $$({w})^{n} = (\sqrt2)^{{n}}\left(\cos{angr}^\circ + i\sin{angr}^\circ\right) = {re} {im:signed}i.$$
+    Real part **{re}**, imaginary part **{im}**.

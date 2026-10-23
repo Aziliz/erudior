@@ -59,8 +59,8 @@ rural sample 110 do. Estimate the proportion of all county households with broad
 3. Stratum results: $\hat{p}_U = 180/200 = 0.90$ and $\hat{p}_R = 110/200 = 0.55$.
 4. Weighted: $\hat{p}_{\text{st}} = 0.8(0.90) + 0.2(0.55) = 0.72 + 0.11 = 0.83$.
 
-```plot
-{"x": [0, 5], "y": [0, 100], "xLabel": "zone", "yLabel": "percent", "bars": [{"x": 0.8, "height": 80, "width": 0.7, "label": "urban: county"}, {"x": 1.6, "height": 50, "width": 0.7, "label": "urban: sample"}, {"x": 3.2, "height": 20, "width": 0.7, "label": "rural: county"}, {"x": 4.0, "height": 50, "width": 0.7, "label": "rural: sample"}], "caption": "Each zone's share of the county's households and of the sample. Rural households are 20% of the county but 50% of the sample, so each one gets a smaller weight."}
+```shape
+{"bars": [{"x": 1, "height": 8, "width": 1.1, "label": "county"}, {"x": 2.3, "height": 5, "width": 1.1, "label": "sample"}, {"x": 4.6, "height": 2, "width": 1.1, "label": "county"}, {"x": 5.9, "height": 5, "width": 1.1, "label": "sample"}], "segments": [{"from": [0, 0], "to": [6.9, 0]}], "labels": [{"at": [1, 8.5], "text": "80%"}, {"at": [2.3, 5.5], "text": "50%"}, {"at": [4.6, 2.5], "text": "20%"}, {"at": [5.9, 5.5], "text": "50%"}, {"at": [1.65, -1.4], "text": "Urban zone"}, {"at": [5.25, -1.4], "text": "Rural zone"}], "caption": "Each zone's share of the county's households and of the sample. Rural households are 20% of the county but 50% of the sample, so each one gets a smaller weight."}
 ```
 
 The unweighted figure is too low because rural households, who are less likely to have
@@ -135,7 +135,7 @@ $n/\text{deff}$ is the size of the SRS that would give the same precision. Small
 matter a lot when clusters are big, because $\rho$ is multiplied by $m - 1$.
 
 ```plot
-{"x": [1, 50], "y": [0, 7], "xLabel": "cluster size m", "yLabel": "design effect", "functions": [{"f": "1 + (x-1)*0.02", "label": "ρ = 0.02"}, {"f": "1 + (x-1)*0.05", "label": "ρ = 0.05", "dashed": true}, {"f": "1 + (x-1)*0.10", "label": "ρ = 0.10"}], "points": [{"at": [25, 2.2], "label": "m = 25, ρ = 0.05: deff 2.2"}], "caption": "The approximate design effect 1 + (m − 1)ρ grows with cluster size, faster when members of a cluster are more alike"}
+{"x": [1, 50], "y": [0, 7], "xLabel": "cluster size m", "yLabel": "design effect", "functions": [{"f": "1 + (x-1)*0.02", "label": "ρ = 0.02"}, {"f": "1 + (x-1)*0.05", "label": "ρ = 0.05", "dashed": true}, {"f": "1 + (x-1)*0.10", "label": "ρ = 0.10"}], "points": [{"at": [25, 2.2], "label": "2.2"}], "caption": "The approximate design effect 1 + (m − 1)ρ grows with cluster size, faster when members of a cluster are more alike. The marked point is m = 25, ρ = 0.05, deff = 2.2."}
 ```
 
 ### Example 3: a classroom survey

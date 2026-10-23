@@ -11,6 +11,22 @@ refs: [calc-ref-applications]
 
 Many physical formulas are products: work = force × distance, pressure = weight density × depth, moment = mass × lever arm. They work when the factors are constant. When a factor varies, slice until it's nearly constant on each piece, multiply, and integrate. This lesson applies that recipe to three college Calculus II topics.
 
+In each case the first decision is which way to slice, and that depends on what varies:
+
+```mermaid
+flowchart LR
+  accTitle: Which slice to use in physics applications
+  accDescr: Ask what varies. If the force varies with position, as for a spring or a hanging cable, slice the motion and integrate force with respect to distance. If the lifting distance varies, as when pumping liquid, slice the liquid into horizontal layers and integrate weight times lift distance. If the depth varies, as for fluid force on a plate, slice the plate into horizontal strips and integrate weight density times depth times width. If the lever arm varies, as for a center of mass, slice the region into strips and integrate area times lever arm, then divide by the total area.
+  A{"What varies?"} --> B["Force with position: spring, cable"]
+  A --> C["Lifting distance: pumping"]
+  A --> D["Depth: fluid force on a plate"]
+  A --> E["Lever arm: center of mass"]
+  B --> B2["Slice the motion: integrate F(x) dx"]
+  C --> C2["Slice the liquid into layers: weight times lift"]
+  D --> D2["Slice the plate into strips: ρg times depth times width"]
+  E --> E2["Slice the region: area times lever arm, then divide by area"]
+```
+
 Units: in SI, force is in newtons (N), distance in meters, work in joules (J = N·m). In US units, force in pounds (lb), distance in feet, work in foot-pounds (ft·lb). Mass needs $g = 9.8$ m/s² to become weight; pounds are already a weight.
 
 ## Work done by a variable force
@@ -63,6 +79,10 @@ Slice the cable: a piece at distance $x$ below the top, of length $\Delta x$, we
 **Pressure** at depth $d$ in a fluid is $P = \rho g d$ (weight density times depth), the same in every direction. On a horizontal plate, force = pressure × area. On a vertical plate the depth varies, so slice horizontally: a strip at depth $d(y)$ with width $w(y)$ and thickness $\Delta y$ feels force $\rho g\,d(y)\,w(y)\,\Delta y$.
 
 $$F = \int\rho g\,(\text{depth})(\text{width})\,dy.$$
+
+![A trapezoid-shaped plate submerged vertically in water. A thin horizontal strip across the plate is at depth h below the water surface, has width w(h) and thickness Δh.](images/calc-m7-dam-gate.svg)
+
+For a plate whose width changes with depth, like the trapezoid in the picture, write the width $w$ as a function of the depth before integrating.
 
 ### Example 4
 

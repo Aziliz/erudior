@@ -107,7 +107,7 @@ three groups OFAT needs, each comparison would also rest on about 13 students pe
 
 ## When main effects mislead
 
-If the lines cross, a main effect can be close to zero even though the factor matters a great deal.
+If a factor's simple effects point in opposite directions (the lines slope opposite ways, and often cross), its main effect can be close to zero even though the factor matters a great deal.
 
 ### Example 3: a fertilizer that helps and hurts
 
@@ -151,7 +151,7 @@ worth it when most of those interactions are expected to be small.
 
 ## Common mistakes
 
-- Reporting only main effects when the interaction plot shows crossing lines.
+- Reporting only main effects when the interaction plot's lines slope in opposite directions or cross.
 - Confusing interaction with confounding. Confounding mixes up a factor with an outside variable; interaction means one factor's effect depends on another factor.
 - Adding levels instead of multiplying them when counting treatments.
 - Concluding there is an interaction because sample lines aren't perfectly parallel. Small departures can be chance.

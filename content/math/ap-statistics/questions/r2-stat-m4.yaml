@@ -482,12 +482,12 @@
   choices:
     - 'Every unit helps estimate both main effects'
     - 'It can detect an interaction between the factors'
-    - 'Main effects are meaningful summaries even when the interaction plot’s lines cross'
+    - 'If there is an interaction, both main effects must equal 0'
     - 'Units should be randomly assigned to all four treatment combinations'
     - 'An interaction means the two factors are confounded'
   answer: [0, 1, 3]
   explanation: |-
-    Each unit sits at one level of A and one level of B, so it counts in both main-effect comparisons, and having all four combinations lets the design see an interaction. Randomize to all four combinations. When lines cross, main effects can hide opposite simple effects, and interaction is not confounding.
+    Each unit sits at one level of A and one level of B, so it counts in both main-effect comparisons, and having all four combinations lets the design see an interaction. Randomize to all four combinations. An interaction does not force the main effects to be 0 (in the quizzes-and-spacing example both main effects and the interaction were positive), and interaction is not confounding.
 - id: stat-m4-r2-h27
   lesson: stat-m4-h-factorial
   type: match

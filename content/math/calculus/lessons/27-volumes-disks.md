@@ -68,6 +68,10 @@ $$V = \pi\int_a^b\left([R(x)]^2 - [r(x)]^2\right)dx.$$
 
 Note it's $R^2 - r^2$, not $(R - r)^2$.
 
+![A washer drawn on a horizontal axis of rotation: a thin disk with a hole, outer radius R from the axis to the outside edge, inner radius r from the axis to the edge of the hole, and thickness Δx along the axis.](images/calc-m7-washer.svg)
+
+In the picture, both radii start on the axis of rotation: $R$ reaches the far boundary of the region and $r$ the near one. The slice's volume is its face area $\pi R^2 - \pi r^2$ times its thickness $\Delta x$.
+
 ### Example 4
 
 The region between $y = x$ and $y = x^2$ (for $0 \le x \le 1$) is rotated about the $x$-axis. Find the volume.
@@ -105,6 +109,25 @@ $$V = \pi\int_0^4(\sqrt y)^2\,dy = \pi\int_0^4y\,dy = \mathbf{8\pi}.$$
 4. Integrate in the variable along the axis: $dx$ for a horizontal axis, $dy$ for a vertical one.
 
 If slicing perpendicular to the axis is awkward (radii hard to express), use shells instead (next lesson).
+
+The same steps as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Setting up a disk or washer volume
+  accDescr: Sketch the region and the axis of rotation, then draw a slice perpendicular to the axis. If the slice touches the axis, it sweeps out a disk with radius R; if not, it sweeps out a washer with outer radius R and inner radius r. Measure every radius as a distance from the axis. If the axis is horizontal, integrate with respect to x; if it is vertical, integrate with respect to y with the radii written as functions of y. The volume is pi times the integral of R squared, minus r squared for a washer.
+  A["Sketch the region and the axis"] --> B["Draw a slice perpendicular to the axis"]
+  B --> C{"Does the slice touch the axis?"}
+  C -- yes --> D["Disk: radius R"]
+  C -- no --> E["Washer: outer radius R, inner radius r"]
+  D --> F["Measure each radius as a distance from the axis"]
+  E --> F
+  F --> G{"Is the axis horizontal or vertical?"}
+  G -- horizontal --> H["Integrate in x"]
+  G -- vertical --> I["Integrate in y, radii as functions of y"]
+  H --> J["V = π ∫ (R² − r²), with r = 0 for a disk"]
+  I --> J
+```
 
 ## Common mistakes
 

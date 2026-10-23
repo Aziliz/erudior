@@ -1,0 +1,464 @@
+# Round 2, module calc-m2 (The derivative): new question types for the core lessons, and the two honors lessons
+# ---------- Lesson 6: the derivative at a point ----------
+- id: calc-m2-r2-q01
+  lesson: calc-derivative-def
+  type: text
+  module_quiz: true
+  topic: Definition of the derivative
+  stem: 'Use the limit definition to find $f''(1)$ for $f(x) = 2x^2 + x$. Give only the number: $f''(1) =$ ___'
+  accept: ['5']
+  explanation: |-
+    $f(1 + h) = 2(1 + 2h + h^2) + 1 + h = 3 + 5h + 2h^2$ and $f(1) = 3$. The difference quotient is $\frac{5h + 2h^2}{h} = 5 + 2h$, which tends to $5$ as $h \to 0$.
+- id: calc-m2-r2-q02
+  lesson: calc-derivative-def
+  type: order
+  topic: Definition of the derivative
+  stem: 'Put the steps for finding $f''(a)$ from the limit definition in order.'
+  items:
+    - 'Substitute $a + h$ for every $x$ to get $f(a + h)$'
+    - 'Subtract $f(a)$'
+    - 'Simplify the numerator so every remaining term has a factor of $h$'
+    - 'Divide by $h$ and cancel it'
+    - 'Let $h \to 0$ in what remains'
+  explanation: |-
+    You need $f(a + h)$ before you can subtract $f(a)$ from it, and the numerator must be simplified before the $h$ can cancel. Only after canceling can you let $h \to 0$; doing that earlier gives $0/0$.
+- id: calc-m2-r2-q03
+  lesson: calc-derivative-def
+  module_quiz: true
+  topic: Definition of the derivative
+  stem: 'Which of these equal $f''(a)$, assuming the derivative exists? Select all that apply.'
+  choices:
+    - '$\displaystyle\lim_{h\to0}\frac{f(a + h) - f(a)}{h}$'
+    - '$\displaystyle\lim_{x\to a}\frac{f(x) - f(a)}{x - a}$'
+    - 'The slope of the tangent line to $y = f(x)$ at $(a, f(a))$'
+    - '$\dfrac{f(a + 1) - f(a)}{1}$'
+  answer: [0, 1, 2]
+  explanation: |-
+    The first two are the two forms of the definition (put $x = a + h$ to turn one into the other), and the derivative is the slope of the tangent line. $\frac{f(a + 1) - f(a)}{1}$ is an average rate of change over $[a, a + 1]$, a secant slope with no limit taken.
+- id: calc-m2-r2-q04
+  lesson: calc-derivative-def
+  type: label
+  topic: Definition of the derivative
+  stem: 'The picture shows a curve, the points $P = (a, f(a))$ and $Q = (a + h, f(a + h))$, and two lines through $P$. Name the numbered parts.'
+  image: {src: images/calc-m2-secant-tangent-blank.svg, alt: 'A rising curve with points P at x = a and Q at x = a + h. Marker 1 is on a dashed line that touches the curve only at P. Marker 2 is on a solid line through P and Q. Marker 3 is on the horizontal side of a shaded right triangle from P across to below Q. Marker 4 is on the vertical side of the triangle, rising to Q.'}
+  labels:
+    - {x: 20.6, y: 82.4, text: Tangent line}
+    - {x: 88.3, y: 7.7, text: Secant line}
+    - {x: 59.9, y: 68.8, text: h}
+    - {x: 80.2, y: 43.3, text: f(a + h) − f(a)}
+  distractors: [Normal line, f(a)]
+  explanation: |-
+    The line through both $P$ and $Q$ is the secant line (2); its slope is rise over run, $\frac{f(a + h) - f(a)}{h}$, with run $h$ (3) and rise $f(a + h) - f(a)$ (4). The dashed line just touching the curve at $P$ is the tangent line (1), the limit of the secants as $Q$ slides toward $P$. A normal line would be perpendicular to the tangent, and $f(a)$ is the height of $P$ above the axis, which isn't marked.
+- id: calc-m2-r2-q05
+  lesson: calc-derivative-def
+  type: match
+  topic: Definition of the derivative
+  stem: 'Match each function to the units of its derivative.'
+  pairs:
+    - ['Position $s(t)$ in meters, $t$ in seconds', meters per second]
+    - ['Volume $V(t)$ in liters, $t$ in minutes', liters per minute]
+    - ['Cost $C(q)$ in dollars, $q$ in bicycles', dollars per bicycle]
+    - ['Temperature $T(h)$ in °C, $h$ in hours', degrees Celsius per hour]
+  distractors: [seconds per meter]
+  explanation: |-
+    A derivative is a limit of $\frac{\Delta(\text{output})}{\Delta(\text{input})}$, so its units are output units per input unit. Seconds per meter has the ratio upside down.
+
+# ---------- Lesson 7: the derivative as a function; differentiability ----------
+- id: calc-m2-r2-q06
+  lesson: calc-derivative-function
+  type: text
+  topic: Differentiability
+  stem: 'Complete the theorem: if $f$ is differentiable at $a$, then $f$ must also be ___ at $a$.'
+  accept: [continuous]
+  explanation: |-
+    Differentiable implies continuous: write $f(x) - f(a) = \frac{f(x) - f(a)}{x - a}(x - a)$ and let $x \to a$ to get $f'(a)\cdot 0 = 0$. The converse is false ($|x|$ at 0).
+- id: calc-m2-r2-q07
+  lesson: calc-derivative-function
+  type: match
+  module_quiz: true
+  topic: The derivative function
+  stem: 'Match each feature of the graph of $f$ at a point to what it says about $f''$ there.'
+  pairs:
+    - [The graph is rising, f′ is positive]
+    - [The graph is falling, f′ is negative]
+    - [The graph has a smooth peak, f′ is zero]
+    - [The graph has a corner, f′ does not exist]
+  distractors: [f′ equals the height of f]
+  explanation: |-
+    $f'$ is the slope of $f$: positive where $f$ rises, negative where it falls, zero at a smooth peak (horizontal tangent), and undefined at a corner, where the left and right slopes differ. The height of $f$ says nothing about its slope.
+- id: calc-m2-r2-q08
+  lesson: calc-derivative-function
+  module_quiz: true
+  topic: Differentiability
+  stem: 'Which functions are continuous at $x = 0$ but not differentiable there? Select all that apply.'
+  choices:
+    - '$f(x) = |x|$'
+    - '$f(x) = \sqrt[3]{x}$'
+    - '$f(x) = x^2$'
+    - '$f(x) = 0$ for $x < 0$ and $f(x) = 1$ for $x \ge 0$'
+  answer: [0, 1]
+  explanation: |-
+    $|x|$ has a corner at 0 (slopes $-1$ and $1$), and $\sqrt[3]{x}$ has a vertical tangent (difference quotient $h^{-2/3} \to \infty$); both are continuous. $x^2$ is differentiable at 0 (slope 0). The step function jumps at 0, so it is not even continuous there.
+- id: calc-m2-r2-q09
+  lesson: calc-derivative-function
+  type: label
+  topic: Differentiability
+  stem: 'Name the numbered features of this graph.'
+  image: {src: images/calc-m2-nondiff-blank.svg, alt: 'One graph drawn from left to right. Marker 1 is at the top of a smooth rounded hump. Marker 2 is at a sharp V-shaped low point where a falling curve meets a rising straight line. Marker 3 is on a dotted vertical line between a solid dot at the end of that line and an open dot far below it near the x-axis. Marker 4 is where the next curve, rising from the open dot, becomes vertical for an instant before leveling off.'}
+  labels:
+    - {x: 19.0, y: 25.8, text: Horizontal tangent (smooth peak)}
+    - {x: 32.3, y: 55.8, text: Corner}
+    - {x: 50.0, y: 50.2, text: Jump discontinuity}
+    - {x: 67.7, y: 59.1, text: Vertical tangent}
+  distractors: [Hole (removable discontinuity), x-intercept]
+  explanation: |-
+    At 1 the graph is rounded, so the tangent is horizontal and $f' = 0$. At 2 the left and right slopes differ: a corner. At 3 the graph leaps from the solid dot to the open dot: a jump. At 4 the slopes grow without bound: a vertical tangent. $f'$ fails to exist at 2, 3 and 4. A hole would be a single missing point on an otherwise unbroken curve.
+- id: calc-m2-r2-q10
+  lesson: calc-derivative-function
+  type: text
+  topic: The derivative function
+  stem: 'For $f(x) = 5x - x^2$, the definition gives $f''(x) = 5 - 2x$. At what $x$ is the tangent line horizontal? $x =$ ___'
+  accept: ['2.5', '5/2']
+  explanation: |-
+    A horizontal tangent has slope 0: $5 - 2x = 0$, so $x = \frac52 = 2.5$. That is the vertex of the downward parabola.
+
+# ---------- Lesson 8: basic rules ----------
+- id: calc-m2-r2-q11
+  lesson: calc-basic-rules
+  type: text
+  module_quiz: true
+  topic: Power rule
+  stem: 'If $f(x) = 3x^4 - 2x$, then $f''(1) =$ ___. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    $f'(x) = 12x^3 - 2$, so $f'(1) = 12 - 2 = 10$.
+- id: calc-m2-r2-q12
+  lesson: calc-basic-rules
+  type: match
+  module_quiz: true
+  topic: Power rule
+  stem: 'Match each function to its derivative.'
+  pairs:
+    - ['$x^5$', 5x⁴]
+    - ['$\sqrt{x}$', 1/(2√x)]
+    - ['$\dfrac{1}{x}$', −1/x²]
+    - ['$e^x$', eˣ]
+  distractors: [x·eˣ⁻¹, 1/(2x)]
+  explanation: |-
+    Power rule: $x^5 \to 5x^4$; $x^{1/2} \to \frac12x^{-1/2} = \frac{1}{2\sqrt x}$; $x^{-1} \to -x^{-2}$. And $e^x$ is its own derivative; $x e^{x-1}$ is the power rule wrongly applied to an exponential.
+- id: calc-m2-r2-q13
+  lesson: calc-basic-rules
+  type: order
+  topic: Higher derivatives
+  stem: 'Let $f(x) = x^4$. Put these in order: $f''$, then $f''''$, then $f''''''$, then $f^{(4)}$.'
+  items: ['$4x^3$', '$12x^2$', '$24x$', '$24$']
+  explanation: |-
+    Each step applies the power rule once: $x^4 \to 4x^3 \to 12x^2 \to 24x \to 24$. One more derivative would give 0.
+- id: calc-m2-r2-q14
+  lesson: calc-basic-rules
+  topic: Power rule
+  stem: 'Which functions can be differentiated with only the constant, power, constant-multiple and sum rules, after rewriting? Select all that apply.'
+  choices:
+    - '$\dfrac{5}{\sqrt[3]{x}}$'
+    - '$\dfrac{x^3 + 1}{x}$'
+    - '$2^x$'
+    - '$x^{\pi}$'
+  answer: [0, 1, 3]
+  explanation: |-
+    $\frac{5}{\sqrt[3]x} = 5x^{-1/3}$ and $\frac{x^3 + 1}{x} = x^2 + x^{-1}$ are sums of powers. $x^\pi$ is a power with a constant (irrational) exponent, and the power rule holds for every real exponent: its derivative is $\pi x^{\pi - 1}$. $2^x$ has the variable in the exponent, so it is an exponential, not a power; its derivative, $2^x\ln 2$, needs Lesson 13.
+- id: calc-m2-r2-q15
+  lesson: calc-basic-rules
+  type: text
+  topic: Higher derivatives
+  stem: 'A particle''s position is $s(t) = 2t^3 - t^2$ meters at time $t$ seconds. Its acceleration at $t = 2$ is ___ m/s². Give only the number.'
+  accept: ['22']
+  explanation: |-
+    $v(t) = s'(t) = 6t^2 - 2t$ and $a(t) = v'(t) = 12t - 2$, so $a(2) = 24 - 2 = 22$ m/s².
+
+# ---------- Honors: numerical derivatives ----------
+- id: calc-m2-r2-h01
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'What is the forward-difference estimate of the derivative of $f(x) = x^2$ at $a = 3$ with $h = 0.1$?'
+  choices: ['$6.1$', '$6$', '$6.01$', '$5.9$']
+  answer: 0
+  explanation: |-
+    $\frac{(3.1)^2 - 9}{0.1} = \frac{9.61 - 9}{0.1} = 6.1$. In general the forward difference for $x^2$ is $2a + h$, so its error is exactly $h = 0.1$. ($5.9$ is the backward difference, and $6$ is the exact derivative, which the central difference would give.)
+- id: calc-m2-r2-h02
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'What is the central-difference estimate of the derivative of $f(x) = x^3$ at $a = 2$ with $h = 0.1$?'
+  choices: ['$12.61$', '$11.41$', '$12.01$', '$12$']
+  answer: 2
+  explanation: |-
+    $\frac{(2.1)^3 - (1.9)^3}{0.2} = \frac{9.261 - 6.859}{0.2} = \frac{2.402}{0.2} = 12.01$. This matches the formula $3a^2 + h^2 = 12 + 0.01$. The forward difference gives $12.61$ and the backward difference $11.41$; $12$ is the exact value.
+- id: calc-m2-r2-h03
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'For a smooth function and small $h$, what happens to the truncation error of the forward difference when $h$ is cut in half?'
+  choices:
+    - 'It is divided by about 4'
+    - 'It stays about the same'
+    - 'It roughly doubles'
+    - 'It is roughly cut in half'
+  answer: 3
+  explanation: |-
+    The forward difference's error is about $\frac{f''(a)}{2}h$, proportional to $h$: a first-order method. Dividing by about 4 is the behavior of the second-order central difference.
+- id: calc-m2-r2-h04
+  lesson: calc-m2-h-numerical
+  type: text
+  topic: Numerical differentiation
+  stem: 'The central difference is a ___-order method: for small $h$, halving $h$ divides its truncation error by about ___.'
+  accept:
+    - [second, '2', 2nd]
+    - ['4', four]
+  explanation: |-
+    Its error is about $\frac{f'''(a)}{6}h^2$. Replacing $h$ by $h/2$ multiplies $h^2$ by $\frac14$, so the error is divided by about 4.
+- id: calc-m2-r2-h05
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'Forward differences give $D(0.2) = 3.46$ and $D(0.1) = 3.21$. What is the Richardson extrapolation $2D(0.1) - D(0.2)$?'
+  choices: ['$3.335$', '$2.96$', '$3.127$', '$3.21$']
+  answer: 1
+  explanation: |-
+    $2(3.21) - 3.46 = 6.42 - 3.46 = 2.96$. The estimates are falling as $h$ shrinks, and the extrapolation continues that trend to $h = 0$. Averaging gives $3.335$, which moves the wrong way; $3.127$ uses the central-difference weights $\frac{4D(h/2) - D(h)}{3}$, which are wrong for a first-order method.
+- id: calc-m2-r2-h06
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'Which of these make a computed forward-difference estimate of $f''(a)$ less accurate? Select all that apply.'
+  choices:
+    - 'Taking $h = 10^{-14}$ on a computer that keeps about 16 significant digits'
+    - 'Taking a large step, such as $h = 0.5$, for a function that curves a lot'
+    - 'Using a very small $h$ with measured data that contain noise'
+    - 'Switching to a central difference with the same $h$'
+  answer: [0, 1, 2]
+  explanation: |-
+    A tiny $h$ causes subtractive cancellation, and the round-off error grows like $1/h$; noisy data behave the same way. A large $h$ makes the truncation error, about $\frac{f''(a)}{2}h$, large. Switching to a central difference usually makes the estimate more accurate, not less.
+- id: calc-m2-r2-h07
+  lesson: calc-m2-h-numerical
+  type: label
+  topic: Numerical differentiation
+  stem: 'The two curves show the error of the forward and central difference quotients for the derivative of $e^x$ at $x = 1$, against the step size $h$, both on log scales. Name the numbered parts.'
+  image: {src: images/calc-m2-step-error-blank.svg, alt: 'A log-log graph of error against step size h from 10 to the minus 16 to 1. A solid curve with circles and a dashed curve with squares both fall from the right as h shrinks and climb again on the left. Marker 1 is on the right part of the solid curve. Marker 2 is on the left part, where both curves climb raggedly. Marker 3 is at the lowest point of the solid curve, near h = 10 to the minus 8. Marker 4 is on the right part of the dashed curve, which lies well below the solid one.'}
+  labels:
+    - {x: 84.1, y: 24.7, text: Truncation error dominates}
+    - {x: 33.7, y: 33.5, text: Round-off error dominates}
+    - {x: 53.8, y: 61.8, text: Smallest total error (forward difference)}
+    - {x: 74.0, y: 62.7, text: Central difference}
+  distractors: [Error is exactly zero, Backward difference]
+  explanation: |-
+    For large $h$ (right side) truncation error dominates and the error falls steadily as $h$ shrinks (1). For tiny $h$ (left side) subtractive cancellation takes over and the error grows roughly like $1/h$ (2). The forward difference does best where the two balance, near $h = 10^{-8}$ (3). The dashed curve, falling twice as steeply and reaching much smaller errors, is the second-order central difference (4). No point on the graph has zero error.
+- id: calc-m2-r2-h08
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'On a computer, why does the forward difference get worse when $h$ is made extremely small, such as $10^{-13}$?'
+  choices:
+    - '$f(a + h)$ and $f(a)$ agree in most of their stored digits, so their difference has few correct digits, and dividing by the tiny $h$ magnifies that error'
+    - 'The limit definition stops applying when $h$ is that small'
+    - 'The truncation error grows as $h$ shrinks'
+    - 'The function stops being differentiable at such small scales'
+  answer: 0
+  explanation: |-
+    This is subtractive cancellation. With about 16 significant digits stored, two values that agree in their first 13 digits leave a difference with only about 3 trustworthy digits, and the division by $h$ magnifies the error. Truncation error shrinks as $h$ shrinks; the trouble is round-off, not the mathematics.
+- id: calc-m2-r2-h09
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'For $f(x) = 5x^2 - 3x + 1$ at $a = 2$ with $h = 0.5$, what does the central difference give?'
+  choices: ['$19.5$', '$14.5$', '$18.25$', '$17$']
+  answer: 3
+  explanation: |-
+    $f(2.5) = 24.75$ and $f(1.5) = 7.75$, so $\frac{24.75 - 7.75}{1} = 17$, which is exactly $f'(2) = 10(2) - 3$. The central difference has no error for any quadratic, whatever $h$ is. The forward and backward differences give $19.5$ and $14.5$.
+- id: calc-m2-r2-h10
+  lesson: calc-m2-h-numerical
+  type: match
+  topic: Numerical differentiation
+  stem: 'For a smooth function and small $h$, match each item to how its error behaves.'
+  pairs:
+    - [Forward difference, Roughly proportional to h]
+    - [Central difference, Roughly proportional to h²]
+    - [Richardson extrapolation of two central differences, Roughly proportional to h⁴]
+    - [Round-off error in a difference quotient, Grows roughly like 1/h as h shrinks]
+  distractors: [Does not depend on h]
+  explanation: |-
+    The forward difference is first order and the central difference second order. Richardson's combination $\frac{4D_c(h/2) - D_c(h)}{3}$ cancels the $h^2$ term; the central difference's error contains only even powers of $h$, so what remains is about $h^4$. Round-off is divided by $h$, so it grows as $h$ shrinks.
+- id: calc-m2-r2-h11
+  lesson: calc-m2-h-numerical
+  topic: Numerical differentiation
+  stem: 'A sensor records a position every $0.05$ s, and each reading may be off by up to $0.01$ m. What is the largest error this noise alone can cause in a forward-difference velocity using neighboring readings?'
+  choices: ['$0.2$ m/s', '$0.0005$ m/s', '$0.4$ m/s', '$0.02$ m/s']
+  answer: 2
+  explanation: |-
+    One reading can be $0.01$ m too high and the other $0.01$ m too low, so the numerator can be off by $0.02$ m. Dividing by $h = 0.05$ s gives up to $0.4$ m/s. ($0.2$ m/s forgets that both readings can be wrong; $0.0005$ multiplies by $h$ instead of dividing.)
+- id: calc-m2-r2-h12
+  lesson: calc-m2-h-numerical
+  type: text
+  topic: Numerical differentiation
+  stem: 'A difference quotient''s total error is modeled as $E(h) = 2h + \dfrac{8\times10^{-10}}{h}$. It is smallest when the two terms are equal. Find that $h$; give only the number. $h =$ ___'
+  accept: ['0.00002', '2e-5', '2*10^-5', '2×10^-5', '2 x 10^-5', '2*10^(-5)']
+  explanation: |-
+    Set $2h = \frac{8\times10^{-10}}{h}$: $h^2 = 4\times10^{-10}$, so $h = 2\times10^{-5} = 0.00002$. At that step each term is $4\times10^{-5}$, so the total error is about $8\times10^{-5}$; any larger or smaller $h$ does worse.
+- id: calc-m2-r2-h13
+  lesson: calc-m2-h-numerical
+  type: order
+  topic: Numerical differentiation
+  stem: 'A computer finds forward differences of $e^x$ at $x = 1$ as $h$ shrinks from $0.1$ toward $10^{-16}$. Put the stages in the order they happen.'
+  items:
+    - 'Truncation error dominates, and the error falls roughly in proportion to $h$'
+    - 'Truncation and round-off error are about equal, and the total error is smallest'
+    - 'Round-off error dominates, and the error grows roughly like $1/h$'
+    - '$1 + h$ rounds to exactly $1$, and the estimate is $0$'
+  explanation: |-
+    At first the error falls like $h$. Near $h = 10^{-8}$ the shrinking truncation error meets the growing round-off error. Below that, cancellation dominates. Finally, at $h = 10^{-16}$, $1 + h$ is stored as exactly 1, the numerator is 0, and the "derivative" is 0.
+
+# ---------- Honors: smoothness ----------
+- id: calc-m2-r2-h14
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: 'Let $f(x) = x\lvert x\rvert$. What is $f''(0)$?'
+  choices: ['$0$', '$1$', '$2$', 'It does not exist']
+  answer: 0
+  explanation: |-
+    $f'(0) = \lim_{h\to0}\frac{h\lvert h\rvert}{h} = \lim_{h\to0}\lvert h\rvert = 0$. Although $\lvert x\rvert$ has a corner, multiplying by $x$ flattens it: the graph of $x\lvert x\rvert$ is smooth at 0.
+- id: calc-m2-r2-h15
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: 'For $f(x) = x\lvert x\rvert$, $f''(x) = 2\lvert x\rvert$. What can you say about $f''''(0)$?'
+  choices:
+    - 'It equals 2'
+    - 'It equals 0'
+    - 'It does not exist, because $2\lvert x\rvert$ has a corner at 0'
+    - 'It does not exist, because $f$ is not continuous at 0'
+  answer: 2
+  explanation: |-
+    $\frac{f'(h) - f'(0)}{h} = \frac{2\lvert h\rvert}{h}$ is $2$ for $h > 0$ and $-2$ for $h < 0$, so the limit doesn't exist. $f$ is continuous (even $C^1$); the failure is in $f'$.
+- id: calc-m2-r2-h16
+  lesson: calc-m2-h-smoothness
+  type: text
+  topic: Smoothness
+  stem: '$f(x) = \lvert x\rvert^3$ has continuous derivatives at 0 up to order ___ but no derivative of the next order there, so it is $C^k$ for exactly that $k$. Give the number.'
+  accept: ['2', two]
+  explanation: |-
+    $f'(x) = 3x\lvert x\rvert$ and $f''(x) = 6\lvert x\rvert$, both continuous. $6\lvert x\rvert$ has a corner at 0, so $f'''(0)$ does not exist: $\lvert x\rvert^3$ is $C^2$ but not $C^3$.
+- id: calc-m2-r2-h17
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: 'Which functions are differentiable at $x = 0$? (Where a formula is undefined at 0, take $f(0) = 0$.) Select all that apply.'
+  choices:
+    - '$f(x) = x\lvert x\rvert$'
+    - '$f(x) = x^{2/3}$'
+    - '$f(x) = x^2\sin(1/x)$'
+    - '$f(x) = x\sin(1/x)$'
+  answer: [0, 2]
+  explanation: |-
+    $x\lvert x\rvert$: the quotient is $\lvert h\rvert \to 0$. $x^2\sin(1/x)$: the quotient is $h\sin(1/h)$, squeezed to 0. $x^{2/3}$: the quotient is $h^{-1/3}$, which blows up with opposite signs on the two sides (a cusp). $x\sin(1/x)$: the quotient is $\sin(1/h)$, which swings between $-1$ and $1$ forever and has no limit.
+- id: calc-m2-r2-h18
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: 'Let $f(x) = x^2\sin(1/x)$ for $x \ne 0$ and $f(0) = 0$. Which statement is true?'
+  choices:
+    - '$f''(0)$ does not exist, because $\sin(1/x)$ oscillates'
+    - '$f''(0) = 0$, but $f''$ is not continuous at 0'
+    - '$f''$ exists and is continuous everywhere'
+    - '$f$ is not continuous at 0'
+  answer: 1
+  explanation: |-
+    The definition gives $f'(0) = \lim h\sin(1/h) = 0$ by squeezing. But for $x \ne 0$, $f'(x) = 2x\sin(1/x) - \cos(1/x)$, and $\cos(1/x)$ has no limit at 0, so $f'$ is discontinuous there. $f$ itself is continuous, since $|f(x)| \le x^2$.
+- id: calc-m2-r2-h19
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: 'Could the function equal to $-1$ for $x < 0$ and $1$ for $x \ge 0$ be the derivative of some function on $(-1, 1)$?'
+  choices:
+    - 'Yes: $f(x) = |x|$ has exactly this derivative'
+    - 'Yes: any function with only one discontinuity is a derivative'
+    - 'No: by Darboux''s theorem a derivative takes every value between any two of its values, so it cannot jump'
+    - 'No: derivatives are always continuous'
+  answer: 2
+  explanation: |-
+    A derivative on an interval has the intermediate value property (Darboux's theorem), so it can't jump from $-1$ to $1$ while skipping $0$. $|x|$ has slopes $\pm1$ but no derivative at 0 at all. Derivatives need not be continuous ($x^2\sin(1/x)$), but their discontinuities can't be jumps.
+- id: calc-m2-r2-h20
+  lesson: calc-m2-h-smoothness
+  type: match
+  topic: Smoothness
+  stem: 'Match each function to how smooth it is at $x = 0$.'
+  pairs:
+    - ['$\lvert x\rvert$', Continuous but not differentiable]
+    - ['$x\lvert x\rvert$', 'C¹ but not twice differentiable']
+    - ['$\lvert x\rvert^3$', 'C² but not three times differentiable']
+    - ['$x^2 + e^x$', Infinitely differentiable]
+  distractors: [Not continuous]
+  explanation: |-
+    $|x|$ has a corner. $x|x|$ has derivative $2|x|$, continuous but with a corner. $|x|^3$ has derivatives $3x|x|$ and $6|x|$, so the corner moves to the second derivative. $x^2 + e^x$ can be differentiated forever. All four are continuous.
+- id: calc-m2-r2-h21
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: |-
+    Find $A$, $B$ and $C$ so that
+    $$f(x) = \begin{cases} x^3, & x \le 1\\ Ax^2 + Bx + C, & x > 1\end{cases}$$
+    has continuous $f$, $f'$ and $f''$ at $x = 1$.
+  choices:
+    - '$A = 6$, $B = -9$, $C = 4$'
+    - '$A = 0$, $B = 3$, $C = -2$'
+    - '$A = 3$, $B = 3$, $C = -5$'
+    - '$A = 3$, $B = -3$, $C = 1$'
+  answer: 3
+  explanation: |-
+    Second derivatives: $6x = 6$ at $x = 1$ must equal $2A$, so $A = 3$. Slopes: $3 = 2A + B = 6 + B$, so $B = -3$. Values: $1 = A + B + C = 0 + C$, so $C = 1$. ($A = 6$ comes from forgetting that $(Ax^2)'' = 2A$; $A = 0$ gives the tangent line, which matches only value and slope.)
+- id: calc-m2-r2-h22
+  lesson: calc-m2-h-smoothness
+  type: order
+  topic: Smoothness
+  stem: 'Put these conditions on a function in order from strongest (most restrictive) to weakest. Each one implies the next.'
+  items:
+    - 'Infinitely differentiable ($C^\infty$)'
+    - 'Twice continuously differentiable ($C^2$)'
+    - 'Continuously differentiable ($C^1$)'
+    - 'Differentiable everywhere'
+    - 'Continuous ($C^0$)'
+  explanation: |-
+    Each class sits inside the next, and none of the implications reverses: $|x|^3$ is $C^2$ but not $C^\infty$, $x|x|$ is $C^1$ but not $C^2$, $x^2\sin(1/x)$ is differentiable but not $C^1$, and $|x|$ is continuous but not differentiable.
+- id: calc-m2-r2-h23
+  lesson: calc-m2-h-smoothness
+  type: label
+  topic: Smoothness
+  stem: 'The top of the picture shows a track from above; the bottom graphs its curvature against distance along it. Name the numbered parts.'
+  image: {src: images/calc-m2-transition-blank.svg, alt: 'Top: a track that runs straight, then bends gradually, then bends steadily, with small circles marking the two joints. Marker 1 is on the straight part, marker 2 on the gradually bending part, and marker 3 on the steadily bending part. Bottom: a curvature graph that is zero, then rises in a straight line, then stays level, with a dashed path that instead jumps straight up at the first joint; marker 4 is on that dashed vertical jump.'}
+  labels:
+    - {x: 24.5, y: 50.0, text: Straight track (curvature 0)}
+    - {x: 56.2, y: 49.2, text: Transition curve (curvature grows steadily)}
+    - {x: 83.2, y: 29.8, text: Circular arc (constant curvature)}
+    - {x: 39.8, y: 79.1, text: Curvature jump with no transition}
+  distractors: [Corner in the track]
+  explanation: |-
+    Curvature is 0 on the straight (1), rises steadily through the transition curve (2), and is constant, $1/R$, on the circular arc (3). Without a transition the curvature, and so the sideways acceleration, would jump at the joint (4). The track has no corner anywhere: even without a transition it is tangent at the joint, which is only $C^1$ smoothness.
+- id: calc-m2-r2-h24
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: 'A straight railway track is joined directly to a circular curve, tangent to it, with no transition curve. What happens to a train passing the joint at constant speed?'
+  choices:
+    - 'Its sideways acceleration jumps from 0 to $v^2/R$, because the curvature, roughly $f''''$, jumps'
+    - 'Its direction changes suddenly, because the track has a corner'
+    - 'Nothing noticeable, because the track has no corner'
+    - 'Its speed jumps, because the derivative of the track does not exist'
+  answer: 0
+  explanation: |-
+    The tangent join makes the track $C^1$, so there is no corner and the direction changes smoothly. But curvature jumps from 0 to $1/R$, and sideways acceleration $v^2\kappa$ jumps with it, which passengers feel as a lurch. A transition curve makes the curvature, and with it the second derivative, continuous.
+- id: calc-m2-r2-h25
+  lesson: calc-m2-h-smoothness
+  type: text
+  topic: Smoothness
+  stem: 'A cubic spline is a chain of cubic pieces joined so that the function, its first derivative and its ___ derivative are continuous at every joint.'
+  accept: [second, 2nd, '2']
+  explanation: |-
+    Matching value, slope and second derivative makes a spline $C^2$, smooth enough that no seams are visible. Each cubic has four coefficients, enough freedom to meet these conditions while passing through the data points.
+- id: calc-m2-r2-h26
+  lesson: calc-m2-h-smoothness
+  topic: Smoothness
+  stem: 'What did the function Weierstrass presented in 1872 show?'
+  choices:
+    - 'That every continuous function is differentiable except at isolated points'
+    - 'That a function can be continuous everywhere but differentiable nowhere'
+    - 'That a derivative can never have a jump discontinuity'
+    - 'That a function can be differentiable everywhere with a discontinuous derivative'
+  answer: 1
+  explanation: |-
+    $W(x) = \sum a^n\cos(b^n\pi x)$ is continuous but has corner-like wiggles at every scale, so it has no tangent line anywhere. It refuted the belief in the first choice. The jump statement is Darboux's theorem, and the last is shown by $x^2\sin(1/x)$.

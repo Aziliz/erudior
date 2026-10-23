@@ -1,0 +1,75 @@
+# Round 2 drills, module calc-m1 (honors lessons 05h1 and 05h2)
+- id: calc-m1-r2-infinite-delta
+  title: Find δ for an infinite limit
+  topic: Precise limit definitions
+  vars:
+    c: {min: 1, max: 9}
+    a: {min: -5, max: 5}
+    M: {choices: [100, 400, 2500, 10000, 40000, 1000000]}
+  where: ["a != 0"]
+  calc:
+    na: -a
+    delta: sqrt(c/M)
+    cm: c/M
+  prompt: 'Let $f(x) = \dfrac{{c}}{(x {na:signed})^2}$, so $\displaystyle\lim_{x\to {a}} f(x) = \infty$. For $M = {M}$, what is the largest $\delta$ such that $0 < |x {na:signed}| < \delta$ guarantees $f(x) > M$? Give it exactly or to 4 significant figures.'
+  answers:
+    - {name: delta, label: '$\delta =$', relTolerance: 0.001, format: sig4}
+  solution: |-
+    Work backward: $\dfrac{{c}}{(x {na:signed})^2} > {M}$ exactly when $(x {na:signed})^2 < \dfrac{{c}}{{M}}$, that is, when $|x {na:signed}| < \sqrt{\dfrac{{c}}{{M}}}$. So the largest $\delta$ is $\sqrt{{c}/{M}} \approx$ **{delta:sig4}**.
+- id: calc-m1-r2-epsilon-n
+  title: Find N for a limit at infinity
+  topic: Precise limit definitions
+  vars:
+    p: {min: -5, max: 5}
+    q: {min: -9, max: 9}
+    r: {min: 1, max: 6}
+    eps: {choices: [0.1, 0.05, 0.02, 0.01]}
+  where: ["p != 0", "q != 0", "q - p*r != 0"]
+  calc:
+    k: abs(q - p*r)
+    Nmin: round(k/eps - r, 6)
+    kq: round(k/eps, 6)
+    top: q - p*r
+  prompt: 'Let $f(x) = \dfrac{{p:coef}x {q:signed}}{x + {r}}$, so $\displaystyle\lim_{x\to\infty} f(x) = {p}$. For $\varepsilon = {eps}$, what is the smallest number $N$ such that $x > N$ guarantees $|f(x) - ({p})| < \varepsilon$?'
+  answers:
+    - {name: Nmin, label: '$N =$', tolerance: 0.01}
+  solution: |-
+    Over a common denominator, $f(x) - ({p}) = \dfrac{{p:coef}x {q:signed} - ({p})(x + {r})}{x + {r}} = \dfrac{{top}}{x + {r}}$. For $x > -{r}$ the denominator is positive, so $|f(x) - ({p})| = \dfrac{{k}}{x + {r}}$. This is less than ${eps}$ exactly when $x + {r} > \dfrac{{k}}{{eps}}$, that is, $x > \dfrac{{k}}{{eps}} - {r} = {kq} - {r}$. So $N =$ **{Nmin}**.
+- id: calc-m1-r2-bisection-steps
+  title: Bisection steps needed
+  topic: IVT applications
+  vars:
+    a: {min: -3, max: 3}
+    len: {choices: [1, 2, 3, 6]}
+    t: {choices: [{label: '0.01', value: 0.01}, {label: '0.001', value: 0.001}, {label: '0.0001', value: 0.0001}, {label: '0.00001', value: 0.00001}]}
+  calc:
+    b: a + len
+    ratio: round(len/t)
+    n: ceil(log2(len/t))
+    lg: log2(len/t)
+    nm1: n - 1
+    pw: 2^n
+    pwlow: 2^(n - 1)
+  prompt: 'A continuous function changes sign on $[{a}, {b}]$. What is the fewest number of bisection steps that guarantees a bracket of length at most ${t}$?'
+  answers:
+    - {name: n, label: 'Steps', format: integer}
+  solution: |-
+    After $n$ steps the bracket has length $\dfrac{{len}}{2^n}$. We need $\dfrac{{len}}{2^n} \le {t}$, that is, $2^n \ge \dfrac{{len}}{{t}} = {ratio}$. Since $\log_2 {ratio} \approx {lg:num2}$, round up: $2^{{nm1}} = {pwlow}$ is too small and $2^{{n}} = {pw}$ is enough, so **{n}** steps.
+- id: calc-m1-r2-bisection-error
+  title: Error bound after bisection
+  topic: IVT applications
+  vars:
+    a: {min: -4, max: 4}
+    len: {choices: [1, 2, 3, 4, 5]}
+    n: {min: 3, max: 8}
+  calc:
+    b: a + len
+    np1: n + 1
+    den: 2^(n + 1)
+    blen: len/2^n
+    err: len/2^(n + 1)
+  prompt: 'Bisection starts on the bracket $[{a}, {b}]$ and runs for ${n}$ steps. The midpoint of the final bracket is reported as the root. What is the largest possible error (the guaranteed bound)? Give an exact fraction.'
+  answers:
+    - {name: err, kind: fraction, lowestTerms: true, label: 'Error at most'}
+  solution: |-
+    Each step halves the bracket, so after ${n}$ steps its length is $\dfrac{{len}}{2^{{n}}} = {blen:frac}$. The root is somewhere in the bracket, so it is at most half a bracket from the midpoint: $\dfrac{{len}}{2^{{np1}}} = \dfrac{{len}}{{den}}$, which is **{err:frac}**.

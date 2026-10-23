@@ -21,7 +21,7 @@
 - {front: 'Simple effect', back: 'A factor''s effect at one fixed level of the other factor.', topic: 'Factorial experiments'}
 - {front: 'Interaction (difference of differences)', back: '(Effect of A when B is high) − (effect of A when B is low). Zero means no interaction; it is the same whichever factor you call A.', topic: 'Factorial experiments'}
 - {front: 'Reading an interaction plot', back: 'Parallel lines: no interaction. Converging, diverging or crossing lines: interaction.', topic: 'Factorial experiments'}
-- {front: 'When main effects mislead', back: 'When lines cross, a factor can help at one level and hurt at another, so its main effect may be near 0. Report simple effects.', topic: 'Factorial experiments'}
+- {front: 'When main effects mislead', back: 'When a factor helps at one level of the other factor and hurts at the other (lines slope opposite ways), its main effect may be near 0. Report simple effects.', topic: 'Factorial experiments'}
 - {front: 'Factorial vs. one-factor-at-a-time', back: 'Factorial: every unit informs every main effect, and interactions can be seen. OFAT: fewer units per comparison, and interactions are missed.', topic: 'Factorial experiments'}
 - {front: 'Interaction vs. confounding', back: 'Interaction: one factor''s effect depends on another factor (a real feature). Confounding: an outside variable''s effect is mixed up with a factor''s (a design flaw).', topic: 'Factorial experiments'}
 - {front: 'Fractional factorial design', back: 'Runs a planned subset of the $2^k$ combinations; some interactions can no longer be separated.', topic: 'Factorial experiments'}

@@ -2315,8 +2315,8 @@
   "file": "math/science-biology.json",
   "order": 16,
   "title": "Biology",
-  "description": "High school biology for one full credit, written for learners studying on their own: the chemistry of life, cells and membranes, photosynthesis and respiration, cell division, Mendelian and molecular genetics, biotechnology, evolution and population genetics, the diversity of life, human body systems and homeostasis, and ecology. Later lessons reach the depth of an honors course, with the math biologists use (probability, Hardy-Weinberg, chi-square, population growth).",
-  "revision": 1,
+  "description": "High school biology for one full credit, written for learners studying on their own: the chemistry of life, cells and membranes, photosynthesis and respiration, cell division, Mendelian and molecular genetics, biotechnology, evolution and population genetics, the diversity of life, human body systems and homeostasis, and ecology, with the math biologists use (probability, Hardy-Weinberg, chi-square, population growth). Optional honors material goes further: 22 honors lessons inside the modules and three honors modules (research and biostatistics; development, stem cells and the genome; behavior, disease and conservation).",
+  "revision": 2,
   "subject": "Science",
   "level": [
    "High school"
