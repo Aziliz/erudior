@@ -26,6 +26,11 @@ $\mathbf{x}$ in $\mathbb{R}^n$ a vector $T(\mathbf{x})$ in $\mathbb{R}^m$.
 - $T(\mathbf{x})$ is the **image** of $\mathbf{x}$ under $T$.
 - The set of all images $T(\mathbf{x})$ is the **range** of $T$. The range is part of the codomain, but it may not be all of it.
 
+The picture below shows these words in action: each input in the domain is sent to one
+image in the codomain, and the images together make up the range.
+
+![Two ovals: the domain on the left and the codomain on the right. Arrows carry points x of the domain to their images T(x) in the codomain. The images lie in a smaller dashed region inside the codomain, the range. A point b of the codomain outside the range is not reached by any arrow.](images/la-m4-domain-range.svg)
+
 For an $m \times n$ matrix $A$, the rule $T(\mathbf{x}) = A\mathbf{x}$ is a **matrix transformation**, written $\mathbf{x} \mapsto A\mathbf{x}$. Its domain is $\mathbb{R}^n$
 (the number of *columns*) and its codomain is $\mathbb{R}^m$ (the number of *rows*). Since
 $A\mathbf{x}$ is a combination of the columns of $A$, the range of $\mathbf{x} \mapsto A\mathbf{x}$
@@ -64,6 +69,21 @@ Checking $T(\mathbf{0}) = \mathbf{0}$ is a quick way to *rule out* linearity. Fo
 translation $T(\mathbf{x}) = \mathbf{x} + \mathbf{p}$ with $\mathbf{p} \ne \mathbf{0}$ sends
 $\mathbf{0}$ to $\mathbf{p}$, so it is not linear. Likewise $T(x_1, x_2) = (x_1^2, x_2)$ fails
 property 2: $T(2, 0) = (4, 0)$ but $2T(1, 0) = (2, 0)$.
+
+The chart sums up how to decide whether a given rule is linear.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a transformation is linear
+  accDescr: Start with a rule T from R n to R m. First ask whether T of the zero vector is the zero vector. If not, T is not linear. If it is, ask whether each output entry is a combination c1 x1 plus up to cn xn with no constant terms, powers or products of variables. If yes, T is linear and equals x maps to A x. If unsure, check the two properties T of u plus v equals T of u plus T of v, and T of c u equals c times T of u, for all vectors and scalars. If both always hold, T is linear; a single counterexample shows T is not linear.
+  S["A rule T from Rn to Rm"] --> Z{"Is T(0) = 0?"}
+  Z -- no --> N["Not linear"]
+  Z -- yes --> M{"Is every output entry c1x1 + ... + cnxn, with no constants, powers or products?"}
+  M -- yes --> Y["Linear: T(x) = Ax"]
+  M -- not sure --> C{"Do T(u + v) = T(u) + T(v) and T(cu) = cT(u) always hold?"}
+  C -- yes --> Y
+  C -- "no: one counterexample" --> N
+```
 
 ## A linear transformation is determined by a few values
 

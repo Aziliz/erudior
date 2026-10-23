@@ -26,6 +26,11 @@ Let $T: \mathbb{R}^n \to \mathbb{R}^m$.
 "At most one" includes "none": a one-to-one map may miss some outputs entirely. And an onto
 map may hit some outputs many times. The two properties are independent of each other.
 
+Arrow diagrams make the four possible combinations easy to see. They are only schematic: a
+linear map of $\mathbb{R}^n$ has infinitely many inputs, but the dots show the pattern.
+
+![Four arrow diagrams from a domain to a codomain. One-to-one, not onto: three inputs go to three different outputs, and one output gets no arrow. Onto, not one-to-one: four inputs go to three outputs, every output is hit, and one output is hit twice. One-to-one and onto: three inputs are paired with three outputs. Neither: two inputs share an output and another output is missed.](images/la-m4-arrow-diagrams.svg)
+
 ## A test for one-to-one
 
 > *Theorem.* A linear transformation $T$ is one-to-one if and only if $T(\mathbf{x}) = \mathbf{0}$ has only the trivial solution.
@@ -58,6 +63,21 @@ Size alone gives quick conclusions:
 | wide ($n > m$) | yes | never |
 | tall ($n < m$) | never | yes |
 | square ($n = m$) | yes, exactly when one-to-one | yes, exactly when onto |
+
+The whole test fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Testing onto and one-to-one with pivots
+  accDescr: Start with T of x equals A x, where A is m by n. Row reduce A itself, not an augmented matrix, to echelon form and mark the pivots. Ask whether there is a pivot in every row: if yes, T is onto R m; if no, T is not onto and some A x equals b has no solution. Separately ask whether there is a pivot in every column: if yes, T is one-to-one; if no, there is a free variable, A x equals 0 has a nontrivial solution, and T is not one-to-one.
+  S["T(x) = Ax, A is m × n"] --> R["Row reduce A (not augmented) and mark pivots"]
+  R --> Q1{"Pivot in every row?"}
+  R --> Q2{"Pivot in every column?"}
+  Q1 -- yes --> O["Onto Rm"]
+  Q1 -- no --> NO["Not onto: some Ax = b has no solution"]
+  Q2 -- yes --> I["One-to-one"]
+  Q2 -- no --> NI["Not one-to-one: a free variable gives Ax = 0 a nontrivial solution"]
+```
 
 ### Example 1
 

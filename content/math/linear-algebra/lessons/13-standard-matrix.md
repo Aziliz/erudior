@@ -28,6 +28,16 @@ phrase *linear transformation* stresses what the map does; *matrix transformatio
 stresses how to compute it. Recipe: *column $j$ of the standard matrix is the image of
 $\mathbf{e}_j$.*
 
+```mermaid
+flowchart TD
+  accTitle: Recipe for the standard matrix
+  accDescr: Start with a linear transformation T from R n to R m. For each j from 1 to n, find T of e j. Write T of e j as column j. The result is the m by n matrix A whose columns are T of e 1 through T of e n. Finally, check that A times a test vector x equals T of x.
+  T["Linear T: Rn to Rm"] --> F["For each j, find T(ej)"]
+  F --> W["Write T(ej) as column j"]
+  W --> A["A = [T(e1) ... T(en)], an m × n matrix"]
+  A --> K["Check: Ax = T(x) for a test vector x"]
+```
+
 ### Example 1
 
 Find the standard matrix of $T: \mathbb{R}^2 \to \mathbb{R}^2$ that rotates each vector
@@ -38,6 +48,13 @@ counterclockwise through an angle $\theta$ about the origin.
 3. Use them as columns:
 
 $$A = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}.$$
+
+The picture shows the two columns for $\theta = 30^\circ$: both basis vectors turn by the same
+angle and stay on the unit circle.
+
+```plot
+{"x": [-1.5, 1.5], "y": [-0.5, 1.5], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "pi"], "dashed": true}], "segments": [{"from": [0, 0], "to": [1, 0], "arrow": true, "label": "e₁"}, {"from": [0, 0], "to": [0, 1], "arrow": true, "label": "e₂"}, {"from": [0, 0], "to": [0.866, 0.5], "arrow": true, "label": "T(e₁) = (cos θ, sin θ)"}, {"from": [0, 0], "to": [-0.5, 0.866], "arrow": true, "label": "T(e₂) = (−sin θ, cos θ)"}], "caption": "Rotation by θ = 30°: the images of e₁ and e₂ are the columns of the rotation matrix"}
+```
 
 For $\theta = 90^\circ$ this is $\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$, which sends
 $(x_1, x_2)$ to $(-x_2, x_1)$. Rotating $(3, 1)$ by $90^\circ$ gives $(-1, 3)$. (You may
@@ -67,6 +84,11 @@ of $A$.
 
 You don't need to memorize this table: each entry comes from asking "where do $\mathbf{e}_1$
 and $\mathbf{e}_2$ go?"
+
+Four of these maps are drawn below, each acting on the unit square. Watch where the two
+arrows $T(\mathbf{e}_1)$ and $T(\mathbf{e}_2)$ land: they are the columns of the matrix.
+
+![Four panels, each showing the dashed unit square and its shaded image with the arrows T(e₁) and T(e₂). Rotation by 90°: T(e₁) points up and T(e₂) points left. Reflection across the x₁-axis: T(e₁) is unchanged and T(e₂) points down. Horizontal shear: T(e₁) is unchanged and T(e₂) is (1, 1), so the square leans into a parallelogram. Projection onto the x₁-axis: T(e₁) is unchanged and T(e₂) is the zero vector, so the square is flattened onto a segment.](images/la-m4-gallery.svg)
 
 ### Example 2
 

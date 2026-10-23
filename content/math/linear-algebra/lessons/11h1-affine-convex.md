@@ -174,7 +174,7 @@ percentage in the blend is the same convex combination of the ingredients' perce
 
 ### Example 3
 
-Three fertilizer blends contain, by mass, A: 20% nitrogen and 10% phosphorus; B: 10% N and 20% P; C: 30% N and 30% P. Can they be mixed to give 18% N and 22% P? What about 28% N and 12% P?
+Three fertilizer blends contain, by mass, A: 20% nitrogen (N) and 10% phosphate (P); B: 10% N and 20% P; C: 30% N and 30% P. Can they be mixed to give 18% N and 22% P? What about 28% N and 12% P?
 
 1. With mass fractions $c_1, c_2, c_3$: $20c_1 + 10c_2 + 30c_3 = 18$, $10c_1 + 20c_2 + 30c_3 = 22$, $c_1 + c_2 + c_3 = 1$.
 2. Subtract the second equation from the first: $10c_1 - 10c_2 = -4$, so $c_2 = c_1 + 0.4$.
