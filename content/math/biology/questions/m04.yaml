@@ -319,7 +319,7 @@
   choices: ['10', '25', '32', '1024']
   answer: 2
   explanation: |-
-    There are n = 5 pairs, each able to line up 2 ways: 2⁵ = 32. 10 adds instead of multiplying; 25 is 5²; 1024 is 2¹⁰, using 2n instead of n.
+    There are n = 5 pairs, each able to line up 2 ways: 2⁵ = 32. 10 is 2 × 5 (multiplying instead of raising 2 to the 5th power); 25 is 5²; 1024 is 2¹⁰, using 2n instead of n.
 - id: bio-q-0431
   lesson: bio-meiosis
   module_quiz: true
@@ -328,7 +328,7 @@
   choices: ['16', '64', '32', '256']
   answer: 3
   explanation: |-
-    Each parent can make 2⁴ = 16 kinds of gametes, and any egg can meet any sperm: 16 × 16 = 256. 16 counts gametes from one parent only; 64 and 32 come from using 8 or 2 × 16.
+    Each parent can make 2⁴ = 16 kinds of gametes, and any egg can meet any sperm: 16 × 16 = 256. 16 counts gametes from one parent only; 64 is 8 × 8 (using 2n = 8 as the number of gamete types), and 32 adds 16 + 16 instead of multiplying.
 - id: bio-q-0432
   lesson: bio-meiosis
   topic: Meiosis

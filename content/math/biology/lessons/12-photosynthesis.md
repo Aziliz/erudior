@@ -11,13 +11,13 @@ refs: [bio-ref-cell-energy]
 
 The last lesson showed that every cell needs a constant supply of energy, paid out as ATP. For almost every ecosystem on Earth, that energy enters the living world in one place: the chloroplasts of plants, algae, and some bacteria. **Photosynthesis** is the process that converts light energy into chemical energy stored in sugar, using carbon dioxide and water as raw materials and releasing oxygen.
 
-Organisms that make their own food from inorganic materials are **autotrophs** ("self-feeders"); plants and algae are photosynthetic autotrophs. Organisms that must eat other organisms or their products are **heterotrophs**, which includes you, fungi, and most bacteria. Every bite you eat traces back to sugar made by photosynthesis, and nearly every oxygen molecule you breathe was released by it.
+Organisms that make their own food from inorganic materials are **autotrophs** ("self-feeders"); plants and algae are photosynthetic autotrophs. Organisms that must eat other organisms or their products are **heterotrophs**, which includes you, fungi, and many bacteria. Every bite you eat traces back to sugar made by photosynthesis, and nearly every oxygen molecule you breathe was released by it.
 
 ## How we figured it out
 
 Photosynthesis looks like magic: a seed becomes a tree, apparently out of nothing. The overall equation took about 300 years of experiments to piece together.
 
-- *Jan van Helmont (around 1640)* planted a 5-pound willow in a pot holding 200 pounds of dried soil and gave it only rainwater for five years. The tree grew to about 169 pounds, yet the soil lost only about 2 ounces. He concluded the mass came from the water. He was partly right: most of a plant's mass actually comes from carbon dioxide in the air, which he never measured.
+- *Jan van Helmont (early 1600s; published in 1648, after his death)* planted a 5-pound willow in a pot holding 200 pounds of dried soil and gave it only rainwater for five years. The tree grew to about 169 pounds, yet the soil lost only about 2 ounces. He concluded the mass came from the water. He was partly right: most of a plant's mass actually comes from carbon dioxide in the air, which he never measured.
 - *Joseph Priestley (1771)* found that a candle burning in a sealed jar went out, and a mouse in a sealed jar soon collapsed. Adding a sprig of mint and waiting several days "restored" the air so that a candle could burn again. Plants release something (we now know it is oxygen) that animals and flames use up.
 - *Jan Ingenhousz (1779)* showed that plants restore air only in the light, and only through their green parts.
 - *Samuel Ruben and Martin Kamen (1941)* gave algae water containing a heavy isotope of oxygen, ¹⁸O. The oxygen gas released carried the label. When they labeled the carbon dioxide instead, the oxygen gas did not. So the O₂ comes from splitting water, not from CO₂.

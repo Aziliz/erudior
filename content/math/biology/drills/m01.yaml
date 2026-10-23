@@ -97,4 +97,4 @@
 
     At 20 °C: ${v1} \div {t} =$ **{r1:num2} mL/s**. At 35 °C: ${v2} \div {t} =$ **{r2:num2} mL/s**.
 
-    Percent increase $= \dfrac{{r2:num2} - {r1:num2}}{{r1:num2}} \times 100\%$ (the times are equal, so this is the same as comparing the volumes) $=$ **{pc:num1}%**. Warming toward the optimum speeds collisions between enzyme and substrate.
+    Percent increase in rate: the times are equal, so compare the volumes directly (this avoids rounding the rates): $\dfrac{{v2} - {v1}}{{v1}} \times 100\% =$ **{pc:num1}%**. Warming toward the optimum speeds collisions between enzyme and substrate.

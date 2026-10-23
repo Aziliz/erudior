@@ -9,7 +9,7 @@ refs: [bio-ref-cell-energy]
 ---
 ## Cashing in the sugar
 
-Photosynthesis stores the Sun's energy in sugar. But a cell cannot use glucose directly to power a pump or a muscle; it needs ATP. **Cellular respiration** is the catabolic pathway that breaks down glucose (and other food molecules) and uses the released energy to make ATP. Every eukaryotic cell does it, plant cells included, and so do many prokaryotes.
+Photosynthesis stores the Sun's energy in sugar. But a cell cannot use glucose directly to power a pump or a muscle; it needs ATP. **Cellular respiration** is the catabolic pathway that breaks down glucose (and other food molecules) and uses the released energy to make ATP. Nearly every eukaryotic cell does it, plant cells included, and so do many prokaryotes.
 
 The overall equation for aerobic respiration is the reverse of photosynthesis:
 
@@ -78,7 +78,7 @@ Efficiency: about 30 ATP × 30.5 kJ/mol ≈ 915 kJ out of 2,870 kJ, roughly 32%.
 
 Without oxygen, the electron transport chain stops, so NADH cannot unload its electrons. The cell soon runs out of NAD⁺, and glycolysis, which needs NAD⁺, stops too. **Fermentation** solves this by passing NADH's electrons onto pyruvate (or a product made from it), regenerating NAD⁺ so glycolysis can keep making its 2 ATP per glucose. Fermentation itself makes no extra ATP; its job is to recycle NAD⁺.
 
-- Lactic acid fermentation: pyruvate is reduced directly to lactate. Your muscle cells do this during hard sprinting when oxygen delivery cannot keep up, and bacteria such as Lactobacillus do it to turn milk into yogurt.
+- Lactic acid fermentation: pyruvate is reduced directly to lactate. Your muscle cells lean heavily on this during hard sprinting, when they need ATP faster than aerobic respiration can supply it, and bacteria such as Lactobacillus do it to turn milk into yogurt.
 - Alcoholic fermentation: pyruvate loses CO₂ and is reduced to ethanol. Yeast do this; the CO₂ makes bread rise and the ethanol is the alcohol in beer and wine.
 
 Louis Pasteur showed in the 1850s and 1860s that fermentation is carried out by living microorganisms, not a purely chemical process. He also noticed that yeast growing without air consumed sugar far faster than yeast with air (the Pasteur effect). The ATP numbers explain why: 2 ATP per glucose instead of about 30.
@@ -105,7 +105,7 @@ Step 3: $60 \div 4 = 15$, so fermentation needs 15 times as much sugar for the s
 - Thinking only animals respire. Plants respire all the time; in light they also photosynthesize, usually faster, so they release O₂ overall.
 - Thinking fermentation makes ATP of its own. Its ATP all comes from glycolysis; fermentation only regenerates NAD⁺.
 - Thinking the oxygen you breathe becomes CO₂. The carbon and oxygen in exhaled CO₂ come from glucose (and water); inhaled O₂ ends up in water.
-- Blaming lactic acid for muscle soreness a day or two after exercise. Lactate is cleared from muscle within about an hour; delayed soreness comes from small injuries to muscle fibers and the repair process.
+- Blaming lactic acid for muscle soreness a day or two after exercise. Lactate is cleared from muscle within an hour or so after exercise; delayed soreness comes from small injuries to muscle fibers and the repair process.
 - Giving "36 ATP" as an exact fact. About 30 (up to 32) is the current estimate, and it is an approximation.
 
 ## Key points

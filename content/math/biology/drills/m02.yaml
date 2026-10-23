@@ -56,7 +56,7 @@
   solution: |-
     Percent change $= \dfrac{\text{final} - \text{initial}}{\text{initial}} \times 100\% = \dfrac{{m1:num2} - {m0:num2}}{{m0:num2}} \times 100\% =$ **{pc:num1}%**.
 
-    A positive change means the core gained water: water moved *into* the cells, so the solution was hypotonic to them. A negative change means water moved *out*, so the solution was hypertonic. (Potato cells are roughly isotonic to about 0.38 M sucrose.)
+    A positive change means the core gained water: water moved *into* the cells, so the solution was hypotonic to them. A negative change means water moved *out*, so the solution was hypertonic. (In the lesson's data, the potato cells were isotonic to about 0.38 M sucrose; real potatoes vary, roughly 0.2 to 0.4 M.)
 - id: bio-water-potential
   title: Solute potential of a solution
   topic: Transport

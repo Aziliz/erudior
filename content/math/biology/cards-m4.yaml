@@ -18,7 +18,7 @@
 - {front: Benign vs malignant tumor, back: 'Benign stays in place. Malignant invades nearby tissue and can metastasize (spread through blood or lymph).', topic: Cancer}
 - {front: Cell number after n doublings, back: 'N = N₀ × 2ⁿ; 10 doublings ≈ ×1,000; 30 doublings ≈ ×1 billion.', topic: Cancer}
 - {front: 'Totipotent vs pluripotent vs multipotent', back: 'Totipotent: every cell type including placenta (zygote). Pluripotent: every body cell type (embryonic stem cells, iPSCs). Multipotent: several related types (blood stem cells).', topic: Stem cells}
-- {front: Induced pluripotent stem cells, back: 'Body cells (such as skin cells) reprogrammed by adding four genes to act like embryonic stem cells (Yamanaka, 2006).', topic: Stem cells}
+- {front: Induced pluripotent stem cells, back: 'Body cells reprogrammed by adding four genes to act like embryonic stem cells (Yamanaka: mouse fibroblasts 2006, human skin cells 2007).', topic: Stem cells}
 - {front: Diploid vs haploid, back: 'Diploid (2n): two sets of chromosomes, as in body cells (human 46). Haploid (n): one set, as in gametes (human 23).', topic: Meiosis}
 - {front: Homologous chromosomes vs sister chromatids, back: 'Homologs: one from each parent, same genes, possibly different versions. Sister chromatids: identical copies made in S phase.', topic: Meiosis}
 - {front: Meiosis I vs meiosis II, back: 'Meiosis I separates homologs (2n → n, reduction). Meiosis II separates sister chromatids (like mitosis).', topic: Meiosis}

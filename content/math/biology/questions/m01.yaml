@@ -221,7 +221,7 @@
     - 'The two are correlated, but a third factor such as town size could explain both'
   answer: 3
   explanation: |-
-    Correlation does not show causation. Larger, more rural areas can support both more storks and more people, so a hidden variable can produce the pattern. Only a controlled experiment, where one factor is changed, can show cause and effect.
+    Correlation does not show causation. Bigger towns have more people (so more births) and more roofs and land for storks to nest on, so a hidden variable, town size, can produce the pattern. Only a controlled experiment, where one factor is changed, can show cause and effect.
 - id: bio-q-0122
   lesson: bio-method
   topic: Experimental design
@@ -287,7 +287,7 @@
     - 'Freezing breaks the covalent bonds inside water molecules'
   answer: 2
   explanation: |-
-    In ice, each molecule is held by hydrogen bonds at fixed distances, making a spread-out lattice about 9% less dense than liquid water. The molecules are identical in mass; freezing changes hydrogen bonds between molecules, not the covalent bonds within them.
+    In ice, each molecule is held by hydrogen bonds at fixed distances, making a spread-out lattice about 8% less dense than liquid water (it takes up about 9% more space). The molecules are identical in mass; freezing changes hydrogen bonds between molecules, not the covalent bonds within them.
 - id: bio-q-0128
   lesson: bio-chemistry
   module_quiz: true
@@ -387,7 +387,7 @@
   choices: ['a protein', 'a polysaccharide', 'a triglyceride', 'a nucleic acid']
   answer: 3
   explanation: |-
-    Monomers with a sugar, phosphate and base are nucleotides, and four kinds suggests DNA or RNA. Proteins are made of 20 kinds of amino acids and usually lack phosphorus; polysaccharides contain only C, H and O; triglycerides are glycerol plus fatty acids.
+    Monomers with a sugar, phosphate and base are nucleotides, and four kinds suggests DNA or RNA. Proteins are made of 20 kinds of amino acids and usually lack phosphorus; typical polysaccharides contain only C, H and O; triglycerides are glycerol plus fatty acids.
 - id: bio-q-0138
   lesson: bio-macromolecules
   topic: Macromolecules
@@ -432,7 +432,7 @@
 - id: bio-q-0142
   lesson: bio-macromolecules
   topic: Macromolecules
-  stem: 'In the 1950s, Anfinsen unfolded the enzyme ribonuclease with chemicals; when the chemicals were removed, it refolded and regained its activity. What did this show?'
+  stem: 'In the late 1950s, Anfinsen unfolded the enzyme ribonuclease with chemicals; when the chemicals were removed, it refolded and regained its activity. What did this show?'
   choices:
     - 'Proteins can work without having any particular shape'
     - 'Enzymes are made of nucleic acids, not amino acids'

@@ -45,7 +45,7 @@ Starch and cellulose are both made of glucose, yet you can digest one and not th
 
 A **lipid** is a member of a diverse group of molecules that are mostly nonpolar and therefore do not dissolve in water. Lipids are not true polymers, because they are not built from repeating identical monomers. They are made mainly of carbon and hydrogen, with relatively little oxygen.
 
-- *Fats and oils (triglycerides)* consist of one glycerol molecule joined to three fatty acid chains. They store energy compactly: about 9 kcal per gram, compared with about 4 kcal per gram for carbohydrates and proteins. They also insulate and cushion organs. In a *saturated* fatty acid every carbon holds as many hydrogens as possible, and the chain is straight; the chains pack tightly, so saturated fats such as butter are solid at room temperature. An *unsaturated* fatty acid has one or more carbon–carbon double bonds that put kinks in the chain; the chains cannot pack tightly, so unsaturated fats such as olive oil are liquid.
+- *Fats and oils (triglycerides)* consist of one glycerol molecule joined to three fatty acid chains. They store energy compactly: about 9 kcal per gram, compared with about 4 kcal per gram for carbohydrates and proteins. They also insulate and cushion organs. In a *saturated* fatty acid every carbon holds as many hydrogens as possible, and the chain is straight; the chains pack tightly, so saturated fats such as butter are solid at room temperature. An *unsaturated* fatty acid has one or more carbon–carbon double bonds that, in the usual natural (cis) form, put kinks in the chain; the chains cannot pack tightly, so unsaturated fats such as olive oil are liquid.
 - *Phospholipids* have two fatty acid tails and a phosphate-containing head. The head is polar and the tails are not, so phospholipids form the double layer of every cell membrane (Lesson 9).
 - *Steroids* have four fused carbon rings. Cholesterol stiffens animal cell membranes and is the starting material for hormones such as testosterone and estrogen.
 
@@ -71,7 +71,7 @@ A **nucleic acid** is a polymer of nucleotides that stores and transmits genetic
 - **DNA** (deoxyribonucleic acid) stores the hereditary instructions. Its sugar is deoxyribose and its bases are adenine (A), thymine (T), guanine (G) and cytosine (C). It is usually a double strand.
 - **RNA** (ribonucleic acid) carries out the instructions, chiefly by helping build proteins. Its sugar is ribose, it uses uracil (U) in place of thymine, and it is usually single-stranded.
 
-A modified nucleotide, ATP, is the cell's main short-term energy carrier (Module 3). Module 6 covers DNA and RNA in depth.
+One nucleotide deserves a mention now. ATP (adenosine triphosphate) is built like an RNA nucleotide, with the base adenine and the sugar ribose, but it carries a chain of three phosphate groups instead of one. It is the cell's main short-term energy carrier (Module 3). Module 6 covers DNA and RNA in depth.
 
 ## Identifying the class
 
@@ -86,7 +86,7 @@ A modified nucleotide, ATP, is the cell's main short-term energy carrier (Module
 
 An unknown molecule is analyzed. It contains carbon, hydrogen, oxygen, nitrogen and sulfur, but no phosphorus. Hydrolysis breaks it into about 300 small molecules of 20 different kinds. What is it?
 
-1. Nitrogen rules out carbohydrates and ordinary fats.
+1. Nitrogen rules out ordinary carbohydrates and fats.
 2. No phosphorus makes a nucleic acid unlikely, since every nucleotide contains phosphate.
 3. Sulfur is characteristic of proteins (from the amino acids cysteine and methionine).
 4. Twenty kinds of monomer matches the 20 amino acids; four kinds would suggest a nucleic acid; one kind would suggest a polysaccharide such as starch.
@@ -112,7 +112,7 @@ Sample A contains a simple sugar (could be glucose solution or fruit juice). B c
 - *Mixing up the two reactions.* Dehydration synthesis builds and releases water; hydrolysis breaks and uses water.
 - *Calling lipids polymers.* They lack a repeating monomer.
 - *Thinking starch and cellulose differ in their sugars.* Both are glucose; the linkage differs.
-- *Forgetting which classes contain N and P.* Proteins have N (and often S); nucleic acids have N and P; carbohydrates have neither.
+- *Forgetting which classes contain N and P.* Proteins have N (and often S); nucleic acids have N and P; ordinary carbohydrates such as sugars, starch and cellulose have neither (chitin, a sugar polymer with nitrogen added, is the notable exception).
 
 ## Key points
 

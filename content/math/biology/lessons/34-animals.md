@@ -32,7 +32,7 @@ Many animals have a **coelom**, a fluid-filled body cavity completely lined by t
 
 ### Two developmental paths
 
-Bilateral animals with a coelom split into two great lineages according to how the embryo develops. In protostomes (mollusks, annelids, arthropods), the first opening in the embryo becomes the mouth. In deuterostomes (echinoderms and chordates), it becomes the anus and the mouth forms later. This embryological detail, confirmed by DNA, is why sea stars are closer relatives of humans than insects are.
+Bilateral animals split into two great lineages, first recognized by how the embryo develops. In protostomes (including mollusks, annelids and arthropods, and, DNA shows, flatworms and roundworms too), the first opening in the embryo becomes the mouth. In deuterostomes (echinoderms and chordates), it becomes the anus and the mouth forms later. This embryological detail, confirmed by DNA, is why sea stars are closer relatives of humans than insects are.
 
 ## A tour of the major phyla
 
@@ -64,7 +64,7 @@ In humans, the notochord and slits appear only in the embryo; the notochord is r
 Vertebrate history is a series of innovations, each opening new ways of life:
 
 - Jaws (most fish) allowed vertebrates to grab and bite large prey.
-- Lungs and four limbs (amphibians) allowed life on land, though most amphibians still lay eggs in water and many undergo metamorphosis from aquatic larva to land-dwelling adult.
+- Four limbs (amphibians), together with lungs already present in their fish ancestors, allowed life on land, though most amphibians still lay eggs in water and many undergo metamorphosis from aquatic larva to land-dwelling adult.
 - The **amniotic egg** (reptiles, birds, mammals) has membranes that enclose the embryo in its own fluid, store wastes, and exchange gases through a shell. It freed reproduction from water. Most mammals keep the embryo inside the mother instead, but the same membranes still form.
 - Hair and milk (mammals); feathers (birds).
 

@@ -39,7 +39,7 @@ One characteristic is never enough; living things show the whole set.
 
 ## Detecting life by its chemistry
 
-Because metabolism is so central, it is what scientists look for when they hunt for life. When the two Viking landers reached Mars in 1976, one experiment (the "labeled release" test) dripped nutrient broth containing radioactive carbon onto soil samples. The idea: if microbes were present, they would metabolize the nutrients and release radioactive carbon dioxide gas. Gas did come off. But a control sample, heated first to kill anything living, gave much less gas, and other instruments found no organic molecules in the soil. Most scientists concluded that reactive chemicals in the soil, not organisms, released the gas. The episode shows two things you will see again: a single sign of life is not proof, and a well-chosen control is what lets you interpret a result.
+Because metabolism is so central, it is what scientists look for when they hunt for life. When the two Viking landers reached Mars in 1976, one experiment (the "labeled release" test) dripped nutrient broth containing radioactive carbon onto soil samples. The idea: if microbes were present, they would metabolize the nutrients and release radioactive carbon dioxide gas. Gas did come off. But a control sample, heated first to kill anything living, gave almost none, and other instruments found no organic molecules in the soil. Most scientists concluded that reactive chemicals in the soil, not organisms, released the gas. The episode shows two things you will see again: a single sign of life is not proof, and a well-chosen control is what lets you interpret a result.
 
 ## Levels of organization
 

@@ -100,6 +100,6 @@ Chitin walls plus absorptive feeding and no photosynthesis point to a fungus. Ce
 ## Key points
 
 - Protists are eukaryotes that aren't plants, animals or fungi; they are diverse and not one natural group.
-- Protists move by pseudopods, cilia or flagella. Algae do about half of Earth's photosynthesis; *Plasmodium* causes malaria.
+- Protists move by pseudopods, cilia or flagella. Ocean phytoplankton (algae plus cyanobacteria) do about half of Earth's photosynthesis; *Plasmodium* causes malaria.
 - Fungi are absorptive heterotrophs with chitin walls, built of hyphae forming a mycelium, and reproduce by spores.
 - Fungi decompose wood and litter, form mycorrhizae with most plants and lichens with algae, and include both medicines and pathogens.

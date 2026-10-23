@@ -13,7 +13,7 @@ In every cross so far, it made no difference which parent carried which allele: 
 
 Human body cells have 23 pairs of chromosomes. In 22 of the pairs, the two members match in size and carry the same genes; these are **autosomes**. The 23rd pair are the **sex chromosomes**, X and Y. Most females have two X chromosomes (XX) and most males have one X and one Y (XY). (Some people have other combinations, such as XXY; lesson 21 covers how these arise.)
 
-The X is a large chromosome carrying around 800 protein-coding genes, most of which have nothing to do with sex: genes for color vision, blood clotting and muscle proteins, among others. The Y is small and carries fewer than 100 genes, including *SRY*, a gene that triggers development of testes in the embryo.
+The X is a large chromosome carrying roughly 800 to 900 genes, most of which have nothing to do with sex: genes for color vision, blood clotting and muscle proteins, among others. The Y is small and carries only about 100 protein-coding genes, including *SRY*, a gene that triggers development of testes in the embryo.
 
 Inheritance of the sex chromosomes is simple. A mother always passes on an X. A father passes on either his X (the child is XX, typically female) or his Y (the child is XY, typically male), each with probability $\tfrac12$. So:
 

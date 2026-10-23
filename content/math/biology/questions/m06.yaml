@@ -43,7 +43,7 @@
   - 64%
   - 82%
   answer: 1
-  explanation: C pairs with G, so G = 18% and G + C = 36%. That leaves 100 − 36 = 64% for A + T, and A = T, so A = 32%. 18% confuses A with C's partner; 64% forgets to split A + T in half; 82% is just 100 − 18.
+  explanation: C pairs with G, so G = 18% and G + C = 36%. That leaves 100 − 36 = 64% for A + T, and A = T, so A = 32%. 18% wrongly assumes A equals C; 64% forgets to split A + T in half; 82% is just 100 − 18.
 - id: bio-q-0605
   lesson: bio-dna
   topic: DNA structure
@@ -190,7 +190,7 @@
   - AUG, tyrosine
   - CAU, histidine
   answer: 0
-  explanation: 'The anticodon pairs with the codon: U–A, A–U, C–G gives 5′-AUG-3′, which codes for Met. Looking up UAC in the table is the classic error (the table lists codons, not anticodons). CAU reads the complement backwards.'
+  explanation: 'The anticodon pairs with the codon: U–A, A–U, C–G gives 5′-AUG-3′, which codes for Met. Looking up UAC in the table is the classic error (the table lists codons, not anticodons). CAU is the anticodon read 5′ to 3′ and then looked up as if it were a codon.'
 - id: bio-q-0618
   lesson: bio-protein-synthesis
   module_quiz: true

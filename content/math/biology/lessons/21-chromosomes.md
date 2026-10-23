@@ -28,9 +28,9 @@ Most aneuploidies of autosomes are not compatible with development and end in ea
 
 | Karyotype | Condition | About how common |
 |---|---|---|
-| 47,+21 (trisomy 21) | Down syndrome: intellectual disability of varying degree, characteristic facial features, higher risk of heart defects | about 1 in 700 births |
+| 47,+21 (trisomy 21) | Down syndrome: intellectual disability of varying degree, characteristic facial features, higher risk of heart defects | about 1 in 650 to 700 births |
 | 47,+18 or 47,+13 | Trisomy 18 (Edwards) or 13 (Patau): severe developmental effects; most affected infants live less than a year | rare |
-| 45,X | Turner syndrome: short stature, ovaries that don't develop typically | about 1 in 2,500 female births |
+| 45,X | Turner syndrome: short stature, ovaries that don't develop typically | about 1 in 2,000 to 2,500 female births |
 | 47,XXY | Klinefelter syndrome: often taller, reduced fertility; many people are never diagnosed | about 1 in 500 to 1,000 male births |
 
 The risk of trisomy 21 rises with the age of the egg-producing parent, because human egg cells stay paused partway through meiosis I from before birth until ovulation, sometimes for 40 years or more. Sex-chromosome aneuploidies tend to have milder effects than autosomal ones; in females one X is largely inactivated in each cell, which buffers changes in X number, and the Y carries few genes.
@@ -46,7 +46,7 @@ In meiosis I the X and Y fail to separate, so the gametes are either 24,XY (both
 - 24,XY sperm + 23,X egg → 47,XXY (Klinefelter syndrome).
 - 22 sperm (no sex chromosome) + 23,X egg → 45,X (Turner syndrome).
 
-If nondisjunction happened instead in meiosis II of a sperm cell carrying the X, gametes 24,XX and 22 would form, giving 47,XXX or 45,X.
+If nondisjunction happened instead in meiosis II, in the X-carrying cell, sperm with 24,XX and with 22 (no sex chromosome) would form, giving 47,XXX or 45,X.
 
 ## Changes in chromosome structure and number of sets
 

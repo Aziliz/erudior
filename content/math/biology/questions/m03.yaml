@@ -238,7 +238,7 @@
     - '2 CO₂, 6 ATP, 4 NADPH'
   answer: 1
   explanation: |-
-    One glucose (6 carbons) needs 6 CO₂, 18 ATP and 12 NADPH, so two glucose need 12 CO₂, 36 ATP and 24 NADPH. The second choice is the amount for one glucose; the third swaps ATP and NADPH.
+    One glucose (6 carbons) needs 6 CO₂, 18 ATP and 12 NADPH, so two glucose need 12 CO₂, 36 ATP and 24 NADPH. The first choice is the amount for one glucose; the third swaps ATP and NADPH.
 - id: bio-q-0321
   lesson: bio-photosynthesis
   topic: Photosynthesis
@@ -394,7 +394,7 @@
   choices: ['44 g', '132 g', '90 g', '264 g']
   answer: 1
   explanation: |-
-    90 g is 0.5 mol of glucose. Each mole makes 6 mol CO₂, so 3 mol × 44 g/mol = 132 g. 264 g is the amount from a full mole (180 g); 44 g forgets the factor of 6.
+    90 g is 0.5 mol of glucose. Each mole makes 6 mol CO₂, so 3 mol × 44 g/mol = 132 g. 264 g is the amount from a full mole (180 g); 44 g is the mass of just one mole of CO₂; 90 g assumes the CO₂ weighs the same as the glucose.
 - id: bio-q-0335
   lesson: bio-respiration
   topic: Cellular respiration

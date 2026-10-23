@@ -4,6 +4,10 @@
 - term: interphase
   definition: 'The long part of the cell cycle between divisions: G1 (growth), S (DNA replication) and G2 (preparation for division).'
   topic: Cell cycle
+- term: chromosome
+  aliases: [chromosomes]
+  definition: 'A single long DNA molecule wrapped around proteins, carrying many genes; after S phase it consists of two sister chromatids joined at the centromere. Human body cells have 46.'
+  topic: Cell cycle
 - term: sister chromatid
   aliases: [sister chromatids, chromatid, chromatids]
   definition: 'One of the two identical copies of a chromosome made during S phase, joined to its sister at the centromere until anaphase.'
@@ -102,7 +106,7 @@
   definition: 'Exchange of matching segments between chromatids of homologous chromosomes during prophase I of meiosis, producing new combinations of genes.'
   topic: Meiosis
 - term: independent assortment
-  definition: 'The random, independent orientation of each homologous pair at metaphase I, giving 2ⁿ possible chromosome combinations in gametes (n = number of pairs).'
+  definition: 'The random, independent orientation of each homologous pair at metaphase I, giving 2ⁿ possible chromosome combinations in gametes (n = number of pairs). It is the physical basis of Mendel''s law of independent assortment for genes on different chromosomes.'
   topic: Meiosis
 - term: nondisjunction
   definition: 'Failure of homologous chromosomes (meiosis I) or sister chromatids (meiosis II) to separate, producing gametes with an extra or missing chromosome.'

@@ -76,7 +76,7 @@ Most of your cells are specialized and divide rarely, if at all. **Stem cells** 
 | **Pluripotent** | Every cell type of the body | Embryonic stem cells from an early embryo |
 | Multipotent | Several related cell types | Blood stem cells in bone marrow |
 
-Adult stem cells, such as those in bone marrow and the skin, replace cells that wear out; bone marrow transplants treat leukemia by supplying healthy blood stem cells. In 2006 Shinya Yamanaka showed that adding just four genes could reprogram ordinary skin cells into induced pluripotent stem cells (**iPSCs**), which behave much like embryonic stem cells; he shared the 2012 Nobel Prize. iPSCs avoid the use of embryos, which some people object to on ethical grounds, and can be made from a patient's own cells.
+Adult stem cells, such as those in bone marrow and the skin, replace cells that wear out; bone marrow transplants treat leukemia by supplying healthy blood stem cells. In 2006 Shinya Yamanaka showed that adding just four genes could reprogram ordinary mouse fibroblasts (connective-tissue cells, such as those in skin) into induced pluripotent stem cells (**iPSCs**), which behave much like embryonic stem cells; in 2007 his team and others did the same with human skin cells. He shared the 2012 Nobel Prize. iPSCs avoid the use of embryos, which some people object to on ethical grounds, and can be made from a patient's own cells.
 
 ## Common mistakes
 

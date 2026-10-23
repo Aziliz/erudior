@@ -38,7 +38,7 @@ Opposite charges attract, so the slightly positive hydrogen of one water molecul
 
 *High specific heat.* **Specific heat** is the amount of energy needed to raise the temperature of 1 gram of a substance by 1 °C. For water it is about 4.18 J/(g·°C), one of the highest of any common substance; dry sand is about 0.8 J/(g·°C). Heating water means first breaking many hydrogen bonds, which soaks up energy. The result: water changes temperature slowly. Oceans and lakes keep coastal climates mild, and the water that makes up most of your body buffers you against sudden temperature swings. Water also absorbs a lot of energy when it evaporates, which is why sweating cools you.
 
-*Ice floats.* Most substances are denser as solids. When water freezes, hydrogen bonds lock the molecules into an open lattice that is about 9% less dense than liquid water, so ice floats. A frozen pond freezes from the top down, and the ice layer insulates the liquid water beneath, letting fish survive the winter.
+*Ice floats.* Most substances are denser as solids. When water freezes, hydrogen bonds lock the molecules into an open lattice that takes up about 9% more space than the same mass of liquid water, so ice is about 8% less dense and floats. A frozen pond freezes from the top down, and the ice layer insulates the liquid water beneath, letting fish survive the winter.
 
 *Water is an excellent solvent.* In a solution, the substance that does the dissolving is the solvent and the dissolved substance is the solute. Because water is polar, it surrounds ions and other polar molecules and pulls them apart: the δ− oxygens face positive ions and the δ+ hydrogens face negative ions. Sugars, salts, amino acids and many other molecules of life dissolve in water, which is why blood, sap and the inside of cells are all water-based solutions. Nonpolar substances, such as oils and fats, do not dissolve in water; they are hydrophobic ("water-fearing"), while polar and charged substances are hydrophilic.
 
@@ -94,7 +94,7 @@ A student adds drops of dilute hydrochloric acid to 50 mL of pure water and to 5
 
 What do the data show?
 
-1. In pure water, the first 5 drops dropped the pH by almost 4 units: a ten-thousandfold rise in H⁺. Water alone has nothing to absorb the added H⁺.
+1. In pure water, the first 5 drops dropped the pH by almost 4 units: a rise in H⁺ of several thousandfold ($10^{3.8} \approx 6000$). Water alone has nothing to absorb the added H⁺.
 2. In the buffer, 20 drops lowered the pH by only 0.3 units. The buffer took up almost all the added H⁺.
 3. Conclusion: the buffer resists change in pH. A buffer has a limited capacity, though; if acid kept being added, the buffer would eventually be used up and its pH would fall quickly too.
 

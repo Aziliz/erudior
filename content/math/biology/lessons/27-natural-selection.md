@@ -78,11 +78,11 @@ A related process, sexual selection, favors traits that improve mating success r
 
 ## Artificial selection
 
-Darwin opened the *Origin* with breeders, not wild animals. In **artificial selection**, people choose which individuals breed, based on traits they want. From one species of wild mustard, farmers have bred cabbage (selected for the end bud), broccoli (flower clusters), kale (leaves), kohlrabi (stem) and Brussels sprouts (side buds). From wolves came every breed of dog. If people can change a species this much in a few thousand years, natural selection acting over millions of years can do far more. The difference is who does the choosing: in nature, the environment "chooses" through survival and reproduction.
+Darwin opened the *Origin* with breeders, not wild animals. In **artificial selection**, people choose which individuals breed, based on traits they want. From one species of wild cabbage (*Brassica oleracea*, a relative of mustard), farmers have bred cabbage (selected for the end bud), broccoli (flower clusters), kale (leaves), kohlrabi (stem) and Brussels sprouts (side buds). From ancient wolves came every breed of dog. If people can change a species this much in a few thousand years, natural selection acting over millions of years can do far more. The difference is who does the choosing: in nature, the environment "chooses" through survival and reproduction.
 
 ## Selection in medicine
 
-When an antibiotic is used, it kills susceptible bacteria; any resistant cells survive and multiply. Overuse, and stopping a course before the infection is cleared, speeds this up. Methicillin-resistant *Staphylococcus aureus* (MRSA) and drug-resistant tuberculosis are results of natural selection happening now. The same logic explains insects resistant to pesticides and weeds resistant to herbicides.
+When an antibiotic is used, it kills susceptible bacteria; any resistant cells survive and multiply. Overuse and misuse, such as taking antibiotics for viral colds, speed this up. Methicillin-resistant *Staphylococcus aureus* (MRSA) and drug-resistant tuberculosis are results of natural selection happening now. The same logic explains insects resistant to pesticides and weeds resistant to herbicides.
 
 ## What selection cannot do
 

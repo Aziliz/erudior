@@ -50,13 +50,13 @@ The earliest widely accepted fossils are about 3.5 billion years old: microscopi
 
 Cyanobacteria evolved oxygen-releasing photosynthesis. Their oxygen at first reacted with dissolved iron, forming rust-red banded rock layers, but by about 2.4 billion years ago it began to build up in the air, the Great Oxidation Event. Oxygen was poisonous to many microbes, but it made aerobic respiration possible, with its much larger ATP yield (module 3).
 
-Eukaryotes appear around 2 billion years ago (estimates range from about 1.6 to 2.1). Their mitochondria and chloroplasts descend from bacteria engulfed by a host cell (the endosymbiotic theory from module 2): these organelles have their own circular DNA and bacterial-type ribosomes, and divide by splitting like bacteria. Multicellular algae appear over a billion years ago, and soft-bodied animals by about 575 million years ago.
+Eukaryotes appear around 2 billion years ago (estimates range from about 1.6 to 2.1). They arose from a partnership between the two older branches of the tree (lesson 29). The host was most likely an archaeon related to today's Asgard archaea, and it took in an oxygen-using bacterium that became the mitochondrion. Later, one eukaryote lineage that already had mitochondria took in a cyanobacterium, which became the chloroplast of algae and plants. This is the endosymbiotic theory from module 2: mitochondria and chloroplasts have their own circular DNA and bacterial-type ribosomes, and divide by splitting like bacteria. Multicellular algae appear over a billion years ago, and soft-bodied animals by about 575 million years ago.
 
 Then, starting about 539 million years ago, the Cambrian explosion: within roughly 20 to 25 million years, most of the major animal groups alive today appear in the fossil record, many with shells, skeletons and eyes. Predators and prey drove one another's evolution, and hard parts fossilize well, so the record suddenly becomes rich.
 
 ## Life moves onto land
 
-Plants reached land around 470 million years ago, followed by arthropods. The first four-legged vertebrates came out of the water around 375 to 365 million years ago (*Tiktaalik*, lesson 26). The amniotic egg, which doesn't dry out, freed reptiles from water around 320 million years ago. Dinosaurs appear about 230 million years ago, mammals not long after, birds evolve from small feathered dinosaurs around 150 million years ago, and flowering plants spread from about 130 million years ago.
+Plants reached land around 470 million years ago, followed by arthropods. Four-limbed vertebrates evolved from lobe-finned fish roughly 390 to 360 million years ago; *Tiktaalik* (lesson 26), about 375 million years old, shows the transition under way. The amniotic egg, which doesn't dry out, freed reptiles from water around 320 million years ago. Dinosaurs appear about 230 million years ago, mammals not long after, birds evolve from small feathered dinosaurs around 150 million years ago, and flowering plants spread from about 130 million years ago.
 
 ## Mass extinctions
 
@@ -70,7 +70,7 @@ Species go extinct all the time, at a low background rate. A **mass extinction**
 | End-Triassic | 201 | Volcanic eruptions as the supercontinent Pangaea split |
 | End-Cretaceous | 66 | Asteroid impact at Chicxulub, Mexico, plus volcanic eruptions in India |
 
-The end-Permian was the worst: roughly 90% of marine species vanished. The end-Cretaceous is the best known. In 1980 Luis and Walter Alvarez reported a thin clay layer at the boundary, worldwide, rich in iridium, a metal rare in Earth's crust but common in asteroids. A buried crater of the right age, about 180 km across, was later found at Chicxulub. Non-bird dinosaurs, along with many other groups, disappeared.
+The end-Permian was the worst: by most estimates 80 to 90 percent or more of marine species vanished. The end-Cretaceous is the best known. In 1980 Luis and Walter Alvarez reported a thin clay layer at the boundary, worldwide, rich in iridium, a metal rare in Earth's crust but common in asteroids. A buried crater of the right age, about 180 km across, was later found at Chicxulub. Non-bird dinosaurs, along with many other groups, disappeared.
 
 ### Example 2
 
@@ -100,6 +100,6 @@ How fast does change happen? Darwin pictured gradualism: slow, steady change, wi
 
 - Earth is about 4.54 billion years old; the geologic time scale divides that time into eons, eras and periods, with boundaries often at mass extinctions.
 - Experiments show life's building blocks can form without life; the RNA world hypothesis suggests RNA came before DNA and proteins.
-- Prokaryotes by 3.5 billion years ago; oxygen buildup about 2.4 billion; eukaryotes about 2 billion (by endosymbiosis); the Cambrian explosion about 539 million years ago.
+- Prokaryotes by 3.5 billion years ago; oxygen buildup about 2.4 billion; eukaryotes about 2 billion (an archaeal host plus a bacterium that became the mitochondrion); the Cambrian explosion about 539 million years ago.
 - Five mass extinctions, the worst at the end of the Permian; the end-Cretaceous impact ended the non-bird dinosaurs and opened the way for mammals.
 - Evolution can be gradual or follow punctuated equilibrium: long stability broken by relatively rapid change.

@@ -854,7 +854,7 @@
       - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UCG CAC ACC CAA UGC UAA` = Met–Ser–His–Thr–Gln–Cys. Mutated protein: Met–Ser–Leu–His–Pro–Met–Leu (no stop codon in this stretch).
 
 
-          The mutation is inserting an U before position 8. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG UCG CUA CAC CCA AUG CUA`, and every codon after the change is different. **Frameshift** (4).'
+          The mutation is inserting a U before position 8. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG UCG CUA CAC CCA AUG CUA`, and every codon after the change is different. **Frameshift** (4).'
         value: 54
       - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUA UUG GCG UUC UCG UAA` = Met–Ile–Leu–Ala–Phe–Ser. Mutated protein: Met–Ile–Ser–Ala–Phe–Ser, then stop.
 

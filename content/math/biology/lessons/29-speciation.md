@@ -50,7 +50,7 @@ Speciation can also happen without a geographic barrier, called sympatric specia
 - *Polyploidy.* An error in cell division can double a plant's chromosome number. A plant with four sets of chromosomes cannot produce fertile offspring with its two-set parents, so a new species can arise in one generation. Many crops, including wheat, cotton and potatoes, are polyploid.
 - *Shifts in habitat or food.* In North America, some apple maggot flies began laying eggs on apples (introduced by European settlers) instead of native hawthorns. Flies mate on their host fruit, and apples ripen earlier than hawthorns, so the two groups are becoming isolated within the same area.
 
-When one ancestral species gives rise to many species, each adapted to a different way of life, the result is called an adaptive radiation. The Galápagos finches, about 14 to 18 species descended from one ancestor that arrived roughly 2 million years ago, are a classic example, with beaks suited to seeds, insects, cactus or even blood.
+When one ancestral species gives rise to many species, each adapted to a different way of life, the result is called an adaptive radiation. The Galápagos finches, about 15 to 18 species descended from one ancestor that arrived roughly 2 million years ago, are a classic example, with beaks suited to seeds, insects, cactus or even blood.
 
 ## Phylogenetic trees
 
@@ -61,7 +61,7 @@ A **phylogenetic tree** is a diagram of the evolutionary relationships among org
 - The root, at the base, is the common ancestor of everything on the tree.
 - Relatedness is measured by how recently two groups share a common ancestor, not by how close they sit on the page. Branches can be rotated around a node like a mobile without changing the tree.
 
-A **clade** is an ancestor and all of its descendants: one complete branch. Biologists build trees from shared derived characters, traits that arose in a common ancestor and are found in all of its descendants (fur in mammals, for example). Traits shared with distant groups, like a backbone among vertebrates, don't help sort the vertebrates.
+A **clade** is an ancestor and all of its descendants: one complete branch. Biologists build trees from shared derived characters, traits that arose in a common ancestor and were passed on to its descendants (fur in mammals, for example). A descendant can later lose such a trait, as snakes lost their legs, which is one reason trees are built from many characters, and today mostly from DNA. Traits shared with distant groups, like a backbone among vertebrates, don't help sort the vertebrates.
 
 ### Example 2
 
@@ -88,12 +88,18 @@ Each nested group is a clade: lizard + human (amniotes), frog + lizard + human (
 
 On that tree, is the lizard more closely related to the frog or to the human?
 
-Find the most recent common ancestor of each pair. Lizard and human share the node at the far right; lizard and frog share only the node before it, further back in time. So the lizard is more closely related to the human, even though lizards and frogs are both cold-blooded and look more alike to us. Looks can mislead; shared ancestry is what counts. This is also why biologists say birds belong in the reptile clade: DNA and fossils show that crocodiles are more closely related to birds than to lizards.
+Find the most recent common ancestor of each pair. Lizard and human share the node at the far right; lizard and frog share only the node before it, further back in time. So the lizard is more closely related to the human, even though lizards and frogs both depend on outside heat and look more alike to us. Looks can mislead; shared ancestry is what counts. This is also why biologists say birds belong in the reptile clade: DNA and fossils show that crocodiles are more closely related to birds than to lizards.
+
+## The tree of all life
+
+The same method scales up to every living thing. In the 1970s Carl Woese compared ribosomal RNA, a molecule every cell carries, and found that cells without a nucleus fall into two deeply separate groups. That work gave the three domains this course uses: Bacteria, Archaea and Eukarya (the eukaryotes: protists, fungi, plants and animals). All three trace back to one common ancestor of all living cells, at the root of the tree.
+
+Exactly where eukaryotes attach to that tree is still being worked out, and the evidence has shifted. Since 2015, genomes of the Asgard archaea, first found in deep-sea sediment, have turned out to carry many genes once thought to exist only in eukaryotes. Most recent analyses place eukaryotes on a branch that grows out of the archaea, closest to the Asgard group: the first eukaryote seems to have formed when an archaeal cell took in a bacterium that became the mitochondrion (lesson 30). On that view the tree has two primary branches, Bacteria and Archaea, with eukaryotes nested inside the archaeal one. Biologists still use the three domains to sort living things because eukaryotes are so distinctive, and lesson 31 does the same. Either way, a tree is a hypothesis that is revised as evidence comes in.
 
 ## Common mistakes
 
 - Reading relatedness from left-to-right order of the tips. Look for the most recent shared node.
-- Thinking a tip is the ancestor of the tip next to it. All tips are present-day groups; ancestors sit at the nodes.
+- Thinking a tip is the ancestor of the tip next to it. Tips are the groups being compared (usually living ones); ancestors sit at the nodes.
 - Thinking a group that branched off early is "less evolved." The lamprey's line has been evolving for exactly as long as ours.
 - Calling any two populations that can make a hybrid one species. The test is fertile offspring in nature.
 - Thinking speciation always needs a physical barrier. Polyploidy and habitat shifts can split populations that live together.
@@ -105,3 +111,4 @@ Find the most recent common ancestor of each pair. Lizard and human share the no
 - Allopatric speciation follows geographic separation; sympatric speciation happens without it, often by polyploidy in plants.
 - Phylogenetic trees show common ancestry; relatedness is judged by the most recent common ancestor.
 - A clade is an ancestor and all its descendants, identified by shared derived characters.
+- All life falls into three domains (Bacteria, Archaea, Eukarya); current evidence suggests eukaryotes arose from within the archaea.

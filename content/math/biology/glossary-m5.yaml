@@ -13,7 +13,7 @@
   topic: Mendelian genetics
 - term: recessive
   aliases: [recessive allele]
-  definition: 'Describes an allele whose effect shows only when no dominant allele is present (in a homozygote). Written with a lower-case letter, e.g. p.'
+  definition: 'Describes an allele whose effect shows only when no dominant allele is present (in a homozygote, or in a male for an X-linked gene). Written with a lower-case letter, e.g. p.'
   topic: Mendelian genetics
 - term: genotype
   aliases: [genotypes]

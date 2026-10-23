@@ -9,7 +9,7 @@ refs: [bio-ref-lab]
 ---
 ## Why cells divide
 
-The last module followed energy through the cell: light captured in photosynthesis, sugar broken down for ATP. One of the biggest jobs that ATP pays for is making new cells. You began as a single fertilized egg and are now made of roughly 30 trillion cells. Your body replaces about a few hundred billion cells every day: skin flakes away, the lining of your gut is renewed every few days, and red blood cells last about four months. A cut heals because cells near the wound divide. Single-celled organisms such as amoebas and yeast divide to reproduce.
+The last module followed energy through the cell: light captured in photosynthesis, sugar broken down for ATP. One of the biggest jobs that ATP pays for is making new cells. You began as a single fertilized egg and are now made of roughly 30 trillion cells. Your body replaces roughly 330 billion cells every day, most of them blood cells: skin flakes away, the lining of your gut is renewed every few days, and red blood cells last about four months. A cut heals because cells near the wound divide. Single-celled organisms such as amoebas and yeast divide to reproduce.
 
 There is also a size reason, from module 2: as a cell grows, its volume rises faster than its surface area, so a large cell cannot move nutrients and wastes across its membrane fast enough. Dividing restores a workable surface-area-to-volume ratio.
 
@@ -17,7 +17,7 @@ Every division must solve one problem perfectly: each new cell needs a complete,
 
 ## Chromosomes and chromatids
 
-A eukaryotic cell's DNA is divided among several long molecules, each wrapped around proteins to form a chromosome. Human body cells have 46 chromosomes. Most of the time chromosomes are long, thin, and tangled in the nucleus, which is ideal for reading genes but terrible for sorting them. Before division they coil up tightly, becoming short and thick enough to see under a light microscope.
+A eukaryotic cell's DNA is divided among several long molecules, each wrapped around proteins to form a **chromosome**. Human body cells have 46 chromosomes. Most of the time chromosomes are long, thin, and tangled in the nucleus, which is ideal for reading genes but terrible for sorting them. Before division they coil up tightly, becoming short and thick enough to see under a light microscope.
 
 Before a cell divides, it copies each chromosome. The two identical copies, still joined together, are called **sister chromatids**. They are held together most tightly at a constricted region called the **centromere**, which gives a duplicated chromosome its familiar X shape. The counting rule that trips people up: a duplicated chromosome is still one chromosome, even though it contains two chromatids (two DNA molecules). When the sister chromatids separate, each becomes a chromosome in its own right.
 

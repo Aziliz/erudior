@@ -99,7 +99,7 @@ At one STR region, evidence from a crime scene shows bands at 9 and 12 repeats. 
 
 Suspect B has a 14-repeat allele not in the evidence, so B is excluded as the source. Suspect A matches, but many people share any one pair of alleles, so one region can't identify A. Labs compare all regions; a match at every one is strong evidence, while a single mismatch excludes.
 
-DNA sequencing reads the bases directly. The Human Genome Project finished a nearly complete human sequence in 2003, after 13 years and about $3 billion; today a genome can be sequenced in a day for a few hundred dollars.
+DNA sequencing reads the bases directly. The Human Genome Project finished a nearly complete human sequence in 2003, after 13 years and about $3 billion; today a genome can be sequenced in a day or two for a few hundred dollars.
 
 ## Common mistakes
 

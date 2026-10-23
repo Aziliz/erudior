@@ -36,19 +36,19 @@ Linnaeus grouped organisms by visible similarity and had no idea of evolution. S
 
 ## Three domains
 
-For most of the twentieth century, living things were split into prokaryotes and eukaryotes, with prokaryotes treated as one group, "bacteria." In 1977 Carl Woese and George Fox compared the sequences of ribosomal RNA, a molecule every cell has and that changes slowly over evolutionary time. Some prokaryotes, many from hot springs and swamps that release methane, turned out to be as different from ordinary bacteria as bacteria are from us. Woese proposed the **three-domain system**: Bacteria, **Archaea** and Eukarya.
+For most of the twentieth century, living things were split into prokaryotes and eukaryotes, with prokaryotes treated as one group, "bacteria." In 1977 Carl Woese and George Fox compared the sequences of ribosomal RNA, a molecule every cell has and that changes slowly over evolutionary time. Some prokaryotes, starting with methane-producing microbes from swamps and sewage and later many from hot springs, turned out to be as different from ordinary bacteria as bacteria are from us. In 1990 Woese and his colleagues formalized this as the **three-domain system**: Bacteria, **Archaea** and Eukarya.
 
 | Feature | Bacteria | Archaea | Eukarya |
 |---|---|---|---|
 | Nucleus | No | No | Yes |
 | Peptidoglycan in cell wall | Usually yes | No | No |
 | Membrane lipids | Ester-linked, unbranched | Ether-linked, branched | Ester-linked, unbranched |
-| RNA polymerase | One simple type | Several, eukaryote-like | Several |
+| RNA polymerase | One, simpler | One, complex and eukaryote-like | Several, complex |
 | Known disease-causing species | Many | None known | Some |
 
-The table shows the surprise: in their genes for copying DNA and making proteins, archaea resemble eukaryotes more than they resemble bacteria. Many biologists now think eukaryotes arose from within an archaeal lineage that took in a bacterium (the mitochondrion), so some trees show only two primary branches. Either way, "prokaryote" names a cell plan, not a single evolutionary group.
+The table shows the surprise: in their machinery for copying DNA and making proteins, archaea resemble eukaryotes more than they resemble bacteria. Lesson 29 explained why. Most recent genome studies place eukaryotes inside the archaeal branch, closest to the Asgard archaea: the first eukaryote seems to have been an archaeal cell that took in a bacterium, which became the mitochondrion. On those trees there are only two primary branches, Bacteria and Archaea. (Eukaryotes are a mosaic: their membrane lipids are bacterial-type, as the table shows, possibly inherited partly from that bacterial partner.) Biologists still use the three domains to classify life, because eukaryotes are so distinctive, and this course does too. Either way, "prokaryote" names a cell plan, not a single evolutionary group.
 
-Archaea are famous for extreme habitats: near-boiling hot springs, salt flats, acid mine drainage. But they also live in ordinary soil, oceans and the human gut, and all known methane-producing organisms are archaea.
+Archaea are famous for extreme habitats: near-boiling hot springs, salt flats, acid mine drainage. But they also live in ordinary soil, oceans and the human gut, and every known methanogen (a microbe that makes methane as the end product of its energy metabolism) is an archaeon.
 
 ## Bacteria: small, fast, everywhere
 
@@ -97,7 +97,7 @@ You met viruses in the cell module: a protein coat around DNA or RNA, with no ri
 
 A virus attaches to specific receptor molecules on a host cell, which is why each virus infects only certain species and tissues. Viruses that infect bacteria, called phages, show the two classic replication strategies:
 
-- In the **lytic cycle**, the viral genome takes over the cell at once: it is copied, viral proteins are made, new viruses assemble, and the cell bursts (lyses), releasing them. Cold and flu viruses behave this way in our cells.
+- In the **lytic cycle**, the viral genome takes over the cell at once: it is copied, viral proteins are made, new viruses assemble, and the cell bursts (lyses), releasing them. Many viruses behave this way in our cells, killing the cells they multiply in.
 - In the **lysogenic cycle**, the viral DNA is inserted into the host chromosome and copied along with it every time the cell divides, causing no harm for a while. A trigger such as radiation or stress can switch it into the lytic cycle later. Herpes viruses use a similar dormant stage, which is why cold sores come back.
 
 HIV is a retrovirus: it carries RNA and an enzyme, reverse transcriptase, that copies the RNA into DNA, which then integrates into the host genome. Antibiotics have no effect on viruses since there's no cell wall or bacterial ribosome to target; antiviral drugs block virus-specific enzymes instead, and vaccines prevent infection (lesson 37).
@@ -120,6 +120,6 @@ Normal growth after infection means the cells weren't being destroyed, so the ph
 
 - Taxonomy names and groups organisms; binomial names are *Genus species*. Ranks: domain, kingdom, phylum, class, order, family, genus, species.
 - Modern classification aims to reflect ancestry and changes as DNA evidence comes in.
-- Three domains, from rRNA comparisons: Bacteria, Archaea, Eukarya. Archaea lack peptidoglycan and share many molecular traits with eukaryotes.
+- Three domains, from rRNA comparisons: Bacteria, Archaea, Eukarya. Archaea lack peptidoglycan and share many molecular traits with eukaryotes; current evidence suggests eukaryotes arose from within the archaea.
 - Bacteria divide by binary fission; $N = N_0 \times 2^{n}$ during exponential growth.
 - Viruses need host cells; lytic cycles kill the host quickly, lysogenic cycles hide in its genome.

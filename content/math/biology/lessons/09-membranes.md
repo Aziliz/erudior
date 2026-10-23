@@ -54,11 +54,11 @@ The direction of osmosis depends on the solution outside the cell compared with 
 - A **hypotonic** solution has a lower solute concentration than the cell. Water enters. Animal cells swell and may burst (lyse); plant cells swell against their walls and become firm (turgid), which is the healthy state for a plant.
 - An **isotonic** solution has the same solute concentration as the cell. Water moves in and out equally, with no net change.
 
-That is why hospital IV fluids are isotonic saline (about 0.9% NaCl).
+That is why the standard hospital IV fluid is isotonic saline (about 0.9% NaCl).
 
 ### Example 1: Red blood cells in salt solutions
 
-Red blood cells, whose interior is about 0.9% salt, are placed in 0.9%, 3% and 0.1% NaCl. Predict what happens in each.
+Red blood cells, whose contents are isotonic to about 0.9% NaCl (their dissolved particles are mostly potassium ions and proteins, adding up to the same concentration), are placed in 0.9%, 3% and 0.1% NaCl. Predict what happens in each.
 
 1. 0.9%: isotonic. No net water movement; the cells keep their normal disc shape.
 2. 3%: hypertonic outside (more solute). Water leaves the cells by osmosis; they shrink and become spiky.
@@ -108,7 +108,7 @@ Classify each movement.
 
 1. *Oxygen enters a lung cell from air where its concentration is higher.* Down the gradient, through the bilayer: simple diffusion (passive).
 2. *Glucose enters a red blood cell, where its concentration is lower, through a carrier protein.* Down the gradient via a protein: facilitated diffusion (passive).
-3. *A gut cell takes in glucose even though its own glucose concentration is already higher than in the gut.* Against the gradient: active transport (it needs energy).
+3. *A gut cell takes in glucose even though its own glucose concentration is already higher than in the gut.* Against the gradient: active transport (it needs energy). Here the energy comes indirectly: the carrier lets Na⁺ flow back in down the gradient built by the sodium–potassium pump and uses that flow to drag glucose along.
 4. *Water enters a root cell from wet soil through aquaporins.* Osmosis (passive).
 
 The test is the direction relative to the gradient, not whether a protein is involved.

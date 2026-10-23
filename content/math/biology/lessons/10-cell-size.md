@@ -41,7 +41,7 @@ Going from side 1 to side 4, the volume rose 64-fold but the surface area only 1
 
 ## Diffusion distance
 
-A second problem compounds the first. Diffusion is fast over tiny distances and painfully slow over large ones: the time it takes grows roughly with the *square* of the distance. Oxygen diffuses across 10 µm in a fraction of a second, but across 1 cm it would take minutes to hours. A large cell would starve or poison itself in its center long before diffusion caught up. A large cell also has more volume for one nucleus to manage. So cells stay small, usually 10–100 µm, and big organisms are built from many of them.
+A second problem compounds the first. Diffusion is fast over tiny distances and painfully slow over large ones: the time it takes grows roughly with the *square* of the distance. Oxygen diffuses across 10 µm in a fraction of a second, but across 1 cm it would take several hours. A large cell would starve or poison itself in its center long before diffusion caught up. A large cell also has more volume for one nucleus to manage. So cells stay small, usually 10–100 µm, and big organisms are built from many of them.
 
 ### Example 2: The agar cube experiment
 

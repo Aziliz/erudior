@@ -23,7 +23,7 @@ The last lesson ended with fungi helping the first plants onto land. Plants evol
 - A waxy cuticle over leaves and stems slows water loss. Almost all land plants have one.
 - Mosses lack true vascular tissue, so water moves only by slow diffusion and capillary action. That's why mosses stay a few centimeters tall and live in damp places, and why their sperm need a film of water to swim to the egg.
 - Ferns have vascular tissue, tubes that carry water and food, which let them grow tall. They still need water for fertilization.
-- **Gymnosperms** produce seeds on the scales of cones. A seed is a plant embryo packed with a food supply inside a protective coat: it can wait out drought or cold and be carried far away. Pollen, carried by wind, delivers sperm without any need for water.
+- **Gymnosperms** produce seeds on the scales of cones. A seed is a plant embryo packed with a food supply inside a protective coat: it can wait out drought or cold and be carried far away. Pollen, carried by wind, brings the sperm to the egg, so fertilization no longer needs a film of water outside the plant.
 - **Angiosperms**, the flowering plants, enclose their seeds in an ovary that ripens into a fruit. Flowers recruit animals to carry pollen, and fruits recruit animals to carry seeds. Angiosperms are by far the largest group, with roughly 300,000 species.
 
 ## Alternation of generations

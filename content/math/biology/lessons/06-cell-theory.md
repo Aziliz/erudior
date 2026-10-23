@@ -98,7 +98,7 @@ Each cell is about 50 µm across. A frequent error is to make the field *larger*
 
 Magnification alone is not enough. Enlarge a blurry image and you just get a bigger blur. **Resolution** is the smallest distance between two points at which they can still be seen as separate. Because of the wave nature of light, a light microscope cannot resolve details closer together than about 0.2 µm (200 nm), however much it magnifies. That is enough to see most cells and their nuclei, but not ribosomes or the fine structure of membranes.
 
-An **electron microscope** uses a beam of electrons, which have a much shorter wavelength than light, focused by magnets. It can resolve details around a nanometer or smaller, a thousand times finer than a light microscope. There are two main types:
+An **electron microscope** uses a beam of electrons, which have a much shorter wavelength than light, focused by magnets. It can resolve details around a nanometer or smaller, hundreds of times finer than a light microscope. There are two main types:
 
 - A *transmission electron microscope (TEM)* sends electrons through an ultra-thin slice of a specimen, revealing internal structures such as membranes and ribosomes.
 - A *scanning electron microscope (SEM)* bounces electrons off a specimen's coated surface, producing detailed 3-D-looking images of surfaces.

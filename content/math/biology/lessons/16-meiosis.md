@@ -11,7 +11,7 @@ refs: [bio-ref-genetics]
 
 Mitosis, from lesson 14, copies a cell exactly: same chromosome number, same genes. That is perfect for growth and repair, but it creates a puzzle for sexual reproduction. A human egg and a human sperm combine to make a new person. If each carried 46 chromosomes, the child would have 92, the grandchild 184, and so on. That does not happen, so something must halve the chromosome number before fertilization.
 
-Biologists in the 1880s saw this directly. In 1876 Oscar Hertwig, watching transparent sea urchin eggs, saw a sperm nucleus enter the egg and fuse with the egg's nucleus: fertilization is the joining of two nuclei. In 1883 Edouard van Beneden counted chromosomes in a roundworm (Ascaris) whose cells have very few: the egg nucleus and the sperm nucleus each brought 2 chromosomes, and the fertilized egg had 4. August Weismann then argued that a special "reduction division" must halve the number when sex cells form. That division is **meiosis**. This lesson explains how it works and why it makes every offspring genetically unique.
+Biologists in the 1870s and 1880s saw this directly. In 1876 Oscar Hertwig, watching transparent sea urchin eggs, saw a sperm nucleus enter the egg and fuse with the egg's nucleus: fertilization is the joining of two nuclei. In 1883 Edouard van Beneden counted chromosomes in a roundworm (Ascaris) whose cells have very few: the egg nucleus and the sperm nucleus each brought 2 chromosomes, and the fertilized egg had 4. August Weismann then argued that a special "reduction division" must halve the number when sex cells form. That division is **meiosis**. This lesson explains how it works and why it makes every offspring genetically unique.
 
 ## Pairs of chromosomes
 
@@ -65,8 +65,8 @@ Step 5: After meiosis II: 4 cells, each with 4 single-chromatid chromosomes. Hal
 
 Siblings with the same parents (other than identical twins) are never genetically identical. Meiosis and fertilization shuffle genes in three ways.
 
-1. **Independent assortment**. At metaphase I, each homologous pair lines up independently of the others. For each pair there are 2 ways it can face the poles, so with n pairs the number of different chromosome combinations in a gamete is $2^n$. For humans, $2^{23} = 8{,}388{,}608$.
-2. Crossing over. Exchanging segments between homologs makes recombinant chromosomes, mixing the mother's and father's versions of genes on the same chromosome. Several crossovers usually happen on each pair, multiplying the possibilities far beyond $2^{23}$.
+1. **Independent assortment**. At metaphase I, each homologous pair lines up independently of the others. For each pair there are 2 ways it can face the poles, so with n pairs the number of different chromosome combinations in a gamete is $2^n$. For humans, $2^{23} = 8{,}388{,}608$. This chromosome-level shuffle is the physical basis of Mendel's law of independent assortment (lesson 18): genes on different chromosomes end up in gametes independently of one another. Genes close together on the same chromosome travel together unless crossing over separates them.
+2. Crossing over. Exchanging segments between homologs makes recombinant chromosomes, mixing the mother's and father's versions of genes on the same chromosome. Every pair normally has at least one crossover, and longer chromosomes often have two or three, multiplying the possibilities far beyond $2^{23}$.
 3. Random fertilization. Any one of the millions of possible sperm can fertilize any one of the millions of possible eggs. Ignoring crossing over, one couple could produce $2^{23} \times 2^{23} \approx 7 \times 10^{13}$ (about 70 trillion) different chromosome combinations.
 
 Why does variation matter? A population whose members differ is more likely to include some individuals who survive a new disease or a change in climate. This variation is the raw material for natural selection (module 7).

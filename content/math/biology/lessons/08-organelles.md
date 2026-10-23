@@ -16,7 +16,7 @@ The **nucleus** is the large organelle that holds the cell's DNA and controls it
 
 ## Making proteins: ribosomes and the ER
 
-Ribosomes, made in the nucleolus, build proteins. Some float free in the cytoplasm and make proteins that stay there. Others are attached to the endoplasmic reticulum.
+Ribosomes, whose two subunits are assembled in the nucleolus, build proteins. Some float free in the cytoplasm and make proteins that stay there. Others are attached to the endoplasmic reticulum.
 
 The **endoplasmic reticulum** (ER) is a network of folded membranes and tubes continuous with the outer membrane of the nuclear envelope.
 
@@ -45,7 +45,7 @@ Reading the table step by step:
 2. By 20 minutes, the label has shifted largely to the Golgi, and the rough ER's share has fallen.
 3. By 120 minutes, most label is in secretory vesicles near the cell surface, ready to be released.
 
-Because the same labeled batch of protein moves from one compartment to the next over time, the data show the path: rough ER → Golgi → secretory vesicles → outside the cell. Palade shared the 1974 Nobel Prize for this work.
+Because the same labeled batch of protein moves from one compartment to the next over time, the data show the path: rough ER → Golgi → secretory vesicles → outside the cell. Palade shared the 1974 Nobel Prize, with Albert Claude and Christian de Duve, for discoveries about the cell's structure and organization, including this work.
 
 ## Recycling and storage: lysosomes and vacuoles
 
@@ -57,7 +57,7 @@ Vacuoles are membrane sacs for storage. Plant cells usually have one large centr
 
 A **mitochondrion** (plural mitochondria) is the organelle where cellular respiration releases energy from food molecules and stores it in ATP, the cell's energy currency. It has two membranes; the inner one is folded into ridges called cristae, which give it a large surface area for the enzymes of respiration. Cells that use a lot of energy, such as muscle and sperm cells, have many mitochondria. Plant cells have mitochondria too.
 
-A **chloroplast** is the organelle in plants and algae where photosynthesis captures light energy and uses it to build sugar from carbon dioxide and water. It also has two outer membranes and, inside, stacks of membrane discs containing the green pigment chlorophyll. Module 3 explains what happens in both organelles.
+A **chloroplast** is the organelle in plants and algae where photosynthesis captures light energy and uses it to build sugar from carbon dioxide and water. It is also wrapped in two membranes and, inside, stacks of membrane discs containing the green pigment chlorophyll. Module 3 explains what happens in both organelles.
 
 ## Shape and support: cytoskeleton and cell wall
 

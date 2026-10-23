@@ -45,7 +45,7 @@ Two strands make the **double helix**, a twisted ladder. The sugar–phosphate b
 
 Each rung is one purine plus one pyrimidine, so every rung is the same width and the helix is a uniform 2 nm wide. The strands are **antiparallel**: they run in opposite directions, one 5′ → 3′ and its partner 3′ → 5′.
 
-The model came together in 1953. Rosalind Franklin's X-ray photographs (with Maurice Wilkins's group) showed a helix of constant width with a repeating pattern every 3.4 nm. James Watson and Francis Crick combined her data with a key clue from chemistry, Chargaff's measurements, and built the model.
+The model came together in 1953. Rosalind Franklin's X-ray photographs, taken at King's College London (where Maurice Wilkins also studied DNA), showed a helix of constant width with a repeating pattern every 3.4 nm. James Watson and Francis Crick, who saw her data without her knowledge, combined it with a key clue from chemistry, Chargaff's measurements, and built the model.
 
 ## Chargaff's rules
 
@@ -97,7 +97,7 @@ That is exactly what Meselson and Stahl saw. The dispersive model predicts a sin
 
 Copying is done by a team of enzymes:
 
-1. Replication starts at specific sites called origins. A bacterial chromosome has one origin; a human chromosome has thousands, so the work is split among many replication forks.
+1. Replication starts at specific sites called origins. A bacterial chromosome has one origin; a human chromosome has hundreds to thousands, so the work is split among many replication forks.
 2. Helicase unwinds the helix, breaking the hydrogen bonds between bases and forming a Y-shaped replication fork.
 3. Primase lays down a short RNA primer, because the main copying enzyme cannot start a strand from nothing.
 4. **DNA polymerase** reads the template and adds matching nucleotides. It can only add to the 3′ end of a growing strand, so new DNA is always built 5′ → 3′.

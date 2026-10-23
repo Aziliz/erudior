@@ -78,7 +78,7 @@ Which species is most distantly related to humans, and which conclusion do the d
 
 Yeast, with the most differences, shares the most distant common ancestor with humans. The ranking (primates, then birds, then fish, then fungi) matches the order of relatedness worked out independently from anatomy and fossils. Two separate kinds of evidence agree.
 
-DNA also holds "molecular fossils." Humans and other apes carry the same broken copy of a gene for making vitamin C, with some of the same disabling mutations, at the same spot in the genome. The simplest explanation is that the gene broke once in a common ancestor.
+DNA also holds "molecular fossils." Humans, other apes and monkeys carry the same broken copy of a gene for making vitamin C, with some of the same disabling mutations, at the same spot in the genome. The simplest explanation is that the gene broke once in a common ancestor.
 
 ## Biogeography
 
@@ -91,7 +91,7 @@ Evolution is also seen directly. Bacteria evolve resistance to antibiotics withi
 ## Common mistakes
 
 - Thinking "theory" means a hunch. A scientific theory is a well-tested explanation supported by large bodies of evidence.
-- Saying humans evolved from chimpanzees. Humans and chimpanzees share a common ancestor that lived roughly 6 to 7 million years ago; both lines have evolved since.
+- Saying humans evolved from chimpanzees. Humans and chimpanzees share a common ancestor that lived roughly 6 to 8 million years ago (estimates vary); both lines have evolved since.
 - Calling bird and insect wings homologous. They are analogous: same function, different structure and origin.
 - Using carbon-14 to date dinosaurs. Dinosaur fossils are tens of millions of years old, far beyond carbon-14's range; their ages come from isotopes in nearby volcanic rock.
 - Thinking that after two half-lives nothing is left. Each half-life removes half of what remains: $\tfrac14$ is left after two.
