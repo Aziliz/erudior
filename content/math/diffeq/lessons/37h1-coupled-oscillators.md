@@ -57,7 +57,7 @@ $\omega^2M\mathbf{v} = K\mathbf{v}$. Multiplying by $M^{-1}$:
 
 $$\big(M^{-1}K\big)\mathbf{v} = \omega^2\mathbf{v}.$$
 
-So the **squares** of the frequencies are the eigenvalues of $M^{-1}K$, and each eigenvector
+So the *squares* of the frequencies are the eigenvalues of $M^{-1}K$, and each eigenvector
 $\mathbf{v}$ is a **mode shape**: it says how far, and in which direction, each mass moves
 relative to the others in that mode. A solution $\cos(\omega t)\mathbf{v}$ or
 $\sin(\omega t)\mathbf{v}$ is called a normal mode, the same idea as the standing waves of a

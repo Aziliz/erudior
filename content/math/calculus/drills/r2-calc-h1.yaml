@@ -122,14 +122,14 @@
     lo: dxv^3*s1
     up: dxv^3*s2
     gap: up - lo
-    last: pcs - 1
+    imax: pcs - 1
   prompt: 'Split $[0, {top}]$ into {pcs} equal pieces. Find the lower sum $L$ and the upper sum $U$ for $f(x) = x^2$ (exact fractions or 3 decimal places).'
   answers:
     - {name: lo, label: '$L =$', tolerance: 0.0006}
     - {name: up, label: '$U =$', tolerance: 0.0006}
   solution: |-
     The width is $\Delta x = {dxv:texfrac}$ and the points are $x_i = i\,\Delta x$. Since $x^2$ increases on $[0, {top}]$, the infimum on each piece is at its left end and the supremum at its right end, and each term $f(x_i)\Delta x = i^2(\Delta x)^3$.
-    $L = (\Delta x)^3\displaystyle\sum_{i=0}^{{last}} i^2 = \left({dxv:texfrac}\right)^3\cdot {s1} =$ **${lo:texfrac}$**.
+    $L = (\Delta x)^3\displaystyle\sum_{i=0}^{\,{imax}} i^2 = \left({dxv:texfrac}\right)^3\cdot {s1} =$ **${lo:texfrac}$**.
     $U = (\Delta x)^3\displaystyle\sum_{i=1}^{{pcs}} i^2 = \left({dxv:texfrac}\right)^3\cdot {s2} =$ **${up:texfrac}$**.
     Check: $U - L = [f({top}) - f(0)]\,\Delta x = {gap:texfrac}$.
 

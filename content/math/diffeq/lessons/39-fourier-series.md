@@ -100,6 +100,34 @@ $$f(x) = \sum_{n=1}^\infty b_n\sin\frac{n\pi x}{L}, \qquad b_n = \frac2L\int_0^L
 
 The even extension gives a cosine series instead.
 
+The two extensions of $f(x) = x$ on $(0, \pi)$ show the difference. The odd extension is a
+sawtooth with jumps (its sine series is Example 4 below); the even extension is the
+continuous triangle wave $|x|$ of Example 2, which is why its coefficients fall off faster.
+
+```plot
+{"x": [-9.5, 9.5], "y": [-4, 4], "functions": [{"f": "x + 2*pi", "from": -9.42, "to": -3.15, "dashed": true}, {"f": "x", "from": -3.1416, "to": 0, "dashed": true}, {"f": "x", "from": 0, "to": 3.1416, "label": "f(x) = x"}, {"f": "x - 2*pi", "from": 3.15, "to": 9.42, "dashed": true}], "caption": "Odd extension of f(x) = x from (0, π): a sawtooth of period 2π that jumps at x = ±π, ±3π. Solid: the original piece; dashed: the extension."}
+```
+
+```plot
+{"x": [-9.5, 9.5], "y": [-1, 4], "functions": [{"f": "abs(x + 2*pi)", "from": -9.42, "to": -3.1416, "dashed": true}, {"f": "abs(x)", "from": -3.1416, "to": 0, "dashed": true}, {"f": "x", "from": 0, "to": 3.1416, "label": "f(x) = x"}, {"f": "abs(x - 2*pi)", "from": 3.1416, "to": 9.42, "dashed": true}], "caption": "Even extension of the same f: a continuous triangle wave of period 2π (the function |x| of Example 2). Solid: the original piece; dashed: the extension."}
+```
+
+Which series to compute depends on what you're given and, for the PDEs ahead, on what the
+solution must do at the ends:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing which Fourier series to compute
+  accDescr: If f is given on a full period from minus L to L, check its symmetry. An even f has a cosine series with every b_n zero, an odd f has a sine series with every a_n zero, and a function that is neither needs the full series with a0 over 2, a_n and b_n. If f is given only on 0 to L, choose an extension. The odd extension gives a half-range sine series, used when the solution must be zero at both ends. The even extension gives a half-range cosine series, used when the slope must be zero at both ends.
+  A{"Where is f given?"} -->|"a full period, −L to L"| B{"Symmetry of f?"}
+  B -->|even| C["Cosine series: all bₙ = 0"]
+  B -->|odd| D["Sine series: all aₙ = 0"]
+  B -->|neither| E["Full series: a₀/2, aₙ and bₙ"]
+  A -->|"only on 0 to L"| F{"Which extension?"}
+  F -->|"odd: zero values at the ends"| G["Half-range sine series"]
+  F -->|"even: zero slopes at the ends"| H["Half-range cosine series"]
+```
+
 ### Example 3
 
 Find the sine series of $f(x) = 1$ on $0 < x < L$.

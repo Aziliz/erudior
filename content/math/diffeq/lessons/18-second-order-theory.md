@@ -4,7 +4,7 @@ module: de-m5
 title: Second-order linear equations and the Wronskian
 minutes: 30
 topics: [Second-order theory]
-drills: [de-wronskian, de-ivp-combo]drills: [de-wronskian, de-ivp-combo, de-m5-r2-abel]
+drills: [de-wronskian, de-ivp-combo, de-m5-r2-abel]
 refs: [de-ref-solutions]
 ---
 ## Why second order?

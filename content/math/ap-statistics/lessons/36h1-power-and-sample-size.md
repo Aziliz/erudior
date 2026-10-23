@@ -60,7 +60,7 @@ $z_\beta$ for the point with upper-tail area $\beta$ (0.842 for $\beta = 0.20$, 
 
 $$n = \left(\frac{(z_\alpha + z_\beta)\,\sigma}{\delta}\right)^{2}.$$
 
-Always round **up**: rounding down gives slightly less power than asked for. For a two-sided test
+Always round *up*: rounding down gives slightly less power than asked for. For a two-sided test
 at level $\alpha$, replace $z_\alpha$ by $z_{\alpha/2}$ (1.960 for $\alpha = 0.05$). That ignores the tiny
 chance of rejecting in the wrong tail, which is negligible once the power is reasonable.
 

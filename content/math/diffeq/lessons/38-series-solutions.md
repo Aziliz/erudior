@@ -40,6 +40,22 @@ We'll work at $x_0 = 0$.
    **recurrence relation** expressing later coefficients in terms of earlier ones.
 4. Use the recurrence to compute terms; $a_0 = y(0)$ and $a_1 = y'(0)$ are free.
 
+The flowchart shows the whole procedure, including the first check: whether $x_0$ is an
+ordinary point at all.
+
+```mermaid
+flowchart TD
+  accTitle: The power series method, step by step
+  accDescr: Start by checking whether x0 is an ordinary point, that is, whether P(x0) is nonzero. If it is zero, x0 is a singular point and an ordinary power series may fail, so the method of Frobenius is needed instead. If x0 is ordinary, substitute the series for y, y prime and y double prime; shift indices so every sum shows x to the n; handle leftover low-order terms separately; set each coefficient to zero to get a recurrence; compute coefficients from a0 = y(0) and a1 = y prime of 0; and group the a0 terms and the a1 terms to get two independent solutions.
+  A{"Is P(x0) nonzero?"} -->|"yes: ordinary point"| B["Substitute the series for y, y′, y″"]
+  A -->|"no: singular point"| Z["Power series may fail: use Frobenius"]
+  B --> C["Shift indices so every sum shows xⁿ"]
+  C --> D["Handle leftover low-order terms"]
+  D --> E["Set each coefficient to zero: recurrence"]
+  E --> F["Compute terms from a₀ = y(0), a₁ = y′(0)"]
+  F --> G["Group: y = a₀y₁ + a₁y₂"]
+```
+
 Shifting is the step that needs care. In $\sum_{n=2}^\infty n(n-1)a_nx^{n-2}$, replace $n$ by
 $n + 2$: it becomes $\sum_{n=0}^\infty (n+2)(n+1)a_{n+2}x^n$. Same sum, relabeled.
 
@@ -95,6 +111,12 @@ $(1 + x^2)y'' + y = 0$, $P = 1 + x^2$ vanishes at $x = \pm i$, at distance 1 fro
 solutions about 0 are guaranteed to converge for $|x| < 1$, even though nothing looks wrong
 on the real line. For Legendre's equation $(1 - x^2)y'' - 2xy' + \alpha(\alpha + 1)y = 0$ the
 singular points $\pm1$ give radius at least 1.
+
+The picture shows the first example in the complex plane. The disk around the expansion
+point reaches out to the nearest singular point; on the real line, that disk covers the
+interval where convergence is guaranteed.
+
+![The complex plane with the expansion point x0 = 0 at the center of a shaded disk of radius 1. Singular points marked with crosses sit at x = i and x = −i on the edge of the disk. A dashed radius is labeled 1, and the real interval from −1 to 1 inside the disk is highlighted as the interval where the series is guaranteed to converge.](images/de-m9-radius.svg)
 
 ## Singular points, briefly
 

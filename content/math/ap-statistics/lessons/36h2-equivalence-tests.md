@@ -62,7 +62,7 @@ Each one-sided test at level $\alpha$ matches one end of a $(1 - 2\alpha)$ confi
 > TOST at level $\alpha$ concludes equivalence exactly when the $(1 - 2\alpha)$ confidence interval
 > lies entirely inside $(-\Delta, \Delta)$.
 
-With $\alpha = 0.05$, that is a **90%** interval, not a 95% one, a frequent source of confusion. The
+With $\alpha = 0.05$, that is a *90%* interval, not a 95% one, a frequent source of confusion. The
 picture shows the four possible outcomes.
 
 ![Four horizontal 90% confidence intervals drawn against an axis with dashed lines at minus delta, 0 and plus delta, the region between the margins shaded as the equivalence zone. Top: an interval from about −0.12 to 0.42 that contains 0 but reaches past plus delta: inconclusive. Second: an interval from −0.10 to 0.12 inside the zone and containing 0: equivalent, the interval includes 0. Third: an interval from 0.34 to 0.60, entirely beyond plus delta: not equivalent. Bottom: an interval from 0.05 to 0.22 inside the zone but excluding 0: equivalent, the interval excludes 0.](images/stat-m8-equivalence.svg)
