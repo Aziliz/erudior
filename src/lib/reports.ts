@@ -2,6 +2,7 @@
 // Pure functions over the family, a student's progress and records, and the installed courses.
 
 import type { Attempt, Course, Progress } from "./types";
+import { answerText, chosenText } from "./questions";
 import { CATALOG } from "./catalog";
 import { gradingOf, type Family, type Student } from "./family";
 import {
@@ -422,8 +423,8 @@ export function workSamples(d: StudentData, yearStart: string): WorkSample[] {
           const q = byId.get(ans.qid);
           return {
             stem: q?.stem ?? ans.qid,
-            chosen: q ? ans.chosen.map((i) => q.choices[i]).join("; ") || "(no answer)" : "",
-            answer: q ? q.answer.map((i) => q.choices[i]).join("; ") : "",
+            chosen: q ? chosenText(q, ans.chosen) || "(no answer)" : "",
+            answer: q ? answerText(q) : "",
             correct: ans.correct,
           };
         }),

@@ -7,6 +7,7 @@
 import catalogJson from "../../samples/catalog.json";
 import type { Course, Progress } from "./types";
 import { attemptPassed } from "./session";
+import { coreLessons } from "./course";
 import { REMOTE, downloadCourse } from "./courseSource";
 
 export interface CatalogEntry {
@@ -20,18 +21,24 @@ export interface CatalogEntry {
   subject: string;
   level: string[];
   type: string[];
+  /** Core lessons. */
   lessons: number;
+  /** Optional honors lessons. */
+  honors?: number;
   questions: number;
   cards: number;
   drills: number;
-  /** Lesson ids, in order (to tell whether a prerequisite course is finished). */
+  /** Core lesson ids, in order (to tell whether a prerequisite course is finished). */
   lessonIds?: string[];
+  /** Honors lessons and modules (optional; left out of grades and finishing). */
+  honorsLessonIds?: string[];
+  honorsModuleIds?: string[];
   /** Courses that must be finished first (catalog ids). */
   requires?: string[];
   /** Language courses: words carried over from earlier courses (included in `words`). */
   carried?: number;
   /** Lesson plan: module titles and their lesson titles. */
-  outline?: { title: string; lessons: string[] }[];
+  outline?: { title: string; lessons: string[]; honors?: string[]; isHonors?: boolean }[];
   /** Language courses: target vocabulary size and items in the course. */
   words?: number;
   /** Published catalogs only: size and SHA-256 of the course file (covered by the catalog signature). */
@@ -121,7 +128,7 @@ export function prerequisites(entry: CatalogEntry, p: Progress): Prerequisite[] 
 /** How far along a course is, and whether it counts as finished (catalog or library course). */
 export function courseFinished(id: string, p: Progress, course?: Course): Prerequisite {
   const req = catalogEntry(id);
-  const ids = req?.lessonIds ?? course?.lessons.map((l) => l.id) ?? [];
+  const ids = req?.lessonIds ?? (course ? coreLessons(course).map((l) => l.id) : []);
   const lessonsDone = ids.filter((l) => p.lessonsDone[`${id}/${l}`]).length;
   const byExam = p.attempts.some(
     (a) => a.mode === "exam" && !a.lesson && !a.module && a.bankId.startsWith(`${id}__`) && attemptPassed(a) === true,

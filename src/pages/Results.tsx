@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MathText from "../components/MathText";
+import QuestionBody, { QuestionImage, QuestionStem } from "../components/QuestionBody";
+import { isChoice, qtype } from "../lib/questions";
 import type { AppApi, View } from "../App";
 import type { Attempt, Bank } from "../lib/types";
 import { lessonQuizNeeded, startLessonQuiz, startModuleQuiz, startPractice } from "../lib/session";
@@ -242,8 +244,12 @@ export default function Results({
                 </span>
                 {rec.flagged && <span className="pill neutral">Flagged</span>}
               </div>
-              <MathText as="p" className="q-stem" text={q.stem} />
+              <QuestionStem q={q} />
+              {qtype(q) !== "label" && <QuestionImage q={q} />}
               {meta[q.id]?.note && <p className="note-show">Your note: {meta[q.id]?.note}</p>}
+              {!isChoice(q) ? (
+                <QuestionBody q={q} order={q.choices.map((_, i) => i)} chosen={rec.chosen} reveal review />
+              ) : (
               <ul className="review-choices">
                 {q.choices.map((c, i) => {
                   const picked = rec.chosen.includes(i);
@@ -260,6 +266,7 @@ export default function Results({
                   );
                 })}
               </ul>
+              )}
               {q.explanation && <MathText as="p" className="review-expl" text={q.explanation} />}
               <div className="row review-actions">
                 <button className="btn sm ghost flag-btn" aria-pressed={!!meta[q.id]?.flag} onClick={() => toggleFlag(q.id)}>

@@ -11,14 +11,14 @@ const files = [
   ...readdirSync("samples/math").filter((f) => f.endsWith(".json")).map((f) => `samples/math/${f}`),
 ];
 for (const file of files) {
-  const p = checkCourse(file, { runs: 20 });
+  const p = await checkCourse(file, { runs: 20 });
   if (p.length) console.log(`${file}: ${p.length} problem(s)\n  ${p.slice(0, 30).join("\n  ")}`);
   bad += p.length;
 }
 
 // The real estate course: drills only (its text has prices, not math).
 const co = "samples/colorado-broker-course.json";
-const p = checkCourse(co, { runs: 40, money: true });
+const p = await checkCourse(co, { runs: 40, money: true });
 if (p.length) console.log(`${co}: ${p.length} problem(s)\n  ${p.slice(0, 30).join("\n  ")}`);
 bad += p.length;
 const c = normalizeCourse(JSON.parse(readFileSync(co, "utf8")));

@@ -118,8 +118,12 @@ export function gradeParts(courseId: string, p: Progress, parentGrades: ParentGr
     }
     return [...m.values()];
   };
-  const lessons = best((a) => (a.lesson ? a.lesson.lessonId : null));
-  const modules = best((a) => (a.module ? a.module.moduleId : null));
+  // Honors work is optional extra content: it doesn't count toward the grade.
+  const entry = CATALOG.find((e) => e.id === courseId);
+  const hl = new Set(entry?.honorsLessonIds ?? []);
+  const hm = new Set(entry?.honorsModuleIds ?? []);
+  const lessons = best((a) => (a.lesson && !hl.has(a.lesson.lessonId) ? a.lesson.lessonId : null));
+  const modules = best((a) => (a.module && !hm.has(a.module.moduleId) ? a.module.moduleId : null));
   const finals = best((a) => (a.mode === "exam" && !a.lesson && !a.module ? "final" : null));
   const parent = parentGrades.filter((g) => g.courseId === courseId && (!until || g.date <= until)).map((g) => g.percent);
   return {

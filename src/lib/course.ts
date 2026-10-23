@@ -30,6 +30,7 @@ export function normalizeCourse(raw: unknown): Course {
     .map((m, i) => ({
       id: safeId(m.id, `m${i + 1}`),
       title: str(m.title) || `Module ${i + 1}`,
+      ...(m.honors === true ? { honors: true } : {}),
       quiz: arr(m.quiz).length ? arr(m.quiz).map(String).filter(Boolean) : undefined,
     }));
 
@@ -42,6 +43,7 @@ export function normalizeCourse(raw: unknown): Course {
         id: safeId(l.id, `l${i + 1}`),
         module,
         title: str(l.title) || `Lesson ${i + 1}`,
+        ...(l.honors === true ? { honors: true } : {}),
         topics: arr(l.topics).map(String).filter(Boolean),
         minutes: Number(l.minutes) > 0 ? Number(l.minutes) : undefined,
         body: str(l.body),
@@ -237,6 +239,15 @@ export function withDeck(course: Course, deck: Deck): Course {
   const exists = course.decks.some((d) => d.id === deck.id);
   return { ...course, decks: exists ? course.decks.map((d) => (d.id === deck.id ? deck : d)) : [...course.decks, deck] };
 }
+
+/** Honors lessons and modules are optional extra depth: not needed to finish a module or the course. */
+export const isHonorsModule = (course: Pick<Course, "modules">, moduleId: string) => !!course.modules.find((m) => m.id === moduleId)?.honors;
+export const isHonorsLesson = (course: Pick<Course, "modules">, l: Lesson) => !!l.honors || isHonorsModule(course, l.module);
+/** The lessons that count toward finishing the course. */
+export const coreLessons = (course: Course) => course.lessons.filter((l) => !isHonorsLesson(course, l));
+/** Lessons that count toward finishing a module (an honors module: all of them). */
+export const moduleCoreLessons = (course: Course, moduleId: string) =>
+  course.lessons.filter((l) => l.module === moduleId && (isHonorsModule(course, moduleId) || !l.honors));
 
 export function courseCounts(c: Course) {
   return {

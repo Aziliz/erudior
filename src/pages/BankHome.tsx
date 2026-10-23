@@ -41,8 +41,10 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
   const [pSections, setPSections] = useState<string[]>([]);
   const [pFilter, setPFilter] = useState<PracticeFilter>("all");
   const [pCount, setPCount] = useState(20);
+  const hasHonors = bank.questions.some((q) => q.honors);
+  const [pHonors, setPHonors] = useState(false);
 
-  const pool = practicePool(bank, progress, { topics: pTopics, sections: pSections, filter: pFilter, shuffleChoices });
+  const pool = practicePool(bank, progress, { topics: pTopics, sections: pSections, filter: pFilter, shuffleChoices, honors: pHonors });
   const cov = bankCoverage(bank, progress);
   const tstats = topicStats(bank, progress).sort(
     (a, b) => (a.accuracy ?? 2) - (b.accuracy ?? 2) || a.topic.localeCompare(b.topic),
@@ -136,6 +138,7 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
           <p className="desc">
             Questions are drawn at random from the bank. No feedback until you submit, then a full score report.
             {bank.exam.sectionQuotas && " Sections are kept in separate blocks, like the real exam."}
+            {hasHonors && " The optional honors questions are left out."}
           </p>
           <div className="form-grid">
             {isSplit ? (
@@ -264,6 +267,12 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                 </div>
               </div>
             )}
+            {hasHonors && (
+              <label className="check small">
+                <input type="checkbox" checked={pHonors} onChange={(e) => setPHonors(e.target.checked)} />
+                Include honors questions (from the optional honors lessons)
+              </label>
+            )}
             <label className="field" style={{ maxWidth: 200 }}>
               <span>How many</span>
               <input
@@ -288,6 +297,7 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                     sections: pSections,
                     filter: pFilter,
                     shuffleChoices,
+                    honors: pHonors,
                   }),
                 })
               }

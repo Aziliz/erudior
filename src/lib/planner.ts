@@ -5,6 +5,7 @@
 import type { Course, DayActivity, Lesson, Plan, Progress } from "./types";
 import { dueCards } from "./vocab";
 import { MISSED_DECK_ID, cardKey, daysBetween, deckStatus, studyDecks, today } from "./srs";
+import { coreLessons, isHonorsLesson } from "./course";
 
 export function emptyDay(): DayActivity {
   return { questions: 0, cards: 0, lessons: 0, drills: 0 };
@@ -42,8 +43,11 @@ export function orderedLessons(course: Course): Lesson[] {
 }
 
 export interface CourseNumbers {
+  /** Core lessons (honors lessons are counted separately). */
   lessonsDone: number;
   lessonsTotal: number;
+  honorsDone: number;
+  honorsTotal: number;
   questionsSeen: number;
   questionsTotal: number;
   recentAccuracy: number | null; // last ~150 answers in this course
@@ -56,7 +60,10 @@ export interface CourseNumbers {
 }
 
 export function courseNumbers(course: Course, p: Progress, now = today()): CourseNumbers {
-  const lessonsDone = course.lessons.filter((l) => p.lessonsDone[lessonKey(course.id, l.id)]).length;
+  const core = coreLessons(course);
+  const lessonsDone = core.filter((l) => p.lessonsDone[lessonKey(course.id, l.id)]).length;
+  const honors = course.lessons.filter((l) => isHonorsLesson(course, l));
+  const honorsDone = honors.filter((l) => p.lessonsDone[lessonKey(course.id, l.id)]).length;
   let questionsSeen = 0;
   let questionsTotal = 0;
   for (const b of course.banks) {
@@ -88,7 +95,9 @@ export function courseNumbers(course: Course, p: Progress, now = today()): Cours
   }
   return {
     lessonsDone,
-    lessonsTotal: course.lessons.length,
+    lessonsTotal: core.length,
+    honorsDone,
+    honorsTotal: honors.length,
     questionsSeen,
     questionsTotal,
     recentAccuracy: ans ? cor / ans : null,
@@ -145,8 +154,9 @@ export function planToday(course: Course, plan: Plan, p: Progress, now = today()
   const studyDaysLeft = Math.max(1, Math.round((daysLeft * plan.daysPerWeek) / 7));
   const reviewDays = Math.min(14, Math.max(2, Math.round(studyDaysLeft * 0.25)));
   const learnDays = Math.max(1, studyDaysLeft - reviewDays);
-  const remaining = orderedLessons(course).filter((l) => !p.lessonsDone[lessonKey(course.id, l.id)]);
-  const doneToday = course.lessons.filter((l) => p.lessonsDone[lessonKey(course.id, l.id)] === now).length;
+  // Honors lessons are optional, so the plan paces the core lessons only.
+  const remaining = orderedLessons(course).filter((l) => !isHonorsLesson(course, l) && !p.lessonsDone[lessonKey(course.id, l.id)]);
+  const doneToday = coreLessons(course).filter((l) => p.lessonsDone[lessonKey(course.id, l.id)] === now).length;
   const lessonsPerDay = remaining.length ? Math.ceil((remaining.length + doneToday) / learnDays) : 0;
   const phase: DayPlan["phase"] = daysLeft === 0 ? "exam-day" : remaining.length ? "learn" : "review";
 

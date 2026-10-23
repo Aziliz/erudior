@@ -687,13 +687,13 @@ a:hover {
 /* ---------- Exam runner ---------- */
 .runner {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   height: 100%;
 }
 /* Narrow windows: the answer sheet (and its Finish / End buttons) moves under the question. */
 @media (max-width: 900px) {
   .runner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto;
     height: auto;
     min-height: 100%;
@@ -717,6 +717,8 @@ a:hover {
   background: var(--surface);
 }
 .runner-bar .title {
+  font-size: 1rem;
+  margin: 0;
   font-weight: 650;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -881,8 +883,10 @@ a:hover {
 .sheet-head {
   padding: 16px 18px 10px;
 }
-.sheet-head h3 {
+.sheet-head h3,
+.sheet-head .sheet-title {
   margin-bottom: 6px;
+  font-size: 0.9375rem;
 }
 .legend {
   display: flex;
@@ -1042,8 +1046,26 @@ a:hover {
 /* ---------- Editor ---------- */
 .editor {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 320px minmax(0, 1fr);
   height: 100%;
+}
+/* Phones: the question list stacks above the question being edited. */
+@media (max-width: 760px) {
+  .editor {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+  .editor-side {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .editor-side .q-list {
+    max-height: 220px;
+  }
+  .editor-main {
+    overflow: visible;
+  }
 }
 .editor-side {
   border-right: 1px solid var(--rule);
@@ -1078,6 +1100,14 @@ a:hover {
 }
 .q-item[aria-current="true"] {
   background: var(--accent-soft);
+}
+.q-item[aria-current="true"] .m {
+  color: var(--ink-2);
+}
+.editor-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
 }
 .q-item .t {
   display: -webkit-box;
@@ -3153,5 +3183,266 @@ fieldset.block-edit > legend {
   .live-totals .live-bar {
     grid-column: 1 / -1;
     grid-row: 2;
+  }
+}
+
+/* Mermaid diagrams (lessons, reference sheets) */
+.diagram {
+  margin: 16px 0;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  text-align: center;
+}
+.diagram-svg {
+  overflow-x: auto;
+}
+.diagram-svg svg {
+  max-width: 100%;
+  height: auto;
+}
+.diagram-svg.scrolls {
+  text-align: left;
+}
+.diagram-fallback {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.92em;
+  color: var(--ink-2);
+  text-align: left;
+}
+.diagram.drawn .diagram-fallback {
+  display: none;
+}
+/* Course pictures (lessons and questions) */
+.prose img,
+.q-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: #fff;
+}
+
+/* Question kinds: text, match, label, order */
+.q-type {
+  margin: -8px 0 12px;
+}
+.blank-mark {
+  display: inline-block;
+  min-width: 3.2em;
+  border-bottom: 2px solid var(--ink-2);
+  margin: 0 3px;
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--ink-2);
+  line-height: 1.2;
+}
+.q-image {
+  margin: 0 0 18px;
+}
+.q-image figcaption {
+  font-size: 0.85em;
+  color: var(--ink-2);
+  margin-top: 6px;
+}
+.q-image-box {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+.q-image-box img {
+  display: block;
+  max-width: min(100%, 640px);
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: #fff;
+}
+.q-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #244d76;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #244d76;
+  font: 700 14px/1 var(--sans);
+  pointer-events: none;
+}
+.q-marker.inline {
+  position: static;
+  transform: none;
+  flex: none;
+}
+.q-parts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.text-answer,
+.match-row,
+.order-item {
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  padding: 10px 14px;
+}
+.text-answer .field {
+  margin: 0;
+}
+.text-answer .input {
+  max-width: 420px;
+}
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px 14px;
+  align-items: center;
+}
+.match-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+}
+.match-pick {
+  width: 100%;
+}
+.match-row .part-mark {
+  grid-column: 1 / -1;
+}
+.is-right {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+}
+.is-wrong {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+.part-mark {
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.part-mark.ok {
+  color: var(--ok);
+}
+.part-mark.bad {
+  color: var(--bad);
+}
+.text-answer .part-mark {
+  margin-top: 6px;
+}
+.order-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.order-num {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-2);
+  font: 600 13px/1 var(--sans);
+  flex: none;
+}
+.order-text {
+  flex: 1;
+  min-width: 8em;
+  font-family: var(--serif);
+}
+.order-btns {
+  display: flex;
+  gap: 4px;
+}
+.order-btns .btn {
+  min-width: 36px;
+  min-height: 36px;
+}
+.pair-edit {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.pair-edit + .pair-edit {
+  margin-top: 8px;
+}
+.pair-edit .input {
+  flex: 1;
+  min-width: 8em;
+}
+.pair-edit .num-input {
+  flex: 0 0 5.5em;
+  min-width: 0;
+}
+.editor-pic {
+  max-width: 320px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: #fff;
+}
+.editor-label-pic {
+  cursor: crosshair;
+  margin-bottom: 8px;
+}
+@media (max-width: 560px) {
+  .match-row {
+    grid-template-columns: 1fr;
+  }
+}
+.pill.honors {
+  background: var(--study-soft);
+  color: var(--study);
+  vertical-align: middle;
+}
+.honors-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 6px 0 0;
+}
+.honors-list li {
+  margin: 4px 0;
+}
+
+/* Narrow screens: the runner's top and bottom bars wrap instead of overflowing. */
+@media (max-width: 560px) {
+  .runner-bar,
+  .runner-foot {
+    flex-wrap: wrap;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 8px;
+  }
+  .runner-bar .title {
+    flex: 1 1 100%;
+    order: -1;
+  }
+  .runner-foot .kbd {
+    display: none;
+  }
+  .editor-bar {
+    flex-wrap: wrap;
   }
 }

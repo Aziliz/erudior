@@ -1,7 +1,8 @@
-import type { Attempt, Bank, Course, Progress } from "./types";
+import type { Attempt, Bank, Chosen, Course, Progress } from "./types";
 import { attemptPassed, finishSession, type Session } from "./session";
 import { lessonKey, logActivity } from "./planner";
 import { today } from "./srs";
+import { moduleCoreLessons } from "./course";
 
 /**
  * Fold a finished quiz or practice session into progress: the attempt and question
@@ -10,7 +11,7 @@ import { today } from "./srs";
 export function recordSession(
   p: Progress,
   session: Session,
-  answers: Record<string, number[]>,
+  answers: Record<string, Chosen>,
   flags: Record<string, boolean>,
   bank: Bank | undefined,
   usedSec?: number,
@@ -50,5 +51,5 @@ export const moduleKey = (courseId: string, moduleId: string) => `${courseId}/${
 
 /** True once every lesson in the module is complete. */
 export function moduleLessonsDone(course: Course, p: Progress, moduleId: string): boolean {
-  return course.lessons.filter((l) => l.module === moduleId).every((l) => p.lessonsDone[lessonKey(course.id, l.id)]);
+  return moduleCoreLessons(course, moduleId).every((l) => p.lessonsDone[lessonKey(course.id, l.id)]);
 }

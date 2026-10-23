@@ -1,5 +1,6 @@
 // Spaced repetition: a simplified SM-2 (the family Anki uses). Day-granular.
 
+import { answerText, isChoice } from "./questions";
 import type { Card, CardState, Course, Deck, Progress } from "./types";
 import { shuffle } from "./util";
 
@@ -145,8 +146,9 @@ export function missedDeck(course: Course, progress: Progress): Deck | null {
       const s = stats[q.id];
       if (!s || s.correct >= s.seen) continue; // never missed
       const letters = "ABCDEFGH";
-      const front = `${q.stem}\n\n${q.choices.map((c, i) => `${letters[i]}. ${c}`).join("  \n")}`;
-      const right = q.answer.map((i) => `**${letters[i]}. ${q.choices[i]}**`).join("  \n");
+      const choice = isChoice(q);
+      const front = choice ? `${q.stem}\n\n${q.choices.map((c, i) => `${letters[i]}. ${c}`).join("  \n")}` : q.stem;
+      const right = choice ? q.answer.map((i) => `**${letters[i]}. ${q.choices[i]}**`).join("  \n") : `**${answerText(q)}**`;
       cards.push({
         id: `${local}--${q.id}`,
         front,

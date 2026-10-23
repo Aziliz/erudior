@@ -139,7 +139,8 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
                   {c.description && <p className="muted small clamp2">{c.description}</p>}
                   <p className="meta">
                     {[
-                      counts.lessons && `${counts.lessons} lessons`,
+                      n.lessonsTotal && `${n.lessonsTotal} lessons`,
+                      n.honorsTotal && `${n.honorsTotal} honors lessons`,
                       counts.questions && `${counts.questions} questions`,
                       counts.cards && `${counts.cards} notecards`,
                       counts.drills && `${counts.drills} math drills`,
@@ -384,6 +385,7 @@ function Catalog({ api }: { api: AppApi }) {
                 <p className="meta small muted">
                   {[
                     e.lessons && `${e.lessons} lessons`,
+                    e.honors && `${e.honors} honors`,
                     e.questions && `${e.questions} questions`,
                     e.drills && `${e.drills} drills`,
                     e.words && `${e.words} words`,

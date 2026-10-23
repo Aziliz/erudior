@@ -3,6 +3,7 @@ import type { AppApi } from "../App";
 import type { Bank, Card, Course, GlossaryEntry, Lesson, Question, RefSheet } from "../lib/types";
 import { startPractice } from "../lib/session";
 import { LETTERS } from "../lib/util";
+import { answerText, isChoice } from "../lib/questions";
 
 type Hit =
   | { kind: "lesson"; course: Course; item: Lesson; text: string }
@@ -80,7 +81,7 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
           bank: b,
           course,
           item: qq,
-          text: `${qq.stem} ${qq.choices.join(" ")} ${qq.explanation ?? ""}`,
+          text: `${qq.stem} ${qq.choices.join(" ")} ${(qq.left ?? []).join(" ")} ${(qq.accept ?? []).flat().join(" ")} ${qq.explanation ?? ""}`,
         });
     }
     return out;
@@ -191,6 +192,12 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
                         </button>
                         {open === key && (
                           <div className="hit-detail">
+                            {!isChoice(h.item) ? (
+                              <p>
+                                <span className="muted">Answer: </span>
+                                <Highlight text={answerText(h.item)} terms={terms} />
+                              </p>
+                            ) : (
                             <ul className="review-choices">
                               {h.item.choices.map((c, ci) => (
                                 <li key={ci}>
@@ -201,6 +208,7 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
                                 </li>
                               ))}
                             </ul>
+                            )}
                             {h.item.explanation && (
                               <p className="review-expl">
                                 <Highlight text={h.item.explanation} terms={terms} />

@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import MathText from "../components/MathText";
+import QuestionBody, { QuestionImage, QuestionStem } from "../components/QuestionBody";
 import type { AppApi, View } from "../App";
-import type { Bank, Lesson } from "../lib/types";
+import type { Bank, Chosen, Lesson } from "../lib/types";
+import { isAnswered, isChoice, isComplete, qtype, typeLabel } from "../lib/questions";
 import { finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Session } from "../lib/session";
 import { confirmAction, saveSessionState } from "../lib/storage";
 import { recordSession } from "../lib/quiz";
@@ -30,7 +32,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
   const qmeta = api.progress.qmeta ?? {};
 
   const [index, setIndex] = useState(initial?.index ?? 0);
-  const [answers, setAnswers] = useState<Record<string, number[]>>(initial?.answers ?? {});
+  const [answers, setAnswers] = useState<Record<string, Chosen>>(initial?.answers ?? {});
   // Flags persist across sessions: start from the saved ones for these questions.
   const [flags, setFlags] = useState<Record<string, boolean>>(
     () =>
@@ -51,12 +53,14 @@ export default function Runner({ api, session, bank, initial }: Props) {
   const item = items[index];
   const q = item.q;
   const chosen = answers[q.id] ?? [];
-  const multi = q.answer.length > 1;
+  const choiceQ = isChoice(q);
+  const multi = choiceQ && q.answer.length > 1;
+  const answeredNow = isAnswered(q, chosen);
   const isChecked = !isExam && !!checked[q.id];
-  const answeredCount = items.filter((it) => (answers[it.q.id] ?? []).length > 0).length;
+  const answeredCount = items.filter((it) => isAnswered(it.q, answers[it.q.id])).length;
   const inBlock = (i: number) => i >= block.start && i < block.end;
   const blockItems = items.slice(block.start, block.end);
-  const blockAnswered = blockItems.filter((it) => (answers[it.q.id] ?? []).length > 0).length;
+  const blockAnswered = blockItems.filter((it) => isAnswered(it.q, answers[it.q.id])).length;
   const blockFlagged = blockItems.filter((it) => flags[it.q.id]).length;
   const lastBlock = blockIdx === blocks.length - 1;
 
@@ -156,7 +160,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
     (original: number) => {
       if (isChecked) return;
       setAnswers((prev) => {
-        const cur = prev[q.id] ?? [];
+        const cur = (prev[q.id] ?? []) as number[];
         let next: number[];
         if (multi) next = cur.includes(original) ? cur.filter((x) => x !== original) : [...cur, original];
         else next = cur[0] === original ? (isExam ? [] : cur) : [original];
@@ -171,10 +175,20 @@ export default function Runner({ api, session, bank, initial }: Props) {
     [block.start, block.end],
   );
 
-  const check = useCallback(() => {
-    if (!chosen.length) return;
+  const setAnswer = useCallback(
+    (next: Chosen) => {
+      if (isChecked) return;
+      setAnswers((prev) => ({ ...prev, [q.id]: next }));
+    },
+    [q.id, isChecked],
+  );
+
+  const check = useCallback(async () => {
+    if (!answeredNow) return;
+    if (!isComplete(q, chosen) && !(await confirmAction("Some parts are still empty and will count as wrong. Check your answer anyway?", "Check answer")))
+      return;
     setChecked((c) => ({ ...c, [q.id]: true }));
-  }, [chosen.length, q.id]);
+  }, [answeredNow, q, chosen]);
 
   const toggleFlag = useCallback(() => {
     const on = !flags[q.id];
@@ -227,13 +241,13 @@ export default function Runner({ api, session, bank, initial }: Props) {
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       const tag = (e.target as HTMLElement)?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA" || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
       const k = e.key.toLowerCase();
       const n = item.order.length;
       let pos = -1;
       if (/^[1-9]$/.test(k)) pos = Number(k) - 1;
       else if (k.length === 1 && LETTERS.toLowerCase().indexOf(k) > -1 && k !== "f") pos = LETTERS.toLowerCase().indexOf(k);
-      if (pos >= 0 && pos < n) {
+      if (choiceQ && pos >= 0 && pos < n) {
         e.preventDefault();
         choose(item.order[pos]);
       } else if (k === "arrowright") {
@@ -250,7 +264,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [item, index, items.length, choose, go, check, isChecked, isExam, toggleFlag]);
+  }, [item, index, items.length, choose, go, check, isChecked, isExam, toggleFlag, choiceQ]);
 
   const sectionName = q.section ? (bank?.sections.find((s) => s.id === q.section)?.name ?? q.section) : undefined;
   const clockClass =
@@ -267,7 +281,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
           <button className="btn ghost sm" onClick={saveAndExit} title="Your place and time are saved">
             Save &amp; exit
           </button>
-          <div className="title">{quizLesson?.title ?? quizModule?.title ?? session.bankTitle}</div>
+          <h1 className="title">{quizLesson?.title ?? quizModule?.title ?? session.bankTitle}</h1>
           <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : "Practice"}</span>
           {blocks.length > 1 && (
             <span className="small muted">
@@ -295,52 +309,33 @@ export default function Runner({ api, session, bank, initial }: Props) {
               {sectionName && blocks.length === 1 && <span>{sectionName}</span>}
               {!isExam && <span>{q.topic}</span>}
             </div>
-            <MathText as="p" className="q-stem" text={q.stem} />
+            <QuestionStem q={q} />
+            {qtype(q) !== "label" && <QuestionImage q={q} />}
             {multi && <p className="q-hint">Select {q.answer.length} answers.</p>}
+            {!choiceQ && <p className="q-type small muted">{typeLabel(q)}</p>}
 
-            <div className="choices" role={multi ? "group" : "radiogroup"} aria-label="Answer choices">
-              {item.order.map((orig, pos) => {
-                const selected = chosen.includes(orig);
-                const isAnswer = q.answer.includes(orig);
-                let cls = "choice";
-                let bubble = "bubble";
-                if (isChecked) {
-                  if (isAnswer) {
-                    cls += " is-right";
-                    bubble += selected ? " right" : " should";
-                  } else if (selected) {
-                    cls += " is-wrong";
-                    bubble += " wrong";
-                  }
-                } else if (selected) {
-                  cls += " selected";
-                  bubble += " filled";
-                }
-                return (
-                  <button
-                    key={orig}
-                    className={cls}
-                    role={multi ? "checkbox" : "radio"}
-                    aria-checked={selected}
-                    disabled={isChecked}
-                    onClick={() => choose(orig)}
-                  >
-                    <span className={bubble}>{LETTERS[pos]}</span>
-                    <MathText text={q.choices[orig]} />
-                  </button>
-                );
-              })}
-            </div>
+            <QuestionBody
+              key={q.id}
+              q={q}
+              order={item.order}
+              chosen={chosen}
+              onChoose={choose}
+              onChange={setAnswer}
+              onEnter={() => (!isExam && !isChecked ? check() : undefined)}
+              reveal={isChecked}
+            />
 
             {isChecked && (
               <div className="feedback" role="status">
                 <p className={`verdict ${correctNow ? "ok" : "bad"}`}>
                   {correctNow
                     ? "Correct"
-                    : `Incorrect. The answer is ${item.order
-                        .map((o, p) => (q.answer.includes(o) ? LETTERS[p] : null))
-                        .filter(Boolean)
-                        .join(" and ")}.`}
+                    : choiceQ
+                      ? `Incorrect. The answer is ${item.order
+                          .map((o, p) => (q.answer.includes(o) ? LETTERS[p] : null))
+                          .filter(Boolean)
+                          .join(" and ")}.`
+                      : "Not quite. The marks above show which parts were right."}
                 </p>
                 {q.explanation ? (
                   <MathText as="p" className="expl" text={q.explanation} />
@@ -396,9 +391,11 @@ export default function Runner({ api, session, bank, initial }: Props) {
             {note ? "Note ✎" : "Add note"}
           </button>
           <div className="spacer" />
-          <span className="kbd">A–{LETTERS[item.order.length - 1]} choose, ← → move, F flag{!isExam && ", Enter check"}</span>
+          <span className="kbd">
+            {choiceQ ? `A–${LETTERS[item.order.length - 1]} choose, ` : ""}← → move, F flag{!isExam && ", Enter check"}
+          </span>
           {!isExam && !isChecked ? (
-            <button className="btn primary" onClick={check} disabled={!chosen.length}>
+            <button className="btn primary" onClick={check} disabled={!answeredNow}>
               Check answer
             </button>
           ) : !atBlockEnd ? (
@@ -419,7 +416,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
 
       <aside className="sheet-side" aria-label="Answer sheet">
         <div className="sheet-head">
-          <h3>{blocks.length > 1 ? block.name : "Answer sheet"}</h3>
+          <h2 className="sheet-title">{blocks.length > 1 ? block.name : "Answer sheet"}</h2>
           <div className="legend">
             {isExam ? (
               <>
@@ -460,9 +457,10 @@ export default function Runner({ api, session, bank, initial }: Props) {
           {blockItems.map((it, k) => {
             const i = block.start + k;
             const a = answers[it.q.id] ?? [];
+            const did = isAnswered(it.q, a);
             let cls = "cell";
             if (!isExam && checked[it.q.id]) cls += isCorrect(it.q, a) ? " right" : " wrong";
-            else if (a.length) cls += " answered";
+            else if (did) cls += " answered";
             if (flags[it.q.id]) cls += " flagged";
             if (i === index) cls += " current";
             return (
@@ -470,7 +468,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
                 key={it.q.id}
                 className={cls}
                 onClick={() => inBlock(i) && go(i)}
-                aria-label={`Question ${k + 1}${a.length ? ", answered" : ""}${flags[it.q.id] ? ", flagged" : ""}`}
+                aria-label={`Question ${k + 1}${did ? ", answered" : ""}${flags[it.q.id] ? ", flagged" : ""}`}
               >
                 <span className="oval" />
                 <small>{k + 1}</small>

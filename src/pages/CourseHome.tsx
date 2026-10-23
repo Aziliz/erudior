@@ -3,9 +3,9 @@ import { useMemo, useState } from "react";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
 import { ReportForm, ReviewPill } from "../components/CommunityCatalog";
-import type { Bank, Course, Plan } from "../lib/types";
+import type { Bank, Course, Lesson, Plan } from "../lib/types";
 import * as store from "../lib/storage";
-import { courseCounts, bankKey } from "../lib/course";
+import { courseCounts, bankKey, isHonorsLesson, moduleCoreLessons } from "../lib/course";
 import { bestQuizScore } from "../lib/quiz";
 import { courseNumbers, lessonKey, orderedLessons, planToday, readiness, streak, type PlanTask } from "../lib/planner";
 import { MISSED_DECK_ID, addDays, daysBetween, deckStatus, studyDecks, today } from "../lib/srs";
@@ -217,7 +217,7 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
           ),
         ].filter((t) => bank.questions.some((q) => q.topic === t));
         const count = t.count ?? 20;
-        const base = { sections: [] as string[], shuffleChoices: true, count };
+        const base = { sections: [] as string[], shuffleChoices: true, count, honors: false };
         const candidates: PracticeOptions[] = [];
         if (plan && planToday(course, plan, progress).phase === "review") {
           candidates.push({ ...base, topics: [], filter: "missed" }, { ...base, topics: [], filter: "weak" });
@@ -401,7 +401,9 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
   const bank = mainBank(course);
   const ordered = orderedLessons(course);
-  const next = ordered.find((l) => !progress.lessonsDone[lessonKey(course.id, l.id)]);
+  // Up next: the next core lesson, then (once the core is done) the next honors lesson.
+  const notDone = (l: Lesson) => !progress.lessonsDone[lessonKey(course.id, l.id)];
+  const next = ordered.find((l) => !isHonorsLesson(course, l) && notDone(l)) ?? ordered.find(notDone);
   return (
     <div className="stack">
       {next && (
@@ -417,16 +419,19 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
       {course.modules.map((m, mi) => {
         const ls = course.lessons.filter((l) => l.module === m.id);
         if (!ls.length) return null;
-        const done = ls.filter((l) => progress.lessonsDone[lessonKey(course.id, l.id)]).length;
-        const mins = ls.reduce((s, l) => s + (l.minutes ?? 0), 0);
+        const core = moduleCoreLessons(course, m.id);
+        const done = core.filter((l) => progress.lessonsDone[lessonKey(course.id, l.id)]).length;
+        const extra = m.honors ? 0 : ls.length - core.length;
+        const mins = core.reduce((s, l) => s + (l.minutes ?? 0), 0);
         return (
           <section key={m.id} className="panel module">
             <div className="panel-head">
               <h2>
-                <span className="faint num">{mi + 1}.</span> {m.title}
+                <span className="faint num">{mi + 1}.</span> {m.title} {m.honors && <span className="pill honors">Honors · optional</span>}
               </h2>
               <span className="small muted num">
-                {done}/{ls.length} done{mins ? `, about ${mins} min` : ""}
+                {done}/{core.length} done{mins ? `, about ${mins} min` : ""}
+                {extra > 0 && `, plus ${extra} optional honors lesson${extra === 1 ? "" : "s"}`}
               </span>
             </div>
             <ol className="lesson-list">
@@ -440,7 +445,9 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                       <span className={`bubble ${isDone ? "right" : ""}`} aria-label={isDone ? "Done" : "Not done"}>
                         {isDone ? "✓" : ""}
                       </span>
-                      <span className="lesson-title">{l.title}</span>
+                      <span className="lesson-title">
+                        {l.title} {l.honors && !m.honors && <span className="pill honors">Honors</span>}
+                      </span>
                       {l.minutes && <span className="faint small num">{l.minutes} min</span>}
                     </button>
                     {nq > 0 && (
@@ -464,7 +471,7 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
               })}
               {bank && m.quiz && m.quiz.length > 0 && (() => {
                 const passed = !!progress.modulesDone?.[`${course.id}/${m.id}`];
-                const unlocked = done === ls.length;
+                const unlocked = done === core.length;
                 const n = lessonQuizQuestions(bank, m.quiz).length;
                 const best = bestQuizScore(progress, course.id, { moduleId: m.id });
                 return (
@@ -489,7 +496,7 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                         <span className="muted small">
                           ({n} questions
                           {best ? `; best ${best.correct}/${best.total}` : ""}
-                          {unlocked ? "" : "; unlocks when every lesson above is complete"})
+                          {unlocked ? "" : extra > 0 ? "; unlocks when every lesson above is complete (honors lessons optional)" : "; unlocks when every lesson above is complete"})
                         </span>
                       </span>
                     </button>

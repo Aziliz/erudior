@@ -4,15 +4,15 @@ import type { Bank, Question } from "../lib/types";
 import * as store from "../lib/storage";
 import { bankWarnings } from "../lib/validate";
 import { LETTERS, slugify, uid } from "../lib/util";
+import { KindFields, KindPicker, PictureField, kindErrors } from "../components/QuestionKindEditor";
+import { isChoice } from "../lib/questions";
 
 type Sel = { kind: "settings" } | { kind: "question"; id: string };
 
 function questionErrors(q: Question): string[] {
   const e: string[] = [];
   if (!q.stem.trim()) e.push("Write the question text.");
-  if (q.choices.length < 2) e.push("Add at least two choices.");
-  if (q.choices.some((c) => !c.trim())) e.push("Fill in or remove empty choices.");
-  if (!q.answer.length) e.push("Mark the correct answer.");
+  e.push(...kindErrors(q));
   if (!q.topic.trim()) e.push("Give the question a topic.");
   return e;
 }
@@ -174,7 +174,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
 
       <div className="editor-main">
         <div className="editor-bar">
-          <strong>{draft.title || "Untitled bank"}</strong>
+          <h1 className="editor-title">{draft.title || "Untitled bank"}</h1>
           {dirty && (
             <span className="small muted row" style={{ gap: 6 }}>
               <span className="dirty-dot" /> Unsaved changes
@@ -240,6 +240,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
                     ))}
                   </datalist>
                 </label>
+                <KindPicker q={current} onChange={(nq) => updateQ(current.id, () => nq)} />
               </div>
 
               <label className="field">
@@ -253,6 +254,11 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
                 />
               </label>
 
+              <PictureField q={current} onChange={(nq) => updateQ(current.id, () => nq)} toast={api.toast} />
+
+              {!isChoice(current) ? (
+                <KindFields q={current} onChange={(nq) => updateQ(current.id, () => nq)} />
+              ) : (
               <div className="field">
                 <span>Choices (click the bubble to mark the correct answer{current.answer.length > 1 ? "s" : ""})</span>
                 {current.choices.map((c, i) => {
@@ -327,6 +333,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
                   </label>
                 </div>
               </div>
+              )}
 
               <label className="field">
                 <span>Explanation (shown after answering)</span>

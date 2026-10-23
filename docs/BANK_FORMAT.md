@@ -53,3 +53,18 @@ A bank is one UTF-8 JSON file. Import it from the Library screen, or write it in
 | `questions[].explanation` | no | Why the answer is right. |
 
 Answer choices are shuffled at run time unless the user turns that off, so don't write choices like "Both A and B". Use a multi-answer question instead.
+
+## Other question types
+
+`type` (default `"choice"`) picks how a question is answered. Every type keeps `choices` and `answer` so older readers can still list the questions. All are scored right or wrong as a whole; the review shows which parts were right.
+
+| `type` | Fields | Notes |
+|---|---|---|
+| `"text"` | `accept`: one list of accepted answers per blank, e.g. `[["mitochondrion", "mitochondria"]]`; optional `caseSensitive: true`. `choices` and `answer` are `[]`. | Fill in the blank. Each `___` (three or more underscores) in the stem is a blank; with none, one answer box goes under the stem. Spacing, capital letters (unless `caseSensitive`), curly quotes, dashes and a final period are ignored; plain numbers compare by value (`0.50` = `.5`). |
+| `"match"` | `left`: the items to match; `choices`: the answers (extra ones are distractors); `answer[i]`: the index in `choices` that matches `left[i]` (answers may repeat). | Each left item gets a drop-down, so `choices` are plain text. |
+| `"label"` | `image` (required), `markers`: `[{ "x": 30, "y": 45 }, …]` in percent of the image's width and height from the top-left; `choices` and `answer` as for match, one per marker. | The app draws numbered markers on the picture. |
+| `"order"` | `choices`: the items in the correct order; `answer`: `[]`. | Shown shuffled; the learner moves items up and down. |
+
+Any question can have `image`: `{ "src": "data:image/png;base64,…", "alt": "What the picture shows", "caption": "Optional" }`. `alt` is required. Use a `data:` URL (the desktop app doesn't load pictures from the web). The bank editor can add pictures and write every type.
+
+`honors: true` marks a question from an optional honors lesson: full exams leave it out, and practice includes it only when asked.

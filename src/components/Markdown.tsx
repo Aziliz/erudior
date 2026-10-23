@@ -1,10 +1,11 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import MathText from "./MathText";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import type { GlossaryEntry } from "../lib/types";
 import { protectMath } from "../lib/math";
 import { protectFigures } from "../lib/figure";
+import { protectDiagrams } from "../lib/diagram";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -29,9 +30,10 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
 export function renderMarkdown(md: string, scope?: Record<string, number>): string {
   // Figures (```plot / ```figure blocks) and math are rendered separately and slotted
   // back in after Markdown, so Markdown never mangles their contents.
-  const figs = protectFigures(md, scope);
+  const diags = protectDiagrams(md);
+  const figs = protectFigures(diags.text, scope);
   const math = protectMath(figs.text);
-  const html = math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string));
+  const html = diags.restore(math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string)));
   // An empty corner header cell is announced as a blank header; make it a plain cell.
   return DOMPurify.sanitize(html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>"), {
     ADD_TAGS: ["marker", "clipPath"],
@@ -71,6 +73,27 @@ export default function Markdown({
   }, [source, scope, foreignLang]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
+  const body = useRef<HTMLDivElement>(null);
+
+  // Mermaid diagrams: drawn after render, and redrawn in the new colors when the theme changes.
+  useEffect(() => {
+    const el = body.current;
+    if (!el || !el.querySelector("figure.diagram")) return;
+    let alive = true;
+    const draw = () => {
+      if (alive) import("../lib/mermaidRender").then((m) => (alive ? m.renderDiagrams(el) : undefined));
+    };
+    draw();
+    const obs = new MutationObserver(draw);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    const mq = window.matchMedia?.("(prefers-color-scheme: dark)");
+    mq?.addEventListener?.("change", draw);
+    return () => {
+      alive = false;
+      obs.disconnect();
+      mq?.removeEventListener?.("change", draw);
+    };
+  }, [html]);
 
   function onClick(e: React.MouseEvent) {
     const el = (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
@@ -88,7 +111,7 @@ export default function Markdown({
 
   return (
     <div className="md-host" ref={ref}>
-      <div className={className} onClick={onClick} dangerouslySetInnerHTML={{ __html: html }} />
+      <div ref={body} className={className} onClick={onClick} dangerouslySetInnerHTML={{ __html: html }} />
       {pop && (
         <>
           <div className="pop-scrim" onClick={() => setPop(null)} />

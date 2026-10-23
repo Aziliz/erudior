@@ -1,5 +1,6 @@
 import type { Bank, ExamConfig, Question, Section } from "./types";
 import { slugify, uid } from "./util";
+import { normalizeQuestionKind } from "./questions";
 
 export class BankError extends Error {}
 
@@ -47,16 +48,11 @@ export function normalizeBank(raw: unknown): Bank {
     if (!isObj(q)) throw new BankError(`${where} isn't an object.`);
     const stem = str(q.stem).trim();
     if (!stem) throw new BankError(`${where} has no "stem" (the question text).`);
-    if (!Array.isArray(q.choices) || q.choices.length < 2) {
-      throw new BankError(`${where} needs at least two "choices".`);
-    }
-    const choices = q.choices.map((c) => String(c));
-    const answerRaw = Array.isArray(q.answer) ? q.answer : [q.answer];
-    const answer = answerRaw.map((a) => Number(a));
-    if (!answer.length || answer.some((a) => !Number.isInteger(a) || a < 0 || a >= choices.length)) {
-      throw new BankError(
-        `${where} has an invalid "answer". Use zero-based choice indices, e.g. 0 for the first choice.`,
-      );
+    let kind: ReturnType<typeof normalizeQuestionKind>;
+    try {
+      kind = normalizeQuestionKind(q);
+    } catch (e) {
+      throw new BankError(`${where} ${(e as Error).message}`);
     }
     let qid = str(q.id).trim() || `q${i + 1}`;
     if (seen.has(qid)) qid = `${qid}-${uid()}`;
@@ -70,8 +66,8 @@ export function normalizeBank(raw: unknown): Bank {
       section,
       topic: str(q.topic).trim() || "General",
       stem,
-      choices,
-      answer: Array.from(new Set(answer)).sort((a, b) => a - b),
+      ...kind,
+      ...(q.honors === true ? { honors: true } : {}),
       explanation: str(q.explanation).trim() || undefined,
     };
   });

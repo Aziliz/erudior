@@ -1,0 +1,8 @@
+id: demo-types
+title: Demo
+modules:
+  - id: d-m1
+    title: Core
+  - id: d-h1
+    title: Honors extras
+    honors: true

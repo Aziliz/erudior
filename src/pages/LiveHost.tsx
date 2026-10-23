@@ -2,6 +2,7 @@
 // show the code, and run the quiz. The host sees nicknames (to remove anyone) and scores;
 // students see only their own result and class totals. Nothing is saved.
 
+import { isChoice } from "../lib/questions";
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import MathText from "../components/MathText";
@@ -23,6 +24,8 @@ function shuffle<T>(xs: T[]): T[] {
 }
 
 const toLive = (q: Question): LiveQuestion => ({ stem: q.stem, choices: q.choices, answer: q.answer });
+/** Live rooms use multiple-choice questions without pictures (other kinds need the full app). */
+const liveable = (q: Question) => isChoice(q) && !q.image;
 
 export default function LiveHost({ api }: { api: AppApi }) {
   const [room, setRoom] = useState(hosting);
@@ -70,11 +73,11 @@ function Setup({ api, onOpen }: { api: AppApi; onOpen: (r: Opened) => void }) {
   function pickQuestions(): LiveQuestion[] {
     if (!course || !bank) return [];
     if (source === "random") {
-      const all = course.banks.flatMap((b) => b.questions);
+      const all = course.banks.flatMap((b) => b.questions).filter(liveable);
       return shuffle(all).slice(0, count).map(toLive);
     }
     const q = quizzes.find((x) => x.id === source);
-    return lessonQuizQuestions(bank, q?.ids).map(toLive);
+    return lessonQuizQuestions(bank, q?.ids).filter(liveable).map(toLive);
   }
 
   if (!courses.length) return <p className="muted">Start a course with questions first; the live room uses its questions.</p>;

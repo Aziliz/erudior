@@ -5,18 +5,58 @@ export interface Section {
   name: string;
 }
 
+/**
+ * Question kinds. All of them keep `choices` and `answer` so code that only lists or counts
+ * questions keeps working:
+ * - choice (default): pick one; more than one index in `answer` = "select all that apply".
+ * - text: fill in the blank(s). Each `___` in the stem is a blank (none = one box under the
+ *   stem); `accept[i]` lists the accepted answers for blank i. `choices` and `answer` are empty.
+ * - match: `left[i]` is matched to `choices[answer[i]]`; extra choices are distractors.
+ * - label: like match, but the left side is numbered markers on `image` at `markers[i]`.
+ * - order: `choices` are listed in the correct order and shown shuffled. `answer` is empty.
+ */
+export type QuestionType = "choice" | "text" | "match" | "label" | "order";
+
+export interface QuestionImage {
+  /** A data: URL (bundled and community courses) or an app-relative path. */
+  src: string;
+  /** What the image shows, for people who can't see it. Required. */
+  alt: string;
+  caption?: string;
+}
+
 export interface Question {
   id: string;
   /** Section id (e.g. "national" / "state"). Optional. */
   section?: string;
   /** Free-text topic used for practice filters and weak-topic tracking. */
   topic: string;
+  type?: QuestionType;
   stem: string;
+  /** Shown under the stem (any type); the picture for label questions. */
+  image?: QuestionImage;
   choices: string[];
   /** Zero-based indices into `choices`. More than one = "select all that apply". */
   answer: number[];
+  /** match: the items on the left. */
+  left?: string[];
+  /** label: marker positions on the image, in percent of its width and height. */
+  markers?: { x: number; y: number }[];
+  /** text: accepted answers per blank. */
+  accept?: string[][];
+  /** text: answers must match capital letters too (e.g. gene symbols). */
+  caseSensitive?: boolean;
+  /** From an honors lesson: left out of full practice exams unless asked for. */
+  honors?: boolean;
   explanation?: string;
 }
+
+/**
+ * A learner's answer: choice indices (choice), the choice picked for each left item or marker
+ * (match, label; -1 = none yet), the choices in the learner's order (order), or the typed
+ * text per blank (text).
+ */
+export type Chosen = (number | string)[];
 
 export interface ExamConfig {
   /** Questions drawn at random for each timed exam. */
@@ -60,7 +100,7 @@ export type Mode = "exam" | "practice";
 
 export interface AnswerRecord {
   qid: string;
-  chosen: number[];
+  chosen: Chosen;
   correct: boolean;
   flagged?: boolean;
 }
@@ -117,6 +157,8 @@ export interface QuestionStat {
 export interface Module {
   id: string;
   title: string;
+  /** An honors module: optional extra material (every lesson in it is honors). */
+  honors?: boolean;
   /**
    * End-of-module quiz: ids of questions in the course's first bank. It unlocks once
    * every lesson in the module is complete; passing it marks the module complete.
@@ -128,6 +170,11 @@ export interface Lesson {
   id: string;
   module: string;
   title: string;
+  /**
+   * Honors lesson: optional extra depth. It isn't needed to finish its module or the course,
+   * but study time on it counts like any lesson.
+   */
+  honors?: boolean;
   /** Question/card topics this lesson covers, for "practice this" links. */
   topics?: string[];
   minutes?: number;

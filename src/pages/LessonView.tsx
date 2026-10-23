@@ -1,4 +1,5 @@
 import type { AppApi } from "../App";
+import { isHonorsLesson } from "../lib/course";
 import type { Course, Lesson } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { lessonKey, logActivity, orderedLessons } from "../lib/planner";
@@ -68,6 +69,12 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           {lesson.minutes ? `, about ${lesson.minutes} min` : ""}
         </p>
         <h1>{lesson.title}</h1>
+        {isHonorsLesson(course, lesson) && (
+          <p className="small">
+            <span className="pill honors">Honors · optional</span>{" "}
+            <span className="muted">Extra depth for students ready for more. It isn't needed to finish the {module?.honors ? "course" : "module"}; study time still counts.</span>
+          </p>
+        )}
       </header>
 
       <article className="lesson-body">

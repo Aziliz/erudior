@@ -8,7 +8,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "test": "tsx tests/engine.test.mts && tsx tests/drills.test.mts && tsx tests/vocab.test.mts && tsx tests/courses.test.mts && tsx tests/homeschool.test.mts && tsx tests/records.test.mts && tsx tests/community.test.mts && tsx tests/classroom.test.mts",
+    "test": "tsx tests/engine.test.mts && tsx tests/drills.test.mts && tsx tests/vocab.test.mts && tsx tests/courses.test.mts && tsx tests/homeschool.test.mts && tsx tests/records.test.mts && tsx tests/community.test.mts && tsx tests/classroom.test.mts && tsx tests/questions.test.mts",
     "course-keys": "tsx scripts/course-keys.ts",
     "courses:publish": "tsx scripts/publish-courses.ts",
     "dev:remote": "tsx scripts/publish-courses.ts --dev && VITE_COURSES_URL=/courses-dev/v1/ vite"
@@ -24,6 +24,7 @@
     "dompurify": "^3.4.17",
     "katex": "0.16.47",
     "marked": "^18.1.1",
+    "mermaid": "11.17.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tweetnacl": "^1.0.3"
@@ -35,6 +36,7 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^6.0.0",
     "axe-core": "^4.10.3",
+    "jsdom": "26.1.0",
     "tsx": "4.20.6",
     "typescript": "^5.9.0",
     "vite": "^8.0.0"

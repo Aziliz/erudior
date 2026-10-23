@@ -1,5 +1,8 @@
-import type { Attempt, Bank, LessonRef, ModuleRef, Mode, Progress, Question, Tally } from "./types";
-import { sameSet, shuffle, uid } from "./util";
+import type { Attempt, Bank, Chosen, LessonRef, ModuleRef, Mode, Progress, Question, Tally } from "./types";
+import { shuffle, uid } from "./util";
+import { isAnswered, isCorrect, qtype } from "./questions";
+
+export { isCorrect };
 
 export interface SessionItem {
   q: Question;
@@ -56,17 +59,29 @@ export interface PracticeOptions {
   shuffleChoices: boolean;
   /** Explicit question ids (e.g. "retake missed"); overrides filters. */
   questionIds?: string[];
+  /** false: leave out honors questions, except on topics picked in `topics`. Default: include. */
+  honors?: boolean;
 }
 
 function makeItems(questions: Question[], shuffleChoices: boolean): SessionItem[] {
   return questions.map((q) => {
     const idx = q.choices.map((_, i) => i);
+    if (qtype(q) === "order") {
+      // Always shown out of order (never already solved).
+      let o = shuffle(idx);
+      for (let t = 0; t < 20 && o.every((x, i) => x === i); t++) o = shuffle(idx);
+      if (o.every((x, i) => x === i)) o = idx.slice().reverse();
+      return { q, order: o };
+    }
     return { q, order: shuffleChoices ? shuffle(idx) : idx };
   });
 }
 
 /** Draw exam questions, honoring per-section quotas when the bank sets them. */
 export function drawExamQuestions(bank: Bank, count: number): Question[] {
+  // Full exams cover the core course; honors questions are optional extra depth.
+  const core = bank.questions.filter((q) => !q.honors);
+  if (core.length && core.length < bank.questions.length) bank = { ...bank, questions: core };
   const n = Math.min(count, bank.questions.length);
   const quotas = bank.exam.sectionQuotas ?? {};
   const picked: Question[] = [];
@@ -167,6 +182,7 @@ export function practicePool(bank: Bank, progress: Progress, opts: Omit<Practice
   const stats = progress.stats[bank.id] ?? {};
   return bank.questions.filter((q) => {
     if (opts.topics.length && !opts.topics.includes(q.topic)) return false;
+    if (opts.honors === false && q.honors && !opts.topics.includes(q.topic)) return false;
     if (opts.sections.length && !opts.sections.includes(q.section ?? "")) return false;
     const s = stats[q.id];
     switch (opts.filter) {
@@ -231,14 +247,10 @@ export function startLessonQuiz(bank: Bank, lesson: LessonRef | undefined, quiz:
   };
 }
 
-export function isCorrect(q: Question, chosen: number[] | undefined): boolean {
-  return !!chosen && chosen.length > 0 && sameSet(q.answer, chosen);
-}
-
 /** Turn a finished session into an Attempt and fold it into progress. */
 export function finishSession(
   session: Session,
-  answers: Record<string, number[]>,
+  answers: Record<string, Chosen>,
   flags: Record<string, boolean>,
   progress: Progress,
   bank: Bank | undefined,
@@ -259,7 +271,7 @@ export function finishSession(
   // score every question, so skipping one can't help you pass.
   const items =
     session.mode === "practice" && !isQuiz(session)
-      ? session.items.filter((it) => answers[it.q.id]?.length)
+      ? session.items.filter((it) => isAnswered(it.q, answers[it.q.id]))
       : session.items;
 
   let correct = 0;
@@ -267,11 +279,12 @@ export function finishSession(
   const records = items.map((it) => {
     const chosen = answers[it.q.id] ?? [];
     const ok = isCorrect(it.q, chosen);
-    if (chosen.length) answered++;
+    const did = isAnswered(it.q, chosen);
+    if (did) answered++;
     if (ok) correct++;
     bump(byTopic, it.q.topic, ok);
     if (bank?.sections.length) bump(bySection, sectionName(it.q.section), ok);
-    return { qid: it.q.id, chosen, correct: ok, flagged: flags[it.q.id] || undefined };
+    return { qid: it.q.id, chosen: did ? chosen : [], correct: ok, flagged: flags[it.q.id] || undefined };
   });
 
   const attempt: Attempt = {
@@ -370,7 +383,7 @@ export function bankCoverage(bank: Bank, progress: Progress) {
 
 export interface RunState {
   index: number;
-  answers: Record<string, number[]>;
+  answers: Record<string, Chosen>;
   flags: Record<string, boolean>;
   checked: Record<string, boolean>;
   blockIdx: number;
@@ -423,7 +436,7 @@ export function restoreRun(text: string, banks: Bank[]): Resumable | null {
 }
 
 export function runSummary(r: Resumable) {
-  const answered = r.session.items.filter((it) => (r.state.answers[it.q.id] ?? []).length).length;
+  const answered = r.session.items.filter((it) => isAnswered(it.q, r.state.answers[it.q.id])).length;
   const b = r.session.blocks[r.state.blockIdx];
   const left = b?.timeLimitSec !== undefined ? b.timeLimitSec - (r.state.blockUsed[r.state.blockIdx] ?? 0) : undefined;
   return { answered, total: r.session.items.length, left, blockName: b?.name };

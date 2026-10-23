@@ -82,6 +82,7 @@ refs: [alg-ref-equations]
 - `topics`: 1–3 topic names; reuse the same names in the lesson's questions' `topic`.
 - `drills`: 1–3 drill ids that practice this lesson (shown as "Practice the math").
 - `refs`: reference sheet ids that help with this lesson.
+- `honors: true`: an optional honors lesson (see Honors below).
 - Body: 900–1,800 words. Structure that works well:
   - a short intro saying what the lesson is for and how it connects to the previous one;
   - the ideas in `##` sections, each with the rule or definition and *why* it's true or
@@ -128,6 +129,120 @@ refs: [alg-ref-equations]
 - No "all of the above" / "none of the above". Choices should be similar in length and
   form.
 - Ids: unique within the course, prefixed with the course short code.
+
+#### Other question types
+
+Besides multiple choice (and select-all-that-apply), a question can set `type:`. Use a mix:
+roughly a quarter of a lesson's questions can be other types where they fit the content
+naturally (a term to recall, a process to order, parts to label, pairs to match). All of them
+go in lesson and module quizzes the same way and are scored right or wrong as a whole (the
+review shows which parts were right). Text in every field is plain text with `$math$`.
+
+```yaml
+# Select all that apply: answer is a list; say "Select all that apply." in the stem.
+- id: bio-q-0150
+  lesson: bio-organelles
+  stem: 'Which structures are found in plant cells but not animal cells? Select all that apply.'
+  choices: [Cell wall, Chloroplast, Mitochondrion, Ribosome]
+  answer: [0, 1]
+  explanation: …
+
+# Fill in the blank (type the answer). Each ___ is a blank. List every reasonable correct
+# answer (singular/plural, abbreviation, common alternate spelling); spacing, capital
+# letters, curly quotes and a final period are ignored. Plain numbers compare by value.
+- id: bio-q-0151
+  lesson: bio-organelles
+  type: text
+  stem: 'Proteins are built on ___, using instructions copied from DNA in the ___.'
+  accept:
+    - [ribosomes, ribosome]
+    - [nucleus]
+  explanation: …
+# One blank: accept can be a flat list.  accept: [mitochondrion, mitochondria]
+# caseSensitive: true makes capital letters count (gene symbols like "Tt").
+
+# Match: each left item to one answer. Answers may repeat (sorting into categories);
+# distractors are extra answers that match nothing.
+- id: bio-q-0152
+  lesson: bio-organelles
+  type: match
+  stem: 'Match each organelle to its main job.'
+  pairs:
+    - [Ribosome, Builds proteins]
+    - [Mitochondrion, Releases energy from food as ATP]
+    - [Golgi apparatus, Modifies and packages proteins]
+  distractors: [Stores the cell's DNA]
+  explanation: …
+
+# Put in order: list items in the CORRECT order; the app shuffles them.
+- id: bio-q-0153
+  lesson: bio-cell-cycle
+  type: order
+  stem: 'Put the phases of mitosis in order.'
+  items: [Prophase, Metaphase, Anaphase, Telophase]
+  explanation: …
+
+# Label the picture: numbered markers at x, y (percent of the image's width and height,
+# measured from the top-left); the learner picks a label for each.
+- id: bio-q-0154
+  lesson: bio-organelles
+  type: label
+  stem: 'Name the numbered parts of this animal cell.'
+  image: {src: images/animal-cell.svg, alt: 'An animal cell with four numbered parts'}
+  labels:
+    - {x: 50, y: 48, text: Nucleus}
+    - {x: 78, y: 30, text: Mitochondrion}
+  distractors: [Chloroplast, Cell wall]
+  explanation: …
+```
+
+Any question (choice ones too) can show a picture: `image: {src: images/…, alt: '…',
+caption: '…'}` (alt required; caption optional). Write match, order and label questions with
+3–6 parts; an order question with 3–7 items. Match and label answers appear in drop-down lists,
+so they are plain text (no `$math$`); left items and order items may use math.
+
+#### Images
+
+Put pictures in the course's `images/` folder (SVG preferred; PNG/JPG/WebP allowed, under
+400 KB each) and use them in lessons as `![alt text](images/name.svg)` or in questions with
+`image:`. The build embeds them in the course file (web addresses don't load in the app).
+Alt text says what the picture shows in a sentence or two. Draw SVGs yourself (original work
+only) with a white background rectangle, dark (#1c2833) lines and text at least 14px, and
+colors with enough contrast; no scripts, `<foreignObject>` or outside links. For label
+questions, leave the parts unlabeled in the image (the app adds numbered markers). Check how
+an image looks: `node scripts/preview-figure.mjs content/math/<course>/images/x.svg` writes
+a PNG next to it (add `--markers '[{"x":50,"y":48}]'` to see label markers); open the PNG
+with your file viewer to look at it, then delete it.
+
+#### Diagrams (Mermaid)
+
+Lessons and reference sheets can draw flowcharts, cycles, timelines, sequence and pie
+diagrams with a ```mermaid block. Every diagram needs `accTitle:` and `accDescr:` lines (the
+description is what screen-reader users get, so describe the whole diagram). Labels are plain
+text (no `$math$` or Markdown). Keep them small enough to read on a phone: about 12 boxes, and `flowchart TD` (top-down) for
+chains of more than four boxes (left-to-right chains get too wide on a phone).
+Check one with `node scripts/preview-figure.mjs file.mmd` (mermaid source in a .mmd file).
+
+````markdown
+```mermaid
+flowchart LR
+  accTitle: The flow of genetic information
+  accDescr: DNA is copied to DNA by replication, transcribed into mRNA, and mRNA is translated into protein.
+  DNA -- replication --> DNA
+  DNA -- transcription --> mRNA -- translation --> Protein
+```
+````
+
+#### Honors
+
+School courses have honors material: optional lessons that go deeper (honors or AP level)
+for students who are ready for more or need more hours. Two forms, both welcome:
+- an honors lesson inside a core module: `honors: true` in its front matter. It's not needed
+  to finish the module, and its questions stay out of the module quiz (give it a lesson quiz
+  as usual; `module_quiz` is ignored).
+- an honors module: `honors: true` on the module in course.yaml. All its lessons are honors;
+  it has its own module quiz like any module.
+Honors lessons meet the same quality bar as core lessons, and must be accurate first.
 
 ### Drills (`drills/m2.yaml`)
 

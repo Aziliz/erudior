@@ -13,12 +13,30 @@ import { renderFigure } from "../src/lib/figure.ts";
 import { fractionText } from "../src/lib/answers.ts";
 import { splitMath } from "../src/lib/math.ts";
 import type { FigureSpec } from "../src/lib/types.ts";
+import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
+import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 
-export function checkCourse(file: string, opts: { runs?: number; money?: boolean } = {}): string[] {
+let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
+async function parseMermaid(src: string): Promise<void> {
+  if (!mermaidParse) {
+    const { JSDOM } = await import("jsdom");
+    const dom = new JSDOM("<!doctype html><html><body></body></html>");
+    const g = globalThis as Record<string, unknown>;
+    g.window ??= dom.window;
+    g.document ??= dom.window.document;
+    const { default: mermaid } = await import("mermaid");
+    mermaid.initialize({ startOnLoad: false, securityLevel: "strict" });
+    mermaidParse = (s) => mermaid.parse(s);
+  }
+  await mermaidParse(src);
+}
+
+export async function checkCourse(file: string, opts: { runs?: number; money?: boolean } = {}): Promise<string[]> {
   const problems: string[] = [];
   const say = (s: string) => problems.push(s);
   const c = normalizeCourse(JSON.parse(readFileSync(file, "utf8")));
   const runs = opts.runs ?? 40;
+  const diagrams: { where: string; src: string }[] = [];
 
   // --- Notation -----------------------------------------------------------------
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
@@ -35,6 +53,16 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
         }
         return "";
       });
+      t = t.replace(MERMAID_BLOCK, (_m, body: string) => {
+        diagrams.push({ where, src: body });
+        return "";
+      });
+      // Images: alt text required; only embedded (data:) images load in the desktop app.
+      for (const m of t.matchAll(/!\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
+        if (!m[1].trim()) say(`${where}: image without alt text (![alt](…))`);
+        if (!m[2].startsWith("data:")) say(`${where}: image "${m[2].slice(0, 60)}" isn't embedded; put it in the course's images/ folder`);
+      }
+      t = t.replace(/!\[[^\]]*\]\([^)]*\)/g, "");
       // Code spans and blocks aren't math.
       t = t.replace(/```[\s\S]*?```/g, "").replace(/`[^`\n]*`/g, "");
     }
@@ -59,13 +87,33 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
   for (const r of c.references) checkText(`reference ${r.id}`, r.body, true);
   for (const b of c.banks)
     for (const q of b.questions) {
-      checkText(`question ${q.id} stem`, q.stem);
-      q.choices.forEach((ch, i) => checkText(`question ${q.id} choice ${i + 1}`, ch));
-      checkText(`question ${q.id} explanation`, q.explanation);
+      const kind = qtype(q);
+      const parts: [string, string | undefined][] = [
+        ["stem", q.stem],
+        ["explanation", q.explanation],
+        ...q.choices.map((ch, i): [string, string] => [kind === "order" ? `item ${i + 1}` : `choice ${i + 1}`, ch]),
+        ...(q.left ?? []).map((l, i): [string, string] => [`left ${i + 1}`, l]),
+        ...(q.accept ?? []).flatMap((a, i) => a.map((x, j): [string, string] => [`blank ${i + 1} answer ${j + 1}`, x])),
+        ...(q.image?.caption ? [["image caption", q.image.caption] as [string, string]] : []),
+      ];
+      for (const [what, t] of parts) checkText(`question ${q.id} ${what}`, t);
       // Questions render as plain text with math, not Markdown.
-      for (const [what, t] of [["stem", q.stem], ["explanation", q.explanation], ...q.choices.map((ch, i) => [`choice ${i + 1}`, ch])])
-        if (/^\s*\|.*\|\s*$/m.test(t) || /\*\*[^*]+\*\*|(^|[\s(])\*[^*\s][^*\n]*?[^*\s]\*(?=$|[\s.,;:)])|(^|[\s(])_[^_\s][^_\n]*?_(?=$|[\s.,;:)])|`/.test(t.replace(/\$[^$]*\$/g, "")))
+      for (const [what, t] of parts)
+        if (t && (/^\s*\|.*\|\s*$/m.test(t) || /\*\*[^*]+\*\*|(^|[\s(])\*[^*\s][^*\n]*?[^*\s]\*(?=$|[\s.,;:)])|(^|[\s(])_[^_\s][^_\n]*?_(?=$|[\s.,;:)])|`/.test(t.replace(/\$[^$]*\$/g, "").replace(/_{3,}/g, ""))))
           say(`question ${q.id} ${what}: uses Markdown (tables, bold, italics, backticks), which questions don't render`);
+      if (q.image && !q.image.alt.trim()) say(`question ${q.id}: image without alt text`);
+      if (q.image && !q.image.src.startsWith("data:")) say(`question ${q.id}: image isn't embedded (put it in the course's images/ folder)`);
+      if (kind === "text") {
+        if ((q.accept ?? []).length !== blankCount(q)) say(`question ${q.id}: blanks and accept lists don't match`);
+        if (!isCorrect(q, (q.accept ?? []).map((a) => a[0]))) say(`question ${q.id}: its own first accepted answer is rejected`);
+        if (isCorrect(q, (q.accept ?? []).map(() => "zzqx"))) say(`question ${q.id}: a nonsense answer is accepted`);
+      }
+      if (kind === "match" || kind === "label") {
+        if (new Set(q.choices).size !== q.choices.length) say(`question ${q.id}: the same choice is listed twice`);
+        if (q.choices.some((ch) => ch.includes("$"))) say(`question ${q.id}: ${kind} answers are shown in a drop-down list, which can't show math; use plain text (math is fine on the left side)`);
+        if (!isCorrect(q, q.answer)) say(`question ${q.id}: its own answer is rejected`);
+      }
+      if (kind === "order" && !isCorrect(q, q.choices.map((_, i) => i))) say(`question ${q.id}: the correct order is rejected`);
     }
   for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front), checkText(`card ${k.id} back`, k.back));
   for (const g of c.glossary) checkText(`glossary ${g.term}`, g.definition);
@@ -143,6 +191,26 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
       }
     }
   }
+  // --- Diagrams ------------------------------------------------------------------
+  for (const d of diagrams) {
+    const a11y = mermaidA11y(d.src);
+    if (!a11y.title || !a11y.description) say(`${d.where}: mermaid diagram needs accTitle: and accDescr: lines (what it shows, for screen readers)`);
+    try {
+      await parseMermaid(d.src);
+    } catch (e) {
+      say(`${d.where}: mermaid error: ${String((e as Error).message ?? e).split("\n").slice(0, 3).join(" ")}`);
+    }
+  }
+
+  // --- Honors -------------------------------------------------------------------------
+  const honorsLesson = new Set(c.lessons.filter((l) => l.honors || c.modules.find((m) => m.id === l.module)?.honors).map((l) => l.id));
+  for (const m of c.modules.filter((m) => !m.honors)) {
+    const core = c.lessons.filter((l) => l.module === m.id && !honorsLesson.has(l.id));
+    if (!core.length) say(`module ${m.id}: has only honors lessons (mark the module honors: true)`);
+    const honorsQs = new Set(c.lessons.filter((l) => l.module === m.id && honorsLesson.has(l.id)).flatMap((l) => l.quiz ?? []));
+    if (m.quiz?.some((q) => honorsQs.has(q))) say(`module ${m.id}: its module quiz uses honors questions`);
+  }
+
   // One message per distinct problem.
   return [...new Set(problems)];
 }
@@ -150,7 +218,7 @@ export function checkCourse(file: string, opts: { runs?: number; money?: boolean
 if (process.argv[1]?.endsWith("check-course.mts")) {
   let total = 0;
   for (const f of process.argv.slice(2)) {
-    const p = checkCourse(f);
+    const p = await checkCourse(f);
     total += p.length;
     console.log(p.length ? `${f}: ${p.length} problem(s)\n  ${p.join("\n  ")}` : `${f}: OK`);
   }

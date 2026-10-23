@@ -24,7 +24,7 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
     await api.addCourse(e!.id);
     setAdding(false);
   }
-  const lessonCount = (e.outline ?? []).reduce((s, m) => s + m.lessons.length, 0);
+  const lessonCount = (e.outline ?? []).reduce((s, m) => s + m.lessons.length + (m.honors?.length ?? 0), 0);
   let n = 0;
 
   return (
@@ -83,6 +83,7 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
         <p className="meta small muted">
           {[
             e.lessons && `${e.lessons} lessons`,
+            e.honors && `${e.honors} honors lessons`,
             e.questions && `${e.questions} questions`,
             e.words && (e.carried ? `${e.words} words (${e.words - e.carried} new, ${e.carried} carried over)` : `${e.words} words to learn`),
             e.cards && !e.words && `${e.cards} notecards`,
@@ -103,18 +104,29 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
           {(e.outline ?? []).map((m, i) => (
             <li key={i} className="lesson-plan-module">
               <h3>
-                <span className="muted">Module {i + 1}.</span> {m.title}
+                <span className="muted">Module {i + 1}.</span> {m.title} {m.isHonors && <span className="pill honors">Honors · optional</span>}
               </h3>
-              <ol>
-                {m.lessons.map((t) => {
-                  n += 1;
-                  return (
-                    <li key={n} value={n}>
-                      {t}
+              {m.lessons.length > 0 && (
+                <ol>
+                  {m.lessons.map((t) => {
+                    n += 1;
+                    return (
+                      <li key={n} value={n}>
+                        {t}
+                      </li>
+                    );
+                  })}
+                </ol>
+              )}
+              {(m.honors?.length ?? 0) > 0 && (
+                <ul className="honors-list">
+                  {m.honors!.map((t) => (
+                    <li key={t}>
+                      {t} {!m.isHonors && <span className="pill honors">Honors</span>}
                     </li>
-                  );
-                })}
-              </ol>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ol>

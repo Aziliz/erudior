@@ -4,7 +4,8 @@ Each course lives in content/<area>/<folder>/ and is written as YAML and Markdow
 
   course.yaml          id, title, description, revision, changelog, modules: [{id, title}]
   lessons/*.md         one lesson per file: YAML front matter, then the Markdown body
-  questions/*.yaml     a list of multiple-choice questions
+  questions/*.yaml     a list of questions (choice, text, match, label, order; see AUTHORING.md)
+  images/*             pictures for lessons and questions, embedded in the course file
   drills/*.yaml        a list of math drills (generated problems)
   cards.yaml           notecards: [{front, back, topic}]
   glossary.yaml        [{term, definition, aliases?, topic?}]
@@ -22,7 +23,7 @@ Run:  python3 content/math/build.py            (all courses)
       python3 content/math/build.py algebra    (one folder)
 Then: npx tsx tests/check-course.mts samples/math/<id>.json
 """
-import json, pathlib, re, sys
+import base64, json, pathlib, re, sys
 
 import yaml
 
@@ -63,6 +64,134 @@ ID = re.compile(r"^[A-Za-z0-9_-]{1,100}$")
 
 class BuildError(Exception):
     pass
+
+
+IMAGE_TYPES = {".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".gif": "image/gif"}
+MAX_IMAGE = 400_000
+
+
+def embed_image(folder, src, errors, where):
+    """A course image (path relative to the course folder, e.g. images/cell.svg) as a data: URL."""
+    if str(src).startswith("data:"):
+        return src
+    if re.match(r"^[a-z]+:", str(src)):
+        errors.append(f"{where}: image '{src}' must be a file in the course's images/ folder (web images don't load in the app)")
+        return src
+    f = (folder / str(src)).resolve()
+    if folder.resolve() not in f.parents or not f.exists():
+        errors.append(f"{where}: image file '{src}' not found")
+        return src
+    kind = IMAGE_TYPES.get(f.suffix.lower())
+    if not kind:
+        errors.append(f"{where}: image '{src}' must be .svg, .png, .jpg, .webp or .gif")
+        return src
+    data = f.read_bytes()
+    if len(data) > MAX_IMAGE:
+        errors.append(f"{where}: image '{src}' is {len(data) // 1000} KB; keep images under {MAX_IMAGE // 1000} KB")
+    if kind == "image/svg+xml" and re.search(rb"<script|\son[a-z]+\s*=|<foreignObject|href=\"(?!#)", data):
+        errors.append(f"{where}: SVG '{src}' has scripts, event handlers, foreignObject or outside links")
+    return f"data:{kind};base64,{base64.b64encode(data).decode()}"
+
+
+MD_IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)((?:\s+\"[^\"]*\")?)\)")
+
+
+def embed_md_images(folder, md, errors, where):
+    def rep(m):
+        if not m.group(1).strip():
+            errors.append(f"{where}: image '{m.group(2)}' needs alt text: ![what it shows](...)")
+        return f"![{m.group(1)}]({embed_image(folder, m.group(2), errors, where)}{m.group(3)})"
+    return MD_IMAGE.sub(rep, md)
+
+
+BLANK = re.compile(r"_{3,}")
+MERMAID = re.compile(r"```mermaid[ \t]*\n([\s\S]*?)```")
+
+
+def uniq(xs):
+    seen = []
+    for x in xs:
+        if x not in seen:
+            seen.append(x)
+    return seen
+
+
+def question_kind(folder, q, where, errors):
+    """Check a question's type-specific fields; return the fields for the course JSON."""
+    t = q.get("type", "choice")
+    out = {}
+    img = q.get("image")
+    if img is not None:
+        if isinstance(img, str):
+            img = {"src": img}
+        if not isinstance(img, dict) or not img.get("src"):
+            errors.append(f"{where}: image needs a src")
+        else:
+            if not str(img.get("alt") or "").strip():
+                errors.append(f"{where}: image needs alt text (describe what it shows)")
+            out["image"] = {"src": embed_image(folder, img["src"], errors, where), "alt": unwrap(str(img.get("alt") or "")),
+                            **({"caption": unwrap(str(img["caption"]))} if img.get("caption") else {})}
+    if t == "choice":
+        ch = q.get("choices") or []
+        if len(ch) < 2:
+            errors.append(f"{where}: needs at least 2 choices")
+        if len(set(map(str, ch))) != len(ch):
+            errors.append(f"{where}: duplicate choices")
+        ans = q.get("answer")
+        ans = ans if isinstance(ans, list) else [ans]
+        if not ans or any(not isinstance(a, int) or a < 0 or a >= len(ch) for a in ans):
+            errors.append(f"{where}: answer must be choice index/indices (0-based)")
+        elif len(set(ans)) != len(ans):
+            errors.append(f"{where}: answer lists the same choice twice")
+        return {**out, "choices": [unwrap(str(c)) for c in ch], "answer": sorted(a for a in ans if isinstance(a, int))}
+    if t == "text":
+        acc = q.get("accept")
+        blanks = len(BLANK.findall(str(q.get("stem", ""))))
+        if isinstance(acc, list) and acc and all(not isinstance(a, list) for a in acc):
+            acc = [acc] if blanks <= 1 else [[a] for a in acc]
+        if not isinstance(acc, list) or not acc or any(not isinstance(a, list) or not a for a in acc):
+            errors.append(f"{where}: text questions need accept: a list of accepted answers (a list per blank)")
+            acc = [["?"]]
+        acc = [[str(x) for x in a] for a in acc]
+        if blanks > 1 and blanks != len(acc):
+            errors.append(f"{where}: {blanks} blanks (___) but {len(acc)} accept lists")
+        if blanks <= 1 and len(acc) > 1:
+            errors.append(f"{where}: {len(acc)} accept lists but one blank; mark each blank with ___")
+        return {**out, "type": "text", "choices": [], "answer": [], "accept": acc, **({"caseSensitive": True} if q.get("caseSensitive") else {})}
+    if t == "match":
+        pairs = q.get("pairs") or []
+        if len(pairs) < 2 or any(not isinstance(p, list) or len(p) != 2 for p in pairs):
+            errors.append(f"{where}: match questions need pairs: [[left, right], ...] (at least 2)")
+            pairs = [["?", "?"], ["?!", "?!"]]
+        left = [unwrap(str(p[0])) for p in pairs]
+        if len(set(left)) != len(left):
+            errors.append(f"{where}: the same left item twice")
+        choices = uniq([unwrap(str(p[1])) for p in pairs] + [unwrap(str(d)) for d in q.get("distractors") or []])
+        if len(choices) < 2:
+            errors.append(f"{where}: needs at least 2 different answers to choose from")
+        return {**out, "type": "match", "left": left, "choices": choices, "answer": [choices.index(unwrap(str(p[1]))) for p in pairs]}
+    if t == "label":
+        labels = q.get("labels") or []
+        if "image" not in out:
+            errors.append(f"{where}: label questions need an image")
+        if len(labels) < 2 or any(not isinstance(l, dict) or "text" not in l for l in labels):
+            errors.append(f"{where}: label questions need labels: [{{x, y, text}}, ...] (at least 2)")
+            labels = [{"x": 0, "y": 0, "text": "?"}, {"x": 0, "y": 0, "text": "?!"}]
+        for l in labels:
+            if not all(isinstance(l.get(k), (int, float)) and 0 <= l.get(k) <= 100 for k in ("x", "y")):
+                errors.append(f"{where}: label '{l.get('text')}' needs x and y in percent (0-100)")
+        choices = uniq([unwrap(str(l["text"])) for l in labels] + [unwrap(str(d)) for d in q.get("distractors") or []])
+        return {**out, "type": "label", "markers": [{"x": l.get("x", 0), "y": l.get("y", 0)} for l in labels],
+                "choices": choices, "answer": [choices.index(unwrap(str(l["text"]))) for l in labels]}
+    if t == "order":
+        items = [unwrap(str(i)) for i in q.get("items") or []]
+        if len(items) < 3:
+            errors.append(f"{where}: order questions need items: at least 3, listed in the correct order")
+        if len(set(items)) != len(items):
+            errors.append(f"{where}: the same item twice")
+        return {**out, "type": "order", "choices": items, "answer": []}
+    errors.append(f"{where}: unknown type '{t}' (choice, text, match, label or order)")
+    return {**out, "choices": [], "answer": []}
 
 
 def load_yaml(path):
@@ -125,10 +254,16 @@ def build(folder: pathlib.Path):
                 errors.append(f"{f.name}: front matter needs '{k}'")
         if fm.get("module") not in module_ids:
             errors.append(f"{f.name}: module '{fm.get('module')}' isn't in course.yaml")
+        honors = bool(fm.get("honors")) or any(m["id"] == fm.get("module") and m.get("honors") for m in modules)
+        body = embed_md_images(folder, body, errors, f.name)
+        for d in MERMAID.findall(body):
+            if not re.search(r"^\s*accTitle\s*:", d, re.M) or not re.search(r"^\s*accDescr\s*[:{]", d, re.M):
+                errors.append(f"{f.name}: mermaid diagram needs accTitle: and accDescr: lines")
         lessons.append({
             "id": fm.get("id"),
             "module": fm.get("module"),
             "title": fm.get("title"),
+            **({"honors": True} if honors else {}),
             "minutes": fm.get("minutes", 20),
             "topics": fm.get("topics", []),
             "drills": fm.get("drills") or None,
@@ -159,20 +294,11 @@ def build(folder: pathlib.Path):
         qids.add(q.get("id"))
         if q.get("lesson") not in lesson_by_id:
             errors.append(f"{where}: lesson '{q.get('lesson')}' doesn't exist")
-        ch = q.get("choices") or []
-        if len(ch) < 2:
-            errors.append(f"{where}: needs at least 2 choices")
-        if len(set(map(str, ch))) != len(ch):
-            errors.append(f"{where}: duplicate choices")
-        ans = q.get("answer")
-        ans = ans if isinstance(ans, list) else [ans]
-        if not ans or any(not isinstance(a, int) or a < 0 or a >= len(ch) for a in ans):
-            errors.append(f"{where}: answer must be choice index/indices (0-based)")
         if not q.get("stem"):
             errors.append(f"{where}: missing stem")
         if not q.get("explanation"):
             errors.append(f"{where}: missing explanation")
-        q["answer"] = ans
+        q["_kind"] = question_kind(folder, q, where, errors)
 
     # Drills
     drills = []
@@ -198,7 +324,7 @@ def build(folder: pathlib.Path):
     refs = []
     for f in listing(folder / "references", "*.md"):
         fm, body = front_matter(f)
-        refs.append({"id": fm.get("id"), "title": fm.get("title"), "body": body})
+        refs.append({"id": fm.get("id"), "title": fm.get("title"), "body": embed_md_images(folder, body, errors, f.name)})
     ref_ids = {r["id"] for r in refs}
 
     for l in lessons:
@@ -218,8 +344,12 @@ def build(folder: pathlib.Path):
         mls = [l["id"] for l in lessons if l["module"] == m["id"]]
         if not mls:
             errors.append(f"module {m['id']}: has no lessons")
-        m["quiz"] = [q["id"] for q in questions if q.get("lesson") in mls and q.get("module_quiz")]
-        for lid in mls:
+        # Honors lessons are optional, so a core module's quiz leaves them out.
+        core = mls if m.get("honors") else [l["id"] for l in lessons if l["module"] == m["id"] and not l.get("honors")]
+        if mls and not core:
+            errors.append(f"module {m['id']}: only honors lessons; mark the module honors: true in course.yaml")
+        m["quiz"] = [q["id"] for q in questions if q.get("lesson") in core and q.get("module_quiz")]
+        for lid in core:
             if not any(q.get("lesson") == lid and q.get("module_quiz") for q in questions):
                 errors.append(f"lesson {lid}: needs at least one question with module_quiz: true")
 
@@ -315,9 +445,9 @@ def build(folder: pathlib.Path):
             "section": module_of[q["lesson"]],
             "topic": q.get("topic") or lesson_by_id[q["lesson"]]["title"],
             "stem": unwrap(q["stem"]),
-            "choices": [unwrap(str(c)) for c in q["choices"]],
-            "answer": q["answer"],
+            **q["_kind"],
             "explanation": unwrap(q["explanation"]),
+            **({"honors": True} if lesson_by_id[q["lesson"]].get("honors") else {}),
         }
         bank_questions.append(out)
 
@@ -408,17 +538,27 @@ def write_manifest():
             "id": c["id"], "file": file, "order": order, "title": c["title"],
             "description": c.get("description", ""), "revision": c.get("revision", 1),
             "subject": subject, "level": level, "type": kind,
-            "lessons": len(c.get("lessons", [])),
+            # Core lessons; honors lessons (optional) are counted separately.
+            "lessons": sum(1 for l in c.get("lessons", []) if not l.get("honors")),
+            **({"honors": sum(1 for l in c.get("lessons", []) if l.get("honors"))} if any(l.get("honors") for l in c.get("lessons", [])) else {}),
             "questions": sum(len(b.get("questions", [])) for b in c.get("banks", [])),
             "cards": sum(len(d.get("cards", [])) for d in c.get("decks", [])),
             "drills": len(c.get("drills", [])),
             **({"words": len(c["vocab"])} if c.get("vocab") else {}),
             **({"carried": sum(1 for v in c["vocab"] if v.get("from"))} if any(v.get("from") for v in c.get("vocab", [])) else {}),
             **({"requires": c["requires"]} if c.get("requires") else {}),
-            "lessonIds": [l.get("id") for l in c.get("lessons", [])],
+            # Core lessons (finishing them finishes the course); honors lessons are optional.
+            "lessonIds": [l.get("id") for l in c.get("lessons", []) if not l.get("honors")],
+            **({"honorsLessonIds": [l["id"] for l in c.get("lessons", []) if l.get("honors")],
+                "honorsModuleIds": [m["id"] for m in c.get("modules", []) if m.get("honors")]}
+               if any(l.get("honors") for l in c.get("lessons", [])) else {}),
             # Lesson plan for the catalog's Overview page (titles only).
             "outline": [
-                {"title": m.get("title", ""), "lessons": [l.get("title", "") for l in c.get("lessons", []) if l.get("module") == m.get("id")]}
+                {"title": m.get("title", ""),
+                 "lessons": [l.get("title", "") for l in c.get("lessons", []) if l.get("module") == m.get("id") and not l.get("honors")],
+                 **({"honors": [l.get("title", "") for l in c.get("lessons", []) if l.get("module") == m.get("id") and l.get("honors")]}
+                    if any(l.get("module") == m.get("id") and l.get("honors") for l in c.get("lessons", [])) else {}),
+                 **({"isHonors": True} if m.get("honors") else {})}
                 for m in c.get("modules", [])
             ],
         }

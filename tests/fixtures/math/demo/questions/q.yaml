@@ -1,0 +1,59 @@
+- id: q1
+  lesson: d-l1
+  module_quiz: true
+  stem: 'Which are organelles? Select all that apply.'
+  choices: [Nucleus, Mitochondrion, Glucose, Water]
+  answer: [0, 1]
+  explanation: 'Nucleus and mitochondrion are organelles.'
+- id: q2
+  lesson: d-l1
+  type: text
+  stem: 'The powerhouse of the cell is the ___.'
+  accept: [mitochondrion, mitochondria]
+  explanation: 'Mitochondria make most ATP.'
+- id: q3
+  lesson: d-l1
+  type: text
+  stem: 'DNA is made of ___ and RNA uses ___ instead of thymine.'
+  accept: [[nucleotides, nucleotide], [uracil, U]]
+  explanation: 'x'
+- id: q4
+  lesson: d-l1
+  type: match
+  stem: 'Match each organelle to its job.'
+  pairs:
+    - [Ribosome, Builds proteins]
+    - [Mitochondrion, Releases energy from food]
+    - [Nucleus, Stores DNA]
+  distractors: [Digests old parts]
+  explanation: 'x'
+- id: q5
+  lesson: d-l1
+  type: order
+  stem: 'Put the phases of mitosis in order.'
+  items: [Prophase, Metaphase, Anaphase, Telophase]
+  explanation: 'PMAT.'
+- id: q6
+  lesson: d-l1
+  type: label
+  stem: 'Label the parts.'
+  image: {src: images/cell.svg, alt: 'A cell with two numbered parts'}
+  labels:
+    - {x: 50, y: 50, text: Nucleus}
+    - {x: 75, y: 35, text: Mitochondrion}
+  distractors: [Ribosome]
+  explanation: 'x'
+- id: q7
+  lesson: d-l2
+  stem: 'Honors q'
+  choices: [a, b]
+  answer: 0
+  explanation: 'x'
+- id: q8
+  lesson: d-l3
+  module_quiz: true
+  stem: 'Capstone q with picture'
+  image: {src: images/cell.svg, alt: 'A cell'}
+  choices: [a, b]
+  answer: 1
+  explanation: 'x'
