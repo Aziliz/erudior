@@ -1,0 +1,97 @@
+# Round 2 drills for module de-m1 (honors lessons)
+- id: de-m1-r2-orth-power
+  title: Orthogonal trajectories of y = Cxⁿ
+  topic: Orthogonal trajectories
+  vars:
+    n: {min: 2, max: 6}
+    p: {min: -4, max: 4}
+    q: {min: -4, max: 4}
+  where: ['p != 0', 'q != 0']
+  calc:
+    a: n
+    nm1: n - 1
+    K: p^2 + n*q^2
+  prompt: 'The orthogonal trajectories of the family $y = Cx^{{n}}$ have the form $x^2 + ay^2 = K$. Find $a$, and the value of $K$ for the trajectory through $({p}, {q})$.'
+  answers:
+    - {name: a, label: '$a =$'}
+    - {name: K, label: '$K =$'}
+  solution: |-
+    Differentiate: $y' = {n}Cx^{{nm1}}$. From the family, $C = y/x^{{n}}$, so $y' = \dfrac{{n}y}{x}$. The trajectories satisfy $y' = -\dfrac{x}{{n}y}$, so ${n}y\,dy = -x\,dx$, giving $\dfrac{{n}y^2}{2} = -\dfrac{x^2}{2} + c$, that is $x^2 + {n}y^2 = K$. So $a =$ **{a}**. At $({p}, {q})$: $K = ({p})^2 + {n}({q})^2 =$ **{K}**.
+
+- id: de-m1-r2-orth-slope
+  title: Slopes of a family and its orthogonal trajectories
+  topic: Orthogonal trajectories
+  vars:
+    b: {min: -3, max: 3}
+    p: {min: -2, max: 2}
+    q: {min: -5, max: 5}
+  where: ['b != 0', 'q != 0', 'abs(b*q) != 1']
+  calc:
+    mf: b*q
+    mt: -1/(b*q)
+  prompt: 'For the family $y = Ce^{{b:coef}x}$, find the slope of the family member through $({p}, {q})$, and the slope of the orthogonal trajectory through that point as an exact fraction.'
+  answers:
+    - {name: mf, label: 'Family slope'}
+    - {name: mt, label: 'Trajectory slope', kind: fraction, lowestTerms: true}
+  solution: |-
+    Differentiate: $y' = {b:coef}Ce^{{b:coef}x}$, and $Ce^{{b:coef}x} = y$, so the family satisfies $y' = {b:coef}y$. At $({p}, {q})$ the family slope is ${b}\cdot({q}) =$ **{mf}** (it doesn't depend on $x$). The trajectory slope is the negative reciprocal: $-1/({mf}) =$ **{mt:frac}**.
+
+- id: de-m1-r2-si-peak
+  title: When an SI epidemic spreads fastest
+  topic: Logistic growth
+  vars:
+    N: {choices: [500, 1000, 2000, 5000, 10000]}
+    I0: {min: 1, max: 20}
+    beta: {choices: [0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8]}
+  calc:
+    A: (N - I0)/I0
+    tp: ln(A)/beta
+    rate: round(beta*N/4, 2)
+    half: N/2
+  prompt: 'In the SI model $\dfrac{dI}{dt} = {beta}I\left(1 - \dfrac{I}{{N}}\right)$ ($t$ in days) with $I(0) = {I0}$, when is the infection spreading fastest, and how many new infections per day are there then? Give the time to 2 decimal places.'
+  answers:
+    - {name: tp, label: '$t \approx$', tolerance: 0.01}
+    - {name: rate, label: 'Rate', tolerance: 0.01}
+  solution: |-
+    This is logistic with $K = {N}$ and $A = \dfrac{{N} - {I0}}{{I0}} \approx {A:num2}$, so $I = \dfrac{{N}}{1 + Ae^{-{beta}t}}$. The spread is fastest at $I = {half}$, where $Ae^{-{beta}t} = 1$: $t = \dfrac{\ln A}{{beta}} \approx$ **{tp:num2}** days. The rate there is $\dfrac{{beta}\cdot {N}}{4} =$ **{rate}** per day.
+
+- id: de-m1-r2-logistic-3pt
+  title: Fit a logistic model to three counts
+  topic: Logistic growth
+  vars:
+    Ac: {choices: [2, 3, 4, 5, 8, 9]}
+    m: {choices: [2, 3]}
+    j: {min: 1, max: 60}
+  calc:
+    L: lcm(lcm(1 + Ac, m + Ac), m^2 + Ac)
+    cap: j*L
+    P0: cap/(1 + Ac)
+    P1: cap*m/(m + Ac)
+    P2: cap*m^2/(m^2 + Ac)
+  where: ['cap >= 100', 'cap <= 20000']
+  prompt: 'A population is counted at three equally spaced times: ${P0}$, ${P1}$ and ${P2}$. Assuming logistic growth $P = \dfrac{K}{1 + Ae^{-kt}}$ with $t = 0$ at the first count, find $K$ and $A$.'
+  answers:
+    - {name: cap, label: '$K =$'}
+    - {name: Ac, label: '$A =$'}
+  solution: |-
+    Let $u_n = 1/P_n$. Since $u - 1/K$ shrinks by the same factor each time step, $c = \dfrac1K = \dfrac{u_0u_2 - u_1^2}{u_0 + u_2 - 2u_1}$, which works out to $\dfrac{1}{{cap}}$; equivalently $K = \dfrac{P_1(P_0P_1 - 2P_0P_2 + P_1P_2)}{P_1^2 - P_0P_2}$. So $K =$ **{cap}**. Then $A = K\left(u_0 - \dfrac1K\right) = \dfrac{{cap}}{{P0}} - 1 =$ **{Ac}**. (Each step multiplies $u - 1/K$ by $e^{-kT} = 1/{m}$.)
+
+- id: de-m1-r2-gompertz
+  title: Fastest growth in a Gompertz model
+  topic: Gompertz growth
+  vars:
+    cap: {choices: [200, 500, 1000, 2000]}
+    r: {choices: [0.01, 0.02, 0.05, 0.1]}
+    kr: {choices: [0.1, 0.2, 0.3, 0.4, 0.5]}
+  calc:
+    P0: round(r*cap)
+    w0: ln(cap/P0)
+    tinf: ln(w0)/kr
+    rmax: kr*cap/e
+    Pinf: cap/e
+  prompt: 'A population follows the Gompertz model $\dfrac{dP}{dt} = {kr}P\ln\dfrac{{cap}}{P}$ with $P(0) = {P0}$. When is it growing fastest, and what is that fastest rate? Give both to 2 decimal places.'
+  answers:
+    - {name: tinf, label: '$t \approx$', tolerance: 0.01}
+    - {name: rmax, label: 'Fastest rate', tolerance: 0.01}
+  solution: |-
+    The solution is $P = {cap}\exp\left(-w_0e^{-{kr}t}\right)$ with $w_0 = \ln\dfrac{{cap}}{{P0}} \approx {w0:num4}$. Growth is fastest where $\ln(K/P) = 1$, that is at $P = K/e \approx {Pinf:num2}$, so $w_0e^{-{kr}t} = 1$ and $t = \dfrac{\ln w_0}{{kr}} \approx$ **{tinf:num2}**. The rate there is $\dfrac{{kr}\cdot {cap}}{e} \approx$ **{rmax:num2}**.
