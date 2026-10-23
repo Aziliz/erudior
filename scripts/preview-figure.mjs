@@ -20,7 +20,7 @@ const DARK = { bg: "#182126", ink: "#e4ebe7", soft: "#1f3245", line: "#b4c1ba", 
 const c = dark ? DARK : LIGHT;
 
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 900, height: 700 }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ viewport: { width: 900, height: 4000 }, deviceScaleFactor: 1 });
 if (/\.mmd$/i.test(input)) {
   await page.setContent(`<html><body style="margin:0;padding:16px;background:${c.bg};font-family:sans-serif"><div id="d"></div></body></html>`);
   await page.addScriptTag({ path: path.resolve("node_modules/mermaid/dist/mermaid.min.js") });
