@@ -30,6 +30,10 @@ So the complement of an angle of $x^\circ$ is $(90 - x)^\circ$, and its suppleme
 
 A linear pair is always supplementary, but supplementary angles need not form a linear pair. Two angles of $120^\circ$ and $60^\circ$ in different corners of a page are supplementary but not adjacent.
 
+The picture compares the three situations side by side.
+
+![Three panels: a right angle split by a ray into adjacent 35 and 55 degree angles; a ray from a point on a line making a 60 and 120 degree linear pair; and two separate angles of 120 and 60 degrees that are supplementary but not adjacent](images/geo-m1-pairs-compare.svg)
+
 ### Example 1
 
 An angle measures $24^\circ$ more than its complement. Find the angle.
@@ -99,6 +103,24 @@ Rays from a point make four non-overlapping angles that fill the turn, measuring
 ## Perpendicular lines
 
 Lines that intersect to form a right angle are **perpendicular**, written $\ell \perp m$. When one of the four angles is $90^\circ$, its vertical partner is $90^\circ$ and the two linear-pair partners are $180 - 90 = 90^\circ$, so all four are right angles. A right-angle box at one corner is enough.
+
+## Which rule applies?
+
+When a problem shows two angles, decide which relationship they have before writing an equation. Vertical angles give an equation of the form "one = the other"; the other relationships give "sum = 90" or "sum = 180".
+
+```mermaid
+flowchart TD
+  accTitle: Which angle-pair rule applies?
+  accDescr: Given two angles, first ask whether they sit opposite each other where two lines cross. If so they are vertical angles and have equal measures. If not, ask whether they are adjacent with their outer sides forming opposite rays. If so they are a linear pair and add to 180 degrees. Otherwise look for a stated or marked sum: a sum of 90 degrees means complementary, a sum of 180 degrees means supplementary, and with no sum given there is no relationship yet, so look for more information.
+  S["Two angles"] --> Q1{"Opposite each other where two lines cross?"}
+  Q1 -- yes --> V["Vertical angles: equal"]
+  Q1 -- no --> Q2{"Adjacent, outer sides opposite rays?"}
+  Q2 -- yes --> L["Linear pair: sum 180°"]
+  Q2 -- no --> Q3{"What sum is given or marked?"}
+  Q3 -- "90°" --> C["Complementary: sum 90°"]
+  Q3 -- "180°" --> SU["Supplementary: sum 180°"]
+  Q3 -- "none" --> N["No rule yet: look for more facts"]
+```
 
 ## Common mistakes
 

@@ -76,7 +76,29 @@ This same construction finds the **midpoint** of a segment and is the basis of c
 
 *Regular hexagon:* draw a circle, keep the compass at the radius, and step around the circle marking six points. They close up exactly because a hexagon is six equilateral triangles meeting at the center.
 
+![A circle with center O and radius r; six points stepped around it with the compass set to r form a regular hexagon, and dashed radii split it into six equilateral triangles](images/geo-m1-hexagon.svg)
+
 *Square inscribed in a circle:* draw a diameter, then construct its perpendicular bisector, which is a second diameter at right angles to the first. The four endpoints are the vertices of a square, because its diagonals are congruent, perpendicular and bisect each other.
+
+## Choosing a construction
+
+Most construction tasks reduce to one of the basic constructions above. The chart matches the goal to the tool.
+
+```mermaid
+flowchart LR
+  accTitle: Choosing a construction
+  accDescr: Start from what you need. For the midpoint of a segment, construct its perpendicular bisector with equal arcs from both ends. To split an angle in half, use the angle bisector construction. For a perpendicular through a point P, draw an arc centered at P that cuts the line twice, then construct the perpendicular bisector of the two cut points. For a parallel through P, copy an angle at P. To make a segment of the same length somewhere else, copy the segment with the compass.
+  S{"What do you need?"} --> M["Midpoint of a segment"]
+  S --> AB["Half of an angle"]
+  S --> PP["Perpendicular through P"]
+  S --> PL["Parallel through P"]
+  S --> SC["Same length elsewhere"]
+  M --> PB["Perpendicular bisector"]
+  AB --> AC["Angle bisector"]
+  PP --> PC["Arc from P, then perpendicular bisector"]
+  PL --> CA["Copy an angle at P"]
+  SC --> CS["Copy the segment"]
+```
 
 ### Example 1
 

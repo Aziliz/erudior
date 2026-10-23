@@ -1,0 +1,64 @@
+# Module 6, round 2: terms from the honors lessons
+- term: differential operator
+  aliases: [differential operators]
+  definition: 'A rule that turns a function into a combination of its derivatives, such as $D^2 - 3D - 4$ (with $D = d/dt$), which sends $y$ to $y'''' - 3y'' - 4y$. Constant-coefficient operators multiply, factor and commute like polynomials.'
+  topic: Annihilators
+- term: annihilator
+  aliases: [annihilators, annihilates, annihilate]
+  definition: 'An operator $A(D)$ with $A(D)f = 0$. For example $(D - \alpha)^{n+1}$ annihilates $t^ne^{\alpha t}$ and $D^2 + \beta^2$ annihilates $\cos\beta t$ and $\sin\beta t$.'
+  topic: Annihilators
+- term: exponential shift rule
+  aliases: [exponential shift]
+  definition: 'For a constant-coefficient operator, $p(D)\big[e^{\alpha t}v\big] = e^{\alpha t}p(D + \alpha)v$: pulling $e^{\alpha t}$ to the front shifts every $D$ by $\alpha$.'
+  topic: Annihilators
+- term: damping ratio
+  definition: 'The dimensionless number $\zeta = \gamma/(2\sqrt{km})$, the damping coefficient divided by the critical one: $\zeta < 1$ underdamped, $\zeta = 1$ critical, $\zeta > 1$ overdamped.'
+  topic: Quality factor
+- term: quality factor
+  aliases: [Q factor, Q-factor]
+  definition: 'The dimensionless number $Q = \sqrt{km}/\gamma = m\omega_0/\gamma = 1/(2\zeta)$ for $mu'''' + \gamma u'' + ku = F(t)$. Large $Q$ means light damping: long ringing, a tall narrow resonance peak, bandwidth $\omega_0/Q$.'
+  topic: Quality factor
+- term: static deflection
+  definition: 'The displacement $F_0/k$ that a constant force $F_0$ produces on a spring; driving at $\omega_0$ multiplies it by $Q$.'
+  topic: Quality factor
+- term: logarithmic decrement
+  definition: 'The natural log of the ratio of two successive maxima of a damped free oscillation, $\delta = \ln(u_n/u_{n+1}) = 2\pi\zeta/\sqrt{1 - \zeta^2}$; for light damping $Q \approx \pi/\delta$.'
+  topic: Quality factor
+- term: half-power points
+  aliases: [half-power point, half-power frequencies]
+  definition: 'The two forcing frequencies $\omega_- < \omega_0 < \omega_+$ at which the average power absorbed by a forced oscillator is half its peak value.'
+  topic: Quality factor
+- term: bandwidth
+  definition: 'The width $\Delta\omega = \omega_+ - \omega_-$ between the half-power points of a resonance; for $mu'''' + \gamma u'' + ku$ it is exactly $\gamma/m = \omega_0/Q$.'
+  topic: Quality factor
+- term: Euler–Bernoulli beam
+  aliases: [Euler-Bernoulli beam, Euler–Bernoulli beam theory, Euler-Bernoulli beam theory]
+  definition: 'The classical model of a slender elastic beam bending by small amounts, in which the deflection satisfies $EI\,y^{(4)} = w(x)$.'
+  topic: Beams and buckling
+- term: flexural rigidity
+  definition: 'The product $EI$ of a beam''s material stiffness $E$ and the cross-section''s stiffness $I$, in N·m²; it measures how hard the beam is to bend.'
+  topic: Beams and buckling
+- term: clamped end
+  aliases: [clamped ends, fixed end, built-in end]
+  definition: 'A beam end that can neither move nor rotate: $y = 0$ and $y'' = 0$ there.'
+  topic: Beams and buckling
+- term: simply supported
+  aliases: [simply supported end, pinned end, pinned support]
+  definition: 'A beam end that cannot move but is free to rotate, so it carries no bending moment: $y = 0$ and $y'''' = 0$ there.'
+  topic: Beams and buckling
+- term: free end
+  aliases: [free ends]
+  definition: 'A beam end held by nothing, so it carries no bending moment and no shear force: $y'''' = 0$ and $y'''''' = 0$ there.'
+  topic: Beams and buckling
+- term: cantilever
+  aliases: [cantilevers]
+  definition: 'A beam clamped at one end and free at the other, like a diving board; under a uniform load its tip deflects $wL^4/(8EI)$.'
+  topic: Beams and buckling
+- term: critical buckling load
+  aliases: [Euler load, Euler buckling load, critical load]
+  definition: 'The smallest compressive load at which a straight column can take a bent shape; for a column with pinned ends it is $P_{\text{cr}} = \pi^2EI/L^2$.'
+  topic: Beams and buckling
+- term: buckling
+  aliases: [buckles, buckle, buckled]
+  definition: 'The sudden sideways bowing of a compressed column when the load reaches the critical buckling load, where the straight shape stops being the only solution.'
+  topic: Beams and buckling

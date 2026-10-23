@@ -53,11 +53,11 @@
     alam: abs(lam)
     mv: m
     hmax: m/alam
-  prompt: 'For $y'' = {lam}y$, what is the largest step size $h$ for which {m} is stable? Give 3 significant figures.'
+  prompt: 'For $y'' = {lam:sig6}y$, what is the largest step size $h$ for which {m} is stable? Give 3 significant figures.'
   answers:
     - {name: hmax, label: '$h_{\max} \approx$', relTolerance: 0.006, format: sig3}
   solution: |-
-    On $y' = \lambda y$ with real $\lambda < 0$, Euler's and the improved Euler method are stable for $-2 \le h\lambda \le 0$, and RK4 for about $-2.785 \le h\lambda \le 0$. With $\lambda = {lam}$, the limit is $h \le {mv}/{alam} \approx$ **{hmax:sig3}**.
+    On $y' = \lambda y$ with real $\lambda < 0$, Euler's and the improved Euler method are stable for $-2 \le h\lambda \le 0$, and RK4 for about $-2.785 \le h\lambda \le 0$. With $\lambda = {lam:sig6}$, the limit is $h \le {mv:sig6}/{alam:sig6} \approx$ **{hmax:sig3}**.
 - id: de-m4-r2-backward-euler
   title: Two steps of backward Euler
   topic: Stiff equations
@@ -115,7 +115,7 @@
     t0: {min: 0, max: 2}
     y0: {min: -2, max: 3}
     h: {choices: [0.1, 0.2, 0.4]}
-    tl: {choices: [0.001, 0.01]}
+    tl: {choices: [{label: '0.001', value: 0.001}, {label: '0.01', value: 0.01}]}
   where: ['a != 0', 'b != 0', 'abs(a + b*(a*t0 + b*y0)) >= 1']
   calc:
     k1: a*t0 + b*y0

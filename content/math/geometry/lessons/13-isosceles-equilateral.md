@@ -35,7 +35,7 @@ This one pair of congruent triangles does a lot of work. The chart traces each c
 flowchart TD
   accTitle: Everything that follows from one pair of congruent triangles in an isosceles triangle
   accDescr: Start with isosceles triangle ABC with AB congruent to CB, and draw BD, the bisector of angle B. Then triangle ABD is congruent to triangle CBD by SAS. By CPCTC this gives three results: angle A is congruent to angle C, which is the Base Angles Theorem; AD is congruent to CD, so D is the midpoint of the base; and angles ADB and CDB are congruent, and since they form a linear pair each is 90 degrees, so BD is perpendicular to the base. Together the last two say BD is the perpendicular bisector of the base.
-  G["Given: AB = CB; draw BD bisecting angle B"] --> C["Triangle ABD ≅ triangle CBD by SAS"]
+  G["Given: AB ≅ CB; draw BD bisecting angle B"] --> C["Triangle ABD ≅ triangle CBD by SAS"]
   C --> R1["Angle A ≅ angle C (base angles)"]
   C --> R2["AD ≅ CD: D is the midpoint of AC"]
   C --> R3["Angle ADB ≅ angle CDB, a linear pair, so both are 90°"]

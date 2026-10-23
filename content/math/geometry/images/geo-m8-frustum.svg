@@ -11,7 +11,7 @@
 <circle cx="280.0" cy="350.0" r="3.5" fill="#1c2833"/>
 <circle cx="280.0" cy="195.0" r="3.5" fill="#1c2833"/>
 <text x="365.0" y="342.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">R</text>
-<text x="322.5" y="187.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">r</text>
+<text x="322.5" y="167.8" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">r</text>
 <text x="270.0" y="278.5" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">h</text>
 <text x="423.5" y="272.5" font-size="18" text-anchor="start" fill="#1c2833" font-style="italic">s</text>
 <text x="320.0" y="95.0" font-size="16" text-anchor="start" fill="#1c2833">removed cone</text>

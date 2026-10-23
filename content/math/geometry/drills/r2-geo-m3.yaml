@@ -1,0 +1,156 @@
+# Module 3, round 2: drills for the honors lessons 09h1 and 09h2
+- id: geo-m3-r2-bend
+  title: The bend theorem with algebra
+  topic: Auxiliary lines
+  vars:
+    x: {min: 6, max: 20}
+    c1: {min: 1, max: 3}
+    c2: {min: 1, max: 3}
+    k: {min: 2, max: 3}
+    d1: {min: -10, max: 25}
+    d2: {min: -10, max: 25}
+  calc:
+    angA: c1*x + d1
+    angB: c2*x + d2
+    bend: angA + angB
+    c3: c1 + c2 + k
+    d3: bend - c3*x
+    cs: c1 + c2
+    ds: d1 + d2
+    rhs: ds - d3
+    PX: 2/tand(angA)
+    BX: PX - 2/tand(angB)
+  where: ["d1 != 0", "d2 != 0", "d3 != 0", "abs(d3) <= 60", "angA >= 20", "angA <= 70", "angB >= 20", "angB <= 70"]
+  prompt: '$\ell \parallel m$. A path runs from $A$ on $\ell$ to a point $P$ between the lines and on to $B$ on $m$. The angles at $A$ and $B$ between the path and the lines, on the side toward the bend, measure $({c1:coef}x {d1:signed})^\circ$ and $({c2:coef}x {d2:signed})^\circ$, and $m\angle APB = ({c3}x {d3:signed})^\circ$. Find $x$ and $m\angle APB$.'
+  answers:
+    - {name: x, label: '$x =$'}
+    - {name: bend, label: '$m\angle APB =$'}
+  figure:
+    type: shape
+    segments:
+      - {from: ['min(0, BX) - 1', 4], to: ['max(PX, 0) + 1.5', 4]}
+      - {from: ['min(0, BX) - 1', 0], to: ['max(PX, 0) + 1.5', 0]}
+      - {from: [0, 4], to: [PX, 2]}
+      - {from: [PX, 2], to: [BX, 0]}
+      - {from: ['min(0, BX) - 1', 2], to: ['max(PX, 0) + 1.5', 2], dashed: true}
+    points:
+      - {at: [0, 4], label: 'A'}
+      - {at: [PX, 2], label: 'P'}
+      - {at: [BX, 0], label: 'B'}
+    labels:
+      - {at: ['max(PX, 0) + 1.9', 4], text: 'ℓ'}
+      - {at: ['max(PX, 0) + 1.9', 0], text: 'm'}
+  solution: |-
+    Draw the auxiliary line through $P$ parallel to $\ell$ and $m$ (dashed). It splits $\angle APB$ into two alternate-interior copies of the angles at $A$ and $B$, so $m\angle APB$ is their sum: ${c3}x {d3:signed} = ({c1:coef}x {d1:signed}) + ({c2:coef}x {d2:signed}) = {cs}x {ds:signed}$. Then ${k:coef}x = {rhs}$, so $x =$ **{x}**, and $m\angle APB = {angA} + {angB} =$ **{bend}°**.
+
+- id: geo-m3-r2-zigzag
+  title: Zigzag between parallel lines
+  topic: Auxiliary lines
+  vars:
+    t1: {min: 15, max: 60}
+    t2: {min: 15, max: 60}
+    t3: {min: 15, max: 60}
+  calc:
+    a: t1
+    p: t1 + t2
+    q: t2 + t3
+    ans: a + q - p
+    PX: 2/tand(t1)
+    QX: PX - 2/tand(t2)
+    BX: QX + 2/tand(t3)
+    lo: min(0, QX) - 1
+    hi: max(PX, BX) + 1.5
+  where: ["p != q", "t1 != t3"]
+  prompt: '$\ell \parallel m$. A path leaves $A$ on $\ell$ heading down to the right, making a ${a}^\circ$ angle with $\ell$ (opening right). It bends at $P$ with an angle of ${p}^\circ$ (opening left), bends again at $Q$ with an angle of ${q}^\circ$ (opening right), and reaches $B$ on $m$. Find the acute angle $x$ between the path and $m$ at $B$, in degrees.'
+  answers:
+    - {name: ans, label: '$x =$'}
+  figure:
+    type: shape
+    segments:
+      - {from: [lo, 6], to: [hi, 6]}
+      - {from: [lo, 0], to: [hi, 0]}
+      - {from: [0, 6], to: [PX, 4]}
+      - {from: [PX, 4], to: [QX, 2]}
+      - {from: [QX, 2], to: [BX, 0]}
+    points:
+      - {at: [0, 6], label: 'A'}
+      - {at: [PX, 4], label: 'P'}
+      - {at: [QX, 2], label: 'Q'}
+      - {at: [BX, 0], label: 'B'}
+    labels:
+      - {at: ['hi + 0.4', 6], text: 'ℓ'}
+      - {at: ['hi + 0.4', 0], text: 'm'}
+  solution: |-
+    The angle at $B$ opens to the left. By the zigzag rule (draw a parallel through $P$ and through $Q$), the angles opening right total the same as those opening left: ${a} + {q} = {p} + x$, so $x =$ **{ans}°**. Check: the segments make ${t1}^\circ$, ${p} - {t1} = {t2}^\circ$ and ${q} - {t2} = {t3}^\circ$ with the parallels, and the last one meets $m$ at ${t3}^\circ$.
+
+- id: geo-m3-r2-angle-lines
+  title: Angle between two lines
+  topic: Angle between lines
+  vars:
+    m1: {choices: [-4, -3, -2, -1, 1, 2, 3, 4]}
+    m2: {choices: [-4, -3, -2, -1, 1, 2, 3, 4]}
+    b1: {min: -5, max: 5}
+    b2: {min: -5, max: 5}
+  where: ["m1 != m2", "m1*m2 != -1", "b1 != 0", "b2 != 0"]
+  calc:
+    dot: 1 + m1*m2
+    adot: abs(dot)
+    n1: 1 + m1^2
+    n2: 1 + m2^2
+    ang: acosd(adot/sqrt(n1*n2))
+    angr: round(ang, 1)
+  prompt: 'Find the angle between the lines $y = {m1:coef}x {b1:signed}$ and $y = {m2:coef}x {b2:signed}$, in degrees to the nearest tenth.'
+  answers:
+    - {name: ang, label: 'Angle', tolerance: 0.06}
+  solution: |-
+    Direction vectors: $\langle 1, {m1} \rangle$ and $\langle 1, {m2} \rangle$. Dot product: $1 + ({m1})({m2}) = {dot}$. Lengths: $\sqrt{{n1}}$ and $\sqrt{{n2}}$. So $\cos\varphi = \dfrac{|{dot}|}{\sqrt{{n1}}\,\sqrt{{n2}}}$, and $\varphi \approx$ **{angr}°**.
+
+- id: geo-m3-r2-foot
+  title: Foot of the perpendicular
+  topic: Foot of the perpendicular
+  vars:
+    pair: {choices: [1, 2, 3, 4, 5]}
+    sA: {choices: [1, -1]}
+    fx: {min: -5, max: 5}
+    fy: {min: -5, max: 5}
+    t: {choices: [-3, -2, -1, 1, 2, 3]}
+  calc:
+    A: sA*if(pair == 1, 1, if(pair == 2, 2, if(pair == 3, 1, if(pair == 4, 3, 1))))
+    B: if(pair == 1, 2, if(pair == 2, 1, if(pair == 3, 3, if(pair == 4, 1, 1))))
+    C: -(A*fx + B*fy)
+    x0: fx - t*A
+    y0: fy - t*B
+    v: A*x0 + B*y0 + C
+    N2: A^2 + B^2
+  where: ["C != 0"]
+  prompt: 'Find the foot of the perpendicular from $P({x0}, {y0})$ to the line ${A:coef}x {B:signedcoef}y {C:signed} = 0$.'
+  answers:
+    - {name: fx, label: '$x =$'}
+    - {name: fy, label: '$y =$'}
+  solution: |-
+    Here $A = {A}$, $B = {B}$, $C = {C}$. Then $Ax_0 + By_0 + C = {v}$ and $A^2 + B^2 = {N2}$, so $t = -\dfrac{{v}}{{N2}} = {t}$. Move from $P$ along the normal vector $\langle {A}, {B} \rangle$: $F = ({x0} + ({t})({A}),\ {y0} + ({t})({B})) =$ **({fx}, {fy})**. Check: ${A}({fx}) + {B}({fy}) {C:signed} = 0$.
+
+- id: geo-m3-r2-parallel-dist
+  title: Distance between parallel lines
+  topic: Foot of the perpendicular
+  vars:
+    pair: {choices: [1, 2, 3, 4]}
+    sB: {choices: [1, -1]}
+    k: {choices: [1, 2, 3]}
+    c1: {min: -15, max: 15}
+    c2b: {min: -15, max: 15}
+  calc:
+    A: if(pair == 1, 3, if(pair == 2, 5, if(pair == 3, 8, 7)))
+    B: sB*if(pair == 1, 4, if(pair == 2, 12, if(pair == 3, 15, 24)))
+    N: sqrt(A^2 + B^2)
+    kA: k*A
+    kB: k*B
+    c2: k*c2b
+    diff: abs(c1 - c2b)
+    d: diff/N
+  where: ["c1 != c2b", "c1 != 0", "c2b != 0"]
+  prompt: 'Find the distance between the parallel lines ${A}x {B:signedcoef}y = {c1}$ and ${kA}x {kB:signedcoef}y = {c2}$. (Exact, or 2 decimals.)'
+  answers:
+    - {name: d, label: 'Distance', tolerance: 0.01}
+  solution: |-
+    First make sure both equations have the same $A$ and $B$ (divide the second by {k} if needed): ${A}x {B:signedcoef}y = {c2b}$. For $Ax + By = c_1$ and $Ax + By = c_2$ the distance is $\dfrac{|c_1 - c_2|}{\sqrt{A^2 + B^2}} = \dfrac{|{c1} - ({c2b})|}{\sqrt{{A}^2 + {B}^2}} = \dfrac{{diff}}{{N}} \approx$ **{d:num4}**.

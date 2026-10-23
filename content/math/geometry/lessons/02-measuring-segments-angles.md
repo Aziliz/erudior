@@ -51,7 +51,7 @@ A common slip is to stop at $x = 6$ or at one half, 21. Read what is asked.
 
 An **angle** is two rays with a common endpoint. The rays are the **sides** and the common endpoint is the **vertex**. An angle with vertex $B$ and sides $\overrightarrow{BA}$ and $\overrightarrow{BC}$ is named $\angle ABC$ or $\angle CBA$ (vertex always in the middle), or just $\angle B$ if no other angle shares that vertex. Its size, in degrees, is written $m\angle ABC$.
 
-An angle splits the rest of the plane into two parts: the **interior** between the sides (shaded below) and the exterior outside them.
+An angle splits the rest of the plane into two parts: the interior between the sides (shaded below) and the exterior outside them.
 
 ![An angle with its vertex at the lower left, two sides drawn as rays, the shaded interior between the sides and the exterior outside them](images/geo-m1-angle-parts.svg)
 
