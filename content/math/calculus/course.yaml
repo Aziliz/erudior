@@ -38,3 +38,6 @@ modules:
     title: Sequences and series
   - id: calc-m11
     title: Parametric equations and polar coordinates
+  - id: calc-h1
+    title: 'Honors: Toward analysis'
+    honors: true

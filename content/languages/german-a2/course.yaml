@@ -36,3 +36,6 @@ modules:
     title: Work, learning and services
   - id: de2-m6
     title: Media, celebrations and the A2 exam
+  - id: de2-h1
+    title: 'Honors: Lesen und Hören (reading and listening)'
+    honors: true

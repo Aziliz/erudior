@@ -28,3 +28,6 @@ modules:
     title: Probability and statistics
   - id: a2-m9
     title: Introduction to trigonometry
+  - id: a2-h1
+    title: 'Honors: Toward precalculus and beyond'
+    honors: true

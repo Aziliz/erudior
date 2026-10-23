@@ -38,3 +38,6 @@ modules:
     title: Light and optics
   - id: phys-m12
     title: Modern physics
+  - id: phys-h1
+    title: 'Honors: Frontiers of physics'
+    honors: true

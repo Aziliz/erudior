@@ -34,3 +34,6 @@ modules:
     title: Significance tests
   - id: stat-m9
     title: Chi-square and regression inference
+  - id: stat-h1
+    title: 'Honors: Beyond the AP exam'
+    honors: true

@@ -33,3 +33,6 @@ modules:
     title: Systems of differential equations
   - id: de-m9
     title: Series solutions, Fourier series and PDEs
+  - id: de-h1
+    title: 'Honors: Nonlinear dynamics and chaos'
+    honors: true

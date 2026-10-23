@@ -35,3 +35,6 @@ modules:
     title: Coordinate geometry and transformations
   - id: geo-m10
     title: Axioms, other geometries and probability
+  - id: geo-h1
+    title: 'Honors: Constructions and classic theorems'
+    honors: true

@@ -33,3 +33,6 @@ modules:
     title: Hypothesis testing
   - id: ps-m8
     title: Regression, ANOVA and nonparametric methods
+  - id: ps-h1
+    title: 'Honors: Modern statistical methods'
+    honors: true

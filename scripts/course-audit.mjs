@@ -2,7 +2,7 @@
 // practice), nothing sticking out of the window, every picture loaded, every Mermaid diagram
 // drawn. Then opens a few lesson quizzes and audits each question shown.
 //   npx vite --port 5182
-//   node scripts/course-audit.mjs "Biology" [light|dark] [width] [quizzes=4]
+//   node scripts/course-audit.mjs "Biology" [light|dark] [width] [quizzes=4] [from] [to]
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
 import fs from "node:fs";
 const axeSrc = fs.readFileSync(new URL("../node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
@@ -10,6 +10,9 @@ const title = process.argv[2];
 const scheme = process.argv[3] || "light";
 const width = Number(process.argv[4] || 1280);
 const quizzes = Number(process.argv[5] || 4);
+// Optional lesson range (0-based, end exclusive), so a long course can be audited in chunks.
+const from = Number(process.argv[6] || 0);
+const to = process.argv[7] ? Number(process.argv[7]) : Infinity;
 const b = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 const ctx = await b.newContext({ viewport: { width, height: 900 }, colorScheme: scheme });
 const pg = await ctx.newPage();
@@ -41,7 +44,7 @@ await pg.getByRole("button", { name: /^Lessons$/ }).first().click(); await pg.wa
 await audit("lessons-tab");
 const n = await pg.locator(".lesson-row > button:first-child").count();
 let diagrams = 0, images = 0;
-for (let i = 0; i < n; i++) {
+for (let i = from; i < Math.min(n, to); i++) {
   if (!(await pg.getByRole("button", { name: /^Lessons$/ }).count())) { await pg.locator("button.back").first().click(); await pg.waitForTimeout(500); }
   await pg.getByRole("button", { name: /^Lessons$/ }).first().click(); await pg.waitForTimeout(300);
   const row = pg.locator(".lesson-row > button:first-child").nth(i);
@@ -74,7 +77,7 @@ for (let i = 0; i < n; i++) {
     }
   }
 }
-console.log(`${n} lessons, ${diagrams} diagrams drawn, ${images} pictures (${scheme}, ${width}px)`);
+console.log(`${Math.min(n, to) - from} of ${n} lessons, ${diagrams} diagrams drawn, ${images} pictures (${scheme}, ${width}px)`);
 console.log(problems.length ? [...new Set(problems)].join("\n") : "no problems");
 await b.close();
 process.exit(problems.length ? 1 : 0);

@@ -35,3 +35,6 @@ modules:
     title: Sequences, series, induction and counting
   - id: pc-m10
     title: Introduction to limits and the derivative
+  - id: pc-h1
+    title: 'Honors: Proof, infinity and the road to calculus'
+    honors: true

@@ -20,3 +20,6 @@ modules:
     title: Light and optics
   - id: phys-m12
     title: Modern physics
+  - id: phys-h2
+    title: 'Honors: Maxwell, relativity and quanta'
+    honors: true

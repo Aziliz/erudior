@@ -32,3 +32,6 @@ modules:
     title: Vectors in the plane
   - id: trig-m9
     title: Polar coordinates, parametric equations and complex numbers
+  - id: trig-h1
+    title: 'Honors: Trigonometry in science and engineering'
+    honors: true

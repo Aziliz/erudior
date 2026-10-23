@@ -26,3 +26,6 @@ modules:
     title: Square roots, exponential functions, and sequences
   - id: a1-m8
     title: Data and statistics
+  - id: a1-h1
+    title: 'Honors: Algebraic reasoning and modeling'
+    honors: true

@@ -32,3 +32,6 @@ modules:
     title: Measurement and geometry
   - id: pre-m9
     title: Data and probability
+  - id: pre-h1
+    title: 'Honors: Number theory and problem solving'
+    honors: true

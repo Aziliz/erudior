@@ -35,3 +35,6 @@ modules:
     title: Town, travel and home
   - id: de1-m6
     title: The past and the A1 exam
+  - id: de1-h1
+    title: 'Honors: Kultur und Alltag (culture and everyday life)'
+    honors: true

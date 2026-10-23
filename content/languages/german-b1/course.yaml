@@ -37,3 +37,6 @@ modules:
     title: "If only: Konjunktiv II and more"
   - id: de3-m6
     title: Living independently and the B1 exam
+  - id: de3-h1
+    title: 'Honors: Literatur, Geschichte und Gesellschaft (literature, history and society)'
+    honors: true

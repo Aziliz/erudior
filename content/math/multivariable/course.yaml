@@ -31,3 +31,6 @@ modules:
     title: Vector fields and line integrals
   - id: mv-m8
     title: Surface integrals and the big theorems
+  - id: mv-h1
+    title: 'Honors: Vector calculus in physics and geometry'
+    honors: true

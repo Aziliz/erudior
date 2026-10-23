@@ -33,3 +33,6 @@ modules:
     title: Eigenvalues and eigenvectors
   - id: la-m9
     title: Orthogonality, least squares and symmetric matrices
+  - id: la-h1
+    title: 'Honors: Linear algebra at work'
+    honors: true

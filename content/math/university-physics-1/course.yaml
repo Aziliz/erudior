@@ -24,3 +24,6 @@ modules:
     title: Oscillations, waves, and sound
   - id: phys-m7
     title: Fluids and thermodynamics
+  - id: phys-h1
+    title: 'Honors: Analytical mechanics and orbits'
+    honors: true
