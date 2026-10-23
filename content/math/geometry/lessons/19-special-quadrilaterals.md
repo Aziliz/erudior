@@ -17,7 +17,21 @@ Parallelograms were the general case. Now we add extra conditions and get the sp
 - A **trapezoid** is a quadrilateral with exactly one pair of parallel sides.
 - A **kite** is a quadrilateral with two pairs of congruent *consecutive* sides and no congruent opposite sides.
 
-So every square is a rectangle and a rhombus; every rectangle and rhombus is a parallelogram; but trapezoids and kites are not parallelograms. (Some textbooks define a trapezoid as having *at least* one pair of parallel sides, which makes parallelograms trapezoids too. We use "exactly one".)
+So every square is a rectangle and a rhombus; every rectangle and rhombus is a parallelogram; but trapezoids and kites are not parallelograms. (Some textbooks define a trapezoid as having *at least* one pair of parallel sides, which makes parallelograms trapezoids too. We use "exactly one".) The family tree shows which shapes are special cases of which: each shape is a special case of every shape above it that it's connected to.
+
+```mermaid
+flowchart TD
+  accTitle: The quadrilateral family tree
+  accDescr: Quadrilaterals branch into three families. Parallelograms have both pairs of opposite sides parallel; a rectangle is a parallelogram with four right angles, a rhombus is a parallelogram with four congruent sides, and a square is both a rectangle and a rhombus. Trapezoids have exactly one pair of parallel sides; an isosceles trapezoid is a trapezoid with congruent legs. Kites have two pairs of congruent consecutive sides. Every shape below another in the tree is a special case of it.
+  Q[Quadrilateral] --> P[Parallelogram]
+  Q --> T[Trapezoid]
+  Q --> K[Kite]
+  P --> R[Rectangle]
+  P --> H[Rhombus]
+  R --> S[Square]
+  H --> S
+  T --> I[Isosceles trapezoid]
+```
 
 ## Diagonals of special parallelograms
 
@@ -62,6 +76,8 @@ In rectangle $PQRS$, diagonals meet at $T$. $PT = 3x + 1$ and $QS = 8x - 6$. Fin
 
 In a trapezoid, the parallel sides are the **bases** and the other two are the **legs**. A pair of angles sharing a base are **base angles**. Since the bases are parallel, the two angles along each leg are consecutive interior angles, so they're supplementary.
 
+![A trapezoid with a long bottom base and a shorter top base, marked parallel with arrowheads. The two slanted sides are labeled legs. A dashed segment joins the midpoints of the legs and is labeled midsegment; tick marks show each leg is cut in half. The two angles at the bottom base are shaded and labeled base angles.](images/geo-m5-trapezoid-parts.svg)
+
 An **isosceles trapezoid** has congruent legs. Then:
 
 - each pair of base angles is congruent, and
@@ -94,6 +110,11 @@ $\angle B \cong \angle A$ (base angles of the same base): $64^\circ$. $\angle D$
 ## Kites
 
 In kite $ABCD$ with $AB = AD$ and $CB = CD$:
+
+```shape
+{"polygons": [{"points": [[0, 4], [-3, 0], [0, -6], [3, 0]]}], "segments": [{"from": [0, 4], "to": [0, -6], "dashed": true}, {"from": [-3, 0], "to": [3, 0], "dashed": true}], "rightAngles": [[[0, 0], [3, 0], [0, 4]]], "labels": [{"at": [0, 4.5], "text": "A"}, {"at": [-3.5, 0], "text": "B"}, {"at": [0, -6.5], "text": "C"}, {"at": [3.5, 0], "text": "D"}, {"at": [-2, 2.6], "text": "5"}, {"at": [2, 2.6], "text": "5"}], "caption": "Kite ABCD with AB = AD = 5: diagonal AC is the perpendicular bisector of BD."}
+```
+
 
 - The diagonals are perpendicular.
 - One diagonal ($\overline{AC}$, joining the vertices between the congruent pairs) is the perpendicular bisector of the other.

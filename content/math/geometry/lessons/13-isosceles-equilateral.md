@@ -4,7 +4,7 @@ module: geo-m4
 title: Isosceles and equilateral triangles
 minutes: 25
 topics: [Isosceles triangles]
-drills: [geo-isos-base, geo-isos-alg]
+drills: [geo-isos-base, geo-isos-alg, geo-m4-r2-isos-ext]
 refs: [geo-ref-theorems]
 ---
 Isosceles triangles are everywhere: roof gables, the two radii and chord of a circle, the halves of a kite. Their symmetry gives them special properties, and proving those properties is a perfect first use of the congruence shortcuts from the last two lessons.

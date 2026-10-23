@@ -132,7 +132,7 @@ in the long run.
 
 $H(s) = \dfrac{10}{s^2 + 2s + 5}$ has poles $-1 \pm 2i$, so it is stable, and the step response ends
 at $H(0) = 10/5 = 2$. Checking by inverting $Y = \dfrac{10}{s(s^2 + 2s + 5)}$ with partial fractions:
-$y = 2 - e^{-t}(2\cos 2t + \sin 2t)$, which oscillates (frequency 2, from the imaginary part)
+$y = 2 - e^{-t}(2\cos 2t + \sin 2t)$, which oscillates (angular frequency 2, from the imaginary part)
 while its deviation from 2 decays like $e^{-t}$ (from the real part), just as the pole
 location predicts. Lesson 26's complex gain is the same function on the imaginary axis:
 for a stable system the steady response to $\cos\omega t$ has amplitude $|H(i\omega)|$, and

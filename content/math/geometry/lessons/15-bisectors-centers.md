@@ -41,7 +41,9 @@ Because $OA = OB = OC$, the circle centered at $O$ through $A$ passes through al
 {"polygons": [{"points": [[0, 0], [8, 0], [2, 5]]}], "circles": [{"center": [4, 1.3], "r": 4.206}], "segments": [{"from": [4, 1.3], "to": [0, 0], "dashed": true}, {"from": [4, 1.3], "to": [8, 0], "dashed": true}, {"from": [4, 1.3], "to": [2, 5], "dashed": true}], "points": [{"at": [4, 1.3], "label": "O"}], "labels": [{"at": [-0.4, -0.4], "text": "A"}, {"at": [8.4, -0.4], "text": "B"}, {"at": [2, 5.5], "text": "C"}], "caption": "The circumcenter O is equally far from A, B and C."}
 ```
 
-Where it lands depends on the triangle: *inside* an acute triangle, at the *midpoint of the hypotenuse* of a right triangle, and *outside* an obtuse triangle.
+Where it lands depends on the triangle: *inside* an acute triangle, at the *midpoint of the hypotenuse* of a right triangle, and *outside* an obtuse triangle. The picture shows all three cases.
+
+![Three triangles, each drawn inside its circumscribed circle with the center O marked and dotted segments from O to the vertices. In the acute triangle O is inside the triangle. In the right triangle O is the midpoint of the hypotenuse. In the obtuse triangle O is outside the triangle, beyond the longest side.](images/geo-m5-circumcenter-cases.svg)
 
 ### Example 2
 
@@ -65,7 +67,21 @@ Find the circumcenter of the triangle with vertices $A(0, 0)$, $B(8, 0)$ and $C(
 
 **Incenter Theorem.** The angle bisectors of a triangle are concurrent at a point, the **incenter**, which is equidistant from the three sides.
 
-The common distance is the radius of the **inscribed circle** (incircle), the largest circle that fits inside the triangle, touching all three sides. Unlike the circumcenter, the incenter is *always* inside the triangle. To construct the incircle, bisect two angles to find $I$, construct the perpendicular from $I$ to one side, and use the length of that perpendicular as the radius.
+The common distance is the radius of the **inscribed circle** (incircle), the largest circle that fits inside the triangle, touching all three sides. Unlike the circumcenter, the incenter is *always* inside the triangle. To construct the incircle, bisect two angles to find $I$, construct the perpendicular from $I$ to one side, and use the length of that perpendicular as the radius. The chart puts the two constructions side by side.
+
+```mermaid
+flowchart TD
+  accTitle: Constructing the circumscribed and inscribed circles
+  accDescr: Start with triangle ABC and decide which circle you need. For a circle through the three vertices, construct the perpendicular bisectors of two sides, mark where they cross as the circumcenter O, and draw the circle centered at O through any vertex. For a circle touching the three sides, bisect two angles, mark where the bisectors cross as the incenter I, construct the perpendicular from I to one side, and draw the circle centered at I with that perpendicular segment as its radius.
+  S[Triangle ABC] --> Q{"Which circle?"}
+  Q -- "through the 3 vertices" --> C1[Perpendicular bisectors of two sides]
+  C1 --> C2[They cross at the circumcenter O]
+  C2 --> C3[Circle centered at O through any vertex]
+  Q -- "touching the 3 sides" --> I1[Bisect two angles]
+  I1 --> I2[They cross at the incenter I]
+  I2 --> I3[Perpendicular from I to one side]
+  I3 --> I4[Circle centered at I, radius = that perpendicular]
+```
 
 ```shape
 {"polygons": [{"points": [[0, 0], [8, 0], [0, 6]]}], "circles": [{"center": [2, 2], "r": 2}], "segments": [{"from": [2, 2], "to": [2, 0], "dashed": true}, {"from": [2, 2], "to": [0, 2], "dashed": true}, {"from": [2, 2], "to": [3.2, 3.6], "dashed": true}], "points": [{"at": [2, 2], "label": "I"}], "caption": "The incenter I of a 6-8-10 right triangle; the incircle has radius 2."}

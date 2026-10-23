@@ -94,9 +94,6 @@
 - term: well-ordering principle
   definition: 'Every nonempty set of whole numbers has a smallest member. It is the reason induction is valid.'
   topic: Mathematical induction
-- term: general position
-  definition: 'For lines in a plane: no two are parallel and no three pass through one point. Then $n$ lines make $\tfrac{n(n+1)}{2} + 1$ regions.'
-  topic: Mathematical induction
 - term: gnomon
   aliases: [gnomons]
   definition: 'An L-shaped piece that turns a square into the next larger square; around a $k$-by-$k$ square it has $2k + 1$ unit squares.'

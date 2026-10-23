@@ -65,7 +65,7 @@ high modes of the heat equation fade quickly in time.
 ### Example 1: a single mode
 
 A plate with $a = 2$, $b = 1$ has its top edge at $f(x) = 10\sin\dfrac{\pi x}{2}$ and the other edges
-at 0. Find the temperature at the centre $(1, \tfrac12)$.
+at 0. Find the temperature at the center $(1, \tfrac12)$.
 
 - The data is already one sine mode: $b_1 = 10$, all other $b_n = 0$.
 - $u(x, y) = 10\,\dfrac{\sinh(\pi y/2)}{\sinh(\pi/2)}\sin\dfrac{\pi x}{2}$.
@@ -82,7 +82,7 @@ the top edge spreads down into the plate:
 ### Example 2: a whole edge at 100°, and a symmetry check
 
 A square plate ($a = b = 1$) has its top edge at 100° and the other three at 0°. Find the
-temperature at the centre.
+temperature at the center.
 
 - The sine coefficients of the constant 100 on $(0, 1)$ are $b_n = \dfrac{400}{n\pi}$ for odd $n$
   and 0 for even $n$ (Lesson 39, Example 3).
@@ -92,7 +92,7 @@ temperature at the centre.
 Exactly 25? Here is why, with no computation at all. Rotate the plate a quarter turn at a
 time: you get four problems, each with a different edge at 100°. Their sum (by
 superposition) is the problem with *all four* edges at 100°, whose solution is the
-constant $u = 100$. By symmetry the four problems give the same value at the centre, so each
+constant $u = 100$. By symmetry the four problems give the same value at the center, so each
 gives $100/4 = 25$. The series agrees.
 
 The same superposition idea solves the general rectangle: split the boundary data into four
@@ -109,7 +109,7 @@ and the boundary data is $u(R, \theta) = f(\theta)$. Separating $u = \rho(r)\The
 $\Theta'' + \lambda\Theta = 0$ with $\Theta$ periodic of period $2\pi$, so $\lambda = n^2$ and
 $\Theta = \cos n\theta$, $\sin n\theta$; and $r^2\rho'' + r\rho' - n^2\rho = 0$, a Cauchy–Euler equation
 (Lesson 21) with solutions $r^n$ and $r^{-n}$ (or $1$ and $\ln r$ when $n = 0$). The temperature at
-the centre must be finite, which rules out $r^{-n}$ and $\ln r$. So
+the center must be finite, which rules out $r^{-n}$ and $\ln r$. So
 
 $$u(r, \theta) = \frac{a_0}{2} + \sum_{n=1}^\infty\left(\frac rR\right)^n\big(a_n\cos n\theta + b_n\sin n\theta\big),$$
 
@@ -123,15 +123,15 @@ A disk of radius 2 has edge temperature $f(\theta) = 3 + 4\cos\theta - \sin 2\th
 - $u = 3 + 4\left(\dfrac r2\right)\cos\theta - \left(\dfrac r2\right)^2\sin 2\theta$.
 - In Cartesian form, $r\cos\theta = x$ and $r^2\sin 2\theta = 2xy$, so $u = 3 + 2x - \dfrac{xy}{2}$. Check:
   $u_{xx} = 0$ and $u_{yy} = 0$, so $u$ is harmonic.
-- At the centre, $u = 3$, which is the average of $f$ around the circle (the cosine and sine terms
+- At the center, $u = 3$, which is the average of $f$ around the circle (the cosine and sine terms
   average to zero). At $(1, 1)$, $u = 3 + 2 - \tfrac12 = 4.5$.
 
 ## Two properties of every harmonic function
 
 **Mean value property**. Example 3 is no accident. Set $r = 0$ in the disk formula: the value
-at the centre is $\tfrac{a_0}{2}$, the average of $f$ around the circle. Since any circle inside a
+at the center is $\tfrac{a_0}{2}$, the average of $f$ around the circle. Since any circle inside a
 region can be treated this way, the value of a harmonic function at any point equals its
-average over every circle centred there (as long as the disk lies in the region).
+average over every circle centered there (as long as the disk lies in the region).
 
 **Maximum principle**. A harmonic function that is not constant has no maximum or minimum
 inside its region; its largest and smallest values are on the boundary. The mean value
@@ -151,7 +151,7 @@ solution with all edges at 100.
   direction to be the one with zero values at both ends.
 - **Forgetting to divide by $\sinh(n\pi b/a)$.** The top-edge data gives $c_n\sinh(n\pi b/a) = b_n$,
   not $c_n = b_n$.
-- **Keeping $r^{-n}$ or $\ln r$ on a disk.** They blow up at the centre.
+- **Keeping $r^{-n}$ or $\ln r$ on a disk.** They blow up at the center.
 - **Looking for an initial condition.** Laplace's equation describes a steady state; the data
   is on the boundary only.
 - **Expecting a hot spot inside.** By the maximum principle, the extremes are always on the

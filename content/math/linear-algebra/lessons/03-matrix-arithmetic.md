@@ -59,6 +59,25 @@ $n \times p$ matrix gives an $m \times p$ matrix. A handy check: write the sizes
 side, $(m \times \underline{n})(\underline{n} \times p)$; the inner numbers must match and
 the outer numbers give the size of the answer.
 
+The picture shows one entry being built: the highlighted row of $A$ meets the highlighted
+column of $B$, and their three products add up to a single number in $AB$.
+
+![A 2 by 3 matrix A with rows (2, −1, 3) and (4, 0, 1) times a 3 by 2 matrix B with rows (1, 2), (−2, 0) and (3, 5) equals the 2 by 2 matrix with rows (13, 19) and (7, 13). Row 2 of A, column 1 of B and the entry 7 in row 2, column 1 of AB are highlighted, with the computation (4)(1) + (0)(−2) + (1)(3) = 7.](images/la-m1-row-col.svg)
+
+Before computing anything, check that the operation is defined:
+
+```mermaid
+flowchart TD
+  accTitle: When are A plus B and AB defined?
+  accDescr: For a sum A plus B, check whether A and B have the same size. If they do, add entry by entry and the sum has that same size; if not, the sum is undefined. For a product AB, check whether the number of columns of A equals the number of rows of B. If it does, AB has as many rows as A and as many columns as B; if not, the product is undefined.
+  S{"Which operation?"} -- "A + B" --> P{"Same size?"}
+  S -- "AB" --> Q{"Columns of A = rows of B?"}
+  P -- "Yes" --> P1["Add entry by entry; the sum has the same size"]
+  P -- "No" --> U1["Undefined"]
+  Q -- "Yes" --> Q1["AB has the rows of A and the columns of B: m by p"]
+  Q -- "No" --> U2["Undefined"]
+```
+
 Why such an odd rule? Because it is exactly what substituting one linear system into
 another does, and it's what makes $A\mathbf{x}$ reproduce the left side of a system of
 equations. Module 5 builds that story; for now, trust the rule.
@@ -97,6 +116,20 @@ In words: swap the diagonal entries, negate the off-diagonal entries, and divide
 determinant. You can check it by multiplying: the product comes out to
 $\frac{1}{ad - bc}\begin{bmatrix} ad - bc & 0 \\ 0 & ad - bc\end{bmatrix} = I$. When the
 determinant is 0 there is no inverse, just as 0 has no reciprocal.
+
+Here is the whole $2 \times 2$ routine, including how it is used to solve a system (next section):
+
+```mermaid
+flowchart TD
+  accTitle: Inverting a two-by-two matrix and solving Ax = b
+  accDescr: Compute the determinant ad minus bc. If it is zero, there is no inverse, and the system Ax = b has either no solution or infinitely many. If it is not zero, swap the diagonal entries a and d, negate the off-diagonal entries b and c, and divide every entry by ad minus bc. Check that A times the result is the identity matrix, then solve Ax = b as x = A inverse times b, multiplying on the left.
+  A["Compute ad − bc"] --> B{"Is ad − bc = 0?"}
+  B -- "Yes" --> C["No inverse: Ax = b has no solution or infinitely many"]
+  B -- "No" --> D["Swap a and d; negate b and c"]
+  D --> E["Divide every entry by ad − bc"]
+  E --> F["Check: A times the result is I"]
+  F --> G["Solve Ax = b as x = A⁻¹b (multiply on the left)"]
+```
 
 ## Solving a system with an inverse
 

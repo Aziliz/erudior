@@ -1,0 +1,23 @@
+# Round 2, module geo-m4 (honors lessons 14h1 and 14h2)
+- term: Long Side SSA Theorem
+  aliases: [Long Side SSA]
+  definition: 'If two sides and a non-included angle of one triangle are congruent to the corresponding parts of another, and the side opposite the angle is at least as long as the other given side, the triangles are congruent. (The name is this course''s; some books write SsA.)'
+  topic: SSA and congruence
+- term: superposition
+  definition: 'Euclid''s method of proving triangles congruent by imagining one moved and laid on top of the other. Modern axiom systems avoid it by taking SAS as an axiom.'
+  topic: SSA and congruence
+- term: degenerate triangle
+  aliases: [degenerate triangles, degenerate]
+  definition: 'Three points on one line, viewed as a "triangle": the two shorter sides add to exactly the longest side, so it encloses no area and is not a true triangle.'
+  topic: Shortest paths
+- term: polygonal path
+  aliases: [polygonal paths, broken line]
+  definition: 'A chain of segments joined end to end, such as $A \to B \to C \to D$; its length is the sum of the segment lengths, and it is never shorter than the segment joining its ends.'
+  topic: Shortest paths
+- term: polygon inequality
+  definition: 'In any polygon, each side is shorter than the sum of all the other sides. Checking the longest side is enough.'
+  topic: Shortest paths
+- term: Heron's problem
+  aliases: [Heron's mirror problem]
+  definition: 'Find the point $P$ on a line $\ell$ that minimizes $AP + PB$ for points $A$, $B$ on the same side of $\ell$. Solution: reflect $A$ across $\ell$ to $A''$; $P$ is where $\overline{A''B}$ crosses $\ell$.'
+  topic: Shortest paths

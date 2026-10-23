@@ -26,18 +26,18 @@ Prose word counts (without tables, code blocks or display math): about 1,890, 1,
 - 3 `shape` figures in honors lessons (two lines crossing at P, 3 lines making 7 regions, odd-number gnomons), rendered and checked.
 
 ## Drills (`drills/r2-geo-m2.yaml`)
-`geo-m2-r2-line-regions` (regions from $n$ lines in general position) and `geo-m2-r2-odd-sum` (sum $1 + 3 + \dots + (2n-1)$), linked from 07h3. Whole-number answers.
+`geo-m2-r2-odd-sum` (the sum $1 + 3 + \dots + (2n-1)$) and `geo-m2-r2-odd-range` (the sum $(2a+1) + \dots + (2b-1) = b^2 - a^2$), both linked from 07h3. Answers are whole numbers. I dropped a line-regions drill because it would duplicate `geo-m1-r2-regions`.
 
 ## Glossary and cards
-- `glossary-r2-geo-m2.yaml`: 28 terms (truth table, truth value, compound statement, conjunction, disjunction, tautology, contradiction, De Morgan's laws, quantifier, universal statement, existential statement, valid argument, sound argument, modus ponens, modus tollens, denying the antecedent, direct proof, proof by contrapositive, proof by cases, irrational number, incommensurable, mathematical induction, base case, inductive step, inductive hypothesis, well-ordering principle, general position, gnomon). Before adding them I checked every term and alias against `glossary.yaml` and `glossary-r2-geo-m3.yaml`. "Proof by contradiction" and "indirect proof" already exist (the indirect proof entry), so I didn't add them again.
-- `cards-r2-geo-m2.yaml`: 30 cards (3 core, 10 / 8 / 9 for the honors lessons).
+- `glossary-r2-geo-m2.yaml`: 27 terms (truth table, truth value, compound statement, conjunction, disjunction, tautology, contradiction, De Morgan's laws, quantifier, universal statement, existential statement, valid argument, sound argument, modus ponens, modus tollens, denying the antecedent, direct proof, proof by contrapositive, proof by cases, irrational number, incommensurable, mathematical induction, base case, inductive step, inductive hypothesis, well-ordering principle, gnomon). Before adding them I checked every term and alias against every `glossary*.yaml` in the course. "General position" is left to geo-m1's glossary, and my bolded use links to it. "Proof by contradiction" and "indirect proof" already exist (the indirect proof entry), so I didn't add them again.
+- `cards-r2-geo-m2.yaml`: 30 cards (3 core; 10, 8 and 9 for the honors lessons).
 
 ## For a reviewer
 - Truth tables, argument validity, the line-region and circle-region counts and the odd sums were all checked in Python.
 - History, worded cautiously: De Morgan stated his laws in the 1840s, and medieval logicians described the idea earlier. The discovery of incommensurability is "traditionally credited" to the Pythagoreans, and the Hippasus drowning story is called a legend. Aristotle mentions the odd/even argument for the diagonal (Prior Analytics I.23). Gnomon pebble figures are "traditionally linked" with the early Pythagoreans.
 - 07h2 Example 3 notes that lesson 01 lists "two lines meet in at most one point" as a postulate, though it follows from "two points determine a line". This is consistent with lesson 01 and is not a correction to it.
 - The Mermaid chart added to lesson 06 includes the branch "q is false ⇒ p is false (use the contrapositive)". The core text doesn't name this rule (modus tollens), but it follows from lesson 05's contrapositive rule, and the chart's caption says so. Question q10 relies on it.
-- The circle-regions formula in 07h3 is stated without proof and labeled as such.
+- Overlap with geo-m1: its honors lesson 04h2 (written in the same round) derives the line-region count and the circle-regions (Moser) count. 07h3 refers to that lesson. It gives the line count again only as a formal induction proof, and only checks the circle formula rather than deriving it. I removed my duplicate drill, glossary entry and cards.
 
 ## Errors found in existing content
 None in lessons 05–07, `questions/m2.yaml` or `drills/m2.yaml`. No existing files were edited apart from the additions to lessons 05–07.

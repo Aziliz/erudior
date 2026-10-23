@@ -71,6 +71,21 @@ but organized:
 The result is a "triangular" system, and that shape is exactly what the next module calls
 echelon form.
 
+The chart sums up the whole procedure, including what the last equation can tell you
+(the next sections explain the two unusual outcomes).
+
+```mermaid
+flowchart TD
+  accTitle: Solving a three-by-three system by elimination
+  accDescr: Use equation 1 to eliminate x from equations 2 and 3. Then use the new equation 2 to eliminate y from the new equation 3. Look at the last equation. If it reads a nonzero number times z equals a number, solve for z, back-substitute for y and then x, and check the answer in every original equation: there is exactly one solution. If it reads 0 equals a nonzero number, the system is inconsistent and has no solution. If it reads 0 equals 0, the equation is redundant, and if nothing else is contradictory there are infinitely many solutions.
+  A["Use equation 1 to eliminate x from equations 2 and 3"] --> B["Use the new equation 2 to eliminate y from the new equation 3"]
+  B --> C{"What does the last equation say?"}
+  C -- "(nonzero number) z = number" --> D["Solve for z, then back-substitute for y and x"]
+  D --> E["Exactly one solution: check it in every original equation"]
+  C -- "0 = nonzero number" --> F["Inconsistent: no solution"]
+  C -- "0 = 0" --> G["Redundant equation: infinitely many solutions, if nothing else is contradictory"]
+```
+
 ### Example 2
 
 Solve
@@ -101,6 +116,10 @@ A system with at least one solution is called **consistent**. So a linear system
 inconsistent, consistent with exactly one solution, or consistent with infinitely many.
 You can never get exactly two solutions: if two points solve a linear system, so does
 every point on the line through them.
+
+For two equations in two unknowns, the three cases are three pictures of a pair of lines:
+
+![Three panels, each showing two lines. Left: the lines cross at one marked point, labeled one solution. Middle: two parallel lines that never meet, labeled no solution. Right: two lines lying exactly on top of each other, labeled infinitely many.](images/la-m1-three-cases.svg)
 
 ## Common mistakes
 

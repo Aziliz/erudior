@@ -66,6 +66,26 @@ Test 5 is especially handy. *Why it works:* if $\overline{AB} \parallel \overlin
 
 Careful: "one pair parallel and the *other* pair congruent" is *not* enough. An isosceles trapezoid has exactly that and isn't a parallelogram.
 
+```shape
+{"polygons": [{"points": [[0, 0], [10, 0], [7, 4], [3, 4]]}], "segments": [{"from": [0, 0], "to": [3, 4], "label": "5"}, {"from": [10, 0], "to": [7, 4], "label": "5"}], "labels": [{"at": [5, -0.6], "text": "10"}, {"at": [5, 4.5], "text": "4"}], "caption": "Top and bottom are parallel and the other two sides are both 5, yet this is not a parallelogram."}
+```
+
+The chart lists the tests in the order you might check them.
+
+```mermaid
+flowchart TD
+  accTitle: Tests that prove a quadrilateral is a parallelogram
+  accDescr: Check the facts you know in turn. If both pairs of opposite sides are parallel, or both pairs are congruent, it is a parallelogram. If not, but both pairs of opposite angles are congruent, it is a parallelogram. If not, but the diagonals bisect each other, it is a parallelogram. If not, but one pair of opposite sides is both parallel and congruent, it is a parallelogram. If none of these holds, you have not proved it; in particular, one pair parallel and the other pair congruent is not enough, because an isosceles trapezoid has that.
+  T1{"Both pairs of opposite sides parallel, or both congruent?"} -- yes --> P[It is a parallelogram]
+  T1 -- no --> T2{"Both pairs of opposite angles congruent?"}
+  T2 -- yes --> P
+  T2 -- no --> T3{"Diagonals bisect each other?"}
+  T3 -- yes --> P
+  T3 -- no --> T4{"One pair of opposite sides both parallel and congruent?"}
+  T4 -- yes --> P
+  T4 -- no --> X["Not proved. One pair parallel plus the other pair congruent is not enough"]
+```
+
 ### Example 3
 
 Is $A(-2, 1)$, $B(3, 2)$, $C(5, 6)$, $D(0, 5)$ a parallelogram?

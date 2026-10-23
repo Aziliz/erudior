@@ -32,7 +32,7 @@ and more on what $f$ does near $t = 0$; for small $s$ the weight lingers and lat
 count too.
 
 ```plot
-{"x": [0, 4], "y": [0, 1.1], "xLabel": "t", "functions": [{"f": "exp(-0.5x)", "label": "s = 0.5"}, {"f": "exp(-x)", "label": "s = 1"}, {"f": "exp(-2x)", "label": "s = 2"}], "caption": "The weight e^(−st) for three values of s: the larger s is, the more the transform concentrates on small t."}
+{"x": [0, 4], "y": [0, 1.1], "xLabel": "t", "functions": [{"f": "exp(-0.5x)"}, {"f": "exp(-x)"}, {"f": "exp(-2x)"}], "labels": [{"at": [2.9, 0.33], "text": "s = 0.5"}, {"at": [1.75, 0.27], "text": "s = 1"}, {"at": [1.3, 0.17], "text": "s = 2"}], "caption": "The weight e^(−st) for three values of s: the larger s is, the more the transform concentrates on small t."}
 ```
 
 ### Example 1: a constant
@@ -109,7 +109,7 @@ line, and a function is of exponential order when $\ln|f|$ eventually stays belo
 $\ln(e^{t^2}) = t^2$ is a parabola, which overtakes every line.
 
 ```plot
-{"x": [0, 5], "y": [0, 16], "xLabel": "t", "yLabel": "ln of the size", "functions": [{"f": "x^2", "label": "ln(e^(t²)) = t²"}, {"f": "3x", "dashed": true, "label": "ln(e^(3t)) = 3t"}, {"f": "1 + 2x", "dashed": true, "label": "ln(e·e^(2t))"}], "caption": "Logarithms of e^(t²) and two exponential bounds: the parabola crosses every straight line, so e^(t²) is not of exponential order."}
+{"x": [0, 5], "y": [0, 26], "xLabel": "t", "yLabel": "ln of the size", "functions": [{"f": "x^2", "label": "t²"}, {"f": "3x", "dashed": true, "label": "3t"}, {"f": "1 + 2x", "dashed": true, "label": "1 + 2t"}], "caption": "Logarithms: ln(e^(t²)) = t² against ln(e^(3t)) = 3t and ln(e·e^(2t)) = 1 + 2t. The parabola crosses every straight line, so e^(t²) is not of exponential order."}
 ```
 
 ## The basic table

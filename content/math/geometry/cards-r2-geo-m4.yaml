@@ -1,0 +1,21 @@
+# Round 2, module geo-m4 (honors lessons 14h1 and 14h2)
+- {front: 'SSA from an acute $\angle A$: how is $B$ located?', back: 'On the other side of the angle, where the circle of radius $a = BC$ centered at $C$ crosses that ray.', topic: SSA and congruence}
+- {front: 'SSA with acute $\angle A$, $AC = b$, distance $d$ from $C$ to the other side: $a < d$', back: 'No triangle: the circle never reaches the ray.', topic: SSA and congruence}
+- {front: 'SSA with acute $\angle A$: $a = d$', back: 'One triangle, with a right angle at $B$ (the foot of the perpendicular).', topic: SSA and congruence}
+- {front: 'SSA with acute $\angle A$: $d < a < b$', back: 'Two triangles, with third vertices the same distance from the foot $F$ on either side.', topic: SSA and congruence}
+- {front: 'SSA with acute $\angle A$: $a \ge b$', back: 'One triangle: the circle''s other crossing is at $A$ or behind it.', topic: SSA and congruence}
+- {front: Long Side SSA Theorem, back: 'SSA proves congruence when the side opposite the angle is at least as long as the other given side.', topic: SSA and congruence}
+- {front: Why HL is a case of the Long Side SSA Theorem, back: 'The hypotenuse is opposite the right angle, the largest angle, so it is longer than the leg.', topic: SSA and congruence}
+- {front: SSA with a right or obtuse angle, back: 'Always proves congruence: the side opposite that angle is automatically the longest.', topic: SSA and congruence}
+- {front: The two ambiguous SSA triangles, back: 'Their angles at the third vertex are supplementary (one acute, one obtuse), not congruent.', topic: SSA and congruence}
+- {front: 'Euclid''s congruence propositions (Book I)', back: 'SAS is Proposition 4, SSS is 8, ASA and AAS are 26.', topic: SSA and congruence}
+- {front: Euclid's proof of the Triangle Inequality, back: 'Extend $\overline{AB}$ past $B$ to $D$ with $BD = BC$; isosceles $\triangle BCD$ makes $\angle ACD > \angle ADC$, so $AD = AB + BC > AC$.', topic: Shortest paths}
+- {front: 'When is $AB + BC = AC$?', back: 'Exactly when $B$ lies on $\overline{AC}$ (a degenerate triangle).', topic: Shortest paths}
+- {front: Polygonal path vs straight segment, back: 'A path $A \to B \to \cdots \to Z$ is at least as long as $AZ$, with equality only if the points lie in order on $\overline{AZ}$.', topic: Shortest paths}
+- {front: Polygon inequality, back: 'Each side of a polygon is shorter than the sum of the others; check the longest side.', topic: Shortest paths}
+- {front: Fourth side of a quadrilateral with sides $p \le q \le r$, back: 'Less than $p + q + r$, and more than $r - p - q$ when that is positive.', topic: Shortest paths}
+- {front: 'Point $P$ inside $\triangle ABC$', back: '$PB + PC < AB + AC$; and $PA + PB + PC$ is between half the perimeter and the perimeter.', topic: Shortest paths}
+- {front: Heron's problem solution, back: 'Reflect $A$ across $\ell$ to $A''$; the best $P$ is where $\overline{A''B}$ crosses $\ell$, and the shortest length is $A''B$.', topic: Shortest paths}
+- {front: Law of reflection from Heron's problem, back: 'At the best point, $\overline{PA}$ and $\overline{PB}$ make equal angles with the mirror line.', topic: Shortest paths}
+- {front: 'Minimize $PA + PB + PC + PD$ for convex $ABCD$', back: 'Put $P$ where the diagonals cross; the minimum is $AC + BD$.', topic: Shortest paths}
+- {front: Diagonals of a convex quadrilateral, back: 'Their sum is more than half the perimeter and less than the perimeter.', topic: Shortest paths}

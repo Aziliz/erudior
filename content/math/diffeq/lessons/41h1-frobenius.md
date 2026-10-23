@@ -18,7 +18,7 @@ $$x^2y'' + xy' + (x^2 - \nu^2)y = 0$$
 
 has a singular point at $x = 0$, and it is the equation you get when you separate variables
 in the heat or wave equation in polar coordinates (a round drum, a cylinder cooling, light
-in an optical fibre). The centre of the drum is $x = 0$, so you cannot just avoid it.
+in an optical fiber). The center of the drum is $x = 0$, so you cannot just avoid it.
 
 The fix is to let the series start with a power $x^r$ that need not be a whole number:
 $y = x^r\sum a_nx^n$. Lazarus Fuchs worked out the theory of such singular points in 1866,

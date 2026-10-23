@@ -4,7 +4,7 @@ module: geo-m2
 title: 'Mathematical induction: from patterns to proofs'
 minutes: 45
 topics: [Mathematical induction]
-drills: [geo-m2-r2-line-regions, geo-m2-r2-odd-sum]
+drills: [geo-m2-r2-odd-sum, geo-m2-r2-odd-range]
 refs: [geo-ref-theorems]
 honors: true
 ---
@@ -51,7 +51,7 @@ The core lesson gave a different proof (each point joins $n - 1$ others, and eac
 
 ## Lines that divide the plane
 
-Draw $n$ lines in a plane in **general position**: no two parallel and no three through a single point. Into how many regions $R(n)$ do they cut the plane?
+Draw $n$ lines in a plane in **general position**: no two parallel and no three through a single point. Into how many regions $R(n)$ do they cut the plane? (If you did the Module 1 honors lesson on counting figures, you have seen this question answered by adding up the regions each new line creates. Here the same idea becomes a formal induction proof.)
 
 ```shape
 {"segments": [{"from": [-5, -1], "to": [5, -1]}, {"from": [-3.667, -4], "to": [2.333, 5]}, {"from": [-2.333, 5], "to": [3.667, -4]}], "labels": [{"at": [0, -0.25], "text": "1"}, {"at": [0, 3.4], "text": "2"}, {"at": [-3.2, 1.4], "text": "3"}, {"at": [3.2, 1.4], "text": "4"}, {"at": [-4.2, -3.2], "text": "5"}, {"at": [0, -3.2], "text": "6"}, {"at": [4.2, -3.2], "text": "7"}], "caption": "Three lines, no two parallel and no three through one point, divide the plane into 7 regions."}
@@ -95,13 +95,13 @@ $$1 + 3 + \dots + (2k - 1) + (2k + 1) = k^2 + 2k + 1 = (k + 1)^2. \checkmark$$
 
 By induction, the formula holds for every $n \ge 1$. $\blacksquare$
 
-To use it, count the terms first: in $1 + 3 + \dots + 39$, the last term $39 = 2n - 1$ gives $n = 20$, so the sum is $20^2 = 400$.
+To use it, count the terms first: in $1 + 3 + \dots + 39$, the last term $39 = 2n - 1$ gives $n = 20$, so the sum is $20^2 = 400$. A sum that starts later is a difference of two such sums. For $11 + 13 + \dots + 39$, the odd numbers below 11 are $1, 3, 5, 7, 9$, the first 5 odd numbers, so the sum is $20^2 - 5^2 = 400 - 25 = 375$. In the picture, that is the big square with the small square in its corner removed.
 
 ## The circle regions, revisited
 
 What about the regions inside a circle with $n$ points, the pattern that broke at 31? The correct count (when no three chords meet at one point) is
 $$1 + \frac{n(n-1)}{2} + \frac{n(n-1)(n-2)(n-3)}{24}.$$
-We state this without proof here; one standard proof counts how each chord and each crossing of two chords adds a region. Check it: for $n = 5$ it gives $1 + 10 + 5 = 16$, and for $n = 6$ it gives $1 + 15 + 15 = 31$, not 32. For $n = 7$ it gives 57, far from the 64 that doubling predicts. The formula's last term is 0 for $n \le 3$ and grows like $n^4$, so it was hidden in the first few cases. That is exactly how patterns lie.
+The Module 1 honors lesson on counting figures derives it by counting chords and the points where two chords cross; here we just check it. Check it: for $n = 5$ it gives $1 + 10 + 5 = 16$, and for $n = 6$ it gives $1 + 15 + 15 = 31$, not 32. For $n = 7$ it gives 57, far from the 64 that doubling predicts. The formula's last term is 0 for $n \le 3$ and grows like $n^4$, so it was hidden in the first few cases. That is exactly how patterns lie.
 
 ## Common mistakes
 

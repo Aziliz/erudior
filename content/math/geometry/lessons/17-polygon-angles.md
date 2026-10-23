@@ -23,6 +23,10 @@ A **polygon** is a closed plane figure made of segments (sides) that meet only a
 
 A polygon is **convex** if no line containing a side passes through the interior (informally: no "dents"). Otherwise it's **concave**. A **diagonal** joins two non-adjacent vertices. A **regular polygon** is both equilateral (all sides congruent) and equiangular (all angles congruent).
 
+The picture names the parts of a polygon used in this lesson (exterior angles are defined below).
+
+![A convex pentagon with its parts labeled: a side, a vertex, a dashed diagonal joining two non-adjacent vertices, a shaded interior angle at the top vertex, and a shaded exterior angle at the lower right vertex, formed by one side and the extension of the bottom side.](images/geo-m5-polygon-parts.svg)
+
 ## Interior angle sum
 
 From one vertex of a convex $n$-gon, draw all the diagonals. They cut the polygon into $n - 2$ triangles (each side except the two at that vertex makes one triangle). The triangles' angles together make up exactly the polygon's angles, so:
@@ -100,6 +104,22 @@ Each interior angle of a regular polygon is $162^\circ$. How many sides does it 
 Can a regular polygon have interior angles of $130^\circ$?
 
 The exterior angle would be $50^\circ$, and $360 / 50 = 7.2$ isn't a whole number. So *no*.
+
+The chart sums up how to find the number of sides from an angle fact.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the number of sides from an angle
+  accDescr: If you are given the interior angle sum S, compute n = S divided by 180, plus 2. If you are given one interior angle of a regular polygon, first find the exterior angle, 180 minus the interior angle, then compute n = 360 divided by the exterior angle. If you are given one exterior angle of a regular polygon, go straight to n = 360 divided by the exterior angle. Finally, check the result: if n is a whole number of at least 3, the polygon exists; otherwise no such polygon exists.
+  Q{"What are you given?"} -- "angle sum S" --> A1["n = S ÷ 180 + 2"]
+  Q -- "one interior angle (regular)" --> B1["exterior = 180° − interior"]
+  Q -- "one exterior angle (regular)" --> B2["n = 360° ÷ exterior"]
+  B1 --> B2
+  A1 --> C{"Is n a whole number, 3 or more?"}
+  B2 --> C
+  C -- yes --> Y[That polygon exists]
+  C -- no --> N[No such polygon]
+```
 
 ## Diagonals
 

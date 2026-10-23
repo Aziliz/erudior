@@ -47,6 +47,10 @@ An **altitude** of a triangle is the perpendicular segment from a vertex to the 
 
 In an obtuse triangle, two altitudes fall *outside* the triangle: you extend the opposite side and drop the perpendicular to the extension. In a right triangle, the two legs are themselves altitudes.
 
+Medians, altitudes, angle bisectors and perpendicular bisectors are easy to mix up. The picture draws one of each for side $\overline{AB}$ of the same triangle: three go from vertex $C$ to the side, and the perpendicular bisector need not pass through $C$ at all.
+
+![Triangle ABC with three segments from C to side AB: the altitude, which meets AB at a right angle; the angle bisector, which splits angle C into two equal angles; and the median, which ends at the midpoint of AB. A dashed vertical line through the midpoint of AB, perpendicular to AB, is the perpendicular bisector of AB; it does not pass through C.](images/geo-m5-special-segments.svg)
+
 **Orthocenter Theorem.** The lines containing the three altitudes are concurrent at the **orthocenter**. It's inside an acute triangle, at the right-angle vertex of a right triangle, and outside an obtuse triangle.
 
 ### Example 3
@@ -67,6 +71,20 @@ Find the orthocenter of the triangle with vertices $A(0, 0)$, $B(6, 0)$ and $C(2
 | Incenter | angle bisectors | equidistant from sides |
 | Centroid | medians | balance point; $2 : 1$ split |
 | Orthocenter | altitudes | — |
+
+To decide which center a problem needs, ask what the point has to do:
+
+```mermaid
+flowchart TD
+  accTitle: Which triangle center do you need?
+  accDescr: A chain of questions. If you need a point equally far from the three vertices, use the circumcenter, where the perpendicular bisectors of the sides meet. Otherwise, if you need a point equally far from the three sides, use the incenter, where the angle bisectors meet. Otherwise, if you need the balance point or the point that splits each median 2 to 1, use the centroid, where the medians meet. Otherwise the remaining center is the orthocenter, where the altitudes meet.
+  Q1{"Equally far from the 3 vertices?"} -- yes --> O[Circumcenter: perpendicular bisectors]
+  Q1 -- no --> Q2{"Equally far from the 3 sides?"}
+  Q2 -- yes --> I[Incenter: angle bisectors]
+  Q2 -- no --> Q3{"Balance point, or 2 to 1 split of medians?"}
+  Q3 -- yes --> G[Centroid: medians]
+  Q3 -- no --> H[Orthocenter: altitudes]
+```
 
 A remarkable fact (Euler, 1765): in any triangle, the circumcenter, centroid and orthocenter are collinear, on the **Euler line**, and the centroid is always one-third of the way from the circumcenter to the orthocenter. In an equilateral triangle all four centers coincide.
 

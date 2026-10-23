@@ -29,6 +29,12 @@ origin, the head lands on the point $(3, 4)$, and we call it the **position vect
 that point. That is why linear algebra freely identifies the point $(3, 4)$ with the
 vector $\begin{bmatrix} 3 \\ 4\end{bmatrix}$.
 
+The picture names the parts of an arrow. The components are the horizontal and vertical
+legs of a right triangle, the arrow itself is the hypotenuse, and the angle $\theta$ is measured
+from the positive $x$-direction.
+
+![An arrow from a tail point to a head point, 4 units right and 3 units up. A dashed horizontal leg is labeled horizontal component v1 = 4, a dashed vertical leg is labeled vertical component v2 = 3, the arrow is labeled length 5, and the angle theta at the tail is marked.](images/la-m1-vector-parts.svg)
+
 To find the vector from point $P = (p_1, p_2)$ to point $Q = (q_1, q_2)$, subtract tail
 from head: $\overrightarrow{PQ} = \begin{bmatrix} q_1 - p_1 \\ q_2 - p_2 \end{bmatrix}$.
 
@@ -66,6 +72,13 @@ component: $c\begin{bmatrix} v_1 \\ v_2\end{bmatrix} = \begin{bmatrix} cv_1 \\ c
 Geometrically, $c\mathbf{v}$ points the same way as $\mathbf{v}$ when $c > 0$, the
 opposite way when $c < 0$, and its length is $|c|$ times as long. So $2\mathbf{v}$ is
 twice as long, $-\mathbf{v}$ is flipped, and $0\mathbf{v} = \mathbf{0}$.
+
+The plot draws several multiples of $\mathbf{v} = \begin{bmatrix} 2 \\ 1\end{bmatrix}$ with their
+tails in different places (position doesn't matter): all of them are parallel to $\mathbf{v}$.
+
+```plot
+{"x": [-1, 7], "y": [-3, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "v"}, {"from": [0, -2], "to": [4, 0], "arrow": true, "label": "2v"}, {"from": [4, 3], "to": [2, 2], "arrow": true, "label": "−v"}, {"from": [5, -1], "to": [6, -0.5], "arrow": true, "label": "0.5v"}], "caption": "Multiples of v = (2, 1): all parallel to v; −v points the opposite way"}
+```
 
 Put the two operations together and you get the central object of the whole course, a
 combination like $2\mathbf{u} - 3\mathbf{v}$: scale some vectors, then add. (In Module 3

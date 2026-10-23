@@ -106,7 +106,7 @@
   stem: 'For SAS to apply, the congruent angle must be the ___ angle: the angle formed by the two congruent sides.'
   accept: [included, included angle]
   explanation: |-
-    SAS needs the **included angle**, the angle between the two given sides. An angle that is not between them gives SSA, which is not a congruence test.
+    SAS needs the included angle, the angle between the two given sides. An angle that is not between them gives SSA, which is not a congruence test.
 # Lesson 12: ASA, AAS, HL and CPCTC
 - id: geo-m4-r2-q11
   lesson: geo-asa-hl
@@ -492,7 +492,7 @@
   choices: ['$8$', '$12$', '$16$', '$24$']
   answer: 2
   explanation: |-
-    The first inequality gives $AC + BD > 3 + 5 = 8$, and the second gives $AC + BD > 6 + 10 = 16$. Both are true, so the stronger one, 16, is the best bound. 12 is half the perimeter (also true but weaker), and 24 is the whole perimeter, which is an *upper* bound.
+    The first inequality gives $AC + BD > 3 + 5 = 8$, and the second gives $AC + BD > 6 + 10 = 16$. Both are true, so the stronger one, 16, is the best bound. 12 is half the perimeter (also true but weaker), and 24 is the whole perimeter, which is an upper bound.
 - id: geo-m4-r2-h24
   lesson: geo-m4-h-shortest-paths
   type: text

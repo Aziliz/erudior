@@ -62,16 +62,16 @@ each direction.
 A long string with $a = 2$ starts at rest ($g = 0$) with the triangular bump
 $f(x) = \max(0,\ 1 - |x|)$: height 1 at $x = 0$, zero outside $|x| < 1$.
 
-- $u(x, t) = \tfrac12\big[f(x - 2t) + f(x + 2t)\big]$: two triangles of height $\tfrac12$, centred at
+- $u(x, t) = \tfrac12\big[f(x - 2t) + f(x + 2t)\big]$: two triangles of height $\tfrac12$, centered at
   $x = 2t$ and $x = -2t$.
-- At $t = 0.25$, centre: $u(0, 0.25) = \tfrac12[f(-0.5) + f(0.5)] = \tfrac12(0.5 + 0.5) = 0.5$.
+- At $t = 0.25$, center: $u(0, 0.25) = \tfrac12[f(-0.5) + f(0.5)] = \tfrac12(0.5 + 0.5) = 0.5$.
 - At $t = 0.25$, $x = 0.75$: $u = \tfrac12[f(0.25) + f(1.25)] = \tfrac12(0.75 + 0) = 0.375$.
-- Each half has width 2, and their centres are $4t$ apart, so they stop overlapping at
+- Each half has width 2, and their centers are $4t$ apart, so they stop overlapping at
   $t = 0.5$. After that the string between them is flat. At $t = 1$, $u(2, 1) = \tfrac12[f(0) + f(4)] = 0.5$:
   the peak of the right-moving half has reached $x = 2$.
 
 ```plot
-{"x": [-3.5, 3.5], "y": [-0.1, 1.1], "functions": [{"f": "max(0, 1 - abs(x))", "dashed": true}, {"f": "0.5*max(0, 1 - abs(x - 0.5)) + 0.5*max(0, 1 - abs(x + 0.5))"}, {"f": "0.5*max(0, 1 - abs(x - 1.5)) + 0.5*max(0, 1 - abs(x + 1.5))"}], "caption": "Example 1 (a = 2): the initial triangle (dashed, t = 0) splits into two half-height copies moving apart at speed 2. At t = 0.25 they still overlap, giving the flat-topped shape; at t = 0.75 they are two separate triangles centred at x = ±1.5."}
+{"x": [-3.5, 3.5], "y": [-0.1, 1.1], "functions": [{"f": "max(0, 1 - abs(x))", "dashed": true}, {"f": "0.5*max(0, 1 - abs(x - 0.5)) + 0.5*max(0, 1 - abs(x + 0.5))"}, {"f": "0.5*max(0, 1 - abs(x - 1.5)) + 0.5*max(0, 1 - abs(x + 1.5))"}], "caption": "Example 1 (a = 2): the initial triangle (dashed, t = 0) splits into two half-height copies moving apart at speed 2. At t = 0.25 they still overlap, giving the flat-topped shape; at t = 0.75 they are two separate triangles centered at x = ±1.5."}
 ```
 
 ## Domain of dependence and finite speed
@@ -119,8 +119,8 @@ the end is its negative.
 A string with $L = 4$, $a = 1$ starts at rest with a triangle of height 1 in the middle:
 $f(x) = \max(0,\ 1 - |x - 2|)$.
 
-- **$t = 1$:** two half-height triangles centred at $x = 1$ and $x = 3$, each just touching an end.
-- **$t = 2$:** each half is centred on an end, where it meets its upside-down mirror image.
+- **$t = 1$:** two half-height triangles centered at $x = 1$ and $x = 3$, each just touching an end.
+- **$t = 2$:** each half is centered on an end, where it meets its upside-down mirror image.
   They cancel everywhere: $u(x, 2) = 0$ for all $x$. The string is flat for an instant, but
   still moving.
 - **$t = 4 = L/a$:** the reflected, inverted halves meet again in the middle: $u(x, 4) = -f(x)$,
