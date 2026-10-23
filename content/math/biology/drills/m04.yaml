@@ -1,0 +1,128 @@
+- id: bio-mitotic-index
+  title: Mitotic index from a cell count
+  topic: Mitosis
+  vars:
+    pro: {min: 4, max: 30}
+    met: {min: 2, max: 12}
+    ana: {min: 1, max: 6}
+    tel: {min: 1, max: 8}
+    inter: {min: 100, max: 400}
+  calc:
+    mit: pro + met + ana + tel
+    tot: mit + inter
+    mi: 100*mit/tot
+  where: ['round(1000*mit/tot) == 1000*mit/tot']
+  prompt: 'In an onion root tip, a student counts {inter} cells in interphase, {pro} in prophase, {met} in metaphase, {ana} in anaphase and {tel} in telophase. What is the mitotic index, as a percent? Give a decimal if needed (e.g. 12.5).'
+  answers:
+    - {name: mi, label: 'Mitotic index (%)', tolerance: 0.05}
+  solution: |-
+    Cells in mitosis: ${pro} + {met} + {ana} + {tel} = {mit}$. Total cells: ${mit} + {inter} = {tot}$.
+
+    Mitotic index $= \dfrac{{mit}}{{tot}} \times 100\% =$ **{mi}%**.
+- id: bio-phase-time
+  title: Length of a stage from cell counts
+  topic: Cell cycle
+  vars:
+    tot: {choices: [100, 120, 150, 200, 240, 250, 300, 400]}
+    k: {min: 2, max: 40}
+    cyc: {choices: [12, 16, 18, 20, 24, 30]}
+    stage: {choices: [prophase, metaphase, anaphase, telophase]}
+  calc:
+    mins: k*cyc*60/tot
+  where: ['round(mins) == mins', 'k < tot/5']
+  prompt: 'A sample of {tot} actively dividing cells, not synchronized, contains {k} cells in {stage}. The whole cell cycle takes {cyc} hours. Estimate how long {stage} lasts, in minutes.'
+  answers:
+    - {name: mins, label: 'Time (min)', relTolerance: 0.01, units: {min: 1, h: 60}}
+  solution: |-
+    In an unsynchronized population, the fraction of cells in a stage equals the fraction of the cycle spent in it.
+
+    Fraction of cells in {stage}: $\dfrac{{k}}{{tot}}$. Time $= \dfrac{{k}}{{tot}} \times {cyc} \text{ h} \times 60 \text{ min/h} =$ **{mins} minutes**.
+- id: bio-chromatid-count
+  title: Chromosomes and DNA molecules during mitosis
+  topic: Mitosis
+  vars:
+    n2: {choices: [4, 6, 8, 12, 14, 16, 20, 24, 46]}
+    st: {choices: [{label: G1, value: 1}, {label: G2, value: 2}, {label: metaphase, value: 3}, {label: anaphase (whole cell), value: 4}, {label: each daughter cell after cytokinesis, value: 5}]}
+  calc:
+    chr: if(st == 4, 2*n2, n2)
+    dna: if(st == 1 or st == 5, n2, 2*n2)
+  prompt: 'A body cell of a species with 2n = {n2} goes through the cell cycle and mitosis. How many chromosomes and how many DNA molecules (chromatids) are there at this point: {st}? Count each separated chromatid as a chromosome.'
+  answers:
+    - {name: chr, label: 'Chromosomes', format: integer}
+    - {name: dna, label: 'DNA molecules', format: integer}
+  solution: |-
+    Rules: DNA doubles in S phase (each chromosome gets 2 sister chromatids), so G2 and metaphase have {n2} chromosomes and $2 \times {n2}$ DNA molecules. In anaphase the sister chromatids separate, so the cell briefly holds $2 \times {n2}$ chromosomes. G1 and each daughter cell have {n2} chromosomes of one DNA molecule each.
+
+    At {st}: **{chr} chromosomes** and **{dna} DNA molecules**.
+- id: bio-doubling
+  title: Cell number after repeated divisions
+  topic: Cancer
+  vars:
+    n0: {choices: [1, 2, 5, 10, 20, 50, 100]}
+    dt: {choices: [6, 8, 12, 18, 20, 24]}
+    gens: {min: 2, max: 12}
+  calc:
+    t: dt*gens
+    nf: n0*2^gens
+  prompt: 'A culture starts with {n0} cell(s) that divide every {dt} hours, with no cells dying. How many doublings happen in {t} hours, and how many cells are there then?'
+  answers:
+    - {name: gens, label: 'Doublings', format: integer}
+    - {name: nf, label: 'Cells', format: integer}
+  solution: |-
+    Doublings: ${t} \div {dt} =$ **{gens}**.
+
+    Each doubling multiplies the number by 2: $N = N_0 \times 2^{n} = {n0} \times 2^{{gens}} =$ **{nf} cells**.
+- id: bio-doubling-time
+  title: Doubling time from a cell count
+  topic: Cancer
+  vars:
+    n0: {choices: [100, 200, 500, 1000, 2000]}
+    gens: {min: 2, max: 10}
+    dt: {min: 6, max: 40}
+  calc:
+    t: gens*dt
+    nf: n0*2^gens
+    ratio: 2^gens
+  prompt: 'Tumor cells grown in a dish increase from {n0} to {nf} in {t} hours. Assuming steady doubling, how many doublings occurred, and what is the doubling time in hours?'
+  answers:
+    - {name: gens, label: 'Doublings', format: integer}
+    - {name: dt, label: 'Doubling time (h)', relTolerance: 0.01, units: {h: 1}}
+  solution: |-
+    Growth factor: ${nf} \div {n0} = {ratio} = 2^{{gens}}$, so there were **{gens} doublings**.
+
+    Doubling time: ${t} \div {gens} =$ **{dt} hours**.
+- id: bio-gamete-combos
+  title: Chromosome combinations from independent assortment
+  topic: Meiosis
+  vars:
+    n: {min: 2, max: 10}
+  calc:
+    n2: 2*n
+    gam: 2^n
+    zyg: 4^n
+  prompt: 'A species has a diploid number of 2n = {n2}. Ignoring crossing over, how many genetically different gametes can one individual make by independent assortment, and how many different chromosome combinations are possible in a zygote from two parents?'
+  answers:
+    - {name: gam, label: 'Gametes', format: integer}
+    - {name: zyg, label: 'Zygotes', format: integer}
+  solution: |-
+    2n = {n2}, so there are n = {n} homologous pairs. Each pair can line up 2 ways at metaphase I: $2^{{n}} =$ **{gam}** kinds of gamete.
+
+    Any of {gam} eggs can meet any of {gam} sperm: ${gam} \times {gam} =$ **{zyg}** combinations.
+- id: bio-meiosis-count
+  title: Chromosome number through meiosis
+  topic: Meiosis
+  vars:
+    n2: {choices: [4, 6, 8, 12, 14, 16, 20, 24, 46]}
+    st: {choices: [{label: G1 before meiosis, value: 1}, {label: metaphase I, value: 2}, {label: each cell right after meiosis I, value: 3}, {label: metaphase II (one cell), value: 4}, {label: each gamete, value: 5}]}
+  calc:
+    hn: n2/2
+    chr: if(st <= 2, n2, hn)
+    dna: if(st == 1, n2, if(st == 2, 2*n2, if(st == 5, hn, n2)))
+  prompt: 'A cell of a species with 2n = {n2} undergoes meiosis. How many chromosomes and how many DNA molecules (chromatids) are in the cell at this point: {st}?'
+  answers:
+    - {name: chr, label: 'Chromosomes', format: integer}
+    - {name: dna, label: 'DNA molecules', format: integer}
+  solution: |-
+    Rules: DNA is copied once, before meiosis I, so from then until meiosis II each chromosome has 2 chromatids. Meiosis I separates homologs (2n → n = {hn} chromosomes, each still double). Meiosis II separates sister chromatids, giving gametes with {hn} single chromosomes.
+
+    At {st}: **{chr} chromosomes** and **{dna} DNA molecules**.

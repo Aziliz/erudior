@@ -1,0 +1,277 @@
+- id: bio-q-1001
+  lesson: bio-ecosystems
+  module_quiz: true
+  topic: Ecosystems
+  stem: 'In the food chain grass → rabbit → fox, what do the arrows show?'
+  choices: ['The direction energy moves, from the food to the organism that eats it', 'Which organism hunts which, pointing from predator to prey', 'The order in which the organisms evolved', 'The direction in which matter is lost from the ecosystem']
+  answer: 0
+  explanation: |-
+    Food-chain arrows point from the food to the eater, because they show energy (and matter) moving into the consumer. Reading them as "hunts" reverses them, the most common error. They say nothing about evolutionary order, and matter is recycled rather than lost.
+- id: bio-q-1002
+  lesson: bio-ecosystems
+  module_quiz: true
+  topic: Energy flow
+  stem: 'The producers in a prairie store 80,000 kJ of energy per square meter per year. Using the ten percent rule, about how much energy reaches the secondary consumers?'
+  choices: ['8,000 kJ', '800 kJ', '80 kJ', '8 kJ']
+  answer: 1
+  explanation: |-
+    Secondary consumers are two transfers above producers: $80{,}000 \times 0.1 \times 0.1 = 800$ kJ. 8,000 kJ stops after one transfer (that is the primary consumers). 80 kJ takes three transfers, which counts levels instead of steps, and 8 kJ takes four.
+- id: bio-q-1003
+  lesson: bio-ecosystems
+  topic: Energy flow
+  stem: 'A forest''s plants capture 30,000 kJ per m² per year (gross primary productivity) and use 18,000 kJ per m² per year in their own cellular respiration. What is the net primary productivity?'
+  choices: ['48,000 kJ per m² per year', '18,000 kJ per m² per year', '12,000 kJ per m² per year', '3,000 kJ per m² per year']
+  answer: 2
+  explanation: |-
+    NPP = GPP − producer respiration = 30,000 − 18,000 = 12,000 kJ per m² per year. Adding gives 48,000, but respiration is a loss. 18,000 is the respiration itself. 3,000 is 10% of GPP, which confuses NPP with the ten percent rule between trophic levels.
+- id: bio-q-1004
+  lesson: bio-ecosystems
+  topic: Energy flow
+  stem: 'Which ecological pyramid can never be inverted (wider at the top than at the bottom)?'
+  choices: ['Pyramid of numbers', 'Pyramid of biomass', 'All three can be inverted in some ecosystems', 'Pyramid of energy']
+  answer: 3
+  explanation: |-
+    Each trophic level gets its energy from the level below and loses some as heat, so a higher level can never carry more energy flow than the one feeding it. Numbers pyramids invert easily (one tree, thousands of caterpillars), and biomass pyramids can invert in the open ocean.
+- id: bio-q-1005
+  lesson: bio-ecosystems
+  topic: Energy flow
+  stem: 'In some parts of the open ocean, the zooplankton present at a given moment weigh more than the phytoplankton they eat. How is this possible?'
+  choices: ['Phytoplankton reproduce so quickly that they are eaten and replaced many times a year', 'Zooplankton are producers that make their own food', 'Energy flows from zooplankton back to phytoplankton', 'Zooplankton get most of their energy directly from sunlight']
+  answer: 0
+  explanation: |-
+    A biomass pyramid is a snapshot of what is present at one moment. Fast-reproducing phytoplankton have a small standing biomass but a large total production over the year, enough to feed a larger standing mass of zooplankton. Zooplankton are consumers, and energy never flows back down the food chain.
+- id: bio-q-1006
+  lesson: bio-ecosystems
+  topic: Energy flow
+  stem: 'A rabbit eats 1,000 kJ of grass, but only about 100 kJ ends up as new rabbit tissue. Where does most of the rest go?'
+  choices: ['It is destroyed during digestion', 'It is released as heat from the rabbit''s cellular respiration, with some leaving in feces', 'It is stored as fat for the fox', 'It is returned to the grass as sunlight']
+  answer: 1
+  explanation: |-
+    Most absorbed energy powers the rabbit's activity and body heat through cellular respiration and leaves as heat; undigested material leaves in feces and feeds decomposers. Energy is conserved, never destroyed. Fat is part of the 100 kJ of tissue, and energy does not return to plants as sunlight.
+- id: bio-q-1007
+  lesson: bio-ecosystems
+  module_quiz: true
+  topic: Ecosystems
+  stem: 'Which of these is an abiotic factor in a forest ecosystem?'
+  choices: ['A fungus decomposing a log', 'The deer that browse on shrubs', 'The pH of the soil', 'Fallen leaves on the forest floor']
+  answer: 2
+  explanation: |-
+    Soil pH is a nonliving physical and chemical condition. The fungus and deer are living. Fallen leaves are dead but came from living things, so they count as biotic material.
+- id: bio-q-1008
+  lesson: bio-ecosystems
+  topic: Energy flow
+  stem: 'In Odum''s Silver Springs study, the producers'' gross production was about 20,810 kcal per m² per year and the herbivores'' was about 3,368. About what percent of the producers'' energy reached the herbivores?'
+  choices: ['84%', '6.2%', '11%', '16%']
+  answer: 3
+  explanation: |-
+    $3368 \div 20{,}810 \approx 0.16$, or about 16%, a bit above the typical 10%. 84% is the share that was not transferred. 6.2% comes from dividing the wrong way ($20{,}810 \div 3368 \approx 6.2$). 11% is the herbivore-to-carnivore transfer in the same study.
+- id: bio-q-1009
+  lesson: bio-ecosystems
+  module_quiz: true
+  topic: Ecosystems
+  stem: 'A grizzly bear eats berries in late summer and salmon (which eat smaller fish) in the fall. Which statement about the bear is correct?'
+  choices: ['It feeds at more than one trophic level', 'It is a producer because it eats plants', 'It is only a primary consumer', 'It is a decomposer because it eats dead fish']
+  answer: 0
+  explanation: |-
+    Eating berries makes the bear a primary consumer (level 2); eating salmon that eat other fish puts it at level 4 or higher. Omnivores often occupy several levels. Eating plants makes it a consumer, not a producer, and catching live fish is predation, not decomposition.
+- id: bio-q-1010
+  lesson: bio-ecosystems
+  topic: Ecosystems
+  stem: 'If all decomposers were removed from an ecosystem, what would happen over time?'
+  choices: ['Producers would get more energy, because decomposers no longer take any', 'Nutrients would stay locked in dead material, and producers would run short of them', 'Nothing important, because decomposers are at the top of the food chain', 'Energy would begin to cycle instead of flowing through']
+  answer: 1
+  explanation: |-
+    Decomposers break down dead organisms and wastes and release nutrients such as nitrogen and phosphorus for plants to reuse. Without them, nutrients pile up in dead material and plant growth would eventually stall. Producers get their energy from sunlight, not from decomposers, and energy never cycles.
+- id: bio-q-1011
+  lesson: bio-ecosystems
+  topic: Energy flow
+  stem: 'A student clips, dries and weighs all plants in four 0.50 m² quadrats and gets a mean dry mass of 120 g per quadrat. What is the estimated biomass density?'
+  choices: ['60 g per m²', '120 g per m²', '240 g per m²', '480 g per m²']
+  answer: 2
+  explanation: |-
+    Divide the mean mass by the quadrat area: $120 \text{ g} \div 0.50 \text{ m}^2 = 240$ g per m². 60 multiplies by 0.50 instead of dividing. 120 ignores the quadrat size. 480 adds up all four quadrats without dividing by the area they cover (2.0 m²).
+- id: bio-q-1012
+  lesson: bio-cycles-populations
+  module_quiz: true
+  topic: Biogeochemical cycles
+  stem: 'Which process removes carbon dioxide from the atmosphere and moves its carbon into food webs?'
+  choices: ['Cellular respiration', 'Combustion of fossil fuels', 'Decomposition', 'Photosynthesis']
+  answer: 3
+  explanation: |-
+    Photosynthesis builds CO₂ into sugars, the entry point of carbon into living things. Respiration, decomposition (which is respiration by decomposers) and combustion all release CO₂ to the air.
+- id: bio-q-1013
+  lesson: bio-cycles-populations
+  topic: Biogeochemical cycles
+  stem: 'The Mauna Loa CO₂ record rises every year but also dips each Northern Hemisphere spring and summer. What best explains the summer dips?'
+  choices: ['Photosynthesis by the large area of northern land plants increases during their growing season', 'People burn less fossil fuel in summer', 'Warm oceans absorb more CO₂ in summer', 'Volcanoes are less active in summer']
+  answer: 0
+  explanation: |-
+    The Northern Hemisphere has most of the world's land plants. In its growing season, photosynthesis outpaces respiration and draws CO₂ down; in fall and winter, decay and respiration dominate. Fuel use does not fall enough to explain it, warm water actually holds less dissolved gas, and volcanoes have no seasons.
+- id: bio-q-1014
+  lesson: bio-cycles-populations
+  module_quiz: true
+  topic: Biogeochemical cycles
+  stem: 'What happens in nitrogen fixation?'
+  choices: ['Plants absorb nitrate from the soil through their roots', 'Bacteria convert nitrogen gas (N₂) into ammonia or ammonium', 'Bacteria convert nitrate back into nitrogen gas', 'Animals excrete nitrogen in urea']
+  answer: 1
+  explanation: |-
+    Fixation turns unusable N₂ into ammonia/ammonium, mostly by bacteria (some in legume root nodules), plus lightning and the industrial Haber–Bosch process. Absorbing nitrate is assimilation, converting nitrate to N₂ is denitrification, and urea excretion is part of returning nitrogen through wastes.
+- id: bio-q-1015
+  lesson: bio-cycles-populations
+  topic: Biogeochemical cycles
+  stem: 'Where is denitrification most likely to happen?'
+  choices: ['In legume root nodules', 'In lightning strikes', 'In waterlogged, low-oxygen soil', 'In the leaves of plants during photosynthesis']
+  answer: 2
+  explanation: |-
+    Denitrifying bacteria use nitrate in place of oxygen, so they are most active where oxygen is scarce, such as soggy soils and wetland sediments, releasing N₂ back to the air. Root nodules and lightning are sites of nitrogen fixation, the opposite process.
+- id: bio-q-1016
+  lesson: bio-cycles-populations
+  topic: Biogeochemical cycles
+  stem: 'Fertilizer runoff reaches a bay, and fish later die in a large low-oxygen dead zone. What is the most direct cause of the low oxygen?'
+  choices: ['Nitrate is poisonous to fish', 'Fertilizer reacts with oxygen in the water', 'Algae use up oxygen by photosynthesis', 'Decomposers breaking down the dead algae from blooms use up the oxygen']
+  answer: 3
+  explanation: |-
+    Extra nitrogen fuels algal blooms. When the algae die, decomposers respire as they break them down and consume the dissolved oxygen. This is eutrophication. Photosynthesis releases oxygen rather than using it, and the fertilizer does not react with oxygen directly.
+- id: bio-q-1017
+  lesson: bio-cycles-populations
+  module_quiz: true
+  topic: Population ecology
+  stem: 'A population of 50 frogs grows by a factor of $\lambda = 1.2$ each year. Using $N_t = N_0\lambda^t$, about how many frogs are there after 3 years?'
+  choices: ['86', '80', '180', '104']
+  answer: 0
+  explanation: |-
+    $N_3 = 50 \times 1.2^3 = 50 \times 1.728 = 86.4 \approx 86$. 80 adds 20% of the original 50 each year (linear growth, $50 + 3 \times 10$). 180 multiplies by $1.2 \times 3$. 104 uses 4 years ($50 \times 1.2^4$).
+- id: bio-q-1018
+  lesson: bio-cycles-populations
+  topic: Population ecology
+  stem: 'A population follows logistic growth with $r = 0.5$ per year and $K = 1000$. How fast is it growing when $N = 250$?'
+  choices: ['125 individuals per year', 'About 94 individuals per year', 'About 31 individuals per year', 'About 188 individuals per year']
+  answer: 1
+  explanation: |-
+    $\frac{dN}{dt} = rN\frac{K-N}{K} = 0.5 \times 250 \times \frac{750}{1000} = 93.75 \approx 94$. 125 is $rN$, the exponential rate that ignores $K$. 31 uses $N/K$ instead of $(K-N)/K$. 188 uses $N = 500$.
+- id: bio-q-1019
+  lesson: bio-cycles-populations
+  module_quiz: true
+  topic: Population ecology
+  stem: 'For a population growing logistically toward carrying capacity $K$, at what population size is the number of individuals added per year greatest?'
+  choices: ['Very small $N$, near 0', 'Just below $K$', '$N = K/2$', 'Above $K$']
+  answer: 2
+  explanation: |-
+    $dN/dt = rN(K-N)/K$ is a product of $N$ (small when the population is small) and $(K-N)$ (small near $K$); it peaks halfway, at $N = K/2$, the steepest part of the S-curve. Above $K$ the growth rate is negative.
+- id: bio-q-1020
+  lesson: bio-cycles-populations
+  topic: Population ecology
+  stem: 'Which of these is a density-independent factor?'
+  choices: ['A disease that spreads faster when animals are crowded', 'Competition for nesting sites', 'Predators that focus on the most common prey', 'An early frost that kills 40% of the insects in an area whatever their number']
+  answer: 3
+  explanation: |-
+    A frost kills the same fraction whether the population is large or small, so its effect does not depend on density. Disease, competition and predation all hit harder as density rises, so they are density-dependent.
+- id: bio-q-1021
+  lesson: bio-cycles-populations
+  module_quiz: true
+  topic: Population ecology
+  stem: 'Biologists catch and band 60 birds, then release them. A week later they catch 45 birds, and 9 have bands. What is the Lincoln–Petersen estimate of the population?'
+  choices: ['300', '2,700', '405', '7']
+  answer: 0
+  explanation: |-
+    $N = \frac{MC}{R} = \frac{60 \times 45}{9} = 300$. Check: 9 of 45 (20%) are banded, and 60 is 20% of 300. 2,700 forgets to divide by $R$. 405 is $45 \times 9$, and 7 inverts the formula; a population smaller than the 60 birds already banded is impossible.
+- id: bio-q-1022
+  lesson: bio-cycles-populations
+  topic: Population ecology
+  stem: 'Reindeer introduced to St. Matthew Island grew from 29 (1944) to about 6,000 (1963), overgrazed the slow-growing lichen, and crashed to 42 (1966) after a severe winter. Which conclusion do these data best support?'
+  choices: ['Reindeer populations are limited only by predators', 'The population overshot the island''s carrying capacity and damaged its own food supply', 'The population was growing logistically and stayed near $K$', 'Density-independent factors had no role in the crash']
+  answer: 1
+  explanation: |-
+    The herd grew almost exponentially past what the lichen could sustain, then crashed, a classic overshoot. There were no predators, so predation cannot be the limit. A population that stays near $K$ does not crash by 99%. The severe winter (density-independent) triggered the crash after food shortage (density-dependent) set it up.
+- id: bio-q-1023
+  lesson: bio-communities-humans
+  module_quiz: true
+  topic: Community ecology
+  stem: 'Barnacles attach to a whale''s skin and filter food as the whale swims; the whale is neither helped nor harmed. What kind of interaction is this?'
+  choices: ['Mutualism', 'Parasitism', 'Commensalism', 'Competition']
+  answer: 2
+  explanation: |-
+    One species benefits and the other is unaffected (+/0): commensalism. Mutualism needs both to benefit, parasitism needs the host to be harmed, and competition harms both.
+- id: bio-q-1024
+  lesson: bio-communities-humans
+  module_quiz: true
+  topic: Biodiversity
+  stem: 'A sample contains 20 beetles: 5 each of four species. What is Simpson''s diversity index, $D = 1 - \frac{\sum n(n-1)}{N(N-1)}$?'
+  choices: ['0.21', '0.25', '0.75', '0.79']
+  answer: 3
+  explanation: |-
+    $\sum n(n-1) = 4 \times (5 \times 4) = 80$ and $N(N-1) = 20 \times 19 = 380$, so $D = 1 - \frac{80}{380} = 0.79$. 0.21 forgets to subtract from 1. 0.75 uses $n^2/N^2$ (sampling with replacement) instead of the formula given, and 0.25 is just $1/4$.
+- id: bio-q-1025
+  lesson: bio-communities-humans
+  topic: Biodiversity
+  stem: 'Forest X has 100 trees: 25 each of four species. Forest Y has 100 trees: 85 of one species and 5 each of three others. Which statement is correct?'
+  choices: ['Both have the same species richness, but X is more diverse because it is more even', 'Y is more diverse because it has more trees of its main species', 'They are equally diverse because both have four species', 'X is less diverse because no species dominates']
+  answer: 0
+  explanation: |-
+    Both forests have four species (equal richness), but X spreads its trees evenly while Y is dominated by one species. Diversity indexes such as Simpson's count evenness as well as richness, so X scores higher. Treating richness as the whole of diversity is the mistake behind the third choice.
+- id: bio-q-1026
+  lesson: bio-communities-humans
+  topic: Community ecology
+  stem: 'When Robert Paine removed the sea star Pisaster from a rocky shore, mussels took over and the number of species fell from 15 to 8. What does this show?'
+  choices: ['Sea stars compete with mussels for sunlight', 'Pisaster is a keystone species that maintains diversity by keeping a dominant competitor in check', 'Mussels are parasites of other shore organisms', 'Removing a predator always increases diversity']
+  answer: 1
+  explanation: |-
+    The predator kept mussels from monopolizing space, so its removal caused a large drop in species: the definition of a keystone species. Sea stars are predators of mussels, not competitors for light. The mussels outcompeted the others rather than parasitizing them, and the result shows the opposite of "removing a predator increases diversity."
+- id: bio-q-1027
+  lesson: bio-communities-humans
+  topic: Community ecology
+  stem: 'A farm field is abandoned. Weeds appear the first year, then grasses and shrubs, then young pine trees after about 15 years. What is this?'
+  choices: ['Primary succession, because the community is starting over', 'Competitive exclusion', 'Secondary succession, because soil was already present', 'Biomagnification']
+  answer: 2
+  explanation: |-
+    Succession that begins where soil remains (after farming, fire or storms) is secondary succession, and it is fast because seeds and soil organisms are already there. Primary succession starts on bare rock or new ground with no soil.
+- id: bio-q-1028
+  lesson: bio-communities-humans
+  topic: Biomes
+  stem: 'A biome has very cold temperatures most of the year, permanently frozen ground below the surface, and low-growing mosses, lichens and shrubs but no trees. Which biome is it?'
+  choices: ['Boreal forest', 'Desert', 'Temperate grassland', 'Tundra']
+  answer: 3
+  explanation: |-
+    Permafrost and a treeless landscape of mosses, lichens and low shrubs define the tundra. The boreal forest is also cold but has dense conifers. Deserts are defined by low precipitation, and temperate grasslands have deep soils and warm summers.
+- id: bio-q-1029
+  lesson: bio-communities-humans
+  topic: Community ecology
+  stem: 'Gause grew two Paramecium species separately and each thrived. Grown together on the same limited food, one species always died out. Which idea does this support?'
+  choices: ['The competitive exclusion principle', 'Mutualism between the two species', 'The ten percent rule', 'Primary succession']
+  answer: 0
+  explanation: |-
+    Two species using the same limited resource in the same place cannot coexist indefinitely; one outcompetes the other. That is competitive exclusion. Mutualism would help both species, and the ten percent rule and succession concern energy flow and community change over time.
+- id: bio-q-1030
+  lesson: bio-communities-humans
+  module_quiz: true
+  topic: Human impact
+  stem: 'According to the 2019 IPBES global assessment, what is the largest single driver of biodiversity loss on land?'
+  choices: ['Invasive species', 'Habitat loss from changes in land use', 'Light pollution', 'Natural volcanic eruptions']
+  answer: 1
+  explanation: |-
+    Converting forests, grasslands and wetlands to farms, cities and roads is the leading driver. Invasive species, climate change, pollution and overexploitation matter too, but rank behind land-use change on land. Volcanoes are natural and not a major cause of current losses.
+- id: bio-q-1031
+  lesson: bio-communities-humans
+  topic: Human impact
+  stem: 'In a lake, DDT measures 0.04 ppm in zooplankton and 10 ppm in fish-eating birds. By what factor is DDT more concentrated in the birds?'
+  choices: ['25', '0.004', '250', '2,500']
+  answer: 2
+  explanation: |-
+    $10 \div 0.04 = 250$. This is biomagnification: each predator eats many prey and stores the fat-soluble toxin. 0.004 divides the wrong way, and 25 and 2,500 are decimal-place slips.
+- id: bio-q-1032
+  lesson: bio-communities-humans
+  topic: Human impact
+  stem: 'Why do invasive species often spread so rapidly after being introduced to a new region?'
+  choices: ['They have higher mutation rates than native species', 'They are always larger than native species', 'They are producers, which grow faster than consumers', 'They often lack the predators, parasites and competitors that limited them in their native range']
+  answer: 3
+  explanation: |-
+    Freed from the enemies that kept them in check at home, introduced species can grow nearly exponentially, as the brown tree snake did on Guam. Invasives include animals and plants of every size, and nothing makes their mutation rates special.
+- id: bio-q-1033
+  lesson: bio-communities-humans
+  module_quiz: true
+  topic: Community ecology
+  stem: 'Long-term fur records show snowshoe hare and lynx numbers both cycling about every 10 years. How do the peaks typically line up?'
+  choices: ['Lynx peaks come shortly after hare peaks', 'Lynx peaks come shortly before hare peaks', 'The peaks happen in exactly the same year', 'The two cycles are unrelated']
+  answer: 0
+  explanation: |-
+    Abundant hares feed more lynx, so lynx numbers rise after hares do; when hares crash, lynx follow. Predators cannot peak before their food supply has grown. Field experiments show food supply and predation together drive the hare cycle.

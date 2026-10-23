@@ -1,0 +1,106 @@
+# ---- m9 The human body
+- term: set point
+  definition: 'The target value a homeostatic control system holds a variable near, such as a core temperature of about 37 °C.'
+  topic: Homeostasis
+- term: negative feedback
+  definition: 'A control loop in which the response opposes the change, returning a variable toward its set point.'
+  topic: Homeostasis
+- term: positive feedback
+  definition: 'A control loop in which the response amplifies the change until an event ends it, as in childbirth or blood clotting.'
+  topic: Homeostasis
+- term: neuron
+  aliases: [neurons, nerve cell]
+  definition: 'A cell specialized to carry electrical signals, with dendrites, a cell body and an axon.'
+  topic: Nervous system
+- term: action potential
+  aliases: [action potentials, nerve impulse]
+  definition: 'A brief, all-or-none reversal of a neuron''s membrane voltage (sodium in, then potassium out) that travels along the axon.'
+  topic: Nervous system
+- term: synapse
+  aliases: [synapses]
+  definition: 'The junction where a neuron passes a signal to another cell across a narrow gap, using neurotransmitters.'
+  topic: Nervous system
+- term: neurotransmitter
+  aliases: [neurotransmitters]
+  definition: 'A chemical released by a neuron at a synapse that binds receptors on the next cell, such as acetylcholine or dopamine.'
+  topic: Nervous system
+- term: hormone
+  aliases: [hormones]
+  definition: 'A chemical messenger secreted by a gland into the blood that acts on target cells with matching receptors.'
+  topic: Endocrine system
+- term: insulin
+  definition: 'A pancreatic hormone that lowers blood glucose by making cells take up glucose and the liver store it as glycogen.'
+  topic: Endocrine system
+- term: glucagon
+  definition: 'A pancreatic hormone that raises blood glucose by making the liver break down glycogen and release glucose.'
+  topic: Endocrine system
+- term: artery
+  aliases: [arteries]
+  definition: 'A thick-walled, elastic blood vessel that carries blood away from the heart.'
+  topic: Circulatory system
+- term: capillary
+  aliases: [capillaries]
+  definition: 'The smallest blood vessel, with walls one cell thick, where materials are exchanged between blood and tissues.'
+  topic: Circulatory system
+- term: vein
+  aliases: [veins]
+  definition: 'A blood vessel that carries blood toward the heart, at low pressure, with valves that prevent backflow.'
+  topic: Circulatory system
+- term: hemoglobin
+  definition: 'The iron-containing protein in red blood cells that binds and carries oxygen; each molecule carries up to four O₂.'
+  topic: Circulatory system
+- term: cardiac output
+  definition: 'The volume of blood the heart pumps per minute: heart rate times stroke volume, about 5 L/min at rest.'
+  topic: Circulatory system
+- term: alveoli
+  aliases: [alveolus]
+  definition: 'Tiny air sacs at the ends of the bronchioles where oxygen and carbon dioxide diffuse between air and blood.'
+  topic: Respiratory system
+- term: basal metabolic rate
+  aliases: [BMR]
+  definition: 'BMR: the energy used per unit time at complete rest, awake and fasting; measurable from oxygen use at about 20 kJ per liter of O₂.'
+  topic: Respiratory system
+- term: nephron
+  aliases: [nephrons]
+  definition: 'The filtering unit of the kidney, which filters blood, reabsorbs what the body needs and secretes wastes to form urine.'
+  topic: Excretory system
+- term: peristalsis
+  definition: 'Waves of muscle contraction that push food along the esophagus and intestines.'
+  topic: Digestive system
+- term: villi
+  aliases: [villus]
+  definition: 'Finger-like projections of the small intestine lining that greatly increase the surface area for absorption.'
+  topic: Digestive system
+- term: innate immunity
+  definition: 'The fast, general defenses present from birth: barriers, inflammation, phagocytes, natural killer cells and fever.'
+  topic: Immune system
+- term: adaptive immunity
+  definition: 'The specific defense carried out by B and T lymphocytes, which recognizes particular antigens and forms memory.'
+  topic: Immune system
+- term: antigen
+  aliases: [antigens]
+  definition: 'A molecule, usually on a pathogen''s surface, that the immune system recognizes as foreign and that triggers an adaptive response.'
+  topic: Immune system
+- term: B cell
+  aliases: [B cells, B lymphocyte]
+  definition: 'A lymphocyte that, when activated by its matching antigen, multiplies and makes antibodies.'
+  topic: Immune system
+- term: antibody
+  aliases: [antibodies]
+  definition: 'A Y-shaped protein made by B cells that binds a specific antigen, neutralizing it or marking it for destruction.'
+  topic: Immune system
+- term: T cell
+  aliases: [T cells, T lymphocyte]
+  definition: 'A lymphocyte that either coordinates the immune response (helper T cell) or kills infected body cells (cytotoxic T cell).'
+  topic: Immune system
+- term: memory cell
+  aliases: [memory cells]
+  definition: 'A long-lived lymphocyte left after an immune response that allows a faster, stronger response to the same antigen later.'
+  topic: Immune system
+- term: vaccine
+  aliases: [vaccines]
+  definition: 'A preparation that exposes the immune system to a pathogen''s antigen without causing disease, so memory cells form in advance.'
+  topic: Immune system
+- term: herd immunity
+  definition: 'Protection of a whole population when enough people are immune that a pathogen cannot keep spreading; threshold $1 - 1/R_0$.'
+  topic: Immune system

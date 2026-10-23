@@ -18,7 +18,7 @@ About 10% of the energy at one trophic level ends up in the next (the range is r
 
 ## Diversity
 
-Simpson's index of diversity: $D = 1 - \sum \left(\dfrac{n}{N}\right)^2$, from 0 (one species) toward 1 (many even species).
+Simpson's index of diversity: $D = 1 - \dfrac{\sum n(n-1)}{N(N-1)}$, where $n$ is the number of individuals of each species and $N$ the total; from 0 (one species) toward 1 (many species, evenly spread).
 
 ## Radioactive dating
 

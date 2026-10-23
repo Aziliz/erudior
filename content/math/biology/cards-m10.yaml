@@ -1,0 +1,30 @@
+- {front: 'Biotic vs abiotic factors', back: 'Biotic: living parts of an ecosystem (organisms, dead leaves, dung). Abiotic: nonliving conditions (light, temperature, water, pH, minerals).', topic: Ecosystems}
+- {front: 'Producer, consumer, decomposer', back: 'Producers make their own food (photosynthesis or chemosynthesis). Consumers eat other organisms. Decomposers (bacteria, fungi) break down dead matter and return nutrients.', topic: Ecosystems}
+- {front: 'Which way do food-chain arrows point?', back: 'From the food to the eater: the direction energy moves (grass → rabbit means the rabbit eats the grass).', topic: Ecosystems}
+- {front: 'Food chain vs food web', back: 'A food chain is one feeding path; a food web shows all the interlinked feeding relationships in a community.', topic: Ecosystems}
+- {front: 'Net primary productivity', back: 'NPP = GPP − producer respiration: the energy producers store as new biomass, available to consumers.', topic: Energy flow}
+- {front: 'Ten percent rule', back: 'About 10% (roughly 1–20%) of the energy at one trophic level reaches the next. Energy at level $n$ above producers $= E_0 \times 0.1^n$.', topic: Energy flow}
+- {front: 'Why is so little energy passed up a trophic level?', back: 'Not everything is eaten, not everything eaten is absorbed (feces), and most absorbed energy is used in cellular respiration and lost as heat.', topic: Energy flow}
+- {front: 'Energy vs matter in ecosystems', back: 'Energy flows one way (sunlight in, heat out). Matter (carbon, nitrogen, water) cycles and is reused.', topic: Energy flow}
+- {front: 'Which ecological pyramid is always upright?', back: 'The pyramid of energy. Pyramids of numbers (one tree, many insects) and biomass (open-ocean plankton) can be inverted.', topic: Energy flow}
+- {front: 'Why measure biomass as dry mass?', back: 'Water content varies with weather and time of day, so drying gives a consistent measure of living material.', topic: Energy flow}
+- {front: 'Carbon cycle: processes that add vs remove atmospheric CO₂', back: 'Remove: photosynthesis, dissolving in the ocean. Add: cellular respiration, decomposition, combustion of fuels, volcanoes.', topic: Biogeochemical cycles}
+- {front: 'Atmospheric CO₂ then and now', back: 'About 280 ppm before 1750; about 425 ppm in 2024, mainly from burning fossil fuels.', topic: Biogeochemical cycles}
+- {front: 'Nitrogen cycle in order', back: 'N₂ → (fixation by bacteria) ammonium → (nitrification) nitrite → nitrate → absorbed by plants → animals → (decomposers) ammonium; denitrification returns nitrate to N₂.', topic: Biogeochemical cycles}
+- {front: 'Eutrophication', back: 'Excess nutrients (fertilizer runoff) cause algal blooms; decomposers breaking down dead algae use up dissolved oxygen, creating dead zones.', topic: Biogeochemical cycles}
+- {front: 'Change in population size', back: '$\Delta N = B - D + I - E$ (births − deaths + immigration − emigration).', topic: Population ecology}
+- {front: 'Exponential growth equations', back: 'Continuous: $dN/dt = rN$. Discrete (yearly): $N_t = N_0\lambda^t$. J-shaped curve.', topic: Population ecology}
+- {front: 'Logistic growth equation', back: '$dN/dt = rN\dfrac{K-N}{K}$. S-shaped curve; fastest at $N = K/2$; levels off at $K$.', topic: Population ecology}
+- {front: 'Density-dependent vs density-independent factors', back: 'Dependent (stronger when crowded): competition, predation, disease, parasites. Independent (same regardless of density): frost, drought, flood, fire.', topic: Population ecology}
+- {front: 'Lincoln–Petersen (mark–recapture) estimate', back: '$N = \dfrac{M \times C}{R}$: $M$ marked first, $C$ caught second, $R$ marked in the second catch.', topic: Population ecology}
+- {front: 'Mark–recapture assumptions', back: 'Marked animals mix evenly, marks are not lost, marking does not change catchability, and no births, deaths or migration between samples.', topic: Population ecology}
+- {front: 'Symbiotic interactions and their signs', back: 'Mutualism +/+, commensalism +/0, parasitism +/−. (Predation is +/−, competition −/−.)', topic: Community ecology}
+- {front: 'Competitive exclusion principle', back: 'Two species cannot share the same niche in the same place indefinitely; one wins, or they partition resources (MacArthur''s warblers).', topic: Community ecology}
+- {front: 'Keystone species (example)', back: 'A species with an effect far larger than its abundance. Paine removed the sea star Pisaster and species on the shore fell from 15 to 8.', topic: Community ecology}
+- {front: 'Primary vs secondary succession', back: 'Primary: starts with no soil (lava, retreating glacier), pioneers are lichens and mosses. Secondary: soil remains (after fire or farming), faster.', topic: Community ecology}
+- {front: 'What mainly determines which biome develops?', back: 'Climate: temperature and precipitation.', topic: Biomes}
+- {front: 'Tundra vs boreal forest vs desert', back: 'Tundra: very cold, permafrost, no trees. Boreal forest: cold winters, conifers. Desert: under about 25 cm of rain a year.', topic: Biomes}
+- {front: 'Simpson''s diversity index', back: '$D = 1 - \dfrac{\sum n(n-1)}{N(N-1)}$. Near 0: one species dominates. Near 1: many evenly represented species.', topic: Biodiversity}
+- {front: 'Species richness vs evenness', back: 'Richness: number of species. Evenness: how equally individuals are spread among them. Diversity indexes combine both.', topic: Biodiversity}
+- {front: 'Main human threats to biodiversity', back: 'Habitat loss (largest), climate change, invasive species, pollution, overexploitation.', topic: Human impact}
+- {front: 'Biomagnification', back: 'A persistent, fat-soluble toxin (such as DDT) becomes more concentrated at each higher trophic level.', topic: Human impact}

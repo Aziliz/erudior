@@ -1,0 +1,100 @@
+- id: bio-percent-change
+  title: Percent change in a measurement
+  topic: Scientific method
+  vars:
+    a: {min: 20, max: 400, step: 4}
+    b: {min: 10, max: 600, step: 2}
+  where: ['b != a', 'abs(b - a) <= 1.5*a', 'mod((b - a)*1000, a) == 0']
+  calc:
+    diff: b - a
+    pc: (b - a) / a * 100
+  prompt: 'A sample of pond water held {a} water fleas (*Daphnia*) per liter before a chemical was added and {b} per liter one week later. Find the percent change. Give a percent to 1 decimal place, negative for a decrease.'
+  answers:
+    - {name: pc, label: 'Percent change', tolerance: 0.05, format: num1}
+  solution: |-
+    $$\text{percent change} = \frac{\text{new} - \text{original}}{\text{original}} \times 100\% = \frac{{b} - {a}}{{a}} \times 100\%$$
+
+    The change is ${diff}$, and ${diff} / {a} \times 100 =$ **{pc:num1}%**. Divide by the original value ({a}), not the new one.
+- id: bio-mean-data
+  title: Mean and range of trial data
+  topic: Scientific method
+  vars:
+    v1: {min: 8, max: 30}
+    v2: {min: 8, max: 30}
+    v3: {min: 8, max: 30}
+    v4: {min: 8, max: 30}
+    v5: {min: 8, max: 30}
+  where: ['max(v1, v2, v3, v4, v5) - min(v1, v2, v3, v4, v5) <= 12']
+  calc:
+    tot: v1 + v2 + v3 + v4 + v5
+    m: (v1 + v2 + v3 + v4 + v5) / 5
+    rng: max(v1, v2, v3, v4, v5) - min(v1, v2, v3, v4, v5)
+  prompt: 'Five bean plants given the same fertilizer grew {v1}, {v2}, {v3}, {v4} and {v5} cm in three weeks. Find the mean height (1 decimal place) and the range of the heights (in cm).'
+  answers:
+    - {name: m, label: 'Mean (cm)', tolerance: 0.05, format: num1}
+    - {name: rng, label: 'Range (cm)', format: integer}
+  solution: |-
+    Mean $= \dfrac{\text{sum}}{\text{count}} = \dfrac{{v1} + {v2} + {v3} + {v4} + {v5}}{5} = \dfrac{{tot}}{5} =$ **{m:num1} cm**.
+
+    Range $=$ largest $-$ smallest $=$ **{rng} cm**. The range shows how much the plants varied; a large range makes a difference between group means less convincing.
+- id: bio-ph-scale
+  title: Comparing hydrogen ion concentrations
+  topic: pH
+  vars:
+    pA: {min: 1, max: 6}
+    d: {min: 1, max: 4}
+  calc:
+    pB: pA + d
+    fold: 10^d
+    hconc: 10^(-pA)
+  prompt: 'Solution A has a pH of {pA} and solution B has a pH of {pB}. (a) What is the hydrogen ion concentration of A in mol/L? (You can type a power of ten such as 10^-3 or 1e-3.) (b) How many times greater is the H⁺ concentration in A than in B?'
+  answers:
+    - {name: hconc, label: '(a) $[\text{H}^+]$ in A (mol/L)', relTolerance: 0.01}
+    - {name: fold, label: '(b) times greater', format: integer}
+  solution: |-
+    (a) $[\text{H}^+] = 10^{-\text{pH}} =$ **$10^{-{pA}}$ mol/L**.
+
+    (b) The pH values differ by ${pB} - {pA} = {d}$, and each pH unit is a factor of 10, so A has $10^{{d}} =$ **{fold}** times the H⁺ concentration of B. (Not {d} times: the scale is logarithmic.)
+- id: bio-dehydration
+  title: Water released and mass of a polymer
+  topic: Macromolecules
+  vars:
+    mono: {choices: [{label: 'glucose (180 g/mol)', value: 180}, {label: 'the amino acid glycine (75 g/mol)', value: 75}, {label: 'the amino acid alanine (89 g/mol)', value: 89}]}
+    n: {min: 3, max: 40}
+  calc:
+    M: mono + 0
+    w: n - 1
+    mass: n*mono - (n - 1)*18
+    raw: n*mono
+    lost: (n - 1)*18
+  prompt: 'A cell joins {n} molecules of {mono} into a single unbranched chain by dehydration synthesis. (a) How many water molecules are released? (b) What is the molar mass of the chain in g/mol? (Water is 18 g/mol.)'
+  answers:
+    - {name: w, label: '(a) water molecules', format: integer}
+    - {name: mass, label: '(b) molar mass (g/mol)', format: integer}
+  solution: |-
+    (a) A chain of $n$ monomers has $n - 1$ bonds, and each bond releases one water: ${n} - 1 =$ **{w}**.
+
+    (b) Start with the monomers and subtract the water: ${n} \times {M} - {w} \times 18 = {raw} - {lost} =$ **{mass} g/mol**.
+- id: bio-enzyme-rate
+  title: Initial rate of an enzyme reaction
+  topic: Enzymes
+  vars:
+    t: {choices: [10, 15, 20, 30]}
+    v1: {min: 4, max: 30}
+    v2: {min: 5, max: 60}
+  where: ['v2 > v1', 'v2 <= 3*v1', 'mod((v2 - v1)*100, v1) == 0']
+  calc:
+    r1: v1 / t
+    r2: v2 / t
+    pc: (v2 - v1) / v1 * 100
+  prompt: 'Potato catalase is added to hydrogen peroxide. At 20 °C it releases {v1} mL of oxygen in the first {t} s; in an identical setup at 35 °C it releases {v2} mL in the first {t} s. Find each initial rate in mL/s (2 decimal places) and the percent increase in rate from 20 °C to 35 °C.'
+  answers:
+    - {name: r1, label: 'Rate at 20 °C (mL/s)', relTolerance: 0.01, format: num2}
+    - {name: r2, label: 'Rate at 35 °C (mL/s)', relTolerance: 0.01, format: num2}
+    - {name: pc, label: 'Percent increase', tolerance: 0.05, format: num1}
+  solution: |-
+    Rate $=$ change in volume $\div$ time.
+
+    At 20 °C: ${v1} \div {t} =$ **{r1:num2} mL/s**. At 35 °C: ${v2} \div {t} =$ **{r2:num2} mL/s**.
+
+    Percent increase $= \dfrac{{r2:num2} - {r1:num2}}{{r1:num2}} \times 100\%$ (the times are equal, so this is the same as comparing the volumes) $=$ **{pc:num1}%**. Warming toward the optimum speeds collisions between enzyme and substrate.

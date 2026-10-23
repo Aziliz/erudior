@@ -1,0 +1,131 @@
+- term: metabolism
+  definition: 'All the chemical reactions in an organism, organized into enzyme-catalyzed pathways that break molecules down (catabolism) or build them up (anabolism).'
+  topic: Energy
+- term: catabolism
+  aliases: [catabolic]
+  definition: 'Metabolic pathways that break large molecules into smaller ones and release energy, such as cellular respiration.'
+  topic: Energy
+- term: anabolism
+  aliases: [anabolic]
+  definition: 'Metabolic pathways that build large molecules from smaller ones and require energy, such as protein synthesis or the Calvin cycle.'
+  topic: Energy
+- term: first law of thermodynamics
+  definition: 'Energy cannot be created or destroyed, only converted from one form to another.'
+  topic: Energy
+- term: second law of thermodynamics
+  definition: 'Every energy conversion turns some energy into heat that can no longer do work, so the disorder (entropy) of the universe increases; no conversion is 100% efficient.'
+  topic: Energy
+- term: exergonic reaction
+  aliases: [exergonic]
+  definition: 'A reaction that releases free energy; its products hold less usable energy than its reactants, so it can proceed on its own.'
+  topic: Energy
+- term: endergonic reaction
+  aliases: [endergonic]
+  definition: 'A reaction that absorbs free energy; its products hold more usable energy than its reactants, so it needs an energy input, usually from ATP.'
+  topic: Energy
+- term: energy coupling
+  definition: 'Using the energy released by an exergonic reaction (usually ATP hydrolysis) to drive an endergonic one, often by transferring a phosphate group.'
+  topic: ATP
+- term: oxidation
+  aliases: [oxidized]
+  definition: 'Loss of electrons by a molecule (often along with hydrogen). The molecule that loses electrons is oxidized.'
+  topic: ATP
+- term: reduction
+  aliases: [reduced]
+  definition: 'Gain of electrons by a molecule (often along with hydrogen). The molecule that gains electrons is reduced.'
+  topic: ATP
+- term: ATP
+  aliases: [adenosine triphosphate]
+  definition: 'Adenosine triphosphate: a nucleotide with three phosphate groups that is the cell''s energy currency. Hydrolysis to ADP + Pi releases about 30.5 kJ/mol under standard conditions.'
+  topic: ATP
+- term: ADP
+  aliases: [adenosine diphosphate]
+  definition: 'Adenosine diphosphate: ATP with one fewer phosphate group; recharged to ATP by adding a phosphate (phosphorylation).'
+  topic: ATP
+- term: NADH
+  aliases: [NAD+, NAD⁺]
+  definition: 'The reduced form of the electron carrier NAD⁺. It carries high-energy electrons from glycolysis and the Krebs cycle to the electron transport chain.'
+  topic: ATP
+- term: NADPH
+  aliases: [NADP+, NADP⁺]
+  definition: 'The reduced form of the electron carrier NADP⁺. Made in the light-dependent reactions of photosynthesis, it supplies electrons to the Calvin cycle.'
+  topic: Photosynthesis
+- term: photosynthesis
+  definition: 'The process by which plants, algae and some bacteria convert light energy into chemical energy in sugar: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂.'
+  topic: Photosynthesis
+- term: autotroph
+  aliases: [autotrophs, autotrophic]
+  definition: 'An organism that makes its own organic food from inorganic materials, such as a plant using light energy.'
+  topic: Photosynthesis
+- term: heterotroph
+  aliases: [heterotrophs, heterotrophic]
+  definition: 'An organism that gets its food by eating other organisms or their products, such as animals and fungi.'
+  topic: Photosynthesis
+- term: chlorophyll
+  definition: 'The main photosynthetic pigment, found in thylakoid membranes. It absorbs mostly blue-violet and red light and reflects green.'
+  topic: Photosynthesis
+- term: absorption spectrum
+  definition: 'A graph of how much light a pigment absorbs at each wavelength.'
+  topic: Photosynthesis
+- term: thylakoid
+  aliases: [thylakoids]
+  definition: 'A flattened membrane sac inside the chloroplast, stacked into grana; its membrane holds chlorophyll and runs the light-dependent reactions.'
+  topic: Photosynthesis
+- term: stroma
+  definition: 'The fluid inside the chloroplast that surrounds the thylakoids; the Calvin cycle takes place there.'
+  topic: Photosynthesis
+- term: light-dependent reactions
+  aliases: [light reactions]
+  definition: 'The first stage of photosynthesis, in the thylakoid membranes: light energy splits water, releases O₂, and makes ATP and NADPH.'
+  topic: Photosynthesis
+- term: electron transport chain
+  aliases: [ETC]
+  definition: 'A series of membrane proteins that pass electrons along, using the released energy to pump H⁺ ions across the membrane. Found in thylakoids and in the inner mitochondrial membrane.'
+  topic: Cellular respiration
+- term: ATP synthase
+  definition: 'A membrane enzyme that makes ATP from ADP and phosphate, powered by H⁺ ions flowing through it down their gradient.'
+  topic: Cellular respiration
+- term: chemiosmosis
+  definition: 'Making ATP using the energy of an H⁺ gradient across a membrane, as H⁺ flows back through ATP synthase.'
+  topic: Cellular respiration
+- term: Calvin cycle
+  aliases: [light-independent reactions]
+  definition: 'The second stage of photosynthesis, in the stroma: the enzyme rubisco fixes CO₂, and ATP and NADPH reduce it to the sugar G3P.'
+  topic: Photosynthesis
+- term: G3P
+  aliases: [glyceraldehyde-3-phosphate]
+  definition: 'Glyceraldehyde-3-phosphate: the three-carbon sugar produced by the Calvin cycle; two G3P make one glucose.'
+  topic: Photosynthesis
+- term: limiting factor
+  definition: 'The factor in shortest supply (such as light, CO₂ or temperature) that sets the rate of a process; raising other factors does not help until it is raised.'
+  topic: Photosynthesis
+- term: cellular respiration
+  definition: 'The pathway that breaks down glucose and other food molecules to make ATP: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy.'
+  topic: Cellular respiration
+- term: aerobic
+  definition: 'Requiring oxygen. Aerobic respiration uses O₂ as the final electron acceptor.'
+  topic: Cellular respiration
+- term: anaerobic
+  definition: 'Not requiring oxygen. Glycolysis and fermentation are anaerobic.'
+  topic: Fermentation
+- term: glycolysis
+  definition: 'The first stage of respiration, in the cytoplasm: glucose is split into 2 pyruvate, with a net gain of 2 ATP and 2 NADH. It needs no oxygen.'
+  topic: Cellular respiration
+- term: acetyl-CoA
+  aliases: [acetyl coenzyme A]
+  definition: 'Acetyl coenzyme A: a two-carbon acetyl group attached to a carrier, made from pyruvate in the mitochondrion; it feeds carbon into the Krebs cycle.'
+  topic: Cellular respiration
+- term: Krebs cycle
+  aliases: [citric acid cycle]
+  definition: 'The cycle of reactions in the mitochondrial matrix that breaks acetyl groups down to CO₂ and loads electrons onto NADH and FADH₂; also called the citric acid cycle.'
+  topic: Cellular respiration
+- term: FADH₂
+  aliases: [FADH2, FAD]
+  definition: 'The reduced form of the electron carrier FAD, made in the Krebs cycle; each yields about 1.5 ATP in the electron transport chain.'
+  topic: Cellular respiration
+- term: oxidative phosphorylation
+  definition: 'ATP production powered by the electron transport chain and chemiosmosis; it makes most of the ATP in aerobic respiration.'
+  topic: Cellular respiration
+- term: fermentation
+  definition: 'Anaerobic pathways that regenerate NAD⁺ by passing NADH''s electrons to pyruvate or a product of it, so glycolysis can continue making 2 ATP per glucose. Lactic acid fermentation makes lactate; alcoholic fermentation makes ethanol and CO₂.'
+  topic: Fermentation

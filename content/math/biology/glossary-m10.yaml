@@ -1,0 +1,103 @@
+- term: biotic factor
+  aliases: [biotic factors]
+  definition: 'A living part of an ecosystem, or material made by living things: plants, animals, fungi, bacteria, fallen leaves, dung.'
+  topic: Ecosystems
+- term: abiotic factor
+  aliases: [abiotic factors]
+  definition: 'A nonliving condition in an ecosystem, such as sunlight, temperature, water, soil minerals, pH or salinity.'
+  topic: Ecosystems
+- term: producer
+  aliases: [producers]
+  definition: 'An organism that makes its own organic molecules from an outside energy source, usually by photosynthesis (plants, algae, cyanobacteria) or by chemosynthesis. Producers form the first trophic level.'
+  topic: Ecosystems
+- term: decomposer
+  aliases: [decomposers]
+  definition: 'An organism, mainly a bacterium or fungus, that breaks down dead material and wastes and returns simple nutrients to the soil and water.'
+  topic: Ecosystems
+- term: trophic level
+  aliases: [trophic levels]
+  definition: 'A feeding step in a food chain: producers are level 1, primary consumers (herbivores) level 2, secondary consumers level 3, and so on.'
+  topic: Energy flow
+- term: food web
+  aliases: [food webs]
+  definition: 'All the feeding relationships in a community, drawn as many interlinked food chains. Arrows point from the food to the organism that eats it.'
+  topic: Ecosystems
+- term: net primary productivity
+  aliases: [NPP]
+  definition: 'The rate at which producers store energy as new biomass, after subtracting their own respiration from gross primary productivity (GPP): NPP = GPP − respiration. It is the energy available to consumers.'
+  topic: Energy flow
+- term: biomass
+  definition: 'The total dry mass of living organisms in an area or trophic level, usually given in g per m².'
+  topic: Energy flow
+- term: ten percent rule
+  aliases: [10% rule, 10 percent rule]
+  definition: 'The rule of thumb that about 10% (typically 1–20%) of the energy at one trophic level becomes available to the next; most of the rest is lost as heat from respiration.'
+  topic: Energy flow
+- term: biogeochemical cycle
+  aliases: [biogeochemical cycles]
+  definition: 'The path an element or compound (carbon, nitrogen, phosphorus, water) takes as it moves between living things and the air, water, soil and rocks.'
+  topic: Biogeochemical cycles
+- term: nitrogen fixation
+  definition: 'The conversion of nitrogen gas (N₂) into ammonia or ammonium that organisms can use, done by certain bacteria (some in legume root nodules), by lightning, and industrially by the Haber–Bosch process.'
+  topic: Biogeochemical cycles
+- term: denitrification
+  definition: 'The conversion of nitrate back to nitrogen gas by bacteria in low-oxygen soils and sediments, returning nitrogen to the atmosphere.'
+  topic: Biogeochemical cycles
+- term: exponential growth
+  definition: 'Population growth in which the increase is proportional to the population size, $dN/dt = rN$ (or $N_t = N_0\lambda^t$), giving a J-shaped curve. It occurs only while resources are unlimited.'
+  topic: Population ecology
+- term: logistic growth
+  definition: 'Population growth that slows as the population nears carrying capacity, $dN/dt = rN(K-N)/K$, giving an S-shaped curve that is steepest at $N = K/2$.'
+  topic: Population ecology
+- term: carrying capacity
+  definition: 'The largest population of a species that an environment can support over the long term, written $K$.'
+  topic: Population ecology
+- term: density-dependent factor
+  aliases: [density-dependent factors, density-dependent]
+  definition: 'A limiting factor whose effect grows stronger as population density rises, such as competition, predation, disease and parasites.'
+  topic: Population ecology
+- term: density-independent factor
+  aliases: [density-independent factors, density-independent]
+  definition: 'A limiting factor that affects a population the same way whatever its density, such as a freeze, drought, flood or fire.'
+  topic: Population ecology
+- term: mark–recapture
+  aliases: [mark-recapture, capture–recapture, Lincoln–Petersen method, Lincoln-Petersen method]
+  definition: 'A method of estimating population size: mark $M$ animals, later catch $C$ animals of which $R$ are marked, and estimate $N = MC/R$.'
+  topic: Population ecology
+- term: niche
+  aliases: [niches, ecological niche]
+  definition: 'The role a species plays in its community: what it eats, where and when it feeds, the conditions it tolerates, and what eats it.'
+  topic: Community ecology
+- term: predation
+  definition: 'An interaction in which one organism (the predator) kills and eats another (the prey); it benefits the predator and harms the prey (+/−).'
+  topic: Community ecology
+- term: mutualism
+  definition: 'A close relationship between two species in which both benefit (+/+), such as legumes and nitrogen-fixing bacteria, or flowers and pollinators.'
+  topic: Community ecology
+- term: commensalism
+  definition: 'A close relationship in which one species benefits and the other is neither helped nor harmed (+/0), such as barnacles on a whale.'
+  topic: Community ecology
+- term: parasitism
+  definition: 'A close relationship in which one species (the parasite) lives on or in another (the host) and feeds on it, harming but usually not quickly killing it (+/−).'
+  topic: Community ecology
+- term: keystone species
+  definition: 'A species whose effect on its community is far larger than its abundance suggests, so removing it changes the community greatly (for example, the sea star Pisaster or sea otters).'
+  topic: Community ecology
+- term: ecological succession
+  aliases: [succession]
+  definition: 'The gradual, fairly predictable change in the species of a community after a disturbance. Primary succession starts without soil (bare rock); secondary succession starts with soil in place (after fire or farming).'
+  topic: Community ecology
+- term: biome
+  aliases: [biomes]
+  definition: 'A large region with a characteristic climate and the community of organisms adapted to it, such as tundra, desert or tropical rainforest.'
+  topic: Biomes
+- term: biodiversity
+  definition: 'The variety of life, measured at three levels: genetic diversity within species, species diversity within communities, and ecosystem diversity across regions.'
+  topic: Biodiversity
+- term: Simpson's diversity index
+  aliases: [Simpson's index, Simpson diversity index]
+  definition: 'A measure of species diversity that accounts for richness and evenness: $D = 1 - \sum n(n-1)/[N(N-1)]$, the probability that two individuals picked at random belong to different species.'
+  topic: Biodiversity
+- term: invasive species
+  definition: 'A species introduced to a region outside its native range that spreads and causes ecological or economic harm, often because its natural predators and competitors are missing.'
+  topic: Human impact

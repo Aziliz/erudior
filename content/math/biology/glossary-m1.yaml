@@ -1,0 +1,121 @@
+# ---- m1 The science and chemistry of life
+- term: homeostasis
+  definition: 'The maintenance of stable internal conditions (temperature, water, pH, sugar levels) within the range cells need, despite changes outside; usually achieved by negative feedback.'
+  topic: Characteristics of life
+- term: emergent property
+  aliases: [emergent properties]
+  definition: 'A property that appears at a higher level of organization from the way the parts are arranged and interact, and that the parts alone do not have, such as a heart''s ability to pump.'
+  topic: Levels of organization
+- term: hypothesis
+  aliases: [hypotheses]
+  definition: 'A proposed, testable and falsifiable explanation for an observation, often leading to an "if…then" prediction.'
+  topic: Scientific method
+- term: independent variable
+  aliases: [independent variables]
+  definition: 'The one factor an experimenter deliberately changes between groups; plotted on the x-axis.'
+  topic: Experimental design
+- term: dependent variable
+  aliases: [dependent variables]
+  definition: 'The factor measured in an experiment to see the effect of the independent variable; plotted on the y-axis.'
+  topic: Experimental design
+- term: controlled variable
+  aliases: [controlled variables]
+  definition: 'A factor that could affect the result and is kept the same in every group, so that only the independent variable differs.'
+  topic: Experimental design
+- term: control group
+  aliases: [control groups]
+  definition: 'The group of subjects that does not receive the treatment being tested (or receives the standard condition) and serves as a baseline for comparison.'
+  topic: Experimental design
+- term: theory
+  aliases: [theories, scientific theory]
+  definition: 'In science, a broad, well-tested explanation that ties together many observations and has survived repeated attempts to disprove it. Not a guess; a law describes a pattern, a theory explains it.'
+  topic: Scientific method
+- term: CHNOPS
+  definition: 'Carbon, hydrogen, nitrogen, oxygen, phosphorus and sulfur: the six elements that make up about 98% of the mass of living things.'
+  topic: Chemistry of life
+- term: polar molecule
+  aliases: [polar molecules, polar]
+  definition: 'A molecule with an uneven distribution of charge, slightly negative at one end and slightly positive at another, as in water.'
+  topic: Water
+- term: hydrogen bond
+  aliases: [hydrogen bonds]
+  definition: 'A weak attraction between a slightly positive hydrogen atom on one polar molecule and a slightly negative oxygen or nitrogen atom on another (or on another part of the same large molecule).'
+  topic: Water
+- term: cohesion
+  definition: 'The attraction of water molecules to one another through hydrogen bonds; it causes surface tension and holds water columns together in plants. (Adhesion is attraction of water to other substances.)'
+  topic: Water
+- term: specific heat
+  definition: 'The energy needed to raise the temperature of 1 g of a substance by 1 °C; about 4.18 J/(g·°C) for water, which is unusually high.'
+  topic: Water
+- term: pH
+  definition: 'A measure of hydrogen ion concentration: $\text{pH} = -\log[\text{H}^+]$. Below 7 is acidic, 7 neutral, above 7 basic; each unit is a tenfold change.'
+  topic: pH
+- term: buffer
+  aliases: [buffers]
+  definition: 'A pair of chemicals that resists changes in pH by taking up H⁺ when acid is added and releasing H⁺ when base is added, such as the bicarbonate buffer in blood.'
+  topic: pH
+- term: monomer
+  aliases: [monomers]
+  definition: 'A small molecule that can bond to others like it to form a polymer, such as a glucose, an amino acid or a nucleotide.'
+  topic: Macromolecules
+- term: polymer
+  aliases: [polymers]
+  definition: 'A large molecule made of many monomers bonded in a chain.'
+  topic: Macromolecules
+- term: dehydration synthesis
+  definition: 'A reaction that joins two monomers with a covalent bond and releases a water molecule; $n$ monomers in a chain release $n - 1$ waters.'
+  topic: Macromolecules
+- term: hydrolysis
+  definition: 'A reaction that breaks a bond in a polymer by adding a water molecule across it; the reverse of dehydration synthesis, and the basis of digestion.'
+  topic: Macromolecules
+- term: carbohydrate
+  aliases: [carbohydrates]
+  definition: 'A sugar or polymer of sugars made of C, H and O (about 1:2:1), used for quick energy (glucose), storage (starch, glycogen) and structure (cellulose, chitin).'
+  topic: Macromolecules
+- term: lipid
+  aliases: [lipids]
+  definition: 'A member of a diverse group of mostly nonpolar molecules that do not dissolve in water, including fats, phospholipids and steroids; not a true polymer.'
+  topic: Macromolecules
+- term: protein
+  aliases: [proteins]
+  definition: 'A polymer of amino acids folded into a specific 3-D shape that determines its job, such as an enzyme, transporter, antibody or structural fiber.'
+  topic: Macromolecules
+- term: amino acid
+  aliases: [amino acids]
+  definition: 'The monomer of proteins: a central carbon with an amino group, a carboxyl group, a hydrogen and a variable R group. There are 20 common amino acids.'
+  topic: Macromolecules
+- term: nucleic acid
+  aliases: [nucleic acids]
+  definition: 'A polymer of nucleotides (each a sugar, a phosphate and a nitrogen base) that stores and transmits genetic information: DNA or RNA.'
+  topic: Macromolecules
+- term: DNA
+  aliases: [deoxyribonucleic acid]
+  definition: 'Deoxyribonucleic acid: the double-stranded nucleic acid that stores hereditary information, with the sugar deoxyribose and the bases A, T, G and C.'
+  topic: Macromolecules
+- term: RNA
+  aliases: [ribonucleic acid]
+  definition: 'Ribonucleic acid: a usually single-stranded nucleic acid with the sugar ribose and the bases A, U, G and C; it helps carry out genetic instructions.'
+  topic: Macromolecules
+- term: enzyme
+  aliases: [enzymes]
+  definition: 'A biological catalyst, almost always a protein, that speeds up a specific reaction by lowering its activation energy and is not used up.'
+  topic: Enzymes
+- term: substrate
+  aliases: [substrates]
+  definition: 'The molecule an enzyme acts on; it binds to the enzyme''s active site.'
+  topic: Enzymes
+- term: active site
+  aliases: [active sites]
+  definition: 'The pocket or groove on an enzyme where the substrate binds and the reaction takes place; its shape and chemistry make the enzyme specific.'
+  topic: Enzymes
+- term: activation energy
+  definition: 'The energy needed to start a chemical reaction; enzymes lower it without changing the overall energy released or absorbed.'
+  topic: Enzymes
+- term: denaturation
+  aliases: [denature, denatured, denatures]
+  definition: 'Loss of a protein''s 3-D shape (and so its function) caused by high temperature, extreme pH or certain chemicals; usually permanent.'
+  topic: Enzymes
+- term: inhibitor
+  aliases: [inhibitors, competitive inhibitor, noncompetitive inhibitor]
+  definition: 'A molecule that reduces an enzyme''s activity. A competitive inhibitor blocks the active site (overcome by adding substrate); a noncompetitive inhibitor binds elsewhere and changes the enzyme''s shape.'
+  topic: Enzymes

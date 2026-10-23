@@ -1,0 +1,187 @@
+- id: bio-npp
+  title: Net primary productivity
+  topic: Energy flow
+  vars:
+    gpp: {min: 12000, max: 40000, step: 1000}
+    pct: {min: 40, max: 75, step: 5}
+  calc:
+    resp: gpp * pct / 100
+    npp: gpp - resp
+  prompt: 'The producers in an ecosystem capture {gpp} kJ per m² per year (gross primary productivity) and use {resp} kJ per m² per year in their own cellular respiration. What is the net primary productivity, in kJ per m² per year?'
+  answers:
+    - {name: npp, label: 'NPP (kJ per m² per year)', format: integer}
+  solution: |-
+    Net primary productivity is what is left after the producers' own respiration:
+
+    $$\text{NPP} = \text{GPP} - R = {gpp:dp0} - {resp:dp0} = {npp:dp0}$$
+
+    So NPP = **{npp} kJ per m² per year**, the energy available to consumers.
+- id: bio-ten-percent
+  title: Energy up the food chain (10% rule)
+  topic: Energy flow
+  vars:
+    e0: {min: 10000, max: 90000, step: 5000}
+    lev: {choices: [{label: primary consumers, value: 1}, {label: secondary consumers, value: 2}, {label: tertiary consumers, value: 3}]}
+  calc:
+    steps: lev
+    ek: round(e0 * 0.1^lev, 3)
+  prompt: 'The producers in a food chain store {e0} kJ of energy per m² per year. Using the ten percent rule, how much energy (in kJ per m² per year) is available to the {lev}?'
+  answers:
+    - {name: ek, label: 'Energy (kJ per m² per year)', relTolerance: 0.001}
+  solution: |-
+    The {lev} are {steps} feeding step(s) above the producers, and each transfer keeps 10%:
+
+    $${e0:dp0} \times 0.1^{{steps}} = {ek:dp0}$$
+
+    About **{ek} kJ per m² per year** reaches them.
+- id: bio-transfer-efficiency
+  title: Ecological efficiency between two levels
+  topic: Energy flow
+  vars:
+    lower: {min: 2000, max: 20000, step: 1000}
+    p: {min: 4, max: 20}
+  calc:
+    upper: lower * p / 100
+  where: ['upper == round(upper)']
+  prompt: 'Herbivores in a meadow take in energy at {lower} kJ per m² per year and the carnivores that eat them get {upper} kJ per m² per year. What percent of the herbivores'' energy is transferred to the carnivores? (Answer as a percent, without the % sign.)'
+  answers:
+    - {name: p, label: 'Efficiency (%)', tolerance: 0.05}
+  solution: |-
+    Efficiency = energy at the higher level ÷ energy at the lower level × 100:
+
+    $$\frac{{upper}}{{lower}} \times 100 = {p}$$
+
+    The transfer efficiency is **{p}%**.
+- id: bio-biomass
+  title: Biomass from quadrat samples
+  topic: Energy flow
+  vars:
+    q: {choices: [0.25, 0.5, 1]}
+    m1: {min: 40, max: 160, step: 5}
+    m2: {min: 40, max: 160, step: 5}
+    m3: {min: 40, max: 160, step: 5}
+    m4: {min: 40, max: 160, step: 5}
+    ha: {min: 1, max: 6}
+  where: ['mod(m1 + m2 + m3 + m4, 4) == 0']
+  calc:
+    avg: (m1 + m2 + m3 + m4) / 4
+    dens: avg / q
+    area: ha * 10000
+    grams: dens * area
+    kg: grams / 1000
+  prompt: 'To estimate the plant biomass of a {ha}-hectare field (1 hectare = 10,000 m²), a student clips, dries and weighs the plants in four {q} m² quadrats: {m1} g, {m2} g, {m3} g and {m4} g. Find the biomass per m² (g) and the total dry biomass of the field (kg).'
+  answers:
+    - {name: dens, label: 'Biomass (g per m²)', relTolerance: 0.005}
+    - {name: kg, label: 'Total (kg)', relTolerance: 0.005}
+  solution: |-
+    Mean per quadrat: $\dfrac{{m1} + {m2:dp0} + {m3:dp0} + {m4}}{4} = {avg:dp0}$ g.
+
+    Per square meter: ${avg:dp0} \div {q} =$ **{dens} g per m²**.
+
+    Field area: ${ha:dp0} \times 10{,}000 = {area:dp0}$ m². Total: ${dens:dp0} \times {area:dp0} = {grams:dp0}$ g, which is **{kg} kg** of dry biomass.
+- id: bio-exp-growth
+  title: Exponential growth, N = N₀λᵗ
+  topic: Population ecology
+  vars:
+    n0: {min: 20, max: 400, step: 10}
+    lam: {choices: [1.1, 1.2, 1.25, 1.5, 2, 0.8]}
+    t: {min: 2, max: 6}
+  where: ['n0 * lam^t <= 20000', 'n0 * lam^t >= 60']
+  calc:
+    nt: n0 * lam^t
+    fac: lam^t
+    ntr: round(nt)
+  prompt: 'A population of {n0} animals is multiplied by $\lambda = {lam}$ each year. Using $N_t = N_0\lambda^t$, how many will there be after {t} years? (Round to the nearest whole animal.)'
+  answers:
+    - {name: nt, label: '$N_{t} =$', relTolerance: 0.01}
+  solution: |-
+    $$N_{{t}} = {n0:dp0} \times {lam}^{{t}} = {n0:dp0} \times {fac:num4} = {nt:dp1}$$
+
+    Rounded to a whole animal: **{ntr}**. (A $\lambda$ below 1 means the population is shrinking; above 1, growing.)
+- id: bio-logistic
+  title: Logistic growth rate
+  topic: Population ecology
+  vars:
+    r: {choices: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5]}
+    cap: {min: 200, max: 2000, step: 100}
+    fr: {choices: [0.1, 0.2, 0.25, 0.4, 0.5, 0.6, 0.75, 0.8, 0.9]}
+  calc:
+    n: cap * fr
+    left: cap - n
+    rate: r * n * left / cap
+  where: ['n == round(n)']
+  prompt: 'A population grows logistically with $r = {r}$ per year and carrying capacity $K = {cap:dp0}$. Using $\dfrac{dN}{dt} = rN\,\dfrac{K - N}{K}$, how many individuals per year is it adding when $N = {n:dp0}$?'
+  answers:
+    - {name: rate, label: '$dN/dt =$', relTolerance: 0.01}
+  solution: |-
+    $$\frac{dN}{dt} = {r} \times {n:dp0} \times \frac{{cap:dp0} - {n:dp0}}{{cap:dp0}} = {r} \times {n:dp0} \times \frac{{left:dp0}}{{cap:dp0}} = {rate:dp2}$$
+
+    The population is adding about **{rate:num2} individuals per year**. (Growth is fastest at $N = K/2$.)
+- id: bio-mark-recapture
+  title: Mark–recapture estimate
+  topic: Population ecology
+  vars:
+    mk: {min: 20, max: 120, step: 5}
+    cc: {min: 20, max: 120, step: 5}
+    rr: {min: 3, max: 30}
+  where: ['mod(mk * cc, rr) == 0', 'rr < mk', 'rr < cc']
+  calc:
+    prod: mk * cc
+    pop: mk * cc / rr
+  prompt: 'Ecologists capture, mark and release {mk} lizards. A week later they capture {cc} lizards, and {rr} of them are marked. Use the Lincoln–Petersen method to estimate the population size.'
+  answers:
+    - {name: pop, label: '$N =$', format: integer}
+  solution: |-
+    The fraction marked in the second sample should match the fraction marked in the population: $\dfrac{R}{C} = \dfrac{M}{N}$, so
+
+    $$N = \frac{M \times C}{R} = \frac{{mk} \times {cc}}{{rr}} = \frac{{prod:dp0}}{{rr}} = {pop:dp0}$$
+
+    Estimated population: **{pop} lizards**.
+- id: bio-pop-change
+  title: Births, deaths, and migration
+  topic: Population ecology
+  vars:
+    n0: {min: 200, max: 2000, step: 50}
+    b: {min: 20, max: 300, step: 5}
+    dd: {min: 20, max: 300, step: 5}
+    im: {min: 0, max: 80, step: 5}
+    em: {min: 0, max: 80, step: 5}
+  calc:
+    n1: n0 + b - dd + im - em
+    chg: n1 - n0
+    pct: 100 * chg / n0
+  where: ['chg != 0', 'b <= 0.4*n0', 'dd <= 0.4*n0']
+  prompt: 'A town''s squirrel population is {n0} at the start of a year. During the year there are {b} births, {dd} deaths, {im} immigrants and {em} emigrants. Find the population at the end of the year and its percent change (negative if it shrank, to 1 decimal place, without the % sign).'
+  answers:
+    - {name: n1, label: 'End population', format: integer}
+    - {name: pct, label: 'Percent change', tolerance: 0.06}
+  solution: |-
+    $$N_{\text{end}} = N_0 + B - D + I - E = {n0:dp0} + {b:dp0} - {dd:dp0} + {im:dp0} - {em:dp0} = {n1:dp0}$$
+
+    Change: ${n1:dp0} - {n0:dp0} = {chg:dp0}$, and $\dfrac{{chg:dp0}}{{n0:dp0}} \times 100 = {pct:dp1}$.
+
+    End population **{n1}**, a change of **{pct:num1}%**.
+- id: bio-diversity-index
+  title: Simpson's diversity index
+  topic: Biodiversity
+  vars:
+    n1: {min: 10, max: 60}
+    n2: {min: 2, max: 30}
+    n3: {min: 2, max: 30}
+    n4: {min: 1, max: 20}
+  calc:
+    tot: n1 + n2 + n3 + n4
+    s: n1*(n1-1) + n2*(n2-1) + n3*(n3-1) + n4*(n4-1)
+    den: tot * (tot - 1)
+    dval: 1 - s / den
+  prompt: 'A pond sample contains four species of invertebrates: {n1}, {n2}, {n3} and {n4} individuals. Calculate Simpson''s diversity index $D = 1 - \dfrac{\sum n(n-1)}{N(N-1)}$ to 2 decimal places.'
+  answers:
+    - {name: dval, label: '$D =$', tolerance: 0.006}
+  solution: |-
+    Total: $N = {n1:dp0} + {n2} + {n3} + {n4} = {tot:dp0}$, so $N(N-1) = {tot:dp0} \times ({tot:dp0} - 1) = {den:dp0}$.
+
+    $\sum n(n-1) = {n1:dp0}({n1:dp0}-1) + {n2}({n2}-1) + {n3}({n3}-1) + {n4}({n4}-1) = {s:dp0}$.
+
+    $$D = 1 - \frac{{s:dp0}}{{den:dp0}} = {dval:dp2}$$
+
+    So **D = {dval:num2}**. Values near 1 mean many evenly represented species; values near 0 mean one species dominates.

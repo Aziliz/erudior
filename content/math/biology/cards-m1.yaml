@@ -1,0 +1,31 @@
+# ---- m1 The science and chemistry of life
+- {front: 'The characteristics of life', back: 'Made of cells; metabolism (uses energy); homeostasis; responds to stimuli; grows and develops; reproduces; heritable DNA; populations evolve.', topic: Characteristics of life}
+- {front: 'Why is a flame or a growing crystal not alive?', back: 'It shows one or two features (growth, energy release) but has no cells, metabolism, homeostasis or DNA. Life needs the whole set.', topic: Characteristics of life}
+- {front: 'Homeostasis', back: 'Keeping internal conditions stable despite outside changes, usually by negative feedback (e.g. sweating when hot).', topic: Characteristics of life}
+- {front: 'Levels of organization, smallest to largest', back: 'atom → molecule → organelle → cell → tissue → organ → organ system → organism → population → community → ecosystem → biosphere', topic: Levels of organization}
+- {front: 'Population vs community vs ecosystem', back: 'Population: one species in an area. Community: all species in an area. Ecosystem: the community plus nonliving surroundings.', topic: Levels of organization}
+- {front: 'Emergent property', back: 'A new ability that arises from how parts interact at a higher level, e.g. a heart pumps but a single muscle cell cannot.', topic: Levels of organization}
+- {front: 'Independent vs dependent variable', back: 'Independent: the one factor you change (x-axis). Dependent: what you measure (y-axis).', topic: Experimental design}
+- {front: 'Control group vs controlled variables', back: 'Control group: subjects without the treatment, used as a baseline. Controlled variables: conditions kept the same in all groups.', topic: Experimental design}
+- {front: 'Why replicate an experiment?', back: 'Individuals vary; more subjects and repeated trials make it less likely a difference is due to chance.', topic: Experimental design}
+- {front: 'Percent change formula', back: '$\dfrac{\text{new} - \text{original}}{\text{original}} \times 100\%$ (negative = decrease)', topic: Scientific method}
+- {front: 'Hypothesis vs theory vs law', back: 'Hypothesis: testable explanation of one observation. Theory: broad, well-tested explanation. Law: describes a pattern without explaining it.', topic: Scientific method}
+- {front: 'Correlation vs causation', back: 'Two variables changing together does not show one causes the other; a third variable may drive both. Controlled experiments test causation.', topic: Scientific method}
+- {front: 'CHNOPS', back: 'Carbon, hydrogen, nitrogen, oxygen, phosphorus, sulfur: about 98% of living mass.', topic: Chemistry of life}
+- {front: 'Why water is polar', back: 'Oxygen pulls shared electrons harder than hydrogen, and the molecule is bent: O end δ−, H ends δ+.', topic: Water}
+- {front: 'Properties of water caused by hydrogen bonds', back: 'Cohesion and surface tension, adhesion and capillary action, high specific heat, ice floats, excellent solvent for polar and ionic substances.', topic: Water}
+- {front: 'Cohesion vs adhesion', back: 'Cohesion: water attracted to water. Adhesion: water attracted to other substances.', topic: Water}
+- {front: 'pH formula', back: '$\text{pH} = -\log[\text{H}^+]$, so $[\text{H}^+] = 10^{-\text{pH}}$ mol/L', topic: pH}
+- {front: 'A difference of 3 pH units means…', back: 'A $10^3 = 1000$-fold difference in H⁺ concentration; the lower pH has more H⁺.', topic: pH}
+- {front: 'Buffer', back: 'Resists pH change by taking up or releasing H⁺; blood is buffered near pH 7.4 by bicarbonate/carbonic acid.', topic: pH}
+- {front: 'Dehydration synthesis vs hydrolysis', back: 'Dehydration synthesis joins monomers and releases water; hydrolysis splits polymers and uses water.', topic: Macromolecules}
+- {front: 'Water released when $n$ monomers form one chain', back: '$n - 1$ molecules (one per bond)', topic: Macromolecules}
+- {front: 'Four classes of macromolecules and their monomers', back: 'Carbohydrates: monosaccharides. Proteins: amino acids. Nucleic acids: nucleotides. Lipids: no true monomer (fats are glycerol + 3 fatty acids).', topic: Macromolecules}
+- {front: 'Starch vs glycogen vs cellulose', back: 'All glucose polymers. Starch: plant energy store. Glycogen: animal energy store. Cellulose: plant cell walls (different linkage, indigestible to humans).', topic: Macromolecules}
+- {front: 'Saturated vs unsaturated fat', back: 'Saturated: no C=C double bonds, straight chains, solid (butter). Unsaturated: double bonds kink the chains, liquid (oils).', topic: Macromolecules}
+- {front: 'Food tests', back: 'Benedict''s (heated): simple sugars → orange/brick-red. Iodine: starch → blue-black. Biuret: protein → violet. Paper spot or Sudan III: lipid.', topic: Macromolecules}
+- {front: 'Four levels of protein structure', back: 'Primary: amino acid sequence. Secondary: helices and sheets. Tertiary: 3-D fold of one chain. Quaternary: several chains together.', topic: Macromolecules}
+- {front: 'DNA vs RNA', back: 'DNA: deoxyribose, A T G C, double-stranded, stores information. RNA: ribose, A U G C, usually single-stranded, helps make proteins.', topic: Macromolecules}
+- {front: 'How enzymes speed reactions', back: 'They lower the activation energy; they are not used up and do not change the overall energy of the reaction.', topic: Enzymes}
+- {front: 'Effect of temperature on enzyme activity', back: 'Rises to an optimum (≈37 °C for human enzymes), then falls steeply as the enzyme denatures. Cold slows enzymes but does not denature them.', topic: Enzymes}
+- {front: 'Competitive vs noncompetitive inhibitor', back: 'Competitive: binds the active site; overcome by more substrate. Noncompetitive: binds elsewhere and changes shape; extra substrate does not help.', topic: Enzymes}

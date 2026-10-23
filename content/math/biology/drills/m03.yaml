@@ -1,0 +1,96 @@
+- id: bio-photo-rate
+  title: Rate of photosynthesis from bubble counts
+  topic: Photosynthesis
+  vars:
+    t: {choices: [2, 3, 4, 5]}
+    r: {min: 4, max: 30}
+    v: {choices: [0.5, 1, 1.5, 2, 2.5]}
+  calc:
+    b: r*t
+    bh: r*60
+    volh: r*v*60
+  prompt: 'An Elodea sprig under a lamp releases {b} oxygen bubbles in {t} minutes. Each bubble holds about {v} µL of O₂. Find the rate of photosynthesis in bubbles per minute, and the volume of O₂ released per hour in µL. Give decimals if needed.'
+  answers:
+    - {name: r, label: 'Rate (bubbles/min)', relTolerance: 0.01}
+    - {name: volh, label: 'O₂ per hour (µL)', relTolerance: 0.01}
+  solution: |-
+    Rate = bubbles ÷ time = {b} ÷ {t} = **{r} bubbles/min**.
+
+    Per hour: ${r} \times 60 = {bh}$ bubbles, each about {v} µL, so ${bh} \times {v} =$ **{volh} µL** of O₂ per hour.
+- id: bio-photo-mass
+  title: Mass of glucose made from carbon dioxide
+  topic: Photosynthesis
+  vars:
+    co2: {min: 22, max: 880, step: 22}
+  calc:
+    glu: co2*180/264
+    o2: co2*192/264
+  prompt: 'A plant fixes {co2} g of CO₂ by photosynthesis ($6\,\text{CO}_2 + 6\,\text{H}_2\text{O} \rightarrow \text{C}_6\text{H}_{12}\text{O}_6 + 6\,\text{O}_2$). Using molar masses CO₂ = 44 g/mol, glucose = 180 g/mol and O₂ = 32 g/mol, how many grams of glucose can it make, and how many grams of O₂ does it release? Give 3 significant figures.'
+  answers:
+    - {name: glu, label: 'Glucose (g)', relTolerance: 0.01}
+    - {name: o2, label: 'O₂ (g)', relTolerance: 0.01}
+  solution: |-
+    By the equation, 6 mol CO₂ (6 × 44 = 264 g) make 1 mol glucose (180 g) and release 6 mol O₂ (6 × 32 = 192 g).
+
+    Glucose: ${co2} \times \dfrac{180}{264} =$ **{glu:sig3} g**.
+
+    O₂: ${co2} \times \dfrac{192}{264} =$ **{o2:sig3} g**.
+- id: bio-respiration-mass
+  title: Masses in the respiration equation
+  topic: Cellular respiration
+  vars:
+    gl: {min: 9, max: 540, step: 9}
+  calc:
+    o2: gl*192/180
+    co2: gl*264/180
+  prompt: 'A runner''s muscles completely oxidize {gl} g of glucose by aerobic respiration ($\text{C}_6\text{H}_{12}\text{O}_6 + 6\,\text{O}_2 \rightarrow 6\,\text{CO}_2 + 6\,\text{H}_2\text{O}$). Using molar masses glucose = 180, O₂ = 32 and CO₂ = 44 g/mol, how many grams of O₂ are used and how many grams of CO₂ are produced? Give 3 significant figures.'
+  answers:
+    - {name: o2, label: 'O₂ used (g)', relTolerance: 0.01}
+    - {name: co2, label: 'CO₂ made (g)', relTolerance: 0.01}
+  solution: |-
+    1 mol glucose (180 g) uses 6 mol O₂ (192 g) and makes 6 mol CO₂ (264 g).
+
+    O₂: ${gl} \times \dfrac{192}{180} =$ **{o2:sig3} g**.
+
+    CO₂: ${gl} \times \dfrac{264}{180} =$ **{co2:sig3} g**.
+- id: bio-atp-yield
+  title: ATP from electron carriers
+  topic: Cellular respiration
+  vars:
+    nadh: {min: 2, max: 40, step: 2}
+    fadh: {min: 0, max: 10}
+    sub: {min: 0, max: 12, step: 2}
+  calc:
+    a1: nadh*2.5
+    a2: fadh*1.5
+    tot: a1 + a2 + sub
+  prompt: 'A sample of mitochondria oxidizes {nadh} NADH and {fadh} FADH₂ through the electron transport chain, and {sub} ATP are also made directly by substrate-level phosphorylation. Using about 2.5 ATP per NADH and 1.5 ATP per FADH₂, estimate the total ATP made. Give a decimal if needed.'
+  answers:
+    - {name: tot, label: 'Total ATP', tolerance: 0.01}
+  solution: |-
+    NADH: ${nadh} \times 2.5 = {a1}$ ATP.
+
+    FADH₂: ${fadh} \times 1.5 = {a2}$ ATP.
+
+    Total: ${a1} + {a2} + {sub} =$ **{tot} ATP**. (For one glucose, 10 NADH, 2 FADH₂ and 4 direct ATP give 32, or about 30 after the cost of moving glycolysis NADH into the mitochondrion.)
+- id: bio-fermentation-glucose
+  title: Glucose needed with and without oxygen
+  topic: Fermentation
+  vars:
+    k: {min: 1, max: 20}
+  calc:
+    atp: 60*k
+    aer: atp/30
+    ferm: atp/2
+    ratio: ferm/aer
+  prompt: 'Yeast cells need {atp} ATP. Assume aerobic respiration yields about 30 ATP per glucose and fermentation yields 2 ATP per glucose. How many glucose molecules are needed with oxygen, how many without, and how many times as much glucose does fermentation use? Give whole numbers.'
+  answers:
+    - {name: aer, label: 'With O₂', format: integer}
+    - {name: ferm, label: 'Without O₂', format: integer}
+    - {name: ratio, label: 'Times as much', format: integer}
+  solution: |-
+    With O₂: {atp} ÷ 30 = **{aer}** glucose.
+
+    Fermentation: {atp} ÷ 2 = **{ferm}** glucose.
+
+    Ratio: {ferm} ÷ {aer} = **{ratio}**. Fermentation always needs 30 ÷ 2 = 15 times as much sugar for the same ATP, which is why yeast use sugar much faster without air (the Pasteur effect).

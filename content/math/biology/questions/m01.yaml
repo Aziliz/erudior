@@ -1,0 +1,607 @@
+- id: bio-q-0101
+  lesson: bio-life
+  module_quiz: true
+  topic: Characteristics of life
+  stem: 'A crystal of salt grows larger when left in a saturated salt solution. Why is it not considered alive?'
+  choices:
+    - 'It has no cells, no metabolism and no genetic information; growth alone does not make something alive'
+    - 'It does not grow fast enough to count as growth'
+    - 'It is alive, because growth is the defining feature of life'
+    - 'It cannot be alive because it contains sodium, which living things lack'
+  answer: 0
+  explanation: |-
+    Life is defined by a set of characteristics, not by any single one. The crystal grows by adding ions to its surface, but it has no cells, metabolism, homeostasis or DNA. Treating growth as the definition is the misconception behind calling it alive; and living things certainly contain sodium.
+- id: bio-q-0102
+  lesson: bio-life
+  topic: Characteristics of life
+  stem: 'A mule is the sterile offspring of a horse and a donkey. Which statement is correct?'
+  choices:
+    - 'A mule is not alive, because it cannot reproduce'
+    - 'A mule is alive; reproduction is a characteristic of species and lineages, not a requirement for every individual'
+    - 'A mule is alive only while it is growing'
+    - 'A mule is alive only because it evolves during its lifetime'
+  answer: 1
+  explanation: |-
+    The mule has cells, metabolism, homeostasis and DNA, and it was produced by reproduction. Sterile individuals (mules, worker bees) are alive. Individuals also do not evolve during their lifetimes; populations evolve over generations.
+- id: bio-q-0103
+  lesson: bio-life
+  topic: Characteristics of life
+  stem: 'Your body temperature stays near 37 °C whether you are outside in winter or in a hot room. This is an example of'
+  choices: ['metabolism', 'evolution', 'homeostasis', 'development']
+  answer: 2
+  explanation: |-
+    Homeostasis is keeping internal conditions stable despite outside changes. Metabolism is the set of chemical reactions in the body; evolution is change in populations over generations; development is the change in form as an organism matures.
+- id: bio-q-0104
+  lesson: bio-life
+  module_quiz: true
+  topic: Characteristics of life
+  stem: 'Which statement about evolution as a characteristic of life is correct?'
+  choices:
+    - 'Each organism evolves new inherited traits as it grows older'
+    - 'Only organisms that reproduce asexually evolve'
+    - 'Evolution happens to individuals but not to populations'
+    - 'Populations evolve over many generations; an individual''s inherited traits do not change during its life'
+  answer: 3
+  explanation: |-
+    Evolution is a change in the inherited traits of a population across generations. A common misconception is that individuals evolve, for example a giraffe stretching its neck and passing on a longer neck. Both sexually and asexually reproducing species evolve.
+- id: bio-q-0105
+  lesson: bio-life
+  topic: Characteristics of life
+  stem: 'The sum of all the chemical reactions that take place in an organism is called its'
+  choices: ['homeostasis', 'metabolism', 'stimulus', 'emergent property']
+  answer: 1
+  explanation: |-
+    Metabolism includes every reaction that breaks molecules down to release energy and builds the molecules the organism needs. Homeostasis is maintaining stable conditions; a stimulus is a change the organism detects; an emergent property is a new ability that appears at a higher level of organization.
+- id: bio-q-0106
+  lesson: bio-life
+  module_quiz: true
+  topic: Levels of organization
+  stem: 'Which list is in order from smallest to largest level of organization?'
+  choices:
+    - 'cell, tissue, organ, organ system, organism'
+    - 'tissue, cell, organ, organism, organ system'
+    - 'cell, organ, tissue, organ system, organism'
+    - 'organism, organ system, organ, tissue, cell'
+  answer: 0
+  explanation: |-
+    Cells form tissues, tissues form organs, organs form organ systems, and organ systems make up an organism. One distractor swaps cell and tissue, another swaps organ and tissue, and one runs from largest to smallest.
+- id: bio-q-0107
+  lesson: bio-life
+  topic: Levels of organization
+  stem: 'All of the gray squirrels living in one city park make up a'
+  choices: ['community', 'ecosystem', 'population', 'biosphere']
+  answer: 2
+  explanation: |-
+    A population is all the members of one species in one area. A community would include every species in the park; an ecosystem adds the nonliving parts such as soil and water; the biosphere is all life on Earth.
+- id: bio-q-0108
+  lesson: bio-life
+  topic: Levels of organization
+  stem: 'Which of these is part of an ecosystem but NOT part of a community?'
+  choices: ['the frogs in the pond', 'the bacteria in the pond mud', 'the algae on the pond surface', 'the water in a pond']
+  answer: 3
+  explanation: |-
+    A community is all the living populations in an area. An ecosystem is the community plus its nonliving (abiotic) surroundings, such as water, sunlight and minerals. Frogs, bacteria and algae are all living, so they belong to the community.
+- id: bio-q-0109
+  lesson: bio-life
+  module_quiz: true
+  topic: Levels of organization
+  stem: 'A single heart muscle cell can contract, but only a whole heart can pump blood through the body. This illustrates'
+  choices: ['an emergent property', 'homeostasis', 'a population', 'a controlled variable']
+  answer: 0
+  explanation: |-
+    An emergent property is an ability that appears from the way parts are arranged and interact at a higher level, and that the parts alone do not have. Pumping requires chambers and valves built from several tissues.
+- id: bio-q-0110
+  lesson: bio-life
+  topic: Characteristics of life
+  stem: 'During a long run on a hot day, a runner''s body temperature rises from 37.0 °C to 37.8 °C in the first 15 minutes, then stays near 37.8 °C for the next 30 minutes while her sweat rate rises and levels off. What best explains why her temperature stopped rising?'
+  choices:
+    - 'Her muscles stopped producing heat after 15 minutes'
+    - 'Her metabolism stopped while she was running'
+    - 'Body temperature cannot rise above 37.8 °C under any conditions'
+    - 'Increased sweating raised heat loss until it balanced the extra heat from her muscles'
+  answer: 3
+  explanation: |-
+    This is negative feedback: the rise in temperature triggers more sweating, and evaporation carries heat away until heat loss matches heat production. Her muscles keep producing heat the whole time, and body temperature can rise much higher, as in heat stroke, if sweating fails.
+- id: bio-q-0111
+  lesson: bio-life
+  topic: Characteristics of life
+  stem: 'Viruses contain genetic material and evolve. Why do most biologists not classify them as living organisms?'
+  choices:
+    - 'They are too small to be seen with a light microscope'
+    - 'They contain no proteins'
+    - 'They are not made of cells and cannot carry out metabolism or reproduce on their own'
+    - 'They never change over time'
+  answer: 2
+  explanation: |-
+    A virus has no cells and no metabolism of its own; it reproduces only by taking over a host cell. Size is not a criterion for life (many bacteria are tiny too), viruses do have protein coats, and they evolve rapidly.
+- id: bio-q-0112
+  lesson: bio-method
+  module_quiz: true
+  topic: Experimental design
+  stem: 'A student tests whether the amount of light affects how fast duckweed plants reproduce. She grows identical pots of duckweed under lamps at different distances and counts new plants after 2 weeks. What is the dependent variable?'
+  choices: ['the distance of the lamp', 'the number of new duckweed plants', 'the type of duckweed', 'the length of the experiment']
+  answer: 1
+  explanation: |-
+    The dependent variable is what is measured to see the effect: the number of new plants. The lamp distance is the independent variable (what she changes). The type of duckweed and the 2-week length are controlled variables.
+- id: bio-q-0113
+  lesson: bio-method
+  topic: Experimental design
+  stem: 'In the duckweed experiment, the student changes how far each lamp is from its pot. This lamp distance is the'
+  choices: ['dependent variable', 'controlled variable', 'independent variable', 'control group']
+  answer: 2
+  explanation: |-
+    The independent variable is the factor the experimenter deliberately changes. The dependent variable is the measured outcome (number of plants), controlled variables are held constant, and the control group is a set of subjects used as a baseline.
+- id: bio-q-0114
+  lesson: bio-method
+  module_quiz: true
+  topic: Experimental design
+  stem: 'In Redi''s 1668 experiment, why did he cover some jars of meat with gauze instead of sealing them completely?'
+  choices:
+    - 'So that flies could still reach the meat in every jar'
+    - 'So that the meat would rot more slowly in the covered jars'
+    - 'So that the covered jars would be the control group'
+    - 'So that air could still reach the meat and only the flies'' access differed between the groups'
+  answer: 3
+  explanation: |-
+    Critics argued that sealed jars lacked fresh air needed for spontaneous generation. Gauze let air in but kept flies out, so the only difference between groups was whether flies could reach the meat. The open jars were the baseline (control) group.
+- id: bio-q-0115
+  lesson: bio-method
+  topic: Experimental design
+  stem: 'A student plays music to bean plants on a sunny windowsill and keeps a second group, without music, in a dim closet. The music group grows taller. What is the main problem with this experiment?'
+  choices:
+    - 'Two variables differ between the groups, so the effect cannot be blamed on music'
+    - 'The dependent variable should have been the type of music'
+    - 'There is no independent variable'
+    - 'Plants cannot respond to any stimulus'
+  answer: 0
+  explanation: |-
+    Light and music both differ between the groups. Light is known to affect growth, so it could explain the result by itself. A fair test changes only the independent variable (music) and keeps light, water and soil the same.
+- id: bio-q-0116
+  lesson: bio-method
+  topic: Experimental design
+  stem: 'Why do scientists use many plants in each group instead of just one?'
+  choices:
+    - 'Using more plants guarantees that the hypothesis is proven'
+    - 'Individuals vary naturally, so more subjects make it less likely that a difference is due to chance'
+    - 'More plants make the independent variable larger'
+    - 'One plant would make the experiment have no dependent variable'
+  answer: 1
+  explanation: |-
+    Replication and larger samples reduce the effect of natural variation between individuals. No sample size proves a hypothesis; data can only support or fail to support it.
+- id: bio-q-0117
+  lesson: bio-method
+  module_quiz: true
+  topic: Scientific method
+  stem: 'Five pea plants grew 12, 15, 9, 14 and 10 cm. What is their mean height?'
+  choices: ['15 cm', '12 cm', '60 cm', '11 cm']
+  answer: 1
+  explanation: |-
+    Mean = sum / count = (12 + 15 + 9 + 14 + 10) / 5 = 60 / 5 = 12 cm. 60 cm is the sum before dividing, 15 cm is the largest value, and 11 cm is not the mean of these values.
+- id: bio-q-0118
+  lesson: bio-method
+  module_quiz: true
+  topic: Scientific method
+  stem: 'A bacterial culture had 400 colonies before treatment and 300 colonies after. What is the percent change?'
+  choices: ['−33%', '+25%', '−100%', '−25%']
+  answer: 3
+  explanation: |-
+    Percent change = (new − original) / original × 100% = (300 − 400) / 400 × 100% = −25%. Dividing by the new value (300) gives −33%; dropping the sign gives +25%; −100% is the raw difference written as a percent.
+- id: bio-q-0119
+  lesson: bio-method
+  topic: Scientific method
+  stem: 'Which statement is a testable scientific hypothesis?'
+  choices:
+    - 'If tomato plants receive more nitrogen fertilizer, then they will produce more fruit'
+    - 'Tomatoes taste better than cucumbers'
+    - 'Plants grow because of an invisible force that cannot be measured'
+    - 'Tomato plants are the most beautiful garden plants'
+  answer: 0
+  explanation: |-
+    A hypothesis must be testable and falsifiable: some possible result could show it wrong. Fruit number can be measured under different fertilizer levels. Taste and beauty claims are opinions, and an unmeasurable force cannot be tested.
+- id: bio-q-0120
+  lesson: bio-method
+  topic: Scientific method
+  stem: 'In science, the word theory means'
+  choices:
+    - 'a guess that has not yet been tested'
+    - 'a hypothesis that has become a law after enough experiments'
+    - 'a broad explanation supported by a large body of evidence that has survived repeated testing'
+    - 'a description of a pattern without any explanation'
+  answer: 2
+  explanation: |-
+    A scientific theory, such as cell theory or the theory of evolution, is a well-tested explanation tying together many observations. The everyday meaning of guess is the misconception. Theories do not turn into laws: laws describe patterns, theories explain them.
+- id: bio-q-0121
+  lesson: bio-method
+  topic: Scientific method
+  stem: 'A study finds that towns with more storks also have more human births. What is the best conclusion?'
+  choices:
+    - 'Storks cause human births to increase'
+    - 'Human births cause stork numbers to increase'
+    - 'The data prove there is no relationship between the two'
+    - 'The two are correlated, but a third factor such as town size could explain both'
+  answer: 3
+  explanation: |-
+    Correlation does not show causation. Larger, more rural areas can support both more storks and more people, so a hidden variable can produce the pattern. Only a controlled experiment, where one factor is changed, can show cause and effect.
+- id: bio-q-0122
+  lesson: bio-method
+  topic: Experimental design
+  stem: 'A student tests whether a new plant food increases the number of tomatoes per plant. Which group is the control group?'
+  choices:
+    - 'Plants given twice the recommended plant food'
+    - 'Plants given the same water, soil and light but no plant food'
+    - 'All the conditions that are kept the same in both groups'
+    - 'The number of tomatoes counted on each plant'
+  answer: 1
+  explanation: |-
+    The control group is the set of subjects that does not get the treatment and serves as a baseline. The conditions kept the same are controlled variables (a frequent mix-up), and the number of tomatoes is the dependent variable.
+- id: bio-q-0123
+  lesson: bio-chemistry
+  module_quiz: true
+  topic: Water
+  stem: 'Water is a polar molecule because'
+  choices:
+    - 'it has a full positive charge on one end and a full negative charge on the other'
+    - 'its atoms are held together by ionic bonds'
+    - 'oxygen pulls the shared electrons more strongly than hydrogen, leaving oxygen slightly negative and the hydrogens slightly positive'
+    - 'it is a straight molecule with hydrogens on opposite sides of the oxygen'
+  answer: 2
+  explanation: |-
+    The O–H bonds are covalent, but the sharing is unequal, so the oxygen end is partly negative (δ−) and the hydrogen ends partly positive (δ+). The charges are partial, not full ions. Water is bent; if it were straight, the partial charges would cancel.
+- id: bio-q-0124
+  lesson: bio-chemistry
+  topic: Water
+  stem: 'Hydrogen bonds in water form between'
+  choices:
+    - 'a hydrogen atom of one water molecule and the oxygen atom of a neighboring molecule'
+    - 'the two hydrogen atoms within one water molecule'
+    - 'the oxygen and a hydrogen within the same water molecule'
+    - 'two oxygen atoms that share electrons'
+  answer: 0
+  explanation: |-
+    A hydrogen bond is an attraction between molecules: the δ+ hydrogen of one water molecule and the δ− oxygen of another. The bonds within one water molecule are covalent bonds, which are much stronger.
+- id: bio-q-0125
+  lesson: bio-chemistry
+  module_quiz: true
+  topic: Water
+  stem: 'Water rises in the thin xylem tubes of a tall tree as a continuous column pulled up from the leaves. Which property of water holds the column together?'
+  choices: ['high specific heat', 'cohesion', 'low density of ice', 'ability to dissolve salts']
+  answer: 1
+  explanation: |-
+    Cohesion, the hydrogen-bond attraction between water molecules, keeps the column from breaking as evaporation from leaves pulls it upward. Adhesion to the tube walls helps too. Specific heat, ice density and solvent power do not hold the column together.
+- id: bio-q-0126
+  lesson: bio-chemistry
+  topic: Water
+  stem: 'Cities on the coast have milder winters and cooler summers than cities far inland at the same latitude. Which property of water explains this?'
+  choices: ['high specific heat', 'cohesion', 'adhesion', 'polarity of the solute']
+  answer: 0
+  explanation: |-
+    Water absorbs and releases a lot of energy for each degree of temperature change, so oceans change temperature slowly and moderate nearby air. Cohesion and adhesion concern attraction between molecules, not heat storage.
+- id: bio-q-0127
+  lesson: bio-chemistry
+  topic: Water
+  stem: 'Why does ice float on liquid water?'
+  choices:
+    - 'Ice contains trapped air from the atmosphere'
+    - 'Ice molecules are lighter than liquid water molecules'
+    - 'Hydrogen bonds lock frozen water into an open lattice that is less dense than the liquid'
+    - 'Freezing breaks the covalent bonds inside water molecules'
+  answer: 2
+  explanation: |-
+    In ice, each molecule is held by hydrogen bonds at fixed distances, making a spread-out lattice about 9% less dense than liquid water. The molecules are identical in mass; freezing changes hydrogen bonds between molecules, not the covalent bonds within them.
+- id: bio-q-0128
+  lesson: bio-chemistry
+  module_quiz: true
+  topic: pH
+  stem: 'Solution A has a pH of 3 and solution B has a pH of 6. How does the hydrogen ion concentration of A compare with B?'
+  choices: ['A has 3 times more H⁺', 'A has 2 times more H⁺', 'A has 1000 times less H⁺', 'A has 1000 times more H⁺']
+  answer: 3
+  explanation: |-
+    Each pH unit is a tenfold change, and A is 3 units lower, so it has $10^3 = 1000$ times more H⁺. Treating the scale as linear gives 3 times; dividing 6 by 3 gives 2 times; getting the direction backward gives 1000 times less (lower pH means more H⁺).
+- id: bio-q-0129
+  lesson: bio-chemistry
+  topic: pH
+  stem: 'What is the hydrogen ion concentration of a solution with pH 5?'
+  choices: ['$10^{5}$ mol/L', '$10^{-5}$ mol/L', '$5$ mol/L', '$10^{-9}$ mol/L']
+  answer: 1
+  explanation: |-
+    $[\text{H}^+] = 10^{-\text{pH}} = 10^{-5}$ mol/L. Forgetting the negative sign gives $10^5$; $10^{-9}$ is the OH⁻ concentration at 25 °C, since the two exponents add to −14.
+- id: bio-q-0130
+  lesson: bio-chemistry
+  topic: pH
+  stem: 'Which pH describes a basic (alkaline) solution?'
+  choices: ['7.0', '4.2', '1.8', '9.5']
+  answer: 3
+  explanation: |-
+    Solutions above pH 7 are basic, pH 7 is neutral, and below 7 is acidic. So 9.5 is basic, 7.0 neutral, and 4.2 and 1.8 are acidic.
+- id: bio-q-0131
+  lesson: bio-chemistry
+  module_quiz: true
+  topic: pH
+  stem: 'A student adds 20 drops of acid to pure water and to a buffer solution. The pH of the water falls from 7.0 to 2.6; the pH of the buffer falls from 7.0 to 6.7. What do the results show?'
+  choices:
+    - 'The buffer released extra H⁺ when acid was added'
+    - 'The buffer kept its pH exactly constant no matter how much acid was added'
+    - 'The buffer took up most of the added H⁺ and resisted the change in pH'
+    - 'Pure water is a better buffer than the buffer solution'
+  answer: 2
+  explanation: |-
+    A buffer absorbs added H⁺, so its pH changed only 0.3 units while unbuffered water changed by more than 4 units. The buffer's pH did change slightly, and a buffer's capacity is limited, so it does not hold pH exactly constant.
+- id: bio-q-0132
+  lesson: bio-chemistry
+  topic: Chemistry of life
+  stem: 'Which six elements make up about 98% of the mass of living things?'
+  choices:
+    - 'carbon, hydrogen, nitrogen, oxygen, phosphorus, sulfur'
+    - 'carbon, hydrogen, oxygen, sodium, potassium, calcium'
+    - 'carbon, helium, nitrogen, oxygen, phosphorus, iron'
+    - 'hydrogen, oxygen, iron, calcium, chlorine, sulfur'
+  answer: 0
+  explanation: |-
+    The CHNOPS elements make up nearly all living matter. Sodium, potassium, calcium and iron are essential but present in much smaller amounts, and helium is not used by living things at all.
+- id: bio-q-0133
+  lesson: bio-chemistry
+  topic: Water
+  stem: 'Table salt dissolves easily in water but vegetable oil does not. The best explanation is that'
+  choices:
+    - 'salt is nonpolar and oil is polar'
+    - 'water is polar, so it attracts charged and polar substances but not nonpolar ones such as oil'
+    - 'oil molecules are too large to fit between water molecules'
+    - 'water forms covalent bonds with salt but not with oil'
+  answer: 1
+  explanation: |-
+    The partial charges on water molecules surround and pull apart ions such as Na⁺ and Cl⁻. Oil is nonpolar (hydrophobic), so water molecules attract each other rather than the oil. Dissolving does not involve forming covalent bonds with the solute.
+- id: bio-q-0134
+  lesson: bio-macromolecules
+  module_quiz: true
+  topic: Macromolecules
+  stem: 'How many water molecules are released when 12 glucose molecules are joined into a single straight chain by dehydration synthesis?'
+  choices: ['12', '13', '11', '6']
+  answer: 2
+  explanation: |-
+    A chain of $n$ monomers has $n - 1$ bonds, and each bond releases one water molecule: $12 - 1 = 11$. Answering 12 counts one water per monomer instead of one per bond.
+- id: bio-q-0135
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'Glucose has a molar mass of 180 g/mol and water 18 g/mol. What is the molar mass of a chain of 3 glucose units joined by dehydration synthesis?'
+  choices: ['540 g/mol', '486 g/mol', '522 g/mol', '504 g/mol']
+  answer: 3
+  explanation: |-
+    Three units form 2 bonds and release 2 water molecules: $3(180) - 2(18) = 540 - 36 = 504$ g/mol. 540 forgets the water; 486 subtracts 3 waters; 522 subtracts only one.
+- id: bio-q-0136
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'When you digest a protein into amino acids, the bonds between amino acids are broken by'
+  choices:
+    - 'hydrolysis, which adds water across each bond'
+    - 'dehydration synthesis, which removes water'
+    - 'denaturation, which removes the R groups'
+    - 'ionic bonding with stomach acid'
+  answer: 0
+  explanation: |-
+    Hydrolysis splits a polymer by adding a water molecule across each bond. Dehydration synthesis is the reverse, building polymers. Denaturation unfolds a protein but leaves its peptide bonds intact.
+- id: bio-q-0137
+  lesson: bio-macromolecules
+  module_quiz: true
+  topic: Macromolecules
+  stem: 'A molecule contains carbon, hydrogen, oxygen, nitrogen and phosphorus. Hydrolysis breaks it into many monomers of four kinds, each with a sugar, a phosphate and a nitrogen base. The molecule is'
+  choices: ['a protein', 'a polysaccharide', 'a triglyceride', 'a nucleic acid']
+  answer: 3
+  explanation: |-
+    Monomers with a sugar, phosphate and base are nucleotides, and four kinds suggests DNA or RNA. Proteins are made of 20 kinds of amino acids and usually lack phosphorus; polysaccharides contain only C, H and O; triglycerides are glycerol plus fatty acids.
+- id: bio-q-0138
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'Starch and cellulose are both polymers of glucose. Why can humans digest starch but not cellulose?'
+  choices:
+    - 'The glucose units in cellulose are linked in a different orientation that human enzymes cannot break'
+    - 'Cellulose is made of fructose instead of glucose'
+    - 'Cellulose is a protein and starch is a carbohydrate'
+    - 'Starch contains nitrogen that human enzymes recognize'
+  answer: 0
+  explanation: |-
+    Both are made only of glucose; the difference is the linkage between units. Human enzymes fit the starch linkage but not the cellulose linkage. Cows digest cellulose only with help from gut microbes that make the right enzymes.
+- id: bio-q-0139
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'Butter is solid at room temperature while olive oil is liquid. What is the main reason?'
+  choices:
+    - 'Olive oil has more saturated fatty acids, which are straight'
+    - 'Butter is a carbohydrate and olive oil is a lipid'
+    - 'Butter has more saturated fatty acids, whose straight chains pack tightly together'
+    - 'Olive oil contains more phosphorus'
+  answer: 2
+  explanation: |-
+    Saturated fatty acids have no carbon–carbon double bonds, so their chains are straight and pack closely, forming a solid. The double bonds in unsaturated fatty acids put kinks in the chains, keeping oils liquid. Both are lipids.
+- id: bio-q-0140
+  lesson: bio-macromolecules
+  module_quiz: true
+  topic: Macromolecules
+  stem: 'A food sample turns iodine solution blue-black, but Benedict''s solution stays blue after heating and biuret stays blue. The sample contains'
+  choices: ['glucose', 'starch', 'protein', 'lipid']
+  answer: 1
+  explanation: |-
+    Iodine turns blue-black with starch. Benedict's would turn orange or brick-red with simple sugars such as glucose, and biuret would turn violet with protein; both stayed blue, so those are absent. Lipids are detected by a translucent spot on paper.
+- id: bio-q-0141
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'Which molecule is the main long-term energy store in animals and provides about 9 kcal per gram?'
+  choices: ['fat (triglyceride)', 'glucose', 'protein', 'DNA']
+  answer: 0
+  explanation: |-
+    Fats store about 9 kcal/g, roughly twice the 4 kcal/g of carbohydrates and proteins, so they are a compact long-term store. Glucose is the quick energy source; proteins mainly do jobs; DNA stores information.
+- id: bio-q-0142
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'In the 1950s, Anfinsen unfolded the enzyme ribonuclease with chemicals; when the chemicals were removed, it refolded and regained its activity. What did this show?'
+  choices:
+    - 'Proteins can work without having any particular shape'
+    - 'Enzymes are made of nucleic acids, not amino acids'
+    - 'The amino acid sequence contains all the information needed for the protein to fold into its working shape'
+    - 'Once a protein unfolds, it can never regain its activity'
+  answer: 2
+  explanation: |-
+    Nothing but the chain itself was present, yet it folded back into the active shape, so the primary structure (sequence) determines the 3-D structure. Activity disappeared when it was unfolded, showing that shape matters for function.
+- id: bio-q-0143
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'Which comparison of DNA and RNA is correct?'
+  choices:
+    - 'DNA has ribose and uracil; RNA has deoxyribose and thymine'
+    - 'DNA has deoxyribose and thymine; RNA has ribose and uracil'
+    - 'Both have deoxyribose, but only RNA has thymine'
+    - 'DNA is made of amino acids and RNA is made of nucleotides'
+  answer: 1
+  explanation: |-
+    DNA's sugar is deoxyribose and its bases are A, T, G, C. RNA's sugar is ribose and it uses uracil in place of thymine. Both are polymers of nucleotides.
+- id: bio-q-0144
+  lesson: bio-macromolecules
+  topic: Macromolecules
+  stem: 'The function of a protein depends most directly on'
+  choices:
+    - 'the number of phosphate groups it contains'
+    - 'how many glucose units it is built from'
+    - 'whether its fatty acids are saturated'
+    - 'its three-dimensional shape, which is determined by its amino acid sequence'
+  answer: 3
+  explanation: |-
+    Proteins are chains of amino acids that fold into specific shapes, and the shape determines what the protein can bind and do. Proteins are not built from glucose or fatty acids, and phosphate groups are characteristic of nucleotides.
+- id: bio-q-0145
+  lesson: bio-enzymes
+  module_quiz: true
+  topic: Enzymes
+  stem: 'Enzymes speed up chemical reactions by'
+  choices:
+    - 'adding energy to the reactants'
+    - 'increasing the total energy released by the reaction'
+    - 'being used up as they react with the substrate'
+    - 'lowering the activation energy of the reaction'
+  answer: 3
+  explanation: |-
+    An enzyme provides an easier pathway with a lower activation energy. It does not supply energy or change the overall energy difference between reactants and products, and it comes out of the reaction unchanged, ready to be reused.
+- id: bio-q-0146
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'The enzyme lactase breaks down lactose but has no effect on sucrose. The best explanation is that'
+  choices:
+    - 'lactose fits the shape and chemistry of lactase''s active site, but sucrose does not'
+    - 'sucrose denatures lactase'
+    - 'lactase is used up after breaking down lactose'
+    - 'sucrose is not a carbohydrate'
+  answer: 0
+  explanation: |-
+    Enzyme specificity comes from the active site, which matches the shape and chemical properties of its substrate. Sucrose is a carbohydrate too, but it does not fit lactase's active site. Enzymes are not used up.
+- id: bio-q-0147
+  lesson: bio-enzymes
+  module_quiz: true
+  topic: Enzymes
+  stem: 'Catalase produces 0 mL of oxygen at 0 s and 12 mL at 15 s. What is the initial rate of reaction?'
+  choices: ['1.25 mL/s', '12 mL/s', '0.8 mL/s', '180 mL/s']
+  answer: 2
+  explanation: |-
+    Rate = change in amount / change in time = 12 mL / 15 s = 0.8 mL/s. Dividing time by volume gives 1.25; 12 mL/s ignores the time; 180 multiplies instead of dividing.
+- id: bio-q-0148
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'In a catalase experiment, oxygen is produced quickly at first, but the rate slows and finally stops after a few minutes. The most likely reason is that'
+  choices:
+    - 'the catalase is being used up in the reaction'
+    - 'the hydrogen peroxide substrate is being used up'
+    - 'the catalase has evolved to stop working'
+    - 'the oxygen produced denatures the enzyme immediately'
+  answer: 1
+  explanation: |-
+    Enzymes are reused, but the substrate is consumed. As hydrogen peroxide runs out, fewer substrate molecules collide with active sites. Adding more peroxide would restart the reaction, which would not happen if the enzyme had been used up.
+- id: bio-q-0149
+  lesson: bio-enzymes
+  module_quiz: true
+  topic: Enzymes
+  stem: 'A human digestive enzyme is tested at different temperatures. Its activity rises from 10 °C to 37 °C and then falls steeply, reaching almost zero at 55 °C. Why does activity fall above 37 °C?'
+  choices:
+    - 'The molecules move too slowly to collide'
+    - 'The enzyme is killed because it is a living organism'
+    - 'The substrate becomes a different molecule at high temperature'
+    - 'The enzyme denatures: heat breaks the weak bonds holding its active site in shape'
+  answer: 3
+  explanation: |-
+    High temperatures disrupt hydrogen bonds and other weak interactions, so the active site loses its shape. Molecules move faster, not slower, at high temperature. Enzymes are molecules, not living things, so they denature rather than die.
+- id: bio-q-0150
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'An enzyme sample is kept at 4 °C overnight, where it shows very little activity. Then it is warmed to its optimum of 37 °C. Predict what happens.'
+  choices:
+    - 'Its activity returns, because cold slows enzymes without denaturing them'
+    - 'It stays inactive, because cold permanently denatures enzymes'
+    - 'It becomes more active than an enzyme that was never chilled'
+    - 'It changes its optimum temperature to 4 °C'
+  answer: 0
+  explanation: |-
+    Low temperature slows molecular motion and collisions, but the enzyme keeps its shape. Warming restores normal activity. Heat and extreme pH, not cold, cause denaturation.
+- id: bio-q-0151
+  lesson: bio-enzymes
+  module_quiz: true
+  topic: Enzymes
+  stem: 'Pepsin works in the stomach and trypsin works in the small intestine. Which prediction about their optimum pH is correct?'
+  choices:
+    - 'Both have an optimum near pH 7'
+    - 'Pepsin has an optimum near pH 2 and trypsin near pH 8'
+    - 'Pepsin has an optimum near pH 8 and trypsin near pH 2'
+    - 'Both have an optimum near pH 2'
+  answer: 1
+  explanation: |-
+    Each enzyme's optimum matches the environment where it works: the stomach is strongly acidic (about pH 2) and the small intestine slightly basic (about pH 8). Assuming all enzymes share one optimum is a common error.
+- id: bio-q-0152
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'With a fixed amount of enzyme, the reaction rate rises as substrate concentration increases, then levels off. Why does it level off?'
+  choices:
+    - 'The enzyme has been denatured by the substrate'
+    - 'The substrate is used up at high concentrations'
+    - 'All the active sites are occupied, so the enzyme is working at its maximum rate'
+    - 'Extra substrate acts as a competitive inhibitor'
+  answer: 2
+  explanation: |-
+    At high substrate concentration every active site is busy all the time (the enzyme is saturated). Only adding more enzyme would raise the rate further. The substrate is plentiful, not used up, and it does not denature or inhibit the enzyme.
+- id: bio-q-0153
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'A drug slows an enzyme at low substrate concentration, but at very high substrate concentration the rate with the drug is nearly the same as without it. The drug is most likely'
+  choices: ['a noncompetitive inhibitor', 'a cofactor', 'a denaturing agent', 'a competitive inhibitor']
+  answer: 3
+  explanation: |-
+    A competitive inhibitor competes with the substrate for the active site, so flooding the reaction with substrate outcompetes it. A noncompetitive inhibitor changes the enzyme's shape from another site, so extra substrate would not restore the rate. A denaturing agent would not be overcome by substrate either, and a cofactor helps an enzyme work.
+- id: bio-q-0154
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'A student boils a slice of liver, cools it, and adds it to hydrogen peroxide. Almost no bubbles form. A fresh slice bubbles vigorously. What conclusion is supported?'
+  choices:
+    - 'Boiling used up all the hydrogen peroxide'
+    - 'Cooling the liver denatured the catalase'
+    - 'Boiling denatured the catalase in the liver, and cooling did not restore it'
+    - 'Liver does not contain catalase'
+  answer: 2
+  explanation: |-
+    The fresh slice is the control: it shows the liver has active catalase and the peroxide works. The only difference is boiling, which denatures the enzyme permanently. The peroxide was not boiled, and cooling only slows enzymes.
+- id: bio-q-0155
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'In 1897 Buchner showed that juice from ground yeast, filtered so that no living cells remained, could still ferment sugar into alcohol. What did this demonstrate?'
+  choices:
+    - 'Fermentation requires living yeast cells'
+    - 'Fermentation is carried out by chemicals (enzymes) that can work outside living cells'
+    - 'Enzymes are made of DNA'
+    - 'Sugar can turn into alcohol with no catalyst at all'
+  answer: 1
+  explanation: |-
+    With no living cells present, the reaction still happened, so molecules in the juice, now called enzymes, were doing the chemistry. This overturned the idea that a vital force of life was required. Later work showed most enzymes are proteins.
+- id: bio-q-0156
+  lesson: bio-enzymes
+  topic: Enzymes
+  stem: 'In feedback inhibition, the end product of a series of reactions'
+  choices:
+    - 'inhibits an enzyme early in the series, so the cell stops making the product when it has enough'
+    - 'activates the first enzyme so that more product is made'
+    - 'denatures every enzyme in the series'
+    - 'becomes the substrate for the first enzyme'
+  answer: 0
+  explanation: |-
+    The end product binds an early enzyme and slows it, turning down the whole pathway when the product builds up. This is how cells avoid wasting materials. It is regulation, not denaturation.
