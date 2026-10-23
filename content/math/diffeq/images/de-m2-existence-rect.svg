@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
-<rect x="0" y="0" width="640" height="420" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440">
+<rect x="0" y="0" width="640" height="440" fill="#ffffff"/>
 <line x1="60" y1="370" x2="615" y2="370" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
 <polygon points="620,370 608,364 608,376" fill="#1c2833"/>
 <line x1="60" y1="370" x2="60" y2="25" stroke="#1c2833" stroke-width="2" stroke-linecap="butt"/>
@@ -30,8 +30,8 @@
 <text x="46" y="305" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">c</text>
 <text x="42" y="200" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="normal" fill="#1c2833" font-style="italic">y₀</text>
 <text x="318" y="222" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" font-weight="normal" fill="#1c2833">(t₀, y₀)</text>
-<text x="498" y="116" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" font-weight="normal" fill="#1c2833">rectangle R</text>
-<text x="498" y="136" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833">f and ∂f/∂y continuous</text>
+<text x="492" y="268" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" font-weight="normal" fill="#1c2833">rectangle R:</text>
+<text x="492" y="288" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833">f, ∂f/∂y continuous</text>
 <text x="172" y="283" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">solution</text>
-<text x="300" y="403" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">guaranteed interval t₀ − h &lt; t &lt; t₀ + h</text>
+<text x="300" y="425" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">guaranteed interval t₀ − h &lt; t &lt; t₀ + h</text>
 </svg>
