@@ -1,0 +1,601 @@
+# Module 4 (autonomous equations and numerical methods): round 2 (new question types and honors lessons)
+# Lesson 14: autonomous equations and phase lines
+- id: de-m4-r2-q01
+  lesson: de-autonomous
+  type: text
+  topic: Autonomous equations
+  stem: 'The equilibria of $y'' = y^2 - 7y + 10$ are $y =$ ___ and $y =$ ___ (smaller first). The asymptotically stable one is $y =$ ___. Give only the numbers.'
+  accept:
+    - ['2']
+    - ['5']
+    - ['2']
+  explanation: |-
+    $y^2 - 7y + 10 = (y - 2)(y - 5)$, so the equilibria are $2$ and $5$. With $f'(y) = 2y - 7$: $f'(2) = -3 < 0$, so $y = 2$ is stable; $f'(5) = 3 > 0$, so $y = 5$ is unstable. (Check with signs: $f(0) = 10 > 0$ pushes up toward 2, $f(3) = -2 < 0$ pushes down toward 2.)
+- id: de-m4-r2-q02
+  lesson: de-autonomous
+  type: label
+  module_quiz: true
+  topic: Autonomous equations
+  stem: 'The phase line belongs to $y'' = (y + 2)(y - 1)^2(y - 3)$. Classify each numbered equilibrium.'
+  image: {src: images/de-m4-phase-line-blank.svg, alt: 'A vertical phase line with equilibria at y = 3, y = 1 and y = −2. Arrows point up above 3, down between 1 and 3, down between −2 and 1, and up below −2.'}
+  labels:
+    - {x: 46.9, y: 23.0, text: 'Unstable (source)'}
+    - {x: 46.9, y: 44.6, text: 'Semistable'}
+    - {x: 46.9, y: 77.0, text: 'Asymptotically stable (sink)'}
+  explanation: |-
+    Read the two arrows next to each dot. At $y = 3$ the arrow below points down and the arrow above points up: both point away, so it is unstable. At $y = 1$ the arrow above points down (toward it) and the arrow below points down (away): semistable, as the squared factor $(y - 1)^2$, which never changes sign, suggests. At $y = -2$ the arrow below points up and the arrow above points down: both point in, so it is asymptotically stable.
+- id: de-m4-r2-q03
+  lesson: de-autonomous
+  type: order
+  topic: Autonomous equations
+  stem: 'Put the steps for drawing and using a phase line in order.'
+  items:
+    - 'Solve $f(y) = 0$ to find the equilibria'
+    - 'Test the sign of $f(y)$ in each interval between equilibria'
+    - 'Draw arrows up where $f > 0$ and down where $f < 0$'
+    - 'Classify each equilibrium from the arrows on either side'
+  explanation: |-
+    The equilibria split the line into intervals, so they come first. The sign of $f$ on each interval gives the arrow there, and the arrows next to an equilibrium decide whether it is stable, unstable or semistable.
+- id: de-m4-r2-q04
+  lesson: de-autonomous
+  module_quiz: true
+  topic: Autonomous equations
+  stem: 'Which statements about $y'' = y^2(y - 3)$ are true? Select all that apply.'
+  choices: ['$y = 0$ is semistable', '$y = 3$ is unstable', 'The solution with $y(0) = 1$ tends to 0', 'The solution with $y(0) = 4$ tends to 3']
+  answer: [0, 1, 2]
+  explanation: |-
+    $f(y) = y^2(y - 3)$ is negative for $y < 0$ and for $0 < y < 3$, and positive for $y > 3$. So arrows point down below 3 and up above 3. At $0$: down on both sides, toward it from above and away below: semistable (the derivative test fails, since $f'(0) = 0$). At $3$: both arrows point away: unstable. Starting at 1, $y$ decreases toward $0$. Starting at 4, $f > 0$, so $y$ increases without bound; it moves away from 3.
+- id: de-m4-r2-q05
+  lesson: de-autonomous
+  type: match
+  topic: Autonomous equations
+  stem: 'Match each equation to what $y = 0$ is for it.'
+  pairs:
+    - ['$y'' = -y^3$', 'Asymptotically stable']
+    - ['$y'' = y^2$', 'Semistable']
+    - ['$y'' = \sin y$', 'Unstable']
+    - ['$y'' = y + 1$', 'Not an equilibrium']
+  explanation: |-
+    $-y^3$ is positive for $y < 0$ and negative for $y > 0$: both arrows point to 0, so it is stable even though $f'(0) = 0$. $y^2 \ge 0$: arrows point up on both sides, so semistable. $\sin y$ has $f'(0) = \cos 0 = 1 > 0$: unstable. For $y + 1$, $f(0) = 1 \ne 0$, so $y = 0$ is not an equilibrium (the equilibrium is $y = -1$).
+# Lesson 15: bifurcations
+- id: de-m4-r2-q06
+  lesson: de-bifurcation
+  type: text
+  topic: Bifurcations
+  stem: 'For the harvesting model $P'' = 2P\left(1 - \dfrac{P}{600}\right) - h$, the bifurcation value is $h^* =$ ___.'
+  accept: ['300']
+  explanation: |-
+    The growth term $rP(1 - P/K)$ has maximum $rK/4 = 2 \cdot 600/4 = 300$, at $P = K/2 = 300$. For $h < 300$ there are two equilibria; for $h > 300$ there are none and the population crashes.
+- id: de-m4-r2-q07
+  lesson: de-bifurcation
+  type: label
+  module_quiz: true
+  topic: Bifurcations
+  stem: 'Each panel is a bifurcation diagram (parameter $c$ across, equilibria $y^*$ up; solid stable, dashed unstable). Name the equation each numbered panel belongs to.'
+  image: {src: images/de-m4-bifurcation-types-blank.svg, alt: 'Three bifurcation diagrams. Panel 1: for c < 0, a solid lower branch and a dashed upper branch forming a sideways parabola that ends at the origin, and nothing for c > 0. Panel 2: two lines crossing at the origin, the horizontal axis solid for c < 0 and dashed for c > 0, the diagonal dashed for c < 0 and solid for c > 0. Panel 3: the horizontal axis solid for c < 0 and dashed for c > 0, with two solid branches opening to the right from the origin.'}
+  labels:
+    - {x: 17.4, y: 12.5, text: 'Saddle-node: y′ = c + y²'}
+    - {x: 50.0, y: 12.5, text: 'Transcritical: y′ = cy − y²'}
+    - {x: 82.6, y: 12.5, text: 'Pitchfork: y′ = cy − y³'}
+  distractors: ['Saddle-node: y′ = c − y²', 'Pitchfork: y′ = cy + y³']
+  explanation: |-
+    Panel 1 has equilibria only for $c < 0$: $c + y^2 = 0$ gives $y = \pm\sqrt{-c}$, and $f'(y) = 2y$ makes the lower one stable. ($c - y^2$ would have its branches at $c > 0$.) Panel 2: $cy - y^2 = y(c - y)$ has equilibria $0$ and $c$, which cross at $c = 0$ and swap stability. Panel 3: $cy - y^3$ has only $0$ for $c \le 0$, and for $c > 0$ two stable branches $\pm\sqrt c$ while $0$ turns unstable. ($cy + y^3$ would have unstable outer branches for $c < 0$.)
+- id: de-m4-r2-q08
+  lesson: de-bifurcation
+  type: match
+  topic: Bifurcations
+  stem: 'Match each family, as its parameter increases through the bifurcation value, to the type of bifurcation.'
+  pairs:
+    - ['$P'' = rP(1 - P/K) - h$, increasing $h$', 'Saddle-node']
+    - ['$P'' = aP - kP^2$, increasing the net growth rate $a$', 'Transcritical']
+    - ['$y'' = cy - y^3$, increasing $c$', 'Pitchfork']
+    - ['$y'' = y^2 - 4y + c$, increasing $c$', 'Saddle-node']
+  distractors: ['No bifurcation']
+  explanation: |-
+    Harvesting: two equilibria merge at $h = rK/4$ and vanish (saddle-node). $aP - kP^2 = P(a - kP)$: the equilibria $0$ and $a/k$ cross at $a = 0$ and exchange stability (transcritical); this is the births-minus-deaths example. $cy - y^3$: one equilibrium becomes three at $c = 0$ (pitchfork). $y^2 - 4y + c$: equilibria $2 \pm \sqrt{4 - c}$ merge at $c = 4$ and vanish (saddle-node).
+- id: de-m4-r2-q09
+  lesson: de-bifurcation
+  topic: Bifurcations
+  stem: 'For $y'' = cy - y^3$ with $c = 4$, which statements are true? Select all that apply.'
+  choices: ['$y = 2$ is asymptotically stable', '$y = 0$ is unstable', '$y = -2$ is unstable', 'A solution starting at $y = 0.1$ tends to 2']
+  answer: [0, 1, 3]
+  explanation: |-
+    $y(4 - y^2) = 0$ gives $y = 0, \pm 2$. With $f'(y) = 4 - 3y^2$: $f'(0) = 4 > 0$ (unstable) and $f'(\pm 2) = -8 < 0$ (both stable, so $-2$ is stable too). A small positive start lies in $(0, 2)$, where $f > 0$, so it rises to 2.
+- id: de-m4-r2-q10
+  lesson: de-bifurcation
+  type: order
+  module_quiz: true
+  topic: Bifurcations
+  stem: 'For $P'' = P(1 - P/100) - h$, put the phase-line pictures in the order they appear as the quota $h$ increases from 0 to 30.'
+  items:
+    - 'Equilibria at 0 and 100'
+    - 'Equilibria at 20 and 80'
+    - 'Equilibria at 40 and 60'
+    - 'One semistable equilibrium at 50'
+    - 'No equilibria: every solution decreases'
+  explanation: |-
+    The equilibria are $P = 50 \pm \sqrt{2500 - 100h}$. At $h = 0$ they are $0$ and $100$; at $h = 16$, $20$ and $80$; at $h = 24$, $40$ and $60$. They squeeze together until they merge at $50$ when $h = 25$, and for $h > 25$ there are none.
+# Lesson 16: error and the improved Euler method
+- id: de-m4-r2-q11
+  lesson: de-improved-euler
+  type: label
+  topic: Numerical methods
+  stem: 'The picture shows one improved Euler step for $y'' = y$. Name the numbered parts.'
+  image: {src: images/de-m4-heun-step-blank.svg, alt: 'From a starting point, a dashed line rises to an open circle at t + h. A short steeper dashed segment passes through the open circle. A solid line from the starting point ends at a filled dot above the open circle. A curve rising more and more steeply passes near the filled dot.'}
+  labels:
+    - {x: 43.4, y: 63.9, text: 'Euler step along the starting slope k₁'}
+    - {x: 69.7, y: 48.7, text: 'Euler prediction'}
+    - {x: 69.7, y: 33.5, text: 'Improved Euler value yₙ₊₁'}
+    - {x: 73.9, y: 19.9, text: 'True solution'}
+  distractors: ['Midpoint estimate']
+  explanation: |-
+    The dashed line from the start follows $k_1$ for a full step and lands on the Euler prediction (open circle). The slope $k_2$ is measured there (the short steeper segment). The solid line uses the average slope $(k_1 + k_2)/2$ and ends at the improved Euler value, which sits much closer to the curved true solution. Improved Euler never uses a midpoint.
+- id: de-m4-r2-q12
+  lesson: de-improved-euler
+  type: order
+  module_quiz: true
+  topic: Numerical methods
+  stem: 'Put the parts of one improved Euler step in order.'
+  items:
+    - 'Evaluate $k_1 = f(t_n, y_n)$'
+    - 'Predict $y_n + hk_1$ at $t_n + h$'
+    - 'Evaluate $k_2$ at the predicted point'
+    - 'Set $y_{n+1} = y_n + \tfrac h2(k_1 + k_2)$'
+  explanation: |-
+    Each part needs the one before it: the prediction uses $k_1$, $k_2$ is evaluated at the prediction, and the final update averages $k_1$ and $k_2$.
+- id: de-m4-r2-q13
+  lesson: de-improved-euler
+  type: text
+  topic: Numerical methods
+  stem: 'One improved Euler step with $h = 0.2$ for $y'' = y$, $y(0) = 1$ gives $y_1 =$ ___. Give the exact decimal.'
+  accept: ['1.22']
+  explanation: |-
+    $k_1 = 1$. The prediction is $1 + 0.2(1) = 1.2$, so $k_2 = 1.2$. Then $y_1 = 1 + 0.1(1 + 1.2) = 1.22$. (One step multiplies by $1 + h + h^2/2$; the exact value is $e^{0.2} \approx 1.2214$.)
+- id: de-m4-r2-q14
+  lesson: de-improved-euler
+  module_quiz: true
+  topic: Numerical methods
+  stem: 'Which statements about the improved Euler method are true? Select all that apply.'
+  choices: ['It uses two evaluations of $f$ per step', 'Its global error is roughly proportional to $h^2$', 'Its local truncation error is roughly proportional to $h^2$', 'For $y'' = f(t)$ it is the trapezoid rule']
+  answer: [0, 1, 3]
+  explanation: |-
+    Each step evaluates $f$ twice ($k_1$ and $k_2$). The method is second order: global error $\propto h^2$, local error $\propto h^3$ (one power higher), so the statement about local error $h^2$ describes Euler's method instead. When $f$ depends only on $t$, the step is $\tfrac h2\big(f(t_n) + f(t_n + h)\big)$, the trapezoid rule.
+- id: de-m4-r2-q15
+  lesson: de-improved-euler
+  type: match
+  topic: Numerical methods
+  stem: 'Match each kind of error to its description.'
+  pairs:
+    - ['Local truncation error', 'Error made in one step that starts on the true solution']
+    - ['Global error', 'Total error at the end, after all the steps']
+    - ['Round-off error', 'Error from computer arithmetic with finitely many digits']
+  distractors: ['Error from using the wrong differential equation']
+  explanation: |-
+    Local truncation error is per step, assuming the step started exactly on the solution. Global error is what you actually see at the end, after local errors have accumulated over $L/h$ steps. Round-off comes from storing numbers with limited digits, and grows with the number of steps.
+# Lesson 17: Runge-Kutta methods
+- id: de-m4-r2-q16
+  lesson: de-runge-kutta
+  type: label
+  module_quiz: true
+  topic: Numerical methods
+  stem: 'The picture shows where one RK4 step for $y'' = y$ samples its four slopes. Name each numbered sample point.'
+  image: {src: images/de-m4-rk4-samples-blank.svg, alt: 'Four dots with short slope bars: one at the starting point, two above each other at the midpoint of the step, and one at the end of the step, with a curved true solution.'}
+  labels:
+    - {x: 17.1, y: 79.1, text: 'k₁: the start'}
+    - {x: 43.4, y: 63.9, text: 'k₂: midpoint reached with k₁'}
+    - {x: 43.4, y: 56.3, text: 'k₃: midpoint reached with k₂'}
+    - {x: 69.7, y: 25.9, text: 'k₄: end reached with k₃'}
+  distractors: ['k₄: end reached with k₁', 'k₂: end reached with k₁']
+  explanation: |-
+    $k_1$ is the slope at the start. Following it for half a step gives the lower midpoint, where $k_2$ is measured. Because $k_2 > k_1$ here, following $k_2$ for half a step reaches the higher midpoint, where $k_3$ is measured. Following $k_3$ for a full step reaches the end point, where $k_4$ is measured.
+- id: de-m4-r2-q17
+  lesson: de-runge-kutta
+  type: text
+  topic: Numerical methods
+  stem: 'One RK4 step with $h = 0.1$ for $y'' = y$, $y(0) = 1$ gives $y_1 =$ ___. Round to 5 decimal places.'
+  accept: ['1.10517']
+  explanation: |-
+    $k_1 = 1$, $k_2 = 1 + 0.05(1) = 1.05$, $k_3 = 1 + 0.05(1.05) = 1.0525$, $k_4 = 1 + 0.1(1.0525) = 1.10525$. Then $y_1 = 1 + \tfrac{0.1}{6}(1 + 2.1 + 2.105 + 1.10525) = 1 + \tfrac{0.1}{6}(6.31025) \approx 1.1051708$, which rounds to $1.10517$. (Exact: $e^{0.1} \approx 1.1051709$.)
+- id: de-m4-r2-q18
+  lesson: de-runge-kutta
+  type: order
+  topic: Numerical methods
+  stem: 'Put the computations of one RK4 step in order.'
+  items:
+    - '$k_1 = f(t_n, y_n)$'
+    - '$k_2 = f\left(t_n + \tfrac h2,\ y_n + \tfrac h2 k_1\right)$'
+    - '$k_3 = f\left(t_n + \tfrac h2,\ y_n + \tfrac h2 k_2\right)$'
+    - '$k_4 = f(t_n + h,\ y_n + hk_3)$'
+    - '$y_{n+1} = y_n + \tfrac h6(k_1 + 2k_2 + 2k_3 + k_4)$'
+  explanation: |-
+    Each slope uses the one before it ($k_2$ needs $k_1$, $k_3$ needs $k_2$, $k_4$ needs $k_3$), and the update needs all four.
+- id: de-m4-r2-q19
+  lesson: de-runge-kutta
+  topic: Numerical methods
+  stem: 'Which statements about RK4 are true? Select all that apply.'
+  choices: ['Halving $h$ cuts the global error by about a factor of 16', 'Each step needs the partial derivative $\partial f/\partial y$', 'It works for systems by treating $y$ and each $k_i$ as vectors', 'It stays stable on $y'' = -\lambda y$ for every step size']
+  answer: [0, 2]
+  explanation: |-
+    RK4 is fourth order, so halving $h$ divides the error by about $2^4 = 16$, and the same formulas work for systems with vectors. It needs only values of $f$, not its derivatives. And it is not stable for every step: like Euler's method it blows up on stiff problems when $h\lambda$ is too large (about $h\lambda > 2.8$).
+- id: de-m4-r2-q20
+  lesson: de-runge-kutta
+  type: match
+  module_quiz: true
+  topic: Numerical methods
+  stem: 'Match each method to what halving the step size does to its global error (for small $h$).'
+  pairs:
+    - ['Euler', 'Divides it by about 2']
+    - ['Improved Euler', 'Divides it by about 4']
+    - ['RK4', 'Divides it by about 16']
+  distractors: ['Divides it by about 8']
+  explanation: |-
+    A method of order $p$ has global error about $Ch^p$, so halving $h$ divides the error by $2^p$: Euler ($p = 1$) by 2, improved Euler ($p = 2$) by 4, RK4 ($p = 4$) by 16. A factor of 8 would need a third-order method.
+# Honors lesson 17h1: harvesting policies and resilience
+- id: de-m4-r2-h01
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'A stock follows $P'' = 0.5P\left(1 - \dfrac{P}{800}\right) - 0.2P$ (constant effort). What is its stable equilibrium?'
+  choices: ['$P^* = 480$', '$P^* = 320$', '$P^* = 640$', '$P^* = 160$']
+  answer: 0
+  explanation: |-
+    $P^* = K(1 - E/r) = 800(1 - 0.2/0.5) = 800(0.6) = 480$. The value 320 is $800 \cdot 0.4$, using $E/r$ instead of $1 - E/r$; 640 is $800(1 - 0.2)$, forgetting to divide by $r$; 160 is $800 \cdot 0.2$.
+- id: de-m4-r2-h02
+  lesson: de-m4-h-harvesting
+  type: text
+  topic: Harvesting models
+  stem: 'With $r = 1$, $K = 200$ and constant effort $E = 0.25$, the sustainable yield is $Y =$ ___ per unit time.'
+  accept: ['37.5']
+  explanation: |-
+    $P^* = 200(1 - 0.25/1) = 150$, so $Y = EP^* = 0.25 \times 150 = 37.5$. (The maximum, at $E = 0.5$, would be $rK/4 = 50$.)
+- id: de-m4-r2-h03
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'For $r = 0.6$ and $K = 1000$ with constant-effort harvesting, which effort maximizes the sustainable yield, and what is that yield?'
+  choices: ['$E = 0.3$, $Y = 150$', '$E = 0.6$, $Y = 150$', '$E = 0.3$, $Y = 300$', '$E = 0.15$, $Y = 112.5$']
+  answer: 0
+  explanation: |-
+    $Y(E) = EK(1 - E/r)$ peaks at $E = r/2 = 0.3$, where $P^* = K/2 = 500$ and $Y = 0.3 \times 500 = 150 = rK/4$. At $E = r = 0.6$ the stock is driven to zero, so the yield there is 0. $Y = 300$ forgets that the stock at MSY is $K/2$, not $K$. $E = 0.15$ gives only $0.15 \times 750 = 112.5$.
+- id: de-m4-r2-h04
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'Which statements about constant-effort harvesting $P'' = rP(1 - P/K) - EP$ with $0 < E < r$ are true? Select all that apply.'
+  choices: ['It is a logistic equation with growth rate $r - E$', 'Its positive equilibrium is asymptotically stable', 'At $E = r$ it has a saddle-node bifurcation', 'The catch per unit time is proportional to the stock']
+  answer: [0, 1, 3]
+  explanation: |-
+    Collecting terms gives $(r - E)P\big(1 - P/(K(1 - E/r))\big)$, a logistic equation with rate $r - E$. Its positive equilibrium has $f'(P^*) = -(r - E) < 0$, so it is stable. The catch is $EP$, proportional to $P$. At $E = r$ the positive equilibrium meets $P = 0$ and they swap stability: a transcritical bifurcation, not a saddle-node.
+- id: de-m4-r2-h05
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'A stock with $r = 1.2$ per year is fished with constant effort $E = 0.7$ per year. What is the return time of its stable equilibrium?'
+  choices: ['2 years', '0.83 years', '1.43 years', '0.5 years']
+  answer: 0
+  explanation: |-
+    $f'(P^*) = -(r - E) = -0.5$, so $T_R = 1/0.5 = 2$ years. 0.83 is $1/r$ (no fishing), 1.43 is $1/E$, and 0.5 is $r - E$ itself rather than its reciprocal.
+- id: de-m4-r2-h06
+  lesson: de-m4-h-harvesting
+  type: text
+  topic: Harvesting models
+  stem: 'For the quota model $P'' = P(1 - P/100) - 21$, the stable equilibrium is $P =$ ___ and its return time is ___.'
+  accept:
+    - ['70']
+    - ['2.5', '5/2']
+  explanation: |-
+    $P = 50 \pm \sqrt{2500 - 2100} = 50 \pm 20$, so the equilibria are 30 (threshold) and 70 (stable). $f'(P) = 1 - P/50$ gives $f'(70) = -0.4$, so $T_R = 1/0.4 = 2.5$. The formula $1/\big(r\sqrt{1 - 4h/(rK)}\big) = 1/\sqrt{0.16}$ agrees.
+- id: de-m4-r2-h07
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'What is critical slowing down?'
+  choices: ['Near a tipping point, the system recovers from small disturbances more and more slowly', 'Near a tipping point, the population declines more and more slowly', 'Every solution slows down as it approaches an equilibrium', 'The bifurcation value drifts slowly as the parameter changes']
+  answer: 0
+  explanation: |-
+    As a parameter approaches a saddle-node bifurcation, $f'(y^*)$ at the stable equilibrium tends to 0, so the return time $1/\lvert f'(y^*)\rvert$ grows without bound. That growing sluggishness is critical slowing down. It is a statement about recovery near a bifurcation, not about all approaches to equilibria.
+- id: de-m4-r2-h08
+  lesson: de-m4-h-harvesting
+  type: order
+  topic: Harvesting models
+  stem: 'A stock has $r = 1$ and $K = 100$. Put these policies in order of the return time of the stable equilibrium, shortest first.'
+  items:
+    - 'No harvesting'
+    - 'Effort $E = 0.2$'
+    - 'Quota $h = 16$'
+    - 'Effort $E = 0.5$'
+    - 'Quota $h = 24$'
+  explanation: |-
+    Effort: $T_R = 1/(r - E)$, giving $1/1 = 1$ with no harvest, $1/0.8 = 1.25$ for $E = 0.2$ and $1/0.5 = 2$ for $E = 0.5$. Quota: $T_R = 1/\sqrt{1 - h/25}$, giving $1/0.6 \approx 1.67$ for $h = 16$ and $1/0.2 = 5$ for $h = 24$.
+- id: de-m4-r2-h09
+  lesson: de-m4-h-harvesting
+  type: match
+  topic: Harvesting models
+  stem: 'Match each harvesting situation to what happens.'
+  pairs:
+    - ['Quota $h$ slightly above $rK/4$', 'Collapse from any starting stock']
+    - ['Effort $E$ slightly above $r$', 'Slow decline to zero']
+    - ['Effort $E = r/2$', 'Maximum sustainable yield at a stable equilibrium']
+    - ['Quota $h = rK/4$ exactly', 'A semistable equilibrium at K/2']
+  distractors: ['Two stable equilibria']
+  explanation: |-
+    Above the MSY quota there are no equilibria and $P' < 0$ for every stock (saddle-node). Above $E = r$, the only equilibrium is $P = 0$ and it attracts, with $P' \approx (r - E)P$ for small $P$: a gradual decline (transcritical). Effort $r/2$ gives yield $rK/4$ at the stable $P^* = K/2$. A quota of exactly $rK/4$ leaves one semistable equilibrium at $K/2$. Neither model ever has two stable positive equilibria.
+- id: de-m4-r2-h10
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'With $r = 1$ and $K = 100$, a quota $h = 21$ and an effort $E = 0.3$ both settle at $P^* = 70$ with yield 21. A disease then cuts the stock to 25. What happens?'
+  choices: ['Under the quota it collapses; under the effort it recovers to 70', 'Under both policies it recovers to 70', 'Under the quota it recovers; under the effort it collapses', 'Under both policies it collapses']
+  answer: 0
+  explanation: |-
+    Quota: the equilibria are $50 \pm 20$, so the threshold is 30. At 25, $f = 25 - 6.25 - 21 = -2.25 < 0$: the stock keeps falling. Effort: $f(25) = 25(0.75) - 0.3(25) = 11.25 > 0$, and the model is logistic with capacity 70, so it recovers. The smaller stock means a smaller catch under effort control.
+- id: de-m4-r2-h11
+  lesson: de-m4-h-harvesting
+  type: text
+  topic: Harvesting models
+  stem: 'At a saddle-node bifurcation point, the derivative $f''(y^*)$ at the merging equilibrium equals ___. Give only the number.'
+  accept: ['0', 'zero']
+  explanation: |-
+    A bifurcation point satisfies $f = 0$ and $f_y = 0$ together (Lesson 15). That is why the return time $1/\lvert f'(y^*)\rvert$ grows without bound as the parameter approaches it.
+- id: de-m4-r2-h12
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'For $r = 0.8$ and $K = 500$, compare constant efforts $E = 0.2$ and $E = 0.6$.'
+  choices: ['Both give a yield of 75, but $E = 0.2$ keeps a stock three times larger', '$E = 0.6$ gives three times the yield of $E = 0.2$', '$E = 0.6$ gives both a larger yield and a larger stock', '$E = 0.2$ gives a larger yield and a larger stock']
+  answer: 0
+  explanation: |-
+    $E = 0.2$: $P^* = 500(0.75) = 375$, $Y = 75$. $E = 0.6$: $P^* = 500(0.25) = 125$, $Y = 75$. The yield curve $EK(1 - E/r)$ is symmetric about $E = r/2 = 0.4$, so efforts equally far from 0.4 give the same yield, but the lower effort leaves three times as many fish.
+- id: de-m4-r2-h13
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'Why can''t the return time predict what a large shock does to a stock under a quota?'
+  choices: ['It comes from linearizing near the equilibrium, and a large shock can push the stock past the threshold', 'Return times only apply to constant-effort models', 'Large shocks always recover faster than small ones', 'The return time depends on the size of the shock']
+  answer: 0
+  explanation: |-
+    $T_R = 1/\lvert f'(P^*)\rvert$ comes from $u' \approx f'(P^*)u$, valid only for small $u$. A large drop can cross the unstable threshold $P_1$, and then the stock collapses rather than returning. Return time applies to both policies, and within its range of validity it does not depend on the shock size.
+- id: de-m4-r2-h14
+  lesson: de-m4-h-harvesting
+  topic: Harvesting models
+  stem: 'For the quota model $P'' = P(1 - P/100) - 24$, which statements are true? Select all that apply.'
+  choices: ['The threshold is $P = 40$', 'The stable equilibrium is $P = 60$', 'The return time is 5', 'A stock knocked down to 45 will collapse']
+  answer: [0, 1, 2]
+  explanation: |-
+    $P = 50 \pm \sqrt{2500 - 2400} = 50 \pm 10$: threshold 40, stable 60. $f'(60) = 1 - 60/50 = -0.2$, so $T_R = 5$. A stock of 45 is above the threshold, where $P' > 0$ (for example $f(45) = 45 - 20.25 - 24 = 0.75$), so it recovers to 60.
+# Honors lesson 17h2: stiff equations and implicit methods
+- id: de-m4-r2-h15
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'One step of Euler''s method on the test equation $y'' = \lambda y$ multiplies $y$ by'
+  choices: ['$1 + h\lambda$', '$\dfrac{1}{1 - h\lambda}$', '$e^{h\lambda}$', '$1 + h\lambda + \tfrac12 h^2\lambda^2$']
+  answer: 0
+  explanation: |-
+    $y_{n+1} = y_n + h\lambda y_n = (1 + h\lambda)y_n$, so $R(z) = 1 + z$. The fraction $1/(1 - h\lambda)$ belongs to backward Euler, $1 + h\lambda + \tfrac12 h^2\lambda^2$ to improved Euler, and $e^{h\lambda}$ is what the exact solution does over one step.
+- id: de-m4-r2-h16
+  lesson: de-m4-h-stiff
+  type: text
+  topic: Stiff equations
+  stem: 'Euler''s method on $y'' = -40y$ is stable only for $h \le$ ___.'
+  accept: ['0.05']
+  explanation: |-
+    Stability needs $\lvert 1 + h\lambda\rvert \le 1$, that is $-2 \le -40h \le 0$, so $h \le 2/40 = 0.05$.
+- id: de-m4-r2-h17
+  lesson: de-m4-h-stiff
+  type: match
+  topic: Stiff equations
+  stem: 'Match each method to its stability function $R(z)$, where $z = h\lambda$.'
+  pairs:
+    - [Euler, '1 + z']
+    - [Improved Euler, '1 + z + z²/2']
+    - [Backward Euler, '1/(1 − z)']
+    - [Trapezoidal method, '(1 + z/2)/(1 − z/2)']
+  distractors: ['e^z']
+  explanation: |-
+    Apply each method to $y' = \lambda y$. Euler: $(1 + z)y_n$. Improved Euler: $k_1 = \lambda y_n$, $k_2 = \lambda(1 + z)y_n$, giving $1 + z + z^2/2$. Backward Euler: $y_{n+1}(1 - z) = y_n$. Trapezoidal: $y_{n+1}(1 - z/2) = (1 + z/2)y_n$. $e^z$ is the exact growth factor, which no method reproduces exactly.
+- id: de-m4-r2-h18
+  lesson: de-m4-h-stiff
+  type: label
+  topic: Stiff equations
+  stem: 'Each panel shades the region of absolute stability ($\lvert R(z)\rvert \le 1$) of a method in the complex $z$-plane. Name the method for each numbered panel.'
+  image: {src: images/de-m4-stability-regions-blank.svg, alt: 'Four panels showing the complex plane. Panel 1: a small shaded disk of radius 1 centered at −1. Panel 2: a larger shaded rounded region reaching to about −2.8 on the real axis and bulging slightly into the right half-plane near the imaginary axis. Panel 3: everything shaded except an unshaded disk of radius 1 centered at +1. Panel 4: the whole left half-plane shaded.'}
+  labels:
+    - {x: 21.7, y: 29.4, text: 'Euler'}
+    - {x: 68.9, y: 28.6, text: 'RK4'}
+    - {x: 16.8, y: 73.6, text: 'Backward Euler'}
+    - {x: 65.2, y: 73.6, text: 'Trapezoidal'}
+  explanation: |-
+    Euler: $\lvert 1 + z\rvert \le 1$ is the disk of radius 1 about $-1$. RK4's polynomial gives the larger bounded region reaching about $-2.785$. Backward Euler: $\lvert 1/(1 - z)\rvert \le 1$ means $\lvert z - 1\rvert \ge 1$, everything outside the disk about $+1$. Trapezoidal: $\lvert 1 + z/2\rvert \le \lvert 1 - z/2\rvert$ exactly when $z$ is at least as close to $-2$ as to $+2$, which is the left half-plane $\operatorname{Re} z \le 0$.
+- id: de-m4-r2-h19
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'Which description of a stiff equation is best?'
+  choices: ['Stability, not accuracy, forces explicit methods to take very small steps', 'Its solution changes very rapidly over the whole interval', 'It has no solution formula, so it must be solved numerically', 'It is nonlinear, so its slope field has no pattern']
+  answer: 0
+  explanation: |-
+    In a stiff problem the solution you care about is usually smooth, but a fast-decaying component (a large negative $\partial f/\partial y$) makes explicit methods unstable unless $h$ is tiny. Stiffness has nothing to do with whether a formula exists, and linear equations such as $y' = -1000(y - \cos t)$ can be stiff.
+- id: de-m4-r2-h20
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'Euler''s method with $h = 0.1$ is applied to $y'' = -1000(y - \cos t)$. By about what factor is an error multiplied each step?'
+  choices: ['$-99$', '$-100$', '$0.99$', '$\tfrac{1}{101}$']
+  answer: 0
+  explanation: |-
+    Here $\partial f/\partial y = -1000$, so $z = h\lambda = -100$ and $R(z) = 1 + z = -99$. The error flips sign and grows about 99-fold every step. $\tfrac1{101}$ is backward Euler's factor, $1/(1 - z)$; $-100$ is $z$ itself.
+- id: de-m4-r2-h21
+  lesson: de-m4-h-stiff
+  type: text
+  topic: Stiff equations
+  stem: 'One backward Euler step with $h = 0.2$ for $y'' = -5y$, $y(0) = 1$ gives $y_1 =$ ___.'
+  accept: ['0.5', '1/2']
+  explanation: |-
+    $y_1 = y_0 + h(-5y_1)$, so $y_1(1 + 1) = 1$ and $y_1 = 0.5$. (Exact: $e^{-1} \approx 0.368$. Explicit Euler would give $1 + 0.2(-5) = 0$.)
+- id: de-m4-r2-h22
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'Which methods are A-stable? Select all that apply.'
+  choices: ['Backward Euler', 'Trapezoidal method', 'RK4', 'Euler''s method']
+  answer: [0, 1]
+  explanation: |-
+    A-stable means the stability region contains the whole left half-plane. Backward Euler ($\lvert 1/(1 - z)\rvert < 1$ whenever $\operatorname{Re} z < 0$) and the trapezoidal method (region exactly the left half-plane) qualify. Explicit methods such as Euler and RK4 have polynomial $R(z)$ and bounded regions, so they are not.
+- id: de-m4-r2-h23
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'The trapezoidal method with $h = 0.1$ is used on $y'' = -1000(y - \cos t)$, $y(0) = 0$. How does the computed solution behave at first?'
+  choices: ['It swings above and below the true solution, and the swings shrink only about 4% per step', 'It blows up, with errors growing about 99-fold per step', 'It matches the true solution after one step', 'It stays at 0 for several steps']
+  answer: 0
+  explanation: |-
+    With $z = -100$, $R(z) = \dfrac{1 - 50}{1 + 50} \approx -0.96$: stable, but the initial transient flips sign each step and loses only 4% of its size. The computed values go $1.956, 0.057, 1.843, \dots$ around a true solution near 0.98. Blowing up is explicit Euler's behavior; backward Euler, with $R = \tfrac{1}{101}$, is the one that settles almost at once.
+- id: de-m4-r2-h24
+  lesson: de-m4-h-stiff
+  type: order
+  topic: Stiff equations
+  stem: 'Put the steps of one backward Euler step for a nonlinear equation in order.'
+  items:
+    - 'Write the step equation $Y = y_n + h f(t_{n+1}, Y)$'
+    - 'Rewrite it as $g(Y) = 0$'
+    - 'Start Newton''s method at $Y_0 = y_n$'
+    - 'Iterate $Y_{k+1} = Y_k - g(Y_k)/g''(Y_k)$ until it settles'
+    - 'Take the converged value as $y_{n+1}$'
+  explanation: |-
+    The unknown $y_{n+1}$ appears inside $f$, so the step is an equation to solve. Newton's method needs it in the form $g(Y) = 0$ and a starting guess; the old value $y_n$ is a good one and steers it to the right root.
+- id: de-m4-r2-h25
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'One backward Euler step with $h = 0.5$ for $y'' = -2y^2$, $y(0) = 1$ gives about'
+  choices: ['$0.618$', '$0$', '$-1.618$', '$0.5$']
+  answer: 0
+  explanation: |-
+    The step equation is $Y = 1 + 0.5(-2Y^2) = 1 - Y^2$, so $Y^2 + Y - 1 = 0$ and $Y = \dfrac{-1 \pm \sqrt5}{2}$. The root near $y_0 = 1$ is $0.618$; $-1.618$ is the other root. Explicit Euler gives $1 + 0.5(-2) = 0$, and $0.5$ is the exact value $1/(1 + 2t)$ at $t = 0.5$.
+- id: de-m4-r2-h26
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'What is the largest stable step size for RK4 on $y'' = -100y$?'
+  choices: ['About 0.028', 'About 0.020', 'About 0.010', 'About 0.28']
+  answer: 0
+  explanation: |-
+    RK4's stability interval on the negative real axis is about $-2.785 \le z \le 0$, so $h \le 2.785/100 \approx 0.028$. 0.020 is Euler's limit $2/100$, 0.010 is $1/100$, and 0.28 misplaces the decimal point.
+- id: de-m4-r2-h27
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['Backward Euler is a first-order method', 'Every explicit Runge–Kutta method has a bounded stability region', 'An implicit step always costs less than an explicit one', 'On a problem that is not stiff, RK4 is usually a better choice than backward Euler']
+  answer: [0, 1, 3]
+  explanation: |-
+    Backward Euler has the same first order as Euler. Explicit methods have polynomial $R(z)$, which grows without bound, so their regions are bounded. Implicit steps cost more, since each needs an equation solved; that pays off only when stiffness lets them take much longer steps, so on non-stiff problems a high-order explicit method wins.
+- id: de-m4-r2-h28
+  lesson: de-m4-h-stiff
+  topic: Stiff equations
+  stem: 'A method is called L-stable when it is'
+  choices: ['A-stable, and $R(z) \to 0$ as $\lvert z\rvert \to \infty$', 'stable only for step sizes below $2/\lvert\lambda\rvert$', 'stable on the imaginary axis only', 'A-stable, and $R(z) \to -1$ as $\lvert z\rvert \to \infty$']
+  answer: 0
+  explanation: |-
+    L-stability adds to A-stability the requirement that very stiff components are damped out at once: $R(z) \to 0$. Backward Euler ($1/(1 - z) \to 0$) is L-stable. The trapezoidal method has $R(z) \to -1$, so it is A-stable but not L-stable, which is why stiff transients ring for many steps.
+# Honors lesson 17h3: error estimates and adaptive step size
+- id: de-m4-r2-h29
+  lesson: de-m4-h-adaptive
+  type: text
+  topic: Adaptive step size
+  stem: 'A second-order method gives $A(0.1) = 1.4410$ and $A(0.05) = 1.4470$. Richardson''s estimate of the error of $A(0.05)$ is ___, and the extrapolated value is ___.'
+  accept:
+    - ['0.002']
+    - ['1.449']
+  explanation: |-
+    With $p = 2$: error $\approx \dfrac{A(h/2) - A(h)}{2^2 - 1} = \dfrac{0.0060}{3} = 0.0020$. Extrapolated value: $1.4470 + 0.0020 = 1.4490$.
+- id: de-m4-r2-h30
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'For RK4 ($p = 4$), Richardson''s estimate of the error of $A(h/2)$ is $A(h/2) - A(h)$ divided by'
+  choices: ['15', '16', '4', '3']
+  answer: 0
+  explanation: |-
+    The divisor is $2^p - 1 = 16 - 1 = 15$. Dividing by $2^p = 16$ is a common slip; 3 is the divisor for a second-order method.
+- id: de-m4-r2-h31
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'In the Heun–Euler embedded pair, the error estimate for a step of size $h$ is'
+  choices: ['$\tfrac h2\lvert k_2 - k_1\rvert$', '$h\lvert k_2 - k_1\rvert$', '$\tfrac h2\lvert k_1 + k_2\rvert$', '$\lvert k_2 - k_1\rvert$']
+  answer: 0
+  explanation: |-
+    Heun's value minus Euler's is $\big(y_n + \tfrac h2(k_1 + k_2)\big) - (y_n + hk_1) = \tfrac h2(k_2 - k_1)$. The sum $k_1 + k_2$ belongs to the Heun update itself, not to the difference.
+- id: de-m4-r2-h32
+  lesson: de-m4-h-adaptive
+  type: text
+  topic: Adaptive step size
+  stem: 'A Heun–Euler step with $h = 0.1$ gives error estimate $0.004$, and the tolerance is $0.001$. With safety factor $0.9$, the new step size is $h_{\text{new}} =$ ___.'
+  accept: ['0.045']
+  explanation: |-
+    The estimated (Euler) method has $p = 1$, so the exponent is $1/(p + 1) = 1/2$: $h_{\text{new}} = 0.9(0.1)(0.001/0.004)^{1/2} = 0.09 \times 0.5 = 0.045$. The step is rejected (0.004 is above the tolerance) and retried with this $h$.
+- id: de-m4-r2-h33
+  lesson: de-m4-h-adaptive
+  type: order
+  topic: Adaptive step size
+  stem: 'Put the stages of one try of an adaptive step in order.'
+  items:
+    - 'Step with both methods of the embedded pair'
+    - 'Take the difference of the two results as the error estimate'
+    - 'Compare the estimate with the tolerance'
+    - 'If it is too big, retry from the same point with a smaller step'
+  explanation: |-
+    Both results are needed before their difference can be formed, the estimate is then compared with the tolerance, and only a failed comparison leads to a retry.
+- id: de-m4-r2-h34
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'Which statements about the tolerance in an adaptive solver are true? Select all that apply.'
+  choices: ['It limits the estimated local error of each step', 'It guarantees the final answer is within the tolerance of the truth', 'Re-solving with a tolerance ten times smaller is a common accuracy check', 'It makes implicit methods unnecessary for stiff problems']
+  answer: [0, 2]
+  explanation: |-
+    The controller keeps each step's estimated local error near the tolerance, but errors accumulate over many steps, so the final error can exceed it (Example 3 in the lesson reached about 0.034 with tolerance 0.005). Tightening the tolerance and comparing shows which digits are reliable. On stiff problems an explicit adaptive solver just shrinks its step to the stability limit, so implicit methods are still needed.
+- id: de-m4-r2-h35
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'A Dormand–Prince solver estimates the error of its fourth-order result. In $h_{\text{new}} = \sigma h(\text{tol}/\text{est})^{q}$, the exponent $q$ is'
+  choices: ['$1/5$', '$1/4$', '$1/6$', '$1/2$']
+  answer: 0
+  explanation: |-
+    A fourth-order method has local error about $Ch^5$, so $q = 1/(p + 1) = 1/5$. Using $1/4$ confuses local and global order.
+- id: de-m4-r2-h36
+  lesson: de-m4-h-adaptive
+  type: match
+  topic: Adaptive step size
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - ['Richardson extrapolation', 'Combines results with steps h and h/2 to cancel the leading error term']
+    - ['Embedded pair', 'Two methods of different orders that share slope evaluations']
+    - ['Safety factor', 'Aims a little below the tolerance so that fewer steps fail']
+    - ['Local extrapolation', 'Continuing from the higher-order value after an accepted step']
+  distractors: ['Using the same step size over the whole interval']
+  explanation: |-
+    Richardson extrapolation adds $\big(A(h/2) - A(h)\big)/(2^p - 1)$ to $A(h/2)$. An embedded pair, such as Heun–Euler or Dormand–Prince, gets two results for the price of one. The safety factor (about 0.8–0.9) shrinks the proposed step a little. Local extrapolation keeps the better value even though the error estimate belongs to the worse one.
+- id: de-m4-r2-h37
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'A Heun–Euler step with $h = 0.1$ has $k_1 = 2$ and $k_2 = 2.4$. The tolerance is $0.01$ and the safety factor $0.9$. What happens?'
+  choices: ['Reject; retry with $h \approx 0.064$', 'Accept; next $h \approx 0.064$', 'Reject; retry with $h \approx 0.045$', 'Accept; next $h \approx 0.127$']
+  answer: 0
+  explanation: |-
+    est $= \tfrac{0.1}{2}\lvert 2.4 - 2\rvert = 0.02 > 0.01$, so the step is rejected. $h_{\text{new}} = 0.9(0.1)(0.01/0.02)^{1/2} \approx 0.064$. Forgetting the square root gives 0.045; flipping the ratio gives 0.127.
+- id: de-m4-r2-h38
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'A first-order method gives $A(0.2) = 1.7280$ and $A(0.1) = 1.7716$. What is the Richardson extrapolated value?'
+  choices: ['$1.8152$', '$1.7861$', '$1.7934$', '$1.7498$']
+  answer: 0
+  explanation: |-
+    With $p = 1$ the divisor is $2^1 - 1 = 1$: $1.7716 + (1.7716 - 1.7280) = 1.8152$. Dividing by 3 (the second-order divisor) gives 1.7861, dividing by 2 gives 1.7934, and subtracting the correction gives 1.7498.
+- id: de-m4-r2-h39
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'An explicit adaptive solver takes thousands of tiny steps, with many rejections, on a problem whose solution looks smooth. What is the likely cause?'
+  choices: ['The problem is stiff, so stability keeps the step near a small limit', 'The tolerance is too loose', 'The safety factor is too small to matter', 'The method''s order is too high']
+  answer: 0
+  explanation: |-
+    That pattern is the signature of stiffness: accuracy would allow long steps, but each long step is unstable, gets rejected or produces growing errors, and the controller is pushed back toward $h \approx 2/\lvert\lambda\rvert$ or similar. A loose tolerance would give fewer, longer steps, not more. The fix is an implicit method.
+- id: de-m4-r2-h40
+  lesson: de-m4-h-adaptive
+  type: text
+  topic: Adaptive step size
+  stem: 'The Heun–Euler pair estimates the local error of the ___ step (name the method).'
+  accept: [Euler, 'Euler''s', 'Euler method', 'Euler''s method', forward Euler, explicit Euler]
+  explanation: |-
+    The difference $z - y_E$ measures how far the first-order Euler value is from the much better Heun value, so it estimates Euler's local error. That is why the exponent in the step formula is $1/(1 + 1) = 1/2$.
+- id: de-m4-r2-h41
+  lesson: de-m4-h-adaptive
+  topic: Adaptive step size
+  stem: 'What happens after a step is rejected? Select all that apply.'
+  choices: ['The solution stays at the same point', 'The step is retried with a smaller $h$', 'The tolerance is raised so the step can pass', 'The rejected value is kept and the solver moves on']
+  answer: [0, 1]
+  explanation: |-
+    A rejected step is thrown away: the solver stays at $(t_n, y_n)$ and tries again with the smaller $h_{\text{new}}$ from the formula. The tolerance is the user's target and doesn't change.
