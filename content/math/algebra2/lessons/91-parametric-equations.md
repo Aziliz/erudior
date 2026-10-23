@@ -7,7 +7,7 @@ topics: [Parametric equations]
 drills: [a2-h1-r2-param-line, a2-h1-r2-param-eliminate, a2-h1-r2-projectile]
 refs: [alg-ref-functions, a2-ref-prob-trig]
 ---
-A graph like $y = x^2$ tells you *where* a curve is, but not how anything moves along it. A thrown ball, a car on a track or a point on a turning wheel has a position that changes with time, and its $x$- and $y$-coordinates often change in quite different ways. The conic sections lesson also ran into a limit of functions: a circle or an ellipse fails the vertical line test, so it can't be written as one function $y = f(x)$. Parametric equations solve both problems by writing $x$ and $y$ each as a function of a third variable. They use nearly everything in this course: linear and quadratic functions, the unit circle, and the conics from the last lesson.
+A graph like $y = x^2$ tells you *where* a curve is, but not how anything moves along it. A thrown ball, a car on a track or a point on a turning wheel has a position that changes with time, and its $x$- and $y$-coordinates often change in quite different ways. The conics from the last lesson also show a limit of functions: a circle or an ellipse fails the vertical line test, so it can't be written as one function $y = f(x)$. Parametric equations solve both problems by writing $x$ and $y$ each as a function of a third variable. They use nearly everything in this course: linear and quadratic functions, the unit circle, and the conics from the last lesson.
 
 ## A third variable
 

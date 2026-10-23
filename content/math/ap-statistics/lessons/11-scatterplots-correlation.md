@@ -56,6 +56,12 @@ positive and $r > 0$. If points are spread evenly over all four quadrants, the p
 cancel and $r \approx 0$. Averaging z-products (rather than raw products) makes $r$ free of
 units and scale.
 
+The picture shows the four quadrants for the training data used in Example 1 below. Points in
+the green quadrants push $r$ up; points in the red quadrants push it down; a point on one of the
+dashed mean lines contributes nothing.
+
+![Scatterplot of five points, weeks of training against skill score, divided into four quadrants by a dashed vertical line at the mean of x, 3, and a dashed horizontal line at the mean of y, 5. Upper right, shaded green: x above, y above, product positive. Upper left, shaded red: x below, y above, product negative. Lower left, green: x below, y below, product positive. Lower right, red: x above, y below, product negative. Two points are in the upper right, one in the lower left, and two lie on the dashed lines.](images/stat-m3-quadrants.svg)
+
 An equivalent form that is easier by hand:
 
 $$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}.$$
@@ -94,6 +100,22 @@ A strong positive linear association.
 For the points above, $y = x^2$ exactly, yet the positive products on the right cancel the
 negative products on the left and $r = 0$. The lesson: $r = 0$ means *no linear*
 relationship, not no relationship. Always plot first.
+
+Before reporting $r$, run through these checks.
+
+```mermaid
+flowchart TD
+  accTitle: When to summarize a relationship with r
+  accDescr: Start with two variables measured on the same individuals. If they are not both quantitative, r does not apply; use a two-way table when both are categorical, or side-by-side displays when one is categorical. If both are quantitative, make a scatterplot. If the form is curved, do not summarize with r; describe the curve instead. If the form is roughly linear, check for outliers: if there are any, report r with and without them; if not, report r along with direction, form and strength.
+  A["Two variables on the same individuals"] --> B{"Both quantitative?"}
+  B -- No --> T["r does not apply: use a two-way table or side-by-side displays"]
+  B -- Yes --> P["Make a scatterplot"]
+  P --> F{"Is the form roughly linear?"}
+  F -- No --> N["Don't summarize with r: describe the curve"]
+  F -- Yes --> O{"Any outliers?"}
+  O -- Yes --> R2["Report r with and without them"]
+  O -- No --> R["Report r with direction, form and strength"]
+```
 
 ## Correlation is not causation
 

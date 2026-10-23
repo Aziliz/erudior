@@ -49,6 +49,13 @@ consequential errors in reasoning about evidence.
 Using the formula instead of the table: $P(\text{defect} \cap \text{old}) = 60/500 = 0.12$ and
 $P(\text{old}) = 200/500 = 0.4$, so $P(\text{defect} \mid \text{old}) = 0.12/0.4 = 0.30$. ✓
 
+An **area model** draws the same facts as a unit square. The widths are $P(\text{old}) = 0.4$ and
+$P(\text{new}) = 0.6$; the shaded heights are the conditional probabilities of a defect. Each
+rectangle's area is a width times a height, which is exactly the multiplication rule below, and
+"given old" means looking only at the left strip.
+
+![A unit square split into a left strip of width 0.4 labeled old track and a right strip of width 0.6 labeled new track. In the left strip the top 0.30 of the height is shaded as defect, area 0.4 times 0.30 equals 0.12, and the rest, old with no defect, has area 0.4 times 0.70 equals 0.28. In the right strip the top 0.10 is shaded as defect, area 0.6 times 0.10 equals 0.06, and the rest, new with no defect, has area 0.6 times 0.90 equals 0.54.](images/stat-m5-area-model.svg)
+
 ## The general multiplication rule
 
 Rearranging the definition gives the probability that two events both happen:
@@ -90,7 +97,19 @@ purposes.
 
 These sound similar but are nearly opposites. If $A$ and $B$ are mutually exclusive and
 $A$ happens, then $B$ *cannot* happen — knowing $A$ changes $P(B)$ to 0. So mutually
-exclusive events (with positive probabilities) are always *dependent*.
+exclusive events (with positive probabilities) are always *dependent*. The chart gives the order
+in which to ask the questions.
+
+```mermaid
+flowchart TD
+  accTitle: Mutually exclusive, independent or dependent?
+  accDescr: Start with two events A and B, each with positive probability. First ask whether they can happen together. If not, they are mutually exclusive, and therefore dependent, because knowing one happened makes the other impossible. If they can, compare P(A and B) with P(A) times P(B). If equal, they are independent: knowing B does not change P(A). If not equal, they are dependent: knowing B changes P(A).
+  S["Events A and B, each with positive probability"] --> Q1{"Can A and B happen together?"}
+  Q1 -->|"No"| ME["Mutually exclusive, so dependent: if A happens, P(B) drops to 0"]
+  Q1 -->|"Yes"| Q2{"Is P(A and B) = P(A) × P(B)?"}
+  Q2 -->|"Yes"| IND["Independent: knowing B leaves P(A) unchanged"]
+  Q2 -->|"No"| DEP["Dependent: knowing B changes P(A)"]
+```
 
 ### Example 3: checking independence
 

@@ -22,6 +22,11 @@ If a task is done in stages, with $n_1$ ways for the first stage, $n_2$ for the 
 $$n_1 \times n_2 \times \cdots \times n_k.$$
 
 A tree diagram shows why: each first-stage branch splits into $n_2$ branches, and so on.
+For 2 shirts and 3 pairs of pants, each shirt branch splits into 3, giving $2 \times 3 = 6$ outfits:
+
+```shape
+{"x": [-0.3, 10.5], "y": [0, 6], "segments": [{"from": [0, 3], "to": [3, 4.5]}, {"from": [0, 3], "to": [3, 1.5]}, {"from": [4.1, 4.5], "to": [6.4, 5.4]}, {"from": [4.1, 4.5], "to": [6.4, 4.5]}, {"from": [4.1, 4.5], "to": [6.4, 3.6]}, {"from": [4.1, 1.5], "to": [6.4, 2.4]}, {"from": [4.1, 1.5], "to": [6.4, 1.5]}, {"from": [4.1, 1.5], "to": [6.4, 0.6]}], "labels": [{"at": [3.55, 4.5], "text": "blue"}, {"at": [3.55, 1.5], "text": "white"}, {"at": [8.3, 5.4], "text": "blue, black"}, {"at": [8.3, 4.5], "text": "blue, gray"}, {"at": [8.3, 3.6], "text": "blue, tan"}, {"at": [8.3, 2.4], "text": "white, black"}, {"at": [8.3, 1.5], "text": "white, gray"}, {"at": [8.3, 0.6], "text": "white, tan"}], "caption": "2 shirts × 3 pants: each shirt branch splits into 3, so 6 outfits"}
+```
 
 ### Example 1
 
@@ -78,6 +83,23 @@ Ask: *if I rearrange the chosen objects, do I get a different outcome?*
 |---|---|---|
 | Podium finishes, passwords, seating in a row | yes | $_nP_r$ |
 | Committees, card hands, lottery picks, samples | no | $_nC_r$ |
+
+The chart adds the other two cases from this lesson: repeats allowed, and arrangements of
+letters that include identical copies.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a counting rule
+  accDescr: Ask what you are counting. For outcomes built in separate stages, multiply the number of choices at each stage. For arrangements of all n letters or objects when some are identical, use n factorial divided by the factorial of each repeat count. For choosing r items from n, first ask whether the same item can be used again: if yes, there are n to the power r ways; if no, ask whether order matters: if it does, use the permutation count nPr, and if not, the combination count nCr.
+  Q{"What are you counting?"}
+  Q -->|"outcomes of separate stages"| M["Multiply the choices at each stage"]
+  Q -->|"arrangements of all n, some identical"| R["n! ÷ (a! b! ...) for the repeat counts"]
+  Q -->|"r items chosen from n"| Q2{"Can an item be used again?"}
+  Q2 -->|"Yes"| PW["n^r"]
+  Q2 -->|"No"| Q3{"Does order matter?"}
+  Q3 -->|"Yes"| P["nPr = n! ÷ (n − r)!"]
+  Q3 -->|"No"| C["nCr = n! ÷ (r! (n − r)!)"]
+```
 
 ## Arrangements with repeated objects
 

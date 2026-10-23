@@ -53,6 +53,13 @@ Two points deserve emphasis:
 1. *Variances add, standard deviations don't*. $\sigma_{X+Y} = \sqrt{\sigma_X^2 + \sigma_Y^2}$,
    which is less than $\sigma_X + \sigma_Y$. (Think Pythagorean theorem: independent sources of
    variation combine like perpendicular sides of a triangle.)
+
+The Pythagorean picture, for SDs of 3 and 4 (the numbers in Example 2 below): the two legs are
+the separate SDs, and the hypotenuse is the SD of the sum.
+
+```shape
+{"polygons": [{"points": [[0, 0], [4, 0], [4, 3]]}], "rightAngles": [[[4, 0], [0, 0], [4, 3]]], "segments": [{"from": [0, 0], "to": [4, 0], "label": "σY = 4"}, {"from": [4, 0], "to": [4, 3], "label": "σX = 3"}, {"from": [4, 3], "to": [0, 0], "label": "σ(X+Y) = 5"}], "caption": "Independent variation adds like perpendicular sides: 3² + 4² = 5², so the SD of the sum is 5, not 3 + 4 = 7"}
+```
 2. *Variances add even for differences*. $X - Y = X + (-1)Y$, and multiplying by $-1$
    leaves the variance unchanged: $(-1)^2\sigma_Y^2 = \sigma_Y^2$. Subtracting a random
    quantity adds uncertainty; it can't cancel it.
@@ -61,6 +68,23 @@ Why independence is needed: if $X$ and $Y$ tend to move together (positively cor
 their sum varies *more* than independent variables would; if they move oppositely, less.
 The general formula is $\sigma_{X \pm Y}^2 = \sigma_X^2 + \sigma_Y^2 \pm 2\rho\,\sigma_X\sigma_Y$, where
 $\rho$ is the correlation; independence makes $\rho = 0$.
+
+The chart below sums up which rule to use when.
+
+```mermaid
+flowchart TD
+  accTitle: Which rule for a new random variable
+  accDescr: If the new variable is a + bX, the mean is a + b times the mean of X and the SD is the absolute value of b times the SD of X. If it is a sum or difference X plus or minus Y, the mean is the mean of X plus or minus the mean of Y, always. For the spread, ask whether X and Y are independent. If yes, add the variances, for sums and for differences, then take the square root. If not, the variance rule needs the correlation. Finally, if X and Y are independent and normal, the result is normal too, so z-scores give probabilities.
+  A["New variable built from X and Y"] --> B{"One variable: a + bX?"}
+  B -- Yes --> C["Mean a + b μX, SD |b| σX"]
+  B -- "No: X ± Y" --> D["Mean μX ± μY (always)"]
+  D --> E{"X and Y independent?"}
+  E -- Yes --> F["Add variances, then take the square root"]
+  E -- No --> G["Need the correlation: add ± 2ρσXσY"]
+  F --> H{"X and Y both normal?"}
+  H -- Yes --> I["X ± Y is normal: use z-scores"]
+  H -- No --> J["Mean and SD only; shape unknown"]
+```
 
 ### Example 2
 
@@ -99,6 +123,10 @@ what is the probability Ann's commute is longer than Bob's?
 3. $P(Z > -0.6) = 1 - 0.2743 = 0.7257$.
 
 About 73% of days, Ann's commute is longer.
+
+```plot
+{"x": [-15, 21], "y": [0, 0.09], "functions": [{"f": "exp(-((x-3)/5)^2/2)/(5*sqrt(2*pi))"}], "shade": [{"f": "exp(-((x-3)/5)^2/2)/(5*sqrt(2*pi))", "from": 0, "to": 21}], "points": [{"at": [0, 0], "label": "D = 0"}, {"at": [3, 0], "label": "mean 3"}], "xLabel": "D = A − B (minutes)", "yLabel": "density", "caption": "D = A − B is normal with mean 3 and SD 5; the shaded area P(D > 0) ≈ 0.73 is the chance Ann's commute is longer"}
+```
 
 ### Example 4
 

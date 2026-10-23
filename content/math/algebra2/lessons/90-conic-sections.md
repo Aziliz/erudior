@@ -7,7 +7,7 @@ topics: [Conic sections]
 drills: [a2-h1-r2-circle-center, a2-h1-r2-parabola-focus, a2-h1-r2-ellipse-foci]
 refs: [alg-ref-functions]
 ---
-Two curves from this course have so far been met only in passing. The nonlinear systems lesson used the circle $(x - h)^2 + (y - k)^2 = r^2$, and its last example drew a curve, $x^2 - y^2 = 5$, called a hyperbola and promised you'd meet it later. This lesson is that meeting. Circles, parabolas, ellipses and hyperbolas belong to one family, the conic sections. They all come from slicing a cone, they all have equations of degree 2 in $x$ and $y$, and you can tell them apart, and find all their key features, with one tool you already know well: completing the square.
+Two curves from this course have so far been met only in passing. The nonlinear systems lesson used the circle $(x - h)^2 + (y - k)^2 = r^2$, and one of its examples drew a curve, $x^2 - y^2 = 5$, called a hyperbola and promised you'd meet it later. This lesson is that meeting. Circles, parabolas, ellipses and hyperbolas belong to one family, the conic sections. They all come from slicing a cone, they all have equations of degree 2 in $x$ and $y$, and you can tell them apart, and find all their key features, with one tool you already know well: completing the square.
 
 ## Four curves from one cone
 

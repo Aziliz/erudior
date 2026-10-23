@@ -147,9 +147,9 @@
     R: vx*T
   prompt: 'A ball is thrown from {h0} ft above the ground at {v} ft/s, ${ang}^\circ$ above the horizontal. With $x = (v_0\cos\theta)t$ and $y = h_0 + (v_0\sin\theta)t - 16t^2$ (feet, no air resistance), find its greatest height and the time when it lands (both to 2 decimal places), and how far away it lands (to the nearest foot). Round only at the end.'
   answers:
-    - {name: H, label: 'Greatest height (ft):', tolerance: 0.006, format: num2}
+    - {name: H, label: 'Greatest height (ft):', tolerance: 0.02, format: num2}
     - {name: T, label: 'Landing time (s):', tolerance: 0.006, format: num2}
-    - {name: R, label: 'Distance (ft):', tolerance: 1, format: num1}
+    - {name: R, label: 'Distance (ft):', tolerance: 1, format: int}
   solution: |-
     Components: $v_0\cos\theta = {v}\cos {ang}^\circ \approx {vx:num4}$ ft/s and $v_0\sin\theta = {v}\sin {ang}^\circ \approx {vy:num4}$ ft/s.
     Greatest height: the vertex of $y = {h0} + {vy:num4}t - 16t^2$ is at $t = \tfrac{{vy:num4}}{32} \approx {tt:num4}$ s, where $y \approx$ **{H:num2} ft**.
@@ -176,7 +176,7 @@
   solution: |-
     $r = \sqrt{{r2}} \approx$ **{r:num2}**.
     The point $({a}, {b})$ is in quadrant {quad}. Its reference angle is $\tan^{-1}\left|\tfrac{{b}}{{a}}\right| \approx {ref:num1}^\circ$.
-    Place it in the quadrant (I: $\theta$ = reference angle; II: $180^\circ -$ ref; III: $180^\circ +$ ref; IV: $360^\circ -$ ref): $\theta \approx$ **{th:num1}°**.
+    Place it in the quadrant (quadrant 1: $\theta$ = reference angle; 2: $180^\circ -$ ref; 3: $180^\circ +$ ref; 4: $360^\circ -$ ref): $\theta \approx$ **{th:num1}°**.
 
 - id: a2-h1-r2-polar-multiply
   title: Multiply and divide in polar form
@@ -270,7 +270,7 @@
     a2: 2*a
   prompt: 'Simplify the difference quotient $\dfrac{f(x + h) - f(x)}{h}$ for $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$. Type your answer in terms of $x$ and $h$.'
   answers:
-    - {kind: expression, expression: '2*a*x + a*h + b', variables: [x, h], label: 'Difference quotient:'}
+    - {kind: expression, expression: '2*a*x + a*h + b', variables: [x, h], label: 'Difference quotient:', show: '${a2:coef}x {a:signedcoef}h {b:signed}$'}
   solution: |-
     Replace every $x$ by $(x + h)$: $f(x + h) = {a:coef}(x + h)^2 {b:signedcoef}(x + h) {c:signed} = {a:coef}x^2 {a2:signedcoef}xh {a:signedcoef}h^2 {b:signedcoef}x {b:signedcoef}h {c:signed}$.
     Subtract $f(x)$: the ${a:coef}x^2$, ${b:coef}x$ and ${c}$ cancel, leaving ${a2:coef}xh {a:signedcoef}h^2 {b:signedcoef}h$.

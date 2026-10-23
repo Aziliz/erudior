@@ -67,6 +67,11 @@ $b = 0.8 \times 1.581/1.581 = 0.8$. ✓
 {"x": [0, 6], "y": [0, 8], "xLabel": "weeks", "yLabel": "score", "points": [{"at": [1, 3], "color": "#2c5e8f"}, {"at": [2, 5], "color": "#2c5e8f"}, {"at": [3, 4], "color": "#2c5e8f"}, {"at": [4, 7], "color": "#2c5e8f"}, {"at": [5, 6], "color": "#2c5e8f"}, {"at": [3, 5], "label": "(x̄, ȳ)", "open": true, "color": "#c2570c"}], "functions": [{"f": "2.6 + 0.8*x", "color": "#c2570c"}], "caption": "ŷ = 2.6 + 0.8x passes through (x̄, ȳ) = (3, 5)"}
 ```
 
+The same line with every part named: the point $(4, 7)$ is observed, the line predicts
+$\hat{y} = 5.8$ at $x = 4$, and the gap between them is that point's residual.
+
+![The training data with the least-squares line y-hat = 2.6 + 0.8x. The point (4, 7) is marked observed y = 7; directly below it on the line an open circle is marked predicted y-hat = 5.8; a brace between them is marked residual, y minus y-hat = 1.2. A diamond at (3, 5) is marked (mean x, mean y). The line meets the vertical axis at the intercept a = 2.6. A dashed triangle at the right end shows a run of 1 and a rise of 0.8, the slope b = 0.8.](images/stat-m3-lsrl-parts.svg)
+
 ### Example 2: from summary statistics
 
 For homes in a town, square footage $x$ (in hundreds) has $\bar{x} = 18$, $s_x = 4$; price

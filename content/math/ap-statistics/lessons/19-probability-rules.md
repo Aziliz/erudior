@@ -83,6 +83,10 @@ At a station, 45% of riders buy coffee ($C$), 30% buy a newspaper ($N$) and 12% 
 3. Coffee only: $0.45 - 0.12 = 0.33$. Newspaper only: $0.30 - 0.12 = 0.18$.
 4. Check: $0.33 + 0.12 + 0.18 + 0.37 = 1$. ✓
 
+Here is the finished diagram, with each region holding its own probability:
+
+![A rectangle labeled S contains two overlapping circles, Coffee (C) on the left and Newspaper (N) on the right. The left-only part of the coffee circle is labeled C only, 0.33. The overlap is labeled both, 0.12. The right-only part of the newspaper circle is labeled N only, 0.18. The area outside both circles is labeled neither, 0.37.](images/stat-m5-venn-coffee.svg)
+
 Filling in a Venn diagram from the inside out — overlap first, then the "only" regions,
 then "neither" — solves most two-event problems.
 
@@ -103,6 +107,23 @@ $P(2) = 0.11$, $P(3 \text{ or more}) = 0.08$. Is it valid?
 
 The probabilities are each between 0 and 1, but they sum to $1.02$, not 1. The model is
 invalid. (If $P(3 \text{ or more})$ were unknown, it would have to be $1 - 0.94 = 0.06$.)
+
+### Which rule?
+
+The chart sums up which rule to reach for, depending on what the question asks.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a probability rule
+  accDescr: Start from what you are finding. For not A, use the complement rule, 1 minus P(A). For at least one of several events, use 1 minus P(none). For A or B, ask whether A and B can happen together: if not, they are mutually exclusive and you add P(A) and P(B); if they can, use the general addition rule, P(A) plus P(B) minus P(A and B). For A and B, use the multiplication rule from lesson 21.
+  Q{"What are you finding?"}
+  Q -->|"not A"| C["Complement rule: 1 − P(A)"]
+  Q -->|"at least one"| AL["1 − P(none)"]
+  Q -->|"A or B"| ME{"Can A and B happen together?"}
+  Q -->|"A and B"| MU["Multiplication rule (lesson 21)"]
+  ME -->|"No: mutually exclusive"| ADD["P(A) + P(B)"]
+  ME -->|"Yes"| GEN["P(A) + P(B) − P(A and B)"]
+```
 
 ## Simulation
 

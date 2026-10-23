@@ -31,6 +31,13 @@ With $n$ values sorted, a value in position $k$ is at about the $\tfrac{k}{n} \t
 percentile. Cumulative relative frequency graphs from Module 1 are percentile graphs:
 read across from 0.80 to find the 80th percentile.
 
+The graph below shows the commute times of a large group of workers. Reading across from
+0.25, 0.50, 0.75 and 0.90 to the line, then down to the axis, gives $Q_1 \approx 18$, a
+median of about 26, $Q_3 = 35$ and a 90th percentile of 45 minutes. Reading the other way,
+up from 40 minutes and across, shows that a 40-minute commute is at the 85th percentile.
+
+![A cumulative relative frequency graph of commute times from 0 to 60 minutes. The line rises through the points (10, 0.08), (20, 0.30), (30, 0.65), (40, 0.85), (50, 0.95) and (60, 1). Dashed lines go across from 0.25, 0.50, 0.75 and 0.90 to the line and then down, marking Q1 at about 18, the median at about 26, Q3 at 35 and the 90th percentile at 45 minutes.](images/stat-m2-ogive.svg)
+
 ### Example 1
 
 In a class of 25 students, Maya's score of 88 is the 21st lowest (20 students scored
@@ -79,6 +86,11 @@ requires $z \ge 1.25$. What raw score is needed?
 
 $x = 500 + 1.25(80) = 500 + 100 = 600$.
 
+A z-score is a second ruler laid under the first. Each step of one SD (80 points) on the
+score ruler is one unit on the z ruler, and the mean, 500, sits at 0:
+
+![Two aligned number lines. The top one shows exam scores 260, 340, 420, 500, 580, 660 and 740; the bottom one shows z-scores −3 to +3 directly below them. A vertical line marks x = 600 on the top ruler and z = 1.25 on the bottom ruler.](images/stat-m2-z-ruler.svg)
+
 ### Example 4
 
 A student's z-score on a test is $-0.6$; the class mean was 74 and the student scored 68.
@@ -118,6 +130,18 @@ which is the entire sum of squared deviations — impossible.
 | Range | 0 to 100 | any real number (usually −3 to 3) |
 | Affected by outliers | little | yes (mean and SD are not resistant) |
 | Needs a shape assumption to convert to the other | — | yes: for normal data, z = 1 ↔ 84th percentile |
+
+The diagram sums up the three ways to describe one value's position and how to move
+between them.
+
+```mermaid
+flowchart TD
+  accTitle: Moving between a value, its z-score and its percentile
+  accDescr: A value x converts to a z-score with z equals x minus the mean, divided by the SD, and back with x equals the mean plus z times the SD; this works for any shape of distribution. A z-score converts to a percentile only through a model, such as the normal table. Without a model, find a value's percentile directly from the data, as the percent of values at or below it.
+  X["Value x"] -- "z = (x − mean) / SD  and back: x = mean + z × SD" --> Z["z-score"]
+  Z -- "only with a model, such as the normal table" --> P["Percentile"]
+  X -- "from the data: percent of values at or below x" --> P
+```
 
 ## Common mistakes
 

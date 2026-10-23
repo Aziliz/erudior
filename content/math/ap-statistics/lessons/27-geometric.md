@@ -46,12 +46,28 @@ $$P(X = k) = (1 - p)^{k-1}p, \qquad k = 1, 2, 3, \ldots$$
 There is no $\binom{n}{k}$ factor: only one arrangement puts the single success last
 (F F … F S).
 
+For example, with $p = 0.15$ (Example 1 below), the first success comes on trial 4 only along this one path:
+
+```mermaid
+flowchart LR
+  accTitle: First success on trial 4
+  accDescr: For the first escalation to come on call 4, calls 1, 2 and 3 must not be escalated, each with probability 0.85, and call 4 must be escalated, with probability 0.15. Multiplying gives 0.85 cubed times 0.15, about 0.0921.
+  T1["Call 1: no (0.85)"] --> T2["Call 2: no (0.85)"] --> T3["Call 3: no (0.85)"] --> T4["Call 4: yes (0.15)"]
+```
+
 Two cumulative facts follow easily. "More than $k$ trials needed" means the first $k$ trials
 all failed:
 
 $$P(X > k) = (1 - p)^k, \qquad P(X \le k) = 1 - (1 - p)^k.$$
 
 On a TI-83/84, `geometpdf(p, k)` gives $P(X = k)$ and `geometcdf(p, k)` gives $P(X \le k)$.
+
+The cumulative probabilities climb toward 1 but never reach it: there is always some chance the
+wait is longer still.
+
+```plot
+{"x": [0, 16], "y": [0, 1.05], "points": [{"at": [1, 0.1500]}, {"at": [2, 0.2775]}, {"at": [3, 0.3859]}, {"at": [4, 0.4780]}, {"at": [5, 0.5563]}, {"at": [6, 0.6229]}, {"at": [7, 0.6794]}, {"at": [8, 0.7275]}, {"at": [9, 0.7684]}, {"at": [10, 0.8031]}, {"at": [11, 0.8327]}, {"at": [12, 0.8578]}, {"at": [13, 0.8791]}, {"at": [14, 0.8972]}, {"at": [15, 0.9126]}], "functions": [{"f": "1", "dashed": true, "label": "1"}], "xLabel": "k (trials)", "yLabel": "P(X ≤ k)", "caption": "Geometric cumulative probabilities 1 − 0.85^k for p = 0.15: about 0.56 by k = 5 and 0.80 by k = 10"}
+```
 
 ## Mean and standard deviation
 
@@ -121,6 +137,19 @@ $P(X > 2) = (5/6)^2 \approx 0.694$.
 |---|---|---|
 | Successes in $n$ fixed trials | Binomial $B(n, p)$ | $0, 1, \ldots, n$ |
 | Trials until the first success | Geometric$(p)$ | $1, 2, 3, \ldots$ |
+
+The same decision as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing between the binomial and geometric models
+  accDescr: First check that the trials are binary, independent (or the 10 percent condition holds) and have the same success probability. If not, neither model fits. If they do, ask what is counted. If it is the number of successes in a fixed number n of trials, use the binomial model, with values 0 to n and mean np. If it is the number of trials up to and including the first success, use the geometric model, with values 1, 2, 3 and so on and mean 1 over p.
+  A["Repeated trials"] --> B{"Binary, independent, same p?"}
+  B -- No --> N["Neither model fits"]
+  B -- Yes --> C{"What is counted?"}
+  C -- "Successes in n fixed trials" --> BI["Binomial: values 0 to n, mean np"]
+  C -- "Trials until the first success" --> GE["Geometric: values 1, 2, 3, ..., mean 1/p"]
+```
 
 ## Common mistakes
 

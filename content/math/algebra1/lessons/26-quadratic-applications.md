@@ -81,7 +81,7 @@ A farmer has 240 m of fencing to enclose a rectangular field along a river. No f
 Graphing the area function shows why the vertex is the answer: the area rises, peaks at $x = 60$, and falls back to 0 when $x = 120$ (all the fence is used on the two short sides).
 
 ```plot
-{"x": [-10, 130], "y": [-500, 8000], "functions": [{"f": "-2*x^2 + 240*x", "label": "A(x) = -2x² + 240x", "from": 0, "to": 120}], "points": [{"at": [60, 7200], "label": "max (60, 7200)"}, {"at": [0, 0]}, {"at": [120, 0]}], "xLabel": "x (m)", "yLabel": "area (m²)", "caption": "Area against the length x of each side perpendicular to the river"}
+{"x": [-10, 130], "y": [-500, 8000], "functions": [{"f": "-2*x^2 + 240*x", "from": 0, "to": 120}], "points": [{"at": [60, 7200], "label": "max (60, 7200)"}, {"at": [0, 0]}, {"at": [120, 0]}], "xLabel": "x (m)", "yLabel": "area (m²)", "caption": "Area against the length x of each side perpendicular to the river"}
 ```
 
 Without the river, with fencing on all four sides, the same reasoning gives a square. The river lets the long side be twice the short side.

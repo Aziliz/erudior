@@ -238,6 +238,39 @@ def unwrap(text):
     return "\n".join(out)
 
 
+def previous_cards(folder, cid):
+    """Cards in the last build of this course (released or draft), to keep their ids stable."""
+    for d in out_dirs(folder):
+        f = d / f"{cid}.json"
+        if f.exists():
+            try:
+                return [c for deck in json.loads(f.read_text(encoding="utf-8")).get("decks", []) for c in deck.get("cards", [])]
+            except (ValueError, OSError):
+                pass
+    return []
+
+
+def card_ids(cards, previous):
+    """Give each card the id it had last build (matched by front, then back), so learners' card
+    progress survives new cards being added anywhere; new cards get the next free numbers."""
+    by_front, by_back = {}, {}
+    for c in previous:
+        by_front.setdefault(str(c.get("front")), []).append(c["id"])
+        by_back.setdefault(str(c.get("back")), []).append(c["id"])
+    used = set()
+    nums = [int(i[1:]) for i in (c["id"] for c in previous) if i[1:].isdigit()]
+    nxt = max(nums, default=0) + 1
+    out = []
+    for c in cards:
+        cid = next((i for i in by_front.get(str(c.get("front")), []) + by_back.get(str(c.get("back")), []) if i not in used), None)
+        if cid is None:
+            cid = f"c{nxt}"
+            nxt += 1
+        used.add(cid)
+        out.append({"id": cid, **c})
+    return out
+
+
 def build(folder: pathlib.Path):
     errors = []
     meta = load_yaml(folder / "course.yaml")
@@ -477,7 +510,7 @@ def build(folder: pathlib.Path):
             "questions": bank_questions,
         }],
         "decks": [{"id": f"{cid}-cards", "title": f"{meta['title']} notecards",
-                   "cards": [{"id": f"c{i + 1}", **c} for i, c in enumerate(cards)]}] if cards else [],
+                   "cards": card_ids(cards, previous_cards(folder, cid))}] if cards else [],
         "glossary": glossary or [],
         "references": refs,
         "drills": drills,

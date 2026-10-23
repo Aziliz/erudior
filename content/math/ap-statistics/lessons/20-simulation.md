@@ -32,6 +32,15 @@ A simulation is only as good as its model, so it helps to follow a fixed routine
 
 The Plan step is where simulations go wrong, so it deserves the most care.
 
+```mermaid
+flowchart TD
+  accTitle: The four steps of a simulation
+  accDescr: State the question and the event whose probability you want. Plan the model: assign random numbers to outcomes so each has the right probability, and define one trial and what to record. Do many trials and record each result. Conclude: the proportion of trials in which the event happened estimates the probability; answer in context.
+  S["State: the chance process and the event"] --> P["Plan: assign digits to outcomes, define one trial and what to record"]
+  P --> D["Do: run many trials and record each result"]
+  D --> C["Conclude: proportion of trials with the event estimates the probability"]
+```
+
 ## Random digits and random number generators
 
 A **table of random digits** is a long list of the digits 0–9 in which every position is
@@ -128,6 +137,20 @@ Simulation can also answer "Is this result surprising?" The idea runs as follows
 
 The proportion of simulated results at least as extreme as the observed one estimates what
 lesson 33 calls the p-value. Using simulation this way is **simulation-based inference**.
+
+The flowchart shows the whole chain of reasoning, including what a large proportion does and does
+not tell you.
+
+```mermaid
+flowchart TD
+  accTitle: Simulation-based inference
+  accDescr: Assume a null model in which nothing special is going on. Simulate many data sets from that model and compute the statistic for each. Find the proportion of simulated results at least as extreme as the observed one. If that proportion is small, as a rough guide under 5 percent, the result is convincing evidence against the null model. If not, chance under the model is a plausible explanation, which does not prove the model true.
+  N["Assume a null model: nothing special is going on"] --> S["Simulate many data sets and compute the statistic for each"]
+  S --> F["Find the proportion at least as extreme as the observed result"]
+  F --> Q{"Is it small, under about 5%?"}
+  Q -->|"Yes"| E["Convincing evidence against the null model"]
+  Q -->|"No"| P["Chance is a plausible explanation (the model is not proven)"]
+```
 
 ### Example 3: is a 27-out-of-40 result convincing?
 

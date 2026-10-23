@@ -32,6 +32,23 @@ the population (the **10% condition**), the binomial model is still an excellent
 approximation. Counting until a success occurs — no fixed $n$ — is *not* binomial; that is
 the geometric setting of the next lesson.
 
+The four checks, in the order you would usually ask them:
+
+```mermaid
+flowchart TD
+  accTitle: Is a count binomial?
+  accDescr: Ask four questions in turn. Is each trial a success or a failure? Is the number of trials n fixed in advance? Are the trials independent, or is the sample at most 10 percent of the population when drawing without replacement? Is the success probability the same on every trial? If all four answers are yes, the count is binomial with mean np and SD the square root of np(1 minus p). If the number of trials is not fixed because you count trials until the first success, the model may be geometric (next lesson). A no to any other question means neither model applies.
+  A["A count of successes"] --> B{"Binary: success or failure?"}
+  B -- Yes --> C{"Number of trials n fixed?"}
+  C -- Yes --> D{"Independent, or sample at most 10% of population?"}
+  D -- Yes --> E{"Same success probability p each trial?"}
+  E -- Yes --> F["Binomial B(n, p)"]
+  C -- "No: trials until first success" --> G["Possibly geometric (next lesson)"]
+  B -- No --> X["Not binomial"]
+  D -- No --> X
+  E -- No --> X
+```
+
 ## The binomial formula
 
 $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad k = 0, 1, \ldots, n.$$
@@ -84,7 +101,13 @@ For the ties: $\mu = 10(0.2) = 2$ cracked ties, $\sigma = \sqrt{10(0.2)(0.8)} = 
 ## Shape and the normal approximation
 
 A binomial distribution is symmetric when $p = 0.5$, right-skewed when $p$ is small, and
-left-skewed when $p$ is large. As $n$ grows, it becomes more and more bell-shaped. The
+left-skewed when $p$ is large. As $n$ grows, it becomes more and more bell-shaped. The picture
+shows all three shapes for $n = 10$; the distributions for $p$ and $1 - p$ are mirror images,
+because successes for one are failures for the other.
+
+![Three probability histograms for n = 10, stacked. Top, p = 0.2: tallest bars at 1 and 2, with a long tail to the right (skewed right). Middle, p = 0.5: tallest bar at 5 and matching tails (symmetric). Bottom, p = 0.8: tallest bars at 8 and 9, with a long tail to the left (skewed left).](images/stat-m6-binomial-shapes.svg)
+
+The
 **large counts condition**: if
 
 $$np \ge 10 \quad\text{and}\quad n(1-p) \ge 10,$$

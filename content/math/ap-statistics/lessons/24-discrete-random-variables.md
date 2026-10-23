@@ -54,6 +54,13 @@ defects in total.
 
 This is exactly the weighted mean from Module 1, with probabilities as the weights.
 
+The picture below shows why the mean is also called the *balance point*. Think of the probability
+histogram as blocks on a beam: the beam balances exactly at $\mu_X = 0.75$, not at the tallest bar
+(the most likely value, 0) and not at the middle of the possible values (1.5). The long right tail
+pulls the balance point to the right of the tallest bar, just as a tail pulls the mean of a data set.
+
+![Probability histogram of the number of weld defects: bars of height 0.50, 0.30, 0.15 and 0.05 at x = 0, 1, 2 and 3 sit on a beam. A triangle under the beam at 0.75 is labeled balance point: mean mu = 0.75. The tallest bar, at 0, is labeled most likely value. The bar at 2 is labeled bar height = P(X = 2) = 0.15. A dashed vertical line at about 1.64 is labeled mu + sigma.](images/stat-m6-ev-balance.svg)
+
 ## Variance and standard deviation
 
 The variance is the expected squared distance from the mean:
@@ -120,6 +127,20 @@ and chi-square distributions; the rest of this module is about discrete random v
 
 A signal box has two independent relays; relay A fails with probability 0.1 and relay B with
 probability 0.2. Let $X$ be the number of failed relays.
+
+A tree diagram lists every path; multiply along each path, then add the paths that give the same value of $X$.
+
+```mermaid
+flowchart LR
+  accTitle: Tree diagram for two independent relays
+  accDescr: Relay A fails with probability 0.1 or works with probability 0.9. On each branch, relay B then fails with probability 0.2 or works with probability 0.8. The four paths give: both fail, probability 0.02, X equals 2; A fails and B works, 0.08, X equals 1; A works and B fails, 0.18, X equals 1; both work, 0.72, X equals 0. Paths with the same value of X are added, so P(X = 1) = 0.08 + 0.18 = 0.26.
+  S["Start"] -- "A fails 0.1" --> AF["A failed"]
+  S -- "A works 0.9" --> AW["A worked"]
+  AF -- "B fails 0.2" --> L1["0.1 × 0.2 = 0.02, X = 2"]
+  AF -- "B works 0.8" --> L2["0.1 × 0.8 = 0.08, X = 1"]
+  AW -- "B fails 0.2" --> L3["0.9 × 0.2 = 0.18, X = 1"]
+  AW -- "B works 0.8" --> L4["0.9 × 0.8 = 0.72, X = 0"]
+```
 
 1. $P(X = 0) = 0.9 \times 0.8 = 0.72$.
 2. $P(X = 1) = 0.1 \times 0.8 + 0.9 \times 0.2 = 0.08 + 0.18 = 0.26$.

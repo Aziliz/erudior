@@ -80,11 +80,12 @@
     stot: n1*p1/100 + n2*p2/100
     w: round(n1/(n1 + n2), 4)
     rate: round(100*(n1*p1/100 + n2*p2/100)/(n1 + n2), 1)
+    ratex: 100*(n1*p1/100 + n2*p2/100)/(n1 + n2)
     naive: (p1 + p2)/2
   where: ['s1 == round(s1)', 's2 == round(s2)', 'p1 > p2 + 10', 'n1 != n2']
   prompt: 'A treatment succeeded for {s1} of {n1} patients with mild cases ({p1}%) and {s2} of {n2} patients with severe cases ({p2}%). What is its overall success rate? Give a percent to 1 decimal place.'
   answers:
-    - {name: rate, label: 'Overall rate (%)', tolerance: 0.051}
+    - {name: ratex, label: 'Overall rate (%)', tolerance: 0.051}
   solution: |-
     Add the successes and the patients: $\dfrac{{s1} + {s2}}{{n1} + {n2}} = \dfrac{{stot}}{{tot}} \approx$ **{rate}%**.
     As a weighted average: a fraction $\tfrac{{n1}}{{tot}} \approx {w}$ of the patients are mild cases, so the overall rate lies between {p2}% and {p1}%, pulled toward the larger group. (The unweighted average, {naive}%, is wrong because the groups differ in size.)
@@ -106,6 +107,8 @@
     prod: (a + b)*(a + c)
     ex: round((a + b)*(a + c)/(a + b + c + d), 1)
     gap: round(a - round((a + b)*(a + c)/(a + b + c + d), 1), 1)
+    exx: (a + b)*(a + c)/(a + b + c + d)
+    gapx: a - (a + b)*(a + c)/(a + b + c + d)
   prompt: |-
     A survey recorded whether people walk to work.
 
@@ -117,8 +120,8 @@
 
     If where people live and walking to work were not associated, what count would you expect in the City/Walk cell (1 decimal place)? What is the observed count minus that expected count?
   answers:
-    - {name: ex, label: 'Expected count', tolerance: 0.051}
-    - {name: gap, label: 'Observed − expected', tolerance: 0.051}
+    - {name: exx, label: 'Expected count', tolerance: 0.06}
+    - {name: gapx, label: 'Observed − expected', tolerance: 0.06}
   solution: |-
     Expected count $= \dfrac{\text{row total} \times \text{column total}}{\text{grand total}} = \dfrac{{r1} \times {k1}}{{N}} = \dfrac{{prod}}{{N}} \approx$ **{ex}**.
     Observed − expected $= {a} - {ex} =$ **{gap}**. (A positive gap means more city residents walk than "no association" predicts; a negative gap, fewer.)
@@ -201,4 +204,4 @@
     - {name: r, label: '$r =$', tolerance: 0.00051}
   solution: |-
     $r^2 = 1 - \dfrac{\text{SSE}}{\sum (y - \bar y)^2} = 1 - \dfrac{{sse}}{{sst}} = 1 - {ratio} =$ **{r2}**.
-    $r$ has the same sign as the slope ({sgn}), so $r = \pm\sqrt{{r2}} \approx$ **{r}**.
+    $|r| = \sqrt{{r2}}$, and $r$ has the same sign as the slope ({sgn}), so $r \approx$ **{r:dp3}**.

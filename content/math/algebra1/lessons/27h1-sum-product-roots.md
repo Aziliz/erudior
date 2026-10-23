@@ -93,7 +93,7 @@ Check with the quadratic formula: the roots are $\tfrac{3 \pm \sqrt7}{2}$, which
 The graph shows the sum another way. The parabola $y = x^2 - 10x + 21$ has roots 3 and 7, and its axis of symmetry is halfway between them, at $x = \tfrac{S}{2} = 5$. That is the vertex formula $x = -\tfrac{b}{2a}$ from Lesson 25 in disguise: half the sum of the roots.
 
 ```plot
-{"x": [-1, 11], "y": [-6, 10], "functions": [{"f": "x^2 - 10*x + 21", "label": "y = x² - 10x + 21", "from": 0.9, "to": 9.1}], "points": [{"at": [3, 0], "label": "3"}, {"at": [7, 0], "label": "7"}, {"at": [5, -4], "label": "vertex (5, -4)"}], "segments": [{"from": [5, -6], "to": [5, 10], "dashed": true}], "labels": [{"at": [5.2, 8], "text": "x = sum ÷ 2 = 5"}], "caption": "The axis of symmetry is at half the sum of the roots"}
+{"x": [-1, 11], "y": [-6, 10], "functions": [{"f": "x^2 - 10*x + 21", "label": "y = x² - 10x + 21", "from": 0.9, "to": 9.1}], "points": [{"at": [3, 0], "label": "3"}, {"at": [7, 0], "label": "7"}, {"at": [5, -4], "label": "vertex (5, -4)"}], "segments": [{"from": [5, -6], "to": [5, 10], "dashed": true}], "labels": [{"at": [8.6, -2.5], "text": "x = sum ÷ 2 = 5"}], "caption": "The axis of symmetry is at half the sum of the roots"}
 ```
 
 ## Unknown coefficients

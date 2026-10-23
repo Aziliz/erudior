@@ -44,6 +44,13 @@ $b$, but spreads are multiplied by $|b|$ (a standard deviation can't be negative
 the order of values reverses, so a right-skewed distribution becomes left-skewed and
 the old maximum becomes the new minimum.
 
+The dotplots show both moves on the small data set 2, 3, 3, 4, 5, 7. Adding 5 slides every
+dot 5 units to the right: the mean moves from 4 to 9, but the gaps between dots, and so the
+SD of 1.79, stay the same. Doubling puts every dot twice as far from 0 and twice as far from
+its neighbors, so the mean (8) and the SD (3.58) both double.
+
+![Three dotplots on a common scale from 0 to 16, each with a triangle under the mean. Top, x: dots at 2, 3, 3, 4, 5, 7, mean 4, SD 1.79. Middle, x + 5: dots at 7, 8, 8, 9, 10, 12, mean 9, SD 1.79. Bottom, 2x: dots at 4, 6, 6, 8, 10, 14, mean 8, SD 3.58.](images/stat-m2-shift-scale.svg)
+
 ## Both together
 
 For $y = a + bx$:
@@ -57,6 +64,22 @@ For $y = a + bx$:
 | z-score of each individual | unchanged (sign flips if $b < 0$) |
 
 The key idea: *adding affects center but not spread; multiplying affects both*.
+
+To use the table, first sort the summary you have into one of four kinds:
+
+```mermaid
+flowchart TD
+  accTitle: What happens to each summary under y = a + bx
+  accDescr: Sort the summary into one of four kinds. Measures of center and position, such as the mean, median, quartiles and percentiles, become a plus b times the old value; if b is negative, low and high positions swap, so the old first quartile becomes the new third quartile. Measures of spread, such as the SD, IQR and range, become the absolute value of b times the old value, and a has no effect. The variance becomes b squared times the old variance. The shape is unchanged, except that it is mirrored when b is negative.
+  S["Which kind of summary?"] --> C["Center or position: mean, median, quartiles, percentiles"]
+  S --> P["Spread: SD, IQR, range"]
+  S --> V["Variance"]
+  S --> H["Shape"]
+  C --> C2["a + b × old (if b < 0, low and high positions swap)"]
+  P --> P2["|b| × old (adding a has no effect)"]
+  V --> V2["b² × old"]
+  H --> H2["Unchanged (mirror image if b < 0)"]
+```
 
 The last row explains why converting units can't change how unusual a value is. A
 person 1 SD above the mean height in inches is 1 SD above it in centimeters too.

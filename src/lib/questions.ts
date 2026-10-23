@@ -36,17 +36,31 @@ export function normText(s: string, caseSensitive = false): string {
 }
 
 const NUM = /^[-+]?(\d+(\.\d*)?|\.\d+)(e[-+]?\d+)?$/i;
+const FRAC = /^([-+]?)(\d+)\/(\d+)$/;
 
-/** True if a typed answer matches one of the accepted ones. Plain numbers compare by value. */
+/** The value of a plain number or simple fraction ("0.5", ".5", "1/2", "-3/4"), else null. */
+function numValue(s: string): number | null {
+  const t = s.replace(/,/g, "");
+  if (NUM.test(t)) return Number(t);
+  const f = FRAC.exec(t);
+  if (f && Number(f[3]) !== 0) return (f[1] === "-" ? -1 : 1) * (Number(f[2]) / Number(f[3]));
+  return null;
+}
+
+/**
+ * True if a typed answer matches one of the accepted ones. Spaces don't matter ("x + 3" = "x+3"),
+ * and numbers compare by value, fractions included ("1/2" = "0.5" = ".5").
+ */
 export function textMatches(typed: string, accepted: string[], caseSensitive = false): boolean {
   const t = normText(typed, caseSensitive);
   if (!t) return false;
-  const tn = t.replace(/,/g, "");
+  const tc = t.replace(/\s+/g, "");
+  const tv = numValue(tc);
   return accepted.some((a) => {
     const n = normText(a, caseSensitive);
-    if (n === t) return true;
-    const an = n.replace(/,/g, "");
-    return NUM.test(tn) && NUM.test(an) && Math.abs(Number(tn) - Number(an)) <= 1e-9 * Math.max(1, Math.abs(Number(an)));
+    if (n === t || n.replace(/\s+/g, "") === tc) return true;
+    const av = numValue(n.replace(/\s+/g, ""));
+    return tv !== null && av !== null && Math.abs(tv - av) <= 1e-9 * Math.max(1, Math.abs(av));
   });
 }
 

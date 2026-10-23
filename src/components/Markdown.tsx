@@ -35,10 +35,36 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
   const math = protectMath(figs.text);
   const html = diags.restore(math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string)));
   // An empty corner header cell is announced as a blank header; make it a plain cell.
-  return DOMPurify.sanitize(html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>"), {
+  const tidy = html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>");
+  const clean = DOMPurify.sanitize(tidy, {
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
+  return mathHeaders(clean);
+}
+
+/** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
+ * alone doesn't count as header text for every screen reader). */
+function mathHeaders(html: string): string {
+  if (!html.includes("<th") || !html.includes("katex") || typeof document === "undefined") return html;
+  const t = document.createElement("template");
+  t.innerHTML = html;
+  let changed = false;
+  for (const th of t.content.querySelectorAll("th")) {
+    if (!th.querySelector(".katex")) continue;
+    const rest = th.cloneNode(true) as HTMLElement;
+    rest.querySelectorAll(".katex").forEach((k) => k.remove());
+    if (rest.textContent?.trim()) continue;
+    const tex = [...th.querySelectorAll(".katex")]
+      .map((k) => (k.querySelector("annotation")?.textContent || k.querySelector(".katex-html")?.textContent || "").trim())
+      .join(" ");
+    const sr = document.createElement("span");
+    sr.className = "sr-only";
+    sr.textContent = tex;
+    th.append(sr);
+    changed = true;
+  }
+  return changed ? t.innerHTML : html;
 }
 
 interface Pop {

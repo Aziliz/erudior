@@ -121,7 +121,7 @@ A rectangular garden is 3 m longer than it is wide, and its area is 70 m². Find
 4. A width can't be negative, so $w = 7$ m and the length is 10 m.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [10, 0], [10, 7], [0, 7]]}], "segments": [{"from": [0, 0], "to": [10, 0], "label": "length w + 3 = 10 m"}, {"from": [0, 7], "to": [0, 0], "label": "width w = 7 m"}], "labels": [{"at": [5, 3.5], "text": "area 70 m²"}], "caption": "The garden: 7 m by 10 m, and 7 × 10 = 70"}
+{"polygons": [{"points": [[0, 0], [10, 0], [10, 7], [0, 7]]}], "segments": [{"from": [0, 0], "to": [10, 0], "label": "length w + 3 = 10 m"}, {"from": [10, 0], "to": [10, 7]}], "labels": [{"at": [5, 3.5], "text": "area 70 m²"}, {"at": [11.6, 3.5], "text": "w = 7 m"}], "caption": "The garden: 7 m by 10 m, and 7 × 10 = 70"}
 ```
 
 Applications often produce a root that makes no sense in context. Check each root against the situation, and say why you reject one.

@@ -35,6 +35,12 @@ t("text normalization", () => {
   assert.ok(!textMatches("mitochondrium", ["mitochondrion"]));
   assert.ok(textMatches("0.50", ["0.5"]));
   assert.ok(textMatches("1,000", ["1000"]));
+  assert.ok(textMatches("1/2", ["0.5"]));
+  assert.ok(textMatches(".5", ["1/2"]));
+  assert.ok(textMatches("-3/4", ["-0.75"]));
+  assert.ok(textMatches("x + 3", ["x+3"]));
+  assert.ok(!textMatches("1/3", ["0.33"]));
+  assert.ok(!textMatches("2/4x", ["0.5x"]));
   assert.ok(!textMatches("", ["x"]));
   assert.ok(!textMatches("tt", ["Tt"], true));
   assert.ok(textMatches("Tt", ["Tt"], true));

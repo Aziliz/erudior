@@ -72,7 +72,18 @@ $$P(B_j \mid A) = \frac{P(B_j)\,P(A \mid B_j)}{\sum_i P(B_i)\,P(A \mid B_i)}.$$
 
 You don't need to memorize it: the numerator is one path, the denominator is the total of
 all paths that end in $A$. "The path you care about, divided by all paths that give what
-you observed."
+you observed." The steps, in order:
+
+```mermaid
+flowchart TD
+  accTitle: Steps of a Bayes calculation with a tree
+  accDescr: First draw the first-stage branches with the prior probabilities. Then add second-stage branches labeled with conditional probabilities given each first-stage branch. Multiply along each path. Add the paths that end in the observed result to get its total probability. Divide the path of interest by that total to get the posterior probability. Finally check that branches and paths add to 1 and that the posterior moved in a sensible direction.
+  A["Draw first-stage branches with the priors"] --> B["Add second-stage branches with conditional probabilities"]
+  B --> C["Multiply along each path"]
+  C --> D["Add the paths that end in the observed result"]
+  D --> E["Posterior = path of interest ÷ that total"]
+  E --> F["Check: sums equal 1, posterior moved the sensible way"]
+```
 
 In this context, $P(D)$ is the **prior** probability (before the test) and $P(D \mid +)$ is
 the **posterior** probability (after). A positive test raised the probability from 2% to
@@ -97,6 +108,8 @@ Although C supplies only 20% of clips, it accounts for almost half of the defect
 Imagine 10,000 people in Example 1. Then 200 have the condition, of whom $0.95 \times 200 = 190$
 test positive; 9,800 don't, of whom $0.10 \times 9800 = 980$ test positive. Of the
 $190 + 980 = 1170$ positives, $190/1170 \approx 0.162$ have the condition — the same answer.
+
+![A tree of counts. 10,000 people split into 200 who have the condition (2 percent) and 9,800 who do not (98 percent). The 200 split into 190 who test positive (95 percent), the true positives, and 10 who test negative (5 percent), the false negatives. The 9,800 split into 980 who test positive (10 percent), the false positives, and 8,820 who test negative (90 percent), the true negatives. A note reads: of 190 plus 980 equals 1,170 positives, 190 have the condition, 190 over 1,170 is about 0.162.](images/stat-m5-frequency-tree.svg)
 Turning probabilities into counts of an imaginary population ("natural frequencies") is a
 reliable way to check a Bayes calculation.
 

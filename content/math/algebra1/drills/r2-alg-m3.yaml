@@ -38,7 +38,7 @@
   solution: |-
     Write $y = {a:coef}x {b:signed}$ and swap $x$ and $y$: $x = {a:coef}y {b:signed}$.
     Solve for $y$: ${a:coef}y = x {nb:signed}$, so **$f^{-1}(x) = \dfrac{x {nb:signed}}{ {a} }$**.
-    The steps of $f$ (multiply by {a}, then add {b}) are undone in reverse order: subtract {b}, then divide by {a}.
+    The inverse undoes the steps of $f$ in reverse order: $f$ multiplies by ${a}$ and then adds ${b}$, so $f^{-1}$ subtracts ${b}$ and then divides by ${a}$.
 
 - id: alg-m3-r2-plan-bill
   title: Work backward through a data plan
@@ -66,7 +66,7 @@
   vars:
     m: {min: -5, max: 5}
     b: {min: -9, max: 9}
-    c: {min: 1, max: 5}
+    c: {min: 2, max: 5}
     d: {min: -9, max: 9}
   where: ['m != 0', 'b != 0', 'd != 0']
   calc:
@@ -108,7 +108,7 @@
   solution: |-
     Split the income into layers and tax each at its own rate:
     first layer {L1:money0} × {r1}% = {t1:money}; second layer {L2:money0} × {r2}% = {t2:money}; top layer {L3:money0} × {r3}% = {t3:money}.
-    Total tax: **{T:money}**. Average rate: $\dfrac{ {T} }{ {x} } \times 100 \approx$ **{avgp:num1}%**. (The marginal rate, on the next dollar, is {marg}%.)
+    Total tax: **{T:money}**. Average rate: {T:money} ÷ {x:money0} × 100 ≈ **{avgp:num1}%**. (The marginal rate, on the next dollar, is {marg}%.)
 
 - id: alg-m3-r2-arc-quadratic
   title: Average rate of change of a quadratic
@@ -191,6 +191,6 @@
       label: 'Difference quotient $=$'
       show: '${s0} {a:signedcoef}h$'
   solution: |-
-    Expand: $f({p} + h) = {a}({p} + h)^2 + ({b})({p} + h) {c:signed} = {fp} {s0:signedcoef}h {a:signedcoef}h^2$, since the terms without $h$ add up to $f({p}) = {fp}$.
+    Expand: $f({p} + h) = {a:coef}({p} + h)^2 + ({b})({p} + h) {c:signed} = {fp} {s0:signedcoef}h {a:signedcoef}h^2$, since the terms without $h$ add up to $f({p}) = {fp}$.
     Subtract $f({p}) = {fp}$: ${s0:coef}h {a:signedcoef}h^2$. Divide by $h$: **${s0} {a:signedcoef}h$**.
     As $h$ gets close to 0 this approaches {lim}, the instantaneous rate of change of $f$ at $x = {p}$.
