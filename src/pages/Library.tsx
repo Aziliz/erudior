@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
+import { REMOTE } from "../lib/courseSource";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
 import { BankError, emptyBank, normalizeBank } from "../lib/validate";
@@ -269,6 +270,13 @@ function Catalog({ api }: { api: AppApi }) {
           {pages > 1 && ` · page ${pageNow + 1} of ${pages}`}
         </span>
       </div>
+      {REMOTE && api.catalog.source !== "website" && (
+        <p className="notice small" role="status">
+          {api.catalog.source === "saved"
+            ? "Couldn't reach the course website, so this is the catalog saved on this device. Courses you've started work offline."
+            : "Connecting to the course website… New courses can be added once it's reachable; courses you've started work offline."}
+        </p>
+      )}
       <div className="catalog-filters">
         <input
           className="input"

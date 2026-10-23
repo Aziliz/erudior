@@ -7,3 +7,7 @@ src-tauri/gen/
 samples/math-drafts/
 samples/languages-drafts/
 __pycache__/
+
+# Course signing keys and published course packages
+.keys/
+dist-courses/

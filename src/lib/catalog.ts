@@ -1,10 +1,13 @@
-// The course catalog: every course that ships with the app. Courses aren't installed
-// until someone adds one ("Start course"); then it's stored like any other course and
-// shows under In progress. samples/catalog.json is written by content/math/build.py.
+// The course catalog: every course Examiner offers. Courses aren't installed until someone
+// adds one ("Start course"); then it's stored like any other course and shows under In
+// progress. samples/catalog.json (written by content/math/build.py) is bundled as a snapshot;
+// when the build sets VITE_COURSES_URL, the signed catalog on the website replaces it at
+// startup and course files are downloaded from there (see courseSource.ts).
 
 import catalogJson from "../../samples/catalog.json";
 import type { Course, Progress } from "./types";
 import { attemptPassed } from "./session";
+import { REMOTE, downloadCourse } from "./courseSource";
 
 export interface CatalogEntry {
   id: string;
@@ -31,17 +34,23 @@ export interface CatalogEntry {
   outline?: { title: string; lessons: string[] }[];
   /** Language courses: target vocabulary size and items in the course. */
   words?: number;
+  /** Published catalogs only: size and SHA-256 of the course file (covered by the catalog signature). */
+  bytes?: number;
+  sha256?: string;
 }
 
-export const CATALOG = catalogJson as CatalogEntry[];
+/** The current catalog. Replaced in place by setCatalog, so modules can keep a reference. */
+export const CATALOG: CatalogEntry[] = [...(catalogJson as CatalogEntry[])];
 
-// Each course is its own chunk, fetched only when it's added or updated.
-const FILES = import.meta.glob<{ default: unknown }>(["../../samples/math/*.json", "../../samples/languages/*.json", "../../samples/colorado-broker-course.json"]);
+export function setCatalog(entries: CatalogEntry[]) {
+  CATALOG.splice(0, CATALOG.length, ...entries);
+}
 
 export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
-  const load = FILES[`../../samples/${entry.file}`];
-  if (!load) throw new Error(`Course file ${entry.file} isn't bundled`);
-  return (await load()).default;
+  if (REMOTE) return downloadCourse(entry);
+  // Bundled builds: each course is its own chunk, fetched only when it's added or updated.
+  const { bundledCourse } = await import("./bundledCourses");
+  return bundledCourse(entry.file);
 }
 
 export const catalogEntry = (id: string) => CATALOG.find((e) => e.id === id);
@@ -81,7 +90,12 @@ export async function catalogUpdates(installed: Course[]): Promise<{ entry: Cata
   const out = [];
   for (const e of CATALOG) {
     const mine = installed.find((c) => c.id === e.id);
-    if (mine && e.revision > (mine.revision ?? 0)) out.push({ entry: e, course: await loadCatalogCourse(e) });
+    if (!mine || e.revision <= (mine.revision ?? 0)) continue;
+    try {
+      out.push({ entry: e, course: await loadCatalogCourse(e) });
+    } catch {
+      /* offline or not published yet: offered again next start */
+    }
   }
   return out;
 }

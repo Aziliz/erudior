@@ -60,6 +60,14 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
+## Course hosting (v0.14.0)
+
+- Plan: the website (examiner.azilizlabs.com, Cloudflare Pages) is free learning; the desktop app is for homeschool families and schools. Both download courses from examiner-courses.azilizlabs.com/v1/ (Cloudflare R2).
+- `npm run courses:publish` writes dist-courses/v1: catalog.json (with each file's SHA-256), catalog.json.sig (Ed25519) and immutable `<id>.r<rev>.json` files. The app trusts keys in src/lib/courseKeys.ts (src/lib/courseSource.ts, courseSign.ts), caches the last good catalog for offline use.
+- Builds without VITE_COURSES_URL bundle courses as before; with it, no course ships in the build (web build 2.4 MB instead of 16 MB).
+- Setup steps (signing key, R2, Pages, token, GitHub secrets/variables) are in docs/HOSTING.md; the "Publish website and courses" workflow stays idle until the COURSES_URL variable is set. `npm run dev:remote` tests the download path locally with a dev key.
+- Roadmap doc: claude.ai artifact "Examiner: Free Homeschool Roadmap" (with a State rules tab for all 50 states + DC).
+
 ## Layout and accessibility (v0.13.0)
 
 - Pages span 95% of the window (2.5% each side, at least 12px): `--page-width` in styles.css. No fixed-pixel content widths; inline `maxWidth` is only used for small form fields.

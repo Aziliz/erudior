@@ -17,7 +17,8 @@ import LessonView from "./pages/LessonView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
-import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse, prerequisites } from "./lib/catalog";
+import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse, prerequisites, setCatalog } from "./lib/catalog";
+import { fetchCatalog, type CatalogSource } from "./lib/courseSource";
 import RefView from "./pages/RefView";
 import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
 import { migrateVocabKeys } from "./lib/vocab";
@@ -46,6 +47,8 @@ export type View =
   | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number };
 
 export interface AppApi {
+  /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
+  catalog: { source: CatalogSource; error?: string };
   banks: Bank[];
   courses: Course[];
   progress: Progress;
@@ -104,6 +107,8 @@ export default function App() {
   const [width, setWidth] = useState<ReadingWidth>(() => readPref("examiner.width", ["full", "comfortable"], "full"));
   const [textSize, setTextSize] = useState<TextSize>(() => readPref("examiner.textSize", ["100", "115", "130"], "100"));
   const [displayOpen, setDisplayOpen] = useState(false);
+  // Where the course catalog came from (download builds); re-renders pages that read CATALOG.
+  const [catalogInfo, setCatalogInfo] = useState<{ source: CatalogSource; error?: string }>({ source: "bundled" });
   const toastTimer = useRef<number>(undefined);
   const mainRef = useRef<HTMLElement>(null);
   const [resumable, setResumable] = useState<Resumable | null>(null);
@@ -197,13 +202,22 @@ export default function App() {
         progressRef.current = p;
         setProgressState(p);
         await reload();
-        // Offer newer catalog versions of courses that are already added.
-        const { courses: installed } = await store.listCourses();
-        const updates = (await catalogUpdates(installed)).map((u) => normalizeCourse(u.course));
-        setCourseUpdates(updates);
         setReady(true);
         // Quietly look for a new version of the app; offline is fine.
         checkForUpdate().then(setAppUpdate, () => {});
+        // Builds that download courses: get the signed catalog from the website (or the last
+        // one saved here when offline). Bundled builds keep the catalog they shipped with.
+        const fetched = await fetchCatalog();
+        if (fetched) {
+          setCatalog(fetched.entries);
+          setCatalogInfo({ source: fetched.source, error: fetched.error });
+        }
+        // Offer newer catalog versions of courses that are already added.
+        const { courses: installed } = await store.listCourses();
+        catalogUpdates(installed).then(
+          (u) => setCourseUpdates(u.map((x) => normalizeCourse(x.course))),
+          () => {},
+        );
       } catch (e) {
         setLoadError(String(e));
       }
@@ -252,6 +266,7 @@ export default function App() {
   );
 
   const api: AppApi = {
+    catalog: catalogInfo,
     banks: allBanks,
     courses,
     progress,
