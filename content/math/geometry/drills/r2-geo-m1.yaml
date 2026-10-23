@@ -1,0 +1,93 @@
+# Round 2, module geo-m1: drills for the honors lessons
+- id: geo-m1-r2-crossing
+  title: Which side of a line? Where does a segment cross?
+  topic: Plane separation
+  vars:
+    m: {min: -3, max: 3}
+    b: {min: -5, max: 5}
+    p1: {min: -4, max: 4}
+    q1: {min: -4, max: 4}
+    dp: {min: 1, max: 6}
+    dq: {min: 1, max: 6}
+  where: ["m != 0", "b != 0", "p1 != q1"]
+  calc:
+    p2: m*p1 + b + dp
+    q2: m*q1 + b - dq
+    dP: dp
+    dQ: -dq
+    s: dp + dq
+    t: dp/s
+    xc: p1 + t*(q1 - p1)
+    yc: m*xc + b
+    mp: m*p1 + b
+    mq: m*q1 + b
+  prompt: 'Line $\ell$ is $y = {m:coef}x {b:signed}$. Let $d = y - ({m:coef}x {b:signed})$. Find $d$ at $P({p1}, {p2})$ and at $Q({q1}, {q2})$, then the $x$-coordinate of the point where $\overline{PQ}$ crosses $\ell$ (as a fraction, or a decimal to 2 places).'
+  answers:
+    - {name: dP, label: '$d_P =$'}
+    - {name: dQ, label: '$d_Q =$'}
+    - {name: xc, label: '$x =$', tolerance: 0.006}
+  figure:
+    type: plot
+    x: [-6, 6]
+    y: [-14, 14]
+    equal: false
+    functions: [{f: 'm*x + b', label: 'ℓ'}]
+    segments: [{from: [p1, p2], to: [q1, q2]}]
+    points: [{at: [p1, p2], label: P}, {at: [q1, q2], label: Q}]
+  solution: |-
+    At $P$: $d_P = {p2} - ({mp}) = {dP}$. At $Q$: $d_Q = {q2} - ({mq}) = {dQ}$. The signs are opposite, so $P$ and $Q$ are on opposite sides of $\ell$ and $\overline{PQ}$ crosses it. The crossing is the fraction $t = \dfrac{d_P}{d_P - d_Q} = \dfrac{{dP}}{{s}}$ of the way from $P$ to $Q$, so $x = {p1} + {t:texfrac}\,({q1} - ({p1})) =$ **${xc:texfrac}$** (about {xc:num2}). Check: there $y = {yc:texfrac}$, which is on $\ell$.
+
+- id: geo-m1-r2-lines-points
+  title: Lines through points, some collinear
+  topic: Counting lines and planes
+  vars:
+    n: {min: 6, max: 15}
+    k: {min: 3, max: 6}
+  where: ["k <= n - 2"]
+  calc:
+    all: nCr(n, 2)
+    extra: nCr(k, 2)
+    lines: all - extra + 1
+  prompt: 'There are {n} points. Exactly {k} of them lie on one line, and no other three of the points are collinear. How many lines pass through at least two of the points?'
+  answers:
+    - {name: lines, label: 'Lines'}
+  solution: |-
+    With no three collinear there would be $\binom{{n}}{2} = {all}$ lines. The {k} collinear points form $\binom{{k}}{2} = {extra}$ pairs that all give the same line, so that line was counted {extra} times instead of once: ${all} - {extra} + 1 =$ **{lines}**.
+
+- id: geo-m1-r2-regions
+  title: Regions made by lines in general position
+  topic: Counting regions and angles
+  vars:
+    n: {min: 3, max: 15}
+  calc:
+    pts: nCr(n, 2)
+    reg: (n^2 + n + 2)/2
+    bnd: nCr(n - 1, 2)
+    unb: 2*n
+    nsq: n^2
+  prompt: '{n} lines are drawn in a plane, no two parallel and no three through one point. Find the number of crossing points, the number of regions, and the number of bounded regions.'
+  answers:
+    - {name: pts, label: 'Crossing points'}
+    - {name: reg, label: 'Regions'}
+    - {name: bnd, label: 'Bounded regions'}
+  solution: |-
+    Every pair of lines meets once: $\binom{{n}}{2} =$ **{pts}** points. Regions: $\dfrac{n^2 + n + 2}{2} = \dfrac{{nsq} + {n} + 2}{2} =$ **{reg}**. There are $2n = {unb}$ unbounded regions, so bounded $= {reg} - {unb} =$ **{bnd}** (the same as $\binom{n-1}{2}$).
+
+- id: geo-m1-r2-concurrent
+  title: Angles formed by concurrent lines
+  topic: Counting regions and angles
+  vars:
+    n: {min: 2, max: 9}
+  calc:
+    rays: 2*n
+    rp: nCr(2*n, 2)
+    ang: 2*n*(n - 1)
+    vp: n*(n - 1)
+    small: 180/n
+  prompt: '{n} lines pass through one point, with equal angles between neighboring rays. How many angles are formed (not counting straight angles), how many pairs of vertical angles are there, and what is the smallest angle in degrees (to 2 decimal places if needed)?'
+  answers:
+    - {name: ang, label: 'Angles'}
+    - {name: vp, label: 'Vertical pairs'}
+    - {name: small, label: 'Smallest angle', tolerance: 0.006}
+  solution: |-
+    The lines make {rays} rays. Of the $\binom{{rays}}{2} = {rp}$ pairs of rays, {n} pairs are opposite rays (straight angles), leaving ${rp} - {n} =$ **{ang}** angles. Each has one vertical partner, so there are ${ang} \div 2 =$ **{vp}** vertical pairs. The {rays} equal angles around the point are $\dfrac{360^\circ}{{rays}} =$ **{small:num2}°**.

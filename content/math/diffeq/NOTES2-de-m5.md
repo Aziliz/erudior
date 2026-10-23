@@ -37,8 +37,8 @@ de-m5-root-cases, de-m5-root-cases-blank, de-m5-damped-parts, de-m5-damped-parts
 all rendered. **Plots**: 5 new (3 core, 2 honors).
 
 **Questions** (`questions/r2-de-m5.yaml`, 48)
-- Core de-m5-r2-q01…q20 (5 per lesson): text 6 (q01, q04, q07, q12, q17 + none other), match 3
-  (q02, q08, q18), order 2 (q13, q16), select-all 5 (q03, q09, q14, q19), label 2 (q06, q11),
+- Core de-m5-r2-q01…q20 (5 per lesson): text 5 (q01, q04, q07, q12, q17), match 3
+  (q02, q08, q18), order 2 (q13, q16), select-all 4 (q03, q09, q14, q19), label 2 (q06, q11),
   MC 4 (q05, q10, q15, q20). module_quiz: q01, q03, q07, q09, q12, q17, q20.
 - Honors de-m5-r2-h01…h14 (Wronskian lesson: 8 MC, 3 text, 1 select-all, 1 match, 1 order) and
   h15…h28 (Sturm lesson: 8 MC, 2 text, 2 select-all, 1 match, 1 order).

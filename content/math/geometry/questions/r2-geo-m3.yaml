@@ -148,7 +148,7 @@
 - id: geo-m3-r2-h02
   lesson: geo-h-parallel-proofs
   topic: Parallel line proofs
-  stem: 'In Book I of Euclid''s *Elements*, which proposition is the first to use the parallel postulate?'
+  stem: 'In Book I of Euclid''s Elements, which proposition is the first to use the parallel postulate?'
   choices: ['Proposition 16: an exterior angle of a triangle is greater than each remote interior angle', 'Proposition 27: congruent alternate angles imply parallel lines', 'Proposition 29: parallel lines make congruent alternate angles', 'Proposition 47: the Pythagorean theorem']
   answer: 2
   explanation: |-
@@ -180,7 +180,7 @@
 - id: geo-m3-r2-h06
   lesson: geo-h-parallel-proofs
   topic: Auxiliary lines
-  stem: '$\ell \parallel m$ and a path bends once at $P$ between them. At $A$ the angle between the path and $\ell$ on the side *away* from the bend is $140^\circ$; at $B$ the angle between the path and $m$ on the side *toward* the bend is $30^\circ$. Find $m\angle APB$.'
+  stem: '$\ell \parallel m$ and a path bends once at $P$ between them. At $A$ the angle between the path and $\ell$ on the side away from the bend is $140^\circ$; at $B$ the angle between the path and $m$ on the side toward the bend is $30^\circ$. Find $m\angle APB$.'
   choices: ['$70^\circ$', '$170^\circ$', '$110^\circ$', '$40^\circ$']
   answer: 0
   explanation: |-
