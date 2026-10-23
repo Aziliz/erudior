@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" font-family="sans-serif" fill="#1c2833">
+<rect width="640" height="480" fill="#ffffff"/>
+<text x="320.0" y="32.0" font-size="19" text-anchor="middle" font-weight="bold">An eigenvalue λ = a + bi in the complex plane</text>
+<line x1="51.0" y1="250.0" x2="610.5" y2="250.0" stroke="#1c2833" stroke-width="1.5"/><polygon points="620.5,250.0 610.5,255.0 610.5,245.0" fill="#1c2833"/>
+<line x1="170.0" y1="445.5" x2="170.0" y2="56.0" stroke="#1c2833" stroke-width="1.5"/><polygon points="170.0,46.0 175.0,56.0 165.0,56.0" fill="#1c2833"/>
+<text x="616.2" y="275.5" font-size="15" text-anchor="end">real axis</text>
+<text x="180.2" y="54.5" font-size="15" text-anchor="start">imaginary axis</text>
+<line x1="170" y1="250" x2="425.0" y2="122.5" stroke="#1f5f99" stroke-width="4"/>
+<line x1="170" y1="250" x2="425.0" y2="377.5" stroke="#1f5f99" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="170" y1="250.0" x2="425.0" y2="250.0" stroke="#b5520f" stroke-width="5"/>
+<line x1="425.0" y1="250.0" x2="425.0" y2="122.5" stroke="#2e7d4f" stroke-width="4" stroke-dasharray="8 5"/>
+<path d="M 246.5 250 A 76.5 76.5 0 0 0 238.4 215.8" fill="none" stroke="#1c2833" stroke-width="2"/>
+<circle cx="425.0" cy="122.5" r="7" fill="#1c2833"/>
+<circle cx="425.0" cy="377.5" r="7" fill="#1c2833"/>
+<circle cx="170" cy="250" r="4" fill="#1c2833"/>
+<text x="162.0" y="270.0" font-size="15" text-anchor="end">0</text>
+<text x="437.8" y="114.0" font-size="16" text-anchor="start">λ = a + bi</text>
+<text x="437.8" y="386.0" font-size="16" text-anchor="start">a - bi (the conjugate)</text>
+<text x="280.5" y="165.0" font-size="16" text-anchor="end">r = |λ|</text>
+<text x="271.1" y="241.5" font-size="18" text-anchor="start" font-style="italic">φ</text>
+<text x="297.5" y="275.5" font-size="16" text-anchor="middle">real part a</text>
+<text x="437.8" y="199.0" font-size="16" text-anchor="start">imaginary part b</text>
+<text x="320.0" y="458.0" font-size="16" text-anchor="middle">C = [a  -b; b  a] rotates by φ and scales by r</text>
+</svg>

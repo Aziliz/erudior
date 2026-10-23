@@ -83,45 +83,34 @@ The common slip is step 5: the right-hand side must be permuted too.
 ## Swapping on purpose: partial pivoting
 
 In exact arithmetic, any nonzero pivot works. Computers, however, round every result to a
-fixed number of significant digits (about 16 in standard double precision), and a tiny
-pivot magnifies those rounding errors. The cure is **partial pivoting**: in each column,
-choose as pivot the entry of largest absolute value at or below the pivot position, and swap
-its row up. Then every multiplier satisfies $|\ell_{ij}| \le 1$, so no row is ever multiplied
-by a huge number.
+fixed number of significant digits (about 16 in standard double precision), and a tiny pivot
+is dangerous: with pivot $0.0001$ the multiplier is $10{,}000$, and after rounding, the
+original entries of the rows below are swamped by $10{,}000$ times the pivot row. (The
+round-off honors lessons in Modules 1 and 2 show a $2 \times 2$ system where this wipes out
+the answer completely.) The cure is **partial pivoting**: in each column, choose as pivot the
+entry of largest absolute value at or below the pivot position, and swap its row up. Then
+every multiplier satisfies $|\ell_{ij}| \le 1$, so no row is ever multiplied by a huge number.
 
-```mermaid
-flowchart TD
-  accTitle: Partial pivoting, one column at a time
-  accDescr: Start at the first column. Look at the entries at or below the pivot position and find the one with the largest absolute value. If it is zero, the column has no pivot, so move on. Otherwise swap its row into the pivot position, carrying recorded multipliers along, then clear the entries below the pivot and record each multiplier in L. Move to the next column and repeat until the last column is done, giving PA = LU.
-  A["Next column"] --> B["Find the largest absolute value at or below the pivot position"]
-  B --> C{"Is it zero?"}
-  C -- yes --> F["No pivot in this column"]
-  C -- no --> D["Swap that row up, carrying its multipliers; record the swap in P"]
-  D --> E["Clear the entries below the pivot; store each multiplier in L"]
-  E --> G{"More columns?"}
-  F --> G
-  G -- yes --> A
-  G -- no --> H["Done: PA = LU"]
-```
+With partial pivoting, swaps happen all the time, often in several columns, so the
+bookkeeping rule above is used constantly. $P$ is built up as you go: start with the order
+$1, 2, \dots, n$ and apply each swap to that list.
 
 ### Example 3
 
-To see the danger without a computer, pretend we keep only 3 significant digits after every
-step, and solve
-$$0.0001x_1 + x_2 = 1, \qquad x_1 + x_2 = 2.$$
-The exact solution is $x_1 \approx 1.0001$, $x_2 \approx 0.9999$, so the 3-digit answer
-should be $x_1 = x_2 = 1.00$.
+Use partial pivoting to find $PA = LU$ for $A = \begin{bmatrix} 1 & 2 & 1 \\ -1 & 4 & 3 \\ 2 & -4 & 2\end{bmatrix}$.
 
-1. *No swap.* The multiplier is $1/0.0001 = 10{,}000$. Row 2 becomes $(1 - 10{,}000)x_2 = 2 - 10{,}000$, that is $-9999x_2 = -9998$, which rounds to $-10{,}000x_2 = -10{,}000$. So $x_2 = 1.00$.
-2. Back-substitute: $0.0001x_1 = 1 - 1.00 = 0$, so $x_1 = 0$. Completely wrong: the rounding in step 1 lost the information about $x_1$, and dividing by the tiny pivot couldn't recover it.
-3. *Partial pivoting.* The larger entry in column 1 is the 1, so swap: $x_1 + x_2 = 2$ is now row 1. The multiplier is $0.0001$, and row 2 becomes $0.9999x_2 = 0.9998$, which rounds to $1.00x_2 = 1.00$. So $x_2 = 1.00$ and $x_1 = 2 - 1.00 = 1.00$. Correct to 3 digits.
+1. Column 1: the entries are $1, -1, 2$; the largest in absolute value is the 2 in row 3. Swap rows 1 and 3. The row order is now 3, 2, 1, and the working rows are $[\,2 \;\; {-4} \;\; 2\,]$, $[\,{-1} \;\; 4 \;\; 3\,]$, $[\,1 \;\; 2 \;\; 1\,]$.
+2. Clear column 1. Row 2: $\ell = -1/2$, and $R_2 - (-\tfrac12)R_1 = [\,0 \;\; 2 \;\; 4\,]$. Row 3: $\ell = 1/2$, and $R_3 - \tfrac12R_1 = [\,0 \;\; 4 \;\; 0\,]$. Both multipliers are at most 1 in size, as promised.
+3. Column 2: the candidates are 2 (row 2) and 4 (row 3). The 4 is larger, so swap rows 2 and 3, multipliers included. Now row 2 is $[\,0 \;\; 4 \;\; 0\,]$ with multiplier $\tfrac12$, row 3 is $[\,0 \;\; 2 \;\; 4\,]$ with multiplier $-\tfrac12$, and the row order is 3, 1, 2.
+4. Clear column 2: $\ell_{32} = 2/4 = \tfrac12$, and row 3 becomes $[\,0 \;\; 2 \;\; 4\,] - \tfrac12[\,0 \;\; 4 \;\; 0\,] = [\,0 \;\; 0 \;\; 4\,]$.
+5. Collect. $P$ lists rows 3, 1, 2 (the matrix of Example 1), and
+$$L = \begin{bmatrix} 1 & 0 & 0 \\ \tfrac12 & 1 & 0 \\ -\tfrac12 & \tfrac12 & 1\end{bmatrix}, \qquad U = \begin{bmatrix} 2 & -4 & 2 \\ 0 & 4 & 0 \\ 0 & 0 & 4\end{bmatrix}.$$
+6. Check row 3 of $LU$: $-\tfrac12(2, -4, 2) + \tfrac12(0, 4, 0) + (0, 0, 4) = (-1, 4, 3)$, which is row 2 of $A$, the third row of $PA$. ✓
 
-This is a simplified model of floating-point arithmetic, but real double precision behaves the
-same way: with $10^{-20}$ in place of $0.0001$, solving without the swap again gives
-$x_1 = 0$. Partial pivoting is the default in standard numerical libraries (LAPACK, and
-the solvers in MATLAB, NumPy and R built on it). It is not a perfect guarantee: specially
-built matrices can still make entries grow by a factor as large as $2^{n-1}$, but such
-growth is very rare in practice.
+Partial pivoting is the default in standard numerical libraries (LAPACK, and the solvers in
+MATLAB, NumPy and R built on it). It is not a perfect guarantee: specially built matrices can
+still make entries grow by a factor as large as $2^{n-1}$, but such growth is very rare in
+practice.
 
 ## The LDU factorization
 

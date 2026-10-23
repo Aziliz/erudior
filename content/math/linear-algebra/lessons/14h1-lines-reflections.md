@@ -152,7 +152,7 @@ matrix of the result.
 4. Both columns agree with the rotation by $60^\circ$. Reversing the order (the $30^\circ$ line first) gives the rotation by $-60^\circ$ instead.
 
 ```plot
-{"x": [-2, 3], "y": [-1.5, 2.5], "equal": true, "functions": [{"f": "0.57735*x", "label": "line at 30°", "dashed": true}], "polygons": [{"points": [[1, 0.25], [2.2, 0.25], [2.2, 0.65], [1.5, 0.65], [1.5, 1.1], [1, 1.1]]}, {"points": [[1, -0.25], [2.2, -0.25], [2.2, -0.65], [1.5, -0.65], [1.5, -1.1], [1, -1.1]]}, {"points": [[0.283, 0.991], [0.883, 2.03], [0.537, 2.23], [0.187, 1.624], [-0.203, 1.849], [-0.453, 1.416]]}], "labels": [{"at": [1.6, 1.35], "text": "start"}, {"at": [1.6, -1.35], "text": "after 1st"}, {"at": [-0.9, 2.2], "text": "after 2nd"}], "caption": "A flag reflected across the x₁-axis, then across the line at 30°, ends up rotated 60° from where it started"}
+{"x": [-2, 3], "y": [-1.5, 2.5], "equal": true, "functions": [{"f": "0.57735*x", "label": "line at 30°", "dashed": true}], "polygons": [{"points": [[1, 0.25], [2.2, 0.25], [2.2, 0.65], [1.5, 0.65], [1.5, 1.1], [1, 1.1]]}, {"points": [[1, -0.25], [2.2, -0.25], [2.2, -0.65], [1.5, -0.65], [1.5, -1.1], [1, -1.1]]}, {"points": [[0.283, 0.991], [0.883, 2.03], [0.537, 2.23], [0.187, 1.624], [-0.203, 1.849], [-0.453, 1.416]]}], "labels": [{"at": [2.65, 0.45], "text": "start"}, {"at": [1.6, -1.35], "text": "after 1st"}, {"at": [-0.9, 2.2], "text": "after 2nd"}], "caption": "A flag reflected across the x₁-axis, then across the line at 30°, ends up rotated 60° from where it started"}
 ```
 
 ## Maps that keep lengths

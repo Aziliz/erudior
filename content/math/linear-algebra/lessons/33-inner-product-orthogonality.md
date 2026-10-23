@@ -67,6 +67,12 @@ is orthogonal to everything. Expanding $\|\mathbf{u} + \mathbf{v}\|^2 = \|\mathb
 
 > *Pythagorean theorem.* $\mathbf{u}$ and $\mathbf{v}$ are orthogonal if and only if $\|\mathbf{u} + \mathbf{v}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2$.
 
+For example, $\mathbf{u} = (2, 1)$ and $\mathbf{v} = (-1, 2)$ are orthogonal, since $-2 + 2 = 0$. Their sum is $(1, 3)$, and $\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 = 5 + 5 = 10 = \|(1, 3)\|^2$. In the picture, $\mathbf{u}$, $\mathbf{v}$ (moved to the tip of $\mathbf{u}$) and $\mathbf{u} + \mathbf{v}$ form a right triangle.
+
+```plot
+{"x": [-2, 4], "y": [-1, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "u"}, {"from": [2, 1], "to": [1, 3], "arrow": true, "label": "v"}, {"from": [0, 0], "to": [1, 3], "arrow": true, "label": "u + v"}, {"from": [0, 0], "to": [-1, 2], "arrow": true, "dashed": true, "label": "v"}], "rightAngles": [[[2, 1], [0, 0], [1, 3]]], "caption": "Orthogonal u and v: ‖u‖² + ‖v‖² = 5 + 5 = 10 = ‖u + v‖²"}
+```
+
 ## Orthogonal complements
 
 If $\mathbf{z}$ is orthogonal to every vector in a subspace $W$, we say $\mathbf{z}$ is orthogonal to
@@ -82,6 +88,10 @@ of $W$, because dot products distribute over linear combinations.
 Why: $A\mathbf{x} = \mathbf{0}$ says exactly that $\mathbf{x}$ has dot product 0 with every row of
 $A$. Apply the same fact to $A^T$ for the second statement. So the four fundamental subspaces
 pair up into perpendicular pairs.
+
+The picture sums this up for an $m \times n$ matrix $A$ of rank $r$. In $\mathbb{R}^n$, $\operatorname{Row} A$ (dimension $r$) and $\operatorname{Nul} A$ (dimension $n - r$, by the rank–nullity theorem) meet at right angles. In $\mathbb{R}^m$, $\operatorname{Col} A$ (dimension $r$) and $\operatorname{Nul} A^T$ (dimension $m - r$) do the same. Multiplying by $A$ sends all of $\operatorname{Nul} A$ to $\mathbf{0}$ and carries $\operatorname{Row} A$ onto $\operatorname{Col} A$. In each space the two dimensions add up to the dimension of the whole space, which is the fact $\dim W + \dim W^\perp = n$ you will see in Example 2.
+
+![Two panels. The left panel, labeled R n, shows two diamonds meeting at the origin at a right angle: Row A with dimension r above, and Nul A with dimension n minus r below. The right panel, labeled R m, shows Col A with dimension r above and Nul A transpose with dimension m minus r below, also meeting at a right angle. An arrow labeled A goes from Row A to Col A, and another arrow labeled A goes from Nul A to the zero vector of R m.](images/la-m9-four-subspaces.svg)
 
 ### Example 2
 

@@ -105,14 +105,13 @@
   topic: Constructible lengths
   type: label
   stem: 'This is the square root construction, with $AB = a$ and $BC = 1$. Name the numbered parts.'
-  image: {src: images/geo-h1-sqrt-blank.svg, alt: 'A semicircle on diameter AC with a perpendicular segment rising from a point on AC to the semicircle; five numbered markers'}
+  image: {src: images/geo-h1-sqrt-blank.svg, alt: 'A semicircle on diameter AC with a perpendicular segment rising from a point on AC to the semicircle; four numbered markers'}
   labels:
     - {x: 72.2, y: 28.1, text: Point where the perpendicular meets the semicircle}
     - {x: 50, y: 78.1, text: Center of the semicircle}
     - {x: 72.2, y: 53.1, text: Segment of length √a}
     - {x: 79.6, y: 78.1, text: Unit segment}
-    - {x: 30, y: 78.1, text: Segment of length a}
-  distractors: [Segment of length (a + 1)/2]
+  distractors: [Segment of length (a + 1)/2, Endpoint of the diameter]
   explanation: 'The diameter $\overline{AC}$ is split at $B$ into $AB = a$ (the long piece) and $BC = 1$. The center is the midpoint of $\overline{AC}$. The perpendicular at $B$ meets the semicircle at $D$, and $BD = \sqrt{a \cdot 1} = \sqrt a$ by the geometric mean theorem. The radius would be $\tfrac{a + 1}{2}$.'
 # Lesson 91: Ceva's and Menelaus's theorems
 - id: geo-h1-r2-h15

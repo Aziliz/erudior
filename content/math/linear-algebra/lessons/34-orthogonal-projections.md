@@ -94,6 +94,25 @@ Why: $\mathbf{y} - \mathbf{v} = (\mathbf{y} - \hat{\mathbf{y}}) + (\hat{\mathbf{
 part is in $W^\perp$ and the second is in $W$; by Pythagoras,
 $\|\mathbf{y} - \mathbf{v}\|^2 = \|\mathbf{y} - \hat{\mathbf{y}}\|^2 + \|\hat{\mathbf{y}} - \mathbf{v}\|^2$.
 
+The picture shows the theorem for a plane $W$ in $\mathbb{R}^3$. The projection $\hat{\mathbf{y}}$ lies in $W$, the leftover $\mathbf{z} = \mathbf{y} - \hat{\mathbf{y}}$ sticks straight out of $W$, and any other point $\mathbf{v}$ of $W$ is farther from $\mathbf{y}$: the dashed segment from $\mathbf{v}$ to $\mathbf{y}$ is the hypotenuse of a right triangle whose legs are $\mathbf{z}$ and $\hat{\mathbf{y}} - \mathbf{v}$.
+
+![A tilted plane W through the origin 0. The vector y rises from 0 above the plane. Its projection y-hat lies in the plane, directly below the tip of y, and the vector z = y minus y-hat goes straight up from y-hat to the tip of y, at a right angle to the plane. Another point v of the plane is joined to the tip of y by a longer dashed segment.](images/la-m9-proj-plane.svg)
+
+The steps for computing a projection fit in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: How to compute the orthogonal projection of y onto a subspace W
+  accDescr: Start with a basis of W. If the basis is not orthogonal, first make it orthogonal with the Gram-Schmidt process. With an orthogonal basis u1 to up, compute each coefficient as y dot uj divided by uj dot uj, add up the coefficients times the basis vectors to get y-hat, then set z equal to y minus y-hat and check that z has dot product 0 with every basis vector. The distance from y to W is the length of z.
+  S["Start with a basis of W"] --> Q{"Is the basis orthogonal?"}
+  Q -- "no" --> G["Make it orthogonal with Gram-Schmidt (next lesson)"]
+  G --> C
+  Q -- "yes" --> C["For each j: cj = (y · uj) / (uj · uj)"]
+  C --> Y["y-hat = c1 u1 + ... + cp up"]
+  Y --> Z["z = y - y-hat; check z · uj = 0 for every j"]
+  Z --> D["Distance from y to W = length of z"]
+```
+
 ### Example 3
 
 With $W = \operatorname{Span}\{\mathbf{u}_1, \mathbf{u}_2\}$ from Example 1 and $\mathbf{y} = (3, 1, 4)$:

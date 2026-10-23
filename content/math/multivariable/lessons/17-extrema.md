@@ -74,6 +74,21 @@ dome), and then $f_{xx}$ tells which way. $D < 0$ means it curves up in some dir
 down in others. For $y^2 - x^2$: $f_{xx} = -2$, $f_{yy} = 2$, $f_{xy} = 0$, so $D = -4 < 0$, a
 saddle.
 
+The whole procedure, from finding critical points to classifying each one, fits in one decision chart.
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a critical point with the second-derivative test
+  accDescr: First solve f_x = 0 and f_y = 0 to find the critical points. At each one compute D = f_xx f_yy minus f_xy squared. If D is negative the point is a saddle. If D is zero the test gives no information and f must be examined directly. If D is positive, look at the sign of f_xx: positive means a local minimum, negative means a local maximum.
+  A["Solve f_x = 0 and f_y = 0"] --> B["At each critical point compute D = f_xx f_yy − (f_xy)²"]
+  B --> C{"Sign of D?"}
+  C -- "D #lt; 0" --> S["Saddle point"]
+  C -- "D = 0" --> Z["Inconclusive: examine f directly"]
+  C -- "D #gt; 0" --> E{"Sign of f_xx?"}
+  E -- "f_xx #gt; 0" --> MIN["Local minimum"]
+  E -- "f_xx #lt; 0" --> MAX["Local maximum"]
+```
+
 ### Example 1
 
 Find and classify the critical points of $f(x, y) = x^4 + y^4 - 4xy + 1$.
@@ -98,6 +113,12 @@ Classify the critical points of $f(x, y) = x^3 - 3x + y^2 - 4y$.
 If $D = 0$, examine $f$ directly. For example, $f = x^4 + y^4$ and $g = x^4 - y^4$ both have
 $D = 0$ at the origin; $f$ has a minimum there (it is never negative), while $g$ has a
 saddle.
+
+### Reading critical points on a contour map
+
+The contour map below belongs to $f(x, y) = x^3 - 3x + y^3 - 3y$, whose critical points are $(\pm1, \pm1)$ (dashed curves are negative levels). Around a local max or min the level curves are closed loops nested around the point, with values rising toward a max and falling toward a min. At a saddle, two branches of one level curve (here $f = 0$) cross. At an ordinary point the level curves pass by smoothly, and $\nabla f \ne \mathbf 0$.
+
+![Contour map of f = x³ − 3x + y³ − 3y. Closed loops with values 1.2 and 2.5 surround a local maximum at the lower left; dashed loops with values −1.2 and −2.5 surround a local minimum at the upper right; the level curve f = 0 crosses itself at two saddle points, upper left and lower right; one ordinary point between the loops is marked not critical.](images/mv-m4-critical-points.svg)
 
 ## An applied problem
 

@@ -39,6 +39,22 @@ To find the absolute extrema of a continuous $f$ on a closed, bounded $D$:
 
 No second-derivative test is needed: we simply compare a finite list of candidate values.
 
+The picture shows where candidates come from on a triangular region $D$: a critical point of $f$ inside $D$, the critical points of the one-variable functions on the edges, and the corners. A critical point outside $D$ is not a candidate.
+
+![A shaded right triangle D with its corners on the axes. Marked points: an interior critical point inside the triangle, a critical point on the hypotenuse and another on the bottom edge (critical points of the edge functions), a corner, and an open circle outside the triangle labeled critical point outside D.](images/mv-m4-region-candidates.svg)
+
+```mermaid
+flowchart TD
+  accTitle: The closed-region method for absolute extrema
+  accDescr: First check that f is continuous and the region is closed and bounded; if not, absolute extrema may not exist. If so, find the critical points inside the region and discard any outside it. Then split the boundary into pieces, and on each piece reduce f to a function of one variable and find its critical points and the endpoints, which are the corners. Evaluate f at every candidate. The largest value is the absolute maximum and the smallest is the absolute minimum.
+  A{"f continuous, region closed and bounded?"} -- no --> N["Extrema may not exist: the theorem does not apply"]
+  A -- yes --> B["Critical points inside the region (discard any outside)"]
+  B --> C["Split the boundary into pieces"]
+  C --> D["Each piece: one-variable critical points plus endpoints (corners)"]
+  D --> E["Evaluate f at every candidate"]
+  E --> F["Largest value = absolute max, smallest = absolute min"]
+```
+
 ### Example 1: a rectangle
 
 Find the absolute extrema of $f(x, y) = x^2 - xy + y^2 - 3x$ on the rectangle

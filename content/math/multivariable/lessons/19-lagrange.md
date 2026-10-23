@@ -29,6 +29,10 @@ $$\nabla f = \lambda\,\nabla g$$
 
 for some scalar $\lambda$, called the **Lagrange multiplier**.
 
+The sketch below shows why a crossing cannot give an extreme value. The line $f = 2$ crosses the circle, so walking along the circle through a crossing point takes you from values below 2 to values above 2. The line $f = 7.5$ misses the circle, so that value is never reached. The largest value reached is on the line $f = 5$, which just touches the circle at $(1, 2)$, where $\nabla f$ and $\nabla g$ point the same way.
+
+![The circle x² + y² = 5 with three parallel level lines of f = x + 2y: the dashed line f = 2 cuts through the circle, the solid line f = 5 touches it at the point (1, 2) marked max, and the dashed line f = 7.5 misses it. An arrow at (1, 2) points outward, labeled grad f parallel to grad g.](images/mv-m4-lagrange-tangency.svg)
+
 ```plot
 {"x": [-3.5, 3.5], "y": [-3.5, 3.5], "equal": true, "curves": [{"x": "sqrt(5)*cos(t)", "y": "sqrt(5)*sin(t)", "t": [0, "2pi"], "label": "constraint x² + y² = 5"}], "functions": [{"f": "(5-x)/2", "dashed": true, "label": "x + 2y = 5"}, {"f": "(2-x)/2", "dashed": true, "label": "x + 2y = 2"}, {"f": "(-5-x)/2", "dashed": true, "label": "x + 2y = −5"}], "points": [{"at": [1, 2], "label": "max (1, 2)"}, {"at": [-1, -2], "label": "min (−1, −2)"}], "segments": [{"from": [1, 2], "to": [1.5, 3], "arrow": true, "label": "∇f ∥ ∇g"}], "caption": "Level lines of f = x + 2y touch the circle exactly at the max and the min"}
 ```
@@ -101,6 +105,21 @@ must be nonzero and not parallel, so that they really do span a plane.
 
 The next lesson returns to optimization without constraints, for one of its most common
 uses: choosing the line that best fits a set of data points.
+
+How do you choose among the methods of this module? The chart sums it up.
+
+```mermaid
+flowchart TD
+  accTitle: Which optimization method to use
+  accDescr: With no constraint, over the whole plane, find critical points and use the second-derivative test. If the points must lie in a closed, bounded region, use the closed-region method, checking the interior and the boundary. If the points must satisfy an equation g = k, ask whether it is easy to solve for one variable. If yes, substitute and optimize a function of fewer variables. If no, use Lagrange multipliers, solving grad f = lambda grad g together with g = k. Either way, finish by evaluating f at every candidate and comparing.
+  A{"What restricts the points?"} -- "nothing" --> B["Critical points and the second-derivative test"]
+  A -- "a closed, bounded region" --> C["Closed-region method: interior plus boundary"]
+  A -- "an equation g = k" --> D{"Easy to solve for one variable?"}
+  D -- yes --> E["Substitute and optimize with fewer variables"]
+  D -- no --> F["Lagrange: solve ∇f = λ∇g and g = k"]
+  E --> G["Evaluate f at every candidate and compare"]
+  F --> G
+```
 
 ## Common mistakes
 

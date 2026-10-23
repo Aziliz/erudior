@@ -1,7 +1,7 @@
 ---
 id: geo-m5-h-tilings
 module: geo-m5
-title: 'Honors: Turning angles, star polygons and tilings'
+title: Turning angles, star polygons and tilings
 minutes: 45
 honors: true
 topics: [Turning and star polygons, Tilings]

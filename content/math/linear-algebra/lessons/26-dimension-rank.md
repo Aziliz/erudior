@@ -43,6 +43,20 @@ Note that $\mathbb{P}_n$ has dimension $n + 1$, not $n$: count the constant term
 If you know the dimension, you only need to check one of the two basis conditions. For
 example, three independent vectors in $\mathbb{R}^3$ automatically span $\mathbb{R}^3$.
 
+So deciding whether $p$ given vectors form a basis of $V$ starts with a count:
+
+```mermaid
+flowchart TD
+  accTitle: Is a set of p vectors a basis of V?
+  accDescr: Let n be the dimension of V and p the number of vectors. If p is less than n, the set cannot span V, so it is not a basis. If p is more than n, the set must be dependent, so it is not a basis. If p equals n, check just one condition, either independence or spanning. If it holds, the set is a basis; if it fails, it is not.
+  A["p vectors in V, with dim V = n"] --> B{"Compare p with n"}
+  B -- "p is less than n" --> N1["Not a basis: cannot span V"]
+  B -- "p is more than n" --> N2["Not a basis: must be dependent"]
+  B -- "p equals n" --> C{"Independent? (or: spans V?)"}
+  C -- yes --> Y["Basis"]
+  C -- no --> N3["Not a basis"]
+```
+
 ## Dimensions of $\operatorname{Nul} A$ and $\operatorname{Col} A$
 
 From the bases found in the bases lesson:
@@ -72,6 +86,11 @@ $A$ is $5 \times 7$ with rank 4. Find $\dim\operatorname{Nul} A$, $\dim\operator
 2. $\dim\operatorname{Row} A = \operatorname{rank} A = 4$.
 3. $A^T$ is $7 \times 5$ with rank 4, so $\dim\operatorname{Nul} A^T = 5 - 4 = 1$.
 4. $\operatorname{Col} A$ is a 4-dimensional subspace of $\mathbb{R}^5$, so it is not all of $\mathbb{R}^5$. Some $A\mathbf{x} = \mathbf{b}$ are inconsistent.
+
+The picture shows all four subspaces that come with an $m \times n$ matrix of rank $r$ and
+their dimensions. In Example 1, with $n = 7$, $m = 5$ and $r = 4$, they are 4, 3, 4 and 1.
+
+![Two regions. The input space Rⁿ, with n the number of columns, contains Row A of dimension r and Nul A of dimension n − r; a dashed arrow from Nul A goes to the zero vector of the output space, labeled sent to 0. An arrow labeled A goes from the input space to the output space Rᵐ, with m the number of rows, which contains Col A of dimension r and Nul Aᵀ of dimension m − r.](images/la-m7-four-subspaces.svg)
 
 ### Example 2
 

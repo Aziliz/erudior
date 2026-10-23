@@ -24,7 +24,7 @@ Suppose you have 40 m of fence for a rectangular pen. Length and width add to ha
 | 10 | 10 | 100 |
 
 ```plot
-{"x": [0, 20], "y": [0, 110], "xLabel": "width W (m)", "yLabel": "area (m²)", "functions": [{"f": "x*(20 - x)", "label": "A = W(20 − W)"}], "points": [{"at": [5, 75], "label": "(5, 75)"}, {"at": [8, 96], "label": "(8, 96)"}, {"at": [10, 100], "label": "(10, 100)"}], "caption": "Area of a rectangle with perimeter 40 against its width: the top of the curve is the square."}
+{"x": [0, 20], "y": [0, 120], "xLabel": "width W (m)", "yLabel": "area (m²)", "functions": [{"f": "x*(20 - x)"}], "points": [{"at": [5, 75], "label": "(5, 75)"}, {"at": [8, 96]}, {"at": [10, 100], "label": "square (10, 100)"}], "caption": "Area A = W(20 − W) of a rectangle with perimeter 40, against its width W. The highest point is the square."}
 ```
 
 The square wins, and here is why it always does. Write the sides as $L = \tfrac{P}{4} + t$ and $W = \tfrac{P}{4} - t$, so that they add to $\tfrac{P}{2}$ and $t$ measures how far the rectangle is from a square. Then

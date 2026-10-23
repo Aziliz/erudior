@@ -22,10 +22,11 @@ By the first test, rectangles, squares and isosceles trapezoids are always cycli
 ```mermaid
 flowchart TD
   accTitle: Deciding whether a quadrilateral is cyclic
-  accDescr: For a convex quadrilateral ABCD, first check whether a pair of opposite angles adds to 180 degrees; if so it is cyclic. If the angles are not known, check whether two angles on the same side, such as angle BAC and angle BDC, are congruent; if so it is cyclic. Otherwise, if the diagonals meet at P, check whether PA times PC equals PB times PD; if so it is cyclic. If the side and diagonal lengths are known, check Ptolemy's relation; equality means cyclic and strict inequality means not cyclic.
+  accDescr: For a convex quadrilateral ABCD, first check whether a pair of opposite angles adds to 180 degrees; if so it is cyclic, and if the angles are known and do not, it is not cyclic. If the angles are not known, check whether two angles on the same side, such as angle BAC and angle BDC, are congruent; if so it is cyclic. Otherwise, if the diagonals meet at P, check whether PA times PC equals PB times PD; if so it is cyclic. If the side and diagonal lengths are known, check Ptolemy's relation; equality means cyclic and strict inequality means not cyclic.
   A["Convex quadrilateral ABCD"] --> B{"Opposite angles add to 180°?"}
   B -- yes --> Y["Cyclic"]
-  B -- "not known" --> C{"Angle BAC = angle BDC?"}
+  B -- no --> N
+  B -- "angles not known" --> C{"Angle BAC = angle BDC?"}
   C -- yes --> Y
   C -- "not known" --> D{"PA · PC = PB · PD at the diagonals?"}
   D -- yes --> Y

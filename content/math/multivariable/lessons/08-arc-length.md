@@ -107,10 +107,10 @@ flowchart TD
   Q{"How is the curve given?"} --> G["A graph y = f(x)"]
   Q --> P["r(t), any parameter"]
   Q --> S["r(s), by arc length"]
-  G --> FG["kappa = |f''| / (1 + f'²)^(3/2)"]
-  P --> FP["kappa = |r' × r''| / |r'|³"]
-  P --> FT["T(t) already known: kappa = |T'| / |r'|"]
-  S --> FS["kappa = |dT/ds| = |r''(s)|"]
+  G --> FG["κ = |f''| / (1 + f'²)^(3/2)"]
+  P --> FP["κ = |r' × r''| / |r'|³"]
+  P --> FT["T(t) already known: κ = |T'| / |r'|"]
+  S --> FS["κ = |dT/ds| = |r''(s)|"]
 ```
 
 The reciprocal $\rho = 1/\kappa$ is the **radius of curvature**: the radius of the

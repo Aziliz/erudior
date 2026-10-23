@@ -34,10 +34,10 @@ the data moved the answer from $(1, 1)$ to $(0, 2)$.
 
 The picture explains it. The two lines have almost the same slope, so they cross at a shallow
 angle, and nudging one of them slides the crossing point a long way. (The plot exaggerates the
-effect so it can be seen: it uses 1.1 in place of 1.001.)
+effect so it can be seen: it uses 1.2 in place of 1.001, and moves the right side from 2.2 to 2.4.)
 
 ```plot
-{"x": [-1, 3], "y": [-0.5, 3], "equal": true, "functions": [{"f": "2 - x", "label": "x + y = 2"}, {"f": "(2.1 - x)/1.1", "label": "x + 1.1y = 2.1"}, {"f": "(2.2 - x)/1.1", "label": "x + 1.1y = 2.2", "dashed": true}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [0, 2], "label": "(0, 2)"}], "caption": "Nearly parallel lines: a small shift of one line moves the crossing far"}
+{"x": [-1.5, 3.5], "y": [-1, 3.5], "equal": true, "functions": [{"f": "2 - x"}, {"f": "(2.2 - x)/1.2"}, {"f": "(2.4 - x)/1.2", "dashed": true}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [0, 2], "label": "(0, 2)"}], "caption": "Solid: x + y = 2 and x + 1.2y = 2.2 cross at (1, 1). Dashed: x + 1.2y = 2.4 crosses x + y = 2 at (0, 2)."}
 ```
 
 A system whose solution reacts strongly to small changes in its data is called

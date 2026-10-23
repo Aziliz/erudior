@@ -51,6 +51,24 @@ Reading the SVD: $V^T$ rotates the input into the $\mathbf{v}$-coordinates, $\Si
 each axis by $\sigma_i$, and $U$ rotates into the output coordinates. (An orthogonal matrix
 can also include a reflection, so "rotate" here means "rotate, possibly with a flip".)
 
+The picture follows a unit circle through the three steps (it is a sketch: the circle and the ellipses are not drawn to the same scale). $V^T$ turns the right singular vectors $\mathbf{v}_1, \mathbf{v}_2$ into the standard axes $\mathbf{e}_1, \mathbf{e}_2$, $\Sigma$ stretches the axes by $\sigma_1$ and $\sigma_2$, and $U$ turns the stretched axes to $\sigma_1\mathbf{u}_1$ and $\sigma_2\mathbf{u}_2$. Doing all three is the same as multiplying by $A$.
+
+![Four panels in a cycle. Top left: a unit circle with perpendicular unit vectors v1 and v2. An arrow labeled V transpose leads to the top right panel: the same circle with v1 and v2 now along the axes as e1 and e2. An arrow labeled Sigma leads down to the bottom right panel: an ellipse with semi-axes sigma1 e1 and sigma2 e2 along the coordinate axes. An arrow labeled U leads to the bottom left panel: the ellipse turned so its semi-axes are sigma1 u1 and sigma2 u2. A dashed arrow labeled A goes straight from the first panel to the last.](images/la-m9-svd-steps.svg)
+
+The hand computation always follows the same steps:
+
+```mermaid
+flowchart TD
+  accTitle: Computing an SVD of a small matrix by hand
+  accDescr: Form A transpose A. Find its eigenvalues and list them from largest to smallest. Take square roots to get the singular values. Find orthonormal eigenvectors of A transpose A in the same order; they are the columns of V. For each nonzero singular value, compute u i equals A v i divided by sigma i. If there are fewer u's than rows of A, extend them to an orthonormal basis of R m to complete U. Put the singular values on the diagonal of Sigma, which has the same shape as A.
+  A["Form AᵀA"] --> E["Eigenvalues of AᵀA, largest first"]
+  E --> S["Singular values: square roots of the eigenvalues"]
+  S --> V["Orthonormal eigenvectors, same order: columns of V"]
+  V --> U["For each nonzero singular value: ui = A vi / sigma i"]
+  U --> X["Extend the u's to an orthonormal basis of Rm if needed: U"]
+  X --> F["Sigma: singular values on the diagonal, same shape as A"]
+```
+
 ### Example 1
 
 Find the singular values and an SVD of $A = \begin{bmatrix} 3 & 0 \\ 4 & 5\end{bmatrix}$.

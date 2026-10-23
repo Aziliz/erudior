@@ -99,6 +99,20 @@ semidefiniteness. $\begin{bmatrix} 0 & 0 \\ 0 & -1\end{bmatrix}$ has $D_1 = 0$ a
 $\mathbf{x}^TA\mathbf{x} = -x_2^2$ is negative at $(0, 1)$. For semidefinite questions use the
 eigenvalues (or check every principal minor, not only the leading ones).
 
+With several equivalent tests available, pick by the question you are asking:
+
+```mermaid
+flowchart TD
+  accTitle: Which positive definite test to use
+  accDescr: For a symmetric matrix A, choose a test by the question. To decide whether a small matrix is positive definite, check that all the leading principal minors are positive. For a larger matrix, eliminate without row swaps and check that every pivot is positive. If you also need to solve Ax = b, attempt the Cholesky factorization: if every square root is of a positive number, A is positive definite and R is ready for solving. To decide whether A is positive semidefinite, use the eigenvalues, because leading minors that are at least 0 are not enough.
+  A["Symmetric matrix A"] --> Q{"What is the question?"}
+  Q -- "positive definite, small matrix" --> M["Leading principal minors D1, D2, ... all positive?"]
+  Q -- "positive definite, larger matrix" --> P["Eliminate without row swaps: all pivots positive?"]
+  Q -- "also need to solve Ax = b" --> C["Attempt Cholesky A = RᵀR"]
+  Q -- "positive semidefinite?" --> E["Eigenvalues all at least 0? (minors are not enough)"]
+  C --> R["Every square root of a positive number: positive definite, and R solves the system"]
+```
+
 ## Cholesky factorization
 
 Positive pivots let us take square roots. Put $R = \sqrt{D}\,L^T$, where $\sqrt{D}$ holds the

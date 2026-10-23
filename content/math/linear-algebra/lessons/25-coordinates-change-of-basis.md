@@ -44,6 +44,13 @@ Let $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2\}$ with $\mathbf{b}_1 = (2, 1)$ 
 The same point has standard coordinates $(1, 5)$ and $\mathcal{B}$-coordinates $(2, 3)$:
 same arrow, different description.
 
+Drawing the whole $\mathcal{B}$-grid makes this visible: the grid lines are the lines
+$c_1 = \text{constant}$ and $c_2 = \text{constant}$, and $\mathcal{B}$-coordinates count grid
+steps along $\mathbf{b}_1$ and $\mathbf{b}_2$ the way standard coordinates count steps along
+the axes.
+
+![A slanted grid built from b₁ = (2, 1) and b₂ = (−1, 1), drawn over the standard axes. The vector x = (1, 5) is reached by the dashed path 2b₁ followed by 3b₂, so it sits at grid point (2, 3).](images/la-m7-coord-grid.svg)
+
 ## The change-of-coordinates matrix in $\mathbb{R}^n$
 
 Example 1 solved the equation $[\,\mathbf{b}_1 \;\; \mathbf{b}_2\,]\,[\mathbf{x}]_{\mathcal{B}} = \mathbf{x}$.
@@ -85,6 +92,17 @@ In $\mathbb{R}^n$ the columns $[\mathbf{b}_j]_{\mathcal{C}}$ come from one row r
 $$[\,\mathbf{c}_1 \;\cdots\; \mathbf{c}_n \;\;|\;\; \mathbf{b}_1 \;\cdots\; \mathbf{b}_n\,] \sim [\,I \;\;|\;\; P_{\mathcal{C} \leftarrow \mathcal{B}}\,].$$
 
 (Equivalently $P_{\mathcal{C} \leftarrow \mathcal{B}} = P_{\mathcal{C}}^{-1}P_{\mathcal{B}}$.)
+
+The three descriptions of a vector and the matrices that convert between them:
+
+```mermaid
+flowchart LR
+  accTitle: Converting between coordinate systems
+  accDescr: B-coordinates of x turn into the standard coordinates of x by multiplying by P sub B. Standard coordinates turn into C-coordinates by multiplying by the inverse of P sub C. The direct route from B-coordinates to C-coordinates multiplies by the change-of-basis matrix P from B to C, which equals P sub C inverse times P sub B.
+  B["B-coordinates of x"] -- "multiply by P_B" --> X["x itself (standard coordinates)"]
+  X -- "multiply by P_C inverse" --> C["C-coordinates of x"]
+  B -- "multiply by P from B to C" --> C
+```
 
 ### Example 2
 

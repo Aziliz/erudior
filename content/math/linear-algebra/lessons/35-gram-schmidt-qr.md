@@ -30,6 +30,28 @@ For more vectors, subtract the projections onto *all* the previous $\mathbf{v}$'
 > $$\begin{aligned} \mathbf{v}_1 &= \mathbf{x}_1 \\ \mathbf{v}_2 &= \mathbf{x}_2 - \frac{\mathbf{x}_2\cdot\mathbf{v}_1}{\mathbf{v}_1\cdot\mathbf{v}_1}\mathbf{v}_1 \\ \mathbf{v}_3 &= \mathbf{x}_3 - \frac{\mathbf{x}_3\cdot\mathbf{v}_1}{\mathbf{v}_1\cdot\mathbf{v}_1}\mathbf{v}_1 - \frac{\mathbf{x}_3\cdot\mathbf{v}_2}{\mathbf{v}_2\cdot\mathbf{v}_2}\mathbf{v}_2 \\ &\;\;\vdots \end{aligned}$$
 > Then $\{\mathbf{v}_1, \dots, \mathbf{v}_p\}$ is an orthogonal basis for $W$, and for each $k$, $\operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_k\} = \operatorname{Span}\{\mathbf{x}_1, \dots, \mathbf{x}_k\}$.
 
+The picture shows the first step in the plane. With $\mathbf{x}_1 = (2, 1)$ and $\mathbf{x}_2 = (1, 3)$, the projection of $\mathbf{x}_2$ onto $\mathbf{v}_1 = \mathbf{x}_1$ is $\tfrac{5}{5}(2, 1) = (2, 1)$, and what is left is $\mathbf{v}_2 = (1, 3) - (2, 1) = (-1, 2)$, perpendicular to $\mathbf{v}_1$.
+
+```plot
+{"x": [-2, 3], "y": [-1, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "v₁ = x₁"}, {"from": [0, 0], "to": [1, 3], "arrow": true, "label": "x₂"}, {"from": [2, 1], "to": [1, 3], "dashed": true}, {"from": [0, 0], "to": [-1, 2], "arrow": true, "label": "v₂"}], "rightAngles": [[[0, 0], [2, 1], [-1, 2]]], "caption": "v₂ = x₂ − proj(x₂ onto v₁) = (1, 3) − (2, 1) = (−1, 2) is perpendicular to v₁"}
+```
+
+As a loop, the whole process looks like this:
+
+```mermaid
+flowchart TD
+  accTitle: The Gram-Schmidt process as a loop
+  accDescr: Set v1 equal to x1. Then, for each next vector xk, subtract its projections onto every v found so far to get vk. Optionally rescale vk to clear fractions. If vk comes out as the zero vector, xk depended on the earlier vectors and the input was not a basis. Repeat until every x has been used, then divide each v by its length to get an orthonormal basis.
+  A["v1 = x1"] --> B["Take the next vector xk"]
+  B --> C["vk = xk minus its projections onto v1, ..., v(k-1)"]
+  C --> Z{"Is vk the zero vector?"}
+  Z -- "yes" --> X["xk depends on the earlier x's: not a basis"]
+  Z -- "no" --> R["Optional: rescale vk to clear fractions"]
+  R --> M{"Any x's left?"}
+  M -- "yes" --> B
+  M -- "no" --> N["Normalize: qk = vk / length of vk"]
+```
+
 Why it works: $\mathbf{v}_k = \mathbf{x}_k - \operatorname{proj}_{W_{k-1}}\mathbf{x}_k$, where
 $W_{k-1} = \operatorname{Span}\{\mathbf{v}_1, \dots, \mathbf{v}_{k-1}\}$. By the orthogonal
 decomposition theorem this is orthogonal to $W_{k-1}$. It's nonzero because $\mathbf{x}_k$ is not

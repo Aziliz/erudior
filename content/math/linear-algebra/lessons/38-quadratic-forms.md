@@ -66,6 +66,21 @@ matrix) is:
 | **positive semidefinite** | $Q(\mathbf{x}) \ge 0$ for all $\mathbf{x}$ | all $\ge 0$ |
 | negative semidefinite | $Q(\mathbf{x}) \le 0$ for all $\mathbf{x}$ | all $\le 0$ |
 
+In practice, classification is a short decision:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a quadratic form by the signs of its eigenvalues
+  accDescr: Write the symmetric matrix A of the form, putting half of each cross-term coefficient in each off-diagonal position. Find its eigenvalues. If all are positive, the form is positive definite. If all are negative, it is negative definite. If some are positive and some negative, it is indefinite. If all are at least 0 and some are 0, it is positive semidefinite (but not definite); if all are at most 0 and some are 0, it is negative semidefinite.
+  A["Write the symmetric matrix A (halve each cross term)"] --> E["Find the eigenvalues of A"]
+  E --> Q{"Signs of the eigenvalues"}
+  Q -- "all positive" --> PD["Positive definite"]
+  Q -- "all negative" --> ND["Negative definite"]
+  Q -- "both signs" --> I["Indefinite"]
+  Q -- "all at least 0, some 0" --> PS["Positive semidefinite"]
+  Q -- "all at most 0, some 0" --> NS["Negative semidefinite"]
+```
+
 Every positive definite form is also positive semidefinite (and likewise for negative), so
 "semidefinite but not definite" means some eigenvalue is 0.
 
@@ -84,6 +99,12 @@ Classify $Q(\mathbf{x}) = x_1^2 - 6x_1x_2 + x_2^2$.
 2. Eigenvalues: $\lambda^2 - 2\lambda - 8 = (\lambda - 4)(\lambda + 2)$: 4 and $-2$.
 3. Mixed signs: indefinite. For example $Q(1, 1) = 1 - 6 + 1 = -4$ but $Q(1, -1) = 1 + 6 + 1 = 8$.
 4. In principal-axis coordinates $Q = 4y_1^2 - 2y_2^2$, so its level curves are hyperbolas.
+
+The eigenvector for 4 is $(1, -1)$ and the eigenvector for $-2$ is $(1, 1)$. The picture shows two level curves. $Q = 4$ is a hyperbola opening along the $(1, -1)$ axis, where $Q$ is positive. $Q = -4$ is a hyperbola opening along the $(1, 1)$ axis, where $Q$ is negative; it passes through $(1, 1)$, since $Q(1, 1) = -4$.
+
+```plot
+{"x": [-4, 4], "y": [-4, 4], "equal": true, "curves": [{"x": "(cosh(t) + sqrt(2)*sinh(t))/sqrt(2)", "y": "(-cosh(t) + sqrt(2)*sinh(t))/sqrt(2)", "t": [-1.6, 1.6], "color": "#2c5e8f"}, {"x": "(-cosh(t) + sqrt(2)*sinh(t))/sqrt(2)", "y": "(cosh(t) + sqrt(2)*sinh(t))/sqrt(2)", "t": [-1.6, 1.6], "color": "#2c5e8f"}, {"x": "(sinh(t) + sqrt(2)*cosh(t))/sqrt(2)", "y": "(-sinh(t) + sqrt(2)*cosh(t))/sqrt(2)", "t": [-1.6, 1.6], "color": "#c2570c"}, {"x": "(sinh(t) - sqrt(2)*cosh(t))/sqrt(2)", "y": "(-sinh(t) - sqrt(2)*cosh(t))/sqrt(2)", "t": [-1.6, 1.6], "color": "#c2570c"}], "functions": [{"f": "x", "dashed": true, "color": "#5d6d7e"}, {"f": "-x", "dashed": true, "color": "#5d6d7e"}], "points": [{"at": [1, 1], "label": "(1, 1)"}], "labels": [{"at": [2.6, -1.4], "text": "Q = 4"}, {"at": [2.4, 3.6], "text": "Q = −4"}], "caption": "Level curves of the indefinite form x₁² − 6x₁x₂ + x₂²; the dashed lines are the principal axes"}
+```
 
 ## Constrained optimization
 

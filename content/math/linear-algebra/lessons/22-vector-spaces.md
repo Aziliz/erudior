@@ -100,6 +100,26 @@ satisfies $0(1) = 0$. If $p(1) = q(1) = 0$ then $(p + q)(1) = 0 + 0 = 0$ and
 $(cp)(1) = c \cdot 0 = 0$. So yes. By contrast, $\{p : p(1) = 5\}$ is not a subspace, because
 it doesn't contain the zero polynomial.
 
+The pictures below show the three ways a set in $\mathbb{R}^2$ can fail to be a subspace, next
+to one that passes.
+
+![Four small coordinate planes. Top left: a line through the origin, labeled a subspace. Top right: a line that misses the origin, labeled not a subspace. Bottom left: the union of the two axes, with u on the x-axis, v on the y-axis and their sum u + v pointing off both axes. Bottom right: the shaded first quadrant with a vector u inside it and its negative −u pointing out of it.](images/la-m7-subspace-tests.svg)
+
+The order of the checks in the flowchart saves work: the zero-vector test is instant, and
+writing the set as a span settles everything at once.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a set H is a subspace
+  accDescr: First ask whether the zero vector is in H. If not, H is not a subspace. If it is, ask whether H can be written as a span of some vectors. If yes, H is a subspace. If that is not obvious, check closure under addition and under scalar multiplication for all vectors and scalars. If both hold, H is a subspace; if one counterexample fails, H is not a subspace.
+  A{"Is the zero vector in H?"} -- no --> N["Not a subspace"]
+  A -- yes --> B{"Can H be written as a span?"}
+  B -- yes --> Y["Subspace"]
+  B -- "not obviously" --> C{"Closed under addition and scalar multiplication, for all vectors and scalars?"}
+  C -- "yes, proved in general" --> Y
+  C -- "no, one counterexample" --> N
+```
+
 ## Common mistakes
 
 - *Checking only that $\mathbf{0}$ is in the set.* Containing $\mathbf{0}$ is necessary, not sufficient: the union of the two axes in $\mathbb{R}^2$ contains $\mathbf{0}$ but $(1, 0) + (0, 1)$ is not in it.

@@ -78,6 +78,10 @@ Find the least-squares line for $(1, 1)$, $(2, 3)$, $(3, 4)$, $(4, 4)$.
 {"x": [0, 5], "y": [0, 6], "functions": [{"f": "0.5 + x", "label": "y = 0.5 + x"}], "points": [{"at": [1, 1]}, {"at": [2, 3]}, {"at": [3, 4]}, {"at": [4, 4]}], "segments": [{"from": [1, 1], "to": [1, 1.5], "dashed": true}, {"from": [2, 3], "to": [2, 2.5], "dashed": true}, {"from": [3, 4], "to": [3, 3.5], "dashed": true}, {"from": [4, 4], "to": [4, 4.5], "dashed": true}], "caption": "The least-squares line minimizes the sum of the squared vertical residuals"}
 ```
 
+The picture labels the parts of a regression for a different data set, $(0, 1)$, $(1, 1)$, $(2, 4)$, $(3, 4)$, whose least-squares line is $y = 0.7 + 1.2x$. (Check it: $n = 4$, $\sum x_i = 6$, $\sum x_i^2 = 14$, $\sum y_i = 10$, $\sum x_iy_i = 21$, and the normal equations $4\beta_0 + 6\beta_1 = 10$, $6\beta_0 + 14\beta_1 = 21$ give $\beta_0 = 0.7$, $\beta_1 = 1.2$.) Each residual is the vertical gap between a data point and the **fitted value** $\beta_0 + \beta_1x_i$ on the line; here they are $0.3$, $-0.9$, $0.9$ and $-0.3$.
+
+![A scatter plot of four data points with the least-squares line y = 0.7 + 1.2x. Dashed vertical segments join each data point to the line; they are the residuals. Open circles on the line mark the fitted values at x = 1 and x = 2, and the intercept 0.7 where the line crosses the y-axis. Labels name a data point, a fitted value, a residual, the intercept and the line.](images/la-m9-regression.svg)
+
 The same method fits any model that is linear in its parameters: a parabola
 $y = \beta_0 + \beta_1x + \beta_2x^2$ uses design-matrix rows $(1, x_i, x_i^2)$, and multiple
 regression $y = \beta_0 + \beta_1u + \beta_2v$ uses rows $(1, u_i, v_i)$. This is **linear regression** in its linear-algebra form.
@@ -85,6 +89,22 @@ regression $y = \beta_0 + \beta_1u + \beta_2v$ uses rows $(1, u_i, v_i)$. This i
 A useful habit: after solving the normal equations, compute the residual vector and confirm
 that $A^T(\mathbf{b} - A\hat{\mathbf{x}}) = \mathbf{0}$. It catches arithmetic errors, and it reminds
 you what the method does: it makes the error perpendicular to everything the model can produce.
+
+Which route to take depends on the columns of $A$:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing how to solve a least-squares problem
+  accDescr: To find the least-squares solutions of Ax = b, first ask whether the columns of A are linearly independent. If they are, there is exactly one least-squares solution: solve the normal equations A transpose A x = A transpose b, or, if a QR factorization is available, solve the triangular system R x = Q transpose b. If the columns are dependent, the normal equations have free variables and there are infinitely many least-squares solutions. In every case, finish by checking that the residual b minus A x-hat is orthogonal to every column of A.
+  S["Least-squares problem Ax = b"] --> Q{"Are the columns of A independent?"}
+  Q -- "yes" --> U["Exactly one least-squares solution"]
+  U --> N["Solve the normal equations: AᵀA x = Aᵀb"]
+  U --> R["Or, with A = QR: solve R x = Qᵀb"]
+  Q -- "no" --> F["Normal equations have free variables: infinitely many solutions"]
+  N --> C["Check: residual b - A x-hat is orthogonal to every column of A"]
+  R --> C
+  F --> C
+```
 
 ## Common mistakes
 

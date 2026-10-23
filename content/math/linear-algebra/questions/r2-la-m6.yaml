@@ -1,0 +1,475 @@
+# Round 2 questions for la-m6 (Determinants)
+# Core lessons 19-21: la-m6-r2-q01 ... q16. Honors lessons 21h1 and 21h2: la-m6-r2-h01 ... h29.
+
+# --- Lesson 19: cofactor expansion ---
+- id: la-m6-r2-q01
+  lesson: la-cofactor
+  module_quiz: true
+  type: text
+  topic: Cofactor expansion
+  stem: 'For $A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 10\end{bmatrix}$, the cofactor $C_{23}$ is ___. Give only the number.'
+  accept: ['6']
+  explanation: |-
+    Delete row 2 and column 3: the minor is $\begin{vmatrix} 1 & 2 \\ 7 & 8\end{vmatrix} = 8 - 14 = -6$. Position $(2, 3)$ has sign $(-1)^{2+3} = -1$, so $C_{23} = -(-6) = 6$. The minor $-6$ is not the cofactor.
+
+- id: la-m6-r2-q02
+  lesson: la-cofactor
+  type: label
+  topic: Cofactor expansion
+  stem: 'The picture shows how the minor for one entry of a $4 \times 4$ matrix is formed. Name the numbered parts.'
+  image: {src: images/la-m6-minor-blank.svg, alt: 'A 4 by 4 grid of cells with its second row shaded and crossed out by a dashed line and its third column shaded and crossed out by a dashed line. The cell where they meet is boxed. An arrow points to a separate 3 by 3 grid. Marker 1 is on the crossed-out row, marker 2 on the crossed-out column, marker 3 on the boxed cell and marker 4 on the 3 by 3 grid.'}
+  labels:
+    - {x: 16, y: 46.4, text: Row being deleted}
+    - {x: 33.3, y: 77.9, text: Column being deleted}
+    - {x: 33.3, y: 46.4, text: Entry whose cofactor is wanted}
+    - {x: 76.5, y: 54.2, text: Smaller matrix whose determinant is the minor}
+  distractors: [Main diagonal, Cofactor sign pattern]
+  explanation: |-
+    To find the minor of the entry in row 2, column 3 (marker 3), delete its row (1) and its column (2). The entries left over, in their original order, form the $3 \times 3$ matrix $A_{23}$ (4); its determinant is the minor, and the cofactor attaches the sign $(-1)^{2+3} = -1$.
+
+- id: la-m6-r2-q03
+  lesson: la-cofactor
+  type: order
+  topic: Cofactor expansion
+  stem: 'Put the steps of a cofactor expansion in order.'
+  items:
+    - 'Choose the row or column with the most zeros'
+    - 'For each nonzero entry in it, delete that entry''s row and column'
+    - 'Compute the determinant of each smaller matrix (the minors)'
+    - 'Attach the checkerboard sign $(-1)^{i+j}$ to get each cofactor'
+    - 'Multiply each entry by its cofactor and add the results'
+  explanation: |-
+    Pick the line to expand along first, since that decides which entries you use. Each entry's minor comes from deleting its row and column; the sign turns the minor into a cofactor; and the determinant is the sum of entry times cofactor.
+
+- id: la-m6-r2-q04
+  lesson: la-cofactor
+  type: match
+  topic: Cofactor expansion
+  stem: 'Match each matrix to its determinant.'
+  pairs:
+    - ['$\begin{bmatrix} 2 & 0 \\ 5 & 3\end{bmatrix}$', '6']
+    - ['$\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$', '0']
+    - ['$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', '-1']
+    - ['$\begin{bmatrix} 3 & 1 \\ 1 & -1\end{bmatrix}$', '-4']
+  distractors: ['4']
+  explanation: |-
+    $ad - bc$ each time: $6 - 0 = 6$ (lower triangular, so also the product of the diagonal); $4 - 4 = 0$ (the rows are proportional); $0 - 1 = -1$; $-3 - 1 = -4$. The distractor 4 comes from adding $bc$ instead of subtracting it in the first or last matrix.
+
+- id: la-m6-r2-q05
+  lesson: la-cofactor
+  module_quiz: true
+  topic: Cofactor expansion
+  stem: 'For which kinds of square matrix is the determinant simply the product of the diagonal entries? Select all that apply.'
+  choices: [Upper triangular, Lower triangular, Diagonal, Symmetric]
+  answer: [0, 1, 2]
+  explanation: |-
+    Expanding a triangular matrix down its first column (upper) or along its first row (lower) leaves one term each time, so the determinant is the product of the diagonal; a diagonal matrix is both. A symmetric matrix needn't be: $\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$ has determinant $1 - 4 = -3$, not $1$.
+
+- id: la-m6-r2-q06
+  lesson: la-cofactor
+  type: text
+  topic: Cofactor expansion
+  stem: 'Expanding a $5 \times 5$ determinant along a row with no zero entries produces ___ determinants of size $4 \times 4$.'
+  accept: ['5', five]
+  explanation: |-
+    One cofactor for each of the 5 entries in the row, and each cofactor needs a $4 \times 4$ determinant. Each of those needs four $3 \times 3$ determinants, and so on, which is why the work grows like $n!$.
+
+# --- Lesson 20: properties of determinants ---
+- id: la-m6-r2-q07
+  lesson: la-det-props
+  type: text
+  topic: Determinant properties
+  stem: '$A$ is $3 \times 3$ with $\det A = 6$. Then $\det(2A^{-1}) =$ ___. Give an exact fraction.'
+  accept: ['4/3', '8/6']
+  explanation: |-
+    $\det(2M) = 2^3\det M$ for a $3 \times 3$ matrix, and $\det A^{-1} = 1/\det A = 1/6$. So $\det(2A^{-1}) = 8 \cdot \tfrac16 = \tfrac43$. Getting $\tfrac13$ means using $2$ instead of $2^3$.
+
+- id: la-m6-r2-q08
+  lesson: la-det-props
+  type: match
+  topic: Determinant properties
+  stem: '$A$ is $3 \times 3$. Match each change to $A$ with its effect on $\det A$.'
+  pairs:
+    - [Swap rows 1 and 3, Multiplies it by -1]
+    - [Add 5 times row 1 to row 3, No change]
+    - [Multiply row 2 by 5, Multiplies it by 5]
+    - [Multiply every entry of A by 5, Multiplies it by 125]
+  distractors: [Adds 5 to it]
+  explanation: |-
+    A swap flips the sign, a replacement changes nothing, and scaling one row scales the determinant by the same factor. Multiplying the whole $3 \times 3$ matrix by 5 scales all three rows, so the factor is $5^3 = 125$. No row operation adds a constant to the determinant.
+
+- id: la-m6-r2-q09
+  lesson: la-det-props
+  module_quiz: true
+  topic: Determinant properties
+  stem: 'Which of these force $\det A = 0$ for a square matrix $A$? Select all that apply.'
+  choices: ['Two rows of $A$ are equal', 'One column of $A$ is a multiple of another column', 'A zero appears on the main diagonal of $A$', '$A$ has a row of zeros']
+  answer: [0, 1, 3]
+  explanation: |-
+    Equal rows: subtracting one from the other makes a zero row without changing the determinant. A column that is a multiple of another makes the columns dependent (and the column version of the same argument applies, since $\det A^T = \det A$). A zero row gives 0 by expanding along it. A zero on the diagonal does not: $\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$ has determinant $-1$. Only for a triangular matrix does a diagonal zero force $\det = 0$.
+
+- id: la-m6-r2-q10
+  lesson: la-det-props
+  module_quiz: true
+  type: order
+  topic: Determinant properties
+  stem: '$A$ is $3 \times 3$ with $\det A = 2$. Put these determinants in order from smallest to largest.'
+  items: ['$\det(-A)$', '$\det(A^{-1})$', '$\det(A^T)$', '$\det(A^2)$', '$\det(2A)$']
+  explanation: |-
+    $\det(-A) = (-1)^3 \cdot 2 = -2$; $\det(A^{-1}) = \tfrac12$; $\det(A^T) = 2$; $\det(A^2) = 2^2 = 4$; $\det(2A) = 2^3 \cdot 2 = 16$.
+
+- id: la-m6-r2-q11
+  lesson: la-det-props
+  type: text
+  topic: Determinant properties
+  stem: 'Use row reduction to find $\det\begin{bmatrix} 0 & 2 & 4 \\ 1 & 3 & 2 \\ 2 & 8 & 1\end{bmatrix} =$ ___. Give only the number.'
+  accept: ['14']
+  explanation: |-
+    The first pivot position holds 0, so swap $R_1 \leftrightarrow R_2$ (one swap): $\begin{bmatrix} 1 & 3 & 2 \\ 0 & 2 & 4 \\ 2 & 8 & 1\end{bmatrix}$. Then $R_3 - 2R_1 = [\,0 \;\; 2 \;\; -3\,]$ and $R_3 - R_2 = [\,0 \;\; 0 \;\; -7\,]$. The diagonal product is $1 \cdot 2 \cdot (-7) = -14$, and one swap flips the sign: $\det = 14$.
+
+# --- Lesson 21: Cramer's rule, adjugate, area and volume ---
+- id: la-m6-r2-q12
+  lesson: la-cramer-volume
+  type: label
+  topic: Area and volume
+  stem: 'The volume of this parallelepiped is (area of base) × (height) $= |\det[\,\mathbf{u} \;\; \mathbf{v} \;\; \mathbf{w}\,]|$. Name the numbered parts.'
+  image: {src: images/la-m6-parallelepiped-blank.svg, alt: 'A slanted box drawn from a corner point, with three arrows leaving that corner: one to the right along the bottom, one going back along the bottom, and one rising up and to the right. The bottom face is shaded and a dashed vertical line drops from the tip of the rising arrow to the bottom face. Marker 1 is on the shaded bottom face, marker 2 on the dashed vertical line, marker 3 on the rising arrow and marker 4 on the corner point.'}
+  labels:
+    - {x: 61.2, y: 62.9, text: Base parallelogram spanned by u and v}
+    - {x: 35.1, y: 33.5, text: Height above the base}
+    - {x: 27.4, y: 51.0, text: Third edge vector w}
+    - {x: 23.2, y: 69.8, text: Origin}
+  distractors: [Diagonal of the box, Top face]
+  explanation: |-
+    The two arrows along the bottom are $\mathbf{u}$ and $\mathbf{v}$; they span the shaded base (1). The rising arrow is $\mathbf{w}$ (3), and the dashed line is the height (2), the perpendicular distance from the tip of $\mathbf{w}$ down to the base, which is generally shorter than $\mathbf{w}$ itself. All three edges start at the origin (4). No diagonal is drawn, and the top face is not marked.
+
+- id: la-m6-r2-q13
+  lesson: la-cramer-volume
+  module_quiz: true
+  type: text
+  topic: Cramer's rule
+  stem: 'Use Cramer''s rule on $3x_1 + 2x_2 = 7$, $x_1 + 4x_2 = 9$. Then $x_2 =$ ___. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    $\det A = 3 \cdot 4 - 2 \cdot 1 = 10$. Replace column 2 by $\mathbf{b} = (7, 9)$: $\det\begin{bmatrix} 3 & 7 \\ 1 & 9\end{bmatrix} = 27 - 7 = 20$. So $x_2 = 20/10 = 2$ (and $x_1 = (28 - 18)/10 = 1$; check: $3 + 4 = 7$, $1 + 8 = 9$).
+
+- id: la-m6-r2-q14
+  lesson: la-cramer-volume
+  type: match
+  topic: Area and volume
+  stem: 'Match each matrix $A$ with what $\mathbf{x} \mapsto A\mathbf{x}$ does to areas and orientation in the plane.'
+  pairs:
+    - ['$\begin{bmatrix} 2 & 0 \\ 0 & 3\end{bmatrix}$', 'Multiplies areas by 6, keeps orientation']
+    - ['$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', 'Keeps areas, reverses orientation']
+    - ['$\begin{bmatrix} 1 & 4 \\ 0 & 1\end{bmatrix}$', 'Keeps areas, keeps orientation']
+    - ['$\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$', 'Flattens every region onto a line']
+  distractors: ['Multiplies areas by 6, reverses orientation']
+  explanation: |-
+    The determinants are $6$, $-1$, $1$ and $0$. Area is multiplied by $|\det A|$, and a negative determinant reverses orientation: the swap matrix is a reflection across $y = x$ ($\det = -1$), the shear keeps both ($\det = 1$), and the singular matrix sends the plane onto a line (area 0).
+
+- id: la-m6-r2-q15
+  lesson: la-cramer-volume
+  module_quiz: true
+  topic: Area and volume
+  stem: 'Which pairs of vectors span a parallelogram of area 10? Select all that apply.'
+  choices: ['$(2, 0)$ and $(1, 5)$', '$(5, 5)$ and $(1, 1)$', '$(3, 1)$ and $(1, -3)$', '$(4, 2)$ and $(1, 3)$', '$(2, 1)$ and $(4, 3)$']
+  answer: [0, 2, 3]
+  explanation: |-
+    Area $= |\det[\,\mathbf{u} \;\; \mathbf{v}\,]|$: $2 \cdot 5 - 1 \cdot 0 = 10$; $5 - 5 = 0$ (parallel vectors, no area); $3(-3) - 1 \cdot 1 = -10$, area 10; $4 \cdot 3 - 2 \cdot 1 = 10$; $2 \cdot 3 - 1 \cdot 4 = 2$.
+
+- id: la-m6-r2-q16
+  lesson: la-cramer-volume
+  type: text
+  topic: Area and volume
+  stem: 'The triangle with vertices $(1, 2)$, $(5, 3)$ and $(2, 6)$ has area ___.'
+  accept: ['7.5', '15/2']
+  explanation: |-
+    Translate $(1, 2)$ to the origin: the edge vectors are $(4, 1)$ and $(1, 4)$. Then area $= \tfrac12\left|\det\begin{bmatrix} 4 & 1 \\ 1 & 4\end{bmatrix}\right| = \tfrac12(16 - 1) = 7.5$. Forgetting the $\tfrac12$ gives 15.
+
+# --- Honors 21h1: the permutation formula ---
+- id: la-m6-r2-h01
+  lesson: la-m6-h-permutation-formula
+  topic: Permutation formula
+  stem: 'How many terms does the permutation formula have for a $5 \times 5$ determinant?'
+  choices: ['$25$', '$120$', '$32$', '$3125$']
+  answer: 1
+  explanation: |-
+    One term per permutation of $1, \dots, 5$: $5! = 120$. $5^5 = 3125$ would allow any column in each row, including repeated columns, which the formula excludes.
+
+- id: la-m6-r2-h02
+  lesson: la-m6-h-permutation-formula
+  type: text
+  topic: Permutation formula
+  stem: 'The permutation $(2, 5, 1, 4, 3)$ has ___ inversions.'
+  accept: ['5', five]
+  explanation: |-
+    Count smaller entries to the right: 2 has 1 (the 1); 5 has 3 (1, 4, 3); 1 has none; 4 has 1 (the 3); 3 has none. Total $1 + 3 + 0 + 1 + 0 = 5$, so the permutation is odd.
+
+- id: la-m6-r2-h03
+  lesson: la-m6-h-permutation-formula
+  topic: Permutation formula
+  stem: 'With what sign does $a_{14}a_{23}a_{31}a_{42}$ appear in the permutation formula for a $4 \times 4$ determinant?'
+  choices: ['Plus, because $(4, 3, 1, 2)$ has 4 inversions', 'Plus, because no entry is on the main diagonal', 'Minus, because $(4, 3, 1, 2)$ has 5 inversions', 'Minus, because row 1 uses the last column']
+  answer: 2
+  explanation: |-
+    The columns used by rows 1 to 4 give $\sigma = (4, 3, 1, 2)$. Smaller entries to the right: $3 + 2 + 0 + 0 = 5$ inversions, odd, so the sign is minus. Neither the diagonal nor the column used by row 1 decides the sign by itself.
+
+- id: la-m6-r2-h04
+  lesson: la-m6-h-permutation-formula
+  topic: Permutation formula
+  stem: 'The shaded cells pick out one term of the permutation formula for a $4 \times 4$ determinant. What sign does that term get?'
+  image: {src: images/la-m6-h-pattern.svg, alt: 'A 4 by 4 grid with one shaded cell in each row: row 1 in column 4, row 2 in column 1, row 3 in column 3, row 4 in column 2.'}
+  choices: ['Minus, because $(4, 1, 3, 2)$ has 3 inversions', 'Plus, because $(4, 1, 3, 2)$ has 4 inversions', 'Minus, because one shaded cell is on the main diagonal', 'Plus, because $(2, 4, 3, 1)$ has 4 inversions']
+  answer: 1
+  explanation: |-
+    Reading the shaded column in each row gives $\sigma = (4, 1, 3, 2)$. Smaller entries to the right: 4 has 3, 1 has 0, 3 has 1 (the 2), 2 has 0, so 4 inversions and the sign is plus. $(2, 4, 3, 1)$ reads the rows used in each column instead (the inverse permutation); it happens to have 4 inversions too, but it is not the list that defines the term.
+
+- id: la-m6-r2-h05
+  lesson: la-m6-h-permutation-formula
+  type: match
+  topic: Permutation formula
+  stem: 'Match each permutation of $1, 2, 3$ with its inversion count and parity.'
+  pairs:
+    - ['$(1, 2, 3)$', '0 inversions, even']
+    - ['$(2, 1, 3)$', '1 inversion, odd']
+    - ['$(2, 3, 1)$', '2 inversions, even']
+    - ['$(3, 2, 1)$', '3 inversions, odd']
+  explanation: |-
+    $(2, 1, 3)$: only the pair $2, 1$. $(2, 3, 1)$: $2, 1$ and $3, 1$. $(3, 2, 1)$: every pair is out of order, $3$ pairs. A 3-cycle such as $(2, 3, 1)$ is even even though it moves every entry.
+
+- id: la-m6-r2-h06
+  lesson: la-m6-h-permutation-formula
+  topic: Permutation formula
+  stem: 'Which products are terms (up to sign) of the permutation formula for a $4 \times 4$ determinant? Select all that apply.'
+  choices: ['$a_{11}a_{22}a_{33}a_{44}$', '$a_{12}a_{21}a_{34}a_{43}$', '$a_{11}a_{21}a_{33}a_{44}$', '$a_{14}a_{23}a_{32}a_{41}$', '$a_{13}a_{22}a_{31}a_{43}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    A term uses each row once and each column once. The first, second and fourth do (columns $1, 2, 3, 4$; $2, 1, 4, 3$; $4, 3, 2, 1$). $a_{11}a_{21}a_{33}a_{44}$ uses column 1 twice, and $a_{13}a_{22}a_{31}a_{43}$ uses column 3 twice; neither uses every column.
+
+- id: la-m6-r2-h07
+  lesson: la-m6-h-permutation-formula
+  topic: Permutation formula
+  stem: 'What is $\det\begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0\end{bmatrix}$?'
+  choices: ['$-1$', '$0$', '$3$', '$1$']
+  answer: 3
+  explanation: |-
+    This is the permutation matrix of $\sigma = (2, 3, 1)$ (row $i$ has its 1 in column $\sigma(i)$). Only one term is nonzero, equal to $\operatorname{sgn}\sigma$. $(2, 3, 1)$ has 2 inversions, so it is even and $\det = 1$. (It takes two row swaps to turn the matrix into $I$.)
+
+- id: la-m6-r2-h08
+  lesson: la-m6-h-permutation-formula
+  topic: Defining properties of the determinant
+  stem: 'Which defining property of the determinant says that swapping two rows multiplies it by $-1$?'
+  choices: ['Multilinear', 'Normalized', 'Alternating', 'Multiplicative']
+  answer: 2
+  explanation: |-
+    That is the alternating property. Multilinear means linear in each row with the others fixed, and normalized means $\det I = 1$. The multiplicative property $\det(AB) = \det A\det B$ is a consequence, not one of the three defining properties.
+
+- id: la-m6-r2-h09
+  lesson: la-m6-h-permutation-formula
+  topic: Defining properties of the determinant
+  stem: 'Using only the three defining properties, why does a matrix with two equal rows have determinant 0?'
+  choices: ['Swapping the two equal rows leaves the matrix unchanged but must flip the sign, so $\det A = -\det A$', 'Its rows are linearly dependent, so by the invertible matrix theorem $\det A = 0$', 'Linearity in a row means that row can be multiplied by 0 without changing anything', 'The permutation formula has no terms for such a matrix']
+  answer: 0
+  explanation: |-
+    The alternating property applied to the two equal rows gives $\det A = -\det A$, so $\det A = 0$. The invertible-matrix route is true but uses more than the three properties. Scaling a row by 0 does change the determinant (to 0), and the permutation formula still has all its terms; they cancel in pairs.
+
+- id: la-m6-r2-h10
+  lesson: la-m6-h-permutation-formula
+  type: order
+  topic: Defining properties of the determinant
+  stem: 'Put the steps of the proof that $\det(AB) = \det A\det B$ (when $\det B \neq 0$) in order.'
+  items:
+    - 'Define $D(A) = \det(AB)/\det B$ for a fixed $B$'
+    - 'Check that $D$ is multilinear and alternating in the rows of $A$, with $D(I) = 1$'
+    - 'Conclude by uniqueness that $D(A) = \det A$ for every $A$'
+    - 'Multiply through by $\det B$'
+  explanation: |-
+    The function has to be defined before its properties can be checked; the uniqueness theorem applies only once all three properties are known; and the product rule is the last line, $\det(AB) = D(A)\det B = \det A\det B$.
+
+- id: la-m6-r2-h11
+  lesson: la-m6-h-permutation-formula
+  type: text
+  topic: Defining properties of the determinant
+  stem: '$\det\begin{bmatrix} 1 & 0 & 0 \\ 1 & 2 & 4 \\ 1 & 5 & 25\end{bmatrix} =$ ___. (It is a Vandermonde determinant.)'
+  accept: ['30']
+  explanation: |-
+    The rows are $(1, x, x^2)$ for $x = 0, 2, 5$, so $\det = (2 - 0)(5 - 0)(5 - 2) = 2 \cdot 5 \cdot 3 = 30$. Direct check, expanding along row 1: $1 \cdot (2 \cdot 25 - 4 \cdot 5) = 50 - 20 = 30$.
+
+- id: la-m6-r2-h12
+  lesson: la-m6-h-permutation-formula
+  topic: Defining properties of the determinant
+  stem: 'Rows $\mathbf{r}_1, \mathbf{r}_2, \mathbf{r}_3$ form a matrix with determinant 4, and the matrix with rows $\mathbf{r}_1, \mathbf{r}_2, \mathbf{s}$ has determinant $-1$. What is the determinant of the matrix with rows $\mathbf{r}_1, \mathbf{r}_2, 2\mathbf{r}_3 + \mathbf{s}$?'
+  choices: ['$9$', '$3$', '$7$', '$-8$']
+  answer: 2
+  explanation: |-
+    The determinant is linear in row 3 when rows 1 and 2 are fixed: $2 \cdot 4 + (-1) = 7$. Answer 3 forgets the factor 2; $-8$ multiplies instead of adding.
+
+- id: la-m6-r2-h13
+  lesson: la-m6-h-permutation-formula
+  topic: Defining properties of the determinant
+  stem: 'When is $\det\begin{bmatrix} 1 & a & a^2 \\ 1 & b & b^2 \\ 1 & c & c^2\end{bmatrix}$ equal to 0?'
+  choices: ['Only when $a = b = c = 0$', 'Exactly when two of $a, b, c$ are equal', 'When $a + b + c = 0$', 'Never']
+  answer: 1
+  explanation: |-
+    The determinant is $(b - a)(c - a)(c - b)$, which is 0 exactly when some pair is equal (two equal rows). If $a, b, c$ are distinct it is nonzero, even when they add to 0, for example $-1, 0, 1$ give $(1)(2)(1) = 2$.
+
+- id: la-m6-r2-h14
+  lesson: la-m6-h-permutation-formula
+  topic: Permutation formula
+  stem: 'A permutation $\sigma$ of $1, \dots, n$ has $\sigma(1) = j$. How many of its inversions involve position 1?'
+  choices: ['$j$', '$n - j$', '$1$', '$j - 1$']
+  answer: 3
+  explanation: |-
+    The values $1, \dots, j - 1$ are all smaller than $j$ and all sit to the right of position 1, so each makes an inversion with it: $j - 1$ in all. That is where the cofactor sign $(-1)^{1+j} = (-1)^{j-1}$ comes from.
+
+- id: la-m6-r2-h15
+  lesson: la-m6-h-permutation-formula
+  topic: Permutation formula
+  stem: 'Why does the rule of Sarrus (three down-right diagonal products minus three down-left ones) fail for $4 \times 4$ matrices?'
+  choices: ['A $4 \times 4$ determinant has 24 terms, and the diagonals give only 8 of them', 'The signs of the diagonals alternate differently for even sizes', 'It works, but only for symmetric $4 \times 4$ matrices', 'A $4 \times 4$ determinant has 16 terms, one per entry']
+  answer: 0
+  explanation: |-
+    Sarrus lists the $3! = 6$ terms of a $3 \times 3$ determinant. A $4 \times 4$ determinant has $4! = 24$ terms, and the 8 wrapped diagonals miss 16 of them (some diagonal products also get the wrong sign).
+
+# --- Honors 21h2: determinants in geometry ---
+- id: la-m6-r2-h16
+  lesson: la-m6-h-determinant-geometry
+  type: text
+  topic: Cross product
+  stem: 'For $\mathbf{u} = (2, 0, 1)$ and $\mathbf{v} = (1, 3, -1)$, $\mathbf{u} \times \mathbf{v} = ($___, ___, ___$)$.'
+  accept: [['-3'], ['3'], ['6']]
+  explanation: |-
+    First: $u_2v_3 - u_3v_2 = 0(-1) - 1(3) = -3$. Second: $u_3v_1 - u_1v_3 = 1(1) - 2(-1) = 3$. Third: $u_1v_2 - u_2v_1 = 2(3) - 0(1) = 6$. Check: $(2, 0, 1) \cdot (-3, 3, 6) = -6 + 0 + 6 = 0$.
+
+- id: la-m6-r2-h17
+  lesson: la-m6-h-determinant-geometry
+  type: label
+  topic: Cross product
+  stem: 'Two vectors $\mathbf{u}$ and $\mathbf{v}$ lie in the horizontal plane, and their cross product $\mathbf{u} \times \mathbf{v}$ points straight up. Use the right-hand rule to name the numbered parts.'
+  image: {src: images/la-m6-h-cross-blank.svg, alt: 'A horizontal plane drawn in perspective. Two arrows start at the same point in the plane: one points to the right and one points back and to the right; the parallelogram they span is shaded. A third arrow rises straight up from the same point. A small curved arrow turns from the right-pointing arrow toward the back-pointing one. Marker 1 is on the upward arrow, marker 2 on the shaded parallelogram, marker 3 on the right-pointing arrow and marker 4 on the back-pointing arrow.'}
+  labels:
+    - {x: 23.1, y: 23.3, text: Cross product u × v}
+    - {x: 63.5, y: 58.9, text: Parallelogram spanned by u and v}
+    - {x: 48.5, y: 72.2, text: First vector u}
+    - {x: 39.4, y: 54.7, text: Second vector v}
+  distractors: [Cross product v × u]
+  explanation: |-
+    The cross product is perpendicular to both vectors, so it is the upward arrow (1); its length equals the area of the shaded parallelogram (2). With your thumb pointing up, your right hand's fingers curl counterclockwise as seen from above, from the right-pointing arrow toward the back-pointing one, so the right-pointing arrow is $\mathbf{u}$ (3) and the other is $\mathbf{v}$ (4). $\mathbf{v} \times \mathbf{u}$ would point straight down.
+
+- id: la-m6-r2-h18
+  lesson: la-m6-h-determinant-geometry
+  topic: Cross product
+  stem: 'Find the area of the triangle with two edges $\mathbf{u} = (2, 0, 0)$ and $\mathbf{v} = (0, 3, 4)$ from the same corner.'
+  choices: ['$10$', '$5$', '$7$', '$12$']
+  answer: 1
+  explanation: |-
+    $\mathbf{u} \times \mathbf{v} = (0 \cdot 4 - 0 \cdot 3,\; 0 \cdot 0 - 2 \cdot 4,\; 2 \cdot 3 - 0 \cdot 0) = (0, -8, 6)$, with length $\sqrt{64 + 36} = 10$. That is the parallelogram; the triangle is half, 5. (Also: $\mathbf{u}$ is perpendicular to $\mathbf{v}$, so the triangle is right-angled with legs 2 and 5.)
+
+- id: la-m6-r2-h19
+  lesson: la-m6-h-determinant-geometry
+  topic: Cross product
+  stem: 'How is $\mathbf{v} \times \mathbf{u}$ related to $\mathbf{u} \times \mathbf{v}$?'
+  choices: ['They are equal', 'They are perpendicular', '$\mathbf{v} \times \mathbf{u} = -(\mathbf{u} \times \mathbf{v})$', 'They have different lengths']
+  answer: 2
+  explanation: |-
+    Swapping $\mathbf{u}$ and $\mathbf{v}$ swaps two rows of the determinant that defines the cross product, which flips the sign of every component. Same length, opposite direction.
+
+- id: la-m6-r2-h20
+  lesson: la-m6-h-determinant-geometry
+  topic: Cross product
+  stem: 'Why is $\mathbf{u} \cdot (\mathbf{u} \times \mathbf{v}) = 0$ for all $\mathbf{u}, \mathbf{v}$ in $\mathbb{R}^3$?'
+  choices: ['Because $\mathbf{u} \times \mathbf{u} = \mathbf{0}$', 'It equals a determinant with two equal rows', 'Because the dot product is commutative', 'It only holds when $\mathbf{u}$ and $\mathbf{v}$ are perpendicular']
+  answer: 1
+  explanation: |-
+    $\mathbf{w} \cdot (\mathbf{u} \times \mathbf{v})$ is the determinant with rows $\mathbf{w}, \mathbf{u}, \mathbf{v}$. With $\mathbf{w} = \mathbf{u}$ two rows are equal, so it is 0 for every $\mathbf{v}$. That is why $\mathbf{u} \times \mathbf{v}$ is perpendicular to $\mathbf{u}$. ($\mathbf{u} \times \mathbf{u} = \mathbf{0}$ is true but is a different statement.)
+
+- id: la-m6-r2-h21
+  lesson: la-m6-h-determinant-geometry
+  topic: Cross product
+  stem: 'Find the volume of the tetrahedron with corners $(0, 0, 0)$, $(2, 0, 0)$, $(0, 3, 0)$ and $(1, 1, 4)$.'
+  choices: ['$24$', '$12$', '$8$', '$4$']
+  answer: 3
+  explanation: |-
+    The edges from the origin give $\det\begin{bmatrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\ 1 & 1 & 4\end{bmatrix} = 2 \cdot 3 \cdot 4 = 24$ (triangular). The tetrahedron is $\tfrac16$ of that box: $24/6 = 4$. 24 is the parallelepiped; 12 uses $\tfrac12$ (the triangle factor); 8 uses $\tfrac13$.
+
+- id: la-m6-r2-h22
+  lesson: la-m6-h-determinant-geometry
+  topic: Cross product
+  stem: 'If $\det[\,\mathbf{u} \;\; \mathbf{v} \;\; \mathbf{w}\,] = -5$, what is $\mathbf{v} \cdot (\mathbf{u} \times \mathbf{w})$?'
+  choices: ['$-5$', '$5$', '$0$', '$25$']
+  answer: 1
+  explanation: |-
+    $\mathbf{x} \cdot (\mathbf{a} \times \mathbf{b}) = \det[\,\mathbf{a} \;\; \mathbf{b} \;\; \mathbf{x}\,]$, so $\mathbf{v} \cdot (\mathbf{u} \times \mathbf{w}) = \det[\,\mathbf{u} \;\; \mathbf{w} \;\; \mathbf{v}\,]$. That is $[\,\mathbf{u} \;\; \mathbf{v} \;\; \mathbf{w}\,]$ with its last two columns swapped, so it equals $-(-5) = 5$.
+
+- id: la-m6-r2-h23
+  lesson: la-m6-h-determinant-geometry
+  topic: Orientation and polygon area
+  stem: 'Which sets of three points lie on one line? Select all that apply.'
+  choices: ['$(0, 0)$, $(1, 2)$, $(3, 6)$', '$(0, 1)$, $(2, 2)$, $(4, 4)$', '$(1, 1)$, $(2, 3)$, $(4, 7)$', '$(-1, 3)$, $(1, 1)$, $(3, -1)$', '$(1, 0)$, $(0, 1)$, $(2, 2)$']
+  answer: [0, 2, 3]
+  explanation: |-
+    Compute $D = \det[\,\mathbf{q} - \mathbf{p} \;\; \mathbf{r} - \mathbf{p}\,]$ for each: $\det\begin{bmatrix} 1 & 3 \\ 2 & 6\end{bmatrix} = 0$; $\det\begin{bmatrix} 2 & 4 \\ 1 & 3\end{bmatrix} = 2$; $\det\begin{bmatrix} 1 & 3 \\ 2 & 6\end{bmatrix} = 0$; $\det\begin{bmatrix} 2 & 4 \\ -2 & -4\end{bmatrix} = 0$; $\det\begin{bmatrix} -1 & 1 \\ 1 & 2\end{bmatrix} = -3$. Zero means collinear.
+
+- id: la-m6-r2-h24
+  lesson: la-m6-h-determinant-geometry
+  topic: Orientation and polygon area
+  stem: 'For $\mathbf{p} = (0, 0)$, $\mathbf{q} = (4, 1)$, $\mathbf{r} = (1, 3)$, which way does the path $\mathbf{p} \to \mathbf{q} \to \mathbf{r}$ turn?'
+  choices: ['Right (clockwise), since $D = -11$', 'It doesn''t turn: the points are collinear', 'Left (counterclockwise), since $D = 11$', 'Left (counterclockwise), since $D = 13$']
+  answer: 2
+  explanation: |-
+    $D = \det\begin{bmatrix} 4 & 1 \\ 1 & 3\end{bmatrix} = 12 - 1 = 11 > 0$, so the turn is to the left and the triangle $\mathbf{p}, \mathbf{q}, \mathbf{r}$ is listed counterclockwise. 13 comes from adding $1 \cdot 1$ instead of subtracting it.
+
+- id: la-m6-r2-h25
+  lesson: la-m6-h-determinant-geometry
+  type: text
+  topic: Orientation and polygon area
+  stem: 'The quadrilateral with corners $(0, 0)$, $(5, 0)$, $(4, 3)$, $(1, 4)$, in that (counterclockwise) order, has area ___.'
+  accept: ['14']
+  explanation: |-
+    Shoelace terms $x_iy_{i+1} - x_{i+1}y_i$: $0 - 0 = 0$; $15 - 0 = 15$; $16 - 3 = 13$; $0 - 0 = 0$. The sum is 28 and the area is $28/2 = 14$.
+
+- id: la-m6-r2-h26
+  lesson: la-m6-h-determinant-geometry
+  type: order
+  topic: Orientation and polygon area
+  stem: 'Put the steps of the shoelace formula in order.'
+  items:
+    - 'List the corners in counterclockwise order around the boundary'
+    - 'Repeat the first corner at the end of the list'
+    - 'For each consecutive pair, compute $x_iy_{i+1} - x_{i+1}y_i$'
+    - 'Add these terms'
+    - 'Divide the sum by 2'
+  explanation: |-
+    The corners must be in order around the boundary first; repeating the first corner supplies the last pair; each pair gives twice a signed triangle area; the total is twice the polygon's area, so it is halved at the end.
+
+- id: la-m6-r2-h27
+  lesson: la-m6-h-determinant-geometry
+  type: match
+  topic: Cross product
+  stem: 'Match each expression to the quantity it gives ($\mathbf{u}, \mathbf{v}, \mathbf{w}$ are edge vectors from one corner).'
+  pairs:
+    - ['$\|\mathbf{u} \times \mathbf{v}\|$', 'Area of the parallelogram on u and v']
+    - ['$\tfrac12\|\mathbf{u} \times \mathbf{v}\|$', 'Area of the triangle on u and v']
+    - ['$|\det[\,\mathbf{u} \;\; \mathbf{v} \;\; \mathbf{w}\,]|$', 'Volume of the parallelepiped on u, v, w']
+    - ['$\tfrac16|\det[\,\mathbf{u} \;\; \mathbf{v} \;\; \mathbf{w}\,]|$', 'Volume of the tetrahedron on u, v, w']
+  distractors: ['Volume of the pyramid on a square base']
+  explanation: |-
+    The cross product's length is the parallelogram's area, and a triangle is half of it. The triple product's absolute value is the box volume, and a tetrahedron (a pyramid on a triangular base) is $\tfrac13 \cdot \tfrac12 = \tfrac16$ of the box.
+
+- id: la-m6-r2-h28
+  lesson: la-m6-h-determinant-geometry
+  topic: Orientation and polygon area
+  stem: 'A student applies the shoelace formula to a pentagon but lists the corners clockwise. What happens?'
+  choices: ['The result is the area with a minus sign', 'The result is twice the area', 'The result is 0', 'The result is unchanged']
+  answer: 0
+  explanation: |-
+    Reversing the order turns every term $x_iy_{i+1} - x_{i+1}y_i$ into its negative (each pair is now taken the other way round), so the formula gives $-(\text{area})$. Take the absolute value, or list the corners counterclockwise.
+
+- id: la-m6-r2-h29
+  lesson: la-m6-h-determinant-geometry
+  topic: Orientation and polygon area
+  stem: 'Setting $\begin{vmatrix} x & y & 1 \\ 1 & 2 & 1 \\ 3 & 7 & 1\end{vmatrix} = 0$ gives the line through $(1, 2)$ and $(3, 7)$. Which equation is it?'
+  choices: ['$2x - 5y = -8$', '$5x + 2y = 9$', '$x - y = -1$', '$5x - 2y = 1$']
+  answer: 3
+  explanation: |-
+    Expand along row 1: $x(2 - 7) - y(1 - 3) + (7 - 6) = -5x + 2y + 1 = 0$, that is, $5x - 2y = 1$. Check: $5 - 4 = 1$ and $15 - 14 = 1$. ($2x - 5y = -8$ holds for $(1, 2)$ but not $(3, 7)$.)

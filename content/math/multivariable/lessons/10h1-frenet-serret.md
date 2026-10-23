@@ -72,10 +72,10 @@ keeps the three vectors unit length and mutually perpendicular as they move.
 flowchart LR
   accTitle: How the Frenet–Serret formulas couple T, N and B
   accDescr: Three boxes, T, N and B. Curvature kappa links T and N in both directions, with a plus sign from T to N and a minus sign from N to T. Torsion tau links N and B in both directions, with a plus sign from N to B and a minus sign from B to N. T and B are not linked directly.
-  T["T (tangent)"] -- "+ kappa" --> N["N (normal)"]
-  N -- "- kappa" --> T
-  N -- "+ tau" --> B["B (binormal)"]
-  B -- "- tau" --> N
+  T["T (tangent)"] -- "+ κ" --> N["N (normal)"]
+  N -- "- κ" --> T
+  N -- "+ τ" --> B["B (binormal)"]
+  B -- "- τ" --> N
 ```
 
 There is a compact way to say the same thing. Let $\boldsymbol\omega = \tau\mathbf T + \kappa\mathbf B$,

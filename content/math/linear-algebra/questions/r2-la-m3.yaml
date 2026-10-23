@@ -334,7 +334,7 @@
   choices: ['3', '5', '4', 'There is no largest number']
   answer: 2
   explanation: |-
-    Lifted to $(\mathbf{v}_i, 1)$ the points become vectors in $\mathbb{R}^4$, and at most 4 vectors in $\mathbb{R}^4$ are independent. Four is reached by the corners of a tetrahedron, such as $\mathbf{0}, \mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$. The answer 3 is the most *linearly* independent vectors in $\mathbb{R}^3$.
+    Lifted to $(\mathbf{v}_i, 1)$ the points become vectors in $\mathbb{R}^4$, and at most 4 vectors in $\mathbb{R}^4$ are independent. Four is reached by the corners of a tetrahedron, such as $\mathbf{0}, \mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$. The answer 3 is the largest number of linearly independent vectors in $\mathbb{R}^3$.
 
 - id: la-m3-r2-h08
   lesson: la-m3-h-affine
@@ -477,7 +477,7 @@
     - 'The toggle patterns are linearly independent'
   answer: 0
   explanation: |-
-    Each press adds a fixed toggle pattern, and addition is commutative, so only *which* lights are pressed matters, and how many times. Pressing twice adds $\mathbf{a}_j + \mathbf{a}_j = \mathbf{0}$, so only the count mod 2 matters. The rules allow repeated presses; they are just pointless. That the *lights* are on or off explains why patterns are mod-2 vectors, not why strategies are.
+    Each press adds a fixed toggle pattern, and addition is commutative, so only which lights are pressed matters, and how many times. Pressing twice adds $\mathbf{a}_j + \mathbf{a}_j = \mathbf{0}$, so only the count mod 2 matters. The rules allow repeated presses; they are just pointless. That the lights are on or off explains why light patterns are mod-2 vectors, not why strategies are.
 
 - id: la-m3-r2-h21
   lesson: la-m3-h-mod2

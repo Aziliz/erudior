@@ -50,6 +50,10 @@ point (an outlier) can pull the line noticeably.
 Notice the residuals are *vertical* distances, not perpendicular ones. That matches how the
 line is used: it predicts $y$ from $x$, so the error that matters is the error in $y$.
 
+![Six data points scattered around a rising least squares line. Dashed vertical segments join each point to the line. For one point above the line, the data point, its residual (the dashed segment) and the predicted value on the line (an open circle) are labeled. A small square on the line marks the point of means (x̄, ȳ).](images/mv-m4-residuals.svg)
+
+In the picture, each dashed segment is a residual, and the open circle is the value the line predicts at that $x$. The small square is the point of means, which the next section shows always lies on the least squares line.
+
 ## Setting the partial derivatives to zero
 
 Differentiate $S$ term by term with the chain rule. The inside of each square is
@@ -93,6 +97,18 @@ upward bowl, and its level curves are ellipses around the best $(m, b)$.
 
 If all the $x_i$ are equal, the points stack on one vertical line, $D = 0$, and no
 non-vertical line is singled out: infinitely many $(m, b)$ tie.
+
+The whole procedure, start to finish:
+
+```mermaid
+flowchart TD
+  accTitle: Fitting a least squares line step by step
+  accDescr: Compute the five sums n, sum of x, sum of y, sum of x squared and sum of x times y. Write the two normal equations. Solve them for the slope m and the intercept b. Check that the line passes through the point of means and that the residuals add up to zero. Use the line for predictions inside the range of the data.
+  A["Compute n, Σx, Σy, Σx², Σxy"] --> B["Write the two normal equations"]
+  B --> C["Solve for the slope m and intercept b"]
+  C --> D["Check: line passes through (x̄, ȳ) and residuals sum to 0"]
+  D --> E["Predict only inside the range of the data"]
+```
 
 ### Example 1
 

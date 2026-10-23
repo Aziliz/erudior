@@ -33,6 +33,18 @@ given $\mathbf{v}$ is in it, just compute $A\mathbf{v}$. To describe it *explici
 $A\mathbf{x} = \mathbf{0}$ and write the solution in parametric vector form; the vectors that
 appear form a spanning set.
 
+The procedure, step by step:
+
+```mermaid
+flowchart TD
+  accTitle: Finding a spanning set for the null space of A
+  accDescr: Row-reduce A to reduced echelon form. Mark the pivot columns; the variables of the other columns are free. Solve for each pivot variable in terms of the free variables. Write the solution x in parametric vector form. The vectors multiplying the free variables, one per free variable, form a spanning set for Nul A.
+  A["Row-reduce A to RREF"] --> B["Mark pivot columns; the other variables are free"]
+  B --> C["Solve for each pivot variable in terms of the free ones"]
+  C --> D["Write x in parametric vector form"]
+  D --> E["One vector per free variable: a spanning set for Nul A"]
+```
+
 ### Example 1
 
 Find a spanning set for $\operatorname{Nul} A$, where $A = \begin{bmatrix} 1 & -2 & 0 & 3 \\ 2 & -4 & 1 & 4\end{bmatrix}$.
@@ -73,6 +85,12 @@ Let $A = \begin{bmatrix} 1 & 2 \\ 2 & 4 \\ -1 & -2\end{bmatrix}$. Describe $\ope
 1. Column 2 is twice column 1, so $\operatorname{Col} A = \operatorname{Span}\{(1, 2, -1)\}$: a line through the origin in $\mathbb{R}^3$.
 2. Row reduction leaves one pivot; $x_2$ is free and $x_1 = -2x_2$, so $\operatorname{Nul} A = \operatorname{Span}\{(-2, 1)\}$: a line in $\mathbb{R}^2$.
 3. $\mathbf{b} = (3, 6, -3)$ is in $\operatorname{Col} A$ (it's $3\mathbf{a}_1$), but $(1, 0, 0)$ is not.
+
+Here is the same matrix as a picture. Its null space lives among the inputs and its column
+space among the outputs, and the two are different lines in different spaces. A vector off
+the line $\operatorname{Col} A$, such as $(0, 0, 2)$, is an output that $A$ never produces.
+
+![Two panels joined by an arrow labeled x maps to Ax. Left panel, inputs R², shows the line Nul A through the origin and the point (−2, 1). Right panel, outputs R³, shows three axes, the line Col A through the origin and the point (1, 2, −1), and a hollow point (0, 0, 2) off the line, marked not in Col A.](images/la-m7-nul-col.svg)
 
 ## Comparing the two
 

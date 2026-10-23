@@ -49,7 +49,7 @@ of the $1 \times 2$ matrix $[\,1 \;\; 2\,]$. Describe its preimages.
 4. Every preimage is a nonempty line, so $T$ is onto $\mathbb{R}$ but not one-to-one. The plane is cut into parallel lines, one for each output.
 
 ```plot
-{"x": [-5, 5], "y": [-3, 4], "equal": true, "functions": [{"f": "(-2 - x)/2", "label": "c = -2"}, {"f": "-x/2", "label": "c = 0"}, {"f": "(2 - x)/2", "label": "c = 2"}, {"f": "(4 - x)/2", "label": "c = 4"}], "segments": [{"from": [0, 0], "to": [-2, 1], "arrow": true, "label": "(-2, 1)"}], "points": [{"at": [2, 0], "label": "(2, 0)"}, {"at": [4, 0], "label": "(4, 0)"}], "xLabel": "x₁", "yLabel": "x₂", "caption": "Preimages of T(x₁, x₂) = x₁ + 2x₂: parallel lines x₁ + 2x₂ = c, all copies of the line through the origin"}
+{"x": [-6, 6], "y": [-4, 4], "equal": true, "functions": [{"f": "(-2 - x)/2", "label": "c = -2"}, {"f": "-x/2", "label": "c = 0"}, {"f": "(2 - x)/2", "label": "c = 2"}, {"f": "(4 - x)/2", "label": "c = 4"}], "segments": [{"from": [0, 0], "to": [-2, 1], "arrow": true}], "labels": [{"at": [-2.6, 1.5], "text": "(-2, 1)"}], "xLabel": "x₁", "yLabel": "x₂", "caption": "Preimages of T(x₁, x₂) = x₁ + 2x₂: parallel lines x₁ + 2x₂ = c, all copies of the line through the origin"}
 ```
 
 ### Example 2

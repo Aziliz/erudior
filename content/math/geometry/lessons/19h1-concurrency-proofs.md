@@ -1,7 +1,7 @@
 ---
 id: geo-m5-h-concurrency
 module: geo-m5
-title: 'Honors: Proving the triangle centers exist'
+title: Proving the triangle centers exist
 minutes: 45
 honors: true
 topics: [Concurrency proofs, Euler line]

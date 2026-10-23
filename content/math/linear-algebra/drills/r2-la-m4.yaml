@@ -117,7 +117,7 @@
     bb2: a21*s1 + a22*s2 + 0
     bb3: a31*s1 + a32*s2 + 0
   prompt: |-
-    Let $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22} \\ {a31} & {a32}\end{bmatrix}$. Build the left inverse $C = \begin{bmatrix} c_{11} & c_{12} & 0 \\ c_{21} & c_{22} & 0\end{bmatrix}$ from the top $2 \times 2$ block of $A$. Then $A\mathbf{x} = ({bb1}, {bb2}, {bb3})$ has a solution: use $C$ to find it.
+    Let $A = \begin{bmatrix} {a11} & {a12} \\ {a21} & {a22} \\ {a31} & {a32}\end{bmatrix}$. Build the left inverse $C = \begin{bmatrix} c_{11} & c_{12} & 0 \\ c_{21} & c_{22} & 0\end{bmatrix}$ from the top $2 \times 2$ block of $A$. Then $A\mathbf{x} = \mathbf{b}$ with $\mathbf{b} = ({bb1}, {bb2}, {bb3})$ has a solution: use $C$ to find it.
   answers:
     - {name: c11, label: '$c_{11} =$'}
     - {name: c12, label: '$c_{12} =$'}

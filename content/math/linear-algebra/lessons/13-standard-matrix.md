@@ -53,7 +53,7 @@ The picture shows the two columns for $\theta = 30^\circ$: both basis vectors tu
 angle and stay on the unit circle.
 
 ```plot
-{"x": [-1.5, 1.5], "y": [-0.5, 1.5], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "pi"], "dashed": true}], "segments": [{"from": [0, 0], "to": [1, 0], "arrow": true, "label": "e₁"}, {"from": [0, 0], "to": [0, 1], "arrow": true, "label": "e₂"}, {"from": [0, 0], "to": [0.866, 0.5], "arrow": true, "label": "T(e₁) = (cos θ, sin θ)"}, {"from": [0, 0], "to": [-0.5, 0.866], "arrow": true, "label": "T(e₂) = (−sin θ, cos θ)"}], "caption": "Rotation by θ = 30°: the images of e₁ and e₂ are the columns of the rotation matrix"}
+{"x": [-1.4, 1.6], "y": [-0.4, 1.4], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "pi"], "dashed": true}], "segments": [{"from": [0, 0], "to": [1, 0], "arrow": true}, {"from": [0, 0], "to": [0, 1], "arrow": true}, {"from": [0, 0], "to": [0.866, 0.5], "arrow": true}, {"from": [0, 0], "to": [-0.5, 0.866], "arrow": true}], "labels": [{"at": [1.1, -0.18], "text": "e₁"}, {"at": [0.15, 1.18], "text": "e₂"}, {"at": [1.2, 0.6], "text": "T(e₁)"}, {"at": [-0.85, 1.0], "text": "T(e₂)"}], "caption": "Rotation by θ = 30°: T(e₁) = (cos θ, sin θ) and T(e₂) = (−sin θ, cos θ) are the columns of the rotation matrix"}
 ```
 
 For $\theta = 90^\circ$ this is $\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$, which sends

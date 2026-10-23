@@ -63,7 +63,7 @@
     n3: (bx - ax)*(py - ay) - (px - ax)*(by - ay) + 0
     k2: n2/det + 0
     k3: n3/det + 0
-    k1: 1 - n2/det - n3/det + 0
+    k1: (det - n2 - n3)/det + 0
   where: ["det != 0", "abs(det) <= 40"]
   prompt: |-
     Find the barycentric coordinates $(c_1, c_2, c_3)$ of $\mathbf{p} = ({px}, {py})$ relative to the triangle with corners $\mathbf{v}_1 = ({ax}, {ay})$, $\mathbf{v}_2 = ({bx}, {by})$, $\mathbf{v}_3 = ({cx}, {cy})$. Give exact fractions.

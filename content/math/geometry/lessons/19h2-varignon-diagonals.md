@@ -1,7 +1,7 @@
 ---
 id: geo-m5-h-varignon
 module: geo-m5
-title: 'Honors: Varignon''s theorem and classifying quadrilaterals by their diagonals'
+title: 'Varignon''s theorem and classifying quadrilaterals by their diagonals'
 minutes: 45
 honors: true
 topics: [Varignon's theorem, Classifying quadrilaterals]

@@ -100,8 +100,8 @@ flowchart TD
   n3 --> n4["T = r' / v"]
   n4 --> n5["Differentiate T, then N = T' / |T'|"]
   n5 --> n6["B = T × N"]
-  n3 --> n7["kappa = |r' × r''| / v³"]
-  n7 --> n8["a_T = (r' · r'') / v and a_N = kappa v²"]
+  n3 --> n7["κ = |r' × r''| / v³"]
+  n7 --> n8["a_T = (r' · r'') / v and a_N = κ v²"]
 ```
 
 ### Example 2

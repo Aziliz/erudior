@@ -74,6 +74,25 @@ Notice the asymmetry: for $\operatorname{Row} A$ we use rows of the echelon form
 operations preserve the row space), but for $\operatorname{Col} A$ we go back to the columns of
 $A$.
 
+The picture sums up Example 1: shade the pivot columns in $A$ itself, and read pivots, free
+columns and zero rows from the RREF.
+
+![The matrix A from Example 1 beside its reduced echelon form, joined by an arrow labeled row-reduce. In A, columns 1 and 3 are shaded as the pivot columns, a basis for Col A. In the RREF, the pivot positions in row 1 column 1 and row 2 column 3 are circled, column 4 is outlined as a non-pivot column, and the bottom row of zeros is shaded.](images/la-m7-pivot-columns.svg)
+
+One row reduction feeds all three bases:
+
+```mermaid
+flowchart TD
+  accTitle: Three bases from one row reduction
+  accDescr: Row-reduce A to an echelon form. From it, the pivot columns tell you which columns of the original A form a basis for Col A; the nonzero rows of the echelon form are a basis for Row A; and the free variables give one null-space vector each, a basis for Nul A.
+  A["Row-reduce A to echelon form"] --> B["Pivot columns"]
+  A --> C["Nonzero rows"]
+  A --> D["Free variables"]
+  B --> B2["Col A: those columns of the original A"]
+  C --> C2["Row A: those rows of the echelon form"]
+  D --> D2["Nul A: one vector per free variable"]
+```
+
 > *Theorem.* The nonzero rows of an echelon form of $A$ form a basis for $\operatorname{Row} A$.
 
 They span $\operatorname{Row} A$ (row operations preserve it), and they're independent because
