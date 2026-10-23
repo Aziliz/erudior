@@ -65,7 +65,7 @@ For the walkers, $0.38 \times 360^\circ = 136.8^\circ$. The full pie chart of th
 
 ![Pie chart of arrival mode for 400 riders: Walk 38 percent (136.8 degrees), Bus 24 percent (86.4 degrees), Car 22 percent (79.2 degrees), Bike 16 percent (57.6 degrees); the angles add to 360 degrees.](images/stat-m1-pie-chart.svg)
 
- Pie charts only make sense when
+Pie charts only make sense when
 the categories are parts of one whole — every individual in exactly one slice, slices
 adding to 100%. If respondents could pick several modes, the percentages would add to
 more than 100% and a pie chart would be wrong (a bar chart still works).

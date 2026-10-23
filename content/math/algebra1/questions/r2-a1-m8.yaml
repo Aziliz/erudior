@@ -1,0 +1,740 @@
+# Round 2: Data and statistics (a1-m8). Core lessons 33-36 and honors lessons 36h1-36h3.
+
+# ---------------------------------------------------------------- Lesson 33: one-variable data
+- id: a1-m8-r2-q01
+  lesson: a1-one-var-data
+  type: label
+  module_quiz: true
+  topic: Data displays
+  stem: 'This box plot shows eleven commute times, in minutes. Name the numbered parts.'
+  image: {src: images/a1-m8-boxplot-blank.svg, alt: 'A box plot on a number line from 0 to 70 minutes. The left whisker runs from 5 to 10, the box from 10 to 22 with a line inside it at 15, the right whisker from 22 to 25, and a separate open dot sits at 60.'}
+  labels:
+    - {x: 17.2, y: 48.5, text: Whisker}
+    - {x: 20.1, y: 42.4, text: First quartile (Q1)}
+    - {x: 26.0, y: 53.9, text: Median}
+    - {x: 34.3, y: 42.4, text: Third quartile (Q3)}
+    - {x: 79.2, y: 48.5, text: Outlier}
+  distractors: [Mean, Upper fence]
+  explanation: |-
+    The box runs from $Q_1 = 10$ (left edge) to $Q_3 = 22$ (right edge), and the line inside it is the median, 15. The whiskers reach out to the smallest and largest values that are not outliers. The value 60 is more than $1.5 \times \text{IQR} = 18$ above $Q_3$ (past the fence at 40), so it is drawn as a separate dot. A box plot doesn't show the mean, and the fence itself isn't drawn.
+
+- id: a1-m8-r2-q02
+  lesson: a1-one-var-data
+  type: text
+  module_quiz: true
+  topic: Center and spread
+  stem: 'For the data 3, 5, 7, 8, 12, 13, 14, 18, 21, using this course''s method, $Q_1 =$ ___ and $Q_3 =$ ___. Give only the numbers.'
+  accept:
+    - ['6']
+    - ['16']
+  explanation: |-
+    There are 9 values, so the median is the 5th, 12. Leave it out of both halves. Lower half 3, 5, 7, 8: $Q_1 = \tfrac{5 + 7}{2} = 6$. Upper half 13, 14, 18, 21: $Q_3 = \tfrac{14 + 18}{2} = 16$. (The IQR is $16 - 6 = 10$.)
+
+- id: a1-m8-r2-q03
+  lesson: a1-one-var-data
+  type: order
+  topic: Center and spread
+  stem: 'Put the steps for computing a standard deviation in order.'
+  items:
+    - 'Find the mean $\bar x$'
+    - 'Subtract the mean from each value to get the deviations'
+    - 'Square each deviation'
+    - 'Average the squared deviations (divide by $n$)'
+    - 'Take the square root'
+  explanation: |-
+    Each step needs the one before it: deviations need the mean, squaring needs the deviations, and the average of the squares (the variance) comes before the square root that returns to the original units. Skipping the square root leaves the variance, not $\sigma$.
+
+- id: a1-m8-r2-q04
+  lesson: a1-one-var-data
+  topic: Center and spread
+  stem: 'A data set of home prices is strongly skewed right and has one very high outlier. Which summaries are good choices to report its center and spread? Select all that apply.'
+  choices: ['The median', 'The interquartile range', 'The mean', 'The standard deviation']
+  answer: [0, 1]
+  explanation: |-
+    For skewed data or data with outliers, report the median and IQR, which are resistant: the one huge price barely moves them. The mean is pulled toward the tail, and the standard deviation is inflated because squaring makes the outlier's deviation count heavily.
+
+- id: a1-m8-r2-q05
+  lesson: a1-one-var-data
+  type: match
+  topic: Data displays
+  stem: 'Match each display to what it shows.'
+  pairs:
+    - [Dot plot, Every individual value as a stacked dot]
+    - [Histogram, How many values fall in each equal-width interval]
+    - [Box plot, The five-number summary and any outliers]
+  distractors: [How two numerical variables are related]
+  explanation: |-
+    A dot plot keeps every value, so it suits small data sets. A histogram groups values into bins and shows the shape of large data sets. A box plot draws min, $Q_1$, median, $Q_3$ and max (with outliers as separate dots). Showing how two variables are related is the job of a scatter plot (Lesson 35).
+
+# ---------------------------------------------------------------- Lesson 34: two-way tables
+- id: a1-m8-r2-q06
+  lesson: a1-two-way
+  type: label
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'This two-way table counts 200 students by grade and preferred class format. Name the numbered entries.'
+  image: {src: images/a1-m8-two-way-blank.svg, alt: 'A two-way table. Rows: 9th grade (36 online, 84 in person, total 120), 12th grade (48 online, 32 in person, total 80), and Total (84, 116, 200). Marker 1 is on the 36, marker 2 on the 120, marker 3 on the 84 at the bottom of the Online column, and marker 4 on the 200.'}
+  labels:
+    - {x: 35.4, y: 40.0, text: Joint frequency}
+    - {x: 76.4, y: 40.0, text: Row total (marginal frequency)}
+    - {x: 35.4, y: 78.5, text: Column total (marginal frequency)}
+    - {x: 76.4, y: 78.5, text: Grand total}
+  distractors: [Conditional relative frequency, Joint relative frequency]
+  explanation: |-
+    36 counts students in 9th grade and preferring online: a joint frequency. 120 is the total of the 9th-grade row and 84 (bottom of the Online column) is a column total; both are marginal frequencies. 200 is the grand total. A relative frequency would be a fraction or percent, such as $\tfrac{36}{120} = 30\%$; every entry marked here is a count.
+
+- id: a1-m8-r2-q07
+  lesson: a1-two-way
+  type: text
+  topic: Two-way tables
+  stem: 'A survey asked 160 people which pet they prefer: $$\begin{array}{l|cc|c} & \text{Dog} & \text{Cat} & \text{Total} \\ \hline \text{Children} & 45 & 15 & 60 \\ \text{Adults} & 50 & 50 & 100 \\ \hline \text{Total} & 95 & 65 & 160 \end{array}$$ What percent of the children prefer dogs? ___% (Give only the number.)'
+  accept: ['75', '75%']
+  explanation: |-
+    "Of the children" restricts to the children row, whose total is 60: $\tfrac{45}{60} = 0.75 = 75\%$. Dividing by 160 (about 28.1%) answers a different question, the percent of everyone who is a child preferring dogs.
+
+- id: a1-m8-r2-q08
+  lesson: a1-two-way
+  type: match
+  module_quiz: true
+  topic: Two-way tables
+  stem: 'Use the pet survey: $$\begin{array}{l|cc|c} & \text{Dog} & \text{Cat} & \text{Total} \\ \hline \text{Children} & 45 & 15 & 60 \\ \text{Adults} & 50 & 50 & 100 \\ \hline \text{Total} & 95 & 65 & 160 \end{array}$$ Match each question to the division that answers it.'
+  pairs:
+    - [Percent of all people who are children who prefer dogs, 45 ÷ 160]
+    - [Percent of children who prefer dogs, 45 ÷ 60]
+    - [Percent of dog lovers who are children, 45 ÷ 95]
+    - [Percent of all people who prefer dogs, 95 ÷ 160]
+  distractors: [60 ÷ 95]
+  explanation: |-
+    "Of all people" uses the grand total, 160: the joint relative frequency $\tfrac{45}{160}$ and the marginal one $\tfrac{95}{160}$. "Of children" restricts to the children row (60), and "of dog lovers" restricts to the Dog column (95). The group named after "of" supplies the denominator.
+
+- id: a1-m8-r2-q09
+  lesson: a1-two-way
+  topic: Two-way tables
+  stem: 'Which statements are true for every two-way table of counts? Select all that apply.'
+  choices:
+    - 'The row totals add up to the grand total'
+    - 'In a table of row percents (each cell divided by its row total), each row adds to 100%'
+    - 'If every cell is divided by the grand total, the inner cells add up to 1'
+    - 'In a table of row percents, each column adds to 100%'
+  answer: [0, 1, 2]
+  explanation: |-
+    Every individual is in exactly one row, so the row totals add to the grand total; the same idea makes each row of row percents add to 100% and the joint relative frequencies add to 1. Columns of row percents need not add to 100%: in the class-format table, the Online column of row percents is $30\% + 60\% = 90\%$.
+
+# ---------------------------------------------------------------- Lesson 35: scatter plots
+- id: a1-m8-r2-q10
+  lesson: a1-scatter
+  type: label
+  module_quiz: true
+  topic: Correlation and residuals
+  stem: 'The scatter plot shows data with the line of fit $\hat y = 4x + 20$. Name the numbered parts.'
+  image: {src: images/a1-m8-residual-blank.svg, alt: 'A scatter plot of eight points with a rising line of fit. At x = 4 a point sits well above the line, joined to a small square on the line by a dashed segment. At x = 6 a point sits below the line, joined by a dashed segment to a small square on the line.'}
+  labels:
+    - {x: 35.2, y: 23.0, text: Observed data point}
+    - {x: 35.2, y: 38.5, text: Predicted value}
+    - {x: 47.2, y: 34.6, text: Residual}
+    - {x: 63.8, y: 14.0, text: Line of fit}
+  distractors: [y-intercept, Correlation coefficient]
+  explanation: |-
+    Marker 1 is an actual data point, $(4, 48)$. Marker 2 is the line's prediction at $x = 4$, $\hat y = 4(4) + 20 = 36$. Marker 3 is the dashed vertical gap between the point $(6, 34)$ and the line: a residual, here $34 - 44 = -10$. Marker 4 is on the line itself. The y-intercept would be where the line crosses the $y$-axis, at $(0, 20)$, and $r$ is a number, not a part of the picture.
+
+- id: a1-m8-r2-q11
+  lesson: a1-scatter
+  type: match
+  topic: Correlation and residuals
+  stem: 'Match each scatter plot to its correlation coefficient.'
+  image: {src: images/a1-m8-correlation-blank.svg, alt: 'Six scatter plots labeled A to F. A: points tightly along a rising line. B: a loose rising cloud. C: a shapeless cloud. D: a loose falling cloud. E: points tightly along a falling line. F: points on an upside-down U-shaped curve.'}
+  pairs:
+    - [Plot A, r ≈ 0.95]
+    - [Plot B, r ≈ 0.6]
+    - [Plot C, r ≈ 0]
+    - [Plot D, r ≈ −0.6]
+    - [Plot E, r ≈ −0.95]
+    - [Plot F, r ≈ 0]
+  distractors: [r ≈ 1.5]
+  explanation: |-
+    Rising clouds have positive $r$ and falling ones negative $r$; the tighter the points hug a line, the closer $|r|$ is to 1 (A and E). C has no pattern at all. F has a perfect curved pattern, but its left half rises and its right half falls, so the linear correlation is 0: $r$ measures only straight-line patterns. No correlation can be 1.5, since $-1 \le r \le 1$.
+
+- id: a1-m8-r2-q12
+  lesson: a1-scatter
+  type: text
+  module_quiz: true
+  topic: Correlation and residuals
+  stem: 'A line of fit is $\hat y = 3x + 20$. The data point $(4, 30)$ has residual ___. (Give only the number.)'
+  accept: ['-2', '−2']
+  explanation: |-
+    Predicted: $\hat y = 3(4) + 20 = 32$. Residual = actual − predicted $= 30 - 32 = -2$. It is negative because the point lies below the line. (Predicted − actual would give 2, the wrong sign.)
+
+- id: a1-m8-r2-q13
+  lesson: a1-scatter
+  topic: Correlation and residuals
+  stem: 'Which statements about the correlation coefficient $r$ are true? Select all that apply.'
+  choices:
+    - '$r = -0.85$ shows a stronger linear association than $r = 0.6$'
+    - '$r$ has no units, so it stays the same if $x$ is changed from inches to centimeters'
+    - '$r$ near 0 proves that $y$ does not depend on $x$ at all'
+    - 'A value of $r$ close to 1 proves that $x$ causes $y$'
+  answer: [0, 1]
+  explanation: |-
+    Strength depends on $|r|$, and $0.85 > 0.6$. $r$ has no units, so changing units doesn't change it. But $r$ near 0 only rules out a linear pattern (points on a U-shaped curve can have $r = 0$), and even a strong correlation can come from a lurking variable rather than cause and effect.
+
+- id: a1-m8-r2-q14
+  lesson: a1-scatter
+  type: order
+  topic: Correlation and residuals
+  stem: 'Put these correlation coefficients in order from the weakest linear association to the strongest.'
+  items: ['$r = 0.1$', '$r = -0.4$', '$r = 0.65$', '$r = -0.9$']
+  explanation: |-
+    Strength is the size $|r|$, ignoring the sign: $0.1 < 0.4 < 0.65 < 0.9$. A negative sign only means the association is falling, not that it is weak.
+
+# ---------------------------------------------------------------- Lesson 36: regression models
+- id: a1-m8-r2-q15
+  lesson: a1-regression-models
+  type: match
+  module_quiz: true
+  topic: Regression models
+  stem: 'For data with equally spaced $x$-values, match each pattern in the $y$-values to the model it suggests.'
+  pairs:
+    - [Constant first differences, Linear]
+    - [Constant second differences, Quadratic]
+    - [Constant ratios between consecutive values, Exponential]
+  distractors: [Absolute value]
+  explanation: |-
+    A linear function adds the same amount each step (constant differences), a quadratic's differences change by the same amount each step (constant second differences, equal to $2a$ for steps of 1), and an exponential multiplies by the same factor each step (constant ratios).
+
+- id: a1-m8-r2-q16
+  lesson: a1-regression-models
+  type: text
+  module_quiz: true
+  topic: Regression models
+  stem: 'For $x = 0, 1, 2, 3, 4$ the values of $y$ are 1, 4, 11, 22, 37. The second differences all equal ___, so a quadratic model $y = ax^2 + bx + c$ through these points has $a =$ ___. (Give only the numbers.)'
+  accept:
+    - ['4']
+    - ['2']
+  explanation: |-
+    First differences: $4 - 1 = 3$, $11 - 4 = 7$, $22 - 11 = 11$, $37 - 22 = 15$. Second differences: $7 - 3 = 11 - 7 = 15 - 11 = 4$. For steps of 1 the second difference is $2a$, so $a = 2$. (In fact $y = 2x^2 + x + 1$ fits all five points.)
+
+- id: a1-m8-r2-q17
+  lesson: a1-regression-models
+  topic: Regression models
+  stem: 'For the car-value data in this lesson, which facts support choosing the exponential model over the linear one? Select all that apply.'
+  choices:
+    - 'The exponential model''s residuals scatter randomly around 0'
+    - 'The value drops by roughly the same percent each year'
+    - 'The linear model has $r \approx -0.986$, which is close to $-1$'
+    - 'The linear model predicts a negative value by age 11'
+  answer: [0, 1, 3]
+  explanation: |-
+    Patternless residuals, a constant percent loss (constant ratios), and the linear model's impossible negative prediction all point to the exponential. A correlation near $-1$ does not support the exponential; if anything it is the misleading number that made the line look good, while its U-shaped residuals show it misses the bend.
+
+- id: a1-m8-r2-q18
+  lesson: a1-regression-models
+  type: text
+  topic: Regression models
+  stem: 'Exponential regression gives $\hat y = 2000(0.75)^x$. According to the model, $y$ decreases by ___% per unit of $x$. (Give only the number.)'
+  accept: ['25', '25%']
+  explanation: |-
+    The factor is $b = 0.75$, so each step keeps 75% and loses $1 - 0.75 = 0.25 = 25\%$. Answering 75 confuses the factor with the rate.
+
+# ================================================================ Honors: z-scores and normal distributions
+- id: a1-m8-r2-h01
+  lesson: a1-m8-h-normal
+  topic: z-scores
+  stem: 'A class''s test scores have mean 72 and standard deviation 8. What is the z-score of a score of 84?'
+  choices: ['$1.5$', '$12$', '$-1.5$', '$0.67$']
+  answer: 0
+  explanation: |-
+    $z = \dfrac{84 - 72}{8} = \dfrac{12}{8} = 1.5$. 12 is the distance before dividing by $\sigma$; $-1.5$ subtracts in the wrong order; $0.67$ is $\tfrac{8}{12}$, the fraction upside down.
+
+- id: a1-m8-r2-h02
+  lesson: a1-m8-h-normal
+  type: text
+  topic: z-scores
+  stem: 'Heights of a plant species have mean 50 cm and standard deviation 6 cm. A plant 41 cm tall has z-score ___. (Give only the number.)'
+  accept: ['-1.5', '−1.5']
+  explanation: |-
+    $z = \dfrac{41 - 50}{6} = \dfrac{-9}{6} = -1.5$. The plant is 1.5 standard deviations below the mean, so the z-score is negative.
+
+- id: a1-m8-r2-h03
+  lesson: a1-m8-h-normal
+  topic: z-scores
+  stem: 'Leo ran a mile in 6.0 minutes; runners in his group have mean 7.0 minutes and standard deviation 0.5 minutes. He threw a ball 40 m; throwers in his group have mean 32 m and standard deviation 5 m. Relative to his groups, which performance was better?'
+  choices:
+    - 'The throw, because its z-score of 1.6 is positive and the mile''s is negative'
+    - 'The throw, because 40 is a larger number than 6.0'
+    - 'The mile, because he was 2 standard deviations faster than average'
+    - 'They were equally good'
+  answer: 2
+  explanation: |-
+    Mile: $z = \dfrac{6.0 - 7.0}{0.5} = -2$. For running times, lower is better, so $-2$ means 2 standard deviations faster than average. Throw: $z = \dfrac{40 - 32}{5} = 1.6$, 1.6 standard deviations better than average. The mile was the more exceptional result. The sign of $z$ says above or below the mean; whether that is good depends on the context.
+
+- id: a1-m8-r2-h04
+  lesson: a1-m8-h-normal
+  topic: z-scores
+  stem: 'Scores on a test have mean 100 and standard deviation 15. Which score has a z-score of $-2$?'
+  choices: ['130', '98', '85', '70']
+  answer: 3
+  explanation: |-
+    $x = \mu + z\sigma = 100 + (-2)(15) = 70$. 130 is $z = +2$; 98 just subtracts 2 from the mean; 85 is only one standard deviation below.
+
+- id: a1-m8-r2-h05
+  lesson: a1-m8-h-normal
+  type: label
+  topic: Normal distributions
+  stem: 'The picture shows a normal curve divided at the mean and at 1, 2 and 3 standard deviations. About what percent of the data lies in each numbered band?'
+  image: {src: images/a1-m8-empirical-blank.svg, alt: 'A bell-shaped normal curve with vertical lines at the mean and at one, two and three standard deviations on each side. Marker 1 is in the band from the mean to one standard deviation above it, marker 2 in the band from one to two standard deviations above, and marker 3 in the thin band from two to three standard deviations above.'}
+  labels:
+    - {x: 56.4, y: 60.9, text: 34%}
+    - {x: 69.2, y: 73.8, text: 13.5%}
+    - {x: 81.9, y: 76.2, text: 2.35%}
+  distractors: [68%, 5%]
+  explanation: |-
+    68% lies within 1 standard deviation, so 34% on each side of the mean. From 1 to 2 standard deviations: half of $95\% - 68\% = 27\%$, which is 13.5%. From 2 to 3: half of $99.7\% - 95\% = 4.7\%$, which is 2.35%. 68% is the whole middle (both sides), not one band.
+
+- id: a1-m8-r2-h06
+  lesson: a1-m8-h-normal
+  topic: Normal distributions
+  stem: 'The weights of a product are approximately normal with mean 500 g and standard deviation 20 g. About what percent weigh between 480 g and 540 g?'
+  choices: ['68%', '81.5%', '95%', '47.5%']
+  answer: 1
+  explanation: |-
+    480 g is $z = -1$ and 540 g is $z = 2$. From $-1$ to 0: 34%; from 0 to 2: $34\% + 13.5\% = 47.5\%$. Total $34\% + 47.5\% = 81.5\%$. 47.5% leaves out the part below the mean; 68% and 95% are the symmetric intervals.
+
+- id: a1-m8-r2-h07
+  lesson: a1-m8-h-normal
+  topic: Normal distributions
+  stem: 'Adult heights in a population are approximately normal with mean 64 inches and standard deviation 2.5 inches. About what percent are taller than 66.5 inches?'
+  choices: ['34%', '84%', '16%', '32%']
+  answer: 2
+  explanation: |-
+    66.5 is $z = \tfrac{66.5 - 64}{2.5} = 1$. Half the data is above the mean, and 34% is between the mean and $z = 1$, so $50\% - 34\% = 16\%$ is above. 84% is the percent below 66.5; 32% is the percent outside $\pm 1$ standard deviation on both sides together.
+
+- id: a1-m8-r2-h08
+  lesson: a1-m8-h-normal
+  type: text
+  topic: Normal distributions
+  stem: 'By the 68–95–99.7 rule, about ___% of the values in a normal distribution lie within 2 standard deviations of the mean. (Give only the number.)'
+  accept: ['95', '95%']
+  explanation: |-
+    68% within 1, 95% within 2, and 99.7% within 3 standard deviations. (The exact value for 2 standard deviations is about 95.45%.)
+
+- id: a1-m8-r2-h09
+  lesson: a1-m8-h-normal
+  topic: Normal distributions
+  stem: 'For which of these data sets is a normal model likely to be reasonable? Select all that apply.'
+  choices:
+    - 'Heights of adult women in a large population'
+    - 'Annual incomes of all households in a country'
+    - 'Many careful repeated measurements of the length of the same table'
+    - 'Numbers of books read last month by students, where most read 0 to 4 and a few read many more'
+  answer: [0, 2]
+  explanation: |-
+    Adult heights and repeated measurement errors are classic examples of roughly symmetric, bell-shaped data. Household incomes are strongly skewed right (a long tail of very high incomes), and the books data are skewed right and can't go below 0, so a normal model would give misleading percents.
+
+- id: a1-m8-r2-h10
+  lesson: a1-m8-h-normal
+  type: order
+  topic: Normal distributions
+  stem: 'Put the steps for finding the percent of a data set below a value $x$ with a normal model in order.'
+  items:
+    - 'Check that a graph of the data is roughly symmetric and bell-shaped'
+    - 'Compute $z = (x - \mu)/\sigma$'
+    - 'Find the area to the left of $z$ from a table or technology'
+    - 'Write that area as a percent and interpret it in context'
+  explanation: |-
+    The model has to fit before any of its numbers mean anything. Then standardize, because the table is for the standard normal distribution; then read the area; then state the answer in context.
+
+- id: a1-m8-r2-h11
+  lesson: a1-m8-h-normal
+  topic: Normal distributions
+  stem: 'Battery lives are approximately normal with mean 40 hours and standard deviation 5 hours. The 90th percentile of the standard normal distribution is $z \approx 1.28$. About how long must a battery last to be in the top 10%?'
+  choices: ['33.6 hours', '41.28 hours', '45 hours', '46.4 hours']
+  answer: 3
+  explanation: |-
+    The top 10% starts at the 90th percentile: $x = \mu + z\sigma = 40 + 1.28(5) = 46.4$ hours. 33.6 uses $z = -1.28$ (the bottom 10%); 41.28 adds $z$ without multiplying by $\sigma$; 45 hours is only $z = 1$, the 84th percentile.
+
+- id: a1-m8-r2-h12
+  lesson: a1-m8-h-normal
+  topic: z-scores
+  stem: 'Every height in a data set is converted from inches to centimeters by multiplying by 2.54. What happens to each person''s z-score?'
+  choices: ['It stays the same', 'It is multiplied by 2.54', 'It is divided by 2.54', 'It increases by 2.54']
+  answer: 0
+  explanation: |-
+    The value, the mean and the standard deviation are all multiplied by 2.54, so $\dfrac{2.54x - 2.54\mu}{2.54\sigma} = \dfrac{x - \mu}{\sigma}$. z-scores have no units.
+
+- id: a1-m8-r2-h13
+  lesson: a1-m8-h-normal
+  type: match
+  topic: z-scores
+  stem: 'Match each z-score to its meaning.'
+  pairs:
+    - ['$z = 0$', Exactly at the mean]
+    - ['$z = 2$', Two standard deviations above the mean]
+    - ['$z = -1$', One standard deviation below the mean]
+    - ['$z = 0.5$', Half a standard deviation above the mean]
+  distractors: [Two points above the mean]
+  explanation: |-
+    A z-score counts standard deviations from the mean: the sign gives the side and the size gives the distance in standard deviations, not in the original units. So $z = 2$ means $2\sigma$ above the mean, which is "two points" only if $\sigma = 1$.
+
+- id: a1-m8-r2-h14
+  lesson: a1-m8-h-normal
+  topic: z-scores
+  stem: 'Every value in a data set is converted to a z-score. What are the mean and standard deviation of the z-scores?'
+  choices:
+    - 'Mean 1 and standard deviation 0'
+    - 'Mean 0 and standard deviation 1'
+    - 'The same mean and standard deviation as the original data'
+    - 'Mean 0 and the same standard deviation as the original data'
+  answer: 1
+  explanation: |-
+    Subtracting $\mu$ shifts the center to 0 without changing the spread; dividing by $\sigma$ then shrinks the spread to exactly 1. That is why z-scores from different data sets can be compared directly.
+
+- id: a1-m8-r2-h15
+  lesson: a1-m8-h-normal
+  topic: Normal distributions
+  stem: 'The area to the left of $z = -1$ is 0.1587 and the area to the left of $z = 0.5$ is 0.6915. What percent of a normal distribution lies between $z = -1$ and $z = 0.5$?'
+  choices: ['85.02%', '69.15%', '53.28%', '34.13%']
+  answer: 2
+  explanation: |-
+    The area between two z-values is the larger left area minus the smaller one: $0.6915 - 0.1587 = 0.5328$, or 53.28%. Adding the areas gives 85.02%; 69.15% is everything below $z = 0.5$; 34.13% is only the part from $-1$ to 0.
+
+# ================================================================ Honors: Simpson's paradox and expected counts
+- id: a1-m8-r2-h16
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'A tutoring program had an 80% pass rate among its 40 students with strong backgrounds and a 50% pass rate among its 160 students with weak backgrounds. What is its overall pass rate?'
+  choices: ['65%', '56%', '50%', '62%']
+  answer: 1
+  explanation: |-
+    Passes: $0.80(40) + 0.50(160) = 32 + 80 = 112$ out of 200, so $\tfrac{112}{200} = 56\%$. As a weighted average: $0.2(80\%) + 0.8(50\%) = 56\%$. 65% averages the two rates as if the groups were the same size; the overall rate is pulled toward the larger group.
+
+- id: a1-m8-r2-h17
+  lesson: a1-m8-h-simpsons-paradox
+  type: text
+  topic: Simpson's paradox
+  stem: 'A treatment succeeded for 90 of 100 patients with small stones and 150 of 300 patients with large stones. Its overall success rate is ___%. (Give only the number.)'
+  accept: ['60', '60%']
+  explanation: |-
+    Total successes $90 + 150 = 240$ out of $100 + 300 = 400$ patients: $\tfrac{240}{400} = 60\%$. As a weighted average, $0.25(90\%) + 0.75(50\%) = 60\%$, much closer to the large-stone rate because most patients had large stones.
+
+- id: a1-m8-r2-h18
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'Hospital A has a higher survival rate than Hospital B for mild cases and also for severe cases, but a lower survival rate overall. Which explanation fits?'
+  choices:
+    - 'Someone must have made an arithmetic error'
+    - 'Hospital B gives better care to severe cases'
+    - 'The overall rates were averaged without weights'
+    - 'A much larger share of Hospital A''s patients were severe cases'
+  answer: 3
+  explanation: |-
+    Each hospital's overall rate is a weighted average of its mild and severe rates. If most of A's patients are severe (low survival anywhere) and most of B's are mild, A's overall rate is pulled down even though A does better in each group. This is Simpson's paradox; the arithmetic can be completely correct. B does worse with severe cases, not better.
+
+- id: a1-m8-r2-h19
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'One group has a success rate of 80% and another has 40%. Combined, the success rate is 70%. What fraction of all the people are in the 80% group?'
+  choices: ['$\tfrac{3}{4}$', '$\tfrac{1}{2}$', '$\tfrac{7}{8}$', '$\tfrac{1}{4}$']
+  answer: 0
+  explanation: |-
+    With fraction $w$ in the 80% group: $w(80) + (1 - w)(40) = 70$, so $40 + 40w = 70$ and $w = \tfrac{30}{40} = \tfrac34$. Check: $0.75(80) + 0.25(40) = 60 + 10 = 70$. Equal groups ($\tfrac12$) would give 60%.
+
+- id: a1-m8-r2-h20
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'Which statements about Simpson''s paradox are true? Select all that apply.'
+  choices:
+    - 'It can happen when the groups being compared have very different mixes of a third variable that affects the outcome'
+    - 'A treatment''s overall rate always lies between its lowest and highest group rates'
+    - 'It means one of the tables must contain an arithmetic error'
+    - 'It can only happen when the samples are very small'
+  answer: [0, 1]
+  explanation: |-
+    The paradox needs a lurking variable that affects the outcome and is unevenly mixed across the groups. Because an overall rate is a weighted average of the group rates, it always lies between them. The arithmetic is correct in both tables, and the kidney stone study (350 patients per treatment) and the Berkeley data (over 12,000 applicants) show it is not a small-sample effect.
+
+- id: a1-m8-r2-h21
+  lesson: a1-m8-h-simpsons-paradox
+  type: order
+  topic: Simpson's paradox
+  stem: 'A treatment succeeds for 90% of easy cases and 50% of hard cases. Put these mixes of patients in order from the lowest overall success rate to the highest.'
+  items:
+    - 'All patients are hard cases'
+    - '10% of patients are easy cases'
+    - 'Half of the patients are easy cases'
+    - '90% of patients are easy cases'
+    - 'All patients are easy cases'
+  explanation: |-
+    The overall rate is $50\% + w(90\% - 50\%) = 50\% + 40w\%$, where $w$ is the fraction of easy cases. It rises steadily with $w$: 50%, 54%, 70%, 86%, 90%. The more easy cases a treatment gets, the better its overall rate looks, whatever its quality.
+
+- id: a1-m8-r2-h22
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Expected counts
+  stem: 'A survey of 300 people includes 180 adults, and 120 of all 300 people answered "yes." If age group and answer were not associated, how many adults would be expected to answer "yes"?'
+  choices: ['60', '72', '108', '120']
+  answer: 1
+  explanation: |-
+    Expected count $= \dfrac{\text{row total} \times \text{column total}}{\text{grand total}} = \dfrac{180 \times 120}{300} = 72$. With no association, adults would say yes at the overall rate, $\tfrac{120}{300} = 40\%$, and 40% of 180 is 72. 108 is the expected number of adults answering "no."
+
+- id: a1-m8-r2-h23
+  lesson: a1-m8-h-simpsons-paradox
+  type: text
+  topic: Expected counts
+  stem: 'In a two-way table with grand total 150, a cell''s row total is 60 and its column total is 50. If the variables were not associated, its expected count would be ___. (Give only the number.)'
+  accept: ['20']
+  explanation: |-
+    $\dfrac{60 \times 50}{150} = \dfrac{3000}{150} = 20$. Equivalently, the column holds $\tfrac{50}{150} = \tfrac13$ of everyone, and with no association it would also hold a third of the 60 people in this row.
+
+- id: a1-m8-r2-h24
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Expected counts
+  stem: 'In a large two-way table, every observed count is within 1 of its expected count. What does this suggest?'
+  choices:
+    - 'The two variables are strongly associated'
+    - 'One variable causes the other'
+    - 'There is little or no association between the variables'
+    - 'Simpson''s paradox must be present'
+  answer: 2
+  explanation: |-
+    Expected counts describe the table you would see with no association. Observed counts that nearly match them mean the conditional percents are nearly the same in every group: little or no association. Large gaps would suggest an association (and even then, not causation).
+
+- id: a1-m8-r2-h25
+  lesson: a1-m8-h-simpsons-paradox
+  type: match
+  topic: Simpson's paradox
+  stem: 'Match each term to its description.'
+  pairs:
+    - [Simpson's paradox, An association within every group that reverses when the groups are combined]
+    - [Lurking variable, A variable left out of the analysis that affects the variables being studied]
+    - [Expected count, The count a cell would have if the variables were not associated]
+    - [Randomized experiment, A study in which chance decides which treatment each subject gets]
+  distractors: [A count divided by the grand total]
+  explanation: |-
+    These four ideas fit together: a lurking variable unevenly mixed across groups causes Simpson's paradox, randomization balances lurking variables, and expected counts describe "no association." A count divided by the grand total is a joint relative frequency.
+
+- id: a1-m8-r2-h26
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'In 1973, Berkeley admitted about 44% of men and 35% of women who applied to its graduate programs, yet department by department there was no pattern of bias against women. What mainly explained the overall gap?'
+  choices:
+    - 'Women more often applied to departments that admitted a small share of all applicants'
+    - 'Women applied in much smaller numbers overall'
+    - 'Departments rounded their admission rates differently'
+    - 'The overall percents were calculated incorrectly'
+  answer: 0
+  explanation: |-
+    The overall rate for each sex is a weighted average of department admission rates, weighted by where that sex applied. Women applied more often to highly competitive departments, which pulled their overall rate down. The number of applicants alone doesn't change a percent, and the overall figures were correct.
+
+- id: a1-m8-r2-h27
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'Why does assigning treatments at random protect against the kind of reversal seen in the kidney stone study?'
+  choices:
+    - 'It guarantees that every patient recovers'
+    - 'It makes the treatment groups exactly the same size'
+    - 'It removes the need to compare groups at all'
+    - 'It tends to give each treatment a similar mix of easy and hard cases, including on variables nobody measured'
+  answer: 3
+  explanation: |-
+    The reversal happened because large stones (hard cases) went mostly to one treatment. Random assignment tends to balance hard and easy cases, and every other lurking variable, across the treatments, so a difference in outcomes can be credited to the treatment. Equal group sizes alone would not help if the mixes still differed.
+
+- id: a1-m8-r2-h28
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'In the kidney stone study, treatment A succeeded for 81 of 87 small stones and 192 of 263 large stones; treatment B for 234 of 270 small stones and 55 of 80 large stones. Which statement do the data support?'
+  choices:
+    - 'B had the higher success rate for both small and large stones'
+    - 'A had the higher success rate for both small and large stones'
+    - 'A had the higher overall success rate'
+    - 'The two treatments had the same overall success rate'
+  answer: 1
+  explanation: |-
+    Small stones: $\tfrac{81}{87} \approx 93\%$ for A versus $\tfrac{234}{270} \approx 87\%$ for B. Large stones: $\tfrac{192}{263} \approx 73\%$ versus $\tfrac{55}{80} \approx 69\%$. A wins both. Overall, though, A is $\tfrac{273}{350} = 78\%$ and B is $\tfrac{289}{350} \approx 83\%$, because A treated far more large stones.
+
+- id: a1-m8-r2-h29
+  lesson: a1-m8-h-simpsons-paradox
+  topic: Simpson's paradox
+  stem: 'Treatment A beats treatment B within both age groups, and for both treatments exactly 30% of the patients are young. What must be true about the overall success rates?'
+  choices:
+    - 'B must have the higher overall rate'
+    - 'They must be equal'
+    - 'A must have the higher overall rate'
+    - 'It is impossible to tell'
+  answer: 2
+  explanation: |-
+    With the same weights, A's overall rate is $0.3p_{\text{young}} + 0.7p_{\text{old}}$ with both of its group rates larger than B's, so A's weighted average is larger. Simpson's paradox needs the treatments to have different mixes of the lurking variable.
+
+# ================================================================ Honors: least squares
+- id: a1-m8-r2-h30
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'Two variables have correlation $r = 0.8$, with $\sigma_x = 2$ and $\sigma_y = 5$. What is the slope of the least-squares line for predicting $y$ from $x$?'
+  choices: ['$2$', '$0.32$', '$2.5$', '$1.25$']
+  answer: 0
+  explanation: |-
+    $b = r\dfrac{\sigma_y}{\sigma_x} = 0.8 \times \dfrac{5}{2} = 2$. Putting $\sigma_x$ on top gives $0.8 \times \tfrac25 = 0.32$; leaving out $r$ gives 2.5.
+
+- id: a1-m8-r2-h31
+  lesson: a1-m8-h-least-squares
+  type: text
+  topic: Least-squares regression
+  stem: 'A least-squares line has slope $b = 2$, and the data have $\bar x = 10$ and $\bar y = 30$. Its intercept is $a =$ ___. (Give only the number.)'
+  accept: ['10']
+  explanation: |-
+    The line passes through $(\bar x, \bar y)$, so $30 = 2(10) + a$ and $a = 30 - 20 = 10$. The line is $\hat y = 2x + 10$.
+
+- id: a1-m8-r2-h32
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'Which point does every least-squares line pass through?'
+  choices:
+    - 'The origin $(0, 0)$'
+    - 'The first data point'
+    - 'The point of averages $(\bar x, \bar y)$'
+    - 'The point with the largest $y$-value'
+  answer: 2
+  explanation: |-
+    For any slope, the sum of squared residuals is a parabola in the intercept $c$ whose vertex is $c = \bar y - m\bar x$, which puts $(\bar x, \bar y)$ on the line. The line needn't pass through the origin or through any data point.
+
+- id: a1-m8-r2-h33
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'A scatter plot of hours practiced and free throws made has $r = 0.9$. Which statement about $r^2$ is correct?'
+  choices:
+    - '$r^2 = 0.81$: about 81% of the variation in free throws made is accounted for by the linear relationship with hours practiced'
+    - '$r^2 = 0.81$: about 81% of the points lie exactly on the line'
+    - '$r^2 = 0.81$: practicing causes 81% of free throws'
+    - '$r^2 = 0.95$: it is the square root of $r$'
+  answer: 0
+  explanation: |-
+    $r^2 = 0.9^2 = 0.81$, and $r^2 = 1 - \tfrac{\text{SSE}}{\sum d_y^2}$ is the fraction of the total variation in $y$ that the line removes. It says nothing about how many points are exactly on the line, and it does not show cause and effect.
+
+- id: a1-m8-r2-h34
+  lesson: a1-m8-h-least-squares
+  type: text
+  topic: Least-squares regression
+  stem: 'If the correlation is $r = -0.7$, then the coefficient of determination is $r^2 =$ ___. (Give a decimal.)'
+  accept: ['0.49']
+  explanation: |-
+    $(-0.7)^2 = 0.49$. Squaring removes the sign, so $r^2$ is never negative; the line accounts for 49% of the variation in $y$.
+
+- id: a1-m8-r2-h35
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'Which statements are true of every least-squares line? Select all that apply.'
+  choices:
+    - 'Its residuals add up to 0'
+    - 'It passes through the point $(\bar x, \bar y)$'
+    - 'No other line has a smaller sum of squared residuals'
+    - 'It passes through at least two of the data points'
+  answer: [0, 1, 2]
+  explanation: |-
+    Minimizing the sum of squared residuals is the definition; the derivation shows the line goes through $(\bar x, \bar y)$, and any line through that point has residuals adding to 0. It need not pass through any data point: in this lesson's Example 1, $\hat y = 0.9x + 1.3$ passes through none of the five points.
+
+- id: a1-m8-r2-h36
+  lesson: a1-m8-h-least-squares
+  type: order
+  topic: Least-squares regression
+  stem: 'Put the steps for computing a least-squares line by hand in order.'
+  items:
+    - 'Find the means $\bar x$ and $\bar y$'
+    - 'Find each deviation $x - \bar x$ and $y - \bar y$'
+    - 'Multiply each pair of deviations, and square each $x$-deviation'
+    - 'Add up the products and add up the squares'
+    - 'Divide to get the slope $b = \sum d_x d_y / \sum d_x^2$'
+    - 'Compute the intercept $a = \bar y - b\bar x$'
+  explanation: |-
+    Each step uses the result of the one before: deviations need the means, products need deviations, the slope needs the two sums, and the intercept needs the slope.
+
+- id: a1-m8-r2-h37
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'For a data set, the sum of squared residuals of a line through $(\bar x, \bar y)$ with slope $m$ is $S(m) = 20m^2 - 60m + 50$. What is the least-squares slope?'
+  choices: ['$3$', '$-1.5$', '$1.5$', '$0.67$']
+  answer: 2
+  explanation: |-
+    $S$ is an upward-opening parabola, so its minimum is at the vertex $m = -\dfrac{-60}{2(20)} = 1.5$. Then $S(1.5) = 45 - 90 + 50 = 5$ is the smallest possible sum. 3 forgets the 2 in $2a$; $-1.5$ drops the minus sign.
+
+- id: a1-m8-r2-h38
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'Scores on two quizzes have correlation $r = 0.5$. A student scored 2 standard deviations above the mean on the first quiz. By the least-squares line, how far above the mean is the student''s predicted score on the second quiz?'
+  choices:
+    - '2 standard deviations'
+    - '1 standard deviation'
+    - '4 standard deviations'
+    - '0.5 standard deviations'
+  answer: 1
+  explanation: |-
+    In standard units the line is $\hat z_y = r z_x = 0.5 \times 2 = 1$. The prediction is closer to the mean than the first score was: regression to the mean. It is not 2 unless $r = 1$.
+
+- id: a1-m8-r2-h39
+  lesson: a1-m8-h-least-squares
+  type: match
+  topic: Least-squares regression
+  stem: 'Match each quantity to its meaning for a least-squares line.'
+  pairs:
+    - ['$r$', Strength and direction of the linear association]
+    - ['$r^2$', Fraction of the variation in y accounted for by the line]
+    - ['$b$', Predicted change in y for each 1-unit increase in x]
+    - ['$(\bar x, \bar y)$', A point the line always passes through]
+  distractors: [The largest residual]
+  explanation: |-
+    $r$ measures the linear pattern; $r^2 = 1 - \tfrac{\text{SSE}}{\sum d_y^2}$ is the share of the variation the line removes; the slope $b$ is the average change in $\hat y$ per unit of $x$; and the line always goes through the point of averages.
+
+- id: a1-m8-r2-h40
+  lesson: a1-m8-h-least-squares
+  type: label
+  topic: Least-squares regression
+  stem: 'The picture shows five data points, their least-squares line, and a square drawn on each residual. Name the numbered parts.'
+  image: {src: images/a1-m8-squares-blank.svg, alt: 'Five data points with a rising line. Each point is joined to the line by a dashed vertical segment, and a shaded square sits on each segment, with side equal to the segment. A diamond marks a point on the line in the middle of the data.'}
+  labels:
+    - {x: 33.9, y: 40.0, text: Point of averages (mean of x, mean of y)}
+    - {x: 29.9, y: 33.8, text: Squared residual (an area)}
+    - {x: 41.9, y: 34.4, text: Residual}
+    - {x: 12.1, y: 70.0, text: Least-squares line}
+  distractors: [Outlier, Correlation coefficient]
+  explanation: |-
+    The diamond is $(\bar x, \bar y) = (3, 4)$, which every least-squares line passes through. A residual is the vertical dashed gap from a point to the line, and the square built on it has area equal to the squared residual. The least-squares line is the line that makes the total area of the squares as small as possible (here 1.9).
+
+- id: a1-m8-r2-h41
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'Find the least-squares line for the points $(1, 1)$, $(2, 3)$, $(3, 2)$, $(4, 4)$.'
+  choices: ['$\hat y = 0.8x + 2.5$', '$\hat y = x$', '$\hat y = 1.25x - 0.625$', '$\hat y = 0.8x + 0.5$']
+  answer: 3
+  explanation: |-
+    $\bar x = 2.5$, $\bar y = 2.5$. Deviations: $d_x = -1.5, -0.5, 0.5, 1.5$ and $d_y = -1.5, 0.5, -0.5, 1.5$. $\sum d_x d_y = 2.25 - 0.25 - 0.25 + 2.25 = 4$ and $\sum d_x^2 = 5$, so $b = 0.8$ and $a = 2.5 - 0.8(2.5) = 0.5$. Using $a = \bar y$ forgets to subtract $b\bar x$; $1.25x - 0.625$ is the line for predicting $x$ from $y$, solved for $y$.
+
+- id: a1-m8-r2-h42
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'Why does the least-squares method minimize the sum of the squared residuals rather than the plain sum of the residuals?'
+  choices:
+    - 'Squared residuals are always smaller than the residuals'
+    - 'The plain sum is 0 for every line through $(\bar x, \bar y)$, so it cannot pick out a best line'
+    - 'Residuals cannot be negative'
+    - 'Squaring makes every residual equal'
+  answer: 1
+  explanation: |-
+    Positive and negative residuals cancel: every line through the point of averages, however badly tilted, has residuals adding to exactly 0. Squaring makes every miss count as a positive amount. Squares are not always smaller (a residual of 3 has square 9), and residuals can certainly be negative.
+
+- id: a1-m8-r2-h43
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'Galton found that the adult children of very tall parents were, on average, tall. How did their heights compare with their parents''?'
+  choices:
+    - 'They were, on average, even taller than their parents'
+    - 'They were, on average, exactly as tall as their parents'
+    - 'They were, on average, shorter than average'
+    - 'They were, on average, less extremely tall than their parents'
+  answer: 3
+  explanation: |-
+    With $|r| < 1$, predictions are fewer standard deviations from the mean than the inputs: $\hat z_y = r z_x$. Children of very tall parents were still above average but closer to it. Galton called this "regression towards mediocrity," now called regression to the mean.
+
+- id: a1-m8-r2-h44
+  lesson: a1-m8-h-least-squares
+  topic: Least-squares regression
+  stem: 'For a data set, $\sum (y - \bar y)^2 = 120$, and the least-squares line has sum of squared residuals $\text{SSE} = 30$. What is $r^2$?'
+  choices: ['$0.75$', '$0.25$', '$4$', '$0.5$']
+  answer: 0
+  explanation: |-
+    $r^2 = 1 - \dfrac{\text{SSE}}{\sum d_y^2} = 1 - \dfrac{30}{120} = 0.75$. The line removes 75% of the variation; 0.25 is the fraction left over, and 4 is the ratio upside down.

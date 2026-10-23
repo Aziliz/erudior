@@ -109,11 +109,11 @@ flowchart TD
 
 ### Example 5
 
-Write the repeating decimal $0.777\ldots$ as a fraction.
+Write the repeating decimal $0.363636\ldots$ as a fraction.
 
-1. $0.777\ldots = 0.7 + 0.07 + 0.007 + \dots$, a geometric series with $a_1 = 0.7$ and $r = 0.1$.
-2. $|r| < 1$, so $S = \dfrac{0.7}{1 - 0.1} = \dfrac{0.7}{0.9} = \dfrac79$.
-3. Check: $7 \div 9 = 0.777\ldots$ ✓ This is why every repeating decimal is a rational number, as Lesson 1 claimed.
+1. $0.3636\ldots = 0.36 + 0.0036 + 0.000036 + \dots$, a geometric series with $a_1 = 0.36$ and $r = 0.01$.
+2. $|r| < 1$, so $S = \dfrac{0.36}{1 - 0.01} = \dfrac{0.36}{0.99} = \dfrac{36}{99} = \dfrac{4}{11}$.
+3. Check: $4 \div 11 = 0.3636\ldots$ ✓ Every repeating decimal can be split this way into an infinite geometric series with $|r| < 1$, which is another way to see that repeating decimals are rational, as Lesson 1 claimed. (The optional honors lesson in Module 1 converts repeating decimals with a linear equation instead.)
 
 ### Example 6
 

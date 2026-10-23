@@ -486,7 +486,7 @@
     - 'The curve stays the same, because the data did not change.'
   answer: 0
   explanation: |-
-    A larger bandwidth makes each bump wider and flatter, so nearby features blur together; the lesson's plot shows the two groups merging at $h = 2$. Spikes at every value come from a *small* bandwidth. The total area stays 1 for any $h$.
+    A larger bandwidth makes each bump wider and flatter, so nearby features blur together; the lesson's plot shows the two groups merging at $h = 2$. Spikes at every value come from a small bandwidth. The total area stays 1 for any $h$.
 
 - id: stat-m1-r2-h10
   lesson: stat-m1-h-density
@@ -563,7 +563,7 @@
   choices: ['4', '6', '5', '4.5']
   answer: 2
   explanation: |-
-    The sum of squared distances is smallest at the mean: $(1 + 4 + 4 + 11)/4 = 5$. By the identity $\sum (x_i - c)^2 = \sum (x_i - \bar{x})^2 + n(\bar{x} - c)^2$, any other $c$ adds $4(5 - c)^2$. The median (4) minimizes the sum of *absolute* distances; 6 is the midrange.
+    The sum of squared distances is smallest at the mean: $(1 + 4 + 4 + 11)/4 = 5$. By the identity $\sum (x_i - c)^2 = \sum (x_i - \bar{x})^2 + n(\bar{x} - c)^2$, any other $c$ adds $4(5 - c)^2$. The median (4) minimizes the sum of absolute distances; 6 is the midrange.
 
 - id: stat-m1-r2-h17
   lesson: stat-m1-h-robust

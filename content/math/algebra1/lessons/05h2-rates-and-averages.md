@@ -74,7 +74,7 @@ You drive 120 miles to a city at 60 mph and return the same 120 miles at 40 mph.
 You spent 3 of the 5 hours at the slower speed, so the average leans toward 40. On a graph of total distance traveled against time, the average speed is the slope of the straight line from the start to the end of the trip.
 
 ```plot
-{"x": [0, 5.5], "y": [0, 260], "xLabel": "time (hours)", "yLabel": "total distance driven (miles)", "functions": [{"f": "60*x", "from": 0, "to": 2, "label": "60 mph"}, {"f": "120 + 40*(x - 2)", "from": 2, "to": 5, "label": "40 mph"}, {"f": "48*x", "from": 0, "to": 5, "dashed": true, "label": "average: 48 mph"}], "points": [{"at": [2, 120], "label": "(2, 120)"}, {"at": [5, 240], "label": "(5, 240)"}], "caption": "Total distance against time: 2 hours at 60 mph, then 3 hours at 40 mph. The dashed line's slope is the average speed, 240/5 = 48 mph."}
+{"x": [0, 5.5], "y": [0, 260], "xLabel": "time (hours)", "yLabel": "total distance driven (miles)", "functions": [{"f": "60*x", "from": 0, "to": 2, "label": "60 mph"}, {"f": "120 + 40*(x - 2)", "from": 2, "to": 5, "label": "40 mph"}, {"f": "48*x", "from": 0, "to": 5, "dashed": true}], "points": [{"at": [2, 120], "label": "(2, 120)"}, {"at": [5, 240], "label": "(5, 240)"}], "caption": "Total distance against time: 2 hours at 60 mph, then 3 hours at 40 mph. The dashed line's slope is the average speed, 240/5 = 48 mph."}
 ```
 
 For two equal distances $d$ at speeds $a$ and $b$, the total time is $\tfrac{d}{a} + \tfrac{d}{b}$, and
@@ -119,7 +119,7 @@ $$w_1 m + w_2 m = w_1 x_1 + w_2 x_2 \quad\Longrightarrow\quad w_1(m - x_1) = w_2
 Picture a seesaw. Each weight sits at its value on a number line, and the average is the balance point, where weight times distance is the same on both sides. The heavier group pulls the average toward itself. Here is Lesson 5's acid mixture again: 10 liters at 15% and $x$ liters at 40% balance at 25%.
 
 ```numberline
-{"x": [10, 45], "points": [{"at": [15, 0], "label": "15%"}, {"at": [25, 0], "label": "25%"}, {"at": [40, 0], "label": "40%"}], "segments": [{"from": [15, 0], "to": [25, 0], "label": "10"}, {"from": [25, 0], "to": [40, 0], "label": "15"}], "caption": "10 L of 15% and x L of 40% balance at 25%: 10 × 10 = x × 15"}
+{"x": [10, 45], "points": [{"at": [15, 0], "label": "15%"}, {"at": [25, 0], "label": "25%"}, {"at": [40, 0], "label": "40%"}], "segments": [{"from": [15, 0], "to": [25, 0]}, {"from": [25, 0], "to": [40, 0]}], "caption": "10 L of 15% and x L of 40% balance at 25%, which is 10 points from 15% and 15 points from 40%: 10 × 10 = x × 15"}
 ```
 
 The balance rule gives $10(25 - 15) = x(40 - 25)$, so $100 = 15x$ and $x = \tfrac{20}{3} \approx 6.67$ liters, the same answer Lesson 5 found with a table. The rule also explains why the target must lie between the two ingredients: the balance point of a seesaw is always between the two ends.

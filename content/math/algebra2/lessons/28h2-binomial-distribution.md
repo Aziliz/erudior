@@ -2,7 +2,7 @@
 id: a2-h-binomial-dist
 module: a2-m8
 honors: true
-title: 'Honors: The binomial distribution'
+title: The binomial distribution
 minutes: 45
 topics: [Binomial distribution]
 drills: [a2-m8-r2-binom-exact, a2-m8-r2-binom-atleast, a2-m8-r2-binom-mean-sd]

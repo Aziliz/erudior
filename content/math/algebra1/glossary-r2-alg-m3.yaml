@@ -1,0 +1,54 @@
+# Round 2 glossary for alg-m3 (Functions and linear functions)
+- term: mapping diagram
+  aliases: [mapping diagrams]
+  definition: 'A picture of a relation: the inputs in one oval, the outputs in another, and an arrow from each input to each of its outputs. It is a function when exactly one arrow leaves each input.'
+  topic: Functions
+- term: inverse function
+  aliases: [inverse functions]
+  definition: 'The function $f^{-1}$ that undoes $f$: $f^{-1}(b) = a$ exactly when $f(a) = b$. It swaps inputs and outputs, so its domain is the range of $f$. Only one-to-one functions have inverses. $f^{-1}(x)$ is not $\tfrac{1}{f(x)}$.'
+  topic: Inverse functions
+- term: one-to-one
+  aliases: [one-to-one function, one-to-one functions]
+  definition: 'Describes a function in which different inputs always give different outputs: $f(a) = f(b)$ only when $a = b$. Example: $2x + 1$ is one-to-one; $x^2$ is not, since $f(3) = f(-3)$.'
+  topic: Inverse functions
+- term: horizontal line test
+  definition: 'A function is one-to-one (so it has an inverse) exactly when no horizontal line crosses its graph more than once.'
+  topic: Inverse functions
+- term: piecewise linear
+  aliases: [piecewise linear function, piecewise linear functions, piecewise linear model, piecewise linear models]
+  definition: 'Describes a piecewise function whose pieces are all linear, so its graph is made of line segments and rays, as in a phone plan or a tax schedule.'
+  topic: Piecewise linear models
+- term: breakpoint
+  aliases: [breakpoints]
+  definition: 'An input where a piecewise function changes from one formula to the next, such as the data allowance in a phone plan or the start of a new tax bracket.'
+  topic: Piecewise linear models
+- term: continuous
+  aliases: [continuity]
+  definition: 'Informally, a function is continuous on an interval if its graph there has no breaks or jumps: it can be drawn without lifting the pencil. A piecewise linear function is continuous when neighboring pieces give the same value at each breakpoint. (Calculus makes the definition precise.)'
+  topic: Piecewise linear models
+- term: tax bracket
+  aliases: [tax brackets, brackets, bracket]
+  definition: 'One layer of income in a tax schedule, taxed at its own rate. Each rate applies only to the income inside its layer, not to the whole income.'
+  topic: Piecewise linear models
+- term: marginal tax rate
+  aliases: [marginal rate]
+  definition: 'The tax rate on the next dollar earned: the slope of the piece of the tax function at the current income.'
+  topic: Piecewise linear models
+- term: average tax rate
+  aliases: [effective tax rate]
+  definition: 'Total tax divided by total income, $\tfrac{T(x)}{x}$. With rates that rise from bracket to bracket, it is below the marginal tax rate once income is past the first bracket.'
+  topic: Piecewise linear models
+- term: secant line
+  aliases: [secant lines, secant]
+  definition: 'A line through two points of a curve. The slope of the secant line through $(a, f(a))$ and $(b, f(b))$ is the average rate of change of $f$ on $[a, b]$.'
+  topic: Average rate of change
+- term: average velocity
+  definition: 'The average rate of change of position (or height) with respect to time: change in position divided by elapsed time. Its sign gives the direction of motion.'
+  topic: Average rate of change
+- term: difference quotient
+  aliases: [difference quotients]
+  definition: 'The expression $\dfrac{f(a + h) - f(a)}{h}$ with $h \ne 0$: the average rate of change of $f$ on the interval from $a$ to $a + h$.'
+  topic: Average rate of change
+- term: instantaneous rate of change
+  definition: 'The value that average rates of change on $[a, a + h]$ approach as $h$ gets close to 0: the rate at the single input $a$, equal to the slope of the tangent line there. In calculus it is called the derivative.'
+  topic: Average rate of change

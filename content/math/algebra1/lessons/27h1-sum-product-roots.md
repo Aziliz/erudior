@@ -33,7 +33,7 @@ The quadratic formula gives a second proof. The roots are $\tfrac{-b + \sqrt D}{
 - Adding them, the square roots cancel: $\dfrac{-2b}{2a} = -\dfrac{b}{a}$.
 - Multiplying them gives a difference of squares: $\dfrac{(-b)^2 - (\sqrt D)^2}{4a^2} = \dfrac{b^2 - (b^2 - 4ac)}{4a^2} = \dfrac{4ac}{4a^2} = \dfrac{c}{a}$.
 
-**When do the formulas apply?** They describe the roots, so the roots must exist. In this course that means real roots, so check $D \ge 0$. A double root counts twice: $(x - 5)^2 = x^2 - 10x + 25$ has roots 5 and 5, with sum $10$ and product $25$, exactly as the formulas say. If $D < 0$, the numbers $-\tfrac ba$ and $\tfrac ca$ still exist, but they are not the sum and product of two real numbers. (In Algebra 2 you'll meet complex numbers; the formulas hold for complex roots too.)
+*When do the formulas apply?* They describe the roots, so the roots must exist. In this course that means real roots, so check $D \ge 0$. A double root counts twice: $(x - 5)^2 = x^2 - 10x + 25$ has roots 5 and 5, with sum $10$ and product $25$, exactly as the formulas say. If $D < 0$, the numbers $-\tfrac ba$ and $\tfrac ca$ still exist, but they are not the sum and product of two real numbers. (In Algebra 2 you'll meet complex numbers; the formulas hold for complex roots too.)
 
 ### Example 1
 

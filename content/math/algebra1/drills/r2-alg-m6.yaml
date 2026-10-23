@@ -1,0 +1,172 @@
+# Round 2 drills for alg-m6 honors lessons
+- id: alg-m6-r2-vieta-sum-product
+  title: Sum and product of the roots
+  topic: Sums and products of roots
+  vars:
+    a: {choices: [2, 3, 4, 5, -2, -3]}
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+  calc:
+    D: b^2 - 4*a*c
+    S: -b/a
+    P: c/a
+  where: ['b != 0', 'c != 0', 'D > 0']
+  prompt: 'Without solving, find the sum and the product of the two real roots of $\;{a:coef}x^2 {b:signedcoef}x {c:signed} = 0$. Give exact fractions.'
+  answers:
+    - {name: S, kind: fraction, lowestTerms: true, label: 'Sum'}
+    - {name: P, kind: fraction, lowestTerms: true, label: 'Product'}
+  solution: |-
+    Here $a = {a}$, $b = {b}$, $c = {c}$, and $b^2 - 4ac = {D} > 0$, so there are two real roots.
+    Sum: $-\dfrac{\,b}{\,a} = -\dfrac{{b}}{{a}} =$ **${S:texfrac}$**. Product: $\dfrac{\,c}{\,a} = \dfrac{{c}}{{a}} =$ **${P:texfrac}$**.
+
+- id: alg-m6-r2-vieta-symmetric
+  title: Symmetric expressions of the roots
+  topic: Sums and products of roots
+  vars:
+    b: {min: -9, max: 9}
+    c: {min: -9, max: 9}
+  calc:
+    D: b^2 - 4*c
+    S: -b
+    sq: b^2 - 2*c
+    rec: -b/c
+    S2: b^2
+    twoc: 2*c
+  where: ['b != 0', 'c != 0', 'D > 0']
+  prompt: 'Let $r$ and $s$ be the roots of $x^2 {b:signedcoef}x {c:signed} = 0$. Without solving, find $r^2 + s^2$ and $\dfrac1r + \dfrac1s$ (exact fraction).'
+  answers:
+    - {name: sq, label: '$r^2 + s^2 =$'}
+    - {name: rec, kind: fraction, lowestTerms: true, label: '$\tfrac1r + \tfrac1s =$'}
+  solution: |-
+    The discriminant is ${D} > 0$, so the roots are real. Sum $S = -b = {S}$, product $P = c = {c}$.
+    $r^2 + s^2 = S^2 - 2P = {S2} - ({twoc}) =$ **{sq}**.
+    $\dfrac1r + \dfrac1s = \dfrac{r + s}{rs} = \dfrac{\,S}{\,P} = \dfrac{{S}}{{c}} =$ **${rec:texfrac}$**.
+
+- id: alg-m6-r2-vieta-other-root
+  title: One root given, find the other
+  topic: Sums and products of roots
+  vars:
+    m: {min: -9, max: 9}
+    n: {min: -9, max: 9}
+  calc:
+    c: m*n
+    k: -(m + n)
+    sum: m + n
+    nm: -m
+    nn: -n
+  where: ['m != 0', 'n != 0', 'm != n', 'm + n != 0']
+  prompt: 'One root of $x^2 + kx {c:signed} = 0$ is ${m}$. Find the other root and $k$.'
+  answers:
+    - {name: n, label: 'Other root'}
+    - {name: k, label: '$k =$'}
+  solution: |-
+    The product of the roots is ${c}$: ${m} \cdot s = {c}$, so the other root is $s =$ **{n}**.
+    The sum of the roots is $-k$: ${m} + ({n}) = {sum}$, so $k =$ **{k}**.
+    Check: $(x {nm:signed})(x {nn:signed})$ expands to $x^2 {k:signedcoef}x {c:signed}$.
+
+- id: alg-m6-r2-quad-ineq-inside
+  title: Solve x² + bx + c < 0
+  topic: Quadratic inequalities
+  vars:
+    p: {min: -9, max: 8}
+    w: {min: 1, max: 9}
+    sym: {choices: [{label: '<', value: 0}, {label: '\le', value: 1}]}
+  calc:
+    q: p + w
+    b: -(p + q)
+    c: p*q
+  where: ['b != 0', 'c != 0']
+  prompt: 'The solution of $x^2 {b:signedcoef}x {c:signed} {sym} 0$ is the interval between two numbers $p$ and $q$ (with $p < q$). Find $p$ and $q$.'
+  answers:
+    - {name: p, label: '$p =$'}
+    - {name: q, label: '$q =$'}
+  solution: |-
+    Factor: two numbers with product {c} and sum {b} give the roots ${p}$ and ${q}$.
+    The parabola opens up, so it is below the $x$-axis between its roots. So $p =$ **{p}** and $q =$ **{q}** (endpoints included only for $\le$).
+
+- id: alg-m6-r2-quad-ineq-outside
+  title: Solve ax² + bx + c ≥ 0
+  topic: Quadratic inequalities
+  vars:
+    u: {min: 1, max: 3}
+    v: {min: -7, max: 7}
+    r: {min: 1, max: 3}
+    w: {min: -7, max: 7}
+  calc:
+    A: u*r
+    B: u*w + v*r
+    C: v*w
+    x1: -v/u
+    x2: -w/r
+    lo: min(x1, x2)
+    hi: max(x1, x2)
+  where: ['v != 0', 'w != 0', 'B != 0', 'gcd(u, abs(v)) == 1', 'gcd(r, abs(w)) == 1', 'A > 1', 'x1 != x2']
+  prompt: 'Solve $\;{A}x^2 {B:signedcoef}x {C:signed} \ge 0$. The solution has the form $x \le p$ or $x \ge q$. Give $p$ and $q$ as exact fractions.'
+  answers:
+    - {name: lo, kind: fraction, lowestTerms: true, label: '$p =$'}
+    - {name: hi, kind: fraction, lowestTerms: true, label: '$q =$'}
+  solution: |-
+    Factor: $({u:coef}x {v:signed})({r:coef}x {w:signed}) \ge 0$. The boundary points are ${x1:texfrac}$ and ${x2:texfrac}$.
+    The leading coefficient {A} is positive, so the parabola is at or above the axis outside its roots: $x \le$ **${lo:texfrac}$** or $x \ge$ **${hi:texfrac}$**.
+
+- id: alg-m6-r2-ineq-height
+  title: When is a projectile above a given height?
+  topic: Quadratic inequalities
+  vars:
+    t1: {choices: [0.5, 1, 1.5, 2, 2.5]}
+    gap: {choices: [1, 1.5, 2, 2.5, 3]}
+    H: {min: 40, max: 200, step: 4}
+  calc:
+    t2: t1 + gap
+    v: 16*(t1 + t2)
+    h0: H - 16*t1*t2
+    s: t1 + t2
+    pr: t1*t2
+  where: ['h0 >= 2', 'h0 < H', 'h0 == round(h0)']
+  prompt: 'A ball''s height in feet is $h(t) = -16t^2 + {v}t + {h0}$, $t$ seconds after it is thrown. During which time interval is the ball higher than {H} feet? Give the start and end times in seconds.'
+  answers:
+    - {name: t1, label: 'From $t =$', tolerance: 0.001}
+    - {name: t2, label: 'to $t =$', tolerance: 0.001}
+  solution: |-
+    Solve $-16t^2 + {v}t + {h0} > {H}$: subtract {H} to get $-16t^2 + {v}t + ({h0} - {H}) > 0$. Divide by $-16$ and reverse the symbol: $t^2 - {s}t + {pr} < 0$.
+    The roots are $t = {t1}$ and $t = {t2}$ (their sum is {s} and product {pr}), and the upward parabola $t^2 - {s}t + {pr}$ is negative between them.
+    The ball is above {H} ft from $t =$ **{t1}** to $t =$ **{t2}** s.
+
+- id: alg-m6-r2-khwarizmi
+  title: Complete the square the al-Khwarizmi way
+  topic: History of quadratics
+  vars:
+    h: {min: 1, max: 10}
+    r: {min: 1, max: 12}
+  calc:
+    b: 2*h
+    c: r^2 + 2*h*r
+    sq: h^2
+    tot: c + h^2
+    side: r + h
+  prompt: '"A square and {b} roots equal {c}": $x^2 + {b}x = {c}$. Following al-Khwarizmi, what number do you add to both sides to complete the square, and what is the positive solution?'
+  answers:
+    - {name: sq, label: 'Number added'}
+    - {name: r, label: '$x =$'}
+  solution: |-
+    Halve the roots: $\tfrac{{b}}{2} = {h}$. Square it: **{sq}**. Add it to both sides: $x^2 + {b}x + {sq} = {c} + {sq} = {tot}$, that is $(x + {h})^2 = {tot}$.
+    The square root of {tot} is {side}, so $x + {h} = {side}$ and $x =$ **{r}**. (The negative root, $-{side} - {h}$, was not considered: a side can't be negative.)
+
+- id: alg-m6-r2-golden-cut
+  title: Cut a segment in the golden ratio
+  topic: Golden ratio
+  vars:
+    L: {min: 5, max: 40}
+  calc:
+    phi: (1 + sqrt(5))/2
+    long: L/phi
+    short: L - L/phi
+    hL: L/2
+    disc: 5*L^2/4
+  prompt: 'A segment {L} cm long is cut in the golden ratio, so that $\dfrac{\text{whole}}{\text{longer}} = \dfrac{\text{longer}}{\text{shorter}}$. Find the lengths of the longer and shorter parts, to 2 decimal places.'
+  answers:
+    - {name: long, label: 'Longer (cm)', tolerance: 0.006, format: num2}
+    - {name: short, label: 'Shorter (cm)', tolerance: 0.006, format: num2}
+  solution: |-
+    Let the longer part be $x$: $\dfrac{{L}}{x} = \dfrac{x}{{L} - x}$, so $x^2 = {L}({L} - x)$ and $x^2 + {L}x - {L}^2 = 0$.
+    The positive root is $x = \dfrac{-{L} + \sqrt{{L}^2 + 4 \cdot {L}^2}}{2} = \dfrac{{L}(\sqrt5 - 1)}{2} = \dfrac{{L}}{\varphi}$, so the longer part is **{long:num2}** cm and the shorter part is ${L} - x \approx$ **{short:num2}** cm.

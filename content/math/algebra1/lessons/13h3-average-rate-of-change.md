@@ -5,7 +5,7 @@ title: Average rate of change and the slope of a curve
 minutes: 45
 honors: true
 topics: [Average rate of change]
-drills: [alg-m3-r2-arc-quadratic, alg-m3-r2-round-trip, alg-m3-r2-diff-quotient]
+drills: [alg-m3-r2-arc-quadratic, alg-m3-r2-secant-line, alg-m3-r2-diff-quotient]
 refs: [alg-ref-functions]
 ---
 A line has one slope, and Lesson 10 showed that it measures a constant rate of change. Most functions are not lines: a ball slows as it rises, a population grows faster as it gets bigger. Lesson 10 ended with a tool for these cases, the average rate of change over an interval. This honors lesson develops that tool: computing it from formulas, tables and graphs, reading the shape of a graph from how the rate changes, a shortcut for quadratic functions, and finally the question that leads to calculus: what is the rate of change *at a single instant*?
@@ -38,19 +38,25 @@ Over the whole interval $[0, 4]$ the average rate is $\dfrac{5 - 5}{4} = 0$ ft/s
 {"x": [0, 4.5], "y": [0, 80], "functions": [{"f": "-16*x^2 + 64*x + 5", "from": 0, "to": 4.07, "label": "h(t)"}], "points": [{"at": [0, 5], "label": "(0, 5)"}, {"at": [1, 53], "label": "(1, 53)"}, {"at": [2, 69], "label": "(2, 69)"}, {"at": [3, 53], "label": "(3, 53)"}], "segments": [{"from": [0, 5], "to": [1, 53], "dashed": true, "label": "slope 48"}, {"from": [2, 69], "to": [3, 53], "dashed": true, "label": "slope -16"}], "xLabel": "t (seconds)", "yLabel": "height (feet)", "caption": "Two secant lines: average velocity 48 ft/s on [0, 1] and -16 ft/s on [2, 3]"}
 ```
 
-## The average of rates is not the average rate
+## Rates from a table
 
-Average rates of change must be computed as *total change over total change*, not by averaging smaller rates.
+With data in a table, the average rate of change uses whichever two rows bound the interval. The rows need not be equally spaced, so always divide by the actual change in the input.
 
 ### Example 2
 
-You drive 120 miles to a city at 60 mph and return the same 120 miles at 40 mph. What is your average speed for the round trip?
+A phone's battery charge $B$ (percent) is recorded during a day of use:
 
-1. It's tempting to say 50 mph, the average of 60 and 40. Check with total distance over total time instead.
-2. Time out: $\tfrac{120}{60} = 2$ hours. Time back: $\tfrac{120}{40} = 3$ hours.
-3. Average speed: $\dfrac{240 \text{ miles}}{5 \text{ hours}} = 48$ mph.
+| Time $t$ (hours) | $0$ | $1$ | $2$ | $4$ | $7$ |
+|---|---|---|---|---|---|
+| Charge $B$ (%) | $100$ | $88$ | $79$ | $64$ | $46$ |
 
-The answer is below 50 because you spend *more time* at the slower speed, so the slow leg counts for more. Averaging the two rates would be right only if you drove each speed for the same amount of time.
+Find the average rate of change of $B$ on $[0, 2]$, on $[2, 7]$ and on $[0, 7]$.
+
+1. On $[0, 2]$: $\dfrac{79 - 100}{2 - 0} = \dfrac{-21}{2} = -10.5$ percentage points per hour.
+2. On $[2, 7]$: $\dfrac{46 - 79}{7 - 2} = \dfrac{-33}{5} = -6.6$ points per hour.
+3. On $[0, 7]$: $\dfrac{46 - 100}{7} = \dfrac{-54}{7} \approx -7.71$ points per hour.
+
+The battery drained faster early in the day. Notice that the rate over the whole day, about $-7.71$, is *not* the average of $-10.5$ and $-6.6$ (that would be $-8.55$). The two parts lasted 2 hours and 5 hours, so the slower-draining part counts for more. An average rate of change is always total change in output divided by total change in input; never average the rates of the pieces.
 
 ## Reading shape from changing rates
 
@@ -111,7 +117,7 @@ Making "approaches" precise takes the idea of a limit, and the instantaneous rat
 ## Common mistakes
 
 - Dividing by $b$ instead of $b - a$, or subtracting the outputs and inputs in opposite orders.
-- Averaging rates (such as 60 mph and 40 mph) instead of dividing total change by total change.
+- Averaging the rates of two parts of an interval instead of dividing the total change in output by the total change in input.
 - Assuming the average rate tells you the rate everywhere in the interval. The ball's average velocity on $[0, 4]$ is 0, but it was never at rest except at the top.
 - Setting $h = 0$ in $\dfrac{f(a + h) - f(a)}{h}$ before simplifying. That gives $\tfrac00$, which means nothing; simplify first, then let $h$ get close to 0.
 - Forgetting units: an average rate of change is in output units per input unit.
@@ -119,7 +125,7 @@ Making "approaches" precise takes the idea of a limit, and the instantaneous rat
 ## Key points
 
 - The average rate of change of $f$ on $[a, b]$ is $\dfrac{f(b) - f(a)}{b - a}$, the slope of the secant line through $(a, f(a))$ and $(b, f(b))$.
-- Average rates are total change over total change, not the average of smaller rates.
+- Over an interval made of parts of different lengths, the average rate is total change over total change, not the average of the parts' rates.
 - Over equal-width intervals, increasing rates mean the graph bends upward and decreasing rates mean it bends downward.
 - For $f(x) = ax^2 + bx + c$, the average rate on $[p, q]$ is $a(p + q) + b$.
 - The difference quotient $\dfrac{f(a + h) - f(a)}{h}$ is the average rate on $[a, a + h]$; the value it approaches as $h \to 0$ is the instantaneous rate of change, the slope of the tangent line.

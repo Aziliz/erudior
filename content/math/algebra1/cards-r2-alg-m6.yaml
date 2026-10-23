@@ -1,0 +1,27 @@
+# Round 2 cards: alg-m6 honors lessons
+- {front: 'Vieta''s formulas for $ax^2 + bx + c = 0$', back: 'Sum of the roots $r + s = -\tfrac{b}{a}$; product $rs = \tfrac{c}{a}$ (for real roots, $D \ge 0$).', topic: Sums and products of roots}
+- {front: 'Sum and product of the roots of $x^2 + bx + c = 0$', back: 'Sum $-b$, product $c$, because $(x - r)(x - s) = x^2 - (r + s)x + rs$.', topic: Sums and products of roots}
+- {front: 'Equation whose roots have sum $S$ and product $P$', back: '$x^2 - Sx + P = 0$. Real roots exist only if $S^2 - 4P \ge 0$.', topic: Sums and products of roots}
+- {front: '$r^2 + s^2$ in terms of $S = r + s$ and $P = rs$', back: '$S^2 - 2P$', topic: Sums and products of roots}
+- {front: '$\tfrac1r + \tfrac1s$ in terms of $S$ and $P$', back: '$\tfrac{S}{P}$ (when $P \ne 0$)', topic: Sums and products of roots}
+- {front: 'Distance between the roots of $ax^2 + bx + c = 0$', back: '$|r - s| = \tfrac{\sqrt{D}}{|a|}$, since $(r - s)^2 = S^2 - 4P = \tfrac{D}{a^2}$.', topic: Sums and products of roots}
+- {front: 'Signs of the roots from $\tfrac ca$ and $-\tfrac ba$', back: 'Product negative: opposite signs. Product positive: same sign, positive if the sum is positive, negative if it is negative (check $D \ge 0$ first).', topic: Sums and products of roots}
+- {front: 'One root of $x^2 + kx - 15 = 0$ is 5. Other root and $k$?', back: 'Product: $5s = -15$, so $s = -3$. Sum: $2 = -k$, so $k = -2$.', topic: Sums and products of roots}
+- {front: 'Quadratic inequality with $a > 0$ and roots $r < s$', back: '$< 0$: between, $r < x < s$. $> 0$: outside, $x < r$ or $x > s$. (Reverse both when $a < 0$.)', topic: Quadratic inequalities}
+- {front: 'First step for any quadratic inequality', back: 'Move every term to one side so the quadratic is compared with 0; the roots of that quadratic are the boundary points.', topic: Quadratic inequalities}
+- {front: 'Solve $x^2 > 9$', back: '$x < -3$ or $x > 3$ (that is, $|x| > 3$). Never "$x > \pm 3$".', topic: Quadratic inequalities}
+- {front: 'Quadratic inequality when $D < 0$', back: 'The quadratic has the sign of $a$ for every $x$: the answer is all real numbers or no solution.', topic: Quadratic inequalities}
+- {front: 'Solutions of $(x - 3)^2 > 0$ and $(x - 3)^2 \le 0$', back: 'Every real number except 3; only $x = 3$.', topic: Quadratic inequalities}
+- {front: 'Sign chart', back: 'Mark the zeros on a number line, record each factor''s sign on each interval, and multiply the signs to get the sign of the product.', topic: Quadratic inequalities}
+- {front: 'Two outer rays: join with "and" or "or"?', back: '"Or": $x < -3$ or $x > 3$. No number is both less than $-3$ and greater than 3.', topic: Quadratic inequalities}
+- {front: 'Dividing an inequality by a negative number', back: 'Reverse the symbol: $-16t^2 + 64t - 48 > 0$ becomes $t^2 - 4t + 3 < 0$.', topic: Quadratic inequalities}
+- {front: 'Babylonian recipe for $x^2 + x = \tfrac34$ (BM 13901)', back: 'Halve 1 ($\tfrac12$), square it ($\tfrac14$), add ($1$), take the root (1), subtract the half: $x = \tfrac12$. Completing the square.', topic: History of quadratics}
+- {front: 'al-jabr', back: '"Restoring": moving a subtracted term to the other side as an added term. From al-Khwarizmi''s book (about 820 CE); the source of the word algebra.', topic: History of quadratics}
+- {front: 'al-Khwarizmi''s rule for $x^2 + 10x = 39$', back: 'Halve the roots (5), square (25), add (64), root (8), subtract 5: $x = 3$.', topic: History of quadratics}
+- {front: 'Why al-Khwarizmi had six types of quadratic problems', back: 'He used only positive numbers, so terms stayed on whichever side kept them positive: e.g. $x^2 + 21 = 10x$ and $x^2 + 10x = 39$ are different types.', topic: History of quadratics}
+- {front: 'al-Khwarizmi''s "impossible" case for $x^2 + c = bx$', back: 'When $\left(\tfrac b2\right)^2 < c$: in modern terms, a negative discriminant.', topic: History of quadratics}
+- {front: 'Brahmagupta''s rule (628 CE) for $ax^2 + bx = c$', back: '$x = \dfrac{\sqrt{4ac + b^2} - b}{2a}$: the quadratic formula''s positive root, in words.', topic: History of quadratics}
+- {front: 'Golden ratio $\varphi$', back: '$\varphi = \tfrac{1 + \sqrt5}{2} \approx 1.618$, the positive root of $x^2 = x + 1$.', topic: Golden ratio}
+- {front: 'Identities for $\varphi$', back: '$\varphi^2 = \varphi + 1 \approx 2.618$ and $\tfrac1\varphi = \varphi - 1 \approx 0.618$.', topic: Golden ratio}
+- {front: 'Cutting a length $L$ in the golden ratio', back: 'Longer part $\tfrac{L}{\varphi} \approx 0.618L$; shorter part $L - \tfrac{L}{\varphi} \approx 0.382L$.', topic: Golden ratio}
+- {front: 'Golden ratio claims about art and the body', back: 'Mostly unsupported by careful measurement. Fibonacci spiral counts in plants such as sunflowers are well documented.', topic: Golden ratio}

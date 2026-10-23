@@ -48,7 +48,7 @@
     - {name: xc, label: 'Crosses at $x =$'}
   solution: |-
     The degrees are equal, so the horizontal asymptote is the ratio of the leading coefficients: **$y = {a}$**.
-    Set $f(x) = {a}$ and multiply by the denominator: ${a:coef}x^2 {b:signedcoef}x {c:signed} = {a}(x^2 {e:signedcoef}x {g:signed})$.
+    Set $f(x) = {a}$ and multiply by the denominator: ${a:coef}x^2 {b:signedcoef}x {c:signed} = {a:coef}(x^2 {e:signedcoef}x {g:signed})$.
     The $x^2$ terms cancel, leaving ${bm:coef}x {cm:signed} = 0$, so $x = {xc}$. The denominator there is {den}, not 0, so the graph really crosses the asymptote at **$x = {xc}$**.
 
 - id: a2-m5-r2-avg-cost
@@ -64,14 +64,14 @@
     tw: round(2*p*xm, 6)
     Amin: b + tw
   where: ['F == round(F)', 'F >= 100', 'F <= 5000']
-  prompt: 'A shop''s weekly cost to make $x$ items is $C(x) = {p}x^2 + {b}x + {F}$ dollars. How many items give the least average cost per item, and what is that least average cost?'
+  prompt: 'A shop''s weekly cost to make $x$ items is $C(x) = {p}x^2 + {b}x + {F:dp0}$ dollars. How many items give the least average cost per item, and what is that least average cost?'
   answers:
     - {name: xm, label: 'Number of items'}
     - {name: Amin, format: money, label: 'Least average cost per item'}
   solution: |-
-    Average cost: $A(x) = \dfrac{C(x)}{x} = {p}x + {b} + \dfrac{{F}}{x}$.
-    The product of ${p}x$ and $\dfrac{{F}}{x}$ is ${p} \cdot {F}$, a constant, so by the AM–GM inequality ${p}x + \dfrac{{F}}{x} \ge 2\sqrt{{p} \cdot {F}} = {tw}$.
-    Equality holds when ${p}x = \dfrac{{F}}{x}$, so $x^2 = {xs}$ and the best level is **{xm}** items.
+    Average cost: $A(x) = \dfrac{C(x)}{x} = {p}x + {b} + \dfrac{{F:dp0}}{x}$.
+    The product of ${p}x$ and $\dfrac{{F:dp0}}{x}$ is ${p} \cdot {F:dp0}$, a constant, so by the AM–GM inequality ${p}x + \dfrac{{F:dp0}}{x} \ge 2\sqrt{{p} \cdot {F:dp0}} = {tw}$.
+    Equality holds when ${p}x = \dfrac{{F:dp0}}{x}$, so $x^2 = {xs:dp0}$ and the best level is **{xm}** items.
     The least average cost is ${b} + {tw}$, or **{Amin:money}** per item.
 
 - id: a2-m5-r2-partial
@@ -97,9 +97,9 @@
     - {name: aa, label: '$A =$'}
     - {name: bb, label: '$B =$'}
   solution: |-
-    Cover up $(x {nr:signed})$ and put $x = {r}$ into what is left: $A = \dfrac{{p}({r}) {q:signed}}{{r} {ns:signed}} = \dfrac{{numA}}{{rs}} =$ **{aa}**.
-    Cover up $(x {ns:signed})$ and put $x = {s}$: $B = \dfrac{{p}({s}) {q:signed}}{{s} {nr:signed}} = \dfrac{{numB}}{{sr}} =$ **{bb}**.
-    Check by recombining: ${aa}(x {ns:signed}) {bb:signed}(x {nr:signed}) = {p:coef}x {q:signed}$.
+    Cover up $(x {nr:signed})$ and put $x = {r}$ into what is left: $A = \dfrac{{p:coef}({r}) {q:signed}}{{r} {ns:signed}} = \dfrac{{numA}}{{rs}} =$ **{aa}**.
+    Cover up $(x {ns:signed})$ and put $x = {s}$: $B = \dfrac{{p:coef}({s}) {q:signed}}{{s} {nr:signed}} = \dfrac{{numB}}{{sr}} =$ **{bb}**.
+    Check by recombining: ${aa:coef}(x {ns:signed}) {bb:signedcoef}(x {nr:signed}) = {p:coef}x {q:signed}$.
 
 - id: a2-m5-r2-telescope
   title: Telescoping sum

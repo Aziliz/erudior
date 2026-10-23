@@ -23,7 +23,7 @@
     - {name: n, label: 'New $x$'}
     - {name: ny, label: 'New $y$'}
   solution: |-
-    Factor $b$ out of the inside: ${b:coef}x {nc:signed} = {b}(x {nh:signed})$. So $b = {b}$, $h = {h}$, $a = {a}$ and $k = {k}$. Points move by $(x, y) \to \left(\tfrac{x}{b} + h,\; ay + k\right)$.
+    Factor $b$ out of the inside: ${b:coef}x {nc:signed} = {b}(x {nh:signed})$. So $b = {b}$, $h = {h}$, $a = {a}$ and $k = {k}$. Points move by $(x, y) \to \left(\tfrac{x}{\,b} + h,\; ay + k\right)$.
     New $x$: ${p} \div ({b}) + ({h}) = {pb} + ({h}) = {n}$. New $y$: ${a}({q}) + ({k}) = {aq} + ({k}) = {ny}$. The point is **$({n}, {ny})$**.
     Check: at $x = {n}$ the inside is ${b}({n}) {nc:signed} = {p}$, so the output is ${a}f({p}) + ({k}) = {ny}$.
 
@@ -110,4 +110,4 @@
   solution: |-
     The first {L} kWh cost {L} × {r1:money} = {base:money}. The bill is more than that, so the usage is past {L} kWh, in the second tier.
     The rest of the bill is {bill:money} − {base:money} = {over:money}, which buys {over:money} ÷ {r2:money} = {extra} more kWh.
-    Usage: ${L} + {extra} =$ **{u}** kWh. Check: {base:money} + {extra} × {r2:money} = {bill:money}.
+    Usage: {L} + {extra} = **{u}** kWh. Check: {base:money} + {extra} × {r2:money} = {bill:money}.

@@ -9,16 +9,16 @@
   calc:
     ms: m*s
     g: gcd(c, m*s)
-    p: c/gcd(c, m*s)
-    q: m*s/gcd(c, m*s)
+    pp: c/gcd(c, m*s)
+    qq: m*s/gcd(c, m*s)
   prompt: 'Rationalize the denominator of $\dfrac{{c}}{{m:coef}\sqrt{{s}}}$. Write the result as $\dfrac{p\sqrt{{s}}}{q}$ with $p$ and $q$ sharing no common factor ($q$ may be 1).'
   answers:
-    - {name: p, label: '$p =$'}
-    - {name: q, label: '$q =$'}
+    - {name: pp, label: '$p =$'}
+    - {name: qq, label: '$q =$'}
   solution: |-
     Multiply the top and bottom by $\sqrt{{s}}$, using $\sqrt{{s}} \cdot \sqrt{{s}} = {s}$:
     $\dfrac{{c}}{{m:coef}\sqrt{{s}}} \cdot \dfrac{\sqrt{{s}}}{\sqrt{{s}}} = \dfrac{{c}\sqrt{{s}}}{{ms}}$.
-    Divide {c} and {ms} by their greatest common factor, {g}: $p =$ **{p}** and $q =$ **{q}**.
+    Divide {c} and {ms} by their greatest common factor, {g}: $p =$ **{pp}** and $q =$ **{qq}**.
 
 - id: a1-m7-r2-rationalize-conj
   title: Rationalize with a conjugate
@@ -43,7 +43,7 @@
   solution: |-
     Multiply the top and bottom by the conjugate ${a} {nsg:signedcoef}\sqrt{{b}}$.
     Denominator: $({a})^2 - (\sqrt{{b}})^2 = {a}^2 - {b} = {D}$.
-    So the fraction is $\dfrac{{c}({a} {nsg:signedcoef}\sqrt{{b}})}{{D}} = {f}({a} {nsg:signedcoef}\sqrt{{b}})$. Distribute: $p =$ **{p}** and $q =$ **{q}**.
+    So the fraction is $\dfrac{{c}({a} {nsg:signedcoef}\sqrt{{b}})}{{D}}$. Since ${c} \div ({D}) = {f}$, multiply each term of ${a} {nsg:signedcoef}\sqrt{{b}}$ by {f}: $p =$ **{p}** and $q =$ **{q}**.
 
 - id: a1-m7-r2-rational-power
   title: Evaluate a rational exponent
@@ -122,7 +122,7 @@
     - {name: S, label: '$S_{{n}} =$'}
   solution: |-
     $a_1 = {a1}$ and $d = {d}$, so the last term is $a_{{n}} = {a1} + ({nm})({d}) = {an}$.
-    $S_{{n}} = \dfrac{{n}({a1} + ({an}))}{2} = \dfrac{{n} \cdot {tot}}{2} =$ **{S}**.
+    $S_{{n}} = \dfrac{{n}({a1} + ({an}))}{2} = \dfrac{{n} \cdot ({tot})}{2} =$ **{S}**.
 
 - id: a1-m7-r2-geom-series
   title: Sum of a finite geometric series

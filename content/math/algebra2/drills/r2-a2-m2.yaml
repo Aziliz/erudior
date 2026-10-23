@@ -179,7 +179,7 @@
     m3: x2*y3 - y2*x3
     det: x1*(y2 - y3) - y1*(x2 - x3) + (x2*y3 - y2*x3)
     area: abs(x1*(y2 - y3) - y1*(x2 - x3) + (x2*y3 - y2*x3))/2
-  where: ['det != 0', 'x1 < x2', 'x2 < x3']
+  where: ['abs(det) >= 6', 'x1 < x2', 'x2 < x3']
   prompt: 'Find the area of the triangle with vertices $({x1}, {y1})$, $({x2}, {y2})$ and $({x3}, {y3})$.'
   figure:
     type: plot
@@ -196,4 +196,4 @@
   tolerance: 0
   solution: |-
     $\begin{vmatrix} {x1} & {y1} & 1 \\ {x2} & {y2} & 1 \\ {x3} & {y3} & 1 \end{vmatrix} = {x1}({m1}) - ({y1})({m2}) + 1({m3}) = {det}$.
-    Area $= \tfrac12|{det}| =$ **{area}** square units.
+    Area $= \tfrac12|{det}| =$ **{area}**.

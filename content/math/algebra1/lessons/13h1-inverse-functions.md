@@ -25,7 +25,7 @@ $$g(F) = \frac{F - 32}{1.8}, \qquad g(350) = \frac{318}{1.8} \approx 176.7.$$
 So 350 °F is about 177 °C. The reverse order matters, just as you take off your shoes before your socks even though you put the socks on first. Dividing by 1.8 *before* subtracting 32 would give $\tfrac{350}{1.8} - 32 \approx 162.4$, which is wrong.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: A function and its inverse undo each other
   accDescr: Start with 20 degrees Celsius. The function f multiplies by 1.8 and then adds 32, giving 68 degrees Fahrenheit. The inverse function subtracts 32 and then divides by 1.8, which takes 68 degrees Fahrenheit back to 20 degrees Celsius.
   A["20 °C"] -- "f: × 1.8, then + 32" --> B["68 °F"]
@@ -40,8 +40,8 @@ $$g(b) = a \quad \text{exactly when} \quad f(a) = b.$$
 
 The inverse of $f$ is written $f^{-1}$, read "$f$ inverse." Two facts follow straight from the definition:
 
-- **Pairs swap.** If $(a, b)$ is on the graph of $f$, then $(b, a)$ is on the graph of $f^{-1}$.
-- **Domain and range swap.** The inputs of $f^{-1}$ are the outputs of $f$, and the outputs of $f^{-1}$ are the inputs of $f$.
+- *Pairs swap.* If $(a, b)$ is on the graph of $f$, then $(b, a)$ is on the graph of $f^{-1}$.
+- *Domain and range swap.* The inputs of $f^{-1}$ are the outputs of $f$, and the outputs of $f^{-1}$ are the inputs of $f$.
 
 > Warning: the $-1$ in $f^{-1}$ is not an exponent. $f^{-1}(x)$ means "the inverse function at $x$," not $\dfrac{1}{f(x)}$. For $f(x) = 2x$, $f^{-1}(x) = \tfrac{x}{2}$, but $\dfrac{1}{f(x)} = \dfrac{1}{2x}$, a different function.
 

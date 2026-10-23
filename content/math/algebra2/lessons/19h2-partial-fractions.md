@@ -46,13 +46,13 @@ This **cover-up method**, often named after the English engineer Oliver Heavisid
 
 How many unknowns should a decomposition have? The numerator of a proper fraction whose denominator has degree $n$ can be any polynomial of degree less than $n$, which has $n$ coefficients. So the decomposition needs exactly $n$ unknowns to be able to match every possible numerator. Each linear factor contributes one, which is why Example 1, with denominator degree 2, needed $A$ and $B$. The same count explains the two harder cases.
 
-**Repeated linear factors.** A factor $(x - r)^k$ gets $k$ terms, one for each power:
+*Repeated linear factors.* A factor $(x - r)^k$ gets $k$ terms, one for each power:
 
 $$\frac{A_1}{x - r} + \frac{A_2}{(x - r)^2} + \cdots + \frac{A_k}{(x - r)^k}.$$
 
 A single term $\dfrac{A}{(x - r)^2}$ has only one unknown, but $(x - r)^2$ has degree 2. It can't produce $\dfrac{x}{(x - 1)^2}$, which equals $\dfrac{1}{x - 1} + \dfrac{1}{(x - 1)^2}$.
 
-**Irreducible quadratic factors.** A quadratic with no real roots, like $x^2 + 1$ or $x^2 + 4x + 5$ (negative discriminant), can't be factored over the real numbers; it is called an **irreducible quadratic**. It gets one term with a linear numerator, $\dfrac{Bx + C}{x^2 + 1}$: two unknowns for a factor of degree 2.
+*Irreducible quadratic factors.* A quadratic with no real roots, like $x^2 + 1$ or $x^2 + 4x + 5$ (negative discriminant), can't be factored over the real numbers; it is called an **irreducible quadratic**. It gets one term with a linear numerator, $\dfrac{Bx + C}{x^2 + 1}$: two unknowns for a factor of degree 2.
 
 A theorem of algebra, proved in more advanced courses, guarantees that with these terms every proper rational function (with real coefficients) has exactly one decomposition. That is why the systems you set up always have a solution, and only one.
 

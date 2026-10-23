@@ -2,7 +2,7 @@
 id: a2-h-bayes
 module: a2-m8
 honors: true
-title: 'Honors: Bayes'' theorem and reasoning from evidence'
+title: "Bayes' theorem and reasoning from evidence"
 minutes: 45
 topics: [Bayes' theorem]
 drills: [a2-m8-r2-total-prob, a2-m8-r2-bayes-test]

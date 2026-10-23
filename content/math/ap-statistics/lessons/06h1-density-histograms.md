@@ -15,7 +15,7 @@ height equal to the count. Three questions were left open. What if the bins are 
 as in many published tables (age groups, income brackets)? How should you choose the bin width,
 when a different choice can make the same data look different? And can you replace the
 staircase of bars with a smooth curve? This honors lesson answers all three. The common thread
-is one idea: in a well-made histogram, **area**, not height, shows how much of the data falls
+is one idea: in a well-made histogram, *area*, not height, shows how much of the data falls
 in a range.
 
 ## Unequal bins and the density scale

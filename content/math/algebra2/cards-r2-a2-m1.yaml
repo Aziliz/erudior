@@ -15,3 +15,5 @@
 - {front: Self-inverse function, back: '$f(f(x)) = x$; the graph is symmetric about $y = x$. Examples: $c - x$, $\tfrac{k}{x}$, $\tfrac{ax + b}{cx - a}$.', topic: Inverse functions}
 - {front: 'Inverse of $\dfrac{ax + b}{cx + d}$', back: '$\dfrac{dx - b}{-cx + a}$ (when $ad - bc \ne 0$)', topic: Inverse functions}
 - {front: Where f meets its inverse (f increasing), back: 'Only on $y = x$: solve $f(x) = x$. Not true for decreasing functions, e.g. $-x^3$ meets $-\sqrt[3]{x}$ at $(1, -1)$.', topic: Monotonic functions}
+- {front: Monotonic function, back: 'Strictly increasing or strictly decreasing on an interval: $a < b$ gives $f(a) < f(b)$, or always $f(a) > f(b)$.', topic: Monotonic functions}
+- {front: 'One-to-one but not monotonic', back: '$\tfrac1x$: it never repeats an output, but $f(-1) < f(1)$ while $f(1) > f(2)$. It decreases on each piece separately.', topic: Monotonic functions}

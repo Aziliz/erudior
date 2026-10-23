@@ -80,7 +80,7 @@ The second line confuses people: if $a$ is negative, then $-a$ is positive. For 
 Because absolute value measures distance from zero, $|a - b|$ measures the distance between $a$ and $b$. The distance from $-3$ to $4$ is $|4 - (-3)| = |7| = 7$; you can count the seven steps on the number line. Order doesn't matter: $|-3 - 4| = |-7| = 7$ too.
 
 ```numberline
-{"x": [-5, 6], "points": [{"at": [-3, 0], "label": "-3"}, {"at": [4, 0], "label": "4"}], "segments": [{"from": [-3, 0], "to": [4, 0], "label": "7 units"}], "caption": "The distance between -3 and 4 is |4 - (-3)| = 7"}
+{"x": [-5, 6], "points": [{"at": [-3, 0], "label": "-3"}, {"at": [4, 0], "label": "4"}], "segments": [{"from": [-3, 0], "to": [4, 0]}], "caption": "The distance between -3 and 4 is |4 - (-3)| = 7"}
 ```
 
 ## Operations with signed numbers and fractions

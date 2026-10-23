@@ -1,0 +1,34 @@
+# Round 2 notecards for alg-m3 (Functions and linear functions)
+# Core
+- {front: 'Mapping diagram: how can you tell it shows a function?', back: 'Exactly one arrow leaves each input. Several arrows may arrive at the same output.', topic: Functions}
+- {front: 'Domain from a formula: what to check, in order', back: 'Exclude zeros of denominators; require even-root radicands $\ge 0$ ($> 0$ if the root is in a denominator); then restrict to inputs that make sense in context.', topic: Domain and range}
+- {front: 'Parallel, perpendicular or neither? (non-vertical lines)', back: 'Equal slopes: parallel (or the same line if the intercepts match too). Slopes multiplying to $-1$: perpendicular. Otherwise: neither.', topic: Parallel and perpendicular}
+# Honors: Inverse functions
+- {front: 'Definition of $f^{-1}$', back: '$f^{-1}(b) = a$ exactly when $f(a) = b$. The inverse sends each output of $f$ back to its input.', topic: Inverse functions}
+- {front: 'Is $f^{-1}(x)$ the same as $\dfrac{1}{f(x)}$?', back: 'No. The $-1$ is not an exponent. For $f(x) = 2x$: $f^{-1}(x) = \tfrac{x}{2}$, but $\tfrac{1}{f(x)} = \tfrac{1}{2x}$.', topic: Inverse functions}
+- {front: 'Which functions have inverses?', back: 'Exactly the one-to-one functions: different inputs give different outputs. Graph test: the horizontal line test.', topic: Inverse functions}
+- {front: 'Steps to find $f^{-1}$ from a formula', back: 'Write $y = f(x)$, swap $x$ and $y$, solve for $y$. Then check that $f(f^{-1}(x)) = x$ and $f^{-1}(f(x)) = x$.', topic: Inverse functions}
+- {front: 'Inverse of $f(x) = mx + b$ ($m \ne 0$)', back: '$f^{-1}(x) = \dfrac{x - b}{m}$, a line with slope $\tfrac1m$ (the reciprocal, not the negative reciprocal).', topic: Inverse functions}
+- {front: 'Domain and range of $f^{-1}$', back: 'They swap: the domain of $f^{-1}$ is the range of $f$, and the range of $f^{-1}$ is the domain of $f$.', topic: Inverse functions}
+- {front: 'How are the graphs of $f$ and $f^{-1}$ related?', back: 'Mirror images across the line $y = x$: each point $(a, b)$ on $f$ becomes $(b, a)$ on $f^{-1}$.', topic: Inverse functions}
+- {front: 'Why does the inverse undo the steps in reverse order?', back: 'The last step of $f$ must be undone first, like taking off shoes before socks. $f(x) = 3x - 7$ multiplies then subtracts, so $f^{-1}(x) = \tfrac{x + 7}{3}$ adds then divides.', topic: Inverse functions}
+- {front: 'Inverse of $x^2$', back: 'Only after restricting the domain: on $x \ge 0$, the inverse of $x^2$ is $\sqrt{x}$.', topic: Inverse functions}
+- {front: 'In context, what does $C^{-1}(40)$ mean if $C(n)$ is the cost of $n$ items?', back: 'The number of items that cost 40. The input and output (and their units) swap.', topic: Inverse functions}
+# Honors: Piecewise linear models
+- {front: 'Writing the piece after a breakpoint', back: 'Use point-slope form through the breakpoint: \$35 including 10 GB, then \$6/GB gives $35 + 6(g - 10)$ for $g > 10$, not $35 + 6g$.', topic: Piecewise linear models}
+- {front: 'How do you check that a piecewise linear function is continuous?', back: 'At each breakpoint, plug the breakpoint into both neighboring formulas; the pieces meet when the values are equal.', topic: Piecewise linear models}
+- {front: 'Find $k$ so that $\begin{cases} 2x + 1, & x < 3 \\ kx - 5, & x \ge 3 \end{cases}$ is continuous', back: 'At $x = 3$: $7 = 3k - 5$, so $k = 4$.', topic: Piecewise linear models}
+- {front: 'How do tax brackets work?', back: 'Income is split into layers, and each rate applies only to the income in its own layer, never to the whole income.', topic: Piecewise linear models}
+- {front: 'Marginal vs average tax rate', back: 'Marginal: the rate on the next dollar (slope of the current piece). Average: total tax ÷ total income, $\tfrac{T(x)}{x}$.', topic: Piecewise linear models}
+- {front: 'Can a raise that crosses into a higher bracket lower take-home pay?', back: 'Not under a continuous bracket schedule: only the dollars above the breakpoint pay the higher rate, so after-tax income still rises.', topic: Piecewise linear models}
+- {front: 'Working a piecewise model backward', back: 'Compare the target output with the outputs at the breakpoints to pick the piece, solve that piece''s equation, and check the answer satisfies its condition.', topic: Piecewise linear models}
+- {front: 'A solution of one piece''s equation lies outside that piece''s interval. What now?', back: 'Reject it: a piece''s formula only applies to inputs that satisfy its condition.', topic: Piecewise linear models}
+# Honors: Average rate of change
+- {front: 'Average rate of change of $f$ on $[a, b]$', back: '$\dfrac{f(b) - f(a)}{b - a}$, the slope of the secant line through $(a, f(a))$ and $(b, f(b))$.', topic: Average rate of change}
+- {front: 'Average rate on an interval made of two parts', back: 'Total change over total change. Don''t average the two parts'' rates unless the parts have equal length.', topic: Average rate of change}
+- {front: 'Rates over equal-width intervals keep increasing. What does the graph do?', back: 'It bends upward. Decreasing rates mean it bends downward; equal rates mean a line.', topic: Average rate of change}
+- {front: 'Average rate of change of $ax^2 + bx + c$ on $[p, q]$', back: '$a(p + q) + b$. (From $q^2 - p^2 = (q - p)(q + p)$.)', topic: Average rate of change}
+- {front: 'Difference quotient', back: '$\dfrac{f(a + h) - f(a)}{h}$, $h \ne 0$: the average rate of change on the interval from $a$ to $a + h$.', topic: Average rate of change}
+- {front: 'Instantaneous rate of change of $x^2$ at $x = 3$', back: 'The difference quotient simplifies to $6 + h$, which approaches 6 as $h \to 0$. The tangent line at $(3, 9)$ has slope 6.', topic: Average rate of change}
+- {front: 'Why can''t you set $h = 0$ in a difference quotient right away?', back: 'It gives $\tfrac00$, which is meaningless. Simplify first, then see what the result approaches as $h$ gets close to 0.', topic: Average rate of change}
+- {front: 'Average velocity of a ball with height $h(t)$ on $[t_1, t_2]$', back: '$\dfrac{h(t_2) - h(t_1)}{t_2 - t_1}$; positive means rising, negative means falling, 0 means back at the same height.', topic: Average rate of change}

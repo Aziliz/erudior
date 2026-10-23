@@ -94,8 +94,8 @@ flowchart TD
   A{"Is r = 1?"} -- yes --> B["Arithmetic: changes by d each step"]
   A -- no --> C["Find E = d / (1 − r)"]
   C --> D{"Is r less than 1?"}
-  D -- "yes, 0 < r < 1" --> F["Terms approach E: stable"]
-  D -- "no, r > 1" --> G["Terms move away from E: unstable"]
+  D -- "yes: r between 0 and 1" --> F["Terms approach E: stable"]
+  D -- "no: r greater than 1" --> G["Terms move away from E: unstable"]
 ```
 
 ### Example 3: Saving every month

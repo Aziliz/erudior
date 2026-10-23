@@ -1,0 +1,34 @@
+# Round 2, module stat-m1: cards for the three honors lessons.
+# Density histograms and smoothing
+- {front: 'Density (histogram)', back: 'Relative frequency ÷ bin width. Bar area = proportion of the data in the bin; all areas add to 1.', topic: 'Density histograms and smoothing'}
+- {front: 'When must you use a density histogram?', back: 'Whenever bins have unequal widths. Counts over wide bins overstate their share because the eye reads area.', topic: 'Density histograms and smoothing'}
+- {front: 'Proportion from a density histogram', back: 'Proportion ≈ density × width of the stretch (assuming values spread evenly within the bin).', topic: 'Density histograms and smoothing'}
+- {front: 'Bin width trade-off', back: 'Too wide: real features (a second peak) vanish. Too narrow: random spikes. Try several widths and starting points.', topic: 'Density histograms and smoothing'}
+- {front: 'Sturges'' rule', back: '$k = 1 + \log_2 n$ bins, rounded up. Too few bins for large $n$.', topic: 'Density histograms and smoothing'}
+- {front: 'Scott''s rule', back: 'Bin width $h = 3.49\,s\,n^{-1/3}$.', topic: 'Density histograms and smoothing'}
+- {front: 'Freedman–Diaconis rule', back: 'Bin width $h = 2\,\text{IQR}\,n^{-1/3}$; resistant to outliers.', topic: 'Density histograms and smoothing'}
+- {front: 'Kernel density estimate', back: '$\hat{f}(x) = \dfrac{1}{nh}\sum K\!\left(\dfrac{x - x_i}{h}\right)$: a bump of area $1/n$ on each value, added up. Total area 1.', topic: 'Density histograms and smoothing'}
+- {front: 'Effect of the bandwidth $h$', back: 'Small $h$: wiggly curve with spikes. Large $h$: smooth curve that can merge real peaks. Report $h$.', topic: 'Density histograms and smoothing'}
+- {front: 'Silverman''s rule of thumb', back: '$h = 0.9\min(s, \text{IQR}/1.34)\,n^{-1/5}$ for a normal kernel.', topic: 'Density histograms and smoothing'}
+- {front: 'KDE boundary problem', back: 'For values that can''t go below 0 (times, prices), normal bumps spill area onto impossible negative values.', topic: 'Density histograms and smoothing'}
+# Robust statistics
+- {front: 'What the mean minimizes', back: '$\sum (x_i - c)^2$, because $\sum (x_i - c)^2 = \sum (x_i - \bar{x})^2 + n(\bar{x} - c)^2$.', topic: 'Robust statistics'}
+- {front: 'What the median minimizes', back: '$\sum |x_i - c|$. For even $n$, any $c$ between the two middle values.', topic: 'Robust statistics'}
+- {front: 'Midrange', back: '$(\min + \max)/2$; minimizes the largest distance $\max|x_i - c|$. Least resistant center.', topic: 'Robust statistics'}
+- {front: 'Breakdown point', back: 'Smallest fraction of wild values that can push a statistic anywhere. Mean, SD, range: one value. IQR: 25%. Median, MAD: about 50%.', topic: 'Robust statistics'}
+- {front: 'Trimmed vs winsorized mean', back: 'Trimmed: drop $p\%$ from each end, average the rest. Winsorized: replace them with the most extreme remaining values, average all $n$.', topic: 'Robust statistics'}
+- {front: 'MAD', back: '$\text{median}\,|x_i - \text{median}|$. Breakdown point 50%.', topic: 'Robust statistics'}
+- {front: 'Robust estimates of $\sigma$ (normal data)', back: '$1.4826 \times \text{MAD}$ or $\text{IQR}/1.349$.', topic: 'Robust statistics'}
+- {front: 'Modified z-score', back: '$M = 0.6745\,(x - \text{median})/\text{MAD}$; flag $|M| > 3.5$.', topic: 'Robust statistics'}
+- {front: 'Masking', back: 'Several outliers inflate $\bar{x}$ and $s$ and so shrink their own z-scores. Robust flags (MAD, IQR) avoid it.', topic: 'Robust statistics'}
+- {front: 'Is a high breakdown point always better?', back: 'No. For clean, roughly normal data the mean and SD vary less from sample to sample than the median and MAD.', topic: 'Robust statistics'}
+# Grouped and combined data
+- {front: 'Mean and SD from a frequency table', back: '$\bar{x} = \sum fx/n$, $s^2 = \sum f(x - \bar{x})^2/(n - 1)$, with $n = \sum f$. Exact.', topic: 'Grouped and combined data'}
+- {front: 'Mean and SD from grouped data', back: 'Use bin midpoints $m$ in place of values: estimates, assuming values spread evenly in each bin.', topic: 'Grouped and combined data'}
+- {front: 'Median from grouped data', back: '$L + \dfrac{n/2 - F}{f}\,w$: $L$ = start of the median''s bin, $F$ = count below it, $f$ = its count, $w$ = width.', topic: 'Grouped and combined data'}
+- {front: 'Totals from a group''s summary', back: '$\sum x = n\bar{x}$ and $\sum x^2 = (n - 1)s^2 + n\bar{x}^2$.', topic: 'Grouped and combined data'}
+- {front: 'Combined mean of groups', back: '$\bar{x} = \dfrac{\sum n_j\bar{x}_j}{\sum n_j}$: weight each mean by its group size.', topic: 'Grouped and combined data'}
+- {front: 'Combined variance of groups', back: '$(N - 1)s^2 = \sum (n_j - 1)s_j^2 + \sum n_j(\bar{x}_j - \bar{x})^2$: within groups + between groups.', topic: 'Grouped and combined data'}
+- {front: 'Can medians be combined from summaries?', back: 'No. The combined median depends on how values are arranged within each group; you need the raw data or common bins.', topic: 'Grouped and combined data'}
+- {front: 'Updating a mean with one new value', back: '$\bar{x}_{n+1} = \bar{x}_n + \dfrac{x - \bar{x}_n}{n + 1}$.', topic: 'Grouped and combined data'}
+- {front: 'Welford update for spread', back: '$SS_{n+1} = SS_n + (x - \bar{x}_n)(x - \bar{x}_{n+1})$, then $s^2 = SS/(n - 1)$ with the new $n$.', topic: 'Grouped and combined data'}

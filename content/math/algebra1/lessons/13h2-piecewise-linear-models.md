@@ -141,5 +141,5 @@ What if you skipped step 2 and tried the third piece? $10{,}000 + 0.30(x - 60{,}
 - A piecewise linear model changes rate at breakpoints; write each later piece in point-slope form through the previous breakpoint.
 - A piecewise linear function is continuous when neighboring formulas agree at every breakpoint; setting them equal finds a missing constant.
 - In a bracket system, each rate applies only to the income in its layer. The marginal rate is the slope of the current piece; the average rate is $T(x)/x$.
-- With increasing bracket rates, the average rate is below the marginal rate.
+- With increasing bracket rates, the average rate is below the marginal rate once income is past the first bracket.
 - To run a model backward, compare with the outputs at the breakpoints to choose the piece, then solve and check the condition.

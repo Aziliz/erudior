@@ -1,0 +1,727 @@
+# Round 2: alg-m6 (Quadratic equations and functions). Core lessons: alg-m6-r2-q01 … q30.
+# Honors lessons: alg-m6-r2-h01 … h39.
+
+# ---------- Lesson 22: solving by factoring ----------
+- id: alg-m6-r2-q01
+  lesson: alg-quad-factoring
+  type: text
+  module_quiz: true
+  topic: Quadratic equations
+  stem: 'Solve $x^2 - 3x - 28 = 0$ by factoring. The smaller solution is $x =$ ___ and the larger is $x =$ ___. (Give only the numbers.)'
+  accept:
+    - ['-4']
+    - ['7']
+  explanation: |-
+    Two numbers with product $-28$ and sum $-3$ are $-7$ and 4, so $x^2 - 3x - 28 = (x - 7)(x + 4) = 0$. Then $x - 7 = 0$ or $x + 4 = 0$, giving $x = 7$ or $x = -4$. Check: $49 - 21 - 28 = 0$ and $16 + 12 - 28 = 0$.
+- id: alg-m6-r2-q02
+  lesson: alg-quad-factoring
+  type: order
+  topic: Quadratic equations
+  stem: 'Put the steps for solving $x^2 + 4x = 21$ in order.'
+  items:
+    - 'Subtract 21 from both sides: $x^2 + 4x - 21 = 0$'
+    - 'Factor: $(x + 7)(x - 3) = 0$'
+    - 'Set each factor equal to zero: $x + 7 = 0$ or $x - 3 = 0$'
+    - 'Solve: $x = -7$ or $x = 3$'
+    - 'Check both values in $x^2 + 4x = 21$'
+  explanation: |-
+    The zero product property needs 0 on one side, so the equation goes into standard form first. Then factor, set each factor to zero, solve, and check: $49 - 28 = 21$ and $9 + 12 = 21$.
+- id: alg-m6-r2-q03
+  lesson: alg-quad-factoring
+  topic: Quadratic equations
+  stem: 'Which values are solutions of $2x^2 - 8x = 0$? Select all that apply.'
+  choices: ['$x = 0$', '$x = 4$', '$x = -4$', '$x = 8$']
+  answer: [0, 1]
+  explanation: |-
+    Factor out the GCF: $2x(x - 4) = 0$, so $x = 0$ or $x = 4$. Dividing both sides by $x$ would lose $x = 0$. $-4$ comes from a sign slip, and 8 from reading the coefficient $-8$ as a root.
+- id: alg-m6-r2-q04
+  lesson: alg-quad-factoring
+  type: match
+  module_quiz: true
+  topic: Quadratic equations
+  stem: 'Match each equation to its solutions.'
+  pairs:
+    - ['$(x + 5)(x - 3) = 0$', 'x = -5 or x = 3']
+    - ['$(x - 5)(x + 3) = 0$', 'x = 5 or x = -3']
+    - ['$x(x - 5) = 0$', 'x = 0 or x = 5']
+    - ['$(x - 5)^2 = 0$', 'x = 5 only (a double root)']
+  distractors: ['x = 3 or x = 5']
+  explanation: |-
+    Each factor $x - r$ gives the root $r$, so $x + 5$ gives $-5$ and $x - 3$ gives 3. In $x(x - 5) = 0$ the factor $x$ gives the root 0. In $(x - 5)^2 = 0$ both factors give 5: one solution, a double root.
+- id: alg-m6-r2-q05
+  lesson: alg-quad-factoring
+  type: text
+  topic: Quadratic equations
+  stem: 'The product of two consecutive positive integers is 132. The smaller integer is ___.'
+  accept: ['11']
+  explanation: |-
+    Let the integers be $n$ and $n + 1$: $n(n + 1) = 132$, so $n^2 + n - 132 = 0$ and $(n + 12)(n - 11) = 0$. Reject $n = -12$ (the integers must be positive), so $n = 11$ and the integers are 11 and 12. Check: $11 \times 12 = 132$.
+
+# ---------- Lesson 23: square root property and completing the square ----------
+- id: alg-m6-r2-q06
+  lesson: alg-complete-square
+  type: label
+  module_quiz: true
+  topic: Quadratic equations
+  stem: 'The picture shows completing the square on $x^2 + 6x$. Name the numbered parts.'
+  image: {src: images/alg-m6-area-model-blank.svg, alt: 'An x by x square with a 3 by x strip to its right and another 3 by x strip below it. A 3 by 3 corner square fills the bottom right. A bracket runs along the whole right side of the big square.'}
+  labels:
+    - {x: 38.3, y: 35.0, text: The x by x square}
+    - {x: 62.5, y: 35.0, text: A 3 by x strip}
+    - {x: 62.5, y: 71.2, text: The corner added to complete the square}
+    - {x: 75.0, y: 46.2, text: 'Side of the completed square, x + 3'}
+  distractors: [A strip of area 6x, 'Side of the completed square, x + 6']
+  explanation: |-
+    $x^2$ is the square (1). The $6x$ is split into two strips of $3x$ (2 is one of them), which is why you take half of 6. The missing corner (3) is $3 \times 3 = 9$, the $\left(\tfrac b2\right)^2$ you add. The finished square has side $x + 3$ (4), so $x^2 + 6x + 9 = (x + 3)^2$.
+- id: alg-m6-r2-q07
+  lesson: alg-complete-square
+  type: text
+  topic: Quadratic equations
+  stem: 'To complete the square on $x^2 - 12x$, you add ___. The result is $(x - k)^2$ with $k =$ ___. (Give only the numbers.)'
+  accept:
+    - ['36']
+    - ['6']
+  explanation: |-
+    Half of $-12$ is $-6$, and $(-6)^2 = 36$. So $x^2 - 12x + 36 = (x - 6)^2$, and $k = 6$. Adding half of $b$ (6) instead of its square is a common slip.
+- id: alg-m6-r2-q08
+  lesson: alg-complete-square
+  type: order
+  topic: Quadratic equations
+  stem: 'Put the steps for solving $2x^2 + 8x - 10 = 0$ by completing the square in order.'
+  items:
+    - 'Divide every term by 2: $x^2 + 4x - 5 = 0$'
+    - 'Move the constant: $x^2 + 4x = 5$'
+    - 'Add 4 to both sides: $x^2 + 4x + 4 = 9$'
+    - 'Write the left side as a square: $(x + 2)^2 = 9$'
+    - 'Take square roots: $x + 2 = \pm 3$'
+    - 'Solve: $x = 1$ or $x = -5$'
+  explanation: |-
+    Make the leading coefficient 1 first, then move the constant, add $\left(\tfrac42\right)^2 = 4$ to both sides, rewrite as a square, and use the square root property. Check: $2 + 8 - 10 = 0$ and $50 - 40 - 10 = 0$.
+- id: alg-m6-r2-q09
+  lesson: alg-complete-square
+  module_quiz: true
+  topic: Quadratic equations
+  stem: 'Which equations have no real solution? Select all that apply.'
+  choices: ['$(x - 3)^2 = -4$', '$(x + 1)^2 = 0$', '$x^2 + 9 = 0$', '$2(x - 1)^2 + 5 = 3$']
+  answer: [0, 2, 3]
+  explanation: |-
+    A square of a real number is never negative. $(x - 3)^2 = -4$ and $x^2 = -9$ ask for a negative square. The last one becomes $2(x - 1)^2 = -2$, so $(x - 1)^2 = -1$: also impossible. $(x + 1)^2 = 0$ has one solution, $x = -1$.
+- id: alg-m6-r2-q10
+  lesson: alg-complete-square
+  type: match
+  topic: Quadratic equations
+  stem: 'Match each expression to its completed-square form.'
+  pairs:
+    - ['$x^2 + 8x + 10$', '(x + 4)² − 6']
+    - ['$x^2 - 8x + 10$', '(x − 4)² − 6']
+    - ['$x^2 + 8x + 20$', '(x + 4)² + 4']
+    - ['$x^2 + 4x + 10$', '(x + 2)² + 6']
+  distractors: ['(x + 8)² + 10']
+  explanation: |-
+    Half of $\pm 8$ is $\pm 4$ and its square is 16, so $x^2 \pm 8x + c = (x \pm 4)^2 + (c - 16)$: $10 - 16 = -6$ and $20 - 16 = 4$. For $x^2 + 4x + 10$, half of 4 is 2 and $10 - 4 = 6$. Using $b$ itself instead of half of it gives the wrong form $(x + 8)^2$.
+
+# ---------- Lesson 24: quadratic formula and discriminant ----------
+- id: alg-m6-r2-q11
+  lesson: alg-quad-formula
+  type: label
+  module_quiz: true
+  topic: Discriminant
+  stem: 'Each parabola is the graph of $y = ax^2 + bx + c$ for some equation $ax^2 + bx + c = 0$. Name the numbered parts.'
+  image: {src: images/alg-m6-discriminant-blank.svg, alt: 'Three upward parabolas, each drawn over its own x-axis. The first dips below its axis and crosses it at two points. The second just touches its axis at one point. The third stays entirely above its axis.'}
+  labels:
+    - {x: 17.4, y: 74.8, text: Two real roots (D > 0)}
+    - {x: 50.0, y: 59.4, text: One double root (D = 0)}
+    - {x: 82.6, y: 47.0, text: No real roots (D < 0)}
+    - {x: 25.8, y: 59.4, text: An x-intercept}
+  distractors: [The y-intercept, Two real roots (D < 0)]
+  explanation: |-
+    Real solutions are $x$-intercepts. The first parabola crosses the axis twice, so $D > 0$; marker 4 sits on one of its two $x$-intercepts. The second touches the axis once (a double root, $D = 0$). The third never meets the axis, so there are no real roots and $D < 0$.
+- id: alg-m6-r2-q12
+  lesson: alg-quad-formula
+  type: text
+  topic: Discriminant
+  stem: 'The discriminant of $2x^2 - 5x - 3 = 0$ is ___.'
+  accept: ['49']
+  explanation: |-
+    $b^2 - 4ac = (-5)^2 - 4(2)(-3) = 25 + 24 = 49$. It is a perfect square, so the roots are rational: $(2x + 1)(x - 3) = 0$ gives $x = -\tfrac12$ or $x = 3$. Getting 1 means the sign of $c$ was dropped.
+- id: alg-m6-r2-q13
+  lesson: alg-quad-formula
+  type: match
+  module_quiz: true
+  topic: Discriminant
+  stem: 'Match each equation to the kind of real solutions it has.'
+  pairs:
+    - ['$x^2 - 4x + 4 = 0$', 'Exactly one real solution']
+    - ['$x^2 - 4x + 5 = 0$', 'No real solutions']
+    - ['$x^2 - 4x + 3 = 0$', 'Two rational solutions']
+    - ['$x^2 - 4x + 1 = 0$', 'Two irrational solutions']
+  distractors: ['Three real solutions']
+  explanation: |-
+    With $b^2 = 16$, the discriminants are $16 - 16 = 0$, $16 - 20 = -4$, $16 - 12 = 4$ (a perfect square) and $16 - 4 = 12$ (positive, not a perfect square). A quadratic never has three solutions.
+- id: alg-m6-r2-q14
+  lesson: alg-quad-formula
+  type: order
+  topic: Quadratic formula
+  stem: 'Put the steps of the derivation of the quadratic formula from $ax^2 + bx + c = 0$ in order.'
+  items:
+    - 'Divide by $a$: $x^2 + \tfrac{b}{a}x + \tfrac{c}{a} = 0$'
+    - 'Move the constant: $x^2 + \tfrac{b}{a}x = -\tfrac{c}{a}$'
+    - 'Add $\tfrac{b^2}{4a^2}$ to both sides'
+    - 'Write the left side as $\left(x + \tfrac{b}{2a}\right)^2$'
+    - 'Take square roots: $x + \tfrac{b}{2a} = \pm\tfrac{\sqrt{b^2 - 4ac}}{2a}$'
+    - 'Subtract $\tfrac{b}{2a}$ from both sides'
+  explanation: |-
+    It is completing the square on the general equation: make the leading coefficient 1, move the constant, add the square of half of $\tfrac ba$, write the perfect square, use the square root property, and isolate $x$ to get $x = \tfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.
+- id: alg-m6-r2-q15
+  lesson: alg-quad-formula
+  topic: Quadratic formula
+  stem: 'Which are correct ways to write the solutions of $x^2 - 2x - 2 = 0$? Select all that apply.'
+  choices: ['$x = 1 \pm \sqrt3$', '$x = \dfrac{2 \pm \sqrt{12}}{2}$', '$x = 1 \pm 2\sqrt3$', '$x = 2 \pm \sqrt3$']
+  answer: [0, 1]
+  explanation: |-
+    $a = 1$, $b = -2$, $c = -2$: $b^2 - 4ac = 4 + 8 = 12$, so $x = \tfrac{2 \pm \sqrt{12}}{2} = \tfrac{2 \pm 2\sqrt3}{2} = 1 \pm \sqrt3$. Writing $1 \pm 2\sqrt3$ divides only the 2 by 2, not the $2\sqrt3$; $2 \pm \sqrt3$ forgets to divide the $-b$.
+
+# ---------- Lesson 25: graphing quadratic functions ----------
+- id: alg-m6-r2-q16
+  lesson: alg-quad-graphs
+  type: label
+  module_quiz: true
+  topic: Quadratic functions
+  stem: 'The graph shows $y = x^2 - 6x + 5$. Name the numbered parts.'
+  image: {src: images/alg-m6-parabola-parts-blank.svg, alt: 'An upward parabola on a coordinate grid, with a dashed vertical line through its lowest point. Points are marked at the lowest point, where the curve meets the y-axis, at the matching point on the other side of the dashed line, and where the curve crosses the x-axis.'}
+  labels:
+    - {x: 55.0, y: 84.1, text: Vertex}
+    - {x: 55.0, y: 39.8, text: Axis of symmetry}
+    - {x: 25.0, y: 22.7, text: y-intercept}
+    - {x: 75.0, y: 56.8, text: x-intercept}
+    - {x: 85.0, y: 22.7, text: Mirror image of the y-intercept}
+  distractors: [Maximum point, Origin]
+  explanation: |-
+    The vertex (1) is the turning point $(3, -4)$, a minimum because the parabola opens up, so "maximum point" is wrong. The dashed line $x = 3$ (2) is the axis of symmetry. The curve meets the $y$-axis at $(0, 5)$ (3) and crosses the $x$-axis at $(5, 0)$ (4). The point $(6, 5)$ (5) is the mirror image of the $y$-intercept across $x = 3$.
+- id: alg-m6-r2-q17
+  lesson: alg-quad-graphs
+  type: text
+  topic: Quadratic functions
+  stem: 'The vertex of $y = 2x^2 + 12x + 7$ is $(h, k)$ with $h =$ ___ and $k =$ ___.'
+  accept:
+    - ['-3']
+    - ['-11']
+  explanation: |-
+    $h = -\tfrac{b}{2a} = -\tfrac{12}{4} = -3$, and $k = 2(-3)^2 + 12(-3) + 7 = 18 - 36 + 7 = -11$. The vertex is $(-3, -11)$; in vertex form, $y = 2(x + 3)^2 - 11$.
+- id: alg-m6-r2-q18
+  lesson: alg-quad-graphs
+  type: match
+  module_quiz: true
+  topic: Quadratic functions
+  stem: 'Match each function to the vertex of its graph.'
+  pairs:
+    - ['$y = (x - 2)^2 + 5$', '(2, 5)']
+    - ['$y = (x + 2)^2 + 5$', '(-2, 5)']
+    - ['$y = -(x - 5)^2 + 2$', '(5, 2)']
+    - ['$y = x^2 - 4x + 9$', '(2, 5)']
+  distractors: ['(-2, -5)', '(5, -2)']
+  explanation: |-
+    In $a(x - h)^2 + k$ the vertex is $(h, k)$: $(x + 2)^2$ means $h = -2$. The sign of $a$ doesn't move the vertex. For $x^2 - 4x + 9$: $h = -\tfrac{-4}{2} = 2$ and $k = 4 - 8 + 9 = 5$, the same vertex as the first function (in fact it is the same function).
+- id: alg-m6-r2-q19
+  lesson: alg-quad-graphs
+  topic: Quadratic functions
+  stem: 'Which statements about $f(x) = -3(x - 1)^2 + 4$ are true? Select all that apply.'
+  choices: ['Its graph opens downward', 'Its vertex is $(1, 4)$', 'Its range is $[4, \infty)$', 'Its axis of symmetry is $x = 1$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $a = -3 < 0$, so it opens down, and the vertex $(1, 4)$ is the highest point. The axis is $x = 1$. Because 4 is the maximum, the range is $(-\infty, 4]$, not $[4, \infty)$.
+- id: alg-m6-r2-q20
+  lesson: alg-quad-graphs
+  type: order
+  topic: Quadratic functions
+  stem: 'Put these parabolas in order from narrowest to widest.'
+  items: ['$y = 3x^2$', '$y = -2x^2$', '$y = x^2$', '$y = 0.5x^2$', '$y = -0.2x^2$']
+  explanation: |-
+    Width depends only on $|a|$: the larger $|a|$, the narrower the parabola. Here $|a| = 3, 2, 1, 0.5, 0.2$. The sign of $a$ decides the direction, not the width, so $y = -2x^2$ is narrower than $y = x^2$.
+
+# ---------- Lesson 26: applications ----------
+- id: alg-m6-r2-q21
+  lesson: alg-quad-apps
+  type: label
+  module_quiz: true
+  topic: Quadratic applications
+  stem: 'The graph shows the height of a ball thrown upward from a platform, $h(t) = -16t^2 + 40t + 6$ (feet, seconds). Name the numbered points.'
+  image: {src: images/alg-m6-projectile-blank.svg, alt: 'A downward parabola on axes labeled t in seconds and h in feet. It starts on the h-axis a little above 0, rises to a peak just after t = 1, and comes down to the t-axis between t = 2 and t = 3. Dashed lines run from the peak to both axes.'}
+  labels:
+    - {x: 15.0, y: 72.9, text: Starting height}
+    - {x: 46.2, y: 19.3, text: Maximum height}
+    - {x: 46.2, y: 85.7, text: Time of the maximum}
+    - {x: 81.0, y: 85.7, text: Landing time}
+  distractors: [Horizontal distance traveled, Initial velocity]
+  explanation: |-
+    1 is $h(0) = 6$ ft, the starting height. 2 is the vertex: the maximum height, $h(1.25) = 31$ ft. 3 is the vertex's $t$-coordinate, $t = -\tfrac{40}{2(-16)} = 1.25$ s. 4 is where $h = 0$, at about $t = 2.64$ s. The horizontal axis is time, not distance: the ball goes straight up and down.
+- id: alg-m6-r2-q22
+  lesson: alg-quad-apps
+  type: text
+  topic: Quadratic applications
+  stem: 'A ball''s height in feet is $h(t) = -16t^2 + 48t + 10$. It reaches its maximum height at $t =$ ___ seconds, and the maximum height is ___ feet. (Give only the numbers.)'
+  accept:
+    - ['1.5', '3/2']
+    - ['46']
+  explanation: |-
+    $t = -\tfrac{48}{2(-16)} = 1.5$ s, and $h(1.5) = -16(2.25) + 72 + 10 = -36 + 82 = 46$ ft. The first number says when; the second says how high.
+- id: alg-m6-r2-q23
+  lesson: alg-quad-apps
+  type: match
+  topic: Quadratic applications
+  stem: 'A ball''s height is $h(t) = -16t^2 + 64t + 80$. Match each question to the calculation that answers it.'
+  pairs:
+    - ['When is the ball highest?', 'Compute t = -b/(2a)']
+    - ['How high does the ball get?', 'Evaluate h at the vertex time']
+    - ['When does the ball hit the ground?', 'Solve h(t) = 0 and keep the positive root']
+    - ['How high is the ball at the start?', 'Evaluate h(0)']
+  distractors: ['Solve h(t) = 80 and keep the negative root']
+  explanation: |-
+    Questions about when ask for an input $t$; questions about how high ask for an output $h(t)$. Here the peak is at $t = 2$, with $h(2) = 144$ ft; it starts at $h(0) = 80$ ft; and $-16t^2 + 64t + 80 = 0$ gives $t^2 - 4t - 5 = 0$, so $t = 5$ s (rejecting $t = -1$).
+- id: alg-m6-r2-q24
+  lesson: alg-quad-apps
+  module_quiz: true
+  topic: Quadratic applications
+  stem: 'A farmer has 100 m of fence for the three sides of a rectangular pen along a river. Let $x$ be the length of each side perpendicular to the river. Which statements are true? Select all that apply.'
+  choices: ['The area is $A(x) = x(100 - 2x)$', 'The area is largest when $x = 25$', 'The largest possible area is 1,250 m²', 'The pen with the largest area is a square']
+  answer: [0, 1, 2]
+  explanation: |-
+    The side along the river is $100 - 2x$, so $A(x) = x(100 - 2x) = -2x^2 + 100x$. The vertex is at $x = -\tfrac{100}{2(-2)} = 25$, giving a 25 m by 50 m pen with area 1,250 m². It is not a square: along a river the long side is twice the short side.
+- id: alg-m6-r2-q25
+  lesson: alg-quad-apps
+  type: order
+  topic: Quadratic applications
+  stem: 'A ball''s height in feet is $h(t) = -16t^2 + 64t + 4$. Put these events in the order they happen.'
+  items:
+    - 'The ball leaves the hand at 4 ft'
+    - 'The ball passes 52 ft on the way up'
+    - 'The ball reaches its maximum height'
+    - 'The ball passes 52 ft on the way down'
+    - 'The ball hits the ground'
+  explanation: |-
+    $h(0) = 4$. Setting $h(t) = 52$ gives $-16t^2 + 64t - 48 = 0$, so $t^2 - 4t + 3 = 0$ and $t = 1$ or $t = 3$. The maximum is at $t = 2$ (height 68 ft), halfway between. The ball lands when $h(t) = 0$, at about $t = 4.06$ s.
+
+# ---------- Lesson 27: solving f(x) = g(x) ----------
+- id: alg-m6-r2-q26
+  lesson: a1-solve-fg
+  type: label
+  module_quiz: true
+  topic: Solving f(x) = g(x)
+  stem: 'Each panel shows the parabola $y = x^2$ and a dashed line. Name the numbered parts.'
+  image: {src: images/alg-m6-line-parabola-blank.svg, alt: 'Three panels, each with the parabola y = x² on axes and a dashed line. In the first panel the line crosses the parabola at two marked points. In the second it touches the parabola at one marked point. In the third it passes below the parabola without meeting it.'}
+  labels:
+    - {x: 19.4, y: 40.2, text: Line crossing twice (D > 0)}
+    - {x: 27.6, y: 27.9, text: A solution of the system}
+    - {x: 47.3, y: 77.0, text: Tangent line (D = 0)}
+    - {x: 92.1, y: 63.9, text: Line that misses (D < 0)}
+  distractors: [The vertex of the parabola, Tangent line (D > 0)]
+  explanation: |-
+    Substituting a line into $y = x^2$ gives a quadratic whose discriminant counts the common points. The first line crosses twice ($D > 0$), and each crossing point, such as 2, solves the system. The second line touches once: a tangent, $D = 0$. The third never meets the parabola, so $D < 0$.
+- id: alg-m6-r2-q27
+  lesson: a1-solve-fg
+  type: text
+  topic: Solving f(x) = g(x)
+  stem: 'The system $y = x^2 - 3x$ and $y = x + 5$ has two solutions. The one with the larger $x$-value has $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['5']
+    - ['10']
+  explanation: |-
+    Set the expressions equal: $x^2 - 3x = x + 5$, so $x^2 - 4x - 5 = 0$ and $(x - 5)(x + 1) = 0$. The larger is $x = 5$, and the line gives $y = 5 + 5 = 10$. Check in the parabola: $25 - 15 = 10$. (The other solution is $(-1, 4)$.)
+- id: alg-m6-r2-q28
+  lesson: a1-solve-fg
+  type: match
+  module_quiz: true
+  topic: Solving f(x) = g(x)
+  stem: 'Match each line to the number of points it shares with the parabola $y = x^2$.'
+  pairs:
+    - ['$y = 4x - 4$', 'One point (tangent)']
+    - ['$y = 4x - 3$', 'Two points']
+    - ['$y = 4x - 5$', 'No points']
+    - ['$y = -1$', 'No points']
+  distractors: ['Three points']
+  explanation: |-
+    Setting $x^2 = 4x + k$ gives $x^2 - 4x - k = 0$ with $D = 16 + 4k$: for $k = -4$, $D = 0$; for $k = -3$, $D = 4 > 0$; for $k = -5$, $D = -4 < 0$. The line $y = -1$ lies below the parabola, since $x^2 \ge 0$. A line and a parabola never share three points.
+- id: alg-m6-r2-q29
+  lesson: a1-solve-fg
+  topic: Solving f(x) = g(x)
+  stem: 'Which statements about the graphs of $f(x) = x^2 - 2x$ and $g(x) = 2x - 4$ are true? Select all that apply.'
+  choices: ['They meet at exactly one point', 'They meet at $(2, 0)$', 'The line is tangent to the parabola', 'The solutions of $f(x) = g(x)$ are $x = 0$ and $x = 2$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $x^2 - 2x = 2x - 4$ gives $x^2 - 4x + 4 = 0$, that is $(x - 2)^2 = 0$, with discriminant 0. So there is one common point, at $x = 2$, where $g(2) = 0$: the line touches the parabola at $(2, 0)$ and is tangent there. $x = 0$ is a root of $f$ alone, not a solution of $f(x) = g(x)$.
+- id: alg-m6-r2-q30
+  lesson: a1-solve-fg
+  type: order
+  topic: Solving f(x) = g(x)
+  stem: 'Put the steps for solving the system $y = x^2 + 2x - 3$ and $y = 3x - 1$ in order.'
+  items:
+    - 'Set the expressions equal: $x^2 + 2x - 3 = 3x - 1$'
+    - 'Rearrange: $x^2 - x - 2 = 0$'
+    - 'Factor: $(x - 2)(x + 1) = 0$'
+    - 'Get the $x$-values: $x = 2$ or $x = -1$'
+    - 'Find each $y$ from the line: $(2, 5)$ and $(-1, -4)$'
+  explanation: |-
+    Both equations are solved for $y$, so set them equal, move everything to one side, factor and solve for $x$, then use the line for $y$. Check in the parabola: $4 + 4 - 3 = 5$ and $1 - 2 - 3 = -4$.
+
+# ---------- Honors: sums and products of roots ----------
+- id: alg-m6-r2-h01
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'What is the sum of the roots of $3x^2 - 12x + 5 = 0$?'
+  choices: ['$-4$', '$4$', '$\tfrac53$', '$12$']
+  answer: 1
+  explanation: |-
+    The discriminant is $144 - 60 = 84 > 0$, so there are two real roots. Their sum is $-\tfrac{b}{a} = -\tfrac{-12}{3} = 4$. $-4$ forgets the minus sign in $-\tfrac ba$; $\tfrac53$ is the product $\tfrac ca$; 12 forgets to divide by $a$.
+- id: alg-m6-r2-h02
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'What is the product of the roots of $2x^2 + 7x - 6 = 0$?'
+  choices: ['$-6$', '$3$', '$-\tfrac72$', '$-3$']
+  answer: 3
+  explanation: |-
+    $D = 49 + 48 = 97 > 0$. The product is $\tfrac{c}{a} = \tfrac{-6}{2} = -3$. $-6$ forgets to divide by $a$; $-\tfrac72$ is the sum $-\tfrac ba$.
+- id: alg-m6-r2-h03
+  lesson: alg-m6-h-vieta
+  type: text
+  topic: Sums and products of roots
+  stem: 'The equation $x^2 + bx + c = 0$ has roots 4 and $-9$. Then $b =$ ___ and $c =$ ___.'
+  accept:
+    - ['5']
+    - ['-36']
+  explanation: |-
+    The sum of the roots is $4 + (-9) = -5$, and the sum equals $-b$, so $b = 5$. The product is $4 \cdot (-9) = -36 = c$. Check: $(x - 4)(x + 9) = x^2 + 5x - 36$.
+- id: alg-m6-r2-h04
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'Two numbers have sum 13 and product 40. Which equation has them as its roots?'
+  choices: ['$x^2 + 13x + 40 = 0$', '$x^2 - 40x + 13 = 0$', '$x^2 - 13x + 40 = 0$', '$x^2 + 13x - 40 = 0$']
+  answer: 2
+  explanation: |-
+    Numbers with sum $S$ and product $P$ are the roots of $x^2 - Sx + P = 0$, here $x^2 - 13x + 40 = 0$. It factors as $(x - 5)(x - 8)$: the numbers are 5 and 8. The equation $x^2 + 13x + 40 = 0$ has roots $-5$ and $-8$, whose sum is $-13$.
+- id: alg-m6-r2-h05
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'Are there two real numbers whose sum is 6 and whose product is 10?'
+  choices: ['Yes: 2 and 5', 'Yes: 1 and 10', 'No: two numbers with a positive product can''t have a positive sum', 'No: $x^2 - 6x + 10 = 0$ has a negative discriminant']
+  answer: 3
+  explanation: |-
+    Such numbers would be the roots of $x^2 - 6x + 10 = 0$, whose discriminant is $36 - 40 = -4 < 0$. With sum 6, the product can be at most $\tfrac{6^2}{4} = 9$. (2 and 5 have sum 7; 1 and 10 have sum 11; and 2 and 4 show that a positive product and a positive sum can go together.)
+- id: alg-m6-r2-h06
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'The roots of $x^2 - 5x + 3 = 0$ are $r$ and $s$. What is $r^2 + s^2$?'
+  choices: ['19', '25', '22', '31']
+  answer: 0
+  explanation: |-
+    $D = 25 - 12 = 13 > 0$. With $S = 5$ and $P = 3$: $r^2 + s^2 = S^2 - 2P = 25 - 6 = 19$. 25 forgets the $-2P$; 22 subtracts $P$ only once; 31 adds $2P$ instead of subtracting it.
+- id: alg-m6-r2-h07
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'The roots of $2x^2 + 3x - 4 = 0$ are $r$ and $s$. What is $\dfrac1r + \dfrac1s$?'
+  choices: ['$-\tfrac34$', '$\tfrac34$', '$\tfrac43$', '$-\tfrac32$']
+  answer: 1
+  explanation: |-
+    $\tfrac1r + \tfrac1s = \tfrac{r + s}{rs} = \tfrac{S}{P}$. Here $S = -\tfrac32$ and $P = \tfrac{-4}{2} = -2$, so $\tfrac{S}{P} = \tfrac{-3/2}{-2} = \tfrac34$. (The roots are real: $D = 9 + 32 = 41$.) $\tfrac43$ is $\tfrac PS$, upside down.
+- id: alg-m6-r2-h08
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'One root of $x^2 - 7x + k = 0$ is 2. What are $k$ and the other root?'
+  choices: ['$k = 14$, other root 7', '$k = 10$, other root $-5$', '$k = 10$, other root 5', '$k = -10$, other root 9']
+  answer: 2
+  explanation: |-
+    The roots add to $-\tfrac{-7}{1} = 7$, so the other root is $7 - 2 = 5$. The product is $k$, so $k = 2 \cdot 5 = 10$. Check: $(x - 2)(x - 5) = x^2 - 7x + 10$.
+- id: alg-m6-r2-h09
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'Without solving, which statements about the roots of $x^2 - 9x + 11 = 0$ are true? Select all that apply.'
+  choices: ['There are two real roots', 'Both roots are positive', 'The roots have opposite signs', 'The roots add to $-9$']
+  answer: [0, 1]
+  explanation: |-
+    $D = 81 - 44 = 37 > 0$: two real roots. Their product, 11, is positive, so they have the same sign, and their sum, $-\tfrac{-9}{1} = 9$, is positive, so both are positive (about 1.46 and 7.54).
+- id: alg-m6-r2-h10
+  lesson: alg-m6-h-vieta
+  type: match
+  topic: Sums and products of roots
+  stem: 'Let $S = r + s$ and $P = rs$. Match each expression in the roots $r$ and $s$ to the same expression written with $S$ and $P$.'
+  pairs:
+    - ['$r^2 + s^2$', 'S² − 2P']
+    - ['$\tfrac1r + \tfrac1s$', 'S/P']
+    - ['$(r - s)^2$', 'S² − 4P']
+    - ['$r^2s + rs^2$', 'PS']
+  distractors: ['S² + 2P', 'P/S']
+  explanation: |-
+    $(r + s)^2 = r^2 + 2rs + s^2$, so $r^2 + s^2 = S^2 - 2P$ and $(r - s)^2 = r^2 - 2rs + s^2 = S^2 - 4P$. Over the common denominator $rs$, $\tfrac1r + \tfrac1s = \tfrac{s + r}{rs} = \tfrac SP$. Factoring out $rs$: $r^2s + rs^2 = rs(r + s) = PS$.
+- id: alg-m6-r2-h11
+  lesson: alg-m6-h-vieta
+  type: order
+  topic: Sums and products of roots
+  stem: 'One root of $x^2 + kx - 15 = 0$ is 5. Put the steps for finding $k$ and the other root $s$ in order.'
+  items:
+    - 'Use the product of the roots: $5s = -15$'
+    - 'So the other root is $s = -3$'
+    - 'Use the sum of the roots: $5 + (-3) = -k$'
+    - 'So $k = -2$'
+    - 'Check: $(x - 5)(x + 3) = x^2 - 2x - 15$'
+  explanation: |-
+    The product $\tfrac ca = -15$ involves only the known root and $s$, so it gives $s$ first. The sum $-\tfrac ba = -k$ then gives $k$. Expanding the factors checks both.
+- id: alg-m6-r2-h12
+  lesson: alg-m6-h-vieta
+  topic: Sums and products of roots
+  stem: 'The roots of $x^2 - 3x - 2 = 0$ are $r$ and $s$. Which equation has roots $2r$ and $2s$?'
+  choices: ['$x^2 - 6x - 8 = 0$', '$x^2 - 6x - 4 = 0$', '$x^2 - 3x - 8 = 0$', '$2x^2 - 6x - 4 = 0$']
+  answer: 0
+  explanation: |-
+    $r + s = 3$ and $rs = -2$. The new roots have sum $2r + 2s = 6$ and product $4rs = -8$, so the equation is $x^2 - 6x - 8 = 0$. $x^2 - 6x - 4$ doubles the product instead of multiplying it by 4. $2x^2 - 6x - 4 = 2(x^2 - 3x - 2)$ has the same roots $r$ and $s$.
+- id: alg-m6-r2-h13
+  lesson: alg-m6-h-vieta
+  type: text
+  topic: Sums and products of roots
+  stem: 'In $x^2 - kx + 32 = 0$, one root is twice the other and both roots are positive. Then $k =$ ___.'
+  accept: ['12']
+  explanation: |-
+    Call the roots $r$ and $2r$. Product: $2r^2 = 32$, so $r^2 = 16$ and $r = 4$ (positive). Sum: $3r = 12 = k$. Check: $x^2 - 12x + 32 = (x - 4)(x - 8)$.
+
+# ---------- Honors: quadratic inequalities ----------
+- id: alg-m6-r2-h14
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'Solve $x^2 - 2x - 15 < 0$.'
+  choices: ['$x < -3$ or $x > 5$', '$-3 < x < 5$', '$-5 < x < 3$', '$x < 5$']
+  answer: 1
+  explanation: |-
+    $(x - 5)(x + 3) < 0$ has boundary points $-3$ and 5. The parabola opens up, so it is below the axis between them: $-3 < x < 5$. Check $x = 0$: $-15 < 0$. $-5 < x < 3$ comes from sign slips in the roots.
+- id: alg-m6-r2-h15
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'Solve $x^2 + 4x \ge 12$.'
+  choices: ['$-6 \le x \le 2$', '$x \le -2$ or $x \ge 6$', '$x \ge 2$', '$x \le -6$ or $x \ge 2$']
+  answer: 3
+  explanation: |-
+    $x^2 + 4x - 12 \ge 0$, so $(x + 6)(x - 2) \ge 0$. The parabola opens up, so it is at or above the axis outside the roots: $x \le -6$ or $x \ge 2$. Check $x = 0$: $0 \ge 12$ is false, so the middle interval is excluded. $x \ge 2$ forgets the left ray.
+- id: alg-m6-r2-h16
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'Solve $x^2 > 25$.'
+  choices: ['$x > 5$', '$-5 < x < 5$', '$x < -5$ or $x > 5$', '$x > \pm 5$']
+  answer: 2
+  explanation: |-
+    $x^2 - 25 > 0$ means $(x - 5)(x + 5) > 0$: outside the roots, $x < -5$ or $x > 5$ (the same as $|x| > 5$). $x > 5$ misses values like $-6$, whose square is 36. "$x > \pm 5$" has no clear meaning.
+- id: alg-m6-r2-h17
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'Solve $-x^2 + x + 6 \ge 0$.'
+  choices: ['$-2 \le x \le 3$', '$x \le -2$ or $x \ge 3$', '$-3 \le x \le 2$', '$x \ge 3$']
+  answer: 0
+  explanation: |-
+    Multiply by $-1$ and reverse the symbol: $x^2 - x - 6 \le 0$, so $(x - 3)(x + 2) \le 0$, which holds between the roots, inclusive: $-2 \le x \le 3$. Forgetting to reverse the symbol gives the outer rays.
+- id: alg-m6-r2-h18
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'Solve $x^2 + 6x + 10 < 0$.'
+  choices: ['All real numbers', '$x < -3$', 'No real solution', '$-5 < x < -1$']
+  answer: 2
+  explanation: |-
+    $D = 36 - 40 = -4 < 0$, so the parabola never meets the $x$-axis, and since $a > 0$ it is always above it. In fact $x^2 + 6x + 10 = (x + 3)^2 + 1 \ge 1$. It is never negative: no real solution.
+- id: alg-m6-r2-h19
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'Solve $x^2 - 10x + 25 > 0$.'
+  choices: ['No real solution', 'All real numbers', '$x > 5$', 'Every real number except 5']
+  answer: 3
+  explanation: |-
+    $x^2 - 10x + 25 = (x - 5)^2$, which is positive except at $x = 5$, where it is 0. "All real numbers" would be right for $\ge 0$.
+- id: alg-m6-r2-h20
+  lesson: alg-m6-h-quad-inequalities
+  type: text
+  topic: Quadratic inequalities
+  stem: 'The solution of $x^2 - 7x + 10 \le 0$ is $a \le x \le b$ with $a =$ ___ and $b =$ ___.'
+  accept:
+    - ['2']
+    - ['5']
+  explanation: |-
+    $(x - 2)(x - 5) \le 0$. The parabola opens up, so it is at or below the axis from 2 to 5, inclusive: $2 \le x \le 5$. Check $x = 3$: $9 - 21 + 10 = -2 \le 0$.
+- id: alg-m6-r2-h21
+  lesson: alg-m6-h-quad-inequalities
+  type: text
+  topic: Quadratic inequalities
+  stem: 'A ball is kicked straight up from the ground, and its height in feet is $h(t) = -16t^2 + 96t$. It is higher than 128 feet from $t =$ ___ to $t =$ ___ seconds.'
+  accept:
+    - ['2']
+    - ['4']
+  explanation: |-
+    $-16t^2 + 96t > 128$ gives $-16t^2 + 96t - 128 > 0$. Divide by $-16$ and reverse: $t^2 - 6t + 8 < 0$, so $(t - 2)(t - 4) < 0$ and $2 < t < 4$. Check: the peak is $h(3) = 144 > 128$.
+- id: alg-m6-r2-h22
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'Which inequalities are true for every real number $x$? Select all that apply.'
+  choices: ['$x^2 + 1 > 0$', '$x^2 - 2x + 1 > 0$', '$x^2 + x + 1 > 0$', '$x^2 - 4 \ge 0$']
+  answer: [0, 2]
+  explanation: |-
+    $x^2 + 1 \ge 1$. $x^2 + x + 1$ has $D = 1 - 4 = -3 < 0$ and $a > 0$, so it is always positive. $x^2 - 2x + 1 = (x - 1)^2$ equals 0 at $x = 1$, so "$> 0$" fails there. $x^2 - 4 \ge 0$ fails at $x = 0$.
+- id: alg-m6-r2-h23
+  lesson: alg-m6-h-quad-inequalities
+  type: match
+  topic: Quadratic inequalities
+  stem: 'Match each inequality to its solution.'
+  pairs:
+    - ['$(x - 1)(x - 4) < 0$', '1 < x < 4']
+    - ['$(x - 1)(x - 4) > 0$', 'x < 1 or x > 4']
+    - ['$(x - 1)(x - 4) \le 0$', '1 ≤ x ≤ 4']
+    - ['$-(x - 1)(x - 4) < 0$', 'x < 1 or x > 4']
+  distractors: ['x > 4', 'x ≤ 1 or x ≥ 4']
+  explanation: |-
+    $(x - 1)(x - 4)$ opens up: negative between 1 and 4, positive outside. "$\le$" adds the endpoints. $-(x - 1)(x - 4) < 0$ is the same as $(x - 1)(x - 4) > 0$ (multiply by $-1$ and reverse), so it has the same answer as the second one.
+- id: alg-m6-r2-h24
+  lesson: alg-m6-h-quad-inequalities
+  type: order
+  topic: Quadratic inequalities
+  stem: 'Put the steps for solving $x^2 - 3x < 10$ in order.'
+  items:
+    - 'Subtract 10: $x^2 - 3x - 10 < 0$'
+    - 'Factor: $(x - 5)(x + 2) < 0$'
+    - 'Boundary points: $x = -2$ and $x = 5$'
+    - 'Test $x = 0$ in the middle interval: $-10 < 0$, true'
+    - 'Answer: $-2 < x < 5$'
+  explanation: |-
+    Compare with 0 first, then find the boundary points from the factors, test an interval, and write the answer. Because the parabola opens up, the true interval is the middle one, and the strict symbol leaves out $-2$ and 5.
+- id: alg-m6-r2-h25
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'A student solves $x^2 < 9$ by writing $x < \pm 3$ and then $x < 3$. What is the correct solution?'
+  choices: ['$x < 3$, as the student wrote', '$-3 < x < 3$', '$x < -3$ or $x > 3$', '$x < -3$']
+  answer: 1
+  explanation: |-
+    $x^2 - 9 < 0$ means $(x - 3)(x + 3) < 0$, which holds between the roots: $-3 < x < 3$ (that is, $|x| < 3$). The student's answer includes $x = -5$, but $(-5)^2 = 25$ is not less than 9.
+- id: alg-m6-r2-h26
+  lesson: alg-m6-h-quad-inequalities
+  topic: Quadratic inequalities
+  stem: 'A company''s profit, in thousands of dollars, is $P(x) = -x^2 + 14x - 40$, where $x$ is the number of units made, in thousands. For which $x$ does it make a profit, $P(x) > 0$?'
+  choices: ['$x < 4$ or $x > 10$', '$x > 7$', '$-10 < x < -4$', '$4 < x < 10$']
+  answer: 3
+  explanation: |-
+    $-x^2 + 14x - 40 > 0$ becomes $x^2 - 14x + 40 < 0$ after multiplying by $-1$, so $(x - 4)(x - 10) < 0$ and $4 < x < 10$. The profit parabola opens down and is above 0 between its roots; $x = 7$ is where profit is largest, not where it starts.
+
+# ---------- Honors: quadratics through history ----------
+- id: alg-m6-r2-h27
+  lesson: alg-m6-h-history
+  topic: History of quadratics
+  stem: 'The Babylonian number written today as 0;45 is in base 60. What is its value?'
+  choices: ['$\tfrac{45}{100}$', '$\tfrac{45}{60} = \tfrac34$', '45', '$\tfrac{1}{45}$']
+  answer: 1
+  explanation: |-
+    The digit after the semicolon counts sixtieths, just as the first decimal digit counts tenths. So 0;45 is $\tfrac{45}{60} = \tfrac34$, the same idea as 45 minutes being $\tfrac34$ of an hour.
+- id: alg-m6-r2-h28
+  lesson: alg-m6-h-history
+  topic: History of quadratics
+  stem: 'A Babylonian recipe for $x^2 + x = \tfrac34$ says "multiply 0;30 by itself: 0;15". Which step of completing the square is this?'
+  choices: ['Taking the square root of 1', 'Subtracting $\tfrac12$ at the end', 'Squaring half the coefficient of $x$: $\left(\tfrac12\right)^2 = \tfrac14$', 'Dividing by the leading coefficient']
+  answer: 2
+  explanation: |-
+    0;30 is $\tfrac12$, half the coefficient of $x$, and 0;15 is $\tfrac14$, its square. Adding it gives $\left(x + \tfrac12\right)^2 = 1$, so $x + \tfrac12 = 1$ and $x = \tfrac12$ (0;30).
+- id: alg-m6-r2-h29
+  lesson: alg-m6-h-history
+  type: text
+  topic: History of quadratics
+  stem: 'al-Khwarizmi''s problem "a square and ten roots equal thirty-nine" is $x^2 + 10x = 39$. To complete the square you add ___ to both sides, and the positive solution is $x =$ ___.'
+  accept:
+    - ['25']
+    - ['3']
+  explanation: |-
+    Half of 10 is 5 and $5^2 = 25$, so $x^2 + 10x + 25 = 64$, that is $(x + 5)^2 = 64$. Then $x + 5 = 8$ and $x = 3$. The other root, $-13$, was not considered: the side of a square can't be negative.
+- id: alg-m6-r2-h30
+  lesson: alg-m6-h-history
+  type: match
+  topic: History of quadratics
+  stem: 'Match each problem, worded in the style of al-Khwarizmi, to modern notation.'
+  pairs:
+    - ['A square and ten roots equal thirty-nine', 'x² + 10x = 39']
+    - ['A square and twenty-one equal ten roots', 'x² + 21 = 10x']
+    - ['Three roots and four equal a square', '3x + 4 = x²']
+    - ['Five squares equal eighty', '5x² = 80']
+  distractors: ['x² = 10x + 39']
+  explanation: |-
+    A "square" is $x^2$, a "root" is $x$, and a plain number stands alone. al-Khwarizmi kept every term positive, so the terms stay on the side where they appear in the words: "a square and twenty-one equal ten roots" is $x^2 + 21 = 10x$, not $x^2 - 10x + 21 = 0$.
+- id: alg-m6-r2-h31
+  lesson: alg-m6-h-history
+  topic: History of quadratics
+  stem: 'Why did al-Khwarizmi treat six separate types of problems instead of one equation $ax^2 + bx + c = 0$?'
+  choices: ['He worked only with positive numbers, so each term had to sit on the side where it was positive', 'He did not know how to complete the square', 'Each type needed a different number base', 'His problems usually had negative solutions']
+  answer: 0
+  explanation: |-
+    Without negative numbers (or zero as a coefficient), $x^2 + 21 = 10x$ and $x^2 + 10x = 39$ can't be written in one common form. He did complete the square, with geometric proofs, and he used only positive solutions.
+- id: alg-m6-r2-h32
+  lesson: alg-m6-h-history
+  topic: History of quadratics
+  stem: 'For "a square and thirty equal ten roots", $x^2 + 30 = 10x$, al-Khwarizmi''s rule says: halve the roots (5) and square (25), then subtract 30. What does the result tell you?'
+  choices: ['$x = 5$', '$25 - 30$ is negative, so the problem is impossible: no real solution', '$x = 3$ or $x = 7$', '$x = 5 \pm \sqrt5$']
+  answer: 1
+  explanation: |-
+    $\left(\tfrac{10}{2}\right)^2 - 30 = -5 < 0$, and al-Khwarizmi warns that in this case the problem is impossible. In modern terms, $x^2 - 10x + 30 = 0$ has discriminant $100 - 120 = -20 = 4(-5) < 0$. ($5 \pm \sqrt5$ would solve $x^2 + 20 = 10x$.)
+- id: alg-m6-r2-h33
+  lesson: alg-m6-h-history
+  topic: Golden ratio
+  stem: 'Which numbers are solutions of $x^2 = x + 1$? Select all that apply.'
+  choices: ['$\dfrac{1 + \sqrt5}{2}$', '$\dfrac{1 - \sqrt5}{2}$', '$\dfrac{-1 + \sqrt5}{2}$', '$1 + \sqrt5$']
+  answer: [0, 1]
+  explanation: |-
+    $x^2 - x - 1 = 0$ has $D = 1 + 4 = 5$, so $x = \tfrac{1 \pm \sqrt5}{2}$: the golden ratio $\varphi \approx 1.618$ and $-\tfrac1\varphi \approx -0.618$. The number $\tfrac{-1 + \sqrt5}{2} \approx 0.618$ is $\tfrac1\varphi$; its square, about 0.382, is not $0.618 + 1$.
+- id: alg-m6-r2-h34
+  lesson: alg-m6-h-history
+  topic: Golden ratio
+  stem: 'Let $\varphi = \tfrac{1 + \sqrt5}{2}$. Which statement is true?'
+  choices: ['$\varphi^2 = 2\varphi$', '$\tfrac1\varphi = \varphi + 1$', '$\varphi = \sqrt5 - 1$', '$\tfrac1\varphi = \varphi - 1$']
+  answer: 3
+  explanation: |-
+    $\varphi^2 = \varphi + 1$. Dividing by $\varphi$ gives $\varphi = 1 + \tfrac1\varphi$, so $\tfrac1\varphi = \varphi - 1 \approx 0.618$. ($\varphi^2 \approx 2.618$, not $2\varphi \approx 3.236$; and $\sqrt5 - 1 \approx 1.236$.)
+- id: alg-m6-r2-h35
+  lesson: alg-m6-h-history
+  type: text
+  topic: Golden ratio
+  stem: 'A golden rectangle has short side 10 cm. Its long side, to 1 decimal place, is ___ cm.'
+  accept: ['16.2', '16.18']
+  explanation: |-
+    The sides are in the ratio $\varphi : 1$, so the long side is $10\varphi = 10 \cdot \tfrac{1 + \sqrt5}{2} = 5 + 5\sqrt5 \approx 16.18$, or 16.2 cm to 1 decimal place. (6.2 cm would be $\tfrac{10}{\varphi}$, the long part of a golden cut of 10 cm.)
+- id: alg-m6-r2-h36
+  lesson: alg-m6-h-history
+  type: label
+  topic: History of quadratics
+  stem: 'This is al-Khwarizmi''s figure for $x^2 + 10x = 39$. Name the numbered parts.'
+  image: {src: images/alg-m6-khwarizmi-blank.svg, alt: 'A square in the center with a rectangle on each of its four sides and a small square in each of the four corners, forming one big square. The widths are marked 2½, x and 2½ along the bottom. A bracket runs down the whole right side of the big square.'}
+  labels:
+    - {x: 42.9, y: 40.4, text: 'The unknown square, x²'}
+    - {x: 42.9, y: 16.5, text: A 2½ by x rectangle (a quarter of 10x)}
+    - {x: 22.8, y: 16.5, text: A corner square of area 6¼}
+    - {x: 75.0, y: 40.4, text: 'Side of the completed square, x + 5'}
+  distractors: [A 5 by x rectangle, A corner square of area 25]
+  explanation: |-
+    The $10x$ is split into four rectangles of $2\tfrac12$ by $x$ (2), one on each side of the square $x^2$ (1). Each corner (3) is $2\tfrac12 \times 2\tfrac12 = 6\tfrac14$, and the four corners make 25. The whole square has side $2\tfrac12 + x + 2\tfrac12 = x + 5$ (4) and area $39 + 25 = 64$, so $x + 5 = 8$ and $x = 3$.
+- id: alg-m6-r2-h37
+  lesson: alg-m6-h-history
+  type: order
+  topic: History of quadratics
+  stem: 'Put these events in time order, earliest first.'
+  items:
+    - 'Old Babylonian scribes solve area problems by step-by-step recipes'
+    - 'Euclid''s Elements shows how to cut a line in extreme and mean ratio'
+    - 'Brahmagupta states a rule in words for solving quadratics'
+    - 'al-Khwarizmi writes his book on al-jabr'
+    - 'Viète uses letters for known quantities as well as unknowns'
+    - 'Descartes''s La Géométrie uses x, y and z for unknowns'
+  explanation: |-
+    About 1800 BCE (Babylon), about 300 BCE (Euclid), 628 CE (Brahmagupta), about 820 CE (al-Khwarizmi), 1591 (Viète), 1637 (Descartes).
+- id: alg-m6-r2-h38
+  lesson: alg-m6-h-history
+  topic: Golden ratio
+  stem: 'The ratios of neighboring Fibonacci numbers, $\tfrac85$, $\tfrac{13}{8}$, $\tfrac{21}{13}$, $\tfrac{34}{21}$, …, get closer and closer to which number?'
+  choices: ['$\sqrt2 \approx 1.414$', '$\tfrac{\sqrt5 - 1}{2} \approx 0.618$', '$\tfrac{1 + \sqrt5}{2} \approx 1.618$', '1.5']
+  answer: 2
+  explanation: |-
+    The ratios are 1.6, 1.625, about 1.615 and about 1.619, closing in on the golden ratio $\varphi \approx 1.618$ from both sides. $0.618 = \tfrac1\varphi$ is the limit of the upside-down ratios $\tfrac58$, $\tfrac8{13}$, ….
+- id: alg-m6-r2-h39
+  lesson: alg-m6-h-history
+  topic: Golden ratio
+  stem: 'Which statement about the golden ratio is best supported by evidence?'
+  choices: ['In many plants, such as sunflower heads, the spiral counts are often neighboring Fibonacci numbers', 'The Parthenon was designed with golden rectangles', 'Faces are judged most beautiful when their proportions are golden', 'People always prefer golden rectangles to other rectangles']
+  answer: 0
+  explanation: |-
+    Spiral counts like 34 and 55 in sunflower heads are well documented. The other claims are popular but not supported by careful measurements or experiments: almost any ratio near 1.6 can be made to look "golden", and preference studies have given mixed results.

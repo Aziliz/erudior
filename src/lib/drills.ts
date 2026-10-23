@@ -109,6 +109,11 @@ function formatRaw(v: number, fmt?: string): string {
 }
 
 function fill(text: string, values: Record<string, number | string>, labels: Record<string, string>): string {
+  const val = (name: string, fmt?: string) => (name in values ? formatNum(values[name], fmt) : null);
+  // Tidy math that a value of 1 or 2 makes awkward: b^{1} -> b, \sqrt[2]{x} -> \sqrt{x}.
+  text = text
+    .replace(/\^\{\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\}/g, (m, name: string, fmt?: string) => (val(name, fmt) === "1" ? "" : m))
+    .replace(/\\sqrt\[\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\]/g, (m, name: string, fmt?: string) => (val(name, fmt) === "2" ? "\\sqrt" : m));
   return text.replace(/\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}/g, (m, name: string, fmt?: string) => {
     if (!fmt && name in labels) return labels[name];
     return name in values ? formatNum(values[name], fmt) : m;

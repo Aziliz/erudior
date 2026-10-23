@@ -333,7 +333,7 @@
   choices: ['$7$', '$12$', '$5$', 'It depends on $z$ and $w$, not just their moduli']
   answer: 1
   explanation: |-
-    Moduli multiply: $|zw| = |z|\,|w| = 12$, whatever directions $z$ and $w$ point in. It's the modulus of the *sum* that depends on the directions: $|z + w|$ can be anything from 1 to 7. The value 5 would be $|3 + 4i|$, which treats the moduli as legs of a right triangle.
+    Moduli multiply: $|zw| = |z|\,|w| = 12$, whatever directions $z$ and $w$ point in. It's the modulus of the sum that depends on the directions: $|z + w|$ can be anything from 1 to 7. The value 5 would be $|3 + 4i|$, which treats the moduli as legs of a right triangle.
 - id: a2-m2-r2-h06
   lesson: a2-m2-h-complex-plane
   topic: Complex plane geometry
@@ -513,7 +513,7 @@
     - 'Read $A^{-1}$ from the right half'
     - 'Check that $A$ times your answer gives $I$'
   explanation: |-
-    Row-reducing $[\,A \mid I\,]$ solves $AX = $ each column of $I$ at once, so the right half ends up as $A^{-1}$. If a zero row appears on the left along the way, $A$ has no inverse.
+    Row-reducing $[\,A \mid I\,]$ solves $AX = C$ for every column $C$ of $I$ at once, so the right half ends up as $A^{-1}$. If a zero row appears on the left along the way, $A$ has no inverse.
 - id: a2-m2-r2-h26
   lesson: a2-m2-h-matrix-algebra
   topic: Matrix operations

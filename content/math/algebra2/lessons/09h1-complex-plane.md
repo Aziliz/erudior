@@ -67,9 +67,9 @@ Multiplying by a positive real number $r$ just stretches the arrow by the factor
 
 ### The modulus of a product
 
-**Claim:** $|zw| = |z|\,|w|$ for all complex numbers $z$ and $w$.
+*Claim.* $|zw| = |z|\,|w|$ for all complex numbers $z$ and $w$.
 
-**Proof.** Let $z = a + bi$ and $w = c + di$. Then $zw = (ac - bd) + (ad + bc)i$, and
+*Proof.* Let $z = a + bi$ and $w = c + di$. Then $zw = (ac - bd) + (ad + bc)i$, and
 
 $$|zw|^2 = (ac - bd)^2 + (ad + bc)^2 = a^2c^2 - 2abcd + b^2d^2 + a^2d^2 + 2abcd + b^2c^2.$$
 

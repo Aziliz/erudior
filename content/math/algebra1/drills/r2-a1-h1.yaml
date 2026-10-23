@@ -110,14 +110,13 @@
   calc:
     mph: 15*kk
     fts: 22*kk
-    top: mph*5280
     dist: fts*tt
   prompt: 'A car travels at {mph} miles per hour. (1 mile = 5,280 feet; 1 hour = 3,600 seconds.) (a) What is its speed in feet per second? (b) How many feet does it travel during a reaction time of {tt} seconds?'
   answers:
     - {name: fts, label: '(a) Speed (ft/s)'}
     - {name: dist, label: '(b) Distance (ft)'}
   solution: |-
-    (a) Multiply by conversion factors so miles and hours cancel: ${mph}\,\tfrac{\text{mi}}{\text{h}} \times \tfrac{5280 \text{ ft}}{1 \text{ mi}} \times \tfrac{1 \text{ h}}{3600 \text{ s}} = \tfrac{{top}}{3600} =$ **{fts}** ft/s.
+    (a) Multiply by conversion factors so miles and hours cancel: ${mph}\,\tfrac{\text{mi}}{\text{h}} \times \tfrac{5280 \text{ ft}}{1 \text{ mi}} \times \tfrac{1 \text{ h}}{3600 \text{ s}} = \tfrac{{mph} \times 5280}{3600} =$ **{fts}** ft/s.
     (b) Distance = rate × time: ${fts}\,\tfrac{\text{ft}}{\text{s}} \times {tt} \text{ s} =$ **{dist}** ft.
 
 - id: a1-h1-r2-cooling
@@ -180,8 +179,8 @@
     - {name: a4, label: '$a_4 =$', tolerance: 0.006}
   solution: |-
     Multiply the previous term by {rr}, then add {dv}:
-    $a_2 = {rr}({a1}) + {dv} = {a2:num2}$, $a_3 = {rr}({a2:num2}) + {dv} = {a3:num2}$, $a_4 = {rr}({a3:num2}) + {dv} = {a4:num2}$.
-    So $a_2 =$ **{a2:num2}**, $a_3 =$ **{a3:num2}**, $a_4 =$ **{a4:num2}**.
+    $a_2 = {rr}({a1}) + {dv} = {a2}$, $a_3 = {rr}({a2}) + {dv} = {a3}$, $a_4 = {rr}({a3}) + {dv} = {a4}$.
+    So $a_2 =$ **{a2}**, $a_3 =$ **{a3}**, $a_4 =$ **{a4}**.
 
 - id: a1-h1-r2-equilibrium
   title: Find an equilibrium
@@ -198,7 +197,7 @@
     - {name: eq, label: '$E =$', tolerance: 0.01}
   solution: |-
     An equilibrium is left unchanged by the rule: $E = {rr}E {dv:signed}$.
-    Subtract ${rr}E$: ${om}E = {dv}$, so $E = {dv} \div {om} =$ **{eq}**.
+    Subtract ${rr}E$: ${om}E = {dv}$, so $E = ({dv}) \div ({om}) =$ **{eq}**.
     Check: ${rr}({eq}) {dv:signed} = {eq}$. (With $0 < r < 1$ the terms approach $E$; with $r > 1$ they move away from it.)
 
 - id: a1-h1-r2-savings
@@ -206,11 +205,11 @@
   topic: Recursive models
   vars:
     dep: {min: 1, max: 10}
-    ip: {choices: [0.25, 0.5, 0.75, 1]}
+    gr: {choices: [{label: '1.0025', value: 1.0025}, {label: '1.005', value: 1.005}, {label: '1.0075', value: 1.0075}, {label: '1.01', value: 1.01}]}
     months: {choices: [12, 24, 36, 48, 60]}
   calc:
     dv: 50*dep
-    gr: 1 + ip/100
+    ip: round((gr - 1)*100, 4)
     eq: -dv/(ip/100)
     negeq: dv/(ip/100)
     pwm: (1 + ip/100)^months - 1
@@ -221,7 +220,7 @@
   answers:
     - {name: bal, label: 'Balance in dollars', format: money, tolerance: 0.011}
   solution: |-
-    Equilibrium: $E = {dv} \div (1 - {gr}) = {eq:num2}$. (It is negative, and the balance moves away from it because the factor is greater than 1.)
+    Equilibrium: $E = {dv} \div (1 - {gr})$, which is {eq}. (It is negative, and the balance moves away from it because the factor is greater than 1.)
     Explicit formula, starting from $B_0 = 0$: $B_n = E + (0 - E)({gr})^n$.
-    That is $B_n = {negeq:num2}\left[({gr})^n - 1\right]$. With $({gr})^{{months}} \approx {pw:num4}$: $B_{{months}} = {negeq:num2} \times {pwm:num4} \approx$ **{bal:money}**.
+    That is $B_n = -E\left[({gr})^n - 1\right]$, with $-E$ = {negeq}. Since $({gr})^{{months}} \approx {pw:num4}$, the balance is {negeq} × {pwm:num4} ≈ **{bal:money}**.
     You deposited {paid:money}; the rest is interest.

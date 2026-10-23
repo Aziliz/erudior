@@ -2,7 +2,7 @@
 id: a2-h-expected-value
 module: a2-m8
 honors: true
-title: 'Honors: Random variables and expected value'
+title: Random variables and expected value
 minutes: 45
 topics: [Expected value]
 drills: [a2-m8-r2-expected-value, a2-m8-r2-fair-price]

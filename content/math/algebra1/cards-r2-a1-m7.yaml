@@ -23,7 +23,7 @@
 - {front: 'Geometric series sum ($n$ terms)', back: '$S_n = \dfrac{a_1(1 - r^n)}{1 - r}$ for $r \ne 1$ (and $S_n = na_1$ when $r = 1$).', topic: Series}
 - {front: 'How the geometric sum formula is derived', back: 'Write $S_n$ and $rS_n$; subtract so all but two terms cancel: $S_n - rS_n = a_1 - a_1r^n$.', topic: Series}
 - {front: 'Infinite geometric series', back: 'If $|r| < 1$ it converges to $\dfrac{a_1}{1 - r}$. If $|r| \ge 1$ it diverges (no sum).', topic: Series}
-- {front: 'Write $0.777\ldots$ as a fraction', back: '$0.7 + 0.07 + \dots = \dfrac{0.7}{1 - 0.1} = \dfrac79$.', topic: Series}
+- {front: 'Repeating decimal as a geometric series: $0.3636\ldots$', back: '$0.36 + 0.0036 + \dots = \dfrac{0.36}{1 - 0.01} = \dfrac{36}{99} = \dfrac{4}{11}$.', topic: Series}
 - {front: 'Total distance of a bouncing ball', back: 'First drop plus twice the sum of the bounce heights. Dropped from 10 ft with $r = 0.6$: $10 + 2 \cdot \dfrac{6}{0.4} = 40$ ft.', topic: Series}
 - {front: 'Counting terms in a sum from $k = p$ to $k = q$', back: '$q - p + 1$ terms. From $k = 3$ to $k = 10$ is 8 terms.', topic: Series}
 - {front: 'Sum of $n$ terms vs the $n$th term (geometric)', back: 'The $n$th term uses $r^{n-1}$; the sum of $n$ terms uses $r^n$.', topic: Series}

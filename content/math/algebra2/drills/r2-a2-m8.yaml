@@ -43,7 +43,7 @@
     - {name: fair, label: '(a) Fair price (dollars):', tolerance: 0.005}
     - {name: net, label: '(b) Expected net gain (dollars):', tolerance: 0.005}
   solution: |-
-    Total prize money: ${A} + {k} \times {B} = {tot}$ dollars, shared over {N} tickets. The expected prize per ticket is $\dfrac{{tot}}{{N}} = {fair:num2}$ dollars, so the fair price is **{fair:num2}** dollars.
+    Total prize money: ${A:dp0} + {k} \times {B} = {tot:dp0}$ dollars, shared over {N} tickets. The expected prize per ticket is $\dfrac{{tot:dp0}}{{N:dp0}} = {fair:num2}$ dollars, so the fair price is **{fair:num2}** dollars.
     At a price of {T} dollars, the expected net gain is ${fair:num2} - {T} =$ **{net:num2}** dollars per ticket.
 
 - id: a2-m8-r2-binom-exact
@@ -87,7 +87,7 @@
     P1: binompdf(n, pp/100, 1)
     below: binomcdf(n, pp/100, k - 1)
     ans: 1 - binomcdf(n, pp/100, k - 1)
-  prompt: 'Each customer who enters a shop makes a purchase with probability {p}, independently. Of the next {n} customers, what is the probability that at least {k} make a purchase? Give 4 decimal places.'
+  prompt: 'Each customer who enters a shop makes a purchase with probability {p}, independently. Of the next {n} customers, what is the probability that at least {k} of them make a purchase? Give 4 decimal places.'
   answers:
     - {name: ans, label: '$P(X \ge {k}) =$', tolerance: 0.00006, format: dp4}
   solution: |-
@@ -169,4 +169,4 @@
     Of 10,000 people, {prev}% = {sick} have the disease and {well} do not.
     (a) {sens}% of the {sick} sick people test positive: **{tp}** true positives.
     (b) The specificity is {spec}%, so {fpr}% of the {well} healthy people test positive anyway: **{fp}** false positives.
-    (c) There are ${tp} + {fp} = {pos}$ positives in all, and {tp} of them have the disease: $\dfrac{{tp}}{{pos}} \approx$ **{ans:dp4}**.
+    (c) There are ${tp:dp0} + {fp:dp0} = {pos:dp0}$ positives in all, and {tp} of them have the disease: $\dfrac{{tp:dp0}}{{pos:dp0}} \approx$ **{ans:dp4}**.

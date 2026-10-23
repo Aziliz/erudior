@@ -1,0 +1,204 @@
+# Round 2 drills for a1-m8 (honors lessons 36h1-36h3)
+- id: a1-m8-r2-z-score
+  title: z-scores, forward and back
+  topic: z-scores
+  vars:
+    mu: {min: 50, max: 90}
+    sd: {choices: [2, 4, 5, 10, 20, 25]}
+    d: {min: -75, max: 75}
+    z2: {choices: [-2.5, -1.5, -1.2, -0.5, 0.5, 0.8, 1.5, 1.6, 2.2, 2.5]}
+  calc:
+    val: mu + d
+    z: d/sd
+    x2: mu + z2*sd
+    shift: z2*sd
+  where: ['d != 0', 'abs(d) <= 3*sd', 'mu + d > 0', 'mu + z2*sd > 0']
+  prompt: 'A data set has mean $\mu = {mu}$ and standard deviation $\sigma = {sd}$. (a) Find the z-score of the value {val}. (b) Which value has z-score {z2}?'
+  answers:
+    - {name: z, label: '(a) $z =$', tolerance: 0.001}
+    - {name: x2, label: '(b) value', tolerance: 0.001}
+  solution: |-
+    (a) $z = \dfrac{\text{value} - \mu}{\sigma} = \dfrac{{val} - {mu}}{{sd}} = \dfrac{{d}}{{sd}} =$ **{z}**.
+    (b) Go back with $\text{value} = \mu + z\sigma = {mu} + ({z2})({sd}) = {mu} + ({shift}) =$ **{x2}**.
+
+- id: a1-m8-r2-empirical
+  title: The 68–95–99.7 rule
+  topic: Normal distributions
+  vars:
+    mu: {min: 40, max: 200, step: 5}
+    sd: {choices: [2, 3, 4, 5, 6, 8, 10, 12, 15]}
+    lo: {min: -3, max: 2}
+    hi: {min: -2, max: 3}
+  funcs:
+    'C(k)': 'if(k == -3, 0.15, if(k == -2, 2.5, if(k == -1, 16, if(k == 0, 50, if(k == 1, 84, if(k == 2, 97.5, 99.85))))))'
+  calc:
+    xl: mu + lo*sd
+    xh: mu + hi*sd
+    cl: C(lo)
+    ch: C(hi)
+    pct: round(C(hi) - C(lo), 2)
+  where: ['lo < hi', 'mu + lo*sd > 0']
+  prompt: 'Values are approximately normal with mean {mu} and standard deviation {sd}. Using the 68–95–99.7 rule, about what percent of the values lie between {xl} and {xh}?'
+  answers:
+    - {name: pct, label: 'Percent', tolerance: 0.001}
+  solution: |-
+    Standardize the ends: {xl} is $z = {lo}$ and {xh} is $z = {hi}$.
+    By the rule (bands of 0.15%, 2.35%, 13.5%, 34%, 34%, 13.5%, 2.35%, 0.15% from left to right), about {cl}% of values lie below $z = {lo}$ and {ch}% lie below $z = {hi}$.
+    Between them: ${ch}\% - {cl}\% =$ **{pct}%**.
+
+- id: a1-m8-r2-normal-table
+  title: Normal percents from a z-table
+  topic: Normal distributions
+  vars:
+    mu: {min: 50, max: 300, step: 10}
+    sd: {choices: [4, 5, 6, 8, 10, 12, 20, 25, 30]}
+    z: {choices: [-2, -1.5, -1, -0.5, 0.5, 1, 1.5, 2]}
+    dir: {choices: [{label: below, value: 0}, {label: above, value: 1}]}
+  calc:
+    val: mu + z*sd
+    left: round(100*normcdf(z), 2)
+    pct: if(dir == 0, round(100*normcdf(z), 2), round(100 - 100*normcdf(z), 2))
+  prompt: 'Measurements are approximately normal with mean {mu} and standard deviation {sd}. What percent of the measurements are {dir} {val}? Use a z-table or technology, and give the percent to 1 decimal place.'
+  answers:
+    - {name: pct, label: 'Percent', tolerance: 0.06}
+  solution: |-
+    $z = \dfrac{{val} - {mu}}{{sd}} = {z}$. The area to the left of $z = {z}$ is about {left}%.
+    That is the percent below {val}; the percent above it is 100% minus that. The question asks for {dir}, so the answer is about **{pct}%**.
+
+- id: a1-m8-r2-overall-rate
+  title: Overall rate as a weighted average
+  topic: Simpson's paradox
+  vars:
+    n1: {choices: [40, 50, 60, 80, 100, 120, 150, 200, 250, 300]}
+    n2: {choices: [40, 50, 60, 80, 100, 120, 150, 200, 250, 300]}
+    p1: {min: 60, max: 98, step: 2}
+    p2: {min: 20, max: 80, step: 2}
+  calc:
+    s1: n1*p1/100
+    s2: n2*p2/100
+    tot: n1 + n2
+    stot: n1*p1/100 + n2*p2/100
+    w: round(n1/(n1 + n2), 4)
+    rate: round(100*(n1*p1/100 + n2*p2/100)/(n1 + n2), 1)
+    naive: (p1 + p2)/2
+  where: ['s1 == round(s1)', 's2 == round(s2)', 'p1 > p2 + 10', 'n1 != n2']
+  prompt: 'A treatment succeeded for {s1} of {n1} patients with mild cases ({p1}%) and {s2} of {n2} patients with severe cases ({p2}%). What is its overall success rate? Give a percent to 1 decimal place.'
+  answers:
+    - {name: rate, label: 'Overall rate (%)', tolerance: 0.051}
+  solution: |-
+    Add the successes and the patients: $\dfrac{{s1} + {s2}}{{n1} + {n2}} = \dfrac{{stot}}{{tot}} \approx$ **{rate}%**.
+    As a weighted average: a fraction $\tfrac{{n1}}{{tot}} \approx {w}$ of the patients are mild cases, so the overall rate lies between {p2}% and {p1}%, pulled toward the larger group. (The unweighted average, {naive}%, is wrong because the groups differ in size.)
+
+- id: a1-m8-r2-expected-count
+  title: Expected count with no association
+  topic: Expected counts
+  vars:
+    a: {min: 10, max: 90}
+    b: {min: 10, max: 90}
+    c: {min: 10, max: 90}
+    d: {min: 10, max: 90}
+  calc:
+    r1: a + b
+    r2: c + d
+    k1: a + c
+    k2: b + d
+    N: a + b + c + d
+    prod: (a + b)*(a + c)
+    ex: round((a + b)*(a + c)/(a + b + c + d), 1)
+    gap: round(a - round((a + b)*(a + c)/(a + b + c + d), 1), 1)
+  prompt: |-
+    A survey recorded whether people walk to work.
+
+    | | Walk | Don't walk | Total |
+    |---|---|---|---|
+    | City | {a} | {b} | {r1} |
+    | Suburb | {c} | {d} | {r2} |
+    | Total | {k1} | {k2} | {N} |
+
+    If where people live and walking to work were not associated, what count would you expect in the City/Walk cell (1 decimal place)? What is the observed count minus that expected count?
+  answers:
+    - {name: ex, label: 'Expected count', tolerance: 0.051}
+    - {name: gap, label: 'Observed − expected', tolerance: 0.051}
+  solution: |-
+    Expected count $= \dfrac{\text{row total} \times \text{column total}}{\text{grand total}} = \dfrac{{r1} \times {k1}}{{N}} = \dfrac{{prod}}{{N}} \approx$ **{ex}**.
+    Observed − expected $= {a} - {ex} =$ **{gap}**. (A positive gap means more city residents walk than "no association" predicts; a negative gap, fewer.)
+
+- id: a1-m8-r2-lsrl-points
+  title: Least-squares line by hand
+  topic: Least-squares regression
+  vars:
+    x0: {min: 0, max: 6}
+    y1: {min: 1, max: 30}
+    y2: {min: 1, max: 30}
+    y3: {min: 1, max: 30}
+    y4: {min: 1, max: 30}
+    y5: {min: 1, max: 30}
+  calc:
+    x1: x0
+    x2: x0 + 1
+    x3: x0 + 2
+    x4: x0 + 3
+    x5: x0 + 4
+    xbar: x0 + 2
+    ysum: y1 + y2 + y3 + y4 + y5
+    ybar: round((y1 + y2 + y3 + y4 + y5)/5, 1)
+    sxy: -2*y1 - y2 + y4 + 2*y5
+    slope: round((-2*y1 - y2 + y4 + 2*y5)/10, 1)
+    bx: round((-2*y1 - y2 + y4 + 2*y5)/10*(x0 + 2), 2)
+    icpt: round((y1 + y2 + y3 + y4 + y5)/5 - (-2*y1 - y2 + y4 + 2*y5)/10*(x0 + 2), 2)
+  where: ['sxy != 0']
+  prompt: 'Find the least-squares line $\hat y = bx + a$ for the points $({x1}, {y1})$, $({x2}, {y2})$, $({x3}, {y3})$, $({x4}, {y4})$, $({x5}, {y5})$.'
+  answers:
+    - {name: slope, label: 'Slope $b$', tolerance: 0.001}
+    - {name: icpt, label: 'Intercept $a$', tolerance: 0.001}
+  solution: |-
+    Means: $\bar x = {xbar}$ and $\bar y = \tfrac{{ysum}}{5} = {ybar}$.
+    The $x$-deviations are $-2, -1, 0, 1, 2$, so $\sum d_x^2 = 4 + 1 + 0 + 1 + 4 = 10$, and $\sum d_x d_y = -2({y1}) - 1({y2}) + 0({y3}) + 1({y4}) + 2({y5}) = {sxy}$. (Multiplying by $y - \bar y$ instead of $y$ gives the same sum, because the $x$-deviations add to 0.)
+    Slope: $b = \dfrac{{sxy}}{10} =$ **{slope}**. Intercept: $a = \bar y - b\bar x = {ybar} - ({slope})({xbar}) = {ybar} - ({bx}) =$ **{icpt}**.
+
+- id: a1-m8-r2-lsrl-summary
+  title: Least-squares line from summary statistics
+  topic: Least-squares regression
+  vars:
+    r: {choices: [-0.9, -0.8, -0.6, -0.5, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}
+    sx: {choices: [2, 5, 10]}
+    sy: {min: 2, max: 40}
+    xbar: {min: 5, max: 40}
+    ybar: {min: 20, max: 100}
+    xp: {min: 5, max: 45}
+  calc:
+    slope: round(r*sy/sx, 2)
+    bxbar: round(r*sy/sx*xbar, 2)
+    icpt: round(ybar - r*sy/sx*xbar, 2)
+    yp: round(ybar + r*sy/sx*(xp - xbar), 2)
+    bxp: round(r*sy/sx*xp, 2)
+  where: ['xp != xbar']
+  prompt: 'For a data set, $\bar x = {xbar}$, $\bar y = {ybar}$, $\sigma_x = {sx}$, $\sigma_y = {sy}$ and $r = {r}$. Find the slope $b$ and intercept $a$ of the least-squares line $\hat y = bx + a$, and the predicted $\hat y$ at $x = {xp}$.'
+  answers:
+    - {name: slope, label: 'Slope $b$', tolerance: 0.001}
+    - {name: icpt, label: 'Intercept $a$', tolerance: 0.001}
+    - {name: yp, label: 'Predicted $\hat y$', tolerance: 0.001}
+  solution: |-
+    Slope: $b = r\dfrac{\sigma_y}{\sigma_x} = {r} \times \dfrac{{sy}}{{sx}} =$ **{slope}**.
+    The line passes through $(\bar x, \bar y)$: $a = \bar y - b\bar x = {ybar} - ({bxbar}) =$ **{icpt}**.
+    Prediction: $\hat y = {slope}({xp}) + ({icpt}) = {bxp} + ({icpt}) =$ **{yp}**.
+
+- id: a1-m8-r2-r-squared
+  title: r-squared from squared residuals
+  topic: Least-squares regression
+  vars:
+    sst: {min: 50, max: 500, step: 10}
+    frac: {min: 5, max: 95, step: 5}
+    sgn: {choices: [{label: positive, value: 1}, {label: negative, value: -1}]}
+  calc:
+    sse: sst*frac/100
+    ratio: frac/100
+    r2: 1 - frac/100
+    r: round(sgn*sqrt(1 - frac/100), 3)
+  prompt: 'For a data set, the total variation is $\sum (y - \bar y)^2 = {sst}$, and the least-squares line has sum of squared residuals $\text{SSE} = {sse}$. Its slope is {sgn}. Find $r^2$, and find $r$ to 3 decimal places.'
+  answers:
+    - {name: r2, label: '$r^2 =$', tolerance: 0.001}
+    - {name: r, label: '$r =$', tolerance: 0.00051}
+  solution: |-
+    $r^2 = 1 - \dfrac{\text{SSE}}{\sum (y - \bar y)^2} = 1 - \dfrac{{sse}}{{sst}} = 1 - {ratio} =$ **{r2}**.
+    $r$ has the same sign as the slope ({sgn}), so $r = \pm\sqrt{{r2}} \approx$ **{r}**.

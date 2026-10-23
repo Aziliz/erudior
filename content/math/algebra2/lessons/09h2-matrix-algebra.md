@@ -77,7 +77,7 @@ Write $A$ and the identity side by side as $[\,A \mid I\,]$ and row-reduce the l
 
 $$[\,A \mid I\,] \;\longrightarrow\; [\,I \mid A^{-1}\,].$$
 
-Why it works: the columns of $A^{-1}$ are the solutions of $AX = $ (column 1 of $I$), $AX = $ (column 2 of $I$), and so on, because $AA^{-1} = I$. Row-reducing $[\,A \mid I\,]$ solves all of those systems at once, since they share the same coefficient matrix.
+Why it works: because $AA^{-1} = I$, column 1 of $A^{-1}$ is the solution $X$ of $AX = (\text{column 1 of } I)$, column 2 is the solution of $AX = (\text{column 2 of } I)$, and so on. Row-reducing $[\,A \mid I\,]$ solves all of those systems at once, since they share the same coefficient matrix.
 
 ```mermaid
 flowchart TD

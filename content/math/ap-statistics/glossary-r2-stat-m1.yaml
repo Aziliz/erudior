@@ -1,0 +1,78 @@
+# Round 2, module stat-m1: terms introduced by the three honors lessons.
+- term: density histogram
+  aliases: [density histograms, density scale]
+  definition: 'A histogram whose bar heights are densities (relative frequency ÷ bin width), so each bar''s area equals the proportion of data in its bin and the total area is 1. Needed whenever bins have unequal widths.'
+  topic: Density histograms and smoothing
+- term: density
+  definition: 'In a histogram, a bin''s relative frequency divided by its width: proportion of the data per unit of the variable. Multiply a density by a width to get a proportion.'
+  topic: Density histograms and smoothing
+- term: bin width
+  aliases: [bin widths, class width]
+  definition: 'The width of each interval (bin) in a histogram. Too wide hides features; too narrow shows noise.'
+  topic: Density histograms and smoothing
+- term: Sturges' rule
+  aliases: [Sturges rule, Sturges' formula]
+  definition: 'A rule of thumb (1926) for the number of histogram bins: $k = 1 + \log_2 n$, rounded up. Suited to roughly bell-shaped data; too few bins for large $n$.'
+  topic: Density histograms and smoothing
+- term: Scott's rule
+  definition: 'A rule of thumb (1979) for histogram bin width based on the standard deviation: $h = 3.49\,s\,n^{-1/3}$.'
+  topic: Density histograms and smoothing
+- term: Freedman–Diaconis rule
+  aliases: [Freedman-Diaconis rule]
+  definition: 'A rule of thumb (1981) for histogram bin width based on the IQR: $h = 2\,\text{IQR}\,n^{-1/3}$. Outliers barely affect it.'
+  topic: Density histograms and smoothing
+- term: kernel density estimate
+  aliases: [KDE, kernel density estimates, kernel density estimation]
+  definition: 'A smooth density curve made by placing a kernel (bump) of area $1/n$ on each data value and adding them: $\hat{f}(x) = \frac{1}{nh}\sum K\!\left(\frac{x - x_i}{h}\right)$.'
+  topic: Density histograms and smoothing
+- term: kernel
+  aliases: [kernels]
+  definition: 'In a kernel density estimate, the bump placed on each data value, usually a normal curve; it is scaled by the bandwidth $h$.'
+  topic: Density histograms and smoothing
+- term: bandwidth
+  aliases: [bandwidths]
+  definition: 'The number $h$ that sets the width of each kernel in a kernel density estimate, and so how smooth the curve is; it plays the role of a histogram''s bin width.'
+  topic: Density histograms and smoothing
+- term: Silverman's rule of thumb
+  aliases: [Silverman's rule]
+  definition: 'A starting bandwidth for a normal-kernel density estimate: $h = 0.9\min\!\left(s, \text{IQR}/1.34\right) n^{-1/5}$. Works well for roughly normal data; can oversmooth two-peaked data.'
+  topic: Density histograms and smoothing
+- term: midrange
+  aliases: [mid-range]
+  definition: 'The average of the minimum and maximum, $(\min + \max)/2$. It minimizes the largest distance to the data and is the least resistant measure of center.'
+  topic: Robust statistics
+- term: breakdown point
+  definition: 'The smallest fraction of the data that, if replaced by arbitrarily wild values, can make a statistic arbitrarily large or small. Mean: one value (essentially 0%); IQR: 25%; median and MAD: about 50%.'
+  topic: Robust statistics
+- term: winsorized mean
+  aliases: [winsorised mean, winsorizing, winsorization]
+  definition: 'A mean computed after replacing a set percent of the smallest and largest values by the most extreme values that remain (rather than dropping them, as a trimmed mean does).'
+  topic: Robust statistics
+- term: median absolute deviation
+  aliases: [MAD]
+  definition: 'The median of the distances of the values from their median: $\text{median}\,|x_i - \text{median}|$. A resistant measure of spread; $1.4826 \times \text{MAD}$ estimates $\sigma$ for normal data.'
+  topic: Robust statistics
+- term: masking
+  definition: 'The way several outliers can hide one another: they pull the mean toward themselves and inflate the standard deviation, which shrinks their own z-scores.'
+  topic: Robust statistics
+- term: modified z-score
+  aliases: [modified z-scores]
+  definition: 'A resistant version of the z-score: $M = 0.6745\,(x - \text{median})/\text{MAD}$. Values with $|M| > 3.5$ are flagged as possible outliers (Iglewicz and Hoaglin).'
+  topic: Robust statistics
+- term: grouped data
+  definition: 'Data reported only as counts in bins (intervals), so the individual values are unknown; summaries computed from them are estimates.'
+  topic: Grouped and combined data
+- term: linear interpolation
+  aliases: [interpolation]
+  definition: 'Estimating a value between two known points by assuming a straight line between them. For grouped data: median $\approx L + \frac{n/2 - F}{f}\,w$.'
+  topic: Grouped and combined data
+- term: within-group variation
+  definition: 'The part of the combined variation that comes from values scattering around their own group''s mean: $\sum (n_j - 1)s_j^2$.'
+  topic: Grouped and combined data
+- term: between-group variation
+  definition: 'The part of the combined variation that comes from group means differing from the overall mean: $\sum n_j(\bar{x}_j - \bar{x})^2$.'
+  topic: Grouped and combined data
+- term: Welford's algorithm
+  aliases: [Welford's method]
+  definition: 'A way to update a mean and sum of squared deviations one value at a time: $\bar{x}_{n+1} = \bar{x}_n + (x - \bar{x}_n)/(n+1)$ and $SS_{n+1} = SS_n + (x - \bar{x}_n)(x - \bar{x}_{n+1})$.'
+  topic: Grouped and combined data

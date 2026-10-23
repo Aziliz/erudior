@@ -136,27 +136,37 @@
     $f({p}) = {fp}$ and $f({q}) = {fq}$, so the average rate is $\dfrac{ {fq} - ({fp}) }{ {q} - ({p}) } = \dfrac{ {dy} }{ {w} } =$ **{arc}**.
     Shortcut for quadratics: $a(p + q) + b = {a}({s}) + ({b}) = {arc}$.
 
-- id: alg-m3-r2-round-trip
-  title: Average speed for a round trip
+- id: alg-m3-r2-secant-line
+  title: Equation of a secant line
   topic: Average rate of change
   vars:
-    d: {choices: [60, 90, 120, 150, 180, 240]}
-    v1: {choices: [30, 40, 45, 50, 60, 70, 75]}
-    v2: {choices: [30, 40, 45, 50, 60, 70, 75]}
-  where: ['v1 != v2', 'round(4*d/v1) == 4*d/v1', 'round(4*d/v2) == 4*d/v2']
+    a: {min: -3, max: 3}
+    b: {min: -6, max: 6}
+    c: {min: -9, max: 9}
+    p: {min: -4, max: 2}
+    w: {min: 1, max: 4}
+  where: ['a != 0', 'b != 0', 'c != 0', 'a*(2*p + w) + b != 0', 'c - a*p*(p + w) != 0']
+  funcs:
+    f(x): a*x^2 + b*x + c
   calc:
-    t1: d/v1
-    t2: d/v2
-    tt: d/v1 + d/v2
-    D: 2*d
-    avg: 2*d/(d/v1 + d/v2)
-    naive: (v1 + v2)/2
-  prompt: 'You drive {d} miles at {v1} mph and then return the same {d} miles at {v2} mph. What is your average speed for the whole trip, in mph (1 decimal place)?'
+    q: p + w
+    fp: f(p)
+    fq: f(p + w)
+    dy: f(p + w) - f(p)
+    m: a*(2*p + w) + b
+    mp: (a*(2*p + w) + b)*p
+    k: c - a*p*(p + w)
+  prompt: 'Find the equation of the secant line of $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$ through the points where $x = {p}$ and $x = {q}$. Write it in slope-intercept form.'
   answers:
-    - {name: avg, label: 'Average speed (mph)', format: num1, tolerance: 0.051}
+    - kind: expression
+      expression: m*x + k
+      variables: [x]
+      label: '$y =$'
+      show: '${m:coef}x {k:signed}$'
   solution: |-
-    Time out: $\tfrac{ {d} }{ {v1} } = {t1}$ h. Time back: $\tfrac{ {d} }{ {v2} } = {t2}$ h. Total: {D} miles in {tt} hours.
-    Average speed $= \dfrac{ {D} }{ {tt} } \approx$ **{avg:num1}** mph. (Averaging the two speeds would give {naive} mph, but more time is spent at the slower speed.)
+    The points are $({p}, {fp})$ and $({q}, {fq})$. Slope: $\dfrac{ {fq} - ({fp}) }{ {q} - ({p}) } = \dfrac{ {dy} }{ {w} } = {m}$.
+    Point-slope form through $({p}, {fp})$: $y - ({fp}) = {m}(x - ({p}))$. Then $y = {m:coef}x - ({mp}) + ({fp})$, which simplifies to **$y = {m:coef}x {k:signed}$**.
+    Check the other point: ${m}({q}) {k:signed} = {fq}$.
 
 - id: alg-m3-r2-diff-quotient
   title: Simplify a difference quotient

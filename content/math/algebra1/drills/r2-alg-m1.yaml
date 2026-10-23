@@ -16,7 +16,7 @@
   solution: |-
     Let $x = 0.\overline{{n}}$. The block has 2 digits, so $100x = {n}.\overline{{n}}$.
     Subtract: $100x - x = {n}$, so $99x = {n}$ and $x = \dfrac{{n}}{99}$.
-    Divide top and bottom by {g}: **$\dfrac{{num}}{{den}}$**.
+    The greatest common factor of {n} and 99 is {g}, so in lowest terms $x =$ **$\dfrac{{num}}{{den}}$**.
 
 - id: alg-m1-r2-repeating-delayed
   title: Decimal with a delayed repeat to fraction
@@ -38,7 +38,7 @@
   solution: |-
     Let $x = 0.{a}{b}{b}{b}\ldots$ Then $10x = {a}.{b}{b}{b}\ldots$ and $100x = {big}.{b}{b}{b}\ldots$
     Subtract: $100x - 10x = {big} - {a}$, so $90x = {top}$ and $x = \dfrac{{top}}{90}$.
-    In lowest terms (divide by {g}): **$\dfrac{{num}}{{den}}$**.
+    The greatest common factor of {top} and 90 is {g}, so in lowest terms $x =$ **$\dfrac{{num}}{{den}}$**.
 
 - id: alg-m1-r2-work-together
   title: Two workers together

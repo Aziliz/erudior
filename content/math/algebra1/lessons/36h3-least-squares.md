@@ -14,7 +14,7 @@ Lessons 35 and 36 let a calculator find the line of best fit and said it is "bes
 
 A line of fit should make the residuals $y - \hat y$ small overall. Adding them up doesn't work as a measure: positive and negative residuals cancel, and in fact *every* line through the point of averages $(\bar x, \bar y)$ has residuals that add to exactly 0, including terrible ones. Squaring makes every residual count as a positive amount, and it counts big misses heavily (a residual of 4 costs 16, while two residuals of 2 cost only 8 together).
 
-The **least-squares** line is the line that makes the **sum of squared residuals**
+The **least-squares regression line** is the line that makes the **sum of squared residuals**
 
 $$\text{SSE} = \sum (y - \hat y)^2$$
 

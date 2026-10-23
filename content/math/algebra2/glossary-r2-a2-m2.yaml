@@ -1,0 +1,53 @@
+# Round 2 glossary entries for the a2-m2 honors lessons
+- term: modulus
+  aliases: [moduli, absolute value of a complex number]
+  definition: 'The distance of a complex number from 0 in the complex plane: $|a + bi| = \sqrt{a^2 + b^2}$. For a real number it is the ordinary absolute value.'
+  topic: Complex plane geometry
+- term: triangle inequality
+  definition: 'For complex numbers (or vectors), $|z + w| \le |z| + |w|$: one side of a triangle is never longer than the other two together.'
+  topic: Complex plane geometry
+- term: Brahmagupta–Fibonacci identity
+  aliases: [Brahmagupta-Fibonacci identity]
+  definition: '$(a^2 + b^2)(c^2 + d^2) = (ac - bd)^2 + (ad + bc)^2$: a product of two sums of two squares is a sum of two squares. It is the statement $|zw|^2 = |z|^2|w|^2$ for $z = a + bi$, $w = c + di$.'
+  topic: Complex plane geometry
+- term: scalar multiplication
+  definition: 'Multiplying a matrix by a number (a scalar), which multiplies every entry by that number.'
+  topic: Matrix operations
+- term: zero matrix
+  definition: 'A matrix whose entries are all 0; adding it to a matrix of the same size changes nothing.'
+  topic: Matrix operations
+- term: matrix multiplication
+  aliases: [matrix product]
+  definition: 'The product $AB$ of an $m \times n$ matrix and an $n \times p$ matrix is the $m \times p$ matrix whose row $i$, column $j$ entry is row $i$ of $A$ times column $j$ of $B$ (multiply matching entries and add). Usually $AB \ne BA$.'
+  topic: Matrix operations
+- term: square matrix
+  aliases: [square matrices]
+  definition: 'A matrix with as many rows as columns, such as a $3 \times 3$ matrix. Only square matrices can have inverses and determinants.'
+  topic: Matrix operations
+- term: singular matrix
+  aliases: [singular, noninvertible matrix]
+  definition: 'A square matrix with no inverse; equivalently, its determinant is 0. Row-reducing $[\,A \mid I\,]$ produces a row of zeros on the left.'
+  topic: Matrix operations
+- term: Cramer's rule
+  aliases: ['Cramer’s rule']
+  definition: 'A formula for a system with $D \ne 0$: each variable equals $D_x/D$ (and so on), where $D$ is the coefficient determinant and $D_x$ is the determinant with the $x$-column replaced by the constants.'
+  topic: Determinants and Cramer's rule
+- term: minor
+  aliases: [minors]
+  definition: 'The minor of an entry of a square matrix is the determinant of the smaller matrix left after crossing out that entry''s row and column.'
+  topic: Determinants and Cramer's rule
+- term: cofactor
+  aliases: [cofactors]
+  definition: 'A minor with a sign from the checkerboard pattern $+, -, +, \ldots$ (starting with $+$ in the top-left corner).'
+  topic: Determinants and Cramer's rule
+- term: cofactor expansion
+  aliases: [expansion by minors, Laplace expansion]
+  definition: 'Computing a determinant by multiplying each entry of one row (or column) by its cofactor and adding the results.'
+  topic: Determinants and Cramer's rule
+- term: rule of Sarrus
+  aliases: [Sarrus rule, Sarrus's rule]
+  definition: 'A shortcut for $3 \times 3$ determinants only: copy the first two columns to the right, add the three products down to the right and subtract the three products up to the right.'
+  topic: Determinants and Cramer's rule
+- term: collinear
+  definition: 'Lying on one straight line. Three points are collinear exactly when the triangle-area determinant they give is 0.'
+  topic: Determinants and Cramer's rule
