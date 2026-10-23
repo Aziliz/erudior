@@ -89,7 +89,7 @@ So $\cos 0.2 \ge 1 - 0.02 = 0.98$; the true value is $0.98007$. One more round (
 
 Rolle's theorem says that between two zeros of a differentiable function there is a zero of its derivative. Read backward, it *limits* how many zeros a function can have:
 
-- If $f'$ is never 0 on an interval, $f$ has **at most one** zero there.
+- If $f'$ is never 0 on an interval, $f$ has *at most one* zero there.
 - More generally, if $f'$ has $k$ zeros on an interval, $f$ has at most $k + 1$ zeros there (each gap between consecutive zeros of $f$ needs its own zero of $f'$).
 
 Rolle's theorem never proves that a root *exists*. That job belongs to the Intermediate Value Theorem (Lesson 5). An "exactly one root" proof therefore has two halves:
@@ -118,9 +118,9 @@ Show that $x^3 + 4x - 7 = 0$ has exactly one real solution.
 
 How many real solutions does $x^4 - 4x + 1 = 0$ have?
 
-$f'(x) = 4x^3 - 4 = 4(x - 1)(x^2 + x + 1)$. The quadratic factor has discriminant $1 - 4 < 0$, so $f'$ has exactly one zero, $x = 1$. Hence $f$ has **at most two** real roots.
+$f'(x) = 4x^3 - 4 = 4(x - 1)(x^2 + x + 1)$. The quadratic factor has discriminant $1 - 4 < 0$, so $f'$ has exactly one zero, $x = 1$. Hence $f$ has *at most two* real roots.
 
-Now look for sign changes: $f(0) = 1 > 0$, $f(1) = -2 < 0$, $f(2) = 9 > 0$. The IVT gives a root in $(0, 1)$ and another in $(1, 2)$. So there are **exactly two** real roots (about $0.251$ and $1.493$).
+Now look for sign changes: $f(0) = 1 > 0$, $f(1) = -2 < 0$, $f(2) = 9 > 0$. The IVT gives a root in $(0, 1)$ and another in $(1, 2)$. So there are *exactly two* real roots (about $0.251$ and $1.493$).
 
 The same reasoning handles any cubic $x^3 - 3k^2x + q$ with $k > 0$: its critical numbers are $\pm k$, so it has at most three roots, and it has three exactly when the local max $f(-k)$ is positive and the local min $f(k)$ is negative. If both have the same sign, the graph crosses the axis only once.
 
@@ -130,7 +130,7 @@ What about $x = \cos x$? Let $f(x) = x - \cos x$, so $f'(x) = 1 + \sin x \ge 0$.
 
 ## One more consequence: why $e^x$ is the only one
 
-Lesson 17 showed that two functions with the same derivative differ by a constant. A variation proves something striking: **the only function with $f' = f$ and $f(0) = 1$ is $e^x$.** Let $q(x) = f(x)e^{-x}$. By the product rule, $q'(x) = f'(x)e^{-x} - f(x)e^{-x} = 0$, so $q$ is constant, and $q(0) = 1$. Hence $f(x) = e^x$. This uniqueness argument is the seed of the existence-and-uniqueness theory of differential equations (Lessons 37–39).
+Lesson 17 showed that two functions with the same derivative differ by a constant. A variation proves something striking: *the only function with $f' = f$ and $f(0) = 1$ is $e^x$.* Let $q(x) = f(x)e^{-x}$. By the product rule, $q'(x) = f'(x)e^{-x} - f(x)e^{-x} = 0$, so $q$ is constant, and $q(0) = 1$. Hence $f(x) = e^x$. This uniqueness argument is the seed of the existence-and-uniqueness theory of differential equations (Lessons 37–39).
 
 ## Common mistakes
 

@@ -1,0 +1,91 @@
+# Round 2 cards for calc-m5 honors lessons
+- front: MVT bound from bounds on $f'$
+  back: 'If $m \le f'' \le M$ on $(a, b)$: $m(b - a) \le f(b) - f(a) \le M(b - a)$.'
+  topic: Inequalities from the MVT
+- front: If $|f'(x)| \le M$ on an interval
+  back: $|f(x_2) - f(x_1)| \le M|x_2 - x_1|$ for any two points in it.
+  topic: Inequalities from the MVT
+- front: $|\sin a - \sin b|$ vs $|a - b|$
+  back: $|\sin a - \sin b| \le |a - b|$, since $|\cos x| \le 1$.
+  topic: Inequalities from the MVT
+- front: Racetrack principle
+  back: $f(a) = g(a)$ and $f' \le g'$ ⇒ $f \le g$ for $x > a$ (and $f \ge g$ for $x < a$).
+  topic: Inequalities from the MVT
+- front: $e^x$ vs $1 + x$
+  back: $e^x \ge 1 + x$ for all $x$, equal only at $x = 0$ (the tangent line at 0).
+  topic: Inequalities from the MVT
+- front: $\ln(1 + x)$ vs $x$
+  back: $\ln(1 + x) \le x$ for $x > -1$.
+  topic: Inequalities from the MVT
+- front: $\cos x$ vs $1 - \frac{x^2}{2}$
+  back: $\cos x \ge 1 - \frac{x^2}{2}$ for all $x$.
+  topic: Inequalities from the MVT
+- front: Rolle root count
+  back: If $f'$ has $k$ zeros on an interval, $f$ has at most $k + 1$ zeros there.
+  topic: Counting roots
+- front: Proving "exactly one root"
+  back: Existence by the IVT (a sign change) + uniqueness by Rolle ($f'$ never 0) or strict monotonicity.
+  topic: Counting roots
+- front: Roots of $x^3 - 3k^2x + q$ ($k > 0$)
+  back: Three real roots if $f(-k) > 0 > f(k)$; one if $f(\pm k)$ have the same sign.
+  topic: Counting roots
+- front: Only solution of $f' = f$, $f(0) = 1$
+  back: $e^x$ (because $(fe^{-x})' = 0$).
+  topic: Inequalities from the MVT
+- front: Convex function (definition)
+  back: 'Every chord lies on or above the graph: $f(tx + (1 - t)y) \le tf(x) + (1 - t)f(y)$.'
+  topic: Convexity
+- front: Test for convexity
+  back: $f'' \ge 0$ on an interval ⇒ convex there; $f'' > 0$ ⇒ strictly convex.
+  topic: Convexity
+- front: Tangent line inequality
+  back: 'Convex $f$: $f(x) \ge f(a) + f''(a)(x - a)$ for all $x$, $a$.'
+  topic: Convexity
+- front: Convex $f$ with $f'(c) = 0$
+  back: $f(c)$ is the absolute minimum.
+  topic: Convexity
+- front: Convex vs concave up
+  back: Same thing (convex = concave up; concave = concave down).
+  topic: Convexity
+- front: Jensen's inequality
+  back: 'Convex $f$: $f(\text{average}) \le \text{average of } f$. Concave $f$: reversed.'
+  topic: Classic inequalities
+- front: Jensen for $f(x) = x^2$
+  back: (mean)$^2 \le$ mean of squares; the gap is the variance.
+  topic: Classic inequalities
+- front: AM–GM inequality
+  back: $\sqrt[n]{a_1\cdots a_n} \le \frac{a_1 + \cdots + a_n}{n}$ for $a_i \ge 0$; equality iff all equal.
+  topic: Classic inequalities
+- front: Proof idea of AM–GM
+  back: Jensen's inequality for the concave function $\ln x$.
+  topic: Classic inequalities
+- front: Minimum of $ax + \frac{b}{x}$ ($a, b, x > 0$)
+  back: $2\sqrt{ab}$, at $x = \sqrt{b/a}$.
+  topic: Classic inequalities
+- front: Optimizing with AM–GM
+  back: Split into terms with a constant product; the sum is least when the terms are equal.
+  topic: Classic inequalities
+- front: Lifeguard rule (angles from the normal)
+  back: $\dfrac{\sin\theta_1}{v_1} = \dfrac{\sin\theta_2}{v_2}$ at the fastest path.
+  topic: Optimization models
+- front: Fermat's principle
+  back: Light takes the path of least (stationary) time.
+  topic: Optimization models
+- front: Snell's law
+  back: $n_1\sin\theta_1 = n_2\sin\theta_2$, with $n = \frac{c}{v}$.
+  topic: Optimization models
+- front: 'Air into water: which way does light bend?'
+  back: Toward the normal (light is slower in water).
+  topic: Optimization models
+- front: Inventory cost per year
+  back: $C(Q) = \dfrac{KD}{Q} + \dfrac{hQ}{2}$ (average stock $\frac Q2$).
+  topic: Optimization models
+- front: Economic order quantity
+  back: $Q^* = \sqrt{2KD/h}$; there ordering cost = holding cost.
+  topic: Optimization models
+- front: Cost of ordering $kQ^*$ instead of $Q^*$
+  back: $\frac12\left(k + \frac1k\right)$ times the minimum (flat near the optimum).
+  topic: Optimization models
+- front: Longest ladder around a corner (widths $a$, $b$)
+  back: $\left(a^{2/3} + b^{2/3}\right)^{3/2}$, the shortest segment through the inner corner.
+  topic: Optimization models

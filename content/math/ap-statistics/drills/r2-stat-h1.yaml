@@ -16,8 +16,8 @@
     $s/\sqrt{n}$ and the exact bootstrap standard error of the mean,
     $\sqrt{(n-1)/n}\cdot s/\sqrt{n}$. Give both to 2 decimal places.
   answers:
-    - {name: se, label: '$s/\sqrt{n} =$', tolerance: 0.006}
-    - {name: bse, label: '$\text{SE}_{\text{boot}} =$', tolerance: 0.006}
+    - {name: se, label: '$s/\sqrt{n} =$', tolerance: 0.006, format: dp2}
+    - {name: bse, label: '$\text{SE}_{\text{boot}} =$', tolerance: 0.006, format: dp2}
   solution: |-
     $s/\sqrt{n} = {sd}/\sqrt{{nn}} =$ **{se:dp2}**. The bootstrap factor is $\sqrt{({nn} - 1)/{nn}} = {fac:num4}$,
     so $\text{SE}_{\text{boot}} = {fac:num4} \times {se:num4} =$ **{bse:dp2}**, a little smaller because
@@ -41,7 +41,7 @@
     difference. How many splits are there, and what is the exact one-sided p-value (4 decimal places)?
   answers:
     - {name: tot, label: 'Number of splits', tolerance: 0.001}
-    - {name: pv, label: 'p-value', tolerance: 0.00006}
+    - {name: pv, label: 'p-value', tolerance: 0.00006, format: dp4}
   solution: |-
     Choose which {na} of the {na}+{nb} responses are "treatment": $\binom{{na}+{nb}}{{na}} =$ **{tot}** splits,
     all equally likely if the treatment has no effect. p-value $= {cnt}/{tot} =$ **{pv:dp4}**.
@@ -59,8 +59,8 @@
     that a particular value is never drawn (4 decimal places)? On average, how many distinct original
     values appear in a resample (2 decimal places)?
   answers:
-    - {name: miss, label: 'P(value left out)', tolerance: 0.00006}
-    - {name: used, label: 'Expected distinct values', tolerance: 0.006}
+    - {name: miss, label: 'P(value left out)', tolerance: 0.00006, format: dp4}
+    - {name: used, label: 'Expected distinct values', tolerance: 0.006, format: dp2}
   solution: |-
     Each of the {nn} draws misses the value with probability $1 - 1/{nn}$, independently, so
     $P = (1 - 1/{nn})^{{nn}} =$ **{miss:dp4}**. Each value appears with probability $1 - {miss:num4}$, so the
@@ -88,8 +88,8 @@
   answers:
     - {name: qa, label: '$a'' =$', tolerance: 0.001}
     - {name: qb, label: '$b'' =$', tolerance: 0.001}
-    - {name: pm, label: 'Posterior mean', tolerance: 0.0006}
-    - {name: wd, label: 'Weight on data', tolerance: 0.0006}
+    - {name: pm, label: 'Posterior mean', tolerance: 0.0006, format: dp3}
+    - {name: wd, label: 'Weight on data', tolerance: 0.0006, format: dp3}
   solution: |-
     Add successes to $a$ and failures to $b$: $a' = {pa} + {xs} =$ **{qa}**, $b' = {pb} + ({nt} - {xs}) =$ **{qb}**.
     Posterior mean $= \dfrac{{qa}}{{qa} + {qb}} =$ **{pm:dp3}**. Weight on the data
@@ -114,14 +114,14 @@
     prtwo: 1 - prone
   prompt: |-
     A success rate is either $p = {pone}$ (prior probability {prone}) or $p = {ptwo}$ (prior probability
-    {prtwo:num2}). In {nt} independent trials there are {xs} successes. Find the posterior probability that
+    {prtwo}). In {nt} independent trials there are {xs} successes. Find the posterior probability that
     $p = {ptwo}$ (3 decimal places).
   answers:
-    - {name: post, label: 'Posterior probability', tolerance: 0.0006}
+    - {name: post, label: 'Posterior probability', tolerance: 0.0006, format: dp3}
   solution: |-
     Likelihoods: $\binom{{nt}}{{xs}}({pone})^{{xs}}(1 - {pone})^{{nt} - {xs}} = {lone:sig3}$ and
     $\binom{{nt}}{{xs}}({ptwo})^{{xs}}(1 - {ptwo})^{{nt} - {xs}} = {ltwo:sig3}$.
-    Prior × likelihood: ${prone} \times {lone:sig3} = {jone:sig3}$ and ${prtwo:num2} \times {ltwo:sig3} = {jtwo:sig3}$.
+    Prior × likelihood: ${prone} \times {lone:sig3} = {jone:sig3}$ and ${prtwo} \times {ltwo:sig3} = {jtwo:sig3}$.
     Posterior: $\dfrac{{jtwo:sig3}}{{jone:sig3} + {jtwo:sig3}} =$ **{post:dp3}**.
 
 # ---- Lesson 92: multiple testing
@@ -138,8 +138,8 @@
     {mt} independent tests are run at $\alpha = {al}$, and every null hypothesis is true. Find the probability
     of at least one false positive (3 decimal places) and the expected number of false positives.
   answers:
-    - {name: fw, label: 'P(at least one)', tolerance: 0.0006}
-    - {name: ef, label: 'Expected number', tolerance: 0.006}
+    - {name: fw, label: 'P(at least one)', tolerance: 0.0006, format: dp3}
+    - {name: ef, label: 'Expected number', tolerance: 0.006, format: num2}
   solution: |-
     Complement rule: $1 - (1 - {al})^{{mt}} =$ **{fw:dp3}**. Expected false positives
     $= m\alpha = {mt} \times {al} =$ **{ef:num2}**.
@@ -159,13 +159,13 @@
   prompt: |-
     A study runs {mt} tests and wants a familywise error rate of at most {al}. Find the Bonferroni level for
     each test (3 significant figures) and the Bonferroni-adjusted p-value for a test with raw p-value
-    {praw} (3 decimal places). Is that test significant? (Type 1 for yes, 0 for no.)
+    {praw:dp3} (3 decimal places). Is that test significant? (Type 1 for yes, 0 for no.)
   answers:
-    - {name: thr, label: 'Per-test level', sigfigs: 3}
-    - {name: padj, label: 'Adjusted p-value', tolerance: 0.0006}
+    - {name: thr, label: 'Per-test level', sigfigs: 3, format: sig3}
+    - {name: padj, label: 'Adjusted p-value', tolerance: 0.0006, format: dp3}
     - {name: rej, label: 'Significant (1/0)', tolerance: 0.001}
   solution: |-
-    Per-test level: ${al}/{mt} =$ **{thr:sig3}**. Adjusted p-value: $\min(1,\ {mt} \times {praw}) =$ **{padj:dp3}**.
+    Per-test level: ${al}/{mt} =$ **{thr:sig3}**. Adjusted p-value: $\min(1,\ {mt} \times {praw:dp3}) =$ **{padj:dp3}**.
     The test is significant exactly when the raw p-value is at most the per-test level (equivalently, the
     adjusted p-value is at most {al}): answer **{rej}**.
 
@@ -185,9 +185,9 @@
     $\alpha = {al}$. Per 1,000 hypotheses tested, how many true positives and false positives are expected,
     and what share of the significant results are false (3 decimal places)?
   answers:
-    - {name: tp, label: 'True positives', tolerance: 0.06}
-    - {name: fp, label: 'False positives', tolerance: 0.06}
-    - {name: fs, label: 'Share false', tolerance: 0.0006}
+    - {name: tp, label: 'True positives', tolerance: 0.06, format: num1}
+    - {name: fp, label: 'False positives', tolerance: 0.06, format: num1}
+    - {name: fs, label: 'Share false', tolerance: 0.0006, format: dp3}
   solution: |-
     True effects: $1000 \times {pt}$; detected: $\times {pw}$, giving **{tp:num1}** true positives. Null effects:
     $1000 \times (1 - {pt})$; significant by chance: $\times {al}$, giving **{fp:num1}** false positives.
@@ -214,8 +214,8 @@
     $s_2 = {sb}$. Find the pooled standard deviation and Cohen's $d = (\bar{x}_1 - \bar{x}_2)/s_p$, each to
     2 decimal places.
   answers:
-    - {name: sp, label: '$s_p =$', tolerance: 0.006}
-    - {name: dd, label: '$d =$', tolerance: 0.006}
+    - {name: sp, label: '$s_p =$', tolerance: 0.006, format: dp2}
+    - {name: dd, label: '$d =$', tolerance: 0.006, format: dp2}
   solution: |-
     $s_p^2 = \dfrac{({na} - 1)({sa})^2 + ({nb} - 1)({sb})^2}{{na} + {nb} - 2} = {vp:num2}$, so $s_p =$ **{sp:dp2}**.
     $d = \dfrac{{ma} - {mb}}{{sp:num4}} =$ **{dd:dp2}**.
@@ -242,8 +242,8 @@
     fixed-effect pooled estimate and its standard error, each to 2 decimal places (keep full precision in
     the weights).
   answers:
-    - {name: est, label: 'Pooled estimate', tolerance: 0.006}
-    - {name: sep, label: 'Pooled SE', tolerance: 0.006}
+    - {name: est, label: 'Pooled estimate', tolerance: 0.006, format: dp2}
+    - {name: sep, label: 'Pooled SE', tolerance: 0.006, format: dp2}
   solution: |-
     Weights $1/\text{SE}^2$: {wa:num4}, {wb:num4}, {wc:num4}; total {ws:num4}.
     Pooled estimate $= \dfrac{{wa:num4}({ya}) + {wb:num4}({yb}) + {wc:num4}({yc})}{{ws:num4}} =$ **{est:dp2}**.
@@ -255,6 +255,7 @@
   vars:
     ks: {min: 3, max: 15}
     qq: {min: 0.5, max: 45, step: 0.1}
+  where: ['qq < 3 * (ks - 1) + 6']
   calc:
     df: ks - 1
     isq: max(0, (qq - df) / qq)
@@ -263,8 +264,8 @@
     A meta-analysis of {ks} studies has Cochran's $Q = {qq}$. Find $I^2$ as a decimal and the p-value of the
     chi-square test for heterogeneity, each to 3 decimal places.
   answers:
-    - {name: isq, label: '$I^2 =$', tolerance: 0.0006}
-    - {name: pq, label: 'p-value', tolerance: 0.0006}
+    - {name: isq, label: '$I^2 =$', tolerance: 0.0006, format: dp3}
+    - {name: pq, label: 'p-value', tolerance: 0.0006, format: dp3}
   solution: |-
     Degrees of freedom $k - 1 = {df}$. $I^2 = \max\!\left(0,\ \dfrac{Q - {df}}{Q}\right) = \max\!\left(0,\ \dfrac{{qq} - {df}}{{qq}}\right) =$ **{isq:dp3}**.
     p-value $= P(\chi^2_{{df}} \ge {qq}) =$ **{pq:dp3}**.

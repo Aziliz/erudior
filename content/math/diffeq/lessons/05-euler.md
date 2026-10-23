@@ -31,10 +31,30 @@ $$x_{n+1} = x_n + h, \qquad y_{n+1} = y_n + h\,f(x_n, y_n).$$
 Each step is "new = old + step × slope". This is just the tangent-line (linear)
 approximation from calculus, applied over and over.
 
+The picture shows one step. From $(x_0, y_0)$ the method moves a distance $h$ to the right
+and rises by $h\,f(x_0, y_0)$ along the tangent line, landing at $(x_1, y_1)$. The true
+solution has curved away from the tangent, and the gap between them is the error made in
+that step.
+
+![One Euler step drawn on a concave-up solution curve. A tangent line touches the curve at (x0, y0). A dashed horizontal segment of length h runs to x1 = x0 + h; a green vertical segment labeled rise h times f(x0, y0) climbs to the point (x1, y1) on the tangent line; a red vertical segment from there up to the curve is labeled error of the step.](images/de-m1-euler-step.svg)
+
 ## Organizing the work
 
 A table keeps the steps straight. Columns: $n$, $x_n$, $y_n$, slope $f(x_n, y_n)$, and the
 increment $h \cdot f$.
+
+Each row of the table is one pass through this loop:
+
+```mermaid
+flowchart TD
+  accTitle: The loop of Euler's method
+  accDescr: Start at the known point (x0, y0). Compute the slope m = f(xn, yn) at the current point. Set the next y to yn + h times m and the next x to xn + h. If the target x has been reached, read off the estimate; otherwise repeat from the new point.
+  A["Start at (x0, y0)"] --> B["Slope m = f(xn, yn)"]
+  B --> C["Step: add h·m to y and h to x"]
+  C --> D{"Reached the target x?"}
+  D -- no --> B
+  D -- yes --> E["Read off the estimate"]
+```
 
 ### Example 1
 

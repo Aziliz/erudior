@@ -646,11 +646,11 @@
 - id: calc-m8-r2-h35
   lesson: calc-m8-h-romberg
   topic: Richardson extrapolation
-  stem: 'The central difference $D(h) = \dfrac{f(x + h) - f(x - h)}{2h}$ has error about $ch^2$. Which combination of $D(0.2)$ and $D(0.1)$ cancels that error?'
-  choices: ['$\dfrac{4D(0.2) - D(0.1)}{3}$', '$\dfrac{16D(0.1) - D(0.2)}{15}$', '$2D(0.1) - D(0.2)$', '$\dfrac{4D(0.1) - D(0.2)}{3}$']
+  stem: 'The midpoint rule''s error, like the trapezoidal rule''s, is about $ch^2$ for a smooth integrand. Given $M_n$ and $M_{2n}$, which combination cancels that error?'
+  choices: ['$\dfrac{4M_n - M_{2n}}{3}$', '$\dfrac{16M_{2n} - M_n}{15}$', '$2M_{2n} - M_n$', '$\dfrac{4M_{2n} - M_n}{3}$']
   answer: 3
   explanation: |-
-    The error is $\propto h^2$, so $p = 2$ and the factor is $2^2 = 4$, applied to the smaller step: $\frac{4D(0.1) - D(0.2)}{3}$. $2D(0.1) - D(0.2)$ would cancel an error $\propto h$, and 16 and 15 are for $h^4$ errors. Weighting the coarse value by 4 makes the error worse.
+    Doubling $n$ halves $h$ and divides an $h^2$ error by 4, so $4M_{2n} - M_n \approx 3I$ and $I \approx \frac{4M_{2n} - M_n}{3}$, the same weights as for the trapezoidal rule. $2M_{2n} - M_n$ would cancel an error proportional to $h$, the weights 16 and 15 are for $h^4$ errors, and giving the coarse value $M_n$ the weight 4 makes the error worse.
 - id: calc-m8-r2-h36
   lesson: calc-m8-h-romberg
   topic: Richardson extrapolation

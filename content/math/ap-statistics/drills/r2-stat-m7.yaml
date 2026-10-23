@@ -1,0 +1,165 @@
+# Round 2, module stat-m7: drills for the two honors lessons.
+
+# ---- Honors: better intervals for a proportion
+- id: stat-m7-r2-plus-four
+  title: Plus four interval for a proportion
+  topic: Better proportion intervals
+  vars:
+    nn: {min: 15, max: 80}
+    xx: {min: 1, max: 12}
+    lev: {choices: [{label: '90% (use 1.645)', value: 1.645}, {label: '95% (use 1.96)', value: 1.96}, {label: '99% (use 2.576)', value: 2.576}]}
+  calc:
+    nt: nn + 4
+    pt: (xx + 2)/nt
+    se: sqrt(pt*(1 - pt)/nt)
+    me: lev*se
+    lo: pt - me
+    hi: pt + me
+    ph: xx/nn
+  where: ['xx < nn', 'lo > 0']
+  prompt: |-
+    A random sample of {nn} train departures finds {xx} that left late. Construct a plus four
+    confidence interval at level {lev} for the proportion of all departures that leave late.
+    Give the endpoints to 3 decimal places.
+  answers:
+    - {name: lo, label: 'Lower', tolerance: 0.001, format: dp3}
+    - {name: hi, label: 'Upper', tolerance: 0.001, format: dp3}
+  solution: |-
+    Add two successes and two failures: $\tilde{p} = \dfrac{{xx} + 2}{{nn} + 4} = {pt:num4}$.
+    $SE = \sqrt{\dfrac{\tilde{p}(1 - \tilde{p})}{{nt}}} \approx {se:num4}$, and $ME = {lev:num4}({se:num4}) \approx {me:num4}$.
+    Interval: ${pt:num4} \pm {me:num4}$, from **{lo:dp3}** to **{hi:dp3}**. (The point estimate is still
+    $\hat{p} = {ph:num4}$; only the interval is centered at $\tilde{p}$.)
+
+- id: stat-m7-r2-wilson
+  title: Wilson score interval
+  topic: Better proportion intervals
+  vars:
+    nn: {min: 20, max: 100}
+    xx: {min: 0, max: 15}
+    zz: {choices: [1.96]}
+  calc:
+    ph: xx/nn
+    kz: zz^2/nn
+    cen: (ph + kz/2)/(1 + kz)
+    hw: zz/(1 + kz)*sqrt(ph*(1 - ph)/nn + zz^2/(4*nn^2))
+    lo: max(0, cen - hw)
+    hi: cen + hw
+    kk: zz^2/(4*nn^2)
+    vv: ph*(1 - ph)/nn
+  where: ['xx < nn']
+  prompt: |-
+    In a random sample of {nn} rail bearings, {xx} show wear beyond the limit. Find the 95% Wilson
+    score interval for the proportion of all bearings with excess wear (use $z^* = 1.96$). Give
+    the endpoints to 3 decimal places.
+  answers:
+    - {name: lo, label: 'Lower', tolerance: 0.001, format: dp3}
+    - {name: hi, label: 'Upper', tolerance: 0.001, format: dp3}
+  solution: |-
+    $\hat{p} = {xx}/{nn} = {ph:num4}$ and $z^{*2}/n = 3.8416/{nn} \approx {kz:num4}$.
+    Center: $\dfrac{\hat{p} + z^{*2}/(2n)}{1 + z^{*2}/n} \approx {cen:num4}$.
+    Half-width: $\dfrac{1.96}{1 + z^{*2}/n}\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n} + \dfrac{z^{*2}}{4n^2}} = \dfrac{1.96}{1 + {kz:num4}}\sqrt{{vv:num4} + {kk:num4}} \approx {hw:num4}$.
+    Interval: from **{lo:dp3}** to **{hi:dp3}** (a lower endpoint of 0 occurs when $\hat{p} = 0$).
+
+- id: stat-m7-r2-zero-successes
+  title: Upper bound after zero successes (rule of three)
+  topic: Better proportion intervals
+  vars:
+    nn: {choices: [30, 40, 50, 60, 75, 80, 100, 120, 150, 200, 250, 300, 500]}
+  calc:
+    root: 0.05^(1/nn)
+    exact: 1 - root
+    three: 3/nn
+  prompt: |-
+    A random sample of {nn} signal relays is tested and none fails. Find the exact one-sided 95%
+    upper bound $1 - 0.05^{1/n}$ for the failure rate, and the rule-of-three approximation. Give
+    both to 4 decimal places.
+  answers:
+    - {name: exact, label: 'Exact bound', tolerance: 0.0001, format: num4}
+    - {name: three, label: 'Rule of three', tolerance: 0.0001, format: num4}
+  solution: |-
+    The largest $p$ with $(1 - p)^{{nn}} \ge 0.05$ is $1 - 0.05^{1/{nn}} = 1 - {root:num4} =$ **{exact:num4}**.
+    The rule of three gives $3/{nn} =$ **{three:num4}**, a close approximation because
+    $(1 - p)^n \approx e^{-np}$ and $e^{-3} \approx 0.05$.
+
+# ---- Honors: where t comes from
+- id: stat-m7-r2-z-with-s
+  title: True coverage of a z interval that uses s
+  topic: The t distribution in depth
+  vars:
+    nn: {choices: [3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30]}
+    lev: {choices: [{label: '90% (z* = 1.645)', value: 1.645}, {label: '95% (z* = 1.96)', value: 1.96}, {label: '99% (z* = 2.576)', value: 2.576}]}
+  calc:
+    dfree: nn - 1
+    cdf: tcdf(lev, dfree)
+    cover: 2*cdf - 1
+    nominal: 2*normcdf(lev) - 1
+    area: (1 + nominal)/2
+    ts: invt(area, dfree)
+  prompt: |-
+    An analyst with $n = {nn}$ observations from a normal population reports
+    $\bar{x} \pm z^* s/\sqrt{n}$ as a {lev} confidence interval. Find its true coverage,
+    $2\,\text{tcdf}(z^*, n - 1) - 1$ (3 decimal places), and the t critical value that should have been
+    used (3 decimal places).
+  answers:
+    - {name: cover, label: 'True coverage', tolerance: 0.001, format: dp3}
+    - {name: ts, label: 'Correct $t^*$', tolerance: 0.002, format: dp3}
+  solution: |-
+    With $s$ in place of $\sigma$, the standardized statistic has a t distribution with
+    df $= {dfree}$. $\text{tcdf}({lev:num4}, {dfree}) \approx {cdf:num4}$, so the true coverage is
+    $2({cdf:num4}) - 1 \approx$ **{cover:dp3}**, not {nominal:dp3}. The correct multiplier leaves the
+    same middle area at df = {dfree}: $t^* = \text{invT}({area:num4}, {dfree}) \approx$ **{ts:dp3}**.
+
+- id: stat-m7-r2-prediction-interval
+  title: Prediction interval for one new observation
+  topic: The t distribution in depth
+  vars:
+    nn: {min: 8, max: 40}
+    xbar: {min: 20, max: 120, step: 0.1}
+    sx: {min: 2, max: 15, step: 0.1}
+  calc:
+    dfree: nn - 1
+    ts: invt(0.975, dfree)
+    fac: sqrt(1 + 1/nn)
+    me: ts*sx*fac
+    lo: xbar - me
+    hi: xbar + me
+    cme: ts*sx/sqrt(nn)
+  prompt: |-
+    A random sample of {nn} loading times from a normal population has $\bar{x} = {xbar}$ min and
+    $s = {sx}$ min. Find a 95% prediction interval for the loading time of one new train.
+    Give the endpoints to 2 decimal places.
+  answers:
+    - {name: lo, label: 'Lower', tolerance: 0.02, format: num2}
+    - {name: hi, label: 'Upper', tolerance: 0.02, format: num2}
+  solution: |-
+    df $= {dfree}$, $t^* \approx {ts:dp3}$, and $\sqrt{1 + 1/{nn}} \approx {fac:num4}$.
+    Margin $= t^* s\sqrt{1 + 1/n} = {ts:dp3}({sx})({fac:num4}) \approx {me:num4}$.
+    Interval: ${xbar} \pm {me:num4}$, from **{lo:num2}** to **{hi:num2}** min. (The confidence interval for
+    the mean would have margin only {cme:num4}.)
+
+- id: stat-m7-r2-welch-df
+  title: Welch–Satterthwaite degrees of freedom
+  topic: The t distribution in depth
+  vars:
+    n1: {min: 8, max: 40}
+    n2: {min: 8, max: 40}
+    s1: {min: 2, max: 15, step: 0.5}
+    s2: {min: 2, max: 15, step: 0.5}
+  calc:
+    va: s1^2/n1
+    vb: s2^2/n2
+    dfw: (va + vb)^2/(va^2/(n1 - 1) + vb^2/(n2 - 1))
+    dmin: min(n1, n2) - 1
+    dmax: n1 + n2 - 2
+  where: ['n1 != n2']
+  prompt: |-
+    Two independent samples: $n_1 = {n1}$, $s_1 = {s1}$ and $n_2 = {n2}$, $s_2 = {s2}$. Find the
+    Welch–Satterthwaite degrees of freedom (2 decimal places) and the conservative df,
+    $\min(n_1, n_2) - 1$.
+  answers:
+    - {name: dfw, label: 'Welch df', tolerance: 0.02, format: num2}
+    - {name: dmin, label: 'Conservative df', tolerance: 0.001}
+  solution: |-
+    $a = s_1^2/n_1 = {va:num4}$ and $b = s_2^2/n_2 = {vb:num4}$.
+    df $= \dfrac{(a + b)^2}{a^2/(n_1 - 1) + b^2/(n_2 - 1)} \approx$ **{dfw:num2}**.
+    Conservative df $=$ **{dmin}**. Welch's value always lies between {dmin} and $n_1 + n_2 - 2 = {dmax}$.

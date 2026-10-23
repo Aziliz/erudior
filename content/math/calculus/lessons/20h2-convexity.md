@@ -28,7 +28,7 @@ This definition needs no derivatives at all, which is why mathematicians prefer 
 
 ## The tangent line inequality
 
-**Theorem.** If $f$ is differentiable on an open interval $I$ and $f'$ is increasing there (for instance, if $f'' \ge 0$ on $I$), then for every $a$ and $x$ in $I$,
+*Theorem.* If $f$ is differentiable on an open interval $I$ and $f'$ is increasing there (for instance, if $f'' \ge 0$ on $I$), then for every $a$ and $x$ in $I$,
 
 $$f(x) \ge f(a) + f'(a)(x - a).$$
 
@@ -40,11 +40,11 @@ This is the **tangent line inequality**: the graph lies on or above each of its 
 
 Either way $f(x) - f(a) \ge f'(a)(x - a)$.
 
-**Tangents imply chords.** Now take $x$, $y$, $t$ and set $z = tx + (1 - t)y$. Write the tangent line inequality at $z$ twice:
+*Tangents imply chords.* Now take $x$, $y$, $t$ and set $z = tx + (1 - t)y$. Write the tangent line inequality at $z$ twice:
 
 $$f(x) \ge f(z) + f'(z)(x - z), \qquad f(y) \ge f(z) + f'(z)(y - z).$$
 
-Multiply the first by $t$, the second by $1 - t$, and add. The $f'(z)$ terms combine to $f'(z)\big(tx + (1 - t)y - z\big) = f'(z)\cdot 0 = 0$, leaving $t f(x) + (1 - t)f(y) \ge f(z)$, the definition of convexity. So **$f'' \ge 0$ on an interval implies $f$ is convex there**, and $f'' > 0$ implies strictly convex.
+Multiply the first by $t$, the second by $1 - t$, and add. The $f'(z)$ terms combine to $f'(z)\big(tx + (1 - t)y - z\big) = f'(z)\cdot 0 = 0$, leaving $t f(x) + (1 - t)f(y) \ge f(z)$, the definition of convexity. So *$f'' \ge 0$ on an interval implies $f$ is convex there*, and $f'' > 0$ implies strictly convex.
 
 ### Example 1
 

@@ -31,6 +31,10 @@ Each rate is a flow rate times a concentration:
 The phrase "well-stirred" is what lets us say the outflow has the tank's current
 concentration $Q/V$. Check units: every term should be kg/min.
 
+The picture labels each piece of the setup.
+
+![A tank with an inflow pipe at the top left labeled flow rate times incoming concentration, a stirrer that keeps the mix uniform, solution inside with volume V(t), amount Q(t) and concentration Q/V, and an outflow pipe at the bottom right labeled flow rate times Q/V.](images/de-m3-tank.svg)
+
 ## Constant volume
 
 If inflow and outflow rates are equal, $V$ is constant and the equation is
@@ -98,7 +102,18 @@ incoming 0.2 kg/L, as it should be since the tank started weaker.
 ## Two tanks in series
 
 If tank A drains into tank B, the amount in A obeys its own equation, and its outflow
-becomes B's inflow. You solve A first and feed the result into B's equation. Example:
+becomes B's inflow. The diagram shows the flows for the example below.
+
+```mermaid
+flowchart TD
+  accTitle: Two tanks in series
+  accDescr: Pure water flows into tank A at 5 liters per minute. Tank A holds 100 liters and salt amount Q_A, and drains at 5 liters per minute, at concentration Q_A over 100, into tank B. Tank B also holds 100 liters, with salt amount Q_B, and drains at 5 liters per minute at concentration Q_B over 100.
+  W["Pure water in at 5 L/min"] --> A["Tank A: 100 L, salt QA; outflow 5 L/min at concentration QA/100"]
+  A --> B["Tank B: 100 L, salt QB; outflow 5 L/min at concentration QB/100"]
+  B --> D["Drain"]
+```
+
+You solve A first and feed the result into B's equation. Example:
 both tanks hold 100 L; pure water enters A at 5 L/min; A drains into B at 5 L/min; B drains
 at 5 L/min. With $Q_A(0) = 20$ kg and $Q_B(0) = 0$:
 
@@ -108,6 +123,10 @@ at 5 L/min. With $Q_A(0) = 20$ kg and $Q_B(0) = 0$:
 
 $Q_B$ rises, peaks at $t = 20$ min (with $20e^{-1} \approx 7.36$ kg), then falls. Systems of
 tanks like this are a preview of Module 8.
+
+```plot
+{"x": [0, 100], "y": [0, 22], "xLabel": "t (min)", "yLabel": "salt (kg)", "functions": [{"f": "20exp(-x/20)", "label": "tank A"}, {"f": "x*exp(-x/20)", "label": "tank B"}], "points": [{"at": [20, 7.358], "label": "peak at t = 20"}], "caption": "Salt in tank A decays exponentially; tank B fills from A, peaks at 20 minutes with about 7.36 kg, then empties."}
+```
 
 ## Checking a mixing model
 

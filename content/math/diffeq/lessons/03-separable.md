@@ -41,6 +41,22 @@ Dividing by $h(y)$ is illegal where $h(y) = 0$. If $h(c) = 0$, then $y = c$ is a
 (equilibrium) solution, and it may not appear in your formula. Always check those values
 separately.
 
+The whole method, with the equilibrium check done first so it isn't forgotten, fits in one
+chart. (Using the initial condition and solving for $y$ can also be done in the other order;
+see below.)
+
+```mermaid
+flowchart TD
+  accTitle: Solving a separable equation
+  accDescr: Write the equation as dy/dx = g(x) h(y). Solve h(y) = 0; each root c gives an equilibrium solution y = c. Separate to dy/h(y) = g(x) dx. Integrate both sides, adding one constant. Use the initial condition to find the constant. Solve for y, or leave the solution implicit. Check by differentiating and substituting.
+  A["Write dy/dx = g(x) h(y)"] --> B["Solve h(y) = 0: equilibria y = c"]
+  B --> C["Separate: dy/h(y) = g(x) dx"]
+  C --> D["Integrate both sides, add one constant"]
+  D --> E["Use the initial condition to find the constant"]
+  E --> F["Solve for y, or leave it implicit"]
+  F --> G["Check: differentiate and substitute"]
+```
+
 ### Example 1
 
 Solve $\dfrac{dy}{dx} = xy$, $y(0) = 3$.
@@ -53,6 +69,13 @@ Solve $\dfrac{dy}{dx} = xy$, $y(0) = 3$.
 
 This step, replacing $\pm e^C$ by one constant $A$, happens every time you integrate
 $\dfrac{dy}{y}$. Remember it.
+
+The figure shows several members of the family $y = Ae^{x^2/2}$. The flat member $A = 0$ is
+the equilibrium solution that dividing by $y$ would have lost.
+
+```plot
+{"x": [-2.5, 2.5], "y": [-6, 6], "functions": [{"f": "3exp(x^2/2)", "label": "A = 3"}, {"f": "exp(x^2/2)", "label": "A = 1"}, {"f": "0", "label": "A = 0"}, {"f": "-exp(x^2/2)", "label": "A = −1"}, {"f": "-2exp(x^2/2)", "label": "A = −2"}], "points": [{"at": [0, 3], "label": "(0, 3)"}], "caption": "Solutions y = Ae^(x²/2) of dy/dx = xy. The equilibrium y = 0 (A = 0) is the one that dividing by y would lose."}
+```
 
 ### Example 2
 

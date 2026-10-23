@@ -99,7 +99,7 @@ Two practical lessons hide in the formula. First, the square root damps change: 
 
 A hallway 4 ft wide meets a hallway 6 ft wide at a right angle. What is the longest ladder that can be carried horizontally around the corner?
 
-The key idea is to flip the question. As the ladder turns the corner, at some moment it touches the inside corner with its ends against the two outer walls. A ladder fits only if it is no longer than *every* such segment. So the longest ladder that fits equals the **shortest** segment that touches the inner corner and reaches both outer walls: a maximum problem becomes a minimum problem.
+The key idea is to flip the question. As the ladder turns the corner, at some moment it touches the inside corner with its ends against the two outer walls. A ladder fits only if it is no longer than *every* such segment. So the longest ladder that fits equals the *shortest* segment that touches the inner corner and reaches both outer walls: a maximum problem becomes a minimum problem.
 
 ```shape
 {"segments": [{"from": [0, 0], "to": [13, 0]}, {"from": [0, 0], "to": [0, 12]}, {"from": [6, 12], "to": [6, 4]}, {"from": [6, 4], "to": [13, 4]}, {"from": [0, 9.2415], "to": [10.5789, 0], "label": "L"}, {"from": [12, 0], "to": [12, 4], "dashed": true, "label": "4"}, {"from": [0, 11], "to": [6, 11], "dashed": true, "label": "6"}], "points": [{"at": [6, 4]}], "labels": [{"at": [7.3, 4.6], "text": "inner corner"}, {"at": [9.2, 0.45], "text": "θ"}], "caption": "A segment touching the inner corner, at angle θ to the 4-ft hallway's walls"}

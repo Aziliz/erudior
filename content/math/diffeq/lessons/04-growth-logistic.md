@@ -93,6 +93,10 @@ $k\cdot\dfrac{K}{2}\cdot\dfrac12 = \dfrac{kK}{4}$.
 {"x": [0, 12], "y": [0, 1200], "xLabel": "t", "yLabel": "P", "functions": [{"f": "1000/(1 + 9exp(-0.6x))", "label": "P(0) = 100"}, {"f": "1000/(1 - 0.5exp(-0.6x))", "label": "P(0) = 2000", "from": 1.2}, {"f": "1000", "dashed": true, "label": "K = 1000"}, {"f": "500", "dashed": true, "label": "K/2"}], "caption": "Logistic solutions with k = 0.6 and K = 1000. Curves below K rise in an S-shape; curves above K fall toward it."}
 ```
 
+Here are the named parts of one logistic curve, the one starting at $P(0) = 100$:
+
+![A logistic curve rising from P(0) = 100 toward a dashed line at P = 1000 labeled carrying capacity K. A red dot at P = 500 is labeled inflection point, P = K/2. The lower part of the curve is labeled concave up, growth speeding up, and the upper part concave down, growth slowing.](images/de-m1-logistic.svg)
+
 ### Example 3
 
 A lake is stocked with 100 fish. The population follows
@@ -125,6 +129,18 @@ no sign of slowing, the exponential model fits. If growth is fast at first and t
 off, or if the setting has an obvious limit (food, space, a market of fixed size), use the
 logistic model. Early on the two are almost indistinguishable, which is why exponential
 projections of a young epidemic or a new product often overshoot badly.
+
+The same questions as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing between the exponential and logistic models
+  accDescr: First ask whether the setting has a limit, such as food, space or a fixed market, or whether the data level off. If yes, use the logistic model P = K/(1 + A e^(-kt)). If not, ask whether the quantity changes by about the same factor in equal time spans. If yes, use the exponential model P = P0 e^(kt); if not, neither model fits well and another model is needed.
+  A{"A limit, or data leveling off?"} -- yes --> D["Logistic: P = K/(1 + A e^(-kt))"]
+  A -- no --> B{"Same factor in equal times?"}
+  B -- yes --> C["Exponential: P = P0 e^(kt)"]
+  B -- no --> E["Neither fits well: look for another model"]
+```
 
 ## Common mistakes
 

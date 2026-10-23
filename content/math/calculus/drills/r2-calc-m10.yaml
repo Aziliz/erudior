@@ -35,12 +35,12 @@
     mid: (lo + hi)/2
   prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{1}{n^{p}}$, use $S_{{N}}$ and the integral test to find a lower bound and an upper bound for the sum $S$. Give each to 4 decimal places.'
   answers:
-    - {name: lo, label: '$S \ge$', tolerance: 0.0001, format: num4}
-    - {name: hi, label: '$S \le$', tolerance: 0.0001, format: num4}
+    - {name: lo, label: '$S \ge$', tolerance: 0.00015, format: dp4}
+    - {name: hi, label: '$S \le$', tolerance: 0.00015, format: dp4}
   solution: |-
-    Adding the first {N} terms: $S_{{N}} \approx {S:num4}$ (keep more digits while working). The terms are positive and decreasing, so
-    $$S_{{N}} + \int_{{N1}}^\infty\frac{dx}{x^{p}} \le S \le S_{{N}} + \int_{{N}}^\infty\frac{dx}{x^{p}}, \qquad \int_c^\infty\frac{dx}{x^{p}} = \frac{1}{{pm}\,c^{{pm}}}.$$
-    Lower bound: **{lo:num4}**. Upper bound: **{hi:num4}**. (Their midpoint, {mid:num4}, is an even better estimate.)
+    Adding the first {N} terms: $S_{{N}} \approx {S:dp6}$. The terms are positive and decreasing, so
+    $$S_{{N}} + \int_{{N1}}^\infty\frac{dx}{x^{p}} \le S \le S_{{N}} + \int_{{N}}^\infty\frac{dx}{x^{p}}, \qquad \int_c^\infty\frac{dx}{x^{p}} = \frac{1}{({p} - 1)\,c^{{p} - 1}}.$$
+    Lower bound: **{lo:dp4}**. Upper bound: **{hi:dp4}**. (Their midpoint, {mid:dp4}, is an even better estimate.)
 - id: calc-m10-r2-log-series
   title: A logarithm from the fast series
   topic: Computing with series
@@ -77,13 +77,13 @@
     c: p^2 + q^2
     R2: (a - p)^2 + q^2
     R: sqrt((a - p)^2 + q^2)
-    dx: a - p
+    np: -p
   prompt: 'Find the radius of convergence of the Taylor series of $f(x) = \dfrac{1}{x^2 {b:signedcoef}x {c:signed}}$ centered at $a = {a}$. (Exact answers such as sqrt(10) are fine; decimals need 3 places.)'
   answers:
     - {name: R, label: '$R =$', tolerance: 0.001, format: dp3}
   solution: |-
-    The denominator has no real zeros; completing the square, $x^2 {b:signedcoef}x {c:signed} = (x - ({p}))^2 + {q}^2$, so its zeros are $x = {p} \pm {q}i$. The radius is the distance from the center ${a}$ to the nearest zero (both are equally far):
-    $$R = \sqrt{({a} - ({p}))^2 + {q}^2} = \sqrt{{R2}} \approx \mathbf{{R:dp3}}.$$
+    The denominator has no real zeros; completing the square, $x^2 {b:signedcoef}x {c:signed} = (x {np:signed})^2 + {q}^2$, so its zeros are $x = {p} \pm {q}i$. The radius is the distance from the center ${a}$ to the nearest zero (both are equally far):
+    $$R = \sqrt{({a} {np:signed})^2 + {q}^2} = \sqrt{{R2}} \approx \mathbf{{R:dp3}}.$$
 - id: calc-m10-r2-de-moivre
   title: A power of a complex number in exponential form
   topic: Euler's formula
@@ -103,6 +103,6 @@
     - {name: re, label: 'Real part', format: integer}
     - {name: im, label: 'Imaginary part', format: integer}
   solution: |-
-    ${w} = \sqrt2\,e^{i\theta}$ with $\theta = {thd}^\circ$. Raising to the power {n}, the modulus becomes $(\sqrt2)^{{n}} \approx {md:num2}$ and the angle ${n}\theta = {ang}^\circ$, which points the same way as ${angr}^\circ$:
+    ${w} = \sqrt2\,e^{i\theta}$ with $\theta = {thd}^\circ$. Raising to the power {n}, the modulus becomes $(\sqrt2)^{{n}} \approx {md}$ and the angle ${n}\theta = {ang}^\circ$, which points the same way as ${angr}^\circ$:
     $$({w})^{n} = (\sqrt2)^{{n}}\left(\cos{angr}^\circ + i\sin{angr}^\circ\right) = {re} {im:signed}i.$$
     Real part **{re}**, imaginary part **{im}**.

@@ -8,7 +8,7 @@ topics: [Richardson extrapolation]
 drills: [calc-m8-r2-richardson, calc-m8-r2-romberg]
 refs: [calc-ref-integrals]
 ---
-Lesson 34 ended with a pattern: doubling $n$ cuts the trapezoidal rule's error by about 4. That was presented as a fact about error *bounds*. This lesson takes it seriously as a fact about the error *itself*. If you know that the error of an approximation behaves like a constant times $h^2$, you can compute the approximation with two step sizes and combine them so that the $h^2$ errors cancel. That idea is **Richardson extrapolation**. Applied over and over to the trapezoidal rule, it becomes **Romberg integration**, which can reach many correct digits from a modest number of function values. It is also the honest way to see where Simpson's rule comes from.
+Lesson 34 ended with a pattern: doubling $n$ cuts the trapezoidal rule's error by about 4. That was presented as a fact about error *bounds*. This lesson takes it seriously as a fact about the error *itself*. If you know that the error of an approximation behaves like a constant times $h^2$, you can compute the approximation with two step sizes and combine them so that the $h^2$ errors cancel. That idea is **Richardson extrapolation** (you may have met it in the honors lesson on numerical derivatives). Applied over and over to the trapezoidal rule, it becomes **Romberg integration**, which can reach many correct digits from a modest number of function values. It is also the honest way to see where Simpson's rule comes from.
 
 ## How the trapezoidal error really behaves
 
@@ -51,7 +51,7 @@ $$\frac{4(0.697024) - 0.708333}{3} = \frac{2.079763}{3} \approx \mathbf{0.693254
 
 The error drops from $0.0039$ (for $T_4$) to about $0.0001$, using no new function values.
 
-**This is Simpson's rule.** With $n$ subintervals of width $2h$ and $2n$ of width $h$,
+*This is Simpson's rule.* With $n$ subintervals of width $2h$ and $2n$ of width $h$,
 
 $$T_n = h\big[f_0 + 2f_2 + 2f_4 + \cdots + f_{2n}\big], \qquad T_{2n} = \frac h2\big[f_0 + 2f_1 + 2f_2 + \cdots + 2f_{2n-1} + f_{2n}\big],$$
 
@@ -95,17 +95,7 @@ The best trapezoid value, $T_8$, is off by about $0.0022$. The corner of the tab
 
 ## Extrapolation beyond integrals
 
-Nothing in the Richardson step was about integrals. The central difference $D(h) = \frac{f(x + h) - f(x - h)}{2h}$ approximates $f'(x)$ with error $\approx ch^2$ (a Taylor series argument, Lesson 44, shows this).
-
-### Example 4
-
-Estimate the derivative of $e^x$ at $x = 0$ (exactly 1) from $D(0.2)$ and $D(0.1)$.
-
-$D(0.2) = \frac{e^{0.2} - e^{-0.2}}{0.4} \approx 1.006680$ and $D(0.1) \approx 1.001668$. Extrapolate:
-
-$$\frac{4(1.001668) - 1.006680}{3} \approx \mathbf{0.999997}.$$
-
-The error falls from about $0.0017$ to about $0.000003$.
+Nothing in the Richardson step was about integrals: it needs only an approximation $A(h)$ whose error behaves like $ch^p$. If you studied the honors lesson on numerical derivatives (Lesson 8), you saw the same step applied to difference quotients, where $\frac{4D_c(h/2) - D_c(h)}{3}$ cancels the $h^2$ error of the central difference. The honors lesson on numerical methods for differential equations (Lesson 39) applies it to Euler's method, with $p = 1$.
 
 Lewis Fry Richardson used the idea in a 1911 paper on solving equations numerically and later called it "the deferred approach to the limit". Werner Romberg organized the repeated version for integrals in 1955. It still sits inside many numerical methods.
 
@@ -113,9 +103,9 @@ Lewis Fry Richardson used the idea in a 1911 paper on solving equations numerica
 
 Extrapolation is only as good as the error model behind it.
 
-- **Rough integrands.** For $\int_0^1\sqrt x\,dx = \frac23$, $f'$ is unbounded at 0, so the Euler–Maclaurin series doesn't apply. The trapezoid errors shrink by a factor of less than 3 per halving instead of 4 (they behave like $h^{3/2}$, and $2^{3/2} \approx 2.8$), and the Romberg columns improve only slightly: with $T_1$ through $T_{16}$ the corner value is still off by about $0.001$. Splitting off the bad point, or a substitution such as $x = u^2$ that makes the integrand smooth, works better.
-- **Step sizes that are too large.** The model is about small $h$. With very few subintervals, the higher-order terms can be as big as the leading one, and an extrapolated value can even come out worse.
-- **A pleasant surprise.** For a smooth periodic function integrated over a whole period, every bracket $f^{(k)}(b) - f^{(k)}(a)$ in the series is 0. The plain trapezoidal rule is then already extremely accurate: for $\int_0^{2\pi}e^{\sin x}\,dx$, $T_8$ is off by about $10^{-6}$ and $T_{16}$ agrees with the true value to about 15 digits. Extrapolation has nothing left to cancel.
+- *Rough integrands.* For $\int_0^1\sqrt x\,dx = \frac23$, $f'$ is unbounded at 0, so the Euler–Maclaurin series doesn't apply. The trapezoid errors shrink by a factor of less than 3 per halving instead of 4 (they behave like $h^{3/2}$, and $2^{3/2} \approx 2.8$), and the Romberg columns improve only slightly: with $T_1$ through $T_{16}$ the corner value is still off by about $0.001$. Splitting off the bad point, or a substitution such as $x = u^2$ that makes the integrand smooth, works better.
+- *Step sizes that are too large.* The model is about small $h$. With very few subintervals, the higher-order terms can be as big as the leading one, and an extrapolated value can even come out worse.
+- *A pleasant surprise.* For a smooth periodic function integrated over a whole period, every bracket $f^{(k)}(b) - f^{(k)}(a)$ in the series is 0. The plain trapezoidal rule is then already extremely accurate: for $\int_0^{2\pi}e^{\sin x}\,dx$, $T_8$ is off by about $10^{-6}$ and $T_{16}$ agrees with the true value to about 15 digits. Extrapolation has nothing left to cancel.
 
 ## Common mistakes
 

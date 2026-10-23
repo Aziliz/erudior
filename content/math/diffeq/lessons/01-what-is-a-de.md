@@ -113,6 +113,22 @@ Solve $\dfrac{dy}{dt} = 6t^2 - \sin t$, $y(0) = 4$.
 
 Notice the trap: $\cos 0 = 1$, not 0. Forgetting that gives $C = 4$, which is wrong.
 
+Every initial value problem in this lesson follows the same route, summed up in the chart
+below. The last step, checking, is the one people skip and the one that catches errors.
+
+```mermaid
+flowchart TD
+  accTitle: Solving an initial value problem
+  accDescr: Start with the equation and the initial condition y(x0) = y0. Find the general solution, including the arbitrary constant C. Substitute x0 and y0. Solve for C. Write the particular solution. Check it by substituting into the equation and the initial condition; if it checks you are done, and if not, look for the error and go back to the general solution.
+  A["Equation and initial condition y(x0) = y0"] --> B["Find the general solution, with C"]
+  B --> C["Substitute x0 and y0"]
+  C --> D["Solve for C"]
+  D --> E["Write the particular solution"]
+  E --> F{"Does it check?"}
+  F -- yes --> G["Done"]
+  F -- no --> B
+```
+
 ### Example 5
 
 Find a value of $k$ so that $y = e^{kt}$ solves $y'' - y' - 6y = 0$.

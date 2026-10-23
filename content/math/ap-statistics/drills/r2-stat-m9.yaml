@@ -42,6 +42,7 @@
     mm: {choices: [{label: 'a distribution whose proportions are all stated in $H_0$', value: 0}, {label: 'a binomial model, with $p$ estimated from the data', value: 1}, {label: 'a normal model, with the mean and SD estimated from the data', value: 2}]}
     chi: {min: 2, max: 18, step: 0.01}
   calc:
+    mval: mm + 0
     dfree: kk - 1 - mm
     pv: 1 - chi2cdf(chi, dfree)
   where: ['pv > 0.0005', 'pv < 0.6']
@@ -53,7 +54,7 @@
     - {name: dfree, label: 'df', format: integer}
     - {name: pv, label: 'p-value', tolerance: 0.0006, format: num4}
   solution: |-
-    df $=$ categories $- 1 -$ parameters estimated $= {kk} - 1 - {mm} =$ **{dfree}**. p-value
+    df $=$ categories $- 1 -$ parameters estimated $= {kk} - 1 - {mval} =$ **{dfree}**. p-value
     $= P(\chi^2_{{dfree}} \ge {chi}) \approx$ **{pv:num4}**.
 
 # ---- 39h2: after the chi-square test

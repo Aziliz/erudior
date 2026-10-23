@@ -34,7 +34,7 @@ $$\Gamma(s) = \int_0^\infty x^{s-1}e^{-x}\,dx.$$
 
 The shift by one (the power is $s - 1$, not $s$) is a historical convention, explained below. With it, Example 1 says $\Gamma(2) = 1$ and $\Gamma(3) = 2$.
 
-**Why it converges.** The integral is improper at both ends when $0 < s < 1$ (the integrand blows up at 0) and always improper at $\infty$. Split it at 1 and use the comparison test from Lesson 35 on each piece.
+*Why it converges.* The integral is improper at both ends when $0 < s < 1$ (the integrand blows up at 0) and always improper at $\infty$. Split it at 1 and use the comparison test from Lesson 35 on each piece.
 
 - On $(0, 1]$: $e^{-x} \le 1$, so $x^{s-1}e^{-x} \le x^{s-1} = \frac{1}{x^{1-s}}$. That is a p-integral on $(0, 1]$ with $p = 1 - s$, which converges when $p < 1$, that is, when $s > 0$.
 - On $[1, \infty)$: $x^{s-1}e^{-x/2} \to 0$ as $x \to \infty$ (exponentials beat powers), so for large $x$ it is below 1 and $x^{s-1}e^{-x} = x^{s-1}e^{-x/2}\cdot e^{-x/2} \le e^{-x/2}$. And $\int_1^\infty e^{-x/2}\,dx$ converges.
@@ -77,11 +77,11 @@ With the functional equation, every half-integer follows: $\Gamma(\frac32) = \fr
 
 The working skill is to *substitute until the integral looks like the definition*. Two patterns cover most cases.
 
-**A scaled exponential.** For $a > 0$, let $u = ax$:
+*A scaled exponential.* For $a > 0$, let $u = ax$:
 
 $$\int_0^\infty x^ne^{-ax}\,dx = \int_0^\infty\left(\frac ua\right)^ne^{-u}\,\frac{du}{a} = \frac{\Gamma(n + 1)}{a^{n+1}} = \frac{n!}{a^{n+1}}.$$
 
-**A square in the exponent.** For $\int_0^\infty x^me^{-x^2}\,dx$, let $u = x^2$, $x = u^{1/2}$, $dx = \frac12u^{-1/2}\,du$. The integral becomes $\frac12\int_0^\infty u^{(m-1)/2}e^{-u}\,du = \frac12\Gamma\left(\frac{m + 1}{2}\right)$.
+*A square in the exponent.* For $\int_0^\infty x^me^{-x^2}\,dx$, let $u = x^2$, $x = u^{1/2}$, $dx = \frac12u^{-1/2}\,du$. The integral becomes $\frac12\int_0^\infty u^{(m-1)/2}e^{-u}\,du = \frac12\Gamma\left(\frac{m + 1}{2}\right)$.
 
 ### Example 2
 
@@ -109,13 +109,13 @@ $$\int_0^1(-\ln x)^3\,dx = \int_\infty^0u^3\left(-e^{-u}\right)du = \int_0^\inft
 
 The minus sign in $dx$ is used up by swapping the limits back into increasing order. Euler's own integral was of exactly this form.
 
-### Example 5 (a waiting time)
+### Example 5 (all the moments of a waiting time)
 
-In probability, the time $X$ until the next event in a steady random process (a radioactive decay, a call arriving) is often modeled by the exponential density $f(x) = \lambda e^{-\lambda x}$ for $x \ge 0$, where $\lambda > 0$ is the average rate. The mean waiting time is $\int_0^\infty x\cdot\lambda e^{-\lambda x}\,dx$. By the first pattern with $n = 1$, $a = \lambda$:
+The honors lesson on probability density functions (Lesson 30) modeled the waiting time $X$ until the next random event with the exponential density $f(x) = \lambda e^{-\lambda x}$ for $x \ge 0$, and found its mean $\frac1\lambda$ with integration by parts. The gamma function gives every power at once. By the first pattern with $a = \lambda$:
 
-$$\lambda\cdot\frac{1!}{\lambda^2} = \mathbf{\frac1\lambda}.$$
+$$E(X^n) = \int_0^\infty x^n\cdot\lambda e^{-\lambda x}\,dx = \lambda\cdot\frac{n!}{\lambda^{n+1}} = \frac{n!}{\lambda^n}.$$
 
-If calls arrive at an average rate of 4 per hour, the mean wait is $\frac14$ hour, 15 minutes, which matches intuition. (The exponential model is a simplification that assumes events happen independently at a constant rate.)
+With $n = 1$ this is the mean, $\frac1\lambda$. With $n = 2$, $E(X^2) = \frac{2}{\lambda^2}$, so the variance shortcut from that lesson gives $\sigma^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$ and $\sigma = \mathbf{\frac1\lambda}$: for an exponential waiting time, the standard deviation equals the mean. If calls arrive at an average rate of 4 per hour, the wait averages 15 minutes, with a standard deviation of 15 minutes too. (The exponential model is a simplification that assumes events happen independently at a constant rate.)
 
 ## History and where it leads
 
@@ -123,8 +123,8 @@ In letters to Christian Goldbach in 1729 and 1730, Leonhard Euler answered the q
 
 Two facts, stated here without proof:
 
-- **Beyond $s > 0$.** Rewriting the functional equation as $\Gamma(s) = \frac{\Gamma(s + 1)}{s}$ defines $\Gamma$ for negative non-integers too (for example $\Gamma(-\frac12) = \frac{\Gamma(1/2)}{-1/2} = -2\sqrt\pi$). At $0, -1, -2, \dots$ it has vertical asymptotes. The integral itself only works for $s > 0$.
-- **Stirling's approximation.** For large $n$, $n! \approx \sqrt{2\pi n}\left(\frac ne\right)^n$, with relative error that shrinks toward 0 (about $1.7\%$ at $n = 5$, under $0.5\%$ at $n = 20$). It is often derived from the gamma integral.
+- *Beyond $s > 0$.* Rewriting the functional equation as $\Gamma(s) = \frac{\Gamma(s + 1)}{s}$ defines $\Gamma$ for negative non-integers too (for example $\Gamma(-\frac12) = \frac{\Gamma(1/2)}{-1/2} = -2\sqrt\pi$). At $0, -1, -2, \dots$ it has vertical asymptotes. The integral itself only works for $s > 0$.
+- **Stirling's approximation**. For large $n$, $n! \approx \sqrt{2\pi n}\left(\frac ne\right)^n$, with relative error that shrinks toward 0 (about $1.7\%$ at $n = 5$, under $0.5\%$ at $n = 20$). It is often derived from the gamma integral.
 
 ## Common mistakes
 

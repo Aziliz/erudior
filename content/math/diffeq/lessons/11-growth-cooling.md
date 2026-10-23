@@ -19,6 +19,22 @@ and almost all of them turn out to be first-order linear equations. Modeling has
 steps: (1) choose variables and units and write the equation, (2) solve it, (3)
 interpret the answer and check it makes sense.
 
+In practice the steps form a loop: if the check fails, you go back and change the assumptions.
+
+```mermaid
+flowchart TD
+  accTitle: The modeling cycle
+  accDescr: Describe the situation in words, then choose variables and units, then write the equation rate of change equals rate in minus rate out, then solve it, then interpret the solution. Next check it against units, the initial value, the long-run behavior and any data. If it passes, use the model to predict. If it fails, revise the assumptions and go back to choosing variables and writing the equation.
+  A["Describe the situation in words"] --> B["Choose variables and units"]
+  B --> C["Write: rate of change = rate in - rate out"]
+  C --> D["Solve the differential equation"]
+  D --> E["Interpret the solution"]
+  E --> F{"Check: units, initial value, long run, data"}
+  F -- "passes" --> G["Use the model to predict"]
+  F -- "fails" --> H["Revise the assumptions"]
+  H --> B
+```
+
 ## Growth and decay revisited
 
 You met $y' = ky$ in Lesson 4. In modeling, the constant $k$ usually comes from data,
@@ -64,6 +80,13 @@ $B = (200000 - 250000)e^{0.06t} + 250000 = 250000 - 50000e^{0.06t}$. It reaches 
 $e^{0.06t} = 5$, that is $t = \dfrac{\ln 5}{0.06} \approx 26.8$ years. Notice that if the
 payment were less than the interest on the initial balance ($0.06 \times 200000 = 12000$),
 the balance would grow forever.
+
+The graph compares three payment levels on the same loan. The dividing line is the
+payment that exactly covers the interest, \$12,000 per year, which keeps the balance flat.
+
+```plot
+{"x": [0, 30], "y": [0, 400], "xLabel": "t (years)", "yLabel": "balance (thousands of dollars)", "functions": [{"f": "250 - 50exp(0.06x)", "label": "pay 15,000 per year"}, {"f": "200", "dashed": true, "label": "pay 12,000 per year"}, {"f": "500/3 + (100/3)exp(0.06x)", "label": "pay 10,000 per year"}], "points": [{"at": [26.82, 0], "label": "paid off at 26.8 years"}], "caption": "A 200,000 dollar loan at 6% continuous interest: paying more than the 12,000 dollars of yearly interest pays it off; paying less makes the balance grow."}
+```
 
 ## Newton's law of cooling
 

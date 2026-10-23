@@ -26,6 +26,11 @@ $$m\frac{dv}{dt} = mg - \gamma v.$$
 
 Use $g = 9.8$ m/s² in SI units. The equation is linear: $v' + \dfrac{\gamma}{m}v = g$.
 
+A force diagram keeps the signs straight: draw each force as an arrow, choose the positive
+direction, and give each force a sign by comparing its arrow with that direction.
+
+![A falling package with two force arrows: the weight mg pointing down and the drag gamma v pointing up, opposite the motion. A dashed arrow beside it shows the velocity v pointing down, and an axis on the left marks down as the positive direction. The title reads: with down positive, m dv/dt = mg minus gamma v.](images/de-m3-falling-forces.svg)
+
 ### Terminal velocity
 
 As the object speeds up, drag grows until it balances gravity. Setting $v' = 0$ gives the
@@ -84,6 +89,12 @@ to the source (**Kirchhoff's voltage law**). Each component has its own drop:
 Here $I$ is current (amperes) and $q$ is charge on the capacitor (coulombs), with
 $I = \dfrac{dq}{dt}$.
 
+The two circuits in this lesson look like this in standard symbols. Each has a battery
+(long plate +), a switch, a resistor (zigzag) and either an inductor (coil) or a
+capacitor (two parallel plates).
+
+![Two series circuits side by side. Left, the RL circuit: a battery E, a switch, a resistor R and an inductor L drawn as a coil, with the equation L dI/dt + RI = E. Right, the RC circuit: a battery E, a switch, a resistor R and a capacitor C drawn as two parallel plates, with the equation R dq/dt + q/C = E.](images/de-m3-circuits.svg)
+
 ## RL circuits
 
 A resistor and inductor in series with source $E$: $L\dfrac{dI}{dt} + RI = E(t)$. With
@@ -127,6 +138,25 @@ For $I' + 5I = 6\sin t$ (an RL circuit with $L = 1$, $R = 5$, $E = 6\sin t$), th
 integrating factor method gives a **steady-state** part that oscillates with the source,
 $I_{ss} = \dfrac{30\sin t - 6\cos t}{26}$, plus a transient $Ce^{-5t}$ that dies out.
 Module 6 shows a quicker way to find steady-state responses.
+
+## One equation, four models
+
+The chart sums up the module so far. Each model is $y' + ay = b$ in disguise, so each
+solution is an equilibrium $b/a$ plus a transient that shrinks by a factor $e$ every time
+constant $1/a$.
+
+```mermaid
+flowchart TD
+  accTitle: Four models, one equation
+  accDescr: Falling with linear drag, the RL circuit, the RC circuit and Newton's law of cooling all have the form y prime plus a y equals b. Its solution is y equals b over a plus the quantity y0 minus b over a times e to the minus a t. The equilibrium b over a is the terminal velocity, E over R, CE or the room temperature. The time constant 1 over a is m over gamma, L over R, RC or 1 over k.
+  F["Falling: m dv/dt = mg - γv"] --> S
+  RL["RL circuit: L dI/dt + RI = E"] --> S
+  RC["RC circuit: R dq/dt + q/C = E"] --> S
+  N["Cooling: dT/dt = -k(T - Ta)"] --> S
+  S["Same form: y' + ay = b"] --> Sol["y = b/a + (y0 - b/a)e^(-at)"]
+  Sol --> E1["Equilibrium b/a: mg/γ, E/R, CE, Ta"]
+  Sol --> E2["Time constant 1/a: m/γ, L/R, RC, 1/k"]
+```
 
 ## Common mistakes
 

@@ -58,6 +58,13 @@ solving $f(x, y) = m$. For $y' = x - y$, the isocline of slope $m$ is the line
 $y = x - m$. Drawing a few isoclines and putting segments of the matching slope along
 each is a fast way to sketch by hand.
 
+The picture below gathers the parts of a slope field for $y' = x - y$ in one place: the
+short slope segments, the isocline of slope 0 (the line $y = x$, where every segment is
+flat), the straight-line solution $y = x - 1$, and the solution curve through $(0, 1)$,
+which has its lowest point where it crosses the slope-0 isocline.
+
+![The slope field of dy/dx = x minus y on the square from minus 3 to 3. A dashed line y = x is labeled as the isocline of slope 0; a green line y = x minus 1 is labeled as the straight-line solution; a blue curve through (0, 1) dips to a minimum on the dashed line and then follows the green line; one highlighted segment near (1.5, 2.5) is labeled as a slope segment with slope minus 1.](images/de-m1-slope-field.svg)
+
 The isocline for slope 0, where $f(x, y) = 0$, is especially useful: solution curves
 have horizontal tangents there, so it's where solutions can reach local maxima or
 minima.
@@ -75,6 +82,20 @@ minima.
 - A horizontal row of flat segments (slope 0 everywhere along $y = c$) marks an
   equilibrium solution $y = c$.
 - Steep segments mean large $|f|$; where $f$ is undefined there is no segment.
+
+This chart puts the checks in the order to try them:
+
+```mermaid
+flowchart TD
+  accTitle: Reading the form of an equation from its slope field
+  accDescr: First ask whether every column of segments looks alike. If yes, the slope depends only on x, the equation is y' = f(x), and solutions are vertical shifts of each other. If not, ask whether every row looks alike. If yes, the equation is autonomous, y' = g(y), solutions are horizontal shifts of each other, and flat rows are equilibrium solutions. If neither, the slope depends on both x and y; look for the isocline of slope 0 and for any straight-line solutions.
+  A{"Every column alike?"} -- yes --> B["y' = f(x): solutions are vertical shifts"]
+  A -- no --> C{"Every row alike?"}
+  C -- yes --> D["Autonomous, y' = g(y): solutions are horizontal shifts"]
+  D --> E["Flat rows are equilibrium solutions"]
+  C -- no --> F["Slope depends on both x and y"]
+  F --> G["Find the slope-0 isocline and any straight-line solutions"]
+```
 
 ### Example 2
 

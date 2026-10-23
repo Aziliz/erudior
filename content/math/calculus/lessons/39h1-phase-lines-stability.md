@@ -77,7 +77,7 @@ $$\frac{dP}{dt} = 0.6P\left(1 - \frac{P}{1000}\right) - H.$$
 The graph of $g(P)$ is the logistic hump shifted down by $H$. Its highest point is at $P = 500$, where the growth term is $0.6(500)(0.5) = 150$.
 
 ```plot
-{"x": [0, 1100], "y": [-220, 180], "functions": [{"f": "0.6x(1 - x/1000)", "label": "H = 0"}, {"f": "0.6x(1 - x/1000) - 90", "label": "H = 90"}, {"f": "0.6x(1 - x/1000) - 150", "dashed": true, "label": "H = 150"}, {"f": "0.6x(1 - x/1000) - 200", "label": "H = 200"}], "points": [{"at": [183.77, 0], "label": "183.8"}, {"at": [816.23, 0], "label": "816.2"}, {"at": [500, 0], "label": "500"}], "xLabel": "P (fish)", "yLabel": "dP/dt", "caption": "Growth rate minus harvest. The zeros are the equilibria; at H = 150 they merge, and above it there are none."}
+{"x": [0, 1100], "y": [-220, 180], "functions": [{"f": "0.6x(1 - x/1000)", "to": 1100}, {"f": "0.6x(1 - x/1000) - 90", "to": 1040}, {"f": "0.6x(1 - x/1000) - 150", "to": 980, "dashed": true}, {"f": "0.6x(1 - x/1000) - 200", "to": 900}], "points": [{"at": [183.77, 0], "label": "183.8"}, {"at": [816.23, 0], "label": "816.2"}, {"at": [500, 0], "label": "500"}], "xLabel": "P (fish)", "yLabel": "dP/dt", "caption": "Growth rate minus harvest for H = 0, 90, 150 (dashed) and 200, top to bottom. The zeros are the equilibria; at H = 150 they merge, and above it there are none."}
 ```
 
 ### Example 2

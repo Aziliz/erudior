@@ -1,0 +1,34 @@
+# calc-m8 round 2: terms introduced in the honors lessons 36h1 (reduction formulas), 36h2 (gamma function) and 36h3 (Romberg integration)
+- term: reduction formula
+  aliases: [reduction formulas]
+  definition: 'A formula that writes an integral involving a power $n$ in terms of the same kind of integral with a smaller power, such as $\int x^ne^x\,dx = x^ne^x - n\int x^{n-1}e^x\,dx$. Applied repeatedly, it walks the power down to an integral done directly.'
+  topic: Reduction formulas
+- term: Wallis integral
+  aliases: [Wallis integrals]
+  definition: '$W_n = \int_0^{\pi/2}\sin^nx\,dx$ (equal to the same integral of $\cos^nx$). They satisfy $W_n = \frac{n - 1}{n}W_{n-2}$ with $W_0 = \frac\pi2$ and $W_1 = 1$.'
+  topic: Reduction formulas
+- term: Wallis product
+  definition: 'The infinite product $\frac\pi2 = \frac21\cdot\frac23\cdot\frac43\cdot\frac45\cdot\frac65\cdot\frac67\cdots$, published by John Wallis in 1656. It can be proved by squeezing the Wallis integrals; it converges slowly.'
+  topic: Reduction formulas
+- term: gamma function
+  aliases: [Γ function]
+  definition: '$\Gamma(s) = \int_0^\infty x^{s-1}e^{-x}\,dx$ for $s > 0$. It satisfies $\Gamma(s + 1) = s\Gamma(s)$ and $\Gamma(n + 1) = n!$, extending the factorial to non-integers; $\Gamma\left(\frac12\right) = \sqrt\pi$.'
+  topic: Gamma function
+- term: functional equation
+  definition: 'An equation that a function satisfies at related inputs. For the gamma function it is $\Gamma(s + 1) = s\,\Gamma(s)$, proved by integration by parts.'
+  topic: Gamma function
+- term: Gaussian integral
+  definition: '$\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt\pi$ (so $\int_0^\infty e^{-x^2}\,dx = \frac{\sqrt\pi}{2}$). The usual proof uses a double integral in polar coordinates.'
+  topic: Gamma function
+- term: Stirling's approximation
+  aliases: [Stirling's formula]
+  definition: '$n! \approx \sqrt{2\pi n}\left(\frac ne\right)^n$ for large $n$; the relative error tends to 0 (about 0.8% at $n = 10$).'
+  topic: Gamma function
+- term: Romberg integration
+  aliases: [Romberg's method, Romberg table]
+  definition: 'Repeated Richardson extrapolation of the trapezoidal rule: start from $T_1, T_2, T_4, \dots$ and form $R_{k,j} = R_{k,j-1} + \frac{R_{k,j-1} - R_{k-1,j-1}}{4^j - 1}$, cancelling $h^2$, $h^4$, $h^6$, … in turn. Published by Werner Romberg in 1955.'
+  topic: Richardson extrapolation
+- term: Euler–Maclaurin formula
+  aliases: [Euler-Maclaurin formula]
+  definition: 'For smooth $f$, it describes the trapezoidal rule''s error as a series in even powers of $h$: $T(h) = I + \frac{h^2}{12}[f''(b) - f''(a)] - \frac{h^4}{720}[f''''''(b) - f''''''(a)] + \cdots$. The series is asymptotic (accurate for small $h$), not exact in general.'
+  topic: Richardson extrapolation

@@ -491,7 +491,7 @@
   choices: ['The one with p = 0.003', 'The one with p = 0.012', 'The one with p = 0.020', 'The one with p = 0.041', 'The one with p = 0.30']
   answer: [0, 1]
   explanation: |-
-    Holm's thresholds are $0.05/5 = 0.01$, $0.05/4 = 0.0125$, $0.05/3 \approx 0.0167$, $0.05/2 = 0.025$ and $0.05$. The first two pass ($0.003 \le 0.01$, $0.012 \le 0.0125$), but $0.020 > 0.0167$, so Holm stops there; 0.041 and 0.30 are not rejected even though 0.30 is compared with nothing and 0.041 would have been below 0.05.
+    Holm's thresholds are $0.05/5 = 0.01$, $0.05/4 = 0.0125$, $0.05/3 \approx 0.0167$, $0.05/2 = 0.025$ and $0.05$. The first two pass ($0.003 \le 0.01$, $0.012 \le 0.0125$), but $0.020 > 0.0167$, so Holm stops there. The hypotheses with 0.020, 0.041 and 0.30 are not rejected, even though 0.041 is below 0.05.
 
 - id: stat-m8-r2-h22
   lesson: stat-m8-h-multiple-testing
@@ -504,7 +504,7 @@
     - 'The probability that all the null hypotheses are true is 0.05.'
   answer: 1
   explanation: |-
-    The false discovery rate is the expected share of false discoveries among the rejections. Controlling the chance of *any* false discovery is the family-wise error rate, which is stricter. The BH thresholds $iq/m$ are not a fixed per-test level, and no procedure gives the probability that hypotheses are true.
+    The false discovery rate is the expected share of false discoveries among the rejections. Controlling the chance of even one false discovery is the family-wise error rate, which is stricter. The BH thresholds $iq/m$ are not a fixed per-test level, and no procedure gives the probability that hypotheses are true.
 
 - id: stat-m8-r2-h23
   lesson: stat-m8-h-multiple-testing

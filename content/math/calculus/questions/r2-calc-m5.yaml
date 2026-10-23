@@ -299,7 +299,7 @@
   - The derivative is undefined at both endpoints
   - They are the only critical numbers
   answer: 0
-  explanation: 'Allowing $x = 0$ and $x = 300$ (zero area) makes the domain the closed interval $[0, 300]$, so the closed interval method applies: compare $A(0) = 0$, $A(150) = 45{,}000$ and $A(300) = 0$. The endpoints are checked because extremes *can* occur there, not because they always do; here the critical number $x = 150$ wins.'
+  explanation: 'Allowing $x = 0$ and $x = 300$ (zero area) makes the domain the closed interval $[0, 300]$, so the closed interval method applies: compare $A(0) = 0$, $A(150) = 45{,}000$ and $A(300) = 0$. The endpoints are checked because extremes can occur there, not because they always do; here the critical number $x = 150$ wins.'
 - id: calc-m5-r2-h01
   lesson: calc-m5-h-mvt-inequalities
   topic: Inequalities from the MVT
@@ -409,7 +409,7 @@
   - A check that $f$ is concave up
   - The value of the root
   answer: 1
-  explanation: '$f'' > 0$ (with Rolle''s theorem) shows there is *at most* one root. $e^x$ also has a positive derivative and no roots at all. Existence needs a separate argument: $f(1) = -2 < 0 < 9 = f(2)$ and the IVT.'
+  explanation: '$f'' > 0$ (with Rolle''s theorem) shows there is at most one root. $e^x$ also has a positive derivative and no roots at all. Existence needs a separate argument: $f(1) = -2 < 0 < 9 = f(2)$ and the IVT.'
 - id: calc-m5-r2-h11
   lesson: calc-m5-h-mvt-inequalities
   type: match
@@ -516,7 +516,7 @@
   - $f\left(\frac{x_1 + x_2 + x_3}{3}\right) \le \frac{f(x_1) + f(x_2) + f(x_3)}{3}$
   - $f\left(\frac{x_1 + x_2 + x_3}{3}\right) = \frac{f(x_1) + f(x_2) + f(x_3)}{3}$
   answer: 2
-  explanation: 'For convex $f$, $f$ of the average is at most the average of $f$; the reversed version holds for concave $f$. Equality holds only for linear $f$ or equal $x_i$. The sum version is a different statement (it fails for $f(x) = x^2 + 1$ with all $x_i = 0$: $1 \le 3$ holds, but with $f(x) = x^2$ and $x_i = 1$ it gives $9 \le 3$, false).'
+  explanation: 'For convex $f$, $f$ of the average is at most the average of $f$; the reversed version holds for concave $f$. Equality holds only for linear $f$ or equal $x_i$. The version with sums instead of averages is a different, generally false statement: for $f(x) = x^2$ and $x_1 = x_2 = x_3 = 1$ it would say $9 \le 3$.'
 - id: calc-m5-r2-h19
   lesson: calc-m5-h-convexity
   topic: Classic inequalities
@@ -758,7 +758,7 @@
 - id: calc-m5-r2-h39
   lesson: calc-m5-h-optimization-models
   topic: Optimization models
-  stem: Why is the longest ladder that fits around the corner found by *minimizing* $L(\theta)$?
+  stem: Why is the longest ladder that fits around the corner found by minimizing $L(\theta)$?
   choices:
   - A ladder fits only if it is no longer than every segment touching the inner corner, so the shortest such segment is the limit
   - Because $L(\theta)$ has no critical numbers

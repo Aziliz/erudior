@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="400" viewBox="0 0 660 400">
+<rect x="0" y="0" width="660" height="400" fill="#ffffff"/>
+<rect x="15" y="100" width="200" height="230" fill="#dde8f3" stroke="none" opacity="0.55"/>
+<line x1="23.0" y1="215.0" x2="207.0" y2="215.0" stroke="#1c2833" stroke-width="1.5"/>
+<polygon points="207.0,215.0 196.9,219.3 196.9,210.7" fill="#1c2833"/>
+<line x1="115.0" y1="323.0" x2="115.0" y2="107.0" stroke="#1c2833" stroke-width="1.5"/>
+<polygon points="115.0,107.0 119.3,117.1 110.7,117.1" fill="#1c2833"/>
+<text x="203.0" y="237.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-style="italic">c</text>
+<text x="123.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-style="italic">y*</text>
+<path d="M115.0,215.0 L113.5,222.9 L112.0,226.2 L110.5,228.7 L109.0,230.8 L107.5,232.7 L106.0,234.4 L104.5,236.0 L103.0,237.4 L101.5,238.8 L100.1,240.1 L98.6,241.3 L97.1,242.4 L95.6,243.6 L94.1,244.6 L92.6,245.7 L91.1,246.7 L89.6,247.7 L88.1,248.6 L86.6,249.5 L85.1,250.4 L83.6,251.3 L82.1,252.2 L80.6,253.0 L79.1,253.8 L77.6,254.6 L76.1,255.4 L74.6,256.2 L73.1,256.9 L71.6,257.7 L70.2,258.4 L68.7,259.1 L67.2,259.8 L65.7,260.5 L64.2,261.2 L62.7,261.9 L61.2,262.5 L59.7,263.2 L58.2,263.8 L56.7,264.5 L55.2,265.1 L53.7,265.7 L52.2,266.4 L50.7,267.0 L49.2,267.6 L47.7,268.2 L46.2,268.7 L44.7,269.3 L43.2,269.9 L41.7,270.5 L40.3,271.0 L38.8,271.6 L37.3,272.1 L35.8,272.7 L34.3,273.2 L32.8,273.8 L31.3,274.3 L29.8,274.8 L28.3,275.3 L26.8,275.9" fill="none" stroke="#244d76" stroke-width="3.5"/>
+<path d="M115.0,215.0 L113.5,207.1 L112.0,203.8 L110.5,201.3 L109.0,199.2 L107.5,197.3 L106.0,195.6 L104.5,194.0 L103.0,192.6 L101.5,191.2 L100.1,189.9 L98.6,188.7 L97.1,187.6 L95.6,186.4 L94.1,185.4 L92.6,184.3 L91.1,183.3 L89.6,182.3 L88.1,181.4 L86.6,180.5 L85.1,179.6 L83.6,178.7 L82.1,177.8 L80.6,177.0 L79.1,176.2 L77.6,175.4 L76.1,174.6 L74.6,173.8 L73.1,173.1 L71.6,172.3 L70.2,171.6 L68.7,170.9 L67.2,170.2 L65.7,169.5 L64.2,168.8 L62.7,168.1 L61.2,167.5 L59.7,166.8 L58.2,166.2 L56.7,165.5 L55.2,164.9 L53.7,164.3 L52.2,163.6 L50.7,163.0 L49.2,162.4 L47.7,161.8 L46.2,161.3 L44.7,160.7 L43.2,160.1 L41.7,159.5 L40.3,159.0 L38.8,158.4 L37.3,157.9 L35.8,157.3 L34.3,156.8 L32.8,156.2 L31.3,155.7 L29.8,155.2 L28.3,154.7 L26.8,154.1" fill="none" stroke="#b03a2e" stroke-width="3" stroke-dasharray="8 6"/>
+<circle cx="115.0" cy="215.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
+<text x="115.0" y="38.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-weight="bold">Saddle-node</text>
+<text x="115.0" y="62.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">y′ = c + y²</text>
+<rect x="230" y="100" width="200" height="230" fill="#dcf0e3" stroke="none" opacity="0.55"/>
+<line x1="238.0" y1="215.0" x2="422.0" y2="215.0" stroke="#1c2833" stroke-width="1.5"/>
+<polygon points="422.0,215.0 411.9,219.3 411.9,210.7" fill="#1c2833"/>
+<line x1="330.0" y1="323.0" x2="330.0" y2="107.0" stroke="#1c2833" stroke-width="1.5"/>
+<polygon points="330.0,107.0 334.3,117.1 325.7,117.1" fill="#1c2833"/>
+<text x="418.0" y="237.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-style="italic">c</text>
+<text x="338.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-style="italic">y*</text>
+<path d="M241.8,215.0 L330.0,215.0" fill="none" stroke="#244d76" stroke-width="3.5"/>
+<path d="M330.0,215.0 L418.2,215.0" fill="none" stroke="#b03a2e" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M241.8,303.2 L330.0,215.0" fill="none" stroke="#b03a2e" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M330.0,215.0 L418.2,126.8" fill="none" stroke="#244d76" stroke-width="3.5"/>
+<circle cx="330.0" cy="215.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
+<text x="330.0" y="38.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-weight="bold">Transcritical</text>
+<text x="330.0" y="62.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">y′ = cy − y²</text>
+<rect x="445" y="100" width="200" height="230" fill="#dde8f3" stroke="none" opacity="0.55"/>
+<line x1="453.0" y1="215.0" x2="637.0" y2="215.0" stroke="#1c2833" stroke-width="1.5"/>
+<polygon points="637.0,215.0 626.9,219.3 626.9,210.7" fill="#1c2833"/>
+<line x1="545.0" y1="323.0" x2="545.0" y2="107.0" stroke="#1c2833" stroke-width="1.5"/>
+<polygon points="545.0,107.0 549.3,117.1 540.7,117.1" fill="#1c2833"/>
+<text x="633.0" y="237.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-style="italic">c</text>
+<text x="553.0" y="123.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-style="italic">y*</text>
+<path d="M456.8,215.0 L545.0,215.0" fill="none" stroke="#244d76" stroke-width="3.5"/>
+<path d="M545.0,215.0 L633.2,215.0" fill="none" stroke="#b03a2e" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M545.0,215.0 L546.5,207.1 L548.0,203.8 L549.5,201.3 L551.0,199.2 L552.5,197.3 L554.0,195.6 L555.5,194.0 L557.0,192.6 L558.5,191.2 L559.9,189.9 L561.4,188.7 L562.9,187.6 L564.4,186.4 L565.9,185.4 L567.4,184.3 L568.9,183.3 L570.4,182.3 L571.9,181.4 L573.4,180.5 L574.9,179.6 L576.4,178.7 L577.9,177.8 L579.4,177.0 L580.9,176.2 L582.4,175.4 L583.9,174.6 L585.4,173.8 L586.9,173.1 L588.4,172.3 L589.8,171.6 L591.3,170.9 L592.8,170.2 L594.3,169.5 L595.8,168.8 L597.3,168.1 L598.8,167.5 L600.3,166.8 L601.8,166.2 L603.3,165.5 L604.8,164.9 L606.3,164.3 L607.8,163.6 L609.3,163.0 L610.8,162.4 L612.3,161.8 L613.8,161.3 L615.3,160.7 L616.8,160.1 L618.3,159.5 L619.7,159.0 L621.2,158.4 L622.7,157.9 L624.2,157.3 L625.7,156.8 L627.2,156.2 L628.7,155.7 L630.2,155.2 L631.7,154.7 L633.2,154.1" fill="none" stroke="#244d76" stroke-width="3.5"/>
+<path d="M545.0,215.0 L546.5,222.9 L548.0,226.2 L549.5,228.7 L551.0,230.8 L552.5,232.7 L554.0,234.4 L555.5,236.0 L557.0,237.4 L558.5,238.8 L559.9,240.1 L561.4,241.3 L562.9,242.4 L564.4,243.6 L565.9,244.6 L567.4,245.7 L568.9,246.7 L570.4,247.7 L571.9,248.6 L573.4,249.5 L574.9,250.4 L576.4,251.3 L577.9,252.2 L579.4,253.0 L580.9,253.8 L582.4,254.6 L583.9,255.4 L585.4,256.2 L586.9,256.9 L588.4,257.7 L589.8,258.4 L591.3,259.1 L592.8,259.8 L594.3,260.5 L595.8,261.2 L597.3,261.9 L598.8,262.5 L600.3,263.2 L601.8,263.8 L603.3,264.5 L604.8,265.1 L606.3,265.7 L607.8,266.4 L609.3,267.0 L610.8,267.6 L612.3,268.2 L613.8,268.7 L615.3,269.3 L616.8,269.9 L618.3,270.5 L619.7,271.0 L621.2,271.6 L622.7,272.1 L624.2,272.7 L625.7,273.2 L627.2,273.8 L628.7,274.3 L630.2,274.8 L631.7,275.3 L633.2,275.9" fill="none" stroke="#244d76" stroke-width="3.5"/>
+<circle cx="545.0" cy="215.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
+<text x="545.0" y="38.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke" font-weight="bold">Pitchfork</text>
+<text x="545.0" y="62.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">y′ = cy − y³</text>
+<line x1="150.0" y1="372.0" x2="200.0" y2="372.0" stroke="#244d76" stroke-width="3.5"/>
+<text x="210.0" y="378.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">stable</text>
+<line x1="330.0" y1="372.0" x2="380.0" y2="372.0" stroke="#b03a2e" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="390.0" y="378.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">unstable</text>
+</svg>

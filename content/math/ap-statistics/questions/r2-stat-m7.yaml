@@ -512,7 +512,7 @@
     - 'W. S. Gosset, a chemist at the Guinness brewery in Dublin'
   answer: 3
   explanation: |-
-    William Sealy Gosset worked with small samples at Guinness and published in *Biometrika* under the pen name Student. Fisher later recast the result into today's form; Pearson edited *Biometrika*.
+    William Sealy Gosset worked with small samples at Guinness and published in Biometrika under the pen name Student. Fisher later recast the result into today's form; Pearson edited Biometrika.
 
 - id: stat-m7-r2-h16
   lesson: stat-m7-h-student-t

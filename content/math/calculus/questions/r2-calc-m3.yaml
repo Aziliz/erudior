@@ -1,0 +1,731 @@
+# Round 2, module calc-m3 (Differentiation rules): new question types for the core lessons
+# (calc-m3-r2-q01..q25) and the three honors lessons (calc-m3-r2-h01..h42).
+
+# ---------- Lesson 9: product and quotient rules ----------
+- id: calc-m3-r2-q01
+  lesson: calc-product-quotient
+  type: label
+  module_quiz: true
+  topic: Product rule
+  stem: 'In this picture of the product rule, a rectangle with sides $f$ and $g$ grows to sides $f + \Delta f$ and $g + \Delta g$. Name the numbered pieces.'
+  image: {src: images/calc-m3-product-area-blank.svg, alt: 'A large rectangle of width f and height g. A tall thin strip of width Δf is attached on the right, a long thin strip of height Δg on top, and a small corner piece fills the top right. The pieces are numbered, not named.'}
+  labels:
+    - {x: 47.9, y: 56.4, text: Original area f·g}
+    - {x: 85.4, y: 56.4, text: Strip Δf·g}
+    - {x: 47.9, y: 25.6, text: Strip f·Δg}
+    - {x: 85.4, y: 25.6, text: Corner Δf·Δg}
+  distractors: [Strip f′·g′, Strip (Δf + Δg)·g]
+  explanation: |-
+    Piece 1 is the original rectangle, $f\cdot g$. The strip on the right (2) has width $\Delta f$ and height $g$; the strip on top (3) has width $f$ and height $\Delta g$; the corner (4) is $\Delta f\cdot\Delta g$. After dividing the change in area by $h$ and letting $h \to 0$, the strips give $f'g + fg'$ and the corner term disappears, because $\Delta g \to 0$.
+- id: calc-m3-r2-q02
+  lesson: calc-product-quotient
+  type: text
+  topic: Quotient rule
+  stem: 'Suppose $f(0) = -2$, $f''(0) = 3$, $g(0) = 4$ and $g''(0) = 1$. Then $(fg)''(0) =$ ___ and $\left(\dfrac fg\right)''(0) =$ ___. Give exact values.'
+  accept:
+    - ['10']
+    - ['7/8']
+  explanation: |-
+    Product rule: $(fg)'(0) = f'(0)g(0) + f(0)g'(0) = 3\cdot4 + (-2)(1) = 10$.
+    Quotient rule: $\left(\frac fg\right)'(0) = \dfrac{f'(0)g(0) - f(0)g'(0)}{g(0)^2} = \dfrac{12 - (-2)}{16} = \dfrac{14}{16} = \dfrac78$. (Forgetting that $f(0)$ is negative gives $\frac{10}{16}$.)
+- id: calc-m3-r2-q03
+  lesson: calc-product-quotient
+  type: order
+  topic: Quotient rule
+  stem: 'Put the steps for differentiating $y = \dfrac{x^2 - 1}{x + 2}$ with the quotient rule in order.'
+  items:
+    - 'Identify hi $= x^2 - 1$ and lo $= x + 2$'
+    - 'Find d-hi $= 2x$ and d-lo $= 1$'
+    - 'Write $y'' = \dfrac{(x + 2)(2x) - (x^2 - 1)(1)}{(x + 2)^2}$'
+    - 'Simplify the numerator: $y'' = \dfrac{x^2 + 4x + 1}{(x + 2)^2}$'
+  explanation: |-
+    You need hi and lo before you can differentiate them, the two derivatives before you can assemble "lo d-hi minus hi d-lo, over lo squared," and the assembled fraction before you can simplify it: $2x^2 + 4x - x^2 + 1 = x^2 + 4x + 1$. The denominator stays factored.
+- id: calc-m3-r2-q04
+  lesson: calc-product-quotient
+  topic: Product rule
+  stem: 'Which of these derivatives are correct? Select all that apply.'
+  choices:
+    - '$\dfrac{d}{dx}\left[x^2e^x\right] = e^x(x^2 + 2x)$'
+    - '$\dfrac{d}{dx}\left[\dfrac{1}{x^2 + 1}\right] = \dfrac{-2x}{(x^2 + 1)^2}$'
+    - '$\dfrac{d}{dx}\left[(x + 1)(x - 1)\right] = 1$'
+    - '$\dfrac{d}{dx}\left[\dfrac{x}{x + 1}\right] = \dfrac{-1}{(x + 1)^2}$'
+  answer: [0, 1]
+  explanation: |-
+    The first is the product rule: $2xe^x + x^2e^x$. The second is the quotient rule with hi $= 1$: $\frac{0 - 1\cdot2x}{(x^2 + 1)^2}$. The third multiplies the derivatives ($1\cdot1$); the product is $x^2 - 1$, with derivative $2x$. The fourth reverses the numerator: $\frac{1\cdot(x + 1) - x\cdot1}{(x + 1)^2} = \frac{1}{(x + 1)^2}$, which is positive.
+- id: calc-m3-r2-q05
+  lesson: calc-product-quotient
+  type: match
+  module_quiz: true
+  topic: Quotient rule
+  stem: 'Match each function with the approach the lesson''s decision chart recommends.'
+  pairs:
+    - ['$\dfrac{x^3 + 4x}{7}$', Constant multiple rule]
+    - ['$\dfrac{x^2 + 5}{x}$', 'Split into terms, then power rule']
+    - ['$\dfrac{e^x}{x^2 + 1}$', Quotient rule]
+    - ['$x^2e^x$', Product rule]
+  distractors: ['Expand, then power rule']
+  explanation: |-
+    A constant denominator is a constant multiple: $\frac17(x^3 + 4x)$. A single power of $x$ below splits the fraction: $x + 5x^{-1}$. $\frac{e^x}{x^2 + 1}$ has a denominator that is neither, so the quotient rule. $x^2e^x$ is a product that can't be expanded into powers, so the product rule.
+
+# ---------- Lesson 10: trig derivatives ----------
+- id: calc-m3-r2-q06
+  lesson: calc-trig-derivs
+  type: label
+  module_quiz: true
+  topic: Trig derivatives
+  stem: 'Each numbered dot lies on $y = \sin x$. Name the slope of the curve at each dot.'
+  image: {src: images/calc-m3-sine-points-blank.svg, alt: 'The graph of y = sin x from 0 to a little past 2π, with numbered dots on the curve at x = π/4, π/2, π and 2π.'}
+  labels:
+    - {x: 21.0, y: 31.9, text: Slope √2/2}
+    - {x: 30.5, y: 23.8, text: Slope 0}
+    - {x: 49.5, y: 51.4, text: Slope −1}
+    - {x: 87.5, y: 51.4, text: Slope 1}
+  distractors: [Slope −√2/2, Slope 2]
+  explanation: |-
+    The slope of $\sin x$ is $\cos x$. At $\frac\pi4$: $\cos\frac\pi4 = \frac{\sqrt2}{2}$. At $\frac\pi2$ (the peak): $\cos\frac\pi2 = 0$. At $\pi$: $\cos\pi = -1$, the curve falling as steeply as it ever does. At $2\pi$: $\cos 2\pi = 1$, rising as steeply as it ever does.
+- id: calc-m3-r2-q07
+  lesson: calc-trig-derivs
+  type: text
+  topic: Trig derivatives
+  stem: '$\dfrac{d^{35}}{dx^{35}}\cos x =$ ___ (type an answer such as sin x or -cos x).'
+  accept: ['sin x', 'sin(x)', '+sin x']
+  explanation: |-
+    The derivatives of $\cos x$ cycle with period 4: $\cos x \to -\sin x \to -\cos x \to \sin x \to \cos x$. Since $35 = 4\cdot8 + 3$, the 35th derivative is the same as the third: $\sin x$.
+- id: calc-m3-r2-q08
+  lesson: calc-trig-derivs
+  type: match
+  topic: Trig derivatives
+  stem: 'Match each function with its derivative.'
+  pairs:
+    - ['$\tan x$', sec²x]
+    - ['$\sec x$', sec x tan x]
+    - ['$\cot x$', −csc²x]
+    - ['$\csc x$', −csc x cot x]
+  distractors: [sec x, csc²x]
+  explanation: |-
+    From the quotient rule: $(\tan x)' = \sec^2x$ and $(\sec x)' = \sec x\tan x$. The co- functions mirror these with a minus sign: $(\cot x)' = -\csc^2x$ and $(\csc x)' = -\csc x\cot x$.
+- id: calc-m3-r2-q09
+  lesson: calc-trig-derivs
+  topic: Trig derivatives
+  stem: 'Which statements are true? Select all that apply.'
+  choices:
+    - '$\dfrac{d}{dx}\cos x = -\sin x$ (with $x$ in radians)'
+    - 'The 8th derivative of $\sin x$ is $\sin x$'
+    - '$\dfrac{d}{dx}\sin(x^\circ) = \cos(x^\circ)$ (with $x$ in degrees)'
+    - '$\dfrac{d}{dx}\tan x = \sec x$'
+  answer: [0, 1]
+  explanation: |-
+    The first is the basic rule. The second holds because the derivatives of $\sin x$ repeat every 4 steps and 8 is a multiple of 4. In degrees an extra factor appears: $\frac{d}{dx}\sin(x^\circ) = \frac{\pi}{180}\cos(x^\circ)$. And $(\tan x)' = \sec^2x$, not $\sec x$.
+- id: calc-m3-r2-q10
+  lesson: calc-trig-derivs
+  type: order
+  module_quiz: true
+  topic: Trig derivatives
+  stem: 'Put the steps of the derivation of $\dfrac{d}{dx}\sin x = \cos x$ in order.'
+  items:
+    - 'Write the difference quotient $\dfrac{\sin(x + h) - \sin x}{h}$'
+    - 'Expand $\sin(x + h)$ with the addition formula'
+    - 'Regroup as $\sin x\cdot\dfrac{\cos h - 1}{h} + \cos x\cdot\dfrac{\sin h}{h}$'
+    - 'Use the limits $\dfrac{\cos h - 1}{h} \to 0$ and $\dfrac{\sin h}{h} \to 1$'
+    - 'Conclude that the derivative is $\cos x$'
+  explanation: |-
+    Start from the definition of the derivative, expand $\sin(x + h) = \sin x\cos h + \cos x\sin h$, group the terms so the two special limits from Lesson 4 appear, take $h \to 0$, and read off $\cos x$. Each step uses the result of the one before.
+
+# ---------- Lesson 11: chain rule ----------
+- id: calc-m3-r2-q11
+  lesson: calc-chain-rule
+  type: label
+  module_quiz: true
+  topic: Chain rule
+  stem: 'The function $y = e^{\cos(3x)}$ is drawn as three machines in a row, with each machine''s rate written under it. Name the numbered boxes.'
+  image: {src: images/calc-m3-chain-layers-blank.svg, alt: 'x enters a box that multiplies by 3, whose output 3x enters a box marked cos, whose output cos 3x enters a box marked e to the u, which outputs y. Under the boxes are the rates 3, −sin(3x) and e^(cos 3x), and the bottom line reads y′ = e^(cos 3x) · (−sin 3x) · 3. The boxes are numbered 1, 2, 3 from left to right.'}
+  labels:
+    - {x: 14.7, y: 34.7, text: Inner function}
+    - {x: 41.2, y: 34.7, text: Middle function}
+    - {x: 67.8, y: 34.7, text: Outer function}
+  distractors: [Input variable, Derivative of the whole function]
+  explanation: |-
+    The input $x$ goes through $3x$ first (the inner function), then cosine (the middle layer), and the exponential is applied last (the outer function). The chain rule multiplies the three rates, each evaluated at what enters its box: $e^{\cos 3x}\cdot(-\sin 3x)\cdot 3$.
+- id: calc-m3-r2-q12
+  lesson: calc-chain-rule
+  type: text
+  topic: Chain rule
+  stem: 'Let $h(x) = f(g(x))$, where $g(2) = 5$, $g''(2) = 3$, $f''(2) = 7$ and $f''(5) = -4$. Then $h''(2) =$ ___.'
+  accept: ['-12', '−12']
+  explanation: |-
+    $h'(2) = f'(g(2))\cdot g'(2) = f'(5)\cdot3 = (-4)(3) = -12$. Using $f'(2) = 7$ instead (the outer derivative at $x$ rather than at $g(x)$) would give 21, the classic error.
+- id: calc-m3-r2-q13
+  lesson: calc-chain-rule
+  type: order
+  topic: Chain rule
+  stem: 'Differentiate $y = \sqrt{\cos(x^3)}$ by peeling layers from the outside in. Put the factors in the order you produce them.'
+  items:
+    - '$\dfrac{1}{2\sqrt{\cos(x^3)}}$ (from the square root)'
+    - '$-\sin(x^3)$ (from the cosine)'
+    - '$3x^2$ (from the cube)'
+  explanation: |-
+    The square root is applied last, so it is the outer layer: its derivative, evaluated at the inside, is $\frac{1}{2\sqrt{\cos(x^3)}}$. Next comes cosine, giving $-\sin(x^3)$, and finally the innermost $x^3$, giving $3x^2$. So $y' = -\dfrac{3x^2\sin(x^3)}{2\sqrt{\cos(x^3)}}$.
+- id: calc-m3-r2-q14
+  lesson: calc-chain-rule
+  topic: Chain rule
+  stem: 'Which of these derivatives are correct? Select all that apply.'
+  choices:
+    - '$\dfrac{d}{dx}(2x^3 - 1)^4 = 24x^2(2x^3 - 1)^3$'
+    - '$\dfrac{d}{dx}\sin(x^2) = \cos(2x)$'
+    - '$\dfrac{d}{dx}e^{5x} = 5e^{5x}$'
+    - '$\dfrac{d}{dx}\sqrt{x^2 + 9} = \dfrac{1}{2\sqrt{x^2 + 9}}$'
+  answer: [0, 2]
+  explanation: |-
+    First: $4(2x^3 - 1)^3\cdot6x = 24x^2(2x^3 - 1)^3$. Third: a linear inside multiplies by its slope, 5. The second changes the inside: the right answer is $2x\cos(x^2)$. The fourth forgets the inner derivative $2x$: the right answer is $\frac{x}{\sqrt{x^2 + 9}}$.
+- id: calc-m3-r2-q15
+  lesson: calc-chain-rule
+  type: match
+  module_quiz: true
+  topic: Chain rule
+  stem: 'Match each function with its derivative.'
+  pairs:
+    - ['$\sin^2x$', 2 sin x cos x]
+    - ['$\sin(x^2)$', 2x cos(x²)]
+    - ['$\sin(2x)$', 2 cos(2x)]
+    - ['$2\sin x$', 2 cos x]
+  distractors: [cos(2x), 2x cos(2x)]
+  explanation: |-
+    $\sin^2x = (\sin x)^2$: outer squaring, inner $\sin x$, so $2\sin x\cos x$. $\sin(x^2)$: outer sine, inner $x^2$, so $\cos(x^2)\cdot2x$. $\sin(2x)$: a linear inside, so $2\cos(2x)$. $2\sin x$ is a constant multiple, so $2\cos x$. The four functions look alike but need different rules.
+
+# ---------- Lesson 12: implicit differentiation, inverse trig ----------
+- id: calc-m3-r2-q16
+  lesson: calc-implicit
+  type: label
+  module_quiz: true
+  topic: Inverse trig derivatives
+  stem: 'This right triangle is used to find the derivative of $y = \arcsin x$, so $\sin y = x$. Name the lengths of the numbered sides.'
+  image: {src: images/calc-m3-arcsin-triangle-blank.svg, alt: 'A right triangle with the acute angle y at the lower left and the right angle at the lower right. Marker 1 is on the hypotenuse, marker 2 on the vertical side opposite y, marker 3 on the horizontal side next to y.'}
+  labels:
+    - {x: 47.8, y: 50.0, text: '1'}
+    - {x: 82.6, y: 50.0, text: x}
+    - {x: 47.8, y: 84.8, text: √(1 − x²)}
+  distractors: [√(1 + x²), 1 − x²]
+  explanation: |-
+    $\sin y = x = \frac{x}{1}$, so the side opposite $y$ is $x$ and the hypotenuse is 1. By the Pythagorean theorem the adjacent side is $\sqrt{1 - x^2}$. So $\cos y = \sqrt{1 - x^2}$ and $\frac{d}{dx}\arcsin x = \frac{1}{\cos y} = \frac{1}{\sqrt{1 - x^2}}$.
+- id: calc-m3-r2-q17
+  lesson: calc-implicit
+  type: order
+  module_quiz: true
+  topic: Implicit differentiation
+  stem: 'Put the steps for finding $\dfrac{dy}{dx}$ on the curve $x^2y + y^3 = 10$ in order.'
+  items:
+    - 'Differentiate: $2xy + x^2\dfrac{dy}{dx} + 3y^2\dfrac{dy}{dx} = 0$'
+    - 'Move the other term across: $x^2\dfrac{dy}{dx} + 3y^2\dfrac{dy}{dx} = -2xy$'
+    - 'Factor: $(x^2 + 3y^2)\dfrac{dy}{dx} = -2xy$'
+    - 'Divide: $\dfrac{dy}{dx} = -\dfrac{2xy}{x^2 + 3y^2}$'
+  explanation: |-
+    Differentiate both sides first (product rule on $x^2y$, chain rule on $y^3$), then collect the $\frac{dy}{dx}$ terms, factor, and divide. Each step works on the equation produced by the one before.
+- id: calc-m3-r2-q18
+  lesson: calc-implicit
+  type: text
+  topic: Implicit differentiation
+  stem: 'On the circle $x^2 + y^2 = 25$, the slope of the tangent line at $(-4, 3)$ is ___. Give an exact fraction.'
+  accept: ['4/3', '1 1/3']
+  explanation: |-
+    Implicit differentiation gives $\frac{dy}{dx} = -\frac xy$. At $(-4, 3)$: $-\frac{-4}{3} = \frac43$. (Check: the radius to $(-4, 3)$ has slope $-\frac34$, and $\frac43\cdot\left(-\frac34\right) = -1$.)
+- id: calc-m3-r2-q19
+  lesson: calc-implicit
+  topic: Implicit differentiation
+  stem: 'Here $y$ is a function of $x$. Which statements are true? Select all that apply.'
+  choices:
+    - '$\dfrac{d}{dx}\left(y^3\right) = 3y^2\dfrac{dy}{dx}$'
+    - '$\dfrac{d}{dx}\arctan x = \dfrac{1}{1 + x^2}$'
+    - '$\dfrac{d}{dx}(xy) = x\dfrac{dy}{dx}$'
+    - '$\arcsin x = \dfrac{1}{\sin x}$'
+  answer: [0, 1]
+  explanation: |-
+    The chain rule attaches $\frac{dy}{dx}$ to $3y^2$, and $\frac{1}{1 + x^2}$ is the derivative of $\arctan x$. But $xy$ is a product: its derivative is $y + x\frac{dy}{dx}$. And $\arcsin$ is the inverse function of $\sin$; $\frac{1}{\sin x}$ is $\csc x$.
+- id: calc-m3-r2-q20
+  lesson: calc-implicit
+  type: match
+  topic: Inverse trig derivatives
+  stem: 'Match each function with its derivative.'
+  pairs:
+    - ['$\arcsin x$', 1/√(1 − x²)]
+    - ['$\arccos x$', −1/√(1 − x²)]
+    - ['$\arctan x$', 1/(1 + x²)]
+    - ['$\arctan(2x)$', 2/(1 + 4x²)]
+  distractors: [1/(1 + 2x²), −1/(1 + x²)]
+  explanation: |-
+    $\arcsin$ and $\arccos$ have derivatives $\pm\frac{1}{\sqrt{1 - x^2}}$ (negative for arccos). $(\arctan x)' = \frac{1}{1 + x^2}$, and by the chain rule $(\arctan 2x)' = \frac{1}{1 + (2x)^2}\cdot2 = \frac{2}{1 + 4x^2}$.
+
+# ---------- Lesson 13: exponentials, logs, inverse functions ----------
+- id: calc-m3-r2-q21
+  lesson: calc-exp-log-derivs
+  type: match
+  module_quiz: true
+  topic: Logarithmic differentiation
+  stem: 'Match each function with the rule that differentiates it.'
+  pairs:
+    - ['$x^7$', Power rule]
+    - ['$7^x$', Exponential rule]
+    - ['$x^x$', Logarithmic differentiation]
+    - ['$7^7$', 'A constant: derivative 0']
+  distractors: [Quotient rule]
+  explanation: |-
+    Constant exponent, variable base: power rule, $7x^6$. Constant base, variable exponent: exponential rule, $7^x\ln7$. Both vary: take logs first, giving $x^x(\ln x + 1)$. Both constant: $7^7$ is just a number, with derivative 0.
+- id: calc-m3-r2-q22
+  lesson: calc-exp-log-derivs
+  type: text
+  module_quiz: true
+  topic: Exponential and log derivatives
+  stem: 'Let $f(x) = x^3 + x + 1$, which is one-to-one. Then $(f^{-1})''(3) =$ ___. Give an exact value.'
+  accept: ['1/4']
+  explanation: |-
+    First find $a$ with $f(a) = 3$: $f(1) = 1 + 1 + 1 = 3$, so $a = 1$. Then $f'(x) = 3x^2 + 1$ gives $f'(1) = 4$, and $(f^{-1})'(3) = \frac{1}{f'(1)} = \frac14$. (Evaluating $f'$ at 3 instead gives $\frac{1}{28}$.)
+- id: calc-m3-r2-q23
+  lesson: calc-exp-log-derivs
+  type: order
+  topic: Logarithmic differentiation
+  stem: 'Put the steps for differentiating $y = x^{\sin x}$ ($x > 0$) in order.'
+  items:
+    - 'Take logs: $\ln y = \sin x\,\ln x$'
+    - 'Differentiate: $\dfrac{y''}{y} = \cos x\,\ln x + \dfrac{\sin x}{x}$'
+    - 'Multiply by $y$: $y'' = y\left(\cos x\,\ln x + \dfrac{\sin x}{x}\right)$'
+    - 'Substitute for $y$: $y'' = x^{\sin x}\left(\cos x\,\ln x + \dfrac{\sin x}{x}\right)$'
+  explanation: |-
+    Logs turn the variable exponent into a product. Implicit differentiation (product rule on the right) gives $\frac{y'}{y}$; multiplying by $y$ and writing $y$ out in full finishes the job.
+- id: calc-m3-r2-q24
+  lesson: calc-exp-log-derivs
+  topic: Exponential and log derivatives
+  stem: 'Which of these derivatives are correct? Select all that apply.'
+  choices:
+    - '$\dfrac{d}{dx}\ln(x^2 + 1) = \dfrac{2x}{x^2 + 1}$'
+    - '$\dfrac{d}{dx}2^x = 2^x\ln 2$'
+    - '$\dfrac{d}{dx}\ln 5 = \dfrac15$'
+    - '$\dfrac{d}{dx}\log_{10}x = \dfrac{\ln 10}{x}$'
+  answer: [0, 1]
+  explanation: |-
+    $(\ln u)' = \frac{u'}{u}$ gives the first, and $(b^x)' = b^x\ln b$ the second. $\ln 5$ is a constant, so its derivative is 0. And $(\log_{10}x)' = \frac{1}{x\ln 10}$: the $\ln 10$ belongs in the denominator.
+- id: calc-m3-r2-q25
+  lesson: calc-exp-log-derivs
+  type: text
+  topic: Exponential and log derivatives
+  stem: 'The slope of $y = \ln(x^2 + 5)$ at $x = 2$ is ___. Give an exact fraction.'
+  accept: ['4/9']
+  explanation: |-
+    $y' = \dfrac{2x}{x^2 + 5}$, so at $x = 2$ the slope is $\dfrac{4}{9}$. (Forgetting the inner derivative gives $\frac19$.)
+
+# ---------- Honors 13h1: higher derivatives and Leibniz's rule ----------
+- id: calc-m3-r2-h01
+  lesson: calc-m3-h-leibniz-rule
+  topic: Higher derivatives
+  stem: 'Find $\dfrac{d^{50}}{dx^{50}}e^{-2x}$.'
+  choices: ['$-2^{50}e^{-2x}$', '$2^{50}e^{-2x}$', '$-100e^{-2x}$', '$(-2)^{49}e^{-2x}$']
+  answer: 1
+  explanation: |-
+    Each derivative multiplies by $-2$, so the 50th gives $(-2)^{50}e^{-2x} = 2^{50}e^{-2x}$: an even power of a negative number is positive. ($-2^{50}$ loses the sign of the even power; $-100$ multiplies by $-2$ fifty times as if adding.)
+- id: calc-m3-r2-h02
+  lesson: calc-m3-h-leibniz-rule
+  topic: Higher derivatives
+  stem: 'Find $\dfrac{d^{7}}{dx^{7}}\cos(3x)$.'
+  choices: ['$-3^7\sin(3x)$', '$3^7\cos(3x)$', '$3^7\sin(3x)$', '$-3^7\cos(3x)$']
+  answer: 2
+  explanation: |-
+    Each derivative multiplies by 3 and moves one step around $\cos \to -\sin \to -\cos \to \sin \to \cos$. Seven steps is one full cycle plus three, landing on $\sin$. So the answer is $3^7\sin(3x) = 2187\sin(3x)$. In formula form: $3^7\cos\left(3x + \frac{7\pi}{2}\right) = 3^7\sin(3x)$.
+- id: calc-m3-r2-h03
+  lesson: calc-m3-h-leibniz-rule
+  type: text
+  topic: Higher derivatives
+  stem: 'The 6th derivative of $x^6$ is ___, and its 7th derivative is ___.'
+  accept:
+    - ['720']
+    - ['0']
+  explanation: |-
+    The falling factorial $6\cdot5\cdot4\cdot3\cdot2\cdot1 = 6! = 720$ multiplies $x^0 = 1$. The 6th derivative is a constant, so every later derivative is 0.
+- id: calc-m3-r2-h04
+  lesson: calc-m3-h-leibniz-rule
+  topic: Higher derivatives
+  stem: 'Find the 4th derivative of $\ln x$.'
+  choices: ['$-\dfrac{6}{x^4}$', '$\dfrac{6}{x^4}$', '$-\dfrac{24}{x^4}$', '$\dfrac{24}{x^5}$']
+  answer: 0
+  explanation: |-
+    $\frac1x \to -\frac{1}{x^2} \to \frac{2}{x^3} \to -\frac{6}{x^4}$. The pattern $\frac{(-1)^{n - 1}(n - 1)!}{x^n}$ with $n = 4$ gives $-\frac{3!}{x^4}$. Using $n!$ instead of $(n - 1)!$ gives 24, the off-by-one error; $\frac{24}{x^5}$ is the 5th derivative.
+- id: calc-m3-r2-h05
+  lesson: calc-m3-h-leibniz-rule
+  topic: Higher derivatives
+  stem: 'Which formula gives the $n$th derivative of $\dfrac{1}{x + 2}$?'
+  choices: ['$\dfrac{(-1)^n\,n!}{(x + 2)^{n}}$', '$\dfrac{n!}{(x + 2)^{n + 1}}$', '$\dfrac{(-1)^n\,(n - 1)!}{(x + 2)^{n + 1}}$', '$\dfrac{(-1)^n\,n!}{(x + 2)^{n + 1}}$']
+  answer: 3
+  explanation: |-
+    Write it as $(x + 2)^{-1}$. The power rule brings down $-1, -2, \ldots, -n$, whose product is $(-1)^nn!$, and the exponent falls to $-(n + 1)$. Check with $n = 1$: $-\frac{1}{(x + 2)^2}$. ✓ The other choices miss the sign, the factorial, or the extra power.
+- id: calc-m3-r2-h06
+  lesson: calc-m3-h-leibniz-rule
+  type: order
+  topic: Higher derivatives
+  stem: 'Put these values in order from smallest to largest.'
+  items:
+    - 'The 3rd derivative of $\sin(4x)$ at $x = 0$'
+    - 'The 10th derivative of $x^9$'
+    - 'The 2nd derivative of $\dfrac{1}{1 - x}$ at $x = 0$'
+    - 'The 4th derivative of $e^{3x}$ at $x = 0$'
+    - 'The 5th derivative of $x^5$'
+  explanation: |-
+    $\frac{d^3}{dx^3}\sin(4x) = -64\cos(4x)$, which is $-64$ at 0. The 10th derivative of a degree-9 polynomial is 0. For $(1 - x)^{-1}$ the second derivative is $\frac{2}{(1 - x)^3}$, which is 2 at 0. $\frac{d^4}{dx^4}e^{3x} = 81e^{3x}$, which is 81 at 0. And $\frac{d^5}{dx^5}x^5 = 5! = 120$. Order: $-64, 0, 2, 81, 120$.
+- id: calc-m3-r2-h07
+  lesson: calc-m3-h-leibniz-rule
+  topic: Leibniz rule
+  stem: 'Which statements about Leibniz''s rule for $(fg)^{(n)}$ are true? Select all that apply.'
+  choices:
+    - 'Its coefficients are the binomial coefficients $\binom nk$, as in $(a + b)^n$'
+    - 'In each term, the orders of the derivatives on $f$ and on $g$ add up to $n$'
+    - 'It has exactly $n$ terms'
+    - 'If $g$ is a polynomial of degree 2, at most 2 of its terms are nonzero'
+  answer: [0, 1]
+  explanation: |-
+    $(fg)^{(n)} = \sum_{k=0}^n\binom nk f^{(n - k)}g^{(k)}$: binomial coefficients, and orders $n - k$ and $k$ adding to $n$. The sum runs from $k = 0$ to $n$, so it has $n + 1$ terms. A degree-2 polynomial has nonzero derivatives of orders 0, 1 and 2, so up to 3 terms survive.
+- id: calc-m3-r2-h08
+  lesson: calc-m3-h-leibniz-rule
+  topic: Leibniz rule
+  stem: 'In Leibniz''s rule for $(fg)^{(5)}$, what is the coefficient of $f^{(3)}g^{(2)}$?'
+  choices: ['$5$', '$10$', '$6$', '$20$']
+  answer: 1
+  explanation: |-
+    The term with $g^{(2)}$ has $k = 2$, so its coefficient is $\binom52 = \frac{5\cdot4}{2} = 10$ (row 1, 5, 10, 10, 5, 1 of Pascal's triangle). 6 is $3!$ and 20 is $5\cdot4$, without dividing by $2!$.
+- id: calc-m3-r2-h09
+  lesson: calc-m3-h-leibniz-rule
+  topic: Leibniz rule
+  stem: 'Find the $n$th derivative of $y = xe^x$.'
+  choices: ['$e^x(x + 1)^n$', '$ne^x(x + 1)$', '$e^x(x + n)$', '$e^x(nx + 1)$']
+  answer: 2
+  explanation: |-
+    With $g = x$, only $k = 0$ and $k = 1$ survive: $\binom n0 e^x\cdot x + \binom n1 e^x\cdot1 = e^x(x + n)$. Check with $n = 1$: $(xe^x)' = e^x + xe^x = e^x(x + 1)$. ✓
+- id: calc-m3-r2-h10
+  lesson: calc-m3-h-leibniz-rule
+  type: text
+  topic: Leibniz rule
+  stem: 'For $y = x^2\cos x$, $y^{(10)}(0) =$ ___.'
+  accept: ['90']
+  explanation: |-
+    Only the term where $x^2$ is differentiated exactly twice survives at $x = 0$ (lower derivatives of $x^2$ vanish at 0, higher ones everywhere): $\binom{10}2\cos^{(8)}(0)\cdot2$. Eight is a multiple of 4, so $\cos^{(8)} = \cos$ and $\cos 0 = 1$. The answer is $45\cdot1\cdot2 = 90$.
+- id: calc-m3-r2-h11
+  lesson: calc-m3-h-leibniz-rule
+  topic: Higher derivatives
+  stem: 'Find $\dfrac{d^2}{dx^2}\sin(x^2)$.'
+  choices: ['$-4x^2\sin(x^2)$', '$-2\sin(x^2)$', '$2\cos(x^2) + 4x^2\sin(x^2)$', '$2\cos(x^2) - 4x^2\sin(x^2)$']
+  answer: 3
+  explanation: |-
+    First derivative: $2x\cos(x^2)$. Product rule: $2\cos(x^2) + 2x\cdot\left(-\sin(x^2)\cdot2x\right) = 2\cos(x^2) - 4x^2\sin(x^2)$. This matches $f''(g)\,(g')^2 + f'(g)\,g''$ with $f = \sin$, $g = x^2$. Dropping the $f'(g)g''$ term gives the first choice; $f''(g)g''$ gives the second.
+- id: calc-m3-r2-h12
+  lesson: calc-m3-h-leibniz-rule
+  type: match
+  topic: Higher derivatives
+  stem: 'Match each function with its $n$th derivative ($n \ge 1$).'
+  pairs:
+    - ['$e^{2x}$', 2ⁿ e^(2x)]
+    - ['$\ln x$', (−1)^(n−1) (n−1)! / xⁿ]
+    - ['$\dfrac{1}{x}$', (−1)ⁿ n! / x^(n+1)]
+    - ['$x^n$', n!]
+  distractors: [n! / xⁿ, 2 e^(2x)]
+  explanation: |-
+    Each derivative of $e^{2x}$ multiplies by 2. The derivatives of $\ln x$ start with $\frac1x$, so they are the reciprocal pattern shifted by one: $(n - 1)!$ and $x^n$. For $\frac1x$ the pattern is $\frac{(-1)^nn!}{x^{n + 1}}$. The $n$th derivative of $x^n$ is the constant $n!$.
+- id: calc-m3-r2-h13
+  lesson: calc-m3-h-leibniz-rule
+  topic: Higher derivatives
+  stem: 'Let $f(x) = \dfrac{1}{x^2 - 1} = \dfrac12\left(\dfrac{1}{x - 1} - \dfrac{1}{x + 1}\right)$. Find $f^{(4)}(0)$.'
+  choices: ['$24$', '$-24$', '$0$', '$-4$']
+  answer: 1
+  explanation: |-
+    $f^{(4)}(x) = \frac{4!}{2}\left(\frac{1}{(x - 1)^5} - \frac{1}{(x + 1)^5}\right)$. At 0: $12\left(\frac{1}{-1} - 1\right) = 12(-2) = -24$. In general $f^{(n)}(0) = -n!$ for even $n$. (0 is the value for odd $n$, since $f$ is even.)
+- id: calc-m3-r2-h14
+  lesson: calc-m3-h-leibniz-rule
+  topic: Leibniz rule
+  stem: 'Why does only one term of Leibniz''s rule survive when computing the 20th derivative of $x^3\sin x$ at $x = 0$?'
+  choices:
+    - 'Every derivative of $x^3$ except the third is 0 at $x = 0$'
+    - 'Every derivative of $\sin x$ is 0 at $x = 0$'
+    - 'The binomial coefficients are 0 for $k > 3$'
+    - 'Only the first term of Leibniz''s rule is ever nonzero'
+  answer: 0
+  explanation: |-
+    $x^3$, $3x^2$ and $6x$ are 0 at $x = 0$, and the 4th and higher derivatives are 0 everywhere; only $g'''(0) = 6$ is nonzero. The derivatives of $\sin x$ at 0 alternate between 0 and $\pm1$, and the binomial coefficients $\binom{20}k$ are all positive.
+
+# ---------- Honors 13h2: proofs ----------
+- id: calc-m3-r2-h15
+  lesson: calc-m3-h-proofs
+  topic: Proofs of derivative rules
+  stem: 'Why can''t the short proof of the chain rule simply divide by $\Delta u = g(x + h) - g(x)$?'
+  choices:
+    - '$\Delta u$ is never 0, so dividing by it changes nothing'
+    - 'The proof would need $h$ to be 0'
+    - '$\Delta u$ can be 0 for infinitely many $h$ near 0, as for $g(x) = x^2\sin\frac1x$ at 0'
+    - '$f$ might not be continuous at $g(x)$'
+  answer: 2
+  explanation: |-
+    The limit must hold for all small $h$, but for some differentiable $g$ the value $g(x + h) - g(x)$ is 0 at infinitely many $h$ approaching 0, and there the factored form is undefined. $f$ is differentiable at $g(x)$ by assumption, so it is continuous there.
+- id: calc-m3-r2-h16
+  lesson: calc-m3-h-proofs
+  topic: Proofs of derivative rules
+  stem: 'What is the slope function $\varphi$ of $f(x) = x^2$ at $a = 3$, so that $x^2 - 9 = \varphi(x)(x - 3)$ with $\varphi$ continuous at 3?'
+  choices: ['$2x$', '$x - 3$', '$x^2 + 3$', '$x + 3$']
+  answer: 3
+  explanation: |-
+    $x^2 - 9 = (x + 3)(x - 3)$, so $\varphi(x) = x + 3$, and $f'(3) = \varphi(3) = 6$. The derivative function $2x$ also equals 6 at 3, but $2x(x - 3) \ne x^2 - 9$.
+- id: calc-m3-r2-h17
+  lesson: calc-m3-h-proofs
+  type: text
+  topic: Proofs of derivative rules
+  stem: 'For $f(x) = x^3 - 2x$ at $a = 2$, the slope function is $\varphi(x) = x^2 + 2x +$ ___, so $f''(2) =$ ___.'
+  accept:
+    - ['2']
+    - ['10']
+  explanation: |-
+    $f(x) - f(2) = x^3 - 2x - 4 = (x - 2)(x^2 + 2x + 2)$, so $\varphi(x) = x^2 + 2x + 2$ and $f'(2) = \varphi(2) = 4 + 4 + 2 = 10$. Check: $f'(x) = 3x^2 - 2$ gives $12 - 2 = 10$. ✓
+- id: calc-m3-r2-h18
+  lesson: calc-m3-h-proofs
+  topic: Proofs of derivative rules
+  stem: 'Why does $f(x) = |x|$ have no slope function at $a = 0$?'
+  choices:
+    - '$\varphi$ would have to be 1 for $x > 0$ and $-1$ for $x < 0$, and no value at 0 makes that continuous'
+    - '$|x|$ is not continuous at 0'
+    - '$|x| - 0$ cannot be written as a product'
+    - 'Slope functions exist only for polynomials'
+  answer: 0
+  explanation: |-
+    For $x \ne 0$, $\varphi(x) = \frac{|x|}{x}$ is forced: $+1$ on the right, $-1$ on the left. A function that jumps from $-1$ to $1$ can't be continuous at 0, whatever value it takes there. $|x|$ itself is continuous; it just has a corner.
+- id: calc-m3-r2-h19
+  lesson: calc-m3-h-proofs
+  type: order
+  topic: Proofs of derivative rules
+  stem: 'Put the steps of the slope-function proof of the chain rule in order.'
+  items:
+    - 'Write $g(x) - g(a) = \psi(x)(x - a)$ and $f(u) - f(b) = \varphi(u)(u - b)$, with $b = g(a)$'
+    - 'Put $u = g(x)$: $f(g(x)) - f(g(a)) = \varphi(g(x))\,\big(g(x) - g(a)\big)$'
+    - 'Replace $g(x) - g(a)$: $f(g(x)) - f(g(a)) = \varphi(g(x))\,\psi(x)\,(x - a)$'
+    - 'Note that $\varphi(g(x))\,\psi(x)$ is continuous at $a$'
+    - 'Conclude $(f\circ g)''(a) = \varphi(b)\,\psi(a) = f''(g(a))\,g''(a)$'
+  explanation: |-
+    The slope functions must exist before you can substitute into them; the substitution produces $g(x) - g(a)$, which the first slope function then replaces; and the conclusion needs the continuity of the new factor. No step divides by $g(x) - g(a)$.
+- id: calc-m3-r2-h20
+  lesson: calc-m3-h-proofs
+  topic: Inverse function derivatives
+  stem: 'The lesson''s theorem concludes that $(f^{-1})''(b) = \dfrac{1}{f''(a)}$, where $b = f(a)$. Which of these are hypotheses of the theorem? Select all that apply.'
+  choices:
+    - '$f$ is continuous and strictly increasing or strictly decreasing on an open interval'
+    - '$f''(a) \ne 0$'
+    - 'There is a formula for $f^{-1}$'
+    - '$f''''(a)$ exists'
+  answer: [0, 1]
+  explanation: |-
+    The proof needs $f$ one-to-one and continuous (so $f^{-1}$ exists and is continuous) and $f'(a) \ne 0$ (to divide by the slope function). No formula for $f^{-1}$ is needed, which is the point of the theorem, and the second derivative plays no role.
+- id: calc-m3-r2-h21
+  lesson: calc-m3-h-proofs
+  topic: Inverse function derivatives
+  stem: 'Let $f(x) = 2x + \sin x$, which is strictly increasing because $f''(x) = 2 + \cos x \ge 1$. Find $(f^{-1})''(0)$.'
+  choices: ['$3$', '$\tfrac13$', '$\tfrac12$', '$1$']
+  answer: 1
+  explanation: |-
+    $f(0) = 0$, so $a = 0$ and $(f^{-1})'(0) = \frac{1}{f'(0)} = \frac{1}{2 + 1} = \frac13$. Choosing 3 forgets to take the reciprocal; $\frac12$ forgets the $\cos x$ term.
+- id: calc-m3-r2-h22
+  lesson: calc-m3-h-proofs
+  type: text
+  topic: Inverse function derivatives
+  stem: 'Let $f(x) = x^5 + x^3 + x$, which is strictly increasing. Then $(f^{-1})''(3) =$ ___. Give an exact value.'
+  accept: ['1/9']
+  explanation: |-
+    $f(1) = 1 + 1 + 1 = 3$, so $a = 1$. $f'(x) = 5x^4 + 3x^2 + 1$, so $f'(1) = 9$ and $(f^{-1})'(3) = \frac19$.
+- id: calc-m3-r2-h23
+  lesson: calc-m3-h-proofs
+  topic: Inverse function derivatives
+  stem: 'Why is $\sqrt[3]{x}$ not differentiable at $x = 0$?'
+  choices:
+    - 'It is not continuous at 0'
+    - 'Its domain stops at 0'
+    - 'It is the inverse of $x^3$, whose derivative at 0 is 0, so its tangent at 0 is vertical'
+    - 'Cube roots of negative numbers are undefined'
+  answer: 2
+  explanation: |-
+    Reflecting the horizontal tangent of $y = x^3$ at the origin across $y = x$ gives a vertical tangent for $y = \sqrt[3]{x}$, with no finite slope. The theorem's hypothesis $f'(a) \ne 0$ fails exactly here. $\sqrt[3]{x}$ is continuous and defined for every real $x$.
+- id: calc-m3-r2-h24
+  lesson: calc-m3-h-proofs
+  topic: Proofs of derivative rules
+  stem: 'Find $\displaystyle\lim_{n\to\infty}\left(1 - \frac2n\right)^n$.'
+  choices: ['$1$', '$e^{2}$', '$0$', '$e^{-2}$']
+  answer: 3
+  explanation: |-
+    $\left(1 + \frac rn\right)^n \to e^r$ with $r = -2$. The answer 1 treats the indeterminate form $1^\infty$ as 1.
+- id: calc-m3-r2-h25
+  lesson: calc-m3-h-proofs
+  type: text
+  topic: Proofs of derivative rules
+  stem: '$\displaystyle\lim_{n\to\infty}\left(1 + \frac4n\right)^{n/2} = e^{k}$, where $k =$ ___.'
+  accept: ['2']
+  explanation: |-
+    The log is $\frac n2\ln\left(1 + \frac4n\right) = 2\cdot\dfrac{\ln\left(1 + \frac4n\right)}{\frac4n} \to 2\cdot1 = 2$. So the limit is $e^2$.
+- id: calc-m3-r2-h26
+  lesson: calc-m3-h-proofs
+  topic: Proofs of derivative rules
+  stem: 'Using $x^\pi = e^{\pi\ln x}$ for $x > 0$, find $\dfrac{d}{dx}x^\pi$.'
+  choices: ['$\pi x^{\pi - 1}$', '$x^\pi\ln x$', '$\pi^x\ln\pi$', '$x^{\pi - 1}$']
+  answer: 0
+  explanation: |-
+    Chain rule: $e^{\pi\ln x}\cdot\frac{\pi}{x} = x^\pi\cdot\frac\pi x = \pi x^{\pi - 1}$, the power rule for a real exponent. $x^\pi\ln x$ treats the exponent as the variable, and $\pi^x\ln\pi$ is the derivative of a different function, $\pi^x$.
+- id: calc-m3-r2-h27
+  lesson: calc-m3-h-proofs
+  type: match
+  topic: Proofs of derivative rules
+  stem: 'In the lesson''s proofs, $\varphi$ and $\psi$ are slope functions of $f$ and $g$. Match each rule with the slope function its proof builds.'
+  pairs:
+    - [Product rule (for fg at a), f(x)ψ(x) + g(a)φ(x)]
+    - [Chain rule (for f∘g at a), φ(g(x))ψ(x)]
+    - [Inverse rule (for f⁻¹ at b), 1/φ(f⁻¹(y))]
+  distractors: [φ(x)ψ(x), φ(x) + ψ(x)]
+  explanation: |-
+    Product: $fg - f(a)g(a) = f(x)(g - g(a)) + g(a)(f - f(a))$. Chain: substitute $u = g(x)$ into $f$'s slope equation. Inverse: put $x = f^{-1}(y)$ into $f$'s slope equation and divide by $\varphi(f^{-1}(y))$. Each slope function's value at the point is the derivative.
+- id: calc-m3-r2-h28
+  lesson: calc-m3-h-proofs
+  topic: Proofs of derivative rules
+  stem: 'Which fact does the lesson use to prove that $(1 + h)^{1/h} \to e$ as $h \to 0$?'
+  choices:
+    - 'The binomial theorem'
+    - 'The derivative of $e^x$ is $e^x$'
+    - 'The derivative of $\ln x$ at $x = 1$ is 1, and $e^x$ is continuous'
+    - 'The product rule'
+  answer: 2
+  explanation: |-
+    $\ln\big((1 + h)^{1/h}\big) = \frac{\ln(1 + h) - \ln 1}{h}$ is a difference quotient for $\ln$ at 1, so it tends to $\ln'(1) = 1$. Exponentiating, using the continuity of $e^x$, gives the limit $e^1 = e$.
+
+# ---------- Honors 13h3: implicit curves ----------
+- id: calc-m3-r2-h29
+  lesson: calc-m3-h-implicit-curves
+  type: label
+  topic: Implicit curves
+  stem: 'The picture shows the folium of Descartes, $x^3 + y^3 = 6xy$. Name the numbered features.'
+  image: {src: images/calc-m3-folium-blank.svg, alt: 'The folium of Descartes: a loop in the first quadrant whose ends cross at the origin, and two tails running to the upper left and lower right beside a dashed slanted line. A short horizontal segment touches the top of the loop and a short vertical segment touches its right end. Marker 1 is at the top of the loop, marker 2 at its right end, marker 3 at the origin, marker 4 on the dashed line.'}
+  labels:
+    - {x: 63.3, y: 19.5, text: Horizontal tangent}
+    - {x: 68.7, y: 25.8, text: Vertical tangent}
+    - {x: 42.6, y: 50.0, text: Singular point}
+    - {x: 34.4, y: 59.6, text: Asymptote}
+  distractors: [Cusp, Inflection point]
+  explanation: |-
+    At the top of the loop, $(2\sqrt[3]2, 2\sqrt[3]4)$, $F_x = 0$ but $F_y \ne 0$: a horizontal tangent. At the mirror point $(2\sqrt[3]4, 2\sqrt[3]2)$ the tangent is vertical. At the origin $F_x = F_y = 0$ and two branches cross, a singular point (a node, not a cusp). The dashed line $x + y = -2$ is the asymptote that both tails approach.
+- id: calc-m3-r2-h30
+  lesson: calc-m3-h-implicit-curves
+  topic: Implicit curves
+  stem: 'For $F(x, y) = x^2y + y^3 - 4x$, what is the partial derivative $F_x$?'
+  choices: ['$x^2 + 3y^2$', '$2xy + x^2\dfrac{dy}{dx} - 4$', '$2x - 4$', '$2xy - 4$']
+  answer: 3
+  explanation: |-
+    Treat $y$ as a constant: $x^2y$ gives $2xy$, $y^3$ gives 0, and $-4x$ gives $-4$. $x^2 + 3y^2$ is $F_y$; the second choice mixes in implicit differentiation, which belongs to $\frac{dy}{dx}$, not to $F_x$.
+- id: calc-m3-r2-h31
+  lesson: calc-m3-h-implicit-curves
+  topic: Implicit curves
+  stem: 'Use $\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}$ to find the slope on the curve $x^2y + y^3 = 4x$.'
+  choices: ['$\dfrac{2xy - 4}{x^2 + 3y^2}$', '$\dfrac{4 - 2xy}{x^2 + 3y^2}$', '$-\dfrac{x^2 + 3y^2}{2xy - 4}$', '$\dfrac{4 - 2xy}{3y^2}$']
+  answer: 1
+  explanation: |-
+    With $F = x^2y + y^3 - 4x$: $F_x = 2xy - 4$ and $F_y = x^2 + 3y^2$, so $\frac{dy}{dx} = -\frac{2xy - 4}{x^2 + 3y^2} = \frac{4 - 2xy}{x^2 + 3y^2}$. The first choice drops the minus sign, the third flips the fraction, and the fourth forgets that $x^2y$ contains $y$.
+- id: calc-m3-r2-h32
+  lesson: calc-m3-h-implicit-curves
+  type: text
+  topic: Implicit curves
+  stem: 'The curve $x^2 + y^2 - 6x = 16$ has vertical tangent lines at $x =$ ___ and $x =$ ___ (smaller value first).'
+  accept:
+    - ['-2', '−2']
+    - ['8']
+  explanation: |-
+    $F_y = 2y = 0$ gives $y = 0$. On the curve, $x^2 - 6x - 16 = 0$, so $(x - 8)(x + 2) = 0$ and $x = -2$ or $8$. At both points $F_x = 2x - 6 \ne 0$. (The curve is the circle $(x - 3)^2 + y^2 = 25$, and these are its leftmost and rightmost points.)
+- id: calc-m3-r2-h33
+  lesson: calc-m3-h-implicit-curves
+  topic: Implicit curves
+  stem: 'Where does the ellipse $x^2 - xy + y^2 = 3$ have horizontal tangent lines?'
+  choices: ['$(1, 2)$ and $(-1, -2)$', '$(2, 1)$ and $(-2, -1)$', '$(1, -2)$ and $(-1, 2)$', '$(0, \sqrt3)$ and $(0, -\sqrt3)$']
+  answer: 0
+  explanation: |-
+    $F_x = 2x - y = 0$ gives $y = 2x$. Substituting: $x^2 - 2x^2 + 4x^2 = 3x^2 = 3$, so $x = \pm1$ and the points are $(1, 2)$ and $(-1, -2)$. There $F_y = -x + 2y = 3x \ne 0$. $(2, 1)$ and $(-2, -1)$ are the vertical tangents; $(1, -2)$ is not on the curve.
+- id: calc-m3-r2-h34
+  lesson: calc-m3-h-implicit-curves
+  topic: Implicit curves
+  stem: 'At a singular point of the curve $F(x, y) = 0$, which equations must hold? Select all that apply.'
+  choices: ['$F(x, y) = 0$', '$F_x(x, y) = 0$', '$F_y(x, y) = 0$', '$\dfrac{dy}{dx} = 0$']
+  answer: [0, 1, 2]
+  explanation: |-
+    A singular point is a point *on the curve* where both partial derivatives vanish. There the slope formula gives $\frac00$, so it does not say $\frac{dy}{dx} = 0$; the curve may have two tangent lines (as the folium does at the origin) or a sharp point.
+- id: calc-m3-r2-h35
+  lesson: calc-m3-h-implicit-curves
+  topic: Implicit curves
+  stem: 'Find all singular points of $y^2 = x^2(x + 1)$.'
+  choices: ['$(0, 0)$ and $\left(-\tfrac23, 0\right)$', 'Only $\left(-\tfrac23, 0\right)$', 'Only $(0, 0)$', 'There are none']
+  answer: 2
+  explanation: |-
+    With $F = y^2 - x^3 - x^2$: $F_y = 2y = 0$ gives $y = 0$, and $F_x = -3x^2 - 2x = 0$ gives $x = 0$ or $x = -\frac23$. Check on the curve: $(0, 0)$ works, but at $\left(-\frac23, 0\right)$ the right side is $\frac49\cdot\frac13 = \frac{4}{27} \ne 0$. So only the origin, where the curve crosses itself.
+- id: calc-m3-r2-h36
+  lesson: calc-m3-h-implicit-curves
+  topic: Implicit curves
+  stem: 'What does the folium $x^3 + y^3 = 6xy$ look like at the origin?'
+  choices:
+    - 'It has a single horizontal tangent line'
+    - 'It has a sharp point with both branches tangent to the $x$-axis'
+    - 'The origin is an isolated point, not connected to the rest of the curve'
+    - 'Two branches cross, one tangent to the $x$-axis and one to the $y$-axis'
+  answer: 3
+  explanation: |-
+    Near the origin the cubic terms are tiny compared with $6xy$, so the curve looks like $xy = 0$: the two axes. One branch leaves along each axis, so there are two tangent lines and no single slope. A sharp point with one tangent direction (a cusp) is what $y^2 = x^3$ has instead.
+- id: calc-m3-r2-h37
+  lesson: calc-m3-h-implicit-curves
+  type: order
+  topic: Implicit curves
+  stem: 'Put the steps for finding the horizontal tangents of an implicit curve $F(x, y) = 0$ in order.'
+  items:
+    - 'Compute the partial derivative $F_x$'
+    - 'Solve $F_x = 0$ for one variable in terms of the other'
+    - 'Substitute into $F = 0$ and solve for the points'
+    - 'Discard any point where $F_y = 0$ as well'
+  explanation: |-
+    You need $F_x$ before you can set it to 0; the relation from $F_x = 0$ is what you substitute into the curve; and only once you have candidate points can you check $F_y$ at them, throwing out singular points.
+- id: calc-m3-r2-h38
+  lesson: calc-m3-h-implicit-curves
+  topic: Orthogonal trajectories
+  stem: 'What are the orthogonal trajectories of the lines through the origin, $y = kx$?'
+  choices: ['Lines $y = -\tfrac1k x$', 'Circles $x^2 + y^2 = r^2$', 'Parabolas $y = cx^2$', 'Hyperbolas $xy = c$']
+  answer: 1
+  explanation: |-
+    Eliminate $k$: the line through $(x, y)$ has slope $\frac yx$, so a trajectory needs slope $-\frac xy$, which is the slope of the circle $x^2 + y^2 = r^2$. Each line $y = -\frac1kx$ is perpendicular to just one line of the family, $y = kx$, not to all of them.
+- id: calc-m3-r2-h39
+  lesson: calc-m3-h-implicit-curves
+  type: text
+  topic: Orthogonal trajectories
+  stem: 'The curves $x^2 - y^2 = 3$ and $xy = 2$ cross at $(2, 1)$. There the slope of the first is ___ and the slope of the second is ___.'
+  accept:
+    - ['2']
+    - ['-1/2', '−1/2']
+  explanation: |-
+    $x^2 - y^2 = 3$: $2x - 2yy' = 0$, slope $\frac xy = 2$. $xy = 2$: $y + xy' = 0$, slope $-\frac yx = -\frac12$. The product is $-1$, so the curves cross at a right angle.
+- id: calc-m3-r2-h40
+  lesson: calc-m3-h-implicit-curves
+  topic: Orthogonal trajectories
+  stem: 'Which pair of families are orthogonal trajectories of each other?'
+  choices: ['$y = kx^2$ and $x^2 + 2y^2 = C$', '$y = kx^2$ and $x^2 + y^2 = C$', '$y = 2x + c$ and $y = x + k$', '$x^2 + y^2 = c$ and $x^2 + y^2 = k$']
+  answer: 0
+  explanation: |-
+    For $y = kx^2$ the slope is $2kx = \frac{2y}{x}$ once $k$ is eliminated. The ellipses $x^2 + 2y^2 = C$ have slope $-\frac{x}{2y}$, and $\frac{2y}{x}\cdot\left(-\frac{x}{2y}\right) = -1$. With circles the product is $\frac{2y}{x}\cdot\left(-\frac xy\right) = -2$, not $-1$. Lines of slopes 2 and 1 are not perpendicular, and concentric circles never cross.
+- id: calc-m3-r2-h41
+  lesson: calc-m3-h-implicit-curves
+  type: match
+  topic: Implicit curves
+  stem: 'Match each condition at a point of the curve $F(x, y) = 0$ with what it tells you.'
+  pairs:
+    - ['$F_x = 0$ and $F_y \ne 0$', Horizontal tangent]
+    - ['$F_y = 0$ and $F_x \ne 0$', Vertical tangent]
+    - ['$F_x = 0$ and $F_y = 0$', Singular point]
+  distractors: [Inflection point, Asymptote]
+  explanation: |-
+    The slope is $-\frac{F_x}{F_y}$: a zero numerator gives slope 0, a zero denominator gives a vertical tangent, and both zero gives $\frac00$, a singular point where the curve may cross itself or form a sharp point.
+- id: calc-m3-r2-h42
+  lesson: calc-m3-h-implicit-curves
+  topic: Orthogonal trajectories
+  stem: 'To test whether a family like $y = kx^2$ is orthogonal to another family, why do you first rewrite its slope $2kx$ without $k$?'
+  choices:
+    - 'Because $k$ is always 1'
+    - 'Because the derivative of $k$ is 0'
+    - 'Because the slope must depend only on the point $(x, y)$, since each point lies on its own curve of the family'
+    - 'Because $k$ cancels in every product of slopes'
+  answer: 2
+  explanation: |-
+    Through each point $(x, y)$ (with $x \ne 0$) passes exactly one parabola, the one with $k = \frac{y}{x^2}$. Writing the slope as $\frac{2y}{x}$ gives the slope of whichever curve passes through that point, which is what must be compared with the other family's slope there.
