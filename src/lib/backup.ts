@@ -1,0 +1,131 @@
+// Encrypted family backup: everything on this computer (family settings, every student's
+// progress and records, courses, banks) in one file, encrypted with AES-256-GCM under a key
+// derived from a passphrase (PBKDF2-SHA-256). Restoring needs the same passphrase.
+
+import type { Bank, Course, Progress } from "./types";
+import { loadFamily, saveFamily, type Family } from "./family";
+import { loadRecords, saveRecords, type Records } from "./records";
+import * as store from "./storage";
+import { serializeCourse, normalizeCourse } from "./course";
+import { parseBank, serializeBank } from "./validate";
+
+interface Envelope {
+  format: "examiner-backup-encrypted";
+  version: 1;
+  kdf: { name: "PBKDF2-SHA-256"; iterations: number; salt: string };
+  iv: string;
+  data: string;
+}
+
+interface Contents {
+  format: "examiner-family-backup";
+  version: 1;
+  createdAt: string;
+  family: Family | null;
+  students: Record<string, { progress: Progress; records: Records }>;
+  progress: Progress;
+  courses: unknown[];
+  banks: unknown[];
+}
+
+const ITERATIONS = 600_000;
+
+function toB64(bytes: Uint8Array): string {
+  let s = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+const fromB64 = (s: string) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+
+async function keyFor(passphrase: string, salt: Uint8Array, iterations: number): Promise<CryptoKey> {
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(passphrase.normalize("NFC")), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey(
+    { name: "PBKDF2", hash: "SHA-256", salt: salt as BufferSource, iterations },
+    base,
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["encrypt", "decrypt"],
+  );
+}
+
+export async function encryptText(text: string, passphrase: string, iterations = ITERATIONS): Promise<string> {
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const key = await keyFor(passphrase, salt, iterations);
+  const data = new Uint8Array(await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(text)));
+  const env: Envelope = {
+    format: "examiner-backup-encrypted",
+    version: 1,
+    kdf: { name: "PBKDF2-SHA-256", iterations, salt: toB64(salt) },
+    iv: toB64(iv),
+    data: toB64(data),
+  };
+  return JSON.stringify(env);
+}
+
+export const isEncryptedBackup = (raw: unknown): boolean => (raw as Envelope | null)?.format === "examiner-backup-encrypted";
+
+export async function decryptText(raw: unknown, passphrase: string): Promise<string> {
+  const env = raw as Envelope;
+  if (!isEncryptedBackup(env)) throw new Error("This isn't an encrypted Examiner backup.");
+  const key = await keyFor(passphrase, fromB64(env.kdf.salt), env.kdf.iterations);
+  try {
+    const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: fromB64(env.iv) as BufferSource }, key, fromB64(env.data) as BufferSource);
+    return new TextDecoder().decode(plain);
+  } catch {
+    throw new Error("Wrong passphrase, or the file is damaged.");
+  }
+}
+
+/** Gather everything stored on this computer. */
+export async function collect(courses: Course[], banks: Bank[]): Promise<Contents> {
+  const family = await loadFamily();
+  const students: Contents["students"] = {};
+  for (const s of family?.students ?? []) {
+    const progressText = await store.loadState(`progress-${s.id}`);
+    students[s.id] = {
+      progress: progressText ? (JSON.parse(progressText) as Progress) : store.emptyProgress(),
+      records: await loadRecords(s.id),
+    };
+  }
+  return {
+    format: "examiner-family-backup",
+    version: 1,
+    createdAt: new Date().toISOString(),
+    family,
+    students,
+    progress: await store.loadBaseProgress(),
+    courses: courses.map((c) => JSON.parse(serializeCourse(c))),
+    banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
+  };
+}
+
+export async function exportEncrypted(courses: Course[], banks: Bank[], passphrase: string): Promise<boolean> {
+  const text = await encryptText(JSON.stringify(await collect(courses, banks)), passphrase);
+  const day = new Date().toISOString().slice(0, 10);
+  return store.exportText(text, `examiner-family-backup-${day}.json`, "Examiner encrypted backup");
+}
+
+/** Replace everything on this computer with a decrypted backup. */
+export async function restoreContents(
+  text: string,
+  current: { courses: Course[]; banks: Bank[] },
+): Promise<{ students: number; courses: number }> {
+  const b = JSON.parse(text) as Contents;
+  if (b.format !== "examiner-family-backup") throw new Error("This backup's contents weren't recognized.");
+  const courses = b.courses.map((c) => normalizeCourse(c));
+  const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
+  for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await store.deleteCourse(c.id);
+  for (const x of current.banks.filter((y) => !y.courseId)) if (!banks.some((y) => y.id === x.id)) await store.deleteBank(x.id);
+  for (const c of courses) await store.saveCourse(c);
+  for (const x of banks) await store.saveBank(x);
+  for (const [id, s] of Object.entries(b.students)) {
+    await store.saveState(`progress-${id}`, JSON.stringify(s.progress));
+    await saveRecords(id, s.records);
+  }
+  store.useStudentFiles(null);
+  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true });
+  if (b.family) await saveFamily(b.family);
+  else await store.saveState("family", null);
+  return { students: Object.keys(b.students).length, courses: courses.length };
+}

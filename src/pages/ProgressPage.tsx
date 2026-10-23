@@ -219,6 +219,11 @@ export default function ProgressPage({ api }: { api: AppApi }) {
         )}
       </section>
 
+      {api.family ? (
+        <p className="muted small" style={{ marginTop: 16 }}>
+          Backups of the whole family (every student's progress and records) are in the Parent area.
+        </p>
+      ) : (
       <section className="panel" style={{ marginTop: 16 }}>
         <div className="panel-head">
           <h2>Backup</h2>
@@ -236,6 +241,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
           </button>
         </div>
       </section>
+      )}
 
       <div className="row" style={{ marginTop: 24, justifyContent: "space-between" }}>
         <span className="faint small">

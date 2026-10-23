@@ -17,6 +17,7 @@ Nothing about a student is sent anywhere; the only requests are for the catalog 
 | `catalog.json` | Every course's metadata, plus the file name, size and SHA-256 of its package | 5 minutes |
 | `catalog.json.sig` | Ed25519 signature of `catalog.json`'s exact bytes | 5 minutes |
 | `<course-id>.r<revision>.json` | One file per course revision; never changes once uploaded | 1 year, immutable |
+| `states.<YYYY-MM-DD>.json` | The state homeschool rules (`content/states`), named by the date last checked; listed in the catalog with its SHA-256 | 1 year, immutable |
 
 The app accepts a catalog only if its signature matches a public key in `src/lib/courseKeys.ts`,
 and a course file only if its SHA-256 matches the signed catalog. The last good catalog is saved on
@@ -62,6 +63,9 @@ After that, every push to `main` that changes courses or the app republishes aut
 
 - **New course revision:** build it as usual (`content/math/build.py …`), commit, push. The
   workflow uploads the new `<id>.r<revision>.json` and a new signed catalog; apps offer the update.
+- **State rules update:** edit `content/states/states.yaml` (bump `checked` on the states you
+  re-verified), run `python3 content/states/build.py`, commit, push. Desktop apps pick up the newer
+  file from the signed catalog; every build also bundles the copy it was built with.
 - **Try it locally:** `npm run dev:remote` signs with a local dev key and serves the packages at
   `/courses-dev/v1/` from the dev server.
 - **Rotating the key:** `npm run course-keys -- --force` adds a second public key; ship an app

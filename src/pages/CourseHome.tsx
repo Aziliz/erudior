@@ -56,6 +56,13 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
         : `Delete "${course.title}" (${n.lessons} lessons, ${n.questions} questions, ${n.cards} cards)? Your history stays. This can't be undone.`,
     );
     if (!ok) return;
+    if (api.family && api.student) {
+      // Homeschool: other students may use this course, so only take it off this student's list.
+      await api.updateProgress((p) => ({ ...p, enrolled: (p.enrolled ?? []).filter((id) => id !== course.id) }));
+      api.go({ name: "library" });
+      api.toast(`Removed "${course.title}" from ${api.student.name}'s courses`);
+      return;
+    }
     await store.deleteCourse(course.id);
     await api.reload();
     api.go({ name: "library" });

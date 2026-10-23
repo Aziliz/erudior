@@ -27,6 +27,14 @@ import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
+import { HOMESCHOOL, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
+import { courseFinished } from "./lib/catalog";
+import { refreshStates } from "./lib/states";
+import { useStudyTimer } from "./lib/timer";
+import FamilySetup from "./pages/FamilySetup";
+import WhoPage from "./pages/WhoPage";
+import ParentArea, { type ParentTab } from "./pages/ParentArea";
+import ParentGate from "./pages/ParentGate";
 
 export type View =
   | { name: "library" }
@@ -44,7 +52,10 @@ export type View =
   | { name: "ref"; courseId: string; refId: string }
   | { name: "search"; q: string }
   | { name: "overview"; catalogId: string }
-  | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number };
+  | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number }
+  | { name: "who" }
+  | { name: "familySetup" }
+  | { name: "parent"; tab?: ParentTab };
 
 export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
@@ -68,6 +79,19 @@ export interface AppApi {
   notifyUpdate: (u: AvailableUpdate) => void;
   /** Go back from a bank: to its course if it has one, else the library. */
   bankBack: (bank: Bank) => View;
+  /** Homeschool features available (desktop app). */
+  homeschool: boolean;
+  /** The homeschool family, once set up. */
+  family: Family | null;
+  /** The student using the app (homeschool families). */
+  student: Student | null;
+  setFamily: (f: Family) => Promise<void>;
+  /** Switch to a student's progress and open their library. */
+  chooseStudent: (id: string) => Promise<void>;
+  /** Every installed course, whoever is enrolled (parent area). */
+  allCourses: Course[];
+  /** Can this student start this catalog course? A reason if not. */
+  assignmentBlock: (courseId: string) => string | null;
 }
 
 type Theme = "system" | "light" | "dark";
@@ -118,6 +142,10 @@ export default function App() {
   const [appUpdate, setAppUpdate] = useState<AvailableUpdate | null>(null);
   const [installing, setInstalling] = useState<number | null | false>(false);
   const searchRef = useRef<HTMLInputElement>(null);
+  const [family, setFamilyState] = useState<Family | null>(null);
+  const [studentId, setStudentId] = useState<string | null>(null);
+  const [parentUnlocked, setParentUnlocked] = useState(false);
+  const student = family?.students.find((s) => s.id === studentId) ?? null;
 
   // Ctrl/Cmd+K jumps to search.
   useEffect(() => {
@@ -182,11 +210,19 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
+        const fam = HOMESCHOOL ? await loadFamily() : null;
+        if (fam) {
+          setFamilyState(fam);
+          if (fam.students.length === 1) {
+            store.useStudentFiles(fam.students[0].id);
+            setStudentId(fam.students[0].id);
+          } else setView({ name: "who" });
+        }
         let p = await store.loadProgress();
         // Courses are added from the catalog when someone starts them. Older versions
         // installed every bundled course up front; once, remove the ones never used
         // (progress is kept regardless, and they can be added again).
-        if (!p.catalogV1) {
+        if (!fam && !p.catalogV1) {
           const { courses: installed } = await store.listCourses();
           for (const c of installed)
             if (CATALOG.some((e) => e.id === c.id) && !hasActivity(c.id, p)) await store.deleteCourse(c.id);
@@ -211,6 +247,7 @@ export default function App() {
         if (fetched) {
           setCatalog(fetched.entries);
           setCatalogInfo({ source: fetched.source, error: fetched.error });
+          if (fam) refreshStates().catch(() => {});
         }
         // Offer newer catalog versions of courses that are already added.
         const { courses: installed } = await store.listCourses();
@@ -224,26 +261,84 @@ export default function App() {
     })();
   }, [reload]);
 
-  const allBanks = [...courses.flatMap((c) => c.banks), ...standalone];
+  // Homeschool students each see the courses they started (course files are shared on disk).
+  const enrolled = family && studentId ? new Set(progress.enrolled ?? []) : null;
+  const myCourses = enrolled ? courses.filter((c) => enrolled.has(c.id)) : courses;
+  const allBanks = [...myCourses.flatMap((c) => c.banks), ...standalone];
 
   // Look for an unfinished session whenever we're not inside one.
   const banksKey = allBanks.map((b) => b.id + b.questions.length).join();
   useEffect(() => {
-    if (!ready || view.name === "run") return;
+    if (!ready || view.name === "run" || (family && !studentId)) return;
     store
       .loadSessionState()
       .then((text) => setResumable(text ? restoreRun(text, allBanks) : null))
       .catch(() => setResumable(null));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ready, view, banksKey]);
+  }, [ready, view, banksKey, studentId]);
+
+  const enroll = useCallback(
+    async (id: string) => {
+      const p = progressRef.current;
+      if (!family || !studentId || p.enrolled?.includes(id)) return;
+      await setProgress({ ...p, enrolled: [...(p.enrolled ?? []), id] });
+    },
+    [family, studentId, setProgress],
+  );
 
   const saveCourse = useCallback(
     async (course: Course) => {
       await store.saveCourse(course);
+      await enroll(course.id);
       await reload();
     },
-    [reload],
+    [reload, enroll],
   );
+
+  const assignmentBlock = useCallback(
+    (courseId: string): string | null => {
+      if (!student) return null;
+      const finished = (id: string) => courseFinished(id, progressRef.current, courses.find((c) => c.id === id)).done;
+      const current = currentAssignments(student, finished);
+      if (current.has(courseId)) return null;
+      const a = student.assigned.find((x) => x.courseId === courseId);
+      if (a) {
+        if (finished(courseId)) return null;
+        const before = student.assigned.find((x) => x.subject === a.subject && current.has(x.courseId));
+        return before ? `Starts after ${CATALOG.find((e) => e.id === before.courseId)?.title ?? before.courseId}` : null;
+      }
+      return student.freeChoice ? null : "Not assigned yet; ask a parent";
+    },
+    [student, courses],
+  );
+
+  const chooseStudent = useCallback(
+    async (id: string) => {
+      store.useStudentFiles(id);
+      let p = await store.loadProgress();
+      const migrated = migrateVocabKeys(p, courses);
+      if (migrated !== p) {
+        p = migrated;
+        await store.saveProgress(p);
+      }
+      progressRef.current = p;
+      setProgressState(p);
+      setStudentId(id);
+      setResumable(null);
+      setView({ name: "library" });
+    },
+    [courses],
+  );
+
+  const setFamily = useCallback(async (f: Family) => {
+    await saveFamily(f);
+    setFamilyState(f);
+  }, []);
+
+  // Leaving the parent area locks it again.
+  useEffect(() => {
+    if (view.name !== "parent") setParentUnlocked(false);
+  }, [view.name]);
 
   const addCourse = useCallback(
     async (id: string) => {
@@ -254,21 +349,28 @@ export default function App() {
         toast(`Finish ${needs.map((r) => r.title).join(" and ")} first`);
         return;
       }
+      const blocked = assignmentBlock(id);
+      if (blocked) {
+        toast(blocked);
+        return;
+      }
       try {
-        await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry)));
+        // Another student may already have it; their copy (and any edits) is shared.
+        if (!courses.some((c) => c.id === id)) await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry)));
+        await enroll(id);
         await reload();
         setView({ name: "course", courseId: id });
       } catch (e) {
         toast(`Couldn't add "${entry.title}": ${String(e)}`);
       }
     },
-    [reload, toast],
+    [reload, toast, assignmentBlock, courses, enroll],
   );
 
   const api: AppApi = {
     catalog: catalogInfo,
     banks: allBanks,
-    courses,
+    courses: myCourses,
     progress,
     go: (v) => {
       // Starting a new session replaces the saved one, so ask first.
@@ -318,7 +420,33 @@ export default function App() {
     notifyUpdate: setAppUpdate,
     bankBack: (bank) =>
       bank.courseId ? { name: "course", courseId: bank.courseId, tab: "banks" } : { name: "library" },
+    homeschool: HOMESCHOOL,
+    family,
+    student,
+    setFamily,
+    chooseStudent,
+    allCourses: courses,
+    assignmentBlock,
   };
+
+  // Active study time for the student's records.
+  const studyCourse = (() => {
+    switch (view.name) {
+      case "lesson":
+      case "vocab":
+      case "cards":
+      case "drill":
+      case "ref":
+        return view.courseId;
+      case "run": {
+        const b = allBanks.find((x) => x.id === view.session.bankId);
+        return b?.courseId ?? `bank:${view.session.bankId}`;
+      }
+      default:
+        return null;
+    }
+  })();
+  useStudyTimer(family ? studentId : null, studyCourse);
 
   if (loadError) {
     return (
@@ -333,7 +461,7 @@ export default function App() {
   if (!ready) return null;
 
   const bankFor = (id: string) => allBanks.find((b) => b.id === id);
-  const courseFor = (id: string) => courses.find((c) => c.id === id);
+  const courseFor = (id: string) => myCourses.find((c) => c.id === id);
   const fallback = <Library api={api} broken={broken} standalone={standalone} />;
 
   let body: React.ReactNode = fallback;
@@ -443,9 +571,37 @@ export default function App() {
       if (c && r) body = <RefView api={api} course={c} sheet={r} />;
       break;
     }
+    case "who":
+      if (family) body = <WhoPage api={api} family={family} />;
+      break;
+    case "familySetup":
+      if (HOMESCHOOL && !family)
+        body = (
+          <FamilySetup
+            api={api}
+            onDone={async (f) => {
+              setFamilyState(f);
+              await chooseStudent(f.students[0].id);
+              // Courses already on this computer stay in the first student's list.
+              const p = progressRef.current;
+              await setProgress({ ...p, enrolled: courses.map((c) => c.id) });
+            }}
+          />
+        );
+      break;
+    case "parent":
+      if (family)
+        body = parentUnlocked ? (
+          <ParentArea api={api} family={family} tab={view.tab ?? "overview"} onLock={() => setView({ name: "library" })} />
+        ) : (
+          <ParentGate api={api} family={family} onUnlock={() => setParentUnlocked(true)} />
+        );
+      break;
   }
+  // Students pick who they are before anything else.
+  if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 
-  const navCurrent = view.name === "progress" ? "progress" : "library";
+  const navCurrent = view.name === "progress" ? "progress" : view.name === "parent" || view.name === "who" || view.name === "familySetup" ? null : "library";
 
   return (
     <div className="shell">
@@ -473,6 +629,27 @@ export default function App() {
             </button>
           </nav>
           <div className="spacer" />
+          {HOMESCHOOL && family && (
+            <div className="row family-nav">
+              {student && (
+                <button className="btn sm ghost" onClick={() => setView({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
+                  Student: {student.name}
+                </button>
+              )}
+              <button
+                className="btn sm"
+                aria-current={view.name === "parent" ? "page" : undefined}
+                onClick={() => setView({ name: "parent" })}
+              >
+                Parent
+              </button>
+            </div>
+          )}
+          {HOMESCHOOL && !family && (
+            <button className="btn sm" onClick={() => setView({ name: "familySetup" })}>
+              Homeschool
+            </button>
+          )}
           <form
             className="top-search"
             role="search"

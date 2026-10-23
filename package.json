@@ -1,14 +1,14 @@
 {
   "name": "examiner",
   "private": true,
-  "version": "0.14.0",
+  "version": "0.15.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "test": "tsx tests/engine.test.mts && tsx tests/drills.test.mts && tsx tests/vocab.test.mts && tsx tests/courses.test.mts",
+    "test": "tsx tests/engine.test.mts && tsx tests/drills.test.mts && tsx tests/vocab.test.mts && tsx tests/courses.test.mts && tsx tests/homeschool.test.mts",
     "course-keys": "tsx scripts/course-keys.ts",
     "courses:publish": "tsx scripts/publish-courses.ts",
     "dev:remote": "tsx scripts/publish-courses.ts --dev && VITE_COURSES_URL=/courses-dev/v1/ vite"

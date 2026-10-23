@@ -1,6 +1,6 @@
 # Examiner: handoff
 
-State as of 2026-10-12, v0.3.0 (commit `8ade459`). Read this first in a new chat.
+State as of 2026-10-23, v0.15.0. Read this first in a new chat.
 
 ## What it is
 
@@ -60,6 +60,21 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
+## Homeschool (v0.15.0, desktop app only)
+
+- Turned on in the desktop app (`HOMESCHOOL` in src/lib/family.ts; `VITE_HOMESCHOOL=1` turns it on in a browser for testing). The web build stays free learning with no family features.
+- **Setup** (top bar → Homeschool, `pages/FamilySetup.tsx`): state, route (home-education law or another listed route), school year, minutes that make a school day (default from the state's rules), students (name, grade K–12), parent password (8+), optional PIN (4–8 digits). Shows a one-time recovery code. Progress already on the computer becomes the first student's; courses already installed go on that student's list.
+- **Students:** each has `progress-<id>.json`, `session-<id>.json`, `records-<id>.json`; course files stay shared. `Progress.enrolled` is the student's In-progress list; removing a course only takes it off that list. With 2+ students the app opens on "Who's learning?" (`WhoPage`).
+- **Parent lock** (`ParentGate`): PBKDF2-SHA-256 hashes (310k iterations) in family.json; 5 free wrong tries, then a lock that doubles from 1 minute up to an hour; reset with the recovery code (turns off the PIN, issues a new code). The area locks again whenever you leave it. It's a lock against students, not encryption of the data on disk.
+- **Assignments:** ordered per student with a subject; in each subject the first unfinished course is current and the rest say "Starts after …". "May also start courses that aren't assigned" (on by default) controls whether other catalog courses are locked. Finished = every lesson done or full practice exam passed (`courseFinished` in catalog.ts).
+- **Time and attendance** (`lib/timer.ts`, `lib/records.ts`): study screens (lessons, exams/practice, cards, drills, vocabulary, reference) count time while the window is visible and there was input in the last 3 minutes; saved about once a minute and when the screen closes. Parents add offline time (date, minutes, subject, note). Days at or over the daily minimum are "Proposed"; the parent confirms (one button) or marks days school / not-school. CSV export of the year.
+- **Dashboard** (Parent area → Overview): per student, school days and hours against the state minimum for their grade, pace vs the share of the year gone, hours by subject; "Coming up" reminders (next 45 days + overdue) with Done, plus custom reminders.
+- **Reminders** come from the state rules: yearly notice deadline (fixed date, or days before/after the school-year start), one-time notice, other reports (e.g. NY IHIP, PA evaluator, VA results), testing years by grade, yearly assessments. None when the family uses another route.
+- **State rules data:** `content/states/states.yaml` (51 jurisdictions: the roadmap's State rules table + sources + machine-readable `rules`), `python3 content/states/build.py` checks it and writes samples/states.json. Every build bundles it; `courses:publish` also publishes `states.<checked-date>.json` in the signed catalog and download builds pick up a newer one (`lib/states.ts`). Unsettled points are flagged per state (KY, KS, DE, ND, MA, CT, NH, RI, WA; ages for SD/TN/UT).
+- **Backup** (Parent area → Settings and backup): one file with family, every student's progress and records, courses and banks, AES-256-GCM with a PBKDF2 key (600k) from a passphrase (`lib/backup.ts`). The old plain backup on the Progress page is hidden once a family exists.
+- **New school year** button moves the dates forward a year and every student up a grade.
+- Tests: `tests/homeschool.test.mts` (in `npm test`); browser: `VITE_HOMESCHOOL=1 npx vite --port 5181` then `node scripts/homeschool-walkthrough.mjs [light|dark] [width] [shots dir]` (setup → study time → PIN → attendance → CSV → assignments → backup → second student, with axe on every new screen). Clean in light/dark at 1280 and at 320px for v0.15.0.
+
 ## Course hosting (v0.14.0)
 
 - Plan: the website (examiner.azilizlabs.com, Cloudflare Pages) is free learning; the desktop app is for homeschool families and schools. Both download courses from examiner-courses.azilizlabs.com/v1/ (Cloudflare R2).
@@ -105,6 +120,8 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/lib/vocab.ts` | Language vocabulary reviews: unlocking, due cards, stage ladder (`applyAnswer`), typed-answer checking (`checkMeaning`, `checkRecall`) |
 | `src/lib/speech.ts`, `src/lib/ime.ts` | Device text-to-speech; input-converter registry for non-Roman scripts (empty until Japanese/Chinese) |
 | `src/pages/VocabRunner.tsx`, `src/pages/VocabTabs.tsx` | Vocabulary review/practice screen; Vocabulary and Reading list tabs |
+| `src/lib/family.ts`, `records.ts`, `states.ts`, `timer.ts`, `backup.ts` | Homeschool: family/students/parent lock, records + attendance + reminders, state rules, active study timer, encrypted backup |
+| `src/pages/FamilySetup.tsx`, `WhoPage.tsx`, `ParentGate.tsx`, `ParentArea.tsx` | Homeschool screens |
 | `src/pages/*` | Library, CourseHome (all the tabs), LessonView, Runner (exams and practice), Results, BankHome, Editor (banks), CourseEditor, DeckEditor, CardsRunner, DrillRunner, RefView, ProgressPage, SearchPage |
 | `content/` | Course sources and `build_course.py`, described in the next section |
 
@@ -201,7 +218,9 @@ Data lives in `~/.local/share/com.aziliz.examiner/` on Linux and `%APPDATA%\com.
 - `progress.json`: attempts, question stats, card states, completed lessons, plans, activity, drill stats, flags and notes, and `seededCourses`
 - `session.json`: the unfinished exam or practice session
 
-Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `courses`), `load_progress`, `save_progress`, `load_state`, `save_state` (`session`), `read_text_file`, `write_text_file`, `data_location`, `install_kind`.
+- Homeschool families: `family.json`, and per student `progress-<id>.json`, `session-<id>.json`, `records-<id>.json` (ids lowercase letters/digits, ≤24)
+
+Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `courses`), `load_progress`, `save_progress`, `load_state`, `save_state` (`session`, `family`, `progress-<id>`, `session-<id>`, `records-<id>`; checked by `valid_state_name`), `read_text_file`, `write_text_file`, `data_location`, `install_kind`.
 
 ## Releases (updates are off)
 
@@ -243,6 +262,8 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
   - course updates and app auto-update
 
 ## Possible next steps
+
+- Homeschool Phase 3 per the roadmap (records/transcripts, more K-12 courses). Ask Jon first.
 
 - The Van Ed refinement pass.
 - A CCNA course pack. The drill engine can't do subnetting yet: it may need bitwise operators or a custom drill type.

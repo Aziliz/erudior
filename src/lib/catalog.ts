@@ -115,15 +115,18 @@ export interface Prerequisite {
  * been passed (for learners who already know the material).
  */
 export function prerequisites(entry: CatalogEntry, p: Progress): Prerequisite[] {
-  return (entry.requires ?? []).map((id) => {
-    const req = catalogEntry(id);
-    const ids = req?.lessonIds ?? [];
-    const lessonsDone = ids.filter((l) => p.lessonsDone[`${id}/${l}`]).length;
-    const byExam = p.attempts.some(
-      (a) => a.mode === "exam" && !a.lesson && !a.module && a.bankId.startsWith(`${id}__`) && attemptPassed(a) === true,
-    );
-    return { id, title: req?.title ?? id, lessonsDone, lessons: ids.length, byExam, done: (ids.length > 0 && lessonsDone === ids.length) || byExam };
-  });
+  return (entry.requires ?? []).map((id) => courseFinished(id, p));
+}
+
+/** How far along a course is, and whether it counts as finished (catalog or library course). */
+export function courseFinished(id: string, p: Progress, course?: Course): Prerequisite {
+  const req = catalogEntry(id);
+  const ids = req?.lessonIds ?? course?.lessons.map((l) => l.id) ?? [];
+  const lessonsDone = ids.filter((l) => p.lessonsDone[`${id}/${l}`]).length;
+  const byExam = p.attempts.some(
+    (a) => a.mode === "exam" && !a.lesson && !a.module && a.bankId.startsWith(`${id}__`) && attemptPassed(a) === true,
+  );
+  return { id, title: req?.title ?? course?.title ?? id, lessonsDone, lessons: ids.length, byExam, done: (ids.length > 0 && lessonsDone === ids.length) || byExam };
 }
 
 export const isLocked = (entry: CatalogEntry, p: Progress) => prerequisites(entry, p).some((r) => !r.done);

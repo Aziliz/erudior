@@ -2473,3 +2473,152 @@ h1.h2 {
     max-width: calc(100vw - 24px);
   }
 }
+
+/* ---------- Homeschool: family setup, student picker, parent area ---------- */
+fieldset.panel {
+  margin: 0 0 16px;
+  min-width: 0;
+}
+fieldset.panel > legend {
+  font-weight: 650;
+  padding: 0 6px;
+}
+.form-grid > .span-2,
+.form-grid > fieldset > .span-2 {
+  grid-column: 1 / -1;
+}
+fieldset.form-grid > legend {
+  grid-column: 1 / -1;
+}
+.form-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+}
+.grow {
+  flex: 1 1 14rem;
+  min-width: 0;
+}
+.student-row {
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+.recovery-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border: 2px dashed var(--field);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+.who-grid {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 12px;
+}
+.who-card {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 12px;
+  background: var(--surface);
+  border: 1px solid var(--field);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  color: var(--ink);
+}
+.who-card:hover {
+  border-color: var(--accent);
+}
+.who-card[aria-current="true"] {
+  outline: 2px solid var(--accent);
+}
+.who-initial {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.375rem;
+  font-weight: 700;
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.assigned-list,
+.assign-list,
+.reminder-list,
+.plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.assigned-row,
+.assign-list > li,
+.reminder-list > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.assigned-row > b {
+  flex: 1 1 12rem;
+}
+.reminder-list > li > span:nth-child(2) {
+  flex: 1 1 18rem;
+}
+.reminder-list > li.overdue b {
+  color: var(--bad);
+}
+.plain-list > li {
+  padding: 6px 0;
+}
+.meters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 16px;
+}
+.meter-block .bar {
+  margin-top: 6px;
+  height: 12px;
+}
+.rules-list {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.rules-list > div {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  gap: 12px;
+}
+.rules-list dt {
+  font-weight: 650;
+}
+.rules-list dd {
+  margin: 0;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+@media (max-width: 640px) {
+  .form-grid,
+  .form-grid.four,
+  .rules-list > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.catalog-card .btn {
+  white-space: normal;
+  text-align: left;
+  height: auto;
+}

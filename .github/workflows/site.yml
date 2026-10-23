@@ -54,7 +54,7 @@ jobs:
       - name: Upload course packages to R2
         working-directory: dist-courses/v1
         run: |
-          for f in *.r*.json; do
+          for f in *.r*.json states.*.json; do
             if curl -sfI "${VITE_COURSES_URL}${f}" > /dev/null; then echo "have $f"; continue; fi
             npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/$f" --file "$f" \
               --content-type application/json --cache-control "public, max-age=31536000, immutable"

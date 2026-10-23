@@ -430,6 +430,8 @@ export interface Progress {
   seededCourses?: string[];
   /** Set once the old "install every bundled course" data was cleaned up for the catalog. */
   catalogV1?: boolean;
+  /** Homeschool families: the courses this student has in progress (courses are shared on disk). */
+  enrolled?: string[];
   theme?: "light" | "dark" | "system";
   attempts: Attempt[];
   /** bankId -> questionId -> stats */

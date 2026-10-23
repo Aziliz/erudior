@@ -38,7 +38,15 @@ for (const e of entries) {
   fs.writeFileSync(path.join(out, file), bytes);
   published.push({ ...e, file, bytes: bytes.length, sha256: await sha256Hex(new Uint8Array(bytes)) });
 }
-const catalog = new TextEncoder().encode(JSON.stringify({ format: "examiner-catalog", version: 1, published: new Date().toISOString(), courses: published }));
+// State homeschool rules (content/states), published the same way: immutable file named by version.
+const statesBytes = fs.readFileSync(path.join(root, "samples", "states.json"));
+const statesVersion = JSON.parse(statesBytes.toString("utf8")).version as string;
+const statesFile = `states.${statesVersion}.json`;
+fs.writeFileSync(path.join(out, statesFile), statesBytes);
+const states = { file: statesFile, version: statesVersion, bytes: statesBytes.length, sha256: await sha256Hex(new Uint8Array(statesBytes)) };
+const catalog = new TextEncoder().encode(
+  JSON.stringify({ format: "examiner-catalog", version: 1, published: new Date().toISOString(), courses: published, states }),
+);
 fs.writeFileSync(path.join(out, "catalog.json"), catalog);
 fs.writeFileSync(path.join(out, "catalog.json.sig"), signBytes(catalog, b64.decode(key)) + "\n");
 if (dev) fs.writeFileSync(path.join(root, "dist-courses", "dev-public-key.txt"), publicKeyOf(key));

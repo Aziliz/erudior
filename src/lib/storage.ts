@@ -88,8 +88,30 @@ export async function deleteBank(id: string): Promise<void> {
   else await webDelete(LS_BANK + id);
 }
 
-export async function loadProgress(): Promise<Progress> {
-  const text = inApp ? await invoke<string | null>("load_progress") : await webGet(LS_PROGRESS);
+// Homeschool families keep separate progress per student: progress-<id>, session-<id> and
+// records-<id> next to family.json. Without a family (or before one is set up) the original
+// progress.json / session.json are used.
+let student: string | null = null;
+
+/** Point progress and session storage at a student's files (null = the single-user files). */
+export function useStudentFiles(id: string | null): void {
+  student = id;
+}
+
+/** Read a named state file (see valid_state_name in lib.rs). */
+export async function loadState(name: string): Promise<string | null> {
+  if (inApp) return invoke<string | null>("load_state", { name });
+  return webGet(`examiner.${name}`);
+}
+
+/** Write a named state file, or delete it when content is null. */
+export async function saveState(name: string, content: string | null): Promise<void> {
+  if (inApp) return invoke("save_state", { name, content });
+  if (content === null) await webDelete(`examiner.${name}`);
+  else await webSet(`examiner.${name}`, content);
+}
+
+function parseProgress(text: string | null): Progress {
   if (!text) return emptyProgress();
   try {
     const p = JSON.parse(text) as Progress;
@@ -99,9 +121,20 @@ export async function loadProgress(): Promise<Progress> {
   }
 }
 
+/** The single-user progress file (progress.json), whatever student is active. */
+export async function loadBaseProgress(): Promise<Progress> {
+  return parseProgress(inApp ? await invoke<string | null>("load_progress") : await webGet(LS_PROGRESS));
+}
+
+export async function loadProgress(): Promise<Progress> {
+  if (student) return parseProgress(await loadState(`progress-${student}`));
+  return loadBaseProgress();
+}
+
 export async function saveProgress(p: Progress): Promise<void> {
   const content = JSON.stringify(p);
-  if (inApp) await invoke("save_progress", { content });
+  if (student) await saveState(`progress-${student}`, content);
+  else if (inApp) await invoke("save_progress", { content });
   else await webSet(LS_PROGRESS, content);
 }
 
@@ -135,15 +168,15 @@ export async function exportBankFile(bank: Bank): Promise<boolean> {
   return exportText(serializeBank(bank), `${bank.id}.json`, "Examiner question bank");
 }
 
-async function exportText(content: string, name: string, label: string): Promise<boolean> {
+export async function exportText(content: string, name: string, label: string, ext = "json"): Promise<boolean> {
   if (inApp) {
     const { save } = await import("@tauri-apps/plugin-dialog");
-    const path = await save({ defaultPath: name, filters: [{ name: label, extensions: ["json"] }] });
+    const path = await save({ defaultPath: name, filters: [{ name: label, extensions: [ext] }] });
     if (!path) return false;
     await invoke("write_text_file", { path, content });
     return true;
   }
-  const url = URL.createObjectURL(new Blob([content], { type: "application/json" }));
+  const url = URL.createObjectURL(new Blob([content], { type: ext === "csv" ? "text/csv" : "application/json" }));
   const a = document.createElement("a");
   a.href = url;
   a.download = name;
@@ -194,14 +227,11 @@ export async function restoreBackup(
 
 /** The in-progress session (exam or practice), or null. */
 export async function loadSessionState(): Promise<string | null> {
-  if (inApp) return invoke<string | null>("load_state", { name: "session" });
-  return webGet("examiner.session");
+  return loadState(student ? `session-${student}` : "session");
 }
 
 export async function saveSessionState(content: string | null): Promise<void> {
-  if (inApp) return invoke("save_state", { name: "session", content });
-  if (content === null) await webDelete("examiner.session");
-  else await webSet("examiner.session", content);
+  return saveState(student ? `session-${student}` : "session", content);
 }
 
 export async function confirmAction(message: string, title = "Examiner"): Promise<boolean> {

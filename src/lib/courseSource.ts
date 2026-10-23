@@ -30,11 +30,23 @@ async function fetchBytes(file: string, timeoutMs: number): Promise<Uint8Array> 
   }
 }
 
+/** A data package listed in the signed catalog (e.g. the state homeschool rules). */
+export interface DataPackage {
+  file: string;
+  version: string;
+  bytes: number;
+  sha256: string;
+}
+
 interface Published {
   format: "examiner-catalog";
   version: number;
   courses: CatalogEntry[];
+  states?: DataPackage;
 }
+
+/** The state-rules package named by the last trusted catalog, if any. */
+export let statesPackage: DataPackage | null = null;
 
 /** Parse a catalog after checking its signature; throws if it isn't trusted. */
 export function openCatalog(bytes: Uint8Array, sig: string, keys = KEYS): CatalogEntry[] {
@@ -42,6 +54,7 @@ export function openCatalog(bytes: Uint8Array, sig: string, keys = KEYS): Catalo
   if (!verifySignature(bytes, sig, keys)) throw new Error("The course catalog's signature didn't check out.");
   const data = JSON.parse(new TextDecoder().decode(bytes)) as Published;
   if (data.format !== "examiner-catalog" || !Array.isArray(data.courses)) throw new Error("Unrecognized course catalog.");
+  statesPackage = data.states ?? null;
   return data.courses;
 }
 
@@ -86,5 +99,12 @@ export async function downloadCourse(entry: CatalogEntry): Promise<unknown> {
   if (!entry.sha256) throw new Error("Connect to the internet to download this course.");
   const bytes = await fetchBytes(entry.file, 60000);
   if ((await sha256Hex(bytes)) !== entry.sha256) throw new Error("The downloaded course didn't match the catalog; try again later.");
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+
+/** Download a data package and check it against the signed catalog's hash. */
+export async function downloadPackage(pkg: DataPackage): Promise<unknown> {
+  const bytes = await fetchBytes(pkg.file, 30000);
+  if ((await sha256Hex(bytes)) !== pkg.sha256) throw new Error(`${pkg.file} didn't match the catalog.`);
   return JSON.parse(new TextDecoder().decode(bytes));
 }

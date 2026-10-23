@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
-import { CATALOG, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
+import { CATALOG, courseFinished, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
+import { currentAssignments } from "../lib/family";
 import { REMOTE } from "../lib/courseSource";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
@@ -100,6 +101,8 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         </div>
       )}
 
+      {api.student && api.student.assigned.length > 0 && <Assigned api={api} />}
+
       <h2 className="section-title">In progress</h2>
       {courses.length === 0 ? (
         <div className="panel" style={{ marginBottom: 8, padding: "18px 22px" }}>
@@ -189,6 +192,44 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         </div>
       )}
     </div>
+  );
+}
+
+/** The parent's plan for this student: per subject, the current course and what comes next. */
+function Assigned({ api }: { api: AppApi }) {
+  const s = api.student!;
+  const have = new Set(api.courses.map((c) => c.id));
+  const finished = (id: string) => courseFinished(id, api.progress, api.allCourses.find((c) => c.id === id)).done;
+  const current = currentAssignments(s, finished);
+  const title = (id: string) => CATALOG.find((e) => e.id === id)?.title ?? api.allCourses.find((c) => c.id === id)?.title ?? id;
+  return (
+    <section style={{ marginBottom: 28 }}>
+      <h2 className="section-title">Assigned to {s.name}</h2>
+      <ul className="assigned-list">
+        {s.assigned.map((a) => {
+          const done = finished(a.courseId);
+          const now = current.has(a.courseId);
+          const blocked = api.assignmentBlock(a.courseId);
+          return (
+            <li key={a.courseId} className="assigned-row">
+              <span className="pill neutral">{a.subject}</span>
+              <b>{title(a.courseId)}</b>
+              <span className="small muted">{done ? "Finished" : now ? "Current" : blocked ?? "Up next"}</span>
+              {now &&
+                (have.has(a.courseId) ? (
+                  <button className="btn sm" onClick={() => api.go({ name: "course", courseId: a.courseId })}>
+                    Open
+                  </button>
+                ) : (
+                  <button className="btn sm primary" onClick={() => api.addCourse(a.courseId)}>
+                    Start
+                  </button>
+                ))}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }
 
@@ -339,6 +380,10 @@ function Catalog({ api }: { api: AppApi }) {
                 ) : needs.length ? (
                   <button className="btn sm" onClick={(ev) => (ev.stopPropagation(), open())}>
                     🔒 Finish {needs.map((r) => r.title).join(", ")} first
+                  </button>
+                ) : api.assignmentBlock(e.id) ? (
+                  <button className="btn sm" onClick={(ev) => (ev.stopPropagation(), open())}>
+                    🔒 {api.assignmentBlock(e.id)}
                   </button>
                 ) : (
                   <button
