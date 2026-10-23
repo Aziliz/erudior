@@ -63,7 +63,7 @@ So the point $(a, b)$ moves to $(-b, a)$. The new point is the same distance fro
 {"x": [-4, 4], "y": [-4, 4], "equal": true, "xLabel": "real", "yLabel": "imaginary", "segments": [{"from": [0, 0], "to": [3, 1], "arrow": true}, {"from": [0, 0], "to": [-1, 3], "arrow": true}, {"from": [0, 0], "to": [-3, -1], "arrow": true, "dashed": true}, {"from": [0, 0], "to": [1, -3], "arrow": true, "dashed": true}], "points": [{"at": [3, 1], "label": "z = 3 + i"}, {"at": [-1, 3], "label": "iz = −1 + 3i"}, {"at": [-3, -1], "label": "i²z = −3 − i"}, {"at": [1, -3], "label": "i³z = 1 − 3i"}], "caption": "Each multiplication by i turns the arrow 90° counterclockwise without changing its length"}
 ```
 
-Multiplying by a positive real number $r$ just stretches the arrow by the factor $r$. Multiplying by $-1$ is a half turn. A general product combines a stretch and a turn: multiplying by $w$ stretches by $|w|$ and turns by the angle that $w$ makes with the positive real axis. The turning half of that statement needs trigonometry and is proved in precalculus, but the stretching half can be proved right now.
+Multiplying by a positive real number $r$ just stretches the arrow by the factor $r$. Multiplying by $-1$ is a half turn. A general product combines a stretch and a turn: multiplying by $w$ stretches by $|w|$ and turns by the angle that $w$ makes with the positive real axis. The turning half of that statement needs trigonometry; it is proved in the honors lesson on complex numbers in polar form (at the end of the course) and in precalculus. The stretching half can be proved right now.
 
 ### The modulus of a product
 

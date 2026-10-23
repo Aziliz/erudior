@@ -93,7 +93,7 @@
     pk: p^kk
     qj: q^(nn - kk)
     coef: nCr(nn, kk)*p^kk*q^(nn - kk)
-  where: ['kk <= nn - 2', 'abs(coef) <= 20000']
+  where: ['kk <= nn - 2', 'gcd(p, abs(q)) == 1', 'abs(coef) <= 20000']
   prompt: 'Find the coefficient of $x^{{kk}}$ in the expansion of $({p:coef}x {q:signed})^{{nn}}$.'
   answers:
     - {name: coef, label: 'Coefficient'}

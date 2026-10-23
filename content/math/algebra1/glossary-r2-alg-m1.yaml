@@ -1,0 +1,35 @@
+# Round 2 glossary terms for alg-m1 honors lessons
+- term: terminating decimal
+  aliases: [terminating decimals]
+  definition: 'A decimal that ends, such as $0.375$. A fraction in lowest terms has one exactly when its denominator has no prime factors other than 2 and 5.'
+  topic: Decimals and irrationality
+- term: repeating decimal
+  aliases: [repeating decimals]
+  definition: 'A decimal in which a block of digits repeats forever, marked with a bar: $0.\overline{45} = 0.454545\ldots$ Every repeating decimal is rational.'
+  topic: Decimals and irrationality
+- term: lowest terms
+  aliases: [simplest form]
+  definition: 'A fraction is in lowest terms when its numerator and denominator have no common factor other than 1, such as $\tfrac{3}{25}$ (but not $\tfrac{9}{75}$).'
+  topic: Decimals and irrationality
+- term: dense
+  aliases: [density]
+  definition: 'A set of numbers is dense on the number line when between any two different numbers there is always another member of the set. The rational numbers are dense: the average of two rationals is rational and lies between them.'
+  topic: Decimals and irrationality
+- term: work rate
+  aliases: [work rates, rate of work]
+  definition: 'The fraction of a job done per unit of time. If a job takes $a$ hours, the work rate is $\tfrac1a$ of the job per hour, and work done = rate × time.'
+  topic: Rates and averages
+- term: combined rate
+  aliases: [combined rates]
+  definition: 'The rate of two or more workers or machines working at once: the sum of their rates (minus any rate working against them, such as a drain), assuming they don''t interfere with each other.'
+  topic: Rates and averages
+- term: average speed
+  definition: 'Total distance divided by total time. It equals the plain average of the speeds only when equal times are spent at each speed.'
+  topic: Rates and averages
+- term: harmonic mean
+  definition: 'For two positive numbers $a$ and $b$, $\dfrac{2ab}{a + b} = \dfrac{2}{\frac1a + \frac1b}$. It is the average speed over two equal distances at speeds $a$ and $b$, and it is less than $\tfrac{a + b}{2}$ unless $a = b$.'
+  topic: Rates and averages
+- term: weighted average
+  aliases: [weighted averages, weighted mean]
+  definition: 'An average in which each value counts in proportion to its weight: $\dfrac{w_1 x_1 + w_2 x_2 + \cdots}{w_1 + w_2 + \cdots}$. Course grades, mixture concentrations and average speeds (weighted by time) are weighted averages.'
+  topic: Rates and averages
