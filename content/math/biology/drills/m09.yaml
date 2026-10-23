@@ -30,7 +30,7 @@
     near: {min: 10, max: 30, step: 5}
     gap: {min: 20, max: 60, step: 5}
     delay: {min: 10, max: 25}
-  where: ['gap/v*10 == round(gap/v*10)']
+  where: ['gap/v*10 == round(gap/v*10)', 'near/v*100 == round(near/v*100)']
   calc:
     far: near + gap
     lag: delay/10
@@ -58,7 +58,8 @@
   where: ['edv - esv >= 50', 'edv - esv <= 110']
   calc:
     sv: edv - esv
-    co: hr*sv/1000
+    mlm: hr*sv
+    co: mlm/1000
   prompt: 'At the end of filling, a left ventricle holds {edv} mL of blood; after it contracts, {esv} mL remain. The heart rate is {hr} beats per minute. Find the stroke volume (mL) and the cardiac output (L/min, 2 decimal places).'
   answers:
     - {name: sv, label: 'Stroke volume (mL)', format: integer}
@@ -66,7 +67,7 @@
   solution: |-
     Stroke volume is the blood pumped out in one beat: ${edv} - {esv} =$ **{sv} mL**.
 
-    Cardiac output $=$ heart rate $\times$ stroke volume $= {hr} \times {sv} = {co:num2} \times 1000$ mL/min $=$ **{co:num2} L/min**.
+    Cardiac output $=$ heart rate $\times$ stroke volume $= {hr} \times {sv} = {mlm:int}$ mL/min $=$ **{co:num2} L/min** (divide by 1000 to change mL to L).
 - id: bio-bmr-o2
   title: Metabolic rate from oxygen use
   topic: Respiratory system
@@ -74,7 +75,8 @@
     mass: {min: 45, max: 95}
     vo2: {choices: [3.5, 7, 10.5, 14, 28, 35]}
   calc:
-    lpm: mass*vo2/1000
+    mlo: mass*vo2
+    lpm: mlo/1000
     kjm: lpm*20
     kjh: kjm*60
   prompt: 'A {mass} kg person uses {vo2} mL of oxygen per kilogram per minute (3.5 is a typical resting value). About 20 kJ of energy is released per liter of oxygen used. Find the total oxygen use (L/min), the energy use per minute (kJ/min), and per hour (kJ/h). Give 3 significant figures.'
@@ -83,7 +85,7 @@
     - {name: kjm, label: 'Energy (kJ/min)', relTolerance: 0.01}
     - {name: kjh, label: 'Energy (kJ/h)', relTolerance: 0.01}
   solution: |-
-    Oxygen: ${mass} \times {vo2} = {lpm:sig3} \times 1000$ mL/min $=$ **{lpm:sig3} L/min**.
+    Oxygen: ${mass} \times {vo2} = {mlo:num1}$ mL/min $=$ **{lpm:sig3} L/min**.
 
     Energy: ${lpm:sig3} \times 20 =$ **{kjm:sig3} kJ/min**, and $\times 60$ gives **{kjh:sig3} kJ/h**.
 - id: bio-ventilation
@@ -117,7 +119,7 @@
   prompt: 'A food contains {carb} g of carbohydrate, {prot} g of protein and {fat} g of fat. Using 4 kcal/g for carbohydrate and protein and 9 kcal/g for fat, find its total energy (kcal) and the percentage of that energy that comes from fat (1 decimal place).'
   answers:
     - {name: kcal, label: 'Energy (kcal)', format: integer}
-    - {name: pfat, label: '% from fat', relTolerance: 0.005}
+    - {name: pfat, label: '% from fat', tolerance: 0.06}
   solution: |-
     Energy $= 4({carb}) + 4({prot}) + 9({fat}) =$ **{kcal} kcal**.
 
