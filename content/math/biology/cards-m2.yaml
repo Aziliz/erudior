@@ -9,7 +9,7 @@
 - {front: 'Light vs electron microscope', back: 'Light: living cells, color, ≈ 1000×. Electron: far higher resolution, but dead specimens in a vacuum. TEM: thin slices; SEM: surfaces.', topic: Microscopy}
 - {front: 'Four things every cell has', back: 'Plasma membrane, cytoplasm, DNA, ribosomes', topic: Cell types}
 - {front: 'Prokaryote vs eukaryote', back: 'Prokaryote: no nucleus or membrane-bound organelles, DNA in nucleoid, 1–5 µm (bacteria, archaea). Eukaryote: nucleus and organelles, 10–100 µm (animals, plants, fungi, protists).', topic: Cell types}
-- {front: 'The three domains of life', back: 'Bacteria, Archaea (both prokaryotic) and Eukarya; found by comparing ribosomal RNA (Woese, 1977).', topic: Cell types}
+- {front: 'The three domains of life', back: 'Bacteria, Archaea (both prokaryotic) and Eukarya; found by comparing ribosomal RNA (Woese, 1977; domains formally proposed 1990).', topic: Cell types}
 - {front: 'Virus vs bacterium', back: 'Virus: not a cell, DNA or RNA in a capsid, 20–300 nm, no ribosomes or metabolism, reproduces only in a host, not affected by antibiotics. Bacterium: a living cell, 1–5 µm.', topic: Viruses}
 - {front: 'Why antibiotics don''t treat viral infections', back: 'They target bacterial structures (peptidoglycan walls, bacterial ribosomes) that viruses don''t have.', topic: Viruses}
 - {front: 'Nucleus', back: 'Holds DNA; double envelope with pores; nucleolus makes ribosome parts.', topic: Organelles}

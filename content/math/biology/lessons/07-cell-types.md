@@ -35,7 +35,7 @@ Typical prokaryotic features:
 
 Prokaryotes fall into two very different domains. Bacteria include the familiar ones in soil, water and your gut (and a few that cause disease). Archaea look similar under the microscope but differ chemically: they have no peptidoglycan, their membranes are built from unusual lipids, and some of their machinery for reading genes resembles that of eukaryotes. Many archaea live in extreme places like hot springs and salt lakes, but they are also common in oceans, soils and the human gut.
 
-The split was discovered in 1977 when Carl Woese compared the sequences of ribosomal RNA, a molecule every cell has, across many organisms. The "prokaryotes" fell into two groups as different from each other as either is from eukaryotes. Life is now divided into three domains: Bacteria, Archaea and Eukarya. (Module 8 returns to classification.)
+The split was discovered in 1977 when Carl Woese compared the sequences of ribosomal RNA, a molecule every cell has, across many organisms. The "prokaryotes" fell into two groups as different from each other as either is from eukaryotes. In 1990 Woese and colleagues formally proposed dividing life into three domains: Bacteria, Archaea and Eukarya. (Module 8 returns to classification.)
 
 ## Eukaryotic cells
 
