@@ -69,7 +69,6 @@
   definition: 'A proof of $p \to q$ that gives a direct proof of the equivalent statement $\sim q \to \sim p$ instead.'
   topic: Proof methods
 - term: proof by cases
-  aliases: [cases]
   definition: 'A proof that splits the situation into cases covering every possibility and proves the conclusion in each case.'
   topic: Proof methods
 - term: irrational number
