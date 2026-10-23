@@ -68,6 +68,10 @@ If two figures are similar with scale factor $k$:
 
 *Why squared for area?* Area is length times length, and *both* lengths get multiplied by $k$. Think of a $1 \times 1$ square scaled by 3: it becomes $3 \times 3$, which holds nine of the originals. Volume multiplies three lengths, so it scales by $k^3$: a $3 \times 3 \times 3$ cube holds 27 unit cubes.
 
+```shape
+{"polygons": [{"points": [[0, 0], [1, 0], [1, 1], [0, 1]]}, {"points": [[3, 0], [6, 0], [6, 3], [3, 3]]}], "segments": [{"from": [4, 0], "to": [4, 3]}, {"from": [5, 0], "to": [5, 3]}, {"from": [3, 1], "to": [6, 1]}, {"from": [3, 2], "to": [6, 2]}, {"from": [0, 0], "to": [1, 0], "label": "1"}, {"from": [3, 0], "to": [6, 0], "label": "3"}], "caption": "Scale factor 3: the side triples, but the area becomes 9 copies of the original square."}
+```
+
 ### Example 3
 
 Two similar pentagons have perimeters 20 cm and 30 cm. The smaller has area 48 cm². Find the larger's area.
@@ -91,6 +95,23 @@ Two similar cylinders have volumes $54\pi$ and $250\pi$. What is the ratio of th
 **Step 3.** Surface areas are in ratio $k^2 = \tfrac{25}{9}$.
 
 To go backward from areas or volumes to lengths, take the square root or cube root.
+
+The chart below sums up the method: always pass through the scale factor $k$.
+
+```mermaid
+flowchart TD
+  accTitle: Going from one ratio of similar figures to another
+  accDescr: Start with the ratio you are given. If it is a ratio of lengths, it is the scale factor k. If it is a ratio of areas, take its square root to get k. If it is a ratio of volumes, take its cube root to get k. Then, for the ratio you want, use k for lengths, k squared for areas, and k cubed for volumes.
+  G["Given ratio"] --> L["Lengths: k = the ratio"]
+  G --> A["Areas: k = square root of the ratio"]
+  G --> V["Volumes: k = cube root of the ratio"]
+  L --> K(("scale factor k"))
+  A --> K
+  V --> K
+  K --> L2["Wanted lengths: use k"]
+  K --> A2["Wanted areas: use k squared"]
+  K --> V2["Wanted volumes: use k cubed"]
+```
 
 ## Scale drawings
 

@@ -43,7 +43,19 @@ Notice $\sin 30^\circ = \cos 60^\circ$. In general, $\sin\theta = \cos(90^\circ 
 
 ## Finding a side
 
-Choose the ratio that uses the known side and the side you want, then solve. Make sure your calculator is in *degree* mode.
+Choose the ratio that uses the known side and the side you want, then solve. Make sure your calculator is in *degree* mode. The chart shows the choice for sides and for angles.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a trigonometric ratio in a right triangle
+  accDescr: First decide whether you want a side or an angle. To find a side from a known angle and a known side, look at the two sides involved, the known one and the wanted one, named relative to the angle. Opposite and hypotenuse means use sine. Adjacent and hypotenuse means use cosine. Opposite and adjacent means use tangent. To find an angle from two known sides, use the inverse of the ratio those two sides form.
+  Q["Want a side or an angle?"] --> S["Side: name the known side and the wanted side relative to the angle"]
+  Q --> A["Angle: two sides known"]
+  S --> S1["Opposite and hypotenuse: sine"]
+  S --> S2["Adjacent and hypotenuse: cosine"]
+  S --> S3["Opposite and adjacent: tangent"]
+  A --> A1["Form their ratio, then use the inverse: sin⁻¹, cos⁻¹ or tan⁻¹"]
+```
 
 ### Example 1
 
@@ -78,6 +90,8 @@ $\tan\theta = \tfrac{7}{10}$, so $\theta = \tan^{-1}(0.7) \approx 34.99^\circ \a
 ## Angles of elevation and depression
 
 The **angle of elevation** is the angle from the horizontal *up* to a line of sight. The **angle of depression** is from the horizontal *down*. If you look up at a bird at a $25^\circ$ angle of elevation, the bird looks down at you at a $25^\circ$ angle of depression: the two horizontals are parallel, so the angles are alternate interior angles.
+
+![A person on the ground looks up along a line of sight to a person standing on top of a cliff. The angle of elevation is marked at the lower person, between a dashed horizontal line and the line of sight. The angle of depression is marked at the upper person, between a dashed horizontal line and the same line of sight.](images/geo-m6-elevation.svg)
 
 ```shape
 {"segments": [{"from": [0, 0], "to": [12, 0]}, {"from": [12, 0], "to": [12, 5.6]}, {"from": [0, 0], "to": [12, 5.6], "dashed": true}, {"from": [12, 5.6], "to": [7, 5.6], "dashed": true}], "rightAngles": [[[12, 0], [0, 0], [12, 5.6]]], "labels": [{"at": [2.5, 0.5], "text": "elevation"}, {"at": [9.3, 6.1], "text": "depression"}], "caption": "The angle of elevation from the ground equals the angle of depression from the top."}

@@ -29,8 +29,7 @@
   figure:
     type: plot
     x: [-6, 6]
-    y: [-14, 14]
-    equal: false
+    y: ['min(min(p2, q2), -2) - 2', 'max(max(p2, q2), 2) + 2']
     functions: [{f: 'm*x + b', label: 'ℓ'}]
     segments: [{from: [p1, p2], to: [q1, q2]}]
     points: [{at: [p1, p2], label: P}, {at: [q1, q2], label: Q}]

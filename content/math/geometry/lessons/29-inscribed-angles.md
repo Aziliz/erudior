@@ -96,6 +96,20 @@ Two tangents from $P$ touch a circle at $A$ and $B$, and the minor arc $\overset
 | Inside the circle | $\tfrac12$ (sum of the two arcs) |
 | Outside the circle | $\tfrac12$ (far arc − near arc) |
 
+The four cases side by side, with the intercepted arcs in color (for the outside vertex, the far arc is red and the near arc blue):
+
+![Four circles. Top left: an angle with its vertex at the center, intercepting a red arc; the angle equals the arc. Top right: an angle with its vertex on the circle, intercepting a red arc; the angle is half the arc. Bottom left: two chords crossing inside the circle, with red arcs inside the angle and inside its vertical angle; the angle is half the sum of the arcs. Bottom right: two secants from a point outside the circle, with a red far arc and a blue near arc; the angle is half of far minus near.](images/geo-m7-angle-types.svg)
+
+```mermaid
+flowchart TD
+  accTitle: Finding an angle in a circle from where its vertex is
+  accDescr: Ask where the vertex of the angle is. At the center, the angle equals its arc. On the circle, as an inscribed angle or a tangent and chord angle, it is half its intercepted arc. Inside the circle, where two chords cross, it is half the sum of the arc it intercepts and the arc its vertical angle intercepts. Outside the circle, where two secants, a secant and a tangent, or two tangents meet, it is half the far arc minus the near arc.
+  V{"Where is the vertex?"} -- at the center --> A["Angle = its arc"]
+  V -- on the circle --> B["Angle = half its arc"]
+  V -- inside --> C["Angle = half the sum of its arc and the vertical angle's arc"]
+  V -- outside --> D["Angle = half of (far arc minus near arc)"]
+```
+
 ## Common mistakes
 
 - **Forgetting to halve.** Only central angles equal their arcs.

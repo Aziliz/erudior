@@ -21,7 +21,11 @@ $$a^2 + b^2 = c^2.$$
 
 ## Two proofs
 
-**Proof by rearrangement.** Take four copies of the right triangle and arrange them inside a square of side $a + b$, so that their hypotenuses enclose a tilted square of side $c$ in the middle. The big square's area can be counted two ways:
+**Proof by rearrangement.** Take four copies of the right triangle and arrange them inside a square of side $a + b$, so that their hypotenuses enclose a tilted square of side $c$ in the middle, as in the picture.
+
+![A large square whose sides are each split into a piece a and a piece b. Four right triangles with legs a and b sit in its corners, and their hypotenuses, each of length c, enclose a tilted square of area c squared in the middle.](images/geo-m6-rearrangement.svg)
+
+The big square's area can be counted two ways:
 
 $$(a + b)^2 = 4 \cdot \tfrac12 ab + c^2.$$
 
@@ -82,7 +86,19 @@ More generally, with $c$ the longest side, compare $c^2$ with $a^2 + b^2$:
 
 *Why.* Imagine the angle opposite $c$ as a hinge (Lesson 14). At $90^\circ$ the third side is exactly $\sqrt{a^2 + b^2}$. Close the hinge (acute angle) and the third side gets shorter; open it (obtuse) and it gets longer.
 
-Always check first that the three lengths form a triangle at all.
+Always check first that the three lengths form a triangle at all. The whole procedure:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a triangle by its side lengths
+  accDescr: First check the triangle inequality: the two shorter sides must add to more than the longest. If not, there is no triangle. If so, call the longest side c and compare c squared with a squared plus b squared. If they are equal, the triangle is right; if c squared is less, it is acute; if c squared is greater, it is obtuse.
+  S["Three side lengths"] --> T{"Two shorter sides add to more than the longest?"}
+  T -- no --> X["No triangle"]
+  T -- yes --> C["Call the longest side c; compare c squared with a squared + b squared"]
+  C -- equal --> R["Right"]
+  C -- "c squared is less" --> A["Acute"]
+  C -- "c squared is greater" --> O["Obtuse"]
+```
 
 ### Example 4
 

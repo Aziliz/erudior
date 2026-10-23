@@ -85,6 +85,24 @@ Two pulleys have radii 5 and 2, with centers 13 apart. How long is the straight 
 
 **Step 2.** Belt length $= \sqrt{13^2 - 3^2} = \sqrt{160} = 4\sqrt{10} \approx 12.65$.
 
+## Two right triangles
+
+Almost every problem in this lesson comes down to one of two right triangles. In the chord triangle the radius is the hypotenuse; in the tangent triangle the radius is a leg and the segment to the center is the hypotenuse.
+
+![Two circles side by side. Left: a chord AB with the perpendicular OM from the center O to its midpoint M, labeled d, and the radius OB, labeled r; a right angle is marked at M, and MB is labeled half-chord. Right: a tangent line touching a circle at T, a point P on the tangent, the radius OT labeled r with a right angle at T, and a dashed segment OP. Captions: for a chord, r is the hypotenuse; for a tangent, OP is the hypotenuse.](images/geo-m7-chord-tangent.svg)
+
+```mermaid
+flowchart TD
+  accTitle: Which right triangle to draw in a chord or tangent problem
+  accDescr: First ask whether the problem is about a chord or a tangent. For a chord, draw the perpendicular from the center to the chord; it bisects the chord, and the right triangle has legs equal to half the chord and the distance from the center, with the radius as hypotenuse. For a tangent, draw the radius to the point of tangency; it makes a right angle with the tangent, and the right triangle has legs equal to the radius and the tangent segment, with the segment from the exterior point to the center as hypotenuse. Both cases finish with the Pythagorean theorem.
+  Q{"Chord or tangent?"} -- chord --> C1["Draw the perpendicular from the center to the chord"]
+  C1 --> C2["Legs: half-chord and distance to center. Hypotenuse: radius"]
+  Q -- tangent --> T1["Draw the radius to the point of tangency"]
+  T1 --> T2["Legs: radius and tangent segment. Hypotenuse: segment to the center"]
+  C2 --> P["Use the Pythagorean theorem"]
+  T2 --> P
+```
+
 ## Common mistakes
 
 - **Using the whole chord in the right triangle.** It's *half* the chord that forms a leg.

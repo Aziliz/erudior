@@ -54,6 +54,10 @@ In $\odot O$, $\overline{AC}$ is a diameter and $m\angle AOB = 64^\circ$, with $
 
 **Step 3.** $\overset{\frown}{BAC}$ is the major arc from $B$ through $A$ to $C$: $360 - 116 = 244^\circ$.
 
+The picture shows all three arcs. The major arc $\overset{\frown}{BAC}$ is the $64^\circ$ arc plus the lower semicircle.
+
+![A circle with center O and horizontal diameter AC. Radius OB makes a 64 degree angle with OA. The minor arc AB is highlighted in red and labeled 64 degrees; arc BC is highlighted in green and labeled 116 degrees. A note says the major arc BAC is 64 degrees plus 180 degrees, which is 244 degrees, going from B through A and around the bottom to C.](images/geo-m7-arcs.svg)
+
 ## Arc length
 
 Arc *measure* is an angle; **arc length** is a distance along the circle. An arc of $\theta^\circ$ is the fraction $\tfrac{\theta}{360}$ of the whole circle, so it is that fraction of the **circumference** $C = 2\pi r$:
@@ -105,6 +109,21 @@ The minute hand of a clock is 12 cm long. How far does its tip travel between 3:
 **Step 3 (radians).** $150^\circ = \tfrac{5\pi}{6}$, and $s = r\theta = 12 \cdot \tfrac{5\pi}{6} = 10\pi$, the same answer.
 
 Notice that degree measure answers "how far around?" while arc length answers "how far along?". The first ignores the size of the circle; the second depends on it.
+
+The chart below collects the three ways of describing the same arc.
+
+```mermaid
+flowchart TD
+  accTitle: From a central angle to arc measure, arc length and radians
+  accDescr: Start with a central angle of theta degrees. Its minor arc measures theta degrees. To get the arc length, take the fraction theta over 360 of the circumference 2 pi r. To use radians, multiply theta by pi over 180, and then the arc length is r times the angle in radians. Both routes give the same length.
+  A["Central angle of θ degrees"] --> B["Arc measure: θ degrees (how far around)"]
+  A --> C["Fraction of the circle: θ / 360"]
+  C --> D["Arc length = (θ / 360) · 2πr (how far along)"]
+  A --> E["Radians: θ · π / 180"]
+  E --> F["Arc length s = r · (angle in radians)"]
+  D --> G["Same length either way"]
+  F --> G
+```
 
 ## Common mistakes
 

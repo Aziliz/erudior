@@ -11,7 +11,7 @@
     a2: a^2
     c: 6*B
     na: -a
-  prompt: 'Find a particular solution of $y'''' {b:signedcoef}y'' {a2:signed}y = {c:coef}te^{{a:coef}t}$. Type products with a star, e.g. t^3*e^(2t).'
+  prompt: 'Find a particular solution of $y'''' {b:signedcoef}y'' {a2:signedcoef}y = {c:coef}te^{{a:coef}t}$. Type products with a star, e.g. t^3*e^(2t).'
   answers:
     - {kind: expression, expression: 'B*t^3*exp(a*t)', variables: [t], label: '$Y =$', show: '$Y = {B:coef}t^3e^{{a:coef}t}$'}
   solution: |-
@@ -29,11 +29,12 @@
     cst: al^2 + be^2
     nal: -al
     ntal: -2*al
+    be2: be^2
   prompt: 'Find the smallest annihilator of $f(t) = {tp}e^{{al:coef}t}\cos {be:coef}t$. Give it as a polynomial $A(r)$ in $r$ with leading coefficient 1 (factored is fine), e.g. ((r-1)^2+4)^2.'
   answers:
-    - {kind: expression, expression: '((r - al)^2 + be^2)^(tp + 1)', variables: [r], label: '$A(r) =$', show: '$A(r) = \big((r {nal:signed})^2 + {be}^2\big)^{{m}}$'}
+    - {kind: expression, expression: '((r - al)^2 + be^2)^(tp + 1)', variables: [r], label: '$A(r) =$', show: '$A(r) = \big((r {nal:signed})^2 + {be2}\big)^{{m}}$'}
   solution: |-
-    $e^{{al:coef}t}\cos {be:coef}t$ comes from the complex pair $r = {al} \pm {be:coef}i$, whose quadratic is $(r {nal:signed})^2 + {be}^2 = r^2 {ntal:signedcoef}r + {cst}$. The factor ${tp}$ means the pair must have multiplicity ${m}$, one more than the power of $t$. Answer: **$A(r) = \big((r {nal:signed})^2 + {be}^2\big)^{{m}}$**.
+    $e^{{al:coef}t}\cos {be:coef}t$ comes from the complex pair $r = {al} \pm {be:coef}i$, whose quadratic is $(r {nal:signed})^2 + {be2} = r^2 {ntal:signedcoef}r + {cst}$. The factor ${tp}$ means the pair must have multiplicity ${m}$, one more than the power of $t$. Answer: **$A(r) = \big((r {nal:signed})^2 + {be2}\big)^{{m}}$**.
 - id: de-m6-r2-q-bandwidth
   title: Quality factor and bandwidth
   topic: Quality factor
@@ -43,7 +44,7 @@
     gam: {choices: [0.1, 0.2, 0.4, 0.5, 1]}
   where: ['sqrt(k*m)/gam > 1']
   calc:
-    km: k*m
+    kmv: k*m
     Q: sqrt(k*m)/gam
     dw: gam/m
     w0: sqrt(k/m)
@@ -52,7 +53,7 @@
     - {name: Q, label: '$Q$', tolerance: 0.0051, format: num2}
     - {name: dw, label: '$\Delta\omega$ (rad/s)', tolerance: 0.0006, format: num4}
   solution: |-
-    $Q = \dfrac{\sqrt{km}}{\gamma} = \dfrac{\sqrt{{km}}}{{gam}} \approx$ **{Q:num2}**. The bandwidth is $\Delta\omega = \dfrac{\gamma}{m} = \dfrac{{gam}}{{m}} =$ **{dw:num4} rad/s**. Check: $\omega_0 = \sqrt{k/m} \approx {w0:num4}$ and $\omega_0/\Delta\omega \approx {Q:num2}$.
+    $Q = \sqrt{km}\,/\,\gamma = \dfrac{\sqrt{{kmv}}}{{gam}} \approx$ **{Q:num2}**. The bandwidth is $\Delta\omega = \gamma/m = \dfrac{{gam}}{{m}} =$ **{dw:num4} rad/s**. Check: $\omega_0 = \sqrt{k/m} \approx {w0:num4}$ and $\omega_0/\Delta\omega \approx {Q:num2}$.
 - id: de-m6-r2-log-decrement
   title: Damping from a decay record
   topic: Quality factor
@@ -103,7 +104,7 @@
   answers:
     - {name: d, label: 'Deflection (mm)', relTolerance: 0.006, format: sig3}
   solution: |-
-    The largest sag is at the middle: $y_{\max} = \dfrac{5wL^4}{384EI} = \dfrac{5({w})({L4:sig6})}{384({EI})}$ m $\approx$ **{d:sig3} mm**.
+    The largest sag is at the middle: $y_{\max} = \dfrac{5wL^4}{384EI} = \dfrac{5({w:sig6})({L4:sig6})}{384({EI})}$ m $\approx$ **{d:sig3} mm**.
 - id: de-m6-r2-buckling
   title: Euler buckling load
   topic: Beams and buckling

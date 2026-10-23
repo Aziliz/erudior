@@ -1,0 +1,20 @@
+# Module 3, round 2: cards for honors lessons 09h1 and 09h2
+- {front: 'Proving the Corresponding Angles Converse', back: 'Construct the parallel to $m$ through $P$; it makes the same angle with $t$ as $\ell$, so by the Protractor Postulate it is $\ell$.', topic: Parallel line proofs}
+- {front: 'Consecutive Interior Angles Converse: key step', back: 'The angle forming a linear pair with one of the angles is congruent to the other (congruent supplements), and the two are corresponding angles.', topic: Parallel line proofs}
+- {front: 'Euclid I.27', back: 'Congruent alternate interior angles imply parallel lines. Proved indirectly with the Exterior Angle Inequality, without the parallel postulate.', topic: Parallel line proofs}
+- {front: 'Euclid I.29', back: 'Parallel lines make congruent alternate interior angles: the first proposition in the Elements to use the parallel postulate.', topic: Parallel line proofs}
+- {front: 'What the parallel postulate adds', back: 'Parallels through an outside point exist without it; the postulate makes the parallel unique, which gives the forward angle theorems and the 180° triangle.', topic: Parallel line proofs}
+- {front: 'Neutral (absolute) geometry', back: 'Geometry without the parallel postulate: parallels exist, but need not be unique.', topic: Parallel line proofs}
+- {front: 'Bend theorem', back: 'If $\ell \parallel m$ and a path bends once at $P$ between them, $m\angle APB$ equals the sum of the two angles at $A$ and $B$ that open toward the bend.', topic: Auxiliary lines}
+- {front: 'Zigzag rule', back: 'For a zigzag path between parallel lines, the angles that open right total the same as the angles that open left.', topic: Auxiliary lines}
+- {front: 'Bisectors of consecutive interior angles', back: 'They meet at a right angle: $\tfrac{\alpha}{2} + \tfrac{\beta}{2} = \tfrac{180^\circ}{2} = 90^\circ$.', topic: Auxiliary lines}
+- {front: 'A legal auxiliary line', back: 'One fixed by a single condition (e.g. through $P$, parallel to $\ell$), so it exists and is unique.', topic: Auxiliary lines}
+- {front: 'Why equal slopes mean parallel', back: '$m x + b_1 = m x + b_2$ forces $b_1 = b_2$, so different lines with equal slopes never meet.', topic: Slope criteria proofs}
+- {front: 'Why perpendicular slopes multiply to $-1$', back: 'For $O$, $(1, m_1)$, $(1, m_2)$: $OA^2 + OB^2 = AB^2$ simplifies to $m_1 m_2 = -1$.', topic: Slope criteria proofs}
+- {front: 'Dot product', back: '$\langle a_1, b_1 \rangle \cdot \langle a_2, b_2 \rangle = a_1 a_2 + b_1 b_2 = |\vec u||\vec v|\cos\varphi$; zero means perpendicular.', topic: Slope criteria proofs}
+- {front: 'Normal and direction vectors of $Ax + By = C$', back: 'Normal: $\langle A, B \rangle$. Direction: $\langle B, -A \rangle$.', topic: Slope criteria proofs}
+- {front: 'Parallel and perpendicular lines through $(p, q)$ to $Ax + By = C$', back: 'Parallel: $Ax + By = Ap + Bq$. Perpendicular: $Bx - Ay = Bp - Aq$.', topic: Slope criteria proofs}
+- {front: 'Angle between two lines', back: '$\cos\varphi = \dfrac{|\vec u \cdot \vec v|}{|\vec u||\vec v|}$ with direction (or normal) vectors; $0^\circ \le \varphi \le 90^\circ$.', topic: Angle between lines}
+- {front: 'Foot of the perpendicular from $(x_0, y_0)$ to $Ax + By + C = 0$', back: '$(x_0 + tA,\ y_0 + tB)$ with $t = -\dfrac{Ax_0 + By_0 + C}{A^2 + B^2}$.', topic: Foot of the perpendicular}
+- {front: 'Reflection of a point in a line', back: 'Go twice as far along the normal: $(x_0 + 2tA,\ y_0 + 2tB)$; the foot is the midpoint.', topic: Foot of the perpendicular}
+- {front: 'Distance between $Ax + By + C_1 = 0$ and $Ax + By + C_2 = 0$', back: '$\dfrac{|C_1 - C_2|}{\sqrt{A^2 + B^2}}$ (make $A$ and $B$ identical first).', topic: Foot of the perpendicular}

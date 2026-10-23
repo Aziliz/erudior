@@ -60,6 +60,26 @@ The tools match the properties:
 | sides are perpendicular | slopes multiply to $-1$ |
 | a segment is bisected | midpoint formula |
 
+For a quadrilateral whose vertices are listed in order around the figure, the flowchart turns the table into a procedure. (A horizontal side and a vertical side are perpendicular too, even though the vertical one has no slope.)
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a quadrilateral from the coordinates of its vertices
+  accDescr: Start with the slopes of all four sides. If the two pairs of opposite sides are not both parallel, check whether exactly one pair is parallel: if so it is a trapezoid, otherwise it is just a quadrilateral. If both pairs are parallel it is a parallelogram. Then ask two questions: are adjacent sides perpendicular (slopes that multiply to negative 1, or one horizontal and one vertical side), and are all four sides the same length by the distance formula. Perpendicular and equal gives a square, perpendicular but not equal a rectangle, equal but not perpendicular a rhombus, and neither leaves a parallelogram only.
+  B{"Slopes: both pairs of opposite sides parallel?"}
+  B -- no --> C{"Exactly one pair parallel?"}
+  C -- yes --> D["Trapezoid"]
+  C -- no --> E["Just a quadrilateral"]
+  B -- yes --> F["Parallelogram"]
+  F --> G{"Adjacent sides perpendicular?"}
+  G -- yes --> H{"All four sides equal?"}
+  G -- no --> I{"All four sides equal?"}
+  H -- yes --> J["Square"]
+  H -- no --> K["Rectangle"]
+  I -- yes --> L["Rhombus"]
+  I -- no --> M["Parallelogram only"]
+```
+
 ### Example 3
 
 Show that $A(1, 2)$, $B(5, 5)$, $C(8, 1)$, $D(4, -2)$ is a square.

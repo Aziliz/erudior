@@ -21,6 +21,24 @@ This is the most-used test. The third angles match automatically (Third Angles T
 
 Compare with congruence: SSS and SAS appear in both lists (with "proportional" replacing "congruent"), while AA is enough for similarity because similarity doesn't care about size.
 
+This chart shows which test to reach for, depending on what you know.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a triangle similarity test
+  accDescr: If two pairs of angles are congruent, the triangles are similar by AA. If you know all three pairs of sides, compare the three ratios; if they are all equal, the triangles are similar by SSS similarity. If you know two pairs of sides and the angles between them, check that the two ratios are equal and the included angles are congruent; if so, they are similar by SAS similarity. If a check fails, that test does not show similarity.
+  S["What do you know?"] --> A["Two pairs of congruent angles"]
+  S --> B["Three pairs of sides"]
+  S --> C["Two pairs of sides and the angles between them"]
+  A --> A1["Similar by AA"]
+  B --> B1{"All three ratios equal?"}
+  B1 -- yes --> B2["Similar by SSS similarity"]
+  C --> C1{"Ratios equal and included angles congruent?"}
+  C1 -- yes --> C2["Similar by SAS similarity"]
+  B1 -- no --> N["Not similar by this test"]
+  C1 -- no --> N
+```
+
 ### Example 1
 
 Are triangles with sides 6, 8, 12 and 9, 12, 18 similar?
@@ -86,6 +104,8 @@ Similar triangles let you measure things you can't reach. Sun rays are parallel,
 ### Example 5
 
 A 1.8 m person casts a 2.4 m shadow at the same time a tree casts a 16 m shadow. How tall is the tree?
+
+![A person 1.8 m tall and a tree of unknown height h stand on level ground. The person's shadow is 2.4 m long and the tree's is 16 m. Dashed parallel sun rays run from the top of each to the tip of its shadow, forming two similar right triangles.](images/geo-m6-shadow.svg)
 
 $\tfrac{h}{16} = \tfrac{1.8}{2.4}$, so $h = 16 \cdot 0.75 = 12$ m.
 

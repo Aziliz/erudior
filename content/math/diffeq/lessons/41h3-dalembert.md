@@ -111,7 +111,7 @@ For a string on $0 < x < L$ with $u(0, t) = u(L, t) = 0$, extend $f$ and $g$ to 
 $x = 0$ and periodic with period $2L$, exactly the odd extension of Lesson 39. Then
 d'Alembert's formula with the extended data solves the problem: the oddness makes the
 two traveling pieces cancel at $x = 0$ and $x = L$ at every instant. Physically, a pulse that
-reaches a fixed end comes back **upside down**: the "mirror" pulse arriving from beyond
+reaches a fixed end comes back upside down: the "mirror" pulse arriving from beyond
 the end is its negative.
 
 ### Example 3: reflection from the ends

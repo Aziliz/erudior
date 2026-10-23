@@ -41,11 +41,29 @@ $$1 : \sqrt3 : 2 \qquad (\text{short leg} : \text{long leg} : \text{hypotenuse})
 
 The short leg is opposite $30^\circ$, the long leg opposite $60^\circ$, and the hypotenuse is twice the short leg.
 
+Both special triangles come from cutting a familiar figure in half, shown side by side here.
+
+![Left: a square with side s cut along a diagonal of length s root 2, giving a triangle with two 45 degree angles. Right: an equilateral triangle with side 2s cut by an altitude of length s root 3, which splits the base into two pieces of length s and gives a triangle with angles of 30 and 60 degrees.](images/geo-m6-special-halves.svg)
+
 ```shape
 {"polygons": [{"points": [[0, 0], [5.196, 0], [0, 3]]}], "rightAngles": [[[0, 0], [5.196, 0], [0, 3]]], "segments": [{"from": [0, 0], "to": [5.196, 0], "label": "x√3"}, {"from": [0, 3], "to": [0, 0], "label": "x"}, {"from": [5.196, 0], "to": [0, 3], "label": "2x"}], "labels": [{"at": [3.9, 0.35], "text": "30°"}, {"at": [0.5, 2.2], "text": "60°"}]}
 ```
 
 **Strategy:** always find the short leg first. From the hypotenuse, halve it. From the long leg, divide by $\sqrt3$.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a 30-60-90 triangle from any one side
+  accDescr: Find the short leg first. If you know the hypotenuse, halve it. If you know the long leg, divide it by the square root of 3. If you know the short leg, you already have it. Then the long leg is the short leg times the square root of 3, and the hypotenuse is twice the short leg.
+  K["Which side do you know?"] --> H["Hypotenuse: halve it"]
+  K --> L["Long leg: divide by root 3"]
+  K --> S["Short leg: already known"]
+  H --> SL(("short leg"))
+  L --> SL
+  S --> SL
+  SL --> LL["Long leg = short leg times root 3"]
+  SL --> HY["Hypotenuse = 2 times short leg"]
+```
 
 ### Example 2
 

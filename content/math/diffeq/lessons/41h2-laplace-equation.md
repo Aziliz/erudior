@@ -128,12 +128,12 @@ A disk of radius 2 has edge temperature $f(\theta) = 3 + 4\cos\theta - \sin 2\th
 
 ## Two properties of every harmonic function
 
-**Mean value property.** Example 3 is no accident. Set $r = 0$ in the disk formula: the value
+**Mean value property**. Example 3 is no accident. Set $r = 0$ in the disk formula: the value
 at the centre is $\tfrac{a_0}{2}$, the average of $f$ around the circle. Since any circle inside a
 region can be treated this way, the value of a harmonic function at any point equals its
 average over every circle centred there (as long as the disk lies in the region).
 
-**Maximum principle.** A harmonic function that is not constant has no maximum or minimum
+**Maximum principle**. A harmonic function that is not constant has no maximum or minimum
 inside its region; its largest and smallest values are on the boundary. The mean value
 property shows why: an interior maximum would have to equal the average of the values
 around it, which is impossible unless they are all equal. Physically, a steady temperature

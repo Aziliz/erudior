@@ -1,0 +1,28 @@
+# Module 3, round 2: terms from lesson 09 (foot of the perpendicular) and honors lessons 09h1, 09h2
+- term: auxiliary line
+  aliases: [auxiliary lines]
+  definition: 'An extra line added to a figure to make a proof possible, such as a line through a point parallel to a given line. It must be fixed by one condition so that it exists and is unique.'
+  topic: Auxiliary lines
+- term: neutral geometry
+  aliases: [absolute geometry]
+  definition: 'Geometry built on Euclid''s assumptions without the parallel postulate. In it, parallels through an outside point exist but need not be unique.'
+  topic: Parallel line proofs
+- term: foot of the perpendicular
+  definition: 'The point where the perpendicular from a point to a line meets the line. Its distance from the point is the distance from the point to the line.'
+  topic: Foot of the perpendicular
+- term: direction vector
+  aliases: [direction vectors]
+  definition: 'A nonzero vector $\langle a, b \rangle$ that moves from one point of a line to another; when $a \ne 0$ the slope is $\tfrac{b}{a}$. A vertical line has direction vector $\langle 0, 1 \rangle$.'
+  topic: Slope criteria proofs
+- term: dot product
+  aliases: [dot products]
+  definition: 'For $\vec u = \langle a_1, b_1 \rangle$ and $\vec v = \langle a_2, b_2 \rangle$, the number $a_1 a_2 + b_1 b_2$. It equals $|\vec u||\vec v|\cos\varphi$, so it is $0$ exactly when the vectors are perpendicular.'
+  topic: Slope criteria proofs
+- term: normal vector
+  aliases: [normal vectors]
+  definition: 'A nonzero vector perpendicular to a line. For $Ax + By = C$, $\langle A, B \rangle$ is a normal vector.'
+  topic: Slope criteria proofs
+- term: angle between two lines
+  aliases: [angle between lines]
+  definition: 'The non-obtuse angle (from $0^\circ$ to $90^\circ$) formed where two lines cross; with direction vectors $\vec u$, $\vec v$, $\cos\varphi = \tfrac{|\vec u \cdot \vec v|}{|\vec u||\vec v|}$.'
+  topic: Angle between lines

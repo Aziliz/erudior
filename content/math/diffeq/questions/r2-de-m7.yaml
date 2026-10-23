@@ -1,0 +1,804 @@
+# Round 2, module de-m7 (Laplace transforms): new question types for core lessons 28-32
+# and questions for honors lessons 32h1-32h3.
+
+# ---------- Lesson 28: The Laplace transform ----------
+- id: de-m7-r2-q01
+  lesson: de-laplace-def
+  type: text
+  topic: Laplace transform
+  stem: '$\mathcal{L}\{t^3\} = \dfrac{k}{s^4}$. What is $k$? Give only the number.'
+  accept: ['6']
+  explanation: |-
+    $\mathcal{L}\{t^n\} = \dfrac{n!}{s^{n+1}}$; with $n = 3$ the numerator is $3! = 6$. (Writing 3 or 1 forgets the factorial.)
+
+- id: de-m7-r2-q02
+  lesson: de-laplace-def
+  module_quiz: true
+  type: match
+  topic: Laplace transform
+  stem: 'Match each function to its Laplace transform.'
+  pairs:
+    - ['$e^{-3t}$', '1/(s + 3)']
+    - ['$\sin 3t$', '3/(s² + 9)']
+    - ['$\cos 3t$', 's/(s² + 9)']
+    - ['$t^3$', '6/s⁴']
+  distractors: ['1/(s − 3)']
+  explanation: |-
+    $\mathcal{L}\{e^{at}\} = \dfrac{1}{s - a}$ with $a = -3$ gives $\dfrac{1}{s + 3}$ (not $\dfrac{1}{s - 3}$, which is $e^{3t}$). Sine has the constant $b = 3$ on top and cosine has $s$ on top, both over $s^2 + 9$. $\mathcal{L}\{t^3\} = \dfrac{3!}{s^4} = \dfrac{6}{s^4}$.
+
+- id: de-m7-r2-q03
+  lesson: de-laplace-def
+  topic: Laplace transform
+  stem: 'Which of these functions have a Laplace transform (for all large enough $s$)? Select all that apply.'
+  choices: ['$t^5e^{2t}$', '$e^{t^2}$', '$\sin(e^{t})$', '$\tan t$']
+  answer: [0, 2]
+  explanation: |-
+    $t^5e^{2t}$ is continuous and of exponential order (it is below $e^{3t}$ for large $t$), so it has a transform. $\sin(e^t)$ is continuous and bounded by 1, so it is of exponential order too. $e^{t^2}$ grows faster than every $Me^{ct}$, and the integral diverges for every $s$. $\tan t$ is not piecewise continuous: it blows up at $t = \pi/2$, and the integral diverges there.
+
+- id: de-m7-r2-q04
+  lesson: de-laplace-def
+  type: order
+  topic: Laplace transform
+  stem: 'Put the steps of computing $\mathcal{L}\{1\}$ from the definition in order.'
+  items:
+    - 'Write $\displaystyle\int_0^\infty e^{-st}\,dt$ as $\displaystyle\lim_{b\to\infty}\int_0^b e^{-st}\,dt$'
+    - 'Find an antiderivative: $-\dfrac{e^{-st}}{s}$'
+    - 'Evaluate at the limits: $\dfrac{1 - e^{-sb}}{s}$'
+    - 'Let $b \to \infty$ (for $s > 0$) to get $\dfrac1s$'
+  explanation: |-
+    An improper integral is a limit of proper ones, so the limit is set up first; then the proper integral is computed (antiderivative, then limits of integration); the limit $b \to \infty$ comes last, and it exists only for $s > 0$, where $e^{-sb} \to 0$.
+
+- id: de-m7-r2-q05
+  lesson: de-laplace-def
+  module_quiz: true
+  type: text
+  topic: Laplace transform
+  stem: 'Let $F(s) = \mathcal{L}\{e^{2t}\sin 3t\}$. Find $F(2)$ as a fraction.'
+  accept: ['1/3', '0.333', '0.3333']
+  explanation: |-
+    By the first shifting theorem, $F(s) = \dfrac{3}{(s - 2)^2 + 9}$. At $s = 2$: $F(2) = \dfrac{3}{0 + 9} = \dfrac13$. (Using $s + 2$ instead of $s - 2$ shifts the wrong way and gives $\dfrac{3}{25}$.)
+
+# ---------- Lesson 29: Inverse transforms ----------
+- id: de-m7-r2-q06
+  lesson: de-laplace-inverse
+  type: text
+  topic: Inverse Laplace transform
+  stem: 'Use the cover-up method: $\dfrac{3s + 1}{(s - 1)(s + 2)} = \dfrac{A}{s - 1} + \dfrac{B}{s + 2}$ with $A =$ ___ and $B =$ ___. Give exact fractions.'
+  accept:
+    - ['4/3']
+    - ['5/3']
+  explanation: |-
+    $A$: cover $(s - 1)$ and set $s = 1$: $A = \dfrac{3 + 1}{1 + 2} = \dfrac43$. $B$: cover $(s + 2)$ and set $s = -2$: $B = \dfrac{-6 + 1}{-2 - 1} = \dfrac{-5}{-3} = \dfrac53$. Check: $A + B = 3$, the coefficient of $s$ in the numerator.
+
+- id: de-m7-r2-q07
+  lesson: de-laplace-inverse
+  module_quiz: true
+  type: match
+  topic: Inverse Laplace transform
+  stem: 'Match each factor of a denominator to the partial-fraction terms it needs.'
+  pairs:
+    - ['$(s - 2)$, appearing once', 'A/(s − 2)']
+    - ['$(s - 2)^3$', 'A/(s − 2) + B/(s − 2)² + C/(s − 2)³']
+    - ['$s^2 + 4s + 13$ (no real roots)', '(Bs + C)/(s² + 4s + 13)']
+  distractors: ['A/(s² + 4s + 13)', 'A/(s − 2)³ only']
+  explanation: |-
+    A simple linear factor gets one constant over it. A factor repeated three times gets three terms, one for each power up to 3. An irreducible quadratic needs a linear numerator $Bs + C$; a constant numerator alone cannot produce both the cosine and the sine part.
+
+- id: de-m7-r2-q08
+  lesson: de-laplace-inverse
+  type: order
+  topic: Inverse Laplace transform
+  stem: 'Put the steps for inverting a proper rational function $F(s)$ in order.'
+  items:
+    - 'Factor the denominator completely over the reals'
+    - 'Write one partial-fraction term per factor (more for repeated factors)'
+    - 'Find the constants: cover-up, then compare coefficients'
+    - 'Invert term by term using the table'
+    - 'Check that $f(0)$ equals $\lim_{s\to\infty}sF(s)$'
+  explanation: |-
+    The form of the decomposition depends on the factors, so factoring comes first; the constants can only be found once the form is written down; inverting needs the finished decomposition; and the initial value theorem check needs the final $f(t)$.
+
+- id: de-m7-r2-q09
+  lesson: de-laplace-inverse
+  topic: Inverse Laplace transform
+  stem: 'Which of these inverse transforms are correct? Select all that apply.'
+  choices:
+    - '$\mathcal{L}^{-1}\left\{\dfrac{1}{s^2 + 9}\right\} = \sin 3t$'
+    - '$\mathcal{L}^{-1}\left\{\dfrac{1}{(s + 2)^2}\right\} = te^{-2t}$'
+    - '$\mathcal{L}^{-1}\left\{\dfrac{s + 1}{(s + 1)^2 + 4}\right\} = e^{-t}\cos 2t$'
+    - '$\mathcal{L}^{-1}\left\{\dfrac{4}{s^3}\right\} = 4t^2$'
+  answer: [1, 2]
+  explanation: |-
+    $\dfrac{1}{(s + 2)^2}$ is $\mathcal{L}\{t\} = \dfrac{1}{s^2}$ shifted by $a = -2$, so $te^{-2t}$ is right, and $\dfrac{s + 1}{(s + 1)^2 + 4}$ is the shifted cosine entry with $a = -1$, $b = 2$. The other two have constant mismatches: $\dfrac{1}{s^2 + 9} = \dfrac13\cdot\dfrac{3}{s^2 + 9}$ inverts to $\tfrac13\sin 3t$, and $\dfrac{4}{s^3} = 2\cdot\dfrac{2!}{s^3}$ inverts to $2t^2$.
+
+- id: de-m7-r2-q10
+  lesson: de-laplace-inverse
+  type: text
+  topic: Inverse Laplace transform
+  stem: 'Without inverting, use the initial value theorem: if $F(s) = \dfrac{2s + 1}{s^2 + 4s + 13}$, then $f(0) =$ ___.'
+  accept: ['2']
+  explanation: |-
+    $sF(s) = \dfrac{2s^2 + s}{s^2 + 4s + 13} \to 2$ as $s \to \infty$. Check with Lesson 29, Example 4: $f(t) = 2e^{-2t}\cos 3t - e^{-2t}\sin 3t$, so $f(0) = 2$.
+
+# ---------- Lesson 30: Solving IVPs ----------
+- id: de-m7-r2-q11
+  lesson: de-laplace-ivp
+  type: text
+  topic: Laplace transform IVPs
+  stem: 'Solving $y'''' + 3y'' + 2y = 0$, $y(0) = 1$, $y''(0) = 0$ by Laplace transform gives $Y(s) = \dfrac{s + a}{(s + 1)(s + 2)}$ with $a =$ ___, and then $y(t) = b\,e^{-t} - e^{-2t}$ with $b =$ ___.'
+  accept:
+    - ['3']
+    - ['2']
+  explanation: |-
+    Transform: $(s^2Y - s - 0) + 3(sY - 1) + 2Y = 0$, so $(s^2 + 3s + 2)Y = s + 3$ and $a = 3$. Cover-up: at $s = -1$ the coefficient is $\dfrac{-1 + 3}{-1 + 2} = 2$; at $s = -2$ it is $\dfrac{1}{-1} = -1$. So $y = 2e^{-t} - e^{-2t}$ and $b = 2$. Check: $y(0) = 1$, $y'(0) = -2 + 2 = 0$.
+
+- id: de-m7-r2-q12
+  lesson: de-laplace-ivp
+  module_quiz: true
+  type: order
+  topic: Laplace transform IVPs
+  stem: 'Put the steps of the Laplace method for an IVP in order.'
+  items:
+    - 'Transform both sides, using the derivative rules and the initial conditions'
+    - 'Collect the terms containing $Y(s)$'
+    - 'Solve for $Y(s)$'
+    - 'Decompose $Y(s)$ into partial fractions'
+    - 'Invert term by term to get $y(t)$'
+  explanation: |-
+    The initial conditions enter while transforming; the transformed equation is then solved algebraically for $Y$; only then can $Y$ be split into table forms and inverted.
+
+- id: de-m7-r2-q13
+  lesson: de-laplace-ivp
+  topic: Laplace transform IVPs
+  stem: 'Which statements about solving $ay'''' + by'' + cy = g(t)$ with Laplace transforms are true? Select all that apply.'
+  choices:
+    - 'The initial conditions enter when the derivatives are transformed.'
+    - 'The polynomial multiplying $Y(s)$ is the characteristic polynomial $as^2 + bs + c$.'
+    - 'You must find the complementary solution $y_c$ before starting.'
+    - 'The method works only when $g(t) = 0$.'
+  answer: [0, 1]
+  explanation: |-
+    $\mathcal{L}\{y''\} = s^2Y - sy(0) - y'(0)$ and $\mathcal{L}\{y'\} = sY - y(0)$ bring in the initial conditions, and collecting gives $(as^2 + bs + c)Y$. The method needs no separate $y_c$ (it produces the whole solution in one pass), and forcing simply adds $G(s)$ to the right side.
+
+- id: de-m7-r2-q14
+  lesson: de-laplace-ivp
+  type: match
+  topic: Laplace transform IVPs
+  stem: 'Match each transform to its formula.'
+  pairs:
+    - ['$\mathcal{L}\{y''\}$', 'sY − y(0)']
+    - ['$\mathcal{L}\{y''''\}$', 's²Y − s·y(0) − y′(0)']
+    - ['$\mathcal{L}\{y''''''\}$', 's³Y − s²·y(0) − s·y′(0) − y″(0)']
+  distractors: ['s²Y − y′(0)', 'sY + y(0)']
+  explanation: |-
+    Each derivative multiplies by $s$ and subtracts one more initial value: $\mathcal{L}\{y^{(n)}\} = s^nY - s^{n-1}y(0) - \cdots - y^{(n-1)}(0)$. Dropping the $s\,y(0)$ term or flipping the sign are the usual slips.
+
+- id: de-m7-r2-q15
+  lesson: de-laplace-ivp
+  module_quiz: true
+  topic: Laplace transform IVPs
+  stem: 'For $y'''' + 3y'' + 2y = g(t)$ with $y(0) = 1$, $y''(0) = 0$, transforming gives $Y = \dfrac{s + 3}{s^2 + 3s + 2} + \dfrac{G(s)}{s^2 + 3s + 2}$. What does the first fraction describe?'
+  choices:
+    - 'The response to the forcing alone, starting from rest'
+    - 'The response to the initial conditions alone, with no forcing'
+    - 'The steady-state part of the solution'
+    - 'The particular solution found by undetermined coefficients'
+  answer: 1
+  explanation: |-
+    The first fraction contains only the initial values ($s\,y(0) + y'(0) + 3y(0) = s + 3$), so it is the zero-input response: what the system does unforced. The second, $G/(s^2 + 3s + 2)$, is the zero-state response to the forcing from rest. Neither is "the steady state", and the forced part is not the same as a particular solution from undetermined coefficients (it also satisfies zero initial conditions).
+
+# ---------- Lesson 31: Step functions ----------
+- id: de-m7-r2-q16
+  lesson: de-laplace-step
+  module_quiz: true
+  type: label
+  topic: Step functions
+  stem: 'Name the function graphed in each numbered panel.'
+  image: {src: images/de-m7-step-panels-blank.svg, alt: 'Four small graphs against t from 0 to 5, each numbered: a jump from 0 to 1 at t = 2; a pulse of height 1 from t = 1 to t = 3; a ramp that starts at 0 at t = 2 and rises with slope 1; and a function that is 0 until t = 2, jumps to 2 and then rises with slope 1.'}
+  labels:
+    - {x: 31.4, y: 28.1, text: 'u₂(t)'}
+    - {x: 69.8, y: 28.1, text: 'u₁(t) − u₃(t)'}
+    - {x: 35, y: 76.9, text: 'u₂(t)·(t − 2)'}
+    - {x: 80.6, y: 67.6, text: 'u₂(t)·t'}
+  distractors: ['u₁(t) + u₃(t)', 'u₃(t) − u₁(t)']
+  explanation: |-
+    Panel 1 switches from 0 to 1 at $t = 2$: $u_2(t)$. Panel 2 is on from 1 to 3: $u_1(t) - u_3(t)$ (the reverse difference would be $-1$ there). Panel 3 is the ramp $t$ delayed by 2, starting from 0: $u_2(t)(t - 2)$. Panel 4 jumps to 2 at $t = 2$ because it is the original ramp $t$ switched on, $u_2(t)\,t$.
+
+- id: de-m7-r2-q17
+  lesson: de-laplace-step
+  type: text
+  topic: Step functions
+  stem: 'The function equal to 5 for $2 \le t < 6$ and 0 otherwise is $A\big(u_a(t) - u_b(t)\big)$ with $A =$ ___, $a =$ ___ and $b =$ ___.'
+  accept:
+    - ['5']
+    - ['2']
+    - ['6']
+  explanation: |-
+    A rectangular pulse of height $A$ that is on from $a$ to $b$ is $A(u_a - u_b)$: the first step switches it on at $t = 2$ and the second switches it off at $t = 6$. So $5\big(u_2(t) - u_6(t)\big)$.
+
+- id: de-m7-r2-q18
+  lesson: de-laplace-step
+  type: order
+  topic: Step functions
+  stem: 'Put the steps for solving $y'' + y = 1 - u_2(t)$, $y(0) = 0$ in order.'
+  items:
+    - 'Transform the input: $G(s) = \dfrac{1 - e^{-2s}}{s}$'
+    - 'Solve for $Y = (1 - e^{-2s})H(s)$ with $H(s) = \dfrac{1}{s(s + 1)}$'
+    - 'Invert $H$ alone: $h(t) = 1 - e^{-t}$'
+    - 'Assemble $y = h(t) - u_2(t)h(t - 2)$'
+  explanation: |-
+    This is Lesson 31, Example 4. The input's transform is needed before solving for $Y$; the delay factor is set aside while $H$ is inverted; only then is the delayed copy $u_2(t)h(t - 2)$ written down. Shifting before inverting $H$ is the classic error.
+
+- id: de-m7-r2-q19
+  lesson: de-laplace-step
+  module_quiz: true
+  topic: Step functions
+  stem: 'Which expressions equal $\mathcal{L}\{u_2(t)\,t\}$? Select all that apply.'
+  choices:
+    - '$e^{-2s}\left(\dfrac{1}{s^2} + \dfrac{2}{s}\right)$'
+    - '$\dfrac{e^{-2s}}{s^2}$'
+    - '$e^{-2s}\,\mathcal{L}\{t + 2\}$'
+    - '$\dfrac{e^{-2s}}{s^2} + \dfrac{2}{s}$'
+  answer: [0, 2]
+  explanation: |-
+    Write $t = (t - 2) + 2$, so $f(\tau) = \tau + 2$ and the second shift gives $e^{-2s}\left(\dfrac{1}{s^2} + \dfrac2s\right)$; that is the same as the shortcut $e^{-2s}\mathcal{L}\{g(t + 2)\}$ with $g(t) = t$. $\dfrac{e^{-2s}}{s^2}$ is the transform of the delayed ramp $u_2(t)(t - 2)$, and the last choice forgets to delay the constant part.
+
+- id: de-m7-r2-q20
+  lesson: de-laplace-step
+  type: text
+  topic: Step functions
+  stem: 'Solve $y'' + y = 2u_1(t)$, $y(0) = 0$. Give $y(3)$ rounded to 2 decimal places.'
+  accept: ['1.73', '1.729', '1.7293']
+  explanation: |-
+    $(s + 1)Y = \dfrac{2e^{-s}}{s}$, so $Y = e^{-s}H(s)$ with $H = \dfrac{2}{s(s + 1)}$ and $h(t) = 2(1 - e^{-t})$. Then $y = u_1(t)\cdot2\big(1 - e^{-(t - 1)}\big)$, and $y(3) = 2(1 - e^{-2}) \approx 1.7293$, or 1.73.
+
+# ---------- Lesson 32: Impulses and convolution ----------
+- id: de-m7-r2-q21
+  lesson: de-laplace-impulse
+  module_quiz: true
+  type: match
+  topic: Impulses and convolution
+  stem: 'Match each expression to its value.'
+  pairs:
+    - ['$\mathcal{L}\{\delta(t)\}$', '1']
+    - ['$\mathcal{L}\{\delta(t - 2)\}$', 'e^(−2s)']
+    - ['$\mathcal{L}\{u_2(t)\}$', 'e^(−2s)/s']
+    - ['$\displaystyle\int_{-\infty}^{\infty}\cos t\;\delta(t - \pi)\,dt$', '−1']
+  distractors: ['0']
+  explanation: |-
+    Sifting with $e^{-st}$ gives $\mathcal{L}\{\delta(t - c)\} = e^{-cs}$, so $\mathcal{L}\{\delta(t)\} = 1$ and $\mathcal{L}\{\delta(t - 2)\} = e^{-2s}$. The step has the extra $1/s$: $\mathcal{L}\{u_2\} = e^{-2s}/s$. Sifting $\cos t$ at $t = \pi$ picks out $\cos\pi = -1$.
+
+- id: de-m7-r2-q22
+  lesson: de-laplace-impulse
+  type: text
+  topic: Impulses and convolution
+  stem: 'Evaluate the convolution $(t * t)(t) = \displaystyle\int_0^t (t - \tau)\,\tau\,d\tau$ at $t = 1$. Give an exact fraction.'
+  accept: ['1/6']
+  explanation: |-
+    At $t = 1$: $\displaystyle\int_0^1 (1 - \tau)\tau\,d\tau = \tfrac12 - \tfrac13 = \tfrac16$. Check with transforms: $\mathcal{L}\{t\}^2 = \dfrac{1}{s^4}$, which inverts to $\dfrac{t^3}{6}$, equal to $\dfrac16$ at $t = 1$.
+
+- id: de-m7-r2-q23
+  lesson: de-laplace-impulse
+  type: order
+  topic: Impulses and convolution
+  stem: 'Put the steps that lead to the zero-state response $y = h * g$ of $ay'''' + by'' + cy = g$ in order.'
+  items:
+    - 'Transform with zero initial conditions: $(as^2 + bs + c)Y = G(s)$'
+    - 'Write $Y = H(s)G(s)$ with $H = \dfrac{1}{as^2 + bs + c}$'
+    - 'Invert $H$ to get the impulse response $h(t)$'
+    - 'Apply the convolution theorem: $y = h * g$'
+  explanation: |-
+    The transfer function only appears after transforming and solving for $Y$; the convolution theorem turns the product $HG$ back into the time domain, which needs $h = \mathcal{L}^{-1}\{H\}$ first.
+
+- id: de-m7-r2-q24
+  lesson: de-laplace-impulse
+  module_quiz: true
+  topic: Impulses and convolution
+  stem: 'A mass on a spring, at rest, is struck at $t = c$, modeled by a forcing $3\delta(t - c)$. Which statements are true? Select all that apply.'
+  choices:
+    - 'The velocity jumps at $t = c$.'
+    - 'The position jumps at $t = c$.'
+    - 'The blow delivers an impulse of 3.'
+    - '$\delta(t - c)$ is an ordinary function that equals $\infty$ at $c$ and 0 elsewhere.'
+  answer: [0, 2]
+  explanation: |-
+    An impulse changes momentum instantly, so the velocity jumps while the position stays continuous (Lesson 32, Example 1). $3\delta(t - c)$ has area 3, so it delivers impulse 3. The delta is not an ordinary function; it is defined by the limit of unit-area pulses and the sifting property.
+
+- id: de-m7-r2-q25
+  lesson: de-laplace-impulse
+  type: text
+  topic: Impulses and convolution
+  stem: 'The solution of $y'''' + 4y = \delta(t - 1)$, $y(0) = y''(0) = 0$ is $y = \tfrac12u_1(t)\sin 2(t - 1)$. What is the velocity $y''(t)$ just after $t = 1$?'
+  accept: ['1']
+  explanation: |-
+    For $t > 1$, $y' = \tfrac12\cdot2\cos 2(t - 1) = \cos 2(t - 1)$, which tends to 1 as $t \to 1^+$. A unit impulse on a unit mass raises the velocity from 0 to 1.
+
+# ---------- Honors 32h1: Periodic inputs ----------
+- id: de-m7-r2-h01
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'If $f$ is periodic with period $T$ on $t \ge 0$ and piecewise continuous, which formula gives $\mathcal{L}\{f\}$?'
+  choices:
+    - '$\dfrac{1}{1 + e^{-Ts}}\displaystyle\int_0^T e^{-st}f(t)\,dt$'
+    - '$\dfrac{1}{1 - e^{-Ts}}\displaystyle\int_0^\infty e^{-st}f(t)\,dt$'
+    - '$\dfrac{1}{1 - e^{-Ts}}\displaystyle\int_0^T e^{-st}f(t)\,dt$'
+    - '$\dfrac{1}{1 - e^{-s}}\displaystyle\int_0^T e^{-st}f(t)\,dt$'
+  answer: 2
+  explanation: |-
+    Splitting the integral into periods, the $n$th piece is $e^{-nTs}$ times the first, and $\sum e^{-nTs} = \dfrac{1}{1 - e^{-Ts}}$. The integral covers one period only (integrating to $\infty$ already gives $F$), the sign is minus, and the exponent uses the period $T$.
+
+- id: de-m7-r2-h02
+  lesson: de-m7-h-periodic
+  type: text
+  topic: Laplace transforms of periodic functions
+  stem: 'A function is periodic with period 3. Its transform is the transform of one period divided by $1 - e^{-ks}$. What is $k$? Give only the number.'
+  accept: ['3']
+  explanation: |-
+    The geometric-series factor is $\dfrac{1}{1 - e^{-Ts}}$ with $T$ the full period, here 3.
+
+- id: de-m7-r2-h03
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'The square wave $f(t) = 1$ for $0 \le t < a$, $f(t) = -1$ for $a \le t < 2a$, repeated with period $2a$, has which transform?'
+  choices:
+    - '$\dfrac1s\tanh\dfrac{as}{2}$'
+    - '$\dfrac{1}{s(1 + e^{-as})}$'
+    - '$\dfrac1s\tanh(as)$'
+    - '$\dfrac1s\coth\dfrac{as}{2}$'
+  answer: 0
+  explanation: |-
+    One period gives $\dfrac{1 - e^{-as}}{s} - \dfrac{e^{-as} - e^{-2as}}{s} = \dfrac{(1 - e^{-as})^2}{s}$. Dividing by $1 - e^{-2as} = (1 - e^{-as})(1 + e^{-as})$ leaves $\dfrac{1 - e^{-as}}{s(1 + e^{-as})} = \dfrac1s\tanh\dfrac{as}{2}$. $\dfrac{1}{s(1 + e^{-as})}$ is the on/off (0 and 1) square wave.
+
+- id: de-m7-r2-h04
+  lesson: de-m7-h-periodic
+  type: label
+  topic: Laplace transforms of periodic functions
+  stem: 'Name the periodic input in each numbered panel.'
+  image: {src: images/de-m7-periodic-waves-blank.svg, alt: 'Three graphs against t, numbered: one alternates between 1 and 0 with flat pieces; one rises in straight lines and drops back to 0 at regular times; one follows arches of a sine curve separated by flat stretches at 0.'}
+  labels:
+    - {x: 39.4, y: 10.6, text: 'Square wave'}
+    - {x: 46.1, y: 50.6, text: 'Sawtooth wave'}
+    - {x: 42.2, y: 75.7, text: 'Half-wave rectified sine'}
+  distractors: ['Full-wave rectified sine', 'Triangle wave']
+  explanation: |-
+    Panel 1 switches between 1 and 0: a square wave. Panel 2 rises linearly and drops back: a sawtooth. Panel 3 keeps only the positive arches of $\sin t$ and is 0 in between: half-wave rectified. A full-wave rectified sine, $|\sin t|$, would have an arch on every interval with no flat gaps, and a triangle wave would go back down in a straight line instead of dropping.
+
+- id: de-m7-r2-h05
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'What is the transform of the sawtooth $f(t) = t$ for $0 \le t < 2$, repeated with period 2?'
+  choices:
+    - '$\dfrac{1}{s^2} - \dfrac{e^{-2s}}{s(1 - e^{-2s})}$'
+    - '$\dfrac{1}{s^2(1 - e^{-2s})}$'
+    - '$\dfrac{1}{s^2} + \dfrac{2e^{-2s}}{s(1 - e^{-2s})}$'
+    - '$\dfrac{1}{s^2} - \dfrac{2e^{-2s}}{s(1 - e^{-2s})}$'
+  answer: 3
+  explanation: |-
+    With $T = 2$: $\dfrac{1}{s^2} - \dfrac{Te^{-Ts}}{s(1 - e^{-Ts})} = \dfrac{1}{s^2} - \dfrac{2e^{-2s}}{s(1 - e^{-2s})}$. It is the ramp $t$ minus a staircase that drops by 2 at $t = 2, 4, 6, \dots$ The plus sign would add the staircase; dropping the factor $T$ makes steps of size 1; and $\dfrac{1}{s^2(1 - e^{-2s})}$ divides the whole ramp's transform instead of one period's integral.
+
+- id: de-m7-r2-h06
+  lesson: de-m7-h-periodic
+  type: match
+  topic: Laplace transforms of periodic functions
+  stem: 'Match each function to its period (the $T$ to use in $1 - e^{-Ts}$).'
+  pairs:
+    - ['$|\sin t|$', 'π']
+    - ['$\sin t$ on $[0, \pi)$, $0$ on $[\pi, 2\pi)$, repeated', '2π']
+    - ['On/off square wave: 1 for time $a$, then 0 for time $a$', '2a']
+    - ['$\cos(t/2)$', '4π']
+  distractors: ['a']
+  explanation: |-
+    $|\sin t|$ repeats every $\pi$ (each arch is a full period). The half-wave version needs an arch and a gap, $2\pi$. The square wave's period is the on time plus the off time, $2a$ (using $a$ is the common mistake). $\cos(t/2)$ has period $2\pi/(1/2) = 4\pi$.
+
+- id: de-m7-r2-h07
+  lesson: de-m7-h-periodic
+  type: text
+  topic: Laplace transforms of periodic functions
+  stem: 'For $y'' + y = f(t)$ with the on/off square wave (on for 1, off for 1), the periodic steady state has maximum $M = \dfrac{1}{1 + e^{-1}}$. Give $M$ to 3 decimal places.'
+  accept: ['0.731', '0.7311']
+  explanation: |-
+    $e^{-1} \approx 0.36788$, so $M = 1/1.36788 \approx 0.7311$, or 0.731 to 3 decimals. It comes from matching the two phases: $M = 1 - (1 - m)e^{-1}$ while on and $m = Me^{-1}$ while off.
+
+- id: de-m7-r2-h08
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'For $y'' + y = f(t)$, $y(0) = 0$, with the on/off square wave (on for 1, off for 1), which statements are true? Select all that apply.'
+  choices:
+    - '$y$ is continuous, even though $f$ jumps.'
+    - 'In the long run $y$ cycles around an average of $\tfrac12$.'
+    - '$y$ reaches 1 during the first on-interval.'
+    - 'The difference between $y$ and the periodic steady state decays like $e^{-t}$.'
+  answer: [0, 1, 3]
+  explanation: |-
+    For a first-order equation a jump in $f$ makes $y'$ jump, not $y$. Averaging the equation over a period of the steady state gives average $y$ = average $f$ = $\tfrac12$. The transient solves $y' + y = 0$, so it decays like $e^{-t}$. During the first on-interval $y = 1 - e^{-t}$ only reaches $1 - e^{-1} \approx 0.632$.
+
+- id: de-m7-r2-h09
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'To invert $Y(s) = \dfrac{H(s)}{1 + e^{-s}}$, which expansion do you use (for $s > 0$)?'
+  choices:
+    - '$1 + e^{-s} + e^{-2s} + e^{-3s} + \cdots$'
+    - '$1 - e^{-s} + e^{-2s} - e^{-3s} + \cdots$'
+    - '$1 - e^{s} + e^{2s} - e^{3s} + \cdots$'
+    - '$1 - e^{-s}$'
+  answer: 1
+  explanation: |-
+    $\dfrac{1}{1 + x} = 1 - x + x^2 - \cdots$ for $|x| < 1$, with $x = e^{-s} < 1$ when $s > 0$. The all-plus series is $\dfrac{1}{1 - e^{-s}}$; powers of $e^{s}$ don't converge for $s > 0$; and $1 - e^{-s}$ is only the first two terms.
+
+- id: de-m7-r2-h10
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'In Example 4 ($y'' + y$ = square wave with $a = 1$, $y(0) = 0$), $y = \sum_{n\ge0}(-1)^nu_n(t)\big(1 - e^{-(t - n)}\big)$. What is $y(1.5)$, to 3 decimal places?'
+  choices: ['$0.632$', '$0.777$', '$0.221$', '$0.383$']
+  answer: 3
+  explanation: |-
+    At $t = 1.5$ only $n = 0$ and $n = 1$ are on: $y = (1 - e^{-1.5}) - (1 - e^{-0.5}) = e^{-0.5} - e^{-1.5} \approx 0.6065 - 0.2231 = 0.383$. (0.632 is $y(1)$; 0.777 keeps only the first term; 0.221 is $e^{-1.5}$ alone.)
+
+- id: de-m7-r2-h11
+  lesson: de-m7-h-periodic
+  type: order
+  topic: Laplace transforms of periodic functions
+  stem: 'Put the steps for finding the Laplace transform of a periodic input in order.'
+  items:
+    - 'Identify the period $T$'
+    - 'Integrate $e^{-st}f(t)$ over one period, from 0 to $T$'
+    - 'Divide by $1 - e^{-Ts}$'
+    - 'Simplify, for example by factoring $1 - e^{-2as} = (1 - e^{-as})(1 + e^{-as})$'
+  explanation: |-
+    The period sets both the integration interval and the divisor, so it comes first; the one-period integral is computed; dividing by $1 - e^{-Ts}$ gives the transform; simplifying is last.
+
+- id: de-m7-r2-h12
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'For $y'' + ky = kf(t)$ driven by the on/off square wave with half-period $p$, the steady-state ripple is $M - m = \tanh\dfrac{kp}{2}$. What happens as the circuit gets slower ($k \to 0$ with $p$ fixed)?'
+  choices:
+    - 'The ripple grows toward 1 and $y$ follows the square wave closely.'
+    - 'The ripple stays the same; only the average changes.'
+    - 'The ripple shrinks toward 0 around the average $\tfrac12$.'
+    - 'The steady state stops being periodic.'
+  answer: 2
+  explanation: |-
+    $\tanh x \to 0$ as $x \to 0$, so the ripple shrinks, while the average stays $\tfrac12$ (the average of $f$, since the equation has DC gain 1). That is smoothing. A fast circuit (large $k$) has ripple near $\tanh(\infty) = 1$ and follows the square wave closely.
+
+- id: de-m7-r2-h13
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'How does the Laplace approach to a periodic input compare with a Fourier-series approach?'
+  choices:
+    - 'Fourier series give the start-up transient; Laplace gives only the steady state.'
+    - 'Laplace gives the whole solution from $t = 0$, transient included; Fourier series describe the periodic steady state frequency by frequency.'
+    - 'They give different long-run answers, so one of them must be wrong.'
+    - 'Laplace transforms cannot handle inputs with infinitely many jumps.'
+  answer: 1
+  explanation: |-
+    The Laplace solution is a sum of shifted pieces starting at $t = 0$, so it includes the transient. Fourier series describe the steady state as a sum over frequencies. Once the transient dies out the two agree, and the periodic formula handles infinitely many jumps through the geometric series.
+
+- id: de-m7-r2-h14
+  lesson: de-m7-h-periodic
+  topic: Laplace transforms of periodic functions
+  stem: 'Which is the transform of the half-wave rectified sine ($\sin t$ on $[0, \pi)$, 0 on $[\pi, 2\pi)$, period $2\pi$)?'
+  choices:
+    - '$\dfrac{1}{(s^2 + 1)(1 - e^{-2\pi s})}$'
+    - '$\dfrac{1 + e^{-\pi s}}{(s^2 + 1)(1 - e^{-\pi s})}$'
+    - '$\dfrac{1}{s^2 + 1}$'
+    - '$\dfrac{1}{(s^2 + 1)(1 - e^{-\pi s})}$'
+  answer: 3
+  explanation: |-
+    One period: $\int_0^\pi e^{-st}\sin t\,dt = \dfrac{1 + e^{-\pi s}}{s^2 + 1}$. Dividing by $1 - e^{-2\pi s} = (1 - e^{-\pi s})(1 + e^{-\pi s})$ leaves $\dfrac{1}{(s^2 + 1)(1 - e^{-\pi s})}$. The second choice is the full-wave $|\sin t|$; $\dfrac{1}{s^2 + 1}$ is plain $\sin t$; the first forgets the $1 + e^{-\pi s}$ from the one-period integral.
+
+# ---------- Honors 32h2: Calculus in s ----------
+- id: de-m7-r2-h15
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'Use $\mathcal{L}\{tf(t)\} = -F''(s)$ to find $\mathcal{L}\{te^{3t}\}$.'
+  choices:
+    - '$-\dfrac{1}{(s - 3)^2}$'
+    - '$\dfrac{1}{(s - 3)^2}$'
+    - '$\dfrac{t}{s - 3}$'
+    - '$\dfrac{1}{(s + 3)^2}$'
+  answer: 1
+  explanation: |-
+    $F(s) = \dfrac{1}{s - 3}$, $F'(s) = -\dfrac{1}{(s - 3)^2}$, so $-F' = \dfrac{1}{(s - 3)^2}$, matching the table entry for $te^{at}$. Forgetting the minus sign gives a negative transform; $t$ can't appear in a transform; and $s + 3$ shifts the wrong way.
+
+- id: de-m7-r2-h16
+  lesson: de-m7-h-s-rules
+  type: text
+  topic: Transform rules in s
+  stem: '$\mathcal{L}\{t\sin 2t\} = \dfrac{ks}{(s^2 + 4)^2}$. What is $k$? Give only the number.'
+  accept: ['4']
+  explanation: |-
+    $F = \dfrac{2}{s^2 + 4}$, so $F' = -\dfrac{4s}{(s^2 + 4)^2}$ and $\mathcal{L}\{t\sin 2t\} = -F' = \dfrac{4s}{(s^2 + 4)^2}$; this is $\dfrac{2bs}{(s^2 + b^2)^2}$ with $b = 2$.
+
+- id: de-m7-r2-h17
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'Find $f(t)$ if $F(s) = \ln\dfrac{s + 2}{s + 5}$.'
+  choices:
+    - '$\dfrac{e^{-2t} - e^{-5t}}{t}$'
+    - '$t\left(e^{-5t} - e^{-2t}\right)$'
+    - '$\dfrac{e^{-5t} - e^{-2t}}{t}$'
+    - '$e^{-5t} - e^{-2t}$'
+  answer: 2
+  explanation: |-
+    $F'(s) = \dfrac{1}{s + 2} - \dfrac{1}{s + 5}$, so $tf(t) = \mathcal{L}^{-1}\{-F'\} = e^{-5t} - e^{-2t}$ and $f = \dfrac{e^{-5t} - e^{-2t}}{t}$. Check the sign: for large $s$, $F = \ln\dfrac{s + 2}{s + 5} < 0$, and indeed $e^{-5t} < e^{-2t}$. The first choice has the sign flipped; the others forget to divide by $t$ (or multiply instead).
+
+- id: de-m7-r2-h18
+  lesson: de-m7-h-s-rules
+  type: text
+  topic: Transform rules in s
+  stem: 'Use $\mathcal{L}\left\{\dfrac{\sin t}{t}\right\} = \arctan\dfrac1s$ to evaluate $\displaystyle\int_0^\infty e^{-t}\,\frac{\sin t}{t}\,dt$. Give the exact value in terms of pi, or a decimal to 3 places.'
+  accept: ['pi/4', 'π/4', '0.785', '0.7854', '1/4 pi', '(1/4)pi']
+  explanation: |-
+    The integral is the transform at $s = 1$: $\arctan 1 = \dfrac\pi4 \approx 0.7854$.
+
+- id: de-m7-r2-h19
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'What is $\mathcal{L}\{\sqrt t\}$?'
+  choices:
+    - '$\dfrac{\sqrt\pi}{2s^{3/2}}$'
+    - '$\dfrac{\sqrt\pi}{s^{1/2}}$'
+    - '$\dfrac{1}{2s^{3/2}}$'
+    - '$\dfrac{\sqrt\pi}{s^{3/2}}$'
+  answer: 0
+  explanation: |-
+    $\mathcal{L}\{t^a\} = \dfrac{\Gamma(a + 1)}{s^{a+1}}$ with $a = \tfrac12$: $\Gamma(\tfrac32) = \tfrac12\Gamma(\tfrac12) = \dfrac{\sqrt\pi}{2}$, so the transform is $\dfrac{\sqrt\pi}{2s^{3/2}}$. Using $\Gamma(\tfrac12)$ instead of $\Gamma(\tfrac32)$ drops the $\tfrac12$; $\sqrt{\pi/s}$ is the transform of $t^{-1/2}$.
+
+- id: de-m7-r2-h20
+  lesson: de-m7-h-s-rules
+  type: match
+  topic: Transform rules in s
+  stem: 'Match each operation on $f(t)$ to what it does to $F(s)$.'
+  pairs:
+    - ['Multiply $f$ by $t$', 'Differentiate F and change its sign']
+    - ['Divide $f$ by $t$', 'Integrate F from s to infinity']
+    - ['Replace $f$ by $\int_0^t f(\tau)\,d\tau$', 'Divide F by s']
+    - ['Multiply $f$ by $e^{at}$', 'Replace s by s − a']
+  distractors: ['Multiply F by s']
+  explanation: |-
+    $\mathcal{L}\{tf\} = -F'$; $\mathcal{L}\{f/t\} = \int_s^\infty F$; $\mathcal{L}\{\int_0^t f\} = F/s$; $\mathcal{L}\{e^{at}f\} = F(s - a)$. Multiplying $F$ by $s$ corresponds to differentiating $f$ (minus $f(0)$), which is not on the list.
+
+- id: de-m7-r2-h21
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'Which of these functions have a Laplace transform? Select all that apply.'
+  choices: ['$\dfrac{\sin t}{t}$', '$\dfrac{\cos t}{t}$', '$\dfrac{1 - e^{-t}}{t}$', '$\dfrac1t$']
+  answer: [0, 2]
+  explanation: |-
+    $\dfrac{\sin t}{t} \to 1$ and $\dfrac{1 - e^{-t}}{t} \to 1$ as $t \to 0^+$, so both are bounded near 0 and of exponential order. $\dfrac{\cos t}{t}$ and $\dfrac1t$ behave like $\dfrac1t$ near 0, and $\displaystyle\int_0^1\frac{dt}{t}$ diverges, so their transform integrals diverge for every $s$.
+
+- id: de-m7-r2-h22
+  lesson: de-m7-h-s-rules
+  type: text
+  topic: Transform rules in s
+  stem: 'What is $\Gamma(5)$? Give only the number.'
+  accept: ['24']
+  explanation: |-
+    $\Gamma(n + 1) = n!$, so $\Gamma(5) = 4! = 24$. (Answering $5! = 120$ is the off-by-one slip.)
+
+- id: de-m7-r2-h23
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'Which statement about $\mathcal{L}\{t^a\}$ for non-integer $a$ is correct?'
+  choices:
+    - 'It equals $\dfrac{a!}{s^{a+1}}$, which has no meaning unless $a$ is a whole number.'
+    - 'It exists only for $a > 0$, so $t^{-1/2}$ has no transform.'
+    - 'It equals $\dfrac{\Gamma(a)}{s^{a}}$ for every $a > 0$.'
+    - 'It equals $\dfrac{\Gamma(a + 1)}{s^{a+1}}$ for every $a > -1$; for example $\mathcal{L}\{t^{-1/2}\} = \sqrt{\pi/s}$.'
+  answer: 3
+  explanation: |-
+    The substitution $u = st$ gives $\dfrac{1}{s^{a+1}}\int_0^\infty e^{-u}u^a\,du = \dfrac{\Gamma(a + 1)}{s^{a+1}}$, and the integral converges at 0 exactly when $a > -1$. So $t^{-1/2}$ does have a transform, $\dfrac{\Gamma(1/2)}{s^{1/2}} = \sqrt{\pi/s}$. $\Gamma(a)/s^a$ is the off-by-one version.
+
+- id: de-m7-r2-h24
+  lesson: de-m7-h-s-rules
+  type: order
+  topic: Transform rules in s
+  stem: 'Put the steps for inverting $F(s) = \ln\dfrac{s + a}{s + b}$ in order.'
+  items:
+    - 'Differentiate: $F''(s) = \dfrac{1}{s + a} - \dfrac{1}{s + b}$'
+    - 'Invert $-F''(s)$ to get $t\,f(t)$'
+    - 'Divide by $t$ to get $f(t)$'
+  explanation: |-
+    The logarithm isn't in the table, but its derivative is; $\mathcal{L}\{tf\} = -F'$ turns the inverse of $-F'$ into $tf(t)$; dividing by $t$ finishes. Here $f = \dfrac{e^{-bt} - e^{-at}}{t}$.
+
+- id: de-m7-r2-h25
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'Transforming $ty'''' + y'' + ty = 0$, $y(0) = 1$, gives which equation for $Y(s)$?'
+  choices:
+    - '$(s^2 + 1)Y = s$'
+    - '$(s^2 + 1)Y'' = -sY$'
+    - '$(s^2 + 1)Y'' = sY$'
+    - '$tY'''' + Y'' + tY = 0$'
+  answer: 1
+  explanation: |-
+    $\mathcal{L}\{ty''\} = -\dfrac{d}{ds}(s^2Y - s - y'(0)) = -s^2Y' - 2sY + 1$, $\mathcal{L}\{y'\} = sY - 1$, $\mathcal{L}\{ty\} = -Y'$. Adding: $-(s^2 + 1)Y' - sY = 0$. Coefficients $t$ become derivatives in $s$, so the result is a first-order ODE, not an algebraic equation; and the transform has no $t$ in it.
+
+- id: de-m7-r2-h26
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'Solving the equation for $Y(s)$ from Bessel''s equation of order zero gives $\mathcal{L}\{J_0(t)\} =$'
+  choices:
+    - '$\dfrac{1}{s^2 + 1}$'
+    - '$\dfrac{s}{\sqrt{s^2 + 1}}$'
+    - '$\dfrac{1}{\sqrt{s^2 + 1}}$'
+    - '$\sqrt{s^2 + 1}$'
+  answer: 2
+  explanation: |-
+    $\dfrac{Y'}{Y} = -\dfrac{s}{s^2 + 1}$ gives $Y = \dfrac{C}{\sqrt{s^2 + 1}}$, and the initial value theorem with $J_0(0) = 1$ gives $C = 1$. $\dfrac{1}{s^2 + 1}$ is $\sin t$; $\sqrt{s^2 + 1}$ doesn't go to 0 as $s \to \infty$, so it isn't a transform; and $\dfrac{s}{\sqrt{s^2 + 1}} \to 1$, which also fails that test.
+
+- id: de-m7-r2-h27
+  lesson: de-m7-h-s-rules
+  topic: Transform rules in s
+  stem: 'In Example 5 the unknown $y''(0)$ dropped out, and the method returned only $J_0$. Why?'
+  choices:
+    - '$t = 0$ is a singular point; the derivative rules assume $y$, $y''$, $y''''$ behave well at 0, which picks out the one solution bounded there.'
+    - 'Every solution of the equation has $y''(0) = 0$, so no information was lost.'
+    - 'Laplace transforms always lose one initial condition for second-order equations.'
+    - 'The equation is first order in disguise, so it has only one solution.'
+  answer: 0
+  explanation: |-
+    At $t = 0$ the coefficient of $y''$ vanishes, so the equation is singular there. It has a second solution that is unbounded near 0 (it involves $\ln t$), for which the derivative rules don't apply. For constant-coefficient equations nothing is lost; and the equation is genuinely second order.
+
+- id: de-m7-r2-h28
+  lesson: de-m7-h-s-rules
+  type: text
+  topic: Transform rules in s
+  stem: 'Use the integration rule to find $f = \mathcal{L}^{-1}\left\{\dfrac{1}{s(s + 1)}\right\}$, then give $f(\ln 2)$ as an exact fraction.'
+  accept: ['1/2', '0.5']
+  explanation: |-
+    The factor $\dfrac1s$ means "integrate from 0 to $t$": $f(t) = \int_0^t e^{-\tau}\,d\tau = 1 - e^{-t}$. At $t = \ln 2$: $1 - \tfrac12 = \tfrac12$.
+
+# ---------- Honors 32h3: Poles and stability ----------
+- id: de-m7-r2-h29
+  lesson: de-m7-h-poles
+  type: label
+  topic: Poles and stability
+  stem: 'Each numbered marker sits on a pole (or the upper pole of a conjugate pair) of a transfer function. Name the kind of term that pole contributes to the impulse response.'
+  image: {src: images/de-m7-s-plane-blank.svg, alt: 'The s-plane, left half shaded green and right half shaded red, with crosses marking poles: one on the negative real axis, one on the positive real axis, a conjugate pair in the left half, a pair on the imaginary axis, and a pair in the right half. Five markers are numbered.'}
+  labels:
+    - {x: 27.6, y: 52, text: 'Decaying exponential'}
+    - {x: 72.4, y: 52, text: 'Growing exponential'}
+    - {x: 32.8, y: 23.4, text: 'Decaying oscillation'}
+    - {x: 50, y: 19.8, text: 'Steady oscillation'}
+    - {x: 67.2, y: 23.4, text: 'Growing oscillation'}
+  distractors: ['Constant', 'Linear growth']
+  explanation: |-
+    The real part of a pole is a growth rate and the imaginary part a frequency. Marker 1 is real and negative ($e^{-at}$, decays); marker 2 real and positive (grows). Marker 3 is a complex pair with negative real part, a decaying oscillation; marker 4 is on the imaginary axis (real part 0), a steady oscillation; marker 5 has positive real part, a growing oscillation. A constant would come from a pole at the origin.
+
+- id: de-m7-r2-h30
+  lesson: de-m7-h-poles
+  topic: Poles and stability
+  stem: 'The transfer function of $y'''' + 6y'' + 13y = g$ has poles where, and what does its impulse response do?'
+  choices:
+    - 'Poles $3 \pm 2i$; growing oscillation'
+    - 'Poles $-2$ and $-3$; decays without oscillating'
+    - 'Poles $\pm\sqrt{13}\,i$; steady oscillation'
+    - 'Poles $-3 \pm 2i$; decaying oscillation'
+  answer: 3
+  explanation: |-
+    $s^2 + 6s + 13 = (s + 3)^2 + 4$, so the poles are $-3 \pm 2i$ and $h(t) = \tfrac12e^{-3t}\sin 2t$: it oscillates with angular frequency 2 while decaying like $e^{-3t}$. Sign slips give $3 \pm 2i$; ignoring the $6y'$ term gives $\pm\sqrt{13}\,i$.
+
+- id: de-m7-r2-h31
+  lesson: de-m7-h-poles
+  topic: Poles and stability
+  stem: 'Which transfer functions are BIBO stable? Select all that apply.'
+  choices:
+    - '$\dfrac{1}{s^2 + 3s + 2}$'
+    - '$\dfrac{1}{s^2 + 9}$'
+    - '$\dfrac{s - 1}{s^2 + 4s + 5}$'
+    - '$\dfrac{1}{s(s + 1)}$'
+  answer: [0, 2]
+  explanation: |-
+    $s^2 + 3s + 2 = (s + 1)(s + 2)$: poles $-1, -2$, stable. $s^2 + 4s + 5 = (s + 2)^2 + 1$: poles $-2 \pm i$, stable (a zero at $+1$ doesn't matter for stability). $\dfrac{1}{s^2 + 9}$ has poles $\pm 3i$ on the axis and $\dfrac{1}{s(s + 1)}$ has a pole at 0, so neither is BIBO stable: $\sin 3t$ and a constant input, respectively, produce unbounded outputs.
+
+- id: de-m7-r2-h32
+  lesson: de-m7-h-poles
+  type: text
+  topic: Poles and stability
+  stem: 'The step response of $H(s) = \dfrac{12}{s^2 + 4s + 6}$ approaches what value as $t \to \infty$?'
+  accept: ['2']
+  explanation: |-
+    The poles $-2 \pm i\sqrt2$ are in the left half-plane, so the final value theorem applies to $Y = H(s)/s$: $\lim y = \lim_{s\to0}H(s) = H(0) = 12/6 = 2$, the DC gain.
+
+- id: de-m7-r2-h33
+  lesson: de-m7-h-poles
+  topic: Poles and stability
+  stem: 'A student has $F(s) = \dfrac{1}{s(s - 2)}$ and writes $\lim_{t\to\infty}f(t) = \lim_{s\to0}sF(s) = -\tfrac12$. What is wrong?'
+  choices:
+    - 'Nothing; the limit is $-\tfrac12$.'
+    - 'The limit should be taken as $s \to \infty$, giving 0.'
+    - 'The final value theorem doesn''t apply: $sF(s)$ has a pole at $s = 2$, and in fact $f(t) \to \infty$.'
+    - 'The answer should be $+\tfrac12$ because of a sign error.'
+  answer: 2
+  explanation: |-
+    $sF = \dfrac{1}{s - 2}$ has a pole in the right half-plane, so the theorem's hypothesis fails. Inverting, $f = \tfrac12(e^{2t} - 1)$, which grows without bound. $s \to \infty$ is the initial value theorem (it gives $f(0) = 0$, correctly).
+
+- id: de-m7-r2-h34
+  lesson: de-m7-h-poles
+  type: text
+  topic: Poles and stability
+  stem: 'For which $K$ does $s^3 + 2s^2 + 5s + K$ have all roots in the open left half-plane? It is stable exactly for $0 < K <$ ___.'
+  accept: ['10']
+  explanation: |-
+    Routh–Hurwitz for a cubic with $a_3 = 1$, $a_2 = 2$, $a_1 = 5$, $a_0 = K$: need $K > 0$ and $a_2a_1 > a_3a_0$, that is $10 > K$. At $K = 10$ the polynomial is $(s + 2)(s^2 + 5)$, with roots $\pm i\sqrt5$ on the axis.
+
+- id: de-m7-r2-h35
+  lesson: de-m7-h-poles
+  topic: Poles and stability
+  stem: 'All coefficients of $s^3 + s^2 + s + 2$ are positive. Is it stable (all roots with negative real part)?'
+  choices:
+    - 'Yes: positive coefficients guarantee stability.'
+    - 'No: $a_2a_1 = 1 < a_3a_0 = 2$, so a pair of roots has positive real part.'
+    - 'Yes: $a_2a_1 = 1$ is positive.'
+    - 'No: a cubic with positive coefficients always has a root on the imaginary axis.'
+  answer: 1
+  explanation: |-
+    For degree 3 and up, positive coefficients are necessary but not enough. The cubic test needs $a_2a_1 > a_3a_0$, and $1\cdot1 < 1\cdot2$. Numerically the roots are about $-1.35$ and $0.18 \pm 1.20i$.
+
+- id: de-m7-r2-h36
+  lesson: de-m7-h-poles
+  type: order
+  topic: Poles and stability
+  stem: 'Order these poles from the mode that decays fastest to the one that decays slowest.'
+  items: ['$-5$', '$-2 \pm 3i$', '$-1$', '$-0.2 \pm 4i$']
+  explanation: |-
+    The decay rate is set by the real part alone: $e^{-5t}$, $e^{-2t}$, $e^{-t}$, $e^{-0.2t}$. The imaginary parts only set how fast the decaying modes oscillate.
+
+- id: de-m7-r2-h37
+  lesson: de-m7-h-poles
+  topic: Poles and stability
+  stem: 'A plant $G(s)$ is controlled by proportional negative feedback with gain $K$ ($e = r - y$, input $Ke$). What is the closed-loop transfer function from $r$ to $y$?'
+  choices:
+    - '$\dfrac{KG}{1 - KG}$'
+    - '$KG$'
+    - '$\dfrac{1}{1 + KG}$'
+    - '$\dfrac{KG}{1 + KG}$'
+  answer: 3
+  explanation: |-
+    $Y = GK(R - Y)$, so $(1 + KG)Y = KGR$ and $Y/R = \dfrac{KG}{1 + KG}$. The minus sign in the denominator belongs to positive feedback; $KG$ ignores the loop; $\dfrac{1}{1 + KG}$ is the transfer function from $r$ to the error $e$.
+
+- id: de-m7-r2-h38
+  lesson: de-m7-h-poles
+  type: text
+  topic: Poles and stability
+  stem: 'With $G(s) = \dfrac{1}{(s + 1)^3}$ and proportional feedback gain $K > 0$, the closed loop oscillates steadily (poles on the imaginary axis) when $K =$ ___.'
+  accept: ['8']
+  explanation: |-
+    The closed-loop characteristic polynomial is $s^3 + 3s^2 + 3s + (1 + K)$. Routh–Hurwitz needs $3\cdot3 > 1 + K$, so the boundary is $K = 8$, where $s^3 + 3s^2 + 3s + 9 = (s + 3)(s^2 + 3)$ has poles $\pm i\sqrt3$.
+
+- id: de-m7-r2-h39
+  lesson: de-m7-h-poles
+  type: match
+  topic: Poles and stability
+  stem: 'Match each pole (or pair) of $H(s)$ to the term it puts into $h(t)$.'
+  pairs:
+    - ['$s = -3$', 'e^(−3t)']
+    - ['$s = \pm 2i$', 'cos 2t and sin 2t']
+    - ['$s = -1 \pm 2i$', 'e^(−t)cos 2t and e^(−t)sin 2t']
+    - ['$s = 0$', 'a constant']
+  distractors: ['t·e^(−3t)', 'e^(3t)']
+  explanation: |-
+    A real pole $p$ gives $e^{pt}$; a pair $\lambda \pm i\mu$ gives $e^{\lambda t}\cos\mu t$ and $e^{\lambda t}\sin\mu t$; a pole at 0 gives a constant. $te^{-3t}$ would need a double pole at $-3$, and $e^{3t}$ a pole at $+3$.
+
+- id: de-m7-r2-h40
+  lesson: de-m7-h-poles
+  topic: Poles and stability
+  stem: 'For the undamped system $y'''' + 4y = g$ starting at rest, which bounded input produces an unbounded output?'
+  choices:
+    - '$g = \sin 2t$'
+    - '$g = \sin t$'
+    - '$g = 1$'
+    - '$g = e^{-t}$'
+  answer: 0
+  explanation: |-
+    The poles are $\pm 2i$. Forcing at the matching frequency gives $Y = \dfrac{2}{(s^2 + 4)^2}$ and $y = \tfrac18(\sin 2t - 2t\cos 2t)$, which grows without bound (resonance). The other inputs give bounded outputs: $\sin t$ is off resonance, $g = 1$ gives $\tfrac14(1 - \cos 2t)$, and $e^{-t}$ dies out. One such input is enough to make the system not BIBO stable.
+
+- id: de-m7-r2-h41
+  lesson: de-m7-h-poles
+  topic: Poles and stability
+  stem: 'In Example 5, a unit step reference with gain $K$ (stable range) leaves a steady-state error $\dfrac{1}{1 + K}$. What is the error for $K = 3$?'
+  choices: ['$0.25$', '$0.75$', '$0.33$', '$0$']
+  answer: 0
+  explanation: |-
+    The final value of $y$ is the closed-loop DC gain $\dfrac{K}{1 + K} = \dfrac34$, so the error is $1 - \dfrac34 = \dfrac14 = 0.25$. 0.75 is the output, not the error; $\tfrac13$ uses $1/K$; and proportional control alone never removes the error completely.

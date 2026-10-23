@@ -43,6 +43,8 @@ The tangent case is the secant case with both intersection points merged: "outsi
 
 *Why (secant–tangent).* With tangent $\overline{PT}$ and secant through $A$ (near) and $B$ (far), $\angle PTA$ (tangent–chord) and $\angle PBT$ (inscribed) both equal half of $\overset{\frown}{AT}$, and $\angle P$ is shared, so $\triangle PTA \sim \triangle PBT$ by AA. Then $\tfrac{PT}{PB} = \tfrac{PA}{PT}$, so $PT^2 = PA \cdot PB$.
 
+![A circle with center O. From an outside point P, a tangent segment PT touches the circle at T, where a dashed radius OT meets it at a right angle. A secant from P enters the circle at A and leaves at B; the outside part PA is blue and the chord AB is red. A note reads: PT squared equals PA times PB, where the whole secant PB is PA plus AB.](images/geo-m7-secant-tangent.svg)
+
 All three theorems say the same thing: for a fixed point $P$ and a fixed circle, the product of the two distances from $P$ along any line to the circle is constant. That constant is called the **power of a point**.
 
 ### Example 2
@@ -60,6 +62,18 @@ From $P$, a secant meets a circle at $A$ and $B$ with $PA = 5$ and $AB = 7$. A s
 A tangent from $P$ has length 12. A secant from $P$ has external segment 8. Find the whole secant and the chord inside the circle.
 
 $12^2 = 8 \cdot x$, so $x = 18$. The chord inside is $18 - 8 = 10$.
+
+To choose the rule, look at where the two lines meet:
+
+```mermaid
+flowchart TD
+  accTitle: Which product rule to use for segments in a circle
+  accDescr: Ask where the two lines meet. If they cross inside the circle, they are two chords, and piece times piece on one chord equals piece times piece on the other. If they meet outside, check what they are. Two secants: outside segment times whole secant is the same for both. A tangent and a secant: the tangent squared equals the secant's outside segment times its whole length.
+  W{"Where do the lines meet?"} -- inside --> I["Two chords: piece · piece = piece · piece"]
+  W -- outside --> O{"Two secants, or a tangent and a secant?"}
+  O -- two secants --> S["outside · whole = outside · whole"]
+  O -- tangent and secant --> T["tangent² = outside · whole"]
+```
 
 ## The equation of a circle
 
@@ -92,6 +106,21 @@ Find the center and radius of $x^2 + y^2 - 6x + 10y + 9 = 0$.
 $$(x^2 - 6x + 9) + (y^2 + 10y + 25) = -9 + 9 + 25.$$
 
 **Step 3.** $(x - 3)^2 + (y + 5)^2 = 25$. Center $(3, -5)$, radius 5.
+
+The whole procedure is below. The last check matters: after completing the square, the right side must be positive to be $r^2$. If it comes out 0, the equation describes a single point, and if it is negative, no point satisfies it (a sum of squares can't be negative). For example, $x^2 + y^2 - 2x + 4y + 9 = 0$ becomes $(x - 1)^2 + (y + 2)^2 = -4$: not a circle at all.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the center and radius from a general circle equation
+  accDescr: Starting from x squared plus y squared plus D x plus E y plus F equals zero, group the x terms and the y terms and move F to the right side. Add half of D, squared, to both sides, and add half of E, squared, to both sides. Write the left side as two squares. Then check the right side. If it is positive, it is r squared and the center is h comma k. If it is zero, the graph is a single point. If it is negative, there is no graph at all.
+  A["x² + y² + Dx + Ey + F = 0"] --> B["Group x terms and y terms; move F to the right"]
+  B --> C["Add (D/2)² and (E/2)² to both sides"]
+  C --> D["Write as (x − h)² + (y − k)² = right side"]
+  D --> E{"Right side?"}
+  E -- positive --> F["Circle: center (h, k), r = square root of right side"]
+  E -- zero --> G["Just the point (h, k)"]
+  E -- negative --> H["No points: no graph"]
+```
 
 ### Example 6
 

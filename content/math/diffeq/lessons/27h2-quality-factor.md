@@ -45,7 +45,7 @@ $u'' + 2\zeta\omega_0u' + \omega_0^2u = (F_0/m)\cos\omega t$. Lesson 24's three 
 | $\zeta > 1$ | $Q < \tfrac12$ | overdamped |
 
 Both numbers are pure numbers: $\gamma$ has units N·s/m and $\sqrt{km}$ has units
-$\sqrt{(\text{N/m})(\text{kg})} = $ N·s/m, so the units cancel.
+$\sqrt{(\text{N/m})(\text{kg})}$, which is also N·s/m, so the units cancel.
 
 ## Meaning 1: how long it rings
 
