@@ -442,7 +442,7 @@
   type: text
   stem: 'In type 1 diabetes, the immune system destroys the ___ cells of the pancreas, so the body makes little ___.'
   accept:
-    - [beta, β, beta cell, beta cells]
+    - [beta, β, beta cell, beta cells, β cell, β cells, beta-cell, beta-cells, islet beta]
     - [insulin]
   explanation: 'Type 1 diabetes is autoimmune: the insulin-making beta cells in the pancreatic islets are destroyed, so little or no insulin is produced. (Alpha cells, which make glucagon, are not the target.)'
 - id: bio-q-0940
@@ -571,8 +571,8 @@
   type: text
   stem: 'Antibodies are made by ___ cells. After an infection, long-lived ___ cells allow a faster, stronger response to the same antigen.'
   accept:
-    - [B, B lymphocyte, B lymphocytes, plasma]
-    - [memory]
+    - [B, B lymphocyte, B lymphocytes, plasma, plasma B, B cell, B cells, plasma cell, plasma cells]
+    - [memory, memory B, memory B and T]
   explanation: 'B cells (as antibody-secreting plasma cells) make antibodies. Memory B and T cells remain after the first response, which is why a second exposure, or a vaccine booster, produces a faster and larger response.'
 - id: bio-q-0951
   lesson: bio-digestion-immunity

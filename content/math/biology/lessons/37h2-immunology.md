@@ -33,7 +33,7 @@ Use approximate counts of functional human gene segments: heavy chain 40 V, 23 D
 - Light chains: kappa $40 \times 5 = 200$, lambda $30 \times 4 = 120$, so $200 + 120 = 320$ (each B cell uses one or the other, so add).
 - Pairs: $5{,}520 \times 320 \approx 1.8$ million.
 
-Imprecise joining raises the potential repertoire by many more orders of magnitude (estimates run to $10^{11}$ or beyond), more than the number of B cells in a body at any time. Random generation is how a finite genome meets an unlimited variety of antigens.
+Imprecise joining raises the potential repertoire by many more orders of magnitude (estimates run from about $10^{12}$ to as many as $10^{18}$ possible antibodies), far more than the number of B cells in a body at any one time, so each person carries only a sample of what is possible. Random generation is how a finite genome meets an unlimited variety of antigens.
 
 ## Antibody structure and classes
 
@@ -110,12 +110,12 @@ What do the results show?
 
 ## Memory and vaccines
 
-After an infection clears, most effector cells die, but memory B and T cells persist for years or decades. They outnumber the original naive cells, respond to less antigen, and (for B cells) have usually already switched class and improved their affinity. That's why a secondary response is faster, larger and mostly IgG. A booster dose works the same way: it triggers a secondary response that expands memory and raises antibody levels.
+After an infection clears, most effector cells die, but memory B and T cells persist for years or decades. They outnumber the naive cells of the same specificity that started the response, respond to less antigen, and (for B cells) have usually already switched class and improved their affinity. That's why a secondary response is faster, larger and mostly IgG. A booster dose works the same way: it triggers a secondary response that expands memory and raises antibody levels.
 
 Vaccine design follows the biology:
 
 - Live attenuated vaccines (measles, mumps and rubella) replicate a little inside cells, so their proteins are shown on class I MHC as well as class II. They tend to produce strong cytotoxic T-cell and antibody responses, often lasting, from one or two doses. They're generally not given to people with weakened immunity.
-- Inactivated, subunit and toxoid vaccines (most flu shots, hepatitis B, tetanus) can't replicate. They mainly drive class II presentation and antibodies, usually need adjuvants (ingredients that alert innate immunity) and several doses or boosters.
+- Inactivated, subunit and toxoid vaccines (most flu shots, hepatitis B, tetanus) can't replicate. They mainly drive class II presentation and antibodies, and usually need several doses or boosters; subunit and toxoid vaccines usually also contain adjuvants (ingredients that alert innate immunity), though most flu shots do not.
 - mRNA and viral-vector vaccines have cells make one viral protein for a short time, so it's presented on both class I and class II.
 
 **Passive immunity** is protection from antibodies made by someone else: IgG crossing the placenta, IgA in breast milk, or manufactured antibodies given as treatment. It works immediately but fades over weeks to months, because no memory cells are made.
