@@ -30,6 +30,13 @@ law): the heat flux across a point is $-\kappa u_x$, where $\kappa > 0$ is the c
 A rod insulated at both ends (and along its sides) is a closed box for heat: none enters
 or leaves, so it should keep its total heat and just even out.
 
+The picture shows both kinds on one rod: the left end is clamped to a large block that
+keeps it at $T_1$ (Dirichlet), and the right end is capped with insulation (Neumann,
+$u_x = 0$). The insulated sides are what make the problem one-dimensional: heat can move
+only along the rod.
+
+![A horizontal rod from x = 0 to x = L wrapped in hatched insulation along its top and bottom sides. Its left end is pressed against a large block labeled held at T1, with u(0, t) = T1. Its right end is covered by an insulating cap labeled insulated end, with u_x(L, t) = 0. An arrow inside the rod labeled heat flux points along the rod.](images/de-m9-rod-ends.svg)
+
 ## Insulated ends: a cosine series
 
 Solve $u_t = \alpha^2u_{xx}$ with $u_x(0, t) = u_x(L, t) = 0$ and $u(x, 0) = f(x)$. Separating
@@ -140,6 +147,22 @@ and the right end is suddenly raised to 50°. Find $u(x, t)$ and $u(0.5, 1)$.
 
 ```plot
 {"x": [0, 1], "y": [0, 55], "xLabel": "x", "yLabel": "u", "functions": [{"f": "20 + 30*x - (60/pi)*exp(-0.1*pi^2*0.01)*sin(1*pi*x)/1 + (60/pi)*exp(-0.4*pi^2*0.01)*sin(2*pi*x)/2 - (60/pi)*exp(-0.9*pi^2*0.01)*sin(3*pi*x)/3 + (60/pi)*exp(-1.6*pi^2*0.01)*sin(4*pi*x)/4 - (60/pi)*exp(-2.5*pi^2*0.01)*sin(5*pi*x)/5 + (60/pi)*exp(-3.6*pi^2*0.01)*sin(6*pi*x)/6 - (60/pi)*exp(-4.9*pi^2*0.01)*sin(7*pi*x)/7 + (60/pi)*exp(-6.4*pi^2*0.01)*sin(8*pi*x)/8 - (60/pi)*exp(-8.1*pi^2*0.01)*sin(9*pi*x)/9 + (60/pi)*exp(-10*pi^2*0.01)*sin(10*pi*x)/10 - (60/pi)*exp(-12.1*pi^2*0.01)*sin(11*pi*x)/11 + (60/pi)*exp(-14.4*pi^2*0.01)*sin(12*pi*x)/12 - (60/pi)*exp(-16.9*pi^2*0.01)*sin(13*pi*x)/13 + (60/pi)*exp(-19.6*pi^2*0.01)*sin(14*pi*x)/14 - (60/pi)*exp(-22.5*pi^2*0.01)*sin(15*pi*x)/15 + (60/pi)*exp(-25.6*pi^2*0.01)*sin(16*pi*x)/16 - (60/pi)*exp(-28.9*pi^2*0.01)*sin(17*pi*x)/17 + (60/pi)*exp(-32.4*pi^2*0.01)*sin(18*pi*x)/18 - (60/pi)*exp(-36.1*pi^2*0.01)*sin(19*pi*x)/19 + (60/pi)*exp(-40*pi^2*0.01)*sin(20*pi*x)/20"}, {"f": "20 + 30*x - (60/pi)*exp(-0.1*pi^2*0.2)*sin(1*pi*x)/1 + (60/pi)*exp(-0.4*pi^2*0.2)*sin(2*pi*x)/2 - (60/pi)*exp(-0.9*pi^2*0.2)*sin(3*pi*x)/3 + (60/pi)*exp(-1.6*pi^2*0.2)*sin(4*pi*x)/4 - (60/pi)*exp(-2.5*pi^2*0.2)*sin(5*pi*x)/5 + (60/pi)*exp(-3.6*pi^2*0.2)*sin(6*pi*x)/6"}, {"f": "20 + 30*x - (60/pi)*exp(-0.1*pi^2*1)*sin(1*pi*x)/1 + (60/pi)*exp(-0.4*pi^2*1)*sin(2*pi*x)/2 - (60/pi)*exp(-0.9*pi^2*1)*sin(3*pi*x)/3"}, {"f": "20 + 30*x", "dashed": true, "label": "v(x)"}], "caption": "Example 3: profiles at t = 0.01, 0.2 and 1 (lowest to highest in the middle) rise from 20° toward the equilibrium line v(x) = 20 + 30x (dashed)."}
+```
+
+## Choosing the method
+
+The chart sums up the lesson: read off the end conditions first, and they tell you which
+eigenfunctions to use (or that you must subtract an equilibrium first).
+
+```mermaid
+flowchart TD
+  accTitle: Which eigenfunctions to use for the ends of a rod
+  accDescr: Look at the boundary conditions. Both ends held at 0 give sine eigenfunctions sin(n pi x over L), and the rod cools to 0. Both ends insulated give the constant 1 and cosines cos(n pi x over L), and the rod approaches the average of its initial temperature. One end held at 0 with the other insulated gives quarter-wave sines sin((2n minus 1) pi x over 2L), and the rod cools to 0. Ends held at nonzero temperatures T1 and T2 call for first finding the equilibrium line v(x), then solving for w = u minus v, which has zero ends and a sine series for f minus v.
+  A{"What happens at the ends?"} -->|"0 and 0"| B["sin(nπx/L); u → 0"]
+  A -->|"insulated, insulated"| C["1 and cos(nπx/L); u → mean of f"]
+  A -->|"0 and insulated"| D["sin((2n−1)πx/2L); u → 0"]
+  A -->|"T₁ and T₂"| E["Find the line v(x)"]
+  E --> F["Sine series for w = u − v"]
 ```
 
 ## Common mistakes

@@ -125,7 +125,7 @@ $Q_B$ rises, peaks at $t = 20$ min (with $20e^{-1} \approx 7.36$ kg), then falls
 tanks like this are a preview of Module 8.
 
 ```plot
-{"x": [0, 100], "y": [0, 22], "xLabel": "t (min)", "yLabel": "salt (kg)", "functions": [{"f": "20exp(-x/20)", "label": "tank A"}, {"f": "x*exp(-x/20)", "label": "tank B"}], "points": [{"at": [20, 7.358], "label": "peak at t = 20"}], "caption": "Salt in tank A decays exponentially; tank B fills from A, peaks at 20 minutes with about 7.36 kg, then empties."}
+{"x": [0, 100], "y": [0, 22], "xLabel": "t (min)", "yLabel": "salt (kg)", "functions": [{"f": "20exp(-x/20)"}, {"f": "x*exp(-x/20)"}], "labels": [{"at": [12, 15], "text": "tank A"}, {"at": [55, 7], "text": "tank B"}], "points": [{"at": [20, 7.358], "label": "peak at t = 20"}], "caption": "Salt in tank A decays exponentially; tank B fills from A, peaks at 20 minutes with about 7.36 kg, then empties."}
 ```
 
 ## Checking a mixing model

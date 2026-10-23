@@ -85,7 +85,7 @@ The graph compares three payment levels on the same loan. The dividing line is t
 payment that exactly covers the interest, \$12,000 per year, which keeps the balance flat.
 
 ```plot
-{"x": [0, 30], "y": [0, 400], "xLabel": "t (years)", "yLabel": "balance (thousands of dollars)", "functions": [{"f": "250 - 50exp(0.06x)", "label": "pay 15,000 per year"}, {"f": "200", "dashed": true, "label": "pay 12,000 per year"}, {"f": "500/3 + (100/3)exp(0.06x)", "label": "pay 10,000 per year"}], "points": [{"at": [26.82, 0], "label": "paid off at 26.8 years"}], "caption": "A 200,000 dollar loan at 6% continuous interest: paying more than the 12,000 dollars of yearly interest pays it off; paying less makes the balance grow."}
+{"x": [0, 30], "y": [0, 400], "xLabel": "t (years)", "yLabel": "balance (thousands of dollars)", "functions": [{"f": "250 - 50exp(0.06x)"}, {"f": "200", "dashed": true, "label": "pay 12,000 per year"}, {"f": "500/3 + (100/3)exp(0.06x)", "label": "pay 10,000 per year"}], "points": [{"at": [26.82, 0]}], "labels": [{"at": [8, 120], "text": "pay 15,000 per year"}, {"at": [16, 25], "text": "paid off at 26.8 years →"}], "caption": "A 200,000 dollar loan at 6% continuous interest: paying more than the 12,000 dollars of yearly interest pays it off; paying less makes the balance grow."}
 ```
 
 ## Newton's law of cooling

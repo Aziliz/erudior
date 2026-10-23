@@ -71,6 +71,22 @@ series of $f$, so
 
 $$b_n = \frac2L\int_0^Lf(x)\sin\frac{n\pi x}{L}\,dx.$$
 
+The whole method fits in one chart. You will follow the same steps for the wave equation
+below, and with other boundary conditions in the next lesson.
+
+```mermaid
+flowchart TD
+  accTitle: Separation of variables for the heat and wave equations
+  accDescr: Start with the PDE, its boundary conditions and its initial data. Try a product u = X(x)T(t). Separate so each side depends on only one variable; both sides then equal the same constant, minus lambda. Solve the eigenvalue problem for X with the boundary conditions to get eigenvalues lambda n and eigenfunctions X n. Solve for T n for each lambda n: it decays for the heat equation and oscillates for the wave equation. Superpose all the products, and finally choose the coefficients so the sum matches the initial data, using a Fourier series.
+  A["PDE + boundary conditions + initial data"] --> B["Try u = X(x)T(t)"]
+  B --> C["Separate: both sides equal −λ"]
+  C --> D["Eigenvalue problem for X with the boundary conditions"]
+  D --> E["Eigenvalues λₙ, eigenfunctions Xₙ"]
+  E --> F["Solve for Tₙ: decays (heat) or oscillates (wave)"]
+  F --> G["Superpose: u = Σ bₙXₙTₙ"]
+  G --> H["Match initial data with a Fourier series"]
+```
+
 ### Example 1
 
 A rod of length $L = 1$ with $\alpha^2 = 0.1$ starts at $u(x, 0) = 3\sin\pi x - \sin 4\pi x$, ends at 0.
@@ -119,6 +135,11 @@ $\omega_n = \dfrac{n\pi a}{L}$ rad/s, that is $\dfrac{na}{2L}$ cycles per second
 ($n = 1$) sets the pitch; the higher modes are **harmonics** at whole-number multiples, which
 is why a plucked string sounds musical. Shortening the string or tightening it (raising $a$)
 raises the pitch, just as a guitarist's fingers and tuning pegs do.
+
+The picture shows the first three modes. Mode $n$ has $n - 1$ interior points that never
+move (nodes) between $n$ humps whose middles swing the farthest (antinodes).
+
+![Three standing waves on a string fixed between two clamps, for n = 1, 2 and 3. Each is drawn twice, solid and dashed, half a period apart. Mode 1 is a single hump; mode 2 has two humps with one still point in the middle; mode 3 has three humps with two still points. On mode 3 a still point is labeled node, the top of the first hump is labeled antinode, and the right clamp is labeled fixed end.](images/de-m9-string-modes.svg)
 
 ### Example 3
 

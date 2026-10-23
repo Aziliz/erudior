@@ -191,7 +191,7 @@ below $v_T$, $kv^2 = mg(v/v_T)^2$ is smaller than $\gamma v = mg(v/v_T)$, so qua
 holds the object back less until it is nearly at terminal speed.
 
 ```plot
-{"x": [0, 12], "y": [0, 30], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "24.5tanh(0.4x)", "label": "quadratic drag"}, {"f": "24.5(1 - exp(-0.4x))", "label": "linear drag"}, {"f": "24.5", "dashed": true}, {"f": "9.8x", "dashed": true, "to": 2.5, "label": "no drag"}], "caption": "Same terminal velocity, 24.5 m/s (dashed line): the quadratic-drag curve (upper) approaches it faster than the linear-drag curve (lower)."}
+{"x": [0, 12], "y": [0, 30], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "24.5tanh(0.4x)"}, {"f": "24.5(1 - exp(-0.4x))"}, {"f": "24.5", "dashed": true}, {"f": "9.8x", "dashed": true, "to": 2.5, "label": "no drag"}], "caption": "Same terminal velocity, 24.5 m/s (dashed line): the quadratic-drag curve (upper) approaches it faster than the linear-drag curve (lower)."}
 ```
 
 ## Common mistakes
