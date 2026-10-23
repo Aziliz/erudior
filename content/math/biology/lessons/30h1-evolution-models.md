@@ -101,7 +101,7 @@ The small population lost almost two-thirds of its variation in 50 generations; 
 
 The formulas above assume an idealized population: constant size, equal numbers of males and females, and every adult equally likely to be a parent. Real populations break all three assumptions, so biologists use the **effective population size** $N_e$: the size of an idealized population that would lose variation by drift at the same rate. $N_e$ is almost always smaller than the census count.
 
-- *Unequal sex ratio.* With $N_m$ breeding males and $N_f$ breeding females, $N_e = \dfrac{4N_m N_f}{N_m + N_f}$. In northern elephant seals a few dominant males father most pups: 10 breeding males and 90 females give $N_e = \dfrac{4(10)(90)}{100} = 36$, not 100.
+- *Unequal sex ratio.* With $N_m$ breeding males and $N_f$ breeding females, $N_e = \dfrac{4N_m N_f}{N_m + N_f}$. In northern elephant seals a few dominant males father most pups. In a hypothetical colony with 10 breeding males and 90 breeding females, $N_e = \dfrac{4(10)(90)}{100} = 36$, not 100.
 - *Unequal family sizes.* When some adults leave many offspring and most leave few, fewer lineages are passed on, and $N_e$ drops.
 - *Changing size.* Over several generations, $N_e$ is the harmonic mean of the sizes, which is pulled strongly toward the smallest.
 
@@ -122,7 +122,7 @@ To test whether a population fits Hardy-Weinberg proportions at a gene, you need
 1. Estimate $p$ and $q$ from the observed counts.
 2. Expected counts: $p^2 N$, $2pqN$, $q^2 N$.
 3. $\chi^2 = \sum \dfrac{(O - E)^2}{E}$ over the three genotypes.
-4. Degrees of freedom: 3 categories $- 1$, minus 1 more because $p$ was estimated from the same data. So df $= 1$, and the critical value at $p = 0.05$ is 3.84.
+4. Degrees of freedom: 3 categories $- 1$, minus 1 more because $p$ was estimated from the same data. So df $= 1$, and the critical value at the 0.05 significance level is 3.84.
 
 ### Example 5
 

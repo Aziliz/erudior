@@ -554,7 +554,7 @@
   module_quiz: true
   type: order
   topic: Dihybrid crosses
-  stem: 'Put these events in order, from the start of meiosis in an RrYy plant to its gametes.'
+  stem: 'Put these events in order, from just before meiosis in an RrYy plant to its gametes.'
   items:
     - 'DNA replicates, so each chromosome has two sister chromatids'
     - 'Homologous pairs line up at the metaphase plate, each pair oriented at random'
@@ -727,10 +727,9 @@
     - 'State the hypothesis and the ratio it predicts'
     - 'Calculate the expected count in each category'
     - 'Compute (O − E)²/E for each category and add them up'
-    - 'Find the degrees of freedom: number of categories − 1'
-    - 'Compare chi-square with the critical value and decide whether to reject'
+    - 'Compare chi-square with the critical value for df = categories − 1 and decide whether to reject'
   explanation: |-
-    The hypothesis comes first, because it fixes the expected counts. Then compute $\chi^2 = \sum (O - E)^2/E$, find df = categories − 1, and compare with the critical value at $p = 0.05$. (Finding df could also come earlier; it must come before the comparison.)
+    The hypothesis comes first, because it fixes the expected counts. The expected counts are needed to compute $\chi^2 = \sum (O - E)^2/E$, and the finished $\chi^2$ is then compared with the critical value at $p = 0.05$ for df = categories − 1.
 - id: bio-q-0581
   lesson: bio-chromosomes
   type: text
@@ -782,10 +781,10 @@
   lesson: bio-h-linkage
   topic: Gene mapping
   stem: 'Recombination frequencies among three linked genes are: A–B 12%, B–C 7%, A–C 19%. What is the gene order?'
-  choices: ['B is at one end: B–A–C', 'C is in the middle: A–C–B', 'A is in the middle: B–A–C', 'B is in the middle: A–B–C']
+  choices: ['The order can''t be found without a three-point cross', 'C is in the middle: A–C–B', 'A is in the middle: B–A–C', 'B is in the middle: A–B–C']
   answer: 3
   explanation: |-
-    The largest distance (A–C, 19) spans the two outer genes, so B is between them; check $12 + 7 = 19$. The order is A–B–C (equivalently C–B–A). The other orders would need A–C to be one of the smaller distances.
+    The largest distance (A–C, 19) spans the two outer genes, so B is between them; check $12 + 7 = 19$. The order is A–B–C (equivalently C–B–A). The other orders would need A–C to be one of the smaller distances, and pairwise distances are enough to order three genes; a three-point cross only refines the distances.
 - id: bio-qh-0504
   lesson: bio-h-linkage
   topic: Gene mapping
@@ -860,8 +859,7 @@
   topic: Gene mapping
   stem: 'Put the steps of analyzing a three-point test cross in order.'
   items:
-    - 'Identify the parental classes (the two most common)'
-    - 'Identify the double-crossover classes (the two rarest)'
+    - 'Identify the parental classes (the two most common) and the double-crossover classes (the two rarest)'
     - 'Find the middle gene by comparing the parental and double-crossover classes'
     - 'Calculate each interval''s distance, counting the double crossovers in both intervals'
     - 'Compare observed and expected double crossovers to find the interference'

@@ -44,7 +44,7 @@
 - {front: 'Converting O₂ to carbon fixed', back: 'One O₂ released per CO₂ fixed, so mg C = mg O₂ × 12/32 = mg O₂ × 0.375 (approximate).', topic: Primary productivity}
 - {front: 'Classic nutrient-limitation experiments', back: 'Lake 226 (1973): phosphorus limits lakes. Ryther and Dunstan (1971): nitrogen limits coastal seas. IronEx II (1995): iron limits parts of the open ocean.', topic: Primary productivity}
 - {front: 'Redfield ratio', back: 'C : N : P ≈ 106 : 16 : 1 in ocean plankton. N:P well below 16 suggests N limitation; well above suggests P limitation.', topic: Primary productivity}
-- {front: 'Ocean vs land NPP', back: 'About half of global NPP (roughly 105 GtC per year) is in the ocean, though phytoplankton are under 1% of producer biomass: they turn over in days.', topic: Primary productivity}
+- {front: 'Ocean vs land NPP', back: 'About half of global NPP (a total of roughly 105 GtC per year) is in the ocean, though phytoplankton are under 1% of producer biomass: they turn over in days.', topic: Primary productivity}
 - {front: 'Nitrogen cycle microbes', back: 'Fixers (nitrogenase, N₂ → NH₄⁺); nitrifiers (NH₄⁺ → NO₂⁻ → NO₃⁻, need O₂); denitrifiers (NO₃⁻ → N₂O → N₂, low O₂); anammox (NH₄⁺ + NO₂⁻ → N₂).', topic: Global change}
 - {front: 'Global carbon budget 2023', back: 'Emitted 11.1 GtC (fossil 10.1, land use 1.0). Atmosphere +5.9, ocean 2.9, land 2.3. Airborne fraction about 53%. 2.12 GtC ≈ 1 ppm.', topic: Global change}
 - {front: 'Evidence that rising CO₂ comes from fossil fuels', back: 'Falling carbon-13 and carbon-14 fractions in air CO₂, falling atmospheric O₂, and emissions inventories that match the rise.', topic: Global change}

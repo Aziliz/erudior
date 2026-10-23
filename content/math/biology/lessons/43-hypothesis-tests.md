@@ -81,7 +81,7 @@ A large $|t|$ means the gap between means is big compared with the noise. With t
 |---|---|---|---|---|---|---|
 | Critical $t$ ($\alpha = 0.05$, two-sided) | 2.57 | 2.23 | 2.14 | 2.09 | 2.04 | 1.96 |
 
-So for moderate samples, $|t|$ greater than about 2 is significant, which is why the "±2 SE" rule of lesson 42 works. The test assumes independent observations and roughly normal data. When the two groups' SDs are quite different, statisticians use Welch's version, which adjusts the degrees of freedom; and when the same individuals are measured twice (before and after), a paired $t$-test is used on the individual differences.
+So for moderate samples, $|t|$ greater than about 2 is significant, which is why the "±2 SE" rule of lesson 42 works. With equal group sizes, as in every example in this lesson, this formula gives exactly the standard (Student's) two-sample $t$-test. With unequal sizes, the standard test first combines the two SDs into one pooled estimate, so its $t$ differs slightly from this simplified version; the idea is the same. The test assumes independent observations and roughly normal data. When the two groups' SDs are quite different, statisticians use Welch's version, which adjusts the degrees of freedom; and when the same individuals are measured twice (before and after), a paired $t$-test is used on the individual differences.
 
 ### Example 2: Caffeine and the *Daphnia* heart
 

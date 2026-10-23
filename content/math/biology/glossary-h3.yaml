@@ -78,7 +78,7 @@
   topic: Social behavior
 - term: haplodiploidy
   aliases: [haplodiploid]
-  definition: 'A sex-determination system in which males develop from unfertilized eggs and are haploid, while females are diploid; found in ants, bees and wasps. Full sisters share $r = \tfrac34$.'
+  definition: 'A sex-determination system in which males develop from unfertilized eggs and are haploid, while females are diploid; found in ants, bees and wasps. Full sisters (same mother and father) share $r = \tfrac34$.'
   topic: Social behavior
 - term: reciprocal altruism
   definition: 'Helping a non-relative with the expectation of help in return later; it can evolve when individuals meet repeatedly, recognize each other and stop helping cheaters.'
@@ -184,5 +184,5 @@
   topic: Conservation biology
 - term: biological control
   aliases: [biocontrol]
-  definition: 'Controlling a pest or invasive species with one of its natural enemies (a predator, parasite or pathogen), after testing that the enemy will not harm other species.'
+  definition: 'Controlling a pest or invasive species with one of its natural enemies (a predator, parasite or pathogen); modern programs first test that the enemy will not harm other species.'
   topic: Conservation biology

@@ -26,8 +26,8 @@
 <line x1="360.0" y1="245.0" x2="360.0" y2="272.0" stroke="#1c2833" stroke-width="2.5"/>
 <rect x="222.0" y="272.0" width="36.0" height="36.0" rx="0" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
 <circle cx="360.0" cy="290.0" r="18.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
-<line x1="300.0" y1="200.0" x2="470.0" y2="175.0" stroke="#1c2833" stroke-width="1"/>
-<text x="476.0" y="172.0" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">mating line (parents)</text>
+<line x1="330.0" y1="200.0" x2="470.0" y2="145.0" stroke="#1c2833" stroke-width="1"/>
+<text x="476.0" y="150.0" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">mating line (parents)</text>
 <line x1="330.0" y1="245.0" x2="470.0" y2="245.0" stroke="#1c2833" stroke-width="1"/>
 <text x="476.0" y="250.0" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">line to their children</text>
 <text x="60.0" y="205.0" font-family="sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#1c2833">I</text>

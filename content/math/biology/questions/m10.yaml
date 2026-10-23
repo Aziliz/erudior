@@ -365,10 +365,10 @@
   topic: Biogeochemical cycles
   stem: 'Which processes add carbon dioxide to the atmosphere? Select all that apply.'
   image: {src: images/m10-carbon-cycle.svg, alt: 'The carbon cycle, showing atmospheric CO₂ exchanged with land plants, animals, soil and decomposers, fossil fuels, the ocean, marine life and limestone.'}
-  choices: [Cellular respiration, Photosynthesis, Burning fossil fuels, Decomposition, Formation of limestone from shells, Volcanic eruptions]
+  choices: [Cellular respiration, Photosynthesis, Burning fossil fuels, Decomposition, CO₂ dissolving into the ocean, Volcanic eruptions]
   answer: [0, 2, 3, 5]
   explanation: |-
-    Respiration, decomposition (respiration by decomposers), combustion of fossil fuels and volcanoes all release CO₂ to the air. Photosynthesis removes CO₂, and the formation of limestone from settled shells locks carbon away in rock for millions of years.
+    Respiration, decomposition (respiration by decomposers), combustion of fossil fuels and volcanoes all release CO₂ to the air. Photosynthesis removes CO₂ from the air, and so does CO₂ dissolving into seawater (the ocean is a carbon sink).
 - id: bio-q-1043
   lesson: bio-cycles-populations
   module_quiz: true
@@ -439,7 +439,7 @@
 - id: bio-qh-1001
   lesson: bio-h-population-models
   topic: Life tables
-  stem: 'In a cohort of beetles, 300 are alive at the start of age 2 and 180 at the start of age 3. What is the age-specific mortality rate $q_2$?'
+  stem: 'In a cohort of 1,000 beetles, 300 are alive at the start of age 2 and 180 at the start of age 3. What is the age-specific mortality rate $q_2$?'
   choices: ['0.40', '0.12', '0.60', '120']
   answer: 0
   explanation: |-

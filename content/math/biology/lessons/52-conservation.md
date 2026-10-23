@@ -84,7 +84,7 @@ $$H_t = H_0\left(1 - \frac{1}{2N_e}\right)^t$$
 Inbreeding exposes harmful recessive alleles, causing **inbreeding depression**: lower survival and fertility in offspring of relatives. Low numbers, inbreeding and lost variation then reinforce each other.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: The extinction vortex
   accDescr: A cycle that drives small populations toward extinction. A small population has more inbreeding and genetic drift, which cause loss of genetic diversity and inbreeding depression. That lowers survival and reproduction, which makes the population smaller still, and the cycle repeats.
   A["Small population"] --> B["Inbreeding and drift"]
@@ -130,7 +130,7 @@ Management, from cheapest to most expensive: prevention (inspecting cargo, banni
 
 - *California condor.* By 1987 all 27 surviving condors were taken into captivity. Captive breeding and releases brought the total to about 600 by 2025, more than half flying free. Lead poisoning from bullet fragments in carcasses remains the main threat.
 - *Yellowstone wolves.* Thirty-one wolves from Canada were released in 1995–96, 70 years after wolves were eliminated from the park. Elk numbers and behavior changed. How much this let willows and aspens recover (a trophic cascade) is still debated, because elk also declined for other reasons.
-- *Humpback whales.* After the international ban on commercial whaling took effect in 1986, many humpback populations recovered strongly.
+- *Humpback whales.* Commercial hunting of humpbacks was banned worldwide in 1966, and a moratorium on all commercial whaling followed in 1986. Many humpback populations have since recovered strongly.
 - *Florida panther* and *South Georgia* (above).
 
 ## Common mistakes

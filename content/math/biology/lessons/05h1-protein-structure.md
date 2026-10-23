@@ -18,7 +18,7 @@ Lesson 4 described protein shape at four levels and told the story of Anfinsen's
 
 When two amino acids join by dehydration synthesis, the carboxyl carbon of one bonds to the amino nitrogen of the next. This C–N bond is the **peptide bond**. A polypeptide therefore has a repeating backbone, N–C–C, N–C–C, with an R group on each central (alpha) carbon. One end has a free amino group (the N-terminus), the other a free carboxyl group (the C-terminus); sequences are written from N to C, the direction the ribosome builds them.
 
-The peptide bond is not an ordinary single bond. Electrons are shared partly across the C=O and C–N bonds, giving the C–N link partial double-bond character. Double bonds don't rotate, so the six atoms around each peptide bond lie flat in one plane. The chain can only twist at the single bonds on either side of each alpha carbon: picture flat playing cards joined at the corners by swivels. In 1963 G. N. Ramachandran showed that most combinations of swivel angles make atoms bump into each other; the few allowed combinations correspond to the helix and the sheet.
+The peptide bond is not an ordinary single bond. Electrons are shared partly across the C=O and C–N bonds, giving the C–N link partial double-bond character. Double bonds don't rotate, so the six atoms around each peptide bond lie flat in one plane. The chain can only twist at the single bonds on either side of each alpha carbon: picture flat playing cards joined at the corners by swivels. In 1963 G. N. Ramachandran showed that most combinations of swivel angles make atoms bump into each other; the allowed regions are small, and they include the angles found in the helix and the sheet.
 
 ## R groups decide where each part goes
 

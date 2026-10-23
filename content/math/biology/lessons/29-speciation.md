@@ -20,19 +20,13 @@ The definition has limits. It can't be applied to organisms that reproduce asexu
 **Reproductive isolation** is anything that prevents members of two groups from interbreeding or from producing fertile offspring. Once gene flow between two groups stops, mutation, selection and drift act on each separately, and they drift further apart. The barriers fall into two families, sorted by whether they act before or after an egg is fertilized:
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: Kinds of reproductive isolation
   accDescr: Reproductive isolation splits into prezygotic barriers, which act before fertilization, and postzygotic barriers, which act after it. Prezygotic barriers are habitat, temporal, behavioral, mechanical and gametic isolation. Postzygotic barriers are hybrid inviability, hybrid sterility and hybrid breakdown.
   A["Reproductive isolation"] --> B["Prezygotic: before fertilization"]
   A --> C["Postzygotic: after fertilization"]
-  B --> B1[Habitat]
-  B --> B2[Temporal]
-  B --> B3[Behavioral]
-  B --> B4[Mechanical]
-  B --> B5[Gametic]
-  C --> C1[Hybrid inviability]
-  C --> C2[Hybrid sterility]
-  C --> C3[Hybrid breakdown]
+  B --> B1["Habitat, temporal, behavioral, mechanical and gametic isolation"]
+  C --> C1["Hybrid inviability, hybrid sterility and hybrid breakdown"]
 ```
 
 Barriers that act before fertilization (prezygotic barriers):

@@ -29,7 +29,7 @@
   lesson: bio-h-behavior
   topic: Animal behavior
   stem: 'Which of these are examples of learning? Select all that apply.'
-  choices: ['Birds in a field stop flying off when a motionless scarecrow is put up', 'A goose rolls a golf ball into her nest the first time she sees one nearby', 'Ducklings follow the first moving object they see after hatching', 'A toad that was stung while trying to eat a bee stops striking at bees']
+  choices: ['Birds that at first fled a new scarecrow stop fleeing after days of it never moving', 'A goose rolls a golf ball into her nest the first time she sees one nearby', 'Ducklings follow the first moving object they see after hatching', 'A toad that was stung while trying to eat a bee stops striking at bees']
   answer: [0, 2, 3]
   explanation: |-
     Ignoring a harmless scarecrow is habituation, following the first moving object is imprinting (learning in a sensitive period), and the toad shows operant conditioning. Rolling a golf ball is a fixed action pattern triggered by a rounded object: unlearned.
@@ -236,7 +236,7 @@
   choices: ['Males compete for females and are the more ornamented sex', 'Neither sex is choosy, because both invest heavily', 'Females compete for males and may be the more ornamented sex', 'Females stop producing eggs until a male is found']
   answer: 2
   explanation: |-
-    The sex that invests more becomes the limiting resource and the choosier sex, so the roles flip: females compete for pregnant-capable males, and in several pipefish species females are the brighter sex. Predicting male competition ignores the reversal of investment.
+    The sex that invests more becomes the limiting resource and the choosier sex, so the roles flip: females compete for males, and in several pipefish species females are the brighter sex. Predicting male competition ignores the reversal of investment.
 - id: bio-qh-h3-28
   lesson: bio-h-social-behavior
   topic: Social behavior
@@ -287,7 +287,7 @@
   choices: ['700', '625', '575', '375']
   answer: 2
   explanation: |-
-    New infections $= \dfrac{0.5 \times 4{,}000 \times 500}{5{,}000} = 200$; recoveries $= 0.25 \times 500 = 125$. $I = 500 + 200 - 125 = 575$. 700 forgets recoveries; 625 uses $S/N = 1$ (250 new) and then subtracts recoveries; 375 subtracts the new infections instead of adding them.
+    New infections $= \dfrac{0.5 \times 4{,}000 \times 500}{5{,}000} = 200$; recoveries $= 0.25 \times 500 = 125$. $I = 500 + 200 - 125 = 575$. 700 forgets recoveries; 625 uses $S/N = 1$ (250 new) and then subtracts recoveries; 375 subtracts the recoveries but leaves out the new infections.
 - id: bio-qh-h3-34
   lesson: bio-h-epidemiology
   module_quiz: true

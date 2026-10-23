@@ -61,7 +61,7 @@ The flowchart follows those three branches.
 ```mermaid
 flowchart TD
   accTitle: Where the energy in eaten grass goes
-  accDescr: The energy stored in grass splits several ways. Parts that are not eaten, such as roots and woody stems, go to decomposers. Of the part a rabbit eats, material it cannot digest leaves as feces and also goes to decomposers. Of the energy the rabbit absorbs, most is used in cellular respiration and leaves the ecosystem as heat. Only about 10 percent builds new rabbit tissue, which is what the next trophic level can eat.
+  accDescr: The energy stored in grass splits several ways. Parts that are not eaten, such as roots and woody stems, go to decomposers. Of the part a rabbit eats, material it cannot digest leaves as feces and also goes to decomposers. Of the energy the rabbit absorbs, most is used in cellular respiration and leaves the ecosystem as heat. Only a small share builds new rabbit tissue, which is what the next trophic level can eat; overall, roughly 10 percent of the energy in one trophic level ends up in the next.
   G["Energy stored in grass"] --> N["Not eaten: roots, woody stems"]
   G --> E["Eaten by a rabbit"]
   E --> F["Not absorbed: leaves in feces"]
@@ -70,7 +70,7 @@ flowchart TD
   F --> D
   A --> R["Used in cellular respiration"]
   R --> H["Lost as heat"]
-  A --> T["New rabbit tissue, about 10 percent"]
+  A --> T["New rabbit tissue: a small share"]
   T --> X["Food for the next trophic level"]
 ```
 

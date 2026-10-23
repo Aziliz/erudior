@@ -45,7 +45,7 @@ Animal cells use several cyclin–CDK pairs:
 | Cyclin A – CDK2 | S | Drives DNA replication and helps block a second round |
 | Cyclin B – CDK1 (MPF) | G2 to M | Condenses chromosomes, breaks down the nuclear envelope, builds the spindle |
 
-Cells can also block CDKs with **CDK inhibitor** proteins such as p21 and p16, which bind cyclin–CDK complexes.
+Cells can also block CDKs with **CDK inhibitor** proteins such as p21, which binds and blocks cyclin–CDK complexes, and p16, which binds CDK4 and CDK6 and keeps cyclin D from activating them.
 
 ### Example 1
 
@@ -70,7 +70,7 @@ Late in G1 is the **restriction point**: after it, a cell goes on through S, G2 
 Unphosphorylated Rb binds and blocks a transcription factor called **E2F**, which switches on S-phase genes, including cyclin E. Growth factors lead to cyclin D, and cyclin D–CDK4/6 phosphorylates Rb, loosening its grip. Freed E2F makes cyclin E, and cyclin E–CDK2 phosphorylates Rb further, freeing more E2F: another positive feedback loop that makes commitment abrupt.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: Rb and E2F at the restriction point
   accDescr: Growth factors cause the cell to make cyclin D, which activates CDK4 and CDK6. These phosphorylate Rb, which releases the transcription factor E2F. E2F switches on S-phase genes, including cyclin E. Cyclin E with CDK2 phosphorylates more Rb, releasing more E2F in a positive feedback loop. Once enough E2F is free, the cell passes the restriction point and enters S phase.
   GF[Growth factors] --> CD[Cyclin D with CDK4 and CDK6]

@@ -133,10 +133,10 @@
     | Woodland | {a} | {b} |
     | Grassland | {c} | {d} |
 
-    Test whether banding is independent of habitat. Find the expected count of banded snails in woodland (2 decimal places), $\chi^2$ (2 decimal places) and the degrees of freedom, then decide: type 1 if you reject independence at $p = 0.05$, 0 if you fail to reject. Critical values at $p = 0.05$: df 1: 3.84, df 2: 5.99, df 3: 7.81.
+    Test whether banding is independent of habitat. Find the expected count of banded snails in woodland (2 decimal places), $\chi^2$ (2 decimal places) and the degrees of freedom, then decide: type 1 if you reject independence at the 0.05 significance level, 0 if you fail to reject. Critical values at $\alpha = 0.05$: df 1: 3.84, df 2: 5.99, df 3: 7.81.
   answers:
     - {name: e11, label: 'Expected banded, woodland', format: num2, tolerance: 0.01}
-    - {name: chi, label: '$\chi^2 =$', format: num2, tolerance: 0.03}
+    - {name: chi, label: '$\chi^2 =$', format: num2, tolerance: 0.05}
     - {name: df, label: 'Degrees of freedom', format: integer}
     - {name: rej, label: 'Reject? (1 = yes, 0 = no)', format: integer}
   solution: |-
@@ -174,7 +174,7 @@
   prompt: 'Two groups of {nn} randomly assigned bean plants grew under red or blue light. Red: mean height {m1} cm, SD {s1} cm. Blue: mean height {m2} cm, SD {s2} cm. Find the standard error of the difference (2 decimal places), the size of $t$ (2 decimal places) and the degrees of freedom. Then decide: type 1 if you reject the null hypothesis of equal means at $\alpha = 0.05$, 0 if you fail to reject. Critical values: df 16: 2.12; df 30: 2.04; df 48: 2.01.'
   answers:
     - {name: sed, label: '$\text{SE}_{\text{diff}}$ (cm)', format: num2, tolerance: 0.01}
-    - {name: tval, label: '$|t|$', format: num2, tolerance: 0.02}
+    - {name: tval, label: '$|t|$', format: num2, tolerance: 0.03}
     - {name: df, label: 'Degrees of freedom', format: integer}
     - {name: rej, label: 'Reject? (1 = yes, 0 = no)', format: integer}
   solution: |-

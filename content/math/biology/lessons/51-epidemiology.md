@@ -95,11 +95,11 @@ Two companies supplied water to homes on the same streets of south London. The S
 | Southwark and Vauxhall | 40,046 | 1,263 |
 | Lambeth | 26,107 | 98 |
 
-1. Death rates per 10,000 houses: $\dfrac{1{,}263}{40{,}046} \times 10{,}000 \approx 315$ and $\dfrac{98}{26{,}107} \times 10{,}000 \approx 38$.
-2. Ratio: $315 / 38 \approx 8.4$. Homes on the downstream supply had about eight times the death rate.
+1. Death rates per 10,000 houses: $\dfrac{1{,}263}{40{,}046} \times 10{,}000 \approx 315$ and $\dfrac{98}{26{,}107} \times 10{,}000 \approx 37.5$.
+2. Ratio: $315 / 37.5 \approx 8.4$. Homes on the downstream supply had about eight times the death rate.
 3. Why it is convincing: households on both supplies lived side by side, rich and poor alike, often without knowing which company served them, so air, wealth and neighborhood were matched. Only the water differed. This is a natural experiment.
 
-Robert Koch identified the cholera bacterium, *Vibrio cholerae*, in 1883–84, long after Snow had shown how it spread.
+Robert Koch identified the cholera bacterium, *Vibrio cholerae*, as the cause in 1883–84, long after Snow had shown how it spread. (The Italian anatomist Filippo Pacini had described it under the microscope in 1854, but his work was largely ignored.)
 
 ## Investigating an outbreak
 
@@ -136,7 +136,7 @@ After a picnic for 100 people, 46 became ill with vomiting within 12 hours. Inte
 
 ## Zoonoses: diseases from animals
 
-A **zoonosis** is an infectious disease that spreads between animals and people. According to the CDC, more than 6 in 10 known human infectious diseases can be spread from animals, and about three quarters of new or emerging ones come from animals. Examples include rabies, Lyme disease, West Nile virus, avian influenza and Ebola. HIV began as a related virus of chimpanzees that crossed into people in central Africa in the early twentieth century.
+A **zoonosis** is an infectious disease that spreads between animals and people. According to the CDC, more than 6 in 10 known human infectious diseases can be spread from animals, and about three quarters of new or emerging ones come from animals. Examples include rabies, Lyme disease, West Nile virus, avian influenza and Ebola. HIV-1, the virus behind the global AIDS pandemic, began as a related virus of chimpanzees that crossed into people in central Africa in the early twentieth century.
 
 The animal population in which a pathogen normally lives is its **reservoir**: fruit bats for Nipah virus, white-footed mice and other small animals for the Lyme bacterium. Spillover into people happens at contact points, and often through an intermediate host or a vector such as a tick or mosquito. Clearing forests, hunting and trading wildlife, and crowding livestock all increase contact. Public health agencies therefore watch for unusual illness in wildlife and farm animals as an early warning (the "One Health" approach).
 

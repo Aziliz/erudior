@@ -25,7 +25,7 @@
 <line x1="220" y1="183.8" x2="240" y2="183.8" stroke="#1c2833" stroke-width="2"/>
 <circle cx="230" cy="147.5" r="7" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
 <text x="230" y="362" font-size="15" text-anchor="middle">Caffeine</text>
-<text x="185.0" y="388" font-size="14" text-anchor="middle">± 10.9 and ± 10.4</text>
+<text x="185.0" y="388" font-size="14" text-anchor="middle">± 11.0 and ± 10.4</text>
 <text x="435.0" y="40" font-size="17" font-weight="bold" text-anchor="middle">SE bars</text>
 <line x1="340" y1="60" x2="340" y2="340" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="340" y1="340" x2="530" y2="340" stroke="#1c2833" stroke-width="1.5"/>

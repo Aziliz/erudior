@@ -141,9 +141,9 @@
   module_quiz: true
   topic: Descriptive statistics
   stem: A researcher keeps adding plants to a sample that started with 10. As the sample grows, what happens to the standard deviation and the standard error of plant height?
-  choices: [Both shrink toward zero, 'The SD settles near the populations true spread, while the SE keeps shrinking', Both stay the same, 'The SD shrinks, while the SE stays the same']
+  choices: [Both shrink toward zero, 'The SD settles near the population''s true spread, while the SE keeps shrinking', Both stay the same, 'The SD shrinks, while the SE stays the same']
   answer: 1
-  explanation: The SD describes how much individual plants vary, which doesnt depend on how many you measure. The SE (SD/√n) describes the precision of the mean, which improves as n grows.
+  explanation: The SD describes how much individual plants vary, which doesn't depend on how many you measure. The SE (SD/√n) describes the precision of the mean, which improves as n grows.
 - id: bio-qh-h1-20
   lesson: bio-h-statistics
   topic: Descriptive statistics
@@ -180,7 +180,7 @@
   stem: A biologist has body mass and resting metabolic rate for 30 mammal species and wants to show how the two are related. Which graph fits best?
   choices: [A bar graph of the two means, A box plot of metabolic rate, A scatter plot, A pie chart of body mass]
   answer: 2
-  explanation: Two measured variables for the same individuals (species) call for a scatter plot, where each point is one species. Bar graphs compare groups; box plots and histograms show one variables distribution.
+  explanation: Two measured variables for the same individuals (species) call for a scatter plot, where each point is one species. Bar graphs compare groups; box plots and histograms show one variable's distribution.
 - id: bio-qh-h1-25
   lesson: bio-h-statistics
   module_quiz: true
@@ -202,7 +202,7 @@
   stem: Which statements about the sample standard deviation are true? Select all that apply.
   choices: [It is in the same units as the data, It measures how much individual values spread around the mean, It shrinks toward zero as the sample size grows, It is always smaller than the standard error]
   answer: [0, 1]
-  explanation: Taking the square root returns the SD to the datas units, and it describes spread of individuals. It does not shrink with more data (the SE does), and the SE = SD/√n is smaller than the SD whenever n > 1.
+  explanation: Taking the square root returns the SD to the data's units, and it describes spread of individuals. It does not shrink with more data (the SE does), and the SE = SD/√n is smaller than the SD whenever n > 1.
 - id: bio-qh-h1-27
   lesson: bio-h-statistics
   topic: Descriptive statistics
@@ -227,7 +227,7 @@
   type: order
   stem: Put the steps for calculating a sample standard deviation in order.
   items: [Find the mean, Subtract the mean from each value, Square each deviation, Add the squared deviations, Divide by n − 1, Take the square root]
-  explanation: 's = √(Σ(x − x̄)²/(n − 1)): deviations from the mean, squared so they dont cancel, summed, divided by n − 1, and square-rooted to return to the original units.'
+  explanation: 's = √(Σ(x − x̄)²/(n − 1)): deviations from the mean, squared so they don''t cancel, summed, divided by n − 1, and square-rooted to return to the original units.'
 - id: bio-qh-h1-30
   lesson: bio-h-hypothesis-tests
   module_quiz: true
@@ -253,7 +253,7 @@
 - id: bio-qh-h1-33
   lesson: bio-h-hypothesis-tests
   topic: Hypothesis testing
-  stem: A lab tests 40 genes to see whether each ones activity differs between two groups of mice. In fact none of the genes differ. Testing each at the 0.05 level, about how many "significant" results should the lab expect by chance?
+  stem: A lab tests 40 genes to see whether each one's activity differs between two groups of mice. In fact none of the genes differ. Testing each at the 0.05 level, about how many "significant" results should the lab expect by chance?
   choices: ['0', '1', '2', '5']
   answer: 2
   explanation: 'With a true null, each test has a 5% chance of a false positive: 40 × 0.05 = 2. This is why testing many things and reporting only the hits produces false discoveries.'
@@ -277,9 +277,9 @@
   lesson: bio-h-hypothesis-tests
   topic: Hypothesis testing
   stem: Kettlewell recaptured 27.5% of dark peppered moths and 13.1% of pale ones released in a sooty wood; a chi-square test of independence gave χ² = 11.84 with 1 degree of freedom. Which conclusion is best supported?
-  choices: [Birds were proven to eat more pale moths, 'In that wood, recapture rate depended on the moths form', Moth color and recapture are independent, Dark moths are a different species from pale moths]
+  choices: [Birds were proven to eat more pale moths, 'In that wood, recapture rate depended on the moth''s form', Moth color and recapture are independent, Dark moths are a different species from pale moths]
   answer: 1
-  explanation: 'Since 11.84 > 3.84, independence is rejected: the forms were recaptured at different rates. The test shows an association, not its cause; bird predation was supported by other evidence, including Majeruss later experiment.'
+  explanation: 'Since 11.84 > 3.84, independence is rejected: the forms were recaptured at different rates. The test shows an association, not its cause; bird predation was supported by other evidence, including Majerus''s later experiment.'
 - id: bio-qh-h1-37
   lesson: bio-h-hypothesis-tests
   module_quiz: true
@@ -373,7 +373,7 @@
 - id: bio-qh-h1-49
   lesson: bio-h-papers
   topic: Scientific communication
-  stem: An abstract says a drug "strongly improved survival." What is the best way to check whether the papers data support this?
+  stem: An abstract says a drug "strongly improved survival." What is the best way to check whether the paper's data support this?
   choices: [Read the title again, 'Look at the figures, their legends and the sample sizes', Check how many times the paper has been shared online, Read the introduction]
   answer: 1
   explanation: 'Figures and legends show the actual evidence: effect size, variation, n and test results. Abstracts sometimes claim more than the data show. Popularity and background say nothing about the data.'
@@ -404,14 +404,14 @@
 - id: bio-qh-h1-53
   lesson: bio-h-papers
   topic: Scientific communication
-  stem: A genes activity is 0.80 units in control cells and 0.20 units in treated cells. What is the fold change (treated ÷ control)?
+  stem: A gene's activity is 0.80 units in control cells and 0.20 units in treated cells. What is the fold change (treated ÷ control)?
   choices: ['4, a 300% increase', '0.25, a 75% decrease', '0.60, a 60% decrease', '0.75, a 25% decrease']
   answer: 1
   explanation: 0.20/0.80 = 0.25, so activity fell to a quarter, a 75% decrease. 4 divides the wrong way; 0.60 is the difference, not the ratio; 0.75 is the fraction lost, not the fraction left.
 - id: bio-qh-h1-54
   lesson: bio-h-papers
   topic: Scientific communication
-  stem: A study finding that a sports drink improves endurance was funded by the drinks maker. What is the best response?
+  stem: A study finding that a sports drink improves endurance was funded by the drink's maker. What is the best response?
   choices: ['Reject the study, since industry funding makes results false', 'Accept the study, since funding does not affect science', Examine the methods closely and look for independent studies that test the same claim, 'Ignore the funding, since it was peer reviewed']
   answer: 2
   explanation: A conflict of interest is a reason for extra scrutiny, not automatic rejection. Funding can influence design, analysis or which results get published, so check the methods and look for independent replication.

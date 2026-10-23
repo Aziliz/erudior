@@ -920,7 +920,7 @@
   type: text
   topic: Enzyme kinetics
   stem: 'On a Lineweaver–Burk plot, the $y$-intercept equals 1 divided by ___.'
-  accept: [Vmax, V max, V_max, maximum rate, maximum velocity, the maximum rate, the maximum velocity]
+  accept: [Vmax, V max, V_max, Vₘₐₓ, maximum rate, maximum velocity, the maximum rate, the maximum velocity, maximal rate, maximal velocity, max rate, maximum reaction rate]
   explanation: |-
     Taking reciprocals of the Michaelis–Menten equation gives $1/v = (K_m/V_{\max})(1/[\text{S}]) + 1/V_{\max}$, so the $y$-intercept is $1/V_{\max}$ and the slope is $K_m/V_{\max}$.
 - id: bio-qh-0128
@@ -967,7 +967,7 @@
   type: text
   topic: Characteristics of life
   stem: 'Keeping internal conditions such as temperature, water content and pH within a narrow range, even when the outside changes, is called ___.'
-  accept: [homeostasis]
+  accept: [homeostasis, homoeostasis]
   explanation: |-
     Homeostasis is one of the characteristics of life. It usually works by negative feedback: a change triggers a response that pushes the condition back toward its set point.
 - id: bio-q-0158
@@ -1039,11 +1039,11 @@
   pairs:
     - [Independent variable, Whether flies can reach the meat]
     - [Dependent variable, Whether maggots appear on the meat]
-    - [Controlled variable, The same kind of meat in every jar]
+    - [Controlled variable, The same kinds of meat in open and covered jars]
     - [Control group, The open jars]
   distractors: [The idea that maggots come from fly eggs]
   explanation: |-
-    Redi changed only whether flies could reach the meat (independent variable) and observed maggots (dependent variable), keeping the meat, jars and room the same (controlled variables). The open jars were the baseline (control group). The idea that maggots come from fly eggs is his hypothesis.
+    Redi changed only whether flies could reach the meat (independent variable) and observed maggots (dependent variable), keeping the meat, jars and room the same for both groups (controlled variables): he used several kinds of meat, but each kind went into both an open and a covered jar. The open jars were the baseline (control group). The idea that maggots come from fly eggs is his hypothesis.
 - id: bio-q-0164
   lesson: bio-method
   type: order
@@ -1088,8 +1088,8 @@
   labels:
     - {x: 62.9, y: 17.6, text: Covalent bond}
     - {x: 51.2, y: 38.2, text: Hydrogen bond}
-    - {x: 48.5, y: 47.1, text: Slightly negative (δ−) oxygen}
-    - {x: 65.9, y: 86, text: Slightly positive (δ+) hydrogen}
+    - {x: 36.9, y: 75.1, text: Slightly negative (δ−) oxygen}
+    - {x: 68.7, y: 87.4, text: Slightly positive (δ+) hydrogen}
   distractors: [Ionic bond, Slightly positive (δ+) oxygen]
   explanation: |-
     1 is a solid line within one molecule: a covalent bond, where O and H share electrons. 2 is a dashed line between molecules: a hydrogen bond. Oxygen pulls the shared electrons toward itself, so it is slightly negative (3) and each hydrogen is slightly positive (4). There are no ionic bonds in pure water.
@@ -1145,7 +1145,7 @@
     - {x: 22.4, y: 53.1, text: Amino group}
     - {x: 69.9, y: 33.8, text: Carboxyl group}
     - {x: 55, y: 83.1, text: R group (side chain)}
-    - {x: 48.5, y: 53.1, text: Central carbon}
+    - {x: 45.6, y: 59.4, text: Central carbon}
   distractors: [Phosphate group, Peptide bond]
   explanation: |-
     Every amino acid has a central carbon bonded to an amino group (–NH₂), a carboxyl group (–COOH), a hydrogen and an R group. Only the R group differs among the 20 amino acids. Phosphate groups belong to nucleotides, and a peptide bond forms only when two amino acids join.

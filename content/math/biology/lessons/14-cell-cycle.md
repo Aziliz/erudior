@@ -36,7 +36,7 @@ The **cell cycle** is the life of a cell from the moment it forms by division to
 The M phase (mitotic phase) is division itself. It includes **mitosis**, the division of the nucleus, and **cytokinesis**, the division of the cytoplasm into two cells. The diagram traces one turn of the cycle; cells that stop dividing leave it for a resting branch called G0 (lesson 15).
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: The cell cycle
   accDescr: A new cell enters G1, where it grows. It then enters S phase, where the DNA is copied, then G2, where it prepares to divide, then mitosis, where the nucleus divides, then cytokinesis, which makes two new cells that each start again in G1. From G1 a cell can instead leave the cycle and enter G0, a non-dividing state, and some cells can return from G0 to G1.
   G1["G1: growth"] --> S["S: DNA copied"]

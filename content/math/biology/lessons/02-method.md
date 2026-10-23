@@ -44,7 +44,7 @@ Every controlled experiment has the same parts.
 
 - The **independent variable** is the one factor the experimenter deliberately changes. For Redi: whether flies can reach the meat (open jar or gauze).
 - The **dependent variable** is what is measured to see the effect. For Redi: whether maggots appear on the meat.
-- A **controlled variable** (also called a constant) is anything else that could affect the result, kept the same in every group. Redi used the same kind of meat, similar jars and the same room and time. The gauze still let air in, so "lack of air" could not explain the difference, which answered critics who said sealed jars lacked a "vital" air.
+- A **controlled variable** (also called a constant) is anything else that could affect the result, kept the same in every group. Redi put the same kinds of meat (he used several, including fish and veal) in both groups, used similar jars and the same room and time. The gauze still let air in, so "lack of air" could not explain the difference, which answered critics who said sealed jars lacked a "vital" air.
 - The **control group** is the group used as a baseline for comparison, usually the normal or untreated condition (here, the open jars). The experimental group gets the treatment being tested.
 
 The logic: if the groups differ in only one way, then a difference in the results must be caused by that one factor. Change two things at once and you cannot tell which caused the effect.

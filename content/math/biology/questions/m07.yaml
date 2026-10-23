@@ -782,7 +782,7 @@
   - {x: 11.2, y: 39.4, text: Root}
   - {x: 55.3, y: 67.5, text: Node (a common ancestor)}
   - {x: 32.9, y: 22.5, text: Branch (a lineage through time)}
-  - {x: 62.1, y: 75, text: Tip (a group being compared)}
+  - {x: 60.8, y: 75, text: Tip (a group being compared)}
   distractors: [Character, Population]
   explanation: 'The root (1) is the base of the tree, the ancestor of everything on it. A node (2) is a branch point, standing for the common ancestor of the groups above it, here species D and E. A branch (3) is a line between nodes, a lineage evolving through time. A tip (4) is the end of a branch, one of the groups being compared.'
 - id: bio-q-0772
@@ -944,7 +944,7 @@
   - 0, because the expected counts come from the data
   - '1: three categories minus 1, minus 1 more because p was estimated from the same data'
   answer: 3
-  explanation: 'Three genotype categories give $3 - 1 = 2$, and estimating $p$ from the same counts uses up one more, leaving df = 1 (critical value 3.84 at $p = 0.05$). Using 2 is the usual mistake; it makes the test too lenient.'
+  explanation: 'Three genotype categories give $3 - 1 = 2$, and estimating $p$ from the same counts uses up one more, leaving df = 1 (critical value 3.84 at the 0.05 significance level). Using 2 is the usual mistake; it makes the test too lenient.'
 - id: bio-qh-0709
   lesson: bio-h-evolution-models
   topic: Selection models
@@ -1122,12 +1122,11 @@
   type: order
   stem: Put the steps for dating a split with a molecular clock in order.
   items:
-  - Sequence the same gene in all the species being compared.
   - Find a split dated independently by fossils or geology.
-  - Calculate the rate of change from the difference across that dated split.
-  - Measure the difference between the two species of interest.
-  - Divide that difference by twice the rate per lineage.
-  explanation: 'The clock has to be calibrated with a known date before it can be used: rate = difference ÷ (2 × known time), then time = difference ÷ (2 × rate).'
+  - Measure the gene difference across that dated split.
+  - Divide that difference by twice the known time to get the rate per lineage.
+  - Divide the difference between the two species of interest by twice that rate.
+  explanation: 'The clock has to be calibrated with a known date before it can be used: rate = difference ÷ (2 × known time), then time = difference ÷ (2 × rate). Each step needs the result of the one before it.'
 - id: bio-qh-0728
   lesson: bio-h-phylogenetics
   topic: Cladistics

@@ -102,7 +102,7 @@ An **inhibitor** is a molecule that reduces an enzyme's activity.
 Cells use inhibition to regulate themselves. In *feedback inhibition*, the end product of a chain of reactions inhibits an enzyme early in the chain, so the cell stops making a product when it has enough. The diagram shows the pattern: product D, three steps away, shuts down enzyme 1.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: Feedback inhibition of a metabolic pathway
   accDescr: Enzyme 1 converts a starting molecule A into B, enzyme 2 converts B into C, and enzyme 3 converts C into the end product D. When D builds up, it binds enzyme 1 and inhibits it, slowing the whole pathway so the cell stops making D when it has enough.
   A["A"] --> E1{{"Enzyme 1"}}

@@ -129,7 +129,7 @@
   topic: Cyclins and CDKs
 - term: CDK inhibitor
   aliases: [CDK inhibitors, CKI]
-  definition: 'A protein, such as p21 or p16, that binds cyclin–CDK complexes and blocks their activity, pausing the cell cycle.'
+  definition: 'A protein that blocks CDK activity and pauses the cell cycle; p21 binds cyclin–CDK complexes, and p16 binds CDK4 and CDK6 and keeps cyclin D from activating them.'
   topic: Cyclins and CDKs
 - term: restriction point
   definition: 'The point late in G1 after which a cell is committed to finishing the cycle even if growth factors are removed; controlled by phosphorylation of Rb.'
@@ -163,7 +163,7 @@
   topic: Nondisjunction
 - term: mosaicism
   aliases: [mosaic]
-  definition: 'Having two or more genetically different cell lines in one body, for example some cells with 47 chromosomes and some with 46, from an error in mitosis after fertilization.'
+  definition: 'Having two or more genetically different cell lines in one body, for example some cells with 47 chromosomes and some with 46, usually from an error in a mitotic division after fertilization.'
   topic: Nondisjunction
 - term: polyploidy
   aliases: [polyploid, polyploids]
