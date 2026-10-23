@@ -1,0 +1,186 @@
+# Round 2 drills for alg-m3 honors lessons
+- id: alg-m3-r2-inverse-eval
+  title: Evaluate an inverse function
+  topic: Inverse functions
+  vars:
+    a: {choices: [-5, -4, -3, -2, 2, 3, 4, 5]}
+    b: {min: -9, max: 9}
+    c: {min: -12, max: 12}
+  where: ['b != 0', 'c != b']
+  calc:
+    cb: c - b
+    nb: -b
+    ans: (c - b)/a
+  prompt: 'Let $f(x) = {a:coef}x {b:signed}$. Find $f^{-1}({c})$. (Give an exact fraction if it isn''t a whole number.)'
+  answers:
+    - {name: ans, kind: fraction, lowestTerms: true, label: '$f^{-1}({c}) =$'}
+  solution: |-
+    $f^{-1}({c})$ is the input whose output is {c}, so solve $f(x) = {c}$:
+    ${a:coef}x {b:signed} = {c}$, so ${a:coef}x = {c} {nb:signed} = {cb}$ and $x = \dfrac{ {cb} }{ {a} } =$ **${ans:texfrac}$**.
+    Check: ${a}\left({ans:texfrac}\right) {b:signed} = {cb} {b:signed} = {c}$.
+
+- id: alg-m3-r2-inverse-formula
+  title: Find the inverse of a linear function
+  topic: Inverse functions
+  vars:
+    a: {choices: [-6, -5, -4, -3, -2, 2, 3, 4, 5, 6]}
+    b: {min: -9, max: 9}
+  where: ['b != 0']
+  calc:
+    nb: -b
+  prompt: 'Let $f(x) = {a:coef}x {b:signed}$. Find a formula for $f^{-1}(x)$.'
+  answers:
+    - kind: expression
+      expression: (x - b)/a
+      variables: [x]
+      label: '$f^{-1}(x) =$'
+      show: '$\dfrac{x {nb:signed}}{ {a} }$'
+  solution: |-
+    Write $y = {a:coef}x {b:signed}$ and swap $x$ and $y$: $x = {a:coef}y {b:signed}$.
+    Solve for $y$: ${a:coef}y = x {nb:signed}$, so **$f^{-1}(x) = \dfrac{x {nb:signed}}{ {a} }$**.
+    The steps of $f$ (multiply by {a}, then add {b}) are undone in reverse order: subtract {b}, then divide by {a}.
+
+- id: alg-m3-r2-plan-bill
+  title: Work backward through a data plan
+  topic: Piecewise linear models
+  vars:
+    F: {min: 25, max: 50, step: 5}
+    G: {choices: [5, 8, 10, 15, 20]}
+    r: {choices: [4, 5, 6, 8, 10]}
+    e: {min: 0.5, max: 12, step: 0.5}
+  calc:
+    extra: r*e
+    B: F + r*e
+    u: G + e
+  prompt: 'A phone plan costs {F:money0} a month and includes {G} GB of data. Each GB beyond {G} GB costs {r:money0}, charged in proportion to the amount used. One month''s bill is {B:money}. How many GB of data were used?'
+  answers:
+    - {name: u, label: 'Data used (GB)', tolerance: 0.01}
+  solution: |-
+    The model is $C(g) = {F}$ for $0 \le g \le {G}$ and $C(g) = {F} + {r}(g - {G})$ for $g > {G}$.
+    The bill is more than {F:money0}, so the second piece applies: ${F} + {r}(g - {G}) = {B}$.
+    Then ${r}(g - {G}) = {extra}$, so $g - {G} = {e}$ and $g =$ **{u}** GB. (It is more than {G}, as the second piece requires.)
+
+- id: alg-m3-r2-continuity
+  title: Choose a constant to make a piecewise function continuous
+  topic: Piecewise linear models
+  vars:
+    m: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    c: {min: 1, max: 5}
+    d: {min: -9, max: 9}
+  where: ['m != 0', 'b != 0', 'd != 0']
+  calc:
+    v: m*c + b
+    vd: m*c + b - d
+    nd: -d
+    k: (m*c + b - d)/c
+  prompt: 'For what value of $k$ is $f(x) = \begin{cases} {m:coef}x {b:signed}, & x < {c} \\ kx {d:signed}, & x \ge {c} \end{cases}$ continuous? (Give an exact fraction if it isn''t a whole number.)'
+  answers:
+    - {name: k, kind: fraction, lowestTerms: true, label: '$k =$'}
+  solution: |-
+    The only possible break is at the breakpoint $x = {c}$. There the first formula gives ${m}({c}) {b:signed} = {v}$, and the second gives ${c}k {d:signed}$.
+    Set them equal: ${c}k {d:signed} = {v}$, so ${c}k = {v} {nd:signed} = {vd}$ and $k =$ **${k:texfrac}$**.
+
+- id: alg-m3-r2-bracket-tax
+  title: Tax under a bracket schedule
+  topic: Piecewise linear models
+  vars:
+    r1: {choices: [10, 12]}
+    r2: {choices: [20, 22, 25]}
+    r3: {choices: [30, 32, 35]}
+    B1: {choices: [20000, 25000, 30000]}
+    B2: {choices: [60000, 70000, 80000]}
+    x: {min: 8000, max: 150000, step: 500}
+  calc:
+    L1: min(x, B1)
+    L2: clamp(x - B1, 0, B2 - B1)
+    L3: max(x - B2, 0)
+    t1: r1/100*L1
+    t2: r2/100*L2
+    t3: r3/100*L3
+    T: round(r1/100*L1 + r2/100*L2 + r3/100*L3, 2)
+    avgp: 100*T/x
+    marg: if(x <= B1, r1, if(x <= B2, r2, r3))
+  prompt: 'A (made-up) tax schedule charges {r1}% on income up to {B1:money0}, {r2}% on income from {B1:money0} to {B2:money0}, and {r3}% on income over {B2:money0}. For an income of {x:money0}, find the total tax and the average tax rate as a percent (1 decimal place).'
+  answers:
+    - {name: T, label: 'Tax', format: money, tolerance: 0.01}
+    - {name: avgp, label: 'Average rate (%)', format: num1, tolerance: 0.051}
+  solution: |-
+    Split the income into layers and tax each at its own rate:
+    first layer {L1:money0} × {r1}% = {t1:money}; second layer {L2:money0} × {r2}% = {t2:money}; top layer {L3:money0} × {r3}% = {t3:money}.
+    Total tax: **{T:money}**. Average rate: $\dfrac{ {T} }{ {x} } \times 100 \approx$ **{avgp:num1}%**. (The marginal rate, on the next dollar, is {marg}%.)
+
+- id: alg-m3-r2-arc-quadratic
+  title: Average rate of change of a quadratic
+  topic: Average rate of change
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -8, max: 8}
+    c: {min: -9, max: 9}
+    p: {min: -4, max: 3}
+    w: {min: 1, max: 4}
+  where: ['a != 0', 'b != 0', 'c != 0']
+  funcs:
+    f(x): a*x^2 + b*x + c
+  calc:
+    q: p + w
+    fp: f(p)
+    fq: f(p + w)
+    dy: f(p + w) - f(p)
+    arc: (f(p + w) - f(p))/w
+    s: 2*p + w
+  prompt: 'Find the average rate of change of $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$ from $x = {p}$ to $x = {q}$.'
+  answers:
+    - {name: arc, label: 'Average rate of change'}
+  solution: |-
+    $f({p}) = {fp}$ and $f({q}) = {fq}$, so the average rate is $\dfrac{ {fq} - ({fp}) }{ {q} - ({p}) } = \dfrac{ {dy} }{ {w} } =$ **{arc}**.
+    Shortcut for quadratics: $a(p + q) + b = {a}({s}) + ({b}) = {arc}$.
+
+- id: alg-m3-r2-round-trip
+  title: Average speed for a round trip
+  topic: Average rate of change
+  vars:
+    d: {choices: [60, 90, 120, 150, 180, 240]}
+    v1: {choices: [30, 40, 45, 50, 60, 70, 75]}
+    v2: {choices: [30, 40, 45, 50, 60, 70, 75]}
+  where: ['v1 != v2', 'round(4*d/v1) == 4*d/v1', 'round(4*d/v2) == 4*d/v2']
+  calc:
+    t1: d/v1
+    t2: d/v2
+    tt: d/v1 + d/v2
+    D: 2*d
+    avg: 2*d/(d/v1 + d/v2)
+    naive: (v1 + v2)/2
+  prompt: 'You drive {d} miles at {v1} mph and then return the same {d} miles at {v2} mph. What is your average speed for the whole trip, in mph (1 decimal place)?'
+  answers:
+    - {name: avg, label: 'Average speed (mph)', format: num1, tolerance: 0.051}
+  solution: |-
+    Time out: $\tfrac{ {d} }{ {v1} } = {t1}$ h. Time back: $\tfrac{ {d} }{ {v2} } = {t2}$ h. Total: {D} miles in {tt} hours.
+    Average speed $= \dfrac{ {D} }{ {tt} } \approx$ **{avg:num1}** mph. (Averaging the two speeds would give {naive} mph, but more time is spent at the slower speed.)
+
+- id: alg-m3-r2-diff-quotient
+  title: Simplify a difference quotient
+  topic: Average rate of change
+  vars:
+    a: {min: -4, max: 4}
+    b: {min: -8, max: 8}
+    c: {min: -9, max: 9}
+    p: {min: -4, max: 4}
+  where: ['a != 0', 'b != 0', 'c != 0', 'p != 0', '2*a*p + b != 0']
+  funcs:
+    f(x): a*x^2 + b*x + c
+  calc:
+    fp: f(p)
+    s0: 2*a*p + b
+    lim: 2*a*p + b
+  prompt: 'Let $f(x) = {a:coef}x^2 {b:signedcoef}x {c:signed}$. Simplify the difference quotient $\dfrac{f({p} + h) - f({p})}{h}$ for $h \ne 0$.'
+  answers:
+    - kind: expression
+      expression: 2*a*p + b + a*h
+      variables: [h]
+      label: 'Difference quotient $=$'
+      show: '${s0} {a:signedcoef}h$'
+  solution: |-
+    Expand: $f({p} + h) = {a}({p} + h)^2 + ({b})({p} + h) {c:signed} = {fp} {s0:signedcoef}h {a:signedcoef}h^2$, since the terms without $h$ add up to $f({p}) = {fp}$.
+    Subtract $f({p}) = {fp}$: ${s0:coef}h {a:signedcoef}h^2$. Divide by $h$: **${s0} {a:signedcoef}h$**.
+    As $h$ gets close to 0 this approaches {lim}, the instantaneous rate of change of $f$ at $x = {p}$.

@@ -7,7 +7,7 @@
 - {front: 'A two-digit number minus its reversal', back: '$(10a + b) - (10b + a) = 9(a - b)$: always a multiple of 9.', topic: Algebraic proof}
 - {front: 'Gap between consecutive squares', back: '$(n + 1)^2 - n^2 = 2n + 1$, an odd number. Picture: add a column of $n$, a row of $n$ and one corner dot.', topic: Algebraic proof}
 - {front: 'Square of an odd number', back: '$(2k + 1)^2 = 4k(k + 1) + 1 = 8m + 1$: odd, and 1 more than a multiple of 8.', topic: Algebraic proof}
-- {front: 'Proof by contradiction', back: 'Assume the statement is false and reach something impossible. Example: if $3 + \sqrt2 = \tfrac ab$, then $\sqrt2 = \tfrac{a - 3b}{b}$ would be rational.', topic: Algebraic proof}
+- {front: 'Proof by contradiction', back: 'Assume the statement is false and reach something impossible. Example: integers with $x^2 - y^2 = 2$ would give $(x - y)(x + y) = 2$ with factors both even or both odd, and neither works.', topic: Algebraic proof}
 - {front: 'Integers with $6x + 9y = 100$?', back: 'None: the left side is $3(2x + 3y)$, a multiple of 3, and 100 is not.', topic: Algebraic proof}
 - {front: 'What breaks the "proof" that $2 = 1$?', back: 'It divides both sides by $a - b$, which is 0 because $a = b$.', topic: Algebraic proof}
 - {front: 'Which solving steps are reversible?', back: 'Adding or subtracting the same expression, multiplying or dividing by a nonzero number, and rewriting one side. They keep the same solutions.', topic: Equivalence and extraneous solutions}

@@ -41,7 +41,7 @@
   prompt: 'Split $f(x) = (x {p:signed})^3 {q:signed}$ into its even part $E(x)$ and its odd part $O(x)$, so that $f = E + O$.'
   answers:
     - {kind: expression, expression: 3*p*x^2 + p^3 + q, variables: [x], label: '$E(x) =$', show: '${tp}x^2 {c0:signed}$'}
-    - {kind: expression, expression: x^3 + 3*p^2*x, variables: [x], label: '$O(x) =$', show: 'x^3 + {tp2}x'}
+    - {kind: expression, expression: x^3 + 3*p^2*x, variables: [x], label: '$O(x) =$', show: '$x^3 + {tp2}x$'}
   solution: |-
     Expand: $f(x) = x^3 {tp:signed}x^2 + {tp2}x {c0:signed}$.
     $E(x) = \tfrac12\big(f(x) + f(-x)\big)$ keeps the even powers (the constant counts as $x^0$), and $O(x) = \tfrac12\big(f(x) - f(-x)\big)$ keeps the odd powers.
@@ -66,8 +66,8 @@
   answer: t
   format: integer
   solution: |-
-    $h$ subtracts {hh} (adds {nhh} inside), cubes, multiplies by {a} and adds {k}. Undo the steps in reverse order, starting from {v}:
-    subtract {k}: ${v} - ({k}) = {u1}$; divide by {a}: ${u1} \div ({a}) = {u2}$; cube root: $\sqrt[3]{ {u2} } = {u3}$; add {hh}: ${u3} + ({hh}) = {t}$.
+    $h$ takes $x$ to $x {nhh:signed}$, cubes, multiplies by {a} and adds {k}. Undo the steps in reverse order, starting from {v}:
+    subtract {k}: ${v} - ({k}) = {u1}$; divide by {a}: ${u1} \div ({a}) = {u2}$; take the cube root: $\sqrt[3]{ {u2} } = {u3}$; undo the shift: ${u3} + ({hh}) = {t}$.
     So $h^{-1}({v}) =$ **{t}**. Check: $h({t}) = {a}({u3})^3 + ({k}) = {v}$.
 
 - id: a2-m1-r2-inverse-monotone
@@ -108,6 +108,6 @@
   answer: u
   format: integer
   solution: |-
-    The first {L} kWh cost ${L} \times {r1} = $ {base:money}. The bill is more than that, so the usage is past {L} kWh, in the second tier.
+    The first {L} kWh cost {L} × {r1:money} = {base:money}. The bill is more than that, so the usage is past {L} kWh, in the second tier.
     The rest of the bill is {bill:money} − {base:money} = {over:money}, which buys {over:money} ÷ {r2:money} = {extra} more kWh.
     Usage: ${L} + {extra} =$ **{u}** kWh. Check: {base:money} + {extra} × {r2:money} = {bill:money}.

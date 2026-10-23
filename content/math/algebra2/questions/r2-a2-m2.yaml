@@ -1,0 +1,652 @@
+# Round 2: new question types for a2-m2 core lessons, and the a2-m2 honors lessons
+# ---------------------------------------------------------------- 05 Complex numbers
+- id: a2-m2-r2-q01
+  lesson: alg-complex
+  type: label
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'The picture shows the powers of $i$ on the complex plane. Each curved arrow means "multiply by $i$", starting from point 1 on the positive real axis. Name the number at each numbered point.'
+  image: {src: images/a2-m2-i-cycle-blank.svg, alt: 'The complex plane with a dashed circle of radius 1. Four numbered points sit where the circle crosses the axes: on the positive real axis, the positive imaginary axis, the negative real axis and the negative imaginary axis. Curved arrows labeled times i go counterclockwise from each point to the next.'}
+  labels:
+    - {x: 80.4, y: 50.0, text: '1 (equal to i⁴)'}
+    - {x: 50.0, y: 18.2, text: 'i'}
+    - {x: 19.6, y: 50.0, text: '−1 (equal to i²)'}
+    - {x: 50.0, y: 81.8, text: '−i (equal to i³)'}
+  distractors: ['0', '1 + i']
+  explanation: |-
+    The point on the positive real axis is 1, which is $i^0$ (and $i^4$). Multiplying by $i$ gives $i$ (point 2, up the imaginary axis), then $i^2 = -1$ (point 3), then $i^3 = -i$ (point 4), and one more multiplication returns to $i^4 = 1$. All four are one unit from 0, so neither 0 nor $1 + i$ (which is $\sqrt2$ from 0, off the axes) appears.
+- id: a2-m2-r2-q02
+  lesson: alg-complex
+  type: text
+  topic: Complex numbers
+  stem: 'Simplify $i^{50}$. The answer is the real number ___.'
+  accept: ['-1', '−1']
+  explanation: |-
+    $50 = 4 \cdot 12 + 2$, so $i^{50} = i^2 = -1$. (Using the quotient 12 instead of the remainder 2 is the usual slip.)
+- id: a2-m2-r2-q03
+  lesson: alg-complex
+  type: match
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'Sort each number into its kind.'
+  pairs:
+    - ['$-\sqrt5$', Real number]
+    - ['$4i$', Pure imaginary number]
+    - ['$\sqrt{-25}$', Pure imaginary number]
+    - ['$i^2$', Real number]
+    - ['$2 - 3i$', Non-real with both parts nonzero]
+  explanation: |-
+    A number $a + bi$ is real when $b = 0$, so $-\sqrt5$ is real, and so is $i^2 = -1$. It is pure imaginary when $a = 0$ and $b \ne 0$: $4i$, and $\sqrt{-25} = 5i$. In $2 - 3i$ both parts are nonzero, so it is non-real but not pure imaginary.
+- id: a2-m2-r2-q04
+  lesson: alg-complex
+  topic: Complex numbers
+  stem: 'Which of these equal $-1$? Select all that apply.'
+  choices: ['$i^2$', '$i^4$', '$i^6$', '$\sqrt{-1}\cdot\sqrt{-1}$', '$\sqrt{(-1)(-1)}$']
+  answer: [0, 2, 3]
+  explanation: |-
+    $i^2 = -1$ by definition, and $i^6 = i^4 \cdot i^2 = -1$. Also $\sqrt{-1}\cdot\sqrt{-1} = i \cdot i = -1$. But $i^4 = 1$, and $\sqrt{(-1)(-1)} = \sqrt1 = 1$: the rule $\sqrt a\sqrt b = \sqrt{ab}$ fails when both numbers are negative, so these last two are different.
+- id: a2-m2-r2-q05
+  lesson: alg-complex
+  type: order
+  topic: Complex numbers
+  stem: 'Put the steps for writing $\dfrac{3 + i}{1 - 2i}$ in the form $a + bi$ in order.'
+  items:
+    - 'Multiply the numerator and the denominator by the conjugate $1 + 2i$'
+    - 'Expand: the numerator is $3 + 7i + 2i^2$ and the denominator is $1 + 4$'
+    - 'Replace $i^2$ by $-1$ to get $\dfrac{1 + 7i}{5}$'
+    - 'Split the fraction: $\tfrac15 + \tfrac75 i$'
+  explanation: |-
+    Multiplying by the denominator's conjugate makes the denominator real: $(1 - 2i)(1 + 2i) = 1 + 4 = 5$. The numerator is $(3 + i)(1 + 2i) = 3 + 6i + i + 2i^2 = 1 + 7i$. Dividing each part by 5 gives $\tfrac15 + \tfrac75 i$.
+
+# ---------------------------------------------------------------- 06 Quadratics with complex solutions
+- id: a2-m2-r2-q06
+  lesson: a2-complex-quadratics
+  type: text
+  topic: Quadratics with complex solutions
+  stem: 'The discriminant of $2x^2 - 3x + 5 = 0$ is ___.'
+  accept: ['-31', '−31']
+  explanation: |-
+    $b^2 - 4ac = (-3)^2 - 4(2)(5) = 9 - 40 = -31$. It is negative, so the equation has two non-real complex conjugate solutions.
+- id: a2-m2-r2-q07
+  lesson: a2-complex-quadratics
+  type: match
+  module_quiz: true
+  topic: Quadratics with complex solutions
+  stem: 'Match each value of the discriminant of a quadratic equation (with real coefficients) to the kind of solutions it has.'
+  pairs:
+    - ['$D = 49$', Two different real solutions]
+    - ['$D = 0$', One real double root]
+    - ['$D = -16$', Two non-real complex conjugate solutions]
+    - ['$D = 12$', Two different real solutions]
+  distractors: [One real solution and one non-real solution]
+  explanation: |-
+    A positive discriminant (49 or 12, whether or not it is a perfect square) gives two different real solutions; zero gives a double root; a negative one gives a conjugate pair $p \pm qi$. A real quadratic can never have exactly one non-real solution, because non-real solutions come in conjugate pairs.
+- id: a2-m2-r2-q08
+  lesson: a2-complex-quadratics
+  topic: Quadratics with complex solutions
+  stem: 'Which equations have non-real solutions? Select all that apply.'
+  choices: ['$x^2 + 4x + 5 = 0$', '$x^2 - 4x - 5 = 0$', '$3(x - 1)^2 + 2 = 0$', '$-(x + 2)^2 + 7 = 0$', '$x^2 + 9 = 0$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $x^2 + 4x + 5$: $D = 16 - 20 = -4 < 0$, non-real. $x^2 - 4x - 5$: $D = 16 + 20 = 36$, real roots 5 and $-1$. $3(x - 1)^2 + 2$: $a = 3$ and $k = 2$ have the same sign, so $(x - 1)^2 = -\tfrac23$, non-real. $-(x + 2)^2 + 7$: opposite signs, so $(x + 2)^2 = 7$ and the roots $-2 \pm \sqrt7$ are real. $x^2 + 9 = 0$ gives $x = \pm 3i$.
+- id: a2-m2-r2-q09
+  lesson: a2-complex-quadratics
+  type: order
+  module_quiz: true
+  topic: Quadratics with complex solutions
+  stem: 'Put the steps for solving $x^2 - 8x + 25 = 0$ by completing the square in order.'
+  items:
+    - 'Move the constant: $x^2 - 8x = -25$'
+    - 'Add 16 to both sides: $x^2 - 8x + 16 = -9$'
+    - 'Write the left side as a square: $(x - 4)^2 = -9$'
+    - 'Take square roots: $x - 4 = \pm 3i$'
+    - 'Add 4: $x = 4 \pm 3i$'
+  explanation: |-
+    Half of $-8$ is $-4$ and $(-4)^2 = 16$, so adding 16 completes the square. Then $(x - 4)^2 = -9$ and $\sqrt{-9} = 3i$. Check: the roots $4 \pm 3i$ add to $8 = -\tfrac ba$ and multiply to $16 + 9 = 25 = \tfrac ca$.
+- id: a2-m2-r2-q10
+  lesson: a2-complex-quadratics
+  type: text
+  topic: Quadratics with complex solutions
+  stem: 'A quadratic equation with real coefficients has the solution $-2 + 5i$. Its other solution is ___.'
+  accept: ['-2-5i', '−2−5i', '-2 - 5i', '−2 − 5i', '-5i-2', '−5i−2', '-2-5*i', '-2-i5']
+  explanation: |-
+    Non-real solutions of a real quadratic are conjugates: same real part, opposite imaginary part. So the other solution is $-2 - 5i$ (not $2 + 5i$ or $2 - 5i$: the real part stays $-2$).
+
+# ---------------------------------------------------------------- 07 Nonlinear systems
+- id: a2-m2-r2-q11
+  lesson: a2-nonlinear-systems
+  type: label
+  module_quiz: true
+  topic: Nonlinear systems
+  stem: 'Each numbered panel shows the graphs of a system made of a circle and a line. How many real solutions does each system have?'
+  image: {src: images/a2-m2-line-circle-blank.svg, alt: 'Three numbered panels, each with the same circle and a line. In panel 1 the line cuts through the circle at two marked points. In panel 2 the line touches the circle at one marked point. In panel 3 the line passes below the circle without touching it.'}
+  labels:
+    - {x: 16.7, y: 38.5, text: Two real solutions}
+    - {x: 50.0, y: 38.5, text: One real solution (tangent line)}
+    - {x: 83.3, y: 38.5, text: No real solution}
+  distractors: [Infinitely many solutions, Four real solutions]
+  explanation: |-
+    Each real solution is an intersection point. Panel 1 has two crossings, panel 2 has one touching point (the line is tangent, and substitution gives a quadratic with $D = 0$), and panel 3 has none ($D < 0$). A line and a circle can't share infinitely many points or meet four times.
+- id: a2-m2-r2-q12
+  lesson: a2-nonlinear-systems
+  type: order
+  topic: Nonlinear systems
+  stem: 'Put the steps for solving $x^2 + y^2 = 10$ and $y = x + 2$ by substitution in order.'
+  items:
+    - 'Substitute: $x^2 + (x + 2)^2 = 10$'
+    - 'Expand and collect: $2x^2 + 4x - 6 = 0$'
+    - 'Solve: $x = 1$ or $x = -3$'
+    - 'Find partners from $y = x + 2$: $(1, 3)$ and $(-3, -1)$'
+    - 'Check both points in $x^2 + y^2 = 10$'
+  explanation: |-
+    $(x + 2)^2 = x^2 + 4x + 4$, so $2x^2 + 4x + 4 = 10$, that is $2x^2 + 4x - 6 = 0$, or $x^2 + 2x - 3 = (x + 3)(x - 1) = 0$. The partners come from the linear equation. Check: $1 + 9 = 10$ and $9 + 1 = 10$.
+- id: a2-m2-r2-q13
+  lesson: a2-nonlinear-systems
+  type: text
+  topic: Nonlinear systems
+  stem: 'Substituting the line $y = 3x + k$ into the parabola $y = x^2 + x$ gives $x^2 - 2x - k = 0$. The line is tangent to the parabola when $k =$ ___.'
+  accept: ['-1', '−1']
+  explanation: |-
+    Tangent means exactly one intersection point, so the discriminant is 0: $(-2)^2 - 4(1)(-k) = 4 + 4k = 0$, so $k = -1$. Then $x^2 - 2x + 1 = (x - 1)^2 = 0$, and the line $y = 3x - 1$ touches the parabola at $(1, 2)$.
+- id: a2-m2-r2-q14
+  lesson: a2-nonlinear-systems
+  module_quiz: true
+  topic: Nonlinear systems
+  stem: 'Which systems have exactly two real solutions? Select all that apply.'
+  choices: ['$y = x^2$ and $y = 4$', '$x^2 + y^2 = 9$ and $y = 3$', '$x^2 + y^2 = 25$ and $y = x$', '$y = x^2 + 2$ and $y = 1$', '$x^2 + y^2 = 13$ and $x^2 - y^2 = 5$']
+  answer: [0, 2]
+  explanation: |-
+    $x^2 = 4$ gives $(\pm 2, 4)$: two. $x^2 + 9 = 9$ gives only $(0, 3)$: the line is tangent. $2x^2 = 25$ gives $x = \pm\tfrac{5}{\sqrt2}$, two points on $y = x$. $x^2 + 2 = 1$ has no real solution. The circle and hyperbola meet four times, at $(\pm 3, \pm 2)$.
+- id: a2-m2-r2-q15
+  lesson: a2-nonlinear-systems
+  type: match
+  topic: Nonlinear systems
+  stem: 'Match each system to the best first move.'
+  pairs:
+    - ['$y = x^2 - 1$ and $y = 2x + 2$', Substitute from the linear equation]
+    - ['$x^2 + y^2 = 20$ and $x - y = 2$', Substitute from the linear equation]
+    - ['$x^2 + y^2 = 20$ and $x^2 - y^2 = 12$', Add or subtract to eliminate a squared variable]
+    - ['$2x^2 + y^2 = 17$ and $x^2 - y^2 = 1$', Add or subtract to eliminate a squared variable]
+  distractors: [Row-reduce an augmented matrix]
+  explanation: |-
+    When one equation is linear, solve it for a variable and substitute. When both equations have only $x^2$ and $y^2$ terms, treat those as the unknowns and eliminate: adding the last pair gives $3x^2 = 18$. Row reduction is for linear systems; these systems aren't linear.
+
+# ---------------------------------------------------------------- 08 Systems in three variables
+- id: a2-m2-r2-q16
+  lesson: alg-three-var
+  type: label
+  module_quiz: true
+  topic: Three-variable systems
+  stem: 'Each numbered panel shows the three planes of a system of three linear equations in $x$, $y$ and $z$. What does each picture say about the solutions?'
+  image: {src: images/a2-m2-planes-blank.svg, alt: 'Four numbered panels of three planes each. Panel 1: three planes cross at a single marked point. Panel 2: three planes turn around one common line like pages of a book. Panel 3: three parallel stacked planes. Panel 4: three planes form the sides of a triangular tube, each pair meeting in a line, with no point on all three.'}
+  labels:
+    - {x: 25.0, y: 27.7, text: Exactly one solution}
+    - {x: 75.0, y: 22.6, text: Infinitely many solutions}
+    - {x: 25.0, y: 75.9, text: 'No solution: parallel planes'}
+    - {x: 75.0, y: 76.9, text: 'No solution: the planes meet only in pairs'}
+  distractors: [Exactly two solutions]
+  explanation: |-
+    A solution is a point on all three planes. In panel 1 they share one point; in panel 2 they share every point of a line. In panel 3 parallel planes never meet. In panel 4 each pair of planes meets in a line, but the three lines are parallel, so no point lies on all three planes. A linear system never has exactly two solutions.
+- id: a2-m2-r2-q17
+  lesson: alg-three-var
+  type: order
+  topic: Three-variable systems
+  stem: 'Put the steps of the elimination strategy for a three-variable system in order.'
+  items:
+    - 'Choose one variable to eliminate'
+    - 'Eliminate it from two different pairs of equations, getting (A) and (B)'
+    - 'Solve (A) and (B) for the other two variables'
+    - 'Back-substitute into an original equation to find the third variable'
+    - 'Check the triple in all three original equations'
+  explanation: |-
+    The same variable must be eliminated from both pairs (and the pairs must between them use all three equations), so that (A) and (B) form an ordinary two-variable system. Back-substitution then gives the third value, and checking in all three equations catches arithmetic slips.
+- id: a2-m2-r2-q18
+  lesson: alg-three-var
+  type: text
+  topic: Three-variable systems
+  stem: 'Solve $x + y + z = 10$, $x - y = 2$, $y - z = 1$. Then $x =$ ___, $y =$ ___ and $z =$ ___.'
+  accept:
+    - ['5']
+    - ['3']
+    - ['2']
+  explanation: |-
+    Write everything in terms of $y$: $x = y + 2$ and $z = y - 1$. Then $(y + 2) + y + (y - 1) = 10$, so $3y + 1 = 10$ and $y = 3$. So $x = 5$ and $z = 2$. Check: $5 + 3 + 2 = 10$, $5 - 3 = 2$, $3 - 2 = 1$.
+- id: a2-m2-r2-q19
+  lesson: alg-three-var
+  module_quiz: true
+  topic: Three-variable systems
+  stem: 'Which statements about a system of three linear equations in three variables are true? Select all that apply.'
+  choices: ['It can have exactly one solution', 'It can have exactly two solutions', 'It can have infinitely many solutions', 'It can have no solution even when no two of its planes are parallel', 'Reaching $0 = 0$ during elimination means it has exactly one solution']
+  answer: [0, 2, 3]
+  explanation: |-
+    Three planes can share one point, a whole line (or plane), or no point. "No solution" doesn't need parallel planes: three planes can meet in pairs along three parallel lines, like the sides of a tent. Two solutions is impossible, since two common points would put the whole line through them on all three planes. Reaching $0 = 0$ signals dependent equations (infinitely many solutions if the rest is consistent), not one solution.
+- id: a2-m2-r2-q20
+  lesson: alg-three-var
+  type: match
+  topic: Three-variable systems
+  stem: 'Match each result of elimination to what it tells you about the system.'
+  pairs:
+    - ['You reach $0 = 3$', No solution]
+    - ['You reach $0 = 0$, and nothing contradicts', Infinitely many solutions]
+    - ['You get $x = 2$ and $y = -1$, then $z = 4$', Exactly one solution]
+  distractors: [Exactly two solutions]
+  explanation: |-
+    A false statement means the equations contradict each other (inconsistent). A true statement such as $0 = 0$ means one equation adds no new information, so with only two independent conditions on three unknowns there are infinitely many triples. Getting a value for each variable means the planes meet at one point, $(2, -1, 4)$.
+
+# ---------------------------------------------------------------- 09 Solving systems with matrices
+- id: a2-m2-r2-q21
+  lesson: a2-matrices
+  type: label
+  module_quiz: true
+  topic: Matrices
+  stem: 'This is the augmented matrix of $x + 2y - z = 4$, $3x - y = 5$, $y + 4z = -2$. Name the numbered parts.'
+  image: {src: images/a2-m2-augmented-blank.svg, alt: 'An augmented matrix with columns headed x, y and z and a vertical bar before the last column. Rows: 1, 2, −1 bar 4; 3, −1, 0 bar 5; 0, 1, 4 bar −2. Marker 1 is under a brace beneath the first three columns, marker 2 is under a brace beneath the last column, marker 3 is on the 0 in row 2, column 3, and marker 4 is on the 2 in row 1, column 2.'}
+  labels:
+    - {x: 45.3, y: 79.4, text: Coefficient matrix}
+    - {x: 73.4, y: 79.4, text: Constants}
+    - {x: 56.2, y: 42.2, text: Zero for a missing variable}
+    - {x: 45.3, y: 28.3, text: Coefficient of y in equation 1}
+  distractors: [Determinant, Coefficient of x in equation 2]
+  explanation: |-
+    Left of the bar is the coefficient matrix (1) and right of it the constants (2). Equation 2, $3x - y = 5$, has no $z$, so its $z$-entry is 0 (3). The 2 in row 1, column 2 is the coefficient of $y$ in $x + 2y - z = 4$ (4). The coefficient of $x$ in equation 2 is the 3 at the start of row 2.
+- id: a2-m2-r2-q22
+  lesson: a2-matrices
+  type: order
+  topic: Matrices
+  stem: 'Put the steps for solving $x + 3y = 7$, $2x + y = 4$ by row reduction in order.'
+  items:
+    - 'Write the augmented matrix $\left[\begin{array}{cc|c} 1 & 3 & 7 \\ 2 & 1 & 4 \end{array}\right]$'
+    - '$R_2 - 2R_1 \to R_2$ makes row 2 $[\,0 \;\; -5 \mid -10\,]$'
+    - '$-\tfrac15 R_2 \to R_2$ makes row 2 $[\,0 \;\; 1 \mid 2\,]$, so $y = 2$'
+    - 'Back-substitute in row 1: $x + 6 = 7$, so $x = 1$'
+  explanation: |-
+    Clearing the 2 below the leading 1 gives $[\,0 \;\; 1 - 6 \mid 4 - 14\,] = [\,0 \;\; -5 \mid -10\,]$. Scaling gives $y = 2$, and row 1 gives $x = 1$. Check: $2(1) + 2 = 4$.
+- id: a2-m2-r2-q23
+  lesson: a2-matrices
+  type: text
+  topic: Matrices
+  stem: 'Apply $R_2 + 4R_1 \to R_2$ to $\left[\begin{array}{cc|c} 1 & -2 & 3 \\ -4 & 5 & 1 \end{array}\right]$. The new row 2 is 0, then ___, then (after the bar) ___.'
+  accept:
+    - ['-3', '−3']
+    - ['13']
+  explanation: |-
+    Add 4 times row 1 to row 2, entry by entry: $-4 + 4 = 0$, $5 + 4(-2) = -3$, and $1 + 4(3) = 13$. The constant after the bar changes too.
+- id: a2-m2-r2-q24
+  lesson: a2-matrices
+  topic: Matrices
+  stem: 'Which of these are valid row operations? Select all that apply.'
+  choices: ['$R_1 \leftrightarrow R_3$', '$-2R_2 \to R_2$', '$0R_3 \to R_3$', '$R_3 - 5R_1 \to R_3$', 'Add 3 to every entry of row 2']
+  answer: [0, 1, 3]
+  explanation: |-
+    Swapping rows, multiplying a row by a nonzero number, and adding a multiple of another row are the three row operations. Multiplying by 0 erases an equation and can't be undone. Adding 3 to every entry isn't a row operation: it changes $x + 2y = 5$ into $4x + 5y = 8$, a different equation with different solutions.
+- id: a2-m2-r2-q25
+  lesson: a2-matrices
+  type: match
+  module_quiz: true
+  topic: Matrices
+  stem: 'A system in $x$, $y$, $z$ has been row-reduced. Match each bottom row to what it tells you.'
+  pairs:
+    - ['$[\,0 \;\; 0 \;\; 0 \mid 6\,]$', No solution]
+    - ['$[\,0 \;\; 0 \;\; 1 \mid 6\,]$', 'z = 6']
+    - ['$[\,0 \;\; 0 \;\; 0 \mid 0\,]$, with no contradiction above it', Infinitely many solutions]
+  distractors: ['z = 0']
+  explanation: |-
+    $[\,0 \;\; 0 \;\; 0 \mid 6\,]$ says $0 = 6$, which is false. $[\,0 \;\; 0 \;\; 1 \mid 6\,]$ says $z = 6$. A zero row says $0 = 0$; then only two leading 1s remain for three variables, so (with no contradiction) there are infinitely many solutions.
+
+# ---------------------------------------------------------------- Honors: the geometry of complex numbers
+- id: a2-m2-r2-h01
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'Find $|-5 + 12i|$.'
+  choices: ['$\sqrt{119}$', '$17$', '$13$', '$7$']
+  answer: 2
+  explanation: |-
+    $|-5 + 12i| = \sqrt{(-5)^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13$. $\sqrt{119}$ comes from $144 - 25$ (treating the $i^2$ as $-1$ inside the modulus), 17 adds the parts, and 7 adds them with their signs.
+- id: a2-m2-r2-h02
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'How far apart are the points $2 + 3i$ and $-1 - i$ in the complex plane?'
+  choices: ['$\sqrt5$', '$5$', '$7$', '$25$']
+  answer: 1
+  explanation: |-
+    The distance is the modulus of the difference: $(2 + 3i) - (-1 - i) = 3 + 4i$, and $|3 + 4i| = \sqrt{9 + 16} = 5$. Adding the numbers instead gives $1 + 2i$, with modulus $\sqrt5$; 7 adds the parts without squaring; 25 forgets the square root.
+- id: a2-m2-r2-h03
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'The point $z = 4 + i$ is rotated $90°$ counterclockwise about the origin. Which complex number is its new position?'
+  choices: ['$-1 + 4i$', '$1 - 4i$', '$-4 - i$', '$4 - i$']
+  answer: 0
+  explanation: |-
+    A quarter turn counterclockwise is multiplication by $i$: $i(4 + i) = 4i + i^2 = -1 + 4i$. The point $(4, 1)$ moves to $(-1, 4)$. $1 - 4i$ is the clockwise turn (multiplying by $-i$), $-4 - i$ is the half turn, and $4 - i$ is the reflection (the conjugate).
+- id: a2-m2-r2-h04
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'Use $\dfrac1z = \dfrac{\bar z}{|z|^2}$ to write $\dfrac{1}{1 + 2i}$ in the form $a + bi$.'
+  choices: ['$1 - \tfrac12 i$', '$\tfrac13 - \tfrac23 i$', '$-\tfrac13 + \tfrac23 i$', '$\tfrac15 - \tfrac25 i$']
+  answer: 3
+  explanation: |-
+    $\bar z = 1 - 2i$ and $|z|^2 = 1^2 + 2^2 = 5$, so $\dfrac{1}{1 + 2i} = \dfrac{1 - 2i}{5} = \tfrac15 - \tfrac25 i$. Check: $(1 + 2i)(1 - 2i) = 5$, and $5 \cdot \tfrac15 = 1$. Dividing by $1 + 2 = 3$ instead of $1^2 + 2^2$ gives the thirds.
+- id: a2-m2-r2-h05
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'Complex numbers $z$ and $w$ have $|z| = 3$ and $|w| = 4$. What is $|zw|$?'
+  choices: ['$7$', '$12$', '$5$', 'It depends on $z$ and $w$, not just their moduli']
+  answer: 1
+  explanation: |-
+    Moduli multiply: $|zw| = |z|\,|w| = 12$, whatever directions $z$ and $w$ point in. It's the modulus of the *sum* that depends on the directions: $|z + w|$ can be anything from 1 to 7. The value 5 would be $|3 + 4i|$, which treats the moduli as legs of a right triangle.
+- id: a2-m2-r2-h06
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'Find the square roots of $8 - 6i$.'
+  choices: ['$\pm(3 + i)$', '$\pm(1 - 3i)$', '$\pm(3 - i)$', '$\pm(2\sqrt2 - i\sqrt6)$']
+  answer: 2
+  explanation: |-
+    Solve $x^2 - y^2 = 8$ and $x^2 + y^2 = |8 - 6i| = 10$: $x^2 = 9$, $y^2 = 1$. Since $2xy = -6 < 0$, $x$ and $y$ have opposite signs: $\pm(3 - i)$. Check: $(3 - i)^2 = 9 - 6i + i^2 = 8 - 6i$. $(3 + i)^2 = 8 + 6i$ has the wrong sign; $(1 - 3i)^2 = -8 - 6i$; and taking square roots of each part separately doesn't work.
+- id: a2-m2-r2-h07
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'Since $5 = 2^2 + 1^2$ and $10 = 3^2 + 1^2$, the product $(2 + i)(3 + i)$ writes $50$ as a sum of two squares. Which is it?'
+  choices: ['$(2 + i)(3 + i) = 5 + 5i$, so $50 = 5^2 + 5^2$', '$(2 + i)(3 + i) = 7 + i$, so $50 = 7^2 + 1^2$', '$(2 + i)(3 + i) = 6 + i$, so $50 = 6^2 + 1^2$', '$(2 + i)(3 + i) = 5 + 5i$, so $50 = 5^2 - 5^2$']
+  answer: 0
+  explanation: |-
+    $(2 + i)(3 + i) = 6 + 2i + 3i + i^2 = 5 + 5i$, and $|5 + 5i|^2 = 25 + 25 = 50 = |2 + i|^2|3 + i|^2$. The product $7 + i$ (also $50 = 49 + 1$) comes from $(2 + i)(3 - i)$, not this product. $6 + i$ multiplies only the parts, and $6^2 + 1^2 = 37$. The modulus adds the squares; it never subtracts them.
+- id: a2-m2-r2-h08
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'The solutions of $z^2 - 3z + (3 - i) = 0$ are $2 + i$ and $1 - i$. Why aren''t they a conjugate pair?'
+  choices: ['The discriminant is positive', 'One of the two solutions must be wrong', 'Conjugate pairs happen only for equations of degree 3 or more', 'The constant term $3 - i$ isn''t real, and the conjugate-pair rule needs real coefficients']
+  answer: 3
+  explanation: |-
+    Non-real roots come in conjugate pairs only when every coefficient is real. Here $c = 3 - i$, so the rule doesn't apply. Both roots check: their sum is $3 = -\tfrac ba$ and their product is $(2 + i)(1 - i) = 3 - i = \tfrac ca$. The discriminant $-3 + 4i$ isn't a real number, so "positive" doesn't apply to it.
+- id: a2-m2-r2-h09
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'For $x^3 = 15x + 4$, a cubic formula gives $x = \sqrt[3]{2 + 11i} + \sqrt[3]{2 - 11i}$. Bombelli noticed that $(2 + i)^3 = 2 + 11i$. Why did this matter?'
+  choices: ['It showed that the equation has no real solutions', 'It showed that the formula''s complex expression equals the real root $(2 + i) + (2 - i) = 4$', 'It was the first picture of complex numbers as points', 'It proved that complex numbers can be ordered by size']
+  answer: 1
+  explanation: |-
+    With $\sqrt[3]{2 \pm 11i} = 2 \pm i$, the imaginary parts cancel and the formula gives $x = 4$, a real solution ($64 = 60 + 4$). Complex numbers were needed on the way to a real answer, which helped them gain acceptance. The geometric picture came about two centuries later (Wessel, Argand, Gauss).
+- id: a2-m2-r2-h10
+  lesson: a2-m2-h-complex-plane
+  type: label
+  topic: Complex plane geometry
+  stem: 'The point at the top right is $z = 4 + 3i$. Name the numbered parts.'
+  image: {src: images/a2-m2-modulus-blank.svg, alt: 'The complex plane. A point at 4 + 3i is joined to the origin by segment 1. A right triangle has horizontal leg 2 along the real axis and vertical leg 3 rising to the point. Point 4 is the mirror image of the point below the real axis, joined to the origin by a dashed line.'}
+  labels:
+    - {x: 46.2, y: 34.8, text: 'Modulus |z| = 5'}
+    - {x: 46.2, y: 54.3, text: 'Real part, 4'}
+    - {x: 69.2, y: 34.8, text: 'Imaginary part, 3'}
+    - {x: 69.2, y: 93.5, text: 'Conjugate, 4 − 3i'}
+  distractors: ['Opposite, −4 − 3i', 'Rotation, −3 + 4i']
+  explanation: |-
+    The segment from 0 to $z$ is the modulus, $\sqrt{16 + 9} = 5$ (1). The horizontal leg is the real part 4 (2), the vertical leg the imaginary part 3 (3). The reflection across the real axis is the conjugate $4 - 3i$ (4). The opposite $-4 - 3i$ would be on the other side of the origin, and $iz = -3 + 4i$ would be in the second quadrant.
+- id: a2-m2-r2-h11
+  lesson: a2-m2-h-complex-plane
+  type: text
+  topic: Complex plane geometry
+  stem: '$|6 - 8i| =$ ___'
+  accept: ['10']
+  explanation: |-
+    $\sqrt{6^2 + (-8)^2} = \sqrt{36 + 64} = \sqrt{100} = 10$. The modulus is a distance, so it's never negative.
+- id: a2-m2-r2-h12
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'Which statements are true for all complex numbers $z$ and $w$? Select all that apply.'
+  choices: ['$|zw| = |z|\,|w|$', '$|z + w| = |z| + |w|$', '$z\bar z = |z|^2$', '$|\bar z| = |z|$', '$|iz| = i\,|z|$']
+  answer: [0, 2, 3]
+  explanation: |-
+    Moduli multiply, $z\bar z = a^2 + b^2 = |z|^2$, and reflecting across the real axis doesn't change the distance from 0. But moduli don't add: $|3| + |4i| = 7$ while $|3 + 4i| = 5$ (the triangle inequality only says $\le$). And $|iz| = |i|\,|z| = |z|$, a real number: rotating doesn't change length.
+- id: a2-m2-r2-h13
+  lesson: a2-m2-h-complex-plane
+  type: match
+  topic: Complex plane geometry
+  stem: 'Match each operation on complex numbers to what it does to points in the complex plane.'
+  pairs:
+    - ['Adding $2 + i$', Slides every point 2 right and 1 up]
+    - ['Multiplying by $i$', Turns every point 90° counterclockwise about 0]
+    - ['Multiplying by $-1$', Turns every point 180° about 0]
+    - ['Taking the conjugate', Reflects every point across the real axis]
+    - ['Multiplying by 3', Stretches every point away from 0 by a factor of 3]
+  distractors: [Reflects every point across the imaginary axis]
+  explanation: |-
+    Adding a fixed number shifts every point by the same arrow. Multiplying by $i$ sends $(a, b)$ to $(-b, a)$, a quarter turn; multiplying by $-1 = i^2$ is two quarter turns. The conjugate $a - bi$ flips the sign of the imaginary part, a reflection across the real axis. Multiplying by a positive real number scales distances from 0. Reflecting across the imaginary axis would be $z \mapsto -\bar z$.
+- id: a2-m2-r2-h14
+  lesson: a2-m2-h-complex-plane
+  topic: Complex plane geometry
+  stem: 'Solve the nonlinear system $x + y = 10$, $xy = 40$ (Cardano''s problem).'
+  choices: ['$x = 4$, $y = 10$', 'There is no solution of any kind', '$x = 5 \pm i\sqrt{15}$, with $y$ the conjugate of $x$', '$x = 5 \pm \sqrt{15}$, with $y = 10 - x$']
+  answer: 2
+  explanation: |-
+    Substitute $y = 10 - x$: $x(10 - x) = 40$, so $x^2 - 10x + 40 = 0$. The discriminant is $100 - 160 = -60$, so $x = \dfrac{10 \pm i\sqrt{60}}{2} = 5 \pm i\sqrt{15}$, and $y = 10 - x$ is the conjugate. Check: $(5 + i\sqrt{15})(5 - i\sqrt{15}) = 25 + 15 = 40$. There are no real solutions ($5 \pm \sqrt{15}$ multiply to $25 - 15 = 10$), but there are complex ones; $4 \cdot 10 = 40$ but $4 + 10 \ne 10$.
+
+# ---------------------------------------------------------------- Honors: matrix arithmetic and inverses
+- id: a2-m2-r2-h15
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: '$A$ is a $3 \times 2$ matrix and $B$ is $2 \times 4$. What are the dimensions of $AB$, and is $BA$ defined?'
+  choices: ['$AB$ is $3 \times 4$; $BA$ is not defined', '$AB$ is $3 \times 4$; $BA$ is $4 \times 3$', '$AB$ is $2 \times 2$; $BA$ is not defined', '$AB$ is $6 \times 8$; $BA$ is $8 \times 6$']
+  answer: 0
+  explanation: |-
+    For $AB$ the inner dimensions are 2 and 2, which match, and the outer ones give $3 \times 4$. For $BA$ the inner dimensions are 4 and 3, which don't match, so $BA$ is not defined. Matrix dimensions are never multiplied together like $6 \times 8$.
+- id: a2-m2-r2-h16
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: 'Compute $\begin{bmatrix} 2 & -1 \\ 3 & 0 \end{bmatrix}\begin{bmatrix} 1 & 4 \\ 2 & -2 \end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 2 & -4 \\ 6 & 0 \end{bmatrix}$', '$\begin{bmatrix} 14 & -1 \\ -2 & -2 \end{bmatrix}$', '$\begin{bmatrix} 0 & 6 \\ 3 & 12 \end{bmatrix}$', '$\begin{bmatrix} 0 & 10 \\ 3 & 12 \end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    Row 1 times column 1: $2(1) + (-1)(2) = 0$; row 1 times column 2: $2(4) + (-1)(-2) = 10$; row 2: $3(1) + 0 = 3$ and $3(4) + 0 = 12$. Multiplying entry by entry gives the first matrix, multiplying in the other order gives the second, and $6$ in place of 10 is a sign slip with $(-1)(-2)$.
+- id: a2-m2-r2-h17
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: 'For $A = \begin{bmatrix} 1 & -2 \\ 0 & 3 \end{bmatrix}$ and $B = \begin{bmatrix} 4 & 1 \\ -1 & 5 \end{bmatrix}$, find $2A - B$.'
+  choices: ['$\begin{bmatrix} -6 & -6 \\ 2 & -4 \end{bmatrix}$', '$\begin{bmatrix} -7 & -4 \\ 2 & -7 \end{bmatrix}$', '$\begin{bmatrix} -2 & -5 \\ 1 & 1 \end{bmatrix}$', '$\begin{bmatrix} 6 & -3 \\ -1 & 11 \end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    $2A = \begin{bmatrix} 2 & -4 \\ 0 & 6 \end{bmatrix}$; subtract $B$ entry by entry: $2 - 4 = -2$, $-4 - 1 = -5$, $0 - (-1) = 1$, $6 - 5 = 1$. The other matrices are $2(A - B)$, $A - 2B$ and $2A + B$.
+- id: a2-m2-r2-h18
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: 'A $3 \times 2$ matrix $N$ lists the numbers of adult and child tickets (columns) bought by three families (rows). A $2 \times 1$ matrix $P$ lists the adult and child prices. What does $NP$ give?'
+  choices: ['The price of each kind of ticket for each family, a $3 \times 2$ matrix', 'Each family''s total cost, a $3 \times 1$ matrix', 'The total number of tickets of each kind, a $1 \times 2$ matrix', 'Nothing: $NP$ is not defined']
+  answer: 1
+  explanation: |-
+    The inner dimensions (2 and 2: the two kinds of ticket) match, so $NP$ is $3 \times 1$. Each entry is (adult tickets)(adult price) + (child tickets)(child price) for one family: that family's total cost.
+- id: a2-m2-r2-h19
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: '$A$ and $B$ are invertible $3 \times 3$ matrices. Which statement is always true?'
+  choices: ['$AB = BA$', '$(AB)^{-1} = A^{-1}B^{-1}$', '$(AB)^{-1} = B^{-1}A^{-1}$', '$(A + B)^{-1} = A^{-1} + B^{-1}$']
+  answer: 2
+  explanation: |-
+    $(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AA^{-1} = I$, so the inverse of a product reverses the order. Matrix multiplication isn't commutative, so $A^{-1}B^{-1}$ usually differs from $B^{-1}A^{-1}$. And there is no sum rule for inverses: with $A = B = I$, $(2I)^{-1} = \tfrac12 I$, not $2I$.
+- id: a2-m2-r2-h20
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: 'Row-reduce $[\,A \mid I\,]$ to find the inverse of $A = \begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 0 & 3 & 1 \end{bmatrix}$.'
+  choices: ['$\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 6 & -3 & 1 \end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & -3 & 1 \end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ -6 & -3 & 1 \end{bmatrix}$', '$\begin{bmatrix} 1 & 0 & 0 \\ \tfrac12 & 1 & 0 \\ 0 & \tfrac13 & 1 \end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    $R_2 - 2R_1$ makes row 2 $[\,0 \;\; 1 \;\; 0 \mid -2 \;\; 1 \;\; 0\,]$. Then $R_3 - 3R_2$ makes row 3 $[\,0 \;\; 0 \;\; 1 \mid 6 \;\; -3 \;\; 1\,]$: the right half of row 3 is $(0, 0, 1) - 3(-2, 1, 0)$. Just negating the off-diagonal entries misses the 6, and reciprocals of entries are never the inverse. Check: row 3 of $A$ times column 1 of the answer is $0 - 6 + 6 = 0$.
+- id: a2-m2-r2-h21
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: 'Which matrix is singular (has no inverse)?'
+  choices: ['$\begin{bmatrix} 2 & -1 \\ 6 & 3 \end{bmatrix}$', '$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$', '$\begin{bmatrix} 2 & -1 \\ -6 & 3 \end{bmatrix}$']
+  answer: 3
+  explanation: |-
+    In $\begin{bmatrix} 2 & -1 \\ -6 & 3 \end{bmatrix}$ row 2 is $-3$ times row 1, so row-reducing $[\,A \mid I\,]$ produces a zero row on the left; equivalently $\det = 6 - 6 = 0$. The others have determinants 12, $-2$ and $-1$, so they are invertible (a 0 entry, as in the third, doesn't make a matrix singular).
+- id: a2-m2-r2-h22
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: 'With the key $K = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}$ and $A = 1, B = 2, \ldots, Z = 26$, a two-letter word was encoded as the column $(29, 22)$. What is the word?'
+  choices: ['OG', 'GO', 'NO', 'GA']
+  answer: 1
+  explanation: |-
+    Decode with $K^{-1} = \begin{bmatrix} 1 & -1 \\ -1 & 2 \end{bmatrix}$: $29 - 22 = 7$ and $-29 + 44 = 15$, which are G and O. Check by encoding: $K(7, 15) = (14 + 15, 7 + 15) = (29, 22)$. OG swaps the letters.
+- id: a2-m2-r2-h23
+  lesson: a2-m2-h-matrix-algebra
+  type: text
+  topic: Matrix operations
+  stem: 'If $A$ is $2 \times 5$ and $B$ is $5 \times 3$, then $AB$ has ___ rows and ___ columns.'
+  accept:
+    - ['2', 'two']
+    - ['3', 'three']
+  explanation: |-
+    The inner dimensions (5 and 5) match, and the product takes the outer ones: $2 \times 3$, with the rows of $A$ and the columns of $B$.
+- id: a2-m2-r2-h24
+  lesson: a2-m2-h-matrix-algebra
+  type: text
+  topic: Matrix operations
+  stem: 'The product of the row $\begin{bmatrix} 1 & 2 & 3 \end{bmatrix}$ and the column $\begin{bmatrix} 4 \\ 0 \\ -1 \end{bmatrix}$ is the $1 \times 1$ matrix whose entry is ___.'
+  accept: ['1']
+  explanation: |-
+    Multiply matching entries and add: $1(4) + 2(0) + 3(-1) = 4 + 0 - 3 = 1$.
+- id: a2-m2-r2-h25
+  lesson: a2-m2-h-matrix-algebra
+  type: order
+  topic: Matrix operations
+  stem: 'Put the steps for finding $A^{-1}$ by row reduction in order.'
+  items:
+    - 'Write $A$ and the identity side by side as $[\,A \mid I\,]$'
+    - 'Row-reduce until the left half is $I$, doing each operation on both halves'
+    - 'Read $A^{-1}$ from the right half'
+    - 'Check that $A$ times your answer gives $I$'
+  explanation: |-
+    Row-reducing $[\,A \mid I\,]$ solves $AX = $ each column of $I$ at once, so the right half ends up as $A^{-1}$. If a zero row appears on the left along the way, $A$ has no inverse.
+- id: a2-m2-r2-h26
+  lesson: a2-m2-h-matrix-algebra
+  topic: Matrix operations
+  stem: '$A$ is $2 \times 3$, $B$ is $3 \times 3$ and $C$ is $3 \times 2$. Which products are defined? Select all that apply.'
+  choices: ['$AB$', '$BA$', '$AC$', '$CA$', '$CB$']
+  answer: [0, 2, 3]
+  explanation: |-
+    A product needs the columns of the first to equal the rows of the second. $AB$: $(2 \times 3)(3 \times 3)$, defined, $2 \times 3$. $BA$: $(3 \times 3)(2 \times 3)$, no. $AC$: $(2 \times 3)(3 \times 2)$, defined, $2 \times 2$. $CA$: $(3 \times 2)(2 \times 3)$, defined, $3 \times 3$. $CB$: $(3 \times 2)(3 \times 3)$, no.
+- id: a2-m2-r2-h27
+  lesson: a2-m2-h-matrix-algebra
+  type: match
+  topic: Matrix operations
+  stem: 'Match each operation with matrices $A$ and $B$ to what it needs in order to be defined.'
+  pairs:
+    - ['$A + B$', A and B have the same dimensions]
+    - ['$AB$', The number of columns of A equals the number of rows of B]
+    - ['$A^{-1}$', A is square with a nonzero determinant]
+    - ['$3A$', Nothing; it is always defined]
+  distractors: [A and B are both 1 × 1]
+  explanation: |-
+    Addition is entry by entry, so the sizes must match. Multiplication pairs rows of $A$ with columns of $B$, so their lengths must match. Only square matrices can have inverses, and only those with nonzero determinant do. Scalar multiplication works for any matrix.
+
+# ---------------------------------------------------------------- Honors: determinants and Cramer's rule
+- id: a2-m2-r2-h28
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Use Cramer''s rule to solve $2x + 3y = 1$, $4x - y = 9$.'
+  choices: ['$x = -1$, $y = 2$', '$x = 2$, $y = 1$', '$x = -2$, $y = 1$', '$x = 2$, $y = -1$']
+  answer: 3
+  explanation: |-
+    $D = 2(-1) - 3(4) = -14$. $D_x = 1(-1) - 3(9) = -28$, so $x = 2$. $D_y = 2(9) - 1(4) = 14$, so $y = -1$. Check: $4 - 3 = 1$ and $8 + 1 = 9$. Forgetting the sign of $D$ flips both answers; swapping $D_x$ and $D_y$ swaps them.
+- id: a2-m2-r2-h29
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'For the system $ax + by = e$, $cx + dy = f$, which determinant is $D_y$?'
+  choices: ['$\begin{vmatrix} a & e \\ c & f \end{vmatrix}$', '$\begin{vmatrix} e & b \\ f & d \end{vmatrix}$', '$\begin{vmatrix} a & b \\ e & f \end{vmatrix}$', '$\begin{vmatrix} e & f \\ c & d \end{vmatrix}$']
+  answer: 0
+  explanation: |-
+    $D_y$ replaces the $y$-column (the second column, $b, d$) of the coefficient matrix with the constants $e, f$. The second choice is $D_x$; the last two replace a row instead of a column.
+- id: a2-m2-r2-h30
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Evaluate $\begin{vmatrix} 1 & 2 & 0 \\ 3 & -1 & 4 \\ 2 & 0 & 1 \end{vmatrix}$.'
+  choices: ['$-11$', '$-9$', '$9$', '$11$']
+  answer: 2
+  explanation: |-
+    Expand along row 1: $1\begin{vmatrix} -1 & 4 \\ 0 & 1 \end{vmatrix} - 2\begin{vmatrix} 3 & 4 \\ 2 & 1 \end{vmatrix} + 0 = 1(-1) - 2(3 - 8) = -1 + 10 = 9$. Adding the middle term instead of subtracting gives $-1 - 10 = -11$.
+- id: a2-m2-r2-h31
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'What is the area of the parallelogram spanned by the arrows from the origin to $(4, 1)$ and $(2, 3)$?'
+  choices: ['$14$', '$10$', '$5$', '$11$']
+  answer: 1
+  explanation: |-
+    The area is $|\det|$ of the matrix with these columns: $\begin{vmatrix} 4 & 2 \\ 1 & 3 \end{vmatrix} = 12 - 2 = 10$. Adding the products gives 14, and 5 is the area of the triangle with these two sides, half the parallelogram.
+- id: a2-m2-r2-h32
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Find the area of the triangle with vertices $(-1, 2)$, $(3, 4)$ and $(1, -2)$.'
+  choices: ['$20$', '$-10$', '$5$', '$10$']
+  answer: 3
+  explanation: |-
+    $\begin{vmatrix} -1 & 2 & 1 \\ 3 & 4 & 1 \\ 1 & -2 & 1 \end{vmatrix} = -1(4 + 2) - 2(3 - 1) + 1(-6 - 4) = -6 - 4 - 10 = -20$. The area is $\tfrac12|-20| = 10$. Forgetting the $\tfrac12$ gives 20; an area can't be negative.
+- id: a2-m2-r2-h33
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Setting up Cramer''s rule for a system of two equations, you find $D = 0$. What can you conclude?'
+  choices: ['The system has no solution or infinitely many; another method must decide which', 'The solution is $x = 0$, $y = 0$', 'The system has exactly one solution', 'The system has no solution']
+  answer: 0
+  explanation: |-
+    $D = 0$ means the lines are parallel or the same, so there isn't exactly one solution, and Cramer's rule can't divide by $D$. To tell the two cases apart, row-reduce or compare the equations: for example $x + y = 1$, $2x + 2y = 2$ has infinitely many solutions, while $x + y = 1$, $2x + 2y = 3$ has none.
+- id: a2-m2-r2-h34
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'Why do computers solve large systems (say 100 equations) by elimination rather than by Cramer''s rule with cofactor expansion?'
+  choices: ['Cramer''s rule gives wrong answers for large systems', 'Cramer''s rule only works for 2 or 3 equations', 'Cofactor expansion takes on the order of $n!$ steps, while elimination takes on the order of $n^3$', 'Elimination never needs to divide']
+  answer: 2
+  explanation: |-
+    Cramer's rule is correct for any size with $D \ne 0$, but computing determinants by cofactor expansion grows like $n!$ ($20!$ is already about $2.4 \times 10^{18}$), while elimination needs roughly $\tfrac13 n^3$ multiplications. Elimination does divide (to make leading 1s).
+- id: a2-m2-r2-h35
+  lesson: a2-m2-h-cramer
+  type: text
+  topic: Determinants and Cramer's rule
+  stem: 'The points $(1, 1)$, $(3, 5)$ and $(4, k)$ are collinear when $k =$ ___.'
+  accept: ['7']
+  explanation: |-
+    Collinear points make the triangle determinant 0: $\begin{vmatrix} 1 & 1 & 1 \\ 3 & 5 & 1 \\ 4 & k & 1 \end{vmatrix} = 1(5 - k) - 1(3 - 4) + 1(3k - 20) = 2k - 14 = 0$, so $k = 7$. Check with slopes: from $(1, 1)$ to $(3, 5)$ the slope is 2, and from $(3, 5)$ to $(4, 7)$ it is also 2.
+- id: a2-m2-r2-h36
+  lesson: a2-m2-h-cramer
+  type: text
+  topic: Determinants and Cramer's rule
+  stem: '$\begin{vmatrix} 5 & -2 \\ 3 & 4 \end{vmatrix} =$ ___'
+  accept: ['26']
+  explanation: |-
+    $ad - bc = 5(4) - (-2)(3) = 20 + 6 = 26$. Subtracting $-6$ is adding 6; $20 - 6 = 14$ is the sign slip.
+- id: a2-m2-r2-h37
+  lesson: a2-m2-h-cramer
+  type: order
+  topic: Determinants and Cramer's rule
+  stem: 'Put these determinants in order from smallest to largest.'
+  items:
+    - '$\begin{vmatrix} 1 & 4 \\ 2 & 1 \end{vmatrix}$'
+    - '$\begin{vmatrix} 0 & 3 \\ 2 & 0 \end{vmatrix}$'
+    - '$\begin{vmatrix} 4 & 2 \\ 2 & 1 \end{vmatrix}$'
+    - '$\begin{vmatrix} 2 & 1 \\ 1 & 3 \end{vmatrix}$'
+  explanation: |-
+    The values are $1 - 8 = -7$, $0 - 6 = -6$, $4 - 4 = 0$ and $6 - 1 = 5$. Watch the matrix with zeros on the diagonal: its determinant is $0 - 6 = -6$, not 6.
+- id: a2-m2-r2-h38
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'A $2 \times 2$ matrix $A$ has $\det A = 0$. Which statements must be true? Select all that apply.'
+  choices: ['$A$ has no inverse', 'The two columns of $A$ lie on one line through the origin', 'A system with coefficient matrix $A$ has exactly one solution', 'The parallelogram spanned by the columns has area 0', 'Every entry of $A$ is 0']
+  answer: [0, 1, 3]
+  explanation: |-
+    A zero determinant means no inverse, a flat (zero-area) parallelogram, and columns that are multiples of each other. Systems with this coefficient matrix have no solution or infinitely many, never exactly one. And $\begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$ has determinant 0 without being all zeros.
+- id: a2-m2-r2-h39
+  lesson: a2-m2-h-cramer
+  type: match
+  topic: Determinants and Cramer's rule
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Minor, The determinant left after deleting an entry's row and column]
+    - [Cofactor, A minor with its checkerboard sign attached]
+    - ['$D_x$', The determinant with the x-column replaced by the constants]
+    - [Rule of Sarrus, A diagonal shortcut for 3 × 3 determinants only]
+  distractors: [The product of the diagonal entries of any matrix]
+  explanation: |-
+    A cofactor expansion multiplies entries by their cofactors, which are signed minors. In Cramer's rule, $D_x$ swaps the constants into the $x$-column. The rule of Sarrus works only for $3 \times 3$ matrices. The product of the diagonal entries equals the determinant only for special matrices, such as triangular ones.
+- id: a2-m2-r2-h40
+  lesson: a2-m2-h-cramer
+  topic: Determinants and Cramer's rule
+  stem: 'For the system $x + 2y + z = 8$, $2x - y + z = 3$, $x + y - z = 0$, the coefficient determinant is $D = 9$. Find $D_z$ and $z$.'
+  choices: ['$D_z = 18$, $z = 2$', '$D_z = 27$, $z = 3$', '$D_z = 9$, $z = 1$', '$D_z = -27$, $z = -3$']
+  answer: 1
+  explanation: |-
+    Replace the $z$-column with the constants: $D_z = \begin{vmatrix} 1 & 2 & 8 \\ 2 & -1 & 3 \\ 1 & 1 & 0 \end{vmatrix} = 1(0 - 3) - 2(0 - 3) + 8(2 + 1) = -3 + 6 + 24 = 27$, so $z = \tfrac{27}{9} = 3$. The solution is $(1, 2, 3)$: $D_x = 9$ and $D_y = 18$ give the other two values.

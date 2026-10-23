@@ -379,8 +379,8 @@
   lesson: alg-m4-h-linear-programming
   topic: Linear programming
   stem: 'Over the workshop region with vertices $(0, 0)$, $(6, 0)$, $(4, 4)$ and $(0, 8)$, where is $P = 10x + 30y$ largest?'
-  choices: ['$(6, 0)$', '$(4, 4)$', '$(0, 8)$', 'Along the edge from $(4, 4)$ to $(0, 8)$']
-  answer: 2
+  choices: ['$(0, 8)$', '$(4, 4)$', '$(6, 0)$', 'Along the edge from $(4, 4)$ to $(0, 8)$']
+  answer: 0
   explanation: |-
     $P(0, 0) = 0$, $P(6, 0) = 60$, $P(4, 4) = 160$, $P(0, 8) = 240$. Only $(0, 8)$ gives 240. In slope terms, the level lines have slope $-\tfrac13$, flatter than the edge slope $-1$, so the sliding line last touches $(0, 8)$. There is no tie, because the level lines aren't parallel to an edge.
 - id: alg-m4-r2-h17
@@ -437,8 +437,8 @@
   lesson: alg-m4-h-linear-programming
   topic: Linear programming
   stem: 'The best corner of a problem whose variables must be whole numbers is $(1.8, 2.8)$. What should you do?'
-  choices: ['Report $(1.8, 2.8)$, since the best corner is always the answer', 'Round to $(2, 3)$ and report it', 'Check that nearby whole-number points satisfy the constraints and compare their objective values', 'Round both coordinates down, which always gives the best whole-number plan']
-  answer: 2
+  choices: ['Report $(1.8, 2.8)$, since the best corner is always the answer', 'Round to $(2, 3)$ and report it', 'Round both coordinates down, which always gives the best whole-number plan', 'Check that nearby whole-number points satisfy the constraints and compare their objective values']
+  answer: 3
   explanation: |-
     The rounded point may break a constraint (in the bakery example $(2, 3)$ needs 13 oven hours out of 12), and even an allowed rounded point may not be best. Rounding down keeps a plan allowed in problems like this, but it can miss a better one, such as $(1, 4)$ in a problem whose best corner is $(2.2, 3.4)$. Compare the allowed whole-number points near the corner.
 - id: alg-m4-r2-h24

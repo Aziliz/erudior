@@ -63,10 +63,10 @@
 - id: a1-h1-r2-h09
   lesson: a1-h1-proof
   topic: Algebraic proof
-  stem: 'To prove by contradiction that $5 + \sqrt3$ is irrational (using the fact that $\sqrt3$ is irrational), what do you assume first?'
-  choices: ['That $5 + \sqrt3$ is irrational', 'That $5 + \sqrt3 = \tfrac{a}{b}$ for integers $a$ and $b$ with $b \neq 0$', 'That $\sqrt3$ is rational', 'That $5$ is irrational']
+  stem: 'You want to prove by contradiction that no integers $x$ and $y$ satisfy $x^2 - y^2 = 6$. What do you assume first?'
+  choices: ['That no integers satisfy $x^2 - y^2 = 6$', 'That there are integers $x$ and $y$ with $x^2 - y^2 = 6$', 'That $x$ and $y$ are both even', 'That $x^2 - y^2 = 6$ has no real solutions']
   answer: 1
-  explanation: 'A proof by contradiction assumes the opposite of what it wants to prove: here, that $5 + \sqrt3$ is rational. Then $\sqrt3 = \tfrac{a}{b} - 5 = \tfrac{a - 5b}{b}$ would be rational, which contradicts the known fact. Assuming the conclusion would be circular, and assuming $\sqrt3$ is rational contradicts a known fact instead of the claim.'
+  explanation: 'A proof by contradiction assumes the opposite of the claim: that integers $x$, $y$ with $x^2 - y^2 = 6$ exist. Then $(x - y)(x + y) = 6$ with both factors even (product a multiple of 4) or both odd (product odd), and 6 is neither, which is the contradiction. Assuming the claim itself would be circular, and the equation does have real solutions, such as $x = \sqrt6$, $y = 0$.'
 - id: a1-h1-r2-h10
   lesson: a1-h1-proof
   module_quiz: true

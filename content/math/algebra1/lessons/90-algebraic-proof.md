@@ -119,16 +119,17 @@ Notice the asymmetry: to prove "always," you need a general argument; to disprov
 
 A second kind of proof assumes the statement is *false* and shows that this leads to something impossible. This is **proof by contradiction**. If correct reasoning from an assumption produces an impossibility, the assumption must have been wrong.
 
-### Example 5: A rational plus an irrational
+### Example 5: A difference of squares that is never 2
 
-Lesson 28 stated that $\sqrt2$ is irrational. (That fact can itself be proved by contradiction.) Use it to prove that $3 + \sqrt2$ is irrational.
+Prove that there are no integers $x$ and $y$ with $x^2 - y^2 = 2$.
 
-1. Suppose the opposite: $3 + \sqrt2$ is rational, say $3 + \sqrt2 = \tfrac{a}{b}$ with integers $a$ and $b$, $b \neq 0$.
-2. Subtract 3: $\sqrt2 = \tfrac{a}{b} - 3 = \tfrac{a - 3b}{b}$.
-3. $a - 3b$ and $b$ are integers and $b \neq 0$, so $\sqrt2$ would be rational. But $\sqrt2$ is irrational. Contradiction.
-4. So $3 + \sqrt2$ is irrational. ∎
+1. Suppose there were. Factor the difference of squares (Lesson 21): $(x - y)(x + y) = 2$.
+2. The two factors differ by $(x + y) - (x - y) = 2y$, an even number. So they are both even or both odd: if one were even and the other odd, their difference would be odd.
+3. If both are even, say $2j$ and $2k$, their product is $4jk$, a multiple of 4. But 2 is not a multiple of 4.
+4. If both are odd, their product is odd: $(2j + 1)(2k + 1) = 2(2jk + j + k) + 1$. But 2 is even.
+5. Every case is impossible. Contradiction, so no such integers exist. ∎
 
-Nothing in the argument depended on the 3 or on $\sqrt2$ in particular: the same steps show that a rational number plus an irrational number is always irrational.
+The same argument shows more: $x^2 - y^2$ can never be 6, 10, 14, or any number that is 2 more than a multiple of 4.
 
 ### Example 6: An equation with no whole-number solutions
 
@@ -167,5 +168,5 @@ Step 4 is the error. Because $a = b$, the quantity $a - b$ is 0, and dividing by
 - A conjecture is a guess from examples; a proof shows it holds in every case; one counterexample disproves an "always" statement.
 - Write general numbers with letters: even $2k$, odd $2k + 1$, consecutive $n, n + 1, n + 2$, two-digit $10a + b$. Use different letters for numbers that can differ.
 - Direct proof: rewrite the expression into the form you need, such as $2(\text{integer})$ or $3(\text{integer})$, by factoring.
-- Proof by contradiction: assume the opposite and reach an impossibility. It shows, for example, that a rational plus an irrational is irrational.
+- Proof by contradiction: assume the opposite and reach an impossibility. It shows, for example, that $x^2 - y^2 = 2$ has no integer solutions.
 - Every step of a proof must be legal for every value of the letters; dividing by something that could be 0 is the classic broken step.
