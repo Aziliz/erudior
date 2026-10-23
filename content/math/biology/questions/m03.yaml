@@ -1,0 +1,421 @@
+- id: bio-q-0301
+  lesson: bio-energy-atp
+  module_quiz: true
+  topic: Energy
+  stem: 'A student writes, "Plants create energy from sunlight." Which statement best corrects the student?'
+  choices:
+    - 'Plants create energy only during the day, not at night.'
+    - 'Plants get their energy from minerals in the soil, not sunlight.'
+    - 'Plants destroy light energy and replace it with chemical energy.'
+    - 'Plants convert light energy into chemical energy; energy is never created.'
+  answer: 3
+  explanation: |-
+    The first law of thermodynamics says energy is converted, never created or destroyed. Photosynthesis converts light energy into chemical energy stored in sugar. Saying light is "destroyed" breaks the same law, and soil supplies minerals, not energy.
+- id: bio-q-0302
+  lesson: bio-energy-atp
+  topic: Energy
+  stem: 'Your cells capture roughly a third of the energy in glucose as ATP. What happens to most of the rest?'
+  choices:
+    - 'It is destroyed by the chemical reactions.'
+    - 'It is stored in the carbon dioxide you exhale.'
+    - 'It is released as heat.'
+    - 'It is turned back into new glucose.'
+  answer: 2
+  explanation: |-
+    The second law of thermodynamics: every energy conversion loses some energy as heat that can no longer do work. That heat keeps birds and mammals warm. Energy cannot be destroyed (first law), CO₂ is a low-energy waste product, and remaking glucose would cost energy, not save it.
+- id: bio-q-0303
+  lesson: bio-energy-atp
+  module_quiz: true
+  topic: Energy
+  stem: 'Which of these is an anabolic process?'
+  choices:
+    - 'Joining amino acids into a protein'
+    - 'Breaking glucose down to carbon dioxide and water'
+    - 'Digesting starch into glucose'
+    - 'Breaking down stored fat to release energy'
+  answer: 0
+  explanation: |-
+    Anabolism builds large molecules from small ones and requires energy, as in protein synthesis. The other three break molecules down and release (or at least do not require) energy, so they are catabolic.
+- id: bio-q-0304
+  lesson: bio-energy-atp
+  topic: Energy
+  stem: 'The products of a reaction hold less free energy than its reactants. This reaction is'
+  choices:
+    - 'endergonic, so it needs energy from ATP to proceed'
+    - 'exergonic, so it can proceed without an energy input'
+    - 'anabolic, because it builds a larger molecule'
+    - 'impossible, because energy cannot be lost'
+  answer: 1
+  explanation: |-
+    Releasing free energy (products lower than reactants) is the definition of exergonic, and such reactions can proceed on their own (an enzyme may still be needed to make them fast). Endergonic is the opposite. The energy is not lost; it is released, often as heat.
+- id: bio-q-0305
+  lesson: bio-energy-atp
+  module_quiz: true
+  topic: ATP
+  stem: 'Which parts make up a molecule of ATP?'
+  choices:
+    - 'Adenine, deoxyribose, and three phosphate groups'
+    - 'Adenine, ribose, and three phosphate groups'
+    - 'Adenine, ribose, and two phosphate groups'
+    - 'Adenine, glucose, and three phosphate groups'
+  answer: 1
+  explanation: |-
+    ATP is adenosine (adenine + the sugar ribose) triphosphate (three phosphates). Deoxyribose is the sugar in DNA, and two phosphates describes ADP.
+- id: bio-q-0306
+  lesson: bio-energy-atp
+  topic: ATP
+  stem: 'When a cell hydrolyzes ATP to power a process, what are the products?'
+  choices:
+    - 'AMP and a second molecule of ATP'
+    - 'ADP and a molecule of glucose'
+    - 'ADP and an inorganic phosphate group'
+    - 'Adenine and three free phosphate groups'
+  answer: 2
+  explanation: |-
+    Hydrolysis removes the last phosphate: ATP + H₂O → ADP + Pᵢ + energy. The cell later recharges ADP back to ATP. Glucose is not made from ATP, and only one phosphate is removed in the usual reaction.
+- id: bio-q-0307
+  lesson: bio-energy-atp
+  module_quiz: true
+  topic: ATP
+  stem: 'A reaction needs 18 kJ/mol to proceed. It is coupled to the hydrolysis of one ATP, which releases 30.5 kJ/mol. What is the overall energy change, and can the coupled process proceed?'
+  choices:
+    - '−12.5 kJ/mol; yes, it can proceed'
+    - '+12.5 kJ/mol; no, it cannot proceed'
+    - '+48.5 kJ/mol; no, it cannot proceed'
+    - '−48.5 kJ/mol; yes, it can proceed'
+  answer: 0
+  explanation: |-
+    Add the two steps: −30.5 + 18 = −12.5 kJ/mol. A negative total means energy is released overall, so the coupled process can go. +12.5 reverses the signs; ±48.5 adds the sizes instead of combining a release with a requirement.
+- id: bio-q-0308
+  lesson: bio-energy-atp
+  topic: ATP
+  stem: 'An endergonic step requires 70 kJ/mol. If each ATP hydrolysis releases 30.5 kJ/mol, what is the smallest number of ATP that must be coupled to it?'
+  choices: ['2', '1', '4', '3']
+  answer: 3
+  explanation: |-
+    Two ATP release 61 kJ/mol, which is less than 70, so the total would still be uphill (+9 kJ/mol). Three ATP release 91.5 kJ/mol, giving −21.5 kJ/mol overall. Four would work but is not the smallest number.
+- id: bio-q-0309
+  lesson: bio-energy-atp
+  topic: ATP
+  stem: 'Your body holds only about 50 g of ATP at any moment, yet it uses roughly its own body mass of ATP every day. Which explains this?'
+  choices:
+    - 'Most ATP is stored in fat cells and released when needed.'
+    - 'ATP is constantly regenerated from ADP and phosphate.'
+    - 'ATP is absorbed directly from food in large amounts.'
+    - 'Each ATP molecule can be hydrolyzed many times without changing.'
+  answer: 1
+  explanation: |-
+    ATP is a currency, not a store. Each molecule is hydrolyzed to ADP and recharged over and over, many times a day. Long-term energy is stored as fat and glycogen, not ATP. Once hydrolyzed, ATP is ADP until it is recharged.
+- id: bio-q-0310
+  lesson: bio-energy-atp
+  module_quiz: true
+  topic: ATP
+  stem: 'In the reaction NAD⁺ + 2 electrons + H⁺ → NADH, the NAD⁺ is'
+  choices:
+    - 'oxidized, because it gains electrons'
+    - 'reduced, because it loses electrons'
+    - 'oxidized, because it loses electrons'
+    - 'reduced, because it gains electrons'
+  answer: 3
+  explanation: |-
+    Reduction is gain of electrons (OIL RIG: oxidation is loss, reduction is gain). NAD⁺ picks up two electrons and becomes NADH, the reduced, electron-carrying form. The molecule that gave up the electrons was oxidized.
+- id: bio-q-0311
+  lesson: bio-energy-atp
+  topic: Energy
+  stem: 'Why do cells break glucose down in many small steps instead of one big reaction?'
+  choices:
+    - 'So energy is released in small amounts that can be captured as ATP instead of lost as heat'
+    - 'Because a one-step reaction would release less total energy'
+    - 'Because a one-step reaction would create energy and break the first law'
+    - 'So that glucose can be broken down without any enzymes'
+  answer: 0
+  explanation: |-
+    The total energy released is the same either way (a flame releases the same amount). Small steps let the cell trap the energy in usable packets (ATP, NADH) rather than releasing it all at once as heat. Each step needs its own enzyme, and no reaction creates energy.
+- id: bio-q-0312
+  lesson: bio-photosynthesis
+  module_quiz: true
+  topic: Photosynthesis
+  stem: 'Which are the raw materials (reactants) of photosynthesis?'
+  choices:
+    - 'Glucose and oxygen'
+    - 'Oxygen and water'
+    - 'Carbon dioxide and water'
+    - 'Carbon dioxide and glucose'
+  answer: 2
+  explanation: |-
+    6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂. Glucose and oxygen are the products; they are the reactants of cellular respiration, which is why the two processes are often called reverses of each other.
+- id: bio-q-0313
+  lesson: bio-photosynthesis
+  module_quiz: true
+  topic: Photosynthesis
+  stem: 'Algae are given water whose oxygen atoms are the heavy isotope ¹⁸O, with ordinary CO₂. The O₂ gas they release contains ¹⁸O. Which conclusion is best supported?'
+  choices:
+    - 'The oxygen gas released in photosynthesis comes from carbon dioxide.'
+    - 'The oxygen gas comes equally from water and carbon dioxide.'
+    - 'The oxygen in glucose comes from water.'
+    - 'The oxygen gas released in photosynthesis comes from water.'
+  answer: 3
+  explanation: |-
+    Only the water was labeled, and the label showed up in the O₂, so the O₂ comes from splitting water (Ruben and Kamen, 1941). The reverse experiment, labeling CO₂, gave unlabeled O₂. This experiment says nothing about glucose, whose oxygen actually comes from CO₂.
+- id: bio-q-0314
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'Van Helmont''s willow gained about 164 pounds in five years while the soil lost only about 2 ounces. Where did most of the tree''s added dry mass actually come from?'
+  choices:
+    - 'Water absorbed by the roots'
+    - 'Carbon dioxide taken from the air'
+    - 'Minerals absorbed from the soil'
+    - 'Sunlight converted into matter'
+  answer: 1
+  explanation: |-
+    Most of a plant's dry mass is carbon compounds built from CO₂ fixed in the Calvin cycle. Van Helmont credited the water, because he never measured the air. The soil loss shows minerals contribute very little, and light supplies energy, not matter.
+- id: bio-q-0315
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'In Priestley''s experiments, a mouse in a sealed jar with a sprig of mint in the light survived much longer than a mouse in a sealed jar alone. The best explanation is that the mint'
+  choices:
+    - 'released oxygen that the mouse used'
+    - 'absorbed oxygen that would have harmed the mouse'
+    - 'released carbon dioxide that the mouse needed'
+    - 'absorbed heat from the mouse''s body'
+  answer: 0
+  explanation: |-
+    Photosynthesis releases O₂, which the mouse uses in cellular respiration, and also takes up the CO₂ the mouse exhales. The mouse needs oxygen, not carbon dioxide.
+- id: bio-q-0316
+  lesson: bio-photosynthesis
+  module_quiz: true
+  topic: Photosynthesis
+  stem: 'Most leaves look green because chlorophyll'
+  choices:
+    - 'absorbs green light more strongly than any other color'
+    - 'gives off green light when it is struck by sunlight'
+    - 'absorbs little green light and reflects it'
+    - 'absorbs green light and uses it most efficiently'
+  answer: 2
+  explanation: |-
+    The color you see is the light that is not absorbed. Chlorophyll absorbs mostly blue-violet and red light, so green is reflected and transmitted to your eye.
+- id: bio-q-0317
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'Engelmann lit a strand of alga with a spectrum of colors. Oxygen-seeking bacteria gathered mostly along the parts lit by blue and red light. What did this show?'
+  choices:
+    - 'Photosynthesis releases oxygen fastest in blue and red light.'
+    - 'The bacteria are attracted to blue and red light.'
+    - 'Green light drives photosynthesis fastest.'
+    - 'The alga has chlorophyll only in the blue- and red-lit sections.'
+  answer: 0
+  explanation: |-
+    The bacteria were an oxygen detector: they crowded where O₂ was being released, so the rate of photosynthesis (the action spectrum) peaks in blue and red, matching chlorophyll's absorption. The bacteria respond to oxygen, not light, and chlorophyll runs along the whole strand.
+- id: bio-q-0318
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'Where in a chloroplast do the light-dependent reactions take place?'
+  choices:
+    - 'In the stroma'
+    - 'In the outer chloroplast membrane'
+    - 'In the cytoplasm outside the chloroplast'
+    - 'In the thylakoid membranes'
+  answer: 3
+  explanation: |-
+    Chlorophyll, the photosystems, the electron transport chain and ATP synthase are all in the thylakoid membranes. The stroma is where the Calvin cycle runs.
+- id: bio-q-0319
+  lesson: bio-photosynthesis
+  module_quiz: true
+  topic: Photosynthesis
+  stem: 'Which products of the light-dependent reactions are used to power the Calvin cycle?'
+  choices: ['Oxygen and glucose', 'Carbon dioxide and water', 'ATP and NADPH', 'ADP and NADP⁺']
+  answer: 2
+  explanation: |-
+    The light reactions charge up ATP and NADPH; the Calvin cycle spends them to reduce CO₂ to sugar and returns ADP and NADP⁺ to be recharged. O₂ is a by-product that leaves the leaf.
+- id: bio-q-0320
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'To make 2 molecules of glucose, how many CO₂, ATP, and NADPH does the Calvin cycle use?'
+  choices:
+    - '6 CO₂, 18 ATP, 12 NADPH'
+    - '12 CO₂, 36 ATP, 24 NADPH'
+    - '12 CO₂, 24 ATP, 36 NADPH'
+    - '2 CO₂, 6 ATP, 4 NADPH'
+  answer: 1
+  explanation: |-
+    One glucose (6 carbons) needs 6 CO₂, 18 ATP and 12 NADPH, so two glucose need 12 CO₂, 36 ATP and 24 NADPH. The second choice is the amount for one glucose; the third swaps ATP and NADPH.
+- id: bio-q-0321
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'An Elodea sprig releases 36 bubbles of oxygen in 3 minutes. What is the rate of photosynthesis?'
+  choices:
+    - '108 bubbles per minute'
+    - '12 bubbles per minute'
+    - '33 bubbles per minute'
+    - '3 bubbles per minute'
+  answer: 1
+  explanation: |-
+    Rate = bubbles ÷ time = 36 ÷ 3 = 12 bubbles per minute. Multiplying gives 108, subtracting gives 33.
+- id: bio-q-0322
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'A plant''s rate of photosynthesis rises with light intensity and then levels off at a plateau. On the plateau, which change is most likely to increase the rate?'
+  choices:
+    - 'Raising the light intensity further'
+    - 'Lowering the temperature to 5 °C'
+    - 'Removing some of the plant''s leaves'
+    - 'Raising the carbon dioxide concentration'
+  answer: 3
+  explanation: |-
+    On the plateau, light is no longer the limiting factor, so more light does nothing. Some other factor, often CO₂, is now limiting; raising it raises the plateau. Cold slows the Calvin cycle enzymes, and fewer leaves means less photosynthesis.
+- id: bio-q-0323
+  lesson: bio-photosynthesis
+  topic: Photosynthesis
+  stem: 'A plant is moved from bright light into darkness. Within seconds, the Calvin cycle slows to a stop. Why?'
+  choices:
+    - 'Calvin cycle enzymes need to absorb light directly.'
+    - 'Carbon dioxide cannot enter leaves in the dark.'
+    - 'It runs out of the ATP and NADPH made by the light reactions.'
+    - 'Rubisco is destroyed as soon as light is removed.'
+  answer: 2
+  explanation: |-
+    The Calvin cycle does not use light itself, but it depends on the ATP and NADPH that only the light reactions make. Once those run out, it stops. This is why "light-independent" is more accurate than "dark reactions."
+- id: bio-q-0324
+  lesson: bio-respiration
+  module_quiz: true
+  topic: Cellular respiration
+  stem: 'In a eukaryotic cell, where do glycolysis, the Krebs cycle, and the electron transport chain take place, in that order?'
+  choices:
+    - 'Cytoplasm; mitochondrial matrix; inner mitochondrial membrane'
+    - 'Mitochondrial matrix; cytoplasm; outer mitochondrial membrane'
+    - 'Cytoplasm; inner mitochondrial membrane; mitochondrial matrix'
+    - 'Inner mitochondrial membrane; mitochondrial matrix; cytoplasm'
+  answer: 0
+  explanation: |-
+    Glycolysis happens in the cytoplasm, before pyruvate enters the mitochondrion. The Krebs cycle runs in the matrix, and the electron transport chain is built into the folded inner membrane (cristae), where the H⁺ gradient forms.
+- id: bio-q-0325
+  lesson: bio-respiration
+  topic: Cellular respiration
+  stem: 'What is the net yield of glycolysis from one molecule of glucose?'
+  choices:
+    - '2 ATP, 2 NADH, and 2 pyruvate'
+    - '4 ATP, 2 NADH, and 2 pyruvate'
+    - '2 ATP, 6 CO₂, and 2 pyruvate'
+    - '30 ATP, 10 NADH, and 2 pyruvate'
+  answer: 0
+  explanation: |-
+    Glycolysis makes 4 ATP but spends 2 in its investment phase, so the net is 2 ATP, plus 2 NADH and 2 pyruvate. No CO₂ is released in glycolysis; that happens in the mitochondrion. About 30 ATP is the total for all of respiration.
+- id: bio-q-0326
+  lesson: bio-respiration
+  module_quiz: true
+  topic: Cellular respiration
+  stem: 'What is the role of oxygen in aerobic respiration?'
+  choices:
+    - 'It combines with carbon from glucose to form carbon dioxide.'
+    - 'It splits glucose into two pyruvate molecules in glycolysis.'
+    - 'It becomes part of the ATP molecules made by ATP synthase.'
+    - 'It accepts electrons at the end of the electron transport chain, forming water.'
+  answer: 3
+  explanation: |-
+    Oxygen is the final electron acceptor; it combines with electrons and H⁺ to make water, keeping the chain flowing. The CO₂ comes from the carbon in glucose during pyruvate oxidation and the Krebs cycle, and glycolysis needs no oxygen at all.
+- id: bio-q-0327
+  lesson: bio-respiration
+  topic: Cellular respiration
+  stem: 'A person breathes oxygen gas labeled with the isotope ¹⁸O. In which product of respiration does the label appear?'
+  choices: ['Carbon dioxide', 'Water', 'Glucose', 'ATP']
+  answer: 1
+  explanation: |-
+    Inhaled O₂ accepts electrons at the end of the electron transport chain and becomes water. The oxygen atoms in exhaled CO₂ come from glucose and water, not from the O₂ you breathe, a common misconception.
+- id: bio-q-0328
+  lesson: bio-respiration
+  topic: Cellular respiration
+  stem: 'Cyanide blocks the last protein of the electron transport chain, so electrons cannot be passed to oxygen. What is the most direct effect?'
+  choices:
+    - 'Glycolysis stops immediately because it requires oxygen.'
+    - 'The Krebs cycle speeds up and makes extra ATP to compensate.'
+    - 'Oxygen use and ATP production by chemiosmosis both stop.'
+    - 'The cell starts producing more carbon dioxide.'
+  answer: 2
+  explanation: |-
+    With the chain blocked, no H⁺ is pumped and no O₂ is used, so oxidative phosphorylation stops, and the cell loses most of its ATP supply. Glycolysis does not need oxygen, and the Krebs cycle soon stops too, because NADH cannot unload and NAD⁺ runs out.
+- id: bio-q-0329
+  lesson: bio-respiration
+  module_quiz: true
+  topic: Cellular respiration
+  stem: 'Using about 2.5 ATP per NADH and 1.5 ATP per FADH₂, how many ATP are made from 10 NADH, 2 FADH₂, and 4 ATP made directly?'
+  choices: ['38', '29', '25', '32']
+  answer: 3
+  explanation: |-
+    10 × 2.5 = 25, 2 × 1.5 = 3, and 25 + 3 + 4 = 32. Using the older values of 3 and 2 gives 30 + 4 + 4 = 38; 25 counts only the NADH; 29 forgets the 3 ATP from FADH₂.
+- id: bio-q-0330
+  lesson: bio-respiration
+  topic: Cellular respiration
+  stem: 'Older textbooks say one glucose yields 36 to 38 ATP; current estimates are about 30 to 32. Why the difference?'
+  choices:
+    - 'Cells today make less ATP than cells did when the books were written.'
+    - 'Older figures forgot to count the ATP made in glycolysis.'
+    - 'Older figures assumed 3 ATP per NADH and 2 per FADH₂; measurements show fewer.'
+    - 'Older figures included ATP made by photosynthesis.'
+  answer: 2
+  explanation: |-
+    The difference comes from the conversion factors. The link between electron transport and ATP synthase is an H⁺ gradient, and measurements give about 2.5 and 1.5 ATP per NADH and FADH₂, not 3 and 2. Including glycolysis was never the issue, and cells have not changed.
+- id: bio-q-0331
+  lesson: bio-respiration
+  module_quiz: true
+  topic: Fermentation
+  stem: 'What is the main function of fermentation?'
+  choices:
+    - 'To regenerate NAD⁺ so that glycolysis can continue making ATP'
+    - 'To make about 30 extra ATP when oxygen is absent'
+    - 'To produce oxygen for the electron transport chain'
+    - 'To turn lactate into glucose for the Krebs cycle'
+  answer: 0
+  explanation: |-
+    Without oxygen, NADH cannot unload in the electron transport chain and NAD⁺ runs out, which would stop glycolysis. Fermentation passes NADH's electrons to pyruvate, regenerating NAD⁺. It makes no ATP itself; all 2 ATP per glucose come from glycolysis.
+- id: bio-q-0332
+  lesson: bio-respiration
+  topic: Fermentation
+  stem: 'Bread dough rises because the yeast in it'
+  choices:
+    - 'release oxygen during photosynthesis'
+    - 'release carbon dioxide during alcoholic fermentation'
+    - 'release lactic acid gas during lactic acid fermentation'
+    - 'release water vapor during the Krebs cycle'
+  answer: 1
+  explanation: |-
+    Alcoholic fermentation converts pyruvate to ethanol and CO₂; the CO₂ bubbles make the dough rise (the ethanol evaporates during baking). Yeast are fungi and cannot photosynthesize, and lactate is not a gas.
+- id: bio-q-0333
+  lesson: bio-respiration
+  topic: Fermentation
+  stem: 'A culture of cells needs 300 ATP. Without oxygen (2 ATP per glucose), how many glucose molecules must it use?'
+  choices: ['10', '600', '15', '150']
+  answer: 3
+  explanation: |-
+    300 ÷ 2 = 150 glucose. With oxygen, about 300 ÷ 30 = 10 would be enough. 600 multiplies instead of dividing; 15 is the ratio between the two methods.
+- id: bio-q-0334
+  lesson: bio-respiration
+  topic: Cellular respiration
+  stem: 'How many grams of CO₂ are produced when 90 g of glucose is completely oxidized? (Glucose = 180 g/mol; CO₂ = 44 g/mol.)'
+  choices: ['44 g', '132 g', '90 g', '264 g']
+  answer: 1
+  explanation: |-
+    90 g is 0.5 mol of glucose. Each mole makes 6 mol CO₂, so 3 mol × 44 g/mol = 132 g. 264 g is the amount from a full mole (180 g); 44 g forgets the factor of 6.
+- id: bio-q-0335
+  lesson: bio-respiration
+  topic: Cellular respiration
+  stem: 'A potted plant is kept in a sealed, dark container. The CO₂ level inside steadily rises. Which conclusion is best supported?'
+  choices:
+    - 'Plants photosynthesize faster in the dark.'
+    - 'Plants respire only when they cannot photosynthesize.'
+    - 'Plant cells carry out cellular respiration.'
+    - 'The plant is fixing CO₂ through the Calvin cycle.'
+  answer: 2
+  explanation: |-
+    Rising CO₂ in the dark means the plant is releasing it by respiration. Plant cells respire all the time, day and night; in light, photosynthesis usually outpaces respiration so the plant takes up CO₂ overall. The data cannot show respiration stops in light, and fixing CO₂ would lower the level.
+- id: bio-q-0336
+  lesson: bio-respiration
+  topic: Fermentation
+  stem: 'A day or two after a hard workout, your muscles ache. What is the best current explanation?'
+  choices:
+    - 'Tiny injuries to muscle fibers and the repair process that follows'
+    - 'Lactic acid that stays in the muscles for several days'
+    - 'Muscles running out of ATP until the next meal'
+    - 'Muscle cells switching to alcoholic fermentation'
+  answer: 0
+  explanation: |-
+    Lactate made during hard exercise is cleared from muscle within about an hour, so it cannot explain soreness days later. Delayed soreness comes from small injuries to muscle fibers and inflammation during repair. Human muscle cells use lactic acid fermentation, never alcoholic fermentation.

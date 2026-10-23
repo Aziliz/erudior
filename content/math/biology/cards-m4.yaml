@@ -1,0 +1,29 @@
+- {front: Phases of the cell cycle, back: 'Interphase: G1 (growth) → S (DNA replication) → G2 (preparation); then M phase: mitosis and cytokinesis.', topic: Cell cycle}
+- {front: Typical human cell cycle (24 h), back: 'G1 about 11 h, S about 8 h, G2 about 4 h, M about 1 h.', topic: Cell cycle}
+- {front: Chromosome vs sister chromatid, back: 'After S phase a chromosome has two identical sister chromatids joined at the centromere; it is still one chromosome. Count centromeres to count chromosomes.', topic: Cell cycle}
+- {front: 'Stages of mitosis, in order', back: 'Prophase → metaphase → anaphase → telophase (then cytokinesis).', topic: Mitosis}
+- {front: Prophase, back: 'Chromosomes condense; spindle forms; nuclear envelope breaks down.', topic: Mitosis}
+- {front: Metaphase, back: 'Chromosomes line up at the middle of the cell, attached to spindle fibers from both poles.', topic: Mitosis}
+- {front: Anaphase, back: 'Sister chromatids separate and move to opposite poles; chromosome count in the cell briefly doubles.', topic: Mitosis}
+- {front: Telophase, back: 'Chromosomes reach the poles; nuclear envelopes re-form; chromosomes uncoil.', topic: Mitosis}
+- {front: Cytokinesis in animal vs plant cells, back: 'Animal: cleavage furrow pinches the cell. Plant: a cell plate forms and becomes a new wall.', topic: Mitosis}
+- {front: Mitotic index, back: '(cells in mitosis ÷ total cells) × 100%', topic: Mitosis}
+- {front: Time in a stage from a snapshot, back: 'Time in stage = (cells in stage ÷ total cells) × length of the cell cycle.', topic: Cell cycle}
+- {front: Cell cycle checkpoints, back: 'G1: size, nutrients, growth factors, DNA damage. G2: DNA fully and correctly copied. Spindle (metaphase): all chromosomes attached.', topic: Cell cycle regulation}
+- {front: G0, back: 'A non-dividing state outside the cycle (mature nerve and heart muscle cells); cells are active but not dividing.', topic: Cell cycle regulation}
+- {front: Cyclins and CDKs, back: 'Cyclin levels rise and fall each cycle; a CDK is active only when bound to its cyclin and then phosphorylates targets to drive the next phase.', topic: Cell cycle regulation}
+- {front: Apoptosis, back: 'Programmed cell death that removes damaged or unneeded cells without inflammation.', topic: Cell cycle regulation}
+- {front: Proto-oncogene vs tumor suppressor gene, back: 'Proto-oncogene = gas pedal (RAS); overactive mutation → oncogene, one copy enough. Tumor suppressor = brake (p53, RB); usually both copies must be lost.', topic: Cancer}
+- {front: p53, back: 'Tumor suppressor that halts the cycle when DNA is damaged and triggers apoptosis if repair fails; mutated in about half of human cancers.', topic: Cancer}
+- {front: Benign vs malignant tumor, back: 'Benign stays in place. Malignant invades nearby tissue and can metastasize (spread through blood or lymph).', topic: Cancer}
+- {front: Cell number after n doublings, back: 'N = N₀ × 2ⁿ; 10 doublings ≈ ×1,000; 30 doublings ≈ ×1 billion.', topic: Cancer}
+- {front: 'Totipotent vs pluripotent vs multipotent', back: 'Totipotent: every cell type including placenta (zygote). Pluripotent: every body cell type (embryonic stem cells, iPSCs). Multipotent: several related types (blood stem cells).', topic: Stem cells}
+- {front: Induced pluripotent stem cells, back: 'Body cells (such as skin cells) reprogrammed by adding four genes to act like embryonic stem cells (Yamanaka, 2006).', topic: Stem cells}
+- {front: Diploid vs haploid, back: 'Diploid (2n): two sets of chromosomes, as in body cells (human 46). Haploid (n): one set, as in gametes (human 23).', topic: Meiosis}
+- {front: Homologous chromosomes vs sister chromatids, back: 'Homologs: one from each parent, same genes, possibly different versions. Sister chromatids: identical copies made in S phase.', topic: Meiosis}
+- {front: Meiosis I vs meiosis II, back: 'Meiosis I separates homologs (2n → n, reduction). Meiosis II separates sister chromatids (like mitosis).', topic: Meiosis}
+- {front: Mitosis vs meiosis, back: 'Mitosis: 1 division, 2 identical diploid cells. Meiosis: 2 divisions, 4 genetically different haploid cells; homologs pair and cross over.', topic: Meiosis}
+- {front: Three sources of genetic variation in sexual reproduction, back: 'Crossing over (prophase I), independent assortment (metaphase I), random fertilization.', topic: Meiosis}
+- {front: Gamete combinations from independent assortment, back: '2ⁿ, where n = number of homologous pairs; humans 2²³ = 8,388,608.', topic: Meiosis}
+- {front: Nondisjunction in meiosis I vs II, back: 'Meiosis I: all four gametes abnormal (two n + 1, two n − 1). Meiosis II: two normal, one n + 1, one n − 1.', topic: Meiosis}
+- {front: Egg vs sperm production, back: 'Each female meiosis gives one egg plus polar bodies; each male meiosis gives four sperm.', topic: Meiosis}

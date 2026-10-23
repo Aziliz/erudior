@@ -1,0 +1,404 @@
+- id: bio-q-0401
+  lesson: bio-cell-cycle
+  module_quiz: true
+  topic: Cell cycle
+  stem: 'During which phase of the cell cycle is the DNA replicated?'
+  choices: ['Prophase', 'G1 phase', 'Anaphase', 'S phase']
+  answer: 3
+  explanation: |-
+    DNA is copied in the S (synthesis) phase of interphase, before mitosis begins. By prophase the chromosomes already consist of two sister chromatids. G1 is growth before copying; anaphase is when the copies separate.
+- id: bio-q-0402
+  lesson: bio-cell-cycle
+  topic: Cell cycle
+  stem: 'Which statement best describes interphase?'
+  choices:
+    - 'The cell rests and carries out almost no activity until it divides.'
+    - 'The nucleus divides and the chromosomes separate.'
+    - 'The cell grows, carries out its normal functions, and replicates its DNA.'
+    - 'The cytoplasm divides to form two daughter cells.'
+  answer: 2
+  explanation: |-
+    Interphase (G1, S, G2) is the busiest part of the cycle: growth, normal work, and DNA replication. Calling it a resting phase is a common misconception. Dividing the nucleus is mitosis, and dividing the cytoplasm is cytokinesis.
+- id: bio-q-0403
+  lesson: bio-cell-cycle
+  module_quiz: true
+  topic: Mitosis
+  stem: 'A cell has 12 chromosomes in G1. How many chromosomes and chromatids does it have in G2?'
+  choices:
+    - '24 chromosomes and 24 chromatids'
+    - '12 chromosomes and 24 chromatids'
+    - '12 chromosomes and 12 chromatids'
+    - '6 chromosomes and 12 chromatids'
+  answer: 1
+  explanation: |-
+    After S phase each chromosome has two sister chromatids joined at one centromere. It is still one chromosome, so the count stays 12, with 24 chromatids. Counting chromatids as chromosomes gives 24; halving is what meiosis does, not interphase.
+- id: bio-q-0404
+  lesson: bio-cell-cycle
+  topic: Mitosis
+  stem: 'A human body cell (46 chromosomes) is in anaphase of mitosis. How many chromosomes are in the whole cell at this moment?'
+  choices: ['92', '46', '23', '184']
+  answer: 0
+  explanation: |-
+    In anaphase the 46 pairs of sister chromatids separate, and each chromatid now counts as a chromosome: 92 in the cell, 46 moving to each pole. After cytokinesis each daughter cell has 46.
+- id: bio-q-0405
+  lesson: bio-cell-cycle
+  topic: Mitosis
+  stem: 'Chromosomes are lined up along the middle of the cell, each attached to spindle fibers from both poles. Which stage is this?'
+  choices: ['Prophase', 'Anaphase', 'Telophase', 'Metaphase']
+  answer: 3
+  explanation: |-
+    Lining up at the middle (the metaphase plate) defines metaphase. In prophase the chromosomes are still condensing, in anaphase the chromatids are moving apart, and in telophase they have reached the poles.
+- id: bio-q-0406
+  lesson: bio-cell-cycle
+  topic: Mitosis
+  stem: 'Which sequence lists the stages of mitosis in order?'
+  choices:
+    - 'Metaphase, prophase, anaphase, telophase'
+    - 'Prophase, metaphase, anaphase, telophase'
+    - 'Prophase, anaphase, metaphase, telophase'
+    - 'Interphase, prophase, telophase, anaphase'
+  answer: 1
+  explanation: |-
+    Chromosomes condense (prophase), line up (metaphase), separate (anaphase), and arrive at the poles as new nuclei form (telophase). Interphase is not part of mitosis.
+- id: bio-q-0407
+  lesson: bio-cell-cycle
+  topic: Mitosis
+  stem: 'Why do plant cells form a cell plate during cytokinesis instead of a cleavage furrow?'
+  choices:
+    - 'Plant cells do not have a cell membrane to pinch.'
+    - 'Plant cells divide only by binary fission.'
+    - 'Their rigid cell wall prevents the cell from pinching in two.'
+    - 'The cell plate is needed to separate the sister chromatids.'
+  answer: 2
+  explanation: |-
+    A plant cell is enclosed by a stiff wall, so it builds a new wall from the middle outward instead of pinching. Plant cells do have membranes, binary fission is the prokaryote process, and the chromatids are already separated in anaphase.
+- id: bio-q-0408
+  lesson: bio-cell-cycle
+  module_quiz: true
+  topic: Mitosis
+  stem: 'In a root tip sample of 300 cells, 24 are in some stage of mitosis. What is the mitotic index?'
+  choices: ['8%', '24%', '8.7%', '92%']
+  answer: 0
+  explanation: |-
+    Mitotic index = 24 ÷ 300 × 100% = 8%. Dividing by the 276 non-dividing cells gives 8.7%; 92% is the share in interphase; 24% treats the count as a percent.
+- id: bio-q-0409
+  lesson: bio-cell-cycle
+  topic: Cell cycle
+  stem: 'In an unsynchronized sample of 400 cells, 20 are in metaphase. The full cell cycle takes 20 hours. About how long does metaphase last?'
+  choices: ['20 minutes', '5 minutes', '60 minutes', '6 hours']
+  answer: 2
+  explanation: |-
+    The fraction of cells in a stage equals the fraction of time spent in it: 20 ÷ 400 = 0.05, and 0.05 × 20 h = 1 h = 60 minutes.
+- id: bio-q-0410
+  lesson: bio-cell-cycle
+  module_quiz: true
+  topic: Mitosis
+  stem: 'Compared with the parent cell, the two daughter cells produced by mitosis are'
+  choices:
+    - 'genetically identical, with the same number of chromosomes'
+    - 'genetically identical, with half the number of chromosomes'
+    - 'genetically different, with the same number of chromosomes'
+    - 'genetically different, with half the number of chromosomes'
+  answer: 0
+  explanation: |-
+    Mitosis gives each daughter cell one copy of every chromosome, so they match the parent in number and genes (apart from rare copying errors). Halving the number and creating genetic differences are features of meiosis.
+- id: bio-q-0411
+  lesson: bio-cell-cycle
+  topic: Cell cycle
+  stem: 'A graph of DNA content per cell shows the amount rising steadily from 1 unit to 2 units over several hours, then staying at 2 until it suddenly drops back to 1. The rising section corresponds to'
+  choices: ['G1 phase', 'S phase', 'Anaphase', 'Cytokinesis']
+  answer: 1
+  explanation: |-
+    DNA content doubles gradually as it is replicated in S phase. G1 holds steady at 1 unit, and the sudden drop back to 1 is cell division (cytokinesis), when the DNA is split between two cells.
+- id: bio-q-0412
+  lesson: bio-cell-cycle
+  topic: Mitosis
+  stem: 'In onion roots, the mitotic index is 15% in the region just behind the tip and 2% in a region farther back. Which conclusion is best supported?'
+  choices:
+    - 'Cells near the tip spend more time in interphase.'
+    - 'Cells farther back have more chromosomes.'
+    - 'Mitosis takes longer in cells farther back.'
+    - 'Cells near the tip are dividing much more actively.'
+  answer: 3
+  explanation: |-
+    A higher mitotic index means a larger share of cells are dividing, as expected in the growth zone near a root tip. More time in interphase would lower the index. The index says nothing about chromosome number, and a slower mitosis would raise the index, not lower it.
+- id: bio-q-0413
+  lesson: bio-cancer
+  module_quiz: true
+  topic: Cell cycle regulation
+  stem: 'What does the spindle (metaphase) checkpoint check before allowing anaphase to begin?'
+  choices:
+    - 'That the cell has grown large enough to divide'
+    - 'That the DNA has been replicated'
+    - 'That every chromosome is attached to spindle fibers from both poles'
+    - 'That growth factors are present outside the cell'
+  answer: 2
+  explanation: |-
+    The spindle checkpoint delays anaphase until all chromosomes are correctly attached, so each daughter gets one copy of each. Cell size and growth factors are checked at G1, and completion of DNA replication at G2.
+- id: bio-q-0414
+  lesson: bio-cancer
+  topic: Cell cycle regulation
+  stem: 'When a cell in S phase was fused with a cell in G1, the G1 nucleus began replicating its DNA early. Which conclusion is best supported?'
+  choices:
+    - 'DNA can be copied only when two nuclei share one cell.'
+    - 'The cytoplasm of the S-phase cell contains signals that trigger DNA replication.'
+    - 'The G1 nucleus had already finished G1 before the fusion.'
+    - 'Cell fusion damages DNA, which triggers replication.'
+  answer: 1
+  explanation: |-
+    The G1 nucleus was pushed into S phase ahead of schedule by something in the S-phase cell, pointing to chemical signals in the cytoplasm (later identified as cyclin–CDK complexes). Single-nucleus cells copy DNA normally, and damage halts the cycle rather than speeding it up.
+- id: bio-q-0415
+  lesson: bio-cancer
+  topic: Cell cycle regulation
+  stem: 'How do cyclins and cyclin-dependent kinases (CDKs) behave during the cell cycle?'
+  choices:
+    - 'CDK levels rise and fall; cyclins stay constant and are always active.'
+    - 'Both are made only during mitosis and destroyed during interphase.'
+    - 'Cyclins are made once in the life of a cell and never broken down.'
+    - 'Cyclin levels rise and fall; CDKs stay fairly constant but are active only when bound to cyclin.'
+  answer: 3
+  explanation: |-
+    Cyclins are made and destroyed each cycle (hence the name). CDKs are present all the time but act only when a cyclin binds; destroying the cyclin switches the CDK off. This rise and fall times the transitions of the cycle.
+- id: bio-q-0416
+  lesson: bio-cancer
+  module_quiz: true
+  topic: Cancer
+  stem: 'A mutation leaves the RAS protein, which relays "divide" signals from growth factors, permanently switched on. This mutation has changed'
+  choices:
+    - 'a proto-oncogene into an oncogene'
+    - 'a tumor suppressor gene into an oncogene'
+    - 'an oncogene into a proto-oncogene'
+    - 'a proto-oncogene into a tumor suppressor gene'
+  answer: 0
+  explanation: |-
+    RAS is a normal gas-pedal gene (a proto-oncogene). An overactive, stuck-on version is an oncogene, and one mutated copy is enough. Tumor suppressor genes are brakes, and cancer involves their loss, not their creation.
+- id: bio-q-0417
+  lesson: bio-cancer
+  topic: Cancer
+  stem: 'Cells that have lost both working copies of the p53 gene are exposed to DNA-damaging radiation. What is the most likely result, compared with normal cells?'
+  choices:
+    - 'The cells repair their DNA faster than normal cells.'
+    - 'The cells stop dividing permanently and enter G0.'
+    - 'Damaged cells keep dividing and pass on mutations instead of stopping or undergoing apoptosis.'
+    - 'The cells are unaffected because p53 only works during mitosis.'
+  answer: 2
+  explanation: |-
+    p53 halts the cycle at G1 when DNA is damaged and triggers apoptosis if repair fails. Without it, damaged cells keep dividing and mutations accumulate, which is why p53 is mutated in about half of human cancers.
+- id: bio-q-0418
+  lesson: bio-cancer
+  topic: Cancer
+  stem: 'Children with inherited retinoblastoma often develop tumors in both eyes at a young age. Knudson''s two-hit explanation is that these children'
+  choices:
+    - 'inherit one damaged copy of a tumor suppressor gene, so a single new mutation in a cell is enough'
+    - 'inherit two damaged copies of an oncogene, so no new mutations are needed'
+    - 'inherit an oncogene that only becomes active in the eyes'
+    - 'are exposed to more ultraviolet light than other children'
+  answer: 0
+  explanation: |-
+    Both copies of the RB tumor suppressor gene must be lost. Inherited cases start with one bad copy in every cell, so one more hit in any retinal cell is enough, making tumors earlier and more numerous. Non-inherited cases need two hits in the same cell.
+- id: bio-q-0419
+  lesson: bio-cancer
+  module_quiz: true
+  topic: Cancer
+  stem: 'Which feature distinguishes a malignant tumor from a benign tumor?'
+  choices:
+    - 'Its cells divide more than normal cells.'
+    - 'It forms a mass of abnormal cells.'
+    - 'It begins from a single abnormal cell.'
+    - 'Its cells can invade nearby tissue and spread to other parts of the body.'
+  answer: 3
+  explanation: |-
+    Both kinds of tumor are masses of abnormally dividing cells that started from one cell. Only malignant tumors invade and metastasize, and metastasis causes most cancer deaths.
+- id: bio-q-0420
+  lesson: bio-cancer
+  topic: Cancer
+  stem: 'Starting from one cell, about how many cells are there after 20 doublings?'
+  choices: ['40', 'About 1 million', '400', 'About 1 billion']
+  answer: 1
+  explanation: |-
+    2²⁰ = 1,048,576, about a million. Since 2¹⁰ ≈ 1000, 20 doublings give about 1000 × 1000. 40 is 2 × 20 (adding instead of multiplying), and about a billion takes 30 doublings.
+- id: bio-q-0421
+  lesson: bio-cancer
+  topic: Cancer
+  stem: 'Tumor cells in a dish increase from 500 to 8,000 in 48 hours. What is their doubling time?'
+  choices: ['12 hours', '16 hours', '3 hours', '6 hours']
+  answer: 0
+  explanation: |-
+    8000 ÷ 500 = 16 = 2⁴, so there were 4 doublings, and 48 ÷ 4 = 12 hours. Using 16 as the number of doublings gives 3 hours; 16 hours assumes 3 doublings.
+- id: bio-q-0422
+  lesson: bio-cancer
+  topic: Cancer
+  stem: 'Why does the risk of most cancers increase with age?'
+  choices:
+    - 'Older cells stop having checkpoints entirely.'
+    - 'Cancer is caused by a single mutation that appears at a set age.'
+    - 'Several mutations must build up in the same cell line, and that takes time.'
+    - 'Older people have more cells, so each cell divides faster.'
+  answer: 2
+  explanation: |-
+    Most cancers need multiple mutations in proto-oncogenes and tumor suppressor genes, so the chance that one cell has collected enough rises the longer we live. A single mutation is almost never enough, and checkpoints do not simply switch off with age.
+- id: bio-q-0423
+  lesson: bio-cancer
+  module_quiz: true
+  topic: Stem cells
+  stem: 'Which statement about stem cells is correct?'
+  choices:
+    - 'Adult stem cells are pluripotent, while embryonic stem cells are multipotent.'
+    - 'Embryonic stem cells are pluripotent, while most adult stem cells are multipotent.'
+    - 'Stem cells cannot divide; they only differentiate.'
+    - 'Induced pluripotent stem cells are taken directly from early embryos.'
+  answer: 1
+  explanation: |-
+    Embryonic stem cells can become any body cell type (pluripotent); adult stem cells, such as blood stem cells, make a limited range (multipotent). Stem cells self-renew by dividing. iPSCs are reprogrammed body cells, such as skin cells, which is why they avoid using embryos.
+- id: bio-q-0424
+  lesson: bio-cancer
+  topic: Cancer
+  stem: 'Chemotherapy often causes hair loss and damage to the lining of the gut. Why?'
+  choices:
+    - 'Cancer cells move into the hair follicles and gut during treatment.'
+    - 'The drugs act only on cells in G0.'
+    - 'Hair and gut cells are the source of most cancers.'
+    - 'Many chemotherapy drugs target rapidly dividing cells, including normal ones.'
+  answer: 3
+  explanation: |-
+    Hair follicles and the gut lining divide rapidly, like cancer cells, so drugs that attack dividing cells harm them too. Cells in G0 are not dividing, so they are largely spared.
+- id: bio-q-0425
+  lesson: bio-cancer
+  topic: Cell cycle regulation
+  stem: 'Mature nerve cells in the brain almost never divide. In which part of the cell cycle do they remain?'
+  choices: ['S phase', 'G2', 'G0', 'Metaphase']
+  answer: 2
+  explanation: |-
+    Cells that leave the cycle after G1 and stop dividing are in G0. They are fully active, just not dividing. S, G2 and metaphase are all stages on the way to division.
+- id: bio-q-0426
+  lesson: bio-meiosis
+  module_quiz: true
+  topic: Meiosis
+  stem: 'Human body cells have 46 chromosomes. How many chromosomes does a normal human egg cell have?'
+  choices: ['23', '46', '92', '22']
+  answer: 0
+  explanation: |-
+    Gametes are haploid: n = 23, one from each homologous pair. Fertilization restores 2n = 46. 22 is the number of autosomes in a gamete, leaving out the sex chromosome.
+- id: bio-q-0427
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'How do homologous chromosomes differ from sister chromatids?'
+  choices:
+    - 'Homologs are identical copies; sister chromatids come from different parents.'
+    - 'Homologs carry different genes; sister chromatids carry the same genes.'
+    - 'There is no difference; the terms mean the same thing.'
+    - 'Homologs come from different parents and may carry different versions of genes; sister chromatids are identical copies.'
+  answer: 3
+  explanation: |-
+    One homolog came from each parent; they carry the same genes in the same order but possibly different versions. Sister chromatids are made by copying one chromosome in S phase, so they are identical (before crossing over).
+- id: bio-q-0428
+  lesson: bio-meiosis
+  module_quiz: true
+  topic: Meiosis
+  stem: 'What separates during anaphase I of meiosis?'
+  choices:
+    - 'Sister chromatids, while homologous chromosomes stay together'
+    - 'Homologous chromosomes, while sister chromatids stay together'
+    - 'Both homologous chromosomes and sister chromatids'
+    - 'Nothing; the cell divides without separating chromosomes'
+  answer: 1
+  explanation: |-
+    Anaphase I pulls homologs to opposite poles; sister chromatids stay joined until anaphase II. This is what halves the chromosome number, and it is the key difference from mitosis, where sister chromatids separate.
+- id: bio-q-0429
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'During which stage does crossing over occur?'
+  choices: ['Prophase I', 'Metaphase II', 'Anaphase I', 'Telophase II']
+  answer: 0
+  explanation: |-
+    Crossing over happens when homologs are paired closely along their length, which is in prophase I. By anaphase I they are already separating, and in meiosis II homologs are no longer together.
+- id: bio-q-0430
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'A species has 2n = 10. Ignoring crossing over, how many genetically different gametes can independent assortment produce?'
+  choices: ['10', '25', '32', '1024']
+  answer: 2
+  explanation: |-
+    There are n = 5 pairs, each able to line up 2 ways: 2⁵ = 32. 10 adds instead of multiplying; 25 is 5²; 1024 is 2¹⁰, using 2n instead of n.
+- id: bio-q-0431
+  lesson: bio-meiosis
+  module_quiz: true
+  topic: Meiosis
+  stem: 'A fruit fly has 2n = 8. Ignoring crossing over, how many different chromosome combinations are possible in a zygote produced by two flies?'
+  choices: ['16', '64', '32', '256']
+  answer: 3
+  explanation: |-
+    Each parent can make 2⁴ = 16 kinds of gametes, and any egg can meet any sperm: 16 × 16 = 256. 16 counts gametes from one parent only; 64 and 32 come from using 8 or 2 × 16.
+- id: bio-q-0432
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'A cell with 2n = 20 completes meiosis I. What does each resulting cell contain?'
+  choices:
+    - '10 chromosomes, each made of 1 chromatid'
+    - '10 chromosomes, each made of 2 chromatids'
+    - '20 chromosomes, each made of 2 chromatids'
+    - '20 chromosomes, each made of 1 chromatid'
+  answer: 1
+  explanation: |-
+    Meiosis I separates homologs, halving the number to 10, but the sister chromatids stay together until meiosis II. There is no DNA replication between the two divisions, so the gametes end up with 10 single-chromatid chromosomes.
+- id: bio-q-0433
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'One homologous pair fails to separate in meiosis I, but meiosis II is normal. What are the four gametes?'
+  choices:
+    - 'Two with an extra chromosome (n + 1) and two missing one (n − 1)'
+    - 'Two normal, one n + 1, and one n − 1'
+    - 'All four normal'
+    - 'Four with an extra chromosome (n + 1)'
+  answer: 0
+  explanation: |-
+    Both homologs go to one cell in meiosis I, so that cell's two products each get an extra copy and the other cell's two products each lack it. Nondisjunction in meiosis II instead gives two normal gametes, one n + 1 and one n − 1.
+- id: bio-q-0434
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'Which is true of meiosis but not of mitosis?'
+  choices:
+    - 'Sister chromatids separate at an anaphase.'
+    - 'The DNA is replicated beforehand, during S phase.'
+    - 'A spindle moves the chromosomes.'
+    - 'Homologous chromosomes pair up and exchange segments.'
+  answer: 3
+  explanation: |-
+    Pairing of homologs (synapsis) and crossing over happen only in prophase I of meiosis. Sister chromatids separate in mitosis and in meiosis II, DNA replicates before both, and both use a spindle.
+- id: bio-q-0435
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'Van Beneden found that in a roundworm, the egg nucleus and sperm nucleus each contributed 2 chromosomes and the fertilized egg had 4. What did this support?'
+  choices:
+    - 'Sperm contribute more chromosomes than eggs.'
+    - 'Chromosome number doubles in every generation.'
+    - 'Gametes carry half the chromosome number of body cells.'
+    - 'Only the egg passes chromosomes to the offspring.'
+  answer: 2
+  explanation: |-
+    Each gamete brought half of the zygote's number, and the two halves added up to the body-cell number. This pointed to a reduction division (meiosis) that keeps the chromosome number constant across generations.
+- id: bio-q-0436
+  lesson: bio-meiosis
+  module_quiz: true
+  topic: Meiosis
+  stem: 'Trisomy 21 (Down syndrome) usually results from'
+  choices:
+    - 'crossing over between chromosome 21 and its homolog'
+    - 'nondisjunction, producing a gamete with an extra chromosome 21'
+    - 'a mutation in a single gene on chromosome 21'
+    - 'a gamete that is missing chromosome 21'
+  answer: 1
+  explanation: |-
+    If chromosome 21 fails to separate in meiosis, a gamete gets two copies; after fertilization the zygote has three (47 chromosomes). Crossing over is normal and does not change chromosome number, and a missing chromosome would give 45, not 47.
+- id: bio-q-0437
+  lesson: bio-meiosis
+  topic: Meiosis
+  stem: 'How does meiosis in females differ from meiosis in males?'
+  choices:
+    - 'Females make four eggs per meiosis; males make one sperm.'
+    - 'Females skip meiosis II, so eggs are diploid.'
+    - 'Only males use crossing over during meiosis.'
+    - 'Females make one egg and small polar bodies per meiosis; males make four sperm.'
+  answer: 3
+  explanation: |-
+    Unequal division of the cytoplasm gives one large egg (keeping stored nutrients) plus polar bodies that break down, while each male meiosis gives four sperm. Both sexes complete both divisions, and crossing over happens in both.

@@ -1,0 +1,410 @@
+- id: bio-q-0901
+  lesson: bio-homeostasis
+  module_quiz: true
+  topic: Homeostasis
+  stem: Which of these is an example of negative feedback?
+  choices:
+  - Oxytocin strengthening contractions that release more oxytocin during childbirth
+  - Sweating when body temperature rises, which cools the body back toward 37 °C
+  - Activated platelets releasing chemicals that activate more platelets
+  - Ripening fruit releasing ethylene that makes nearby fruit ripen and release more ethylene
+  answer: 1
+  explanation: 'In negative feedback, the response reverses the change: sweating lowers a temperature that rose. The other three are positive feedback, where the response amplifies the change until an event (birth, a sealed wound, ripe fruit) ends it.'
+- id: bio-q-0902
+  lesson: bio-homeostasis
+  module_quiz: true
+  topic: Homeostasis
+  stem: Why does the body rely on negative feedback, rather than positive feedback, to hold variables such as temperature steady?
+  choices:
+  - Positive feedback is too slow to respond to changes.
+  - Negative feedback needs no sensors or effectors.
+  - Negative feedback opposes any change, so it is self-correcting; positive feedback would push the variable further from its set point.
+  - Positive feedback only works through hormones.
+  answer: 2
+  explanation: Holding a set point requires a response that reverses deviations. Positive feedback amplifies them, which suits events that must be completed (childbirth, clotting) but would make a variable run away. Both kinds use sensors and effectors, and positive feedback can involve nerves as well as hormones.
+- id: bio-q-0903
+  lesson: bio-homeostasis
+  topic: Homeostasis
+  stem: A person steps out into freezing wind. Which pair of responses does the hypothalamus trigger to keep the core warm?
+  choices:
+  - Widening of skin blood vessels and sweating
+  - Widening of skin blood vessels and shivering
+  - Narrowing of skin blood vessels and sweating
+  - Narrowing of skin blood vessels and shivering
+  answer: 3
+  explanation: Vasoconstriction keeps warm blood away from the cold skin, reducing heat loss, and shivering muscles release heat. Vasodilation and sweating are the responses to overheating; mixing them with cold responses would work against each other.
+- id: bio-q-0904
+  lesson: bio-homeostasis
+  topic: Homeostasis
+  stem: After a meal, blood glucose is 150 mg/dL; the set point is 90 mg/dL. Suppose insulin action removes half of the excess above the set point every 30 minutes. What is the glucose level 1 hour later?
+  choices:
+  - 120 mg/dL
+  - 90 mg/dL
+  - 75 mg/dL
+  - 105 mg/dL
+  answer: 3
+  explanation: The excess is $150 - 90 = 60$. After 30 min it is 30, after 60 min it is 15, so glucose is $90 + 15 = 105$ mg/dL. 120 is the value after only one interval; 90 assumes the excess disappears completely; 75 halves the whole glucose level instead of the excess.
+- id: bio-q-0905
+  lesson: bio-homeostasis
+  module_quiz: true
+  topic: Nervous system
+  stem: A sensory neuron is stimulated first weakly (but above threshold) and then much more strongly. How do its action potentials differ?
+  choices:
+  - They are larger with the stronger stimulus.
+  - They travel faster with the stronger stimulus.
+  - They are the same size, but they fire more often with the stronger stimulus.
+  - Only the weak stimulus produces action potentials.
+  answer: 2
+  explanation: 'Action potentials are all-or-none: once threshold is reached, each impulse has the same size and speed. Stimulus strength is coded by how frequently they fire.'
+- id: bio-q-0906
+  lesson: bio-homeostasis
+  topic: Nervous system
+  stem: Repeating Helmholtz's experiment, a nerve is stimulated 60 mm from a muscle (twitch after 3.0 ms) and 15 mm from it (twitch after 1.5 ms). What is the conduction speed?
+  choices:
+  - 20 m/s
+  - 10 m/s
+  - 40 m/s
+  - 30 m/s
+  answer: 3
+  explanation: 'Subtracting cancels the muscle''s own delay: $\dfrac{60 - 15}{3.0 - 1.5} = \dfrac{45 \text{ mm}}{1.5 \text{ ms}} = 30$ mm/ms $= 30$ m/s. Using one trial alone (60/3.0 or 15/1.5) includes the muscle delay and gives 20 or 10; 60/1.5 mixes the trials.'
+- id: bio-q-0907
+  lesson: bio-homeostasis
+  topic: Nervous system
+  stem: Diseases that damage myelin slow nerve signals. Why does myelin normally speed conduction?
+  choices:
+  - It produces extra neurotransmitter.
+  - It makes action potentials larger.
+  - It insulates the axon so the impulse jumps from gap to gap instead of traveling continuously.
+  - It pumps sodium ions into the axon.
+  answer: 2
+  explanation: Myelin is a fatty insulating sheath with gaps; the action potential is regenerated only at the gaps, so it effectively jumps along the axon. It doesn't change the size of the impulse or release transmitters, and the ion pumps are in the neuron's own membrane.
+- id: bio-q-0908
+  lesson: bio-homeostasis
+  topic: Nervous system
+  stem: What makes the inside of a neuron become positive during the rising phase of an action potential?
+  choices:
+  - Potassium ions rushing in through opened channels
+  - Sodium ions being pumped out by the sodium-potassium pump
+  - Sodium ions rushing in through opened channels
+  - Neurotransmitter molecules entering the axon
+  answer: 2
+  explanation: At threshold, sodium channels open and positive sodium ions flood in. Potassium then flows out (not in) to restore the negative inside. The pump maintains the resting gradients but is too slow to produce the spike.
+- id: bio-q-0909
+  lesson: bio-homeostasis
+  topic: Nervous system
+  stem: A drug blocks the enzyme that breaks down acetylcholine at the synapses between nerves and muscles. What would you predict?
+  choices:
+  - The muscle can no longer receive any signal.
+  - Acetylcholine stays in the synapse and keeps stimulating the muscle, causing prolonged contraction.
+  - Nerve impulses stop traveling along the axon.
+  - The muscle relaxes permanently because acetylcholine is used up.
+  answer: 1
+  explanation: Normally the transmitter is broken down so each signal is brief. If it isn't removed, it keeps binding receptors and the muscle keeps being stimulated. Conduction along the axon itself is unaffected.
+- id: bio-q-0910
+  lesson: bio-homeostasis
+  module_quiz: true
+  topic: Endocrine system
+  stem: Bayliss and Starling cut all the nerves between the intestine and the pancreas, yet acid entering the intestine still made the pancreas release digestive juice. What did they conclude?
+  choices:
+  - A chemical messenger carried in the blood links the two organs.
+  - The pancreas works without any signal at all.
+  - The nerves had grown back during the experiment.
+  - Acid travels from the intestine directly into the pancreas.
+  answer: 0
+  explanation: 'With the nerves cut, the signal had to travel another way: through the blood. They extracted the messenger (secretin), the first hormone discovered. The response was triggered by acid in the intestine, so it wasn''t spontaneous.'
+- id: bio-q-0911
+  lesson: bio-homeostasis
+  module_quiz: true
+  topic: Endocrine system
+  stem: Several hours after a meal, blood glucose drops below the set point. Which response restores it?
+  choices:
+  - The pancreas releases insulin, and cells take up more glucose.
+  - The pancreas releases glucagon, and the liver breaks down glycogen and releases glucose.
+  - The pancreas releases glucagon, and muscle cells take up glucose from the blood.
+  - The liver stores more glucose as glycogen.
+  answer: 1
+  explanation: Low glucose triggers glucagon from the alpha cells, which makes the liver release glucose from its glycogen stores. Insulin and glycogen storage lower blood glucose, which would make the problem worse.
+- id: bio-q-0912
+  lesson: bio-homeostasis
+  topic: Endocrine system
+  stem: What is the underlying problem in type 1 diabetes?
+  choices:
+  - Cells stop responding to insulin even though plenty is made.
+  - The immune system destroys the insulin-making beta cells, so little insulin is produced.
+  - The pancreas makes too much glucagon.
+  - The kidneys fail to remove glucose from the blood.
+  answer: 1
+  explanation: 'Type 1 diabetes is autoimmune: beta cells are destroyed, so the body makes little or no insulin. Insulin resistance describes type 2 diabetes. Kidneys normally reabsorb glucose rather than remove it.'
+- id: bio-q-0913
+  lesson: bio-transport-systems
+  module_quiz: true
+  topic: Circulatory system
+  stem: Blood leaving the right ventricle goes next to the
+  choices:
+  - lungs, through the pulmonary artery
+  - body, through the aorta
+  - left atrium, through a valve
+  - lungs, through the pulmonary vein
+  answer: 0
+  explanation: The right side of the heart pumps oxygen-poor blood to the lungs through the pulmonary artery. The aorta leaves the left ventricle; the pulmonary veins bring blood back from the lungs to the left atrium.
+- id: bio-q-0914
+  lesson: bio-transport-systems
+  topic: Circulatory system
+  stem: Which blood vessel carries oxygen-rich blood?
+  choices:
+  - The pulmonary artery
+  - The pulmonary vein
+  - The vena cava
+  - A vein returning blood from the leg
+  answer: 1
+  explanation: The pulmonary veins carry freshly oxygenated blood from the lungs to the left atrium. Vessels are named for direction (arteries away from the heart, veins toward it), not oxygen content, so the pulmonary artery carries oxygen-poor blood.
+- id: bio-q-0915
+  lesson: bio-transport-systems
+  module_quiz: true
+  topic: Circulatory system
+  stem: During exercise, a student's heart rate is 80 beats per minute and the stroke volume is 75 mL. What is the cardiac output?
+  choices:
+  - 0.6 L/min
+  - 60 L/min
+  - 6.0 L/min
+  - 155 mL/min
+  answer: 2
+  explanation: Cardiac output = heart rate × stroke volume $= 80 \times 75 = 6000$ mL/min $= 6.0$ L/min. 0.6 and 60 are unit-conversion slips (1000 mL = 1 L); 155 adds the two numbers instead of multiplying.
+- id: bio-q-0916
+  lesson: bio-transport-systems
+  topic: Circulatory system
+  stem: William Harvey calculated that the heart pumps far more blood in a day than a person eats and drinks, or than the whole body contains. What did this show?
+  choices:
+  - The liver makes new blood very quickly.
+  - The same blood must circulate repeatedly instead of being made from food and used up.
+  - Blood is mostly water absorbed from the air.
+  - Arteries and veins are not connected.
+  answer: 1
+  explanation: Thousands of liters a day can't be made from food or held in the body, so the same blood must loop round. That contradicted Galen's idea of constant production and consumption, and it predicted connections between arteries and veins (capillaries), found later.
+- id: bio-q-0917
+  lesson: bio-transport-systems
+  topic: Circulatory system
+  stem: Why does exchange of oxygen and nutrients with tissues happen in capillaries rather than in arteries?
+  choices:
+  - Capillaries have valves that push substances out.
+  - Blood in capillaries is under the highest pressure.
+  - Capillaries carry blood directly from the heart.
+  - Capillary walls are one cell thick, so substances diffuse across them quickly.
+  answer: 3
+  explanation: Diffusion is fast only across short distances, and capillary walls are a single thin cell layer. Arteries have thick, muscular walls; valves are found in veins; pressure is highest in the large arteries.
+- id: bio-q-0918
+  lesson: bio-transport-systems
+  module_quiz: true
+  topic: Respiratory system
+  stem: What is the main signal that makes you breathe faster during exercise?
+  choices:
+  - Falling oxygen in the blood
+  - Rising blood glucose
+  - Rising carbon dioxide, which lowers blood pH
+  - Falling body temperature
+  answer: 2
+  explanation: 'Brainstem sensors respond mainly to carbon dioxide, which forms carbonic acid and lowers pH. Faster breathing removes it: negative feedback. Low oxygen matters only when it gets quite low.'
+- id: bio-q-0919
+  lesson: bio-transport-systems
+  topic: Respiratory system
+  stem: What happens as you inhale?
+  choices:
+  - The diaphragm contracts and flattens, chest volume increases, pressure in the lungs falls, and air flows in.
+  - The lungs expand on their own, pulling the diaphragm upward.
+  - The diaphragm relaxes, increasing pressure in the lungs and drawing air in.
+  - Air pressure in the lungs rises above outside air pressure.
+  answer: 0
+  explanation: Contracting the diaphragm and rib muscles enlarges the chest; lower pressure inside means outside air pushes in. Lungs have no muscle of their own; a relaxing diaphragm and higher lung pressure push air out.
+- id: bio-q-0920
+  lesson: bio-transport-systems
+  topic: Respiratory system
+  stem: A person breathes 15 times per minute with a tidal volume of 600 mL. Dead space is 150 mL per breath. What is the alveolar ventilation?
+  choices:
+  - 9.0 L/min
+  - 6.75 L/min
+  - 2.25 L/min
+  - 0.45 L/min
+  answer: 1
+  explanation: Alveolar ventilation $= (600 - 150) \times 15 = 6750$ mL/min $= 6.75$ L/min. 9.0 L/min is total minute ventilation (ignores dead space), 2.25 L/min is the dead-space ventilation, and 0.45 L is the useful air in a single breath, not per minute.
+- id: bio-q-0921
+  lesson: bio-transport-systems
+  topic: Respiratory system
+  stem: A resting person uses 0.30 L of oxygen per minute. About 20 kJ of energy is released per liter of oxygen. How much energy does the person use per hour?
+  choices:
+  - 6 kJ
+  - 360 kJ
+  - 18 kJ
+  - 8,640 kJ
+  answer: 1
+  explanation: 'Per minute: $0.30 \times 20 = 6$ kJ. Per hour: $6 \times 60 = 360$ kJ. 6 kJ is per minute, 18 kJ multiplies 0.30 by 60 without the energy factor, and 8,640 kJ is the total for a whole day.'
+- id: bio-q-0922
+  lesson: bio-transport-systems
+  topic: Excretory system
+  stem: The kidneys of a person filter 170 L of fluid in a day and produce 1.7 L of urine. What percentage of the filtered water is reabsorbed?
+  choices:
+  - 99%
+  - 1%
+  - 90%
+  - 10%
+  answer: 0
+  explanation: Reabsorbed $= 170 - 1.7 = 168.3$ L, and $168.3/170 = 0.99$, so 99%. 1% is the fraction that becomes urine; 90% and 10% are off by a factor of ten in the urine fraction.
+- id: bio-q-0923
+  lesson: bio-transport-systems
+  module_quiz: true
+  topic: Excretory system
+  stem: Glucose is found in the fluid entering a nephron's tubule, but healthy urine contains almost no glucose. Why?
+  choices:
+  - Glucose is too large to be filtered.
+  - The bladder absorbs glucose from urine.
+  - Glucose is converted to urea in the kidney.
+  - Glucose is filtered at the glomerulus and then almost entirely reabsorbed into the blood along the tubule.
+  answer: 3
+  explanation: Filtration is nonselective for small molecules, so glucose enters the filtrate; carriers in the tubule then reclaim nearly all of it. Glucose is small enough to pass the filter, which is why it's in the filtrate. Urea comes from amino acids, not glucose.
+- id: bio-q-0924
+  lesson: bio-transport-systems
+  module_quiz: true
+  topic: Excretory system
+  stem: After hours of hiking without water, a person's blood becomes more concentrated. What happens next?
+  choices:
+  - The pituitary releases more ADH, more water is reabsorbed, and a small volume of concentrated urine is made.
+  - ADH release falls, and a large volume of dilute urine is made.
+  - The kidneys stop filtering blood until the person drinks.
+  - More water is secreted into the tubules to flush out salt.
+  answer: 0
+  explanation: 'Concentrated blood is sensed by the hypothalamus; ADH makes the collecting ducts more permeable to water, so water returns to the blood: negative feedback. Less ADH is the response to drinking a lot. Filtration continues all the time.'
+- id: bio-q-0925
+  lesson: bio-digestion-immunity
+  module_quiz: true
+  topic: Digestive system
+  stem: Where does most chemical digestion and nearly all absorption of nutrients take place?
+  choices:
+  - The stomach
+  - The large intestine
+  - The small intestine
+  - The esophagus
+  answer: 2
+  explanation: Pancreatic enzymes and bile act in the small intestine, and its villi absorb the products. The stomach starts protein digestion but absorbs little; the large intestine mainly absorbs water; the esophagus only moves food.
+- id: bio-q-0926
+  lesson: bio-digestion-immunity
+  topic: Digestive system
+  stem: What does bile do?
+  choices:
+  - It breaks large fat droplets into tiny ones, giving lipase more surface to work on.
+  - It is an enzyme that digests fats into fatty acids.
+  - It digests proteins in the stomach.
+  - It neutralizes all the acid in the large intestine.
+  answer: 0
+  explanation: Bile, made by the liver and stored in the gallbladder, emulsifies fat; it contains no enzymes. Lipase does the chemical digestion. Pepsin digests proteins in the stomach, and bicarbonate from the pancreas neutralizes acid in the small intestine.
+- id: bio-q-0927
+  lesson: bio-digestion-immunity
+  topic: Digestive system
+  stem: Proteins in food are absorbed mainly in the form of
+  choices:
+  - fatty acids
+  - amino acids
+  - simple sugars
+  - nucleotides
+  answer: 1
+  explanation: Digestion hydrolyzes proteins (starting with pepsin in the stomach) into amino acids, which are absorbed in the small intestine. Fatty acids come from fats, sugars from carbohydrates, nucleotides from nucleic acids.
+- id: bio-q-0928
+  lesson: bio-digestion-immunity
+  topic: Digestive system
+  stem: In celiac disease, an immune reaction to gluten flattens the villi of the small intestine. What would you predict?
+  choices:
+  - Reduced absorption of nutrients, because the absorbing surface area is much smaller
+  - Faster absorption, because food passes more easily
+  - No change in absorption, because villi only produce mucus
+  - Less acid production in the stomach
+  answer: 0
+  explanation: Villi multiply the surface area for absorption, so flattening them reduces nutrient uptake. They are absorbing structures, not mucus producers, and the stomach is unaffected.
+- id: bio-q-0929
+  lesson: bio-digestion-immunity
+  module_quiz: true
+  topic: Digestive system
+  stem: A snack contains 30 g of carbohydrate, 10 g of protein and 12 g of fat. Using 4, 4 and 9 kcal per gram, what is its energy content?
+  choices:
+  - 268 kcal
+  - 208 kcal
+  - 468 kcal
+  - 52 kcal
+  answer: 0
+  explanation: $30 \times 4 + 10 \times 4 + 12 \times 9 = 120 + 40 + 108 = 268$ kcal. Using 4 kcal/g for fat gives 208; using 9 kcal/g for everything gives 468; 52 is just the total mass in grams.
+- id: bio-q-0930
+  lesson: bio-digestion-immunity
+  topic: Digestive system
+  stem: Spallanzani put meat in gastric juice at body temperature and saw it dissolve. Which control was needed to conclude that the juice itself digested the meat?
+  choices:
+  - Meat in gastric juice at a colder temperature
+  - Meat in plain water at the same temperature for the same time
+  - Gastric juice with no meat added
+  - A larger piece of meat in gastric juice
+  answer: 1
+  explanation: Only the juice should differ between the groups. Meat in water under identical conditions shows whether warmth and time alone break meat down. The other setups change different variables or have no meat to observe.
+- id: bio-q-0931
+  lesson: bio-digestion-immunity
+  module_quiz: true
+  topic: Immune system
+  stem: Which of these is part of adaptive immunity?
+  choices:
+  - Stomach acid killing swallowed bacteria
+  - Antibodies made against one particular strain of virus
+  - Inflammation around a splinter
+  - Neutrophils engulfing any bacteria they meet
+  answer: 1
+  explanation: Adaptive immunity is specific to one antigen and builds memory; antibodies are its hallmark. Stomach acid, inflammation and general phagocytes act against any invader and belong to innate immunity.
+- id: bio-q-0932
+  lesson: bio-digestion-immunity
+  topic: Immune system
+  stem: Which statement correctly distinguishes an antigen from an antibody?
+  choices:
+  - An antigen is made by B cells; an antibody is found on the surface of bacteria.
+  - Antigens and antibodies are two names for the same molecule.
+  - An antigen is a foreign molecule the immune system recognizes; an antibody is a protein made by B cells that binds it.
+  - An antigen is a type of white blood cell; an antibody is a type of virus.
+  answer: 2
+  explanation: The antigen is the marker (often a surface protein of a pathogen); the antibody is the Y-shaped protein the body makes to bind that marker. The two are easily swapped, which is the mistake in the second choice.
+- id: bio-q-0933
+  lesson: bio-digestion-immunity
+  module_quiz: true
+  topic: Immune system
+  stem: A person's second exposure to an antigen produces antibodies within a few days at about ten times the level of the first exposure, which took about two weeks to peak. What explains this?
+  choices:
+  - Antibodies from the first exposure have been circulating at a high level ever since.
+  - The antigen is weaker the second time.
+  - Memory cells formed during the first response multiply quickly when the antigen returns.
+  - Innate immunity learns to recognize the antigen.
+  answer: 2
+  explanation: The first exposure leaves long-lived memory B and T cells, so the secondary response is faster and larger. Antibody levels fall after the primary response, the antigen hasn't changed, and memory is a feature of adaptive, not innate, immunity.
+- id: bio-q-0934
+  lesson: bio-digestion-immunity
+  topic: Immune system
+  stem: What does an mRNA vaccine deliver?
+  choices:
+  - A weakened form of the whole virus that multiplies slowly
+  - Ready-made antibodies against the virus
+  - Instructions that cells use for a short time to make one protein of the pathogen, which the immune system learns to recognize
+  - Genes that become permanently part of the person's DNA
+  answer: 2
+  explanation: The mRNA is translated in the cytoplasm into one viral protein (the antigen), then broken down within days; it never enters the nucleus and can't change DNA. Ready-made antibodies give short-term passive protection, not vaccination; live attenuated vaccines are a different type.
+- id: bio-q-0935
+  lesson: bio-digestion-immunity
+  topic: Immune system
+  stem: A disease has $R_0 = 5$. What fraction of the population must be immune to reach the herd immunity threshold?
+  choices:
+  - 80%
+  - 20%
+  - 50%
+  - 95%
+  answer: 0
+  explanation: Threshold $= 1 - \tfrac{1}{R_0} = 1 - \tfrac15 = 0.80$, or 80%. 20% is $1/R_0$ itself; 95% is the kind of value needed for measles, whose $R_0$ is much higher.
+- id: bio-q-0936
+  lesson: bio-digestion-immunity
+  topic: Immune system
+  stem: HIV infects and destroys helper T cells. Why does this weaken the immune system so broadly?
+  choices:
+  - Helper T cells are the only cells that make antibodies.
+  - Helper T cells activate B cells and cytotoxic T cells, so both antibody and cell-killing responses fail.
+  - Helper T cells form the skin barrier.
+  - Helper T cells are the main phagocytes.
+  answer: 1
+  explanation: Helper T cells coordinate the adaptive response. Without them, B cells (which make antibodies) and cytotoxic T cells are poorly activated, leaving the body open to infections. Antibodies come from B cells, and phagocytes are innate cells.

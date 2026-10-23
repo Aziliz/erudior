@@ -1,0 +1,29 @@
+- {front: First law of thermodynamics, back: 'Energy is converted from one form to another, never created or destroyed.', topic: Energy}
+- {front: Second law of thermodynamics, back: 'Every energy conversion loses some energy as unusable heat, so entropy increases; living things need a constant energy input.', topic: Energy}
+- {front: Catabolism vs anabolism, back: 'Catabolism breaks molecules down and releases energy (respiration). Anabolism builds molecules and requires energy (protein synthesis, Calvin cycle).', topic: Energy}
+- {front: Exergonic vs endergonic, back: 'Exergonic reactions release free energy and can proceed on their own; endergonic reactions absorb free energy and need an input, usually from ATP.', topic: Energy}
+- {front: Structure of ATP, back: 'Adenine + ribose + three phosphate groups (adenosine triphosphate).', topic: ATP}
+- {front: ATP hydrolysis, back: 'ATP + H₂O → ADP + Pᵢ + energy (about 30.5 kJ/mol under standard conditions).', topic: ATP}
+- {front: Energy coupling, back: 'Using ATP hydrolysis to drive an endergonic process, usually by transferring a phosphate group to another molecule; works if the total energy change is negative.', topic: ATP}
+- {front: The ATP cycle, back: 'Catabolism recharges ADP + Pᵢ into ATP; cellular work spends ATP back to ADP. A cell holds little ATP and remakes it constantly.', topic: ATP}
+- {front: 'Oxidation vs reduction (OIL RIG)', back: 'Oxidation Is Loss of electrons; Reduction Is Gain. NAD⁺ is reduced to NADH.', topic: ATP}
+- {front: Electron carriers, back: 'NADH and FADH₂ carry electrons in respiration; NADPH carries them in photosynthesis.', topic: ATP}
+- {front: Photosynthesis equation, back: '6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂', topic: Photosynthesis}
+- {front: Autotroph vs heterotroph, back: 'Autotrophs make their own food from inorganic materials (plants, algae). Heterotrophs eat other organisms (animals, fungi).', topic: Photosynthesis}
+- {front: 'Source of O₂ in photosynthesis', back: 'Water, split by photosystem II (shown with ¹⁸O by Ruben and Kamen, 1941).', topic: Photosynthesis}
+- {front: 'Classic photosynthesis experiments, in order', back: 'Van Helmont (mass not from soil) → Priestley (plants restore air) → Ingenhousz (only in light) → Engelmann (action spectrum) → Ruben and Kamen (O₂ from water) → Calvin (carbon path, ¹⁴C).', topic: Photosynthesis}
+- {front: Why leaves are green, back: 'Chlorophyll absorbs mostly blue-violet and red light and reflects green.', topic: Photosynthesis}
+- {front: Absorption spectrum vs action spectrum, back: 'Absorption: how much light a pigment absorbs at each wavelength. Action: how fast photosynthesis runs at each wavelength.', topic: Photosynthesis}
+- {front: Light-dependent reactions, back: 'Thylakoid membranes. In: light, H₂O, ADP, NADP⁺. Out: O₂, ATP, NADPH.', topic: Photosynthesis}
+- {front: Calvin cycle, back: 'Stroma. Rubisco fixes CO₂; ATP and NADPH reduce it to G3P. Per glucose: 6 CO₂, 18 ATP, 12 NADPH.', topic: Photosynthesis}
+- {front: Limiting factors of photosynthesis, back: 'Light intensity, CO₂ concentration, temperature; the scarcest one sets the rate.', topic: Photosynthesis}
+- {front: Cellular respiration equation, back: 'C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy (about 30–32 ATP)', topic: Cellular respiration}
+- {front: 'Stages of aerobic respiration, in order', back: 'Glycolysis (cytoplasm) → pyruvate oxidation and Krebs cycle (mitochondrial matrix) → electron transport chain and chemiosmosis (inner membrane).', topic: Cellular respiration}
+- {front: Glycolysis yield, back: 'Glucose → 2 pyruvate; net 2 ATP and 2 NADH; no O₂ needed.', topic: Cellular respiration}
+- {front: Krebs cycle yield (per glucose), back: 'With pyruvate oxidation: 6 CO₂, 8 NADH, 2 FADH₂, 2 ATP.', topic: Cellular respiration}
+- {front: Role of oxygen in respiration, back: 'Final electron acceptor at the end of the electron transport chain; forms water.', topic: Cellular respiration}
+- {front: ATP per glucose, back: 'About 30–32 (2.5 per NADH, 1.5 per FADH₂, 4 direct). Older books: 36–38, using 3 and 2.', topic: Cellular respiration}
+- {front: Chemiosmosis, back: 'H⁺ pumped across a membrane by an electron transport chain flows back through ATP synthase, which makes ATP. Used in both mitochondria and chloroplasts.', topic: Cellular respiration}
+- {front: Purpose of fermentation, back: 'Regenerates NAD⁺ so glycolysis can keep making 2 ATP per glucose without oxygen.', topic: Fermentation}
+- {front: Lactic acid vs alcoholic fermentation, back: 'Lactic acid: pyruvate → lactate (muscle, yogurt bacteria). Alcoholic: pyruvate → ethanol + CO₂ (yeast).', topic: Fermentation}
+- {front: Aerobic respiration vs fermentation, back: 'Aerobic: needs O₂, about 30 ATP per glucose, CO₂ + H₂O. Fermentation: no O₂, 2 ATP, lactate or ethanol + CO₂.', topic: Fermentation}

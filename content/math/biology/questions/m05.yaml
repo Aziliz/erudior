@@ -1,0 +1,485 @@
+# Module 5 (Inheritance) questions
+- id: bio-q-0501
+  lesson: bio-mendel
+  module_quiz: true
+  topic: Mendelian genetics
+  stem: 'Mendel crossed true-breeding purple-flowered peas with true-breeding white-flowered peas. Every F1 plant was purple, yet about one quarter of the F2 plants were white. What best explains this?'
+  choices: ['The F1 plants carried the white allele, but it was masked by the dominant purple allele', 'The white allele was destroyed in the F1 and re-created by mutation in the F2', 'The purple and white factors blended in the F1 and separated again in the F2', 'Environmental conditions in the F2 year turned some purple plants white']
+  answer: 0
+  explanation: |-
+    The F1 plants were Pp: the p allele was present but hidden because P is dominant. When two Pp plants were crossed, pp offspring appeared in about 1/4 of the F2. Mutation is far too rare to give a steady 1/4. Blending would make the F1 an intermediate color and could not bring back pure white.
+- id: bio-q-0502
+  lesson: bio-mendel
+  module_quiz: true
+  topic: Mendelian genetics
+  stem: 'In pea plants, purple flowers (P) are dominant to white (p). Two Pp plants are crossed. What fraction of the offspring are expected to have white flowers?'
+  choices: ['1/2', '1/4', '3/4', '1/16']
+  answer: 1
+  explanation: |-
+    Each parent gives p with probability 1/2, and a white plant (pp) needs p from both: $\tfrac12 \times \tfrac12 = \tfrac14$. 3/4 is the purple fraction; 1/2 is the heterozygous fraction; 1/16 belongs to a two-gene cross.
+- id: bio-q-0503
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'What is the expected genotype ratio among the offspring of Aa × Aa?'
+  choices: ['3 AA : 1 aa', '1 AA : 1 aa', '1 AA : 1 Aa : 2 aa', '1 AA : 2 Aa : 1 aa']
+  answer: 3
+  explanation: |-
+    The Punnett square has four equal boxes: AA, Aa, aA and aa, so 1 AA : 2 Aa : 1 aa. The 3 : 1 ratio is the phenotype ratio (AA and Aa look the same), not the genotype ratio.
+- id: bio-q-0504
+  lesson: bio-mendel
+  module_quiz: true
+  topic: Mendelian genetics
+  stem: 'A tall pea plant (T is dominant to t for dwarf) is crossed with a dwarf plant. Of 60 offspring, 31 are tall and 29 are dwarf. What is the genotype of the tall parent?'
+  choices: ['TT', 'tt', 'Tt', 'It cannot be determined from a test cross']
+  answer: 2
+  explanation: |-
+    This is a test cross: the dwarf parent (tt) gives only t. Dwarf offspring (tt) must have received t from the tall parent as well, so it is Tt, and Tt × tt predicts 1 tall : 1 dwarf, matching 31 : 29. A TT parent would give only tall offspring; a tt parent would not be tall.
+- id: bio-q-0505
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'What kinds of gametes does an Aa individual produce?'
+  choices: ['Every gamete carries both A and a', 'Half carry AA and half carry aa', 'Half carry A and half carry a', 'All carry A, because A is dominant']
+  answer: 2
+  explanation: |-
+    By the law of segregation, the two alleles separate into different gametes, each gamete gets one allele, and the two types are equally common. A gamete never carries two alleles of the same gene. Dominance affects the phenotype, not which allele gets into a gamete.
+- id: bio-q-0506
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'Which pair of pea plants have the same phenotype but different genotypes? (Purple, P, is dominant to white, p.)'
+  choices: ['PP and pp', 'Pp and pp', 'pp and pp', 'PP and Pp']
+  answer: 3
+  explanation: |-
+    PP and Pp both have purple flowers because one P allele is enough. PP and pp, and Pp and pp, differ in phenotype (purple vs white). Two pp plants have the same genotype.
+- id: bio-q-0507
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'Which statement about dominant alleles is correct?'
+  choices: ['A dominant allele is always the most common allele in a population', 'A dominant allele shows its effect even in a heterozygote', 'A dominant allele is always better for survival', 'A dominant allele is passed to offspring more often than a recessive one']
+  answer: 1
+  explanation: |-
+    Dominant only describes how alleles interact in a heterozygote. It says nothing about frequency (the dominant allele for Huntington''s disease is rare), benefit, or how often it is inherited: a heterozygote passes each allele with probability 1/2.
+- id: bio-q-0508
+  lesson: bio-mendel
+  module_quiz: true
+  topic: Mendelian genetics
+  stem: 'What event in meiosis is the physical basis of Mendel''s law of segregation?'
+  choices: ['Homologous chromosomes separating in anaphase I', 'DNA replicating during the S phase', 'Sister chromatids separating in mitosis', 'Crossing over between homologous chromosomes in prophase I']
+  answer: 0
+  explanation: |-
+    The two alleles of a gene sit on the two homologous chromosomes, and homologs go to opposite poles in anaphase I, so each gamete gets one allele. Replication copies alleles rather than separating them, mitosis doesn''t make gametes, and crossing over swaps segments between homologs but doesn''t separate the allele pair.
+- id: bio-q-0509
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'Mendel''s F2 plants for stem length were 787 tall and 277 dwarf. What does this result suggest about the F1 plants that were crossed to produce them?'
+  choices: ['They were TT × tt', 'Both were heterozygous, Tt × Tt', 'They were Tt × tt', 'They were TT × Tt']
+  answer: 1
+  explanation: |-
+    787/277 is about 2.84 : 1, close to the 3 : 1 expected from Tt × Tt. Tt × tt gives 1 : 1, TT × tt and TT × Tt give only tall offspring.
+- id: bio-q-0510
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'In the offspring of Pp × Pp, what fraction of the purple-flowered plants are heterozygous?'
+  choices: ['1/2', '1/4', '2/3', '3/4']
+  answer: 2
+  explanation: |-
+    Purple plants fill 3 of the 4 Punnett boxes (PP, Pp, Pp), and 2 of those 3 are Pp, so 2/3. The answer 1/2 is the fraction of all offspring that are Pp; here the white plants are excluded.
+- id: bio-q-0511
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'Two Aa parents have three children, all with the dominant phenotype. What is the probability that their fourth child has the recessive phenotype?'
+  choices: ['1', '1/256', '3/4', '1/4']
+  answer: 3
+  explanation: |-
+    Each fertilization is independent, so the earlier children don''t change the odds: P(aa) = 1/4 for every child. Expecting the recessive child to be "due" is the gambler''s fallacy; 1/256 is the chance that all four children are aa.
+- id: bio-q-0512
+  lesson: bio-mendel
+  topic: Mendelian genetics
+  stem: 'In guinea pigs, black fur (B) is dominant to white (b). A Bb guinea pig is crossed with a bb guinea pig, and 120 offspring are produced over several litters. About how many are expected to be white?'
+  choices: ['60', '30', '90', '0']
+  answer: 0
+  explanation: |-
+    Bb × bb gives 1/2 Bb (black) and 1/2 bb (white), so expect $\tfrac12 \times 120 = 60$ white. 30 uses 1/4 (as if it were Bb × Bb); 90 is the 3/4 dominant fraction of that cross.
+- id: bio-q-0513
+  lesson: bio-dihybrid
+  module_quiz: true
+  topic: Dihybrid crosses
+  stem: 'Which gametes can an AaBb individual produce, assuming the two genes assort independently?'
+  choices: ['Aa and Bb, each 1/2 of the gametes', 'Only AB and ab, each 1/2 of the gametes', 'AA, BB, aa and bb, each 1/4 of the gametes', 'AB, Ab, aB and ab, each 1/4 of the gametes']
+  answer: 3
+  explanation: |-
+    Each gamete gets one allele of each gene. A or a (1/2 each) combines independently with B or b (1/2 each), giving four types at $\tfrac12 \times \tfrac12 = \tfrac14$. Aa or AA would put two alleles of one gene in a gamete; only AB and ab would mean the genes are completely linked.
+- id: bio-q-0514
+  lesson: bio-dihybrid
+  module_quiz: true
+  topic: Dihybrid crosses
+  stem: 'Round (R) is dominant to wrinkled (r) and yellow (Y) is dominant to green (y). In the cross RrYy × RrYy, what fraction of offspring have round, green seeds?'
+  choices: ['3/16', '9/16', '1/16', '1/4']
+  answer: 0
+  explanation: |-
+    Gene by gene: P(round) = 3/4 from Rr × Rr, P(green) = 1/4 from Yy × Yy. Product rule: $\tfrac34 \times \tfrac14 = \tfrac{3}{16}$. 9/16 is round and yellow; 1/16 is wrinkled and green.
+- id: bio-q-0515
+  lesson: bio-dihybrid
+  topic: Dihybrid crosses
+  stem: 'Mendel''s RrYy × RrYy cross gave 315 round-yellow, 108 round-green, 101 wrinkled-yellow and 32 wrinkled-green seeds. Which conclusion do these data support?'
+  choices: ['The two genes are always inherited together as a unit', 'The seed-shape and seed-color genes assort independently', 'The traits blend together in the offspring', 'Alleles of the seed-color gene do not segregate']
+  answer: 1
+  explanation: |-
+    All four combinations appear, close to 9 : 3 : 3 : 1, including the new combinations round-green and wrinkled-yellow. If the genes traveled together, only the parental types would appear (3 : 1). The traits come back in pure form, so there is no blending, and each gene alone still shows 3 : 1, so segregation holds.
+- id: bio-q-0516
+  lesson: bio-dihybrid
+  module_quiz: true
+  topic: Probability in genetics
+  stem: 'In the cross AaBbCc × AaBbCc (three unlinked genes), what is the probability of an aabbcc offspring?'
+  choices: ['1/8', '1/16', '1/64', '3/64']
+  answer: 2
+  explanation: |-
+    Each gene gives the homozygous recessive genotype with probability 1/4, and the genes are independent, so $\left(\tfrac14\right)^3 = \tfrac{1}{64}$. 1/8 uses 1/2 per gene (the chance of one recessive allele from one parent).
+- id: bio-q-0517
+  lesson: bio-dihybrid
+  topic: Dihybrid crosses
+  stem: 'An RrYy plant is test-crossed with an rryy plant. What phenotype ratio is expected in the offspring?'
+  choices: ['9 : 3 : 3 : 1', '1 : 1 : 1 : 1', '3 : 1', '1 : 2 : 1']
+  answer: 1
+  explanation: |-
+    RrYy makes RY, Ry, rY and ry gametes equally; rryy adds only ry. Each gamete type from the heterozygote therefore produces its own phenotype, in equal numbers: 1 : 1 : 1 : 1. 9 : 3 : 3 : 1 is for two double heterozygotes.
+- id: bio-q-0518
+  lesson: bio-dihybrid
+  topic: Probability in genetics
+  stem: 'What is the probability that an offspring of Aa × Aa is homozygous (either AA or aa)?'
+  choices: ['1/2', '1/16', '1/4', '3/4']
+  answer: 0
+  explanation: |-
+    AA and aa are mutually exclusive outcomes, so use the sum rule: $\tfrac14 + \tfrac14 = \tfrac12$. Multiplying them (1/16) is the product-rule mistake; "either … or" adds.
+- id: bio-q-0519
+  lesson: bio-dihybrid
+  topic: Probability in genetics
+  stem: 'How many genetically different kinds of gametes can an individual with genotype AaBBCcDd produce, if all four genes are unlinked?'
+  choices: ['16', '4', '8', '6']
+  answer: 2
+  explanation: |-
+    Only heterozygous genes double the number of gamete types: A/a, C/c and D/d are heterozygous and BB always gives B, so $2^3 = 8$. 16 would treat BB as heterozygous.
+- id: bio-q-0520
+  lesson: bio-dihybrid
+  module_quiz: true
+  topic: Probability in genetics
+  stem: 'Two parents are carriers (Aa) of a recessive condition. If they have two children, what is the probability that exactly one child has the condition?'
+  choices: ['3/16', '1/4', '1/2', '3/8']
+  answer: 3
+  explanation: |-
+    Affected then unaffected: $\tfrac14 \times \tfrac34 = \tfrac{3}{16}$. Unaffected then affected: also 3/16. These orders are mutually exclusive, so add: $\tfrac{6}{16} = \tfrac38$. Stopping at 3/16 counts only one order.
+- id: bio-q-0521
+  lesson: bio-dihybrid
+  topic: Probability in genetics
+  stem: 'In the cross AaBbCc × aabbCc (unlinked genes, complete dominance), what fraction of offspring show the dominant phenotype for all three genes?'
+  choices: ['27/64', '9/16', '1/8', '3/16']
+  answer: 3
+  explanation: |-
+    Aa × aa: dominant phenotype 1/2. Bb × bb: 1/2. Cc × Cc: 3/4. Product: $\tfrac12 \times \tfrac12 \times \tfrac34 = \tfrac{3}{16}$. 27/64 would be correct for AaBbCc × AaBbCc, not for this cross.
+- id: bio-q-0522
+  lesson: bio-dihybrid
+  topic: Dihybrid crosses
+  stem: 'Which event in meiosis explains Mendel''s law of independent assortment?'
+  choices: ['Sister chromatids separate at anaphase II', 'DNA is copied before meiosis begins', 'Each pair of homologous chromosomes lines up at metaphase I independently of the other pairs', 'The cytoplasm divides at the end of telophase II']
+  answer: 2
+  explanation: |-
+    Whether the chromosome with R goes to the same pole as the chromosome with Y or the one with y depends on how the two pairs happen to orient at metaphase I, and each pair orients at random. The other events occur in meiosis but don''t determine which alleles of different genes end up together.
+- id: bio-q-0523
+  lesson: bio-dihybrid
+  topic: Dihybrid crosses
+  stem: 'A test cross AaBb × aabb gives mostly AaBb and aabb offspring and only a few Aabb and aaBb offspring. What is the best explanation?'
+  choices: ['Genes A and B are close together on the same chromosome', 'A and B show incomplete dominance', 'The genes assort independently', 'Nondisjunction occurred in every meiosis']
+  answer: 0
+  explanation: |-
+    Independent assortment predicts 1 : 1 : 1 : 1. An excess of the parental combinations means the alleles A and B (and a and b) tend to stay together: the genes are linked. The rare recombinant offspring come from crossing over between them. Incomplete dominance changes phenotypes, not how alleles are packaged.
+- id: bio-q-0524
+  lesson: bio-dihybrid
+  topic: Dihybrid crosses
+  stem: 'Round (R) is dominant to wrinkled and yellow (Y) is dominant to green. In the cross RrYy × Rryy, what fraction of offspring have round, yellow seeds?'
+  choices: ['9/16', '3/8', '3/16', '1/2']
+  answer: 1
+  explanation: |-
+    Rr × Rr gives round 3/4; Yy × yy gives yellow 1/2. Product: $\tfrac34 \times \tfrac12 = \tfrac38$. 9/16 assumes a 9 : 3 : 3 : 1 cross, but one parent is yy.
+- id: bio-q-0525
+  lesson: bio-beyond-mendel
+  module_quiz: true
+  topic: Incomplete dominance
+  stem: 'Red snapdragons crossed with white snapdragons give all pink offspring. If two of the pink plants are crossed, what phenotype ratio is expected?'
+  choices: ['3 pink : 1 white', 'All pink', '1 red : 2 pink : 1 white', '3 red : 1 white']
+  answer: 2
+  explanation: |-
+    Pink is the heterozygote $C^RC^W$. Crossing two heterozygotes gives 1 $C^RC^R$ : 2 $C^RC^W$ : 1 $C^WC^W$, and with incomplete dominance each genotype has its own color. 3 : 1 would apply only if one allele were fully dominant; all pink is what blending would predict.
+- id: bio-q-0526
+  lesson: bio-beyond-mendel
+  module_quiz: true
+  topic: Codominance
+  stem: 'A red bull and a white cow produce a roan calf whose coat is a mixture of individual red hairs and individual white hairs. This is an example of'
+  choices: ['codominance', 'incomplete dominance', 'epistasis', 'polygenic inheritance']
+  answer: 0
+  explanation: |-
+    Both alleles are fully expressed side by side: each hair is pure red or pure white. Incomplete dominance would give hairs of an intermediate color. Epistasis involves two genes, and polygenic traits vary continuously.
+- id: bio-q-0527
+  lesson: bio-beyond-mendel
+  topic: Multiple alleles
+  stem: 'A woman with type A blood and a man with type B blood have a child with type O blood. What are the parents'' genotypes?'
+  choices: ['Mother $I^AI^A$, father $I^BI^B$', 'Mother $I^Ai$, father $I^Bi$', 'Mother $I^Ai$, father $I^BI^B$', 'Mother $ii$, father $ii$']
+  answer: 1
+  explanation: |-
+    A type O child is $ii$ and must have received $i$ from each parent, so both parents carry $i$: $I^Ai$ and $I^Bi$. Parents who are $ii$ would themselves be type O.
+- id: bio-q-0528
+  lesson: bio-beyond-mendel
+  module_quiz: true
+  topic: Multiple alleles
+  stem: 'A parent with type AB blood ($I^AI^B$) and a parent with type O blood ($ii$) have children. Which blood types are possible among their children?'
+  choices: ['AB and O only', 'A, B, AB and O', 'A, B and O', 'A and B only']
+  answer: 3
+  explanation: |-
+    The AB parent gives $I^A$ or $I^B$; the O parent gives only $i$. Children are $I^Ai$ (type A) or $I^Bi$ (type B), each with probability 1/2. Neither AB (needs both $I^A$ and $I^B$) nor O (needs two $i$ alleles) is possible.
+- id: bio-q-0529
+  lesson: bio-beyond-mendel
+  topic: Multiple alleles
+  stem: 'With the three ABO alleles $I^A$, $I^B$ and $i$, how many different genotypes are possible?'
+  choices: ['4', '6', '3', '9']
+  answer: 1
+  explanation: |-
+    Three homozygotes ($I^AI^A$, $I^BI^B$, $ii$) plus three heterozygotes ($I^AI^B$, $I^Ai$, $I^Bi$) make 6. Four is the number of blood types (phenotypes), because $I^AI^A$ and $I^Ai$ both give type A and $I^BI^B$ and $I^Bi$ both give type B.
+- id: bio-q-0530
+  lesson: bio-beyond-mendel
+  topic: Multiple alleles
+  stem: 'Why can type O red blood cells be transfused into a patient with type A blood?'
+  choices: ['Type O blood contains no antibodies at all', 'Type O red cells carry the A antigen, which matches the patient', 'Type O red cells carry neither the A nor the B antigen, so the patient''s anti-B antibodies have nothing to attack', 'The $i$ allele is dominant to $I^A$']
+  answer: 2
+  explanation: |-
+    The danger in a transfusion is the patient''s antibodies attacking antigens on donor red cells. A type A patient has anti-B antibodies, and type O cells have no A or B antigen. Type O plasma actually contains both anti-A and anti-B antibodies, and $i$ is recessive.
+- id: bio-q-0531
+  lesson: bio-beyond-mendel
+  topic: Multiple alleles
+  stem: 'A child has type O blood and the mother has type A. Which man could NOT be the child''s biological father, judging by ABO type alone?'
+  choices: ['A man with type AB', 'A man with type A', 'A man with type B', 'A man with type O']
+  answer: 0
+  explanation: |-
+    The child is $ii$ and needs an $i$ allele from the father. A type AB man is $I^AI^B$ and has no $i$ to give. Men with type A or B may be $I^Ai$ or $I^Bi$, and a type O man is $ii$. Blood type can exclude a man but never prove he is the father.
+- id: bio-q-0532
+  lesson: bio-beyond-mendel
+  topic: Polygenic traits
+  stem: 'Human adult height varies continuously and forms a bell-shaped distribution. What is the best explanation?'
+  choices: ['One gene with two alleles shows complete dominance', 'One gene with many alleles is codominant', 'Height is determined by the environment alone', 'Many genes each add a small effect, and the environment adds further variation']
+  answer: 3
+  explanation: |-
+    Height is polygenic: many genes with small additive effects produce many genotype classes, and nutrition and health blur them into a smooth curve. A single gene with complete dominance would give two distinct classes.
+- id: bio-q-0533
+  lesson: bio-beyond-mendel
+  topic: Polygenic traits
+  stem: 'In a model where three unlinked genes each have an additive allele (A, B, C), what fraction of the offspring of AaBbCc × AaBbCc carry exactly three additive alleles?'
+  choices: ['5/16', '1/64', '3/8', '1/2']
+  answer: 0
+  explanation: |-
+    The six allele positions each get an additive allele with probability 1/2, so the count follows the 1 : 6 : 15 : 20 : 15 : 6 : 1 pattern out of 64. Exactly three: $\tfrac{20}{64} = \tfrac{5}{16}$. 1/64 is the fraction with all six (or none).
+- id: bio-q-0534
+  lesson: bio-beyond-mendel
+  topic: Polygenic traits
+  stem: 'A single allele causes sickle-shaped red blood cells, anemia, episodes of pain and organ damage, and in carriers some resistance to malaria. One gene affecting many traits is called'
+  choices: ['epistasis', 'codominance', 'polygenic inheritance', 'pleiotropy']
+  answer: 3
+  explanation: |-
+    Pleiotropy means one gene influences several traits. Epistasis is one gene masking another gene; polygenic inheritance is the opposite situation, many genes affecting one trait.
+- id: bio-q-0535
+  lesson: bio-beyond-mendel
+  module_quiz: true
+  topic: Polygenic traits
+  stem: 'In Labrador retrievers, B (black) is dominant to b (chocolate), but any dog that is ee is yellow regardless of its B gene. Two BbEe dogs are mated. What fraction of their puppies are expected to be yellow?'
+  choices: ['3/16', '1/16', '1/4', '9/16']
+  answer: 2
+  explanation: |-
+    A puppy is yellow whenever it is ee, which has probability 1/4 from Ee × Ee, whatever the B genotype. The full ratio is 9 black : 3 chocolate : 4 yellow. 3/16 is the chocolate fraction ($\tfrac14$ bb × $\tfrac34$ not ee).
+- id: bio-q-0536
+  lesson: bio-beyond-mendel
+  topic: Polygenic traits
+  stem: 'Himalayan rabbits are white with dark ears, nose and paws. If a patch of white back fur is shaved and the skin kept cold with an ice pack, the fur grows back dark. What is the best conclusion?'
+  choices: ['Cold temperatures cause a mutation in the fur-color gene', 'The pigment enzyme works only at low temperature, so the environment affects the phenotype', 'Dark fur is a polygenic trait', 'The dark allele is dominant only on the ears and paws']
+  answer: 1
+  explanation: |-
+    The rabbit''s genotype didn''t change; the same genes produced dark fur where the skin was cooler. This shows an environmental effect on gene expression. A mutation would not appear reliably wherever cold is applied.
+- id: bio-q-0537
+  lesson: bio-sex-linked
+  module_quiz: true
+  topic: Sex linkage
+  stem: 'Why are X-linked recessive conditions such as hemophilia A much more common in males than in females?'
+  choices: ['The Y chromosome carries a dominant allele that causes the condition', 'Males inherit their X chromosome from their father', 'Recessive alleles are dominant in males', 'Males have one X chromosome, so a single recessive allele is expressed']
+  answer: 3
+  explanation: |-
+    A male has only one copy of each X-linked gene, so whatever allele it carries shows. A female needs a recessive allele on both X chromosomes. Males inherit their X from their mother, and the Y carries no allele for these genes.
+- id: bio-q-0538
+  lesson: bio-sex-linked
+  module_quiz: true
+  topic: Sex linkage
+  stem: 'A woman who is a carrier for hemophilia A ($X^HX^h$) and a man without hemophilia ($X^HY$) have a son. What is the probability that the son has hemophilia?'
+  choices: ['1/4', '0', '1/2', '1']
+  answer: 2
+  explanation: |-
+    A son gets Y from his father and one of his mother''s X chromosomes, $X^H$ or $X^h$, with equal probability, so 1/2. The answer 1/4 is the probability that a child of unknown sex is an affected son.
+- id: bio-q-0539
+  lesson: bio-sex-linked
+  topic: Sex linkage
+  stem: 'A color-blind man ($X^bY$) and a woman who is homozygous for normal vision ($X^BX^B$) have children. Which describes their daughters?'
+  choices: ['All are carriers with normal vision', 'All are color-blind', 'Half are color-blind and half are carriers', 'Half are carriers and half are $X^BX^B$']
+  answer: 0
+  explanation: |-
+    Every daughter receives her father''s only X, $X^b$, and an $X^B$ from her mother, so all are $X^BX^b$: normal vision, carriers. None can be color-blind, because the mother has no $X^b$ to give.
+- id: bio-q-0540
+  lesson: bio-sex-linked
+  topic: Sex linkage
+  stem: 'A man with an X-linked recessive condition has a son. Why can''t the son inherit the condition from his father?'
+  choices: ['The allele is recessive, so it is masked in all sons', 'A father passes his Y chromosome, not his X, to every son', 'X-linked alleles are passed only to daughters by mothers', 'Sons inherit both sex chromosomes from their mother']
+  answer: 1
+  explanation: |-
+    A child is male because he got his father''s Y, so his single X came from his mother. The father''s X goes to every daughter instead. Sons get only one sex chromosome from their mother, not both.
+- id: bio-q-0541
+  lesson: bio-sex-linked
+  module_quiz: true
+  topic: Pedigrees
+  stem: 'In a pedigree, two parents who do not have a condition have a daughter who does. Which inheritance pattern fits?'
+  choices: ['Autosomal dominant', 'Autosomal recessive', 'X-linked recessive', 'Y-linked']
+  answer: 1
+  explanation: |-
+    A dominant condition would require an affected parent. An X-linked recessive daughter needs an $X^a$ from her father, who would then be affected. Y-linked traits never appear in daughters. So both parents are carriers of an autosomal recessive allele.
+- id: bio-q-0542
+  lesson: bio-sex-linked
+  topic: Pedigrees
+  stem: 'Two unaffected carrier parents (Aa × Aa) have a child with an autosomal recessive condition and also an unaffected son. What is the probability that this unaffected son is a carrier?'
+  choices: ['1/2', '1/4', '2/3', '3/4']
+  answer: 2
+  explanation: |-
+    The son is not aa, so only three Punnett boxes remain possible: AA, Aa, aA. Two of the three are carriers: 2/3. The value 1/2 is the carrier probability for a child whose phenotype is not yet known.
+- id: bio-q-0543
+  lesson: bio-sex-linked
+  topic: Pedigrees
+  stem: 'In a standard pedigree, what does a filled-in square represent?'
+  choices: ['A female who has the trait', 'A male who is a carrier', 'A male who does not have the trait', 'A male who has the trait']
+  answer: 3
+  explanation: |-
+    Squares are males and circles females; a filled symbol means the person has the trait. Carriers, when shown, are marked with a dot or a half-filled symbol, and an open square is an unaffected male.
+- id: bio-q-0544
+  lesson: bio-sex-linked
+  topic: Sex linkage
+  stem: 'Morgan crossed a white-eyed male fruit fly with a red-eyed female. The F1 were all red-eyed, and in the F2 every white-eyed fly was male. What did he conclude?'
+  choices: ['The eye-color gene is on the X chromosome', 'White eyes are dominant in males', 'The eye-color gene is on the Y chromosome', 'Eye color is a polygenic trait']
+  answer: 0
+  explanation: |-
+    F2 sons get their only X from their carrier mother, so half are white-eyed, while daughters all get the father''s red-eye X. A Y-linked gene would pass from father to all sons and appear in the F1 males. The all-red F1 shows white is recessive.
+- id: bio-q-0545
+  lesson: bio-sex-linked
+  module_quiz: true
+  topic: Sex linkage
+  stem: 'A color-blind woman ($X^bX^b$) and a man with normal vision ($X^BY$) have a son. What is the probability that he is color-blind?'
+  choices: ['1/2', '1/4', '1', '0']
+  answer: 2
+  explanation: |-
+    A son''s X comes from his mother, and every X she has carries $b$. So every son is $X^bY$ and color-blind. (Every daughter is an $X^BX^b$ carrier.)
+- id: bio-q-0546
+  lesson: bio-sex-linked
+  topic: Pedigrees
+  stem: 'In a family, two parents who both have a condition have a child who does not. Which inheritance pattern is consistent with this?'
+  choices: ['Autosomal recessive', 'X-linked recessive', 'Y-linked', 'Autosomal dominant']
+  answer: 3
+  explanation: |-
+    Two affected parents can each be Aa for a dominant condition and have an aa child. For an autosomal recessive condition, two aa parents can only have aa children; for X-linked recessive, an affected mother and father give only affected children. A Y-linked trait can''t affect the mother.
+- id: bio-q-0547
+  lesson: bio-sex-linked
+  topic: Sex linkage
+  stem: 'About 8% of men in a population are red-green color-blind. If the same fraction of X chromosomes carry the allele, about what percentage of women would you expect to be color-blind?'
+  choices: ['0.64%', '8%', '4%', '16%']
+  answer: 0
+  explanation: |-
+    A man is affected if his one X carries the allele (probability 0.08). A woman needs it on both X chromosomes: $0.08 \times 0.08 = 0.0064 = 0.64\%$. That is why the condition is much rarer in women.
+- id: bio-q-0548
+  lesson: bio-chromosomes
+  module_quiz: true
+  topic: Chromosomal disorders
+  stem: 'How many autosomes are in a typical human body cell?'
+  choices: ['46', '44', '22', '23']
+  answer: 1
+  explanation: |-
+    A typical body cell has 46 chromosomes: 22 pairs of autosomes (44) and one pair of sex chromosomes. 46 counts the sex chromosomes too; 22 is the number of autosomal pairs; 23 is the number in a gamete.
+- id: bio-q-0549
+  lesson: bio-chromosomes
+  topic: Chromosomal disorders
+  stem: 'If nondisjunction of one chromosome pair occurs in meiosis I, what are the four gametes like?'
+  choices: ['All four are normal', 'Two have an extra chromosome and two are missing one', 'Two are normal, one has an extra chromosome and one is missing one', 'All four have an extra chromosome']
+  answer: 1
+  explanation: |-
+    In meiosis I both homologs go to one cell, so that cell''s two products are n + 1 and the other cell''s two products are n − 1. Two normal gametes plus one n + 1 and one n − 1 is the result of nondisjunction in meiosis II.
+- id: bio-q-0550
+  lesson: bio-chromosomes
+  module_quiz: true
+  topic: Chromosomal disorders
+  stem: 'How many chromosomes are in the body cells of a person with Down syndrome caused by trisomy 21?'
+  choices: ['46', '45', '69', '47']
+  answer: 3
+  explanation: |-
+    Trisomy means three copies of one chromosome instead of two, so 46 + 1 = 47. 45 would be a monosomy (as in 45,X); 69 would be a whole extra set of chromosomes (triploidy).
+- id: bio-q-0551
+  lesson: bio-chromosomes
+  topic: Chromosomal disorders
+  stem: 'A sperm that carries both an X and a Y chromosome, after nondisjunction in meiosis I, fertilizes a normal egg. What is the karyotype of the zygote?'
+  choices: ['47,XXY', '45,X', '47,XYY', '46,XY']
+  answer: 0
+  explanation: |-
+    The egg adds 23 chromosomes including an X; the sperm has 24 including X and Y. Total: 47,XXY (Klinefelter syndrome). 45,X comes from a gamete with no sex chromosome; 47,XYY would need two Y chromosomes from the father (nondisjunction in meiosis II).
+- id: bio-q-0552
+  lesson: bio-chromosomes
+  topic: Chromosomal disorders
+  stem: 'Which condition could NOT be detected from a standard karyotype?'
+  choices: ['Down syndrome (trisomy 21)', 'Turner syndrome (45,X)', 'Cystic fibrosis, caused by a recessive allele of a single gene', 'A large deletion on chromosome 5']
+  answer: 2
+  explanation: |-
+    A karyotype shows chromosome number and large structural changes. A cystic fibrosis allele is a small change within one gene that leaves the chromosome looking normal; it needs DNA testing.
+- id: bio-q-0553
+  lesson: bio-chromosomes
+  topic: Chromosomal disorders
+  stem: 'A segment of chromosome 9 breaks off and becomes attached to chromosome 22. This structural change is'
+  choices: ['a deletion', 'an inversion', 'a duplication', 'a translocation']
+  answer: 3
+  explanation: |-
+    A translocation moves a segment to a non-homologous chromosome. A deletion loses a segment, an inversion flips one in place, and a duplication repeats one.
+- id: bio-q-0554
+  lesson: bio-chromosomes
+  module_quiz: true
+  topic: Chi-square test
+  stem: 'A chi-square test compares observed counts in four phenotype classes with a 9 : 3 : 3 : 1 prediction. How many degrees of freedom are there?'
+  choices: ['3', '4', '1', '15']
+  answer: 0
+  explanation: |-
+    Degrees of freedom = number of categories − 1 = 4 − 1 = 3. Using the number of categories (4) is the common mistake; 15 is 16 − 1, the ratio total minus one.
+- id: bio-q-0555
+  lesson: bio-chromosomes
+  module_quiz: true
+  topic: Chi-square test
+  stem: 'A cross is expected to give 3 : 1. Of 120 offspring, 84 show the dominant trait and 36 the recessive trait. What is $\chi^2$?'
+  choices: ['1.43', '0.40', '1.60', '3.84']
+  answer: 2
+  explanation: |-
+    Expected: 90 and 30. $\chi^2 = \dfrac{(84-90)^2}{90} + \dfrac{(36-30)^2}{30} = 0.40 + 1.20 = 1.60$. Dividing by the observed counts instead gives 1.43; 0.40 is only the first term; 3.84 is the critical value, not the statistic.
+- id: bio-q-0556
+  lesson: bio-chromosomes
+  topic: Chi-square test
+  stem: 'A test cross expected to give 1 : 1 yields $\chi^2 = 5.2$. Using $p = 0.05$, what should you conclude?'
+  choices: ['Fail to reject, because 5.2 is less than the critical value 5.99', 'Reject the 1 : 1 hypothesis, because 5.2 is greater than the critical value 3.84 for df = 1', 'The data prove the 1 : 1 hypothesis is true', 'Fail to reject, because $\chi^2$ is positive']
+  answer: 1
+  explanation: |-
+    Two categories give df = 1, critical value 3.84. Since $5.2 \ge 3.84$, a deviation this large would happen by chance less than 5% of the time, so reject. 5.99 is the critical value for df = 2. A chi-square test never proves a hypothesis.
+- id: bio-q-0557
+  lesson: bio-chromosomes
+  topic: Chi-square test
+  stem: 'Why must a chi-square test use raw counts rather than percentages?'
+  choices: ['Percentages can''t be squared', 'Percentages always add to 100, which makes $\chi^2$ zero', 'The test depends on sample size, and percentages hide how many individuals were counted', 'Expected values can only be whole numbers']
+  answer: 2
+  explanation: |-
+    A 55% : 45% split is unremarkable among 20 offspring but very unlikely by chance among 2000. Counts carry that sample-size information; percentages discard it. Expected counts can be non-integers (e.g. 312.75).
+- id: bio-q-0558
+  lesson: bio-chromosomes
+  topic: Chromosomal disorders
+  stem: 'The risk of trisomy 21 rises with the age of the egg-producing parent. What is the main reason?'
+  choices: ['Egg cells stay paused partway through meiosis I for years or decades, which raises the chance of nondisjunction', 'Older parents produce more eggs per cycle', 'Chromosome 21 is copied more often in older people', 'Sperm cells cannot undergo nondisjunction']
+  answer: 0
+  explanation: |-
+    Human oocytes begin meiosis I before birth and pause until ovulation, so an egg released at 40 has been paused for about 40 years; errors in separating chromosomes become more likely. Nondisjunction also occurs in sperm formation, but it accounts for a smaller share of trisomy 21.

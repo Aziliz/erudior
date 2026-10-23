@@ -1,0 +1,74 @@
+- id: bio-bacteria-growth
+  title: Exponential growth of bacteria
+  topic: Bacteria and archaea
+  vars:
+    N0: {choices: [50, 100, 200, 250, 500, 1000]}
+    gt: {choices: [15, 20, 30, 40, 60]}
+    n: {min: 3, max: 10}
+  calc:
+    t: n*gt
+    N: N0*2^n
+  prompt: 'A broth culture starts with {N0} bacterial cells, and under these conditions the generation time is {gt} minutes. Assuming exponential growth with no cell death, how many generations occur in {t} minutes, and how many cells are there at the end? Give whole numbers.'
+  answers:
+    - {name: n, label: 'Generations', format: integer}
+    - {name: N, label: 'Final number of cells', format: integer}
+  solution: |-
+    Generations $=$ elapsed time $\div$ generation time $= {t} \div {gt} =$ **{n}**.
+
+    Each generation doubles the population, so $N = N_0 \times 2^{n} = {N0} \times 2^{{n}}$ = **{N:int}** cells. (Multiplying by {n} instead of by $2^{{n}}$ is the usual mistake.)
+- id: bio-serial-dilution
+  title: Counting bacteria by serial dilution
+  topic: Bacteria and archaea
+  vars:
+    col: {min: 30, max: 300}
+    dexp: {choices: [3, 4, 5, 6]}
+    vol: {choices: [0.1, 0.2, 0.5, 1]}
+  calc:
+    cfu: col*10^dexp/vol
+  prompt: 'A sample is diluted to $10^{-{dexp}}$ of its original concentration, and {vol} mL of the dilution is spread on a nutrient plate. After incubation, {col} colonies grow. How many colony-forming units (CFU) per mL were in the original sample? You can type scientific notation, such as 2.5e6.'
+  answers:
+    - {name: cfu, label: 'CFU per mL', format: sci, relTolerance: 0.01}
+  solution: |-
+    Each colony grew from one cell, so the plated {vol} mL held {col} CFU: that's ${col} \div {vol}$ CFU per mL of the dilution.
+
+    The dilution was $10^{-{dexp}}$, so multiply by $10^{{dexp}}$ to undo it:
+
+    $\text{CFU/mL} = \dfrac{\text{colonies}}{\text{dilution} \times \text{volume}} = \dfrac{{col}}{10^{-{dexp}} \times {vol}} =$ **{cfu:sci}** CFU/mL.
+- id: bio-transpiration
+  title: Transpiration rate from a potometer
+  topic: Plants
+  vars:
+    area: {choices: [0.5, 0.75, 0.8, 1, 1.2, 1.5]}
+    dist: {min: 20, max: 90, step: 5}
+    tmin: {choices: [4, 5, 8, 10, 15, 20]}
+  calc:
+    vol: area*dist
+    rate: vol/tmin
+  prompt: 'In a potometer, the air bubble moves {dist} mm in {tmin} minutes along a capillary tube with a cross-sectional area of {area} mm². Find the volume of water taken up (mm³) and the rate of uptake (mm³ per minute). Give answers to 2 decimal places where needed.'
+  answers:
+    - {name: vol, label: 'Volume (mm³)', relTolerance: 0.01}
+    - {name: rate, label: 'Rate (mm³/min)', relTolerance: 0.01}
+  solution: |-
+    The water drawn in fills a cylinder of the tube: volume $=$ area $\times$ distance $= {area} \times {dist} =$ **{vol:num2} mm³**.
+
+    Rate $=$ volume $\div$ time $= {vol:num2} \div {tmin} =$ **{rate:num2} mm³/min**. Because the shoot uses little of the water it absorbs, this approximates the transpiration rate.
+- id: bio-stomata-density
+  title: Stomatal density from a leaf imprint
+  topic: Plants
+  vars:
+    diam: {choices: [0.35, 0.4, 0.45, 0.5]}
+    count: {min: 12, max: 60}
+  calc:
+    rad: diam/2
+    fov: pi*rad^2
+    dens: count/fov
+  prompt: 'A nail-polish imprint of a leaf''s lower surface is viewed under a microscope. The field of view is {diam} mm in diameter, and {count} stomata are visible in it. Find the area of the field of view (mm², 4 decimal places) and the stomatal density (stomata per mm², to the nearest whole number).'
+  answers:
+    - {name: fov, label: 'Field area (mm²)', relTolerance: 0.01}
+    - {name: dens, label: 'Density (per mm²)', relTolerance: 0.01}
+  solution: |-
+    The radius is half the diameter: $r = {diam} \div 2 = {rad:num4}$ mm.
+
+    Area $= \pi r^2 = \pi({rad:num4})^2 =$ **{fov:num4} mm²**.
+
+    Density $= {count} \div {fov:num4} \approx$ **{dens:int} stomata per mm²**.

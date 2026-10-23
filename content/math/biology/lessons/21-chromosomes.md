@@ -17,7 +17,7 @@ A typical human karyotype has 46 chromosomes: 22 pairs of autosomes, numbered 1 
 
 ## Nondisjunction and aneuploidy
 
-In meiosis, homologous chromosomes separate in anaphase I and sister chromatids separate in anaphase II. Occasionally a pair fails to separate. This failure is **nondisjunction**. Both copies then go to one daughter cell and none to the other.
+Lesson 16 introduced nondisjunction: in meiosis, a homologous pair (anaphase I) or a pair of sister chromatids (anaphase II) occasionally fails to separate, so both copies go to one daughter cell and none to the other. As a reminder of the two cases:
 
 - Nondisjunction in meiosis I: all four gametes are abnormal. Two have an extra chromosome (n + 1 = 24 in humans) and two lack one (n − 1 = 22).
 - Nondisjunction in meiosis II: two gametes are normal, one is n + 1 and one is n − 1.

@@ -1,0 +1,31 @@
+# Module 5 (Inheritance) notecards
+- {front: Gene vs allele, back: 'A gene is a unit of inheritance (a stretch of DNA affecting a trait). Alleles are the different versions of one gene, such as P (purple) and p (white).', topic: Mendelian genetics}
+- {front: Genotype vs phenotype, back: 'Genotype: the alleles an individual has (PP, Pp, pp). Phenotype: the observable trait (purple or white).', topic: Mendelian genetics}
+- {front: Homozygous vs heterozygous, back: 'Homozygous: two identical alleles (PP or pp). Heterozygous: two different alleles (Pp).', topic: Mendelian genetics}
+- {front: Dominant vs recessive allele, back: 'A dominant allele shows its effect with one copy (in a heterozygote). A recessive allele shows only when there are two copies. Dominant does not mean common or beneficial.', topic: Mendelian genetics}
+- {front: Law of segregation, back: 'The two alleles of a gene separate into different gametes, each gamete getting one, with equal probability. Physical basis: homologous chromosomes separate in anaphase I.', topic: Mendelian genetics}
+- {front: 'Aa × Aa: genotype and phenotype ratios', back: 'Genotypes 1 AA : 2 Aa : 1 aa. Phenotypes 3 dominant : 1 recessive.', topic: Mendelian genetics}
+- {front: Test cross, back: 'Cross a dominant-phenotype individual of unknown genotype with a homozygous recessive. All dominant offspring suggests AA; any recessive offspring proves Aa (expected 1 : 1).', topic: Mendelian genetics}
+- {front: 'Of the dominant-phenotype offspring of Aa × Aa, what fraction are heterozygous?', back: '2/3 (two Aa boxes out of three non-aa boxes).', topic: Mendelian genetics}
+- {front: Law of independent assortment, back: 'Alleles of different genes go into gametes independently (for unlinked genes), because homologous pairs line up at random at metaphase I.', topic: Dihybrid crosses}
+- {front: 'AaBb × AaBb phenotype ratio', back: '9 : 3 : 3 : 1 (two dominant : first dominant only : second dominant only : both recessive), out of 16.', topic: Dihybrid crosses}
+- {front: Product rule, back: 'For independent events, P(A and B) = P(A) × P(B). Example: P(aabbcc) from AaBbCc × AaBbCc = (1/4)³ = 1/64.', topic: Probability in genetics}
+- {front: Sum rule, back: 'For mutually exclusive events, P(A or B) = P(A) + P(B). Example: P(AA or aa) from Aa × Aa = 1/4 + 1/4 = 1/2.', topic: Probability in genetics}
+- {front: 'Number of gamete types from n heterozygous unlinked genes', back: '$2^n$. AaBbCc makes 8; homozygous genes add no variety.', topic: Probability in genetics}
+- {front: 'Probability that exactly k of n children are affected (probability p each)', back: '$\binom{n}{k}p^k(1-p)^{n-k}$. For two carrier parents and 2 children, exactly one affected = 2 × (1/4)(3/4) = 3/8.', topic: Probability in genetics}
+- {front: Incomplete dominance vs codominance, back: 'Incomplete dominance: heterozygote is intermediate (pink from red × white). Codominance: heterozygote shows both traits fully (AB blood, roan cattle).', topic: Codominance}
+- {front: 'Incomplete dominance: F1 × F1 ratio', back: '1 : 2 : 1 for both genotypes and phenotypes (red : pink : white), since each genotype has its own phenotype.', topic: Incomplete dominance}
+- {front: ABO blood types and genotypes, back: 'A: $I^AI^A$ or $I^Ai$. B: $I^BI^B$ or $I^Bi$. AB: $I^AI^B$. O: $ii$. $I^A$ and $I^B$ are codominant; both dominant to $i$.', topic: Multiple alleles}
+- {front: ABO antigens and antibodies, back: 'A: A antigen, anti-B antibodies. B: B antigen, anti-A. AB: both antigens, no antibodies. O: no antigens, both antibodies.', topic: Multiple alleles}
+- {front: Polygenic trait, back: 'A trait controlled by many genes with small additive effects (height, skin color); gives continuous, bell-shaped variation.', topic: Polygenic traits}
+- {front: Pleiotropy vs epistasis, back: 'Pleiotropy: one gene affects many traits (sickle-cell allele). Epistasis: one gene masks another (ee Labradors are yellow; 9 : 3 : 4).', topic: Polygenic traits}
+- {front: Why X-linked recessive traits are more common in males, back: 'Males have one X, so one recessive allele is expressed. Females need two copies.', topic: Sex linkage}
+- {front: 'Carrier mother × unaffected father (X-linked recessive)', back: 'Sons: 1/2 affected. Daughters: none affected, 1/2 carriers. Any child: 1/4 is an affected son.', topic: Sex linkage}
+- {front: 'Affected father × homozygous normal mother (X-linked recessive)', back: 'All daughters are carriers; no sons are affected (sons get the father''s Y).', topic: Sex linkage}
+- {front: Pedigree symbols, back: 'Square = male, circle = female, filled = affected, dot or half-filled = carrier, horizontal line = mating, Roman numerals = generations.', topic: Pedigrees}
+- {front: 'Pedigree clues: autosomal recessive vs dominant vs X-linked recessive', back: 'Autosomal recessive: unaffected parents can have an affected child. Autosomal dominant: affected people have an affected parent; affected parents can have an unaffected child. X-linked recessive: mostly males, never father to son.', topic: Pedigrees}
+- {front: Nondisjunction in meiosis I vs meiosis II, back: 'Meiosis I: all four gametes abnormal (two n + 1, two n − 1). Meiosis II: two normal, one n + 1, one n − 1.', topic: Chromosomal disorders}
+- {front: 'Karyotypes: Down, Turner, Klinefelter', back: 'Down syndrome: 47,+21 (trisomy 21). Turner syndrome: 45,X. Klinefelter syndrome: 47,XXY.', topic: Chromosomal disorders}
+- {front: Chromosome structural changes, back: 'Deletion (segment lost), duplication (repeated), inversion (flipped), translocation (moved to a non-homologous chromosome).', topic: Chromosomal disorders}
+- {front: Chi-square formula and degrees of freedom, back: '$\chi^2 = \sum \dfrac{(O-E)^2}{E}$ using counts; df = number of categories − 1.', topic: Chi-square test}
+- {front: 'Chi-square critical values at p = 0.05', back: 'df 1: 3.84; df 2: 5.99; df 3: 7.81; df 4: 9.49. Below the value: fail to reject. At or above: reject.', topic: Chi-square test}

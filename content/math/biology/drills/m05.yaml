@@ -143,7 +143,7 @@
     nk: n - k
     ways: nCr(n, k)
     pr: nCr(n, k)*cr^k*(1 - cr)^(n - k)
-  prompt: 'A condition is autosomal recessive, and {cr}. They have {n} children. What is the probability that exactly {k} of the {n} children have the condition? Give an exact fraction.'
+  prompt: 'A condition is autosomal recessive, and {cr}. They have {n} children. What is the probability that the number of their children with the condition is exactly {k}? Give an exact fraction.'
   answers:
     - {name: pr, kind: fraction, lowestTerms: true, label: 'Probability'}
   solution: |-
@@ -260,8 +260,8 @@
     c1: d^2/(n*rt/(rt + 1))
     c2: d^2/(n/(rt + 1))
     chi: d^2/(n*rt/(rt + 1)) + d^2/(n/(rt + 1))
-    df: 1
-    crit: 3.84
+    df: '1'
+    crit: '3.84'
     rej: if(chi >= 3.84, 1, 0)
   where: ['d != 0', 'n/(rt + 1) - d >= 10', 'abs(chi - 3.84) > 0.15']
   prompt: 'In a {rt}, there are {o1} offspring with the dominant phenotype and {o2} with the recessive phenotype. Find $\chi^2$ (2 decimal places), the degrees of freedom, and the critical value at $p = 0.05$. Then decide: type 1 if you reject the hypothesis, 0 if you fail to reject it. Critical values at $p = 0.05$: df 1: 3.84, df 2: 5.99, df 3: 7.81, df 4: 9.49.'
@@ -298,8 +298,8 @@
     c2: d2^2/(2*k)
     c3: (d1 + d2)^2/k
     chi: d1^2/k + d2^2/(2*k) + (d1 + d2)^2/k
-    df: 2
-    crit: 5.99
+    df: '2'
+    crit: '5.99'
     rej: if(chi >= 5.99, 1, 0)
   where: ['k - d1 - d2 >= 5', 'k + d1 >= 5', 'd1 != 0 or d2 != 0', 'abs(chi - 5.99) > 0.2']
   prompt: 'Snapdragon flower color shows incomplete dominance, so a pink × pink cross should give 1 red : 2 pink : 1 white. A student counts {o1} red, {o2} pink and {o3} white offspring. Find $\chi^2$ (2 decimal places), the degrees of freedom and the critical value at $p = 0.05$, then decide: type 1 if you reject the 1 : 2 : 1 hypothesis, 0 if you fail to reject it. Critical values at $p = 0.05$: df 1: 3.84, df 2: 5.99, df 3: 7.81, df 4: 9.49.'
@@ -340,8 +340,8 @@
     c3: d3^2/(3*k)
     c4: (d1 + d2 + d3)^2/k
     chi: d1^2/(9*k) + d2^2/(3*k) + d3^2/(3*k) + (d1 + d2 + d3)^2/k
-    df: 3
-    crit: 7.81
+    df: '3'
+    crit: '7.81'
     rej: if(chi >= 7.81, 1, 0)
   where: ['k - d1 - d2 - d3 >= 5', 'abs(chi - 7.81) > 0.2']
   prompt: 'A dihybrid cross (AaBb × AaBb) should give a 9 : 3 : 3 : 1 phenotype ratio if the genes assort independently. The offspring: {o1} dominant for both traits, {o2} dominant for A only, {o3} dominant for B only, and {o4} recessive for both. Find $\chi^2$ (2 decimal places), the degrees of freedom and the critical value at $p = 0.05$, then decide: type 1 if you reject the 9 : 3 : 3 : 1 hypothesis, 0 if you fail to reject it. Critical values at $p = 0.05$: df 1: 3.84, df 2: 5.99, df 3: 7.81, df 4: 9.49.'

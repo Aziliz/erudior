@@ -1,0 +1,142 @@
+- id: bio-feedback
+  title: Negative feedback returns glucose to its set point
+  topic: Homeostasis
+  vars:
+    peak: {min: 130, max: 200, step: 10}
+    kp: {choices: [25, 40, 50, 60]}
+    n: {min: 1, max: 4}
+  calc:
+    sp: 90
+    ex0: peak - sp
+    keep: 1 - kp/100
+    exn: ex0*keep^n
+    glu: sp + exn
+    mins: 30*n
+  prompt: 'After a meal, a person''s blood glucose is {peak} mg/dL; the set point is {sp} mg/dL. In a simple model of negative feedback, insulin action removes {kp}% of the excess above the set point in every 30-minute interval. After {mins} minutes, what is the excess above the set point and what is the blood glucose level? Give answers to 1 decimal place.'
+  answers:
+    - {name: exn, label: 'Excess (mg/dL)', tolerance: 0.06}
+    - {name: glu, label: 'Glucose (mg/dL)', tolerance: 0.06}
+  solution: |-
+    The starting excess is ${peak} - {sp} = {ex0}$ mg/dL. Each interval keeps $1 - {kp}\% = {keep}$ of it, and {mins} minutes is {n} interval(s):
+
+    excess $= {ex0} \times {keep}^{{n}} =$ **{exn:num1} mg/dL**, so glucose $= {sp} + {exn:num1} =$ **{glu:num1} mg/dL**.
+
+    The correction gets smaller as the level nears the set point: the hallmark of negative feedback.
+- id: bio-nerve-speed
+  title: Nerve conduction speed (Helmholtz's method)
+  topic: Nervous system
+  vars:
+    v: {choices: [20, 25, 30, 40, 50]}
+    near: {min: 10, max: 30, step: 5}
+    gap: {min: 20, max: 60, step: 5}
+    delay: {min: 10, max: 25}
+  where: ['gap/v*10 == round(gap/v*10)']
+  calc:
+    far: near + gap
+    lag: delay/10
+    t1: lag + near/v
+    t2: lag + far/v
+    dt: t2 - t1
+    tm: 1000/v
+  prompt: 'A nerve is stimulated {far} mm from the muscle it controls, and the muscle twitches {t2:num2} ms later. Stimulated {near} mm from the muscle, it twitches after {t1:num2} ms. Find the conduction speed in m/s, and the time in ms an impulse at that speed would take to travel 1 m.'
+  answers:
+    - {name: v, label: 'Speed (m/s)', relTolerance: 0.01}
+    - {name: tm, label: 'Time for 1 m (ms)', relTolerance: 0.01}
+  solution: |-
+    The muscle's own delay is the same in both trials, so subtract: extra distance $= {far} - {near} = {gap}$ mm, extra time $= {t2:num2} - {t1:num2} = {dt:num2}$ ms.
+
+    Speed $= {gap} \text{ mm} \div {dt:num2} \text{ ms} =$ **{v} m/s** (1 mm/ms = 1 m/s).
+
+    Time for 1 m $= 1000 \text{ mm} \div {v} \text{ mm/ms} =$ **{tm:num2} ms**.
+- id: bio-cardiac-output
+  title: Stroke volume and cardiac output
+  topic: Circulatory system
+  vars:
+    hr: {min: 55, max: 180}
+    edv: {min: 100, max: 160}
+    esv: {min: 30, max: 70}
+  where: ['edv - esv >= 50', 'edv - esv <= 110']
+  calc:
+    sv: edv - esv
+    co: hr*sv/1000
+  prompt: 'At the end of filling, a left ventricle holds {edv} mL of blood; after it contracts, {esv} mL remain. The heart rate is {hr} beats per minute. Find the stroke volume (mL) and the cardiac output (L/min, 2 decimal places).'
+  answers:
+    - {name: sv, label: 'Stroke volume (mL)', format: integer}
+    - {name: co, label: 'Cardiac output (L/min)', relTolerance: 0.01}
+  solution: |-
+    Stroke volume is the blood pumped out in one beat: ${edv} - {esv} =$ **{sv} mL**.
+
+    Cardiac output $=$ heart rate $\times$ stroke volume $= {hr} \times {sv} = {co:num2} \times 1000$ mL/min $=$ **{co:num2} L/min**.
+- id: bio-bmr-o2
+  title: Metabolic rate from oxygen use
+  topic: Respiratory system
+  vars:
+    mass: {min: 45, max: 95}
+    vo2: {choices: [3.5, 7, 10.5, 14, 28, 35]}
+  calc:
+    lpm: mass*vo2/1000
+    kjm: lpm*20
+    kjh: kjm*60
+  prompt: 'A {mass} kg person uses {vo2} mL of oxygen per kilogram per minute (3.5 is a typical resting value). About 20 kJ of energy is released per liter of oxygen used. Find the total oxygen use (L/min), the energy use per minute (kJ/min), and per hour (kJ/h). Give 3 significant figures.'
+  answers:
+    - {name: lpm, label: 'Oxygen (L/min)', relTolerance: 0.01}
+    - {name: kjm, label: 'Energy (kJ/min)', relTolerance: 0.01}
+    - {name: kjh, label: 'Energy (kJ/h)', relTolerance: 0.01}
+  solution: |-
+    Oxygen: ${mass} \times {vo2} = {lpm:sig3} \times 1000$ mL/min $=$ **{lpm:sig3} L/min**.
+
+    Energy: ${lpm:sig3} \times 20 =$ **{kjm:sig3} kJ/min**, and $\times 60$ gives **{kjh:sig3} kJ/h**.
+- id: bio-ventilation
+  title: Minute and alveolar ventilation
+  topic: Respiratory system
+  vars:
+    tv: {min: 300, max: 700, step: 50}
+    rr: {min: 10, max: 30}
+  calc:
+    ds: 150
+    ve: tv*rr/1000
+    va: (tv - ds)*rr/1000
+  prompt: 'A person takes {rr} breaths per minute with a tidal volume of {tv} mL. Dead space (air that only fills the airways) is {ds} mL per breath. Find the minute ventilation and the alveolar ventilation, in L/min to 2 decimal places.'
+  answers:
+    - {name: ve, label: 'Minute ventilation (L/min)', relTolerance: 0.01}
+    - {name: va, label: 'Alveolar ventilation (L/min)', relTolerance: 0.01}
+  solution: |-
+    Minute ventilation $=$ tidal volume $\times$ rate $= {tv} \times {rr}$ mL/min $=$ **{ve:num2} L/min**.
+
+    Only ${tv} - {ds}$ mL of each breath reaches the alveoli: $({tv} - {ds}) \times {rr}$ mL/min $=$ **{va:num2} L/min**.
+- id: bio-energy-food
+  title: Energy in food
+  topic: Digestive system
+  vars:
+    carb: {min: 5, max: 60}
+    prot: {min: 1, max: 30}
+    fat: {min: 1, max: 30}
+  calc:
+    kcal: 4*carb + 4*prot + 9*fat
+    pfat: 900*fat/kcal
+  prompt: 'A food contains {carb} g of carbohydrate, {prot} g of protein and {fat} g of fat. Using 4 kcal/g for carbohydrate and protein and 9 kcal/g for fat, find its total energy (kcal) and the percentage of that energy that comes from fat (1 decimal place).'
+  answers:
+    - {name: kcal, label: 'Energy (kcal)', format: integer}
+    - {name: pfat, label: '% from fat', relTolerance: 0.005}
+  solution: |-
+    Energy $= 4({carb}) + 4({prot}) + 9({fat}) =$ **{kcal} kcal**.
+
+    From fat: $9 \times {fat} \div {kcal} \times 100 =$ **{pfat:num1}%**.
+- id: bio-herd-immunity
+  title: Herd immunity threshold and vaccine coverage
+  topic: Immune system
+  vars:
+    R0: {choices: [2, 3, 4, 5, 6, 8, 10, 12, 15, 18]}
+    eff: {choices: [80, 85, 90, 95, 97]}
+  where: ['(1 - 1/R0)*100/eff <= 1']
+  calc:
+    hit: (1 - 1/R0)*100
+    cov: hit/eff*100
+  prompt: 'A disease has a basic reproduction number $R_0 = {R0}$. A vaccine protects {eff}% of the people who receive it. What percentage of the population must be immune to reach the herd immunity threshold, and what percentage must be vaccinated to get there? Give percentages to 1 decimal place.'
+  answers:
+    - {name: hit, label: 'Immune (%)', relTolerance: 0.005}
+    - {name: cov, label: 'Vaccinated (%)', relTolerance: 0.005}
+  solution: |-
+    Threshold $= 1 - \dfrac{1}{R_0} = 1 - \dfrac{1}{{R0}}$, which is **{hit:num1}%** of the population.
+
+    Only {eff}% of those vaccinated become immune, so coverage $= {hit:num1}\% \div {eff}\% \times 100 =$ **{cov:num1}%**.

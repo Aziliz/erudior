@@ -101,9 +101,6 @@
   aliases: [karyotypes]
   definition: 'An organized picture of a cell''s chromosomes arranged in pairs by size, centromere position and banding; a typical human karyotype is 46,XX or 46,XY.'
   topic: Chromosomal disorders
-- term: nondisjunction
-  definition: 'Failure of homologous chromosomes (meiosis I) or sister chromatids (meiosis II) to separate, producing gametes with an extra or a missing chromosome.'
-  topic: Chromosomal disorders
 - term: aneuploidy
   aliases: [aneuploid]
   definition: 'Having an abnormal number of one or more chromosomes, such as a trisomy (three copies, e.g. trisomy 21) or a monosomy (one copy, e.g. 45,X).'
