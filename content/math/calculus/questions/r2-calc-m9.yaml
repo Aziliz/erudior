@@ -1,0 +1,501 @@
+# Round 2, module calc-m9 (Differential equations): new question types for the core lessons
+# (37, 38, 39) and the questions for the honors lessons 39h1 and 39h2.
+
+# ---------- Lesson 37: slope fields and Euler's method ----------
+- id: calc-m9-r2-q01
+  lesson: calc-slope-fields-euler
+  type: label
+  module_quiz: true
+  topic: Euler's method
+  stem: 'The picture shows one step of Euler''s method on a solution curve that bends upward. Name the numbered parts.'
+  image: {src: images/calc-m9-euler-step-blank.svg, alt: 'A curve bending upward. From a point on it, a straight red segment runs to the right and up, ending below the curve. Dashed lines show the horizontal run and the vertical rise of the segment, and a bracket joins the end of the segment to the curve directly above it. Six numbered markers sit on the starting point, the run, the rise, the end of the segment, the point on the curve above it, and the bracket.'}
+  labels:
+    - {x: 30.5, y: 79.8, text: 'Starting point (x_n, y_n)'}
+    - {x: 52.0, y: 79.8, text: Step size h}
+    - {x: 73.4, y: 72.7, text: 'Rise h times F(x_n, y_n)'}
+    - {x: 73.4, y: 65.6, text: 'Euler estimate y_(n+1)'}
+    - {x: 73.4, y: 49.8, text: True value of the solution}
+    - {x: 75.6, y: 57.7, text: Error of the step}
+  distractors: [Equilibrium solution, Slope at the end of the step]
+  explanation: |-
+    An Euler step starts at the known point $(x_n, y_n)$ (1), runs $h$ to the right (2) and rises $h\,F(x_n, y_n)$ (3), using the slope at the *start*. It lands at the estimate $y_{n+1}$ (4). The true solution at $x_{n+1}$ is on the curve (5), and the gap between them (6) is the error. Because this curve is concave up, the tangent segment falls below it: Euler's method underestimates.
+- id: calc-m9-r2-q02
+  lesson: calc-slope-fields-euler
+  type: text
+  topic: Euler's method
+  stem: 'Use Euler''s method with $h = 0.5$ on $\dfrac{dy}{dx} = x - y$, $y(0) = 2$. After one step, $y(0.5) \approx$ ___. After two steps, $y(1) \approx$ ___.'
+  accept:
+    - ['1']
+    - ['0.75', '3/4']
+  explanation: |-
+    Step 1: slope at $(0, 2)$ is $0 - 2 = -2$, so $y_1 = 2 + 0.5(-2) = 1$.
+    Step 2: slope at $(0.5, 1)$ is $0.5 - 1 = -0.5$, so $y_2 = 1 + 0.5(-0.5) = 0.75$.
+- id: calc-m9-r2-q03
+  lesson: calc-slope-fields-euler
+  type: match
+  topic: Slope fields
+  stem: 'Match each differential equation to a feature of its slope field.'
+  pairs:
+    - ['$\dfrac{dy}{dx} = 2$', Every segment has slope 2]
+    - ['$\dfrac{dy}{dx} = x$', Horizontal along the y-axis; same slope all the way up each column]
+    - ['$\dfrac{dy}{dx} = y$', Horizontal along the x-axis; same slope all the way across each row]
+    - ['$\dfrac{dy}{dx} = x - y$', Horizontal segments along the line y = x]
+    - ['$\dfrac{dy}{dx} = -\dfrac{x}{y}$', Solution curves are circles centered at the origin]
+  distractors: [Horizontal segments along the line y = -x]
+  explanation: |-
+    A constant right side gives identical segments everywhere. $\frac{dy}{dx} = x$ is 0 where $x = 0$ (the $y$-axis) and depends only on $x$, so columns are parallel. $\frac{dy}{dx} = y$ is 0 on the $x$-axis and depends only on $y$, so rows are parallel. $x - y = 0$ on the line $y = x$. And $y\,dy = -x\,dx$ integrates to $x^2 + y^2 = C$: circles. No listed equation has zero slope along $y = -x$ (that would be, for example, $\frac{dy}{dx} = x + y$).
+- id: calc-m9-r2-q04
+  lesson: calc-slope-fields-euler
+  module_quiz: true
+  topic: Euler's method
+  stem: 'Which statements about Euler''s method are true? Select all that apply.'
+  choices:
+    - 'Each step uses the slope at the start of the step.'
+    - 'If the solution is concave up, Euler''s method underestimates it.'
+    - 'Halving the step size (over the same interval) roughly halves the error.'
+    - 'With a small enough step it gives the exact solution.'
+  answer: [0, 1, 2]
+  explanation: |-
+    $y_{n+1} = y_n + hF(x_n, y_n)$ uses the starting slope. On a concave-up curve the tangent lies below the curve, so each step falls short. The method is first order, so the error is roughly proportional to $h$: halving $h$ halves it. But the error only shrinks toward 0; it is never exactly 0 for a curved solution, however small $h$ is.
+- id: calc-m9-r2-q05
+  lesson: calc-slope-fields-euler
+  topic: Slope fields
+  stem: 'Which differential equations are autonomous? Select all that apply.'
+  choices:
+    - '$\dfrac{dy}{dx} = y^2 - 1$'
+    - '$\dfrac{dy}{dx} = xy$'
+    - '$\dfrac{dy}{dx} = 5 - 2y$'
+    - '$\dfrac{dy}{dx} = x^2$'
+    - '$\dfrac{dy}{dx} = \sin y$'
+  answer: [0, 2, 4]
+  explanation: |-
+    An autonomous equation has the form $\frac{dy}{dx} = g(y)$: no $x$ on the right side. $y^2 - 1$, $5 - 2y$ and $\sin y$ qualify. $xy$ and $x^2$ contain $x$, so their slopes change from column to column.
+
+# ---------- Lesson 38: separable equations, exponential and logistic growth ----------
+- id: calc-m9-r2-q06
+  lesson: calc-separable
+  type: label
+  module_quiz: true
+  topic: Exponential and logistic models
+  stem: 'The picture shows a logistic growth curve $P(t)$. Name the numbered parts.'
+  image: {src: images/calc-m9-logistic-parts-blank.svg, alt: 'An S-shaped curve rising from a point on the vertical axis toward a dashed horizontal line near the top. A dotted horizontal line crosses the curve halfway up, where a dot marks the steepest point. Five numbered markers sit on the dashed top line, the halfway dot, the starting point, the early part of the curve, and the late flattening part.'}
+  labels:
+    - {x: 53.1, y: 16.7, text: Carrying capacity M}
+    - {x: 36.7, y: 52.4, text: 'Inflection point, where P = M/2'}
+    - {x: 10.9, y: 81.0, text: Initial population}
+    - {x: 22.2, y: 72.0, text: Nearly exponential growth}
+    - {x: 70.7, y: 20.4, text: Growth leveling off}
+  distractors: [Unstable equilibrium, Maximum point of P]
+  explanation: |-
+    The curve starts at $P_0$ (3). While $P$ is small, $1 - \frac PM \approx 1$, so growth is nearly exponential (4). It is steepest at the inflection point, where $P = \frac M2$ (2), then slows (5) as it approaches the carrying capacity $M$ (1), a stable equilibrium. $P$ never reaches $M$, so the curve has no maximum point.
+- id: calc-m9-r2-q07
+  lesson: calc-separable
+  type: text
+  topic: Exponential and logistic models
+  stem: 'The solution of $\dfrac{dy}{dt} = -0.2y$, $y(0) = 50$ is $y = $ ___ $e^{-0.2t}$. Its half-life is $\dfrac{\ln 2}{c}$ with $c = $ ___. Give numbers only.'
+  accept:
+    - ['50']
+    - ['0.2', '1/5']
+  explanation: |-
+    $\frac{dy}{dt} = ky$ has solution $y = y_0e^{kt}$, here $50e^{-0.2t}$. The half-life is $\frac{\ln 2}{|k|} = \frac{\ln 2}{0.2} \approx 3.47$ time units.
+- id: calc-m9-r2-q08
+  lesson: calc-separable
+  type: order
+  topic: Exponential and logistic models
+  stem: 'Put the steps of solving $\dfrac{dy}{dt} = ky$, $y(0) = y_0$ in order, starting with separating the variables.'
+  items:
+    - '$\dfrac{dy}{y} = k\,dt$'
+    - '$\ln|y| = kt + C$'
+    - '$|y| = e^{C}e^{kt}$'
+    - '$y = Ae^{kt}$, with $A = \pm e^C$ (or 0)'
+    - '$y = y_0e^{kt}$'
+  explanation: |-
+    Separate, integrate both sides (one constant), exponentiate, absorb the sign and $e^C$ into one constant $A$ (allowing $A = 0$ brings back the constant solution $y = 0$), and finally set $t = 0$ to get $A = y_0$.
+- id: calc-m9-r2-q09
+  lesson: calc-separable
+  module_quiz: true
+  topic: Separable equations
+  stem: 'Which equations are separable? Select all that apply.'
+  choices:
+    - '$\dfrac{dy}{dx} = xy + x$'
+    - '$\dfrac{dy}{dx} = x + y$'
+    - '$\dfrac{dy}{dx} = e^{x + y}$'
+    - '$\dfrac{dy}{dx} = \sin(xy)$'
+    - '$\dfrac{dy}{dx} = \dfrac{y}{x}$'
+  answer: [0, 2, 4]
+  explanation: |-
+    Factor each right side: $xy + x = x(y + 1)$, $e^{x + y} = e^xe^y$ and $\frac yx = \frac1x\cdot y$ are products of a function of $x$ and a function of $y$. A sum $x + y$ cannot be factored that way (it is linear; Lesson 39), and neither can $\sin(xy)$.
+- id: calc-m9-r2-q10
+  lesson: calc-separable
+  type: match
+  topic: Exponential and logistic models
+  stem: 'Match each differential equation ($t$ in hours) to the model it describes.'
+  pairs:
+    - ['$\dfrac{dP}{dt} = 0.3P$', Exponential growth]
+    - ['$\dfrac{dy}{dt} = -0.3y$', Exponential decay]
+    - ['$\dfrac{dT}{dt} = -0.1(T - 20)$', Newton's law of cooling]
+    - ['$\dfrac{dP}{dt} = 0.3P\left(1 - \dfrac{P}{500}\right)$', Logistic growth]
+  distractors: [Growth by a constant amount per hour]
+  explanation: |-
+    $ky$ with $k > 0$ is growth and with $k < 0$ decay. A rate proportional to the *difference* from 20 is Newton's law of cooling (surroundings at 20). The factor $1 - \frac{P}{500}$ makes growth stall at the carrying capacity 500: logistic. Constant-amount growth would be $\frac{dP}{dt} = c$, which none of these is.
+
+# ---------- Lesson 39: first-order linear equations ----------
+- id: calc-m9-r2-q11
+  lesson: calc-linear-de
+  type: label
+  module_quiz: true
+  topic: Linear differential equations
+  stem: 'The picture shows a mixing tank. Name the numbered parts.'
+  image: {src: images/calc-m9-mixing-tank-blank.svg, alt: 'A tank of liquid with salt specks, a stirrer hanging into it from above, a pipe at the top left pouring into the tank, and a pipe at the bottom right carrying liquid away. Four numbered markers sit on the inflow pipe, the liquid in the tank, the outflow pipe and the stirrer.'}
+  labels:
+    - {x: 11.7, y: 19.3, text: Inflow of brine at concentration c}
+    - {x: 47.7, y: 64.3, text: 'Well-mixed solution: Q of salt in volume V'}
+    - {x: 67.2, y: 76.4, text: Outflow at concentration Q/V}
+    - {x: 38.3, y: 19.0, text: Stirrer that keeps the mixture uniform}
+  distractors: [Outflow at the incoming concentration c, Inflow of pure salt]
+  explanation: |-
+    Brine enters at concentration $c$ (1), so salt enters at $c \times$ (flow in). The stirrer (4) keeps the tank's contents (2) uniform, so the liquid leaving (3) has the tank's *current* concentration $\frac QV$, not the incoming one. That gives $\frac{dQ}{dt} = c\,(\text{flow in}) - \frac QV(\text{flow out})$.
+- id: calc-m9-r2-q12
+  lesson: calc-linear-de
+  type: order
+  topic: Linear differential equations
+  stem: 'Put the steps of the integrating-factor method in order.'
+  items:
+    - 'Write the equation in standard form $y'' + P(x)y = Q(x)$'
+    - 'Compute $\mu = e^{\int P(x)\,dx}$'
+    - 'Multiply both sides by $\mu$, so the left side is $(\mu y)''$'
+    - 'Integrate both sides, adding $C$ on the right'
+    - 'Divide by $\mu$, including the constant term'
+  explanation: |-
+    $P$ can only be read off after the equation is in standard form; $\mu$ comes from $P$; multiplying by $\mu$ is what turns the left side into a single derivative; integrating removes that derivative; and dividing by $\mu$ (constant included) isolates $y$.
+- id: calc-m9-r2-q13
+  lesson: calc-linear-de
+  type: text
+  topic: Linear differential equations
+  stem: 'Salt in a tank satisfies $\dfrac{dQ}{dt} + \dfrac{Q}{40} = 3$ ($Q$ in kg, $t$ in minutes). The steady-state amount is ___ kg and the time constant is ___ minutes. Give numbers only.'
+  accept:
+    - ['120']
+    - ['40']
+  explanation: |-
+    This is $Q' + kQ = b$ with $k = \frac1{40}$ and $b = 3$. The steady state is $\frac bk = 3 \times 40 = 120$ kg (where $Q' = 0$), and the time constant is $\frac1k = 40$ minutes.
+- id: calc-m9-r2-q14
+  lesson: calc-linear-de
+  module_quiz: true
+  topic: Linear differential equations
+  stem: 'Which equations are first-order linear? Select all that apply.'
+  choices:
+    - '$y'' + x^2y = \cos x$'
+    - '$y'' = y^2 + x$'
+    - '$xy'' - y = x^3$'
+    - '$yy'' = x$'
+    - '$y'' = e^xy$'
+  answer: [0, 2, 4]
+  explanation: |-
+    Linear means $y$ and $y'$ appear only to the first power and are not multiplied together. $y' + x^2y = \cos x$ is already in standard form; $xy' - y = x^3$ becomes $y' - \frac1xy = x^2$; $y' = e^xy$ is $y' - e^xy = 0$. $y^2$ and the product $yy'$ make the other two nonlinear.
+- id: calc-m9-r2-q15
+  lesson: calc-linear-de
+  type: match
+  topic: Linear differential equations
+  stem: 'Match each equation ($x > 0$) to an integrating factor.'
+  pairs:
+    - ['$y'' + 3y = x$', e^(3x)]
+    - ['$y'' - 2y = 1$', e^(-2x)]
+    - ['$y'' + \dfrac2xy = x$', x^2]
+    - ['$y'' - \dfrac1xy = x$', 1/x]
+    - ['$y'' + 2xy = x$', e^(x^2)]
+  distractors: ['e^(2x)', 'x^(-2)']
+  explanation: |-
+    $\mu = e^{\int P\,dx}$: $e^{3x}$; $e^{-2x}$ (keep the sign of $P = -2$); $e^{2\ln x} = x^2$; $e^{-\ln x} = \frac1x$; and $e^{x^2}$ since $\int 2x\,dx = x^2$.
+
+# ---------- Honors 39h1: phase lines, stability and uniqueness ----------
+- id: calc-m9-r2-h01
+  lesson: calc-m9-h-phase-lines
+  type: label
+  topic: Phase lines and stability
+  stem: 'The picture shows the phase line of $\dfrac{dy}{dt} = (y - 1)(y - 3)$ beside some solution curves. Name the numbered parts of the phase line.'
+  image: {src: images/calc-m9-phase-line-blank.svg, alt: 'A vertical y-axis marked 0 to 4 with dots at y = 1 and y = 3 and arrows beside it: up below 1, down between 1 and 3, up above 3. To the right, solution curves level off toward y = 1 and bend away from y = 3. Four numbered markers sit on the dot at 1, the dot at 3, the arrow below 1 and the arrow between 1 and 3.'}
+  labels:
+    - {x: 18.8, y: 67.6, text: Stable equilibrium}
+    - {x: 18.8, y: 32.4, text: Unstable equilibrium}
+    - {x: 22.2, y: 79.0, text: 'Solutions increase here (g > 0)'}
+    - {x: 22.2, y: 50.0, text: 'Solutions decrease here (g < 0)'}
+  distractors: [Semi-stable equilibrium, Vertical asymptote]
+  explanation: |-
+    $g(y) = (y - 1)(y - 3)$ is positive below 1 (3: arrow up), negative between 1 and 3 (4: arrow down) and positive above 3. Both arrows point toward $y = 1$, so it is stable (1); both point away from $y = 3$, so it is unstable (2). The curves on the right show the same thing.
+- id: calc-m9-r2-h02
+  lesson: calc-m9-h-phase-lines
+  topic: Phase lines and stability
+  stem: 'For $\dfrac{dy}{dt} = y(y - 2)(y - 5)$, which equilibrium is stable?'
+  choices: ['$y = 2$', '$y = 0$', '$y = 5$', 'None of the three is stable']
+  answer: 0
+  explanation: |-
+    Signs of $g$: negative for $y < 0$, positive on $(0, 2)$, negative on $(2, 5)$, positive for $y > 5$. Arrows point away from 0 (down below it, up above it), toward 2 (up below, down above) and away from 5. Only $y = 2$ is stable. (Check: $g'(y) = 3y^2 - 14y + 10$ gives $g'(0) = 10$, $g'(2) = -6$, $g'(5) = 15$.)
+- id: calc-m9-r2-h03
+  lesson: calc-m9-h-phase-lines
+  topic: Phase lines and stability
+  stem: 'Use the derivative test to classify the equilibria of $\dfrac{dy}{dt} = 4y - y^3$.'
+  choices:
+    - '$y = 0$ stable; $y = \pm2$ unstable'
+    - '$y = 0$ unstable; $y = \pm2$ stable'
+    - '$y = 0$ semi-stable; $y = \pm2$ stable'
+    - 'All three are stable'
+  answer: 1
+  explanation: |-
+    $4y - y^3 = y(2 - y)(2 + y) = 0$ at $y = 0, \pm2$. $g'(y) = 4 - 3y^2$: $g'(0) = 4 > 0$ (unstable), $g'(\pm2) = 4 - 12 = -8 < 0$ (stable). Solutions starting near 0 move away to $2$ or $-2$.
+- id: calc-m9-r2-h04
+  lesson: calc-m9-h-phase-lines
+  type: text
+  topic: Phase lines and stability
+  stem: 'For $\dfrac{dy}{dt} = (y - 1)(y - 3)$, a solution starting near the stable equilibrium $y = 1$ approaches it with its distance shrinking roughly like $e^{-kt}$, where $k = $ ___. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    $g(y) = y^2 - 4y + 3$, so $g'(y) = 2y - 4$ and $g'(1) = -2$. Near $y = 1$, $u = y - 1$ satisfies $u' \approx -2u$, so $u \approx u_0e^{-2t}$: $k = 2$.
+- id: calc-m9-r2-h05
+  lesson: calc-m9-h-phase-lines
+  topic: Phase lines and stability
+  stem: 'The equilibrium $y = 2$ of $\dfrac{dy}{dt} = (y - 2)^2$ is'
+  choices: ['stable, since $g''(2) = 0$', 'unstable from both sides', 'semi-stable', 'not an equilibrium']
+  answer: 2
+  explanation: |-
+    $g(2) = 0$, so it is an equilibrium, and $g'(2) = 0$, so the derivative test fails (it does not mean stable). $(y - 2)^2 > 0$ on both sides, so solutions rise on both sides: those below 2 rise toward it, those above rise away from it. That is semi-stable.
+- id: calc-m9-r2-h06
+  lesson: calc-m9-h-phase-lines
+  topic: Phase lines and stability
+  stem: 'Let $\dfrac{dy}{dt} = g(y)$ with $g$ and $g''$ continuous. Which statements are true? Select all that apply.'
+  choices:
+    - 'Every nonconstant solution is either always increasing or always decreasing.'
+    - 'A nonconstant solution can reach an equilibrium value in finite time.'
+    - 'The graphs of two different solutions can cross.'
+    - 'A solution curve can have an inflection point only at a height where $g''(y) = 0$.'
+  answer: [0, 3]
+  explanation: |-
+    To turn around, a solution would need $y' = g(y) = 0$, an equilibrium value, and uniqueness forbids a nonconstant solution from touching the constant one; for the same reason it can't reach an equilibrium in finite time, and two solution curves can't cross. Since $y'' = g'(y)\,g(y)$ and $g(y) \ne 0$ along a nonconstant solution, $y''$ can change sign only where $g'(y) = 0$.
+- id: calc-m9-r2-h07
+  lesson: calc-m9-h-phase-lines
+  topic: Phase lines and stability
+  stem: 'Fish are harvested at $H$ per year from a population with $\dfrac{dP}{dt} = 0.5P\left(1 - \dfrac{P}{800}\right) - H$. What is the largest constant harvest for which an equilibrium exists (the maximum sustainable yield)?'
+  choices: ['$H = 400$', '$H = 50$', '$H = 200$', '$H = 100$']
+  answer: 3
+  explanation: |-
+    The growth term $0.5P\left(1 - \frac{P}{800}\right)$ is a downward parabola with its top at $P = 400$, where it equals $0.5(400)(0.5) = 100$. That is $\frac{kM}{4} = \frac{0.5 \cdot 800}{4} = 100$. For $H > 100$ the right side is always negative and there is no equilibrium. (400 is the population at which the yield is maximal, not the yield.)
+- id: calc-m9-r2-h08
+  lesson: calc-m9-h-phase-lines
+  type: text
+  topic: Phase lines and stability
+  stem: 'Find the equilibria of $\dfrac{dP}{dt} = 0.4P\left(1 - \dfrac{P}{1000}\right) - 64$. Smaller: $P = $ ___; larger: $P = $ ___.'
+  accept:
+    - ['200']
+    - ['800']
+  explanation: |-
+    $0.4P - 0.0004P^2 = 64$ gives $P^2 - 1000P + 160{,}000 = 0$, so $P = 500 \pm \sqrt{250{,}000 - 160{,}000} = 500 \pm 300$: $P = 200$ and $P = 800$.
+- id: calc-m9-r2-h09
+  lesson: calc-m9-h-phase-lines
+  topic: Phase lines and stability
+  stem: 'For $\dfrac{dP}{dt} = 0.4P\left(1 - \dfrac{P}{1000}\right) - 64$ (equilibria 200 and 800), what happens to a population that starts at 150?'
+  choices:
+    - 'It rises to 800.'
+    - 'It declines and reaches 0: the stock collapses.'
+    - 'It rises to 200 and stays there.'
+    - 'It stays at 150.'
+  answer: 1
+  explanation: |-
+    Below 200 the hump $0.4P(1 - \frac{P}{1000})$ is less than the harvest 64: at $P = 150$ the rate is $0.4(150)(0.85) - 64 = -13$. Arrows point down below the unstable threshold 200, and 0 is not an equilibrium (the rate there is $-64$), so the population falls to 0 in finite time. Only populations above 200 recover toward 800.
+- id: calc-m9-r2-h10
+  lesson: calc-m9-h-phase-lines
+  type: order
+  topic: Phase lines and stability
+  stem: 'For $\dfrac{dP}{dt} = 0.6P\left(1 - \dfrac{P}{1000}\right) - H$, put these situations in order as the harvest $H$ increases from 0.'
+  items:
+    - 'Equilibria at $P = 0$ and $P = 1000$'
+    - 'Equilibria at about $P = 184$ and $P = 816$'
+    - 'The two equilibria merge at $P = 500$'
+    - 'No equilibrium: every population declines to 0'
+  explanation: |-
+    With $H = 0$ the equilibria are 0 and 1000. As $H$ grows the hump drops and the equilibria move toward each other (for $H = 90$: about 183.8 and 816.2). They merge at the top of the hump, $P = 500$, when $H = \frac{kM}{4} = 150$, and for $H > 150$ none remain: a bifurcation.
+- id: calc-m9-r2-h11
+  lesson: calc-m9-h-phase-lines
+  topic: Existence and uniqueness
+  stem: 'For which initial value problem does the existence and uniqueness theorem guarantee exactly one solution near the initial point?'
+  choices:
+    - '$y'' = \sqrt{y}$, $y(0) = 0$'
+    - '$y'' = y^{1/3}$, $y(0) = 0$'
+    - '$y'' = xy + \sin y$, $y(0) = 0$'
+    - '$y'' = \dfrac{x}{y}$, $y(1) = 0$'
+  answer: 2
+  explanation: |-
+    For $F = xy + \sin y$, both $F$ and $\frac{\partial F}{\partial y} = x + \cos y$ are continuous everywhere. For $\sqrt y$ and $y^{1/3}$, $\frac{\partial F}{\partial y}$ ($\frac{1}{2\sqrt y}$, $\frac13y^{-2/3}$) is undefined at $y = 0$, and $\frac xy$ is not even defined at $y = 0$. (Failing the hypotheses doesn't prove non-uniqueness, but here $y' = \sqrt y$, $y(0) = 0$ really has two solutions, $y = 0$ and $y = \frac{x^2}{4}$ for $x \ge 0$.)
+- id: calc-m9-r2-h12
+  lesson: calc-m9-h-phase-lines
+  topic: Existence and uniqueness
+  stem: 'Both $y = 0$ and $y = x^3$ solve $y'' = 3y^{2/3}$, $y(0) = 0$. Why doesn''t this contradict the existence and uniqueness theorem?'
+  choices:
+    - '$\dfrac{\partial F}{\partial y} = 2y^{-1/3}$ is not continuous at $y = 0$'
+    - '$F = 3y^{2/3}$ is not continuous at $y = 0$'
+    - 'The theorem only applies to linear equations'
+    - '$y = x^3$ is not differentiable at $x = 0$'
+  answer: 0
+  explanation: |-
+    $F = 3y^{2/3}$ is continuous (that is why solutions exist), but its $y$-derivative $2y^{-1/3}$ blows up at $y = 0$, so the uniqueness hypothesis fails. The theorem covers nonlinear equations, and $x^3$ is differentiable everywhere.
+- id: calc-m9-r2-h13
+  lesson: calc-m9-h-phase-lines
+  type: match
+  topic: Phase lines and stability
+  stem: 'Each equation has the equilibrium $y = 0$. Match each equation to the type of that equilibrium.'
+  pairs:
+    - ['$y'' = -2y$', Stable]
+    - ['$y'' = 3y$', Unstable]
+    - ['$y'' = y^2$', Semi-stable]
+    - ['$y'' = -y^3$', Stable]
+    - ['$y'' = y^3$', Unstable]
+  distractors: [Not an equilibrium]
+  explanation: |-
+    The derivative test settles the first two: $g'(0) = -2$ (stable) and $3$ (unstable). For the others $g'(0) = 0$, so use signs. $y^2 \ge 0$: rising on both sides, semi-stable. $-y^3$ is positive below 0 and negative above, so solutions move toward 0: stable. $y^3$ is the reverse: unstable.
+- id: calc-m9-r2-h14
+  lesson: calc-m9-h-phase-lines
+  topic: Existence and uniqueness
+  stem: 'The unique solution of $y'' = 1 + y^2$, $y(0) = 0$ is $y = \tan x$. On what largest interval containing 0 is it defined?'
+  choices: ['All real numbers', '$(0, \tfrac{\pi}{2})$', '$(-\pi, \pi)$', '$(-\tfrac{\pi}{2}, \tfrac{\pi}{2})$']
+  answer: 3
+  explanation: |-
+    Check: $(\tan x)' = \sec^2x = 1 + \tan^2x$. The right side $1 + y^2$ is smooth everywhere, yet $\tan x$ blows up at $x = \pm\frac\pi2$. The theorem only promises a solution on *some* interval around 0; here that interval is $(-\frac\pi2, \frac\pi2)$.
+
+# ---------- Honors 39h2: better numerical methods ----------
+- id: calc-m9-r2-h15
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'One step of the improved Euler method with $h = 0.5$ on $\dfrac{dy}{dx} = x + y$, $y(0) = 1$ gives $y(0.5) \approx$'
+  choices: ['$1.5$', '$1.75$', '$2$', '$2.5$']
+  answer: 1
+  explanation: |-
+    $k_1 = 0 + 1 = 1$. Predict $y = 1 + 0.5(1) = 1.5$ at $x = 0.5$, so $k_2 = 0.5 + 1.5 = 2$. Then $y_1 = 1 + \frac{0.5}{2}(1 + 2) = 1.75$. (1.5 is plain Euler; 2 uses only $k_2$; 2.5 forgets to halve the sum.)
+- id: calc-m9-r2-h16
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'One RK4 step with $h = 0.5$ on $\dfrac{dy}{dx} = y$, $y(0) = 1$ gives $y(0.5) \approx$'
+  choices: ['$1.5$', '$1.625$', '$1.6484$', '$1.6487$']
+  answer: 2
+  explanation: |-
+    $k_1 = 1$, $k_2 = 1 + 0.25(1) = 1.25$, $k_3 = 1 + 0.25(1.25) = 1.3125$, $k_4 = 1 + 0.5(1.3125) = 1.65625$. Then $y_1 = 1 + \frac{0.5}{6}(1 + 2.5 + 2.625 + 1.65625) = 1.6484375$. The exact value is $e^{0.5} \approx 1.6487$; 1.5 is Euler and 1.625 is improved Euler.
+- id: calc-m9-r2-h17
+  lesson: calc-m9-h-numerical-methods
+  type: text
+  topic: Numerical methods for differential equations
+  stem: 'Euler''s method has order ___, the improved Euler method has order ___, and the classical Runge–Kutta method (RK4) has order ___.'
+  accept:
+    - ['1', 'one']
+    - ['2', 'two']
+    - ['4', 'four']
+  explanation: |-
+    Global errors are proportional to $h$, $h^2$ and $h^4$. Halving $h$ divides them by about 2, 4 and 16.
+- id: calc-m9-r2-h18
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'The improved Euler method has error 0.012 at $x = 2$ with $h = 0.2$. About what error should you expect with $h = 0.1$?'
+  choices: ['$0.006$', '$0.003$', '$0.0015$', '$0.00075$']
+  answer: 1
+  explanation: |-
+    It is an order-2 method: error $\approx Ch^2$. Halving $h$ divides the error by $2^2 = 4$: $0.012 / 4 = 0.003$. (0.006 would be order 1; 0.00075 order 4.)
+- id: calc-m9-r2-h19
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'Euler''s method gives $y(1) \approx 3.10$ with $h = 0.1$ and $y(1) \approx 3.16$ with $h = 0.05$. What is the Richardson extrapolation estimate of $y(1)$?'
+  choices: ['$3.13$', '$3.19$', '$3.22$', '$3.16$']
+  answer: 2
+  explanation: |-
+    For an order-1 method, $Y \approx 2y_{h/2} - y_h = 2(3.16) - 3.10 = 3.22$. The difference $3.16 - 3.10 = 0.06$ also estimates the remaining error of the $h = 0.05$ run.
+- id: calc-m9-r2-h20
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'Which statements are true? Select all that apply.'
+  choices:
+    - 'For $y'' = f(x)$, the improved Euler method is the trapezoidal rule.'
+    - 'For $y'' = f(x)$, Euler''s method is a left Riemann sum.'
+    - 'RK4 evaluates the slope function four times per step.'
+    - 'Halving the step size halves the error of every method.'
+  answer: [0, 1, 2]
+  explanation: |-
+    With $F = f(x)$, Euler adds $hf(x_n)$ (left endpoints) and improved Euler adds $\frac h2[f(x_n) + f(x_{n+1})]$ (trapezoids). RK4 uses $k_1, \dots, k_4$. Halving $h$ halves the error only for order-1 methods; order 2 quarters it.
+- id: calc-m9-r2-h21
+  lesson: calc-m9-h-numerical-methods
+  type: order
+  topic: Numerical methods for differential equations
+  stem: 'Put the calculations of one RK4 step in the order they must be done.'
+  items:
+    - '$k_1 = F(x_n, y_n)$'
+    - '$k_2 = F\left(x_n + \tfrac h2,\ y_n + \tfrac h2k_1\right)$'
+    - '$k_3 = F\left(x_n + \tfrac h2,\ y_n + \tfrac h2k_2\right)$'
+    - '$k_4 = F(x_n + h,\ y_n + hk_3)$'
+    - '$y_{n+1} = y_n + \tfrac h6(k_1 + 2k_2 + 2k_3 + k_4)$'
+  explanation: |-
+    Each slope uses the one before it: $k_2$ needs $k_1$, $k_3$ needs $k_2$, $k_4$ needs $k_3$, and the update needs all four.
+- id: calc-m9-r2-h22
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'Euler''s method is applied to $y'' = -20y$. For which step sizes do the computed values decay toward 0 (in size) as the true solution does?'
+  choices: ['$h < 0.05$', '$h < 0.2$', 'every $h > 0$', '$h < 0.1$']
+  answer: 3
+  explanation: |-
+    Each step multiplies by $1 - 20h$. Decay needs $|1 - 20h| < 1$, that is $0 < h < \frac{2}{20} = 0.1$. (For $0.05 < h < 0.1$ the values still shrink, but flip sign each step; $h < 0.05$ is needed for smooth, same-sign decay.)
+- id: calc-m9-r2-h23
+  lesson: calc-m9-h-numerical-methods
+  type: text
+  topic: Numerical methods for differential equations
+  stem: 'Euler''s method with $h = 0.75$ on $y'' = -4y$, $y(0) = 1$ gives $y_1 = $ ___ and $y_3 = $ ___.'
+  accept:
+    - ['-2', '−2']
+    - ['-8', '−8']
+  explanation: |-
+    Each step multiplies by $1 - 4(0.75) = -2$: $y_1 = -2$, $y_2 = 4$, $y_3 = -8$. The true solution $e^{-4x}$ decays; with $h = 0.75 > \frac24 = 0.5$ the method is unstable.
+- id: calc-m9-r2-h24
+  lesson: calc-m9-h-numerical-methods
+  type: match
+  topic: Numerical methods for differential equations
+  stem: 'Match each method to its description.'
+  pairs:
+    - [Euler's method, 'One slope per step, at the start; order 1']
+    - [Improved Euler (Heun), 'Average of the start slope and the predicted end slope; order 2']
+    - [Classical Runge–Kutta (RK4), 'Four slopes weighted 1, 2, 2, 1; order 4']
+    - [Backward Euler, 'Implicit: uses the slope at the unknown new point']
+  distractors: ['Two slopes, both taken at the start of the step']
+  explanation: |-
+    Euler uses $F(x_n, y_n)$ only. Heun predicts with Euler, then averages the two slopes. RK4 combines $k_1 + 2k_2 + 2k_3 + k_4$ over 6. Backward Euler solves $y_{n+1} = y_n + hF(x_{n+1}, y_{n+1})$ for $y_{n+1}$, which is why it is called implicit.
+- id: calc-m9-r2-h25
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'Each Euler step makes an error proportional to $h^2$. Why is the total error at a fixed $x = b$ only proportional to $h$?'
+  choices:
+    - 'Errors in different steps always cancel in pairs'
+    - 'The last step''s error is the only one that matters'
+    - 'About $\dfrac{b - x_0}{h}$ steps each add an error of size about $Ch^2$'
+    - 'Smaller steps make the slope function smaller'
+  answer: 2
+  explanation: |-
+    The number of steps grows like $\frac1h$ as $h$ shrinks. Roughly $\frac{b - x_0}{h} \cdot Ch^2 = C(b - x_0)h$. (This is a heuristic; errors also propagate from step to step, but the conclusion holds under mild conditions.)
+- id: calc-m9-r2-h26
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'Use the improved Euler method with $h = 0.5$ on $\dfrac{dy}{dx} = 2x$, $y(0) = 0$ to estimate $y(1)$.'
+  choices: ['$0.5$', '$0.75$', '$1.25$', '$1$']
+  answer: 3
+  explanation: |-
+    Step 1: $k_1 = 0$, $k_2 = 2(0.5) = 1$, $y_1 = 0 + 0.25(0 + 1) = 0.25$. Step 2: $k_1 = 1$, $k_2 = 2$, $y_2 = 0.25 + 0.25(3) = 1$. That is exact ($y = x^2$): for $y' = f(x)$ the method is the trapezoidal rule, which is exact for linear $f$. Plain Euler gives 0.5.
+- id: calc-m9-r2-h27
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'What does it mean to call a differential equation stiff?'
+  choices:
+    - 'Its solutions combine very fast and very slow decay, so explicit methods need tiny steps long after the fast part has died away'
+    - 'It has no solution through some initial points'
+    - 'Its solutions grow faster than any exponential'
+    - 'It is nonlinear, so only numerical methods can solve it'
+  answer: 0
+  explanation: |-
+    In a stiff problem the fast-decaying part forces a small step for stability (as with $h < \frac2k$ for $y' = -ky$), even when accuracy alone would allow a large one. Implicit methods such as backward Euler avoid this.
+- id: calc-m9-r2-h28
+  lesson: calc-m9-h-numerical-methods
+  topic: Numerical methods for differential equations
+  stem: 'Backward Euler on $y'' = -ky$ gives $y_{n+1} = \dfrac{y_n}{1 + kh}$. For $k = 10$ and $h = 0.25$, each step multiplies $y$ by'
+  choices: ['$-1.5$', '$\approx 0.286$', '$3.5$', '$0.4$']
+  answer: 1
+  explanation: |-
+    $\frac{1}{1 + 10(0.25)} = \frac{1}{3.5} \approx 0.286$. The values decay, as the true solution does, even though forward Euler with this step multiplies by $1 - 2.5 = -1.5$ and blows up.

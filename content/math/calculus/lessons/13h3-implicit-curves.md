@@ -33,8 +33,8 @@ $$\frac{dy}{dx} = -\frac{F_x}{F_y}\qquad (F_y \ne 0).$$
 
 Read the formula like a fraction:
 
-- **Horizontal tangent:** $F_x = 0$ and $F_y \ne 0$ (slope 0).
-- **Vertical tangent:** $F_y = 0$ and $F_x \ne 0$ (the slope blows up; near such a point $x$ is a function of $y$ with $\frac{dx}{dy} = -\frac{F_y}{F_x} = 0$).
+- *Horizontal tangent:* $F_x = 0$ and $F_y \ne 0$ (slope 0).
+- *Vertical tangent:* $F_y = 0$ and $F_x \ne 0$ (the slope blows up; near such a point $x$ is a function of $y$ with $\frac{dx}{dy} = -\frac{F_y}{F_x} = 0$).
 
 Each condition is one equation; together with the curve's own equation $F = 0$ it gives two equations in two unknowns. Always solve them *together*: a point that makes $F_x = 0$ but is not on the curve is irrelevant.
 
@@ -70,7 +70,7 @@ The equation is unchanged when $x$ and $y$ swap, so the curve is symmetric acros
 A point on the curve where $F_x = 0$ *and* $F_y = 0$ is a **singular point**. There the formula gives $\frac00$, and the curve may fail to have a single tangent line at all. Two typical pictures:
 
 - *A crossing (node).* At the origin, the folium crosses itself: one branch arrives along the $x$-axis and another along the $y$-axis. There are two tangent lines, so "the slope at the origin" has no single value. Near the origin the cubic terms are tiny compared with $6xy$, so the curve looks like $xy = 0$, the two axes.
-- *A sharp point (cusp).* For $y^2 = x^3$, $F_x = -3x^2$ and $F_y = 2y$ both vanish at the origin. The curve is $y = \pm x^{3/2}$: two branches that leave the origin in the same direction, both tangent to the $x$-axis, forming a sharp point. Seen with $x$ as a function of $y$, it is the graph of $x = y^{2/3}$, whose cusp Lesson 7 met.
+- *A sharp point (cusp).* For $y^2 = x^3$, $F_x = -3x^2$ and $F_y = 2y$ both vanish at the origin. The curve is $y = \pm x^{3/2}$: two branches that leave the origin in the same direction, both tangent to the $x$-axis, forming a sharp point. Seen with $x$ as a function of $y$, it is the graph of $x = y^{2/3}$, which has the kind of cusp Lesson 7 listed among the places where a derivative fails to exist.
 
 ```plot
 {"x": [-1, 3], "y": [-3, 3], "equal": true, "curves": [{"x": "t^2", "y": "t^3", "t": [-1.4, 1.4]}], "points": [{"at": [0, 0], "label": "cusp"}], "caption": "y² = x³: two branches y = ±x^(3/2) meet in a sharp point at the origin"}
@@ -87,7 +87,7 @@ $F_x = 0$ gives $y = \frac{x^2}{2}$ and $F_y = 0$ gives $x = \frac{y^2}{2}$. Sub
 - $(0, 0)$: $0 + 0 = 0$. ✓ A singular point.
 - $(2, 2)$: $8 + 8 = 16$, but $6\cdot2\cdot2 = 24$. ✗ Not on the curve.
 
-So the origin is the **only** singular point. Skipping the last check would wrongly add $(2, 2)$.
+So the origin is the *only* singular point. Skipping the last check would wrongly add $(2, 2)$.
 
 ## Orthogonal families
 

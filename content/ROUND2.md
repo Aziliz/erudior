@@ -94,6 +94,7 @@ your notes. Never edit course.yaml, PROGRESS.md, other modules' files, `src/`, `
   `PLAYWRIGHT_MODULE=$(npm root -g)/playwright/index.mjs node scripts/preview-figure.mjs <svg or .mmd> /tmp/<your-own-folder>/x.png [--markers '[…]']`
   from the repo root, then Read the PNG. Put previews and scratch files ONLY in your own folder
   under /tmp (e.g. /tmp/r2-alg-m2/), and delete only your own files.
+- YAML reads bare `on`, `off`, `yes`, `no`, `y`, `n` as true/false: never use them as drill value names or unquoted answers.
 - Keep apostrophes and quotes intact in YAML (single-quoted strings double an apostrophe: 'it''s').
 - Don't overstate: "usually", "about", dates and attributions checked.
 
