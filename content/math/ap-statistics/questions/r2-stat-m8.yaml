@@ -695,7 +695,7 @@
     - 'A simple random sample of 500 with $np_0 = 150$ and $n(1 - p_0) = 350$'
   answer: [0, 1, 2]
   explanation: |-
-    Expected counts below 10 break the large counts condition for z tests (use the exact binomial or Fisher's test), and a small sample with an extreme outlier breaks the t test's normal condition (a sign or permutation test is safer). With 150 and 350 expected successes and failures, the z test is accurate.
+    Expected counts below 10 break the large counts condition for z tests (use the exact binomial or Fisher's test), and a small sample with an extreme outlier breaks the t test's normal condition (a sign or signed-rank test is safer). With 150 and 350 expected successes and failures, the z test is accurate.
 
 - id: stat-m8-r2-h39
   lesson: stat-m8-h-exact-tests

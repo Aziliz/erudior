@@ -82,7 +82,7 @@ accTitle and accDescr, at most 9 boxes, and all rendered.
   - match (3): h07, h20, h32
   - select-all (6): h08, h12, h21, h26, h33, h40
   - MC (20): the rest
-- MC answer positions (25 questions): 0: 6, 1: 6, 2: 7, 3: 6.
+- MC answer positions (25 questions): 0: 6, 1: 6, 2: 6, 3: 7.
 
 **Drills** (`drills/r2-calc-m8.yaml`, 5)
 - 36h1: calc-m8-r2-wallis ($\int_0^{\pi/2}\sin^n$ or $\cos^n$, n = 3–10; exact answer such as
