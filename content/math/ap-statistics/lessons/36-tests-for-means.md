@@ -112,6 +112,9 @@ mean output? $\alpha = 0.05$.
 | Two measurements on each individual / matched pairs | paired t on differences |
 | Two independent groups | two-sample t |
 
+The key question is whether the two sets of numbers are *dependent* (paired) or
+**independent**.
+
 The same choice as a chart, including the first question to ask: is the response a mean at all?
 
 ```mermaid
@@ -126,9 +129,6 @@ flowchart TD
   D -->|"Yes"| E["Paired t test on the differences, df = pairs − 1"]
   D -->|"No, independent"| F["Two-sample t test, Welch or conservative df"]
 ```
-
-The key question is whether the two sets of numbers are *dependent* (paired) or
-**independent**.
 
 ## Using tests and intervals together
 

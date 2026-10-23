@@ -56,11 +56,29 @@ $$\int_a^b f(x)\,dx = \lim_{t\to a^+}\int_t^b f(x)\,dx.$$
 
 Similarly at $b$ (use $t\to b^-$). If the bad point $c$ is *inside* $[a, b]$, split there; both pieces must converge.
 
+Both types follow the same plan:
+
+```mermaid
+flowchart TD
+  accTitle: Setting up an improper integral
+  accDescr: Ask whether the interval is infinite or the integrand is unbounded at an endpoint or inside the interval. If neither, it is an ordinary definite integral. Otherwise split the integral so that each piece has exactly one problem, at one of its ends. Replace each problem end with a variable t and take the limit of an ordinary integral. If every piece has a finite limit, the integral converges to their sum; if any piece diverges, the whole integral diverges.
+  A{"Infinite interval or unbounded integrand?"} -- neither --> B["Ordinary definite integral"]
+  A -- "one or more" --> C["Split so each piece has one problem, at one end"]
+  C --> D["Replace that end with t; take the limit"]
+  D --> E{"Every piece finite?"}
+  E -- yes --> F["Converges: add the pieces"]
+  E -- no --> G["Diverges"]
+```
+
 ### Example 3
 
 Evaluate $\displaystyle\int_0^1\frac{dx}{\sqrt x}$.
 
 $\frac{1}{\sqrt x}$ blows up at 0. $\displaystyle\lim_{t\to0^+}\Big[2\sqrt x\Big]_t^1 = \lim(2 - 2\sqrt t) = \mathbf 2$. Converges, even though the region is infinitely tall.
+
+```plot
+{"x": [-0.1, 1.5], "y": [0, 6], "functions": [{"f": "1/sqrt(x)", "from": 0.02, "to": 1.5, "label": "y = 1/√x"}], "shade": [{"f": "1/sqrt(x)", "from": 0.028, "to": 1}], "caption": "The region under y = 1/√x from 0 to 1 is infinitely tall near x = 0 but has area 2"}
+```
 
 The p-integrals on $[0, 1]$ behave the opposite way: $\displaystyle\int_0^1\frac{dx}{x^p}$ converges (to $\frac{1}{1 - p}$) if $p < 1$ and diverges if $p \ge 1$.
 

@@ -17,6 +17,10 @@ From the right triangle with hypotenuse $r$ and angle $\theta$:
 
 $$x = r\cos\theta, \quad y = r\sin\theta, \qquad r^2 = x^2 + y^2, \quad \tan\theta = \frac yx.$$
 
+The origin is called the pole, and the positive $x$-axis, where $\theta = 0$, the polar axis. The legs of the right triangle are the rectangular coordinates:
+
+![A point P(r, θ) in the plane. A blue segment of length r runs from the pole O to P at angle θ above the polar axis. A red segment along the axis has length x = r cos θ, and a dashed red vertical segment from the axis up to P has length y = r sin θ, forming a right triangle.](images/calc-m11-polar-point.svg)
+
 A point has many polar descriptions: $(r, \theta)$, $(r, \theta + 2\pi)$, and $(-r, \theta + \pi)$ are all the same point. A negative $r$ means "go backward" from the direction $\theta$.
 
 ### Example 1
@@ -87,6 +91,19 @@ $$A = \frac12\int_0^{2\pi}(1 + \cos\theta)^2d\theta = \frac12\int_0^{2\pi}\left(
 For the region between an outer curve $r_{\text{out}}$ and an inner curve $r_{\text{in}}$:
 $$A = \frac12\int_\alpha^\beta\left(r_{\text{out}}^2 - r_{\text{in}}^2\right)d\theta.$$
 (As with washers, square first, then subtract.) Find the limits by solving $r_{\text{out}} = r_{\text{in}}$.
+
+The whole procedure, in order:
+
+```mermaid
+flowchart TD
+  accTitle: Procedure for the area between two polar curves
+  accDescr: First sketch both curves. Then solve r out equals r in to find the angles where they cross, and separately check whether both curves pass through the origin, since they can reach it at different angles. Next decide which curve is outside on each interval of theta. Then set up one half times the integral of r out squared minus r in squared. Finally use symmetry if it helps and evaluate the integral.
+  A["Sketch both curves"] --> B["Solve r out = r in for the crossing angles"]
+  B --> C["Check the origin separately: each curve may reach r = 0 at a different angle"]
+  C --> D["Decide which curve is outside on each interval"]
+  D --> E["Set up one half times the integral of (r out squared minus r in squared)"]
+  E --> F["Use symmetry if it helps, then evaluate"]
+```
 
 ### Example 5
 

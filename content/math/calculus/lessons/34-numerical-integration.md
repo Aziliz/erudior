@@ -22,6 +22,22 @@ You now have four main techniques: substitution, parts, trig methods and partial
    - rational function → **partial fractions** (after long division).
 4. *Try again.* Combine methods (substitute, then parts), multiply by a clever form of 1, or rewrite. Many integrals need two steps.
 
+As a chart:
+
+```mermaid
+flowchart TD
+  accTitle: A strategy for choosing an integration technique
+  accDescr: First simplify the integrand by expanding, splitting fractions, dividing or using identities. Then look for a substitution, an inner function whose derivative appears as a factor. If there is none, classify the form. A product of unlike types, or a log or inverse trig function, suggests parts. Powers of trig functions suggest trig identities. A root of a squared plus or minus x squared, or x squared minus a squared, suggests trig substitution. A rational function suggests partial fractions. If none of these fits, rewrite or combine methods, and if there is no elementary antiderivative, approximate the definite integral numerically.
+  A["Simplify: expand, split, divide, identities"] --> B{"Inner function with its derivative as a factor?"}
+  B -- yes --> C["Substitution"]
+  B -- no --> D{"Which form?"}
+  D -- "unlike product, log, inverse trig" --> E["Parts"]
+  D -- "trig powers" --> F["Trig identities"]
+  D -- "root of a² ± x² or x² − a²" --> G["Trig substitution"]
+  D -- "rational function" --> H["Partial fractions"]
+  D -- "none of these" --> I["Rewrite or combine; else approximate numerically"]
+```
+
 ### Example 1
 
 Classify each:
@@ -84,6 +100,12 @@ The true value is $0.882081$. Simpson's error is about 0.0003; the trapezoid's a
 - If $f$ is **concave down**, $T_n$ underestimates and $M_n$ overestimates.
 
 For a concave-up function, $M_n < \int_a^b f < T_n$, which brackets the true value.
+
+The picture shows why, on a single subinterval of $f(x) = \frac12x^2 + 1$ over $[0, 2]$ (true area $\frac{10}{3} \approx 3.33$). The chord of the trapezoid lies above the concave-up curve, so $T_1 = 4$ is too big. The midpoint rectangle's top is a horizontal line through $(1, 1.5)$; tilting it to the tangent line there doesn't change its area, and the tangent lies below the curve, so $M_1 = 3$ is too small.
+
+```plot
+{"x": [-0.3, 2.5], "y": [0, 3.5], "functions": [{"f": "0.5x^2 + 1", "from": 0, "to": 2, "label": "y = ½x² + 1"}], "polygons": [{"points": [[0, 0], [0, 1], [2, 3], [2, 0]]}, {"points": [[0, 0], [0, 1.5], [2, 1.5], [2, 0]]}], "tangents": [{"f": "0.5x^2 + 1", "at": 1}], "points": [{"at": [1, 1.5], "label": "midpoint"}], "caption": "Concave up: the trapezoid (top edge from (0, 1) to (2, 3)) has area 4, above the true 10/3; the midpoint rectangle (height 1.5) has area 3, below it"}
+```
 
 ## Error bounds
 

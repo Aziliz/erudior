@@ -28,6 +28,19 @@ The idea: save one factor to be part of $du$, and convert everything else with $
 | power of $\cos$ odd | save one $\cos x$, convert the rest to $\sin$ | $u = \sin x$ |
 | both even | half-angle identities to lower the powers | |
 
+The same decision as a chart (when both powers are odd, either branch works):
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for powers of sine and cosine
+  accDescr: For an integral of sine to the m times cosine to the n, first ask whether m, the power of sine, is odd. If yes, save one sine x, convert the rest to cosines, and let u equal cos x. If not, ask whether n, the power of cosine, is odd. If yes, save one cos x, convert the rest to sines, and let u equal sin x. If both powers are even, use the half-angle identities to lower the powers, repeating as needed.
+  A["∫ sinᵐx cosⁿx dx"] --> B{"Is m odd?"}
+  B -- yes --> C["Save one sin x; rest to cos; u = cos x"]
+  B -- no --> D{"Is n odd?"}
+  D -- yes --> E["Save one cos x; rest to sin; u = sin x"]
+  D -- no --> F["Both even: half-angle identities, repeated"]
+```
+
 ### Example 1
 
 Find $\displaystyle\int\sin^3x\cos^2x\,dx$.
@@ -73,6 +86,10 @@ An expression like $\sqrt{a^2 - x^2}$ is the side of a right triangle with hypot
 | $\sqrt{x^2 - a^2}$ | $x = a\sec\theta$ | $\sec^2 - 1 = \tan^2$ | $a\tan\theta$ |
 
 After integrating in $\theta$, convert back to $x$ with a reference triangle.
+
+Each substitution comes with its own reference triangle. Label it from the substitution itself: $\sin\theta = \frac xa$ puts $x$ opposite and $a$ on the hypotenuse; $\tan\theta = \frac xa$ puts $x$ opposite and $a$ adjacent; $\sec\theta = \frac xa$ puts $x$ on the hypotenuse and $a$ adjacent. The Pythagorean theorem gives the third side, and it is always the root you started with.
+
+![Three right triangles with angle theta at the lower left. For x = a sin theta: hypotenuse a, opposite side x, adjacent side the square root of a squared minus x squared. For x = a tan theta: hypotenuse the square root of a squared plus x squared, opposite x, adjacent a. For x = a sec theta: hypotenuse x, opposite the square root of x squared minus a squared, adjacent a.](images/calc-m8-trig-sub-triangles.svg)
 
 ### Example 4
 

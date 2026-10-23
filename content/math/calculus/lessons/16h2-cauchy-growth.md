@@ -34,7 +34,7 @@ Dividing by $g'(c)\,[g(b) - g(a)]$, both nonzero, gives the theorem.
 *What it means.* Think of $t \mapsto (g(t), f(t))$ as a point moving in the plane. By the chain rule its path has slope $\frac{dy}{dx} = \frac{f'(t)}{g'(t)}$. The left side is the slope of the chord from the start of the path to the end. So the theorem says: somewhere, the path runs parallel to its chord. With $g(x) = x$ it is exactly the ordinary Mean Value Theorem.
 
 ```plot
-{"x": [0, 9], "y": [0, 5], "curves": [{"x": "t^3", "y": "t^2", "t": [1, 2]}], "segments": [{"from": [1, 1], "to": [8, 4], "dashed": true}, {"from": [1.264, 1.349], "to": [6.264, 3.491]}], "points": [{"at": [1, 1], "label": "t = 1"}, {"at": [8, 4], "label": "t = 2"}, {"at": [3.764, 2.420], "label": "t = c = 14/9"}], "caption": "The path (t³, t²) for 1 ≤ t ≤ 2: the tangent at t = 14/9 is parallel to the dashed chord, slope 3/7"}
+{"x": [0, 9], "y": [0, 5], "curves": [{"x": "t^3", "y": "t^2", "t": [1, 2]}], "segments": [{"from": [1, 1], "to": [8, 4], "dashed": true}, {"from": [1.264, 1.349], "to": [6.264, 3.491]}], "points": [{"at": [1, 1]}, {"at": [8, 4]}, {"at": [3.764, 2.420]}], "labels": [{"at": [1.4, 0.55], "text": "t = 1"}, {"at": [7.6, 4.45], "text": "t = 2"}, {"at": [2.6, 3.0], "text": "t = c = 14/9"}], "caption": "The path (t³, t²) for 1 ≤ t ≤ 2: the tangent at t = 14/9 is parallel to the dashed chord, slope 3/7"}
 ```
 
 ### Example 1
@@ -98,7 +98,7 @@ flowchart TD
 "Eventually" can mean *very* eventually.
 
 ```plot
-{"x": [0, 10000], "y": [0, 110], "functions": [{"f": "ln(x)^2", "label": "(ln x)²"}, {"f": "sqrt(x)", "dashed": true, "label": "√x"}], "points": [{"at": [5504, 74.19], "label": "x ≈ 5504"}], "caption": "(ln x)² stays above √x from about x = 4.2 until about x = 5504; after that √x leads forever"}
+{"x": [0, 10000], "y": [0, 110], "functions": [{"f": "ln(x)^2", "label": "(ln x)²"}, {"f": "sqrt(x)", "dashed": true, "label": "√x"}], "points": [{"at": [5504, 74.19]}], "labels": [{"at": [5504, 62], "text": "x ≈ 5504"}], "caption": "(ln x)² stays above √x from about x = 4.2 until about x = 5504; after that √x leads forever"}
 ```
 
 ### Example 3 (ranking, and how far away "eventually" is)

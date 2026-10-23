@@ -128,7 +128,7 @@ The graph shows the square-root law for a 95% interval with $\hat{p} = 0.5$: goi
 to 1,500 respondents.
 
 ```plot
-{"x": [0, 2000], "y": [0, 0.15], "grid": true, "xLabel": "sample size n", "yLabel": "margin of error", "functions": [{"f": "0.98/sqrt(x)", "from": 40, "to": 2000}], "points": [{"at": [100, 0.098], "label": "n = 100: 0.098"}, {"at": [400, 0.049], "label": "n = 400: 0.049"}, {"at": [1600, 0.0245], "label": "n = 1,600: 0.0245"}], "caption": "95% margin of error 1.96·√(0.25/n): each fourfold increase in n halves it"}
+{"x": [0, 2000], "y": [0, 0.15], "grid": true, "xLabel": "sample size n", "yLabel": "margin of error", "functions": [{"f": "0.98/sqrt(x)", "from": 40, "to": 2000}], "points": [{"at": [100, 0.098]}, {"at": [400, 0.049]}, {"at": [1600, 0.0245]}], "labels": [{"at": [430, 0.1], "text": "n = 100: 0.098"}, {"at": [720, 0.06], "text": "n = 400: 0.049"}, {"at": [1600, 0.042], "text": "n = 1,600: 0.0245"}], "caption": "95% margin of error 1.96·√(0.25/n): each fourfold increase in n halves it"}
 ```
 
 ## Choosing the sample size

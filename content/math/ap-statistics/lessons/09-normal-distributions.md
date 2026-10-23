@@ -46,7 +46,7 @@ $\sigma$ stretches or squeezes it, and because the total area must stay 1, a cur
 wide is only half as tall.
 
 ```plot
-{"x": [20, 90], "y": [0, 0.09], "grid": false, "xLabel": "value", "yLabel": "density", "functions": [{"f": "normpdf(x, 50, 5)", "label": "N(50, 5)"}, {"f": "normpdf(x, 50, 10)", "label": "N(50, 10)", "dashed": true}, {"f": "normpdf(x, 70, 5)", "label": "N(70, 5)"}], "caption": "Same σ, different μ: the curve slides. Same μ, double σ: twice as wide, half as tall."}
+{"x": [20, 90], "y": [-0.01, 0.095], "grid": false, "functions": [{"f": "normpdf(x, 50, 5)"}, {"f": "normpdf(x, 50, 10)", "dashed": true}, {"f": "normpdf(x, 70, 5)"}], "segments": [{"from": [20, 0], "to": [90, 0]}], "labels": [{"at": [30, -0.006], "text": "30"}, {"at": [50, -0.006], "text": "50"}, {"at": [70, -0.006], "text": "70"}, {"at": [50, 0.087], "text": "N(50, 5)"}, {"at": [33, 0.03], "text": "N(50, 10)"}, {"at": [70, 0.087], "text": "N(70, 5)"}], "caption": "Same σ, different μ: the curve slides. Same μ, double σ: twice as wide, half as tall."}
 ```
 
 The curve's formula is

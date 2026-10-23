@@ -25,7 +25,7 @@ Let $Z_1, Z_2, \dots, Z_k$ be independent standard normal variables. The distrib
 
 $$Z_1^2 + Z_2^2 + \cdots + Z_k^2$$
 
-is the **chi-square distribution with $k$ degrees of freedom**. That is the definition; the
+is the **chi-square distribution** with $k$ degrees of freedom. That is the definition; the
 density curves in lesson 37 are just pictures of it. Three properties follow at once:
 
 - *It can't be negative*, because it is a sum of squares.
@@ -118,8 +118,8 @@ values), all estimated from the margins. So
 
 $$\text{df} = (rc - 1) - (r - 1) - (c - 1) = rc - r - c + 1 = (r - 1)(c - 1).$$
 
-Pearson himself had used $rc - 1$ for contingency tables; Fisher's correction started a famous
-quarrel between them, which Fisher's side won.
+Pearson himself had used $rc - 1$ for contingency tables; Fisher's correction started a long
+quarrel between them, and Fisher's count is the one used today.
 
 *A caution (simplified here):* $k - 1 - m$ is exactly right when the parameters are estimated in
 the most efficient way *from the grouped counts*. If they are estimated from the raw data and the
@@ -158,7 +158,7 @@ $3 - 1 = 2$.
 Everything above rests on each count being roughly normal, which is a large-count approximation
 (like the large counts condition for $\hat{p}$). With small expected counts the statistic takes only
 a few distinct values and its true distribution can differ noticeably from the chi-square curve,
-usually making p-values too small. "All expected counts at least 5" is a safe working rule, and
+so the p-value can be off in either direction. "All expected counts at least 5" is a safe working rule, and
 the one this course uses. A more lenient rule often attributed to W. G. Cochran (1950s) allows up
 to 20% of expected counts below 5 as long as none is below 1. When counts are too small, combine
 categories (as in Example 3) or use an exact method (next lesson).

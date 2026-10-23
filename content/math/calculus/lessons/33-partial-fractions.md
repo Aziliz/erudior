@@ -43,6 +43,20 @@ Multiply both sides by the denominator to clear fractions. Then either
 
 The root-plugging shortcut is fastest for distinct linear factors (it's sometimes called the cover-up method).
 
+The whole procedure, from Step 0 to the final integral:
+
+```mermaid
+flowchart TD
+  accTitle: Integrating a rational function by partial fractions
+  accDescr: Start with P of x over Q of x. If the degree of P is not less than the degree of Q, use long division first to get a polynomial plus a proper fraction. Factor the denominator into linear factors and irreducible quadratics. Write one term for each factor, with k terms for a linear factor repeated k times and a Bx plus C numerator over each irreducible quadratic. Clear denominators and find the constants by plugging in roots and matching coefficients. Then integrate: linear terms give logs, repeated factors also give negative powers, and quadratic terms give a log plus an arctangent.
+  A{"Is deg P less than deg Q?"} -- no --> B["Long division: polynomial + proper fraction"]
+  A -- yes --> C["Factor Q: linear and irreducible quadratic factors"]
+  B --> C
+  C --> D["One term per factor; k terms for a k-fold factor"]
+  D --> E["Clear denominators; plug in roots, match coefficients"]
+  E --> F["Integrate: logs, negative powers, arctan"]
+```
+
 ### Example 2 (distinct linear factors)
 
 Find $\displaystyle\int\frac{5x + 1}{x^2 + x - 2}\,dx$.
@@ -89,6 +103,12 @@ Evaluate $\displaystyle\int_2^4\frac{dx}{x^2 - 1}$.
 
 $\frac{1}{(x - 1)(x + 1)} = \frac{1/2}{x - 1} - \frac{1/2}{x + 1}$, so
 $$\int_2^4\frac{dx}{x^2 - 1} = \frac12\Big[\ln|x - 1| - \ln|x + 1|\Big]_2^4 = \frac12\left[\ln\frac35 - \ln\frac13\right] = \frac12\ln\frac95 \approx 0.294.$$
+
+The answer is the area of the shaded region below. The interval $[2, 4]$ stays clear of the vertical asymptote at $x = 1$; an interval containing $x = 1$ would make the integral improper (Lesson 35).
+
+```plot
+{"x": [0, 5], "y": [-0.5, 2], "functions": [{"f": "1/(x^2 - 1)", "from": 1.02, "to": 5, "label": "y = 1/(x² − 1)"}], "shade": [{"f": "1/(x^2 - 1)", "from": 2, "to": 4}], "segments": [{"from": [1, -0.5], "to": [1, 2], "dashed": true}], "caption": "The area under y = 1/(x² − 1) from 2 to 4 is ½ ln(9/5) ≈ 0.294; the dashed line x = 1 is a vertical asymptote"}
+```
 
 ## Why it always works
 

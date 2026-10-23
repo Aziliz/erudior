@@ -108,6 +108,17 @@ With $a = 3$: $\Big[\sinh^{-1}\frac x3\Big]_0^4 = \sinh^{-1}\frac43 - 0$. Use th
 
 Trig substitution reaches the same place: $x = 3\tan\theta$ leads to $\ln\lvert\sec\theta + \tan\theta\rvert$, which at $\tan\theta = \frac43$, $\sec\theta = \frac53$ is again $\ln 3$. The two antiderivatives differ only by a constant.
 
+To keep the three root shapes straight (check first that an ordinary substitution doesn't work):
+
+```mermaid
+flowchart TD
+  accTitle: Matching a square root to a substitution or inverse function
+  accDescr: If the integrand contains the square root of a squared minus x squared, use x equals a sine theta, which leads to arcsine. For the square root of x squared plus a squared, use x equals a tangent theta or the inverse hyperbolic sine of x over a. For the square root of x squared minus a squared, use x equals a secant theta or the inverse hyperbolic cosine of x over a.
+  A{"Which root is in the integrand?"} -- "√(a² − x²)" --> B["x = a sin θ; leads to arcsin"]
+  A -- "√(x² + a²)" --> C["x = a tan θ, or sinh⁻¹(x/a)"]
+  A -- "√(x² − a²)" --> D["x = a sec θ, or cosh⁻¹(x/a)"]
+```
+
 ## The catenary
 
 A flexible cable or chain hanging under its own weight between two supports does not form a parabola. Balancing the forces on each small piece leads to the condition $y'' = \frac1a\sqrt{1 + (y')^2}$, where $a$ is the ratio of the horizontal tension to the cable's weight per unit length. The curve that satisfies it is the **catenary**

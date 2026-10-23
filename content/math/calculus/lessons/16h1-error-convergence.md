@@ -113,7 +113,7 @@ If you know the multiplicity $m$, the fix is $x_{n+1} = x_n - m\dfrac{f(x_n)}{f'
 Quadratic convergence is a promise about what happens *near* a root. Far away, anything can happen.
 
 ```plot
-{"x": [-2.5, 2], "y": [-3, 5], "functions": [{"f": "x^3 - 2x + 2", "label": "f"}, {"f": "2 - 2x", "dashed": true, "from": -0.5, "to": 1.5}, {"f": "x", "dashed": true, "from": -0.5, "to": 1.5}], "points": [{"at": [0, 2], "label": "(0, 2)"}, {"at": [1, 1], "label": "(1, 1)"}, {"at": [0, 0], "label": "x₀ = x₂"}, {"at": [1, 0], "label": "x₁"}, {"at": [-1.769, 0], "label": "root"}], "caption": "f(x) = x³ − 2x + 2: the tangent at 0 leads to 1, and the tangent at 1 leads back to 0, forever"}
+{"x": [-2.5, 2], "y": [-3, 5], "functions": [{"f": "x^3 - 2x + 2", "label": "f"}, {"f": "2 - 2x", "dashed": true, "from": -0.3, "to": 1.3}, {"f": "x", "dashed": true, "from": 0, "to": 1.6}], "points": [{"at": [0, 2]}, {"at": [1, 1]}, {"at": [0, 0]}, {"at": [1, 0]}, {"at": [-1.769, 0]}], "labels": [{"at": [-0.5, 0.4], "text": "x₀ = x₂"}, {"at": [1.2, 0.4], "text": "x₁"}, {"at": [-2.15, 0.4], "text": "root"}], "caption": "f(x) = x³ − 2x + 2: the tangent at 0 leads to 1, and the tangent at 1 leads back to 0, forever"}
 ```
 
 - *A cycle.* For $f(x) = x^3 - 2x + 2$ from $x_0 = 0$: $x_1 = 0 - \frac{2}{-2} = 1$ and $x_2 = 1 - \frac{1}{1} = 0$. The guesses bounce between 0 and 1 and never approach the real root near $-1.769$.

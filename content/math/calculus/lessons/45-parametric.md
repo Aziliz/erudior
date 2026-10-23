@@ -33,6 +33,21 @@ $$\frac{dy}{dx} = \frac{dy/dt}{dx/dt}, \qquad \text{provided } \frac{dx}{dt} \ne
 - **Vertical tangent:** $\frac{dx}{dt} = 0$ and $\frac{dy}{dt} \ne 0$.
 - If both are 0, investigate with a limit (it can be a cusp or a smooth point).
 
+This chart sums up the test at a single parameter value $t_0$:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying the tangent line of a parametric curve at t0
+  accDescr: First compute dx/dt and dy/dt at t0. If dx/dt is not zero and dy/dt is not zero, the slope is dy/dt divided by dx/dt. If dx/dt is not zero but dy/dt is zero, the tangent is horizontal. If dx/dt is zero but dy/dt is not zero, the tangent is vertical. If both are zero, the formula fails and you investigate with a limit, since the point can be a cusp or a smooth point.
+  A["Compute dx/dt and dy/dt at t0"] --> B{"Is dx/dt = 0?"}
+  B -- No --> C{"Is dy/dt = 0?"}
+  C -- No --> D["Slope = (dy/dt) / (dx/dt)"]
+  C -- Yes --> E["Horizontal tangent"]
+  B -- Yes --> F{"Is dy/dt = 0?"}
+  F -- No --> G["Vertical tangent"]
+  F -- Yes --> H["Both zero: take a limit (cusp or smooth point)"]
+```
+
 ### Example 2
 
 For $x = t^2 - 3$, $y = t^3 - 3t$, find the tangent line at $t = 2$ and the points with horizontal or vertical tangents.
@@ -100,6 +115,23 @@ AP Calculus BC states the same ideas with vectors. A **vector-valued function** 
 - velocity $\mathbf v(t) = \mathbf r'(t) = \langle x'(t), y'(t)\rangle$, and acceleration $\mathbf a(t) = \mathbf v'(t) = \langle x''(t), y''(t)\rangle$;
 - speed $= \lvert\mathbf v(t)\rvert = \sqrt{x'(t)^2 + y'(t)^2}$;
 - integrals are taken componentwise, so $\mathbf r(b) = \mathbf r(a) + \int_a^b\mathbf v(t)\,dt$ (the displacement is $\int_a^b\mathbf v\,dt$), while distance traveled is $\int_a^b\lvert\mathbf v(t)\rvert\,dt$.
+
+In the picture, the position vector runs from the origin to the moving point, and the velocity vector starts at the point and is tangent to the path. Its horizontal and vertical components are $\frac{dx}{dt}$ and $\frac{dy}{dt}$, so the slope of the velocity vector is exactly $\frac{dy/dt}{dx/dt}$, the slope of the curve.
+
+![A curved path in the plane with a point P on it. A green position vector r(t) runs from the origin O to P. A red velocity vector v(t) starts at P and points along the curve, tangent to it. Dashed red lines show its horizontal component dx/dt and vertical component dy/dt.](images/calc-m11-velocity.svg)
+
+The next chart shows which operation takes you from one motion quantity to another.
+
+```mermaid
+flowchart TD
+  accTitle: How the motion quantities for a moving point are related
+  accDescr: Differentiating the position vector r(t) gives the velocity vector v(t), and differentiating velocity gives the acceleration vector a(t). Taking the length of the velocity vector gives the speed. Integrating velocity from a to b gives the displacement, which is a vector. Integrating speed from a to b gives the distance traveled, which is a number.
+  R["Position r(t)"] -- differentiate --> V["Velocity v(t)"]
+  V -- differentiate --> A["Acceleration a(t)"]
+  V -- "take its length" --> S["Speed, a number at each time"]
+  V -- "integrate from a to b" --> D["Displacement, a vector"]
+  S -- "integrate from a to b" --> L["Distance traveled, a number"]
+```
 
 Example 5 in this language: $\mathbf v(t) = \langle 2t, \cos\pi t\rangle$, $\mathbf a(t) = \langle 2, -\pi\sin\pi t\rangle$, and $\mathbf r(2) = \langle 1, 0\rangle + \int_0^2\mathbf v\,dt = \langle 5, 0\rangle$.
 

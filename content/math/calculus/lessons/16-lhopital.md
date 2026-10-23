@@ -102,7 +102,7 @@ So $\ln y \to 3$ and $y \to \mathbf{e^3}$. In general $\left(1 + \frac ax\right)
 The graph shows why "$1^\infty = 1$" is wrong: the base heads to 1, but the function climbs toward $e^3 \approx 20.09$, not 1.
 
 ```plot
-{"x": [0, 60], "y": [0, 24], "functions": [{"f": "(1 + 3/x)^x", "from": 0.2, "label": "y = (1 + 3/x)^x"}, {"f": "e^3", "dashed": true, "label": "y = e³ ≈ 20.09"}, {"f": "1", "dashed": true, "label": "y = 1"}], "caption": "(1 + 3/x)^x rises toward e³, not toward 1"}
+{"x": [0, 60], "y": [0, 24], "functions": [{"f": "(1 + 3/x)^x", "from": 0.2}, {"f": "e^3", "dashed": true, "label": "y = e³ ≈ 20.09"}, {"f": "1", "dashed": true, "label": "y = 1"}], "caption": "(1 + 3/x)^x rises toward e³, not toward 1"}
 ```
 
 ### Example 5 ($\infty - \infty$)

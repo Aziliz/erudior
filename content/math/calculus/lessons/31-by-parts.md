@@ -23,6 +23,10 @@ $$\int u\,dv = uv - \int v\,du.$$
 
 You split the integrand into two pieces: $u$ (which you'll differentiate) and $dv$ (which you'll integrate). The method pays off when $\int v\,du$ is simpler than the original.
 
+The formula also has a picture. Plot the curve traced by the point $(u, v)$ as $x$ runs from $a$ to $b$, from $(u_1, v_1)$ to $(u_2, v_2)$. When both $u$ and $v$ increase along the way, as here, the big rectangle $u_2v_2$ is made of three pieces: the small rectangle $u_1v_1$, the region under the curve (area $\int v\,du$), and the region to its left (area $\int u\,dv$). So $\int u\,dv = u_2v_2 - u_1v_1 - \int v\,du$, which is the definite version of the formula.
+
+![The uv-plane with an increasing curve from the point (u1, v1) to (u2, v2). The rectangle from the origin to (u2, v2) is split into three regions: a small rectangle u1 v1 at the lower left, the region under the curve labeled integral of v du, and the region left of the curve labeled integral of u dv.](images/calc-m8-parts-area.svg)
+
 ## Choosing $u$: LIATE
 
 A reliable rule of thumb: choose $u$ to be whichever factor comes first in this list.
@@ -32,6 +36,22 @@ A reliable rule of thumb: choose $u$ to be whichever factor comes first in this 
 | Logarithms | Inverse trig | Algebraic (powers, polynomials) | Trig | Exponentials |
 
 Functions early in the list get simpler (or at least no worse) when differentiated, while those late in the list are easy to integrate. $dv$ is everything else, including $dx$.
+
+The whole decision, including what to do after the first round, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Planning an integration by parts
+  accDescr: First check whether a substitution works; if so, use it. If not, choose u as the factor that comes first in LIATE and let dv be the rest, including dx. Find du and v and write u v minus the integral of v du. Then look at the new integral. If it is simpler, finish it, repeating parts if a power remains. If the original integral comes back, solve the equation for it. If the new integral is harder, swap the choice of u and dv and try again.
+  A{"Does a substitution work?"} -- yes --> B["Use substitution"]
+  A -- no --> C["Pick u by LIATE; dv is the rest, with dx"]
+  C --> D["Find du and v; write uv − ∫ v du"]
+  D --> E{"What is the new integral like?"}
+  E -- "simpler" --> F["Finish it; repeat parts if a power remains"]
+  E -- "the original returns" --> G["Solve the equation for the integral"]
+  E -- "harder" --> H["Swap the choice of u and dv"]
+  H --> D
+```
 
 ### Example 1
 

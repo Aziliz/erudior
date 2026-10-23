@@ -47,9 +47,11 @@ Construct a 95% interval for $p_A - p_B$.
 
 *Reading a two-sample interval*: if it contains 0, "no difference" is plausible; if it is
 entirely above (below) 0, the first parameter is plausibly larger (smaller).
+In the figure, interval A (Example 1) says $p_1 > p_2$ is plausible and $p_1 = p_2$ is not; B
+leaves "no difference" plausible; C says $p_1 < p_2$.
 
 ```shape
-{"segments": [{"from": [-2.2, 0], "to": [2.2, 0]}, {"from": [0, -0.1], "to": [0, 3.6], "dashed": true}, {"from": [0.23, 3], "to": [1.57, 3]}, {"from": [-0.4, 2], "to": [0.7, 2]}, {"from": [-1.5, 1], "to": [-0.3, 1]}], "points": [{"at": [0.9, 3]}, {"at": [0.15, 2]}, {"at": [-0.9, 1]}], "labels": [{"at": [0.9, 3.35], "text": "Example 1: entirely above 0"}, {"at": [0.15, 2.35], "text": "contains 0: no difference plausible"}, {"at": [-0.9, 1.35], "text": "entirely below 0"}, {"at": [-2, -0.35], "text": "−0.2"}, {"at": [-1, -0.35], "text": "−0.1"}, {"at": [0, -0.35], "text": "0"}, {"at": [1, -0.35], "text": "0.1"}, {"at": [2, -0.35], "text": "0.2"}], "caption": "Three 95% intervals for p₁ − p₂, read against the dashed line at 0"}
+{"segments": [{"from": [-2.2, 0], "to": [2.2, 0]}, {"from": [0, -0.1], "to": [0, 3.6], "dashed": true}, {"from": [0.23, 3], "to": [1.57, 3]}, {"from": [-0.4, 2], "to": [0.7, 2]}, {"from": [-1.5, 1], "to": [-0.3, 1]}], "points": [{"at": [0.9, 3]}, {"at": [0.15, 2]}, {"at": [-0.9, 1]}], "labels": [{"at": [1.85, 3], "text": "A"}, {"at": [0.95, 2], "text": "B"}, {"at": [-1.75, 1], "text": "C"}, {"at": [-2, -0.35], "text": "−0.2"}, {"at": [-1, -0.35], "text": "−0.1"}, {"at": [0, -0.35], "text": "0"}, {"at": [1, -0.35], "text": "0.1"}, {"at": [2, -0.35], "text": "0.2"}], "caption": "Three 95% intervals for p₁ − p₂: A (Example 1) lies entirely above 0, B contains 0, C lies entirely below 0"}
 ```
 
 ## Difference of two means
