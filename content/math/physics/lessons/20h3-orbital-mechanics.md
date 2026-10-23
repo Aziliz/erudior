@@ -95,13 +95,13 @@ Odd but true: the craft speeds up twice, yet it ends up moving *slower* than it 
 
 Plan a Hohmann transfer from a circular orbit of radius $r_1 = 6.67\times10^6$ m (300 km up) to geostationary radius $r_2 = 4.22\times10^7$ m. Find both burns and the trip time.
 
-Circular speeds: $v_1 = \sqrt{GM/r_1} = 7.73$ km/s and $v_2 = \sqrt{GM/r_2} = 3.07$ km/s.
+With $GM_E = 3.98\times10^{14}$ m³/s² as before, the circular speeds are $v_1 = \sqrt{GM/r_1} = 7.72$ km/s and $v_2 = \sqrt{GM/r_2} = 3.07$ km/s.
 
 Transfer orbit: $a_t = \tfrac12(6.67\times10^6 + 4.22\times10^7) = 2.44\times10^7$ m. Vis-viva at its two ends:
 
 $$v_{tp} = \sqrt{GM\left(\frac2{r_1} - \frac1{a_t}\right)} = 10.15\text{ km/s}, \qquad v_{ta} = \sqrt{GM\left(\frac2{r_2} - \frac1{a_t}\right)} = 1.60\text{ km/s}.$$
 
-Burns: $\Delta v_1 = 10.15 - 7.73 = 2.43$ km/s, $\Delta v_2 = 3.07 - 1.60 = 1.47$ km/s, total 3.89 km/s.
+Burns: $\Delta v_1 = 10.15 - 7.72 = 2.43$ km/s, $\Delta v_2 = 3.07 - 1.60 = 1.47$ km/s, total 3.89 km/s.
 
 Trip time: half the transfer period, $\pi\sqrt{a_t^3/GM} = 1.90\times10^4$ s $= 5.3$ h.
 

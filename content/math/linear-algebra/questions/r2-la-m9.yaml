@@ -1,0 +1,846 @@
+# Round 2 questions for la-m9: core lessons 33-40 (q) and honors lessons 40h1-40h3 (h)
+
+# 33 Inner product, length and orthogonality
+- id: la-m9-r2-q01
+  lesson: la-inner-product
+  module_quiz: true
+  topic: Inner product
+  type: text
+  stem: 'For $\mathbf{u} = (2, -1, 3)$ and $\mathbf{v} = (4, 5, 1)$: $\mathbf{u}\cdot\mathbf{v} =$ ___ and $\|\mathbf{u}\|^2 =$ ___.'
+  accept:
+    - ['6']
+    - ['14']
+  explanation: |-
+    $\mathbf{u}\cdot\mathbf{v} = (2)(4) + (-1)(5) + (3)(1) = 8 - 5 + 3 = 6$. $\|\mathbf{u}\|^2 = \mathbf{u}\cdot\mathbf{u} = 4 + 1 + 9 = 14$ (so $\|\mathbf{u}\| = \sqrt{14}$; the question asks for the square, without the root).
+- id: la-m9-r2-q02
+  lesson: la-inner-product
+  topic: Orthogonality
+  type: text
+  stem: 'Find $k$ so that $(1, k, 3)$ is orthogonal to $(2, -4, 2)$. Give only the number: $k =$ ___'
+  accept: ['2']
+  explanation: |-
+    Orthogonal means the dot product is 0: $(1)(2) + (k)(-4) + (3)(2) = 8 - 4k = 0$, so $k = 2$. Check: $(1, 2, 3)\cdot(2, -4, 2) = 2 - 8 + 6 = 0$.
+- id: la-m9-r2-q03
+  lesson: la-inner-product
+  module_quiz: true
+  topic: Orthogonality
+  type: label
+  stem: 'The picture shows the four fundamental subspaces of an $m \times n$ matrix $A$ of rank $r$: two in $\mathbb{R}^n$ (left) and two in $\mathbb{R}^m$ (right). Name the numbered subspaces.'
+  image: {src: images/la-m9-four-subspaces-blank.svg, alt: 'Two panels. In the left panel, labeled R n, two diamonds meet at the origin at a right angle: diamond 1 has dimension r and diamond 2 has dimension n minus r. In the right panel, labeled R m, diamond 3 has dimension r and diamond 4 has dimension m minus r. An arrow goes from diamond 1 to diamond 3, and another goes from diamond 2 to the zero vector of the right panel.'}
+  labels:
+    - {x: 23.4, y: 29.8, text: Row A}
+    - {x: 23.4, y: 70.7, text: Nul A}
+    - {x: 76.6, y: 29.8, text: Col A}
+    - {x: 76.6, y: 70.7, text: Nul Aᵀ}
+  distractors: [Eigenspace of A, Span of b]
+  explanation: |-
+    $\operatorname{Row} A$ and $\operatorname{Nul} A$ live in $\mathbb{R}^n$ (vectors $\mathbf{x}$ that $A$ multiplies), with dimensions $r$ and $n - r$; they are orthogonal complements, since $A\mathbf{x} = \mathbf{0}$ says $\mathbf{x}$ is orthogonal to every row. $\operatorname{Col} A$ and $\operatorname{Nul} A^T$ live in $\mathbb{R}^m$, with dimensions $r$ and $m - r$, and $(\operatorname{Col} A)^\perp = \operatorname{Nul} A^T$. $A$ sends $\operatorname{Nul} A$ to $\mathbf{0}$ and carries $\operatorname{Row} A$ onto $\operatorname{Col} A$.
+- id: la-m9-r2-q04
+  lesson: la-inner-product
+  topic: Orthogonality
+  stem: 'Let $W = \operatorname{Span}\{(1, 0, 2), (0, 1, -1)\}$ in $\mathbb{R}^3$. Which vectors are in $W^\perp$? Select all that apply.'
+  choices: ['$(-2, 1, 1)$', '$(2, 1, -1)$', '$(4, -2, -2)$', '$(1, 1, 1)$']
+  answer: [0, 2]
+  explanation: |-
+    A vector is in $W^\perp$ when it is orthogonal to both spanning vectors. $(-2, 1, 1)$: $-2 + 0 + 2 = 0$ and $0 + 1 - 1 = 0$. $(4, -2, -2) = -2(-2, 1, 1)$ also passes both checks. $(2, 1, -1)$ is orthogonal to $(1, 0, 2)$ ($2 - 2 = 0$) but not to $(0, 1, -1)$ ($1 + 1 = 2$): checking only one spanning vector is not enough. $(1, 1, 1)\cdot(1, 0, 2) = 3 \ne 0$.
+- id: la-m9-r2-q05
+  lesson: la-inner-product
+  topic: Inner product
+  type: match
+  stem: 'Match each pair of vectors to the kind of angle between them.'
+  pairs:
+    - ['$(1, 2)$ and $(3, 1)$', Acute]
+    - ['$(1, 2)$ and $(-2, 1)$', Right angle]
+    - ['$(1, 2)$ and $(-3, 1)$', Obtuse]
+    - ['$(2, -1, 0)$ and $(1, 2, 5)$', Right angle]
+  distractors: [Straight angle (180 degrees)]
+  explanation: |-
+    The sign of the dot product decides: $(1, 2)\cdot(3, 1) = 5 > 0$ (acute), $(1, 2)\cdot(-2, 1) = 0$ (right), $(1, 2)\cdot(-3, 1) = -1 < 0$ (obtuse), and $(2, -1, 0)\cdot(1, 2, 5) = 2 - 2 + 0 = 0$ (right). A straight angle needs one vector to be a negative multiple of the other, which none of these pairs is.
+
+# 34 Orthogonal sets and projections
+- id: la-m9-r2-q06
+  lesson: la-projections
+  module_quiz: true
+  topic: Orthogonal projections
+  type: label
+  stem: 'The picture shows the orthogonal decomposition of a vector $\mathbf{y}$ with respect to a plane $W$ through the origin. Name the numbered parts.'
+  image: {src: images/la-m9-proj-plane-blank.svg, alt: 'A tilted plane through the origin. A vector rises from the origin above the plane to point 1. Point 2 lies in the plane directly below point 1, joined to the origin by a vector in the plane. An upward vector from point 2 to point 1, at a right angle to the plane, is marked 3. Number 4 marks the plane itself, and point 5 is another point of the plane, joined to point 1 by a longer dashed segment.'}
+  labels:
+    - {x: 67.2, y: 21.6, text: The vector y}
+    - {x: 67.2, y: 68.2, text: Projection of y onto W}
+    - {x: 67.2, y: 45.5, text: Component of y orthogonal to W}
+    - {x: 17.2, y: 77.3, text: The subspace W}
+    - {x: 46.9, y: 61.4, text: Another point of W}
+  distractors: [Projection of W onto y, Normal equations]
+  explanation: |-
+    $\mathbf{y} = \hat{\mathbf{y}} + \mathbf{z}$, where $\hat{\mathbf{y}} = \operatorname{proj}_W\mathbf{y}$ lies in $W$ (point 2) and $\mathbf{z} = \mathbf{y} - \hat{\mathbf{y}}$ (3) is orthogonal to $W$. Any other point $\mathbf{v}$ of $W$ (5) is farther from $\mathbf{y}$: by Pythagoras $\|\mathbf{y} - \mathbf{v}\|^2 = \|\mathbf{z}\|^2 + \|\hat{\mathbf{y}} - \mathbf{v}\|^2$, which is the best approximation theorem.
+- id: la-m9-r2-q07
+  lesson: la-projections
+  topic: Orthogonal projections
+  type: text
+  stem: '$\mathbf{u}_1 = (1, 1, 1)$ and $\mathbf{u}_2 = (1, -2, 1)$ form an orthogonal basis of a plane $W$. For $\mathbf{y} = (3, 0, 6)$, $\operatorname{proj}_W\mathbf{y} = c_1\mathbf{u}_1 + c_2\mathbf{u}_2$ with $c_1 =$ ___ and $c_2 =$ ___.'
+  accept:
+    - ['3']
+    - ['3/2']
+  explanation: |-
+    First check $\mathbf{u}_1\cdot\mathbf{u}_2 = 1 - 2 + 1 = 0$, so the formula applies. $c_1 = \dfrac{\mathbf{y}\cdot\mathbf{u}_1}{\mathbf{u}_1\cdot\mathbf{u}_1} = \dfrac{9}{3} = 3$ and $c_2 = \dfrac{\mathbf{y}\cdot\mathbf{u}_2}{\mathbf{u}_2\cdot\mathbf{u}_2} = \dfrac{3 + 0 + 6}{6} = \dfrac32$. So $\operatorname{proj}_W\mathbf{y} = (4.5, 0, 4.5)$, and $\mathbf{z} = (-1.5, 0, 1.5)$ is orthogonal to both basis vectors.
+- id: la-m9-r2-q08
+  lesson: la-projections
+  topic: Orthogonal projections
+  type: order
+  stem: 'You know a basis of a subspace $W$ that is not orthogonal. Put the steps for finding the distance from $\mathbf{y}$ to $W$ in order.'
+  items:
+    - 'Replace the basis by an orthogonal basis $\mathbf{u}_1, \dots, \mathbf{u}_p$ of $W$'
+    - 'Compute each coefficient $\dfrac{\mathbf{y}\cdot\mathbf{u}_j}{\mathbf{u}_j\cdot\mathbf{u}_j}$'
+    - 'Add the terms to get $\hat{\mathbf{y}} = \operatorname{proj}_W\mathbf{y}$'
+    - 'Subtract: $\mathbf{z} = \mathbf{y} - \hat{\mathbf{y}}$'
+    - 'Take the length $\|\mathbf{z}\|$'
+  explanation: |-
+    The projection-sum formula needs an orthogonal basis, so that comes first. The coefficients build $\hat{\mathbf{y}}$, the closest point of $W$; the leftover $\mathbf{z}$ is orthogonal to $W$, and its length is the distance from $\mathbf{y}$ to $W$.
+- id: la-m9-r2-q09
+  lesson: la-projections
+  module_quiz: true
+  topic: Orthogonal bases
+  stem: 'Which matrices are orthogonal matrices? Select all that apply.'
+  choices: ['$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', '$\dfrac15\begin{bmatrix} 3 & -4 \\ 4 & 3\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$']
+  answer: [0, 1]
+  explanation: |-
+    An orthogonal matrix is square with orthonormal columns ($U^TU = I$). The swap matrix has columns $(0, 1)$ and $(1, 0)$: unit and perpendicular. $\tfrac15(3, 4)$ and $\tfrac15(-4, 3)$ are unit vectors with dot product $\tfrac{1}{25}(-12 + 12) = 0$. $\begin{bmatrix} 1 & 1 \\ 1 & -1\end{bmatrix}$ has orthogonal columns, but each has length $\sqrt2$, not 1. The columns of $\begin{bmatrix} 1 & 1 \\ 0 & 1\end{bmatrix}$ have dot product 1, so they aren't even orthogonal.
+- id: la-m9-r2-q10
+  lesson: la-projections
+  topic: Orthogonal projections
+  stem: 'What is the distance from $\mathbf{y} = (1, 5)$ to the line through the origin spanned by $\mathbf{u} = (1, 1)$?'
+  choices: ['$2\sqrt2$', '$3\sqrt2$', '$8$', '$\sqrt{26}$']
+  answer: 0
+  explanation: |-
+    $\hat{\mathbf{y}} = \dfrac{\mathbf{y}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\mathbf{u} = \dfrac62(1, 1) = (3, 3)$, and $\mathbf{z} = \mathbf{y} - \hat{\mathbf{y}} = (-2, 2)$, so the distance is $\|\mathbf{z}\| = \sqrt8 = 2\sqrt2$. $3\sqrt2$ is the length of $\hat{\mathbf{y}}$, 8 is $\|\mathbf{z}\|^2$ (no square root), and $\sqrt{26}$ is the length of $\mathbf{y}$ itself.
+
+# 35 Gram-Schmidt and the QR factorization
+- id: la-m9-r2-q11
+  lesson: la-gram-schmidt
+  module_quiz: true
+  topic: Gram–Schmidt
+  type: text
+  stem: 'Gram–Schmidt on $\mathbf{x}_1 = (1, 0, 1)$ and $\mathbf{x}_2 = (2, 1, 0)$ gives $\mathbf{v}_2 = \mathbf{x}_2 - c\,\mathbf{x}_1$ with $c =$ ___, so $\mathbf{v}_2 =$ (___, ___, ___).'
+  accept:
+    - ['1']
+    - ['1']
+    - ['1']
+    - ['-1']
+  explanation: |-
+    $c = \dfrac{\mathbf{x}_2\cdot\mathbf{x}_1}{\mathbf{x}_1\cdot\mathbf{x}_1} = \dfrac{2}{2} = 1$, so $\mathbf{v}_2 = (2, 1, 0) - (1, 0, 1) = (1, 1, -1)$. Check: $\mathbf{v}_2\cdot\mathbf{x}_1 = 1 + 0 - 1 = 0$.
+- id: la-m9-r2-q12
+  lesson: la-gram-schmidt
+  topic: Gram–Schmidt
+  type: order
+  stem: 'Put the steps of Gram–Schmidt on a basis $\mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3$ in order, ending with an orthonormal basis.'
+  items:
+    - 'Set $\mathbf{v}_1 = \mathbf{x}_1$'
+    - 'Subtract from $\mathbf{x}_2$ its projection onto $\mathbf{v}_1$ to get $\mathbf{v}_2$'
+    - 'Subtract from $\mathbf{x}_3$ its projections onto $\mathbf{v}_1$ and $\mathbf{v}_2$ to get $\mathbf{v}_3$'
+    - 'Divide each $\mathbf{v}_k$ by its length'
+  explanation: |-
+    Each new $\mathbf{v}_k$ needs all the earlier $\mathbf{v}$'s, so they come in order. Normalizing is saved for the end because square roots make the intermediate arithmetic messy, and the projection coefficients don't depend on the lengths of the $\mathbf{v}$'s.
+- id: la-m9-r2-q13
+  lesson: la-gram-schmidt
+  module_quiz: true
+  topic: QR factorization
+  stem: 'A $5 \times 3$ matrix $A$ with linearly independent columns has the QR factorization $A = QR$ from the lesson. Which statements are true? Select all that apply.'
+  choices: ['$Q$ is $5 \times 3$ with orthonormal columns', '$R = Q^TA$', '$R$ is $3 \times 3$, upper triangular, with positive diagonal entries', '$Q$ is an orthogonal matrix']
+  answer: [0, 1, 2]
+  explanation: |-
+    $Q$ holds the 3 orthonormal vectors from Gram–Schmidt, so it is $5 \times 3$ with $Q^TQ = I_3$; multiplying $A = QR$ by $Q^T$ gives $R = Q^TA$, which is $3 \times 3$ upper triangular with the lengths $\|\mathbf{v}_j\|$ on its diagonal. But an orthogonal matrix must be square, and this $Q$ isn't ($QQ^T \ne I_5$).
+- id: la-m9-r2-q14
+  lesson: la-gram-schmidt
+  topic: QR factorization
+  type: text
+  stem: 'In the QR factorization of $A = \begin{bmatrix} 3 & 1 \\ 4 & 7\end{bmatrix}$, the first column of $Q$ is $\mathbf{q}_1 = \tfrac15(3, 4)$. Then $r_{11} =$ ___ and $r_{12} =$ ___.'
+  accept:
+    - ['5']
+    - ['31/5']
+  explanation: |-
+    $R = Q^TA$, so $r_{11} = \mathbf{q}_1\cdot\mathbf{a}_1 = \tfrac15(9 + 16) = 5$ (the length of column 1) and $r_{12} = \mathbf{q}_1\cdot\mathbf{a}_2 = \tfrac15(3 + 28) = \tfrac{31}{5} = 6.2$.
+- id: la-m9-r2-q15
+  lesson: la-gram-schmidt
+  topic: Gram–Schmidt
+  type: match
+  stem: 'Gram–Schmidt is applied to $\mathbf{x}_1 = (1, 1, 0)$, $\mathbf{x}_2 = (1, 0, 1)$, $\mathbf{x}_3 = (0, 1, 1)$, rescaling each result to clear fractions. Match each vector to its result.'
+  pairs:
+    - ['$\mathbf{v}_1$', '(1, 1, 0)']
+    - ['$\mathbf{v}_2$ (rescaled)', '(1, −1, 2)']
+    - ['$\mathbf{v}_3$ (rescaled)', '(−1, 1, 1)']
+  distractors: ['(1, −1, 0)', '(0, 1, 1)']
+  explanation: |-
+    $\mathbf{v}_2 = \mathbf{x}_2 - \tfrac12\mathbf{v}_1 = (\tfrac12, -\tfrac12, 1)$, rescaled to $(1, -1, 2)$. Then $\mathbf{x}_3\cdot\mathbf{v}_1 = 1$ and $\mathbf{x}_3\cdot(1, -1, 2) = 1$, so $\mathbf{v}_3 = (0, 1, 1) - \tfrac12(1, 1, 0) - \tfrac16(1, -1, 2) = (-\tfrac23, \tfrac23, \tfrac23)$, rescaled to $(-1, 1, 1)$. Check: $(-1, 1, 1)$ has dot product 0 with $(1, 1, 0)$ and with $(1, -1, 2)$. $(0, 1, 1)$ is $\mathbf{x}_3$ before any projection is removed.
+
+# 36 Least squares and linear regression
+- id: la-m9-r2-q16
+  lesson: la-least-squares
+  module_quiz: true
+  topic: Linear regression
+  type: label
+  stem: 'The picture shows a least-squares line fitted to four data points. Name the numbered parts.'
+  image: {src: images/la-m9-regression-blank.svg, alt: 'A scatter plot of four data points with a fitted line. Marker 1 is on a data point above the line, and marker 2 is on the line directly below it. Marker 3 is on a dashed vertical segment joining another data point to the line. Marker 4 is where the line crosses the y-axis, and marker 5 is on the line itself.'}
+  labels:
+    - {x: 49.6, y: 32.4, text: Data point}
+    - {x: 49.6, y: 45.1, text: Fitted value}
+    - {x: 31.8, y: 68.3, text: Residual}
+    - {x: 14.1, y: 78.8, text: Intercept}
+    - {x: 78.0, y: 18.1, text: Least-squares line}
+  distractors: [Slope, Mean of the x-values]
+  explanation: |-
+    A data point $(x_i, y_i)$ (1) is measured; the fitted value $\beta_0 + \beta_1x_i$ (2) is the point on the line at the same $x$. A residual (3) is the vertical gap $y_i - (\beta_0 + \beta_1x_i)$ between them. The intercept $\beta_0$ (4) is where the line meets the $y$-axis. The least-squares line (5) makes the sum of the squared residuals as small as possible.
+- id: la-m9-r2-q17
+  lesson: la-least-squares
+  topic: Linear regression
+  type: text
+  stem: 'The least-squares line for the data $(1, 2)$, $(2, 2)$, $(3, 5)$ is $y = 1.5x$ (its intercept happens to be 0). The residual at $x = 2$ is ___ and the sum of the three residuals is ___.'
+  accept:
+    - ['-1']
+    - ['0']
+  explanation: |-
+    The fitted values are $1.5$, $3$ and $4.5$, so the residuals $y_i - 1.5x_i$ are $0.5$, $-1$ and $0.5$. They add to 0, as they always do when the model includes an intercept column (the residual vector is orthogonal to the column of 1s). You can confirm the line: $n = 3$, $\sum x_i = 6$, $\sum x_i^2 = 14$, $\sum y_i = 9$, $\sum x_iy_i = 21$, and $3\beta_0 + 6\beta_1 = 9$, $6\beta_0 + 14\beta_1 = 21$ give $\beta_0 = 0$, $\beta_1 = 1.5$.
+- id: la-m9-r2-q18
+  lesson: la-least-squares
+  module_quiz: true
+  topic: Least squares
+  stem: 'Let $A$ be any $m \times n$ matrix and $\mathbf{b}$ any vector in $\mathbb{R}^m$. Which statements are always true? Select all that apply.'
+  choices: ['The normal equations $A^TA\mathbf{x} = A^T\mathbf{b}$ are consistent', 'If $\hat{\mathbf{x}}$ is a least-squares solution, $\mathbf{b} - A\hat{\mathbf{x}}$ is orthogonal to every column of $A$', 'There is exactly one least-squares solution', 'A least-squares solution $\hat{\mathbf{x}}$ satisfies $A\hat{\mathbf{x}} = \mathbf{b}$']
+  answer: [0, 1]
+  explanation: |-
+    The projection of $\mathbf{b}$ onto $\operatorname{Col} A$ always exists, so the normal equations always have a solution, and that is exactly the condition $A^T(\mathbf{b} - A\hat{\mathbf{x}}) = \mathbf{0}$. The solution is unique only when the columns of $A$ are independent. And $A\hat{\mathbf{x}} = \hat{\mathbf{b}}$, the projection, which equals $\mathbf{b}$ only when $A\mathbf{x} = \mathbf{b}$ happens to be consistent.
+- id: la-m9-r2-q19
+  lesson: la-least-squares
+  topic: Linear regression
+  type: order
+  stem: 'Put the steps for fitting a least-squares line $y = \beta_0 + \beta_1x$ to data in order.'
+  items:
+    - 'Build the design matrix $X$ with rows $(1, x_i)$'
+    - 'Compute $X^TX$ and $X^T\mathbf{y}$'
+    - 'Solve $X^TX\boldsymbol\beta = X^T\mathbf{y}$ for $\beta_0$ and $\beta_1$'
+    - 'Compute the residuals and check that $X^T$ times the residual vector is $\mathbf{0}$'
+  explanation: |-
+    The normal equations need $X$, and they have to be formed before they can be solved. The residuals depend on $\beta_0$ and $\beta_1$, so the check comes last; it catches arithmetic slips.
+- id: la-m9-r2-q20
+  lesson: la-least-squares
+  topic: Least squares
+  type: text
+  stem: 'Find the least-squares solution of $\begin{bmatrix} 1 \\ 1 \\ 1\end{bmatrix}x = \begin{bmatrix} 2 \\ 3 \\ 7\end{bmatrix}$. Give only the number: $\hat x =$ ___'
+  accept: ['4']
+  explanation: |-
+    $A^TA = 1 + 1 + 1 = 3$ and $A^T\mathbf{b} = 2 + 3 + 7 = 12$, so $3\hat x = 12$ and $\hat x = 4$. The least-squares "best single value" for several measurements is their mean. The residuals $-2, -1, 3$ add to 0.
+
+# 37 Symmetric matrices and orthogonal diagonalization
+- id: la-m9-r2-q21
+  lesson: la-symmetric
+  module_quiz: true
+  topic: Symmetric matrices
+  type: text
+  stem: 'The symmetric matrix $\begin{bmatrix} 5 & 2 \\ 2 & 2\end{bmatrix}$ has eigenvalues 6 and 1, with eigenvector $(2, 1)$ for 6. A unit eigenvector for 1 with positive first entry is $\tfrac{1}{\sqrt5}$(___, ___).'
+  accept:
+    - ['1']
+    - ['-2']
+  explanation: |-
+    Eigenvectors of a symmetric matrix for different eigenvalues are orthogonal, so the eigenvector for 1 is perpendicular to $(2, 1)$: $(1, -2)$. Check: $\begin{bmatrix} 5 & 2 \\ 2 & 2\end{bmatrix}(1, -2) = (1, -2)$. Its length is $\sqrt5$, so the unit vector is $\tfrac{1}{\sqrt5}(1, -2)$.
+- id: la-m9-r2-q22
+  lesson: la-symmetric
+  module_quiz: true
+  topic: Symmetric matrices
+  stem: 'Which matrices are orthogonally diagonalizable? Select all that apply.'
+  choices: ['$\begin{bmatrix} 2 & -1 \\ -1 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 4 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 0 & 3 & 1 \\ 3 & 1 & 0 \\ 1 & 0 & 7\end{bmatrix}$', '$\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$']
+  answer: [0, 2]
+  explanation: |-
+    By the spectral theorem, orthogonally diagonalizable means symmetric. The first and third matrices equal their transposes. $\begin{bmatrix} 1 & 4 \\ 0 & 3\end{bmatrix}$ is diagonalizable (distinct eigenvalues 1 and 3) but its eigenvectors $(1, 0)$ and $(2, 1)$ aren't orthogonal. The rotation $\begin{bmatrix} 0 & -1 \\ 1 & 0\end{bmatrix}$ has no real eigenvalues at all.
+- id: la-m9-r2-q23
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  type: order
+  stem: 'A symmetric matrix has a repeated eigenvalue. Put the steps for orthogonally diagonalizing it in order.'
+  items:
+    - 'Find the eigenvalues'
+    - 'Find a basis for each eigenspace'
+    - 'Apply Gram–Schmidt inside the eigenspace of the repeated eigenvalue'
+    - 'Normalize every eigenvector'
+    - 'Put the unit eigenvectors in the columns of $P$ and the matching eigenvalues on the diagonal of $D$'
+  explanation: |-
+    Eigenspaces need the eigenvalues. Vectors from the same eigenspace may not be orthogonal, so Gram–Schmidt fixes that; normalizing has to come after it (Gram–Schmidt output isn't unit length). Only then do the vectors make an orthogonal $P$ with $A = PDP^T$.
+- id: la-m9-r2-q24
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  type: match
+  stem: 'Each symmetric matrix is a weighted sum of projections onto the perpendicular lines $y = x$ and $y = -x$. Match each matrix to what it does.'
+  pairs:
+    - ['$\tfrac12\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$', Projects onto the line y = x]
+    - ['$\tfrac12\begin{bmatrix} 1 & -1 \\ -1 & 1\end{bmatrix}$', Projects onto the line y = −x]
+    - ['$\begin{bmatrix} 3 & 1 \\ 1 & 3\end{bmatrix}$', Stretches by 4 along y = x and by 2 along y = −x]
+    - ['$\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$', Reflects across the line y = x]
+  distractors: [Rotates by 90 degrees]
+  explanation: |-
+    With $\mathbf{u}_1 = \tfrac{1}{\sqrt2}(1, 1)$ and $\mathbf{u}_2 = \tfrac{1}{\sqrt2}(1, -1)$: $\mathbf{u}_1\mathbf{u}_1^T = \tfrac12\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$ and $\mathbf{u}_2\mathbf{u}_2^T = \tfrac12\begin{bmatrix} 1 & -1 \\ -1 & 1\end{bmatrix}$ are the projections. $4\mathbf{u}_1\mathbf{u}_1^T + 2\mathbf{u}_2\mathbf{u}_2^T = \begin{bmatrix} 3 & 1 \\ 1 & 3\end{bmatrix}$, and $1\cdot\mathbf{u}_1\mathbf{u}_1^T + (-1)\mathbf{u}_2\mathbf{u}_2^T = \begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$ keeps the $y = x$ direction and flips the $y = -x$ direction: a reflection. A rotation by $90^\circ$ isn't symmetric.
+- id: la-m9-r2-q25
+  lesson: la-symmetric
+  topic: Symmetric matrices
+  stem: 'A symmetric $2 \times 2$ matrix has eigenvalue 3 with unit eigenvector $\tfrac{1}{\sqrt2}(1, 1)$ and eigenvalue $-1$ with unit eigenvector $\tfrac{1}{\sqrt2}(1, -1)$. Which matrix is it?'
+  choices: ['$\begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & -2 \\ -2 & 1\end{bmatrix}$', '$\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$', '$\begin{bmatrix} 3 & 0 \\ 0 & -1\end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    Spectral decomposition: $3\cdot\tfrac12\begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix} - 1\cdot\tfrac12\begin{bmatrix} 1 & -1 \\ -1 & 1\end{bmatrix} = \begin{bmatrix} 1.5 - 0.5 & 1.5 + 0.5 \\ 1.5 + 0.5 & 1.5 - 0.5\end{bmatrix} = \begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$. Check: $(1, 1) \mapsto (3, 3)$ and $(1, -1) \mapsto (-1, 1)$. $\begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$ has eigenvalues 3 and $+1$; $\begin{bmatrix} 1 & -2 \\ -2 & 1\end{bmatrix}$ swaps which eigenvector gets which eigenvalue; $\operatorname{diag}(3, -1)$ is $D$, not $A = PDP^T$.
+
+# 38 Quadratic forms
+- id: la-m9-r2-q26
+  lesson: la-quadratic-forms
+  module_quiz: true
+  topic: Quadratic forms
+  type: text
+  stem: 'The matrix of $Q(\mathbf{x}) = 3x_1^2 - 8x_1x_2 + 5x_2^2$ is $\begin{bmatrix} a & b \\ b & c\end{bmatrix}$ with $a =$ ___, $b =$ ___, $c =$ ___.'
+  accept:
+    - ['3']
+    - ['-4']
+    - ['5']
+  explanation: |-
+    The squared terms go on the diagonal ($a = 3$, $c = 5$), and the cross coefficient $-8$ is split in half between the two off-diagonal slots: $b = -4$. Check: $ax_1^2 + 2bx_1x_2 + cx_2^2 = 3x_1^2 - 8x_1x_2 + 5x_2^2$.
+- id: la-m9-r2-q27
+  lesson: la-quadratic-forms
+  module_quiz: true
+  topic: Quadratic forms
+  type: match
+  stem: 'Match each quadratic form to its classification.'
+  pairs:
+    - ['$2x_1^2 + 2x_1x_2 + 2x_2^2$', Positive definite]
+    - ['$x_1^2 + 4x_1x_2 + x_2^2$', Indefinite]
+    - ['$-x_1^2 + 2x_1x_2 - 3x_2^2$', Negative definite]
+    - ['$x_1^2 - 2x_1x_2 + x_2^2$', Positive semidefinite (not definite)]
+  distractors: [Negative semidefinite (not definite)]
+  explanation: |-
+    Matrices and eigenvalues: $\begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$ has 3 and 1 (both positive). $\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$ has 3 and $-1$ (mixed signs). $\begin{bmatrix} -1 & 1 \\ 1 & -3\end{bmatrix}$ has determinant $3 - 1 = 2 > 0$ and $a = -1 < 0$, so both eigenvalues ($-2 \pm \sqrt2$) are negative. $\begin{bmatrix} 1 & -1 \\ -1 & 1\end{bmatrix}$ has 2 and 0: the form is $(x_1 - x_2)^2$, which is 0 at $(1, 1)$ but never negative.
+- id: la-m9-r2-q28
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'The symmetric matrix of a quadratic form $Q$ on $\mathbb{R}^3$ has eigenvalues $5$, $2$ and $-1$. Which statements must be true? Select all that apply.'
+  choices: ['$Q$ is indefinite', 'The maximum of $Q$ on the unit sphere is 5', 'The minimum of $Q$ on the unit sphere is 2', 'In principal-axis coordinates, $Q = 5y_1^2 + 2y_2^2 - y_3^2$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Eigenvalues of both signs mean indefinite. On unit vectors, $Q = 5y_1^2 + 2y_2^2 - y_3^2$ (principal axes theorem) is a weighted average of the eigenvalues, so it ranges from the smallest eigenvalue, $-1$, to the largest, 5. The minimum is $-1$, at a unit eigenvector for $-1$, not 2.
+- id: la-m9-r2-q29
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  type: order
+  stem: 'Put the steps for removing the cross terms from $Q(\mathbf{x})$ in order.'
+  items:
+    - 'Write the symmetric matrix $A$ of $Q$, splitting each cross coefficient in half'
+    - 'Find the eigenvalues of $A$'
+    - 'Find orthonormal eigenvectors and make them the columns of $P$'
+    - 'Substitute $\mathbf{x} = P\mathbf{y}$ to get $Q = \lambda_1y_1^2 + \cdots + \lambda_ny_n^2$'
+  explanation: |-
+    The eigenvalues belong to the matrix, so $A$ comes first. Eigenvectors need their eigenvalues, and the substitution needs $P$. The new coefficients are the eigenvalues, in the same order as the columns of $P$.
+- id: la-m9-r2-q30
+  lesson: la-quadratic-forms
+  topic: Quadratic forms
+  stem: 'What is the largest value of $Q(\mathbf{x}) = 3x_1^2 + 4x_1x_2$ over all unit vectors $\mathbf{x}$?'
+  choices: ['$3$', '$4$', '$7$', '$-1$']
+  answer: 1
+  explanation: |-
+    The matrix is $\begin{bmatrix} 3 & 2 \\ 2 & 0\end{bmatrix}$ with characteristic equation $\lambda^2 - 3\lambda - 4 = (\lambda - 4)(\lambda + 1) = 0$. The maximum over unit vectors is the largest eigenvalue, 4 (and the minimum is $-1$). 3 is $Q(1, 0)$, not the maximum, and 7 is $Q(1, 1)$, but $(1, 1)$ is not a unit vector.
+
+# 39 Positive definite matrices and Cholesky factorization
+- id: la-m9-r2-q31
+  lesson: la-pos-def
+  module_quiz: true
+  topic: Positive definite matrices
+  type: text
+  stem: 'For $A = \begin{bmatrix} 2 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 2\end{bmatrix}$, the leading principal minors are $D_1 =$ ___, $D_2 =$ ___, $D_3 =$ ___.'
+  accept:
+    - ['2']
+    - ['3']
+    - ['4']
+  explanation: |-
+    $D_1 = 2$; $D_2 = 2\cdot2 - 1\cdot1 = 3$; along row 1, $D_3 = 2(4 - 1) - 1(2 - 0) + 0 = 4$. All positive, so $A$ is positive definite (Sylvester's criterion). Its pivots are $2$, $\tfrac32$, $\tfrac43$, the ratios $D_k/D_{k-1}$.
+- id: la-m9-r2-q32
+  lesson: la-pos-def
+  topic: Cholesky factorization
+  type: text
+  stem: 'The Cholesky factor of $A = \begin{bmatrix} 9 & 6 \\ 6 & 5\end{bmatrix}$ is $R = \begin{bmatrix} r_{11} & r_{12} \\ 0 & r_{22}\end{bmatrix}$ with $r_{11} =$ ___, $r_{12} =$ ___, $r_{22} =$ ___.'
+  accept:
+    - ['3']
+    - ['2']
+    - ['1']
+  explanation: |-
+    $r_{11} = \sqrt9 = 3$, $r_{12} = 6/3 = 2$, $r_{22} = \sqrt{5 - 2^2} = 1$. Check: $R^TR = \begin{bmatrix} 3 & 0 \\ 2 & 1\end{bmatrix}\begin{bmatrix} 3 & 2 \\ 0 & 1\end{bmatrix} = \begin{bmatrix} 9 & 6 \\ 6 & 5\end{bmatrix}$. Forgetting to subtract $r_{12}^2$ would give $\sqrt5$.
+- id: la-m9-r2-q33
+  lesson: la-pos-def
+  module_quiz: true
+  topic: Positive definite matrices
+  stem: 'For a symmetric $3 \times 3$ matrix $A$, which facts on their own prove that $A$ is positive definite? Select all that apply.'
+  choices: ['All three leading principal minors are positive', 'Elimination without row swaps gives the pivots $2$, $\tfrac12$, $3$', 'All diagonal entries are positive', '$\det A > 0$']
+  answer: [0, 1]
+  explanation: |-
+    Positive leading minors (Sylvester's criterion) and positive pivots are each equivalent to positive definite. Positive diagonal entries are necessary but not enough ($\begin{bmatrix} 1 & 3 \\ 3 & 1\end{bmatrix}$ is indefinite), and $\det A > 0$ only says the product of the eigenvalues is positive: $\operatorname{diag}(1, -1, -1)$ has determinant 1.
+- id: la-m9-r2-q34
+  lesson: la-pos-def
+  topic: Cholesky factorization
+  type: order
+  stem: 'Put the steps for solving $A\mathbf{x} = \mathbf{b}$ with a Cholesky factorization in order.'
+  items:
+    - 'Compute $R$ with $A = R^TR$'
+    - 'Solve $R^T\mathbf{y} = \mathbf{b}$ by forward substitution'
+    - 'Solve $R\mathbf{x} = \mathbf{y}$ by back substitution'
+    - 'Check by computing $A\mathbf{x}$'
+  explanation: |-
+    $A\mathbf{x} = R^T(R\mathbf{x}) = \mathbf{b}$, so the inner product $\mathbf{y} = R\mathbf{x}$ is found first, from the lower triangular $R^T$, and then $\mathbf{x}$ from the upper triangular $R$. Solving in the other order is a listed common mistake.
+- id: la-m9-r2-q35
+  lesson: la-pos-def
+  topic: Positive definite matrices
+  type: match
+  stem: 'Use leading principal minors to match each symmetric matrix to its classification.'
+  pairs:
+    - ['$\begin{bmatrix} 1 & 2 \\ 2 & 5\end{bmatrix}$', Positive definite]
+    - ['$\begin{bmatrix} -3 & 1 \\ 1 & -1\end{bmatrix}$', Negative definite]
+    - ['$\begin{bmatrix} 1 & 3 \\ 3 & 2\end{bmatrix}$', Indefinite]
+    - ['$\begin{bmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -1 & 2\end{bmatrix}$', Positive definite]
+  distractors: [Not symmetric, so no classification]
+  explanation: |-
+    $D_1 = 1$, $D_2 = 5 - 4 = 1$: both positive. $D_1 = -3 < 0$, $D_2 = 3 - 1 = 2 > 0$: the alternating pattern of negative definite. $D_2 = 2 - 9 = -7 < 0$: a $2 \times 2$ with negative determinant has eigenvalues of opposite signs, so it is indefinite. The $3 \times 3$ has $D_1 = 2$, $D_2 = 3$, $D_3 = 4$ (Example 1 of the lesson). All four matrices are symmetric.
+
+# 40 The singular value decomposition
+- id: la-m9-r2-q36
+  lesson: la-svd
+  module_quiz: true
+  topic: Singular value decomposition
+  type: label
+  stem: 'The picture follows the unit circle through $A = U\Sigma V^T$ (not to scale). Name the numbered steps and the numbered vector.'
+  image: {src: images/la-m9-svd-steps-blank.svg, alt: 'Four panels in a cycle. Top left: a unit circle with perpendicular vectors v1 and v2. Arrow 1 leads to the top right panel, where the same circle has vectors e1 and e2 along the axes. Arrow 2 leads down to the bottom right panel: an ellipse along the axes with semi-axes sigma1 e1 and sigma2 e2. Arrow 3 leads left to the bottom left panel, a tilted ellipse; marker 4 is on its longer semi-axis, and its shorter semi-axis is labeled sigma2 u2. A dashed arrow labeled A goes from the first panel straight to the last.'}
+  labels:
+    - {x: 50.0, y: 25.0, text: Multiply by Vᵀ}
+    - {x: 76.6, y: 49.2, text: Multiply by Σ}
+    - {x: 50.0, y: 73.3, text: Multiply by U}
+    - {x: 26.1, y: 64.8, text: σ₁u₁}
+  distractors: [Multiply by Aᵀ, Multiply by Σ⁻¹]
+  explanation: |-
+    $A\mathbf{x} = U(\Sigma(V^T\mathbf{x}))$, so $V^T$ acts first: it turns $\mathbf{v}_1, \mathbf{v}_2$ into $\mathbf{e}_1, \mathbf{e}_2$ (a rotation, possibly with a flip). $\Sigma$ then stretches the axes by $\sigma_1$ and $\sigma_2$, and $U$ turns $\mathbf{e}_1, \mathbf{e}_2$ into $\mathbf{u}_1, \mathbf{u}_2$. The longest semi-axis of the final ellipse is $\sigma_1\mathbf{u}_1 = A\mathbf{v}_1$.
+- id: la-m9-r2-q37
+  lesson: la-svd
+  module_quiz: true
+  topic: Singular value decomposition
+  type: text
+  stem: 'The matrix $A = \begin{bmatrix} 2 & 0 \\ 0 & -3\end{bmatrix}$ has singular values $\sigma_1 =$ ___ and $\sigma_2 =$ ___.'
+  accept:
+    - ['3']
+    - ['2']
+  explanation: |-
+    $A^TA = \begin{bmatrix} 4 & 0 \\ 0 & 9\end{bmatrix}$, with eigenvalues 9 and 4, so the singular values are 3 and 2, listed largest first. Singular values are never negative: the $-3$ becomes $\sigma = 3$, and the sign goes into $U$ (here $\mathbf{u}_1 = (0, -1)$ for $\mathbf{v}_1 = (0, 1)$).
+- id: la-m9-r2-q38
+  lesson: la-svd
+  topic: Singular value decomposition
+  type: order
+  stem: 'Put the steps for computing an SVD of a small matrix $A$ by hand in order.'
+  items:
+    - 'Compute $A^TA$'
+    - 'Find the eigenvalues of $A^TA$, largest first, and take square roots to get the singular values'
+    - 'Find orthonormal eigenvectors of $A^TA$, in the same order, for the columns of $V$'
+    - 'Compute $\mathbf{u}_i = A\mathbf{v}_i/\sigma_i$ for each nonzero $\sigma_i$'
+  explanation: |-
+    Everything starts from $A^TA$. Its eigenvectors are found from its eigenvalues, and each $\mathbf{u}_i$ needs both $\mathbf{v}_i$ and $\sigma_i$. Computing the $\mathbf{u}$'s from the $\mathbf{v}$'s, rather than separately from $AA^T$, makes the signs match.
+- id: la-m9-r2-q39
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'A $4 \times 3$ matrix $A$ has singular values $5$, $2$ and $0$. Which statements are true? Select all that apply.'
+  choices: ['The rank of $A$ is 2', 'The largest value of $\|A\mathbf{x}\|$ over unit vectors $\mathbf{x}$ is 5', '$\Sigma$ is a $3 \times 3$ matrix', '$A^TA$ has eigenvalues $25$, $4$ and $0$']
+  answer: [0, 1, 3]
+  explanation: |-
+    The rank is the number of nonzero singular values: 2. $\sigma_1 = 5$ is the largest stretch of a unit vector. The singular values are the square roots of the eigenvalues of $A^TA$, so those are $25, 4, 0$. But $\Sigma$ has the same shape as $A$: $4 \times 3$.
+- id: la-m9-r2-q40
+  lesson: la-svd
+  topic: Singular value decomposition
+  stem: 'What are the singular values of $A = \begin{bmatrix} 1 & 2 \\ 2 & 4 \\ 2 & 4\end{bmatrix}$?'
+  choices: ['$45$ and $0$', '$5$ and $0$', '$\sqrt{45}$ and $\sqrt5$', '$3\sqrt5$ and $0$']
+  answer: 3
+  explanation: |-
+    $A^TA = \begin{bmatrix} 9 & 18 \\ 18 & 36\end{bmatrix}$ has trace 45 and determinant 0, so its eigenvalues are 45 and 0, and the singular values are $\sqrt{45} = 3\sqrt5$ and 0. That fits the rank: every column is a multiple of $(1, 2, 2)$, so the rank is 1. "45 and 0" forgets the square root; 5 is an eigenvalue of the top $2 \times 2$ block, not a singular value of $A$.
+
+# 40h1 Inner product spaces and Fourier approximation (honors)
+- id: la-m9-r2-h01
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  stem: 'Which formula defines an inner product on $\mathbb{R}^2$?'
+  choices: ['$\langle \mathbf{u}, \mathbf{v}\rangle = u_1v_1 - u_2v_2$', '$\langle \mathbf{u}, \mathbf{v}\rangle = u_1v_2 + u_2v_1$', '$\langle \mathbf{u}, \mathbf{v}\rangle = 3u_1v_1 + 2u_2v_2$', '$\langle \mathbf{u}, \mathbf{v}\rangle = u_1v_1 + u_2v_2 + 1$']
+  answer: 2
+  explanation: |-
+    A weighted dot product with positive weights satisfies all four axioms. $u_1v_1 - u_2v_2$ gives $\langle (0, 1), (0, 1)\rangle = -1 < 0$. $u_1v_2 + u_2v_1$ gives $\langle (1, 0), (1, 0)\rangle = 0$ for a nonzero vector. Adding 1 breaks linearity: $\langle \mathbf{0}, \mathbf{v}\rangle$ would be 1 instead of 0.
+- id: la-m9-r2-h02
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  stem: 'Which of these are inner products on the stated space? Select all that apply.'
+  choices: ['$\langle p, q\rangle = p(0)q(0) + p(1)q(1) + p(2)q(2)$ on $\mathbb{P}_2$', '$\langle p, q\rangle = p(0)q(0) + p(1)q(1)$ on $\mathbb{P}_2$', '$\langle \mathbf{u}, \mathbf{v}\rangle = \mathbf{u}^T\begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}\mathbf{v}$ on $\mathbb{R}^2$', '$\langle \mathbf{u}, \mathbf{v}\rangle = \mathbf{u}^T\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}\mathbf{v}$ on $\mathbb{R}^2$']
+  answer: [0, 2]
+  explanation: |-
+    Evaluation at 3 points works on $\mathbb{P}_2$: a nonzero polynomial of degree at most 2 can't vanish at 3 points. With only 2 points, $p(t) = t(t - 1)$ is nonzero but $\langle p, p\rangle = 0$. $\mathbf{u}^TA\mathbf{v}$ is an inner product exactly when the symmetric $A$ is positive definite: $\begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$ has eigenvalues 3 and 1, but $\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$ has eigenvalues 3 and $-1$ (for example $\langle (1, -1), (1, -1)\rangle = -2$).
+- id: la-m9-r2-h03
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  stem: 'With $\langle \mathbf{u}, \mathbf{v}\rangle = 2u_1v_1 + 3u_2v_2$ on $\mathbb{R}^2$, what are $\langle (1, 2), (3, -1)\rangle$ and $\|(1, 2)\|$?'
+  choices: ['$1$ and $\sqrt5$', '$0$ and $\sqrt{14}$', '$0$ and $14$', '$1$ and $\sqrt{14}$']
+  answer: 1
+  explanation: |-
+    $\langle (1, 2), (3, -1)\rangle = 2(1)(3) + 3(2)(-1) = 6 - 6 = 0$, so these vectors are orthogonal in this inner product, although their ordinary dot product is $3 - 2 = 1$. $\|(1, 2)\|^2 = 2(1)^2 + 3(2)^2 = 14$, so $\|(1, 2)\| = \sqrt{14}$ ($\sqrt5$ is the ordinary length; 14 forgets the square root).
+- id: la-m9-r2-h04
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  type: text
+  stem: 'In $\mathbb{P}_2$ with $\langle p, q\rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)$, let $p(t) = 2 - t$ and $q(t) = t + t^2$. Then $\langle p, q\rangle =$ ___.'
+  accept: ['2']
+  explanation: |-
+    Evaluate at $t = -1, 0, 1$: $p$ gives $3, 2, 1$ and $q$ gives $0, 0, 2$. So $\langle p, q\rangle = 3\cdot0 + 2\cdot0 + 1\cdot2 = 2$.
+- id: la-m9-r2-h05
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  stem: 'In an inner product space, $\|\mathbf{u}\| = 3$ and $\|\mathbf{v}\| = 4$. Which value is impossible for $\langle \mathbf{u}, \mathbf{v}\rangle$?'
+  choices: ['$-12$', '$0$', '$7$', '$13$']
+  answer: 3
+  explanation: |-
+    Cauchy–Schwarz: $|\langle \mathbf{u}, \mathbf{v}\rangle| \le \|\mathbf{u}\|\|\mathbf{v}\| = 12$. So 13 is impossible. $-12$ happens when $\mathbf{v} = -\tfrac43\mathbf{u}$ (equality case), 0 when they are orthogonal, and 7 is within the bound.
+- id: la-m9-r2-h06
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  stem: 'If $\|\mathbf{u}\| = 5$ and $\|\mathbf{v}\| = 2$, what is the largest possible value of $\|\mathbf{u} + \mathbf{v}\|$?'
+  choices: ['$7$', '$\sqrt{29}$', '$10$', '$3$']
+  answer: 0
+  explanation: |-
+    The triangle inequality gives $\|\mathbf{u} + \mathbf{v}\| \le 5 + 2 = 7$, with equality when $\mathbf{v}$ is a positive multiple of $\mathbf{u}$. $\sqrt{29}$ is the value when they are orthogonal (Pythagoras), and 3 is the smallest possible value, when they point in opposite directions.
+- id: la-m9-r2-h07
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  type: order
+  stem: 'Put the steps of the proof of the Cauchy–Schwarz inequality (for $\mathbf{u} \ne \mathbf{0}$) in order.'
+  items:
+    - 'Let $\hat{\mathbf{v}} = \dfrac{\langle \mathbf{v}, \mathbf{u}\rangle}{\langle \mathbf{u}, \mathbf{u}\rangle}\mathbf{u}$, the projection of $\mathbf{v}$ onto $\mathbf{u}$'
+    - 'Note that $\mathbf{v} - \hat{\mathbf{v}}$ is orthogonal to $\mathbf{u}$, hence to $\hat{\mathbf{v}}$'
+    - 'Apply Pythagoras: $\|\mathbf{v}\|^2 = \|\hat{\mathbf{v}}\|^2 + \|\mathbf{v} - \hat{\mathbf{v}}\|^2 \ge \|\hat{\mathbf{v}}\|^2$'
+    - 'Substitute $\|\hat{\mathbf{v}}\|^2 = \langle \mathbf{u}, \mathbf{v}\rangle^2/\|\mathbf{u}\|^2$, multiply by $\|\mathbf{u}\|^2$ and take square roots'
+  explanation: |-
+    The projection must exist before its orthogonality can be used; Pythagoras needs that orthogonality; and the final substitution turns $\|\mathbf{v}\|^2 \ge \|\hat{\mathbf{v}}\|^2$ into $\langle \mathbf{u}, \mathbf{v}\rangle^2 \le \|\mathbf{u}\|^2\|\mathbf{v}\|^2$.
+- id: la-m9-r2-h08
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  type: text
+  stem: 'Gram–Schmidt on $1, t, t^2$ with $\langle f, g\rangle = \int_{-1}^{1} f(t)g(t)\,dt$ gives $1$, $t$, $t^2 - c$ with $c =$ ___.'
+  accept: ['1/3']
+  explanation: |-
+    $\langle t^2, t\rangle = \int_{-1}^1 t^3\,dt = 0$, so only the projection onto 1 is removed: $c = \dfrac{\langle t^2, 1\rangle}{\langle 1, 1\rangle} = \dfrac{2/3}{2} = \dfrac13$. This is the Legendre polynomial $P_2(t) = \tfrac12(3t^2 - 1)$ up to a factor.
+- id: la-m9-r2-h09
+  lesson: la-m9-h-inner-product-spaces
+  topic: Inner product spaces
+  stem: 'Why is $\langle t, t^2\rangle = 0$ for the inner product $\int_{-1}^{1} f(t)g(t)\,dt$?'
+  choices: ['Because $t$ and $t^2$ have different degrees', 'Because $t^2 \ge 0$ on the whole interval', 'Because $t^3$ is an odd function, so its integral over $[-1, 1]$ is 0', 'Because any two polynomials are orthogonal on $[-1, 1]$']
+  answer: 2
+  explanation: |-
+    $\langle t, t^2\rangle = \int_{-1}^1 t^3\,dt$, and the areas on the two sides of 0 cancel. Different degrees are not the reason: $\langle 1, t^2\rangle = \tfrac23 \ne 0$. And polynomials are not all orthogonal, which is why Gram–Schmidt is needed.
+- id: la-m9-r2-h10
+  lesson: la-m9-h-inner-product-spaces
+  topic: Fourier approximation
+  stem: 'Using $\langle f, g\rangle = \int_{-1}^{1} f(t)g(t)\,dt$, what constant function is the best approximation of $f(t) = t^2$?'
+  choices: ['$\tfrac12$', '$0$', '$\tfrac23$', '$\tfrac13$']
+  answer: 3
+  explanation: |-
+    Project onto the constants: $\dfrac{\langle t^2, 1\rangle}{\langle 1, 1\rangle} = \dfrac{2/3}{2} = \dfrac13$, the average value of $t^2$ on $[-1, 1]$. $\tfrac23$ forgets to divide by $\langle 1, 1\rangle = 2$; 0 is the value at $t = 0$ only; $\tfrac12$ averages just the values at 0 and 1.
+- id: la-m9-r2-h11
+  lesson: la-m9-h-inner-product-spaces
+  topic: Fourier approximation
+  type: match
+  stem: 'For $\langle f, g\rangle = \int_{-\pi}^{\pi} f(t)g(t)\,dt$, match each inner product to its value.'
+  pairs:
+    - ['$\langle 1, 1\rangle$', '2π']
+    - ['$\langle \cos 3t, \cos 3t\rangle$', 'π']
+    - ['$\langle \sin 2t, \cos 5t\rangle$', '0']
+    - ['$\langle \sin t, \sin t\rangle$', 'π']
+  distractors: ['1', 'π/2']
+  explanation: |-
+    $\int_{-\pi}^{\pi} 1\,dt = 2\pi$. For $k \ge 1$, $\cos^2 kt$ and $\sin^2 kt$ average $\tfrac12$ over a full period, so each integral is $\tfrac12\cdot 2\pi = \pi$. Different functions in the list $1, \cos kt, \sin kt$ are orthogonal, so $\langle \sin 2t, \cos 5t\rangle = 0$. None of these is normalized to 1.
+- id: la-m9-r2-h12
+  lesson: la-m9-h-inner-product-spaces
+  topic: Fourier approximation
+  type: text
+  stem: 'On $[-\pi, \pi]$, $f(t) = t$ has Fourier coefficients $a_k = 0$ and $b_k = \dfrac{2(-1)^{k+1}}{k}$. For $g(t) = 3t + 5$, the constant term $\tfrac{a_0}{2}$ is ___ and the coefficient of $\sin 2t$ is ___.'
+  accept:
+    - ['5']
+    - ['-3']
+  explanation: |-
+    Projection is linear, so the coefficients of $3t + 5$ are 3 times those of $t$ plus those of the constant 5. The constant term is $\dfrac{\langle g, 1\rangle}{\langle 1, 1\rangle} = \dfrac{0 + 10\pi}{2\pi} = 5$. The constant 5 is orthogonal to $\sin 2t$, so the $\sin 2t$ coefficient is $3b_2 = 3\cdot\dfrac{2(-1)^3}{2} = -3$.
+- id: la-m9-r2-h13
+  lesson: la-m9-h-inner-product-spaces
+  topic: Fourier approximation
+  stem: 'The Fourier approximation of order $n$ of $f$ on $[-\pi, \pi]$ is the trigonometric polynomial $g$ of order $n$ that minimizes which quantity?'
+  choices: ['$\displaystyle\int_{-\pi}^{\pi}\big(f(t) - g(t)\big)^2\,dt$', 'the largest value of $|f(t) - g(t)|$ on $[-\pi, \pi]$', '$|f(0) - g(0)|$', '$\displaystyle\int_{-\pi}^{\pi}\big(f(t) - g(t)\big)\,dt$']
+  answer: 0
+  explanation: |-
+    It is an orthogonal projection, so it minimizes $\|f - g\|^2 = \int (f - g)^2\,dt$, an average over the interval. It need not minimize the largest pointwise error (for $f(t) = t$ it stays far off near $\pm\pi$). The plain integral of $f - g$ can be 0 even for a terrible approximation, because positive and negative errors cancel.
+- id: la-m9-r2-h14
+  lesson: la-m9-h-inner-product-spaces
+  topic: Fourier approximation
+  stem: 'Let $\hat f$ be the best approximation of $f$ from a finite-dimensional subspace $W$ of an inner product space. Which statements are true? Select all that apply.'
+  choices: ['$f - \hat f$ is orthogonal to every vector in $W$', '$\|f - \hat f\|^2 = \|f\|^2 - \|\hat f\|^2$', '$\|\hat f\|$ can be larger than $\|f\|$', '$\hat f = \sum_j \dfrac{\langle f, g_j\rangle}{\langle g_j, g_j\rangle}g_j$ for any basis $g_1, \dots, g_k$ of $W$']
+  answer: [0, 1]
+  explanation: |-
+    $\hat f$ is the orthogonal projection, so $f - \hat f$ is in $W^\perp$, and Pythagoras on $f = \hat f + (f - \hat f)$ gives $\|f\|^2 = \|\hat f\|^2 + \|f - \hat f\|^2$. That also shows $\|\hat f\| \le \|f\|$. The coefficient formula needs an orthogonal basis; with $1, t, t^2$ on $[-1, 1]$ it would give the wrong answer.
+
+# 40h2 Householder reflections and stable QR (honors)
+- id: la-m9-r2-h15
+  lesson: la-m9-h-householder
+  topic: Numerical QR
+  stem: 'In the lesson''s example, classical Gram–Schmidt in rounded arithmetic produced $\mathbf{q}_2\cdot\mathbf{q}_3 = \tfrac12$ for nearly dependent columns. What went wrong?'
+  choices: ['The columns were linearly dependent, so no orthonormal basis exists', 'Tiny rounding errors in $\mathbf{q}_1$ became large relative to the small vectors left after subtracting', 'The Gram–Schmidt formulas are only valid for two vectors', 'The computer cannot divide by a number as small as $\varepsilon$']
+  answer: 1
+  explanation: |-
+    The columns were independent, and the formulas are exact. Rounding $\sqrt{1 + \varepsilon^2}$ to 1 left an error of size about $\varepsilon^2$ in $\mathbf{q}_1$. Subtracting $\mathbf{q}_1$ cancelled the large parts of $\mathbf{a}_2$ and $\mathbf{a}_3$, leaving vectors of size $\varepsilon$, and relative to those the error was no longer negligible. Dividing by $\varepsilon$ is no problem for a computer.
+- id: la-m9-r2-h16
+  lesson: la-m9-h-householder
+  topic: Householder reflections
+  type: text
+  stem: 'For $\mathbf{u} = (1, 1)$, the Householder matrix $H = I - \dfrac{2\mathbf{u}\mathbf{u}^T}{\mathbf{u}^T\mathbf{u}}$ has entries $h_{11} =$ ___, $h_{12} =$ ___, $h_{22} =$ ___.'
+  accept:
+    - ['0']
+    - ['-1']
+    - ['0']
+  explanation: |-
+    $\mathbf{u}^T\mathbf{u} = 2$ and $\mathbf{u}\mathbf{u}^T = \begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix}$, so $H = I - \begin{bmatrix} 1 & 1 \\ 1 & 1\end{bmatrix} = \begin{bmatrix} 0 & -1 \\ -1 & 0\end{bmatrix}$. It reflects across the line $y = -x$ (perpendicular to $\mathbf{u}$): $H(1, 1) = (-1, -1)$ and $H(1, -1) = (1, -1)$.
+- id: la-m9-r2-h17
+  lesson: la-m9-h-householder
+  topic: Householder reflections
+  stem: 'Which statements are true for every Householder matrix $H = I - \dfrac{2\mathbf{u}\mathbf{u}^T}{\mathbf{u}^T\mathbf{u}}$? Select all that apply.'
+  choices: ['$H^T = H$', '$H^2 = I$', '$H\mathbf{u} = \mathbf{u}$', '$\det H = 1$']
+  answer: [0, 1]
+  explanation: |-
+    $\mathbf{u}\mathbf{u}^T$ is symmetric, so $H$ is too. Reflecting twice returns every vector, so $H^2 = I$ (and $H^{-1} = H = H^T$, so $H$ is orthogonal). But $H$ flips the $\mathbf{u}$ direction, $H\mathbf{u} = \mathbf{u} - 2\mathbf{u} = -\mathbf{u}$, and a reflection has determinant $-1$.
+- id: la-m9-r2-h18
+  lesson: la-m9-h-householder
+  topic: Householder reflections
+  stem: 'Which $\mathbf{u}$ gives a Householder matrix with $H\mathbf{x} = 5\mathbf{e}_1$ for $\mathbf{x} = (3, 0, 4)$?'
+  choices: ['$(8, 0, 4)$', '$(2, 0, 4)$', '$(3, 0, -1)$', '$(-2, 0, 4)$']
+  answer: 3
+  explanation: |-
+    $\|\mathbf{x}\| = 5$, so $\mathbf{u} = \mathbf{x} - 5\mathbf{e}_1 = (-2, 0, 4)$. Check: $\mathbf{u}^T\mathbf{x} = -6 + 16 = 10$, $\mathbf{u}^T\mathbf{u} = 20$, and $H\mathbf{x} = \mathbf{x} - \tfrac{2(10)}{20}\mathbf{u} = (5, 0, 0)$. $(8, 0, 4) = \mathbf{x} + 5\mathbf{e}_1$ gives $(-5, 0, 0)$ instead, and $(2, 0, 4) = \mathbf{x} - \mathbf{e}_1$ uses a target of the wrong length.
+- id: la-m9-r2-h19
+  lesson: la-m9-h-householder
+  topic: Householder reflections
+  type: text
+  stem: 'Let $\mathbf{x} = (6, 2, 3)$, so $\|\mathbf{x}\| =$ ___. With the software sign choice ($\alpha$ of opposite sign to $x_1$), $\alpha =$ ___ and the first entry of $\mathbf{u} = \mathbf{x} - \alpha\mathbf{e}_1$ is ___.'
+  accept:
+    - ['7']
+    - ['-7']
+    - ['13']
+  explanation: |-
+    $\|\mathbf{x}\| = \sqrt{36 + 4 + 9} = 7$. Since $x_1 = 6 > 0$, $\alpha = -7$, and $u_1 = 6 - (-7) = 13$: two numbers of the same sign are added, so nothing cancels. The reflection then sends $\mathbf{x}$ to $(-7, 0, 0)$.
+- id: la-m9-r2-h20
+  lesson: la-m9-h-householder
+  topic: Numerical QR
+  type: order
+  stem: 'Put the steps of Householder QR for a $3 \times 2$ matrix $A$ in order.'
+  items:
+    - 'Build $H_1$ from column 1 of $A$'
+    - 'Multiply to get $H_1A$, with zeros below the $(1, 1)$ entry'
+    - 'Build $\hat H_2$ from the part of column 2 of $H_1A$ below row 1'
+    - 'Apply $H_2$ to get $R = H_2H_1A$, and take $Q = H_1H_2$'
+  explanation: |-
+    $\hat H_2$ is built from column 2 *after* $H_1$ has acted, so $H_1A$ must be computed first. Each reflection only needs the column it clears, and the last step collects $R$ and $Q$.
+- id: la-m9-r2-h21
+  lesson: la-m9-h-householder
+  topic: Householder reflections
+  stem: 'What does $H = I - \dfrac{2\mathbf{u}\mathbf{u}^T}{\mathbf{u}^T\mathbf{u}}$ do to a vector $\mathbf{w}$ that is orthogonal to $\mathbf{u}$?'
+  choices: ['Reverses it', 'Leaves it unchanged', 'Sends it to $\mathbf{0}$', 'Doubles its length']
+  answer: 1
+  explanation: |-
+    $\mathbf{u}^T\mathbf{w} = 0$, so $H\mathbf{w} = \mathbf{w} - \dfrac{2(\mathbf{u}^T\mathbf{w})}{\mathbf{u}^T\mathbf{u}}\mathbf{u} = \mathbf{w}$. Vectors in the mirror $\mathbf{u}^\perp$ stay put; only the component along $\mathbf{u}$ is reversed. Sending $\mathbf{w}$ to $\mathbf{0}$ would be a projection, not a reflection.
+- id: la-m9-r2-h22
+  lesson: la-m9-h-householder
+  topic: Householder reflections
+  stem: 'For $\mathbf{u} = (1, 2)$, find $H\mathbf{x}$ when $\mathbf{x} = (3, 1)$.'
+  choices: ['$(2, -1)$', '$(-1, 3)$', '$(5, 5)$', '$(1, -3)$']
+  answer: 3
+  explanation: |-
+    $\mathbf{u}^T\mathbf{x} = 3 + 2 = 5$ and $\mathbf{u}^T\mathbf{u} = 5$, so $H\mathbf{x} = \mathbf{x} - \tfrac{2(5)}{5}\mathbf{u} = (3, 1) - (2, 4) = (1, -3)$. Check: $\|(1, -3)\| = \sqrt{10} = \|(3, 1)\|$. $(2, -1)$ subtracts only one copy of $\mathbf{u}$ (forgetting the 2), which is the projection onto $\mathbf{u}^\perp$.
+- id: la-m9-r2-h23
+  lesson: la-m9-h-householder
+  topic: Numerical QR
+  type: match
+  stem: 'Match each way of computing an orthogonal factorization to its description.'
+  pairs:
+    - [Classical Gram–Schmidt, Subtracts all projections computed from the original column]
+    - [Modified Gram–Schmidt, Subtracts projections one at a time from the updated vector]
+    - [Householder QR, Reflects whole columns into upper triangular form]
+    - [Givens rotations, Zeros one entry at a time with a rotation in two coordinates]
+  distractors: [Clears entries with row replacements and stores the multipliers]
+  explanation: |-
+    Classical and modified Gram–Schmidt agree in exact arithmetic but differ in which vector each projection coefficient is computed from. Householder reflections clear a whole column below the diagonal at once; Givens rotations clear single entries, which suits sparse matrices. Row replacements with stored multipliers describe LU factorization, which doesn't produce an orthogonal factor.
+- id: la-m9-r2-h24
+  lesson: la-m9-h-householder
+  topic: Numerical QR
+  stem: 'Householder QR of a $3 \times 2$ matrix gave $R$ with top block $\begin{bmatrix} 3 & 1 \\ 0 & -5\end{bmatrix}$. How do you get the factorization with positive diagonal?'
+  choices: ['Multiply row 2 of $R$ and column 2 of $Q$ by $-1$', 'Multiply column 2 of $R$ and row 2 of $Q$ by $-1$', 'Multiply all of $R$ by $-1$', 'Start over with Gram–Schmidt, since Householder gives a different factorization']
+  answer: 0
+  explanation: |-
+    $QR$ is unchanged if column 2 of $Q$ and row 2 of $R$ both change sign, because those are exactly the factors that multiply each other: $QR = \sum_k \mathbf{q}_k(\text{row } k \text{ of } R)$. Changing column 2 of $R$ instead would change the product. The positive-diagonal factorization is unique, so it is the same one Gram–Schmidt gives.
+- id: la-m9-r2-h25
+  lesson: la-m9-h-householder
+  topic: Householder reflections
+  type: text
+  stem: 'For $\mathbf{x} = (4, 3)$ and target $5\mathbf{e}_1$, the reflection is $H = \tfrac15\begin{bmatrix} 4 & 3 \\ 3 & -4\end{bmatrix}$. Then $H(2, 1) =$ (___, ___). Give exact fractions.'
+  accept:
+    - ['11/5']
+    - ['2/5']
+  explanation: |-
+    $H(2, 1) = \tfrac15(8 + 3,\ 6 - 4) = \left(\tfrac{11}{5}, \tfrac25\right)$. Check the length: $\tfrac{121 + 4}{25} = 5 = \|(2, 1)\|^2$, as it must be for a reflection.
+- id: la-m9-r2-h26
+  lesson: la-m9-h-householder
+  topic: Numerical QR
+  stem: 'Why do numerical libraries choose $\alpha = -\operatorname{sign}(x_1)\|\mathbf{x}\|$ when building $\mathbf{u} = \mathbf{x} - \alpha\mathbf{e}_1$?'
+  choices: ['Because the other sign gives a matrix that is not orthogonal', 'Because $\alpha$ must be negative for $H$ to be a reflection', 'To make the diagonal entries of $R$ positive', 'To avoid subtracting nearly equal numbers when computing $u_1 = x_1 - \alpha$']
+  answer: 3
+  explanation: |-
+    Both signs give a valid orthogonal reflection. But if $\mathbf{x}$ points almost along $\mathbf{e}_1$ and $\alpha$ has the same sign as $x_1$, then $x_1 - \alpha$ is a difference of nearly equal numbers and loses accuracy. With the opposite sign, the two numbers add. This choice often makes diagonal entries of $R$ negative, which is fixed afterwards if needed.
+- id: la-m9-r2-h27
+  lesson: la-m9-h-householder
+  topic: Numerical QR
+  stem: 'Using the count $2mn^2 - \tfrac23n^3$, roughly how many arithmetic operations does Householder QR need for a $1000 \times 100$ matrix?'
+  choices: ['About $2 \times 10^5$', 'About $1.9 \times 10^7$', 'About $6.7 \times 10^8$', 'About $1.9 \times 10^9$']
+  answer: 1
+  explanation: |-
+    $2(1000)(100)^2 = 2 \times 10^7$ and $\tfrac23(100)^3 \approx 6.7 \times 10^5$, so the count is about $2 \times 10^7 - 0.07 \times 10^7 \approx 1.9 \times 10^7$. The other choices come from dropping a factor of $n$ or using $m^2n$-type counts.
+- id: la-m9-r2-h28
+  lesson: la-m9-h-householder
+  topic: Numerical QR
+  stem: 'Which statements about Householder QR in floating-point arithmetic are true? Select all that apply.'
+  choices: ['The computed $Q$ is orthogonal to about machine precision', 'Each step multiplies by an orthogonal matrix, which doesn''t change lengths', 'It removes all sensitivity to how ill-conditioned $A$ is', 'It gives exactly the same rounded numbers as classical Gram–Schmidt']
+  answer: [0, 1]
+  explanation: |-
+    Orthogonal steps never magnify errors, so the computed $Q$ stays orthogonal to roughly $10^{-16}$ in double precision. But no method can make a sensitive problem insensitive: the accuracy of $R$ and of least-squares answers still depends on the conditioning of $A$. In rounded arithmetic, Householder and classical Gram–Schmidt can give very different $Q$'s, as the lesson's example shows.
+
+# 40h3 The pseudoinverse and low-rank approximation (honors)
+- id: la-m9-r2-h29
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  type: text
+  stem: 'The solution of $2x_1 - x_2 + 2x_3 = 18$ closest to the origin is $\mathbf{x}^+ =$ (___, ___, ___).'
+  accept:
+    - ['4']
+    - ['-2']
+    - ['4']
+  explanation: |-
+    For one equation $\mathbf{a}^T\mathbf{x} = b$, $A^+ = \mathbf{a}/\|\mathbf{a}\|^2$, so $\mathbf{x}^+ = \dfrac{b}{\|\mathbf{a}\|^2}\mathbf{a} = \dfrac{18}{9}(2, -1, 2) = (4, -2, 4)$. Check: $8 + 2 + 8 = 18$. It lies along the normal vector of the plane, at distance $\|\mathbf{x}^+\| = 6$ from the origin.
+- id: la-m9-r2-h30
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  stem: 'What is the pseudoinverse of $A = \begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$?'
+  choices: ['$\dfrac15\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$', '$\dfrac{1}{25}\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$', '$\begin{bmatrix} 4 & -2 \\ -2 & 1\end{bmatrix}$', 'There is none, because $A$ is singular']
+  answer: 1
+  explanation: |-
+    Every matrix has a pseudoinverse. $A$ has rank one, and the squares of its entries add to $1 + 4 + 4 + 16 = 25 = \sigma_1^2$, so $A^+ = A^T/25 = \tfrac{1}{25}\begin{bmatrix} 1 & 2 \\ 2 & 4\end{bmatrix}$. Dividing by 5 uses $\sigma_1$ instead of $\sigma_1^2$; $\begin{bmatrix} 4 & -2 \\ -2 & 1\end{bmatrix}$ is the adjugate, which would give $A^{-1}$ only if $\det A \ne 0$.
+- id: la-m9-r2-h31
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  stem: 'Which statements about $A^+ = V_r\Sigma_r^{-1}U_r^T$ are true for every matrix $A$? Select all that apply.'
+  choices: ['$AA^+$ is the projection matrix onto $\operatorname{Col} A$', '$A^+\mathbf{b}$ lies in $\operatorname{Row} A$', '$A^+A = I$', '$A^+ = (A^TA)^{-1}A^T$']
+  answer: [0, 1]
+  explanation: |-
+    $AA^+ = U_rU_r^T$, the projection onto $\operatorname{Col} A$, and $A^+\mathbf{b}$ is a combination of $\mathbf{v}_1, \dots, \mathbf{v}_r$, a basis of $\operatorname{Row} A$. $A^+A = V_rV_r^T$ is the projection onto $\operatorname{Row} A$, which is $I$ only when the columns are independent; the same condition is needed for $(A^TA)^{-1}$ to exist.
+- id: la-m9-r2-h32
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  type: text
+  stem: 'Let $A = \begin{bmatrix} 3 & 0 \\ 0 & 0 \\ 0 & -2\end{bmatrix}$. Its pseudoinverse is $2 \times 3$, with $(A^+)_{11} =$ ___ and $(A^+)_{23} =$ ___. Give exact fractions.'
+  accept:
+    - ['1/3']
+    - ['-1/2']
+  explanation: |-
+    For a rectangular diagonal matrix, transpose it and invert the nonzero entries: $A^+ = \begin{bmatrix} \tfrac13 & 0 & 0 \\ 0 & 0 & -\tfrac12\end{bmatrix}$. Check: $A^+A = I_2$ (the columns are independent), and $AA^+ = \operatorname{diag}(1, 0, 1)$, the projection onto $\operatorname{Col} A$.
+- id: la-m9-r2-h33
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  stem: 'For $A = \begin{bmatrix} 1 & 1 \\ 2 & 2\end{bmatrix}$ and a certain $\mathbf{b}$, the least-squares solutions are all $\mathbf{x}$ with $x_1 + x_2 = 4$. Which one is $A^+\mathbf{b}$?'
+  choices: ['$(4, 0)$', '$(2, 2)$', '$(0, 4)$', '$(1, 3)$']
+  answer: 1
+  explanation: |-
+    $A^+\mathbf{b}$ is the least-squares solution in $\operatorname{Row} A = \operatorname{Span}\{(1, 1)\}$, so it has equal entries: $(2, 2)$. It is also the shortest: $\|(2, 2)\| = \sqrt8$, against $\sqrt{16}$ for $(4, 0)$ or $(0, 4)$ and $\sqrt{10}$ for $(1, 3)$.
+- id: la-m9-r2-h34
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  type: order
+  stem: 'Put the steps for finding the minimum-norm least-squares solution of $A\mathbf{x} = \mathbf{b}$ with the SVD in order.'
+  items:
+    - 'Find an SVD $A = U\Sigma V^T$'
+    - 'Keep only the nonzero singular values and their $\mathbf{u}$''s and $\mathbf{v}$''s (the reduced SVD)'
+    - 'Form $A^+ = V_r\Sigma_r^{-1}U_r^T$'
+    - 'Compute $\mathbf{x}^+ = A^+\mathbf{b}$'
+  explanation: |-
+    The reduced SVD is read off from the full one; only nonzero singular values can be inverted; and $\mathbf{x}^+$ needs $A^+$.
+- id: la-m9-r2-h35
+  lesson: la-m9-h-pseudoinverse
+  topic: Low-rank approximation
+  type: text
+  stem: 'A matrix has singular values $6$, $3$ and $2$. Then $\|A\|_2 =$ ___ and $\|A\|_F =$ ___.'
+  accept:
+    - ['6']
+    - ['7']
+  explanation: |-
+    The spectral norm is the largest singular value, 6. The Frobenius norm is $\sqrt{36 + 9 + 4} = \sqrt{49} = 7$, the square root of the sum of all the squared singular values (not their sum, 11).
+- id: la-m9-r2-h36
+  lesson: la-m9-h-pseudoinverse
+  topic: Low-rank approximation
+  type: text
+  stem: 'For the same matrix (singular values $6, 3, 2$), the best rank-one approximation $A_1$ has $\|A - A_1\|_2 =$ ___ and $\|A - A_1\|_F^2 =$ ___.'
+  accept:
+    - ['3']
+    - ['13']
+  explanation: |-
+    $A - A_1 = \sigma_2\mathbf{u}_2\mathbf{v}_2^T + \sigma_3\mathbf{u}_3\mathbf{v}_3^T$ has singular values 3 and 2. Its spectral norm is the larger, 3, and its squared Frobenius norm is $9 + 4 = 13$.
+- id: la-m9-r2-h37
+  lesson: la-m9-h-pseudoinverse
+  topic: Low-rank approximation
+  stem: 'For a matrix of rank one, how do $\|A\|_F$ and $\|A\|_2$ compare?'
+  choices: ['$\|A\|_F$ is always larger', '$\|A\|_2$ is always larger', 'They are equal', 'It depends on the size of $A$']
+  answer: 2
+  explanation: |-
+    A rank-one matrix has a single nonzero singular value $\sigma_1$, so $\|A\|_2 = \sigma_1$ and $\|A\|_F = \sqrt{\sigma_1^2} = \sigma_1$. In general $\|A\|_2 \le \|A\|_F$, with equality exactly when the rank is at most one.
+- id: la-m9-r2-h38
+  lesson: la-m9-h-pseudoinverse
+  topic: Low-rank approximation
+  type: match
+  stem: 'Let $A$ have singular values $\sigma_1 \ge \cdots \ge \sigma_r > 0$ and let $A_k$ be its first $k$ SVD terms. Match each quantity to its value.'
+  pairs:
+    - ['$\|A\|_2$', 'σ₁']
+    - ['$\|A\|_F^2$', 'Sum of all σᵢ²']
+    - ['$\|A - A_k\|_2$', 'σₖ₊₁']
+    - ['$\|A - A_k\|_F^2$', 'Sum of σᵢ² for i > k']
+  distractors: ['Sum of all σᵢ', '1/σᵣ']
+  explanation: |-
+    The spectral norm is the largest singular value and the squared Frobenius norm is the sum of all the squared singular values. $A - A_k$ is the SVD sum of the leftover terms, so its singular values are $\sigma_{k+1}, \dots, \sigma_r$, and the same two rules give its norms. $1/\sigma_r$ is the spectral norm of $A^+$, not of $A$.
+- id: la-m9-r2-h39
+  lesson: la-m9-h-pseudoinverse
+  topic: Low-rank approximation
+  stem: 'A $600 \times 400$ image is replaced by its rank-20 approximation, stored as $\mathbf{u}_1, \dots, \mathbf{u}_{20}$, $\mathbf{v}_1, \dots, \mathbf{v}_{20}$ and $\sigma_1, \dots, \sigma_{20}$. How many numbers are stored?'
+  choices: ['20,020', '240,000', '8,000', '20,000']
+  answer: 0
+  explanation: |-
+    Each $\mathbf{u}_i$ has 600 entries, each $\mathbf{v}_i$ has 400, and each $\sigma_i$ is one number: $20(600 + 400 + 1) = 20{,}020$, about 8% of the $240{,}000$ entries of the full image. 20,000 forgets the $\sigma$'s, and 8,000 counts only the $\mathbf{v}$'s.
+- id: la-m9-r2-h40
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  stem: 'Why do numerical pseudoinverse routines treat singular values below a small tolerance as zero?'
+  choices: ['Small singular values mean the pseudoinverse does not exist', 'To make $A^+$ a square matrix', 'Inverting a tiny $\sigma_i$ would multiply any noise in $\mathbf{b}$ along $\mathbf{u}_i$ by a huge factor', 'Because the Frobenius norm ignores small singular values']
+  answer: 2
+  explanation: |-
+    $A^+\mathbf{b}$ contains the term $\tfrac{1}{\sigma_i}(\mathbf{u}_i\cdot\mathbf{b})\mathbf{v}_i$, so a tiny $\sigma_i$ (often a rounding remnant of a true 0) amplifies noise enormously. The pseudoinverse always exists, its shape is that of $A^T$ either way, and the Frobenius norm counts every singular value.
+- id: la-m9-r2-h41
+  lesson: la-m9-h-pseudoinverse
+  topic: Low-rank approximation
+  stem: 'What is the best rank-one approximation of $\begin{bmatrix} 5 & 0 \\ 0 & 2\end{bmatrix}$, and its Frobenius-norm error?'
+  choices: ['$\begin{bmatrix} 0 & 0 \\ 0 & 2\end{bmatrix}$, with error 5', '$\begin{bmatrix} 5 & 0 \\ 0 & 0\end{bmatrix}$, with error 4', '$\begin{bmatrix} 3.5 & 0 \\ 0 & 3.5\end{bmatrix}$, with error $\sqrt{4.5}$', '$\begin{bmatrix} 5 & 0 \\ 0 & 0\end{bmatrix}$, with error 2']
+  answer: 3
+  explanation: |-
+    The singular values are 5 and 2 with $\mathbf{u}_1 = \mathbf{v}_1 = \mathbf{e}_1$, so $A_1 = 5\mathbf{e}_1\mathbf{e}_1^T = \begin{bmatrix} 5 & 0 \\ 0 & 0\end{bmatrix}$ and the error is $\sigma_2 = 2$ (4 is the squared error). Keeping the smaller singular value gives error 5, and $3.5I$ has rank 2, so it isn't a rank-one approximation at all.
+- id: la-m9-r2-h42
+  lesson: la-m9-h-pseudoinverse
+  topic: Pseudoinverse
+  stem: 'A matrix $A$ has linearly independent columns. Which statements are true? Select all that apply.'
+  choices: ['$A^+ = (A^TA)^{-1}A^T$', '$A^+A = I$', '$AA^+ = I$ even when $A$ has more rows than columns', '$A^+\mathbf{b}$ is the unique least-squares solution of $A\mathbf{x} = \mathbf{b}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    With independent columns, $A^TA$ is invertible and the unique least-squares solution is $(A^TA)^{-1}A^T\mathbf{b}$, so that matrix is $A^+$, and $A^+A = (A^TA)^{-1}A^TA = I$. But $AA^+$ is the projection onto $\operatorname{Col} A$, which is a proper subspace when $A$ is tall, so $AA^+ \ne I$.

@@ -535,8 +535,8 @@
   lesson: la-m8-h-jordan-form
   topic: Jordan form
   stem: 'What is the Jordan form of $A = \begin{bmatrix} 4 & 1 \\ -1 & 2\end{bmatrix}$?'
-  choices: ['$\begin{bmatrix} 3 & 0 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 0 & 4\end{bmatrix}$', '$\begin{bmatrix} 3 & 1 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & 4\end{bmatrix}$']
-  answer: 2
+  choices: ['$\begin{bmatrix} 3 & 1 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 0 \\ 0 & 4\end{bmatrix}$', '$\begin{bmatrix} 3 & 0 \\ 0 & 3\end{bmatrix}$', '$\begin{bmatrix} 2 & 1 \\ 0 & 4\end{bmatrix}$']
+  answer: 0
   explanation: |-
     $\operatorname{tr} A = 6$ and $\det A = 8 + 1 = 9$, so $(\lambda - 3)^2 = 0$: eigenvalue 3 twice. $A - 3I = \begin{bmatrix} 1 & 1 \\ -1 & -1\end{bmatrix}$ has rank 1, so there is only one independent eigenvector and one $2 \times 2$ block. $3I$ would require $A = 3I$. The diagonal entries 2 and 4 are not eigenvalues of $A$.
 
@@ -615,8 +615,8 @@
   lesson: la-m8-h-jordan-form
   topic: Jordan form
   stem: 'The Jordan form of $A$ has two blocks for the eigenvalue 4, of sizes 3 and 1, and no other eigenvalues. What is the minimal polynomial of $A$?'
-  choices: ['$(t - 4)^4$', '$(t - 4)^3$', '$(t - 4)^2$', '$t - 4$']
-  answer: 1
+  choices: ['$(t - 4)^3$', '$(t - 4)^4$', '$(t - 4)^2$', '$t - 4$']
+  answer: 0
   explanation: |-
     For a $k \times k$ block, $(J - 4I)^k = N^k = 0$ but $N^{k-1} \ne 0$. The $3 \times 3$ block needs the power 3, and that power also kills the $1 \times 1$ block. So $m(t) = (t - 4)^3$, while the characteristic polynomial is $(t - 4)^4$.
 
@@ -763,8 +763,8 @@
   lesson: la-m8-h-perron-frobenius
   topic: Perron–Frobenius theorem
   stem: 'Two populations both have dominant eigenvalue $1.5$. The second-largest eigenvalues (in absolute value) are $-1.2$ for population A and $0.3$ for population B. Which settles into its stable age distribution faster?'
-  choices: ['A, because its second eigenvalue is negative', 'They settle equally fast, since $r$ is the same', 'Neither ever settles', 'B, because $0.3/1.5$ is much smaller than $1.2/1.5$']
-  answer: 3
+  choices: ['B, because $0.3/1.5$ is much smaller than $1.2/1.5$', 'A, because its second eigenvalue is negative', 'They settle equally fast, since $r$ is the same', 'Neither ever settles']
+  answer: 0
   explanation: |-
     The leftover part shrinks by a factor of about $|\lambda_2|/r$ per step: $0.2$ for B but $0.8$ for A. A negative $\lambda_2$ makes the approach oscillate, but its size is what sets the speed. Both settle eventually because each has a dominant eigenvalue.
 
