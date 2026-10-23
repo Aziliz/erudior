@@ -469,7 +469,7 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
 
   const options = [
     ...CATALOG.map((e) => ({ id: e.id, title: e.title })),
-    ...api.allCourses.filter((c) => !CATALOG.some((e) => e.id === c.id)).map((c) => ({ id: c.id, title: `${c.title} (your course)` })),
+    ...api.allCourses.filter((c) => !CATALOG.some((e) => e.id === c.id) && !c.community).map((c) => ({ id: c.id, title: `${c.title} (your course)` })),
   ].filter((o) => !s.assigned.some((a) => a.courseId === o.id));
   const title = (id: string) => CATALOG.find((e) => e.id === id)?.title ?? api.allCourses.find((c) => c.id === id)?.title ?? id;
 

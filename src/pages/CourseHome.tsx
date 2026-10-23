@@ -2,6 +2,7 @@ import { catalogEntry } from "../lib/catalog";
 import { useMemo, useState } from "react";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
+import { ReportForm, ReviewPill } from "../components/CommunityCatalog";
 import type { Bank, Course, Plan } from "../lib/types";
 import * as store from "../lib/storage";
 import { courseCounts, bankKey } from "../lib/course";
@@ -46,7 +47,7 @@ export function mainBank(c: Course): Bank | undefined {
 export default function CourseHome({ api, course, tab }: { api: AppApi; course: Course; tab: CourseTab }) {
   const setTab = (t: CourseTab) => api.go({ name: "course", courseId: course.id, tab: t });
 
-  const fromCatalog = !!catalogEntry(course.id);
+  const fromCatalog = !!catalogEntry(course.id) || !!course.community;
 
   async function onDelete() {
     const n = courseCounts(course);
@@ -86,6 +87,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
         <div>
           <h1>{course.title}</h1>
           {course.description && <p className="muted">{course.description}</p>}
+          {course.community && <CommunityNote api={api} course={course} />}
         </div>
         <div className="row">
           <button className="btn" onClick={() => api.go({ name: "courseEdit", courseId: course.id })}>
@@ -833,6 +835,22 @@ function ReferenceTab({ api, course }: { api: AppApi; course: Course }) {
           <span className="muted small clamp2">{r.body.replace(/[#*|`>-]/g, " ").replace(/\s+/g, " ").trim().slice(0, 140)}</span>
         </button>
       ))}
+    </div>
+  );
+}
+
+function CommunityNote({ api, course }: { api: AppApi; course: Course }) {
+  const [reporting, setReporting] = useState(false);
+  const c = course.community!;
+  return (
+    <div style={{ marginTop: 6 }}>
+      <p className="small muted">
+        Community course by {c.author}, version {c.version} · <ReviewPill review={c.review} />{" "}
+        <button className="linkish small" aria-expanded={reporting} onClick={() => setReporting((r) => !r)}>
+          Report this course
+        </button>
+      </p>
+      {reporting && <ReportForm api={api} id={c.id} title={course.title} onDone={() => setReporting(false)} />}
     </div>
   );
 }

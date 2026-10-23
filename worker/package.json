@@ -1,0 +1,15 @@
+{
+  "name": "erudior-community-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --env dev --port 8787",
+    "migrate:local": "wrangler d1 migrations apply erudior-community --local --env dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "3.114.0",
+    "@cloudflare/workers-types": "4.20250224.0",
+    "typescript": "5.7.3"
+  }
+}

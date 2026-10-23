@@ -29,6 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_COURSES_URL: ${{ vars.COURSES_URL }}
+      VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       COURSE_SIGNING_KEY: ${{ secrets.COURSE_SIGNING_KEY }}

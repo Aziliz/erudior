@@ -35,6 +35,10 @@ import FamilySetup from "./pages/FamilySetup";
 import WhoPage from "./pages/WhoPage";
 import ParentArea, { type ParentTab } from "./pages/ParentArea";
 import ParentGate from "./pages/ParentGate";
+import { AUTHORING, downloadCommunityCourse, isCommunityId } from "./lib/community";
+import CreateHome from "./pages/CreateHome";
+import CommunityEditor from "./pages/CommunityEditor";
+import ReviewQueue from "./pages/ReviewQueue";
 
 export type View =
   | { name: "library" }
@@ -55,7 +59,10 @@ export type View =
   | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number }
   | { name: "who" }
   | { name: "familySetup" }
-  | { name: "parent"; tab?: ParentTab };
+  | { name: "parent"; tab?: ParentTab }
+  | { name: "create" }
+  | { name: "communityEdit"; id: string }
+  | { name: "review" };
 
 export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
@@ -92,6 +99,8 @@ export interface AppApi {
   allCourses: Course[];
   /** Can this student start this catalog course? A reason if not. */
   assignmentBlock: (courseId: string) => string | null;
+  /** Download (or update) a community course and open it. */
+  addCommunityCourse: (id: string) => Promise<void>;
 }
 
 type Theme = "system" | "light" | "dark";
@@ -118,7 +127,18 @@ function readTheme(): Theme {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>({ name: "library" });
+  // Signing in on the website returns to /?create.
+  const [view, setView] = useState<View>(() => {
+    try {
+      if (AUTHORING && new URLSearchParams(window.location.search).has("create")) {
+        window.history.replaceState(null, "", window.location.pathname);
+        return { name: "create" };
+      }
+    } catch {
+      /* not in a browser */
+    }
+    return { name: "library" };
+  });
   const [standalone, setStandalone] = useState<Bank[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
   const [broken, setBroken] = useState<string[]>([]);
@@ -367,6 +387,16 @@ export default function App() {
     [reload, toast, assignmentBlock, courses, enroll],
   );
 
+  const addCommunityCourse = async (id: string) => {
+    try {
+      const course = normalizeCourse(await downloadCommunityCourse(id));
+      await saveCourse(course);
+      setView({ name: "course", courseId: course.id });
+    } catch (e) {
+      toast(`Couldn't add the course: ${(e as Error).message}`);
+    }
+  };
+
   const api: AppApi = {
     catalog: catalogInfo,
     banks: allBanks,
@@ -427,6 +457,7 @@ export default function App() {
     chooseStudent,
     allCourses: courses,
     assignmentBlock,
+    addCommunityCourse,
   };
 
   // Active study time for the student's records.
@@ -446,7 +477,8 @@ export default function App() {
         return null;
     }
   })();
-  useStudyTimer(family ? studentId : null, studyCourse);
+  // Community courses are free learning only: their time isn't recorded.
+  useStudyTimer(family ? studentId : null, studyCourse && !isCommunityId(studyCourse) ? studyCourse : null);
 
   if (loadError) {
     return (
@@ -598,10 +630,15 @@ export default function App() {
         );
       break;
   }
+  if (view.name === "create" && AUTHORING) body = <CreateHome api={api} />;
+  if (view.name === "communityEdit" && AUTHORING) {
+    body = <CommunityEditor key={view.id} api={api} id={view.id} />;
+  }
+  if (view.name === "review" && AUTHORING) body = <ReviewQueue api={api} />;
   // Students pick who they are before anything else.
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 
-  const navCurrent = view.name === "progress" ? "progress" : view.name === "parent" || view.name === "who" || view.name === "familySetup" ? null : "library";
+  const navCurrent = view.name === "progress" ? "progress" : view.name === "parent" || view.name === "who" || view.name === "familySetup" || view.name === "create" || view.name === "communityEdit" || view.name === "review" ? null : "library";
 
   return (
     <div className="shell">
@@ -627,6 +664,14 @@ export default function App() {
             >
               Progress
             </button>
+            {AUTHORING && (
+              <button
+                aria-current={view.name === "create" || view.name === "communityEdit" || view.name === "review" ? "page" : undefined}
+                onClick={() => setView({ name: "create" })}
+              >
+                Create
+              </button>
+            )}
           </nav>
           <div className="spacer" />
           {HOMESCHOOL && family && (

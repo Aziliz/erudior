@@ -128,6 +128,14 @@ ok("tests in period", math[0].tests.length === 3, math[0].tests);
 ok("hours and days", near(c.hours, 2) && c.daysPresent === 1 && c.needHours === 990);
 ok("grades to date", c.grades.length === 1 && c.grades[0].courseId === C);
 
+// Community courses never appear on records.
+const dc: StudentData = {
+  ...d,
+  progress: { ...d.progress, enrolled: [...(d.progress.enrolled ?? []), "community-abc"], lessonsDone: { ...d.progress.lessonsDone, "community-abc/l1": "2026-09-05" } },
+  records: { ...d.records, time: { ...d.records.time, "2026-09-05": { "community-abc": 3600 } } },
+};
+ok("community course left off records", !coursesInYear(dc, "2026-08-01").some((r) => r.courseId.startsWith("community-")));
+
 if (fails) {
   console.log(`${fails} records test(s) failed`);
   process.exit(1);

@@ -1,6 +1,6 @@
 # Erudior (formerly Examiner): handoff
 
-State as of 2026-10-23, v0.17.0. Read this first in a new chat.
+State as of 2026-10-23, v0.18.0. Read this first in a new chat.
 
 ## What it is
 
@@ -59,6 +59,16 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **Course updates:** each course has a `revision` number. A newer bundled revision is offered in-app and keeps progress, because progress is keyed by ids.
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
+
+## Community courses (v0.18.0)
+
+- Jon's choices: Cloudflare Workers + D1/R2; Google + GitHub sign-in; authors 18+ (checkbox attestation + terms); blocks: text, lists, headings, images, multiple-choice questions, notecard decks; courses go live tagged **Not reviewed**, a reviewer marks a version **Reviewed**; Jon reviews and can grant a Reviewer role to others.
+- **API** `worker/` (api.erudior.com): `src/index.ts` (routes listed at the top), `migrations/0001_init.sql` (users, sessions, courses, images, reports, review_log), `wrangler.toml` (env `dev` = localhost with `/auth/dev` sign-in). Sessions are random tokens in an HttpOnly SameSite=Lax cookie (hash in D1). Signed-in writes require an allowed Origin. Public: catalog, published course, images (served with nosniff and a CSP), reports (rate-limited by a daily-salted IP hash). Publishing writes `courses/<id>.v<n>.json` to R2; a new version resets the tag to Not reviewed. Reviewers: mark reviewed / not reviewed, take down (note required; author sees it; can't republish), restore, close reports. Admins: roles and bans (`ADMIN_EMAILS` become admins on sign-in).
+- **Format** `src/lib/communityFormat.ts` (shared by worker and app): `checkDoc` (draft vs publish checks, size limits), `safeMd` (escapes HTML, drops code fences and glossary syntax, http(s) links only), `toCourse` → app course `community-<id>` with lesson quizzes in one bank, decks, `community` metadata (id, version, review, author).
+- **App** (`lib/community.ts`, `VITE_COMMUNITY_API`): Library → Community courses (search, subject, Reviewed only, tags, Report, Update when version or tag changes); installs embed images as data URLs (works offline); course page shows author, tag and "Report this course". Community courses are never assignable, never on reports, and their study time isn't tracked. Web build only: Create (sign-in, terms, your courses, display name), block editor (`pages/CommunityEditor.tsx`: About, Lessons with blocks + preview, Notecards, Publish; autosaves), Review queue (`pages/ReviewQueue.tsx`, People for admins).
+- Deploy: `.github/workflows/community.yml` (idle until `COMMUNITY_API` + `D1_DATABASE_ID`); site and release workflows pass `VITE_COMMUNITY_API`; CSP allows api.erudior.com. Setup steps in docs/HOSTING.md.
+- Tests: `tests/community.test.mts` (in npm test); `worker/test/api.test.mjs` against `npm run dev` in worker/; `scripts/community-walkthrough.mjs` (write → publish → Library → start → report → review → update), clean in light/dark and at 320px.
+- Lawyer questions still open (roadmap): terms text in CreateHome is a plain-language draft.
 
 ## Renamed to Erudior (v0.17.0)
 
@@ -145,6 +155,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 | `src/lib/vocab.ts` | Language vocabulary reviews: unlocking, due cards, stage ladder (`applyAnswer`), typed-answer checking (`checkMeaning`, `checkRecall`) |
 | `src/lib/speech.ts`, `src/lib/ime.ts` | Device text-to-speech; input-converter registry for non-Roman scripts (empty until Japanese/Chinese) |
 | `src/pages/VocabRunner.tsx`, `src/pages/VocabTabs.tsx` | Vocabulary review/practice screen; Vocabulary and Reading list tabs |
+| `worker/`; `src/lib/communityFormat.ts`, `community.ts`; `src/pages/CreateHome.tsx`, `CommunityEditor.tsx`, `ReviewQueue.tsx`; `src/components/CommunityCatalog.tsx` | Community courses: API, format/converter, client, editor, review, Library section |
 | `src/lib/grades.ts`, `reports.ts`, `portfolio.ts`; `src/pages/ParentRecords.tsx`; `src/components/ReportDocs.tsx` | Homeschool records: grades/GPA, report data, photos; Grades and Reports tabs; printable documents |
 | `src/lib/family.ts`, `records.ts`, `states.ts`, `timer.ts`, `backup.ts` | Homeschool: family/students/parent lock, records + attendance + reminders, state rules, active study timer, encrypted backup |
 | `src/pages/FamilySetup.tsx`, `WhoPage.tsx`, `ParentGate.tsx`, `ParentArea.tsx` | Homeschool screens |
@@ -289,7 +300,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Possible next steps
 
-- Phase 4 per the roadmap (community course editor on the website, Classroom mode, Live room) and K-12 courses. Ask Jon first. Jon: community courses carry a **Reviewed** or **Not reviewed** tag; the backend choice is still open.
+- Rest of Phase 4: Classroom mode, Live room; K-12 courses. Ask Jon first.
 - Jon's hosting setup (docs/HOSTING.md) now uses erudior.com.
 
 - The Van Ed refinement pass.

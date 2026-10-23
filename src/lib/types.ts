@@ -317,6 +317,16 @@ export interface Course {
   vocab?: VocabItem[];
   /** Recommended reading for the course's level. */
   readingList?: ReadingItem[];
+  /** Community courses (made by users on the website): never count toward homeschool records. */
+  community?: CommunityInfo;
+}
+
+export interface CommunityInfo {
+  /** The course's id on the community site. */
+  id: string;
+  version: number;
+  review: "reviewed" | "not_reviewed";
+  author: string;
 }
 
 export interface LanguageInfo {

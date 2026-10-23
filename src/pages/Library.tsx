@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments } from "../lib/family";
+import { COMMUNITY } from "../lib/community";
+import CommunityCatalog, { ReviewPill } from "../components/CommunityCatalog";
 import { REMOTE } from "../lib/courseSource";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
@@ -120,6 +122,11 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
               <button key={c.id} className="course-row" onClick={() => api.go({ name: "course", courseId: c.id })}>
                 <div className="course-main">
                   <h2>{c.title}</h2>
+                  {c.community && (
+                    <p className="small muted">
+                      Community course by {c.community.author} · <ReviewPill review={c.community.review} />
+                    </p>
+                  )}
                   {c.description && <p className="muted small clamp2">{c.description}</p>}
                   <p className="meta">
                     {[
@@ -153,6 +160,8 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       )}
 
       <Catalog api={api} />
+
+      {COMMUNITY && (!api.student || api.student.freeChoice) && <CommunityCatalog api={api} />}
 
       <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 12px" }}>
         <h2 className="section-title" style={{ margin: 0 }}>

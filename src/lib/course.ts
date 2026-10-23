@@ -184,6 +184,17 @@ export function normalizeCourse(raw: unknown): Course {
     ...(language ? { language } : {}),
     ...(vocab.length ? { vocab } : {}),
     ...(readingList.length ? { readingList } : {}),
+    ...(community(raw.community) ? { community: community(raw.community)! } : {}),
+  };
+}
+
+function community(c: unknown): Course["community"] | undefined {
+  if (!isObj(c) || !str(c.id)) return undefined;
+  return {
+    id: str(c.id),
+    version: Number(c.version) || 1,
+    review: c.review === "reviewed" ? "reviewed" : "not_reviewed",
+    author: str(c.author),
   };
 }
 

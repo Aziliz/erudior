@@ -59,6 +59,43 @@ as before.
 
 After that, every push to `main` that changes courses or the app republishes automatically.
 
+## Community courses (api.erudior.com)
+
+The `worker/` folder is a Cloudflare Worker with a D1 database (accounts, drafts, reviews,
+reports) and a private R2 bucket (published versions and images). Builds with
+`VITE_COMMUNITY_API` show community courses in the Library; the website build also gets the
+editor (Create) and the review queue. Authors sign in with Google or GitHub, must confirm
+they're 18+ and accept the terms; courses go live tagged **Not reviewed** until a reviewer
+marks that version **Reviewed**.
+
+1. **Database and bucket** (Cloudflare dashboard, or `npx wrangler` in `worker/`):
+   - `npx wrangler d1 create erudior-community` and note the database id.
+   - R2 → create a bucket named `erudior-community` (keep it private; the Worker serves it).
+2. **Google sign-in** (Google Cloud console → APIs & Services):
+   - OAuth consent screen: External, app name Erudior, scopes `openid`, `email`, `profile`.
+   - Credentials → Create OAuth client ID → Web application. Authorized redirect URI:
+     `https://api.erudior.com/auth/google/callback`. Note the client id and secret.
+3. **GitHub sign-in** (GitHub → Settings → Developer settings → OAuth Apps → New):
+   - Homepage `https://app.erudior.com`, callback `https://api.erudior.com/auth/github/callback`.
+     Note the client id; generate a client secret.
+4. **API token**: add Account · Workers Scripts · Edit, Account · D1 · Edit and
+   Zone (erudior.com) · Workers Routes · Edit to the token from step 4 above (the Worker
+   claims `api.erudior.com` as a custom domain when it deploys).
+5. **GitHub** (Aziliz/examiner → Settings → Secrets and variables → Actions):
+   - Variables: `COMMUNITY_API` = `https://api.erudior.com`, `D1_DATABASE_ID` = the id from
+     step 1, `ADMIN_EMAILS` = your sign-in email (comma-separate several), `GOOGLE_CLIENT_ID`,
+     `OAUTH_GITHUB_CLIENT_ID`.
+   - Secrets: `GOOGLE_CLIENT_SECRET`, `OAUTH_GITHUB_CLIENT_SECRET` (GitHub doesn't allow
+     names starting with `GITHUB_`).
+6. Actions → **Deploy community API** → Run workflow; then re-run **Publish website and
+   courses** so the web app picks up `COMMUNITY_API`. Sign in at app.erudior.com → Create.
+   Admins can give others the Reviewer role from the review queue's People section.
+
+Local development: `cd worker && npm install && npm run migrate:local && npm run dev`
+(http://localhost:8787 with a development sign-in), then
+`VITE_COMMUNITY_API=http://localhost:8787 npx vite --port 5181`. `node test/api.test.mjs`
+checks the API; `node scripts/community-walkthrough.mjs` checks the whole flow in a browser.
+
 ## Day to day
 
 - **New course revision:** build it as usual (`content/math/build.py …`), commit, push. The
@@ -73,5 +110,6 @@ After that, every push to `main` that changes courses or the app republishes aut
 
 ## Privacy note
 
-Cloudflare sees the IP address of each download, like any web host. Erudior adds no analytics
+Community authors' name, email and courses are stored in D1; reports store a daily-salted
+hash of the reporter's IP for rate limiting only. Cloudflare sees the IP address of each download, like any web host. Erudior adds no analytics
 and sends no student data. The children's privacy notice (roadmap section 7) should say so.

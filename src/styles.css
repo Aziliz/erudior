@@ -2899,3 +2899,117 @@ details.panel > summary {
 .doc cite {
   font-style: italic;
 }
+
+/* ---------- Community courses ---------- */
+.pill.flagpill {
+  background: var(--flag-soft);
+  color: var(--ink);
+  border: 1px solid var(--flag);
+}
+.inline-field {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+.inline-field .select {
+  width: auto;
+}
+.report-form {
+  margin-top: 10px;
+}
+.report-form h4 {
+  margin-bottom: 8px;
+}
+.my-courses > li + li {
+  margin-top: 12px;
+}
+.terms ul {
+  padding-left: 1.2rem;
+  margin: 8px 0 0;
+}
+.terms li + li {
+  margin-top: 4px;
+}
+.save-state {
+  min-width: 10rem;
+  text-align: right;
+}
+.editor-grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.lesson-list ol {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+.lesson-list li + li {
+  margin-top: 4px;
+}
+.lesson-list button[aria-current="true"] {
+  font-weight: 700;
+  text-decoration: underline;
+}
+.lesson-edit > .panel + .panel,
+.lesson-edit > fieldset + fieldset,
+.lesson-edit > .panel + fieldset,
+.lesson-edit > fieldset + .panel {
+  margin-top: 12px;
+}
+fieldset.block-edit {
+  margin: 0;
+  min-width: 0;
+}
+fieldset.block-edit > legend {
+  font-weight: 650;
+  padding: 0 6px;
+}
+.block-tools {
+  justify-content: flex-end;
+  margin: -6px 0 8px;
+}
+.block-image {
+  max-width: 100%;
+  max-height: 16rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+}
+.choices-edit {
+  margin-top: 10px;
+}
+.choices-edit .row + .row {
+  margin-top: 6px;
+}
+.add-blocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.cards-edit td {
+  padding: 4px;
+}
+.review-item + .review-item {
+  margin-top: 12px;
+}
+.review-read {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  max-height: 32rem;
+  overflow: auto;
+}
+.review-read h4 {
+  margin: 12px 0 4px;
+}
+@media (max-width: 760px) {
+  .editor-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .save-state {
+    text-align: left;
+  }
+}

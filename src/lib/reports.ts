@@ -96,6 +96,8 @@ function courseIds(d: StudentData): Set<string> {
     ...d.records.grades.map((g) => g.courseId),
   ]);
   for (const day of Object.values(d.records.time)) for (const id of Object.keys(day)) if (!id.startsWith("bank:")) ids.add(id);
+  // Community courses are free learning only; they never appear on records.
+  for (const id of ids) if (id.startsWith("community-")) ids.delete(id);
   return ids;
 }
 
