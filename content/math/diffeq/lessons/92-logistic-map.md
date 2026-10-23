@@ -19,8 +19,8 @@ The differential equation didn't change; only the computation did. Euler's metho
 the equation with a rule $y_{n+1} = g(y_n)$, and rules like this, **iterated maps**, have a
 life of their own. They also model populations that breed in separate seasons (many insects,
 annual plants), where next year's count depends on this year's. This lesson studies the most
-famous one, made popular by the ecologist Robert May in a 1976 paper, and finds the simplest
-known road to chaos.
+famous one, made popular by the ecologist Robert May in a 1976 paper, and follows one of the best-understood
+roads to chaos.
 
 ## From Euler's method to the logistic map
 

@@ -15,7 +15,7 @@ bifurcation value. Lesson 90 found limit cycles, oscillations with a preferred s
 lesson joins the two ideas: as a parameter changes, a quiet equilibrium can lose its
 stability and give birth to an oscillation. That event, the **Hopf bifurcation**, explains the
 onset of oscillation in chemical reactions, lasers, heart cells, wing flutter models and
-predator–prey models, and it is the main way rhythms are born in dynamical systems.
+predator–prey models, and it is one of the most common ways rhythms are born in dynamical systems.
 
 ## How an equilibrium can lose stability
 
