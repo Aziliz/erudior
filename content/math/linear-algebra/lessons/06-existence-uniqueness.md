@@ -56,6 +56,17 @@ many". So a procedure for any system is:
 2. If there is a pivot in the last column, stop: inconsistent.
 3. Otherwise continue to RREF, write the system, and solve for the basic variables in terms of the free ones.
 
+```mermaid
+flowchart TD
+  accTitle: Deciding how many solutions a system has
+  accDescr: Row-reduce the augmented matrix to echelon form. If there is a pivot in the last column, the system is inconsistent and has no solution. If not, ask whether there are free variables. With no free variables there is exactly one solution. With at least one free variable there are infinitely many solutions, described by the general solution.
+  A["Row-reduce the augmented matrix to echelon form"] --> B{"Pivot in the last column?"}
+  B -- yes --> C["Inconsistent: no solution"]
+  B -- no --> D{"Any free variables?"}
+  D -- no --> E["Exactly one solution"]
+  D -- yes --> F["Infinitely many: write the general solution"]
+```
+
 A useful count: if a system has more unknowns than equations (an **underdetermined system**), there are more columns than possible pivots, so some variable is free. Such a
 system is either inconsistent or has infinitely many solutions; it can never have exactly
 one. A system with more equations than unknowns is called **overdetermined**; it is often
@@ -88,6 +99,12 @@ $$\left[\begin{array}{cc|c} 1 & 3 & 2 \\ 0 & h - 12 & k - 8\end{array}\right]$$
 
 So (a) $h = 12$, $k \ne 8$; (b) $h \ne 12$; (c) $h = 12$, $k = 8$. Geometrically, $h = 12$
 makes the lines parallel, and $k = 8$ makes them the same line.
+
+The plot shows two of the cases next to the first line $x_1 + 3x_2 = 2$ (with $x_1$ across and $x_2$ up).
+
+```plot
+{"x": [-3, 5], "y": [-2, 3], "functions": [{"f": "(2 - x)/3", "label": "x₁ + 3x₂ = 2"}, {"f": "(12 - 4x)/12", "label": "h = 12, k = 12: parallel", "dashed": true}, {"f": "(8 - 4x)/10", "label": "h = 10, k = 8: crosses"}], "points": [{"at": [2, 0], "label": "(2, 0)"}], "xLabel": "x₁", "yLabel": "x₂", "caption": "h = 12 makes the lines parallel (no solution unless k = 8); h = 10 gives one crossing point"}
+```
 
 ## Common mistakes
 

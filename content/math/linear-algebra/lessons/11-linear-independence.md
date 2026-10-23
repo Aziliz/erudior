@@ -57,6 +57,12 @@ So three vectors in $\mathbb{R}^2$, or five vectors in $\mathbb{R}^4$, are autom
 dependent. The converse fails: three vectors in $\mathbb{R}^3$ might be dependent, as
 Example 1 shows.
 
+In $\mathbb{R}^3$ the picture behind three vectors is a plane. If the third vector lies in
+the plane of the first two, it is a combination of them and the set is dependent; if it
+sticks out of that plane, nothing is redundant.
+
+![Left: vectors u, v and w all lying in one plane, labeled dependent. Right: u and v in a plane and w pointing out of it, labeled independent](images/la-m3-dependent-independent.svg)
+
 ```plot
 {"x": [-3, 4], "y": [-2, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "u"}, {"from": [0, 0], "to": [-1, 2], "arrow": true, "label": "v"}, {"from": [0, 0], "to": [1, 3], "arrow": true, "label": "w"}], "caption": "Three vectors in R²: w = u + v, so the set is dependent"}
 ```
@@ -81,6 +87,26 @@ For which $h$ are $\mathbf{v}_1 = \begin{bmatrix} 1 \\ 2 \\ -1\end{bmatrix}$, $\
 1. Row-reduce $\begin{bmatrix} 1 & 3 & 2 \\ 2 & 7 & 1 \\ -1 & -2 & h\end{bmatrix}$. $R_2 \leftarrow R_2 - 2R_1$: $[\,0 \;\; 1 \;\; {-3}\,]$. $R_3 \leftarrow R_3 + R_1$: $[\,0 \;\; 1 \;\; h + 2\,]$.
 2. $R_3 \leftarrow R_3 - R_2$: $[\,0 \;\; 0 \;\; h + 5\,]$.
 3. Column 3 is a pivot column unless $h + 5 = 0$. So the vectors are dependent exactly when $h = -5$.
+
+Putting the quick tests and the row-reduction test together:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a set of vectors is linearly independent
+  accDescr: First, if the set contains the zero vector it is dependent. Next, if there are more vectors than entries in each vector (p greater than n), it is dependent. Otherwise count the vectors: a single nonzero vector is independent; two vectors are dependent exactly when one is a multiple of the other; for three or more, row-reduce the matrix with the vectors as columns, and the set is independent exactly when every column is a pivot column.
+  A{Contains the zero vector?} -- yes --> D[Dependent]
+  A -- no --> B{"More vectors than entries (p #gt; n)?"}
+  B -- yes --> D
+  B -- no --> C{How many vectors?}
+  C -- one --> I[Independent]
+  C -- two --> E{Is one a multiple of the other?}
+  E -- yes --> D
+  E -- no --> I
+  C -- three or more --> F["Row-reduce [v1 ... vp]"]
+  F --> G{Pivot in every column?}
+  G -- yes --> I
+  G -- no --> D
+```
 
 ## Common mistakes
 

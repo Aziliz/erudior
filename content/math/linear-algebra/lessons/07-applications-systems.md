@@ -16,12 +16,28 @@ Each rule is linear in the unknowns, so one row reduction handles the whole prob
 Pay attention to the final step in each example: interpreting the general solution in
 context (nonnegative flows, whole-number coefficients).
 
+```mermaid
+flowchart TD
+  accTitle: Modeling a problem with a linear system
+  accDescr: Start from a conservation or matching rule. Choose unknowns. Write one linear equation for each node, element or data point. Row-reduce the augmented matrix. Write the general solution. Apply the real-world constraints, such as nonnegative flows or whole-number coefficients, to get the answer.
+  A["Conservation or matching rule"] --> B["Choose the unknowns"]
+  B --> C["One equation per node, element or point"]
+  C --> D["Row-reduce the augmented matrix"]
+  D --> E["Write the general solution"]
+  E --> F["Apply real-world constraints"]
+```
+
 ## Network flow
 
 A **network** is a set of points called **nodes** (or junctions) joined by branches that
 carry a flow: cars on streets, water in pipes, current in wires. The basic rule is
 **flow conservation**: at each node, the total flow in equals the total flow out. Writing
 that rule at every node gives one linear equation per node.
+
+![A flow network with three nodes A, B and C. 500 units flow into A from outside. Branch x1 runs from A to B, x2 from B to C, and x3 from A to C. 300 units leave at B and 200 leave at C. Notes say a node is a junction and a branch carries an unknown flow.](images/la-m2-network.svg)
+
+In this small network, conservation gives $A$: $500 = x_1 + x_3$, $B$: $x_1 = x_2 + 300$,
+$C$: $x_2 + x_3 = 200$.
 
 ### Example 1
 

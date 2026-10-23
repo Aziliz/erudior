@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 460" width="560" height="460" font-family="sans-serif" fill="#1c2833">
+<rect width="560" height="460" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker></defs>
+<line x1="60" y1="435.0" x2="60" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="130" y1="435.0" x2="130" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="200" y1="435.0" x2="200" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="270" y1="435.0" x2="270" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="340" y1="435.0" x2="340" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="410" y1="435.0" x2="410" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="480" y1="435.0" x2="480" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="550" y1="435.0" x2="550" y2="29.0" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="18.0" y1="400" x2="550" y2="400" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="18.0" y1="330" x2="550" y2="330" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="18.0" y1="260" x2="550" y2="260" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="18.0" y1="190" x2="550" y2="190" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="18.0" y1="120" x2="550" y2="120" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="18.0" y1="50" x2="550" y2="50" stroke="#e5e8e8" stroke-width="1"/>
+<line x1="18.0" y1="330" x2="550" y2="330" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="270" y1="435.0" x2="270" y2="29.0" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="217.5" y1="435.0" x2="420.5" y2="29.0" stroke="#1e8449" stroke-width="3"/>
+<line x1="480" y1="260" x2="200" y2="120" stroke="#1c2833" stroke-width="1.6" stroke-dasharray="6 5"/>
+<polyline points="346.9,176.2 360.7,183.1 353.8,196.9" fill="none" stroke="#1c2833" stroke-width="1.4"/>
+<line x1="270" y1="330" x2="480" y2="260" stroke="#2e6da4" stroke-width="3" marker-end="url(#ahb)"/>
+<line x1="270" y1="330" x2="200" y2="120" stroke="#b03a2e" stroke-width="3" marker-end="url(#ahr)"/>
+<circle cx="340" cy="190" r="6" fill="#1e8449"/>
+<text x="490.0" y="266.0" font-size="16" text-anchor="start" font-weight="bold" fill="#2e6da4">x = (3, 1)</text>
+<text x="190.0" y="114.0" font-size="16" text-anchor="end" font-weight="bold" fill="#b03a2e">Rx = (−1, 3)</text>
+<text x="354.0" y="210.0" font-size="16" text-anchor="start" font-weight="bold" fill="#1e8449">Px = (1, 2)</text>
+<text x="412.5" y="33.0" font-size="16" text-anchor="end" font-weight="bold" fill="#1e8449">L: x₂ = 2x₁</text>
+<text x="543.0" y="352.0" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">x₁</text>
+<text x="282.0" y="36.0" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833">x₂</text>
+</svg>

@@ -118,8 +118,17 @@ export default function Markdown({
         }
       });
     mark();
+    // Equations widen once KaTeX's fonts load, and when the column changes width.
+    let alive = true;
+    document.fonts?.ready.then(() => alive && mark());
+    const ro = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(() => mark());
+    ro?.observe(el);
     window.addEventListener("resize", mark);
-    return () => window.removeEventListener("resize", mark);
+    return () => {
+      alive = false;
+      ro?.disconnect();
+      window.removeEventListener("resize", mark);
+    };
   }, [html]);
 
   // Mermaid diagrams: drawn after render, and redrawn in the new colors when the theme changes.

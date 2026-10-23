@@ -53,7 +53,7 @@ Navigators and surveyors give directions as **bearings**: angles measured *clock
 Two facts do most of the work:
 
 - **North lines are parallel.** On a local map, the north direction is the same everywhere, so the north lines at two points are parallel, and the angle facts from Lesson 8 apply.
-- **The back bearing** (the direction for the return trip) differs by $180^\circ$: if $B$ is on bearing $030^\circ$ from $A$, then $A$ is on bearing $210^\circ$ from $B$.
+- The **back bearing** (the direction for the return trip) differs by $180^\circ$: if $B$ is on bearing $030^\circ$ from $A$, then $A$ is on bearing $210^\circ$ from $B$.
 
 ### Example 2: a two-leg voyage
 

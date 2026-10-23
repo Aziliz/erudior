@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600" width="760" height="600" font-family="sans-serif" fill="#1c2833">
+<rect width="760" height="600" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker></defs>
+<rect x="54" y="64" width="312" height="252.0" fill="none" stroke="#1c2833" stroke-width="1"/>
+<line x1="60.0" y1="197.5" x2="360.0" y2="197.5" stroke="#7f8c8d" stroke-width="1"/>
+<line x1="180.0" y1="310.0" x2="180.0" y2="70.0" stroke="#7f8c8d" stroke-width="1"/>
+<polygon points="180.0,197.5 255.0,197.5 255.0,122.5 180.0,122.5" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="180.0,197.5 180.0,122.5 105.0,122.5 105.0,197.5" fill="#dde8f3" fill-opacity="0.85" stroke="#2e6da4" stroke-width="2.5"/>
+<line x1="180.0" y1="197.5" x2="180.0" y2="122.5" stroke="#b03a2e" stroke-width="3" marker-end="url(#ahr)"/>
+<text x="180.0" y="108.8" font-size="14" text-anchor="middle" font-weight="bold" fill="#b03a2e">T(e₁)</text>
+<line x1="180.0" y1="197.5" x2="105.0" y2="197.5" stroke="#2e6da4" stroke-width="3" marker-end="url(#ahb)"/>
+<text x="91.5" y="221.2" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e6da4">T(e₂)</text>
+<text x="210.0" y="54.0" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">Rotation by 90°</text>
+<rect x="414" y="64" width="312" height="252.0" fill="none" stroke="#1c2833" stroke-width="1"/>
+<line x1="420.0" y1="197.5" x2="720.0" y2="197.5" stroke="#7f8c8d" stroke-width="1"/>
+<line x1="540.0" y1="310.0" x2="540.0" y2="70.0" stroke="#7f8c8d" stroke-width="1"/>
+<polygon points="540.0,197.5 615.0,197.5 615.0,122.5 540.0,122.5" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="540.0,197.5 615.0,197.5 615.0,272.5 540.0,272.5" fill="#dde8f3" fill-opacity="0.85" stroke="#2e6da4" stroke-width="2.5"/>
+<line x1="540.0" y1="197.5" x2="615.0" y2="197.5" stroke="#b03a2e" stroke-width="3" marker-end="url(#ahr)"/>
+<text x="628.5" y="221.2" font-size="14" text-anchor="middle" font-weight="bold" fill="#b03a2e">T(e₁)</text>
+<line x1="540.0" y1="197.5" x2="540.0" y2="272.5" stroke="#2e6da4" stroke-width="3" marker-end="url(#ahb)"/>
+<text x="540.0" y="296.2" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e6da4">T(e₂)</text>
+<text x="570.0" y="54.0" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">Reflection across the x₁-axis</text>
+<rect x="54" y="339" width="312" height="252.0" fill="none" stroke="#1c2833" stroke-width="1"/>
+<line x1="60.0" y1="472.5" x2="360.0" y2="472.5" stroke="#7f8c8d" stroke-width="1"/>
+<line x1="180.0" y1="585.0" x2="180.0" y2="345.0" stroke="#7f8c8d" stroke-width="1"/>
+<polygon points="180.0,472.5 255.0,472.5 255.0,397.5 180.0,397.5" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="180.0,472.5 255.0,472.5 330.0,397.5 255.0,397.5" fill="#dde8f3" fill-opacity="0.85" stroke="#2e6da4" stroke-width="2.5"/>
+<line x1="180.0" y1="472.5" x2="255.0" y2="472.5" stroke="#b03a2e" stroke-width="3" marker-end="url(#ahr)"/>
+<text x="268.5" y="496.2" font-size="14" text-anchor="middle" font-weight="bold" fill="#b03a2e">T(e₁)</text>
+<line x1="180.0" y1="472.5" x2="255.0" y2="397.5" stroke="#2e6da4" stroke-width="3" marker-end="url(#ahb)"/>
+<text x="268.5" y="383.8" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e6da4">T(e₂)</text>
+<text x="210.0" y="329.0" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">Horizontal shear</text>
+<rect x="414" y="339" width="312" height="252.0" fill="none" stroke="#1c2833" stroke-width="1"/>
+<line x1="420.0" y1="472.5" x2="720.0" y2="472.5" stroke="#7f8c8d" stroke-width="1"/>
+<line x1="540.0" y1="585.0" x2="540.0" y2="345.0" stroke="#7f8c8d" stroke-width="1"/>
+<polygon points="540.0,472.5 615.0,472.5 615.0,397.5 540.0,397.5" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polygon points="540.0,474.8 615.0,474.8 615.0,470.2 540.0,470.2" fill="#dde8f3" fill-opacity="0.85" stroke="#2e6da4" stroke-width="2.5"/>
+<line x1="540.0" y1="472.5" x2="615.0" y2="472.5" stroke="#b03a2e" stroke-width="3" marker-end="url(#ahr)"/>
+<text x="628.5" y="496.2" font-size="14" text-anchor="middle" font-weight="bold" fill="#b03a2e">T(e₁)</text>
+<circle cx="540.0" cy="472.5" r="5" fill="#2e6da4"/>
+<text x="530.0" y="494.5" font-size="14" text-anchor="end" font-weight="bold" fill="#2e6da4">T(e₂) = 0</text>
+<text x="570.0" y="329.0" font-size="16" text-anchor="middle" font-weight="bold" fill="#1c2833">Projection onto the x₁-axis</text>
+<text x="380.0" y="585.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">Dashed: the unit square. Shaded: its image.</text>
+</svg>

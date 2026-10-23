@@ -5,7 +5,7 @@ title: Pythagorean triples and more proofs
 minutes: 45
 honors: true
 topics: [Pythagorean triples, Proofs of the Pythagorean theorem]
-drills: [geo-m6-r2-euclid-triple, geo-m6-r2-triple-check]
+drills: [geo-m6-r2-euclid-triple, geo-m6-r2-semicircles]
 refs: [geo-ref-theorems]
 ---
 Lesson 22 proved the Pythagorean theorem twice, once by rearranging four triangles and once with similar triangles, and listed a few whole-number right triangles such as 3-4-5 and 5-12-13. This lesson goes further in both directions. First, two more proofs, one of which shows that the theorem is really a statement about *similar figures*, not just squares. Then the question a curious student asks after seeing that table: where do Pythagorean triples come from, and is there a recipe that produces every one of them? There is, and proving it takes nothing more than algebra and some careful thinking about even and odd numbers.
@@ -133,7 +133,6 @@ The theorem is named for Pythagoras (6th century BCE), but no writings by him su
 - **Using two odd numbers in Euclid's formula** and expecting a primitive triple. $(m, n) = (5, 3)$ gives 16-30-34, which is twice 8-15-17.
 - **Forgetting $m > n$.** If $m < n$, then $m^2 - n^2$ is negative.
 - **Misreading the generalized theorem.** It needs *similar* figures with corresponding edges on the sides. Different shapes on different sides don't add up.
-- **Thinking 2 can't be part of a primitive triple's $m$ or $n$.** $(m, n) = (2, 1)$ gives 3-4-5; only the *legs* can't both be even.
 
 ## Key points
 

@@ -38,6 +38,12 @@ Compute $A\mathbf{x}$ for $A = \begin{bmatrix} 2 & -1 & 3 \\ 0 & 4 & 1\end{bmatr
 
 Both give $\begin{bmatrix} -3 \\ 7\end{bmatrix}$. Note sizes: $(2 \times 3)$ times a vector in $\mathbb{R}^3$ gives a vector in $\mathbb{R}^2$.
 
+The column view is easy to draw: walk along $1\mathbf{a}_1$, then $2\mathbf{a}_2$, then $-\mathbf{a}_3$, head to tail.
+
+```plot
+{"x": [-5, 4], "y": [-2, 9], "equal": true, "segments": [{"from": [0, 0], "to": [2, 0], "arrow": true, "label": "a₁"}, {"from": [2, 0], "to": [0, 8], "arrow": true, "label": "2a₂"}, {"from": [0, 8], "to": [-3, 7], "arrow": true, "label": "−a₃"}, {"from": [0, 0], "to": [-3, 7], "arrow": true, "dashed": true, "label": "Ax = (−3, 7)"}], "caption": "Ax = 1·a₁ + 2·a₂ + (−1)·a₃ = (−3, 7), drawn head to tail"}
+```
+
 Two algebraic properties follow from the column definition, and they're the defining
 feature of everything linear: for $A$ $m \times n$, $\mathbf{u}, \mathbf{v}$ in
 $\mathbb{R}^n$ and a scalar $c$,
@@ -82,6 +88,19 @@ that the last column has a nonzero entry there, and that system is inconsistent.
 Be careful: the theorem is about the *coefficient* matrix $A$, not the augmented matrix.
 A pivot in every row of $[\,A \;\; \mathbf{b}\,]$ could include a pivot in the last column,
 which means *no* solution.
+
+To decide the question for a particular $A$:
+
+```mermaid
+flowchart TD
+  accTitle: Is Ax = b solvable for every b?
+  accDescr: Row-reduce the coefficient matrix A itself, not the augmented matrix. If A has a pivot in every row, Ax = b has a solution for every b and the columns of A span R^m. If some row has no pivot, the columns do not span R^m. To find which b still work, row-reduce the augmented matrix with b1, b2 and so on kept as symbols; the system is consistent exactly when the last entry of each zero row of A equals 0.
+  A[Row-reduce A itself] --> B{Pivot in every row of A?}
+  B -- yes --> C["Solvable for every b: the columns span Rᵐ"]
+  B -- no --> D["The columns do not span Rᵐ"]
+  D --> E["Row-reduce [A b] keeping b1, b2, ... as symbols"]
+  E --> F["Consistent exactly when each zero row ends in 0"]
+```
 
 ### Example 2
 

@@ -1,0 +1,83 @@
+# Round 2 glossary: geo-m9 honors lessons
+- term: fixed point
+  aliases: [fixed points]
+  definition: 'A point that a transformation leaves where it was: $P'' = P$.'
+  topic: Classifying isometries
+- term: orientation
+  definition: 'The clockwise or counterclockwise order in which a figure''s labeled points run. Rotations and translations keep it; reflections reverse it.'
+  topic: Classifying isometries
+- term: direct isometry
+  aliases: [direct isometries]
+  definition: 'An isometry that keeps orientation: the identity, a translation or a rotation (a composition of an even number of reflections).'
+  topic: Classifying isometries
+- term: opposite isometry
+  aliases: [opposite isometries]
+  definition: 'An isometry that reverses orientation: a reflection or a glide reflection (a composition of an odd number of reflections).'
+  topic: Classifying isometries
+- term: symmetry group
+  aliases: [symmetry groups]
+  definition: 'The set of all isometries that map a figure onto itself, including the identity. Composing two of them, or undoing one, gives another.'
+  topic: Symmetry groups
+- term: cyclic group
+  aliases: [cyclic groups]
+  definition: 'The symmetry group $C_n$: the $n$ rotations by multiples of $\tfrac{360^\circ}{n}$ about a center, with no reflections. Example: a three-bladed pinwheel ($C_3$).'
+  topic: Symmetry groups
+- term: dihedral group
+  aliases: [dihedral groups]
+  definition: 'The symmetry group $D_n$: $n$ rotations by multiples of $\tfrac{360^\circ}{n}$ and $n$ reflections in lines through the center, $2n$ symmetries in all. Example: a regular $n$-gon.'
+  topic: Symmetry groups
+- term: Leonardo's theorem
+  definition: 'A bounded figure with finitely many symmetries has symmetry group $C_n$ (rotations only) or $D_n$ ($n$ rotations and $n$ reflections).'
+  topic: Symmetry groups
+- term: frieze pattern
+  aliases: [frieze patterns, frieze]
+  definition: 'A pattern that repeats forever along a strip, so it has translation symmetry; there are exactly seven kinds.'
+  topic: Symmetry groups
+- term: matrix
+  aliases: [matrices]
+  definition: 'A rectangular array of numbers. A $2 \times 2$ matrix $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ sends $(x, y)$ to $(ax + by,\; cx + dy)$; its columns are the images of $(1, 0)$ and $(0, 1)$.'
+  topic: Transformation matrices
+- term: rotation matrix
+  definition: 'The matrix $\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$, which rotates points by $\theta$ counterclockwise about the origin.'
+  topic: Rotations by any angle
+- term: linear transformation
+  aliases: [linear transformations]
+  definition: 'A transformation given by a matrix: it fixes the origin, maps lines to lines and keeps parallel lines parallel. Translations are not linear.'
+  topic: Transformation matrices
+- term: determinant
+  aliases: [determinants]
+  definition: 'For $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$, the number $ad - bc$. The transformation multiplies areas by its absolute value; a negative determinant reverses orientation.'
+  topic: Transformation matrices
+- term: conic section
+  aliases: [conic sections, conics]
+  definition: 'A curve made by slicing a double cone with a plane: a circle, ellipse, parabola or hyperbola.'
+  topic: Ellipses
+- term: ellipse
+  aliases: [ellipses]
+  definition: 'The set of points whose distances to two fixed points (the foci) add up to a constant $2a$. Centered at the origin with foci on the $x$-axis: $\tfrac{x^2}{a^2} + \tfrac{y^2}{b^2} = 1$, $c^2 = a^2 - b^2$.'
+  topic: Ellipses
+- term: major axis
+  definition: 'The longest chord of an ellipse, through both foci; its length is $2a$.'
+  topic: Ellipses
+- term: minor axis
+  definition: 'The chord of an ellipse through its center perpendicular to the major axis; its length is $2b$.'
+  topic: Ellipses
+- term: vertices of an ellipse
+  aliases: [vertices of the ellipse]
+  definition: 'The two endpoints of the major axis, $a$ units from the center.'
+  topic: Ellipses
+- term: co-vertex
+  aliases: [co-vertices]
+  definition: 'An endpoint of the minor axis of an ellipse, $b$ units from the center.'
+  topic: Ellipses
+- term: eccentricity
+  definition: 'The ratio $e = \tfrac{c}{a}$ for a conic: 0 for a circle, between 0 and 1 for an ellipse, 1 for a parabola, greater than 1 for a hyperbola.'
+  topic: Ellipses
+- term: hyperbola
+  aliases: [hyperbolas]
+  definition: 'The set of points whose distances to two foci differ by a constant $2a$. Centered at the origin with foci on the $x$-axis: $\tfrac{x^2}{a^2} - \tfrac{y^2}{b^2} = 1$, $c^2 = a^2 + b^2$.'
+  topic: Hyperbolas
+- term: asymptote
+  aliases: [asymptotes, asymptotes of the hyperbola]
+  definition: 'A line a curve approaches more and more closely far from the origin. The hyperbola $\tfrac{x^2}{a^2} - \tfrac{y^2}{b^2} = 1$ has asymptotes $y = \pm\tfrac{b}{a}x$.'
+  topic: Hyperbolas

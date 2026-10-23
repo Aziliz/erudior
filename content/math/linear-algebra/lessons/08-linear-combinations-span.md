@@ -84,6 +84,11 @@ Geometrically, in $\mathbb{R}^3$:
 - If $\mathbf{u}$ and $\mathbf{v}$ are nonzero and not multiples of each other, $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$ is the *plane through the origin* containing them.
 - If $\mathbf{v}$ is a multiple of $\mathbf{u}$, adding $\mathbf{v}$ contributes nothing new; the span is still a line.
 
+The picture shows both shapes at once: the plane $\operatorname{Span}\{\mathbf{u}, \mathbf{v}\}$, a line
+$\operatorname{Span}\{\mathbf{w}\}$ crossing it at the origin, and a vector $\mathbf{b}$ that is not in the plane.
+
+![A plane through the origin containing vectors u and v, a line through the origin crossing the plane, and a vector b pointing out of the plane](images/la-m3-span-r3.svg)
+
 In $\mathbb{R}^2$, two vectors that are not multiples of each other span the whole plane:
 every vector in the plane can be reached. Example 1 says $\mathbf{b}$ lies in the plane
 spanned by $\mathbf{a}_1$ and $\mathbf{a}_2$.
@@ -101,6 +106,20 @@ is a plane through the origin in $\mathbb{R}^3$, and this $\mathbf{b}$ sticks ou
 Two vectors can never span all of $\mathbb{R}^3$: the coefficient matrix is $3 \times 2$,
 so it has at most two pivots, and some $\mathbf{b}$ will always produce a pivot in the last
 column.
+
+Every "is $\mathbf{b}$ in the span?" question follows the same route:
+
+```mermaid
+flowchart TD
+  accTitle: Testing whether b is in a span
+  accDescr: Form the augmented matrix with the given vectors as columns and b as the last column, then row-reduce it to echelon form. If there is a pivot in the last column, the system is inconsistent and b is not in the span. Otherwise b is in the span; finish the reduced echelon form, read off the weights, and check them by computing the linear combination.
+  A["Form the matrix [a1 ... an b]"] --> B[Row-reduce to echelon form]
+  B --> C{Pivot in the last column?}
+  C -- yes --> D[Inconsistent: b is not in the span]
+  C -- no --> E[Consistent: b is in the span]
+  E --> F[Finish the RREF and read off the weights]
+  F --> G[Check by computing the combination]
+```
 
 ## Common mistakes
 

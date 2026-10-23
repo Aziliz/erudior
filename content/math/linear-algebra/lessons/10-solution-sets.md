@@ -51,6 +51,16 @@ vector. The recipe:
 2. Write $\mathbf{x}$ as a column whose entries are those expressions.
 3. Split the column into a sum, one vector per free variable (plus a constant vector, if the system isn't homogeneous).
 
+```mermaid
+flowchart TD
+  accTitle: Writing a solution set in parametric vector form
+  accDescr: Row-reduce the augmented matrix to reduced echelon form. Solve for the basic variables in terms of the free variables. Write the solution vector x as a column of those expressions. Split it into a constant vector plus one vector times each free variable. Finally check that the constant vector solves Ax = b and that each of the other vectors solves Ax = 0.
+  A["Row-reduce [A b] to RREF"] --> B[Solve for the basic variables in terms of the free ones]
+  B --> C[Write x as one column of those expressions]
+  C --> D[Split: constant vector plus one vector per free variable]
+  D --> E["Check: A p = b and A v = 0 for each other vector v"]
+```
+
 ### Example 2
 
 Describe the solutions of the single equation $2x_1 - 4x_2 + 6x_3 = 0$.
@@ -93,6 +103,12 @@ $A(\mathbf{p} + \mathbf{v}_h) = \mathbf{b} + \mathbf{0} = \mathbf{b}$; and if $\
 any solution then $A(\mathbf{w} - \mathbf{p}) = \mathbf{b} - \mathbf{b} = \mathbf{0}$, so
 $\mathbf{w} - \mathbf{p}$ is a homogeneous solution. Any particular solution will do; a
 different choice of $\mathbf{p}$ describes the same set.
+
+In three dimensions with two free variables the picture is two parallel planes. The
+homogeneous solutions form a plane through the origin; adding $\mathbf{p}$ to each of them
+slides that plane, without turning it, onto the solutions of $A\mathbf{x} = \mathbf{b}$.
+
+![Two parallel planes: the lower one through the origin holds the solutions of Ax = 0, including a vector v_h; an arrow p from the origin reaches the upper plane, which holds the solutions of Ax = b, including p + v_h](images/la-m3-solution-sets.svg)
 
 ## Common mistakes
 

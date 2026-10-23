@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="760" height="560" font-family="sans-serif" fill="#1c2833">
+<rect width="760" height="560" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker></defs>
+<ellipse cx="90" cy="170" rx="45" ry="115" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<ellipse cx="270" cy="170" rx="45" ry="115" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="97" y1="90.0" x2="261" y2="90.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="97" y1="170.0" x2="261" y2="143.33333333333334" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="97" y1="250.0" x2="261" y2="250.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<circle cx="90" cy="90.0" r="6" fill="#1c2833"/>
+<circle cx="90" cy="170.0" r="6" fill="#1c2833"/>
+<circle cx="90" cy="250.0" r="6" fill="#1c2833"/>
+<circle cx="270" cy="90.0" r="6" fill="#1c2833"/>
+<circle cx="270" cy="143.33333333333334" r="6" fill="#1c2833"/>
+<circle cx="270" cy="196.66666666666669" r="6" fill="#1c2833"/>
+<circle cx="270" cy="250.0" r="6" fill="#1c2833"/>
+<text x="90.0" y="305.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">domain</text>
+<text x="270.0" y="305.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">codomain</text>
+<ellipse cx="470" cy="170" rx="45" ry="115" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<ellipse cx="650" cy="170" rx="45" ry="115" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="477" y1="90.0" x2="641" y2="90.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="477" y1="143.33333333333334" x2="641" y2="90.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="477" y1="196.66666666666669" x2="641" y2="170.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="477" y1="250.0" x2="641" y2="250.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<circle cx="470" cy="90.0" r="6" fill="#1c2833"/>
+<circle cx="470" cy="143.33333333333334" r="6" fill="#1c2833"/>
+<circle cx="470" cy="196.66666666666669" r="6" fill="#1c2833"/>
+<circle cx="470" cy="250.0" r="6" fill="#1c2833"/>
+<circle cx="650" cy="90.0" r="6" fill="#1c2833"/>
+<circle cx="650" cy="170.0" r="6" fill="#1c2833"/>
+<circle cx="650" cy="250.0" r="6" fill="#1c2833"/>
+<text x="470.0" y="305.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">domain</text>
+<text x="650.0" y="305.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">codomain</text>
+<ellipse cx="90" cy="440" rx="45" ry="115" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<ellipse cx="270" cy="440" rx="45" ry="115" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="97" y1="360.0" x2="261" y2="440.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="97" y1="440.0" x2="261" y2="520.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="97" y1="520.0" x2="261" y2="360.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<circle cx="90" cy="360.0" r="6" fill="#1c2833"/>
+<circle cx="90" cy="440.0" r="6" fill="#1c2833"/>
+<circle cx="90" cy="520.0" r="6" fill="#1c2833"/>
+<circle cx="270" cy="360.0" r="6" fill="#1c2833"/>
+<circle cx="270" cy="440.0" r="6" fill="#1c2833"/>
+<circle cx="270" cy="520.0" r="6" fill="#1c2833"/>
+<text x="90.0" y="575.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">domain</text>
+<text x="270.0" y="575.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">codomain</text>
+<ellipse cx="470" cy="440" rx="45" ry="115" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<ellipse cx="650" cy="440" rx="45" ry="115" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="477" y1="360.0" x2="641" y2="360.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="477" y1="440.0" x2="641" y2="360.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<line x1="477" y1="520.0" x2="641" y2="520.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<circle cx="470" cy="360.0" r="6" fill="#1c2833"/>
+<circle cx="470" cy="440.0" r="6" fill="#1c2833"/>
+<circle cx="470" cy="520.0" r="6" fill="#1c2833"/>
+<circle cx="650" cy="360.0" r="6" fill="#1c2833"/>
+<circle cx="650" cy="440.0" r="6" fill="#1c2833"/>
+<circle cx="650" cy="520.0" r="6" fill="#1c2833"/>
+<text x="470.0" y="575.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">domain</text>
+<text x="650.0" y="575.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#1c2833">codomain</text>
+</svg>

@@ -27,6 +27,11 @@ point, along a common line, or not at all (for example two parallel planes, or t
 that meet in pairs like the sides of a tent but have no common point). If all three
 equations describe the same plane, every point of that plane is a solution.
 
+The picture shows the cases where no single point is shared, looking along a direction that
+lies in all three planes so that each plane appears edge-on, as a line.
+
+![Four panels, each showing three planes edge-on as three colored lines. Panel 1: three lines through one point, labeled three planes through one line, infinitely many solutions. Panel 2: three lines forming a triangle, labeled a tent where the planes meet in pairs only, no solution. Panel 3: two parallel lines crossed by a third, labeled two parallel planes and a third, no solution. Panel 4: three parallel lines, labeled three parallel planes, no solution.](images/la-m2-planes.svg)
+
 ## The augmented matrix
 
 Line up the variables in the same order in every equation. The **coefficient matrix**
@@ -63,6 +68,16 @@ fact of this module is:
 The reason is the same as before: a solution of the old system satisfies each new equation
 (the new equations are built from old ones), and because the steps reverse, the argument
 runs backward too.
+
+```mermaid
+flowchart LR
+  accTitle: Why a row operation keeps the solution set
+  accDescr: A row operation turns the original system into a new system, and the reverse operation turns the new system back into the original. Each solution of the original satisfies the new system, and each solution of the new system satisfies the original, so the two systems have the same solution set.
+  S1["Original system"] -- "row operation" --> S2["New system"]
+  S2 -- "reverse operation" --> S1
+```
+
+Solutions travel along both arrows, so the two systems have the same solution set.
 
 Row operations are not just for augmented matrices. They are a general tool, and you'll
 apply them to coefficient matrices, to matrices of vectors, and to $[A \;\; I]$ to find

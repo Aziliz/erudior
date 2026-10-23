@@ -1,0 +1,101 @@
+# Round 2 drills for module geo-m6 (honors lessons)
+- id: geo-m6-r2-euclid-triple
+  title: Euclid's formula for Pythagorean triples
+  topic: Pythagorean triples
+  vars:
+    m: {min: 2, max: 9}
+    n: {min: 1, max: 8}
+  where: ["n < m"]
+  calc:
+    a: m^2 - n^2
+    b: 2*m*n
+    c: m^2 + n^2
+    asq: a^2
+    bsq: b^2
+    csq: c^2
+  prompt: 'Use Euclid''s formula with $m = {m}$ and $n = {n}$ to find the Pythagorean triple $a = m^2 - n^2$, $b = 2mn$, $c = m^2 + n^2$.'
+  answers:
+    - {name: a, label: '$a =$'}
+    - {name: b, label: '$b =$'}
+    - {name: c, label: '$c =$'}
+  solution: |-
+    $a = {m}^2 - {n}^2 =$ **{a}**, $b = 2({m})({n}) =$ **{b}**, $c = {m}^2 + {n}^2 =$ **{c}**.
+    Check: ${a}^2 + {b}^2 = {asq} + {bsq} = {csq} = {c}^2$. The triple is primitive exactly when {m} and {n} share no factor and one of them is even.
+
+- id: geo-m6-r2-semicircles
+  title: Similar figures on the sides of a right triangle
+  topic: Proofs of the Pythagorean theorem
+  vars:
+    a: {min: 3, max: 20}
+    b: {min: 3, max: 20}
+  where: ["a < b"]
+  calc:
+    csq: a^2 + b^2
+    s1: pi*a^2/8
+    s2: pi*b^2/8
+    s3: pi*csq/8
+  prompt: 'A right triangle has legs {a} and {b}. Semicircles are drawn outward on all three sides, each with a side as its diameter. Find the area of the semicircle on the hypotenuse (2 decimals).'
+  answers:
+    - {name: s3, label: 'Area', tolerance: 0.01}
+  solution: |-
+    A semicircle with diameter $s$ has area $\tfrac{\pi}{8}s^2$. The hypotenuse satisfies $c^2 = {a}^2 + {b}^2 = {csq}$, so the area is $\tfrac{\pi}{8}({csq}) \approx$ **{s3:num2}**.
+    Check with the generalized theorem: the semicircles on the legs have areas $\approx {s1:num2}$ and $\approx {s2:num2}$, which add to the same total.
+
+- id: geo-m6-r2-two-angles
+  title: Height from two angles of elevation
+  topic: Triangulation
+  vars:
+    d: {min: 50, max: 400, step: 10}
+    al: {min: 10, max: 40}
+    be: {min: 18, max: 70}
+  where: ["be - al >= 8"]
+  calc:
+    top: be - al
+    qt: d*sind(al)/sind(be - al)
+    h: qt*sind(be)
+  prompt: 'From point $P$ the angle of elevation to a mountain peak is ${al}^\circ$. After walking {d} m straight toward the peak on level ground, the angle of elevation is ${be}^\circ$. How high is the peak above the ground, to the nearest tenth of a meter?'
+  answers:
+    - {name: h, label: '$h =$', tolerance: 0.1}
+  solution: |-
+    The angle at the peak is ${be}^\circ - {al}^\circ = {top}^\circ$. Law of Sines for the sight line from the nearer point: $QT = \dfrac{{d}\sin {al}^\circ}{\sin {top}^\circ} \approx {qt:num2}$ m.
+    Then $h = QT\sin {be}^\circ \approx$ **{h:num1}** m.
+
+- id: geo-m6-r2-bearing
+  title: Two-leg journey on bearings
+  topic: Bearings
+  vars:
+    r1: {min: 10, max: 60}
+    r2: {min: 10, max: 60}
+    t1: {min: 10, max: 80}
+    turn: {min: 30, max: 150, step: 5}
+  calc:
+    t2: t1 + turn
+    angB: 180 - turn
+    cx: r1*sind(t1) + r2*sind(t2)
+    cy: r1*cosd(t1) + r2*cosd(t2)
+    dist: sqrt(cx^2 + cy^2)
+    brg: mod(atan2d(cx, cy) + 360, 360)
+  where: ["r1 != r2"]
+  prompt: 'A ship sails {r1} km on a bearing of ${t1}^\circ$, then {r2} km on a bearing of ${t2}^\circ$. Find its distance from the start (2 decimals) and the bearing of its position from the start (nearest tenth of a degree).'
+  answers:
+    - {name: dist, label: 'Distance (km)', tolerance: 0.02}
+    - {name: brg, label: 'Bearing (degrees)', tolerance: 0.1}
+  solution: |-
+    **Angle at the turn.** The back bearing of the first leg is ${t1}^\circ + 180^\circ$, and the second leg is on ${t2}^\circ$, so the angle between the legs at the turning point is $180^\circ - {turn}^\circ = {angB}^\circ$.
+    **Distance.** Law of Cosines: $d^2 = {r1}^2 + {r2}^2 - 2({r1})({r2})\cos {angB}^\circ$, so $d \approx$ **{dist:num2}** km.
+    **Bearing.** With east $= r\sin\theta$ and north $= r\cos\theta$, the ship ends about {cx:num2} km east and {cy:num2} km north of the start, so the bearing is about **{brg:num1}°** (measured clockwise from north).
+
+- id: geo-m6-r2-golden
+  title: Golden ratio lengths
+  topic: Golden ratio
+  vars:
+    s: {min: 2, max: 40}
+    mode: {choices: [{label: 'Find the length of a diagonal of a regular pentagon whose sides have length', value: 1}, {label: 'Find the long side of a golden rectangle whose short side is', value: 2}, {label: 'Find the short side of a golden rectangle whose long side is', value: 3}]}
+  calc:
+    phi: (1 + sqrt(5))/2
+    ans: if(mode == 3, s/phi, s*phi)
+  prompt: '{mode} {s}. Give the answer to 2 decimal places.'
+  answers:
+    - {name: ans, label: 'Length', tolerance: 0.01}
+  solution: |-
+    $\varphi = \tfrac{1 + \sqrt5}{2} \approx 1.6180$. A pentagon's diagonal is $\varphi$ times its side, and a golden rectangle's long side is $\varphi$ times its short side. Going from a longer length to a shorter one, divide by $\varphi$ (or multiply by $\varphi - 1 \approx 0.618$). The answer is **{ans:num2}**.

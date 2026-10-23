@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" font-family="sans-serif" fill="#1c2833">
+<rect width="720" height="340" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker></defs>
+<ellipse cx="170" cy="175" rx="130" ry="120" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<ellipse cx="540" cy="175" rx="150" ry="135" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<ellipse cx="545" cy="200" rx="95" ry="60" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M128,130 Q355.0,60 582,172" fill="none" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<path d="M208,215 Q360.0,145 512,215" fill="none" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<path d="M158,250 Q362.5,168 567,238" fill="none" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)"/>
+<circle cx="120" cy="130" r="5" fill="#1c2833"/>
+<circle cx="200" cy="215" r="5" fill="#1c2833"/>
+<circle cx="150" cy="250" r="5" fill="#1c2833"/>
+<circle cx="590" cy="172" r="5" fill="#1c2833"/>
+<circle cx="520" cy="215" r="5" fill="#1c2833"/>
+<circle cx="575" cy="238" r="5" fill="#1c2833"/>
+<circle cx="610" cy="95" r="5" fill="#1c2833"/>
+<text x="360.0" y="40.0" font-size="20" text-anchor="middle" font-weight="bold" fill="#1c2833" font-style="italic">T</text>
+</svg>

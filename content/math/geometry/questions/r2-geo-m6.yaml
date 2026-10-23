@@ -236,7 +236,7 @@
     - {x: 44.1, y: 44.1, text: Line of sight}
   distractors: [Vertical angle, Included angle]
   explanation: |-
-    The line of sight (4) joins the two observers. The angle from the horizontal *up* to it is the angle of elevation (1); the angle from the upper horizontal (3) *down* to it is the angle of depression (2). The two horizontals are parallel, so these are alternate interior angles and are equal.
+    The line of sight (4) joins the two observers. The angle from the horizontal up to it is the angle of elevation (1); the angle from the upper horizontal (3) down to it is the angle of depression (2). The two horizontals are parallel, so these are alternate interior angles and are equal.
 - id: geo-m6-r2-q22
   lesson: geo-trig
   type: match
@@ -396,8 +396,8 @@
   lesson: geo-m6-h-triples
   topic: Proofs of the Pythagorean theorem
   stem: 'In Garfield''s trapezoid, why is the angle of the middle triangle (where the two copies meet) a right angle?'
-  choices: ['The trapezoid''s parallel sides are perpendicular to its base', 'The two angles beside it are the two acute angles of the right triangle, which add to $90^\circ$, and all three fill a straight angle', 'The middle triangle is isosceles, so its angles must be $45^\circ$, $45^\circ$ and $90^\circ$', 'Its legs are both hypotenuses, and hypotenuses always meet at right angles']
-  answer: 1
+  choices: ['The trapezoid''s parallel sides are perpendicular to its base', 'Its legs are both hypotenuses, and hypotenuses always meet at right angles', 'The middle triangle is isosceles, so its angles must be $45^\circ$, $45^\circ$ and $90^\circ$', 'The two angles beside it are the two acute angles of the right triangle, which add to $90^\circ$, and all three fill a straight angle']
+  answer: 3
   explanation: |-
     Along the bottom edge, three angles meet to make $180^\circ$: one acute angle from each copy and the middle one. The two acute angles are complementary (the two acute angles of one right triangle), so the middle angle is $180^\circ - 90^\circ = 90^\circ$. Being isosceles alone doesn't force a right angle, and the parallel sides being perpendicular to the base doesn't involve that angle.
 - id: geo-m6-r2-h03
@@ -439,8 +439,8 @@
   lesson: geo-m6-h-triples
   topic: Pythagorean triples
   stem: 'Why can''t both legs of a Pythagorean triple be odd?'
-  choices: ['Odd numbers can''t be the sides of a right triangle', 'The sum of two odd squares leaves remainder 2 when divided by 4, and no perfect square does', 'The sum of two odd numbers is even, and a hypotenuse must be odd', 'Euclid''s formula always makes $b = 2mn$ even']
-  answer: 1
+  choices: ['Odd numbers can''t be the sides of a right triangle', 'The sum of two odd numbers is even, and a hypotenuse must be odd', 'The sum of two odd squares leaves remainder 2 when divided by 4, and no perfect square does', 'Euclid''s formula always makes $b = 2mn$ even']
+  answer: 2
   explanation: |-
     An odd square is 1 more than a multiple of 4, so the sum of two is 2 more than a multiple of 4. But every square is either a multiple of 4 or 1 more than one, so $c^2$ can't equal that sum. The third choice talks about $a + b$, not $a^2 + b^2$, and the fourth assumes the formula already covers every triple, which is what needs proving.
 - id: geo-m6-r2-h08
@@ -468,8 +468,8 @@
   lesson: geo-m6-h-triples
   topic: Pythagorean triples
   stem: 'The triple 5, 12, 13 gives which rational point on the circle $x^2 + y^2 = 1$?'
-  choices: ['$\left(\tfrac{5}{12}, \tfrac{12}{13}\right)$', '$\left(\tfrac{5}{13}, \tfrac{12}{13}\right)$', '$\left(\tfrac{25}{169}, \tfrac{144}{169}\right)$', '$(5, 12)$']
-  answer: 1
+  choices: ['$\left(\tfrac{5}{12}, \tfrac{12}{13}\right)$', '$(5, 12)$', '$\left(\tfrac{25}{169}, \tfrac{144}{169}\right)$', '$\left(\tfrac{5}{13}, \tfrac{12}{13}\right)$']
+  answer: 3
   explanation: |-
     Divide by $c$: $\left(\tfrac{5}{13}\right)^2 + \left(\tfrac{12}{13}\right)^2 = \tfrac{25 + 144}{169} = 1$. The point $\left(\tfrac{25}{169}, \tfrac{144}{169}\right)$ divides the squares instead, and its coordinates add (not their squares) to 1.
 - id: geo-m6-r2-h11
@@ -500,7 +500,7 @@
   choices: ['Semicircles with the sides as diameters', 'Equilateral triangles with the sides as bases', 'Squares on the legs and an equilateral triangle on the hypotenuse', 'Regular hexagons with the sides as edges']
   answer: [0, 1, 3]
   explanation: |-
-    The generalized theorem needs three *similar* figures. All semicircles are similar, and so are all equilateral triangles and all regular hexagons; each family has area $K s^2$ for one constant $K$, so $Ka^2 + Kb^2 = Kc^2$. Squares and an equilateral triangle are not similar, so their constants differ and the areas don't add up.
+    The generalized theorem needs three similar figures. All semicircles are similar, and so are all equilateral triangles and all regular hexagons; each family has area $K s^2$ for one constant $K$, so $Ka^2 + Kb^2 = Kc^2$. Squares and an equilateral triangle are not similar, so their constants differ and the areas don't add up.
 - id: geo-m6-r2-h14
   lesson: geo-m6-h-triples
   type: text
@@ -515,8 +515,8 @@
   lesson: geo-m6-h-triangulation
   topic: Triangulation
   stem: 'From $P$ the angle of elevation of a peak $T$ is $\alpha$; from $Q$, closer on the same straight line, it is $\beta$. What is the angle at $T$ in $\triangle PQT$?'
-  choices: ['$180^\circ - \beta$', '$\beta - \alpha$', '$\alpha + \beta$', '$90^\circ - \alpha$']
-  answer: 1
+  choices: ['$180^\circ - \beta$', '$\alpha + \beta$', '$\beta - \alpha$', '$90^\circ - \alpha$']
+  answer: 2
   explanation: |-
     $\beta$ is an exterior angle of $\triangle PQT$ at $Q$, so it equals the sum of the two remote interior angles: $\beta = \alpha + \angle T$. Hence $\angle T = \beta - \alpha$. $180^\circ - \beta$ is the triangle's angle at $Q$.
 - id: geo-m6-r2-h16
@@ -648,7 +648,7 @@
   choices: ['$\tfrac{1 + \sqrt5}{2}$', '$\tfrac{\sqrt5 - 1}{2}$', '$\sqrt2$', '$\tfrac{1 + \sqrt3}{2}$']
   answer: 0
   explanation: |-
-    The leftover rectangle is $1$ by $x - 1$, so similarity needs $\tfrac{x}{1} = \tfrac{1}{x - 1}$, which gives $x^2 - x - 1 = 0$ and $x = \tfrac{1 + \sqrt5}{2} \approx 1.618$. $\tfrac{\sqrt5 - 1}{2} \approx 0.618$ is its reciprocal. ($\sqrt2$ is the ratio for paper that stays similar when cut in *half*.)
+    The leftover rectangle is $1$ by $x - 1$, so similarity needs $\tfrac{x}{1} = \tfrac{1}{x - 1}$, which gives $x^2 - x - 1 = 0$ and $x = \tfrac{1 + \sqrt5}{2} \approx 1.618$. $\tfrac{\sqrt5 - 1}{2} \approx 0.618$ is its reciprocal. ($\sqrt2$ is the ratio for paper that stays similar when cut in half.)
 - id: geo-m6-r2-h30
   lesson: geo-m6-h-golden
   type: text
@@ -719,8 +719,8 @@
   lesson: geo-m6-h-golden
   topic: Golden ratio
   stem: 'In a regular pentagon $ABCDE$, why does each of the three angles at $A$ formed by the diagonals $\overline{AC}$ and $\overline{AD}$ measure $36^\circ$?'
-  choices: ['Because $360^\circ \div 10 = 36^\circ$', 'Because triangles $ABC$ and $AED$ are isosceles with $108^\circ$ apexes, so their base angles at $A$ are $36^\circ$, leaving $108^\circ - 72^\circ = 36^\circ$ in the middle', 'Because the diagonals of a regular polygon always bisect its angles', 'Because the pentagon''s exterior angle is $36^\circ$']
-  answer: 1
+  choices: ['Because $360^\circ \div 10 = 36^\circ$', 'Because the diagonals of a regular polygon always bisect its angles', 'Because triangles $ABC$ and $AED$ are isosceles with $108^\circ$ apexes, so their base angles at $A$ are $36^\circ$, leaving $108^\circ - 72^\circ = 36^\circ$ in the middle', 'Because the pentagon''s exterior angle is $36^\circ$']
+  answer: 2
   explanation: |-
     The interior angle is $108^\circ$. $\triangle ABC$ has $AB = BC$ and apex $108^\circ$, so its base angles are $\tfrac{180^\circ - 108^\circ}{2} = 36^\circ$; the same holds in $\triangle AED$. The middle angle is $108^\circ - 36^\circ - 36^\circ = 36^\circ$. The exterior angle of a regular pentagon is $72^\circ$, not $36^\circ$.
 - id: geo-m6-r2-h38

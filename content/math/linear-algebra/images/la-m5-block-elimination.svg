@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" font-family="sans-serif">
+<rect width="700" height="300" fill="#ffffff"/>
+<rect x="43" y="63" width="48" height="48" fill="#ffffff" stroke="none" stroke-width="0" rx="5"/>
+<text x="67.0" y="94.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">I</text>
+<rect x="97" y="63" width="48" height="48" fill="#ffffff" stroke="none" stroke-width="0" rx="5"/>
+<text x="121.0" y="94.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">0</text>
+<rect x="43" y="117" width="48" height="48" fill="#f8e1dc" stroke="none" stroke-width="0" rx="5"/>
+<text x="67.0" y="148.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">−CA⁻¹</text>
+<rect x="97" y="117" width="48" height="48" fill="#ffffff" stroke="none" stroke-width="0" rx="5"/>
+<text x="121.0" y="148.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">I</text>
+<path d="M44,58 L36,58 L36,170 L44,170" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M144,58 L152,58 L152,170 L144,170" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="223" y="63" width="48" height="48" fill="#dde8f3" stroke="none" stroke-width="0" rx="5"/>
+<text x="247.0" y="94.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">A</text>
+<rect x="277" y="63" width="48" height="48" fill="#dde8f3" stroke="none" stroke-width="0" rx="5"/>
+<text x="301.0" y="94.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">B</text>
+<rect x="223" y="117" width="48" height="48" fill="#f8e1dc" stroke="none" stroke-width="0" rx="5"/>
+<text x="247.0" y="148.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">C</text>
+<rect x="277" y="117" width="48" height="48" fill="#dcf0e3" stroke="none" stroke-width="0" rx="5"/>
+<text x="301.0" y="148.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">D</text>
+<path d="M224,58 L216,58 L216,170 L224,170" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M324,58 L332,58 L332,170 L324,170" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<text x="380" y="124" font-size="30" fill="#1c2833" text-anchor="middle" font-weight="normal">=</text>
+<rect x="433" y="63" width="48" height="48" fill="#dde8f3" stroke="none" stroke-width="0" rx="5"/>
+<text x="457.0" y="94.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">A</text>
+<rect x="487" y="63" width="48" height="48" fill="#dde8f3" stroke="none" stroke-width="0" rx="5"/>
+<text x="511.0" y="94.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">B</text>
+<rect x="433" y="117" width="48" height="48" fill="#ffffff" stroke="none" stroke-width="0" rx="5"/>
+<text x="457.0" y="148.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">0</text>
+<rect x="487" y="117" width="48" height="48" fill="#f7ebcf" stroke="none" stroke-width="0" rx="5"/>
+<text x="511.0" y="148.0" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal" font-style="italic">S</text>
+<path d="M434,58 L426,58 L426,170 L434,170" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M534,58 L542,58 L542,170 L534,170" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<text x="94" y="42" font-size="15" fill="#1c2833" text-anchor="middle" font-weight="normal">block row operation</text>
+<text x="274" y="42" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="bold" font-style="italic">M</text>
+<text x="484" y="42" font-size="15" fill="#1c2833" text-anchor="middle" font-weight="normal">block upper triangular</text>
+<rect x="170" y="210" width="360" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5" rx="8"/>
+<text x="350" y="242" font-size="19" fill="#1c2833" text-anchor="middle" font-weight="normal">S = D − CA⁻¹B  (Schur complement)</text>
+<line x1="511.0" y1="172" x2="491.0" y2="208" stroke="#1c2833" stroke-width="1.5"/>
+</svg>

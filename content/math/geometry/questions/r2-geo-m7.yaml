@@ -96,7 +96,7 @@
   choices: ['A tangent is perpendicular to the radius drawn to the point of tangency.', 'A chord farther from the center is longer than one closer to it.', 'The perpendicular bisector of any chord passes through the center.', 'Two congruent chords can be different distances from the center.']
   answer: [0, 2]
   explanation: |-
-    The Tangent–Radius Theorem gives the first, and the converse of the Perpendicular Chord Bisector Theorem gives the third (the center is equidistant from the chord's endpoints). Chords get *shorter* as they move away from the center: the diameter, at distance 0, is the longest. And by the Equidistant Chords Theorem, congruent chords in one circle are always the same distance from the center.
+    The Tangent–Radius Theorem gives the first, and the converse of the Perpendicular Chord Bisector Theorem gives the third (the center is equidistant from the chord's endpoints). Chords get shorter as they move away from the center: the diameter, at distance 0, is the longest. And by the Equidistant Chords Theorem, congruent chords in one circle are always the same distance from the center.
 
 - id: geo-m7-r2-q09
   lesson: geo-chords-tangents
@@ -218,7 +218,7 @@
   stem: 'Put the steps for finding the center and radius of $x^2 + y^2 - 6x + 4y - 3 = 0$ in order.'
   items: ['Group and move the constant: $(x^2 - 6x) + (y^2 + 4y) = 3$', 'Add 9 and 4 to both sides: $(x^2 - 6x + 9) + (y^2 + 4y + 4) = 16$', 'Write as squares: $(x - 3)^2 + (y + 2)^2 = 16$', 'Read off the center $(3, -2)$ and the radius 4']
   explanation: |-
-    Completing the square needs the $x$ and $y$ terms grouped first, then $\left(\tfrac{-6}{2}\right)^2 = 9$ and $\left(\tfrac42\right)^2 = 4$ added to *both* sides ($3 + 9 + 4 = 16$), then each group written as a square. Only then can you read the center $(3, -2)$ and radius $\sqrt{16} = 4$.
+    Completing the square needs the $x$ and $y$ terms grouped first, then $\left(\tfrac{-6}{2}\right)^2 = 9$ and $\left(\tfrac42\right)^2 = 4$ added to both sides ($3 + 9 + 4 = 16$), then each group written as a square. Only then can you read the center $(3, -2)$ and radius $\sqrt{16} = 4$.
 
 - id: geo-m7-r2-q19
   lesson: geo-circle-seg
@@ -365,7 +365,7 @@
   choices: ['Each common chord lies on a radical axis, and the three radical axes meet at the radical center.', 'Each common chord is a median of the triangle formed by the centers.', 'Each common chord is the perpendicular bisector of a side of the triangle formed by the centers.', 'Any three chords drawn in circles meet at one point.']
   answer: 0
   explanation: |-
-    The line of each common chord is the radical axis of that pair. A point on two of the axes has equal power for all three circles, so it lies on the third axis too. The chords are perpendicular to the sides of the triangle of centers, but they are perpendicular *bisectors* only when the two radii are equal, and they are not medians. Chords in general don't meet at one point.
+    The line of each common chord is the radical axis of that pair. A point on two of the axes has equal power for all three circles, so it lies on the third axis too. The chords are perpendicular to the sides of the triangle of centers, but they are perpendicular bisectors only when the two radii are equal, and they are not medians. Chords in general don't meet at one point.
 
 - id: geo-m7-r2-h13
   lesson: geo-m7-h-power-radical
@@ -479,7 +479,7 @@
   choices: ['At the incenter; $R = 3$', 'At the midpoint of the hypotenuse; $R = 7.5$', 'At the vertex of the right angle; $R = 7.5$', 'At the midpoint of the hypotenuse; $R = 15$']
   answer: 1
   explanation: |-
-    The hypotenuse is $\sqrt{81 + 144} = 15$. A right angle is inscribed in a semicircle, so the hypotenuse is a diameter: the center is its midpoint and $R = 7.5$. The extended Law of Sines agrees: $2R = \tfrac{15}{\sin 90^\circ} = 15$. (3 is the radius of the *inscribed* circle, $\tfrac{9 + 12 - 15}{2}$.)
+    The hypotenuse is $\sqrt{81 + 144} = 15$. A right angle is inscribed in a semicircle, so the hypotenuse is a diameter: the center is its midpoint and $R = 7.5$. The extended Law of Sines agrees: $2R = \tfrac{15}{\sin 90^\circ} = 15$. (3 is the radius of the inscribed circle, $\tfrac{9 + 12 - 15}{2}$.)
 
 - id: geo-m7-r2-h25
   lesson: geo-m7-h-concyclic
@@ -500,7 +500,7 @@
   choices: ['$(3, 1)$', '$(6, 0)$', '$(4, 2)$', '$(0, 3)$']
   answer: 2
   explanation: |-
-    A point is on the circle when the left side is 0. $(4, 2)$: $16 + 4 - 8 + 8 - 20 = 0$. ✓ The others: $(3, 1)$ gives $-13$ (inside), $(6, 0)$ gives $4$ (outside), $(0, 3)$ gives $1$ (outside). In standard form the circle is $(x - 1)^2 + (y + 2)^2 = 25$.
+    A point is on the circle when the left side is 0. $(4, 2)$: $16 + 4 - 8 + 8 - 20 = 0$. ✓ The others: $(3, 1)$ gives $-12$ (inside), $(6, 0)$ gives $4$ (outside), $(0, 3)$ gives $1$ (outside). In standard form the circle is $(x - 1)^2 + (y + 2)^2 = 25$.
 
 - id: geo-m7-r2-h27
   lesson: geo-m7-h-concyclic
@@ -509,7 +509,7 @@
   choices: ['$65^\circ$', '$130^\circ$', '$115^\circ$', '$25^\circ$']
   answer: 2
   explanation: |-
-    $ACBD$ is a cyclic quadrilateral with $\angle C$ and $\angle D$ opposite, so they are supplementary: $180 - 65 = 115^\circ$. Equal angles ($65^\circ$) happen only for points on the *same* side of $\overline{AB}$. 130° is the arc $\overset{\frown}{AB}$ intercepted by $\angle ACB$; 25° is the complement.
+    $ACBD$ is a cyclic quadrilateral with $\angle C$ and $\angle D$ opposite, so they are supplementary: $180 - 65 = 115^\circ$. Equal angles ($65^\circ$) happen only for points on the same side of $\overline{AB}$. 130° is the arc $\overset{\frown}{AB}$ intercepted by $\angle ACB$; 25° is the complement.
 
 - id: geo-m7-r2-h28
   lesson: geo-m7-h-concyclic

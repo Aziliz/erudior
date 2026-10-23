@@ -31,7 +31,12 @@ $*$ any number at all,
 
 $$\begin{bmatrix} \blacksquare & * & * & * & * \\ 0 & 0 & \blacksquare & * & * \\ 0 & 0 & 0 & \blacksquare & * \\ 0 & 0 & 0 & 0 & 0\end{bmatrix}$$
 
-is an echelon pattern. A matrix is in **reduced echelon form** (reduced row echelon form,
+is an echelon pattern. The picture names its parts: the leading entries (circled) sit on a
+staircase, everything below the staircase is zero, and the zero row is at the bottom.
+
+![A 4 by 5 echelon pattern. Leading entries, drawn as black squares in circles, are in row 1 column 1, row 2 column 3 and row 3 column 4. Columns 1, 3 and 4 are shaded as pivot columns; columns 2 and 5 have no pivot. A dashed staircase line separates the zeros below from the other entries, and row 4 is a shaded row of zeros.](images/la-m2-echelon.svg)
+
+A matrix is in **reduced echelon form** (reduced row echelon form,
 **RREF**) if, in addition,
 
 4. each leading entry is 1;
@@ -68,6 +73,21 @@ about solutions, span, independence, invertibility and rank.
 
 Working from the bottom up in step 5 is efficient: each replacement then only changes
 entries to the right, which are zeros in the lower rows anyway.
+
+The whole algorithm as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: The row reduction algorithm
+  accDescr: Forward phase. Step 1, take the leftmost nonzero column as the pivot column. Step 2, swap rows if needed so a nonzero pivot is at the top. Step 3, create zeros below the pivot. Then ask whether any nonzero rows are left below. If yes, cover the pivot row and repeat from step 1 on the rows below. If no, the matrix is in echelon form. Backward phase. Starting from the rightmost pivot and working up, create zeros above each pivot and scale each pivot to 1. The result is the reduced echelon form.
+  A["1. Leftmost nonzero column is the pivot column"] --> B["2. Swap rows to put a nonzero pivot on top"]
+  B --> C["3. Create zeros below the pivot"]
+  C --> D{"Nonzero rows left below?"}
+  D -- "yes: cover this row" --> A
+  D -- no --> E["Echelon form: forward phase done"]
+  E --> F["5. From the rightmost pivot up: zeros above, scale pivot to 1"]
+  F --> G["Reduced echelon form"]
+```
 
 ### Example 1
 

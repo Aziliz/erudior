@@ -42,7 +42,7 @@ Every point moves $2(h_2 - h_1)$ horizontally: a translation by twice the gap, p
 
 $$\varphi \;\to\; 2\alpha - \varphi \;\to\; 2\beta - (2\alpha - \varphi) = \varphi + 2(\beta - \alpha).$$
 
-Every point turns through $2(\beta - \alpha)$ about $O$: a **rotation by twice the angle between the mirrors**, turning in the direction from the first mirror to the second.
+Every point turns through $2(\beta - \alpha)$ about $O$: a *rotation by twice the angle between the mirrors*, turning in the direction from the first mirror to the second.
 
 ![Two lines m and n cross at O with angle θ between them. Point P is reflected in m to P′, and P′ is reflected in n to P″. Dashed segments from P to P′ and from P′ to P″ meet the mirrors at right angles. An arrow arc about O from P to P″ is marked 2θ.](images/geo-m9-two-reflections.svg)
 
