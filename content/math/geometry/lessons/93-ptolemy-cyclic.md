@@ -7,7 +7,7 @@ topics: [Cyclic quadrilaterals, Ptolemy's theorem]
 drills: [geo-h1-r2-trap-diagonal, geo-h1-r2-brahmagupta, geo-h1-r2-equilateral-arc]
 refs: [geo-ref-theorems, geo-ref-measure]
 ---
-Lesson 29 proved that the opposite angles of a cyclic quadrilateral are supplementary, and Lesson 30 showed that two chords crossing inside a circle cut each other into pieces with equal products. Both are facts about angles or pieces of diagonals. This lesson asks what the *sides* and the *whole diagonals* of a cyclic quadrilateral have to do with each other. The answer is **Ptolemy's theorem**, a relation used nearly 1,900 years ago to build the first trigonometric tables, and it ties together several earlier lessons: it contains the Pythagorean theorem as a special case and produces the golden ratio from Lesson 90.
+Lesson 29 proved that the opposite angles of a cyclic quadrilateral are supplementary, and Lesson 30 showed that two chords crossing inside a circle cut each other into pieces with equal products. Both are facts about angles or pieces of diagonals. This lesson asks what the *sides* and the *whole diagonals* of a cyclic quadrilateral have to do with each other. The answer is **Ptolemy's theorem**, a relation used about 1,900 years ago to build a table of chord lengths, an early kind of trigonometric table, and it ties together several earlier lessons: it contains the Pythagorean theorem as a special case and produces the golden ratio from Lesson 90.
 
 ## Recognizing a cyclic quadrilateral
 

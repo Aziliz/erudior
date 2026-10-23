@@ -85,7 +85,7 @@ Now put the three points on one line instead. A line that crosses the lines of a
 
 $$\frac{AF}{FB} \cdot \frac{BD}{DC} \cdot \frac{CE}{EA} = 1.$$
 
-It's named for Menelaus of Alexandria (about 100 CE), who used it in his work on spherical triangles.
+It's named for Menelaus of Alexandria (about 100 CE), who used a version of it in his work on spherical triangles.
 
 *Proof.* Drop perpendiculars from $A$, $B$, $C$ to the transversal, with lengths $h_A$, $h_B$, $h_C$. The perpendiculars from $A$ and $B$ form two right triangles with $F$, and those triangles are similar: their angles at $F$ are vertical angles (or the same angle, if $A$ and $B$ are on the same side of the line). So $\tfrac{AF}{FB} = \tfrac{h_A}{h_B}$. In the same way $\tfrac{BD}{DC} = \tfrac{h_B}{h_C}$ and $\tfrac{CE}{EA} = \tfrac{h_C}{h_A}$. Multiply: $\tfrac{h_A}{h_B} \cdot \tfrac{h_B}{h_C} \cdot \tfrac{h_C}{h_A} = 1$. $\blacksquare$
 
