@@ -124,6 +124,10 @@ Lesson 31's sample of 16 freight trains had $\bar{x} = 31.2$ min and $s = 4.8$ m
 2. Margin: $2.131(4.8)\sqrt{1 + 1/16} = 10.229(1.0308) \approx 10.54$ min.
 3. Prediction interval: $31.2 \pm 10.54 = (20.66, 41.74)$ min.
 
+```shape
+{"segments": [{"from": [18, 0], "to": [44, 0]}, {"from": [20.66, 1], "to": [41.74, 1]}, {"from": [28.64, 2], "to": [33.76, 2]}, {"from": [31.2, -0.2], "to": [31.2, 2.6], "dashed": true}], "points": [{"at": [31.2, 1]}, {"at": [31.2, 2]}], "labels": [{"at": [31.2, 2.45], "text": "95% CI for the mean: 28.64 to 33.76"}, {"at": [31.2, 1.45], "text": "95% prediction interval: 20.66 to 41.74"}, {"at": [20, -0.4], "text": "20"}, {"at": [25, -0.4], "text": "25"}, {"at": [30, -0.4], "text": "30"}, {"at": [35, -0.4], "text": "35"}, {"at": [40, -0.4], "text": "40"}], "caption": "Loading time (min): the interval for one new train is about four times as wide as the interval for the mean"}
+```
+
 The prediction interval is about four times as wide. More data shrink the confidence interval
 toward a single point, but as $n$ grows the prediction interval only settles toward about
 $\mu \pm 1.96\sigma$, because individual trains vary. Two cautions: the prediction interval

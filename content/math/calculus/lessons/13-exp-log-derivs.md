@@ -142,7 +142,7 @@ Product rule: $y' = 1\cdot\ln x + x\cdot\frac1x = \ln x + 1$.
 The point $\left(\frac1e, -\frac1e\right)$ turns out to be the lowest point of the graph, which you'll be able to prove with the tools of Module 5.
 
 ```plot
-{"x": [-0.5, 4], "y": [-1, 5], "functions": [{"f": "x*ln(x)", "from": 0.001, "label": "y = x ln x"}], "tangents": [{"f": "x*ln(x)", "at": 2.718281828}], "segments": [{"from": [0, -0.3679], "to": [1, -0.3679], "dashed": true}], "points": [{"at": [2.718281828, 2.718281828], "label": "(e, e)"}, {"at": [0.3679, -0.3679], "label": "(1/e, −1/e)"}], "caption": "y = x ln x: tangent of slope 2 at (e, e), horizontal tangent at (1/e, −1/e)"}
+{"x": [-0.5, 4], "y": [-1.5, 5], "functions": [{"f": "x*ln(x)", "from": 0.001, "label": "y = x ln x"}], "tangents": [{"f": "x*ln(x)", "at": 2.718281828}], "segments": [{"from": [0, -0.3679], "to": [1, -0.3679], "dashed": true}], "points": [{"at": [2.718281828, 2.718281828], "label": "(e, e)"}, {"at": [0.3679, -0.3679]}], "caption": "y = x ln x: tangent of slope 2 at (e, e), horizontal tangent at (1/e, −1/e)"}
 ```
 
 ## Common mistakes

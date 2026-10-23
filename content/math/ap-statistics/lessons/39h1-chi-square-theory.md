@@ -40,7 +40,7 @@ grows, the sum of many independent terms becomes more symmetric (the Central Lim
 work again), which is why the curves lose their right skew.
 
 ```plot
-{"x": [0, 20], "y": [0, 0.5], "xLabel": "value", "yLabel": "density", "functions": [{"f": "chi2pdf(x, 1)", "label": "df 1", "from": 0.05}, {"f": "chi2pdf(x, 2)", "label": "df 2"}, {"f": "chi2pdf(x, 4)", "label": "df 4"}, {"f": "chi2pdf(x, 8)", "label": "df 8", "dashed": true}], "caption": "Chi-square densities for 1, 2, 4 and 8 df: each is centered at its df and gets more symmetric as df grows"}
+{"x": [0, 20], "y": [0, 0.3], "xLabel": "value", "yLabel": "density", "functions": [{"f": "chi2pdf(x, 1)", "from": 0.05, "dashed": true}, {"f": "chi2pdf(x, 3)"}, {"f": "chi2pdf(x, 6)"}, {"f": "chi2pdf(x, 10)"}], "labels": [{"at": [2.3, 0.26], "text": "df 3"}, {"at": [4.2, 0.155], "text": "df 6"}, {"at": [8.5, 0.115], "text": "df 10"}], "caption": "Chi-square densities for 1 df (dashed, shooting up near 0) and 3, 6 and 10 df: each balances at its df, and the skew fades as df grows"}
 ```
 
 ## Two categories: exactly the z test, squared

@@ -71,7 +71,7 @@
     - {name: thalf, label: '$t_{1/2}$ (h)', sigfigs: 3, format: sig3}
     - {name: Vd, label: '$V$ (L)', sigfigs: 3, format: sig3}
   solution: |-
-    $C = C(0)e^{-kt}$, so $k = \dfrac{1}{{dt}}\ln\dfrac{{C1r:num2}}{{C2r:num2}} \approx {kk:num4}$ per hour and $t_{1/2} = \dfrac{\ln 2}{k} \approx$ **{thalf:sig3} h**. Back to $t = 0$: $C(0) = {C1r:num2}\,e^{{kk:num4}({t1})} \approx {C0:num4}$ mg/L, so $V = \dfrac{D}{C(0)} = \dfrac{{D}}{{C0:num4}} \approx$ **{Vd:sig3} L**.
+    $C = C(0)e^{-kt}$, so $k = \dfrac{1}{{dt}}\ln\dfrac{{C1r:num2}}{{C2r:num2}} \approx {kk:num4}$ per hour and $t_{1/2} = \dfrac{\ln 2}{k} \approx$ **{thalf:sig3} h**. Back to $t = 0$: $C(0) = {C1r:num2}\,e^{{kk:num4}({t1})} \approx {C0:num4}$ mg/L, so $V = \dfrac{\,D}{C(0)} = \dfrac{{D}}{{C0:num4}} \approx$ **{Vd:sig3} L**.
 - id: de-m3-r2-infusion
   title: Concentration during a constant infusion
   topic: Pharmacokinetics

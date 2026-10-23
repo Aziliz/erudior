@@ -1,0 +1,23 @@
+# Round 2, module stat-m7: cards for the two honors lessons.
+# Better intervals for a proportion
+- {front: 'Coverage probability vs. nominal confidence level', back: 'Nominal: the level a method aims for (95%). Coverage: the long-run capture rate it really achieves for a given n and p.', topic: 'Better proportion intervals'}
+- {front: 'Exact coverage of an interval for a proportion', back: 'Sum P(X = x) over the counts x = 0, …, n whose intervals contain p.', topic: 'Better proportion intervals'}
+- {front: 'Two weaknesses of the Wald interval', back: 'Too short (even zero width) when p̂ is near 0 or 1; coverage zigzags with n and p and is usually a little below 95% even with large counts.', topic: 'Better proportion intervals'}
+- {front: 'Plus four interval', back: '$\tilde{p} = (x+2)/(n+4)$; interval $\tilde{p} \pm z^*\sqrt{\tilde{p}(1-\tilde{p})/(n+4)}$. Report $\hat{p}$ as the point estimate.', topic: 'Better proportion intervals'}
+- {front: 'Plus four for two proportions (Agresti–Caffo)', back: 'Add one success and one failure to each group, then use the two-proportion z interval.', topic: 'Better proportion intervals'}
+- {front: 'Wilson score interval idea', back: 'All $p_0$ with $|\hat{p} - p_0| \le z^*\sqrt{p_0(1-p_0)/n}$: the SD uses the candidate $p_0$, not $\hat{p}$.', topic: 'Better proportion intervals'}
+- {front: 'Center of the 95% Wilson interval', back: '$(x + 1.92)/(n + 3.84)$, pulled toward 0.5; plus four rounds it to $(x + 2)/(n + 4)$.', topic: 'Better proportion intervals'}
+- {front: 'Clopper–Pearson ("exact") interval', back: 'Built from binomial probabilities; coverage at least 95% for every p, so it is conservative (wider).', topic: 'Better proportion intervals'}
+- {front: 'Rule of three', back: '0 successes in n trials: 95% one-sided upper bound ≈ 3/n (exact: $1 - 0.05^{1/n}$). E.g. n = 50 gives 0.06.', topic: 'Better proportion intervals'}
+- {front: 'Which interval for one proportion?', back: 'At least 10 successes and 10 failures: Wald is fine. 1–9 of either: plus four or Wilson. Zero of either: Wilson or the rule of three.', topic: 'Better proportion intervals'}
+# Where t comes from
+- {front: 'Who was "Student"?', back: 'W. S. Gosset, a chemist at the Guinness brewery in Dublin, who published the t distribution in Biometrika in 1908.', topic: 'The t distribution in depth'}
+- {front: 'Why n − 1 degrees of freedom?', back: 'Deviations from $\bar{x}$ add to zero, so only n − 1 are free; dividing by n − 1 makes $s^2$ unbiased for $\sigma^2$.', topic: 'The t distribution in depth'}
+- {front: 'Is s unbiased for σ?', back: 'No. $s^2$ is unbiased, but $s$ averages a little below σ (about 0.94σ for n = 5, 0.97σ for n = 10, normal population).', topic: 'The t distribution in depth'}
+- {front: 'How t is built (normal population)', back: '$t = Z/(s/\sigma)$: Z standard normal, $(n-1)s^2/\sigma^2$ chi-square with n − 1 df, and $\bar{x}$, s independent.', topic: 'The t distribution in depth'}
+- {front: 'True coverage of $\bar{x} \pm 1.96s/\sqrt{n}$', back: '$2\,\text{tcdf}(1.96, n-1) - 1$: about 0.88 for n = 5, 0.91 for n = 8, 0.94 for n = 30.', topic: 'The t distribution in depth'}
+- {front: 't intervals and skewed populations', back: 'Coverage falls short and misses are lopsided (mostly entirely below μ for right skew); about 0.93 at n = 30 for an exponential population.', topic: 'The t distribution in depth'}
+- {front: 't intervals and outliers', back: 'Outliers inflate s, so intervals become wide; one outlier in a small sample can also drag $\bar{x}$.', topic: 'The t distribution in depth'}
+- {front: 'Prediction interval for one new value', back: '$\bar{x} \pm t^* s\sqrt{1 + 1/n}$, df = n − 1. Needs a normal population even for large n.', topic: 'The t distribution in depth'}
+- {front: 'Confidence vs. prediction interval as n grows', back: 'CI shrinks toward a point; PI settles near μ ± 1.96σ, because individuals still vary.', topic: 'The t distribution in depth'}
+- {front: 'Range of Welch df', back: 'Between min(n₁, n₂) − 1 (the conservative choice) and n₁ + n₂ − 2.', topic: 'The t distribution in depth'}

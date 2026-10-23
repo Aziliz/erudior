@@ -42,7 +42,7 @@
     - {name: I, label: 'Value', kind: fraction}
   solution: |-
     Substitute $u = {a}x$, so $x = \dfrac{u}{{a}}$ and $dx = \dfrac{du}{{a}}$; the limits stay $0$ and $\infty$:
-    $$\int_0^\infty\left(\frac{u}{{a}}\right)^{{n}}e^{-u}\,\frac{du}{{a}} = \frac{\Gamma({n1})}{{a}^{{n1}}} = \frac{{n}!}{{a}^{{n1}}} = \frac{{nf}}{{den}}.$$
+    $$\int_0^\infty\left(\frac{u}{{a}}\right)^{{n}}e^{-u}\,\frac{du}{{a}} = \frac{\Gamma({n1})}{{a}^{{n1}}} = \frac{{n}!}{{a}^{{n1}}} = \frac{{nf:dp0}}{{den:dp0}}.$$
     In lowest terms: **${I:texfrac}$**.
 
 - id: calc-m8-r2-gamma-half
@@ -68,8 +68,8 @@
   title: One Richardson step
   topic: Richardson extrapolation
   vars:
-    lo: {min: 1, max: 3}
-    d: {min: 1, max: 3}
+    lo: {min: 1, max: 4}
+    d: {min: 1, max: 5}
   funcs:
     f(x): 1/x
   calc:

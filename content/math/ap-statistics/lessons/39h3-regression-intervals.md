@@ -14,8 +14,8 @@ Lesson 39 put a confidence interval around the slope. But regression is usually 
 *predict*, and a prediction needs its own margin of error. Suppose rail-wear depth is regressed
 on annual tonnage. A planner can ask two quite different questions at a tonnage of 30 million tons:
 
-- *What is the average wear of all segments that carry 30 million tons?* That is the **mean
-  response** $\mu_y = \beta_0 + \beta_1 x^*$ at $x^* = 30$, a fixed number on the population line.
+- *What is the average wear of all segments that carry 30 million tons?* That is the
+  **mean response** $\mu_y = \beta_0 + \beta_1 x^*$ at $x^* = 30$, a fixed number on the population line.
 - *How much wear will this one particular segment have?* That single value is
   $\mu_y + \varepsilon$: the mean response plus the segment's own random error.
 
@@ -88,7 +88,7 @@ the mean-response interval is half as wide as at 30, but the prediction interval
 little, because most of its width is the new segment's own scatter.
 
 ```plot
-{"x": [5, 40], "y": [0, 18], "xLabel": "tonnage (millions of tons)", "yLabel": "wear (mm)", "functions": [{"f": "1.5 + 0.3*x", "label": "ŷ = 1.5 + 0.30x"}, {"f": "1.5 + 0.3*x + 2.228*0.9*sqrt(1/12 + (x - 20)^2/396)", "color": "#2c5e8f"}, {"f": "1.5 + 0.3*x - 2.228*0.9*sqrt(1/12 + (x - 20)^2/396)", "color": "#2c5e8f"}, {"f": "1.5 + 0.3*x + 2.228*0.9*sqrt(1 + 1/12 + (x - 20)^2/396)", "dashed": true, "color": "#b5541a"}, {"f": "1.5 + 0.3*x - 2.228*0.9*sqrt(1 + 1/12 + (x - 20)^2/396)", "dashed": true, "color": "#b5541a"}], "segments": [{"from": [31, 0], "to": [31, 18], "dashed": true}], "labels": [{"at": [36, 1.5], "text": "beyond the data"}], "caption": "95% confidence band (solid, inner) and prediction band (dashed, outer) for Example 1; both are narrowest at x̄ = 20 and widen with distance, and past 31 they rest on extrapolation"}
+{"x": [5, 40], "y": [0, 18], "xLabel": "tonnage (millions of tons)", "yLabel": "wear (mm)", "functions": [{"f": "1.5 + 0.3*x"}, {"f": "1.5 + 0.3*x + 2.228*0.9*sqrt(1/12 + (x - 20)^2/396)", "color": "#2c5e8f"}, {"f": "1.5 + 0.3*x - 2.228*0.9*sqrt(1/12 + (x - 20)^2/396)", "color": "#2c5e8f"}, {"f": "1.5 + 0.3*x + 2.228*0.9*sqrt(1 + 1/12 + (x - 20)^2/396)", "dashed": true, "color": "#b5541a"}, {"f": "1.5 + 0.3*x - 2.228*0.9*sqrt(1 + 1/12 + (x - 20)^2/396)", "dashed": true, "color": "#b5541a"}], "segments": [{"from": [31, 0], "to": [31, 18], "dashed": true}], "labels": [{"at": [13, 13.5], "text": "middle line: ŷ = 1.5 + 0.30x"}, {"at": [35.7, 4], "text": "extrapolation"}], "caption": "95% confidence band (solid, inner) and prediction band (dashed, outer) for Example 1; both are narrowest at x̄ = 20 and widen with distance, and past the last data value (31) they rest on extrapolation"}
 ```
 
 ### Example 2: five points, wide intervals

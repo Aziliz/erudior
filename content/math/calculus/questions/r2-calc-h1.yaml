@@ -79,7 +79,7 @@
     - 'For every $\varepsilon > 0$ there is an $N$ and some $n > N$ with $|a_n - L| \ge \varepsilon$'
   answer: 2
   explanation: |-
-    Negate each part: "for every $\varepsilon$" becomes "there is an $\varepsilon$", "there is an $N$" becomes "for every $N$", and "for all $n > N$, close" becomes "some $n > N$, not close". The first two options are far too strong: $1, 0, 0, 0, \dots$ doesn't converge to 5, yet it has terms close to... no, but $0, 5, 0, 5, \dots$ doesn't converge to 5 and still has infinitely many terms equal to 5, so it fails both. The last option fails for every bounded sequence once $\varepsilon$ is large, so it can't describe divergence.
+    Negate each part: "for every $\varepsilon$" becomes "there is an $\varepsilon$", "there is an $N$" becomes "for every $N$", and "for all $n > N$, close" becomes "some $n > N$, not close". The first two options are far too strong: $0, 5, 0, 5, \dots$ does not converge to 5, yet infinitely many of its terms equal 5, so it satisfies neither. The last option is false for every bounded sequence once $\varepsilon$ is larger than all the distances $|a_n - L|$, so it fails for bounded divergent sequences such as $(-1)^n$ and can't be the negation.
 - id: calc-h1-r2-h08
   lesson: calc-h1-sequence-limits
   topic: Proving sequence limits
@@ -248,7 +248,7 @@
   choices: ['$2$', '$\sqrt6$', '$3$', '$-2$']
   answer: 2
   explanation: |-
-    By the monotone convergence theorem the limit $L$ exists. Letting $n \to \infty$ in the recursion gives $L = \sqrt{6 + L}$, so $L^2 - L - 6 = (L - 3)(L + 2) = 0$. The terms are positive, so $L = 3$, not $-2$. ($\sqrt6 \approx 2.449$ is only the first step's idea; the terms go $1, \sqrt7 \approx 2.646, 2.94, \dots$, already past it.)
+    By the monotone convergence theorem the limit $L$ exists. Letting $n \to \infty$ in the recursion gives $L = \sqrt{6 + L}$, so $L^2 - L - 6 = (L - 3)(L + 2) = 0$. The terms are positive, so $L = 3$, not $-2$. ($\sqrt6 \approx 2.449$ is what one step gives from 0; the terms $1, \sqrt7 \approx 2.646, 2.940, \dots$ are already past it.)
 - id: calc-h1-r2-h22
   lesson: calc-h1-completeness
   topic: Completeness
@@ -493,7 +493,7 @@
   choices: ['$3$', '$9$', '$1000$', '$10$']
   answer: 3
   explanation: |-
-    After $k$ halvings the length is $\frac{1}{2^k}$. We need $2^k > 1000$: $2^9 = 512$ is too small and $2^{10} = 1024$ works, so $k = 10$. Three halvings give $0.125$, which is the number of decimal places, not the number of steps.
+    After $k$ halvings the length is $\frac{1}{2^k}$. We need $2^k > 1000$: $2^9 = 512$ is too small and $2^{10} = 1024$ works, so $k = 10$. Nine halvings leave $\frac{1}{512} \approx 0.00195$, still too long; 3 is the number of decimal places in 0.001, and 1000 is the target for $2^k$, not $k$.
 # Lesson 93: what makes a function integrable
 - id: calc-h1-r2-h43
   lesson: calc-h1-integrability
@@ -566,7 +566,7 @@
   choices: ['$271$', '$2701$', '$2700$', '$301$']
   answer: 1
   explanation: |-
-    $f$ increases, so $U - L = [f(9) - f(0)]\cdot\frac{9}{n} = \frac{3\cdot9}{n} = \frac{27}{n}$. We need $\frac{27}{n} < 0.01$, so $n > 2700$, and the smallest is 2701. With $n = 2700$ the gap is exactly $0.01$, not less. Using $\frac{3}{n}$ or $\frac{9}{n}$ alone gives 301 or about 900; 271 drops a factor of 10.
+    $f$ increases, so $U - L = [f(9) - f(0)]\cdot\frac{9}{n} = \frac{3\cdot9}{n} = \frac{27}{n}$. We need $\frac{27}{n} < 0.01$, so $n > 2700$, and the smallest is 2701. With $n = 2700$ the gap is exactly $0.01$, not less. Using only $f(9) - f(0) = 3$ (forgetting the width factor) gives $n > 300$, so 301; 271 comes from a slipped decimal ($\frac{2.7}{n}$).
 - id: calc-h1-r2-h50
   lesson: calc-h1-integrability
   type: label

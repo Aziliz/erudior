@@ -424,7 +424,7 @@
   choices: ['Nothing; the hyperbolas $xy = K$ are correct', 'The student forgot to eliminate $C$', 'The student should have used $y'' = x/y$, giving $y = Kx$ again', 'The student changed only the sign; with $y'' = -x/y$ the answer is circles $x^2 + y^2 = K$']
   answer: 3
   explanation: |-
-    The perpendicular slope is $-1/f = -\dfrac{x}{y}$, not $-f$. Then $y\,dy = -x\,dx$ and $x^2 + y^2 = K$: circles about the origin. A line of slope 1 and a hyperbola $xy = K$ meet at slope $-1$ there only by accident on $y = x$; in general $-y/x$ is not perpendicular to $y/x$. $C$ was correctly eliminated.
+    The perpendicular slope is $-1/f = -\dfrac{x}{y}$, not $-f$. Then $y\,dy = -x\,dx$ and $x^2 + y^2 = K$: circles about the origin. The slopes $y/x$ and $-y/x$ multiply to $-y^2/x^2$, which is $-1$ only on the lines $y = \pm x$, so the hyperbolas are not orthogonal to the lines in general. $C$ was correctly eliminated, and $x/y$ (the reciprocal without the sign) is not perpendicular either.
 
 - id: de-m1-r2-h11
   lesson: de-m1-h-orthogonal

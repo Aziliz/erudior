@@ -13,8 +13,8 @@ refs: [stat-ref-inference, stat-ref-which-test]
 Lesson 38 ended a test of independence by pointing at the largest contributions to $\chi^2$. A
 careful analysis asks three more questions, and this honors lesson gives a tool for each:
 
-1. *Which cells really differ from independence?* Contributions have no fixed scale; **adjusted
-   residuals** put every cell on the standard normal scale.
+1. *Which cells really differ from independence?* Contributions have no fixed scale;
+   **adjusted residuals** put every cell on the standard normal scale.
 2. *How strong is the association?* A tiny p-value can come from a trivial association in a huge
    sample; **Cramér's V** measures strength separately from sample size.
 3. *What if the expected counts are too small?* For a 2 × 2 table, **Fisher's exact test** gives an
@@ -150,7 +150,7 @@ After a winter, 1 of the new pads and 6 of the old pads have failed. Is the new 
    and because the designs were randomly assigned, the design itself is the likely cause.
 
 ```plot
-{"x": [-0.7, 7.7], "y": [0, 0.36], "xLabel": "new-pad failures a", "yLabel": "probability", "bars": [{"x": 0, "height": 0.0015, "width": 0.8, "label": "0"}, {"x": 1, "height": 0.0271, "width": 0.8, "label": "1"}, {"x": 2, "height": 0.1463, "width": 0.8}, {"x": 3, "height": 0.3251, "width": 0.8}, {"x": 4, "height": 0.3251, "width": 0.8}, {"x": 5, "height": 0.1463, "width": 0.8}, {"x": 6, "height": 0.0271, "width": 0.8}, {"x": 7, "height": 0.0015, "width": 0.8}], "caption": "Hypergeometric distribution of new-pad failures when 7 of the 20 pads fail and design makes no difference; the one-sided p-value is the total of the bars at 0 and 1, 0.0286"}
+{"x": [-0.7, 10], "y": [0, 0.36], "xLabel": "new-pad failures", "yLabel": "probability", "bars": [{"x": 0, "height": 0.0015, "width": 0.8, "label": "0"}, {"x": 1, "height": 0.0271, "width": 0.8, "label": "1"}, {"x": 2, "height": 0.1463, "width": 0.8}, {"x": 3, "height": 0.3251, "width": 0.8}, {"x": 4, "height": 0.3251, "width": 0.8}, {"x": 5, "height": 0.1463, "width": 0.8}, {"x": 6, "height": 0.0271, "width": 0.8}, {"x": 7, "height": 0.0015, "width": 0.8}], "caption": "Hypergeometric distribution of new-pad failures when 7 of the 20 pads fail and design makes no difference; the one-sided p-value is the total of the bars at 0 and 1, 0.0286"}
 ```
 
 The distribution is symmetric here because both rows have 10 cars, so the two-sided p-value
