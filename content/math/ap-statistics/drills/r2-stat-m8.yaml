@@ -81,92 +81,99 @@
     $n = 2\left(\dfrac{({za:dp3} + {zb:dp3})({sig})}{{del}}\right)^2 \approx {nraw:num2}$, rounded up to
     **{nn:int}** per group ({tot:int} subjects in all).
 
-# ---- Honors 2: multiple testing
-- id: stat-m8-r2-fwer
-  title: Family-wise error rate and the Bonferroni level
-  topic: Multiple testing
+# ---- Honors 2: equivalence and non-inferiority
+- id: stat-m8-r2-tost
+  title: Two one-sided tests (TOST) for paired data
+  topic: Equivalence testing
   vars:
-    mm: {min: 2, max: 30}
-    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}, {label: '0.10', value: 0.1}]}
+    nn: {min: 8, max: 40}
+    del: {min: 0.2, max: 1, step: 0.1}
+    sd: {min: 0.2, max: 1.5, step: 0.05}
+    fr: {min: -0.8, max: 0.8, step: 0.1}
   calc:
-    fw: 1 - (1 - al)^mm
-    bon: al/mm
-    keep: (1 - al)^mm
+    dbar: round(fr*del, 2)
+    se: sd/sqrt(nn)
+    dfree: nn - 1
+    t1: (dbar + del)/se
+    t2: (dbar - del)/se
+    p1: 1 - tcdf(t1, dfree)
+    p2: tcdf(t2, dfree)
+    pt: max(p1, p2)
+  where: ['pt >= 0.001', 'pt <= 0.4']
   prompt: |-
-    A study runs {mm} independent significance tests, each at level $\alpha = {al}$, and every null
-    hypothesis is true. Find the probability of at least one Type I error (3 decimals). Then give the
-    per-test level the Bonferroni correction would use to keep this probability at or below {al}
-    (3 significant figures).
+    Two measuring methods are compared on {nn} items. The differences have $\bar{d} = {dbar}$ and
+    $s_d = {sd}$ (no strong skew or outliers). The equivalence margin is $\Delta = {del}$. Find the two TOST
+    statistics $t_1 = (\bar{d} + \Delta)/SE$ and $t_2 = (\bar{d} - \Delta)/SE$ (3 decimals) and the TOST
+    p-value (4 decimals).
   answers:
-    - {name: fw, label: 'FWER', tolerance: 0.0006, format: dp3}
-    - {name: bon, label: 'Bonferroni level', sigfigs: 3, format: sig3}
+    - {name: t1, label: '$t_1 =$', tolerance: 0.002, format: dp3}
+    - {name: t2, label: '$t_2 =$', tolerance: 0.002, format: dp3}
+    - {name: pt, label: 'TOST p-value', tolerance: 0.0006, format: num4}
   solution: |-
-    All {mm} tests avoid a false alarm with probability $(1 - {al})^{{mm}} \approx {keep:num4}$, so
-    FWER $= 1 - {keep:num4} \approx$ **{fw:dp3}**. Bonferroni tests each at $\alpha/m = {al}/{mm} \approx$ **{bon:sig3}**.
+    $SE = {sd}/\sqrt{{nn}} \approx {se:num4}$, df $= {dfree}$.
+    $t_1 = ({dbar} + {del})/{se:num4} \approx$ **{t1:dp3}**, upper-tail p-value $\approx {p1:num4}$.
+    $t_2 = ({dbar} - {del})/{se:num4} \approx$ **{t2:dp3}**, lower-tail p-value $\approx {p2:num4}$.
+    The TOST p-value is the larger: **{pt:num4}**. Equivalence is shown at level $\alpha$ only if this is at most $\alpha$.
 
-- id: stat-m8-r2-holm-bh
-  title: Bonferroni, Holm and Benjamini–Hochberg
-  topic: Multiple testing
+- id: stat-m8-r2-equiv-ci
+  title: Equivalence from a 90% confidence interval
+  topic: Equivalence testing
   vars:
-    k1: {min: 1, max: 14}
-    g2: {min: 1, max: 12}
-    g3: {min: 1, max: 14}
-    g4: {min: 1, max: 22}
-    g5: {min: 2, max: 60}
+    nn: {min: 10, max: 60}
+    sd: {min: 0.5, max: 6, step: 0.1}
+    dbar: {min: -2, max: 2, step: 0.05}
   calc:
-    k2: k1 + g2
-    k3: k2 + g3
-    k4: k3 + g4
-    k5: k4 + g5
-    p1: k1/1000
-    p2: k2/1000
-    p3: k3/1000
-    p4: k4/1000
-    p5: k5/1000
-    bon: (k1 <= 10) + (k2 <= 10) + (k3 <= 10) + (k4 <= 10) + (k5 <= 10)
-    holm: if(k1 > 10, 0, if(k2 > 12.5, 1, if(k3 > 50/3, 2, if(k4 > 25, 3, if(k5 > 50, 4, 5)))))
-    bh: if(k5 <= 50, 5, if(k4 <= 40, 4, if(k3 <= 30, 3, if(k2 <= 20, 2, if(k1 <= 10, 1, 0)))))
-  where: ['bh >= 1', 'bh > bon']
+    se: sd/sqrt(nn)
+    dfree: nn - 1
+    ts: invt(0.95, dfree)
+    lo: dbar - ts*se
+    hi: dbar + ts*se
+    mg: max(abs(lo), abs(hi))
   prompt: |-
-    Five hypotheses are tested. The sorted p-values are {p1:dp3}, {p2:dp3}, {p3:dp3}, {p4:dp3} and
-    {p5:dp3}. Using $\alpha = q = 0.05$, how many hypotheses are rejected by the Bonferroni correction,
-    by Holm's method, and by the Benjamini–Hochberg procedure?
+    A paired study of {nn} items gives mean difference $\bar{d} = {dbar}$ and $s_d = {sd}$. Find the 90%
+    confidence interval for $\mu_d$ (3 decimals each). Then find the smallest equivalence margin $\Delta$
+    for which a TOST at $\alpha = 0.05$ would conclude equivalence (3 decimals).
   answers:
-    - {name: bon, label: 'Bonferroni', format: int, tolerance: 0}
-    - {name: holm, label: 'Holm', format: int, tolerance: 0}
-    - {name: bh, label: 'Benjamini–Hochberg', format: int, tolerance: 0}
+    - {name: lo, label: 'lower', tolerance: 0.003, format: dp3}
+    - {name: hi, label: 'upper', tolerance: 0.003, format: dp3}
+    - {name: mg, label: 'smallest $\Delta$', tolerance: 0.003, format: dp3}
   solution: |-
-    *Bonferroni*: compare every p-value with $0.05/5 = 0.01$: **{bon:int}** rejected.
-    *Holm*: compare the sorted p-values with 0.0100, 0.0125, 0.0167, 0.0250, 0.0500 in turn and stop at
-    the first one above its threshold: **{holm:int}** rejected.
-    *Benjamini–Hochberg*: thresholds $0.05\,i/5$ = 0.01, 0.02, 0.03, 0.04, 0.05; find the largest rank
-    whose p-value is at or below its threshold and reject up to it: **{bh:int}** rejected.
+    $SE = {sd}/\sqrt{{nn}} \approx {se:num4}$, and for 90% with df $= {dfree}$, $t^* \approx {ts:dp3}$.
+    Interval: ${dbar} \pm {ts:dp3}({se:num4}) =$ (**{lo:dp3}**, **{hi:dp3}**). TOST at 0.05 succeeds exactly
+    when this 90% interval lies inside $(-\Delta, \Delta)$, so $\Delta$ must exceed the larger endpoint size:
+    **{mg:dp3}** (strictly, any margin above it).
 
-- id: stat-m8-r2-false-share
-  title: How many significant results are false?
-  topic: Multiple testing
+- id: stat-m8-r2-noninferiority
+  title: Non-inferiority test for two proportions
+  topic: Equivalence testing
   vars:
-    nh: {choices: [500, 1000, 2000, 5000]}
-    rr: {min: 0.05, max: 0.5, step: 0.05}
-    pw: {min: 0.2, max: 0.95, step: 0.05}
-    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}]}
+    n1: {min: 100, max: 600, step: 50}
+    n2: {min: 100, max: 600, step: 50}
+    q2: {min: 0.5, max: 0.9, step: 0.01}
+    gap: {min: -0.06, max: 0.03, step: 0.01}
+    del: {choices: [0.05, 0.08, 0.1, 0.12, 0.15]}
   calc:
-    real: nh*rr
-    nulls: nh - real
-    td: pw*real
-    fd: al*nulls
-    share: fd/(td + fd)
-    rpct: 100*rr
+    x1: round(n1*(q2 + gap))
+    x2: round(n2*q2)
+    p1: x1/n1
+    p2: x2/n2
+    se: sqrt(p1*(1 - p1)/n1 + p2*(1 - p2)/n2)
+    diff: p1 - p2
+    zz: (diff + del)/se
+    pv: 1 - normcdf(zz)
+  where: ['x1 < n1', 'zz >= 0.3', 'zz <= 3.3']
   prompt: |-
-    A field tests {nh} hypotheses at $\alpha = {al}$. Suppose {rpct:int}% of them are real effects and the
-    studies have power {pw:num2}. Find the expected number of false discoveries and the expected share of
-    significant results that are false (3 decimals). Give the expected number to 2 decimals if it isn't whole.
+    In a randomized trial, {x1} of {n1} patients on a new treatment were cured, compared with {x2} of
+    {n2} on the standard treatment. Test non-inferiority with margin $\Delta = {del}$:
+    $H_0: p_{\text{new}} - p_{\text{std}} \le -{del}$ against $H_a: p_{\text{new}} - p_{\text{std}} > -{del}$, using the
+    unpooled standard error. Find $z$ (2 decimals) and the p-value (4 decimals).
   answers:
-    - {name: fd, label: 'false discoveries', tolerance: 0.006, format: num2}
-    - {name: share, label: 'share false', tolerance: 0.0006, format: dp3}
+    - {name: zz, label: '$z =$', tolerance: 0.011, format: num2}
+    - {name: pv, label: 'p-value', tolerance: 0.004, format: num4}
   solution: |-
-    Real effects: {real:int}; true nulls: {nulls:int}. True discoveries: ${pw:num2} \times {real:int} = {td:num2}$.
-    False discoveries: ${al} \times {nulls:int} =$ **{fd:num2}**. Share false $= \dfrac{{fd:num2}}{{td:num2} + {fd:num2}} \approx$ **{share:dp3}**.
+    $\hat{p}_{\text{new}} = {p1:num4}$, $\hat{p}_{\text{std}} = {p2:num4}$, difference $= {diff:num4}$.
+    $SE = \sqrt{\dfrac{{p1:num4}(1 - {p1:num4})}{{n1}} + \dfrac{{p2:num4}(1 - {p2:num4})}{{n2}}} \approx {se:num4}$.
+    $z = \dfrac{{diff:num4} + {del}}{{se:num4}} \approx$ **{zz:num2}**; p-value $= P(Z \ge z) \approx$ **{pv:num4}**.
 
 # ---- Honors 3: exact tests
 - id: stat-m8-r2-exact-binom
@@ -215,38 +222,27 @@
     Drop the zero differences (there are {nzero}): $n = {npos} + {nneg} =$ **{nn:int}**. Under $H_0$ the number of
     positive signs is $B({nn:int}, 0.5)$, so the p-value is $P(X \ge {npos}) = 1 - \text{binomcdf}({nn:int}, 0.5, {nm:int}) \approx$ **{pv:num4}**.
 
-- id: stat-m8-r2-fisher
-  title: Fisher's exact test (one-sided)
+- id: stat-m8-r2-exact-two-sided
+  title: Two-sided exact binomial p-value by doubling
   topic: Exact tests
   vars:
-    n1: {min: 6, max: 12}
-    n2: {min: 6, max: 12}
-    xa: {min: 3, max: 12}
-    xb: {min: 0, max: 8}
-  funcs:
-    'h(x)': 'nCr(st, x)*nCr(nt - st, n1 - x)/nCr(nt, n1)'
+    nn: {min: 10, max: 80}
+    p0: {choices: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4]}
+    xx: {min: 0, max: 40}
   calc:
-    st: xa + xb
-    nt: n1 + n2
-    top: min(n1, st)
-    pv: sum(h, xa, top)
-    fa: n1 - xa
-    fb: n2 - xb
-    ff: nt - st
-  where: ['xa <= n1', 'xb <= n2', 'xa*n2 > xb*n1', 'pv >= 0.001', 'pv <= 0.3']
+    up: 1 - binomcdf(nn, p0, xx - 1)
+    dn: binomcdf(nn, p0, xx)
+    sm: min(up, dn)
+    pv: min(1, 2*sm)
+    mu: nn*p0
+    xm: xx - 1
+  where: ['xx <= nn', 'xx != round(nn*p0)', 'pv >= 0.001', 'pv <= 0.5', 'xx >= 1']
   prompt: |-
-    In a randomized trial, {xa} of {n1} patients on a new treatment improved, and {xb} of {n2} on the
-    standard treatment improved. Use Fisher's exact test of no association against the alternative that the
-    new treatment has a higher improvement rate. Find the p-value (4 decimals).
-
-    | | Improved | Not improved | Total |
-    |---|---|---|---|
-    | New | {xa} | {fa:int} | {n1} |
-    | Standard | {xb} | {fb:int} | {n2} |
-    | Total | {st:int} | {ff:int} | {nt:int} |
+    Test $H_0: p = {p0}$ against $H_a: p \ne {p0}$ with an exact binomial test. In {nn} independent trials there
+    were {xx} successes. Find the two-sided p-value using the doubling convention: twice the smaller of
+    $P(X \ge {xx})$ and $P(X \le {xx})$, capped at 1 (4 decimals).
   answers:
     - {name: pv, label: 'p-value', tolerance: 0.0001, format: num4}
   solution: |-
-    With the margins fixed, the number $X$ of improvers in the new group is hypergeometric:
-    $P(X = x) = \dfrac{\binom{{st:int}}{x}\binom{{ff:int}}{{n1} - x}}{\binom{{nt:int}}{{n1}}}$. The p-value adds these
-    probabilities for $x = {xa}$ up to {top:int}: $P(X \ge {xa}) \approx$ **{pv:num4}**.
+    Under $H_0$, $X \sim B({nn}, {p0})$ with mean {mu:num1}. Upper tail: $P(X \ge {xx}) = 1 - \text{binomcdf}({nn}, {p0}, {xm}) \approx {up:num4}$.
+    Lower tail: $P(X \le {xx}) = \text{binomcdf}({nn}, {p0}, {xx}) \approx {dn:num4}$. Double the smaller: p-value $\approx$ **{pv:num4}**.

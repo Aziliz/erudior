@@ -61,7 +61,7 @@
       label: '$\dfrac{d^{{n}}}{dx^{{n}}}\sin({a}x) =$'
       show: '${sg}{an}{fn}({a}x)$'
   solution: |-
-    Each derivative of $\sin({a}x)$ multiplies by ${a}$ and moves one step around the cycle $\sin \to \cos \to -\sin \to -\cos \to \sin$. Since ${n} = {q4} + {s}$ and every 4 steps bring the function back to $\sin({a}x)$, the result has the form of the derivative after ${s}$ steps (0 steps means $\sin$ itself), and the factor is ${a}^{{n}} = {an}$. So the answer is **$\dfrac{d^{{n}}}{dx^{{n}}}\sin({a}x) = {sg}{an}{fn}({a}x)$**.
+    Each derivative of $\sin({a}x)$ multiplies by ${a}$ and moves one step around the cycle $\sin \to \cos \to -\sin \to -\cos \to \sin$. Since ${n} = {q4} + {s}$ and every 4 steps bring the function back to $\sin({a}x)$, the result is the entry ${s}$ places along the cycle from $\sin$ (0 places means $\sin$ itself), and the factor is ${a}^{{n}} = {an}$. So the answer is **$\dfrac{d^{{n}}}{dx^{{n}}}\sin({a}x) = {sg}{an}{fn}({a}x)$**.
 - id: calc-m3-r2-e-limit
   title: A limit equal to a power of e
   topic: Proofs of derivative rules
@@ -69,7 +69,7 @@
     sg: {choices: [{label: '+', value: 1}, {label: '-', value: -1}]}
     aa: {min: 1, max: 3}
     b: {choices: [{label: '', value: 1}, {label: '2', value: 2}, {label: '3', value: 3}]}
-  where: ["aa*b <= 6"]
+  where: ["aa*b <= 4"]
   calc:
     a: sg*aa
     bv: b

@@ -107,7 +107,7 @@ $$\int_2^4\frac{dx}{x^2 - 1} = \frac12\Big[\ln|x - 1| - \ln|x + 1|\Big]_2^4 = \f
 The answer is the area of the shaded region below. The interval $[2, 4]$ stays clear of the vertical asymptote at $x = 1$; an interval containing $x = 1$ would make the integral improper (Lesson 35).
 
 ```plot
-{"x": [0, 5], "y": [-0.5, 2], "functions": [{"f": "1/(x^2 - 1)", "from": 1.02, "to": 5, "label": "y = 1/(x² − 1)"}], "shade": [{"f": "1/(x^2 - 1)", "from": 2, "to": 4}], "segments": [{"from": [1, -0.5], "to": [1, 2], "dashed": true}], "caption": "The area under y = 1/(x² − 1) from 2 to 4 is ½ ln(9/5) ≈ 0.294; the dashed line x = 1 is a vertical asymptote"}
+{"x": [0, 5], "y": [-0.2, 2], "functions": [{"f": "1/(x^2 - 1)", "from": 1.02, "to": 5}], "shade": [{"f": "1/(x^2 - 1)", "from": 2, "to": 4}], "segments": [{"from": [1, -0.2], "to": [1, 2], "dashed": true}], "labels": [{"at": [2.6, 0.6], "text": "y = 1/(x² − 1)"}], "caption": "The area under y = 1/(x² − 1) from 2 to 4 is ½ ln(9/5) ≈ 0.294; the dashed line x = 1 is a vertical asymptote"}
 ```
 
 ## Why it always works

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="640" height="400" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker></defs>
+<rect x="120" y="150" width="170" height="150" fill="#dde8f3"/>
+<path d="M120,110 L120,300 L290,300 L290,110" fill="none" stroke="#1c2833" stroke-width="4"/>
+<rect x="380" y="150" width="170" height="150" fill="#dde8f3"/>
+<path d="M380,110 L380,300 L550,300 L550,110" fill="none" stroke="#1c2833" stroke-width="4"/>
+<path d="M20,70 L170,70 L170,120" fill="none" stroke="#1c2833" stroke-width="18" stroke-linejoin="round"/>
+<path d="M20,70 L170,70 L170,120" fill="none" stroke="#ffffff" stroke-width="12" stroke-linejoin="round"/>
+<line x1="40" y1="70" x2="95" y2="70" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
+<path d="M290,270 L380,270" fill="none" stroke="#1c2833" stroke-width="18" stroke-linejoin="round"/>
+<path d="M290,270 L380,270" fill="none" stroke="#dde8f3" stroke-width="12" stroke-linejoin="round"/>
+<line x1="305" y1="270" x2="362" y2="270" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
+<path d="M380,190 L290,190" fill="none" stroke="#1c2833" stroke-width="18" stroke-linejoin="round"/>
+<path d="M380,190 L290,190" fill="none" stroke="#dde8f3" stroke-width="12" stroke-linejoin="round"/>
+<line x1="365" y1="190" x2="308" y2="190" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
+<path d="M550,280 L630,280" fill="none" stroke="#1c2833" stroke-width="18" stroke-linejoin="round"/>
+<path d="M550,280 L630,280" fill="none" stroke="#dde8f3" stroke-width="12" stroke-linejoin="round"/>
+<line x1="565" y1="280" x2="622" y2="280" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
+<text x="205" y="230" text-anchor="middle" font-size="16" font-weight="bold">Tank 1</text>
+<text x="465" y="230" text-anchor="middle" font-size="16" font-weight="bold">Tank 2</text>
+<text x="205" y="252" text-anchor="middle" font-size="16">100 L, Q₁(t)</text>
+<text x="465" y="252" text-anchor="middle" font-size="16">100 L, Q₂(t)</text>
+<text x="320" y="385" text-anchor="middle" font-size="15">Both tanks are kept well stirred.</text>
+</svg>

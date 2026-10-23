@@ -2,63 +2,63 @@
 <rect width="780" height="330" fill="#ffffff"/>
 <rect x="15" y="15" width="175" height="230" rx="8" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="27" y1="130.0" x2="178" y2="130.0" stroke="#1c2833" stroke-width="2"/>
-<line x1="117.5" y1="29" x2="117.5" y2="231" stroke="#1c2833" stroke-width="2"/>
+<line x1="112.5" y1="29" x2="112.5" y2="231" stroke="#1c2833" stroke-width="2"/>
 <text x="176" y="122.0" text-anchor="end" font-size="14">Re</text>
-<text x="123.5" y="45" font-size="14">Im</text>
-<line x1="37.5" y1="126.0" x2="37.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="113.5" y1="50.0" x2="121.5" y2="50.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="77.5" y1="126.0" x2="77.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="113.5" y1="90.0" x2="121.5" y2="90.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="157.5" y1="126.0" x2="157.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="113.5" y1="170.0" x2="121.5" y2="170.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="197.5" y1="126.0" x2="197.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="113.5" y1="210.0" x2="121.5" y2="210.0" stroke="#1c2833" stroke-width="1.5"/>
-<circle cx="37.5" cy="130.0" r="8" fill="#1c2833"/>
-<circle cx="157.5" cy="130.0" r="8" fill="#1c2833"/>
+<text x="104.5" y="45" text-anchor="end" font-size="14">Im</text>
+<line x1="44.5" y1="126.0" x2="44.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="108.5" y1="62.0" x2="116.5" y2="62.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="78.5" y1="126.0" x2="78.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="108.5" y1="96.0" x2="116.5" y2="96.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="146.5" y1="126.0" x2="146.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="108.5" y1="164.0" x2="116.5" y2="164.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="180.5" y1="126.0" x2="180.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="108.5" y1="198.0" x2="116.5" y2="198.0" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="44.5" cy="130.0" r="8" fill="#1c2833"/>
+<circle cx="146.5" cy="130.0" r="8" fill="#1c2833"/>
 <rect x="205" y="15" width="175" height="230" rx="8" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="217" y1="130.0" x2="368" y2="130.0" stroke="#1c2833" stroke-width="2"/>
-<line x1="307.5" y1="29" x2="307.5" y2="231" stroke="#1c2833" stroke-width="2"/>
+<line x1="302.5" y1="29" x2="302.5" y2="231" stroke="#1c2833" stroke-width="2"/>
 <text x="366" y="122.0" text-anchor="end" font-size="14">Re</text>
-<text x="313.5" y="45" font-size="14">Im</text>
-<line x1="227.5" y1="126.0" x2="227.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="303.5" y1="50.0" x2="311.5" y2="50.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="267.5" y1="126.0" x2="267.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="303.5" y1="90.0" x2="311.5" y2="90.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="347.5" y1="126.0" x2="347.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="303.5" y1="170.0" x2="311.5" y2="170.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="387.5" y1="126.0" x2="387.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="303.5" y1="210.0" x2="311.5" y2="210.0" stroke="#1c2833" stroke-width="1.5"/>
-<circle cx="267.5" cy="130.0" r="8" fill="#1c2833"/>
-<circle cx="267.5" cy="130.0" r="14" fill="none" stroke="#1c2833" stroke-width="2"/>
-<text x="267.5" y="108.0" text-anchor="middle" font-size="16">×2</text>
+<text x="294.5" y="45" text-anchor="end" font-size="14">Im</text>
+<line x1="234.5" y1="126.0" x2="234.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="298.5" y1="62.0" x2="306.5" y2="62.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="268.5" y1="126.0" x2="268.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="298.5" y1="96.0" x2="306.5" y2="96.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="336.5" y1="126.0" x2="336.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="298.5" y1="164.0" x2="306.5" y2="164.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="370.5" y1="126.0" x2="370.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="298.5" y1="198.0" x2="306.5" y2="198.0" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="268.5" cy="130.0" r="8" fill="#1c2833"/>
+<circle cx="268.5" cy="130.0" r="14" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="268.5" y="108.0" text-anchor="middle" font-size="16">×2</text>
 <rect x="395" y="15" width="175" height="230" rx="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="407" y1="130.0" x2="558" y2="130.0" stroke="#1c2833" stroke-width="2"/>
-<line x1="497.5" y1="29" x2="497.5" y2="231" stroke="#1c2833" stroke-width="2"/>
+<line x1="492.5" y1="29" x2="492.5" y2="231" stroke="#1c2833" stroke-width="2"/>
 <text x="556" y="122.0" text-anchor="end" font-size="14">Re</text>
-<text x="503.5" y="45" font-size="14">Im</text>
-<line x1="417.5" y1="126.0" x2="417.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="493.5" y1="50.0" x2="501.5" y2="50.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="457.5" y1="126.0" x2="457.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="493.5" y1="90.0" x2="501.5" y2="90.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="537.5" y1="126.0" x2="537.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="493.5" y1="170.0" x2="501.5" y2="170.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="577.5" y1="126.0" x2="577.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="493.5" y1="210.0" x2="501.5" y2="210.0" stroke="#1c2833" stroke-width="1.5"/>
-<circle cx="457.5" cy="50.0" r="8" fill="#1c2833"/>
-<circle cx="457.5" cy="210.0" r="8" fill="#1c2833"/>
+<text x="484.5" y="45" text-anchor="end" font-size="14">Im</text>
+<line x1="424.5" y1="126.0" x2="424.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="488.5" y1="62.0" x2="496.5" y2="62.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="458.5" y1="126.0" x2="458.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="488.5" y1="96.0" x2="496.5" y2="96.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="526.5" y1="126.0" x2="526.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="488.5" y1="164.0" x2="496.5" y2="164.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="560.5" y1="126.0" x2="560.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="488.5" y1="198.0" x2="496.5" y2="198.0" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="458.5" cy="62.0" r="8" fill="#1c2833"/>
+<circle cx="458.5" cy="198.0" r="8" fill="#1c2833"/>
 <rect x="585" y="15" width="175" height="230" rx="8" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="597" y1="130.0" x2="748" y2="130.0" stroke="#1c2833" stroke-width="2"/>
-<line x1="687.5" y1="29" x2="687.5" y2="231" stroke="#1c2833" stroke-width="2"/>
+<line x1="682.5" y1="29" x2="682.5" y2="231" stroke="#1c2833" stroke-width="2"/>
 <text x="746" y="122.0" text-anchor="end" font-size="14">Re</text>
-<text x="693.5" y="45" font-size="14">Im</text>
-<line x1="607.5" y1="126.0" x2="607.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="683.5" y1="50.0" x2="691.5" y2="50.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="647.5" y1="126.0" x2="647.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="683.5" y1="90.0" x2="691.5" y2="90.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="727.5" y1="126.0" x2="727.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="683.5" y1="170.0" x2="691.5" y2="170.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="767.5" y1="126.0" x2="767.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="683.5" y1="210.0" x2="691.5" y2="210.0" stroke="#1c2833" stroke-width="1.5"/>
-<circle cx="687.5" cy="50.0" r="8" fill="#1c2833"/>
-<circle cx="687.5" cy="210.0" r="8" fill="#1c2833"/>
+<text x="674.5" y="45" text-anchor="end" font-size="14">Im</text>
+<line x1="614.5" y1="126.0" x2="614.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="678.5" y1="62.0" x2="686.5" y2="62.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="648.5" y1="126.0" x2="648.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="678.5" y1="96.0" x2="686.5" y2="96.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="716.5" y1="126.0" x2="716.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="678.5" y1="164.0" x2="686.5" y2="164.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="750.5" y1="126.0" x2="750.5" y2="134.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="678.5" y1="198.0" x2="686.5" y2="198.0" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="682.5" cy="62.0" r="8" fill="#1c2833"/>
+<circle cx="682.5" cy="198.0" r="8" fill="#1c2833"/>
 </svg>
