@@ -55,6 +55,10 @@ multiplied together, and they are not inside other functions. The coefficients
 $a_k(t)$ and the right side $g(t)$ may be *any* functions of the independent variable;
 being "linear" refers to the unknown, not to $t$.
 
+The picture labels the parts of a typical linear equation.
+
+![The equation t² y″ + 3t y′ − (sin t) y = eᵗ with four parts highlighted: t² is the leading coefficient a₂(t); y″ is the highest derivative, so the order is 2; sin t, with its minus sign, is the coefficient of y, a₀(t) = −sin t; and eᵗ on the right is the forcing term g(t).](images/de-m2-linear-parts.svg)
+
 Anything else is **nonlinear**. Typical nonlinear features:
 
 - powers of the unknown: $y^2$, $\sqrt{y}$, $(y')^2$;
@@ -117,7 +121,27 @@ For $y'' + y = 0$, all solutions have the form $y = c_1\cos t + c_2\sin t$ (Modu
   $c_2$. Infinitely many solutions.
 - BVP $y(0) = 0$, $y(\pi) = 1$: $c_1 = 0$ forces $y(\pi) = 0 \ne 1$. No solution.
 
+```plot
+{"x": [-0.3, 3.6], "y": [-2.2, 2.4], "xLabel": "t", "functions": [{"f": "2sin(x)", "from": 0, "to": 3.14159}, {"f": "sin(x)", "from": 0, "to": 3.14159}, {"f": "-1.5sin(x)", "from": 0, "to": 3.14159}], "points": [{"at": [0, 0], "label": "(0, 0)"}, {"at": [3.14159, 0], "label": "(π, 0)"}, {"at": [3.14159, 1], "open": true, "label": "(π, 1)"}], "labels": [{"at": [1.57, 2.2], "text": "c₂ = 2"}, {"at": [1.57, 1.18], "text": "c₂ = 1"}, {"at": [1.57, -1.25], "text": "c₂ = −1.5"}], "caption": "Solutions y = c₂ sin t of y″ + y = 0 with y(0) = 0. Every one of them also has y(π) = 0, so that BVP has infinitely many solutions; none reaches the open point (π, 1), so that BVP has none."}
+```
+
 ## Putting it together
+
+The flowchart runs through the main questions in order; the table adds why each one matters.
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a differential equation
+  accDescr: Start with the differential equation. If the unknown depends on more than one independent variable, it is a PDE. Otherwise it is an ODE, and its order is the highest derivative. Next ask whether the unknown and its derivatives appear only to the first power, not multiplied together and not inside other functions. If not, the equation is nonlinear. If so, it is linear, and it is homogeneous when the forcing term g(t) is zero and nonhomogeneous otherwise.
+  A["Differential equation"] --> B{"One independent variable?"}
+  B -- no --> P["PDE"]
+  B -- yes --> C["ODE: order = highest derivative"]
+  C --> D{"y, y′, y″ … only to the first power, not multiplied, not inside functions?"}
+  D -- no --> N["Nonlinear"]
+  D -- yes --> E{"Forcing term g(t) = 0?"}
+  E -- yes --> H["Linear homogeneous"]
+  E -- no --> G["Linear nonhomogeneous"]
+```
 
 | Feature | Question to ask | Why it matters |
 |---|---|---|

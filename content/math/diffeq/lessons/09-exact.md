@@ -66,6 +66,13 @@ Solve $2xy\,dx + (x^2 + 3y^2)\,dy = 0$, $y(1) = 1$.
 - $F = x^2y + y^3$. Solutions: $x^2y + y^3 = C$.
 - At $(1, 1)$: $C = 1 + 1 = 2$. Answer (implicit): $x^2y + y^3 = 2$.
 
+The solutions are the level curves of $F = x^2y + y^3$. Each value of $C$ gives one curve,
+and the initial condition picks the one through $(1, 1)$.
+
+```plot
+{"x": [-4, 4], "y": [-1.8, 1.8], "curves": [{"x": "sqrt((2 - t^3)/t)", "y": "t", "t": [0.125, 1.2599]}, {"x": "-sqrt((2 - t^3)/t)", "y": "t", "t": [0.125, 1.2599]}, {"x": "sqrt((0.5 - t^3)/t)", "y": "t", "t": [0.032, 0.7937]}, {"x": "-sqrt((0.5 - t^3)/t)", "y": "t", "t": [0.032, 0.7937]}, {"x": "sqrt((-2 - t^3)/t)", "y": "t", "t": [-1.2599, -0.125]}, {"x": "-sqrt((-2 - t^3)/t)", "y": "t", "t": [-1.2599, -0.125]}], "points": [{"at": [1, 1], "label": "(1, 1)"}], "labels": [{"at": [0, 1.45], "text": "C = 2"}, {"at": [0, 0.95], "text": "C = 0.5"}, {"at": [0, -1.45], "text": "C = −2"}], "caption": "Level curves x²y + y³ = C of the potential function. The solution through (1, 1) is the curve with C = 2."}
+```
+
 ### Example 2
 
 Solve $(3x^2 + y\cos x)\,dx + (\sin x - 4y^3)\,dy = 0$.
@@ -107,6 +114,25 @@ Solve $(3xy + y^2)\,dx + (x^2 + xy)\,dy = 0$.
 - $F = \int (x^3 + x^2y)\,dy = x^3y + \tfrac12x^2y^2 + g(x)$; $F_x = 3x^2y + xy^2 + g'$,
   so $g' = 0$.
 - Solution: $x^3y + \tfrac12 x^2y^2 = C$.
+
+The whole procedure, integrating factors included, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Solving M dx + N dy = 0
+  accDescr: First test whether M_y equals N_x. If yes, the equation is exact: set F = ∫M dx + h(y), match F_y = N to find h(y), and write the solution F(x, y) = C. If not, check whether (M_y − N_x)/N depends on x only; if so, multiply by the integrating factor μ(x), which makes the equation exact, and continue as before. Otherwise check whether (N_x − M_y)/M depends on y only; if so, multiply by μ(y) and continue as before. If neither works, try another method, such as a substitution.
+  A["M dx + N dy = 0"] --> B{"M_y = N_x ?"}
+  B -- yes --> C["F = ∫M dx + h(y)"]
+  C --> D["Match F_y = N to find h(y)"]
+  D --> E["Solution: F(x, y) = C"]
+  B -- no --> F{"(M_y − N_x)/N depends on x only?"}
+  F -- yes --> G["Multiply by μ(x): now exact"]
+  G --> C
+  F -- no --> H{"(N_x − M_y)/M depends on y only?"}
+  H -- yes --> I["Multiply by μ(y): now exact"]
+  I --> C
+  H -- no --> J["Try another method"]
+```
 
 ## How this connects to the linear method
 

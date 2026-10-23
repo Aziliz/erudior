@@ -55,6 +55,14 @@ Check: $y' = -\dfrac{e^t}{(1 + e^t)^2}$ and $y^2 - y = \dfrac{1 - (1 + e^t)}{(1 
 The logistic equation $P' = kP - \tfrac{k}{K}P^2$ is a Bernoulli equation with $n = 2$,
 which gives a second route to its solution.
 
+The same family $v = 1 + Ce^t$ also shows how differently solutions can behave. Starting at
+$y(0) = 2$ gives $v(0) = \tfrac12$, so $C = -\tfrac12$ and $y = \dfrac{1}{1 - e^t/2}$, which
+blows up at $t = \ln 2 \approx 0.69$.
+
+```plot
+{"x": [-2, 3], "y": [-0.3, 3], "xLabel": "t", "functions": [{"f": "1", "dashed": true}, {"f": "1/(1 + exp(x))"}, {"f": "1/(1 - exp(x)/2)", "to": 0.68}], "points": [{"at": [0, 0.5], "label": "y(0) = 1/2"}, {"at": [0, 2], "label": "y(0) = 2"}], "labels": [{"at": [2.5, 1.15], "text": "y = 1"}], "caption": "Two solutions of y′ + y = y²: from y(0) = 1/2 the solution 1/(1 + eᵗ) falls toward 0; from y(0) = 2 the solution 1/(1 − eᵗ/2) blows up at t = ln 2. The constant solution y = 1 (dashed) separates them."}
+```
+
 ### Example 2
 
 Solve $ty' + y = t^2y^3$ for $t > 0$.
@@ -116,6 +124,22 @@ $y' = f(ax + by + c)$ is $u = ax + by + c$.
 | $y' + p y = q y^n$ | $v = y^{1-n}$ | linear in $v$ |
 | $y' = F(y/x)$ | $v = y/x$ | separable in $v$, $x$ |
 | $y' = f(ax + by + c)$ | $u = ax + by + c$ | separable in $u$, $x$ |
+
+As a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a substitution
+  accDescr: Ask three questions in turn. Is the equation a Bernoulli equation y′ + py = qyⁿ? If so, set v = y^(1−n), which gives a linear equation. If not, does the right side depend only on y/x? If so, set v = y/x, which gives a separable equation. If not, is the right side a function of ax + by + c? If so, set u = ax + by + c, which gives a separable equation. In every case, solve for the new variable, convert back to y, and apply the initial condition.
+  A{"Bernoulli: y′ + py = qyⁿ ?"} -- yes --> B["v = y^(1−n): linear in v"]
+  A -- no --> C{"y′ = F(y/x) ?"}
+  C -- yes --> D["v = y/x: separable"]
+  C -- no --> E{"y′ = f(ax + by + c) ?"}
+  E -- yes --> F["u = ax + by + c: separable"]
+  B --> G["Solve, convert back to y, apply the initial condition"]
+  D --> G
+  F --> G
+```
 
 ## Common mistakes
 

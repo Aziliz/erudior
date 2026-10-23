@@ -8,7 +8,7 @@
     y0: {min: -10, max: 10}
     m: {min: -3, max: 4}
     gap: {min: 1, max: 5}
-  where: ["m != 0"]
+  where: ["m != 0", "m + gap != 0"]
   calc:
     b0: a0 + w
     big: m + gap
@@ -104,14 +104,14 @@
     half: hold*20*j/2
     cost: hold*20*j
   where: ["dem == round(dem)", "orders == round(orders)", "orders >= 2", "dem >= 500"]
-  prompt: 'A store sells {dem} units a year at a steady rate. Placing an order costs {ko} dollars, and holding one unit in stock for a year costs {hold:num2} dollars. Find the economic order quantity and the minimum yearly cost of ordering plus holding (in dollars).'
+  prompt: 'A store sells {dem} units a year at a steady rate. Placing an order costs {ko:money0}, and holding one unit in stock for a year costs {hold:money}. Find the economic order quantity and the minimum yearly cost of ordering plus holding (in dollars).'
   answers:
     - {name: qs, label: 'Order size (units)'}
     - {name: cost, label: 'Yearly cost (dollars)', tolerance: 0.5}
   solution: |-
-    With demand $D = {dem}$, ordering cost $K = {ko}$ and holding cost $h = {hold}$, the yearly cost $C(Q) = \dfrac{KD}{Q} + \dfrac{hQ}{2}$ is smallest at
-    $$Q^* = \sqrt{\frac{2KD}{h}} = \sqrt{\frac{2 \cdot {ko} \cdot {dem}}{ {hold}}} = {qs},$$
-    so order **{qs}** units at a time ({orders} orders a year). At $Q^*$ the ordering cost $\dfrac{ {ko} \cdot {dem}}{ {qs}} = {half:num2}$ equals the holding cost $\dfrac{ {hold} \cdot {qs}}{2} = {half:num2}$, so the minimum yearly cost is **{cost:num2}** dollars.
+    With demand $D = {dem:dp0}$, ordering cost $K = {ko}$ and holding cost $h = {hold}$, the yearly cost $C(Q) = \dfrac{KD}{Q} + \dfrac{hQ}{2}$ is smallest at
+    $$Q^* = \sqrt{\frac{2KD}{h}} = \sqrt{\frac{2 \cdot {ko} \cdot {dem:dp0}}{ {hold}}} = {qs},$$
+    so order **{qs}** units at a time ({orders} orders a year). At $Q^*$ the ordering cost $\dfrac{ {ko} \cdot {dem:dp0}}{ {qs}} = {half:dp0}$ equals the holding cost $\dfrac{ {hold} \cdot {qs}}{2} = {half:dp0}$, so the minimum yearly cost is **{cost:int}** dollars.
 - id: calc-m5-r2-ladder
   title: Longest ladder around a corner
   topic: Optimization models

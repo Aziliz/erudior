@@ -54,6 +54,19 @@ $$\mu(t)\,y = \int \mu(t)g(t)\,dt + C, \qquad y = \frac{1}{\mu(t)}\left(\int \mu
 4. Integrate, **including the constant $C$**, then divide by $\mu$.
 5. Apply the initial condition.
 
+The same recipe as a flowchart (with "integrate" and "divide" as separate steps):
+
+```mermaid
+flowchart TD
+  accTitle: The integrating-factor recipe
+  accDescr: Six steps in order. Write the equation in standard form y′ + p(t)y = g(t). Compute the integrating factor μ = e to the power ∫p dt. Rewrite the equation as (μy)′ = μg. Integrate both sides and add the constant C. Divide by μ to get y. Apply the initial condition to find C.
+  A["1. Standard form: y′ + p(t)y = g(t)"] --> B["2. μ = e^(∫p dt)"]
+  B --> C["3. (μy)′ = μg"]
+  C --> D["4. Integrate both sides, add C"]
+  D --> E["5. Divide by μ"]
+  E --> F["6. Apply the initial condition"]
+```
+
 ### Example 1
 
 Solve $y' + 2y = 6$, $y(0) = 1$.
@@ -79,6 +92,10 @@ Solve $y' + y = t$, $y(0) = 1$. (This is the slope-field equation $y' = t - y$.)
 
 This confirms what the slope field showed: every solution approaches the line $y = t - 1$,
 since $Ce^{-t} \to 0$.
+
+```plot
+{"x": [0, 5], "y": [-2.5, 4.5], "xLabel": "t", "functions": [{"f": "x - 1", "dashed": true}, {"f": "x - 1 + 2exp(-x)"}, {"f": "x - 1 + 4exp(-x)"}, {"f": "x - 1 - exp(-x)"}], "points": [{"at": [0, 1], "label": "(0, 1)"}], "labels": [{"at": [4.1, 2.45], "text": "y = t − 1"}], "caption": "Solutions y = t − 1 + Ce^(−t) of y′ + y = t for C = 4, 2 (through (0, 1)) and −1. The transient Ce^(−t) dies out and every curve merges with the line y = t − 1 (dashed)."}
+```
 
 ### Example 3
 

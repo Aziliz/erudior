@@ -46,6 +46,10 @@ $(t - 3)y' + \dfrac{1}{t + 1}\,y = \ln t$, $y(1) = 5$ is guaranteed to exist.
 So the solution exists and is unique on $0 < t < 3$. If the initial point had been
 $t_0 = 5$, the interval would be $(3, \infty)$.
 
+```numberline
+{"x": [-2, 5], "points": [{"at": [-1, 0], "open": true, "label": "−1"}, {"at": [0, 0], "open": true, "label": "0"}, {"at": [3, 0], "open": true, "label": "3"}, {"at": [1, 0], "label": "t₀ = 1"}], "segments": [{"from": [0, 0], "to": [3, 0]}], "caption": "Trouble points −1 (p breaks), 0 (ln t needs t > 0) and 3 (p and g break). The piece containing t₀ = 1 is the open interval (0, 3)."}
+```
+
 ## The theorem for general first-order equations
 
 For a nonlinear equation $y' = f(t, y)$, the condition involves the right side as a
@@ -63,6 +67,11 @@ Two differences from the linear theorem matter:
    blow up, as with $y' = y^2$, $y(0) = 1$, which only lasts until $t = 1$.
 2. Existence alone needs only $f$ continuous. The extra condition on
    $\partial f/\partial y$ is what guarantees **uniqueness**.
+
+The picture shows what the theorem promises: a rectangle where the hypotheses hold, and a
+guaranteed interval that may be much shorter than the rectangle is wide.
+
+![A t–y plane with a shaded rectangle R from t = a to t = b and y = c to y = d, on which f and ∂f/∂y are continuous. The initial point (t₀, y₀) is inside it, and a solution curve passes through the point and leaves through the top of the rectangle before t reaches b. A shorter interval from t₀ − h to t₀ + h around t₀ is highlighted on the t-axis as the guaranteed interval.](images/de-m2-existence-rect.svg)
 
 ### Example 2
 
@@ -119,6 +128,21 @@ $f_y = -p(t)$, so the general theorem asks for $p$ and $g$ continuous, exactly a
 linear theorem does. But only the linear theorem promises the solution lasts across the
 *whole* interval where $p$ and $g$ are continuous. Linear equations can't blow up in the
 middle of a good interval; nonlinear ones can.
+
+## Which theorem when
+
+```mermaid
+flowchart TD
+  accTitle: Which existence and uniqueness theorem to use
+  accDescr: If the first-order equation is linear, put it in standard form y′ + p(t)y = g(t), find where p or g is discontinuous, and conclude that a unique solution exists on the whole open interval between those trouble points that contains t₀. If it is nonlinear, write it as y′ = f(t, y) and check whether f and ∂f/∂y are continuous near (t₀, y₀). If they are, a unique solution exists on some interval around t₀, possibly short. If not, the theorem makes no promise of uniqueness, although f continuous alone still gives existence.
+  A{"Is the equation linear?"} -- yes --> B["Standard form: y′ + p(t)y = g(t)"]
+  B --> C["Find where p or g is discontinuous"]
+  C --> D["Unique solution on the whole open interval containing t₀"]
+  A -- no --> E["Write y′ = f(t, y)"]
+  E --> F{"f and ∂f/∂y continuous near (t₀, y₀)?"}
+  F -- yes --> G["Unique solution on some interval around t₀, maybe short"]
+  F -- no --> H["No promise of uniqueness; f continuous still gives existence"]
+```
 
 ## Common mistakes
 
