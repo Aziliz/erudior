@@ -109,7 +109,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
           <p className="muted">Every finished exam and practice session, and where you're losing points.</p>
         </div>
         <div className="row">
-          <select className="select" style={{ width: "auto" }} value={bankFilter} onChange={(e) => setBankFilter(e.target.value)}>
+          <select className="select" aria-label="Show results for" style={{ width: "auto" }} value={bankFilter} onChange={(e) => setBankFilter(e.target.value)}>
             <option value="">All banks</option>
             {banks.map((b) => (
               <option key={b.id} value={b.id}>
@@ -196,7 +196,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                 <th>Mode</th>
                 <th className="r">Score</th>
                 <th className="r">Time</th>
-                <th />
+                <th><span className="sr-only">Actions</span></th>
               </tr>
             </thead>
             <tbody>
@@ -223,7 +223,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
         <div className="panel-head">
           <h2>Backup</h2>
         </div>
-        <p className="muted small" style={{ marginBottom: 12, maxWidth: "64ch" }}>
+        <p className="muted small" style={{ marginBottom: 12 }}>
           Save all your courses, question banks, notes, flags, card schedules and history to one file. Restore it on
           another computer, or after reinstalling.
         </p>

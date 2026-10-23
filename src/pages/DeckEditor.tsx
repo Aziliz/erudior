@@ -81,7 +81,7 @@ export default function DeckEditor({ api, course, deck }: { api: AppApi; course:
           Save deck
         </button>
       </div>
-      <div className="inner" style={{ maxWidth: 980, margin: "0 auto" }}>
+      <div className="inner">
         <div className="form-grid">
           <label className="field">
             <span>Deck name</span>

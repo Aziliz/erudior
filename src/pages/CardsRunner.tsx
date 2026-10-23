@@ -108,9 +108,9 @@ export default function CardsRunner({ api, course, decks, mode, topics }: Props)
 
   if (!card) {
     return (
-      <div className="page" style={{ maxWidth: 640, textAlign: "center", paddingTop: 80 }}>
+      <div className="page" style={{ textAlign: "center", paddingTop: 80 }}>
         <h1>{total === 0 ? "Nothing to review right now" : mode === "review" ? "Review done" : "Deck done"}</h1>
-        <p className="muted" style={{ margin: "10px auto 24px", maxWidth: "48ch" }}>
+        <p className="muted" style={{ margin: "10px auto 24px" }}>
           {total === 0
             ? "No cards are due and today's new cards are already introduced. Cram mode lets you flip through anyway."
             : mode === "review"
@@ -137,6 +137,7 @@ export default function CardsRunner({ api, course, decks, mode, topics }: Props)
   const remaining = queue.length;
   return (
     <div className="cards-runner">
+      <h1 className="sr-only">Notecards: {decks.length === 1 ? decks[0].title : course.title}</h1>
       <div className="runner-bar">
         <button className="btn ghost sm" onClick={quit}>
           Done

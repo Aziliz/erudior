@@ -111,7 +111,7 @@ export default function DrillRunner({ api, course, drills, count }: { api: AppAp
   if (i >= list.length) {
     const right = results.filter((r) => r.ok).length;
     return (
-      <div className="page" style={{ maxWidth: 760 }}>
+      <div className="page">
         <div className="score-head">
           <div className="score-big">
             {right}
@@ -173,6 +173,7 @@ export default function DrillRunner({ api, course, drills, count }: { api: AppAp
 
   return (
     <div className="runner-main" style={{ height: "100%" }}>
+      <h1 className="sr-only">Math drills: {course.title}</h1>
       <div className="runner-bar">
         <button className="btn ghost sm" onClick={back}>
           Quit

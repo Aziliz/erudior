@@ -28,7 +28,7 @@ export default function RefView({ api, course, sheet }: { api: AppApi; course: C
       <article className="ref-sheet">
         <h1>{sheet.title}</h1>
         <p className="faint small print-only">{course.title}</p>
-        <Markdown source={sheet.body} glossary={course.glossary} />
+        <Markdown source={sheet.body} glossary={course.glossary} foreignLang={course.language?.code} />
       </article>
     </div>
   );

@@ -201,14 +201,14 @@ export default function VocabRunner({
 
   if (!initial.length) {
     return (
-      <div className="page" style={{ maxWidth: 640 }}>
+      <div className="page">
         <button className="back" onClick={back}>
           ← {course.title}
         </button>
         <section className="panel">
-          <h2>
+          <h1 className="h2">
             {mode === "review" ? "No reviews due" : "No words to practice yet"}
-          </h2>
+          </h1>
           <p className="muted">
             {mode === "review"
               ? "Every word you've unlocked has had its review today. Come back tomorrow, or do extra practice (it doesn't change your levels)."
@@ -222,9 +222,9 @@ export default function VocabRunner({
   if (!card) {
     const left = mode === "review" ? dueCards(course, api.progress).length : 0;
     return (
-      <div className="page" style={{ maxWidth: 640 }}>
+      <div className="page">
         <section className="panel">
-          <h2>{mode === "review" ? "Reviews done" : "Practice done"}</h2>
+          <h1 className="h2">{mode === "review" ? "Reviews done" : "Practice done"}</h1>
           <p>
             {stats.right} right, {stats.wrong} wrong.
             {mode === "review" && (stats.up || stats.learned)
@@ -271,7 +271,10 @@ export default function VocabRunner({
   const ok = shown?.verdict.ok;
 
   return (
-    <div className="page vocab-run" style={{ maxWidth: 720 }}>
+    <div className="page vocab-run">
+      <h1 className="sr-only">
+        {mode === "review" ? "Vocabulary review" : "Vocabulary practice"}: {course.title}
+      </h1>
       <div className="run-head">
         <button className="back" onClick={quit}>
           ← End

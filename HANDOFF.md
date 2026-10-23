@@ -60,6 +60,13 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
+## Layout and accessibility (v0.13.0)
+
+- Pages span 95% of the window (2.5% each side, at least 12px): `--page-width` in styles.css. No fixed-pixel content widths; inline `maxWidth` is only used for small form fields.
+- Display menu (top bar): theme, reading width (Full, or Comfortable = 80 characters, for WCAG 1.4.8) and text size (100/115/130%; all font sizes are rem). Stored in localStorage.
+- Target: WCAG 2.2 AA, plus AAA where practical: text colors meet 7:1 in light and dark (tokens --ink-2/3, --accent, --ok, --bad, --flag, --study), form-control borders 3:1 (--field), 3px focus outline, skip link, live-region toasts, 28px glossary jump targets, lang="de" on target-language italics and blockquotes in language lessons, no nested interactive controls (catalog cards use a stretched title button), every screen has an h1, no horizontal scrolling at 320px.
+- `node scripts/a11y-audit.mjs [light|dark] [width]` runs axe-core over the main screens and reports any overflow; it was clean in light and dark at 1280px and at 320px when v0.13.0 shipped. Automated checks can't judge everything (e.g. screen-reader flow, meaningful alt text); test with NVDA/VoiceOver before claiming full conformance.
+
 ## Language courses
 
 - One course per proficiency level (German A1, A2, …), sources in `content/languages/<folder>/`, built by `content/math/build.py` (it covers both areas) to `samples/languages/`. Guide: `content/languages/AUTHORING.md`; `content/languages/check-module.sh <course> mN` builds one module alone.

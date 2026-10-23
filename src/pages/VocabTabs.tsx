@@ -34,7 +34,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
       <section className="panel review-banner">
         <div>
           <h2>Vocabulary reviews</h2>
-          <p className="muted small" style={{ maxWidth: "62ch" }}>
+          <p className="muted small">
             Words join your reviews when you finish the lesson that teaches them. Type each answer: 5 right in a row moves a word
             up a level (Novice, Beginner, Advanced, Expert), and a miss starts that level's count over. After Expert the word
             is learned. Each word counts once a day; extra practice never changes your levels.
@@ -86,7 +86,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
       <section className="panel">
         <div className="row" style={{ justifyContent: "space-between", marginBottom: 12 }}>
           <h2 style={{ margin: 0 }}>Word list</h2>
-          <select aria-label="Show words" value={filter} onChange={(e) => setFilter(e.target.value as typeof filter)}>
+          <select className="select" style={{ width: "auto" }} aria-label="Show words" value={filter} onChange={(e) => setFilter(e.target.value as typeof filter)}>
             <option value="unlocked">Unlocked</option>
             <option value="learning">Still learning</option>
             <option value="learned">Learned</option>
@@ -145,7 +145,7 @@ export function ReadingTab({ course }: { course: Course }) {
     <div className="stack">
       <section className="panel">
         <h2>Reading list</h2>
-        <p className="muted small" style={{ maxWidth: "62ch" }}>
+        <p className="muted small">
           Books and texts written for learners at this level. Try reading on your own: aim to follow the story, not every word.
         </p>
         <ul className="reading-list">

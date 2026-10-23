@@ -481,7 +481,7 @@ function Settings({ draft, update }: { draft: Bank; update: (fn: (b: Bank) => Ba
                 <th className="r">Per exam</th>
                 <th className="r">Pass %</th>
                 <th className="r">Minutes</th>
-                <th />
+                <th><span className="sr-only">Actions</span></th>
               </tr>
             </thead>
             <tbody>

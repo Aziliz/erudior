@@ -102,7 +102,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       <h2 className="section-title">In progress</h2>
       {courses.length === 0 ? (
         <div className="panel" style={{ marginBottom: 8, padding: "18px 22px" }}>
-          <h2 style={{ fontSize: 17, marginBottom: 4 }}>No courses in progress</h2>
+          <h2 style={{ fontSize: "1.0625rem", marginBottom: 4 }}>No courses in progress</h2>
           <p className="muted">Pick a course from the catalog below and choose Start course, or import a course file (.json).</p>
         </div>
       ) : (
@@ -296,20 +296,7 @@ function Catalog({ api }: { api: AppApi }) {
             const needs = have ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
             const open = () => api.go(have ? { name: "course", courseId: e.id } : { name: "overview", catalogId: e.id });
             return (
-              <div
-                key={e.id}
-                className="catalog-card"
-                role="button"
-                tabIndex={0}
-                aria-label={`${e.title}: ${have ? "open course" : "view overview"}`}
-                onClick={open}
-                onKeyDown={(ev) => {
-                  if (ev.target === ev.currentTarget && (ev.key === "Enter" || ev.key === " ")) {
-                    ev.preventDefault();
-                    open();
-                  }
-                }}
-              >
+              <div key={e.id} className="catalog-card">
                 <div className="catalog-tags">
                   <span className="pill neutral">{e.subject}</span>
                   {e.level.map((l) => (
@@ -319,7 +306,13 @@ function Catalog({ api }: { api: AppApi }) {
                   ))}
                   {e.type.includes("Exam prep") && <span className="pill neutral">Exam prep</span>}
                 </div>
-                <h3>{e.title}</h3>
+                <h3>
+                  {/* The whole card is clickable through this button's ::after; the Start button sits above it. */}
+                  <button className="card-link" onClick={open}>
+                    {e.title}
+                    <span className="sr-only">{have ? ": open course" : ": view overview"}</span>
+                  </button>
+                </h3>
                 <p className="muted small clamp3">{e.description}</p>
                 <p className="meta small muted">
                   {[

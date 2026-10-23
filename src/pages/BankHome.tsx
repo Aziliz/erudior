@@ -354,7 +354,7 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                   <th>Mode</th>
                   <th className="r">Score</th>
                   <th className="r">Time</th>
-                  <th />
+                  <th><span className="sr-only">Actions</span></th>
                 </tr>
               </thead>
               <tbody>

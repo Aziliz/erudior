@@ -69,6 +69,18 @@ export interface AppApi {
 
 type Theme = "system" | "light" | "dark";
 
+type ReadingWidth = "full" | "comfortable";
+type TextSize = "100" | "115" | "130";
+
+function readPref<T extends string>(key: string, allowed: T[], fallback: T): T {
+  try {
+    const v = localStorage.getItem(key) as T | null;
+    return v && allowed.includes(v) ? v : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 function readTheme(): Theme {
   try {
     const t = localStorage.getItem("examiner.theme");
@@ -89,6 +101,9 @@ export default function App() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [theme, setTheme] = useState<Theme>(readTheme);
+  const [width, setWidth] = useState<ReadingWidth>(() => readPref("examiner.width", ["full", "comfortable"], "full"));
+  const [textSize, setTextSize] = useState<TextSize>(() => readPref("examiner.textSize", ["100", "115", "130"], "100"));
+  const [displayOpen, setDisplayOpen] = useState(false);
   const toastTimer = useRef<number>(undefined);
   const mainRef = useRef<HTMLElement>(null);
   const [resumable, setResumable] = useState<Resumable | null>(null);
@@ -121,6 +136,19 @@ export default function App() {
       /* storage unavailable; theme just won't persist */
     }
   }, [theme]);
+
+  // Reading width and text size (WCAG 1.4.8 / 1.4.4): applied to <html>, remembered per device.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute("data-width", width);
+    root.style.fontSize = textSize === "100" ? "" : `${textSize}%`;
+    try {
+      localStorage.setItem("examiner.width", width);
+      localStorage.setItem("examiner.textSize", textSize);
+    } catch {
+      /* storage unavailable */
+    }
+  }, [width, textSize]);
 
   // New screen starts at the top.
   useEffect(() => {
@@ -406,6 +434,9 @@ export default function App() {
 
   return (
     <div className="shell">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       {!fullScreen && (
         <header className="topbar">
           <div className="brand">
@@ -446,22 +477,60 @@ export default function App() {
               key={view.name === "search" ? "s" : "x"}
             />
           </form>
-          <label className="small muted row" style={{ gap: 6 }}>
-            Theme
-            <select
-              className="select"
-              style={{ width: "auto", padding: "4px 8px" }}
-              value={theme}
-              onChange={(e) => setTheme(e.target.value as Theme)}
+<div className="display-menu">
+            <button
+              className="btn sm"
+              aria-expanded={displayOpen}
+              aria-controls="display-panel"
+              onClick={() => setDisplayOpen((o) => !o)}
             >
-              <option value="system">System</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-            </select>
-          </label>
+              Display
+            </button>
+            {displayOpen && (
+              <div
+                id="display-panel"
+                className="display-panel"
+                role="group"
+                aria-label="Display settings"
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    setDisplayOpen(false);
+                    document.querySelector<HTMLButtonElement>('[aria-controls="display-panel"]')?.focus();
+                  }
+                }}
+              >
+                <label className="field">
+                  <span>Theme</span>
+                  <select className="select" value={theme} onChange={(e) => setTheme(e.target.value as Theme)}>
+                    <option value="system">System</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                  </select>
+                </label>
+                <label className="field">
+                  <span>Reading width</span>
+                  <select className="select" value={width} onChange={(e) => setWidth(e.target.value as ReadingWidth)}>
+                    <option value="full">Full (95% of the window)</option>
+                    <option value="comfortable">Comfortable (about 80 characters)</option>
+                  </select>
+                </label>
+                <label className="field">
+                  <span>Text size</span>
+                  <select className="select" value={textSize} onChange={(e) => setTextSize(e.target.value as TextSize)}>
+                    <option value="100">Normal</option>
+                    <option value="115">Large</option>
+                    <option value="130">Larger</option>
+                  </select>
+                </label>
+                <button className="btn sm" onClick={() => setDisplayOpen(false)}>
+                  Done
+                </button>
+              </div>
+            )}
+          </div>
         </header>
       )}
-      <main className="main" ref={mainRef}>
+      <main className="main" id="main" tabIndex={-1} ref={mainRef}>
         {!fullScreen && appUpdate && (
           <div className="resume-banner update-banner" role="region" aria-label="App update">
             <div>
@@ -550,11 +619,10 @@ export default function App() {
         )}
         {body}
       </main>
-      {toastMsg && (
-        <div className="toast" role="status">
-          {toastMsg}
-        </div>
-      )}
+      {/* Always mounted so screen readers announce new messages. */}
+      <div className={toastMsg ? "toast" : "sr-only"} role="status" aria-live="polite">
+        {toastMsg}
+      </div>
     </div>
   );
 }

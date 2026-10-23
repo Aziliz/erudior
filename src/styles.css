@@ -8,19 +8,19 @@
   --sheet: #e3eee7; /* answer-sheet green tint */
   --rule: #c8d7ce; /* dropout-ink lines */
   --ink: #1c2833;
-  --ink-2: #4a5a68;
-  --ink-3: #74838f;
+  --ink-2: #3e4c58;
+  --ink-3: #464f57;
   --pencil: #26323d; /* filled bubble */
-  --accent: #2c5e8f;
+  --accent: #244d76;
   --accent-ink: #ffffff;
   --accent-soft: #dde8f3;
-  --ok: #2f8a57;
+  --ok: #1e5737;
   --ok-soft: #dcf0e3;
-  --bad: #b8432f;
+  --bad: #812f21;
   --bad-soft: #f8e1dc;
-  --flag: #a8720f;
+  --flag: #694709;
   --flag-soft: #f7ebcf;
-  --study: #c2570c;
+  --study: #7f3908;
   --study-soft: #fdeedd;
   --fig-0: #2c5e8f;
   --fig-1: #c2570c;
@@ -28,7 +28,7 @@
   --fig-3: #8b3fa8;
   --fig-4: #b7791f;
   --fig-5: #c53030;
-  --focus: #2c5e8f;
+  --focus: #244d76;
   --shadow: 0 1px 2px rgba(28, 40, 51, 0.06), 0 4px 16px rgba(28, 40, 51, 0.05);
 
   --sans: "Public Sans Variable", "Segoe UI", system-ui, sans-serif;
@@ -36,6 +36,10 @@
 
   --r-sm: 6px;
   --r-md: 10px;
+  /* Layout: 95% of the window; the reader can cap the line length (WCAG 1.4.8). */
+  --page-width: min(95%, calc(100% - 24px));
+  --measure: none;
+  --field: #699079; /* form-control borders: 3:1 against the page (WCAG 1.4.11) */
   color-scheme: light;
 }
 
@@ -45,20 +49,21 @@
     --surface: #182126;
     --sheet: #1b2925;
     --rule: #2c3b36;
+    --field: #58756b;
     --ink: #e4ebe7;
-    --ink-2: #a3b3ab;
-    --ink-3: #7b8b84;
+    --ink-2: #b4c1ba;
+    --ink-3: #a9b4af;
     --pencil: #e4ebe7;
-    --accent: #84b6e6;
+    --accent: #99c3ea;
     --accent-ink: #0f1a24;
     --accent-soft: #1f3245;
-    --ok: #63c48f;
+    --ok: #72ca9a;
     --ok-soft: #173126;
-    --bad: #ec8470;
+    --bad: #f09b8b;
     --bad-soft: #3a1f1a;
     --flag: #e2b555;
     --flag-soft: #352b15;
-  --study: #f39c55;
+  --study: #f4a25f;
   --study-soft: #3a2415;
   --fig-0: #84b6e6;
   --fig-1: #f39c55;
@@ -66,7 +71,7 @@
   --fig-3: #d6a2e8;
   --fig-4: #f6c768;
   --fig-5: #fc8181;
-    --focus: #84b6e6;
+    --focus: #99c3ea;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
   }
@@ -76,20 +81,21 @@
   --surface: #182126;
   --sheet: #1b2925;
   --rule: #2c3b36;
+    --field: #58756b;
   --ink: #e4ebe7;
-  --ink-2: #a3b3ab;
-  --ink-3: #7b8b84;
+  --ink-2: #b4c1ba;
+  --ink-3: #a9b4af;
   --pencil: #e4ebe7;
-  --accent: #84b6e6;
+  --accent: #99c3ea;
   --accent-ink: #0f1a24;
   --accent-soft: #1f3245;
-  --ok: #63c48f;
+  --ok: #72ca9a;
   --ok-soft: #173126;
-  --bad: #ec8470;
+  --bad: #f09b8b;
   --bad-soft: #3a1f1a;
   --flag: #e2b555;
   --flag-soft: #352b15;
-  --study: #f39c55;
+  --study: #f4a25f;
   --study-soft: #3a2415;
   --fig-0: #84b6e6;
   --fig-1: #f39c55;
@@ -97,7 +103,7 @@
   --fig-3: #d6a2e8;
   --fig-4: #f6c768;
   --fig-5: #fc8181;
-  --focus: #84b6e6;
+  --focus: #99c3ea;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   color-scheme: dark;
 }
@@ -116,7 +122,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -129,13 +135,13 @@ h3 {
   letter-spacing: -0.01em;
 }
 h1 {
-  font-size: 26px;
+  font-size: 1.625rem;
 }
 h2 {
-  font-size: 19px;
+  font-size: 1.1875rem;
 }
 h3 {
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 p {
   margin: 0;
@@ -147,9 +153,33 @@ textarea {
   font: inherit;
   color: inherit;
 }
+a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
 :focus-visible {
-  outline: 2px solid var(--focus);
+  outline: 3px solid var(--focus);
   outline-offset: 2px;
+}
+.main:focus {
+  outline: none;
+}
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--r-sm);
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 8px;
 }
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -164,7 +194,7 @@ textarea {
   color: var(--ink-3);
 }
 .small {
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .num {
   font-variant-numeric: tabular-nums;
@@ -178,10 +208,11 @@ textarea {
 }
 .topbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 24px;
-  padding: 0 20px;
-  height: 52px;
+  gap: 8px 24px;
+  padding: 8px 20px;
+  min-height: 52px;
   border-bottom: 1px solid var(--rule);
   background: var(--surface);
   flex-shrink: 0;
@@ -191,7 +222,7 @@ textarea {
   align-items: center;
   gap: 9px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   letter-spacing: -0.01em;
 }
 .brand svg {
@@ -227,9 +258,12 @@ textarea {
   overflow: auto;
 }
 .page {
-  max-width: 1040px;
+  /* Content spans 95% of the window (2.5% each side), never less than 12px of margin.
+     --measure caps line length only when the reader picks "Comfortable" reading width. */
+  width: var(--page-width);
+  max-width: var(--measure);
   margin: 0 auto;
-  padding: 32px 28px 64px;
+  padding: 32px 0 64px;
 }
 .page-head {
   display: flex;
@@ -241,7 +275,6 @@ textarea {
 }
 .page-head p {
   margin-top: 6px;
-  max-width: 62ch;
 }
 .back {
   border: 0;
@@ -250,7 +283,7 @@ textarea {
   cursor: pointer;
   padding: 0;
   margin-bottom: 14px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .back:hover {
   color: var(--ink);
@@ -264,12 +297,13 @@ textarea {
   gap: 8px;
   padding: 8px 14px;
   border-radius: var(--r-sm);
-  border: 1px solid var(--rule);
+  border: 1px solid var(--field);
   background: var(--surface);
   color: var(--ink);
   font-weight: 560;
   cursor: pointer;
   white-space: nowrap;
+  max-width: 100%;
 }
 .btn:hover:not(:disabled) {
   border-color: var(--ink-3);
@@ -299,11 +333,11 @@ textarea {
 }
 .btn.sm {
   padding: 5px 10px;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .btn.lg {
   padding: 11px 20px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .row {
   display: flex;
@@ -317,7 +351,7 @@ textarea {
   gap: 5px;
 }
 .field > span {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--ink-2);
 }
@@ -326,7 +360,7 @@ textarea {
 .textarea {
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--field);
   border-radius: var(--r-sm);
   background: var(--surface);
 }
@@ -344,7 +378,7 @@ textarea {
 }
 .textarea.serif {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 1rem;
 }
 .check {
   display: inline-flex;
@@ -380,7 +414,7 @@ textarea {
   border-radius: var(--r-sm);
   background: var(--flag-soft);
   color: var(--ink);
-  font-size: 14px;
+  font-size: 0.875rem;
   border-left: 3px solid var(--flag);
 }
 .notice.error {
@@ -399,7 +433,7 @@ textarea {
   color: var(--paper);
   padding: 10px 16px;
   border-radius: var(--r-sm);
-  font-size: 14px;
+  font-size: 0.875rem;
   box-shadow: var(--shadow);
   z-index: 50;
 }
@@ -427,10 +461,10 @@ textarea {
   background: var(--sheet);
 }
 .bank-row h2 {
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 .bank-row .meta {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-2);
   margin-top: 3px;
 }
@@ -440,7 +474,7 @@ textarea {
 }
 .bank-row .stat b {
   display: block;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-variant-numeric: tabular-nums;
 }
 .empty {
@@ -449,7 +483,6 @@ textarea {
 }
 .empty p {
   margin: 8px auto 20px;
-  max-width: 46ch;
 }
 
 /* ---------- Bank home ---------- */
@@ -472,7 +505,7 @@ textarea {
 }
 .mode-panel .desc {
   color: var(--ink-2);
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-bottom: 16px;
 }
 .form-grid {
@@ -487,11 +520,11 @@ textarea {
   gap: 6px;
 }
 .chip {
-  border: 1px solid var(--rule);
+  border: 1px solid var(--field);
   background: var(--surface);
   border-radius: 999px;
   padding: 4px 11px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   cursor: pointer;
 }
 .chip[aria-pressed="true"] {
@@ -501,7 +534,7 @@ textarea {
 }
 .seg {
   display: inline-flex;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--field);
   border-radius: var(--r-sm);
   overflow: hidden;
 }
@@ -509,7 +542,7 @@ textarea {
   border: 0;
   background: var(--surface);
   padding: 6px 11px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   cursor: pointer;
   border-right: 1px solid var(--rule);
 }
@@ -532,12 +565,12 @@ textarea {
 }
 .stats-strip div b {
   display: block;
-  font-size: 22px;
+  font-size: 1.375rem;
   font-variant-numeric: tabular-nums;
   font-weight: 650;
 }
 .stats-strip div span {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-2);
 }
 
@@ -545,13 +578,14 @@ textarea {
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
 }
 .table th {
   text-align: left;
   font-weight: 600;
   color: var(--ink-2);
-  font-size: 13px;
+  font-size: 0.8125rem;
   padding: 0 10px 8px;
   border-bottom: 1px solid var(--rule);
 }
@@ -598,7 +632,7 @@ textarea {
   display: inline-block;
   padding: 1px 8px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 650;
 }
 .pill.pass {
@@ -623,7 +657,7 @@ textarea {
   height: 22px;
   border-radius: 50%;
   border: 1.5px solid var(--ink-3);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--ink-2);
   background: var(--surface);
@@ -689,7 +723,7 @@ textarea {
 .clock {
   font-variant-numeric: tabular-nums;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   padding: 3px 10px;
   border-radius: var(--r-sm);
   background: var(--sheet);
@@ -717,32 +751,33 @@ textarea {
   overflow: auto;
 }
 .q-wrap {
-  max-width: 760px;
+  width: var(--page-width);
+  max-width: var(--measure);
   margin: 0 auto;
-  padding: 36px 32px 24px;
+  padding: 36px 0 24px;
 }
 .q-meta {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 14px;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-2);
 }
 .q-meta .qnum {
   font-weight: 700;
   color: var(--ink);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .q-stem {
   font-family: var(--serif);
-  font-size: 21px;
+  font-size: 1.3125rem;
   line-height: 1.5;
   margin-bottom: 8px;
   white-space: pre-wrap;
 }
 .q-hint {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-2);
   margin-bottom: 20px;
 }
@@ -759,11 +794,11 @@ textarea {
   width: 100%;
   text-align: left;
   padding: 13px 16px;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--field);
   border-radius: var(--r-md);
   background: var(--surface);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.45;
 }
 .choice .bubble {
@@ -806,7 +841,7 @@ textarea {
 }
 .feedback .expl {
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 1rem;
   white-space: pre-wrap;
 }
 .runner-foot {
@@ -826,7 +861,7 @@ textarea {
   color: var(--flag);
 }
 .kbd {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--ink-3);
 }
 
@@ -848,7 +883,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 12px;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--ink-2);
 }
 .legend span {
@@ -900,7 +935,7 @@ textarea {
   border-radius: var(--r-sm);
 }
 .cell small {
-  font-size: 10px;
+  font-size: 0.625rem;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
@@ -955,14 +990,14 @@ textarea {
   margin-bottom: 20px;
 }
 .score-big {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: 750;
   line-height: 1;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.03em;
 }
 .score-big small {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--ink-2);
 }
@@ -974,7 +1009,7 @@ textarea {
   border-bottom: 0;
 }
 .review-item .q-stem {
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 .review-choices {
   list-style: none;
@@ -988,12 +1023,12 @@ textarea {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .review-expl {
   margin-top: 10px;
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: var(--ink-2);
   padding-left: 12px;
   border-left: 2px solid var(--rule);
@@ -1044,10 +1079,10 @@ textarea {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .q-item .m {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--ink-3);
   margin-top: 2px;
 }
@@ -1058,8 +1093,10 @@ textarea {
   overflow: auto;
 }
 .editor-main .inner {
-  max-width: 780px;
-  padding: 24px 32px 64px;
+  width: var(--page-width);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 24px 0 64px;
 }
 .editor-bar {
   display: flex;
@@ -1105,7 +1142,7 @@ textarea {
    Courses
    ===================================================================== */
 .section-title {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 650;
   color: var(--ink-2);
   margin: 0 0 12px;
@@ -1145,7 +1182,7 @@ button.bank-row:last-child {
 }
 button.course-row {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 24px;
   align-items: center;
   padding: 22px 24px;
@@ -1160,17 +1197,18 @@ button.course-row:hover {
   border-left-color: var(--accent);
 }
 .course-row h2 {
-  font-size: 19px;
+  font-size: 1.1875rem;
   margin-bottom: 4px;
 }
 .course-row .meta {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-3);
   margin-top: 6px;
 }
 .course-stats {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px 24px;
 }
 .stat {
   text-align: right;
@@ -1178,12 +1216,12 @@ button.course-row:hover {
 }
 .stat b {
   display: block;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-variant-numeric: tabular-nums;
 }
 @media (max-width: 760px) {
   button.course-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .course-stats .stat {
     text-align: left;
@@ -1192,6 +1230,7 @@ button.course-row:hover {
 
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   border-bottom: 1px solid var(--rule);
   margin-bottom: 22px;
@@ -1234,13 +1273,13 @@ button.course-row:hover {
   min-width: 110px;
 }
 .countdown b {
-  font-size: 52px;
+  font-size: 3.25rem;
   line-height: 1;
   font-weight: 750;
   letter-spacing: -0.03em;
 }
 .countdown span {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-2);
   text-align: center;
   margin-top: 4px;
@@ -1274,7 +1313,7 @@ button.course-row:hover {
   text-decoration-thickness: 1px;
 }
 .readiness {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 750;
   line-height: 1;
 }
@@ -1285,11 +1324,11 @@ button.course-row:hover {
 }
 .mini-stats b {
   display: block;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 650;
 }
 .mini-stats span {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-2);
 }
 
@@ -1359,7 +1398,7 @@ button.course-row:hover {
   flex: 1;
 }
 .bubble.right {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 /* Cards tab */
@@ -1372,7 +1411,6 @@ button.course-row:hover {
 }
 .review-banner p {
   margin-top: 4px;
-  max-width: 60ch;
 }
 
 /* Glossary */
@@ -1384,8 +1422,13 @@ button.course-row:hover {
 .letters a {
   color: var(--ink-2);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  min-height: 28px;
   padding: 2px 6px;
   border-radius: 4px;
 }
@@ -1397,7 +1440,7 @@ button.course-row:hover {
   margin-top: 18px;
 }
 .gl-letter {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--ink-3);
   border-bottom: 1px solid var(--rule);
   padding-bottom: 4px;
@@ -1418,7 +1461,7 @@ button.course-row:hover {
 .gl-entry dd {
   margin: 0;
   font-family: var(--serif);
-  font-size: 15.5px;
+  font-size: 0.9688rem;
 }
 @media (max-width: 700px) {
   .gl-entry {
@@ -1452,7 +1495,7 @@ button.course-row:hover {
   border-top-color: var(--accent);
 }
 .ref-page {
-  max-width: 900px;
+  max-width: var(--measure);
 }
 .ref-sheet h1 {
   margin-bottom: 18px;
@@ -1467,9 +1510,8 @@ button.course-row:hover {
 }
 .prose {
   font-family: var(--serif);
-  font-size: 17.5px;
+  font-size: 1.0938rem;
   line-height: 1.65;
-  max-width: 70ch;
 }
 .prose > * + * {
   margin-top: 0.85em;
@@ -1483,13 +1525,13 @@ button.course-row:hover {
   letter-spacing: -0.01em;
 }
 .prose h2 {
-  font-size: 21px;
+  font-size: 1.3125rem;
 }
 .prose h3 {
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 .prose h4 {
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .prose p,
 .prose ul,
@@ -1526,8 +1568,9 @@ button.course-row:hover {
 .prose table {
   border-collapse: collapse;
   width: 100%;
+  overflow-wrap: anywhere;
   font-family: var(--sans);
-  font-size: 14.5px;
+  font-size: 0.9062rem;
   line-height: 1.45;
 }
 .prose th,
@@ -1550,7 +1593,7 @@ button.course-row:hover {
   max-width: none;
 }
 .ref-sheet .prose {
-  font-size: 16px;
+  font-size: 1rem;
 }
 button.gloss {
   font: inherit;
@@ -1580,7 +1623,7 @@ button.gloss:hover {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
   padding: 12px 14px;
   font-family: var(--sans);
-  font-size: 14.5px;
+  font-size: 0.9062rem;
   line-height: 1.5;
 }
 .gloss-pop p {
@@ -1589,13 +1632,13 @@ button.gloss:hover {
 
 /* Lesson page */
 .lesson-page {
-  max-width: 820px;
+  max-width: var(--measure);
 }
 .lesson-head {
   margin-bottom: 26px;
 }
 .lesson-head h1 {
-  font-size: 32px;
+  font-size: 2rem;
   margin-top: 4px;
 }
 .lesson-practice {
@@ -1612,6 +1655,7 @@ button.gloss:hover {
 }
 .lesson-foot {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -1636,7 +1680,7 @@ button.gloss:hover {
 }
 .flashcard {
   width: 100%;
-  max-width: 680px;
+  max-width: var(--measure);
   min-height: 300px;
   background: var(--surface);
   border: 1px solid var(--rule);
@@ -1664,13 +1708,13 @@ button.gloss:hover {
   flex-direction: column;
 }
 .fc-tag {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--ink-3);
   font-weight: 600;
   margin-bottom: 18px;
 }
 .fc-front {
-  font-size: 22px;
+  font-size: 1.375rem;
   line-height: 1.45;
 }
 .fc-side hr {
@@ -1680,7 +1724,7 @@ button.gloss:hover {
   margin: 22px 0;
 }
 .fc-back {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .card-actions {
   padding: 16px 24px 28px;
@@ -1716,7 +1760,7 @@ button.gloss:hover {
   color: var(--accent);
 }
 .kbd-inline {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--ink-3);
   border: 1px solid var(--rule);
   border-radius: 4px;
@@ -1731,7 +1775,7 @@ button.gloss:hover {
 
 /* Drills */
 .drill-prompt {
-  font-size: 19px;
+  font-size: 1.1875rem;
 }
 .drill-answer {
   display: flex;
@@ -1740,7 +1784,7 @@ button.gloss:hover {
   margin-top: 24px;
 }
 .answer-input {
-  font-size: 20px;
+  font-size: 1.25rem;
   padding: 10px 12px;
 }
 .answer-input.ok {
@@ -1752,13 +1796,13 @@ button.gloss:hover {
   background: var(--bad-soft);
 }
 .feedback .prose {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 /* Editors */
 .mono {
   font-family: ui-monospace, "Cascadia Code", "DejaVu Sans Mono", monospace;
-  font-size: 13.5px;
+  font-size: 0.8438rem;
 }
 .split {
   display: grid;
@@ -1780,7 +1824,7 @@ button.gloss:hover {
   padding: 7px 10px;
 }
 .split-group {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 650;
   color: var(--ink-3);
   padding: 10px 10px 4px;
@@ -1840,6 +1884,7 @@ button.gloss:hover {
   .page {
     padding: 0;
     max-width: none;
+    width: 100%;
   }
   .prose th {
     background: #eee;
@@ -1872,7 +1917,8 @@ button.gloss:hover {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  max-width: 1040px;
+  width: var(--page-width);
+  max-width: var(--measure);
   margin: 16px auto 0;
   padding: 12px 16px;
   border: 1px solid var(--accent);
@@ -1901,7 +1947,7 @@ button.gloss:hover {
   padding: 8px 12px;
   background: var(--flag-soft);
   border-radius: var(--r-sm);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .review-actions {
   margin-top: 10px;
@@ -1914,8 +1960,9 @@ button.gloss:hover {
 /* Search */
 .top-search .input {
   width: 220px;
+  max-width: 100%;
   padding: 5px 10px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 @media (max-width: 760px) {
   .top-search .input {
@@ -1923,7 +1970,7 @@ button.gloss:hover {
   }
 }
 .search-big {
-  font-size: 18px;
+  font-size: 1.125rem;
   padding: 12px 14px;
 }
 .search-group {
@@ -2134,6 +2181,7 @@ mark {
   gap: 12px;
 }
 .catalog-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -2143,12 +2191,31 @@ mark {
   background: var(--surface);
 }
 .catalog-card h3 {
-  font-size: 17px;
+  font-size: 1.0625rem;
   margin: 2px 0 0;
 }
 .catalog-card .btn {
   align-self: flex-start;
   margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+.card-link {
+  all: unset;
+  cursor: pointer;
+}
+.card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-md);
+}
+.catalog-card:hover {
+  border-color: var(--ink-3);
+}
+.catalog-card:has(.card-link:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
 }
 .catalog-tags {
   display: flex;
@@ -2162,16 +2229,6 @@ mark {
   overflow: hidden;
 }
 
-.catalog-card[role="button"] {
-  cursor: pointer;
-}
-.catalog-card[role="button"]:hover {
-  border-color: var(--ink-3);
-}
-.catalog-card[role="button"]:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
 .pager {
   display: flex;
   flex-wrap: wrap;
@@ -2185,7 +2242,6 @@ mark {
   color: var(--paper);
 }
 .overview-about p {
-  max-width: 72ch;
 }
 .lesson-plan {
   list-style: none;
@@ -2196,7 +2252,7 @@ mark {
   gap: 18px;
 }
 .lesson-plan-module h3 {
-  font-size: 16px;
+  font-size: 1rem;
   margin: 0 0 6px;
 }
 .lesson-plan-module ol {
@@ -2207,6 +2263,9 @@ mark {
 }
 
 /* ---------- Vocabulary (language courses) ---------- */
+h1.h2 {
+  font-size: 1.25rem;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2222,7 +2281,6 @@ mark {
   margin-bottom: 12px;
 }
 .vocab-card {
-  max-width: 640px;
   margin: 0 auto;
 }
 .vocab-meta {
@@ -2256,7 +2314,7 @@ mark {
   width: 100%;
   font-size: 1.3rem;
   padding: 12px 14px;
-  border: 2px solid var(--rule);
+  border: 2px solid var(--field);
   border-radius: var(--r-md);
   background: var(--surface);
   color: var(--ink);
@@ -2351,4 +2409,67 @@ mark {
 }
 .reading-list .pill {
   margin-left: 8px;
+}
+
+/* Reading width: "Comfortable" caps lines at about 80 characters (WCAG 1.4.8). */
+:root[data-width="comfortable"] {
+  --measure: 80ch;
+}
+
+/* ---------- Display menu ---------- */
+.display-menu {
+  position: relative;
+}
+.display-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 50;
+  display: grid;
+  gap: 12px;
+  min-width: 260px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow);
+}
+.display-panel .field span {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Narrow screens (and 400% zoom): the top bar wraps instead of scrolling sideways (WCAG 1.4.10). */
+@media (max-width: 560px) {
+  .table .row {
+    flex-wrap: wrap !important;
+  }
+  button.course-row {
+    padding: 16px;
+  }
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+  .topbar {
+    gap: 8px 12px;
+    padding: 8px 12px;
+  }
+  .topbar .spacer {
+    display: none;
+  }
+  .top-search {
+    flex: 1 1 100%;
+    order: 3;
+  }
+  .top-search .input {
+    width: 100%;
+  }
+  .display-panel {
+    right: auto;
+    left: 0;
+    max-width: calc(100vw - 24px);
+  }
 }

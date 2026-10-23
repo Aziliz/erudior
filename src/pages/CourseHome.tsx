@@ -229,7 +229,7 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
       <div className="stack">
         <section className="panel">
           <h2 style={{ marginBottom: 6 }}>{plan ? "Change your plan" : "Plan your study time"}</h2>
-          <p className="muted" style={{ marginBottom: 18, maxWidth: "62ch" }}>
+          <p className="muted" style={{ marginBottom: 18 }}>
             Set your exam date and Examiner lays out a daily checklist: lessons spread over the time you have, notecard
             reviews, practice questions, and full timed exams in the last stretch.
           </p>
@@ -609,7 +609,7 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
                   <th className="r">Due</th>
                   <th className="r">New</th>
                   <th style={{ width: "26%" }}>Learned</th>
-                  <th />
+                  <th><span className="sr-only">Actions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -724,7 +724,7 @@ function DrillsTab({ api, course }: { api: AppApi; course: Course }) {
               <th>Topic</th>
               <th className="r">Tried</th>
               <th style={{ width: "28%" }}>Accuracy</th>
-              <th />
+              <th><span className="sr-only">Actions</span></th>
             </tr>
           </thead>
           <tbody>
@@ -783,20 +783,20 @@ function GlossaryTab({ course }: { course: Course }) {
           aria-label="Search glossary"
         />
         {!s && (
-          <div className="letters" aria-label="Jump to letter">
+          <nav className="letters" aria-label="Jump to letter">
             {[...groups.keys()].map((k) => (
               <a key={k} href={`#gl-${k}`}>
                 {k}
               </a>
             ))}
-          </div>
+          </nav>
         )}
       </div>
       {list.length === 0 && <p className="muted">No terms match "{q}".</p>}
       <section className="panel glossary">
         {[...groups.entries()].map(([k, items]) => (
           <div key={k} id={`gl-${k}`} className="gl-group">
-            <h3 className="gl-letter">{k}</h3>
+            <h2 className="gl-letter">{k}</h2>
             <dl>
               {items.map((g) => (
                 <div key={g.term} className="gl-entry">

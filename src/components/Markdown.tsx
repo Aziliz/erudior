@@ -32,7 +32,8 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
   const figs = protectFigures(md, scope);
   const math = protectMath(figs.text);
   const html = math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string));
-  return DOMPurify.sanitize(html, {
+  // An empty corner header cell is announced as a blank header; make it a plain cell.
+  return DOMPurify.sanitize(html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>"), {
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
@@ -50,14 +51,24 @@ export default function Markdown({
   glossary = [],
   className = "prose",
   scope,
+  foreignLang,
 }: {
   source: string;
+  /** Language courses: italic text is the target language (authoring convention), so mark it
+   * with lang="…" for screen readers and the browser's hyphenation (WCAG 3.1.2). */
+  foreignLang?: string;
   glossary?: GlossaryEntry[];
   className?: string;
   /** Values for expressions inside figures (drills). */
   scope?: Record<string, number>;
 }) {
-  const html = useMemo(() => renderMarkdown(source, scope), [source, scope]);
+  const html = useMemo(() => {
+    const out = renderMarkdown(source, scope);
+    if (!foreignLang) return out;
+    const code = foreignLang.replace(/[^A-Za-z-]/g, "");
+    // Dialogues and reading texts are blockquotes in the target language, too.
+    return out.replace(/<em>/g, `<em lang="${code}">`).replace(/<blockquote>/g, `<blockquote lang="${code}">`);
+  }, [source, scope, foreignLang]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 

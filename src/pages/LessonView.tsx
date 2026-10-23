@@ -71,7 +71,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
       </header>
 
       <article className="lesson-body">
-        <Markdown source={lesson.body} glossary={course.glossary} />
+        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} />
       </article>
 
       {words.length > 0 && (

@@ -70,7 +70,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
           Save course
         </button>
       </div>
-      <div className="inner" style={{ maxWidth: 1080, margin: "0 auto" }}>
+      <div className="inner">
         {isNew && tab === "details" && (
           <p className="notice" style={{ marginBottom: 16 }}>
             Name your course, then add lessons here. Question banks and notecard decks are added from the course page.
