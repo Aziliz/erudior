@@ -153,4 +153,4 @@ A mutation that destroys a target's seed match frees that mRNA from control, so 
 - Proteins act in trans and can affect both copies in a partial diploid; DNA sites such as operators act in cis.
 - Eukaryotic genes are switched by combinations of activators at enhancers, which reach the promoter by DNA looping and Mediator.
 - Histone acetylation opens chromatin; DNA methylation at CpG silences promoters and is copied after replication. Heritable expression states without sequence change are epigenetic.
-- Alternative splicing multiplies the proteins one gene can make; microRNAs pair with mRNA 3′ ends to reduce translation.
+- Alternative splicing multiplies the proteins one gene can make; microRNAs pair with sites in mRNA 3′ untranslated regions to reduce translation and speed mRNA decay.

@@ -23,7 +23,7 @@ Potency describes how many cell types a cell can produce:
 ```mermaid
 flowchart TD
   accTitle: The potency hierarchy
-  accDescr: The totipotent zygote gives rise to the trophoblast, which forms the placenta, and to the pluripotent inner cell mass. The inner cell mass gives rise to many multipotent stem cells, such as blood stem cells and intestinal stem cells. Blood stem cells give rise to red blood cells, white blood cells and platelets. Intestinal stem cells give rise to the absorptive and mucus-secreting cells of the gut lining.
+  accDescr: The totipotent zygote gives rise to the trophoblast, which forms the placenta, and to the pluripotent inner cell mass. The inner cell mass gives rise, through many intermediate steps not shown, to multipotent stem cells such as blood stem cells and intestinal stem cells. Blood stem cells give rise to red blood cells, white blood cells and platelets. Intestinal stem cells give rise to the absorptive and mucus-secreting cells of the gut lining.
   Z["Zygote: totipotent"] --> TB["Trophoblast: placenta"]
   Z --> ICM["Inner cell mass: pluripotent"]
   ICM --> HSC["Blood stem cell: multipotent"]
@@ -33,6 +33,8 @@ flowchart TD
   HSC --> PL["Platelets"]
   ISC --> GUT["Gut lining cells"]
 ```
+
+The diagram skips many steps: the inner cell mass first forms the germ layers, and adult stem cells such as blood and intestinal stem cells arise from them much later.
 
 ## Proving a stem cell exists
 

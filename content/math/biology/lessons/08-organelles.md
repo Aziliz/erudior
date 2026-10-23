@@ -34,7 +34,7 @@ Small membrane sacs called vesicles bud off the ER, carrying new proteins to the
 Together, the nuclear envelope, ER, Golgi, vesicles, lysosomes and plasma membrane form the endomembrane system: a set of membranes connected by moving vesicles. The flowchart traces one protein made for export through the system; Example 1 shows how this route was discovered.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: The path of a secreted protein
   accDescr: DNA in the nucleus is copied into mRNA, which leaves through a nuclear pore. Ribosomes on the rough ER build the protein and thread it into the ER, where it folds. A transport vesicle carries it to the Golgi apparatus, which modifies, sorts and packages it. A secretory vesicle then carries it to the plasma membrane, where exocytosis releases it outside the cell. Other Golgi vesicles carry enzymes to lysosomes instead.
   N["Nucleus: DNA to mRNA"] --> R["Rough ER: protein built and folded"]

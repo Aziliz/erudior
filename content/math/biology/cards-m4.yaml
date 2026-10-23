@@ -45,7 +45,7 @@
 - {front: One crossover between two genes, back: 'Involves 2 of the 4 chromatids: 2 recombinant and 2 parental products, so recombinant gametes are at most about 50%.', topic: Genetic variation}
 - {front: Telling meiosis I from meiosis II errors, back: 'Markers near the centromere: two different homologs from one parent = meiosis I; two identical copies = meiosis II.', topic: Nondisjunction}
 - {front: Origin of trisomy 21, back: 'About 90% maternal (roughly 70% of all cases maternal meiosis I, 20% maternal meiosis II), about 5% paternal, a few percent mitotic (mosaic).', topic: Nondisjunction}
-- {front: 47 XYY origin, back: 'Always paternal meiosis II: a YY sperm from sister chromatids that failed to separate.', topic: Nondisjunction}
+- {front: 47 XYY origin, back: 'Usually paternal meiosis II: a YY sperm from sister chromatids that failed to separate (less often, a mitotic error after fertilization).', topic: Nondisjunction}
 - {front: Gamete kinds with crossovers, back: '4^c × 2^(n−c) for n pairs each heterozygous for two genes, with c pairs having a crossover between them.', topic: Genetic variation}
 - {front: Grandparental share of a gamete, back: 'Number of chromosomes from one grandparent is binomial: P(k) = C(n, k)/2^n; humans average 11.5 of 23.', topic: Genetic variation}
 - {front: Autopolyploid vs allopolyploid, back: 'Auto: extra sets from its own species (unreduced gametes, colchicine). Allo: sets from two species, hybrid plus doubling (Karpechenko radish-cabbage, bread wheat 6x = 42).', topic: Genetic variation}

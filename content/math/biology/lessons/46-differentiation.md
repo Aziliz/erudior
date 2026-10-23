@@ -35,7 +35,7 @@ Spemann cut out a patch of tissue that would normally become brain ("presumptive
 
 Step 1: If a tissue is not yet determined, it should follow its *new* position. In the early gastrula, the transplanted brain tissue became belly skin, and the transplanted skin tissue became brain. The fates were not fixed.
 
-Step 2: If a tissue is determined, it follows its *old* fate. In the late gastrula, the transplanted presumptive neural tissue formed neural tissue in the belly, in the wrong place.
+Step 2: If a tissue is determined, it follows its *old* fate. In the late gastrula, the transplanted presumptive neural tissue formed neural tissue in the belly, in the wrong place, and the transplanted presumptive epidermis stayed epidermis.
 
 Step 3: Conclusion: between early and late gastrulation, signals from the surroundings fixed the fate of the future neural tissue. The next question was: what sends those signals?
 
@@ -120,7 +120,7 @@ When the Hox genes were cloned in the 1980s, each turned out to contain the same
 
 ![Fly Hox genes in their order along the chromosome, lab, pb, Dfd, Scr, Antp, Ubx, abd-A and Abd-B, matched by color to the regions of the embryo's body where each is mainly expressed, from the head to the rear of the abdomen; pb, which acts mainly in adult mouthparts, has no region shown.](images/h2-hox-colinearity.svg)
 
-Two features are striking. First, **colinearity**: the order of the Hox genes on the chromosome matches the order of the body regions where they act, front to back. Second, conservation: the same genes, in the same order, are found in almost all animals. Mammals have 39 Hox genes in four clusters (HOXA to HOXD), which arose by duplication (lesson 48). Mouse and human Hox genes pattern the vertebrae and limbs: mice lacking both *Hoxa11* and *Hoxd11* have severely reduced forearm bones, and people with certain *HOXD13* mutations are born with fused, extra fingers. Some human and mouse Hox genes can even do much of the job of their fly counterparts when expressed in flies.
+Two features are striking. First, **colinearity**: the order of the Hox genes on the chromosome matches the order of the body regions where they act, front to back. Second, conservation: related Hox genes are found in nearly all animals, and in many of them, including flies and mammals, they sit in clusters in the same order. Mammals have 39 Hox genes in four clusters (HOXA to HOXD), which arose by duplication (lesson 48). Mouse and human Hox genes pattern the vertebrae and limbs: mice lacking both *Hoxa11* and *Hoxd11* have severely reduced forearm bones, and people with certain *HOXD13* mutations are born with fused, extra fingers. Some human and mouse Hox genes can even do much of the job of their fly counterparts when expressed in flies.
 
 ### Example 3: A maternal effect cross
 
@@ -138,7 +138,7 @@ Step 3: This one-generation delay is the signature of a maternal effect gene, an
 - Saying the organizer graft formed the whole second embryo. It formed mainly notochord and *induced* host cells to form the rest.
 - Thinking a morphogen tells each cell exactly what to make. It gives a concentration; cells' own thresholds and transcription factors interpret it.
 - Confusing homeotic mutations (a part replaced by another part) with segmentation mutations (segments missing or fused).
-- Thinking Hox genes are unique to insects. They are shared by nearly all animals, in the same order.
+- Thinking Hox genes are unique to insects. Related Hox genes are found in nearly all animals, often clustered in the same order.
 
 ## Key points
 

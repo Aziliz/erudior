@@ -440,7 +440,7 @@
     - 'Mostly in the new cartilage'
   answer: 3
   explanation: |-
-    Lineage tracing in axolotls (2009) showed blastema cells mostly keep a memory of their origin: cartilage-derived cells make cartilage, muscle-derived cells make muscle. An even spread would be expected only if the blastema were pluripotent, which it is not. Cartilage-derived cells do contribute strongly to the regrown limb.
+    Lineage tracing in axolotls (2009) showed blastema cells mostly keep a memory of their origin: cartilage-derived cells make cartilage, muscle-derived cells make muscle. An even spread would be expected only if the blastema were pluripotent, which it is not. The labeled cells survive and divide in the blastema, so they do appear in the new limb, but not in the skin, which regrows from epidermis.
 - id: bio-qh-h2-40
   lesson: bio-h-stem-cells
   type: order

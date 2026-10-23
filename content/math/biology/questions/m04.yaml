@@ -838,7 +838,7 @@
 - id: bio-qh-0422
   lesson: bio-h-meiosis-variation
   topic: Nondisjunction
-  stem: 'A person has the karyotype 47,XYY. In which parent and division did nondisjunction occur?'
+  stem: 'A person has the karyotype 47,XYY. In which parent and division did nondisjunction most likely occur?'
   choices:
     - 'Father, meiosis II'
     - 'Mother, meiosis I'
@@ -858,7 +858,7 @@
     - 'Nondisjunction in a mitotic division of the early embryo, producing mosaicism'
   answer: 3
   explanation: |-
-    A meiotic error would put the extra chromosome in the zygote and so in every cell. A mix of normal and trisomic cells means the error happened in a mitosis after fertilization, creating two cell lines: mosaicism. Crossing over does not change chromosome number, and polyploidy would add whole sets.
+    A meiotic error alone would put the extra chromosome in the zygote and so in every cell. A mix of normal and trisomic cells means a mitotic error after fertilization created two cell lines: mosaicism. (Sometimes a trisomic zygote loses the extra copy in one early mitosis, which also gives a mosaic; either way the mix comes from a mitotic error.) Crossing over does not change chromosome number, and polyploidy would add whole sets.
 - id: bio-qh-0424
   lesson: bio-h-meiosis-variation
   topic: Genetic variation
@@ -948,6 +948,6 @@
   topic: Genetic variation
   type: text
   stem: 'A fertile plant whose chromosomes come from two different species, formed by hybridization followed by chromosome doubling, is called an ___.'
-  accept: [allopolyploid, allopolyploids, allotetraploid, allopolyploidy]
+  accept: [allopolyploid, allopolyploids, allotetraploid, amphidiploid]
   explanation: |-
     An allopolyploid carries full chromosome sets from two (or more) species. Doubling gives every chromosome a partner, which restores fertility, as in Karpechenko's radish-cabbage and in bread wheat.

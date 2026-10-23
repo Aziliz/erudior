@@ -672,6 +672,7 @@
     - repressor protein
   - - operator
     - operator sequence
+    - lac operator
   explanation: Lactose (as allolactose) binds the repressor and changes its shape, so it releases the operator and RNA polymerase can transcribe the genes. Lactose does not bind the DNA itself.
 - id: bio-q-0655
   lesson: bio-gene-regulation
@@ -1005,7 +1006,7 @@
   - Drosha cuts out a short hairpin, which is exported from the nucleus
   - Dicer cuts the hairpin into a double-stranded RNA about 22 bases long
   - One strand is loaded into an Argonaute protein
-  - The seed region pairs with a site in the target mRNA's 3′ end
+  - The seed region pairs with a site in the target mRNA's 3′ untranslated region
   - Translation of the target falls and the mRNA is broken down faster
   explanation: The microRNA is made like other RNA, trimmed twice (Drosha in the nucleus, Dicer in the cytoplasm), loaded as a single strand into Argonaute, and then guided by its seed to target mRNAs, which are translated less and decay faster.
 - id: bio-qh-0617
@@ -1156,6 +1157,7 @@
   accept:
   - '60'
   - 60x
+  - 60×
   explanation: $C = \dfrac{N \times L}{G} = \dfrac{2{,}000{,}000 \times 150}{5{,}000{,}000} = 60$.
 - id: bio-qh-0630
   lesson: bio-h-genomics

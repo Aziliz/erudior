@@ -24,15 +24,14 @@ Most cells are between about 1 and 100 micrometers across. One micrometer (µm) 
 The timeline puts these steps in order. Notice the gap of almost two centuries between seeing cells and understanding them: better lenses, staining methods and many observers were needed before anyone could generalize.
 
 ```mermaid
-timeline
+flowchart TD
   accTitle: Milestones in the discovery of cells
-  accDescr: A timeline. 1665, Robert Hooke sees and names cells in cork. 1670s, Antonie van Leeuwenhoek sees living microbes. 1838, Matthias Schleiden concludes plants are made of cells. 1839, Theodor Schwann extends this to animals. 1855, Rudolf Virchow popularizes every cell from a cell. Early 1860s, Louis Pasteur's swan-neck flasks refute spontaneous generation of microbes.
-  1665 : Hooke names cells in cork
-  1670s : Leeuwenhoek sees living microbes
-  1838 : Schleiden - plants are made of cells
-  1839 : Schwann - animals are too
-  1855 : Virchow - every cell from a cell
-  1860s : Pasteur's swan-neck flasks
+  accDescr: A timeline from top to bottom. 1665, Robert Hooke sees and names cells in cork. 1670s, Antonie van Leeuwenhoek sees living microbes. 1838, Matthias Schleiden concludes plants are made of cells. 1839, Theodor Schwann extends this to animals. 1855, Rudolf Virchow popularizes every cell from a cell. Early 1860s, Louis Pasteur's swan-neck flasks refute spontaneous generation of microbes.
+  A["1665: Hooke names cells in cork"] --> B["1670s: Leeuwenhoek sees living microbes"]
+  B --> C["1838: Schleiden - plants are made of cells"]
+  C --> D["1839: Schwann - animals are too"]
+  D --> E["1855: Virchow - every cell from a cell"]
+  E --> F["Early 1860s: Pasteur's swan-neck flasks"]
 ```
 
 ## The cell theory

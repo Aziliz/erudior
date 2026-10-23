@@ -53,7 +53,7 @@ Large studies of this kind find that about 90% of trisomy 21 cases come from the
 
 That last group shows that nondisjunction also happens in mitosis. An error in an early embryo produces **mosaicism**: a person whose body contains two cell lines, for example some cells with 47 chromosomes and some with 46. About 2% of people with Down syndrome are mosaic, often with milder effects. Mitotic errors are also common in cancer cells, whose checkpoints have failed.
 
-The sex chromosomes give some neat tests of the logic. A 47,XYY person must have received a YY sperm: the father is the only source of a Y, and two Y chromosomes in one sperm can only be sister chromatids, so the error was in paternal meiosis II. A 47,XXY person could have received an XY sperm (paternal meiosis I) or an XX egg (maternal meiosis I or II); studies find these about equally often.
+The sex chromosomes give some neat tests of the logic. A 47,XYY person usually received a YY sperm: the father is the only source of a Y, and two Y chromosomes in one sperm can only be sister chromatids, so the error was in paternal meiosis II. (A minority of cases arise instead from a mitotic error in the early embryo.) A 47,XXY person could have received an XY sperm (paternal meiosis I) or an XX egg (maternal meiosis I or II); studies find these about equally often.
 
 The risk of a trisomy 21 birth rises steeply with maternal age (approximate figures):
 
