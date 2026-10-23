@@ -33,9 +33,9 @@
 <circle cx="486.5" cy="266.1" r="8" fill="#b03a2e"/>
 <circle cx="453.6" cy="204.3" r="7" fill="#ffffff" stroke="#b03a2e" stroke-width="3"/>
 <circle cx="330" cy="270" r="8" fill="#1c2833"/>
-<text x="574" y="121" font-size="16" text-anchor="end">first principal component</text>
-<text x="274" y="159" font-size="16" text-anchor="middle">second principal component</text>
-<text x="316" y="300" font-size="16" text-anchor="end">mean</text>
-<text x="500" y="288" font-size="16">data point</text>
-<text x="424" y="174" font-size="16" text-anchor="middle">projection onto PC1</text>
+<text x="574" y="121" font-size="16" stroke="#ffffff" stroke-width="4" paint-order="stroke" text-anchor="end">first principal component</text>
+<text x="274" y="159" font-size="16" stroke="#ffffff" stroke-width="4" paint-order="stroke" text-anchor="middle">second principal component</text>
+<text x="314" y="306" font-size="16" stroke="#ffffff" stroke-width="4" paint-order="stroke" text-anchor="end">mean</text>
+<text x="500" y="292" font-size="16" stroke="#ffffff" stroke-width="4" paint-order="stroke">data point</text>
+<text x="474" y="226" font-size="16" stroke="#ffffff" stroke-width="4" paint-order="stroke">projection onto PC1</text>
 </svg>

@@ -7,10 +7,10 @@
 <text x="508.0" y="362.0" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833">x</text>
 <text x="48.0" y="32.0" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833">y</text>
 <polygon points="60.0,340.0 380.0,340.0 60.0,60.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
-<text x="156.0" y="296.0" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833">region D</text>
-<circle cx="148.0" cy="232.0" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
+<text x="132.0" y="156.0" font-size="17" text-anchor="middle" font-weight="bold" fill="#1c2833">D</text>
+<circle cx="140.0" cy="220.0" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
 <circle cx="236.0" cy="214.0" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
 <circle cx="380.0" cy="340.0" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
 <circle cx="428.0" cy="132.0" r="6" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
-<circle cx="60.0" cy="204.0" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
+<circle cx="196.0" cy="340.0" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
 </svg>

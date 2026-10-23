@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 400" width="580" height="400" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c2833">
-<rect x="0" y="0" width="580" height="400" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c2833">
+<rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
 <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker></defs>
-<polygon points="208.1,173.6 7.9,326.4 377.1,326.4 577.3,173.6" fill="#dde8f3" stroke="#8395a7" stroke-width="1" fill-opacity="0.55"/>
-<polygon points="208.1,38.4 7.9,191.2 377.1,191.2 577.3,38.4" fill="#e8e2f3" stroke="#8395a7" stroke-width="1" fill-opacity="0.55"/>
-<line x1="384.4" y1="177.9" x2="195.6" y2="322.1" stroke="#1c2833" stroke-width="2.8"/>
-<line x1="118.4" y1="114.8" x2="461.6" y2="114.8" stroke="#1c2833" stroke-width="2.8"/>
-<line x1="244.2" y1="284.9" x2="209.9" y2="311.2" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
-<line x1="362.8" y1="114.8" x2="425.2" y2="114.8" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
-<line x1="290.0" y1="250.0" x2="290.0" y2="114.8" stroke="#b03a2e" stroke-width="2.5" stroke-dasharray="7 5"/>
-<path d="M278.6,258.7 L278.6,237.9 L290.0,229.2" fill="none" stroke="#1c2833" stroke-width="1.5"/>
-<path d="M310.8,114.8 L310.8,135.6 L290.0,135.6" fill="none" stroke="#1c2833" stroke-width="1.5"/>
-<circle cx="290.0" cy="250.0" r="5.5" fill="#1c2833"/>
-<circle cx="290.0" cy="114.8" r="5.5" fill="#1c2833"/>
+<polygon points="109.6,256.3 -4.8,343.7 411.2,343.7 525.6,256.3" fill="#dde8f3" stroke="#8395a7" stroke-width="1" fill-opacity="0.6"/>
+<polygon points="109.6,121.1 -4.8,208.5 411.2,208.5 525.6,121.1" fill="#e8e2f3" stroke="#8395a7" stroke-width="1" fill-opacity="0.6"/>
+<line x1="62.8" y1="300.0" x2="458.0" y2="300.0" stroke="#1c2833" stroke-width="2.8"/>
+<line x1="347.2" y1="90.5" x2="152.8" y2="239.1" stroke="#1c2833" stroke-width="2.8"/>
+<line x1="312.4" y1="300.0" x2="385.2" y2="300.0" stroke="#1c2833" stroke-width="3.2" marker-end="url(#ah)"/>
+<line x1="215.7" y1="191.0" x2="175.6" y2="221.6" stroke="#1c2833" stroke-width="3.2" marker-end="url(#ah)"/>
+<line x1="250.0" y1="300.0" x2="250.0" y2="164.8" stroke="#b03a2e" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M268.2,300.0 L268.2,281.8 L250.0,281.8" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M262.9,155.0 L262.9,173.2 L250.0,183.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="250.0" cy="300.0" r="5.5" fill="#1c2833"/>
+<circle cx="250.0" cy="164.8" r="5.5" fill="#1c2833"/>
 </svg>

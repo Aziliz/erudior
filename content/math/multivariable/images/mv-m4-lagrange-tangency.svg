@@ -12,9 +12,9 @@
 <line x1="292.0" y1="126.0" x2="326.1" y2="57.8" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
 <text x="453.2" y="366.1" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833"></text>
 <text x="330.4" y="61.8" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833">∇f ∥ ∇g</text>
-<text x="304.0" y="148.0" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833">max (1, 2)</text>
-<text x="87.4" y="389.5" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">x² + y² = 5</text>
-<text x="474.9" y="207.4" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">f = 5</text>
-<text x="474.9" y="300.4" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">f = 2</text>
-<text x="474.9" y="129.9" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">f = 7.5</text>
+<text x="282.0" y="152.0" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">max (1, 2)</text>
+<text x="121.5" y="370.9" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">x² + y² = 5</text>
+<text x="474.9" y="241.4" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">f = 5</text>
+<text x="474.9" y="334.4" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">f = 2</text>
+<text x="474.9" y="163.9" font-size="15" text-anchor="end" font-weight="bold" fill="#1c2833">f = 7.5</text>
 </svg>
