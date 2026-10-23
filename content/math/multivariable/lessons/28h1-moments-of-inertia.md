@@ -18,7 +18,7 @@ you can compute the moments of inertia of cylinders, balls, cones and boxes, pro
 cylinder and a hoop together at the top of a ramp, and which reaches the bottom first?
 
 One change of notation: spherical coordinates already use $\rho$ for distance from the
-origin, so in this lesson **density is $\delta$** (mass per unit volume).
+origin, so in this lesson density (mass per unit volume) is written $\delta$.
 
 ## Where the integral comes from
 

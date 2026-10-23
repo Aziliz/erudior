@@ -91,13 +91,15 @@
     cc: u1*u2 + 0
     dd: u2 - u1 + 0
     ee: u2^2 - u1^2 + 0
+    nu1: -u1 + 0
+    nu2: -u2 + 0
   prompt: |-
     Let $T: \mathbb{P}_2 \to \mathbb{R}^2$, $T(p) = (p({u1}),\ p({u2}))$. Its kernel is spanned by one polynomial of the form $t^2 + bt + c$. Find $b$ and $c$.
   answers:
     - {name: bb, label: '$b =$'}
     - {name: cc, label: '$c =$'}
   solution: |-
-    Relative to $\{1, t, t^2\}$ and the standard basis of $\mathbb{R}^2$, $M = \begin{bmatrix} 1 & {u1} & {sq1} \\ 1 & {u2} & {sq2}\end{bmatrix}$ (columns $T(1)$, $T(t)$, $T(t^2)$). $R_2 - R_1$ gives $[\,0 \;\; {dd} \;\; {ee}\,]$, so $x_2 = {bb}x_3$, and then $x_1 = -({u1})x_2 - ({sq1})x_3 = {cc}x_3$. With $x_3 = 1$ the kernel is spanned by $t^2 {bb:signedcoef}t {cc:signed}$, which is $(t - ({u1}))(t - ({u2}))$: the quadratic that vanishes at both points. **Answer:** $b = {bb}$, $c = {cc}$. (Rank 2, nullity 1: $2 + 1 = 3 = \dim\mathbb{P}_2$.)
+    Relative to $\{1, t, t^2\}$ and the standard basis of $\mathbb{R}^2$, $M = \begin{bmatrix} 1 & {u1} & {sq1} \\ 1 & {u2} & {sq2}\end{bmatrix}$ (columns $T(1)$, $T(t)$, $T(t^2)$). $R_2 - R_1$ gives $[\,0 \;\; {dd} \;\; {ee}\,]$, so $x_2 = {bb}x_3$, and then $x_1 = -({u1})x_2 - ({sq1})x_3 = {cc}x_3$. With $x_3 = 1$ the kernel is spanned by $t^2 {bb:signedcoef}t {cc:signed}$, which is $(t {nu1:signed})(t {nu2:signed})$: the quadratic that vanishes at both points. **Answer:** $b = {bb}$, $c = {cc}$. (Rank 2, nullity 1: $2 + 1 = 3 = \dim\mathbb{P}_2$.)
 
 - id: la-m7-r2-lagrange
   title: Extrapolating with Lagrange weights

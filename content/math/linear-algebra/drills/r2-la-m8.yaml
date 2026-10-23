@@ -23,9 +23,9 @@
     - {name: al, label: '$\alpha =$'}
     - {name: be, label: '$\beta =$'}
   solution: |-
-    $\operatorname{trc} A = {trc}$ and $\det A = {dt}$, so Cayley–Hamilton gives $A^2 - ({trc})A + ({dt})I = 0$, that is, $A^2 = {trc:coef}A + ({ndt})I$.
+    $\operatorname{tr} A = {trc}$ and $\det A = {dt}$, so Cayley–Hamilton gives $A^2 - ({trc})A + ({dt})I = 0$, that is, $A^2 = {trc:coef}A + ({ndt})I$.
     Multiply by $A$: $A^3 = {trc:coef}A^2 + ({ndt})A$. Replace $A^2$ again: $A^3 = ({trc})\big({trc:coef}A + ({ndt})I\big) + ({ndt})A = ({trsq} + ({ndt}))A + ({trc})({ndt})I$.
-    So $\alpha =$ **{al}** and $\beta =$ **{be}**. (In general $\alpha = (\operatorname{trc} A)^2 - \det A$ and $\beta = -(\operatorname{trc} A)(\det A)$.)
+    So $\alpha =$ **{al}** and $\beta =$ **{be}**. (In general $\alpha = (\operatorname{tr} A)^2 - \det A$ and $\beta = -(\operatorname{tr} A)(\det A)$.)
 
 - id: la-m8-r2-ch-inverse
   title: Inverse from Cayley–Hamilton
@@ -47,7 +47,7 @@
     - {name: pc, label: '$p =$', kind: fraction}
     - {name: qc, label: '$q =$', kind: fraction}
   solution: |-
-    $\operatorname{trc} A = {trc}$ and $\det A = {dt}$, so $A^2 - ({trc})A + ({dt})I = 0$. Rearrange: $A\big(({trc})I - A\big) = ({dt})I$, so
+    $\operatorname{tr} A = {trc}$ and $\det A = {dt}$, so $A^2 - ({trc})A + ({dt})I = 0$. Rearrange: $A\big(({trc})I - A\big) = ({dt})I$, so
     $$A^{-1} = \frac{1}{{dt}}\big(({trc})I - A\big) = -\frac{1}{{dt}}A + \frac{{trc}}{{dt}}I.$$
     So $p =$ **${pc:texfrac}$** and $q =$ **${qc:texfrac}$**.
 
