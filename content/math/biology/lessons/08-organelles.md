@@ -8,7 +8,7 @@ refs: [bio-ref-lab]
 ---
 ## A cell as a factory
 
-The last lesson split cells into two plans and showed that eukaryotic cells are divided into membrane-bound compartments. This lesson opens those compartments. A useful picture is a factory: a head office holds the instructions, assembly lines build products, a shipping department packages and sends them, power plants supply energy, a recycling crew breaks down waste, and a framework holds it all in shape. Each organelle has a job, and the jobs connect. As you read, keep asking two questions: what does this part do, and how does its structure suit that job?
+The last lesson split cells into two plans and showed that eukaryotic cells are divided into membrane-bound compartments. This lesson opens those compartments. A useful picture is a factory with a head office, assembly lines, shipping, power plants and recycling. Each organelle has a job, and the jobs connect. As you read, keep asking two questions: what does this part do, and how does its structure suit that job?
 
 ## The nucleus: the instructions
 
@@ -45,7 +45,7 @@ Reading the table step by step:
 2. By 20 minutes, the label has shifted largely to the Golgi, and the rough ER's share has fallen.
 3. By 120 minutes, most label is in secretory vesicles near the cell surface, ready to be released.
 
-Because the same labeled batch of protein moves from one compartment to the next over time, the data show the path: rough ER → Golgi → secretory vesicles → outside the cell. The technique works because the chase stops new label being added, so you follow one batch like a dye in a river. Palade shared the 1974 Nobel Prize for this work.
+Because the same labeled batch of protein moves from one compartment to the next over time, the data show the path: rough ER → Golgi → secretory vesicles → outside the cell. Palade shared the 1974 Nobel Prize for this work.
 
 ## Recycling and storage: lysosomes and vacuoles
 

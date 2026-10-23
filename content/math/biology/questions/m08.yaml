@@ -6,9 +6,9 @@
   choices:
   - Homo Sapiens
   - homo sapiens
-  - Homo sapiens
   - HOMO sapiens
-  answer: 2
+  - Homo sapiens
+  answer: 3
   explanation: 'The genus is capitalized and the specific epithet is always lowercase: Homo sapiens (italicized in print). Capitalizing the epithet is the most common slip; the genus is never lowercase or written in all capitals.'
 - id: bio-q-0802
   lesson: bio-classification
@@ -16,10 +16,10 @@
   stem: A wolf and a coyote are in the same genus, Canis. Which statement must be true?
   choices:
   - They are also the same species.
-  - They share no ranks above genus.
   - They are also in the same family, order, class, phylum, kingdom and domain.
+  - They share no ranks above genus.
   - They must be able to interbreed and produce fertile offspring.
-  answer: 2
+  answer: 1
   explanation: Ranks are nested, so sharing a genus means sharing every rank above it (family Canidae, order Carnivora, and so on). It does not mean sharing the species rank below it, and interbreeding is not guaranteed by being in the same genus.
 - id: bio-q-0803
   lesson: bio-classification
@@ -27,11 +27,11 @@
   topic: Classification
   stem: What evidence led Carl Woese to propose that archaea form a domain separate from bacteria?
   choices:
-  - Comparisons of ribosomal RNA sequences
   - Differences in cell shape seen under a light microscope
   - Results of the Gram stain
+  - Comparisons of ribosomal RNA sequences
   - Whether or not the cells have a nucleus
-  answer: 0
+  answer: 2
   explanation: Woese compared sequences of ribosomal RNA, a molecule all cells have. Archaea and bacteria both lack a nucleus and look alike under a microscope, which is exactly why they had been lumped together; the Gram stain separates groups of bacteria, not domains.
 - id: bio-q-0804
   lesson: bio-classification
@@ -40,9 +40,9 @@
   choices:
   - They are a kind of bacteria that lives only in extreme environments.
   - They have a nucleus but no mitochondria.
-  - Many species cause disease in humans.
   - In the machinery they use to copy DNA and make proteins, they resemble eukaryotes more than bacteria.
-  answer: 3
+  - Many species cause disease in humans.
+  answer: 2
   explanation: Archaea are a separate domain whose RNA polymerases and other gene-expression machinery are eukaryote-like. They also live in soil, oceans and the human gut, not only in extreme places; they have no nucleus; and no archaea are known to cause human disease.
 - id: bio-q-0805
   lesson: bio-classification
@@ -50,11 +50,11 @@
   topic: Bacteria and archaea
   stem: A culture starts with 500 bacteria that divide every 30 minutes. Assuming exponential growth, how many cells are there after 3 hours?
   choices:
-  - 32,000
   - 3,000
   - 4,000
+  - 32,000
   - 6,000
-  answer: 0
+  answer: 2
   explanation: 3 hours = 180 min, so $n = 180/30 = 6$ generations, and $N = 500 \times 2^{6} = 500 \times 64 = 32\,000$. Multiplying by 6 gives 3,000 (generations are doublings, not multiples); using 3 generations (the hours) gives 4,000; multiplying by 12 gives 6,000.
 - id: bio-q-0806
   lesson: bio-classification
@@ -62,21 +62,21 @@
   stem: A bacterial population grows from 100 cells to 1,600 cells in 2 hours of exponential growth. What is its generation time?
   choices:
   - 7.5 minutes
+  - 30 minutes
   - 20 minutes
   - 60 minutes
-  - 30 minutes
-  answer: 3
+  answer: 1
   explanation: '$1600/100 = 16 = 2^{4}$, so there were 4 generations in 120 minutes: $120/4 = 30$ minutes each. Dividing 120 by 16 (the fold increase) gives 7.5 minutes, which confuses the number of doublings with the fold change.'
 - id: bio-q-0807
   lesson: bio-classification
   topic: Bacteria and archaea
   stem: A water sample is diluted to $10^{-5}$, and 0.1 mL of the dilution is spread on a plate. 84 colonies grow. What was the concentration in the original sample?
   choices:
+  - $8.4 \times 10^{7}$ CFU/mL
   - $8.4 \times 10^{6}$ CFU/mL
   - $8.4 \times 10^{2}$ CFU/mL
   - $8.4 \times 10^{-6}$ CFU/mL
-  - $8.4 \times 10^{7}$ CFU/mL
-  answer: 3
+  answer: 0
   explanation: CFU/mL $= \dfrac{84}{10^{-5} \times 0.1} = 84 \times 10^{6} = 8.4 \times 10^{7}$. Forgetting that only 0.1 mL was plated gives $8.4 \times 10^{6}$; forgetting the dilution gives 840; multiplying by the dilution instead of dividing gives a tiny, impossible number.
 - id: bio-q-0808
   lesson: bio-classification
@@ -84,11 +84,11 @@
   topic: Viruses
   stem: A bacterial culture infected with a phage keeps growing normally for several days. After a dose of UV light, the cells burst within an hour. What best explains this?
   choices:
+  - The phage was in the lysogenic cycle, and UV damage switched it into the lytic cycle.
   - The phage was in the lytic cycle the whole time, and UV light sped it up.
   - UV light killed the phage, so the bacteria burst from lack of nutrients.
-  - The phage was in the lysogenic cycle, and UV damage switched it into the lytic cycle.
   - The bacteria were resistant to the phage until UV light mutated them.
-  answer: 2
+  answer: 0
   explanation: Normal growth after infection means the viral DNA was integrated and copied along with the host chromosome (lysogenic). DNA damage from UV is a classic trigger that switches it to the lytic cycle, so new phages were made and the cells lysed. A lytic infection would have destroyed the culture within hours, not days.
 - id: bio-q-0809
   lesson: bio-classification
@@ -97,9 +97,9 @@
   choices:
   - Viruses are too small for antibiotic molecules to reach.
   - Viruses hide inside the nucleus, where antibiotics cannot enter.
-  - Viruses lack the cell walls, ribosomes and metabolism that antibiotics target.
   - Every virus is already resistant to every antibiotic.
-  answer: 2
+  - Viruses lack the cell walls, ribosomes and metabolism that antibiotics target.
+  answer: 3
   explanation: Antibiotics attack structures specific to bacteria, such as peptidoglycan walls and bacterial ribosomes. Viruses have none of these; they use the host cell's machinery. Resistance is not the reason, and size is not the problem.
 - id: bio-q-0810
   lesson: bio-classification
@@ -119,10 +119,10 @@
   stem: Bacteria in a flask grow exponentially for a while, then the population stops increasing. What is the most likely cause?
   choices:
   - The bacteria have reached their maximum generation time.
-  - Nutrients are running out and waste products are building up.
   - Binary fission can only happen a fixed number of times.
   - The bacteria have switched to sexual reproduction.
-  answer: 1
+  - Nutrients are running out and waste products are building up.
+  answer: 3
   explanation: A closed flask has limited food, and wastes accumulate, so division slows until births balance deaths (the stationary phase). There's no built-in limit on the number of fissions, and bacteria don't reproduce sexually.
 - id: bio-q-0812
   lesson: bio-protists-fungi
@@ -131,32 +131,32 @@
   stem: Why do biologists say that protists are not a natural evolutionary group?
   choices:
   - Protists do not have a nucleus.
-  - Some protists are more closely related to plants, animals or fungi than to other protists.
   - All protists are single-celled, unlike other eukaryotes.
+  - Some protists are more closely related to plants, animals or fungi than to other protists.
   - Protists are not made of cells.
-  answer: 1
+  answer: 2
   explanation: A natural group contains an ancestor and all its descendants. DNA shows protists scattered across the eukaryote tree, with some closer to plants and others closer to animals and fungi, so the group is defined only by what it isn't. Protists are eukaryotes with nuclei, and some, like kelp, are multicellular.
 - id: bio-q-0813
   lesson: bio-protists-fungi
   topic: Protists
   stem: A single-celled protist is covered in thousands of short, hair-like structures that beat in waves to move it. These structures are
   choices:
-  - cilia
   - pseudopods
   - flagella
   - hyphae
-  answer: 0
+  - cilia
+  answer: 3
   explanation: Many short, coordinated hair-like structures are cilia, as in Paramecium. Pseudopods are flowing extensions of cytoplasm (amoebas), flagella are few and long and whip-like, and hyphae are fungal filaments.
 - id: bio-q-0814
   lesson: bio-protists-fungi
   topic: Protists
   stem: Malaria is caused by
   choices:
-  - a single-celled protist carried by mosquitoes
   - a virus carried by mosquitoes
   - a bacterium in contaminated water
+  - a single-celled protist carried by mosquitoes
   - a fungus that grows in the lungs
-  answer: 0
+  answer: 2
   explanation: Malaria is caused by Plasmodium, a protist parasite spread by Anopheles mosquitoes. It multiplies in the liver and then in red blood cells. It is not a virus or a bacterium, though mosquitoes do carry some viral diseases.
 - id: bio-q-0815
   lesson: bio-protists-fungi
@@ -164,22 +164,22 @@
   topic: Protists
   stem: The organism that caused the Irish potato famine grows in threads like a fungus, but it is classified as a protist. Which evidence supports that classification?
   choices:
+  - Its cell walls contain cellulose rather than chitin, and its DNA groups it with diatoms and brown algae.
   - It grows in thread-like filaments.
   - It feeds by absorbing nutrients from its host.
   - It reproduces with spores.
-  - Its cell walls contain cellulose rather than chitin, and its DNA groups it with diatoms and brown algae.
-  answer: 3
+  answer: 0
   explanation: Phytophthora's cellulose walls and its DNA place it among protists. Threads, absorptive feeding and spores are exactly the features it shares with true fungi, so they can't separate it from them.
 - id: bio-q-0816
   lesson: bio-protists-fungi
   topic: Protists
   stem: 'A student covers half of each of four dishes of Euglena with foil. After 30 minutes she counts cells in samples from each half: lit halves 410, 395, 430, 402; dark halves 90, 110, 85, 98. Which conclusion is best supported?'
   choices:
+  - Euglena move toward light.
   - Light makes Euglena reproduce faster.
   - Euglena die in the dark.
   - Foil attracts Euglena.
-  - Euglena move toward light.
-  answer: 3
+  answer: 0
   explanation: In every replicate, many more cells are in the lit half after only 30 minutes, too short for large changes from reproduction or death; the simplest explanation is movement toward light. Cells were counted in the covered half too, so foil did not attract them.
 - id: bio-q-0817
   lesson: bio-protists-fungi
@@ -198,11 +198,11 @@
   topic: Fungi
   stem: Which set of features shows that a mushroom is not a plant?
   choices:
-  - It cannot photosynthesize, its cell walls contain chitin, and it stores glycogen.
   - It grows from the ground and does not move.
+  - It cannot photosynthesize, its cell walls contain chitin, and it stores glycogen.
   - Its cells have cell walls.
   - It reproduces by releasing spores.
-  answer: 0
+  answer: 1
   explanation: Fungi are heterotrophs with chitin walls that store glycogen, like animals. Growing in soil, staying put and having cell walls are shared with plants, and ferns and mosses also release spores, so those features can't distinguish them.
 - id: bio-q-0819
   lesson: bio-protists-fungi
@@ -220,11 +220,11 @@
   topic: Fungi
   stem: A mushroom popping up from a lawn is best described as
   choices:
+  - the short-lived spore-producing structure of a much larger underground mycelium
   - the entire body of the fungus
   - a seed of the fungus
   - a single giant hypha
-  - the short-lived spore-producing structure of a much larger underground mycelium
-  answer: 3
+  answer: 0
   explanation: The mushroom is a fruiting body. Most of the fungus is the mycelium of branching hyphae spreading through the soil. Fungi have spores, not seeds.
 - id: bio-q-0821
   lesson: bio-protists-fungi
@@ -232,11 +232,11 @@
   topic: Fungi
   stem: Pine seedlings grown in sterilized soil (no fungi) are smaller and contain less phosphorus than seedlings grown in soil with mycorrhizal fungi. What best explains the difference?
   choices:
+  - Fungal hyphae extend the root system's reach and deliver minerals such as phosphate in exchange for sugars.
   - The fungi photosynthesize and give the seedlings extra sugar.
   - Sterilizing soil adds phosphorus that harms seedlings.
-  - Fungal hyphae extend the root system's reach and deliver minerals such as phosphate in exchange for sugars.
   - The fungi are parasites that make the seedlings grow faster to escape them.
-  answer: 2
+  answer: 0
   explanation: In a mycorrhizal partnership, the huge surface of the hyphae absorbs water and minerals such as phosphate for the plant, which pays in sugars. Fungi can't photosynthesize, and the result shows the fungi helping rather than harming.
 - id: bio-q-0822
   lesson: bio-protists-fungi
@@ -244,21 +244,21 @@
   stem: On Fleming's 1928 plate, bacteria grew everywhere except in a clear zone around a Penicillium mold. Which conclusion is best supported?
   choices:
   - The mold eats bacteria by engulfing them.
+  - A substance spreading out from the mold kills or stops the growth of these bacteria.
   - The bacteria could not grow because the mold used up all the light.
   - The mold and bacteria are mutualists.
-  - A substance spreading out from the mold kills or stops the growth of these bacteria.
-  answer: 3
+  answer: 1
   explanation: The clear zone extends beyond the mold itself, so something diffusing out of the mold, not contact or engulfing, inhibited the bacteria. That substance was penicillin. Bacteria on a plate don't need light, and inhibiting one's partner is not mutualism.
 - id: bio-q-0823
   lesson: bio-protists-fungi
   topic: Fungi
   stem: Lichens are often the first organisms to grow on bare rock. A lichen is
   choices:
+  - a partnership between a fungus and a photosynthetic alga or cyanobacterium
   - a type of moss
   - a single species of photosynthetic fungus
-  - a partnership between a fungus and a photosynthetic alga or cyanobacterium
   - a colony of protists
-  answer: 2
+  answer: 0
   explanation: A lichen combines a fungus, which provides structure and absorbs minerals, with an alga or cyanobacterium that photosynthesizes. It is not a moss (a plant), and no fungus photosynthesizes.
 - id: bio-q-0824
   lesson: bio-plants
@@ -290,21 +290,21 @@
   stem: In a fern, the large leafy plant you see in the forest is the
   choices:
   - haploid gametophyte
-  - haploid sporophyte
   - diploid sporophyte
+  - haploid sporophyte
   - diploid gametophyte
-  answer: 2
+  answer: 1
   explanation: In ferns and seed plants the sporophyte, which is diploid and makes spores by meiosis, is the dominant stage. The gametophyte is haploid; in mosses it's the familiar green plant, but in ferns it's a tiny separate structure.
 - id: bio-q-0827
   lesson: bio-plants
   topic: Plants
   stem: A strip of bark, including the phloem, is cut away in a ring around a tree trunk, leaving the xylem intact. What is the most likely long-term result?
   choices:
-  - Sugars build up above the cut and the roots eventually starve.
   - Water can no longer reach the leaves, so they wilt within hours.
+  - Sugars build up above the cut and the roots eventually starve.
   - The roots fill with excess sugar.
   - Nothing, because sugars travel in the xylem.
-  answer: 0
+  answer: 1
   explanation: Phloem carries sugars from leaves (sources) down to roots (sinks). With the phloem ring gone, sugar collects above the cut and the roots slowly starve. The xylem is intact, so water still reaches the leaves.
 - id: bio-q-0828
   lesson: bio-plants
@@ -313,10 +313,10 @@
   stem: In a potometer, the air bubble moves 36 mm in 4 minutes along a capillary with a cross-section of 0.50 mm². What is the rate of water uptake?
   choices:
   - 9.0 mm³/min
-  - 4.5 mm³/min
   - 72 mm³/min
   - 18 mm³/min
-  answer: 1
+  - 4.5 mm³/min
+  answer: 3
   explanation: Volume $= 0.50 \times 36 = 18$ mm³, so the rate is $18/4 = 4.5$ mm³/min. Using the distance alone gives 9.0 (forgot the area); 18 is the total volume, not a rate; 72 multiplies by the time instead of dividing.
 - id: bio-q-0829
   lesson: bio-plants
@@ -324,10 +324,10 @@
   stem: Under which conditions would a well-watered plant transpire fastest?
   choices:
   - Cool, humid, still and bright
+  - Warm, dry, windy and bright
   - Warm, humid, still and dark
   - Cool, dry, still and dark
-  - Warm, dry, windy and bright
-  answer: 3
+  answer: 1
   explanation: 'Transpiration is evaporation: heat, dry air and wind all speed it, and light opens the stomata. Humid, still air slows evaporation, and darkness closes stomata.'
 - id: bio-q-0830
   lesson: bio-plants
@@ -335,21 +335,21 @@
   stem: What supplies the energy that lifts water from the roots to the top of a tall tree?
   choices:
   - ATP spent by root cells pumping water upward
-  - Evaporation of water from the leaves, driven by the sun
   - Contractions of the xylem walls
+  - Evaporation of water from the leaves, driven by the sun
   - Sugar flowing down through the phloem
-  answer: 1
+  answer: 2
   explanation: In the cohesion-tension mechanism, evaporation (transpiration) pulls on continuous water columns held together by hydrogen bonds. The plant spends no ATP lifting water; xylem cells are dead and can't contract; phloem moves sugar, not the water column.
 - id: bio-q-0831
   lesson: bio-plants
   topic: Plants
   stem: A leaf imprint is viewed at a magnification where the field of view is 0.50 mm in diameter. There are 39 stomata in the field. What is the stomatal density?
   choices:
+  - About 199 per mm²
   - About 50 per mm²
   - About 78 per mm²
-  - About 199 per mm²
   - About 156 per mm²
-  answer: 2
+  answer: 0
   explanation: Area $= \pi r^2 = \pi(0.25)^2 \approx 0.196$ mm², so density $= 39/0.196 \approx 199$ per mm². Using 0.50 mm as the radius gives about 50; dividing by the diameter gives 78; dividing by the radius gives 156.
 - id: bio-q-0832
   lesson: bio-plants
@@ -368,22 +368,22 @@
   topic: Plants
   stem: Frits Went placed agar blocks that had held seedling tips off-center on cut seedlings kept in the dark. The seedlings bent away from the side with the block. What did this show?
   choices:
-  - The signal from the tip is a chemical that can diffuse into agar and makes cells on that side grow more.
   - Light is needed for seedlings to bend.
+  - The signal from the tip is a chemical that can diffuse into agar and makes cells on that side grow more.
   - Agar itself is a plant hormone.
   - Cells under the block stopped growing.
-  answer: 0
+  answer: 1
   explanation: The tips' signal moved into the agar, so it must be a chemical (later named auxin). More auxin on one side made that side elongate more, bending the seedling away from it, even in darkness. A control block that never touched tips would rule out agar itself.
 - id: bio-q-0834
   lesson: bio-plants
   topic: Plants
   stem: A tomato is botanically a fruit because it
   choices:
-  - tastes sweet
   - develops from the ovary of a flower and contains seeds
+  - tastes sweet
   - develops from the anther
   - grows on a vine
-  answer: 1
+  answer: 0
   explanation: A fruit is a ripened ovary holding seeds; the ovules inside become the seeds. The anther makes pollen. Sweetness and growth habit have nothing to do with the botanical definition.
 - id: bio-q-0835
   lesson: bio-plants
@@ -414,10 +414,10 @@
   stem: Roughly what fraction of described animal species are invertebrates?
   choices:
   - About 5%
-  - About 95%
   - About 25%
   - About 50%
-  answer: 1
+  - About 95%
+  answer: 3
   explanation: Invertebrates, dominated by insects and other arthropods, make up about 95% of described animal species. Vertebrates, though familiar, are a small minority.
 - id: bio-q-0838
   lesson: bio-animals
@@ -427,20 +427,20 @@
   choices:
   - Bilateral animals cannot move, so they need a brain to catch food.
   - Radial animals have more sense organs than bilateral ones.
-  - Cephalization requires a shell to protect it.
   - An animal that moves head-first benefits from sense organs and nerve cells concentrated at the front end.
-  answer: 3
+  - Cephalization requires a shell to protect it.
+  answer: 2
   explanation: A bilateral body has a front end that meets new surroundings first, so concentrating senses and nerve cells there (cephalization) pays off. Radial animals such as jellyfish meet the world from all sides and lack a head.
 - id: bio-q-0839
   lesson: bio-animals
   topic: Animals
   stem: Which animal has bilateral symmetry but no body cavity of any kind?
   choices:
-  - A flatworm
   - An earthworm
   - A jellyfish
+  - A flatworm
   - A crab
-  answer: 0
+  answer: 2
   explanation: Flatworms are bilateral with no body cavity between gut and body wall. Earthworms and crabs have a true coelom, and jellyfish are radially symmetric.
 - id: bio-q-0840
   lesson: bio-animals
@@ -461,20 +461,20 @@
   choices:
   - It allowed fish to breathe air.
   - It made animals endothermic.
-  - It allowed fertilization to occur outside the body.
   - It let vertebrates reproduce on land without needing water for their eggs.
-  answer: 3
+  - It allowed fertilization to occur outside the body.
+  answer: 2
   explanation: The amnion and other membranes surround the embryo with its own fluid and handle gas exchange and wastes, so reptiles (including birds) and mammals could reproduce away from water. It is unrelated to air breathing and endothermy, and amniotic eggs are fertilized internally.
 - id: bio-q-0842
   lesson: bio-animals
   topic: Animals
   stem: As a room is cooled from 25 °C to 5 °C, an animal's oxygen consumption at rest rises steadily. The animal is most likely
   choices:
-  - an endotherm burning more fuel to hold its body temperature
   - an ectotherm whose metabolism speeds up in the cold
   - an ectotherm becoming more active to find warmth
   - an endotherm whose body temperature is falling with the air
-  answer: 0
+  - an endotherm burning more fuel to hold its body temperature
+  answer: 3
   explanation: An endotherm keeps its body near a constant temperature, so in colder air it loses heat faster and must raise its metabolism, using more oxygen. An ectotherm's metabolism slows in the cold, and an endotherm's body temperature stays nearly constant.
 - id: bio-q-0843
   lesson: bio-animals
@@ -482,10 +482,10 @@
   stem: 'Key: 1a. Jointed legs: go to 2. 1b. No jointed legs: go to 3. 2a. Eight legs: spider. 2b. Six legs: insect. 3a. Segmented body: earthworm. 3b. Unsegmented soft body with a shell: snail. An animal has no jointed legs and a soft, unsegmented body with a coiled shell. What is it?'
   choices:
   - Earthworm
+  - Snail
   - Insect
   - Spider
-  - Snail
-  answer: 3
+  answer: 1
   explanation: Step 1b (no jointed legs) leads to 3, and 3b (unsegmented, shell) gives snail. Each step of a dichotomous key offers two mutually exclusive choices based on observable features.
 - id: bio-q-0844
   lesson: bio-animals
@@ -494,10 +494,10 @@
   stem: A marine animal has tube feet and is radially symmetric as an adult, but its larvae are bilateral. In its embryo, the first opening becomes the anus. To which phylum does it belong?
   choices:
   - Cnidaria
+  - Echinodermata
   - Mollusca
   - Arthropoda
-  - Echinodermata
-  answer: 3
+  answer: 1
   explanation: Tube feet, adult radial symmetry with bilateral larvae, and deuterostome development identify an echinoderm (like a sea star). Cnidarians are radial throughout and have no tube feet; mollusks and arthropods are protostomes.
 - id: bio-q-0845
   lesson: bio-animals
@@ -515,20 +515,20 @@
   topic: Animals
   stem: Where do birds fit on the vertebrate evolutionary tree?
   choices:
-  - On a separate branch closer to mammals than to reptiles
   - Within the reptiles, as descendants of feathered dinosaurs
+  - On a separate branch closer to mammals than to reptiles
   - Within the amphibians
   - As the ancestors of all reptiles
-  answer: 1
+  answer: 0
   explanation: Birds descend from feathered theropod dinosaurs, so they sit inside the reptile branch; crocodiles are their closest living relatives. Birds and mammals are both endothermic, but they evolved it separately.
 - id: bio-q-0847
   lesson: bio-animals
   topic: Animals
   stem: Why must a growing grasshopper molt?
   choices:
-  - Its exoskeleton cannot grow, so it must be shed and replaced with a larger one.
   - Its skin dries out every few days.
   - Molting removes parasites from its coelom.
   - Molting is how it reproduces asexually.
-  answer: 0
+  - Its exoskeleton cannot grow, so it must be shed and replaced with a larger one.
+  answer: 3
   explanation: An arthropod's chitin exoskeleton is rigid and non-living, so it must be shed periodically for the animal to grow. Molting is not a form of reproduction.

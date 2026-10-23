@@ -1,0 +1,31 @@
+# ---- m9 The human body
+- {front: 'Three parts of a homeostatic control loop', back: 'Sensor (receptor), control center (often the brain), effector (muscle or gland).', topic: Homeostasis}
+- {front: 'Negative vs positive feedback', back: 'Negative: response opposes the change (temperature, glucose). Positive: response amplifies the change until an event ends it (childbirth, clotting).', topic: Homeostasis}
+- {front: 'Responses to overheating', back: 'Sweating and vasodilation of skin vessels, triggered by the hypothalamus.', topic: Homeostasis}
+- {front: 'Responses to cold', back: 'Vasoconstriction of skin vessels and shivering.', topic: Homeostasis}
+- {front: 'Parts of a neuron', back: 'Dendrites (receive), cell body (nucleus), axon (carries impulse away, often myelinated), axon terminals (release neurotransmitter).', topic: Nervous system}
+- {front: 'Steps of an action potential', back: 'Rest at about −70 mV; threshold reached; sodium channels open, Na⁺ in (inside becomes positive); potassium channels open, K⁺ out (restores negative).', topic: Nervous system}
+- {front: 'All-or-none principle', back: 'Every action potential has the same size; stimulus strength is coded by firing frequency.', topic: Nervous system}
+- {front: 'Measuring conduction speed (Helmholtz)', back: 'Stimulate at two distances; speed = difference in distance ÷ difference in time (mm/ms = m/s).', topic: Nervous system}
+- {front: 'What happens at a synapse', back: 'Impulse arrives; neurotransmitter released; diffuses across gap; binds receptors on next cell; then broken down or taken back up.', topic: Nervous system}
+- {front: 'Nervous vs endocrine signaling', back: 'Nervous: electrical plus neurotransmitter, milliseconds, brief, targeted. Endocrine: hormones in blood, seconds to hours, longer lasting, any cell with the receptor.', topic: Endocrine system}
+- {front: 'Insulin vs glucagon', back: 'Insulin (beta cells): lowers blood glucose; cells take up glucose, liver stores glycogen. Glucagon (alpha cells): raises it; liver breaks down glycogen.', topic: Endocrine system}
+- {front: 'Type 1 vs type 2 diabetes', back: 'Type 1: autoimmune destruction of beta cells, little insulin. Type 2: cells respond poorly to insulin (insulin resistance).', topic: Endocrine system}
+- {front: 'Path of blood through the heart', back: 'Right atrium → right ventricle → pulmonary artery → lungs → pulmonary vein → left atrium → left ventricle → aorta → body → veins → right atrium.', topic: Circulatory system}
+- {front: 'Artery vs vein vs capillary', back: 'Artery: away from heart, thick elastic wall. Vein: toward heart, thin wall, valves. Capillary: one cell thick, exchange.', topic: Circulatory system}
+- {front: 'Cardiac output', back: 'Heart rate × stroke volume; about 70 × 70 mL ≈ 5 L/min at rest.', topic: Circulatory system}
+- {front: 'Stroke volume from ventricle volumes', back: 'Volume at end of filling − volume left after contraction.', topic: Circulatory system}
+- {front: 'Harvey''s 1628 argument', back: 'The heart pumps thousands of liters a day, far more than is eaten or contained in the body, so blood must circulate.', topic: Circulatory system}
+- {front: 'Path of air into the lungs', back: 'Nose/mouth → pharynx → larynx → trachea → bronchi → bronchioles → alveoli.', topic: Respiratory system}
+- {front: 'Mechanism of inhaling', back: 'Diaphragm contracts and flattens, ribs lift, chest volume up, lung pressure down, air flows in.', topic: Respiratory system}
+- {front: 'Main chemical trigger for breathing', back: 'Rising carbon dioxide, which lowers blood pH, detected in the medulla.', topic: Respiratory system}
+- {front: 'Minute and alveolar ventilation', back: 'Minute = tidal volume × rate. Alveolar = (tidal volume − dead space) × rate.', topic: Respiratory system}
+- {front: 'Energy from oxygen use', back: 'About 20 kJ per liter of oxygen; resting use about 3.5 mL O₂ per kg per minute.', topic: Respiratory system}
+- {front: 'Three steps of urine formation', back: 'Filtration (glomerulus), reabsorption (tubule back to blood), secretion (blood into tubule).', topic: Excretory system}
+- {front: 'Role of ADH', back: 'Released when blood is too concentrated; makes collecting ducts reabsorb more water, giving concentrated urine (negative feedback).', topic: Excretory system}
+- {front: 'Digestion products', back: 'Carbohydrates → simple sugars; proteins → amino acids; fats → fatty acids and glycerol; nucleic acids → nucleotides.', topic: Digestive system}
+- {front: 'Roles of stomach, small intestine, large intestine', back: 'Stomach: acid, pepsin, churning. Small intestine: most digestion and nearly all absorption (villi). Large intestine: water absorption, gut bacteria.', topic: Digestive system}
+- {front: 'Energy per gram of nutrient', back: 'Carbohydrate 4 kcal, protein 4 kcal, fat 9 kcal (1 kcal = 4.184 kJ).', topic: Digestive system}
+- {front: 'Innate vs adaptive immunity', back: 'Innate: fast, general, from birth (barriers, inflammation, phagocytes). Adaptive: slower first time, specific, memory (B cells, antibodies, T cells).', topic: Immune system}
+- {front: 'Primary vs secondary immune response', back: 'Primary: about 1–2 weeks to peak, smaller. Secondary: within days, much larger, because of memory cells.', topic: Immune system}
+- {front: 'Herd immunity threshold', back: '$1 - \dfrac{1}{R_0}$; e.g. $R_0 = 15$ gives about 93%.', topic: Immune system}

@@ -10,7 +10,7 @@
   definition: 'The classification of all cellular life into Bacteria, Archaea and Eukarya, proposed by Carl Woese from ribosomal RNA comparisons.'
   topic: Classification
 - term: Archaea
-  aliases: [archaea, archaeon, archaeans]
+  aliases: [archaeon, archaeans]
   definition: 'A domain of single-celled organisms without a nucleus that differ from bacteria in membrane lipids, cell walls (no peptidoglycan) and gene-expression machinery, which resembles that of eukaryotes.'
   topic: Bacteria and archaea
 - term: binary fission

@@ -1,0 +1,596 @@
+- id: bio-q-0201
+  lesson: bio-cell-theory
+  module_quiz: true
+  topic: Cell theory
+  stem: 'Which statement is NOT one of the three parts of the cell theory?'
+  choices:
+    - 'All living things are made of one or more cells'
+    - 'Cells can arise from nonliving material under the right conditions'
+    - 'The cell is the basic unit of structure and function in living things'
+    - 'All cells come from preexisting cells'
+  answer: 1
+  explanation: |-
+    The cell theory says all living things are made of cells, the cell is the basic unit of life, and all cells come from preexisting cells. Cells arising from nonliving material is spontaneous generation, which the theory and Pasteur's experiments rejected.
+- id: bio-q-0202
+  lesson: bio-cell-theory
+  topic: Cell theory
+  stem: 'Robert Hooke named cells in 1665 after looking at cork. What was he actually seeing?'
+  choices:
+    - 'Living bacteria swimming in water'
+    - 'The nuclei of plant cells'
+    - 'Single-celled animals he called animalcules'
+    - 'The empty walls of dead plant cells'
+  answer: 3
+  explanation: |-
+    Cork is dead tissue, so Hooke saw only the cell walls surrounding empty spaces. Leeuwenhoek, not Hooke, described living microbes as animalcules; nuclei were described much later.
+- id: bio-q-0203
+  lesson: bio-cell-theory
+  topic: Cell theory
+  stem: 'Which scientist is best known for the principle that every cell comes from a cell (omnis cellula e cellula)?'
+  choices: ['Rudolf Virchow', 'Robert Hooke', 'Matthias Schleiden', 'Antonie van Leeuwenhoek']
+  answer: 0
+  explanation: |-
+    Virchow popularized the principle in 1855, building on observations of cell division by Remak and others. Hooke named cells, Schleiden concluded plants are made of cells, and Leeuwenhoek first saw microbes.
+- id: bio-q-0204
+  lesson: bio-cell-theory
+  module_quiz: true
+  topic: Cell theory
+  stem: 'In Pasteur''s swan-neck flask experiment, boiled broth in a flask with an intact S-shaped neck stayed clear, but became cloudy once the neck was broken off. What does this show?'
+  choices:
+    - 'Air contains a vital force that creates microbes'
+    - 'Boiling destroys the broth''s ability to support life'
+    - 'Microbes in the broth came from microbes carried in dust, not from the broth itself'
+    - 'Microbes can only grow in flasks with straight necks because they need light'
+  answer: 2
+  explanation: |-
+    Air reached the broth in both cases, so a vital force in air cannot explain the difference; the broth still supported microbes once the neck was broken, so boiling did not ruin it. The only change was letting dust carrying microbes reach the broth.
+- id: bio-q-0205
+  lesson: bio-cell-theory
+  module_quiz: true
+  topic: Microscopy
+  stem: 'A microscope has a 10× ocular lens and a 40× objective lens. What is the total magnification?'
+  choices: ['400×', '50×', '40×', '4×']
+  answer: 0
+  explanation: |-
+    Total magnification = ocular × objective = 10 × 40 = 400×. Adding the lenses gives 50×; 40× is the objective alone.
+- id: bio-q-0206
+  lesson: bio-cell-theory
+  topic: Microscopy
+  stem: 'In a photograph taken at 1000× magnification, a cell is 15 mm wide. How wide is the actual cell?'
+  choices: ['1.5 µm', '150 µm', '15 mm', '15 µm']
+  answer: 3
+  explanation: |-
+    Actual size = image size / magnification = 15 mm / 1000 = 0.015 mm = 15 µm (since 1 mm = 1000 µm). 1.5 µm and 150 µm come from slipping a factor of 10 in the conversion; 15 mm forgets to divide.
+- id: bio-q-0207
+  lesson: bio-cell-theory
+  module_quiz: true
+  topic: Microscopy
+  stem: 'At 40× the field of view is 4 mm across. What is the diameter of the field of view at 400×?'
+  choices: ['40 mm', '0.4 mm', '4 mm', '0.04 mm']
+  answer: 1
+  explanation: |-
+    Magnification increased tenfold, so the field diameter shrinks to a tenth: 4 / 10 = 0.4 mm. A larger field (40 mm) is the common backward mistake: zooming in shows less of the slide.
+- id: bio-q-0208
+  lesson: bio-cell-theory
+  topic: Microscopy
+  stem: 'At high power the field of view is 500 µm across, and about 20 cells fit side by side across it. Estimate the width of one cell.'
+  choices: ['10 000 µm', '40 µm', '25 µm', '2.5 µm']
+  answer: 2
+  explanation: |-
+    Cell size ≈ field diameter / number of cells = 500 / 20 = 25 µm. Multiplying gives 10 000 µm; 40 µm divides 20 by 500 and scales up by 1000 without reason.
+- id: bio-q-0209
+  lesson: bio-cell-theory
+  topic: Microscopy
+  stem: 'A student magnifies a digital image of a light-microscope view many times but still cannot make out individual ribosomes. Why?'
+  choices:
+    - 'Ribosomes are found only in prokaryotic cells'
+    - 'Ribosomes are smaller than the resolution limit of a light microscope (about 0.2 µm)'
+    - 'The magnification is too low; enlarging the image more would reveal them'
+    - 'Ribosomes are transparent to electrons'
+  answer: 1
+  explanation: |-
+    Resolution, not magnification, limits detail. A light microscope cannot separate points closer than about 0.2 µm, and ribosomes are only about 20–30 nm across, so enlarging the image just enlarges the blur. Ribosomes are found in all cells and are visible with an electron microscope.
+- id: bio-q-0210
+  lesson: bio-cell-theory
+  topic: Microscopy
+  stem: 'Which task requires a light microscope rather than an electron microscope?'
+  choices:
+    - 'Seeing the internal membranes of a mitochondrion'
+    - 'Viewing the surface of a pollen grain in fine 3-D detail'
+    - 'Seeing individual virus particles about 50 nm across'
+    - 'Watching living cells divide in real time'
+  answer: 3
+  explanation: |-
+    Electron microscopes need a vacuum and specially prepared, dead specimens, so living cells can only be watched with a light microscope. Mitochondrial membranes and small viruses need the electron microscope's resolution; a scanning electron microscope gives detailed 3-D surface images.
+- id: bio-q-0211
+  lesson: bio-cell-theory
+  topic: Microscopy
+  stem: 'How many micrometers are in 0.25 mm?'
+  choices: ['250 µm', '25 µm', '2500 µm', '0.00025 µm']
+  answer: 0
+  explanation: |-
+    1 mm = 1000 µm, so 0.25 mm × 1000 = 250 µm. Dividing by 1000 instead of multiplying gives 0.00025.
+- id: bio-q-0212
+  lesson: bio-cell-types
+  module_quiz: true
+  topic: Cell types
+  stem: 'Which structure is found in ALL cells, both prokaryotic and eukaryotic?'
+  choices: ['a nucleus', 'mitochondria', 'ribosomes', 'a cell wall']
+  answer: 2
+  explanation: |-
+    Every cell makes proteins, so every cell has ribosomes, along with a plasma membrane, cytoplasm and DNA. Prokaryotes lack a nucleus and mitochondria, and animal cells lack a cell wall.
+- id: bio-q-0213
+  lesson: bio-cell-types
+  module_quiz: true
+  topic: Cell types
+  stem: 'A cell is 2 µm long, has a peptidoglycan cell wall and ribosomes, and has its DNA in a nucleoid region with no surrounding membrane. It is'
+  choices: ['a plant cell', 'an animal cell', 'a virus', 'a bacterium']
+  answer: 3
+  explanation: |-
+    No nucleus (DNA in a nucleoid), small size and a peptidoglycan wall mark a bacterium. Plant and animal cells are eukaryotic with nuclei; viruses are not cells and have no ribosomes or cell wall.
+- id: bio-q-0214
+  lesson: bio-cell-types
+  topic: Cell types
+  stem: 'Which feature distinguishes a eukaryotic cell from a prokaryotic cell?'
+  choices: ['DNA enclosed in a nucleus', 'a plasma membrane', 'ribosomes', 'DNA as genetic material']
+  answer: 0
+  explanation: |-
+    Eukaryotic cells have a nucleus and membrane-bound organelles. All cells, prokaryotic and eukaryotic, have a plasma membrane, ribosomes and DNA, so those features cannot tell them apart.
+- id: bio-q-0215
+  lesson: bio-cell-types
+  topic: Cell types
+  stem: 'Small extra loops of DNA in many bacteria, which often carry genes such as antibiotic resistance, are called'
+  choices: ['nucleoids', 'plasmids', 'capsids', 'ribosomes']
+  answer: 1
+  explanation: |-
+    Plasmids are small circular DNA molecules separate from the main chromosome and can pass between cells. The nucleoid is the region where the main chromosome sits; a capsid is a virus's protein coat; ribosomes make proteins.
+- id: bio-q-0216
+  lesson: bio-cell-types
+  topic: Cell types
+  stem: 'Carl Woese compared ribosomal RNA sequences from many organisms in 1977. What did he find?'
+  choices:
+    - 'All prokaryotes are closely related bacteria'
+    - 'Archaea are a type of eukaryote'
+    - 'Prokaryotes form two distinct groups, Bacteria and Archaea, which led to the three-domain system'
+    - 'Viruses form a fourth domain of life'
+  answer: 2
+  explanation: |-
+    The rRNA sequences split prokaryotes into two groups as different from each other as either is from eukaryotes, giving three domains: Bacteria, Archaea and Eukarya. Archaea are prokaryotes, and viruses are not cells, so they are not placed in a domain.
+- id: bio-q-0217
+  lesson: bio-cell-types
+  module_quiz: true
+  topic: Cell types
+  stem: 'A bacterium is 2 µm across and an amoeba is 20 µm across. Treating both as spheres, how many times greater is the amoeba''s volume?'
+  choices: ['1000 times', '10 times', '100 times', '20 times']
+  answer: 0
+  explanation: |-
+    The diameter ratio is 20 / 2 = 10, and volume scales with the cube of the diameter: $10^3 = 1000$. 10 times compares only diameters; 100 times uses the square, which is how surface area scales.
+- id: bio-q-0218
+  lesson: bio-cell-types
+  topic: Viruses
+  stem: 'Which statement about viruses is correct?'
+  choices:
+    - 'They are small bacteria with a nucleus'
+    - 'They have their own ribosomes but no genetic material'
+    - 'They reproduce by dividing in two, like bacteria'
+    - 'They contain DNA or RNA in a protein coat and can reproduce only inside a host cell'
+  answer: 3
+  explanation: |-
+    A virus is genetic material (DNA or RNA) inside a protein capsid, sometimes with an envelope. It has no ribosomes or metabolism and uses the host cell's machinery to make copies. It is not a cell, so it does not divide.
+- id: bio-q-0219
+  lesson: bio-cell-types
+  module_quiz: true
+  topic: Viruses
+  stem: 'Penicillin blocks the building of peptidoglycan cell walls. Why does it not help a patient with influenza?'
+  choices:
+    - 'Influenza viruses have thicker peptidoglycan walls than bacteria'
+    - 'Penicillin kills human cells along with the virus'
+    - 'Influenza viruses have no cell wall or metabolism for penicillin to act on'
+    - 'Influenza is caused by archaea, which resist all drugs'
+  answer: 2
+  explanation: |-
+    Viruses are not cells and have no peptidoglycan wall; they are copied by the patient's own cells. Human cells lack peptidoglycan, which is why penicillin does not harm them. Influenza is a virus, not an archaeon.
+- id: bio-q-0220
+  lesson: bio-cell-types
+  topic: Viruses
+  stem: 'In the 1890s, sap from tobacco plants with mosaic disease was passed through porcelain filters fine enough to trap all known bacteria. The filtered sap still infected healthy plants. What was the best conclusion?'
+  choices:
+    - 'The disease was caused by bacteria that slipped through the filter'
+    - 'The disease was caused by an agent smaller than any known bacterium'
+    - 'The disease was caused by a chemical poison in the soil'
+    - 'Tobacco mosaic disease is not infectious'
+  answer: 1
+  explanation: |-
+    The filters removed bacteria, yet the sap stayed infectious, so the agent was smaller than bacteria. Beijerinck also showed it multiplied in living plants, ruling out a simple poison, which would be diluted rather than spread. The agent was the tobacco mosaic virus.
+- id: bio-q-0221
+  lesson: bio-cell-types
+  topic: Cell types
+  stem: 'Which organisms are prokaryotes?'
+  choices: ['fungi and protists', 'bacteria and archaea', 'plants and algae', 'animals and fungi']
+  answer: 1
+  explanation: |-
+    Bacteria and archaea are the prokaryotic domains. Fungi, protists, plants (and algae, which are protists or plants) and animals are all eukaryotes, with nuclei and membrane-bound organelles.
+- id: bio-q-0222
+  lesson: bio-cell-types
+  topic: Viruses
+  stem: 'Arrange from smallest to largest: a typical virus, a typical bacterium, a typical animal cell.'
+  choices:
+    - 'bacterium, virus, animal cell'
+    - 'virus, animal cell, bacterium'
+    - 'virus (about 100 nm), bacterium (about 2 µm), animal cell (about 20 µm)'
+    - 'animal cell, bacterium, virus'
+  answer: 2
+  explanation: |-
+    Most viruses are 20–300 nm, bacteria about 1–5 µm and eukaryotic cells about 10–100 µm. Since 1 µm = 1000 nm, a 100 nm virus is a fraction of a bacterium's size, and the bacterium is about a tenth the width of an animal cell.
+- id: bio-q-0223
+  lesson: bio-organelles
+  module_quiz: true
+  topic: Organelles
+  stem: 'Which organelle modifies, sorts and packages proteins into vesicles for delivery?'
+  choices: ['rough endoplasmic reticulum', 'lysosome', 'nucleolus', 'Golgi apparatus']
+  answer: 3
+  explanation: |-
+    The Golgi apparatus receives proteins from the ER, modifies them, sorts them and ships them in vesicles. The rough ER is where proteins for export are made; lysosomes digest materials; the nucleolus assembles ribosome parts.
+- id: bio-q-0224
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'Cells of the pancreas secrete large amounts of digestive enzymes. Which organelles would you expect to be especially extensive in these cells?'
+  choices: ['rough ER and Golgi apparatus', 'chloroplasts and central vacuole', 'smooth ER and lysosomes', 'cell wall and centrioles']
+  answer: 0
+  explanation: |-
+    Enzymes are proteins made for export: they are built on the rough ER and processed and packaged by the Golgi. Smooth ER makes lipids and detoxifies; pancreas cells are animal cells, so they have no chloroplasts, central vacuole or cell wall.
+- id: bio-q-0225
+  lesson: bio-organelles
+  module_quiz: true
+  topic: Organelles
+  stem: 'In a pulse–chase experiment, pancreas cells get a short pulse of radioactive amino acid. The label is found mostly in the rough ER at 3 min, the Golgi at 20 min and secretory vesicles at 120 min. What path do these data support?'
+  choices:
+    - 'Golgi → rough ER → secretory vesicles → outside the cell'
+    - 'secretory vesicles → Golgi → rough ER → nucleus'
+    - 'rough ER → Golgi → secretory vesicles → outside the cell'
+    - 'nucleus → lysosome → Golgi → rough ER'
+  answer: 2
+  explanation: |-
+    The same labeled batch of protein appears first in the rough ER, then the Golgi, then secretory vesicles, so it must travel in that order before being released. Reversing the order contradicts the timing of the data.
+- id: bio-q-0226
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'Liver cells break down alcohol and many drugs. Which organelle is especially abundant in them for this job?'
+  choices: ['smooth ER', 'rough ER', 'chloroplast', 'central vacuole']
+  answer: 0
+  explanation: |-
+    Smooth ER contains enzymes that detoxify drugs and alcohol (and makes lipids). Rough ER makes proteins for export; animal cells have no chloroplasts or central vacuole.
+- id: bio-q-0227
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'Why is the acidic interior of a lysosome (about pH 5) a safety feature for the cell?'
+  choices:
+    - 'Acid kills any bacteria in the cytoplasm'
+    - 'If a lysosome leaks, its enzymes work poorly at the near-neutral pH of the cytoplasm'
+    - 'The acid makes the lysosome''s enzymes work best in the cytoplasm'
+    - 'The acid prevents lysosomes from fusing with vesicles'
+  answer: 1
+  explanation: |-
+    Lysosomal enzymes have an acidic optimum (an idea from Lesson 5). In the cytoplasm, at about pH 7.2, they are far from their optimum, so a small leak does little damage. They do not work best in the cytoplasm, and lysosomes fuse with vesicles all the time.
+- id: bio-q-0228
+  lesson: bio-organelles
+  module_quiz: true
+  topic: Organelles
+  stem: 'Which statement about plant and animal cells is correct?'
+  choices:
+    - 'Plant cells have chloroplasts instead of mitochondria'
+    - 'Animal cells have a cell wall made of cellulose'
+    - 'Animal cells have a large central vacuole'
+    - 'Plant cells have both chloroplasts and mitochondria'
+  answer: 3
+  explanation: |-
+    Plants make sugar in chloroplasts and release its energy in mitochondria, so they need both. Animal cells have no cell wall and only small vacuoles; the large central vacuole and cellulose wall are plant features.
+- id: bio-q-0229
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'Which organelle would you expect to be most numerous in a heart muscle cell that contracts constantly?'
+  choices: ['chloroplasts', 'lysosomes', 'mitochondria', 'Golgi apparatus']
+  answer: 2
+  explanation: |-
+    Constant contraction needs a constant supply of ATP, which mitochondria produce by cellular respiration. Animal cells have no chloroplasts; lysosomes and the Golgi are not the main need of a muscle cell.
+- id: bio-q-0230
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'Messenger RNA made in the nucleus reaches the ribosomes in the cytoplasm by passing through'
+  choices: ['nuclear pores', 'the nucleolus', 'the Golgi apparatus', 'lysosomes']
+  answer: 0
+  explanation: |-
+    The nuclear envelope is a double membrane with pores that let mRNA out and needed proteins in. The nucleolus is inside the nucleus and assembles ribosome parts; the Golgi and lysosomes are not on this route.
+- id: bio-q-0231
+  lesson: bio-organelles
+  module_quiz: true
+  topic: Organelles
+  stem: 'Which observation is evidence for the endosymbiotic theory of the origin of mitochondria?'
+  choices:
+    - 'Mitochondria are found in both plant and animal cells'
+    - 'Mitochondria have their own circular DNA and ribosomes resembling those of bacteria'
+    - 'Mitochondria produce ATP for the cell'
+    - 'Mitochondria are surrounded by cytoplasm'
+  answer: 1
+  explanation: |-
+    Circular DNA and bacteria-like ribosomes, along with double membranes, division by splitting and DNA sequences resembling particular bacteria, point to descent from engulfed prokaryotes. Being in plants and animals or making ATP describes what mitochondria do, not where they came from.
+- id: bio-q-0232
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'A student says mitochondria cannot have descended from bacteria, because isolated mitochondria cannot grow on their own. What is the best response?'
+  choices:
+    - 'The student is right, so the endosymbiotic theory has been rejected'
+    - 'Mitochondria can grow on their own if given sugar'
+    - 'Mitochondria were never free-living; only chloroplasts were'
+    - 'Over a long history most mitochondrial genes moved to the nucleus, so mitochondria now depend on the host cell'
+  answer: 3
+  explanation: |-
+    The theory says mitochondria descended from bacteria over more than a billion years, during which most of their genes were transferred to the nucleus (human mitochondria keep only 37). Their dependence fits the theory; the theory applies to both mitochondria and chloroplasts.
+- id: bio-q-0233
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'A plant left without water wilts. Which change in its cells is mainly responsible?'
+  choices:
+    - 'Its cell walls dissolve'
+    - 'Its chloroplasts stop making sugar, so the plant falls over'
+    - 'Its central vacuoles lose water and stop pressing against the cell walls'
+    - 'Its mitochondria burst'
+  answer: 2
+  explanation: |-
+    A full central vacuole presses the cell outward against its wall, keeping tissues firm. When the vacuoles lose water, that pressure drops and the plant droops. The cell walls stay intact.
+- id: bio-q-0234
+  lesson: bio-organelles
+  topic: Organelles
+  stem: 'Microtubules of the cytoskeleton'
+  choices:
+    - 'store digestive enzymes'
+    - 'make lipids and detoxify drugs'
+    - 'capture light energy for photosynthesis'
+    - 'act as tracks for moving vesicles and pull chromosomes apart during cell division'
+  answer: 3
+  explanation: |-
+    Microtubules are hollow protein tubes that guide vesicles and organelles and form the spindle that separates chromosomes. Lysosomes hold digestive enzymes, smooth ER makes lipids, and chloroplasts capture light.
+- id: bio-q-0235
+  lesson: bio-membranes
+  module_quiz: true
+  topic: Cell membrane
+  stem: 'In a phospholipid bilayer, the phospholipids are arranged with'
+  choices:
+    - 'hydrophilic heads facing the water on both sides and hydrophobic tails pointing inward'
+    - 'hydrophobic tails facing the water and hydrophilic heads inside'
+    - 'heads on one side and tails on the other, exposed to water'
+    - 'tails pointing outward into the cytoplasm only'
+  answer: 0
+  explanation: |-
+    The polar heads are attracted to water, so they face the watery fluid inside and outside the cell, while the nonpolar tails hide from water in the middle of the bilayer.
+- id: bio-q-0236
+  lesson: bio-membranes
+  topic: Cell membrane
+  stem: 'Frye and Edidin fused mouse and human cells with differently colored membrane proteins. At 37 °C the colors mixed within about 40 minutes; at low temperature they stayed separate. What does this support?'
+  choices:
+    - 'Membrane proteins are fixed in place by the cell wall'
+    - 'Membrane proteins move sideways in a fluid lipid bilayer'
+    - 'New proteins are made only at warm temperatures'
+    - 'Membranes are made of a single layer of protein'
+  answer: 1
+  explanation: |-
+    The intermixing shows proteins drifting within the membrane, and slower movement in the cold fits a fluid that thickens when chilled. Blocking protein synthesis did not stop the mixing, so new protein was not the explanation. Animal cells have no wall.
+- id: bio-q-0237
+  lesson: bio-membranes
+  topic: Cell membrane
+  stem: 'Which substance crosses a phospholipid bilayer most easily without help from proteins?'
+  choices: ['sodium ions (Na⁺)', 'glucose', 'a protein', 'oxygen (O₂)']
+  answer: 3
+  explanation: |-
+    Small nonpolar molecules such as O₂ pass straight through the hydrophobic core. Ions and large polar molecules such as glucose need transport proteins, and proteins are far too large; they enter by endocytosis.
+- id: bio-q-0238
+  lesson: bio-membranes
+  module_quiz: true
+  topic: Transport
+  stem: 'Red blood cells are placed in a salt solution that is more concentrated than their cytoplasm. What happens?'
+  choices:
+    - 'Water leaves the cells by osmosis and they shrink'
+    - 'Water enters the cells and they burst'
+    - 'Salt enters the cells until they burst'
+    - 'Nothing, because the solution is isotonic'
+  answer: 0
+  explanation: |-
+    The solution is hypertonic, so water moves out of the cells toward the higher solute concentration and the cells shrivel. Bursting happens in a hypotonic solution. The membrane largely blocks the salt, so water is what moves.
+- id: bio-q-0239
+  lesson: bio-membranes
+  topic: Transport
+  stem: 'A plant cell is placed in distilled water. What happens?'
+  choices:
+    - 'Water enters until the cell bursts'
+    - 'Water leaves and the membrane pulls away from the wall'
+    - 'Water enters, and the cell swells against its wall and becomes firm (turgid)'
+    - 'There is no net movement of water'
+  answer: 2
+  explanation: |-
+    Distilled water is hypotonic to the cell, so water enters by osmosis. The rigid cell wall pushes back, so the cell becomes turgid rather than bursting; animal cells, which lack walls, can burst. Plasmolysis happens in hypertonic solutions.
+- id: bio-q-0240
+  lesson: bio-membranes
+  module_quiz: true
+  topic: Transport
+  stem: 'Potato cores change mass by +9% in 0.2 M sucrose and by −1% in 0.4 M sucrose. Assuming a straight line between these points, about what sucrose concentration is isotonic to the potato cells?'
+  choices: ['0.30 M', '0.38 M', '0.22 M', '0.40 M']
+  answer: 1
+  explanation: |-
+    The isotonic point is where the mass change is zero. From +9% to −1% is a drop of 10 points, and zero is 9/10 of the way: 0.2 + 0.9(0.2) = 0.38 M. Taking the midpoint gives 0.30 M; 0.40 M ignores the small loss there.
+- id: bio-q-0241
+  lesson: bio-membranes
+  topic: Transport
+  stem: 'A potato core weighs 4.00 g before soaking and 3.40 g after 24 hours in a sucrose solution. What is the percent change in mass, and what does it show?'
+  choices:
+    - '−15%; the solution was hypertonic to the potato cells'
+    - '−15%; the solution was hypotonic to the potato cells'
+    - '−17.6%; the solution was hypertonic to the potato cells'
+    - '+15%; the solution was hypotonic to the potato cells'
+  answer: 0
+  explanation: |-
+    Percent change = (3.40 − 4.00) / 4.00 × 100% = −15%. The core lost water, so the outside solution had more solute: hypertonic. −17.6% divides by the final mass instead of the original.
+- id: bio-q-0242
+  lesson: bio-membranes
+  module_quiz: true
+  topic: Transport
+  stem: 'Which process moves a substance against its concentration gradient?'
+  choices: ['facilitated diffusion', 'active transport', 'osmosis', 'simple diffusion']
+  answer: 1
+  explanation: |-
+    Only active transport moves substances from low to high concentration, using energy (usually ATP) and a pump protein. Facilitated diffusion uses proteins but is passive and always goes down the gradient, as do osmosis and simple diffusion.
+- id: bio-q-0243
+  lesson: bio-membranes
+  topic: Transport
+  stem: 'Each cycle of the sodium–potassium pump uses one ATP to'
+  choices:
+    - 'move 2 Na⁺ out of the cell and 3 K⁺ into the cell'
+    - 'move 3 Na⁺ into the cell and 2 K⁺ out of the cell'
+    - 'let Na⁺ and K⁺ diffuse down their gradients'
+    - 'move 3 Na⁺ out of the cell and 2 K⁺ into the cell'
+  answer: 3
+  explanation: |-
+    The pump moves 3 Na⁺ out and 2 K⁺ in against their gradients, building high Na⁺ outside and high K⁺ inside. Letting ions diffuse down gradients would be passive and need no ATP.
+- id: bio-q-0244
+  lesson: bio-membranes
+  topic: Transport
+  stem: 'Glucose enters a red blood cell through a carrier protein, moving from higher concentration in the blood to lower concentration in the cell. This is'
+  choices: ['active transport', 'osmosis', 'facilitated diffusion', 'exocytosis']
+  answer: 2
+  explanation: |-
+    The movement is down the gradient (passive) but through a protein, which is facilitated diffusion. Using a protein does not make it active; active transport moves substances against the gradient. Osmosis is water only; exocytosis releases material from vesicles.
+- id: bio-q-0245
+  lesson: bio-membranes
+  topic: Transport
+  stem: 'Using $\Psi_s = -iCRT$ with $R = 0.0831$ L·bar/(mol·K), what is the solute potential of a 0.1 M sucrose solution ($i = 1$) at 27 °C?'
+  choices: ['−2.49 bar', '−0.22 bar', '+2.49 bar', '−4.99 bar']
+  answer: 0
+  explanation: |-
+    Convert to kelvins: 27 + 273 = 300 K. Then $\Psi_s = -(1)(0.1)(0.0831)(300) = -2.49$ bar. Using 27 instead of 300 K gives −0.22; dropping the minus sign gives +2.49; using $i = 2$ (as for NaCl) gives −4.99.
+- id: bio-q-0246
+  lesson: bio-membranes
+  topic: Transport
+  stem: 'A white blood cell surrounds a bacterium with its membrane and pulls it inside in a vesicle. This process is'
+  choices: ['exocytosis', 'endocytosis', 'facilitated diffusion', 'osmosis']
+  answer: 1
+  explanation: |-
+    In endocytosis (here phagocytosis, cell eating) the membrane folds inward to bring material into the cell in a vesicle. Exocytosis is the reverse, releasing a vesicle's contents outside. Diffusion and osmosis move single molecules, not whole bacteria.
+- id: bio-q-0247
+  lesson: bio-cell-size
+  module_quiz: true
+  topic: Surface area to volume
+  stem: 'What is the surface-area-to-volume ratio of a cube with sides of 3 cm?'
+  choices: ['3 : 1', '0.5 : 1', '6 : 1', '2 : 1']
+  answer: 3
+  explanation: |-
+    SA = 6(3²) = 54 cm², V = 3³ = 27 cm³, so SA:V = 54 / 27 = 2, or 6/s = 6/3 = 2. Forgetting that there are six faces gives 9/27; 3 : 1 is the ratio for a 2 cm cube; 0.5 : 1 inverts the ratio.
+- id: bio-q-0248
+  lesson: bio-cell-size
+  topic: Surface area to volume
+  stem: 'If the side length of a cube-shaped cell doubles, what happens to its surface area and volume?'
+  choices:
+    - 'Both double'
+    - 'Surface area becomes 8 times larger and volume 4 times larger'
+    - 'Surface area becomes 4 times larger and volume 8 times larger'
+    - 'Surface area doubles and volume becomes 4 times larger'
+  answer: 2
+  explanation: |-
+    Surface area scales with the square of the side (2² = 4) and volume with the cube (2³ = 8). Because volume grows faster, the SA:V ratio halves.
+- id: bio-q-0249
+  lesson: bio-cell-size
+  module_quiz: true
+  topic: Surface area to volume
+  stem: 'Why are most cells small?'
+  choices:
+    - 'Small cells have more DNA than large cells'
+    - 'Large cells have too much surface area for their volume'
+    - 'A small cell has a high surface-area-to-volume ratio, so materials can diffuse in and out fast enough to meet its needs'
+    - 'The plasma membrane cannot be made larger than 1 µm across'
+  answer: 2
+  explanation: |-
+    A cell's needs grow with its volume, but its supply through the membrane grows only with its surface area. As a cell grows, SA:V falls and diffusion distances lengthen, so a large cell could not supply its interior. Large cells have too little surface area for their volume, not too much.
+- id: bio-q-0250
+  lesson: bio-cell-size
+  topic: Surface area to volume
+  stem: 'Agar cubes of side 1 cm, 2 cm and 3 cm are soaked in a colored solution that diffuses 0.5 cm in from every face. What percent of the 2 cm cube''s volume is colored?'
+  choices: ['75%', '50%', '12.5%', '87.5%']
+  answer: 3
+  explanation: |-
+    The uncolored center is a cube of side 2 − 2(0.5) = 1 cm, volume 1 cm³. Colored volume = 8 − 1 = 7 cm³, and 7/8 = 87.5%. 12.5% is the uncolored fraction; subtracting the depth only once gives a 1.5 cm center and about 58%.
+- id: bio-q-0251
+  lesson: bio-cell-size
+  topic: Surface area to volume
+  stem: 'In the agar cube experiment, the color spreads the same distance into every cube. Which conclusion is supported?'
+  choices:
+    - 'Diffusion is faster in larger cubes'
+    - 'As cube size increases, a smaller fraction of the volume is reached by diffusion'
+    - 'All cubes are reached completely in the same time'
+    - 'Larger cubes have a larger surface-area-to-volume ratio'
+  answer: 1
+  explanation: |-
+    The same diffusion depth covers less of a big cube's volume, because its SA:V is lower. Diffusion speed is the same in all cubes; size, not speed, makes the difference.
+- id: bio-q-0252
+  lesson: bio-cell-size
+  topic: Surface area to volume
+  stem: 'Cells lining the small intestine are covered in microvilli. How do microvilli help these cells?'
+  choices:
+    - 'They greatly increase surface area for absorbing nutrients without adding much volume'
+    - 'They store digestive enzymes like lysosomes'
+    - 'They make the cells larger so they can hold more food'
+    - 'They reduce the surface area to protect the cells'
+  answer: 0
+  explanation: |-
+    Folding the membrane into many tiny projections multiplies its absorbing area while adding little volume, raising SA:V. Root hairs do the same job for plant roots.
+- id: bio-q-0253
+  lesson: bio-cell-size
+  module_quiz: true
+  topic: Cell specialization
+  stem: 'A muscle cell and a nerve cell from the same person look and work very differently. The main reason is that'
+  choices:
+    - 'they express different genes, although they contain the same DNA'
+    - 'they contain different DNA'
+    - 'muscle cells are prokaryotic and nerve cells are eukaryotic'
+    - 'nerve cells have lost the genes for muscle proteins'
+  answer: 0
+  explanation: |-
+    Differentiation switches different sets of genes on and off; nearly every cell in the body carries the same DNA. Gurdon's nuclear transfer experiments showed that specialized cells keep the genes they do not use. All human cells are eukaryotic.
+- id: bio-q-0254
+  lesson: bio-cell-size
+  module_quiz: true
+  topic: Cell specialization
+  stem: 'Gurdon replaced the nucleus of a frog egg with the nucleus of a specialized tadpole intestinal cell, and some eggs developed into normal tadpoles and frogs. What does this show?'
+  choices:
+    - 'Intestinal cells contain only the genes for intestinal proteins'
+    - 'A specialized cell''s nucleus still contains all the genes needed to make a whole organism'
+    - 'The egg''s own nucleus was needed to build the frog'
+    - 'Differentiation permanently deletes unused genes'
+  answer: 1
+  explanation: |-
+    The frog was built using only the intestinal-cell nucleus, yet it had nerve, muscle, blood and every other cell type, so that nucleus kept all the genes. The egg's nucleus had been destroyed. Unused genes are switched off, not deleted.
+- id: bio-q-0255
+  lesson: bio-cell-size
+  topic: Cell specialization
+  stem: 'Which description of a specialized cell matches its structure to its function correctly?'
+  choices:
+    - 'A red blood cell has many nuclei to make extra hemoglobin quickly'
+    - 'A root hair cell is short and round to reduce water loss'
+    - 'A sperm cell has a flagellum and many mitochondria to swim to the egg'
+    - 'A nerve cell is spherical so that signals travel a short distance'
+  answer: 2
+  explanation: |-
+    The flagellum moves the sperm and mitochondria supply its ATP. Mammalian red blood cells have no nucleus at all, root hairs are long projections that increase surface area, and nerve cells have long extensions to carry signals over distances.
+- id: bio-q-0256
+  lesson: bio-cell-size
+  topic: Cell specialization
+  stem: 'The stomach contains epithelial, muscle, connective and nervous tissue working together. The stomach is therefore an example of'
+  choices: ['a tissue', 'an organ system', 'a cell type', 'an organ']
+  answer: 3
+  explanation: |-
+    An organ is made of two or more tissue types working together for a function. A tissue is a group of similar cells; an organ system is several organs (the stomach belongs to the digestive system).
+- id: bio-q-0257
+  lesson: bio-cell-size
+  topic: Cell specialization
+  stem: 'A group of similar cells that carry out a common function is called'
+  choices: ['an organ', 'an organelle', 'a population', 'a tissue']
+  answer: 3
+  explanation: |-
+    A tissue is a group of similar cells with a shared job, such as muscle tissue. An organ combines several tissues; an organelle is a structure inside a cell; a population is a group of organisms of one species.

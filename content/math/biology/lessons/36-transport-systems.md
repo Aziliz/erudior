@@ -20,7 +20,7 @@ The heart is really two pumps side by side, so blood makes two loops:
 - Pulmonary circuit: the right ventricle pumps oxygen-poor blood to the lungs, where it picks up oxygen and drops off carbon dioxide, then returns to the left atrium.
 - Systemic circuit: the left ventricle pumps oxygen-rich blood to every other tissue, and it returns oxygen-poor to the right atrium.
 
-Tracing one red blood cell: right atrium → right ventricle → pulmonary artery → lung capillaries → pulmonary vein → left atrium → left ventricle → aorta → body capillaries → veins → back to the right atrium. The left ventricle's wall is the thickest because it pushes blood through the whole body. Double circulation keeps oxygen-rich and oxygen-poor blood separate and lets the systemic circuit run at high pressure.
+Tracing one red blood cell: right atrium → right ventricle → pulmonary artery → lung capillaries → pulmonary vein → left atrium → left ventricle → aorta → body capillaries → veins → back to the right atrium. The left ventricle's wall is the thickest because it pushes blood through the whole body. Keeping the two circuits separate lets the systemic one run at high pressure.
 
 The heartbeat starts in the heart itself: a patch of specialized muscle in the right atrium, the pacemaker (sinoatrial node), fires on its own about 60–100 times a minute at rest. Nerves and hormones such as adrenaline speed it up or slow it down.
 
@@ -32,7 +32,7 @@ The heartbeat starts in the heart itself: a patch of specialized muscle in the r
 | **Capillary** | Between arteries and veins | One cell thick | Where exchange with tissues happens |
 | **Vein** | Toward the heart | Thinner, less muscle | Low pressure; valves stop backflow |
 
-Direction, not oxygen, defines the vessel: the pulmonary artery carries oxygen-poor blood (away from the heart, to the lungs), and the pulmonary veins carry oxygen-rich blood. Capillaries are so narrow that red blood cells pass in single file, and so numerous that almost no cell is more than a few cell-widths from one. In the limbs, veins run between skeletal muscles; contracting muscles squeeze the veins and the valves let the blood go only toward the heart.
+Direction, not oxygen, defines the vessel: the pulmonary artery carries oxygen-poor blood (away from the heart, to the lungs), and the pulmonary veins carry oxygen-rich blood. Capillaries are so narrow that red blood cells pass in single file, and so numerous that almost no cell is more than a few cell-widths from one. In the limbs, contracting muscles squeeze the veins, and the valves let blood go only toward the heart.
 
 ## Blood
 

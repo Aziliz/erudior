@@ -15,7 +15,7 @@
   solution: |-
     Generations $=$ elapsed time $\div$ generation time $= {t} \div {gt} =$ **{n}**.
 
-    Each generation doubles the population, so $N = N_0 \times 2^{n} = {N0} \times 2^{{n}}$ = **{N:int}** cells. (Multiplying by {n} instead of by $2^{{n}}$ is the usual mistake.)
+    Each generation doubles the population, so $N = N_0 \times 2^{\,n} = {N0} \times 2^{{n}}$ = **{N:int}** cells. (Multiplying by {n} instead of by $2^{{n}}$ is the usual mistake.)
 - id: bio-serial-dilution
   title: Counting bacteria by serial dilution
   topic: Bacteria and archaea
@@ -64,8 +64,8 @@
     dens: count/fov
   prompt: 'A nail-polish imprint of a leaf''s lower surface is viewed under a microscope. The field of view is {diam} mm in diameter, and {count} stomata are visible in it. Find the area of the field of view (mm², 4 decimal places) and the stomatal density (stomata per mm², to the nearest whole number).'
   answers:
-    - {name: fov, label: 'Field area (mm²)', relTolerance: 0.01}
-    - {name: dens, label: 'Density (per mm²)', relTolerance: 0.01}
+    - {name: fov, label: 'Field area (mm²)', format: num4, relTolerance: 0.01}
+    - {name: dens, label: 'Density (per mm²)', format: num1, relTolerance: 0.01}
   solution: |-
     The radius is half the diameter: $r = {diam} \div 2 = {rad:num4}$ mm.
 

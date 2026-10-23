@@ -1,0 +1,1061 @@
+- id: bio-chargaff
+  title: 'Chargaff''s rules: base percentages'
+  topic: DNA structure
+  vars:
+    giv:
+      choices:
+      - label: adenine (A)
+        value: 1
+      - label: guanine (G)
+        value: 2
+      - label: thymine (T)
+        value: 3
+      - label: cytosine (C)
+        value: 4
+    x:
+      min: 12
+      max: 38
+  where:
+  - x != 25
+  calc:
+    y: 50 - x
+    y2: 100 - 2*x
+    pA: if(giv == 1 or giv == 3, x, 50 - x)
+    pT: pA
+    pG: 50 - pA
+    pC: pG
+  prompt: A sample of double-stranded DNA is {x}% {giv}. Find the percentage of each base. Enter whole-number percents.
+  answers:
+  - name: pA
+    label: A (%)
+  - name: pT
+    label: T (%)
+  - name: pG
+    label: G (%)
+  - name: pC
+    label: C (%)
+  solution: 'Base pairing makes A = T and G = C, so the given base and its partner are each {x}%. The other two bases share the rest, $100 - 2({x}) = {y2}$ percent, equally: {y}% each.
+
+
+    A = **{pA}%**, T = **{pT}%**, G = **{pG}%**, C = **{pC}%**.'
+- id: bio-complement
+  title: Write the complementary DNA strand
+  topic: DNA structure
+  vars:
+    prob:
+      choices:
+      - label: '`5′-CTGGGGGACATC-3′`
+
+
+          1. `3′-CTGGGGGACATC-5′`
+
+          2. `3′-GACCCCCUGUAG-5′`
+
+          3. `3′-GATGTCCCCCAG-5′`
+
+          4. `3′-GACCCCCTGTAG-5′`'
+        value: 14
+      - label: '`5′-TGAGTCGGGAAG-3′`
+
+
+          1. `3′-CTTCCCGACTCA-5′`
+
+          2. `3′-ACTCAGCCCTTC-5′`
+
+          3. `3′-TGAGTCGGGAAG-5′`
+
+          4. `3′-ACUCAGCCCUUC-5′`'
+        value: 22
+      - label: '`5′-TGGGGAGTGTTA-3′`
+
+
+          1. `3′-TAACACTCCCCA-5′`
+
+          2. `3′-ACCCCUCACAAU-5′`
+
+          3. `3′-ACCCCTCACAAT-5′`
+
+          4. `3′-TGGGGAGTGTTA-5′`'
+        value: 33
+      - label: '`5′-TATATATGGGAC-3′`
+
+
+          1. `3′-ATATATACCCTG-5′`
+
+          2. `3′-TATATATGGGAC-5′`
+
+          3. `3′-GTCCCATATATA-5′`
+
+          4. `3′-AUAUAUACCCUG-5′`'
+        value: 41
+      - label: '`5′-CCATGTTCGCCA-3′`
+
+
+          1. `3′-GGUACAAGCGGU-5′`
+
+          2. `3′-CCATGTTCGCCA-5′`
+
+          3. `3′-GGTACAAGCGGT-5′`
+
+          4. `3′-TGGCGAACATGG-5′`'
+        value: 53
+      - label: '`5′-ACTGATTGCTGC-3′`
+
+
+          1. `3′-UGACUAACGACG-5′`
+
+          2. `3′-GCAGCAATCAGT-5′`
+
+          3. `3′-TGACTAACGACG-5′`
+
+          4. `3′-ACTGATTGCTGC-5′`'
+        value: 63
+      - label: '`5′-GTGCAACCAAAG-3′`
+
+
+          1. `3′-GTGCAACCAAAG-5′`
+
+          2. `3′-CACGTTGGTTTC-5′`
+
+          3. `3′-CTTTGGTTGCAC-5′`
+
+          4. `3′-CACGUUGGUUUC-5′`'
+        value: 72
+      - label: '`5′-AGTACGAGGAAG-3′`
+
+
+          1. `3′-UCAUGCUCCUUC-5′`
+
+          2. `3′-TCATGCTCCTTC-5′`
+
+          3. `3′-AGTACGAGGAAG-5′`
+
+          4. `3′-CTTCCTCGTACT-5′`'
+        value: 82
+      - label: '`5′-TGGTATATGATA-3′`
+
+
+          1. `3′-ACCATATACTAT-5′`
+
+          2. `3′-TGGTATATGATA-5′`
+
+          3. `3′-TATCATATACCA-5′`
+
+          4. `3′-ACCAUAUACUAU-5′`'
+        value: 91
+      - label: '`5′-AATTTAGTAGCG-3′`
+
+
+          1. `3′-AATTTAGTAGCG-5′`
+
+          2. `3′-UUAAAUCAUCGC-5′`
+
+          3. `3′-CGCTACTAAATT-5′`
+
+          4. `3′-TTAAATCATCGC-5′`'
+        value: 104
+      - label: '`5′-AAGCTACCCCGA-3′`
+
+
+          1. `3′-TCGGGGTAGCTT-5′`
+
+          2. `3′-UUCGAUGGGGCU-5′`
+
+          3. `3′-AAGCTACCCCGA-5′`
+
+          4. `3′-TTCGATGGGGCT-5′`'
+        value: 114
+      - label: '`5′-TGCGTGGACTAG-3′`
+
+
+          1. `3′-ACGCACCTGATC-5′`
+
+          2. `3′-TGCGTGGACTAG-5′`
+
+          3. `3′-ACGCACCUGAUC-5′`
+
+          4. `3′-CTAGTCCACGCA-5′`'
+        value: 121
+    sol:
+      choices:
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-CTGGGGGACATC-3′` goes `3′-GACCCCCTGTAG-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **4**.
+
+
+          Option 1 just repeats the original bases; option 2 uses U, which is found only in RNA; option 3 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 14
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-TGAGTCGGGAAG-3′` goes `3′-ACTCAGCCCTTC-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **2**.
+
+
+          Option 3 just repeats the original bases; option 4 uses U, which is found only in RNA; option 1 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 22
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-TGGGGAGTGTTA-3′` goes `3′-ACCCCTCACAAT-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **3**.
+
+
+          Option 4 just repeats the original bases; option 2 uses U, which is found only in RNA; option 1 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 33
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-TATATATGGGAC-3′` goes `3′-ATATATACCCTG-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **1**.
+
+
+          Option 2 just repeats the original bases; option 4 uses U, which is found only in RNA; option 3 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 41
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-CCATGTTCGCCA-3′` goes `3′-GGTACAAGCGGT-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **3**.
+
+
+          Option 2 just repeats the original bases; option 1 uses U, which is found only in RNA; option 4 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 53
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-ACTGATTGCTGC-3′` goes `3′-TGACTAACGACG-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **3**.
+
+
+          Option 4 just repeats the original bases; option 1 uses U, which is found only in RNA; option 2 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 63
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-GTGCAACCAAAG-3′` goes `3′-CACGTTGGTTTC-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **2**.
+
+
+          Option 1 just repeats the original bases; option 4 uses U, which is found only in RNA; option 3 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 72
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-AGTACGAGGAAG-3′` goes `3′-TCATGCTCCTTC-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **2**.
+
+
+          Option 3 just repeats the original bases; option 1 uses U, which is found only in RNA; option 4 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 82
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-TGGTATATGATA-3′` goes `3′-ACCATATACTAT-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **1**.
+
+
+          Option 2 just repeats the original bases; option 4 uses U, which is found only in RNA; option 3 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 91
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-AATTTAGTAGCG-3′` goes `3′-TTAAATCATCGC-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **4**.
+
+
+          Option 1 just repeats the original bases; option 2 uses U, which is found only in RNA; option 3 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 104
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-AAGCTACCCCGA-3′` goes `3′-TTCGATGGGGCT-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **4**.
+
+
+          Option 3 just repeats the original bases; option 2 uses U, which is found only in RNA; option 1 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 114
+      - label: 'Pair each base with its partner (A with T, G with C), keeping the order: under `5′-TGCGTGGACTAG-3′` goes `3′-ACGCACCTGATC-5′`. The new strand is antiparallel, so its left end is 3′. The answer is option **1**.
+
+
+          Option 2 just repeats the original bases; option 3 uses U, which is found only in RNA; option 4 has the right bases in reverse order, so each base no longer sits across from its partner.'
+        value: 121
+  where:
+  - prob == sol
+  calc:
+    ans: mod(prob, 10)
+  prompt: 'One strand of a DNA molecule is shown. Which option is its complementary strand?
+
+
+    {prob}
+
+
+    Type the option number (1–4).'
+  answers:
+  - name: ans
+    label: Option number
+    format: integer
+  solution: '{sol}'
+- id: bio-strand-counts
+  title: Base counts and hydrogen bonds in a double helix
+  topic: DNA structure
+  vars:
+    a:
+      min: 5
+      max: 40
+    t:
+      min: 5
+      max: 40
+    gg:
+      min: 5
+      max: 40
+    cc:
+      min: 5
+      max: 40
+  calc:
+    n: a + t + gg + cc
+    ca: t
+    cg: cc
+    at: a + t
+    gc: gg + cc
+    hb: 2*(a + t) + 3*(gg + cc)
+  prompt: 'One strand of a DNA segment has {n} bases: {a} A, {t} T, {gg} G and {cc} C. For the double-stranded segment, find how many A and how many G are on the complementary strand, and the total number of hydrogen bonds holding the two strands together (A–T pairs have 2, G–C pairs have 3).'
+  answers:
+  - name: ca
+    label: A on the other strand
+    format: integer
+  - name: cg
+    label: G on the other strand
+    format: integer
+  - name: hb
+    label: Hydrogen bonds
+    format: integer
+  solution: 'Each A on the given strand pairs with a T on the other, and each T with an A, so the other strand has as many A as the given strand has T: **{ca}**. Likewise its G count equals the given C count: **{cg}**.
+
+
+    There are {a} + {t} = {at} A–T pairs and {gg} + {cc} = {gc} G–C pairs. Hydrogen bonds: $2({at}) + 3({gc}) =$ **{hb}**.'
+- id: bio-transcribe
+  title: Transcribe a template strand into mRNA
+  topic: Transcription
+  vars:
+    prob:
+      choices:
+      - label: '`3′-AAACGCTAGTGA-5′`
+
+
+          1. `5′-UCACUAGCGUUU-3′`
+
+          2. `5′-TTTGCGATCACT-3′`
+
+          3. `5′-AAACGCUAGUGA-3′`
+
+          4. `5′-UUUGCGAUCACU-3′`'
+        value: 14
+      - label: '`3′-ATCCGCAAGGAA-5′`
+
+
+          1. `5′-TAGGCGTTCCTT-3′`
+
+          2. `5′-UUCCUUGCGGAU-3′`
+
+          3. `5′-UAGGCGUUCCUU-3′`
+
+          4. `5′-AUCCGCAAGGAA-3′`'
+        value: 23
+      - label: '`3′-CTTATCCCCACT-5′`
+
+
+          1. `5′-GAATAGGGGTGA-3′`
+
+          2. `5′-AGUGGGGAUAAG-3′`
+
+          3. `5′-GAAUAGGGGUGA-3′`
+
+          4. `5′-CUUAUCCCCACU-3′`'
+        value: 33
+      - label: '`3′-TCGACTTTGATA-5′`
+
+
+          1. `5′-AGCUGAAACUAU-3′`
+
+          2. `5′-AGCTGAAACTAT-3′`
+
+          3. `5′-UCGACUUUGAUA-3′`
+
+          4. `5′-UAUCAAAGUCGA-3′`'
+        value: 41
+      - label: '`3′-TGGTGAAACCAG-5′`
+
+
+          1. `5′-ACCACTTTGGTC-3′`
+
+          2. `5′-UGGUGAAACCAG-3′`
+
+          3. `5′-CUGGUUUCACCA-3′`
+
+          4. `5′-ACCACUUUGGUC-3′`'
+        value: 54
+      - label: '`3′-AATCGGAGCTAA-5′`
+
+
+          1. `5′-TTAGCCTCGATT-3′`
+
+          2. `5′-UUAGCCUCGAUU-3′`
+
+          3. `5′-AAUCGGAGCUAA-3′`
+
+          4. `5′-UUAGCUCCGAUU-3′`'
+        value: 62
+      - label: '`3′-ATTTGATTAGGG-5′`
+
+
+          1. `5′-AUUUGAUUAGGG-3′`
+
+          2. `5′-UAAACUAAUCCC-3′`
+
+          3. `5′-TAAACTAATCCC-3′`
+
+          4. `5′-CCCUAAUCAAAU-3′`'
+        value: 72
+      - label: '`3′-TGTATACGCAAG-5′`
+
+
+          1. `5′-ACAUAUGCGUUC-3′`
+
+          2. `5′-ACATATGCGTTC-3′`
+
+          3. `5′-UGUAUACGCAAG-3′`
+
+          4. `5′-CUUGCGUAUACA-3′`'
+        value: 81
+      - label: '`3′-TTATTTCGTTGA-5′`
+
+
+          1. `5′-AAUAAAGCAACU-3′`
+
+          2. `5′-UUAUUUCGUUGA-3′`
+
+          3. `5′-UCAACGAAAUAA-3′`
+
+          4. `5′-AATAAAGCAACT-3′`'
+        value: 91
+      - label: '`3′-AGCCGATTATAT-5′`
+
+
+          1. `5′-AUAUAAUCGGCU-3′`
+
+          2. `5′-TCGGCTAATATA-3′`
+
+          3. `5′-UCGGCUAAUAUA-3′`
+
+          4. `5′-AGCCGAUUAUAU-3′`'
+        value: 103
+      - label: '`3′-TGTCGCACTCTG-5′`
+
+
+          1. `5′-CAGAGUGCGACA-3′`
+
+          2. `5′-UGUCGCACUCUG-3′`
+
+          3. `5′-ACAGCGTGAGAC-3′`
+
+          4. `5′-ACAGCGUGAGAC-3′`'
+        value: 114
+      - label: '`3′-CGCAATGGCGCA-5′`
+
+
+          1. `5′-UGCGCCAUUGCG-3′`
+
+          2. `5′-GCGUUACCGCGU-3′`
+
+          3. `5′-CGCAAUGGCGCA-3′`
+
+          4. `5′-GCGTTACCGCGT-3′`'
+        value: 122
+    sol:
+      choices:
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-AAACGCTAGTGA-5′` the mRNA is `5′-UUUGCGAUCACU-3′`: option **4**.
+
+
+          Option 2 is the DNA complement (it has T, which RNA doesn''t use); option 3 copies the template and only swaps T for U; option 1 has the right bases written in reverse order.'
+        value: 14
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-ATCCGCAAGGAA-5′` the mRNA is `5′-UAGGCGUUCCUU-3′`: option **3**.
+
+
+          Option 1 is the DNA complement (it has T, which RNA doesn''t use); option 4 copies the template and only swaps T for U; option 2 has the right bases written in reverse order.'
+        value: 23
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-CTTATCCCCACT-5′` the mRNA is `5′-GAAUAGGGGUGA-3′`: option **3**.
+
+
+          Option 1 is the DNA complement (it has T, which RNA doesn''t use); option 4 copies the template and only swaps T for U; option 2 has the right bases written in reverse order.'
+        value: 33
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-TCGACTTTGATA-5′` the mRNA is `5′-AGCUGAAACUAU-3′`: option **1**.
+
+
+          Option 2 is the DNA complement (it has T, which RNA doesn''t use); option 3 copies the template and only swaps T for U; option 4 has the right bases written in reverse order.'
+        value: 41
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-TGGTGAAACCAG-5′` the mRNA is `5′-ACCACUUUGGUC-3′`: option **4**.
+
+
+          Option 1 is the DNA complement (it has T, which RNA doesn''t use); option 2 copies the template and only swaps T for U; option 3 has the right bases written in reverse order.'
+        value: 54
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-AATCGGAGCTAA-5′` the mRNA is `5′-UUAGCCUCGAUU-3′`: option **2**.
+
+
+          Option 1 is the DNA complement (it has T, which RNA doesn''t use); option 3 copies the template and only swaps T for U; option 4 has the right bases written in reverse order.'
+        value: 62
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-ATTTGATTAGGG-5′` the mRNA is `5′-UAAACUAAUCCC-3′`: option **2**.
+
+
+          Option 3 is the DNA complement (it has T, which RNA doesn''t use); option 1 copies the template and only swaps T for U; option 4 has the right bases written in reverse order.'
+        value: 72
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-TGTATACGCAAG-5′` the mRNA is `5′-ACAUAUGCGUUC-3′`: option **1**.
+
+
+          Option 2 is the DNA complement (it has T, which RNA doesn''t use); option 3 copies the template and only swaps T for U; option 4 has the right bases written in reverse order.'
+        value: 81
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-TTATTTCGTTGA-5′` the mRNA is `5′-AAUAAAGCAACU-3′`: option **1**.
+
+
+          Option 4 is the DNA complement (it has T, which RNA doesn''t use); option 2 copies the template and only swaps T for U; option 3 has the right bases written in reverse order.'
+        value: 91
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-AGCCGATTATAT-5′` the mRNA is `5′-UCGGCUAAUAUA-3′`: option **3**.
+
+
+          Option 2 is the DNA complement (it has T, which RNA doesn''t use); option 4 copies the template and only swaps T for U; option 1 has the right bases written in reverse order.'
+        value: 103
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-TGTCGCACTCTG-5′` the mRNA is `5′-ACAGCGUGAGAC-3′`: option **4**.
+
+
+          Option 3 is the DNA complement (it has T, which RNA doesn''t use); option 2 copies the template and only swaps T for U; option 1 has the right bases written in reverse order.'
+        value: 114
+      - label: 'RNA polymerase pairs RNA nucleotides with the template: A→U, T→A, G→C, C→G. Under `3′-CGCAATGGCGCA-5′` the mRNA is `5′-GCGUUACCGCGU-3′`: option **2**.
+
+
+          Option 4 is the DNA complement (it has T, which RNA doesn''t use); option 3 copies the template and only swaps T for U; option 1 has the right bases written in reverse order.'
+        value: 122
+  where:
+  - prob == sol
+  calc:
+    ans: mod(prob, 10)
+  prompt: 'A DNA template strand is shown. Which option is the mRNA transcribed from it?
+
+
+    {prob}
+
+
+    Type the option number (1–4).'
+  answers:
+  - name: ans
+    label: Option number
+    format: integer
+  solution: '{sol}'
+- id: bio-translate
+  title: Translate an mRNA with the codon table
+  topic: Translation
+  vars:
+    prob:
+      choices:
+      - label: '`5′-CGAUGUCCGCUGAACUGUGAGU-3′`
+
+
+          1. Tyr–Arg–Arg–Leu–Asp
+
+          2. Arg–Cys–Pro–Leu–Asn
+
+          3. Cys–Pro–Leu–Asn–Cys
+
+          4. Met–Ser–Ala–Glu–Leu'
+        value: 14
+      - label: '`5′-AAGCAUGUGGUUACACCAGUGAAC-3′`
+
+
+          1. Lys–His–Val–Val–Thr
+
+          2. Met–Trp–Leu–His–Gln
+
+          3. Cys–Gly–Tyr–Thr–Ser
+
+          4. Tyr–Thr–Asn–Val–Val'
+        value: 22
+      - label: '`5′-UACAUGCACAACUGGGUGUAGGG-3′`
+
+
+          1. Met–His–Asn–Trp–Val
+
+          2. Tyr–Val–Leu–Thr–His
+
+          3. Cys–Thr–Thr–Gly–Cys
+
+          4. Tyr–Met–His–Asn–Trp'
+        value: 31
+      - label: '`5′-GCUCAUGGGAGUCCAUCAUUGAUC-3′`
+
+
+          1. Tyr–Pro–Gln–Val–Val
+
+          2. Trp–Glu–Ser–Ile–Ile
+
+          3. Met–Gly–Val–His–His
+
+          4. Ala–His–Gly–Ser–Pro'
+        value: 43
+      - label: '`5′-GGUAUGUCUCGAUGGGGCUAAGC-3′`
+
+
+          1. Cys–Leu–Asp–Gly–Ala
+
+          2. Met–Ser–Arg–Trp–Gly
+
+          3. Tyr–Arg–Ala–Thr–Pro
+
+          4. Gly–Met–Ser–Arg–Trp'
+        value: 52
+      - label: '`5′-CUAGAUGGACUAUGCGUUUUGAAC-3′`
+
+
+          1. Met–Asp–Tyr–Ala–Phe
+
+          2. Leu–Asp–Gly–Leu–Cys
+
+          3. Trp–Thr–Met–Arg–Phe
+
+          4. Tyr–Leu–Ile–Arg–Lys'
+        value: 61
+      - label: '`5′-GUAUGGGGUUGGAUCAUUAGCC-3′`
+
+
+          1. Val–Trp–Gly–Trp–Ile
+
+          2. Tyr–Pro–Asn–Leu–Val
+
+          3. Met–Gly–Leu–Asp–His
+
+          4. Trp–Gly–Trp–Ile–Ile'
+        value: 73
+      - label: '`5′-AACAUGUUCUACGACGCGUGAGA-3′`
+
+
+          1. Tyr–Lys–Met–Leu–Arg
+
+          2. Cys–Ser–Thr–Thr–Arg
+
+          3. Asn–Met–Phe–Tyr–Asp
+
+          4. Met–Phe–Tyr–Asp–Ala'
+        value: 84
+      - label: '`5′-AUUCAUGUCAGAUACAAAGUAGGG-3′`
+
+
+          1. Ile–His–Val–Arg–Tyr
+
+          2. Met–Ser–Asp–Thr–Lys
+
+          3. Tyr–Ser–Leu–Cys–Phe
+
+          4. Cys–Gln–Ile–Gln–Ser'
+        value: 92
+      - label: '`5′-GAAUAUGCACCGAUAUGUCUGAAU-3′`
+
+
+          1. Tyr–Val–Ala–Ile–Gln
+
+          2. Cys–Thr–Asp–Met–Ser
+
+          3. Glu–Tyr–Ala–Pro–Ile
+
+          4. Met–His–Arg–Tyr–Val'
+        value: 104
+      - label: '`5′-GGGAUGGGCGGAGGGUGUUGAAA-3′`
+
+
+          1. Met–Gly–Gly–Gly–Cys
+
+          2. Tyr–Pro–Pro–Pro–Thr
+
+          3. Gly–Met–Gly–Gly–Gly
+
+          4. Trp–Ala–Glu–Gly–Val'
+        value: 111
+      - label: '`5′-AUCUAUGGCAGAAGUCACGUGAUU-3′`
+
+
+          1. Tyr–Arg–Leu–Gln–Cys
+
+          2. Ile–Tyr–Gly–Arg–Ser
+
+          3. Met–Ala–Glu–Val–Thr
+
+          4. Trp–Gln–Lys–Ser–Arg'
+        value: 123
+    sol:
+      choices:
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `CG`. Read in threes from there: `AUG UCC GCU GAA CUG UGA`. Using the codon table: Met–Ser–Ala–Glu–Leu–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Ser–Ala–Glu–Leu: option **4**.
+
+
+          Option 1 looks up the anticodons instead of the codons; option 3 reads one base out of frame after the A of AUG; option 2 starts at the first base instead of at AUG.'
+        value: 14
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `AAGC`. Read in threes from there: `AUG UGG UUA CAC CAG UGA`. Using the codon table: Met–Trp–Leu–His–Gln–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Trp–Leu–His–Gln: option **2**.
+
+
+          Option 4 looks up the anticodons instead of the codons; option 3 reads one base out of frame after the A of AUG; option 1 starts at the first base instead of at AUG.'
+        value: 22
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `UAC`. Read in threes from there: `AUG CAC AAC UGG GUG UAG`. Using the codon table: Met–His–Asn–Trp–Val–Stop. The stop codon adds no amino acid, so the polypeptide is Met–His–Asn–Trp–Val: option **1**.
+
+
+          Option 2 looks up the anticodons instead of the codons; option 3 reads one base out of frame after the A of AUG; option 4 starts at the first base instead of at AUG.'
+        value: 31
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `GCUC`. Read in threes from there: `AUG GGA GUC CAU CAU UGA`. Using the codon table: Met–Gly–Val–His–His–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Gly–Val–His–His: option **3**.
+
+
+          Option 1 looks up the anticodons instead of the codons; option 2 reads one base out of frame after the A of AUG; option 4 starts at the first base instead of at AUG.'
+        value: 43
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `GGU`. Read in threes from there: `AUG UCU CGA UGG GGC UAA`. Using the codon table: Met–Ser–Arg–Trp–Gly–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Ser–Arg–Trp–Gly: option **2**.
+
+
+          Option 3 looks up the anticodons instead of the codons; option 1 reads one base out of frame after the A of AUG; option 4 starts at the first base instead of at AUG.'
+        value: 52
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `CUAG`. Read in threes from there: `AUG GAC UAU GCG UUU UGA`. Using the codon table: Met–Asp–Tyr–Ala–Phe–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Asp–Tyr–Ala–Phe: option **1**.
+
+
+          Option 4 looks up the anticodons instead of the codons; option 3 reads one base out of frame after the A of AUG; option 2 starts at the first base instead of at AUG.'
+        value: 61
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `GU`. Read in threes from there: `AUG GGG UUG GAU CAU UAG`. Using the codon table: Met–Gly–Leu–Asp–His–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Gly–Leu–Asp–His: option **3**.
+
+
+          Option 2 looks up the anticodons instead of the codons; option 4 reads one base out of frame after the A of AUG; option 1 starts at the first base instead of at AUG.'
+        value: 73
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `AAC`. Read in threes from there: `AUG UUC UAC GAC GCG UGA`. Using the codon table: Met–Phe–Tyr–Asp–Ala–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Phe–Tyr–Asp–Ala: option **4**.
+
+
+          Option 1 looks up the anticodons instead of the codons; option 2 reads one base out of frame after the A of AUG; option 3 starts at the first base instead of at AUG.'
+        value: 84
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `AUUC`. Read in threes from there: `AUG UCA GAU ACA AAG UAG`. Using the codon table: Met–Ser–Asp–Thr–Lys–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Ser–Asp–Thr–Lys: option **2**.
+
+
+          Option 3 looks up the anticodons instead of the codons; option 4 reads one base out of frame after the A of AUG; option 1 starts at the first base instead of at AUG.'
+        value: 92
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `GAAU`. Read in threes from there: `AUG CAC CGA UAU GUC UGA`. Using the codon table: Met–His–Arg–Tyr–Val–Stop. The stop codon adds no amino acid, so the polypeptide is Met–His–Arg–Tyr–Val: option **4**.
+
+
+          Option 1 looks up the anticodons instead of the codons; option 2 reads one base out of frame after the A of AUG; option 3 starts at the first base instead of at AUG.'
+        value: 104
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `GGG`. Read in threes from there: `AUG GGC GGA GGG UGU UGA`. Using the codon table: Met–Gly–Gly–Gly–Cys–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Gly–Gly–Gly–Cys: option **1**.
+
+
+          Option 2 looks up the anticodons instead of the codons; option 4 reads one base out of frame after the A of AUG; option 3 starts at the first base instead of at AUG.'
+        value: 111
+      - label: 'Scan from the 5′ end for the first AUG: it starts after `AUCU`. Read in threes from there: `AUG GCA GAA GUC ACG UGA`. Using the codon table: Met–Ala–Glu–Val–Thr–Stop. The stop codon adds no amino acid, so the polypeptide is Met–Ala–Glu–Val–Thr: option **3**.
+
+
+          Option 1 looks up the anticodons instead of the codons; option 4 reads one base out of frame after the A of AUG; option 2 starts at the first base instead of at AUG.'
+        value: 123
+  where:
+  - prob == sol
+  calc:
+    ans: mod(prob, 10)
+  prompt: 'Use the codon table from the lesson to translate this mRNA. Translation starts at the first AUG.
+
+
+    {prob}
+
+
+    Type the option number (1–4).'
+  answers:
+  - name: ans
+    label: Option number
+    format: integer
+  solution: '{sol}'
+- id: bio-codon-count
+  title: Codons and nucleotides for a polypeptide
+  topic: Genetic code
+  vars:
+    aa:
+      min: 50
+      max: 600
+  calc:
+    cod: aa + 1
+    nt: 3*(aa + 1)
+  prompt: A polypeptide has {aa} amino acids. How many codons, counting the stop codon, are in the coding region of its mRNA (start codon through stop codon), and how many nucleotides is that?
+  answers:
+  - name: cod
+    label: Codons
+    format: integer
+  - name: nt
+    label: Nucleotides
+    format: integer
+  solution: 'Each amino acid has one codon, starting with AUG (methionine). The stop codon adds one more codon but no amino acid: {aa} + 1 = **{cod}** codons. Each codon is 3 nucleotides: $3 \times {cod} =$ **{nt}** nucleotides.'
+- id: bio-mutation-effect
+  title: Classify a point mutation or frameshift
+  topic: Mutations
+  vars:
+    prob:
+      choices:
+      - label: 'Original: `5′-AUGAUUGAGGCAAGGGGGUAA-3′`
+
+
+          Mutated: `5′-AUGAUUUAGGCAAGGGGGUAA-3′`'
+        value: 13
+      - label: 'Original: `5′-AUGAAAAGAGGGUUUAAUUAA-3′`
+
+
+          Mutated: `5′-AUGAGAAGAGGGUUUAAUUAA-3′`'
+        value: 22
+      - label: 'Original: `5′-AUGUCGUCCAAACGGGGUUAA-3′`
+
+
+          Mutated: `5′-AUGUCGUCCUAACGGGGUUAA-3′`'
+        value: 33
+      - label: 'Original: `5′-AUGGAGUCCCUAAGUACAUAA-3′`
+
+
+          Mutated: `5′-AUGGAGUCCUUAAGUACAUAA-3′`'
+        value: 41
+      - label: 'Original: `5′-AUGUCGCACACCCAAUGCUAA-3′`
+
+
+          Mutated: `5′-AUGUCGCUACACCCAAUGCUAA-3′`'
+        value: 54
+      - label: 'Original: `5′-AUGAUAUUGGCGUUCUCGUAA-3′`
+
+
+          Mutated: `5′-AUGAUAUCGGCGUUCUCGUAA-3′`'
+        value: 62
+      - label: 'Original: `5′-AUGCAGCUAUUGGCAAGAUAA-3′`
+
+
+          Mutated: `5′-AUGCAGCUAUUGGAAGAUAA-3′`'
+        value: 74
+      - label: 'Original: `5′-AUGGCUCAACCUAGACGAUAA-3′`
+
+
+          Mutated: `5′-AUGGCUCAACCAGACGAUAA-3′`'
+        value: 84
+      - label: 'Original: `5′-AUGGGCUCGUCCCCGACCUAA-3′`
+
+
+          Mutated: `5′-AUGGGCUAGUCCCCGACCUAA-3′`'
+        value: 93
+      - label: 'Original: `5′-AUGGACAAUCUGGCGUCUUAA-3′`
+
+
+          Mutated: `5′-AUGGACAAUCUGGCGUCCUAA-3′`'
+        value: 101
+      - label: 'Original: `5′-AUGCAGCCUCCCAAAUCUUAA-3′`
+
+
+          Mutated: `5′-AUGCAGCCUCCCAAAUCAUAA-3′`'
+        value: 111
+      - label: 'Original: `5′-AUGACUGAGUACAGGACUUAA-3′`
+
+
+          Mutated: `5′-AUGACUGAGUCAGGACUUAA-3′`'
+        value: 124
+      - label: 'Original: `5′-AUGGAGUCUGUGCCGUGCUAA-3′`
+
+
+          Mutated: `5′-AUGGAGUCCGUGCCGUGCUAA-3′`'
+        value: 131
+      - label: 'Original: `5′-AUGAUUAACCGCGCGUGUUAA-3′`
+
+
+          Mutated: `5′-AUGAUUACCCGCGCGUGUUAA-3′`'
+        value: 142
+      - label: 'Original: `5′-AUGUUACCGAAGUCCAGUUAA-3′`
+
+
+          Mutated: `5′-AUGUUACGGAAGUCCAGUUAA-3′`'
+        value: 152
+      - label: 'Original: `5′-AUGGACUUGGCUGUAGUCUAA-3′`
+
+
+          Mutated: `5′-AUGGACUAGGCUGUAGUCUAA-3′`'
+        value: 163
+    sol:
+      choices:
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUU GAG GCA AGG GGG UAA` = Met–Ile–Glu–Ala–Arg–Gly. Mutated protein: Met–Ile (then stop).
+
+
+          Codon 3 changed from GAG (Glu) to UAG, a stop codon. The protein is cut short: **nonsense** (3).'
+        value: 13
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AAA AGA GGG UUU AAU UAA` = Met–Lys–Arg–Gly–Phe–Asn. Mutated protein: Met–Arg–Arg–Gly–Phe–Asn (then stop).
+
+
+          Codon 2 changed from AAA (Lys) to AGA (Arg). One amino acid is replaced: **missense** (2).'
+        value: 22
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UCG UCC AAA CGG GGU UAA` = Met–Ser–Ser–Lys–Arg–Gly. Mutated protein: Met–Ser–Ser (then stop).
+
+
+          Codon 4 changed from AAA (Lys) to UAA, a stop codon. The protein is cut short: **nonsense** (3).'
+        value: 33
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAG UCC CUA AGU ACA UAA` = Met–Glu–Ser–Leu–Ser–Thr. Mutated protein: Met–Glu–Ser–Leu–Ser–Thr (then stop).
+
+
+          Codon 4 changed from CUA to UUA, but both code for Leu. The protein is unchanged: **silent** (1).'
+        value: 41
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UCG CAC ACC CAA UGC UAA` = Met–Ser–His–Thr–Gln–Cys. Mutated protein: Met–Ser–Leu–His–Pro–Met–Leu (then stop).
+
+
+          The mutation is inserting an U before position 8. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG UCG CUA CAC CCA AUG CUA`, and every codon after the change is different. **Frameshift** (4).'
+        value: 54
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUA UUG GCG UUC UCG UAA` = Met–Ile–Leu–Ala–Phe–Ser. Mutated protein: Met–Ile–Ser–Ala–Phe–Ser (then stop).
+
+
+          Codon 3 changed from UUG (Leu) to UCG (Ser). One amino acid is replaced: **missense** (2).'
+        value: 62
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG CAG CUA UUG GCA AGA UAA` = Met–Gln–Leu–Leu–Ala–Arg. Mutated protein: Met–Gln–Leu–Leu–Glu–Asp (then stop).
+
+
+          The mutation is deleting the C at position 14. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG CAG CUA UUG GAA GAU`, and every codon after the change is different. **Frameshift** (4).'
+        value: 74
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GCU CAA CCU AGA CGA UAA` = Met–Ala–Gln–Pro–Arg–Arg. Mutated protein: Met–Ala–Gln–Pro–Asp–Asp (then stop).
+
+
+          The mutation is deleting the U at position 12. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG GCU CAA CCA GAC GAU`, and every codon after the change is different. **Frameshift** (4).'
+        value: 84
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GGC UCG UCC CCG ACC UAA` = Met–Gly–Ser–Ser–Pro–Thr. Mutated protein: Met–Gly (then stop).
+
+
+          Codon 3 changed from UCG (Ser) to UAG, a stop codon. The protein is cut short: **nonsense** (3).'
+        value: 93
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAC AAU CUG GCG UCU UAA` = Met–Asp–Asn–Leu–Ala–Ser. Mutated protein: Met–Asp–Asn–Leu–Ala–Ser (then stop).
+
+
+          Codon 6 changed from UCU to UCC, but both code for Ser. The protein is unchanged: **silent** (1).'
+        value: 101
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG CAG CCU CCC AAA UCU UAA` = Met–Gln–Pro–Pro–Lys–Ser. Mutated protein: Met–Gln–Pro–Pro–Lys–Ser (then stop).
+
+
+          Codon 6 changed from UCU to UCA, but both code for Ser. The protein is unchanged: **silent** (1).'
+        value: 111
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG ACU GAG UAC AGG ACU UAA` = Met–Thr–Glu–Tyr–Arg–Thr. Mutated protein: Met–Thr–Glu–Ser–Gly–Leu (then stop).
+
+
+          The mutation is deleting the A at position 11. One base added or lost shifts the reading frame: re-read in threes from AUG, `AUG ACU GAG UCA GGA CUU`, and every codon after the change is different. **Frameshift** (4).'
+        value: 124
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAG UCU GUG CCG UGC UAA` = Met–Glu–Ser–Val–Pro–Cys. Mutated protein: Met–Glu–Ser–Val–Pro–Cys (then stop).
+
+
+          Codon 3 changed from UCU to UCC, but both code for Ser. The protein is unchanged: **silent** (1).'
+        value: 131
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG AUU AAC CGC GCG UGU UAA` = Met–Ile–Asn–Arg–Ala–Cys. Mutated protein: Met–Ile–Thr–Arg–Ala–Cys (then stop).
+
+
+          Codon 3 changed from AAC (Asn) to ACC (Thr). One amino acid is replaced: **missense** (2).'
+        value: 142
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG UUA CCG AAG UCC AGU UAA` = Met–Leu–Pro–Lys–Ser–Ser. Mutated protein: Met–Leu–Arg–Lys–Ser–Ser (then stop).
+
+
+          Codon 3 changed from CCG (Pro) to CGG (Arg). One amino acid is replaced: **missense** (2).'
+        value: 152
+      - label: 'Split each mRNA into codons from AUG and translate. Original: `AUG GAC UUG GCU GUA GUC UAA` = Met–Asp–Leu–Ala–Val–Val. Mutated protein: Met–Asp (then stop).
+
+
+          Codon 3 changed from UUG (Leu) to UAG, a stop codon. The protein is cut short: **nonsense** (3).'
+        value: 163
+  where:
+  - prob == sol
+  calc:
+    ans: mod(prob, 10)
+  prompt: 'A gene''s coding region (as mRNA, from start codon to stop codon) and a mutated version are shown.
+
+
+    {prob}
+
+
+    Use the codon table from the lesson to classify the mutation. Type **1** for silent, **2** for missense, **3** for nonsense, **4** for frameshift.'
+  answers:
+  - name: ans
+    label: Type (1–4)
+    format: integer
+  solution: '{sol}'
+- id: bio-pcr-copies
+  title: Copies after PCR cycles
+  topic: PCR
+  vars:
+    n0:
+      choices:
+      - 1
+      - 2
+      - 3
+      - 5
+      - 10
+      - 20
+      - 50
+      - 100
+    cyc:
+      min: 10
+      max: 30
+  calc:
+    tw: 2^cyc
+    N: n0 * 2^cyc
+  prompt: A PCR reaction starts with {n0} copies of a target DNA sequence. Assuming the number of copies doubles every cycle, how many copies are there after {cyc} cycles? Give 3 significant figures (scientific notation such as 1.05e9 is fine).
+  answers:
+  - name: N
+    label: Copies
+    format: sci
+    sigfigs: 3
+  solution: 'Each cycle doubles the count, so after $n$ cycles $N = N_0 \times 2^n$.
+
+
+    $N = {n0} \times 2^{{cyc}}$, and $2^{{cyc}}$ = {tw:int}, so $N =$ **${N:texsci}$** copies ({N:int}).'
+- id: bio-gel-size
+  title: Estimate fragment size from a DNA ladder
+  topic: Gel electrophoresis
+  vars:
+    k:
+      min: 18
+      max: 26
+    d1:
+      min: 40
+      max: 52
+    sz:
+      choices:
+      - 600
+      - 700
+      - 800
+      - 1200
+      - 1300
+      - 1500
+      - 1600
+      - 2500
+      - 3000
+      - 3500
+      - 4000
+      - 6000
+      - 7000
+  calc:
+    d10: round(d1 - k, 1)
+    d5: round(d1 - k*log10(5), 1)
+    d2: round(d1 - k*log10(2), 1)
+    d05: round(d1 + k*log10(2), 1)
+    du: round(d1 - k*log10(sz/1000), 1)
+    lg: round(3 + (d1 - du)/k, 3)
+    est: 1000 * 10^((d1 - du)/k)
+  prompt: 'A DNA ladder on a gel gives these bands (size in base pairs, distance from the well in mm):
+
+
+    | Size (bp) | 10,000 | 5,000 | 2,000 | 1,000 | 500 |
+
+    |---|---|---|---|---|---|
+
+    | Distance (mm) | {d10} | {d5} | {d2} | {d1} | {d05} |
+
+
+    An unknown fragment traveled {du} mm. Distance falls on a straight line against the logarithm of size. Estimate the fragment''s size in base pairs (within 5%).'
+  answers:
+  - name: est
+    label: Size (bp)
+    relTolerance: 0.05
+    format: int
+  solution: 'From 10,000 bp ({d10} mm) to 1,000 bp ({d1} mm) is a factor of 10 in size over {k} mm, so each {k} mm of travel is one step in $\log_{10}$ of size.
+
+
+    The unknown is ${d1} - {du}$ mm from the 1,000 bp band (negative means it is farther, so smaller). $\log_{10}(\text{size}) = 3 + \dfrac{{d1} - {du}}{{k}} \approx {lg}$, so size $\approx 10^{{lg}} \approx$ **{est:int} bp**.'
+- id: bio-restriction-fragments
+  title: Restriction fragment sizes
+  topic: Biotechnology
+  vars:
+    L:
+      min: 6000
+      max: 20000
+      step: 500
+    c1:
+      min: 500
+      max: 9000
+      step: 100
+    c2:
+      min: 1500
+      max: 19500
+      step: 100
+  where:
+  - c2 > c1 + 400
+  - c2 < L - 400
+  - c1 != c2 - c1
+  - c1 != L - c2
+  - c2 - c1 != L - c2
+  calc:
+    f1: c1
+    f2: c2 - c1
+    f3: L - c2
+    ca: c2 - c1
+    cb: L - (c2 - c1)
+  prompt: 'A linear DNA molecule {L} bp long is cut with a restriction enzyme that has sites at positions {c1} and {c2} (counted from the left end). Give the three fragment sizes from left to right. Then suppose the same DNA were a circle with the same two sites: give the size of the piece between the sites that contains positions {c1} to {c2}, and of the other piece.'
+  answers:
+  - name: f1
+    label: Left (bp)
+    format: integer
+  - name: f2
+    label: Middle (bp)
+    format: integer
+  - name: f3
+    label: Right (bp)
+    format: integer
+  - name: ca
+    label: Circle, piece from {c1} to {c2} (bp)
+    format: integer
+  - name: cb
+    label: Circle, other piece (bp)
+    format: integer
+  solution: 'Linear: two cuts make three pieces. Left end to first cut: **{f1}** bp. Between cuts: {c2} − {c1} = **{f2}** bp. Second cut to right end: {L} − {c2} = **{f3}** bp. (Check: they add to {L}.)
+
+
+    Circle: there are no ends, so two cuts make two pieces: **{ca}** bp between the sites, and {L} − {ca} = **{cb}** bp for the rest (the left and right pieces joined).'

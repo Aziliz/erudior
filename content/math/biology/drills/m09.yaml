@@ -5,8 +5,8 @@
     peak: {min: 130, max: 200, step: 10}
     kp: {choices: [25, 40, 50, 60]}
     n: {min: 1, max: 4}
+    sp: {choices: [90]}
   calc:
-    sp: 90
     ex0: peak - sp
     keep: 1 - kp/100
     exn: ex0*keep^n
@@ -67,7 +67,7 @@
   solution: |-
     Stroke volume is the blood pumped out in one beat: ${edv} - {esv} =$ **{sv} mL**.
 
-    Cardiac output $=$ heart rate $\times$ stroke volume $= {hr} \times {sv} = {mlm:int}$ mL/min $=$ **{co:num2} L/min** (divide by 1000 to change mL to L).
+    Cardiac output $=$ heart rate $\times$ stroke volume $= {hr} \times {sv} = {mlm}$ mL/min $=$ **{co:num2} L/min** (divide by 1000 to change mL to L).
 - id: bio-bmr-o2
   title: Metabolic rate from oxygen use
   topic: Respiratory system
@@ -81,7 +81,7 @@
     kjh: kjm*60
   prompt: 'A {mass} kg person uses {vo2} mL of oxygen per kilogram per minute (3.5 is a typical resting value). About 20 kJ of energy is released per liter of oxygen used. Find the total oxygen use (L/min), the energy use per minute (kJ/min), and per hour (kJ/h). Give 3 significant figures.'
   answers:
-    - {name: lpm, label: 'Oxygen (L/min)', relTolerance: 0.01}
+    - {name: lpm, label: 'Oxygen (L/min)', format: sig3, relTolerance: 0.01}
     - {name: kjm, label: 'Energy (kJ/min)', relTolerance: 0.01}
     - {name: kjh, label: 'Energy (kJ/h)', relTolerance: 0.01}
   solution: |-
@@ -94,8 +94,8 @@
   vars:
     tv: {min: 300, max: 700, step: 50}
     rr: {min: 10, max: 30}
+    ds: {choices: [150]}
   calc:
-    ds: 150
     ve: tv*rr/1000
     va: (tv - ds)*rr/1000
   prompt: 'A person takes {rr} breaths per minute with a tidal volume of {tv} mL. Dead space (air that only fills the airways) is {ds} mL per breath. Find the minute ventilation and the alveolar ventilation, in L/min to 2 decimal places.'

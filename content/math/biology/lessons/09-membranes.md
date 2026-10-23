@@ -13,15 +13,15 @@ The last lesson toured the organelles, most of which are wrapped in membranes, a
 
 ## The phospholipid bilayer
 
-Membranes are built mainly from **phospholipids**, lipids with a polar, water-loving (hydrophilic) head containing phosphate and two nonpolar, water-avoiding (hydrophobic) fatty acid tails. In water, phospholipids arrange themselves spontaneously into a double layer, the bilayer: heads face the watery fluid on each side, and tails point inward, hidden from water. No energy is needed to form it; it is the arrangement that keeps the tails away from water, just as oil drops cluster together in water.
+Membranes are built mainly from **phospholipids**, lipids with a polar, water-loving (hydrophilic) head containing phosphate and two nonpolar, water-avoiding (hydrophobic) fatty acid tails. In water, phospholipids arrange themselves spontaneously into a double layer, the bilayer: heads face the watery fluid on each side, and tails point inward, hidden from water. No energy is needed to form it.
 
-The first evidence for a bilayer came in 1925. Evert Gorter and François Grendel extracted the lipids from a known number of red blood cells, spread them on water as a layer one molecule thick, and measured its area. It was about twice the total surface area of the cells. The lipids must therefore form two layers around each cell. (Their individual measurements had errors that happened to cancel out, but the conclusion has been confirmed many times by later methods, including electron microscopy.)
+The first evidence for a bilayer came in 1925. Evert Gorter and François Grendel extracted the lipids from a known number of red blood cells, spread them on water as a layer one molecule thick, and measured its area. It was about twice the total surface area of the cells. The lipids must therefore form two layers around each cell. (Their individual measurements had errors that happened to cancel, but later methods confirmed the bilayer.)
 
 ## The fluid mosaic model
 
 The modern picture is the **fluid mosaic model**, proposed by S. J. Singer and Garth Nicolson in 1972. *Mosaic*: the membrane is a patchwork of many kinds of proteins embedded in or attached to the lipid bilayer. *Fluid*: the lipids and many of the proteins drift sideways within the layer, like icebergs in a sea, rather than being fixed in place.
 
-The fluid part was shown directly in 1970 by Larry Frye and Michael Edidin. They fused a mouse cell with a human cell, making one hybrid cell, and tagged the mouse membrane proteins with a green fluorescent dye and the human proteins with a red one. Right after fusion, green and red occupied separate halves of the hybrid's surface. After about 40 minutes at 37 °C, the colors were completely intermixed. When the experiment was done at low temperature (around 15 °C or below), the colors stayed separate. The proteins were not being made fresh in new places (blocking protein synthesis did not prevent mixing); they were *moving* in a fluid membrane, and more slowly when cold, just as a fluid thickens when chilled.
+The fluid part was shown directly in 1970 by Larry Frye and Michael Edidin. They fused a mouse cell with a human cell, making one hybrid cell, and tagged the mouse membrane proteins with a green fluorescent dye and the human proteins with a red one. Right after fusion, the colors occupied separate halves of the surface. After about 40 minutes at 37 °C, the colors were completely intermixed. When the experiment was done at low temperature (around 15 °C or below), the colors stayed separate. The proteins were not being made fresh in new places (blocking protein synthesis did not prevent mixing); they were *moving* in a fluid membrane, and more slowly when cold, just as a fluid thickens when chilled.
 
 Other parts of the mosaic:
 
@@ -54,7 +54,7 @@ The direction of osmosis depends on the solution outside the cell compared with 
 - A **hypotonic** solution has a lower solute concentration than the cell. Water enters. Animal cells swell and may burst (lyse); plant cells swell against their walls and become firm (turgid), which is the healthy state for a plant.
 - An **isotonic** solution has the same solute concentration as the cell. Water moves in and out equally, with no net change.
 
-That is why IV fluids in hospitals are isotonic saline (about 0.9% NaCl), and why freshwater protists such as *Paramecium* constantly pump out water that floods in, using a contractile vacuole.
+That is why hospital IV fluids are isotonic saline (about 0.9% NaCl).
 
 ### Example 1: Red blood cells in salt solutions
 
@@ -64,7 +64,7 @@ Red blood cells, whose interior is about 0.9% salt, are placed in 0.9%, 3% and 0
 2. 3%: hypertonic outside (more solute). Water leaves the cells by osmosis; they shrink and become spiky.
 3. 0.1%: hypotonic outside. Water rushes in; with no cell wall to resist, many cells swell and burst.
 
-Notice that we reason about water, not salt: the membrane keeps most of the ions in place, so water is what moves.
+Reason about water, not salt: the membrane holds the ions back, so water is what moves.
 
 ### Example 2: The potato core experiment
 
@@ -92,13 +92,13 @@ Biologists make osmosis quantitative with water potential, written $\Psi$ (psi),
 
 $$\Psi = \Psi_s + \Psi_p, \qquad \Psi_s = -iCRT$$
 
-Here $\Psi_s$ is the solute potential, $i$ the number of particles each solute unit makes in water (1 for sucrose, about 2 for NaCl), $C$ the molar concentration, $R = 0.0831$ L·bar/(mol·K) and $T$ the temperature in kelvins (°C + 273). For example, 0.2 M sucrose at 22 °C has $\Psi_s = -(1)(0.2)(0.0831)(295) \approx -4.9$ bar. In an open beaker, $\Psi_p = 0$, so $\Psi = -4.9$ bar, and water from a cell with a higher (less negative) potential will move into it. In a plant cell, the wall pushing back on the swollen cell creates positive pressure potential, which is what eventually stops more water from entering.
+Here $\Psi_s$ is the solute potential, $i$ the number of particles each solute unit makes in water (1 for sucrose, about 2 for NaCl), $C$ the molar concentration, $R = 0.0831$ L·bar/(mol·K) and $T$ the temperature in kelvins (°C + 273). For example, 0.2 M sucrose at 22 °C has $\Psi_s = -(1)(0.2)(0.0831)(295) \approx -4.9$ bar. In an open beaker, $\Psi_p = 0$, so $\Psi = -4.9$ bar, and water from a cell with a higher (less negative) potential will move into it. In a swollen plant cell, the wall pushes back, creating a positive pressure potential that stops more water entering.
 
 ## Active transport: moving uphill
 
 Sometimes a cell must move a substance *against* its concentration gradient, from low to high concentration. This is **active transport**, and it requires energy, usually from ATP, and a carrier protein that acts as a pump.
 
-The best-known example is the sodium–potassium pump, found in nearly all animal cells. Each cycle uses one ATP to pump 3 sodium ions out of the cell and 2 potassium ions in. The result is high Na⁺ outside and high K⁺ inside, gradients that nerve cells use to send signals and that many cells use to drive other transport. A large share of the energy your body uses at rest goes to running these pumps. Root cells of plants likewise use active transport to absorb mineral ions from soil where those ions are scarcer than inside the root.
+The best-known example is the sodium–potassium pump, found in nearly all animal cells. Each cycle uses one ATP to pump 3 sodium ions out of the cell and 2 potassium ions in. The result is high Na⁺ outside and high K⁺ inside, gradients that nerve cells use to send signals and that many cells use to drive other transport. Root cells of plants likewise use active transport to absorb mineral ions from soil where those ions are scarcer than inside the root.
 
 Large particles and bulk amounts of material cross by vesicles, which also uses energy. In *endocytosis*, the membrane folds inward around material and pinches off a vesicle inside the cell; a white blood cell engulfing a bacterium is an example (phagocytosis, "cell eating"). In *exocytosis*, a vesicle fuses with the plasma membrane and releases its contents outside, the last step of the secretion pathway from Lesson 8.
 
@@ -111,7 +111,7 @@ Classify each movement.
 3. *A gut cell takes in glucose even though its own glucose concentration is already higher than in the gut.* Against the gradient: active transport (it needs energy).
 4. *Water enters a root cell from wet soil through aquaporins.* Osmosis (passive).
 
-The test is the direction relative to the gradient, not whether a protein is involved: facilitated diffusion uses proteins but is still passive.
+The test is the direction relative to the gradient, not whether a protein is involved.
 
 ## Common mistakes
 
