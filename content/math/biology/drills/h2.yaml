@@ -76,8 +76,8 @@
   where: ['pct < 60']
   prompt: 'A newly sequenced eukaryote has a {gsize}-million-bp genome with about {genes} protein-coding genes, whose coding sequences average {len} bp. (a) How many genes are there per million base pairs? (b) About what percent of the genome codes for protein? Round to 2 significant figures or better.'
   answers:
-    - {name: dens, label: '(a) genes per Mb', relTolerance: 0.01}
-    - {name: pct, label: '(b) percent coding', relTolerance: 0.01}
+    - {name: dens, label: '(a) genes per Mb', sigfigs: 2}
+    - {name: pct, label: '(b) percent coding', sigfigs: 2}
   solution: |-
     (a) ${genes} \div {gsize} \approx$ **{dens:sig3}** genes per million bp.
 

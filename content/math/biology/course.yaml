@@ -4,10 +4,15 @@ description: >-
   High school biology for one full credit, written for learners studying on their own: the
   chemistry of life, cells and membranes, photosynthesis and respiration, cell division,
   Mendelian and molecular genetics, biotechnology, evolution and population genetics, the
-  diversity of life, human body systems and homeostasis, and ecology. Later lessons reach the
-  depth of an honors course, with the math biologists use (probability, Hardy-Weinberg,
-  chi-square, population growth).
-revision: 1
+  diversity of life, human body systems and homeostasis, and ecology, with the math biologists
+  use (probability, Hardy-Weinberg, chi-square, population growth). Optional honors material
+  goes further: 22 honors lessons inside the modules and three honors modules (research and
+  biostatistics; development, stem cells and the genome; behavior, disease and conservation).
+revision: 2
+changelog: >-
+  34 optional honors lessons (22 in the modules, three honors modules), pictures and diagrams in
+  every lesson, and new question types: fill in the blank, match, put in order, label the
+  picture, and select all that apply.
 released: true
 order: 16
 subject: Science

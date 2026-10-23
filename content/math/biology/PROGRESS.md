@@ -5,7 +5,17 @@ high school credit. Original writing throughout. Glossary and cards are split pe
 (`glossary-mN.yaml`, `cards-mN.yaml`); questions and drills per module (`questions/mNN.yaml`,
 `drills/mNN.yaml`). Scope: RESEARCH.md.
 
-## Status: released (revision 1, app v0.21.0)
+## Status: released (revision 2, app v0.22.0)
+
+Revision 2: 74 lessons (40 core + 34 honors: 22 in modules, 12 in honors modules h1–h3), 1,149
+questions (864 multiple choice incl. 77 select-all; 91 text, 73 match, 67 order, 54 label), 142
+drills, 645 cards, 740 glossary terms, 167 original SVGs and 69 Mermaid diagrams (every
+lesson has at least one picture or diagram). Thirteen writers (WRITERS-2.md, NOTES2-*.md), then
+thirteen independent reviewers (REVIEWERS-2.md, REVIEW2-*.md): 3 answer-key errors, about 30
+factual corrections, about 20 picture fixes, and a drill-grading fix. Editor pass: biome chart
+corrected, 2-significant-figure grading in bio-h-gene-density, every lesson audited with axe.
+
+### Revision 1
 
 40 lessons, 10 modules, 458 questions (answer positions 116/114/113/115), 72 drills, 296 notecards,
 313 glossary terms, 4 reference sheets. `python3 content/math/build.py biology` and

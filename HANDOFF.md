@@ -73,6 +73,7 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - First K–12 core course: `content/math/biology` (id `science-biology`, catalog order 16, Science, High school, one credit). 10 modules, 40 lessons, 458 questions, 72 drills, 296 cards, 313 terms, 4 reference sheets (lab math, cell energy, genetics incl. codon table, evolution/ecology). Scope: NGSS HS-LS1–4 and Texas TEKS Biology (RESEARCH.md).
 - Process (reuse for the next courses): outline in PROGRESS.md → writer brief WRITERS.md → six writers in parallel, each owning its modules' files (glossary-mN.yaml / cards-mN.yaml split files) and checking with the new `content/math/check-module.sh <course> mN` (builds one module alone into samples/math-drafts) → five independent reviewers (REVIEWERS.md; REVIEW-mN.md with sources) → editor merges: glossary duplicates, reference sheets, full build + checker + axe on lessons, `released: true`.
 - Sequence drills (transcription/translation/mutations) are numbered multiple choice (answers must be numbers). Lesson 9 keeps an honors-level water potential extension (Jon may drop it).
+- **Revision 2 (v0.22.0):** 34 honors lessons (2–3 per module plus honors modules bio-h1–h3), pictures/diagrams in every lesson, the new question types. Now 74 lessons, 1,149 questions, 142 drills, 645 cards, 740 terms; 167 SVGs, 69 Mermaid diagrams; course file ≈4.3 MB (embedded SVGs). Process: WRITERS-2.md → 13 writers → REVIEWERS-2.md → 13 reviewers → editor merge. `scripts/course-audit.mjs "Biology" light|dark width` checks every lesson (axe, overflow, pictures load, diagrams draw) and samples quiz questions.
 - Next courses on the roadmap: Chemistry, English 9–12, World and US History, Government.
 
 ## Live room (v0.20.0)
@@ -324,6 +325,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Version history
 
+- **v0.22.0:** question types (text, match, label, order), pictures in questions, Mermaid diagrams, honors lessons/modules; Biology revision 2.
 - **v0.1.0:** the exam simulator: banks, timed and practice modes, editor, progress.
 - **v0.2.0:** courses, lessons, notecards, drills, glossary, reference sheets, planner, per-section pass marks, and the bundled Colorado course.
 - **v0.3.0:**
@@ -336,6 +338,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Possible next steps
 
+- Honors for the other school courses (math, physics, statistics, languages as appropriate; not the professional Colorado course), same process as Biology round 2. Then new courses.
 - Roadmap phases 1–4 are built; Biology is the first K-12 course. Next: more courses (Chemistry, English 9–12, histories, Government) and going live (docs/HOSTING.md). Ask Jon first.
 - Jon's hosting setup (docs/HOSTING.md) now uses erudior.com.
 

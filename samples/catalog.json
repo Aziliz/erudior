@@ -2325,9 +2325,10 @@
    "Course"
   ],
   "lessons": 40,
-  "questions": 458,
-  "cards": 296,
-  "drills": 72,
+  "honors": 34,
+  "questions": 1149,
+  "cards": 645,
+  "drills": 142,
   "lessonIds": [
    "bio-life",
    "bio-method",
@@ -2370,6 +2371,47 @@
    "bio-cycles-populations",
    "bio-communities-humans"
   ],
+  "honorsLessonIds": [
+   "bio-h-protein-structure",
+   "bio-h-enzyme-kinetics",
+   "bio-h-endomembrane",
+   "bio-h-cell-signaling",
+   "bio-h-free-energy",
+   "bio-h-chemiosmosis",
+   "bio-h-c4-cam",
+   "bio-h-cycle-control",
+   "bio-h-meiosis-variation",
+   "bio-h-linkage",
+   "bio-h-gene-interaction",
+   "bio-h-regulation-depth",
+   "bio-h-genomics",
+   "bio-h-evolution-models",
+   "bio-h-phylogenetics",
+   "bio-h-plant-physiology",
+   "bio-h-microbes",
+   "bio-h-neurons",
+   "bio-h-immunology",
+   "bio-h-endocrine",
+   "bio-h-population-models",
+   "bio-h-ecosystem-ecology",
+   "bio-h-investigation",
+   "bio-h-statistics",
+   "bio-h-hypothesis-tests",
+   "bio-h-papers",
+   "bio-h-early-development",
+   "bio-h-differentiation",
+   "bio-h-stem-cells",
+   "bio-h-genome-evolution",
+   "bio-h-behavior",
+   "bio-h-social-behavior",
+   "bio-h-epidemiology",
+   "bio-h-conservation"
+  ],
+  "honorsModuleIds": [
+   "bio-h1",
+   "bio-h2",
+   "bio-h3"
+  ],
   "outline": [
    {
     "title": "The science and chemistry of life",
@@ -2379,6 +2421,10 @@
      "Atoms, water, and pH",
      "Carbohydrates, lipids, proteins, and nucleic acids",
      "Enzymes"
+    ],
+    "honors": [
+     "Protein structure and folding",
+     "Enzyme kinetics and regulation"
     ]
    },
    {
@@ -2389,6 +2435,10 @@
      "Organelles and how a cell works",
      "Membranes and transport",
      "Cell size, surface area, and specialization"
+    ],
+    "honors": [
+     "The endomembrane system and the cytoskeleton",
+     "Cell communication and signal transduction"
     ]
    },
    {
@@ -2397,6 +2447,11 @@
      "Energy, ATP, and metabolism",
      "Photosynthesis",
      "Cellular respiration and fermentation"
+    ],
+    "honors": [
+     "Free energy, coupled reactions, and redox",
+     "Electron transport and chemiosmosis",
+     "The Calvin cycle in depth: photorespiration, C4 and CAM"
     ]
    },
    {
@@ -2405,6 +2460,10 @@
      "The cell cycle and mitosis",
      "Regulating the cell cycle; cancer and stem cells",
      "Meiosis and sexual reproduction"
+    ],
+    "honors": [
+     "Molecular control of the cell cycle and apoptosis",
+     "Meiosis errors and the sources of variation"
     ]
    },
    {
@@ -2415,6 +2474,10 @@
      "Beyond simple dominance",
      "Sex-linked traits and pedigrees",
      "Chromosomes, karyotypes, and chi-square"
+    ],
+    "honors": [
+     "Linked genes and gene mapping",
+     "Epistasis, pleiotropy, and quantitative traits"
     ]
    },
    {
@@ -2424,6 +2487,10 @@
      "From gene to protein",
      "Gene regulation and mutation",
      "Biotechnology"
+    ],
+    "honors": [
+     "Operons, transcription factors, and epigenetics",
+     "Sequencing, genomics, and gene editing"
     ]
    },
    {
@@ -2434,6 +2501,10 @@
      "Population genetics and Hardy-Weinberg",
      "Speciation and phylogenetic trees",
      "The history of life on Earth"
+    ],
+    "honors": [
+     "Modeling evolution: selection, drift, and testing Hardy-Weinberg",
+     "Building phylogenies and molecular clocks"
     ]
    },
    {
@@ -2443,6 +2514,10 @@
      "Protists and fungi",
      "Plants: structure, transport, and reproduction",
      "Animal diversity"
+    ],
+    "honors": [
+     "Plant hormones, responses, and water transport",
+     "Viruses, bacteria, and antibiotic resistance in depth"
     ]
    },
    {
@@ -2451,6 +2526,11 @@
      "Homeostasis, nervous and endocrine control",
      "Circulation, respiration, and excretion",
      "Digestion, nutrition, and the immune system"
+    ],
+    "honors": [
+     "Neurons, action potentials, and synapses",
+     "Immunology in depth",
+     "Hormones and feedback in depth"
     ]
    },
    {
@@ -2459,7 +2539,44 @@
      "Ecosystems and energy flow",
      "Matter cycles and population growth",
      "Communities, biomes, biodiversity, and human impact"
+    ],
+    "honors": [
+     "Life tables, survivorship, and predator-prey models",
+     "Productivity, nutrient limits, and global change"
     ]
+   },
+   {
+    "title": "Honors: Research and biostatistics",
+    "lessons": [],
+    "honors": [
+     "Designing an investigation",
+     "Describing data: variation, error bars, and confidence",
+     "Testing hypotheses: chi-square, t-tests, and correlation",
+     "Reading and writing science"
+    ],
+    "isHonors": true
+   },
+   {
+    "title": "Honors: Development, stem cells, and the genome",
+    "lessons": [],
+    "honors": [
+     "From zygote to embryo",
+     "How cells become different: signals and Hox genes",
+     "Stem cells, cloning, and regeneration",
+     "Genomes and evo-devo"
+    ],
+    "isHonors": true
+   },
+   {
+    "title": "Honors: Behavior, disease, and conservation",
+    "lessons": [],
+    "honors": [
+     "Animal behavior",
+     "Social behavior, altruism, and kin selection",
+     "Epidemiology and public health",
+     "Conservation biology"
+    ],
+    "isHonors": true
    }
   ]
  },
