@@ -102,14 +102,15 @@ or for slopes, cannot see what happens along curves.
 ```mermaid
 flowchart TD
   accTitle: What implies what, with the counterexamples
-  accDescr: Continuous partial derivatives imply differentiability. Differentiability implies continuity, and it implies that every directional derivative exists and equals the gradient dotted with u. None of these arrows reverses. Example a, xy over x squared plus y squared, has both partials but is not continuous. Example b, x squared y over x squared plus y squared, is continuous with every directional derivative, but is not differentiable. Example c, x y squared over x squared plus y to the fourth, has every directional derivative but is not continuous. Example d, r squared times sine of 1 over r, is differentiable but its partials are not continuous.
+  accDescr: Solid arrows are theorems. Continuous partial derivatives (C1) imply differentiable. Differentiable implies continuous, and implies that every directional derivative exists. Every directional derivative existing implies both partials exist. Dotted arrows are the reverse implications, each false, with the counterexample that breaks it. Differentiable does not imply C1: Example 3. All directional derivatives existing does not imply differentiable: example b. All directional derivatives existing does not imply continuous: example c. Both partials existing does not imply continuous: example a.
   A["Continuous partial derivatives (C1)"] --> B["Differentiable"]
   B --> C["Continuous"]
-  B --> D["Every directional derivative exists and equals grad f · u"]
-  X1["(a) partials exist, not continuous"] -.- C
-  X2["(b) continuous, all directional derivatives, not differentiable"] -.- B
-  X3["(c) all directional derivatives, not continuous"] -.- D
-  X4["(d) differentiable, partials not continuous"] -.- A
+  B --> D["Every directional derivative exists"]
+  D --> E["Both partial derivatives exist"]
+  B -. "false: Example 3" .-> A
+  D -. "false: example (b)" .-> B
+  D -. "false: example (c)" .-> C
+  E -. "false: example (a)" .-> C
 ```
 
 ## Why continuous partials are enough

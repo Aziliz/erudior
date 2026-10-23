@@ -5,7 +5,7 @@ title: Block elimination, Schur complements and rank-one updates
 minutes: 45
 honors: true
 topics: [Block elimination]
-drills: [la-m5-r2-outer, la-m5-r2-schur, la-m5-r2-sherman]
+drills: [la-m5-r2-block-inv, la-m5-r2-schur, la-m5-r2-sherman]
 refs: [la-ref-factor]
 ---
 The matrix operations lesson showed that partitioned matrices multiply block by block, as if
