@@ -106,7 +106,7 @@
   stem: Which statement about humans and chimpanzees is accurate?
   choices:
   - Humans evolved from modern chimpanzees.
-  - They share a common ancestor that lived roughly 6 to 7 million years ago.
+  - They share a common ancestor that lived roughly 6 to 8 million years ago.
   - Chimpanzees evolved from humans.
   - They have no ancestors in common.
   answer: 1
@@ -205,7 +205,7 @@
 - id: bio-q-0719
   lesson: bio-natural-selection
   topic: Adaptation
-  stem: Cabbage, broccoli, kale and Brussels sprouts were all bred from one species of wild mustard. This is an example of
+  stem: Cabbage, broccoli, kale and Brussels sprouts were all bred from one species of wild cabbage. This is an example of
   choices:
   - natural selection
   - genetic drift
@@ -453,14 +453,14 @@
 - id: bio-q-0741
   lesson: bio-speciation
   topic: Phylogeny
-  stem: In a character table, which trait would be useful for sorting relationships among mammals, birds and lizards?
+  stem: In a character table, which trait would help show which two of these three groups (mammals, birds and lizards) are most closely related?
   choices:
-  - Hair, which is present only in mammals
+  - Two openings in the skull behind each eye, present in birds and lizards but not mammals
   - A backbone, which all three have
   - Living on land, which all three do
   - Body size, which varies within each group
   answer: 0
-  explanation: Shared derived traits mark branches. A backbone or land life is shared by all three, so it can't separate them. Hair arose in the mammal line and marks that clade. Body size varies too much and can evolve repeatedly.
+  explanation: A shared derived trait groups the species that inherited it from a common ancestor. The two skull openings (the diapsid skull) are shared by birds and lizards, marking them as a clade (the reptiles) that excludes mammals. A backbone or land life is shared by all three, so it can't separate them, and body size varies too much and can evolve repeatedly. A trait found in only one group, like hair in mammals, marks that group but can't show which two are closest.
 - id: bio-q-0742
   lesson: bio-speciation
   topic: Phylogeny
@@ -475,7 +475,7 @@
 - id: bio-q-0743
   lesson: bio-speciation
   topic: Speciation
-  stem: About 14 to 18 species of Galápagos finches, with beaks suited to seeds, insects or cactus, descend from one ancestral species. This pattern is called
+  stem: About 15 to 18 species of Galápagos finches, with beaks suited to seeds, insects or cactus, descend from one ancestral species. This pattern is called
   choices:
   - a bottleneck
   - stabilizing selection
@@ -543,7 +543,7 @@
 - id: bio-q-0749
   lesson: bio-history-life
   topic: Geologic time
-  stem: Which mass extinction was the largest, wiping out roughly 90% of marine species?
+  stem: Which mass extinction was the largest, wiping out by most estimates 80 to 90 percent or more of marine species?
   choices:
   - End-Permian, about 252 million years ago
   - End-Cretaceous, about 66 million years ago

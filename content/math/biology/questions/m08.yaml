@@ -43,7 +43,7 @@
   - In the machinery they use to copy DNA and make proteins, they resemble eukaryotes more than bacteria.
   - Many species cause disease in humans.
   answer: 2
-  explanation: Archaea are a separate domain whose RNA polymerases and other gene-expression machinery are eukaryote-like. They also live in soil, oceans and the human gut, not only in extreme places; they have no nucleus; and no archaea are known to cause human disease.
+  explanation: Archaea are a separate domain whose RNA polymerase and other gene-expression machinery are eukaryote-like. They also live in soil, oceans and the human gut, not only in extreme places; they have no nucleus; and no archaea are known to cause human disease.
 - id: bio-q-0805
   lesson: bio-classification
   module_quiz: true
@@ -75,7 +75,7 @@
   - $8.4 \times 10^{7}$ CFU/mL
   - $8.4 \times 10^{6}$ CFU/mL
   - $8.4 \times 10^{2}$ CFU/mL
-  - $8.4 \times 10^{-6}$ CFU/mL
+  - $8.4 \times 10^{-5}$ CFU/mL
   answer: 0
   explanation: CFU/mL $= \dfrac{84}{10^{-5} \times 0.1} = 84 \times 10^{6} = 8.4 \times 10^{7}$. Forgetting that only 0.1 mL was plated gives $8.4 \times 10^{6}$; forgetting the dilution gives 840; multiplying by the dilution instead of dividing gives a tiny, impossible number.
 - id: bio-q-0808
