@@ -104,6 +104,22 @@ contribute nothing.
 {"x": [-3, 3], "y": [-1, 3], "equal": true, "segments": [{"from": [-2, 0], "to": [2, 0], "label": "disk S (edge view)"}, {"from": [-1, 0], "to": [0.5, 1], "arrow": true, "label": "F"}, {"from": [1, 0], "to": [1, 1], "arrow": true, "dashed": true, "label": "n"}, {"from": [-1, 0], "to": [-1, 1], "dashed": true}], "yLabel": "z", "caption": "Only the normal component of F carries flux through the surface"}
 ```
 
+## Choosing a method
+
+Before computing, decide which kind of integral you have and look for a shortcut:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a surface integral
+  accDescr: First decide whether the integral is a scalar surface integral of f dS or a flux integral of F dot dS. For a scalar integral, multiply f by the length of r_u cross r_v, or by the square root of 1 plus g_x squared plus g_y squared for a graph. For a flux integral, if F dot n is constant on the surface, multiply it by the area. If not, and the surface is closed, consider the Divergence theorem of Lesson 37. Otherwise choose the orientation and integrate F of r dotted with r_u cross r_v over the parameter domain.
+  A{"f dS or F · dS?"} -- "scalar f dS" --> B["Multiply f by the length of r_u × r_v (graph: square root of 1 + g_x² + g_y²)"]
+  A -- "flux F · dS" --> C{"Is F · n constant on S?"}
+  C -- "yes" --> D["Flux = (F · n) × area"]
+  C -- "no" --> E{"Is S closed?"}
+  E -- "yes" --> F["Consider the Divergence theorem (Lesson 37)"]
+  E -- "no" --> G["Fix the orientation; integrate F(r) · (r_u × r_v) over D"]
+```
+
 ## Common mistakes
 
 - Leaving out $|\mathbf r_u\times\mathbf r_v|$ in a scalar surface integral (or including it in a flux integral, where it cancels).

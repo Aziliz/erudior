@@ -59,6 +59,16 @@ $$\nabla\cdot\mathbf E = \frac{\rho}{\varepsilon_0}.$$
 That step, "true for every region, so true at every point," is how all the differential laws
 below are derived.
 
+```mermaid
+flowchart TD
+  accTitle: From an integral law to a differential law
+  accDescr: Start with an integral law that holds for every region. Use the Divergence theorem, for a flux law, or Stokes' theorem, for a circulation law, to turn the boundary integral into an integral over the region. Both sides are now integrals over the same region, which can be any region. So the integrands must be equal at every point, which is the differential law.
+  A["Integral law, true for every region"] --> B["Divergence theorem (flux laws) or Stokes' theorem (circulation laws)"]
+  B --> C["Both sides are integrals over the same region"]
+  C --> D["The region is arbitrary, so the integrands agree at every point"]
+  D --> E["Differential law"]
+```
+
 ## 3. Circulation and Ampère's law
 
 A steady current $I$ in a long straight wire produces a magnetic field $\mathbf B$ that circles
@@ -74,6 +84,10 @@ equal to $\mu_0I$ gives
 $$B = \frac{\mu_0I}{2\pi r}.$$
 
 The field weakens like $1/r$ (compare $1/r^2$ for a point charge).
+
+![A long vertical wire carries current I upward. A horizontal circle of radius r, the loop C, surrounds the wire. Arrows labeled B lie along the circle, going counterclockwise as seen from above.](images/mv-m8-amperian-loop.svg)
+
+The field circles counterclockwise when seen from above with the current pointing up: the right-hand rule again, with the thumb along the current.
 
 With current density $\mathbf J$, $I_{\text{enc}} = \iint_S\mathbf J\cdot d\mathbf S$, and Stokes'
 theorem turns the left side into $\iint_S(\nabla\times\mathbf B)\cdot d\mathbf S$. True for every

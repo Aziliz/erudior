@@ -41,7 +41,7 @@
     - ['$f = x^2 + 4y^2$', 'Ellipses']
   distractors: ['Spheres']
   explanation: |-
-    $x^2 + y^2 = c$ is a circle; $2x + 3y = c$ is a line of slope $-\tfrac23$ for every $c$; $y = x^2 + c$ is the same parabola shifted up or down; $xy = c$ is a hyperbola for $c \ne 0$ (the two axes for $c = 0$); $x^2 + 4y^2 = c$ is an ellipse. Spheres are level *surfaces* of functions of three variables, not level curves.
+    $x^2 + y^2 = c$ is a circle; $2x + 3y = c$ is a line of slope $-\tfrac23$ for every $c$; $y = x^2 + c$ is the same parabola shifted up or down; $xy = c$ is a hyperbola for $c \ne 0$ (the two axes for $c = 0$); $x^2 + 4y^2 = c$ is an ellipse. Spheres are level surfaces of functions of three variables, not level curves.
 - id: mv-m3-r2-q04
   lesson: mv-several-vars
   topic: Domain and range
@@ -349,7 +349,7 @@
   choices: ['$f_x(a, b)$ and $f_y(a, b)$', 'Any numbers, as long as $E \to 0$', '$f(a, b)$ and $0$', '$f_{xx}(a, b)$ and $f_{yy}(a, b)$']
   answer: 0
   explanation: |-
-    Setting $k = 0$, the condition says $\dfrac{f(a + h, b) - f(a, b)}{h} \to A$, so $A = f_x(a, b)$; likewise $B = f_y(a, b)$. Merely having $E \to 0$ holds for any $A$, $B$ when $f$ is continuous; the definition demands that $E$ be small *compared with the distance*.
+    Setting $k = 0$, the condition says $\dfrac{f(a + h, b) - f(a, b)}{h} \to A$, so $A = f_x(a, b)$; likewise $B = f_y(a, b)$. Merely having $E \to 0$ holds for any $A$, $B$ when $f$ is continuous; the definition demands that $E$ be small compared with the distance.
 - id: mv-m3-r2-h02
   lesson: mv-h-differentiability
   topic: Differentiability

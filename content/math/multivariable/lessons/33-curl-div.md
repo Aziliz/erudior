@@ -116,12 +116,12 @@ The three derivatives fit together in a chain, and taking two steps of the chain
 ```mermaid
 flowchart TD
   accTitle: The gradient, curl and divergence chain
-  accDescr: A scalar function goes to a vector field by the gradient. A vector field goes to another vector field by the curl. A vector field goes to a scalar function by the divergence. Two steps in a row give zero: the curl of a gradient is the zero vector and the divergence of a curl is zero. The divergence of a gradient, which skips the curl, is the Laplacian.
+  accDescr: A scalar function goes to a vector field by the gradient. A vector field goes to another vector field by the curl. A vector field goes to a scalar function by the divergence. Two steps in a row give zero: the curl of a gradient is the zero vector and the divergence of a curl is zero. Dotted arrows lead from the start of each two-step path to a box saying the result is always zero.
   A["Scalar function f"] -- "gradient" --> B["Vector field"]
   B -- "curl" --> C["Vector field"]
   C -- "divergence" --> D["Scalar function"]
-  E["Two steps in a row give zero: curl of grad f = 0, div of curl F = 0"]
-  F["Skipping the curl: div of grad f = Laplacian of f"]
+  A -. "gradient, then curl" .-> Z["Always zero"]
+  B -. "curl, then divergence" .-> Z
 ```
 
 ## Common mistakes

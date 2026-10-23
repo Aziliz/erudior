@@ -69,6 +69,21 @@ Scientific notation removes every ambiguity, because all digits in $a$ are signi
 
 Exact numbers (counted objects, the 2 in $2\pi r$, defined conversions like 100 cm = 1 m) never limit precision. Round only at the end; carry an extra digit or two through intermediate steps.
 
+The chart below sums up which rule to use.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the significant-figure rule for a calculation
+  accDescr: First set aside exact numbers such as counted objects and defined conversions, since they never limit the result. Then ask which operation combines the measured values. For multiplying or dividing, count significant figures and keep as many as the input with the fewest. For adding or subtracting, count decimal places and keep as many as the input with the fewest. In both cases, carry extra digits through the work and round only the final answer.
+  X["Set aside exact numbers (counts, defined conversions)"] --> S{"Which operation?"}
+  S -- "multiply or divide" --> M["Count significant figures"]
+  M --> M2["Keep the fewest sig figs of any input"]
+  S -- "add or subtract" --> A["Count decimal places"]
+  A --> A2["Keep the fewest decimal places of any input"]
+  M2 --> R["Round only the final answer"]
+  A2 --> R
+```
+
 ### Example 3
 
 A rectangle measures 4.52 m by 2.1 m. Report its area.
@@ -78,6 +93,10 @@ $4.52 \times 2.1 = 9.492$. The inputs have 3 and 2 sig figs, so the answer gets 
 Now add masses of 12.41 kg and 3.2 kg: $15.61$, but 3.2 is known only to tenths, so report 15.6 kg.
 
 **Accuracy** and **precision** are different ideas. Accuracy is how close a result is to the true value; precision is how tightly repeated measurements cluster (and how many digits you can justify). A miscalibrated scale can be very precise and still inaccurate.
+
+Think of darts thrown at a target: precision is how tightly the darts cluster, and accuracy is whether the cluster sits on the bullseye.
+
+![Four targets. Top left, accurate and precise: six dots tightly clustered on the center. Top right, precise but not accurate: a tight cluster far up and to the left of the center. Bottom left, accurate but not precise: dots scattered widely all around the center. Bottom right, neither accurate nor precise: dots scattered widely, mostly up and to the left.](images/phys-m1-targets.svg)
 
 ## Dimensional analysis
 
@@ -103,6 +122,10 @@ Much of this course reads physics off graphs, and units tell you what a graph's 
 
 - The *slope* of a graph is rise over run, so its unit is (unit on the vertical axis)/(unit on the horizontal axis). On a graph of position (m) against time (s), the slope is in m/s: it is a velocity.
 - The *area* between a graph and the horizontal axis is height times width, so its unit is (vertical unit)·(horizontal unit). On a graph of velocity (m/s) against time (s), a rectangle of area has units (m/s)·s = m: it is a displacement. On a graph of force (N) against distance (m), area has units N·m = J, an energy.
+
+```plot
+{"x": [0, 5], "y": [0, 7], "xLabel": "time t (s)", "yLabel": "velocity v (m/s)", "functions": [{"f": "2 + x", "label": "v = 2 + t", "from": 0, "to": 4.5}], "shade": [{"f": "2 + x", "from": 0, "to": 4}], "caption": "Slope = (4 m/s)/(4 s) = 1 m/s², an acceleration. Shaded area from 0 to 4 s = (2 + 6)/2 × 4 = 16 m, a displacement."}
+```
 
 ### Example 5
 

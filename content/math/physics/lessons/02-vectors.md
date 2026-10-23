@@ -21,6 +21,12 @@ To add $\vec A + \vec B$, place the tail of $\vec B$ at the head of $\vec A$; th
 {"segments": [{"from": [0, 0], "to": [4, 0], "arrow": true, "label": "A"}, {"from": [4, 0], "to": [4, 3], "arrow": true, "label": "B"}, {"from": [0, 0], "to": [4, 3], "arrow": true, "dashed": true, "label": "A + B"}], "caption": "Tip to tail: walk 4 units east, then 3 north; the resultant is 5 units long"}
 ```
 
+Subtraction looks like this: to find $\vec A - \vec B$, flip $\vec B$ and add it tip to tail.
+
+```shape
+{"segments": [{"from": [0, 0], "to": [4, 0], "arrow": true, "label": "A"}, {"from": [4, 0], "to": [4, -3], "arrow": true, "label": "−B"}, {"from": [0, 0], "to": [4, -3], "arrow": true, "dashed": true, "label": "A − B"}], "caption": "Subtracting: with A = 4 units east and B = 3 units north, add −B (3 units south); A − B is 5 units long, pointing south of east"}
+```
+
 Multiplying a vector by a scalar $c$ stretches it by $|c|$, and a negative $c$ also reverses it.
 
 ## Components
@@ -29,7 +35,11 @@ Drawing is good for intuition but poor for precision. Instead, we break a vector
 
 $$A_x = A\cos\theta, \qquad A_y = A\sin\theta.$$
 
-These come straight from the right triangle whose hypotenuse is $\vec A$. Components are signed numbers: a vector pointing into the second quadrant has $A_x < 0$ and $A_y > 0$.
+These come straight from the right triangle whose hypotenuse is $\vec A$. The picture shows the triangle: the $x$ component runs along the $x$ axis, the $y$ component climbs from its end to the tip of $\vec A$, and the angle $\theta$ sits at the tail.
+
+![A vector A drawn from the origin up and to the right at angle theta above the x axis. Its x component, A x equals A cos theta, runs along the x axis; its y component, A y equals A sin theta, rises vertically from the end of the x component to the tip of A, making a right triangle.](images/phys-m1-components.svg)
+
+Components are signed numbers: a vector pointing into the second quadrant has $A_x < 0$ and $A_y > 0$.
 
 Going back, the Pythagorean theorem and the tangent give
 
@@ -42,6 +52,21 @@ With **unit vectors** $\hat\imath$ and $\hat\jmath$ (length 1, pointing along $+
 $$\vec A + \vec B = (A_x + B_x)\,\hat\imath + (A_y + B_y)\,\hat\jmath.$$
 
 That works because addition is done separately along each independent direction.
+
+Every vector-addition problem follows the same procedure:
+
+```mermaid
+flowchart TD
+  accTitle: Adding vectors by components
+  accDescr: Sketch the vectors and choose axes. Resolve each vector into x and y components, with signs. Add all the x components to get R x and all the y components to get R y. Find the magnitude as the square root of R x squared plus R y squared, and the angle from the inverse tangent of R y over R x. Finally, check the quadrant from the signs of R x and R y, adding 180 degrees if R x is negative.
+  A["Sketch the vectors and choose axes"] --> B["Resolve each vector into x and y components, with signs"]
+  B --> C["Add the x components: Rx. Add the y components: Ry"]
+  C --> D["Magnitude: R = square root of (Rx² + Ry²)"]
+  D --> E["Angle: inverse tangent of Ry / Rx"]
+  E --> F{"Is Rx negative?"}
+  F -- "yes" --> G["Add 180° to the angle"]
+  F -- "no" --> H["Angle is correct as found"]
+```
 
 ### Example 1
 

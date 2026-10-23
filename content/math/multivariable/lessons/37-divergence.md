@@ -68,6 +68,18 @@ One triple integral instead of six surface integrals, one per face.
 The theorem needs a *closed* surface. To find the flux through an open surface, add a simple
 "lid" to close it, apply the theorem, and subtract the lid's flux.
 
+
+
+```mermaid
+flowchart TD
+  accTitle: Finding the flux through an open surface with the Divergence theorem
+  accDescr: Start with an open surface S. Add a simple lid so that S and the lid together enclose a solid E. Compute the total outward flux as the triple integral of div F over E. Compute the flux through the lid with its outward normal. Subtract the lid's flux from the total to get the flux through S.
+  A["Open surface S"] --> B["Add a simple lid so S and the lid enclose a solid E"]
+  B --> C["Total outward flux = triple integral of div F over E"]
+  C --> D["Flux through the lid, with its outward normal"]
+  D --> E["Flux through S = total minus lid"]
+```
+
 ### Example 4
 
 Find the upward flux of $\mathbf F = \langle x, y, z\rangle$ through the paraboloid $z = 4 - x^2 - y^2$, $z \ge 0$.

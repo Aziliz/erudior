@@ -24,6 +24,8 @@ direction of $C$. Equivalently, walking along $C$ with your head pointing in the
 $\mathbf n$, the surface is on your left. For a flat region in the $xy$-plane with $\mathbf n = \mathbf k$
 this is counterclockwise, as in Green's theorem.
 
+![A dome-shaped surface S over a flat disk. Its rim, the boundary curve C, carries arrows going counterclockwise as seen from above: left to right along the front, right to left along the back. A normal vector n points up and out of the dome. The flat disk under the dome has the same boundary.](images/mv-m8-stokes-net.svg)
+
 ## The theorem
 
 **Stokes' theorem.** Let $S$ be an oriented, piecewise-smooth surface bounded by a simple,
@@ -99,6 +101,22 @@ $\operatorname{curl}\mathbf F\cdot\mathbf k = 1 - (-1) = 2$, so $2\pi$ again. �
 - For a closed surface (no boundary), $\iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S = 0$.
 - In electromagnetism, Stokes' theorem converts Faraday's law and Ampère's law between their
   integral and differential forms (Lesson 38).
+
+## Which side to compute
+
+Stokes' theorem is an equation between two integrals, so the skill is choosing the easier side:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding how to use Stokes' theorem
+  accDescr: If you are asked for a line integral around a closed curve and the curl of F is simpler than F, choose any surface bounded by the curve, usually a flat one, and integrate the curl over it; if not, compute the line integral directly. If you are asked for the flux of a curl through a surface, either compute the line integral around its boundary or replace the surface with a simpler one that has the same boundary. In every case, match the orientations with the right-hand rule.
+  A{"What are you asked for?"} -- "a line integral around C" --> B["Is curl F simpler than F?"]
+  B -- "yes" --> C["Pick a surface bounded by C (often flat); integrate curl F · n"]
+  B -- "no" --> F["Compute the line integral directly"]
+  A -- "flux of curl F through S" --> D["Use the boundary line integral, or a simpler surface with the same boundary"]
+  C --> E["Match orientations with the right-hand rule"]
+  D --> E
+```
 
 ## Common mistakes
 

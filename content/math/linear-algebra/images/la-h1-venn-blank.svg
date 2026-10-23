@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" width="640" height="500" font-family="sans-serif" fill="#1c2833">
-<rect width="640" height="500" fill="#ffffff"/>
-<circle cx="255" cy="210" r="118" fill="#dde8f3" fill-opacity="0.55" stroke="#1c2833" stroke-width="2.5"/>
-<circle cx="385" cy="210" r="118" fill="#dcf0e3" fill-opacity="0.55" stroke="#1c2833" stroke-width="2.5"/>
-<circle cx="320" cy="320" r="118" fill="#f7ebcf" fill-opacity="0.55" stroke="#1c2833" stroke-width="2.5"/>
-<text x="120" y="92" font-size="17" text-anchor="middle">check 1</text>
-<text x="520" y="92" font-size="17" text-anchor="middle">check 2</text>
-<text x="452" y="410" font-size="17" text-anchor="start">check 4</text>
-</svg>

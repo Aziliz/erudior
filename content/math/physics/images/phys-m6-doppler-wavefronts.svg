@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" width="720" height="440" font-family="sans-serif">
+<rect width="720" height="440" fill="#ffffff"/>
+<circle cx="375.0" cy="220" r="50.0" fill="none" stroke="#244d76" stroke-width="2.5"/>
+<circle cx="350.0" cy="220" r="100.0" fill="none" stroke="#244d76" stroke-width="2.5"/>
+<circle cx="325.0" cy="220" r="150.0" fill="none" stroke="#244d76" stroke-width="2.5"/>
+<circle cx="300.0" cy="220" r="200.0" fill="none" stroke="#244d76" stroke-width="2.5"/>
+<circle cx="400" cy="220" r="9" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="414.0" y1="220.0" x2="467.0" y2="220.0" stroke="#8a3b2e" stroke-width="4"/>
+<polygon points="480.0,220.0 467.0,225.8 467.0,214.2" fill="#8a3b2e"/>
+<text x="430.0" y="206.0" font-size="16" fill="#8a3b2e" text-anchor="start" font-weight="bold">source</text>
+<circle cx="640" cy="340" r="12" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="640.0" y="378.0" font-size="16" fill="#1c2833" text-anchor="middle">ahead: short λ,</text>
+<text x="640.0" y="398.0" font-size="16" fill="#1c2833" text-anchor="middle">higher pitch</text>
+<circle cx="60" cy="340" r="12" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="60.0" y="378.0" font-size="16" fill="#1c2833" text-anchor="middle">behind: long λ,</text>
+<text x="60.0" y="398.0" font-size="16" fill="#1c2833" text-anchor="middle">lower pitch</text>
+<text x="360.0" y="30.0" font-size="17" fill="#1c2833" text-anchor="middle" font-weight="bold">Wavefronts from a source moving right at half the wave speed</text>
+</svg>
