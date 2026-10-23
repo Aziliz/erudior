@@ -12,7 +12,7 @@
 - 30: Mermaid "what varies → which slice" chart; submerged trapezoid plate picture (depth, width w(h), Δh).
 
 ## Questions: `questions/r2-calc-m7.yaml` (55)
-- Core q01–q25, 5 per lesson: 5 text, 3 order, 4 match (one lesson has two), 5 select-all, 5 label; actually per lesson 1 text, 1 order or match (26, 27, 28, 30 have both), 1 select-all, 1 label. Module quiz: 2 per lesson (q01, q05, q06, q10, q11, q15, q16, q20, q21, q25).
+- Core q01–q25, 5 per lesson, one of each type in every lesson: text, order, match, select-all and label (5 of each).
 - Honors Pappus h01–h15: 9 multiple choice, 2 text, 1 order, 1 match, 1 label (torus), 1 select-all.
 - Honors probability h16–h30: 10 multiple choice, 2 text, 1 order, 1 match, 1 select-all.
 

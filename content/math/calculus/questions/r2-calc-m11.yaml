@@ -413,7 +413,7 @@
     - ['$r = \dfrac{5}{4 + 2\sin\theta}$', Ellipse]
   distractors: [Circle centered at the pole]
   explanation: |-
-    Make the constant term 1 and read $e$: $0.3$ (ellipse); $\frac22 = 1$ (parabola); $1.5$ (hyperbola); $\frac24 = \frac12$ (ellipse). A circle centered at the pole has the form $r = $ constant, with no cosine or sine.
+    Make the constant term 1 and read $e$: $0.3$ (ellipse); $\frac22 = 1$ (parabola); $1.5$ (hyperbola); $\frac24 = \frac12$ (ellipse). A circle centered at the pole has the form $r = c$ for a constant $c$, with no cosine or sine.
 - id: calc-m11-r2-h28
   lesson: calc-h-polar-conics
   type: order
