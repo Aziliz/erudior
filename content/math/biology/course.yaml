@@ -1,0 +1,36 @@
+id: science-biology
+title: Biology
+description: >-
+  High school biology for one full credit, written for learners studying on their own: the
+  chemistry of life, cells and membranes, photosynthesis and respiration, cell division,
+  Mendelian and molecular genetics, biotechnology, evolution and population genetics, the
+  diversity of life, human body systems and homeostasis, and ecology. Later lessons reach the
+  depth of an honors course, with the math biologists use (probability, Hardy-Weinberg,
+  chi-square, population growth).
+revision: 1
+released: false
+order: 16
+subject: Science
+level: [High school]
+type: [Course]
+modules:
+  - id: bio-m1
+    title: The science and chemistry of life
+  - id: bio-m2
+    title: Cells
+  - id: bio-m3
+    title: Energy in living things
+  - id: bio-m4
+    title: Cell division
+  - id: bio-m5
+    title: Inheritance
+  - id: bio-m6
+    title: DNA, genes, and biotechnology
+  - id: bio-m7
+    title: Evolution
+  - id: bio-m8
+    title: The diversity of life
+  - id: bio-m9
+    title: The human body
+  - id: bio-m10
+    title: Ecology
