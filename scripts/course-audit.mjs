@@ -42,6 +42,7 @@ await audit("lessons-tab");
 const n = await pg.locator(".lesson-row > button:first-child").count();
 let diagrams = 0, images = 0;
 for (let i = 0; i < n; i++) {
+  if (!(await pg.getByRole("button", { name: /^Lessons$/ }).count())) { await pg.locator("button.back").first().click(); await pg.waitForTimeout(500); }
   await pg.getByRole("button", { name: /^Lessons$/ }).first().click(); await pg.waitForTimeout(300);
   const row = pg.locator(".lesson-row > button:first-child").nth(i);
   const name = ((await row.locator(".lesson-title").textContent()) ?? `lesson ${i + 1}`).trim();
