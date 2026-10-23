@@ -84,18 +84,31 @@ The common slip is step 5: the right-hand side must be permuted too.
 
 In exact arithmetic, any nonzero pivot works. Computers, however, round every result to a
 fixed number of significant digits (about 16 in standard double precision), and a tiny pivot
-is dangerous: with pivot $0.0001$ the multiplier is $10{,}000$, and after rounding, the
-original entries of the rows below are swamped by $10{,}000$ times the pivot row. (The
-round-off honors lessons in Modules 1 and 2 show a $2 \times 2$ system where this wipes out
-the answer completely.) The cure is **partial pivoting**: in each column, choose as pivot the
-entry of largest absolute value at or below the pivot position, and swap its row up. Then
-every multiplier satisfies $|\ell_{ij}| \le 1$, so no row is ever multiplied by a huge number.
+magnifies those rounding errors.
+
+### Example 3
+
+To see the danger without a computer, pretend we keep only 3 significant digits after every
+step, and solve
+$$0.0001x_1 + x_2 = 1, \qquad x_1 + x_2 = 2.$$
+The exact solution is $x_1 \approx 1.0001$, $x_2 \approx 0.9999$, so the 3-digit answer
+should be $x_1 = x_2 = 1.00$.
+
+1. *No swap.* The multiplier is $1/0.0001 = 10{,}000$. Row 2 becomes $(1 - 10{,}000)x_2 = 2 - 10{,}000$, that is $-9999x_2 = -9998$, which rounds to $-10{,}000x_2 = -10{,}000$. So $x_2 = 1.00$.
+2. Back-substitute: $0.0001x_1 = 1 - 1.00 = 0$, so $x_1 = 0$. Completely wrong: rounding in step 1 swamped row 2's own entries, and dividing by the tiny pivot couldn't recover $x_1$.
+3. *Swap first.* Put $x_1 + x_2 = 2$ on top. The multiplier is $0.0001$, and row 2 becomes $0.9999x_2 = 0.9998$, which rounds to $1.00x_2 = 1.00$. So $x_2 = 1.00$ and $x_1 = 2 - 1.00 = 1.00$. Correct to 3 digits.
+
+This is a simplified model of floating-point arithmetic, but real double precision behaves the
+same way: with $10^{-20}$ in place of $0.0001$, solving without the swap again gives $x_1 = 0$.
+The cure is **partial pivoting**: in each column, choose as pivot the entry of largest
+absolute value at or below the pivot position, and swap its row up. Then every multiplier
+satisfies $|\ell_{ij}| \le 1$, so no row is ever multiplied by a huge number.
 
 With partial pivoting, swaps happen all the time, often in several columns, so the
 bookkeeping rule above is used constantly. $P$ is built up as you go: start with the order
 $1, 2, \dots, n$ and apply each swap to that list.
 
-### Example 3
+### Example 4
 
 Use partial pivoting to find $PA = LU$ for $A = \begin{bmatrix} 1 & 2 & 1 \\ -1 & 4 & 3 \\ 2 & -4 & 2\end{bmatrix}$.
 
@@ -142,7 +155,7 @@ This is the **LDLᵀ factorization**. It needs only $L$ and the pivots, so it sa
 the storage and work, and it is the form behind the pivot test for positive definite
 matrices and the Cholesky factorization in Module 9.
 
-### Example 4
+### Example 5
 
 (a) Find the LDU factorization of $A = \begin{bmatrix} 2 & 1 & -1 \\ 4 & 5 & 1 \\ -2 & 2 & 6\end{bmatrix}$ from the LU lesson. (b) Find $LDL^T$ for $S = \begin{bmatrix} 2 & 4 & -2 \\ 4 & 11 & -1 \\ -2 & -1 & 6\end{bmatrix}$.
 

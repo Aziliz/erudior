@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" width="600" height="460" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c2833">
+<rect x="0" y="0" width="600" height="460" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker></defs>
+<line x1="260.0" y1="320.0" x2="108.7" y2="416.2" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)" stroke-opacity="1"/>
+<text x="94.7" y="426.2" text-anchor="middle" font-size="18" font-style="italic" fill="#1c2833">x</text>
+<line x1="260.0" y1="320.0" x2="572.5" y2="320.0" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)" stroke-opacity="1"/>
+<text x="586.5" y="326.0" text-anchor="middle" font-size="18" font-style="italic" fill="#1c2833">y</text>
+<line x1="260.0" y1="320.0" x2="260.0" y2="32.5" stroke="#1c2833" stroke-width="1.6" marker-end="url(#ah)" stroke-opacity="1"/>
+<text x="260.0" y="22.5" text-anchor="middle" font-size="18" font-style="italic" fill="#1c2833">z</text>
+<line x1="260.0" y1="320.0" x2="352.7" y2="152.6" stroke="#244d76" stroke-width="3" stroke-opacity="1"/>
+<line x1="260.0" y1="320.0" x2="352.7" y2="356.9" stroke="#5d6d7e" stroke-width="2" stroke-dasharray="6 4" stroke-opacity="1"/>
+<line x1="352.7" y1="356.9" x2="352.7" y2="152.6" stroke="#5d6d7e" stroke-width="2" stroke-dasharray="6 4" stroke-opacity="1"/>
+<polyline points="218.8,346.2 220.6,346.2 222.4,346.2 224.3,346.2 226.1,346.1 228.0,346.1 229.9,346.0 231.9,345.9 233.8,345.8 235.8,345.6 237.8,345.5 239.7,345.3 241.7,345.2 243.8,345.0 245.8,344.8 247.8,344.6 249.8,344.3 251.9,344.1 253.9,343.8 256.0,343.6 258.0,343.3 260.1,343.0 262.1,342.7 264.2,342.4 266.3,342.0 268.3,341.7 270.3,341.3 272.4,340.9 274.4,340.5 276.4,340.1 278.4,339.7 280.4,339.3 282.4,338.9 284.4,338.4 286.4,338.0 288.3,337.5 290.2,337.0 292.2,336.6 294.0,336.1 295.9,335.6 297.8,335.1" fill="none" fill-opacity="1" stroke="#b03a2e" stroke-width="2.5"/>
+<polyline points="260.0,220.0 260.9,220.4 261.8,220.8 262.8,221.3 263.7,221.7 264.6,222.3 265.5,222.8 266.4,223.4 267.4,224.0 268.3,224.7 269.2,225.3 270.1,226.0 271.0,226.8 271.9,227.6 272.8,228.4 273.7,229.2 274.6,230.1 275.4,231.0 276.3,231.9 277.2,232.9 278.1,233.8 278.9,234.9 279.8,235.9 280.6,237.0 281.4,238.1 282.3,239.2 283.1,240.3 283.9,241.5 284.7,242.7 285.5,244.0 286.3,245.2 287.1,246.5 287.9,247.8 288.6,249.1 289.4,250.5 290.1,251.9 290.9,253.3 291.6,254.7 292.3,256.2 293.0,257.6 293.7,259.1" fill="none" fill-opacity="1" stroke="#2e7d4f" stroke-width="2.5"/>
+<circle cx="352.7" cy="152.6" r="5" fill="#1c2833"/>
+<circle cx="352.7" cy="356.9" r="4" fill="#1c2833"/>
+<text x="329.5" y="220.2" text-anchor="start" font-size="19" font-weight="bold" font-style="italic" fill="#244d76">ρ</text>
+<text x="270.1" y="223.8" text-anchor="end" font-size="19" font-weight="bold" font-style="italic" fill="#2e7d4f">φ</text>
+<text x="254.0" y="367.3" text-anchor="middle" font-size="19" font-weight="bold" font-style="italic" fill="#b03a2e">θ</text>
+<text x="305.6" y="372.2" text-anchor="start" font-size="15" fill="#1c2833">r = ρ sin φ</text>
+<text x="364.7" y="259.8" text-anchor="start" font-size="15" fill="#1c2833">z = ρ cos φ</text>
+<text x="362.7" y="142.6" text-anchor="start" font-size="16" fill="#1c2833">P (ρ, θ, φ)</text>
+</svg>

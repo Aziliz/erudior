@@ -1,4 +1,4 @@
-# Round 2: la-m1 (Bridge: vectors, systems and matrices). Core: q01-q15. Honors: h01-h26.
+# Round 2: la-m1 (Bridge: vectors, systems and matrices). Core: q01-q15. Honors: h01-h26 (03h1: h01-h13, 03h2: h14-h26).
 
 # ---------- Lesson 01: Vectors in the plane ----------
 - id: la-m1-r2-q01
@@ -336,134 +336,145 @@
   explanation: |-
     $P = (2, 0)$ and $Q = (5, 3)$, so $\overrightarrow{PQ} = (3, 3)$. This is $\frac12\overrightarrow{AC} = \frac12(6, 6)$, as Varignon's theorem predicts; the opposite side $\overrightarrow{SR}$, from $S = (0, 2)$ to $R = (3, 5)$, is also $(3, 3)$.
 
-# ---------- Honors 03h2: Sensitive systems, round-off and pivoting ----------
+# ---------- Honors 03h2: The Leontief input-output model ----------
 - id: la-m1-r2-h14
-  lesson: la-m1-h-sensitive-systems
-  topic: Conditioning
-  stem: '$x + y = 2$, $x + 1.01y = 2.01$ has solution $(1, 1)$. If the 2.01 is changed to 2.03, what is the new solution?'
-  choices: ['$(1, 1.02)$', '$(-1, 3)$', '$(0.98, 1.02)$', '$(3, -1)$']
+  lesson: la-m1-h-leontief
+  topic: Input–output model
+  stem: 'A two-sector economy, Farming (sector 1) and Transport (sector 2), has consumption matrix $C = \begin{bmatrix} 0.1 & 0.3 \\ 0.2 & 0.25\end{bmatrix}$, with one column per producing sector. What does the entry 0.3 mean?'
+  choices: ['Each dollar of farming output uses \$0.30 of transport', 'Each dollar of transport output uses \$0.30 of farm products', 'Each dollar of farming output uses \$0.30 of farm products', 'Households buy 30% of all farm products']
   answer: 1
   explanation: |-
-    Subtract the first equation from the second: $0.01y = 2.03 - 2 = 0.03$, so $y = 3$, and then $x = 2 - 3 = -1$. A change of 0.02 in one right side moved $y$ by 2: the lines are nearly parallel, so the system is ill-conditioned. $(1, 1.02)$ and $(0.98, 1.02)$ assume the answer changes about as little as the data did, and $(3, -1)$ swaps $x$ and $y$.
+    0.3 is $c_{12}$: row 1 (whose output is used: farming), column 2 (who is producing: transport). So making a dollar of transport uses \$0.30 of farm products. Reading it as "farming uses transport" swaps the roles of the row and column; the farming-uses-farming entry is $c_{11} = 0.1$; and $C$ says nothing about households, which are in the final demand.
 
 - id: la-m1-r2-h15
-  lesson: la-m1-h-sensitive-systems
-  topic: Conditioning
+  lesson: la-m1-h-leontief
+  topic: Input–output model
   type: text
-  stem: 'The row-sum norm of $A = \begin{bmatrix} 2 & -5 \\ -1 & 3\end{bmatrix}$ is $\|A\|_\infty =$ ___.'
-  accept: ['7']
+  stem: 'With $C = \begin{bmatrix} 0.2 & 0.4 \\ 0.3 & 0.1\end{bmatrix}$ and production $\mathbf{x} = (100, 50)$, the intermediate demand $C\mathbf{x}$ has first entry ___ and second entry ___.'
+  accept:
+    - ['40']
+    - ['35']
   explanation: |-
-    Add absolute values along each row: $|2| + |-5| = 7$ and $|-1| + |3| = 4$. The largest is 7. (Without absolute values, row 1 would give $-3$, which is not a size.)
+    Row times column: $0.2(100) + 0.4(50) = 20 + 20 = 40$ and $0.3(100) + 0.1(50) = 30 + 5 = 35$. These are the amounts of each sector's output used up in making $\mathbf{x}$.
 
 - id: la-m1-r2-h16
-  lesson: la-m1-h-sensitive-systems
-  topic: Conditioning
-  stem: 'Find $\kappa_\infty(A) = \|A\|_\infty\|A^{-1}\|_\infty$ for $A = \begin{bmatrix} 2 & -5 \\ -1 & 3\end{bmatrix}$.'
-  choices: ['$56$', '$7$', '$15$', '$1$']
+  lesson: la-m1-h-leontief
+  topic: Input–output model
+  stem: 'With $C = \begin{bmatrix} 0.2 & 0.4 \\ 0.3 & 0.1\end{bmatrix}$ and production $\mathbf{x} = (100, 50)$, how much of each sector''s output is left for final demand?'
+  choices: ['$(60, 15)$', '$(40, 35)$', '$(140, 85)$', '$(80, 45)$']
   answer: 0
   explanation: |-
-    $ad - bc = 6 - 5 = 1$, so $A^{-1} = \begin{bmatrix} 3 & 5 \\ 1 & 2\end{bmatrix}$, with row sums 8 and 3: $\|A^{-1}\|_\infty = 8$. With $\|A\|_\infty = 7$, $\kappa_\infty = 7 \times 8 = 56$.
-    7 is $\|A\|_\infty$ alone, 15 adds the two norms instead of multiplying, and 1 is the determinant, which does not measure conditioning.
+    Final demand is what is left after intermediate demand: $\mathbf{d} = \mathbf{x} - C\mathbf{x} = (100 - 40,\ 50 - 35) = (60, 15)$.
+    $(40, 35)$ is $C\mathbf{x}$ itself, $(140, 85)$ adds instead of subtracting, and $(80, 45)$ subtracts only each sector's use of its own output (the diagonal), forgetting what the sectors take from each other.
 
 - id: la-m1-r2-h17
-  lesson: la-m1-h-sensitive-systems
-  topic: Conditioning
-  stem: 'Which statements are true? Select all that apply.'
-  choices: ['$\kappa_\infty(A) \ge 1$ for every invertible matrix $A$', 'A matrix with a very small determinant must be ill-conditioned', 'With partial pivoting, every multiplier is at most 1 in absolute value', 'Partial pivoting turns an ill-conditioned problem into a well-conditioned one', 'If $A\mathbf{x} = \mathbf{b}$ and $A(\mathbf{x} + \Delta\mathbf{x}) = \mathbf{b} + \Delta\mathbf{b}$, then $\Delta\mathbf{x} = A^{-1}\Delta\mathbf{b}$']
-  answer: [0, 2, 4]
+  lesson: la-m1-h-leontief
+  topic: The Leontief inverse
+  stem: 'Which consumption matrices pass the lesson''s test for being productive (nonnegative entries and every column sum below 1)? Select all that apply.'
+  choices: ['$\begin{bmatrix} 0.2 & 0.4 \\ 0.3 & 0.1\end{bmatrix}$', '$\begin{bmatrix} 0.5 & 0.3 \\ 0.4 & 0.6\end{bmatrix}$', '$\begin{bmatrix} 0.6 & 0.1 \\ 0.5 & 0.2\end{bmatrix}$', '$\begin{bmatrix} 0.7 & 0.2 \\ 0.2 & 0.9\end{bmatrix}$', '$\begin{bmatrix} 0 & 0.9 \\ 0.8 & 0\end{bmatrix}$']
+  answer: [0, 1, 4]
   explanation: |-
-    $1 = \|I\|_\infty = \|AA^{-1}\|_\infty \le \|A\|_\infty\|A^{-1}\|_\infty$, so $\kappa_\infty \ge 1$. Partial pivoting puts the largest entry (in absolute value) in the pivot spot, so each multiplier (entry divided by pivot) is at most 1 in size. Subtracting the two equations gives $A\Delta\mathbf{x} = \Delta\mathbf{b}$, so $\Delta\mathbf{x} = A^{-1}\Delta\mathbf{b}$.
-    A small determinant alone means nothing: $0.001I$ has determinant $0.000001$ but $\kappa = 1$. And pivoting fixes an unstable method, not a sensitive problem: conditioning belongs to $A$ itself.
+    Add down each column. Passing: $0.5$ and $0.5$; $0.9$ and $0.9$; $0.8$ and $0.9$. Failing: $\begin{bmatrix} 0.6 & 0.1 \\ 0.5 & 0.2\end{bmatrix}$ has first column sum 1.1, and $\begin{bmatrix} 0.7 & 0.2 \\ 0.2 & 0.9\end{bmatrix}$ has second column sum 1.1.
+    The test is sufficient, not necessary: the first failing matrix is in fact productive (its $(I - C)^{-1}$ has all positive entries), while the second is not (its $(I - C)^{-1}$ is all negative).
 
 - id: la-m1-r2-h18
-  lesson: la-m1-h-sensitive-systems
-  topic: Pivoting and round-off
+  lesson: la-m1-h-leontief
+  topic: Input–output model
   type: order
-  stem: 'Put the steps of one stage of elimination with partial pivoting in order.'
+  stem: 'Put the steps for finding the production needed to meet final demand $\mathbf{d}$ in a two-sector economy in order.'
   items:
-    - 'In the current column, at or below the current row, find the entry of largest absolute value'
-    - 'Swap its row into the pivot position'
-    - 'Divide each entry below the pivot by the pivot to get the multipliers'
-    - 'Subtract multiplier times the pivot row from each row below'
-    - 'Move down one row and right one column'
+    - 'Write the consumption matrix $C$, one column per producing sector'
+    - 'Form $I - C$'
+    - 'Compute the determinant of $I - C$'
+    - 'Write $(I - C)^{-1}$ with the $2 \times 2$ inverse formula'
+    - 'Multiply: $\mathbf{x} = (I - C)^{-1}\mathbf{d}$'
+    - 'Check that $\mathbf{x} - C\mathbf{x} = \mathbf{d}$'
   explanation: |-
-    The pivot is chosen and swapped into place first, since the multipliers are computed from it. Each multiplier is then used to clear its row's entry below the pivot, and only after the column is cleared does the process move to the next column.
+    Each step needs the one before: $I - C$ is built from $C$, its inverse needs its determinant, the production needs the inverse, and the check needs the production.
 
 - id: la-m1-r2-h19
-  lesson: la-m1-h-sensitive-systems
-  topic: Pivoting and round-off
+  lesson: la-m1-h-leontief
+  topic: The Leontief inverse
   type: match
-  stem: 'Match each term to its description.'
+  stem: 'Match each part of the input–output model to its meaning.'
   pairs:
-    - ['Ill-conditioned system', 'Small changes in the data cause large changes in the solution']
-    - ['Round-off error', 'Error from storing a result with a limited number of digits']
-    - ['Partial pivoting', 'Swapping up the largest entry of the column before eliminating']
-    - ['Row-sum norm', 'Largest sum of absolute values along a row']
-  distractors: ['Smallest sum of absolute values along a row']
+    - ['Consumption matrix $C$', 'Inputs each sector needs per unit of its output']
+    - ['Intermediate demand $C\mathbf{x}$', 'Output used up by the sectors themselves']
+    - ['Final demand $\mathbf{d}$', 'Output wanted by households, government and exports']
+    - ['Leontief inverse $(I - C)^{-1}$', 'Total production needed per extra unit of final demand']
+  distractors: ['Total output of each sector']
   explanation: |-
-    Ill-conditioning is a property of the problem (nearly parallel lines). Round-off error comes from floating-point storage. Partial pivoting chooses the largest available pivot so multipliers stay at most 1 in size. The row-sum norm $\|A\|_\infty$ takes the largest absolute row sum, not the smallest.
+    $C$ holds the recipes; $C\mathbf{x}$ is what production itself uses up; $\mathbf{d}$ is what is left for everyone else; and column $j$ of $(I - C)^{-1}$ gives the total production behind one extra unit of demand for sector $j$. Total output of each sector is the production vector $\mathbf{x}$.
 
 - id: la-m1-r2-h20
-  lesson: la-m1-h-sensitive-systems
-  topic: Pivoting and round-off
-  stem: 'The first column of a $3 \times 3$ system has entries $0.5$, $-3$ and $2$ (rows 1, 2, 3). Which row does partial pivoting move to the top?'
-  choices: ['Row 3, because 2 is the largest entry', 'Row 1, because 0.5 is already nonzero', 'Row 2, because $|-3|$ is the largest absolute value', 'Row 1, because the smallest pivot gives the smallest multipliers']
-  answer: 2
+  lesson: la-m1-h-leontief
+  topic: Input–output model
+  type: label
+  stem: 'The diagram shows the flows in a two-sector economy. Name each numbered part.'
+  image: {src: images/la-m1-h-leontief-blank.svg, alt: 'Two boxes, Energy and Manufacturing. A curved arrow runs from Energy to Manufacturing, a straight arrow from Manufacturing to Energy, and each box has a loop arrow back to itself. Arrows from both boxes lead down to an unlabeled box. Four parts are numbered: the curved arrow, the straight arrow, the loop on Energy and the bottom box.'}
+  labels:
+    - {x: 50.0, y: 22.1, text: 'Energy used per dollar of manufacturing output'}
+    - {x: 50.0, y: 44.2, text: 'Manufacturing used per dollar of energy output'}
+    - {x: 7.8, y: 44.2, text: 'Energy used per dollar of energy output'}
+    - {x: 50.0, y: 84.2, text: 'Final demand'}
+  distractors: ['Manufacturing used per dollar of manufacturing output', 'Total production']
   explanation: |-
-    Partial pivoting compares absolute values: $|0.5| < |2| < |-3|$, so row 2 goes on top. Then the multipliers are $0.5/(-3)$ and $2/(-3)$, both at most 1 in size. Any nonzero pivot works in exact arithmetic, but with rounding a small pivot gives large multipliers, the opposite of what we want.
+    An arrow shows output flowing from the sector that makes it to the sector that uses it. Arrow 1 carries energy into manufacturing ($c_{12}$), arrow 2 carries manufactured goods into energy production ($c_{21}$), and loop 3 is energy used to make energy ($c_{11}$). The box that receives output from both sectors without sending anything back is final demand. The loop on Manufacturing ($c_{22}$) is not numbered.
 
 - id: la-m1-r2-h21
-  lesson: la-m1-h-sensitive-systems
-  topic: Pivoting and round-off
-  stem: 'Solve $0.0004x + y = 2$, $x + y = 4$ by elimination without row swaps, rounding every result to 3 significant digits. What do you get? (The exact solution is about $(2.0008, 1.9992)$.)'
-  choices: ['$x = 2.00$, $y = 2.00$', '$x = 1.00$, $y = 3.00$', '$x = 4.00$, $y = 0$', '$x = 0$, $y = 2.00$']
+  lesson: la-m1-h-leontief
+  topic: The Leontief inverse
+  stem: 'An economy has $C = \begin{bmatrix} 0.1 & 0.2 \\ 0.4 & 0.3\end{bmatrix}$ and final demand $\mathbf{d} = (50, 100)$. What production $\mathbf{x}$ meets it?'
+  choices: ['$(75, 150)$', '$(50, 100)$', '$(55.6, 142.9)$', '$(100, 200)$']
   answer: 3
   explanation: |-
-    The multiplier is $1/0.0004 = 2500$. New equation 2: $(1 - 2500)y = 4 - 2500 \cdot 2$, that is $-2499y = -4996$, which rounds to $-2500y = -5000$. So $y = 2.00$, and then $0.0004x = 2 - 2.00 = 0$ gives $x = 0$. The huge multiplier wiped out the information in equation 2. With the rows swapped first, the same arithmetic gives $(2.00, 2.00)$.
+    $I - C = \begin{bmatrix} 0.9 & -0.2 \\ -0.4 & 0.7\end{bmatrix}$ has determinant $0.63 - 0.08 = 0.55$, and $\mathbf{x} = \frac{1}{0.55}\begin{bmatrix} 0.7 & 0.2 \\ 0.4 & 0.9\end{bmatrix}\begin{bmatrix} 50 \\ 100\end{bmatrix} = \frac{1}{0.55}\begin{bmatrix} 55 \\ 110\end{bmatrix} = (100, 200)$. Check: $C\mathbf{x} = (50, 100)$ and $\mathbf{x} - C\mathbf{x} = (50, 100)$. ✓
+    $(75, 150)$ is $\mathbf{d} + C\mathbf{d}$, only the first round of production; $(50, 100)$ forgets intermediate demand; $(55.6, 142.9)$ divides by the diagonal of $I - C$ and ignores what the sectors buy from each other.
 
 - id: la-m1-r2-h22
-  lesson: la-m1-h-sensitive-systems
-  topic: Pivoting and round-off
+  lesson: la-m1-h-leontief
+  topic: The Leontief inverse
   type: text
-  stem: 'Solve $0.0004x + y = 2$, $x + y = 4$ again with 3-significant-digit rounding, but use partial pivoting (put $x + y = 4$ first). Give only the numbers: $x =$ ___ and $y =$ ___.'
+  stem: 'For $C = \begin{bmatrix} 0.2 & 0.4 \\ 0.3 & 0.1\end{bmatrix}$ the Leontief inverse is $\begin{bmatrix} 1.5 & 2/3 \\ 0.5 & 4/3\end{bmatrix}$. If final demand for energy (sector 1) rises by 20 and nothing else changes, energy production rises by ___ and manufacturing production by ___.'
   accept:
-    - ['2', '2.00']
-    - ['2', '2.00']
+    - ['30']
+    - ['10']
   explanation: |-
-    The multiplier is $0.0004/1 = 0.0004$. New equation 2: $(1 - 0.0004)y = 2 - 0.0004 \cdot 4$, that is $0.9996y = 1.9984$, which rounds to $1.00y = 2.00$. So $y = 2.00$ and $x = 4 - 2.00 = 2.00$, matching the exact $(2.0008, 1.9992)$ to the 3 digits kept.
+    $\Delta\mathbf{x} = (I - C)^{-1}\Delta\mathbf{d} = (I - C)^{-1}(20, 0) = 20 \times (\text{column } 1) = 20(1.5, 0.5) = (30, 10)$.
 
 - id: la-m1-r2-h23
-  lesson: la-m1-h-sensitive-systems
-  topic: Pivoting and round-off
-  stem: 'Without pivoting, 3-digit elimination gave $x = 0$ for $0.0004x + y = 2$, $x + y = 4$, although the true $x$ is about 2. What went wrong?'
-  choices: ['The system is ill-conditioned, so no method could do better', 'The multiplier 2500 was so large that rounding erased the information in equation 2', 'Three digits are not enough to store the number 0.0004', 'Back-substitution divided by zero']
+  lesson: la-m1-h-leontief
+  topic: The Leontief inverse
+  stem: 'Why are the diagonal entries of a Leontief inverse at least 1 for a productive economy?'
+  choices: ['Because $(I - C)^{-1}$ always equals $I + C$', 'Because delivering one unit of a sector''s output to final demand also requires extra output of that sector to be used up in production', 'Because every column of $C$ adds up to less than 1', 'Because the determinant of $I - C$ is less than 1']
   answer: 1
   explanation: |-
-    After rounding, equation 2 became $-2500y = -5000$, just a multiple of equation 1, so its own information was lost. The system itself is well-conditioned ($\kappa_\infty \approx 4$), and with a row swap the same 3-digit arithmetic gets the right answer. 0.0004 is stored exactly (one significant digit), and back-substitution divided by 0.0004, not by 0.
+    Column $j$ of $(I - C)^{-1}$ is the total production behind one unit of final demand for sector $j$. That includes the unit itself plus whatever of sector $j$'s output the rounds of production use up, so the $j$th entry is at least 1. In symbols, $(I - C)^{-1} = I + C + C^2 + \cdots$, and the terms after $I$ have no negative entries. $(I - C)^{-1}$ is not just $I + C$, and the column-sum condition and the determinant don't by themselves explain the meaning.
 
 - id: la-m1-r2-h24
-  lesson: la-m1-h-sensitive-systems
-  topic: Pivoting and round-off
-  stem: 'A computer solves a system with 1,000 unknowns by elimination in about 1 second. Roughly how long does a system with 4,000 unknowns take by the same method?'
-  choices: ['About 4 seconds', 'About 16 seconds', 'About 64 seconds', 'About 8 seconds']
+  lesson: la-m1-h-leontief
+  topic: The Leontief inverse
+  stem: 'With $C = \begin{bmatrix} 0.2 & 0.4 \\ 0.3 & 0.1\end{bmatrix}$ and $\mathbf{d} = (10, 20)$, what is the running total of production after the first two rounds, $\mathbf{d} + C\mathbf{d}$?'
+  choices: ['$(10, 5)$', '$(18, 26)$', '$(20, 25)$', '$(10, 20)$']
   answer: 2
   explanation: |-
-    Elimination takes about $\frac{n^3}{3}$ multiplications, so multiplying $n$ by 4 multiplies the work by about $4^3 = 64$. 4 seconds assumes the work grows like $n$, 16 like $n^2$ (closer to back-substitution's cost), and 8 applies the "doubling multiplies the work by 8" rule only once, though 4,000 is two doublings of 1,000.
+    $C\mathbf{d} = (0.2 \cdot 10 + 0.4 \cdot 20,\ 0.3 \cdot 10 + 0.1 \cdot 20) = (10, 5)$, so $\mathbf{d} + C\mathbf{d} = (20, 25)$. Later rounds keep adding smaller amounts.
+    $(10, 5)$ is the second round alone, $(18, 26)$ multiplies by the columns of $C$ instead of the rows (using $C^T$), and $(10, 20)$ is the final demand with no production rounds at all.
 
 - id: la-m1-r2-h25
-  lesson: la-m1-h-sensitive-systems
-  topic: Conditioning
-  stem: 'Which of these matrices is ill-conditioned?'
-  choices: ['$\begin{bmatrix} 1 & 2 \\ 2 & 4.001\end{bmatrix}$', '$\begin{bmatrix} 0.001 & 0 \\ 0 & 0.001\end{bmatrix}$', '$\begin{bmatrix} 3 & 1 \\ 1 & 3\end{bmatrix}$', '$\begin{bmatrix} 100 & 0 \\ 0 & 100\end{bmatrix}$']
+  lesson: la-m1-h-leontief
+  topic: The Leontief inverse
+  stem: 'For $C = \begin{bmatrix} 0.5 & 0.6 \\ 0.7 & 0.5\end{bmatrix}$ and $\mathbf{d} = (17, 17)$, solving $(I - C)\mathbf{x} = \mathbf{d}$ gives $\mathbf{x} = (-110, -120)$. What does this tell you?'
+  choices: ['The sectors use up more than they make, so $C$ is not productive and no real production plan meets this demand', 'There is an arithmetic slip, because $(I - C)\mathbf{x} = \mathbf{d}$ always has a positive solution', 'Both sectors should shut down and import their goods', 'The final demand is too small and should be increased']
   answer: 0
   explanation: |-
-    For $\begin{bmatrix} 1 & 2 \\ 2 & 4.001\end{bmatrix}$, $ad - bc = 0.001$ while the entries are about 1 to 4, and $A^{-1} = 1000\begin{bmatrix} 4.001 & -2 \\ -2 & 1\end{bmatrix}$, so $\kappa_\infty = 6.001 \times 6001 \approx 36{,}000$: its rows are nearly proportional. The tiny diagonal matrix has determinant $0.000001$, but $\kappa_\infty = 1$, and so does $100I$. $\begin{bmatrix} 3 & 1 \\ 1 & 3\end{bmatrix}$ has $\kappa_\infty = 4 \times 0.5 = 2$.
+    The column sums are 1.2 and 1.1: each sector uses more than a dollar of inputs per dollar of output. Here $\det(I - C) = 0.25 - 0.42 = -0.17$ and every entry of $(I - C)^{-1}$ is negative, so every positive demand leads to negative "production", which is meaningless. The solution is correct algebra; the model's assumption (a productive economy) fails. Making the demand larger would only make the answer more negative, and the model says nothing about importing.
 
 - id: la-m1-r2-h26
-  lesson: la-m1-h-sensitive-systems
-  topic: Conditioning
+  lesson: la-m1-h-leontief
+  topic: Input–output model
   type: text
-  stem: 'A computer keeps about 16 significant digits, and a system has $\kappa \approx 10^6$. By the lesson''s rule of thumb, about ___ significant digits of the computed solution can be trusted.'
-  accept: ['10', 'ten']
+  stem: 'For $C = \begin{bmatrix} 0.2 & 0.4 \\ 0.3 & 0.1\end{bmatrix}$, the entry in row 1, column 2 of $I - C$ is ___.'
+  accept: ['-0.4', '-2/5']
   explanation: |-
-    The rule of thumb says a condition number near $10^k$ can cost up to about $k$ digits, so about $16 - 6 = 10$ digits remain trustworthy. It is a rough guide, not a guarantee: the actual loss can be smaller.
+    $I - C$ subtracts every entry of $C$ from the identity. Off the diagonal $I$ has 0, so the entry is $0 - 0.4 = -0.4$. (Only the diagonal entries become $1 - c_{ii}$.)

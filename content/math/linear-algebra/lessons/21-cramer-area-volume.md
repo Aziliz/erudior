@@ -65,7 +65,7 @@ keeps the same base and height, hence the same area. Every matrix can be sheared
 diagonal one this way (or has dependent columns, giving a flat parallelogram of area 0).
 
 ```plot
-{"x": [-1, 8], "y": [-1, 3.5], "equal": true, "polygons": [{"points": [[0, 0], [3, 0], [7, 2], [4, 2]]}], "segments": [{"from": [0, 0], "to": [1, 2], "dashed": true}, {"from": [1, 2], "to": [4, 2], "dashed": true}, {"from": [3, 0], "to": [4, 2], "dashed": true}, {"from": [0, 0], "to": [3, 0], "arrow": true, "label": "u"}, {"from": [0, 0], "to": [4, 2], "arrow": true, "label": "v + u"}], "caption": "Column replacement v → v + u is a shear: the dashed parallelogram (u, v) and the shaded one (u, v + u) share base 3 and height 2, so both have area 6"}
+{"x": [-1, 8], "y": [-1, 3], "equal": true, "polygons": [{"points": [[0, 0], [3, 0], [7, 2], [4, 2]], "fill": true}], "segments": [{"from": [0, 0], "to": [1, 2], "dashed": true}, {"from": [1, 2], "to": [4, 2], "dashed": true}, {"from": [3, 0], "to": [4, 2], "dashed": true}, {"from": [0, 0], "to": [3, 0], "arrow": true, "label": "u"}, {"from": [0, 0], "to": [4, 2], "arrow": true, "label": "v + u"}], "caption": "Column replacement v → v + u is a shear: the dashed parallelogram (u, v) and the shaded one (u, v + u) share base 3 and height 2, so both have area 6"}
 ```
 
 The same argument works in three dimensions, where the volume of a parallelepiped is the area

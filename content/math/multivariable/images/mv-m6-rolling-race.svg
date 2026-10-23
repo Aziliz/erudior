@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 540" width="640" height="540" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#1c2833">
+<rect x="0" y="0" width="640" height="540" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker></defs>
+<polygon points="30.0,40.0 452.1,122.0 30.0,122.0" fill="#eef2f6" fill-opacity="1" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="412.8" cy="99.1" r="15.0" fill="#9fb6cc" stroke="#1c2833" stroke-width="2"/>
+<text x="466.1" y="98.0" text-anchor="start" font-size="15" fill="#1c2833">solid ball</text>
+<text x="466.1" y="118.0" text-anchor="start" font-size="15" fill="#1c2833">β = 2/5</text>
+<polygon points="30.0,160.0 452.1,242.0 30.0,242.0" fill="#eef2f6" fill-opacity="1" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="387.4" cy="214.2" r="15.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<circle cx="387.4" cy="214.2" r="2.5" fill="#1c2833"/>
+<text x="466.1" y="218.0" text-anchor="start" font-size="15" fill="#1c2833">solid cylinder</text>
+<text x="466.1" y="238.0" text-anchor="start" font-size="15" fill="#1c2833">β = 1/2</text>
+<polygon points="30.0,280.0 452.1,362.0 30.0,362.0" fill="#eef2f6" fill-opacity="1" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="352.0" cy="327.3" r="15.0" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<circle cx="352.0" cy="327.3" r="12.0" fill="none" stroke="#8796a5" stroke-width="1"/>
+<text x="466.1" y="338.0" text-anchor="start" font-size="15" fill="#1c2833">thin spherical shell</text>
+<text x="466.1" y="358.0" text-anchor="start" font-size="15" fill="#1c2833">β = 2/3</text>
+<polygon points="30.0,400.0 452.1,482.0 30.0,482.0" fill="#eef2f6" fill-opacity="1" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="298.8" cy="437.0" r="15.0" fill="none" stroke="#1c2833" stroke-width="4"/>
+<text x="466.1" y="458.0" text-anchor="start" font-size="15" fill="#1c2833">hoop</text>
+<text x="466.1" y="478.0" text-anchor="start" font-size="15" fill="#1c2833">β = 1</text>
+<text x="320.0" y="525.0" text-anchor="middle" font-size="15" fill="#1c2833">Released together; positions a moment later (I = β m R²)</text>
+</svg>

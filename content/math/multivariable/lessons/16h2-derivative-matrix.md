@@ -13,7 +13,7 @@ refs: [mv-ref-differential]
 You have now met several kinds of derivative: $f'(x)$ for one variable, $\mathbf r'(t)$ for a
 vector function (Lesson 7), the gradient $\nabla f$ for a function of several variables
 (Lesson 16), and the tables of partials that a tree diagram multiplies together (Lesson 15). They
-look different, but they are one idea: **the derivative is the best linear approximation**. In
+look different, but they are one idea: *the derivative is the best linear approximation*. In
 Lesson 14 the linearization of $f(x, y)$ at $\mathbf a = (a, b)$ was
 
 $$f(\mathbf a + \mathbf h) \approx f(\mathbf a) + \nabla f(\mathbf a)\cdot\mathbf h,\qquad \mathbf h = \langle h, k\rangle.$$
@@ -41,8 +41,8 @@ partial derivatives,
 
 $$D\mathbf F(\mathbf a) = \begin{bmatrix} \dfrac{\partial F_1}{\partial x_1} & \cdots & \dfrac{\partial F_1}{\partial x_n}\\ \vdots & & \vdots\\ \dfrac{\partial F_m}{\partial x_1} & \cdots & \dfrac{\partial F_m}{\partial x_n}\end{bmatrix}\quad\text{(evaluated at } \mathbf a\text{)}.$$
 
-Read it two ways. **Row $i$ is the gradient of the output $F_i$.** **Column $j$ is the partial
-derivative vector $\partial\mathbf F/\partial x_j$**: how all the outputs respond when only input
+Read it two ways. *Row $i$ is the gradient of the output $F_i$.* *Column $j$ is the partial
+derivative vector $\partial\mathbf F/\partial x_j$*: how all the outputs respond when only input
 $j$ moves. One row ($m = 1$) is the gradient, written as a row; one column ($n = 1$) is the
 velocity $\mathbf r'(t)$. The square case is the matrix whose determinant Lesson 28 calls the
 Jacobian, which is why many books call $D\mathbf F$ the *Jacobian matrix*.

@@ -153,6 +153,13 @@ $\sigma(j) < \sigma(i)$ (where $\sigma^{-1}$ has the values $j > i$), and the ot
 the two permutations have the same number of inversions and the same sign. The terms match one for one, and $\det A^T = \det A$. Everything true for
 rows is true for columns.
 
+*Expansion along any row or column.* Move row $i$ to the top by $i - 1$ swaps of neighboring
+rows, keeping the other rows in order. That multiplies the determinant by $(-1)^{i-1}$, and the
+row-1 expansion of the new matrix uses the same minors $A_{ij}$, so
+$\det A = (-1)^{i-1}\sum_j a_{ij}(-1)^{1+j}\det A_{ij} = \sum_j a_{ij}C_{ij}$. Expansion down a
+column follows from the transpose rule. Both facts the cofactor lesson took on trust are now
+proved.
+
 ### Example 3
 
 Show that $\det\begin{bmatrix} 1 & a & a^2 \\ 1 & b & b^2 \\ 1 & c & c^2\end{bmatrix} = (b - a)(c - a)(c - b)$ and evaluate it for $a, b, c = 1, 2, 4$.
@@ -164,7 +171,7 @@ Show that $\det\begin{bmatrix} 1 & a & a^2 \\ 1 & b & b^2 \\ 1 & c & c^2\end{bma
 
 This is the **Vandermonde determinant**. The same row operations and induction give
 $\prod_{i < j}(x_j - x_i)$ for the $n \times n$ Vandermonde matrix, so it is nonzero exactly
-when the $x_i$ are distinct. That proves the claim from the applications of systems lesson:
+when the $x_i$ are distinct. That proves the claim from the Module 2 applications lesson:
 there is exactly one polynomial of degree at most $n - 1$ through $n$ points with distinct
 $x$-values.
 

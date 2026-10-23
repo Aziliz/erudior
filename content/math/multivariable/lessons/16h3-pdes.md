@@ -31,7 +31,7 @@ Each is an idealization: the heat equation assumes a uniform material with const
 diffusivity $\alpha$, the wave equation assumes small vibrations of a uniform string, and so on.
 Within those assumptions they are remarkably accurate.
 
-All three are **linear** and **homogeneous**: each term contains $u$ or one of its derivatives
+All three are *linear* and *homogeneous*: each term contains $u$ or one of its derivatives
 exactly once, to the first power, with no term free of $u$. That gives the **superposition
 principle**: if $u_1$ and $u_2$ are solutions, so is $c_1u_1 + c_2u_2$ for any constants. (Check
 for the heat equation: $(c_1u_1 + c_2u_2)_t = c_1\alpha u_{1,xx} + c_2\alpha u_{2,xx} = \alpha(c_1u_1 + c_2u_2)_{xx}$.)

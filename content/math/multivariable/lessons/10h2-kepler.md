@@ -57,7 +57,7 @@ the angular momentum per unit mass. By the product rule for cross products (Less
 $$\mathbf h' = \mathbf v\times\mathbf v + \mathbf r\times\mathbf a = \mathbf 0 + \mathbf 0 = \mathbf 0,$$
 
 because a vector crossed with itself is zero and $\mathbf a \parallel \mathbf r$. So
-$\mathbf h$ is a **constant vector**. Two consequences:
+$\mathbf h$ is a constant vector. Two consequences:
 
 - **The orbit lies in a plane.** Since $\mathbf r\cdot\mathbf h = \mathbf r\cdot(\mathbf r\times\mathbf v) = 0$ at every moment, $\mathbf r(t)$ stays in the plane through the Sun with normal $\mathbf h$. (If $\mathbf h = \mathbf 0$, the planet falls straight in along a line.)
 - **Equal areas.** Use polar coordinates $(r, \theta)$ in that plane, with $\mathbf h$ along $\mathbf k$. Then $\mathbf r = r\mathbf u$ and $\mathbf v = r'\mathbf u + r\theta'\,\mathbf u_\theta$, where $\mathbf u_\theta$ is the unit vector $90^\circ$ ahead of $\mathbf u$. Crossing, $\mathbf h = r^2\theta'\,(\mathbf u\times\mathbf u_\theta) = r^2\theta'\,\mathbf k$, so $h = |\mathbf h| = r^2\theta'$.
@@ -156,7 +156,7 @@ $GM \approx 1.327\times10^{20}\text{ m}^3/\text{s}^2$. Then
 
 $$T = 2\pi\sqrt{\frac{a^3}{GM}} \approx 2\pi\sqrt{\frac{3.348\times10^{33}}{1.327\times10^{20}}} \approx 3.156\times10^{7}\text{ s} \approx 365.26\text{ days}.$$
 
-In units of years and **astronomical units** (AU, Earth's mean distance), the constant is 1
+In units of years and **astronomical units** (AU, about Earth's average distance from the Sun), the constant is 1
 for anything orbiting the Sun: $T_{\text{years}}^2 = a_{\text{AU}}^3$. Mars, with
 $a \approx 1.524$ AU, has $T \approx 1.524^{3/2} \approx 1.88$ years.
 

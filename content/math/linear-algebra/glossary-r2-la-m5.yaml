@@ -1,6 +1,11 @@
 # Round 2 glossary terms for module la-m5 (honors lessons 18h1 and 18h2).
-# "permutation matrix" and "partial pivoting" are bolded in 18h1 but defined by other modules'
-# round 2 glossaries (la-m6 and la-m1/la-m2), so they are not repeated here.
+- term: permutation matrix
+  aliases: [permutation matrices]
+  definition: 'An identity matrix with its rows put in a different order: exactly one 1 in each row and column. $PA$ reorders the rows of $A$, $AP$ reorders its columns, and $P^{-1} = P^T$.'
+  topic: Pivoting and LDU
+- term: partial pivoting
+  definition: 'Choosing as each pivot the entry of largest absolute value in its column, at or below the pivot position, and swapping its row into place. Every multiplier then has absolute value at most 1, which keeps rounding errors under control.'
+  topic: Pivoting and LDU
 - term: LDU factorization
   aliases: [LDU, LDU decomposition, A = LDU]
   definition: 'A factorization $A = LDU$ with $L$ unit lower triangular, $D$ diagonal (holding the pivots) and $U$ unit upper triangular. It comes from $A = LU$ by dividing each row of $U$ by its pivot, and it is unique when $A$ is invertible and needs no row swaps.'

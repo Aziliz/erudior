@@ -36,12 +36,12 @@ is the whole difference from having partial derivatives, which only look along t
 
 Three facts follow quickly.
 
-1. **The numbers are the partials.** Take $k = 0$ and $h > 0$: $E(h, 0)/h \to 0$ says
+1. *The numbers are the partials.* Take $k = 0$ and $h > 0$: $E(h, 0)/h \to 0$ says
    $\dfrac{f(a + h, b) - f(a, b)}{h} \to A$ (and $h < 0$ works the same way), so $A = f_x(a, b)$.
    Likewise $B = f_y(a, b)$.
-2. **Differentiable implies continuous.** $f(a + h, b + k) - f(a, b) = Ah + Bk + E$. As
+2. *Differentiable implies continuous.* $f(a + h, b + k) - f(a, b) = Ah + Bk + E$. As
    $(h, k)\to(0,0)$, $Ah + Bk \to 0$, and $E = \rho\cdot(E/\rho) \to 0\cdot0 = 0$.
-3. **Every directional derivative exists and equals $\nabla f\cdot\mathbf u$.** Put
+3. *Every directional derivative exists and equals $\nabla f\cdot\mathbf u$.* Put
    $(h, k) = t\,\mathbf u$ with $\mathbf u = \langle u_1, u_2\rangle$ a unit vector, so $\rho = |t|$:
    $\dfrac{f(a + tu_1, b + tu_2) - f(a,b)}{t} = Au_1 + Bu_2 + \dfrac{E}{t}$, and $E/t \to 0$.
 
@@ -61,11 +61,11 @@ Show that $f(x, y) = xy$ is differentiable at $(1, 2)$.
 
 ## Three counterexamples
 
-**(a) Partials exist, but $f$ is not even continuous.** Lesson 14's
+*(a) Partials exist, but $f$ is not even continuous.* Lesson 14's
 $f(x,y) = \dfrac{xy}{x^2 + y^2}$, $f(0,0) = 0$, is zero on both axes, so $f_x(0,0) = f_y(0,0) = 0$;
 yet $f = \tfrac12$ all along $y = x$. By fact 2 it cannot be differentiable.
 
-**(b) Continuous, every directional derivative exists, still not differentiable.** This is the
+*(b) Continuous, every directional derivative exists, still not differentiable.* This is the
 subtle one, so it gets a full example.
 
 ### Example 2: slopes that are not linear in the direction
@@ -92,7 +92,7 @@ $A\cos\theta + B\sin\theta$, a single sine wave; here it is not.
 {"x": [0, 6.2832], "y": [-0.6, 0.6], "functions": [{"f": "cos(x)^2*sin(x)", "label": "actual slope cos²θ sin θ"}, {"f": "0*x", "dashed": true, "label": "∇f(0,0)·u = 0"}], "xLabel": "direction angle θ (radians)", "yLabel": "slope", "caption": "Directional slopes of x²y/(x² + y²) at the origin: not of the form A cos θ + B sin θ"}
 ```
 
-**(c) Every directional derivative exists, but $f$ is not continuous.** Take Lesson 12's
+*(c) Every directional derivative exists, but $f$ is not continuous.* Take Lesson 12's
 $f(x, y) = \dfrac{xy^2}{x^2 + y^4}$, $f(0,0) = 0$. For $u_1 \ne 0$,
 $\dfrac{f(tu_1, tu_2)}{t} = \dfrac{u_1u_2^2}{u_1^2 + t^2u_2^4} \to \dfrac{u_2^2}{u_1}$, and for
 $u_1 = 0$ the function is identically 0. So every directional derivative at the origin exists,
@@ -115,8 +115,8 @@ flowchart TD
 
 ## Why continuous partials are enough
 
-A function whose partial derivatives exist and are continuous on an open set is called a
-**$C^1$ function** (continuously differentiable). Here is the proof that such a function is
+A function whose partial derivatives exist and are continuous on an open set is called
+**continuously differentiable**, or a $C^1$ function. Here is the proof that such a function is
 differentiable; it is the theorem behind Lesson 14's working test. The tool is the one-variable
 **mean value theorem**: if $g$ is differentiable between $p$ and $q$ (and continuous at the ends),
 then $g(q) - g(p) = g'(c)(q - p)$ for some $c$ between them.
