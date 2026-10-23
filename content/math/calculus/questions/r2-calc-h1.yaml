@@ -1,0 +1,646 @@
+# Honors module calc-h1 (Honors: Toward analysis), round 2
+# Lesson 90: sequence limits, precisely
+- id: calc-h1-r2-h01
+  lesson: calc-h1-sequence-limits
+  module_quiz: true
+  topic: Proving sequence limits
+  stem: 'Which statement is the definition of $\lim_{n\to\infty} a_n = L$?'
+  choices:
+    - 'There is an $N$ such that for every $\varepsilon > 0$, $|a_n - L| < \varepsilon$ for all $n > N$'
+    - 'For every $\varepsilon > 0$ there is an $n$ with $|a_n - L| < \varepsilon$'
+    - 'For every $\varepsilon > 0$ there is an $N$ such that $|a_n - L| < \varepsilon$ for all $n > N$'
+    - 'For every $n$, $|a_{n+1} - L| < |a_n - L|$'
+  answer: 2
+  explanation: |-
+    The tolerance $\varepsilon$ comes first and the cutoff $N$ may depend on it; then *every* term after $N$ must be within $\varepsilon$ of $L$. Putting $N$ before $\varepsilon$ demands one cutoff that works for all tolerances at once, which forces $a_n = L$ exactly from some point on. "There is an $n$" asks for only one close term (the sequence $0, 1, 0, 1, \dots$ passes that test for $L = 0$ and diverges). Getting closer at every step is neither necessary nor sufficient.
+- id: calc-h1-r2-h02
+  lesson: calc-h1-sequence-limits
+  topic: Proving sequence limits
+  stem: 'For $a_n = \dfrac{2n + 3}{n + 1}$, which has limit 2, what is the smallest $N$ such that $|a_n - 2| < 0.05$ for every $n > N$?'
+  choices: ['$19$', '$20$', '$18$', '$39$']
+  answer: 0
+  explanation: |-
+    $|a_n - 2| = \dfrac{1}{n + 1}$, and $\dfrac{1}{n + 1} < 0.05$ exactly when $n + 1 > 20$, that is $n > 19$. So $N = 19$ works: from $n = 20$ on, the distance is at most $\frac{1}{21}$. $N = 18$ fails because $n = 19$ gives exactly $\frac{1}{20} = 0.05$, which is not less than $0.05$. $N = 20$ also works but isn't the smallest, and 39 comes from writing $|a_n - 2|$ as $\frac{1}{2(n+1)}$.
+- id: calc-h1-r2-h03
+  lesson: calc-h1-sequence-limits
+  type: text
+  topic: Proving sequence limits
+  stem: 'For $a_n = 5 - \dfrac3n$ and $\varepsilon = 0.01$, the smallest whole number $N$ such that $|a_n - 5| < \varepsilon$ for every $n > N$ is ___.'
+  accept: ['300']
+  explanation: |-
+    $|a_n - 5| = \dfrac3n$, and $\dfrac3n < 0.01$ exactly when $n > 300$. So $N = 300$. ($N = 299$ fails because $n = 300$ gives exactly $0.01$.)
+- id: calc-h1-r2-h04
+  lesson: calc-h1-sequence-limits
+  topic: Proving sequence limits
+  stem: 'In a convergence proof, a student finds that $N = 50$ works for a given $\varepsilon$. Which statement is true?'
+  choices:
+    - 'Only $N = 50$ works, so the proof must use exactly that value'
+    - 'Every $N$ larger than 50 also works for that $\varepsilon$'
+    - 'Every $N$ smaller than 50 also works for that $\varepsilon$'
+    - '$N = 50$ also works for every smaller $\varepsilon$'
+  answer: 1
+  explanation: |-
+    "$|a_n - L| < \varepsilon$ for all $n > N$" with a larger $N$ asks about fewer terms, all of which were already covered, so any larger cutoff works. A smaller $N$ adds earlier terms that might be outside the band, and a smaller $\varepsilon$ usually needs a later cutoff. This freedom is why proofs can use generous, easy-to-compute values of $N$.
+- id: calc-h1-r2-h05
+  lesson: calc-h1-sequence-limits
+  module_quiz: true
+  topic: Subsequences
+  stem: 'Suppose $a_n \to L$. Which statements must be true? Select all that apply.'
+  choices:
+    - 'The sequence is bounded'
+    - 'Every subsequence converges to $L$'
+    - 'Changing the first 1000 terms leaves the limit equal to $L$'
+    - 'The sequence is monotone'
+  answer: [0, 1, 2]
+  explanation: |-
+    A convergent sequence is bounded (past the cutoff for $\varepsilon = 1$ the terms are in $(L - 1, L + 1)$, and finitely many earlier terms have a largest size). Every subsequence has the same limit because its terms eventually lie past any cutoff. Only the tail matters, so finitely many changed terms don't affect the limit. It need not be monotone: $\frac{(-1)^n}{n} \to 0$ while jumping from side to side.
+- id: calc-h1-r2-h06
+  lesson: calc-h1-sequence-limits
+  module_quiz: true
+  type: order
+  topic: Proving sequence limits
+  stem: 'Put the steps of the proof that $a_n + b_n \to L + M$ (given $a_n \to L$ and $b_n \to M$) in order.'
+  items:
+    - 'Let $\varepsilon > 0$ be given.'
+    - 'Choose $N_1$ and $N_2$ with $|a_n - L| < \tfrac\varepsilon2$ for $n > N_1$ and $|b_n - M| < \tfrac\varepsilon2$ for $n > N_2$.'
+    - 'Let $N = \max(N_1, N_2)$, so both estimates hold for every $n > N$.'
+    - 'For such $n$, the triangle inequality gives $|(a_n + b_n) - (L + M)| \le |a_n - L| + |b_n - M|$.'
+    - 'So $|(a_n + b_n) - (L + M)| < \tfrac\varepsilon2 + \tfrac\varepsilon2 = \varepsilon$.'
+  explanation: |-
+    The tolerance $\varepsilon$ is given first. The cutoffs $N_1$ and $N_2$ are chosen for the tolerance $\frac\varepsilon2$, and $N$ is their maximum so that both estimates hold at once. Only then can the triangle inequality and the two estimates be combined for a single $n > N$.
+- id: calc-h1-r2-h07
+  lesson: calc-h1-sequence-limits
+  topic: Proving sequence limits
+  stem: 'Which statement says that $a_n$ does not converge to $L$?'
+  choices:
+    - 'For every $\varepsilon > 0$ and every $N$, $|a_n - L| \ge \varepsilon$ for all $n > N$'
+    - 'There is an $\varepsilon > 0$ such that $|a_n - L| \ge \varepsilon$ for every $n$'
+    - 'There is an $\varepsilon > 0$ such that for every $N$, some $n > N$ has $|a_n - L| \ge \varepsilon$'
+    - 'For every $\varepsilon > 0$ there is an $N$ and some $n > N$ with $|a_n - L| \ge \varepsilon$'
+  answer: 2
+  explanation: |-
+    Negate each part: "for every $\varepsilon$" becomes "there is an $\varepsilon$", "there is an $N$" becomes "for every $N$", and "for all $n > N$, close" becomes "some $n > N$, not close". The first two options are far too strong: $1, 0, 0, 0, \dots$ doesn't converge to 5, yet it has terms close to... no, but $0, 5, 0, 5, \dots$ doesn't converge to 5 and still has infinitely many terms equal to 5, so it fails both. The last option fails for every bounded sequence once $\varepsilon$ is large, so it can't describe divergence.
+- id: calc-h1-r2-h08
+  lesson: calc-h1-sequence-limits
+  topic: Proving sequence limits
+  stem: 'To prove that $(-1)^n$ diverges, the lesson uses $\varepsilon = 1$. Why does that choice work against every candidate limit $L$?'
+  choices:
+    - 'Because $|(-1)^n| = 1$ for every $n$'
+    - 'Because the sequence is not monotone'
+    - 'Because the sequence is bounded by 1'
+    - 'Because consecutive terms are 2 apart, so they cannot both lie within 1 of the same $L$'
+  answer: 3
+  explanation: |-
+    If $a_n$ and $a_{n+1}$ were both within 1 of $L$, the triangle inequality would give $2 = |a_n - a_{n+1}| < 1 + 1$, which is false. So past any cutoff, some term is at least 1 away from $L$. Being bounded or having terms of size 1 says nothing about divergence ($\frac1n$ is bounded and converges), and non-monotone sequences can converge.
+- id: calc-h1-r2-h09
+  lesson: calc-h1-sequence-limits
+  module_quiz: true
+  topic: Subsequences
+  stem: 'What happens to $a_n = (-1)^n\dfrac{n}{n + 1}$ as $n \to \infty$?'
+  choices:
+    - 'It diverges: the even terms tend to 1 and the odd terms tend to $-1$'
+    - 'It converges to 0, since the terms alternate in sign'
+    - 'It converges to 1, since $\frac{n}{n + 1} \to 1$'
+    - 'It diverges because it is unbounded'
+  answer: 0
+  explanation: |-
+    The subsequence of even terms is $\frac{n}{n+1}$ for even $n$, which tends to 1; the odd terms are $-\frac{n}{n+1}$, which tend to $-1$. A convergent sequence would force every subsequence to the same limit, so it diverges. It is bounded (every term has size below 1), and alternating signs give a limit of 0 only when the sizes shrink to 0.
+- id: calc-h1-r2-h10
+  lesson: calc-h1-sequence-limits
+  type: label
+  topic: Proving sequence limits
+  stem: 'Name the numbered parts of this picture of a convergent sequence.'
+  image: {src: images/calc-h1-epsilon-band-blank.svg, alt: 'Dots of a sequence plotted against n, closing in on a horizontal line inside a shaded band, with a dashed vertical line near the left and five numbered markers'}
+  labels:
+    - {x: 84.6, y: 38.5, text: The limit L}
+    - {x: 59.6, y: 26.0, text: The line L + ε}
+    - {x: 72.1, y: 51.1, text: The line L − ε}
+    - {x: 20.0, y: 65.0, text: The cutoff index N}
+    - {x: 15.8, y: 83.9, text: A term outside the band}
+  distractors: [The tolerance ε, A subsequence]
+  explanation: |-
+    The dotted middle line is the limit $L$; the dashed lines above and below it are $L + \varepsilon$ and $L - \varepsilon$, the edges of the band. The dashed vertical line is the cutoff $N$: every dot to its right lies inside the band. The first term, at the bottom left, is far outside the band, which is allowed because only the terms after $N$ have to be inside. The tolerance $\varepsilon$ is a distance (half the band's height), not a line.
+- id: calc-h1-r2-h11
+  lesson: calc-h1-sequence-limits
+  topic: Proving sequence limits
+  stem: 'A student "proves" that $a_n \to L$ by showing that $|a_n - L| < 0.001$ for every $n > 500$. What is wrong?'
+  choices:
+    - 'Nothing: one $\varepsilon$ and one $N$ are all the definition asks for'
+    - 'It handles only one tolerance; the definition needs an $N$ for every $\varepsilon > 0$'
+    - 'The cutoff must be the smallest possible $N$'
+    - 'The inequality should be $|a_n - L| > \varepsilon$'
+  answer: 1
+  explanation: |-
+    The definition says "for every $\varepsilon > 0$". The sequence $a_n = L + 0.0005$ passes this one test and does not converge to $L$. A proof must start from an arbitrary $\varepsilon$ and produce an $N$ that depends on it. The cutoff never has to be the smallest one.
+- id: calc-h1-r2-h12
+  lesson: calc-h1-sequence-limits
+  module_quiz: true
+  type: match
+  topic: Subsequences
+  stem: 'Match each sequence to its behavior.'
+  pairs:
+    - ['$a_n = \dfrac{n}{n + 1}$', 'Converges to 1']
+    - ['$a_n = (-1)^n$', 'Bounded but divergent']
+    - ['$a_n = n^2$', 'Unbounded, so divergent']
+    - ['$a_n = \dfrac{(-1)^n}{n}$', 'Converges to 0']
+  distractors: ['Converges to −1']
+  explanation: |-
+    $\frac{n}{n+1} = 1 - \frac{1}{n+1} \to 1$. $(-1)^n$ is bounded, but its even and odd subsequences tend to 1 and $-1$. $n^2$ is unbounded, and convergent sequences are bounded, so it diverges. $\left|\frac{(-1)^n}{n}\right| = \frac1n \to 0$, so it converges to 0 even though it alternates.
+- id: calc-h1-r2-h13
+  lesson: calc-h1-sequence-limits
+  type: text
+  topic: Proving sequence limits
+  stem: 'For $a_n = \dfrac{n^2 + 5}{2n^2 - n}$, the distance $\left|a_n - \tfrac12\right|$ simplifies to $\dfrac{n + 10}{2n(2n - 1)}$. At $n = 10$ this distance equals ___ (exact fraction).'
+  accept: ['1/19']
+  explanation: |-
+    At $n = 10$: $\dfrac{10 + 10}{2\cdot10\cdot19} = \dfrac{20}{380} = \dfrac{1}{19}$. Check directly: $a_{10} = \frac{105}{190} = \frac{21}{38}$, and $\frac{21}{38} - \frac{19}{38} = \frac{2}{38} = \frac{1}{19}$. It is below the bound $\frac1n = \frac{1}{10}$ used in the proof, as it should be.
+- id: calc-h1-r2-h14
+  lesson: calc-h1-sequence-limits
+  topic: Proving sequence limits
+  stem: 'The terms of $\frac1n$ get closer to $-1$ at every step. Why isn''t $-1$ the limit?'
+  choices:
+    - 'Because $\frac1n$ is decreasing'
+    - 'Because a sequence can have only one limit, and that limit is 1'
+    - 'Because the terms never equal $-1$'
+    - 'Because the distance to $-1$ never drops below 1, so a band of half-width $\varepsilon < 1$ around $-1$ is never entered'
+  answer: 3
+  explanation: |-
+    $\left|\frac1n - (-1)\right| = 1 + \frac1n > 1$ for every $n$. Getting closer is not getting arbitrarily close: for $\varepsilon = \frac12$ no term is ever within the band. Terms need not equal the limit (the terms of $\frac1n$ never equal its limit, 0), and the actual limit is 0, not 1.
+# Lesson 91: completeness
+- id: calc-h1-r2-h15
+  lesson: calc-h1-completeness
+  module_quiz: true
+  topic: Completeness
+  stem: 'Let $S = \left\{1 - \frac1n : n = 1, 2, 3, \dots\right\}$. What can you say about $\sup S$ and the maximum of $S$?'
+  choices:
+    - '$\sup S = 1$, and 1 is also the maximum of $S$'
+    - '$\sup S = 1$, and $S$ has no maximum'
+    - '$\sup S = 0$, and the maximum of $S$ is 1'
+    - 'Neither exists, since $S$ is infinite'
+  answer: 1
+  explanation: |-
+    Every element is below 1, and for any $\varepsilon > 0$ some element $1 - \frac1n$ exceeds $1 - \varepsilon$ (take $n > \frac1\varepsilon$), so $\sup S = 1$. But $1 - \frac1n = 1$ never happens, so 1 is not in $S$ and there is no maximum. The value 0 is the minimum (and infimum). Infinite sets can certainly have suprema.
+- id: calc-h1-r2-h16
+  lesson: calc-h1-completeness
+  type: text
+  topic: Completeness
+  stem: 'For $T = \left\{(-1)^n + \frac1n : n = 1, 2, 3, \dots\right\}$, the supremum is ___ and the infimum is ___.'
+  accept:
+    - ['3/2', '1.5', '1 1/2']
+    - ['-1']
+  explanation: |-
+    Even $n$ give $1 + \frac1n$: $\frac32, \frac54, \frac76, \dots$, largest at $n = 2$, so $\sup T = \frac32$ (a maximum). Odd $n$ give $-1 + \frac1n$: $0, -\frac23, -\frac45, \dots$, always above $-1$ but coming within any $\varepsilon$ of it, so $\inf T = -1$, which is not in $T$.
+- id: calc-h1-r2-h17
+  lesson: calc-h1-completeness
+  topic: Completeness
+  stem: 'Which condition, together with "$s$ is an upper bound of $S$," shows that $s = \sup S$?'
+  choices:
+    - '$s$ belongs to $S$'
+    - 'Every element of $S$ is less than $s$'
+    - 'Some element of $S$ is greater than $s$'
+    - 'For every $\varepsilon > 0$, some element of $S$ is greater than $s - \varepsilon$'
+  answer: 3
+  explanation: |-
+    The ε condition says no number $s - \varepsilon$ below $s$ is an upper bound, so $s$ is the least one. Belonging to $S$ is not required (the supremum of $\{1 - \frac1n\}$ is 1, which isn't in the set). "Every element is less than $s$" is just a (strict) upper bound, and an element greater than $s$ would contradict $s$ being an upper bound.
+- id: calc-h1-r2-h18
+  lesson: calc-h1-completeness
+  module_quiz: true
+  topic: Completeness
+  stem: 'Which set shows that the rational numbers do not satisfy the completeness axiom?'
+  choices:
+    - 'The rationals $q$ with $q^2 < 2$: bounded above, with no rational least upper bound'
+    - 'The natural numbers: they have no upper bound at all'
+    - 'The rationals in $[0, 1]$: their supremum is 1'
+    - 'The set of numbers $\frac1n$: its infimum, 0, is not in the set'
+  answer: 0
+  explanation: |-
+    Completeness concerns sets that *are* bounded above. The set of rationals with $q^2 < 2$ is bounded above by 2, but its least upper bound would be $\sqrt2$, which is not rational, so within the rationals it has no least upper bound. A set with no upper bound doesn't test the axiom; the rationals in $[0, 1]$ have the rational supremum 1; and an infimum outside the set (but still rational) is no failure.
+- id: calc-h1-r2-h19
+  lesson: calc-h1-completeness
+  module_quiz: true
+  topic: Completeness
+  stem: 'Which statements does this lesson derive from the completeness axiom? Select all that apply.'
+  choices:
+    - 'Every increasing sequence that is bounded above converges'
+    - 'Every bounded sequence has a convergent subsequence'
+    - 'For every $\varepsilon > 0$ some natural number $n$ has $\frac1n < \varepsilon$'
+    - 'Every bounded sequence converges'
+  answer: [0, 1, 2]
+  explanation: |-
+    These are the monotone convergence theorem, the Bolzano–Weierstrass theorem and the Archimedean property, all proved from completeness. A bounded sequence need not converge: $(-1)^n$ is bounded and diverges, and Bolzano–Weierstrass promises only a convergent subsequence.
+- id: calc-h1-r2-h20
+  lesson: calc-h1-completeness
+  type: order
+  topic: Completeness
+  stem: 'Put the steps of the proof of the Archimedean property in order.'
+  items:
+    - 'Suppose the natural numbers were bounded above.'
+    - 'By completeness they would have a supremum $s$.'
+    - 'Since $s - 1$ is not an upper bound, some natural number $m$ has $m > s - 1$.'
+    - 'Then $m + 1 > s$, and $m + 1$ is a natural number.'
+    - 'That contradicts $s$ being an upper bound, so the natural numbers have no upper bound.'
+  explanation: |-
+    It is a proof by contradiction. Assuming a bound lets completeness supply $s = \sup$; the ε-test with $\varepsilon = 1$ gives $m > s - 1$; adding 1 produces a natural number above $s$, which is the contradiction.
+- id: calc-h1-r2-h21
+  lesson: calc-h1-completeness
+  topic: Completeness
+  stem: 'Let $a_1 = 1$ and $a_{n+1} = \sqrt{6 + a_n}$. The sequence is increasing and bounded above by 3. What is its limit?'
+  choices: ['$2$', '$\sqrt6$', '$3$', '$-2$']
+  answer: 2
+  explanation: |-
+    By the monotone convergence theorem the limit $L$ exists. Letting $n \to \infty$ in the recursion gives $L = \sqrt{6 + L}$, so $L^2 - L - 6 = (L - 3)(L + 2) = 0$. The terms are positive, so $L = 3$, not $-2$. ($\sqrt6 \approx 2.449$ is only the first step's idea; the terms go $1, \sqrt7 \approx 2.646, 2.94, \dots$, already past it.)
+- id: calc-h1-r2-h22
+  lesson: calc-h1-completeness
+  topic: Completeness
+  stem: 'A student writes $L = \lim a_n$ for $a_1 = 1$, $a_{n+1} = 2a_n$, solves $L = 2L$ and concludes that the limit is 0. What went wrong?'
+  choices:
+    - 'The sequence $1, 2, 4, 8, \dots$ diverges, so there is no $L$; convergence must be shown first'
+    - 'The equation should have been $L = 2L + 1$'
+    - 'The limit is the ratio, 2'
+    - 'Nothing; the limit is 0'
+  answer: 0
+  explanation: |-
+    "Let $L = \lim a_n$" assumes the limit exists. Here the terms double forever, so it doesn't, and the equation $L = 2L$ describes a limit that isn't there. That is why Example 2 proves the sequence is bounded and increasing before solving for $L$.
+- id: calc-h1-r2-h23
+  lesson: calc-h1-completeness
+  type: label
+  topic: Completeness
+  stem: 'The picture shows the set $S = \left\{1 - \frac1n\right\}$ on a number line. Name the numbered parts.'
+  image: {src: images/calc-h1-sup-blank.svg, alt: 'A number line with dots crowding toward an open circle, a shaded region to its right, a dashed tick just left of the open circle and five numbered markers'}
+  labels:
+    - {x: 74.2, y: 33.3, text: Supremum}
+    - {x: 59.6, y: 72.4, text: s − ε}
+    - {x: 65.9, y: 52.4, text: Element of S above s − ε}
+    - {x: 90.9, y: 38.1, text: Another upper bound}
+    - {x: 7.6, y: 52.4, text: Minimum of S}
+  distractors: [Maximum of S, A lower bound that is not in S]
+  explanation: |-
+    The open circle at 1 is the supremum: it is not in the set (open circle) and every number from it rightward (shaded) is an upper bound, including the tick further right. The dashed tick just left of 1 is $s - \varepsilon$, and the highlighted dot is an element of $S$ above it, which is exactly what the ε-test for a supremum asks for. The dot at 0 is the smallest element, the minimum. $S$ has no maximum.
+- id: calc-h1-r2-h24
+  lesson: calc-h1-completeness
+  module_quiz: true
+  topic: Bolzano–Weierstrass theorem
+  stem: 'Which statement is the Bolzano–Weierstrass theorem?'
+  choices:
+    - 'Every bounded sequence converges'
+    - 'Every bounded sequence has a convergent subsequence'
+    - 'Every convergent sequence is bounded'
+    - 'Every monotone sequence converges'
+  answer: 1
+  explanation: |-
+    Bolzano–Weierstrass promises a convergent *subsequence* of any bounded sequence. The first choice is false ($(-1)^n$), the third is a different (easier) fact from Lesson 90, and the last is false without boundedness ($1, 2, 3, \dots$).
+- id: calc-h1-r2-h25
+  lesson: calc-h1-completeness
+  topic: Completeness
+  stem: 'Why does the nested interval property require the intervals to be closed?'
+  choices:
+    - 'Open intervals cannot be nested inside each other'
+    - 'Open intervals have no length'
+    - 'The open intervals $\left(0, \frac1n\right)$ are nested with lengths tending to 0, but no number lies in all of them'
+    - 'Closed intervals always contain rational numbers'
+  answer: 2
+  explanation: |-
+    A number in every $\left(0, \frac1n\right)$ would be positive and less than every $\frac1n$, which the Archimedean property rules out. With closed intervals $\left[0, \frac1n\right]$ the common point 0 survives. Open intervals can be nested and do have length, and containing rationals has nothing to do with it.
+- id: calc-h1-r2-h26
+  lesson: calc-h1-completeness
+  module_quiz: true
+  type: match
+  topic: Bolzano–Weierstrass theorem
+  stem: 'Match each result to what it guarantees.'
+  pairs:
+    - ['Monotone convergence theorem', 'A bounded increasing sequence converges to its supremum']
+    - ['Nested interval property', 'Shrinking nested closed intervals share exactly one point']
+    - ['Bolzano–Weierstrass theorem', 'A bounded sequence has a convergent subsequence']
+    - ['Archimedean property', 'Some natural number exceeds any given real number']
+  distractors: ['Every bounded sequence converges']
+  explanation: |-
+    These are the four consequences of completeness in this lesson. The distractor is false: $(-1)^n$ is bounded and diverges.
+- id: calc-h1-r2-h27
+  lesson: calc-h1-completeness
+  type: text
+  topic: Bolzano–Weierstrass theorem
+  stem: 'The halving proof of Bolzano–Weierstrass starts with every term in $[0, 8]$ and halves 6 times. Each interval kept after the 6th halving has length ___.'
+  accept: ['1/8', '0.125']
+  explanation: |-
+    Each halving divides the length by 2, so after 6 halvings the length is $\dfrac{8}{2^6} = \dfrac{8}{64} = \dfrac18$.
+- id: calc-h1-r2-h28
+  lesson: calc-h1-completeness
+  topic: Bolzano–Weierstrass theorem
+  stem: 'Which sequence of rational numbers is a Cauchy sequence with no rational limit?'
+  choices:
+    - '$1, 2, 3, 4, \dots$'
+    - '$1, -1, 1, -1, \dots$'
+    - '$1, \frac12, \frac13, \frac14, \dots$'
+    - '$1, 1.4, 1.41, 1.414, \dots$ (decimal truncations of $\sqrt2$)'
+  answer: 3
+  explanation: |-
+    The truncations of $\sqrt2$ eventually agree to as many decimal places as you like, so they are Cauchy, but their limit $\sqrt2$ is irrational. $1, 2, 3, \dots$ and $1, -1, 1, \dots$ are not Cauchy (terms stay at least 1 apart), and $\frac1n$ is Cauchy with the rational limit 0.
+# Lesson 92: why the big theorems are true
+- id: calc-h1-r2-h29
+  lesson: calc-h1-big-theorems
+  module_quiz: true
+  topic: Proving the IVT and EVT
+  stem: 'In the bisection proof of the IVT, what guarantees that the shrinking intervals close in on an actual number $c$?'
+  choices:
+    - 'The Archimedean property alone'
+    - 'The triangle inequality'
+    - 'The nested interval property, which comes from completeness'
+    - 'The continuity of $f$'
+  answer: 2
+  explanation: |-
+    Nested closed intervals with lengths tending to 0 share exactly one real number; that is a consequence of completeness. The rational numbers also have the Archimedean property, yet halving on $x^2 - 2$ over the rationals closes in on a missing point, so the Archimedean property alone is not enough. Continuity is used afterward, to show $f(c) = 0$.
+- id: calc-h1-r2-h30
+  lesson: calc-h1-big-theorems
+  topic: Proving the IVT and EVT
+  stem: 'In the IVT proof, $f(a_k) < 0$ for every $k$, $a_k \to c$, and $f$ is continuous. What do these facts alone tell you about $f(c)$?'
+  choices: ['$f(c) \le 0$', '$f(c) < 0$', '$f(c) = 0$', 'Nothing, since $c$ might not be in $[a, b]$']
+  answer: 0
+  explanation: |-
+    Continuity gives $f(a_k) \to f(c)$, and a limit of negative numbers is $\le 0$ (strict inequalities can become equalities, as $\frac{-1}{k} \to 0$ shows). To get $f(c) = 0$ the proof also needs $f(b_k) > 0$, which gives $f(c) \ge 0$. The point $c$ is in $[a, b]$ because every $a_k$ is.
+- id: calc-h1-r2-h31
+  lesson: calc-h1-big-theorems
+  module_quiz: true
+  type: order
+  topic: Proving the IVT and EVT
+  stem: 'Put the steps of the bisection proof of the IVT (for $f(a) < 0 < f(b)$) in order.'
+  items:
+    - 'Test the midpoint and keep the half where $f$ is negative at the left end and positive at the right end.'
+    - 'Repeat, producing nested closed intervals whose lengths tend to 0.'
+    - 'By the nested interval property, the intervals close in on one number $c$.'
+    - 'By continuity, $f(a_k) \to f(c)$ and $f(b_k) \to f(c)$.'
+    - 'Since $f(a_k) < 0 < f(b_k)$, $f(c) \le 0$ and $f(c) \ge 0$, so $f(c) = 0$.'
+  explanation: |-
+    The intervals must be built (steps 1 and 2) before the nested interval property can produce $c$, continuity can only be applied once $c$ exists, and the final step uses the two limits from step 4.
+- id: calc-h1-r2-h32
+  lesson: calc-h1-big-theorems
+  type: text
+  topic: Proving the IVT and EVT
+  stem: 'Bisection on $f(x) = x^3 + x - 1$ over $[0, 1]$ has kept $[0.625, 0.75]$. The next midpoint tested is ___. The value of $f$ there is positive, so the next kept interval is [0.625, ___].'
+  accept:
+    - ['0.6875', '11/16']
+    - ['0.6875', '11/16']
+  explanation: |-
+    The midpoint is $\frac{0.625 + 0.75}{2} = 0.6875$, and $f(0.6875) = 0.6875^3 + 0.6875 - 1 \approx 0.0125 > 0$. Since $f$ is negative at 0.625 and positive at 0.6875, the sign change (and the root $c \approx 0.6823$) is in $[0.625, 0.6875]$.
+- id: calc-h1-r2-h33
+  lesson: calc-h1-big-theorems
+  topic: Sequential continuity
+  stem: 'Let $f(x) = \sin\frac1x$ for $x \ne 0$ and $f(0) = 0$. Which sequence proves that $f$ is not continuous at 0?'
+  choices:
+    - '$x_n = \dfrac{1}{n\pi}$, since $f(x_n) = 0$ for every $n$'
+    - '$x_n = \dfrac{1}{\frac\pi2 + 2\pi n}$, since $f(x_n) = 1$ for every $n$'
+    - '$x_n = n$, since $f(x_n) \to 0$'
+    - '$x_n = -\dfrac{1}{n\pi}$, since $x_n \to 0$ from the left'
+  answer: 1
+  explanation: |-
+    By the sequential criterion, one sequence with $x_n \to 0$ but $f(x_n) \not\to f(0) = 0$ proves discontinuity. With $x_n = \frac{1}{\frac\pi2 + 2\pi n}$, $f(x_n) = 1 \to 1 \ne 0$. The sequences $\pm\frac{1}{n\pi}$ give $f(x_n) = 0 \to 0$, which agrees with $f(0)$ and proves nothing, and $x_n = n$ doesn't approach 0 at all.
+- id: calc-h1-r2-h34
+  lesson: calc-h1-big-theorems
+  module_quiz: true
+  topic: Proving the IVT and EVT
+  stem: 'Which functions fail to attain a maximum value on the given interval? Select all that apply.'
+  choices:
+    - '$f(x) = x^2$ on $(0, 1)$'
+    - '$f(x) = \frac1x$ on $(0, 1]$'
+    - '$f(x) = \sin x$ on $[0, \pi]$'
+    - '$f(x) = x$ on $[0, \infty)$'
+  answer: [0, 1, 3]
+  explanation: |-
+    $x^2$ on $(0, 1)$ approaches 1 but never reaches it (the interval isn't closed). $\frac1x$ on $(0, 1]$ is unbounded near 0. $x$ on $[0, \infty)$ is unbounded (the interval isn't bounded). $\sin x$ is continuous on the closed, bounded interval $[0, \pi]$, so the EVT applies: its maximum is $1$ at $x = \frac\pi2$.
+- id: calc-h1-r2-h35
+  lesson: calc-h1-big-theorems
+  topic: Proving the IVT and EVT
+  stem: 'In the EVT proof, a subsequence $x_{n_k}$ of points in $[a, b]$ converges to $c$. Why is $c$ in $[a, b]$?'
+  choices:
+    - 'Because $f$ is continuous at $c$'
+    - 'Because the subsequence is increasing'
+    - 'Because $[a, b]$ has finite length'
+    - 'Because $a \le x_{n_k} \le b$ for every $k$, and limits keep non-strict inequalities'
+  answer: 3
+  explanation: |-
+    Each $x_{n_k}$ satisfies $a \le x_{n_k} \le b$, and passing to the limit keeps $\le$, so $a \le c \le b$. This is where the interval being *closed* matters: on $(0, 1)$ the same argument only gives $0 \le c \le 1$, and $c$ can be an endpoint outside the interval. Continuity is used only after $c$ is known to be in the domain.
+- id: calc-h1-r2-h36
+  lesson: calc-h1-big-theorems
+  module_quiz: true
+  topic: Proving the IVT and EVT
+  stem: 'Which result does the proof of the Extreme Value Theorem use to get a convergent sequence of points?'
+  choices: ['The Bolzano–Weierstrass theorem', 'The nested interval property', 'The Mean Value Theorem', 'The Intermediate Value Theorem']
+  answer: 0
+  explanation: |-
+    The points $x_n$ in $[a, b]$ form a bounded sequence, and Bolzano–Weierstrass gives a convergent subsequence. (Its own proof uses nested intervals, but the EVT proof calls on Bolzano–Weierstrass directly.) The MVT is proved *from* the EVT, so using it would be circular, and the IVT plays no part.
+- id: calc-h1-r2-h37
+  lesson: calc-h1-big-theorems
+  type: label
+  topic: Proving the IVT and EVT
+  stem: 'The picture shows the bisection proof of the IVT for $f(x) = x^3 + x - 1$ on $[0, 1]$. Name the numbered parts.'
+  image: {src: images/calc-h1-bisection-proof-blank.svg, alt: 'A rising curve crossing the x-axis, above four stacked bars that each cover half of the bar above, with a dashed vertical line through the crossing point and four numbered markers'}
+  labels:
+    - {x: 29.4, y: 63.8, text: 'Starting interval [a, b]'}
+    - {x: 50.0, y: 60.0, text: First midpoint tested}
+    - {x: 61.8, y: 35.7, text: Root c}
+    - {x: 53.9, y: 80.0, text: Interval after two halvings}
+  distractors: [Interval after one halving, Maximum of f]
+  explanation: |-
+    The top bar is the starting interval $[0, 1]$, and the tick at its middle is the first midpoint, 0.5. The curve crosses the axis at the root $c \approx 0.682$, and the dashed line shows that every bar contains it. The bars below are the intervals after one, two and three halvings; the marked one is the third bar, $[0.5, 0.75]$, after two halvings.
+- id: calc-h1-r2-h38
+  lesson: calc-h1-big-theorems
+  module_quiz: true
+  type: match
+  topic: Proving the IVT and EVT
+  stem: 'Each function has no maximum on its interval. Match it to the EVT hypothesis that fails.'
+  pairs:
+    - ['$f(x) = x$ on $(0, 1)$', 'Interval not closed']
+    - ['$f(x) = x$ on $[0, \infty)$', 'Interval not bounded']
+    - ['$f(x) = x$ for $0 \le x < 1$ and $f(1) = 0$, on $[0, 1]$', 'Function not continuous']
+  distractors: ['Interval not open']
+  explanation: |-
+    On $(0, 1)$, $x$ approaches 1 but the endpoint is missing. On $[0, \infty)$, $x$ is unbounded. On $[0, 1]$, the third function gets close to 1 but jumps down to 0 at $x = 1$, so the supremum 1 is never attained; it is discontinuous at 1. The EVT needs a closed, bounded interval and a continuous function; nothing requires the interval to be open.
+- id: calc-h1-r2-h39
+  lesson: calc-h1-big-theorems
+  topic: Proving the IVT and EVT
+  stem: 'Why does the Extreme Value Theorem fail if only rational numbers are allowed?'
+  choices:
+    - 'The rationals in $[1, 2]$ are unbounded'
+    - 'No function can be continuous at rational points'
+    - '$\frac{1}{x^2 - 2}$ is continuous at every rational $x$ in $[1, 2]$ but unbounded, because rationals come arbitrarily close to $\sqrt2$'
+    - 'It doesn''t fail: every continuous function on the rationals in $[1, 2]$ has a maximum'
+  answer: 2
+  explanation: |-
+    The denominator $x^2 - 2$ is never 0 at a rational, so the function is defined and continuous at every rational in $[1, 2]$. But rationals near $\sqrt2$ make the denominator tiny, so the values are unbounded and there is no maximum. The proof breaks because Bolzano–Weierstrass fails on the rationals (a subsequence can close in on $\sqrt2$, which isn't there).
+- id: calc-h1-r2-h40
+  lesson: calc-h1-big-theorems
+  topic: Sequential continuity
+  stem: 'Which statement about the converse of the IVT is true?'
+  choices:
+    - 'If $f$ takes every value between $f(a)$ and $f(b)$ on $[a, b]$, then $f$ is continuous there'
+    - 'A function can take every intermediate value and still be discontinuous, like $\sin\frac1x$ with $f(0) = 0$'
+    - 'Every discontinuous function skips some intermediate value'
+    - 'The converse is proved by the same bisection argument'
+  answer: 1
+  explanation: |-
+    Near 0, $\sin\frac1x$ sweeps through every value in $[-1, 1]$ on every interval around 0, so it never skips an intermediate value, yet it is discontinuous at 0 (Example 1). So the converse is false, and so is the claim that discontinuity always means skipping a value.
+- id: calc-h1-r2-h41
+  lesson: calc-h1-big-theorems
+  type: text
+  topic: Proving the IVT and EVT
+  stem: 'In the chain of proofs, Rolle''s theorem comes from the Extreme Value Theorem together with the theorem of ___ that the derivative is 0 at an interior extremum (give the mathematician''s name).'
+  accept: ['Fermat', 'Fermat''s', 'Pierre de Fermat']
+  explanation: |-
+    Fermat's theorem: if $f$ has a local extremum at an interior point $c$ and $f'(c)$ exists, then $f'(c) = 0$. The EVT puts a max or min of $f$ on $[a, b]$; if it is inside the interval, Fermat's theorem gives $f' = 0$ there, which is Rolle's theorem.
+- id: calc-h1-r2-h42
+  lesson: calc-h1-big-theorems
+  topic: Proving the IVT and EVT
+  stem: 'How many halvings of $[1, 2]$ does the bisection proof need before the kept interval is shorter than 0.001?'
+  choices: ['$3$', '$9$', '$1000$', '$10$']
+  answer: 3
+  explanation: |-
+    After $k$ halvings the length is $\frac{1}{2^k}$. We need $2^k > 1000$: $2^9 = 512$ is too small and $2^{10} = 1024$ works, so $k = 10$. Three halvings give $0.125$, which is the number of decimal places, not the number of steps.
+# Lesson 93: what makes a function integrable
+- id: calc-h1-r2-h43
+  lesson: calc-h1-integrability
+  module_quiz: true
+  topic: Upper and lower sums
+  stem: 'For $f(x) = x^2$ on $[0, 2]$ and the partition $P = \{0, 1, 2\}$, what are $L(f, P)$ and $U(f, P)$?'
+  choices: ['$L = 0$, $U = 4$', '$L = 1$, $U = 4$', '$L = \frac12$, $U = \frac52$', '$L = 1$, $U = 5$']
+  answer: 3
+  explanation: |-
+    $f$ increases on $[0, 2]$, so on each piece the infimum is at the left end and the supremum at the right end. Both widths are 1: $L = 1\cdot(0 + 1) = 1$ and $U = 1\cdot(1 + 4) = 5$. The true value $\frac83$ lies between them.
+- id: calc-h1-r2-h44
+  lesson: calc-h1-integrability
+  type: text
+  topic: Upper and lower sums
+  stem: 'For $f(x) = x^3$ on $[0, 2]$ with 4 equal pieces, U − L = ___.'
+  accept: ['4']
+  explanation: |-
+    $f$ is increasing, so $U - L = [f(2) - f(0)]\cdot\dfrac{2 - 0}{4} = 8\cdot\dfrac12 = 4$. Directly: $U = \frac12(\frac18 + 1 + \frac{27}{8} + 8) = \frac{25}{4}$ and $L = \frac12(0 + \frac18 + 1 + \frac{27}{8}) = \frac94$, a difference of 4.
+- id: calc-h1-r2-h45
+  lesson: calc-h1-integrability
+  topic: Upper and lower sums
+  stem: 'Why is every lower sum at most every upper sum, even for two different partitions $P$ and $P''$?'
+  choices:
+    - 'Compare both with the common refinement $P \cup P''$: refining can only raise lower sums and lower upper sums'
+    - 'Lower sums use left endpoints and upper sums use right endpoints'
+    - 'Both are equal to the integral'
+    - '$P$ and $P''$ must have the same number of points'
+  answer: 0
+  explanation: |-
+    $L(f, P) \le L(f, P \cup P') \le U(f, P \cup P') \le U(f, P')$. Endpoints give the sup and inf only for monotone functions, the sums are only estimates of the integral (and the integral may not exist), and partitions can have any numbers of points.
+- id: calc-h1-r2-h46
+  lesson: calc-h1-integrability
+  module_quiz: true
+  topic: Integrability
+  stem: 'Which functions are (Riemann) integrable on $[0, 1]$? Select all that apply.'
+  choices:
+    - '$f(x) = \sqrt x$'
+    - 'The Dirichlet function: 1 at rationals, 0 at irrationals'
+    - 'The step function equal to 0 on $\left[0, \frac12\right)$ and 1 on $\left[\frac12, 1\right]$'
+    - '$f(x) = \frac1x$ for $x > 0$, with $f(0) = 0$'
+  answer: [0, 2]
+  explanation: |-
+    $\sqrt x$ is continuous (and increasing), and the step function is monotone with one jump, so both are integrable. The Dirichlet function has $U = 1$ and $L = 0$ for every partition. $\frac1x$ is unbounded on $(0, 1]$, so its upper sums don't exist; an unbounded function is never Riemann integrable (here even the improper integral diverges).
+- id: calc-h1-r2-h47
+  lesson: calc-h1-integrability
+  topic: Integrability
+  stem: 'For the Dirichlet function $D$ on $[0, 1]$, what are $U(D, P)$ and $L(D, P)$ for every partition $P$?'
+  choices: ['$U = 1$, $L = 1$', '$U = \frac12$, $L = \frac12$', '$U = 1$, $L = 0$', '$U = 0$, $L = 0$']
+  answer: 2
+  explanation: |-
+    Every piece contains rationals (where $D = 1$) and irrationals (where $D = 0$), so $M_i = 1$ and $m_i = 0$ on every piece. Then $U = \sum 1\cdot\Delta x_i = 1$ and $L = 0$, whatever the partition, so $D$ is not integrable. "Half the numbers are rational" is not a valid argument.
+- id: calc-h1-r2-h48
+  lesson: calc-h1-integrability
+  type: order
+  topic: Integrability
+  stem: 'Put the steps of the proof that an increasing function is integrable in order.'
+  items:
+    - 'Split $[a, b]$ into $n$ equal pieces of width $\Delta x = \frac{b - a}{n}$.'
+    - 'On each piece, $M_i = f(x_i)$ and $m_i = f(x_{i-1})$, because $f$ increases.'
+    - 'The sum for $U - L$ telescopes to $[f(b) - f(a)]\frac{b - a}{n}$.'
+    - 'Choose $n$ large enough that this is less than $\varepsilon$.'
+    - 'By Riemann''s criterion, $f$ is integrable.'
+  explanation: |-
+    The partition comes first; then the sup and inf on each piece; then the telescoping sum gives a formula for $U - L$; that formula tells you how large $n$ must be; and Riemann's criterion finishes the proof.
+- id: calc-h1-r2-h49
+  lesson: calc-h1-integrability
+  module_quiz: true
+  topic: Integrability
+  stem: 'What is the smallest number $n$ of equal pieces that guarantees $U - L < 0.01$ for $f(x) = \sqrt x$ on $[0, 9]$?'
+  choices: ['$271$', '$2701$', '$2700$', '$301$']
+  answer: 1
+  explanation: |-
+    $f$ increases, so $U - L = [f(9) - f(0)]\cdot\frac{9}{n} = \frac{3\cdot9}{n} = \frac{27}{n}$. We need $\frac{27}{n} < 0.01$, so $n > 2700$, and the smallest is 2701. With $n = 2700$ the gap is exactly $0.01$, not less. Using $\frac{3}{n}$ or $\frac{9}{n}$ alone gives 301 or about 900; 271 drops a factor of 10.
+- id: calc-h1-r2-h50
+  lesson: calc-h1-integrability
+  type: label
+  topic: Upper and lower sums
+  stem: 'The picture shows upper and lower sums for an increasing function on four equal pieces. Name the numbered parts.'
+  image: {src: images/calc-h1-darboux-blank.svg, alt: 'An increasing curve over four equal pieces with a lower rectangle and a taller upper rectangle on each piece, and a separate column at the right made of four stacked blocks; four numbered markers'}
+  labels:
+    - {x: 29.0, y: 78.8, text: Lower rectangle}
+    - {x: 40.6, y: 51.2, text: Gap between upper and lower rectangle}
+    - {x: 76.8, y: 49.0, text: Gaps stacked into one column}
+    - {x: 58.0, y: 85.0, text: Right endpoint b}
+  distractors: [Upper integral, Left endpoint a]
+  explanation: |-
+    Each lower rectangle sits under the curve with height $f(x_{i-1})$; the shaded block above it, up to height $f(x_i)$, is the gap between the upper and lower rectangle on that piece. Sliding the four gaps sideways stacks them into one column of width $\Delta x$ and height $f(b) - f(a)$, which is why $U - L = [f(b) - f(a)]\Delta x$. The marked point on the axis is the right endpoint $b$.
+- id: calc-h1-r2-h51
+  lesson: calc-h1-integrability
+  topic: Integrability
+  stem: 'Which function is continuous at every point of the given set but not uniformly continuous on it?'
+  choices: ['$x^2$ on $[0, 3]$', '$\sin x$ on $[0, 2\pi]$', '$3x + 1$ on $(0, 1)$', '$\frac1x$ on $(0, 1]$']
+  answer: 3
+  explanation: |-
+    Near 0, $\frac1x$ is so steep that no single δ works: $\frac1n$ and $\frac{1}{n+1}$ are as close as you like, but their outputs differ by 1. The first two are continuous on closed bounded intervals, so they are uniformly continuous; $3x + 1$ satisfies $|f(x) - f(y)| = 3|x - y|$, so $\delta = \frac\varepsilon3$ works everywhere.
+- id: calc-h1-r2-h52
+  lesson: calc-h1-integrability
+  type: text
+  topic: Integrability
+  stem: 'For $x$ and $y$ in $[0, 5]$, $|x^2 - y^2| = |x + y|\,|x - y| \le$ ___ $\cdot\,|x - y|$, so $\delta = \varepsilon$ divided by that number works at every point. Give the number.'
+  accept: ['10']
+  explanation: |-
+    On $[0, 5]$ the factor $|x + y|$ is at most $5 + 5 = 10$, so $|x^2 - y^2| \le 10|x - y|$, and $\delta = \frac{\varepsilon}{10}$ works for all $x, y$ in the interval at once: $x^2$ is uniformly continuous there.
+- id: calc-h1-r2-h53
+  lesson: calc-h1-integrability
+  module_quiz: true
+  topic: Integrability
+  stem: 'In the proof of FTC Part 1, why does $\dfrac{G(x + h) - G(x)}{h}$ lie between $m_h$ and $M_h$, the minimum and maximum of $f$ on $[x, x + h]$?'
+  choices:
+    - 'Because $m_h h$ and $M_h h$ are the one-piece lower and upper sums for $\int_x^{x+h} f(t)\,dt$'
+    - 'Because of the Mean Value Theorem for derivatives applied to $f$'
+    - 'Because $G$ is increasing'
+    - 'Because $f$ is uniformly continuous'
+  answer: 0
+  explanation: |-
+    $G(x + h) - G(x) = \int_x^{x+h} f(t)\,dt$, and with the one-piece partition the lower and upper sums are $m_h h$ and $M_h h$, which bracket the integral. Dividing by $h > 0$ gives the inequality. $G$ need not be increasing ($f$ may be negative), and applying the MVT to $G$ would assume $G$ is differentiable, which is what is being proved.
+- id: calc-h1-r2-h54
+  lesson: calc-h1-integrability
+  module_quiz: true
+  type: match
+  topic: Integrability
+  stem: 'Match each function on $[0, 1]$ to the best description.'
+  pairs:
+    - ['$f(x) = x^2$', 'Integrable because it is continuous']
+    - ['The Dirichlet function', 'Not integrable: U − L is always 1']
+    - ['$f(x) = \frac{1}{\sqrt x}$ for $x > 0$, $f(0) = 0$', 'Not Riemann integrable: unbounded']
+    - ['$f(x) = \lfloor 4x \rfloor$', 'Integrable because it is monotone']
+  distractors: ['Not integrable: it has a jump']
+  explanation: |-
+    $x^2$ is continuous. The Dirichlet function has $U = 1$, $L = 0$ for every partition. $\frac{1}{\sqrt x}$ is unbounded near 0, so it has only an improper integral (which happens to converge, to 2). $\lfloor 4x \rfloor$ is increasing with jumps at $\frac14, \frac12, \frac34, 1$; monotone functions are integrable, so jumps alone don't prevent integrability.
+- id: calc-h1-r2-h55
+  lesson: calc-h1-integrability
+  topic: Upper and lower sums
+  stem: 'For $f(x) = 4x - x^2$ on $[0, 4]$ and $P = \{0, 2, 4\}$, what is $U(f, P)$?'
+  choices: ['$8$', '$0$', '$16$', '$12$']
+  answer: 2
+  explanation: |-
+    The supremum on each piece is the largest value there. $f$ rises to its peak $f(2) = 4$ and falls back to 0, so $M_1 = 4$ on $[0, 2]$ and $M_2 = 4$ on $[2, 4]$: $U = 2\cdot4 + 2\cdot4 = 16$. Right endpoints give $2f(2) + 2f(4) = 8$ (and left endpoints also 8), which is wrong because $f$ is not monotone. The lower sum is $0$.
+- id: calc-h1-r2-h56
+  lesson: calc-h1-integrability
+  topic: Upper and lower sums
+  stem: 'Which statement about refining a partition (adding points) is true?'
+  choices:
+    - 'It always strictly increases the lower sum'
+    - 'It can raise the lower sum and lower the upper sum, but never the reverse'
+    - 'It can make the upper sum larger'
+    - 'It changes the value of the integral'
+  answer: 1
+  explanation: |-
+    On each half of a split piece, the sup is at most the sup over the whole piece and the inf is at least the inf, so $L$ can only rise and $U$ can only fall. The change need not be strict (adding a point where $f$ is constant changes nothing), and the integral, when it exists, is a fixed number.

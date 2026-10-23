@@ -69,8 +69,8 @@ intervals among the methods they recommended.
 
 ## The plus four interval
 
-Agresti and Coull (1998) proposed a fix that takes ten seconds by hand: **add two successes and
-two failures**, then use the usual formula. With
+Agresti and Coull (1998) proposed a fix that takes ten seconds by hand: *add two successes and
+two failures*, then use the usual formula. With
 
 $$\tilde{p} = \frac{x + 2}{n + 4}, \qquad \text{the interval is} \qquad \tilde{p} \pm z^*\sqrt{\frac{\tilde{p}(1 - \tilde{p})}{n + 4}}.$$
 

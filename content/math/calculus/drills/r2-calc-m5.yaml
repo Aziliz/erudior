@@ -62,8 +62,8 @@
     - {name: t, label: '$x =$'}
     - {name: mn, label: 'Minimum value'}
   solution: |-
-    The two terms are positive and their product ${a:coef}x\cdot\dfrac{{b}}{x} = {ab}$ is constant. By AM-GM,
-    $${a:coef}x + \dfrac{{b}}{x} \ge 2\sqrt{{ab}} = {mn},$$
+    The two terms are positive and their product ${a:coef}x\cdot\dfrac{{b}}{x} = {ab:dp0}$ is constant. By AM-GM,
+    $${a:coef}x + \dfrac{{b}}{x} \ge 2\sqrt{{ab:dp0}} = {mn},$$
     with equality when the terms are equal: ${a:coef}x = \dfrac{{b}}{x}$, so $x^2 = {t}^2$ and $x =$ **{t}**. The minimum value is **{mn}**. (Check: $f'(x) = {a} - \dfrac{{b}}{x^2} = 0$ at the same $x$.)
 - id: calc-m5-r2-lifeguard
   title: The lifeguard problem

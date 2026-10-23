@@ -19,7 +19,7 @@ The t distribution was worked out by William Sealy Gosset, a chemist at the Guin
 Dublin. His experiments on barley and yeast gave only a handful of measurements each, and he saw
 that the usual normal-based reasoning with $s$ in place of $\sigma$ claimed more precision than
 small samples deserve. He published the solution in 1908 in the journal *Biometrika* under the
-pen name **Student**, which is why the distribution is still called Student's t. R. A. Fisher
+pen name *Student*, which is why the distribution is still called Student's t. R. A. Fisher
 later recast the result in the form used today.
 
 ## Degrees of freedom: why n − 1
@@ -107,7 +107,7 @@ mild skew, and graphs of the data matter more than any single cutoff.
 
 ## Prediction intervals: where will the next value fall?
 
-A confidence interval estimates the *mean*. A **prediction interval** answers a different
+A confidence interval estimates the *mean*. A *prediction interval* answers a different
 question: where will one *new* observation from the same population fall? A new value $X$
 varies around $\mu$ with variance $\sigma^2$, and $\bar{x}$ misses $\mu$ with variance
 $\sigma^2/n$. They are independent, so the variances add:
