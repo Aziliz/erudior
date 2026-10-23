@@ -22,7 +22,7 @@ It is easiest to follow three turns of the cycle, which fix three CO₂ and prod
 4. *Regeneration.* The other five G3P (15 carbons) are reshuffled through a series of three-, four-, five-, six- and seven-carbon sugars into three five-carbon molecules, and 3 more ATP phosphorylate them back into 3 RuBP (15 carbons). The cycle is ready to turn again.
 
 ```mermaid
-flowchart LR
+flowchart TD
   accTitle: Carbon bookkeeping in three turns of the Calvin cycle
   accDescr: Three RuBP, five carbons each and 15 carbons in all, combine with three CO2 in the fixation step catalyzed by rubisco, giving six 3-PGA with 18 carbons. In the reduction step, 6 ATP and 6 NADPH turn these into six G3P, still 18 carbons. One G3P, 3 carbons, leaves the cycle as product. The other five G3P, 15 carbons, are rearranged using 3 more ATP into three RuBP, and the cycle repeats.
   R["3 RuBP (15 C)"] -- "fixation by rubisco: + 3 CO₂" --> P["6 3-PGA (18 C)"]

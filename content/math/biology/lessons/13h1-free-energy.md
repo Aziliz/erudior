@@ -107,7 +107,7 @@ Step 1: $Q = 0.01$, so $RT \ln Q = 2.577 \times \ln 0.01 = 2.577 \times (-4.61) 
 
 Step 2: $\Delta G = 7.5 - 11.9 = -4.4$ kJ/mol. Negative, so the step runs forward even though its standard value is uphill.
 
-Step 3: Check against the equilibrium constant: $K' = e^{-7.5/2.48} \approx 0.05$. Any ratio below about 0.05 makes the forward direction favorable, and 0.01 is below it.
+Step 3: Check against the equilibrium constant at the same temperature: $K' = e^{-7.5/2.577} \approx 0.05$. Any ratio below about 0.05 makes the forward direction favorable, and 0.01 is below it.
 
 Measured in real cells, many pathway steps sit close to equilibrium (small $|\Delta G|$) and can run either way, depending on which end is being drained. A few steps, such as hexokinase, have large negative $\Delta G$ in the cell; they are effectively one-way, and those are the steps cells regulate. This is a general rule in metabolism: control is exerted where $\Delta G$ is far from zero.
 

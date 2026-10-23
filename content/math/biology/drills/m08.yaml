@@ -84,8 +84,8 @@
     top: soil - grav - fr
   prompt: 'A tree is {h} m tall. The soil water near its roots has a water potential of {soil} MPa, and friction in the xylem along the path costs a further {fr} MPa. Using $\rho = 1000$ kg/m³ and $g = 9.81$ m/s², find (a) the pressure difference needed just to hold up a water column {h} m tall, and (b) the water potential at the top of the tree. Give both in MPa to 2 decimal places.'
   answers:
-    - {name: grav, label: '(a) Gravity (MPa)', format: num2, relTolerance: 0.01}
-    - {name: top, label: '(b) Water potential at the top (MPa)', format: num2, relTolerance: 0.01}
+    - {name: grav, label: '(a) Gravity (MPa)', format: num2, tolerance: 0.006}
+    - {name: top, label: '(b) Water potential at the top (MPa)', format: num2, tolerance: 0.006}
   solution: |-
     (a) $\rho g h = 1000 \times 9.81 \times {h} = {grav:num4} \times 10^{6}$ Pa $=$ **{grav:num2} MPa** (about 0.01 MPa per meter).
 

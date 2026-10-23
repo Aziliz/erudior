@@ -889,7 +889,7 @@
   topic: Chemiosmosis
   type: text
   stem: 'The combined electrical and pH gradient of protons across a membrane, which drives ATP synthase, is called the ___.'
-  accept: ['proton-motive force', 'proton motive force', 'protonmotive force', 'PMF']
+  accept: ['proton-motive force', 'proton motive force', 'protonmotive force', 'PMF', 'Δp', 'electrochemical gradient', 'electrochemical proton gradient', 'proton electrochemical gradient']
   explanation: |-
     The proton-motive force, $\Delta p$, has an electrical part (membrane potential) and a chemical part (pH difference). In mitochondria it is about 200 mV, mostly electrical.
 - id: bio-qh-0325
@@ -1028,7 +1028,7 @@
     - 'In the epidermis'
   answer: 0
   explanation: |-
-    Kranz anatomy puts PEP carboxylase in mesophyll cells and rubisco in bundle-sheath cells, where CO₂ released from malate is concentrated. Keeping rubisco away from the leaf surfaces and in high CO₂ is what suppresses photorespiration.
+    Kranz anatomy puts PEP carboxylase in mesophyll cells and rubisco in bundle-sheath cells, where CO₂ released from malate is concentrated. Keeping rubisco away from the leaf's air spaces and in high CO₂ is what suppresses photorespiration.
 - id: bio-qh-0336
   lesson: bio-h-c4-cam
   topic: Photosynthetic adaptations

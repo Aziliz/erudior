@@ -60,7 +60,7 @@ The **P/O ratio** is the number of ATP made per oxygen atom reduced, that is, pe
 - NADH: $10 \div 4 = 2.5$ ATP
 - Succinate (FADH₂): $6 \div 4 = 1.5$ ATP
 
-These are the core lesson's 2.5 and 1.5, close to measured values. They are not whole numbers because the gradient sits between electrons and ATP, and some protons leak back without making ATP. Using ring sizes instead: mammals need $8/3 + 1 = 3.67$ H⁺ per ATP, so NADH is worth $10 \div 3.67 = 2.7$ ATP; yeast need $10/3 + 1 = 4.33$, so NADH is worth 2.3. That is one reason the total per glucose is a range (about 30–32), and why the older figures of 3 and 2 per carrier (36–38 per glucose) were revised.
+These are the core lesson's 2.5 and 1.5, close to measured values. They are not whole numbers because the gradient sits between electrons and ATP, and some protons leak back without making ATP. Using ring sizes instead: mammals need $8/3 + 1 = 3.67$ H⁺ per ATP, so NADH is worth $10 \div 3.67 = 2.7$ ATP. A synthase with a 10-subunit ring (as in yeast mitochondria) needs $10/3 + 1 = 4.33$, so 10 H⁺ buy only 2.3 ATP. (Baker's yeast actually lacks complex I, so its NADH pumps fewer protons and yields even less.) That is one reason the total per glucose is a range (about 30–32), and why the older figures of 3 and 2 per carrier (36–38 per glucose) were revised.
 
 ## The chloroplast version
 
@@ -96,7 +96,7 @@ flowchart TD
   F --> G["Almost no ATP made"]
 ```
 
-In 1966 André Jagendorf and Ernest Uribe did this acid-bath experiment with spinach thylakoids. In the dark, the membranes made a burst of ATP, up to about one ATP per four chlorophyll molecules, far more than any hidden intermediate could have stored; the yield grew with the size of the pH jump, and substances that make membranes leaky to protons abolished it. In 1974 Efraim Racker and Walther Stoeckenius made ATP in light using artificial vesicles holding only two proteins: a light-driven proton pump from an archaeon (bacteriorhodopsin) and a mitochondrial ATP synthase. No electron transport chain was present at all. Mitchell received the 1978 Nobel Prize in Chemistry. In 1997 a Japanese team filmed the stalk of ATP synthase rotating, and Boyer shared that year's Nobel Prize in Chemistry with John Walker, whose group had solved the structure of the F₁ knob.
+In 1966 André Jagendorf and Ernest Uribe did this acid-bath experiment with spinach thylakoids. In the dark, the membranes made a burst of ATP, up to about one ATP per four chlorophyll molecules, far more than any hidden intermediate could have stored; the yield grew with the size of the pH jump, and substances that make membranes leaky to protons abolished it. In 1974 Efraim Racker and Walther Stoeckenius made ATP in light using artificial vesicles holding only two proteins: a light-driven proton pump from an archaeon (bacteriorhodopsin) and a mitochondrial ATP synthase. No electron transport chain was present at all. Mitchell received the 1978 Nobel Prize in Chemistry. In 1997 a Japanese team filmed the stalk of ATP synthase rotating, and that year Boyer and John Walker, whose group had solved the structure of the F₁ knob, shared half of the Nobel Prize in Chemistry (the other half went to Jens Skou for the sodium-potassium pump).
 
 ## Uncouplers, inhibitors, and brown fat
 

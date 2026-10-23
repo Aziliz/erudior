@@ -165,7 +165,7 @@
     hp: c/3 + tr
     an: 10/hp
     af: 6/hp
-  prompt: 'In a mitochondrion, electrons from NADH pump 10 H⁺ and electrons from succinate (FADH₂) pump 6 H⁺. Its ATP synthase has a ring of {c} c subunits (3 ATP per full turn), and {tr} extra H⁺ per ATP is spent on transporting phosphate and ADP/ATP. Find the H⁺ used per ATP and the ATP made per NADH and per FADH₂. Give 2 decimal places.'
+  prompt: 'In a mitochondrion, electrons from NADH pump 10 H⁺ and electrons from succinate (FADH₂) pump 6 H⁺. Its ATP synthase has a ring of {c} c subunits (3 ATP per full turn). Count {tr} extra H⁺ per ATP for transporting phosphate and ADP/ATP (0 means the transport cost is left out). Find the H⁺ used per ATP and the ATP made per NADH and per FADH₂. Give 2 decimal places.'
   answers:
     - {name: hp, label: 'H⁺ per ATP', tolerance: 0.01}
     - {name: an, label: 'ATP per NADH', tolerance: 0.01}
