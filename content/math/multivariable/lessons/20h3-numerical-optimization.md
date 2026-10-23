@@ -40,7 +40,7 @@ For $f = x^2 + 3y^2$ the update multiplies $x$ by $1 - 2\alpha$ and $y$ by $1 - 
 
 - $\alpha = 0.1$: factors $0.8$ and $0.4$, steady convergence.
 - $\alpha = 0.3$: factors $0.4$ and $-0.8$. The $y$-coordinate flips sign each step, so the path zigzags across the valley, but it still shrinks.
-- $\alpha = 0.4$: the $y$-factor is $-1.4$, so $y$ grows: $1, -1.4, 1.96, -2.744, \dots$. The method **diverges**.
+- $\alpha = 0.4$: the $y$-factor is $-1.4$, so $y$ grows: $1, -1.4, 1.96, -2.744, \dots$. The method diverges.
 
 So the steep direction limits the step size: here $\alpha$ must be less than $1/3$. In general, for a quadratic bowl whose Hessian has largest eigenvalue $\lambda_{\max}$, gradient descent converges exactly when $0 < \alpha < 2/\lambda_{\max}$. Here $\lambda_{\max} = 6$ gives $\alpha < 1/3$. For non-quadratic functions this is only a local guide near a minimum, and practical codes adjust $\alpha$ as they go (a "line search"). The shallow direction then sets the speed: when the eigenvalues are very different, gradient descent crawls along the valley floor.
 
@@ -87,7 +87,7 @@ Near the answer each error is roughly a constant times the square of the previou
 | Tuning | step size $\alpha$ | none, but needs $D \ne 0$ |
 | Goes to | (usually) a minimum | any critical point: min, max or saddle |
 
-The last row matters. Newton's method finds where $\nabla f = \mathbf 0$, and it does not care what kind of point that is. Started near the saddle at the origin, Newton's method for Example 2's function can converge to that saddle. So after any numerical method, check what you found: compute the Hessian there and classify the point. Gradient descent, by contrast, lowers $f$ at each step when $\alpha$ is small enough, so it heads for minima (though it can stall near a saddle). Large practical codes blend the two ideas. Like every result in this lesson, the convergence claims hold for well-behaved functions started close enough to a minimum; far from one, both methods can wander.
+The last row matters. Newton's method finds where $\nabla f = \mathbf 0$, and it does not care what kind of point that is. For Example 2's function, Newton's method started at $(0.3, 0.3)$ converges to the saddle point at the origin (there $D = 0\cdot2 - 4 < 0$), not to a minimum. So after any numerical method, check what you found: compute the Hessian there and classify the point. Gradient descent, by contrast, lowers $f$ at each step when $\alpha$ is small enough, so it heads for minima (though it can stall near a saddle). Large practical codes blend the two ideas. Like every result in this lesson, the convergence claims hold for well-behaved functions started close enough to a minimum; far from one, both methods can wander.
 
 ```mermaid
 flowchart TD

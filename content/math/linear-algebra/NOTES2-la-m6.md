@@ -61,12 +61,12 @@ Verification: 400 instances each (2,000) generated with the app's `generate()`; 
 recomputed in sympy from the prompt text alone (0 mismatches); the shown answer typed back is accepted
 and answer + 1 is rejected in every instance.
 
-## Glossary (16, `glossary-r2-la-m6.yaml`) and cards (25, `cards-r2-la-m6.yaml`)
+## Glossary (16, `glossary-r2-la-m6.yaml`) and cards (24, `cards-r2-la-m6.yaml`)
 Terms: permutation, inversion, sign of a permutation, even permutation, odd permutation,
 transposition, permutation formula (alias Leibniz formula), multilinear, alternating, Vandermonde
 determinant, cross product, scalar triple product, right-hand rule, orientation, shoelace formula,
 signed area. Checked against every glossary*.yaml in the course (including other writers' r2 files):
-no duplicate terms or aliases. Cards: 13 for 21h1, 12 for 21h2.
+no duplicate terms or aliases. Cards: 13 for 21h1, 11 for 21h2.
 
 ## For a reviewer
 - "permutation matrix" is used (not bolded) in 21h1, because the la-m5 honors lesson 18h1 bolds it and

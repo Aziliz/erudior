@@ -15,7 +15,7 @@
 <circle cx="352.7" cy="152.6" r="5" fill="#1c2833"/>
 <circle cx="352.7" cy="356.9" r="4" fill="#1c2833"/>
 <text x="329.5" y="220.2" text-anchor="start" font-size="19" font-weight="bold" font-style="italic" fill="#244d76">ρ</text>
-<text x="270.1" y="223.8" text-anchor="end" font-size="19" font-weight="bold" font-style="italic" fill="#2e7d4f">φ</text>
+<text x="276.1" y="211.8" text-anchor="middle" font-size="19" font-weight="bold" font-style="italic" fill="#2e7d4f">φ</text>
 <text x="254.0" y="367.3" text-anchor="middle" font-size="19" font-weight="bold" font-style="italic" fill="#b03a2e">θ</text>
 <text x="305.6" y="372.2" text-anchor="start" font-size="15" fill="#1c2833">r = ρ sin φ</text>
 <text x="364.7" y="259.8" text-anchor="start" font-size="15" fill="#1c2833">z = ρ cos φ</text>

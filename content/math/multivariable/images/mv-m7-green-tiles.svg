@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="380" viewBox="0 0 560 380">
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a33a2a"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5f99"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c7a47"/></marker></defs>
+<rect x="0" y="0" width="560" height="380" fill="#ffffff"/>
+<rect x="110" y="50" width="345" height="230" fill="#dde8f3" stroke="none"/>
+<polygon points="120.0,60.0 215.0,60.0 215.0,155.0 120.0,155.0" fill="none" stroke="#1f5f99" stroke-width="2" stroke-linejoin="round"/>
+<line x1="159.5" y1="155.0" x2="175.5" y2="155.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="215.0" y1="115.5" x2="215.0" y2="99.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="175.5" y1="60.0" x2="159.5" y2="60.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="120.0" y1="99.5" x2="120.0" y2="115.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<polygon points="120.0,175.0 215.0,175.0 215.0,270.0 120.0,270.0" fill="none" stroke="#1f5f99" stroke-width="2" stroke-linejoin="round"/>
+<line x1="159.5" y1="270.0" x2="175.5" y2="270.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="215.0" y1="230.5" x2="215.0" y2="214.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="175.5" y1="175.0" x2="159.5" y2="175.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="120.0" y1="214.5" x2="120.0" y2="230.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<polygon points="235.0,60.0 330.0,60.0 330.0,155.0 235.0,155.0" fill="none" stroke="#1f5f99" stroke-width="2" stroke-linejoin="round"/>
+<line x1="274.5" y1="155.0" x2="290.5" y2="155.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="330.0" y1="115.5" x2="330.0" y2="99.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="290.5" y1="60.0" x2="274.5" y2="60.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="235.0" y1="99.5" x2="235.0" y2="115.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<polygon points="235.0,175.0 330.0,175.0 330.0,270.0 235.0,270.0" fill="none" stroke="#1f5f99" stroke-width="2" stroke-linejoin="round"/>
+<line x1="274.5" y1="270.0" x2="290.5" y2="270.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="330.0" y1="230.5" x2="330.0" y2="214.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="290.5" y1="175.0" x2="274.5" y2="175.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="235.0" y1="214.5" x2="235.0" y2="230.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<polygon points="350.0,60.0 445.0,60.0 445.0,155.0 350.0,155.0" fill="none" stroke="#1f5f99" stroke-width="2" stroke-linejoin="round"/>
+<line x1="389.5" y1="155.0" x2="405.5" y2="155.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="445.0" y1="115.5" x2="445.0" y2="99.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="405.5" y1="60.0" x2="389.5" y2="60.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="350.0" y1="99.5" x2="350.0" y2="115.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<polygon points="350.0,175.0 445.0,175.0 445.0,270.0 350.0,270.0" fill="none" stroke="#1f5f99" stroke-width="2" stroke-linejoin="round"/>
+<line x1="389.5" y1="270.0" x2="405.5" y2="270.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="445.0" y1="230.5" x2="445.0" y2="214.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="405.5" y1="175.0" x2="389.5" y2="175.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="350.0" y1="214.5" x2="350.0" y2="230.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
+<rect x="110" y="50" width="345" height="230" fill="none" stroke="#1c2833" stroke-width="3.5"/>
+<line x1="270.5" y1="280.0" x2="294.5" y2="280.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
+<line x1="455.0" y1="177.0" x2="455.0" y2="153.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
+<line x1="294.5" y1="50.0" x2="270.5" y2="50.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
+<line x1="110.0" y1="153.0" x2="110.0" y2="177.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
+<text x="469.0" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="start" fill="#1c2833" font-weight="bold" font-style="italic">C</text>
+<text x="280.0" y="322.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="normal">Each small square: circulation ≈ (Qx − Py) ΔA</text>
+<text x="280.0" y="346.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="normal">Shared edges are traversed both ways and cancel;</text>
+<text x="280.0" y="368.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="normal">only the outer boundary C is left.</text>
+</svg>

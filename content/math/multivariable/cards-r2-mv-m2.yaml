@@ -1,0 +1,23 @@
+# Round 2 cards for mv-m2 (honors lessons 10h1 and 10h2)
+- {front: 'Frenet–Serret formulas', back: '$\dfrac{d\mathbf T}{ds} = \kappa\mathbf N$, $\dfrac{d\mathbf N}{ds} = -\kappa\mathbf T + \tau\mathbf B$, $\dfrac{d\mathbf B}{ds} = -\tau\mathbf N$', topic: Frenet–Serret formulas}
+- {front: 'Why $d\mathbf B/ds$ is parallel to $\mathbf N$', back: 'It is perpendicular to $\mathbf B$ (constant length) and to $\mathbf T$ (differentiate $\mathbf B\cdot\mathbf T = 0$), leaving only $\mathbf N$.', topic: Torsion}
+- {front: 'Torsion from $\mathbf r(t)$', back: '$\tau = \dfrac{(\mathbf r''\times\mathbf r'''')\cdot\mathbf r''''''}{|\mathbf r''\times\mathbf r''''|^2}$', topic: Torsion}
+- {front: 'Curvature and torsion of $\langle a\cos t,\, a\sin t,\, bt\rangle$', back: '$\kappa = \dfrac{a}{a^2 + b^2}$, $\tau = \dfrac{b}{a^2 + b^2}$ (both constant)', topic: Torsion}
+- {front: 'Torsion of the twisted cubic $\langle t, t^2, t^3\rangle$', back: '$\tau = \dfrac{3}{9t^4 + 9t^2 + 1}$: 3 at $t = 0$, $\tfrac{3}{19}$ at $t = \pm1$', topic: Torsion}
+- {front: 'Torsion zero everywhere (with $\kappa > 0$) means...', back: 'The curve lies in a plane ($\mathbf B$ is constant).', topic: Torsion}
+- {front: 'Sign of torsion', back: 'Positive for a right-handed twist (like a standard screw), negative for left-handed. Some books use the opposite sign convention.', topic: Torsion}
+- {front: 'Darboux vector', back: '$\boldsymbol\omega = \tau\mathbf T + \kappa\mathbf B$, with $\mathbf X'' = \boldsymbol\omega\times\mathbf X$ for $\mathbf X = \mathbf T, \mathbf N, \mathbf B$', topic: Frenet–Serret formulas}
+- {front: 'Fundamental theorem of space curves', back: '$\kappa(s) > 0$ and $\tau(s)$ determine a curve up to a rigid motion.', topic: Frenet–Serret formulas}
+- {front: 'Helix with given constant $\kappa$ and $\tau$', back: '$a = \dfrac{\kappa}{\kappa^2 + \tau^2}$, $b = \dfrac{\tau}{\kappa^2 + \tau^2}$', topic: Frenet–Serret formulas}
+- {front: 'Clothoid (Euler spiral)', back: 'Curvature proportional to arc length, $\kappa = s/A^2$; tangent angle $\theta = s^2/(2A^2)$.', topic: Frenet–Serret formulas}
+- {front: 'Transition of length $L$ into radius $R$', back: '$A^2 = RL$; total turn $L/(2R)$ rad; lateral jerk at speed $v$ is $v^3/(RL)$.', topic: Frenet–Serret formulas}
+- {front: 'Kepler''s three laws', back: '1. Ellipse with the Sun at a focus. 2. Equal areas in equal times. 3. $T^2 \propto a^3$.', topic: Kepler's laws}
+- {front: 'Why central forces conserve $\mathbf h = \mathbf r\times\mathbf v$', back: '$\mathbf h'' = \mathbf v\times\mathbf v + \mathbf r\times\mathbf a = \mathbf 0$ because $\mathbf a\parallel\mathbf r$.', topic: Central forces}
+- {front: 'Rate of sweeping area', back: '$\dfrac{dA}{dt} = \tfrac12r^2\dfrac{d\theta}{dt} = \dfrac h2$ (constant for any central force)', topic: Central forces}
+- {front: 'Speeds at perihelion and aphelion', back: '$r_pv_p = r_av_a$, so $v_p/v_a = r_a/r_p$', topic: Central forces}
+- {front: 'Orbit equation (inverse-square force)', back: '$r = \dfrac{h^2/GM}{1 + e\cos\theta}$, a conic with the center of force at a focus', topic: Kepler's laws}
+- {front: 'Perihelion, aphelion and semi-major axis', back: '$r_p = a(1 - e)$, $r_a = a(1 + e)$, $a = \tfrac12(r_p + r_a)$', topic: Kepler's laws}
+- {front: 'Kepler''s third law with the constant', back: '$T^2 = \dfrac{4\pi^2}{GM}a^3$; around the Sun in years and AU, $T^2 = a^3$', topic: Kepler's laws}
+- {front: 'Circular orbit speed and period', back: '$v = \sqrt{GM/r}$, $T = 2\pi r/v$, with $r$ from the center of the attracting body', topic: Kepler's laws}
+- {front: 'Geostationary orbit', back: 'Period one sidereal day (about 86,164 s); radius about 42,164 km from Earth''s center, about 35,786 km above the equator.', topic: Kepler's laws}
+- {front: 'Eccentricity and conic type', back: '$e = 0$ circle, $0 < e < 1$ ellipse, $e = 1$ parabola, $e > 1$ hyperbola', topic: Kepler's laws}
