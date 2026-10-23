@@ -29,7 +29,7 @@ In **predation**, one organism (the predator) kills and eats another (the prey).
 
 Predators and prey also drive each other's evolution: camouflage, speed, toxins and mimicry are products of this arms race.
 
-Long-term close relationships between species are called symbiosis. There are three main types, classified by who benefits:
+Long-term close relationships between species are called symbiosis. There are three main types, classified by who benefits (competition and predation are added to the table for comparison; they are not symbiosis):
 
 | Interaction | Species A | Species B | Example |
 |---|---|---|---|
@@ -100,10 +100,10 @@ A researcher removes an introduced fish from three lakes and leaves three simila
 
 ## Human impact
 
-A 2019 global assessment by IPBES (the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services) estimated that about 1 million plant and animal species are at risk of extinction. The IUCN Red List (2025) classifies more than 45,000 of roughly 170,000 assessed species as threatened. The main drivers:
+A 2019 global assessment by IPBES (the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services) estimated that about 1 million plant and animal species are at risk of extinction. The IUCN Red List (2026 update) classifies nearly 50,000 of about 176,000 assessed species as threatened. The main drivers:
 
-- *Habitat loss* is the largest. Clearing forests, draining wetlands and converting land to farms and cities removes the places species live and splits what remains into isolated fragments. About 6.7 million hectares of tropical primary forest were lost in 2024, a record year driven largely by fires.
-- *Climate change.* Rising greenhouse gases (lesson 39) have warmed Earth: 2024 was the warmest year on record, about 1.5 °C above the late-1800s average. Species ranges are shifting toward the poles and up mountains, spring events are happening earlier, and warmer, more acidic oceans are bleaching coral reefs.
+- *Habitat loss* is the largest. Clearing forests, draining wetlands and converting land to farms and cities removes the places species live and splits what remains into isolated fragments. About 6.7 million hectares of tropical primary forest were lost in 2024, a record year in which fires caused nearly half the loss; the loss fell to about 4.3 million hectares in 2025.
+- *Climate change.* Rising greenhouse gases (lesson 39) have warmed Earth: 2024 was the warmest year on record, about 1.5 °C above the late-1800s average, and 2023–2025 were the three warmest years measured. Species ranges are shifting toward the poles and up mountains, spring events are happening earlier, and warmer, more acidic oceans are bleaching coral reefs.
 - **Invasive species**: species introduced to a new region, where they spread and cause harm, often because their natural predators and competitors are missing. Examples include zebra mussels in the Great Lakes, the brown tree snake that wiped out most of Guam's forest birds, and Burmese pythons in the Florida Everglades. A 2023 IPBES report found invasive species played a part in about 60% of recorded extinctions.
 - *Pollution and overexploitation.* Some pollutants build up in organisms. Because each predator eats many prey and stores the toxin in its fat, the concentration rises at each trophic level, which is called biomagnification. DDT thinned the eggshells of bald eagles and other birds of prey; after the United States banned it in 1972, eagles recovered and were removed from the endangered list in 2007. Overfishing removes individuals faster than populations can replace them.
 

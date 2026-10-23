@@ -2311,6 +2311,159 @@
   ]
  },
  {
+  "id": "science-biology",
+  "file": "math/science-biology.json",
+  "order": 16,
+  "title": "Biology",
+  "description": "High school biology for one full credit, written for learners studying on their own: the chemistry of life, cells and membranes, photosynthesis and respiration, cell division, Mendelian and molecular genetics, biotechnology, evolution and population genetics, the diversity of life, human body systems and homeostasis, and ecology. Later lessons reach the depth of an honors course, with the math biologists use (probability, Hardy-Weinberg, chi-square, population growth).",
+  "revision": 1,
+  "subject": "Science",
+  "level": [
+   "High school"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 40,
+  "questions": 458,
+  "cards": 296,
+  "drills": 72,
+  "lessonIds": [
+   "bio-life",
+   "bio-method",
+   "bio-chemistry",
+   "bio-macromolecules",
+   "bio-enzymes",
+   "bio-cell-theory",
+   "bio-cell-types",
+   "bio-organelles",
+   "bio-membranes",
+   "bio-cell-size",
+   "bio-energy-atp",
+   "bio-photosynthesis",
+   "bio-respiration",
+   "bio-cell-cycle",
+   "bio-cancer",
+   "bio-meiosis",
+   "bio-mendel",
+   "bio-dihybrid",
+   "bio-beyond-mendel",
+   "bio-sex-linked",
+   "bio-chromosomes",
+   "bio-dna",
+   "bio-protein-synthesis",
+   "bio-gene-regulation",
+   "bio-biotech",
+   "bio-evidence",
+   "bio-natural-selection",
+   "bio-population-genetics",
+   "bio-speciation",
+   "bio-history-life",
+   "bio-classification",
+   "bio-protists-fungi",
+   "bio-plants",
+   "bio-animals",
+   "bio-homeostasis",
+   "bio-transport-systems",
+   "bio-digestion-immunity",
+   "bio-ecosystems",
+   "bio-cycles-populations",
+   "bio-communities-humans"
+  ],
+  "outline": [
+   {
+    "title": "The science and chemistry of life",
+    "lessons": [
+     "What biology studies: life and its levels",
+     "How biologists know: experiments, data, and theories",
+     "Atoms, water, and pH",
+     "Carbohydrates, lipids, proteins, and nucleic acids",
+     "Enzymes"
+    ]
+   },
+   {
+    "title": "Cells",
+    "lessons": [
+     "Cell theory and microscopes",
+     "Prokaryotic and eukaryotic cells",
+     "Organelles and how a cell works",
+     "Membranes and transport",
+     "Cell size, surface area, and specialization"
+    ]
+   },
+   {
+    "title": "Energy in living things",
+    "lessons": [
+     "Energy, ATP, and metabolism",
+     "Photosynthesis",
+     "Cellular respiration and fermentation"
+    ]
+   },
+   {
+    "title": "Cell division",
+    "lessons": [
+     "The cell cycle and mitosis",
+     "Regulating the cell cycle; cancer and stem cells",
+     "Meiosis and sexual reproduction"
+    ]
+   },
+   {
+    "title": "Inheritance",
+    "lessons": [
+     "Mendel's laws and Punnett squares",
+     "Dihybrid crosses and probability",
+     "Beyond simple dominance",
+     "Sex-linked traits and pedigrees",
+     "Chromosomes, karyotypes, and chi-square"
+    ]
+   },
+   {
+    "title": "DNA, genes, and biotechnology",
+    "lessons": [
+     "DNA structure and replication",
+     "From gene to protein",
+     "Gene regulation and mutation",
+     "Biotechnology"
+    ]
+   },
+   {
+    "title": "Evolution",
+    "lessons": [
+     "Evidence for evolution",
+     "Natural selection and adaptation",
+     "Population genetics and Hardy-Weinberg",
+     "Speciation and phylogenetic trees",
+     "The history of life on Earth"
+    ]
+   },
+   {
+    "title": "The diversity of life",
+    "lessons": [
+     "Classification, bacteria, archaea, and viruses",
+     "Protists and fungi",
+     "Plants: structure, transport, and reproduction",
+     "Animal diversity"
+    ]
+   },
+   {
+    "title": "The human body",
+    "lessons": [
+     "Homeostasis, nervous and endocrine control",
+     "Circulation, respiration, and excretion",
+     "Digestion, nutrition, and the immune system"
+    ]
+   },
+   {
+    "title": "Ecology",
+    "lessons": [
+     "Ecosystems and energy flow",
+     "Matter cycles and population growth",
+     "Communities, biomes, biodiversity, and human impact"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-german-a1",
   "file": "languages/lang-german-a1.json",
   "order": 100,

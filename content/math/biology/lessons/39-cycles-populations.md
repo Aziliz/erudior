@@ -30,7 +30,7 @@ Other parts of the cycle:
 - Under some conditions dead organisms are buried before they decompose. Over millions of years heat and pressure turn them into coal, oil and natural gas: fossil fuels.
 - Combustion of fossil fuels and wood, and volcanic eruptions, return carbon to the air.
 
-Before industrialization, the fluxes in and out of the atmosphere were nearly balanced. Burning fossil fuels moves carbon from a slow reservoir into the fast cycle. Fossil fuel use released roughly 37 billion tonnes of CO₂ in 2024. About half of the CO₂ humans emit stays in the air; the oceans and land plants absorb the rest. As a result, atmospheric CO₂ has risen from about 280 parts per million (ppm) before 1750 to about 425 ppm in 2024. The dissolved CO₂ also makes seawater more acidic, which makes building carbonate shells harder.
+Before industrialization, the fluxes in and out of the atmosphere were nearly balanced. Burning fossil fuels moves carbon from a slow reservoir into the fast cycle. Fossil fuel use released roughly 37 billion tonnes of CO₂ in 2024. About half of the CO₂ humans emit stays in the air; the oceans and land plants absorb the rest. As a result, atmospheric CO₂ has risen from about 280 parts per million (ppm) before 1750 to about 424 ppm (global average) in 2024. The dissolved CO₂ also makes seawater more acidic, which makes building carbonate shells harder.
 
 The best evidence for the cycle's living side comes from the Keeling curve, the CO₂ record kept at Mauna Loa, Hawaii, since 1958. Besides its steady rise, the curve wiggles every year: CO₂ falls during the Northern Hemisphere's spring and summer, when its vast forests photosynthesize, and rises in fall and winter, when respiration and decay dominate. The planet's land plants visibly "breathe."
 
@@ -38,7 +38,7 @@ The best evidence for the cycle's living side comes from the Keeling curve, the 
 
 Nitrogen is needed for proteins and nucleic acids. The air is 78% nitrogen gas (N₂), but its triple bond is so strong that plants and animals cannot use it. Nitrogen enters food webs only after it is converted to other forms, almost entirely by bacteria.
 
-1. **Nitrogen fixation** converts N₂ into ammonia (NH₃) or ammonium (NH₄⁺). Some bacteria do this in soil and water (including cyanobacteria); others, such as *Rhizobium*, live in root nodules of legumes (beans, peas, clover) and trade fixed nitrogen for sugar. Lightning fixes a little. Since the early 1900s, the industrial Haber–Bosch process has fixed nitrogen for fertilizer; it now adds roughly as much fixed nitrogen to land as all natural processes do.
+1. **Nitrogen fixation** converts N₂ into ammonia (NH₃) or ammonium (NH₄⁺). Some bacteria do this in soil and water (including cyanobacteria); others, such as *Rhizobium*, live in root nodules of legumes (beans, peas, clover) and trade fixed nitrogen for sugar. Lightning fixes a little. Since the early 1900s, the industrial Haber–Bosch process has fixed nitrogen for fertilizer; it now fixes roughly as much nitrogen as all natural processes on land, or more by some recent estimates.
 2. Decomposers release ammonium from dead organisms and wastes (ammonification).
 3. Nitrifying bacteria oxidize ammonium to nitrite (NO₂⁻) and then nitrate (NO₃⁻), a process called nitrification.
 4. Plants absorb ammonium and nitrate and build them into amino acids and nucleotides; animals get nitrogen by eating plants or other animals.
@@ -127,7 +127,7 @@ $N = \frac{40 \times 50}{8} = \frac{2000}{8} = 250$ trout. Check: 8 of 50 is 16%
 ## Key points
 
 - Matter cycles between living things and the environment; energy does not.
-- Photosynthesis removes CO₂; respiration and combustion add it. Fossil fuel burning has raised CO₂ from about 280 to about 425 ppm (2024).
+- Photosynthesis removes CO₂; respiration and combustion add it. Fossil fuel burning has raised CO₂ from about 280 to about 424 ppm (2024).
 - Bacteria drive the nitrogen cycle: fixation, nitrification, denitrification.
 - Exponential growth: $dN/dt = rN$ or $N_t = N_0\lambda^t$ (J-curve).
 - Logistic growth: $dN/dt = rN(K-N)/K$ (S-curve), fastest at $K/2$, leveling off at carrying capacity.

@@ -8,7 +8,7 @@ description: >-
   depth of an honors course, with the math biologists use (probability, Hardy-Weinberg,
   chi-square, population growth).
 revision: 1
-released: false
+released: true
 order: 16
 subject: Science
 level: [High school]

@@ -5,7 +5,19 @@ high school credit. Original writing throughout. Glossary and cards are split pe
 (`glossary-mN.yaml`, `cards-mN.yaml`); questions and drills per module (`questions/mNN.yaml`,
 `drills/mNN.yaml`). Scope: RESEARCH.md.
 
-## Status: outline
+## Status: released (revision 1, app v0.21.0)
+
+40 lessons, 10 modules, 458 questions (answer positions 116/114/113/115), 72 drills, 296 notecards,
+313 glossary terms, 4 reference sheets. `python3 content/math/build.py biology` and
+`npx tsx tests/check-course.mts samples/math/science-biology.json` pass with zero problems; axe
+(WCAG 2.2 AAA where practical) clean on sampled lessons in light and dark.
+
+Six writers wrote the modules in parallel (WRITERS.md, notes in NOTES-mN.md); five independent
+reviewers then worked every question, re-checked every sequence-drill key and verified flagged facts
+against OpenStax, NIH/NHGRI, CDC, WHO, WMO, IUCN and primary papers (REVIEWERS.md, REVIEW-mN.md).
+Review totals: 1 answer-key error (bio-q-0741, rebuilt), about 50 factual corrections, a dozen
+explanation fixes, 2 questions and 2 cards added. Open choice: lesson 9's honors-level water
+potential section and drill (kept).
 
 ## Outline (40 lessons)
 

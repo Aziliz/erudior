@@ -9,7 +9,7 @@
 - {front: 'Which ecological pyramid is always upright?', back: 'The pyramid of energy. Pyramids of numbers (one tree, many insects) and biomass (open-ocean plankton) can be inverted.', topic: Energy flow}
 - {front: 'Why measure biomass as dry mass?', back: 'Water content varies with weather and time of day, so drying gives a consistent measure of living material.', topic: Energy flow}
 - {front: 'Carbon cycle: processes that add vs remove atmospheric CO₂', back: 'Remove: photosynthesis, dissolving in the ocean. Add: cellular respiration, decomposition, combustion of fuels, volcanoes.', topic: Biogeochemical cycles}
-- {front: 'Atmospheric CO₂ then and now', back: 'About 280 ppm before 1750; about 425 ppm in 2024, mainly from burning fossil fuels.', topic: Biogeochemical cycles}
+- {front: 'Atmospheric CO₂ then and now', back: 'About 280 ppm before 1750; about 424 ppm in 2024, mainly from burning fossil fuels.', topic: Biogeochemical cycles}
 - {front: 'Nitrogen cycle in order', back: 'N₂ → (fixation by bacteria) ammonium → (nitrification) nitrite → nitrate → absorbed by plants → animals → (decomposers) ammonium; denitrification returns nitrate to N₂.', topic: Biogeochemical cycles}
 - {front: 'Eutrophication', back: 'Excess nutrients (fertilizer runoff) cause algal blooms; decomposers breaking down dead algae use up dissolved oxygen, creating dead zones.', topic: Biogeochemical cycles}
 - {front: 'Change in population size', back: '$\Delta N = B - D + I - E$ (births − deaths + immigration − emigration).', topic: Population ecology}

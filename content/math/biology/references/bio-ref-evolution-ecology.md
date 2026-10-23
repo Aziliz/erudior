@@ -14,7 +14,7 @@ title: Evolution and ecology formulas
 
 ## Energy flow
 
-About 10% of the energy at one trophic level ends up in the next (the range is roughly 5–20%). Energy at level $n$ ≈ producer energy × $0.1^{\,n-1}$.
+About 10% of the energy at one trophic level ends up in the next (roughly 1–20% in real ecosystems). Energy $n$ levels above the producers ≈ producer energy × $0.1^{n}$ (primary consumers: $n = 1$).
 
 ## Diversity
 

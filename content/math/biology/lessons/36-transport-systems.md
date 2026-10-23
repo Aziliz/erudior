@@ -48,7 +48,7 @@ The volume of blood the heart pumps per minute is the **cardiac output**:
 
 $$\text{cardiac output} = \text{heart rate} \times \text{stroke volume},$$
 
-where stroke volume is the volume pumped by one ventricle in one beat. At rest, about 70 beats/min $\times$ 70 mL = 4.9 L/min, roughly the body's entire blood volume every minute. During hard exercise, both heart rate and stroke volume rise, and cardiac output can reach 20 L/min or more in a trained athlete.
+where stroke volume is the volume pumped by one ventricle in one beat. At rest, about 70 beats/min $\times$ 70 mL = 4.9 L/min, roughly the body's entire blood volume every minute. During hard exercise, both heart rate and stroke volume rise, and cardiac output can reach about 20 L/min in a healthy young adult and 30 L/min or more in elite endurance athletes.
 
 ### Example 1: Harvey's argument
 
@@ -61,7 +61,7 @@ No one eats or drinks 7,000 liters a day, and the body holds only about 5 L of b
 
 ## The respiratory system
 
-Air enters through the nose and mouth, passes the pharynx and larynx, and goes down the trachea, which branches into two bronchi, then into thousands of narrower bronchioles, ending in clusters of tiny air sacs called **alveoli**. The adult lungs hold several hundred million alveoli with a total surface area of very roughly 70 m², a large fraction of a tennis court, folded into the chest.
+Air enters through the nose and mouth, passes the pharynx and larynx, and goes down the trachea, which branches into two bronchi, then into thousands of narrower bronchioles, ending in clusters of tiny air sacs called **alveoli**. The adult lungs hold several hundred million alveoli with a total surface area of very roughly 70 m², about a third of a tennis court, folded into the chest.
 
 Gas exchange is pure diffusion. Alveolar walls and capillary walls are each one thin cell, so air and blood are separated by well under a micrometer. Oxygen is more concentrated in alveolar air than in the blood arriving from the body, so it diffuses into the blood and binds hemoglobin; carbon dioxide is more concentrated in that blood, so it diffuses out into the alveoli. In the body's tissues, the gradients run the other way.
 
@@ -80,7 +80,7 @@ Now suppose the same student breathes shallow and fast: 250 mL at 24 breaths per
 
 ### Oxygen and metabolic rate
 
-Because cells use oxygen to release energy from food (cellular respiration), oxygen consumption measures metabolic rate. About 20 kJ of energy is released for each liter of oxygen used, whatever mix of food is being burned. The **basal metabolic rate** (BMR) is the energy used at complete rest, awake, after fasting. A typical adult at rest uses about 3.5 mL of oxygen per kilogram per minute, about 0.25 L/min for a 70 kg person, which gives $0.25 \times 20 = 5$ kJ per minute, or about 7,200 kJ (about 1,700 kcal) per day just to stay alive. Exercise can raise oxygen use more than tenfold.
+Because cells use oxygen to release energy from food (cellular respiration), oxygen consumption measures metabolic rate. About 20 kJ of energy is released for each liter of oxygen used; the exact value (roughly 19 to 21 kJ) depends only a little on whether carbohydrate, fat or protein is being burned. The **basal metabolic rate** (BMR) is the energy used at complete rest, awake, after fasting. A typical adult at rest uses about 3.5 mL of oxygen per kilogram per minute, about 0.25 L/min for a 70 kg person, which gives $0.25 \times 20 = 5$ kJ per minute, or about 7,200 kJ (about 1,700 kcal) per day just to stay alive. Exercise can raise oxygen use more than tenfold.
 
 ## The excretory system
 

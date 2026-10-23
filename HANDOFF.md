@@ -1,6 +1,6 @@
 # Erudior (formerly Examiner): handoff
 
-State as of 2026-10-23, v0.20.0. Read this first in a new chat.
+State as of 2026-10-23, v0.21.0. Read this first in a new chat.
 
 ## What it is
 
@@ -59,6 +59,13 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **Course updates:** each course has a `revision` number. A newer bundled revision is offered in-app and keeps progress, because progress is keyed by ids.
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
+
+## Biology course (v0.21.0)
+
+- First K–12 core course: `content/math/biology` (id `science-biology`, catalog order 16, Science, High school, one credit). 10 modules, 40 lessons, 458 questions, 72 drills, 296 cards, 313 terms, 4 reference sheets (lab math, cell energy, genetics incl. codon table, evolution/ecology). Scope: NGSS HS-LS1–4 and Texas TEKS Biology (RESEARCH.md).
+- Process (reuse for the next courses): outline in PROGRESS.md → writer brief WRITERS.md → six writers in parallel, each owning its modules' files (glossary-mN.yaml / cards-mN.yaml split files) and checking with the new `content/math/check-module.sh <course> mN` (builds one module alone into samples/math-drafts) → five independent reviewers (REVIEWERS.md; REVIEW-mN.md with sources) → editor merges: glossary duplicates, reference sheets, full build + checker + axe on lessons, `released: true`.
+- Sequence drills (transcription/translation/mutations) are numbered multiple choice (answers must be numbers). Lesson 9 keeps an honors-level water potential extension (Jon may drop it).
+- Next courses on the roadmap: Chemistry, English 9–12, World and US History, Government.
 
 ## Live room (v0.20.0)
 
@@ -319,7 +326,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Possible next steps
 
-- Roadmap phases 1–4 are built. Next: K-12 courses, and going live (docs/HOSTING.md). Ask Jon first.
+- Roadmap phases 1–4 are built; Biology is the first K-12 course. Next: more courses (Chemistry, English 9–12, histories, Government) and going live (docs/HOSTING.md). Ask Jon first.
 - Jon's hosting setup (docs/HOSTING.md) now uses erudior.com.
 
 - The Van Ed refinement pass.

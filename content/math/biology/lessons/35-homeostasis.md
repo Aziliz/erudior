@@ -50,7 +50,7 @@ Many axons are wrapped in myelin, a fatty insulating sheath made by supporting c
 
 ### The action potential
 
-A resting neuron keeps its inside about 70 millivolts negative relative to the outside, built up by sodium-potassium pumps that spend ATP moving sodium ions out and potassium ions in. An **action potential** is a brief reversal of that voltage: when the membrane is stimulated past a threshold, sodium channels open and sodium ions rush in, making the inside positive; a millisecond later, potassium channels open and potassium ions flow out, restoring the negative inside. That disturbance triggers the next patch of membrane, so the impulse travels along the axon like a falling row of dominoes.
+A resting neuron keeps its inside about 70 millivolts negative relative to the outside. Sodium-potassium pumps spend ATP moving sodium ions out and potassium ions in, building up concentration gradients; potassium then leaks back out through open channels, carrying positive charge out and leaving the inside negative. An **action potential** is a brief reversal of that voltage: when the membrane is stimulated past a threshold, sodium channels open and sodium ions rush in, making the inside positive; a millisecond later, potassium channels open and potassium ions flow out, restoring the negative inside. That disturbance triggers the next patch of membrane, so the impulse travels along the axon like a falling row of dominoes.
 
 Action potentials are all-or-none: a stimulus either reaches threshold and fires a full-size impulse or does nothing. A stronger stimulus doesn't make a bigger impulse; it makes impulses fire more often. Myelin speeds conduction dramatically, because the impulse jumps from gap to gap. Speeds range from under 1 m/s in thin unmyelinated fibers to over 100 m/s in thick myelinated ones. Much of what we know came from Alan Hodgkin and Andrew Huxley's 1952 experiments on the squid giant axon, about half a millimeter wide and large enough to insert electrodes.
 
@@ -68,13 +68,13 @@ Before this, many scientists assumed nerve signals were nearly instantaneous. A 
 
 Neurons don't touch the next cell. At a **synapse**, a narrow gap separates the axon terminal from the receiving cell. When an impulse arrives, the terminal releases a **neurotransmitter**, a chemical messenger, which diffuses across the gap in a fraction of a millisecond and binds receptor proteins on the next cell. Depending on the transmitter and receptor, it can make the receiving cell more likely or less likely to fire. Acetylcholine triggers muscle contraction; dopamine and serotonin act in the brain. The transmitter is then broken down or taken back up, so each signal is brief. Many drugs act at synapses.
 
-Some responses don't wait for the brain. In a reflex, such as pulling a hand off a hot stove, a sensory neuron carries the signal to the spinal cord, which connects directly (sometimes through one interneuron) to a motor neuron that makes the muscle contract. The pain registers in the brain a moment after the hand has moved.
+Some responses don't wait for the brain. In a reflex, such as pulling a hand off a hot stove, a sensory neuron carries the signal to the spinal cord, where it connects, usually through one or more interneurons (in the knee-jerk reflex, directly), to a motor neuron that makes the muscle contract. The pain registers in the brain a moment after the hand has moved.
 
 ## The endocrine system: slower, broadcast signals
 
 A **hormone** is a chemical messenger secreted by a gland into the blood, which carries it throughout the body. Only target cells with matching receptors respond. Endocrine glands include the pituitary (often called the master gland, controlled by the hypothalamus), thyroid (metabolic rate), adrenal glands (adrenaline for the fight-or-flight response; cortisol), pancreas, and the ovaries and testes (sex hormones).
 
-The first hormone was found in 1902, when William Bayliss and Ernest Starling showed that the intestine still triggered the pancreas to release digestive juice after all the nerves between them were cut. Something in the blood had to carry the message. They extracted it, named it secretin, and coined the word "hormone."
+The first hormone was found in 1902, when William Bayliss and Ernest Starling showed that the intestine still triggered the pancreas to release digestive juice after all the nerves between them were cut. Something in the blood had to carry the message. They extracted it and named it secretin; in 1905 Starling coined the word "hormone" for such blood-borne messengers.
 
 | Feature | Nervous system | Endocrine system |
 |---|---|---|
@@ -90,7 +90,7 @@ Blood glucose control is the textbook example of hormonal negative feedback, wit
 - After a meal, glucose rises. Beta cells release **insulin**, which makes liver, muscle and fat cells take up glucose and makes the liver store it as glycogen. Glucose falls.
 - Between meals, glucose falls. Alpha cells release **glucagon**, which makes the liver break glycogen down and release glucose. Glucose rises.
 
-In type 1 diabetes, the immune system destroys the beta cells, so the body makes little or no insulin; people with it take insulin. In type 2 diabetes, much more common, cells respond less to insulin (insulin resistance), and the pancreas eventually can't keep up. In both, blood glucose stays high, which over years damages blood vessels and nerves. Insulin was first isolated in 1921 by Frederick Banting and Charles Best in Toronto, and within a year it was saving the lives of children with type 1 diabetes.
+In type 1 diabetes, the immune system destroys the beta cells, so the body makes little or no insulin; people with it need insulin every day. In type 2 diabetes, about 90–95% of diagnosed cases, cells respond less to insulin (insulin resistance), and the pancreas eventually can't keep up. In both, blood glucose stays high, which over years damages blood vessels and nerves. Insulin was first isolated in 1921 by Frederick Banting and Charles Best in Toronto, and within a year it was saving the lives of children with type 1 diabetes.
 
 ```plot
 {"x": [0, 240], "y": [0, 320], "xLabel": "time after drinking glucose (min)", "yLabel": "blood glucose (mg/dL)", "functions": [{"f": "90 + 50*(x/30)*exp(1 - x/30)", "label": "typical response"}, {"f": "140 + 160*(x/60)*exp(1 - x/60)", "label": "untreated diabetes", "dashed": true}], "caption": "Glucose tolerance test (illustrative): blood glucose after a standard glucose drink"}

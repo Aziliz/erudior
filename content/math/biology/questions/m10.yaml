@@ -145,10 +145,10 @@
   lesson: bio-cycles-populations
   topic: Population ecology
   stem: 'A population follows logistic growth with $r = 0.5$ per year and $K = 1000$. How fast is it growing when $N = 250$?'
-  choices: ['125 individuals per year', 'About 94 individuals per year', 'About 31 individuals per year', 'About 188 individuals per year']
+  choices: ['125 individuals per year', 'About 94 individuals per year', 'About 31 individuals per year', '375 individuals per year']
   answer: 1
   explanation: |-
-    $\frac{dN}{dt} = rN\frac{K-N}{K} = 0.5 \times 250 \times \frac{750}{1000} = 93.75 \approx 94$. 125 is $rN$, the exponential rate that ignores $K$. 31 uses $N/K$ instead of $(K-N)/K$. 188 uses $N = 500$.
+    $\frac{dN}{dt} = rN\frac{K-N}{K} = 0.5 \times 250 \times \frac{750}{1000} = 93.75 \approx 94$. 125 is $rN$, the exponential rate that ignores $K$. 31 uses $N/K$ instead of $(K-N)/K$. 375 divides by $N$ instead of $K$, which leaves just $r(K-N)$.
 - id: bio-q-1019
   lesson: bio-cycles-populations
   module_quiz: true

@@ -21,7 +21,7 @@ Ecologists group organisms by how they get energy:
 - Consumers get energy by eating other organisms. Herbivores (primary consumers) eat producers, carnivores eat animals, and omnivores eat both.
 - **Decomposers**, mainly bacteria and fungi, break down dead material and wastes, releasing simple nutrients back to the soil and water. Animals such as earthworms and millipedes that eat dead material help by shredding it.
 
-Each feeding step is a **trophic level** (from the Greek *trophē*, "nourishment"). Producers are level 1, primary consumers level 2, secondary consumers (carnivores that eat herbivores) level 3, and tertiary consumers level 4. A single path such as grass → grasshopper → shrew → owl is a food chain. Real organisms eat many things and are eaten by many things, so ecologists draw a **food web**: all the feeding links in a community. An omnivore such as a bear can sit at several trophic levels at once, eating berries (level 2) and salmon (level 3 or higher).
+Each feeding step is a **trophic level** (from the Greek *trophē*, "nourishment"). Producers are level 1, primary consumers level 2, secondary consumers (carnivores that eat herbivores) level 3, and tertiary consumers level 4. A single path such as grass → grasshopper → shrew → owl is a food chain. Real organisms eat many things and are eaten by many things, so ecologists draw a **food web**: all the feeding links in a community. An omnivore such as a bear can sit at several trophic levels at once, eating berries (level 2) and salmon (level 4 or higher, since salmon themselves eat other animals).
 
 Arrows in food chains and webs point in the direction energy moves: from the food to the eater. "Grass → rabbit" means the rabbit eats the grass.
 
