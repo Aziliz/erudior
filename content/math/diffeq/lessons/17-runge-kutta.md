@@ -34,6 +34,11 @@ Read it as four slope samples:
 - $k_3$: the slope at the midpoint again, this time reached using the better slope $k_2$.
 - $k_4$: the slope at the end, reached using $k_3$ for a full step.
 
+Here is where those four slopes are sampled for $y' = y$ from $(0, 1)$ with $h = 1$ (a large
+step, to spread the points out). Each short bar shows the slope at a sample point:
+
+![The four RK4 sample points for y′ = y starting at (0, 1) with h = 1. k₁ is sampled at the start. k₂ is sampled at the midpoint t + h/2, at height 1.5, reached by following k₁. k₃ is sampled at the midpoint again, at height 1.75, reached by following k₂. k₄ is sampled at the end t + h, at height 2.75, reached by following k₃. The true solution curve passes close to the last point.](images/de-m4-rk4-samples.svg)
+
 The final slope is a weighted average with weights $1, 2, 2, 1$ (dividing by 6). If $f$
 depends only on $t$, then $k_2 = k_3$ and the update becomes
 $\frac{h}{6}\left(f(t_n) + 4f(t_n + \tfrac h2) + f(t_n + h)\right)$, which is exactly
@@ -108,6 +113,20 @@ $y_1' = y_2$, $y_2' = -y_1$.
   stay stable, even when the solution itself is smooth. Euler's method on $y' = -\lambda y$
   multiplies by $1 - h\lambda$ each step; if $h\lambda > 2$ that factor has size more than 1
   and the numbers explode. Special implicit methods exist for stiff problems.
+
+A rough guide to choosing a method (the two optional honors lessons after this one cover the
+stiff and adaptive branches):
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a numerical method
+  accDescr: Start from the problem. First ask whether it is stiff, meaning a fast-decaying part forces explicit methods to take tiny steps. If yes, use an implicit method designed for stiff problems. If no, ask whether the solution changes much faster in some places than in others. If yes, use an adaptive Runge–Kutta solver that varies the step size. If no, a fixed-step RK4 works well.
+  A["Need a numerical solution"] --> B{"Stiff? A fast-decaying part forces tiny steps"}
+  B -- "yes" --> C["Implicit method for stiff problems"]
+  B -- "no" --> D{"Much faster change in some places?"}
+  D -- "yes" --> E["Adaptive Runge–Kutta (varies h)"]
+  D -- "no" --> F["Fixed-step RK4"]
+```
 
 ## Common mistakes
 

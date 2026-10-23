@@ -38,6 +38,22 @@ To draw it:
 2. Test the sign of $f$ in each interval between them.
 3. Draw arrows: up for positive, down for negative.
 
+The whole procedure, through the classification described in the next section, fits in one
+chart:
+
+```mermaid
+flowchart TD
+  accTitle: Drawing and reading a phase line
+  accDescr: Start with an autonomous equation y' = f(y). Solve f(y) = 0 to find the equilibria. Test the sign of f in each interval between them, and draw an up arrow where f is positive and a down arrow where it is negative. Then look at the two arrows next to each equilibrium. If both point toward it, it is asymptotically stable, a sink. If both point away, it is unstable, a source. If one points toward it and one away, it is semistable.
+  A["Autonomous equation y′ = f(y)"] --> B["Solve f(y) = 0: the equilibria"]
+  B --> C["Test the sign of f between equilibria"]
+  C --> D["Arrow up where f is positive, down where negative"]
+  D --> E{"Arrows next to an equilibrium?"}
+  E -- "both toward it" --> F["Asymptotically stable (sink)"]
+  E -- "both away" --> G["Unstable (source)"]
+  E -- "one toward, one away" --> H["Semistable"]
+```
+
 ## Stability
 
 An equilibrium is classified by what nearby solutions do.
@@ -47,6 +63,12 @@ An equilibrium is classified by what nearby solutions do.
 - **Unstable** (a **source**): arrows on both sides point away. Nearby solutions leave.
 - **Semistable**: arrows point toward it on one side and away
   on the other.
+
+Here are all three on one phase line, for $y' = (y + 2)(y - 1)^2(y - 3)$. A filled dot marks a
+sink, an open dot a source and a half-filled dot a semistable equilibrium, a common drawing
+convention.
+
+![A vertical phase line for y′ = (y + 2)(y − 1)²(y − 3). Arrows point up above y = 3, down between 1 and 3, down between −2 and 1, and up below −2. So y = 3 is unstable (a source, open dot), y = 1 is semistable (half-filled dot) and y = −2 is asymptotically stable (a sink, filled dot).](images/de-m4-phase-line.svg)
 
 ### The derivative test
 

@@ -13,8 +13,8 @@
 <line x1="251.8" y1="129.7" x2="251.8" y2="99.7" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="3 3"/>
 <line x1="437.3" y1="164.7" x2="437.3" y2="99.7" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="3 3"/>
 <line x1="254.8" y1="107.7" x2="434.3" y2="107.7" stroke="#1c2833" stroke-width="2" marker-start="url(#ah)" marker-end="url(#ah)"/>
-<text x="367" y="126" font-size="16">envelope ±2e^(−t/4)</text>
+<text x="519" y="165" font-size="16">envelope ±2e^(−t/4)</text>
 <text x="345" y="96" text-anchor="middle" font-size="16">2π/μ = π</text>
 <text x="82" y="56" font-size="16">y(0) = 2</text>
-<text x="176" y="224" font-size="16">y = 0</text>
+<text x="241" y="224" font-size="16">y = 0</text>
 </svg>

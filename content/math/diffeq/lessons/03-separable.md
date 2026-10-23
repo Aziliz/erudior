@@ -74,7 +74,7 @@ The figure shows several members of the family $y = Ae^{x^2/2}$. The flat member
 the equilibrium solution that dividing by $y$ would have lost.
 
 ```plot
-{"x": [-2.5, 2.5], "y": [-6, 6], "functions": [{"f": "3exp(x^2/2)", "label": "A = 3"}, {"f": "exp(x^2/2)", "label": "A = 1"}, {"f": "0", "label": "A = 0"}, {"f": "-exp(x^2/2)", "label": "A = −1"}, {"f": "-2exp(x^2/2)", "label": "A = −2"}], "points": [{"at": [0, 3], "label": "(0, 3)"}], "caption": "Solutions y = Ae^(x²/2) of dy/dx = xy. The equilibrium y = 0 (A = 0) is the one that dividing by y would lose."}
+{"x": [-2.5, 2.5], "y": [-6, 6], "functions": [{"f": "3exp(x^2/2)", "label": "A = 3"}, {"f": "exp(x^2/2)", "label": "A = 1"}, {"f": "0", "label": "A = 0"}, {"f": "-exp(x^2/2)"}, {"f": "-2exp(x^2/2)"}], "points": [{"at": [0, 3], "label": "(0, 3)"}], "labels": [{"at": [0.6, -0.6], "text": "A = −1"}, {"at": [0.6, -3.1], "text": "A = −2"}], "caption": "Solutions y = Ae^(x²/2) of dy/dx = xy. The equilibrium y = 0 (A = 0) is the one that dividing by y would lose."}
 ```
 
 ### Example 2

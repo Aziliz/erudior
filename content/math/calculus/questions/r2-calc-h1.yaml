@@ -12,7 +12,7 @@
     - 'For every $n$, $|a_{n+1} - L| < |a_n - L|$'
   answer: 2
   explanation: |-
-    The tolerance $\varepsilon$ comes first and the cutoff $N$ may depend on it; then *every* term after $N$ must be within $\varepsilon$ of $L$. Putting $N$ before $\varepsilon$ demands one cutoff that works for all tolerances at once, which forces $a_n = L$ exactly from some point on. "There is an $n$" asks for only one close term (the sequence $0, 1, 0, 1, \dots$ passes that test for $L = 0$ and diverges). Getting closer at every step is neither necessary nor sufficient.
+    The tolerance $\varepsilon$ comes first and the cutoff $N$ may depend on it; then every term after $N$ must be within $\varepsilon$ of $L$. Putting $N$ before $\varepsilon$ demands one cutoff that works for all tolerances at once, which forces $a_n = L$ exactly from some point on. "There is an $n$" asks for only one close term (the sequence $0, 1, 0, 1, \dots$ passes that test for $L = 0$ and diverges). Getting closer at every step is neither necessary nor sufficient.
 - id: calc-h1-r2-h02
   lesson: calc-h1-sequence-limits
   topic: Proving sequence limits
@@ -214,7 +214,7 @@
     - 'The set of numbers $\frac1n$: its infimum, 0, is not in the set'
   answer: 0
   explanation: |-
-    Completeness concerns sets that *are* bounded above. The set of rationals with $q^2 < 2$ is bounded above by 2, but its least upper bound would be $\sqrt2$, which is not rational, so within the rationals it has no least upper bound. A set with no upper bound doesn't test the axiom; the rationals in $[0, 1]$ have the rational supremum 1; and an infimum outside the set (but still rational) is no failure.
+    Completeness concerns sets that are bounded above. The set of rationals with $q^2 < 2$ is bounded above by 2, but its least upper bound would be $\sqrt2$, which is not rational, so within the rationals it has no least upper bound. A set with no upper bound doesn't test the axiom; the rationals in $[0, 1]$ have the rational supremum 1; and an infimum outside the set (but still rational) is no failure.
 - id: calc-h1-r2-h19
   lesson: calc-h1-completeness
   module_quiz: true
@@ -288,7 +288,7 @@
     - 'Every monotone sequence converges'
   answer: 1
   explanation: |-
-    Bolzano–Weierstrass promises a convergent *subsequence* of any bounded sequence. The first choice is false ($(-1)^n$), the third is a different (easier) fact from Lesson 90, and the last is false without boundedness ($1, 2, 3, \dots$).
+    Bolzano–Weierstrass promises a convergent subsequence of any bounded sequence. The first choice is false ($(-1)^n$), the third is a different (easier) fact from Lesson 90, and the last is false without boundedness ($1, 2, 3, \dots$).
 - id: calc-h1-r2-h25
   lesson: calc-h1-completeness
   topic: Completeness
@@ -417,7 +417,7 @@
     - 'Because $a \le x_{n_k} \le b$ for every $k$, and limits keep non-strict inequalities'
   answer: 3
   explanation: |-
-    Each $x_{n_k}$ satisfies $a \le x_{n_k} \le b$, and passing to the limit keeps $\le$, so $a \le c \le b$. This is where the interval being *closed* matters: on $(0, 1)$ the same argument only gives $0 \le c \le 1$, and $c$ can be an endpoint outside the interval. Continuity is used only after $c$ is known to be in the domain.
+    Each $x_{n_k}$ satisfies $a \le x_{n_k} \le b$, and passing to the limit keeps $\le$, so $a \le c \le b$. This is where the interval being closed matters: on $(0, 1)$ the same argument only gives $0 \le c \le 1$, and $c$ can be an endpoint outside the interval. Continuity is used only after $c$ is known to be in the domain.
 - id: calc-h1-r2-h36
   lesson: calc-h1-big-theorems
   module_quiz: true
@@ -426,7 +426,7 @@
   choices: ['The Bolzano–Weierstrass theorem', 'The nested interval property', 'The Mean Value Theorem', 'The Intermediate Value Theorem']
   answer: 0
   explanation: |-
-    The points $x_n$ in $[a, b]$ form a bounded sequence, and Bolzano–Weierstrass gives a convergent subsequence. (Its own proof uses nested intervals, but the EVT proof calls on Bolzano–Weierstrass directly.) The MVT is proved *from* the EVT, so using it would be circular, and the IVT plays no part.
+    The points $x_n$ in $[a, b]$ form a bounded sequence, and Bolzano–Weierstrass gives a convergent subsequence. (Its own proof uses nested intervals, but the EVT proof calls on Bolzano–Weierstrass directly.) The MVT is proved from the EVT, so using it would be circular, and the IVT plays no part.
 - id: calc-h1-r2-h37
   lesson: calc-h1-big-theorems
   type: label

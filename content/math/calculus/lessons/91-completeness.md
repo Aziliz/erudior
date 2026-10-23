@@ -86,7 +86,7 @@ The terms are $1,\ \sqrt3 \approx 1.732,\ 1.932,\ 1.983,\ \dots$
 - *Increasing.* For $0 < x < 2$, $x^2 < x + 2$ (since $x^2 - x - 2 = (x - 2)(x + 1) < 0$), so $x < \sqrt{2 + x}$. Every $a_n$ lies in $(0, 2)$, so $a_n < a_{n+1}$.
 - *Limit.* By the theorem, $a_n \to L$ for some $L$. Let $n \to \infty$ in $a_{n+1} = \sqrt{2 + a_n}$: $L = \sqrt{2 + L}$, so $L^2 - L - 2 = 0$ and $L = 2$ (the root $-1$ is impossible because all the terms are positive).
 
-The order matters. Solving "$L = $ formula in $L$" only finds the limit *if there is one*. For $a_{n+1} = 2a_n$ with $a_1 = 1$, the same trick gives $L = 2L$, so $L = 0$, but the sequence $1, 2, 4, 8, \dots$ diverges.
+The order matters. Solving "$L$ equals a formula in $L$" only finds the limit *if there is one*. For $a_{n+1} = 2a_n$ with $a_1 = 1$, the same trick gives $L = 2L$, so $L = 0$, but the sequence $1, 2, 4, 8, \dots$ diverges.
 
 ## Nested intervals
 

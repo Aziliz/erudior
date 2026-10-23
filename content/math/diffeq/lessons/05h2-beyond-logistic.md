@@ -174,7 +174,7 @@ a much larger relative growth rate ($0.3\ln 10 \approx 0.69$ versus
 $0.3 \cdot 0.9 = 0.27$), so it rises faster and turns over sooner.
 
 ```plot
-{"x": [0, 20], "y": [0, 1100], "xLabel": "t (weeks)", "yLabel": "P", "functions": [{"f": "1000exp(ln(0.1)exp(-0.3x))", "label": "Gompertz"}, {"f": "1000/(1 + 9exp(-0.3x))", "label": "logistic", "dashed": true}, {"f": "1000", "dashed": true, "label": "K = 1000"}], "points": [{"at": [2.78, 367.9], "label": "K/e"}, {"at": [7.32, 500], "label": "K/2"}], "caption": "Gompertz and logistic curves with K = 1000, k = 0.3 and P(0) = 100. The Gompertz curve bends over at K/e, earlier and lower than the logistic's K/2."}
+{"x": [0, 20], "y": [0, 1100], "xLabel": "t (weeks)", "yLabel": "P", "functions": [{"f": "1000exp(ln(0.1)exp(-0.3x))"}, {"f": "1000/(1 + 9exp(-0.3x))", "dashed": true}, {"f": "1000", "dashed": true}], "points": [{"at": [2.78, 367.9], "label": "K/e"}, {"at": [7.32, 500], "label": "K/2"}], "labels": [{"at": [1.2, 700], "text": "Gompertz"}, {"at": [12.5, 700], "text": "logistic (dashed)"}, {"at": [16, 1050], "text": "K = 1000"}], "caption": "Gompertz and logistic curves with K = 1000, k = 0.3 and P(0) = 100. The Gompertz curve bends over at K/e, earlier and lower than the logistic's K/2."}
 ```
 
 ## Choosing a model

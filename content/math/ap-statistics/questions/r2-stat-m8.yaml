@@ -420,162 +420,174 @@
   explanation: |-
     $n = \left((z_\alpha + z_\beta)\sigma/\delta\right)^2$ shrinks when $\delta$ grows, when $z_\beta$ shrinks (lower power) and when the relevant SD shrinks, which is what good pairing does. A larger $\sigma$ and a smaller $\alpha$ (larger $z_\alpha$) both increase $n$.
 
-# ---- Honors 2: multiple comparisons and false discoveries
+# ---- Honors 2: equivalence and non-inferiority
 - id: stat-m8-r2-h15
-  lesson: stat-m8-h-multiple-testing
-  type: text
-  topic: Multiple testing
-  stem: 'Ten independent tests are each run at $\alpha = 0.05$, and all ten null hypotheses are true. The probability of at least one Type I error, rounded to 3 decimal places, is ___.'
-  accept: ['0.401']
+  lesson: stat-m8-h-equivalence
+  type: label
+  topic: Equivalence testing
+  stem: 'Each bar is a 90% confidence interval for a difference, drawn against an equivalence margin $\pm\Delta$ (the shaded zone). Using a TOST at $\alpha = 0.05$, name the conclusion for each numbered interval.'
+  image: {src: images/stat-m8-equivalence-blank.svg, alt: 'Four horizontal confidence intervals against an axis marked minus delta, 0 and plus delta, with the zone between the margins shaded. Interval 1 runs from inside the zone, across 0, to beyond plus delta. Interval 2 lies inside the zone and contains 0. Interval 3 lies entirely beyond plus delta. Interval 4 lies inside the zone, entirely to the right of 0.'}
+  labels:
+    - {x: 53.7, y: 24.3, text: Inconclusive}
+    - {x: 43.4, y: 42.1, text: 'Equivalent; the interval includes 0'}
+    - {x: 77.1, y: 60.0, text: Not equivalent}
+    - {x: 52.6, y: 77.9, text: 'Equivalent; the interval excludes 0'}
+  distractors: [Proves the difference is exactly 0]
   explanation: |-
-    All ten tests avoid a false alarm with probability $0.95^{10} \approx 0.599$, so the family-wise error rate is $1 - 0.599 = 0.401$. Adding the ten 5% chances (0.50) overstates it, because it double-counts the cases with two or more false alarms.
+    TOST at $\alpha = 0.05$ concludes equivalence exactly when the 90% interval lies inside $(-\Delta, \Delta)$. Intervals 2 and 4 do; interval 4 also excludes 0, so the difference is real but too small to matter. Interval 1 contains 0 but reaches past $+\Delta$, so the data can't rule out an important difference: inconclusive. Interval 3 lies entirely beyond $+\Delta$: the difference is larger than the margin. No interval can show a difference is exactly 0.
 
 - id: stat-m8-r2-h16
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'A study tests 8 hypotheses and wants a family-wise error rate of at most 0.05 using the Bonferroni correction. What level should each test use?'
-  choices: ['0.05', '0.00625', '0.4', '0.0125']
-  answer: 1
+  lesson: stat-m8-h-equivalence
+  type: text
+  topic: Equivalence testing
+  stem: 'In a TOST, the test against $-\Delta$ has p-value 0.003 and the test against $+\Delta$ has p-value 0.041. The TOST p-value is ___.'
+  accept: ['0.041']
   explanation: |-
-    Bonferroni divides $\alpha$ by the number of tests: $0.05/8 = 0.00625$. Using 0.05 for each gives no correction; 0.4 multiplies instead of dividing; 0.0125 would be right for 4 tests.
+    Equivalence needs both one-sided tests to reject, so the evidence is only as strong as the weaker of the two: the TOST p-value is the larger p-value, 0.041. At $\alpha = 0.05$ equivalence is shown; at $\alpha = 0.01$ it is not.
 
 - id: stat-m8-r2-h17
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'In 200 independent tests, every null hypothesis is true and every test statistic is continuous. About how many of the p-values should be below 0.10?'
-  choices: ['20', '10', '2', '0']
-  answer: 0
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'A TOST at $\alpha = 0.05$ gives the same decision as checking whether which confidence interval lies inside $(-\Delta, \Delta)$?'
+  choices: ['The 95% interval', 'The 90% interval', 'The 97.5% interval', 'The 99% interval']
+  answer: 1
   explanation: |-
-    When $H_0$ is true, the p-value is uniform between 0 and 1, so $P(\text{p-value} \le 0.10) = 0.10$, and about $0.10 \times 200 = 20$ of the p-values fall below 0.10, all of them by chance.
+    Each one-sided test at level $\alpha$ matches one end of a $(1 - 2\alpha)$ interval, so $\alpha = 0.05$ goes with a 90% interval. Using the 95% interval would make the procedure stricter than the stated level.
 
 - id: stat-m8-r2-h18
-  lesson: stat-m8-h-multiple-testing
-  type: order
-  topic: Multiple testing
-  stem: 'Put the steps of Holm''s method in order.'
-  items:
-    - 'Sort the p-values from smallest to largest'
-    - 'Compare the smallest p-value with $\alpha/m$'
-    - 'If it passes, compare the next p-value with $\alpha/(m-1)$, then the next with $\alpha/(m-2)$, and so on'
-    - 'At the first p-value above its threshold, stop: reject only the hypotheses before it'
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'A study comparing two gauges finds no significant difference (p-value 0.40). Why doesn''t this show that the gauges are equivalent?'
+  choices:
+    - 'A p-value of 0.40 is too small to support equivalence.'
+    - 'Equivalence can only be shown for proportions.'
+    - 'A small or noisy study can fail to detect even a large difference; the data may still allow differences bigger than any acceptable margin.'
+    - 'Ordinary tests can only be used for one-sided alternatives.'
+  answer: 2
   explanation: |-
-    Holm's thresholds are attached to ranks, so sorting comes first; the comparisons go from the smallest p-value up, with the threshold relaxing at each step, and the procedure stops at the first failure.
+    Failing to reject "difference = 0" only says the data are consistent with 0. They may be consistent with large differences too, as in the lesson's 6-section study, whose 90% interval reached 0.45 mm. To support equivalence, the null hypothesis must be "the difference is at least $\Delta$," and the data must reject it.
 
 - id: stat-m8-r2-h19
-  lesson: stat-m8-h-multiple-testing
+  lesson: stat-m8-h-equivalence
   type: match
-  topic: Multiple testing
-  stem: 'Match each procedure or practice to what it does.'
+  topic: Equivalence testing
+  stem: 'Match each research goal to the null hypothesis its test uses.'
   pairs:
-    - [Bonferroni correction, Tests every hypothesis at level α/m]
-    - [Holm's method, 'Compares sorted p-values with α/m, α/(m − 1), and so on, stopping at the first failure']
-    - [Benjamini–Hochberg procedure, Controls the expected share of false discoveries among rejections]
-    - [Preregistration, Records the hypotheses and analysis plan before data are collected]
-  distractors: [Raises the significance level of each test]
+    - [Show that a new method gives different results from the old one, The difference is 0]
+    - [Show that two methods are practically the same, The difference is at least Δ in size]
+    - [Show that a new treatment is not much worse than the standard, The new one is worse by Δ or more]
+  distractors: [The difference is less than Δ in size]
   explanation: |-
-    Bonferroni and Holm both control the family-wise error rate, Holm with more power. Benjamini–Hochberg controls the false discovery rate instead. Preregistration is a procedural defense against p-hacking. None of these raises the level of individual tests; corrections make each test stricter.
+    The null hypothesis is always what we want to find evidence against. To show a difference, test "no difference." To show equivalence, test "the difference is at least $\Delta$ in size" (TOST). To show non-inferiority, test "the new one is worse by at least $\Delta$." "Less than $\Delta$ in size" is what equivalence hopes to show, so it is the alternative, not a null.
 
 - id: stat-m8-r2-h20
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'Five sorted p-values are 0.003, 0.012, 0.020, 0.041 and 0.30. How many hypotheses does the Benjamini–Hochberg procedure reject at $q = 0.05$?'
-  choices: ['1', '2', '3', '4']
-  answer: 2
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'A paired equivalence study has $\bar{d} = 0.5$, $SE = 0.2$ and margin $\Delta = 1$. What is the statistic $t_2 = (\bar{d} - \Delta)/SE$ for the test against $+\Delta$?'
+  choices: ['$2.5$', '$-7.5$', '$7.5$', '$-2.5$']
+  answer: 3
   explanation: |-
-    The BH thresholds are $0.05i/5$: 0.01, 0.02, 0.03, 0.04, 0.05. Check from the largest rank down: $0.30 > 0.05$, $0.041 > 0.04$, but $0.020 \le 0.03$. So $k = 3$, and the three smallest p-values are rejected. (Bonferroni, with threshold 0.01, would reject only 1.)
+    $t_2 = (0.5 - 1)/0.2 = -2.5$, a lower-tail test of $H_{02}: \mu_d \ge 1$. The other statistic is $t_1 = (0.5 + 1)/0.2 = 7.5$. The positive 2.5 and the $-7.5$ come from sign slips.
 
 - id: stat-m8-r2-h21
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'For the same five p-values (0.003, 0.012, 0.020, 0.041, 0.30), which hypotheses does Holm''s method reject at $\alpha = 0.05$? Select all that apply.'
-  choices: ['The one with p = 0.003', 'The one with p = 0.012', 'The one with p = 0.020', 'The one with p = 0.041', 'The one with p = 0.30']
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'With margin $\Delta = 0.30$, a study''s 90% confidence interval for a difference is $(0.05, 0.22)$. Which statements are justified? Select all that apply.'
+  choices:
+    - 'A TOST at $\alpha = 0.05$ concludes equivalence.'
+    - 'A two-sided test of "difference = 0" at $\alpha = 0.10$ would reject.'
+    - 'The true difference is exactly 0.'
+    - 'The study is inconclusive.'
   answer: [0, 1]
   explanation: |-
-    Holm's thresholds are $0.05/5 = 0.01$, $0.05/4 = 0.0125$, $0.05/3 \approx 0.0167$, $0.05/2 = 0.025$ and $0.05$. The first two pass ($0.003 \le 0.01$, $0.012 \le 0.0125$), but $0.020 > 0.0167$, so Holm stops there. The hypotheses with 0.020, 0.041 and 0.30 are not rejected, even though 0.041 is below 0.05.
+    The interval lies inside $(-0.30, 0.30)$, so equivalence is shown at $\alpha = 0.05$. It also excludes 0, and a 90% interval matches a two-sided test at 0.10, so that test rejects "difference = 0": the difference is real but small. That contradicts "exactly 0," and the study is not inconclusive.
 
 - id: stat-m8-r2-h22
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'A genetics screen uses the Benjamini–Hochberg procedure at $q = 0.05$. What does that control?'
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'Why can each of the two one-sided tests in a TOST use the full level $\alpha$ rather than $\alpha/2$?'
   choices:
-    - 'The probability that any of the rejected hypotheses is false is at most 0.05.'
-    - 'The expected proportion of false discoveries among the rejected hypotheses is at most 0.05.'
-    - 'Each individual test has a Type I error rate of exactly 0.05.'
-    - 'The probability that all the null hypotheses are true is 0.05.'
-  answer: 1
-  explanation: |-
-    The false discovery rate is the expected share of false discoveries among the rejections. Controlling the chance of even one false discovery is the family-wise error rate, which is stricter. The BH thresholds $iq/m$ are not a fixed per-test level, and no procedure gives the probability that hypotheses are true.
-
-- id: stat-m8-r2-h23
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'A field tests 2,000 hypotheses at $\alpha = 0.05$. Suppose 20% of them are real effects and the power is 0.50. About what share of the significant results are false?'
-  choices: ['0.050', '0.200', '0.400', '0.286']
-  answer: 3
-  explanation: |-
-    Real effects: 400, of which $0.50 \times 400 = 200$ are detected. True nulls: 1,600, giving $0.05 \times 1{,}600 = 80$ false alarms. Share false $= 80/(200 + 80) \approx 0.286$. The answer is not $\alpha$: that is a rate among true nulls, not among significant results.
-
-- id: stat-m8-r2-h24
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'A researcher checks the p-value after every 10 subjects and stops as soon as it falls below 0.05. If the null hypothesis is true, the probability that the study ends with a "significant" result is'
-  choices: ['larger than 0.05', 'exactly 0.05', 'smaller than 0.05', '0.05 divided by the number of checks']
+    - 'Because equivalence is claimed only when both tests reject, and if the true difference is outside the margin only one test''s null hypothesis can be true, so a false claim has probability at most $\alpha$.'
+    - 'Because one-sided tests always have smaller error rates than two-sided tests.'
+    - 'Because the two tests are independent.'
+    - 'Because the margin $\Delta$ absorbs the extra error.'
   answer: 0
   explanation: |-
-    Each look is another chance for a false alarm, and the researcher stops at the first one, so the overall error rate grows with the number of looks: about 0.19 with 10 looks at a z test, by the lesson's figure. Planned designs with interim looks use stricter thresholds at each look to hold the overall rate at 0.05.
+    If, say, $\theta \ge \Delta$, a false claim of equivalence requires test 2 to reject, which happens with probability at most $\alpha$ because test 2 is a valid level-$\alpha$ test there. Requiring test 1 to reject as well only lowers the chance. Splitting $\alpha$ is for "either one rejects" conclusions, like Bonferroni. The two tests use the same data, so they are not independent.
 
-- id: stat-m8-r2-h25
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'Which of these is an example of p-hacking?'
-  choices:
-    - 'Choosing $\alpha = 0.01$ before the study because a Type I error would be costly'
-    - 'Reporting a confidence interval along with the p-value'
-    - 'Trying several rules for removing outliers and reporting the one that gives $p < 0.05$'
-    - 'Writing down the analysis plan before collecting data'
-  answer: 2
+- id: stat-m8-r2-h23
+  lesson: stat-m8-h-equivalence
+  type: text
+  topic: Equivalence testing
+  stem: 'A non-inferiority test uses margin $\Delta = 0.08$. The observed difference (new − standard) is $-0.03$ with standard error 0.025. The test statistic is $z =$ ___. Give only the number.'
+  accept: ['2']
   explanation: |-
-    Trying analyses until one crosses 0.05 and reporting only that one is p-hacking: the reported p-value hides the other attempts, so its real false-positive rate is much higher than 5%. Fixing $\alpha$ or the analysis plan in advance and reporting intervals are good practice.
+    The test compares the estimate with $-\Delta$, not with 0: $z = \dfrac{-0.03 - (-0.08)}{0.025} = \dfrac{0.05}{0.025} = 2$, with one-sided p-value $P(Z \ge 2) \approx 0.023$.
 
-- id: stat-m8-r2-h26
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'Why does the Bonferroni correction keep the family-wise error rate at or below $\alpha$ even when the tests are not independent?'
+- id: stat-m8-r2-h24
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'Bioequivalence of a generic drug is usually shown by a 90% interval for the ratio of mean blood levels lying within 80% to 125%. Why is the upper limit 125% rather than 120%?'
   choices:
-    - 'Because dependent tests cannot both make Type I errors'
-    - 'Because $(1 - \alpha/m)^m$ is always exactly $1 - \alpha$'
-    - 'Because it assumes the tests are independent anyway'
-    - 'Because the probability of a union of events is at most the sum of their probabilities, and here that sum is $m \cdot \alpha/m = \alpha$'
+    - 'Because generic drugs are allowed to be stronger than the original.'
+    - 'Because the 90% interval is wider on the upper side.'
+    - 'Because 120% was found to be unsafe.'
+    - 'Because the limits are symmetric on the log scale: a ratio of 0.80 one way is 1/0.80 = 1.25 the other way.'
   answer: 3
   explanation: |-
-    The union bound $P(A_1 \text{ or } \dots \text{ or } A_m) \le P(A_1) + \dots + P(A_m)$ holds for any events, dependent or not. With each test at $\alpha/m$, the sum is $\alpha$. The formula $(1 - \alpha/m)^m$ needs independence and is only approximately $1 - \alpha$.
+    Ratios are compared on the log scale, where $\ln 0.80 = -\ln 1.25$. A product with 80% of the reference's level means the reference has 125% of the product's, so the two limits describe the same size of difference in either direction.
 
-- id: stat-m8-r2-h27
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'Which practices help keep false discoveries in check? Select all that apply.'
+- id: stat-m8-r2-h25
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'A small study gives a 90% interval of $(-0.21, 0.45)$ for a mean difference, with margin $\Delta = 0.30$. An ordinary test of "difference = 0" has p-value 0.50. What is the right conclusion?'
   choices:
-    - 'Preregistering the hypotheses and analysis plan'
-    - 'Reporting how many tests were run in total'
-    - 'Repeating surprising findings in a new study'
-    - 'Reporting only the outcomes that were significant'
-    - 'Adding subjects until the p-value drops below 0.05'
-  answer: [0, 1, 2]
-  explanation: |-
-    Preregistration removes hidden flexibility, full reporting lets readers judge multiplicity, and replication checks whether a finding survives fresh data. Reporting only significant outcomes and optional stopping are exactly the habits that create false discoveries.
-
-- id: stat-m8-r2-h28
-  lesson: stat-m8-h-multiple-testing
-  topic: Multiple testing
-  stem: 'A report analyzes 20 subgroups and highlights the one with p-value 0.04. Why is this weak evidence of a real effect in that subgroup?'
-  choices:
-    - 'Because p-values below 0.05 are never meaningful'
-    - 'Because with 20 tests about one p-value below 0.05 is expected even if there are no real effects'
-    - 'Because subgroups always have lower power, so the effect must be false'
-    - 'Because 0.04 is a two-sided p-value'
+    - 'The methods are equivalent, because the ordinary test was not significant.'
+    - 'Inconclusive: the data neither show equivalence nor show a difference, since the interval reaches past the margin and also contains 0.'
+    - 'The methods differ by more than the margin.'
+    - 'The methods are equivalent, because the interval contains 0.'
   answer: 1
   explanation: |-
-    With 20 tests at 0.05, the expected number of false alarms is $20 \times 0.05 = 1$, and the chance of at least one is about 0.64. Singling out one result from 20 hides that multiplicity; with a Bonferroni threshold of $0.05/20 = 0.0025$, 0.04 is far from significant.
+    The interval includes 0, so there is no evidence of a difference, but it also reaches 0.45, beyond $+0.30$, so an important difference hasn't been ruled out. Only an interval entirely inside $(-0.30, 0.30)$ would show equivalence, and only one entirely beyond the margin would show a difference larger than $\Delta$.
+
+- id: stat-m8-r2-h26
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'A non-inferiority trial (higher cure rate is better, margin $\Delta = 0.10$) gives a 95% interval of $(-0.095, 0.015)$ for $p_{\text{new}} - p_{\text{std}}$. Which conclusion is correct?'
+  choices:
+    - 'The new treatment is non-inferior, and the trial gives no evidence that it is better or worse than the standard.'
+    - 'The new treatment is better than the standard.'
+    - 'The new treatment is worse by more than 10 points.'
+    - 'Nothing can be concluded, because the interval contains 0.'
+  answer: 0
+  explanation: |-
+    Non-inferiority needs the lower bound above $-\Delta$: $-0.095 > -0.10$, so it is shown (at one-sided level 0.025). The interval contains 0, so there is no evidence of a real difference in either direction; "not much worse" is not "better." Containing 0 is not a problem for a non-inferiority claim.
+
+- id: stat-m8-r2-h27
+  lesson: stat-m8-h-equivalence
+  type: order
+  topic: Equivalence testing
+  stem: 'Put the steps of an equivalence study analyzed by TOST in order.'
+  items:
+    - 'Choose the equivalence margin $\Delta$ before collecting data'
+    - 'Collect the data and compute the estimate and its standard error'
+    - 'Compute the two one-sided test statistics and their p-values'
+    - 'Take the larger p-value and compare it with $\alpha$'
+  explanation: |-
+    The margin must be fixed first, so it can't be tuned to the results. The test statistics need the estimate and its standard error, and the decision uses the larger of the two p-values.
+
+- id: stat-m8-r2-h28
+  lesson: stat-m8-h-equivalence
+  topic: Equivalence testing
+  stem: 'A study of 40,000 people finds that a new diet lowers weight by 0.2 kg on average (p-value < 0.001), with 90% interval $(0.12, 0.28)$ kg. A loss under 1 kg is considered unimportant. What is the best summary?'
+  choices:
+    - 'The diet has a large and important effect, since the p-value is tiny.'
+    - 'The diet has no effect, since 0.2 kg is small.'
+    - 'The result is inconclusive.'
+    - 'The effect is real (the interval excludes 0) but practically negligible (the interval lies inside ±1 kg).'
+  answer: 3
+  explanation: |-
+    Both questions can be asked of the same interval. It excludes 0, so the effect is statistically significant; it also lies entirely inside the margin of ±1 kg, so a TOST would conclude equivalence with "no effect" for practical purposes. A tiny p-value measures how surely the effect differs from 0, not how big it is.
 
 # ---- Honors 3: exact tests
 - id: stat-m8-r2-h29

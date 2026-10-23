@@ -79,6 +79,24 @@ birth rate overtakes the death rate.
 only $y = 0$ (stable); for $c > 0$, $y = 0$ becomes unstable and two new stable equilibria
 $\pm\sqrt{c}$ appear. The diagram looks like a pitchfork.
 
+Side by side, the three bifurcation diagrams look like this (parameter $c$ across, equilibria
+$y^*$ up; solid stable, dashed unstable):
+
+![Three bifurcation diagrams. Saddle-node, y′ = c + y²: for c < 0 a stable lower branch and an unstable upper branch, a sideways parabola that ends at the origin; nothing for c > 0. Transcritical, y′ = cy − y²: the lines y* = 0 and y* = c cross at the origin and swap stability, so y* = 0 is stable for c < 0 and the line y* = c is stable for c > 0. Pitchfork, y′ = cy − y³: y* = 0 is stable for c < 0 and unstable for c > 0, where two stable branches ±√c open out like the tines of a fork.](images/de-m4-bifurcation-types.svg)
+
+To name a bifurcation, watch what the equilibria do as the parameter crosses its critical
+value:
+
+```mermaid
+flowchart TD
+  accTitle: Naming a bifurcation
+  accDescr: As the parameter crosses the bifurcation value, compare the equilibria just before and just after. If two equilibria collide and disappear, it is a saddle-node bifurcation, with prototype y' = c + y squared. If two equilibria pass through each other and swap stability, it is a transcritical bifurcation, with prototype y' = cy − y squared. If one equilibrium splits into three, it is a pitchfork bifurcation, with prototype y' = cy − y cubed.
+  A["The parameter crosses its critical value"] --> B{"What do the equilibria do?"}
+  B -- "two collide and vanish" --> C["Saddle-node: y′ = c + y²"]
+  B -- "two cross and swap stability" --> D["Transcritical: y′ = cy − y²"]
+  B -- "one splits into three" --> E["Pitchfork: y′ = cy − y³"]
+```
+
 ### Example 2
 
 Find the bifurcation value and describe the change for $y' = y^2 - 4y + c$.

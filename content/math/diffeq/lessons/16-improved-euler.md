@@ -72,6 +72,25 @@ Euler's method is the left-endpoint rule. Its local error is proportional to $h^
 its global error to $h^2$: it is a **second-order method**. Halving $h$ cuts the error by
 about a factor of 4.
 
+The picture shows one step for $y' = y$ from $(t_n, y_n) = (0, 1)$ with a deliberately large
+$h = 1$. Euler's step follows the starting slope $k_1 = 1$ and lands at 2, well below the
+curve. The slope there is $k_2 = 2$. The average slope $1.5$ carries the step to $2.5$, much
+closer to the true $e \approx 2.718$.
+
+![One improved Euler step. From the starting point, a dashed line with slope k₁ reaches the Euler prediction at t + h. A short dashed segment there shows the slope k₂. A solid line with the average slope (k₁ + k₂)/2 from the starting point ends at the improved Euler value, which lies much closer to the curved true solution than the Euler prediction does.](images/de-m4-heun-step.svg)
+
+As a procedure, each step is four moves:
+
+```mermaid
+flowchart TD
+  accTitle: One step of the improved Euler method
+  accDescr: From the current point t_n, y_n, compute the starting slope k1 = f(t_n, y_n). Use it for a trial Euler step to predict y at t_n + h. Compute the slope k2 at that predicted point. Then step from y_n with the average of k1 and k2 to get y_(n+1).
+  A["Current point (tₙ, yₙ)"] --> B["Slope at the start: k₁ = f(tₙ, yₙ)"]
+  B --> C["Predict: yₙ + h·k₁ at tₙ + h"]
+  C --> D["Slope at the prediction: k₂"]
+  D --> E["Correct: yₙ₊₁ = yₙ + (h/2)(k₁ + k₂)"]
+```
+
 ### Example 2
 
 Use improved Euler with $h = 0.5$ for $y' = t + y$, $y(0) = 1$, to estimate $y(1)$.
