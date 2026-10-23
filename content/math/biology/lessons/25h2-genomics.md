@@ -85,7 +85,7 @@ flowchart TD
   C[Cas9 makes a double-strand break] --> N[Nonhomologous end joining]
   C --> H["Homology-directed repair (needs a supplied template)"]
   N --> I["Small insertions or deletions (indels)"]
-  I --> K[Frameshift: gene knocked out]
+  I --> K["Often a frameshift: gene knocked out"]
   H --> E["Precise edit: chosen base change or inserted sequence"]
   H -.- L[Less frequent; mainly in dividing cells]
 ```

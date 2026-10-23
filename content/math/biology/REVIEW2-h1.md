@@ -1,0 +1,37 @@
+# REVIEW2-h1: Honors module bio-h1, Research and biostatistics
+
+Reviewer: independent round 2 review. Scope: lessons 41–44, questions/h1.yaml (all 59), drills/h1.yaml (8),
+glossary-h1.yaml (52 terms), cards-h1.yaml (39), images/h1-*.svg (6), 3 Mermaid diagrams, 2 plots.
+`content/math/check-module.sh biology h1` after fixes: **OK, zero problems** (4 lessons, 59 questions, 8 drills, 39 cards).
+
+Counts: **answer-key errors 0, factual fixes 1, picture fixes 1, other fixes 3** (typography in 11 questions, drill tolerances, drill wording).
+
+## Changes
+
+| Where | What was wrong | Change | Source / check |
+|---|---|---|---|
+| Lesson 43, "The idea of the t-test" | The test is taught as $t = \Delta\bar{x}/\sqrt{\text{SE}_1^2+\text{SE}_2^2}$ with df $= n_1+n_2-2$ for "groups of sizes $n_1$ and $n_2$". That equals Student's pooled test only when $n_1 = n_2$; with unequal $n$ it is a hybrid (Welch's SE with Student's df). The simplification was not labeled. | Added two sentences: with equal group sizes (all examples) it is exactly Student's two-sample test; with unequal sizes the standard test pools the SDs, so $t$ differs slightly. | Algebra: pooled SE $= s_p\sqrt{2/n} = \sqrt{(s_1^2+s_2^2)/n}$ when $n_1=n_2$; verified numerically in Python. |
+| images/h1-error-bars.svg | Caption under the SD panel said "± 10.9" for pond water; SD = 10.954, which rounds to 11.0 (lesson table says 10.95; alt text says "about 11"). Bar geometry itself was correct (10.94 bpm half-length). | Text changed to "± 11.0 and ± 10.4". | numpy std(ddof=1) of the 8 values. |
+| bio-qh-h1-19, -24, -26, -29, -33, -36, -49, -53, -54 | Apostrophes had been dropped: "populations true spread", "doesnt", "variables distribution", "datas units", "dont cancel", "each ones activity", "moths form", "Majeruss", "papers data", "A genes activity", "drinks maker". A student would read these as plurals ("the moths form"). | Restored the apostrophes (YAML-escaped where the string is single-quoted). | — |
+| drills/h1.yaml bio-h-t-stat | $|t|$ tolerance 0.02. The prompt asks for SE$_\text{diff}$ to 2 dp; a learner who then divides by the rounded SE can be off by up to 0.025 (12 of 9,530 valid parameter sets fail). | Tolerance 0.03. The 0.15 margin around the critical value already keeps the reject/fail decision unambiguous. | Exhaustive Python enumeration of the drill's parameter space. |
+| drills/h1.yaml bio-h-chi-independence | $\chi^2$ tolerance 0.03. A learner using expected counts and $|O-E|$ rounded to 2 dp (as the solution displays them) can be off by up to 0.041 (about 0.07% of cases). | Tolerance 0.05 (decision margin of 0.2 unchanged). | Python simulation, 200,000 draws. |
+| drills/h1.yaml bio-h-chi-independence prompt | "reject independence at $p = 0.05$" conflates the p-value with the significance level, which lesson 43 is careful to separate. | "at the 0.05 significance level"; "Critical values at $\alpha = 0.05$". | — |
+
+## Checked and found right (things a reader might doubt)
+
+All numbers recomputed in Python (numpy/scipy).
+
+- **Lesson 41.** Example 1: $11/2.5 = 4.4$, $4.4^2 = 19.36 \to 20$; $11/\sqrt{20} = 2.46$; $(11/1.25)^2 = 77.44 \to 78$. Salk trial table matches the Freedman–Pisani–Purves tabulation of Francis (1955); $(71-28)/71 = 60.6\%$, $(54-25)/54 = 53.7\%$; cases $28\times2 = 56$, $71\times2 = 142$. The "no consent" rate (46) being below placebo (71) and the hygiene explanation are the standard FPP account. Tuskegee 1932–1972, Belmont 1979 (three principles correct), Russell and Burch 1959, EU Directive 2010/63/EU covering cephalopods: correct.
+- **Lesson 42.** Ticks: sum 58, mean 6.44, median 3. Wing SD $\sqrt{0.025} = 0.158$. *Daphnia* table: means 213.0/245.0, medians 211.0/245.5, ranges 32/31, SD 10.95/10.36, SE 3.87/3.66; ±2 SE CIs 205.3–220.7 and 237.7–252.3; $t_{0.975,7} = 2.365$ gives 203.8–222.2 and 236.3–253.7. $t$ multipliers 2.776 (df 4), 2.365 (df 7), 2.093 (df 19), 2.045 (df 29), 2.001 (df 59). Fertilizer example: $t = 1.278$, df 22, $p = 0.21$ (SE bars); read as 95% CIs, SE $= $ arm/2.201 $\approx$ half, $t = 2.81$, $p = 0.010$: both "≈ 0.2" and "≈ 0.01" correct. Box plot: median 5, quartiles 2 and 11 (median-of-halves method, stated), fence 24.5, whisker 19, outlier 34, mean 8.27. Error-bar rules (overlapping SE bars ⇒ $p > 0.05$; non-overlapping 95% CIs ⇒ $p < 0.05$; ~half-arm overlap ≈ 0.05) are correct for independent, similar-sized groups, which the lesson states (Cumming, Fidler and Vaux 2007). normpdf(2) = 0.054 matches the plot segments; 68.3% within 1 SD.
+- **Lesson 43.** Mendel 705:224: $\chi^2 = 0.391$, $p = 0.532$. Kettlewell 2 × 2: expected 107.92/339.08/33.08/103.92, $\chi^2 = 11.84$ (scipy, no correction), $p = 0.00058$; Yates 11.06. Release numbers (447 carbonaria, 137 typica, 46 insularia; 27.5% and 13% recaptured; 149 total recaptures) confirmed on Wikipedia "Kettlewell's experiment"; 123 + 18 + 8 (insularia, 17%) = 149, so the reconstructed counts are consistent. *Daphnia* $t$: SE$_\text{diff}$ 5.33, $t = 6.0$, df 14, $p = 3.2\times10^{-5}$ (scipy ttest_ind agrees). Critical $t$ table (2.57, 2.23, 2.14, 2.09, 2.04, 1.96) and 2.07 for df 22 correct. Cricket regression: products sum 624, $S_{xx} = 90$, $b = 6.933$, $a = -28.93$, $\hat y(20) = 109.7$, $r = 0.9955$, $r^2 = 0.991$. Dolbear's law gives about 7.2 chirps/min per °C, so the "realistic" data are plausible. Messerli (2012) $r = 0.791$.
+- **Lesson 44.** Example 1: 55%, fold 1.55, $t = 0.66/0.122 = 5.41$, crit$_{18}$ 2.101. The figure SVG's plotted dots reproduce the stated values exactly (means 1.20 and 1.86 g, SE 0.070 and 0.096), the error bars are ±SE, and panel B's points give $r = 0.988$ ("r = 0.99") with the drawn line equal to the least-squares fit. bioRxiv 2013, medRxiv 2019, Wakefield retraction 2010, Danish MMR cohorts 2002/2019: correct.
+- **Questions.** Worked all 59 before reading keys; every key and explanation is right, and every distractor explanation's arithmetic checks (e.g. -37: 1.71, 3.0, 0.96; -40: 166.3, 195.2, 123.6; -35: 11 = cells − 1, 7 = rows + columns). Order questions -13, -29, -45, -56 have one defensible order. Select-all -12, -26, -43, -57 correct. Text answers (-10, -14, -28, -41, -44, -59) have adequate accept lists. Label markers on both images sit on the named parts (rendered with markers).
+- **Drills.** Generated instances and compared with scipy (chi2_contingency, linregress, std ddof=1, pooled vs SE$_\text{diff}$ for equal $n$): all match. Critical values in bio-h-t-stat (2.12, 2.04, 2.01 for df 16, 30, 48) correct. No placeholder collisions found.
+- **Pictures and diagrams.** All 6 SVGs rendered: biology/statistics correct, text readable, nothing cut off (other than the SD label above). The 3 Mermaid diagrams are correct and their accDescr describe the whole diagram. Previews deleted.
+- **Glossary and cards.** All 52 definitions and 39 cards are correct.
+
+## Left uncertain / notes
+
+- The Kettlewell recapture counts (123, 18) are reconstructed from published percentages (the writer's note says so); they agree with the published total of 149. The lesson calls them "his counts", which is fair.
+- The Salk-trial rates count all reported polio cases (FPP's table), while explanation -07 speaks of "paralytic polio" vulnerability; this matches the epidemiological argument and is not wrong.
+- Writer's NOTES2 says they deleted every `*.png` in the shared scratchpad; outside this module, not checked.
