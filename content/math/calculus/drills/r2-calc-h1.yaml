@@ -89,27 +89,6 @@
     Because the limit exists (monotone convergence theorem), let $n \to \infty$ in the recursion: $L = \sqrt{{cc} {bb:signedcoef}L}$, so $L^2 = {cc} {bb:signedcoef}L$, that is $L^2 - {bb:coef}L - {cc} = 0$.
     Its roots are ${L}$ and a negative number; the terms are positive, so $L =$ **{L}**.
 
-- id: calc-h1-r2-bisection-steps
-  title: How many halvings?
-  topic: Proving the IVT and EVT
-  vars:
-    a0: {min: -3, max: 3}
-    w: {min: 1, max: 5}
-    tol: {choices: [{label: '0.01', value: 100}, {label: '0.001', value: 1000}, {label: '0.0001', value: 10000}]}
-  calc:
-    b0: a0 + w
-    ratio: w*tol
-    k: floor(log2(ratio)) + 1
-    km1: k - 1
-    lo2: 2^(k - 1)
-    hi2: 2^k
-  prompt: 'The bisection proof of the IVT starts with $[{a0}, {b0}]$ and halves the interval at every step. After how many halvings is the kept interval first shorter than ${tol}$?'
-  answer: k
-  format: integer
-  solution: |-
-    After $k$ halvings the length is $\dfrac{{w}}{2^k}$. We need $\dfrac{{w}}{2^k} < {tol}$, that is $2^k > {ratio}$.
-    Since $2^{{km1}} = {lo2}$ is not more than {ratio} but $2^{{k}} = {hi2}$ is, the answer is **{k}** halvings.
-
 - id: calc-h1-r2-upper-lower
   title: Upper and lower sums for x²
   topic: Upper and lower sums

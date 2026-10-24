@@ -12,7 +12,7 @@ refs: [de-ref-solutions]
 
 Lesson 37 left one case open: when the Jacobian has purely imaginary (or zero) eigenvalues,
 the nonlinear terms decide, and linearization can't say which way. For Lotka–Volterra and the
-undamped pendulum a conserved quantity rescued us. This honors lesson turns that rescue into
+undamped pendulum a **conserved quantity** rescued us. This honors lesson turns that rescue into
 a general method.
 
 A marble rolling in a bowl with friction keeps losing energy, so it ends up at the bottom; we
@@ -30,9 +30,9 @@ Shift the equilibrium to the origin first ($u = x - x_0$, $v = y - y_0$, as in L
 - It is asymptotically stable if it is Lyapunov stable and, in addition, every solution that
   starts close enough tends to the origin as $t \to \infty$.
 
-A center (Lesson 35) is stable but not asymptotically stable. (The "stays close" part is not
-automatic: in some unusual systems every nearby solution reaches the equilibrium only after a
-large excursion, and such equilibria are not called stable.)
+A center (Lesson 35) is stable but not asymptotically stable. (Attracting alone is not
+enough: in some unusual systems nearby solutions reach the equilibrium only after a large
+excursion.)
 
 ## Energy as the model
 
@@ -64,14 +64,14 @@ the rate of change of $V$ along a solution:
 
 $$\dot V(x, y) = V_x\,F(x, y) + V_y\,G(x, y) = \nabla V \cdot (F, G).$$
 
-This is the **derivative along trajectories**. It is computed straight from the right-hand
-sides, so no solution is needed. Geometrically, $\nabla V$ points across the level curves of $V$
+This is the **derivative along trajectories**, computed straight from the right-hand sides:
+no solution needed. Geometrically, $\nabla V$ points across the level curves of $V$
 toward higher values, so $\dot V < 0$ at a point means the flow crosses the level curve there
 heading inward, toward lower $V$.
 
 A function $V$ is **positive definite** near the origin if $V(0, 0) = 0$ and $V > 0$ at every other
-point of some disk around the origin. Think of its graph as a bowl and its small level curves
-as nested rings around the origin.
+point of some disk around the origin. Picture its graph as a bowl, with small level curves
+nested around the origin.
 
 ## Lyapunov's theorem
 
@@ -248,8 +248,7 @@ Kharkov. It offered two methods: the first works with series expansions of solut
 Lyapunov exponents of Lesson 92 grew out of it); the second is this lesson's direct method.
 A French translation appeared in 1907, but the method became an everyday tool only in the
 mid-twentieth century, first in Soviet stability and control theory and then, after Rudolf
-Kalman and John Bertram's 1960 papers, among Western control engineers. Today Lyapunov
-functions certify the stability of robots, aircraft controllers and power grids.
+Kalman and John Bertram's 1960 papers, among Western control engineers.
 
 ## Common mistakes
 

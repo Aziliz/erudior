@@ -126,7 +126,7 @@ The potential of Example 1, $\mathbf A = \left\langle \tfrac{z^3}{3} - x^2y,\; -
 
 Many fields are neither curl-free nor divergence-free. Helmholtz's theorem says that they are always a sum of one of each.
 
-**Helmholtz decomposition.** Let $\mathbf F$ be a vector field on all of $\mathbb R^3$ with continuous second partial derivatives that dies off fast enough at infinity (for instance, $\mathbf F = \mathbf 0$ outside some ball). Then
+**Helmholtz decomposition**. Let $\mathbf F$ be a vector field on all of $\mathbb R^3$ with continuous second partial derivatives that dies off fast enough at infinity (for instance, $\mathbf F = \mathbf 0$ outside some ball). Then
 
 $$\mathbf F = -\nabla\phi + \nabla\times\mathbf A,$$
 
@@ -151,10 +151,10 @@ Without a condition at infinity, uniqueness fails. The constant field $\langle 1
 ```mermaid
 flowchart TD
   accTitle: Which potentials a smooth vector field F has
-  accDescr: If curl F is zero on a simply connected region, F is the gradient of a scalar potential. If div F is zero on all of space or a star-shaped region, F is the curl of a vector potential, unique up to adding a gradient. If F has both curl and divergence and dies off at infinity on all of space, the Helmholtz decomposition writes F as minus the gradient of phi plus the curl of A, where the divergence of F is the source of phi and the curl of F is the source of A.
+  accDescr: If curl F is zero on a simply connected region, F is the gradient of a scalar potential. If div F is zero on all of space or a star-shaped region, F is the curl of a vector potential, unique up to adding a gradient. For any F on all of space that dies off at infinity, the Helmholtz decomposition writes F as minus the gradient of phi plus the curl of A, where the divergence of F is the source of phi and the curl of F is the source of A.
   Q{"What do you know about F?"} -- "curl F = 0, simply connected region" --> S["F = grad f (scalar potential)"]
   Q -- "div F = 0, star-shaped region or all of space" --> V["F = curl A (vector potential, up to adding a gradient)"]
-  Q -- "neither, on all of space, F dies off at infinity" --> H["Helmholtz: F = -grad phi + curl A"]
+  Q -- "any F on all of space that dies off at infinity" --> H["Helmholtz: F = -grad phi + curl A"]
   H --> P["div F is the source of phi; curl F is the source of A"]
 ```
 

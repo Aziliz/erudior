@@ -11,16 +11,17 @@
     hb: b/2
     mhc: -c/2
     ma: -a
+    mc: -c
   prompt: 'The field $\mathbf F = \langle {a:coef}y^2,\; {b:coef}z,\; {c:coef}xy\rangle$ has divergence 0. Use Method 1 of the lesson ($A_3 = 0$, integrals starting from 0) to find $\mathbf A = \langle A_1, A_2, 0\rangle$ with $\nabla\times\mathbf A = \mathbf F$.'
   answers:
     - {kind: expression, expression: 'hb*z^2 + mhc*x*y^2', variables: [x, y, z], label: '$A_1 =$', show: '${hb:coef}z^2 {mhc:signedcoef}xy^2$'}
     - {kind: expression, expression: 'ma*y^2*z', variables: [x, y, z], label: '$A_2 =$', show: '${ma:coef}y^2z$'}
   solution: |-
     Here $P = {a:coef}y^2$, $Q = {b:coef}z$, $R = {c:coef}xy$, so $R(x, s, 0) = {c:coef}xs$.
-    $A_2 = -\int_0^z P\,dt = -\int_0^z {a:coef}y^2\,dt = {ma:coef}y^2z$.
-    $A_1 = \int_0^z {b:coef}t\,dt - \int_0^y {c:coef}xs\,ds = {hb:coef}z^2 {mhc:signedcoef}xy^2$.
+    $A_2 = -\int_0^z P\,dt = -\int_0^z ({a:coef}y^2)\,dt = {ma:coef}y^2z$.
+    $A_1 = \int_0^z ({b:coef}t)\,dt - \int_0^y ({c:coef}xs)\,ds = {hb:coef}z^2 {mhc:signedcoef}xy^2$.
     So $\mathbf A = \langle$ **${hb:coef}z^2 {mhc:signedcoef}xy^2$**, **${ma:coef}y^2z$**, $0\rangle$.
-    Check: $\nabla\times\mathbf A = \langle 0 - ({ma:coef}y^2),\; 0 - 0,\; 0 - ({c:coef}xy)\cdot(-1)\rangle$, which is $\langle {a:coef}y^2,\; {b:coef}z,\; {c:coef}xy\rangle$ once you note that $\partial_z A_1 = {b:coef}z$ gives the middle component.
+    Check: $\nabla\times\mathbf A = \langle -\partial_zA_2,\; \partial_zA_1,\; \partial_xA_2 - \partial_yA_1\rangle = \langle {a:coef}y^2,\; {b:coef}z,\; 0 - ({mc:coef}xy)\rangle = \mathbf F$.
 - id: mv-m8-r3-uniform-field
   title: Vector potential of a uniform field
   topic: Vector potentials
@@ -59,11 +60,13 @@
   calc:
     k: -a/6
     h: -a/2
+    k6: -a
+    k3: -a/2
   prompt: 'The vector potential $\mathbf A = \langle {p:coef}z^2,\; {a:coef}xy,\; {q:coef}x\rangle$ has $\nabla\cdot\mathbf A = {a:coef}x$. Find $\chi = \chi(x)$, a function of $x$ alone with $\chi(0) = 0$ and $\chi''(0) = 0$, such that $\mathbf A + \nabla\chi$ is in the Coulomb gauge. Then give the first component of $\mathbf A + \nabla\chi$.'
   answers:
     - {kind: expression, expression: 'k*x^3', variables: [x], label: '$\chi =$', show: '${k:coef}x^3$'}
     - {kind: expression, expression: 'p*z^2 + h*x^2', variables: [x, z], label: 'First component', show: '${p:coef}z^2 {h:signedcoef}x^2$'}
   solution: |-
-    We need $\nabla^2\chi = -\nabla\cdot\mathbf A = {k:coef}\cdot6x$, and for $\chi = \chi(x)$ that is $\chi'' = {k:coef}\cdot6x$.
-    Integrating twice with $\chi(0) = 0$ and $\chi'(0) = 0$: $\chi' = {k:coef}\cdot3x^2$ and $\chi =$ **${k:coef}x^3$**.
-    $\nabla\chi = \langle 3({k})x^2, 0, 0\rangle$, so the first component becomes **${p:coef}z^2 {h:signedcoef}x^2$**. The curl is unchanged, and the new divergence is ${a:coef}x + 6({k})x = 0$.
+    We need $\nabla^2\chi = -\nabla\cdot\mathbf A = {k6:coef}x$, and for $\chi = \chi(x)$ that is $\chi'' ={k6:coef}x$.
+    Integrating twice with $\chi(0) = 0$ and $\chi'(0) = 0$: $\chi' = {k3:coef}x^2$ and $\chi =$ **${k:coef}x^3$**.
+    $\nabla\chi = \langle {k3:coef}x^2, 0, 0\rangle$, so the first component becomes **${p:coef}z^2 {h:signedcoef}x^2$**. The curl is unchanged, and the new divergence is ${a:coef}x {k6:signedcoef}x = 0$.

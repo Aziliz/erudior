@@ -137,7 +137,7 @@ The CLT figure is the smallest, but it is an approximation; Hoeffding's is a gua
 for every $p$ and every $n$.
 
 ```plot
-{"x": [0, 1500], "y": [0, 0.6], "xLabel": "sample size n", "yLabel": "bound on P(|p̂ − p| ≥ 0.05)", "functions": [{"f": "100/x", "from": 200, "to": 1500, "label": "Chebyshev"}, {"f": "2*exp(-0.005*x)", "from": 280, "to": 1500}, {"f": "2*(1 - normcdf(0.1*sqrt(x)))", "from": 40, "to": 1500, "dashed": true}], "labels": [{"at": [470, 0.4], "text": "Hoeffding"}, {"at": [175, 0.03], "text": "CLT approx."}], "caption": "Tail bounds for a sample proportion with ε = 0.05: Chebyshev decays like 1/n, Hoeffding exponentially; the dashed CLT value (worst case p = 0.5) is an approximation, not a bound"}
+{"x": [0, 1500], "y": [-0.05, 0.6], "xAxisAt": "bottom", "xLabel": "sample size n", "yLabel": "bound on P(|p̂ − p| ≥ 0.05)", "functions": [{"f": "100/x", "from": 200, "to": 1500, "label": "Chebyshev"}, {"f": "2*exp(-0.005*x)", "from": 280, "to": 1500}, {"f": "2*(1 - normcdf(0.1*sqrt(x)))", "from": 40, "to": 1500, "dashed": true}], "labels": [{"at": [470, 0.4], "text": "Hoeffding"}, {"at": [175, 0.03], "text": "CLT approx."}], "caption": "Tail bounds for a sample proportion with ε = 0.05: Chebyshev decays like 1/n, Hoeffding exponentially; the dashed CLT value (worst case p = 0.5) is an approximation, not a bound"}
 ```
 
 ### Example 4: checking a classifier

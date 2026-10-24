@@ -4,7 +4,7 @@ module: calc-h1
 title: Why the big theorems are true
 minutes: 50
 topics: [Proving the IVT and EVT, Sequential continuity]
-drills: [calc-h1-r2-bisection-steps, calc-d-ivt-bisect]
+drills: [calc-m1-r2-bisection-steps, calc-d-ivt-bisect]
 refs: [calc-ref-limits, calc-ref-derivatives]
 ---
 ## Two theorems taken on faith

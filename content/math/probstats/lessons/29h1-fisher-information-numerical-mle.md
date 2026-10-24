@@ -114,7 +114,7 @@ overshoot. So $\hat\lambda \approx 0.874$ faults per day, much less than the nai
 would have pulled the average down.
 
 ```plot
-{"x": [0.2, 2], "y": [-8, 22], "xLabel": "λ", "yLabel": "score ℓ′(λ)", "functions": [{"f": "15/x - 10/(1 - e^(-x))"}], "segments": [{"from": [0.2, 0], "to": [2, 0]}, {"from": [1.5, -2.872], "to": [0.5328, 0], "dashed": true}, {"from": [0.5328, 0], "to": [0.5328, 3.943], "dashed": true}, {"from": [0.5328, 3.943], "to": [0.7467, 0], "dashed": true}], "points": [{"at": [1.5, -2.872]}, {"at": [0.8742, 0], "label": "MLE 0.874"}], "labels": [{"at": [1.5, -5.4], "text": "start 1.5"}], "caption": "Newton's method on the score of the truncated Poisson: each dashed tangent line is followed to the axis to get the next guess"}
+{"x": [0.2, 2], "y": [-8, 22], "xAxisAt": "bottom", "xLabel": "λ", "yLabel": "score ℓ′(λ)", "functions": [{"f": "15/x - 10/(1 - e^(-x))"}], "segments": [{"from": [0.2, 0], "to": [2, 0]}, {"from": [1.5, -2.872], "to": [0.5328, 0], "dashed": true}, {"from": [0.5328, 0], "to": [0.5328, 3.943], "dashed": true}, {"from": [0.5328, 3.943], "to": [0.7467, 0], "dashed": true}], "points": [{"at": [1.5, -2.872]}, {"at": [0.8742, 0], "label": "MLE 0.874"}], "labels": [{"at": [1.5, -5.4], "text": "start 1.5"}], "caption": "Newton's method on the score of the truncated Poisson: each dashed tangent line is followed to the axis to get the next guess"}
 ```
 
 ### Example 2: standard error and interval

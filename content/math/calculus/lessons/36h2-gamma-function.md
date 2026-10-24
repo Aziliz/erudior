@@ -111,7 +111,7 @@ The minus sign in $dx$ is used up by swapping the limits back into increasing or
 
 ### Example 5 (all the moments of a waiting time)
 
-The honors lesson on probability density functions (Lesson 30) modeled the waiting time $X$ until the next random event with the exponential density $f(x) = \lambda e^{-\lambda x}$ for $x \ge 0$, and found its mean $\frac1\lambda$ with integration by parts. The gamma function gives every power at once. By the first pattern with $a = \lambda$:
+The honors lesson on probability density functions (Lesson 30) modeled the waiting time $X$ until the next random event with the exponential density $f(x) = \lambda e^{-\lambda x}$ for $x \ge 0$, and found its mean $\frac1\lambda$ from an antiderivative that it checked by differentiating (Lesson 31's integration by parts is how you would find that antiderivative). The gamma function gives every power at once. By the first pattern with $a = \lambda$:
 
 $$E(X^n) = \int_0^\infty x^n\cdot\lambda e^{-\lambda x}\,dx = \lambda\cdot\frac{n!}{\lambda^{n+1}} = \frac{n!}{\lambda^n}.$$
 
