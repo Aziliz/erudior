@@ -142,10 +142,10 @@
   lesson: de1-family
   topic: Possessives
   stem: 'You ask two children: "Ist das ___ Katze?"'
-  choices: ['euer', 'euere', 'eure', 'deine']
+  choices: ['euer', 'ihre', 'eure', 'deine']
   answer: 2
   explanation: |-
-    Talking to two children you use ihr, so "your" is euer. Katze is feminine, so euer takes -e and drops its second e: eure Katze. "deine" is for one person only.
+    Talking to two children you use ihr, so "your" is euer. Katze is feminine, so euer takes -e and usually drops its second e: eure Katze. "ihre" would mean her or their cat, not yours, and "deine" is for one person only.
 - id: de1-q-0606
   lesson: de1-family
   topic: Family

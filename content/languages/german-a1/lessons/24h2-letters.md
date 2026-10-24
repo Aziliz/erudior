@@ -81,15 +81,10 @@ as if you couldn't be bothered to write three words. Don't use it.
 
 ### Saying hello around the German-speaking countries
 
-Spoken greetings change from region to region. You learned *Grüß Gott* in lesson 1, and the
-honors lesson on the German-speaking world (module 1) shows more. Three you will hear often:
-
-- *Moin* (or *Moin moin*): northern Germany, at any time of day, not just in the morning.
-- *Servus*: Bavaria and Austria, informal, for both hello and goodbye.
-- *Grüezi*: Switzerland, a polite hello to people you address with *Sie*.
-
-You don't need to use them yourself, but it's good to recognize them. In writing, stick to
-the openings in the table.
+A quick recap from the module 1 honors lesson on the German-speaking world: *Moin* is the
+northern hello at any time of day, *Grüß Gott* the polite greeting of southern Germany and
+Austria, *Servus* the informal hello and goodbye of Bavaria and Austria, and *Grüezi* the polite
+Swiss hello. Recognize them when you hear them; in writing, stick to the openings in the table.
 
 ## Sie and du in writing
 
@@ -106,12 +101,9 @@ Two spelling rules:
 
 ### Who says du first?
 
-German has two verbs for this: *duzen* (to say *du* to someone) and *siezen* (to say *Sie*).
-Traditionally the older person, or the person in the higher position, offers *du*: *Wollen
-wir uns duzen?* A younger person or a new employee waits. This is a custom, not a law, and
-it is changing: many young people, sports clubs and some companies use *du* from the start.
-If you are not sure, use *Sie*; nobody is offended by it, and the other person will offer
-*du* if they want to.
+A recap from the same module 1 lesson: traditionally the older or more senior person offers
+*du* (*Wollen wir uns duzen?*). It's a custom, not a rule, and many young people, clubs and
+companies use *du* from the start. In a letter, if you are not sure, write *Sie*.
 
 ## A message with three points
 

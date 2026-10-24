@@ -83,7 +83,7 @@ neuter, *-e* for feminine. Unlike *ein*, it also has a plural form, also with *-
 | their | ihr Bruder | ihre Schwester | ihr Kind | ihre Eltern |
 | your (formal) | Ihr Bruder | Ihre Schwester | Ihr Kind | Ihre Eltern |
 
-*euer* drops its second *e* when an ending is added: *eure*, not ~~euere~~.
+*euer* usually drops its second *e* when an ending is added: *eure*. The longer *euere* is also correct (dictionaries such as Duden list it), but it's much less common, so use *eure*.
 
 These are the forms for the subject of the sentence, the person or thing doing the action or
 being described. Grammar calls this form the **nominative**: it's the first of German's four
@@ -228,7 +228,7 @@ things by their grammatical gender: a masculine noun is "he" (*er*) and takes *s
 - Using the owner's gender for the ending. ~~Anna und ihre Vater~~ → *Anna und ihr Vater*:
   *Vater* is masculine, so no ending.
 - Translating "her" as *sie*. *sie* is "she / they"; the possessive "her" is *ihr*: *ihr Bruder*.
-- Saying ~~euere~~. The form is *eure*.
+- Keeping the second *e*: *euere* isn't wrong, but it's rare. The everyday form is *eure*.
 - Writing *Ihr* (formal your) in lower case, or the plural pronoun *ihr* with a capital.
   *Wie ist Ihr Name?* (formal) vs *Wo wohnt ihr?* (you all).
 - Saying ~~er habt~~. It's *er hat*; *habt* belongs to *ihr*.

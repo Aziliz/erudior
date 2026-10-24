@@ -103,12 +103,12 @@ Put a comma before the infinitive clause; it's required after a noun (*Zeit, Lus
 
 ### Infinitive clause or dass?
 
-When the two subjects are different, you can't use *zu*; use a *dass* clause (lesson 3):
+When the second verb needs a new subject of its own, one that isn't already in the main clause, you can't use *zu*; use a *dass* clause (lesson 3):
 
 - *Ich hoffe, morgen früher zu gehen.* — I hope to leave earlier tomorrow. (I hope, I leave)
 - *Ich hoffe, dass mein Chef nichts dagegen hat.* — I hope my boss doesn't mind. (I hope, the boss minds)
 
-One refinement: "different subjects" means the second action needs a new subject that isn't in the main clause. With *bitten*, the person asked is already named (*Der Chef bittet uns, morgen früher zu kommen*: *uns* will come), so *zu* is right. This chart sums up when you need *zu* and where it goes:
+So it isn't enough for the doer to be a different person: with *bitten*, the person asked is already named (*Der Chef bittet uns, morgen früher zu kommen*: *uns* will come), so *zu* is right. This chart sums up when you need *zu* and where it goes:
 
 ```mermaid
 flowchart TD
@@ -242,7 +242,7 @@ In English:
 - No *zu* after modal verbs, *werden/würde*, *gehen* (+ activity) and *lassen*.
 - Separable verbs put *zu* inside: *anzurufen, aufzuhören, krankzumelden*.
 - Use a comma before the infinitive clause, especially after *Zeit/Lust* and *es ist …*.
-- Two different subjects → *dass*, not *zu*.
+- Second verb needs a new subject not named in the main clause → *dass*, not *zu* (but *Der Chef bittet uns, … zu kommen*).
 - *sich um eine Stelle bewerben*, *bei einer Firma*; *zuständig für*; on the phone: company + full name, *Kann ich etwas ausrichten?*
 
 The words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.
