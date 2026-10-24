@@ -73,7 +73,7 @@ the other with Beta(8, 2) (mean 0.8). After both see 30 successes in 100 trials,
 Beta(32, 78) and Beta(38, 72), have means 0.291 and 0.345 and overlap heavily.
 
 ```plot
-{"x": [0, 1], "y": [0, 10], "xLabel": "θ", "yLabel": "density", "functions": [{"f": "72 x (1 - x)^7", "dashed": true}, {"f": "72 x^7 (1 - x)", "dashed": true}, {"f": "exp(lgamma(110) - lgamma(32) - lgamma(78) + 31 ln(x) + 77 ln(1 - x))"}, {"f": "exp(lgamma(110) - lgamma(38) - lgamma(72) + 37 ln(x) + 71 ln(1 - x))"}], "labels": [{"at": [0.1, 4.9], "text": "prior"}, {"at": [0.1, 4.2], "text": "Beta(2, 8)"}, {"at": [0.86, 4.1], "text": "prior Beta(8, 2)"}, {"at": [0.5, 9.3], "text": "posteriors after 30 of 100"}], "caption": "Two very different priors (dashed) lead to similar posteriors (solid) once 100 observations are in"}
+{"x": [0, 1], "y": [0, 10], "xLabel": "θ", "yLabel": "density", "functions": [{"f": "72 x (1 - x)^7", "dashed": true}, {"f": "72 x^7 (1 - x)", "dashed": true}, {"f": "exp(lgamma(110) - lgamma(32) - lgamma(78) + 31 ln(x) + 77 ln(1 - x))"}, {"f": "exp(lgamma(110) - lgamma(38) - lgamma(72) + 37 ln(x) + 71 ln(1 - x))"}], "labels": [{"at": [0.1, 4.9], "text": "prior"}, {"at": [0.1, 4.2], "text": "Beta(2, 8)"}, {"at": [0.86, 4.1], "text": "prior Beta(8, 2)"}, {"at": [0.56, 9.3], "text": "posteriors after 30 of 100"}], "caption": "Two very different priors (dashed) lead to similar posteriors (solid) once 100 observations are in"}
 ```
 
 ### Example 1
