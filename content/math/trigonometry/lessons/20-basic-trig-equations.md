@@ -30,7 +30,7 @@ $$x = \pm\beta + 2k\pi.$$
 In the picture, the vertical line $x = c$ cuts the circle at the angle $\beta$ and at its mirror
 image across the $x$-axis, $-\beta$, which is the same point as $2\pi - \beta$.
 
-![A unit circle with a dashed vertical line x = c crossing it at two points. The upper point is at angle β, measured from the positive x-axis; the lower point is its mirror image across the x-axis, at angle 2π − β.](images/trig-m5-cos-equation.svg)
+![A unit circle with a dashed vertical line x = c crossing it at two points. The upper point is at angle β, measured from the positive x-axis; the lower point is its mirror image across the x-axis, at angle −β (marked clockwise below the axis), the same point as angle 2π − β.](images/trig-m5-cos-equation.svg)
 
 **$\tan x = c$** (any $c$). Tangent has period $\pi$, and one solution per period:
 $$x = \tan^{-1}c + k\pi.$$

@@ -15,8 +15,8 @@
 <circle cx="230.0" cy="50.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
 <text x="230.0" y="36.0" font-size="20" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-weight="bold">C</text>
 <text x="419.0" y="182.0" font-size="17" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">M, midpoint of BC</text>
-<text x="307.3" y="269.3" font-size="17" text-anchor="start" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">G, centroid</text>
+<text x="318.0" y="304.0" font-size="17" text-anchor="start" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">G, centroid</text>
 <text x="138.0" y="196.0" font-size="17" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">midpoint of AC</text>
 <text x="325.0" y="370.0" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">midpoint of AB</text>
-<text x="171.7" y="280.7" font-size="17" text-anchor="middle" fill="#1f5f99" stroke="#ffffff" stroke-width="4" paint-order="stroke">median AM</text>
+<text x="190.0" y="332.0" font-size="17" text-anchor="middle" fill="#1f5f99" stroke="#ffffff" stroke-width="4" paint-order="stroke">median AM</text>
 </svg>

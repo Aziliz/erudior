@@ -12,7 +12,7 @@
 <polygon points="297.0,229.3 309.9,214.3 316.7,229.0" fill="#a8372a"/>
 <line x1="354.4" y1="202.5" x2="404.3" y2="309.4" stroke="#1f5f99" stroke-width="4"/>
 <polygon points="411.9,325.7 396.9,312.8 411.6,306.0" fill="#1f5f99"/>
-<line x1="354.4" y1="202.5" x2="311.3" y2="110.0" stroke="#1e7a45" stroke-width="4"/>
-<polygon points="303.7,93.7 318.7,106.6 304.0,113.5" fill="#1e7a45"/>
+<line x1="354.4" y1="202.5" x2="304.6" y2="95.6" stroke="#1e7a45" stroke-width="4"/>
+<polygon points="297.0,79.3 312.0,92.2 297.3,99.1" fill="#1e7a45"/>
 <circle cx="354.4" cy="202.5" r="4" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
 </svg>

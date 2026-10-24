@@ -154,7 +154,7 @@ of many runs, with standard error $\sigma = 1$:
 
 The best-looking and worst-looking sections both move about a third of the way back toward the
 average. The empirical Bayes reading: the spread of the $X_i$ ($S/7 = 2.017$) is only about twice the
-noise variance 1, so about half of what we see is noise, and extreme results are partly luck.
+noise variance 1, so about half of what we see is noise, and extreme results are partly luck. (Plugging $S/7$ into $B = \sigma^2/(\sigma^2 + \tau^2)$ would suggest shrinking by about half. James–Stein uses $(p - 3)\sigma^2/S = 5/14.12$ instead of $7/14.12$, because under a normal prior $E\big[(p - 3)\sigma^2/S\big]$ equals $B$ exactly, so it shrinks by 35%.)
 Ranking sections by the raw $X_i$ would overstate how different they are.
 
 ```shape

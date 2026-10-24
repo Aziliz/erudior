@@ -14,6 +14,6 @@
 <text x="192.8" y="65.1" font-size="20" text-anchor="middle" fill="#1f5f99" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic" font-weight="bold">u</text>
 <text x="552.6" y="192.1" font-size="20" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic" font-weight="bold">v</text>
 <text x="267.2" y="165.4" font-size="17" text-anchor="start" fill="#1e7a45" stroke="#ffffff" stroke-width="4" paint-order="stroke">w = u − proj</text>
-<text x="194.7" y="341.9" font-size="17" text-anchor="middle" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">projection of u onto v</text>
+<text x="205.0" y="366.0" font-size="17" text-anchor="middle" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">projection of u onto v</text>
 <text x="142.0" y="310.0" font-size="20" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic">θ</text>
 </svg>

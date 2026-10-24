@@ -89,7 +89,7 @@ It searches from the largest p-value downward and rejects everything below the l
 below its line.
 
 **Theorem** (Benjamini and Hochberg, 1995). If the $m$ test statistics are independent and the
-true-null p-values are uniform, then $\text{FDR} = \dfrac{m_0}{m}q \le q$. The same bound holds under a common kind
+true-null p-values are uniform, then $\text{FDR} = \dfrac{m_0}{m}q \le q$. (Benjamini and Hochberg proved the bound $\text{FDR} \le m_0q/m$; that it holds with equality was shown a few years later.) The same bound holds under a common kind
 of positive dependence (Benjamini and Yekutieli, 2001). For arbitrary dependence, replacing $q$ by
 $q/(1 + \frac12 + \dots + \frac1m)$ restores the guarantee, at a cost in power.
 
