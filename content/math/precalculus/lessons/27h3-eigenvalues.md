@@ -127,7 +127,7 @@ This matrix has trace 1 and determinant $-1$, so its eigenvalues solve $\lambda^
 
 $$\lambda = \frac{1 + \sqrt5}{2} \approx 1.618 \quad\text{and}\quad \lambda = \frac{1 - \sqrt5}{2} \approx -0.618.$$
 
-The first is the golden ratio $\varphi$. Since $|-0.618| < 1$, that part fades, and in the long run each Fibonacci number is about $\varphi$ times the one before: $\tfrac{89}{55} \approx 1.61818$, $\tfrac{144}{89} \approx 1.61798$, $\tfrac{233}{144} \approx 1.61806$, closing in on $1.61803\ldots$ Working the combination out exactly gives Binet's formula, $F_n = \dfrac{\varphi^n - (1 - \varphi)^n}{\sqrt5}$, which the Module 9 honors lesson on recurrence relations derives another way (its "characteristic equation" $x^2 = x + 1$ is this one in disguise). The same idea predicts the long-run growth rate of any population model of the form $\mathbf{x}_{n+1} = A\mathbf{x}_n$: it is the eigenvalue with the largest absolute value.
+The first is the golden ratio $\varphi$. Since $|-0.618| < 1$, that part fades, and in the long run each Fibonacci number is about $\varphi$ times the one before: $\tfrac{89}{55} \approx 1.61818$, $\tfrac{144}{89} \approx 1.61798$, $\tfrac{233}{144} \approx 1.61806$, closing in on $1.61803\ldots$ Working the combination out exactly gives Binet's formula, $F_n = \dfrac{\varphi^n - (1 - \varphi)^n}{\sqrt5}$, which the Module 9 honors lesson on recurrence relations derives another way (its "characteristic equation" $x^2 = x + 1$ is this one in disguise). The same idea predicts the long-run growth rate of any population model of the form $\mathbf{x}_{n+1} = A\mathbf{x}_n$: it is usually the eigenvalue with the largest absolute value (for the standard population models that eigenvalue is real and positive).
 
 ## Common mistakes
 

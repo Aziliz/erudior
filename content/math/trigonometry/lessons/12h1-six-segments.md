@@ -166,11 +166,11 @@ flowchart TD
 ```
 
 Two more lengths in the picture had names that survive in older books. The **versine** is
-$\text{versin}\,\theta = 1 - \cos\theta$, the segment $MA$ from the foot of the sine to the circle. The
-Indian name for it means "arrow": with the chord as a bowstring, it is the arrow's part between string
-and bow. The **exsecant** is $\text{exsec}\,\theta = \sec\theta - 1$, the segment $PT$ of the secant line that
-lies outside the circle. Half the versine, the *haversine*, is still used in the formula navigators
-and mapping software use for distances on a sphere.
+$\text{versin}\,\theta = 1 - \cos\theta$, the segment $MA$ from the foot of the sine to the circle. One
+Sanskrit name for it, *śara*, means "arrow": with the chord as a bowstring, it is the part of the arrow
+between string and bow. The **exsecant** is $\text{exsec}\,\theta = \sec\theta - 1$, the segment $PT$ of the secant line that
+lies outside the circle. Half the versine, the *haversine*, survives in the haversine formula, a
+standard way to compute distances along the surface of a sphere.
 
 ### Example 4
 
