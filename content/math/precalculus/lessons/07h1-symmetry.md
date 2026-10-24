@@ -115,7 +115,7 @@ For $2^x$, the domain is all reals:
 
 $$E(x) = \frac{2^x + 2^{-x}}{2}, \qquad O(x) = \frac{2^x - 2^{-x}}{2}.$$
 
-At $x = 1$: $E(1) = \frac{2 + 0.5}{2} = 1.25$ and $O(1) = 0.75$, which add to $2^1 = 2$. ✓ With base $e$ instead of 2, these two parts are famous enough to have names, the hyperbolic cosine and hyperbolic sine ($\cosh x$ and $\sinh x$), which you will meet in calculus.
+At $x = 1$: $E(1) = \frac{2 + 0.5}{2} = 1.25$ and $O(1) = 0.75$, which add to $2^1 = 2$. ✓ With base $e$ instead of 2, these two parts are famous enough to have names, the hyperbolic cosine and hyperbolic sine ($\cosh x$ and $\sinh x$), which return in the honors lesson on hyperbolic functions (Module 4) and in calculus.
 
 For $g$, the domain $x \ne 2$ is *not* symmetric: $g(-x)$ needs $x \ne -2$. So the split lives on the symmetric domain $x \ne \pm 2$. With $g(-x) = \dfrac{1}{-x - 2} = -\dfrac{1}{x + 2}$:
 
