@@ -77,10 +77,11 @@ $d^2 = a^2 + b^2$, the Pythagorean theorem.
 
 ### Example 2
 
-A cyclic quadrilateral has $AB = 5$, $BC = 6$, $CD = 4$, $DA = 3$, and diagonal $AC = 6.5$. Find $BD$.
+A cyclic quadrilateral has $AB = 4$, $BC = 8$, $CD = 6$, $DA = 4$, and diagonal $AC = 8$. Find $BD$.
 
-$6.5 \cdot BD = 5 \cdot 4 + 3 \cdot 6 = 38$, so $BD = \tfrac{38}{6.5} \approx 5.846$. (Ptolemy's theorem needs the
-quadrilateral to be cyclic; for a quadrilateral that is not, the left side is strictly larger.)
+$8 \cdot BD = AB \cdot CD + AD \cdot BC = 4 \cdot 6 + 4 \cdot 8 = 56$, so $BD = 7$. (Ptolemy's theorem needs the
+quadrilateral to be cyclic; for a quadrilateral that is not, the product of the diagonals is strictly
+smaller than the right side.)
 
 ## The sum formula in one line
 
@@ -129,9 +130,10 @@ Check: $120\sin 6^\circ \approx 12.5434$. ✓ In sexagesimal that is $12;32,36$.
 
 ## The one step that is not exact
 
-Halving from $12^\circ$ reaches $\tfrac34^\circ$, but no chain of halvings and differences reaches exactly $1^\circ$,
-because $1^\circ$ is not a sum of halvings of $3^\circ$... and indeed the multiple-angle work in the previous
-honors lesson shows that finding the $1^\circ$ chord from the $3^\circ$ chord means solving a cubic. Ptolemy
+Halving from $12^\circ$ gives $6^\circ$, $3^\circ$, $1\tfrac12^\circ$ and $\tfrac34^\circ$, and sums and differences of these give
+only multiples of $\tfrac34^\circ$. One degree is not among them. Getting the $1^\circ$ chord exactly from the $3^\circ$
+chord would mean dividing an angle by 3, and the previous honors lesson showed that this leads to a
+cubic equation. Ptolemy
 avoided the cubic with an inequality: for arcs $\beta < \alpha \le 180^\circ$,
 $$\frac{\text{crd}\,\alpha}{\text{crd}\,\beta} < \frac{\alpha}{\beta}.$$
 (In modern terms, $\tfrac{\sin u}{u}$ decreases as $u$ grows from 0 to $90^\circ$.) This traps the $1^\circ$ chord from both sides.

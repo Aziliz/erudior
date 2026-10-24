@@ -143,7 +143,7 @@ sine and cosecant are positive.
 ## The older functions: chords, versines and secants
 
 The first trigonometric tables were not tables of sines. The Greek astronomer Hipparchus (2nd century
-BC) is usually credited with the first table of **chords**, and Ptolemy's *Almagest* (2nd century AD)
+BC) is usually credited with the first table of chords, and Ptolemy's *Almagest* (2nd century AD)
 contains a chord table in half-degree steps for a circle of radius 60. In a circle of radius 1, the
 chord cut off by a central angle $\theta$ splits into two equal halves by the bisector of $\theta$, each the
 side opposite an angle $\tfrac{\theta}{2}$ in a right triangle with hypotenuse 1. So

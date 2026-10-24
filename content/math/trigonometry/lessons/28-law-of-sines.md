@@ -60,7 +60,7 @@ In the obtuse case the picture changes: the altitude from $C$ meets the extensio
 beyond $A$, and the right triangle it forms has the angle $180^\circ - A$ at $A$.
 
 ```shape
-{"polygons": [{"points": [[3, 0], [10, 0], [1, 3]]}], "segments": [{"from": [3, 0], "to": [1, 0], "dashed": true}, {"from": [1, 3], "to": [1, 0], "dashed": true, "label": "h"}], "rightAngles": [[[1, 0], [3, 0], [1, 3]]], "labels": [{"at": [3.2, -0.45], "text": "A"}, {"at": [10.35, -0.3], "text": "B"}, {"at": [1, 3.45], "text": "C"}, {"at": [2.05, 0.35], "text": "180° − A"}, {"at": [2.35, 1.75], "text": "b"}, {"at": [5.8, 1.85], "text": "a"}, {"at": [6.5, -0.45], "text": "c"}], "caption": "Obtuse A: h = b sin(180° − A) = b sin A, and still h = a sin B"}
+{"polygons": [{"points": [[3, 0], [10, 0], [0, 3.5]]}], "segments": [{"from": [3, 0], "to": [0, 0], "dashed": true}, {"from": [0, 3.5], "to": [0, 0], "dashed": true, "label": "h"}], "rightAngles": [[[0, 0], [3, 0], [0, 3.5]]], "labels": [{"at": [3.2, -0.45], "text": "A"}, {"at": [10.35, -0.3], "text": "B"}, {"at": [0, 3.95], "text": "C"}, {"at": [1.6, 0.4], "text": "180° − A"}, {"at": [2.0, 2.0], "text": "b"}, {"at": [5.4, 2.3], "text": "a"}, {"at": [6.5, -0.45], "text": "c"}], "caption": "Obtuse A: h = b sin(180° − A) = b sin A, and still h = a sin B"}
 ```
 
 ## AAS and ASA

@@ -35,9 +35,9 @@
 - 33: two-way table picture with expected counts in parentheses (SVG); Mermaid "choosing a test
   for count data" chart.
 
-**Pictures** (8 SVGs, original, all < 10 KB, rendered and checked, markers checked on blanks):
+**Pictures** (8 SVGs, original, all ≤ 11 KB, rendered and checked, markers checked on blanks):
 ps-m7-error-regions(+blank), ps-m7-two-way-table(+blank), ps-m7-h-trinity(+blank),
-ps-m7-h-sprt-lines(+blank). Generator scripts were in /tmp/r2-ps-m7/gen.
+ps-m7-h-sprt-lines(+blank). (Generated with small Python scripts; scratch files deleted.)
 
 **Diagrams** (5 Mermaid, all with accTitle/accDescr, rendered): test steps, normal-test chooser,
 LRT recipe, count-test chooser, SPRT loop. Plus 2 new `plot` figures (paired lines, NP bars).
