@@ -56,7 +56,7 @@ Headlines save space. They use the **nominal style**: instead of a verb, they us
 | eröffnen (to open) | die Eröffnung | *Eröffnung im Mai* |
 | streiken (to strike) | der Streik | *Streik bei der Bahn* |
 | wählen (to elect, to vote) | die Wahl | *Wahl in Hamburg: Ergebnis am Abend* |
-| verletzen | die Verletzung | *Unfall auf der A8: zwei Verletzte* |
+| verletzen (to injure) | die Verletzung (injury); der/die Verletzte (injured person) | *Unfall auf der A8: zwei Verletzte* |
 
 Typical headline habits:
 

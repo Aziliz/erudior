@@ -28,7 +28,7 @@
   lesson: de1-m6-h-past-stories
   term: durfte
   pos: verb
-  meanings: ["was allowed to (past of dürfen)", "was allowed to", "were allowed to", "could", "might"]
+  meanings: ["was allowed to (past of dürfen)", "was allowed to", "were allowed to", "could"]
   example: Früher durfte man hier rauchen.
   exampleEn: You used to be allowed to smoke here.
   note: 'ich durfte, du durftest, er durfte, wir durften, ihr durftet, sie durften.'
@@ -85,7 +85,7 @@
   kind: phrase
   term: zum Schluss
   pos: phrase
-  meanings: ["in the end (zum Schluss)", "in the end", "finally", "at the end", "lastly"]
+  meanings: ["in the end (as the last part of a story)", "in the end", "finally", "at the end", "lastly"]
   example: Zum Schluss war alles gut.
   exampleEn: In the end everything was fine.
 # --- 24h2: letters, e-mails and postcards ----------------------------------------

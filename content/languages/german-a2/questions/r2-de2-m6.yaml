@@ -94,10 +94,10 @@
   lesson: de2-celebrations
   type: order
   topic: Celebrations
-  stem: 'Put these days in the order they come, starting in December.'
+  stem: 'Put these days in the order they come in the festive year, starting with Advent.'
   items: [der erste Advent, Heiligabend, Silvester, Neujahr, Karneval, Ostern]
   explanation: |-
-    The first Sunday of Advent is about four weeks before Christmas; Heiligabend is 24 December, Silvester 31 December, Neujahr 1 January. Karneval (Fasching) ends just before Lent, so it always comes before Easter (Ostern), in February or March.
+    The first Sunday of Advent is the fourth Sunday before Christmas (between 27 November and 3 December); Heiligabend is 24 December, Silvester 31 December, Neujahr 1 January. The Karneval season officially opens on 11 November, but the street carnival (Rosenmontag, Fasching parades) comes in February or March, just before Lent, so it always comes before Easter (Ostern).
 - id: de2-m6-r2-q09
   lesson: de2-celebrations
   type: text

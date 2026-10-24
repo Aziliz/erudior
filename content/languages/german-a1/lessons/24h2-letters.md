@@ -23,7 +23,7 @@ different regions, and the holiday postcard.
 A formal letter to an office, a school or a company has a fixed layout. German offices
 follow a standard for business letters (DIN 5008), but you only need the basic order:
 
-![A formal German letter with its parts labeled: the sender's name and address at the top left (Absender), the recipient's address below it (Empfänger), the place and date on the right (Ort und Datum: Bremen, 12. Mai 2026), the subject line in bold (Betreff: Kurs am Dienstag), the salutation (Anrede: Sehr geehrte Frau Berger,), the text, the closing (Grußformel: Mit freundlichen Grüßen) and the handwritten signature (Unterschrift) above the typed name.](images/de1-m6-letter.svg)
+![A formal German letter with its parts labeled: the sender's name and address at the top left (Absender), the recipient's address below it (Empfänger), the place and date on the right (Ort und Datum: Bremen, 12. Mai 2026), the subject line in bold (Betreff), which reads Kurs am Dienstag, the salutation (Anrede: Sehr geehrte Frau Berger,), the text, the closing (Grußformel: Mit freundlichen Grüßen) and the handwritten signature (Unterschrift) above the typed name.](images/de1-m6-letter.svg)
 
 | part | German name | example |
 |---|---|---|
@@ -143,7 +143,7 @@ Message:
 > Mira
 
 Check: all three points are there, the opening and closing match (*Liebe Lisa* … *Liebe
-Grüße*), the *du* form is used throughout, and the verbs are in position 2. About 45 words.
+Grüße*), the *du* form is used throughout, and the verbs of the statements are in position 2. About 45 words.
 
 ### Example 2: from informal to formal
 
@@ -204,14 +204,18 @@ common. The form matches the writer: *Dein* for a man or boy, *Deine* for a woma
 - *Absender* is stressed on the first syllable: AB-sen-der. *Empfänger* is stressed on the
   second, emp-FÄN-ger, because *emp-* is an inseparable prefix and is never stressed.
 - *Briefmarke*: BRIEF-mar-ke, with a long "ee".
-- *Grüezi* is Swiss German: GRÜ-e-tsi, three syllables.
-- *Servus*: SER-vus, with a voiced *s* at the start, like English z.
+- *Grüezi* is Swiss German: GRÜE-tsi, two syllables. The *üe* is one gliding sound, an *ü* that
+  slides into a short "uh", and *z* is "ts" as always.
+- *Servus*: SER-vus. In standard German pronunciation the *s* at the start is voiced, like
+  English z, but in Bavaria and Austria, where the word is used, people say it as a soft,
+  unvoiced *s*.
 
 ## Common mistakes
 
 - Writing *sie* for *Sie*. In a message to Frau Berger, *Können sie mir helfen?* asks
   whether *they* can help you.
-- Writing *du* after *Liebe Frau Berger*. A surname always goes with *Sie*.
+- Writing *du* after *Liebe Frau Berger*. *Frau* or *Herr* + surname goes with *Sie*. (A few
+  workplaces mix the two, but these are rare local habits; follow the rule.)
 - Mixing levels: *Sehr geehrte Frau Berger … Liebe Grüße*. Match the closing to the opening.
 - The American date: *Mai 12, 2026* is wrong. Write *12. Mai 2026*, with the full stop.
 - Forgetting a point of the task. In the exam, a missing point costs more than a small
@@ -223,7 +227,7 @@ common. The form matches the writer: *Dein* for a man or boy, *Deine* for a woma
 - A formal letter: Absender, Empfänger, Ort und Datum, Betreff (bold), Anrede, text,
   Grußformel, Unterschrift. Dates: *12. Mai 2026*.
 - Openings from formal to informal: *Sehr geehrte/r … → Liebe/r Frau/Herr … → Hallo Frau/Herr
-  … → Liebe/r or Hallo + first name*. Surname = *Sie*, first name = *du*.
+  … → Liebe/r or Hallo + first name*. As a rule, surname = *Sie*, first name = *du*.
 - Closings: *Mit freundlichen Grüßen → Freundliche Grüße → Viele Grüße → Liebe Grüße*.
 - *Sie, Ihnen, Ihr* always have a capital; *du, dein* may have one in letters.
 - *duzen* and *siezen*: traditionally the older or more senior person offers *du*.

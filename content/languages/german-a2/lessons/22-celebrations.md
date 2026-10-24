@@ -27,8 +27,8 @@ The same year as a timeline:
 ```mermaid
 timeline
   accTitle: The festive year in Germany
-  accDescr: A timeline of the main festivals. In December come Advent, with four Sundays before Christmas, Heiligabend on the 24th and Weihnachten on the 25th and 26th, then Silvester on the 31st. Neujahr is on 1 January. Karneval or Fasching falls in February or March, and Ostern in March or April.
-  December : Advent (four Sundays) : Heiligabend (24th) : Weihnachten (25th and 26th) : Silvester (31st)
+  accDescr: A timeline of the main festivals. In late November and December come Advent, with four Sundays before Christmas, Heiligabend on the 24th and Weihnachten on the 25th and 26th, then Silvester on the 31st. Neujahr is on 1 January. Karneval or Fasching falls in February or March, and Ostern in March or April.
+  December : Advent (four Sundays, from late Nov.) : Heiligabend (24th) : Weihnachten (25th and 26th) : Silvester (31st)
   January : Neujahr (1st)
   February or March : Karneval, Fasching
   March or April : Ostern

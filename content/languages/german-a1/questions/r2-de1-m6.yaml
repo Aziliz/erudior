@@ -414,7 +414,7 @@
   choices: ['du, because Liebe is informal', 'Sie, because she is addressed with her surname', 'ihr, because it is a letter', 'Sie, but written with a small s']
   answer: 1
   explanation: |-
-    "Liebe Frau Weber" is friendly, but a surname always goes with Sie, and Sie is always written with a capital S. Du goes with a first name (Liebe Anna).
+    "Liebe Frau Weber" is friendly, but Frau or Herr + surname goes with Sie, and Sie is always written with a capital S. Du goes with a first name (Liebe Anna).
 - id: de1-m6-r2-h23
   lesson: de1-m6-h-letters
   topic: Letters and e-mails

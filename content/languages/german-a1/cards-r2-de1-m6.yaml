@@ -13,7 +13,7 @@
 - {front: 'Date line in a German letter', back: 'Bremen, 12. Mai 2026 (day first, full stop after the day; older style: Bremen, den 12. Mai 2026)', topic: Letters and e-mails}
 - {front: 'Betreff', back: 'The subject line: short and in bold; the word Betreff itself is usually left out in letters. In an e-mail, the subject field.', topic: Letters and e-mails}
 - {front: 'Openings from formal to informal', back: 'Sehr geehrte/r … → Liebe/r Frau/Herr … → Hallo Frau/Herr … → Liebe/r or Hallo + first name', topic: Register}
-- {front: 'Liebe Frau Weber: du or Sie?', back: 'Sie. A surname always goes with Sie; a first name goes with du.', topic: Register}
+- {front: 'Liebe Frau Weber: du or Sie?', back: 'Sie. As a rule, Frau/Herr + surname goes with Sie; a first name goes with du.', topic: Register}
 - {front: 'Closings from formal to informal', back: 'Mit freundlichen Grüßen → Freundliche Grüße → Viele Grüße → Liebe Grüße (LG only in text messages; avoid MfG)', topic: Register}
 - {front: 'Capital letters for "you" in writing', back: 'Sie, Ihnen, Ihr always capital. du, dein, ihr, euer: small, but may be capitalized in letters.', topic: Register}
 - {front: 'Who offers du?', back: 'Traditionally the older or more senior person. If unsure, use Sie.', topic: Register}

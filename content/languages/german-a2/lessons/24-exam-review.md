@@ -47,7 +47,7 @@ flowchart TD
   C -- yes --> P["Passed"]
 ```
 
-So 70 points in all is not a pass if only 12 of them come from Sprechen. The grades:
+So 70 points in all is not a pass if only 12 of them come from Sprechen. (If you reach both minimums, 45 + 15, your total is automatically at least 60, so in practice the two part minimums decide.) The grades:
 
 | points | grade |
 |---|---|
