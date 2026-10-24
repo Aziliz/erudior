@@ -126,7 +126,7 @@ way to pick one.
 ```mermaid
 flowchart TD
   accTitle: Which discrete distribution fits?
-  accDescr: If you count events in a stretch of time or space with no fixed number of trials, use the Poisson. Otherwise, if you count trials until a fixed number of successes, use the geometric for the first success or the negative binomial for the r-th. If you count successes in a fixed number of trials, use the binomial when trials are independent with the same p, and the hypergeometric when sampling without replacement from a small population. A binomial with large n and small p is close to a Poisson with mean np.
+  accDescr: If you count events in a stretch of time or space with no fixed number of trials, use the Poisson. Otherwise, if you count trials until a fixed number of successes, use the geometric for the first success or the negative binomial for the r-th. If you count successes in a fixed number of trials, use the binomial when trials are independent with the same p, and the hypergeometric when sampling without replacement from a finite population. A binomial with large n and small p is close to a Poisson with mean np.
   A{"What is counted?"} -- "events in time or space" --> P["Poisson(lambda t)"]
   A -- "trials until success number r" --> W{"r = 1?"}
   W -- yes --> G["Geometric(p)"]

@@ -20,9 +20,9 @@
     $$\ell'(\lambda) = \frac{{sx}}{\lambda} - \frac{{nn}}{1 - e^{-\lambda}}, \qquad \ell''(\lambda) = -\frac{{sx}}{\lambda^2} + \frac{{nn}\,e^{-\lambda}}{(1 - e^{-\lambda})^2}.$$
     Starting from $\lambda_0 = {l0}$, find $\ell'(\lambda_0)$, $\ell''(\lambda_0)$ and the next Newton iterate $\lambda_1$ (3 decimals).
   answers:
-    - {name: s1, label: '$\ell''(\lambda_0) =$', tolerance: 0.005, format: dp3}
-    - {name: s2, label: '$\ell''''(\lambda_0) =$', tolerance: 0.005, format: dp3}
-    - {name: l1, label: '$\lambda_1 =$', tolerance: 0.002, format: dp3}
+    - {name: s1, label: '$\ell''(\lambda_0) =$', tolerance: 0.01, format: dp3}
+    - {name: s2, label: '$\ell''''(\lambda_0) =$', tolerance: 0.03, format: dp3}
+    - {name: l1, label: '$\lambda_1 =$', tolerance: 0.003, format: dp3}
   solution: |-
     With $e^{-{l0}} = {e0:num4}$:
     $\ell'({l0}) = {sx}/{l0} - {nn}/(1 - {e0:num4}) = {s1:dp3}$ and

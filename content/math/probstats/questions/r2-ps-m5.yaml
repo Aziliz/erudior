@@ -51,7 +51,7 @@
   stem: 'Put the steps of the proof of the weak law of large numbers in order.'
   items:
     - 'Compute $E[\bar X_n] = \mu$ and $\operatorname{Var}(\bar X_n) = \sigma^2/n$.'
-    - 'Apply Chebyshev''s inequality to $\bar X_n$.'
+    - 'Plug that mean and variance into Chebyshev''s inequality for $\bar X_n$.'
     - 'Conclude $P(|\bar X_n - \mu| \ge \varepsilon) \le \sigma^2/(n\varepsilon^2)$.'
     - 'Let $n \to \infty$: the bound goes to 0, so $\bar X_n \xrightarrow{P} \mu$.'
   explanation: |-
@@ -105,11 +105,10 @@
   items:
     - Find the mean and variance of one term.
     - 'Scale up to the sum: mean $n\mu$, variance $n\sigma^2$.'
-    - 'Apply the continuity correction: use $k + 0.5$.'
-    - 'Standardize: $z = (k + 0.5 - n\mu)/(\sigma\sqrt n)$.'
+    - 'Standardize the continuity-corrected cutoff: $z = (k + 0.5 - n\mu)/(\sigma\sqrt n)$.'
     - Read the probability from the standard normal cdf.
   explanation: |-
-    The sum's mean and variance come from one term's, so those come first. The continuity correction changes the cutoff, which must happen before standardizing, and the z-score must exist before you can look up $\Phi(z)$.
+    The sum's mean and variance come from one term's, so those come first. The z-score uses the sum's mean $n\mu$ and SD $\sigma\sqrt n$ and the corrected cutoff $k + 0.5$, and it must exist before you can look up $\Phi(z)$.
 
 - id: ps-m5-r2-q09
   lesson: ps-clt

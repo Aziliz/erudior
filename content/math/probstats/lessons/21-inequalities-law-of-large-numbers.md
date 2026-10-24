@@ -141,11 +141,11 @@ amounts of information. Use the strongest one your information allows.
 ```mermaid
 flowchart TD
   accTitle: Choosing a tool for a tail probability
-  accDescr: First ask whether the full distribution is known. If yes, compute the probability exactly. If not, ask whether the quantity is an average or sum of many independent values; if yes, the Central Limit Theorem gives an approximate value, and Chebyshev gives a guaranteed but conservative bound. If it is not an average, ask whether the variance is known; if yes, use Chebyshev. If only the mean is known and the variable is nonnegative, use Markov. If none of these hold, more information is needed.
+  accDescr: First ask whether the full distribution is known. If yes, compute the probability exactly. If not, ask whether the quantity is an average or sum of many independent values; if yes, the Central Limit Theorem gives an approximate value, and Chebyshev, if the variance or a bound on it is known, gives a guaranteed but conservative bound. If it is not an average, ask whether the variance is known; if yes, use Chebyshev. If only the mean is known and the variable is nonnegative, use Markov. If none of these hold, more information is needed.
   Q1{"Full distribution known?"} -- yes --> EX["Compute the probability exactly"]
   Q1 -- no --> Q2{"Average or sum of many iid values?"}
   Q2 -- yes --> CLT["CLT: approximate value (next lesson)"]
-  Q2 -- yes --> CH2["Chebyshev on the mean: guaranteed bound"]
+  Q2 -- yes --> CH2["Chebyshev on the mean (needs σ² or a bound on it): guaranteed bound"]
   Q2 -- no --> Q3{"Variance known?"}
   Q3 -- yes --> CH["Chebyshev: P(|X − μ| ≥ ε) ≤ σ²/ε²"]
   Q3 -- no --> Q4{"X ≥ 0 and mean known?"}

@@ -91,7 +91,8 @@ formula. With $\tilde n = n + 4$ and $\tilde p = (x + 2)/\tilde n$, the **Agrest
 
 $$\tilde p \pm 1.96\sqrt{\frac{\tilde p(1 - \tilde p)}{\tilde n}}.$$
 
-It is slightly wider than Wilson's and slightly conservative, and it is an excellent choice for hand
+It is slightly wider than Wilson's, and its coverage tends to run a little above the nominal level
+(though not at every $p$, so it is not conservative in the strict sense above). It is an excellent choice for hand
 calculation when $n$ is moderate or large.
 
 ## Clopper–Pearson: invert exact tests

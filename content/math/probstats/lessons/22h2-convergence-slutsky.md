@@ -139,7 +139,7 @@ With $n = 64$ incomes, $\bar x = 52.3$ and $s = 18.4$ (thousands of dollars): $5
 or $(47.79, 56.81)$. Step 2 used the WLLN for the $X_i^2$, which needs only their finite mean; that is
 why no assumption beyond a finite variance is required. For a proportion the same argument gives
 $(\hat p - p)/\sqrt{\hat p(1 - \hat p)/n} \xrightarrow{d} N(0, 1)$, the basis of the Wald interval $\hat p \pm 1.96\sqrt{\hat p(1 - \hat p)/n}$;
-with $n = 400$ and $\hat p = 0.3$, that is $0.3 \pm 0.045$, or $(0.255, 0.345)$.
+with $n = 400$ and $\hat p = 0.3$, that is $0.3 \pm 0.045$, or $(0.255, 0.345)$. (Slutsky makes the Wald interval valid only as $n \to \infty$; for small $n$ or $\hat p$ near 0 or 1 its actual coverage can fall well below 95%.)
 
 ### Example 5: why the delta method works
 
@@ -161,8 +161,8 @@ $0.4545 \pm 0.0891$, or $(0.365, 0.544)$.
 ## Common mistakes
 
 - *Using Slutsky with a random limit.* $Y_n$ must converge in probability to a *constant*.
-- *Adding limits in distribution.* $X_n \xrightarrow{d} X$ and $Y_n \xrightarrow{d} Y$ do not give $X_n + Y_n \xrightarrow{d} X + Y$ (take $Y_n = -X_n$
-  with $X_n = Z$: the sum is 0, not $N(0, 2)$).
+- *Adding limits in distribution.* $X_n \xrightarrow{d} X$ and $Y_n \xrightarrow{d} Y$ say nothing about $X_n + Y_n$ on their own (take $X_n = Z$
+  and $Y_n = -Z$: each converges in distribution to $N(0, 1)$, yet the sum is always 0, not the $N(0, 2)$ that independent limits would give).
 - *Reading convergence in distribution as "values get close".* Example 3.
 - *Assuming convergence in probability controls the mean.* Example 2.
 - *Confusing the strong and weak laws.* Both say $\bar X_n \to \mu$; the strong law says it about almost every

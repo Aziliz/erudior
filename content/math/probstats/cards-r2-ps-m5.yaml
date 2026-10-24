@@ -1,5 +1,5 @@
 # Round 2 notecards for module ps-m5
-- {front: 'Which tool for a tail probability?', back: 'Full distribution: compute exactly. Average of many iid values: CLT (approximate) or Chebyshev (guaranteed). Variance known: Chebyshev. Only the mean of $X \ge 0$: Markov.', topic: 'Probability inequalities'}
+- {front: 'Which tool for a tail probability?', back: 'Full distribution: compute exactly. Average of many iid values: CLT (approximate) or, with $\sigma^2$ or a bound on it, Chebyshev (guaranteed). Variance known: Chebyshev. Only the mean of $X \ge 0$: Markov.', topic: 'Probability inequalities'}
 - {front: 'Why the continuity correction uses $k + 0.5$ for $P(X \le k)$', back: 'The bar for $X = k$ runs from $k - 0.5$ to $k + 0.5$; the normal area must reach $k + 0.5$ to include it.', topic: 'Central Limit Theorem'}
 # Concentration inequalities (honors)
 - {front: 'Chernoff bound', back: '$P(X \ge a) \le \min_{t > 0} e^{-ta}M_X(t)$ (Markov applied to $e^{tX}$).', topic: 'Concentration inequalities'}

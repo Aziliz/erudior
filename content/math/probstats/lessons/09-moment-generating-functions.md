@@ -100,7 +100,7 @@ $\operatorname{Var}(X) = 8(0.7)(0.3) = 1.68$, and for example $P(X = 8) = 0.7^8 
 
 What about $Y = 2X - 3$? Its MGF is $e^{-3t}(0.3 + 0.7e^{2t})^8$, with mean $2(5.6) - 3 = 8.2$.
 
-The method of Example 4, used again for sums throughout Modules 4 and 5:
+The method of Example 4 below, used again for sums throughout Modules 4 and 5:
 
 ```mermaid
 flowchart TD

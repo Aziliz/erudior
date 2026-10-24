@@ -101,7 +101,7 @@ flowchart TD
 The density of $Y$ is the mixture $0.7f_A + 0.3f_B$. If each supplier's life is roughly normal, it looks like this: one wide hump with a shoulder on the right, wider than either supplier's own curve.
 
 ```plot
-{"x": [35, 80], "y": [0, 0.11], "xLabel": "life (thousand km)", "yLabel": "density", "functions": [{"f": "0.7*exp(-(x-50)^2/32)/sqrt(32*pi) + 0.3*exp(-(x-60)^2/72)/sqrt(72*pi)"}, {"f": "exp(-(x-50)^2/32)/sqrt(32*pi)", "dashed": true}, {"f": "exp(-(x-60)^2/72)/sqrt(72*pi)", "dashed": true}], "caption": "Dashed: supplier A (taller, left) and supplier B (right), normal shapes assumed. Solid: the mixture 0.7 A + 0.3 B, mean 53, SD 6.56"}
+{"x": [35, 95], "y": [0, 0.11], "xLabel": "life (thousand km)", "yLabel": "density", "functions": [{"f": "0.7*exp(-(x-50)^2/32)/sqrt(32*pi) + 0.3*exp(-(x-60)^2/72)/sqrt(72*pi)"}, {"f": "exp(-(x-50)^2/32)/sqrt(32*pi)", "dashed": true}, {"f": "exp(-(x-60)^2/72)/sqrt(72*pi)", "dashed": true}], "caption": "Dashed: supplier A (taller, left) and supplier B (right), normal shapes assumed. Solid: the mixture 0.7 A + 0.3 B, mean 53, SD 6.56"}
 ```
 
 ### Example 3: a random sum
