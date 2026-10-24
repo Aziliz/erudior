@@ -9,7 +9,7 @@
   image: {src: images/geo-m4-exterior-angle-blank.svg, alt: 'Triangle ABC with side AC extended to the right past C. Four parts are marked: the angle at A, the interior angle at C, the angle outside the triangle at C between the extension and side CB, and the extension itself.'}
   labels:
     - {x: 15.7, y: 79.2, text: Remote interior angle}
-    - {x: 61.7, y: 79.9, text: Adjacent interior angle}
+    - {x: 60.0, y: 78.4, text: Adjacent interior angle}
     - {x: 68.3, y: 73.9, text: Exterior angle}
     - {x: 87.5, y: 83.3, text: Extension of a side}
   distractors: [Vertical angle, Included angle]
