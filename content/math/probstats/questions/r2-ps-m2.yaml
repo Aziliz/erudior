@@ -541,8 +541,8 @@
     - {x: 48.2, y: 50.0, text: 'Extinction probability q'}
     - {x: 83.9, y: 9.1, text: 'Fixed point at s = 1'}
     - {x: 12.5, y: 70.5, text: 'f(0), the chance of no children'}
-    - {x: 33.9, y: 60.6, text: 'Graph of the offspring PGF'}
-    - {x: 73.2, y: 21.4, text: 'The line y = s'}
+    - {x: 26.8, y: 64.7, text: 'Graph of the offspring PGF'}
+    - {x: 21.1, y: 81.1, text: 'The line y = s'}
   distractors: ['Mean offspring number m']
   explanation: |-
     The curve starts at $f(0) = p_0 = \tfrac14$ (3). It crosses the dashed line $y = s$ (5) first at

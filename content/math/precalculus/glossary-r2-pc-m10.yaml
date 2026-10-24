@@ -3,13 +3,13 @@
   definition: 'If $g(x) \le f(x) \le h(x)$ near $a$ and $g$ and $h$ both approach $L$ as $x \to a$, then $f(x) \to L$ as well.'
   topic: Squeeze theorem
 - term: power rule
-  definition: '$\frac{d}{dx}x^n = nx^{n-1}$. Proved with the binomial theorem for positive integers $n$; it also holds for other real exponents.'
+  definition: '$\frac{d}{dx}x^n = nx^{n-1}$. Proved with the binomial theorem for positive integers $n$; it also holds for other real exponents. (Not the power rule for logarithms, $\log_b x^p = p\log_b x$.)'
   topic: Derivative rules
 - term: constant multiple rule
   definition: 'The derivative of a constant times a function is the constant times the derivative: $(cf)'' = cf''$.'
   topic: Derivative rules
 - term: sum rule
-  definition: 'For derivatives: the derivative of a sum is the sum of the derivatives, $(f + g)'' = f'' + g''$ (likewise for differences).'
+  definition: 'For derivatives: the derivative of a sum is the sum of the derivatives, $(f + g)'' = f'' + g''$ (likewise for differences). (In Pascal''s triangle, "sum rule" instead means each entry is the sum of the two above it.)'
   topic: Derivative rules
 - term: differentiable
   aliases: [differentiability]

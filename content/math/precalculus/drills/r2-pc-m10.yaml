@@ -4,8 +4,8 @@
   title: Limit of a ratio of sines
   topic: Trigonometric limits
   vars:
-    a: {min: 1, max: 9}
-    b: {min: 1, max: 9}
+    a: {min: 2, max: 9}
+    b: {min: 2, max: 9}
   where: ["a != b"]
   calc:
     L: a/b
@@ -19,8 +19,8 @@
   title: A one-minus-cosine limit
   topic: Trigonometric limits
   vars:
-    k: {min: 1, max: 6}
-    c: {min: 1, max: 5}
+    k: {min: 2, max: 6}
+    c: {min: 2, max: 5}
   calc:
     k2: k^2
     L: k^2/(2*c)
@@ -66,7 +66,7 @@
     c: {min: -9, max: 9}
     d: {min: -9, max: 9}
     x0: {min: -2, max: 2}
-  where: ["a != 0", "b != 0", "c != 0"]
+  where: ["a != 0", "b != 0", "c != 0", "d != 0"]
   calc:
     m: n*a*x0^(n-1) + 2*b*x0 + c
     na: n*a
