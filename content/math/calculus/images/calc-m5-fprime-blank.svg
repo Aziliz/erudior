@@ -2,7 +2,7 @@
 <rect width="560" height="360" fill="#ffffff"/>
 <line x1="20.0" y1="194.5" x2="540.0" y2="194.5" stroke="#1c2833" stroke-width="1.5"/>
 <polygon points="540.0,194.5 531.0,189.5 531.0,199.5" fill="#1c2833"/>
-<text x="536.0" y="216.5" font-family="sans-serif" font-size="15" fill="#1c2833" text-anchor="end" font-style="italic">x</text>
+<text x="540.0" y="188.0" font-family="sans-serif" font-size="15" fill="#1c2833" text-anchor="end" font-style="italic">x</text>
 <line x1="255.9" y1="340.0" x2="255.9" y2="20.0" stroke="#1c2833" stroke-width="1.5"/>
 <polygon points="255.9,20.0 250.9,29.0 260.9,29.0" fill="#1c2833"/>
 <text x="263.9" y="34.0" font-family="sans-serif" font-size="15" fill="#1c2833" text-anchor="start" font-style="italic">y</text>
