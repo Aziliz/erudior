@@ -25,6 +25,23 @@ Every German state (*Bundesland*) runs its own schools, so details differ, but t
 | after school | *die Berufsschule* | vocational school, one or two days a week during an *Ausbildung* (apprenticeship) |
 | after the Abitur | *die Universität* (A1), *die Hochschule* | university, college |
 
+The usual routes, simplified (there are more, for example from the *Realschule* on to the *Abitur*):
+
+```mermaid
+flowchart TD
+  accTitle: The main routes through German schools, simplified
+  accDescr: Everyone starts at the Grundschule, from about age 6 to 10. Then pupils go to a Gymnasium, a Realschule or a Gesamtschule. The Gymnasium and the Gesamtschule can lead to the Abitur, which opens the way to a university or Hochschule, or to an Ausbildung. The Realschule and the Gesamtschule usually lead to an Ausbildung with the Berufsschule.
+  G["Grundschule, age 6 to 10"] --> Gy["Gymnasium"]
+  G --> R["Realschule"]
+  G --> Ge["Gesamtschule"]
+  Gy --> Abi["Abitur"]
+  Ge --> Abi
+  R --> Aus["Ausbildung and Berufsschule"]
+  Ge --> Aus
+  Abi --> Uni["Universität or Hochschule"]
+  Abi --> Aus
+```
+
 A *Gymnasium* is not a sports hall: that false friend is *die Turnhalle*. The plural is *die Gymnasien*. And *das Abitur* (often just *Abi*) is a school-leaving exam, not a university degree: *Ich habe 2015 Abitur gemacht.* — I did my Abitur in 2015.
 
 In an *Ausbildung*, young people work in a company and go to the *Berufsschule* at the same time. Many well-paid jobs, from electrician to bank clerk, start this way.
@@ -40,6 +57,8 @@ In an *Ausbildung*, young people work in a company and go to the *Berufsschule* 
 | art, music, PE | *die Kunst, die Musik, der Sport* |
 | German, English, French | *Deutsch, Englisch, Französisch* |
 | foreign language | *die Fremdsprache* |
+
+![Six school subjects as pictures: a board with sums for Mathe, a globe for Erdkunde, musical notes for Musik, a paint palette for Kunst, a football for Sport and a flask for Chemie](images/de2-m5-subjects.svg)
 
 *die Geschichte* is the word you know for "story"; it also means history. *Physik* (phü-SIK) and *Chemie* (che-MIE) are both stressed on the last syllable. In Germany *Chemie* starts with a *ch* like in *ich*; in Austria and the south you'll hear a *k*.
 
@@ -88,6 +107,17 @@ For everything that isn't a name, everyday German uses *von* + dative after the 
 *von* always takes the **dative**, so remember the dative endings: *dem/einem/meinem* (masculine and neuter), *der/einer/meiner* (feminine), *den … -n* (plural). *von dem* contracts to *vom*.
 
 *von* also works with names, and it's the natural choice in conversation: *Das ist die Tasche von Lisa.* — That's Lisa's bag. The question is *Von wem ist das?* — Whose is that? (Or, from lesson 7, *Wem gehört das?*)
+
+Which way to choose? This chart puts the three patterns of this lesson side by side:
+
+```mermaid
+flowchart TD
+  accTitle: Three ways to say whose something is
+  accDescr: If the owner is a name, add s to the name and put it first, as in Annas Buch. If the owner is anyone else, use von plus the dative in everyday speech, as in das Auto von meinem Bruder. In written German you will also read the genitive, as in das Auto meines Bruders; at this level you only need to recognize it.
+  A{"Who owns it?"} -- "a name" --> B["name + s: Annas Buch"]
+  A -- "anyone else, in speech" --> C["von + dative: das Auto von meinem Bruder"]
+  A -- "anyone else, in writing" --> D["genitive, recognize it: das Auto meines Bruders"]
+```
 
 ## The genitive: recognize it
 

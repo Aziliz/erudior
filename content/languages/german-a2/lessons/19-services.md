@@ -67,6 +67,20 @@ The rules in one list:
 - The conjugated verb goes to the end; a separable verb joins up again: *ob ich hier Geld einzahlen kann*, *wann der Zug ankommt*.
 - The question mark belongs to the frame: *Wissen Sie, …?* gets one; *Ich möchte wissen, …* gets a full stop.
 
+Here are the same rules as a procedure you can follow every time:
+
+```mermaid
+flowchart TD
+  accTitle: Turning a direct question into a polite indirect question
+  accDescr: Start with a polite frame such as Können Sie mir sagen or Wissen Sie. If the question has a question word like wo or wann, keep it; if it is a yes/no question, use ob. Then move the conjugated verb to the end, joining a separable verb back together. Finally, end with a question mark if the frame is a question, or a full stop after Ich möchte wissen.
+  A["1. Polite frame: Können Sie mir sagen, ... / Wissen Sie, ..."] --> B{"2. Does the question have a question word?"}
+  B -- "yes" --> C["keep it: wo, wann, wie lange ..."]
+  B -- "no, yes/no question" --> D["use ob"]
+  C --> E["3. Conjugated verb to the end: wo das Amt ist"]
+  D --> E
+  E --> F["4. ? after a question frame, . after Ich möchte wissen"]
+```
+
 *Könnten Sie …?* from lesson 15 is the most polite frame of all: *Könnten Sie mir bitte sagen, welche Unterlagen ich mitbringen muss?* — Could you please tell me which documents I need to bring?
 
 ## lassen: having something done
@@ -76,6 +90,10 @@ The rules in one list:
 - *Ich lasse mein Auto in der Werkstatt reparieren.* — I'm having my car repaired at the garage.
 - *Wir lassen die Wohnung streichen.* — We're having the flat painted.
 - *Sie lässt sich die Haare schneiden.* — She's having her hair cut.
+
+The picture shows the difference between doing it yourself and having it done:
+
+![Two pictures. Left: a woman repairs her own bike with a spanner, captioned Ich repariere mein Fahrrad. Right: a mechanic in a workshop repairs her bike while she watches, captioned Ich lasse mein Fahrrad reparieren.](images/de2-m5-lassen.svg)
 
 *lassen* changes its stem: *ich lasse, du lässt, er/sie/es lässt, wir lassen, ihr lasst, sie lassen*.
 

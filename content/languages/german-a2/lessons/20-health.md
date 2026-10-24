@@ -53,6 +53,8 @@ When someone sneezes, Germans say *Gesundheit!* — literally "health!" — and 
 | *der Notfall* | emergency |
 | *der Krankenwagen* | ambulance |
 
+![Five things from the doctor's office with their German names: das Pflaster, der Verband, die Spritze, die Versichertenkarte and die Tabletten](images/de2-m5-medical.svg)
+
 In Germany almost everyone belongs to a *Krankenkasse*. At the reception desk of a *Praxis* you're asked: *Haben Sie Ihre Versichertenkarte dabei?* — Do you have your insurance card with you? (Its official name is *elektronische Gesundheitskarte*, but *Versichertenkarte* and *Krankenkassenkarte* are what people say.)
 
 The doctor gives you *ein Rezept*. You know this word from lesson 11 as a recipe; at the doctor's it means a prescription. You take it to the *Apotheke*. If you can't work, the doctor writes you off sick: *Der Arzt hat mich für drei Tage krankgeschrieben.* That connects to lesson 17: you *melden dich krank* with your boss, and the doctor's note confirms it.

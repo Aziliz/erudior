@@ -144,7 +144,7 @@ Wald* (forest), *das Licht* (light), *die Angst* (fear; *Angst haben*: to be afr
 >
 > In der Nacht kam ein Räuber zurück. Im Haus war es dunkel. Die Katze kratzte ihn, der Hund biss ihn ins Bein, der Esel trat ihn, und der Hahn rief: „Kikeriki!" Der Räuber lief zu den anderen zurück. „Im Haus wohnt eine Hexe!", sagte er. Die Räuber kamen nie wieder.
 >
-> Und die vier Musikanten? Sie fanden das Haus so schön, sie blieben dort. Nach Bremen kamen sie nie.
+> Und die vier Musikanten? Sie fanden das Haus sehr schön und blieben dort. Nach Bremen kamen sie nie.
 
 *Once upon a time there was a donkey. He was old and couldn't do heavy work any more. His master
 didn't want him any longer. So the donkey ran away. "I'm going to Bremen," he said. "There I'll
@@ -164,7 +164,7 @@ into the forest. The four friends ate and drank, and then they went to sleep. In
 robber came back. It was dark in the house. The cat scratched him, the dog bit him in the leg,
 the donkey kicked him, and the rooster called "Cock-a-doodle-doo!" The robber ran back to the
 others. "A witch lives in the house!" he said. The robbers never came back. And the four
-musicians? They liked the house so much that they stayed there. They never got to Bremen.*
+musicians? They liked the house very much and stayed there. They never got to Bremen.*
 
 This retelling is shorter than the Grimms' version: in their story, for example, the frightened
 robber describes the cat as a witch, the dog as a man with a knife and the donkey as a black
@@ -195,11 +195,11 @@ change their vowel: strong verbs. (In southern Germany and Austria you'll also h
 gestanden*, lesson 22.)
 
 Notice also *auf den Esel* (accusative) for movement onto something, but *am Fenster* (dative)
-for where the donkey stood. That's the *Wohin? / Wo?* difference from lesson 91.
+for where the donkey stood. That's the *Wohin? / Wo?* difference from the *Zusammen wohnen* lesson of this module.
 
 ## Pronunciation
 
-- *Märchen*: MÄR-chen, with the soft *ch* of *ich*. It's a diminutive (lesson 93), so it's *das
+- *Märchen*: MÄR-chen, with the soft *ch* of *ich*. It's a diminutive (see the next lesson), so it's *das
   Märchen*.
 - *Esel*: AY-zel; the *s* between vowels is a soft *z* sound.
 - *Räuber*: *äu* sounds like *eu*, "oy": ROY-ber.

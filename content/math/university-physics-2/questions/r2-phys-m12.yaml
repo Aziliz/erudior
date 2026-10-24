@@ -291,7 +291,7 @@
   choices: ['1200 nm', '480 nm', '300 nm', '240 nm']
   answer: 2
   explanation: |-
-    For approach, $\lambda_{\text{obs}} = \lambda\sqrt{(1 - \beta)/(1 + \beta)} = 600\sqrt{0.40/1.60} = 600(0.5) = 300$ nm, in the ultraviolet. 1200 nm would be recession. 240 nm comes from the nonrelativistic formula with the wrong sign handling, $600(1 - 0.60)$; 480 nm uses time dilation alone.
+    For approach, $\lambda_{\text{obs}} = \lambda\sqrt{(1 - \beta)/(1 + \beta)} = 600\sqrt{0.40/1.60} = 600(0.5) = 300$ nm, in the ultraviolet. 1200 nm would be recession. 240 nm is $600(1 - 0.60)$, a low-speed shift formula used far outside its range; 480 nm uses time dilation alone.
 - id: phys-m12-r2-h07
   lesson: phys-m12-h-spacetime
   topic: Spacetime and the Doppler effect
@@ -405,7 +405,7 @@
   choices: ['0.012', '0.27', '0.044', '0.0044']
   answer: 2
   explanation: |-
-    $\kappa L = 2.22$, $\sinh 2.22 = 4.55$, so $\sinh^2 = 20.7$. Then $\dfrac{25(20.7)}{4(2.0)(3.0)} = 21.5$ and $T = 1/22.5 = 0.044$. The bare $e^{-2\kappa L} = 0.012$ leaves out the prefactor, 3.84 here; the thick-barrier formula $3.84(0.012) = 0.045$ is already close even though $\kappa L$ is only about 2.
+    $\kappa L = 2.22$, $\sinh 2.22 = 4.54$, so $\sinh^2 = 20.6$. Then $\dfrac{25(20.6)}{4(2.0)(3.0)} = 21.4$ and $T = 1/22.4 = 0.044$. The bare $e^{-2\kappa L} = 0.012$ leaves out the prefactor, 3.84 here; the thick-barrier formula $3.84(0.012) = 0.045$ is already close even though $\kappa L$ is only about 2.
 - id: phys-m12-r2-h19
   lesson: phys-m12-h-tunneling
   topic: Quantum tunneling
@@ -597,7 +597,7 @@
     - [Pairing term, Paired nucleons are more tightly bound]
   distractors: [Gravity pulls the nucleons together]
   explanation: |-
-    These are the five ingredients of the liquid-drop picture. Gravity between nucleons is about $10^{36}$ times weaker than the nuclear forces and plays no part.
+    These are the five ingredients of the liquid-drop picture. Gravity between nucleons is negligibly weak compared with the nuclear and electric forces and plays no part.
 - id: phys-m12-r2-h40
   lesson: phys-m12-h-liquid-drop
   topic: Nuclear energetics
