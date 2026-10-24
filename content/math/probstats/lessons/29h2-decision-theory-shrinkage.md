@@ -134,7 +134,7 @@ In the Bayesian lesson's Example 2, nine readings with $\sigma = 6$ give $v = 36
 4. *Bayes risks.* $\delta_B$: $0.8 \times 4 = 3.2$ (the posterior variance found in that example); $\bar X$: 4.
 
 ```plot
-{"x": [88, 112], "y": [0, 8], "xLabel": "true θ", "yLabel": "risk (MSE)", "functions": [{"f": "4", "dashed": true}, {"f": "2.56 + 0.04 (x - 100)^2"}], "segments": [{"from": [94, 0], "to": [94, 4], "dashed": true}, {"from": [106, 0], "to": [106, 4], "dashed": true}], "points": [{"at": [94, 4]}, {"at": [106, 4]}], "labels": [{"at": [109.5, 3.4], "text": "X̄: risk 4"}, {"at": [100, 2.1], "text": "0.8X̄ + 20"}, {"at": [95.9, 0.6], "text": "θ = 94"}, {"at": [107.9, 0.6], "text": "θ = 106"}], "caption": "Risk of the sample mean (dashed) and of the Bayes estimator that shrinks toward the prior mean 100: shrinking wins within 6 units of 100 and loses outside"}
+{"x": [88, 112], "y": [0, 10], "xLabel": "true θ", "yLabel": "risk (MSE)", "functions": [{"f": "4", "dashed": true}, {"f": "2.56 + 0.04 (x - 100)^2"}], "segments": [{"from": [94, 0], "to": [94, 4], "dashed": true}, {"from": [106, 0], "to": [106, 4], "dashed": true}], "points": [{"at": [94, 4]}, {"at": [106, 4]}], "labels": [{"at": [109.5, 3.4], "text": "X̄: risk 4"}, {"at": [100, 2.1], "text": "0.8X̄ + 20"}, {"at": [95.9, 0.6], "text": "θ = 94"}, {"at": [107.9, 0.6], "text": "θ = 106"}], "caption": "Risk of the sample mean (dashed) and of the Bayes estimator that shrinks toward the prior mean 100: shrinking wins within 6 units of 100 and loses outside"}
 ```
 
 If the prior guess is good, shrinking pays; if it is far off, the estimator pays a growing bias, and its
