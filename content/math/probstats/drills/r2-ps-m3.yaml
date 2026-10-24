@@ -131,7 +131,7 @@
     No payment when $X \le {ded:dp0}$: $1 - e^{-{ded:dp0}/{th:dp0}} = 1 - e^{-{fr}} \approx$ **{p0:num4}**.
 
     $E[(X - {ded:dp0})^+] = \displaystyle\int_{{ded:dp0}}^\infty e^{-x/{th:dp0}}\,dx = {th:dp0}\,e^{-{fr}} \approx$ **{epay:num2}** dollars.
-    (The policyholder's share is $E[\min(X, {ded:dp0})] = {th:dp0}(1 - e^{-{fr}}) \approx {elim:num2}$, and the two add to {th:dp0}.)
+    (The policyholder's share is $E[\min(X, {ded:dp0})] = {th:dp0}(1 - e^{-{fr}}) \approx$ {elim:num2} dollars, and the two add to {th:dp0}.)
 
 - id: ps-m3-r2-censored-mean
   title: A censored exponential life test
