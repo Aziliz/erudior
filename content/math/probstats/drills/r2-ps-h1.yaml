@@ -90,7 +90,7 @@
     A centered predictor has $S_{xx} = {sxx}$ and $S_{xy} = {sxy:num1}$. Find the ridge estimate of the slope,
     minimizing $\sum(y_i - \bar y - b x_i)^2 + \lambda b^2$ with $\lambda = {lam}$ (4 decimals).
   answers:
-    - {name: b, label: '$b^{\text{ridge}} =$', tolerance: 0.0006, format: num4}
+    - {name: b, label: '$b^{\text{ridge}} =$', tolerance: 0.0001, format: num4}
   solution: |-
     Setting the derivative $-2S_{xy} + 2bS_{xx} + 2\lambda b$ to zero gives $b = S_{xy}/(S_{xx} + \lambda)$:
 
@@ -116,7 +116,7 @@
     A centered predictor has $S_{xx} = {sxx}$ and $S_{xy} = {sxy:num1}$. Find the lasso estimate of the slope,
     minimizing $\sum(y_i - \bar y - b x_i)^2 + \lambda|b|$ with $\lambda = {lam}$ (4 decimals; enter 0 if the slope is zero).
   answers:
-    - {name: b, label: '$b^{\text{lasso}} =$', tolerance: 0.0006, format: num4}
+    - {name: b, label: '$b^{\text{lasso}} =$', tolerance: 0.0001, format: num4}
   solution: |-
     Soft thresholding: $b = \operatorname{sign}(S_{xy})\max(|S_{xy}| - \lambda/2,\, 0)/S_{xx}$.
 

@@ -142,15 +142,15 @@
   prompt: |-
     An SPRT of $H_0: p = {p0}$ against $H_1: p = {p1}$ for Bernoulli data uses $\alpha = {al}$ and $\beta = {be}$
     with Wald's boundaries. Use Wald's approximation (ignore overshoot) to find the average sample number
-    under $H_0$ and under $H_1$ (1 decimal).
+    under $H_0$ and under $H_1$ (3 significant figures).
   answers:
-    - {name: asn0, label: '$E_0(N) \approx$', tolerance: 0.1, format: num1}
-    - {name: asn1, label: '$E_1(N) \approx$', tolerance: 0.1, format: num1}
+    - {name: asn0, label: '$E_0(N) \approx$', sigfigs: 3, format: sig3}
+    - {name: asn1, label: '$E_1(N) \approx$', sigfigs: 3, format: sig3}
   solution: |-
     Increments: defective ${du:num4}$, good ${dv:num4}$. Boundaries: $a = {lowb:num4}$, $b = {upb:num4}$.
 
-    Mean increments: $E_0(Z) = {p0}({du:num4}) + (1 - {p0})({dv:num4}) = {ez0:num4}$ and
-    $E_1(Z) = {p1}({du:num4}) + (1 - {p1})({dv:num4}) = {ez1:num4}$.
+    Mean increments: $E_0(Z) = {p0}({du:num4}) + (1 - {p0})({dv:num4}) = {ez0:sig4}$ and
+    $E_1(Z) = {p1}({du:num4}) + (1 - {p1})({dv:num4}) = {ez1:sig4}$.
 
-    By Wald's identity, $E_0(N) \approx \dfrac{(1-\alpha)a + \alpha b}{E_0(Z)} =$ **{asn0:num1}** and
-    $E_1(N) \approx \dfrac{\beta a + (1-\beta) b}{E_1(Z)} =$ **{asn1:num1}**.
+    By Wald's identity, $E_0(N) \approx \dfrac{(1-\alpha)a + \alpha b}{E_0(Z)} =$ **{asn0:sig3}** and
+    $E_1(N) \approx \dfrac{\beta a + (1-\beta) b}{E_1(Z)} =$ **{asn1:sig3}**.

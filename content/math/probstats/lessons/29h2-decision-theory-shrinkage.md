@@ -48,7 +48,7 @@ $R_1 < R_2$ exactly when $p(1-p) < 0.16$, that is, for $p < 0.2$ or $p > 0.8$. N
 everywhere, and even the silly $\delta_3$ wins at $p = 0.5$.
 
 ```plot
-{"x": [0, 1], "y": [0, 0.03], "xLabel": "p", "yLabel": "risk (MSE)", "functions": [{"f": "x (1 - x)/16"}, {"f": "0.01", "dashed": true}, {"f": "(x - 0.5)^2", "from": 0.33, "to": 0.67}], "labels": [{"at": [0.5, 0.0175], "text": "X/16"}, {"at": [0.14, 0.0115], "text": "(X + 2)/20"}, {"at": [0.5, 0.0015], "text": "0.5"}], "caption": "Risk curves for n = 16: the MLE X/16 (arch), the constant-risk (X + 2)/20 (dashed) and the constant guess 0.5 (bowl, shown near p = 0.5). They cross, so none is best for every p"}
+{"x": [0, 1], "y": [0, 30], "xLabel": "p", "yLabel": "risk (MSE) × 1000", "functions": [{"f": "1000 x (1 - x)/16"}, {"f": "10", "dashed": true}, {"f": "1000 (x - 0.5)^2", "from": 0.33, "to": 0.67}], "labels": [{"at": [0.5, 17.5], "text": "X/16"}, {"at": [0.14, 11.5], "text": "(X + 2)/20"}, {"at": [0.5, 26.5], "text": "guess 0.5"}], "caption": "Risk curves (× 1000) for n = 16: the MLE X/16 (arch), the constant-risk (X + 2)/20 (dashed) and the constant guess 0.5 (bowl, shown near p = 0.5). They cross, so none is best for every p"}
 ```
 
 ## No estimator is best everywhere
@@ -134,7 +134,7 @@ In the Bayesian lesson's Example 2, nine readings with $\sigma = 6$ give $v = 36
 4. *Bayes risks.* $\delta_B$: $0.8 \times 4 = 3.2$ (the posterior variance found in that example); $\bar X$: 4.
 
 ```plot
-{"x": [88, 112], "y": [0, 8], "xLabel": "true θ", "yLabel": "risk (MSE)", "functions": [{"f": "4", "dashed": true}, {"f": "2.56 + 0.04 (x - 100)^2"}], "points": [{"at": [94, 4], "label": "θ = 94"}, {"at": [106, 4], "label": "θ = 106"}], "labels": [{"at": [91, 4.5], "text": "X̄: risk 4"}, {"at": [100, 2.1], "text": "0.8X̄ + 20"}], "caption": "Risk of the sample mean (dashed) and of the Bayes estimator that shrinks toward the prior mean 100: shrinking wins within 6 units of 100 and loses outside"}
+{"x": [88, 112], "y": [0, 8], "xLabel": "true θ", "yLabel": "risk (MSE)", "functions": [{"f": "4", "dashed": true}, {"f": "2.56 + 0.04 (x - 100)^2"}], "segments": [{"from": [94, 0], "to": [94, 4], "dashed": true}, {"from": [106, 0], "to": [106, 4], "dashed": true}], "points": [{"at": [94, 4]}, {"at": [106, 4]}], "labels": [{"at": [109.5, 3.4], "text": "X̄: risk 4"}, {"at": [100, 2.1], "text": "0.8X̄ + 20"}, {"at": [95.9, 0.6], "text": "θ = 94"}, {"at": [107.9, 0.6], "text": "θ = 106"}], "caption": "Risk of the sample mean (dashed) and of the Bayes estimator that shrinks toward the prior mean 100: shrinking wins within 6 units of 100 and loses outside"}
 ```
 
 If the prior guess is good, shrinking pays; if it is far off, the estimator pays a growing bias, and its
