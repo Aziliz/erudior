@@ -6,7 +6,7 @@
   type: label
   module_quiz: true
   topic: Circle vocabulary
-  stem: 'Name the numbered parts of this circle.'
+  stem: 'Name the numbered parts of this circle. Each number marks a whole segment, line or point, not part of one.'
   image: {src: images/geo-m7-circle-parts-blank.svg, alt: 'A circle with a dot at its center. A horizontal segment crosses the whole circle through the center; another segment runs from the center to the circle at the upper right; a shorter segment joins two points on the lower left of the circle; a long line crosses the circle at two points and extends beyond it; a horizontal line touches the top of the circle at one marked point.'}
   labels:
     - {x: 48.1, y: 53.8, text: Center}
@@ -24,7 +24,7 @@
   type: text
   topic: Arcs and arc length
   stem: 'A $45^\circ$ arc of a circle with radius 12 has length ___. Give the exact value in terms of π (type pi or π).'
-  accept: [3pi, 3π, 3*pi, 3 pi, 3 π]
+  accept: [3pi, 3π, 3*pi, 3*π, 3 pi, 3 π]
   explanation: |-
     The arc is $\tfrac{45}{360} = \tfrac18$ of the circle, and the circumference is $2\pi(12) = 24\pi$. So the arc length is $\tfrac18 \cdot 24\pi = 3\pi \approx 9.42$. (In radians: $45^\circ = \tfrac{\pi}{4}$ and $s = r\theta = 12 \cdot \tfrac{\pi}{4} = 3\pi$.)
 
@@ -50,7 +50,7 @@
   choices: ['A $120^\circ$ arc', 'A $60^\circ$ arc', 'An arc of 2 radians', 'An arc of $\tfrac{\pi}{3}$ radians']
   answer: [1, 3]
   explanation: |-
-    The circumference is $12\pi$. A $60^\circ$ arc is $\tfrac16$ of it: $2\pi$. An arc of $\tfrac{\pi}{3}$ radians has $s = r\theta = 6 \cdot \tfrac{\pi}{3} = 2\pi$ (and $\tfrac{\pi}{3}$ rad is $60^\circ$, the same arc). A $120^\circ$ arc is $\tfrac13 \cdot 12\pi = 4\pi$. An arc of 2 radians has $s = 6 \cdot 2 = 12$, about $3.82$ units longer than $2\pi \approx 6.28$.
+    The circumference is $12\pi$. A $60^\circ$ arc is $\tfrac16$ of it: $2\pi$. An arc of $\tfrac{\pi}{3}$ radians has $s = r\theta = 6 \cdot \tfrac{\pi}{3} = 2\pi$ (and $\tfrac{\pi}{3}$ rad is $60^\circ$, the same arc). A $120^\circ$ arc is $\tfrac13 \cdot 12\pi = 4\pi$. An arc of 2 radians has $s = 6 \cdot 2 = 12$, about $5.72$ units longer than $2\pi \approx 6.28$.
 
 - id: geo-m7-r2-q05
   lesson: geo-circle-basics
@@ -67,7 +67,7 @@
   type: label
   module_quiz: true
   topic: Tangents
-  stem: 'Each circle has a right triangle drawn in it: one for a chord (left) and one for a tangent (right). Name the numbered segments.'
+  stem: 'Each circle has a right triangle drawn in it: one for a chord (left) and one for a tangent (right). Name the numbered sides of the two right triangles.'
   image: {src: images/geo-m7-chord-tangent-blank.svg, alt: 'Left: a circle with a horizontal chord, a short vertical segment from the center down to the middle of the chord with a right-angle mark, and a slanted segment from the center to the right end of the chord. Right: a smaller circle with a horizontal line touching its top at one point, a vertical segment from the center up to that point with a right-angle mark, and a dashed segment from the center to a point farther along the line.'}
   labels:
     - {x: 32.5, y: 64.6, text: Half of the chord}
@@ -343,7 +343,7 @@
   labels:
     - {x: 44.0, y: 87.0, text: Radical axis}
     - {x: 44.0, y: 46.1, text: Common chord}
-    - {x: 68.3, y: 54.8, text: Line of centers}
+    - {x: 60.5, y: 54.8, text: Line of centers}
     - {x: 53.4, y: 26.2, text: Tangent segment from P}
   distractors: [Common external tangent, Diameter]
   explanation: |-
@@ -452,14 +452,14 @@
   choices: ['$20$', '$10$', '$5$', '$5\sqrt3$']
   answer: 1
   explanation: |-
-    $\tfrac{a}{\sin A} = 2R$, so $2R = \tfrac{10}{0.5} = 20$ and $R = 10$. 20 is the diameter (forgetting the 2); 5 is half the side; $5\sqrt3$ uses $\cos 30^\circ$.
+    $\tfrac{a}{\sin A} = 2R$, so $2R = \tfrac{10}{0.5} = 20$ and $R = 10$. 20 is the diameter (forgetting the 2); 5 is half the side; $5\sqrt3 = 10\cos 30^\circ$ uses the wrong trig function.
 
 - id: geo-m7-r2-h22
   lesson: geo-m7-h-concyclic
   type: text
   topic: Circumradius
   stem: 'An equilateral triangle has side 6. Its circumradius is ___. (Exact, like 2sqrt(3), or to 2 decimal places.)'
-  accept: ['2sqrt(3)', '2sqrt3', '2√3', '2*sqrt(3)', 'sqrt(12)', '√12', '3.46', '3.464']
+  accept: ['2sqrt(3)', '2sqrt3', '2√3', '2√(3)', '2*sqrt(3)', '2*sqrt3', '2*√3', 'sqrt(12)', 'sqrt12', '√12', '3.46', '3.464', '3.4641']
   explanation: |-
     Each angle is $60^\circ$, so $2R = \tfrac{6}{\sin 60^\circ} = \tfrac{6}{\sqrt3/2} = \tfrac{12}{\sqrt3} = 4\sqrt3$, and $R = 2\sqrt3 \approx 3.46$. (The circumcenter is also the centroid, two-thirds of the way down the altitude $3\sqrt3$: $\tfrac23 \cdot 3\sqrt3 = 2\sqrt3$.)
 

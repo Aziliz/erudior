@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="560" height="420" font-family="sans-serif">
 <rect width="560" height="420" fill="#ffffff"/>
-<line x1="90.0" y1="360.0" x2="90.0" y2="290.0" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
-<polygon points="90.0,280.0 84.0,294.0 96.0,294.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
-<text x="90.0" y="274.0" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">N</text>
+<line x1="90.0" y1="360.0" x2="90.0" y2="234.0" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<polygon points="90.0,224.0 84.0,238.0 96.0,238.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<text x="90.0" y="218.0" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">N</text>
 <line x1="234.0" y1="110.6" x2="234.0" y2="40.6" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
 <polygon points="234.0,30.6 228.0,44.6 240.0,44.6" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
 <text x="234.0" y="24.6" font-size="15" text-anchor="middle" font-weight="bold" fill="#1c2833">N</text>
@@ -20,7 +20,7 @@
 <text x="78.0" y="366.0" font-size="15" text-anchor="end" fill="#1c2833">A (start)</text>
 <text x="222.0" y="128.6" font-size="16" text-anchor="end" font-weight="bold" fill="#1c2833">B</text>
 <text x="413.1" y="192.1" font-size="15" text-anchor="start" fill="#1c2833">C (end)</text>
-<text x="113.0" y="284.0" font-size="15" text-anchor="middle" fill="#1c2833">030°</text>
+<text x="114.0" y="272.0" font-size="15" text-anchor="middle" fill="#1c2833">030°</text>
 <text x="276.0" y="96.6" font-size="15" text-anchor="start" fill="#1c2833">110°</text>
 <text x="150.0" y="235.3" font-size="15" text-anchor="end" fill="#1c2833">40 km</text>
 <text x="322.6" y="127.4" font-size="15" text-anchor="start" fill="#1c2833">25 km</text>

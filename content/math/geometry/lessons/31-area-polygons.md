@@ -117,7 +117,7 @@ Find the area of the triangle with vertices $(1, 1)$, $(7, 3)$ and $(3, 6)$.
 **Step 3.** $30 - 6 - 6 - 5 = 13$.
 
 ```plot
-{"x": [0, 8], "y": [0, 7], "equal": true, "polygons": [{"points": [[1, 1], [7, 3], [3, 6]], "fill": true}], "segments": [{"from": [1, 1], "to": [7, 1], "dashed": true}, {"from": [7, 1], "to": [7, 6], "dashed": true}, {"from": [7, 6], "to": [1, 6], "dashed": true}, {"from": [1, 6], "to": [1, 1], "dashed": true}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [7, 3], "label": "(7, 3)"}, {"at": [3, 6], "label": "(3, 6)"}], "labels": [{"at": [5.2, 1.6], "text": "6"}, {"at": [5.6, 4.9], "text": "6"}, {"at": [1.6, 4.4], "text": "5"}], "caption": "The 6 × 5 rectangle around the triangle; the three corner right triangles (areas 6, 6 and 5) are cut away, leaving 13."}
+{"x": [0, 8], "y": [0, 7], "equal": true, "polygons": [{"points": [[1, 1], [7, 3], [3, 6]], "fill": true}], "segments": [{"from": [1, 1], "to": [7, 1], "dashed": true}, {"from": [7, 1], "to": [7, 6], "dashed": true}, {"from": [7, 6], "to": [1, 6], "dashed": true}, {"from": [1, 6], "to": [1, 1], "dashed": true}], "points": [{"at": [1, 1]}, {"at": [7, 3], "label": "(7, 3)"}, {"at": [3, 6], "label": "(3, 6)"}], "labels": [{"at": [0.55, 0.45], "text": "(1, 1)"}, {"at": [5.2, 1.6], "text": "6"}, {"at": [5.6, 4.9], "text": "6"}, {"at": [1.6, 4.4], "text": "5"}], "caption": "The 6 × 5 rectangle around the triangle; the three corner right triangles (areas 6, 6 and 5) are cut away, leaving 13."}
 ```
 
 ## Choosing a formula
