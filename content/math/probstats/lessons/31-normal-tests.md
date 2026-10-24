@@ -173,6 +173,28 @@ tests for variances are not. Their null distributions depend on the fourth momen
 population, so heavy tails can make the true size several times the nominal $\alpha$ even for
 large samples. Use them only when normality is credible.
 
+## Choosing the test
+
+The chart sums up the lesson: first decide whether the question is about a mean or a variance,
+then how the data were collected.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a test for normal data
+  accDescr: If the question is about a variance, use the chi-square test for one sample and the F test for two independent samples. If it is about a mean, check the design. For one sample, use the z test when sigma is known and the one-sample t test when it is not. For paired data, use the paired t test on the differences. For two independent samples, use the pooled t test when equal variances are credible and Welch's t test otherwise.
+  Q{"Mean or variance?"} -- variance --> V{"How many samples?"}
+  V -- one --> CS["Chi-square test, n − 1 df"]
+  V -- two --> FT["F test, (m − 1, n − 1) df"]
+  Q -- mean --> D{"Design?"}
+  D -- one sample --> S{"Sigma known?"}
+  S -- yes --> Z["z test"]
+  S -- no --> T1["One-sample t, n − 1 df"]
+  D -- paired --> PT["Paired t on differences, n − 1 df"]
+  D -- two independent samples --> E{"Equal variances credible?"}
+  E -- yes --> PO["Pooled t, m + n − 2 df"]
+  E -- "no or unsure" --> W["Welch's t, Satterthwaite df"]
+```
+
 ## Common mistakes
 
 - Using $z$ critical values with $S$ in place of $\sigma$ in a small sample; the $t$ distribution's heavier tails are the price of estimating $\sigma$.
