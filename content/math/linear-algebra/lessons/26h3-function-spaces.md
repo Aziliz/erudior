@@ -63,7 +63,7 @@ Find the quadratic through $(0, 1)$, $(1, 3)$ and $(2, 2)$.
 4. Check: $p(0) = 1$; $p(1) = 1 + 3.5 - 1.5 = 3$; $p(2) = 1 + 7 - 6 = 2$. ✓
 
 ```plot
-{"x": [-0.5, 2.5], "y": [-0.6, 3.6], "functions": [{"f": "(x-1)*(x-2)/2", "label": "L₀", "dashed": true}, {"f": "-x*(x-2)", "label": "L₁", "dashed": true}, {"f": "x*(x-1)/2", "label": "L₂", "dashed": true}, {"f": "1 + 3.5*x - 1.5*x^2", "label": "p"}], "points": [{"at": [0, 1], "label": "(0, 1)"}, {"at": [1, 3], "label": "(1, 3)"}, {"at": [2, 2], "label": "(2, 2)"}], "caption": "Each Lagrange polynomial (dashed) is 1 at its own node and 0 at the other two; p = 1·L₀ + 3·L₁ + 2·L₂ passes through the data"}
+{"x": [-0.5, 2.5], "y": [-0.6, 3.6], "functions": [{"f": "(x-1)*(x-2)/2", "dashed": true}, {"f": "-x*(x-2)", "dashed": true}, {"f": "x*(x-1)/2", "label": "L₂", "dashed": true}, {"f": "1 + 3.5*x - 1.5*x^2"}], "points": [{"at": [0, 1]}, {"at": [1, 3], "label": "(1, 3)"}, {"at": [2, 2], "label": "(2, 2)"}], "labels": [{"at": [-0.25, 1.75], "text": "L₀"}, {"at": [1, 1.15], "text": "L₁"}, {"at": [1.62, 3.0], "text": "p"}, {"at": [-0.3, 0.65], "text": "(0, 1)"}], "caption": "Each Lagrange polynomial (dashed) is 1 at its own node and 0 at the other two; p = 1·L₀ + 3·L₁ + 2·L₂ passes through the data"}
 ```
 
 ### Example 2

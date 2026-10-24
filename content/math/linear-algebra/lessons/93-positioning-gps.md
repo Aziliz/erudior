@@ -51,7 +51,7 @@ squared distances to them are $r_1^2 = 25$, $r_2^2 = 41$ and $r_3^2 = 5$. Where 
 4. Check against the original circles: $3^2 + 4^2 = 25$, $(3 - 8)^2 + 4^2 = 41$ and $(3 - 2)^2 + (4 - 6)^2 = 5$.
 
 ```plot
-{"x": [-6, 15], "y": [-7, 10], "equal": true, "circles": [{"center": [0, 0], "r": 5}, {"center": [8, 0], "r": 6.403}, {"center": [2, 6], "r": 2.236}], "points": [{"at": [0, 0]}, {"at": [8, 0]}, {"at": [2, 6]}, {"at": [3, 4]}], "functions": [{"f": "5 - x/3", "dashed": true, "from": -3, "to": 9}], "segments": [{"from": [3, -7], "to": [3, 10], "dashed": true}], "labels": [{"at": [-1, -1.2], "text": "p1"}, {"at": [9, -1.2], "text": "p2"}, {"at": [1.2, 6.9], "text": "p3"}, {"at": [6.4, 4.7], "text": "you (3, 4)"}], "caption": "Three circles meet at one point; the dashed lines come from subtracting the circle equations"}
+{"x": [-6, 15], "y": [-7, 10], "equal": true, "circles": [{"center": [0, 0], "r": 5}, {"center": [8, 0], "r": 6.403}, {"center": [2, 6], "r": 2.236}], "points": [{"at": [0, 0]}, {"at": [8, 0]}, {"at": [2, 6]}, {"at": [3, 4]}], "functions": [{"f": "5 - x/3", "dashed": true, "from": -3, "to": 9}], "segments": [{"from": [3, -7], "to": [3, 10], "dashed": true}], "labels": [{"at": [-1, 0.8], "text": "p1"}, {"at": [8.9, 0.8], "text": "p2"}, {"at": [1.2, 6.9], "text": "p3"}, {"at": [6.6, 4.4], "text": "you (3, 4)"}], "caption": "Three circles meet at one point; the dashed lines come from subtracting the circle equations"}
 ```
 
 ## Noisy distances: least squares
