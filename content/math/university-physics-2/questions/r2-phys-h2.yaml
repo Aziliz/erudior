@@ -89,7 +89,7 @@
   type: text
   topic: Maxwell's equations
   stem: 'A field is $\vec E = (5.0\,x\,\hat\imath + 3.0\,y\,\hat\jmath + 2.0\,z\,\hat k)\times10^3$ V/m² (with $x, y, z$ in meters). The charge density is ___ $\times10^{-8}$ C/m³. Give only the number.'
-  accept: ['8.85', '8.9', '8.8']
+  accept: ['8.85', '8.9']
   explanation: |-
     $\nabla\cdot\vec E = (5.0 + 3.0 + 2.0)\times10^3 = 1.0\times10^4$ V/m², so $\rho = \varepsilon_0\nabla\cdot\vec E = (8.85\times10^{-12})(1.0\times10^4) = 8.85\times10^{-8}$ C/m³ (8.9 to two significant figures).
 - id: phys-h2-r2-h12

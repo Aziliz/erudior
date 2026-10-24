@@ -41,7 +41,7 @@ The Day of German Unity remembers the reunification of East and West Germany on 
 It is the only public holiday fixed by national law (the Unification Treaty of 1990). Other
 holidays exist only in some states, for example 6 January (Epiphany) in Bavaria,
 Baden-Württemberg and Saxony-Anhalt, or 31 October (Reformation Day) in several northern and
-eastern states. Bavaria has the most: up to 13, depending on the town. Austria's national day
+eastern states. Bavaria has the most: 12 to 14, depending on the town. Austria's national day
 is 26 October and Switzerland's is 1 August.
 
 Easter moves every year. It falls on a Sunday between 22 March and 25 April, and several
@@ -190,7 +190,7 @@ Read it as a full sentence.
 You want to write to your German friend Lukas on 20 December 2026: you wish him a merry
 Christmas and a happy new year, and you'll visit from the 2nd to the 5th of January.
 
-1. Place and date at the top: *Denver, den 20. Dezember 2026* (read *den zwanzigsten*).
+1. Place and date at the top: *Toronto, den 20. Dezember 2026* (read *den zwanzigsten*).
 2. Greeting: *Lieber Lukas,* (lesson 23: *lieber* for a man, *liebe* for a woman).
 3. Wishes: *Frohe Weihnachten und einen guten Rutsch!* It's before New Year, so *Guten Rutsch*
    fits, not *Frohes neues Jahr*. *Einen* is accusative because the phrase is short for "I wish
@@ -204,7 +204,7 @@ Christmas and a happy new year, and you'll visit from the 2nd to the 5th of Janu
 >
 > Liebe Emma, lieber Paul,
 >
-> bald ist Weihnachten! Kommt ihr vom 24. bis zum 27. Dezember zu uns? Am 24. Dezember gibt es
+> bald ist Weihnachten! Kommt ihr vom 22. bis zum 27. Dezember zu uns? Am 24. Dezember gibt es
 > am Abend die Bescherung, und am 25. Dezember essen wir zusammen. Der Weihnachtsmarkt in Kassel
 > ist toll: Wir können am 23. noch hingehen, er ist bis zum 23. geöffnet. Opa backt schon
 > Plätzchen!
@@ -216,7 +216,7 @@ Christmas and a happy new year, and you'll visit from the 2nd to the 5th of Janu
 Translation:
 
 > Kassel, 18 December 2026. Dear Emma, dear Paul, it will soon be Christmas! Are you coming to
-> stay with us from 24 to 27 December? On 24 December, in the evening, we'll open the presents,
+> stay with us from 22 to 27 December? On 24 December, in the evening, we'll open the presents,
 > and on 25 December we'll eat together. The Christmas market in Kassel is great: we can still go
 > on the 23rd, it's open until the 23rd. Grandpa is already baking Christmas biscuits! Merry
 > Christmas and see you soon! Love, Grandma

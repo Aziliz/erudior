@@ -32,6 +32,10 @@ thing with *er*, *sie* or *es*, or *ihn* in the accusative: *Der Schrank? Ich fi
 From earlier lessons you already know *der Tisch*, *der Stuhl*, *die Lampe*, *das Fenster*, *die Tür*
 (lesson 5) and *das Bett* (lesson 12).
 
+Here is the floor plan of a flat. The rooms open onto a hallway, *der Flur*:
+
+![A floor plan of a flat. Top row, left to right: die Küche (kitchen) with a counter, a stove, a fridge and a round table; das Bad (bathroom) with a bath, a toilet and a basin; das Schlafzimmer (bedroom) with a double bed and a wardrobe. In the middle, der Flur (hallway) runs across the flat to the front door on the left. Below it is das Wohnzimmer (living room) with a sofa around a coffee table, a long shelf and a cupboard, and outside the living room is der Balkon (balcony) with a railing. Labels are blue for der, pink for die and green for das.](images/de1-m5-flat.svg)
+
 Two useful facts about German flats:
 
 - A *Drei-Zimmer-Wohnung* (three-room flat) has three rooms plus a kitchen and a bathroom. The
