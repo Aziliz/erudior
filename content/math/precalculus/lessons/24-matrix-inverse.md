@@ -87,6 +87,23 @@ Check one entry of $AA^{-1}$: row 2 of $A$ times column 1 of $A^{-1}$ is $1(3) +
 - $(kA)^{-1} = \frac1k A^{-1}$ for $k \ne 0$.
 - If $A$ is invertible, $AX = B$ has exactly one solution, $X = A^{-1}B$, for every $B$.
 
+The chart puts the whole lesson together as a method for solving a system:
+
+```mermaid
+flowchart TD
+  accTitle: Solving AX = B with an inverse matrix
+  accDescr: Write the system as AX equals B. If A is not square it has no inverse, so use elimination. If A is square, compute its determinant. A determinant of zero means A is singular: there is no inverse, and the system has no solution or infinitely many. Otherwise find the inverse, by the swap-and-negate formula for a 2 by 2 matrix or by row-reducing A beside the identity for a larger one, and then multiply on the left: X equals A inverse times B.
+  A["Write the system as AX = B"] --> Sq{"Is A square?"}
+  Sq -- no --> E["No inverse: use elimination"]
+  Sq -- yes --> D{"Is det A = 0?"}
+  D -- yes --> S["Singular: no inverse; no solution or infinitely many"]
+  D -- no --> Z{"Is A 2 × 2?"}
+  Z -- yes --> F["Swap a and d, negate b and c, divide by det A"]
+  Z -- no --> R["Row-reduce A beside I until the left side is I"]
+  F --> X["X = A inverse times B, inverse on the left"]
+  R --> X
+```
+
 ## Common mistakes
 
 - *Forgetting to divide by the determinant* in the $2 \times 2$ formula.

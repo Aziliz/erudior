@@ -41,7 +41,7 @@
   answers:
     - {name: xv, label: '$x =$', tolerance: 0.0001, format: num4}
   solution: |-
-    With $u = e^x$: $\dfrac{u - 1/u}{2} = {c}$, so $u^2 - 2({c})u - 1 = 0$ and $u = {c} \pm \sqrt{ {c}^2 + 1}$. Only the plus sign gives $u > 0$: $e^x = {c} + {rt:num4} \approx {ux:num4}$. So $x = \ln\left({c} + \sqrt{ {c}^2 + 1}\right) \approx$ **{xv:num4}**.
+    With $u = e^x$: $\dfrac{u - 1/u}{2} = {c}$, so $u^2 - 2({c})u - 1 = 0$ and $u = {c} \pm \sqrt{({c})^2 + 1}$. Only the plus sign gives $u > 0$: $e^x = {c} + {rt:num4} \approx {ux:num4}$. So $x = \ln\left({c} + \sqrt{({c})^2 + 1}\right) \approx$ **{xv:num4}**.
 
 - id: pc-m4-r2-catenary
   title: Sag of a hanging cable
@@ -147,6 +147,7 @@
     tt: {choices: [{label: 'one second', value: 1}, {label: 'one minute', value: 60}, {label: 'one hour', value: 3600}, {label: 'one day', value: 86400}]}
     b: {choices: [2, 3]}
   calc:
+    ttv: tt
     budget: 10^s*tt
     lgb: log10(10^s*tt)
     nmax: floor(log10(10^s*tt)/log10(b))
@@ -155,7 +156,7 @@
   answers:
     - {name: nmax, label: '$n =$', format: integer}
   solution: |-
-    The budget is $10^{ {s} } \times {tt:int} \approx {budget:texsci}$ operations, with common log ${lgb:num4}$. We need ${b}^n \le$ budget, so $n \le \dfrac{ {lgb:num4} }{\log {b}} \approx {nexact:num4}$. The largest whole number is **{nmax}**.
+    The budget is $10^{ {s} } \times {ttv:int} \approx {budget:texsci}$ operations, with common log ${lgb:num4}$. We need ${b}^n \le$ budget, so $n \le \dfrac{ {lgb:num4} }{\log {b}} \approx {nexact:num4}$. The largest whole number is **{nmax}**.
 
 - id: pc-m4-r2-bisection-steps
   title: How many bisection steps?

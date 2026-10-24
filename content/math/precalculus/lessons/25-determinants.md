@@ -29,6 +29,10 @@ $$\det A = a_{11}M_{11} - a_{12}M_{12} + a_{13}M_{13}.$$
 
 Every row and column gives the same answer, so expand along whichever has the most zeros.
 
+The picture shows one minor and cofactor for the matrix of Example 1.
+
+![The matrix with rows (2, −1, 3), (0, 4, 1), (5, 2, −2). The entry −1 in row 1, column 2 is circled, and row 1 and column 2 are crossed out. The four entries left, 0, 1, 5 and −2, are shaded: M₁₂ = (0)(−2) − (1)(5) = −5. A checkerboard of signs beside it has − in position (1, 2), so the cofactor is C₁₂ = −M₁₂ = 5.](images/pc-m6-minor.svg)
+
 ### Example 1
 
 Find $\det\begin{bmatrix} 2 & -1 & 3 \\ 0 & 4 & 1 \\ 5 & 2 & -2 \end{bmatrix}$.
