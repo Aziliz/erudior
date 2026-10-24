@@ -27,7 +27,7 @@ The central difference is exactly the average of the other two: $D_c = \tfrac12(
 The plot shows this for $f(x) = x^2$ at $a = 1$ with $h = 1$. The forward secant (slope 3) is too steep, the backward secant (slope 1) too shallow, and the central secant (slope 2) is exactly parallel to the tangent line.
 
 ```plot
-{"x": [-0.5, 2.5], "y": [-1, 5], "functions": [{"f": "x^2"}], "tangents": [{"f": "x^2", "at": 1}], "segments": [{"from": [1, 1], "to": [2, 4], "dashed": true, "label": "forward"}, {"from": [0, 0], "to": [1, 1], "dashed": true, "label": "backward"}, {"from": [0, 0], "to": [2, 4], "label": "central"}], "points": [{"at": [0, 0]}, {"at": [1, 1]}, {"at": [2, 4]}], "caption": "Secants for y = x² at a = 1 with h = 1: forward slope 3, backward slope 1, central slope 2, the same slope as the tangent at (1, 1) (the long line below the curve)"}
+{"x": [-0.5, 2.5], "y": [-1, 5], "functions": [{"f": "x^2"}], "tangents": [{"f": "x^2", "at": 1}], "segments": [{"from": [1, 1], "to": [2, 4], "dashed": true}, {"from": [0, 0], "to": [1, 1], "dashed": true}, {"from": [0, 0], "to": [2, 4]}], "points": [{"at": [0, 0]}, {"at": [1, 1]}, {"at": [2, 4]}], "caption": "Secants for y = x² at a = 1 with h = 1: the forward secant (dashed, from (1, 1) to (2, 4)) has slope 3, the backward secant (dashed, from (0, 0) to (1, 1)) slope 1, and the central secant (solid, from (0, 0) to (2, 4)) slope 2, the same slope as the tangent at (1, 1) (the long dashed line below the curve)"}
 ```
 
 ## Measuring the error exactly
