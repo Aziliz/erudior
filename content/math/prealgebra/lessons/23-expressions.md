@@ -50,8 +50,9 @@ The steps always come in the same order:
 ```mermaid
 flowchart TD
   accTitle: How to evaluate an expression
-  accDescr: Four steps in order. First, write the expression again with each variable replaced by its value in parentheses. Second, work out powers. Third, multiply and divide from left to right. Fourth, add and subtract from left to right to get one number.
-  A["Replace each variable with its value, in parentheses"] --> B["Work out powers, such as (-2) squared = 4"]
+  accDescr: Five steps in order. First, write the expression again with each variable replaced by its value in parentheses. Second, work out anything inside grouping symbols, such as parentheses or the top and bottom of a fraction bar. Third, work out powers. Fourth, multiply and divide from left to right. Fifth, add and subtract from left to right to get one number.
+  A["Replace each variable with its value, in parentheses"] --> P["Work inside grouping symbols: parentheses, above and below a fraction bar"]
+  P --> B["Work out powers, such as (-2) squared = 4"]
   B --> C["Multiply and divide, left to right"]
   C --> D["Add and subtract, left to right"]
   D --> E["One number: the value of the expression"]

@@ -102,7 +102,7 @@ A proportion only fits when the two quantities grow together at a fixed ratio. I
 A graph shows the difference. A proportional relationship is a straight line through the origin (0 miles, \$0). The taxi's line starts at \$3, so doubling the miles does not double the fare.
 
 ```plot
-{"x": [0, 11], "y": [0, 26], "xLabel": "miles", "yLabel": "dollars", "functions": [{"f": "2x", "label": "2 dollars per mile: proportional"}, {"f": "3 + 2x", "label": "3 dollars + 2 per mile: not proportional", "dashed": true}], "points": [{"at": [5, 10], "label": "(5, 10)"}, {"at": [10, 20], "label": "(10, 20)"}, {"at": [5, 13], "label": "(5, 13)"}, {"at": [10, 23], "label": "(10, 23)"}], "caption": "Doubling 5 miles to 10 doubles 10 dollars to 20, but turns 13 dollars into 23, not 26"}
+{"x": [0, 11], "y": [0, 26], "xLabel": "miles", "yLabel": "dollars", "functions": [{"f": "2x"}, {"f": "3 + 2x", "dashed": true}], "points": [[5, 10], [10, 20], [5, 13], [10, 23]], "labels": [{"at": [8, 5], "text": "2 per mile (proportional)"}, {"at": [4, 21], "text": "3 + 2 per mile (not proportional)"}, {"at": [6.3, 8.2], "text": "(5, 10)"}, {"at": [10.2, 16.5], "text": "(10, 20)"}, {"at": [3.7, 14.5], "text": "(5, 13)"}, {"at": [8.7, 24], "text": "(10, 23)"}], "caption": "Doubling 5 miles to 10 doubles 10 dollars to 20, but turns 13 dollars into 23, not 26"}
 ```
 
 The whole method for word problems, including that first question:

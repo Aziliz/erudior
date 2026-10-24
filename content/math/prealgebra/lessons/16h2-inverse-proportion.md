@@ -26,7 +26,7 @@ Speed and time for a 120-mile trip are inversely proportional, because speed × 
 Graphed, a direct proportion is a straight line through the origin. An inverse proportion is a curve that drops steeply at first and then levels off, never reaching either axis:
 
 ```plot
-{"x": [0, 70], "y": [0, 10], "xLabel": "speed (mph)", "yLabel": "time (hours)", "functions": [{"f": "120/x", "label": "time = 120 / speed", "from": 12}], "points": [{"at": [20, 6], "label": "(20, 6)"}, {"at": [30, 4], "label": "(30, 4)"}, {"at": [40, 3], "label": "(40, 3)"}, {"at": [60, 2], "label": "(60, 2)"}], "caption": "Time for a 120-mile trip: each point has speed × time = 120"}
+{"x": [0, 70], "y": [0, 12], "xLabel": "speed (mph)", "yLabel": "time (hours)", "functions": [{"f": "120/x", "from": 12}], "labels": [{"at": [45, 6], "text": "time = 120 / speed"}], "points": [{"at": [20, 6], "label": "(20, 6)"}, {"at": [30, 4], "label": "(30, 4)"}, {"at": [40, 3], "label": "(40, 3)"}, {"at": [60, 2], "label": "(60, 2)"}], "caption": "Time for a 120-mile trip: each point has speed × time = 120"}
 ```
 
 Before solving, decide which kind of relationship you have:
