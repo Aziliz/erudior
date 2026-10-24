@@ -412,7 +412,7 @@
     - 'With 200 points the error would be cut in half'
   answer: 1
   explanation: |-
-    The quarter disk has area $\tfrac\pi4$, so $\pi \approx 4\times0.78 = 3.12$. Each point scores 1 with probability $p = \tfrac\pi4$, so $s = \sqrt{p(1 - p)} \approx 0.41$ and the standard error of $4\times$(fraction) is $4\times0.41/\sqrt{100} \approx 0.16$. A random estimate proves nothing about $\pi$, and halving the error takes 4 times the points, not 2. The numbers $0.78 \pm 0.04$ describe the estimate of the quarter disk''s area, not of $\pi$: they must still be multiplied by 4.
+    The quarter disk has area $\tfrac\pi4$, so $\pi \approx 4\times0.78 = 3.12$. Each point scores 1 with probability $p = \tfrac\pi4$, so $s = \sqrt{p(1 - p)} \approx 0.41$ and the standard error of $4\times$(fraction) is $4\times0.41/\sqrt{100} \approx 0.16$. A random estimate proves nothing about $\pi$, and halving the error takes 4 times the points, not 2. The numbers $0.78 \pm 0.04$ describe the estimate of the quarter disk's area, not of $\pi$: they must still be multiplied by 4.
 
 # ---------- Honors 24h2: improper double integrals ----------
 - id: mv-m5-r2-h15

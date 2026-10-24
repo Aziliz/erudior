@@ -14,7 +14,7 @@
   topic: Moments of inertia
 - term: torus
   aliases: [tori, solid torus]
-  definition: 'The doughnut-shaped solid swept out by revolving a disk of radius $a$ about an axis at distance $R > a$ from its center; volume $2\pi^2Ra^2$.'
+  definition: 'A doughnut shape: strictly the surface swept out by revolving a circle of radius $a$ about an axis in its plane at distance $R > a$ from its center. Revolving the disk instead gives the solid torus, with volume $2\pi^2Ra^2$.'
   topic: Custom coordinates
 - term: toroidal coordinates
   definition: 'Coordinates $(s, \alpha, \theta)$ for a torus: $r = R + s\cos\alpha$, $z = s\sin\alpha$, with cylindrical $\theta$; $dV = s(R + s\cos\alpha)\,ds\,d\alpha\,d\theta$. (Other systems share the name.)'

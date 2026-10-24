@@ -81,7 +81,8 @@ $3\times3$ determinant at all.
 
 ## Toroidal coordinates and the theorem of Pappus
 
-A **torus** is the solid doughnut swept out when a disk of radius $a$, centered at distance
+A **torus** is a doughnut shape. Strictly, the word names the surface; here we need the solid
+doughnut (a solid torus) swept out when a disk of radius $a$, centered at distance
 $R > a$ from the $z$-axis, is revolved about that axis. Rectangular limits for it are ugly.
 Instead, copy the trick above: keep cylindrical $\theta$, and in the half-plane use polar
 coordinates centered at the middle of the tube, $(r, z) = (R, 0)$:
