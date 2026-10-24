@@ -83,6 +83,17 @@ Several of these words have relatives you know already. The meaning is the same;
 
 *während* is both a preposition (*während der Fahrt*, during the journey) and a conjunction (*während wir warteten*, while we were waiting). If a noun follows, it's the preposition; if a clause with the verb at the end follows, it's the conjunction.
 
+To decide which kind of word you need, look at what comes straight after it:
+
+```mermaid
+flowchart TD
+  accTitle: Preposition, conjunction or adverb?
+  accDescr: Look at what comes after the word. A noun phrase means a preposition with the genitive, such as wegen des Streiks or trotz des Regens. A clause with the verb at the end means a conjunction, such as weil, obwohl or während. If the conjugated verb comes straight after it, it is an adverb in position 1, such as deshalb, trotzdem or stattdessen.
+  A{"What comes straight after the word?"} -- "a noun phrase" --> P["preposition + genitive: wegen des Streiks, trotz des Regens"]
+  A -- "a clause with the verb at the end" --> K["conjunction: weil ..., obwohl ..., während ..."]
+  A -- "the conjugated verb" --> V["adverb in position 1: deshalb, trotzdem, stattdessen"]
+```
+
 ## When things go wrong: the words
 
 | German | English |
@@ -107,6 +118,12 @@ Notes:
 - *sich verzögern* (to be delayed) is reflexive: *Die Abfahrt verzögert sich um zehn Minuten.*
 - *der Bahnsteig* is the platform you stand on; *das Gleis* is the track number: *Der Zug fährt heute von Gleis 7 ab.*
 - *der Fahrgast* (passenger) is used for public transport; on a plane you're *der Passagier*.
+
+A departure board on a bad day uses many of these words, and genitives without an article (*wegen Personalmangels*):
+
+![A departure board at Frankfurt (Main) Hauptbahnhof with four trains. 14:12, ICE 578 to Hamburg, platform 7: about 40 minutes later, fault at the signal box. 14:20, RE 4512 to Fulda, platform 5: cancelled because of staff shortage. 14:30, RE 4518 to Hanau: today from platform 3 instead of platform 4. 14:45, RB 15 to Gelnhausen, no platform: replacement buses because of construction work.](images/de3-m3-departures.svg)
+
+*Personalmangel* is a staff shortage (*das Personal* + *der Mangel*); *ca.* (*circa*) means "about".
 
 ## Text: Eine Durchsage und eine E-Mail
 

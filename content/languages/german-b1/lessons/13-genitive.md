@@ -104,6 +104,20 @@ And some genitive phrases are fixed even in speech; learn them as chunks:
 
 Rule for your own German: in a letter, an e-mail to an office or an exam text, use the genitive; in conversation, *von* is fine, but the genitive is never wrong.
 
+The same choice as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Genitive or von?
+  accDescr: If the owner is a name such as Anna or Goethe, put the name with -s first, as in Annas Großvater, or only an apostrophe after an s sound, as in Klaus' Testament. If not, ask whether an article or adjective can show the genitive. If not, for example a plural without an article, use von plus dative: die Mutter von drei Kindern. If it can, use the genitive in writing and formal speech, das Auto meines Bruders; in everyday speech von meinem Bruder is fine too.
+  A{"Is the owner a name?"} -- "yes" --> N["name first: Annas Großvater, Klaus' Testament"]
+  A -- "no" --> B{"Can an article or adjective show the genitive?"}
+  B -- "no, e.g. a plural without an article" --> V["von + dative: die Mutter von drei Kindern"]
+  B -- "yes" --> C{"Writing or speaking?"}
+  C -- "writing, formal" --> G["genitive: das Auto meines Bruders"]
+  C -- "everyday speech" --> S["von is fine: das Auto von meinem Bruder"]
+```
+
 ## Questions with wessen
 
 *wessen* (whose) is the genitive of *wer*. It is followed directly by a noun without an article: *Wessen Tagebuch ist das?* In speech most people say *Wem gehört das Tagebuch?* or *Von wem ist das Tagebuch?*
@@ -117,6 +131,10 @@ Rule for your own German: in a letter, an e-mail to an office or an exam text, u
 - *das Eigentum* (property), *der Besitzer, die Besitzerin* (owner), *der Wert* (value), *wertvoll* (valuable), *das Original*.
 - *das Andenken* (keepsake, souvenir), *das Fotoalbum*, *das Tagebuch* (diary), *aufbewahren* (to keep, store), *der Dachboden* (attic).
 - *überliefern* (to hand down): *Die Geschichte wurde von Generation zu Generation überliefert.*
+
+Genitive chains are how you describe relatives without a special word for them. Here is Jonas's family, seen from Jonas (*ich*). His grandfather Karl is *der Vater meiner Mutter*, and his cousin Lea is *die Tochter meines Onkels*:
+
+![Jonas's family tree. Top row: Karl, labeled der Vater meiner Mutter, and Ilse, labeled die Mutter meiner Mutter. Middle row: Michael, labeled mein Vater, married to Sabine, labeled meine Mutter; and Sabine's brother Peter, labeled der Bruder meiner Mutter. Bottom row: Jonas (ich), the son of Michael and Sabine, and Lea, Peter's daughter, labeled die Tochter meines Onkels.](images/de3-m3-family-tree.svg)
 
 Careful with *das Erbe* and *der Erbe*: same word, different gender and meaning. *Das Erbe meines Onkels* is my uncle's inheritance (what he left); *der Erbe* is the person who gets it.
 

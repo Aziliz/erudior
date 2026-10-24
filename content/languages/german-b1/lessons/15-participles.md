@@ -25,6 +25,20 @@ You learned all the endings in German A2. The reference sheet for this module ha
 
 The one idea behind all three: somebody has to show the case and gender, either the article or the adjective. If the article does it, the adjective relaxes to *-e/-en*.
 
+As a chart (it includes *viele* and *alle*, which come next):
+
+```mermaid
+flowchart TD
+  accTitle: Strong or weak adjective ending?
+  accDescr: Look at what comes before the adjective. After der, dieser, jeder, alle, sämtliche or beide the adjective takes a weak ending, -e or -en, as in alle neuen Produkte. After ein, kein or mein, ask whether the article has an ending: if it does, as in einem or meine, the ending is weak; if it does not, as in ein, kein or mein alone, the adjective takes the strong ending -er or -es, as in ein neuer Laptop. With no article, or after viele, einige, mehrere, wenige or a number, the adjective takes the strong ending, the ending of the definite article, as in guter Kaffee and viele neue Produkte, except in the masculine and neuter genitive, which take -en: wegen schlechten Wetters.
+  A{"What comes before the adjective?"} -- "der, dieser, jeder, alle, sämtliche, beide" --> W["weak: -e or -en (alle neuen Produkte)"]
+  A -- "ein, kein, mein ..." --> E{"Does the article have an ending?"}
+  E -- "yes: einem, meine" --> W
+  E -- "no: ein, kein, mein" --> S["strong: -er or -es (ein neuer Laptop)"]
+  A -- "nothing, or viele, einige, mehrere, wenige, a number" --> S2["strong: the article's ending (guter Kaffee, viele neue Produkte)"]
+  S2 --> X["but genitive masculine and neuter: -en (wegen schlechten Wetters)"]
+```
+
 ## Adjectives without an article, all four cases
 
 | | masculine | feminine | neuter | plural |
@@ -90,6 +104,10 @@ Compare the two participles of the same verb:
 | *ein schlafendes Kind* — a sleeping child | — |
 
 A participle used like this is a **participial adjective**. With verbs that form the perfect with *sein*, the past participle has an active meaning: *der angekommene Zug* (the train that has arrived), *die gestiegenen Preise* (the prices that have risen).
+
+Four participles as adjectives, two of each kind. The candle is burning and the child is sleeping right now (Partizip I); the glass has broken and the tree has fallen over (Partizip II, of *zerbrechen* and *umfallen*, which both take *sein*, so the meaning is active and finished):
+
+![Four pictures. A burning candle, labeled die brennende Kerze. A child asleep in bed, labeled das schlafende Kind. Pieces of broken glass on the floor, labeled das zerbrochene Glas. A tree lying on the ground next to its stump, labeled der umgefallene Baum.](images/de3-m3-participles.svg)
 
 ### Longer phrases *(receptive)*
 

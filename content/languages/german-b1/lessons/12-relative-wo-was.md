@@ -78,6 +78,21 @@ Compare a real noun: *das schönste Gemälde, das ich je gesehen habe*. With a n
 
 Test: if you can't point to one noun that the clause describes, but to the whole situation, it's *was* (or a *wo(r)-* word).
 
+This chart sums up the choice between *der/die/das*, *was* and *wo*:
+
+```mermaid
+flowchart TD
+  accTitle: der, die, das, was or wo?
+  accDescr: Ask what the relative clause describes. A noun with a gender takes der, die or das, with a preposition if the verb needs one, as in mit dem or in der. A place can take wo when there is no movement, and wohin or woher for movement towards or from it. After alles, etwas, nichts, das Beste or a whole clause, ask whether the verb needs a preposition: if not, use was; if it does, use a wo(r)- word such as worüber or worauf.
+  A{"What does the relative clause describe?"} -- "a noun with a gender" --> R["der, die, das (mit dem, in der ...)"]
+  A -- "a place" --> W{"Is there movement?"}
+  W -- "no" --> WO["wo"]
+  W -- "towards it or from it" --> WH["wohin or woher"]
+  A -- "alles, etwas, nichts, das Beste, a whole clause" --> P{"Does the verb need a preposition?"}
+  P -- "no" --> WAS["was"]
+  P -- "yes" --> WOR["a wo(r)- word: worüber, worauf"]
+```
+
 ## wer … (der): whoever *(receptive)*
 
 *wer* and *was* can start a relative clause that has no antecedent at all. *wer* means "whoever, anyone who", and the main clause often picks it up again with *der*. This is an **indefinite relative pronoun**, and you know it from proverbs:
@@ -90,6 +105,10 @@ Test: if you can't point to one noun that the clause describes, but to the whole
 If the two clauses need different cases, the second pronoun shows its own case: *Wer Kunst liebt, dem gefällt die Ausstellung bestimmt.* — Anyone who loves art will surely like the exhibition. You only need to understand this pattern; it is mostly found in proverbs, signs and formal advice.
 
 ## Culture and sights: the words
+
+Here are six of the sights in a typical old town:
+
+![An old town. On the left a large church with two pointed towers, labeled der Dom; in front of it a statue on a pedestal, labeled das Denkmal. In the middle a town hall with a stepped gable and a clock, labeled das Rathaus, and in front of it a fountain, labeled der Brunnen. On a green hill on the right a castle with a tower and a flag, labeled die Burg, and below it an open-air stage with curtains and a performer, labeled die Bühne.](images/de3-m3-altstadt.svg)
 
 | German | English |
 |---|---|

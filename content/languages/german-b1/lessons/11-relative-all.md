@@ -21,6 +21,10 @@ A **relative pronoun** starts a relative clause and stands for the noun it descr
 
 The memory hook from A2 still works: gender looks back, case looks inside. And the word order is the same as in every subordinate clause: the relative pronoun first, the conjugated verb last, commas on both sides.
 
+Here are the parts of one relative clause with a preposition, labeled:
+
+![The sentence "Das ist die Kollegin, mit der ich ein Büro teile." in boxes. "die Kollegin" is labeled antecedent; an arrow from it to "der" says gender and number: feminine singular. "mit" is labeled preposition, "der" relative pronoun, and "teile." at the end conjugated verb (last). A note says mit always takes the dative, so the case is dative: mit der.](images/de3-m3-relative-parts.svg)
+
 ## The full table
 
 | | masculine | feminine | neuter | plural |
@@ -86,6 +90,24 @@ The genitive forms mean "whose". Like the genitive itself (lesson 13), they are 
 Two things are unusual. First, *dessen* and *deren* agree with the owner (before the comma), not with the thing owned: the novel is masculine, but the author is masculine too, so *dessen*; the dog is masculine, but the neighbour is feminine, so *deren*. Second, the noun after *dessen/deren* has no article: ~~deren der Hund~~ is impossible, just *deren Hund*. If an adjective comes in between, it takes the endings you use with no article: *der Kollege, dessen neues Auto …* (lesson 15 has the details).
 
 In speech, people avoid *dessen* and *deren* by making two sentences or using a possessive: *Ich habe eine Nachbarin. Ihr Hund bellt jede Nacht.* That is perfectly fine for you too.
+
+## The whole decision in one chart
+
+Every relative pronoun in this lesson comes from the same few questions. Work through them in this order:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the relative pronoun
+  accDescr: Step 1, find the antecedent before the comma; it gives the gender and number. Step 2, is there a preposition in front of the pronoun? If yes, the preposition decides the case, as in mit dem, für den, über das. If not, does the pronoun mean whose? If yes, use the genitive dessen or deren. If not, ask what job the pronoun does in its own clause: as the subject it is nominative (der, die, das, die), as a direct object accusative (den, die, das, die), and as the object of a dative verb dative (dem, der, dem, denen).
+  A["1. Find the antecedent before the comma: it gives gender and number"] --> Q1{"2. Is there a preposition in front?"}
+  Q1 -- "yes" --> P["the preposition decides the case: mit dem, für den, über das"]
+  Q1 -- "no" --> Q2{"Does it mean whose?"}
+  Q2 -- "yes" --> G["genitive: dessen, deren"]
+  Q2 -- "no" --> Q3{"Its job in its own clause?"}
+  Q3 -- "subject" --> N["nominative: der, die, das, die"]
+  Q3 -- "direct object" --> K["accusative: den, die, das, die"]
+  Q3 -- "dative object" --> D["dative: dem, der, dem, denen"]
+```
 
 ## Where the relative clause goes
 
