@@ -1,0 +1,531 @@
+# German B1, module 5 (round 2): new question types for the core lessons, and the honors lessons.
+
+# --- 21 de3-konj2-present ---
+- id: de3-m5-r2-q01
+  lesson: de3-konj2-present
+  type: text
+  module_quiz: true
+  topic: Unreal conditions
+  stem: 'Complete with the Konjunktiv II: "Wenn ich mehr Geld ___ (haben), ___ (sein) ich glücklicher."'
+  accept:
+    - [hätte, haette]
+    - [wäre, waere]
+  explanation: |-
+    Wenn ich mehr Geld hätte, wäre ich glücklicher. haben and sein have their own one-word forms, hätte and wäre, which are used instead of würde haben and würde sein. After the wenn clause the main clause starts with its verb: wäre ich.
+- id: de3-m5-r2-q02
+  lesson: de3-konj2-present
+  type: match
+  topic: Konjunktiv II
+  stem: 'Match each verb to its one-word Konjunktiv II form (er/sie/es).'
+  pairs:
+    - [kommen, käme]
+    - [wissen, wüsste]
+    - [geben, gäbe]
+    - [finden, fände]
+    - [können, könnte]
+  distractors: [kamte, wisste]
+  explanation: |-
+    The recipe is simple past stem + umlaut + -e: kam → käme, gab → gäbe, fand → fände. wissen (wusste) and the modal können (konnte) also take the umlaut: wüsste, könnte. kamte and wisste are not German forms.
+- id: de3-m5-r2-q03
+  lesson: de3-konj2-present
+  topic: Unreal conditions
+  stem: 'Which sentences are unreal conditions (the speaker is only imagining)? Select all that apply.'
+  choices: ['Wenn ich Zeit hätte, würde ich kommen.', 'Wenn ich Zeit habe, komme ich.', 'Hätte ich ein Auto, würde ich dich abholen.', 'Wäre das Wetter besser, könnten wir draußen essen.', 'Wenn es regnet, bleiben wir zu Hause.']
+  answer: [0, 2, 3]
+  explanation: |-
+    Unreal conditions use the Konjunktiv II in both clauses: hätte … würde, Hätte … würde (without wenn, verb first), Wäre … könnten. "Wenn ich Zeit habe, komme ich" and "Wenn es regnet, bleiben wir zu Hause" are in the indicative: real conditions that may well come true.
+- id: de3-m5-r2-q04
+  lesson: de3-konj2-present
+  type: label
+  module_quiz: true
+  topic: Unreal conditions
+  stem: 'What is the job of each numbered word in this unreal condition?'
+  image: {src: images/de3-m5-conditional-blank.svg, alt: 'The sentence Wenn ich mehr Zeit hätte, würde ich öfter kochen in boxes, with a bracket over the wenn clause marked position 1. Five words are numbered: Wenn, hätte, würde, the second ich and kochen.'}
+  labels:
+    - {x: 9.6, y: 63.3, text: conjunction}
+    - {x: 42.4, y: 76.7, text: Konjunktiv II at the end}
+    - {x: 55.3, y: 63.3, text: conjugated verb}
+    - {x: 66, y: 76.7, text: subject}
+    - {x: 88.8, y: 63.3, text: infinitive at the end}
+  distractors: [past participle, separable prefix]
+  explanation: |-
+    1 Wenn is the conjunction that sends its verb to the end. 2 hätte is the Konjunktiv II verb at the end of the wenn clause. The whole wenn clause is position 1, so 3 würde, the conjugated verb, comes next, then 4 the subject ich. 5 kochen is the infinitive at the end, completing würde. There is no past participle or separable prefix in this sentence.
+- id: de3-m5-r2-q05
+  lesson: de3-konj2-present
+  type: order
+  topic: Unreal conditions
+  stem: 'Put the parts in order to say "If I had more time, I would travel more often." Start with the wenn clause.'
+  items: ['Wenn ich mehr Zeit hätte,', 'würde', 'ich', 'öfter', 'reisen.']
+  explanation: |-
+    Wenn ich mehr Zeit hätte, würde ich öfter reisen. The wenn clause fills position 1, so würde comes straight after the comma, then the subject ich, and the infinitive reisen goes to the end.
+
+# --- 22 de3-konj2-past ---
+- id: de3-m5-r2-q06
+  lesson: de3-konj2-past
+  type: text
+  module_quiz: true
+  topic: Unreal conditions
+  stem: 'Complete with hätte or wäre in the right form: "Wenn wir früher losgefahren ___, ___ wir den Zug nicht verpasst."'
+  accept:
+    - [wären, waeren]
+    - [hätten, haetten]
+  explanation: |-
+    Wenn wir früher losgefahren wären, hätten wir den Zug nicht verpasst. losfahren forms its perfect with sein (wir sind losgefahren), so wären; verpassen takes haben (wir haben verpasst), so hätten. The subject is wir, so both need the -en ending.
+- id: de3-m5-r2-q07
+  lesson: de3-konj2-past
+  type: label
+  module_quiz: true
+  topic: Regrets and chances
+  stem: 'Markus''s story from the lesson: put each sentence on the right path. The left path is what really happened; the right path is what would have happened if he had been on time.'
+  image: {src: images/de3-m5-two-paths-blank.svg, alt: 'Two paths starting from the box Montag, 7.58 Uhr: Der Zug fährt ab. The left path is headed Was wirklich passiert ist (Indikativ) and ends with Heute sind sie verheiratet. The dashed right path is headed Was passiert wäre (Konjunktiv II) and ends with Er wäre in Hamburg geblieben. The first two boxes of each path are empty and numbered 1 to 4.'}
+  labels:
+    - {x: 25, y: 39.1, text: Er hat den Zug verpasst.}
+    - {x: 25, y: 60.4, text: Er hat Lena kennengelernt.}
+    - {x: 75, y: 39.1, text: Er hätte den Zug genommen.}
+    - {x: 75, y: 60.4, text: Er hätte Lena nie kennengelernt.}
+  distractors: [Er würde den Zug verpasst., Er hat Lena nie kennengelernt.]
+  explanation: |-
+    The real path uses the perfect: first he missed the train (1), then he met Lena (2), and today they are married. The imagined path uses hätte + participle: he would have taken the train (3), would never have met Lena (4) and would have stayed in Hamburg. "Er würde den Zug verpasst" is not German (würde needs an infinitive), and "Er hat Lena nie kennengelernt" is false: he did meet her.
+- id: de3-m5-r2-q08
+  lesson: de3-konj2-past
+  topic: Konjunktiv II
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich wäre fast gefallen.', 'Ich hätte nach Hause gegangen.', 'Du hättest mich anrufen können!', 'Ich hätte früher losfahren sollen.', 'Wenn ich das gewusst habe, wäre ich gekommen.']
+  answer: [0, 2, 3]
+  explanation: |-
+    "Ich wäre fast gefallen" (fallen takes sein), "Du hättest mich anrufen können" and "Ich hätte früher losfahren sollen" (double infinitive, always hätte) are correct. gehen takes sein, so it must be "Ich wäre nach Hause gegangen". An unreal wenn clause needs the Konjunktiv too: "Wenn ich das gewusst hätte, …".
+- id: de3-m5-r2-q09
+  lesson: de3-konj2-past
+  type: match
+  topic: Regrets and chances
+  stem: 'Match each sentence to what it expresses.'
+  pairs:
+    - ['Ich hätte früher losfahren sollen.', a regret about my own mistake]
+    - ['Du hättest mich anrufen können!', a reproach to someone else]
+    - ['Ich wäre beinahe gefallen.', something that almost happened]
+    - ['Wenn ich das gewusst hätte, wäre ich gekommen.', an unreal condition in the past]
+  distractors: [a real plan for the future]
+  explanation: |-
+    hätte … sollen about yourself is a regret; hätte … können said to someone else is a reproach; wäre beinahe / fast + participle describes a near miss; wenn … hätte, wäre … is an unreal past condition. None of them is a real plan: they are all about an imagined past.
+- id: de3-m5-r2-q10
+  lesson: de3-konj2-past
+  type: order
+  topic: Unreal conditions
+  stem: 'Put the parts in order to say "If I hadn''t partied so long yesterday, I wouldn''t be so tired now."'
+  items: ['Wenn ich gestern', 'nicht so lange gefeiert', 'hätte,', 'wäre', 'ich', 'jetzt nicht so müde.']
+  explanation: |-
+    Wenn ich gestern nicht so lange gefeiert hätte, wäre ich jetzt nicht so müde. The condition is about the past (hätte + participle, hätte last in the wenn clause); the result is about now (present Konjunktiv wäre). After the wenn clause the verb wäre comes first, then ich.
+
+# --- 23 de3-advice-wishes ---
+- id: de3-m5-r2-q11
+  lesson: de3-advice-wishes
+  type: text
+  module_quiz: true
+  topic: Wishes and advice
+  stem: 'Write the wish with the verb first: "___ ich doch mutiger!" (If only I were braver! — sein)'
+  accept: [wäre, waere]
+  explanation: |-
+    Wäre ich doch mutiger! An unreal wish can drop wenn and put the Konjunktiv II verb first. The particle doch (or nur, bloß) makes it a wish. The indicative bin would be wrong here: the speaker isn't brave.
+- id: de3-m5-r2-q12
+  lesson: de3-advice-wishes
+  type: order
+  topic: Polite requests
+  stem: 'Put the requests in order from the most direct to the most polite.'
+  items: ['Schließen Sie bitte das Fenster.', 'Können Sie bitte das Fenster schließen?', 'Könnten Sie bitte das Fenster schließen?', 'Wären Sie so nett, das Fenster zu schließen?']
+  explanation: |-
+    The imperative is the most direct. A question with können is polite; the Konjunktiv II könnten is more polite; Wären Sie so nett, … zu …? is very polite.
+- id: de3-m5-r2-q13
+  lesson: de3-advice-wishes
+  module_quiz: true
+  topic: Wishes and advice
+  stem: 'Which sentences give advice for now, not a reproach about the past? Select all that apply.'
+  choices: ['Du solltest mit ihr reden.', 'An deiner Stelle würde ich kündigen.', 'Du hättest mit ihr reden sollen.', 'Wie wäre es mit einem Spaziergang?', 'Du hättest mich fragen können.']
+  answer: [0, 1, 3]
+  explanation: |-
+    solltest, An deiner Stelle würde ich … and Wie wäre es mit …? are advice the listener can still follow. "Du hättest mit ihr reden sollen" and "Du hättest mich fragen können" use the past subjunctive: it's too late, so they are reproaches.
+- id: de3-m5-r2-q14
+  lesson: de3-advice-wishes
+  type: match
+  topic: Wishes and advice
+  stem: 'Match each beginning to the ending that completes it correctly.'
+  pairs:
+    - ['Wenn ich nur mehr Zeit', hätte!]
+    - ['An deiner Stelle', würde ich warten.]
+    - ['Würde es Ihnen etwas ausmachen,', 'das Fenster zu schließen?']
+    - ['Er tut so, als ob er alles', wüsste.]
+  distractors: [ich würde warten., habe!]
+  explanation: |-
+    An unreal wish needs the Konjunktiv II: hätte, not habe. An deiner Stelle fills position 1, so the verb comes next: würde ich warten (not ich würde). Würde es Ihnen etwas ausmachen takes a zu infinitive. After als ob, the Konjunktiv II verb goes to the end: als ob er alles wüsste.
+- id: de3-m5-r2-q15
+  lesson: de3-advice-wishes
+  type: text
+  topic: Wishes and advice
+  stem: 'Complete with the right form of "wünschen": "Ich ___, du wärst hier." (I wish you were here.)'
+  accept: [wünschte, wuenschte]
+  explanation: |-
+    Ich wünschte, du wärst hier. For an unreal wish, wünschen itself is in the Konjunktiv II: wünschte. "Ich wünsche dir …" is for good wishes (Ich wünsche dir viel Glück), not for wishing that something were different.
+
+# --- 24 de3-verb-prep ---
+- id: de3-m5-r2-q16
+  lesson: de3-verb-prep
+  type: match
+  module_quiz: true
+  topic: Verbs with prepositions
+  stem: 'Match each word to its fixed preposition.'
+  pairs:
+    - [stolz, auf]
+    - [zufrieden, mit]
+    - [abhängen, von]
+    - [sich sorgen, um]
+    - [das Interesse, an]
+  distractors: [aus, nach]
+  explanation: |-
+    stolz auf + A, zufrieden mit + D, abhängen von + D, sich sorgen um + A, das Interesse an + D. aus belongs to bestehen aus and nach to sich sehnen nach.
+- id: de3-m5-r2-q17
+  lesson: de3-verb-prep
+  type: text
+  topic: Verbs with prepositions
+  stem: 'Complete both sentences with the same preposition: "Ich habe mich schnell ___ das Klima gewöhnt." "Sie ist sehr ___ Politik interessiert."'
+  accept:
+    - [an]
+    - [an]
+  explanation: |-
+    sich gewöhnen an + accusative (an das Klima) and interessiert an + dative (an Politik). Both use an, but with different cases: getting used to takes the accusative, interest takes the dative.
+- id: de3-m5-r2-q18
+  lesson: de3-verb-prep
+  topic: Verbs with prepositions
+  stem: 'Which of these take the dative? Select all that apply.'
+  choices: ['zufrieden mit', 'stolz auf', 'Angst vor', 'sich gewöhnen an', 'zweifeln an']
+  answer: [0, 2, 4]
+  explanation: |-
+    mit is always dative; vor in fixed phrases is dative (Angst vor dem Hund); zweifeln an takes the dative (an seiner Ehrlichkeit). stolz auf takes the accusative, and sich gewöhnen an the accusative (an das Klima).
+- id: de3-m5-r2-q19
+  lesson: de3-verb-prep
+  type: text
+  module_quiz: true
+  topic: Verbs with prepositions
+  stem: 'Ask about the thing with a wo-word: "___ hängt das ab?" — "Vom Wetter."'
+  accept: [wovon]
+  explanation: |-
+    abhängen von + dative, and for a thing you ask with wo + preposition: Wovon hängt das ab? (No r is needed, because von starts with a consonant.) For a person you'd say Von wem …?
+- id: de3-m5-r2-q20
+  lesson: de3-verb-prep
+  type: order
+  topic: Adjectives with prepositions
+  stem: 'Put the parts in order to say "I''m proud that I passed the exam."'
+  items: ['Ich bin stolz darauf,', 'dass', 'ich', 'die Prüfung', 'bestanden', 'habe.']
+  explanation: |-
+    Ich bin stolz darauf, dass ich die Prüfung bestanden habe. darauf points forward to the dass clause; in the dass clause the subject comes right after dass and the verb group goes to the end, with habe last.
+
+# --- 25 de3-work-career ---
+- id: de3-m5-r2-q21
+  lesson: de3-work-career
+  type: label
+  module_quiz: true
+  topic: Formal letters
+  stem: 'Name the numbered parts of this formal e-mail.'
+  image: {src: images/de3-m5-letter-blank.svg, alt: 'A short formal e-mail: a bold subject line, Sehr geehrte Damen und Herren, a first line starting with a small letter, a paragraph with two questions, a closing sentence, Mit freundlichen Grüßen and the name Daniel Okafor. Six lines on the right are numbered.'}
+  labels:
+    - {x: 74.4, y: 10.9, text: Betreff (subject line)}
+    - {x: 74.4, y: 21.5, text: Anrede (greeting)}
+    - {x: 74.4, y: 33.6, text: 'first line: small letter'}
+    - {x: 74.4, y: 52.1, text: main part}
+    - {x: 74.4, y: 70.6, text: closing sentence}
+    - {x: 74.4, y: 82.8, text: Grußformel (sign-off)}
+  distractors: [Datum (date), Unterschrift (signature)]
+  explanation: |-
+    1 the Betreff, a noun phrase without a verb; 2 the Anrede, followed by a comma; 3 the first line, which continues with a small letter after that comma; 4 the main part with the questions; 5 the polite closing sentence; 6 the Grußformel, with no comma after it. The e-mail has no date line, and the name at the end isn't numbered.
+- id: de3-m5-r2-q22
+  lesson: de3-work-career
+  type: text
+  topic: Infinitive constructions
+  stem: 'Complete with scheinen: "Der neue Kollege ___ sehr nett ___ sein." (The new colleague seems to be very nice.)'
+  accept:
+    - [scheint]
+    - [zu]
+  explanation: |-
+    Der neue Kollege scheint sehr nett zu sein. scheinen works like a modal verb, but the infinitive at the end needs zu.
+- id: de3-m5-r2-q23
+  lesson: de3-work-career
+  type: match
+  topic: Noun endings
+  stem: 'Match each noun to its article. Use the ending to decide.'
+  pairs:
+    - [Beförderung, die]
+    - [Arbeitgeber, der]
+    - [Zentrum, das]
+    - [Gewerkschaft, die]
+    - [Tourismus, der]
+  explanation: |-
+    -ung and -schaft are always feminine: die Beförderung, die Gewerkschaft. -er for a person who does something is masculine (der Arbeitgeber), and so is -ismus (der Tourismus). -um is mostly neuter: das Zentrum.
+- id: de3-m5-r2-q24
+  lesson: de3-work-career
+  module_quiz: true
+  topic: Infinitive constructions
+  stem: 'Which sentences mean "You don''t have to come."? Select all that apply.'
+  choices: ['Sie brauchen nicht zu kommen.', 'Sie müssen nicht kommen.', 'Sie dürfen nicht kommen.', 'Sie müssen kommen.', 'Sie brauchen nur zu kommen.']
+  answer: [0, 1]
+  explanation: |-
+    brauchen nicht zu and müssen nicht both mean it isn't necessary. dürfen nicht means it's forbidden, müssen means it's necessary, and brauchen nur zu means "you only need to come".
+- id: de3-m5-r2-q25
+  lesson: de3-work-career
+  type: order
+  topic: Formal letters
+  stem: 'Put the parts of the formal e-mail in order.'
+  items: ['Betreff: Ihre Stellenanzeige vom 3. März', 'Sehr geehrte Damen und Herren,', 'mit großem Interesse habe ich Ihre Anzeige gelesen.', 'Ich wäre Ihnen dankbar, wenn Sie mir kurz antworten könnten.', 'Mit freundlichen Grüßen']
+  explanation: |-
+    Subject line, greeting, a first line that starts with a small letter, the polite closing sentence, and the sign-off without a comma. The small letter in "mit großem Interesse" shows that it follows the greeting directly.
+
+# --- 25h1 de3-m5-h-diplomatic (honors) ---
+- id: de3-m5-r2-h01
+  lesson: de3-m5-h-diplomatic
+  topic: Softening and guessing
+  stem: 'You want to tell a colleague that there is a mistake in her table. Which version is the most diplomatic?'
+  choices: ['Sie haben sich verrechnet.', 'Könnte es sein, dass hier ein kleiner Fehler ist?', 'Hier ist ein Fehler, das ist falsch.', 'Sie müssen sich verrechnet haben.']
+  answer: 1
+  explanation: |-
+    "Könnte es sein, dass …?" turns the accusation into a question and leaves room for doubt, and "klein" makes the problem smaller. The other three state the mistake as a fact; "Sie müssen sich verrechnet haben" even says the speaker is sure (must have).
+- id: de3-m5-r2-h02
+  lesson: de3-m5-h-diplomatic
+  topic: Softening and guessing
+  stem: 'What does "Das dürfte etwa 200 Euro kosten." mean?'
+  choices: ['That must cost exactly 200 euros.', 'That is allowed to cost about 200 euros.', 'That is probably going to cost about 200 euros.', 'That should have cost 200 euros.']
+  answer: 2
+  explanation: |-
+    In a statement, dürfte is a careful estimate: "probably". It has nothing to do with permission here. "Must" would be muss, and "should have cost" would be hätte … kosten sollen.
+- id: de3-m5-r2-h03
+  lesson: de3-m5-h-diplomatic
+  type: order
+  topic: Softening and guessing
+  stem: 'Put the statements in order from the surest to the least sure.'
+  items: ['Das muss stimmen.', 'Das dürfte stimmen.', 'Das könnte stimmen.', 'Das kann nicht stimmen.']
+  explanation: |-
+    muss = sure (a logical conclusion), dürfte = probable, könnte = possible, kann nicht = impossible, ruled out.
+- id: de3-m5-r2-h04
+  lesson: de3-m5-h-diplomatic
+  type: text
+  topic: Konjunktiv II
+  stem: 'Complete: "Gut, dass du mich erinnert hast, sonst ___ ich den Termin vergessen."'
+  accept: [hätte, haette]
+  explanation: |-
+    sonst hätte ich den Termin vergessen. The forgetting didn't happen, so it's imagined: past subjunctive. vergessen takes haben in the perfect, so hätte, and it comes straight after sonst, which fills position 1.
+- id: de3-m5-r2-h05
+  lesson: de3-m5-h-diplomatic
+  topic: Konjunktiv II
+  stem: 'Which sentence is a real warning: something that can still happen?'
+  choices: ['Zum Glück war ich pünktlich, sonst hätte ich den Zug verpasst.', 'Ich habe keine Zeit, sonst würde ich mitkommen.', 'Gut, dass es nicht geregnet hat, sonst wären wir nass geworden.', 'Beeil dich, sonst verpassen wir den Zug!']
+  answer: 3
+  explanation: |-
+    "Beeil dich, sonst verpassen wir den Zug!" uses the indicative after sonst: missing the train is a real danger. The other three use the Konjunktiv II after sonst because the alternative did not or does not happen.
+- id: de3-m5-r2-h06
+  lesson: de3-m5-h-diplomatic
+  topic: Softening and guessing
+  stem: 'Which sentences soften a statement with the Konjunktiv II? Select all that apply.'
+  choices: ['Ich würde sagen, wir brauchen noch eine Woche.', 'Ich hätte da eine Frage.', 'Ich habe eine Frage.', 'Da wäre ich mir nicht so sicher.', 'Das ist falsch.']
+  answer: [0, 1, 3]
+  explanation: |-
+    würde sagen, hätte and wäre are Konjunktiv II forms that present the statement as a personal view or an offer. "Ich habe eine Frage" and "Das ist falsch" are direct indicative statements.
+- id: de3-m5-r2-h07
+  lesson: de3-m5-h-diplomatic
+  topic: Softening and guessing
+  stem: 'What is the difference between "Er hätte es wissen müssen." and "Er müsste es gewusst haben."?'
+  choices: ['Both mean "He presumably knew it."', 'The first is a guess; the second is a reproach.', 'The first is a reproach (he should have known); the second is a guess (he presumably knew).', 'Both mean "He should have known it."']
+  answer: 2
+  explanation: |-
+    hätte + infinitive + modal infinitive (wissen müssen) is the reproach from lesson 22: he ought to have known. Modal in position 2 + participle + haben (müsste … gewusst haben) is a guess about the past: he presumably knew.
+- id: de3-m5-r2-h08
+  lesson: de3-m5-h-diplomatic
+  type: match
+  topic: Softening and guessing
+  stem: 'Match each sentence to how sure the speaker is.'
+  pairs:
+    - ['Das Licht ist an. Sie muss zu Hause sein.', 'sure: a logical conclusion']
+    - ['Das Haus dürfte etwa hundert Jahre alt sein.', 'probable: a careful estimate']
+    - ['Das könnte der Grund sein.', 'possible, but open']
+    - ['Das kann nicht sein!', 'impossible']
+  explanation: |-
+    muss draws a conclusion from evidence (the light is on), dürfte gives a careful estimate, könnte names one possibility, and kann nicht rules something out.
+- id: de3-m5-r2-h09
+  lesson: de3-m5-h-diplomatic
+  type: text
+  topic: Softening and guessing
+  stem: 'Turn the order into a polite request with the Konjunktiv II of können: "___ Sie mir die Tabelle noch einmal schicken?"'
+  accept: [könnten, koennten]
+  explanation: |-
+    Könnten Sie mir die Tabelle noch einmal schicken? Sie takes the -en form: könnten. The plain present können is polite too, but less so.
+- id: de3-m5-r2-h10
+  lesson: de3-m5-h-diplomatic
+  topic: Softening and guessing
+  stem: 'In the meeting, Herr Brandt says: "Ich hätte gedacht, dass da viele Kunden schon im Urlaub sind." What is he doing?'
+  choices: ['Politely questioning the June date', 'Agreeing with Frau Weber''s plan', 'Saying that he forgot about the holidays', 'Asking how many guests will come']
+  answer: 0
+  explanation: |-
+    "Ich hätte gedacht, …" (I'd have thought …) is a soft way to disagree. He goes on to suggest May instead: "Wäre es nicht sinnvoller, im Mai zu feiern?"
+- id: de3-m5-r2-h11
+  lesson: de3-m5-h-diplomatic
+  topic: Softening and guessing
+  stem: 'In which sentence does "dürfte" ask permission instead of making a guess?'
+  choices: ['Das dürfte schwierig werden.', 'Dürfte ich kurz Ihr Telefon benutzen?', 'Es dürften etwa fünfzig Gäste kommen.', 'Er dürfte den Zug verpasst haben.']
+  answer: 1
+  explanation: |-
+    In a question with ich, Dürfte ich …? is a very polite request for permission. In the statements, dürfte means "probably": it'll probably be difficult, about fifty guests will probably come, he has probably missed the train.
+- id: de3-m5-r2-h12
+  lesson: de3-m5-h-diplomatic
+  topic: Konjunktiv II
+  stem: 'Which endings have correct word order after "sonst"? Select all that apply.'
+  choices: ['…, sonst hätte ich es vergessen.', '…, sonst ich hätte es vergessen.', '…, sonst wären wir zu spät gekommen.', '…, sonst verpassen wir den Bus.']
+  answer: [0, 2, 3]
+  explanation: |-
+    sonst fills position 1, so the conjugated verb follows immediately: sonst hätte ich, sonst wären wir, sonst verpassen wir. "sonst ich hätte" puts the subject before the verb, which is wrong.
+- id: de3-m5-r2-h13
+  lesson: de3-m5-h-diplomatic
+  topic: Softening and guessing
+  stem: 'The tracking page says your parcel will arrive tomorrow. Which sentence fits best?'
+  choices: ['Das Paket kann nicht morgen ankommen.', 'Das Paket hätte morgen ankommen müssen.', 'Das Paket muss gestern angekommen sein.', 'Das Paket müsste morgen ankommen.']
+  answer: 3
+  explanation: |-
+    müsste says it should happen if everything goes as expected, which is exactly what tracking information gives you. "hätte … ankommen müssen" is about something that should have happened but didn't, and the other two contradict the information.
+- id: de3-m5-r2-h14
+  lesson: de3-m5-h-diplomatic
+  type: text
+  topic: Softening and guessing
+  stem: 'Soften the opinion with the one-word Konjunktiv II of finden: "Ich ___ den Plan etwas zu teuer."'
+  accept: [fände, faende]
+  explanation: |-
+    Ich fände den Plan etwas zu teuer. fand + umlaut + -e = fände, one of the strong forms that is common in speech. With "etwas" and the Konjunktiv, the criticism sounds like a personal view rather than a verdict.
+
+# --- 25h2 de3-m5-h-literature (honors) ---
+- id: de3-m5-r2-h15
+  lesson: de3-m5-h-literature
+  type: match
+  topic: Konjunktiv II
+  stem: 'Match each written Konjunktiv II form to its infinitive.'
+  pairs:
+    - [läge, liegen]
+    - [stünde, stehen]
+    - [nähme, nehmen]
+    - [führe, fahren]
+    - [brächte, bringen]
+  distractors: [legen, nennen]
+  explanation: |-
+    Simple past stem + umlaut + -e: lag → läge, stand → stünde, nahm → nähme, fuhr → führe, brachte → brächte. (führe can also be the ich form of führen in the present, but as a Konjunktiv II it comes from fahren.)
+- id: de3-m5-r2-h16
+  lesson: de3-m5-h-literature
+  topic: Konjunktiv II
+  stem: 'In "Wenn sie nicht so weit weg wohnte, führen wir jedes Wochenende zu ihr.", what is "führen"?'
+  choices: ['the infinitive of führen (to lead)', 'the Konjunktiv II of fahren', 'the simple past of fahren', 'the present tense of führen']
+  answer: 1
+  explanation: |-
+    "to lead" makes no sense with "wir … zu ihr". fuhren (we drove) + umlaut = führen, the Konjunktiv II of fahren: "we would drive to her every weekend". The simple past would be fuhren, without the umlaut.
+- id: de3-m5-r2-h17
+  lesson: de3-m5-h-literature
+  topic: Konjunktiv II
+  stem: 'Why does everyday German use würde + infinitive for weak verbs such as machen or wohnen?'
+  choices: ['Their Konjunktiv II looks exactly like the simple past.', 'They have no Konjunktiv II at all.', 'Their Konjunktiv II needs an extra umlaut.', 'Their one-word forms are only used in Austria.']
+  answer: 0
+  explanation: |-
+    The Konjunktiv II of a weak verb is identical to its simple past (machte, wohnte), so a sentence can sound like a past statement. würde + infinitive makes the imagined meaning clear.
+- id: de3-m5-r2-h18
+  lesson: de3-m5-h-literature
+  type: label
+  topic: Reading literature
+  stem: 'Name the numbered parts of the picture, using words from Kafka''s text.'
+  image: {src: images/de3-m5-h-rider-blank.svg, alt: 'A rider on a galloping horse over flat heathland. Six parts are numbered: the rider, the reins, the spur on the rider''s heel, the horse''s neck, the horse''s head and the flat ground.'}
+  labels:
+    - {x: 49, y: 34.1, text: der Reiter}
+    - {x: 66.7, y: 36.8, text: die Zügel}
+    - {x: 49.4, y: 59.8, text: die Sporen}
+    - {x: 61.3, y: 46.6, text: der Pferdehals}
+    - {x: 75, y: 34.1, text: der Pferdekopf}
+    - {x: 76.9, y: 94.1, text: die Heide}
+  distractors: [der Sattel, das Hufeisen]
+  explanation: |-
+    1 der Reiter (the rider), 2 die Zügel (the reins, from his hands to the horse's head), 3 die Sporen (the spurs on his heel), 4 der Pferdehals (the horse's neck), 5 der Pferdekopf (the horse's head) and 6 die Heide (the heath). No saddle (der Sattel) or horseshoe (das Hufeisen) is numbered.
+- id: de3-m5-r2-h19
+  lesson: de3-m5-h-literature
+  topic: Reading literature
+  stem: 'What kind of sentence is Kafka''s "Wenn man doch ein Indianer wäre, …"?'
+  choices: ['A real condition with a main clause at the end', 'An unreal comparison with als ob', 'An unreal wish with no main clause', 'A question about the past']
+  answer: 2
+  explanation: |-
+    Wenn … doch … wäre is the pattern of an unreal wish (lesson 23): the Konjunktiv II plus the particle doch, and no main clause follows. The rest of the sentence adds more and more details to the wish.
+- id: de3-m5-r2-h20
+  lesson: de3-m5-h-literature
+  topic: Reading literature
+  stem: 'Which verbs in Kafka''s sentence are plain simple past (indicative) forms, not Konjunktiv II forms? Select all that apply.'
+  choices: [wäre, ließ, wegwarf, sah, gab]
+  answer: [1, 2, 3, 4]
+  explanation: |-
+    ließ, wegwarf, sah and gab are simple past forms; their Konjunktiv II would be ließe, wegwürfe, sähe and gäbe. Only wäre is clearly Konjunktiv II. (erzitterte is a weak verb, so its form could be either.)
+- id: de3-m5-r2-h21
+  lesson: de3-m5-h-literature
+  type: text
+  topic: Konjunktiv II
+  stem: 'Write the Konjunktiv II forms Kafka could have used instead: ließ → ___, sah → ___'
+  accept:
+    - [ließe, liesse]
+    - [sähe, saehe]
+  explanation: |-
+    Simple past stem + umlaut (where possible) + -e: ließ has no vowel to umlaut, so ließe; sah → sähe.
+- id: de3-m5-r2-h22
+  lesson: de3-m5-h-literature
+  topic: Reading literature
+  stem: 'Which sentence from the essay states a fact, not speculation?'
+  choices: ['Bücher wären teuer geblieben.', 'Vielleicht wäre die Reformation ganz anders verlaufen.', 'Um 1450 entwickelte Johannes Gutenberg in Mainz ein neues Verfahren.', 'Auch die deutsche Sprache sähe heute vielleicht anders aus.']
+  answer: 2
+  explanation: |-
+    entwickelte is an indicative simple past: the essay presents it as history. wären geblieben, wäre verlaufen and sähe are Konjunktiv II forms, which mark the imagined alternative.
+- id: de3-m5-r2-h23
+  lesson: de3-m5-h-literature
+  type: order
+  topic: Konjunktiv II
+  stem: 'Put the parts in order: "If there had been no telephone, people would have sent letters for a long time."'
+  items: ['Wenn es kein Telefon gegeben hätte,', 'hätten', 'die Menschen', 'noch lange Briefe', 'geschickt.']
+  explanation: |-
+    Wenn es kein Telefon gegeben hätte, hätten die Menschen noch lange Briefe geschickt. After the wenn clause, hätten comes first, then the subject, and the participle geschickt goes to the end.
+- id: de3-m5-r2-h24
+  lesson: de3-m5-h-literature
+  topic: Konjunktiv II
+  stem: 'Which is the past subjunctive of the passive, as used in the essay?'
+  choices: ['wenn der Buchdruck nicht erfunden wäre', 'wenn der Buchdruck nicht erfunden würde', 'wenn der Buchdruck nicht erfunden hätte', 'wenn der Buchdruck nicht erfunden worden wäre']
+  answer: 3
+  explanation: |-
+    The passive perfect is ist erfunden worden; in the past subjunctive ist becomes wäre: erfunden worden wäre. Without worden it describes a state ("if printing weren't invented"), würde makes it present, and hätte is the wrong auxiliary.
+- id: de3-m5-r2-h25
+  lesson: de3-m5-h-literature
+  type: match
+  topic: Reading literature
+  stem: 'Match each word from the lesson to its meaning.'
+  pairs:
+    - [der Buchdruck, printing with movable type]
+    - [die Druckerei, print shop]
+    - [der Mönch, monk]
+    - [abschreiben, to copy by hand]
+    - [die Übersetzung, translation]
+  distractors: [a letter you post]
+  explanation: |-
+    der Buchdruck is the printing process, die Druckerei a print shop, der Mönch a monk, abschreiben to copy (by hand), die Übersetzung a translation. A letter you post is der Brief; the letters of the alphabet are Buchstaben or, in print, Lettern.
+- id: de3-m5-r2-h26
+  lesson: de3-m5-h-literature
+  topic: Reading literature
+  stem: 'Why does the essay say "Bewegliche Lettern gab es in China und Korea schon früher"?'
+  choices: ['Because Gutenberg learned printing in China', 'Because movable type existed in East Asia before Gutenberg''s invention in Europe', 'Because the first printed Bible came from Korea', 'Because Gutenberg''s letters were made of wood']
+  answer: 1
+  explanation: |-
+    Movable type was used in China and Korea centuries before Gutenberg; the essay mentions it so as not to claim that he invented the idea itself. His invention changed printing in Europe. His letters were made of metal, as the essay says.
+- id: de3-m5-r2-h27
+  lesson: de3-m5-h-literature
+  type: text
+  topic: Konjunktiv II
+  stem: 'Complete with the past subjunctive: "Ohne den Buchdruck ___ sich Luthers Ideen langsamer verbreitet."'
+  accept: [hätten, haetten]
+  explanation: |-
+    Ohne den Buchdruck hätten sich Luthers Ideen langsamer verbreitet. sich verbreiten takes haben in the perfect, and the subject Luthers Ideen is plural: hätten. The phrase "Ohne den Buchdruck" replaces a whole wenn clause.
+- id: de3-m5-r2-h28
+  lesson: de3-m5-h-literature
+  topic: Reading literature
+  stem: 'Which sentence presents a counterfactual claim responsibly, as speculation?'
+  choices: ['Ohne Gutenberg gab es keine Reformation.', 'Ohne Gutenberg gibt es keine Reformation.', 'Ohne Gutenberg hat es keine Reformation gegeben.', 'Ohne Gutenberg hätte es die Reformation vielleicht nicht gegeben.']
+  answer: 3
+  explanation: |-
+    The Konjunktiv II (hätte … gegeben) marks the claim as imagined, and vielleicht shows it is uncertain. The other three use the indicative and present a guess as a fact.

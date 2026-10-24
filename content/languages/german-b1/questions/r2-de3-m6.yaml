@@ -528,14 +528,14 @@
   type: match
   stem: 'Match each abbreviation to its full form.'
   pairs:
-    - [Az., Aktenzeichen]
     - [z. Hd., zu Händen]
-    - [i. A., im Auftrag]
-    - [ggf., gegebenenfalls]
-    - [bzgl., bezüglich]
+    - [i. V., in Vertretung]
+    - [o. g., oben genannt]
+    - [gem., gemäß]
+    - [Abs., Absatz]
   distractors: [beziehungsweise]
   explanation: |-
-    Az. is the file number, z. Hd. "for the attention of", i. A. "on behalf of", ggf. "if necessary" and bzgl. "regarding". beziehungsweise is abbreviated bzw.
+    z. Hd. means "for the attention of", i. V. "standing in for" the person in charge, o. g. "above-mentioned", gem. "in accordance with" and Abs. a paragraph or subsection of a law (§ 556 Abs. 3). beziehungsweise is abbreviated bzw.
 
 - id: de3-m6-r2-h18
   lesson: de3-m6-h-official-letters
@@ -576,15 +576,15 @@
 - id: de3-m6-r2-h22
   lesson: de3-m6-h-official-letters
   topic: Nominal style
-  stem: 'What does "Nach Eingang Ihrer Zahlung senden wir Ihnen den Ausweis zu." mean?'
+  stem: 'What does "Im Falle einer Ablehnung erhalten Sie die Unterlagen zurück." mean?'
   choices:
-    - 'Before you pay, we will send you the permit.'
-    - 'We will send you the permit once your payment has arrived.'
-    - 'Please bring your payment to the entrance.'
-    - 'We have received your payment and the permit.'
+    - 'You must send the documents back if you refuse.'
+    - 'If your application is rejected, you get your documents back.'
+    - 'The documents are rejected if they arrive late.'
+    - 'You will receive the documents after the decision in any case.'
   answer: 1
   explanation: |-
-    nach Eingang = after the arrival (eingehen = to arrive, be received). In plain German: Wenn Ihre Zahlung bei uns eingegangen ist, schicken wir Ihnen den Ausweis. der Eingang can also mean an entrance, but not here.
+    im Falle + genitive = in the case of; die Ablehnung comes from ablehnen (to reject). In plain German: Wenn wir Ihren Antrag ablehnen, schicken wir Ihnen die Unterlagen zurück. The office does the rejecting, and you are the one who gets the documents.
 
 - id: de3-m6-r2-h23
   lesson: de3-m6-h-official-letters
@@ -657,9 +657,9 @@
   stem: 'In Germany, the service-charge bill for the year 2026 arrives in February 2028. What is usually true?'
   choices:
     - 'The tenant must pay any Nachzahlung within 30 days.'
-    - 'The landlord can usually no longer demand a Nachzahlung, because the bill came more than twelve months after the billing period.'
-    - 'The bill is invalid, and the tenant gets back all advance payments.'
+    - 'The tenant gets back all the advance payments.'
+    - 'The landlord can usually no longer demand a Nachzahlung.'
     - 'The tenant has to ask the Mieterverein before paying.'
-  answer: 1
+  answer: 2
   explanation: |-
     The landlord has twelve months after the end of the billing period (here, until 31 December 2027) to send the bill. If it comes later, a Nachzahlung usually can't be demanded. The advance payments themselves aren't refunded, and asking the Mieterverein is a good idea but not a duty.

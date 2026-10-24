@@ -14,7 +14,7 @@ The theme is serious. Germany's way of remembering the crimes of the Nazi era (1
 
 ## Erinnerungskultur: remembering in public
 
-*Die Erinnerungskultur*, the **culture of remembrance**, means all the ways a society remembers its past in public: memorials, memorial days, museums, school lessons, speeches. In Germany the word mostly refers to remembering the Nazi era and the Holocaust (*der Holocaust*, also *die Shoah*), the murder of about six million European Jews, and the persecution of Sinti and Roma, political opponents, gay men, people with disabilities and many others.
+*Die Erinnerungskultur*, the **culture of remembrance**, means all the ways a society remembers its past in public: memorials, memorial days, museums, school lessons, speeches. In Germany the word mostly refers to remembering the Nazi era and the Holocaust (*der Holocaust*, also *die Shoah*), the murder of about six million European Jews, and the persecution (*die Verfolgung*, from *verfolgen*) of Sinti and Roma, political opponents, gay men, people with disabilities and many others. In German you'll read *die Verbrechen des Nationalsozialismus*, the crimes of National Socialism.
 
 A longer word you'll see in newspapers is **Vergangenheitsbewältigung**: *die Vergangenheit* (the past) + *die Bewältigung* (coping with, mastering, from *bewältigen*). It means coming to terms with the past. Many people now prefer *die Aufarbeitung* (working through), because a past like this can't really be "mastered".
 
@@ -28,7 +28,7 @@ It didn't start at once. A simplified overview:
 
 ## Memorial days
 
-A **Gedenktag** is a day of remembrance (*gedenken* = to commemorate). The most important:
+A *Gedenktag* is a day of remembrance (*gedenken* = to commemorate). The most important:
 
 | date | what is remembered |
 |---|---|
@@ -114,7 +114,7 @@ Go through the plaque line by line.
 2. *wurde … von SA-Männern zerstört*: passive past with the agent in *von* + dative (lesson 17). The building is the subject; the people who destroyed it are added with *von*.
 3. *wurden … deportiert und ermordet*: one *wurden* serves both participles.
 4. *der … gekommen war*: a relative clause (lesson 11) in the past perfect (lesson 2), because Paul's arrival in England happened before the rest of the story's point, his survival. *als Einziger* = as the only one (an adjectival noun, lesson 5).
-5. *Wir gedenken ihrer.*: *gedenken* takes the **genitive**, which makes it sound solemn. *ihrer* is the genitive of *sie* (them). In everyday German you'd say *Wir erinnern an sie* (we commemorate them) or *Wir denken an sie* (we think of them).
+5. *Wir gedenken ihrer.*: *gedenken* takes the genitive, which makes it sound solemn. *ihrer* is the genitive of *sie* (them). In everyday German you'd say *Wir erinnern an sie* (we commemorate them) or *Wir denken an sie* (we think of them).
 
 | solemn, written | everyday |
 |---|---|

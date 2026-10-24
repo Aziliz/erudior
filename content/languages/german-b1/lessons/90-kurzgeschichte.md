@@ -21,7 +21,7 @@ Their stories about hunger, ruins and soldiers coming home are called **rubble l
 - Wolfgang Borchert (1921–1947) wrote his stories in the two years between the end of the war and his early death. In *Das Brot* (written in 1946), an old couple meet in the kitchen at night in a time of hunger; one of them has secretly eaten a slice of bread, and neither says so.
 - Heinrich Böll (1917–1985) started with short stories about the war and its aftermath and later wrote novels. He won the Nobel Prize in Literature in 1972.
 
-Today's Kurzgeschichten are about anything, but the form those writers shaped is still what schools teach.
+Today's Kurzgeschichten are about anything, but the form those writers shaped is still what schools teach. (*die Literatur* is literature; *die Erzählung* is a general word for a narrative text, usually longer than a Kurzgeschichte.)
 
 ## What makes a Kurzgeschichte
 
@@ -97,8 +97,8 @@ Go through the checklist with *Der Zettel*.
 2. Short time and few characters: one evening, two people.
 3. Everyday language: short sentences, ordinary words, short dialogue.
 4. The turning point: the note. Before it, Jana notices small strange things (the milk, the TV that's off). The note shows her, and us, what they mean. Her reaction comes right after it: she hides the note and decides to come more often.
-5. Gaps: the word "illness" never appears. Nobody says "Dad is getting forgetful". The reader works it out from three bottles of milk and a name written three times. Why does she put the note in her pocket? To keep it? So that he doesn't see it again? The text doesn't say.
-6. Open ending: will he remember Monday? What happens next? We don't find out.
+5. Gaps: the story only hints at the illness (*andeuten*: *Die Geschichte deutet die Krankheit nur an*); the word never appears. Nobody says "Dad is getting forgetful". The reader works it out from three bottles of milk and a name written three times. Why does she put the note in her pocket? To keep it? So that he doesn't see it again? The text doesn't say.
+6. Open ending: the last scene (*die Szene*) shows Jana sitting in the dark. Will he remember Monday? What happens next? We don't find out.
 
 Notice that the gaps don't make the story vague: a good Kurzgeschichte is exact about things and silent about feelings.
 
@@ -115,11 +115,11 @@ The perspective (*die Perspektive*) decides what the reader may know: in *Der Ze
 
 The **Inhaltsangabe** (summary of the content) is the standard German school summary. It follows strict rules, and teachers mark them:
 
-- **Present tense** (*Präsens*), even though the story is in the past. The past perfect becomes the perfect: *Sie war hier aufgewachsen* → *Sie ist hier aufgewachsen*.
-- **No direct speech.** Turn quotations into reported speech with *dass* or a verb such as *behaupten, fragen, versprechen* (lesson 26).
-- **Your own words**, short and in order. Leave out details that don't matter.
-- **No opinion.** No *spannend*, no *traurig*, no "I think". Interpretation comes afterwards, in a separate part.
-- **An introduction sentence** with title, author, text type and theme: *In der Kurzgeschichte „…“ von … geht es um …*
+- Present tense (*Präsens*), even though the story is in the past. The past perfect becomes the perfect: *Sie war hier aufgewachsen* → *Sie ist hier aufgewachsen*.
+- No direct speech. Turn quotations into reported speech with *dass* or a verb such as *behaupten, fragen, versprechen* (lesson 26).
+- Your own words, short and in order. Leave out details that don't matter.
+- No opinion. No *spannend*, no *traurig*, no "I think". Interpretation comes afterwards, in a separate part.
+- An introduction sentence with title, author, text type and theme: *In der Kurzgeschichte „…“ von … geht es um …*
 
 ```mermaid
 flowchart TD

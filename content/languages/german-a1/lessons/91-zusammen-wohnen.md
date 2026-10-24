@@ -3,7 +3,7 @@ id: de1-h-zusammen-wohnen
 module: de1-h1
 title: 'Zusammen wohnen: neighbours, quiet hours and recycling'
 minutes: 45
-topics: [House rules and quiet hours, Recycling and Pfand, Infinitive commands and Wohin?]
+topics: [House rules and quiet hours, Recycling and Pfand, 'Infinitive commands and Wohin?']
 refs: [de1-ref-modals, de1-ref-prepositions]
 ---
 ## What this lesson is for

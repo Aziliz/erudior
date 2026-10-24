@@ -19,7 +19,7 @@
   choices:
   - It starts without an introduction.
   - It takes place in one evening.
-  - A narrator explains the fathers illness.
+  - A narrator explains the father's illness.
   - It ends without telling us what happens next.
   - It has many characters from several generations.
   answer:
@@ -98,7 +98,7 @@
   - A first-person narrator
   - A fairy-tale narrator
   answer: 2
-  explanation: 'The narrator says ich and is part of the story: a first-person narrator (Ich-Erzähler). That doesnt make it the author; the narrator is a voice inside the text.'
+  explanation: 'The narrator says ich and is part of the story: a first-person narrator (Ich-Erzähler). That doesn''t make it the author; the narrator is a voice inside the text.'
 - id: de3-h1-r2-h09
   lesson: de3-h-kurzgeschichte
   topic: Short stories
@@ -195,11 +195,11 @@
   module_quiz: true
   topic: Poems
   type: text
-  stem: What is the rhyme scheme of the first four lines of Wandrers Nachtlied (ending Gipfeln, Ruh, Wipfeln, du)? Type four letters, for example aabb.
+  stem: What is the rhyme scheme of the first stanza of Mondnacht (lines ending Himmel, geküsst, Blütenschimmer, müsst')? Type four letters, for example aabb.
   accept:
   - abab
   - a-b-a-b
-  explanation: 'Gipfeln is a, Ruh is b, Wipfeln rhymes with Gipfeln (a), du rhymes with Ruh (b): abab, a Kreuzreim.'
+  explanation: 'Himmel is a, geküsst is b, Blütenschimmer rhymes (impurely) with Himmel (a), müsst'' rhymes with geküsst (b): abab, a Kreuzreim.'
 - id: de3-h1-r2-h17
   lesson: de3-h-gedichte
   module_quiz: true
@@ -222,26 +222,26 @@
   distractors:
   - Strophe
   - Zeilensprung
-  explanation: aabb is the Paarreim (pairs), abab the Kreuzreim (the rhymes cross), abba the umarmende Reim (one pair embraces the other). A Strophe is a stanza, not a rhyme scheme.
+  explanation: aabb is the Paarreim (pairs), abab the Kreuzreim (the rhymes cross), abba the umarmende Reim (one pair embraces the other). A Strophe is a stanza and a Zeilensprung is enjambment; neither is a rhyme scheme.
 - id: de3-h1-r2-h18
   lesson: de3-h-gedichte
   topic: Old and poetic German
   type: match
-  stem: Match each old or poetic form to its everyday German.
+  stem: Match each old or poetic form from Mondnacht to its everyday German.
   pairs:
-  - - Ruh
-    - Ruhe
-  - - spürest
-    - spürst
-  - - im Walde
-    - im Wald
-  - - balde
-    - bald
-  - - Vögelein
-    - kleine Vögel
+  - - hätt'
+    - hätte
+  - - leis
+    - leise
+  - - die Lande
+    - die Länder
+  - - nach Haus
+    - nach Hause
+  - - flöge
+    - würde fliegen
   distractors:
-  - ruhig
-  explanation: Ruh has lost its final -e; spürest has the old -est ending for du; im Walde has the old dative -e; balde is an old form of bald; Vögelein is the diminutive with -lein.
+  - fliegt
+  explanation: hätt' and leis have lost their final -e, die Lande is an old plural of Land (today die Länder), nach Haus has lost the -e of nach Hause, and flöge is the Konjunktiv II of fliegen, which everyday German replaces with würde fliegen.
 - id: de3-h1-r2-h19
   lesson: de3-h-gedichte
   module_quiz: true
@@ -253,27 +253,27 @@
   - one line of a poem
   - a rhyme
   answer: 2
-  explanation: German Vers is one line (also called Zeile). A stanza is die Strophe, which is also the word for a songs verse.
+  explanation: German Vers is one line (also called Zeile). A stanza is die Strophe, which is also the word for a song's verse.
 - id: de3-h1-r2-h20
   lesson: de3-h-gedichte
   topic: Old and poetic German
   stem: Which of these are old or poetic forms that you should not use in an everyday e-mail? Select all that apply.
   choices:
-  - spürest
-  - balde
+  - hätt'
+  - die Lande
   - zu Hause
-  - im Walde
+  - flöge
   - bald
   answer:
   - 0
   - 1
   - 3
-  explanation: spürest (today spürst), balde (today bald) and im Walde (today im Wald) sound about 200 years old. zu Hause keeps the old dative -e but is completely normal today, and bald is the modern form.
+  explanation: hätt' (today hätte), die Lande (today die Länder) and flöge (today usually würde fliegen) sound about 200 years old. zu Hause keeps an old dative -e but is completely normal today, and bald is an ordinary word.
 - id: de3-h1-r2-h21
   lesson: de3-h-gedichte
   topic: Old and poetic German
   type: order
-  stem: Rewrite Heines line "Ich weiß nicht, was soll es bedeuten" in everyday word order, with the verb at the end of the was clause.
+  stem: Rewrite Heine's line "Ich weiß nicht, was soll es bedeuten" in everyday word order, with the verb at the end of the was clause.
   items:
   - Ich weiß nicht,
   - was
@@ -291,18 +291,18 @@
   - A line with an old dative -e
   - Dropping a final -e
   answer: 0
-  explanation: 'In Warte nur, balde / Ruhest du auch, the sentence doesnt stop at the end of the line: that is enjambment. Dropping a final -e is elision.'
+  explanation: 'In Und meine Seele spannte / Weit ihre Flügel aus, the sentence doesn''t stop at the end of the line: that is enjambment. Dropping a final -e is elision.'
 - id: de3-h1-r2-h23
   lesson: de3-h-gedichte
   topic: Poems
-  stem: '"Über allen Gipfeln … In allen Wipfeln" What is the difference between Gipfel and Wipfel?'
+  stem: In Mondnacht, the earth (die Erde) dreams "von ihm". Who or what is "ihm"?
   choices:
-  - Gipfel are clouds, Wipfel are birds.
-  - Gipfel are mountain tops, Wipfel are treetops.
-  - Both mean valleys.
-  - Gipfel are treetops, Wipfel are mountain tops.
+  - die Nacht
+  - der Himmel
+  - die Seele
+  - der Wald
   answer: 1
-  explanation: der Gipfel is the top of a mountain, der Wipfel the top of a tree. The poem moves from the mountains down to the trees and then to the birds.
+  explanation: ihm is masculine (or neuter) dative, and the poem has just said that der Himmel kissed die Erde. So she, the earth, dreams of him, the sky. Nacht and Seele are feminine, and der Wald is not in the first stanza.
 - id: de3-h1-r2-h24
   lesson: de3-h-gedichte
   topic: Poems
@@ -318,10 +318,9 @@
   lesson: de3-h-gedichte
   topic: Old and poetic German
   type: text
-  stem: 'Write the line in todays spelling: Heine wrote "Daß ich so traurig bin". Today: "___ ich so traurig bin."'
+  stem: 'Write the line in today''s spelling: Heine wrote "Daß ich so traurig bin". Today: "___ ich so traurig bin."'
   accept:
   - dass
-  - Dass
   explanation: Since the 1996 spelling reform, daß is written dass (ß after a short vowel became ss).
 - id: de3-h1-r2-h26
   lesson: de3-h-gedichte
@@ -338,25 +337,25 @@
   lesson: de3-h-gedichte
   module_quiz: true
   topic: Poems
-  stem: What is the rhyme scheme of the whole of Wandrers Nachtlied (Gipfeln, Ruh, Wipfeln, du, Hauch, Walde, balde, auch)?
+  stem: What is the rhyme scheme of the whole of Mondnacht (Himmel, geküsst, Blütenschimmer, müsst' / Felder, sacht, Wälder, Nacht / spannte, aus, Lande, Haus)?
   choices:
-  - abab cddc
-  - aabb ccdd
-  - abba abba
-  - abab cdcd
+  - abab cdcd efef
+  - aabb ccdd eeff
+  - abba cddc effe
+  - abab abab abab
   answer: 0
-  explanation: 'Gipfeln/Wipfeln (a), Ruh/du (b): abab. Then Hauch (c), Walde (d), balde (d), auch (c): cddc, an enclosed rhyme. abab cdcd would need Walde to rhyme with auch.'
+  explanation: 'Each stanza has alternate rhyme with new sounds: Himmel/Blütenschimmer and geküsst/müsst'' (abab), Felder/Wälder and sacht/Nacht (cdcd), spannte/Lande and aus/Haus (efef). abab abab abab would need the same rhyme sounds in every stanza.'
 - id: de3-h1-r2-h28
   lesson: de3-h-gedichte
   topic: Poems
-  stem: Which pair of words from Wandrers Nachtlied rhymes?
+  stem: Which pair of rhyme words from Mondnacht is an impure rhyme (unreiner Reim)?
   choices:
-  - Gipfeln – Walde
-  - Hauch – Walde
-  - balde – auch
-  - Ruh – du
+  - sacht – Nacht
+  - aus – Haus
+  - geküsst – müsst'
+  - Himmel – Blütenschimmer
   answer: 3
-  explanation: 'Rhyme is about sound: Ruh and du both end in a long u. Gipfeln rhymes with Wipfeln, Hauch with auch and Walde with balde.'
+  explanation: 'Himmel and Schimmer share the stressed i and the mm but end differently (-el, -er): close, not identical. sacht/Nacht, aus/Haus and geküsst/müsst'' rhyme perfectly from the stressed vowel on.'
 - id: de3-h1-r2-h29
   lesson: de3-h-erinnerung
   module_quiz: true
@@ -368,7 +367,7 @@
   - Because it is the German national holiday
   - Because the Second World War ended on that day
   answer: 1
-  explanation: 1918 (the republic is proclaimed), 1923 (Hitlers failed putsch), 1938 (the November pogroms) and 1989 (the fall of the Wall) all happened on 9 November. The Wall was built in 1961, the national holiday is 3 October and the war in Europe ended on 8 May 1945.
+  explanation: 1918 (the republic is proclaimed), 1923 (Hitler's failed putsch), 1938 (the November pogroms) and 1989 (the fall of the Wall) all happened on 9 November. The Wall was built in 1961, the national holiday is 3 October and the war in Europe ended on 8 May 1945.
 - id: de3-h1-r2-h30
   lesson: de3-h-erinnerung
   module_quiz: true
@@ -379,14 +378,14 @@
   - - '1918'
     - A republic is proclaimed in Berlin
   - - '1923'
-    - Hitlers failed putsch in Munich
+    - Hitler's failed putsch in Munich
   - - '1938'
     - The November pogroms
   - - '1989'
     - The Berlin Wall falls
   distractors:
   - German reunification
-  explanation: '1918: the republic is proclaimed; 1923: Hitlers failed putsch in Munich; 1938: the November pogroms; 1989: the Berlin Wall falls. Reunification came on 3 October 1990.'
+  explanation: '1918: the republic is proclaimed; 1923: Hitler''s failed putsch in Munich; 1938: the November pogroms; 1989: the Berlin Wall falls. Reunification came on 3 October 1990.'
 - id: de3-h1-r2-h31
   lesson: de3-h-erinnerung
   module_quiz: true
@@ -395,7 +394,7 @@
   stem: 'Rewrite the Stolperstein line "DEPORTIERT 1942" as a full sentence about Rosa Adler: "Sie ___ 1942 deportiert."'
   accept:
   - wurde
-  explanation: 'Rosa Adler didnt deport anyone; she was deported. So the participle stands for a passive in the past: Sie wurde 1942 deportiert.'
+  explanation: 'Rosa Adler didn''t deport anyone; she was deported. So the participle stands for a passive in the past: Sie wurde 1942 deportiert.'
 - id: de3-h1-r2-h32
   lesson: de3-h-erinnerung
   topic: Memorial texts
@@ -414,7 +413,7 @@
   stem: Which statements about Stolpersteine are true? Select all that apply.
   choices:
   - Each stone carries the name of one person.
-  - They are placed in front of the persons last freely chosen home.
+  - They are placed in front of the person's last freely chosen home.
   - They are paid for by the federal government.
   - Every German city allows them on public ground.
   - The artist Gunter Demnig laid the first one in 1992.
@@ -422,7 +421,7 @@
   - 0
   - 1
   - 4
-  explanation: Each stone remembers one person, in front of the last home they chose freely. Neighbours, school classes, relatives and local groups pay for them, not the federal government, and Munich, for example, doesnt allow them on public ground. Demnig laid the first one in Cologne in 1992.
+  explanation: Each stone remembers one person, in front of the last home they chose freely. Neighbours, school classes, relatives and local groups pay for them, not the federal government, and Munich, for example, doesn't allow them on public ground. Demnig laid the first one in Cologne in 1992.
 - id: de3-h1-r2-h34
   lesson: de3-h-erinnerung
   module_quiz: true
@@ -442,7 +441,7 @@
   stem: Name the numbered parts of the picture.
   image:
     src: images/de3-h1-stolperstein-blank.svg
-    alt: A house front with a door, a pavement with a small brass stone, and a magnified view of the stones text with four numbered points.
+    alt: A house front with a door, a pavement with a small brass stone, and a magnified view of the stone's text with four numbered points.
   labels:
   - x: 30.5
     y: 53.2
@@ -514,7 +513,7 @@
   - Die Tafel erinnert der Familie Adler.
   - Die Tafel erinnert an die Familie Adler.
   answer: 3
-  explanation: 'erinnern an + accusative without sich means to remind of or commemorate. sich erinnern an means to remember (a plaque cant remember), and gedenken would need the genitive: der Familie Adler.'
+  explanation: 'erinnern an + accusative without sich means to remind of or commemorate. sich erinnern an means to remember (a plaque can''t remember), and gedenken would need the genitive: der Familie Adler.'
 - id: de3-h1-r2-h41
   lesson: de3-h-erinnerung
   topic: Memorial texts
@@ -622,7 +621,7 @@
   distractors:
   - die Legende
   - das Kreisdiagramm
-  explanation: 1 is the title, 2 one of the bars (die Säule; this kind of chart is a Säulendiagramm), 3 the vertical axis with the percentages, and 4 the source line, Quelle. The chart has no legend, and it isnt a pie chart (Kreisdiagramm).
+  explanation: 1 is the title, 2 one of the bars (die Säule; this kind of chart is a Säulendiagramm), 3 the vertical axis with the percentages, and 4 the source line, Quelle. The chart has no legend, and it isn't a pie chart (Kreisdiagramm).
 - id: de3-h1-r2-h50
   lesson: de3-h-einwanderung
   topic: Describing statistics

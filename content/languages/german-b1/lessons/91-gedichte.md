@@ -103,12 +103,12 @@ Dropping a sound like this is called **elision** (*die Elision*); in old texts i
 
 Write down the last word of each line and give letters. Stanza 1:
 
-1. *Himmel*: new sound, **a**
-2. *geküsst*: new sound, **b**
-3. *Blütenschimmer*: **a**? *Himmel* and *Schimmer* share the stressed vowel and the *mm*, but end differently (*-el*, *-er*). This is an **impure rhyme** (*der unreine Reim*): close enough for the ear, not identical. Count it as **a**.
-4. *müsst'*: rhymes with *geküsst*, **b**
+1. *Himmel*: new sound, *a*
+2. *geküsst*: new sound, *b*
+3. *Blütenschimmer*: *a*? *Himmel* and *Schimmer* share the stressed vowel and the *mm*, but end differently (*-el*, *-er*). This is an **impure rhyme** (*der unreine Reim*): close enough for the ear, not identical. Count it as *a*.
+4. *müsst'*: rhymes with *geküsst*, *b*
 
-Stanza 2: *Felder* / *Wälder* (*e* and *ä* sound the same here, **c**), *sacht* / *Nacht* (**d**). Stanza 3: *spannte* / *Lande* (impure again, **e**), *aus* / *Haus* (**f**).
+Stanza 2: *Felder* / *Wälder* (*e* and *ä* sound the same here, *c*), *sacht* / *Nacht* (*d*). Stanza 3: *spannte* / *Lande* (impure again, *e*), *aus* / *Haus* (*f*).
 
 The scheme is *abab cdcd efef*: three stanzas of alternate rhyme (*Kreuzreim*), four lines each. Rhyme is about sound, not spelling: *Felder* and *Wälder* rhyme perfectly even though one has *e* and the other *ä*.
 
@@ -116,7 +116,7 @@ Now look at lines 9 and 10: *Und meine Seele spannte / Weit ihre Flügel aus*. T
 
 ## Text 2: Heine, Die Lore-Ley
 
-Heinrich Heine (1797–1856) was born in Düsseldorf into a Jewish family and lived in Paris from 1831 until his death. He wrote *Die Lore-Ley* in 1824, and it became famous through his collection *Buch der Lieder* (Book of Songs, 1827). The Loreley is a steep rock on the Rhine near St. Goarshausen, where the river is narrow and was dangerous for boats. Heine's poem tells of a beautiful woman who sits on the rock, combs her golden hair and sings, and the boatman below looks up at her instead of at the rocks. With a melody by Friedrich Silcher (1837) it became one of the best-known German songs.
+Heinrich Heine (1797–1856) was born in Düsseldorf into a Jewish family and lived in Paris from 1831 until his death. He wrote *Die Lore-Ley* in 1824, and it became famous through his collection *Buch der Lieder* (Book of Songs, 1827). The Loreley is a steep rock on the Rhine, and its story is a *Sage* (legend) near St. Goarshausen, where the river is narrow and was dangerous for boats. Heine's poem tells of a beautiful woman who sits on the rock, combs her golden hair and sings, and the boatman below looks up at her instead of at the rocks. With a melody by Friedrich Silcher (1837) it became one of the best-known German songs.
 
 The first stanza:
 

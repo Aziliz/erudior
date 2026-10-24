@@ -14,7 +14,7 @@ You'll learn the main stages of that history, from the "guest workers" of the 19
 
 ## From emigration to immigration
 
-For a long time Germans were emigrants. In the 19th century millions left for America. After the Second World War about 12 million refugees and expellees (*Flüchtlinge und Vertriebene*), Germans from the former eastern territories and from Eastern Europe, had to find a new home in the two German states. Then West Germany's economic boom (*das Wirtschaftswunder*) ran short of workers.
+For a long time Germans were emigrants (lesson 21's *auswandern*), not immigrants (*einwandern, der Einwanderer, die Einwanderin*); *die Migration* covers both directions. In the 19th century millions left for America. After the Second World War about 12 million refugees and expellees (*Flüchtlinge und Vertriebene*), Germans from the former eastern territories and from Eastern Europe, had to find a new home in the two German states. Then West Germany's economic boom (*das Wirtschaftswunder*) ran short of workers.
 
 ### The "guest workers"
 
@@ -80,7 +80,7 @@ The two prepositions matter: *auf* gives the new value, *um* gives the differenc
 1. Introduction: *Das Säulendiagramm zeigt, wie sich der Anteil der Einwohner mit Einwanderungsgeschichte in Neustadt zwischen 2000 und 2024 entwickelt hat. Die Zahlen stammen von der Stadt Neustadt.*
 2. Main trend: *Der Anteil ist in diesem Zeitraum stark gestiegen: von 12 auf 24 Prozent. Er hat sich also verdoppelt.*
 3. Details: *Den stärksten Anstieg gab es zwischen 2008 und 2016, nämlich um 5 Prozentpunkte. Heute hat etwa jeder vierte Einwohner eine Einwanderungsgeschichte.*
-4. Conclusion: *Insgesamt zeigt die Grafik, dass Neustadt immer vielfältiger wird.*
+4. Conclusion: *Insgesamt zeigt die Grafik, dass Neustadt immer vielfältiger wird.* (*vielfältig* = diverse; *die Vielfalt* = diversity; a set of numbers like this is *eine Statistik*.)
 
 Check the numbers before you write: 12 → 15 is +3 points, 15 → 20 is +5, 20 → 24 is +4. So the biggest jump really is 2008–2016. 24 % is just under 25 %, so "about one in four" (*etwa jeder Vierte*) is right, and *knapp ein Viertel* (just under a quarter) would be even more exact.
 

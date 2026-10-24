@@ -11,11 +11,11 @@ refs: [de3-ref-speaking-writing, de3-ref-passive-opinions]
 
 Living on your own in a German-speaking country means post: from the town hall, the health insurance fund, the landlord. In lesson 29 you learned to *write* formal letters; this honors lesson is about *reading* the ones that come to you, and acting on them in time. Their style has a nickname, *Amtsdeutsch* ("office German"), in English **officialese**: long nouns, fixed phrases, abbreviations and passive forms. It looks hard, but it uses a small toolkit you already know from lesson 18 (*sein* + *zu*) and lesson 20 (nominal style), plus one new pattern, the light verb construction.
 
-You'll learn the parts of an official decision, how deadlines and objections work, how to turn officialese into plain German, and how to check the yearly service-charge bill from your landlord. The legal details here are simplified and describe Germany; they are not legal advice. When in doubt, a *Beratungsstelle* or the *Mieterverein* (lesson 27) can help.
+If you did the German A2 honors lesson on official letters, you already know their layout, the most common abbreviations and how to read a reminder. This lesson goes further: how deadlines are counted, how to write an objection yourself, the light verb constructions of formal German, and how to check the yearly service-charge bill from your landlord. The legal details here are simplified and describe Germany; they are not legal advice. When in doubt, a *Beratungsstelle* or the *Mieterverein* (lesson 27) can help.
 
 ## The parts of an official decision
 
-When an office decides on something you applied for, or something you have to pay, it sends a *Bescheid* (an official decision). A *Bescheid* is binding: if you don't object in time, it stands. Most have the same parts:
+When an office decides on something you applied for, or something you have to pay, it sends a *Bescheid* (an official decision). A *Bescheid* is binding: if you don't object in time, it stands. Here is a quick review of its parts:
 
 ![An official letter from the road traffic office of the fictional town of Musterstadt to Elif Kaya. Labels point to the Aktenzeichen (file number) at the top right, the bold subject line, the decision Ihr Antrag wird abgelehnt, the reasons under Begründung, the Rechtsbehelfsbelehrung that explains how to object, and Im Auftrag above the signature.](images/de3-m6-bescheid.svg)
 
@@ -71,12 +71,12 @@ Elif Kaya applied for a residents' parking permit (*Bewohnerparkausweis*). The c
 
 ### Nominal style
 
-Lesson 20 showed how written German packs actions into nouns. Official letters do it constantly, often with a preposition at the front. Turn the noun back into a verb and the sentence becomes plain German:
+Lesson 20 showed how written German packs actions into nouns. Official letters do it constantly, often with a preposition at the front (*nach Eingang*, *bei Nichtzahlung*, *zur Vermeidung*). Turn the noun back into a verb and the sentence becomes plain German:
 
 | officialese | plain German | English |
 |---|---|---|
-| *Nach Eingang Ihrer Unterlagen …* | *Wenn Ihre Unterlagen bei uns angekommen sind, …* | once your documents have arrived |
-| *Bei Nichtzahlung …* | *Wenn Sie nicht zahlen, …* | if you don't pay |
+| *Im Falle einer Ablehnung …* | *Wenn wir Ihren Antrag ablehnen, …* | if your application is rejected |
+| *Unter Vorlage Ihres Ausweises …* | *Wenn Sie Ihren Ausweis zeigen, …* | on presentation of your ID |
 | *Zur Vermeidung weiterer Kosten …* | *Damit keine weiteren Kosten entstehen, …* | to avoid further costs |
 | *Nach Prüfung Ihres Antrags …* | *Nachdem wir Ihren Antrag geprüft haben, …* | after examining your application |
 | *Bei Rückfragen …* | *Wenn Sie Fragen haben, …* | if you have any questions |
@@ -103,16 +103,16 @@ Offices rarely say who acts. Lesson 18's *sein* + *zu* is their favourite way to
 
 ### Abbreviations
 
+Besides *Az.*, *i. A.*, *ggf.* (*gegebenenfalls*, if necessary) and *Anl.* (*Anlage*, enclosure), you'll meet these:
+
 | abbreviation | full form | English |
 |---|---|---|
-| *Az.* | *Aktenzeichen* | file number |
 | *z. Hd.* | *zu Händen* | for the attention of |
-| *i. A.* | *im Auftrag* | on behalf of |
-| *ggf.* | *gegebenenfalls* | if necessary, where applicable |
+| *i. V.* | *in Vertretung* | standing in for (the person in charge) |
+| *o. g.* | *oben genannt* | above-mentioned |
 | *bzgl.* | *bezüglich* | regarding |
 | *gem.* | *gemäß* | in accordance with |
 | *Abs.* | *Absatz* | paragraph, subsection (of a law) |
-| *Anl.* | *Anlage(n)* | enclosure(s), attachment(s) |
 
 *§ 556 Abs. 3 BGB* reads "Paragraf 556, Absatz 3 des Bürgerlichen Gesetzbuchs" (the German Civil Code).
 

@@ -138,7 +138,7 @@ Start from a fact and change one thing: *1876 meldete Alexander Graham Bell ein 
 1. Flip the fact into an unreal past condition: *Wenn das Telefon nicht erfunden worden wäre, …* (passive, as in the essay) or more simply: *Wenn es kein Telefon gegeben hätte, …* (*es gibt* → perfect *es hat gegeben* → *hätte gegeben*).
 2. Add a past consequence with *hätte/wäre* + participle: *… hätten die Menschen noch lange Briefe und Telegramme geschickt.*
 3. Add a present consequence with the present Konjunktiv: *Vielleicht gäbe es heute auch keine Smartphones.*
-4. Mark it as speculation: *vielleicht, wahrscheinlich, möglicherweise*, or the modals from lesson 25h1: *Es könnte sein, dass …*
+4. Mark it as speculation: *vielleicht, wahrscheinlich, möglicherweise*, or a guessing modal from the honors lesson on diplomatic German: *Es könnte sein, dass …*
 
 Result: *Wenn es kein Telefon gegeben hätte, hätten die Menschen noch lange Briefe und Telegramme geschickt. Vielleicht gäbe es heute auch keine Smartphones.*
 
