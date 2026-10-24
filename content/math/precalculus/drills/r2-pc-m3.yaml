@@ -197,7 +197,7 @@
     - {name: y2, label: '$f({x2}) =$', kind: fraction}
   solution: |-
     The asymptotes are $x = {hh}$ and $y = {a}$, so the center is $({hh}, {a})$. The inputs ${x1}$ and ${x2}$ are both {s} units from ${hh}$, so $f({x1}) + f({x2}) = 2({a}) = {twov}$.
-    Then $f({x2}) = {twov} - {y1:texfrac} =$ **{y2:frac}**.
+    Then $f({x2}) = {twov} - \left({y1:texfrac}\right) =$ **{y2:frac}**.
 
 - id: pc-m3-r2-lens
   title: Thin-lens image distance

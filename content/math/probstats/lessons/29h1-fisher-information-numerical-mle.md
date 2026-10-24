@@ -82,8 +82,8 @@ $J(\theta_k)$ by the expected information $nI(\theta_k)$:
 
 $$\theta_{k+1} = \theta_k + \frac{\ell'(\theta_k)}{nI(\theta_k)}.$$
 
-Because $nI(\theta)$ is always positive, every scoring step moves uphill in direction, which often makes scoring
-steadier early on; near the answer the two methods behave alike.
+Because $nI(\theta)$ is always positive, every scoring step points uphill (the same sign as $\ell'$), which often makes
+scoring steadier early on; near the answer the two methods behave alike.
 
 ### Example 1: a fault log with the zero days missing
 
