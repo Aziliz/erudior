@@ -93,14 +93,18 @@ def embed_image(folder, src, errors, where):
     return f"data:{kind};base64,{base64.b64encode(data).decode()}"
 
 
-MD_IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)((?:\s+\"[^\"]*\")?)\)")
+# The alt text runs to the first "](": it may hold brackets ("domain [−2, 4)", "E[Y given X]").
+MD_IMAGE = re.compile(r"!\[([^\n]*?)\]\(([^)\s]+)((?:\s+\"[^\"]*\")?)\)")
 
 
 def embed_md_images(folder, md, errors, where):
     def rep(m):
         if not m.group(1).strip():
             errors.append(f"{where}: image '{m.group(2)}' needs alt text: ![what it shows](...)")
-        return f"![{m.group(1)}]({embed_image(folder, m.group(2), errors, where)}{m.group(3)})"
+        # Brackets become HTML entities so Markdown keeps the whole alt text, even an unbalanced
+        # "[−2, 4)" (a backslash escape would read as TeX \[ … \] display math).
+        alt = m.group(1).replace("[", "&#91;").replace("]", "&#93;")
+        return f"![{alt}]({embed_image(folder, m.group(2), errors, where)}{m.group(3)})"
     return MD_IMAGE.sub(rep, md)
 
 

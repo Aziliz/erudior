@@ -8,9 +8,9 @@ description: >-
   hyperbolic functions, introductory differential equations (separable and first-order linear),
   sequences and series, Taylor series, and calculus
   with parametric and polar curves.
-revision: 4
+revision: 5
 released: true
-changelog: Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for.
+changelog: Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for. Fixes pictures that didn't show.
 order: 7
 subject: Math
 level: [High School, College]

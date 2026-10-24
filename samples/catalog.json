@@ -392,7 +392,7 @@
   "order": 2,
   "title": "Algebra 1",
   "description": "High school Algebra 1: real numbers, linear equations and inequalities, absolute value, functions and lines, systems, exponents, polynomials and factoring, quadratics, square roots, exponential growth and decay, sequences, and data analysis. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Math",
   "level": [
    "High School"
@@ -1285,7 +1285,7 @@
   "order": 6,
   "title": "Precalculus",
   "description": "Precalculus from the high school course through college precalculus, assuming Algebra 2: functions in depth, transformations, composition and inverses, polynomial and rational functions, exponential and logarithmic models, a compact trigonometry review, systems and matrices, conic sections, parametric and polar equations, vectors, sequences and series, induction, the binomial theorem, counting and probability, and a first look at limits and the derivative.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Math",
   "level": [
    "High School",
@@ -1536,7 +1536,7 @@
   "order": 7,
   "title": "Calculus",
   "description": "Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB, then BC, then college Calculus I and II: limits and continuity, the derivative and its rules, related rates, optimization and curve sketching, integrals and the Fundamental Theorem, applications of integration, techniques of integration, improper integrals, hyperbolic functions, introductory differential equations (separable and first-order linear), sequences and series, Taylor series, and calculus with parametric and polar curves.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Math",
   "level": [
    "High School",
@@ -2714,7 +2714,7 @@
   "order": 12,
   "title": "Probability and Statistics",
   "description": "Calculus-based probability and mathematical statistics at the college level: probability axioms, counting and Bayes' theorem, discrete and continuous random variables, moment generating functions, joint distributions, covariance and conditional expectation, the law of large numbers and the Central Limit Theorem, sampling distributions, point estimation, maximum likelihood and minimum-variance unbiased estimators, confidence intervals and the bootstrap, hypothesis testing and likelihood ratio tests, regression, ANOVA and nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used for joint densities.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Math",
   "level": [
    "College"
