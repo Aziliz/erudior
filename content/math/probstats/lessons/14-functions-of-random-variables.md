@@ -128,7 +128,7 @@ Graphically, inverse transform sampling reads the cdf backward: start at height 
 axis, go across to the cdf, and drop down to the $x$-axis.
 
 ```plot
-{"x": [-0.3, 8], "y": [0, 1.05], "xLabel": "x", "yLabel": "F(x)", "functions": [{"f": "1 - exp(-0.5*x)", "from": 0, "to": 8}], "segments": [{"from": [0, 0.7], "to": [2.408, 0.7], "arrow": true, "dashed": true}, {"from": [2.408, 0.7], "to": [2.408, 0], "arrow": true, "dashed": true}], "points": [{"at": [0, 0.7], "label": "U = 0.7"}, {"at": [2.408, 0], "label": "X ≈ 2.408"}], "caption": "Inverse transform with F(x) = 1 − e^(−0.5x): U = 0.7 maps to X = −ln(0.3)/0.5 ≈ 2.408"}
+{"x": [-0.3, 8], "y": [0, 1.05], "xLabel": "x", "yLabel": "F(x)", "functions": [{"f": "1 - exp(-0.5*x)", "from": 0, "to": 8}], "segments": [{"from": [0, 0.7], "to": [2.408, 0.7], "arrow": true, "dashed": true}, {"from": [2.408, 0.7], "to": [2.408, 0], "arrow": true, "dashed": true}], "points": [{"at": [0, 0.7], "label": "U = 0.7"}, {"at": [2.408, 0]}], "labels": [{"at": [3.5, 0.12], "text": "X ≈ 2.408"}], "caption": "Inverse transform with F(x) = 1 − e^(−0.5x): U = 0.7 maps to X = −ln(0.3)/0.5 ≈ 2.408"}
 ```
 
 To choose a method for a new problem, this chart is a good guide.

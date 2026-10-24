@@ -89,7 +89,7 @@ shape decides how risk changes with age:
   this case is the **Rayleigh distribution**.
 
 ```plot
-{"x": [0, 2.5], "y": [0, 4], "xLabel": "x (in units of s)", "yLabel": "h(x)", "functions": [{"f": "0.5*x^(-0.5)", "from": 0.015, "to": 2.5, "label": "k = 0.5"}, {"f": "1", "label": "k = 1"}, {"f": "2*x", "label": "k = 2"}, {"f": "3*x^2", "label": "k = 3"}], "caption": "Weibull hazards with scale s = 1: decreasing for k = 0.5, constant for k = 1, increasing for k = 2 and k = 3"}
+{"x": [0, 2.5], "y": [0, 4], "xLabel": "x", "yLabel": "h(x)", "functions": [{"f": "0.5*x^(-0.5)", "from": 0.015, "to": 2.5, "label": "k = 0.5"}, {"f": "1", "label": "k = 1"}, {"f": "2*x", "label": "k = 2"}, {"f": "3*x^2", "label": "k = 3"}], "caption": "Weibull hazards with scale s = 1: decreasing for k = 0.5, constant for k = 1, increasing for k = 2 and k = 3"}
 ```
 
 The scale $s$ is called the **characteristic life**: at $x = s$, $F(s) = 1 - e^{-1} \approx 0.632$ for
