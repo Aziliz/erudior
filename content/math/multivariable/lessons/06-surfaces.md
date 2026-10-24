@@ -62,7 +62,7 @@ The same checks as a key. Put the equation in standard form first, with the cons
 ```mermaid
 flowchart TD
   accTitle: A key for identifying quadric surfaces
-  accDescr: First, if a variable is missing, the surface is a cylinder. Otherwise, if one variable appears only to the first power, it is a paraboloid: elliptic if the two squares have the same sign, hyperbolic if opposite signs. If all three variables are squared, put it in the form with the constant on the right. If the constant is zero it is a cone. If the constant is positive, count the minus signs: none gives an ellipsoid, one gives a hyperboloid of one sheet, two give a hyperboloid of two sheets.
+  accDescr: First, if a variable is missing, the surface is a cylinder. Otherwise, if one variable appears only to the first power, it is a paraboloid: elliptic if the two squares have the same sign, hyperbolic if opposite signs. If all three variables are squared, put it in the form with the constant on the right. If the constant is zero it is a cone. If the constant is positive, count the minus signs: none gives an ellipsoid, one gives a hyperboloid of one sheet, two give a hyperboloid of two sheets, and three mean no points at all.
   A{"Is a variable missing?"} -- yes --> CY["Cylinder"]
   A -- no --> B{"Is one variable only to the first power?"}
   B -- yes --> S{"Do the two squares have the same sign?"}
@@ -74,6 +74,7 @@ flowchart TD
   M -- none --> EL["Ellipsoid"]
   M -- one --> H1["Hyperboloid of one sheet"]
   M -- two --> H2["Hyperboloid of two sheets"]
+  M -- three --> NP["No points at all"]
 ```
 
 ### Example 1: identify from traces

@@ -10,9 +10,9 @@ refs: [mv-ref-vectors]
 ---
 ## The missing terms
 
-Every quadric surface in Lesson 6 had an equation built from $x^2$, $y^2$, $z^2$, linear terms and a constant. The most general second-degree equation in $x, y, z$ also allows the **cross terms** $xy$, $yz$ and $xz$. What does $2xy + z^2 = 1$ look like? The answer is that cross terms do not create new shapes. They only *tilt* one of the six standard quadrics, so that its axes no longer line up with the coordinate axes. This lesson shows how to find the tilted axes and identify the surface, first for curves in the plane, then in space. The same mathematics returns in Lesson 17: the second-derivative test is a statement about this kind of expression.
+Every quadric surface in Lesson 6 had an equation built from $x^2$, $y^2$, $z^2$, linear terms and a constant. The most general second-degree equation in $x, y, z$ also allows the **cross terms** $xy$, $yz$ and $xz$. What does $2xy + z^2 = 1$ look like? The answer is that cross terms do not create new shapes. They only *tilt* a surface you already know (one of the six standard quadrics, or a cylinder or other degenerate case), so that its axes no longer line up with the coordinate axes; linear terms, as in Lesson 6, only shift it. This lesson shows how to find the tilted axes and identify the surface, first for curves in the plane, then in space. The same mathematics returns in Lesson 17: the second-derivative test is a statement about this kind of expression.
 
-Two results from linear algebra are stated here without proof and labeled as such; everything else is derived.
+Two results are stated here without proof and labeled as such (one from linear algebra, one from analysis); everything else is derived.
 
 ## Quadratic forms and their matrices
 
@@ -113,11 +113,11 @@ In general the eigenvalues of a $3\times3$ matrix are roots of a cubic, which a 
 2. The equation becomes $x'^2 - y'^2 + z^2 = 1$. The eigenvalues are $1, -1, 1$: one negative.
 3. One minus sign: a **hyperboloid of one sheet** whose axis is the $y'$-axis, the line through the origin in the direction $\langle -1, 1, 0\rangle$.
 
-Check a trace: in the plane $x = y$ (that is, $y' = 0$) the equation becomes $2x^2 + z^2 = 1$, an ellipse around the axis, as a one-sheeted hyperboloid should have.
+Check a trace: in the plane $x = y$ (that is, $y' = 0$) the equation becomes $2x^2 + z^2 = 1$. In that plane the distance along the $x'$ direction is $x' = \sqrt2\,x$, so this is $x'^2 + z^2 = 1$: a circle of radius 1 around the axis (in $x, z$ coordinates it only looks like an ellipse because $x$ is not a length within the tilted plane), the narrowest trace, as a one-sheeted hyperboloid should have.
 
 ## The link to the second-derivative test
 
-Near a critical point, Taylor's theorem says $f(a + h, b + k) - f(a,b) \approx \tfrac12\left(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2\right)$, and the quadratic form in the parentheses, $f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2$, has the Hessian as its matrix. Its discriminant is $(2f_{xy})^2 - 4f_{xx}f_{yy} = -4D$, where $D = f_{xx}f_{yy} - f_{xy}^2$ is the discriminant of Lesson 17. So $D > 0$ means ellipse-like level curves (a bowl, so a local maximum or minimum), and $D < 0$ means hyperbola-like ones (a saddle). With three or more variables the test looks at the signs of the Hessian's eigenvalues instead: all positive gives a local minimum, all negative a local maximum, mixed signs a saddle. The proof that the quadratic part controls the shape needs more analysis than this course covers, so take that step as stated.
+Near a critical point, Taylor's theorem says $f(a + h, b + k) - f(a,b) \approx \tfrac12\left(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2\right)$, and the quadratic form in the parentheses, $f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2$, has the Hessian as its matrix. Its discriminant is $(2f_{xy})^2 - 4f_{xx}f_{yy} = -4D$, where $D = f_{xx}f_{yy} - f_{xy}^2$ is the discriminant of Lesson 17. So $D > 0$ means ellipse-like level curves (a bowl, so a local maximum or minimum), and $D < 0$ means hyperbola-like ones (a saddle). With three or more variables the test looks at the signs of the Hessian's eigenvalues instead: all positive gives a local minimum, all negative a local maximum, mixed signs a saddle, and a zero eigenvalue leaves the test inconclusive. Here, take as stated that the quadratic part controls the shape near the critical point; the optional honors lesson after Lesson 20, "Why the second-derivative test works", explains why.
 
 ## Common mistakes
 
