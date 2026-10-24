@@ -19,9 +19,9 @@
 - {front: 'während + clause → phrase', back: 'während + genitive: Während er studierte → während seines Studiums.', topic: Time phrases}
 - {front: 'seit + clause → phrase', back: 'seit + dative: Seit sie geheiratet haben → seit ihrer Heirat.', topic: Time phrases}
 - {front: 'bis + clause → phrase; sobald + clause → phrase', back: 'bis zu + dative (bis zu seinem Ruhestand); gleich nach / sofort nach + dative (gleich nach ihrer Ankunft).', topic: Time phrases}
-- {front: 'Three ways to make the noun', back: '-ung noun (die Gründung), short stem noun (die Ankunft, der Beginn, der Tod), or the infinitive as a noun (das Lesen, beim Lesen).', topic: Time phrases}
+- {front: 'Three ways to make the noun', back: '-ung noun (die Gründung), short noun (die Ankunft, der Beginn; sometimes a different word: sterben → der Tod), or the infinitive as a noun (das Lesen, beim Lesen).', topic: Time phrases}
 - {front: 'beim + nominalised infinitive', back: 'while doing: beim Autofahren, beim Lesen. Capital letter, neuter.', topic: Time phrases}
 - {front: 'What happens to the subject in a time phrase?', back: 'It becomes a possessive (seit ihrer Heirat) or a genitive (die Heirat meiner Großeltern); von + dative in speech.', topic: Time phrases}
 - {front: 'Turning a phrase back into a clause: the tense', back: 'Phrases have no tense. Choose it: nach dem Essen → nachdem wir gegessen hatten (one step back).', topic: Time clauses}
 - {front: 'ehe, sooft, kaum …, als', back: 'before (formal), whenever, hardly … when. All send the verb to the end.', topic: Time clauses}
-- {front: 'wurde geboren vs ist geboren', back: 'wurde geboren for people who have died (Clara Brenner wurde 1891 geboren); ist geboren for people who are alive.', topic: Life stories}
+- {front: 'wurde geboren vs ist geboren', back: 'wurde geboren for people who have died (Clara Brenner wurde 1891 geboren); for living people ist geboren is the everyday form (Ich bin 1990 geboren), wurde geboren also possible.', topic: Life stories}

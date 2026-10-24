@@ -156,7 +156,7 @@ Notes: three Futur II sentences are guesses about the past (*wird … eingestieg
 - Using the infinitive alone: ~~Bis Freitag werde ich den Bericht schreiben haben~~ → *… geschrieben haben*. The Futur II needs the participle.
 - Wrong helper: ~~Er wird den Zug verpasst sein~~ → *verpasst haben*; ~~Sie wird angekommen haben~~ → *angekommen sein*. Use the same helper as in the perfect.
 - Wrong order at the end: ~~… geschrieben werde haben~~ → main clause *werde … geschrieben haben*; subordinate clause *… geschrieben haben werde*.
-- Reading every Futur II as the future: *Er wird den Zug verpasst haben* is usually "he has probably missed the train", not "he will have missed".
+- Reading every Futur II as the future: without a future time point, *Er wird den Zug verpasst haben* is a guess ("he has probably missed the train"), not a statement about what will happen.
 - Overusing it in speech: *Bis Freitag habe ich es geschafft* is what most people say. Keep the Futur II for formal plans and for guesses.
 
 ## Key points

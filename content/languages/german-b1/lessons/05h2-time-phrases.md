@@ -52,7 +52,7 @@ To make the phrase, you need a noun for the verb in the clause. There are three 
 
 1. Nouns in *-ung* (always feminine): *gründen → die Gründung, eröffnen → die Eröffnung, trennen → die Trennung, ausbilden → die Ausbildung, einwandern → die Einwanderung*.
 
-2. Short nouns from the verb stem, which you have to learn one by one, often with a vowel change: *beginnen → der Beginn, ankommen → die Ankunft, abfahren → die Abfahrt, zurückkehren → die Rückkehr, heiraten → die Heirat, sterben → der Tod, Abschied nehmen → der Abschied, sich aufhalten → der Aufenthalt*.
+2. Short nouns that belong to the verb, which you have to learn one by one. Most come from the verb's stem, often with a vowel change; a few are a different word altogether (*sterben → der Tod*): *beginnen → der Beginn, ankommen → die Ankunft, abfahren → die Abfahrt, zurückkehren → die Rückkehr, heiraten → die Heirat, sterben → der Tod, Abschied nehmen → der Abschied, sich aufhalten → der Aufenthalt*.
 
 3. The infinitive as a noun. Any verb can become a neuter noun with a capital letter: *essen → das Essen, lesen → das Lesen, Auto fahren → das Autofahren*. This **nominalised infinitive** is especially common after *beim* (while doing, when doing) and *zum* (for doing):
 
@@ -60,7 +60,7 @@ To make the phrase, you need a noun for the verb in the clause. There are three 
 - *Beim Lesen schläft mein Vater oft ein.* — My father often falls asleep while reading.
 - *Ich brauche eine Brille zum Lesen.* — I need glasses for reading.
 
-If there is an -ung noun or a short stem noun, use it: *nach der Ankunft*, not ~~nach dem Ankommen~~. The nominalised infinitive is for activities that have no other noun.
+If there is an -ung noun or a short noun, written German prefers it: *nach der Ankunft* rather than *nach dem Ankommen* (which is possible, but sounds clumsy in writing). The nominalised infinitive is mainly for activities that have no other noun.
 
 ## Who did it? Subjects and objects in the phrase
 
@@ -134,7 +134,7 @@ Translation:
 >
 > When she retired in 1960, she moved to the Baltic coast. But she kept on taking photographs whenever the weather was nice. She died in Travemünde in 1974.
 
-Notes: compare each line of the plaque with the guide's sentence. *Geburt* → *wurde geboren*; *nach dem Abitur* → *nachdem sie das Abitur gemacht hatte*; *Gründung* → *gründete*; *Aufenthalt* → *blieb … dort*; *nach ihrer Rückkehr* → *sobald sie zurückgekehrt war*; *Beginn des Ruhestands* → *als sie in den Ruhestand ging*; *Tod* → *starb*. Use *wurde geboren* for people who have died, *ist geboren* for people who are alive. *das Atelier* = studio; *der Wiederaufbau* = reconstruction; *in den Ruhestand gehen* = to retire; *die Ostsee* = the Baltic Sea.
+Notes: compare each line of the plaque with the guide's sentence. *Geburt* → *wurde geboren*; *nach dem Abitur* → *nachdem sie das Abitur gemacht hatte*; *Gründung* → *gründete*; *Aufenthalt* → *blieb … dort*; *nach ihrer Rückkehr* → *sobald sie zurückgekehrt war*; *Beginn des Ruhestands* → *als sie in den Ruhestand ging*; *Tod* → *starb*. Use *wurde geboren* for people who have died. For people who are alive, *ist geboren* (*Ich bin 1990 geboren*) is the everyday form, though *wurde geboren* is also correct. *das Atelier* = studio; *der Wiederaufbau* = reconstruction; *in den Ruhestand gehen* = to retire; *die Ostsee* = the Baltic Sea.
 
 ## Pronunciation
 

@@ -58,15 +58,17 @@ Watch out: not every masculine noun in *-e* is weak, but the exceptions are rare
 ```mermaid
 flowchart TD
   accTitle: Is it a weak noun?
-  accDescr: A decision chart. If the noun is not masculine, it is not weak; the only neuter exception is das Herz. If it is masculine, ask whether it is a person or animal ending in -e, such as der Kollege or der Löwe. If not, ask whether it is a foreign word for a person ending in -ant, -ent, -ist, -at or -oge, such as der Student. If not, ask whether it is one of the short nouns Mensch, Herr, Nachbar, Bauer, Held, Bär or Prinz. A yes at any of these steps means a weak noun with -n or -en in every form except the nominative singular; three noes mean a normal noun.
-  A{"Is the noun masculine?"} -- no --> N["Not weak (only exception: das Herz)"]
+  accDescr: A decision chart. If the noun is not masculine, it is not weak; the neuter das Herz is a special case that is declined similarly. If it is masculine, ask whether it is a person or animal ending in -e, such as der Kollege or der Löwe. If not, ask whether it is one of the Name group, der Name, der Gedanke, der Glaube or der Buchstabe; these are weak but add -ns in the genitive. If not, ask whether it is a foreign word, mostly for a person, ending in -ant, -ent, -ist, -at, -oge or -et, such as der Student or der Planet. If not, ask whether it is one of the short nouns Mensch, Herr, Nachbar, Bauer, Held, Bär or Prinz. A yes at any of these steps means a weak noun with -n or -en in every form except the nominative singular; if every answer is no, it is almost certainly a normal noun.
+  A{"Is the noun masculine?"} -- no --> N["Not weak (das Herz is a special case)"]
   A -- yes --> B{"Person or animal ending in -e? (der Kollege, der Löwe)"}
   B -- yes --> W["Weak noun: -n or -en in every form except nominative singular"]
-  B -- no --> C{"Foreign word for a person in -ant, -ent, -ist, -at, -oge?"}
+  B -- no --> G{"Name, Gedanke, Glaube, Buchstabe?"}
+  G -- yes --> GN["Weak, but genitive -ns: des Namens"]
+  G -- no --> C{"Foreign word, mostly for a person, in -ant, -ent, -ist, -at, -oge, -et? (der Student, der Planet)"}
   C -- yes --> W
   C -- no --> D{"Mensch, Herr, Nachbar, Bauer, Held, Bär, Prinz?"}
   D -- yes --> W
-  D -- no --> X["Normal noun: den Tisch, dem Tisch, des Tisches"]
+  D -- no --> X["Almost certainly a normal noun: den Tisch, dem Tisch, des Tisches"]
 ```
 
 ### The Name group: -ns in the genitive
