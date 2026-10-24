@@ -46,7 +46,7 @@ by the distributive property. Call $a \times 0$ by the name $z$; the line says $
 
 **Step 1: positive times negative.** Take any integers $a$ and $b$ and add $ab$ to $(-a)b$:
 $$ab + (-a)b = \big(a + (-a)\big)b = 0 \times b = 0.$$
-The first equals sign is the distributive property (used from right to left), and the last is Fact B. The two products add to 0, so by Fact A, $(-a)b$ is the opposite of $ab$:
+The first equals sign is the distributive property (used from right to left, with the factors written in the other order, which the commutative law allows), and the last is Fact B (again with the factors swapped: $0 \times b = b \times 0 = 0$). The two products add to 0, so by Fact A, $(-a)b$ is the opposite of $ab$:
 $$(-a)b = -(ab).$$
 With $a = 4$ and $b = 3$: $(-4)(3) = -12$. A negative times a positive is negative, as Lesson 8 said.
 
