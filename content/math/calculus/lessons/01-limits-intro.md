@@ -137,7 +137,7 @@ There are three standard ways:
 The third kind is the hardest to picture. Between $x = 0.1$ and $x = 1$, $\sin(\pi/x)$ makes only a few swings, but between $0.01$ and $0.1$ it makes many more, and the swings keep crowding together as $x$ shrinks. Every interval around 0, however small, contains inputs where the output is 1 and inputs where it is $-1$, so the outputs can't settle near any single number.
 
 ```plot
-{"x": [-1, 1], "y": [-1.5, 1.5], "functions": [{"f": "sin(pi/x)"}], "caption": "y = sin(π/x) swings between −1 and 1 faster and faster near x = 0 (no drawing can show every swing)"}
+{"x": [-1.1, 1.1], "y": [-1.5, 1.5], "yAxisAt": "left", "xAxisAt": "bottom", "functions": [{"f": "sin(pi/x)"}], "caption": "y = sin(π/x) swings between −1 and 1 faster and faster near x = 0 (no drawing can show every swing)"}
 ```
 
 ## Common mistakes

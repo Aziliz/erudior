@@ -54,7 +54,7 @@ pendulum is momentarily at rest), so the energy loss might stall. We return to t
 what makes it portable.)
 
 ```plot
-{"x": [-4, 4], "y": [-2.6, 2.6], "equal": true, "xLabel": "angle x", "yLabel": "angular velocity y", "vectorField": {"u": "y", "v": "-sin(x) - 0.5*y", "step": 0.5}, "curves": [{"x": "2*asin(sqrt(0.25)*sin(t))", "y": "sqrt(1)*cos(t)", "t": [0, "2pi"]}, {"x": "2*asin(sqrt(0.5)*sin(t))", "y": "sqrt(2)*cos(t)", "t": [0, "2pi"]}, {"x": "2*asin(sqrt(0.75)*sin(t))", "y": "sqrt(3)*cos(t)", "t": [0, "2pi"]}, {"x": "2*asin(sin(t))", "y": "2*cos(t)", "t": [0, "2pi"], "dashed": true}], "points": [{"at": [0, 0]}, {"at": [-3.14159, 0], "open": true}, {"at": [3.14159, 0], "open": true}], "caption": "Damped pendulum (c = 0.5) with the energy level curves E = 0.5, 1, 1.5 and, dashed, E = 2 through the upright positions (±π, 0). The arrows cross every level curve inward or along it, never outward."}
+{"x": [-4, 4], "y": [-2.6, 2.6], "equal": true, "yAxisAt": "left", "xAxisAt": "bottom", "xLabel": "angle x", "yLabel": "angular velocity y", "vectorField": {"u": "y", "v": "-sin(x) - 0.5*y", "step": 0.5}, "curves": [{"x": "2*asin(sqrt(0.25)*sin(t))", "y": "sqrt(1)*cos(t)", "t": [0, "2pi"]}, {"x": "2*asin(sqrt(0.5)*sin(t))", "y": "sqrt(2)*cos(t)", "t": [0, "2pi"]}, {"x": "2*asin(sqrt(0.75)*sin(t))", "y": "sqrt(3)*cos(t)", "t": [0, "2pi"]}, {"x": "2*asin(sin(t))", "y": "2*cos(t)", "t": [0, "2pi"], "dashed": true}], "points": [{"at": [0, 0], "color": "#1c2833"}, {"at": [-3.14159, 0], "open": true, "color": "#c0392b"}, {"at": [3.14159, 0], "open": true, "color": "#c0392b"}], "caption": "Damped pendulum (c = 0.5) with the energy level curves E = 0.5, 1, 1.5 and, dashed, E = 2 through the upright positions (±π, 0). The arrows cross every level curve inward or along it, never outward."}
 ```
 
 ## The derivative along trajectories
@@ -88,7 +88,7 @@ $\varepsilon$, $V$ has a minimum value $m > 0$. Because $V$ is continuous with $
 disk, of radius $\delta$, has $V < m$ throughout. A solution starting in it begins with $V < m$, and
 $V$ never increases, so it can never reach the circle, where $V \ge m$.
 
-![A dashed circle of radius epsilon around an equilibrium point. Inside it, an oval level curve V = m touches the circle at one point. A small shaded disk of radius delta surrounds the equilibrium, well inside the oval. A trajectory starts in the small disk, wanders, and spirals in toward the equilibrium without ever reaching the oval.](images/de-m8-lyapunov-proof.svg)
+![A dashed circle of radius epsilon around an equilibrium point. Inside it, a tilted oval, the level curve V = m, touches the circle at its two far ends. A small shaded disk of radius delta surrounds the equilibrium, well inside the oval. A trajectory starts in the small disk, swings out beyond it, and spirals in toward the equilibrium without ever reaching the oval.](images/de-m8-lyapunov-proof.svg)
 
 *Why case 2 holds.* Along a solution $V$ decreases and stays $\ge 0$, so it has a limit $L \ge 0$. If
 $L > 0$, the solution stays in a ring around the origin where $\dot V \le -k$ for some $k > 0$, so $V$
@@ -144,7 +144,7 @@ Take $x' = -x + 9y$, $y' = -x - y$ ($T = -2$, $D = 10$, eigenvalues $-1 \pm 3i$:
 In matrix terms, $P = \begin{bmatrix} 1 & 0 \\ 0 & 9 \end{bmatrix}$ gives $A^{T}P + PA = \begin{bmatrix} -2 & 0 \\ 0 & -18 \end{bmatrix}$.
 
 ```plot
-{"x": [-3.4, 3.4], "y": [-1.5, 1.5], "equal": true, "curves": [{"x": "3*cos(t)", "y": "sin(t)", "t": [0, "2pi"]}, {"x": "2*cos(t)", "y": "2/3*sin(t)", "t": [0, "2pi"]}, {"x": "cos(t)", "y": "1/3*sin(t)", "t": [0, "2pi"]}, {"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "dashed": true, "label": "circle r = 1"}, {"x": "3*exp(-t)*cos(3*t)", "y": "-exp(-t)*sin(3*t)", "t": [0, 3.5], "color": "#c0392b"}], "points": [{"at": [3, 0], "label": "start"}], "caption": "Example 1: the solution from (3, 0) (red) crosses each ellipse x² + 9y² = constant inward, but it crosses the dashed circle r = 1 three times: in, out, and in again."}
+{"x": [-3.4, 3.4], "y": [-1.5, 1.5], "equal": true, "width": 560, "yAxisAt": "left", "xAxisAt": "bottom", "curves": [{"x": "3*cos(t)", "y": "sin(t)", "t": [0, "2pi"], "color": "#2f855a"}, {"x": "2*cos(t)", "y": "2/3*sin(t)", "t": [0, "2pi"], "color": "#2f855a"}, {"x": "cos(t)", "y": "1/3*sin(t)", "t": [0, "2pi"], "color": "#2f855a"}, {"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "dashed": true, "color": "#1c2833", "label": "circle r = 1"}, {"x": "3*exp(-t)*cos(3*t)", "y": "-exp(-t)*sin(3*t)", "t": [0, 3], "color": "#c0392b"}], "points": [{"at": [3, 0], "label": "start", "color": "#c0392b"}], "caption": "Example 1: the solution from (3, 0) (red) crosses each green ellipse x² + 9y² = constant inward, but it crosses the dashed circle r = 1 three times: in, out, and in again."}
 ```
 
 The **Lyapunov equation** $A^{T}P + PA = -Q$ reverses the process: pick a positive definite $Q$
@@ -233,7 +233,7 @@ $r = \sqrt2$, and an equilibrium is never in another one's basin. The true basin
 whole $x$-axis is in it, since $y = 0$ stays $0$ and then $x' = -x$): the estimate is safe, not exact.
 
 ```plot
-{"x": [-2.2, 2.2], "y": [-2.2, 2.2], "equal": true, "vectorField": {"u": "-x + x*y^2", "v": "-y + x^2*y", "step": 0.4}, "curves": [{"x": "sqrt(2)*cos(t)", "y": "sqrt(2)*sin(t)", "t": [0, "2pi"], "dashed": true, "label": "r = √2"}, {"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"]}], "points": [{"at": [0, 0]}, {"at": [1, 1], "open": true, "label": "saddle"}, {"at": [-1, 1], "open": true}, {"at": [1, -1], "open": true}, {"at": [-1, -1], "open": true}], "caption": "Example 4: inside the dashed circle r = √2 the flow crosses every circle inward (the solid circle r = 1 is one of them). The four saddles sit on the dashed circle."}
+{"x": [-2.2, 2.2], "y": [-2.2, 2.2], "equal": true, "vectorField": {"u": "-x + x*y^2", "v": "-y + x^2*y", "step": 0.4}, "curves": [{"x": "sqrt(2)*cos(t)", "y": "sqrt(2)*sin(t)", "t": [0, "2pi"], "dashed": true, "label": "r = √2"}, {"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"]}], "points": [{"at": [0, 0], "color": "#1c2833"}, {"at": [1, 1], "open": true, "label": "saddle", "color": "#c0392b"}, {"at": [-1, 1], "open": true, "color": "#c0392b"}, {"at": [1, -1], "open": true, "color": "#c0392b"}, {"at": [-1, -1], "open": true, "color": "#c0392b"}], "caption": "Example 4: inside the dashed circle r = √2 the flow crosses every circle inward (the solid circle r = 1 is one of them). The four saddles sit on the dashed circle."}
 ```
 
 The same reasoning finishes the pendulum: the upright position has $E = 1 - \cos\pi = 2$, so the

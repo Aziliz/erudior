@@ -10,7 +10,7 @@
 <line x1="230" y1="200" x2="107.1" y2="286.0" stroke="#1c2833" stroke-width="1.5"/>
 <text x="160.6" y="265.0" font-style="italic">ε</text>
 <line x1="230" y1="200" x2="230" y2="240" stroke="#1c2833" stroke-width="1.5"/>
-<text x="235" y="234" font-style="italic">δ</text>
+<text x="214" y="234" font-style="italic">δ</text>
 <text x="405" y="60">level curve</text><text x="405" y="80">V = m</text>
 <line x1="430" y1="86" x2="370.1" y2="214.4" stroke="#1c2833" stroke-width="1"/>
 <text x="405" y="335">circle of</text><text x="405" y="355">radius ε</text>

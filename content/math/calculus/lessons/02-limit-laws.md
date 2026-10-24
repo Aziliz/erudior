@@ -132,17 +132,19 @@ They differ, so the limit **does not exist**.
 | $0/0$ with $\sin$ or $\cos$ | Special trig limits (Lesson 4) |
 | Absolute value or piecewise | One-sided limits |
 
-The same routine as a loop: plug in, read what you get, and if it is $0/0$, rewrite and plug in again. Some limits need two rewrites before substitution gives a number. (The chart is for a single formula built from polynomials, roots, trig and similar functions. For a piecewise function, the value at $x = a$ may not be the limit, so use one-sided limits as in the table.)
+The same routine as a loop: plug in, read what you get, and if it is $0/0$, rewrite and plug in again. Some limits need two rewrites before substitution gives a number. Plugging in only works for a single formula built from polynomials, roots, trig and similar functions, so the chart first sends piecewise functions (and absolute values that switch sign at $a$) to one-sided limits: there the value at $x = a$ may not be the limit.
 
 ```mermaid
 flowchart TD
   accTitle: The plug-in-first routine for limits
-  accDescr: First substitute x = a and ask what you get. A number is the limit. A nonzero number over zero signals an infinite limit or no limit, so check the sign on each side. Zero over zero is indeterminate, so rewrite the expression by factoring, multiplying by the conjugate, combining fractions, expanding, or using a trig limit, then substitute again and repeat the check.
+  accDescr: First ask whether the function is piecewise, or has an absolute value, with a break at x = a. If so, find the limit from each side using the formula for that side; if the two one-sided limits are equal, that common value is the limit, and otherwise the limit does not exist. If the function is a single formula near a, substitute x = a and ask what you get. A number is the limit. A nonzero number over zero signals an infinite limit or no limit, so check the sign on each side. Zero over zero is indeterminate, so rewrite the expression by factoring, multiplying by the conjugate, combining fractions, expanding, or using a trig limit, then substitute again and repeat the check.
+  P{"Piecewise or |…| with a break at a?"} -- yes --> S["Find each one-sided limit with that side's formula; equal means that is the limit, unequal means DNE"]
+  P -- "no, one formula near a" --> A
   A["Substitute x = a"] --> B{"What do you get?"}
   B -- "A number" --> C["That number is the limit"]
   B -- "Nonzero over 0" --> D["Infinite limit or DNE: check signs on each side"]
   B -- "0 over 0" --> E["Rewrite: factor, conjugate, combine fractions, expand, or trig limit"]
-  E -- "substitute again" --> B
+  E -- "substitute again" --> A
 ```
 
 ## Common mistakes

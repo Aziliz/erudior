@@ -18,7 +18,7 @@ Both come from Clairaut's theorem. For the second, with $\mathbf A = \langle A_1
 
 $$\nabla\cdot(\nabla\times\mathbf A) = (A_{3,y} - A_{2,z})_x + (A_{1,z} - A_{3,x})_y + (A_{2,x} - A_{1,y})_z = 0,$$
 
-because the six mixed partials cancel in pairs ($A_{3,yx} = A_{3,xy}$ and so on).
+because the six mixed partials cancel in pairs ($A_{3,yx} = A_{3,xy}$ and so on). Here a subscript after the comma means a partial derivative: $A_{3,y} = \partial A_3/\partial y$.
 
 Each identity gives a necessary condition. A field can only be a gradient if its curl is zero, and it can only be a curl if its divergence is zero. Lessons 31 and 33 answered the converse question for the first condition: on a simply connected region, curl-free fields are gradients, and the function $f$ with $\mathbf F = \nabla f$ is a **scalar potential**. This lesson answers the converse for the second condition. A field $\mathbf A$ with $\nabla\times\mathbf A = \mathbf F$ is a **vector potential** for $\mathbf F$, and a field with zero divergence is called **solenoidal**. We will see when a solenoidal field has a vector potential, how to build one, how far it is from unique, and finally Helmholtz's theorem: a field that dies off at infinity splits into a gradient plus a curl.
 
