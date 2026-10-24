@@ -16,7 +16,7 @@
     T2: Ta + d0*exp(-kk*t2)
   prompt: 'An object at {T0} °C is placed in a room at {Ta} °C. After {t1} minutes it is {T1} °C. Assuming Newton''s law of cooling, what is its temperature after {t2} minutes? (1 decimal place)'
   answers:
-    - {name: T2, label: 'Temperature (°C)', tolerance: 0.06}
+    - {name: T2, label: 'Temperature (°C)', tolerance: 0.06, format: dp1}
   solution: |-
     $T = {Ta} + {d0}e^{-kt}$. From $T({t1}) = {T1}$: $e^{-{t1}k} = \dfrac{{d1}}{{d0}}$, so $k = \dfrac{1}{{t1}}\ln\dfrac{{d0}}{{d1}} \approx {kk:num4}$. Then $T({t2}) = {Ta} + {d0}e^{-{t2}k} \approx$ **{T2:num1} °C**.
 - id: de-cooling-time
@@ -34,7 +34,7 @@
     tt: ln(d0/dd)/kk
   prompt: 'A liquid at {T0} °C cools in a {Ta} °C room according to $\dfrac{dT}{dt} = -{kk}(T - {Ta})$, with $t$ in minutes. How long until it reaches {Tt} °C? (1 decimal place)'
   answers:
-    - {name: tt, label: 'Time (min)', tolerance: 0.06}
+    - {name: tt, label: 'Time (min)', tolerance: 0.06, format: dp1}
   solution: |-
     $T = {Ta} + {d0}e^{-{kk}t}$. Set $T = {Tt}$: $e^{-{kk}t} = \dfrac{{dd}}{{d0}}$, so $t = \dfrac{1}{{kk}}\ln\dfrac{{d0}}{{dd}} \approx$ **{tt:num1} min**.
 - id: de-annuity
@@ -71,7 +71,7 @@
     C0: Q0 - Qinf
   prompt: 'A tank holds {V} L of brine containing {Q0} kg of salt. Brine with {cin} kg of salt per liter flows in at {r} L/min, and the well-mixed solution drains at {r} L/min. How much salt is in the tank after {t1} minutes? (2 decimal places)'
   answers:
-    - {name: Q, label: 'Salt (kg)', tolerance: 0.006}
+    - {name: Q, label: 'Salt (kg)', tolerance: 0.006, format: dp2}
   solution: |-
     $Q' = {r}({cin}) - \dfrac{{r}}{{V}}Q = {rin} - {rate:num4}Q$. The equilibrium is $Q_\infty = {cin}\cdot{V} = {Qinf}$ kg, so $Q = {Qinf} + ({Q0} - {Qinf})e^{-{r}t/{V}}$. At $t = {t1}$: **{Q:num2} kg**.
 - id: de-mixing-volume
@@ -89,7 +89,7 @@
     Q: S*(V1/(rout + 1) - V0^(rout + 1)/((rout + 1)*V1^rout))
   prompt: 'A tank initially holds {V0} L of pure water. Brine with {cin} kg/L of salt flows in at {rin} L/min, and the mixture flows out at {rout} L/min. How much salt is in the tank after {t1} minutes? (2 decimal places)'
   answers:
-    - {name: Q, label: 'Salt (kg)', tolerance: 0.006}
+    - {name: Q, label: 'Salt (kg)', tolerance: 0.006, format: dp2}
   solution: |-
     The volume is $V = {V0} + t$. The equation $Q' + \dfrac{{rout}}{{V0} + t}Q = {S}$ has integrating factor $({V0} + t)^{{rout}}$, so $({V0} + t)^{{rout}}Q = \dfrac{{S}}{{rout} + 1}({V0} + t)^{{rout} + 1} + C$. With $Q(0) = 0$, $C = -\dfrac{{S}}{{rout} + 1}\,{V0}^{{rout} + 1}$. At $t = {t1}$ (volume {V1} L): $Q \approx$ **{Q:num2} kg**.
 - id: de-terminal-velocity
@@ -102,7 +102,7 @@
     vT: m*9.8/gam
   prompt: 'An object of mass {m} kg falls with air resistance ${gam:coef}v$ newtons ($v$ in m/s). Using $g = 9.8$ m/s², what is its terminal velocity? (1 decimal place)'
   answers:
-    - {name: vT, label: '$v_T$', tolerance: 0.06, units: {m/s: 1}}
+    - {name: vT, label: '$v_T$', tolerance: 0.06, units: {m/s: 1}, format: dp1}
   solution: |-
     At terminal velocity drag balances weight: ${gam:coef}v_T = {m}(9.8)$, so $v_T =$ **{vT:num1} m/s**.
 - id: de-drag-velocity
@@ -119,7 +119,7 @@
     v: vT + (v0 - vT)*exp(-a*t1)
   prompt: 'A {m} kg object is thrown straight down at {v0} m/s. With down positive, $m\dfrac{dv}{dt} = mg - {gam:coef}v$ ($g = 9.8$). Find its velocity after {t1} s. (2 decimal places)'
   answers:
-    - {name: v, label: '$v({t1})$', tolerance: 0.006, units: {m/s: 1}}
+    - {name: v, label: '$v({t1})$', tolerance: 0.006, units: {m/s: 1}, format: dp2}
   solution: |-
     Terminal velocity $v_T = \dfrac{{m}(9.8)}{{gam}} = {vT:num4}$ and $\gamma/m = {a:num4}$. So $v = v_T + (v_0 - v_T)e^{-{a:coef}t}$, giving $v({t1}) \approx$ **{v:num2} m/s**.
 - id: de-rc-charge

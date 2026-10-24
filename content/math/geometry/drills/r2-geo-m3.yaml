@@ -103,7 +103,7 @@
     angr: round(ang, 1)
   prompt: 'Find the angle between the lines $y = {m1:coef}x {b1:signed}$ and $y = {m2:coef}x {b2:signed}$, in degrees to the nearest tenth.'
   answers:
-    - {name: ang, label: 'Angle', tolerance: 0.06}
+    - {name: ang, label: 'Angle', tolerance: 0.06, format: dp1}
   solution: |-
     Direction vectors: $\langle 1, {m1} \rangle$ and $\langle 1, {m2} \rangle$. Dot product: $1 + ({m1})({m2}) = {dot}$. Lengths: $\sqrt{{n1}}$ and $\sqrt{{n2}}$. So $\cos\varphi = \dfrac{|{dot}|}{\sqrt{{n1}}\,\sqrt{{n2}}}$, and $\varphi \approx$ **{angr}°**.
 

@@ -78,7 +78,7 @@
     naive: dir*r/per
   prompt: 'A quantity {dir} by {r}% per year, and the change compounds every {per}. What is its percent change per {per}? Give it to 2 decimal places, as a negative number for a decrease.'
   answers:
-    - {name: pct, label: 'Percent change per {per}', tolerance: 0.0051}
+    - {name: pct, label: 'Percent change per {per}', tolerance: 0.0051, format: dp2}
   solution: |-
     The yearly factor is $B = {B}$, and a year is {n} steps of one {per}, so the factor $f$ per {per} satisfies $f^{{n}} = {B}$.
     $f = {B}^{1/{n}} \approx {f:num4}$, a change of about **{pct:num2}%** per {per}.
@@ -97,7 +97,7 @@
   where: ['mod(t, h) != 0', 't/h <= 5']
   prompt: 'A substance has a half-life of {h} hours. A sample starts at {A0} mg. How much remains after {t} hours? Give the answer in mg to 2 decimal places.'
   answers:
-    - {name: A, label: 'Amount (mg)', tolerance: 0.0051}
+    - {name: A, label: 'Amount (mg)', tolerance: 0.0051, format: dp2}
   solution: |-
     In {t} hours there are $\tfrac{{t}}{{h}} \approx {nh:num4}$ half-lives, so $A = {A0}\left(\tfrac12\right)^{{t}/{h}}$.
     $A \approx$ **{A:num2}** mg.

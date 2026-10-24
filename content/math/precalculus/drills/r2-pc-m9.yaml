@@ -175,6 +175,6 @@
     E: payout - cost
   prompt: 'You pay \${cost} to roll a die. If the roll is {need} or higher you receive \${prize}; otherwise you receive nothing. What is your expected net gain per game, in dollars, to the nearest cent? (Negative means a loss.)'
   answers:
-    - {name: E, label: 'Expected net gain', tolerance: 0.006}
+    - {name: E, label: 'Expected net gain', tolerance: 0.006, format: money}
   solution: |-
     You win on {wins} of the 6 faces, so $P(\text{win}) = {pw:texfrac}$. The expected payout is ${prize} \cdot {pw:texfrac} \approx {payout:num2}$, and the cost is {cost}, so $E \approx {payout:num2} - {cost} =$ **{E:num2}** dollars per game.

@@ -55,7 +55,7 @@
   where: ['ta < tb']
   prompt: 'One machine finishes a job in {ta} hours and a second machine finishes the same job in {tb} hours. Working together, how many hours do they need? Give an exact fraction or a decimal rounded to 2 decimal places.'
   answers:
-    - {name: together, label: 'Hours', tolerance: 0.0051}
+    - {name: together, label: 'Hours', tolerance: 0.0051, format: dp2}
   solution: |-
     Rates add: $\dfrac{t}{{ta}} + \dfrac{t}{{tb}} = 1$.
     Multiply by {lcd}: ${ca}t + {cb}t = {lcd}$, so ${csum}t = {lcd}$ and $t = \dfrac{{lcd}}{{csum}} \approx$ **{together:num2}** hours.

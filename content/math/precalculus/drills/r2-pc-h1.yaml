@@ -141,6 +141,7 @@
     functions: [f]
   prompt: 'Estimate the area under $y = {c:coef}x^2$ from $x = 0$ to $x = {b}$ with ${n}$ rectangles of equal width, each as tall as the curve at its right endpoint. Give the exact value as a fraction, or a decimal rounded to 3 decimal places.'
   answer: R
+  format: dp3
   tolerance: 0.0006
   solution: |-
     The width is $\Delta x = \tfrac{ {b} }{ {n} }$, and the right endpoints are $x_i = \tfrac{ {b:coef}i}{ {n} }$ for $i = 1, \dots, {n}$. The sum is
@@ -165,6 +166,7 @@
     A: a*(q^3 - p^3)/3
   prompt: 'Use $\displaystyle\int_0^b x^2\,dx = \frac{b^3}{3}$ to find the exact area under $y = {a:coef}x^2$ from $x = {p}$ to $x = {q}$. Give a fraction or a decimal rounded to 3 decimal places.'
   answer: A
+  format: dp3
   tolerance: 0.0006
   solution: |-
     The area under $x^2$ from ${p}$ to ${q}$ is the area from 0 to ${q}$ minus the area from 0 to ${p}$: $\tfrac{ {q3} }{3} - \tfrac{ {p3} }{3}$.

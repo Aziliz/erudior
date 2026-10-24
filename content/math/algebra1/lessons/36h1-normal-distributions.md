@@ -109,9 +109,9 @@ The 18 "books read" values from Lesson 33 (0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3
 ```mermaid
 flowchart TD
   accTitle: Using a normal model
-  accDescr: First check that a graph of the data is roughly symmetric and bell-shaped. Then standardize the value with z equals x minus the mean, divided by the standard deviation. Then find the area: use the 68-95-99.7 rule when z is a whole number, otherwise a table or technology. Finally state the answer as a percent in context.
+  accDescr: First check that a graph of the data is roughly symmetric and bell-shaped. Then standardize the value with z equals x minus the mean, divided by the standard deviation. Then find the area: use the 68-95-99.7 rule (with symmetry) when z is exactly 0, plus or minus 1, plus or minus 2 or plus or minus 3, otherwise a table or technology. Finally state the answer as a percent in context.
   A["Check: is the data roughly symmetric and bell-shaped?"] --> B["Standardize: z = (x − mean) / SD"]
-  B --> C{"Is z a whole number?"}
+  B --> C{"Is z exactly 0, ±1, ±2 or ±3?"}
   C -- yes --> D["Use the 68–95–99.7 rule"]
   C -- no --> E[Use a z-table or technology]
   D --> F[State the percent in context]

@@ -216,7 +216,7 @@
     C: 2 * pi * r
   prompt: 'A circle has a {given} of {m} cm. Find its circumference to the nearest tenth (you can type an exact answer like 14pi).'
   answers:
-    - {name: C, label: Circumference, tolerance: 0.051, units: {cm: 1}}
+    - {name: C, label: Circumference, tolerance: 0.051, units: {cm: 1}, format: dp1}
   figure:
     type: shape
     circles:
@@ -240,7 +240,7 @@
     A: pi * r^2
   prompt: 'A circle has a {given} of {m} in. Find its area to the nearest tenth (or type an exact answer like 49pi).'
   answers:
-    - {name: A, label: Area, tolerance: 0.051, units: {in^2: 1, 'in²': 1}}
+    - {name: A, label: Area, tolerance: 0.051, units: {in^2: 1, 'in²': 1}, format: dp1}
   solution: |-
     The radius is {r} in. $A = \pi r^2 = \pi({r})^2 = {r2}\pi \approx$ **{A:dp1} in²**.
 
@@ -271,7 +271,7 @@
     V: pi * r^2 * h
   prompt: 'A cylinder has radius {r} m and height {h} m. Find its volume to the nearest tenth (or type an exact answer like 90pi).'
   answers:
-    - {name: V, label: Volume, tolerance: 0.051, units: {m^3: 1, 'm³': 1}}
+    - {name: V, label: Volume, tolerance: 0.051, units: {m^3: 1, 'm³': 1}, format: dp1}
   solution: |-
     $V = \pi r^2 h = \pi({r})^2({h}) = {r2h:dp0}\pi \approx$ **{V:dp1} m³**.
 
@@ -306,7 +306,7 @@
     b2: b^2
   prompt: 'A right triangle has legs {a} and {b}. Find the hypotenuse to the nearest tenth.'
   answers:
-    - {name: c, label: Hypotenuse, tolerance: 0.051}
+    - {name: c, label: Hypotenuse, tolerance: 0.051, format: dp1}
   figure:
     type: shape
     polygons:

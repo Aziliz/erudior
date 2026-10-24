@@ -176,7 +176,7 @@
     dval: 1 - s / den
   prompt: 'A pond sample contains four species of invertebrates: {n1}, {n2}, {n3} and {n4} individuals. Calculate Simpson''s diversity index $D = 1 - \dfrac{\sum n(n-1)}{N(N-1)}$ to 2 decimal places.'
   answers:
-    - {name: dval, label: '$D =$', tolerance: 0.006}
+    - {name: dval, label: '$D =$', tolerance: 0.006, format: dp2}
   solution: |-
     Total: $N = {n1:dp0} + {n2} + {n3} + {n4} = {tot:dp0}$, so $N(N-1) = {tot:dp0} \times ({tot:dp0} - 1) = {den:dp0}$.
 
@@ -247,7 +247,7 @@
     rnot: pa + pb + pc
   prompt: 'A plant population has survivorship $l_x$ = 1, {la}, {lb}, {lc} at ages 0, 1, 2, 3 (none live past 3) and fecundity $m_x$ = 0, {ma}, {mb}, {mc} female seedlings per plant at those ages. Find the net reproductive rate $R_0$ (2 decimal places).'
   answers:
-    - {name: rnot, label: '$R_0 =$', tolerance: 0.006}
+    - {name: rnot, label: '$R_0 =$', tolerance: 0.006, format: dp2}
   solution: |-
     $R_0 = \sum l_x m_x = 1(0) + {la}({ma}) + {lb}({mb}) + {lc}({mc}) = 0 + {pa:num4} + {pb:num4} + {pc:num4} =$ **{rnot:dp2}**.
 

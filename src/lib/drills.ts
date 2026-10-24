@@ -187,7 +187,8 @@ export function generate(drill: Drill): DrillInstance {
     let calcFailed = false;
     for (const [k, ex] of Object.entries(drill.calc ?? {})) {
       try {
-        values[k] = evaluate(ex, numeric(), funcs);
+        // A bare number (YAML `mt: 938.3`) is fine as is; anything else is an expression.
+        values[k] = typeof ex === "number" ? ex : evaluate(String(ex), numeric(), funcs);
       } catch (e) {
         // With constraints, a bad roll (say, sqrt of a negative) just means try again.
         if (drill.where?.length) {

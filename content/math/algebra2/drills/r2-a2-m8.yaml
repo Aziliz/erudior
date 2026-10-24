@@ -18,7 +18,7 @@
     ans: (w1*p1 + w2*p2)/100 - c
   prompt: 'A carnival game costs \${c} to play. You win \${w1} with probability {p1}%, win \${w2} with probability {p2}%, and win nothing otherwise. What is your expected net gain per game, in dollars? (Give a loss as a negative number, to the nearest cent.)'
   answers:
-    - {name: ans, label: 'Expected net gain (dollars):', tolerance: 0.005}
+    - {name: ans, label: 'Expected net gain (dollars):', tolerance: 0.005, format: money}
   solution: |-
     Expected prize: $E(\text{prize}) = {w1}({P1}) + {w2}({P2}) + 0({Q}) = {e1} + {e2} = {eprize:num2}$ dollars.
     You pay {c} dollars whatever happens, so the expected net gain is ${eprize:num2} - {c} =$ **{ans:num2}** dollars per game.

@@ -48,7 +48,7 @@
     v: sqrt(2*9.8*h/(1 + beta))
   prompt: 'A {k} is released from rest and rolls without slipping down a ramp that drops {h} m. Using $g = 9.8$ m/s², find its speed at the bottom. (m/s, 2 decimal places.)'
   answers:
-    - {name: v, label: '$v =$', tolerance: 0.005}
+    - {name: v, label: '$v =$', tolerance: 0.005, format: dp2}
   solution: |-
     For this shape $\beta = \dfrac{{num}}{{den}}$ in $I = \beta mR^2$. Energy: $mgh = \tfrac12(1 + \beta)mv^2$, so
     $v = \sqrt{\dfrac{2\cdot9.8\cdot{h}}{1 + {num}/{den}}} \approx$ **{v:num2}** m/s. (Mass and radius cancel.)

@@ -166,7 +166,7 @@
     area: sqrt(prod)
   prompt: 'A cyclic quadrilateral has sides {sa}, {sb}, {sc} and {sd}. Use Brahmagupta''s formula to find its area to 2 decimal places.'
   answers:
-    - {name: area, label: 'Area', tolerance: 0.006}
+    - {name: area, label: 'Area', tolerance: 0.006, format: dp2}
   solution: |-
     Semiperimeter $s = \tfrac{ {sa} + {sb} + {sc} + {sd} }{2} = {s}$. Then $K = \sqrt{(s - a)(s - b)(s - c)(s - d)} = \sqrt{ {pa} \cdot {pb} \cdot {pc} \cdot {pd} } = \sqrt{ {prod:dp0} } \approx$ **{area:num2}**.
 

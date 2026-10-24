@@ -238,6 +238,7 @@
   - name: hr
     label: Hours after midnight
     tolerance: 0.06
+    format: dp1
   solution: 'Elapsed time before the event: $4{,}540 - {ev:dp0} = {el:dp0}$ million years.
 
 

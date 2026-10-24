@@ -23,7 +23,7 @@
 
     Estimate $\displaystyle\lim_{x\to0}f(x)$ to 2 decimal places.
   answers:
-    - {name: L, label: 'Limit $\approx$', tolerance: 0.01}
+    - {name: L, label: 'Limit $\approx$', tolerance: 0.01, format: dp2}
   solution: |-
     Substituting $x = 0$ gives $0/0$, so read the table. From the left the values rise ({v3:dp4} at $x = -0.001$); from the right they fall ({v4:dp4} at $x = 0.001$). Both sides close in on the number between them, about **{L:dp2}**. (The exact value is $\ln {b} \approx {L:dp4}$, as you'll see when you learn the derivative of ${b}^x$.)
 - id: calc-d-limit-graph

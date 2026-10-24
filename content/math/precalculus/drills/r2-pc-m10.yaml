@@ -52,7 +52,7 @@
     points:
       - {at: [t, y0]}
   answers:
-    - {name: m, label: 'Slope', tolerance: 0.0051}
+    - {name: m, label: 'Slope', tolerance: 0.0051, format: dp2}
   solution: |-
     By the constant multiple rule the derivative is ${A}\cos x$. At $x = {t}$ the slope is ${A}\cos {t} \approx$ **{m:num2}**.
 

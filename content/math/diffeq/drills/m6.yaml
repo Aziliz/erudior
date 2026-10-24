@@ -166,7 +166,7 @@
     lam: -R/(2*L)
   prompt: 'A series RLC circuit with no source has $L = {L}$ H, $R = {R}$ Ω and $C = {cap}$ F. It is underdamped. Find the quasi-frequency $\mu$ of the charge oscillation (rad/s, 2 decimal places).'
   answers:
-    - {name: mu, label: '$\mu$ (rad/s)', tolerance: 0.006}
+    - {name: mu, label: '$\mu$ (rad/s)', tolerance: 0.006, format: dp2}
   solution: |-
     $Lq'' + Rq' + q/C = 0$ has roots $r = \dfrac{-R \pm \sqrt{R^2 - 4L/C}}{2L} = {lam:num2} \pm i\mu$ with $\mu = \dfrac{\sqrt{4L/C - R^2}}{2L} = \dfrac{\sqrt{{disc:num2}}}{2({L})} \approx$ **{mu:num2} rad/s**.
 - id: de-higher-roots

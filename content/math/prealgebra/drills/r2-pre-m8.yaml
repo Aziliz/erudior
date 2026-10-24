@@ -56,7 +56,7 @@
     V: pi * r^2 * h / 3
   prompt: 'A cone has radius {r} cm and height {h} cm. Find its volume to the nearest tenth (or type an exact answer like 12pi).'
   answers:
-    - {name: V, label: Volume, tolerance: 0.051, units: {cm^3: 1, 'cm³': 1}}
+    - {name: V, label: Volume, tolerance: 0.051, units: {cm^3: 1, 'cm³': 1}, format: dp1}
   figure:
     type: shape
     polygons:
@@ -189,6 +189,6 @@
     pe: d / t * 100
   prompt: 'An object with a true mass of {t} g is measured as {meas} g. What is the percent error, to the nearest tenth of a percent?'
   answers:
-    - {name: pe, label: Percent error, tolerance: 0.051, units: {'%': 1}}
+    - {name: pe, label: Percent error, tolerance: 0.051, units: {'%': 1}, format: dp1}
   solution: |-
     Percent error $= \dfrac{|\text{measured} - \text{true}|}{\text{true}} \times 100\% = \dfrac{{d}}{{t}} \times 100\% \approx$ **{pe:dp1}%**.

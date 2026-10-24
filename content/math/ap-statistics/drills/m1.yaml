@@ -124,7 +124,7 @@
 
     {d1}, {d2}, {d3}, {d4}, {d5}, {d6}, {d7}
   answers:
-    - {name: mn, label: '$\bar{x} =$', tolerance: 0.006}
+    - {name: mn, label: '$\bar{x} =$', tolerance: 0.006, format: dp2}
   solution: |-
     Sum $= {sm}$. Divide by $n = 7$: $\bar{x} = {sm}/7 =$ **{mn:num2}**.
 

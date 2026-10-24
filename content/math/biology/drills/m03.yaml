@@ -107,7 +107,7 @@
     dg: -30.5 + rtlnq
   prompt: 'A cell at 37 °C contains {atp} mM ATP, {adp} mM ADP and {pi} mM phosphate. Using $\Delta G^{\circ\prime} = -30.5$ kJ/mol for ATP hydrolysis and $RT = 2.577$ kJ/mol, find the actual $\Delta G$ of ATP hydrolysis in kJ/mol. Give 1 decimal place.'
   answers:
-    - {name: dg, label: '$\Delta G =$', units: {'kJ/mol': 1}, tolerance: 0.15}
+    - {name: dg, label: '$\Delta G =$', units: {'kJ/mol': 1}, tolerance: 0.15, format: dp1}
   solution: |-
     Convert to mol/L and form the reaction quotient: $Q = \dfrac{[\text{ADP}][\text{P}_i]}{[\text{ATP}]} = \dfrac{({adp} \times 10^{-3})({pi} \times 10^{-3})}{{atp} \times 10^{-3}} = {q:texsci}$.
 

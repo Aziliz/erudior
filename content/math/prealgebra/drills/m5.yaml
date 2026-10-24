@@ -88,7 +88,7 @@
   where: ["nw != old", "abs(pc) <= 90", "abs(pc + 15.54) > 0.3"]
   prompt: 'A price changes from \${old} to \${nw}. Find the percent change to 1 decimal place (negative for a decrease).'
   answers:
-    - {name: pc, label: Percent change, tolerance: 0.051}
+    - {name: pc, label: Percent change, tolerance: 0.051, format: dp1}
   solution: |-
     Percent change = (new − original) ÷ original × 100%:
     $\dfrac{{nw} - {old}}{{old}} \times 100\% = \dfrac{{ch}}{{old}} \times 100\% \approx$ **{pc:pct1}**.

@@ -25,7 +25,7 @@
   where: ["vv > 0", "cc > 0", "(v1 != 0) + (v2 != 0) + (v3 != 0) >= 2"]
   prompt: 'Find the distance from $Q({qx}, {qy}, {qz})$ to the line through $P({px}, {py}, {pz})$ with direction $\mathbf v = \langle {v1}, {v2}, {v3}\rangle$. (Exact value or 2 decimal places.)'
   answers:
-    - {name: dist, label: '$D =$', tolerance: 0.006}
+    - {name: dist, label: '$D =$', tolerance: 0.006, format: dp2}
   solution: |-
     $\overrightarrow{PQ} = \langle {a1}, {a2}, {a3}\rangle$ and $\overrightarrow{PQ}\times\mathbf v = \langle {c1}, {c2}, {c3}\rangle$, whose length is $\sqrt{{cc}}$. Also $|\mathbf v| = \sqrt{{vv}}$.
     Area over base: $D = \dfrac{\sqrt{{cc}}}{\sqrt{{vv}}} \approx$ **{dist:num2}**.
@@ -59,7 +59,7 @@
   where: ["nn > 0", "trip != 0", "(u1 != 0) + (u2 != 0) + (u3 != 0) >= 2", "(w1 != 0) + (w2 != 0) + (w3 != 0) >= 2"]
   prompt: 'Find the distance between the skew lines $\mathbf r_1 = \langle {ax}, {ay}, {az}\rangle + t\langle {u1}, {u2}, {u3}\rangle$ and $\mathbf r_2 = \langle {bx}, {by}, {bz}\rangle + s\langle {w1}, {w2}, {w3}\rangle$. (Exact value or 2 decimal places.)'
   answers:
-    - {name: dist, label: '$D =$', tolerance: 0.006}
+    - {name: dist, label: '$D =$', tolerance: 0.006, format: dp2}
   solution: |-
     $\mathbf n = \mathbf v_1\times\mathbf v_2 = \langle {n1}, {n2}, {n3}\rangle$, with $|\mathbf n| = \sqrt{{nn}}$. $\overrightarrow{P_1P_2} = \langle {d1}, {d2}, {d3}\rangle$ and $\overrightarrow{P_1P_2}\cdot\mathbf n = {trip}$.
     Box height: $D = \dfrac{{atrip}}{\sqrt{{nn}}} \approx$ **{dist:num2}**.
@@ -130,7 +130,7 @@
   where: ["a != 0", "c != 0", "b != 0"]
   prompt: 'Find the angle $\theta$ with $0^\circ < \theta < 90^\circ$ such that rotating the axes by $\theta$ removes the $xy$ term from the quadratic form ${a:coef}x^2 {b:signedcoef}xy {c:signedcoef}y^2$. (Degrees, 1 decimal place.)'
   answers:
-    - {name: th, label: '$\theta =$', tolerance: 0.06}
+    - {name: th, label: '$\theta =$', tolerance: 0.06, format: dp1}
   solution: |-
     The cross term vanishes when $\cot 2\theta = \dfrac{A - C}{B} = \dfrac{{dif}}{{b}}$.
     With $0^\circ < 2\theta < 180^\circ$ this gives $2\theta \approx {twoth:num2}^\circ$, so $\theta \approx$ **{th:num1}°**.

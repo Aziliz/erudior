@@ -223,7 +223,7 @@
   prompt: |-
     A covariance matrix of three variables has eigenvalues {l1}, {l2} and {l3}. What percent of the total variance do the first {kk} principal component(s) explain? Give the percent to 1 decimal place.
   answer: pct
-  format: num1
+  format: dp1
   tolerance: 0.06
   solution: |-
     Total variance = trace = sum of the eigenvalues = ${l1} + {l2} + {l3} = {tot}$. The first {kk} component(s) carry {kept} of it: ${kept}/{tot} \approx$ **{pct:num1}%**.
@@ -333,7 +333,7 @@
   prompt: |-
     In the plane, a receiver measures ranges to two beacons whose directions (unit line-of-sight vectors) differ by ${th}^\circ$. Find the dilution of precision $\sqrt{\operatorname{tr}((J^TJ)^{-1})}$, to 2 decimal places.
   answer: dop
-  format: num2
+  format: dp2
   tolerance: 0.006
   solution: |-
     With rows $(1, 0)$ and $(\cos\theta, \sin\theta)$, $J^TJ$ has trace 2 and determinant $\sin^2\theta$, so $\operatorname{tr}((J^TJ)^{-1}) = 2/\sin^2\theta$ and $\text{DOP} = \sqrt2/\sin\theta = 1.4142/{sn:num4} \approx$ **{dop:num2}**.

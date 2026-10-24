@@ -1188,6 +1188,7 @@
   - name: pid
     label: Identity (%)
     tolerance: 0.051
+    format: dp1
   solution: 'Identical positions: ${alen} - {mm} - {gp} = {idn}$.
 
 

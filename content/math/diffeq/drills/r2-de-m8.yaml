@@ -42,7 +42,7 @@
     tt: pi/(w2 - w1)
   prompt: 'Two {m} kg masses each have a wall spring of {k} N/m and are joined by a weak coupling spring of {kap} N/m. Mass 1 is released from rest with mass 2 at equilibrium. When does all the motion first pass to mass 2? Give the time in seconds to 1 decimal place.'
   answers:
-    - {name: tt, label: '$t \approx$', tolerance: 0.06, units: {s: 1}}
+    - {name: tt, label: '$t \approx$', tolerance: 0.06, units: {s: 1}, format: dp1}
   solution: |-
     The in-phase mode has $\omega_1 = \sqrt{{k}/{m}} \approx {w1:num4}$ and the out-of-phase mode $\omega_2 = \sqrt{({k} + 2 \cdot {kap})/{m}} = \sqrt{{k2}/{m}} \approx {w2:num4}$ rad/s. The envelope of mass 1 is $\cos\big(\tfrac{\omega_2 - \omega_1}{2}t\big)$, which first reaches zero at $t = \dfrac{\pi}{\omega_2 - \omega_1} = \dfrac{\pi}{{dw:num4}} \approx$ **{tt:num1} s**.
 - id: de-m8-r2-peak-time

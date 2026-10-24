@@ -238,7 +238,7 @@
 
     Estimate the median by linear interpolation (2 decimal places).
   answers:
-    - {name: med, label: 'Median', tolerance: 0.006}
+    - {name: med, label: 'Median', tolerance: 0.006, format: dp2}
   solution: |-
     $n = {nn}$, so the median is at position $n/2 = {half}$. The cumulative counts are {k1}, {k2},
     {k3}, {k4}, {nn}, so position {half} falls in the bin starting at $L = {lb}$, which holds

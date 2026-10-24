@@ -55,7 +55,7 @@
     h: qt*sind(be)
   prompt: 'From point $P$ the angle of elevation to a mountain peak is ${al}^\circ$. After walking {d} m straight toward the peak on level ground, the angle of elevation is ${be}^\circ$. How high is the peak above the ground, to the nearest tenth of a meter?'
   answers:
-    - {name: h, label: '$h =$', tolerance: 0.1}
+    - {name: h, label: '$h =$', tolerance: 0.1, format: dp1}
   solution: |-
     The angle at the peak is ${be}^\circ - {al}^\circ = {top}^\circ$. Law of Sines for the sight line from the nearer point: $QT = \dfrac{{d}\sin {al}^\circ}{\sin {top}^\circ} \approx {qt:num2}$ m.
     Then $h = QT\sin {be}^\circ \approx$ **{h:num1}** m.
@@ -96,6 +96,6 @@
     ans: if(mode == 3, s/phi, s*phi)
   prompt: '{mode} {s}. Give the answer to 2 decimal places.'
   answers:
-    - {name: ans, label: 'Length', tolerance: 0.01}
+    - {name: ans, label: 'Length', tolerance: 0.01, format: dp2}
   solution: |-
     $\varphi = \tfrac{1 + \sqrt5}{2} \approx 1.6180$. A pentagon's diagonal is $\varphi$ times its side, and a golden rectangle's long side is $\varphi$ times its short side. Going from a longer length to a shorter one, divide by $\varphi$ (or multiply by $\varphi - 1 \approx 0.618$). The answer is **{ans:num2}**.

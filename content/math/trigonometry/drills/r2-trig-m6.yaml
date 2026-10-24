@@ -118,7 +118,7 @@
     cr: 120 * sh
   prompt: 'In Ptolemy''s circle of radius 60, find the chord of a ${th}^\circ$ arc to 2 decimal places.'
   answer: cr
-  format: num2
+  format: dp2
   tolerance: 0.01
   solution: |-
     $\text{crd}\,\theta = 2R\sin\tfrac{\theta}{2} = 120\sin {half}^\circ \approx 120({sh:dp5}) \approx$ **{cr:num2}**.
@@ -144,7 +144,7 @@
     BD: (P1 + P2) / AC
   prompt: '$ABCD$ is a quadrilateral inscribed in a circle, with vertices in that order. $AB = {AB:num2}$, $BC = {BC:num2}$, $CD = {CD:num2}$, $DA = {DA:num2}$ and the diagonal $AC = {AC:num2}$. Use Ptolemy''s theorem to find the diagonal $BD$ to 2 decimal places.'
   answer: BD
-  format: num2
+  format: dp2
   tolerance: 0.02
   solution: |-
     Ptolemy: $AC \cdot BD = AB \cdot CD + AD \cdot BC = {P1:num4} + {P2:num4}$. So $BD = \dfrac{{P1:num4} + {P2:num4}}{{AC:num2}} \approx$ **{BD:num2}**.

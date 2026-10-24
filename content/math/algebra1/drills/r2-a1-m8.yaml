@@ -60,7 +60,7 @@
     pct: if(dir == 0, round(100*normcdf(z), 2), round(100 - 100*normcdf(z), 2))
   prompt: 'Measurements are approximately normal with mean {mu} and standard deviation {sd}. What percent of the measurements are {dir} {val}? Use a z-table or technology, and give the percent to 1 decimal place.'
   answers:
-    - {name: pct, label: 'Percent', tolerance: 0.06}
+    - {name: pct, label: 'Percent', tolerance: 0.06, format: dp1}
   solution: |-
     $z = \dfrac{{val} - {mu}}{{sd}} = {z}$. The area to the left of $z = {z}$ is about {left}%.
     That is the percent below {val}; the percent above it is 100% minus that. The question asks for {dir}, so the answer is about **{pct}%**.
@@ -85,7 +85,7 @@
   where: ['s1 == round(s1)', 's2 == round(s2)', 'p1 > p2 + 10', 'n1 != n2']
   prompt: 'A treatment succeeded for {s1} of {n1} patients with mild cases ({p1}%) and {s2} of {n2} patients with severe cases ({p2}%). What is its overall success rate? Give a percent to 1 decimal place.'
   answers:
-    - {name: ratex, label: 'Overall rate (%)', tolerance: 0.051}
+    - {name: ratex, label: 'Overall rate (%)', tolerance: 0.051, format: dp1}
   solution: |-
     Add the successes and the patients: $\dfrac{{s1} + {s2}}{{n1} + {n2}} = \dfrac{{stot}}{{tot}} \approx$ **{rate}%**.
     As a weighted average: a fraction $\tfrac{{n1}}{{tot}} \approx {w}$ of the patients are mild cases, so the overall rate lies between {p2}% and {p1}%, pulled toward the larger group. (The unweighted average, {naive}%, is wrong because the groups differ in size.)
