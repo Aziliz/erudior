@@ -145,7 +145,7 @@
   stem: 'Which of these reactions is forbidden because it does not conserve baryon number?'
   choices: ['$p \to e^+ + \gamma$', '$n \to p + e^- + \bar\nu_e$', '$e^- + e^+ \to \gamma + \gamma$', '$\pi^+ \to \mu^+ + \nu_\mu$']
   answer: 0
-  explanation: 'A proton has $B = 1$, but a positron and a photon have $B = 0$, so $p \to e^+ + \gamma$ is forbidden (protons have never been seen to decay). Neutron decay keeps $B = 1$; annihilation and pion decay involve no baryons at all ($B = 0$ on both sides), and they conserve charge and lepton number too.'
+  explanation: 'A proton has $B = 1$, but a positron and a photon have $B = 0$, so $p \to e^+ + \gamma$ is forbidden (protons have never been seen to decay). It also breaks lepton number ($0 \to -1$), but the question asks about baryon number. Neutron decay keeps $B = 1$; annihilation and pion decay involve no baryons at all ($B = 0$ on both sides), and they conserve charge and lepton number too.'
 - id: phys-h1-r2-h19
   lesson: phys-h1-particles
   topic: Particle physics

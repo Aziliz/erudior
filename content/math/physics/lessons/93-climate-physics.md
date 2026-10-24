@@ -15,13 +15,13 @@ These are research questions; the 2021 Nobel Prize in Physics went in part to Sy
 
 ## Recap: the energy balance
 
-![Earth with a shell of atmosphere around it. Parallel rays of sunlight arrive from the left, and one ray is reflected back to space. Infrared radiation leaves the planet in all directions. Two short arrows inside the atmosphere point down toward the surface, showing infrared radiated back down by the atmosphere.](images/phys-h1-energy-balance.svg)
+![Earth with a shell of atmosphere around it. Parallel rays of sunlight arrive from the left, and one ray is reflected back to space. Arrows on the right show infrared radiation leaving the planet to space. Two short arrows inside the atmosphere point down toward the surface, showing infrared radiated back down by the atmosphere.](images/phys-h1-energy-balance.svg)
 
 Sunlight arrives with intensity $S = 1361$ W/m² (the **solar constant**), and a fraction $\alpha \approx 0.30$, the **albedo**, is reflected. The planet intercepts sunlight over its cross-section $\pi R^2$ but radiates infrared from its whole surface $4\pi R^2$. Balancing the two gives the **equilibrium temperature**
 
 $$T_e = \left(\frac{S(1 - \alpha)}{4\sigma}\right)^{1/4} = 255\text{ K for Earth},$$
 
-while Earth's average surface is about 288 K. The 33 K difference is the **greenhouse effect**. Sunlight, peaking near 0.5 μm, passes through the air; the surface's infrared, peaking near 10 μm, is absorbed by **greenhouse gases** such as water vapor and CO₂, whose molecules bend and stretch at infrared frequencies (CO₂ absorbs strongly near 15 μm). Eunice Foote (1856) and John Tyndall (1859) first showed in the laboratory that these gases absorb heat radiation.
+while Earth's average surface is about 288 K. The 33 K difference is the **greenhouse effect**. Sunlight, peaking near 0.5 μm, passes through the air; the surface's infrared, peaking near 10 μm, is absorbed by **greenhouse gases** such as water vapor and CO₂, whose molecules bend and stretch at infrared frequencies (CO₂ absorbs strongly near 15 μm). Eunice Foote (1856) found that sunlit CO₂ and moist air warm more than dry air, and John Tyndall (1859) showed in the laboratory that these gases absorb heat (infrared) radiation.
 
 ## A partly absorbing layer
 

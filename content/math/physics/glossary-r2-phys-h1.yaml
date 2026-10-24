@@ -9,7 +9,7 @@
   definition: 'The principle that, in a small enough region, being in a gravitational field cannot be told apart from being in an accelerating frame. It rests on the equality of inertial and gravitational mass.'
   topic: General relativity
 - term: gravitational redshift
-  definition: 'The drop in frequency (rise in wavelength) of light climbing out of a gravitational field: by about $gh/c^2$ over a height $h$ near Earth. First measured by Pound and Rebka in 1959.'
+  definition: 'The drop in frequency (rise in wavelength) of light climbing out of a gravitational field: by about $gh/c^2$ over a height $h$ near Earth. First measured in the laboratory by Pound and Rebka in 1959.'
   topic: General relativity
 - term: gravitational time dilation
   definition: 'The slowing of clocks lower in a gravitational field. Near Earth a clock higher by $h$ runs fast by the fraction $gh/c^2$; GPS satellite clocks gain about 45.7 μs per day from it.'

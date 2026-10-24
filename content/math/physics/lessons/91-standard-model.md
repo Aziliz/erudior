@@ -119,7 +119,7 @@ Rest energies: proton 938.27 MeV, neutron 939.57 MeV, electron and positron 0.51
 
 (a) $n \to p + e^- + \bar\nu_e$. Charge: $0 \to +1 - 1 + 0$. ✓ $B$: $1 \to 1 + 0 + 0$. ✓ $L$: $0 \to 0 + 1 - 1$. ✓ Energy: $939.57 > 938.27 + 0.511$. ✓ **Allowed**: this is beta decay; a free neutron has a half-life of about 10 minutes.
 
-(b) $p \to e^+ + \gamma$. Charge ✓, energy ✓, but $B$: $1 \to 0$. ✗ **Forbidden.** Experiments watching huge tanks of water have never seen a proton decay and show its lifetime is longer than $10^{34}$ years, so baryon number conservation holds extremely well.
+(b) $p \to e^+ + \gamma$. Charge ✓, energy ✓, but $B$: $1 \to 0$. ✗ (Lepton number fails too: $L$: $0 \to -1$, since the positron is an antilepton.) **Forbidden.** Experiments watching huge tanks of water have never seen a proton decay and show its lifetime is longer than $10^{34}$ years, so baryon number conservation holds extremely well.
 
 (c) $p \to n + e^+ + \nu_e$ for a free proton. Charge, $B$ and $L$ all balance, but the products need $939.57 + 0.511 = 940.08$ MeV, more than the proton's 938.27 MeV. ✗ **Forbidden for a free proton.** Inside some nuclei it does happen (beta-plus decay), because the change in nuclear binding energy supplies the difference.
 
@@ -150,6 +150,6 @@ The 2.8 km radius applies inside the bending magnets; with straight sections, th
 - Matter is made of fermions: quarks (u $+\tfrac23$, d $-\tfrac13$, and four heavier flavors) and leptons (e, μ, τ and three neutrinos), in three generations.
 - Baryons are three quarks (p = uud, n = udd); mesons are quark–antiquark pairs; quarks are confined.
 - Forces are carried by gauge bosons: gluons (strong), photon (electromagnetic), W and Z (weak); gravity is not in the Standard Model. Range $R \approx \hbar c/(mc^2)$.
-- The Higgs field gives the W, Z, quarks and leptons mass; the Higgs boson (125 GeV) was found in 2012.
+- The Higgs field gives the W, Z, quarks and charged leptons mass (where neutrino masses come from is still open); the Higgs boson (125 GeV) was found in 2012.
 - Reactions conserve energy, momentum, charge, baryon number and lepton number.
 - In a magnetic field, $p = qBr$; $p$ (GeV/$c$) $= 0.300\,B$ (T) $r$ (m).
