@@ -52,7 +52,7 @@ How do you know which *während* you are reading? If both events happen at the s
 
 These three do the same job as *während*, but from the other half of the sentence and with main-clause word order. They are linking adverbs, like *trotzdem*: in position 1 the verb comes straight after.
 
-- *In Deutschland zahlen viele Menschen noch bar. In Schweden dagegen zahlt man fast nur mit Karte.* — In Germany many people still pay cash. In Sweden, on the other hand, people pay almost only by card.
+- *In Deutschland zahlen viele Menschen noch bar. In Schweden dagegen zahlt man fast nur bargeldlos.* — In Germany many people still pay cash. In Sweden, on the other hand, people pay almost entirely without cash.
 - *Die Miete in München ist sehr hoch. Hingegen ist sie in Leipzig noch relativ niedrig.* — Rent in Munich is very high. In Leipzig, by contrast, it is still relatively low.
 - *Unser Zug war pünktlich. Im Gegensatz dazu hatte der Zug unserer Freunde zwei Stunden Verspätung.* — Our train was on time. In contrast, our friends' train was two hours late.
 
@@ -103,7 +103,7 @@ You know how to give a condition with *wenn* or *falls*. Often you want to say t
 - *Wir gehen morgen wandern, es sei denn, es regnet.* — We're going hiking tomorrow unless it rains.
 - *Ich komme um acht, es sei denn, der Zug hat Verspätung.* — I'll come at eight unless the train is late.
 
-*es sei denn* is a frozen old subjunctive form (Konjunktiv I, which you'll study at B2); you don't need to analyse it, just learn it as a fixed phrase. It can also be followed by a *dass* clause with the verb at the end: *…, es sei denn, dass es regnet.* The comma after *denn* is optional (both *es sei denn, es regnet* and *es sei denn es regnet* are allowed); this course writes it.
+*es sei denn* is a frozen old subjunctive form (Konjunktiv I, which you'll study at B2); you don't need to analyse it, just learn it as a fixed phrase. It can also be followed by a *dass* clause with the verb at the end: *…, es sei denn, dass es regnet.* There is always a comma before *es sei denn*; this course also puts one after *denn*, as is common.
 
 ***außer wenn*** (except when, except if, unless) works like *wenn*: verb at the end.
 
@@ -122,7 +122,7 @@ A clause introduced by *es sei denn* or *außer wenn* is an **exceptive clause**
 
 Rule: the bakery takes cards only for purchases of 10 euros or more.
 
-1. *wenn … nicht*: *Man kann nur bar bezahlen, wenn man nicht mindestens 10 Euro ausgibt.* (Correct, but clumsy with two negatives.)
+1. *wenn … nicht*: *Wenn man nicht mindestens 10 Euro ausgibt, kann man nur bar bezahlen.* (Correct, but a bit heavy.)
 2. *es sei denn*: *Man kann nur bar bezahlen, es sei denn, man gibt mindestens 10 Euro aus.* Main-clause order after the comma: *gibt* second, prefix *aus* at the end.
 3. *außer wenn*: *Man kann nur bar bezahlen, außer wenn man mindestens 10 Euro ausgibt.* Verb at the end, so the separable verb joins up: *ausgibt*.
 4. *sonst*, from the other side: *Man muss mindestens 10 Euro ausgeben, sonst kann man nicht mit Karte bezahlen.*
