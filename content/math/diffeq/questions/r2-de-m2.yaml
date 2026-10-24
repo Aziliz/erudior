@@ -326,7 +326,7 @@
   choices: ['$y = \dfrac{1}{1 - x}$', '$y = \tan\!\left(x + \tfrac{\pi}{4}\right) - x$', '$y = \dfrac{1}{1 - x} - x$', '$y = 1 - x + x^3/3$']
   answer: 2
   explanation: |-
-    $u' = 1 + y' = u^2$, so $-\dfrac1u = x + C$. With $u(0) = 0 + 1 = 1$: $C = -1$, so $u = \dfrac{1}{1 - x}$ and $y = u - x = \dfrac{1}{1 - x} - x$. Forgetting to subtract $x$ gives $\dfrac{1}{1 - x}$; dropping the $-1$ (so $u' = 1 + u^2$) gives the tangent; $1 + x^3/3$ treats $y$ as if it were $0$ on the right side.
+    $u' = 1 + y' = u^2$, so $-\dfrac1u = x + C$. With $u(0) = 0 + 1 = 1$: $C = -1$, so $u = \dfrac{1}{1 - x}$ and $y = u - x = \dfrac{1}{1 - x} - x$. Forgetting to subtract $x$ gives $\dfrac{1}{1 - x}$; dropping the $-1$ (so $u' = 1 + u^2$) gives the tangent; $1 - x + x^3/3$ treats $y$ as if it were $0$ on the right side.
 
 # ---- Honors: Picard iteration
 - id: de-m2-r2-h01
@@ -342,10 +342,10 @@
   lesson: de-m2-h-picard
   topic: Picard iteration
   stem: 'For $y'' = t + y$, $y(0) = 2$, what is the first Picard iterate $\varphi_1(t)$?'
-  choices: ['$2 + 2t + \dfrac{t^2}{2}$', '$2t + \dfrac{t^2}{2}$', '$2 + t + \dfrac{t^2}{2}$', '$2 + 2t + t^2$']
+  choices: ['$2 + 2t + \dfrac{t^2}{2}$', '$2t + \dfrac{t^2}{2}$', '$2 + \dfrac{t^2}{2}$', '$2 + 2t + t^2$']
   answer: 0
   explanation: |-
-    $\varphi_0 = 2$, so $\varphi_1 = 2 + \int_0^t (s + 2)\,ds = 2 + \frac{t^2}{2} + 2t$. Leaving off the leading $2$ gives $2t + \frac{t^2}{2}$; using $\varphi_0 = 0$ inside $f$ loses the $2t$; forgetting to halve when integrating $s$ gives $t^2$.
+    $\varphi_0 = 2$, so $\varphi_1 = 2 + \int_0^t (s + 2)\,ds = 2 + \frac{t^2}{2} + 2t$. Leaving off the leading $2$ gives $2t + \frac{t^2}{2}$; using $\varphi_0 = 0$ inside $f$ loses the $2t$, giving $2 + \frac{t^2}{2}$; forgetting to halve when integrating $s$ gives $t^2$.
 
 - id: de-m2-r2-h03
   lesson: de-m2-h-picard
@@ -569,7 +569,7 @@
   stem: 'Which statements are true? Select all that apply.'
   choices:
     - 'The Grönwall bound on the gap between two solutions is often far larger than the actual gap.'
-    - 'For $y'' = ky$ with $k > 0$, the continuous dependence estimate is exact.'
+    - 'For $y'' = ky$ with $k > 0$, the continuous dependence estimate is exact for $t \ge t_0$.'
     - 'Continuous dependence means two solutions never move farther apart.'
     - 'If $f$ is Lipschitz, a small enough starting error keeps the error small on any fixed finite interval.'
     - 'A single first-order autonomous equation can show chaotic behavior.'
@@ -683,10 +683,10 @@
     - 'A singular solution comes from the factor $x + f''(p) = 0$.'
     - 'The singular solution is the line obtained from one special value of $C$.'
     - 'The lines of the family touch the singular solution tangentially.'
-    - 'A Clairaut equation is linear in $y$.'
+    - 'Every Clairaut equation is a linear differential equation.'
   answer: [0, 1, 3]
   explanation: |-
-    Differentiating gives $p'(x + f'(p)) = 0$. $p' = 0$ gives the lines; $x + f'(p) = 0$ gives the singular solution, which is not any member of the family but the curve all the lines touch. The term $f(y')$ is usually nonlinear in $y'$, so the equation is not linear.
+    Differentiating gives $p'(x + f'(p)) = 0$. $p' = 0$ gives the lines; $x + f'(p) = 0$ gives the singular solution, which is not any member of the family but the curve all the lines touch. The term $f(y')$ is usually nonlinear in $y'$ (as with $f(p) = -p^2$), so a Clairaut equation is not linear in general.
 
 - id: de-m2-r2-h35
   lesson: de-m2-h-riccati

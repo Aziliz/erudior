@@ -189,7 +189,7 @@ $r = Ae^{\theta}$ in polar coordinates. We won't solve it here.
   need $y' = 2y/x$. Eliminate $C$ before taking the reciprocal.
 - **Using $-f$ instead of $-1/f$.** Changing the sign alone gives a mirror image, not a
   perpendicular direction. For the lines $y = Cx$, the mistake gives $y' = -y/x$ and the
-  hyperbolas $xy = K$, which do not cross the lines at right angles.
+  hyperbolas $xy = K$, which cross the lines at right angles only along $y = \pm x$, not in general.
 - **Using $1/f$ instead of $-1/f$.** The reciprocal without the sign reflects the
   direction across $y = x$; it is never perpendicular, since $m \cdot \frac1m = 1$, not $-1$.
 - **Forgetting the constant of the new family.** The trajectories form a whole family

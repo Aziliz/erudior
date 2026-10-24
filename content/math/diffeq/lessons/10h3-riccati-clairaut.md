@@ -11,7 +11,7 @@ honors: true
 ## Two classics beyond Bernoulli
 
 Lesson 10 turned Bernoulli equations into linear ones with a substitution. This honors
-lesson takes two older, famous nonlinear equations a step further. The **Riccati equation**,
+lesson takes two other famous nonlinear equations a step further. The **Riccati equation**,
 studied by the Venetian mathematician Jacopo Riccati in the 1720s, is the simplest nonlinear
 equation after Bernoulli's, and it has a surprising link to the second-order linear equations
 of Module 5. The **Clairaut equation**, studied by Alexis Clairaut in the 1730s, has a family
@@ -157,7 +157,7 @@ Solve $y = xy' - (y')^2$, and find the solutions through $(3, 2)$.
   are the lines $y = x - 1$ and $y = 2x - 4$, tangent to the parabola at $(2, 1)$ and $(4, 4)$.
 
 ```plot
-{"x": [-3, 6], "y": [-4, 7], "equal": true, "functions": [{"f": "x^2/4", "label": "y = x²/4"}, {"f": "x - 1", "dashed": true}, {"f": "2x - 4", "dashed": true}, {"f": "-x - 1", "dashed": true}, {"f": "0", "dashed": true}], "points": [{"at": [3, 2], "label": "(3, 2)"}, {"at": [2, 1]}, {"at": [4, 4]}, {"at": [-2, 1]}, {"at": [0, 0]}], "caption": "Clairaut equation y = xy′ − (y′)²: the straight-line solutions y = Cx − C² (dashed, shown for C = −1, 0, 1, 2) are all tangent to the singular solution y = x²/4. Two lines pass through (3, 2), a point below the parabola."}
+{"x": [-3, 6], "y": [-4, 7], "equal": true, "functions": [{"f": "x^2/4", "label": "y = x²/4"}, {"f": "x - 1", "dashed": true}, {"f": "2x - 4", "dashed": true}, {"f": "-x - 1", "dashed": true}, {"f": "0", "dashed": true}], "points": [{"at": [3, 2]}, {"at": [2, 1]}, {"at": [4, 4]}, {"at": [-2, 1]}, {"at": [0, 0]}], "labels": [{"at": [3.9, 1.6], "text": "(3, 2)"}], "caption": "Clairaut equation y = xy′ − (y′)²: the straight-line solutions y = Cx − C² (dashed, shown for C = −1, 0, 1, 2) are all tangent to the singular solution y = x²/4. Two lines pass through (3, 2), a point below the parabola."}
 ```
 
 ### Counting solutions through a point

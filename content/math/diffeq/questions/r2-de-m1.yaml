@@ -70,7 +70,7 @@
     - {x: 16.7, y: 77.3, text: Isocline of slope 0}
     - {x: 42.7, y: 56.0, text: Straight-line solution}
     - {x: 32.3, y: 23.4, text: Solution curve}
-    - {x: 53.1, y: 13.5, text: Slope segment}
+    - {x: 56.2, y: 17.6, text: Slope segment}
   distractors: [Equilibrium solution, Vertical asymptote]
   explanation: |-
     1 is the dashed line $y = x$: every segment on it is flat, so it is the isocline of slope 0, but it is not a solution (a curve along it would need slope 1). 2 is $y = x - 1$, a straight-line solution: its slope 1 matches $x - y = 1$ at every point. 3 is the solution through $(0, 1)$, which bottoms out where it crosses the slope-0 isocline. 4 is a single slope segment. Nothing here is an equilibrium (a constant solution), since no row of segments is flat.
@@ -433,7 +433,7 @@
   choices: ['$x^2 + 2y^2 = 9$', '$x^2 + 2y^2 = 6$', '$2x^2 + y^2 = 9$', '$x^2 + 2y^2 = 5$']
   answer: 1
   explanation: |-
-    The trajectories are $x^2 + 2y^2 = K$. At $(2, 1)$: $K = 4 + 2(1) = 6$. 9 comes from swapping the coordinates' roles ($2 \cdot 4 + 1$), and 5 from forgetting the 2 on $y^2$.
+    The trajectories are $x^2 + 2y^2 = K$. At $(2, 1)$: $K = 4 + 2(1) = 6$. $x^2 + 2y^2 = 9$ swaps the coordinates (it uses $(1, 2)$), $2x^2 + y^2 = 9$ puts the 2 on the wrong variable ($2 \cdot 4 + 1$), and 5 comes from forgetting the 2 on $y^2$.
 
 - id: de-m1-r2-h12
   lesson: de-m1-h-orthogonal
@@ -497,7 +497,7 @@
   choices: ['750', '1200', '900', '1050']
   answer: 2
   explanation: |-
-    With $u_n = 1/P_n$: $c = \dfrac{u_0u_2 - u_1^2}{u_0 + u_2 - 2u_1} = \dfrac{\frac{1}{180000} - \frac{1}{202500}}{\frac{1}{300} + \frac{1}{600} - \frac{2}{450}} = \dfrac{1}{900}$, so $K = 900$. Check: with $A = 2$ and $e^{-kT} = \tfrac12$, $\frac{900}{3} = 300$, $\frac{900}{2} = 450$, $\frac{900}{1.5} = 600$.
+    With $u_n = 1/P_n$: $c = \dfrac{u_0u_2 - u_1^2}{u_0 + u_2 - 2u_1} = \dfrac{\frac{1}{180000} - \frac{1}{202500}}{\frac{1}{300} + \frac{1}{600} - \frac{2}{450}} = \dfrac{1}{900}$, so $K = 900$. Check: with $A = 2$ and $e^{-kT} = \tfrac12$, $\frac{900}{3} = 300$, $\frac{900}{2} = 450$, $\frac{900}{1.5} = 600$. The other choices are guesses from the raw counts (600 + 150 = 750, twice 600 = 1200, 600 + 450 = 1050); a logistic population with these counts levels off at 900.
 
 - id: de-m1-r2-h19
   lesson: de-m1-h-beyond-logistic
@@ -580,7 +580,7 @@
   lesson: de-m1-h-beyond-logistic
   topic: Gompertz growth
   stem: 'A Gompertz model has $K = 800$, $k = 0.5$ and $P(0) = 200$. What is $P(2)$, to the nearest whole number?'
-  choices: ['380', '544', '480', '640']
+  choices: ['380', '544', '480', '641']
   answer: 2
   explanation: |-
-    $P(t) = 800\exp\left(-\ln 4\cdot e^{-0.5t}\right)$. At $t = 2$: $\ln 4 \cdot e^{-1} \approx 1.3863 \times 0.3679 \approx 0.5100$, so $P(2) \approx 800e^{-0.5100} \approx 480$. A logistic model with the same numbers gives 380, and pure exponential growth $200e^{1}$ gives 544.
+    $P(t) = 800\exp\left(-\ln 4\cdot e^{-0.5t}\right)$. At $t = 2$: $\ln 4 \cdot e^{-1} \approx 1.3863 \times 0.3679 \approx 0.5100$, so $P(2) \approx 800e^{-0.5100} \approx 480$. A logistic model with the same numbers gives 380, and pure exponential growth $200e^{1}$ gives 544, and using $\log_{10} 4$ instead of $\ln 4$ gives $800e^{-0.2215} \approx 641$.

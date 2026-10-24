@@ -130,12 +130,13 @@ As a decision chart:
 ```mermaid
 flowchart TD
   accTitle: Choosing a substitution
-  accDescr: Ask three questions in turn. Is the equation a Bernoulli equation y′ + py = qyⁿ? If so, set v = y^(1−n), which gives a linear equation. If not, does the right side depend only on y/x? If so, set v = y/x, which gives a separable equation. If not, is the right side a function of ax + by + c? If so, set u = ax + by + c, which gives a separable equation. In every case, solve for the new variable, convert back to y, and apply the initial condition.
+  accDescr: Ask three questions in turn. Is the equation a Bernoulli equation y′ + py = qyⁿ? If so, set v = y^(1−n), which gives a linear equation. If not, does the right side depend only on y/x? If so, set v = y/x, which gives a separable equation. If not, is the right side a function of ax + by + c? If so, set u = ax + by + c, which gives a separable equation. If none of these fits, try another method. In every case that fits, solve for the new variable, convert back to y, and apply the initial condition.
   A{"Bernoulli: y′ + py = qyⁿ ?"} -- yes --> B["v = y^(1−n): linear in v"]
   A -- no --> C{"y′ = F(y/x) ?"}
   C -- yes --> D["v = y/x: separable"]
   C -- no --> E{"y′ = f(ax + by + c) ?"}
   E -- yes --> F["u = ax + by + c: separable"]
+  E -- no --> X["Try another method"]
   B --> G["Solve, convert back to y, apply the initial condition"]
   D --> G
   F --> G
