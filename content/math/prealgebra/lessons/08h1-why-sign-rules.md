@@ -97,7 +97,7 @@ Step 1 with $a = 1$ says $(-1)b = -b$: *multiplying by $-1$ takes the opposite.*
 Multiplying by any negative number is a flip followed by a stretch. Since $-2 = (-1) \times 2$, multiplying $-3$ by $-2$ means: flip $-3$ to 3, then double to 6.
 
 ```numberline
-{"x": [-5, 8], "points": [{"at": [-3, 0], "label": "-3"}, {"at": [3, 0], "label": "3 (flipped)", "open": true}, {"at": [6, 0], "label": "6"}], "segments": [{"from": [-3, 0], "to": [6, 0], "arrow": true}], "caption": "(-3) × (-2): flip -3 to 3, then stretch by 2 to reach 6"}
+{"x": [-5, 8], "points": [{"at": [-3, 0], "label": "-3"}, {"at": [3, 0], "label": "3", "open": true}, {"at": [6, 0], "label": "6"}], "segments": [{"from": [-3, 0], "to": [6, 0], "arrow": true}], "caption": "(-3) × (-2): flip -3 to 3 (open dot), then stretch by 2 to reach 6"}
 ```
 
 This picture explains the counting rule from Lesson 8. Each negative factor is one flip. Two flips bring you back to the side you started on, so an even number of negative factors gives a positive result, and an odd number leaves you on the negative side.

@@ -15,7 +15,7 @@
 - {front: 'First step for $3|x - 1| + 4 = 19$', back: 'Isolate the absolute value: $|x - 1| = 5$, so $x = -4$ or $6$.', topic: 'Absolute value equations'}
 - {front: 'Midpoint of $a$ and $b$', back: '$\dfrac{a + b}{2}$, or $a$ plus half the distance: midpoint of $-11$ and 5 is $-3$.', topic: 'Distance and net change'}
 - {front: 'Integers from $m$ to $n$', back: 'Both ends included: $n - m + 1$. Strictly between: $n - m - 1$.', topic: 'Distance and net change'}
-- {front: '$|x - a| \le d$', back: 'All numbers from $a - d$ to $a + d$, ends included: $2d + 1$ integers.', topic: 'Distance and net change'}
+- {front: '$|x - a| \le d$', back: 'All numbers from $a - d$ to $a + d$, ends included; for integers $a$ and $d \ge 0$ that is $2d + 1$ integers.', topic: 'Distance and net change'}
 - {front: 'Net change vs. distance traveled', back: 'Net change adds signed moves (final − start); distance adds their absolute values. $+7, -10$: net $-3$, distance 17.', topic: 'Distance and net change'}
 - {front: 'Triangle inequality', back: '$|a + b| \le |a| + |b|$; equal when $a$, $b$ have the same sign or one is 0.', topic: 'Distance and net change'}
 - {front: '$|ab|$', back: '$|a| \cdot |b|$: signs decide the sign, never the size.', topic: 'Distance and net change'}

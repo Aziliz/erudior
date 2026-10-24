@@ -75,11 +75,11 @@
     sm: a + b
     mid: (a + b)/2
   where: ["a < 0", "a < b", "mod(b - a, 2) == 0", "b - a >= 4"]
-  prompt: 'Find the midpoint of {a} and {b} on the number line.'
+  prompt: 'Find the midpoint of ${a}$ and ${b}$ on the number line.'
   answer: mid
   format: integer
   solution: |-
-    The distance is ${b} - ({a}) = {dist}$; half of it is {half}. Start at {a} and move {half} to the right: ${a} + {half} =$ **{mid}**.
+    The distance is ${b} - ({a}) = {dist}$; half of it is {half}. Start at ${a}$ and move {half} to the right: ${a} + {half} =$ **{mid}**.
     (Or average: $\dfrac{{sm}}{2} = {mid}$.)
 
 - id: pre-m2-r2-count-integers

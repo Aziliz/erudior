@@ -218,7 +218,7 @@
     - ['$4\tfrac12$', '9/2']
   distractors: ['7/4', '6/5']
   explanation: |-
-    Use $a\tfrac bc = \tfrac{ac + b}{c}$: $1 \times 3 + 2 = 5$, $2 \times 5 + 1 = 11$, $3 \times 4 + 3 = 15$, $4 \times 2 + 1 = 9$. $\tfrac74$ and $\tfrac65$ come from adding the whole number to the numerator instead.
+    Use $a\tfrac bc = \tfrac{ac + b}{c}$: $1 \times 3 + 2 = 5$, $2 \times 5 + 1 = 11$, $3 \times 4 + 3 = 15$, $4 \times 2 + 1 = 9$. $\tfrac74 = 1\tfrac34$ and $\tfrac65 = 1\tfrac15$ match none of the mixed numbers.
 
 # --- pre-m3-h-complex-fractions (honors) ---
 - id: pre-m3-r2-h01
@@ -228,7 +228,7 @@
   choices: ['$\dfrac{8}{27}$', '$\dfrac{3}{2}$', '$\dfrac{27}{8}$', '$\dfrac{2}{3}$']
   answer: 1
   explanation: |-
-    Multiply the top by the reciprocal of the bottom: $\tfrac23 \times \tfrac94 = \tfrac{18}{12} = \tfrac32$. $\tfrac{8}{27}$ multiplies the two fractions instead of dividing, and $\tfrac{27}{8}$ flips the top instead of the bottom.
+    Multiply the top by the reciprocal of the bottom: $\tfrac23 \times \tfrac94 = \tfrac{18}{12} = \tfrac32$. $\tfrac{8}{27}$ multiplies the two fractions instead of dividing, $\tfrac23$ flips the top instead of the bottom ($\tfrac32 \times \tfrac49$), and $\tfrac{27}{8}$ flips both fractions ($\tfrac32 \times \tfrac94$).
 
 - id: pre-m3-r2-h02
   lesson: pre-m3-h-complex-fractions
@@ -264,7 +264,7 @@
   choices: ['$\dfrac{10}{7}$', '$0$', '$\dfrac{7}{10}$', '$\dfrac{5}{7}$']
   answer: 0
   explanation: |-
-    Multiply every term by 6: $\dfrac{12 - 2}{6 + 1} = \dfrac{10}{7}$. Getting 0 comes from multiplying only the fractions by 6 ($\tfrac{2 - 2}{1 + 1}$), and $\tfrac7{10}$ flips the answer.
+    Multiply every term by 6: $\dfrac{12 - 2}{6 + 1} = \dfrac{10}{7}$. Getting 0 comes from multiplying only the fractions by 6 ($\tfrac{2 - 2}{1 + 1}$), $\tfrac7{10}$ flips the answer, and $\tfrac57$ multiplies the top by 3 but the bottom by 6 ($\tfrac{6 - 1}{6 + 1}$), which changes the value.
 
 - id: pre-m3-r2-h06
   lesson: pre-m3-h-complex-fractions
@@ -295,7 +295,7 @@
   choices: ['$\dfrac{2}{3}$', '$-\dfrac{27}{50}$', '$-\dfrac{3}{2}$', '$-\dfrac{2}{3}$']
   answer: 3
   explanation: |-
-    $-\tfrac35 \times \tfrac{10}{9}$: cancel 5 with 10 (leaving 1 and 2) and 3 with 9 (leaving 1 and 3) to get $-\tfrac{2}{3}$. A negative divided by a positive is negative. $-\tfrac{27}{50}$ multiplies instead of dividing, and $-\tfrac32$ is the reciprocal of the answer.
+    $-\tfrac35 \times \tfrac{10}{9}$: cancel 5 with 10 (leaving 1 and 2) and 3 with 9 (leaving 1 and 3) to get $-\tfrac{2}{3}$. A negative divided by a positive is negative, so $\tfrac23$ has lost the sign. $-\tfrac{27}{50}$ multiplies instead of dividing, and $-\tfrac32$ is the reciprocal of the answer.
 
 - id: pre-m3-r2-h09
   lesson: pre-m3-h-complex-fractions
@@ -427,7 +427,7 @@
   choices: ['2 hours 30 minutes', '1 hour 12 minutes', '5 hours', '1 hour 20 minutes']
   answer: 1
   explanation: |-
-    Rates: $\tfrac12 + \tfrac13 = \tfrac56$ lawn per hour. Time: $1 \div \tfrac56 = \tfrac65 = 1\tfrac15$ hours, and $\tfrac15$ of 60 minutes is 12 minutes. (Product over sum: $\tfrac{2 \times 3}{2 + 3} = \tfrac65$.) 2 h 30 min averages the times and 5 hours adds them; both are slower than Dev alone.
+    Rates: $\tfrac12 + \tfrac13 = \tfrac56$ lawn per hour. Time: $1 \div \tfrac56 = \tfrac65 = 1\tfrac15$ hours, and $\tfrac15$ of 60 minutes is 12 minutes. (Product over sum: $\tfrac{2 \times 3}{2 + 3} = \tfrac65$.) 2 h 30 min averages the times and 5 hours adds them; both are slower than Dev alone. 1 hour 20 minutes misreads 1.2 hours as 1 hour 20 minutes (0.2 hour is 12 minutes).
 
 - id: pre-m3-r2-h22
   lesson: pre-m3-h-fraction-problems

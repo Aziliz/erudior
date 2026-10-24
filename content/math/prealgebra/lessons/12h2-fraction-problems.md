@@ -113,7 +113,7 @@ $$\text{average speed} = \frac{2d}{\tfrac da + \tfrac db} = \frac{2}{\tfrac1a + 
 
 (The middle step divides the top and bottom by $d$. The last step multiplies the top and bottom by $ab$.) The distance cancels out, so it doesn't matter how far the trip is. The number $\dfrac{2ab}{a+b}$ is called the **harmonic mean** of $a$ and $b$: the reciprocal of the average of the reciprocals. For Sam, $\tfrac{2 \times 30 \times 60}{90} = \tfrac{3600}{90} = 40$. ✓
 
-Notice the link to working together: both use reciprocals, because both add *times* that come from dividing by a rate.
+Notice the link to working together: both turn to reciprocals. A work problem adds the rates $\tfrac1a + \tfrac1b$; a round trip adds the times $\tfrac da + \tfrac db$. In fact the time for two workers, $\tfrac{ab}{a+b}$, is exactly half the harmonic mean of their times.
 
 ### Example 6
 

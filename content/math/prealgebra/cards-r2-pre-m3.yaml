@@ -20,4 +20,4 @@
 - {front: 'Two workers, times $a$ and $b$', back: 'Together: $\dfrac{ab}{a+b}$ (product over sum), less than either time alone.', topic: 'Combined rates'}
 - {front: 'Average speed', back: 'Total distance ÷ total time.', topic: 'Combined rates'}
 - {front: 'Harmonic mean of $a$ and $b$', back: '$\dfrac{2ab}{a+b}$: the average speed for equal distances at speeds $a$ and $b$, e.g. 30 and 60 mph give 40 mph.', topic: 'Combined rates'}
-- {front: 'Equal times vs equal distances', back: 'Equal times at two speeds: plain average. Equal distances: harmonic mean, which is smaller.', topic: 'Combined rates'}
+- {front: 'Equal times vs equal distances', back: 'Equal times at two speeds: plain average. Equal distances: harmonic mean, which is smaller (unless the two speeds are equal).', topic: 'Combined rates'}
