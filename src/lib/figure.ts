@@ -12,6 +12,89 @@ const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 const PALETTE = 6;
 let figureCount = 0;
 
+/** A text box in screen pixels. */
+type Box = { x0: number; y0: number; x1: number; y1: number };
+
+/** Rough size of a label: SVG can't measure text here, so estimate from the character count. */
+function textBox(x: number, y: number, text: string, anchor: "start" | "middle" | "end", size: number, bold = false): Box {
+  const w = text.length * size * (bold ? 0.6 : 0.56);
+  const left = anchor === "start" ? x : anchor === "middle" ? x - w / 2 : x - w;
+  return { x0: left, y0: y - size * 0.8, x1: left + w, y1: y + size * 0.25 };
+}
+
+const overlap = (a: Box, b: Box) => Math.max(0, Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0)) * Math.max(0, Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0));
+
+/** One spot a label could go: where to draw it, and how much we like it before checking for clashes. */
+type Spot = { x: number; y: number; anchor: "start" | "middle" | "end"; cost: number };
+
+/**
+ * Puts labels where they cover the least: each candidate spot is scored by the curve and line
+ * samples under it, overlap with text already placed (tick numbers, fixed labels, earlier labels)
+ * and running off the picture; the cheapest wins. Labels are placed in order, so earlier ones win ties.
+ */
+class Placer {
+  pts: [number, number][] = [];
+  boxes: Box[] = [];
+  constructor(
+    private W: number,
+    private H: number,
+  ) {}
+  line(ax: number, ay: number, bx: number, by: number) {
+    const n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 4));
+    for (let k = 0; k <= n; k++) this.pts.push([ax + ((bx - ax) * k) / n, ay + ((by - ay) * k) / n]);
+  }
+  score(b: Box): number {
+    let c = 0;
+    const pad = 2;
+    for (const [x, y] of this.pts) if (x >= b.x0 - pad && x <= b.x1 + pad && y >= b.y0 - pad && y <= b.y1 + pad) c += 1;
+    for (const o of this.boxes) c += overlap(b, o) > 0 ? 40 + overlap(b, o) / 10 : 0;
+    const out = Math.max(0, -b.x0) + Math.max(0, b.x1 - this.W) + Math.max(0, -b.y0) + Math.max(0, b.y1 - this.H);
+    return c + out * 10;
+  }
+  place(text: string, spots: Spot[], size: number, bold: boolean): Spot {
+    let best = spots[0];
+    let bestCost = Infinity;
+    for (const s of spots) {
+      const cost = this.score(textBox(s.x, s.y, text, s.anchor, size, bold)) + s.cost;
+      if (cost < bestCost - 1e-9) [best, bestCost] = [s, cost];
+    }
+    this.boxes.push(textBox(best.x, best.y, text, best.anchor, size, bold));
+    return best;
+  }
+}
+
+/**
+ * Spots along a curve (screen samples in drawing order): first the usual place, just above and left
+ * of its right end, then above and below points further back, a little dearer the further they are.
+ */
+function alongCurve(seen: [number, number][]): Spot[] {
+  const spots: Spot[] = [];
+  const n = seen.length;
+  [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0].forEach((f, j) => {
+    const [x, y] = seen[Math.min(n - 1, Math.round(f * (n - 1)))];
+    const c = j * 0.4;
+    spots.push(
+      { x: x - 4, y: y - 6, anchor: "end", cost: c },
+      { x: x + 4, y: y - 6, anchor: "start", cost: c + 0.2 },
+      { x: x - 4, y: y + 15, anchor: "end", cost: c + 0.3 },
+      { x: x + 4, y: y + 15, anchor: "start", cost: c + 0.4 },
+    );
+  });
+  return spots;
+}
+
+/** Spots around a point (screen coords), the usual upper-right first. */
+const around = (px: number, py: number, r = 7): Spot[] => [
+  { x: px + r, y: py - r, anchor: "start", cost: 0 },
+  { x: px - r, y: py - r, anchor: "end", cost: 0.5 },
+  { x: px + r, y: py + r + 9, anchor: "start", cost: 0.6 },
+  { x: px - r, y: py + r + 9, anchor: "end", cost: 0.8 },
+  { x: px, y: py - r - 3, anchor: "middle", cost: 1 },
+  { x: px, y: py + r + 13, anchor: "middle", cost: 1.2 },
+  { x: px + r + 3, y: py + 4, anchor: "start", cost: 1.4 },
+  { x: px - r - 3, y: py + 4, anchor: "end", cost: 1.6 },
+];
+
 interface Ctx {
   scope: Record<string, number>;
   funcs: Record<string, UserFn>;
@@ -110,6 +193,15 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
   const sy = (y: number) => H - padB - ((y - y0) / (y1 - y0)) * (H - pad - padB);
   const P = (p: Pt) => [sx(num(p[0], ctx)), sy(num(p[1], ctx))] as const;
   const out: string[] = [];
+  const placer = new Placer(W, H);
+  /** Labels placed automatically once every line is drawn: text, class, candidate spots. */
+  const pending: { text: string; cls: string; bold: boolean; spots: Spot[] }[] = [];
+  // Axis numbers are drawn after the lines (with a halo), so a curve crossing one can't hide it.
+  const ticks: string[] = [];
+  const tick = (x: number, y: number, text: string, anchor: "start" | "middle" | "end") => {
+    placer.boxes.push(textBox(x, y, text, anchor, 11));
+    ticks.push(`<text class="fig-tick" x="${x}" y="${y}" text-anchor="${anchor}">${text}</text>`);
+  };
   const cls = (base: string, color?: string, i = 0) => `${base} c${color ? "" : i % PALETTE}`;
   // Shapes and lines are drawn in ink unless a color is given; curves cycle the palette.
   const ink = (base: string) => base;
@@ -142,13 +234,16 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
         if (!(skip0x && v === 0)) {
           // A number right under an edge y-axis would be cut by it; start it just past the axis.
           const edge = v === ay && ay !== 0;
-          out.push(`<text class="fig-tick" x="${sx(v) + (edge ? 3 : 0)}" y="${sy(ax) + 13}" text-anchor="${edge ? "start" : "middle"}">${fmtTick(v)}</text>`);
+          tick(sx(v) + (edge ? 3 : 0), sy(ax) + 13, fmtTick(v), edge ? "start" : "middle");
         }
     for (const v of gridValues(y0, y1, ty))
-      if (!(skip0y && v === 0)) out.push(`<text class="fig-tick" x="${sx(ay) - 5}" y="${sy(v) + 4}" text-anchor="end">${fmtTick(v)}</text>`);
+      if (!(skip0y && v === 0)) tick(sx(ay) - 5, sy(v) + 4, fmtTick(v), "end");
     if (barTitle) out.push(`<text class="fig-tick" x="${(sx(x0) + sx(x1)) / 2}" y="${sy(y0) + (ax === y0 ? 29 : 14)}" text-anchor="middle">${esc(spec.xLabel!)}</text>`);
-    else out.push(`<text class="fig-tick" x="${sx(x1) - 4}" y="${sy(ax) - 6}" text-anchor="end">${esc(spec.xLabel ?? "x")}</text>`);
-    out.push(`<text class="fig-tick" x="${sx(ay) + 6}" y="${sy(y1) + 12}">${esc(spec.yLabel ?? "y")}</text>`);
+    else tick(sx(x1) - 4, sy(ax) - 6, esc(spec.xLabel ?? "x"), "end");
+    tick(sx(ay) + 6, sy(y1) + 12, esc(spec.yLabel ?? "y"), "start");
+    // The axes themselves are lines labels shouldn't sit on.
+    placer.line(sx(x0), sy(ax), sx(x1), sy(ax));
+    placer.line(sx(ay), sy(y0), sx(ay), sy(y1));
   }
 
   if (isLine) {
@@ -169,7 +264,7 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     const [l, r] = [sx(bx - w / 2), sx(bx + w / 2)];
     const [top, base] = [sy(Math.max(h, 0)), sy(Math.min(h, 0))];
     out.push(`<rect${clip} class="${cls("fig-bar", b.color, b.color ? i : 0)}"${sty(b.color)} x="${l}" y="${top}" width="${Math.max(0, r - l)}" height="${Math.max(0, base - top)}"/>`);
-    if (b.label) out.push(`<text class="fig-tick" x="${(l + r) / 2}" y="${sy(Math.min(0, y0 < 0 ? 0 : y0)) + 13}" text-anchor="middle">${esc(b.label)}</text>`);
+    if (b.label) tick((l + r) / 2, sy(Math.min(0, y0 < 0 ? 0 : y0)) + 13, esc(b.label), "middle");
   });
 
   // Slope and vector fields.
@@ -257,9 +352,11 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     let d = "";
     let prev: number | null = null;
     let pen = false;
+    const seen: [number, number][] = [];
     for (let k = 0; k <= n; k++) {
       const x = a + ((b - a) * k) / n;
       const y = f(x);
+      if (!Number.isNaN(y) && y >= y0 && y <= y1) seen.push([sx(x), sy(y)]);
       // Lift the pen off-screen and across jumps (asymptotes).
       const far = Number.isNaN(y) || y < y0 - 2 * span || y > y1 + 2 * span;
       const jump = prev !== null && !far && Math.abs(y - prev) > span;
@@ -273,17 +370,8 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
       prev = y;
     }
     out.push(`<path${clip} class="${cls("fig-curve", def.color, i)}${def.dashed ? " dashed" : ""}"${def.color ? ` style="stroke:${esc(def.color)}"` : ""} d="${d}"/>`);
-    if (def.label) {
-      // Label near the right end of the visible curve.
-      for (let k = n; k >= 0; k--) {
-        const x = a + ((b - a) * k) / n;
-        const y = f(x);
-        if (!Number.isNaN(y) && y >= y0 && y <= y1) {
-          out.push(`<text class="${cls("fig-label", def.color, i)} fig-curve-label" x="${sx(x) - 4}" y="${sy(y) - 6}" text-anchor="end">${esc(def.label)}</text>`);
-          break;
-        }
-      }
-    }
+    for (let k = 0; k < seen.length; k += 3) placer.pts.push(seen[k]);
+    if (def.label && seen.length) pending.push({ text: def.label, cls: `${cls("fig-label", def.color, i)} fig-curve-label`, bold: true, spots: alongCurve(seen) });
   });
 
   spec.curves?.forEach((c, i) => {
@@ -295,6 +383,7 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     let d = "";
     let pen = false;
     let last: [number, number] | null = null;
+    const seen: [number, number][] = [];
     for (let k = 0; k <= n; k++) {
       const t = a + ((b - a) * k) / n;
       let px: number;
@@ -313,9 +402,14 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
       d += `${pen ? "L" : "M"}${sx(px).toFixed(1)},${sy(py).toFixed(1)}`;
       pen = true;
       last = [px, py];
+      if (px >= x0 && px <= x1 && py >= y0 && py <= y1) seen.push([sx(px), sy(py)]);
     }
     out.push(`<path${clip} class="${cls("fig-curve", c.color, i + (spec.functions?.length ?? 0))}${c.dashed ? " dashed" : ""}"${c.color ? ` style="stroke:${esc(c.color)}"` : ""} d="${d}"/>`);
-    if (c.label && last) out.push(`<text class="${cls("fig-label", c.color, i + (spec.functions?.length ?? 0))} fig-curve-label" x="${sx(last[0]) + 4}" y="${sy(last[1]) - 6}">${esc(c.label)}</text>`);
+    for (let k = 0; k < seen.length; k += 3) placer.pts.push(seen[k]);
+    if (c.label && last) {
+      const spots: Spot[] = [{ x: sx(last[0]) + 4, y: sy(last[1]) - 6, anchor: "start", cost: 0 }, ...(seen.length ? alongCurve(seen).map((p) => ({ ...p, cost: p.cost + 0.5 })) : [])];
+      pending.push({ text: c.label, cls: `${cls("fig-label", c.color, i + (spec.functions?.length ?? 0))} fig-curve-label`, bold: true, spots });
+    }
   });
 
   spec.tangents?.forEach((t, i) => {
@@ -323,17 +417,21 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     const a = num(t.at, ctx);
     const m = deriv1(f, a);
     const y = (x: number) => f(a) + m * (x - a);
+    placer.line(sx(x0), sy(y(x0)), sx(x1), sy(y(x1)));
     out.push(`<line${clip} class="${cls("fig-curve", t.color, i + 3)} dashed"${t.color ? ` style="stroke:${esc(t.color)}"` : ""} x1="${sx(x0)}" y1="${sy(y(x0))}" x2="${sx(x1)}" y2="${sy(y(x1))}"/>`);
   });
 
   spec.polygons?.forEach((g, i) => {
-    const pts = g.points.map((p) => P(p).join(",")).join(" ");
+    const ps = g.points.map((p) => P(p));
+    ps.forEach((q, k) => placer.line(q[0], q[1], ps[(k + 1) % ps.length][0], ps[(k + 1) % ps.length][1]));
+    const pts = ps.map((q) => q.join(",")).join(" ");
     out.push(`<polygon class="${g.color || g.fill ? cls(g.fill ? "fig-poly filled" : "fig-poly", g.color, i) : ink("fig-poly")}"${sty(g.color)} points="${pts}"/>`);
   });
 
   spec.circles?.forEach((c, i) => {
     const [cx, cy] = P(c.center);
     const r = Math.abs(sx(num(c.r, ctx)) - sx(0));
+    for (let k = 0; k < 48; k++) placer.pts.push([cx + r * Math.cos((k * Math.PI) / 24), cy + r * Math.sin((k * Math.PI) / 24)]);
     out.push(`<circle class="${c.color || c.fill ? cls(c.fill ? "fig-poly filled" : "fig-poly", c.color, i) : ink("fig-poly")}"${sty(c.color)} cx="${cx}" cy="${cy}" r="${r}"/>`);
   });
 
@@ -358,14 +456,19 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     out.push(
       `<line class="fig-seg${s.dashed ? " dashed" : ""}"${s.color ? ` style="stroke:${esc(s.color)}"` : ""} x1="${ax}" y1="${ay}" x2="${bx}" y2="${by}"${s.arrow ? ` marker-end="url(#${id}-arrow)"` : ""}/>`,
     );
+    placer.line(ax, ay, bx, by);
     if (s.label) {
-      // Label at the midpoint, nudged off the line.
-      const mx = (ax + bx) / 2;
-      const my = (ay + by) / 2;
+      // Beside the midpoint, nudged off the line (either side; a little along it if both are busy).
       const len = Math.hypot(bx - ax, by - ay) || 1;
       const nx = (-(by - ay) / len) * 12;
       const ny = ((bx - ax) / len) * 12;
-      out.push(`<text class="fig-label" x="${mx + nx}" y="${my + ny + 4}" text-anchor="middle">${esc(s.label)}</text>`);
+      const spots: Spot[] = [];
+      [0.5, 0.35, 0.65].forEach((t, j) => {
+        const mx = ax + (bx - ax) * t;
+        const my = ay + (by - ay) * t;
+        spots.push({ x: mx + nx, y: my + ny + 4, anchor: "middle", cost: j * 1.5 }, { x: mx - nx, y: my - ny + 4, anchor: "middle", cost: j * 1.5 + 0.5 });
+      });
+      pending.push({ text: s.label, cls: "fig-label", bold: false, spots });
     }
   });
 
@@ -373,13 +476,21 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     const def = Array.isArray(p) ? { at: p } : p;
     const [px, py] = P(def.at);
     out.push(`<circle class="${cls(def.open ? "fig-pt open" : "fig-pt", def.color, i)}"${sty(def.color)} cx="${px}" cy="${py}" r="4"/>`);
-    if (def.label) out.push(`<text class="fig-label" x="${px + 7}" y="${py - 7}">${esc(def.label)}</text>`);
+    placer.boxes.push({ x0: px - 4, y0: py - 4, x1: px + 4, y1: py + 4 });
+    if (def.label) pending.push({ text: def.label, cls: "fig-label", bold: false, spots: around(px, py) });
   });
 
+  out.push(...ticks);
+  // Labels placed by hand stay put; the automatic ones are fitted around them and everything else.
   spec.labels?.forEach((l) => {
     const [lx, ly] = P(l.at);
+    placer.boxes.push(textBox(lx, ly, l.text, "middle", 13));
     out.push(`<text class="fig-label" x="${lx}" y="${ly}" text-anchor="middle">${esc(l.text)}</text>`);
   });
+  for (const l of pending) {
+    const at = placer.place(l.text, l.spots, 13, l.bold);
+    out.push(`<text class="${l.cls}" x="${at.x}" y="${at.y}"${at.anchor === "start" ? "" : ` text-anchor="${at.anchor}"`}>${esc(l.text)}</text>`);
+  }
 
   const svg = `<svg class="figure-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(spec.caption ?? (isPlot ? "Graph" : "Diagram"))}">${out.join("")}</svg>`;
   return `<figure class="figure${isLine ? " numberline" : ""}">${svg}${spec.caption ? `<figcaption>${esc(spec.caption)}</figcaption>` : ""}</figure>`;

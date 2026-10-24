@@ -193,7 +193,7 @@ Drills can have a `figure` (or a list of them); lessons can include them as fenc
 - `vectorField`: `{ "u": "-y", "v": "x", "step": 1 }` draws arrows scaled to fit; when a few arrows near a singularity are far longer than the rest, they are capped so the others stay visible.
 - `bars`: `[{ "x": 1, "height": 4, "width": 1, "label": "A" }, …]` for histograms and bar charts. When bars have labels, the x-axis numbers are left out so the two don't overlap.
 - `functions`: a drill function name or an expression in `x`; optional `label`, `color`, `dashed`, `from`, `to`. Curves break at asymptotes and are clipped to the view.
-- `tangents`, `shade` (between `f` and the x-axis, or `g`), `points`, `segments` (`from`, `to`, `label`, `arrow`, `dashed`), `polygons`, `circles` (`center`, `r`), `labels` (`at`, `text`), `rightAngles` (`[vertex, a, b]`), `width`, `caption`. Text fields can use `{placeholders}`.
+- `tangents`, `shade` (between `f` and the x-axis, or `g`), `points`, `segments` (`from`, `to`, `label`, `arrow`, `dashed`), `polygons`, `circles` (`center`, `r`), `labels` (`at`, `text`), `rightAngles` (`[vertex, a, b]`), `width`, `caption`. Text fields can use `{placeholders}`. Curve, point and segment labels are placed automatically where they cover the fewest lines and other text (try the usual spot first, then nearby ones); `labels` stay exactly where you put them.
 
 The bundled `samples/math-sampler-course.json` (built by `content/math-sampler/build.py`) shows all of this: algebra, geometry, trig, physics, calculus and graphing.
 

@@ -2122,6 +2122,10 @@ mark {
 .fig-tick {
   fill: var(--pencil);
   font: 11px var(--sans);
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
 }
 .fig-curve {
   fill: none;
@@ -2168,6 +2172,11 @@ mark {
 .fig-label {
   fill: var(--ink);
   font: 13px var(--sans);
+  /* A thin halo in the background color keeps labels readable where a line passes behind them. */
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
 }
 .fig-curve-label {
   font-weight: 600;
@@ -2180,7 +2189,7 @@ mark {
 .c5 { stroke: var(--fig-5); fill: var(--fig-5); }
 .fig-curve.c0, .fig-curve.c1, .fig-curve.c2, .fig-curve.c3, .fig-curve.c4, .fig-curve.c5 { fill: none; }
 .fig-poly.c0:not(.filled), .fig-poly.c1:not(.filled), .fig-poly.c2:not(.filled), .fig-poly.c3:not(.filled), .fig-poly.c4:not(.filled), .fig-poly.c5:not(.filled) { fill: none; }
-.fig-label.c0, .fig-label.c1, .fig-label.c2, .fig-label.c3, .fig-label.c4, .fig-label.c5 { stroke: none; }
+.fig-label.c0, .fig-label.c1, .fig-label.c2, .fig-label.c3, .fig-label.c4, .fig-label.c5 { stroke: var(--surface); }
 .drill-figure {
   margin: 4px 0 14px;
 }
