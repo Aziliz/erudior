@@ -118,8 +118,9 @@ This is the **shoelace formula** (write the coordinates in two columns and the c
 pairs lace up like a shoe). *Why it works:* each term is twice the **signed area** of the
 triangle with corners $\mathbf{0}$, $P_i$, $P_{i+1}$: positive when that triangle is
 counterclockwise, negative when clockwise. Walking around the polygon, the triangles fan out from
-the origin; pieces that lie outside the polygon are covered once positively and once
-negatively and cancel, leaving exactly the polygon. Listing the corners clockwise gives the
+the origin; every piece that lies outside the polygon is covered as often by positive
+triangles as by negative ones and cancels, while every piece inside is left counted exactly
+once, so the sum is the polygon's area. Listing the corners clockwise gives the
 negative of the area.
 
 ### Example 3
@@ -127,7 +128,7 @@ negative of the area.
 Find the area of the pentagon with corners $(0, 0), (4, 0), (5, 3), (2, 5), (-1, 2)$, in counterclockwise order.
 
 ```plot
-{"x": [-2, 6], "y": [-1, 6], "equal": true, "polygons": [{"points": [[0, 0], [4, 0], [5, 3], [2, 5], [-1, 2]]}], "segments": [{"from": [0, 0], "to": [5, 3], "dashed": true}, {"from": [0, 0], "to": [2, 5], "dashed": true}], "points": [{"at": [0, 0], "label": "(0, 0)"}, {"at": [4, 0], "label": "(4, 0)"}, {"at": [5, 3], "label": "(5, 3)"}, {"at": [2, 5], "label": "(2, 5)"}, {"at": [-1, 2], "label": "(−1, 2)"}], "caption": "The pentagon split into a fan of triangles from the corner (0, 0); the shoelace terms are twice their areas"}
+{"x": [-3, 6], "y": [-1, 6], "equal": true, "polygons": [{"points": [[0, 0], [4, 0], [5, 3], [2, 5], [-1, 2]]}], "segments": [{"from": [0, 0], "to": [5, 3], "dashed": true}, {"from": [0, 0], "to": [2, 5], "dashed": true}], "points": [{"at": [0, 0]}, {"at": [4, 0]}, {"at": [5, 3], "label": "(5, 3)"}, {"at": [2, 5], "label": "(2, 5)"}, {"at": [-1, 2]}], "labels": [{"at": [-0.95, 0.3], "text": "(0, 0)"}, {"at": [3.3, 0.3], "text": "(4, 0)"}, {"at": [-1.8, 2.2], "text": "(−1, 2)"}], "caption": "The pentagon split into a fan of triangles from the corner (0, 0); the shoelace terms are twice their areas"}
 ```
 
 1. Consecutive pairs and their terms $x_iy_{i+1} - x_{i+1}y_i$:

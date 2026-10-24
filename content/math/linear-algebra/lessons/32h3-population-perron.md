@@ -44,7 +44,7 @@ A bird population has three age classes with
 $L = \begin{bmatrix} 0 & 2 & 1.5 \\ 0.9 & 0 & 0 \\ 0 & 0.5 & 0\end{bmatrix}$. Starting from $\mathbf{x}_0 = (90, 60, 30)$, find $\mathbf{x}_1$. Then find the long-run growth rate and age distribution.
 
 1. One step: $\mathbf{x}_1 = (2 \cdot 60 + 1.5 \cdot 30,\ 0.9 \cdot 90,\ 0.5 \cdot 60) = (165, 81, 30)$. The total went from 180 to 276, a factor of about 1.53.
-2. Characteristic equation. Expanding $\det(L - \lambda I)$ along the first row gives $-\lambda^3 + f_1\lambda^2 + f_2s_1\lambda + f_3s_1s_2 = 0$; with $f_1 = 0$ that is $\lambda^3 - 1.8\lambda - 0.675 = 0$.
+2. Characteristic equation. Expanding $\det(L - \lambda I)$ along the first row gives $-\lambda^3 + f_1\lambda^2 + f_2s_1\lambda + f_3s_1s_2 = 0$; here $f_1 = 0$, so (multiplying by $-1$) $\lambda^3 - 1.8\lambda - 0.675 = 0$.
 3. Try $\lambda = 1.5$: $3.375 - 2.7 - 0.675 = 0$. ✓ Dividing out $(\lambda - 1.5)$ leaves $\lambda^2 + 1.5\lambda + 0.45$, with roots $\frac{-1.5 \pm \sqrt{0.45}}{2} \approx -0.415$ and $-1.085$. So 1.5 is the eigenvalue of largest absolute value.
 4. Eigenvector for 1.5: the second row says $0.9x_1 = 1.5x_2$, so $x_2 = 0.6x_1$; the third says $0.5x_2 = 1.5x_3$, so $x_3 = x_2/3 = 0.2x_1$. With $x_1 = 5$: $\mathbf{v} = (5, 3, 1)$. Check row 1: $2 \cdot 3 + 1.5 \cdot 1 = 7.5 = 1.5 \cdot 5$. ✓
 5. In the long run the population grows by a factor of 1.5 per step (50%), with the age classes in the ratio $5 : 3 : 1$, that is $\tfrac59 \approx 56\%$, $\tfrac39 \approx 33\%$ and $\tfrac19 \approx 11\%$.
