@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 540" width="560" height="540" font-family="sans-serif" font-size="17" fill="#1c2833">
+<rect width="560" height="540" fill="#ffffff"/>
+<circle cx="280" cy="280" r="190" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<line x1="280.0" y1="280.0" x2="280.0" y2="90.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="280.0" y="74.0" text-anchor="middle" font-size="19" font-weight="bold">N</text>
+<line x1="280.0" y1="280.0" x2="470.0" y2="280.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="492.0" y="286.0" text-anchor="middle" font-size="19" font-weight="bold">E</text>
+<line x1="280.0" y1="280.0" x2="280.0" y2="470.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="280.0" y="498.0" text-anchor="middle" font-size="19" font-weight="bold">S</text>
+<line x1="280.0" y1="280.0" x2="90.0" y2="280.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="68.0" y="286.0" text-anchor="middle" font-size="19" font-weight="bold">W</text>
+<path d="M280,280 L280.0,195.0 A85,85 0 0 1 334.6,214.9 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M280,280 L280.0,400.0 A120,120 0 0 1 239.0,392.8 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="280.0" y1="280.0" x2="388.0" y2="151.3" stroke="#1c2833" stroke-width="3"/>
+<polygon points="398.3,139.0 393.4,155.8 382.6,146.8" fill="#1c2833"/>
+<line x1="280.0" y1="280.0" x2="222.5" y2="437.9" stroke="#1c2833" stroke-width="3"/>
+<polygon points="217.1,452.9 216.0,435.5 229.1,440.3" fill="#1c2833"/>
+<text x="315.9" y="187.3" text-anchor="middle" font-size="17">40°</text>
+<text x="251.7" y="423.9" text-anchor="middle" font-size="17">20°</text>
+<text x="394.8" y="153.4" text-anchor="start" font-size="17">040° = N 40° E</text>
+<text x="204.4" y="459.1" text-anchor="end" font-size="17">200° = S 20° W</text>
+<circle cx="280" cy="280" r="4" fill="#1c2833"/>
+</svg>

@@ -1,0 +1,719 @@
+# Round 2 questions for module pc-m3 (Polynomial and rational functions)
+# Core lessons: pc-m3-r2-q01 … q31. Honors lessons: pc-m3-r2-h01 … h39.
+
+# ---- Lesson 08: Polynomial functions and their graphs (pc-polynomial-graphs) ----
+- id: pc-m3-r2-q01
+  lesson: pc-polynomial-graphs
+  type: label
+  module_quiz: true
+  topic: Polynomial graphs
+  stem: 'Each numbered graph is a polynomial. Match each one to its degree and the sign of its leading coefficient $a$, using only its end behavior.'
+  image: {src: images/pc-m3-end-behavior-blank.svg, alt: 'Four polynomial graphs, numbered 1 to 4. Graph 1 rises on the far left and falls on the far right. Graph 2 rises on both ends. Graph 3 is an upside-down U that falls on both ends. Graph 4 falls on the far left and rises on the far right.'}
+  labels:
+    - {x: 8.1, y: 42.1, text: 'Odd degree, a < 0'}
+    - {x: 55, y: 42.1, text: 'Even degree, a > 0'}
+    - {x: 8.1, y: 57.9, text: 'Even degree, a < 0'}
+    - {x: 55, y: 57.9, text: 'Odd degree, a > 0'}
+  explanation: |-
+    Only the ends matter. Graph 1 is up on the left and down on the right: odd degree, negative leading coefficient. Graph 2 is up on both ends: even degree, positive. Graph 3 is down on both ends: even degree, negative. Graph 4 is down on the left and up on the right: odd degree, positive, like $x^3$. The turns in the middle do not change the answer.
+- id: pc-m3-r2-q02
+  lesson: pc-polynomial-graphs
+  type: text
+  topic: Polynomial graphs
+  stem: 'For $f(x) = -2(x - 1)^3(x + 4)^2$, the degree is ___ and the leading coefficient is ___.'
+  accept:
+    - ['5']
+    - ['-2']
+  explanation: |-
+    Multiply the leading terms of the factors: $-2 \cdot x^3 \cdot x^2 = -2x^5$. So the degree is $3 + 2 = 5$ and the leading coefficient is $-2$ (odd degree, negative: up on the left, down on the right).
+- id: pc-m3-r2-q03
+  lesson: pc-polynomial-graphs
+  type: match
+  topic: Polynomial graphs
+  stem: 'A polynomial contains each factor below exactly as shown (no other copies). Match each factor to what the graph does at that zero.'
+  pairs:
+    - ['$(x - 2)$', 'Crosses the axis like a line']
+    - ['$(x + 1)^2$', 'Touches the axis and turns back']
+    - ['$(x - 3)^3$', 'Crosses the axis and flattens out']
+    - ['$(x + 5)^4$', 'Touches the axis and turns back']
+  distractors: ['Has a vertical asymptote there']
+  explanation: |-
+    Odd multiplicity crosses: multiplicity 1 like a line, 3 with a flattened S-shape. Even multiplicity (2 or 4) touches and turns back, because an even power never changes sign. Polynomials never have vertical asymptotes.
+- id: pc-m3-r2-q04
+  lesson: pc-polynomial-graphs
+  topic: Polynomial graphs
+  stem: 'A polynomial''s graph rises on both ends and has exactly 3 turning points. Which degrees are possible? Select all that apply.'
+  choices: ['3', '4', '5', '6', '8']
+  answer: [1, 3, 4]
+  explanation: |-
+    Both ends up means even degree with a positive leading coefficient, which rules out 3 and 5. Three turning points need degree at least $3 + 1 = 4$. Degree 4 works (for example $x^4 - 2x^2$), and so do 6 and 8: $x^6 - x^2$ and $x^8 - x^2$ each have exactly 3 turning points, because "at most $n - 1$" is only an upper limit.
+- id: pc-m3-r2-q05
+  lesson: pc-polynomial-graphs
+  type: order
+  module_quiz: true
+  topic: Polynomial graphs
+  stem: 'Bisection narrows down a zero of $g(x) = x^3 - 4x + 1$. Put the steps in the order they happen.'
+  items:
+    - 'Check that $g(1) < 0$ and $g(2) > 0$, so a zero is in $(1, 2)$'
+    - 'Compute $g(1.5) < 0$, so a zero is in $(1.5, 2)$'
+    - 'Compute $g(1.75) < 0$, so a zero is in $(1.75, 2)$'
+    - 'Compute $g(1.875) > 0$, so a zero is in $(1.75, 1.875)$'
+  explanation: |-
+    Each step tests the midpoint of the current interval and keeps the half where the sign changes: $g(1) = -2$, $g(2) = 1$, $g(1.5) = -1.625$, $g(1.75) \approx -0.64$, $g(1.875) \approx 0.09$. Each interval sits inside the one before, which fixes the order. (The zero is about 1.861.)
+
+# ---- Lesson 09: Dividing polynomials (pc-poly-division) ----
+- id: pc-m3-r2-q06
+  lesson: pc-poly-division
+  type: label
+  module_quiz: true
+  topic: Polynomial division
+  stem: 'This is the synthetic division of $x^3 - 7x + 6$ by $x - 2$. Name the numbered parts.'
+  image: {src: images/pc-m3-synthetic-parts-blank.svg, alt: 'A synthetic division layout. A boxed 2 at the left. Top row: 1, 0, −7, 6. Middle row: 2, 4, −6. Below a line, the bottom row: 1, 2, −3 and a boxed 0. Five places are numbered: the boxed 2, the top row, the middle row, the first bottom numbers, and the boxed 0.'}
+  labels:
+    - {x: 7.3, y: 23.6, text: 'The value c from the divisor x − c'}
+    - {x: 53.8, y: 16.4, text: 'Coefficients of the dividend'}
+    - {x: 30.8, y: 48.2, text: 'Products of c and the bottom number to the left'}
+    - {x: 38.5, y: 94.5, text: 'Coefficients of the quotient'}
+    - {x: 85.8, y: 78.2, text: 'Remainder'}
+  distractors: ['Coefficients of the divisor', 'Zeros of the quotient']
+  explanation: |-
+    The 2 is $c$ (divisor $x - 2$). The top row is the dividend's coefficients, with 0 holding the place of the missing $x^2$. The middle row holds the products: $2 \cdot 1 = 2$, $2 \cdot 2 = 4$, $2 \cdot (-3) = -6$. The bottom row gives the quotient $x^2 + 2x - 3$ and, last, the remainder 0, so $x - 2$ is a factor.
+- id: pc-m3-r2-q07
+  lesson: pc-poly-division
+  type: text
+  topic: Polynomial division
+  stem: 'Dividing $2x^3 + 3x^2 - 5x + 1$ by $x + 2$ with synthetic division gives the bottom row 2, ___, ___ and the remainder ___.'
+  accept:
+    - ['-1']
+    - ['-3']
+    - ['7']
+  explanation: |-
+    Use $c = -2$. Bring down 2. $2(-2) = -4$, $3 + (-4) = -1$. $-1(-2) = 2$, $-5 + 2 = -3$. $-3(-2) = 6$, $1 + 6 = 7$. So the quotient is $2x^2 - x - 3$ and the remainder is 7. Check with the remainder theorem: $f(-2) = -16 + 12 + 10 + 1 = 7$.
+- id: pc-m3-r2-q08
+  lesson: pc-poly-division
+  type: match
+  topic: Polynomial division
+  stem: 'Match each fact about a polynomial $f$ to what it tells you.'
+  pairs:
+    - ['$f(4) = 0$', 'x − 4 is a factor of f']
+    - ['$f(-4) = 0$', 'x + 4 is a factor of f']
+    - ['$f(4) = 3$', 'Dividing f by x − 4 leaves remainder 3']
+    - ['$f(x) = (x + 4)\,q(x) + 3$', 'f(−4) = 3']
+  distractors: ['x − 3 is a factor of f', 'f(3) = 4']
+  explanation: |-
+    Factor theorem: $f(c) = 0$ exactly when $x - c$ is a factor, so $f(4) = 0$ gives $x - 4$ and $f(-4) = 0$ gives $x + 4 = x - (-4)$. Remainder theorem: dividing by $x - 4$ leaves $f(4) = 3$. In the last one, put $x = -4$: the first term vanishes and $f(-4) = 3$.
+- id: pc-m3-r2-q09
+  lesson: pc-poly-division
+  topic: Polynomial division
+  stem: 'Which of these are factors of $p(x) = x^3 + 2x^2 - 5x - 6$? Select all that apply.'
+  choices: ['$x + 1$', '$x - 1$', '$x - 2$', '$x + 2$', '$x + 3$', '$x - 3$']
+  answer: [0, 2, 4]
+  explanation: |-
+    By the factor theorem, test $p(c)$. $p(-1) = -1 + 2 + 5 - 6 = 0$, $p(2) = 8 + 8 - 10 - 6 = 0$, $p(-3) = -27 + 18 + 15 - 6 = 0$: so $x + 1$, $x - 2$ and $x + 3$ are factors, and $p(x) = (x + 1)(x - 2)(x + 3)$. The others fail: $p(1) = -8$, $p(-2) = 4$, $p(3) = 24$.
+
+# ---- Lesson 10: Complex numbers (pc-complex-numbers) ----
+- id: pc-m3-r2-q10
+  lesson: pc-complex-numbers
+  type: label
+  module_quiz: true
+  topic: Complex numbers
+  stem: 'The point marked 3 is $2 + 3i$. Name the numbered parts of this complex-plane picture.'
+  image: {src: images/pc-m3-complex-plane-blank.svg, alt: 'A coordinate plane with grid lines one unit apart. A point at (2, 3) is joined to the origin by a solid segment, and a dashed vertical segment joins it to a second point at (2, −3). Five things are numbered: the horizontal axis, the vertical axis, the point (2, 3), the point (2, −3) and the solid segment.'}
+  labels:
+    - {x: 88, y: 46.5, text: 'Real axis'}
+    - {x: 46.5, y: 10.4, text: 'Imaginary axis'}
+    - {x: 71.2, y: 16.5, text: 'The number 2 + 3i'}
+    - {x: 71.2, y: 83.5, text: 'The conjugate 2 − 3i'}
+    - {x: 56.2, y: 33, text: 'The modulus, √13'}
+  distractors: ['The number 3 + 2i', 'The imaginary part, 3i']
+  explanation: |-
+    In the complex plane $a + bi$ is the point $(a, b)$: horizontal real axis, vertical imaginary axis. The point $(2, 3)$ is $2 + 3i$ and its mirror image across the real axis, $(2, -3)$, is the conjugate $2 - 3i$. The segment from the origin has length $|2 + 3i| = \sqrt{4 + 9} = \sqrt{13}$, the modulus. (The imaginary part is the real number 3, not $3i$.)
+- id: pc-m3-r2-q11
+  lesson: pc-complex-numbers
+  type: text
+  topic: Complex numbers
+  stem: 'Write $(2 + i)(3 - 4i)$ in standard form $a + bi$: $a =$ ___ and $b =$ ___.'
+  accept:
+    - ['10']
+    - ['-5']
+  explanation: |-
+    Distribute: $6 - 8i + 3i - 4i^2 = 6 - 5i + 4 = 10 - 5i$, using $i^2 = -1$. So $a = 10$ and $b = -5$ (the imaginary part is $-5$, not $-5i$).
+- id: pc-m3-r2-q12
+  lesson: pc-complex-numbers
+  type: match
+  topic: Complex numbers
+  stem: 'Match each power of $i$ to its value.'
+  pairs:
+    - ['$i^{6}$', '−1']
+    - ['$i^{9}$', 'i']
+    - ['$i^{12}$', '1']
+    - ['$i^{15}$', '−i']
+  explanation: |-
+    Powers of $i$ repeat every 4, so only the remainder on division by 4 matters. $6 = 4 + 2$: $i^2 = -1$. $9 = 8 + 1$: $i^1 = i$. $12 = 4 \cdot 3$: $i^0 = 1$. $15 = 12 + 3$: $i^3 = -i$.
+- id: pc-m3-r2-q13
+  lesson: pc-complex-numbers
+  topic: Complex numbers
+  stem: 'Which of these are real numbers? Select all that apply.'
+  choices: ['$(3 + 2i)(3 - 2i)$', '$(1 + i)^2$', '$i^{10}$', '$i^{7}$', '$\sqrt{-4}\cdot\sqrt{-9}$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $(3 + 2i)(3 - 2i) = 9 + 4 = 13$, a number times its conjugate. $i^{10} = i^2 = -1$. $\sqrt{-4}\cdot\sqrt{-9} = (2i)(3i) = 6i^2 = -6$. The others are not real: $(1 + i)^2 = 1 + 2i + i^2 = 2i$ and $i^7 = i^3 = -i$.
+- id: pc-m3-r2-q14
+  lesson: pc-complex-numbers
+  type: order
+  topic: Complex numbers
+  stem: 'Put these complex numbers in order of modulus, smallest first.'
+  items: ['$1 - i$', '$2 + 2i$', '$3i$', '$-4 + i$', '$-3 - 4i$']
+  explanation: |-
+    $|a + bi| = \sqrt{a^2 + b^2}$: $|1 - i| = \sqrt2 \approx 1.41$, $|2 + 2i| = \sqrt8 \approx 2.83$, $|3i| = 3$, $|-4 + i| = \sqrt{17} \approx 4.12$, $|-3 - 4i| = 5$. Signs don't matter, since each part is squared.
+
+# ---- Lesson 11: Finding the zeros of a polynomial (pc-poly-zeros) ----
+- id: pc-m3-r2-q15
+  lesson: pc-poly-zeros
+  type: order
+  module_quiz: true
+  topic: Zeros of polynomials
+  stem: 'Put the steps for finding all zeros of $f(x) = 2x^3 + x^2 - 13x + 6$ in order.'
+  items:
+    - 'List the candidates $\pm1, \pm2, \pm3, \pm6, \pm\tfrac12, \pm\tfrac32$'
+    - 'Find that $f(2) = 0$'
+    - 'Divide by $x - 2$ to get $2x^2 + 5x - 3$'
+    - 'Factor $2x^2 + 5x - 3 = (2x - 1)(x + 3)$'
+    - 'State the zeros $2$, $\tfrac12$ and $-3$'
+  explanation: |-
+    The rational zero theorem gives the candidates (factors of 6 over factors of 2). Testing finds $f(2) = 16 + 4 - 26 + 6 = 0$. Synthetic division by $x - 2$ leaves the depressed quadratic $2x^2 + 5x - 3$, which factors, giving all three zeros. Each step uses the result of the one before.
+- id: pc-m3-r2-q16
+  lesson: pc-poly-zeros
+  type: text
+  topic: Zeros of polynomials
+  stem: 'The polynomial of lowest degree with real coefficients, leading coefficient 1 and zeros $4$ and $2 - 5i$ is $x^3 + ax^2 + bx + c$. Then $a =$ ___, $b =$ ___ and $c =$ ___.'
+  accept:
+    - ['-8']
+    - ['45']
+    - ['-116']
+  explanation: |-
+    Real coefficients force the conjugate $2 + 5i$ to be a zero too. The pair gives $x^2 - 2(2)x + (2^2 + 5^2) = x^2 - 4x + 29$. Then $(x - 4)(x^2 - 4x + 29) = x^3 - 4x^2 + 29x - 4x^2 + 16x - 116 = x^3 - 8x^2 + 45x - 116$.
+- id: pc-m3-r2-q17
+  lesson: pc-poly-zeros
+  topic: Zeros of polynomials
+  stem: 'A polynomial $f$ of degree 4 with real coefficients has zeros $3i$ and $1$. Which statements must be true? Select all that apply.'
+  choices: ['$-3i$ is a zero of $f$', 'The remaining zero is a real number', '$f$ has exactly four $x$-intercepts', '$x^2 + 9$ is a factor of $f(x)$', '$-1$ is a zero of $f$']
+  answer: [0, 1, 3]
+  explanation: |-
+    The conjugate $-3i$ must be a zero, so $(x - 3i)(x + 3i) = x^2 + 9$ is a factor. That accounts for three of the four zeros ($3i$, $-3i$, 1). The fourth cannot be non-real, because non-real zeros come in pairs and there is room for only one more, so it is real. The graph has at most two $x$-intercepts (1 and the fourth zero, which could even be 1 again), and nothing forces $-1$ to be a zero.
+- id: pc-m3-r2-q18
+  lesson: pc-poly-zeros
+  type: match
+  module_quiz: true
+  topic: Zeros of polynomials
+  stem: 'Match each theorem to what it tells you about a polynomial.'
+  pairs:
+    - ['Rational zero theorem', 'A finite list of possible rational zeros']
+    - ['Fundamental theorem of algebra', 'Degree n means n complex zeros, counting multiplicity']
+    - ['Conjugate pairs theorem', 'Non-real zeros of a real polynomial come in pairs a ± bi']
+    - ['Descartes'' rule of signs', 'The possible numbers of positive and negative real zeros']
+  distractors: ['Where the graph crosses a horizontal asymptote']
+  explanation: |-
+    The rational zero theorem lists candidates $\pm\frac{p}{q}$. The fundamental theorem of algebra (with linear factorization) counts the zeros: exactly $n$ complex zeros with multiplicity. The conjugate pairs theorem pairs $a + bi$ with $a - bi$ when the coefficients are real. Descartes' rule bounds how many zeros are positive or negative. Horizontal asymptotes belong to rational functions, not to any of these.
+
+# ---- Lesson 12: Rational functions: holes and asymptotes (pc-rational-asymptotes) ----
+- id: pc-m3-r2-q19
+  lesson: pc-rational-asymptotes
+  type: label
+  module_quiz: true
+  topic: Rational functions
+  stem: 'This is the graph of $S(x) = -\dfrac{x^2 + 2x - 8}{x^2 + 5x + 4}$, drawn with its asymptotes as dashed lines. Name the numbered features.'
+  image: {src: images/pc-m3-rational-features-blank.svg, alt: 'A rational function graph with two branches. A dashed vertical line at x = −1 and a dashed horizontal line at y = −1. The lower-left branch has an open circle at (−4, −2). The upper-right branch crosses the y-axis at (0, 2) and the x-axis at (2, 0). Five features are numbered: the open circle, the vertical dashed line, the horizontal dashed line, the x-axis crossing and the y-axis crossing.'}
+  labels:
+    - {x: 30.6, y: 54, text: 'Hole'}
+    - {x: 50, y: 40, text: 'Vertical asymptote'}
+    - {x: 75.8, y: 51.9, text: 'Horizontal asymptote'}
+    - {x: 71.6, y: 42.6, text: 'x-intercept'}
+    - {x: 59.7, y: 34, text: 'y-intercept'}
+  distractors: ['Slant asymptote', 'Turning point']
+  explanation: |-
+    $S(x) = -\dfrac{(x + 4)(x - 2)}{(x + 4)(x + 1)}$. The factor $x + 4$ cancels, leaving $-\dfrac{x - 2}{x + 1}$: a hole at $x = -4$ (open circle at $(-4, -2)$), a vertical asymptote $x = -1$, and a horizontal asymptote $y = -1$ (equal degrees, ratio $\frac{-1}{1}$). The graph crosses the $x$-axis at 2 and the $y$-axis at $S(0) = 2$. It has no slant asymptote, since a function cannot have both kinds.
+- id: pc-m3-r2-q20
+  lesson: pc-rational-asymptotes
+  type: text
+  topic: Rational functions
+  stem: 'For $R(x) = \dfrac{x^2 + 2x - 15}{x^2 - 9}$, the hole is at $x =$ ___ with $y$-value ___, and the vertical asymptote is $x =$ ___. Give exact values.'
+  accept:
+    - ['3']
+    - ['4/3', '1 1/3']
+    - ['-3']
+  explanation: |-
+    Factor: $\dfrac{(x + 5)(x - 3)}{(x - 3)(x + 3)}$. The factor $x - 3$ cancels, leaving $\dfrac{x + 5}{x + 3}$, so there is a hole at $x = 3$ with $y = \dfrac{8}{6} = \dfrac43$. The remaining denominator zero gives the vertical asymptote $x = -3$.
+- id: pc-m3-r2-q21
+  lesson: pc-rational-asymptotes
+  type: match
+  topic: Rational functions
+  stem: 'Match each function to its horizontal asymptote.'
+  pairs:
+    - ['$\dfrac{3x^2 + 1}{x^2 - 4}$', 'y = 3']
+    - ['$\dfrac{5x}{x^2 + 1}$', 'y = 0']
+    - ['$\dfrac{x^3}{x^2 + 1}$', 'No horizontal asymptote']
+    - ['$\dfrac{4x - 1}{2x + 3}$', 'y = 2']
+  distractors: ['y = −1/3', 'y = 5']
+  explanation: |-
+    Compare degrees. Equal degrees give the ratio of leading coefficients: $\frac31 = 3$ and $\frac42 = 2$. A lower-degree top gives $y = 0$. A higher-degree top gives no horizontal asymptote ($\frac{x^3}{x^2 + 1}$ has the slant asymptote $y = x$). $-\frac13$ is the mistake of dividing the constant terms.
+- id: pc-m3-r2-q22
+  lesson: pc-rational-asymptotes
+  topic: Rational functions
+  stem: 'Which features does $R(x) = \dfrac{x^2 - 1}{x^2 + x}$ have? Select all that apply.'
+  choices: ['A hole at $(-1, 2)$', 'A vertical asymptote $x = -1$', 'A vertical asymptote $x = 0$', 'A horizontal asymptote $y = 1$', 'A $y$-intercept at $(0, 1)$']
+  answer: [0, 2, 3]
+  explanation: |-
+    $R(x) = \dfrac{(x - 1)(x + 1)}{x(x + 1)}$. The factor $x + 1$ cancels: a hole at $x = -1$, with $y = \dfrac{-1 - 1}{-1} = 2$, not an asymptote. The remaining denominator factor $x$ gives the vertical asymptote $x = 0$. Equal degrees: $y = \frac11 = 1$. There is no $y$-intercept, because 0 is not in the domain.
+
+# ---- Lesson 13: Slant asymptotes and graphing (pc-rational-graphs) ----
+- id: pc-m3-r2-q23
+  lesson: pc-rational-graphs
+  type: match
+  module_quiz: true
+  topic: Rational functions
+  stem: 'For $R(x) = \dfrac{x + 3}{(x - 1)^2(x + 1)}$, match each interval to the sign of $R$ there.'
+  pairs:
+    - ['$(-\infty, -3)$', 'Positive']
+    - ['$(-3, -1)$', 'Negative']
+    - ['$(-1, 1)$', 'Positive']
+    - ['$(1, \infty)$', 'Positive']
+  distractors: ['Zero', 'Undefined']
+  explanation: |-
+    $(x - 1)^2$ is positive away from 1, so the sign of $R$ is the sign of $\frac{x + 3}{x + 1}$. Test points: $x = -4$ gives $\frac{-1}{-3} > 0$; $x = -2$ gives $\frac{1}{-1} < 0$; $x = 0$ gives $\frac31 > 0$; $x = 2$ gives $\frac53 > 0$. The sign does not change at $x = 1$ because that factor is squared.
+- id: pc-m3-r2-q24
+  lesson: pc-rational-graphs
+  type: text
+  module_quiz: true
+  topic: Rational functions
+  stem: 'The slant asymptote of $R(x) = \dfrac{2x^2 + 3x - 4}{x + 2}$ is $y = mx + b$ with $m =$ ___ and $b =$ ___.'
+  accept:
+    - ['2']
+    - ['-1']
+  explanation: |-
+    Synthetic division by $x + 2$ ($c = -2$) on $2, 3, -4$: bring down 2; $3 + (-4) = -1$; $-4 + 2 = -2$. So $R(x) = 2x - 1 + \dfrac{-2}{x + 2}$. The slant asymptote is the quotient, $y = 2x - 1$; the remainder is dropped.
+- id: pc-m3-r2-q25
+  lesson: pc-rational-graphs
+  topic: Rational functions
+  stem: 'Which functions have a slant asymptote? Select all that apply.'
+  choices: ['$\dfrac{x^2 + 1}{x - 1}$', '$\dfrac{x^3 - 2}{x^2 + 1}$', '$\dfrac{2x^2 - 3}{x^2 + 4}$', '$\dfrac{x^3}{x - 1}$', '$\dfrac{5x}{x^2 + 1}$']
+  answer: [0, 1]
+  explanation: |-
+    A slant asymptote needs the numerator's degree to be exactly one more than the denominator's: true for $\frac{x^2 + 1}{x - 1}$ (2 over 1) and $\frac{x^3 - 2}{x^2 + 1}$ (3 over 2). Equal degrees ($\frac{2x^2 - 3}{x^2 + 4}$) give a horizontal asymptote $y = 2$; a lower top ($\frac{5x}{x^2 + 1}$) gives $y = 0$; and $\frac{x^3}{x - 1}$ is two degrees higher, so its ends follow a parabola-like curve.
+- id: pc-m3-r2-q26
+  lesson: pc-rational-graphs
+  topic: Rational functions
+  stem: 'How does $R(x) = \dfrac{x - 5}{(x - 3)^2}$ behave near $x = 3$?'
+  choices: ['$R(x) \to +\infty$ on both sides', '$R(x) \to -\infty$ on the left and $+\infty$ on the right', '$R(x) \to -\infty$ on both sides', '$R(x) \to +\infty$ on the left and $-\infty$ on the right']
+  answer: 2
+  explanation: |-
+    Near $x = 3$ the numerator is close to $3 - 5 = -2$, negative, and the squared denominator is a small positive number on both sides. A negative number divided by a tiny positive number is a huge negative number, so $R \to -\infty$ from both sides. A squared factor never changes sign, which rules out the two answers with opposite directions.
+
+# ---- Lesson 14: Polynomial and rational inequalities (pc-inequalities) ----
+- id: pc-m3-r2-q27
+  lesson: pc-inequalities
+  type: order
+  module_quiz: true
+  topic: Polynomial and rational inequalities
+  stem: 'Put the steps for solving $\dfrac{x + 5}{x - 1} \le 2$ in order.'
+  items:
+    - 'Subtract 2: $\dfrac{x + 5}{x - 1} - 2 \le 0$'
+    - 'Combine: $\dfrac{7 - x}{x - 1} \le 0$'
+    - 'Find the critical values $x = 1$ and $x = 7$'
+    - 'Test: negative on $(-\infty, 1)$, positive on $(1, 7)$, negative on $(7, \infty)$'
+    - 'Write the solution $(-\infty, 1) \cup [7, \infty)$'
+  explanation: |-
+    Get 0 on one side (never multiply by $x - 1$), combine over the common denominator: $x + 5 - 2(x - 1) = 7 - x$. The critical values come from the numerator (7) and denominator (1). Test points 0, 2, 8 give $-7$, $5$, $-\frac17$. Keep the negative intervals; include 7 (the fraction is 0 there) but not 1 (undefined).
+- id: pc-m3-r2-q28
+  lesson: pc-inequalities
+  type: text
+  topic: Polynomial and rational inequalities
+  stem: 'The solution of $x^2 - x - 12 < 0$ is the interval $(a, b)$ with $a =$ ___ and $b =$ ___.'
+  accept:
+    - ['-3']
+    - ['4']
+  explanation: |-
+    Factor: $(x - 4)(x + 3) < 0$. The critical values are $-3$ and $4$. The upward parabola is negative between its zeros, so the solution is $(-3, 4)$, with the endpoints excluded because the inequality is strict.
+- id: pc-m3-r2-q29
+  lesson: pc-inequalities
+  topic: Polynomial and rational inequalities
+  stem: 'Which values of $x$ satisfy $\dfrac{(x - 2)^2}{x + 1} \le 0$? Select all that apply.'
+  choices: ['$x = -3$', '$x = -1$', '$x = 0$', '$x = 2$', '$x = 5$']
+  answer: [0, 3]
+  explanation: |-
+    The numerator $(x - 2)^2$ is never negative, so the fraction is $\le 0$ exactly when the denominator is negative ($x < -1$) or the numerator is 0 ($x = 2$). So $x = -3$ works ($\frac{25}{-2} < 0$) and $x = 2$ works (the fraction is 0). $x = -1$ makes the fraction undefined; $x = 0$ and $x = 5$ give positive values.
+- id: pc-m3-r2-q30
+  lesson: pc-inequalities
+  type: match
+  topic: Polynomial and rational inequalities
+  stem: 'Match each inequality to its solution set.'
+  pairs:
+    - ['$x^2 - 4 \le 0$', '[−2, 2]']
+    - ['$x^2 - 4 > 0$', '(−∞, −2) ∪ (2, ∞)']
+    - ['$(x - 2)^2 \le 0$', 'Only x = 2']
+    - ['$x^2 + 4 > 0$', 'All real numbers']
+  distractors: ['No solution', '(−2, 2)']
+  explanation: |-
+    $x^2 - 4 = (x - 2)(x + 2)$ is negative between $-2$ and $2$ and zero at both, so $\le 0$ gives $[-2, 2]$ and $> 0$ gives the outside intervals. $(x - 2)^2$ is never negative, so $\le 0$ holds only where it equals 0. $x^2 + 4$ is always at least 4, so $> 0$ holds for every real $x$. $(-2, 2)$ would be the answer to $x^2 - 4 < 0$.
+- id: pc-m3-r2-q31
+  lesson: pc-inequalities
+  topic: Polynomial and rational inequalities
+  stem: 'In a sign chart for $\dfrac{x(x + 4)}{x - 3} \ge 0$, which critical values belong in the solution set?'
+  choices: ['$-4$ and $0$ only', '$-4$, $0$ and $3$', '$3$ only', 'None of them, because the inequality has a fraction']
+  answer: 0
+  explanation: |-
+    Numerator zeros ($-4$ and $0$) make the fraction 0, which satisfies $\ge 0$, so they are included. The denominator zero 3 makes the fraction undefined, so it is never included. (The full solution is $[-4, 0] \cup (3, \infty)$.)
+
+# ---- Honors 14h1: Cardano's formula (pc-m3-h-cubic-formula) ----
+- id: pc-m3-r2-h01
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'Which substitution turns $x^3 - 6x^2 + 5x + 1 = 0$ into a cubic in $t$ with no $t^2$ term?'
+  choices: ['$x = t + 2$', '$x = t - 2$', '$x = t + 6$', '$x = t - 3$']
+  answer: 0
+  explanation: |-
+    The shift is $x = t - \frac b3$ with $b = -6$: $x = t - \frac{-6}{3} = t + 2$. Using $x = t - 2$ is the sign error; $t + 6$ forgets to divide by 3.
+- id: pc-m3-r2-h02
+  lesson: pc-m3-h-cubic-formula
+  type: text
+  topic: Cubic equations
+  stem: 'Substituting $x = t - 2$ into $x^3 + 6x^2 + 9x + 1$ gives $t^3 + pt + q$ with $p =$ ___ and $q =$ ___.'
+  accept:
+    - ['-3']
+    - ['-1']
+  explanation: |-
+    With $b = 6$, $c = 9$, $d = 1$: $p = c - \frac{b^2}{3} = 9 - 12 = -3$ and $q = \frac{2b^3}{27} - \frac{bc}{3} + d = 16 - 18 + 1 = -1$. Directly: $(t - 2)^3 + 6(t - 2)^2 + 9(t - 2) + 1 = t^3 - 3t - 1$.
+- id: pc-m3-r2-h03
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'Compute $D$ for $t^3 - 6t + 4 = 0$. What does it say about the roots?'
+  choices: ['One real root and two non-real roots', 'Three different real roots', 'A double root and one other real root', 'No real roots']
+  answer: 1
+  explanation: |-
+    $D = \left(\frac42\right)^2 + \left(\frac{-6}{3}\right)^3 = 4 - 8 = -4 < 0$, the irreducible case: three different real roots. Indeed $t^3 - 6t + 4 = (t - 2)(t^2 + 2t - 2)$, with roots $2$ and $-1 \pm \sqrt3$. A cubic with real coefficients always has at least one real root, so "no real roots" is never possible.
+- id: pc-m3-r2-h04
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'Use Cardano''s formula on $t^3 + 9t - 26 = 0$. What is the real root?'
+  choices: ['$4$', '$3$', '$2$', '$-1$']
+  answer: 2
+  explanation: |-
+    $p = 9$, $q = -26$: $D = 13^2 + 3^3 = 196$, $\sqrt D = 14$. So $t = \sqrt[3]{13 + 14} + \sqrt[3]{13 - 14} = \sqrt[3]{27} + \sqrt[3]{-1} = 3 - 1 = 2$. Check: $8 + 18 - 26 = 0$. The answer 3 keeps only the first cube root, and 4 treats $\sqrt[3]{-1}$ as $+1$.
+- id: pc-m3-r2-h05
+  lesson: pc-m3-h-cubic-formula
+  type: order
+  topic: Cubic equations
+  stem: 'Put the steps of solving a cubic with Cardano''s formula in order.'
+  items:
+    - 'Divide by the leading coefficient'
+    - 'Shift $x = t - \tfrac b3$ to remove the squared term'
+    - 'Compute $D = \left(\tfrac q2\right)^2 + \left(\tfrac p3\right)^3$'
+    - 'Take the cube roots $u$ and $v$ of $-\tfrac q2 \pm \sqrt D$'
+    - 'Add $t = u + v$ and shift back to $x$'
+  explanation: |-
+    The shift formula assumes a leading coefficient of 1, so divide first. Shifting produces $p$ and $q$, which are needed for $D$; $D$ is needed for the cube roots; and the root $t = u + v$ must be shifted back to get $x$.
+- id: pc-m3-r2-h06
+  lesson: pc-m3-h-cubic-formula
+  type: match
+  topic: Cubic equations
+  stem: 'For a depressed cubic $t^3 + pt + q = 0$ with real $p$ and $q$, match each sign of $D = \left(\tfrac q2\right)^2 + \left(\tfrac p3\right)^3$ to the roots.'
+  pairs:
+    - ['$D > 0$', 'One real root and two non-real conjugate roots']
+    - ['$D = 0$', 'All roots real, with a repeated root']
+    - ['$D < 0$', 'Three different real roots']
+  distractors: ['No real roots']
+  explanation: |-
+    Examples from the lesson: $t^3 + 3t - 2$ has $D = 2 > 0$ and one real root; $t^3 - 3t + 2 = (t - 1)^2(t + 2)$ has $D = 0$ and a double root; Bombelli's $t^3 - 15t - 4$ has $D = -121 < 0$ and three real roots. A real cubic always has at least one real root.
+- id: pc-m3-r2-h07
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'According to the lesson, what made sixteenth-century mathematicians start calculating with square roots of negative numbers?'
+  choices: ['They needed them to solve $x^2 + 1 = 0$', 'Del Ferro proved that every cubic has a complex root', 'Cardano''s formula needed them to reach real roots of cubics such as $x^3 = 15x + 4$', 'The quadratic formula fails without them']
+  answer: 2
+  explanation: |-
+    Equations like $x^2 + 1 = 0$ were simply called unsolvable. The pressure came from the irreducible case: for $x^3 = 15x + 4$ the formula gives $\sqrt[3]{2 + 11i} + \sqrt[3]{2 - 11i}$, and Bombelli showed that calculating with these numbers gives the real root 4.
+- id: pc-m3-r2-h08
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'Bombelli''s key calculation: what is $(2 + i)^3$?'
+  choices: ['$8 + i$', '$2 - 11i$', '$14 + 11i$', '$2 + 11i$']
+  answer: 3
+  explanation: |-
+    $(2 + i)^3 = 8 + 3(4)(i) + 3(2)(i^2) + i^3 = 8 + 12i - 6 - i = 2 + 11i$. Cubing each part separately gives $8 + i$ (wrong: $(a + b)^3 \ne a^3 + b^3$); taking $i^2 = +1$ gives $14 + 11i$; $2 - 11i$ is $(2 - i)^3$.
+- id: pc-m3-r2-h09
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'Which statements about Cardano''s formula are true? Select all that apply.'
+  choices: ['It applies directly only to cubics with no squared term', 'When $D < 0$ the cubic has no real roots', 'Its answer can be a disguised integer, as in $\sqrt[3]{10 + 6\sqrt3} + \sqrt[3]{10 - 6\sqrt3} = 2$', 'A similar formula in radicals exists for every polynomial of degree 5', 'It reduces the cubic to a quadratic whose roots are $u^3$ and $v^3$']
+  answer: [0, 2, 4]
+  explanation: |-
+    The formula is for the depressed form $t^3 + pt + q$, so a general cubic is shifted first. The cube roots in Example 3 are $1 + \sqrt3$ and $1 - \sqrt3$, which add to 2. And $u^3$, $v^3$ are the roots of $z^2 + qz - \frac{p^3}{27} = 0$. False: $D < 0$ means three real roots, and Ruffini and Abel proved that no general formula in radicals exists for degree 5.
+- id: pc-m3-r2-h10
+  lesson: pc-m3-h-cubic-formula
+  type: text
+  topic: Cubic equations
+  stem: 'For Bombelli''s cubic $t^3 - 15t - 4 = 0$, $D =$ ___, and the real root that the formula produces is $t =$ ___.'
+  accept:
+    - ['-121']
+    - ['4']
+  explanation: |-
+    $p = -15$, $q = -4$: $D = (-2)^2 + (-5)^3 = 4 - 125 = -121$. The cube roots of $2 \pm 11i$ are $2 \pm i$, and $(2 + i) + (2 - i) = 4$. Check: $64 - 60 - 4 = 0$.
+- id: pc-m3-r2-h11
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'Where was the method for solving cubics first published?'
+  choices: ['Bombelli''s *Algebra* (1572)', 'Cardano''s *Ars Magna* (1545)', 'Tartaglia''s contest with Fior (1535)', 'Del Ferro''s notes (about 1515)']
+  answer: 1
+  explanation: |-
+    Del Ferro found the method around 1515 but kept it secret, and Tartaglia rediscovered it for the 1535 contest without publishing it. Cardano published it in *Ars Magna* in 1545, crediting both. Bombelli's book came later and dealt with the complex numbers the formula produces.
+- id: pc-m3-r2-h12
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'In the derivation, $t = u + v$ solves $t^3 + pt + q = 0$ provided that'
+  choices: ['$uv = p$ and $u + v = q$', '$3uv = p$ and $u^3 + v^3 = q$', '$u^3v^3 = q$ and $u + v = -p$', '$3uv = -p$ and $u^3 + v^3 = -q$']
+  answer: 3
+  explanation: |-
+    $(u + v)^3 = u^3 + v^3 + 3uv(u + v)$, so $t = u + v$ satisfies $t^3 - 3uv\,t - (u^3 + v^3) = 0$. Matching with $t^3 + pt + q = 0$ needs $-3uv = p$ and $-(u^3 + v^3) = q$. The choice without the minus signs is the usual slip.
+- id: pc-m3-r2-h13
+  lesson: pc-m3-h-cubic-formula
+  topic: Cubic equations
+  stem: 'What did Ruffini and Abel prove about equations of degree 5?'
+  choices: ['No formula using $+$, $-$, $\times$, $\div$ and roots solves every quintic', 'Every quintic has five real roots', 'Every quintic can be reduced to a quartic and solved', 'Some quintics have no complex roots']
+  answer: 0
+  explanation: |-
+    The Abel–Ruffini theorem says there is no general formula in radicals for degree 5 or higher (some particular quintics can still be solved that way, as Galois explained). Every quintic has five complex roots by the fundamental theorem of algebra, but not necessarily five real ones.
+
+# ---- Honors 14h2: Polynomial interpolation (pc-m3-h-interpolation) ----
+- id: pc-m3-r2-h14
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: 'Four points have different $x$-values. How many polynomials of degree at most 3 pass through all four?'
+  choices: ['Infinitely many', 'Exactly one', 'Exactly four', 'None, unless the points lie on a line']
+  answer: 1
+  explanation: |-
+    $n + 1 = 4$ points with distinct $x$-values determine exactly one polynomial of degree at most $n = 3$. Lagrange's formula shows one exists; if two did, their difference would have degree at most 3 and four zeros, so it would be the zero polynomial.
+- id: pc-m3-r2-h15
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: 'Which is the polynomial of degree at most 2 through $(0, 1)$, $(1, 3)$ and $(2, 5)$?'
+  choices: ['$x^2 + x + 1$', '$2x^2 + 1$', '$x^2 + 1$', '$2x + 1$']
+  answer: 3
+  explanation: |-
+    The points lie on the line $y = 2x + 1$, so that line is the interpolating polynomial: "degree at most 2" includes degree 1, and by uniqueness there is no other. $x^2 + x + 1$ fits the first two points but gives 7 at $x = 2$; the other two miss as well.
+- id: pc-m3-r2-h16
+  lesson: pc-m3-h-interpolation
+  type: text
+  topic: Polynomial interpolation
+  stem: 'For the $x$-values $1, 3, 4$, the first Lagrange basis polynomial is $L_0(x) = \dfrac{(x - 3)(x - 4)}{(1 - 3)(1 - 4)}$. Then $L_0(2) =$ ___ and $L_0(3) =$ ___.'
+  accept:
+    - ['1/3']
+    - ['0']
+  explanation: |-
+    The denominator is $(-2)(-3) = 6$. At $x = 2$ the numerator is $(-1)(-2) = 2$, so $L_0(2) = \frac26 = \frac13$. At $x = 3$ the factor $x - 3$ is 0, so $L_0(3) = 0$: each basis polynomial vanishes at the other data points.
+- id: pc-m3-r2-h17
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: 'The quadratic $p$ passes through $(0, 2)$, $(1, 1)$ and $(2, 4)$. What is $p(3)$?'
+  choices: ['11', '7', '9', '13']
+  answer: 0
+  explanation: |-
+    Newton form: $p(x) = c_0 + c_1x + c_2x(x - 1)$. $x = 0$: $c_0 = 2$. $x = 1$: $2 + c_1 = 1$, $c_1 = -1$. $x = 2$: $2 - 2 + 2c_2 = 4$, $c_2 = 2$. So $p(x) = 2 - x + 2x(x - 1) = 2x^2 - 3x + 2$ and $p(3) = 18 - 9 + 2 = 11$. (7 continues the jump from 1 to 4 as if it were linear.)
+- id: pc-m3-r2-h18
+  lesson: pc-m3-h-interpolation
+  type: order
+  topic: Polynomial interpolation
+  stem: 'Put the steps for finding the quadratic through $(0, 1)$, $(1, 4)$ and $(3, 16)$ in Newton form in order.'
+  items:
+    - 'Write $p(x) = c_0 + c_1x + c_2x(x - 1)$'
+    - 'Use $x = 0$: $c_0 = 1$'
+    - 'Use $x = 1$: $1 + c_1 = 4$, so $c_1 = 3$'
+    - 'Use $x = 3$: $1 + 9 + 6c_2 = 16$, so $c_2 = 1$'
+    - 'Expand: $p(x) = x^2 + 2x + 1$'
+  explanation: |-
+    The form comes first. Each point, taken in order, brings in one new coefficient and uses the ones already found, so the order is forced. Expanding $1 + 3x + x(x - 1)$ gives $x^2 + 2x + 1$; check $p(3) = 16$.
+- id: pc-m3-r2-h19
+  lesson: pc-m3-h-interpolation
+  type: match
+  topic: Polynomial interpolation
+  stem: 'Match each idea to its description.'
+  pairs:
+    - ['Lagrange form', 'Each piece is 1 at one data point and 0 at the others']
+    - ['Newton form', 'A new point adds one term without changing the old ones']
+    - ['Secret sharing', 'The secret is the value p(0)']
+    - ['Runge''s phenomenon', 'Large swings near the ends with many equally spaced points']
+  distractors: ['A least-squares line through noisy data']
+  explanation: |-
+    Lagrange builds $p = \sum y_k L_k$ from basis polynomials that pick out one point each. Newton's terms vanish at all earlier points, so they can be added one at a time. Shamir's scheme hides the secret as the constant term $p(0)$. Runge's example shows high-degree interpolation oscillating near the ends. A least-squares line is regression, which does not pass through every point.
+- id: pc-m3-r2-h20
+  lesson: pc-m3-h-interpolation
+  type: text
+  topic: Polynomial interpolation
+  stem: 'A secret is the constant term of a quadratic. The shares are $(1, 30)$, $(2, 41)$ and $(3, 58)$. The secret is ___.'
+  accept: ['25']
+  explanation: |-
+    For shares at $x = 1, 2, 3$, $p(0) = 3y_1 - 3y_2 + y_3 = 90 - 123 + 58 = 25$. (The quadratic is $25 + 2x + 3x^2$: $p(1) = 30$, $p(2) = 41$, $p(3) = 58$.)
+- id: pc-m3-r2-h21
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: 'Why can''t two different polynomials of degree at most 2 pass through the same three points (with different $x$-values)?'
+  choices: ['A quadratic has exactly three coefficients', 'The three points determine the vertex', 'Their difference would have degree at most 2 but three zeros', 'Lagrange''s formula produces only one answer']
+  answer: 2
+  explanation: |-
+    If $p$ and $q$ both fit, $p - q$ is 0 at the three $x$-values. A nonzero polynomial of degree at most 2 has at most 2 zeros, so $p - q$ must be the zero polynomial. Counting coefficients suggests the answer but proves nothing, and a formula giving one answer does not rule out others.
+- id: pc-m3-r2-h22
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['Through any 3 points with different $x$-values there is a polynomial of degree at most 2', 'A polynomial through 11 data points always predicts well between them', 'Two points with the same $x$ and different $y$ cannot both lie on a polynomial''s graph', 'Adding a point to the Newton form keeps the earlier coefficients', 'The polynomial through 5 points always has degree exactly 4']
+  answer: [0, 2, 3]
+  explanation: |-
+    Lagrange's formula always produces the polynomial; a graph of a function cannot have two $y$-values at one $x$; and Newton's new term vanishes at the old points, so the old coefficients stay. False: Runge's example shows poor predictions between points, and 5 points can give a lower degree (five points on a line give a line).
+- id: pc-m3-r2-h23
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: '$p(x) = x^2 + 1$ passes through $(0, 1)$, $(1, 2)$ and $(2, 5)$. To pass also through $(3, 4)$, add $c_3\,x(x - 1)(x - 2)$. What is $c_3$?'
+  choices: ['$1$', '$-6$', '$6$', '$-1$']
+  answer: 3
+  explanation: |-
+    The new term is 0 at $x = 0, 1, 2$, so the old fit is kept. At $x = 3$: $p(3) = 10$, and we need 4, so $c_3 \cdot 3 \cdot 2 \cdot 1 = 4 - 10 = -6$ and $c_3 = -1$. The choice $-6$ forgets to divide by $3 \cdot 2 \cdot 1$.
+- id: pc-m3-r2-h24
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: 'In Runge''s example $f(x) = \dfrac{1}{1 + 25x^2}$, what happens as more equally spaced interpolation points are used on $[-1, 1]$?'
+  choices: ['The swings near the ends get larger', 'The interpolant gets closer to $f$ everywhere', 'The interpolant''s degree stays at 10', 'The swings move to the middle of the interval']
+  answer: 0
+  explanation: |-
+    With equally spaced points, raising the degree makes the oscillations near $\pm1$ worse, even though the polynomial matches $f$ at every data point. The degree grows with the number of points (11 points give degree 10).
+- id: pc-m3-r2-h25
+  lesson: pc-m3-h-interpolation
+  topic: Polynomial interpolation
+  stem: 'In secret sharing with a quadratic, why do two shares reveal nothing about the secret?'
+  choices: ['Two shares always give a secret of 0', 'For every possible secret $S$ there is a quadratic through $(0, S)$ and the two shares', 'The shares are stored in a different order', 'Lagrange''s formula only works with exactly two points']
+  answer: 1
+  explanation: |-
+    Two shares plus any guessed point $(0, S)$ are three points, and three points always determine a polynomial of degree at most 2. So every secret is consistent with the two shares. (Real systems work modulo a prime, which makes every secret equally likely.)
+
+# ---- Honors 14h3: Linear fractional functions (pc-m3-h-linear-fractional) ----
+- id: pc-m3-r2-h26
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: 'Which form shows $f(x) = \dfrac{3x - 4}{x - 1}$ as a transformed $\dfrac1x$?'
+  choices: ['$3 - \dfrac{1}{x - 1}$', '$3 + \dfrac{1}{x - 1}$', '$3 - \dfrac{4}{x - 1}$', '$-4 + \dfrac{3}{x - 1}$']
+  answer: 0
+  explanation: |-
+    Divide: $3x - 4 = 3(x - 1) - 1$, so $f(x) = 3 - \dfrac{1}{x - 1}$. Check with the formula: $k = \frac{bc - ad}{c^2} = \frac{(-4)(1) - (3)(-1)}{1} = -1$. The graph is $\frac1x$ reflected, shifted right 1 and up 3.
+- id: pc-m3-r2-h27
+  lesson: pc-m3-h-linear-fractional
+  type: text
+  topic: Linear fractional functions
+  stem: 'The center of symmetry of $f(x) = \dfrac{4x + 1}{2x - 6}$ is the point (___, ___).'
+  accept:
+    - ['3']
+    - ['2']
+  explanation: |-
+    The center is where the asymptotes cross: $x = -\frac dc = \frac{6}{2} = 3$ and $y = \frac ac = \frac42 = 2$. In transformed form, $f(x) = 2 + \dfrac{13/2}{x - 3}$.
+- id: pc-m3-r2-h28
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: 'What is the inverse of $f(x) = \dfrac{x + 2}{x - 1}$?'
+  choices: ['$\dfrac{x - 1}{x + 2}$', '$\dfrac{x - 2}{x + 1}$', '$\dfrac{x + 2}{x - 1}$, the function itself', '$\dfrac{-x + 2}{x + 1}$']
+  answer: 2
+  explanation: |-
+    Swap $a = 1$ and $d = -1$, and negate $b$ and $c$: $f^{-1}(x) = \dfrac{-x - 2}{-x + 1} = \dfrac{x + 2}{x - 1}$. So $f$ is its own inverse (this happens when $a = -d$). Check: $f(2) = 4$ and $f(4) = \frac63 = 2$. The reciprocal $\frac{x - 1}{x + 2}$ is the common confusion of $f^{-1}$ with $\frac1f$.
+- id: pc-m3-r2-h29
+  lesson: pc-m3-h-linear-fractional
+  type: match
+  topic: Linear fractional functions
+  stem: 'Match each function to the center of symmetry of its graph.'
+  pairs:
+    - ['$\dfrac{2x + 1}{x - 3}$', '(3, 2)']
+    - ['$\dfrac{5}{x + 2}$', '(−2, 0)']
+    - ['$\dfrac{x - 4}{x}$', '(0, 1)']
+    - ['$\dfrac{6x}{3x + 3}$', '(−1, 2)']
+  distractors: ['(2, 3)', '(1, −4)']
+  explanation: |-
+    The center is $\left(-\frac dc, \frac ac\right)$. $\frac{2x + 1}{x - 3}$: $(3, 2)$. $\frac{5}{x + 2}$ has $a = 0$: $(-2, 0)$. $\frac{x - 4}{x} = 1 - \frac4x$: $(0, 1)$. $\frac{6x}{3x + 3}$: $x = -1$, $y = \frac63 = 2$. The point $(2, 3)$ swaps the coordinates of the first.
+- id: pc-m3-r2-h30
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: 'Which are true for every $f(x) = \dfrac{ax + b}{cx + d}$ with $c \ne 0$ and $ad - bc \ne 0$? Select all that apply.'
+  choices: ['Its graph is the graph of $\frac1x$ stretched and shifted (possibly reflected)', 'It has the horizontal asymptote $y = \frac ac$', 'It crosses its horizontal asymptote exactly once', 'Its inverse is again a linear fractional function', 'Its graph has a hole']
+  answer: [0, 1, 3]
+  explanation: |-
+    $f(x) = v + \frac{k}{x - h}$ with $k \ne 0$, a transformed $\frac1x$ with horizontal asymptote $y = v = \frac ac$, and its inverse $\frac{dx - b}{-cx + a}$ is linear fractional too. Since $\frac{k}{x - h}$ is never 0, $f$ never equals $v$: it never crosses that asymptote. A hole occurs only when $ad - bc = 0$, which is excluded.
+- id: pc-m3-r2-h31
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: 'What does the graph of $y = \dfrac{3x + 6}{x + 2}$ look like?'
+  choices: ['A hyperbola with asymptotes $x = -2$ and $y = 3$', 'The line $y = 3$ with a hole at $x = -2$', 'The line $y = 3x + 6$', 'A hyperbola centered at $(2, 3)$']
+  answer: 1
+  explanation: |-
+    Here $ad - bc = 3 \cdot 2 - 6 \cdot 1 = 0$: the numerator is $3(x + 2)$, so $y = 3$ for every $x \ne -2$. This is the degenerate case, a horizontal line with one point missing, not a hyperbola.
+- id: pc-m3-r2-h32
+  lesson: pc-m3-h-linear-fractional
+  type: text
+  topic: Linear fractional functions
+  stem: 'A thin lens has focal length 12 cm. An object is 36 cm from the lens. The image distance is ___ cm.'
+  accept: ['18']
+  explanation: |-
+    $d_i = \dfrac{f d_o}{d_o - f} = \dfrac{12 \cdot 36}{36 - 12} = \dfrac{432}{24} = 18$ cm. Check with $\frac{1}{36} + \frac{1}{18} = \frac{3}{36} = \frac{1}{12}$.
+- id: pc-m3-r2-h33
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: 'In the thin-lens model $d_i = \dfrac{f\,d_o}{d_o - f}$, what does the horizontal asymptote $d_i = f$ mean?'
+  choices: ['Objects at the focal point form images at the lens', 'The image is always the same size as the object', 'The image distance can never be more than $f$', 'Very distant objects form images at the focal length']
+  answer: 3
+  explanation: |-
+    As $d_o \to \infty$, $d_i \to f$: light from far away is focused one focal length behind the lens. Objects at the focal point ($d_o = f$) are the vertical asymptote, where the image runs off to infinity. Image distances larger than $f$ do occur, e.g. $d_o = 15$, $f = 10$ gives $d_i = 30$.
+- id: pc-m3-r2-h34
+  lesson: pc-m3-h-linear-fractional
+  type: label
+  topic: Linear fractional functions
+  stem: 'Name the numbered parts of this thin-lens diagram.'
+  image: {src: images/pc-m3-thin-lens-blank.svg, alt: 'A lens-shaped outline standing on a horizontal line. An upright arrow stands on the line far to the left. Two rays leave its tip, pass through the lens and meet at the tip of a shorter, upside-down arrow to the right of the lens. A dot on the line between the lens and the right arrow, and another dot at the same distance on the left. Five things are numbered: the left arrow, the right arrow, the right-hand dot, the lens outline and the horizontal line.'}
+  labels:
+    - {x: 5.3, y: 35, text: 'Object'}
+    - {x: 74.5, y: 57.5, text: 'Image'}
+    - {x: 66.2, y: 43.3, text: 'Focal point'}
+    - {x: 50, y: 76.7, text: 'Lens'}
+    - {x: 93, y: 44.7, text: 'Optical axis'}
+  distractors: ['Center of symmetry', 'Virtual image']
+  explanation: |-
+    The upright arrow on the left is the object; the rays from its tip meet at the upside-down arrow, the real image. The dots at equal distances on each side of the lens are the focal points (the ray that enters parallel to the axis bends through the right one). The horizontal line through the lens's center is the optical axis. The image here is real (rays actually meet), not virtual.
+- id: pc-m3-r2-h35
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: 'Let $g(x) = \dfrac{1}{1 - x}$. What is $g(g(5))$?'
+  choices: ['$-\tfrac14$', '$\tfrac45$', '$5$', '$\tfrac54$']
+  answer: 1
+  explanation: |-
+    $g(5) = \frac{1}{-4} = -\frac14$, then $g\left(-\frac14\right) = \dfrac{1}{1 + \frac14} = \frac45$. This matches $g(g(x)) = \frac{x - 1}{x}$ at $x = 5$. One more application gives $g\left(\frac45\right) = 5$, since $g(g(g(x))) = x$. $-\frac14$ is only $g(5)$.
+- id: pc-m3-r2-h36
+  lesson: pc-m3-h-linear-fractional
+  type: order
+  topic: Linear fractional functions
+  stem: 'Put the steps for finding the inverse of $y = \dfrac{2x + 1}{x - 3}$ in order.'
+  items:
+    - 'Multiply both sides by $x - 3$: $y(x - 3) = 2x + 1$'
+    - 'Expand: $xy - 3y = 2x + 1$'
+    - 'Collect the $x$ terms: $xy - 2x = 3y + 1$'
+    - 'Factor out $x$: $x(y - 2) = 3y + 1$'
+    - 'Divide: $x = \dfrac{3y + 1}{y - 2}$'
+  explanation: |-
+    Clear the fraction, expand, gather every term containing $x$ on one side, factor out $x$ and divide. Renaming the variable gives $f^{-1}(x) = \dfrac{3x + 1}{x - 2}$, which matches the shortcut (swap $a$ and $d$, negate $b$ and $c$).
+- id: pc-m3-r2-h37
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: '$f(x) = 2 + \dfrac{7}{x - 3}$ has $f(10) = 3$. Use the center of symmetry to find $f(-4)$.'
+  choices: ['$-3$', '$3$', '$4$', '$1$']
+  answer: 3
+  explanation: |-
+    The center is $(3, 2)$, and $10$ and $-4$ are both 7 units from 3. So $f(10) + f(-4) = 2 \cdot 2 = 4$, giving $f(-4) = 4 - 3 = 1$. Directly: $2 + \frac{7}{-7} = 1$. The choice $-3$ reflects through $y = 0$ instead of the center.
+- id: pc-m3-r2-h38
+  lesson: pc-m3-h-linear-fractional
+  topic: Linear fractional functions
+  stem: 'Where does the graph of $f(x) = \dfrac{-2x + 1}{x - 1}$ lie, relative to its center?'
+  choices: ['Upper right and lower left of the center $(1, -2)$', 'Upper left and lower right of the center $(-2, 1)$', 'Upper left and lower right of the center $(1, -2)$', 'Upper right and lower left of the center $(-1, 2)$']
+  answer: 2
+  explanation: |-
+    Divide: $-2x + 1 = -2(x - 1) - 1$, so $f(x) = -2 - \dfrac{1}{x - 1}$, centered at $(1, -2)$ with $k = -1 < 0$. A negative $k$ reflects $\frac1x$, putting the branches upper left and lower right of the center. Check: $f(2) = -3$, below and to the right of $(1, -2)$.

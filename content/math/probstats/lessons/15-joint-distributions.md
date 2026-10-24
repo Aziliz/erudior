@@ -64,6 +64,19 @@ rectangle, $P(x < X < x + \Delta x,\; y < Y < y + \Delta y) \approx f(x, y)\,\De
 The set where $f > 0$ is the **support**. Most of the work in continuous problems is drawing
 the support and the event, intersecting them, and reading off the limits of integration.
 
+The same five steps work for every such problem:
+
+```mermaid
+flowchart TD
+  accTitle: Finding a probability for a continuous pair
+  accDescr: Start by sketching the support, the set where the joint density is positive. Then shade the part of the support inside the event. Choose the order of integration that keeps the region in one piece. Read the inner limits as functions of the outer variable and the outer limits as constants. Integrate the inner integral, then the outer one, and check that the answer lies between 0 and 1.
+  A["Sketch the support, where f is positive"] --> B["Shade the part of the support inside the event"]
+  B --> C["Choose the order of integration: one piece if possible"]
+  C --> D["Inner limits: functions of the outer variable. Outer limits: numbers"]
+  D --> E["Integrate the inner integral, then the outer one"]
+  E --> F["Check: the answer is between 0 and 1"]
+```
+
 The **joint cumulative distribution function** is $F(x, y) = P(X \le x,\, Y \le y)$. For
 continuous pairs $F(x, y) = \int_{-\infty}^{x}\int_{-\infty}^{y} f(s, t)\,dt\,ds$, and differentiating
 gives back $f = \partial^2 F / \partial x\,\partial y$.

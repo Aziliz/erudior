@@ -29,6 +29,22 @@ Start with a rational expression $\dfrac{P(x)}{Q(x)}$ in lowest terms.
 
 Why a linear numerator over a quadratic? The numerator of each term must be allowed one degree less than its denominator, otherwise there aren't enough unknowns to match every possible numerator. A repeated factor needs every power because, for instance, $\frac{x}{(x - 1)^2} = \frac{1}{x - 1} + \frac{1}{(x - 1)^2}$ can't be written with the squared denominator alone and a constant on top.
 
+The steps of this lesson, as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: The partial fraction procedure
+  accDescr: Start with P of x over Q of x in lowest terms. If the degree of P is at least the degree of Q, divide first and keep the remainder fraction. Factor Q completely into linear factors and irreducible quadratics. Write one term for each factor and for every power of a repeated factor. Multiply by Q to clear denominators, find the constants by substituting zeros and matching coefficients, and check by recombining.
+  A["P(x) / Q(x) in lowest terms"] --> B{"deg P ≥ deg Q?"}
+  B -- yes --> C["Divide first; keep the proper remainder fraction"]
+  B -- no --> D["Factor Q(x) completely"]
+  C --> D
+  D --> E["Write a term for each factor and each power of a repeated factor"]
+  E --> F["Multiply by Q(x) to clear denominators"]
+  F --> G["Find the constants: substitute zeros, match coefficients"]
+  G --> H["Check by recombining or testing a value"]
+```
+
 ## Finding the constants
 
 Multiply both sides by $Q(x)$ to clear denominators. You get a polynomial identity, true for every $x$. Then either:
@@ -52,6 +68,12 @@ $$5x - 4 = A(x + 1) + B(x - 2).$$
 $$\frac{5x - 4}{(x - 2)(x + 1)} = \frac{2}{x - 2} + \frac{3}{x + 1}.$$
 
 Check by recombining: $\frac{2(x + 1) + 3(x - 2)}{(x - 2)(x + 1)} = \frac{5x - 4}{(x-2)(x+1)}$. ✓
+
+The graph shows what the decomposition means: near $x = 2$ the original function behaves like $\frac{2}{x - 2}$, and near $x = -1$ like $\frac{3}{x + 1}$. Each simple piece carries one vertical asymptote.
+
+```plot
+{"x": [-4, 5], "y": [-10, 10], "functions": [{"f": "(5x - 4)/((x - 2)(x + 1))"}, {"f": "2/(x - 2)", "dashed": true}, {"f": "3/(x + 1)", "dashed": true}], "caption": "Example 1: y = (5x − 4)/((x − 2)(x + 1)) (solid) is the sum of y = 2/(x − 2) and y = 3/(x + 1) (dashed). The asymptotes x = 2 and x = −1 each come from one piece."}
+```
 
 ### Example 2: a repeated factor
 

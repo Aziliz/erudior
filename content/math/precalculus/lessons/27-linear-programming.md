@@ -56,6 +56,21 @@ The method:
 3. Graph the feasible region and find its corner points.
 4. Evaluate the objective at each corner and pick the best.
 
+The chart adds the check for unbounded regions, covered below:
+
+```mermaid
+flowchart TD
+  accTitle: The corner point method for linear programming
+  accDescr: Name the variables and write the objective function. Write every constraint, including hidden ones such as x and y at least zero. Graph the feasible region and find its corners by solving pairs of boundary equations. Evaluate the objective function at every corner. If the region is bounded, the largest value is the maximum and the smallest is the minimum. If it is unbounded, first check whether the objective can grow or shrink without limit; if it can, that optimum does not exist, and if not, the best corner gives it.
+  A["Name the variables; write the objective function"] --> B["Write every constraint, including x ≥ 0 and y ≥ 0"]
+  B --> C["Graph the feasible region"]
+  C --> D["Find the corners: solve pairs of boundary equations"]
+  D --> E["Evaluate the objective at every corner"]
+  E --> F{"Is the region bounded?"}
+  F -- yes --> G["Largest value is the maximum, smallest is the minimum"]
+  F -- no --> H["Check whether the objective can grow or shrink forever; if not, the best corner gives the answer"]
+```
+
 ### Example 2
 
 A workshop builds tables and bookshelves. A table needs 1 hour of cutting and 2 hours of finishing; a bookshelf needs 1 hour of cutting and 1 hour of finishing. Each day there are 6 cutting hours and 8 finishing hours. Profit is \$30 per table and \$20 per bookshelf. How many of each should be built per day to maximize profit?

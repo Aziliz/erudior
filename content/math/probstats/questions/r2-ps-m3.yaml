@@ -1,0 +1,593 @@
+# Round 2: new question types for ps-m3 (core lessons 10-14) and its honors lessons 14h1-14h2
+# ---------- ps-continuous-rv (lesson 10) ----------
+- id: ps-m3-r2-q01
+  lesson: ps-continuous-rv
+  module_quiz: true
+  topic: Densities and cdfs
+  type: label
+  stem: 'The picture shows the density of a continuous random variable $X$. The dashed line splits the area under the curve into two equal halves. Name the numbered parts.'
+  image: {src: images/ps-m3-density-parts-blank.svg, alt: 'A right-skewed density curve over the x-axis with points a, b and c marked. Five parts are numbered: the curve itself, a shaded area between a and b, a shaded tail to the right of c, a solid vertical segment from the axis up to the curve, and a dashed vertical line.'}
+  labels:
+    - {x: 12.6, y: 39.9, text: The density curve f(x)}
+    - {x: 45.2, y: 70.9, text: 'The probability P(a ≤ X ≤ b)'}
+    - {x: 77.2, y: 81.2, text: 'The probability P(X > c)'}
+    - {x: 20.6, y: 50.7, text: 'The height f(x₀), a density value'}
+    - {x: 29.0, y: 52.8, text: The median}
+  distractors: ['The probability P(X = x₀)', The cdf F(x)]
+  explanation: |-
+    Probabilities are *areas* under a density curve: the shaded region between $a$ and $b$ is $P(a \le X \le b)$ and the shaded region beyond $c$ is $P(X > c)$. The solid segment is the *height* of the curve at $x_0$, which is a density (probability per unit length), not a probability; $P(X = x_0)$ is 0 for a continuous variable. The dashed line has half the area on each side, so it is the median. The cdf would be a different, increasing curve.
+
+- id: ps-m3-r2-q02
+  lesson: ps-continuous-rv
+  topic: Densities and cdfs
+  type: text
+  stem: 'The pdf of $X$ is $f(x) = c\,x^3$ for $0 \le x \le 2$ and 0 elsewhere. Then $c =$ ___. Give only the number.'
+  accept: ['1/4', '0.25', '.25']
+  explanation: |-
+    The total area must be 1: $\int_0^2 c\,x^3\,dx = c \cdot \dfrac{2^4}{4} = 4c = 1$, so $c = \tfrac14$.
+
+- id: ps-m3-r2-q03
+  lesson: ps-continuous-rv
+  topic: Continuous expectation
+  type: order
+  stem: '$X$ has pdf $f(x) = x^2/9$ on $[0, 3]$ (Example 1 of the lesson). Put these values in increasing order.'
+  items:
+    - 'the 25th percentile'
+    - '$E(X)$'
+    - 'the median'
+    - 'the mode (where $f$ is largest)'
+  explanation: |-
+    The cdf is $F(x) = x^3/27$. The 25th percentile solves $x^3/27 = 0.25$: $x = 3(0.25)^{1/3} \approx 1.890$. The mean is 2.25 and the median $3 \cdot 2^{-1/3} \approx 2.381$. The density $x^2/9$ increases all the way to the right end, so the mode is 3. The long left tail pulls the mean below the median.
+
+- id: ps-m3-r2-q04
+  lesson: ps-continuous-rv
+  module_quiz: true
+  topic: Densities and cdfs
+  stem: 'Which of these functions (each 0 outside the interval shown) are valid probability density functions? Select all that apply.'
+  choices: ['$f(x) = 2$ on $[0, 0.5]$', '$f(x) = x$ on $[0, 1]$', '$f(x) = e^{-x}$ on $[0, \infty)$', '$f(x) = x - 0.5$ on $[0, 2]$', '$f(x) = 1.5(1 - x^2)$ on $[0, 1]$']
+  answer: [0, 2, 4]
+  explanation: |-
+    A pdf must be nonnegative and have total area 1. $2 \times 0.5 = 1$, so the first is valid even though its height exceeds 1. $\int_0^1 x\,dx = \tfrac12$, not 1. $\int_0^\infty e^{-x}\,dx = 1$. $x - 0.5$ has area $2 - 1 = 1$ on $[0, 2]$ but is negative on $[0, 0.5)$, so it fails. $\int_0^1 1.5(1 - x^2)\,dx = 1.5 \cdot \tfrac23 = 1$, and it is nonnegative.
+
+- id: ps-m3-r2-q05
+  lesson: ps-continuous-rv
+  topic: Continuous expectation
+  type: match
+  stem: 'Match each quantity for a continuous random variable $X$ with pdf $f$ and cdf $F$ to how it is computed.'
+  pairs:
+    - ['$P(a \le X \le b)$', The integral of f from a to b]
+    - ['$f(x)$', The derivative of F at x]
+    - ['$E(X)$ when $X \ge 0$', The integral of P(X > x) from 0 to infinity]
+    - ['$\operatorname{Var}(X)$', E(X²) minus the square of the mean]
+  distractors: [F(b) + F(a), The integral of x² f(x) with nothing subtracted]
+  explanation: |-
+    Probabilities of intervals are areas, $\int_a^b f$, which also equal $F(b) - F(a)$ (a difference, not a sum). The pdf is the derivative of the cdf. For a nonnegative variable the tail formula gives $E(X) = \int_0^\infty P(X > x)\,dx$. The variance is $E(X^2) - \mu^2$; $\int x^2 f$ alone is $E(X^2)$.
+
+# ---------- ps-uniform-exponential (lesson 11) ----------
+- id: ps-m3-r2-q06
+  lesson: ps-uniform-exponential
+  module_quiz: true
+  topic: Exponential distribution
+  type: label
+  stem: 'The picture shows events of a Poisson process with rate $\lambda$ on a time line. Name the numbered parts by their role or distribution. (The shaded window has length 3.)'
+  image: {src: images/ps-m3-poisson-timeline-blank.svg, alt: 'A time line starting at 0 with six events marked as dots. Four parts are numbered: one of the dots, a bracket below the line between two neighboring events, a bracket above the line from 0 to the third event, and a shaded window containing two events.'}
+  labels:
+    - {x: 18.4, y: 57.6, text: An event (arrival)}
+    - {x: 56.7, y: 74.2, text: 'A gap between events: Exponential(λ)'}
+    - {x: 24.6, y: 36.4, text: 'Time of the 3rd event: Gamma(3, 1/λ)'}
+    - {x: 83.0, y: 50.3, text: 'Count in the window: Poisson(3λ)'}
+  distractors: ['Time of the 3rd event: Exponential(3λ)', 'Count in the window: Exponential(3λ)']
+  explanation: |-
+    Counts are Poisson and gaps are exponential: the gap between neighboring events is Exponential($\lambda$), and the number of events in a window of length 3 is Poisson with mean $3\lambda$. The time of the 3rd event is the sum of three independent exponential gaps, which is Gamma$(3, 1/\lambda)$ (lesson 13), not exponential.
+
+- id: ps-m3-r2-q07
+  lesson: ps-uniform-exponential
+  topic: Uniform distribution
+  type: text
+  stem: '$X \sim \text{U}(2, 8)$. Then $E(X) =$ ___ and $\operatorname{Var}(X) =$ ___. Give numbers only.'
+  accept:
+    - ['5']
+    - ['3']
+  explanation: |-
+    The mean is the midpoint, $(2 + 8)/2 = 5$. The variance is $(b - a)^2/12 = 36/12 = 3$.
+
+- id: ps-m3-r2-q08
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  stem: '$X$ is exponential with rate $\lambda$. Which statements are true? Select all that apply.'
+  choices: ['$P(X > s + t \mid X > s) = P(X > t)$ for all $s, t \ge 0$', 'The hazard rate is the constant $\lambda$', 'The median $\ln 2/\lambda$ is below the mean', '$\operatorname{Var}(X) = 1/\lambda$', '$P(X > x) = 1 - e^{-\lambda x}$']
+  answer: [0, 1, 2]
+  explanation: |-
+    The first two are the memoryless property and its hazard-rate form. The median $\ln 2/\lambda \approx 0.693/\lambda$ is below the mean $1/\lambda$ because of the long right tail. The variance is $1/\lambda^2$, not $1/\lambda$, and $1 - e^{-\lambda x}$ is the cdf; the survival function is $e^{-\lambda x}$.
+
+- id: ps-m3-r2-q09
+  lesson: ps-uniform-exponential
+  module_quiz: true
+  topic: Exponential distribution
+  type: match
+  stem: 'Customers arrive as a Poisson process. Match each quantity to its usual model.'
+  pairs:
+    - [Rounding error of a length recorded to the nearest 0.1 mm, Uniform]
+    - [Time from now until the next arrival, Exponential]
+    - [Number of arrivals in the next hour, Poisson]
+    - [Time from now until the third arrival, Gamma]
+  distractors: [Binomial, Beta]
+  explanation: |-
+    Rounding error is equally likely anywhere within half a unit, so it is uniform. In a Poisson process the waiting time to the next event is exponential, the count in a fixed interval is Poisson, and the waiting time to the $k$-th event is a sum of $k$ exponential gaps, a gamma variable.
+
+- id: ps-m3-r2-q10
+  lesson: ps-uniform-exponential
+  topic: Exponential distribution
+  type: order
+  stem: 'A waiting time is exponential with rate 0.2 per minute. Put these values in increasing order.'
+  items:
+    - 'the 25th percentile'
+    - 'the median'
+    - 'the mean'
+    - 'the 90th percentile'
+    - 'the 99th percentile'
+  explanation: |-
+    Percentiles solve $1 - e^{-0.2t} = p$, so $t = -\ln(1 - p)/0.2$: the 25th is about 1.44, the median about 3.47, the 90th about 11.51 and the 99th about 23.03 minutes. The mean is $1/0.2 = 5$, which lies between the median and the 90th percentile.
+
+# ---------- ps-normal (lesson 12) ----------
+- id: ps-m3-r2-q11
+  lesson: ps-normal
+  module_quiz: true
+  topic: Normal distribution
+  type: label
+  stem: 'The picture shows a $\text{N}(\mu, \sigma^2)$ density. Name the numbered parts.'
+  image: {src: images/ps-m3-normal-curve-blank.svg, alt: 'A bell-shaped curve with tick marks from mu minus 3 sigma to mu plus 3 sigma, a dashed center line, a dot on each side of the curve, a shaded center region, a small shaded upper tail and three brackets below the axis. Five parts are numbered: the top of the center line, the dot on the right side, the shortest bracket, the middle bracket, and the shaded upper tail.'}
+  labels:
+    - {x: 50.0, y: 9.8, text: 'The peak, at the mean μ'}
+    - {x: 61.7, y: 33.0, text: An inflection point}
+    - {x: 56.4, y: 74.4, text: About 68% of the area}
+    - {x: 68.1, y: 83.7, text: About 95% of the area}
+    - {x: 77.5, y: 64.3, text: 'The area above μ + 2σ, about 2.3%'}
+  distractors: [About 99.7% of the area, 'The area above μ + 2σ, about 5%']
+  explanation: |-
+    The normal curve peaks at its mean and changes from bending down to bending up at $\mu \pm \sigma$, the inflection points. About 68% of the area lies within one standard deviation and 95% within two. Only the *upper* tail beyond $\mu + 2\sigma$ is shaded: $1 - \Phi(2) \approx 0.023$. The 5% figure is both tails together. The 99.7% bracket is the longest one, which is not numbered.
+
+- id: ps-m3-r2-q12
+  lesson: ps-normal
+  topic: Normal distribution
+  type: text
+  stem: 'Bolt lengths are $\text{N}(50, 0.4^2)$ mm. A bolt of length 50.8 mm has z-score ___. Give only the number.'
+  accept: ['2', '2.0']
+  explanation: |-
+    $z = \dfrac{50.8 - 50}{0.4} = \dfrac{0.8}{0.4} = 2$. Divide by the standard deviation 0.4, not the variance 0.16.
+
+- id: ps-m3-r2-q13
+  lesson: ps-normal
+  topic: Normal distribution
+  type: order
+  stem: 'IQ-type scores are $\text{N}(100, 15^2)$. Put these values in increasing order.'
+  items:
+    - 'the 5th percentile'
+    - 'the first quartile'
+    - 'the median'
+    - '$\mu + \sigma$'
+    - 'the 99th percentile'
+  explanation: |-
+    Each percentile is $100 + 15z_p$: the 5th is $100 - 1.645(15) \approx 75.3$, the first quartile $100 - 0.674(15) \approx 89.9$, the median 100 (the mean, by symmetry), $\mu + \sigma = 115$ (about the 84th percentile), and the 99th $100 + 2.326(15) \approx 134.9$.
+
+- id: ps-m3-r2-q14
+  lesson: ps-normal
+  module_quiz: true
+  topic: Normal distribution
+  stem: '$X \sim \text{N}(\mu, \sigma^2)$ and $Y \sim \text{N}(\nu, \tau^2)$ are independent. Which of these are normally distributed? Select all that apply.'
+  choices: ['$3X - 2$', '$X + Y$', '$X^2$', '$e^X$', '$(X - \mu)/\sigma$']
+  answer: [0, 1, 4]
+  explanation: |-
+    Linear functions of a normal variable are normal: $3X - 2 \sim \text{N}(3\mu - 2, 9\sigma^2)$, and the z-score is $\text{N}(0, 1)$. Independent normals add to a normal, $\text{N}(\mu + \nu, \sigma^2 + \tau^2)$. But $X^2$ is never negative (for $\mu = 0$ it is $\sigma^2$ times a chi-square), and $e^X$ is lognormal (lesson 14); neither is normal.
+
+- id: ps-m3-r2-q15
+  lesson: ps-normal
+  topic: Normal approximation
+  type: match
+  stem: '$X$ is binomial and $Y$ is the approximating normal variable. Match each binomial probability to the normal region used with the continuity correction.'
+  pairs:
+    - ['$P(X \le 25)$', Y < 25.5]
+    - ['$P(X < 25)$', Y < 24.5]
+    - ['$P(X \ge 25)$', Y > 24.5]
+    - ['$P(X > 25)$', Y > 25.5]
+    - ['$P(X = 25)$', 24.5 < Y < 25.5]
+  explanation: |-
+    Picture each value $k$ as a bar from $k - 0.5$ to $k + 0.5$. $X \le 25$ includes the bar at 25, so stop at 25.5. $X < 25$ means $X \le 24$, so stop at 24.5. $X \ge 25$ includes the bar at 25, so start at 24.5. $X > 25$ means $X \ge 26$, so start at 25.5. A single value is its own bar, from 24.5 to 25.5.
+
+# ---------- ps-gamma-beta (lesson 13) ----------
+- id: ps-m3-r2-q16
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  type: text
+  stem: '$\Gamma(5) =$ ___, and $\Gamma(\tfrac32) =$ ___ $\cdot\sqrt\pi$. Give numbers only.'
+  accept:
+    - ['24']
+    - ['1/2', '0.5', '.5']
+  explanation: |-
+    $\Gamma(n) = (n - 1)!$, so $\Gamma(5) = 4! = 24$ (not $5! = 120$). By the recursion, $\Gamma(\tfrac32) = \tfrac12\Gamma(\tfrac12) = \tfrac12\sqrt\pi$.
+
+- id: ps-m3-r2-q17
+  lesson: ps-gamma-beta
+  module_quiz: true
+  topic: Gamma distribution
+  type: match
+  stem: 'Match each distribution or variable to the named distribution it equals. ($Z$ is standard normal.)'
+  pairs:
+    - ['$\text{Gamma}(1, \theta)$', Exponential with mean θ]
+    - ['$\text{Gamma}(\nu/2, 2)$', Chi-square with ν degrees of freedom]
+    - ['$\text{Beta}(1, 1)$', Uniform on (0, 1)]
+    - ['$Z^2$', Chi-square with 1 degree of freedom]
+    - ['Sum of $k$ independent Exponential$(\lambda)$', Gamma with shape k and scale 1/λ]
+  distractors: [Poisson with mean λ]
+  explanation: |-
+    Gamma with shape 1 is the exponential; the chi-square family is the gamma family with $\alpha = \nu/2$ and $\theta = 2$; $\text{Beta}(1, 1)$ has constant density 1 on $(0, 1)$. Lesson 14 shows $Z^2 \sim \chi^2(1)$. Same-scale gamma variables add shapes, so $k$ exponentials give $\text{Gamma}(k, 1/\lambda)$, the time of the $k$-th event in a Poisson process. A Poisson variable is a count, not a waiting time.
+
+- id: ps-m3-r2-q18
+  lesson: ps-gamma-beta
+  topic: Gamma distribution
+  stem: '$X \sim \text{Gamma}(3, 2)$ (shape 3, scale 2). Which statements are true? Select all that apply.'
+  choices: ['$E(X) = 6$', '$\operatorname{Var}(X) = 12$', '$X$ has the $\chi^2(6)$ distribution', '$\operatorname{Var}(X) = 6$', 'If $Y \sim \text{Gamma}(2, 3)$ is independent of $X$, then $X + Y \sim \text{Gamma}(5, 2)$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Mean $\alpha\theta = 6$ and variance $\alpha\theta^2 = 3 \cdot 4 = 12$ (6 is $\alpha\theta$, the mean). With $\theta = 2$ and $\alpha = 3 = \nu/2$, $X$ is $\chi^2(6)$. Shapes add only when the scales are equal; $Y$ has scale 3, so $X + Y$ is not gamma.
+
+- id: ps-m3-r2-q19
+  lesson: ps-gamma-beta
+  topic: Beta distribution
+  type: order
+  stem: 'Put these beta distributions in increasing order of their means.'
+  items:
+    - '$\text{Beta}(1, 9)$'
+    - '$\text{Beta}(2, 5)$'
+    - '$\text{Beta}(2, 2)$'
+    - '$\text{Beta}(3, 2)$'
+    - '$\text{Beta}(5, 2)$'
+  explanation: |-
+    The mean of $\text{Beta}(a, b)$ is $a/(a + b)$: $\tfrac{1}{10} = 0.1$, $\tfrac27 \approx 0.286$, $\tfrac24 = 0.5$, $\tfrac35 = 0.6$ and $\tfrac57 \approx 0.714$.
+
+- id: ps-m3-r2-q20
+  lesson: ps-gamma-beta
+  module_quiz: true
+  topic: Gamma distribution
+  type: text
+  stem: 'Use the key gamma integral to evaluate $\displaystyle\int_0^\infty x^4 e^{-x/2}\,dx =$ ___. Give only the number.'
+  accept: ['768']
+  explanation: |-
+    $\int_0^\infty x^{\alpha - 1}e^{-x/\theta}\,dx = \Gamma(\alpha)\theta^\alpha$ with $\alpha - 1 = 4$, so $\alpha = 5$, and $\theta = 2$: $\Gamma(5) \cdot 2^5 = 24 \cdot 32 = 768$. Reading the exponent 4 as $\alpha$ gives $\Gamma(4) \cdot 2^4 = 96$.
+
+# ---------- ps-transformations (lesson 14) ----------
+- id: ps-m3-r2-q21
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  type: order
+  stem: 'Put the steps of the cdf method for finding the density of $Y = g(X)$ in order.'
+  items:
+    - 'Write $F_Y(y) = P(g(X) \le y)$'
+    - 'Rewrite the event $\{g(X) \le y\}$ as an event about $X$'
+    - 'Compute that probability using $F_X$ or $f_X$'
+    - 'Differentiate to get $f_Y(y) = F_Y''(y)$'
+  explanation: |-
+    The method starts from the definition of the cdf of $Y$, turns the event into one about $X$ (for example $\{X^2 \le y\} = \{-\sqrt y \le X \le \sqrt y\}$), evaluates it with what is known about $X$, and only then differentiates. Finally, state the range of $y$.
+
+- id: ps-m3-r2-q22
+  lesson: ps-transformations
+  topic: Functions of a random variable
+  type: text
+  stem: '$X$ has pdf $f_X$ and $Y = 4X - 2$. Then $f_Y(y) = \dfrac{1}{c}\,f_X\!\left(\dfrac{y + 2}{4}\right)$ with $c =$ ___. Give only the number.'
+  accept: ['4']
+  explanation: |-
+    For $Y = aX + b$, $f_Y(y) = \dfrac{1}{|a|}f_X\!\left(\dfrac{y - b}{a}\right)$. Here $a = 4$ and $b = -2$, so the factor is $\tfrac14$: the map stretches the axis by 4, which thins the density by the same factor.
+
+- id: ps-m3-r2-q23
+  lesson: ps-transformations
+  module_quiz: true
+  topic: Functions of a random variable
+  stem: '$X \sim \text{U}(-1, 2)$. For which $Y = g(X)$ can the change-of-variables formula be applied directly over the whole range of $X$? Select all that apply.'
+  choices: ['$Y = e^X$', '$Y = X^2$', '$Y = 5 - 2X$', '$Y = |X|$', '$Y = X^3$']
+  answer: [0, 2, 4]
+  explanation: |-
+    The formula needs $g$ strictly monotone on $(-1, 2)$. $e^X$ and $X^3$ are strictly increasing and $5 - 2X$ is strictly decreasing (use the absolute value of the derivative). $X^2$ and $|X|$ fall and then rise on an interval containing 0, so two values of $x$ can give the same $y$; use the cdf method and handle each branch, as in Example 2 of the lesson.
+
+- id: ps-m3-r2-q24
+  lesson: ps-transformations
+  module_quiz: true
+  topic: Functions of a random variable
+  type: match
+  stem: 'Match each transformed variable to its distribution. ($Z \sim \text{N}(0, 1)$, $U \sim \text{U}(0, 1)$, and $F$ is the continuous, strictly increasing cdf of $X$.)'
+  pairs:
+    - ['$e^X$ for $X \sim \text{N}(\mu, \sigma^2)$', Lognormal]
+    - ['$F(X)$', Uniform on (0, 1)]
+    - ['$-\ln(U)/\lambda$', Exponential with rate λ]
+    - ['$3Z + 1$', Normal with mean 1 and variance 9]
+  distractors: [Normal with mean 1 and variance 3, Chi-square with 1 degree of freedom]
+  explanation: |-
+    The exponential of a normal is lognormal. The probability integral transform says $F(X) \sim \text{U}(0, 1)$. Inverse transform sampling gives $-\ln(1 - U)/\lambda$, and $1 - U$ is uniform too, so $-\ln(U)/\lambda$ is Exponential($\lambda$). A linear function of $Z$ is normal with mean 1 and variance $3^2 = 9$; using 3 as the variance is the usual slip.
+
+# ========== Honors: ps-m3-h-hazard-weibull (14h1) ==========
+- id: ps-m3-r2-h01
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  stem: 'A lifetime has cumulative hazard $H(x) = x^3/1000$ for $x \ge 0$. What is $P(X > 10)$?'
+  choices: ['0.368', '0.632', '0.741', '0.300']
+  answer: 0
+  explanation: |-
+    $S(x) = e^{-H(x)}$ and $H(10) = 1000/1000 = 1$, so $P(X > 10) = e^{-1} \approx 0.368$. The value 0.632 is $F(10)$. Using the hazard $h(10) = 3(10)^2/1000 = 0.3$ in the exponent instead of $H(10)$ gives $e^{-0.3} \approx 0.741$.
+
+- id: ps-m3-r2-h02
+  lesson: ps-m3-h-hazard-weibull
+  topic: Lifetime distributions
+  stem: 'A Weibull lifetime has shape $k = 3$ and scale $s = 10$. What is its hazard rate at $x = 5$?'
+  choices: ['0.0375', '0.75', '0.075', '0.125']
+  answer: 2
+  explanation: |-
+    $h(x) = \dfrac{k}{s}\left(\dfrac{x}{s}\right)^{k - 1} = \dfrac{3}{10}(0.5)^2 = 0.075$. Using the exponent $k$ instead of $k - 1$ gives 0.0375, dropping the $1/s$ gives 0.75, and $(x/s)^k = 0.125$ is the cumulative hazard $H(5)$.
+
+- id: ps-m3-r2-h03
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  stem: 'For a lifetime $X$ with hazard $h$ and a short time $\Delta x$, what does $h(x)\,\Delta x$ approximate?'
+  choices: ['$P(X \le x)$', '$P(x < X \le x + \Delta x)$ for a new item', '$P(X > x)$', '$P(x < X \le x + \Delta x \mid X > x)$']
+  answer: 3
+  explanation: |-
+    The hazard is a conditional rate: $h(x)\,\Delta x \approx \dfrac{f(x)\,\Delta x}{S(x)}$, the chance that an item that has *survived* to $x$ fails in the next $\Delta x$. The unconditional chance for a new item is $f(x)\,\Delta x$.
+
+- id: ps-m3-r2-h04
+  lesson: ps-m3-h-hazard-weibull
+  topic: Lifetime distributions
+  stem: 'A lifetime is Weibull with shape $k = 2$ and scale $s = 10$ years. What is its mean, to 3 significant figures?'
+  choices: ['10', '8.33', '7.07', '8.86']
+  answer: 3
+  explanation: |-
+    $E(X) = s\,\Gamma(1 + 1/k) = 10\,\Gamma(1.5) = 10 \cdot \tfrac{\sqrt\pi}{2} \approx 8.86$. The scale 10 is the 63rd percentile, not the mean; 8.33 is the median $10\sqrt{\ln 2}$; and 7.07 is $10/\sqrt2$.
+
+- id: ps-m3-r2-h05
+  lesson: ps-m3-h-hazard-weibull
+  topic: Lifetime distributions
+  stem: 'For a Weibull distribution with scale $s$, what is $F(s) = P(X \le s)$?'
+  choices: ['0.5', '0.632', '0.368', 'It depends on the shape $k$']
+  answer: 1
+  explanation: |-
+    $F(s) = 1 - e^{-(s/s)^k} = 1 - e^{-1} \approx 0.632$ whatever the shape. That is why $s$ is called the characteristic life. The value 0.368 is $S(s)$.
+
+- id: ps-m3-r2-h06
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  stem: 'A device has three independent components in series with exponential lifetimes of rates 0.01, 0.02 and 0.03 per hour. What is the mean lifetime of the device?'
+  choices: ['about 33.3 hours', 'about 61.1 hours', 'about 16.7 hours', '60 hours']
+  answer: 2
+  explanation: |-
+    In series the hazards add: $0.01 + 0.02 + 0.03 = 0.06$ per hour, a constant, so the device lifetime is exponential with mean $1/0.06 \approx 16.7$ hours. 33.3 hours is the mean of the weakest component alone, and 61.1 hours is the average of the three means; the system fails before its weakest part on average.
+
+- id: ps-m3-r2-h07
+  lesson: ps-m3-h-hazard-weibull
+  topic: Lifetime distributions
+  stem: 'A part''s life in hours is Weibull with $k = 2$ and $s = 1000$. What is its B10 life (the age by which 10% have failed)?'
+  choices: ['about 325 hours', 'about 105 hours', '100 hours', 'about 1517 hours']
+  answer: 0
+  explanation: |-
+    Solve $1 - e^{-(x/1000)^2} = 0.10$: $(x/1000)^2 = -\ln 0.9 \approx 0.10536$, so $x = 1000\sqrt{0.10536} \approx 325$ hours. Forgetting the square root gives about 105; using $\ln 10$ instead of $-\ln 0.9$ gives about 1517.
+
+- id: ps-m3-r2-h08
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  stem: 'A lifetime is uniform on $(0, 20)$ years. What is the mean residual life $m(8)$ of an item that has survived 8 years?'
+  choices: ['2 years', '10 years', '12 years', '6 years']
+  answer: 3
+  explanation: |-
+    Given $X > 8$, $X$ is uniform on $(8, 20)$, so the remaining life is uniform on $(0, 12)$ with mean 6. With the formula: $\int_8^{20} \tfrac{20 - x}{20}\,dx = \tfrac{144}{40} = 3.6$ and $S(8) = 0.6$, so $m(8) = 3.6/0.6 = 6$. 12 is the longest possible remaining life, 10 the mean of a new item, and 2 is $10 - 8$.
+
+- id: ps-m3-r2-h09
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  stem: 'Burn-in (running new units in the factory before shipping them) is most useful when the hazard early in life is'
+  choices: ['decreasing', 'constant', 'increasing', 'zero']
+  answer: 0
+  explanation: |-
+    A decreasing early hazard means weak units fail early and survivors are more reliable, so screening them out before shipping helps. With a constant hazard, used units are as good as new and burn-in only uses up life; with an increasing hazard it makes units worse.
+
+- id: ps-m3-r2-h10
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  stem: 'Which of these cannot be the hazard function of a lifetime on $[0, \infty)$ that eventually fails with certainty?'
+  choices: ['$h(x) = 2$', '$h(x) = x$', '$h(x) = e^{-x}$', '$h(x) = \dfrac{1}{1 + x}$']
+  answer: 2
+  explanation: |-
+    A hazard needs $\int_0^\infty h = \infty$ so that $S(x) = e^{-H(x)} \to 0$. For $e^{-x}$ the total is 1, so $S(x) \to e^{-1}$ and about 37% of items would never fail. The others have infinite integrals; $1/(1 + x)$ does too, since $\ln(1 + x) \to \infty$.
+
+- id: ps-m3-r2-h11
+  lesson: ps-m3-h-hazard-weibull
+  topic: Lifetime distributions
+  type: text
+  stem: 'A Weibull lifetime with shape $k = 1$ and scale $s = 50$ hours has a constant hazard of ___ per hour. Give the number as a decimal or fraction.'
+  accept: ['0.02', '1/50', '.02']
+  explanation: |-
+    With $k = 1$, $h(x) = \dfrac{1}{s}(x/s)^0 = \dfrac1{50} = 0.02$ per hour: it is the exponential distribution with mean 50 hours.
+
+- id: ps-m3-r2-h12
+  lesson: ps-m3-h-hazard-weibull
+  topic: Lifetime distributions
+  type: match
+  stem: 'Match each Weibull shape parameter to how the hazard changes with age.'
+  pairs:
+    - ['$k = 0.5$', Decreasing (early failures)]
+    - ['$k = 1$', Constant (exponential)]
+    - ['$k = 2$', Increasing in a straight line (Rayleigh)]
+    - ['$k = 3.5$', Increasing faster than a straight line]
+  distractors: [Falling at first and then rising (bathtub)]
+  explanation: |-
+    The hazard is proportional to $x^{k - 1}$: $x^{-0.5}$ decreases, $x^0$ is constant, $x^1$ is linear and $x^{2.5}$ curves upward. A single Weibull hazard is monotone, so it cannot have a bathtub shape; that takes a mixture or a more flexible model.
+
+- id: ps-m3-r2-h13
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  type: order
+  stem: 'You are given a hazard function $h$. Put the steps for finding the median lifetime in order.'
+  items:
+    - 'Integrate to get $H(x) = \int_0^x h(t)\,dt$'
+    - 'Write $S(x) = e^{-H(x)}$'
+    - 'Set $S(m) = \tfrac12$'
+    - 'Solve for $m$'
+  explanation: |-
+    The hazard determines the cumulative hazard, which determines the survival function; the median is where the survival function crosses $\tfrac12$. Equivalently $H(m) = \ln 2$.
+
+- id: ps-m3-r2-h14
+  lesson: ps-m3-h-hazard-weibull
+  topic: Hazard functions
+  type: label
+  stem: 'The picture shows a bathtub-shaped hazard curve. Name the three numbered phases.'
+  image: {src: images/ps-m3-bathtub-blank.svg, alt: 'A hazard curve plotted against age: high at age zero and falling steeply, then a long, nearly flat stretch, then rising at old age. Dashed lines split it into three shaded phases, each with a numbered point on the curve.'}
+  labels:
+    - {x: 16.9, y: 55.2, text: Early failures}
+    - {x: 52.8, y: 73.3, text: Random failures}
+    - {x: 89.4, y: 46.8, text: Wear-out}
+  distractors: [Censoring, Characteristic life]
+  explanation: |-
+    Early in life the hazard falls as defective units fail and drop out. In the long middle stretch failures come from chance events at a roughly constant rate. At the end the hazard rises as the units wear out. Censoring is about incomplete data, and the characteristic life is a single age (the 63rd percentile of a Weibull), not a phase.
+
+- id: ps-m3-r2-h15
+  lesson: ps-m3-h-hazard-weibull
+  topic: Lifetime distributions
+  stem: 'A system has $n$ independent components in series, each Weibull with shape $k$ and scale $s$. Which statements are true? Select all that apply.'
+  choices: ['The system lifetime is Weibull with shape $k$', 'The system scale is $s\,n^{-1/k}$', 'The system hazard is $n$ times one component''s hazard', 'The system mean life is $n$ times a component''s mean life', 'The system scale is $s/n$ for every shape $k$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $S_T(x) = \left(e^{-(x/s)^k}\right)^n = e^{-n(x/s)^k} = e^{-(x/s')^k}$ with $s' = s\,n^{-1/k}$: a Weibull with the same shape, and the hazards add to $n\,h(x)$. The mean shrinks (by the factor $n^{-1/k}$), it does not grow, and the scale is $s/n$ only when $k = 1$.
+
+# ========== Honors: ps-m3-h-mixed-distributions (14h2) ==========
+- id: ps-m3-r2-h16
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  stem: 'A traffic light is red for 30 seconds and green for 60 seconds, and you arrive at a time uniform over the 90-second cycle (ignore amber). What is your expected wait?'
+  choices: ['15 seconds', '5 seconds', '10 seconds', '7.5 seconds']
+  answer: 1
+  explanation: |-
+    With probability $\tfrac{60}{90} = \tfrac23$ the wait is 0. With probability $\tfrac13$ you arrive during red and wait a time uniform on $(0, 30)$, mean 15. So $E(W) = \tfrac23 \cdot 0 + \tfrac13 \cdot 15 = 5$ seconds. 15 is the mean wait *given* a red light.
+
+- id: ps-m3-r2-h17
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  stem: '$X$ has cdf $F(x) = 0$ for $x < 0$, $F(x) = 0.3 + 0.5x$ for $0 \le x < 1$, and $F(x) = 1$ for $x \ge 1$. What is $P(X = 1)$?'
+  choices: ['0.3', '0.2', '0', '0.8']
+  answer: 1
+  explanation: |-
+    A point mass is the size of the jump: $P(X = 1) = F(1) - F(1^-) = 1 - 0.8 = 0.2$. There is also a jump of 0.3 at 0. Between them the probability $0.5$ is spread continuously.
+
+- id: ps-m3-r2-h18
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  stem: 'For the same $X$ ($F(x) = 0.3 + 0.5x$ on $[0, 1)$, with jumps of 0.3 at 0 and 0.2 at 1), what is $E(X)$?'
+  choices: ['0.25', '0.65', '0.45', '0.5']
+  answer: 2
+  explanation: |-
+    Split: $0 \cdot 0.3 + \int_0^1 x \cdot 0.5\,dx + 1 \cdot 0.2 = 0.25 + 0.2 = 0.45$. Check with the tail formula: $\int_0^1 (1 - 0.3 - 0.5x)\,dx = 0.7 - 0.25 = 0.45$. Leaving out the point mass at 1 gives 0.25.
+
+- id: ps-m3-r2-h19
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  stem: 'For the same $X$, what is the median, $F^{-1}(0.5) = \min\{x : F(x) \ge 0.5\}$?'
+  choices: ['0.4', '0', '0.5', '0.3']
+  answer: 0
+  explanation: |-
+    $F(0) = 0.3 < 0.5$, so the median is above 0. On $[0, 1)$, $0.3 + 0.5x = 0.5$ gives $x = 0.4$.
+
+- id: ps-m3-r2-h20
+  lesson: ps-m3-h-mixed-distributions
+  topic: Censoring and deductibles
+  stem: 'Losses are exponential with mean 1000 dollars, and a policy has a deductible of 200. What is the expected payment per loss (to the nearest 10 cents)?'
+  choices: ['181.30', '818.70', '800.00', '1000.00']
+  answer: 1
+  explanation: |-
+    $E[(X - 200)^+] = \int_{200}^\infty e^{-x/1000}\,dx = 1000\,e^{-0.2} \approx 818.70$. The value 181.30 is $E[\min(X, 200)] = 1000(1 - e^{-0.2})$, the part the policyholder bears; the two add to 1000. Subtracting 200 from the mean ignores the losses below 200 that pay nothing.
+
+- id: ps-m3-r2-h21
+  lesson: ps-m3-h-mixed-distributions
+  topic: Censoring and deductibles
+  stem: 'Lifetimes are exponential with mean 500 hours, and a test stops at 300 hours. What is the mean of the recorded time $T = \min(X, 300)$?'
+  choices: ['274.4 hours', '300 hours', '225.6 hours', '500 hours']
+  answer: 2
+  explanation: |-
+    $E(T) = \int_0^{300} e^{-x/500}\,dx = 500(1 - e^{-0.6}) \approx 225.6$ hours, far below the true mean of 500: averaging censored times as failures biases the estimate down. The value 274.4 is $500\,e^{-0.6}$.
+
+- id: ps-m3-r2-h22
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  stem: '$X$ is Bernoulli with $P(X = 1) = 0.3$. Using the quantile function $F^{-1}(u) = \min\{x : F(x) \ge u\}$, what is $F^{-1}(0.6)$?'
+  choices: ['0.3', '0.6', '1', '0']
+  answer: 3
+  explanation: |-
+    $F(0) = P(X = 0) = 0.7 \ge 0.6$, so the smallest $x$ with $F(x) \ge 0.6$ is 0. In inverse transform sampling, every $u \le 0.7$ produces 0 and every $u > 0.7$ produces 1.
+
+- id: ps-m3-r2-h23
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  stem: 'Which property does the cdf of every random variable have?'
+  choices: ['It is continuous', 'It is right-continuous', 'It is strictly increasing', 'It is differentiable']
+  answer: 1
+  explanation: |-
+    Every cdf is nondecreasing, right-continuous and goes from 0 to 1. It can jump (discrete or mixed variables), so it need not be continuous or differentiable, and it can be flat where there is no probability.
+
+- id: ps-m3-r2-h24
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  stem: '$X$ is the roll of a fair die and $F$ is its cdf. What is the distribution of $F(X)$?'
+  choices: ['It takes the values $\tfrac16, \tfrac26, \dots, 1$, each with probability $\tfrac16$', 'It is uniform on $(0, 1)$', 'It always equals 1', 'It takes the values $0, \tfrac16, \dots, \tfrac56$, each with probability $\tfrac16$']
+  answer: 0
+  explanation: |-
+    $F(k) = k/6$ for $k = 1, \dots, 6$, so $F(X)$ is $\tfrac{k}{6}$ with probability $\tfrac16$ each. The probability integral transform ($F(X)$ uniform on $(0, 1)$) needs a continuous $F$. The last choice lists the left limits $F(k^-)$.
+
+- id: ps-m3-r2-h25
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  type: text
+  stem: 'In the traffic-light example of the lesson (red 40 s, green 50 s), $F(w) = \tfrac59 + \tfrac{w}{90}$ for $0 \le w \le 40$. Then $P(W > 0) =$ ___. Give an exact fraction.'
+  accept: ['4/9']
+  explanation: |-
+    $P(W > 0) = 1 - F(0) = 1 - \tfrac59 = \tfrac49$, the chance of arriving on red. Note that $P(W \ge 0) = 1$: at a point mass, $>$ and $\ge$ differ.
+
+- id: ps-m3-r2-h26
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  type: match
+  stem: 'Match each random quantity to its type.'
+  pairs:
+    - [Number of defects on a panel, Discrete]
+    - [Exact time until a radioactive atom decays, Continuous]
+    - [Amount of rain tomorrow, Mixed]
+    - [Insurance payment on a policy with a deductible, Mixed]
+  distractors: [Singular]
+  explanation: |-
+    A count is discrete. A decay time can be any positive number with no value having positive probability: continuous. Rainfall is exactly 0 on a dry day (a point mass) and continuous otherwise; an insurance payment is exactly 0 for every loss below the deductible. Singular distributions exist in theory but do not describe quantities like these.
+
+- id: ps-m3-r2-h27
+  lesson: ps-m3-h-mixed-distributions
+  topic: Mixed random variables
+  type: order
+  stem: 'For the traffic-light wait $W$ of the lesson (red 40 s, green 50 s), put these values in increasing order.'
+  items:
+    - 'the median of $W$'
+    - '$E(W)$'
+    - 'the standard deviation of $W$'
+    - 'the 90th percentile of $W$'
+    - 'the largest possible wait'
+  explanation: |-
+    The median is 0 because $P(W = 0) = \tfrac59 > \tfrac12$. $E(W) \approx 8.89$ s. $E(W^2) = \tfrac49 \cdot \tfrac{40^2}{3} \approx 237.0$, so the SD is $\sqrt{237.0 - 79.0} \approx 12.57$ s. The 90th percentile solves $\tfrac59 + \tfrac{w}{90} = 0.9$: $w = 31$ s. The largest wait is 40 s.
+
+- id: ps-m3-r2-h28
+  lesson: ps-m3-h-mixed-distributions
+  topic: Censoring and deductibles
+  stem: '$X \ge 0$ is continuous with pdf $f$, cdf $F$ and survival function $S$, and $d > 0$. Which expressions equal $E(X)$? Select all that apply.'
+  choices: ['$\int_0^\infty S(x)\,dx$', '$E[\min(X, d)] + E[(X - d)^+]$', '$\int_0^\infty F(x)\,dx$', '$\int_0^d S(x)\,dx$', '$\int_0^\infty x\,f(x)\,dx$']
+  answer: [0, 1, 4]
+  explanation: |-
+    The tail formula and the definition both give $E(X)$, and $\min(X, d) + (X - d)^+ = X$ for every value. $\int_0^d S$ is only the limited expected value $E[\min(X, d)]$, and $\int_0^\infty F$ diverges for any lifetime because $F \to 1$.
+
+- id: ps-m3-r2-h29
+  lesson: ps-m3-h-mixed-distributions
+  topic: Censoring and deductibles
+  type: text
+  stem: '$X \sim \text{U}(0, 10)$ and $Y = \min(X, 5)$. Then $P(Y = 5) =$ ___ and $E(Y) =$ ___. Give numbers only.'
+  accept:
+    - ['0.5', '1/2', '.5']
+    - ['3.75', '15/4', '3 3/4']
+  explanation: |-
+    $Y = 5$ exactly when $X \ge 5$, which has probability 0.5: a point mass. $E(Y) = \int_0^5 P(X > x)\,dx = \int_0^5 \left(1 - \tfrac{x}{10}\right)dx = 5 - 1.25 = 3.75$. Splitting gives the same: $\int_0^5 \tfrac{x}{10}\,dx + 5 \cdot 0.5 = 1.25 + 2.5 = 3.75$.

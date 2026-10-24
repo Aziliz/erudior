@@ -51,6 +51,8 @@
   calc:
     p: s + t
     q: -s*t
+    mp: -p
+    mq: s*t
     z0: cA + cB
     z1: cA*s + cB*t
     z2: p*z1 + q*z0
@@ -61,7 +63,7 @@
     - {name: cA, label: '$A =$'}
     - {name: cB, label: '$B =$'}
   solution: |-
-    The characteristic equation is $x^2 {p:signedcoef}\cdot(-1)x {q:signed}\cdot(-1) = 0$, that is, $x^2 - ({p})x - ({q}) = 0$, with roots $x_1 =$ **{s}** and $x_2 =$ **{t}** (their sum is {p} and their product is {s}·({t})). Then $A + B = {z0}$ and $A({s}) + B({t}) = {z1}$, which give $A =$ **{cA}** and $B =$ **{cB}**. Check: the rule gives $a_2 = {p}({z1}) + ({q})({z0}) = {z2}$, and the formula gives ${cA}({s})^2 + ({cB})({t})^2 = {z2}$.
+    Trying $a_n = x^n$ gives $x^2 = {p:coef}x {q:signed}$, so the characteristic equation is $x^2 {mp:signedcoef}x {mq:signed} = 0$, with roots $x_1 =$ **{s}** and $x_2 =$ **{t}** (their sum is {p} and their product is {s}·({t})). Then $A + B = {z0}$ and $A({s}) + B({t}) = {z1}$, which give $A =$ **{cA}** and $B =$ **{cB}**. Check: the rule gives $a_2 = {p}({z1}) + ({q})({z0}) = {z2}$, and the formula gives ${cA}({s})^2 + ({cB})({t})^2 = {z2}$.
 
 - id: pc-m9-r2-multiset
   title: Arrangements with repeated objects
@@ -117,10 +119,10 @@
     neither: big - either
   prompt: 'How many integers from 1 to {big} are divisible by {d1} or by {d2}? How many are divisible by neither?'
   answers:
-    - {name: either, label: 'By {d1} or {d2}'}
-    - {name: neither, label: 'By neither'}
+    - {name: either, label: 'Divisible by either'}
+    - {name: neither, label: 'Divisible by neither'}
   solution: |-
-    Multiples of {d1}: $\lfloor {big}/{d1} \rfloor = {m1}$. Multiples of {d2}: ${m2}$. Numbers divisible by both are multiples of $\operatorname{lcm}({d1}, {d2}) = {l}$: ${m12}$, counted twice. So ${m1} + {m2} - {m12} =$ **{either}**, and $ {big} - {either} =$ **{neither}** are divisible by neither.
+    Multiples of {d1}: $\lfloor {big}/{d1} \rfloor = {m1}$. Multiples of {d2}: ${m2}$. Numbers divisible by both are multiples of $\operatorname{lcm}({d1}, {d2}) = {l}$: ${m12}$, counted twice. So ${m1} + {m2} - {m12} =$ **{either}**, and ${big} - {either} =$ **{neither}** are divisible by neither.
 
 - id: pc-m9-r2-binom-exact
   title: Probability of exactly k successes

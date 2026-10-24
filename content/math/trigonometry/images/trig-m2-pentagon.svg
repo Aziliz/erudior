@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 460" width="520" height="460" font-family="sans-serif" font-size="17" fill="#1c2833">
+<rect width="520" height="460" fill="#ffffff"/>
+<polygon points="260.0,50.0 440.7,181.3 371.7,393.7 148.3,393.7 79.3,181.3" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="260.0,240.0 260.0,393.7 371.7,393.7" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<line x1="260.0" y1="240.0" x2="371.7" y2="393.7" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="260.0" y1="240.0" x2="260.0" y2="393.7" stroke="#1c2833" stroke-width="2.5" stroke-dasharray="7 5"/>
+<polyline points="260.0,379.7 274.0,379.7 274.0,393.7" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+<path d="M260.0,240.0 L260.0,282.0 A42,42 0 0 0 284.7,274.0 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="260" cy="240" r="5" fill="#1c2833"/>
+<circle cx="260.0" cy="50.0" r="4" fill="#1c2833"/>
+<circle cx="440.7" cy="181.3" r="4" fill="#1c2833"/>
+<circle cx="371.7" cy="393.7" r="4" fill="#1c2833"/>
+<circle cx="148.3" cy="393.7" r="4" fill="#1c2833"/>
+<circle cx="79.3" cy="181.3" r="4" fill="#1c2833"/>
+<text x="285.2" y="307.0" text-anchor="middle" font-size="17">36°</text>
+<text x="246.0" y="230.0" text-anchor="end" font-size="17" font-weight="bold">O</text>
+<text x="339.8" y="314.9" text-anchor="middle" font-size="19" font-style="italic">R</text>
+<text x="248.0" y="346.9" text-anchor="end" font-size="19" font-style="italic">a</text>
+<text x="315.8" y="419.7" text-anchor="middle" font-size="17" font-style="italic">s/2</text>
+<text x="260.0" y="26.0" text-anchor="middle" font-size="16">Regular pentagon: central angle 72°, half of it 36°</text>
+</svg>

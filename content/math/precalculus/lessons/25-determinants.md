@@ -87,6 +87,20 @@ $z = \frac{21}{7} = 3$, matching Lesson 22. Cramer's rule shines when you need o
 
 If $D = 0$, Cramer's rule doesn't apply: the system has no solution or infinitely many, and elimination tells which.
 
+This module now has three ways to solve a square system. The chart suggests when each one is the natural choice:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for a square linear system
+  accDescr: For a square system AX equals B, first find det A. If it is zero, Cramer's rule and the inverse both fail; use elimination to decide between no solution and infinitely many. If it is not zero there is exactly one solution. Cramer's rule is a good choice when you need only one variable or the coefficients contain letters; the inverse matrix when the same A is used with many right-hand sides; Gaussian elimination when you need every variable of a larger system.
+  Q["Square system AX = B"] --> D{"Is det A = 0?"}
+  D -- yes --> G["Elimination: no solution or infinitely many"]
+  D -- no --> W{"One solution: what do you need?"}
+  W -- "one variable, or letters in the coefficients" --> C["Cramer's rule"]
+  W -- "same A, many right-hand sides" --> I["Inverse matrix"]
+  W -- "every variable of a larger system" --> E["Gaussian elimination"]
+```
+
 ## Determinants and area
 
 The area of the triangle with vertices $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ is
