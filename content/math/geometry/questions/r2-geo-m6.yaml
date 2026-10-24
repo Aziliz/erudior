@@ -6,7 +6,7 @@
   type: text
   topic: Similar polygons
   stem: 'Two similar triangles have areas 18 and 50. The scale factor from the smaller to the larger is ___. (A fraction or a decimal is fine.)'
-  accept: ['5/3', '1.67', '1.667', '1 2/3']
+  accept: ['5/3', '1.67', '1.667', '1.6667', '1.7', '1 2/3']
   explanation: |-
     The area ratio is $\tfrac{50}{18} = \tfrac{25}{9}$, and the area ratio is $k^2$. So $k = \sqrt{\tfrac{25}{9}} = \tfrac53 \approx 1.67$. (Answering $\tfrac{25}{9}$ forgets to take the square root.)
 - id: geo-m6-r2-q02
@@ -442,7 +442,7 @@
   choices: ['Odd numbers can''t be the sides of a right triangle', 'The sum of two odd numbers is even, and a hypotenuse must be odd', 'The sum of two odd squares leaves remainder 2 when divided by 4, and no perfect square does', 'Euclid''s formula always makes $b = 2mn$ even']
   answer: 2
   explanation: |-
-    An odd square is 1 more than a multiple of 4, so the sum of two is 2 more than a multiple of 4. But every square is either a multiple of 4 or 1 more than one, so $c^2$ can't equal that sum. The third choice talks about $a + b$, not $a^2 + b^2$, and the fourth assumes the formula already covers every triple, which is what needs proving.
+    An odd square is 1 more than a multiple of 4, so the sum of two is 2 more than a multiple of 4. But every square is either a multiple of 4 or 1 more than one, so $c^2$ can't equal that sum. The second choice talks about $a + b$, not $a^2 + b^2$ (and a non-primitive hypotenuse such as 10 in 6-8-10 is even), and the fourth assumes the formula already covers every triple, which is what needs proving.
 - id: geo-m6-r2-h08
   lesson: geo-m6-h-triples
   type: order
@@ -571,14 +571,14 @@
   lesson: geo-m6-h-triangulation
   type: order
   topic: Triangulation
-  stem: 'Put the steps for locating a new landmark from a known baseline in order.'
+  stem: 'A baseline has already been measured. Put the steps for locating a new landmark and extending the chain in order.'
   items:
-    - 'Measure the baseline length carefully'
     - 'Measure the angles at both ends of the baseline to the landmark'
     - 'Find the third angle from the $180^\circ$ sum'
     - 'Use the Law of Sines to find the two new sides'
+    - 'Use one of the new sides as the known side of the next triangle'
   explanation: |-
-    The Law of Sines needs each side's opposite angle, so the third angle (opposite the baseline) must be found before the new sides can be computed.
+    The angles must be measured before anything can be computed. The Law of Sines needs each side's opposite angle, so the third angle (opposite the baseline) must be found before the new sides can be computed, and only a computed side can serve as the next triangle's known side.
 - id: geo-m6-r2-h23
   lesson: geo-m6-h-triangulation
   type: match
@@ -767,6 +767,6 @@
   type: text
   topic: Golden ratio
   stem: 'A $2 \times 1$ rectangle has a $1 \times 1$ square cut off one end. The piece left over is a ___.'
-  accept: [square, a square, 1 by 1 square, 1x1 square]
+  accept: [square, a square, 1 by 1 square, 1x1 square, 1×1 square, unit square, a unit square, another square]
   explanation: |-
     $2 - 1 = 1$, so what remains is another $1 \times 1$ square, not a rectangle similar to the $2 \times 1$ original. Only the golden rectangle leaves a piece similar to itself.

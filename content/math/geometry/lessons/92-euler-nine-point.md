@@ -15,7 +15,7 @@ The tools are ones you already have: the centroid's $2 : 1$ ratio (Lesson 16), m
 
 The three midpoints of the sides, $D$ on $\overline{BC}$, $E$ on $\overline{CA}$ and $F$ on $\overline{AB}$, form the **medial triangle** $DEF$. Its sides are the three midsegments, so each side of $\triangle DEF$ is parallel to a side of $\triangle ABC$ and half as long. In particular $\overline{EF} \parallel \overline{BC}$.
 
-Now look at the centroid $G$. It lies on median $\overline{AD}$ with $AG = 2\,GD$, and $D$ is on the opposite side of $G$ from $A$. So the map "*rotate $180^\circ$ about $G$, then dilate by $\tfrac12$ from $G$*" sends $A$ to $D$. In the same way it sends $B$ to $E$ and $C$ to $F$. Call this map $T$. (Lesson 37 noted that some books call $T$ a dilation with scale factor $-\tfrac12$.) Like any rotation or dilation, $T$ sends every line to a parallel line, keeps angles, and halves every length. So $T$ maps $\triangle ABC$ onto its medial triangle.
+Now look at the centroid $G$. It lies on median $\overline{AD}$ with $AG = 2\,GD$, and $D$ is on the opposite side of $G$ from $A$. So the map "*rotate $180^\circ$ about $G$, then dilate by $\tfrac12$ from $G$*" sends $A$ to $D$. In the same way it sends $B$ to $E$ and $C$ to $F$. Call this map $T$. (Lesson 37 noted that some books call $T$ a dilation with scale factor $-\tfrac12$.) A half-turn and a dilation each send every line to a parallel line (a rotation by any other angle would not), so $T$ does too; it also keeps angles and halves every length. So $T$ maps $\triangle ABC$ onto its medial triangle.
 
 ## Proof of the Euler line
 

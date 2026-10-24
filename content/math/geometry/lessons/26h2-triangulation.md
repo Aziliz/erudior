@@ -48,7 +48,7 @@ In real surveying the angles are measured from the instrument, which stands a me
 
 ## Bearings
 
-Navigators and surveyors give directions as **bearings**: angles measured *clockwise from north*, written with three digits. North is $000^\circ$, east $090^\circ$, south $180^\circ$ and west $270^\circ$, so a bearing of $030^\circ$ points north-northeast. (Another convention, common in land surveying, writes the same direction as N 30° E: start facing north and turn $30^\circ$ toward east. This lesson uses three-digit bearings.)
+Navigators and surveyors give directions as **bearings**: angles measured *clockwise from north*, written with three digits. North is $000^\circ$, east $090^\circ$, south $180^\circ$ and west $270^\circ$, so a bearing of $030^\circ$ points $30^\circ$ east of north, between north-northeast ($022.5^\circ$) and northeast ($045^\circ$). (Another convention, common in land surveying, writes the same direction as N 30° E: start facing north and turn $30^\circ$ toward east. This lesson uses three-digit bearings.)
 
 Two facts do most of the work:
 

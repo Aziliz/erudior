@@ -36,7 +36,7 @@
   topic: Golden ratio
 - term: logarithmic spiral
   aliases: [logarithmic spirals]
-  definition: 'A spiral that grows by the same factor every time it turns through the same angle, so every part of it has the same shape. The squares of a golden rectangle trace an approximate one.'
+  definition: 'A spiral that grows by the same factor every time it turns through the same angle, so every part of it has the same shape. Quarter-circle arcs drawn in the nested squares of a golden rectangle approximate one.'
   topic: Golden ratio
 - term: extreme and mean ratio
   definition: 'Euclid''s name for dividing a segment so that the whole is to the longer piece as the longer piece is to the shorter; the ratio is the golden ratio.'

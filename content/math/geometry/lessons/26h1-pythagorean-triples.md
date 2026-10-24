@@ -24,7 +24,7 @@ Place two copies of a right triangle with legs $a$, $b$ and hypotenuse $c$ side 
 
 $$(a + b)^2 = 2ab + c^2 \quad\Longrightarrow\quad a^2 + 2ab + b^2 = 2ab + c^2 \quad\Longrightarrow\quad a^2 + b^2 = c^2.$$
 
-Garfield's figure is exactly half of the square picture from Lesson 22, cut along a diagonal line. That is why the algebra looks so similar.
+Garfield's figure is exactly half of the square picture from Lesson 22, cut along a diagonal of the tilted inner square. That is why the algebra looks so similar.
 
 ## The theorem is about similar figures
 
