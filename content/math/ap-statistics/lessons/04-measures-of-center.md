@@ -55,8 +55,10 @@ location 10.5 means "halfway between the 10th and 11th values."
 ## The mode
 
 The **mode** is the most frequent value. A data set can have one mode, several, or none
-(all values distinct). The mode is the only measure of center that works for categorical
-data ("the most common arrival mode is walking"). For quantitative data it is mostly
+(all values distinct). The mode is the only measure of center that works for nominal
+data ("the most common arrival mode is walking"). Ordinal data (ordered categories such as
+poor, fair, good) also have a median: sort the responses and take the middle category. A mean
+of category codes needs care, because the gaps between categories are not guaranteed equal. For quantitative data it is mostly
 useful to describe peaks: the tallest bar of a histogram is the **modal class**.
 
 ## Resistance and the effect of skew
@@ -93,9 +95,9 @@ Putting the shape, the type of variable and the weights together gives a quick w
 ```mermaid
 flowchart TD
   accTitle: Choosing a measure of center
-  accDescr: For a categorical variable, the only measure of center is the mode. For a quantitative variable, look at the shape. If the distribution is roughly symmetric with no outliers, report the mean. If it is skewed or has outliers, report the median, which is resistant. If values carry different weights, such as credit hours, use the weighted mean.
+  accDescr: For a categorical variable, use the mode; if the categories are ordered (ordinal), the median also works. For a quantitative variable, look at the shape. If the distribution is roughly symmetric with no outliers, report the mean. If it is skewed or has outliers, report the median, which is resistant. If values carry different weights, such as credit hours, use the weighted mean.
   A["Variable"] --> B{"Categorical?"}
-  B -- Yes --> M["Mode"]
+  B -- Yes --> M["Mode (median too, if ordinal)"]
   B -- No --> W{"Do values carry different weights?"}
   W -- Yes --> WM["Weighted mean"]
   W -- No --> S{"Roughly symmetric, no outliers?"}
@@ -170,6 +172,6 @@ previous lesson: mean > median, consistent with right skew.
 
 - Mean $\bar{x} = \sum x_i / n$: the balance point; deviations from it sum to 0.
 - Median: middle of the sorted data (position $(n+1)/2$); resistant to outliers.
-- Mode: most frequent value; the only center for categorical data.
+- Mode: most frequent value; the only center for nominal data (ordinal data also have a median).
 - Right skew: mean > median; left skew: mean < median. Use the median for skewed data.
 - Weighted mean $\sum w_i x_i / \sum w_i$; for grouped data use bin midpoints.

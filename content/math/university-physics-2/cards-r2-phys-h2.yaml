@@ -19,7 +19,7 @@
 - {front: 'Radiation field of an accelerated charge', back: '$E_{\text{rad}} = \dfrac{qa\sin\theta}{4\pi\varepsilon_0c^2r}$: transverse, falls as $1/r$, zero along the acceleration.', topic: Radiation from accelerating charges}
 - {front: 'Larmor formula', back: '$P = \dfrac{q^2a^2}{6\pi\varepsilon_0c^3}$ (slow charges); pattern $\propto\sin^2\theta$.', topic: Radiation from accelerating charges}
 - {front: 'Rayleigh scattering', back: 'Scattered power $\propto 1/\lambda^4$ for scatterers much smaller than $\lambda$: blue (450 nm) scatters about 6 times more than red (700 nm).', topic: Radiation from accelerating charges}
-- {front: 'Classical collapse time of hydrogen', back: '$t = r_0^3/(4r_e^2c) \approx 1.6\times10^{-11}$ s, with $r_e = ke^2/(m_ec^2) = 2.81\times10^{-15}$ m.', topic: Radiation from accelerating charges}
+- {front: 'Classical collapse time of hydrogen', back: '$t = r_0^3/(4r_e^2c) \approx 1.6\times10^{-11}$ s, with $r_e = ke^2/(m_ec^2) = 2.82\times10^{-15}$ m.', topic: Radiation from accelerating charges}
 - {front: 'Power radiated by a classical electron at the Bohr radius', back: 'About $4.7\times10^{-8}$ W ($a \approx 9\times10^{22}$ m/s²).', topic: Radiation from accelerating charges}
 - {front: 'Correspondence principle (hydrogen)', back: '$f_{\text{orbit}} = 6.57\times10^{15}\text{ Hz}/n^3$; the $n \to n - 1$ photon has $f/f_{\text{orbit}} = \dfrac{n(2n - 1)}{2(n - 1)^2} \to 1$ for large $n$.', topic: Radiation from accelerating charges}
 - {front: 'Electron circling in a magnetic field: radiation time scale', back: '$K/P$ does not depend on speed (both $\propto v^2$), so the energy decays exponentially; about 2.6 s at 1.0 T.', topic: Radiation from accelerating charges}

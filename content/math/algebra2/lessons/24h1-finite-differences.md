@@ -91,7 +91,7 @@ The second says the sum of the first $n$ cubes is the *square* of the sum of the
 
 ### Where the sum of squares comes from
 
-A **telescoping sum** is one in which each term cancels part of the next, so that almost everything collapses, like the sections of a folding telescope sliding together. Here is one:
+The honors lesson on partial fractions in Module 5 introduced the **telescoping sum**: a sum in which each term cancels part of the next, so that almost everything collapses, like the sections of a folding telescope sliding together. The same trick finds the sum of squares. Start with this telescoping sum:
 
 $$\sum_{k=1}^{n} \left[(k + 1)^3 - k^3\right] = (2^3 - 1^3) + (3^3 - 2^3) + \cdots + \left((n + 1)^3 - n^3\right) = (n + 1)^3 - 1.$$
 
@@ -127,7 +127,7 @@ This is the sum up to 20 minus the sum up to 10 (not 11, since $11^2$ must stay 
 
 ## Telescoping a fraction sum
 
-Telescoping also works on sums that are neither arithmetic nor geometric. (The honors lesson on partial fractions in Module 5 meets this same sum from another direction.) Because
+Telescoping also works on sums that are neither arithmetic nor geometric. (This is the sum you already collapsed in the honors lesson on partial fractions in Module 5; here it is again, with the splitting checked directly.) Because
 
 $$\frac{1}{k} - \frac{1}{k + 1} = \frac{(k + 1) - k}{k(k + 1)} = \frac{1}{k(k + 1)},$$
 

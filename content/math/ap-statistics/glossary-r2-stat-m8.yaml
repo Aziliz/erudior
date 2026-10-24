@@ -10,7 +10,7 @@
   topic: Power and sample size
 - term: effect size
   aliases: [effect sizes, standardized effect size]
-  definition: 'The size of an effect measured on a scale that does not depend on the sample size; in power planning, $d = \delta/\sigma$, the difference to detect in standard deviations of individual values.'
+  definition: 'A number that measures how large an effect is, on a scale that does not depend on the sample size. It can be in the original units (a difference in means or proportions; a relative risk or odds ratio) or standardized (Cohen''s $d$, Cramér''s $V$). In power planning, $d = \delta/\sigma$, the difference to detect in standard deviations of individual values.'
   topic: Power and sample size
 - term: winner's curse
   aliases: [Type M error]

@@ -972,7 +972,7 @@
   topic: Parabolas
 - term: focus
   aliases: [foci]
-  definition: 'The fixed point in the definition of a parabola; with vertex at the origin and $x^2 = 4py$, it is $(0, p)$.'
+  definition: 'A fixed point used to define a conic. A parabola has one focus (with vertex at the origin and $x^2 = 4py$, it is $(0, p)$); an ellipse and a hyperbola each have two foci (for the centered forms with foci on the $x$-axis, $(\pm c, 0)$).'
   topic: Parabolas
 - term: directrix
   definition: 'The fixed line in the definition of a parabola; with vertex at the origin and $x^2 = 4py$, it is $y = -p$.'

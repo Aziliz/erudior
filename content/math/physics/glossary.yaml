@@ -192,7 +192,7 @@
   definition: 'The ratio $\mu_s = f_{s,\max}/n$; equals $\tan\theta$ at the angle where an object just starts to slide down an incline.'
   topic: Friction
 - term: tension
-  definition: 'The pulling force a taut rope, string or cable exerts along its length.'
+  definition: 'The pulling force a taut rope, string or cable exerts along its length. A rod or truss member is likewise in tension when it is pulled at both ends; the opposite is compression.'
   topic: Tension and pulleys
 - term: massless rope
   aliases: [ideal rope]

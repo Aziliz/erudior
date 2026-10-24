@@ -137,7 +137,7 @@ $D$, the object is very nearly a short arc of that circle, so by $s = r\theta$,
 
 $$\theta \approx \frac{D}{d} \qquad (\theta \text{ in radians}).$$
 
-This is the small-angle approximation. It treats a straight object as if it were bent to fit
+This is the **small-angle approximation**. It treats a straight object as if it were bent to fit
 the circle, and the error is tiny when the angle is small: the straight chord and the arc differ
 by about 0.13% at $10^\circ$ and about 0.001% at $1^\circ$.
 

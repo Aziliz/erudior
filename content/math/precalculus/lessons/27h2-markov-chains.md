@@ -76,7 +76,7 @@ For the weather chain, $P - I = \begin{bmatrix} -0.2 & 0.4 \\ 0.2 & -0.4 \end{bm
 
 The steady state has two readings. It is the long-run probability: far in the future, the chance of sun is about $\tfrac23$ whatever today is like. And it is the long-run fraction of time: over many years, about two days in three are sunny in this model.
 
-When can you count on settling down? A transition matrix is **regular** if some power of it has all entries positive, meaning that after some fixed number of steps every state can be reached from every state. The weather matrix is regular already ($P^1$ has no zeros). The key theorem, stated here without proof (it is part of the Perron–Frobenius theory of positive matrices):
+When can you count on settling down? A **regular transition matrix** is one with some power that has all entries positive, meaning that after some fixed number of steps every state can be reached from every state. The weather matrix is regular already ($P^1$ has no zeros). The key theorem, stated here without proof (it is part of the Perron–Frobenius theory of positive matrices):
 
 > If $P$ is regular, it has exactly one steady-state vector $\mathbf{q}$, and $P^n\mathbf{x}_0 \to \mathbf{q}$ for every starting state vector $\mathbf{x}_0$. Every column of $P^n$ approaches $\mathbf{q}$.
 

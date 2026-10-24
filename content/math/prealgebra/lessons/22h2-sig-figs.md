@@ -73,7 +73,7 @@ A calculation can't create precision that the measurements didn't have. Two rule
 
 The rules differ because the operations spread error differently. When you add 120.4 g and 3.256 g, the first mass is unknown in the hundredths place, so the total is too, no matter how many digits the second mass has. When you multiply, what matters is the *relative* error, the error as a fraction of the size, and the number of significant figures is a rough measure of that.
 
-Two habits keep the rules honest. Ignore exact numbers when counting, and round only once, at the end: rounding in the middle of a calculation lets small errors pile up.
+Two habits keep the rules honest. Ignore exact numbers when counting, and round only once, at the end: rounding in the middle of a calculation lets small errors pile up. These rules are shortcuts. The Module 8 honors lesson "Precision and measurement error" checks them properly, by working out the smallest and largest values each measurement could really have and carrying those through the calculation.
 
 ```mermaid
 flowchart TD
@@ -109,7 +109,7 @@ Sum: $12.6 + 12.9 + 12.7 = 38.2$ s, known to the tenths place. Divide by 3, whic
 
 ## Sizes in powers of ten
 
-Scientific notation also makes it easy to compare sizes that are wildly different. A number's power of ten tells its rough size, its *order of magnitude*, and two quantities whose ratio is about $10^n$ are said to differ by $n$ orders of magnitude. The picture places familiar things on a scale where each step is ten times the last.
+Scientific notation also makes it easy to compare sizes that are wildly different. A number's power of ten tells its rough size, its **order of magnitude** (the idea behind the Fermi estimates in the Module 1 honors lesson "Bounds, error and Fermi problems"), and two quantities whose ratio is about $10^n$ are said to differ by $n$ orders of magnitude. The picture places familiar things on a scale where each step is ten times the last.
 
 ![A number line in meters from 10 to the minus 10 up to 10 to the 12, with each tick ten times the one before. An atom is near 10 to the minus 10, a virus near 10 to the minus 7, a red blood cell near 10 to the minus 5, a sand grain near 10 to the minus 3 or 4, a person near 1, Mount Everest near 10 to the 4, Earth's width near 10 to the 7, and the Earth to Sun distance near 10 to the 11.](images/pre-m6-size-scale.svg)
 

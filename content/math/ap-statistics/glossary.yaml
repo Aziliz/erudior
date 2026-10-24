@@ -797,7 +797,7 @@
   topic: Confidence intervals for proportions
 - term: critical value
   aliases: [critical values, z*, t*]
-  definition: 'The multiplier ($z^*$ or $t^*$) that sets the confidence level of an interval.'
+  definition: 'A cutoff from a sampling distribution (such as $z^*$, $t^*$ or a chi-square table value) that leaves a chosen tail area. In a confidence interval it is the multiplier that sets the confidence level; in a significance test it marks the edge of the rejection region for significance level $\alpha$.'
   topic: Confidence intervals for proportions
 - term: confidence level
   definition: 'The long-run percent of intervals produced by the method that capture the true parameter.'

@@ -83,9 +83,9 @@ The total energy of a circular orbit is $E = -\dfrac{ke^2}{2r}$, so $\dfrac{dE}{
 
 $$\frac{ke^2}{2r^2}\frac{dr}{dt} = -\frac{2ke^2}{3c^3}\left(\frac{ke^2}{m_er^2}\right)^2 \quad\Longrightarrow\quad r^2\frac{dr}{dt} = -\frac43r_e^2c,$$
 
-where $r_e = \dfrac{ke^2}{m_ec^2} = 2.81\times10^{-15}$ m is the **classical electron radius**, a length that simply collects the constants. Separate and integrate from $r_0$ down to 0: $\dfrac{r_0^3}{3} = \dfrac43r_e^2c\,t$, so
+where $r_e = \dfrac{ke^2}{m_ec^2} = 2.82\times10^{-15}$ m is the **classical electron radius**, a length that simply collects the constants. Separate and integrate from $r_0$ down to 0: $\dfrac{r_0^3}{3} = \dfrac43r_e^2c\,t$, so
 
-$$t = \frac{r_0^3}{4r_e^2c} = \frac{(5.29\times10^{-11})^3}{4(2.81\times10^{-15})^2(3.00\times10^8)} = 1.6\times10^{-11}\text{ s}.$$
+$$t = \frac{r_0^3}{4r_e^2c} = \frac{(5.29\times10^{-11})^3}{4(2.82\times10^{-15})^2(3.00\times10^8)} = 1.6\times10^{-11}\text{ s}.$$
 
 Classical physics predicts that every atom in the universe should collapse in about 16 picoseconds, emitting a smear of radiation of steadily rising frequency on the way. Atoms are stable, and they emit sharp spectral lines. The calculation is only an estimate (the electron's speed grows as it falls, and nonrelativistic formulas eventually fail), but no refinement within classical physics saves the atom.
 

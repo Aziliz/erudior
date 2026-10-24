@@ -74,7 +74,7 @@ minutes: the bootstrap standard error of the median. Because $n$ is odd, every r
 one of the nine data values, so the bootstrap distribution sits on just those values:
 
 ```plot
-{"x": [8, 56], "y": [0, 30], "xLabel": "median of a resample (minutes)", "yLabel": "percent of resamples", "bars": [{"x": 12, "height": 0.14, "width": 1.2}, {"x": 15, "height": 2.9, "width": 1.2}, {"x": 17, "height": 11.4, "width": 1.2}, {"x": 18, "height": 22.1, "width": 1.2}, {"x": 21, "height": 26.9, "width": 1.2}, {"x": 24, "height": 22.1, "width": 1.2}, {"x": 26, "height": 11.4, "width": 1.2}, {"x": 33, "height": 2.9, "width": 1.2}, {"x": 52, "height": 0.14, "width": 1.2}], "caption": "Bootstrap distribution of the median for the nine commute times (long-run percentages)"}
+{"x": [8, 56], "y": [0, 30], "xLabel": "median of a resample (minutes)", "yLabel": "percent of resamples", "bars": [{"x": 12, "height": 0.14, "width": 0.8}, {"x": 15, "height": 2.9, "width": 0.8}, {"x": 17, "height": 11.4, "width": 0.8}, {"x": 18, "height": 22.1, "width": 0.8}, {"x": 21, "height": 26.9, "width": 0.8}, {"x": 24, "height": 22.1, "width": 0.8}, {"x": 26, "height": 11.4, "width": 0.8}, {"x": 33, "height": 2.9, "width": 0.8}, {"x": 52, "height": 0.14, "width": 0.8}], "caption": "Bootstrap distribution of the median for the nine commute times (long-run percentages)"}
 ```
 
 The simplest bootstrap confidence interval is the **percentile interval**: the middle 95% of the

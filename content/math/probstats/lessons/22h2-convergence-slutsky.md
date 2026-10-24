@@ -139,7 +139,7 @@ With $n = 64$ incomes, $\bar x = 52.3$ and $s = 18.4$ (thousands of dollars): $5
 or $(47.79, 56.81)$. Step 2 used the WLLN for the $X_i^2$, which needs only their finite mean; that is
 why no assumption beyond a finite variance is required. For a proportion the same argument gives
 $(\hat p - p)/\sqrt{\hat p(1 - \hat p)/n} \xrightarrow{d} N(0, 1)$, the basis of the Wald interval $\hat p \pm 1.96\sqrt{\hat p(1 - \hat p)/n}$;
-with $n = 400$ and $\hat p = 0.3$, that is $0.3 \pm 0.045$, or $(0.255, 0.345)$. (Slutsky makes the Wald interval valid only as $n \to \infty$; for small $n$ or $\hat p$ near 0 or 1 its actual coverage can fall well below 95%.)
+with $n = 400$ and $\hat p = 0.3$, that is $0.3 \pm 0.045$, or $(0.255, 0.345)$. (Slutsky makes the Wald interval valid only as $n \to \infty$; for small $n$ or $\hat p$ near 0 or 1 its actual coverage can fall well below 95%. The honors lesson on intervals for a proportion in the estimation module measures that shortfall and gives better intervals.)
 
 ### Example 5: why the delta method works
 
@@ -156,7 +156,8 @@ Numbers: waiting times are exponential with mean $\mu$, and the rate $\lambda = 
 Here $g(x) = 1/x$, $g'(\mu) = -1/\mu^2$ and $\sigma^2 = \mu^2$, so the asymptotic variance of $1/\bar X$ is
 $\mu^2/(\mu^4 n) = \lambda^2/n$. With $n = 100$ and $\bar x = 2.2$: $\hat\lambda = 0.4545$, estimated SE $= \hat\lambda/\sqrt{100} = 0.0455$
 (plugging $\hat\lambda$ in for $\lambda$ is one more use of Slutsky), and an approximate 95% interval is
-$0.4545 \pm 0.0891$, or $(0.365, 0.544)$.
+$0.4545 \pm 0.0891$, or $(0.365, 0.544)$. The same argument, with an MLE in place of $\bar X$, underlies the Wald
+intervals and delta-method standard errors in the estimation module's honors lesson on Fisher information.
 
 ## Common mistakes
 

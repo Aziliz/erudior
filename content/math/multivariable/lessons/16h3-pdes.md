@@ -59,7 +59,7 @@ times faster than the main hump. Heat flow smooths out sharp features first; Jos
 his theory of heat in the early 1800s on exactly this idea of splitting a profile into sines.
 
 ```plot
-{"x": [0, 3.1416], "y": [-0.2, 1.4], "functions": [{"f": "sin(x) + 0.5*sin(3*x)"}, {"f": "exp(-0.1)*sin(x) + 0.5*exp(-0.9)*sin(3*x)", "dashed": true}, {"f": "exp(-0.5)*sin(x) + 0.5*exp(-4.5)*sin(3*x)"}], "labels": [{"at": [0.7, 1.13], "text": "t = 0"}, {"at": [1.5708, 0.78], "text": "t = 0.1"}, {"at": [1.5708, 0.33], "text": "t = 0.5"}], "xLabel": "x", "yLabel": "u", "caption": "u = e^(−t) sin x + ½e^(−9t) sin 3x at t = 0 (two humps and a dip), t = 0.1 (dashed) and t = 0.5 (one smooth hump): the ripple disappears long before the hump"}
+{"x": [0, 3.4], "y": [-0.2, 1.4], "functions": [{"f": "sin(x) + 0.5*sin(3*x)", "from": 0, "to": 3.1416}, {"f": "exp(-0.1)*sin(x) + 0.5*exp(-0.9)*sin(3*x)", "dashed": true, "from": 0, "to": 3.1416}, {"f": "exp(-0.5)*sin(x) + 0.5*exp(-4.5)*sin(3*x)", "from": 0, "to": 3.1416}], "labels": [{"at": [0.7, 1.13], "text": "t = 0"}, {"at": [1.5708, 0.78], "text": "t = 0.1"}, {"at": [1.5708, 0.33], "text": "t = 0.5"}], "xLabel": "x", "yLabel": "u", "caption": "u = e^(−t) sin x + ½e^(−9t) sin 3x at t = 0 (two humps and a dip), t = 0.1 (dashed) and t = 0.5 (one smooth hump): the ripple disappears long before the hump"}
 ```
 
 ## The wave equation and d'Alembert's solution

@@ -208,7 +208,7 @@
     - [GPA from courses with different credit hours, Weighted mean]
   distractors: [Range]
   explanation: |-
-    Blood type is categorical, so only the mode works. Home prices are skewed right, so the resistant median is better. Heights are roughly symmetric, so the mean uses all the data well. Credits are weights, so the GPA is a weighted mean. The range measures spread, not center.
+    Blood type is categorical with no natural order, so only the mode works. Home prices are skewed right, so the resistant median is better. Heights are roughly symmetric, so the mean uses all the data well. Credits are weights, so the GPA is a weighted mean. The range measures spread, not center.
 
 - id: stat-m1-r2-q18
   lesson: stat-center

@@ -36,26 +36,30 @@ problems. Still a draft (no `released: true` in course.yaml).
 | 10 | alg-m3 | alg-slope | Slope and rate of change | 12 | alg-d-slope-two-points, alg-d-slope-graph |
 | 11 | alg-m3 | alg-line-forms | Equations of lines | 12 | alg-d-line-point-slope, alg-d-line-two-points, alg-d-intercepts |
 | 12 | alg-m3 | alg-parallel-perp | Parallel and perpendicular lines; linear models | 12 | alg-d-perp-line, alg-d-linear-model |
-| 13 | alg-m4 Systems of equations and inequalities | alg-systems-sub | Systems by graphing and substitution | 11 | alg-d-system-graph, alg-d-system-sub |
-| 14 | alg-m4 | alg-elimination | Solving systems by elimination | 10 | alg-d-system-elim, alg-d-system-sub |
-| 15 | alg-m4 | alg-system-apps | Applications of linear systems | 11 | alg-d-tickets, alg-d-mixture, alg-d-wind |
-| 16 | alg-m4 | alg-ineq-systems | Linear inequalities in two variables and systems of inequalities | 11 | alg-d-corner-point, alg-d-lp-max |
-| 17 | alg-m5 Exponents, polynomials, and factoring | alg-exponent-rules | Exponent rules and scientific notation | 13 | alg-d-exp-simplify, alg-d-negative-exp, alg-d-sci-notation |
-| 18 | alg-m5 | alg-poly-ops | Polynomial operations and special products | 12 | alg-d-poly-add, alg-d-foil, alg-d-binomial-square |
-| 19 | alg-m5 | alg-factor-gcf | Factoring: GCF and grouping | 11 | alg-d-factor-gcf, alg-d-factor-grouping |
-| 20 | alg-m5 | alg-factor-trinomials | Factoring trinomials and special patterns | 15 | alg-d-factor-ac, alg-d-factor-special, alg-d-factor-cubes |
-| 21 | alg-m6 Quadratic equations and functions | alg-quad-factoring | Solving quadratic equations by factoring | 11 | alg-d-factor-monic, alg-d-zero-product, alg-d-quad-factor-solve |
-| 22 | alg-m6 | alg-complete-square | The square root property and completing the square | 11 | alg-d-sqrt-property, alg-d-complete-square |
-| 23 | alg-m6 | alg-quad-formula | The quadratic formula and the discriminant | 12 | alg-d-quad-formula, alg-d-discriminant |
-| 24 | alg-m6 | alg-quad-graphs | Graphing quadratic functions | 12 | alg-d-vertex-standard, alg-d-quad-from-graph, alg-d-quad-intercepts |
-| 25 | alg-m6 | alg-quad-apps | Quadratic applications: max, min, projectiles | 11 | alg-d-projectile, alg-d-fence-max, alg-d-revenue-max |
-| 26 | a1-m7 Square roots, exponential functions, and sequences | a1-square-roots | Square roots and simplifying radicals | 12 | a1-d-simplify-root, a1-d-radical-add, a1-d-radical-multiply |
-| 27 | a1-m7 | a1-exponential | Exponential functions: growth and decay | 12 | a1-d-exp-evaluate, a1-d-percent-growth, a1-d-exp-from-table |
-| 28 | a1-m7 | a1-lin-vs-exp | Comparing linear and exponential models | 12 | a1-d-two-models, a1-d-exp-overtakes |
-| 29 | a1-m7 | a1-sequences | Arithmetic and geometric sequences | 13 | a1-d-arith-nth, a1-d-geom-nth, a1-d-arith-two-terms |
-| 30 | a1-m8 Data and statistics | a1-one-var-data | Describing data: displays, center, and spread | 13 | a1-d-mean-median, a1-d-five-number, a1-d-std-dev |
-| 31 | a1-m8 | a1-two-way | Two-way tables and relative frequency | 11 | a1-d-two-way-freq, a1-d-two-way-complete |
-| 32 | a1-m8 | a1-scatter | Scatter plots, correlation, and lines of fit | 12 | a1-d-fit-two-points, a1-d-predict-residual, a1-d-fit-solve-x |
+| 13 | alg-m3 | a1-piecewise | Piecewise and step functions | 12 | a1-d-piecewise-eval, a1-d-step-cost, a1-d-floor-eval |
+| 14 | alg-m4 Systems of equations and inequalities | alg-systems-sub | Systems of equations by graphing and substitution | 11 | alg-d-system-graph, alg-d-system-sub |
+| 15 | alg-m4 | alg-elimination | Solving systems by elimination | 10 | alg-d-system-elim, alg-d-system-sub |
+| 16 | alg-m4 | alg-system-apps | Applications of linear systems | 11 | alg-d-tickets, alg-d-mixture, alg-d-wind |
+| 17 | alg-m4 | alg-ineq-systems | Linear inequalities in two variables and systems of inequalities | 11 | alg-d-corner-point, alg-d-lp-max |
+| 18 | alg-m5 Exponents, polynomials, and factoring | alg-exponent-rules | Exponent rules and scientific notation | 13 | alg-d-exp-simplify, alg-d-negative-exp, alg-d-sci-notation |
+| 19 | alg-m5 | alg-poly-ops | Polynomial operations and special products | 12 | alg-d-poly-add, alg-d-foil, alg-d-binomial-square |
+| 20 | alg-m5 | alg-factor-gcf | Factoring: greatest common factor and grouping | 11 | alg-d-factor-gcf, alg-d-factor-grouping |
+| 21 | alg-m5 | alg-factor-trinomials | Factoring trinomials and special patterns | 15 | alg-d-factor-ac, alg-d-factor-special, alg-d-factor-cubes |
+| 22 | alg-m6 Quadratic equations and functions | alg-quad-factoring | Solving quadratic equations by factoring | 11 | alg-d-factor-monic, alg-d-zero-product, alg-d-quad-factor-solve |
+| 23 | alg-m6 | alg-complete-square | The square root property and completing the square | 11 | alg-d-sqrt-property, alg-d-complete-square |
+| 24 | alg-m6 | alg-quad-formula | The quadratic formula and the discriminant | 12 | alg-d-quad-formula, alg-d-discriminant |
+| 25 | alg-m6 | alg-quad-graphs | Graphing quadratic functions | 16 | alg-d-vertex-standard, alg-d-quad-from-graph, alg-d-quad-intercepts, a1-d-transform-point |
+| 26 | alg-m6 | alg-quad-apps | Quadratic applications: maximum, minimum, and projectiles | 11 | alg-d-projectile, alg-d-fence-max, alg-d-revenue-max |
+| 27 | alg-m6 | a1-solve-fg | Solving f(x) = g(x): linear-quadratic systems and intersections | 12 | a1-d-lin-quad-system, a1-d-intersection-count, a1-d-abs-line |
+| 28 | a1-m7 Square roots, exponential functions, and sequences | a1-square-roots | Square roots and simplifying radicals | 12 | a1-d-simplify-root, a1-d-radical-add, a1-d-radical-multiply |
+| 29 | a1-m7 | a1-root-functions | Square root and cube root functions | 12 | a1-d-root-transform, a1-d-cbrt-eval, a1-d-root-from-graph |
+| 30 | a1-m7 | a1-exponential | Exponential functions: growth and decay | 16 | a1-d-exp-evaluate, a1-d-percent-growth, a1-d-exp-from-table, a1-d-rate-restate |
+| 31 | a1-m7 | a1-lin-vs-exp | Comparing linear and exponential models | 12 | a1-d-two-models, a1-d-exp-overtakes |
+| 32 | a1-m7 | a1-sequences | Arithmetic and geometric sequences | 13 | a1-d-arith-nth, a1-d-geom-nth, a1-d-arith-two-terms |
+| 33 | a1-m8 Data and statistics | a1-one-var-data | Describing data: displays, center, and spread | 13 | a1-d-mean-median, a1-d-five-number, a1-d-std-dev |
+| 34 | a1-m8 | a1-two-way | Two-way tables and relative frequency | 11 | a1-d-two-way-freq, a1-d-two-way-complete |
+| 35 | a1-m8 | a1-scatter | Scatter plots, correlation, and lines of fit | 12 | a1-d-fit-two-points, a1-d-predict-residual, a1-d-fit-solve-x |
+| 36 | a1-m8 | a1-regression-models | Fitting quadratic and exponential models to data | 12 | a1-d-exp-model-predict, a1-d-quad-model-predict |
 
 Reference sheets: `alg-ref-equations` (equations, lines, systems), `alg-ref-functions`
 (functions and square roots), `alg-ref-polynomials` (exponents, factoring, quadratics),
@@ -194,7 +198,7 @@ Fills the "Common" coverage gaps from VERIFY.md. Build and check-course: zero pr
 | 29-root-functions.md | a1-root-functions | Square root and cube root functions | a1-m7 |
 | 36-regression-models.md | a1-regression-models | Fitting quadratic and exponential models to data | a1-m8 |
 
-Renumbered files (ids unchanged): old 13–25 are now 14–26, old 26 (square roots) is 28, old 27–32 are 30–35. Every "Lesson N" cross-reference in the lessons was renumbered to match. The Outline table above still shows the old numbers.
+Renumbered files (ids unchanged): old 13–25 are now 14–26, old 26 (square roots) is 28, old 27–32 are 30–35. Every "Lesson N" cross-reference in the lessons was renumbered to match. The Outline table above now uses the new numbers (core lessons only).
 
 Cross-references added: 09 (Lesson 29 graphs the cube root), 25 (Lesson 29 uses the transformations; refs now include alg-ref-functions), 28 (next lesson graphs √x), 35 (no longer "this last lesson"; points to the next lesson for curved models).
 

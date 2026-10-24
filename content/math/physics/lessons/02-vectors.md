@@ -18,7 +18,7 @@ We write vectors in bold or with an arrow, $\vec A$, and the magnitude as $|\vec
 To add $\vec A + \vec B$, place the tail of $\vec B$ at the head of $\vec A$; the **resultant** runs from the tail of $\vec A$ to the head of $\vec B$ (the tip-to-tail method). Order doesn't matter: $\vec A + \vec B = \vec B + \vec A$. To subtract, add the opposite: $\vec A - \vec B = \vec A + (-\vec B)$, where $-\vec B$ has the same length as $\vec B$ and points the opposite way.
 
 ```shape
-{"segments": [{"from": [0, 0], "to": [4, 0], "arrow": true, "label": "A"}, {"from": [4, 0], "to": [4, 3], "arrow": true, "label": "B"}, {"from": [0, 0], "to": [4, 3], "arrow": true, "dashed": true, "label": "A + B"}], "caption": "Tip to tail: walk 4 units east, then 3 north; the resultant is 5 units long"}
+{"segments": [{"from": [0, 0], "to": [4, 0], "arrow": true, "label": "A"}, {"from": [4, 0], "to": [4, 3], "arrow": true, "label": "B"}, {"from": [0, 0], "to": [4, 3], "arrow": true, "dashed": true}], "labels": [{"at": [1.55, 1.95], "text": "A + B"}], "caption": "Tip to tail: walk 4 units east, then 3 north; the resultant is 5 units long"}
 ```
 
 Subtraction looks like this: to find $\vec A - \vec B$, flip $\vec B$ and add it tip to tail.

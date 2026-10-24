@@ -68,7 +68,7 @@ Compare a circular orbit at the perigee distance: $\sqrt{GM/r_p} = 7.54$ km/s. A
 
 ## Changing orbits: the Hohmann transfer
 
-A spacecraft changes its orbit by firing its engine briefly, changing its velocity by an amount called **delta-v** ($\Delta v$). Fuel use grows with the total $\Delta v$, so mission planners hunt for the smallest one.
+A spacecraft changes its orbit by firing its engine briefly, changing its velocity by an amount called **delta-v** ($\Delta v$). Fuel use grows with the total $\Delta v$ (exponentially, by the rocket equation from the rockets honors lesson of the momentum module), so mission planners hunt for the smallest one.
 
 To go from a low circular orbit of radius $r_1$ to a higher circular orbit of radius $r_2$ in the same plane, the classic answer (usually the cheapest when $r_2$ is less than about 12 times $r_1$) is the **Hohmann transfer**, worked out by Walter Hohmann in 1925:
 
@@ -107,7 +107,7 @@ Trip time: half the transfer period, $\pi\sqrt{a_t^3/GM} = 1.90\times10^4$ s $= 
 
 (Real launches from Florida must also tilt the orbit into the equatorial plane, which adds to the second burn. We've kept the orbits in one plane.)
 
-The same idea, with the Sun as the central body, plans trips between planets. A Hohmann transfer from Earth's orbit (1.00 AU) to Mars's (1.52 AU) has $a_t = 1.26$ AU; by Kepler's third law in years and AU, its full period is $1.26^{3/2} = 1.41$ yr, so the trip takes half that, about 0.71 yr or 8.5 months. That's why the launch windows to Mars, when the planets are lined up for this path, come only about every 26 months.
+The same idea, with the Sun as the central body, plans trips between planets. A Hohmann transfer from Earth's orbit (1.00 AU) to Mars's (1.52 AU) has $a_t = 1.26$ AU; by Kepler's third law in years and AU, its full period is $1.26^{3/2} = 1.41$ yr, so the trip takes half that, about 0.71 yr or 8.5 months. That's why the launch windows to Mars, when the planets are lined up for this path, come only about every 26 months. Missions to the outer planets also borrow speed from planets they pass, using the gravity assists described in the restitution honors lesson of the momentum module.
 
 ## Weighing the heavens
 

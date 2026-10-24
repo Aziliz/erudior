@@ -606,7 +606,7 @@
   choices: ['$6$', '$34$', '$0.15$', '$5.1$']
   answer: 0
   explanation: |-
-    $E(X) = np = 40 \times 0.15 = 6$. $34$ is the expected number of good parts; $5.1 = np(1 - p)$ is a different quantity (the variance, met in statistics).
+    $E(X) = np = 40 \times 0.15 = 6$. $34$ is the expected number of good parts; $5.1$ comes from multiplying by $1 - p$ as well, $np(1 - p)$, which is not the expected count.
 
 - id: pc-m9-r2-h32
   lesson: pc-m9-h-binomial-probability

@@ -312,7 +312,7 @@
   definition: 'An equation $at^2y'''' + bty'' + cy = 0$, solved by trying $y = t^m$.'
   topic: Reduction of order
 - term: indicial equation
-  definition: 'The equation $am(m - 1) + bm + c = 0$ for the exponent $m$ in a Cauchy–Euler equation.'
+  definition: 'The equation for the starting exponent of a power-type solution. For a Cauchy–Euler equation it is $am(m - 1) + bm + c = 0$. In the Frobenius method for $y'''' + p(x)y'' + q(x)y = 0$ at a regular singular point $x = 0$, it is $r(r - 1) + p_0r + q_0 = 0$, where $p_0 = \lim_{x\to0}xp(x)$ and $q_0 = \lim_{x\to0}x^2q(x)$.'
   topic: Reduction of order
 - term: method of undetermined coefficients
   aliases: [undetermined coefficients]

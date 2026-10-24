@@ -2597,10 +2597,11 @@
    "Course"
   ],
   "lessons": 24,
-  "questions": 300,
-  "cards": 0,
+  "honors": 17,
+  "questions": 664,
+  "cards": 190,
   "drills": 0,
-  "words": 717,
+  "words": 916,
   "lessonIds": [
    "de1-sounds",
    "de1-greetings",
@@ -2627,6 +2628,28 @@
    "de1-writing",
    "de1-exam-review"
   ],
+  "honorsLessonIds": [
+   "de1-m1-h-sounds-in-depth",
+   "de1-m1-h-german-world",
+   "de1-m1-h-numbers-life",
+   "de1-m2-h-people-gender",
+   "de1-m2-h-family-names",
+   "de1-m3-h-food-culture",
+   "de1-m3-h-week-planning",
+   "de1-m4-h-vereine",
+   "de1-m4-h-feiertage",
+   "de1-m5-h-unterwegs",
+   "de1-m5-h-wohnungssuche",
+   "de1-m6-h-past-stories",
+   "de1-m6-h-letters",
+   "de1-h-ankommen",
+   "de1-h-zusammen-wohnen",
+   "de1-h-maerchen",
+   "de1-h-gemuetlich"
+  ],
+  "honorsModuleIds": [
+   "de1-h1"
+  ],
   "outline": [
    {
     "title": "First steps",
@@ -2635,6 +2658,11 @@
      "Greetings and introductions",
      "Numbers, age and phone numbers",
      "The present tense and asking questions"
+    ],
+    "honors": [
+     "Sounds in depth: vowel length, the glottal stop and sentence melody",
+     "du, Sie and the German-speaking world",
+     "Numbers in everyday life: sums, grades and handwriting"
     ]
    },
    {
@@ -2644,6 +2672,10 @@
      "Family and possessives",
      "Jobs, languages and countries",
      "Describing things: adjectives and negation"
+    ],
+    "honors": [
+     "People and gender: job titles and gender-fair German",
+     "Families and names: Annas Bruder"
     ]
    },
    {
@@ -2653,6 +2685,10 @@
      "Shopping and prices",
      "Days, times and the clock",
      "A day in my life: separable verbs and word order"
+    ],
+    "honors": [
+     "Honors: Brötchen, Kaffee und Kuchen — eating the German way",
+     "Honors: Planning the week — opening hours, habits and time without a preposition"
     ]
    },
    {
@@ -2662,6 +2698,10 @@
      "Modal verbs: können, wollen, möchten",
      "Modal verbs: müssen, dürfen, sollen — rules and obligations",
      "Dates, seasons, weather and invitations"
+    ],
+    "honors": [
+     "Clubs, quiet hours and favourite things",
+     "The German year: holidays, customs and date ranges"
     ]
    },
    {
@@ -2671,6 +2711,10 @@
      "Travel and transport: the dative after prepositions",
      "At home: rooms, furniture and where things are",
      "Body, health and personal pronouns"
+    ],
+    "honors": [
+     "Unterwegs: departure boards, tickets and announcements",
+     "Eine Wohnung suchen: flat ads, rent and long words"
     ]
    },
    {
@@ -2680,7 +2724,22 @@
      "The perfect with sein, and war/hatte",
      "Linking sentences and writing short messages",
      "The Goethe A1 exam and review"
+    ],
+    "honors": [
+     "Honors: telling a story in the past (konnte, musste, wollte)",
+     "Honors: letters, e-mails and postcards the German way"
     ]
+   },
+   {
+    "title": "Honors: Kultur und Alltag (culture and everyday life)",
+    "lessons": [],
+    "honors": [
+     "Ankommen: registering, appointments and letters from the Amt",
+     "Zusammen wohnen: neighbours, quiet hours and recycling",
+     "Es war einmal: reading a fairy tale",
+     "Gemütlich: Feierabend, the Kleingarten and little words"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -2701,11 +2760,12 @@
    "Course"
   ],
   "lessons": 24,
-  "questions": 292,
-  "cards": 0,
+  "honors": 17,
+  "questions": 647,
+  "cards": 193,
   "drills": 0,
-  "words": 1384,
-  "carried": 717,
+  "words": 1783,
+  "carried": 916,
   "requires": [
    "lang-german-a1"
   ],
@@ -2735,6 +2795,28 @@
    "de2-writing",
    "de2-exam-review"
   ],
+  "honorsLessonIds": [
+   "de2-m1-h-biographies",
+   "de2-m1-h-reported-speech",
+   "de2-m2-h-dative-reflexive",
+   "de2-m2-h-dative-feelings",
+   "de2-m3-h-participles",
+   "de2-m3-h-records",
+   "de2-m4-h-figurative",
+   "de2-m4-h-wetter",
+   "de2-m5-h-application",
+   "de2-m5-h-medicine",
+   "de2-m5-h-official-letters",
+   "de2-m6-h-news",
+   "de2-m6-h-family-festivals",
+   "de2-h-lesestrategien",
+   "de2-h-woerter",
+   "de2-h-hoeren",
+   "de2-h-geschichten"
+  ],
+  "honorsModuleIds": [
+   "de2-h1"
+  ],
   "outline": [
    {
     "title": "Telling your story",
@@ -2743,6 +2825,10 @@
      "When I was a child: the simple past",
      "Reasons and opinions: weil and dass",
      "If, when and whether: wenn, als, ob and indirect questions"
+    ],
+    "honors": [
+     "Lebensgeschichten: reading and writing a short biography",
+     "Passing it on: reporting what people said and asked"
     ]
    },
    {
@@ -2752,6 +2838,10 @@
      "Verbs with prepositions; wo- and da- words",
      "Verbs with the dative and two objects",
      "Describing people; werden; jeder, alle, etwas, niemand"
+    ],
+    "honors": [
+     "Imagine, remember, treat yourself: verbs with mir and dir",
+     "Mir ist kalt, du fehlst mir: feelings with the dative"
     ]
    },
    {
@@ -2761,6 +2851,10 @@
      "Adjective endings after der, dieser and welcher",
      "Adjectives without an article; food and cooking",
      "Comparing: bigger, the biggest"
+    ],
+    "honors": [
+     "Beyond the three tables: participles, place names and adjectives as nouns",
+     "Highest, biggest, longest: comparing the German-speaking countries"
     ]
    },
    {
@@ -2770,6 +2864,10 @@
      "Planning a trip",
      "Wishes and polite requests: würde, hätte, wäre, könnte",
      "Linking ideas: deshalb, trotzdem, sondern; weather and environment"
+    ],
+    "honors": [
+     "Beyond the room: stehen, liegen and two-way prepositions in figurative German",
+     "Weather talk: forecasts, Celsius and weather sayings"
     ]
    },
    {
@@ -2779,6 +2877,11 @@
      "School, courses and learning; whose is it?",
      "Banks, offices and phone calls",
      "Health and the doctor's office"
+    ],
+    "honors": [
+     "Applying for a job: CV, cover letter and the Arbeitszeugnis",
+     "At the pharmacy: prescriptions and the package insert",
+     "Letters from the authorities: reading Amtsdeutsch"
     ]
    },
    {
@@ -2788,7 +2891,22 @@
      "Holidays and celebrations",
      "Writing SMS and e-mails: asking, apologizing, cancelling",
      "The Goethe-Zertifikat A2 and review"
+    ],
+    "honors": [
+     "Die Nachrichten: reading German news",
+     "Familienfeste: from Schultüte to Silberhochzeit"
     ]
+   },
+   {
+    "title": "Honors: Lesen und Hören (reading and listening)",
+    "lessons": [],
+    "honors": [
+     "Reading strategies: skim, scan and read closely",
+     "Unknown words: compounds, word families and context",
+     "Listening: announcements, voice messages and real spoken German",
+     "Stories and a poem: reading literature in German"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -2809,11 +2927,12 @@
    "Course"
   ],
   "lessons": 30,
-  "questions": 367,
-  "cards": 0,
+  "honors": 16,
+  "questions": 743,
+  "cards": 187,
   "drills": 0,
-  "words": 2404,
-  "carried": 1384,
+  "words": 3044,
+  "carried": 1783,
   "requires": [
    "lang-german-a2"
   ],
@@ -2849,6 +2968,27 @@
    "de3-writing",
    "de3-exam-review"
   ],
+  "honorsLessonIds": [
+   "de3-m1-h-futur-zwei",
+   "de3-m1-h-time-phrases",
+   "de3-m2-h-contrast",
+   "de3-m2-h-argument",
+   "de3-m3-h-participle-phrases",
+   "de3-m3-h-official-genitive",
+   "de3-m4-h-lawmaking",
+   "de3-m4-h-sources",
+   "de3-m5-h-diplomatic",
+   "de3-m5-h-literature",
+   "de3-m6-h-reported-news",
+   "de3-m6-h-official-letters",
+   "de3-h-kurzgeschichte",
+   "de3-h-gedichte",
+   "de3-h-erinnerung",
+   "de3-h-einwanderung"
+  ],
+  "honorsModuleIds": [
+   "de3-h1"
+  ],
   "outline": [
    {
     "title": "Stories and time",
@@ -2858,6 +2998,10 @@
      "While, since, until: time clauses",
      "The future: werden + infinitive",
      "Weak nouns and adjectival nouns"
+    ],
+    "honors": [
+     "Looking back from the future: Futur II",
+     "Clause or phrase? Time in written German"
     ]
    },
    {
@@ -2868,6 +3012,10 @@
      "Since, in case, so that: da, falls, sodass",
      "Either … or, neither … nor: two-part connectors",
      "The more … the better: je … desto; comparisons in depth"
+    ],
+    "honors": [
+     "Whereas, however, unless: contrast and exceptions",
+     "Even if, no matter how: concessive conditions and the argument essay"
     ]
    },
    {
@@ -2878,6 +3026,10 @@
      "Whose? The genitive",
      "Because of, despite, during: wegen, trotz, während, statt",
      "Participles as adjectives and adjectives without articles"
+    ],
+    "honors": [
+     "Packed into one phrase: extended participle attributes",
+     "Office German: aufgrund, bezüglich, dessen and the genitive debate"
     ]
    },
    {
@@ -2888,6 +3040,10 @@
      "What must be done: the passive with modal verbs",
      "Giving opinions and discussing; da- and wo- words in full",
      "Politics and society"
+    ],
+    "honors": [
+     "Wie ein Gesetz entsteht: the passive in official German",
+     "Wer sagt das? Sources, claims and checking the news"
     ]
    },
    {
@@ -2898,6 +3054,10 @@
      "Wishes, advice and polite requests",
      "Verbs, adjectives and nouns with prepositions",
      "Careers and the job market"
+    ],
+    "honors": [
+     "Diplomatic German: softening, guessing and \"otherwise\"",
+     "Was wäre, wenn …? The Konjunktiv in literature and history"
     ]
    },
    {
@@ -2908,7 +3068,22 @@
      "Travel and the German-speaking regions; giving a short presentation",
      "Writing at B1: e-mails, forum posts and formal letters",
      "The Goethe-Zertifikat B1 and review"
+    ],
+    "honors": [
+     "Reported speech in full: Konjunktiv I and the replacement rule",
+     "Letters from offices and landlords: reading Amtsdeutsch"
     ]
+   },
+   {
+    "title": "Honors: Literatur, Geschichte und Gesellschaft (literature, history and society)",
+    "lessons": [],
+    "honors": [
+     "Die Kurzgeschichte: reading a modern short story",
+     "Gedichte: reading poems by Eichendorff and Heine",
+     "Erinnerungskultur: how Germany remembers",
+     "Ein Einwanderungsland: migration history and describing statistics"
+    ],
+    "isHonors": true
    }
   ]
  }

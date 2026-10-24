@@ -67,7 +67,7 @@ $$q(t) = Q_0e^{-t/RC}, \qquad I(t) = \frac{Q_0}{RC}e^{-t/RC} = \frac{V_0}{R}e^{-
 Both decay by the same factor in each equal time interval. The time for the charge to fall to half is $t_{1/2} = RC\ln 2 = 0.693\,RC$.
 
 ```plot
-{"x": [0, 4.2], "y": [0, 1.1], "xLabel": "t / RC", "yLabel": "fraction remaining q / Q₀", "functions": [{"f": "exp(-x)"}], "labels": [{"at": [3.0, 0.42], "text": "q / Q₀ = e^(−t/RC)"}], "segments": [{"from": [0.693, 0], "to": [0.693, 0.5], "dashed": true}, {"from": [0, 0.5], "to": [0.693, 0.5], "dashed": true}], "points": [{"at": [0.693, 0.5], "label": "half at 0.693 RC"}, {"at": [1, 0.368], "label": "37% at RC"}, {"at": [1.386, 0.25], "label": "quarter at 1.386 RC"}], "caption": "Discharging: the charge halves every 0.693 RC, whatever the starting charge"}
+{"x": [0, 5.2], "y": [0, 1.1], "xLabel": "t / RC", "yLabel": "fraction remaining q / Q₀", "functions": [{"f": "exp(-x)"}], "labels": [{"at": [3.5, 0.55], "text": "q / Q₀ = e^(−t/RC)"}], "segments": [{"from": [0.693, 0], "to": [0.693, 0.5], "dashed": true}, {"from": [0, 0.5], "to": [0.693, 0.5], "dashed": true}], "points": [{"at": [0.693, 0.5], "label": "half at 0.693 RC"}, {"at": [1, 0.368], "label": "37% at RC"}, {"at": [1.386, 0.25], "label": "quarter at 1.386 RC"}], "caption": "Discharging: the charge halves every 0.693 RC, whatever the starting charge"}
 ```
 
 ### Example 2

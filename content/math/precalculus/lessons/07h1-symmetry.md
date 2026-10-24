@@ -54,7 +54,7 @@ Origin symmetry from Lesson 4 is the special case $(a, b) = (0, 0)$.
 
 $$f(a + t) = At^3 + (\text{number})\,t + f(a).$$
 
-Subtracting $f(a)$ leaves only odd powers of $t$, so $f(a + t) - f(a)$ is odd. Every cubic is symmetric about the point $\left(-\tfrac{B}{3A},\, f\!\left(-\tfrac{B}{3A}\right)\right)$. (In calculus this point is called the inflection point; you will not need that word here.)
+Subtracting $f(a)$ leaves only odd powers of $t$, so $f(a + t) - f(a)$ is odd. Every cubic is symmetric about the point $\left(-\tfrac{B}{3A},\, f\!\left(-\tfrac{B}{3A}\right)\right)$. This is the **inflection point** you met in the Module 1 honors lesson "Concavity and how rates change", where the graph switches concavity; that lesson found it with the same shift $x = u - \tfrac{B}{3A}$, and here the shift shows it is also the center of symmetry.
 
 ### Example 2
 

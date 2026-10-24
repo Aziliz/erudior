@@ -110,7 +110,7 @@ For $\ell = 0.90$ m, $\omega = 4.04$ rad/s and the period is $2\pi/\omega = 1.55
 
 ## When to use it, and its limits
 
-Lagrangian mechanics shines when constraints make Cartesian coordinates awkward: pendulums, beads on wires, rolling objects, coupled oscillators, and orbits in polar coordinates (lesson 92). It also handles several degrees of freedom at once: you get one Euler–Lagrange equation per coordinate, and they come out coupled correctly with no sign bookkeeping for forces.
+Lagrangian mechanics shines when constraints make Cartesian coordinates awkward: pendulums, beads on wires, rolling objects, coupled oscillators (whose normal modes the honors lesson on coupled oscillators in the oscillations module found with Newton's law), and orbits in polar coordinates (lesson 92). It also handles several degrees of freedom at once: you get one Euler–Lagrange equation per coordinate, and they come out coupled correctly with no sign bookkeeping for forces.
 
 It is less convenient in two situations, and this lesson's version is simplified for both.
 

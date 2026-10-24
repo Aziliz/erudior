@@ -67,9 +67,11 @@ error remains, and it shrinks as groups get larger.
 
 Without randomization, the next best thing is to compare like with like. If a confounder has been
 measured, split the data into strata of that variable, compare within each stratum, and combine
-the stratum results using one common set of weights. Applying each group's stratum rates to the
-same standard population is called **standardization** (direct standardization). It is the
-same idea as Simpson's paradox in lesson 15, turned into a method.
+the stratum results using one common set of weights. This is the **standardization** (direct
+standardization) from the honors lesson on relative risk and odds ratios, where it adjusted a
+comparison of two hospitals for case mix: apply each group's stratum rates to the same standard
+population. It turns the lesson of Simpson's paradox (lesson 15) into a method; here it is used
+for a causal question.
 
 ### Example 2: does the tutoring center help?
 

@@ -29,8 +29,9 @@
   prompt: |-
     For the points $({x1}, {y1}),\ ({x2}, {y2}),\ ({x3}, {y3}),\ ({x4}, {y4}),\ ({x5}, {y5})$,
     split the total sum of squares $\text{SST} = \sum (y - \bar{y})^2$ into the regression sum of
-    squares SSR and the residual sum of squares SSE of the least-squares line. Give SSR and SSE
-    to 2 decimal places and $r^2$ to 3 decimal places.
+    squares SSR and the residual sum of squares SSE of the least-squares line. Keep full precision
+    (don't round the slope or SSR) until the end, then give SSR and SSE to 2 decimal places and
+    $r^2$ to 3 decimal places.
   answers:
     - {name: ssr, label: 'SSR', tolerance: 0.02, format: dp2}
     - {name: sse, label: 'SSE', tolerance: 0.02, format: dp2}
@@ -155,12 +156,13 @@
     | Not exposed | {cc} | {dd} |
 
     Find the relative risk (exposed ÷ not exposed) and the odds ratio, each to 2 decimal places.
+    Keep full precision (don't round the risks) until the end.
   answers:
     - {name: rrisk, label: 'Relative risk', tolerance: 0.01, format: dp2}
     - {name: orr, label: 'Odds ratio', tolerance: 0.01, format: dp2}
   solution: |-
-    Risks: exposed ${aa}/{n1} = {p1:num4}$, not exposed ${cc}/{n2} = {p2:num4}$. Relative risk
-    $= {p1:num4}/{p2:num4} =$ **{rrisk:dp2}**. Odds ratio
+    Risks: exposed ${aa}/{n1} \approx {p1:num4}$, not exposed ${cc}/{n2} \approx {p2:num4}$. Relative
+    risk $= \dfrac{{aa}/{n1}}{{cc}/{n2}} =$ **{rrisk:dp2}** (dividing the unrounded risks). Odds ratio
     $= \dfrac{ad}{bc} = \dfrac{{aa} \times {dd}}{{bb} \times {cc}} = \dfrac{{adp:dp0}}{{bcp:dp0}} =$ **{orr:dp2}**.
 
 - id: stat-m3-r2-standardize

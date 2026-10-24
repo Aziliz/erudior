@@ -21,7 +21,7 @@
   topic: Regression intervals
 - term: prediction interval
   aliases: [prediction intervals]
-  definition: 'An interval for a single new response at $x^*$: $\hat{y} \pm t^* \sqrt{s^2 + SE_{\hat{\mu}}^2}$ with df $= n - 2$. It is wider than the confidence interval for the mean response because it includes the new value''s own scatter.'
+  definition: 'An interval meant to capture a single new observation rather than a mean. For one new value from a normal population it is $\bar{x} \pm t^* s\sqrt{1 + 1/n}$ with df $= n - 1$; in regression, for a new response at $x^*$, it is $\hat{y} \pm t^* \sqrt{s^2 + SE_{\hat{\mu}}^2}$ with df $= n - 2$. It is wider than the matching confidence interval for the mean because it includes the new value''s own scatter.'
   topic: Regression intervals
 - term: confidence band
   aliases: [confidence bands]

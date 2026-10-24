@@ -92,7 +92,7 @@ This also explains the check: the overlap is counted once in the LCM, so GCF × 
 
 ## GCF or LCM? Word problems
 
-Ask yourself whether you are *splitting* things into equal groups (the answer is smaller than the numbers: GCF) or waiting for things to *line up* again (the answer is bigger than the numbers: LCM).
+Ask yourself whether you are *splitting* things into equal groups (the answer is no bigger than the smallest number: GCF) or waiting for things to *line up* again (the answer is no smaller than the largest number: LCM).
 
 ```mermaid
 flowchart TD

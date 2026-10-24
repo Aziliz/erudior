@@ -10,13 +10,11 @@ refs: [pre-ref-algebra]
 ---
 ## Distance, again
 
-Lesson 6 defined the absolute value $|a|$ as the distance from $a$ to 0 on the number line, so $|5| = 5$ and $|-5| = 5$. Lesson 28 solved inequalities and, at the end, graphed one statement with two parts, $-1 \le x < 3$. This honors lesson joins those threads. Equations and inequalities with absolute value in them turn out to be statements about *distance*, and their solutions are often two numbers or two pieces of the number line, which is exactly what compound inequalities describe. (If you did the honors lesson after Lesson 8, you have already solved $|x - a| = d$ by walking $d$ units each way from $a$. Here the expression inside the bars can be any linear expression, such as $2x - 1$, and the comparison can be $<$ or $>$ as well as $=$.)
+Lesson 6 defined the absolute value $|a|$ as the distance from $a$ to 0 on the number line, so $|5| = 5$ and $|-5| = 5$. Lesson 28 solved inequalities and, at the end, graphed one statement with two parts, $-1 \le x < 3$. This honors lesson joins those threads. Equations and inequalities with absolute value in them turn out to be statements about *distance*, and their solutions are often two numbers or two pieces of the number line, which is exactly what compound inequalities describe. (The honors lesson "Distance, absolute value equations and net change" after Lesson 8 already solved $|x - a| = d$ by walking $d$ units each way from $a$; if you did it, the next section is a quick review. Here the expression inside the bars can be any linear expression, such as $2x - 1$, and the comparison can be $<$ or $>$ as well as $=$.)
 
 ## Absolute value as distance between two numbers
 
-The distance between two numbers $a$ and $b$ on the number line is $|a - b|$. The distance between 9 and 4 is $|9 - 4| = 5$; between $-2$ and 3 it is $|-2 - 3| = |-5| = 5$. The order of subtraction doesn't matter, because $|a - b| = |b - a|$.
-
-Read this way, $|x - 3| = 5$ says "$x$ is 5 units away from 3." Two numbers fit: $3 + 5 = 8$ and $3 - 5 = -2$.
+As in Lesson 6, the distance between two numbers $a$ and $b$ on the number line is $|a - b|$ (or $|b - a|$; the order doesn't matter). Read this way, $|x - 3| = 5$ says "$x$ is 5 units away from 3." Two numbers fit: $3 + 5 = 8$ and $3 - 5 = -2$.
 
 ```numberline
 {"x": [-4, 10], "points": [{"at": [-2, 0], "open": false, "label": "-2"}, {"at": [3, 0], "open": true, "label": "center 3"}, {"at": [8, 0], "open": false, "label": "8"}], "caption": "|x - 3| = 5: the only two solutions are -2 and 8, each 5 units from 3 (the open circle marks 3, which is not a solution)"}

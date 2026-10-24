@@ -133,7 +133,7 @@
     direct: 6.67e-11*M/D^2
     tidal: 2*6.67e-11*M*6.37e6/D^3
     ratio: tidal/1.10e-6
-  prompt: 'A moon of mass ${Mm}\times10^{{Me}}$ kg orbits ${Dm}\times10^{8}$ m from Earth''s center. Using $G = 6.67\times10^{-11}$ N·m²/kg² and $R_E = 6.37\times10^{6}$ m, find the moon''s gravitational acceleration at Earth''s center (m/s²), its tidal acceleration at the point of Earth''s surface nearest it, using $2GMR_E/D^3$ (m/s²), and that tidal acceleration as a multiple of our Moon''s ($1.10\times10^{-6}$ m/s²), each to 3 significant figures.'
+  prompt: 'A moon of mass ${Mm}\times10^{{Me}}$ kg orbits ${Dm}\times10^{8}$ m from Earth''s center. Using $G = 6.67\times10^{-11}$ N·m²/kg² and $R_E = 6.37\times10^{6}$ m, find the moon''s gravitational acceleration at Earth''s center (m/s²), its tidal acceleration at the point of Earth''s surface nearest it, using $2GMR_E/D^3$ (m/s²), and that tidal acceleration as a multiple of our Moon''s ($1.10\times10^{-6}$ m/s²), each to 3 significant figures (type powers of ten like 3.18e-4).'
   answers:
     - {format: sci, name: direct, label: 'Direct pull', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sci, name: tidal, label: 'Tidal', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}

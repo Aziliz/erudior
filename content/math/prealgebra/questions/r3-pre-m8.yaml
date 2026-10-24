@@ -1,0 +1,131 @@
+# Round 3, module pre-m8: questions for the honors lesson "Scaling area and volume".
+- id: pre-m8-r3-h01
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'A triangle has an area of 10 cm². Every side is multiplied by 3. What is the area of the new triangle?'
+  choices: ['90 cm²', '30 cm²', '270 cm²', '13 cm²']
+  answer: 0
+  explanation: 'Areas scale by $k^2 = 3^2 = 9$, so the new area is $10 \times 9 = 90$ cm². (30 cm² multiplies by $k$ instead of $k^2$; 270 cm² uses $k^3$, which is for volumes.)'
+
+- id: pre-m8-r3-h02
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'A box-shaped tank holds 50 liters. A similar tank has every edge 2 times as long. How much does it hold?'
+  choices: ['100 L', '200 L', '400 L', '250 L']
+  answer: 2
+  explanation: 'Capacity is a volume, so it scales by $k^3 = 2^3 = 8$: $50 \times 8 = 400$ L. (100 L doubles it, as if capacity were a length; 200 L uses $k^2$.)'
+
+- id: pre-m8-r3-h03
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  type: text
+  stem: 'Every length of a solid is multiplied by 5. Give only the numbers: its surface area is multiplied by ___ and its volume is multiplied by ___.'
+  accept:
+    - ['25']
+    - ['125']
+  explanation: 'Surface area is an area, so it scales by $5^2 = 25$. Volume scales by $5^3 = 125$.'
+
+- id: pre-m8-r3-h04
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'On a 1 : 25,000 map, a lake covers 8 cm². What is the real area of the lake?'
+  choices: ['2 km²', '0.5 km²', '0.25 km²', '5 km²']
+  answer: 1
+  explanation: '1 cm on the map is 25,000 cm $= 250$ m $= 0.25$ km on the ground, so 1 cm² on the map is $0.25^2 = 0.0625$ km². The lake is $8 \times 0.0625 = 0.5$ km². (2 km² uses the length scale, $8 \times 0.25$, on an area.)'
+
+- id: pre-m8-r3-h05
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'Two similar triangles have areas 12 cm² and 75 cm². The smaller one has a height of 4 cm. What is the height of the larger one?'
+  choices: ['25 cm', '6.25 cm', '2.5 cm', '10 cm']
+  answer: 3
+  explanation: 'Area ratio: $\tfrac{75}{12} = 6.25$. Length ratio: $k = \sqrt{6.25} = 2.5$. Height: $4 \times 2.5 = 10$ cm. (25 cm multiplies the height by the area ratio; 6.25 and 2.5 are the ratios themselves, not the height.)'
+
+- id: pre-m8-r3-h06
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'Every edge of a box is doubled. Which of these are multiplied by 4? Select all that apply.'
+  choices: ['Its total surface area', 'The area of its base', 'Its volume', 'The perimeter of its base']
+  answer: [0, 1]
+  explanation: 'Surface area and the base''s area are areas, so they scale by $2^2 = 4$. The volume scales by $2^3 = 8$, and the perimeter is a length, so it only doubles.'
+
+- id: pre-m8-r3-h07
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  type: order
+  stem: 'A solid wooden toy is copied at 3 times its size in every direction, in the same wood. Put these in order from the one multiplied by the smallest number to the one multiplied by the largest.'
+  items: ['An angle between two edges', 'The height', 'The surface area', 'The weight']
+  explanation: 'With $k = 3$: angles don''t change (times 1), lengths are times 3, areas times $3^2 = 9$, and the weight of a solid of the same material goes with volume, times $3^3 = 27$.'
+
+- id: pre-m8-r3-h08
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  type: match
+  stem: 'Two figures are similar. Match each area ratio (larger to smaller) to the ratio of their lengths.'
+  pairs:
+    - ['Area ratio 4', '2']
+    - ['Area ratio 9', '3']
+    - ['Area ratio 25', '5']
+    - ['Area ratio 2', 'about 1.41']
+  distractors: ['4.5', '12.5']
+  explanation: 'The length ratio is the square root of the area ratio: $\sqrt4 = 2$, $\sqrt9 = 3$, $\sqrt{25} = 5$ and $\sqrt2 \approx 1.41$. Halving the area ratio (4.5 or 12.5) is the common mistake.'
+
+- id: pre-m8-r3-h09
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'Two solid statues are made of the same stone and have the same shape. One is 3 times as tall as the other. The small one weighs 2 kg. How much does the large one weigh?'
+  choices: ['6 kg', '18 kg', '54 kg', '27 kg']
+  answer: 2
+  explanation: 'Weight of a solid of the same material scales with volume, by $k^3 = 27$: $2 \times 27 = 54$ kg. (6 kg uses $k$, 18 kg uses $k^2$, and 27 kg is the factor itself.)'
+
+- id: pre-m8-r3-h10
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'An animal is imagined scaled up by 4 in every length, keeping exactly the same shape. Using the simple square-cube reasoning, how does the load on each square centimeter of its leg bones change?'
+  choices: ['It stays the same', 'It is 4 times as large', 'It is 16 times as large', 'It is 64 times as large']
+  answer: 1
+  explanation: 'Weight scales by $4^3 = 64$; the bones'' cross-sectional area scales by $4^2 = 16$. Load per square centimeter is weight ÷ area, so it scales by $\tfrac{64}{16} = 4$.'
+
+- id: pre-m8-r3-h11
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'What is the surface-area-to-volume ratio of a cube with edge 3 cm?'
+  choices: ['2 per cm', '0.5 per cm', '3 per cm', '18 per cm']
+  answer: 0
+  explanation: 'Surface area $6 \times 3^2 = 54$ cm²; volume $3^3 = 27$ cm³. Ratio $\tfrac{54}{27} = 2$ per cm, which matches $\tfrac{6}{\text{edge}} = \tfrac63$. (0.5 is volume ÷ surface area, upside down.)'
+
+- id: pre-m8-r3-h12
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'Which of these are explained by the square-cube law? Select all that apply.'
+  choices:
+    - 'A mouse must eat much more food for its body weight than an elephant.'
+    - 'Crushed ice melts faster than a single block of the same amount of ice.'
+    - 'An elephant''s legs are much thicker, for its height, than a gazelle''s.'
+    - 'On a 1 : 50,000 map, 1 km is shown as 2 cm.'
+  answer: [0, 1, 2]
+  explanation: 'The first three come from surfaces (and cross-sections) growing like $k^2$ while volumes grow like $k^3$: small things have more surface for their volume, so they lose heat and melt faster, and big animals need thicker bones. The map fact is true, but it is only a length scale: $100{,}000 \div 50{,}000 = 2$ cm.'
+
+- id: pre-m8-r3-h13
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'An A5 sheet of paper has half the area of an A4 sheet and the same shape. What scale factor for lengths turns A4 into A5?'
+  choices: ['0.5', '0.25', 'about 0.71', 'about 1.41']
+  answer: 2
+  explanation: 'The area ratio is $\tfrac12$, so the length ratio is $\sqrt{\tfrac12} = \tfrac{1}{\sqrt2} \approx 0.71$. Halving each side (0.5) would leave a quarter of the area. About 1.41 is the factor the other way, from A5 to A4.'
+
+- id: pre-m8-r3-h14
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  type: text
+  stem: 'A container holds 64 times as much as a similar container. It is ___ times as tall. Give only the number.'
+  accept: ['4']
+  explanation: 'Capacity is a volume, so $k^3 = 64$ and $k = \sqrt[3]{64} = 4$.'
+
+- id: pre-m8-r3-h15
+  lesson: pre-m8-h-scaling
+  topic: Scaling area and volume
+  stem: 'On a 1 : 20,000 map, a field covers 3 cm². What is its real area?'
+  choices: ['600 m²', '120,000 m²', '360,000 m²', '1.2 km²']
+  answer: 1
+  explanation: '1 cm on the map is 20,000 cm $= 200$ m, so 1 cm² is $200 \times 200 = 40{,}000$ m². The field is $3 \times 40{,}000 = 120{,}000$ m² (0.12 km²). 600 m² uses the length scale on an area; 360,000 m² squares the 3 as well.'

@@ -269,7 +269,7 @@
   definition: '$L$ in $\mathcal{E} = -L\,dI/dt$, in henries; for a solenoid $L = \mu_0N^2A/\ell$.'
   topic: Inductance
 - term: henry
-  aliases: [henries, H]
+  aliases: [henries]
   definition: 'SI unit of inductance: $1\text{ H} = 1$ V·s/A.'
   topic: Inductance
 - term: inductor

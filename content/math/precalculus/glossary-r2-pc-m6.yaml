@@ -38,8 +38,8 @@
   aliases: [steady state, steady-state, stationary distribution]
   definition: 'A state vector $\mathbf{q}$ with $P\mathbf{q} = \mathbf{q}$: the chain leaves it unchanged. Found by solving $(P - I)\mathbf{q} = \mathbf{0}$ with entries adding to 1.'
   topic: Markov chains
-- term: regular
-  aliases: [regular transition matrix, regular Markov chain, regular chain]
+- term: regular transition matrix
+  aliases: [regular transition matrices, regular Markov chain, regular chain]
   definition: 'A transition matrix is regular if some power of it has all entries positive. A regular chain has exactly one steady-state vector, and every starting state vector approaches it.'
   topic: Markov chains
 - term: absorbing state

@@ -46,7 +46,7 @@ When the divisor is linear, $x - c$, long division can be compressed into **synt
 3. Multiply it by $c$, write the product under the next coefficient, and add.
 4. Repeat to the end. The last number is the remainder; the others are the quotient's coefficients, one degree lower than the dividend.
 
-Watch the sign: to divide by $x + 4$, use $c = -4$, because $x + 4 = x - (-4)$.
+Watch the sign: to divide by $x + 4$, use $c = -4$, because $x + 4 = x - (-4)$. For a linear divisor whose leading coefficient isn't 1, such as $2x - 1$, either use long division or run synthetic division with $c = \tfrac12$ and then divide the quotient (not the remainder) by 2, because $f(x) = \left(x - \tfrac12\right)q(x) + r = (2x - 1)\cdot\tfrac{q(x)}{2} + r$.
 
 ### Example 2
 
@@ -111,8 +111,9 @@ The four ideas of this lesson fit together in one decision chart.
 ```mermaid
 flowchart TD
   accTitle: Which division tool to use
-  accDescr: If the divisor has degree 2 or more, use long division. If the divisor is linear, x − c, and you need the quotient, use synthetic division with c. If you only need the remainder, evaluate f(c) by the remainder theorem. If f(c) = 0, then x − c is a factor by the factor theorem; otherwise it is not a factor.
+  accDescr: If the divisor has degree 2 or more, use long division. If the divisor is linear, a x − b with a not equal to 1, use long division, or synthetic division with c = b/a followed by dividing the quotient by a. If the divisor is linear, x − c, and you need the quotient, use synthetic division with c. If you only need the remainder, evaluate f(c) by the remainder theorem. If f(c) = 0, then x − c is a factor by the factor theorem; otherwise it is not a factor.
   A{"What is the divisor?"} -- "degree 2 or more" --> C["Long division"]
+  A -- "linear: ax − b, a ≠ 1" --> L["Long division, or synthetic with c = b/a, then divide the quotient by a"]
   A -- "linear: x − c" --> B{"Do you need the quotient?"}
   B -- yes --> D["Synthetic division with c"]
   B -- "no, only the remainder" --> E["Evaluate f(c): remainder theorem"]

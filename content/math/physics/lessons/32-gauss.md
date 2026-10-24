@@ -56,7 +56,7 @@ $$E = \frac{kQr}{R^3} \quad (r < R),$$
 rising linearly from zero at the center to the surface value $kQ/R^2$.
 
 ```plot
-{"x": [0, 4], "y": [0, 1.15], "xLabel": "r / R", "yLabel": "E / (kQ/R²)", "functions": [{"f": "x", "from": 0, "to": 1, "label": "inside: ∝ r"}, {"f": "1/x^2", "from": 1, "to": 4, "label": "outside: ∝ 1/r²"}], "caption": "Field of a uniformly charged solid sphere"}
+{"x": [0, 4.4], "y": [0, 1.15], "xLabel": "r / R", "yLabel": "E / (kQ/R²)", "functions": [{"f": "x", "from": 0, "to": 1}, {"f": "1/x^2", "from": 1, "to": 4}], "labels": [{"at": [0.85, 0.25], "text": "inside: ∝ r"}, {"at": [2.7, 0.38], "text": "outside: ∝ 1/r²"}], "caption": "Field of a uniformly charged solid sphere"}
 ```
 
 *Cylindrical symmetry.* For an infinitely long line (or cylinder) with charge $\lambda$ per meter, use a coaxial cylinder of radius $r$ and length $L$. The field is radial, so there's no flux through the end caps; through the curved side, $E(2\pi rL) = \lambda L/\varepsilon_0$:

@@ -1,0 +1,29 @@
+# Round 3, module pre-m8: terms from the honors lesson "Scaling area and volume".
+- term: area scale factor
+  aliases: [area scale factors, area factor]
+  definition: 'The number every area is multiplied by when a figure is scaled: $k^2$, the square of the length scale factor $k$.'
+  topic: Scaling area and volume
+- term: volume scale factor
+  aliases: [volume scale factors, volume factor]
+  definition: 'The number every volume is multiplied by when a solid is scaled: $k^3$, the cube of the length scale factor $k$.'
+  topic: Scaling area and volume
+- term: scale drawing
+  aliases: [scale drawings, scale model, scale models]
+  definition: 'A drawing or model, such as a map or floor plan, in which every length is the real length multiplied by the same factor.'
+  topic: Scaling area and volume
+- term: map scale
+  aliases: [map scales]
+  definition: 'The ratio of a length on a map to the real length it stands for, such as 1 : 50,000. It is a length ratio: square it for areas.'
+  topic: Scaling area and volume
+- term: square-cube law
+  aliases: [square–cube law, square cube law]
+  definition: 'When an object is scaled by $k$, its areas grow by $k^2$ but its volume grows by $k^3$, so volume (and weight) outgrows surface and strength as things get bigger.'
+  topic: Scaling area and volume
+- term: cross-sectional area
+  aliases: [cross section, cross-section, cross sections, cross-sections]
+  definition: 'The area of the flat face you would see if you sliced straight across an object, such as a bone or a beam.'
+  topic: Scaling area and volume
+- term: surface-area-to-volume ratio
+  aliases: [surface area to volume ratio, surface-area-to-volume ratios]
+  definition: 'Surface area divided by volume. For a cube with edge $s$ it is $\tfrac{6}{s}$; smaller objects have larger ratios, so they gain and lose heat faster.'
+  topic: Scaling area and volume

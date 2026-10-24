@@ -96,7 +96,7 @@ failures the posterior is $\text{Beta}(1 + 7,\ 1 + 3) = \text{Beta}(8, 4)$, whos
 $1320\,p^7(1-p)^3$.
 
 ```plot
-{"x": [0, 1], "y": [0, 3.4], "xLabel": "p", "yLabel": "density", "functions": [{"f": "1", "label": "prior Beta(1, 1)", "dashed": true}, {"f": "1320*x^7*(1-x)^3", "label": "posterior Beta(8, 4)"}], "shade": [{"f": "1320*x^7*(1-x)^3", "from": 0.390, "to": 0.891}], "caption": "Flat prior and the Beta(8, 4) posterior after 7 successes in 10; shaded: 95% credible interval 0.39 to 0.89"}
+{"x": [0, 1], "y": [0, 3.4], "xLabel": "p", "yLabel": "density", "functions": [{"f": "1", "dashed": true}, {"f": "1320*x^7*(1-x)^3", "label": "posterior Beta(8, 4)"}], "shade": [{"f": "1320*x^7*(1-x)^3", "from": 0.390, "to": 0.891}], "labels": [{"at": [0.2, 1.15], "text": "prior Beta(1, 1)"}], "caption": "Flat prior and the Beta(8, 4) posterior after 7 successes in 10; shaded: 95% credible interval 0.39 to 0.89"}
 ```
 
 - Posterior mean: $8/12 \approx 0.667$, between $\hat{p} = 0.7$ and the prior mean 0.5.

@@ -93,10 +93,11 @@ The whole search can be summed up in one chart.
 ```mermaid
 flowchart TD
   accTitle: A strategy for finding every zero of a polynomial
-  accDescr: List the rational candidates, plus or minus factors of the constant over factors of the leading coefficient. Optionally use Descartes' rule of signs to see how many positive and negative zeros are possible. Test candidates until f(c) = 0, then divide by x − c with synthetic division. If the depressed polynomial is not yet a quadratic, go back to testing candidates on it. Once it is a quadratic, factor it or use the quadratic formula. Finally list all n zeros; with real coefficients, non-real zeros come in conjugate pairs.
+  accDescr: List the rational candidates, plus or minus factors of the constant over factors of the leading coefficient. Optionally use Descartes' rule of signs to see how many positive and negative zeros are possible. Test candidates until f(c) = 0, then divide by x − c with synthetic division. If the depressed polynomial is not yet a quadratic, go back to testing candidates on it. Once it is a quadratic, factor it or use the quadratic formula. Finally list all n zeros; with real coefficients, non-real zeros come in conjugate pairs. If no candidate works, the polynomial has no rational zeros: for a cubic, use Cardano's formula from the honors lesson Solving cubics; otherwise approximate the real zeros from a graph or with technology.
   A["List candidates: ± factors of a₀ over factors of aₙ"] --> B["Optional: Descartes' rule of signs"]
   B --> C["Test candidates until f(c) = 0"]
-  C --> D["Divide by x − c with synthetic division"]
+  C -- "found one" --> D["Divide by x − c with synthetic division"]
+  C -- "none works" --> N["No rational zeros: for a cubic, Cardano's formula (honors lesson Solving cubics); otherwise approximate real zeros with a graph or technology"]
   D --> E{"Is the depressed polynomial a quadratic?"}
   E -- "no: test again on it" --> C
   E -- yes --> F["Factor it or use the quadratic formula"]

@@ -57,7 +57,7 @@ A horizontal asymptote describes the end behavior: what $f(x)$ approaches as $x$
 | $n = m$ | $y = \dfrac{\text{leading coefficient of } P}{\text{leading coefficient of } Q}$ | $\dfrac{6x^2 - 1}{2x^2 + x} \to 3$ |
 | $n > m$ | none | $\dfrac{x^2 + 1}{x - 1}$ grows without bound |
 
-To see the middle row, divide the top and bottom by $x^2$: $\dfrac{6 - 1/x^2}{2 + 1/x} \to \dfrac{6}{2} = 3$ as the fractions $\tfrac{1}{x^2}$ and $\tfrac1x$ shrink to 0. When $n = m + 1$, the graph instead approaches a slanted line called an **oblique asymptote**; you'll find those in precalculus.
+To see the middle row, divide the top and bottom by $x^2$: $\dfrac{6 - 1/x^2}{2 + 1/x} \to \dfrac{6}{2} = 3$ as the fractions $\tfrac{1}{x^2}$ and $\tfrac1x$ shrink to 0. When $n = m + 1$, the graph instead approaches a slanted line called an **oblique asymptote** (or slant asymptote); the honors lesson "Slant asymptotes and end behavior" later in this module shows how to find it.
 
 A graph never crosses a vertical asymptote, but it may cross a horizontal one somewhere in the middle; the horizontal asymptote only describes the far left and far right. For example, $y = \dfrac{x}{x^2 + 1}$ has horizontal asymptote $y = 0$ and crosses it at the origin.
 

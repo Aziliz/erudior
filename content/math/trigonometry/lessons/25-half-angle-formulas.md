@@ -43,7 +43,7 @@ take care of themselves. Multiplying by $2\cos\tfrac{\theta}{2}$ instead gives t
 
 For $0 < \theta < 180^\circ$ there is also a picture. Put $P = (\cos\theta, \sin\theta)$ on the unit circle and join it to
 $A = (-1, 0)$. The angle at $A$ is $\tfrac{\theta}{2}$ (an angle with its vertex on a circle is half the central angle on the
-same arc), and the right triangle $AFP$ has legs $1 + \cos\theta$ and $\sin\theta$, so $\tan\tfrac{\theta}{2} = \tfrac{\sin\theta}{1 + \cos\theta}$.
+same arc), and the right triangle $AFP$ has legs $1 + \cos\theta$ and $\sin\theta$, so $\tan\tfrac{\theta}{2} = \tfrac{\sin\theta}{1 + \cos\theta}$. (If you did the Module 2 honors lesson on exact values from regular polygons, this is its angle-halving construction: extend the adjacent leg by the hypotenuse, here of length 1.)
 
 ![A unit circle with center O. Point A is at (−1, 0) and point P on the upper arc makes central angle theta with the positive x-axis. F is the foot of the perpendicular from P to the x-axis. Triangle AFP is shaded: the angle at A is theta/2, the vertical leg FP is sin theta, OF is cos theta, and the horizontal leg AF, marked by a dimension line, is 1 + cos theta. The radius OP is 1.](images/trig-m6-half-angle-circle.svg)
 

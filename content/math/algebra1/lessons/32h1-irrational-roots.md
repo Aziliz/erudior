@@ -22,7 +22,7 @@ which is one more than an even number, so it is odd. Odd numbers have odd square
 
 ## Why √2 is irrational
 
-The proof is a **proof by contradiction**: assume the opposite of what you want to prove, reason correctly from that assumption, and arrive at something impossible. Since correct reasoning from a true statement can't produce an impossibility, the assumption must have been false.
+The proof is a **proof by contradiction**, the method you first used in the Module 1 honors lesson "Inside the real numbers" to show there is no smallest positive fraction. As a reminder: assume the opposite of what you want to prove, reason correctly from that assumption, and arrive at something impossible. Since correct reasoning from a true statement can't produce an impossibility, the assumption must have been false.
 
 Suppose $\sqrt2$ were rational. Then $\sqrt2 = \dfrac{p}{q}$ for whole numbers $p$ and $q$, and we may take the fraction in lowest terms, so $p$ and $q$ have no common factor other than 1.
 

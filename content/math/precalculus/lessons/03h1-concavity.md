@@ -118,7 +118,7 @@ Find the inflection point of $f(x) = x^3 - 6x^2 + 5x + 1$.
 3. The part $g(u) = u^3 - 7u$ satisfies $g(-u) = -g(u)$, so its graph looks the same after a half-turn about the origin. (Lesson 4 calls this an odd function.) Its rate on $[s, t]$ is $s^2 + st + t^2 - 7$, which grows as an interval with $s, t \ge 0$ moves right, so $g$ is concave up for $u > 0$. The half-turn turns that cup upside down, so $g$ is concave down for $u < 0$.
 4. So $f$ switches concavity at $u = 0$, that is at $x = 2$, where $f(2) = 8 - 24 + 10 + 1 = -5$.
 
-The inflection point is $(2, -5)$, and it is the center of symmetry of the cubic. In general, a cubic $ax^3 + bx^2 + cx + d$ has exactly one inflection point, at $x = -\dfrac{b}{3a}$. Do not confuse this with the vertex formula $-\dfrac{b}{2a}$ for a quadratic.
+The inflection point is $(2, -5)$, and it is the center of symmetry of the cubic (the Module 2 honors lesson "Symmetry beyond even and odd" proves this for every cubic and uses it to pair up values). In general, a cubic $ax^3 + bx^2 + cx + d$ has exactly one inflection point, at $x = -\dfrac{b}{3a}$. Do not confuse this with the vertex formula $-\dfrac{b}{2a}$ for a quadratic.
 
 ```mermaid
 flowchart TD

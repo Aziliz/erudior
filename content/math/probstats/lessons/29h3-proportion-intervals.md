@@ -54,8 +54,9 @@ positive $p$. Notice too the endpoints below 0 and above 1, which are impossible
 
 ## Why the Wald interval fails
 
-The Wald interval uses the pivot $(\hat p - p)/\sqrt{\hat p(1 - \hat p)/n}$, with the variance estimated *at $\hat p$*. Two things go
-wrong. Near $p = 0$ or 1, $\hat p$ is often 0 or 1 or close to it, so the estimated variance is badly
+The Wald interval uses the pivot $(\hat p - p)/\sqrt{\hat p(1 - \hat p)/n}$, with the variance estimated *at $\hat p$*. Slutsky's theorem
+(the honors lesson on modes of convergence) shows that this pivot tends to $N(0, 1)$, but only as $n \to \infty$; it says nothing
+about how large $n$ must be. At realistic $n$, two things go wrong. Near $p = 0$ or 1, $\hat p$ is often 0 or 1 or close to it, so the estimated variance is badly
 underestimated and the interval is far too short. And the binomial distribution of $\hat p$ is skewed when
 $p$ is away from 0.5, while the interval is symmetric about $\hat p$.
 

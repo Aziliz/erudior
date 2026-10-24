@@ -258,7 +258,7 @@
     sig: F/A
     eps: sig/mat
     dL: eps*L*1000
-  prompt: 'A wire of {mat}, {L} m long and {d} mm in diameter, hangs vertically and supports a {load} kg mass. Using $g = 9.8$ m/s², find the stress in the wire (Pa), the strain, and how much the wire stretches (mm), each to 3 significant figures.'
+  prompt: 'A wire of {mat}, {L} m long and {d} mm in diameter, hangs vertically and supports a {load} kg mass. Using $g = 9.8$ m/s², find the stress in the wire (Pa), the strain, and how much the wire stretches (mm), each to 3 significant figures (type powers of ten like 3.18e-4).'
   answers:
     - {format: sci, name: sig, label: 'Stress', relTolerance: 0.01, units: {Pa: 1, 'N/m²': 1, 'N/m^2': 1, MPa: 1000000}}
     - {format: sci, name: eps, label: 'Strain', relTolerance: 0.01}

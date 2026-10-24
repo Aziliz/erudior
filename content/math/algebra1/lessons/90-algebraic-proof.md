@@ -117,7 +117,7 @@ Notice the asymmetry: to prove "always," you need a general argument; to disprov
 
 ## Proof by contradiction
 
-A second kind of proof assumes the statement is *false* and shows that this leads to something impossible. This is **proof by contradiction**. If correct reasoning from an assumption produces an impossibility, the assumption must have been wrong.
+A second kind of proof assumes the statement is *false* and shows that this leads to something impossible. This is **proof by contradiction**, which you first met in the Module 1 honors lesson "Inside the real numbers" (no smallest positive fraction) and used again in Module 7 to prove $\sqrt2$ irrational. If correct reasoning from an assumption produces an impossibility, the assumption must have been wrong.
 
 ### Example 5: A difference of squares that is never 2
 

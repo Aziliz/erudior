@@ -27,6 +27,10 @@
   aliases: [angular diameter]
   definition: 'The angle an object covers as seen from a given point. For an object of width $D$ at a much larger distance $d$, it is about $D/d$ radians.'
   topic: Small angles
+- term: small-angle approximation
+  aliases: [small-angle approximations, small-angle rule]
+  definition: 'For a small angle $t$ in radians, $\sin t \approx t$, $\tan t \approx t$ and $\cos t \approx 1 - \tfrac{t^2}{2}$. In particular an object of width $D$ at a much larger distance $d$ has angular size $\theta \approx \tfrac{D}{d}$ radians.'
+  topic: Small angles
 - term: arcsecond
   aliases: [arcseconds, arcsec]
   definition: 'A second of angle, $\tfrac{1}{60}$ of an arcminute or $\tfrac{1}{3600}$ of a degree; one radian is about $206{,}265$ arcseconds.'

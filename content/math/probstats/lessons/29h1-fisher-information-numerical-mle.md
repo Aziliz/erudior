@@ -44,7 +44,8 @@ $$0 = U(\hat\theta) \approx U(\theta) + U'(\theta)(\hat\theta - \theta) \quad\Lo
 
 The numerator is approximately $N(0, I(\theta))$ by the CLT. The denominator $-\frac1n\sum \partial^2_\theta \ln f(X_i; \theta)$ is an average,
 so by the law of large numbers it is close to its mean, $I(\theta)$. Dividing a nearly $N(0, I)$ variable by the
-nearly constant $I$ gives a nearly $N(0, 1/I)$ variable:
+nearly constant $I$ gives a nearly $N(0, 1/I)$ variable (Slutsky's theorem, from the honors lesson on modes of
+convergence, is the tool that makes this step precise):
 
 $$\sqrt n\,(\hat\theta - \theta) \approx N\big(0,\; 1/I(\theta)\big), \qquad\text{that is,}\qquad \hat\theta \approx N\!\left(\theta, \frac{1}{nI(\theta)}\right).$$
 

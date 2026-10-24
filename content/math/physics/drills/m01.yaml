@@ -109,8 +109,8 @@
     A: sqrt(a1^2 + a2^2 + a3^2)
     B: sqrt(b1^2 + b2^2 + b3^2)
     phi: acosd(d / (A*B))
-  where: ['a1 != 0', 'b1 != 0', 'A > 0', 'B > 0', 'd != 0', 'abs(d) < 0.98*A*B']
-  prompt: 'For $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$ and $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$, find $\vec A\cdot\vec B$ and the angle between the vectors in degrees (to the nearest 0.1°).'
+  where: ['a1 != 0', 'a2 != 0', 'a3 != 0', 'b1 != 0', 'b2 != 0', 'b3 != 0', 'd != 0', 'abs(d) < 0.98*A*B']
+  prompt: 'For $\vec A = {a1:coef}\hat\imath {a2:signedcoef}\hat\jmath {a3:signedcoef}\hat k$ and $\vec B = {b1:coef}\hat\imath {b2:signedcoef}\hat\jmath {b3:signedcoef}\hat k$, find $\vec A\cdot\vec B$ and the angle between the vectors in degrees (to the nearest 0.1°).'
   answers:
     - {name: d, label: '$\vec A\cdot\vec B =$', format: integer}
     - {format: sig4, name: phi, label: 'Angle', tolerance: 0.5, units: {'°': 1, deg: 1}}

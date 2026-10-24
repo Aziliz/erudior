@@ -85,7 +85,7 @@
     $D$ is beyond $C$, so $BD = {bc} + {cd} = {bd}$. Menelaus: $\dfrac{AF}{FB} \cdot \dfrac{BD}{DC} \cdot \dfrac{CE}{EA} = 1$, so $\dfrac{CE}{EA} = \dfrac{FB \cdot DC}{AF \cdot BD} = \dfrac{ {fb} \cdot {cd} }{ {af} \cdot {bd} } = \dfrac{ {pp} }{ {qq} }$. Split $AC = {ac}$ in the ratio ${pp} : {qq}$: $CE =$ **{ce}** and $EA =$ **{ea}**.
 
 - id: geo-h1-r2-euler-coords
-  title: Orthocenter and nine-point center from O and G
+  title: Centroid and nine-point center from O and H
   topic: Euler line
   vars:
     ox: {min: -6, max: 6}
@@ -96,16 +96,20 @@
   calc:
     hx: 3*gx - 2*ox
     hy: 3*gy - 2*oy
+    cgx: gx
+    cgy: gy
     nx: (ox + hx)/2
     ny: (oy + hy)/2
-  prompt: 'A triangle has circumcenter $O({ox}, {oy})$ and centroid $G({gx}, {gy})$. Find its orthocenter $H$ and its nine-point center $N$. (Decimals such as 2.5 are fine.)'
+    sx: hx + 2*ox
+    sy: hy + 2*oy
+  prompt: 'A triangle has circumcenter $O({ox}, {oy})$ and orthocenter $H({hx}, {hy})$. Find its centroid $G$ and its nine-point center $N$. (Decimals such as 2.5 are fine.)'
   answers:
-    - {name: hx, label: '$H$: $x =$'}
-    - {name: hy, label: '$y =$'}
+    - {name: cgx, label: '$G$: $x =$'}
+    - {name: cgy, label: '$y =$'}
     - {name: nx, label: '$N$: $x =$'}
     - {name: ny, label: '$y =$'}
   solution: |-
-    $G$ is one-third of the way from $O$ to $H$, so $H = 3G - 2O = \big(3({gx}) - 2({ox}),\ 3({gy}) - 2({oy})\big) =$ **({hx}, {hy})**. The nine-point center is the midpoint of $\overline{OH}$: $N = \left(\tfrac{({ox}) + ({hx})}{2}, \tfrac{({oy}) + ({hy})}{2}\right) =$ **({nx}, {ny})**.
+    On the Euler line $G$ is one-third of the way from $O$ to $H$, so $G = \tfrac{H + 2O}{3} = \left(\tfrac{({hx}) + 2({ox})}{3},\ \tfrac{({hy}) + 2({oy})}{3}\right) = \left(\tfrac{ {sx} }{3}, \tfrac{ {sy} }{3}\right) =$ **({cgx}, {cgy})**. The nine-point center is the midpoint of $\overline{OH}$: $N = \left(\tfrac{({ox}) + ({hx})}{2}, \tfrac{({oy}) + ({hy})}{2}\right) =$ **({nx}, {ny})**.
 
 - id: geo-h1-r2-right-euler
   title: Euler line of a right triangle

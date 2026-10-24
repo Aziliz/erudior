@@ -120,15 +120,16 @@ questions.
 ```mermaid
 flowchart TD
   accTitle: Improving a process that is not capable
-  accDescr: Collect data from a stable process and estimate its mean and standard deviation. Check the normal model with a normal probability plot. Compute Cp and Cpk. If Cpk is well below Cp, the process is off center, so move the mean toward the middle of the specification limits. Then, or if the process was already centered, ask whether Cp is below the target such as 1.33. If it is, the spread is too large: reduce sigma, or ask whether the limits can safely be widened. If not, the process is capable; keep monitoring it.
+  accDescr: Collect data from a stable process and estimate its mean and standard deviation. Check the normal model with a normal probability plot. Compute Cp and Cpk. If Cpk meets the target, such as 1.33, the process is capable; keep monitoring it. If not, ask whether Cp also falls below the target. If it does, the spread is too large: reduce sigma, or ask whether the limits can safely be widened. If Cp meets the target, the spread is fine but the process is off center, so move the mean toward the middle of the specification limits. After either change, compute Cp and Cpk again.
   A["Estimate μ and σ from a stable process"] --> N["Check the normal model with a normal probability plot"]
   N --> B["Compute Cp and Cpk"]
-  B --> C{"Is Cpk well below Cp?"}
-  C -->|yes| D["Off center: move the mean toward the middle of the limits"]
-  C -->|no| E{"Is Cp below the target, such as 1.33?"}
-  D --> E
+  B --> C{"Does Cpk meet the target, such as 1.33?"}
+  C -->|yes| G["Capable: keep monitoring"]
+  C -->|no| E{"Is Cp below the target too?"}
   E -->|yes| F["Too much spread: reduce σ, or ask whether the limits can safely be widened"]
-  E -->|no| G["Capable: keep monitoring"]
+  E -->|no| D["Spread is fine but off center: move the mean toward the middle of the limits"]
+  D -->|then| B
+  F -->|then| B
 ```
 
 ### Example 3: how small must σ be?

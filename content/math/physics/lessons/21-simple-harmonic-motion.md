@@ -93,7 +93,7 @@ A **physical pendulum**, any rigid object swinging about a pivot a distance $d$ 
 
 ## Damping and resonance
 
-Real oscillators lose energy to friction and air drag. With **damping**, the amplitude shrinks a little with each cycle as mechanical energy turns into thermal energy. Light damping leaves the frequency almost unchanged; heavy damping can stop the oscillation altogether (car shock absorbers are tuned to return the car to equilibrium quickly without bouncing, which is called critical damping).
+Real oscillators lose energy to friction and air drag. With **damping**, the amplitude shrinks a little with each cycle as mechanical energy turns into thermal energy. Light damping leaves the frequency almost unchanged; heavy damping can stop the oscillation altogether (car shock absorbers are tuned close to **critical damping**, the amount that returns a system to equilibrium fastest without bouncing; in practice they sit slightly below it, allowing a little overshoot for a softer ride).
 
 A periodic push can feed energy in. When the driving frequency matches the system's natural frequency $\omega_0 = \sqrt{k/m}$, the amplitude grows large: **resonance**. You use it pushing a child on a swing at just the right moments. Engineers must avoid it in bridges and buildings (wind or footsteps at the natural frequency can cause dangerous swaying) and exploit it in radios, which tune by resonating with one station's frequency.
 

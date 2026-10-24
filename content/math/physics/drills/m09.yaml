@@ -19,7 +19,7 @@
   title: Resistance of a wire
   topic: Current and resistance
   vars:
-    mat: {choices: [{label: 'copper (ρ = 1.7 × 10⁻⁸ Ω·m)', value: 1.7}, {label: 'aluminum (ρ = 2.8 × 10⁻⁸ Ω·m)', value: 2.8}, {label: 'nichrome (ρ = 100 × 10⁻⁸ Ω·m)', value: 100}]}
+    mat: {choices: [{label: 'copper (ρ = 1.7 × 10⁻⁸ Ω·m)', value: 1.7}, {label: 'aluminum (ρ = 2.65 × 10⁻⁸ Ω·m)', value: 2.65}, {label: 'nichrome (ρ = 100 × 10⁻⁸ Ω·m)', value: 100}]}
     L: {min: 0.5, max: 200, step: 0.5}
     dmm: {min: 0.2, max: 3, step: 0.1}
     I: {min: 0.5, max: 10, step: 0.5}

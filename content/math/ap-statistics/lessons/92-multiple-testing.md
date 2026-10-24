@@ -39,7 +39,7 @@ chance alone. If only that flavor makes the news, the public sees a p-value belo
 the 19 failures.
 
 ```plot
-{"x": [0, 60], "y": [0, 1], "xLabel": "number of independent tests, m", "yLabel": "P(at least one false positive)", "functions": [{"f": "1 - 0.95^x", "label": "each at α = 0.05"}, {"f": "1 - (1 - 0.05/x)^x", "from": 1, "label": "Bonferroni, each at 0.05/m", "dashed": true}], "points": [{"at": [20, 0.642], "label": "m = 20: 0.64"}], "caption": "Familywise error rate when every null hypothesis is true"}
+{"x": [0, 60], "y": [-0.09, 1], "xAxisAt": "bottom", "xLabel": "number of independent tests, m", "yLabel": "P(at least one false positive)", "functions": [{"f": "1 - 0.95^x", "label": "each at α = 0.05"}, {"f": "1 - (1 - 0.05/x)^x", "from": 1, "dashed": true}], "points": [{"at": [20, 0.642], "label": "m = 20: 0.64"}], "labels": [{"at": [44, 0.14], "text": "Bonferroni, each at 0.05/m"}], "caption": "Familywise error rate when every null hypothesis is true"}
 ```
 
 ## The Bonferroni correction

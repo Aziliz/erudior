@@ -52,5 +52,5 @@
   definition: 'The solution of $u_{tt} = c^2u_{xx}$ with $u(x,0) = \varphi(x)$, $u_t(x,0) = \psi(x)$: $u = \tfrac12[\varphi(x - ct) + \varphi(x + ct)] + \tfrac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)\,ds$.'
   topic: Heat and wave equations
 - term: mean value property
-  definition: 'A harmonic function''s value at the center of any circle (whose disk lies in its domain) equals its average value on that circle.'
+  definition: 'A harmonic function''s value at the center of any circle (in two variables) or sphere (in three), whose disk or ball lies in its domain, equals its average value on that circle or sphere.'
   topic: Laplace's equation

@@ -224,7 +224,7 @@
   lesson: pc-m5-h-trig-equations
   type: text
   topic: Trig equations
-  stem: 'The smallest positive solution of $\sin 2x = 1$ is $x =$ ___. Give an exact value such as pi/6, or a decimal to 3 places.'
+  stem: 'The smallest positive solution of $\sin 2x = 1$ is $x =$ ___. Give an exact value such as pi/6, or a decimal rounded to 3 decimal places.'
   accept: ['pi/4', 'π/4', '1/4 pi', '(1/4)pi', 'pi / 4', '0.785', '.785', '0.7854']
   explanation: |-
     $\sin u = 1$ only at $u = \frac{\pi}{2} + 2k\pi$. With $u = 2x$, the smallest positive one is $2x = \frac{\pi}{2}$, so $x = \frac{\pi}{4} \approx 0.785$.

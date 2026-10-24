@@ -31,7 +31,7 @@ Sketch $x = t^2 - 1$, $y = 2t$ for $-2 \le t \le 2$.
 The points trace a parabola opening right, moving upward as $t$ increases, starting at $(3, -4)$ and ending at $(3, 4)$.
 
 ```plot
-{"x": [-2, 5], "y": [-5, 5], "equal": true, "curves": [{"x": "t^2 - 1", "y": "2t", "t": [-2, 2]}], "points": [{"at": [3, -4], "label": "t = −2"}, {"at": [0, -2], "label": "t = −1"}, {"at": [-1, 0], "label": "t = 0"}, {"at": [0, 2], "label": "t = 1"}, {"at": [3, 4], "label": "t = 2"}], "segments": [{"from": [-0.6, 1], "to": [-0.4, 1.4], "arrow": true}], "caption": "x = t² − 1, y = 2t: a parabola traced upward."}
+{"x": [-2, 5], "y": [-5, 5], "equal": true, "yAxisAt": "left", "xAxisAt": "bottom", "curves": [{"x": "t^2 - 1", "y": "2t", "t": [-2, 2]}], "points": [{"at": [3, -4], "label": "t = −2"}, {"at": [0, -2], "label": "t = −1"}, {"at": [-1, 0], "label": "t = 0"}, {"at": [0, 2], "label": "t = 1"}, {"at": [3, 4], "label": "t = 2"}], "segments": [{"from": [-0.6, 1], "to": [-0.4, 1.4], "arrow": true}], "caption": "x = t² − 1, y = 2t: a parabola traced upward."}
 ```
 
 ## Eliminating the parameter
@@ -109,7 +109,7 @@ A ball is kicked from the ground with $v_x = 20$ m/s and $v_y = 15$ m/s, so $x =
 - The top of the arc is at the vertex of $y(t)$: $t = \frac{15}{9.8} \approx 1.53$ s, and $y \approx 15(1.53) - 4.9(1.53)^2 \approx 11.5$ m.
 
 ```plot
-{"x": [0, 80], "y": [0, 15], "xLabel": "x (m)", "yLabel": "y (m)", "curves": [{"x": "20t", "y": "15t - 4.9t^2", "t": [0, 3.0612]}], "points": [{"at": [30.6, 11.48], "label": "top (30.6, 11.5)"}, {"at": [61.2, 0]}], "labels": [{"at": [61.2, 2], "text": "lands (61.2, 0)"}], "caption": "The ball's path: x = 20t, y = 15t − 4.9t²."}
+{"x": [0, 80], "y": [0, 15], "xLabel": "x (m)", "yLabel": "y (m)", "curves": [{"x": "20t", "y": "15t - 4.9t^2", "t": [0, 3.0612]}], "points": [{"at": [30.6, 11.48], "label": "top (30.6, 11.5)"}, {"at": [61.2, 0], "label": "lands (61.2, 0)"}], "caption": "The ball's path: x = 20t, y = 15t − 4.9t²."}
 ```
 
 ## Common mistakes

@@ -32,7 +32,7 @@ This reversal is called **Simpson's paradox**: an association that holds within 
 
 ## Why it happens: overall rates are weighted averages
 
-A **weighted average** combines several values, giving each a weight that says how much it counts; the weights are fractions that add to 1. Hospital A's overall survival rate is a weighted average of its two group rates, weighted by the share of its patients in each group:
+A **weighted average** combines several values, giving each a weight that says how much it counts: multiply each value by its weight, add, and divide by the total weight (as in the Module 1 honors lesson "Rates that combine"). When the weights are fractions of a whole that add to 1, as here, dividing by the total weight changes nothing, so that step drops out. Hospital A's overall survival rate is a weighted average of its two group rates, weighted by the share of its patients in each group:
 
 $$\frac{335}{400} = \frac{100}{400}(95\%) + \frac{300}{400}(80\%) = 0.25(95\%) + 0.75(80\%) = 83.75\%.$$
 

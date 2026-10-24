@@ -70,7 +70,7 @@ exterior angle at $A$, which is $\theta$, equals the sum of those two angles, so
 $\tfrac{\theta}{2}$. Now the big triangle $BCD$ is a right triangle with angle
 $\tfrac{\theta}{2}$ at $D$, and
 $$\tan\frac{\theta}{2} = \frac{BC}{CD} = \frac{\text{opp}}{\text{adj} + \text{hyp}},$$
-where opp, adj and hyp are the sides of the original triangle seen from $\theta$.
+where opp, adj and hyp are the sides of the original triangle seen from $\theta$. (Lesson 25 draws the same picture on the unit circle, where it becomes the half-angle formula $\tan\tfrac{\theta}{2} = \tfrac{\sin\theta}{1 + \cos\theta}$.)
 
 ### Example 2: $15^\circ$ from the 30°–60°–90° triangle
 

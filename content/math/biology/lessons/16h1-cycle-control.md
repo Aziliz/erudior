@@ -52,7 +52,7 @@ Cells can also block CDKs with **CDK inhibitor** proteins such as p21, which bin
 In 1989 Andrew Murray and Marc Kirschner made frog egg extracts that cycle in a test tube, repeatedly building and breaking down nuclear envelopes around added sperm DNA.
 
 ```plot
-{"x": [0, 90], "y": [0, 1.1], "xLabel": "time (minutes)", "yLabel": "relative level", "functions": [{"f": "min(0.1 + 0.8*mod(x,30)/28, 0.9 - 0.4*(mod(x,30)-28))", "label": "cyclin B"}, {"f": "0.05 + 0.85*exp(-(mod(x,30)-27.5)^2/2)", "label": "MPF activity", "dashed": true}], "caption": "Schematic of a cycling egg extract: cyclin builds up gradually, MPF activity switches on sharply near the top, and cyclin is then destroyed"}
+{"x": [0, 108], "y": [0, 1.1], "xLabel": "time (min)", "yLabel": "relative level", "functions": [{"f": "min(0.1 + 0.8*mod(x,30)/28, 0.9 - 0.4*(mod(x,30)-28))", "to": 90}, {"f": "0.05 + 0.85*exp(-(mod(x,30)-27.5)^2/2)", "to": 90, "dashed": true}], "labels": [{"at": [60, 1.0], "text": "solid: cyclin B;  dashed: MPF activity"}], "caption": "Schematic of a cycling egg extract: cyclin builds up gradually, MPF activity switches on sharply near the top, and cyclin is then destroyed"}
 ```
 
 Predict the result of each change: (a) all mRNA is destroyed, then only cyclin B mRNA is added back; (b) a cyclin B that cannot be tagged with ubiquitin is added; (c) Wee1 is removed.
