@@ -67,7 +67,7 @@ Model Earth's and Mars's orbits as circles in one plane, of radii 1.00 AU and 1.
 
 *Trip time.* In units of AU and years (where $T^2 = a^3$ for orbits of the Sun), $a_t = 1.26$ AU, so the transfer takes half of $1.26^{3/2}$ years: $t = 0.707$ yr $\approx 258$ days.
 
-*Burns.* With $GM_{\text{Sun}} = (6.67\times10^{-11})(1.99\times10^{30})$ and 1 AU $= 1.50\times10^{11}$ m, Earth's orbital speed is 29.7 km/s and the transfer orbit's periapsis speed is 32.7 km/s. The spacecraft must leave Earth's neighborhood moving 2.93 km/s faster than Earth. At Mars it arrives at 21.5 km/s, while Mars moves at 24.1 km/s, so it is 2.63 km/s behind and must speed up (or be captured into orbit by braking from the other side).
+*Burns.* With $GM_{\text{Sun}} = (6.67\times10^{-11})(1.99\times10^{30})$ and 1 AU $= 1.50\times10^{11}$ m, Earth's orbital speed is 29.7 km/s and the transfer orbit's periapsis speed is 32.7 km/s. The spacecraft must leave Earth's neighborhood moving 2.93 km/s faster than Earth. At Mars it arrives at 21.5 km/s, while Mars moves at 24.1 km/s, so relative to Mars it approaches at 2.63 km/s. An orbiter has to shed that speed (with a braking burn close to Mars) to be captured; otherwise it flies past.
 
 *Timing.* Mars has to arrive at the meeting point at the same moment. Mars takes $1.52^{3/2} = 1.87$ yr per orbit, so during the 0.707 yr trip it moves $360°(0.707/1.87) = 136°$. The spacecraft travels 180°, so at launch Mars must be about $180° - 136° = 44°$ ahead of Earth. That geometry repeats once every **synodic period**, the time for Earth to gain a full lap on Mars: $1/S = 1/(1\text{ yr}) - 1/(1.87\text{ yr})$, so $S = 2.14$ yr. This is why Mars missions launch in a **launch window** about every 26 months.
 

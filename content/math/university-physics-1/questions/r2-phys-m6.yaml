@@ -424,16 +424,16 @@
   lesson: phys-m6-h-normal-modes
   topic: Normal modes
   stem: 'As a beaded string gets more and more beads (same length, tension and total mass per length), what do the frequencies of its lowest modes approach?'
-  choices: ['All the same frequency, $\sqrt{F/(ma)}$', 'The harmonics $f_n = nv/(2L)$ of a continuous string', 'Zero, because each bead''s mass shrinks', 'Odd harmonics only, $f_n = nv/(4L)$']
-  answer: 1
+  choices: ['All the same frequency, $\sqrt{F/(ma)}$', 'Zero, because each bead''s mass shrinks', 'The harmonics $f_n = nv/(2L)$ of a continuous string', 'Odd harmonics only, $f_n = nv/(4L)$']
+  answer: 2
   explanation: |-
     For small angles $\sin\dfrac{n\pi}{2(N+1)} \approx \dfrac{n\pi a}{2L}$, so $\omega_n \to \dfrac{n\pi}{L}\sqrt{F/\mu}$ and $f_n = nv/(2L)$ with $v = \sqrt{F/\mu}$. Odd harmonics only, $nv/(4L)$, belong to a pipe closed at one end.
 - id: phys-m6-r2-h25
   lesson: phys-m6-h-normal-modes
   topic: Normal modes
   stem: 'What does it mean for a medium to show dispersion?'
-  choices: ['Its waves lose energy as they travel', 'Its wave speed depends on frequency (or wavelength)', 'Its waves spread out over a larger area with distance', 'It reflects waves at its boundaries']
-  answer: 1
+  choices: ['Its wave speed depends on frequency (or wavelength)', 'Its waves lose energy as they travel', 'Its waves spread out over a larger area with distance', 'It reflects waves at its boundaries']
+  answer: 0
   explanation: |-
     Dispersion means the wave speed depends on frequency, as for the high modes of a beaded string, where short waves travel more slowly. Energy loss is damping (absorption), and spreading over a larger area is what gives the inverse-square law.
 - id: phys-m6-r2-h26
