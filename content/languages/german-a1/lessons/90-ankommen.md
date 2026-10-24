@@ -77,9 +77,10 @@ Brandt!* (*klingeln*: to ring the bell; *die Klingel*: the bell.)
 
 ## Reading a letter from the Amt
 
-Formal letters follow the fixed layout you met in lesson 23: the sender at the top, your address,
-the place and date, a one-line subject (*der Betreff*), the greeting *Sehr geehrter Herr …* and
-the closing *Mit freundlichen Grüßen*. Once you know where each part is, you can find the
+Formal letters follow a fixed layout (the module 6 honors lesson on letters shows it in full; lesson
+23 gave you the greeting and closing): the sender at the top, your address, the place and date, a
+one-line subject (*der Betreff*), the greeting *Sehr geehrter Herr …* and the closing *Mit
+freundlichen Grüßen*. Once you know where each part is, you can find the
 important information fast, even if you don't understand every word.
 
 Here is a letter from a Bürgeramt, written for this course:
@@ -135,10 +136,10 @@ stop you, because the layout told you where to look.
 
 ## Abbreviations in official German
 
-Letters, forms and notices are full of short forms. An **abbreviation** (*die Abkürzung*) is
-written with a full stop, and in most cases you read it aloud as the full words: *z. B.* is said
-*zum Beispiel*, never "zet be". Only a few are said letter by letter, like *PLZ* (lesson 3) or
-*ICE* (the fast train).
+Letters, forms and notices are full of short forms. An **abbreviation** (*die Abkürzung*) that
+you read aloud as the full words is written with a full stop: *z. B.* is said *zum Beispiel*, never
+"zet be". Only a few are said letter by letter, and these are written without full stops, like
+*PLZ* (lesson 3) or *ICE* (the fast train).
 
 | Abbreviation | Full form | Meaning |
 |---|---|---|

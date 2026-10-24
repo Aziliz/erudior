@@ -104,16 +104,17 @@ town to town, so check the stickers on the bins.
 
 Glass doesn't go in any of these. It goes in big street containers, the *Glascontainer*, sorted by
 colour: *Weißglas* (clear), *Grünglas* (green) and *Braunglas* (brown). Blue and other colours go
-with the green glass. Because they're noisy, glass bins can usually only be used on weekdays
-during the day; a sign on the container gives the times.
+with the green glass. Because they're noisy, glass bins can usually only be used on working days
+(*werktags*, which in Germany includes Saturday) during the day, typically 7 to 20 Uhr, and never on
+Sundays or public holidays; a sign on the container gives the times.
 
 ![Four wheelie bins in a row, each with a picture of what goes in it: a yellow bin with a tin and a yoghurt pot, labeled die gelbe Tonne; a blue bin with a newspaper, labeled die Papiertonne; a brown bin with an apple core, labeled die Biotonne; and a grey bin with an old sponge, labeled der Restmüll.](images/de1-h1-bins.svg)
 
 ```mermaid
 flowchart TD
   accTitle: Where does it go? Sorting rubbish in Germany
-  accDescr: First ask whether the bottle or can has a deposit logo. If yes, take it back to the shop's deposit machine. If not, ask whether it is glass. Glass goes in the glass container, sorted by colour. If it is not glass, ask whether it is paper or cardboard: that goes in the blue paper bin. Otherwise, packaging of plastic or metal goes in the yellow bin, food and garden waste goes in the brown Biotonne, and everything else goes in the grey Restmüll bin.
-  A{"Pfand logo?"} -- ja --> B["Pfandautomat im Supermarkt"]
+  accDescr: First ask whether the bottle or can has a deposit (Pfand). If yes, take it back to the shop's deposit machine. If not, ask whether it is glass. Glass goes in the glass container, sorted by colour. If it is not glass, ask whether it is paper or cardboard: that goes in the blue paper bin. Otherwise, packaging of plastic or metal goes in the yellow bin, food and garden waste goes in the brown Biotonne, and everything else goes in the grey Restmüll bin.
+  A{"Pfand?"} -- ja --> B["Pfandautomat im Supermarkt"]
   A -- nein --> C{"Glas?"}
   C -- ja --> D["Glascontainer: weiß, grün, braun"]
   C -- nein --> E{"Papier?"}

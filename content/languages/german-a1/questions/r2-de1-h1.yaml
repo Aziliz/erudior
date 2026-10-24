@@ -95,7 +95,7 @@
   choices: [your passport or ID card, the Wohnungsgeberbestätigung, the Anmeldeformular, your Steuer-ID letter, your Meldebescheinigung]
   answer: [0, 1, 2]
   explanation: |-
-    You bring your passport or ID card, the landlord's confirmation and the registration form. The Steuer-ID is sent to you by post a few weeks after you register, and the Meldebescheinigung is what you receive at the appointment, so you can't have either of them yet.
+    You bring your passport or ID card, the landlord's confirmation and the registration form. The Steuer-ID isn't needed: after a first registration it is sent to you by post a few weeks later. The Meldebescheinigung is what you receive at the appointment, so you don't bring it.
 - id: de1-h1-r2-h11
   lesson: de1-h-ankommen
   topic: Registering and official letters

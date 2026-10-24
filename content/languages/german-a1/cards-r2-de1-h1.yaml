@@ -19,7 +19,7 @@
 - {front: 'Infinitive command or imperative?', back: 'Infinitive commands are for signs, announcements and recipes. To a person, use the imperative: Schließ bitte die Tür! / Schließen Sie bitte die Tür!', topic: 'Infinitive commands and Wohin?'}
 - {front: 'Wo? or Wohin? with in, an, auf …', back: 'Wo? (location) + dative: in der Tonne, im Keller. Wohin? (movement) + accusative: in die Tonne, in den Keller, ins Treppenhaus.', topic: 'Infinitive commands and Wohin?'}
 - {front: 'The four bins', back: 'gelb: packaging (plastic, metal); blau: paper; Biotonne (often brown): food and garden waste; Restmüll (grey/black): everything else. Colours vary by town.', topic: Recycling and Pfand}
-- {front: 'Where does glass go?', back: 'In the Glascontainer on the street, by colour: Weißglas, Grünglas, Braunglas (blue goes with green). Weekdays only, during the day.', topic: Recycling and Pfand}
+- {front: 'Where does glass go?', back: 'In the Glascontainer on the street, by colour: Weißglas, Grünglas, Braunglas (blue goes with green). Only on working days (Mon–Sat), during the day; never on Sundays or holidays.', topic: Recycling and Pfand}
 - {front: 'das Pfand', back: 'A deposit: 25 cents on single-use bottles and cans with the logo, usually 8 or 15 cents on reusable (Mehrweg) bottles. Return them to the Pfandautomat for a Pfandbon.', topic: Recycling and Pfand}
 - {front: 'werfen: present tense', back: 'ich werfe, du wirfst, er wirft, wir werfen, ihr werft, sie werfen (e → i)', topic: Recycling and Pfand}
 # --- 92: Märchen
@@ -43,6 +43,6 @@
 - {front: 'Gender and plural of diminutives', back: 'Always das: der Hund → das Hündchen. Plural looks the same: das Brötchen, die Brötchen.', topic: Diminutives}
 - {front: '-chen or -lein?', back: 'Same meaning. -lein is older, more poetic and southern, and usual after -ch: das Büchlein.', topic: Diminutives}
 - {front: 'What diminutives add', back: 'Often a friendly feeling, not just smallness: ein Tässchen Kaffee, ein Gläschen Wein, mein Schätzchen.', topic: Diminutives}
-- {front: 'Words that are only diminutives', back: 'das Mädchen (girl), das Märchen (fairy tale), das Brötchen (roll), das Kaninchen (rabbit), das Eichhörnchen (squirrel), ein bisschen (a little)', topic: Diminutives}
+- {front: 'Diminutives that are words of their own', back: 'das Mädchen (girl), das Märchen (fairy tale), das Brötchen (roll), das Kaninchen (rabbit), das Eichhörnchen (squirrel), ein bisschen (a little)', topic: Diminutives}
 - {front: 'Regional diminutive endings', back: 'Swabian -le (das Häusle), Swiss -li (das Müesli), Bavarian and Austrian -erl / -l (das Sackerl). All neuter.', topic: Diminutives}
 - {front: 'Saying Häuschen', back: 'Häus-chen: s, then the soft ch of ich. Not "sch". Also Gläs-chen, Täss-chen.', topic: Diminutives}

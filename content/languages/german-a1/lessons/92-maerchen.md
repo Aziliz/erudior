@@ -189,7 +189,8 @@ perfect, the way you'd tell the story aloud.
 
 So, told aloud: *Der Hund ist auf den Esel gesprungen, und der Hahn ist auf die Katze geflogen.
 Dann haben sie Musik gemacht.* Movement verbs (*springen, fliegen, fallen*) take *sein* in the
-perfect, as in lesson 22. *Bellte* and *machten* end in *-te(n)*: weak verbs. All the others
+perfect, as in lesson 22. *Bellte* and *machten* end in *-te(n)*: weak verbs, like the two animal sounds the table leaves out,
+*miaute* (*miauen*) and *krähte* (*krähen*). All the others
 change their vowel: strong verbs. (In southern Germany and Austria you'll also hear *ist
 gestanden*, lesson 22.)
 

@@ -48,7 +48,8 @@ is *der Kleingarten*: a small garden you rent in a *Kleingartenanlage*, a group 
 with paths, hedges and fences, often near a railway line or on the edge of town. There are about
 900,000 of them in Germany. You don't rent one from a landlord but from a club, the
 *Kleingartenverein*, so you also become a member, go to meetings and help with jobs everyone
-shares.
+shares. (Simplified: strictly, the club usually leases the land from the town and sub-leases the
+plots to its members.)
 
 Another name is *der Schrebergarten*, after Moritz Schreber (1808–1861), a doctor in Leipzig who
 wanted city children to play outdoors. In 1864, three years after his death, a club named after
@@ -127,15 +128,16 @@ with children and animals, not in a job interview.
 
 ### Words that are only diminutives
 
-Some words have *-chen* but no "big" version in everyday German any more. Learn them as normal
-words, always with *das*:
+Some words have *-chen* but no "big" version in everyday German any more, or have moved away from
+it in meaning (a *Brötchen* is a roll, not a small loaf of *Brot*). Learn them as normal words,
+always with *das*:
 
 | Word | Meaning | Where it comes from |
 |---|---|---|
 | *das Mädchen* | girl | an old word *Magd* (young woman, maid) |
 | *das Märchen* | fairy tale | an old word *Märe* (news, story) |
 | *das Brötchen* | bread roll | *das Brot* (bread) |
-| *das Kaninchen* | rabbit | there's no *Kanin* today |
+| *das Kaninchen* | rabbit | *Kanin* survives only in old or regional use |
 | *das Eichhörnchen* | squirrel | *das Eichhorn*, now rare |
 | *ein bisschen* | a little | *der Bissen* (a bite) |
 
