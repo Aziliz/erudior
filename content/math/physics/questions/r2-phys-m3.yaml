@@ -274,7 +274,6 @@
     Compare driving forces: $m_1 g\sin 30^\circ = 49$ N down the slope versus $m_2 g = 29.4$ N pulling up it. The imbalance, 19.6 N, tends to slide the block down, so friction points up the slope. The limit is $\mu_s m_1 g\cos 30^\circ = 33.9$ N, more than enough, so nothing moves and friction is just the 19.6 N needed.
 - id: phys-m3-r2-h06
   lesson: phys-m3-h-friction-systems
-  module_quiz: true
   topic: Friction in systems
   stem: 'A 4.0 kg block is on a $30^\circ$ ramp with $\mu_s = 0.25$, tied over a pulley at the top to a hanging mass. What is the largest hanging mass that leaves the system at rest?'
   choices: ['1.13 kg', '2.00 kg', '2.87 kg', '3.00 kg']

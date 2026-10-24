@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" font-family="sans-serif">
-<rect width="640" height="480" fill="#ffffff"/>
-<line x1="60.0" y1="280.0" x2="600.0" y2="280.0" stroke="#8a96a3" stroke-width="1.5" stroke-dasharray="6 5"/>
-<line x1="200.0" y1="280.0" x2="276.8" y2="280.0" stroke="#a3341f" stroke-width="4"/>
-<polygon points="290.8,280.0 276.8,286.3 276.8,273.7" fill="#a3341f"/>
-<line x1="200.0" y1="280.0" x2="200.0" y2="179.9" stroke="#1f4e8c" stroke-width="4"/>
-<polygon points="200.0,165.9 206.3,179.9 193.7,179.9" fill="#1f4e8c"/>
-<line x1="200.0" y1="280.0" x2="200.0" y2="426.6" stroke="#2e7d4f" stroke-width="4"/>
-<polygon points="200.0,440.6 193.7,426.6 206.3,426.6" fill="#2e7d4f"/>
-<line x1="290.8" y1="280.0" x2="290.8" y2="326.5" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
-<line x1="200.0" y1="280.0" x2="278.3" y2="320.1" stroke="#1c2833" stroke-width="4.5"/>
-<polygon points="290.8,326.5 275.4,325.7 281.2,314.5" fill="#1c2833"/>
-<path d="M 270 280 A 70 70 0 0 1 262.3 311.9" fill="none" stroke="#1c2833" stroke-width="2"/>
-<text x="590.0" y="306.0" font-size="15" text-anchor="end" fill="#1c2833">current I</text>
-<text x="245.4" y="268.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">V<tspan font-size="14" dy="4">R</tspan></text>
-<text x="188.0" y="223.0" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">V<tspan font-size="14" dy="4">L</tspan></text>
-<text x="188.0" y="390.3" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">V<tspan font-size="14" dy="4">C</tspan></text>
-<text x="304.8" y="332.5" font-size="20" text-anchor="start" fill="#1c2833" font-style="italic">V</text>
-<text x="282.0" y="310.0" font-size="18" text-anchor="start" fill="#1c2833">φ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" width="640" height="560" font-family="sans-serif">
+<rect width="640" height="560" fill="#ffffff"/>
+<line x1="60.0" y1="240.0" x2="600.0" y2="240.0" stroke="#8a96a3" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="200.0" y1="240.0" x2="346.2" y2="240.0" stroke="#a3341f" stroke-width="4"/>
+<polygon points="360.2,240.0 346.2,246.3 346.2,233.7" fill="#a3341f"/>
+<line x1="200.0" y1="240.0" x2="200.0" y2="52.7" stroke="#1f4e8c" stroke-width="4"/>
+<polygon points="200.0,38.7 206.3,52.7 193.7,52.7" fill="#1f4e8c"/>
+<line x1="200.0" y1="240.0" x2="200.0" y2="509.4" stroke="#2e7d4f" stroke-width="4"/>
+<polygon points="200.0,523.4 193.7,509.4 206.3,509.4" fill="#2e7d4f"/>
+<line x1="360.2" y1="240.0" x2="360.2" y2="322.1" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="200.0" y1="240.0" x2="347.7" y2="315.7" stroke="#1c2833" stroke-width="4.5"/>
+<polygon points="360.2,322.1 344.9,321.3 350.6,310.1" fill="#1c2833"/>
+<path d="M 260 240 A 60 60 0 0 1 253.4 267.4" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="590.0" y="266.0" font-size="15" text-anchor="end" fill="#1c2833">current I</text>
+<text x="280.1" y="228.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">V<tspan font-size="14" dy="4">R</tspan></text>
+<text x="188.0" y="139.4" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">V<tspan font-size="14" dy="4">L</tspan></text>
+<text x="188.0" y="411.7" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">V<tspan font-size="14" dy="4">C</tspan></text>
+<text x="374.2" y="328.1" font-size="20" text-anchor="start" fill="#1c2833" font-style="italic">V</text>
+<text x="266.0" y="266.0" font-size="18" text-anchor="start" fill="#1c2833">φ</text>
 </svg>

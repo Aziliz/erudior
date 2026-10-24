@@ -38,7 +38,7 @@ Turning the dipole against this torque stores energy. Measuring potential energy
 
 $$U = -pE\cos\theta.$$
 
-You can check it from the charges themselves. Taking $\theta = 0$, the positive charge sits $d$ farther "downstream" along the field than the negative one, at potential $Ed$ lower, so the pair's energy is $Ed$ times $q$ lower than with the dipole sideways (the two charges each sit $\tfrac d2$ from the center, giving $-\tfrac12qEd$ each): $U = -qEd = -pE$. 
+You can check the aligned case from the charges themselves. Start with the dipole sideways, both charges on the equipotential through its center. Turning it to $\theta = 0$ moves the positive charge $\tfrac d2$ downstream along the field, where the potential is lower by $\tfrac12Ed$, so its energy changes by $-\tfrac12qEd$. The negative charge moves $\tfrac d2$ upstream, where the potential is higher by $\tfrac12Ed$, so its energy changes by $(-q)(+\tfrac12Ed) = -\tfrac12qEd$ too. The total is $-qEd = -pE$, as the formula says.
 
 So $U$ is lowest, $-pE$, when $\vec p$ points along the field (**stable equilibrium**: twist it slightly and the torque brings it back) and highest, $+pE$, when it points against the field (unstable: the slightest nudge and it flips over). Turning a dipole from aligned to anti-aligned takes work $2pE$.
 
@@ -80,7 +80,7 @@ At ten times the separation the approximation is already within 0.5%. (At $r = 5
 
 ## Polar molecules and temperature
 
-If an external field twists polar molecules into line, why isn't every glass of water fully lined up with Earth's fair-weather field? Because the molecules are jostled by thermal motion, with typical energies around $kT$, where $k_B = 1.38\times10^{-23}$ J/K is Boltzmann's constant (from lesson 27) and $T$ is the temperature.
+If an external field twists polar molecules into line, why isn't every glass of water fully lined up with Earth's fair-weather field? Because the molecules are jostled by thermal motion, with typical energies around $k_BT$, where $k_B = 1.38\times10^{-23}$ J/K is Boltzmann's constant (from lesson 27) and $T$ is the temperature.
 
 ### Example 3
 

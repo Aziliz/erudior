@@ -1,0 +1,76 @@
+- term: damping constant
+  definition: 'The constant $b$ in a velocity-proportional damping force $F = -bv$; units kg/s (N·s/m).'
+  topic: Damped oscillations
+- term: underdamped
+  aliases: [underdamping]
+  definition: 'Damped lightly enough ($b < 2\sqrt{mk}$, $Q > \tfrac12$) that the system still oscillates, with shrinking amplitude.'
+  topic: Damped oscillations
+- term: critically damped
+  aliases: [critical damping]
+  definition: 'Damped with $b = 2\sqrt{mk}$ ($Q = \tfrac12$): the system returns to equilibrium as fast as possible without overshooting.'
+  topic: Damped oscillations
+- term: overdamped
+  aliases: [overdamping]
+  definition: 'Damped so heavily ($b > 2\sqrt{mk}$) that the system creeps back to equilibrium without oscillating, more slowly than with critical damping.'
+  topic: Damped oscillations
+- term: quality factor
+  aliases: [Q factor, Q value]
+  definition: 'A dimensionless measure of how lightly an oscillator is damped: $Q = m\omega_0/b$. About $2\pi/Q$ of the stored energy is lost per cycle, and a driven oscillator''s resonance peak is about $Q$ times the static response, with width about $\omega_0/Q$.'
+  topic: Damped oscillations
+- term: driving frequency
+  definition: 'The frequency of a periodic force applied to an oscillator, set by whatever is pushing; in steady state the oscillator moves at this frequency.'
+  topic: Driven oscillations
+- term: steady state
+  definition: 'For a driven oscillator, the motion left after the natural oscillation has died away: oscillation at the driving frequency with constant amplitude.'
+  topic: Driven oscillations
+- term: tuned mass damper
+  aliases: [tuned mass dampers]
+  definition: 'A damped auxiliary mass on a spring or pendulum, tuned to a structure''s natural frequency, that swings out of step with the structure and absorbs its vibration energy.'
+  topic: Driven oscillations
+- term: Fourier's theorem
+  definition: 'Any periodic wave of frequency $f_1$ can be written as a sum of sine waves with frequencies $f_1, 2f_1, 3f_1, \ldots$ (its harmonics).'
+  topic: Fourier analysis
+- term: Fourier analysis
+  aliases: [Fourier series, Fourier synthesis]
+  definition: 'Breaking a wave into its sine-wave (harmonic) components, or, as Fourier synthesis, building a wave by adding them.'
+  topic: Fourier analysis
+- term: spectrum
+  aliases: [frequency spectrum, spectra]
+  definition: 'The set of frequencies in a wave and their amplitudes, often drawn as a bar graph of amplitude against frequency.'
+  topic: Fourier analysis
+- term: timbre
+  aliases: [tone quality, tone color]
+  definition: 'The quality that distinguishes two sounds of the same pitch and loudness, set mainly by the spectrum of harmonics and also by how the sound starts and decays.'
+  topic: Musical acoustics
+- term: musical interval
+  aliases: [musical intervals, interval]
+  definition: 'The pitch relationship between two notes, set by the ratio of their frequencies: octave 2:1, perfect fifth 3:2, perfect fourth 4:3, major third 5:4.'
+  topic: Musical acoustics
+- term: equal temperament
+  aliases: [equal-tempered]
+  definition: 'The tuning system that divides the octave into 12 equal frequency ratios of $2^{1/12} \approx 1.0595$; a note $n$ semitones from A4 has $f = 440\cdot2^{n/12}$ Hz.'
+  topic: Musical acoustics
+- term: semitone
+  aliases: [semitones, half step]
+  definition: 'One twelfth of an octave in equal temperament: a frequency ratio of $2^{1/12} \approx 1.0595$, or 100 cents.'
+  topic: Musical acoustics
+- term: cent
+  aliases: [cents]
+  definition: 'A unit for small pitch differences: 1200 cents per octave, 100 per equal-tempered semitone; cents $= 1200\log_2(f_2/f_1)$.'
+  topic: Musical acoustics
+- term: wave impedance
+  aliases: [impedance of a string]
+  definition: 'How hard a medium is to set moving by a wave; for a string $Z = \mu v = \sqrt{F_T\mu}$. Waves reflect where the impedance changes.'
+  topic: Wave reflection
+- term: acoustic impedance
+  aliases: [rayl]
+  definition: 'For sound, $Z = \rho v$ (density times sound speed), in kg/(m²·s) or rayl. The fraction of intensity reflected straight on at a boundary is $R = \left(\frac{Z_2 - Z_1}{Z_2 + Z_1}\right)^2$.'
+  topic: Wave reflection
+- term: transducer
+  aliases: [transducers, ultrasound probe]
+  definition: 'A device that converts one form of energy to another; an ultrasound transducer uses a piezoelectric crystal to turn electrical pulses into sound and returning echoes back into electrical signals.'
+  topic: Ultrasound imaging
+- term: matching layer
+  aliases: [matching layers]
+  definition: 'A layer of intermediate impedance between two media (ideally a quarter-wavelength thick with $Z = \sqrt{Z_1Z_2}$) that reduces reflection at their boundary.'
+  topic: Ultrasound imaging
