@@ -26,6 +26,9 @@ You'll also learn all forms of *haben* (to have), so you can say *Ich habe zwei 
 | der Großvater / der Opa (grandfather / grandpa) | die Großmutter / die Oma (grandmother / grandma) | das Baby (baby) |
 | der Mann (man; husband) | die Frau (woman; wife) | die Familie (family) |
 | der Freund (friend; boyfriend) | die Freundin (friend; girlfriend) | die Person (person) |
+| der Onkel (uncle) | die Tante (aunt) | die Leute (people — plural only) |
+| der Cousin (cousin, male) | die Cousine (cousin, female) | das Enkelkind (grandchild) |
+| der Enkel (grandson) | die Enkelin (granddaughter) | |
 
 Some notes:
 
@@ -35,6 +38,8 @@ Some notes:
 - *die Eltern* and *die Geschwister* are used only in the plural. German has a handy single
   word for "brothers and sisters": *Hast du Geschwister?* — Do you have any siblings?
 - *Opa* and *Oma* are the everyday words. *Großvater* and *Großmutter* sound a bit more formal.
+- *der Cousin* and *die Cousine* come from French and keep a French sound: [kuˈzɛ̃ː], [kuˈziːnə].
+  *die Leute* ("people") is plural only: *Die Leute hier sind nett.*
 - Many family plurals take an umlaut: *die Mütter, die Väter, die Brüder, die Töchter, die
   Söhne*. *die Schwester* becomes *die Schwestern*.
 

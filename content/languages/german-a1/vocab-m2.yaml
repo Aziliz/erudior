@@ -963,3 +963,69 @@
   example: Der Stuhl ist zu klein.
   exampleEn: The chair is too small.
   note: Always means "more than you want". Not "very" (sehr).
+- id: onkel
+  lesson: de1-family
+  term: der Onkel
+  pos: noun
+  plural: die Onkel
+  meanings: [uncle]
+  example: Mein Onkel hat einen Bauernhof.
+  exampleEn: My uncle has a farm.
+- id: tante
+  lesson: de1-family
+  term: die Tante
+  pos: noun
+  plural: die Tanten
+  meanings: [aunt]
+  example: Meine Tante wohnt in Bremen.
+  exampleEn: My aunt lives in Bremen.
+- id: cousin
+  lesson: de1-family
+  term: der Cousin
+  pos: noun
+  plural: die Cousins
+  meanings: [cousin (male), cousin]
+  example: Mein Cousin ist genauso alt wie ich.
+  exampleEn: My cousin is exactly the same age as me.
+  note: 'Pronounced as in French: [kuˈzɛ̃ː].'
+- id: cousine
+  lesson: de1-family
+  term: die Cousine
+  pos: noun
+  plural: die Cousinen
+  alt: [die Kusine]
+  meanings: [cousin (female), cousin]
+  example: Meine Cousine studiert in Graz.
+  exampleEn: My cousin is studying in Graz.
+- id: enkel
+  lesson: de1-family
+  term: der Enkel
+  pos: noun
+  plural: die Enkel
+  meanings: [grandson, grandchild]
+  example: Unser Enkel kommt am Wochenende zu Besuch.
+  exampleEn: Our grandson is coming to visit at the weekend.
+- id: enkelin
+  lesson: de1-family
+  term: die Enkelin
+  pos: noun
+  plural: die Enkelinnen
+  meanings: [granddaughter, grandchild]
+  example: Meine Enkelin ist schon zwölf.
+  exampleEn: My granddaughter is already twelve.
+- id: enkelkind
+  lesson: de1-family
+  term: das Enkelkind
+  pos: noun
+  plural: die Enkelkinder
+  meanings: [grandchild]
+  example: Sie hat sieben Enkelkinder.
+  exampleEn: She has seven grandchildren.
+- id: leute
+  lesson: de1-family
+  term: die Leute
+  pos: noun
+  plural: die Leute (plural only)
+  meanings: [people, folks]
+  example: Die Leute hier sind sehr freundlich.
+  exampleEn: The people here are very friendly.

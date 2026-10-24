@@ -115,7 +115,7 @@ The pictures show four of these conjunctions as bars on a timeline: pink for the
 
 ## Family words
 
-The family vocabulary of A1 covered parents, children and siblings. At B1 you need the wider family and the words for how families live together.
+A1 covered the close family: parents, children, siblings, grandparents, aunts, uncles, cousins and grandchildren. At B1 you add in-laws, nephews, nieces and relatives, and the words for how families live together. The first two examples are a quick review.
 
 - *Meine Großeltern haben fünf Enkelkinder: drei Enkel und zwei Enkelinnen.* — My grandparents have five grandchildren: three grandsons and two granddaughters.
 - *Mein Onkel und meine Tante haben zwei Kinder, also habe ich einen Cousin und eine Cousine.* — My uncle and aunt have two children, so I have a male cousin and a female cousin.

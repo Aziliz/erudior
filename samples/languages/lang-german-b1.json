@@ -332,7 +332,7 @@
    "refs": [
     "de3-ref-past-future"
    ],
-   "body": "## What this lesson is for\n\nYou can already join two events in time with *als* and *wenn* (A2) and with *nachdem* and *bevor* (last lesson). This lesson completes the set with *während* (while), *seit* / *seitdem* (since), *bis* (until), *sobald* (as soon as) and *solange* (as long as). With these you can say exactly how two events relate in time: one during the other, one starting from the other, one ending when the other begins.\n\nAll of them introduce a **[[temporal clause]]**: a subordinate clause that answers *Wann? Seit wann? Bis wann? Wie lange?* The good news is that the word order is the one you know from *weil* and *dass*. The theme is family life across the generations: grandparents, in-laws, raising children and caring for older relatives.\n\n## Word order: the same for all of them\n\nEvery time conjunction in this lesson is a **[[subordinating conjunction]]**. Its clause ends with the conjugated verb, and if the clause comes first, the main clause starts with its verb.\n\n| | main clause | subordinate clause |\n|---|---|---|\n| clause second | *Ich koche,* | *während die Kinder schlafen.* |\n| clause first | *Während die Kinder schlafen,* | *koche ich.* |\n\nWith a separable verb, the verb joins its prefix at the end (*sobald er ankommt*); with a modal or a perfect, the conjugated verb is last of all (*bis sie laufen konnte*, *seit sie umgezogen ist*). A comma always separates the two clauses.\n\n## während: while\n\n*während* links two things happening at the same time.\n\n- *Während meine Eltern arbeiteten, passte meine Oma auf uns auf.* — While my parents were at work, my grandma looked after us.\n- *Mein Vater liest Zeitung, während er frühstückt.* — My father reads the paper while he has breakfast.\n\n*während* can also contrast two people or things, like English \"whereas\": *Während meine Schwester sehr ordentlich ist, lebe ich lieber im Chaos.* — Whereas my sister is very tidy, I prefer to live in chaos.\n\nYou will meet *während* again in module 3 as a preposition (*während des Urlaubs*, during the holiday). As a conjunction it is followed by a subject and a verb; as a preposition, by a noun.\n\n## seit / seitdem: since\n\n*seit* and *seitdem* mean exactly the same as conjunctions; use whichever you like. Watch the tense: if the situation is still going on, German uses the present, where English uses \"have been\" or \"has been\".\n\n- *Seit meine Großeltern in Rente sind, reisen sie viel.* — Since my grandparents retired, they have been travelling a lot.\n- *Seitdem wir ein Baby haben, schlafen wir kaum.* — Since we've had a baby, we've hardly been sleeping.\n- *Seit sie ins Pflegeheim gezogen ist, besuche ich sie jeden Sonntag.* — Since she moved into the care home, I've visited her every Sunday.\n\nIn the last example the move is a single finished event (perfect), but the visiting continues (present). This is the same logic you know from the preposition *seit*: *Ich wohne seit 2020 hier* (I've lived here since 2020).\n\n*seitdem* also works as an adverb in a main clause, meaning \"since then\", with the verb straight after it: *Er hat 2019 geheiratet. Seitdem lebt er in Graz.* — He got married in 2019. Since then he's lived in Graz.\n\n## bis: until\n\n*bis* marks the point when something stops.\n\n- *Wir haben bei meinen Schwiegereltern gewohnt, bis wir eine eigene Wohnung gefunden haben.* — We lived with my in-laws until we found a flat of our own.\n- *Warte, bis ich zurück bin!* — Wait until I'm back!\n- *Es dauert noch zehn Minuten, bis das Essen fertig ist.* — It'll be ten minutes until the food is ready.\n\nEnglish often says \"not … until\" for \"only when\": *She didn't start talking until she was three.* German uses *erst, als* or *erst, wenn* for this, not *bis*: *Sie hat erst gesprochen, als sie drei war.* Don't translate \"not until\" word for word.\n\n## sobald: as soon as\n\n*sobald* says that the second event follows immediately.\n\n- *Sobald der Kleine schläft, rufe ich dich an.* — As soon as the little one's asleep, I'll call you.\n- *Sobald ich die Nachricht bekommen hatte, fuhr ich ins Krankenhaus.* — As soon as I had got the message, I drove to the hospital.\n\nWhen the main clause is about the future, the *sobald* clause is often in the perfect, to show it will be finished first: *Sobald ich die Prüfung bestanden habe, mache ich Urlaub.* — As soon as I've passed the exam, I'll go on holiday.\n\n## solange: as long as\n\n*solange* says that two things last for the same period. It often has a sense of condition: \"as long as this is true, that is true\".\n\n- *Solange du in meinem Haus wohnst, hilfst du im Haushalt.* — As long as you live in my house, you help with the housework.\n- *Meine Mutter will zu Hause bleiben, solange sie sich selbst versorgen kann.* — My mother wants to stay at home as long as she can look after herself.\n\nDon't confuse *solange* (one word, conjunction) with *so lange* (two words, \"so long, for such a long time\"): *Ich habe so lange gewartet!* — I waited for such a long time!\n\n## als and wenn: a quick review\n\nThese two are the most common time conjunctions, and they still cause mistakes at B1.\n\n| | one time | more than once |\n|---|---|---|\n| past | *als*: *Als ich zehn war, bekam ich einen Hund.* | *wenn*: *Wenn wir Oma besuchten, gab es immer Kuchen.* |\n| present / future | *wenn*: *Wenn du ankommst, ruf mich an.* | *wenn*: *Wenn es regnet, bleiben wir zu Hause.* |\n\nOnly one box takes *als*: a single event (or period) in the past. Everything else is *wenn*. A tip: if you can add *jedes Mal* (every time), it's *wenn*.\n\n```mermaid\nflowchart TD\n  accTitle: als or wenn?\n  accDescr: A decision chart. If the sentence is not about the past, use wenn, as in Wenn du ankommst, ruf mich an. If it is about the past, ask whether it was a single event or period. If yes, use als, as in Als ich zehn war. If it happened repeatedly, every time, use wenn, as in Wenn wir Oma besuchten, gab es Kuchen.\n  A{\"Is it about the past?\"} -- no --> W1[\"wenn: Wenn du ankommst, ruf mich an.\"]\n  A -- yes --> B{\"One single event or period?\"}\n  B -- yes --> ALS[\"als: Als ich zehn war, bekam ich einen Hund.\"]\n  B -- \"no, again and again\" --> W2[\"wenn: Wenn wir Oma besuchten, gab es Kuchen.\"]\n```\n\n## Overview\n\n| conjunction | meaning | typical tense pattern |\n|---|---|---|\n| *als* | when (once, past) | simple past + simple past |\n| *wenn* | when, whenever, if | any |\n| *während* | while; whereas | same tense in both |\n| *seit, seitdem* | since | present if it continues |\n| *bis* | until | same tense in both |\n| *sobald* | as soon as | earlier action: perfect / past perfect |\n| *solange* | as long as | same tense in both |\n| *bevor* | before | same tense in both |\n| *nachdem* | after | one step further back |\n\nThe pictures show four of these conjunctions as bars on a timeline: pink for the time clause, blue for the main clause.\n\n![Four small timelines. während: a shorter pink bar lies under a longer blue bar, within the same stretch of time, so both happen at once; example Während ich koche, schlafen die Kinder. seit: a pink dot marks the start, and a blue bar runs from it up to a line marked jetzt (now); example Seit Oma zu uns gezogen ist, kocht sie oft. bis: a blue bar ends exactly at a pink dot; example Wir wohnten dort, bis wir eine Wohnung fanden. sobald: a pink dot is followed immediately by a blue bar; example Sobald die Kinder kommen, essen wir.](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNDcwIiB3aWR0aD0iNzIwIiBoZWlnaHQ9IjQ3MCIgcm9sZT0iaW1nIj48dGl0bGU+Rm91ciBzbWFsbCB0aW1lbGluZXMgc2hvd2luZyBob3cgYSB0aW1lIGNsYXVzZSAocGluaykgcmVsYXRlcyB0byB0aGUgbWFpbiBjbGF1c2UgKGJsdWUpPC90aXRsZT48ZGVmcz48bWFya2VyIGlkPSJhcnIiIHZpZXdCb3g9IjAgMCAxMCAxMCIgcmVmWD0iOSIgcmVmWT0iNSIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iOCIgb3JpZW50PSJhdXRvLXN0YXJ0LXJldmVyc2UiPjxwYXRoIGQ9Ik0wIDAgTDEwIDUgTDAgMTAgeiIgZmlsbD0iIzFjMjgzMyIvPjwvbWFya2VyPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNzIwIiBoZWlnaHQ9IjQ3MCIgZmlsbD0iI2ZmZmZmZiIvPjxyZWN0IHg9IjEzIiB5PSI1MCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iMjkiIHk9IjgwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc3R5bGU9Im5vcm1hbCIgZmlsbD0iIzFjMjgzMyIgdGV4dC1hbmNob3I9InN0YXJ0Ij53w6RocmVuZDwvdGV4dD48bGluZSB4MT0iMzMiIHkxPSIyMDAiIHgyPSIzMzMiIHkyPSIyMDAiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBtYXJrZXItZW5kPSJ1cmwoI2FycikiLz48cmVjdCB4PSI2MyIgeT0iMTIwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0iI2RkZThmMyIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxyZWN0IHg9IjEwMyIgeT0iMTU0IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0iI2Y4ZTFkYyIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjEuNSIvPjx0ZXh0IHg9IjE4My4wIiB5PSIyMzQiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlfDpGhyZW5kIGljaCBrb2NoZSwgc2NobGFmZW4gZGllIEtpbmRlci48L3RleHQ+PHJlY3QgeD0iMzY3IiB5PSI1MCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iMzgzIiB5PSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+c2VpdDwvdGV4dD48bGluZSB4MT0iMzg3IiB5MT0iMjAwIiB4Mj0iNjg3IiB5Mj0iMjAwIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMiIgbWFya2VyLWVuZD0idXJsKCNhcnIpIi8+PGNpcmNsZSBjeD0iNDQ3IiBjeT0iMjAwIiByPSI5IiBmaWxsPSIjZjhlMWRjIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjQ0NyIgeT0iMTQ2IiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0iI2RkZThmMyIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI2NDciIHkxPSIxMjAiIHgyPSI2NDciIHkyPSIyMTAiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1IDQiLz48dGV4dCB4PSI2NDciIHk9IjExMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmpldHp0PC90ZXh0Pjx0ZXh0IHg9IjUzNy4wIiB5PSIyMzQiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNlaXQgT21hIHp1IHVucyBnZXpvZ2VuIGlzdCwga29jaHQgc2llIG9mdC48L3RleHQ+PHJlY3QgeD0iMTMiIHk9IjI2NCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iMjkiIHk9IjI5NCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+YmlzPC90ZXh0PjxsaW5lIHgxPSIzMyIgeTE9IjQxNCIgeDI9IjMzMyIgeTI9IjQxNCIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjIiIG1hcmtlci1lbmQ9InVybCgjYXJyKSIvPjxyZWN0IHg9IjUzIiB5PSIzNjAiIHdpZHRoPSIxOTAiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSIjZGRlOGYzIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGNpcmNsZSBjeD0iMjQzIiBjeT0iNDE0IiByPSI5IiBmaWxsPSIjZjhlMWRjIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIyNDMiIHkxPSIzNTAiIHgyPSIyNDMiIHkyPSI0MDUiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1IDQiLz48dGV4dCB4PSIxODMuMCIgeT0iNDQ4IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjMWMyODMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5XaXIgd29obnRlbiBkb3J0LCBiaXMgd2lyIGVpbmUgV29obnVuZyBmYW5kZW4uPC90ZXh0PjxyZWN0IHg9IjM2NyIgeT0iMjY0IiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjIwMCIgcng9IjgiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSIzODMiIHk9IjI5NCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+c29iYWxkPC90ZXh0PjxsaW5lIHgxPSIzODciIHkxPSI0MTQiIHgyPSI2ODciIHkyPSI0MTQiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBtYXJrZXItZW5kPSJ1cmwoI2FycikiLz48Y2lyY2xlIGN4PSI0ODciIGN5PSI0MTQiIHI9IjkiIGZpbGw9IiNmOGUxZGMiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIi8+PHJlY3QgeD0iNDkxIiB5PSIzNjAiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSIjZGRlOGYzIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjQ4NyIgeTE9IjM1MCIgeDI9IjQ4NyIgeTI9IjQwNSIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNCIvPjx0ZXh0IHg9IjUzNy4wIiB5PSI0NDgiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNvYmFsZCBkaWUgS2luZGVyIGtvbW1lbiwgZXNzZW4gd2lyLjwvdGV4dD48cmVjdCB4PSIyMCIgeT0iMTgiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9IiNmOGUxZGMiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI0NiIgeT0iMzAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+dGhlIHRpbWUgY2xhdXNlPC90ZXh0PjxyZWN0IHg9IjIwMCIgeT0iMTgiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9IiNkZGU4ZjMiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSIyMjYiIHk9IjMwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgZm9udC1zdHlsZT0ibm9ybWFsIiBmaWxsPSIjMWMyODMzIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPnRoZSBtYWluIGNsYXVzZTwvdGV4dD48L3N2Zz4=)\n\n## Family words\n\nThe family vocabulary of A1 covered parents, children and siblings. At B1 you need the wider family and the words for how families live together.\n\n- *Meine Großeltern haben fünf Enkelkinder: drei Enkel und zwei Enkelinnen.* — My grandparents have five grandchildren: three grandsons and two granddaughters.\n- *Mein Onkel und meine Tante haben zwei Kinder, also habe ich einen Cousin und eine Cousine.* — My uncle and aunt have two children, so I have a male cousin and a female cousin.\n- *Meine Schwester hat einen Sohn und eine Tochter. Ich bin also Tante von einem Neffen und einer Nichte.* — My sister has a son and a daughter. So I'm the aunt of a nephew and a niece.\n- *Seit der Hochzeit verstehe ich mich gut mit meiner Schwiegermutter, mit meinem Schwiegervater leider nicht.* — Since the wedding I've got on well with my mother-in-law, but unfortunately not with my father-in-law.\n- *Sind Sie mit Herrn Weber verwandt?* — *Ja, er ist ein entfernter Verwandter.* — Are you related to Mr Weber? Yes, he's a distant relative.\n\n- *Nach 40 Jahren Ehe kennen sich die beiden sehr gut.* — After 40 years of marriage the two of them know each other very well. (*der Ehemann* = husband, *die Ehefrau* = wife; in everyday speech *mein Mann, meine Frau*.)\n- *Als alleinerziehende Mutter braucht sie Hilfe: Ihre Eltern betreuen das Kind zweimal pro Woche.* — As a single mother she needs help: her parents look after the child twice a week.\n- *Er pflegt seinen kranken Vater, seit er in Rente ist.* — He has been caring for his sick father since he retired.\n- *Für die Erziehung der Kinder sind heute beide Eltern verantwortlich; früher war das oft die Rolle der Mutter.* — Today both parents are responsible for bringing up the children; in the past that was often the mother's role.\n- *Mein Großvater war immer mein Vorbild.* — My grandfather was always my role model.\n\n*der Verwandte* is an **[[adjectival noun]]** like *der Bekannte* (A2): *der Verwandte, ein Verwandter, die Verwandten*. Lesson 5 explains these in detail. *der Cousin* is pronounced as in French [kuˈzɛ̃ː], *die Cousine* [kuˈziːnə].\n\n## Text: Drei Generationen unter einem Dach\n\nA reader wrote to a magazine column about family life.\n\n> Seit meine Mutter vor zwei Jahren gestürzt ist, wohnt sie bei uns. Mein Mann und ich haben lange überlegt, bevor wir uns entschieden haben, denn wir haben zwei Kinder im Teenageralter und arbeiten beide Vollzeit. Am Anfang war es schwierig. Meine Mutter hatte ihr ganzes Leben allein gewohnt und musste sich erst an den Lärm gewöhnen. Und wir mussten uns daran gewöhnen, dass jemand anderes mitredet, wenn es um die Erziehung der Kinder geht.\n>\n> Inzwischen haben wir eine gute Routine. Während ich im Büro bin, kocht meine Mutter manchmal für alle, solange es ihr gut geht. Die Pflege übernimmt morgens ein Pflegedienst, abends helfe ich ihr. Sobald die Kinder aus der Schule kommen, erzählt sie ihnen Geschichten von früher, und mein Sohn, der sich sonst für nichts interessiert, hört zu. Das Verhältnis zwischen Oma und Enkeln ist so eng wie nie zuvor.\n>\n> Natürlich gibt es auch Konflikte. Meine Mutter hat ihre Gewohnheiten, und mein Mann hat manchmal das Gefühl, dass seine Schwiegermutter die Rolle der Chefin spielt. Aber bis wir eine bessere Lösung finden, bleibt es so. Und ehrlich gesagt: Ich glaube, wir alle haben viel gelernt.\n\nTranslation:\n\n> Since my mother fell two years ago, she has been living with us. My husband and I thought about it for a long time before we decided, because we have two teenage children and both work full time. At first it was difficult. My mother had lived alone all her life and first had to get used to the noise. And we had to get used to someone else having a say when it comes to bringing up the children.\n>\n> Now we have a good routine. While I'm at the office, my mother sometimes cooks for everyone, as long as she's feeling well. A care service takes care of the nursing in the morning; in the evening I help her. As soon as the children come home from school, she tells them stories from the old days, and my son, who usually isn't interested in anything, listens. The relationship between grandma and grandchildren is closer than ever.\n>\n> Of course there are conflicts too. My mother has her habits, and my husband sometimes feels that his mother-in-law plays the role of the boss. But until we find a better solution, it'll stay like this. And to be honest: I think we've all learned a lot.\n\nNotes: *stürzen* (ist gestürzt) = to fall (and hurt yourself); *überlegen* = to think about, consider; *mitreden* = to have a say; *inzwischen* = by now, meanwhile; *der Pflegedienst* = home-care service; *eng* = close, tight; *wie nie zuvor* = than ever before. *sich gewöhnen an* + accusative = to get used to; with a clause, use *daran*: *sich daran gewöhnen, dass …*\n\n## Pronunciation\n\n- *sobald*: so-BALD, stress on the second syllable; *solange*: so-LAN-ge.\n- *während*: a long *ä*, WÄH-rend. The *h* only shows the vowel is long.\n- *die Erziehung*: er-ZIE-hung; *der Haushalt*: HAUS-halt.\n- *die Nichte*: *ch* as in *ich*; *der Neffe*: short *e*, NEF-fe.\n\n## Common mistakes\n\n- Verb in second position after the conjunction: ~~während ich bin im Büro~~ → *während ich im Büro bin*.\n- Past tense with *seit* for something still true: ~~Seit ich hier wohnte, …~~ → *Seit ich hier wohne, …*\n- *bis* for \"not until\": ~~Sie hat nicht gesprochen, bis sie drei war~~ is understandable but unnatural; say *Sie hat erst mit drei gesprochen* or *erst, als sie drei war*.\n- *wenn* for a single past event: ~~Wenn ich zehn war~~ → *Als ich zehn war*.\n- Forgetting the verb-first main clause: ~~Sobald er kommt, wir essen~~ → *Sobald er kommt, essen wir.*\n- Writing *solange* as two words when you mean \"as long as\": *solange du hier wohnst*.\n\n## Key points\n\n- *während* (while, whereas), *seit/seitdem* (since), *bis* (until), *sobald* (as soon as), *solange* (as long as) all send the verb to the end.\n- Subordinate clause first → main clause starts with the verb: *Sobald er kommt, essen wir.*\n- *seit/seitdem* + present for a situation that still continues.\n- *seitdem* can also be an adverb in a main clause: \"since then\".\n- *als* = one time in the past; *wenn* = every other case.\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.\n",
+   "body": "## What this lesson is for\n\nYou can already join two events in time with *als* and *wenn* (A2) and with *nachdem* and *bevor* (last lesson). This lesson completes the set with *während* (while), *seit* / *seitdem* (since), *bis* (until), *sobald* (as soon as) and *solange* (as long as). With these you can say exactly how two events relate in time: one during the other, one starting from the other, one ending when the other begins.\n\nAll of them introduce a **[[temporal clause]]**: a subordinate clause that answers *Wann? Seit wann? Bis wann? Wie lange?* The good news is that the word order is the one you know from *weil* and *dass*. The theme is family life across the generations: grandparents, in-laws, raising children and caring for older relatives.\n\n## Word order: the same for all of them\n\nEvery time conjunction in this lesson is a **[[subordinating conjunction]]**. Its clause ends with the conjugated verb, and if the clause comes first, the main clause starts with its verb.\n\n| | main clause | subordinate clause |\n|---|---|---|\n| clause second | *Ich koche,* | *während die Kinder schlafen.* |\n| clause first | *Während die Kinder schlafen,* | *koche ich.* |\n\nWith a separable verb, the verb joins its prefix at the end (*sobald er ankommt*); with a modal or a perfect, the conjugated verb is last of all (*bis sie laufen konnte*, *seit sie umgezogen ist*). A comma always separates the two clauses.\n\n## während: while\n\n*während* links two things happening at the same time.\n\n- *Während meine Eltern arbeiteten, passte meine Oma auf uns auf.* — While my parents were at work, my grandma looked after us.\n- *Mein Vater liest Zeitung, während er frühstückt.* — My father reads the paper while he has breakfast.\n\n*während* can also contrast two people or things, like English \"whereas\": *Während meine Schwester sehr ordentlich ist, lebe ich lieber im Chaos.* — Whereas my sister is very tidy, I prefer to live in chaos.\n\nYou will meet *während* again in module 3 as a preposition (*während des Urlaubs*, during the holiday). As a conjunction it is followed by a subject and a verb; as a preposition, by a noun.\n\n## seit / seitdem: since\n\n*seit* and *seitdem* mean exactly the same as conjunctions; use whichever you like. Watch the tense: if the situation is still going on, German uses the present, where English uses \"have been\" or \"has been\".\n\n- *Seit meine Großeltern in Rente sind, reisen sie viel.* — Since my grandparents retired, they have been travelling a lot.\n- *Seitdem wir ein Baby haben, schlafen wir kaum.* — Since we've had a baby, we've hardly been sleeping.\n- *Seit sie ins Pflegeheim gezogen ist, besuche ich sie jeden Sonntag.* — Since she moved into the care home, I've visited her every Sunday.\n\nIn the last example the move is a single finished event (perfect), but the visiting continues (present). This is the same logic you know from the preposition *seit*: *Ich wohne seit 2020 hier* (I've lived here since 2020).\n\n*seitdem* also works as an adverb in a main clause, meaning \"since then\", with the verb straight after it: *Er hat 2019 geheiratet. Seitdem lebt er in Graz.* — He got married in 2019. Since then he's lived in Graz.\n\n## bis: until\n\n*bis* marks the point when something stops.\n\n- *Wir haben bei meinen Schwiegereltern gewohnt, bis wir eine eigene Wohnung gefunden haben.* — We lived with my in-laws until we found a flat of our own.\n- *Warte, bis ich zurück bin!* — Wait until I'm back!\n- *Es dauert noch zehn Minuten, bis das Essen fertig ist.* — It'll be ten minutes until the food is ready.\n\nEnglish often says \"not … until\" for \"only when\": *She didn't start talking until she was three.* German uses *erst, als* or *erst, wenn* for this, not *bis*: *Sie hat erst gesprochen, als sie drei war.* Don't translate \"not until\" word for word.\n\n## sobald: as soon as\n\n*sobald* says that the second event follows immediately.\n\n- *Sobald der Kleine schläft, rufe ich dich an.* — As soon as the little one's asleep, I'll call you.\n- *Sobald ich die Nachricht bekommen hatte, fuhr ich ins Krankenhaus.* — As soon as I had got the message, I drove to the hospital.\n\nWhen the main clause is about the future, the *sobald* clause is often in the perfect, to show it will be finished first: *Sobald ich die Prüfung bestanden habe, mache ich Urlaub.* — As soon as I've passed the exam, I'll go on holiday.\n\n## solange: as long as\n\n*solange* says that two things last for the same period. It often has a sense of condition: \"as long as this is true, that is true\".\n\n- *Solange du in meinem Haus wohnst, hilfst du im Haushalt.* — As long as you live in my house, you help with the housework.\n- *Meine Mutter will zu Hause bleiben, solange sie sich selbst versorgen kann.* — My mother wants to stay at home as long as she can look after herself.\n\nDon't confuse *solange* (one word, conjunction) with *so lange* (two words, \"so long, for such a long time\"): *Ich habe so lange gewartet!* — I waited for such a long time!\n\n## als and wenn: a quick review\n\nThese two are the most common time conjunctions, and they still cause mistakes at B1.\n\n| | one time | more than once |\n|---|---|---|\n| past | *als*: *Als ich zehn war, bekam ich einen Hund.* | *wenn*: *Wenn wir Oma besuchten, gab es immer Kuchen.* |\n| present / future | *wenn*: *Wenn du ankommst, ruf mich an.* | *wenn*: *Wenn es regnet, bleiben wir zu Hause.* |\n\nOnly one box takes *als*: a single event (or period) in the past. Everything else is *wenn*. A tip: if you can add *jedes Mal* (every time), it's *wenn*.\n\n```mermaid\nflowchart TD\n  accTitle: als or wenn?\n  accDescr: A decision chart. If the sentence is not about the past, use wenn, as in Wenn du ankommst, ruf mich an. If it is about the past, ask whether it was a single event or period. If yes, use als, as in Als ich zehn war. If it happened repeatedly, every time, use wenn, as in Wenn wir Oma besuchten, gab es Kuchen.\n  A{\"Is it about the past?\"} -- no --> W1[\"wenn: Wenn du ankommst, ruf mich an.\"]\n  A -- yes --> B{\"One single event or period?\"}\n  B -- yes --> ALS[\"als: Als ich zehn war, bekam ich einen Hund.\"]\n  B -- \"no, again and again\" --> W2[\"wenn: Wenn wir Oma besuchten, gab es Kuchen.\"]\n```\n\n## Overview\n\n| conjunction | meaning | typical tense pattern |\n|---|---|---|\n| *als* | when (once, past) | simple past + simple past |\n| *wenn* | when, whenever, if | any |\n| *während* | while; whereas | same tense in both |\n| *seit, seitdem* | since | present if it continues |\n| *bis* | until | same tense in both |\n| *sobald* | as soon as | earlier action: perfect / past perfect |\n| *solange* | as long as | same tense in both |\n| *bevor* | before | same tense in both |\n| *nachdem* | after | one step further back |\n\nThe pictures show four of these conjunctions as bars on a timeline: pink for the time clause, blue for the main clause.\n\n![Four small timelines. während: a shorter pink bar lies under a longer blue bar, within the same stretch of time, so both happen at once; example Während ich koche, schlafen die Kinder. seit: a pink dot marks the start, and a blue bar runs from it up to a line marked jetzt (now); example Seit Oma zu uns gezogen ist, kocht sie oft. bis: a blue bar ends exactly at a pink dot; example Wir wohnten dort, bis wir eine Wohnung fanden. sobald: a pink dot is followed immediately by a blue bar; example Sobald die Kinder kommen, essen wir.](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNDcwIiB3aWR0aD0iNzIwIiBoZWlnaHQ9IjQ3MCIgcm9sZT0iaW1nIj48dGl0bGU+Rm91ciBzbWFsbCB0aW1lbGluZXMgc2hvd2luZyBob3cgYSB0aW1lIGNsYXVzZSAocGluaykgcmVsYXRlcyB0byB0aGUgbWFpbiBjbGF1c2UgKGJsdWUpPC90aXRsZT48ZGVmcz48bWFya2VyIGlkPSJhcnIiIHZpZXdCb3g9IjAgMCAxMCAxMCIgcmVmWD0iOSIgcmVmWT0iNSIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iOCIgb3JpZW50PSJhdXRvLXN0YXJ0LXJldmVyc2UiPjxwYXRoIGQ9Ik0wIDAgTDEwIDUgTDAgMTAgeiIgZmlsbD0iIzFjMjgzMyIvPjwvbWFya2VyPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNzIwIiBoZWlnaHQ9IjQ3MCIgZmlsbD0iI2ZmZmZmZiIvPjxyZWN0IHg9IjEzIiB5PSI1MCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iMjkiIHk9IjgwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc3R5bGU9Im5vcm1hbCIgZmlsbD0iIzFjMjgzMyIgdGV4dC1hbmNob3I9InN0YXJ0Ij53w6RocmVuZDwvdGV4dD48bGluZSB4MT0iMzMiIHkxPSIyMDAiIHgyPSIzMzMiIHkyPSIyMDAiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBtYXJrZXItZW5kPSJ1cmwoI2FycikiLz48cmVjdCB4PSI2MyIgeT0iMTIwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0iI2RkZThmMyIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxyZWN0IHg9IjEwMyIgeT0iMTU0IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0iI2Y4ZTFkYyIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjEuNSIvPjx0ZXh0IHg9IjE4My4wIiB5PSIyMzQiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlfDpGhyZW5kIGljaCBrb2NoZSwgc2NobGFmZW4gZGllIEtpbmRlci48L3RleHQ+PHJlY3QgeD0iMzY3IiB5PSI1MCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iMzgzIiB5PSI4MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+c2VpdDwvdGV4dD48bGluZSB4MT0iMzg3IiB5MT0iMjAwIiB4Mj0iNjg3IiB5Mj0iMjAwIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMiIgbWFya2VyLWVuZD0idXJsKCNhcnIpIi8+PGNpcmNsZSBjeD0iNDQ3IiBjeT0iMjAwIiByPSI5IiBmaWxsPSIjZjhlMWRjIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjQ0NyIgeT0iMTQ2IiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0iI2RkZThmMyIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI2NDciIHkxPSIxMjAiIHgyPSI2NDciIHkyPSIyMTAiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1IDQiLz48dGV4dCB4PSI2NDciIHk9IjExMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmpldHp0PC90ZXh0Pjx0ZXh0IHg9IjUzNy4wIiB5PSIyMzQiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNlaXQgT21hIHp1IHVucyBnZXpvZ2VuIGlzdCwga29jaHQgc2llIG9mdC48L3RleHQ+PHJlY3QgeD0iMTMiIHk9IjI2NCIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iMjkiIHk9IjI5NCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+YmlzPC90ZXh0PjxsaW5lIHgxPSIzMyIgeTE9IjQxNCIgeDI9IjMzMyIgeTI9IjQxNCIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjIiIG1hcmtlci1lbmQ9InVybCgjYXJyKSIvPjxyZWN0IHg9IjUzIiB5PSIzNjAiIHdpZHRoPSIxOTAiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSIjZGRlOGYzIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGNpcmNsZSBjeD0iMjQzIiBjeT0iNDE0IiByPSI5IiBmaWxsPSIjZjhlMWRjIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIyNDMiIHkxPSIzNTAiIHgyPSIyNDMiIHkyPSI0MDUiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1IDQiLz48dGV4dCB4PSIxODMuMCIgeT0iNDQ4IiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjMWMyODMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5XaXIgd29obnRlbiBkb3J0LCBiaXMgd2lyIGVpbmUgV29obnVuZyBmYW5kZW4uPC90ZXh0PjxyZWN0IHg9IjM2NyIgeT0iMjY0IiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjIwMCIgcng9IjgiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSIzODMiIHk9IjI5NCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+c29iYWxkPC90ZXh0PjxsaW5lIHgxPSIzODciIHkxPSI0MTQiIHgyPSI2ODciIHkyPSI0MTQiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIiBtYXJrZXItZW5kPSJ1cmwoI2FycikiLz48Y2lyY2xlIGN4PSI0ODciIGN5PSI0MTQiIHI9IjkiIGZpbGw9IiNmOGUxZGMiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIyIi8+PHJlY3QgeD0iNDkxIiB5PSIzNjAiIHdpZHRoPSIxNzAiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSIjZGRlOGYzIiBzdHJva2U9IiMxYzI4MzMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjQ4NyIgeTE9IjM1MCIgeDI9IjQ4NyIgeTI9IjQwNSIgc3Ryb2tlPSIjMWMyODMzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgNCIvPjx0ZXh0IHg9IjUzNy4wIiB5PSI0NDgiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNvYmFsZCBkaWUgS2luZGVyIGtvbW1lbiwgZXNzZW4gd2lyLjwvdGV4dD48cmVjdCB4PSIyMCIgeT0iMTgiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9IiNmOGUxZGMiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI0NiIgeT0iMzAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0ibm9ybWFsIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiMxYzI4MzMiIHRleHQtYW5jaG9yPSJzdGFydCI+dGhlIHRpbWUgY2xhdXNlPC90ZXh0PjxyZWN0IHg9IjIwMCIgeT0iMTgiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9IiNkZGU4ZjMiIHN0cm9rZT0iIzFjMjgzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSIyMjYiIHk9IjMwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgZm9udC1zdHlsZT0ibm9ybWFsIiBmaWxsPSIjMWMyODMzIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPnRoZSBtYWluIGNsYXVzZTwvdGV4dD48L3N2Zz4=)\n\n## Family words\n\nA1 covered the close family: parents, children, siblings, grandparents, aunts, uncles, cousins and grandchildren. At B1 you add in-laws, nephews, nieces and relatives, and the words for how families live together. The first two examples are a quick review.\n\n- *Meine Großeltern haben fünf Enkelkinder: drei Enkel und zwei Enkelinnen.* — My grandparents have five grandchildren: three grandsons and two granddaughters.\n- *Mein Onkel und meine Tante haben zwei Kinder, also habe ich einen Cousin und eine Cousine.* — My uncle and aunt have two children, so I have a male cousin and a female cousin.\n- *Meine Schwester hat einen Sohn und eine Tochter. Ich bin also Tante von einem Neffen und einer Nichte.* — My sister has a son and a daughter. So I'm the aunt of a nephew and a niece.\n- *Seit der Hochzeit verstehe ich mich gut mit meiner Schwiegermutter, mit meinem Schwiegervater leider nicht.* — Since the wedding I've got on well with my mother-in-law, but unfortunately not with my father-in-law.\n- *Sind Sie mit Herrn Weber verwandt?* — *Ja, er ist ein entfernter Verwandter.* — Are you related to Mr Weber? Yes, he's a distant relative.\n\n- *Nach 40 Jahren Ehe kennen sich die beiden sehr gut.* — After 40 years of marriage the two of them know each other very well. (*der Ehemann* = husband, *die Ehefrau* = wife; in everyday speech *mein Mann, meine Frau*.)\n- *Als alleinerziehende Mutter braucht sie Hilfe: Ihre Eltern betreuen das Kind zweimal pro Woche.* — As a single mother she needs help: her parents look after the child twice a week.\n- *Er pflegt seinen kranken Vater, seit er in Rente ist.* — He has been caring for his sick father since he retired.\n- *Für die Erziehung der Kinder sind heute beide Eltern verantwortlich; früher war das oft die Rolle der Mutter.* — Today both parents are responsible for bringing up the children; in the past that was often the mother's role.\n- *Mein Großvater war immer mein Vorbild.* — My grandfather was always my role model.\n\n*der Verwandte* is an **[[adjectival noun]]** like *der Bekannte* (A2): *der Verwandte, ein Verwandter, die Verwandten*. Lesson 5 explains these in detail. *der Cousin* is pronounced as in French [kuˈzɛ̃ː], *die Cousine* [kuˈziːnə].\n\n## Text: Drei Generationen unter einem Dach\n\nA reader wrote to a magazine column about family life.\n\n> Seit meine Mutter vor zwei Jahren gestürzt ist, wohnt sie bei uns. Mein Mann und ich haben lange überlegt, bevor wir uns entschieden haben, denn wir haben zwei Kinder im Teenageralter und arbeiten beide Vollzeit. Am Anfang war es schwierig. Meine Mutter hatte ihr ganzes Leben allein gewohnt und musste sich erst an den Lärm gewöhnen. Und wir mussten uns daran gewöhnen, dass jemand anderes mitredet, wenn es um die Erziehung der Kinder geht.\n>\n> Inzwischen haben wir eine gute Routine. Während ich im Büro bin, kocht meine Mutter manchmal für alle, solange es ihr gut geht. Die Pflege übernimmt morgens ein Pflegedienst, abends helfe ich ihr. Sobald die Kinder aus der Schule kommen, erzählt sie ihnen Geschichten von früher, und mein Sohn, der sich sonst für nichts interessiert, hört zu. Das Verhältnis zwischen Oma und Enkeln ist so eng wie nie zuvor.\n>\n> Natürlich gibt es auch Konflikte. Meine Mutter hat ihre Gewohnheiten, und mein Mann hat manchmal das Gefühl, dass seine Schwiegermutter die Rolle der Chefin spielt. Aber bis wir eine bessere Lösung finden, bleibt es so. Und ehrlich gesagt: Ich glaube, wir alle haben viel gelernt.\n\nTranslation:\n\n> Since my mother fell two years ago, she has been living with us. My husband and I thought about it for a long time before we decided, because we have two teenage children and both work full time. At first it was difficult. My mother had lived alone all her life and first had to get used to the noise. And we had to get used to someone else having a say when it comes to bringing up the children.\n>\n> Now we have a good routine. While I'm at the office, my mother sometimes cooks for everyone, as long as she's feeling well. A care service takes care of the nursing in the morning; in the evening I help her. As soon as the children come home from school, she tells them stories from the old days, and my son, who usually isn't interested in anything, listens. The relationship between grandma and grandchildren is closer than ever.\n>\n> Of course there are conflicts too. My mother has her habits, and my husband sometimes feels that his mother-in-law plays the role of the boss. But until we find a better solution, it'll stay like this. And to be honest: I think we've all learned a lot.\n\nNotes: *stürzen* (ist gestürzt) = to fall (and hurt yourself); *überlegen* = to think about, consider; *mitreden* = to have a say; *inzwischen* = by now, meanwhile; *der Pflegedienst* = home-care service; *eng* = close, tight; *wie nie zuvor* = than ever before. *sich gewöhnen an* + accusative = to get used to; with a clause, use *daran*: *sich daran gewöhnen, dass …*\n\n## Pronunciation\n\n- *sobald*: so-BALD, stress on the second syllable; *solange*: so-LAN-ge.\n- *während*: a long *ä*, WÄH-rend. The *h* only shows the vowel is long.\n- *die Erziehung*: er-ZIE-hung; *der Haushalt*: HAUS-halt.\n- *die Nichte*: *ch* as in *ich*; *der Neffe*: short *e*, NEF-fe.\n\n## Common mistakes\n\n- Verb in second position after the conjunction: ~~während ich bin im Büro~~ → *während ich im Büro bin*.\n- Past tense with *seit* for something still true: ~~Seit ich hier wohnte, …~~ → *Seit ich hier wohne, …*\n- *bis* for \"not until\": ~~Sie hat nicht gesprochen, bis sie drei war~~ is understandable but unnatural; say *Sie hat erst mit drei gesprochen* or *erst, als sie drei war*.\n- *wenn* for a single past event: ~~Wenn ich zehn war~~ → *Als ich zehn war*.\n- Forgetting the verb-first main clause: ~~Sobald er kommt, wir essen~~ → *Sobald er kommt, essen wir.*\n- Writing *solange* as two words when you mean \"as long as\": *solange du hier wohnst*.\n\n## Key points\n\n- *während* (while, whereas), *seit/seitdem* (since), *bis* (until), *sobald* (as soon as), *solange* (as long as) all send the verb to the end.\n- Subordinate clause first → main clause starts with the verb: *Sobald er kommt, essen wir.*\n- *seit/seitdem* + present for a situation that still continues.\n- *seitdem* can also be an adverb in a main clause: \"since then\".\n- *als* = one time in the past; *wenn* = every other case.\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.\n",
    "quiz": [
     "de3-q-0301",
     "de3-q-0302",
@@ -21981,6 +21981,119 @@
    "example": "Der Stuhl ist zu klein.",
    "exampleEn": "The chair is too small.",
    "note": "Always means \"more than you want\". Not \"very\" (sehr).",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "onkel",
+   "lesson": "de1-family",
+   "term": "der Onkel",
+   "pos": "noun",
+   "plural": "die Onkel",
+   "meanings": [
+    "uncle"
+   ],
+   "example": "Mein Onkel hat einen Bauernhof.",
+   "exampleEn": "My uncle has a farm.",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "tante",
+   "lesson": "de1-family",
+   "term": "die Tante",
+   "pos": "noun",
+   "plural": "die Tanten",
+   "meanings": [
+    "aunt"
+   ],
+   "example": "Meine Tante wohnt in Bremen.",
+   "exampleEn": "My aunt lives in Bremen.",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "cousin",
+   "lesson": "de1-family",
+   "term": "der Cousin",
+   "pos": "noun",
+   "plural": "die Cousins",
+   "meanings": [
+    "cousin (male)",
+    "cousin"
+   ],
+   "example": "Mein Cousin ist genauso alt wie ich.",
+   "exampleEn": "My cousin is exactly the same age as me.",
+   "note": "Pronounced as in French: [kuˈzɛ̃ː].",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "cousine",
+   "lesson": "de1-family",
+   "term": "die Cousine",
+   "pos": "noun",
+   "plural": "die Cousinen",
+   "alt": [
+    "die Kusine"
+   ],
+   "meanings": [
+    "cousin (female)",
+    "cousin"
+   ],
+   "example": "Meine Cousine studiert in Graz.",
+   "exampleEn": "My cousin is studying in Graz.",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "enkel",
+   "lesson": "de1-family",
+   "term": "der Enkel",
+   "pos": "noun",
+   "plural": "die Enkel",
+   "meanings": [
+    "grandson",
+    "grandchild"
+   ],
+   "example": "Unser Enkel kommt am Wochenende zu Besuch.",
+   "exampleEn": "Our grandson is coming to visit at the weekend.",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "enkelin",
+   "lesson": "de1-family",
+   "term": "die Enkelin",
+   "pos": "noun",
+   "plural": "die Enkelinnen",
+   "meanings": [
+    "granddaughter",
+    "grandchild"
+   ],
+   "example": "Meine Enkelin ist schon zwölf.",
+   "exampleEn": "My granddaughter is already twelve.",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "enkelkind",
+   "lesson": "de1-family",
+   "term": "das Enkelkind",
+   "pos": "noun",
+   "plural": "die Enkelkinder",
+   "meanings": [
+    "grandchild"
+   ],
+   "example": "Sie hat sieben Enkelkinder.",
+   "exampleEn": "She has seven grandchildren.",
+   "from": "lang-german-a1"
+  },
+  {
+   "id": "leute",
+   "lesson": "de1-family",
+   "term": "die Leute",
+   "pos": "noun",
+   "plural": "die Leute (plural only)",
+   "meanings": [
+    "people",
+    "folks"
+   ],
+   "example": "Die Leute hier sind sehr freundlich.",
+   "exampleEn": "The people here are very friendly.",
    "from": "lang-german-a1"
   },
   {
@@ -46175,44 +46288,6 @@
    "exampleEn": "She cares for her sick father at home."
   },
   {
-   "id": "enkel",
-   "lesson": "de3-temporal-clauses",
-   "term": "der Enkel",
-   "pos": "noun",
-   "plural": "die Enkel",
-   "meanings": [
-    "grandson",
-    "grandchild"
-   ],
-   "example": "Unser Enkel kommt am Wochenende zu Besuch.",
-   "exampleEn": "Our grandson is coming to visit at the weekend."
-  },
-  {
-   "id": "enkelin",
-   "lesson": "de3-temporal-clauses",
-   "term": "die Enkelin",
-   "pos": "noun",
-   "plural": "die Enkelinnen",
-   "meanings": [
-    "granddaughter",
-    "grandchild"
-   ],
-   "example": "Meine Enkelin ist schon zwölf.",
-   "exampleEn": "My granddaughter is already twelve."
-  },
-  {
-   "id": "enkelkind",
-   "lesson": "de3-temporal-clauses",
-   "term": "das Enkelkind",
-   "pos": "noun",
-   "plural": "die Enkelkinder",
-   "meanings": [
-    "grandchild"
-   ],
-   "example": "Sie hat sieben Enkelkinder.",
-   "exampleEn": "She has seven grandchildren."
-  },
-  {
    "id": "schwiegermutter",
    "lesson": "de3-temporal-clauses",
    "term": "die Schwiegermutter",
@@ -46327,60 +46402,6 @@
    "example": "Ich habe mich an das kalte Wetter gewöhnt.",
    "exampleEn": "I have got used to the cold weather.",
    "note": "sich gewöhnen an + Akk. Perfect: hat sich gewöhnt."
-  },
-  {
-   "id": "onkel",
-   "lesson": "de3-temporal-clauses",
-   "term": "der Onkel",
-   "pos": "noun",
-   "plural": "die Onkel",
-   "meanings": [
-    "uncle"
-   ],
-   "example": "Mein Onkel hat einen Bauernhof.",
-   "exampleEn": "My uncle has a farm."
-  },
-  {
-   "id": "tante",
-   "lesson": "de3-temporal-clauses",
-   "term": "die Tante",
-   "pos": "noun",
-   "plural": "die Tanten",
-   "meanings": [
-    "aunt"
-   ],
-   "example": "Meine Tante wohnt in Bremen.",
-   "exampleEn": "My aunt lives in Bremen."
-  },
-  {
-   "id": "cousin",
-   "lesson": "de3-temporal-clauses",
-   "term": "der Cousin",
-   "pos": "noun",
-   "plural": "die Cousins",
-   "meanings": [
-    "cousin (male)",
-    "cousin"
-   ],
-   "example": "Mein Cousin ist genauso alt wie ich.",
-   "exampleEn": "My cousin is exactly the same age as me.",
-   "note": "Pronounced as in French: [kuˈzɛ̃ː]."
-  },
-  {
-   "id": "cousine",
-   "lesson": "de3-temporal-clauses",
-   "term": "die Cousine",
-   "pos": "noun",
-   "plural": "die Cousinen",
-   "alt": [
-    "die Kusine"
-   ],
-   "meanings": [
-    "cousin (female)",
-    "cousin"
-   ],
-   "example": "Meine Cousine studiert in Graz.",
-   "exampleEn": "My cousin is studying in Graz."
   },
   {
    "id": "neffe",
@@ -47439,19 +47460,6 @@
    "example": "Der Junge spielt mit seinem Hund im Garten.",
    "exampleEn": "The boy is playing with his dog in the garden.",
    "note": "Weak noun: den Jungen, dem Jungen. Colloquial plural: die Jungs."
-  },
-  {
-   "id": "leute",
-   "lesson": "de3-n-nouns",
-   "term": "die Leute",
-   "pos": "noun",
-   "plural": "die Leute (plural only)",
-   "meanings": [
-    "people",
-    "folks"
-   ],
-   "example": "Die Leute hier sind sehr freundlich.",
-   "exampleEn": "The people here are very friendly."
   },
   {
    "id": "franzose",

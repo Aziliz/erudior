@@ -642,30 +642,6 @@
   meanings: [to care for, to nurse, to look after, to take care of, to maintain]
   example: Sie pflegt ihren kranken Vater zu Hause.
   exampleEn: She cares for her sick father at home.
-- id: enkel
-  lesson: de3-temporal-clauses
-  term: der Enkel
-  pos: noun
-  plural: die Enkel
-  meanings: [grandson, grandchild]
-  example: Unser Enkel kommt am Wochenende zu Besuch.
-  exampleEn: Our grandson is coming to visit at the weekend.
-- id: enkelin
-  lesson: de3-temporal-clauses
-  term: die Enkelin
-  pos: noun
-  plural: die Enkelinnen
-  meanings: [granddaughter, grandchild]
-  example: Meine Enkelin ist schon zwölf.
-  exampleEn: My granddaughter is already twelve.
-- id: enkelkind
-  lesson: de3-temporal-clauses
-  term: das Enkelkind
-  pos: noun
-  plural: die Enkelkinder
-  meanings: [grandchild]
-  example: Sie hat sieben Enkelkinder.
-  exampleEn: She has seven grandchildren.
 - id: schwiegermutter
   lesson: de3-temporal-clauses
   term: die Schwiegermutter
@@ -735,40 +711,6 @@
   example: Ich habe mich an das kalte Wetter gewöhnt.
   exampleEn: I have got used to the cold weather.
   note: 'sich gewöhnen an + Akk. Perfect: hat sich gewöhnt.'
-- id: onkel
-  lesson: de3-temporal-clauses
-  term: der Onkel
-  pos: noun
-  plural: die Onkel
-  meanings: [uncle]
-  example: Mein Onkel hat einen Bauernhof.
-  exampleEn: My uncle has a farm.
-- id: tante
-  lesson: de3-temporal-clauses
-  term: die Tante
-  pos: noun
-  plural: die Tanten
-  meanings: [aunt]
-  example: Meine Tante wohnt in Bremen.
-  exampleEn: My aunt lives in Bremen.
-- id: cousin
-  lesson: de3-temporal-clauses
-  term: der Cousin
-  pos: noun
-  plural: die Cousins
-  meanings: [cousin (male), cousin]
-  example: Mein Cousin ist genauso alt wie ich.
-  exampleEn: My cousin is exactly the same age as me.
-  note: 'Pronounced as in French: [kuˈzɛ̃ː].'
-- id: cousine
-  lesson: de3-temporal-clauses
-  term: die Cousine
-  pos: noun
-  plural: die Cousinen
-  alt: [die Kusine]
-  meanings: [cousin (female), cousin]
-  example: Meine Cousine studiert in Graz.
-  exampleEn: My cousin is studying in Graz.
 - id: neffe
   lesson: de3-temporal-clauses
   term: der Neffe
@@ -1388,14 +1330,6 @@
   example: Der Junge spielt mit seinem Hund im Garten.
   exampleEn: The boy is playing with his dog in the garden.
   note: 'Weak noun: den Jungen, dem Jungen. Colloquial plural: die Jungs.'
-- id: leute
-  lesson: de3-n-nouns
-  term: die Leute
-  pos: noun
-  plural: die Leute (plural only)
-  meanings: [people, folks]
-  example: Die Leute hier sind sehr freundlich.
-  exampleEn: The people here are very friendly.
 - id: franzose
   lesson: de3-n-nouns
   term: der Franzose

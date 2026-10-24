@@ -3828,7 +3828,7 @@
   "questions": 664,
   "cards": 190,
   "drills": 0,
-  "words": 916,
+  "words": 924,
   "lessonIds": [
    "de1-sounds",
    "de1-greetings",
@@ -3991,8 +3991,8 @@
   "questions": 647,
   "cards": 193,
   "drills": 0,
-  "words": 1783,
-  "carried": 916,
+  "words": 1791,
+  "carried": 924,
   "requires": [
    "lang-german-a1"
   ],
@@ -4159,7 +4159,7 @@
   "cards": 187,
   "drills": 0,
   "words": 3044,
-  "carried": 1783,
+  "carried": 1791,
   "requires": [
    "lang-german-a2"
   ],
