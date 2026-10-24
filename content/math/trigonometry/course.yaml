@@ -6,9 +6,9 @@ description: >-
   functions and sinusoidal models, inverse functions, identities and equations, the laws
   of sines and cosines, vectors, polar coordinates, parametric equations, and complex numbers in trigonometric
   form with De Moivre's theorem.
-revision: 3
+revision: 4
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, added a few short sections, and added a lesson on parametric equations.
+changelog: Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for.
 order: 5
 subject: Math
 level: [High School, College]

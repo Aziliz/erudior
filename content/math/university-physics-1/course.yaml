@@ -2,9 +2,9 @@ id: science-uphys1
 title: University Physics I
 description: >-
   Calculus-based University Physics I: measurement and vectors, kinematics, Newton's laws, work and energy, momentum and collisions, rotation, gravitation, oscillations, waves and sound, fluids, and thermodynamics. Assumes Calculus I (derivatives and integrals are used throughout).
-revision: 3
+revision: 4
 released: true
-changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lesson on damped and driven oscillations.
+changelog: Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for.
 order: 14
 subject: Science
 level: [College]

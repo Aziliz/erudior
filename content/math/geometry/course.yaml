@@ -7,9 +7,9 @@ description: >-
   trigonometry and the Laws of Sines and Cosines; circles; area, surface area
   and volume; coordinates, parabolas and transformations; and, at the college level, axiomatic systems, the parallel
   postulate, non-Euclidean geometry and geometric probability.
-revision: 3
+revision: 4
 released: true
-changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on the Law of Sines, the Law of Cosines, and the parabola from focus and directrix.
+changelog: Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for.
 order: 4
 subject: Math
 level: [High School]

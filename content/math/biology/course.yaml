@@ -8,11 +8,8 @@ description: >-
   use (probability, Hardy-Weinberg, chi-square, population growth). Optional honors material
   goes further: 22 honors lessons inside the modules and three honors modules (research and
   biostatistics; development, stem cells and the genome; behavior, disease and conservation).
-revision: 2
-changelog: >-
-  34 optional honors lessons (22 in the modules, three honors modules), pictures and diagrams in
-  every lesson, and new question types: fill in the blank, match, put in order, label the
-  picture, and select all that apply.
+revision: 3
+changelog: Corrections from a second review; clearer graphs; practice answers shown at the precision each problem asks for.
 released: true
 order: 16
 subject: Science
