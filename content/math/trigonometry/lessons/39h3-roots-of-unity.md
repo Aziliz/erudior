@@ -19,12 +19,12 @@ The left side can also be multiplied out with the binomial theorem. Two complex 
 ```mermaid
 flowchart TD
   accTitle: Deriving multiple-angle identities from De Moivre's theorem
-  accDescr: Write cos n theta plus i sin n theta as cos theta plus i sin theta to the nth power. Expand the power with the binomial theorem, writing c for cos theta and s for sin theta. Replace powers of i using i squared equals negative 1. Collect the real terms, which equal cos n theta, and the imaginary terms, which equal sin n theta. If you want the formula in one function only, replace s squared with 1 minus c squared or c squared with 1 minus s squared.
+  accDescr: Write cos n theta plus i sin n theta as cos theta plus i sin theta to the nth power. Expand the power with the binomial theorem, writing c for cos theta and s for sin theta. Replace powers of i using i squared equals negative 1. Collect the real terms, which equal cos n theta, and the imaginary terms, which equal sin n theta. If you want the formula in one function only, replace s squared with 1 minus c squared or c squared with 1 minus s squared, where that is possible.
   A["cos nθ + i sin nθ = (cos θ + i sin θ)ⁿ"] --> B["Expand with the binomial theorem (c = cos θ, s = sin θ)"]
   B --> C["Simplify powers of i: i² = −1, i³ = −i, i⁴ = 1"]
   C --> D["Real terms = cos nθ"]
   C --> E["Imaginary terms = sin nθ"]
-  D --> F["Optional: use s² = 1 − c² or c² = 1 − s² to write it in one function"]
+  D --> F["Optional: use s² = 1 − c² or c² = 1 − s² to write it in one function where possible"]
   E --> F
 ```
 
@@ -66,7 +66,7 @@ By De Moivre, $\omega^k = \operatorname{cis}\tfrac{2\pi k}{n}$, so the roots are
 - Since $|\omega^k| = 1$, the conjugate is the reciprocal: $\overline{\omega^k} = \omega^{-k} = \omega^{n-k}$. The roots other than $\pm1$ come in **conjugate pairs**, mirror images across the real axis.
 
 ```plot
-{"x": [-1.6, 1.6], "y": [-1.4, 1.4], "equal": true, "circles": [{"center": [0, 0], "r": 1}], "polygons": [{"points": [[1, 0], [0.309, 0.9511], [-0.809, 0.5878], [-0.809, -0.5878], [0.309, -0.9511]]}], "segments": [{"from": [1, 0], "to": [-0.809, 0.5878], "dashed": true}, {"from": [1, 0], "to": [-0.809, -0.5878], "dashed": true}], "points": [{"at": [1, 0], "label": "1"}, {"at": [0.309, 0.9511], "label": "ω"}, {"at": [-0.809, 0.5878], "label": "ω²"}, {"at": [-0.809, -0.5878], "label": "ω³"}, {"at": [0.309, -0.9511], "label": "ω⁴"}], "xLabel": "real", "yLabel": "imaginary", "caption": "Fifth roots of unity, ω = cis 72°: ω and ω⁴ are a conjugate pair, and so are ω² and ω³. Dashed: the diagonals from 1"}
+{"x": [-1.6, 1.6], "y": [-1.4, 1.4], "equal": true, "circles": [{"center": [0, 0], "r": 1}], "polygons": [{"points": [[1, 0], [0.309, 0.9511], [-0.809, 0.5878], [-0.809, -0.5878], [0.309, -0.9511]]}], "segments": [{"from": [1, 0], "to": [-0.809, 0.5878], "dashed": true}, {"from": [1, 0], "to": [-0.809, -0.5878], "dashed": true}], "points": [{"at": [1, 0], "label": "1"}, {"at": [0.309, 0.9511], "label": "ω"}, {"at": [-0.809, 0.5878]}, {"at": [-0.809, -0.5878]}, {"at": [0.309, -0.9511]}], "labels": [{"at": [-0.98, 0.7], "text": "ω²"}, {"at": [-0.98, -0.76], "text": "ω³"}, {"at": [0.45, -1.12], "text": "ω⁴"}], "xLabel": "real", "yLabel": "imaginary", "caption": "Fifth roots of unity, ω = cis 72°: ω and ω⁴ are a conjugate pair, and so are ω² and ω³. Dashed: the diagonals from 1"}
 ```
 
 ## They add up to zero

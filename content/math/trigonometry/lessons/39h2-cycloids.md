@@ -28,7 +28,7 @@ $$x = a(t - \sin t), \qquad y = a(1 - \cos t).$$
 One full turn, $0 \le t \le 2\pi$, traces one arch: it starts and ends on the ground, $2\pi a$ apart (one circumference), and reaches its greatest height $2a$ at $t = \pi$, when $P$ is at the top of the wheel. The points where $P$ touches the ground are sharp points called **cusps**: there the point stops for an instant and reverses its vertical direction.
 
 ```plot
-{"x": [-0.8, 10.4], "y": [-0.5, 3.6], "equal": true, "curves": [{"x": "1.5(t - sin(t))", "y": "1.5(1 - cos(t))", "t": [0, 6.2832]}, {"x": "6.3 + 1.5cos(t)", "y": "1.5 + 1.5sin(t)", "t": [0, 6.2832], "dashed": true}], "points": [{"at": [0, 0], "label": "cusp"}, {"at": [9.4248, 0], "label": "cusp"}, {"at": [4.7124, 3], "label": "top (πa, 2a)"}, {"at": [7.607, 2.235], "label": "P at t = 4.2"}, {"at": [6.3, 1.5]}], "caption": "One arch of a cycloid with a = 1.5: 2πa ≈ 9.42 wide and 2a = 3 high. The dashed wheel shows the moment t = 4.2, with its center at (at, a) = (6.3, 1.5)"}
+{"x": [-0.8, 10.4], "y": [-0.5, 3.6], "equal": true, "curves": [{"x": "1.5(t - sin(t))", "y": "1.5(1 - cos(t))", "t": [0, 6.2832]}, {"x": "6.3 + 1.5cos(t)", "y": "1.5 + 1.5sin(t)", "t": [0, 6.2832], "dashed": true}], "points": [{"at": [0, 0], "label": "cusp"}, {"at": [9.4248, 0]}, {"at": [4.7124, 3], "label": "top (πa, 2a)"}, {"at": [7.607, 2.235], "label": "P at t = 4.2"}, {"at": [6.3, 1.5]}], "labels": [{"at": [8.5, 0.3], "text": "cusp"}], "caption": "One arch of a cycloid with a = 1.5: 2πa ≈ 9.42 wide and 2a = 3 high. The dashed wheel shows the moment t = 4.2, with its center at (at, a) = (6.3, 1.5)"}
 ```
 
 ### Example 1: a pebble in a tire
@@ -79,7 +79,7 @@ $$x = (a + b)\cos t - b\cos\!\left(\tfrac{a + b}{b}t\right), \qquad y = (a + b)\
 **Inside (hypocycloid).** The center moves on radius $a - b$ and the circle turns the other way, giving the **hypocycloid**:
 $$x = (a - b)\cos t + b\cos\!\left(\tfrac{a - b}{b}t\right), \qquad y = (a - b)\sin t - b\sin\!\left(\tfrac{a - b}{b}t\right).$$
 
-When $\tfrac ab = k$ is a whole number, the curve closes after one trip around and has $k$ cusps, one for each time the rolling circle's point touches the fixed circle.
+When $\tfrac ab = k$ is a whole number, the curve closes after one trip around and has $k$ cusps, one for each time the rolling circle's point touches the fixed circle. (For a hypocycloid this needs $k \ge 3$; $k = 2$ is a special case, Example 4.)
 
 ```plot
 {"x": [-4.2, 4.2], "y": [-4.2, 4.2], "equal": true, "curves": [{"x": "2cos(t) - cos(2t)", "y": "2sin(t) - sin(2t)", "t": [0, 6.2832]}, {"x": "3cos(t) - cos(3t)", "y": "3sin(t) - sin(3t)", "t": [0, 6.2832], "dashed": true}], "circles": [{"center": [0, 0], "r": 1}, {"center": [0, 0], "r": 2}], "caption": "Epicycloids: a cardioid (solid; a circle of radius 1 rolling around a fixed circle of radius 1) and a nephroid (dashed; radius 1 around radius 2, two cusps)"}
@@ -110,7 +110,7 @@ The cycloid was a favorite problem of 17th-century mathematics; it was even call
 - The area under one arch is $3\pi a^2$, three times the area of the rolling circle (Roberval and Torricelli, 1630s–1640s).
 - One arch is $8a$ long, four times the wheel's diameter (Christopher Wren, 1658).
 - **Tautochrone:** a bead sliding without friction on an upside-down arch reaches the bottom in the same time from any starting point. Christiaan Huygens found this in 1659 (he published it in 1673) and used it to design more accurate pendulum clocks.
-- **Brachistochrone:** among all curves joining two points, the upside-down cycloid is the one along which a sliding bead gets from the higher point to the lower one fastest. Johann Bernoulli posed the problem in 1696; he, his brother Jakob, Leibniz, Newton and L'Hôpital solved it.
+- **Brachistochrone:** among all curves joining two points, the upside-down cycloid is the one along which a sliding bead gets from the higher point to the lower one fastest. Johann Bernoulli posed the problem in 1696; he, his brother Jakob, Leibniz, Newton, Tschirnhaus and L'Hôpital solved it.
 
 ## Common mistakes
 

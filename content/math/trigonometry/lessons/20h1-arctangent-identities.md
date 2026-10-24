@@ -145,7 +145,7 @@ decimal places ($\pi = 3.14159\ldots$). Four terms of the first series would giv
 
 With his formula, Machin computed $\pi$ to 100 decimal places by hand. Formulas of this kind, now
 called **Machin-like formulas**, carried the record for more than two centuries: William Shanks pushed one to 707
-places in 1873 (an error in the 528th place spoiled the rest, and was found only in 1946), and in
+places in 1873 (an error in the 528th place spoiled the rest, and was found only in the mid-1940s), and in
 1949 the ENIAC computer used Machin's formula to find 2,037 digits. (This history is simplified; the
 records also used other arctangent identities of the same kind.)
 

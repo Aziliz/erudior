@@ -142,7 +142,7 @@ The modulus stays $\sqrt{10}$ throughout ($8 + 2 = 10$ ✓), because multiplying
 only rotates. Computer graphics and signal processing use exactly this trick.
 
 ```plot
-{"x": [-4.2, 4.2], "y": [-1, 4.4], "equal": true, "circles": [{"center": [0, 0], "r": 3.1623}], "segments": [{"from": [0, 0], "to": [3, 1], "arrow": true}, {"from": [0, 0], "to": [-1, 3], "arrow": true}, {"from": [0, 0], "to": [-2.8284, 1.4142], "arrow": true}], "points": [{"at": [3, 1], "label": "3 + i"}, {"at": [-1, 3], "label": "−1 + 3i"}, {"at": [-2.8284, 1.4142], "label": "−2√2 + √2 i"}], "xLabel": "real", "yLabel": "imaginary", "caption": "Rotating 3 + i by 90° and then 45° keeps it on the circle of radius √10"}
+{"x": [-4.2, 4.2], "y": [-1, 4.4], "equal": true, "circles": [{"center": [0, 0], "r": 3.1623}], "segments": [{"from": [0, 0], "to": [3, 1], "arrow": true}, {"from": [0, 0], "to": [-1, 3], "arrow": true}, {"from": [0, 0], "to": [-2.8284, 1.4142], "arrow": true}], "points": [{"at": [3, 1], "label": "3 + i"}, {"at": [-1, 3]}, {"at": [-2.8284, 1.4142], "label": "−2√2 + √2 i"}], "labels": [{"at": [-2.0, 3.3], "text": "−1 + 3i"}], "xLabel": "real", "yLabel": "imaginary", "caption": "Rotating 3 + i by 90° and then 45° keeps it on the circle of radius √10"}
 ```
 
 ## Common mistakes

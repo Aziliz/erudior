@@ -51,6 +51,11 @@ later "more than two centuries".
 
 **Card.** "Solution of cos x = x" back now says "radians".
 
+**20h1, Shanks's error (date).** "was found only in 1946" → "was found only in the mid-1940s". D. F. Ferguson
+found the discrepancy at the 528th place in 1944–45 (MacTutor, "William Shanks") and published it in 1946
+(Wikipedia, "Chronology of computation of π"); the old wording stated the publication year as the
+discovery year.
+
 No answer-key errors were found. No question ids changed.
 
 ## Checked and found right (things a reader might doubt)
@@ -70,17 +75,16 @@ No answer-key errors were found. No question ids changed.
   $120 \cdot 239 - 119 = 119 \cdot 239 + 120 = 28561 = 13^4$; 1,000 Leibniz terms give 3.1405927; three terms + one term
   give 3.1416209, four terms give 3.1415917; term ratios $< 1/25$ and $239^2 = 57121$.
 - **20h1 history**: Machin 1706, 100 places; Gregory 1671; Leibniz 1673–74; Madhava about 1340–1425
-  (credited in later Kerala texts); Shanks 1873, 707 places, wrong from the 528th, error found by Ferguson in
-  1946; ENIAC 1949, 2,037 places with Machin's formula. Sources: Wikipedia, "Chronology of computation of π"
-  and "Machin-like formula"; Beckmann, *A History of π*; Reitwiesner, "An ENIAC determination of π and e to
+  (credited in later Kerala texts); Shanks 1873, 707 places with Machin's formula, wrong from the 528th, error found by Ferguson in
+  1944–45 and published 1946; ENIAC 1949, 2,037 places with Machin's formula. Sources: MacTutor, "William Shanks"
+  (https://mathshistory.st-andrews.ac.uk/Biographies/Shanks/); Wikipedia, "Chronology of computation of π"; Reitwiesner, "An ENIAC determination of π and e to
   more than 2000 decimal places", MTAC 4 (1950). The lesson already labels the history as simplified.
 - **20h2 numbers**: Example 1 (six solutions, also from $2\cos 2x\sin x = 0$), Example 2 (four solutions, also from
   $\cos x(2\sin x - 1) = 0$), Example 3 ($u \in [-\tfrac{\pi}{3}, \tfrac{11\pi}{3})$, $x = \tfrac{\pi}{4}, \tfrac{7\pi}{12}, \tfrac{5\pi}{4}, \tfrac{19\pi}{12}$), the bisection
   table (0.3776, −0.0183, 0.1860, 0.0853, 0.0339), the uniqueness argument for $\cos x = x$, and the Kepler
   iterates 1.168294, 1.184017, 1.185226, 1.185317, 1.185324 (check gives 0.99998).
 - **Kepler's equation**: derived by Kepler in *Astronomia nova* (1609), ch. 60, in the Mars work; $|g'(E)| = |e\cos E| \le 0.2$
-  explains the convergence. Source: Wikipedia "Kepler's equation"; Colwell, *Solving Kepler's Equation over
-  Three Centuries* (1993).
+  explains the convergence. Source: Wikipedia, "Kepler's equation" (1609, *Astronomia nova*, chapter 60).
 - **Drills**: generated 800 instances of each with the app's own `generate`/`checkAll`; every displayed
   answer (fractions typed as p/q) was accepted. Recomputed each independently in Python from the prompt text:
   arctan-sum (exact $\tfrac{a + b}{1 - ab}$, $\tan^{-1}a + \tan^{-1}b$ to within $5 \times 10^{-5}$, and the quadrant sentence matches the

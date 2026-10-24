@@ -113,7 +113,7 @@ A polynomial equation of degree 4 has four solutions in the complex numbers, and
 they form a square.
 
 ```plot
-{"x": [-2.8, 2.8], "y": [-2.8, 2.8], "equal": true, "circles": [{"center": [0, 0], "r": 2}], "polygons": [{"points": [[1.4142, 1.4142], [-1.4142, 1.4142], [-1.4142, -1.4142], [1.4142, -1.4142]]}], "segments": [{"from": [0, 0], "to": [1.4142, 1.4142], "dashed": true}], "points": [{"at": [1.4142, 1.4142], "label": "2 cis 45°"}, {"at": [-1.4142, 1.4142], "label": "2 cis 135°"}, {"at": [-1.4142, -1.4142], "label": "2 cis 225°"}, {"at": [1.4142, -1.4142], "label": "2 cis 315°"}], "xLabel": "real", "yLabel": "imaginary", "caption": "The four solutions of z⁴ = −16: modulus 2, arguments 90° apart starting at 45°"}
+{"x": [-2.8, 2.8], "y": [-2.8, 2.8], "equal": true, "circles": [{"center": [0, 0], "r": 2}], "polygons": [{"points": [[1.4142, 1.4142], [-1.4142, 1.4142], [-1.4142, -1.4142], [1.4142, -1.4142]]}], "segments": [{"from": [0, 0], "to": [1.4142, 1.4142], "dashed": true}], "points": [[1.4142, 1.4142], [-1.4142, 1.4142], [-1.4142, -1.4142], [1.4142, -1.4142]], "labels": [{"at": [2.1, 1.75], "text": "2 cis 45°"}, {"at": [-2.1, 1.75], "text": "2 cis 135°"}, {"at": [-2.1, -1.95], "text": "2 cis 225°"}, {"at": [2.1, -1.95], "text": "2 cis 315°"}], "xLabel": "real", "yLabel": "imaginary", "caption": "The four solutions of z⁴ = −16: modulus 2, arguments 90° apart starting at 45°"}
 ```
 
 ### Example 7: square roots of a complex number

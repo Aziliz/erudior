@@ -49,9 +49,9 @@ The important detail is the **1** in the denominator. An equation like $r = \dfr
 ```mermaid
 flowchart TD
   accTitle: Identifying a conic in polar form
-  accDescr: Start with r equals k over c plus or minus m cos theta or sin theta. Divide the numerator and denominator by c so the constant term is 1. The coefficient of the trig function is now e, and the numerator is e d. If e is less than 1 the conic is an ellipse, if e equals 1 a parabola, if e is greater than 1 a hyperbola. Then find d by dividing the numerator by e; cos means a vertical directrix x equals plus or minus d and sin means a horizontal directrix y equals plus or minus d, with the sign taken from the sign in the denominator.
+  accDescr: Start with r equals k over c plus or minus m cos theta or sin theta. Divide the numerator and denominator by c so the constant term is 1. The coefficient of the trig function, without its sign, is now e, and the numerator is e d. If e is less than 1 the conic is an ellipse, if e equals 1 a parabola, if e is greater than 1 a hyperbola. Then find d by dividing the numerator by e; cos means a vertical directrix x equals plus or minus d and sin means a horizontal directrix y equals plus or minus d, with the sign taken from the sign in the denominator.
   A["r = k / (c ± m cos θ) or (c ± m sin θ)"] --> B["Divide top and bottom by c so the constant is 1"]
-  B --> C["Read e (the coefficient of cos or sin) and ed (the numerator)"]
+  B --> C["Read e (the coefficient of cos or sin, without its sign) and ed (the numerator)"]
   C --> D{"Compare e with 1"}
   D -- "e less than 1" --> E[Ellipse]
   D -- "e = 1" --> F[Parabola]
@@ -94,7 +94,7 @@ $$(x - 2)^2 - \frac{y^2}{3} = 1.$$
 The denominator is zero when $\cos\theta = -\tfrac12$, at $\theta = \tfrac{2\pi}{3}$ and $\tfrac{4\pi}{3}$. In those directions $r$ blows up: they are the directions of the asymptotes, slopes $\pm\sqrt3$. The branch nearer the pole is traced while $1 + 2\cos\theta > 0$; the other branch comes from the negative values of $r$.
 
 ```plot
-{"x": [-7, 5], "y": [-5, 5], "equal": true, "curves": [{"x": "(1/(1 + 0.5cos(t)))cos(t)", "y": "(1/(1 + 0.5cos(t)))sin(t)", "t": [0, 6.2832]}, {"x": "(2/(1 + cos(t)))cos(t)", "y": "(2/(1 + cos(t)))sin(t)", "t": [-2.5, 2.5], "dashed": true}, {"x": "(4/(1 + 2cos(t)))cos(t)", "y": "(4/(1 + 2cos(t)))sin(t)", "t": [-1.85, 1.85]}, {"x": "(4/(1 + 2cos(t)))cos(t)", "y": "(4/(1 + 2cos(t)))sin(t)", "t": [2.34, 3.94]}], "segments": [{"from": [2, -5], "to": [2, 5], "dashed": true}], "points": [{"at": [0, 0], "label": "focus"}], "labels": [{"at": [2.3, 4.4], "text": "directrix x = 2"}, {"at": [-1.6, -1.6], "text": "e = 0.5"}, {"at": [-5.2, 3.2], "text": "e = 1"}, {"at": [3.1, -4.4], "text": "e = 2"}], "caption": "r = 2e/(1 + e cos θ) with the same focus and directrix: e = 0.5 gives an ellipse, e = 1 a parabola (dashed), e = 2 a hyperbola with two branches"}
+{"x": [-7, 5], "y": [-5, 5], "equal": true, "curves": [{"x": "(1/(1 + 0.5cos(t)))cos(t)", "y": "(1/(1 + 0.5cos(t)))sin(t)", "t": [0, 6.2832]}, {"x": "(2/(1 + cos(t)))cos(t)", "y": "(2/(1 + cos(t)))sin(t)", "t": [-2.5, 2.5], "dashed": true}, {"x": "(4/(1 + 2cos(t)))cos(t)", "y": "(4/(1 + 2cos(t)))sin(t)", "t": [-1.85, 1.85]}, {"x": "(4/(1 + 2cos(t)))cos(t)", "y": "(4/(1 + 2cos(t)))sin(t)", "t": [2.34, 3.94]}], "segments": [{"from": [2, -5], "to": [2, 5], "dashed": true}], "points": [{"at": [0, 0]}], "labels": [{"at": [-0.7, 0.25], "text": "focus"}, {"at": [2.3, 4.4], "text": "directrix x = 2"}, {"at": [-1.6, -1.6], "text": "e = 0.5"}, {"at": [-5.2, 3.2], "text": "e = 1"}, {"at": [3.1, -4.4], "text": "e = 2"}], "caption": "r = 2e/(1 + e cos θ) with the same focus and directrix: e = 0.5 gives an ellipse, e = 1 a parabola (dashed), e = 2 a hyperbola with two branches"}
 ```
 
 ## What the eccentricity measures
@@ -133,7 +133,7 @@ Compare Earth: $a \approx 1.000$ AU and $e \approx 0.0167$ give $0.983$ AU at pe
 
 - **Reading $e$ before normalizing.** In $r = \dfrac{15}{3 - 2\cos\theta}$, $e$ is $\tfrac23$, not 2. Make the constant in the denominator 1 first.
 - **Confusing $ed$ with $d$.** The numerator is $ed$; divide by $e$ to get the directrix distance.
-- **Dropping a vertex with negative $r$.** For a hyperbola, one vertex usually comes out with $r < 0$; plot it backward, don't discard it.
+- **Dropping a vertex with negative $r$.** For a hyperbola in these forms, the far vertex always comes out with $r < 0$; plot it backward, don't discard it.
 - **Wrong side for the directrix.** Plus sign: directrix on the positive side ($x = d$ or $y = d$); minus sign: negative side.
 - **Expecting a circle.** $e = 0$ makes the numerator $ed = 0$; circles are not in this family.
 
