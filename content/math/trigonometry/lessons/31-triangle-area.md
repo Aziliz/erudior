@@ -107,13 +107,13 @@ As a decision chart:
 ```mermaid
 flowchart TD
   accTitle: Choosing a triangle area formula
-  accDescr: Start from what you know. Two sides and the angle between them: area is one half a b sin C. Three sides: Heron's formula with the semiperimeter s. One side and two angles: find the third angle, then area is a squared sin B sin C over 2 sin A. Two sides and an angle that is not between them: solve the triangle first with the law of sines, watching for two triangles, then use one half a b sin C. A base and its height: area is one half base times height.
+  accDescr: Start from what you know. SAS, two sides and the angle between them: area is one half a b sin C. SSS, three sides: Heron's formula. AAS or ASA, one side and two angles: area is a squared sin B sin C over 2 sin A, after finding the third angle. SSA, two sides and an angle that is not between them: solve the triangle first with the law of sines, watching for two triangles, then use one half a b sin C. A base and its height: area is one half base times height.
   Q{"What do you know?"}
-  Q -- "two sides and the angle between them" --> F1["Area = ½ ab sin C"]
-  Q -- "three sides" --> F2["Heron: s = (a + b + c)/2, Area = √(s(s − a)(s − b)(s − c))"]
-  Q -- "one side and two angles" --> F3["Third angle, then Area = a² sin B sin C / (2 sin A)"]
-  Q -- "SSA: angle not between the sides" --> F4["Solve the triangle first (watch for two), then ½ ab sin C"]
-  Q -- "base and height" --> F5["Area = ½ × base × height"]
+  Q -- "SAS" --> F1["½ ab sin C"]
+  Q -- "SSS" --> F2["Heron's formula"]
+  Q -- "AAS or ASA" --> F3["a² sin B sin C / (2 sin A)"]
+  Q -- "SSA" --> F4["Solve first (watch for two), then ½ ab sin C"]
+  Q -- "base and height" --> F5["½ × base × height"]
 ```
 
 ### Example 6: land area in acres

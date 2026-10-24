@@ -130,10 +130,11 @@ Check: $120\sin 6^\circ \approx 12.5434$. ✓ In sexagesimal that is $12;32,36$.
 
 ## The one step that is not exact
 
-Halving from $12^\circ$ gives $6^\circ$, $3^\circ$, $1\tfrac12^\circ$ and $\tfrac34^\circ$, and sums and differences of these give
-only multiples of $\tfrac34^\circ$. One degree is not among them. Getting the $1^\circ$ chord exactly from the $3^\circ$
-chord would mean dividing an angle by 3, and the previous honors lesson showed that this leads to a
-cubic equation. Ptolemy
+Halving from $12^\circ$ gives $6^\circ$, $3^\circ$, $1\tfrac12^\circ$ and $\tfrac34^\circ$. Every starting arc ($36^\circ$, $60^\circ$, $72^\circ$,
+$90^\circ$, $120^\circ$) is a multiple of $3^\circ$, and halving, adding and subtracting only ever produce $3^\circ$ times
+a fraction whose denominator is a power of 2. One degree, $3^\circ \times \tfrac13$, is never reached exactly. Getting
+the $1^\circ$ chord from the $3^\circ$ chord would mean dividing an angle by 3, and the previous honors
+lesson showed that this leads to a cubic equation. Ptolemy
 avoided the cubic with an inequality: for arcs $\beta < \alpha \le 180^\circ$,
 $$\frac{\text{crd}\,\alpha}{\text{crd}\,\beta} < \frac{\alpha}{\beta}.$$
 (In modern terms, $\tfrac{\sin u}{u}$ decreases as $u$ grows from 0 to $90^\circ$.) This traps the $1^\circ$ chord from both sides.

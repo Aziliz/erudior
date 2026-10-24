@@ -50,6 +50,22 @@ $$250\text{ cm}^2 \times \left(\frac{1\text{ m}}{100\text{ cm}}\right)^2 = 250 \
 
 If you had used $\tfrac{1}{100}$ instead of $\left(\tfrac{1}{100}\right)^2$ you would get 2.5 m², a plate the size of a dining table.
 
+The whole procedure fits in one loop: keep multiplying by factors of 1 until only the units you want are left.
+
+```mermaid
+flowchart TD
+  accTitle: Converting units with conversion factors
+  accDescr: Start by writing the quantity with its units. Write a conversion factor equal to 1 with the unwanted unit on the opposite side of the fraction. If the unit is squared or cubed, square or cube the factor. Multiply and cancel units, repeating with more factors until only the wanted units remain. Finally check that the leftover unit is the one you want and that the size of the number makes sense.
+  S["Write the quantity with its units"] --> F["Write a factor equal to 1, with the unwanted unit on the opposite side"]
+  F --> Q{"Is the unit squared or cubed?"}
+  Q -- yes --> P["Square or cube the whole factor"]
+  Q -- no --> M["Multiply and cancel units"]
+  P --> M
+  M --> R{"Only the wanted units left?"}
+  R -- no --> F
+  R -- yes --> C["Check the unit and that the size makes sense"]
+```
+
 ## Significant figures
 
 No measurement is exact. A ruler marked in millimeters lets you read a length as 12.3 cm with the last digit estimated; writing 12.300 cm would claim precision you don't have. **Significant figures** (sig figs) are the digits that carry real information. The rules:
@@ -69,6 +85,20 @@ Scientific notation removes every ambiguity, because all digits in $a$ are signi
 
 Exact numbers (counted objects, the 2 in $2\pi r$, defined conversions like 100 cm = 1 m) never limit precision. Round only at the end; carry an extra digit or two through intermediate steps.
 
+This chart sums up which rule applies.
+
+```mermaid
+flowchart TD
+  accTitle: Which significant-figure rule to use
+  accDescr: First ask whether a number is exact, such as a count, a pure factor like the 2 in 2 pi r, or a defined conversion. Exact numbers never limit precision. For measured values, ask which operation combines them. For multiplying or dividing, keep as many significant figures as the input with the fewest. For adding or subtracting, keep as many decimal places as the input with the fewest decimal places. In both cases, carry extra digits through the work and round only the final answer.
+  A{"Is the number exact? A count, a pure factor, or a defined conversion"} -- yes --> X["Ignore it: exact numbers never limit precision"]
+  A -- "no, it is measured" --> B{"How are the measured values combined?"}
+  B -- "multiply or divide" --> M["Keep the fewest significant figures of any input"]
+  B -- "add or subtract" --> D["Keep the fewest decimal places of any input"]
+  M --> R["Carry extra digits; round only the final answer"]
+  D --> R
+```
+
 ### Example 3
 
 A rectangle measures 4.52 m by 2.1 m. Report its area.
@@ -78,6 +108,10 @@ $4.52 \times 2.1 = 9.492$. The inputs have 3 and 2 sig figs, so the answer gets 
 Now add masses of 12.41 kg and 3.2 kg: $15.61$, but 3.2 is known only to tenths, so report 15.6 kg.
 
 **Accuracy** and **precision** are different ideas. Accuracy is how close a result is to the true value; precision is how tightly repeated measurements cluster (and how many digits you can justify). A miscalibrated scale can be very precise and still inaccurate.
+
+The classic picture is four targets, each hit six times. The center stands for the true value.
+
+![Four targets with six hits each. First: a tight cluster at the center (accurate and precise). Second: a tight cluster away from the center (precise but not accurate). Third: hits spread widely but centered on the bullseye (accurate but not precise). Fourth: hits spread widely and off to one side (neither accurate nor precise).](images/phys-m1-targets.svg)
 
 ## Dimensional analysis
 

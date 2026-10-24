@@ -29,6 +29,8 @@ Drawing is good for intuition but poor for precision. Instead, we break a vector
 
 $$A_x = A\cos\theta, \qquad A_y = A\sin\theta.$$
 
+![A vector A drawn from the origin into the first quadrant at angle theta above the positive x axis. A dashed horizontal arrow along the x axis is its x component, A cos theta, and a dashed vertical arrow up to the tip of A is its y component, A sin theta. The two components and A form a right triangle.](images/phys-m1-components.svg)
+
 These come straight from the right triangle whose hypotenuse is $\vec A$. Components are signed numbers: a vector pointing into the second quadrant has $A_x < 0$ and $A_y > 0$.
 
 Going back, the Pythagorean theorem and the tangent give
@@ -42,6 +44,23 @@ With **unit vectors** $\hat\imath$ and $\hat\jmath$ (length 1, pointing along $+
 $$\vec A + \vec B = (A_x + B_x)\,\hat\imath + (A_y + B_y)\,\hat\jmath.$$
 
 That works because addition is done separately along each independent direction.
+
+Every components problem follows the same steps, including the quadrant check at the end.
+
+```mermaid
+flowchart TD
+  accTitle: Adding vectors by components
+  accDescr: Sketch the vectors. Resolve each vector into x and y components using the cosine and sine of its angle from the positive x axis. Add all the x components to get R x and all the y components to get R y. The magnitude is the square root of R x squared plus R y squared. For the direction, compute the inverse tangent of R y over R x. If R x is negative, add 180 degrees; otherwise the calculator angle is already correct. Finally compare the result with the sketch.
+  S["Sketch the vectors"] --> C["Resolve each vector: Ax = A cos θ, Ay = A sin θ"]
+  C --> A["Add components: Rx = sum of x parts, Ry = sum of y parts"]
+  A --> M["Magnitude: R = square root of (Rx² + Ry²)"]
+  M --> T["Angle: inverse tangent of Ry / Rx"]
+  T --> Q{"Is Rx negative?"}
+  Q -- yes --> F["Add 180° to the angle"]
+  Q -- no --> K["Keep the calculator angle"]
+  F --> V["Compare the result with the sketch"]
+  K --> V
+```
 
 ### Example 1
 

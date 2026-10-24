@@ -43,8 +43,8 @@ $$\pi(x)P(x, y) = \pi(y)P(y, x) \quad\text{for all } x, y.$$
 $\pi(y)\sum_x P(y, x) = \pi(y)$ because each row sums to 1. So $\pi P = \pi$. Detailed balance says that, in
 equilibrium, the flow from $x$ to $y$ equals the flow back.
 
-The result that makes MCMC work is the **ergodic theorem** for Markov chains, stated here without
-proof: if the chain has stationary distribution $\pi$, can get from any state to any other (it is
+The result that makes MCMC work is the **ergodic theorem** for Markov chains, stated here in simplified form
+without proof: if the chain has stationary distribution $\pi$, can get from any state to any other (it is
 irreducible) and does not cycle with a fixed period (it is aperiodic), then the distribution of $X_t$
 converges to $\pi$ from any starting point, and long-run averages $\frac1N\sum_{t=1}^N g(X_t)$ converge to $E_\pi[g(X)]$. It
 is a law of large numbers for dependent draws.
