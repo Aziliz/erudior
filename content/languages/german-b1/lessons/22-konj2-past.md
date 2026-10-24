@@ -25,6 +25,19 @@ The **past subjunctive** (*Konjunktiv II der Vergangenheit*) is made like the pe
 
 The choice between *hätte* and *wäre* follows exactly the same rule as *haben* and *sein* in the perfect: verbs of movement and change (*gehen, fahren, kommen, aufstehen, passieren*) and *sein, bleiben, werden* take *wäre*; everything else takes *hätte*. If you know the perfect, you know the past subjunctive.
 
+Here is the whole decision, including the modal verbs you'll meet later in this lesson:
+
+```mermaid
+flowchart TD
+  accTitle: hätte or wäre in the past subjunctive?
+  accDescr: If the sentence has a modal verb with another verb, such as should have or could have, use hätte and two infinitives at the end, for example hätte anrufen sollen. Otherwise ask whether the verb takes sein in the perfect tense. If yes, as with gehen, fahren, kommen, bleiben, sein and werden, use wäre plus the participle, for example wäre geblieben. If no, use hätte plus the participle, for example hätte gewusst.
+  A["Past subjunctive: hätte or wäre?"] --> B{"Modal verb + another verb?"}
+  B -- yes --> C["hätte + two infinitives: hätte anrufen sollen"]
+  B -- no --> D{"Perfect with sein? (ist gegangen, ist geblieben)"}
+  D -- yes --> E["wäre + participle: wäre geblieben"]
+  D -- no --> F["hätte + participle: hätte gewusst"]
+```
+
 | | with hätte | with wäre |
 |---|---|---|
 | ich | *hätte gearbeitet* | *wäre gefahren* |
@@ -119,6 +132,10 @@ In English:
 > Was it coincidence or fate? I don't know. Lena says she would have spoken to me even without the book. I don't quite believe her. Looking back, I regret only one thing: that I got so annoyed that morning. Afterwards I learned that a small mistake can sometimes have a big effect, and not always a bad one.
 
 Notes: the story mixes tenses on purpose. The real events are told in the simple past and perfect (*fuhr ab, habe verpasst*) and the past perfect (*war aufgestanden, hatte gefeiert*, lesson 2). The imagined past is in the past subjunctive (*wäre geblieben, hätte kennengelernt*). *zufällig* means "by chance, as it happened"; *jemanden ansprechen* is to start talking to someone, approach someone; *ein Leben führen* is to lead a life. In *hätte … angenommen und … geführt*, one *hätte* serves two participles.
+
+The picture shows the two paths of Markus's story side by side: what really happened, told in the indicative, and what would have happened, told in the past subjunctive.
+
+![A diagram with two paths starting from the box Montag, 7.58 Uhr: Der Zug fährt ab. The left path, headed Was wirklich passiert ist (Indikativ), has the boxes Er hat den Zug verpasst, Er hat Lena kennengelernt and Heute sind sie verheiratet. The right path, dashed and headed Was passiert wäre (Konjunktiv II), has the boxes Er hätte den Zug genommen, Er hätte Lena nie kennengelernt and Er wäre in Hamburg geblieben.](images/de3-m5-two-paths.svg)
 
 ## Cause and effect
 

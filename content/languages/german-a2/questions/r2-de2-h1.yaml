@@ -1,0 +1,725 @@
+# German A2, honors module de2-h1 (round 2): questions for lessons 90-93 (Lesen und Hören).
+- id: de2-h1-r2-h01
+  lesson: de2-h-lesestrategien
+  module_quiz: true
+  topic: Reading strategies
+  stem: You want to know what time the pharmacy opens on Saturday. You have its whole information leaflet. Which way of reading fits best?
+  choices:
+  - Skimming the whole leaflet for its topic
+  - Scanning for Samstag and a time
+  - Reading every sentence slowly from the start
+  - Translating the leaflet word by word
+  answer: 1
+  explanation: 'You need one fact with a typical shape (a day and a time), so you scan: let your eyes jump until you see Samstag and Uhr, then read that line. Skimming only tells you what the leaflet is about; reading everything slowly wastes time.'
+- id: de2-h1-r2-h02
+  lesson: de2-h-lesestrategien
+  topic: Reading strategies
+  type: match
+  stem: Match each way of reading to the task it fits best.
+  pairs:
+  - - Skimming
+    - Find out what a newspaper article is about
+  - - Scanning
+    - Find the price of a bike in an ad
+  - - Detailed reading
+    - Follow the rules for a library card exactly
+  distractors:
+  - Translate every word into English
+  explanation: Skimming gives the topic, scanning finds one fact, detailed reading is for exact rules. Translating every word is not a reading strategy the lesson recommends.
+- id: de2-h1-r2-h03
+  lesson: de2-h-lesestrategien
+  module_quiz: true
+  topic: Text types
+  type: label
+  stem: Name the type of each numbered text on the notice board.
+  image: &id001
+    src: images/de2-h1-board.svg
+    alt: 'A notice board with four texts: a notice from Hausverwaltung Berger saying there is no water on Tuesday 14 May from 8 to 12 because of a repair in the cellar; a poster for a summer party in the courtyard on Saturday 18 May from 4 pm, asking people to bring salad or cake; a small ad selling a blue child''s bike in good condition for 40 euros, Familie Yilmaz, second floor; and a note about Mia, a grey cat with white paws, missing since Monday, with a reward of 50 euros.'
+  labels:
+  - x: 26.6
+    y: 6
+    text: Notice from the management (Aushang)
+  - x: 73.4
+    y: 6
+    text: Poster (Plakat)
+  - x: 26.6
+    y: 48
+    text: Small ad (Anzeige)
+  - x: 73.4
+    y: 48
+    text: Note about a lost pet (Zettel)
+  distractors:
+  - Menu (Speisekarte)
+  - Timetable (Fahrplan)
+  explanation: '1 has a sender (Hausverwaltung Berger) and An alle Mieterinnen und Mieter: a notice. 2 has huge letters, an event, a date and a time: a poster. 3 says Zu verkaufen with a price and tear-off strips: a small ad. 4 describes a missing cat and offers a Belohnung: a note.'
+- id: de2-h1-r2-h04
+  lesson: de2-h-lesestrategien
+  topic: Reading strategies
+  stem: Look at the notice board. According to the notice from the management, when is there no water?
+  image: *id001
+  choices:
+  - On Saturday from 4 pm
+  - On Tuesday all day
+  - On Tuesday from 8 to 12
+  - On Monday from 8 to 12
+  answer: 2
+  explanation: 'The notice says: Am Dienstag, 14. Mai, gibt es von 8 bis 12 Uhr kein Wasser. Saturday from 4 pm is the summer party; Monday is when the cat went missing.'
+- id: de2-h1-r2-h05
+  lesson: de2-h-lesestrategien
+  topic: Reading strategies
+  type: text
+  stem: Look at the notice board. How many euros does the child's bike cost? Give only the number.
+  image: *id001
+  accept:
+  - '40'
+  explanation: 'Scan the small ad for Euro: Kinderfahrrad, blau, gut erhalten, 40 Euro. (The 50 euros on the board are the reward for the cat.)'
+- id: de2-h1-r2-h06
+  lesson: de2-h-lesestrategien
+  module_quiz: true
+  topic: Reading strategies
+  stem: 'A sign says: "Der Laden öffnet erst um 10 Uhr." Ana arrives at 9:30. What does she find?'
+  choices:
+  - The shop is still closed.
+  - The shop has just opened.
+  - The shop is only open for ten minutes.
+  - The shop closes at 10.
+  answer: 0
+  explanation: 'erst um 10 means "not until 10": at 9:30 it is still closed. Reading erst as nur ("only") leads to the third choice.'
+- id: de2-h1-r2-h07
+  lesson: de2-h-lesestrategien
+  topic: Reading strategies
+  stem: 'A museum sign says: "Geöffnet: täglich außer montags, 10 bis 17 Uhr." Which statement is true?'
+  choices:
+  - The museum is open only on Mondays.
+  - The museum is open every day, Mondays included.
+  - The museum opens at 17 on Mondays.
+  - The museum is closed on Mondays.
+  answer: 3
+  explanation: 'außer means "except": open every day except Mondays. Missing the small word außer gives the second choice; reading it as "only" gives the first.'
+- id: de2-h1-r2-h08
+  lesson: de2-h-lesestrategien
+  topic: Text types
+  stem: Which of these are typical clues of a small ad (Anzeige)? Select all that apply.
+  choices:
+  - '"Zu verkaufen"'
+  - A price
+  - '"Sehr geehrte Damen und Herren"'
+  - '"Suche …"'
+  - A long quotation from a politician
+  answer:
+  - 0
+  - 1
+  - 3
+  explanation: Small ads offer (Zu verkaufen, Biete) or want something (Suche) and usually give a price and a contact. Sehr geehrte Damen und Herren opens a formal letter, and quotations belong to news reports.
+- id: de2-h1-r2-h09
+  lesson: de2-h-lesestrategien
+  topic: Reading strategies
+  type: text
+  stem: 'Fill in the small word that means "not until": "Der Arzt ist ___ ab 11 Uhr in der Praxis."'
+  accept:
+  - erst
+  explanation: 'erst marks a time that is later than you might expect: the doctor is not in the practice before 11. (nur would limit an amount, not a starting time.)'
+- id: de2-h1-r2-h10
+  lesson: de2-h-lesestrategien
+  module_quiz: true
+  topic: Reading strategies
+  stem: 'Read the report: "Neustadt: Bibliothek verleiht jetzt auch Werkzeug. … Das Leihen ist kostenlos. Man braucht nur einen Bibliotheksausweis. Er kostet für Erwachsene 12 Euro im Jahr, für Kinder und Jugendliche unter 18 nichts. Die Dinge darf man zwei Wochen behalten. Elektrische Geräte bekommt man aber erst ab 18 Jahren. … Kleidung und Möbel nimmt sie nicht an." Who can borrow an electric drill?'
+  choices:
+  - A 16-year-old with a library card
+  - Anyone, without a library card
+  - An adult with a library card
+  - Only children under 18
+  answer: 2
+  explanation: You need a library card (Man braucht nur einen Bibliotheksausweis), and electric appliances are only for people aged 18 and over (erst ab 18 Jahren). The 16-year-old has a free card but is too young for an electric drill.
+- id: de2-h1-r2-h11
+  lesson: de2-h-lesestrategien
+  topic: Text types
+  stem: Which questions does the lead of a news report usually answer?
+  choices:
+  - Who, what, when and where
+  - Only why
+  - How the journalist feels about it
+  - What readers should buy
+  answer: 0
+  explanation: 'The lead, the first sentence or paragraph, gives the key facts: Wer? Was? Wann? Wo? Details, quotes and the Warum? usually come later.'
+- id: de2-h1-r2-h12
+  lesson: de2-h-lesestrategien
+  module_quiz: true
+  topic: Reading strategies
+  type: order
+  stem: You have a reading question and a text. Put the steps of an efficient reader in order.
+  items:
+  - Read the question first
+  - Skim the text for its type and topic
+  - Scan for the place where the answer must be
+  - Read that part in detail
+  explanation: Know what you are looking for, get an overview, find the right place, and only then read slowly. Reading in detail first wastes time on parts you don't need.
+- id: de2-h1-r2-h13
+  lesson: de2-h-lesestrategien
+  topic: Reading strategies
+  stem: 'Read the report: "Neustadt: Bibliothek verleiht jetzt auch Werkzeug. … Das Leihen ist kostenlos. Man braucht nur einen Bibliotheksausweis. Er kostet für Erwachsene 12 Euro im Jahr, für Kinder und Jugendliche unter 18 nichts. Die Dinge darf man zwei Wochen behalten. Elektrische Geräte bekommt man aber erst ab 18 Jahren. … Kleidung und Möbel nimmt sie nicht an." Richtig oder falsch: "Die Bibliothek nimmt alte Möbel an."'
+  choices:
+  - 'Richtig: Sie sucht Spenden.'
+  - 'Falsch: Möbel nimmt sie nicht an.'
+  - Richtig, aber nur montags.
+  - Der Text sagt nichts dazu.
+  answer: 1
+  explanation: 'The library does want donations, but the last sentence says: Kleidung und Möbel nimmt sie nicht an. A reader who stops at Spenden says richtig.'
+- id: de2-h1-r2-h14
+  lesson: de2-h-lesestrategien
+  topic: Text types
+  stem: 'The report says about the library''s items: "Die neue Bibliothek der Dinge hat schon 120 Gegenstände. Bald sollen es 200 sein." What does the second sentence tell you?'
+  choices:
+  - The library already has 200 items.
+  - 80 items were stolen.
+  - The library had 200 items before.
+  - The library plans to have 200 items soon.
+  answer: 3
+  explanation: 'bald (soon) and sollen describe a plan, not a fact: it has 120 now and wants 200. Taking a plan for a fact is a common reading mistake.'
+- id: de2-h1-r2-h15
+  lesson: de2-h-woerter
+  module_quiz: true
+  topic: Word formation
+  stem: What is "der Hausschuh"?
+  choices:
+  - A shoe shop
+  - A slipper, a shoe you wear at home
+  - The roof of a house
+  - A shoemaker's house
+  answer: 1
+  explanation: 'Read compounds from the back: the head word is Schuh, so it is a kind of shoe, one for the house. A shoe shop is das Schuhhaus, with the blocks the other way round.'
+- id: de2-h1-r2-h16
+  lesson: de2-h-woerter
+  module_quiz: true
+  topic: Word formation
+  stem: Which article goes with "Kinderzimmer" (children's room)?
+  choices:
+  - der
+  - die
+  - das
+  - den
+  answer: 2
+  explanation: 'The head word gives the gender: das Zimmer, so das Kinderzimmer. die is the article of the plural Kinder, the modifier, which does not count.'
+- id: de2-h1-r2-h17
+  lesson: de2-h-woerter
+  module_quiz: true
+  topic: Word formation
+  type: label
+  stem: Name the numbered parts of the compound "der Wohnungsschlüssel".
+  image:
+    src: images/de2-h1-compound-blank.svg
+    alt: 'The compound der Wohnungsschlüssel in four boxes: der, Wohnung, s, schlüssel'
+  labels:
+  - x: 13.3
+    y: 69.3
+    text: Article (from the head word)
+  - x: 36.7
+    y: 69.3
+    text: Modifier
+  - x: 57.0
+    y: 69.3
+    text: Linking s
+  - x: 78.9
+    y: 69.3
+    text: Head word
+  distractors:
+  - Prefix
+  - Plural ending
+  explanation: 'Schlüssel is the head word: it says what the thing is (a key) and gives the article der. Wohnung is the modifier: which key. The s only links the two parts and has no meaning.'
+- id: de2-h1-r2-h18
+  lesson: de2-h-woerter
+  topic: Word formation
+  type: text
+  stem: 'Make one compound and write it with its article: die Sonne + die Brille = ___'
+  accept:
+  - die Sonnenbrille
+  explanation: 'Head word Brille (die), modifier Sonne with the linking -n-: die Sonnenbrille, sunglasses.'
+- id: de2-h1-r2-h19
+  lesson: de2-h-woerter
+  topic: Word formation
+  type: match
+  stem: Match each building block to its usual meaning.
+  pairs:
+  - - -bar (essbar)
+    - can be done
+  - - -los (arbeitslos)
+    - without
+  - - un- (unbekannt)
+    - the opposite
+  - - -er (der Drucker)
+    - a person or machine that does it
+  - - -keit (die Sauberkeit)
+    - a quality
+  distractors:
+  - a place where something is sold
+  explanation: essbar = can be eaten, arbeitslos = without work, unbekannt = not known, der Drucker = the machine that prints, die Sauberkeit = the quality of being clean.
+- id: de2-h1-r2-h20
+  lesson: de2-h-woerter
+  topic: Word formation
+  stem: 'A hotel review says: "Das Frühstück war fast unbezahlbar." What does it mean?'
+  choices:
+  - Breakfast was almost unaffordable.
+  - Breakfast was almost free.
+  - Breakfast was paid in advance.
+  - Breakfast could not be paid by card.
+  answer: 0
+  explanation: 'un- (not) + bezahlen (to pay) + -bar (can be done): "not payable", so very expensive. kostenlos would mean free.'
+- id: de2-h1-r2-h21
+  lesson: de2-h-woerter
+  topic: Guessing meaning
+  stem: What does "Ich habe ein Geschenk bekommen." mean?
+  choices:
+  - I have become a present.
+  - I have to give a present.
+  - I have bought a poison.
+  - I got a present.
+  answer: 3
+  explanation: 'bekommen is a false friend: it means "to get, receive", not "to become" (werden). das Geschenk is a present; das Gift would be poison.'
+- id: de2-h1-r2-h22
+  lesson: de2-h-woerter
+  module_quiz: true
+  topic: Guessing meaning
+  stem: Which German words are false friends, meaning something different from the English word they look like? Select all that apply.
+  choices:
+  - das Gift
+  - das Hotel
+  - eventuell
+  - die Information
+  - also
+  answer:
+  - 0
+  - 2
+  - 4
+  explanation: das Gift = poison, eventuell = possibly, also = so, therefore. das Hotel and die Information mean what they look like.
+- id: de2-h1-r2-h23
+  lesson: de2-h-woerter
+  topic: Guessing meaning
+  stem: '"Im Flur steht eine alte Kommode. Sie hat vier Schubladen. In der obersten liegen unsere Mützen und Schals." What is a Schublade?'
+  choices:
+  - A drawer
+  - A shelf on the wall
+  - A coat hook
+  - A shoe
+  answer: 0
+  explanation: 'The context: a Kommode has four of them, and things lie in them, in the top one and the bottom one. That is a drawer (a Kommode is a chest of drawers).'
+- id: de2-h1-r2-h24
+  lesson: de2-h-woerter
+  topic: Guessing meaning
+  stem: You read "Sie lädt uns zum Essen ein." Which form do you look up in a dictionary?
+  choices:
+  - lädt
+  - laden ein
+  - einladen
+  - ladet
+  answer: 2
+  explanation: 'Dictionaries list the infinitive. lädt … ein is a separable verb with a stem change, so put the prefix back on the front: einladen (to invite).'
+- id: de2-h1-r2-h25
+  lesson: de2-h-woerter
+  topic: Guessing meaning
+  type: text
+  stem: Under which form do you find "Bäume" in a dictionary? Type the noun with its article.
+  accept:
+  - der Baum
+  explanation: 'Find the singular: Bäume is the plural of der Baum (tree). The umlaut appears only in the plural.'
+- id: de2-h1-r2-h26
+  lesson: de2-h-woerter
+  module_quiz: true
+  topic: Word formation
+  type: order
+  stem: Put the blocks in order to make the German word for "front door key".
+  items:
+  - Haus
+  - tür
+  - schlüssel
+  explanation: 'A front door key is a Schlüssel, so Schlüssel goes last as the head word. Which key? The one for the Haustür: der Haustürschlüssel.'
+- id: de2-h1-r2-h27
+  lesson: de2-h-woerter
+  topic: Word formation
+  stem: '"die Sauberkeit" is built from which word?'
+  choices:
+  - sauer
+  - saugen
+  - die Seife
+  - sauber
+  answer: 3
+  explanation: sauber (clean) + -keit (a quality) = cleanliness. sauer (sour) and saugen (to suck) only look similar.
+- id: de2-h1-r2-h28
+  lesson: de2-h-woerter
+  topic: Guessing meaning
+  stem: 'Someone says about a film: "Der Film war unheimlich." What did they most likely mean?'
+  choices:
+  - It was secret.
+  - It was creepy.
+  - It was not at home.
+  - It was very short.
+  answer: 1
+  explanation: unheimlich means creepy or eerie (and in speech also "incredibly", as in unheimlich nett). It is a reminder that un- + a root is a guess you must check, not a rule.
+- id: de2-h1-r2-h29
+  lesson: de2-h-hoeren
+  module_quiz: true
+  topic: Spoken German
+  stem: 'You hear: "Ham wir noch Milch?" How is this written in standard German?'
+  choices:
+  - Haben wir noch Milch?
+  - Hat wir noch Milch?
+  - Hamm wir nach Milch?
+  - Hast du noch Milch?
+  answer: 0
+  explanation: ham is the spoken reduction of haben. Reductions hit small words like haben and nicht; the noun Milch stays clear.
+- id: de2-h1-r2-h30
+  lesson: de2-h-hoeren
+  topic: Spoken German
+  type: match
+  stem: Match each spoken form to the written form.
+  pairs:
+  - - hab
+    - habe
+  - - nich
+    - nicht
+  - - '''nen'
+    - einen
+  - - grad
+    - gerade
+  - - vorm
+    - vor dem
+  distractors:
+  - nein
+  explanation: Ich hab = ich habe, nich = nicht, 'nen = einen, grad = gerade, vorm = vor dem. nein is shortened to nee, which is not in the list.
+- id: de2-h1-r2-h31
+  lesson: de2-h-hoeren
+  topic: Spoken German
+  stem: What does "halt" add in "Der Bus fährt halt nur stündlich."?
+  choices:
+  - It means the bus stops here.
+  - It means the bus is late.
+  - It says that is just how it is.
+  - It asks a question.
+  answer: 2
+  explanation: 'halt is a modal particle: it adds an attitude ("that''s just how it is, nothing to be done") but no new fact. As an exclamation, Halt! means "Stop!", but not here.'
+- id: de2-h1-r2-h32
+  lesson: de2-h-hoeren
+  module_quiz: true
+  topic: Listening strategies
+  stem: 'Timo says: "Wir treffen uns um sieben, nee, warte, um halb acht." When are they meeting?'
+  choices:
+  - At 7:00
+  - At 7:30
+  - At 6:30
+  - At 8:30
+  answer: 1
+  explanation: 'After a correction (nee, warte) the last version counts: um halb acht, 7:30. halb acht is half to eight, so 8:30 is the classic mistake.'
+- id: de2-h1-r2-h33
+  lesson: de2-h-hoeren
+  module_quiz: true
+  topic: Listening strategies
+  type: label
+  stem: Name the numbered columns of this departures board.
+  image:
+    src: images/de2-h1-departures-blank.svg
+    alt: A departures board with four trains and no column headings
+  labels:
+  - x: 7.8
+    y: 24.2
+    text: Departure time
+  - x: 21.9
+    y: 24.2
+    text: Train
+  - x: 40.9
+    y: 24.2
+    text: Destination
+  - x: 64.0
+    y: 24.2
+    text: Platform
+  - x: 83.9
+    y: 24.2
+    text: Note about a change
+  distractors:
+  - Arrival time
+  - Ticket price
+  explanation: 'Read down each column, for example the second train: 14:12 (Zeit, departure), ICE 578 (Zug), Hamburg-Altona (Nach, destination), 7 (Gleis, platform), ca. 15 Min. später (Hinweis, a delay).'
+- id: de2-h1-r2-h34
+  lesson: de2-h-hoeren
+  topic: Listening strategies
+  stem: 'You hear: "Information zur S 2 in Richtung Flughafen, Abfahrt 14 Uhr 20: Die S-Bahn fährt heute von Gleis 2." Which platform do you go to?'
+  image:
+    src: images/de2-h1-departures.svg
+    alt: 'A departures board: 14:05 RE 7 to Köln Hbf, platform 3; 14:12 ICE 578 to Hamburg-Altona, platform 7, about 15 minutes later; 14:20 S 2 to Flughafen, platform 1, today platform 2; 14:31 RB 48 to Bonn, platform 5, cancelled.'
+  choices:
+  - Platform 1, as on the board
+  - Platform 7
+  - Platform 3
+  - Platform 2
+  answer: 3
+  explanation: 'The announcement changes the platform for today: heute von Gleis 2. The board also says heute Gleis 2; platform 1 is the usual one.'
+- id: de2-h1-r2-h35
+  lesson: de2-h-hoeren
+  topic: Listening strategies
+  type: text
+  stem: 'You hear: "Die RB 48 nach Bonn, Abfahrt 14 Uhr 31, fällt heute aus. Die nächste Verbindung nach Bonn ist um 15 Uhr 31." Clara wanted the 14:31 train. How many minutes must she wait for the next one? Give only the number.'
+  accept:
+  - '60'
+  explanation: fällt aus means cancelled. From 14:31 to 15:31 is 60 minutes.
+- id: de2-h1-r2-h36
+  lesson: de2-h-hoeren
+  module_quiz: true
+  topic: Listening strategies
+  type: text
+  stem: 'Write the number you hear as digits: "achtundvierzig"'
+  accept:
+  - '48'
+  explanation: 'German says the units first: acht-und-vierzig = eight and forty = 48. Writing 84 is the typical mistake.'
+- id: de2-h1-r2-h37
+  lesson: de2-h-hoeren
+  topic: Listening strategies
+  type: order
+  stem: Put the parts of this station announcement in the usual order.
+  items:
+  - 'Achtung an Gleis 7:'
+  - Der ICE 578 nach Hamburg-Altona
+  - hat heute circa 15 Minuten Verspätung.
+  - Wir bitten um Entschuldigung.
+  explanation: 'Announcements go: attention (where) → which train → what is different → apology or what to do. Listen hardest right after the train is named.'
+- id: de2-h1-r2-h38
+  lesson: de2-h-hoeren
+  module_quiz: true
+  topic: Spoken German
+  stem: Which of these words are often used as modal particles in spoken German? Select all that apply.
+  choices:
+  - ja
+  - doch
+  - Bahnhof
+  - mal
+  - morgen
+  answer:
+  - 0
+  - 1
+  - 3
+  explanation: 'ja, doch and mal (and halt, eben, denn) add attitude: Das ist ja teuer! Komm doch mit! Kannst du mal helfen? Bahnhof is a noun and morgen an adverb of time; both carry information.'
+- id: de2-h1-r2-h39
+  lesson: de2-h-hoeren
+  topic: Spoken German
+  stem: Which tag question is typical of southern Germany and Austria?
+  choices:
+  - ne?
+  - gell?
+  - nicht wahr?
+  - na ja?
+  answer: 1
+  explanation: gell? (or gelt?) is southern and Austrian. ne? is typical of the north, nicht wahr? is careful speech anywhere, and na ja is a filler word, not a tag question.
+- id: de2-h1-r2-h40
+  lesson: de2-h-hoeren
+  topic: Listening strategies
+  stem: 'A friend says: "Wir sehen uns um halb drei." What time is that?'
+  choices:
+  - '3:30'
+  - '3:15'
+  - '2:30'
+  - '2:15'
+  answer: 2
+  explanation: 'halb drei is half way to three: 2:30. English "half three" (3:30 in British English) makes 3:30 the tempting wrong answer.'
+- id: de2-h1-r2-h41
+  lesson: de2-h-hoeren
+  topic: Listening strategies
+  stem: 'Which note is written well in Stichworte for this message: "Wir treffen uns am Samstag um halb acht vorm Kino"?'
+  choices:
+  - Sa, 19:30, vor Kino
+  - Timo hat gesagt, dass wir uns am Samstag treffen.
+  - Samstag … Kino … ?
+  - Treffen um halb, nicht Bahnhof, ne?
+  answer: 0
+  explanation: Stichworte keep the facts (day, time, place) and drop everything else. The second is a whole sentence and too slow; the third and fourth lose the time.
+- id: de2-h1-r2-h42
+  lesson: de2-h-hoeren
+  topic: Listening strategies
+  stem: 'On the Berlin U-Bahn you hear: "Zurückbleiben, bitte!" What should you do?'
+  choices:
+  - Get on quickly
+  - Show your ticket
+  - Wait for the next station
+  - Stand back from the doors
+  answer: 3
+  explanation: 'zurückbleiben means to stay back: the doors are about to close, so don''t try to get on.'
+- id: de2-h1-r2-h43
+  lesson: de2-h-geschichten
+  module_quiz: true
+  topic: Reading stories
+  stem: Which tense does the narrator of a German fairy tale normally use?
+  choices:
+  - The present
+  - The simple past
+  - The future
+  - The imperative
+  answer: 1
+  explanation: 'Stories are narrated in the simple past (Präteritum): Sie nahm den Vogel. The characters'' speech uses the present and perfect: Du hast mir geholfen.'
+- id: de2-h1-r2-h44
+  lesson: de2-h-geschichten
+  topic: Reading stories
+  type: match
+  stem: Match each simple past form to its infinitive.
+  pairs:
+  - - trug
+    - tragen
+  - - flog
+    - fliegen
+  - - grub
+    - graben
+  - - hieß
+    - heißen
+  - - rief
+    - rufen
+  distractors:
+  - fliehen
+  - halten
+  explanation: 'Strong verbs change their vowel; the consonants stay: tr-g, fl-g, gr-b, h-ß, r-f. fliehen (to flee) has the past floh, and halten has hielt.'
+- id: de2-h1-r2-h45
+  lesson: de2-h-geschichten
+  topic: Reading stories
+  stem: What is the traditional last line of a German fairy tale?
+  choices:
+  - Es war einmal …
+  - Eines Tages …
+  - Ende gut, alles gut.
+  - Und wenn sie nicht gestorben sind, dann leben sie noch heute.
+  answer: 3
+  explanation: '"And if they haven''t died, they are still alive today." Es war einmal is the first line, and Eines Tages moves the story forward.'
+- id: de2-h1-r2-h46
+  lesson: de2-h-geschichten
+  module_quiz: true
+  topic: Reading stories
+  type: order
+  stem: Put the events of the fairy tale "Lina und der Vogel" in order.
+  items:
+  - Der Vater wurde krank.
+  - Lina fand einen kleinen Vogel.
+  - Lina pflegte den Vogel sieben Tage lang.
+  - 'Der Vogel sang: „Grab unter dem alten Baum!“'
+  - Lina fand eine Kiste voll Gold.
+  explanation: Problem (illness), the hero goes out and meets a helper, a kind act, the helper's advice, the reward. This is the usual path of a fairy tale.
+- id: de2-h1-r2-h47
+  lesson: de2-h-geschichten
+  topic: Reading stories
+  stem: In the fairy tale, why couldn't the bird fly?
+  choices:
+  - It was too young.
+  - It was in a cage.
+  - Its wing was injured.
+  - It was too cold.
+  answer: 2
+  explanation: 'Er konnte nicht fliegen, denn sein Flügel war verletzt: its wing was injured. denn gives the reason.'
+- id: de2-h1-r2-h48
+  lesson: de2-h-geschichten
+  topic: Reading poems
+  type: text
+  stem: Type the modern German form of "balde" (from Goethe's poem).
+  accept:
+  - bald
+  explanation: balde is an older form of bald (soon). Goethe uses it so that it rhymes with Walde.
+- id: de2-h1-r2-h49
+  lesson: de2-h-geschichten
+  module_quiz: true
+  topic: Reading poems
+  type: label
+  stem: Label the numbered parts of the landscape with the words from the poem and the lesson.
+  image:
+    src: images/de2-h1-poem-blank.svg
+    alt: An evening mountain landscape with peaks, treetops, two birds in a tree, a forest and a walker with a stick
+  labels:
+  - x: 46.9
+    y: 22.6
+    text: der Gipfel
+  - x: 75.0
+    y: 53.6
+    text: der Wipfel
+  - x: 79.7
+    y: 63.8
+    text: die Vögel
+  - x: 14.1
+    y: 64.3
+    text: der Wald
+  - x: 39.8
+    y: 72.6
+    text: der Wanderer
+  distractors:
+  - der Fluss
+  - die Brücke
+  explanation: der Gipfel is the summit of the mountain, der Wipfel the top of a tree, die Vögel the birds, der Wald the forest and der Wanderer the walker. There is no river (Fluss) or bridge (Brücke) in the picture.
+- id: de2-h1-r2-h50
+  lesson: de2-h-geschichten
+  topic: Reading poems
+  stem: What is "Vögelein" in "Die Vögelein schweigen im Walde"?
+  choices:
+  - A diminutive meaning little birds
+  - A plural meaning many forests
+  - A verb meaning to sing
+  - A place name
+  answer: 0
+  explanation: '-lein makes a diminutive, usually with an umlaut: der Vogel → das Vögelein, little birds. Modern German more often says Vögelchen.'
+- id: de2-h1-r2-h51
+  lesson: de2-h-geschichten
+  topic: Reading poems
+  stem: Which words in Goethe's poem are older or poetic forms that you shouldn't use in an everyday e-mail? Select all that apply.
+  choices:
+  - Ruh
+  - Walde
+  - Spürest
+  - Hauch
+  - Gipfeln
+  answer:
+  - 0
+  - 1
+  - 2
+  explanation: Ruh = Ruhe, im Walde = im Wald, spürest = spürst. Hauch (breath) and Gipfeln (dative plural of Gipfel) are normal modern German.
+- id: de2-h1-r2-h52
+  lesson: de2-h-geschichten
+  module_quiz: true
+  topic: Reading poems
+  stem: The first four lines of the poem end with Gipfeln, Ruh, Wipfeln, du. What is their rhyme scheme?
+  choices:
+  - aabb
+  - abba
+  - abcd
+  - abab
+  answer: 3
+  explanation: 'Gipfeln rhymes with Wipfeln (lines 1 and 3: a), Ruh with du (lines 2 and 4: b): abab. The last four lines are cddc.'
+- id: de2-h1-r2-h53
+  lesson: de2-h-geschichten
+  topic: Reading poems
+  stem: Which article goes with "Büchlein" (little book)?
+  choices:
+  - der
+  - die
+  - das
+  - den
+  answer: 2
+  explanation: 'Diminutives with -chen or -lein are always neuter: das Büchlein, das Vögelein, even though der Vogel is masculine.'
+- id: de2-h1-r2-h54
+  lesson: de2-h-geschichten
+  topic: Reading stories
+  type: text
+  stem: 'Fill in the infinitive: "schwieg" comes from ___.'
+  accept:
+  - schweigen
+  explanation: 'schweigen (to be silent): schwieg, hat geschwiegen. Think of the consonants schw-g.'
+- id: de2-h1-r2-h55
+  lesson: de2-h-geschichten
+  module_quiz: true
+  topic: Reading poems
+  stem: When and where did Goethe write the poem "Über allen Gipfeln ist Ruh", by most accounts?
+  choices:
+  - In 1780, on the wall of a hut on a hill near Ilmenau
+  - In 1815, in a letter from Weimar
+  - In 1823, as a song text for Schubert
+  - In 1812, for the Grimms' collection of fairy tales
+  answer: 0
+  explanation: By most accounts he wrote it in pencil on the wall of a wooden hut on the Kickelhahn near Ilmenau in September 1780. 1815 is when it was first printed, and Schubert set it to music later.
+- id: de2-h1-r2-h56
+  lesson: de2-h-geschichten
+  topic: Reading poems
+  stem: What does "Spürest du kaum einen Hauch" mean?
+  choices:
+  - You feel a strong wind.
+  - You feel hardly a breath of air.
+  - You hear no birds.
+  - You can hardly see the trees.
+  answer: 1
+  explanation: kaum = hardly, der Hauch = a breath, a light breath of wind. Everything in the poem is still.

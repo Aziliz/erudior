@@ -50,11 +50,11 @@ flowchart LR
 
 To make the phrase, you need a noun for the verb in the clause. There are three main ways.
 
-**1. Nouns in -ung** (always feminine): *gründen → die Gründung, eröffnen → die Eröffnung, trennen → die Trennung, ausbilden → die Ausbildung, einwandern → die Einwanderung*.
+1. Nouns in *-ung* (always feminine): *gründen → die Gründung, eröffnen → die Eröffnung, trennen → die Trennung, ausbilden → die Ausbildung, einwandern → die Einwanderung*.
 
-**2. Short nouns from the verb stem**, which you have to learn one by one, often with a vowel change: *beginnen → der Beginn, ankommen → die Ankunft, abfahren → die Abfahrt, zurückkehren → die Rückkehr, heiraten → die Heirat, sterben → der Tod, Abschied nehmen → der Abschied, sich aufhalten → der Aufenthalt*.
+2. Short nouns from the verb stem, which you have to learn one by one, often with a vowel change: *beginnen → der Beginn, ankommen → die Ankunft, abfahren → die Abfahrt, zurückkehren → die Rückkehr, heiraten → die Heirat, sterben → der Tod, Abschied nehmen → der Abschied, sich aufhalten → der Aufenthalt*.
 
-**3. The infinitive as a noun.** Any verb can become a neuter noun with a capital letter: *essen → das Essen, lesen → das Lesen, Auto fahren → das Autofahren*. This **nominalised infinitive** is especially common after *beim* (while doing, when doing) and *zum* (for doing):
+3. The infinitive as a noun. Any verb can become a neuter noun with a capital letter: *essen → das Essen, lesen → das Lesen, Auto fahren → das Autofahren*. This **nominalised infinitive** is especially common after *beim* (while doing, when doing) and *zum* (for doing):
 
 - *Beim Autofahren soll man nicht telefonieren.* — You shouldn't make phone calls while driving.
 - *Beim Lesen schläft mein Vater oft ein.* — My father often falls asleep while reading.
@@ -66,8 +66,8 @@ If there is an -ung noun or a short stem noun, use it: *nach der Ankunft*, not ~
 
 A clause has a subject; a phrase has none. The subject usually turns into a possessive article:
 
-- *Seit **sie** geheiratet haben, …* → *Seit **ihrer** Heirat …*
-- *Als **wir** ankamen, …* → *Bei **unserer** Ankunft …*
+- *Seit sie geheiratet haben, …* → *Seit ihrer Heirat …* (*sie* → *ihre*)
+- *Als wir ankamen, …* → *Bei unserer Ankunft …* (*wir* → *unsere*)
 
 If the subject is a noun, written German puts it in the genitive after the new noun; in speech, *von* + dative is common:
 

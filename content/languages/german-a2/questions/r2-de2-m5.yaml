@@ -1,0 +1,581 @@
+# German A2, module 5 (round 2): new question types for lessons 17–20 and the three honors lessons.
+
+# --- 17 At work; zu + infinitive ---
+- id: de2-m5-r2-q01
+  lesson: de2-work
+  module_quiz: true
+  topic: Infinitive with zu
+  type: text
+  stem: 'Complete with zu + the verb in brackets, as one word: "Vergiss nicht, den Kunden ___!" (zurückrufen)'
+  accept: [zurückzurufen, zurueckzurufen]
+  explanation: |-
+    zurückrufen is separable (zurück + rufen), so zu goes between the prefix and the verb and everything is written as one word: zurückzurufen. "zu zurückrufen" puts zu in front as with ordinary verbs.
+- id: de2-m5-r2-q02
+  lesson: de2-work
+  topic: Infinitive with zu
+  type: order
+  stem: 'Put the parts in order to say "I don''t have time to print the contract."'
+  items: ['Ich', 'habe', 'keine Zeit,', 'den Vertrag', 'zu drucken.']
+  explanation: |-
+    Ich habe keine Zeit, den Vertrag zu drucken. The main clause comes first with the verb in position 2; after the comma, the infinitive clause ends with zu + infinitive, so the object (den Vertrag) comes before "zu drucken".
+- id: de2-m5-r2-q03
+  lesson: de2-work
+  topic: Infinitive with zu
+  stem: 'In which sentences is zu used correctly? Select all that apply.'
+  choices: ['Ich versuche, pünktlich zu sein.', 'Ich muss heute länger zu arbeiten.', 'Es ist wichtig, den Chef anzurufen.', 'Wir gehen heute Mittag zu essen.']
+  answer: [0, 2]
+  explanation: |-
+    versuchen and "es ist wichtig" take zu + infinitive, and anrufen puts zu in the middle: anzurufen. müssen is a modal verb, so no zu: Ich muss heute länger arbeiten. gehen + activity takes no zu either: Wir gehen heute Mittag essen.
+- id: de2-m5-r2-q04
+  lesson: de2-work
+  module_quiz: true
+  topic: Work
+  type: label
+  stem: 'Name the numbered things in this office.'
+  image: {src: images/de2-m5-office-blank.svg, alt: 'An office with a chair, a desk with a telephone, a contract on a clipboard and a laptop, and a printer on a cabinet; five parts are numbered'}
+  labels:
+    - {x: 30.6, y: 53.6, text: das Telefon}
+    - {x: 46.9, y: 44.7, text: der Vertrag}
+    - {x: 72.2, y: 72.3, text: der Schreibtisch}
+    - {x: 90.0, y: 63.8, text: der Drucker}
+    - {x: 8.3, y: 59.6, text: der Stuhl}
+  distractors: [die Besprechung, das Gehalt]
+  explanation: |-
+    1 das Telefon, 2 der Vertrag (the contract with a signature line), 3 der Schreibtisch, 4 der Drucker (printer; drucken = to print), 5 der Stuhl. die Besprechung is a meeting and das Gehalt a salary: neither is an object you can point to.
+- id: de2-m5-r2-q05
+  lesson: de2-work
+  topic: Phone calls
+  type: match
+  stem: 'Match each sentence from a business phone call to its meaning.'
+  pairs:
+    - ['Kann ich etwas ausrichten?', 'Can I take a message?']
+    - ['Er ist gerade in einer Besprechung.', 'He is in a meeting right now.']
+    - ['Vogel am Apparat.', 'Vogel speaking.']
+    - ['Sie hat sich heute krankgemeldet.', 'She called in sick today.']
+  distractors: ['She quit her job today.']
+  explanation: |-
+    ausrichten = to pass on a message; die Besprechung = meeting; am Apparat = speaking (on the phone); sich krankmelden = to call in sick. "She quit her job" would be: Sie hat gekündigt.
+
+# --- 18 School, courses and learning ---
+- id: de2-m5-r2-q06
+  lesson: de2-school-learning
+  topic: Possession
+  type: text
+  stem: 'Say "Peter''s teacher" in German with the name + s pattern: "___ Lehrerin"'
+  accept: [Peters]
+  explanation: |-
+    With a name, German adds -s with no apostrophe and no article: Peters Lehrerin. "Peter's" with an apostrophe is the English spelling; "die Peters Lehrerin" adds an article that this pattern doesn't take.
+- id: de2-m5-r2-q07
+  lesson: de2-school-learning
+  module_quiz: true
+  topic: Education
+  type: label
+  stem: 'Which school subject does each numbered picture stand for?'
+  image: {src: images/de2-m5-subjects-blank.svg, alt: 'Six numbered pictures: a board with sums, a globe, musical notes, a paint palette with a brush, a football and a flask'}
+  labels:
+    - {x: 18.1, y: 23.8, text: Mathe}
+    - {x: 50.0, y: 23.8, text: Erdkunde}
+    - {x: 81.9, y: 23.8, text: Musik}
+    - {x: 18.1, y: 69.0, text: Kunst}
+    - {x: 50.0, y: 69.0, text: Sport}
+    - {x: 81.9, y: 69.0, text: Chemie}
+  distractors: [Physik, Geschichte]
+  explanation: |-
+    1 Mathe (sums on the board), 2 Erdkunde (geography: the globe), 3 Musik, 4 Kunst (art: palette and brush), 5 Sport, 6 Chemie (the flask). Physik is physics and Geschichte history.
+- id: de2-m5-r2-q08
+  lesson: de2-school-learning
+  topic: Separable verbs
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich habe die Prüfung bestanden.', 'Er ist bei der Prüfung durchgefallen.', 'Sie hat Englisch geunterrichtet.', 'Das ist Annas Buch.', 'Das ist das Auto von mein Bruder.']
+  answer: [0, 1, 3]
+  explanation: |-
+    bestehen is inseparable (bestanden, no ge-), durchfallen is separable and takes sein (ist durchgefallen), and a name takes -s with no apostrophe (Annas Buch). unterrichten is inseparable, so it's "hat unterrichtet" without ge-, and von takes the dative: von meinem Bruder.
+- id: de2-m5-r2-q09
+  lesson: de2-school-learning
+  module_quiz: true
+  topic: Education
+  type: order
+  stem: 'Put the stages of Mia''s life in order, as in the text "Mias Weg".'
+  items: [Grundschule, Gymnasium, Abitur, Ausbildung als Fotografin, ein eigenes Studio]
+  explanation: |-
+    Mia went to the Grundschule, then to the Gymnasium, which ends with the Abitur. She didn't get a university place, so she did an Ausbildung as a photographer, and today she has her own studio.
+- id: de2-m5-r2-q10
+  lesson: de2-school-learning
+  topic: Possession
+  type: match
+  stem: 'Match each German phrase to its English meaning.'
+  pairs:
+    - ['das Auto von meinem Bruder', 'my brother''s car']
+    - ['am Ende der Woche', 'at the end of the week']
+    - ['die Hälfte der Teilnehmer', 'half of the participants']
+    - ['Hans'' Zeugnis', 'Hans''s school report']
+  distractors: ['my brothers'' car']
+  explanation: |-
+    von meinem Bruder is one brother (dative singular meinem); several brothers would be von meinen Brüdern. "der Woche" and "der Teilnehmer" are genitives (feminine singular and plural). Hans ends in s, so it takes only an apostrophe: Hans' Zeugnis.
+
+# --- 19 Banks, offices and phone calls ---
+- id: de2-m5-r2-q11
+  lesson: de2-services
+  module_quiz: true
+  topic: Indirect questions
+  type: text
+  stem: 'Complete with one word: "Wissen Sie, ___ ich einen Termin brauche?"'
+  accept: [ob]
+  explanation: |-
+    The direct question "Brauche ich einen Termin?" is a yes/no question, so the indirect question uses ob (whether), and the verb goes to the end. wenn means if/when and can't introduce an indirect question.
+- id: de2-m5-r2-q12
+  lesson: de2-services
+  topic: Indirect questions
+  type: order
+  stem: 'Put the parts in order: "Could you tell me how long the repair takes?"'
+  items: ['Könnten Sie mir sagen,', 'wie lange', 'die Reparatur', 'dauert?']
+  explanation: |-
+    Könnten Sie mir sagen, wie lange die Reparatur dauert? The question word wie lange starts the indirect question, the subject follows, and the conjugated verb dauert goes to the end. The question mark belongs to the frame "Könnten Sie mir sagen".
+- id: de2-m5-r2-q13
+  lesson: de2-services
+  module_quiz: true
+  topic: lassen
+  stem: 'In which sentences does someone else do the work? Select all that apply.'
+  image: {src: images/de2-m5-lassen.svg, alt: 'Left: a woman repairs her own bike, captioned Ich repariere mein Fahrrad. Right: a mechanic repairs her bike, captioned Ich lasse mein Fahrrad reparieren.'}
+  choices: ['Ich lasse mein Auto reparieren.', 'Sie lässt sich die Haare schneiden.', 'Ich habe mein Fahrrad repariert.', 'Wir streichen die Wohnung selbst.']
+  answer: [0, 1]
+  explanation: |-
+    lassen + infinitive means having something done by someone else: the garage repairs the car, the hairdresser cuts her hair. "Ich habe mein Fahrrad repariert" means you did it yourself, and "selbst" says so outright.
+- id: de2-m5-r2-q14
+  lesson: de2-services
+  topic: Services
+  type: match
+  stem: 'Match each phrase to its meaning.'
+  pairs:
+    - ['Geld abheben', 'to withdraw money']
+    - ['Geld einzahlen', 'to pay money in']
+    - ['Geld überweisen', 'to transfer money']
+    - ['einen Pass beantragen', 'to apply for a passport']
+    - ['einen Schaden melden', 'to report damage']
+  distractors: ['to open an account']
+  explanation: |-
+    abheben = withdraw, einzahlen = pay in, überweisen = transfer, beantragen = apply for (documents), melden = report. To open an account is "ein Konto eröffnen".
+- id: de2-m5-r2-q15
+  lesson: de2-services
+  topic: lassen
+  type: text
+  stem: 'Complete with the right form of lassen: "Er ___ sein Fahrrad reparieren."'
+  accept: [lässt, laesst]
+  explanation: |-
+    lassen changes its stem in the du and er/sie/es forms: du lässt, er lässt. "lasst" is the ihr form.
+
+# --- 20 Health and the doctor's office ---
+- id: de2-m5-r2-q16
+  lesson: de2-health
+  module_quiz: true
+  topic: seit
+  type: text
+  stem: 'Complete with the right form of "Tag": "Ich habe seit drei ___ Husten."'
+  accept: [Tagen]
+  explanation: |-
+    seit takes the dative, and dative plural nouns add -n: seit drei Tagen. "seit drei Tage" forgets the dative -n.
+- id: de2-m5-r2-q17
+  lesson: de2-health
+  topic: Health
+  type: label
+  stem: 'Name the numbered things from the doctor''s office.'
+  image: {src: images/de2-m5-medical-blank.svg, alt: 'Five numbered things: a sticking plaster, a bandage roll, a syringe, a card with a chip and a photo, and a blister pack of tablets'}
+  labels:
+    - {x: 16.7, y: 30.0, text: das Pflaster}
+    - {x: 47.9, y: 31.2, text: der Verband}
+    - {x: 82.6, y: 28.7, text: die Spritze}
+    - {x: 27.1, y: 75.8, text: die Versichertenkarte}
+    - {x: 71.5, y: 75.0, text: die Tabletten}
+  distractors: [das Rezept, der Krankenwagen]
+  explanation: |-
+    1 das Pflaster (sticking plaster), 2 der Verband (bandage), 3 die Spritze (syringe, injection), 4 die Versichertenkarte (health insurance card), 5 die Tabletten. das Rezept is the prescription, a piece of paper (or an e-prescription), and der Krankenwagen is an ambulance.
+- id: de2-m5-r2-q18
+  lesson: de2-health
+  topic: Health
+  type: order
+  stem: 'Put the steps of a visit to the doctor in order.'
+  items: ['In der Praxis anrufen und einen Termin machen', 'An der Rezeption die Versichertenkarte zeigen', 'Die Ärztin untersucht Sie.', 'Mit dem Rezept in die Apotheke gehen']
+  explanation: |-
+    First you call for an appointment, then you show your insurance card at the reception desk when you arrive, the doctor examines you and writes a prescription, and finally you take it to the pharmacy.
+- id: de2-m5-r2-q19
+  lesson: de2-health
+  module_quiz: true
+  topic: Advice
+  stem: 'Which sentences are correct German? Select all that apply.'
+  choices: ['Ich bin seit einer Woche krank.', 'Ich habe seit drei Tage Fieber.', 'Du solltest zum Arzt gehen.', 'Nimm die Tablette nach dem Essen!', 'Ich habe eine Allergie für Katzen.']
+  answer: [0, 2, 3]
+  explanation: |-
+    seit + dative + present tense (seit einer Woche), sollte for advice, and the du imperative without -st (Nimm!) are all right. "seit drei Tage" needs the dative plural -n (Tagen), and an allergy is "gegen" something: eine Allergie gegen Katzen.
+- id: de2-m5-r2-q20
+  lesson: de2-health
+  topic: Imperative
+  type: match
+  stem: 'Match each instruction from a doctor or pharmacist to its meaning.'
+  pairs:
+    - ['dreimal täglich', 'three times a day']
+    - ['alle vier Stunden', 'every four hours']
+    - ['wöchentlich', 'once a week']
+    - ['nach dem Essen', 'after meals']
+  distractors: ['before meals', 'every four days']
+  explanation: |-
+    täglich = daily, so dreimal täglich is three times a day; alle + time + plural = every (alle vier Stunden); wöchentlich = weekly; nach dem Essen = after meals (before meals is vor dem Essen).
+
+# --- 20h1 Applying for a job (honors) ---
+- id: de2-m5-r2-h01
+  lesson: de2-m5-h-application
+  topic: Job applications
+  stem: 'What is "das Anschreiben" in a German job application?'
+  choices: ['the CV', 'the reference from an employer', 'the job advert', 'the cover letter']
+  answer: 3
+  explanation: |-
+    das Anschreiben is the one-page cover letter. The CV is der Lebenslauf, the reference is das Arbeitszeugnis, and the job advert is die Stellenanzeige.
+- id: de2-m5-r2-h02
+  lesson: de2-m5-h-application
+  topic: Job applications
+  stem: 'After an interview, which answer do you hope to get?'
+  choices: ['die Absage', 'die Probezeit', 'die Zusage', 'die Kündigung']
+  answer: 2
+  explanation: |-
+    die Zusage is the yes: the job is yours. die Absage is the rejection, die Probezeit the probation period at the start of a job, and die Kündigung the notice when a job ends.
+- id: de2-m5-r2-h03
+  lesson: de2-m5-h-application
+  topic: Nominal style
+  stem: 'Which CV line says "Ich habe Angebote geschrieben" in the nominal style?'
+  choices: ['Erstellung von Angeboten', 'Angebote erstellt haben', 'Erstellen die Angebote', 'Die Angebote, die ich schreibe']
+  answer: 0
+  explanation: |-
+    The nominal style turns the action into a noun (erstellen → die Erstellung) and adds the object with von + dative plural: Erstellung von Angeboten. The other choices still use verb forms.
+- id: de2-m5-r2-h04
+  lesson: de2-m5-h-application
+  topic: Nominal style
+  type: text
+  stem: 'Turn the verb into a noun for a CV line: "Ich habe die Post bearbeitet." → "___ der Post"'
+  accept: [Bearbeitung, die Bearbeitung]
+  explanation: |-
+    bearbeiten → die Bearbeitung: verb stem + -ung, a feminine noun. "der Post" is the genitive of die Post, so the line means "dealing with the mail".
+- id: de2-m5-r2-h05
+  lesson: de2-m5-h-application
+  topic: Job applications
+  stem: 'Which sentence from an Arbeitszeugnis gives the best grade, in the usual reading?'
+  choices: ['Sie arbeitete stets zu unserer vollen Zufriedenheit.', 'Sie arbeitete zu unserer vollen Zufriedenheit.', 'Sie arbeitete stets zu unserer vollsten Zufriedenheit.', 'Sie war stets bemüht, gute Arbeit zu leisten.']
+  answer: 2
+  explanation: |-
+    stets + vollsten is the top formula (sehr gut). stets + vollen reads as gut, vollen without stets as befriedigend, and "stets bemüht" means she tried without success.
+- id: de2-m5-r2-h06
+  lesson: de2-m5-h-application
+  topic: Job applications
+  type: order
+  stem: 'Put these reference formulas in order from the best grade to the worst, using the usual scale from the lesson.'
+  items: ['stets zu unserer vollsten Zufriedenheit', 'stets zu unserer vollen Zufriedenheit', 'zu unserer vollen Zufriedenheit', 'zu unserer Zufriedenheit']
+  explanation: |-
+    sehr gut, gut, befriedigend, ausreichend. Each step drops something: first vollsten becomes vollen, then stets goes, then voll goes too. This scale is a widely used convention, not a law.
+- id: de2-m5-r2-h07
+  lesson: de2-m5-h-application
+  topic: Job applications
+  stem: '"Er war stets bemüht, seine Aufgaben zu erledigen." How do HR departments usually read this sentence in a reference?'
+  choices: ['He tried, but did not succeed.', 'He was always very successful.', 'He always worked overtime.', 'He was often ill.']
+  answer: 0
+  explanation: |-
+    It sounds kind ("he always made an effort"), but it says nothing about results, so it's read as a poor grade: he tried and didn't manage. A good reference talks about results and satisfaction, ideally "stets zu unserer vollsten Zufriedenheit".
+- id: de2-m5-r2-h08
+  lesson: de2-m5-h-application
+  topic: Job applications
+  type: label
+  stem: 'Lena''s CV has its headings hidden. Name the numbered parts.'
+  image: {src: images/de2-m5-cv-blank.svg, alt: 'A German CV with a photo and four hidden section headings above personal details, a job, an apprenticeship and school, and languages, with place, date and signature at the bottom; six parts are numbered'}
+  labels:
+    - {x: 73.1, y: 14.5, text: das Foto}
+    - {x: 32.2, y: 26.2, text: Persönliche Daten}
+    - {x: 30.7, y: 42.5, text: Berufserfahrung}
+    - {x: 26.9, y: 58.8, text: Ausbildung}
+    - {x: 31.4, y: 76.7, text: Sprachkenntnisse}
+    - {x: 55.6, y: 90.3, text: 'Ort, Datum und Unterschrift'}
+  distractors: [Betreff, Anlagen]
+  explanation: |-
+    1 the photo, 2 Persönliche Daten (name, birth date, address), 3 Berufserfahrung (her job since 2019), 4 Ausbildung (apprenticeship and school), 5 Sprachkenntnisse (German and English), 6 place, date and signature. Betreff and Anlagen belong to the cover letter, not the CV.
+- id: de2-m5-r2-h09
+  lesson: de2-m5-h-application
+  topic: Job applications
+  stem: 'Which are typical of a German Lebenslauf? Select all that apply.'
+  choices: ['a table with dates on the left', 'the newest job first', 'long paragraphs in full sentences', 'gaps explained, for example "Elternzeit"', 'your salary for every job']
+  answer: [0, 1, 3]
+  explanation: |-
+    A German CV is a table, usually newest first, and explains gaps such as parental leave. Full sentences belong in the cover letter, and salaries don't go on a CV.
+- id: de2-m5-r2-h10
+  lesson: de2-m5-h-application
+  topic: Job applications
+  type: order
+  stem: 'Put the parts of a cover letter in order, from top to bottom.'
+  items: ['Bewerbung als Kauffrau (the subject line)', 'Sehr geehrte Frau Albers,', 'hiermit bewerbe ich mich um …', 'Über eine Einladung … würde ich mich sehr freuen.', 'Mit freundlichen Grüßen', 'Anlagen: Lebenslauf, Zeugnisse']
+  explanation: |-
+    Subject line, greeting, the first line (hiermit bewerbe ich mich …), the closing sentence about an interview, the closing formula, and finally the list of enclosures.
+- id: de2-m5-r2-h11
+  lesson: de2-m5-h-application
+  topic: Job applications
+  stem: 'Complete the last line of a cover letter: "Ich freue mich ___, Sie kennenzulernen."'
+  choices: ['dafür', 'darauf', 'darüber', 'daran']
+  answer: 1
+  explanation: |-
+    "Looking forward to" is sich freuen auf; when the thing is an action in a zu-infinitive, auf becomes the da-word darauf: Ich freue mich darauf, Sie kennenzulernen. darüber goes with sich freuen über (being glad about something that has happened).
+- id: de2-m5-r2-h12
+  lesson: de2-m5-h-application
+  topic: Job applications
+  stem: 'In Lena''s cover letter, why does the new job interest her in particular?'
+  choices: ['The salary is higher.', 'The company is near her flat.', 'She wants to work part-time.', 'The company works internationally and she wants to improve her English.']
+  answer: 3
+  explanation: |-
+    "Ihre Firma arbeitet international, und ich möchte meine Englischkenntnisse im Beruf verbessern. Deshalb interessiert mich diese Stelle besonders." The letter says nothing about salary, distance or part-time work.
+- id: de2-m5-r2-h13
+  lesson: de2-m5-h-application
+  topic: Job applications
+  type: match
+  stem: 'Match each word from applications to its meaning.'
+  pairs:
+    - [hiermit, hereby]
+    - [sorgfältig, careful and thorough]
+    - [teamfähig, good at teamwork]
+    - [stets, always (formal)]
+    - [einstellen, to hire]
+  distractors: [reliable, to quit]
+  explanation: |-
+    hiermit = hereby, sorgfältig = careful, teamfähig = good at teamwork, stets = a formal word for immer, einstellen = to hire. Reliable is zuverlässig; to quit is kündigen.
+
+# --- 20h2 At the pharmacy (honors) ---
+- id: de2-m5-r2-h14
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  stem: 'What does "rezeptfrei" mean?'
+  choices: ['only with a prescription', 'available without a prescription', 'free of charge', 'only in hospitals']
+  answer: 1
+  explanation: |-
+    rezeptfrei = without a prescription (frei = free of, as in alkoholfrei). It doesn't mean free of charge: you still pay for the medicine.
+- id: de2-m5-r2-h15
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  stem: 'In Germany, where are most painkillers sold?'
+  choices: ['only in pharmacies (Apotheken)', 'in every supermarket', 'only at the doctor''s, with a prescription', 'next to the shampoo in drugstores']
+  answer: 0
+  explanation: |-
+    Most painkillers are apothekenpflichtig: you don't need a prescription, but you can only buy them in a pharmacy, where the pharmacist can advise you. Only a few mild remedies are freiverkäuflich.
+- id: de2-m5-r2-h16
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  type: match
+  stem: 'Match each package-insert heading to what you find in that section.'
+  image: {src: images/de2-m5-insert.svg, alt: 'The first page of the package insert for the made-up medicine Musterin 200 mg with its six numbered section headings'}
+  pairs:
+    - ['Wie ist Musterin einzunehmen?', 'how much to take and how often']
+    - ['Welche Nebenwirkungen sind möglich?', 'side effects']
+    - ['Wie ist Musterin aufzubewahren?', 'how to store it']
+    - ['Was sollten Sie vor der Einnahme beachten?', 'warnings and when not to take it']
+  distractors: ['the price of the medicine']
+  explanation: |-
+    Sections 3, 4, 5 and 2 of every EU package insert. einnehmen = to take a medicine, die Nebenwirkung = side effect, aufbewahren = to store, die Einnahme = taking it. Package inserts don't give prices.
+- id: de2-m5-r2-h17
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  stem: 'A package insert lists a side effect as "gelegentlich". How often does it occur?'
+  choices: ['in more than 1 in 10 people', 'in 1 to 10 in 100 people', 'in 1 to 10 in 1,000 people', 'in fewer than 1 in 10,000 people']
+  answer: 2
+  explanation: |-
+    gelegentlich = 1 to 10 in 1,000 people treated. More than 1 in 10 is sehr häufig, 1 to 10 in 100 is häufig, and fewer than 1 in 10,000 is sehr selten.
+- id: de2-m5-r2-h18
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  type: order
+  stem: 'Put the side-effect words in order from the most frequent to the least frequent.'
+  items: [sehr häufig, häufig, gelegentlich, selten, sehr selten]
+  explanation: |-
+    sehr häufig (more than 1 in 10), häufig (1–10 in 100), gelegentlich (1–10 in 1,000), selten (1–10 in 10,000), sehr selten (fewer than 1 in 10,000).
+- id: de2-m5-r2-h19
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  type: text
+  stem: 'The leaflet says: "Erwachsene: 1 Tablette bis zu dreimal täglich. Nehmen Sie nicht mehr als 3 Tabletten pro Tag ein." What is the largest number of tablets an adult may take in 3 days? Give only the number.'
+  accept: ['9', neun, nine]
+  explanation: |-
+    bis zu dreimal täglich, one tablet each time, and never more than 3 a day: 3 × 3 days = 9 tablets at most.
+- id: de2-m5-r2-h20
+  lesson: de2-m5-h-medicine
+  topic: Passive (recognition)
+  stem: '"Die Tabletten werden nach dem Essen eingenommen." What does this mean?'
+  choices: ['The tablets will be eaten after meals.', 'The tablets have been taken after meals.', 'The tablets become effective after meals.', 'The tablets are taken after meals.']
+  answer: 3
+  explanation: |-
+    werden + past participle (eingenommen) is the passive in the present: the tablets are taken. The future would need an infinitive, and "become" needs an adjective or noun after werden.
+- id: de2-m5-r2-h21
+  lesson: de2-m5-h-medicine
+  topic: Passive (recognition)
+  stem: 'Which sentences are in the passive? Select all that apply.'
+  choices: ['Die Salbe wird zweimal täglich aufgetragen.', 'Ich werde morgen zum Arzt gehen.', 'Das Mittel wird vom Arzt verschrieben.', 'Mein Bruder wird Apotheker.', 'Hier wird nicht geraucht.']
+  answer: [0, 2, 4]
+  explanation: |-
+    The passive has werden + a past participle: aufgetragen, verschrieben, geraucht. "Ich werde … gehen" has an infinitive (future), and "wird Apotheker" has a noun (to become).
+- id: de2-m5-r2-h22
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  stem: 'Which article goes with "Schmerzmittel" (painkiller)?'
+  choices: ['der', 'die', 'das', 'den']
+  answer: 2
+  explanation: |-
+    In a compound noun the last part decides the gender: der Schmerz + das Mittel = das Schmerzmittel. "der" takes the gender from the first part, a common mistake; "den" is accusative.
+- id: de2-m5-r2-h23
+  lesson: de2-m5-h-medicine
+  topic: Passive (recognition)
+  type: text
+  stem: 'Make the leaflet sentence active with man: "Die Kapseln werden morgens eingenommen." → "Man ___ die Kapseln morgens ___."'
+  accept:
+    - [nimmt]
+    - [ein]
+  explanation: |-
+    eingenommen comes from einnehmen, a separable verb with the stem change of nehmen: man nimmt … ein. The prefix ein goes to the end.
+- id: de2-m5-r2-h24
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  stem: 'A prescription medicine costs 30 euros. How much does an adult with statutory health insurance usually pay at the pharmacy?'
+  choices: ['nothing', '3 euros', '5 euros', '10 euros']
+  answer: 2
+  explanation: |-
+    The Zuzahlung is 10 percent of the price, at least 5 and at most 10 euros. 10 percent of 30 euros is 3 euros, which is below the minimum, so you pay 5 euros.
+- id: de2-m5-r2-h25
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  stem: 'In the pharmacy dialogue, why does the pharmacist ask "Nehmen Sie noch andere Medikamente?"'
+  choices: ['Because medicines can affect each other.', 'Because she wants to sell more medicines.', 'Because Tom has lost his prescription.', 'Because the cough syrup is sold out.']
+  answer: 0
+  explanation: |-
+    Pharmacists ask this because medicines can affect each other. Tom has his prescription, and nothing in the dialogue says the syrup is sold out.
+- id: de2-m5-r2-h26
+  lesson: de2-m5-h-medicine
+  topic: Medicine
+  type: match
+  stem: 'Match each word to its meaning.'
+  pairs:
+    - [der Wirkstoff, active ingredient]
+    - [die Salbe, ointment]
+    - [verschreiben, to prescribe]
+    - [schlucken, to swallow]
+    - [die Dosierung, dosage]
+  distractors: [side effect, pharmacist]
+  explanation: |-
+    der Wirkstoff = active ingredient (wirken = to work), die Salbe = ointment, verschreiben = to prescribe, schlucken = to swallow, die Dosierung = dosage. A side effect is die Nebenwirkung, a pharmacist der Apotheker or die Apothekerin.
+
+# --- 20h3 Letters from the authorities (honors) ---
+- id: de2-m5-r2-h27
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  type: label
+  stem: 'Name the numbered parts of this official letter.'
+  image: {src: images/de2-m5-letter-blank.svg, alt: 'A letter from the Bürgeramt of Musterstadt to Daniel Costa in the standard German layout; six parts are numbered'}
+  labels:
+    - {x: 48.6, y: 7.4, text: Absender}
+    - {x: 14.2, y: 21.4, text: Anschrift}
+    - {x: 52.2, y: 18.1, text: Aktenzeichen}
+    - {x: 14.2, y: 34.3, text: Betreff}
+    - {x: 14.2, y: 39.4, text: Anrede}
+    - {x: 14.2, y: 76.6, text: Anlage}
+  distractors: [Datum, Grußformel]
+  explanation: |-
+    1 the sender (Stadt Musterstadt, Bürgeramt), 2 the address field, 3 the file number in the reference block, 4 the bold subject line, 5 the greeting (Sehr geehrter Herr Costa,), 6 the enclosure. The date is further down in the reference block, and the closing formula (Mit freundlichen Grüßen) comes after the text.
+- id: de2-m5-r2-h28
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  stem: 'What is a "Mahnung"?'
+  choices: ['a reminder that a payment is overdue', 'an invitation to an appointment', 'an official decision on an application', 'a form you fill in']
+  answer: 0
+  explanation: |-
+    die Mahnung = payment reminder. An official decision is der Bescheid; a form is das Formular.
+- id: de2-m5-r2-h29
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  stem: '"Das Formular ist bis zum 1. April auszufüllen." What does this mean?'
+  choices: ['The form was filled in by 1 April.', 'The form must be filled in by 1 April.', 'The form is closed until 1 April.', 'The form is too full.']
+  answer: 1
+  explanation: |-
+    sein + zu + infinitive (ist … auszufüllen) means something must be done. The zu belongs to the infinitive (ausfüllen → auszufüllen), not "too" or "closed".
+- id: de2-m5-r2-h30
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  type: text
+  stem: 'Complete the official sentence with zu + infinitive, as one word: "Die Unterlagen sind dem Antrag ___." (beifügen)'
+  accept: [beizufügen, beizufuegen]
+  explanation: |-
+    beifügen is separable (bei + fügen), so zu goes in the middle: beizufügen. The sentence means "The documents must be enclosed with the application."
+- id: de2-m5-r2-h31
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  type: match
+  stem: 'Match each abbreviation to its full form.'
+  pairs:
+    - [z. B., zum Beispiel]
+    - [bzw., beziehungsweise]
+    - [ggf., gegebenenfalls]
+    - [i. A., im Auftrag]
+    - [u. a., unter anderem]
+  distractors: [und so weiter, das heißt]
+  explanation: |-
+    z. B. = for example, bzw. = or rather / respectively, ggf. = if necessary, i. A. = on behalf of, u. a. = among other things. und so weiter is usw., and das heißt is d. h.
+- id: de2-m5-r2-h32
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  type: order
+  stem: 'Put the parts in order to say "The amount must be paid by 15 March."'
+  items: ['Der Betrag', 'ist', 'bis zum 15. März', 'zu zahlen.']
+  explanation: |-
+    Der Betrag ist bis zum 15. März zu zahlen. sein is the verb in position 2, the time phrase sits in the middle, and zu + infinitive closes the sentence.
+- id: de2-m5-r2-h33
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  stem: 'Look back at the reminder in Example 3. Which statements are true? Select all that apply.'
+  choices: ['The total is 101 euros.', 'The money must be transferred by 15 February 2026.', 'The letter is about fees for collecting rubbish.', 'The reminder fee is 96 euros.', 'Nothing happens if you don''t pay.']
+  answer: [0, 1, 2]
+  explanation: |-
+    96 euros of Müllgebühren + a 5-euro Mahngebühr = 101 euros, to be transferred (ist … zu überweisen) by 15 February. The reminder fee is 5 euros, not 96, and "Bei Nichtzahlung müssen wir weitere Schritte einleiten" warns of further steps.
+- id: de2-m5-r2-h34
+  lesson: de2-m5-h-official-letters
+  topic: Nominal style
+  stem: 'What does "nach Eingang Ihrer Zahlung" mean?'
+  choices: ['after you have entered the building', 'before you pay', 'when your payment has arrived', 'because of your payment']
+  answer: 2
+  explanation: |-
+    der Eingang comes from eingehen (to arrive, be received), and Ihrer Zahlung is a genitive: "after the arrival of your payment", in everyday German "wenn Ihre Zahlung angekommen ist". Eingang can mean entrance, but not in this phrase.
+- id: de2-m5-r2-h35
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  stem: 'You disagree with a Bescheid from the Finanzamt. Where in the letter do you find how and by when you can object?'
+  choices: ['in the Betreff', 'in the Anrede', 'in the Aktenzeichen', 'in the Rechtsbehelfsbelehrung']
+  answer: 3
+  explanation: |-
+    The Rechtsbehelfsbelehrung at the end of every Bescheid says how to challenge it, usually with a Widerspruch within one month. The Betreff names the topic, the Anrede is the greeting, and the Aktenzeichen is the file number.
+- id: de2-m5-r2-h36
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  stem: '"Sie haben die Unterlagen bis Freitag vorzulegen." What does this mean?'
+  choices: ['You have presented the documents by Friday.', 'You must present the documents by Friday.', 'You have no documents until Friday.', 'You may present the documents after Friday.']
+  answer: 1
+  explanation: |-
+    haben + zu + infinitive = müssen, in a strict tone. It isn't the perfect tense, which would need a past participle (vorgelegt).
+- id: de2-m5-r2-h37
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  stem: 'What does "i. A. Brenner" before a signature mean?'
+  choices: ['Ms Brenner signs on behalf of her office.', 'Ms Brenner is on holiday.', 'Ms Brenner is the person the letter is sent to.', 'Ms Brenner''s papers are enclosed.']
+  answer: 0
+  explanation: |-
+    i. A. = im Auftrag, on behalf of. The person signs for the office or company, not personally. Enclosures are listed under Anlage(n).
+- id: de2-m5-r2-h38
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  stem: 'In the letter from the Bürgeramt, what must Daniel hand in by 26 February?'
+  choices: ['his passport', 'a copy of his rental contract', 'the Wohnungsgeberbestätigung from his landlord', 'a payment of 101 euros']
+  answer: 2
+  explanation: |-
+    "bei Ihrer Anmeldung … fehlte die Wohnungsgeberbestätigung. Bitte reichen Sie diese bis zum 26.02.2026 … ein." The rental contract appears in Example 2 and the 101 euros in the reminder of Example 3, not in this letter.
+- id: de2-m5-r2-h39
+  lesson: de2-m5-h-official-letters
+  topic: Official letters
+  type: text
+  stem: 'Write out the abbreviation "usw." in full.'
+  accept: [und so weiter]
+  explanation: |-
+    usw. = und so weiter (and so on, etc.). Like z. B. (zum Beispiel), it's read aloud in full.

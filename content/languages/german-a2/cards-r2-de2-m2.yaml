@@ -13,15 +13,17 @@
 - {front: 'Stell dir vor!', back: 'Guess what! (literally: imagine!)', topic: Dative reflexive}
 - {front: 'How do you make "each other" unambiguous?', back: 'einander or sich gegenseitig: Sie helfen einander. Sie helfen sich gegenseitig. Not both together.', topic: Each other}
 - {front: 'miteinander, voneinander, aneinander', back: 'with each other, from/about each other, of each other: Wir sprechen miteinander.', topic: Each other}
-# --- Du or Sie? ---
-- {front: 'The three German words for "you"', back: 'du (one person, informal), ihr (several, informal), Sie (formal, one or more)', topic: Forms of address}
-- {front: 'Sie: accusative, dative, possessive', back: 'Sie, Ihnen, Ihr – always with a capital letter. Reflexive: sich (small s).', topic: Pronouns}
-- {front: 'ihr: accusative, dative, possessive', back: 'euch, euch, euer (eure before an ending: eure Kinder)', topic: Pronouns}
-- {front: 'Imperative for du, ihr and Sie (kommen)', back: 'Komm! – Kommt! – Kommen Sie!', topic: Pronouns}
-- {front: 'duzen / siezen', back: 'to say du / to say Sie: Wir duzen uns. Wir siezen uns.', topic: Forms of address}
-- {front: 'jemandem das Du anbieten', back: 'to offer someone the du; traditionally the older or more senior person does it. Wollen wir uns duzen?', topic: Forms of address}
-- {front: 'Hamburger Sie', back: 'Sie + first name: Lena, kommen Sie bitte?', topic: Forms of address}
-- {front: 'Münchner Du', back: 'du + last name: Meier, mach das Fenster zu!', topic: Forms of address}
-- {front: 'du or Du in a personal letter?', back: 'Both are correct (keep one choice in the whole letter). Sie, Ihnen, Ihr are always capitalised.', topic: Forms of address}
-- {front: 'When in doubt: du or Sie?', back: 'Sie – and let the other person offer the du.', topic: Forms of address}
-- {front: 'Wie geht es Ihnen? vs Wie geht es ihnen?', back: 'How are you? (formal) vs How are they?', topic: Pronouns}
+# --- Feelings with the dative ---
+- {front: 'I am cold. / I feel sick. / I feel dizzy.', back: 'Mir ist kalt. / Mir ist schlecht (übel). / Mir ist schwindlig. No subject, always ist.', topic: Dative of feeling}
+- {front: 'Ich bin kalt vs Mir ist kalt', back: 'Ich bin kalt = I am a cold person. Mir ist kalt = I feel cold.', topic: Dative of feeling}
+- {front: 'Das ist mir egal / wichtig / recht', back: 'I don''t mind / that matters to me / that''s all right with me', topic: Dative of feeling}
+- {front: 'Es tut mir leid. vs Du tust mir leid.', back: 'I''m sorry (apology or sympathy). vs I feel sorry for you (pity).', topic: Dative of feeling}
+- {front: 'einfallen', back: 'to occur to: Mir fällt sein Name nicht ein. Perfect: Mir ist nichts eingefallen.', topic: Dative of feeling}
+- {front: 'auffallen', back: 'to strike, be noticed: Mir ist aufgefallen, dass … = I noticed that …', topic: Dative of feeling}
+- {front: 'vorkommen (+ Dat + adjective)', back: 'to seem: Das kommt mir komisch vor.', topic: Dative of feeling}
+- {front: 'leichtfallen / schwerfallen', back: 'to be easy / hard for: Deutsch fällt mir leicht. Mathe fällt mir schwer.', topic: Dative of feeling}
+- {front: 'Which auxiliary do einfallen, auffallen and vorkommen take?', back: 'sein: Mir ist nichts eingefallen. Das ist mir aufgefallen.', topic: Dative of feeling}
+- {front: 'Mir fallen die Wörter nicht ein: why fallen?', back: 'The subject is die Wörter (plural); the verb agrees with the thing, not with mir.', topic: Dative of feeling}
+- {front: 'Ich hab dich lieb', back: 'I love you, warm but not romantic: family, close friends (hdl in messages)', topic: Liking and love}
+- {front: 'The liking scale (rough)', back: 'nett finden → mögen → gern haben → lieb haben → verliebt sein → lieben', topic: Liking and love}
+- {front: 'Du gefällst mir. vs Du bist mir sympathisch.', back: 'You attract me / I like how you are. vs I find you likeable.', topic: Liking and love}

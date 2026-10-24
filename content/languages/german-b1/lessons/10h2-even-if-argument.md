@@ -98,7 +98,7 @@ Each sentence does one job, and the connectors carry the reader from one to the 
 >
 > Zunächst spricht vieles für die Kartenzahlung. Sie ist schnell und bequem, vor allem kontaktlos. Darüber hinaus muss man kein Geld abheben und verliert keine Münzen. Hinzu kommt, dass Geschäfte weniger Arbeit haben, weil niemand Bargeld zählen und zur Bank bringen muss. Ein weiteres Argument ist die Sicherheit: Selbst wenn jemand meine Karte stiehlt, kann ich sie sofort sperren lassen.
 >
-> Auf der anderen Seite gibt es wichtige Gegenargumente. Bargeld ist anonym: Wer bar bezahlt, hinterlässt keine Daten. Ohne Bargeld könnten Banken und Firmen jeden Kauf speichern, und der Staat könnte die Bürger leichter überwachen. Außerdem funktioniert Bargeld auch dann, wenn das Internet oder der Strom ausfällt. Und nicht alle Menschen kommen mit Karten und Apps gut zurecht.
+> Auf der anderen Seite gibt es wichtige Gegenargumente. Bargeld bietet Anonymität: Wer bar bezahlt, hinterlässt keine Daten. Ohne Bargeld könnten Banken und Firmen jeden Kauf speichern, und der Staat könnte die Bürger leichter überwachen. Außerdem funktioniert Bargeld auch dann, wenn das Internet oder der Strom ausfällt. Und nicht alle Menschen kommen mit Karten und Apps gut zurecht.
 >
 > Wie man es auch dreht, beide Seiten haben gute Argumente. Ich persönlich zahle meistens mit Karte. Trotzdem bin ich gegen die Abschaffung des Bargelds, auch wenn sie praktisch wäre. Letztlich geht es um Freiheit: Jeder sollte selbst entscheiden, wie er bezahlt. Zusammenfassend lässt sich sagen: Karte ja, aber Bargeld sollte es weiter geben.
 
@@ -108,7 +108,7 @@ In English:
 >
 > First of all, a lot speaks for paying by card. It's quick and convenient, especially contactless. Moreover, you don't need to withdraw money and you don't lose any coins. Added to this, shops have less work, because nobody has to count cash and take it to the bank. Another argument is security: even if someone steals my card, I can have it blocked immediately.
 >
-> On the other hand, there are important counterarguments. Cash is anonymous: whoever pays cash leaves no data behind. Without cash, banks and companies could store every purchase, and the state could monitor citizens more easily. Besides, cash works even when the internet or the power fails. And not everyone copes well with cards and apps.
+> On the other hand, there are important counterarguments. Cash offers anonymity: whoever pays cash leaves no data behind. Without cash, banks and companies could store every purchase, and the state could monitor citizens more easily. Besides, cash works even when the internet or the power fails. And not everyone copes well with cards and apps.
 >
 > However you look at it, both sides have good arguments. Personally, I pay by card most of the time. Even so, I'm against abolishing cash, even if it would be practical. In the end it's about freedom: everyone should decide for themselves how they pay. To sum up: cards yes, but cash should continue to exist.
 

@@ -85,6 +85,21 @@ You don't need to produce a strong form for every verb. Native speakers mostly u
 | *wissen, geben (es gibt)* | *wüsste, gäbe* (or *würde wissen*) | |
 | all other verbs | *würde* + infinitive | |
 
+The same choice as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Which Konjunktiv II form should I use?
+  accDescr: Start with the verb. If it is sein or haben, use wäre or hätte. If it is a modal verb, use its own form such as könnte, müsste, dürfte or sollte. If it is wissen, geben in es gibt, finden or brauchen, a one-word form is common: wüsste, gäbe, fände, bräuchte, though würde plus infinitive is also possible. For every other verb, use würde plus the infinitive at the end.
+  A["Which verb?"] --> B{"sein or haben?"}
+  B -- yes --> C["wäre / hätte"]
+  B -- no --> D{"A modal verb?"}
+  D -- yes --> E["könnte, müsste, dürfte, sollte, wollte"]
+  D -- no --> F{"wissen, es gibt, finden, brauchen?"}
+  F -- yes --> G["wüsste, gäbe, fände, bräuchte (or würde + infinitive)"]
+  F -- no --> H["würde + infinitive at the end"]
+```
+
 ## Unreal conditions with wenn
 
 An unreal condition has two clauses: the *wenn* clause (the imagined condition) and the main clause (the imagined result). Both use the Konjunktiv II.
@@ -94,6 +109,8 @@ An unreal condition has two clauses: the *wenn* clause (the imagined condition) 
 - *Wenn sie unabhängig wäre, könnte sie die Welt bereisen.* — If she were independent, she could travel the world.
 
 Word order is what you know from *weil* and *dass*: in the *wenn* clause the verb goes to the end. If the *wenn* clause comes first, it fills position 1, so the main clause starts with its verb: *Wenn ich Zeit hätte, würde ich …*. You can also put the main clause first: *Ich würde weniger arbeiten, wenn ich mehr Geld hätte.* An optional *dann* can start the main clause: *Wenn ich mehr Geld hätte, dann würde ich weniger arbeiten.*
+
+![The sentence Wenn ich mehr Zeit hätte, würde ich öfter kochen in boxes. A bracket marks the whole wenn clause as position 1. Wenn is labeled conjunction, hätte is labeled Konjunktiv II at the end, würde is labeled conjugated verb, ich is labeled subject and kochen is labeled infinitive at the end. A dashed bracket joins würde and kochen.](images/de3-m5-conditional.svg)
 
 Is *würde* allowed in the *wenn* clause? Yes: *Wenn du mir helfen würdest, wäre ich schneller fertig.* It is common in speech. In careful writing, prefer a one-word form in the *wenn* clause if there is one (*wenn ich Zeit hätte*, *wenn es mehr Jobs gäbe*), and avoid two *würde* in the same sentence where you can.
 

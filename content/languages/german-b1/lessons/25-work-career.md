@@ -40,6 +40,16 @@ With *nur* it means "only need to": *Sie brauchen das Formular nur zu unterschre
 
 Don't use *müssen nicht* and *dürfen nicht* the wrong way round: *Sie müssen nicht kommen* = you don't have to (but may); *Sie dürfen nicht kommen* = you're not allowed to.
 
+```mermaid
+flowchart TD
+  accTitle: müssen, nicht brauchen zu or dürfen nicht?
+  accDescr: Ask whether the action is necessary. If yes, use müssen: Sie müssen kommen. If not, ask whether it is forbidden. If it is forbidden, use nicht dürfen: Sie dürfen nicht kommen. If it is simply not necessary, use nicht müssen or, in standard written German, nicht brauchen zu: Sie brauchen nicht zu kommen.
+  A["Is it necessary?"] -- yes --> B["müssen: Sie müssen kommen."]
+  A -- no --> C{"Is it forbidden?"}
+  C -- yes --> D["nicht dürfen: Sie dürfen nicht kommen."]
+  C -- no --> E["nicht müssen / nicht brauchen zu: Sie brauchen nicht zu kommen."]
+```
+
 ### haben zu and sein zu *(recognize)*
 
 Official texts, rules and contracts love two constructions that look strange at first:
@@ -125,6 +135,10 @@ At B1 you should be able to write a short semi-formal e-mail: to a company, an o
 | *Grußformel* (sign-off) | *Mit freundlichen Grüßen*, no comma after it, then your name |
 
 Formal letters use *Sie, Ihnen, Ihr* with capital letters. Avoid short spoken forms (*gibt's, hab*) and keep sentences complete.
+
+Here are the parts in a real e-mail (the full version and its translation follow below):
+
+![A short formal e-mail with its parts labeled: the Betreff (subject line) Ihre Stellenanzeige vom 3. März, the Anrede (greeting) Sehr geehrte Damen und Herren, the first line starting with a small letter, mit großem Interesse habe ich Ihre Anzeige gelesen, the main part with two questions, the closing sentence Ich wäre Ihnen dankbar, wenn Sie mir kurz antworten könnten, and the Grußformel (sign-off) Mit freundlichen Grüßen, followed by the name Daniel Okafor.](images/de3-m5-letter.svg)
 
 > Betreff: Ihre Stellenanzeige vom 3. März
 >

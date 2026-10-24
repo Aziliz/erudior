@@ -1,0 +1,532 @@
+# German A2, module 6 (round 2): new question types for lessons 21–24, and the honors lessons 24h1 and 24h2.
+
+# --- 21 Media, technology and relative clauses ---
+- id: de2-m6-r2-q01
+  lesson: de2-media-relative
+  module_quiz: true
+  type: label
+  topic: Media and technology
+  stem: 'Name the numbered parts of this laptop and web page.'
+  image: {src: images/de2-m6-laptop-blank.svg, alt: 'A laptop with a web page on the screen: a password box at the top right, a video player, an advert saying -50 % Jetzt kaufen!, and a comment saying Tolles Video, danke! Six numbered markers.'}
+  labels:
+    - {x: 38.5, y: 14.5, text: der Bildschirm}
+    - {x: 29.1, y: 86.2, text: die Tastatur}
+    - {x: 33.1, y: 30.0, text: das Video}
+    - {x: 69.6, y: 26.2, text: die Werbung}
+    - {x: 64.2, y: 63.5, text: der Kommentar}
+    - {x: 68.2, y: 14.5, text: das Passwort}
+  distractors: [der Drucker, die Sendung]
+  explanation: |-
+    1 is the screen (der Bildschirm), 2 the keyboard (die Tastatur), 3 the video (das Video), 4 the advert (die Werbung: "-50 %, Jetzt kaufen!"), 5 a comment under the video (der Kommentar) and 6 the password box (das Passwort). A printer (der Drucker) isn't in the picture, and die Sendung is a TV or radio programme.
+- id: de2-m6-r2-q02
+  lesson: de2-media-relative
+  type: text
+  topic: Relative clauses
+  stem: 'Type the relative pronoun: "Das ist das Video, ___ ich gestern hochgeladen habe."'
+  accept: [das]
+  explanation: |-
+    Video is neuter (das Video), and inside the relative clause "ich" is the subject: I uploaded the video, so it is the object. Neuter accusative = das. Only the masculine changes in the accusative (den).
+- id: de2-m6-r2-q03
+  lesson: de2-media-relative
+  type: text
+  topic: Relative clauses
+  stem: 'Type the relative pronoun (dative plural): "Das sind die Nachbarn, ___ ich unser WLAN-Passwort gegeben habe."'
+  accept: [denen]
+  explanation: |-
+    I gave the password to the neighbours: they are the dative object of geben, and Nachbarn is plural. The dative plural relative pronoun is denen, with an extra -en (the article would be den).
+- id: de2-m6-r2-q04
+  lesson: de2-media-relative
+  type: order
+  topic: Relative clauses
+  stem: 'Put the words in order to make a correct sentence: "The laptop I bought was expensive."'
+  items:
+    - 'Der Laptop,'
+    - 'den'
+    - 'ich'
+    - 'gekauft'
+    - 'habe,'
+    - 'war'
+    - 'teuer.'
+  explanation: |-
+    "Der Laptop, den ich gekauft habe, war teuer." The relative clause comes straight after its noun, starts with the relative pronoun (den: masculine, object) and ends with the conjugated verb (habe). Then the main clause goes on with its verb: "habe, war" is the verb-comma-verb pattern.
+- id: de2-m6-r2-q05
+  lesson: de2-media-relative
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich habe eine App, die sehr gut ist.', 'Das ist der Film, den ich gesehen habe.', 'Das ist die Frau, der das Video gemacht hat.', 'Kennst du das Programm, das ich habe heruntergeladen?']
+  answer: [0, 1]
+  explanation: |-
+    "eine App, die sehr gut ist" (feminine, subject) and "der Film, den ich gesehen habe" (masculine, object) are right. In the third sentence the woman made the video, so she is the subject: "die Frau, die das Video gemacht hat". In the fourth, the verb must go to the end: "das ich heruntergeladen habe".
+- id: de2-m6-r2-q06
+  lesson: de2-media-relative
+  type: match
+  topic: Relative clauses
+  stem: 'Match each phrase to the relative pronoun that fills the gap.'
+  pairs:
+    - ['der Kollege, ___ ich gut kenne', den]
+    - ['die App, ___ alle benutzen', die]
+    - ['das Handy, ___ kaputt ist', das]
+    - ['die Leute, mit ___ ich spreche', denen]
+    - ['der Freund, ___ ich helfe', dem]
+  distractors: [der]
+  explanation: |-
+    Gender and number come from the noun, case from the job inside the clause. I know the colleague: masculine accusative, den. Everyone uses the app: feminine accusative, die. The phone is broken: neuter nominative, das. mit takes the dative, plural: denen. helfen takes the dative, masculine: dem.
+
+# --- 22 Holidays and celebrations ---
+- id: de2-m6-r2-q07
+  lesson: de2-celebrations
+  module_quiz: true
+  type: label
+  topic: Celebrations
+  stem: 'Name the numbered things in this room in December.'
+  image: {src: images/de2-m6-christmas-room-blank.svg, alt: 'A living room in December: a decorated Christmas tree with a star on top, an Advent calendar with numbered doors on the wall, a present under the tree and a candle on a table by a window. Five numbered markers.'}
+  labels:
+    - {x: 41.0, y: 12.5, text: der Stern}
+    - {x: 35.3, y: 53.8, text: der Weihnachtsbaum}
+    - {x: 66.0, y: 23.8, text: der Adventskalender}
+    - {x: 59.6, y: 78.8, text: das Geschenk}
+    - {x: 81.2, y: 58.0, text: die Kerze}
+  distractors: [das Feuerwerk, die Torte]
+  explanation: |-
+    1 is the star on top of the tree (der Stern), 2 the Christmas tree (der Weihnachtsbaum), 3 the Advent calendar with its numbered doors (der Adventskalender), 4 a present (das Geschenk) and 5 a candle (die Kerze). Fireworks (das Feuerwerk) belong to Silvester, and a Torte is a cream cake; neither is in the picture.
+- id: de2-m6-r2-q08
+  lesson: de2-celebrations
+  type: order
+  topic: Celebrations
+  stem: 'Put these days in the order they come, starting in December.'
+  items: [der erste Advent, Heiligabend, Silvester, Neujahr, Karneval, Ostern]
+  explanation: |-
+    The first Sunday of Advent is about four weeks before Christmas; Heiligabend is 24 December, Silvester 31 December, Neujahr 1 January. Karneval (Fasching) ends just before Lent, so it always comes before Easter (Ostern), in February or March.
+- id: de2-m6-r2-q09
+  lesson: de2-celebrations
+  type: text
+  topic: Dates
+  stem: 'Write the ordinal in words: "Am 24. Dezember feiern wir." is read "Am ___ Dezember feiern wir."'
+  accept: [vierundzwanzigsten]
+  explanation: |-
+    From 20 on, ordinals add -ste: vierundzwanzigste. After am (an dem) the ordinal takes -en: am vierundzwanzigsten Dezember.
+- id: de2-m6-r2-q10
+  lesson: de2-celebrations
+  type: text
+  topic: Pronouns
+  stem: 'Answer with one word: "Hast du eine Kerze für mich?" – "Ja, hier ist ___."'
+  accept: [eine]
+  explanation: |-
+    Kerze is feminine, so the pronoun is eine, just like the article. Only the masculine nominative (einer) and the neuter (eins) differ from the article.
+- id: de2-m6-r2-q11
+  lesson: de2-celebrations
+  module_quiz: true
+  topic: Celebrations
+  stem: 'It is the afternoon of 31 December. Which wishes fit? Select all that apply.'
+  choices: ['Guten Rutsch!', 'Einen guten Rutsch ins neue Jahr!', 'Frohe Ostern!', 'Frohe Weihnachten!']
+  answer: [0, 1]
+  explanation: |-
+    Before midnight on Silvester, people say "Guten Rutsch!" or the longer "Einen guten Rutsch ins neue Jahr!". "Frohe Ostern" is for Easter, and "Frohe Weihnachten" is too late on 31 December.
+- id: de2-m6-r2-q12
+  lesson: de2-celebrations
+  type: match
+  topic: Celebrations
+  stem: 'Match each beginning to the word that fills the gap: wann, wenn or als.'
+  pairs:
+    - ['___ ich klein war, waren wir an Silvester bei Oma.', als]
+    - ['___ es schneit, gehen wir mit Fackeln in den Wald.', wenn]
+    - ['Weißt du, ___ die Party anfängt?', wann]
+    - ['___ du kommst, backe ich eine Torte.', wenn]
+  explanation: |-
+    als is for one period or event in the past (when I was little). wenn is for things that happen again and again (whenever it snows) and for the present and future (when you come). wann asks a question, also inside an indirect question (Weißt du, wann …?).
+
+# --- 23 Writing messages ---
+- id: de2-m6-r2-q13
+  lesson: de2-writing
+  module_quiz: true
+  type: label
+  topic: Writing messages
+  stem: 'Name the numbered parts of this e-mail.'
+  image: {src: images/de2-m6-email-blank.svg, alt: 'An e-mail in a mail program: the An line with an address, the Betreff line Termin am 12. Juni, an attachment called heizung.jpg, the opening Sehr geehrter Herr Wagner, the text, the closing Mit freundlichen Grüßen and the name Anna Lindqvist. Five numbered markers.'}
+  labels:
+    - {x: 57.9, y: 18.6, text: der Empfänger}
+    - {x: 49.7, y: 26.7, text: der Betreff}
+    - {x: 40.8, y: 35.7, text: der Anhang}
+    - {x: 48.0, y: 44.8, text: die Anrede}
+    - {x: 45.4, y: 75.2, text: der Gruß}
+  distractors: [der Absender, die Unterschrift]
+  explanation: |-
+    1 is the recipient in the An line (der Empfänger), 2 the subject line (der Betreff), 3 the attachment (der Anhang), 4 the opening (die Anrede: Sehr geehrter Herr Wagner,) and 5 the closing (der Gruß: Mit freundlichen Grüßen). The sender (der Absender) and a signature (die Unterschrift) are not marked.
+- id: de2-m6-r2-q14
+  lesson: de2-writing
+  type: order
+  topic: Writing messages
+  stem: 'Put the parts of this formal e-mail in order.'
+  items:
+    - 'Betreff: Termin am 12. Juni'
+    - 'Sehr geehrter Herr Wagner,'
+    - 'leider bin ich an diesem Tag nicht zu Hause.'
+    - 'Könnten wir den Termin verschieben?'
+    - 'Mit freundlichen Grüßen'
+    - 'Anna Lindqvist'
+  explanation: |-
+    Subject line first, then the opening with a comma, then the text starting with a small letter (leider), the problem before the request, then the closing without a comma and the name on its own line.
+- id: de2-m6-r2-q15
+  lesson: de2-writing
+  type: text
+  topic: Register
+  stem: 'Complete the closing of a formal e-mail: "Mit freundlichen ___"'
+  accept: [Grüßen, Grüssen, Gruessen]
+  explanation: |-
+    "Mit freundlichen Grüßen" is the standard formal closing. Grüßen is dative plural after mit (der Gruß, die Grüße, mit den Grüßen). In Switzerland it is spelled Grüssen.
+- id: de2-m6-r2-q16
+  lesson: de2-writing
+  module_quiz: true
+  topic: Register
+  stem: 'You write a semi-formal e-mail to your course teacher, Anna Brandt. Which openings are correct? Select all that apply.'
+  choices: ['Liebe Frau Brandt,', 'Hallo Frau Brandt,', 'Lieber Frau Brandt,', 'Liebe Frau Anna,']
+  answer: [0, 1]
+  explanation: |-
+    Semi-formal openings use Frau or Herr with the surname: "Liebe Frau Brandt," or "Hallo Frau Brandt,". "Lieber" is for a man (Lieber Herr Yilmaz), and Frau never goes with a first name.
+- id: de2-m6-r2-q17
+  lesson: de2-writing
+  type: match
+  topic: Register
+  stem: 'Match each message to its register.'
+  pairs:
+    - [A message to your sister, informal]
+    - [An e-mail to the landlord you know and call Sie, semi-formal]
+    - [A letter to an office you have never contacted, formal]
+    - [A chat message to a classmate, informal]
+    - [A request to a company you don't know, formal]
+  explanation: |-
+    Family, friends and classmates you call du get informal messages. People you know but call Sie (a teacher, a neighbour, a landlord) get semi-formal ones: Liebe Frau …, Viele Grüße. Offices, companies and strangers get formal ones: Sehr geehrte …, Mit freundlichen Grüßen.
+
+# --- 24 The Goethe-Zertifikat A2 and review ---
+- id: de2-m6-r2-q18
+  lesson: de2-exam-review
+  type: text
+  topic: A2 exam
+  stem: 'To pass the Goethe-Zertifikat A2 you need at least ___ of the 100 points. Give only the number.'
+  accept: ['60']
+  explanation: |-
+    60 of 100 points overall, and also at least 45 of the 75 written points and 15 of the 25 speaking points.
+- id: de2-m6-r2-q19
+  lesson: de2-exam-review
+  module_quiz: true
+  topic: A2 exam
+  stem: 'Which of these results pass the Goethe-Zertifikat A2? Select all that apply.'
+  choices: ['Written 50, speaking 15: 65 in all', 'Written 60, speaking 12: 72 in all', 'Written 44, speaking 25: 69 in all', 'Written 46, speaking 20: 66 in all']
+  answer: [0, 3]
+  explanation: |-
+    All three conditions must hold: at least 45 written, at least 15 speaking, at least 60 in all. 50 + 15 = 65 and 46 + 20 = 66 pass. 72 in all fails because 12 speaking points are under 15; 69 in all fails because 44 written points are under 45.
+- id: de2-m6-r2-q20
+  lesson: de2-exam-review
+  type: match
+  topic: A2 exam
+  stem: 'Match each part of the Goethe A2 to one of its tasks.'
+  pairs:
+    - [Lesen, Matching people to small ads]
+    - [Hören, Announcements and phone messages]
+    - [Schreiben, An SMS and a semi-formal e-mail]
+    - [Sprechen, Planning an appointment with a partner]
+  distractors: [A prepared presentation on your own]
+  explanation: |-
+    Lesen includes matching people to ads; Hören includes announcements and phone messages; Schreiben has an informal SMS and a semi-formal e-mail; Sprechen ends with planning something together with your partner. There is no prepared solo presentation at A2.
+- id: de2-m6-r2-q21
+  lesson: de2-exam-review
+  type: order
+  topic: Exam strategies
+  stem: 'Put this planning conversation in order.'
+  items:
+    - 'Hast du am Samstag Zeit?'
+    - 'Am Samstag kann ich leider nicht. Geht es am Sonntag?'
+    - 'Ja, Sonntag passt mir. Um wie viel Uhr?'
+    - 'Wie wäre es mit zehn Uhr?'
+    - 'Einverstanden! Dann bis Sonntag.'
+  explanation: |-
+    Suggest a day, react (refuse with a new suggestion), accept the day and ask for a time, suggest a time, agree. This suggest–react–agree pattern is exactly what the planning task wants.
+- id: de2-m6-r2-q22
+  lesson: de2-exam-review
+  type: text
+  topic: A2 exam
+  stem: 'A result of 60 to 69 points has the grade ___ (one German word).'
+  accept: [ausreichend]
+  explanation: |-
+    60–69 is ausreichend (sufficient, a pass); 70–79 befriedigend, 80–89 gut, 90–100 sehr gut.
+
+# --- 24h1 Honors: Die Nachrichten ---
+- id: de2-m6-r2-h01
+  lesson: de2-m6-h-news
+  type: label
+  topic: News German
+  stem: 'Name the numbered parts of this newspaper page.'
+  image: {src: images/de2-m6-newspaper-blank.svg, alt: 'The front page of an invented local paper, the Neckar-Bote: a large two-line headline, two bold sentences under it, a photo of a bridge with a line of small italic text under it, and columns of text. Five numbered markers.'}
+  labels:
+    - {x: 24.4, y: 28.7, text: die Schlagzeile}
+    - {x: 76.8, y: 45.5, text: der Vorspann}
+    - {x: 37.8, y: 57.4, text: das Foto}
+    - {x: 24.4, y: 78.9, text: die Bildunterschrift}
+    - {x: 74.4, y: 63.8, text: der Text}
+  distractors: [die Werbung, der Kommentar]
+  explanation: |-
+    1 is the headline (die Schlagzeile), 2 the bold lead under it (der Vorspann), 3 the photo, 4 the caption under the photo (die Bildunterschrift) and 5 the body of the article (der Text). There is no advert or comment on this page.
+- id: de2-m6-r2-h02
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'What does the headline "Streik bei der Bahn: Tausende Pendler warten" say?'
+  choices: ['The railway is on strike, and thousands of commuters are waiting.', 'The railway wants to stop a strike by thousands of commuters.', 'Thousands of commuters are going on strike against the railway.', 'The railway is waiting for thousands of new commuters.']
+  answer: 0
+  explanation: |-
+    The topic before the colon is a strike at the railway (der Streik, from streiken); the news after it is that thousands of commuters are waiting. Headlines leave out articles and verbs like sein, so rebuild the sentence: Die Bahn streikt, deshalb warten Tausende Pendler.
+- id: de2-m6-r2-h03
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'A headline says: "Feuerwehr rettet Katze vom Dach". When did the rescue happen?'
+  choices: ['It is happening right now, live.', 'It will happen later today.', 'It already happened.', 'It happens every day.']
+  answer: 2
+  explanation: |-
+    Headlines use the present tense for events that already happened. The report under it will tell the story in the simple past: Die Feuerwehr rettete gestern eine Katze.
+- id: de2-m6-r2-h04
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'What does "laut" mean in "Laut Polizei war der Fahrer zu schnell"?'
+  choices: ['loud', 'against', 'because of', 'according to']
+  answer: 3
+  explanation: |-
+    The preposition laut means "according to" and names the source: according to the police, the driver was going too fast. It has nothing to do with the adjective laut (loud).
+- id: de2-m6-r2-h05
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'What does "Das neue Museum soll 30 Millionen Euro kosten" mean?'
+  choices: ['The new museum should cost 30 million euros.', 'The new museum is said to cost 30 million euros.', 'The new museum must not cost more than 30 million euros.', 'The new museum cost 30 million euros.']
+  answer: 1
+  explanation: |-
+    In news, sollen usually passes on what others say: "is said to, reportedly". The writer doesn't promise that the figure is right. "should cost" is the tempting word-for-word translation, but the sentence isn't advice or a plan.
+- id: de2-m6-r2-h06
+  lesson: de2-m6-h-news
+  type: text
+  topic: News German
+  stem: 'Type the simple past of geben: "Gestern ___ es einen Unfall auf der A8."'
+  accept: [gab]
+  explanation: |-
+    geben is a strong verb: gab in the simple past (es gab = there was / there were). News reports use the simple past; in speech you would say "Gestern hat es einen Unfall gegeben."
+- id: de2-m6-r2-h07
+  lesson: de2-m6-h-news
+  type: text
+  topic: Relative clauses
+  stem: 'Type the relative pronoun: "Das ist die Firma, bei ___ mein Bruder arbeitet."'
+  accept: [der]
+  explanation: |-
+    bei always takes the dative, and Firma is feminine, so: bei der. The preposition comes first, then the relative pronoun, and the verb goes to the end (arbeitet).
+- id: de2-m6-r2-h08
+  lesson: de2-m6-h-news
+  topic: Relative clauses
+  stem: 'Complete: "Das ist die Brücke, über ___ täglich 8.000 Autos fahren."'
+  choices: ['der', 'den', 'die', 'dem']
+  answer: 2
+  explanation: |-
+    Brücke is feminine, and über here takes the accusative because the cars move across the bridge. Feminine accusative: die. "der" would be the dative, used for a position: über der Brücke means above the bridge.
+- id: de2-m6-r2-h09
+  lesson: de2-m6-h-news
+  type: order
+  topic: Relative clauses
+  stem: 'Put the words in order: "That is the man the police spoke with."'
+  items:
+    - 'Das ist der Mann,'
+    - 'mit'
+    - 'dem'
+    - 'die Polizei'
+    - 'gesprochen'
+    - 'hat.'
+  explanation: |-
+    "Das ist der Mann, mit dem die Polizei gesprochen hat." The preposition comes first in the relative clause, never at the end as in English. mit + dative masculine = dem, and the auxiliary hat comes last, after the participle.
+- id: de2-m6-r2-h10
+  lesson: de2-m6-h-news
+  type: match
+  topic: News German
+  stem: 'Headlines use nouns made from verbs. Match each noun to its verb.'
+  pairs:
+    - [die Eröffnung, eröffnen]
+    - [der Streik, streiken]
+    - [die Wahl, wählen]
+    - [die Verletzung, verletzen]
+  distractors: [erscheinen]
+  explanation: |-
+    Many news nouns come from verbs: -ung nouns (die Eröffnung, die Verletzung) are feminine; der Streik and die Wahl drop the ending. erscheinen (to come out) matches none of them.
+- id: de2-m6-r2-h11
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'Which sentences tell you that a fact is not confirmed? Select all that apply.'
+  choices: ['Der Täter soll etwa 30 Jahre alt sein.', 'Angeblich war der Fahrer sehr müde.', 'Die Brücke wurde 1950 gebaut.', 'Das Feuer begann gegen 5 Uhr.']
+  answer: [0, 1]
+  explanation: |-
+    Hearsay soll (is said to be) and angeblich (allegedly) both pass on unconfirmed information. The other two state facts directly: the bridge was built in 1950 (a passive), the fire began at about 5.
+- id: de2-m6-r2-h12
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'Read: "Das Feuer begann laut Feuerwehr gegen 5 Uhr in der Backstube, wo zu dieser Zeit schon zwei Mitarbeiter arbeiteten. Eine Nachbarin, die den Rauch sah, rief sofort die Feuerwehr." Who called the fire brigade?'
+  choices: ['the two employees', 'a neighbour', 'the owner of the bakery', 'the police']
+  answer: 1
+  explanation: |-
+    "Eine Nachbarin, die den Rauch sah, rief sofort die Feuerwehr": a neighbour who saw the smoke called at once. The employees were in the bakehouse, where (wo) the fire began.
+- id: de2-m6-r2-h13
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'Which way of reporting a quote is correct?'
+  choices: ['„Wir sind froh“, die Besitzerin sagte.', '„Wir sind froh“, sagte die Besitzerin.', '„Wir sind froh“, sagte sie die Besitzerin.', 'Die Besitzerin „Wir sind froh“ sagte.']
+  answer: 1
+  explanation: |-
+    The quote fills position 1, so the verb comes next and then the speaker: „…“, sagte die Besitzerin. The first choice keeps English order; the third repeats the subject; the fourth puts the verb at the end as in a subordinate clause.
+- id: de2-m6-r2-h14
+  lesson: de2-m6-h-news
+  topic: Relative clauses
+  stem: 'Which phrase means the same as "die Stadt, wo der Unfall passierte"?'
+  choices: ['die Stadt, in die der Unfall passierte', 'die Stadt, der der Unfall passierte', 'die Stadt, in der der Unfall passierte', 'die Stadt, wohin der Unfall passierte']
+  answer: 2
+  explanation: |-
+    For a place (where?), wo = in + dative: die Stadt, in der … (feminine dative). "in die" and "wohin" would mean movement into the town; "der" without a preposition means "to which".
+- id: de2-m6-r2-h15
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'A website promises "aktuelle Nachrichten". What does it offer?'
+  choices: ['actual news', 'old news', 'news in simple language', 'the latest news']
+  answer: 3
+  explanation: |-
+    aktuell means current, up to date. It is a false friend: "actual" in the sense of real is tatsächlich.
+- id: de2-m6-r2-h16
+  lesson: de2-m6-h-news
+  topic: News German
+  stem: 'You only have time to read part of an article but want who, what, when and where. What do you read?'
+  choices: ['the headline and the lead (Vorspann)', 'only the photo caption', 'the last paragraph with the quotes', 'the name of the newspaper and the date']
+  answer: 0
+  explanation: |-
+    News reports put the most important facts first: the headline gives the news in a few words and the lead answers the main W-questions. Background and quotes come last, so they are what an editor cuts first.
+
+# --- 24h2 Honors: Familienfeste ---
+- id: de2-m6-r2-h17
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'On their first day of school, what do children in Germany usually carry?'
+  choices: ['a Schultüte, a big cone of sweets and school things', 'a candle from the church', 'an Advent calendar', 'a box of old plates']
+  answer: 0
+  explanation: |-
+    At the Einschulung every new pupil carries a Schultüte (Zuckertüte in parts of the east), filled with sweets, small toys and things like pens. Old plates belong to the Polterabend.
+- id: de2-m6-r2-h18
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'Your German friend''s birthday is tomorrow, and you see her today. What do most Germans expect?'
+  choices: ['You congratulate her today, to be the first.', 'You give her money today.', 'You don''t congratulate her yet; you wait until the day.', 'You say Herzliches Beileid.']
+  answer: 2
+  explanation: |-
+    Congratulating before the birthday is widely thought to bring bad luck, so wait for the day. Afterwards you can still say "Alles Gute nachträglich!". Herzliches Beileid is said when someone has died.
+- id: de2-m6-r2-h19
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'In Germany, Austria and Switzerland, where does a couple become legally married?'
+  choices: ['in church', 'at the Polterabend', 'at the town hall party', 'at the Standesamt']
+  answer: 3
+  explanation: |-
+    Only the civil ceremony (die Trauung) at the Standesamt, the registry office, makes a marriage legal. A church wedding is optional and usually comes after it.
+- id: de2-m6-r2-h20
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'What do guests traditionally do at a Polterabend?'
+  choices: ['They smash old china, and the couple sweep it up together.', 'They smash glasses and mirrors for luck.', 'They sweep the steps of the cathedral.', 'They bring bread and salt for the new flat.']
+  answer: 0
+  explanation: |-
+    Guests break old plates and cups (Scherben bringen Glück), and the couple sweep up together. Glass and mirrors are traditionally avoided. Sweeping cathedral steps is a Bremen custom for unmarried 30-year-olds, and bread and salt is a housewarming present.
+- id: de2-m6-r2-h21
+  lesson: de2-m6-h-family-festivals
+  type: text
+  topic: Wishes and cards
+  stem: 'Complete the birthday wish with one word: "___ Glückwunsch zum Geburtstag!"'
+  accept: [Herzlichen]
+  explanation: |-
+    "Herzlichen Glückwunsch!" The wish is the object of an understood sentence (I give you my warm congratulations), so it is accusative; Glückwunsch is masculine and there is no article, so the adjective takes -en. "Herzlicher" would be nominative.
+- id: de2-m6-r2-h22
+  lesson: de2-m6-h-family-festivals
+  type: text
+  topic: Wishes and cards
+  stem: '"Herzlichen Glückwunsch zum 40. Geburtstag!" Write the ordinal in words: "zum ___ Geburtstag".'
+  accept: [vierzigsten]
+  explanation: |-
+    40 → vierzig + -ste (from 20 on), and after zum (zu dem) the ending is -en: zum vierzigsten Geburtstag.
+- id: de2-m6-r2-h23
+  lesson: de2-m6-h-family-festivals
+  type: match
+  topic: Wishes and cards
+  stem: 'Match each wish to the situation it fits.'
+  pairs:
+    - [Guten Rutsch!, The last days before New Year]
+    - [Gute Besserung!, Someone is ill]
+    - [Herzliches Beileid!, Someone has died]
+    - [Viel Erfolg!, Someone has an exam tomorrow]
+  distractors: [Someone is getting married]
+  explanation: |-
+    Guten Rutsch is said before 1 January, Gute Besserung to someone who is ill, Herzliches Beileid after a death, and Viel Erfolg (good luck, lots of success) before an exam or a new job. For a wedding you would say Herzlichen Glückwunsch zur Hochzeit.
+- id: de2-m6-r2-h24
+  lesson: de2-m6-h-family-festivals
+  type: order
+  topic: Wishes and cards
+  stem: 'Put this condolence card in order.'
+  items:
+    - 'Liebe Frau Öztürk,'
+    - 'es tut uns sehr leid, dass Ihr Vater gestorben ist.'
+    - 'Wir sind in Gedanken bei Ihnen und Ihrer Familie.'
+    - 'In stiller Anteilnahme'
+    - 'Familie Becker'
+  explanation: |-
+    Opening with a comma, then the text starting with a small letter (es tut uns leid …), then the thought for the family, the closing In stiller Anteilnahme and the names.
+- id: de2-m6-r2-h25
+  lesson: de2-m6-h-family-festivals
+  topic: Wishes and cards
+  stem: 'Which wishes are correct? Select all that apply.'
+  choices: ['Herzlichen Glückwunsch!', 'Schönes Wochenende!', 'Herzlicher Glückwunsch!', 'Frohe Geburtstag!']
+  answer: [0, 1]
+  explanation: |-
+    Wishes are accusative with strong endings: masculine Glückwunsch → herzlichen, neuter Wochenende → schönes. "Herzlicher" is the nominative ending, and Geburtstag is masculine, so "Frohe Geburtstag" is wrong; say "Alles Gute zum Geburtstag!".
+- id: de2-m6-r2-h26
+  lesson: de2-m6-h-family-festivals
+  topic: Wishes and cards
+  stem: 'Why does "Guten Rutsch!" end in -en?'
+  choices: ['Because Rutsch is plural.', 'Because the wish is the object of an understood "Ich wünsche dir …", and der Rutsch is masculine.', 'Because all wishes are in the dative.', 'Because Rutsch is feminine.']
+  answer: 1
+  explanation: |-
+    Wishes are ellipses: "(Ich wünsche dir einen) guten Rutsch". The wish is the direct object, so accusative; der Rutsch is masculine, and with no article the adjective takes -en.
+- id: de2-m6-r2-h27
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'Your grandparents celebrate their Silberhochzeit. How long have they been married?'
+  choices: ['10 years', '50 years', '1 year', '25 years']
+  answer: 3
+  explanation: |-
+    The Silberhochzeit (silver wedding) is after 25 years; the Goldene Hochzeit (golden wedding) after 50.
+- id: de2-m6-r2-h28
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'Read: "Wir haben alles auf den Boden geworfen, und am Ende mussten Julia und Max die Scherben zusammen wegfegen. Das hat zwei Stunden gedauert!" What did Julia and Max do?'
+  choices: ['They threw the plates on the ground.', 'They swept up the broken pieces together.', 'They bought new plates for two hours.', 'They went home after two hours.']
+  answer: 1
+  explanation: |-
+    "mussten … die Scherben zusammen wegfegen": they had to sweep away the broken pieces together, which took two hours. The guests (wir) threw the plates.
+- id: de2-m6-r2-h29
+  lesson: de2-m6-h-family-festivals
+  topic: Wishes and cards
+  stem: 'Complete the opening of a card to a couple: "Liebe Lena, ___ Tom,"'
+  choices: ['liebe', 'Lieber', 'liebes', 'lieber']
+  answer: 3
+  explanation: |-
+    Each name gets its own form: liebe for a woman, lieber for a man. After the comma it is written with a small letter, so "lieber", not "Lieber".
+- id: de2-m6-r2-h30
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'Friends invite you to their Einweihungsparty. What is a traditional present?'
+  choices: ['a black-bordered card', 'a Schultüte', 'bread and salt', 'old plates to smash']
+  answer: 2
+  explanation: |-
+    An Einweihungsparty is a housewarming, and bread and salt (Brot und Salz) is the traditional present, so the household never lacks the basics. Black-bordered cards are for condolences, Schultüten for the first school day, old plates for the Polterabend.
+- id: de2-m6-r2-h31
+  lesson: de2-m6-h-family-festivals
+  topic: Family celebrations
+  stem: 'What is a Junggesellenabschied?'
+  choices: ['a party for a child''s first school day', 'a party for a 30th birthday', 'a stag or hen party before a wedding', 'a wedding anniversary']
+  answer: 2
+  explanation: |-
+    A Junggesellenabschied (JGA) is the party friends give the bride or groom before the wedding, often in costumes through town. A Junggeselle is a bachelor; Abschied means farewell.

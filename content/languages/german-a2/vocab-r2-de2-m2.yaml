@@ -98,114 +98,133 @@
   example: Stell dir vor, ich habe eine neue Stelle!
   exampleEn: Guess what, I've got a new job!
 
-# --- 08h2 Du or Sie? (de2-m2-h-du-or-sie) ---
+# --- 08h2 Feelings with the dative (de2-m2-h-dative-feelings) ---
 - id: de2-m2-r2-w13
-  lesson: de2-m2-h-du-or-sie
-  term: duzen
+  lesson: de2-m2-h-dative-feelings
+  term: leidtun
   pos: verb
-  meanings: [to say du to, to address as du, to use du with, to be on first-name terms with]
-  example: Im Sportverein duzen sich alle.
-  exampleEn: In the sports club everyone says du to each other.
-  note: 'Often reciprocal: wir duzen uns. Perfect: hat geduzt.'
+  meanings: [to feel sorry for (dative), to be sorry, to feel sorry, to regret]
+  example: Der kleine Hund tut mir leid.
+  exampleEn: I feel sorry for the little dog.
+  note: 'Thing or person as subject, the one who is sorry in the dative: Es tut mir leid. Du tust mir leid. Perfect: hat leidgetan.'
 - id: de2-m2-r2-w14
-  lesson: de2-m2-h-du-or-sie
-  term: siezen
+  lesson: de2-m2-h-dative-feelings
+  term: einfallen
   pos: verb
-  meanings: [to say Sie to, to address as Sie, to use Sie with]
-  example: Meine Nachbarn und ich siezen uns.
-  exampleEn: My neighbours and I say Sie to each other.
-  note: 'Perfect: hat gesiezt.'
+  meanings: [to occur to (an idea, a name), to think of, to come to mind, to remember]
+  example: Mir fällt sein Name nicht ein.
+  exampleEn: I can't think of his name.
+  note: 'Separable; the idea is the subject, the person dative: es fällt mir ein. Perfect: ist eingefallen.'
 - id: de2-m2-r2-w15
-  lesson: de2-m2-h-du-or-sie
-  term: das Du
-  pos: noun
-  plural: '—'
-  meanings: [the informal "you" (du), the du form, the informal form of address, du]
-  example: Meine Chefin hat mir das Du angeboten.
-  exampleEn: My boss suggested we say du to each other.
-  note: 'Written with a capital D as a noun: das Du anbieten (to offer the du). The opposite is das Sie.'
-- id: de2-m2-r2-w16
-  lesson: de2-m2-h-du-or-sie
-  term: anbieten
+  lesson: de2-m2-h-dative-feelings
+  term: auffallen
   pos: verb
-  meanings: [to offer]
-  example: Darf ich Ihnen einen Kaffee anbieten?
-  exampleEn: May I offer you a coffee?
-  note: 'Separable, with a dative person: ich biete dir etwas an. Perfect: hat angeboten.'
+  meanings: [to strike (be noticed by), to notice, to be noticeable, to stand out]
+  example: Mir ist aufgefallen, dass du sehr ruhig bist.
+  exampleEn: I've noticed that you're very quiet.
+  note: 'Separable; the thing noticed is the subject, the person dative. Perfect: ist aufgefallen.'
+- id: de2-m2-r2-w16
+  lesson: de2-m2-h-dative-feelings
+  term: vorkommen
+  pos: verb
+  meanings: [to seem (to someone), to seem, to appear, to happen, to occur]
+  example: Das kommt mir komisch vor.
+  exampleEn: That seems strange to me.
+  note: 'Separable, with a dative person and usually an adjective. Perfect: ist vorgekommen. Without a dative: to happen (Das kommt vor).'
 - id: de2-m2-r2-w17
-  lesson: de2-m2-h-du-or-sie
-  term: die Höflichkeit
+  lesson: de2-m2-h-dative-feelings
+  term: leichtfallen
+  pos: verb
+  meanings: [to be easy for, to find easy, to come easily]
+  example: Sprachen fallen mir leicht.
+  exampleEn: I find languages easy.
+  note: 'Separable, dative person: Es fällt mir leicht. Perfect: ist leichtgefallen.'
+- id: de2-m2-r2-w18
+  lesson: de2-m2-h-dative-feelings
+  term: schwerfallen
+  pos: verb
+  meanings: [to be hard for, to find hard, to find difficult, to be difficult for]
+  example: Das frühe Aufstehen fällt mir schwer.
+  exampleEn: I find getting up early hard.
+  note: 'Separable, dative person: Es fällt mir schwer. Perfect: ist schwergefallen.'
+- id: de2-m2-r2-w19
+  lesson: de2-m2-h-dative-feelings
+  term: schwindlig
+  pos: adjective
+  meanings: [dizzy, giddy]
+  example: Nach dem Karussell ist mir schwindlig.
+  exampleEn: After the merry-go-round I feel dizzy.
+  note: 'Usually with the dative: mir ist schwindlig. Also spelled schwindelig.'
+  alt: [schwindelig]
+- id: de2-m2-r2-w20
+  lesson: de2-m2-h-dative-feelings
+  term: übel
+  pos: adjective
+  meanings: [sick (nauseous), nauseous, queasy, sick, bad]
+  example: Im Bus ist mir oft übel.
+  exampleEn: I often feel sick on the bus.
+  note: 'mir ist übel = I feel sick. Also "bad" in phrases: nicht übel (not bad).'
+- id: de2-m2-r2-w21
+  lesson: de2-m2-h-dative-feelings
+  term: unangenehm
+  pos: adjective
+  meanings: [unpleasant, awkward, uncomfortable, embarrassing]
+  example: Die Frage war mir sehr unangenehm.
+  exampleEn: The question made me very uncomfortable.
+- id: de2-m2-r2-w22
+  lesson: de2-m2-h-dative-feelings
+  term: angenehm
+  pos: adjective
+  meanings: [pleasant, agreeable, comfortable]
+  example: Das Wasser ist angenehm warm.
+  exampleEn: The water is pleasantly warm.
+- id: de2-m2-r2-w23
+  lesson: de2-m2-h-dative-feelings
+  term: recht
+  pos: adjective
+  meanings: [all right (with someone), all right, OK, convenient]
+  example: Ist es dir recht, wenn ich später komme?
+  exampleEn: Is it all right with you if I come later?
+  note: 'Usually with a dative person: Das ist mir recht. Not the same as recht haben (to be right).'
+- id: de2-m2-r2-w24
+  lesson: de2-m2-h-dative-feelings
+  term: komisch
+  pos: adjective
+  meanings: [strange (odd), strange, odd, weird, funny, peculiar]
+  example: Das Essen schmeckt komisch.
+  exampleEn: The food tastes strange.
+- id: de2-m2-r2-w25
+  lesson: de2-m2-h-dative-feelings
+  term: lieb haben
+  pos: verb
+  alt: [liebhaben]
+  meanings: [to love (family, friends; not romantic), to love, to be fond of, to care about]
+  example: Ich hab dich lieb, Oma!
+  exampleEn: I love you, Grandma!
+  note: 'Separable: ich habe dich lieb. Also written liebhaben. Warm but not romantic; in messages hdl = hab dich lieb.'
+- id: de2-m2-r2-w26
+  lesson: de2-m2-h-dative-feelings
+  term: das Heimweh
   pos: noun
   plural: '—'
-  meanings: [politeness, courtesy]
-  example: Das Sie ist oft eine Frage der Höflichkeit.
-  exampleEn: Sie is often a matter of politeness.
-- id: de2-m2-r2-w18
-  lesson: de2-m2-h-du-or-sie
-  term: unhöflich
-  pos: adjective
-  meanings: [impolite, rude]
-  example: Es ist unhöflich, einen Fremden einfach zu duzen.
-  exampleEn: It's rude to simply say du to a stranger.
-- id: de2-m2-r2-w19
-  lesson: de2-m2-h-du-or-sie
-  term: förmlich
-  pos: adjective
-  meanings: [formal, formally]
-  example: In der Bank ist der Ton eher förmlich.
-  exampleEn: At the bank the tone is rather formal.
-- id: de2-m2-r2-w20
-  lesson: de2-m2-h-du-or-sie
-  term: locker
-  pos: adjective
-  meanings: [relaxed (informal, casual), relaxed, casual, laid-back, easy-going, loose]
-  example: In unserem Team ist alles sehr locker.
-  exampleEn: In our team everything is very relaxed.
-- id: de2-m2-r2-w21
-  lesson: de2-m2-h-du-or-sie
-  term: üblich
-  pos: adjective
-  meanings: [usual, normal, customary, common]
-  example: In vielen Firmen ist das Du heute üblich.
-  exampleEn: In many companies du is usual today.
-- id: de2-m2-r2-w22
-  lesson: de2-m2-h-du-or-sie
-  term: der Nachname
-  pos: noun
-  plural: die Nachnamen
-  meanings: [last name, family name]
-  example: Wie ist Ihr Nachname, bitte?
-  exampleEn: What is your last name, please?
-  note: 'Means the same as der Familienname (A1). Weak-type ending: des Nachnamens.'
-- id: de2-m2-r2-w23
-  lesson: de2-m2-h-du-or-sie
-  term: der Spitzname
-  pos: noun
-  plural: die Spitznamen
-  meanings: [nickname]
-  example: Alle nennen ihn Toni, das ist sein Spitzname.
-  exampleEn: Everyone calls him Toni, that's his nickname.
-- id: de2-m2-r2-w24
-  lesson: de2-m2-h-du-or-sie
-  term: die Dame
-  pos: noun
-  plural: die Damen
-  meanings: [lady]
-  example: Meine Damen und Herren, herzlich willkommen!
-  exampleEn: Ladies and gentlemen, a warm welcome!
-- id: de2-m2-r2-w25
-  lesson: de2-m2-h-du-or-sie
-  term: der Titel
-  pos: noun
-  plural: die Titel
-  meanings: [title, academic title]
-  example: Sie hat einen Doktortitel, also sagen viele „Frau Doktor Weber“.
-  exampleEn: She has a doctorate, so many people say "Frau Doktor Weber".
-- id: de2-m2-r2-w26
-  lesson: de2-m2-h-du-or-sie
+  meanings: [homesickness]
+  example: In der ersten Woche hatte ich Heimweh.
+  exampleEn: In the first week I was homesick.
+  note: 'Heimweh haben = to be homesick.'
+- id: de2-m2-r2-w27
+  lesson: de2-m2-h-dative-feelings
   kind: phrase
-  term: Hallo zusammen!
-  alt: [Hallo zusammen]
-  meanings: [Hello everyone!, hi everyone, hello all, hi all, hello everybody]
-  example: Hallo zusammen! Schön, dass ihr alle da seid.
-  exampleEn: Hello everyone! Great that you're all here.
+  term: Schluss machen
+  meanings: [to break up, to split up, to end it]
+  example: Sie hat mit ihrem Freund Schluss gemacht.
+  exampleEn: She broke up with her boyfriend.
+  note: 'mit + dative: mit jemandem Schluss machen.'
+- id: de2-m2-r2-w28
+  lesson: de2-m2-h-dative-feelings
+  term: der Schwarm
+  pos: noun
+  plural: die Schwärme
+  meanings: [crush (a person you are in love with), crush, heartthrob, swarm]
+  example: Der neue Schüler ist ihr Schwarm.
+  exampleEn: The new student is her crush.
+  note: 'Also means a swarm (of bees, fish).'

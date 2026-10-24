@@ -28,17 +28,17 @@ The Futur II has two parts. *werden* in position 2 is conjugated exactly as in t
 | ihr | werdet | … | gelesen haben |
 | sie / Sie | werden | … | angekommen sein |
 
-You already know which helper to use: the same one as in the perfect. *Sie hat das Buch gelesen* → *Sie wird das Buch gelesen haben.* *Er ist angekommen* → *Er wird angekommen sein.* Separable verbs keep their prefix on the participle (*angekommen, eingeschlafen*), and inseparable ones have no *ge-* (*verpasst, entdeckt*).
+The helper is the same as in the perfect. *Sie hat das Buch gelesen* → *Sie wird das Buch gelesen haben.* *Er ist angekommen* → *Er wird angekommen sein.* Separable verbs keep their prefix on the participle (*angekommen, eingeschlafen*), and inseparable ones have no *ge-* (*verpasst, entdeckt*).
 
 You will meet the perfect infinitive again in lesson 25, after *scheinen* … *zu* (*Er scheint die E-Mail nicht gelesen zu haben*). Here it simply follows *werden*, without *zu*.
 
 Word order follows the rules of the sentence bracket:
 
-- main clause: *Bis Montag **werden** die Handwerker das Dach **repariert haben**.* — By Monday the builders will have repaired the roof.
-- subordinate clause, *werden* goes to the very end: *Ich hoffe, dass die Handwerker das Dach bis Montag **repariert haben werden**.*
-- question: ***Wirst** du das bis morgen **geschafft haben**?* — Will you have managed that by tomorrow?
+- main clause: *Bis Montag werden die Handwerker das Dach repariert haben.* — By Monday the builders will have repaired the roof.
+- subordinate clause, *werden* goes to the very end: *Ich hoffe, dass die Handwerker das Dach bis Montag repariert haben werden.*
+- question: *Wirst du das bis morgen geschafft haben?* — Will you have managed that by tomorrow?
 
-So the end of a Futur II clause always reads participle, then *haben/sein*, then (in a subordinate clause) *werden*: *… repariert haben werden.* Three verbs in a row look heavy, which is one reason the form is not very common in everyday speech.
+So the end of a Futur II clause always reads participle, then *haben/sein*, then (in a subordinate clause) *werden*: *… repariert haben werden.*
 
 ## Use 1: finished by a point in the future
 
@@ -48,12 +48,12 @@ The first use mirrors the past perfect. Pick a point in the future, usually with
 - *Bis zum Abend werden wir alle Zeugen befragt haben.* — By the evening we will have questioned all the witnesses.
 - *Wenn du zurückkommst, werde ich die Küche aufgeräumt haben.* — When you come back, I'll have tidied the kitchen.
 
-In everyday German, people usually avoid the long form. Just as the present often replaces the Futur I when a time word makes the future clear (lesson 4), the **perfect** often replaces the Futur II:
+In everyday German, people usually avoid the long form. Just as the present often replaces the Futur I when a time word makes the future clear (lesson 4), the perfect often replaces the Futur II:
 
 - *Bis Freitag habe ich den Bericht geschrieben.* — By Friday I'll have written the report.
 - *Morgen um diese Zeit sind wir schon in Rom angekommen.* — This time tomorrow we'll already have arrived in Rome.
 
-Both versions are correct. The Futur II sounds more formal or more emphatic, as in a promise or an official plan: *Bis Ende des Jahres wird die neue Brücke fertiggestellt worden sein* is the kind of sentence you read in a press release. (That one is even in the passive; just recognise it.)
+The Futur II sounds more formal or more emphatic, as in a promise or an official plan: *Bis Ende des Jahres wird die neue Brücke fertiggestellt worden sein* is the kind of sentence you read in a press release. (That one is even in the passive; just recognise it.)
 
 ## Use 2: a guess about the past
 
@@ -110,7 +110,7 @@ With the Futur II you have met all six German tenses of the indicative. The pict
 
 ## Text: Der Einbruch in der Bäckerei
 
-Detective series are hugely popular in German-speaking countries. The best known is *Tatort*, which has run on Sunday evenings on German public television since 1970, with teams of detectives in different cities, including Austrian and Swiss ones. Here is an original scene in that style.
+Crime stories (*Krimis*) are hugely popular in German-speaking countries. The best known is *Tatort*, which has run on Sunday evenings on German public television since 1970, with teams of detectives in different cities, including Austrian and Swiss ones. Here is an original scene in that style.
 
 > Kommissarin Yilmaz steht am Tatort, einer kleinen Bäckerei. Die Kasse ist leer, das Fenster zum Hof ist offen. „Der Täter wird durch dieses Fenster eingestiegen sein“, sagt sie. „Sehen Sie die Spuren an der Wand?“
 >
@@ -142,13 +142,13 @@ Translation:
 >
 > "Good. We'll keep investigating. By this evening we'll have questioned all the employees. And by tomorrow at the latest we'll know more."
 
-Notes: three Futur II sentences are guesses about the past (*wird … eingestiegen sein, wird … getragen haben, wird … gewusst haben*); one is a plan finished by a future point (*werden … befragt haben*). The last sentence uses the present for the future (*spätestens morgen wissen wir*). *einsteigen* (ist eingestiegen) = to climb in, get in; *der Fingerabdruck* = fingerprint; *melden* = to report; *bestätigen* = to confirm; *der Tresor* = safe; *anfassen* = to touch; *die Aushilfe* = temporary worker, temp.
+Notes: three Futur II sentences are guesses about the past (*wird … eingestiegen sein, wird … getragen haben, wird … gewusst haben*); one is a plan finished by a future point (*werden … befragt haben*). The last sentence uses the present for the future (*spätestens morgen wissen wir*). *einsteigen* (ist eingestiegen) = to climb in, get in; *der Fingerabdruck* = fingerprint; *melden* = to report; *bestätigen* = to confirm; *der Tresor* = safe; *anfassen* = to touch; *die Aushilfe* = temporary worker, temp. *einbrechen* (brach ein, ist eingebrochen) = to break in. How does it end? *Zwei Tage später nimmt die Polizei die Aushilfe fest. Die Vermutung der Kommissarin war richtig: Die Täterin hatte Schulden.* — Two days later the police arrest the temp. The detective's assumption was right: the culprit had debts.
 
 ## Pronunciation
 
 - *der Kommissar*: ko-mi-SAR, stress on the last syllable; *die Kommissarin*: ko-mi-SA-rin.
 - *das Alibi*: A-li-bi, stress on the first syllable.
-- *ermitteln*: er-MIT-teln; *die Ermittlung*: er-MITT-lung.
+- *ermitteln*: er-MIT-teln.
 - *der Verdacht*: fer-DACHT, *ch* as in *ach*; *verdächtig*: fer-DÄCH-tig, *ch* as in *ich*.
 
 ## Common mistakes

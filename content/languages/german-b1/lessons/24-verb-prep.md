@@ -117,6 +117,8 @@ You can't always guess the case, but these patterns cover most of the list:
 4. *vor* in fixed phrases is always dative: *Angst vor, sich fürchten vor, Respekt vor*.
 5. *an* is split. Thinking and getting used to: accusative (*denken an, sich erinnern an, sich gewöhnen an, glauben an*). Interest, doubt and taking part: dative (*interessiert an, das Interesse an, zweifeln an, teilnehmen an*).
 
+![A chart with three columns. Plus dative: mit, von, aus, nach and vor, with the examples zufrieden mit, abhängen von, bestehen aus, sich sehnen nach and Angst vor. Plus accusative: für, um, auf and über, with dankbar für, sich sorgen um, stolz auf, verzichten auf and sich wundern über. The third column, an: split, shows an plus accusative for thinking and getting used to (denken an, sich gewöhnen an) and an plus dative for interest, doubt and taking part (interessiert an, zweifeln an, teilnehmen an).](images/de3-m5-prep-cases.svg)
+
 ## Asking and pointing: wo(r)- and da(r)-
 
 The A2 system works for all the new words: *wo(r)-* + preposition to ask about things, preposition + *wen/wem* to ask about people.
@@ -125,6 +127,17 @@ The A2 system works for all the new words: *wo(r)-* + preposition to ask about t
 - *Wovon hängt das ab?* — What does that depend on?
 - *Um wen sorgst du dich?* — *Um meine Oma.* — Who are you worried about? — My grandma.
 - *Auf wen bist du neidisch?* — Who are you envious of?
+
+```mermaid
+flowchart TD
+  accTitle: Asking about the object of a verb with a fixed preposition
+  accDescr: Take a verb with a fixed preposition, such as sich wundern über. If you are asking about a thing or idea, use wo plus the preposition, with an r before a vowel: Worüber wunderst du dich? The answer about a thing can be referred to with da plus the preposition: darüber. If you are asking about a person, keep the preposition and add wen for the accusative or wem for the dative: Über wen wunderst du dich? Refer back to a person with the preposition plus a pronoun: über ihn.
+  A["Verb + fixed preposition: sich wundern über"] --> B{"Thing or person?"}
+  B -- "thing or idea" --> C["Question: Worüber wunderst du dich?"]
+  C --> D["Refer back: darüber"]
+  B -- person --> E["Question: Über wen wunderst du dich?"]
+  E --> F["Refer back: über ihn / über sie"]
+```
 
 To refer back to a thing, use *da(r)-*: *Bist du mit der Wohnung zufrieden? — Ja, ich bin sehr zufrieden damit.* For people, preposition + pronoun: *Bist du stolz auf deine Tochter? — Ja, sehr stolz auf sie.*
 

@@ -46,6 +46,19 @@ Another way to express a wish is *Ich wünschte* (I wish), followed by a clause 
 
 For a wish that can really come true, use the indicative: *Ich hoffe, dass du bald kommst.* or *Hoffentlich kommst du bald.* — Hopefully you'll come soon. Compare: *Ich wünschte, du kämst* (but you won't) / *Hoffentlich kommst du* (and you might).
 
+So before you choose the form, ask one question:
+
+```mermaid
+flowchart TD
+  accTitle: Hope or unreal wish?
+  accDescr: Ask whether the wish can still really come true. If yes, it is a real hope, so use the indicative with hoffentlich or ich hoffe, dass, for example Hoffentlich kommst du. If no, it is an unreal wish with the Konjunktiv II. If the wish is about now, use Wenn ich nur mehr Zeit hätte or Ich wünschte, ich hätte mehr Zeit. If it is about the past, use the past subjunctive: Hätte ich das bloß gewusst.
+  A["A wish"] --> B{"Can it still really come true?"}
+  B -- yes --> C["Indicative: Hoffentlich kommst du. / Ich hoffe, dass …"]
+  B -- no --> D{"About now or about the past?"}
+  D -- now --> E["Wenn ich nur mehr Zeit hätte! / Ich wünschte, ich hätte …"]
+  D -- past --> F["Hätte ich das bloß gewusst!"]
+```
+
 ## Giving advice
 
 German has several ways to give advice, from friendly to careful. All of them use the Konjunktiv II, which makes the advice sound like a suggestion instead of an order.
@@ -78,6 +91,8 @@ At A2 you learned *Könnten Sie …?* and *Würden Sie …?* At B1 you need a fe
 | very polite | *Wären Sie so nett, das Fenster zu schließen?* |
 | very polite | *Würde es Ihnen etwas ausmachen, das Fenster zu schließen?* |
 | formal (writing) | *Ich wäre Ihnen dankbar, wenn Sie mir die Unterlagen schicken könnten.* |
+
+![A staircase of five requests to close the window. From the bottom: Schließen Sie bitte das Fenster (direct), Können Sie bitte das Fenster schließen? (polite), Könnten Sie bitte das Fenster schließen? (more polite), Wären Sie so nett, das Fenster zu schließen? (very polite) and Ich wäre Ihnen dankbar, wenn Sie das Fenster schließen könnten (formal, in writing). An arrow pointing up is labeled more polite, more distant.](images/de3-m5-politeness.svg)
 
 Notes on the patterns:
 

@@ -3,7 +3,7 @@ id: de1-h-ankommen
 module: de1-h1
 title: 'Ankommen: registering, appointments and letters from the Amt'
 minutes: 45
-topics: [Registering and official letters, Compound nouns and linking letters]
+topics: [Registering and official letters, Abbreviations in official German]
 refs: [de1-ref-articles]
 ---
 ## What this lesson is for
@@ -182,7 +182,7 @@ Read each short form as its full words, then translate:
 
 Lukas is at his appointment.
 
-> Beamtin: Guten Morgen. Nummer 104, Herr Brandt?
+> Beamtin: Guten Morgen. Herr Brandt?
 >
 > Lukas: Ja, guten Morgen. Ich möchte mich anmelden.
 >
@@ -204,7 +204,7 @@ Lukas is at his appointment.
 >
 > Beamtin: Gern geschehen. Auf Wiedersehen!
 
-*Official: Good morning. Number 104, Mr Brandt? — Lukas: Yes, good morning. I'd like to register.
+*Official: Good morning. Mr Brandt? — Lukas: Yes, good morning. I'd like to register.
 — Official: Of course. Do you have your passport with you? — Lukas: Yes, here you are. — Official:
 Thanks. And the landlord's confirmation? — Lukas: Here it is. I've filled in the form too. —
 Official: Very good. Since when have you lived in Gartenstraße? — Lukas: Since the 10th of

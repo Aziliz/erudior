@@ -84,25 +84,23 @@ Complete: *Seit 2023 ___ das Rauchen in unserem Stadtpark ___.* (verbieten)
 
 You have seen *Den Kunden wird sofort geholfen* (lesson 16) and *Hier wird nicht geraucht* (lesson 17). Political German uses this kind of passive constantly. There are three cases.
 
-**Verbs with a dative object** (*helfen, zustimmen, widersprechen, danken, folgen*): the dative stays a dative, because only an accusative object can become a passive subject. With no subject, the verb is always in the *er/sie/es* form:
+First case, verbs with a dative object (*helfen, zustimmen, widersprechen, danken, folgen*): the dative stays a dative, because only an accusative object can become a passive subject. With no subject, the verb is always in the *er/sie/es* form:
 
 - *Der Bundestag stimmte dem Gesetz zu.* → *Dem Gesetz wurde (vom Bundestag) zugestimmt.*
 - *Viele Abgeordnete widersprachen der Ministerin.* → *Der Ministerin wurde von vielen Abgeordneten widersprochen.*
 - *Man hilft den Flutopfern schnell.* → *Den Flutopfern wird schnell geholfen.* (*die Flutopfer*: flood victims. It's *wird*, not ~~werden~~, even though *den Flutopfern* is plural.)
 
-**Verbs with a fixed preposition** (*abstimmen über, sprechen über, sorgen für, suchen nach*): the prepositional phrase stays as it is, or becomes a *da-* word (lesson 19):
+Second case, verbs with a fixed preposition (*abstimmen über, sprechen über, sorgen für, suchen nach*): the prepositional phrase stays as it is, or becomes a *da-* word (lesson 19):
 
 - *Im März wird über das Gesetz abgestimmt.* — The law will be voted on in March.
 - *Darüber wird seit Jahren gestritten.* — People have been arguing about that for years.
 - *Es wird nach einer Lösung gesucht.* — A solution is being looked for.
 
-**A dass- or ob-clause as the content**: the main clause has only *es* + passive, and the clause says what was decided, expected or checked:
+Third case, a dass- or ob-clause as the content: the main clause has only *es* + passive, and the clause says what was decided, expected or checked:
 
 - *Es wurde beschlossen, dass die Bibliothek länger geöffnet bleibt.*
 - *Es wird erwartet, dass das Gesetz im Herbst in Kraft tritt.* — It is expected that …
 - *Es wird geprüft, ob der Entwurf mit dem Grundgesetz vereinbar ist.* — It is being checked whether … (*vereinbar mit*: compatible with)
-
-Remember the *es* rule from lesson 17: *es* only fills an empty position 1. *Im März wird über das Gesetz abgestimmt* has no *es*, because *Im März* is already in position 1.
 
 ### Example 2: active to subjectless passive
 
@@ -140,11 +138,11 @@ Start: *Man kann das Grundgesetz nur mit einer Zweidrittelmehrheit ändern.*
 3. *sein + zu*: *Das Grundgesetz ist nur mit einer Zweidrittelmehrheit zu ändern.*
 4. *-bar*: *Das Grundgesetz ist nur mit einer Zweidrittelmehrheit änderbar.*
 
-All four are correct; the first two are the most common. But be careful with *sein + zu* when there is no word like *leicht, schwer, nur, kaum*: *Der Antrag ist online zu stellen* means "must be made online", not "can be made online". If you mean "can", the modal passive is safest: *Der Antrag kann online gestellt werden.*
+All four are correct; the first two are the most common. But without a word like *leicht, schwer, nur, kaum*, *sein + zu* means "must": *Der Antrag ist online zu stellen* = it must be made online. For "can", use the modal passive: *Der Antrag kann online gestellt werden.*
 
 ### An authentic sentence
 
-German laws are public, and they use exactly this grammar. Article 76 of the Basic Law says: *Vorlagen der Bundesregierung sind zunächst dem Bundesrat zuzuleiten.* Take it apart: *sind … zuzuleiten* is *sein + zu* with the separable verb *zuleiten*, and it is a rule, so it means "must": Government bills must first be sent to the Bundesrat. As a modal passive: *Vorlagen der Bundesregierung müssen zunächst dem Bundesrat zugeleitet werden.*
+Article 76 of the Basic Law says: *Vorlagen der Bundesregierung sind zunächst dem Bundesrat zuzuleiten.* *sind … zuzuleiten* is *sein + zu* with the separable verb *zuleiten*, and it is a rule, so it means "must": *Vorlagen der Bundesregierung müssen zunächst dem Bundesrat zugeleitet werden.* (Government bills must first be sent to the Bundesrat.)
 
 ## Reading critically: who did it?
 

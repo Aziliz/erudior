@@ -346,122 +346,116 @@
   explanation: |-
     Correct: "Wir schreiben uns" (we write to each other), miteinander (with each other) and "sich gegenseitig" (each other). Wrong: sich merken needs its pronoun (Ich merke mir die Nummer), and with two pronouns the accusative comes first (Ich sehe ihn mir an).
 
-# --- Honors: du or Sie? ---
+# --- Honors: feelings with the dative ---
 - id: de2-m2-r2-h14
-  lesson: de2-m2-h-du-or-sie
-  topic: Forms of address
-  stem: 'You need help from a hotel receptionist you don''t know. What do you say?'
-  choices: ['Kannst du mir helfen?', 'Könnt ihr mir helfen?', 'Kann Sie mir helfen?', 'Können Sie mir helfen?']
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
+  stem: 'How do you say "I''m cold" in German?'
+  choices: ['Ich bin kalt.', 'Mich ist kalt.', 'Ich habe kalt.', 'Mir ist kalt.']
   answer: 3
   explanation: |-
-    An adult you don't know gets Sie, and Sie always takes the plural verb form: Können Sie …? "Kann Sie" mixes Sie with a singular verb. du and ihr are informal.
+    Body sensations use sein + the dative person, with no subject: Mir ist kalt. "Ich bin kalt" describes your character (a cold person). "Ich habe kalt" is French-style, not German.
 - id: de2-m2-r2-h15
-  lesson: de2-m2-h-du-or-sie
-  topic: Forms of address
-  stem: 'Which question means "How are you?" (formal)?'
-  choices: ['Wie geht es ihnen?', 'Wie geht es Ihnen?', 'Wie geht es Sie?', 'Wie geht es sich?']
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
+  stem: 'Complete: "Ich kann mich nicht erinnern. Sein Name fällt ___ nicht ein."'
+  choices: ['ich', 'mir', 'mich', 'mein']
   answer: 1
   explanation: |-
-    es geht + dative: the dative of formal Sie is Ihnen, with a capital I. Lower-case ihnen means "them": "Wie geht es ihnen?" = How are they?
+    einfallen takes the person in the dative and the idea (sein Name) as the subject: Sein Name fällt mir nicht ein.
 - id: de2-m2-r2-h16
-  lesson: de2-m2-h-du-or-sie
-  topic: Pronouns
-  stem: 'You are talking to two friends. Complete: "Habt ihr ___ Fahrräder dabei?"'
-  choices: ['eure', 'euer', 'Ihre', 'deine']
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
+  stem: 'Complete: "Mir ___ die richtigen Wörter nicht ein."'
+  choices: ['fällt', 'falle', 'fallen', 'fällst']
+  answer: 2
+  explanation: |-
+    The subject is die richtigen Wörter (plural), so the verb is plural: fallen. The verb agrees with the thing, not with the person in the dative.
+- id: de2-m2-r2-h17
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
+  stem: 'Your friend tells you her cat is ill. You say: "Oh, das tut mir leid." What does that mean?'
+  choices: ['I''m sorry to hear that.', 'I apologise for that.', 'I don''t care about that.', 'That seems strange to me.']
   answer: 0
   explanation: |-
-    Two friends: ihr, so the possessive is euer. With the plural ending -e it loses its second e: eure Fahrräder. Ihre is for Sie, deine for one friend.
-- id: de2-m2-r2-h17
-  lesson: de2-m2-h-du-or-sie
-  topic: Forms of address
-  stem: 'What is the "Hamburger Sie"?'
-  choices: ['du with a last name', 'Sie with a first name', 'Sie with Herr or Frau and the last name', 'ihr used for one person']
+    Das tut mir leid expresses sympathy here: I'm sorry (to hear that). It can also be an apology, but nothing here is your fault. "I don't care" would be "Das ist mir egal"; "seems strange" is "Das kommt mir komisch vor".
+- id: de2-m2-r2-h18
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
+  stem: 'Which sentence is the perfect of "Mir fällt nichts ein."?'
+  choices: ['Mir hat nichts eingefallen.', 'Ich bin nichts eingefallen.', 'Mir ist nichts eingefallen.', 'Mir ist nichts einfallen.']
+  answer: 2
+  explanation: |-
+    einfallen is built on fallen, so it takes sein; the person stays dative (mir) and the participle is eingefallen.
+- id: de2-m2-r2-h19
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
+  stem: 'What does "Mathe fällt mir schwer." mean?'
+  choices: ['I dropped my maths book.', 'I find maths hard.', 'Maths is heavy for me to carry.', 'Maths is easy for me.']
   answer: 1
   explanation: |-
-    The Hamburger Sie combines Sie with a first name: Lena, kommen Sie bitte? The opposite mixture, du with a last name, is the Münchner Du. Sie with Herr/Frau and the last name is the standard polite form.
-- id: de2-m2-r2-h18
-  lesson: de2-m2-h-du-or-sie
-  topic: Forms of address
-  stem: 'You start a new job at a bank. Your boss, Frau Lange, is 55. What is the safest thing to do?'
-  choices: ['Say du, because all colleagues say du.', 'Offer her the du on your first day.', 'Say Sie and let her offer the du if she wants to.', 'Say ihr, because it is polite.']
-  answer: 2
-  explanation: |-
-    In a bank Sie is still common, and traditionally the older or more senior person offers the du. Offering it yourself on day one can seem pushy. ihr is the informal plural, not a polite form.
-- id: de2-m2-r2-h19
-  lesson: de2-m2-h-du-or-sie
-  topic: Forms of address
-  stem: 'What does "Meine Chefin hat mir das Du angeboten." mean?'
-  choices: ['My boss suggested we say du to each other.', 'My boss told me to stop saying du.', 'My boss offered me a new job.', 'My boss asked me to say Sie to her.']
-  answer: 0
-  explanation: |-
-    jemandem das Du anbieten = to offer someone the du, i.e. to suggest saying du to each other. anbieten means to offer.
+    schwerfallen + dative = to be hard for someone: I find maths hard. The opposite is leichtfallen: Mathe fällt mir leicht.
 - id: de2-m2-r2-h20
-  lesson: de2-m2-h-du-or-sie
-  topic: Forms of address
-  stem: 'Read: "In meiner alten Firma haben wir uns alle gesiezt. Hier duzen sich alle, sogar der Chef." What is true?'
-  choices: ['In the old company everyone said du.', 'In the new company only the boss says du.', 'In the new company everyone says du, even the boss.', 'He now says Sie to his boss.']
-  answer: 2
-  explanation: |-
-    sich siezen = to say Sie to each other (the old company), sich duzen = to say du to each other. "Hier duzen sich alle, sogar der Chef" = here everyone says du, even the boss.
-- id: de2-m2-r2-h21
-  lesson: de2-m2-h-du-or-sie
-  topic: Pronouns
-  stem: 'Make this formal: "Setz dich bitte!"'
-  choices: ['Setzen Sie Sich bitte!', 'Setzt euch bitte!', 'Setzen Sie Ihnen bitte!', 'Setzen Sie sich bitte!']
+  lesson: de2-m2-h-dative-feelings
+  topic: Liking and love
+  stem: 'Which sentence fits best when you say goodbye to your grandmother on the phone?'
+  choices: ['Ich bin in dich verliebt, Oma.', 'Ich finde dich nett, Oma.', 'Du gefällst mir, Oma.', 'Ich hab dich lieb, Oma.']
   answer: 3
   explanation: |-
-    The formal imperative is the verb + Sie: Setzen Sie … The reflexive pronoun for Sie is sich, and it is never capitalised. "Setzt euch" is the informal plural; Ihnen is dative, not reflexive.
+    Ich hab dich lieb is warm and not romantic: right for family and close friends. "verliebt" and "Du gefällst mir" are about romance or attraction, and "Ich finde dich nett" is far too distant for your grandmother.
+- id: de2-m2-r2-h21
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
+  stem: 'Read: "Mir ist sofort aufgefallen, dass hier alle Schüler zum Mittagessen bleiben." What does Jana say?'
+  choices: ['She noticed straight away that all the students stay for lunch.', 'She forgot that the students stay for lunch.', 'She fell over at lunch.', 'She doesn''t like staying for lunch.']
+  answer: 0
+  explanation: |-
+    auffallen + dative = to be noticed by someone: "it struck me" = I noticed. Perfect with sein: ist aufgefallen.
 - id: de2-m2-r2-h22
-  lesson: de2-m2-h-du-or-sie
+  lesson: de2-m2-h-dative-feelings
   type: text
-  caseSensitive: true
-  topic: Pronouns
-  stem: 'Make each sentence formal (Sie). Mind the capital letters. "Ist das dein Koffer?" → "Ist das ___ Koffer?" and "Ich helfe dir." → "Ich helfe ___."'
+  topic: Dative of feeling
+  stem: 'Type one word for each blank: "Ist ___ kalt?" (asking a friend: Are you cold?) and "Nein, aber ___ ist schlecht." (No, but I feel sick.)'
   accept:
-    - [Ihr]
-    - [Ihnen]
+    - [dir]
+    - [mir]
   explanation: |-
-    The possessive of Sie is Ihr (Ihr Koffer) and the dative is Ihnen (helfen takes the dative). Both need a capital: lower-case ihr Koffer means "her suitcase", and ich helfe ihnen means "I help them".
+    Body sensations put the person in the dative: dir (you, informal) and mir (me). The verb stays ist because there is no real subject.
 - id: de2-m2-r2-h23
-  lesson: de2-m2-h-du-or-sie
+  lesson: de2-m2-h-dative-feelings
   type: match
-  topic: Forms of address
-  stem: 'Match each situation to the form of address you would normally use (a simplified rule).'
+  topic: Dative of feeling
+  stem: 'Match each sentence to its meaning.'
   pairs:
-    - [your little sister, du]
-    - [two school friends, ihr]
-    - [a police officer, Sie]
-    - [a group of customers you don't know, Sie]
-    - [your team-mates at the football club, ihr]
+    - ['Das ist mir egal.', I don't mind.]
+    - ['Du tust mir leid.', I feel sorry for you.]
+    - ['Das kommt mir komisch vor.', That seems strange to me.]
+    - ['Mir ist schwindlig.', I feel dizzy.]
+    - ['Du bist mir wichtig.', You matter to me.]
+  distractors: [I'm sorry, it was my fault.]
   explanation: |-
-    One person you are close to: du. Several people you are close to: ihr. Adults you don't know, one or many, and officials: Sie. Sports clubs usually use du, so a group of team-mates is ihr.
+    egal sein = not to matter, leidtun with a person as subject = pity, vorkommen = to seem, schwindlig = dizzy, wichtig sein = to matter. An apology is "Es tut mir leid", not "Du tust mir leid".
 - id: de2-m2-r2-h24
-  lesson: de2-m2-h-du-or-sie
-  topic: Forms of address
+  lesson: de2-m2-h-dative-feelings
+  topic: Dative of feeling
   stem: 'Which sentences are correct? Select all that apply.'
-  choices: ['Kommen Sie morgen?', 'Kommt Sie morgen?', 'Wollen wir uns duzen?', 'Können Sie mir dein Handy geben?', 'Liebe Maria, wie Du weißt, ziehe ich um.']
+  choices: ['Mir ist langweilig.', 'Ich bin schlecht, ich muss nach Hause.', 'Es ist mir wichtig, dass du kommst.', 'Mir hat nichts eingefallen.', 'Deutsch fällt mir leicht.']
   answer: [0, 2, 4]
   explanation: |-
-    Correct: Sie takes the plural verb (Kommen Sie), "Wollen wir uns duzen?" is the usual way to offer the du, and in a personal letter du may be capitalised. Wrong: "Kommt Sie" (singular verb) and "Sie … dein Handy" (mixed forms: Ihr Handy).
+    Correct: Mir ist langweilig (I'm bored), Es ist mir wichtig, dass … (es holds position 1 for the clause), Deutsch fällt mir leicht. Wrong: "I feel sick" is Mir ist schlecht (Ich bin schlecht = I'm bad at something or a bad person), and einfallen takes sein: Mir ist nichts eingefallen.
 - id: de2-m2-r2-h25
-  lesson: de2-m2-h-du-or-sie
+  lesson: de2-m2-h-dative-feelings
   type: order
-  topic: Forms of address
-  stem: 'Put the conversation in order.'
-  items: ['Petra Lange: Herr Berger, wir arbeiten jetzt seit einem Jahr zusammen. Wollen wir uns nicht duzen?', 'Tom Berger: Sehr gern!', 'Petra Lange: Schön. Ich bin die Petra.', 'Tom Berger: Und ich bin Tom. Möchtest du einen Kaffee, Petra?']
+  topic: Dative of feeling
+  stem: 'Put the words in order: "Is it all right with you if I come later?"'
+  items: ['Ist', 'es', 'dir', 'recht,', 'wenn ich', 'später komme?']
   explanation: |-
-    Petra, the senior colleague, offers the du while still using Sie (Herr Berger). Tom accepts, she gives her first name, and only then does Tom switch to du and the first name.
+    A yes/no question starts with the verb ist. Then the two pronouns: the subject es (standing for the wenn-clause) comes before the dative dir, since a short subject pronoun always comes first. The adjective recht closes the main clause, and the wenn-clause has its verb komme at the end.
 - id: de2-m2-r2-h26
-  lesson: de2-m2-h-du-or-sie
-  type: match
-  topic: Forms of address
-  stem: 'Match each phrase to its meaning.'
-  pairs:
-    - [sich duzen, to say du to each other]
-    - [sich siezen, to say Sie to each other]
-    - [jemandem das Du anbieten, to offer someone the du]
-    - [Hallo zusammen!, Hello everyone!]
-    - [Meine Damen und Herren, Ladies and gentlemen]
-  distractors: [to say goodbye]
+  lesson: de2-m2-h-dative-feelings
+  type: order
+  topic: Dative of feeling
+  stem: 'Put the words in order: "I couldn''t think of the names."'
+  items: ['Mir', 'sind', 'die Namen', 'nicht', 'eingefallen.']
   explanation: |-
-    duzen and siezen are often reciprocal (wir duzen uns). das Du anbieten is the step from Sie to du. Hallo zusammen greets a group informally; Meine Damen und Herren addresses an audience formally.
+    The dative mir takes position 1, the auxiliary sind (plural, because the subject is die Namen, and sein because of fallen) comes second, then the subject, nicht, and the participle eingefallen at the end.

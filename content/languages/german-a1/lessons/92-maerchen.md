@@ -92,8 +92,8 @@ tables list three forms for each verb: the infinitive, the simple past and the p
 (*gehen, ging, gegangen*). These are the verb's **principal parts**. Learn them together, like a
 noun with its article.
 
-Modal verbs take *-te* and lose their umlaut: *können → konnte*, *müssen → musste*, *wollen →
-wollte*. *Er konnte nicht mehr arbeiten* — He couldn't work any more.
+Modal verbs take *-te* and lose their umlaut, as you saw in the module 6 honors lesson: *konnte,
+musste, wollte*.
 
 The endings for the other persons are the same as for *war* (lesson 22): *ich ging, du gingst,
 er ging, wir gingen, ihr gingt, sie gingen*. In stories you mostly meet *er, sie, es* and *sie*
@@ -108,8 +108,8 @@ When you meet an unknown verb form in a story, ask:
 2. Is it a short word with a different vowel, and no ending? Then it's probably a strong verb
    (*kam, sah, lief*). Try the vowels you know from the participle or the present: *gesprungen →
    springen → sprang*.
-3. Still stuck? Look at the context and the English: many strong verbs are strong in English
-   too: *sing / sang*, *drink / drank*, *come / came*, *find / found*.
+3. Still stuck? Many strong verbs are strong in English too: *drink / drank*, *come / came*,
+   *find / found*.
 
 ### Example 1: From the simple past to the infinitive
 
@@ -134,7 +134,7 @@ Wald* (forest), *das Licht* (light), *die Angst* (fear; *Angst haben*: to be afr
 >
 > Bald sahen sie eine Katze. Sie saß traurig am Weg. Auch sie war alt und konnte keine Mäuse mehr fangen. Die Katze kam mit.
 >
-> Dann kamen die drei zu einem Bauernhof. Dort saß ein Hahn auf dem Tor und schrie laut. „Morgen kocht die Frau eine Suppe aus mir!", rief er. „Komm mit uns!", sagten die Tiere. Und so waren sie zu viert.
+> Dann kamen die drei zu einem Bauernhof. Ein Hahn stand auf dem Zaun und rief: „Kikeriki! Morgen kocht die Bäuerin eine Suppe aus mir!" „Komm mit uns!", sagten die Tiere. Und so waren sie zu viert.
 >
 > Bremen war weit. Am Abend kamen sie in einen Wald. Da sahen sie ein Licht. Es war ein Haus. Der Esel ging zum Fenster und sah hinein. Am Tisch saßen Räuber. Sie aßen und tranken. Die Tiere hatten großen Hunger, und sie machten einen Plan.
 >
@@ -151,9 +151,9 @@ didn't want him any longer. So the donkey ran away. "I'm going to Bremen," he sa
 make music." On the way he found a dog. The dog was lying tired by the road. "I'm old, and my
 master doesn't want me any more," he said. "Come with me to Bremen!" called the donkey. "We'll
 make music together." Soon they saw a cat. She was sitting sadly by the path. She was old too and
-couldn't catch mice any more. The cat came along. Then the three came to a farm. There a rooster
-was sitting on the gate, crowing loudly. "Tomorrow the woman is going to make soup out of me!" he
-cried. "Come with us!" said the animals. And so there were four of them. Bremen was far away. In
+couldn't catch mice any more. The cat came along. Then the three came to a farm. A rooster was
+standing on the fence and called: "Cock-a-doodle-doo! Tomorrow the farmer's wife is going to make
+soup out of me!" "Come with us!" said the animals. And so there were four of them. Bremen was far away. In
 the evening they came into a forest. There they saw a light. It was a house. The donkey went to
 the window and looked in. Robbers were sitting at the table. They were eating and drinking. The
 animals were very hungry, and they made a plan. The donkey stood at the window. The dog jumped
@@ -166,10 +166,9 @@ the donkey kicked him, and the rooster called "Cock-a-doodle-doo!" The robber ra
 others. "A witch lives in the house!" he said. The robbers never came back. And the four
 musicians? They liked the house very much and stayed there. They never got to Bremen.*
 
-This retelling is shorter than the Grimms' version: in their story, for example, the frightened
-robber describes the cat as a witch, the dog as a man with a knife and the donkey as a black
-monster with a club. The Grimms' own text is free to read (it is long out of copyright), but its
-1819 German is well above A1, so save it for later.
+This retelling is much shorter than the Grimms' version, where the frightened robber describes
+each animal as a different monster. Their text is long out of copyright and free to read, but its
+German is well above A1, so save it for later.
 
 ![Four animals standing on each other's backs, in the famous pose of the Bremen Town Musicians: a donkey at the bottom, a dog on the donkey, a cat on the dog and a rooster at the top, with a lit window behind them.](images/de1-h1-musicians.svg)
 
@@ -194,8 +193,8 @@ perfect, as in lesson 22. *Bellte* and *machten* end in *-te(n)*: weak verbs. Al
 change their vowel: strong verbs. (In southern Germany and Austria you'll also hear *ist
 gestanden*, lesson 22.)
 
-Notice also *auf den Esel* (accusative) for movement onto something, but *am Fenster* (dative)
-for where the donkey stood. That's the *Wohin? / Wo?* difference from the *Zusammen wohnen* lesson of this module.
+Notice also *auf den Esel* (accusative, *Wohin?*) but *am Fenster* (dative, *Wo?*), as in the
+*Zusammen wohnen* lesson.
 
 ## Pronunciation
 

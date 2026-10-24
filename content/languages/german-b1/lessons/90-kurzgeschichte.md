@@ -10,7 +10,7 @@ refs: [de3-ref-past-future]
 
 In lesson 1 you learned to write stories in the simple past and met the words for books: *der Roman, der Autor, die Figur, die Handlung, das Kapitel*. In lesson 2 the past perfect let you step back in time inside a story. This honors module puts that grammar to work on real reading: literature, history and society. It starts with the most typical German school text of all, the **short story** (*die Kurzgeschichte*).
 
-Almost every pupil in Germany, Austria and Switzerland reads short stories in class and writes about them. You'll learn what makes a Kurzgeschichte a Kurzgeschichte, read an original one written for this course, find its turning point and its gaps, and write the standard German school summary, the *Inhaltsangabe*. That last skill is useful far beyond literature: it's how you summarise a film, a news report or a meeting.
+Almost every pupil in Germany, Austria and Switzerland reads short stories in class. You'll learn what makes a Kurzgeschichte, read one written for this course, find its turning point and its gaps, and write the standard German school summary, the *Inhaltsangabe*, a skill you can use for any film, report or meeting.
 
 ## Where the Kurzgeschichte comes from
 
@@ -21,7 +21,7 @@ Their stories about hunger, ruins and soldiers coming home are called **rubble l
 - Wolfgang Borchert (1921–1947) wrote his stories in the two years between the end of the war and his early death. In *Das Brot* (written in 1946), an old couple meet in the kitchen at night in a time of hunger; one of them has secretly eaten a slice of bread, and neither says so.
 - Heinrich Böll (1917–1985) started with short stories about the war and its aftermath and later wrote novels. He won the Nobel Prize in Literature in 1972.
 
-Today's Kurzgeschichten are about anything: families, work, love, getting old. But the form those writers shaped is still what schools teach.
+Today's Kurzgeschichten are about anything, but the form those writers shaped is still what schools teach.
 
 ## What makes a Kurzgeschichte
 
@@ -37,11 +37,11 @@ German teachers use a checklist of typical features (*Merkmale*). It's a simplif
 | everyday language | *Alltagssprache* | short sentences, simple words, a lot of dialogue |
 | gaps | *Leerstellen* | important things are not said; the reader has to fill them in |
 
-The **open ending** and the gaps are why readers argue about short stories. A fairy tale closes every door (*Und wenn sie nicht gestorben sind, dann leben sie noch heute*). A Kurzgeschichte leaves doors open on purpose. The **turning point** is usually small: a sentence, a look, an object. Nothing explodes, but afterwards a character sees the world differently.
+The **open ending** and the gaps are why readers argue about short stories. A fairy tale closes every door (*Und wenn sie nicht gestorben sind, dann leben sie noch heute*); a Kurzgeschichte leaves them open on purpose. The **turning point** is usually small: a sentence, a look, an object. Nothing explodes, but afterwards a character sees the world differently.
 
 The difference shows clearly if you draw how the tension (*die Spannung*) rises and falls:
 
-![A graph with time on the horizontal axis and tension on the vertical axis. A grey dashed curve for a fairy tale starts at zero, rises to a peak and falls back to zero at a happy ending. A blue curve for a short story starts halfway up, rises to a peak marked as the turning point, falls a little and then stops in the air, continuing as a dotted line with a question mark. Labels name the parts of the blue curve: unvermittelter Anfang, Hauptteil, Wendepunkt, offener Schluss.](images/de3-h1-tension.svg)
+![Tension over time. A grey dashed fairy-tale curve starts at zero, rises and falls back to zero. A blue short-story curve starts halfway up, rises to the turning point, falls a little and stops in the air with a dotted line and a question mark. Labels: unvermittelter Anfang, Hauptteil, Wendepunkt, offener Schluss.](images/de3-h1-tension.svg)
 
 ## Text: Der Zettel
 
@@ -100,7 +100,7 @@ Go through the checklist with *Der Zettel*.
 5. Gaps: the word "illness" never appears. Nobody says "Dad is getting forgetful". The reader works it out from three bottles of milk and a name written three times. Why does she put the note in her pocket? To keep it? So that he doesn't see it again? The text doesn't say.
 6. Open ending: will he remember Monday? What happens next? We don't find out.
 
-So *Der Zettel* has all the typical features. Notice that the gaps don't make the story vague; the details are very exact. A good Kurzgeschichte is exact about things and silent about feelings.
+Notice that the gaps don't make the story vague: a good Kurzgeschichte is exact about things and silent about feelings.
 
 ## Who tells the story?
 
@@ -109,7 +109,7 @@ The **narrator** (*der Erzähler, die Erzählerin*) is the voice that tells the 
 - A **first-person narrator** (*der Ich-Erzähler*) is a character in the story and says *ich*: *Als ich aus dem Bus stieg, regnete es.* We only know what this person knows and thinks.
 - A **third-person narrator** (*der Er-Erzähler / Sie-Erzähler*) talks about the characters as *er* and *sie*: *Als Jana aus dem Bus stieg …*. This narrator can stay close to one character, as in *Der Zettel*, where we see everything through Jana's eyes, or can know everything about everyone.
 
-Which perspective (*die Perspektive*) the author chooses changes what the reader is allowed to know. In *Der Zettel*, we never learn what the father thinks; that silence is part of the story.
+The perspective (*die Perspektive*) decides what the reader may know: in *Der Zettel* we never learn what the father thinks.
 
 ## Writing an Inhaltsangabe
 
@@ -151,7 +151,7 @@ Step 2, the main events in the present tense. Compare the story's sentences with
 
 Step 3, the ending, without opinion: *Der Vater freut sich darüber. Die Geschichte endet offen.*
 
-Put together, that's a complete Inhaltsangabe of about 70 words. Notice what's missing: the rain, the hood, the football match, and any word like *traurig*. And notice *hat … geschrieben*: what happened before the story's present is in the perfect, just as the past perfect was in the story.
+Put together, that's a complete Inhaltsangabe of about 70 words, without the rain, the hood, the football match or any word like *traurig*. Note *hat … geschrieben*: what happened earlier is in the perfect.
 
 ## Common mistakes
 
@@ -160,7 +160,6 @@ Put together, that's a complete Inhaltsangabe of about 70 words. Notice what's m
 - Giving your opinion in the summary: ~~Die Geschichte ist sehr traurig.~~ That belongs in the interpretation, not the Inhaltsangabe.
 - Mixing up narrator and author: in a first-person story, *ich* is the narrator, not necessarily the author.
 - Naming the topic instead of the theme: ~~Es geht um Milch und einen Zettel.~~ Say what the story is really about: *Es geht um eine Tochter, die merkt, dass ihr Vater vergesslich wird.*
-- *die Geschichte* means "story" and "history"; a short story as a literary form is *die Kurzgeschichte*. *die Erzählung* is a general word for a narrative text, usually longer.
 
 ## Key points
 

@@ -38,10 +38,14 @@
   three highest mountains.
 
 ## Vocabulary, glossary, cards
-- `vocab-r2-de2-m3.yaml`: 25 words (w01–w14 for 12h1: Erwachsene/Jugendliche/Verwandte/Deutsche
-  m+f, fließend, folgend, hausgemacht, gefüllt, die Paprika, das Würstchen; w15–w25 for 12h2: die
-  Fläche, die Bevölkerung, der Meter, doppelt, mindestens, höchstens, deutschsprachig, insgesamt,
-  knapp, übrigens, mit Abstand). geöffnet/geschlossen were dropped: German A1 round 2 now has them.
+- `vocab-r2-de2-m3.yaml`: 16 words (w01–w08 for 12h1: die Erwachsene, die Jugendliche, fließend,
+  folgend, hausgemacht, gefüllt, die Paprika, das Würstchen; w09–w16 for 12h2: die Fläche, der
+  Meter, doppelt, mindestens, höchstens, deutschsprachig, übrigens, mit Abstand). geöffnet/geschlossen
+  were dropped: German A1 round 2 now has them.
+- Follow-up fix: removed 9 words that German B1 (which requires A2) already teaches, since they broke
+  the B1 build: der Erwachsene, der Jugendliche, der Verwandte, die Verwandte, der Deutsche, die
+  Deutsche, die Bevölkerung, insgesamt, knapp. They stay in the lessons as glossed words; ids were
+  renumbered (nothing referenced them).
 - `glossary-r2-de2-m3.yaml`: weak declension, mixed declension, strong declension, present
   participle, place-name adjective, positive, intensifier.
 - `cards-r2-de2-m3.yaml`: 21 cards (10 for 12h1, 11 for 12h2).
