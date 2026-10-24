@@ -400,7 +400,7 @@
 - id: phys-m8-r2-h09
   lesson: phys-m8-h-images
   topic: Method of images
-  stem: 'For the sphere in the previous setup ($+8.0$ nC charge 40 cm from the center of a grounded sphere of radius 10 cm; image $-2.0$ nC at 2.5 cm from the center), what is the force on the charge?'
+  stem: 'A $+8.0$ nC charge is 40 cm from the center of a grounded metal sphere of radius 10 cm, so its image is $-2.0$ nC at 2.5 cm from the center. What is the magnitude of the force on the charge? ($k = 8.99\times10^9$ N·m²/C²)'
   choices: ['$8.99\times10^{-7}$ N', '$1.6\times10^{-6}$ N', '$1.0\times10^{-6}$ N', '$4.1\times10^{-6}$ N']
   answer: 2
   explanation: |-

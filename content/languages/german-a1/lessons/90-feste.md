@@ -63,9 +63,8 @@ if that is later). Many towns now have their own smaller *Oktoberfest*.
 ## Spring: Karneval and Ostern
 
 *Karneval* is the season of costumes and parades before Lent, the Christian time of fasting
-before Easter. It has three names, depending on the region: *Karneval* in the Rhineland (Cologne,
-Düsseldorf, Mainz), *Fasching* in Bavaria and Austria, and *Fastnacht* or *Fasnacht* in the
-south-west and in Switzerland. The big street days come in February or early March and end on
+before Easter. It has three names, depending on the region: *Karneval* in Cologne and Düsseldorf, *Fasching* in
+Bavaria and Austria, and *Fastnacht* or *Fasnacht* in Mainz, the south-west and Switzerland. The big street days come in February or early March and end on
 Ash Wednesday (*Aschermittwoch*). In Cologne people shout *Alaaf!*, in Düsseldorf and Mainz
 *Helau!* Officially the new carnival season starts on the 11th of November at 11:11.
 
@@ -109,7 +108,7 @@ flowchart TD
 
 In German-speaking countries the presents come on the evening of the 24th, *Heiligabend*, not on
 the morning of the 25th. In much of the south and west, and in Austria, children are told the
-*Christkind* (a child-like angel figure) brings them; in the north and east it is more often the
+*Christkind* (the "Christ child", often pictured as a young angel) brings them; in the north and east it is more often the
 *Weihnachtsmann* (Father Christmas). The map isn't sharp, so take this as a rough rule. Both the
 25th and the 26th of December are public holidays: *der erste und der zweite Weihnachtsfeiertag*.
 
@@ -170,9 +169,10 @@ a message in lesson 23 (greeting, text, closing) and the wishes above:
 
 *Dear Keller family, merry Christmas and a happy New Year! Thanks for the biscuits! Best wishes,
 Ana.* Notice two things. After the comma in the greeting, the text starts with a small letter
-(*frohe*), as in lesson 23. And inside a sentence, after *und*, *Guten Rutsch* becomes *einen
-guten Rutsch*: it's the object of a wish ("I wish you a good slide"), so the masculine takes the
-accusative *einen*. Copy this whole line as a chunk: *frohe Weihnachten und einen guten Rutsch!*
+(*frohe*), as in lesson 23. And *Guten Rutsch!* is really short for *Ich wünsche dir einen guten
+Rutsch* (I wish you a good slide): the slide is the object of the wish, so it is in the accusative,
+and in a longer wish the *einen* often comes back. Copy this whole line as a chunk: *frohe
+Weihnachten und einen guten Rutsch!*
 (*Die Kekse* are biscuits or cookies.)
 
 ### Example 2: Choosing the right preposition
@@ -195,14 +195,14 @@ Ana is from Brazil and lives in Leipzig. She writes to her friend Tom.
 
 > Hallo Tom,
 >
-> wie geht es dir? Hier in Leipzig ist es jetzt kalt, aber sehr schön. Im Advent ist die Stadt
-> voll Licht, und auf dem Marktplatz gibt es einen großen Weihnachtsmarkt. Ich trinke dort oft
+> wie geht es dir? Hier in Leipzig ist es jetzt kalt, aber sehr schön. Im Advent hat die Stadt
+> viele Lichter, und auf dem Marktplatz gibt es einen großen Weihnachtsmarkt. Ich trinke dort oft
 > einen Glühwein mit meinen Kollegen.
 >
-> Am 6. Dezember habe ich eine Überraschung gehabt: Meine Nachbarin hat Schokolade in meine
+> Am 6. Dezember hatte ich eine Überraschung: Meine Nachbarin hat Schokolade in meine
 > Stiefel gelegt! Sie hat gesagt: „Das war der Nikolaus!"
 >
-> An Heiligabend bin ich bei Familie Keller. Es gibt Kartoffelsalat mit Würstchen, und danach
+> Am Heiligabend bin ich bei Familie Keller. Es gibt Kartoffelsalat mit Würstchen, und danach
 > bekommen die Kinder ihre Geschenke. Am 25. und 26. Dezember sind alle Geschäfte zu. An Silvester
 > feiere ich mit Freunden, und um Mitternacht sehen wir das Feuerwerk.
 >
@@ -237,19 +237,18 @@ because the evening is for the family and the presents.
 >
 > Mia: Super. Soll ich etwas mitbringen?
 >
-> Jonas: Vielleicht einen Salat? Und dann schauen wir zusammen „Dinner for One".
+> Jonas: Vielleicht einen Salat? Und dann sehen wir zusammen „Dinner for One".
 >
-> Mia: Natürlich! Also, bis Silvester. Guten Rutsch, falls wir uns nicht mehr sehen!
+> Mia: Natürlich! Also, bis Silvester!
 
 *Jonas: What are you doing on New Year's Eve? — Mia: I don't know yet. And you? — Jonas: We're
 having a party at my place. Would you like to come? — Mia: I'd love to! When does the party
 start? — Jonas: At eight. At midnight we'll all go out on the balcony and watch the fireworks. —
 Mia: Great. Shall I bring something? — Jonas: Maybe a salad? And then we'll watch "Dinner for One"
-together. — Mia: Of course! So, see you on New Year's Eve. Happy New Year, in case we don't see
-each other again before then!*
+together. — Mia: Of course! So, see you on New Year's Eve!*
 
-*Mitbringen* (to bring along) is separable like *mitkommen*. *Falls* (in case) is a word for A2;
-here it's just glossed.
+*Mitbringen* (to bring along) is separable like *mitkommen*: *Soll ich etwas mitbringen?* —
+Shall I bring something?
 
 ## Pronunciation
 
