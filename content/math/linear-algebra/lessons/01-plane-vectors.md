@@ -77,7 +77,7 @@ The plot draws several multiples of $\mathbf{v} = \begin{bmatrix} 2 \\ 1\end{bma
 tails in different places (position doesn't matter): all of them are parallel to $\mathbf{v}$.
 
 ```plot
-{"x": [-1, 7], "y": [-3, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "v"}, {"from": [0, -2], "to": [4, 0], "arrow": true, "label": "2v"}, {"from": [4, 3], "to": [2, 2], "arrow": true, "label": "−v"}, {"from": [5, -1], "to": [6, -0.5], "arrow": true, "label": "0.5v"}], "caption": "Multiples of v = (2, 1): all parallel to v; −v points the opposite way"}
+{"x": [-1, 7], "y": [-3, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "v"}, {"from": [1, -2.5], "to": [5, -0.5], "arrow": true, "label": "2v"}, {"from": [4, 3], "to": [2, 2], "arrow": true, "label": "−v"}, {"from": [5, 1.5], "to": [6, 2], "arrow": true, "label": "0.5v"}], "caption": "Multiples of v = (2, 1): all parallel to v; −v points the opposite way"}
 ```
 
 Put the two operations together and you get the central object of the whole course, a

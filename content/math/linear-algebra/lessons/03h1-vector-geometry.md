@@ -69,7 +69,7 @@ $PR : RQ = 2 : 1$.
 4. Check with the section formula: $\frac{1\cdot(-2, 1) + 2\cdot(7, 7)}{3} = \frac{(12, 15)}{3} = (4, 5)$. ✓
 
 ```plot
-{"x": [-3, 8], "y": [0, 8], "equal": true, "segments": [{"from": [-2, 1], "to": [7, 7]}], "points": [{"at": [-2, 1], "label": "P"}, {"at": [7, 7], "label": "Q"}, {"at": [4, 5], "label": "R (2/3 of the way)"}], "caption": "R divides PQ in the ratio 2 : 1"}
+{"x": [-3, 8], "y": [0, 8], "equal": true, "segments": [{"from": [-2, 1], "to": [7, 7]}], "points": [{"at": [-2, 1]}, {"at": [7, 7]}, {"at": [4, 5]}], "labels": [{"at": [-2, 1.8], "text": "P"}, {"at": [7, 7.7], "text": "Q"}, {"at": [5.3, 4.2], "text": "R (2/3 of the way)"}], "caption": "R divides PQ in the ratio 2 : 1"}
 ```
 
 ## Lines, parallel vectors and collinear points
@@ -170,7 +170,7 @@ $P = (3, 0)$, $Q = (7, 2.5)$, $R = (4.5, 5.5)$, $S = (0.5, 3)$, and
 $\overrightarrow{PQ} = (4, 2.5) = \overrightarrow{SR}$.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [6, 0], [8, 5], [1, 6]]}], "segments": [{"from": [3, 0], "to": [7, 2.5], "dashed": true}, {"from": [7, 2.5], "to": [4.5, 5.5], "dashed": true}, {"from": [4.5, 5.5], "to": [0.5, 3], "dashed": true}, {"from": [0.5, 3], "to": [3, 0], "dashed": true}], "points": [{"at": [3, 0], "label": "P"}, {"at": [7, 2.5], "label": "Q"}, {"at": [4.5, 5.5], "label": "R"}, {"at": [0.5, 3], "label": "S"}], "labels": [{"at": [-0.4, -0.4], "text": "A"}, {"at": [6.4, -0.4], "text": "B"}, {"at": [8.4, 5.3], "text": "C"}, {"at": [0.7, 6.4], "text": "D"}], "caption": "Varignon: the midpoints P, Q, R, S always form a parallelogram"}
+{"polygons": [{"points": [[0, 0], [6, 0], [8, 5], [1, 6]]}], "segments": [{"from": [3, 0], "to": [7, 2.5], "dashed": true}, {"from": [7, 2.5], "to": [4.5, 5.5], "dashed": true}, {"from": [4.5, 5.5], "to": [0.5, 3], "dashed": true}, {"from": [0.5, 3], "to": [3, 0], "dashed": true}], "points": [{"at": [3, 0]}, {"at": [7, 2.5]}, {"at": [4.5, 5.5]}, {"at": [0.5, 3]}], "labels": [{"at": [3, -0.5], "text": "P"}, {"at": [7.5, 2.3], "text": "Q"}, {"at": [4.6, 6.1], "text": "R"}, {"at": [0.0, 3.1], "text": "S"}, {"at": [-0.4, -0.4], "text": "A"}, {"at": [6.4, -0.4], "text": "B"}, {"at": [8.4, 5.3], "text": "C"}, {"at": [0.7, 6.4], "text": "D"}], "caption": "Varignon: the midpoints P, Q, R, S always form a parallelogram"}
 ```
 
 The proof never used convexity, so the theorem holds for non-convex quadrilaterals too.

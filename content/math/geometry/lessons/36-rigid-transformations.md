@@ -57,7 +57,7 @@ Reflect $P(5, -2)$ in (a) the $y$-axis, (b) the line $y = x$, (c) the line $x = 
 The picture shows part (b): the line $y = x$ is the perpendicular bisector of the segment from $P$ to its image.
 
 ```plot
-{"x": [-5, 7], "y": [-4, 7], "equal": true, "functions": [{"f": "x", "dashed": true, "label": "y = x"}], "segments": [{"from": [5, -2], "to": [-2, 5], "dashed": true}], "rightAngles": [[[1.5, 1.5], [5, -2], [4, 4]]], "points": [{"at": [5, -2], "label": "P(5, −2)"}, {"at": [-2, 5], "label": "P′(−2, 5)"}, {"at": [1.5, 1.5], "label": "(1.5, 1.5)"}], "caption": "Reflecting in y = x swaps the coordinates; the midpoint (1.5, 1.5) lies on the mirror line."}
+{"x": [-5, 7], "y": [-4, 7], "equal": true, "functions": [{"f": "x", "dashed": true, "label": "y = x"}], "segments": [{"from": [5, -2], "to": [-2, 5], "dashed": true}], "rightAngles": [[[1.5, 1.5], [5, -2], [4, 4]]], "points": [{"at": [5, -2], "label": "P(5, −2)"}, {"at": [-2, 5], "label": "P′(−2, 5)"}, {"at": [1.5, 1.5]}], "labels": [{"at": [3.7, 1.25], "text": "(1.5, 1.5)"}], "caption": "Reflecting in y = x swaps the coordinates; the midpoint (1.5, 1.5) lies on the mirror line."}
 ```
 
 ## Rotations

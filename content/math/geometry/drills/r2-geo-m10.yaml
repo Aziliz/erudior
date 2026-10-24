@@ -42,23 +42,25 @@
     a2: {min: 10, max: 40}
     B: {min: 30, max: 80}
     C: {min: 30, max: 80}
-    D1: {min: 60, max: 130}
-  where: ["a1 + B + D1 <= 178", "a2 + C <= D1 - 2"]
   calc:
     A: a1 + a2
+    chc: (cosd(C) + cosd(A)*cosd(B))/(sind(A)*sind(B))
+    Dx: acosd(sind(a1)*sind(B)*chc - cosd(a1)*cosd(B))
+    D1: round(Dx)
     D2: 180 - D1
     whole: 180 - A - B - C
     s1: a1 + B + D1
     s2: a2 + C + D2
     def1: 180 - s1
     def2: 180 - s2
-  prompt: 'In hyperbolic geometry, $\triangle ABC$ has $\angle A = {A}^\circ$, $\angle B = {B}^\circ$ and $\angle C = {C}^\circ$. A segment from $A$ to a point $D$ on $\overline{BC}$ makes $\angle BAD = {a1}^\circ$ and $\angle ADB = {D1}^\circ$. Find the defects of $\triangle ABC$, $\triangle ABD$ and $\triangle ADC$, in degrees.'
+  where: ["whole >= 4", "abs(Dx - D1) < 0.03", "def1 >= 1", "def2 >= 1"]
+  prompt: 'In hyperbolic geometry, $\triangle ABC$ has $\angle A = {A}^\circ$, $\angle B = {B}^\circ$ and $\angle C = {C}^\circ$. A segment from $A$ to a point $D$ on $\overline{BC}$ makes $\angle BAD = {a1}^\circ$, and then $\angle ADB = {D1}^\circ$ (to the nearest degree). Find the defects of $\triangle ABC$, $\triangle ABD$ and $\triangle ADC$, in degrees.'
   answers:
     - {name: whole, label: 'Defect of $\triangle ABC$'}
     - {name: def1, label: 'Defect of $\triangle ABD$'}
     - {name: def2, label: 'Defect of $\triangle ADC$'}
   solution: |-
-    Whole triangle: $180 - ({A} + {B} + {C}) =$ **{whole}°**. In $\triangle ABD$ the angles are ${a1}^\circ$, ${B}^\circ$, ${D1}^\circ$, sum ${s1}^\circ$, so its defect is **{def1}°**. In $\triangle ADC$: $\angle DAC = {A} - {a1} = {a2}^\circ$ and $\angle ADC = 180 - {D1} = {D2}^\circ$ (a linear pair), with $\angle C = {C}^\circ$; the sum is ${s2}^\circ$ and the defect is **{def2}°**. Check: ${def1} + {def2} = {whole}$, because defect is additive.
+    Whole triangle: $180 - ({A} + {B} + {C}) =$ **{whole}°**. In $\triangle ABD$ the angles are ${a1}^\circ$, ${B}^\circ$, ${D1}^\circ$, sum ${s1}^\circ$, so its defect is **{def1}°**. In $\triangle ADC$: $\angle DAC = {A} - {a1} = {a2}^\circ$ and $\angle ADC = 180 - {D1} = {D2}^\circ$ (a linear pair), with $\angle C = {C}^\circ$; the sum is ${s2}^\circ$ and the defect is **{def2}°**. Check: ${def1} + {def2} = {whole}$, because defect is additive. (In hyperbolic geometry the angles of a triangle determine it, so $\angle ADB$ is not free to choose: it was computed from the other angles with hyperbolic trigonometry.)
 
 - id: geo-m10-r2-saccheri
   title: Angles of a Saccheri quadrilateral

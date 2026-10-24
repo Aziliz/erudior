@@ -91,7 +91,7 @@ Show that $A(1, 2)$, $B(5, 5)$, $C(8, 1)$, $D(4, -2)$ is a square.
 **Step 3.** A rhombus with a right angle is a square.
 
 ```plot
-{"x": [-1, 10], "y": [-4, 7], "equal": true, "polygons": [{"points": [[1, 2], [5, 5], [8, 1], [4, -2]]}], "rightAngles": [[[5, 5], [1, 2], [8, 1]]], "points": [{"at": [1, 2], "label": "A(1, 2)"}, {"at": [5, 5], "label": "B(5, 5)"}, {"at": [8, 1], "label": "C(8, 1)"}, {"at": [4, -2], "label": "D(4, −2)"}], "caption": "The square of Example 3: four sides of length 5 and a right angle at B."}
+{"x": [-1, 10], "y": [-4, 7], "equal": true, "polygons": [{"points": [[1, 2], [5, 5], [8, 1], [4, -2]]}], "rightAngles": [[[5, 5], [1, 2], [8, 1]]], "points": [{"at": [1, 2]}, {"at": [5, 5], "label": "B(5, 5)"}, {"at": [8, 1], "label": "C(8, 1)"}, {"at": [4, -2]}], "labels": [{"at": [2.75, 1.85], "text": "A(1, 2)"}, {"at": [4, -3], "text": "D(4, −2)"}], "caption": "The square of Example 3: four sides of length 5 and a right angle at B."}
 ```
 
 ## Coordinate proofs

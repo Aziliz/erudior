@@ -103,7 +103,7 @@ A rectangle that is not a square, centered at the origin with sides parallel to 
 - the **cyclic group** $C_n$: the $n$ rotations by multiples of $\tfrac{360^\circ}{n}$ about a center, and nothing else; or
 - the **dihedral group** $D_n$: those $n$ rotations together with $n$ reflections in lines through the center, $2n$ symmetries in all.
 
-The name comes from Hermann Weyl's book *Symmetry* (1952), which credits Leonardo da Vinci with working out the possible symmetries of a building's floor plan. Here is why it is true.
+The name goes back to Hermann Weyl's book *Symmetry* (1952), which credits Leonardo da Vinci with working out the possible symmetries of a building's floor plan. Here is why it is true.
 
 - A bounded figure has no translation or glide reflection symmetries: repeating one would carry the figure arbitrarily far away. So every symmetry is a rotation or a reflection, and they all fix one common point (for example, the center of the smallest circle that holds the figure, since each symmetry maps that circle to itself).
 - Among the finitely many rotations, take the smallest positive angle $\alpha$. Any other rotation angle must be a whole multiple of $\alpha$, or subtracting multiples of $\alpha$ would leave a smaller positive one. Since $360^\circ$ is one of them, $\alpha = \tfrac{360^\circ}{n}$.

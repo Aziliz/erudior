@@ -8,7 +8,7 @@ topics: [Rotations by any angle, Transformation matrices]
 drills: [geo-m9-r2-rotate-angle, geo-m9-r2-matrix-image, geo-m9-r2-det-area]
 refs: [geo-ref-coord]
 ---
-Lesson 36 gave coordinate rules for rotations of $90^\circ$, $180^\circ$ and $270^\circ$ only. What happens to $(4, 1)$ under a $30^\circ$ rotation? This lesson answers with trigonometry, then packs every transformation that fixes the origin into a small table of four numbers, a matrix. Composing transformations becomes multiplying matrices, and one number computed from the matrix tells how areas and orientation change. This is how computer graphics and robotics handle motion.
+Lesson 36 gave coordinate rules for rotations of $90^\circ$, $180^\circ$ and $270^\circ$ only. What happens to $(4, 1)$ under a $30^\circ$ rotation? This lesson answers with trigonometry, then packs each rotation, reflection or dilation that fixes the origin into a small table of four numbers, a matrix. Composing transformations becomes multiplying matrices, and one number computed from the matrix tells how areas and orientation change. This is how computer graphics and robotics handle motion.
 
 ## Where $(1, 0)$ and $(0, 1)$ go
 
@@ -20,7 +20,7 @@ Rotate by $\theta$ about the origin:
 - $(0, 1)$ is at angle $90^\circ$ and moves to angle $90^\circ + \theta$. That is the $90^\circ$ turn of the first image, so by the rule $(x, y) \to (-y, x)$ it lands on $(-\sin\theta, \cos\theta)$.
 
 ```plot
-{"x": [-1.6, 1.6], "y": [-0.4, 1.4], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 3.1416], "dashed": true}], "segments": [{"from": [0, 0], "to": [1, 0], "arrow": true}, {"from": [0, 0], "to": [0, 1], "arrow": true}, {"from": [0, 0], "to": [0.866, 0.5], "arrow": true}, {"from": [0, 0], "to": [-0.5, 0.866], "arrow": true}], "labels": [{"at": [1.05, -0.12], "text": "(1, 0)"}, {"at": [0.12, 1.12], "text": "(0, 1)"}, {"at": [1.15, 0.55], "text": "(cos θ, sin θ)"}, {"at": [-0.95, 0.98], "text": "(−sin θ, cos θ)"}], "caption": "A rotation by θ = 30° carries (1, 0) and (0, 1) to (cos θ, sin θ) and (−sin θ, cos θ)."}
+{"x": [-1.6, 2], "y": [-0.4, 1.4], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 3.1416], "dashed": true}], "segments": [{"from": [0, 0], "to": [1, 0], "arrow": true}, {"from": [0, 0], "to": [0, 1], "arrow": true}, {"from": [0, 0], "to": [0.866, 0.5], "arrow": true}, {"from": [0, 0], "to": [-0.5, 0.866], "arrow": true}], "labels": [{"at": [1.3, 0.08], "text": "(1, 0)"}, {"at": [0.32, 1.08], "text": "(0, 1)"}, {"at": [1.42, 0.46], "text": "(cos θ, sin θ)"}, {"at": [-0.95, 0.98], "text": "(−sin θ, cos θ)"}], "caption": "A rotation by θ = 30° carries (1, 0) and (0, 1) to (cos θ, sin θ) and (−sin θ, cos θ)."}
 ```
 
 ## Why two points are enough
@@ -61,7 +61,7 @@ Put $(1, 0)$ in and out comes $(a, c)$, the first column; $(0, 1)$ gives $(b, d)
 
 $$R_\theta = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}.$$
 
-A transformation given by a matrix is a **linear transformation**: it fixes the origin, sends lines to lines and keeps parallel lines parallel. Rotations about the origin, reflections in lines through the origin and dilations centered at the origin are all linear. A translation is not (it moves the origin), so it is handled by adding a vector after multiplying.
+A transformation given by a matrix is a **linear transformation**: it fixes the origin and, unless it flattens the whole plane onto a line or a point (determinant 0, below), sends lines to lines and keeps parallel lines parallel. Rotations about the origin, reflections in lines through the origin and dilations centered at the origin are all linear. A translation is not (it moves the origin), so it is handled by adding a vector after multiplying.
 
 | Transformation | Matrix |
 |---|---|
@@ -115,7 +115,7 @@ These are the angle-addition formulas of trigonometry, proved by geometry.
 The **determinant** of $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ is $ad - bc$. The matrix sends the unit square to the parallelogram with sides along $(a, c)$ and $(b, d)$, and that parallelogram has area $|ad - bc|$. With $M = \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix}$ the parallelogram has corners $(0, 0)$, $(2, 1)$, $(3, 4)$, $(1, 3)$. It sits in a $3 \times 4$ box; cutting off two triangles of area $1$, two of area $1.5$ and two $1 \times 1$ squares leaves $12 - 2 - 3 - 2 = 5 = 2 \cdot 3 - 1 \cdot 1$.
 
 ```plot
-{"x": [-0.5, 4], "y": [-0.5, 4.5], "equal": true, "polygons": [{"points": [[0, 0], [1, 0], [1, 1], [0, 1]]}, {"points": [[0, 0], [2, 1], [3, 4], [1, 3]]}], "points": [{"at": [2, 1], "label": "(2, 1)"}, {"at": [1, 3], "label": "(1, 3)"}, {"at": [3, 4], "label": "(3, 4)"}], "caption": "The matrix with columns (2, 1) and (1, 3) turns the unit square (area 1) into a parallelogram of area 2·3 − 1·1 = 5."}
+{"x": [-0.5, 4], "y": [-0.5, 4.5], "equal": true, "polygons": [{"points": [[0, 0], [1, 0], [1, 1], [0, 1]]}, {"points": [[0, 0], [2, 1], [3, 4], [1, 3]]}], "points": [{"at": [2, 1]}, {"at": [1, 3]}, {"at": [3, 4], "label": "(3, 4)"}], "labels": [{"at": [0.42, 3.05], "text": "(1, 3)"}, {"at": [2.6, 0.72], "text": "(2, 1)"}], "caption": "The matrix with columns (2, 1) and (1, 3) turns the unit square (area 1) into a parallelogram of area 2·3 − 1·1 = 5."}
 ```
 
 The unit grid of squares becomes a grid of these parallelograms, so **every area is multiplied by $|\det|$**. The sign carries the orientation: positive keeps it, negative reverses it.
@@ -150,7 +150,7 @@ The triangle with vertices $(0, 0)$, $(3, 0)$, $(0, 2)$ is transformed by $M = \
 - **Multiplying in the wrong order.** "$A$, then $B$" is $BA$, not $AB$.
 - **Calculator in radian mode.** Problems in degrees need degree mode.
 - **Treating a translation as a matrix product.** A $2 \times 2$ matrix always fixes the origin.
-- **Reading $\det$ as a length factor.** It scales area. Only for a similarity with scale $k$ is it $k^2$, so lengths scale by $\sqrt{\det}$.
+- **Reading $\det$ as a length factor.** It scales area. Only for a similarity with scale $k$ is $|\det| = k^2$, so lengths scale by $\sqrt{|\det|}$.
 
 ## Key points
 

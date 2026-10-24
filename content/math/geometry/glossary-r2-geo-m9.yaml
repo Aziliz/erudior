@@ -42,7 +42,7 @@
   topic: Rotations by any angle
 - term: linear transformation
   aliases: [linear transformations]
-  definition: 'A transformation given by a matrix: it fixes the origin, maps lines to lines and keeps parallel lines parallel. Translations are not linear.'
+  definition: 'A transformation given by a matrix: it fixes the origin and (unless its determinant is 0, when it flattens the plane onto a line or a point) maps lines to lines and keeps parallel lines parallel. Translations are not linear.'
   topic: Transformation matrices
 - term: determinant
   aliases: [determinants]

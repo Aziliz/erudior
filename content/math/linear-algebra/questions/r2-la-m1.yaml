@@ -122,7 +122,7 @@
   lesson: la-elimination
   topic: Elimination
   type: match
-  stem: 'Elimination on a system ends with the result on the left. Match each result to what it tells you.'
+  stem: 'Elimination on a system with as many equations as unknowns ends with the result on the left. Match each result to what it tells you.'
   pairs:
     - ['An equation $0 = 7$', 'No solution']
     - ['An equation $0 = 0$, and no contradiction anywhere else', 'Infinitely many solutions']
@@ -177,7 +177,7 @@
     - 'Compute $ad - bc = 15 - 14 = 1$'
     - 'Since $1 \ne 0$, the inverse exists'
     - 'Swap the diagonal entries and negate the others: $\begin{bmatrix} 3 & -2 \\ -7 & 5\end{bmatrix}$'
-    - 'Divide every entry by $ad - bc = 1$'
+    - 'Divide every entry of that new matrix by $ad - bc = 1$'
     - 'Check that $A$ times the result is $I$'
   explanation: |-
     The determinant comes first, because it decides whether there is an inverse at all and is the number you divide by. Then swap and negate, divide, and check: $\begin{bmatrix} 5 & 2 \\ 7 & 3\end{bmatrix}\begin{bmatrix} 3 & -2 \\ -7 & 5\end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$.

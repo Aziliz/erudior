@@ -103,7 +103,7 @@ makes the lines parallel, and $k = 8$ makes them the same line.
 The plot shows two of the cases next to the first line $x_1 + 3x_2 = 2$ (with $x_1$ across and $x_2$ up).
 
 ```plot
-{"x": [-3, 5], "y": [-2, 3], "functions": [{"f": "(2 - x)/3", "label": "x₁ + 3x₂ = 2"}, {"f": "(12 - 4x)/12", "label": "h = 12, k = 12: parallel", "dashed": true}, {"f": "(8 - 4x)/10", "label": "h = 10, k = 8: crosses"}], "points": [{"at": [2, 0], "label": "(2, 0)"}], "xLabel": "x₁", "yLabel": "x₂", "caption": "h = 12 makes the lines parallel (no solution unless k = 8); h = 10 gives one crossing point"}
+{"x": [-3, 5], "y": [-3, 3], "functions": [{"f": "(2 - x)/3"}, {"f": "(-4 - 4x)/12", "dashed": true}, {"f": "(8 - 4x)/4"}], "points": [{"at": [2, 0]}], "labels": [{"at": [-1.8, 1.9], "text": "x₁ + 3x₂ = 2"}, {"at": [-1.7, -0.85], "text": "h = 12: parallel"}, {"at": [1.9, 2.4], "text": "h = 4: crosses"}, {"at": [2.55, 0.4], "text": "(2, 0)"}], "xLabel": "x₁", "yLabel": "x₂", "caption": "h = 12, k = -4 (dashed): parallel to the first line, so no solution; k = 8 would make it the same line. h = 4, k = 8: one crossing point at (2, 0), as for any h ≠ 12"}
 ```
 
 ## Common mistakes

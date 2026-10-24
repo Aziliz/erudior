@@ -472,7 +472,7 @@
   items:
     - 'Note that rotating by $\beta$ and then by $\alpha$ is a rotation by $\alpha + \beta$'
     - 'Write this as the matrix equation $R_\alpha R_\beta = R_{\alpha + \beta}$'
-    - 'Multiply out the product $R_\alpha R_\beta$'
+    - 'Multiply out the left side of that equation, $R_\alpha R_\beta$'
     - 'Compare the first columns of the two sides'
   explanation: |-
     The geometric fact comes first, then its matrix form, then the computation, and comparing entries gives $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$ and $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$.

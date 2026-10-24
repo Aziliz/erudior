@@ -71,8 +71,8 @@ sector produce?
 4. $\mathbf{x} = \begin{bmatrix} 1.5(60) + \frac23(30) \\ 0.5(60) + \frac43(30) \end{bmatrix} = \begin{bmatrix} 110 \\ 70 \end{bmatrix}$.
 5. Check: $C\mathbf{x} = (0.2 \cdot 110 + 0.4 \cdot 70,\ 0.3 \cdot 110 + 0.1 \cdot 70) = (50, 40)$, and $\mathbf{x} - C\mathbf{x} = (60, 30) = \mathbf{d}$. ✓
 
-So \$110 billion of energy and \$70 billion of manufacturing are needed, even though households
-only want \$90 billion of goods in total: the other \$90 billion is used up in production.
+So \$110 billion of energy and \$70 billion of manufacturing are needed, even though final
+demand is only \$90 billion of goods in total: the other \$90 billion is used up in production.
 
 Here is the whole procedure:
 
@@ -130,7 +130,7 @@ for energy are 60, 84, 97.2, 103.56, … and they close in on the exact answer 1
 Each round is smaller than the last because every column of $C$ adds up to less than 1. Here is
 the reason. If $s$ is the largest column sum of a matrix $C$ with nonnegative entries, then for
 any vector $\mathbf{v}$ with nonnegative entries, the entries of $C\mathbf{v}$ add up to at most
-$s$ times the entries of $\mathbf{v}$ (each $v_j$ is spread over column $j$, whose entries total at
+$s$ times the sum of the entries of $\mathbf{v}$ (each $v_j$ is spread over column $j$, whose entries total at
 most $s$). Here $s = 0.5$, so each round is at most half the size of the one before, and the
 rounds shrink to zero like $0.5^k$. Adding up the rounds and comparing with
 $(I - C)(I + C + \cdots + C^k) = I - C^{k+1}$ shows the series adds up to $(I - C)^{-1}\mathbf{d}$.
