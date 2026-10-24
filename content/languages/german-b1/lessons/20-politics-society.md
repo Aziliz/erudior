@@ -38,6 +38,10 @@ Words to note: *das Grundrecht* (basic right), *festlegen* (to lay down, fix), *
 
 A note on the facts: under the electoral reform of 2023, first used in the 2025 election, the Bundestag has a fixed 630 seats, and winning the most first votes in a constituency no longer guarantees a seat: the winner only gets in if their party's second votes cover it. In 2025, 23 constituencies were left without a directly elected member. Further changes are being discussed, so check the current rules before you rely on the details. Formally, the Bundestag elects the Chancellor on the proposal of the Federal President, who in practice proposes the coalition's candidate. And 18 is the voting age for the Bundestag; for European elections, and for state and local elections in several *Bundesländer*, it is 16.
 
+The diagram shows who elects or appoints whom at the federal level. (The Federal President is elected by a special assembly, the *Bundesversammlung*, made up of all members of the Bundestag and the same number of delegates from the states.)
+
+![How Germany is governed, with labels. The voters (die Wählerinnen und Wähler, from 18) elect the Bundestag (630 members). The Bundestag elects the Chancellor. The Federal President (der Bundespräsident, head of state) appoints the federal government (die Bundesregierung: the Chancellor and the ministers). The 16 federal states send members of their state governments to the Bundesrat. A dashed line marked Gesetze joins the Bundestag and the Bundesrat, which both deal with federal laws.](images/de3-m4-system.svg)
+
 ## Taking a news sentence apart
 
 News sentences look long, but they are built from parts you know. Read them in three passes.
@@ -58,6 +62,17 @@ News sentences look long, but they are built from parts you know. Read them in t
 - Genitive: *die Wahl des Bundeskanzlers* (the election of the Chancellor), *die Rechte der Bürger* (the citizens' rights), *die Regierung des Landes* (the government of the state).
 
 Put together: *Die Ministerin, die im Mai ernannt worden war, musste wegen eines Fehlers ihres Ministeriums zurücktreten.* — The minister, who had been appointed in May, had to resign because of a mistake by her ministry. Relative clause, past perfect passive, genitive preposition and genitive in one sentence; take it one piece at a time and it falls into place. (*zurücktreten*: to resign; *ist zurückgetreten*.)
+
+The three passes as a diagram:
+
+```mermaid
+flowchart TD
+  accTitle: Reading a long news sentence in three passes
+  accDescr: First find the main clause and its verb, skipping the parts between commas. Second, look at each relative clause and ask who or what it describes. Third, spot the passive, wird or wurde plus a participle, and the genitive, des or der. Then put the pieces together.
+  A["1. Main clause and its verb: skip what is between commas"] --> B["2. Relative clauses: who or what does each one describe?"]
+  B --> C["3. Passive (wird, wurde + participle) and genitive (des, der)"]
+  C --> D["Put the pieces together"]
+```
 
 ## Nominal style: actions packed into nouns *(receptive)*
 

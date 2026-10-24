@@ -1,0 +1,467 @@
+# German A2, module 2, round 2: new question types for lessons 05–08 and the two honors lessons.
+
+# --- 05 Reflexive verbs ---
+- id: de2-m2-r2-q01
+  lesson: de2-reflexive
+  module_quiz: true
+  type: label
+  topic: Daily routine
+  stem: 'Name the numbered things in the bathroom.'
+  image: {src: images/de2-m2-bathroom-blank.svg, alt: 'A bathroom with a mirror, a toothbrush in a cup, a bar of soap, a towel on a rail, and a jar of cream and a comb on a shelf, with six numbered markers'}
+  labels:
+    - {x: 50, y: 21, text: der Spiegel}
+    - {x: 38, y: 34, text: die Zahnbürste}
+    - {x: 60.7, y: 48.5, text: die Seife}
+    - {x: 85, y: 52, text: das Handtuch}
+    - {x: 14.9, y: 27.9, text: die Creme}
+    - {x: 26.7, y: 29.2, text: der Kamm}
+  distractors: [die Zahnpasta, das Shampoo]
+  explanation: |-
+    1 der Spiegel (mirror), 2 die Zahnbürste (toothbrush), 3 die Seife (soap), 4 das Handtuch (towel), 5 die Creme (cream), 6 der Kamm (comb). Toothpaste (die Zahnpasta) and shampoo (das Shampoo) are not in the picture.
+- id: de2-m2-r2-q02
+  lesson: de2-reflexive
+  type: text
+  topic: Reflexive verbs
+  stem: 'Type the reflexive pronoun for each blank: "Ich ziehe ___ an." (I get dressed.) and "Ich ziehe ___ eine Jacke an." (I put on a jacket.)'
+  accept:
+    - [mich]
+    - [mir]
+  explanation: |-
+    In the first sentence there is no other object, so the reflexive pronoun is accusative: mich. In the second, eine Jacke is the accusative object, so the reflexive pronoun moves to the dative: mir.
+- id: de2-m2-r2-q03
+  lesson: de2-reflexive
+  module_quiz: true
+  topic: Reflexive verbs
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Wir haben uns im Urlaub gut erholt.', 'Ich bin mich gestern erkältet.', 'Ich putze mir die Zähne.', 'Du wäschst sich die Hände.', 'Er hat sich beim Fußball verletzt.']
+  answer: [0, 2, 4]
+  explanation: |-
+    Correct: "Wir haben uns … erholt" (uns for wir, perfect with haben), "Ich putze mir die Zähne" (dative mir because die Zähne is the object) and "Er hat sich … verletzt". Wrong: "Ich bin mich erkältet" (reflexive verbs take haben: Ich habe mich erkältet) and "Du wäschst sich" (sich is only for er/sie/es, sie and Sie; with du it is dir: Du wäschst dir die Hände).
+- id: de2-m2-r2-q04
+  lesson: de2-reflexive
+  type: order
+  topic: Reflexive verbs
+  stem: 'Put the words in order: "Today I got changed quickly."'
+  items: ['Heute', 'habe', 'ich', 'mich', 'schnell', 'umgezogen.']
+  explanation: |-
+    Heute takes position 1, so the conjugated verb habe comes second and the pronoun subject ich follows it. The reflexive pronoun mich comes straight after the subject pronoun, and the participle umgezogen goes to the end: Heute habe ich mich schnell umgezogen.
+- id: de2-m2-r2-q05
+  lesson: de2-reflexive
+  type: match
+  topic: Feelings
+  stem: 'Match each reflexive verb to its meaning.'
+  pairs:
+    - [sich beeilen, to hurry]
+    - [sich erholen, to recover or get some rest]
+    - [sich langweilen, to be bored]
+    - [sich ärgern, to be annoyed]
+    - [sich erkälten, to catch a cold]
+  distractors: [to be boring]
+  explanation: |-
+    sich beeilen = to hurry, sich erholen = to recover, get some rest, sich langweilen = to be bored, sich ärgern = to be annoyed, sich erkälten = to catch a cold. "To be boring" is not a reflexive verb: Der Film ist langweilig.
+
+# --- 06 Verbs with prepositions ---
+- id: de2-m2-r2-q06
+  lesson: de2-verb-prepositions
+  type: text
+  topic: Questions
+  stem: 'Type the question words: "___ wartest du?" – "Auf den Bus." and "___ wartest du?" – "Auf meine Schwester."'
+  accept:
+    - [worauf]
+    - [auf wen]
+  explanation: |-
+    warten auf + accusative. To ask about a thing (the bus), use the wo-word: Worauf wartest du? To ask about a person (my sister), keep the preposition and add the accusative wen: Auf wen wartest du?
+- id: de2-m2-r2-q07
+  lesson: de2-verb-prepositions
+  module_quiz: true
+  type: match
+  topic: Verbs with prepositions
+  stem: 'Match each verb to its fixed preposition and case.'
+  pairs:
+    - [warten, auf + accusative]
+    - [teilnehmen, an + dative]
+    - [sich interessieren, für + accusative]
+    - [Angst haben, vor + dative]
+    - [sich kümmern, um + accusative]
+    - [träumen, von + dative]
+  distractors: [über + dative]
+  explanation: |-
+    warten auf + Akk, teilnehmen an + Dat, sich interessieren für + Akk, Angst haben vor + Dat, sich kümmern um + Akk, träumen von + Dat. für and um are always accusative and von always dative; an and vor are the ones to learn with each verb.
+- id: de2-m2-r2-q08
+  lesson: de2-verb-prepositions
+  topic: Questions
+  stem: 'Which answers are correct? Select all that apply.'
+  choices: ['Freust du dich auf die Party? – Ja, ich freue mich darauf.', 'Wartest du auf Tom? – Ja, ich warte darauf.', 'Denkst du an den Termin? – Ja, ich denke daran.', 'Sprichst du oft mit Lena? – Ja, ich spreche oft mit ihr.', 'Hast du Angst vor der Prüfung? – Ja, ich habe Angst davon.']
+  answer: [0, 2, 3]
+  explanation: |-
+    For things, answer with da(r)- + the verb's own preposition: darauf (auf die Party), daran (an den Termin). For people, use the preposition + a pronoun: mit ihr. "Ich warte darauf" can't refer to Tom, a person: say "Ich warte auf ihn". Angst haben vor needs davor, not davon.
+- id: de2-m2-r2-q09
+  lesson: de2-verb-prepositions
+  module_quiz: true
+  topic: Verbs with prepositions
+  stem: 'Lena got flowers from a friend yesterday. Complete her message: "Ich habe mich sehr ___ die Blumen gefreut!"'
+  image: {src: images/de2-m2-freuen-timeline.svg, alt: 'A timeline: sich freuen über points to something you already have or that happened; sich freuen auf points to something still coming'}
+  choices: ['auf', 'an', 'über', 'für']
+  answer: 2
+  explanation: |-
+    Lena already has the flowers, so she is pleased about them: sich freuen über + accusative. sich freuen auf is for something that is still coming (Ich freue mich auf die Ferien). an and für don't go with sich freuen.
+- id: de2-m2-r2-q10
+  lesson: de2-verb-prepositions
+  type: order
+  topic: Questions
+  stem: 'Put the words in order: "What did you (all) talk about yesterday?"'
+  items: ['Worüber', 'habt', 'ihr', 'gestern', 'gesprochen?']
+  explanation: |-
+    The wo-word worüber (sprechen über) is the question word in position 1, the conjugated habt comes second, then the subject ihr, the time word gestern, and the participle gesprochen at the end.
+
+# --- 07 Dative verbs and two objects ---
+- id: de2-m2-r2-q11
+  lesson: de2-dative-verbs
+  module_quiz: true
+  type: label
+  topic: Gifts
+  stem: 'Name the numbered things.'
+  image: {src: images/de2-m2-gifts-blank.svg, alt: 'Six things with numbered markers: a necklace, a ring, an umbrella, sunglasses, a wallet and a parcel'}
+  labels:
+    - {x: 22.5, y: 15.9, text: die Kette}
+    - {x: 50, y: 35.7, text: der Ring}
+    - {x: 83.3, y: 20, text: der Regenschirm}
+    - {x: 16.7, y: 71, text: die Sonnenbrille}
+    - {x: 50, y: 71, text: das Portemonnaie}
+    - {x: 83.3, y: 72, text: das Paket}
+  distractors: [das Parfüm, das Armband]
+  explanation: |-
+    1 die Kette (necklace), 2 der Ring (ring), 3 der Regenschirm (umbrella), 4 die Sonnenbrille (sunglasses, singular like die Brille), 5 das Portemonnaie (wallet), 6 das Paket (parcel). There is no perfume (das Parfüm) or bracelet (das Armband) in the picture.
+- id: de2-m2-r2-q12
+  lesson: de2-dative-verbs
+  type: order
+  topic: Word order
+  stem: 'Put the words in order: "Have you shown it to her yet?"'
+  items: ['Hast', 'du', 'es', 'ihr', 'schon', 'gezeigt?']
+  explanation: |-
+    With two pronouns the accusative comes first: es (it) before ihr (to her). Both pronouns come straight after the subject du, then schon, and the participle gezeigt goes to the end.
+- id: de2-m2-r2-q13
+  lesson: de2-dative-verbs
+  type: text
+  topic: Word order
+  stem: 'Replace both objects with pronouns: "Ich schenke meinem Bruder das Buch." → "Ich schenke ___." Type the two pronouns in the right order.'
+  accept: ['es ihm']
+  explanation: |-
+    das Buch (accusative) → es; meinem Bruder (dative) → ihm. With two pronouns the accusative comes first: Ich schenke es ihm.
+- id: de2-m2-r2-q14
+  lesson: de2-dative-verbs
+  module_quiz: true
+  topic: Dative
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Die Schuhe gefallen mir.', 'Ich helfe dich.', 'Du fehlst mir.', 'Ich gebe ihm es.', 'Der Schal passt gut zur Jacke.']
+  answer: [0, 2, 4]
+  explanation: |-
+    Correct: "Die Schuhe gefallen mir" (the plural thing is the subject, so gefallen), "Du fehlst mir" (I miss you) and "Der Schal passt gut zur Jacke" (goes well with). Wrong: helfen takes the dative (Ich helfe dir), and with two pronouns the accusative comes first (Ich gebe es ihm).
+- id: de2-m2-r2-q15
+  lesson: de2-dative-verbs
+  type: match
+  topic: Dative
+  stem: 'Match each sentence to its meaning.'
+  pairs:
+    - ['Du fehlst mir.', I miss you.]
+    - ['Ich fehle dir.', You miss me.]
+    - ['Die Jacke steht dir.', The jacket suits you.]
+    - ['Der Schirm gehört mir.', The umbrella is mine.]
+    - ['Passt dir Montag?', 'Does Monday suit you?']
+  distractors: [I like the jacket.]
+  explanation: |-
+    With fehlen the person who misses is in the dative and the one who is missed is the subject: Du fehlst mir = I miss you; Ich fehle dir = you miss me. stehen + dative = to suit, gehören + dative = to belong to, passen + dative = to suit or be convenient. "I like the jacket" would be "Die Jacke gefällt mir".
+
+# --- 08 Describing people; werden ---
+- id: de2-m2-r2-q16
+  lesson: de2-people-werden
+  module_quiz: true
+  type: label
+  topic: Describing people
+  stem: 'Name the numbered parts.'
+  image: {src: images/de2-m2-face-blank.svg, alt: 'Head and shoulders of a man with glasses and a beard, with six numbered markers'}
+  labels:
+    - {x: 50, y: 17.7, text: die Haare}
+    - {x: 55.8, y: 38.75, text: die Brille}
+    - {x: 50, y: 54.6, text: die Nase}
+    - {x: 50, y: 65.8, text: der Mund}
+    - {x: 59.7, y: 70, text: der Bart}
+    - {x: 34.4, y: 50, text: das Ohr}
+  distractors: [die Kette, der Hals]
+  explanation: |-
+    1 die Haare (hair, usually plural), 2 die Brille (glasses), 3 die Nase (nose), 4 der Mund (mouth), 5 der Bart (beard), 6 das Ohr (ear). He isn't wearing a necklace (die Kette), and his neck (der Hals) isn't numbered.
+- id: de2-m2-r2-q17
+  lesson: de2-people-werden
+  type: text
+  topic: werden
+  stem: 'Type the correct form of werden: "Du ___ bestimmt eine gute Lehrerin." and "Mein Sohn ___ morgen zehn."'
+  accept:
+    - [wirst]
+    - [wird]
+  explanation: |-
+    werden is irregular: du wirst (no d), er/sie/es wird (no extra t). Mein Sohn is er, so wird; "Er wird zehn" means he turns ten.
+- id: de2-m2-r2-q18
+  lesson: de2-people-werden
+  type: match
+  topic: Describing people
+  stem: 'Match each adjective to its meaning.'
+  pairs:
+    - [sympathisch, likeable]
+    - [fleißig, hard-working]
+    - [faul, lazy]
+    - [ehrlich, honest]
+    - [neugierig, curious]
+  distractors: [sympathetic]
+  explanation: |-
+    sympathisch is a false friend: it means likeable, not sympathetic (understanding). fleißig = hard-working, faul = lazy, ehrlich = honest, neugierig = curious (or nosy).
+- id: de2-m2-r2-q19
+  lesson: de2-people-werden
+  module_quiz: true
+  topic: werden
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Sie ist Ärztin geworden.', 'Er hat dick geworden.', 'Jedes Kind bekommt ein Geschenk.', 'Jede Leute kennen ihn.', 'Gibt es etwas Neues?']
+  answer: [0, 2, 4]
+  explanation: |-
+    Correct: werden forms the perfect with sein and takes no article with a job (Sie ist Ärztin geworden); jedes is singular (jedes Kind); after etwas the adjective becomes a noun with -es (etwas Neues). Wrong: "Er hat dick geworden" (ist geworden) and "Jede Leute" (jeder is singular only: alle Leute).
+- id: de2-m2-r2-q20
+  lesson: de2-people-werden
+  type: order
+  topic: werden
+  stem: 'Put the words in order: "My brother has become very quiet."'
+  items: ['Mein', 'Bruder', 'ist', 'sehr', 'ruhig', 'geworden.']
+  explanation: |-
+    The subject mein Bruder takes position 1 and the auxiliary ist position 2 (werden uses sein in the perfect). sehr goes directly before the adjective it describes, and the participle geworden goes to the end.
+
+# --- Honors: verbs with a dative reflexive ---
+- id: de2-m2-r2-h01
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'Complete: "Ich kann ___ das gut vorstellen."'
+  choices: ['mir', 'mich', 'sich', 'dir']
+  answer: 0
+  explanation: |-
+    sich etwas vorstellen (to imagine) has an accusative object, das, so the reflexive pronoun is dative: mir. "mich" would be "introduce myself", and sich and dir don't match the subject ich.
+- id: de2-m2-r2-h02
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'Complete: "Guten Tag! Darf ich ___ vorstellen? Ich bin Ihre neue Kollegin."'
+  choices: ['mir', 'mich', 'Ihnen', 'sich']
+  answer: 1
+  explanation: |-
+    She is introducing herself, and there is no other accusative object, so the reflexive pronoun is accusative: mich. "Darf ich mir … vorstellen" would need an object and mean "imagine". Ihnen would need an object too (Darf ich Ihnen meinen Mann vorstellen?).
+- id: de2-m2-r2-h03
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'Replace "den Film" with a pronoun: "Ich sehe mir den Film an."'
+  choices: ['Ich sehe mir ihn an.', 'Ich sehe mich ihn an.', 'Ich sehe ihn mir an.', 'Ich sehe ihm mir an.']
+  answer: 2
+  explanation: |-
+    den Film becomes ihn (accusative masculine). With two pronouns, the accusative comes first: ihn mir. The dative reflexive stays mir; mich would be accusative, and ihm is dative, not accusative.
+- id: de2-m2-r2-h04
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'What does "Das kann ich mir nicht leisten." mean?'
+  choices: ['I can''t imagine that.', 'I can''t remember that.', 'I don''t deserve that.', 'I can''t afford that.']
+  answer: 3
+  explanation: |-
+    sich etwas leisten (können) means to (be able to) afford something. Imagine is sich etwas vorstellen, remember is sich etwas merken.
+- id: de2-m2-r2-h05
+  lesson: de2-m2-h-dative-reflexive
+  topic: Each other
+  stem: 'Which sentence clearly means "They help each other", with no other possible meaning?'
+  choices: ['Sie helfen sich.', 'Sie helfen sich selbst.', 'Sie helfen einander.', 'Sie helfen sich einander.']
+  answer: 2
+  explanation: |-
+    einander always means "each other". "Sie helfen sich" can mean "each other" or "themselves", and "sich selbst" means "themselves". "sich einander" mixes two ways of saying it and is wrong: use einander or sich gegenseitig.
+- id: de2-m2-r2-h06
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'Put into the perfect: "Er denkt sich eine Ausrede aus." (He makes up an excuse.)'
+  choices: ['Er hat sich eine Ausrede ausgedacht.', 'Er ist sich eine Ausrede ausgedacht.', 'Er hat sich eine Ausrede ausgedenkt.', 'Er hat eine Ausrede sich ausgedacht.']
+  answer: 0
+  explanation: |-
+    Reflexive verbs use haben, the pronoun stays straight after haben, and the participle goes to the end. ausdenken is separable and mixed like denken – gedacht, so the participle is ausgedacht, not ausgedenkt.
+- id: de2-m2-r2-h07
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'Read: "Stell dir vor: Ich habe mir gestern beim Fußball den Fuß verstaucht. Jetzt muss ich mir die Spiele im Fernsehen ansehen." What happened?'
+  choices: ['He imagined a football match and watched it on TV.', 'He broke his leg and can''t watch the matches.', 'He hurt his friend''s foot playing football.', 'He sprained his ankle and now has to watch the matches on TV.']
+  answer: 3
+  explanation: |-
+    sich den Fuß verstauchen = to sprain your ankle; mir shows it is his own foot. sich etwas ansehen = to watch. "Stell dir vor" just means "guess what" here, not that he imagined something.
+- id: de2-m2-r2-h08
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'Which sentence is correct?'
+  choices: ['Ich habe mich den Arm gebrochen.', 'Ich habe mir den Arm gebrochen.', 'Ich bin mir den Arm gebrochen.', 'Ich habe meinen Arm mir gebrochen.']
+  answer: 1
+  explanation: |-
+    den Arm is the accusative object, so the reflexive pronoun is dative (mir), and the perfect uses haben. The pronoun comes before the noun object, and German uses the article, not a possessive, with your own body part.
+- id: de2-m2-r2-h09
+  lesson: de2-m2-h-dative-reflexive
+  type: text
+  topic: Dative reflexive
+  stem: 'Type the reflexive pronouns: "Merk ___ bitte die Adresse!" (to a friend) and "Wir haben ___ gestern die Wohnung angesehen."'
+  accept:
+    - [dir]
+    - [uns]
+  explanation: |-
+    sich etwas merken and sich etwas ansehen both take a dative reflexive. The imperative to a friend is the du form, so dir; with wir the pronoun is uns.
+- id: de2-m2-r2-h10
+  lesson: de2-m2-h-dative-reflexive
+  type: order
+  topic: Dative reflexive
+  stem: 'Put the words in order: "Have you had a look at it (the flat) yet?"'
+  items: ['Hast', 'du', 'sie', 'dir', 'schon', 'angesehen?']
+  explanation: |-
+    sie stands for die Wohnung (accusative) and dir is the dative reflexive. With two pronouns the accusative comes first: sie dir. Then schon, and the participle angesehen at the end.
+- id: de2-m2-r2-h11
+  lesson: de2-m2-h-dative-reflexive
+  type: match
+  topic: Dative reflexive
+  stem: 'Match each verb to its meaning.'
+  pairs:
+    - [sich etwas merken, to remember or make a note of]
+    - [sich etwas vorstellen, to imagine]
+    - [sich etwas leisten, to afford]
+    - [sich etwas gönnen, to treat yourself to]
+    - [sich etwas ausdenken, to make up or invent]
+  distractors: [to introduce yourself]
+  explanation: |-
+    All five take a dative reflexive and an accusative thing. "To introduce yourself" is sich vorstellen with the accusative (Ich stelle mich vor) and has no "etwas".
+- id: de2-m2-r2-h12
+  lesson: de2-m2-h-dative-reflexive
+  topic: Dative reflexive
+  stem: 'In which sentences must the blank be a dative pronoun (mir)? Select all that apply.'
+  choices: ['Ich stelle ___ das schwierig vor.', 'Ich habe ___ gestern verletzt.', 'Ich habe ___ die Hand verletzt.', 'Darf ich ___ kurz vorstellen?', 'Ich wünsche ___ ein neues Fahrrad.']
+  answer: [0, 2, 4]
+  explanation: |-
+    The pronoun is dative when the sentence has another accusative object: das, die Hand, ein neues Fahrrad. "Ich habe mich gestern verletzt" and "Darf ich mich kurz vorstellen?" have no other object, so they take the accusative mich.
+- id: de2-m2-r2-h13
+  lesson: de2-m2-h-dative-reflexive
+  topic: Each other
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Wir schreiben uns jeden Tag.', 'Die Zwillinge sprechen oft miteinander.', 'Ich merke die Nummer.', 'Sie helfen sich gegenseitig.', 'Ich sehe mir ihn an.']
+  answer: [0, 1, 3]
+  explanation: |-
+    Correct: "Wir schreiben uns" (we write to each other), miteinander (with each other) and "sich gegenseitig" (each other). Wrong: sich merken needs its pronoun (Ich merke mir die Nummer), and with two pronouns the accusative comes first (Ich sehe ihn mir an).
+
+# --- Honors: du or Sie? ---
+- id: de2-m2-r2-h14
+  lesson: de2-m2-h-du-or-sie
+  topic: Forms of address
+  stem: 'You need help from a hotel receptionist you don''t know. What do you say?'
+  choices: ['Kannst du mir helfen?', 'Könnt ihr mir helfen?', 'Kann Sie mir helfen?', 'Können Sie mir helfen?']
+  answer: 3
+  explanation: |-
+    An adult you don't know gets Sie, and Sie always takes the plural verb form: Können Sie …? "Kann Sie" mixes Sie with a singular verb. du and ihr are informal.
+- id: de2-m2-r2-h15
+  lesson: de2-m2-h-du-or-sie
+  topic: Forms of address
+  stem: 'Which question means "How are you?" (formal)?'
+  choices: ['Wie geht es ihnen?', 'Wie geht es Ihnen?', 'Wie geht es Sie?', 'Wie geht es sich?']
+  answer: 1
+  explanation: |-
+    es geht + dative: the dative of formal Sie is Ihnen, with a capital I. Lower-case ihnen means "them": "Wie geht es ihnen?" = How are they?
+- id: de2-m2-r2-h16
+  lesson: de2-m2-h-du-or-sie
+  topic: Pronouns
+  stem: 'You are talking to two friends. Complete: "Habt ihr ___ Fahrräder dabei?"'
+  choices: ['eure', 'euer', 'Ihre', 'deine']
+  answer: 0
+  explanation: |-
+    Two friends: ihr, so the possessive is euer. With the plural ending -e it loses its second e: eure Fahrräder. Ihre is for Sie, deine for one friend.
+- id: de2-m2-r2-h17
+  lesson: de2-m2-h-du-or-sie
+  topic: Forms of address
+  stem: 'What is the "Hamburger Sie"?'
+  choices: ['du with a last name', 'Sie with a first name', 'Sie with Herr or Frau and the last name', 'ihr used for one person']
+  answer: 1
+  explanation: |-
+    The Hamburger Sie combines Sie with a first name: Lena, kommen Sie bitte? The opposite mixture, du with a last name, is the Münchner Du. Sie with Herr/Frau and the last name is the standard polite form.
+- id: de2-m2-r2-h18
+  lesson: de2-m2-h-du-or-sie
+  topic: Forms of address
+  stem: 'You start a new job at a bank. Your boss, Frau Lange, is 55. What is the safest thing to do?'
+  choices: ['Say du, because all colleagues say du.', 'Offer her the du on your first day.', 'Say Sie and let her offer the du if she wants to.', 'Say ihr, because it is polite.']
+  answer: 2
+  explanation: |-
+    In a bank Sie is still common, and traditionally the older or more senior person offers the du. Offering it yourself on day one can seem pushy. ihr is the informal plural, not a polite form.
+- id: de2-m2-r2-h19
+  lesson: de2-m2-h-du-or-sie
+  topic: Forms of address
+  stem: 'What does "Meine Chefin hat mir das Du angeboten." mean?'
+  choices: ['My boss suggested we say du to each other.', 'My boss told me to stop saying du.', 'My boss offered me a new job.', 'My boss asked me to say Sie to her.']
+  answer: 0
+  explanation: |-
+    jemandem das Du anbieten = to offer someone the du, i.e. to suggest saying du to each other. anbieten means to offer.
+- id: de2-m2-r2-h20
+  lesson: de2-m2-h-du-or-sie
+  topic: Forms of address
+  stem: 'Read: "In meiner alten Firma haben wir uns alle gesiezt. Hier duzen sich alle, sogar der Chef." What is true?'
+  choices: ['In the old company everyone said du.', 'In the new company only the boss says du.', 'In the new company everyone says du, even the boss.', 'He now says Sie to his boss.']
+  answer: 2
+  explanation: |-
+    sich siezen = to say Sie to each other (the old company), sich duzen = to say du to each other. "Hier duzen sich alle, sogar der Chef" = here everyone says du, even the boss.
+- id: de2-m2-r2-h21
+  lesson: de2-m2-h-du-or-sie
+  topic: Pronouns
+  stem: 'Make this formal: "Setz dich bitte!"'
+  choices: ['Setzen Sie Sich bitte!', 'Setzt euch bitte!', 'Setzen Sie Ihnen bitte!', 'Setzen Sie sich bitte!']
+  answer: 3
+  explanation: |-
+    The formal imperative is the verb + Sie: Setzen Sie … The reflexive pronoun for Sie is sich, and it is never capitalised. "Setzt euch" is the informal plural; Ihnen is dative, not reflexive.
+- id: de2-m2-r2-h22
+  lesson: de2-m2-h-du-or-sie
+  type: text
+  caseSensitive: true
+  topic: Pronouns
+  stem: 'Make each sentence formal (Sie). Mind the capital letters. "Ist das dein Koffer?" → "Ist das ___ Koffer?" and "Ich helfe dir." → "Ich helfe ___."'
+  accept:
+    - [Ihr]
+    - [Ihnen]
+  explanation: |-
+    The possessive of Sie is Ihr (Ihr Koffer) and the dative is Ihnen (helfen takes the dative). Both need a capital: lower-case ihr Koffer means "her suitcase", and ich helfe ihnen means "I help them".
+- id: de2-m2-r2-h23
+  lesson: de2-m2-h-du-or-sie
+  type: match
+  topic: Forms of address
+  stem: 'Match each situation to the form of address you would normally use (a simplified rule).'
+  pairs:
+    - [your little sister, du]
+    - [two school friends, ihr]
+    - [a police officer, Sie]
+    - [a group of customers you don't know, Sie]
+    - [your team-mates at the football club, ihr]
+  explanation: |-
+    One person you are close to: du. Several people you are close to: ihr. Adults you don't know, one or many, and officials: Sie. Sports clubs usually use du, so a group of team-mates is ihr.
+- id: de2-m2-r2-h24
+  lesson: de2-m2-h-du-or-sie
+  topic: Forms of address
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Kommen Sie morgen?', 'Kommt Sie morgen?', 'Wollen wir uns duzen?', 'Können Sie mir dein Handy geben?', 'Liebe Maria, wie Du weißt, ziehe ich um.']
+  answer: [0, 2, 4]
+  explanation: |-
+    Correct: Sie takes the plural verb (Kommen Sie), "Wollen wir uns duzen?" is the usual way to offer the du, and in a personal letter du may be capitalised. Wrong: "Kommt Sie" (singular verb) and "Sie … dein Handy" (mixed forms: Ihr Handy).
+- id: de2-m2-r2-h25
+  lesson: de2-m2-h-du-or-sie
+  type: order
+  topic: Forms of address
+  stem: 'Put the conversation in order.'
+  items: ['Petra Lange: Herr Berger, wir arbeiten jetzt seit einem Jahr zusammen. Wollen wir uns nicht duzen?', 'Tom Berger: Sehr gern!', 'Petra Lange: Schön. Ich bin die Petra.', 'Tom Berger: Und ich bin Tom. Möchtest du einen Kaffee, Petra?']
+  explanation: |-
+    Petra, the senior colleague, offers the du while still using Sie (Herr Berger). Tom accepts, she gives her first name, and only then does Tom switch to du and the first name.
+- id: de2-m2-r2-h26
+  lesson: de2-m2-h-du-or-sie
+  type: match
+  topic: Forms of address
+  stem: 'Match each phrase to its meaning.'
+  pairs:
+    - [sich duzen, to say du to each other]
+    - [sich siezen, to say Sie to each other]
+    - [jemandem das Du anbieten, to offer someone the du]
+    - [Hallo zusammen!, Hello everyone!]
+    - [Meine Damen und Herren, Ladies and gentlemen]
+  distractors: [to say goodbye]
+  explanation: |-
+    duzen and siezen are often reciprocal (wir duzen uns). das Du anbieten is the step from Sie to du. Hallo zusammen greets a group informally; Meine Damen und Herren addresses an audience formally.

@@ -22,11 +22,11 @@ Before you read anything, ask: what do I need from this text? The answer decides
 | **scanning** | *selektives Lesen* | When? Where? How much? | fast, eyes jump | a timetable, an ad, an information board |
 | **detailed reading** | *detailliertes Lesen* | What exactly does it say? | slow, every word | rules, instructions, a contract, an e-mail with a request |
 
-Skimming means letting your eyes run over the headline (*die Überschrift*), the first sentence of each paragraph and anything in large or bold print. You don't stop at unknown words. After ten seconds you should know the topic and the **text type**: notice, ad, e-mail, report.
+Skimming (*überfliegen*, literally "to fly over") means letting your eyes run over the headline (*die Überschrift*), the first sentence of each paragraph and anything in large or bold print. You don't stop at unknown words. After ten seconds you should know the topic and the **text type**: notice, ad, e-mail, report.
 
 Scanning means hunting for one piece of information. You know what it looks like before you find it: a time has a colon or the word *Uhr*, a price has *Euro* or €, a date has a month or a dot (*14.5.*). Your eyes jump until they see the shape, and then you read only that sentence.
 
-Detailed reading means reading every word of the part that matters, including the small ones. You do this last, and only where the task needs it. Most exam questions need one or two sentences read in detail, not the whole text.
+Detailed reading means reading every word of the part that matters, including the small ones, so that you catch every detail (*die Einzelheit*). You do this last, and only where the task needs it. Most exam questions need one or two sentences read in detail, not the whole text.
 
 The main idea (*die Hauptsache*) is this: switch between the three. Skim first to know what you have, scan to find the right place, and read that place in detail. Here is the decision as a chart:
 
@@ -61,7 +61,7 @@ Here is a notice board (*das Schwarze Brett*, literally "the black board") in th
 
 ![A notice board in a block of flats with four texts. Top left, a notice: Hausverwaltung Berger. An alle Mieterinnen und Mieter: Am Dienstag, 14. Mai, gibt es von 8 bis 12 Uhr kein Wasser. Grund: Reparatur im Keller. Vielen Dank! Top right, a poster: Sommerfest im Hof, Samstag, 18. Mai, ab 16 Uhr, Musik, Grill, Spiele für Kinder, Salat oder Kuchen mitbringen! Bottom left, a small ad with tear-off strips: Zu verkaufen: Kinderfahrrad, blau, gut erhalten, 40 Euro, Familie Yilmaz, 2. Stock. Bottom right, a note: Katze entlaufen! Mia, grau mit weißen Pfoten, seit Montag nicht zu Hause. Wer hat sie gesehen? Belohnung: 50 Euro. Bitte bei Jonas klingeln, Erdgeschoss links.](images/de2-h1-board.svg)
 
-New words on the board: *die Mieterin / der Mieter* (tenant), *der Keller* (cellar, basement), *der Hof* (courtyard), *gut erhalten* (in good condition), *entlaufen* (run away, of an animal), *die Pfote* (paw), *klingeln* (to ring the bell), *das Erdgeschoss* (ground floor).
+New words on the board: *der Hof* (courtyard), *gut erhalten* (in good condition), *entlaufen* (run away, of an animal), *die Pfote* (paw), *klingeln* (to ring the bell), *das Erdgeschoss* (ground floor).
 
 ### Example 1: Skimming the board
 
@@ -119,7 +119,7 @@ Newspaper reports have a fixed shape. The headline gives the topic in a few word
 
 Neustadt: Library now lends tools too. A drill, a tent or a sewing machine: since Monday you can borrow not only books but also things for everyday life at Neustadt city library. The new "Library of Things" already has 120 items. Soon there are to be 200. The idea came from the librarian Sabine Roth. "Many people buy a drill and use it for only ten minutes a year," she said at the opening. "That costs money and is bad for the environment." Borrowing is free. All you need is a library card. It costs adults 12 euros a year and nothing for children and young people under 18. You may keep the things for two weeks. But you only get electrical appliances from the age of 18. The library is still looking for donations: anyone who has things in good condition at home can drop them off Monday to Friday from 10 am to 6 pm. It doesn't accept clothes or furniture.
 
-(*verleihen* to lend out, *das Werkzeug* tools, *die Bohrmaschine* drill, *der Gegenstand* object, item, *die Eröffnung* opening, *der Ausweis* card, ID, *das Gerät* appliance, device, *die Spende* donation, *vorbeibringen* to drop off.)
+(*verleihen* to lend out, *das Werkzeug* tools, *die Bohrmaschine* drill, *der Gegenstand* object, item, *die Eröffnung* opening, *der Bibliotheksausweis* library card, *das Gerät* appliance, device, *die Spende* donation, *vorbeibringen* to drop off.)
 
 The lead answers *Was?* (you can borrow things), *Wo?* (Neustadt city library) and *Wann?* (since Monday). The second paragraph gives *Wer?* and *Warum?*; the third and fourth give the rules, and that's where the small words live: *nur*, *erst ab 18*, *nicht*.
 

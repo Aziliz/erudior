@@ -56,6 +56,18 @@ A quick test: if there's already another participle in the sentence (*ausgewähl
 - *Ist das Paket schon abgeholt worden?* — Has the parcel been collected yet?
 - *Die Straße ist wegen des Brandes gesperrt worden.* — The street has been closed because of the fire.
 
+The choice between *wurde*, *worden* and *geworden* as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: wurde, worden or geworden?
+  accDescr: First ask whether the sentence is in the Präteritum or the Perfekt. In the Präteritum, wurde is used both for the passive, Das Haus wurde gebaut, and for become, Es wurde kalt. In the Perfekt, ask whether there is another participle in the sentence. If there is, it is the passive and you need worden: Das Haus ist gebaut worden. If there is not, werden means become and you need geworden: Sie ist Ärztin geworden.
+  A{"Präteritum or Perfekt?"} -- Präteritum --> B["wurde: Das Haus wurde gebaut. Es wurde kalt."]
+  A -- Perfekt --> C{"Another participle in the sentence?"}
+  C -- "yes: passive" --> D["worden: Das Haus ist gebaut worden."]
+  C -- "no: become" --> E["geworden: Sie ist Ärztin geworden."]
+```
+
 ### In subordinate clauses
 
 The conjugated *sein* goes to the very end, after *worden*:
@@ -124,6 +136,10 @@ If nothing else is in position 1, *es* fills the gap: *Es wurde viel gefeiert.* 
 | *aktuell* | current, up to date (not "actual") |
 
 Headlines often leave out the verb completely, so the participle carries the meaning on its own: *Rathaus nach Brand geschlossen* = *Das Rathaus ist nach dem Brand geschlossen worden.* *Neue Brücke eröffnet* = *Die neue Brücke ist eröffnet worden.*
+
+The picture shows the parts of a newspaper page: *die Schlagzeile*, *das Datum*, *das Foto*, the caption under the photo (*die Bildunterschrift*) and *der Artikel* itself. The headline is a typical one without a verb: *Bäckerei durch Brand zerstört* = *Die Bäckerei ist durch einen Brand zerstört worden.*
+
+![The front page of a local newspaper, the Stadtanzeiger, with labels. At the top the date (das Datum): Dienstag, 14. Mai. The headline (die Schlagzeile) reads Bäckerei durch Brand zerstört. Below it, a photo of a burning house (das Foto) with a caption in italics underneath: Die Feuerwehr am Sonntag in der Kirchgasse (die Bildunterschrift). The text of the article (der Artikel) fills the rest of the page.](images/de3-m4-newspaper.svg)
 
 And a few verbs from history: *bauen* (to build), *errichten* (to put up, erect: buildings, walls, monuments; more formal than *bauen*), *eröffnen* (to open officially) and *die Eröffnung*, *einführen* (to introduce, e.g. a law or a currency) and *die Einführung*, *abschaffen* (to abolish): *Die Todesstrafe wurde in der Bundesrepublik 1949 abgeschafft.* (The death penalty was abolished in West Germany in 1949, by Article 102 of the Basic Law; East Germany abolished it in 1987.)
 

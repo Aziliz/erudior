@@ -1,0 +1,242 @@
+# German B1, module 1 honors lessons (round 2): crime stories and life stories.
+# Checked against German A1, A2 and B1 vocabulary: none of these terms exists elsewhere.
+
+# --- 05h1 Futur II (de3-m1-h-futur-zwei) ---
+- id: de3-m1-r2-w01
+  lesson: de3-m1-h-futur-zwei
+  term: der Kommissar
+  pos: noun
+  plural: die Kommissare
+  meanings: ['police detective (male)', detective, police detective, inspector, police inspector, superintendent]
+  example: Der Kommissar befragt den Zeugen.
+  exampleEn: The detective questions the witness.
+- id: de3-m1-r2-w02
+  lesson: de3-m1-h-futur-zwei
+  term: die Kommissarin
+  pos: noun
+  plural: die Kommissarinnen
+  meanings: ['police detective (female)', detective, police detective, inspector, police inspector, superintendent]
+  example: Die Kommissarin ermittelt in einem neuen Fall.
+  exampleEn: The detective is investigating a new case.
+- id: de3-m1-r2-w03
+  lesson: de3-m1-h-futur-zwei
+  term: der Täter
+  pos: noun
+  plural: die Täter
+  meanings: ['culprit (male)', culprit, perpetrator, offender]
+  example: Die Polizei sucht noch nach dem Täter.
+  exampleEn: The police are still looking for the culprit.
+- id: de3-m1-r2-w04
+  lesson: de3-m1-h-futur-zwei
+  term: die Täterin
+  pos: noun
+  plural: die Täterinnen
+  meanings: ['culprit (female)', culprit, perpetrator, offender]
+  example: Die Täterin hat alles zugegeben.
+  exampleEn: The culprit has admitted everything.
+- id: de3-m1-r2-w05
+  lesson: de3-m1-h-futur-zwei
+  term: der Verdacht
+  pos: noun
+  plural: die Verdachte (rare)
+  meanings: [suspicion]
+  example: Ich habe einen Verdacht, wer das Geld genommen hat.
+  exampleEn: I have a suspicion who took the money.
+  note: 'unter Verdacht stehen = to be under suspicion.'
+- id: de3-m1-r2-w06
+  lesson: de3-m1-h-futur-zwei
+  term: verdächtig
+  pos: adjective
+  meanings: [suspicious, suspect]
+  example: Ein verdächtiger Mann stand lange vor der Bank.
+  exampleEn: A suspicious man stood in front of the bank for a long time.
+  note: 'der/die Verdächtige = the suspect (an adjectival noun).'
+- id: de3-m1-r2-w07
+  lesson: de3-m1-h-futur-zwei
+  term: vermuten
+  pos: verb
+  meanings: [to suppose, to presume, to assume, to suspect, to guess]
+  example: Ich vermute, dass er den Zug verpasst hat.
+  exampleEn: I suppose he has missed the train.
+- id: de3-m1-r2-w08
+  lesson: de3-m1-h-futur-zwei
+  term: die Vermutung
+  pos: noun
+  plural: die Vermutungen
+  meanings: [assumption, supposition, guess, conjecture]
+  example: Das ist nur eine Vermutung, ich weiß es nicht sicher.
+  exampleEn: That's only an assumption; I don't know for sure.
+- id: de3-m1-r2-w09
+  lesson: de3-m1-h-futur-zwei
+  term: ermitteln
+  pos: verb
+  meanings: ['to investigate (as the police do)', to investigate, to find out, to determine, to establish]
+  example: Die Polizei ermittelt gegen zwei Angestellte.
+  exampleEn: The police are investigating two employees.
+  note: 'ermitteln gegen + Akk = to investigate someone. die Ermittlung = investigation.'
+- id: de3-m1-r2-w10
+  lesson: de3-m1-h-futur-zwei
+  term: der Tatort
+  pos: noun
+  plural: die Tatorte
+  meanings: [crime scene, scene of the crime]
+  example: Am Tatort fand die Polizei einen Handschuh.
+  exampleEn: At the crime scene the police found a glove.
+  note: 'Also the name of a long-running German TV detective series.'
+- id: de3-m1-r2-w11
+  lesson: de3-m1-h-futur-zwei
+  term: das Alibi
+  pos: noun
+  plural: die Alibis
+  meanings: [alibi]
+  example: Der Nachbar hat für die Tatzeit kein Alibi.
+  exampleEn: The neighbour has no alibi for the time of the crime.
+- id: de3-m1-r2-w12
+  lesson: de3-m1-h-futur-zwei
+  term: einbrechen
+  pos: verb
+  meanings: ['to break in (as a burglar)', to break in, to burgle, to burglarize]
+  example: Letzte Nacht sind Diebe in die Wohnung eingebrochen.
+  exampleEn: Last night thieves broke into the flat.
+  note: 'Separable and strong: bricht ein, brach ein, ist eingebrochen. einbrechen in + Akk = to break into.'
+- id: de3-m1-r2-w13
+  lesson: de3-m1-h-futur-zwei
+  term: festnehmen
+  pos: verb
+  meanings: [to arrest, to detain, to take into custody]
+  example: Die Polizei hat den Einbrecher am Bahnhof festgenommen.
+  exampleEn: The police arrested the burglar at the station.
+  note: 'Separable and strong: nimmt fest, nahm fest, hat festgenommen.'
+- id: de3-m1-r2-w14
+  lesson: de3-m1-h-futur-zwei
+  term: spätestens
+  pos: adverb
+  meanings: [at the latest]
+  example: Ich bin spätestens um acht zu Hause.
+  exampleEn: I'll be home by eight at the latest.
+- id: de3-m1-r2-w15
+  lesson: de3-m1-h-futur-zwei
+  kind: phrase
+  term: bis dahin
+  pos: phrase
+  meanings: [by then, until then, by that time]
+  example: Der Film beginnt um acht. Bis dahin habe ich gegessen.
+  exampleEn: The film starts at eight. By then I'll have eaten.
+- id: de3-m1-r2-w16
+  lesson: de3-m1-h-futur-zwei
+  term: der Krimi
+  pos: noun
+  plural: die Krimis
+  meanings: ['crime story (book or film)', crime story, crime novel, crime film, crime drama, detective story, whodunit, thriller]
+  example: Am Sonntagabend sehen wir immer einen Krimi.
+  exampleEn: On Sunday evenings we always watch a crime drama.
+
+# --- 05h2 Clause or phrase (de3-m1-h-time-phrases) ---
+- id: de3-m1-r2-w17
+  lesson: de3-m1-h-time-phrases
+  term: die Rückkehr
+  pos: noun
+  plural: —
+  meanings: ['return (coming back)', return, homecoming, coming back]
+  example: Nach seiner Rückkehr aus Japan hat er geheiratet.
+  exampleEn: After his return from Japan he got married.
+- id: de3-m1-r2-w18
+  lesson: de3-m1-h-time-phrases
+  term: zurückkehren
+  pos: verb
+  meanings: ['to return (come back)', to return, to come back, to go back]
+  example: Nach zehn Jahren ist sie in ihre Heimatstadt zurückgekehrt.
+  exampleEn: After ten years she returned to her home town.
+  note: 'Separable, weak, with sein: kehrte zurück, ist zurückgekehrt. More formal than zurückkommen.'
+- id: de3-m1-r2-w19
+  lesson: de3-m1-h-time-phrases
+  term: die Gründung
+  pos: noun
+  plural: die Gründungen
+  meanings: [founding, foundation, establishment, setting up]
+  example: Seit der Gründung der Firma sind zwanzig Jahre vergangen.
+  exampleEn: Twenty years have passed since the company was founded.
+- id: de3-m1-r2-w20
+  lesson: de3-m1-h-time-phrases
+  term: der Tod
+  pos: noun
+  plural: die Tode (rare)
+  meanings: [death]
+  example: Nach dem Tod ihres Mannes zog sie zu ihrer Tochter.
+  exampleEn: After her husband's death she moved in with her daughter.
+- id: de3-m1-r2-w21
+  lesson: de3-m1-h-time-phrases
+  term: die Heirat
+  pos: noun
+  plural: die Heiraten
+  meanings: ['marriage (getting married)', marriage, getting married]
+  example: Seit ihrer Heirat wohnen sie in Graz.
+  exampleEn: Since they got married they have lived in Graz.
+  note: 'die Heirat = the act of marrying; die Ehe = the marriage as a relationship; die Hochzeit = the wedding party.'
+- id: de3-m1-r2-w22
+  lesson: de3-m1-h-time-phrases
+  term: der Beginn
+  pos: noun
+  plural: —
+  meanings: ['beginning (formal)', beginning, start, commencement]
+  example: Vor Beginn des Konzerts werden die Türen geschlossen.
+  exampleEn: The doors are closed before the start of the concert.
+  note: 'More formal than der Anfang. Often without an article: vor Beginn, nach Beginn, zu Beginn.'
+- id: de3-m1-r2-w23
+  lesson: de3-m1-h-time-phrases
+  term: der Abschied
+  pos: noun
+  plural: die Abschiede
+  meanings: [farewell, goodbye, parting, leave-taking]
+  example: Der Abschied am Bahnhof war sehr traurig.
+  exampleEn: The goodbye at the station was very sad.
+  note: 'Abschied nehmen von + Dat = to say goodbye to.'
+- id: de3-m1-r2-w24
+  lesson: de3-m1-h-time-phrases
+  term: der Ruhestand
+  pos: noun
+  plural: —
+  meanings: [retirement]
+  example: Mein Vater ist seit zwei Jahren im Ruhestand.
+  exampleEn: My father has been retired for two years.
+  note: 'in den Ruhestand gehen = to retire. More formal than in Rente gehen.'
+- id: de3-m1-r2-w25
+  lesson: de3-m1-h-time-phrases
+  term: die Einwanderung
+  pos: noun
+  plural: die Einwanderungen
+  meanings: [immigration]
+  example: Die Einwanderung hat das Land stark verändert.
+  exampleEn: Immigration has changed the country a great deal.
+- id: de3-m1-r2-w26
+  lesson: de3-m1-h-time-phrases
+  term: der Aufenthalt
+  pos: noun
+  plural: die Aufenthalte
+  meanings: ['stay (a time spent somewhere)', stay, visit, period of residence]
+  example: Während ihres Aufenthalts in Wien besuchte sie viele Museen.
+  exampleEn: During her stay in Vienna she visited many museums.
+- id: de3-m1-r2-w27
+  lesson: de3-m1-h-time-phrases
+  term: ehe
+  pos: conjunction
+  meanings: ['before (formal conjunction)', before, ere]
+  example: Ehe er antworten konnte, war sie schon weg.
+  exampleEn: Before he could answer, she was already gone.
+  note: 'Formal or literary for bevor; the verb goes to the end.'
+- id: de3-m1-r2-w28
+  lesson: de3-m1-h-time-phrases
+  term: sooft
+  pos: conjunction
+  meanings: [whenever, every time that, as often as]
+  example: Sooft ich sie besuche, backt sie einen Kuchen.
+  exampleEn: Whenever I visit her, she bakes a cake.
+  note: 'One word as a conjunction; so oft (two words) = so often.'
+- id: de3-m1-r2-w29
+  lesson: de3-m1-h-time-phrases
+  term: kaum
+  pos: adverb
+  meanings: [hardly, barely, scarcely]
+  example: Ich habe heute Nacht kaum geschlafen.
+  exampleEn: I hardly slept last night.
+  note: 'kaum …, als = hardly … when: Er war kaum zu Hause, als das Telefon klingelte.'

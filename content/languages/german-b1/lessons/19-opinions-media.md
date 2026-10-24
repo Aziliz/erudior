@@ -46,6 +46,22 @@ The rule from A2 still holds, and it is the most common mistake at this level:
 
 In casual speech you'll hear *Über was redet ihr?* or *Mit was hast du bezahlt?* It's widespread, but in writing and in the exam use *worüber, womit*.
 
+The whole decision as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: da-compound or preposition + pronoun?
+  accDescr: Ask whether you mean a person or a thing or idea. For a person, use the preposition with a pronoun, über ihn, or in a question with wen or wem, über wen. For a thing or idea, use a da-compound in a statement and a wo-compound in a question. If the preposition starts with a vowel, add r: darüber, worüber. Otherwise da or wo goes straight on: dafür, wofür.
+  A{"A person, or a thing or idea?"} -- person --> B["preposition + pronoun: über ihn? über wen?"]
+  A -- "thing or idea" --> C{"Statement or question?"}
+  C -- statement --> D["da + preposition"]
+  C -- question --> E["wo + preposition"]
+  D --> F{"Does the preposition start with a vowel?"}
+  E --> F
+  F -- yes --> G["add r: darüber, worüber"]
+  F -- no --> H["no r: dafür, wofür"]
+```
+
 ## Pointing ahead: da- + dass or zu
 
 Here is something English does differently. When a verb has a fixed preposition (*sich freuen auf, sich ärgern über, warten auf*), and what follows is not a noun but a whole clause, German puts a *da-* word in the main clause as a kind of signpost. It announces: "the content is coming in the next clause".
@@ -97,6 +113,10 @@ In lesson 12 you learned *was* as a relative pronoun after *alles, etwas, nichts
 | *abhängig, die Abhängigkeit* | dependent, addicted; dependence, addiction |
 
 And for arguing: *die Debatte* (debate), *das Argument* (argument as in "reason", not a quarrel: that's *der Streit*), *argumentieren*, *die Ansicht* and *der Standpunkt* (view, point of view), *behaupten* (to claim) and *die Behauptung*, *widersprechen* + dative (to contradict), *ablehnen* (to reject, turn down) and *die Ablehnung*, *der Zweifel* (doubt), *die Tatsache* (fact), *die Lüge* (lie).
+
+The picture shows the parts of a typical post: the *Profil* of the person posting, the *Beitrag* itself, a link with its *Quelle*, the button to *teilen* (here *Teilen*) and a *Kommentar* below. Would you share this one? The source is unknown, the post is full of exclamation marks, it claims that "the politicians" are hiding something, and the comment asks exactly the right question: *Woher hast du das?* (Where did you get that from?)
+
+![A social media post with labels. Profile (das Profil): Tina_Wahrheit, vor 2 Std. The post (der Beitrag): Unglaublich!!! Ab Montag werden alle Schulen in der Stadt geschlossen! Die Politiker sagen euch das nicht. Bitte sofort teilen!!! A link box (die Quelle): SCHULEN DICHT! Die ganze Wahrheit. Quelle: blitz-news24.example. Buttons: Gefällt mir, Kommentieren and Teilen; 1.204-mal geteilt. A comment (der Kommentar) from Max B.: Stimmt das? Auf der Webseite der Stadt steht nichts davon. Woher hast du das?](images/de3-m4-post.svg)
 
 Two useful adverbs: *angeblich* (supposedly, allegedly) shows you doubt a claim: *Angeblich hat das Video zehn Millionen Klicks.* *tatsächlich* (actually, really, in fact) confirms it: *Ich habe es überprüft, und es stimmt tatsächlich.*
 

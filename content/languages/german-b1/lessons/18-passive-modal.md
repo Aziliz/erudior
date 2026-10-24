@@ -51,6 +51,14 @@ The trap from A2 is still there in the passive:
 
 English "must not" = German *darf nicht*. German *muss nicht* = "doesn't have to".
 
+```mermaid
+flowchart TD
+  accTitle: muss nicht or darf nicht?
+  accDescr: Ask what you want to say. If something is forbidden, use darf nicht: Der Rasen darf nicht betreten werden. If something is simply not necessary, use muss nicht: Der Antrag muss nicht persönlich abgegeben werden.
+  A{"What do you mean?"} -- "It is forbidden" --> B["darf nicht: Der Rasen darf nicht betreten werden."]
+  A -- "It is not necessary" --> C["muss nicht: Der Antrag muss nicht persönlich abgegeben werden."]
+```
+
 ### In the past
 
 For the past, use the Präteritum of the modal; the end of the sentence stays the same:
@@ -109,6 +117,23 @@ Official texts love a shorter alternative to the modal passive: *sein* + *zu* + 
 | *Die Schrift war kaum zu lesen.* | *… konnte kaum gelesen werden.* | The writing could hardly be read. |
 
 Rules come out as "must": instructions, forms, laws. With words like *leicht, schwer, kaum, nicht* it usually means "can": *Das ist nicht zu ändern* (that can't be changed). With separable verbs, *zu* goes between prefix and verb, as you know from *um … zu*: *einzureichen, vorzulegen, abzugeben*. This construction is called **sein + zu**. You need to understand it in letters and on signs; in your own speech and writing, the modal passive is always fine.
+
+To tell the two meanings apart:
+
+```mermaid
+flowchart TD
+  accTitle: Does sein + zu mean must or can?
+  accDescr: When you read sein plus zu plus infinitive, look for a word such as leicht, schwer, kaum or gut. If there is one, it usually means can: Das Problem ist leicht zu lösen means the problem can easily be solved. If the sentence is a rule or an instruction, it means must: Der Antrag ist bis Freitag einzureichen means the application must be submitted by Friday.
+  A["sein + zu + infinitive"] --> B{"leicht, schwer, kaum or gut in the sentence?"}
+  B -- "yes" --> C["usually can: Das Problem ist leicht zu lösen. = kann gelöst werden"]
+  B -- "no, it is a rule" --> D["must: Der Antrag ist bis Freitag einzureichen. = muss eingereicht werden"]
+```
+
+Careful with *nicht*: on a sign, *Der Rasen ist nicht zu betreten* is a ban (the grass must not be walked on), but *Das ist nicht zu ändern* means "that can't be changed". The situation tells you which.
+
+On real signs you'll meet several ways of stating a rule. The first sign below uses *sein + zu*: *Hunde sind an der Leine zu führen* = *Hunde müssen an der Leine geführt werden* (dogs must be kept on a lead). The second uses a noun made from a verb plus *verboten*: *Betreten der Baustelle verboten!* (no entry to the building site), with the classic warning *Eltern haften für ihre Kinder* (parents are liable for their children). The third is a polite instruction with an infinitive: *Bitte den Rasen nicht betreten.* All three could be said with the modal passive: *… müssen geführt werden, … darf nicht betreten werden.*
+
+![Three signs. A blue sign: Hunde sind an der Leine zu führen. A red sign: Betreten der Baustelle verboten! Eltern haften für ihre Kinder. A green sign: Bitte den Rasen nicht betreten. Die Stadtverwaltung.](images/de3-m4-signs.svg)
 
 ## -bar: "can be done" in one word *(receptive)*
 

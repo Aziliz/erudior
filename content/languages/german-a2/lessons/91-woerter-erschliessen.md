@@ -61,7 +61,7 @@ The building blocks at the front and back of words are a **prefix** and a **suff
 | *-lich*, *-ig* | makes adjectives | *freundlich*, *sonnig*, *wolkig* |
 | *-bar* | can be done | *essbar* (edible), *trinkbar*, *machbar* (doable) |
 | *-los* | without | *arbeitslos*, *kostenlos* (free of charge), *sprachlos* (speechless) |
-| *un-* | the opposite | *unbekannt*, *unfreundlich*, *unmöglich* |
+| *un-* | the opposite (*das Gegenteil*) | *unbekannt*, *unfreundlich*, *unmöglich* |
 
 These are tendencies, not laws. *die Kleinigkeit* comes from *klein* and means "a small thing, a trifle", which fits the pattern. But *unheimlich* doesn't mean "not homely": it means "creepy", and in speech also "incredibly" (*unheimlich nett*). Use the blocks to make a guess, then check the guess against the sentence.
 
@@ -98,7 +98,7 @@ When the blocks don't help, the sentences around a word usually do. Ask: what ki
 
 > *Im Flur steht eine alte Kommode. Sie hat vier Schubladen. In der obersten liegen unsere Mützen und Schals, in der untersten die Schuhcreme.*
 
-*Schublade* has an article and a plural, so it's a noun. A *Kommode* has four of them, and things lie *in* them, at the top and at the bottom. A *Kommode* is a chest of drawers; *die Schublade* is a drawer. The **context**, the text around a word, often gives you more than any one block.
+*Schublade* has an article and a plural, so it's a noun. A *Kommode* has four of them, and things lie *in* them, at the top and at the bottom. A *Kommode* is a chest of drawers; *die Schublade* is a drawer. The **context** (*der Zusammenhang*), the text around a word, often gives you more than any one block. A word you can guess (*erraten*) from the context is one you'll remember, too.
 
 Here is the whole method as a chart:
 
