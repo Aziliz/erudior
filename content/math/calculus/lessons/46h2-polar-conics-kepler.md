@@ -46,7 +46,7 @@ The denominator $1 + e\cos\theta$ explains the three shapes.
 - If $e > 1$, the denominator is 0 at the two angles where $\cos\theta = -\frac1e$; those are the directions of the asymptotes. Between them $r$ is negative, which traces the second branch of the hyperbola.
 
 ```plot
-{"x": [-6, 4], "y": [-5, 5], "equal": true, "curves": [{"x": "2cos(t)/(1 + 0.5cos(t))", "y": "2sin(t)/(1 + 0.5cos(t))", "t": [0, "2pi"], "label": "e = 0.5"}, {"x": "2cos(t)/(1 + cos(t))", "y": "2sin(t)/(1 + cos(t))", "t": [-2.7, 2.7], "dashed": true, "label": "e = 1"}, {"x": "2cos(t)/(1 + 2cos(t))", "y": "2sin(t)/(1 + 2cos(t))", "t": [-1.98, 1.98], "label": "e = 2"}, {"x": "2cos(t)/(1 + 2cos(t))", "y": "2sin(t)/(1 + 2cos(t))", "t": [2.2, 4.08]}], "points": [{"at": [0, 0], "label": "focus"}], "caption": "r = 2/(1 + e cos θ) for e = 0.5 (ellipse), 1 (parabola) and 2 (both branches of a hyperbola), all with the focus at the origin"}
+{"x": [-6, 4], "y": [-5, 5], "equal": true, "curves": [{"x": "2cos(t)/(1 + 0.5cos(t))", "y": "2sin(t)/(1 + 0.5cos(t))", "t": [0, "2pi"]}, {"x": "2cos(t)/(1 + cos(t))", "y": "2sin(t)/(1 + cos(t))", "t": [-2.7, 2.7], "dashed": true}, {"x": "2cos(t)/(1 + 2cos(t))", "y": "2sin(t)/(1 + 2cos(t))", "t": [-1.98, 1.98]}, {"x": "2cos(t)/(1 + 2cos(t))", "y": "2sin(t)/(1 + 2cos(t))", "t": [2.2, 4.08]}], "points": [{"at": [0, 0]}], "labels": [{"at": [-0.6, -0.5], "text": "focus"}, {"at": [-2.6, 2.6], "text": "e = 0.5"}, {"at": [-5.0, 3.9], "text": "e = 1"}, {"at": [2.2, 3.8], "text": "e = 2"}], "caption": "r = 2/(1 + e cos θ) for e = 0.5 (ellipse), 1 (parabola) and 2 (both branches of a hyperbola), all with the focus at the origin"}
 ```
 
 ```mermaid
@@ -106,7 +106,7 @@ $$\frac{dA}{dt} = \frac12r^2\frac{d\theta}{dt}.$$
 Equal areas in equal times means $\frac{dA}{dt}$ is constant, so $r^2\frac{d\theta}{dt} = h$ for a constant $h$ (in physics, $h$ is the angular momentum per unit mass). Therefore $\frac{d\theta}{dt} = \frac{h}{r^2}$: the direction to the planet turns fastest when the planet is closest.
 
 ```plot
-{"x": [-3.8, 2], "y": [-2.5, 2.5], "equal": true, "curves": [{"x": "2cos(t)/(1 + 0.4cos(t))", "y": "2sin(t)/(1 + 0.4cos(t))", "t": [0, "2pi"]}], "polygons": [{"points": [[0, 0], [1.241, -0.849], [1.299, -0.71], [1.346, -0.569], [1.382, -0.428], [1.408, -0.285], [1.423, -0.143], [1.429, 0.0], [1.423, 0.143], [1.408, 0.285], [1.382, 0.428], [1.346, 0.569], [1.299, 0.71], [1.241, 0.849]]}, {"points": [[0, 0], [-3.297, 0.379], [-3.317, 0.254], [-3.329, 0.127], [-3.333, 0.0], [-3.329, -0.127], [-3.317, -0.254], [-3.297, -0.379]]}], "points": [{"at": [0, 0], "label": "Sun"}, {"at": [1.4286, 0], "label": "perihelion"}, {"at": [-3.3333, 0], "label": "aphelion"}], "caption": "Orbit with e = 0.4: the two wedges have equal areas, so the planet sweeps the wide angle near perihelion in the same time as the narrow angle near aphelion"}
+{"x": [-3.8, 2.7], "y": [-2.5, 2.5], "equal": true, "curves": [{"x": "2cos(t)/(1 + 0.4cos(t))", "y": "2sin(t)/(1 + 0.4cos(t))", "t": [0, "2pi"]}], "polygons": [{"points": [[0, 0], [1.241, -0.849], [1.299, -0.71], [1.346, -0.569], [1.382, -0.428], [1.408, -0.285], [1.423, -0.143], [1.429, 0.0], [1.423, 0.143], [1.408, 0.285], [1.382, 0.428], [1.346, 0.569], [1.299, 0.71], [1.241, 0.849]]}, {"points": [[0, 0], [-3.297, 0.379], [-3.317, 0.254], [-3.329, 0.127], [-3.333, 0.0], [-3.329, -0.127], [-3.317, -0.254], [-3.297, -0.379]]}], "points": [{"at": [0, 0]}, {"at": [1.4286, 0]}, {"at": [-3.3333, 0]}], "labels": [{"at": [0.85, 0.08], "text": "Sun"}, {"at": [2.05, -0.4], "text": "perihelion"}, {"at": [-2.6, -0.75], "text": "aphelion"}], "caption": "Orbit with e = 0.4: the two wedges have equal areas, so the planet sweeps the wide angle near perihelion in the same time as the narrow angle near aphelion"}
 ```
 
 At perihelion and aphelion the velocity is perpendicular to the radius (the distance is at a minimum or maximum, so it isn't changing), and the speed is just $r\frac{d\theta}{dt} = \frac hr$. So
@@ -129,7 +129,7 @@ Since area is swept at the constant rate $\frac h2$, one full orbit takes $T = \
 
 $$T^2 = \frac{4\pi^2a^2b^2}{GM\ell} = \frac{4\pi^2}{GM}\,a^3,$$
 
-which is Kepler's third law, with the constant identified. For Earth, $a \approx 1.496\times10^{11}$ m and $GM \approx 1.327\times10^{20}$ m³/s² give $T \approx 3.156\times10^7$ s $\approx 365.26$ days. Measuring $a$ in astronomical units (AU, Earth's semi-major axis) and $T$ in years makes the constant 1 for anything orbiting the Sun: $T = a^{3/2}$.
+which is Kepler's third law, with the constant identified. For Earth, $a \approx 1.496\times10^{11}$ m and $GM \approx 1.327\times10^{20}$ m³/s² give $T \approx 3.156\times10^7$ s, about 365.3 days (with more precise values of $a$ and $GM$ the result is the sidereal year, 365.26 days). Measuring $a$ in astronomical units (AU, Earth's semi-major axis) and $T$ in years makes the constant 1 for anything orbiting the Sun: $T = a^{3/2}$.
 
 ### Example 4 (Halley's comet)
 

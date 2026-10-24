@@ -98,7 +98,7 @@ $$dT = \frac{2a\sin\frac t2}{2\sqrt{ga}\sin\frac t2}\,dt = \sqrt{\frac ag}\,dt, 
 A bead slides from $(0, 0)$ to $(\pi a, -2a)$. Compare three frictionless tracks.
 
 ```plot
-{"x": [-0.4, 3.6], "y": [-2.5, 0.5], "equal": true, "curves": [{"x": "t - sin(t)", "y": "-(1 - cos(t))", "t": [0, "pi"], "label": "cycloid"}], "segments": [{"from": [0, 0], "to": [3.1416, -2], "dashed": true}, {"from": [0, 0], "to": [0, -2]}, {"from": [0, -2], "to": [3.1416, -2]}], "points": [{"at": [0, 0], "label": "start"}, {"at": [3.1416, -2], "label": "end"}], "caption": "Three tracks with a = 1: cycloid (curve), straight line (dashed), and drop-then-slide (down the y-axis, then along y = −2)"}
+{"x": [-0.4, 3.6], "y": [-2.5, 0.5], "equal": true, "curves": [{"x": "t - sin(t)", "y": "-(1 - cos(t))", "t": [0, "pi"]}], "segments": [{"from": [0, 0], "to": [3.1416, -2], "dashed": true}, {"from": [0, 0], "to": [0, -2]}, {"from": [0, -2], "to": [3.1416, -2]}], "points": [{"at": [0, 0], "label": "start"}, {"at": [3.1416, -2], "label": "end"}], "labels": [{"at": [0.7, -1.8], "text": "cycloid"}, {"at": [2.1, -0.8], "text": "straight line"}, {"at": [1.6, -2.35], "text": "drop, then slide"}], "caption": "Three tracks with a = 1: cycloid (curve), straight line (dashed), and drop-then-slide (down the y-axis, then along y = −2)"}
 ```
 
 - *Cycloid:* $T = \pi\sqrt{a/g} \approx 3.142\sqrt{a/g}$.
