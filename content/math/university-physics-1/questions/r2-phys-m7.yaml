@@ -1,0 +1,362 @@
+# Round 2, module phys-m7 (Fluids and thermodynamics): core lessons 24-29 and honors lessons 29h1-29h3.
+# ---- Lesson 24: Pressure and buoyancy
+- id: phys-m7-r2-q01
+  lesson: phys-fluid-statics
+  module_quiz: true
+  topic: Pressure
+  type: label
+  stem: 'Name the numbered parts of this hydraulic lift.'
+  image: {src: images/phys-m7-hydraulic-blank.svg, alt: 'A U-shaped container of fluid. A narrow tube on the left has a small piston pushed down by an arrow from above; a wide tube on the right has a large piston carrying a load, with an arrow pointing up under it.'}
+  labels:
+    - {x: 19.2, y: 34.2, text: Small piston}
+    - {x: 57.5, y: 39.7, text: Large piston}
+    - {x: 19.2, y: 16.7, text: Input force}
+    - {x: 80.8, y: 55.6, text: Output force}
+    - {x: 40, y: 80.6, text: Hydraulic fluid}
+  distractors: [Valve, Air gap]
+  explanation: |-
+    You push down on the small piston (1) with the input force (3). That creates a pressure $F_1/A_1$, which the hydraulic fluid (5) passes on undiminished (Pascal's principle) to the large piston (2), so the output force (4) is $F_2 = F_1A_2/A_1$, much larger than $F_1$.
+- id: phys-m7-r2-q02
+  lesson: phys-fluid-statics
+  topic: Pressure
+  type: text
+  stem: 'Using the rule that every 10 m of water adds about 1 atm, the gauge pressure on a diver 25 m below the surface of a lake is about ___ atm. (Give only the number.)'
+  accept: ['2.5']
+  explanation: |-
+    Gauge pressure counts only the water: 25 m is 2.5 times 10 m, so about 2.5 atm. The absolute pressure adds the atmosphere on top: about 3.5 atm. (The exact gauge value is $\rho gh = 1000(9.8)(25) = 2.45\times10^5$ Pa $= 2.4$ atm.)
+- id: phys-m7-r2-q03
+  lesson: phys-fluid-statics
+  topic: Buoyancy
+  stem: 'Which changes would increase the buoyant force on an object held completely under water? Select all that apply.'
+  choices:
+    - 'Moving it from fresh water into seawater'
+    - 'Replacing it with an object of the same volume but greater density'
+    - 'Making its volume larger while keeping it submerged'
+    - 'Lowering it to a greater depth in the same water'
+  answer: [0, 2]
+  explanation: |-
+    $F_B = \rho_{\text{fluid}}V_{\text{disp}}g$ depends only on the fluid's density and the displaced volume. Seawater is denser than fresh water, and a larger object displaces more water, so both increase $F_B$. The object's own density changes its weight, not the buoyant force, and depth doesn't matter: the pressure difference between bottom and top is the same at any depth.
+- id: phys-m7-r2-q04
+  lesson: phys-fluid-statics
+  topic: Buoyancy
+  type: match
+  stem: 'Each object is held completely under fresh water (1000 kg/m³) and released. Match it to what happens.'
+  pairs:
+    - ['Steel bolt, 7800 kg/m³', Sinks to the bottom]
+    - ['Ice cube, 917 kg/m³', Floats with about 92% of its volume submerged]
+    - ['Pine block, 500 kg/m³', Floats with half its volume submerged]
+    - ['Sealed jar weighted to an average of 1000 kg/m³', Stays where it is released]
+  distractors: [Floats with about 8% of its volume submerged]
+  explanation: |-
+    An object denser than the fluid sinks; a less dense one rises and floats with the fraction $\rho_{\text{obj}}/\rho_{\text{fluid}}$ submerged: $917/1000 \approx 92\%$ for ice and $500/1000 = 50\%$ for pine. Equal densities give neutral buoyancy. About 8% is the fraction of the ice *above* the water.
+- id: phys-m7-r2-q05
+  lesson: phys-fluid-statics
+  module_quiz: true
+  topic: Buoyancy
+  stem: 'The picture shows the pressure forces on a block held under water. Why is the net force from the water upward?'
+  image: {src: images/phys-m7-buoyancy.svg, alt: 'A block under water with short arrows pushing down on its top face, longer arrows pushing up on its bottom face, and equal arrows pushing on its two sides.'}
+  choices:
+    - 'The bottom face is deeper, so the water pressure on it is greater than on the top face'
+    - 'The water pushes harder on the sides than on the top, squeezing the block upward'
+    - 'Air pressing on the surface pushes up on the block from below'
+    - 'The block''s weight pushes the water down, and the water pushes back up equally'
+  answer: 0
+  explanation: |-
+    Pressure grows with depth, $P = P_0 + \rho gh$, so the upward push on the deeper bottom face beats the downward push on the top face; the side forces cancel. The difference is $\rho_{\text{fluid}}Vg$, the weight of the displaced water. Atmospheric pressure acts on both faces and cancels. The last choice is a third-law pairing, and the buoyant force doesn't depend on the block's weight.
+# ---- Lesson 25: Fluid flow and Bernoulli's equation
+- id: phys-m7-r2-q06
+  lesson: phys-fluid-flow
+  module_quiz: true
+  topic: Fluid dynamics
+  type: label
+  stem: 'Water flows from left to right through this Venturi tube. Name the numbered parts.'
+  image: {src: images/phys-m7-venturi-blank.svg, alt: 'A horizontal pipe that narrows in the middle and widens again, with dashed lines running along it that crowd together in the narrow part. Two thin vertical tubes rise from the top of the pipe, one over the wide part and one over the narrow part, holding liquid columns of different heights.'}
+  labels:
+    - {x: 26.7, y: 54.5, text: 'Slow flow, high pressure'}
+    - {x: 60.3, y: 54.5, text: 'Fast flow, low pressure'}
+    - {x: 86.7, y: 41.8, text: Streamline}
+    - {x: 18.3, y: 22.7, text: Liquid column showing the pressure}
+  distractors: ['Fast flow, high pressure', 'Slow flow, low pressure']
+  explanation: |-
+    By continuity the water speeds up in the narrow throat (2) and is slower in the wide section (1); by Bernoulli's equation, at the same height faster flow means lower pressure. The vertical tubes show it: the liquid column over the wide part (4) stands higher than the one over the throat. The dashed lines are streamlines (3), which crowd together where the flow is fast.
+- id: phys-m7-r2-q07
+  lesson: phys-fluid-flow
+  topic: Fluid dynamics
+  type: text
+  stem: 'Water flows at 2.0 m/s in a hose of diameter 2.0 cm. A nozzle narrows the opening to a diameter of 0.50 cm. The water leaves the nozzle at ___ m/s. (Give only the number.)'
+  accept: ['32']
+  explanation: |-
+    Continuity: $A_1v_1 = A_2v_2$, and area goes as diameter squared. The diameter shrinks by a factor of 4, so the area shrinks by 16 and the speed rises by 16: $v_2 = 16(2.0) = 32$ m/s. (Scaling by the diameter alone would give 8 m/s.)
+- id: phys-m7-r2-q08
+  lesson: phys-fluid-flow
+  topic: Fluid dynamics
+  stem: 'Which assumptions belong to the ideal-fluid model used with Bernoulli''s equation? Select all that apply.'
+  choices:
+    - 'The fluid is incompressible'
+    - 'The fluid has no viscosity'
+    - 'The flow is turbulent'
+    - 'The flow is steady'
+  answer: [0, 1, 3]
+  explanation: |-
+    An ideal fluid is incompressible, nonviscous, steady and irrotational. Turbulent flow, full of eddies, is the opposite of the smooth, steady flow the model describes, and Bernoulli's equation applies to it only roughly.
+- id: phys-m7-r2-q09
+  lesson: phys-fluid-flow
+  topic: Fluid dynamics
+  type: order
+  stem: 'Water flows steadily through a horizontal pipe whose diameter changes along its length. Order these sections from the highest pressure to the lowest.'
+  items: ['Diameter 4.0 cm', 'Diameter 3.0 cm', 'Diameter 2.0 cm', 'Diameter 1.0 cm']
+  explanation: |-
+    By continuity, the narrower the section, the faster the water ($v \propto 1/D^2$). For a horizontal pipe Bernoulli's equation gives $P + \tfrac12\rho v^2 = \text{constant}$, so the faster the flow, the lower the pressure. The widest section has the highest pressure and the narrowest the lowest.
+- id: phys-m7-r2-q10
+  lesson: phys-fluid-flow
+  module_quiz: true
+  topic: Fluid dynamics
+  stem: 'An open tank of cross-section $A$, filled with water to a depth of 2.0 m, drains through a small hole of area $a = A/100$ in its bottom. Using $t = \dfrac Aa\sqrt{\dfrac{2h_0}{g}}$ with $g = 9.8$ m/s², how long does it take to empty?'
+  choices: ['45.2 s', '31.9 s', '63.9 s', '626 s']
+  answer: 2
+  explanation: |-
+    $t = 100\sqrt{2(2.0)/9.8} = 100(0.639) = 63.9$ s. Assuming the water keeps leaving at its initial Torricelli speed $\sqrt{2gh_0} = 6.26$ m/s gives $Ah_0/(av_0) = 31.9$ s, half the true time, because the outflow slows as the level drops. 45.2 s drops the 2 inside the square root, and 626 s is $100\sqrt{2gh_0}$, a speed times 100, not a time.
+# ---- Lesson 26: Temperature, heat, and phase changes
+- id: phys-m7-r2-q11
+  lesson: phys-heat
+  module_quiz: true
+  topic: Heat and calorimetry
+  type: label
+  stem: 'Heat moves in three different ways in this kitchen scene. Name the way marked at each number.'
+  image: {src: images/phys-m7-heat-transfer-blank.svg, alt: 'A pot of water on a glowing stove burner. Arrows run along the metal handle, loops of arrows circulate inside the water, and wavy arrows go from the burner to a hand held beside it.'}
+  labels:
+    - {x: 79.2, y: 37.5, text: Conduction}
+    - {x: 50, y: 55.6, text: Convection}
+    - {x: 21.7, y: 73.6, text: Radiation}
+  distractors: [Evaporation, Latent heat]
+  explanation: |-
+    Heat travels along the solid metal handle by conduction (1), molecule to molecule. In the water, hot water rises and cooler water sinks, carrying heat by convection (2), bulk motion of the fluid. The glowing burner warms the hand across the air gap by radiation (3), electromagnetic waves that need no medium.
+- id: phys-m7-r2-q12
+  lesson: phys-heat
+  topic: Heat and calorimetry
+  type: text
+  stem: 'Melting 2.0 kg of ice that is already at 0°C takes ___ kJ of heat. ($L_f = 3.34\times10^5$ J/kg; give only the number.)'
+  accept: ['668']
+  explanation: |-
+    During a phase change the temperature stays put, so only the latent heat counts: $Q = mL_f = 2.0(3.34\times10^5) = 6.68\times10^5$ J $= 668$ kJ.
+- id: phys-m7-r2-q13
+  lesson: phys-heat
+  topic: Heat and calorimetry
+  stem: '1 kg of ice at −20°C is heated steadily until it is steam at 110°C. Which statements are true? Select all that apply.'
+  choices:
+    - 'The temperature stays at 0°C while the ice melts'
+    - 'Boiling the water takes more heat than melting the ice'
+    - 'Heat added while the ice melts raises the average kinetic energy of its molecules'
+    - 'Warming the liquid water from 0°C to 100°C takes more heat than melting the ice'
+  answer: [0, 1, 3]
+  explanation: |-
+    At a phase change the heat breaks bonds instead of raising the temperature, so the temperature (and the average kinetic energy) stays fixed while ice melts. Boiling takes $L_v = 2260$ kJ against $L_f = 334$ kJ for melting, and warming the water by 100 K takes $4186(100) = 419$ kJ, also more than 334 kJ.
+- id: phys-m7-r2-q14
+  lesson: phys-heat
+  topic: Heat and calorimetry
+  type: order
+  stem: 'Put the steps for solving a calorimetry problem in order.'
+  items:
+    - 'List each object''s mass, specific heat and starting temperature'
+    - 'Write $Q = mc(T_f - T_i)$ for each object, adding $\pm mL$ for any phase change'
+    - 'Set the sum of all the $Q$ values equal to zero'
+    - 'Solve for the final temperature $T_f$'
+    - 'Check that $T_f$ lies between the starting temperatures'
+  explanation: |-
+    Calorimetry is energy bookkeeping: gather the data, write each object's heat with the same sign convention ($T_f - T_i$), use conservation ($\sum Q = 0$ in an insulated container), solve, and then check the answer makes sense. A final temperature outside the starting range means a sign error or a wrong assumption about phases.
+- id: phys-m7-r2-q15
+  lesson: phys-heat
+  module_quiz: true
+  topic: Heat and calorimetry
+  stem: 'Coffee at 90°C cools in a 20°C room following Newton''s law of cooling with $\kappa = 0.05$ per minute. What is its temperature after 20 minutes?'
+  choices: ['33.1°C', '45.8°C', '62.5°C', '20.0°C']
+  answer: 1
+  explanation: |-
+    $T = T_s + (T_0 - T_s)e^{-\kappa t} = 20 + 70e^{-1} = 20 + 25.8 = 45.8$°C. Applying the decay to the whole temperature, $90e^{-1}$, gives 33.1°C; it's the difference from the room that decays. 62.5°C is the value after 10 minutes. 20.0°C comes from assuming the initial cooling rate, $0.05(70) = 3.5$°C/min, lasts all 20 minutes; in fact the rate slows as the coffee approaches room temperature.
+- id: phys-m7-r2-q16
+  lesson: phys-heat
+  topic: Temperature and expansion
+  type: text
+  stem: 'A 200 m steel bridge ($\alpha = 12\times10^{-6}$ K⁻¹) warms by 30 K. It gets longer by ___ cm. (Give only the number.)'
+  accept: ['7.2']
+  explanation: |-
+    $\Delta L = \alpha L\Delta T = (12\times10^{-6})(200)(30) = 0.072$ m $= 7.2$ cm.
+# ---- Lesson 27: Ideal gases and kinetic theory
+- id: phys-m7-r2-q17
+  lesson: phys-gases
+  topic: Kinetic theory
+  type: label
+  stem: 'The picture shows the kinetic-theory model of gas pressure. Name the numbered parts.'
+  image: {src: images/phys-m7-kinetic-box-blank.svg, alt: 'Molecules in a rectangular box. One molecule travels toward the right-hand wall, which is shaded, bounces off it and travels back to the left. A double-headed arrow runs along the bottom of the box.'}
+  labels:
+    - {x: 75.2, y: 25, text: Wall of area A}
+    - {x: 61.7, y: 37.5, text: Velocity before the bounce}
+    - {x: 61.7, y: 57.2, text: Velocity after the bounce}
+    - {x: 33.3, y: 87.5, text: Length of the box}
+  distractors: [Mean free path, Pressure gauge]
+  explanation: |-
+    A molecule moving toward the wall (2) with $x$-component $+v_x$ bounces off the wall (1) and leaves (3) with $-v_x$, giving the wall momentum $2mv_x$. It crosses the box and back, a distance $2L$ where $L$ is the box's length (4), before hitting the same wall again, so it hits every $2L/v_x$ seconds. Averaging over all molecules gives $PV = \tfrac13Nm\overline{v^2}$.
+- id: phys-m7-r2-q18
+  lesson: phys-gases
+  module_quiz: true
+  topic: Ideal gas law
+  type: match
+  stem: 'Match each situation with the gas law to use.'
+  pairs:
+    - ['A fixed amount of gas at constant temperature', 'Boyle''s law']
+    - ['A fixed amount of gas at constant pressure', 'Charles''s law']
+    - ['A fixed amount of gas at constant volume', 'Gay-Lussac''s law']
+    - ['Finding how many moles a tank holds', 'PV = nRT']
+  distractors: ['Bernoulli''s equation']
+  explanation: |-
+    Boyle: $P_1V_1 = P_2V_2$ at constant $T$. Charles: $V_1/T_1 = V_2/T_2$ at constant $P$. Gay-Lussac: $P_1/T_1 = P_2/T_2$ at constant $V$. When the amount of gas is asked for or changes, use $PV = nRT$. Bernoulli's equation is for flowing fluids.
+- id: phys-m7-r2-q19
+  lesson: phys-gases
+  topic: Kinetic theory
+  type: text
+  stem: 'At the same temperature, hydrogen molecules ($M = 2$ g/mol) have an rms speed ___ times that of oxygen molecules ($M = 32$ g/mol).'
+  accept: ['4']
+  explanation: |-
+    $v_{\text{rms}} = \sqrt{3RT/M}$, so at equal $T$ the ratio is $\sqrt{M_{\text{O}_2}/M_{\text{H}_2}} = \sqrt{32/2} = \sqrt{16} = 4$. (Not 16: the speed goes as the square root.)
+- id: phys-m7-r2-q20
+  lesson: phys-gases
+  topic: Kinetic theory
+  stem: 'The absolute temperature of a fixed amount of ideal gas is doubled. Which statements are true? Select all that apply.'
+  choices:
+    - 'The average translational kinetic energy per molecule doubles'
+    - 'The rms speed of the molecules doubles'
+    - 'The pressure doubles if the volume is held fixed'
+    - 'The mass of each molecule doubles'
+  answer: [0, 2]
+  explanation: |-
+    $\tfrac12m\overline{v^2} = \tfrac32k_BT$, so the average kinetic energy is proportional to $T$ and doubles. The rms speed goes as $\sqrt T$, so it rises by $\sqrt2 \approx 1.41$, not 2. At fixed volume $P \propto T$ (Gay-Lussac), so the pressure doubles. Molecular mass doesn't depend on temperature.
+- id: phys-m7-r2-q21
+  lesson: phys-gases
+  module_quiz: true
+  topic: Ideal gas law
+  stem: '1.00 mol of an ideal gas at 127°C occupies 20.0 L. What is its pressure?'
+  choices: ['52.8 kPa', '166 Pa', '16.6 kPa', '166 kPa']
+  answer: 3
+  explanation: |-
+    Convert first: $T = 127 + 273 = 400$ K and $V = 20.0\times10^{-3}$ m³. Then $P = \dfrac{nRT}{V} = \dfrac{1.00(8.314)(400)}{0.0200} = 1.66\times10^5$ Pa $= 166$ kPa. Using 127 (Celsius) gives 52.8 kPa; leaving $V$ as 20.0 gives 166 Pa; and converting 20.0 L to 0.200 m³ (1 L taken as $10^{-2}$ m³) gives 16.6 kPa.
+# ---- Lesson 28: The first law of thermodynamics
+- id: phys-m7-r2-q22
+  lesson: phys-first-law
+  module_quiz: true
+  topic: First law of thermodynamics
+  type: label
+  stem: 'Name the numbered parts of this piston-and-cylinder setup.'
+  image: {src: images/phys-m7-piston-blank.svg, alt: 'A gas in a vertical cylinder under a movable piston that holds up a load. The cylinder sits on a hot plate; two arrows point up from the plate into the gas, and a third arrow beside the cylinder points up.'}
+  labels:
+    - {x: 55.8, y: 42.1, text: Piston}
+    - {x: 48.3, y: 63.2, text: Gas (the system)}
+    - {x: 65, y: 34.2, text: Work done by the gas}
+    - {x: 40, y: 74.2, text: Heat flowing into the gas}
+    - {x: 62.5, y: 82.6, text: Hot reservoir}
+  distractors: [Cold reservoir, Internal energy leaving the gas]
+  explanation: |-
+    The gas (2) is the system. Heat $Q$ flows into it (4) from the hot plate, a hot reservoir (5). The gas pushes the piston (1) and its load upward, doing work $W$ on the surroundings (3). The first law, $\Delta E_{\text{int}} = Q - W$, says what's left changes the gas's internal energy.
+- id: phys-m7-r2-q23
+  lesson: phys-first-law
+  topic: First law of thermodynamics
+  type: match
+  stem: 'Match each ideal-gas process to the statement that defines or follows directly from it.'
+  pairs:
+    - [Isobaric, Pressure stays constant]
+    - [Isochoric, The gas does no work]
+    - [Isothermal, Internal energy does not change]
+    - [Adiabatic, No heat flows in or out]
+  distractors: [Pressure and volume both stay constant]
+  explanation: |-
+    Isobaric means constant pressure. Isochoric means constant volume, so $W = \int P\,dV = 0$. Isothermal means constant temperature, and an ideal gas's internal energy depends only on $T$, so $\Delta E_{\text{int}} = 0$. Adiabatic means $Q = 0$. If both $P$ and $V$ stayed constant, nothing would happen to an ideal gas at all.
+- id: phys-m7-r2-q24
+  lesson: phys-first-law
+  topic: First law of thermodynamics
+  type: text
+  stem: 'A gas goes around the rectangular cycle A (1.0 L, 300 kPa) → B (4.0 L, 300 kPa) → C (4.0 L, 100 kPa) → D (1.0 L, 100 kPa) → A. The net work done by the gas per cycle is ___ J. (Give only the number.)'
+  accept: ['600']
+  explanation: |-
+    The net work is the enclosed area: $(300 - 100)\text{ kPa}\times(4.0 - 1.0)\text{ L} = 200\times10^3\text{ Pa}\times3.0\times10^{-3}\text{ m}^3 = 600$ J. Along A → B the gas does 900 J; along C → D, 300 J is done on it; the vertical legs do no work. (1 kPa·L = 1 J.)
+- id: phys-m7-r2-q25
+  lesson: phys-first-law
+  topic: First law of thermodynamics
+  stem: 'An ideal gas goes once around a clockwise cycle that encloses a nonzero area on a PV diagram. Which quantities are zero for the complete cycle? Select all that apply.'
+  choices:
+    - 'The change in internal energy'
+    - 'The change in temperature'
+    - 'The net work done by the gas'
+    - 'The net heat absorbed by the gas'
+  answer: [0, 1]
+  explanation: |-
+    The gas returns to its starting state, so every state variable, including $T$ and $E_{\text{int}}$, is back where it started. Work and heat are not state variables: the net work is the enclosed area (positive for a clockwise loop), and the first law with $\Delta E_{\text{int}} = 0$ makes the net heat equal to it, $Q_{\text{net}} = W_{\text{net}} > 0$.
+- id: phys-m7-r2-q26
+  lesson: phys-first-law
+  module_quiz: true
+  topic: First law of thermodynamics
+  stem: 'A gas is compressed adiabatically, with 250 J of work done on it. What are $Q$ and $\Delta E_{\text{int}}$? (Use $\Delta E_{\text{int}} = Q - W$, with $W$ the work done by the gas.)'
+  choices:
+    - '$Q = 0$, $\Delta E_{\text{int}} = -250$ J'
+    - '$Q = 250$ J, $\Delta E_{\text{int}} = 0$'
+    - '$Q = 0$, $\Delta E_{\text{int}} = +250$ J'
+    - '$Q = -250$ J, $\Delta E_{\text{int}} = 0$'
+  answer: 2
+  explanation: |-
+    Adiabatic means $Q = 0$. Work done *on* the gas is 250 J, so the work done *by* it is $W = -250$ J, and $\Delta E_{\text{int}} = 0 - (-250) = +250$ J: compression heats the gas. $-250$ J is the sign error of using $W = +250$ J. The choices with $\Delta E_{\text{int}} = 0$ describe an isothermal compression, which has to give off heat.
+# ---- Lesson 29: Heat engines, entropy, and the second law
+- id: phys-m7-r2-q27
+  lesson: phys-second-law
+  module_quiz: true
+  topic: Heat engines
+  type: label
+  stem: 'The picture shows energy-flow diagrams for a heat engine (left) and a refrigerator (right). Name the numbered parts.'
+  image: {src: images/phys-m7-engine-fridge-blank.svg, alt: 'Two diagrams, each with a box at the top, a box at the bottom and a circle between them. Left, labeled Heat engine: arrows point down from the top box into the circle and from the circle to the bottom box, and an arrow points out of the circle to the right. Right, labeled Refrigerator: arrows point up from the bottom box into the circle and from the circle to the top box, and an arrow points into the circle from the left.'}
+  labels:
+    - {x: 9.7, y: 19.7, text: Hot reservoir}
+    - {x: 9.7, y: 82.9, text: Cold reservoir}
+    - {x: 37.4, y: 51.3, text: Work output}
+    - {x: 62.6, y: 51.3, text: Work input}
+    - {x: 75.8, y: 68.9, text: Heat removed from the cold space}
+  distractors: [Heat flowing spontaneously from cold to hot, Heat rejected to the cold reservoir]
+  explanation: |-
+    An engine takes heat $Q_H$ from the hot reservoir (1), turns part of it into work output (3) and rejects $Q_C$ to the cold reservoir (2). A refrigerator runs the other way: work input (4) drives heat out of the cold space (5) and delivers $Q_H = Q_C + W$ to the hot side. That heat moves "uphill" only because work is supplied; it never flows from cold to hot on its own.
+- id: phys-m7-r2-q28
+  lesson: phys-second-law
+  topic: Heat engines
+  type: order
+  stem: 'Put the four steps of the Carnot cycle in order, starting with the step in which the gas takes in heat from the hot reservoir.'
+  items:
+    - 'Isothermal expansion at $T_H$'
+    - 'Adiabatic expansion, cooling from $T_H$ to $T_C$'
+    - 'Isothermal compression at $T_C$'
+    - 'Adiabatic compression, heating from $T_C$ to $T_H$'
+  explanation: |-
+    The gas absorbs $Q_H$ while expanding at $T_H$, keeps expanding with no heat flow so it cools to $T_C$, is compressed at $T_C$ while rejecting $Q_C$, and finally is compressed adiabatically back up to $T_H$, ready to start again.
+- id: phys-m7-r2-q29
+  lesson: phys-second-law
+  topic: Heat engines
+  type: text
+  stem: 'A Carnot engine runs between reservoirs at 600 K and 300 K. Its efficiency is ___ %. (Give only the number.)'
+  accept: ['50']
+  explanation: |-
+    $e = 1 - T_C/T_H = 1 - 300/600 = 0.50$, or 50%. No engine running between these two reservoirs can do better.
+- id: phys-m7-r2-q30
+  lesson: phys-second-law
+  topic: Entropy
+  stem: 'Which of these processes increase the total entropy of the universe? Select all that apply.'
+  choices:
+    - 'Heat flowing from a hot pan into cooler air'
+    - 'A gas expanding freely into a vacuum'
+    - 'An ideal Carnot engine completing one cycle'
+    - 'A sliding block brought to rest by friction'
+  answer: [0, 1, 3]
+  explanation: |-
+    Heat flow across a finite temperature difference, free expansion and friction are all irreversible, so they increase the total entropy. An ideal Carnot engine is reversible: over a cycle the gas returns to its start and the reservoirs' changes cancel, $Q_H/T_H = Q_C/T_C$, so the total entropy change is zero.
+- id: phys-m7-r2-q31
+  lesson: phys-second-law
+  module_quiz: true
+  topic: Heat engines
+  stem: 'A heat pump keeps a house at 20°C when it is 0°C outside. What is the largest possible coefficient of performance for heating, $Q_H/W$?'
+  choices: ['14.7', '13.7', '1.0', '0.068']
+  answer: 0
+  explanation: |-
+    The Carnot limit for heating is $\dfrac{T_H}{T_H - T_C} = \dfrac{293}{293 - 273} = 14.7$, in kelvins. 13.7 is the refrigerator COP $T_C/(T_H - T_C)$, 1.0 comes from using Celsius ($20/20$), and 0.068 is the Carnot efficiency $1 - T_C/T_H$ of an engine between these temperatures. Real heat pumps reach about 3 to 4 in such conditions, well below the limit.

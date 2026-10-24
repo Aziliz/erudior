@@ -112,7 +112,7 @@
   where: ['abs(xl - xc) > 2']
   prompt: 'A series circuit has $R = {rs}\ \Omega$, $L = {ind}$ H and $C = {cap}\ \mu\text{F}$, driven at {fq} Hz. Find the impedance $Z$ in ohms (2 decimal places) and the phase angle $\varphi$ by which the voltage leads the current, in degrees (1 decimal place; negative if it lags). Round only at the end.'
   answers:
-    - {name: zz, label: '$Z =$', tolerance: 0.011, format: num2}
+    - {name: zz, label: '$Z =$', tolerance: 0.02, format: num2}
     - {name: ph, label: '$\varphi =$', tolerance: 0.06, format: num1}
   solution: |-
     $\omega = 2\pi({fq}) \approx {w:num2}$ rad/s. $X_L = \omega L \approx {xl:num2}\ \Omega$ and $X_C = \dfrac{1}{\omega C} \approx {xc:num2}\ \Omega$.
@@ -147,9 +147,9 @@
     sb: na*sind(ti)/nb
     tr: asind(clamp(sb, -1, 1))
   where: ['na != nb', 'sb < 0.97']
-  prompt: 'Light passes from {na} into {nb}, striking the boundary at ${ti}^\circ$ from the normal. Find the angle of refraction in degrees, to 2 decimal places.'
+  prompt: 'Light passes from {na} into {nb}, striking the boundary at ${ti}^\circ$ from the normal. Find the angle of refraction in degrees, to 2 decimal places. Round only at the end.'
   answers:
-    - {name: tr, label: '$\theta_2 =$', tolerance: 0.006, format: num2}
+    - {name: tr, label: '$\theta_2 =$', tolerance: 0.02, format: num2}
   solution: |-
     Snell's law: $n_1\sin\theta_1 = n_2\sin\theta_2$, so $\sin\theta_2 = \dfrac{{n1:num2}\sin {ti}^\circ}{{n2:num2}} \approx {sb:num4}$.
     $\theta_2 = \sin^{-1}({sb:num4}) \approx$ **{tr:num2}°**.
@@ -182,12 +182,12 @@
     nd: nc - dn
     na: sqrt(nc^2 - nd^2)
     ta: asind(na)
-  prompt: 'An optical fiber has core index ${nc:num2}$ and cladding index ${nd:dp3}$. Find its numerical aperture (3 decimal places) and its acceptance angle in air in degrees (1 decimal place). Keep full precision until the end.'
+  prompt: 'An optical fiber has core index ${nc:num2}$ and cladding index ${nd:dp3}$. Find its numerical aperture (4 decimal places) and its acceptance angle in air in degrees (1 decimal place). Keep full precision until the end.'
   answers:
-    - {name: na, label: 'Numerical aperture', tolerance: 0.0006, format: dp3}
+    - {name: na, label: 'Numerical aperture', tolerance: 0.00006, format: num4}
     - {name: ta, label: '$\theta_a =$', tolerance: 0.06, format: num1}
   solution: |-
-    Numerical aperture: $\sqrt{n_1^2 - n_2^2} = \sqrt{{nc:num2}^2 - {nd:dp3}^2} \approx$ **{na:dp3}**.
+    Numerical aperture: $\sqrt{n_1^2 - n_2^2} = \sqrt{{nc:num2}^2 - {nd:dp3}^2} \approx$ **{na:num4}**.
     Acceptance angle: $\theta_a = \sin^{-1}({na:num4}) \approx$ **{ta:num1}°**.
 
 - id: trig-h1-r2-great-circle
@@ -214,7 +214,7 @@
   where: ['ma > 0', 'mb > 0', 'ga > 0', 'gb > 0', 'cg > 5', 'cg < 170']
   prompt: 'Treat the Earth as a sphere with $R = 6371$ km. Find the great-circle distance between $({ma}^\circ\text{ {ha}}, {ga}^\circ\text{ {ea}})$ and $({mb}^\circ\text{ {hb}}, {gb}^\circ\text{ {eb}})$, to the nearest km.'
   answers:
-    - {name: km, label: 'Distance (km)', tolerance: 1, format: int}
+    - {name: km, label: 'Distance (km)', tolerance: 0.6, format: int}
   solution: |-
     With north and east positive: $\varphi_1 = {p1}^\circ$, $\varphi_2 = {p2}^\circ$, $\Delta\lambda = {l2} - ({l1}) = {dl}^\circ$.
     $\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda \approx {cc:num4}$, so $c \approx {cg:num2}^\circ$.

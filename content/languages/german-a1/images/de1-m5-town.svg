@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" width="720" height="500" role="img"><title>A small town centre with a church, a post office, a park, a bank, a pharmacy, a bus stop, traffic lights and a bridge, each labeled in German</title>
+<rect x="0" y="0" width="720" height="500" fill="#ffffff"/>
+<path d="M 610 0 C 630 120 590 300 625 500 L 700 500 C 670 300 710 120 690 0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="0" y="230" width="720" height="56" rx="0" fill="#eceff1" stroke="#1c2833" stroke-width="2" />
+<rect x="300" y="0" width="56" height="500" rx="0" fill="#eceff1" stroke="#1c2833" stroke-width="0" />
+<line x1="300" y1="0" x2="300" y2="230" stroke="#1c2833" stroke-width="2" />
+<line x1="356" y1="0" x2="356" y2="230" stroke="#1c2833" stroke-width="2" />
+<line x1="300" y1="286" x2="300" y2="500" stroke="#1c2833" stroke-width="2" />
+<line x1="356" y1="286" x2="356" y2="500" stroke="#1c2833" stroke-width="2" />
+<line x1="10" y1="258" x2="30" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="50" y1="258" x2="70" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="90" y1="258" x2="110" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="130" y1="258" x2="150" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="170" y1="258" x2="190" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="210" y1="258" x2="230" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="250" y1="258" x2="270" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="380" y1="258" x2="400" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="420" y1="258" x2="440" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="460" y1="258" x2="480" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="500" y1="258" x2="520" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="540" y1="258" x2="560" y2="258" stroke="#1c2833" stroke-width="2" />
+<line x1="580" y1="258" x2="600" y2="258" stroke="#1c2833" stroke-width="2" />
+<rect x="596" y="222" width="116" height="72" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="3" />
+<rect x="596" y="230" width="116" height="56" rx="0" fill="#eceff1" stroke="#1c2833" stroke-width="0" />
+<line x1="596" y1="230" x2="712" y2="230" stroke="#1c2833" stroke-width="2" />
+<line x1="596" y1="286" x2="712" y2="286" stroke="#1c2833" stroke-width="2" />
+<line x1="604" y1="222" x2="604" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="604" y1="286" x2="604" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="618" y1="222" x2="618" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="618" y1="286" x2="618" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="632" y1="222" x2="632" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="632" y1="286" x2="632" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="646" y1="222" x2="646" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="646" y1="286" x2="646" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="660" y1="222" x2="660" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="660" y1="286" x2="660" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="674" y1="222" x2="674" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="674" y1="286" x2="674" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="688" y1="222" x2="688" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="688" y1="286" x2="688" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="702" y1="222" x2="702" y2="230" stroke="#1c2833" stroke-width="1.5" />
+<line x1="702" y1="286" x2="702" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<rect x="70" y="110" width="170" height="90" rx="0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" />
+<polygon points="70,110 155,70 240,110" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<rect x="30" y="60" width="50" height="140" rx="0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" />
+<polygon points="30,60 55,20 80,60" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<line x1="55" y1="2" x2="55" y2="22" stroke="#1c2833" stroke-width="3" />
+<line x1="47" y1="10" x2="63" y2="10" stroke="#1c2833" stroke-width="3" />
+<path d="M 140 200 L 140 165 A 15 15 0 0 1 170 165 L 170 200" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="380" y="70" width="190" height="130" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="440" y="100" width="70" height="46" rx="0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" />
+<path d="M 440 100 L 475 128 L 510 100" fill="none" stroke="#1c2833" stroke-width="2" />
+<rect x="460" y="162" width="30" height="38" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="20" y="310" width="260" height="170" rx="10" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" />
+<path d="M 20 440 C 100 400 180 420 280 380" fill="none" stroke="#1c2833" stroke-width="2" stroke-dasharray="8 6"/>
+<line x1="70" y1="368" x2="70" y2="390" stroke="#1c2833" stroke-width="4" />
+<circle cx="70" cy="350" r="24" fill="#b9dfc6" stroke="#1c2833" stroke-width="2"/>
+<line x1="130" y1="393" x2="130" y2="415" stroke="#1c2833" stroke-width="4" />
+<circle cx="130" cy="375" r="24" fill="#b9dfc6" stroke="#1c2833" stroke-width="2"/>
+<line x1="210" y1="363" x2="210" y2="385" stroke="#1c2833" stroke-width="4" />
+<circle cx="210" cy="345" r="24" fill="#b9dfc6" stroke="#1c2833" stroke-width="2"/>
+<line x1="240" y1="458" x2="240" y2="480" stroke="#1c2833" stroke-width="4" />
+<circle cx="240" cy="440" r="24" fill="#b9dfc6" stroke="#1c2833" stroke-width="2"/>
+<line x1="230" y1="300" x2="230" y2="352" stroke="#1c2833" stroke-width="4" />
+<circle cx="230" cy="300" r="18" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<text x="230" y="307" font-family="sans-serif" font-size="20" font-weight="bold" fill="#1c2833" text-anchor="middle">H</text>
+<rect x="380" y="320" width="95" height="140" rx="0" fill="#dde8f3" stroke="#1c2833" stroke-width="2" />
+<text x="427" y="380" font-family="sans-serif" font-size="34" font-weight="bold" fill="#1c2833" text-anchor="middle">€</text>
+<rect x="410" y="420" width="34" height="40" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="490" y="320" width="95" height="140" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="512" y="336" width="50" height="50" rx="4" fill="#f8e1dc" stroke="#1c2833" stroke-width="2" />
+<text x="537" y="374" font-family="sans-serif" font-size="34" font-weight="bold" fill="#1c2833" text-anchor="middle">A</text>
+<rect x="520" y="420" width="34" height="40" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<line x1="372" y1="300" x2="372" y2="340" stroke="#1c2833" stroke-width="4" />
+<rect x="362" y="296" width="20" height="46" rx="4" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<circle cx="372" cy="305" r="5" fill="#e8a39a" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="372" cy="319" r="5" fill="#f3d27a" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="372" cy="333" r="5" fill="#9fd3ae" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="150" y1="220" x2="150" y2="200" stroke="#1c2833" stroke-width="1.5" />
+<rect x="95.0" y="207.0" width="110.0" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="150" y="225.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Kirche</text>
+<line x1="475" y1="38" x2="475" y2="70" stroke="#1c2833" stroke-width="1.5" />
+<rect x="429.2" y="25.0" width="91.6" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="475" y="43.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Post</text>
+<rect x="104.2" y="468.0" width="91.6" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="150" y="486.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Park</text>
+<line x1="150" y1="298" x2="212" y2="300" stroke="#1c2833" stroke-width="1.5" />
+<rect x="72.0" y="285.0" width="156.0" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="150" y="303.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Haltestelle</text>
+<line x1="427" y1="476" x2="427" y2="460" stroke="#1c2833" stroke-width="1.5" />
+<rect x="381.2" y="463.0" width="91.6" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="427" y="481.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Bank</text>
+<line x1="560" y1="476" x2="537" y2="460" stroke="#1c2833" stroke-width="1.5" />
+<rect x="495.8" y="463.0" width="128.4" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="560" y="481.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Apotheke</text>
+<line x1="440" y1="300" x2="382" y2="310" stroke="#1c2833" stroke-width="1.5" />
+<rect x="389.6" y="287.0" width="100.8" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="440" y="305.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Ampel</text>
+<line x1="654" y1="200" x2="654" y2="222" stroke="#1c2833" stroke-width="1.5" />
+<rect x="599.0" y="187.0" width="110.0" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="654" y="205.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Brücke</text>
+</svg>

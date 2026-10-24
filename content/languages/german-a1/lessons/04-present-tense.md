@@ -82,6 +82,19 @@ If the stem ends in an *s* sound (*-s*, *-ß*, *-z*), the *du* form adds only *-
 like the *er* form: *du heißt*, *er heißt*. The same happens with *tanzen* (to dance): *du
 tanzt*.
 
+Put together, the three stem rules make one short check:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the du and er endings
+  accDescr: Start with the stem, the infinitive minus -en. If the stem ends in -t or -d, add an extra e before -st and -t, as in du arbeitest and er arbeitet. Otherwise, if the stem ends in -s, -ß or -z, the du form adds only -t, as in du heißt and du tanzt. Otherwise use the regular endings, du -st and er -t, as in du machst and er macht.
+  A["Take the stem: infinitive minus -en"] --> B{"Does the stem end in -t or -d?"}
+  B -- "yes" --> C["Add e: du arbeitest, er arbeitet"]
+  B -- "no" --> D{"Does it end in -s, -ß or -z?"}
+  D -- "yes" --> E["du adds only -t: du heißt, du tanzt"]
+  D -- "no" --> F["Regular: du machst, er macht"]
+```
+
 ## sein in full
 
 | | sein (to be) |
@@ -155,6 +168,11 @@ Three new question words:
 | *was* | what | *Was machst du heute?* — What are you doing today? |
 | *warum* | why | *Warum lernst du Deutsch?* — Why are you learning German? |
 | *wann* | when | *Wann arbeitet Lara?* — When does Lara work? |
+
+The picture puts the two rules side by side. In statements and W-questions the verb is in
+position 2; only in a yes/no question does it move to position 1.
+
+![Four sentences split into position 1, position 2 and the rest, with the conjugated verb highlighted. Statement: Ich, arbeite, heute in Köln. Time word first: Heute, arbeite, ich in Köln. W-question: Wo, arbeitest, du heute? Yes/no question: Arbeitest, du, heute in Köln? Only in the yes/no question is the verb in position 1.](images/de1-m1-verb-slots.svg)
 
 *wann* only asks questions about time. It looks like English "when" but isn't used for
 "when I was young"; that's a different word you'll meet later.

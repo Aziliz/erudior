@@ -19,7 +19,9 @@ As with sound, two coherent waves interfere constructively where their path diff
 
 ## Young's double-slit experiment
 
-Light of wavelength $\lambda$ falls on two narrow slits a distance $d$ apart. Each slit acts as a source, and on a distant screen the waves arrive with path difference $d\sin\theta$ at angle $\theta$. Bright fringes (maxima) occur where
+Light of wavelength $\lambda$ falls on two narrow slits a distance $d$ apart. Each slit acts as a source, and on a distant screen the waves arrive with path difference $d\sin\theta$ at angle $\theta$.
+
+![Young's double-slit setup seen from above. A laser on the left lights a barrier containing two narrow slits a distance d apart. A screen a distance L away shows a row of bright fringes, with the central bright fringe on the center line. Rays from the two slits meet at a point P on the screen; a dashed line from the upper slit drops perpendicular to the lower ray, marking a short highlighted segment of the lower ray near the slits: the path difference d sin theta.](images/phys-m11-double-slit.svg) Bright fringes (maxima) occur where
 
 $$d\sin\theta = m\lambda, \qquad m = 0, \pm1, \pm2, \ldots$$
 
@@ -89,6 +91,21 @@ For a soap film in air (one flip, at the top surface), constructive reflection o
 A soap film ($n = 1.33$) in air looks green ($\lambda = 532$ nm) in reflection. What is its minimum thickness?
 
 One phase flip, so constructive reflection needs $2nt = \tfrac12\lambda$ for the thinnest film: $t = \dfrac{532}{4(1.33)} = 100$ nm.
+
+Which condition to use depends on the setup, and whether it gives bright or dark fringes:
+
+```mermaid
+flowchart TD
+  accTitle: Which interference or diffraction condition to use
+  accDescr: For slits, ask how many. With two slits or a grating, d sin theta equals m lambda gives the bright fringes. With one slit, a sin theta equals m lambda, with m not zero, gives the dark fringes. For a circular aperture, the resolution limit is 1.22 lambda over D. For a thin film, count the phase flips on reflection: with one flip, 2nt equals m plus one half times lambda is bright; with zero or two flips, 2nt equals m lambda is bright.
+  A{"What is the setup?"} -- slits --> S{"How many slits?"}
+  S -- "two or a grating" --> B["d sin θ = mλ: bright fringes"]
+  S -- one --> C["a sin θ = mλ, m ≠ 0: dark fringes"]
+  A -- "circular aperture" --> G["Resolution limit θ = 1.22λ / D"]
+  A -- "thin film" --> D{"How many phase flips on reflection?"}
+  D -- one --> E["2nt = (m + ½)λ is bright"]
+  D -- "zero or two" --> F["2nt = mλ is bright"]
+```
 
 ## Intensity patterns
 

@@ -109,7 +109,7 @@ The cycloid was a favorite problem of 17th-century mathematics; it was even call
 
 - The area under one arch is $3\pi a^2$, three times the area of the rolling circle (Roberval and Torricelli, 1630s–1640s).
 - One arch is $8a$ long, four times the wheel's diameter (Christopher Wren, 1658).
-- **Tautochrone:** a bead sliding without friction on an upside-down arch reaches the bottom in the same time from any starting point. Christiaan Huygens found this in 1659 and used it to design more accurate pendulum clocks.
+- **Tautochrone:** a bead sliding without friction on an upside-down arch reaches the bottom in the same time from any starting point. Christiaan Huygens found this in 1659 (he published it in 1673) and used it to design more accurate pendulum clocks.
 - **Brachistochrone:** among all curves joining two points, the upside-down cycloid is the one along which a sliding bead gets from the higher point to the lower one fastest. Johann Bernoulli posed the problem in 1696; he, his brother Jakob, Leibniz, Newton and L'Hôpital solved it.
 
 ## Common mistakes

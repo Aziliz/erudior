@@ -19,6 +19,10 @@ $$c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = 3.00\times10^8\text{ m/s},$$
 
 and as with any wave $c = f\lambda$. The field magnitudes are linked by $E = cB$.
 
+The picture shows one instant of a wave traveling to the right. The electric field oscillates in one plane and the magnetic field in the perpendicular plane, in step with each other, and $\vec E\times\vec B$ points along the direction of travel.
+
+![A snapshot of an electromagnetic wave traveling to the right along a horizontal axis. The electric field E oscillates up and down in a vertical plane, drawn as a shaded sine wave with vertical hatching. The magnetic field B oscillates in the horizontal plane, drawn in perspective coming toward the viewer, in phase with E. Arrows show E pointing up and B pointing toward the viewer at the first crest, and a bracket marks one wavelength between two neighboring crests of E.](images/phys-m11-em-wave.svg)
+
 EM waves carry energy. Their *intensity* (average power per area) is $I = \tfrac12c\varepsilon_0E_0^2$, where $E_0$ is the peak field (the next lesson derives this and the results below). Sunlight at Earth's distance delivers about 1360 W/m². They also carry momentum, exerting a small radiation pressure: $I/c$ on a surface that absorbs the light and $2I/c$ on one that reflects it straight back, which is why solar sails are mirrors.
 
 *The electromagnetic spectrum.* All EM waves are the same phenomenon, differing only in frequency and wavelength:
@@ -90,6 +94,21 @@ Find the critical angle for light going from glass ($n = 1.52$) into air, and in
 Into air: $\sin\theta_c = 1/1.52 = 0.658$, so $\theta_c = 41.1^\circ$.
 
 Into water: $\sin\theta_c = 1.33/1.52 = 0.875$, so $\theta_c = 61.0^\circ$. The smaller the index difference, the larger the critical angle.
+
+The chart sums up what can happen when light meets a boundary.
+
+```mermaid
+flowchart TD
+  accTitle: What happens when light reaches a boundary
+  accDescr: Light reaches a boundary between two materials. If it is going into a lower index and its angle of incidence is above the critical angle, all of it reflects: total internal reflection. If it is going into a lower index below the critical angle, part reflects and the rest refracts away from the normal. If it is going into a higher index, part reflects and the rest refracts toward the normal. In either partial case, at Brewster's angle the reflected light is completely polarized.
+  A["Light reaches a boundary"] --> B{"Going into a lower index?"}
+  B -- yes --> C{"Angle above the critical angle?"}
+  C -- yes --> D["Total internal reflection: all of it reflects"]
+  C -- no --> E["Part reflects, part refracts away from the normal"]
+  B -- no --> F["Part reflects, part refracts toward the normal"]
+  E --> G["At Brewster's angle the reflected part is fully polarized"]
+  F --> G
+```
 
 ## The wave equation and Fermat's principle
 

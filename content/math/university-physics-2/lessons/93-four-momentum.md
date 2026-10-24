@@ -116,7 +116,7 @@ The electron's unknown speed and recoil angle never appear: squaring $Q'$ remove
 
 ## Photons that cannot cross the universe
 
-Two photons can make a pair if $2E_1E_2(1 - \cos\theta) \ge (2m_ec^2)^2$; head-on ($\theta = 180^\circ$) this needs $E_1E_2 \ge (m_ec^2)^2$. Space is filled with photons of the cosmic microwave background, typically about $6\times10^{-4}$ eV each. A gamma ray colliding head-on with one needs $E_1 \ge (0.511\times10^6\text{ eV})^2/(6\times10^{-4}\text{ eV}) \approx 4\times10^{14}$ eV. As a rough estimate, then, gamma rays above a few hundred TeV are absorbed over intergalactic distances, and the highest-energy gamma rays we see come from within or near our own galaxy. A formula derived from Maxwell's light, Einstein's kinematics and Planck's quanta sets a limit on what telescopes can see.
+Two photons can make a pair if $2E_1E_2(1 - \cos\theta) \ge (2m_ec^2)^2$; head-on ($\theta = 180^\circ$) this needs $E_1E_2 \ge (m_ec^2)^2$. Space is filled with photons of the cosmic microwave background, typically about $6\times10^{-4}$ eV each. A gamma ray colliding head-on with one needs $E_1 \ge (0.511\times10^6\text{ eV})^2/(6\times10^{-4}\text{ eV}) \approx 4\times10^{14}$ eV. As a rough estimate, then, gamma rays above a few hundred TeV are absorbed over intergalactic distances, and the gamma rays detected at the very highest energies come from sources inside our own galaxy. A formula derived from Maxwell's light, Einstein's kinematics and Planck's quanta sets a limit on what telescopes can see.
 
 ## Common mistakes
 

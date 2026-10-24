@@ -40,7 +40,7 @@ Pick any two terminals a and b of a linear network. Whatever is inside, the netw
 
 ![Three circuits side by side joined by equals signs. Left: a box labeled batteries and resistors with two terminals a and b. Middle, the Thévenin equivalent: a battery V_th in series with a resistor R_th between terminals a and b. Right, the Norton equivalent: a current source I_N (a circle with an upward arrow) in parallel with a resistor R_th between terminals a and b. A note says V_th is the open-circuit voltage between a and b and I_N = V_th / R_th is the short-circuit current.](images/phys-m9-thevenin-norton.svg)
 
-**Why it is true.** Connect anything to the terminals and suppose a current $I$ flows out of terminal a. By linearity, the terminal voltage $V$ is a linear function of $I$ and the internal emfs: $V = V_0 - kI$ for constants $V_0$ and $k$ that depend only on the network. A straight line is fixed by two numbers. At $I = 0$ (nothing attached) $V$ is the **open-circuit voltage**, so $V_0 = V_{\text{oc}}$. And $k$ is the resistance you would measure between the terminals with every emf set to zero, because with no emfs $V = -kI$. That is exactly the behavior of a battery $V_{\text{th}} = V_{\text{oc}}$ in series with $R_{\text{th}} = k$.
+*Why it is true.* Connect anything to the terminals and suppose a current $I$ flows out of terminal a. By linearity, the terminal voltage $V$ is a linear function of $I$ and the internal emfs: $V = V_0 - kI$ for constants $V_0$ and $k$ that depend only on the network. A straight line is fixed by two numbers. At $I = 0$ (nothing attached) $V$ is the **open-circuit voltage**, so $V_0 = V_{\text{oc}}$. And $k$ is the resistance you would measure between the terminals with every emf set to zero, because with no emfs $V = -kI$. That is exactly the behavior of a battery $V_{\text{th}} = V_{\text{oc}}$ in series with $R_{\text{th}} = k$.
 
 The recipe:
 
@@ -74,13 +74,13 @@ A **Wheatstone bridge** is two voltage dividers across one battery, with a sensi
 
 ![A diamond of four resistors. R₁ runs from the top corner to the left corner c, R₂ from c to the bottom corner, R₃ from the top corner to the right corner d, and Rₓ from d to the bottom corner. A galvanometer G joins c and d, with an arrow showing the current I_g through it from d toward c. A battery ε connects the top and bottom corners. A note says the bridge is balanced when R₁/R₂ = R₃/Rₓ.](images/phys-m9-bridge.svg)
 
-**Balance.** With the galvanometer removed, the left divider puts c at $\mathcal{E}R_2/(R_1 + R_2)$ above the bottom corner and the right divider puts d at $\mathcal{E}R_x/(R_3 + R_x)$. No current flows through G when these are equal, which simplifies to
+*Balance.* With the galvanometer removed, the left divider puts c at $\mathcal{E}R_2/(R_1 + R_2)$ above the bottom corner and the right divider puts d at $\mathcal{E}R_x/(R_3 + R_x)$. No current flows through G when these are equal, which simplifies to
 
 $$\frac{R_1}{R_2} = \frac{R_3}{R_x}, \qquad R_x = \frac{R_2R_3}{R_1}.$$
 
 The emf cancels out, and the galvanometer only has to detect *zero*, not measure a value accurately. This is a **null measurement**, and it is why bridges measure resistance far more precisely than a voltmeter and ammeter can. Strain gauges, platinum thermometers and many other sensors sit in bridges.
 
-**Off balance.** Thévenin's theorem finds the galvanometer current. Seen from c and d, $V_{\text{th}} = V_d - V_c$ (the difference of the two divider outputs), and with the battery replaced by a wire the top and bottom corners merge, so $R_{\text{th}} = (R_1 \parallel R_2) + (R_3 \parallel R_x)$. Then $I_g = V_{\text{th}}/(R_{\text{th}} + R_g)$.
+*Off balance.* Thévenin's theorem finds the galvanometer current. Seen from c and d, $V_{\text{th}} = V_d - V_c$ (the difference of the two divider outputs), and with the battery replaced by a wire the top and bottom corners merge, so $R_{\text{th}} = (R_1 \parallel R_2) + (R_3 \parallel R_x)$. Then $I_g = V_{\text{th}}/(R_{\text{th}} + R_g)$.
 
 ### Example 3
 

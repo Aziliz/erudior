@@ -53,8 +53,22 @@ $d_i = -\dfrac{n_2}{n_1}d_o = -\dfrac{1.00}{1.33}(1.80) = -1.35$ m. The image is
 
 The eye's cornea does most of the focusing (its curved surface is exactly the single-surface case), and the lens behind it fine-tunes. Muscles change the lens's shape so that objects at different distances focus on the retina; this is **accommodation**. The nearest point a person can focus on is the **near point**, about 25 cm for a young adult and farther with age; the farthest is the **far point**, at infinity for a normal eye.
 
+The diagram names the main parts. Light enters through the curved, transparent cornea, passes through the pupil (the opening in the colored iris), is fine-focused by the lens and lands on the retina, whose signals travel to the brain along the optic nerve.
+
+![Cross-section of a human eye. Parallel rays from a distant object enter from the left through the bulging cornea, pass through the opening between the two halves of the iris, go through the lens and converge to a point on the retina, which lines the back of the eye. The optic nerve leaves the back of the eye on the right.](images/phys-m11-eye.svg)
+
 - A **nearsighted** (myopic) eye has a far point closer than infinity. A diverging lens takes light from a distant object and makes it appear to come from the far point: $f = -(\text{far point distance})$.
 - A **farsighted** (hyperopic) eye has a near point beyond 25 cm. A converging lens takes an object at 25 cm and makes a virtual image at the person's near point.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a corrective lens
+  accDescr: For a nearsighted eye, whose far point is too close, use a diverging lens with negative power; it images distant objects at the far point, so its focal length is minus the far-point distance. For a farsighted eye, whose near point is too far, use a converging lens with positive power; it images an object held at 25 centimeters at the person's near point.
+  A{"Which problem?"} -- "nearsighted: far point too close" --> B["Diverging lens, negative power"]
+  B --> C["Distant object imaged at the far point: f = minus the far-point distance"]
+  A -- "farsighted: near point too far" --> D["Converging lens, positive power"]
+  D --> E["Object at 25 cm imaged at the near point"]
+```
 
 ### Example 3
 

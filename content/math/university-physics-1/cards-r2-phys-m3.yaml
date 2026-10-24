@@ -1,0 +1,29 @@
+# Round 2 cards for module phys-m3 (honors lessons 10h1-10h3)
+- {front: Largest acceleration of a load on a truck bed without slipping, back: '$a_{\max} = \mu_s g$, independent of the load''s mass', topic: Friction in systems}
+- {front: Direction of static friction on a box in a truck that speeds up, back: 'Forward, the way the box accelerates; friction opposes relative sliding, not motion', topic: Friction in systems}
+- {front: Stacked blocks method, back: 'Assume they move together, find $a$, find the friction the top block needs; if it exceeds $\mu_s n$, redo with $\mu_k n$ and separate accelerations', topic: Friction in systems}
+- {front: Largest pull on the bottom of two stacked blocks before slipping (frictionless floor), back: '$F_{\max} = (m_{\text{top}} + m_{\text{bottom}})\mu_s g$', topic: Friction in systems}
+- {front: Force to drag a crate at angle θ (constant speed), back: '$F = \dfrac{\mu mg}{\cos\theta + \mu\sin\theta}$', topic: Friction in systems}
+- {front: Best angle to drag a crate, back: '$\tan\theta = \mu$ (the angle of friction), giving $F_{\min} = \mu mg/\sqrt{1 + \mu^2}$', topic: Friction in systems}
+- {front: Capstan equation, back: '$T_{\text{load}} = T_{\text{hold}}e^{\mu\theta}$, with $\theta$ in radians; independent of the post''s radius', topic: Friction in systems}
+- {front: Capstan equation in differential form, back: '$dT = \mu T\,d\theta$ (normal force on a rope element $dn = T\,d\theta$)', topic: Friction in systems}
+- {front: Wrap angle of n full turns, back: '$\theta = 2\pi n$ radians', topic: Friction in systems}
+- {front: Quadratic drag force, back: '$F_D = \tfrac12C\rho Av^2 = cv^2$, opposite the velocity', topic: Drag}
+- {front: Terminal speed with quadratic drag, back: '$v_T = \sqrt{mg/c} = \sqrt{2mg/(C\rho A)}$, proportional to $\sqrt m$ for a fixed shape and size', topic: Drag}
+- {front: Falling from rest with quadratic drag, back: '$v = v_T\tanh(gt/v_T)$; $y = (v_T^2/g)\ln\cosh(gt/v_T)$', topic: Drag}
+- {front: Speed at t = v_T/g with quadratic drag, back: '$\tanh 1 \approx 76\%$ of $v_T$ (63% for linear drag)', topic: Drag}
+- {front: Time to the top of a vertical throw with quadratic drag, back: '$t_{\text{up}} = \dfrac{v_T}{g}\tan^{-1}\dfrac{v_0}{v_T}$', topic: Drag}
+- {front: Maximum height of a vertical throw with quadratic drag, back: '$h = \dfrac{v_T^2}{2g}\ln\!\left(1 + \dfrac{v_0^2}{v_T^2}\right)$', topic: Drag}
+- {front: Return speed of a vertical throw with quadratic drag, back: '$v = \dfrac{v_0v_T}{\sqrt{v_0^2 + v_T^2}}$, less than $v_0$; the trip down takes longer than the trip up', topic: Drag}
+- {front: Coasting with quadratic drag, back: '$v = \dfrac{v_0}{1 + cv_0t/m}$ in time; $v = v_0e^{-cx/m}$ in distance (halves every $(m/c)\ln 2$)', topic: Drag}
+- {front: Chain rule for velocity-dependent forces, back: '$\dfrac{dv}{dt} = v\dfrac{dv}{dx}$ turns $m\,dv/dt = F(v)$ into an equation for $v(x)$', topic: Drag}
+- {front: Fictitious force in a frame accelerating at A, back: '$-m\vec A$, opposite the frame''s acceleration; no agent, no third-law partner', topic: Non-inertial frames}
+- {front: Effective gravity in an accelerating frame, back: '$\vec g_{\text{eff}} = \vec g - \vec A$', topic: Non-inertial frames}
+- {front: Pendulum hanging in a vehicle accelerating at A, back: '$\tan\theta = A/g$, tilted toward the rear', topic: Non-inertial frames}
+- {front: Centrifugal force, back: '$m\omega^2r_\perp$ away from the axis, on every object in a rotating frame', topic: Non-inertial frames}
+- {front: Coriolis force, back: '$-2m\vec\omega\times\vec v''$, only on objects moving in the rotating frame; perpendicular to $\vec v''$, does no work', topic: Non-inertial frames}
+- {front: Newton's second law in a rotating frame, back: '$m\vec a'' = \sum\vec F - m\vec\omega\times(\vec\omega\times\vec r) - 2m\vec\omega\times\vec v''$', topic: Non-inertial frames}
+- {front: Artificial gravity on a ring of radius r, back: '$\omega = \sqrt{g/r}$; 100 m needs about 3 rpm', topic: Non-inertial frames}
+- {front: Coriolis deflection on Earth, back: 'To the right of the motion in the Northern Hemisphere, to the left in the Southern', topic: Non-inertial frames}
+- {front: Centrifugal acceleration at Earth's equator, back: '$\omega^2R \approx 0.034$ m/s², about 0.35% of $g$', topic: Non-inertial frames}
+- {front: Foucault pendulum rotation period, back: '$23.93\text{ h}/\sin\lambda$ at latitude $\lambda$ (about 32 h in Paris)', topic: Non-inertial frames}

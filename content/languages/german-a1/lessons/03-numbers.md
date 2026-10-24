@@ -75,7 +75,11 @@ the ten, all as one word:
 
 Memory hook: think of the old English nursery rhyme "four-and-twenty blackbirds". German
 always counts this way. When you hear a number, hold the first part in your head until the
-ten arrives: *dreiundsiebzig* — you hear 3, then 70, and you write 73. Practise by reading numbers off
+ten arrives: *dreiundsiebzig* — you hear 3, then 70, and you write 73.
+
+![The number 73 with two crossing arrows: the 3 is read first as drei, then comes und, then the 7 is read as siebzig, giving dreiundsiebzig as one word.](images/de1-m1-number-73.svg)
+
+Practise by reading numbers off
 car number plates or prices until you stop reversing them.
 
 *eins* becomes *ein* inside a longer number: *einundzwanzig*, *einunddreißig*. On its own, or
@@ -145,6 +149,11 @@ before the town:
 
 *die Adresse* is the address, *die Hausnummer* the house number, *die Postleitzahl* the postcode
 (often shortened to *PLZ*). German postcodes have five digits; Austrian and Swiss ones have four.
+
+On an envelope, the parts of the address sit like this (*die Straße* is the street; you'll
+learn the word properly in Lesson 17):
+
+![An envelope with a stamp and a small sender line at the top. The address reads Lisa Krämer, Lindenstraße 14, 04107 Leipzig. Labels point to Lisa (Vorname), Krämer (Familienname), Lindenstraße (Straße), 14 (Hausnummer), 04107 (Postleitzahl) and Leipzig (Stadt).](images/de1-m1-envelope.svg)
 
 *Wie ist Ihre Adresse? — Lindenstraße 14, 04107 Leipzig.*
 *Die Hausnummer ist vierzehn.* — The house number is fourteen.

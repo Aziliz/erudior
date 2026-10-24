@@ -77,7 +77,7 @@ flowchart TD
   E -- no --> F["Remove it: ma and 'force of motion' are not forces"]
   F --> E
   E -- yes --> G["Choose axes, one along the acceleration"]
-  G --> H["Write ΣFx = max and ΣFy = may"]
+  G --> H["Write ΣFx = m·ax and ΣFy = m·ay"]
   H --> I["Solve"]
 ```
 

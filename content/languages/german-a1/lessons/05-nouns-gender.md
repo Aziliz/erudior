@@ -46,6 +46,11 @@ A memory hook many learners like: picture every masculine noun in blue, every fe
 in red and every neuter noun in green. When you learn *die Uhr* (the clock), imagine a red
 clock.
 
+The picture below shows the things in a small office corner. Each label is coloured by gender:
+light blue for masculine (*der*), pink for feminine (*die*) and light green for neuter (*das*).
+
+![An office corner. Labels: das Fenster (window) and die Uhr (clock) on the wall, die Tür (door) on the right, die Lampe (lamp), das Buch (book), das Handy (mobile phone) and der Schlüssel (key) on der Tisch (table), der Stuhl (chair) next to the table and die Tasche (bag) on the floor. Masculine labels are light blue, feminine labels pink and neuter labels light green.](images/de1-m2-desk.svg)
+
 ## The indefinite article: ein and eine
 
 The **indefinite article** means "a" or "an". It has two forms in the basic (subject) form:
@@ -101,6 +106,23 @@ Two more hints:
   *die Handynummer*. The first part only adds meaning.
 
 Use the hints to check yourself, but the article you memorised always wins.
+
+Here are the checks in the order to try them when you meet a new noun:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the article of a new noun
+  accDescr: First, if you already know the noun with its article, use that article. If not, and it is a compound noun, use the article of its last part. Otherwise, if it ends in -ung, -heit, -keit, -schaft, -ion or -tät, it is die (feminine). If it ends in -chen or -lein, it is das (neuter). If none of these fits, look it up and learn it with its article.
+  A["New noun: der, die or das?"] --> B{"Do you know it with its article?"}
+  B -- yes --> C["Use that article"]
+  B -- no --> D{"Is it a compound noun?"}
+  D -- yes --> E["Use the article of the last part"]
+  D -- no --> F{"Ends in -ung, -heit, -keit, -schaft, -ion or -tät?"}
+  F -- yes --> G["die (feminine)"]
+  F -- no --> H{"Ends in -chen or -lein?"}
+  H -- yes --> I["das (neuter)"]
+  H -- no --> J["Look it up and learn it with its article"]
+```
 
 ## Plurals: one article, many endings
 

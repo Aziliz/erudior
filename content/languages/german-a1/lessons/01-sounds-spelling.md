@@ -90,6 +90,19 @@ sharp *s* as in *kiss*. The rule for when to use it:
   write *ß*: *Straße*, *heißen*, *Grüß Gott*;
 - after a short vowel, write *ss*: *Tschüss*, *dass*, *Wasser*.
 
+The same decision as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Writing ß or ss
+  accDescr: When you hear a sharp s sound inside a word, look at the sound just before it. After a long vowel or a diphthong such as ei, au or eu, write ß, as in Straße, heißen and Grüß Gott. After a short vowel, write ss, as in Tschüss, Wasser and dass. In Switzerland, ss is written in both cases.
+  A["You hear a sharp s, as in kiss"] --> B{"What comes just before it?"}
+  B -- "a long vowel or ei, au, eu" --> C["Write ß: Straße, heißen, Grüß Gott"]
+  B -- "a short vowel" --> D["Write ss: Tschüss, Wasser, dass"]
+  C --> E["In Switzerland: always ss"]
+  D --> E
+```
+
 Switzerland doesn't use *ß* at all and writes *ss* everywhere. No German word begins with
 *ß*, so you never need it as a capital at the start of a word; in text written all in capitals,
 *ß* becomes *SS* (*STRASSE*).
@@ -130,6 +143,24 @@ The two *ch* sounds deserve practice. After *a*, *o*, *u* and *au* (*Nacht*, *no
 it's the scraping sound in Scottish *loch*. After everything else (*ich*, *nicht*, *Milch*),
 it's softer, made at the front of the mouth: say "hue" and stretch the h. (*Milch* means milk.) Never turn either
 into an English *k* or *ch* as in *church*.
+
+```mermaid
+flowchart TD
+  accTitle: Which ch sound?
+  accDescr: To choose the ch sound, look at the letter just before ch. After a, o, u or au, say the rough sound at the back of the mouth, as in Nacht, noch and auch. After any other letter, such as e, i, ä, ö, ü, ei, eu, l, n or r, say the soft hiss at the front of the mouth, as in ich, nicht and Milch. The ending -ig, as in zwanzig, is also said with the soft sound.
+  A["You see ch in a word"] --> B{"Which letter comes just before it?"}
+  B -- "a, o, u or au" --> C["Back of the mouth, rough: Nacht, noch, auch"]
+  B -- "any other letter" --> D["Front of the mouth, soft hiss: ich, nicht, Milch"]
+  D --> E["Same soft sound for -ig at the end: zwanzig"]
+```
+
+The picture shows where in the mouth these sounds are made. The soft *ch* of *ich* is made with
+the middle of the tongue raised close to the hard palate, the rough *ch* of *ach* with the back
+of the tongue near the soft palate, and the throat *r* even further back, near the uvula. For
+*ü* and *ö*, the work is done by the lips, which round and push forward. (This is a simplified
+picture; your mouth will find the exact spot as you practise.)
+
+![A simplified side view of the mouth. The hard palate, the bony roof just behind the top teeth, is where the soft ch of ich and nicht is made. The soft palate, further back, is where the rough ch of ach and Nacht is made. The uvula, hanging at the very back, is used for the German r as in richtig. The lips are rounded for ü and ö.](images/de1-m1-mouth.svg)
 
 At the end of a word or syllable, *b*, *d* and *g* lose their voice and
 sound like *p*, *t* and *k*. This is called **final devoicing**: *Tag* sounds like "tahk", *und* like "oont", *gelb* (yellow) like

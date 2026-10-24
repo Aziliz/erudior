@@ -1,0 +1,667 @@
+# Round 2 questions for phys-m10 (Magnetism and induction): core lessons (q) and honors lessons (h).
+
+# --- Magnetic forces (phys-mag-force) ---
+- id: phys-m10-r2-q01
+  lesson: phys-mag-force
+  module_quiz: true
+  topic: Magnetic force
+  type: label
+  stem: 'Name the numbered parts of this mass spectrometer. Positive ions move down out of the source; the shaded region has a magnetic field into the page.'
+  image: {src: images/phys-m10-mass-spec-blank.svg, alt: 'A mass spectrometer with five numbered parts: a box at the top, two plates below it, a small semicircular path, a larger dashed semicircular path, and a plate along the top edge of the field region'}
+  labels:
+    - {x: 15.8, y: 9.5, text: Ion source}
+    - {x: 15.8, y: 24.3, text: Accelerating plates}
+    - {x: 35.8, y: 64.8, text: Lighter isotope path}
+    - {x: 47.5, y: 81.4, text: Heavier isotope path}
+    - {x: 73.3, y: 34.5, text: Detector}
+  distractors: [Velocity selector]
+  explanation: |-
+    Ions leave the source (1), gain speed between the accelerating plates (2), and enter the field, where $r = mv/(|q|B)$. After the same accelerating voltage, $r \propto \sqrt m$, so the lighter isotope follows the smaller semicircle (3) and the heavier one the larger (4); both strike the detector (5) at different spots. This drawing has no crossed-field velocity selector.
+- id: phys-m10-r2-q02
+  lesson: phys-mag-force
+  topic: Magnetic force
+  type: text
+  stem: 'A proton moves in a circle of radius 0.20 m in a uniform magnetic field. If its speed is doubled in the same field, the radius of its new circle is ___ m. Give only the number.'
+  accept: ['0.40']
+  explanation: |-
+    $r = \dfrac{mv}{|q|B}$ is proportional to $v$, so doubling the speed doubles the radius: $2(0.20) = 0.40$ m. (The period, $2\pi m/(|q|B)$, stays the same.)
+- id: phys-m10-r2-q03
+  lesson: phys-mag-force
+  topic: Magnetic force
+  stem: 'Which statements about the magnetic force on a moving charged particle are true? Select all that apply.'
+  choices: ['It is always perpendicular to the particle''s velocity', 'It does no work on the particle', 'It is zero when the particle moves parallel to the field', 'It can increase the particle''s speed', 'It acts on a charged particle at rest']
+  answer: [0, 1, 2]
+  explanation: |-
+    $\vec F = q\vec v\times\vec B$ is perpendicular to $\vec v$, so it does no work and cannot change the speed, only the direction. It vanishes when $\vec v$ is parallel to $\vec B$ ($\sin 0 = 0$) and when $v = 0$, so a charge at rest feels no magnetic force.
+- id: phys-m10-r2-q04
+  lesson: phys-mag-force
+  module_quiz: true
+  topic: Magnetic force
+  type: match
+  stem: 'Match each device or effect to the physics that makes it work.'
+  pairs:
+    - [Mass spectrometer, Ions of different mass bend with different radii]
+    - [Velocity selector, Electric and magnetic forces cancel for one speed]
+    - [Cyclotron, The orbit period does not depend on speed]
+    - [Electric motor, Torque on a current loop with the current reversed every half turn]
+    - [Aurora, Charged particles spiral along field lines toward the poles]
+  distractors: [A changing flux induces an emf]
+  explanation: |-
+    A mass spectrometer sorts by $r = mv/(|q|B)$; a velocity selector passes only $v = E/B$; a cyclotron relies on $T = 2\pi m/(|q|B)$ being independent of $v$; a motor uses $\tau = NIAB\sin\phi$ with a commutator; the aurora comes from helical motion along Earth's field lines. Induced emf is the next lessons' topic, not a magnetic-force device.
+- id: phys-m10-r2-q05
+  lesson: phys-mag-force
+  topic: Magnetic force
+  type: text
+  stem: 'The SI unit of magnetic field, equal to one newton per ampere-meter, is the ___.'
+  accept: [tesla, teslas, T]
+  explanation: |-
+    From $F = ILB$, $B = F/(IL)$ has units N/(A·m), named the tesla (T).
+
+# --- Sources of magnetic fields (phys-mag-sources) ---
+- id: phys-m10-r2-q06
+  lesson: phys-mag-sources
+  module_quiz: true
+  topic: Sources of magnetic field
+  type: label
+  stem: 'This solenoid is cut along its axis. The dots and crosses show the current in the turns. Name the numbered parts.'
+  image: {src: images/phys-m10-solenoid-blank.svg, alt: 'A solenoid cut along its axis: a row of circles with dots along the top, a row of circles with crosses along the bottom, three straight arrows inside pointing right, and dashed loops outside; five numbered markers'}
+  labels:
+    - {x: 38.3, y: 30.6, text: Current out of the page}
+    - {x: 65.0, y: 69.4, text: Current into the page}
+    - {x: 38.3, y: 50.0, text: Uniform interior field}
+    - {x: 75.0, y: 11.1, text: Weak exterior field}
+    - {x: 95.8, y: 50.0, text: North end}
+  distractors: [South end]
+  explanation: |-
+    A dot is the tip of an arrow coming toward you (current out of the page, 1); a cross is its tail (current into the page, 2). The grip rule around each top wire and each bottom wire gives a field pointing right between them, so the interior field (3) is uniform and to the right. Outside, the turns' fields nearly cancel, leaving a weak return field (4). Field lines leave the north end (5), the right end here.
+- id: phys-m10-r2-q07
+  lesson: phys-mag-sources
+  topic: Sources of magnetic field
+  type: text
+  stem: 'A long solenoid has 800 turns per meter. To make a field of $2.0\times10^{-3}$ T inside it, the current must be ___ A, to 2 significant figures. Give only the number. ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  accept: ['2.0', '1.99']
+  explanation: |-
+    $I = \dfrac{B}{\mu_0n} = \dfrac{2.0\times10^{-3}}{(4\pi\times10^{-7})(800)} = 1.99$ A, which is 2.0 A to 2 significant figures.
+- id: phys-m10-r2-q08
+  lesson: phys-mag-sources
+  module_quiz: true
+  topic: Sources of magnetic field
+  type: match
+  stem: 'Match each situation to its formula.'
+  pairs:
+    - [Field at distance r from a long straight wire, B = μ0 I / (2π r)]
+    - [Field at the center of a circular loop of radius R, B = μ0 I / (2R)]
+    - [Field inside a long solenoid, B = μ0 n I]
+    - [Force per meter between two parallel wires, F/L = μ0 I1 I2 / (2π d)]
+  distractors: [B = μ0 I / (4π r²)]
+  explanation: |-
+    These are the four results of the lesson. The distractor has the inverse-square form of Coulomb's law; a straight wire's field falls as $1/r$, not $1/r^2$.
+- id: phys-m10-r2-q09
+  lesson: phys-mag-sources
+  topic: Sources of magnetic field
+  stem: 'Which changes would double the magnetic field inside a long solenoid? Select all that apply.'
+  choices: ['Doubling the current', 'Doubling the number of turns while keeping the same length', 'Doubling the length while keeping the same number of turns', 'Doubling the radius of the coil', 'Halving the length while keeping the same number of turns']
+  answer: [0, 1, 4]
+  explanation: |-
+    $B = \mu_0nI$ with $n = N/L$. Doubling $I$, doubling $N$ at fixed $L$, or halving $L$ at fixed $N$ each double $B$. Doubling the length at fixed $N$ halves $n$ and halves $B$. The radius does not appear: the interior field of a long solenoid is independent of its radius.
+- id: phys-m10-r2-q10
+  lesson: phys-mag-sources
+  topic: Sources of magnetic field
+  type: order
+  stem: 'Put these magnetic fields in order from weakest to strongest. ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  items:
+    - '10 cm from a long straight wire carrying 10 A'
+    - 'Earth''s field at the surface (typical)'
+    - 'At the center of a single loop of radius 5.0 cm carrying 10 A'
+    - 'Inside a long solenoid with 1000 turns per meter carrying 1.0 A'
+    - 'Inside a typical hospital MRI scanner'
+  explanation: |-
+    Wire: $\mu_0I/(2\pi r) = 2.0\times10^{-5}$ T. Earth: about $5\times10^{-5}$ T. Loop: $\mu_0I/(2R) = 1.26\times10^{-4}$ T. Solenoid: $\mu_0nI = 1.26\times10^{-3}$ T. MRI: 1.5–3 T.
+
+# --- The Hall effect and magnetism in matter (phys-hall-matter) ---
+- id: phys-m10-r2-q11
+  lesson: phys-hall-matter
+  module_quiz: true
+  topic: Hall effect
+  type: order
+  stem: 'A current is switched on in a flat strip lying in a magnetic field perpendicular to its face. Put the steps that produce the Hall voltage in order.'
+  items:
+    - 'Charge carriers drift along the strip'
+    - 'The magnetic force pushes the moving carriers toward one edge'
+    - 'Charge piles up on that edge, leaving the opposite edge with the opposite charge'
+    - 'A sideways electric field builds up across the strip'
+    - 'The electric force balances the magnetic force, and the Hall voltage stays steady'
+  explanation: |-
+    The magnetic force $qv_dB$ acts only on moving carriers, so the drift comes first. The pile-up of charge creates the sideways field $E_H$, which grows until $qE_H = qv_dB$; from then on the Hall voltage $V_H = E_Hw$ is constant.
+- id: phys-m10-r2-q12
+  lesson: phys-hall-matter
+  module_quiz: true
+  topic: Magnetic materials
+  type: match
+  stem: 'Classify each material by its magnetic response at room temperature.'
+  pairs:
+    - [Bismuth, Diamagnetic]
+    - [Water, Diamagnetic]
+    - [Aluminum, Paramagnetic]
+    - [Liquid oxygen, Paramagnetic]
+    - [Iron, Ferromagnetic]
+  explanation: |-
+    Bismuth and water have no net atomic moments and only the weak, negative diamagnetic response ($\chi_m$ about $-10^{-4}$ to $-10^{-5}$). Aluminum and oxygen have net atomic moments that align slightly ($\chi_m$ small and positive): liquid oxygen clings to a magnet's poles. Iron's moments align in domains, giving a huge, field-dependent $K_m$.
+- id: phys-m10-r2-q13
+  lesson: phys-hall-matter
+  topic: Magnetic materials
+  type: text
+  stem: 'Above a certain temperature, called the ___ temperature, thermal motion destroys the domains of a ferromagnet and it becomes merely paramagnetic.'
+  accept: [Curie]
+  explanation: |-
+    This is the Curie temperature (770°C for iron). Below it, a quantum-mechanical interaction keeps neighboring moments aligned in domains; above it, thermal agitation wins.
+- id: phys-m10-r2-q14
+  lesson: phys-hall-matter
+  topic: Hall effect
+  stem: 'A strip carries a known current in a known magnetic field, and its Hall voltage is measured. Which of these can the measurement tell you? Select all that apply.'
+  choices: ['The sign of the charge carriers', 'The number of carriers per cubic meter, if the strip''s thickness is known', 'The resistivity of the material', 'The mass of each carrier', 'The magnetic field, once a probe has been calibrated']
+  answer: [0, 1, 4]
+  explanation: |-
+    The edge that charges up reveals the carriers' sign; $V_H = IB/(nqt)$ gives $n$ when $I$, $B$ and $t$ are known; and with $n$, $t$ and $I$ fixed, $V_H \propto B$, which is how a Hall probe measures fields. The Hall voltage does not depend on the carriers' mass, and resistivity needs a measurement of the voltage along the strip, not across it.
+- id: phys-m10-r2-q15
+  lesson: phys-hall-matter
+  topic: Hall effect
+  type: text
+  stem: 'A semiconductor Hall probe 0.25 mm thick has $1.0\times10^{21}$ carriers per m³, each of charge $e = 1.602\times10^{-19}$ C. With 2.0 mA through it in a 0.30 T field, its Hall voltage is ___ mV, to 2 significant figures. Give only the number.'
+  accept: ['15']
+  explanation: |-
+    $V_H = \dfrac{IB}{nqt} = \dfrac{(2.0\times10^{-3})(0.30)}{(1.0\times10^{21})(1.602\times10^{-19})(2.5\times10^{-4})} = 0.0150$ V $= 15$ mV.
+
+# --- Electromagnetic induction (phys-induction) ---
+- id: phys-m10-r2-q16
+  lesson: phys-induction
+  module_quiz: true
+  topic: Electromagnetic induction
+  type: label
+  stem: 'A rod slides to the right on two rails joined at the left end, in a magnetic field into the page. Name the numbered parts and arrows.'
+  image: {src: images/phys-m10-rails-blank.svg, alt: 'Two horizontal rails joined at the left by a zigzag element, a vertical rod resting across them, an arrow pointing right from the rod, an arrow pointing left from the rod near the top, and an upward arrow beside the rod; five numbered markers, with crosses everywhere for a field into the page'}
+  labels:
+    - {x: 63.3, y: 72.7, text: Sliding rod}
+    - {x: 10.0, y: 46.8, text: Resistor}
+    - {x: 57.5, y: 62.3, text: Induced current}
+    - {x: 54.2, y: 27.3, text: Magnetic force on the rod}
+    - {x: 73.3, y: 46.8, text: Velocity}
+  distractors: [Applied push]
+  explanation: |-
+    The rod (1) moves right (5), so the area and the flux into the page increase. By Lenz's law the induced current makes field out of the page inside the circuit: it circulates counterclockwise, up through the rod (3) and down through the resistor (2). The force $I\vec L\times\vec B$ on the upward current in a field into the page points left (4), opposing the motion. The leftward arrow is that magnetic force, not a push; any push needed to keep the rod moving would point right.
+- id: phys-m10-r2-q17
+  lesson: phys-induction
+  topic: Electromagnetic induction
+  type: order
+  stem: 'Put the steps for finding the direction of an induced current with Lenz''s law in order.'
+  items:
+    - 'Find the direction of the external field through the loop'
+    - 'Decide whether the flux through the loop is increasing or decreasing'
+    - 'Choose the induced field direction that opposes that change'
+    - 'Use the right-hand rule to find the current that makes the induced field'
+  explanation: |-
+    You need the field direction before you can say whether its flux is growing or shrinking; the change decides the induced field's direction; and only then does the right-hand rule turn that field into a current direction.
+- id: phys-m10-r2-q18
+  lesson: phys-induction
+  topic: Electromagnetic induction
+  stem: 'A flat wire loop sits in a uniform magnetic field, with its plane perpendicular to the field. Which actions induce an emf in it? Select all that apply.'
+  choices: ['Rotating the loop about a diameter', 'Increasing the field strength', 'Sliding the loop sideways while it stays entirely inside the uniform field', 'Squashing the loop so its area shrinks', 'Holding the loop still in a much stronger, steady field']
+  answer: [0, 1, 3]
+  explanation: |-
+    An emf needs a changing flux $\Phi_B = BA\cos\theta$. Rotating changes $\theta$, increasing the field changes $B$, and squashing changes $A$. Sliding within a uniform field changes none of them, and a steady field, however strong, gives no change.
+- id: phys-m10-r2-q19
+  lesson: phys-induction
+  module_quiz: true
+  topic: Electromagnetic induction
+  type: text
+  stem: 'An ideal transformer steps 120 V down to 6.0 V. Its primary coil has 400 turns, so its secondary coil has ___ turns.'
+  accept: ['20']
+  explanation: |-
+    $N_s = N_p\dfrac{V_s}{V_p} = 400\cdot\dfrac{6.0}{120} = 20$ turns.
+- id: phys-m10-r2-q20
+  lesson: phys-induction
+  topic: Electromagnetic induction
+  type: match
+  stem: 'Match each device to the way it uses induction.'
+  pairs:
+    - [Induction stove, Eddy currents heat the metal pan directly]
+    - [Generator, A coil rotating in a field has a changing flux]
+    - [Transformer, A changing current in one coil induces a voltage in another]
+    - [Magnetic brake, Eddy currents in a moving fin oppose its motion]
+    - [Electric guitar pickup, A vibrating steel string changes the flux through a coil]
+  distractors: [Carriers pushed to one edge of a strip]
+  explanation: |-
+    Each device makes the flux change in a different way: alternating field in the pan, rotation, alternating primary current, motion of a conductor through a field, and a moving magnetized string. The distractor describes the Hall effect, a magnetic force on moving carriers rather than induction.
+
+# --- Inductance, RL and LC circuits, and AC (phys-inductance) ---
+- id: phys-m10-r2-q21
+  lesson: phys-inductance
+  module_quiz: true
+  topic: AC circuits
+  type: label
+  stem: 'Name the numbered components of this series circuit.'
+  image: {src: images/phys-m10-rlc-blank.svg, alt: 'A single loop circuit with four numbered components: a zigzag, a row of coils, two parallel plates, and a circle'}
+  labels:
+    - {x: 39.3, y: 20.6, text: Resistor}
+    - {x: 66.1, y: 18.8, text: Inductor}
+    - {x: 83.9, y: 50.3, text: Capacitor}
+    - {x: 16.1, y: 51.5, text: AC source}
+  distractors: [Battery, Transformer]
+  explanation: |-
+    The zigzag is a resistor (1), the row of loops a coil, or inductor (2), the two parallel plates a capacitor (3), and the circle with a wave the AC source (4). A battery is drawn as a pair of long and short lines, and a transformer as two coils side by side.
+- id: phys-m10-r2-q22
+  lesson: phys-inductance
+  topic: Inductance
+  type: text
+  stem: 'In an RL circuit connected to a battery at $t = 0$, the current reaches ___% of its final value after one time constant. Give the nearest whole number.'
+  accept: ['63']
+  explanation: |-
+    $I = \dfrac{\mathcal{E}}{R}(1 - e^{-t/\tau})$; at $t = \tau$ this is $1 - e^{-1} = 0.632$ of the final value, about 63%.
+- id: phys-m10-r2-q23
+  lesson: phys-inductance
+  topic: Inductance
+  type: order
+  stem: 'A charged capacitor is connected to an inductor at the moment the capacitor is fully charged. Put the stages of the first full oscillation in order.'
+  items:
+    - 'Capacitor fully charged: all the energy is electric'
+    - 'Current at its maximum: all the energy is magnetic'
+    - 'Capacitor fully charged with the opposite polarity'
+    - 'Current at its maximum in the opposite direction'
+  explanation: |-
+    The capacitor discharges through the inductor, so the current builds until the capacitor is empty (all energy in $\tfrac12LI^2$). The inductor keeps the current going and charges the capacitor the other way. Then the process runs in reverse, with the current flowing the opposite way, and the cycle returns to the start. Each stage is a quarter period.
+- id: phys-m10-r2-q24
+  lesson: phys-inductance
+  module_quiz: true
+  topic: AC circuits
+  stem: 'A series RLC circuit is driven at its resonant frequency. Which statements are true? Select all that apply.'
+  choices: ['The inductive and capacitive reactances are equal', 'The impedance equals the resistance', 'The power factor is 1', 'The current lags the source voltage by 90°', 'The capacitor''s reactance is zero']
+  answer: [0, 1, 2]
+  explanation: |-
+    At $\omega_0 = 1/\sqrt{LC}$, $X_L = X_C$, so $Z = \sqrt{R^2 + 0} = R$, $\tan\phi = 0$ and $\cos\phi = 1$: current and voltage are in step. Neither reactance is zero; they are equal and cancel.
+- id: phys-m10-r2-q25
+  lesson: phys-inductance
+  topic: Inductance
+  type: match
+  stem: 'In a DC circuit with a switch, how does each element behave at the moment shown?'
+  pairs:
+    - [Inductor just after the switch closes, Like an open circuit]
+    - [Inductor carrying a steady current, Like a plain wire]
+    - [Uncharged capacitor just after the switch closes, Like a plain wire]
+    - [Fully charged capacitor, Like an open circuit]
+  explanation: |-
+    An inductor prevents a sudden jump in current, so at first no current flows through it; once the current is steady there is no $dI/dt$ and no emf. A capacitor is the opposite: an uncharged one has no voltage across it at first, and a fully charged one passes no current.
+
+# ====================== Honors: Field calculations (phys-m10-h-field-calculations) ======================
+- id: phys-m10-r2-h01
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'A single circular loop of radius 10 cm carries 4.0 A. What is the magnetic field on its axis, 10 cm from its center? ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  choices: ['$8.9\times10^{-6}$ T', '$2.5\times10^{-5}$ T', '$1.3\times10^{-5}$ T', '$1.3\times10^{-6}$ T']
+  answer: 0
+  explanation: |-
+    $B = \dfrac{\mu_0IR^2}{2(R^2 + z^2)^{3/2}} = \dfrac{(4\pi\times10^{-7})(4.0)(0.010)}{2(0.020)^{3/2}} = 8.9\times10^{-6}$ T. The center formula $\mu_0I/(2R)$ gives $2.5\times10^{-5}$ T; adding the full $dB$ of every element without taking the axial part gives $1.3\times10^{-5}$ T; dropping the power $3/2$ gives $1.3\times10^{-6}$ T.
+- id: phys-m10-r2-h02
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'Far from a small current loop, along its axis, how does the magnetic field depend on the distance $z$?'
+  choices: ['As $1/z$', 'As $1/z^2$', 'As $1/z^3$', 'As $e^{-z}$']
+  answer: 2
+  explanation: |-
+    For $z \gg R$, $B = \dfrac{\mu_0IR^2}{2(R^2 + z^2)^{3/2}} \approx \dfrac{\mu_0IR^2}{2z^3}$: a dipole field, falling as $1/z^3$ like an electric dipole's. $1/z$ is a long straight wire; $1/z^2$ is a point charge.
+- id: phys-m10-r2-h03
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'Model Earth''s field as a dipole at its center. Compared with the field at the magnetic equator, the field at a magnetic pole (same distance from the center) is'
+  choices: ['the same', 'twice as large', 'half as large', 'four times as large']
+  answer: 1
+  explanation: |-
+    On the dipole's axis $B = \dfrac{\mu_0}{2\pi}\dfrac{\mu}{r^3}$; on its equator $B = \dfrac{\mu_0}{4\pi}\dfrac{\mu}{r^3}$. The axial (pole) field is twice the equatorial one, roughly what is measured: about $6\times10^{-5}$ T near the poles and $3\times10^{-5}$ T at the equator.
+- id: phys-m10-r2-h04
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'A straight wire 10 cm long carries 6.0 A. What is the field at a point 5.0 cm from the wire''s midpoint, on the perpendicular bisector? ($\mu_0/4\pi = 10^{-7}$ T·m/A)'
+  choices: ['$2.4\times10^{-5}$ T', '$1.2\times10^{-5}$ T', '$8.5\times10^{-6}$ T', '$1.7\times10^{-5}$ T']
+  answer: 3
+  explanation: |-
+    The ends are at $\pm45^\circ$ from the perpendicular, so $B = \dfrac{\mu_0I}{4\pi a}(\sin45^\circ - \sin(-45^\circ)) = \dfrac{(10^{-7})(6.0)}{0.050}(1.414) = 1.7\times10^{-5}$ T. The infinite-wire formula gives $2.4\times10^{-5}$ T; half of that, $1.2\times10^{-5}$ T, is a semi-infinite wire; using only one $\sin45^\circ$ gives $8.5\times10^{-6}$ T.
+- id: phys-m10-r2-h05
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'Why are Helmholtz coils separated by exactly one coil radius?'
+  choices: ['At that spacing the curvature of the total field vanishes at the midpoint, so the field there is very uniform', 'That spacing gives the largest possible field at the midpoint', 'At that spacing the field outside the coils is zero', 'That spacing makes the midpoint field exactly cancel Earth''s field']
+  answer: 0
+  explanation: |-
+    Each coil's axial field has an inflection point a distance $R/2$ from the coil. With the coils $R$ apart, the midpoint is at both inflection points: the slopes cancel by symmetry and the curvatures are both zero, so the field is flat there. Moving the coils closer would give a larger midpoint field, but a less uniform one; the field outside is not zero; and cancelling Earth's field is one use, set by the current, not by the spacing.
+- id: phys-m10-r2-h06
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'A Helmholtz pair has coils of radius 20 cm with 50 turns each, carrying 3.0 A. What is the field at the midpoint? ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  choices: ['$9.4\times10^{-4}$ T', '$6.7\times10^{-4}$ T', '$4.7\times10^{-4}$ T', '$3.4\times10^{-4}$ T']
+  answer: 1
+  explanation: |-
+    $B = (4/5)^{3/2}\dfrac{\mu_0NI}{R} = 0.7155\dfrac{(4\pi\times10^{-7})(50)(3.0)}{0.20} = 6.7\times10^{-4}$ T. Adding two center fields, $2\cdot\mu_0NI/(2R)$, gives $9.4\times10^{-4}$ T; one center field alone is $4.7\times10^{-4}$ T; one coil at distance $R/2$, without the second coil, gives $3.4\times10^{-4}$ T.
+- id: phys-m10-r2-h07
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'What is the magnetic field in the central hole of an ideal toroid carrying current?'
+  choices: ['$\mu_0NI/(2\pi r)$, the same as inside the windings', '$\mu_0nI$, as in a solenoid', 'Zero', 'Twice the field inside the windings']
+  answer: 2
+  explanation: |-
+    A circle of radius $r$ in the hole encloses no current, and by symmetry $B$ is the same all around it, so Ampère's law gives $B(2\pi r) = 0$. The field $\mu_0NI/(2\pi r)$ exists only inside the windings, where the path encloses $N$ turns.
+- id: phys-m10-r2-h08
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'Far along the axis of a small coil, at 0.40 m from it, the field is $2.0\times10^{-6}$ T. What is the coil''s magnetic dipole moment? ($\mu_0 = 4\pi\times10^{-7}$ T·m/A)'
+  choices: ['$1.28$ A·m²', '$1.60$ A·m²', '$0.32$ A·m²', '$0.64$ A·m²']
+  answer: 3
+  explanation: |-
+    On the axis $B = \dfrac{\mu_0}{2\pi}\dfrac{\mu}{z^3}$, so $\mu = \dfrac{2\pi z^3B}{\mu_0} = \dfrac{2\pi(0.064)(2.0\times10^{-6})}{4\pi\times10^{-7}} = 0.64$ A·m². The equatorial formula gives 1.28; using $z^2$ gives 1.60; dropping the factor 2 gives 0.32.
+- id: phys-m10-r2-h09
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  type: text
+  stem: 'In a Helmholtz pair, the distance between the two coils equals each coil''s ___.'
+  accept: [radius, radii, coil radius, R]
+  explanation: |-
+    The separation equals the radius $R$ (not the diameter). Then each coil's inflection point, at $R/2$, falls at the midpoint.
+- id: phys-m10-r2-h10
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  type: text
+  stem: 'Far from any small current loop, the magnetic field has the same shape as the electric field of an electric ___.'
+  accept: [dipole, dipoles]
+  explanation: |-
+    The far field is a magnetic dipole field set by $\mu = IA$, with the same shape as an electric dipole's field ($\mu_0/4\pi$ in place of $1/4\pi\varepsilon_0$, $\mu$ in place of $p$).
+- id: phys-m10-r2-h11
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  type: match
+  stem: 'Match each situation to its magnetic field.'
+  pairs:
+    - [On the axis of a loop, a distance z from its center, μ0 I R² / (2 (R² + z²)^(3/2))]
+    - [Midpoint of a Helmholtz pair, (4/5)^(3/2) μ0 N I / R]
+    - [Inside the windings of a toroid, μ0 N I / (2π r)]
+    - [Center of a square loop of side s, 2√2 μ0 I / (π s)]
+  distractors: [μ0 n I]
+  explanation: |-
+    The loop-axis and segment formulas come from the Biot–Savart law (four segments give the square); the Helmholtz value is two loop-axis fields at $z = R/2$; the toroid follows from Ampère's law. $\mu_0nI$ is the long solenoid, which none of these is.
+- id: phys-m10-r2-h12
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'Which statements about the field of an ideal toroid with $N$ turns carrying current $I$ are true? Select all that apply.'
+  choices: ['Inside the windings, $B = \mu_0NI/(2\pi r)$', 'Outside the doughnut, the field is zero', 'The field is uniform across the core', 'The field is stronger at the inner radius of the core than at the outer radius', 'The field inside the windings is zero']
+  answer: [0, 1, 3]
+  explanation: |-
+    Ampère's law around a circle of radius $r$ inside the windings gives $B = \mu_0NI/(2\pi r)$, which falls with $r$, so it is not uniform: it is largest at the inner radius. Circles outside the doughnut or in the hole enclose zero net current, so the field there is zero.
+- id: phys-m10-r2-h13
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  type: order
+  stem: 'Put the steps of the Biot–Savart calculation of the field on the axis of a current loop in order.'
+  items:
+    - 'Write $d\vec B$ for one current element of the loop'
+    - 'Split $d\vec B$ into a part along the axis and a sideways part'
+    - 'Cancel the sideways parts using the element on the opposite side'
+    - 'Integrate the axial part around the whole loop'
+  explanation: |-
+    Each step needs the one before: the element's contribution, then its components, then the symmetry argument that removes the sideways ones, and finally $\oint d\ell = 2\pi R$ for the surviving axial parts.
+- id: phys-m10-r2-h14
+  lesson: phys-m10-h-field-calculations
+  topic: Magnetic field calculations
+  stem: 'A square loop and a circular loop carry the same current. The circle just fits inside the square. Which has the stronger field at its center?'
+  choices: ['They are equal', 'The square, by about 11%', 'The circle, by about 11%', 'The square, by about 41%']
+  answer: 2
+  explanation: |-
+    Square: $\dfrac{2\sqrt2\,\mu_0I}{\pi s}$. Circle of radius $s/2$: $\dfrac{\mu_0I}{s}$. The ratio square/circle is $2\sqrt2/\pi = 0.90$, so the circle's field is $1/0.90 = 1.11$ times the square's. The square's corners are farther from the center, so they contribute less.
+
+# ====================== Honors: Induced electric fields (phys-m10-h-induced-fields) ======================
+- id: phys-m10-r2-h15
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'A long solenoid of radius 4.0 cm has its interior field changing at 50 T/s. What is the induced electric field 2.0 cm from the axis?'
+  choices: ['1.0 V/m', '0.50 V/m', '2.0 V/m', '0 V/m']
+  answer: 1
+  explanation: |-
+    Inside, $E = \dfrac r2\left|\dfrac{dB}{dt}\right| = \dfrac{0.020}{2}(50) = 0.50$ V/m. Forgetting the $\tfrac12$ gives 1.0 V/m; using the outside formula $R^2/(2r)$ gives 2.0 V/m; 0 would mean no changing flux.
+- id: phys-m10-r2-h16
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'For the same solenoid (radius 4.0 cm, field changing at 50 T/s), what is the induced electric field 8.0 cm from the axis, outside the solenoid?'
+  choices: ['0 V/m, since there is no magnetic field there', '2.0 V/m', '1.0 V/m', '0.50 V/m']
+  answer: 3
+  explanation: |-
+    The circle of radius 8.0 cm encloses all the changing flux, $\pi R^2\,dB/dt$, so $E = \dfrac{R^2}{2r}\left|\dfrac{dB}{dt}\right| = \dfrac{(0.040)^2}{2(0.080)}(50) = 0.50$ V/m. The field exists even though $B$ is nearly zero there. The inside formula $r/2$ would give 2.0 V/m; 1.0 V/m is the value at the surface.
+- id: phys-m10-r2-h17
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'Why can''t an electric potential be defined for the induced electric field around a changing solenoid?'
+  choices: ['The field is too weak to measure', 'Its line integral around a closed loop is not zero', 'It exists only inside conductors', 'It points radially, so it has no potential energy']
+  answer: 1
+  explanation: |-
+    A potential requires $\oint\vec E\cdot d\vec\ell = 0$ for every closed path. The induced field has $\oint\vec E\cdot d\vec\ell = -d\Phi_B/dt \ne 0$, so the work from $a$ to $b$ depends on the path. It exists in empty space too, and it circles the axis rather than pointing radially.
+- id: phys-m10-r2-h18
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'A betatron starts from zero field. At some instant the average field inside the electrons'' orbit is 1.2 T. What must the field at the orbit be?'
+  choices: ['0.60 T', '1.2 T', '2.4 T', '0.30 T']
+  answer: 0
+  explanation: |-
+    Equating $dp/dt = er\,dB_{\text{orbit}}/dt$ (circular orbit) with $dp/dt = \dfrac{e}{2\pi r}\dfrac{d\Phi_B}{dt}$ (induced field) gives $B_{\text{orbit}} = \tfrac12\bar B = 0.60$ T.
+- id: phys-m10-r2-h19
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'A betatron orbit has radius 0.30 m, and the average field inside it rises at 150 T/s. How much energy does an electron gain per turn?'
+  choices: ['13.5 eV', '21 eV', '85 eV', '42 eV']
+  answer: 3
+  explanation: |-
+    The emf around the orbit is $\dfrac{d\Phi_B}{dt} = \pi r^2\dfrac{d\bar B}{dt} = \pi(0.30)^2(150) = 42$ V, so each turn adds 42 eV. Leaving out $\pi$ gives 13.5 eV; using the orbit field's rate (half the average) gives 21 eV; doubling instead gives 85 eV.
+- id: phys-m10-r2-h20
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'A 0.10 kg rod 0.40 m long coasts on frictionless rails in a 0.50 T field, in a circuit of resistance 0.20 Ω. What is the time constant of its exponential slowdown?'
+  choices: ['2.0 s', '0.10 s', '0.50 s', '0.080 s']
+  answer: 2
+  explanation: |-
+    $\tau = \dfrac{mR}{B^2L^2} = \dfrac{(0.10)(0.20)}{(0.50)^2(0.40)^2} = 0.50$ s. Inverting the ratio gives 2.0 s; not squaring $B$ and $L$ gives 0.10 s; leaving out $L$ gives 0.080 s.
+- id: phys-m10-r2-h21
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  type: text
+  stem: 'A rod on frictionless rails in a magnetic field slows by magnetic braking with time constant $\tau = 0.50$ s. It is launched at 3.0 m/s and left to coast. The total distance it travels before stopping is ___ m. Give only the number.'
+  accept: ['1.5']
+  explanation: |-
+    $x = \int_0^\infty v_0e^{-t/\tau}dt = v_0\tau = (3.0)(0.50) = 1.5$ m.
+- id: phys-m10-r2-h22
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'A 24 V DC motor has a winding resistance of 1.2 Ω and a back emf of 21 V at its running speed. What is its running current?'
+  choices: ['2.5 A', '20 A', '17.5 A', '37.5 A']
+  answer: 0
+  explanation: |-
+    $I = \dfrac{V - \mathcal{E}_b}{R} = \dfrac{24 - 21}{1.2} = 2.5$ A. Ignoring the back emf gives the start-up current, 20 A; using only the back emf gives 17.5 A; adding it to the supply gives 37.5 A.
+- id: phys-m10-r2-h23
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'For the same motor (24 V supply, 1.2 Ω, back emf 21 V, current 2.5 A), what mechanical power does it deliver, ignoring friction?'
+  choices: ['60 W', '7.5 W', '52.5 W', '480 W']
+  answer: 2
+  explanation: |-
+    Mechanical power is $\mathcal{E}_bI = 21(2.5) = 52.5$ W. The input is $VI = 60$ W, and the difference, $I^2R = 7.5$ W, heats the windings. 480 W is $V^2/R$, the input power if the coil were stalled.
+- id: phys-m10-r2-h24
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  type: text
+  stem: 'The emf induced in a spinning motor''s coil, which opposes the supply voltage and grows with speed, is called the ___.'
+  accept: [back emf, back-emf, counter emf, counter-emf, back electromotive force, counter electromotive force]
+  explanation: |-
+    The back (or counter) emf, $\mathcal{E}_b = k\omega$. It is why a running motor draws far less current than a stalled one.
+- id: phys-m10-r2-h25
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  type: text
+  stem: 'In a betatron that starts from zero field, the field at the orbit must be ___ times the average field inside the orbit. Give a number.'
+  accept: ['0.5', '1/2']
+  explanation: |-
+    The betatron (two-to-one) condition is $B_{\text{orbit}} = \tfrac12\bar B$.
+- id: phys-m10-r2-h26
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  stem: 'The current in a long solenoid is increasing. Which statements about the induced electric field are true? Select all that apply.'
+  choices: ['Its field lines are closed circles around the axis', 'It exists outside the solenoid, where the magnetic field is nearly zero', 'It points radially away from the axis', 'It is strongest at the solenoid''s surface', 'It is zero inside, because the magnetic field there is uniform']
+  answer: [0, 1, 3]
+  explanation: |-
+    The field circles the axis with $E = (r/2)|dB/dt|$ inside and $E = R^2/(2r)\,|dB/dt|$ outside, so it is largest at $r = R$ and present outside. It has no radial part (there is no charge), and inside it is not zero: a uniform field that is changing still induces one.
+- id: phys-m10-r2-h27
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  type: order
+  stem: 'A DC motor is switched on from rest with a fixed supply voltage and a steady load. Put the stages in order.'
+  items:
+    - 'The coil is at rest, so there is no back emf'
+    - 'A large current flows, limited only by the coil''s resistance'
+    - 'The coil speeds up, the back emf grows and the current falls'
+    - 'The motor settles at a speed where the back emf is close to the supply voltage'
+  explanation: |-
+    $I = (V - \mathcal{E}_b)/R$ with $\mathcal{E}_b = k\omega$. At rest $\mathcal{E}_b = 0$ and $I = V/R$ (the start-up surge); as $\omega$ rises the current falls, until the torque from the reduced current just balances the load.
+- id: phys-m10-r2-h28
+  lesson: phys-m10-h-induced-fields
+  topic: Induced electric fields
+  type: match
+  stem: 'Match each effect to its explanation.'
+  pairs:
+    - [Betatron, An induced electric field accelerates electrons around a circle]
+    - [Eddy-current brake, A force proportional to speed opposes the motion]
+    - [Motor start-up surge, There is no back emf while the coil is at rest]
+    - [Electric field outside a changing solenoid, It depends on the changing flux enclosed by the path]
+  distractors: [Carriers pile up on one edge of a strip]
+  explanation: |-
+    These are the four applications in the lesson. The distractor is the Hall effect, which comes from the magnetic force on moving carriers, not from induction.
+
+# ====================== Honors: Driven RLC circuits (phys-m10-h-driven-rlc) ======================
+- id: phys-m10-r2-h29
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'A series circuit with $R = 40$ Ω, $X_L = 70$ Ω and $X_C = 40$ Ω is driven by a 100 V (rms) source. What is the rms voltage across the inductor?'
+  choices: ['100 V', '60 V', '80 V', '140 V']
+  answer: 3
+  explanation: |-
+    $Z = \sqrt{40^2 + 30^2} = 50$ Ω, so $I = 2.0$ A and $V_L = IX_L = 140$ V, more than the source voltage. 60 V is $I(X_L - X_C)$, the net reactive voltage; 80 V is the voltage across the resistor (and also across the capacitor).
+- id: phys-m10-r2-h30
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'In a series AC circuit, how is the voltage across the inductor related in time to the current through it?'
+  choices: ['It leads the current by 90°', 'It lags the current by 90°', 'It is in phase with the current', 'It is 180° out of phase with the current']
+  answer: 0
+  explanation: |-
+    With $i = I\cos\omega t$, $v_L = L\,di/dt = \omega LI\cos(\omega t + 90^\circ)$: the voltage peaks a quarter cycle before the current. The capacitor's voltage lags by 90°, and the resistor's is in phase.
+- id: phys-m10-r2-h31
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'A series circuit has $R = 60$ Ω, $X_L = 100$ Ω and $X_C = 20$ Ω. Using complex impedance, find $|Z|$ and the phase of the voltage relative to the current.'
+  choices: ['180 Ω, in phase', '60 Ω, in phase', '100 Ω, voltage leads by 53°', '100 Ω, current leads by 53°']
+  answer: 2
+  explanation: |-
+    $Z = 60 + j(100 - 20) = 60 + 80j$, so $|Z| = 100$ Ω and its angle is $\tan^{-1}(80/60) = 53^\circ$, positive: the voltage leads (the circuit is inductive). Adding $R$, $X_L$ and $X_C$ as numbers gives 180 Ω; 60 Ω would be true only at resonance.
+- id: phys-m10-r2-h32
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'A 30 Ω resistor is in parallel with a capacitor of reactance 40 Ω. What is the magnitude of the combination''s impedance?'
+  choices: ['70 Ω', '24 Ω', '17 Ω', '50 Ω']
+  answer: 1
+  explanation: |-
+    $Z = \dfrac{30(-40j)}{30 - 40j} = \dfrac{-1200j(30 + 40j)}{2500} = 19.2 - 14.4j$ Ω, with magnitude 24 Ω. Adding gives 70 Ω; the series formula $\sqrt{30^2 + 40^2}$ gives 50 Ω; combining them as two parallel resistors gives 17 Ω, which ignores the 90° phase difference between the branch currents.
+- id: phys-m10-r2-h33
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'A series RLC circuit has $L = 20$ mH, $C = 0.50$ μF and $R = 10$ Ω. What is its quality factor $Q$?'
+  choices: ['3.2', '0.050', '200', '20']
+  answer: 3
+  explanation: |-
+    $\omega_0 = 1/\sqrt{(0.020)(0.50\times10^{-6})} = 1.0\times10^4$ rad/s, and $Q = \omega_0L/R = (10^4)(0.020)/10 = 20$. Using $f_0 = 1592$ Hz instead of $\omega_0$ gives 3.2; the reciprocal is 0.050; 200 is $\omega_0L$ in ohms, not divided by $R$.
+- id: phys-m10-r2-h34
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'For the same circuit ($L = 20$ mH, $C = 0.50$ μF, $R = 10$ Ω), what is the bandwidth $\Delta\omega$ between the half-power points?'
+  choices: ['500 rad/s', '250 rad/s', '$2.0\times10^5$ rad/s', '$1.0\times10^4$ rad/s']
+  answer: 0
+  explanation: |-
+    $\Delta\omega = R/L = 10/0.020 = 500$ rad/s, which is also $\omega_0/Q = 10^4/20$. $R/(2L) = 250$ rad/s is only half the width; $\omega_0Q$ multiplies where it should divide; $10^4$ rad/s is $\omega_0$ itself.
+- id: phys-m10-r2-h35
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'A series RLC circuit with $Q = 20$ is driven at resonance by a 5.0 V (rms) source. What is the rms voltage across the capacitor?'
+  choices: ['5.0 V', '100 V', '0 V, because it cancels the inductor''s voltage', '0.25 V']
+  answer: 1
+  explanation: |-
+    At resonance $V_C = V_L = QV = 20(5.0) = 100$ V. The capacitor and inductor voltages cancel each other in the loop sum, but each one alone is $Q$ times the source voltage. 0.25 V divides by $Q$ instead of multiplying.
+- id: phys-m10-r2-h36
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'A resonator stores 2.0 J and loses 0.010 J of energy per cycle. What is its $Q$?'
+  choices: ['200', '$1.3\times10^3$', '32', '0.0050']
+  answer: 1
+  explanation: |-
+    $Q = 2\pi\,\dfrac{\text{energy stored}}{\text{energy lost per cycle}} = 2\pi(200) = 1.3\times10^3$. Leaving out $2\pi$ gives 200; dividing by $2\pi$ gives 32; 0.0050 is the ratio upside down.
+- id: phys-m10-r2-h37
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  type: label
+  stem: 'This is the phasor diagram of a series RLC circuit with $X_L > X_C$, drawn with the current pointing to the right. Name the numbered phasors.'
+  image: {src: images/phys-m10-phasor-blank.svg, alt: 'A phasor diagram with four numbered arrows from one origin: a short one pointing right, a long one pointing up, a medium one pointing down, and a diagonal one pointing up and to the right'}
+  labels:
+    - {x: 34.1, y: 61.4, text: Resistor voltage}
+    - {x: 21.2, y: 20.5, text: Inductor voltage}
+    - {x: 21.2, y: 80.5, text: Capacitor voltage}
+    - {x: 31.5, y: 45.0, text: Source voltage}
+  distractors: [Impedance]
+  explanation: |-
+    The resistor voltage (1) is in phase with the current, so it points right. The inductor voltage (2) leads by 90° (up) and the capacitor voltage (3) lags by 90° (down); the inductor's is longer because $X_L > X_C$. The source voltage (4) is the vector sum, tilted up by the phase angle $\phi$.
+- id: phys-m10-r2-h38
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  type: text
+  stem: 'A series RLC circuit resonates at 2000 Hz and has $Q = 25$. Its bandwidth between the half-power points is ___ Hz. Give only the number.'
+  accept: ['80']
+  explanation: |-
+    $\Delta f = f_0/Q = 2000/25 = 80$ Hz.
+- id: phys-m10-r2-h39
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  type: text
+  stem: 'The two frequencies at which a driven RLC circuit absorbs half of its maximum average power are called the ___ points.'
+  accept: [half-power, half power, '-3 dB', '3 dB', '−3 dB']
+  explanation: |-
+    The half-power points, where $|X_L - X_C| = R$ and the current is $1/\sqrt2$ of its peak. (Engineers also call them the −3 dB points.) The bandwidth is the gap between them.
+- id: phys-m10-r2-h40
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  stem: 'Which changes increase the $Q$ of a series RLC circuit? Select all that apply.'
+  choices: ['Decreasing the resistance', 'Increasing the inductance, with $C$ and $R$ unchanged', 'Increasing the capacitance, with $L$ and $R$ unchanged', 'Increasing the resistance', 'Decreasing the capacitance, with $L$ and $R$ unchanged']
+  answer: [0, 1, 4]
+  explanation: |-
+    $Q = \dfrac1R\sqrt{\dfrac LC}$. It rises when $R$ falls, when $L$ rises, or when $C$ falls; raising $C$ or $R$ lowers it.
+- id: phys-m10-r2-h41
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  type: order
+  stem: 'Four series circuits all have $L = 10$ mH and $C = 1.0$ μF but different resistances. Put them in order from the narrowest resonance peak to the widest.'
+  items:
+    - '$R = 1$ Ω'
+    - '$R = 5$ Ω'
+    - '$R = 20$ Ω'
+    - '$R = 100$ Ω'
+  explanation: |-
+    The bandwidth is $\Delta\omega = R/L$, proportional to $R$ when $L$ is fixed (equivalently $Q = \sqrt{L/C}/R$ falls as $R$ rises). Smallest $R$, narrowest peak.
+- id: phys-m10-r2-h42
+  lesson: phys-m10-h-driven-rlc
+  topic: Driven RLC circuits
+  type: match
+  stem: 'Match each voltage to its phase relative to the current in a series AC circuit.'
+  pairs:
+    - [Voltage across the resistor, In phase with the current]
+    - [Voltage across the inductor, Leads the current by 90°]
+    - [Voltage across the capacitor, Lags the current by 90°]
+    - [Source voltage at resonance, In phase with the current]
+  distractors: [Leads the current by 180°]
+  explanation: |-
+    $v_R = iR$ is in step with $i$; $v_L = L\,di/dt$ leads by 90°; $v_C = q/C$ lags by 90°. At resonance the inductor and capacitor voltages cancel, leaving the source voltage equal to $v_R$, in phase with the current.

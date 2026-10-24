@@ -1,0 +1,437 @@
+# Round 2 questions for phys-m9 (Electric circuits): core lessons 07-09 and honors 09h1, 09h2.
+
+# ---------- Lesson 07: Current, resistance, and power ----------
+- id: phys-m9-r2-q01
+  lesson: phys-current
+  topic: Current and resistance
+  type: label
+  stem: 'A uniform wire runs from a higher-potential end (+) to a lower-potential end (−). Name the numbered features.'
+  image: {src: images/phys-m9-wire-blank.svg, alt: 'A cylindrical wire between a + end on the left and a − end on the right, with electrons drawn inside. Marker 1 is at the circular end face, marker 2 on a bracket under the whole wire, marker 3 on an arrow above the wire pointing from + to −, and marker 4 on an arrow below the wire pointing from − to +.'}
+  labels:
+    - {x: 20.8, y: 31.1, text: Cross-sectional area}
+    - {x: 50.0, y: 80.6, text: Length}
+    - {x: 50.0, y: 26.4, text: Conventional current direction}
+    - {x: 50.0, y: 68.1, text: Electron drift direction}
+  distractors: [Resistivity, Magnetic field direction]
+  explanation: |-
+    Conventional current points the way positive charge would move, from the + (high-potential) end to the − end. The electrons that really carry current in a metal are negative, so they drift the opposite way. The end face is the area $A$ and the bracket the length $L$ in $R = \rho L/A$. Resistivity is a property of the material, not a feature you can point to.
+- id: phys-m9-r2-q02
+  lesson: phys-current
+  module_quiz: true
+  topic: Current and resistance
+  type: text
+  stem: 'The current in a wire is $I(t) = 6.0e^{-t/3}$ A for $t \ge 0$ (t in seconds). The total charge that ever passes through it is ___ C. (Give only the number.)'
+  accept: ['18']
+  explanation: |-
+    $Q = \int_0^\infty 6.0e^{-t/3}\,dt = 6.0 \times 3 = 18$ C: the area under the $I$–$t$ graph. Multiplying the starting current by 1 s instead of integrating gives 6.0, which is not the charge.
+- id: phys-m9-r2-q03
+  lesson: phys-current
+  topic: Current and resistance
+  type: match
+  stem: 'Match each expression to the quantity it gives.'
+  pairs:
+    - ['$nqv_dA$', Current in a wire]
+    - ['$\rho L/A$', Resistance of a uniform wire]
+    - ['$\vec E/\rho$', Current density]
+    - ['$I^2R$', Power turned to heat in a resistor]
+  distractors: [Charge stored on a capacitor]
+  explanation: |-
+    $I = nqv_dA$ counts the charge crossing a section per second; $R = \rho L/A$ is the resistance of a wire; $\vec J = \vec E/\rho$ is Ohm's law in local form; $P = I^2R$ is Joule heating. None of them is a capacitor's charge ($Q = CV$).
+- id: phys-m9-r2-q04
+  lesson: phys-current
+  module_quiz: true
+  topic: Electric power
+  stem: 'A heating element made of a single wire runs on a fixed 120 V outlet. Ignoring changes in temperature, which changes would increase the power it produces? Select all that apply.'
+  choices: ['Using a shorter piece of the same wire', 'Using a thicker wire of the same material and length', 'Using a material with a higher resistivity, same size', 'Using a wire twice as long']
+  answer: [0, 1]
+  explanation: |-
+    At fixed voltage $P = V^2/R$, so anything that lowers $R = \rho L/A$ raises the power. A shorter wire (smaller $L$) and a thicker one (larger $A$) both lower $R$. Higher resistivity or more length raise $R$ and lower the power. (The rule "more resistance, more heat" holds only at fixed current, $P = I^2R$.)
+- id: phys-m9-r2-q05
+  lesson: phys-current
+  topic: Current and resistance
+  stem: 'A copper resistor ($\rho = 1.7\times10^{-8}$ Ω·m) is a cone 0.10 m long whose radius tapers from 1.0 mm to 2.0 mm. Using $R = \rho L/(\pi ab)$, what is its resistance?'
+  choices: ['$2.7\times10^{-4}$ Ω', '$2.4\times10^{-4}$ Ω', '$5.4\times10^{-4}$ Ω', '$1.4\times10^{-4}$ Ω']
+  answer: 0
+  explanation: |-
+    $R = \dfrac{(1.7\times10^{-8})(0.10)}{\pi(1.0\times10^{-3})(2.0\times10^{-3})} = 2.7\times10^{-4}$ Ω. Using the average radius 1.5 mm gives $2.4\times10^{-4}$ Ω (close, but not the exact integral); using only the small radius gives $5.4\times10^{-4}$ Ω and only the large radius $1.4\times10^{-4}$ Ω.
+
+# ---------- Lesson 08: DC circuits and Kirchhoff's rules ----------
+- id: phys-m9-r2-q06
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  type: label
+  stem: 'A circuit is set up to measure the current through a resistor and the voltage across it. Name the numbered parts.'
+  image: {src: images/phys-m9-meters-blank.svg, alt: 'A circuit loop. Marker 1 is beside a symbol with a long and a short plate on the left side. Marker 2 is at a lever between two contacts on the top wire. Marker 3 is at a blank meter circle on the top wire, in line with everything else. Marker 4 is beside a zigzag between the top and bottom wires. Marker 5 is beside a second blank meter circle connected across the two ends of the zigzag.'}
+  labels:
+    - {x: 6.9, y: 51.2, text: Battery}
+    - {x: 28.5, y: 15.2, text: Switch}
+    - {x: 41.0, y: 12.9, text: Ammeter}
+    - {x: 57.5, y: 51.2, text: Resistor}
+    - {x: 91.4, y: 51.2, text: Voltmeter}
+  distractors: [Capacitor, Galvanometer]
+  explanation: |-
+    The long-and-short plate symbol is a battery and the lever is a switch. The meter in line with the loop (in series) carries the same current as the resistor, so it is the ammeter. The meter connected across the resistor's two ends (in parallel) has the same voltage as the resistor, so it is the voltmeter.
+- id: phys-m9-r2-q07
+  lesson: phys-dc-circuits
+  module_quiz: true
+  topic: Series and parallel circuits
+  type: text
+  stem: 'A 4.0 Ω resistor is in series with a parallel pair of 3.0 Ω and 6.0 Ω, connected to an ideal 12 V battery. The equivalent resistance is ___ Ω and the battery current is ___ A. (Give only the numbers.)'
+  accept:
+    - ['6']
+    - ['2']
+  explanation: |-
+    Parallel pair: $\dfrac{3.0(6.0)}{3.0 + 6.0} = 2.0$ Ω. In series with 4.0 Ω: $R_{\text{eq}} = 6.0$ Ω. Battery current $I = 12/6.0 = 2.0$ A.
+- id: phys-m9-r2-q08
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  type: order
+  stem: 'Three identical 6.0 Ω resistors can be connected in four ways. Put the combinations in order of equivalent resistance, smallest first.'
+  items: ['All three in parallel', 'Two in series, that pair in parallel with the third', 'Two in parallel, that pair in series with the third', 'All three in series']
+  explanation: |-
+    All parallel: $6/3 = 2$ Ω. A series pair (12 Ω) in parallel with 6 Ω: $\dfrac{12(6)}{18} = 4$ Ω. A parallel pair (3 Ω) in series with 6 Ω: 9 Ω. All series: 18 Ω.
+- id: phys-m9-r2-q09
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'A battery with emf $\mathcal{E}$ and internal resistance $r$ is connected to a variable load resistor $R$. Which statements are true? Select all that apply.'
+  choices: ['The terminal voltage is less than $\mathcal{E}$ whenever current flows', 'With no load connected, the terminal voltage equals $\mathcal{E}$', 'Making $R$ smaller always increases the power delivered to the load', 'When $R = r$, half of the emf appears across the load']
+  answer: [0, 1, 3]
+  explanation: |-
+    $V = \mathcal{E} - Ir$, so the terminal voltage drops below $\mathcal{E}$ whenever $I \ne 0$ and equals it when $I = 0$. At $R = r$, $I = \mathcal{E}/(2r)$ and the load voltage is $IR = \mathcal{E}/2$. Load power $\mathcal{E}^2R/(R + r)^2$ peaks at $R = r$; making $R$ smaller than $r$ lowers it again (it is zero for a short circuit).
+- id: phys-m9-r2-q10
+  lesson: phys-dc-circuits
+  topic: Kirchhoff's rules
+  type: match
+  stem: 'Match each arrangement to the property that defines it.'
+  pairs:
+    - [Resistors in series, Same current through each]
+    - [Resistors in parallel, Same voltage across each]
+    - [Ammeter, In series and very low resistance]
+    - [Voltmeter, In parallel and very high resistance]
+  distractors: [Same power in each]
+  explanation: |-
+    Series parts share one path, so one current; parallel parts connect across the same two points, so one voltage. An ammeter goes in series and must barely change the current (low resistance); a voltmeter goes in parallel and must draw almost no current (high resistance). Equal power is not a general property of either arrangement.
+- id: phys-m9-r2-q11
+  lesson: phys-dc-circuits
+  topic: Kirchhoff's rules
+  image: {src: images/phys-m9-kirchhoff.svg, alt: 'Three vertical branches between junctions A (top) and B (bottom): a 12 V battery and 2.0 Ω resistor, a 6.0 V battery and 3.0 Ω resistor, both with the + plate toward A, and a 6.0 Ω resistor alone.'}
+  stem: 'In the circuit of Example 3 (shown), the 6.0 Ω branch is cut, leaving the two battery branches in one loop. What current flows around the loop?'
+  choices: ['3.6 A', '1.2 A', '2.0 A', '6.0 A']
+  answer: 1
+  explanation: |-
+    The batteries oppose each other around the loop (both $+$ terminals face A), so the net emf is $12 - 6.0 = 6.0$ V across $2.0 + 3.0 = 5.0$ Ω: $I = 1.2$ A, up through the 12 V branch and down through the 6.0 V one. Adding the emfs gives 3.6 A; 2.0 A is the old $I_1$; 6.0 A is 12 V over 2.0 Ω alone.
+
+# ---------- Lesson 09: RC circuits ----------
+- id: phys-m9-r2-q12
+  lesson: phys-rc
+  module_quiz: true
+  topic: RC circuits
+  type: label
+  stem: 'This circuit can both charge and discharge a capacitor. Name the numbered parts.'
+  image: {src: images/phys-m9-rc-blank.svg, alt: 'A circuit loop. Marker 1 is beside a symbol with one long and one short plate on the left side. Marker 2 is above a two-way lever on the top wire, whose second contact leads straight down to the bottom wire. Marker 3 is above a zigzag on the top wire. Marker 4 is beside a symbol with two equal parallel plates on the right side.'}
+  labels:
+    - {x: 8.3, y: 52.4, text: Battery}
+    - {x: 40.3, y: 15.2, text: Switch}
+    - {x: 66.7, y: 13.8, text: Resistor}
+    - {x: 91.7, y: 52.4, text: Capacitor}
+  distractors: [Voltmeter, Inductor]
+  explanation: |-
+    Unequal plates are a battery (long plate +); equal plates are a capacitor; the zigzag is the resistor. The two-way switch connects the RC pair either to the battery (charging) or straight across itself (discharging through the same resistor).
+- id: phys-m9-r2-q13
+  lesson: phys-rc
+  topic: RC circuits
+  type: text
+  stem: 'A capacitor discharging through a resistor has a half-life of 0.35 s. Its voltage falls from 16 V to 2.0 V in ___ s. (Give only the number.)'
+  accept: ['1.05']
+  explanation: |-
+    16 → 8 → 4 → 2 V is three halvings, so $t = 3(0.35) = 1.05$ s. (Check: $t = \tau\ln 8$ with $\tau = 0.35/\ln 2 = 0.505$ s gives 1.05 s.)
+- id: phys-m9-r2-q14
+  lesson: phys-rc
+  topic: RC circuits
+  type: order
+  stem: 'A capacitor charges from zero through a resistor. Put these moments in time order, earliest first.'
+  items: ['It has half its final charge', 'It has 63% of its final charge', 'It has 86% of its final charge', 'It has 99% of its final charge']
+  explanation: |-
+    From $q/Q = 1 - e^{-t/RC}$, $t = -RC\ln(1 - q/Q)$: half at $0.69RC$, 63% at $RC$, 86% at $2RC$, 99% at about $4.6RC$.
+- id: phys-m9-r2-q15
+  lesson: phys-rc
+  module_quiz: true
+  topic: RC circuits
+  stem: 'A battery, a resistor $R$ and an uncharged capacitor $C$ are in series. Which statements describe the instant just after the switch closes? Select all that apply.'
+  choices: ['The current is $\mathcal{E}/R$', 'The capacitor''s voltage is zero', 'The current is zero', 'The capacitor''s charge is $C\mathcal{E}$']
+  answer: [0, 1]
+  explanation: |-
+    An uncharged capacitor has no voltage, and its voltage cannot jump, so at first it acts like a wire: the whole emf is across $R$ and $I = \mathcal{E}/R$. Zero current and charge $C\mathcal{E}$ describe the end of charging, long after the switch closes.
+- id: phys-m9-r2-q16
+  lesson: phys-rc
+  topic: RC circuits
+  type: match
+  stem: 'Match each expression to what it gives for an RC circuit with battery emf $\mathcal{E}$.'
+  pairs:
+    - ['$RC$', Time constant]
+    - ['$RC\ln 2$', Time for a discharge to halve the charge]
+    - ['$\mathcal{E}/R$', Initial charging current]
+    - ['$C\mathcal{E}^2$', Energy the battery supplies during a full charge]
+    - ['$1/(2\pi RC)$', Crossover frequency of an RC filter]
+  distractors: [Final charging current]
+  explanation: |-
+    $\tau = RC$; the half-life is $RC\ln 2$; the current starts at $\mathcal{E}/R$; the battery moves $Q = C\mathcal{E}$ through $\mathcal{E}$, supplying $C\mathcal{E}^2$ (half is stored, half heats $R$); RC filters cross over near $1/(2\pi RC)$. The final charging current is zero, which none of these expressions gives.
+- id: phys-m9-r2-q17
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'In Example 1 of the RC lesson (4.0 μF, 50 kΩ, 12 V, so $\tau = 0.20$ s and $I_0 = 0.24$ mA), what is the current at $t = 0.30$ s?'
+  choices: ['0.19 mA', '0.24 mA', '0.054 mA', '0.11 mA']
+  answer: 2
+  explanation: |-
+    $I = I_0e^{-t/\tau} = 0.24e^{-1.5} = 0.054$ mA. Using the charge's shape $1 - e^{-t/\tau}$ gives 0.19 mA; 0.24 mA is the starting current; 0.11 mA comes from doubling the time constant to 0.40 s.
+
+# ---------- Honors 09h1: Node voltages, Thévenin and Norton, bridges and ladders ----------
+- id: phys-m9-r2-h01
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  type: label
+  stem: 'A linear network and its two equivalents. Name the numbered parts.'
+  image: {src: images/phys-m9-thevenin-norton-blank.svg, alt: 'Three circuits joined by equals signs: a box labeled batteries and resistors with terminals a and b; a Thévenin equivalent with a battery (marker 1) and a resistor on the top wire (marker 2); and a Norton equivalent with a circle containing an upward arrow (marker 3) and a resistor connected across it between the top and bottom wires (marker 4).'}
+  labels:
+    - {x: 42.4, y: 51.5, text: Battery equal to the open-circuit voltage}
+    - {x: 47.5, y: 28.8, text: Resistor in series with the source}
+    - {x: 76.6, y: 51.5, text: Source of the short-circuit current}
+    - {x: 88.6, y: 51.5, text: Resistor in parallel with the source}
+  distractors: [Galvanometer, Load resistor]
+  explanation: |-
+    Thévenin: a battery $V_{\text{th}}$ (the open-circuit voltage) in series with $R_{\text{th}}$. Norton: a current source $I_N$ (the short-circuit current) in parallel with the same $R_{\text{th}}$. No load is attached in the picture; the terminals a and b are where one would go.
+- id: phys-m9-r2-h02
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'A network has 5 nodes (junctions) and 8 branches. How many unknown potentials does the node-voltage method need?'
+  choices: ['8', '5', '3', '4']
+  answer: 3
+  explanation: |-
+    One node is the reference at zero potential, leaving $5 - 1 = 4$ unknowns. The branch-current method would need 8 unknowns, one per branch; 5 forgets the reference node.
+- id: phys-m9-r2-h03
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  type: text
+  stem: 'Three branches join node A to the reference node B: a 10 V battery ($+$ toward A) in series with 2.0 Ω, a 4.0 Ω resistor, and another 4.0 Ω resistor. The potential of A is ___ V. (Give only the number.)'
+  accept: ['5']
+  explanation: |-
+    Junction rule at A: $\dfrac{10 - V}{2.0} = \dfrac{V}{4.0} + \dfrac{V}{4.0}$, so $10 - V = V$ and $V = 5.0$ V. (Check: the two 4.0 Ω resistors make 2.0 Ω, an equal divider of 10 V.)
+- id: phys-m9-r2-h04
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'An ideal 12 V battery drives $R_1 = 4.0$ kΩ and $R_2 = 12$ kΩ in series. Terminals a and b are across $R_2$. What are the Thévenin voltage and resistance seen from a and b?'
+  choices: ['9.0 V and 3.0 kΩ', '9.0 V and 16 kΩ', '3.0 V and 3.0 kΩ', '12 V and 3.0 kΩ']
+  answer: 0
+  explanation: |-
+    Open circuit: $V_{\text{th}} = 12\cdot\dfrac{12}{16} = 9.0$ V. Battery replaced by a wire: $R_1$ and $R_2$ are in parallel between a and b, $R_{\text{th}} = \dfrac{4(12)}{16} = 3.0$ kΩ. 16 kΩ adds them in series; 3.0 V is the voltage across $R_1$; 12 V ignores the divider.
+- id: phys-m9-r2-h05
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'A 6.0 kΩ load is connected to the terminals of the previous divider ($V_{\text{th}} = 9.0$ V, $R_{\text{th}} = 3.0$ kΩ). What current flows through the load?'
+  choices: ['1.5 mA', '1.0 mA', '0.75 mA', '3.0 mA']
+  answer: 1
+  explanation: |-
+    $I = \dfrac{9.0}{3.0 + 6.0} = 1.0$ mA (so the load has 6.0 V across it, not 9.0 V). Ignoring $R_{\text{th}}$ gives 1.5 mA; 0.75 mA is the divider current with no load; 3.0 mA is the Norton (short-circuit) current.
+- id: phys-m9-r2-h06
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'What is the Norton current of the same divider (12 V, 4.0 kΩ, 12 kΩ, terminals across the 12 kΩ)?'
+  choices: ['0.75 mA', '1.0 mA', '3.0 mA', '9.0 mA']
+  answer: 2
+  explanation: |-
+    A wire across a and b shorts out $R_2$, so $I_N = 12/4.0 = 3.0$ mA, which equals $V_{\text{th}}/R_{\text{th}} = 9.0/3.0$. 0.75 mA is the current with nothing connected; 9.0 mA divides 9.0 V by 1 kΩ.
+- id: phys-m9-r2-h07
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'Which statements about the Thévenin resistance $R_{\text{th}}$ of a linear network are true? Select all that apply.'
+  choices: ['It equals the open-circuit voltage divided by the short-circuit current', 'It is found with every ideal battery replaced by a wire', 'It is found with every ideal battery removed, leaving a gap', 'It changes with the load resistance connected to the terminals']
+  answer: [0, 1]
+  explanation: |-
+    $R_{\text{th}} = V_{\text{oc}}/I_{\text{sc}}$, and it is the resistance between the terminals with each ideal emf set to zero, which means a wire (an ideal battery has no internal resistance). Leaving a gap would cut whole branches out. $R_{\text{th}}$ is a property of the network alone, not of the load.
+- id: phys-m9-r2-h08
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'In a two-battery circuit, each battery acting alone would drive 2.0 A through a 5.0 Ω resistor, in the same direction. What power does the resistor dissipate with both batteries in place?'
+  choices: ['40 W', '20 W', '160 W', '80 W']
+  answer: 3
+  explanation: |-
+    Superposition adds currents: $I = 2.0 + 2.0 = 4.0$ A, so $P = I^2R = 16(5.0) = 80$ W. Adding the separate powers ($20 + 20$) gives 40 W, the classic mistake: power is quadratic in current.
+- id: phys-m9-r2-h09
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  type: order
+  stem: 'Ladders of equal resistors $R$ (series $R$, then shunt $R$, repeated) are measured from their input terminals. Put them in order of resistance, smallest first.'
+  items: ['An infinite ladder', 'Three sections', 'Two sections', 'One section']
+  explanation: |-
+    One section: $2R$. Two: $R + (R\parallel2R) = 1.667R$. Three: $1.625R$. Infinite: $\tfrac{1 + \sqrt5}{2}R = 1.618R$. Each added section puts another resistor in parallel with the end, lowering the total toward the golden-ratio limit.
+- id: phys-m9-r2-h10
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'A Wheatstone bridge balances (zero galvanometer current) with $R_1 = 200$ Ω, $R_2 = 300$ Ω and $R_3 = 400$ Ω. Using $R_1/R_2 = R_3/R_x$, what is $R_x$?'
+  choices: ['600 Ω', '267 Ω', '150 Ω', '900 Ω']
+  answer: 0
+  explanation: |-
+    $R_x = \dfrac{R_2R_3}{R_1} = \dfrac{300(400)}{200} = 600$ Ω. Inverting the ratio gives $R_1R_3/R_2 = 267$ Ω; $R_1R_2/R_3 = 150$ Ω; 900 Ω just adds the three.
+- id: phys-m9-r2-h11
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'Why can a Wheatstone bridge measure resistance more precisely than reading a voltmeter and an ammeter?'
+  choices: ['Its galvanometer has zero resistance', 'At balance the result depends only on the other resistors, not on the emf or a meter''s calibration', 'Its battery has no internal resistance', 'It uses alternating current, which avoids heating']
+  answer: 1
+  explanation: |-
+    At balance $R_x = R_2R_3/R_1$: the emf cancels out and the galvanometer only has to detect zero current (a null measurement), so its calibration does not matter. The galvanometer has some resistance, the battery's internal resistance doesn't affect balance, and a basic bridge runs on DC.
+- id: phys-m9-r2-h12
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  type: text
+  stem: 'An infinite ladder is built from 2.0 Ω resistors. Its input resistance is ___ Ω. (Give 3 significant figures.)'
+  accept: ['3.24', '3.236']
+  explanation: |-
+    $R_\infty = \dfrac{1 + \sqrt5}{2}R = 1.618(2.0) = 3.24$ Ω, from $R_\infty = R + \dfrac{RR_\infty}{R + R_\infty}$.
+- id: phys-m9-r2-h13
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  type: match
+  stem: 'Match each method to its key idea.'
+  pairs:
+    - [Node-voltage method, Unknowns are the potentials at the junctions]
+    - [Branch-current method, One unknown current per branch]
+    - [Thévenin's theorem, A battery in series with one resistor]
+    - [Norton's theorem, A current source in parallel with one resistor]
+    - [Superposition theorem, Adds the effects of each source acting alone]
+  distractors: [Adds the powers from each source]
+  explanation: |-
+    Node voltages use junction potentials (the loop rule is automatic); Kirchhoff's branch method uses branch currents; Thévenin and Norton replace a network by a series battery-resistor or a parallel source-resistor; superposition adds currents and voltages, never powers.
+- id: phys-m9-r2-h14
+  lesson: phys-m9-h-network-methods
+  topic: Network analysis
+  stem: 'Repeat Example 3 of the network lesson with $R_x = 90$ Ω instead of 110 Ω ($\mathcal{E} = 10$ V, $R_1 = R_2 = R_3 = 100$ Ω, $R_g = 50$ Ω). What is the galvanometer current?'
+  choices: ['2.70 mA', '5.26 mA', '1.79 mA', '1.56 mA']
+  answer: 2
+  explanation: |-
+    $V_d = 10(90/190) = 4.737$ V, so $|V_{\text{th}}| = 5.000 - 4.737 = 0.263$ V (now c is higher). $R_{\text{th}} = 50 + \dfrac{100(90)}{190} = 97.4$ Ω. $I_g = \dfrac{0.263}{97.4 + 50} = 1.79$ mA. Leaving out $R_g$ gives 2.70 mA; dividing by $R_g$ alone gives 5.26 mA; 1.56 mA is the 110 Ω answer.
+
+# ---------- Honors 09h2: Transients, oscillators and filters ----------
+- id: phys-m9-r2-h15
+  lesson: phys-m9-h-transients
+  topic: RC filters
+  type: label
+  stem: 'Name the numbered parts of this RC low-pass filter.'
+  image: {src: images/phys-m9-lowpass-blank.svg, alt: 'A two-port circuit. Marker 1 is between a pair of open terminals on the left, marker 2 is above a zigzag on the top wire, marker 3 is beside a pair of equal parallel plates connected from the top wire to the bottom wire, and marker 4 is between a pair of open terminals on the right.'}
+  labels:
+    - {x: 12.5, y: 51.5, text: Input terminals}
+    - {x: 41.7, y: 18.2, text: Resistor}
+    - {x: 70.8, y: 51.5, text: Capacitor}
+    - {x: 84.2, y: 51.5, text: Output terminals}
+  distractors: [Inductor, Battery]
+  explanation: |-
+    The signal enters on the left, passes through the resistor, and the output is taken across the capacitor. Fast changes cannot charge the capacitor in time, so they barely reach the output: a low-pass filter.
+- id: phys-m9-r2-h16
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  stem: 'An ideal 12 V battery, a switch and $R_1 = 4.0$ kΩ are in series with a parallel pair: $R_2 = 12$ kΩ and a 5.0 μF capacitor. What is the time constant after the switch closes?'
+  choices: ['80 ms', '20 ms', '60 ms', '15 ms']
+  answer: 3
+  explanation: |-
+    From the capacitor's terminals, with the battery replaced by a wire, $R_1$ and $R_2$ are in parallel: $R_{\text{th}} = 3.0$ kΩ, so $\tau = (3.0\text{ k}\Omega)(5.0\ \mu\text{F}) = 15$ ms. 80 ms uses $R_1 + R_2$; 20 ms uses $R_1$ alone; 60 ms uses $R_2$ alone.
+- id: phys-m9-r2-h17
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  type: text
+  stem: 'In the same circuit (12 V, $R_1 = 4.0$ kΩ in series, $R_2 = 12$ kΩ in parallel with the capacitor), the capacitor''s voltage long after the switch closes is ___ V. (Give only the number.)'
+  accept: ['9']
+  explanation: |-
+    In steady state the capacitor carries no current, so $R_1$ and $R_2$ form a divider: $V_C = 12\cdot\dfrac{12}{16} = 9.0$ V. It does not reach the full 12 V because $R_2$ keeps drawing current through $R_1$.
+- id: phys-m9-r2-h18
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  stem: 'In the same circuit, what is the battery current just after the switch closes?'
+  choices: ['3.0 mA', '0.75 mA', 'zero', '1.0 mA']
+  answer: 0
+  explanation: |-
+    The uncharged capacitor's voltage cannot jump, so at $0^+$ it acts as a wire and shorts $R_2$: $I = 12/4.0 = 3.0$ mA. The current then decays toward the steady value $12/16 = 0.75$ mA.
+- id: phys-m9-r2-h19
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  stem: 'A switch is thrown in a circuit of resistors, batteries and one capacitor. Which quantities can change suddenly (jump) at that instant? Select all that apply.'
+  choices: ['The current through a resistor', 'The voltage across a resistor', 'The voltage across the capacitor', 'The charge on the capacitor']
+  answer: [0, 1]
+  explanation: |-
+    A jump in the capacitor's voltage (or charge, $q = CV_C$) would need $I = C\,dV_C/dt$ to be infinite, so these are continuous. Resistor currents and voltages have no such limit and can jump, as the battery current does at $t = 0$.
+- id: phys-m9-r2-h20
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  stem: 'A relaxation oscillator has $\mathcal{E} = 10$ V, $V_{\text{on}} = 7.0$ V, $V_{\text{off}} = 2.0$ V and $RC = 10$ ms, with an instant discharge. What is its period?'
+  choices: ['12.5 ms', '9.81 ms', '12.0 ms', '10.0 ms']
+  answer: 1
+  explanation: |-
+    $T = RC\ln\dfrac{\mathcal{E} - V_{\text{off}}}{\mathcal{E} - V_{\text{on}}} = 10\ln\dfrac{8.0}{3.0} = 9.81$ ms. Using $\ln(V_{\text{on}}/V_{\text{off}})$ gives 12.5 ms; 12.0 ms is the first cycle starting from 0 V, $10\ln(10/3)$; 10.0 ms is just $RC$.
+- id: phys-m9-r2-h21
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  type: order
+  stem: 'Put one cycle of a relaxation oscillator in order, starting just as the threshold switch opens.'
+  items: ['The switch opens with the capacitor at the lower threshold', 'The capacitor charges through the resistor toward the emf', 'The capacitor voltage reaches the upper threshold', 'The switch closes and the capacitor discharges quickly']
+  explanation: |-
+    The switch opens at $V_{\text{off}}$; the capacitor charges toward $\mathcal{E}$ along an exponential; at $V_{\text{on}}$ the switch closes and dumps the charge back down to $V_{\text{off}}$, where the next cycle starts.
+- id: phys-m9-r2-h22
+  lesson: phys-m9-h-transients
+  topic: RC filters
+  stem: 'What is the cutoff frequency of an RC filter with $R = 4.7$ kΩ and $C = 10$ nF?'
+  choices: ['21.3 kHz', '0.339 kHz', '3.39 kHz', '6.77 kHz']
+  answer: 2
+  explanation: |-
+    $f_c = \dfrac{1}{2\pi RC} = \dfrac{1}{2\pi(4.7\times10^3)(10\times10^{-9})} = 3.39$ kHz. Forgetting the $2\pi$ gives $1/RC = 21.3$ kHz (an angular frequency in s⁻¹, not a frequency in Hz).
+- id: phys-m9-r2-h23
+  lesson: phys-m9-h-transients
+  topic: RC filters
+  type: text
+  stem: 'At its cutoff frequency, an RC low-pass filter''s gain $V_{\text{out}}/V_{\text{in}}$ is ___ . (Give 3 decimal places.)'
+  accept: ['0.707']
+  explanation: |-
+    At $f = f_c$, $\omega RC = 1$, so the gain is $1/\sqrt{1 + 1} = 1/\sqrt2 = 0.707$ and the output power is half the low-frequency value.
+- id: phys-m9-r2-h24
+  lesson: phys-m9-h-transients
+  topic: RC filters
+  stem: 'An RC high-pass filter (output across the resistor) is driven at twice its cutoff frequency. What is its gain?'
+  choices: ['0.447', '0.707', '0.500', '0.894']
+  answer: 3
+  explanation: |-
+    High-pass gain $= \dfrac{\omega RC}{\sqrt{1 + (\omega RC)^2}}$ with $\omega RC = 2$: $2/\sqrt5 = 0.894$. 0.447 is the low-pass gain at the same frequency; 0.707 is the gain at the cutoff.
+- id: phys-m9-r2-h25
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  type: match
+  stem: 'Match each situation to what the capacitor acts like.'
+  pairs:
+    - [Uncharged capacitor just after a switch closes, A wire]
+    - [Capacitor in a DC circuit long after switching, A break in the circuit]
+    - [Charged capacitor just after its battery is removed, A battery at its present voltage]
+    - [Capacitor in a low-pass filter at very high frequency, A wire]
+  distractors: [A resistor equal to R]
+  explanation: |-
+    A capacitor's voltage can't jump, so at the instant of switching it holds whatever voltage it had: zero (a wire) or its present voltage (a battery). In steady DC it carries no current (a break). At very high frequency it barely changes voltage over a cycle, so it acts nearly as a wire and shorts the output.
+- id: phys-m9-r2-h26
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  stem: 'A 6.0 μF capacitor charged to 50 V is connected through a resistor to an uncharged 3.0 μF capacitor. What are the final voltage and the energy turned into heat?'
+  choices: ['33 V and 2.5 mJ', '25 V and 4.7 mJ', '33 V and zero', '50 V and 2.5 mJ']
+  answer: 0
+  explanation: |-
+    Charge is conserved: $V_f = \dfrac{6.0(50)}{9.0} = 33$ V. Heat $= \tfrac12\dfrac{C_1C_2}{C_1 + C_2}V_0^2 = \tfrac12(2.0\ \mu\text{F})(50)^2 = 2.5$ mJ (7.5 mJ before, 5.0 mJ after). Averaging the voltages gives 25 V; "zero" assumes energy is conserved, which it is not.
+- id: phys-m9-r2-h27
+  lesson: phys-m9-h-transients
+  topic: Circuit transients
+  stem: 'When two capacitors share charge through a resistor, why is the heat produced the same whatever the resistance?'
+  choices: ['The resistor heats only at the instant of connection', 'A smaller resistance gives a larger current for a shorter time, and the integral of $I^2R$ comes out the same', 'Resistance has no effect on current in a capacitor circuit', 'The capacitors absorb the extra energy as charge']
+  answer: 1
+  explanation: |-
+    $I = (V_0/R)e^{-t/RC_s}$, so $\int_0^\infty I^2R\,dt = \dfrac{V_0^2}{R}\cdot\dfrac{RC_s}{2} = \tfrac12C_sV_0^2$: $R$ cancels. $R$ sets how fast the energy goes, not how much.
+- id: phys-m9-r2-h28
+  lesson: phys-m9-h-transients
+  topic: RC filters
+  stem: 'An RC low-pass filter is driven at ten times its cutoff frequency. What is its gain, to 3 significant figures?'
+  choices: ['0.707', '0.500', '0.0995', '0.0100']
+  answer: 2
+  explanation: |-
+    $\omega RC = 10$, so the gain is $1/\sqrt{101} = 0.0995$, very close to $f_c/f = 0.1$. 0.0100 squares the ratio (that's roughly the power ratio); 0.707 is the gain at the cutoff.

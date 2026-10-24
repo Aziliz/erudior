@@ -234,7 +234,7 @@
   choices: ['A point in phase space gives the full state: positions and momenta', 'When $H$ doesn''t depend on time, two phase-space paths never cross', 'A harmonic oscillator''s path in phase space is an ellipse', 'The pendulum''s separatrix passes through the stable equilibrium at $\theta = 0$', 'Every phase-space path spirals in to a point']
   answer: [0, 1, 2]
   explanation: |-
-    A phase-space point fixes the future, so paths can't cross (one state can't have two futures), and the oscillator's constant $H$ makes its path an ellipse. The separatrix passes through the *unstable* upside-down point $\theta = \pm\pi$, not $\theta = 0$. Paths spiral in only with damping, which Hamilton's equations for a conserved $H$ don't include.
+    A phase-space point fixes the future, so paths can't cross (one state can't have two futures), and the oscillator's constant $H$ makes its path an ellipse. The separatrix passes through the unstable upside-down point $\theta = \pm\pi$, not $\theta = 0$. Paths spiral in only with damping, which Hamilton's equations for a conserved $H$ don't include.
 - id: phys-h1-r2-h27
   lesson: phys-h1-symmetry
   topic: Symmetry and conservation

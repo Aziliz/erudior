@@ -28,9 +28,9 @@ $$x(t) = x_\infty + \bigl(x(0^+) - x_\infty\bigr)e^{-t/\tau}.$$
 
 The part that dies away is the **transient**; what remains is the **steady state**. The recipe needs three things:
 
-1. **The capacitor voltage just after the switch.** It cannot jump: a sudden change would need $I = C\,dV_C/dt$ to be infinite. So $V_C(0^+) = V_C(0^-)$. An uncharged capacitor still acts like a wire at $0^+$; a charged one acts like a battery at its present voltage.
-2. **The final values**, found by treating the capacitor as a break (no current in steady state).
-3. **The time constant** $\tau = R_{\text{th}}C$, where $R_{\text{th}}$ is the resistance seen from the capacitor's terminals with batteries replaced by wires. It depends on which switches are closed, so it can differ between charging and discharging.
+1. *The capacitor voltage just after the switch.* It cannot jump: a sudden change would need $I = C\,dV_C/dt$ to be infinite. So $V_C(0^+) = V_C(0^-)$. An uncharged capacitor still acts like a wire at $0^+$; a charged one acts like a battery at its present voltage.
+2. *The final values*, found by treating the capacitor as a break (no current in steady state).
+3. *The time constant* $\tau = R_{\text{th}}C$, where $R_{\text{th}}$ is the resistance seen from the capacitor's terminals with batteries replaced by wires. It depends on which switches are closed, so it can differ between charging and discharging.
 
 ### Example 1
 

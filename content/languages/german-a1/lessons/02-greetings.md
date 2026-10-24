@@ -37,6 +37,26 @@ usually the older person or the one in a senior position offers it: *Wir können
 sagen.* (We can say *du* to each other, if you like.) Among students, young people and in many workplaces, *du* is normal from
 the first minute.
 
+The chart sums up the choice for one person (customs vary by region, age and workplace, so
+treat it as a guide, not a law):
+
+```mermaid
+flowchart TD
+  accTitle: du or Sie with one person
+  accDescr: If you are talking to a friend, a family member, a child or a fellow student, say du. If not, ask whether the person has offered du, for example with Wir können gern du sagen. If they have, say du with first names. If they have not, say Sie with Herr or Frau and the surname. When in doubt, start with Sie.
+  A["You are talking to one person"] --> B{"Friend, family, child or fellow student?"}
+  B -- "yes" --> C["du + first name: Wie heißt du?"]
+  B -- "no" --> D{"Has the person offered du?"}
+  D -- "yes" --> C
+  D -- "no, or not sure" --> E["Sie + Herr or Frau and surname: Wie heißen Sie?"]
+```
+
+You learned the greetings for each time of day in Lesson 1. Here they are on a clock; the
+borders are rough, and *Hallo* works at any time of day with people you'd say *du* to, and in
+many casual places with *Sie* too.
+
+![A timeline from 6:00 to 24:00. Guten Morgen covers the early morning until about 10 or 11 o'clock, Guten Tag covers the middle of the day until about 18:00, and Guten Abend covers the evening. Gute Nacht, shown with a bed, is only for when someone is going to bed.](images/de1-m1-greeting-times.svg)
+
 ## The verb sein (to be)
 
 A **verb** is a word for an action or state, like *to be*, *to live* or *to come*. The form

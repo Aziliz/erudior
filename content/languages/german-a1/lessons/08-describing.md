@@ -97,6 +97,10 @@ after *sein*:
 - *Die Tür ist rot und das Fenster ist weiß.* — The door is red and the window is white.
 - *Meine Katze ist grau.* — My cat is grey.
 
+Here are the eight colours with their names:
+
+![Eight colour squares with their German names: rot (red), blau (blue), grün (green) and gelb (yellow) in the top row; schwarz (black), weiß (white), grau (grey) and braun (brown) in the bottom row.](images/de1-m2-colours.svg)
+
 ## Two ways to say "not": nicht and kein
 
 English uses "not" for almost everything. German has two words, and the choice depends on
@@ -144,6 +148,19 @@ Two basic rules for now:
 
 German never uses a helper like English "do" in negation: ~~Ich nicht verstehe~~, ~~Ich
 tue nicht verstehen~~ → *Ich verstehe nicht.*
+
+To choose between *kein* and *nicht*, ask what you are negating:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing kein or nicht
+  accDescr: Ask what you are negating. A noun that would have ein or eine takes kein or keine, as in Das ist kein Hund. A noun with no article also takes kein, as in Ich habe keine Zeit. A noun with der, die, das or a possessive takes nicht, as in Das ist nicht mein Schlüssel. A verb or the whole sentence takes nicht, usually at the end, as in Ich verstehe das nicht. An adjective takes nicht right before it, as in Das ist nicht teuer.
+  A{"What are you negating?"} -- "a noun with ein or eine" --> K1["kein: Das ist kein Hund."]
+  A -- "a noun with no article" --> K2["kein: Ich habe keine Zeit."]
+  A -- "a noun with der, die, das or mein" --> N1["nicht: Das ist nicht mein Schlüssel."]
+  A -- "a verb or the whole sentence" --> N2["nicht, usually at the end: Ich verstehe das nicht."]
+  A -- "an adjective" --> N3["nicht before it: Das ist nicht teuer."]
+```
 
 ## Doch: yes, to a negative
 

@@ -97,6 +97,17 @@ A few countries always take an article. You'll meet them in fixed phrases:
 (After *aus* and *in*, *die* turns into *der* or *den*. That's the dative case, taught in lesson
 18 — for now learn these as set phrases.)
 
+One question decides which pattern you need:
+
+```mermaid
+flowchart TD
+  accTitle: Saying where you are from and where you live
+  accDescr: If the country name has no article, as with most countries such as Deutschland, Spanien and Polen, say aus Spanien and in Spanien. For the feminine countries die Schweiz and die Türkei, say aus der Schweiz and in der Schweiz. For the plural die USA, say aus den USA and in den USA.
+  A{"Does the country have an article?"} -- "no: most countries" --> B["aus Spanien, in Spanien"]
+  A -- "die Schweiz, die Türkei" --> C["aus der Schweiz, in der Schweiz"]
+  A -- "die USA (plural)" --> D["aus den USA, in den USA"]
+```
+
 Many language names end in *-isch* and are written with a capital letter when they name the
 language. They're used without an article:
 
@@ -132,6 +143,8 @@ The stem is the part of the verb before the ending: *sprech-*. In a stem-changin
 *du* and *er/sie/es* change; *ich*, *wir*, *ihr* and *sie/Sie* stay regular. You'll meet more
 verbs like this in lesson 13 (*essen → isst*, *lesen → liest*, *fahren → fährt*), always in
 the same two places.
+
+![The present tense of sprechen as a table: ich spreche, du sprichst, er/sie/es spricht, wir sprechen, ihr sprecht, sie/Sie sprechen. The du and er/sie/es rows are highlighted: only there does the stem vowel e become i. The other four forms are regular with the stem sprech-.](images/de1-m2-sprechen.svg)
 
 - *Welche Sprachen sprichst du?* — Which languages do you speak? (*welche* = which)
 - *Ich spreche Englisch und ein bisschen Deutsch.* — I speak English and a bit of German.

@@ -41,6 +41,11 @@ Some notes:
 Pets count as family too: *der Hund* (dog), *die Katze* (cat), and the general word *das Tier*
 (animal).
 
+Here is Lena's family. Lena is *ich*; every other label says who that person is *to Lena*. Her
+father's parents are her *Opa* and *Oma*, and Jonas and Mia are her *Geschwister*.
+
+![Lena's family tree. At the top, Klaus (der Opa) and Helga (die Oma). Their son Peter (der Vater) is married to Sabine (die Mutter). Their three children are Jonas (der Bruder), Lena (ich) and Mia (die Schwester).](images/de1-m2-family-tree.svg)
+
 ## Possessive articles: whose is it?
 
 Here are the possessive articles, one for each person you met in lesson 4:
@@ -101,6 +106,22 @@ English speakers often get stuck on *sein* versus *ihr*. Use two steps:
 
 Step 1 is the same as in English. Step 2 is the new part: the ending agrees with the thing
 owned, not the owner.
+
+The same two steps as a chart, for *his*, *her*, *its* and *their*:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing sein or ihr and its ending
+  accDescr: Step 1 asks who owns it. A man, a boy or a masculine or neuter noun gives sein. A woman, a girl or a feminine noun gives ihr. Several people give ihr, meaning their. Step 2 asks what is owned. A masculine or neuter noun takes no ending, as in sein Bruder and ihr Kind. A feminine noun or a plural adds -e, as in seine Schwester and ihre Eltern.
+  A{"Step 1: who owns it?"} -- "a man, boy, masculine or neuter noun" --> S["sein"]
+  A -- "a woman, girl or feminine noun" --> I["ihr"]
+  A -- "several people" --> T["ihr (their)"]
+  S --> B{"Step 2: what is owned?"}
+  I --> B
+  T --> B
+  B -- "masculine or neuter" --> N["no ending: sein Bruder, ihr Kind"]
+  B -- "feminine or plural" --> E["add -e: seine Schwester, ihre Eltern"]
+```
 
 ## Wer ist das?
 

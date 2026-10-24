@@ -66,6 +66,26 @@ The general pattern for a converging lens or concave mirror:
 
 Diverging lenses and convex mirrors always give virtual, upright, smaller images, which is why convex mirrors give wide fields of view in stores and on cars ("objects in mirror are closer than they appear").
 
+The same rays work for a concave mirror, with reflection in place of refraction: a ray parallel to the axis reflects through F, and a ray through F reflects parallel to the axis. The **center of curvature** C, at distance $R = 2f$ from the mirror, plays the role of $2f$ in the table.
+
+![A concave mirror on the right, with a dashed principal axis running through it. On the axis, from left to right, are an upright object arrow, the center of curvature C, and the focal point F. A ray from the object's tip travels parallel to the axis, reflects off the mirror and passes through F. A second ray from the tip passes through F, reflects and returns parallel to the axis. The two reflected rays cross between C and F at the tip of a smaller, inverted image arrow.](images/phys-m11-concave-mirror.svg)
+
+The whole table, plus diverging optics, fits in one decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: What kind of image a mirror or thin lens makes
+  accDescr: A diverging lens or convex mirror always makes a virtual, upright, smaller image. For a converging lens or concave mirror it depends on where the object is. Inside f the image is virtual, upright and larger. At f there is no image because the rays leave parallel. Beyond f the image is real and inverted: smaller if the object is beyond 2f, the same size at 2f, and larger between f and 2f.
+  S{"Which optic?"} -- "diverging lens or convex mirror" --> V["Virtual, upright, smaller"]
+  S -- "converging lens or concave mirror" --> Q{"Object inside, at or beyond f?"}
+  Q -- "inside f" --> E["Virtual, upright, larger"]
+  Q -- "at f" --> D["No image: rays leave parallel"]
+  Q -- "beyond f" --> R{"Compared with 2f?"}
+  R -- "beyond 2f" --> A["Real, inverted, smaller"]
+  R -- "at 2f" --> B["Real, inverted, same size"]
+  R -- "between f and 2f" --> C["Real, inverted, larger"]
+```
+
 ### Example 1
 
 An object 4.0 cm tall stands 30 cm from a converging lens of focal length 10 cm. Locate and describe the image.

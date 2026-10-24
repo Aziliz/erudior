@@ -12,13 +12,13 @@
     a2: 2*a
     W: a*X^2*Y + b*X
     U: -(a*X^2*Y + b*X)
-  prompt: 'A force $\vec F = ({a2}xy {b:signed},\; {a}x^2)$ N acts in the $xy$-plane ($x$, $y$ in m). It passes the curl test. Find the work it does on a particle that moves from the origin to $({X}, {Y})$ m along any path. Give the exact value in joules.'
+  prompt: 'A force $\vec F = ({a2}xy {b:signed},\; {a:coef}x^2)$ N acts in the $xy$-plane ($x$, $y$ in m). It passes the curl test. Find the work it does on a particle that moves from the origin to $({X}, {Y})$ m along any path. Give the exact value in joules.'
   answers:
     - {name: W, label: 'Work', tolerance: 0.001, units: {J: 1}}
   solution: |-
     Curl test: $\partial F_y/\partial x = {a2}x = \partial F_x/\partial y$, so a potential exists.
 
-    $U = -\int F_x\,dx = -({a}x^2y {b:signed}x) + g(y)$, and $-\partial U/\partial y = {a}x^2 - g'(y)$ must equal $F_y = {a}x^2$, so $g$ is a constant (take 0).
+    $U = -\int F_x\,dx = -({a:coef}x^2y {b:signedcoef}x) + g(y)$, and $-\partial U/\partial y = {a:coef}x^2 - g'(y)$ must equal $F_y = {a:coef}x^2$, so $g$ is a constant (take 0).
 
     $W = -\Delta U = U(0, 0) - U({X}, {Y}) = 0 - ({U}) =$ **{W} J**.
 - id: phys-m4-r2-gradient-force
@@ -37,7 +37,7 @@
     Fx: -(2*a*x0 + c*y0)
     Fy: -(2*b*y0 + c*x0)
     Fm: sqrt(Fx^2 + Fy^2)
-  prompt: 'A particle has potential energy $U(x, y) = {a}x^2 + {b}y^2 {c:signedcoef}xy$ J ($x$, $y$ in m). Find the components of the force on it at $({x0}, {y0})$ m (exact, in N) and the magnitude of the force in N to 3 significant figures.'
+  prompt: 'A particle has potential energy $U(x, y) = {a:coef}x^2 + {b:coef}y^2 {c:signedcoef}xy$ J ($x$, $y$ in m). Find the components of the force on it at $({x0}, {y0})$ m (exact, in N) and the magnitude of the force in N to 3 significant figures.'
   answers:
     - {name: Fx, label: '$F_x$', tolerance: 0.001, units: {N: 1}}
     - {name: Fy, label: '$F_y$', tolerance: 0.001, units: {N: 1}}
@@ -133,7 +133,7 @@
     Kl: (1 - rest^2)*Krel
     v1f: vcm - rest*(v1 - vcm)
     v2f: vcm*(1 + rest)
-  prompt: 'A {ma} kg cart moving at {v1} m/s hits a {mb} kg cart at rest head-on. The coefficient of restitution is {rest}. Find the kinetic energy lost (J, 3 significant figures) and the final velocities of both carts (m/s, 2 decimal places; positive in the original direction of motion).'
+  prompt: 'A cart of mass {ma} kg moving at {v1} m/s hits a cart of mass {mb} kg at rest head-on. The coefficient of restitution is {rest}. Find the kinetic energy lost (J, 3 significant figures) and the final velocities of both carts (m/s, 2 decimal places; positive in the original direction of motion).'
   answers:
     - {format: sig4, name: Kl, label: 'Energy lost', relTolerance: 0.01, units: {J: 1}}
     - {format: num2, name: v1f, label: '$v_{1f}$', tolerance: 0.011, units: {'m/s': 1}}

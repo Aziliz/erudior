@@ -10,16 +10,16 @@
     meff: m1 + m2 + mp/2
     acc: (m1 - m2)*9.8/meff
     T1: m1*(9.8 - acc)
-  prompt: 'Blocks of {m1} kg and {m2} kg hang on either side of a light string over a pulley that is a uniform disk of mass {mp} kg. The string doesn''t slip. Using $L = T - U$ with the heavier block''s drop $x$ as the coordinate and $g = 9.8$ m/s², find the acceleration of the blocks (m/s²) and the tension in the string on the heavier block''s side (N), to 3 significant figures.'
+  prompt: 'Blocks of {m1:dp1} kg and {m2:dp1} kg hang on either side of a light string over a pulley that is a uniform disk of mass {mp:dp1} kg. The string doesn''t slip. Using $L = T - U$ with the heavier block''s drop $x$ as the coordinate and $g = 9.8$ m/s², find the acceleration of the blocks (m/s²) and the tension in the string on the heavier block''s side (N), to 3 significant figures.'
   answers:
     - {format: sig4, name: acc, label: '$a =$', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
     - {format: sig4, name: T1, label: 'Tension', relTolerance: 0.01, units: {N: 1}}
   solution: |-
     The pulley turns at $\omega = \dot x/R$, so $T = \tfrac12\left(m_1 + m_2 + \tfrac12M\right)\dot x^2$ with $m_1 + m_2 + \tfrac12M = {meff:sig3}$ kg, and $U = -(m_1 - m_2)gx$.
 
-    Euler–Lagrange: $({meff:sig3})\ddot x = ({m1} - {m2})(9.8)$, so $a =$ **{acc:sig3} m/s²**.
+    Euler–Lagrange: $({meff:sig3})\ddot x = ({m1:dp1} - {m2:dp1})(9.8)$, so $a =$ **{acc:sig3} m/s²**.
 
-    The tension doesn't appear in the Lagrangian; get it from Newton's law for the heavier block: $T_1 = m_1(g - a) = {m1}(9.8 - {acc:sig3}) =$ **{T1:sig3} N**.
+    The tension doesn't appear in the Lagrangian; get it from Newton's law for the heavier block: $T_1 = m_1(g - a) = {m1:dp1}(9.8 - {acc:sig3}) =$ **{T1:sig3} N**.
 - id: phys-h1-r2-rod-pendulum
   title: Swinging rod from its Lagrangian
   topic: Lagrangian mechanics
@@ -28,14 +28,14 @@
   calc:
     w: sqrt(3*9.8/(2*len))
     P: 2*pi/w
-  prompt: 'A uniform rod of length {len} m swings about a pivot at one end. Its Lagrangian is $L = \tfrac16m\ell^2\dot\theta^2 + \tfrac12mg\ell\cos\theta$. For small swings, find the angular frequency (rad/s) and the period (s), to 3 significant figures, using $g = 9.8$ m/s².'
+  prompt: 'A uniform rod of length {len:num2} m swings about a pivot at one end. Its Lagrangian is $L = \tfrac16m\ell^2\dot\theta^2 + \tfrac12mg\ell\cos\theta$. For small swings, find the angular frequency (rad/s) and the period (s), to 3 significant figures, using $g = 9.8$ m/s².'
   answers:
     - {format: sig4, name: w, label: '$\omega =$', relTolerance: 0.01, units: {'rad/s': 1}}
     - {format: sig4, name: P, label: 'Period', relTolerance: 0.01, units: {s: 1}}
   solution: |-
     Euler–Lagrange: $\tfrac13m\ell^2\ddot\theta = -\tfrac12mg\ell\sin\theta \approx -\tfrac12mg\ell\,\theta$, so $\ddot\theta = -\dfrac{3g}{2\ell}\theta$.
 
-    $\omega = \sqrt{\dfrac{3(9.8)}{2({len})}} =$ **{w:sig3} rad/s**; period $= 2\pi/\omega =$ **{P:sig3} s**.
+    $\omega = \sqrt{\dfrac{3(9.8)}{2({len:num2})}} =$ **{w:sig3} rad/s**; period $= 2\pi/\omega =$ **{P:sig3} s**.
 - id: phys-h1-r2-string-hole
   title: Puck on a string through a hole
   topic: Symmetry and conservation
@@ -50,12 +50,12 @@
     K1: 0.5*m*ra^2*w1^2
     K2: 0.5*m*rb^2*w2^2
     W: K2 - K1
-  prompt: 'A {m} kg puck on a frictionless table is tied to a string through a hole at the center. It circles at radius {ra} m with angular speed {w1} rad/s, and the string is slowly pulled until the radius is {rb} m. Find the new angular speed (rad/s) and the work done by the person pulling the string (J), to 3 significant figures.'
+  prompt: 'A {m:num2} kg puck on a frictionless table is tied to a string through a hole at the center. It circles at radius {ra:num2} m with angular speed {w1:dp1} rad/s, and the string is slowly pulled until the radius is {rb:num2} m. Find the new angular speed (rad/s) and the work done by the person pulling the string (J), to 3 significant figures.'
   answers:
     - {format: sig4, name: w2, label: 'New angular speed', relTolerance: 0.01, units: {'rad/s': 1}}
     - {format: sig4, name: W, label: 'Work', relTolerance: 0.01, units: {J: 1, mJ: 0.001}}
   solution: |-
-    The force is central, so the angle is a cyclic coordinate and $mr^2\dot\varphi$ is conserved: $\omega_2 = {w1}\left(\dfrac{{ra}}{{rb}}\right)^2 =$ **{w2:sig3} rad/s**.
+    The force is central, so the angle is a cyclic coordinate and $mr^2\dot\varphi$ is conserved: $\omega_2 = {w1:dp1}\left(\dfrac{{ra:num2}}{{rb:num2}}\right)^2 =$ **{w2:sig3} rad/s**.
 
     $T_1 = \tfrac12m r_1^2\omega_1^2 = {K1:sig3}$ J and $T_2 = \tfrac12m r_2^2\omega_2^2 = {K2:sig3}$ J. The work done by the pull is the gain: **{W:sig3} J**.
 - id: phys-h1-r2-phase-ellipse
@@ -68,16 +68,16 @@
   calc:
     xm: sqrt(2*E/k)
     pm: sqrt(2*m*E)
-  prompt: 'A mass of {m} kg on a spring with $k = {k}$ N/m has total energy {E} J. Its phase-space path is an ellipse. Find the semi-axes: the amplitude $x_{\max}$ (m) and the largest momentum $p_{\max}$ (kg·m/s), to 3 significant figures.'
+  prompt: 'A mass of {m:num2} kg on a spring with $k = {k}$ N/m has total energy {E:dp1} J. Its phase-space path is an ellipse. Find the semi-axes: the amplitude $x_{\max}$ (m) and the largest momentum $p_{\max}$ (kg·m/s), to 3 significant figures.'
   answers:
     - {format: sig4, name: xm, label: '$x_{\max} =$', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
     - {format: sig4, name: pm, label: '$p_{\max} =$', relTolerance: 0.01, units: {'kg·m/s': 1, 'kg*m/s': 1}}
   solution: |-
     $H = \dfrac{p^2}{2m} + \tfrac12kx^2 = E$.
 
-    At $p = 0$: $x_{\max} = \sqrt{2E/k} = \sqrt{2({E})/{k}} =$ **{xm:sig3} m**.
+    At $p = 0$: $x_{\max} = \sqrt{2E/k} = \sqrt{2({E:dp1})/{k}} =$ **{xm:sig3} m**.
 
-    At $x = 0$: $p_{\max} = \sqrt{2mE} = \sqrt{2({m})({E})} =$ **{pm:sig3} kg·m/s**.
+    At $x = 0$: $p_{\max} = \sqrt{2mE} = \sqrt{2({m:num2})({E:dp1})} =$ **{pm:sig3} kg·m/s**.
 - id: phys-h1-r2-ellipse-orbit
   title: Elliptical Earth orbit from perigee and apogee
   topic: Kepler orbits
@@ -136,8 +136,8 @@
     epsm: eps/1e6
     sma: -3.98e14/(2*eps)/1000
     rother: 2*sma - r
-  where: ['eps < -1e6', 'v > vc*1.03', 'rother < 200000']
-  prompt: 'A spacecraft is {r} km from Earth''s center, moving at {v} km/s perpendicular to the line to the center. Using $GM_E = 3.98\times10^{14}$ m³/s², find its specific orbital energy (MJ/kg), the semimajor axis of its orbit (km), and its farthest distance from Earth''s center (km), to 3 significant figures.'
+  where: ['eps < -1e6', 'v > vc*1.03', 'rother < 100000']
+  prompt: 'A spacecraft is {r} km from Earth''s center, moving at {v:dp1} km/s perpendicular to the line to the center. Using $GM_E = 3.98\times10^{14}$ m³/s², find its specific orbital energy (MJ/kg), the semimajor axis of its orbit (km), and its farthest distance from Earth''s center (km), to 3 significant figures.'
   answers:
     - {format: sig4, name: epsm, label: 'Energy per kg', relTolerance: 0.01, units: {'MJ/kg': 1, 'J/kg': 0.000001}}
     - {format: sig4, name: sma, label: '$a =$', relTolerance: 0.01, units: {km: 1, m: 0.001}}
@@ -208,13 +208,13 @@
     vb: sqrt(vinf^2 + ve^2)
     dv: vb - vc
     two: (ve - vc) + vinf
-  prompt: 'A spacecraft in a circular orbit {h} km above Earth''s surface must leave Earth with a hyperbolic excess speed of {vinf} km/s. Using $R_E = 6370$ km and $GM_E = 3.98\times10^{14}$ m³/s², find the speed it needs just after a single forward burn and the size of that burn, both in km/s to 3 significant figures.'
+  prompt: 'A spacecraft in a circular orbit {h} km above Earth''s surface must leave Earth with a hyperbolic excess speed of {vinf:dp1} km/s. Using $R_E = 6370$ km and $GM_E = 3.98\times10^{14}$ m³/s², find the speed it needs just after a single forward burn and the size of that burn, both in km/s to 3 significant figures.'
   answers:
     - {format: sig4, name: vb, label: 'Speed after the burn', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
     - {format: sig4, name: dv, label: 'Burn', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
   solution: |-
     $r = {r:texsci}$ m. Circular speed $\sqrt{GM/r} = {vc:sig3}$ km/s; escape speed $\sqrt{2GM/r} = {ve:sig3}$ km/s.
 
-    Energy: $v = \sqrt{v_\infty^2 + v_{\text{esc}}^2} = \sqrt{{vinf}^2 + {ve:sig3}^2} =$ **{vb:sig3} km/s**.
+    Energy: $v = \sqrt{v_\infty^2 + v_{\text{esc}}^2} = \sqrt{{vinf:dp1}^2 + {ve:sig3}^2} =$ **{vb:sig3} km/s**.
 
-    Burn: $v - v_{\text{circ}} =$ **{dv:sig3} km/s**. (Escaping first and then adding {vinf} km/s far away would cost {two:sig3} km/s: the Oberth effect.)
+    Burn: $v - v_{\text{circ}} =$ **{dv:sig3} km/s**. (Escaping first and then adding {vinf:dp1} km/s far away would cost {two:sig3} km/s: the Oberth effect.)

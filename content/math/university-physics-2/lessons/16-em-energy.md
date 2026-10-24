@@ -96,6 +96,22 @@ The sail reflects, so $F = \dfrac{2IA}{c} = \dfrac{2(1360)(800)}{3.00\times10^8}
 
 $a = F/m = 7.25\times10^{-4}$ m/s². In 30 days ($2.59\times10^6$ s), $\Delta v = at = 1.9\times10^3$ m/s. The push is feeble but never stops, and it needs no fuel.
 
+Most problems in this lesson follow one chain, from the power of a source to the fields and the push of its light:
+
+```mermaid
+flowchart TD
+  accTitle: From a source's power to fields and forces
+  accDescr: A source radiates power P equally in all directions. Spreading it over a sphere of area 4 pi r squared gives the intensity I. From I you get the peak electric field E0 as the square root of 2I over c epsilon0, and then the peak magnetic field B0 as E0 over c. From I you also get the radiation pressure: I over c if the surface absorbs the light, 2I over c if it reflects it straight back. Either pressure times the area gives the force.
+  P["Source power P"] -- "spread over 4πr²" --> I["Intensity I"]
+  I --> E["Peak field E0 = √(2I / cε0)"]
+  E --> B["Peak field B0 = E0 / c"]
+  I --> Q{"Surface absorbs or reflects?"}
+  Q -- absorbs --> A["Pressure I / c"]
+  Q -- reflects --> R["Pressure 2I / c"]
+  A --> F["Force = pressure × area"]
+  R --> F
+```
+
 ## Where the energy enters a resistor
 
 The Poynting vector also says something surprising about ordinary circuits. Take a straight resistor wire of radius $a$ and length $L$ carrying current $I$ with voltage $V$ across it. Inside, the electric field points along the wire with $E = V/L$. At the surface, the current's magnetic field circles the wire with $B = \mu_0I/(2\pi a)$. Then $\vec E\times\vec B$ points radially *inward*, with magnitude
@@ -103,6 +119,8 @@ The Poynting vector also says something surprising about ordinary circuits. Take
 $$S = \frac{EB}{\mu_0} = \frac{V}{L}\cdot\frac{I}{2\pi a}.$$
 
 Multiplying by the wire's surface area $2\pi aL$ gives a total inflow of exactly $VI$, the power the resistor turns into heat. The energy doesn't travel down the inside of the wire with the electrons; it flows in through the surrounding space, carried by the fields, and the wires guide it.
+
+![A resistor drawn as a shaded cylinder carrying current I to the right. Inside, arrows show the electric field E pointing along the wire. Dashed loops around the cylinder show the magnetic field B circling the wire. Arrows above and below the cylinder point straight in toward its surface, labeled S equals E cross B over mu zero, pointing inward.](images/phys-m11-resistor-flow.svg)
 
 ## Common mistakes
 
