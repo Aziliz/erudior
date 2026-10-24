@@ -181,7 +181,7 @@
   module_quiz: true
   topic: Circles
   type: label
-  stem: 'Name the numbered parts of this circle.'
+  stem: 'Name the numbered parts of this circle. Marker 2 is on the red segment, and marker 3 is on the black segment that runs all the way across the circle.'
   image: {src: images/pre-m8-circle-parts-blank.svg, alt: 'A circle with a dot in the middle, a horizontal segment across the circle through the dot, a second segment from the dot to the edge, and the curved edge. Four parts are numbered.'}
   labels:
     - {x: 50, y: 50, text: Center}
