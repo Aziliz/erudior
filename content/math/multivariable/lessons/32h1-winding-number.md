@@ -116,7 +116,7 @@ region between them. So the answer equals the circulation around the unit circle
 Either way $w = 1$, as it should be for a curve that goes once around.
 
 ```plot
-{"x": [-1.8, 1.8], "y": [-1.6, 1.6], "equal": true, "vectorField": {"u": "-y/(x^2+y^2)", "v": "x/(x^2+y^2)", "step": 0.4}, "polygons": [{"points": [[1, -1], [1, 1], [-1, 1], [-1, -1]]}], "curves": [{"x": "0.6*cos(t)", "y": "0.6*sin(t)", "t": [0, "2pi"], "dashed": true}], "caption": "The vortex field: the square and the small dashed circle both have circulation 2π"}
+{"x": [-1.8, 1.8], "y": [-1.6, 1.6], "equal": true, "vectorField": {"u": "-y/(x^2+y^2)", "v": "x/(x^2+y^2)", "step": 0.5}, "polygons": [{"points": [[1, -1], [1, 1], [-1, 1], [-1, -1]]}], "curves": [{"x": "0.6*cos(t)", "y": "0.6*sin(t)", "t": [0, "2pi"], "dashed": true}], "caption": "The vortex field: the square and the small dashed circle both have circulation 2π"}
 ```
 
 ## Every curl-free field on the punctured plane

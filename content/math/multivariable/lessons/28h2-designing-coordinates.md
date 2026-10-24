@@ -10,7 +10,7 @@ refs: [mv-ref-integrals]
 ---
 ## Coordinates made to order
 
-Lesson 28 ended with a promise: with the Jacobian you can design your own coordinates to fit
+Lesson 28 opened with a promise: with the Jacobian you can design your own coordinates to fit
 an awkward region. Most of its examples were in the plane. This lesson builds coordinate
 systems for solids: linear ones for ellipsoids and slanted boxes, a coordinate system made
 for a doughnut (a torus), and finally coordinates in four and more dimensions, where the
@@ -114,7 +114,7 @@ swept out by revolving $D$ about the $z$-axis has, in cylindrical coordinates,
 $$V = \int_0^{2\pi}\iint_D r\,dA\,d\theta = 2\pi\iint_D r\,dA = 2\pi\bar r\,A,$$
 
 where $A$ is the area of $D$ and $\bar r$ the distance of its centroid from the axis. This
-is **Pappus's centroid theorem**, stated by Pappus of Alexandria around AD 300 and rediscovered
+is **Pappus's centroid theorem**, stated by Pappus of Alexandria in the early 300s AD and rediscovered
 by Paul Guldin in the 1600s; with triple integrals the proof is one line.
 
 ### Example 4: Pappus without a triple integral

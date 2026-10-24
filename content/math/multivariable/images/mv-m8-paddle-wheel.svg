@@ -18,7 +18,7 @@
 <polyline points="260.0,210.0 260.0,75.0" fill="none" stroke="#a33a2a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahr)"/>
 <polyline points="284.8,200.1 286.9,199.0 288.5,197.8 289.5,196.6 290.0,195.4 289.9,194.1 289.1,192.9 287.9,191.7 286.0,190.5 283.7,189.5 280.9,188.5 277.7,187.7 274.1,187.1 270.3,186.5 266.3,186.2 262.1,186.0 257.9,186.0 253.8,186.2 249.7,186.5 245.9,187.1 242.3,187.7 239.1,188.5 236.3,189.5 234.0,190.5 232.2,191.6 230.9,192.8 230.2,194.1 230.0,195.3 230.5,196.6 231.5,197.8 233.1,199.0" fill="none" stroke="#2c7a47" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahg)"/>
 <text x="272.0" y="90.0" text-anchor="start" font-size="16" fill="#a33a2a">curl F</text>
-<text x="300.0" y="178.0" text-anchor="start" font-size="16" fill="#2c7a47">spin</text>
+<text x="300.0" y="171.0" text-anchor="start" font-size="16" fill="#2c7a47">spin</text>
 <text x="218.0" y="260.0" text-anchor="end" font-size="16" fill="#1c2833">paddle wheel</text>
 <text x="465.0" y="280.0" text-anchor="start" font-size="16" fill="#1f5f99">fluid flow</text>
 <text x="20.0" y="30.0" text-anchor="start" font-size="15" fill="#1c2833">Field ⟨−y, x, 0⟩ seen at a slant: it swirls counterclockwise</text>

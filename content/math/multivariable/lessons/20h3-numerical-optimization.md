@@ -10,7 +10,7 @@ honors: true
 ---
 ## When the equations will not solve
 
-Every example in this module ended with a system $\nabla f = \mathbf 0$ (or $\nabla f = \lambda\nabla g$) that could be solved by hand. Real problems rarely cooperate. The equations $4x^3 - 2y = 0$, $2y - 2x = 0$ are easy, but change one exponent or add a term like $e^{xy}$ and no formula exists. Fitting a model with thousands of parameters, as in Lesson 20 but on a large scale, gives thousands of equations. In practice, optimization is done by **iterative methods**: start with a guess, improve it step by step, and stop when the steps stop mattering. This honors lesson develops the two classic methods. Gradient descent uses only the gradient (Lesson 16); Newton's method also uses the Hessian (Lesson 17 and the first honors lesson). Both are the multivariable versions of ideas you may know from single-variable calculus.
+Every example in this module ended with a system $\nabla f = \mathbf 0$ (or $\nabla f = \lambda\nabla g$) that could be solved by hand. Real problems rarely cooperate. The equations $4x^3 - 2y = 0$, $2y - 2x = 0$ are easy, but change an exponent or add a term like $e^{xy}$ and there is usually no formula for the solution. Fitting a model with thousands of parameters, as in Lesson 20 but on a large scale, gives thousands of equations. In practice, optimization is done by **iterative methods**: start with a guess, improve it step by step, and stop when the steps stop mattering. This honors lesson develops the two classic methods. Gradient descent uses only the gradient (Lesson 16); Newton's method also uses the Hessian (Lesson 17 and the first honors lesson). Both are the multivariable versions of ideas you may know from single-variable calculus.
 
 ## Gradient descent
 
@@ -69,7 +69,7 @@ Use Newton's method on $f(x, y) = x^4 + y^2 - 2xy$, starting at $(1, 1)$.
 3. $H^{-1}\nabla f = \tfrac{1}{20}\begin{bmatrix} 2 & 2\\ 2 & 12\end{bmatrix}\begin{bmatrix} 2\\ 0\end{bmatrix} = \begin{bmatrix} 0.2\\ 0.2\end{bmatrix}$, so the next iterate is $(0.8, 0.8)$.
 4. At $(0.8, 0.8)$: $\nabla f = \langle 0.448, 0\rangle$, $H = \begin{bmatrix} 7.68 & -2\\ -2 & 2\end{bmatrix}$, $D = 11.36$. The step is $\tfrac{2(0.448)}{11.36}\langle 1, 1\rangle \approx \langle 0.0789, 0.0789\rangle$, giving about $(0.7211, 0.7211)$.
 
-The exact minimum is at $x = y = \tfrac{1}{\sqrt2} \approx 0.707107$ (solve $y = x$ and $4x^3 = 2x$; there $D = 12x^2\cdot2 - 4 = 8 > 0$). The errors in $x$ at successive iterates are
+The iterates approach the minimum at $x = y = \tfrac{1}{\sqrt2} \approx 0.707107$ (solve $y = x$ and $4x^3 = 2x$; there $D = 12x^2\cdot2 - 4 = 8 > 0$; by symmetry there is a second minimum at $x = y = -\tfrac{1}{\sqrt2}$, and the origin is a saddle). The errors in $x$ at successive iterates are
 
 | Iterate | 0 | 1 | 2 | 3 | 4 |
 |---|---|---|---|---|---|

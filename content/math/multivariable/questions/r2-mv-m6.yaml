@@ -334,7 +334,7 @@
     - 'Earth''s mass is concentrated near its surface'
   answer: 2
   explanation: |-
-    The factor compares $I$ with that of a uniform ball of the same mass and radius. Mass near the center contributes little to $I$ (small $d^2$), so a value below 0.4 means mass is concentrated toward the center, as with Earth's dense iron core. Mass near the surface would push the factor up toward the thin shell's $\tfrac23$. The factor does not depend on the spin rate.
+    The factor compares $I$ with that of a uniform ball of the same mass and radius. Mass near the center contributes little to $I$ (small $d^2$), so a value below 0.4 means mass is concentrated toward the center, as with Earth's dense iron core. Mass near the surface would push the factor up toward the thin shell's $\tfrac23$. The factor does not depend on the spin rate. Earth is indeed slightly flattened at the poles, but that is a fact about its outer shape; the factor being below 0.4 is about how mass is distributed inside.
 - id: mv-m6-r2-h10
   lesson: mv-m6-h-moments-of-inertia
   topic: Moments of inertia
