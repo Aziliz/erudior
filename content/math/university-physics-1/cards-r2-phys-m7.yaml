@@ -1,0 +1,29 @@
+# Round 2, module phys-m7: cards for the honors lessons 29h1-29h3.
+- {front: 'Compression ratio', back: '$r = V_{\max}/V_{\min}$, the largest cylinder volume over the smallest.', topic: Engine cycles}
+- {front: 'Otto cycle steps', back: 'Adiabatic compression; heat added at constant volume (spark); adiabatic expansion (power stroke); heat rejected at constant volume.', topic: Engine cycles}
+- {front: 'Otto cycle efficiency (air standard)', back: '$e = 1 - \dfrac{1}{r^{\gamma-1}}$; depends only on the compression ratio and $\gamma$.', topic: Engine cycles}
+- {front: 'Temperature after adiabatic compression by a volume ratio $r$', back: '$T_2 = T_1r^{\gamma-1}$ (and $P_2 = P_1r^{\gamma}$).', topic: Engine cycles}
+- {front: 'Diesel cycle efficiency', back: '$e = 1 - \dfrac{1}{r^{\gamma-1}}\cdot\dfrac{r_c^{\gamma} - 1}{\gamma(r_c - 1)}$, with cutoff ratio $r_c = V_3/V_2$.', topic: Engine cycles}
+- {front: 'Why diesels beat gasoline engines in practice', back: 'They compress only air, so no knock: compression ratios of about 14–22 instead of 8–12.', topic: Engine cycles}
+- {front: 'Brayton cycle efficiency', back: '$e = 1 - r_p^{-(\gamma-1)/\gamma}$, with pressure ratio $r_p$.', topic: Engine cycles}
+- {front: 'Engine knock', back: 'Self-ignition of the compressed fuel–air mixture before the spark; it limits a gasoline engine''s compression ratio.', topic: Engine cycles}
+- {front: 'Why real cycles fall short of Carnot', back: 'Heat enters and leaves over a range of temperatures, not only at the extremes (plus friction and heat losses in real engines).', topic: Engine cycles}
+- {front: 'Microstate vs macrostate', back: 'Microstate: every particle specified. Macrostate: only measurable quantities (P, V, T, number of heads).', topic: Statistical entropy}
+- {front: 'Multiplicity of n heads in N coins', back: '$\Omega = \dbinom Nn = \dfrac{N!}{n!(N - n)!}$', topic: Statistical entropy}
+- {front: 'Boltzmann''s entropy formula', back: '$S = k_B\ln\Omega$; multiplicities multiply, entropies add.', topic: Statistical entropy}
+- {front: 'Fundamental assumption of statistical mechanics', back: 'An isolated system in equilibrium is equally likely to be in any accessible microstate.', topic: Statistical entropy}
+- {front: 'Free expansion entropy from counting', back: '$\Omega$ grows by $(V_2/V_1)^N$, so $\Delta S = Nk_B\ln(V_2/V_1) = nR\ln(V_2/V_1)$.', topic: Statistical entropy}
+- {front: 'Statistical definition of temperature', back: '$\dfrac1T = \dfrac{\partial S}{\partial E}$ (volume and particle number fixed).', topic: Statistical entropy}
+- {front: 'Multiplicity of an Einstein solid', back: '$\Omega(N, q) = \dbinom{q + N - 1}{q}$ for $N$ oscillators sharing $q$ quanta.', topic: Statistical entropy}
+- {front: 'Boltzmann factor', back: 'A state of energy $E$ has relative probability $e^{-E/(k_BT)}$; $k_BT \approx 0.026$ eV at 300 K.', topic: Statistical entropy}
+- {front: 'Isothermal atmosphere', back: '$n(y) = n_0e^{-y/H}$, scale height $H = k_BT/(mg) = RT/(Mg)$, about 8.6 km for air.', topic: Statistical entropy}
+- {front: 'Third law of thermodynamics', back: 'A perfect crystal''s entropy approaches zero as $T \to 0$ ($\Omega = 1$).', topic: Statistical entropy}
+- {front: 'Viscosity (definition)', back: 'Shear stress $\tau = \eta\,dv/dy$; $\eta$ in Pa·s. Water at 20°C: $1.0\times10^{-3}$ Pa·s; air: $1.8\times10^{-5}$ Pa·s.', topic: Viscous flow}
+- {front: 'Velocity profile of laminar pipe flow', back: '$v(r) = \dfrac{\Delta P}{4\eta L}(R^2 - r^2)$: a parabola, zero at the wall; average speed is half the maximum.', topic: Viscous flow}
+- {front: 'Poiseuille''s law', back: '$Q = \dfrac{\pi R^4\Delta P}{8\eta L}$; halving $R$ cuts the flow to 1/16.', topic: Viscous flow}
+- {front: 'Reynolds number', back: '$\text{Re} = \rho vD/\eta$; pipes: laminar below about 2000, usually turbulent above about 3000.', topic: Viscous flow}
+- {front: 'Stokes'' law', back: '$F = 6\pi\eta rv$ for a sphere when $\text{Re} \ll 1$.', topic: Viscous flow}
+- {front: 'Stokes terminal speed', back: '$v_t = \dfrac{2r^2(\rho_s - \rho_f)g}{9\eta}$; grows as $r^2$.', topic: Viscous flow}
+- {front: 'Drag at high Reynolds number', back: 'About $\tfrac12C\rho Av^2$, with $C \approx 0.5$ for a sphere.', topic: Viscous flow}
+- {front: 'Viscosity and temperature', back: 'Liquids become much less viscous when heated; gases become slightly more viscous.', topic: Viscous flow}
+- {front: 'No-slip condition', back: 'A viscous fluid touching a surface moves with it; fluid at a pipe wall is at rest.', topic: Viscous flow}

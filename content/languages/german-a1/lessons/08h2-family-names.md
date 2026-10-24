@@ -79,7 +79,8 @@ What happens to names when people marry? This is a question of law, and each cou
 own rules. In Germany, a married couple can choose one shared surname, the surname of one of
 the two, or each can keep their own. Double names such as *Müller-Schmidt* have long been
 possible for one partner; since a reform in May 2025, both partners can use one, and children
-can be given a double name from both parents' surnames. Austria and Switzerland have their
+can be given a double name from both parents' surnames. Names with more than two parts, such
+as *Müller-Schmidt-Weber*, are still not allowed. Austria and Switzerland have their
 own rules.
 
 Inside a family everyone uses *du*: children say *du* to their parents and grandparents, and

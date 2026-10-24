@@ -59,7 +59,7 @@
 
     (a) $\Delta S = k_B\ln {k}^N = nR\ln {k} = {n}(8.314)\ln {k} =$ **{dS:sig3} J/K**.
 
-    (b) $\log_{10}({k}^N) = N\log_{10}{k} = ({n})(6.022\times10^{23})\log_{10}{k} =$ **{lg:texsci}**. The number of microstates grows by a factor of 10 raised to that power, which is why the gas never returns to its original volume on its own.
+    (b) $\log_{10}({k}^N) = N\log_{10}{k} = ({n})(6.022\times10^{23})\log_{10}{k} = \mathbf{{lg:texsci}}$. The number of microstates grows by a factor of 10 raised to that power, which is why the gas never returns to its original volume on its own.
 - id: phys-m7-r2-boltzmann-factor
   title: Scale height of an isothermal atmosphere
   topic: Statistical entropy
@@ -133,4 +133,4 @@
   solution: |-
     $v_t = \dfrac{2r^2(\rho_s - \rho_f)g}{9\eta} = \dfrac{2({rm:texsci})^2({gr:dp0} - 1000)(9.8)}{9(1.0\times10^{-3})} =$ **{vmm:sig3} mm/s**.
 
-    $\text{Re} = \dfrac{1000\,v_t(2r)}{1.0\times10^{-3}} =$ **{Rey:texsci}**, below 1, so Stokes' law applies.
+    $\text{Re} = \dfrac{1000\,v_t(2r)}{1.0\times10^{-3}} = \mathbf{{Rey:texsci}}$, below 1, so Stokes' law applies.

@@ -2,7 +2,7 @@
 id: de1-m4-h-vereine
 module: de1-m4
 honors: true
-title: 'Honors: Clubs, quiet hours and favourite things'
+title: Clubs, quiet hours and favourite things
 minutes: 45
 topics: [Free time culture, Favourites and comparisons]
 refs: [de1-ref-modals, de1-ref-verbs]
@@ -26,14 +26,11 @@ much more. A club that is entered in the official register adds the letters *e. 
 name, short for *eingetragener Verein* (registered club): *TC Rotbuche e. V.* (TC is short
 for *Tennisclub*).
 
-The numbers are large. In March 2026 there were about 629,000 registered clubs in Germany,
-according to the research group ZiviZ, and the German Olympic Sports Confederation (DOSB)
-counted about 86,000 sports clubs with about 29.3 million memberships in 2025. (Memberships,
-not people: one person can belong to two or three clubs.) In a small town, the *Sportverein*
-(sports club) is often the centre of social life, with its own pitch, a hall and a small
-restaurant.
-
-Members usually pay a yearly fee, and many clubs are run by volunteers. To say that you are in
+In March 2026 Germany had about 629,000 registered clubs (count by the research group ZiviZ),
+and the German Olympic Sports Confederation (DOSB) counted about 86,000 sports clubs with about
+29.3 million memberships in 2025 (memberships, not people: one person can join several clubs).
+In a small town the *Sportverein* (sports club) is often the centre of social life. Members
+usually pay a yearly fee, and many clubs are run by volunteers. To say that you are in
 a club, use the chunk *im Verein*:
 
 - *Ich spiele im Verein Fußball.* — I play football in a club.
@@ -78,24 +75,21 @@ Question: *Muss ich Mitglied sein?*
 1. Find the sentence with *Mitglied*: *Du musst nicht Mitglied sein.*
 2. Look at the modal verb: *musst nicht*. From lesson 15, *nicht müssen* means "not necessary",
    not "forbidden".
-3. Answer: *Nein, ich muss nicht Mitglied sein.* — No, I don't have to be a member. The next
-   sentence even tells you why it's easy to try: the first session is free.
+3. Answer: *Nein, ich muss nicht Mitglied sein.* — No, I don't have to be a member.
 
 Question: *Was darf man in der Halle nicht machen?*
 
 1. Find *Halle*: *In der Halle darf man nur mit Hallenschuhen spielen.*
-2. *Nur* means "only". So playing in other shoes (for example *Straßenschuhe*, outdoor shoes) is
-   not allowed.
+2. *Nur* means "only", so other shoes (such as *Straßenschuhe*, outdoor shoes) are not allowed.
 3. Answer: *Man darf nicht mit Straßenschuhen spielen.* — You mustn't play in outdoor shoes.
 
 ## Ruhezeiten: quiet times
 
-The second thing that surprises many newcomers is how quiet a German Sunday is. Sundays and
-public holidays are protected as days of rest by the German constitution (Article 140 of the
-Basic Law, which takes over Article 139 of the Weimar Constitution of 1919). In practice this
-means that most shops are closed on Sundays. Bakeries may open for a few hours, and shops at
-large railway stations, airports and petrol stations stay open; the exact rules are made by
-each of the 16 states.
+Many newcomers are surprised by how quiet a German Sunday is. Sundays and public holidays are
+protected as days of rest by the constitution (Article 140 of the Basic Law, which takes over
+Article 139 of the Weimar Constitution of 1919), so most shops are closed on Sundays. Bakeries
+may open for a few hours, and shops at large stations, airports and petrol stations stay open;
+the exact rules are made by each of the 16 states.
 
 There are also quiet times (*Ruhezeiten*) for noise:
 
@@ -108,10 +102,7 @@ There are also quiet times (*Ruhezeiten*) for noise:
 
 ![Two 24-hour bars. Montag bis Samstag: Nachtruhe shaded from 0 to 6 and from 22 to 24, and a dashed box from 13 to 15 marked Mittagsruhe (oft, Hausordnung). Sonntag und Feiertage: the whole bar is shaded and labeled Ruhetag: den ganzen Tag keine laute Arbeit. A note says the exact rules depend on the state, the town and the house rules.](images/de1-m4-quiet-hours.svg)
 
-Treat this picture as a simplified guide, not as law: details differ between states, towns
-and buildings.
-
-Most blocks of flats have a *Hausordnung* (house rules), usually hanging in the entrance. Here
+The picture is a simplified guide, not the law itself. Most blocks of flats have a *Hausordnung* (house rules), usually hanging in the entrance. Here
 is a short original example:
 
 > **Hausordnung — Lindenstraße 12**
@@ -136,11 +127,10 @@ Translation:
 > courtyard. You have to sort your rubbish: paper, glass and general waste.
 
 New in passing: *das Treppenhaus* (stairwell, from *die Treppe*), *der Hof* (courtyard),
-*der Müll* (rubbish), *trennen* (to separate, sort). Notice that every rule uses *man* with a
-modal verb in the er form (*darf, soll, muss*), and one rule uses the plural *dürfen* because
-the subject is *Kinder*. Notice also the word order in *Fahrräder darf man nicht … parken* and
-*Den Müll muss man trennen*: the object comes first for emphasis, the modal verb stays in
-position 2, and *man* moves behind it, just as a time phrase does in *Am Sonntag soll man …*.
+*der Müll* (rubbish), *trennen* (to separate, sort). The rules use *man* with the er form of a
+modal (*darf, soll, muss*), except *Kinder dürfen* (plural subject). In *Fahrräder darf man
+nicht … parken* and *Den Müll muss man trennen* the object comes first for emphasis; the modal
+stays in position 2 and *man* moves behind it, as after a time phrase.
 
 ### Example 2: Turning a rule into your own sentence
 
@@ -176,8 +166,8 @@ With a possessive (lesson 6), the ending follows the gender as usual:
 - *Meine Lieblingsfarbe ist Grün.* — My favourite colour is green.
 - *Was ist dein Lieblingsessen?* — What's your favourite food?
 
-*Lieblings-* comes from *der Liebling* (darling, favourite person). It always has the *-s*,
-even before a word that starts with s: *der Lieblingssport* has a double s.
+*Lieblings-* (from *der Liebling*, darling) always keeps its *-s*: *der Lieblingssport* has a
+double s.
 
 ## Comparing two things: lieber … als …
 
@@ -186,8 +176,6 @@ with, add *als* (than) and put it after the preferred thing:
 
 - *Ich spiele lieber Tennis als Fußball.* — I prefer playing tennis to football.
 - *Ich trinke lieber Tee als Kaffee.* — I prefer tea to coffee.
-- *Ich gehe lieber ins Kino als ins Theater.* — I'd rather go to the cinema than to the
-  theatre.
 
 The verb is in position 2 as always, *lieber* stays right after it (or after a short
 pronoun), and the *als* part goes at the end. If a sentence has a sentence bracket, the *als*
@@ -201,22 +189,19 @@ You can now say how much you like something on a whole scale:
 | *Ich tanze nicht so gern.* | I don't really like dancing. |
 | *Ich tanze gern.* | I like dancing. |
 | *Ich tanze sehr gern.* | I really like dancing. |
-| *Ich tanze lieber als …* | I prefer dancing to … |
+| *Ich tanze lieber.* | I prefer dancing. |
 | *Am liebsten tanze ich.* | Most of all I like dancing. |
 
 ### Example 3: Building a comparison
 
 Say in German: "My brother prefers chess to football."
 
-1. Subject and verb: the activity is a game, so use *spielen*. *Mein Bruder* is er:
-   *Mein Bruder spielt*.
-2. Preference: *lieber* goes right after the verb: *Mein Bruder spielt lieber …*
-3. The preferred thing comes next: *Schach* (chess, no article, like *Fußball*).
-4. The comparison goes last with *als*: *als Fußball*.
-5. Result: *Mein Bruder spielt lieber Schach als Fußball.*
+1. Chess is a game, so use *spielen*; *mein Bruder* is er: *Mein Bruder spielt*.
+2. *lieber* goes right after the verb, then the preferred thing, *Schach* (chess, no article,
+   like *Fußball*): *Mein Bruder spielt lieber Schach …*
+3. The comparison goes last with *als*: *Mein Bruder spielt lieber Schach als Fußball.*
 
-This chart brings together every way of saying what you like from lessons 13 and 14 and this
-lesson:
+This chart sums up every way of saying what you like:
 
 ```mermaid
 flowchart TD
@@ -269,7 +254,6 @@ the hills around Freiburg).
 - *Chor*: the ch sounds like k here: "kohr" (as in English "chorus").
 - *Lieblings-*: the b is said like p because it ends a syllable: "LEEP-lings".
 - *Ruhe, Ruhezeit*: the h is silent and only shows that the u is long: "ROO-e".
-- *e. V.*: say the letter names, "eh fau", or the full words *eingetragener Verein*.
 - *Schach*: the ch is the throaty ach sound after a: "shahkh".
 
 ## Common mistakes
@@ -280,11 +264,8 @@ the hills around Freiburg).
   die Lieblingsfarbe*, so *meine Lieblingsfarbe*.
 - Using *wie* or *dann* for "than": "lieber Tee wie Kaffee". In standard German it is *als*:
   *lieber Tee als Kaffee*. (You may hear *wie* in some regions; it is informal.)
-- Saying "mehr gern" instead of *lieber*, or putting *lieber* at the end: "Ich spiele Tennis
-  lieber als Fußball" is possible, but the normal place for *lieber* is right after the verb.
 - Reading *nicht müssen* in a rule as a ban: *Du musst nicht Mitglied sein* means you don't have
   to be a member, so you are free to join or not.
-- Expecting to shop on Sunday. Plan your shopping for Saturday.
 - Treating the *Mittagsruhe* as a national law. It is common in house rules, but the night
   quiet and the Sunday rest are the firm rules.
 

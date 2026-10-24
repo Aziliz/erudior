@@ -48,7 +48,7 @@
     - ['Sealed jar weighted to an average of 1000 kg/m³', Stays where it is released]
   distractors: [Floats with about 8% of its volume submerged]
   explanation: |-
-    An object denser than the fluid sinks; a less dense one rises and floats with the fraction $\rho_{\text{obj}}/\rho_{\text{fluid}}$ submerged: $917/1000 \approx 92\%$ for ice and $500/1000 = 50\%$ for pine. Equal densities give neutral buoyancy. About 8% is the fraction of the ice *above* the water.
+    An object denser than the fluid sinks; a less dense one rises and floats with the fraction $\rho_{\text{obj}}/\rho_{\text{fluid}}$ submerged: $917/1000 \approx 92\%$ for ice and $500/1000 = 50\%$ for pine. Equal densities give neutral buoyancy. About 8% is the fraction of the ice above the water.
 - id: phys-m7-r2-q05
   lesson: phys-fluid-statics
   module_quiz: true
@@ -301,7 +301,7 @@
     - '$Q = -250$ J, $\Delta E_{\text{int}} = 0$'
   answer: 2
   explanation: |-
-    Adiabatic means $Q = 0$. Work done *on* the gas is 250 J, so the work done *by* it is $W = -250$ J, and $\Delta E_{\text{int}} = 0 - (-250) = +250$ J: compression heats the gas. $-250$ J is the sign error of using $W = +250$ J. The choices with $\Delta E_{\text{int}} = 0$ describe an isothermal compression, which has to give off heat.
+    Adiabatic means $Q = 0$. Work done on the gas is 250 J, so the work done by it is $W = -250$ J, and $\Delta E_{\text{int}} = 0 - (-250) = +250$ J: compression heats the gas. $-250$ J is the sign error of using $W = +250$ J. The choices with $\Delta E_{\text{int}} = 0$ describe an isothermal compression, which has to give off heat.
 # ---- Lesson 29: Heat engines, entropy, and the second law
 - id: phys-m7-r2-q27
   lesson: phys-second-law
