@@ -32,14 +32,14 @@
     b: {min: 0.1, max: 2, step: 0.1}
     F0: {min: 0.5, max: 5, step: 0.5}
     r: {choices: [0.5, 0.8, 0.9, 1, 1.1, 1.25, 1.5, 2]}
-  where: ['m*wn/b >= 2', 'abs(r*wn - round(r*wn)) < 0.001']
+  where: ['m*wn/b >= 2', 'abs(r*wn - round(r*wn)) < 0.001', 'abs(m*wn^2 - round(m*wn^2)) < 0.001']
   calc:
     k: m*wn^2
     w: r*wn
     Q: m*wn/b
     stat: F0/k*1000
     A: (F0/m)/sqrt((wn^2 - w^2)^2 + (b*w/m)^2)*1000
-  prompt: 'A {m} kg mass on a spring with $k = {k:num1}$ N/m has damping constant $b = {b:num1}$ kg/s. It is driven by a force $F_0\cos(\omega t)$ with $F_0 = {F0:num1}$ N and $\omega = {w:dp0}$ rad/s. Find the static stretch $F_0/k$ and the steady-state amplitude, both in mm to 3 significant figures.'
+  prompt: 'A {m} kg mass on a spring with $k = {k:dp0}$ N/m has damping constant $b = {b:num1}$ kg/s. It is driven by a force $F_0\cos(\omega t)$ with $F_0 = {F0:num1}$ N and $\omega = {w:dp0}$ rad/s. Find the static stretch $F_0/k$ and the steady-state amplitude, both in mm to 3 significant figures.'
   answers:
     - {format: sig4, name: stat, label: 'Static stretch', relTolerance: 0.01, units: {mm: 1, cm: 10, m: 1000}}
     - {format: sig4, name: A, label: 'Amplitude', relTolerance: 0.01, units: {mm: 1, cm: 10, m: 1000}}

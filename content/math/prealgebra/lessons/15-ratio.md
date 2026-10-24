@@ -47,7 +47,7 @@ There are $2 + 7 = 9$ parts in all, each worth $4{,}500 \div 9 = 500$ dollars. T
 
 A **tape diagram** makes the parts visible: one bar for the whole, cut into 9 equal parts.
 
-![A bar labeled Whole profit: $4,500 (9 parts), cut into 9 equal boxes of $500 each. The first 2 boxes are shaded blue and bracketed Partner A, 2 parts: $1,000. The other 7 are shaded gold and bracketed Partner B, 7 parts: $3,500.](images/pre-m4-tape.svg)
+![A bar labeled whole profit, 4,500 dollars in 9 parts, cut into 9 equal boxes of 500 dollars each. The first 2 boxes are shaded blue and bracketed Partner A, 2 parts, 1,000 dollars. The other 7 are shaded gold and bracketed Partner B, 7 parts, 3,500 dollars.](images/pre-m4-tape.svg)
 
 ## Rates
 
