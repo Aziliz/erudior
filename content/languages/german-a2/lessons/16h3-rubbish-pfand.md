@@ -87,10 +87,10 @@ In German: *Ich bekomme 4,60 Euro Pfand zurück.* (Germans write a comma for dec
 ```mermaid
 flowchart TD
   accTitle: Where does it go? A rubbish decision chart
-  accDescr: Start with the item. A bottle or can with the deposit logo, or a reusable bottle, goes back to the shop. Glass without a deposit goes to the bottle bank, sorted by colour. Paper or cardboard goes in the blue bin. Other packaging of plastic, metal or mixed materials goes in the yellow bin. Food and garden waste goes in the brown bin. Batteries go to the collection box in a shop. Anything else goes in the general waste. The chart notes that rules vary by town.
+  accDescr: Start with the item. A bottle or can with the deposit logo, or a reusable bottle, goes back to the shop. A glass bottle or jar without a deposit goes to the bottle bank, sorted by colour. Paper or cardboard goes in the blue bin. Other packaging of plastic, metal or mixed materials goes in the yellow bin. Food and garden waste goes in the brown bin. Batteries go to the collection box in a shop. Anything else goes in the general waste. The chart notes that rules vary by town.
   A["Wohin damit?"] --> B{"Pfand on it?"}
   B -- ja --> C["Back to the shop: Pfandautomat"]
-  B -- nein --> D{"Glass?"}
+  B -- nein --> D{"Glass bottle or jar?"}
   D -- ja --> E["Altglascontainer: weiß, grün, braun"]
   D -- nein --> F{"Paper or cardboard?"}
   F -- ja --> G["Blue bin: Papier"]

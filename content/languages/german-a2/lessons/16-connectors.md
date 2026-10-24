@@ -37,6 +37,8 @@ The adverb doesn't have to come first. It can also stand after the verb, in the 
 
 Think of the sentence as a train with the verb as the engine always in carriage 2. Conjunctions like *und* and *aber* are the coupling between two trains: they don't take a seat. Linking adverbs are passengers: if they sit in carriage 1, the subject has to move behind the engine.
 
+![Three sentence trains, each word a carriage and the verb a highlighted engine. Top, linking adverb: Deshalb (carriage 1), bleiben (carriage 2, the verb), wir (carriage 3), zu Hause. Middle, und as a coupling between two trains: Es regnet, then a dashed coupling labeled und, then wir bleiben zu Hause, with the verb in carriage 2 in both trains. Bottom, weil: … zu Hause, weil es regnet, with the verb regnet as the last carriage.](images/de2-m4-sentence-train.svg)
+
 ## sondern: not this, but that
 
 You met *sondern* in A1. It means "but" in the sense of "but rather" and comes only after a negative (*nicht, kein, nie*), when the second part corrects the first. *aber* means "but" in the sense of "however".
@@ -56,6 +58,20 @@ Here are the three groups together. Learn which word belongs to which group; the
 | **coordinating conjunctions** (position 0) | *und, aber, oder, denn, sondern* | normal: verb in position 2 | *Ich bleibe zu Hause, denn es regnet.* |
 | **subordinating conjunctions** | *weil, dass, wenn, ob, als* | verb at the end | *Ich bleibe zu Hause, weil es regnet.* |
 | linking adverbs (position 1) | *deshalb, trotzdem, außerdem, sonst, dann, danach* | verb straight after, then subject | *Es regnet, deshalb bleibe ich zu Hause.* |
+
+To decide on the word order, ask which group the linking word belongs to:
+
+```mermaid
+flowchart TD
+  accTitle: Word order after a linking word
+  accDescr: Look at the linking word. If it is und, aber, oder, denn or sondern, it takes no position, so the next clause has normal order with the verb in position 2, for example denn es regnet. If it is weil, dass, wenn, ob or als, the verb goes to the end, for example weil es regnet. If it is deshalb, trotzdem, außerdem, sonst, dann or danach, it takes position 1, so the verb comes straight after it and then the subject, for example deshalb bleibe ich.
+  A["Which linking word?"] --> B["und, aber, oder, denn, sondern"]
+  A --> C["weil, dass, wenn, ob, als"]
+  A --> D["deshalb, trotzdem, außerdem, sonst, dann, danach"]
+  B --> E["Position 0, normal order: denn es regnet"]
+  C --> F["Verb at the end: weil es regnet"]
+  D --> G["Verb straight after: deshalb bleibe ich"]
+```
 
 The same idea with a conjunction and with an adverb:
 
@@ -91,6 +107,8 @@ You know *das Wetter, die Sonne, der Regen, der Schnee, der Wind, warm, kalt, he
 | *der Nebel* — fog | *neblig* — foggy | *Morgens ist es neblig.* |
 | *der Regen* | *nass* — wet | *Meine Schuhe sind ganz nass.* |
 | — | *trocken* — dry | *Der Sommer war sehr trocken.* |
+
+![Six weather symbols in tiles. A sun, labeled sonnig. Two clouds, labeled bewölkt. A dark cloud with a lightning bolt, labeled das Gewitter. Horizontal grey lines, labeled neblig. Curling wind lines, labeled windig. A cloud with snowflakes, labeled der Schnee.](images/de2-m4-weather.svg)
 
 More: *das Gewitter* (thunderstorm), *der Sturm* (storm, gale), *die Hitze* (heat), *das Eis* (ice), *frieren* (to be cold, to freeze), *der Himmel* (sky), *das Klima* (climate). Temperatures use *der Grad* (degree), which doesn't change after a number: *Es sind heute 30 Grad.* — It's 30 degrees today. *In der Nacht hatten wir minus fünf Grad.* — In the night it was minus five. *Die Temperatur* is the temperature.
 

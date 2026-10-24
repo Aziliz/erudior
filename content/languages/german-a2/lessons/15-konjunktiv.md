@@ -52,6 +52,19 @@ For most other verbs, German doesn't use a special form. It takes *würde* in po
 
 With *haben, sein* and the modal verbs, use *hätte, wäre, könnte* … directly instead of *würde*: say *Ich hätte gern …*, not *Ich würde gern haben …*
 
+```mermaid
+flowchart TD
+  accTitle: Which Konjunktiv II form to use
+  accDescr: Start with the verb you want to make into a would form. If it is haben, use hätte. If it is sein, use wäre. If it is a modal verb, use its own form: könnte, müsste, dürfte, sollte or möchte. For any other verb, use würde plus the infinitive at the end, for example ich würde fahren.
+  A["Which verb?"] --> B{"haben?"}
+  B -- yes --> C["hätte: Ich hätte gern Zeit."]
+  B -- no --> D{"sein?"}
+  D -- yes --> E["wäre: Das wäre schön."]
+  D -- no --> F{"a modal verb?"}
+  F -- yes --> G["könnte, müsste, dürfte, sollte, möchte"]
+  F -- no --> H["würde + infinitive: Ich würde gern fahren."]
+```
+
 ## 1. Polite requests
 
 The present tense can sound direct. The Konjunktiv II makes a question softer, a bit like "could you" instead of "can you".
@@ -65,6 +78,17 @@ The present tense can sound direct. The Konjunktiv II makes a question softer, a
 | *Ich will die Rechnung.* | *Ich hätte gern die Rechnung.* — I'd like the bill. |
 
 *Ich hätte gern …* is the most common way to order or ask for something in a shop, together with *Ich möchte …*: *Ich hätte gern zwei Brötchen.* A request is *eine Bitte*: *Ich hätte eine Bitte.* — I have a favour to ask. To ask someone for something is *bitten um* + accusative: *Darf ich Sie um Hilfe bitten?* — May I ask you for help? Useful answers: *Ja, gern. / Selbstverständlich! / Kein Problem.* And when someone thanks you: *Gern geschehen!* — My pleasure.
+
+Think of politeness as a ladder: each step down sounds a little softer.
+
+```mermaid
+flowchart TD
+  accTitle: A ladder from direct to polite
+  accDescr: Four ways to ask for the bill, from most direct to most polite. First, Ich will die Rechnung, which sounds rude. Second, Die Rechnung, bitte, which is short and fine. Third, Ich hätte gern die Rechnung, which is polite. Fourth, Könnten Sie mir bitte die Rechnung bringen, which is very polite.
+  A["Ich will die Rechnung. (sounds rude)"] --> B["Die Rechnung, bitte. (short, fine)"]
+  B --> C["Ich hätte gern die Rechnung. (polite)"]
+  C --> D["Könnten Sie mir bitte die Rechnung bringen? (very polite)"]
+```
 
 ## 2. Wishes and dreams
 

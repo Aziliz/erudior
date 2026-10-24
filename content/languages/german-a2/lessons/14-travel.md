@@ -56,6 +56,10 @@ Very often German simply leaves *für* out: *Wir bleiben zwei Nächte.* — We'r
 | *Bis wann?* — until when? | *bis Sonntag, bis zum 10. Juli* |
 | *Wie lange?* — how long? | *eine Woche, für zwei Nächte, drei Tage lang* |
 
+On a timeline, with "now" (*jetzt*) in the middle:
+
+![A timeline with jetzt in the middle, the past on the left and the future on the right. vor einem Jahr (ago): an arrow from now back to a point in the past. seit drei Jahren (since, for, still true): a bar from a point in the past up to now, continuing a little past now. in drei Tagen (in, from now): an arrow from now forward to a point in the future. ab Montag (from … on): a bar starting at a future point and running on to the right with an arrowhead. bis Freitag (until): a bar from now that stops at a point in the future. für eine Woche (for, planned): a bar with a clear start and end in the future.](images/de2-m4-time-prepositions.svg)
+
 ## Booking a room
 
 Some useful words before the dialogue. A hotel, guesthouse or campsite is *eine Unterkunft* (accommodation). You can stay in *ein Einzelzimmer* (single room) or *ein Doppelzimmer* (double room), and you pay per *Übernachtung* (night's stay). *Halbpension* means breakfast and dinner are included. You *buchen* (book) online, or *reservieren* (reserve) a room or a table by phone; you then have *eine Buchung* or *eine Reservierung*. When you arrive you go to *die Rezeption* (reception), where you are *der Gast* (guest). Travelling abroad you need *den Pass* (passport), sometimes *ein Visum* (visa), and you pass through *den Zoll* (customs) with your *Gepäck* (luggage).
@@ -115,6 +119,8 @@ In English:
 ## Where to and where from: hin and her
 
 German shows the direction of movement relative to the speaker. *hin* means away from the speaker, *her* means towards the speaker. You know *wohin* (where to) and *woher* (where from); they are built the same way.
+
+![Three figures on a line. In the middle is the speaker, labeled ich. A person on the left walks towards the speaker along an arrow labeled her, with the example Komm her! (towards me). From the speaker another arrow points away to a lake on the right, labeled hin, with the example Ich fahre hin. (away from me). Below: woher? = where from (towards me); wohin? = where to (away from me).](images/de2-m4-hin-her.svg)
 
 - *Wo gehst du hin?* — Where are you going? (= *Wohin gehst du?*, very common in speech)
 - *Komm her!* — Come here!

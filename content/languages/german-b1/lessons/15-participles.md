@@ -105,7 +105,7 @@ Compare the two participles of the same verb:
 
 A participle used like this is a **participial adjective**. With verbs that form the perfect with *sein*, the past participle has an active meaning: *der angekommene Zug* (the train that has arrived), *die gestiegenen Preise* (the prices that have risen).
 
-Four participles as adjectives, two of each kind. The candle is burning and the child is sleeping right now (Partizip I); the glass has broken and the tree has fallen over (Partizip II, of *zerbrechen* and *umfallen*, which both take *sein*, so the meaning is active and finished):
+Four participles as adjectives, two of each kind. The candle is burning and the child is sleeping right now (Partizip I); the glass is already broken and the tree has fallen over (Partizip II: finished). *umfallen* takes *sein*, so *der umgefallene Baum* is active: the tree that has fallen over, not a tree someone knocked down:
 
 ![Four pictures. A burning candle, labeled die brennende Kerze. A child asleep in bed, labeled das schlafende Kind. Pieces of broken glass on the floor, labeled das zerbrochene Glas. A tree lying on the ground next to its stump, labeled der umgefallene Baum.](images/de3-m3-participles.svg)
 

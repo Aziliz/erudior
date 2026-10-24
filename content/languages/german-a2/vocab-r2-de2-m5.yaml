@@ -1,0 +1,352 @@
+# German A2, module 5 honors lessons (round 2): applications, medicine, official letters.
+# Checked against German A1, A2 (including other round 2 files) and B1 vocabulary.
+
+# --- 20h1 Applying for a job (de2-m5-h-application) ---
+- id: de2-m5-r2-w01
+  lesson: de2-m5-h-application
+  term: das Anschreiben
+  pos: noun
+  plural: die Anschreiben
+  meanings: [cover letter, covering letter, letter of application]
+  example: Das Anschreiben ist nur eine Seite lang.
+  exampleEn: The cover letter is only one page long.
+- id: de2-m5-r2-w02
+  lesson: de2-m5-h-application
+  term: das Arbeitszeugnis
+  pos: noun
+  plural: die Arbeitszeugnisse
+  meanings: [reference (written by an employer), reference, job reference, employment reference, testimonial]
+  example: Mein Chef schreibt mir ein gutes Arbeitszeugnis.
+  exampleEn: My boss is writing me a good reference.
+- id: de2-m5-r2-w03
+  lesson: de2-m5-h-application
+  term: die Zusage
+  pos: noun
+  plural: die Zusagen
+  meanings: [acceptance (a yes to an application or invitation), acceptance, offer, job offer, confirmation, yes]
+  example: Ich habe eine Zusage für die Stelle bekommen!
+  exampleEn: I've been offered the job!
+  note: 'The opposite is die Absage (a no, a rejection).'
+- id: de2-m5-r2-w04
+  lesson: de2-m5-h-application
+  term: einstellen
+  pos: verb
+  meanings: [to hire (staff), to hire, to employ, to take on, to recruit]
+  example: Die Firma stellt zwei neue Mitarbeiter ein.
+  exampleEn: The company is hiring two new employees.
+  note: 'Separable: er stellt ein, hat eingestellt.'
+- id: de2-m5-r2-w05
+  lesson: de2-m5-h-application
+  term: der Arbeitsvertrag
+  pos: noun
+  plural: die Arbeitsverträge
+  meanings: [employment contract, contract of employment, work contract, job contract]
+  example: Morgen unterschreibe ich den Arbeitsvertrag.
+  exampleEn: Tomorrow I'm signing the employment contract.
+- id: de2-m5-r2-w06
+  lesson: de2-m5-h-application
+  term: die Sprachkenntnisse
+  pos: noun
+  plural: die Sprachkenntnisse (plural only)
+  meanings: [language skills, knowledge of languages, language knowledge, languages]
+  example: Gute Sprachkenntnisse sind für diese Stelle wichtig.
+  exampleEn: Good language skills are important for this job.
+- id: de2-m5-r2-w07
+  lesson: de2-m5-h-application
+  term: hiermit
+  pos: adverb
+  meanings: [hereby, herewith, with this]
+  example: Hiermit bewerbe ich mich um die Stelle.
+  exampleEn: I hereby apply for the position.
+- id: de2-m5-r2-w08
+  lesson: de2-m5-h-application
+  term: sorgfältig
+  pos: adjective
+  meanings: [careful (thorough), careful, thorough, meticulous, carefully]
+  alt: [sorgfaeltig]
+  example: Sie arbeitet sehr sorgfältig.
+  exampleEn: She works very carefully.
+- id: de2-m5-r2-w09
+  lesson: de2-m5-h-application
+  term: motiviert
+  pos: adjective
+  meanings: [motivated, keen]
+  example: Unser neuer Kollege ist sehr motiviert.
+  exampleEn: Our new colleague is very motivated.
+- id: de2-m5-r2-w10
+  lesson: de2-m5-h-application
+  term: teamfähig
+  pos: adjective
+  meanings: [good at teamwork, able to work in a team, team player, a team player]
+  alt: [teamfaehig]
+  example: Wir suchen eine teamfähige Mitarbeiterin.
+  exampleEn: We're looking for an employee who is good at teamwork.
+- id: de2-m5-r2-w11
+  lesson: de2-m5-h-application
+  term: die Tätigkeit
+  pos: noun
+  plural: die Tätigkeiten
+  meanings: [activity (work you do), activity, job, task, work, occupation]
+  alt: [die Taetigkeit]
+  example: Meine Tätigkeit macht mir viel Spaß.
+  exampleEn: I really enjoy my work.
+- id: de2-m5-r2-w12
+  lesson: de2-m5-h-application
+  term: stets
+  pos: adverb
+  meanings: [always (formal), always, constantly, at all times]
+  example: Er war stets pünktlich.
+  exampleEn: He was always on time.
+
+# --- 20h2 At the pharmacy (de2-m5-h-medicine) ---
+- id: de2-m5-r2-w13
+  lesson: de2-m5-h-medicine
+  term: das Arzneimittel
+  pos: noun
+  plural: die Arzneimittel
+  meanings: [medicine (official word), medicine, medication, drug, medicinal product, pharmaceutical]
+  example: Dieses Arzneimittel ist rezeptfrei.
+  exampleEn: This medicine is available without a prescription.
+- id: de2-m5-r2-w14
+  lesson: de2-m5-h-medicine
+  term: die Packungsbeilage
+  pos: noun
+  plural: die Packungsbeilagen
+  meanings: [package insert (official word), package insert, patient information leaflet, leaflet, package leaflet]
+  example: Lesen Sie die Packungsbeilage genau.
+  exampleEn: Read the package insert carefully.
+- id: de2-m5-r2-w15
+  lesson: de2-m5-h-medicine
+  term: der Beipackzettel
+  pos: noun
+  plural: die Beipackzettel
+  meanings: [package insert (everyday word), package insert, leaflet, patient information leaflet, package leaflet]
+  example: Der Beipackzettel ist sehr lang.
+  exampleEn: The package insert is very long.
+- id: de2-m5-r2-w16
+  lesson: de2-m5-h-medicine
+  term: verschreiben
+  pos: verb
+  meanings: [to prescribe, to write a prescription for]
+  example: Die Ärztin hat mir ein Schmerzmittel verschrieben.
+  exampleEn: The doctor prescribed me a painkiller.
+  note: 'Perfect: hat verschrieben.'
+- id: de2-m5-r2-w17
+  lesson: de2-m5-h-medicine
+  term: rezeptfrei
+  pos: adjective
+  meanings: [without a prescription, over-the-counter, over the counter, non-prescription, OTC]
+  example: Hustensaft gibt es oft rezeptfrei.
+  exampleEn: You can often get cough syrup without a prescription.
+- id: de2-m5-r2-w18
+  lesson: de2-m5-h-medicine
+  term: die Dosierung
+  pos: noun
+  plural: die Dosierungen
+  meanings: [dosage, dose]
+  example: Die Dosierung steht in der Packungsbeilage.
+  exampleEn: The dosage is in the package insert.
+- id: de2-m5-r2-w19
+  lesson: de2-m5-h-medicine
+  term: einnehmen
+  pos: verb
+  meanings: [to take (a medicine), to take, to take medicine]
+  example: Nehmen Sie die Tabletten nach dem Essen ein.
+  exampleEn: Take the tablets after meals.
+  note: 'Separable, with the stem change of nehmen: du nimmst ein, er nimmt ein; hat eingenommen.'
+- id: de2-m5-r2-w20
+  lesson: de2-m5-h-medicine
+  term: wirken
+  pos: verb
+  meanings: [to work (have an effect), to have an effect, to work, to take effect, to be effective]
+  example: Das Mittel wirkt nach einer halben Stunde.
+  exampleEn: The medicine works after half an hour.
+- id: de2-m5-r2-w21
+  lesson: de2-m5-h-medicine
+  term: der Wirkstoff
+  pos: noun
+  plural: die Wirkstoffe
+  meanings: [active ingredient, active substance, agent]
+  example: Welcher Wirkstoff ist in diesen Tabletten?
+  exampleEn: Which active ingredient is in these tablets?
+- id: de2-m5-r2-w22
+  lesson: de2-m5-h-medicine
+  term: die Salbe
+  pos: noun
+  plural: die Salben
+  meanings: [ointment, cream, salve]
+  example: Die Salbe wird zweimal täglich aufgetragen.
+  exampleEn: The ointment is applied twice a day.
+- id: de2-m5-r2-w23
+  lesson: de2-m5-h-medicine
+  term: die Kapsel
+  pos: noun
+  plural: die Kapseln
+  meanings: [capsule]
+  example: Schlucken Sie die Kapsel mit Wasser.
+  exampleEn: Swallow the capsule with water.
+- id: de2-m5-r2-w24
+  lesson: de2-m5-h-medicine
+  term: der Tropfen
+  pos: noun
+  plural: die Tropfen
+  meanings: [drop (of liquid), drop, drops]
+  example: Nehmen Sie dreimal täglich zehn Tropfen.
+  exampleEn: Take ten drops three times a day.
+- id: de2-m5-r2-w25
+  lesson: de2-m5-h-medicine
+  term: das Schmerzmittel
+  pos: noun
+  plural: die Schmerzmittel
+  meanings: [painkiller, pain reliever, pain medication, analgesic]
+  example: Ich brauche ein Schmerzmittel gegen Kopfschmerzen.
+  exampleEn: I need a painkiller for my headache.
+- id: de2-m5-r2-w26
+  lesson: de2-m5-h-medicine
+  term: schlucken
+  pos: verb
+  meanings: [to swallow]
+  example: Die Tablette ist groß, aber ich kann sie schlucken.
+  exampleEn: The tablet is big, but I can swallow it.
+- id: de2-m5-r2-w27
+  lesson: de2-m5-h-medicine
+  term: die Schwangerschaft
+  pos: noun
+  plural: die Schwangerschaften
+  meanings: [pregnancy]
+  example: In der Schwangerschaft darf man dieses Mittel nicht nehmen.
+  exampleEn: You must not take this medicine during pregnancy.
+- id: de2-m5-r2-w28
+  lesson: de2-m5-h-medicine
+  term: der Apotheker
+  pos: noun
+  plural: die Apotheker
+  meanings: [pharmacist (male), pharmacist, chemist]
+  example: Fragen Sie Ihren Arzt oder Apotheker.
+  exampleEn: Ask your doctor or pharmacist.
+- id: de2-m5-r2-w29
+  lesson: de2-m5-h-medicine
+  term: die Apothekerin
+  pos: noun
+  plural: die Apothekerinnen
+  meanings: [pharmacist (female), pharmacist, chemist]
+  example: Die Apothekerin erklärt mir die Dosierung.
+  exampleEn: The pharmacist explains the dosage to me.
+
+# --- 20h3 Letters from the authorities (de2-m5-h-official-letters) ---
+- id: de2-m5-r2-w30
+  lesson: de2-m5-h-official-letters
+  term: der Bescheid
+  pos: noun
+  plural: die Bescheide
+  meanings: [official decision (in a letter), official decision, decision, notice, official notice, notification]
+  example: Ich habe einen Bescheid vom Finanzamt bekommen.
+  exampleEn: I've received a decision from the tax office.
+  note: 'Bescheid sagen / geben (to let someone know) is the same word in a set phrase.'
+- id: de2-m5-r2-w31
+  lesson: de2-m5-h-official-letters
+  term: das Schreiben
+  pos: noun
+  plural: die Schreiben
+  meanings: [letter (official), letter, official letter, correspondence]
+  example: Vielen Dank für Ihr Schreiben vom 12. Februar.
+  exampleEn: Thank you for your letter of 12 February.
+  note: 'The verb schreiben used as a noun: neuter, with a capital S.'
+- id: de2-m5-r2-w32
+  lesson: de2-m5-h-official-letters
+  term: das Aktenzeichen
+  pos: noun
+  plural: die Aktenzeichen
+  meanings: [file number, reference number, case number, reference]
+  example: Bitte nennen Sie immer Ihr Aktenzeichen.
+  exampleEn: Please always quote your file number.
+  note: 'Abbreviation: Az.'
+- id: de2-m5-r2-w33
+  lesson: de2-m5-h-official-letters
+  term: der Sachbearbeiter
+  pos: noun
+  plural: die Sachbearbeiter
+  meanings: [official handling a case (male), caseworker, case officer, clerk, official in charge]
+  example: Der Sachbearbeiter ist heute nicht im Haus.
+  exampleEn: The official handling your case isn't in today.
+- id: de2-m5-r2-w34
+  lesson: de2-m5-h-official-letters
+  term: die Sachbearbeiterin
+  pos: noun
+  plural: die Sachbearbeiterinnen
+  meanings: [official handling a case (female), caseworker, case officer, clerk, official in charge]
+  example: Meine Sachbearbeiterin heißt Frau Brenner.
+  exampleEn: The official handling my case is called Ms Brenner.
+- id: de2-m5-r2-w35
+  lesson: de2-m5-h-official-letters
+  term: der Widerspruch
+  pos: noun
+  plural: die Widersprüche
+  meanings: [objection (to an official decision), objection, appeal, contradiction]
+  example: Gegen den Bescheid kann man Widerspruch einlegen.
+  exampleEn: You can lodge an objection to the decision.
+- id: de2-m5-r2-w36
+  lesson: de2-m5-h-official-letters
+  term: die Mahnung
+  pos: noun
+  plural: die Mahnungen
+  meanings: [payment reminder, reminder, dunning letter, overdue notice]
+  example: Wir haben schon die zweite Mahnung bekommen.
+  exampleEn: We've already received the second reminder.
+- id: de2-m5-r2-w37
+  lesson: de2-m5-h-official-letters
+  term: der Betrag
+  pos: noun
+  plural: die Beträge
+  meanings: [amount (of money), amount, sum]
+  example: Bitte überweisen Sie den Betrag bis Freitag.
+  exampleEn: Please transfer the amount by Friday.
+- id: de2-m5-r2-w38
+  lesson: de2-m5-h-official-letters
+  term: fällig
+  pos: adjective
+  meanings: [due (to be paid), due, payable, overdue]
+  alt: [faellig]
+  example: Die Miete ist am Ersten fällig.
+  exampleEn: The rent is due on the first.
+- id: de2-m5-r2-w39
+  lesson: de2-m5-h-official-letters
+  term: die Anlage
+  pos: noun
+  plural: die Anlagen
+  meanings: [enclosure (with a letter), enclosure, attachment, appendix]
+  example: Das Formular finden Sie in der Anlage.
+  exampleEn: You'll find the form enclosed.
+- id: de2-m5-r2-w40
+  lesson: de2-m5-h-official-letters
+  term: beifügen
+  pos: verb
+  meanings: [to enclose, to attach, to add]
+  alt: [beifuegen]
+  example: Bitte fügen Sie eine Kopie Ihres Passes bei.
+  exampleEn: Please enclose a copy of your passport.
+  note: 'Separable: er fügt bei, hat beigefügt.'
+- id: de2-m5-r2-w41
+  lesson: de2-m5-h-official-letters
+  term: das Finanzamt
+  pos: noun
+  plural: die Finanzämter
+  meanings: [tax office, revenue office, tax authority, IRS]
+  example: Das Finanzamt hat mir einen Bescheid geschickt.
+  exampleEn: The tax office has sent me a decision.
+- id: de2-m5-r2-w42
+  lesson: de2-m5-h-official-letters
+  term: die Anschrift
+  pos: noun
+  plural: die Anschriften
+  meanings: [address (formal), address, postal address]
+  example: Bitte teilen Sie uns Ihre neue Anschrift mit.
+  exampleEn: Please let us know your new address.
+- id: de2-m5-r2-w43
+  lesson: de2-m5-h-official-letters
+  term: benötigen
+  pos: verb
+  meanings: [to need (formal), to need, to require]
+  alt: [benoetigen]
+  example: Wir benötigen noch eine Kopie Ihres Mietvertrags.
+  exampleEn: We still need a copy of your rental contract.

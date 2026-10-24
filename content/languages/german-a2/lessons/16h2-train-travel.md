@@ -31,7 +31,7 @@ ICE, IC and EC are *Fernverkehr* (long-distance transport); everything from RE d
 
 At the platform, a display shows the next train. Each part has a name worth knowing.
 
-![A platform display. On the left, large: Gleis 7. Next to it the time 14:32 and the train ICE 578. The destination Hamburg-Altona is in large letters, with the stops über Kassel – Göttingen – Hannover Hbf in smaller letters above it. A yellow strip at the bottom reads: ca. 15 Minuten später. At the bottom right, a row of boxes A to F shows the platform sections.](images/de2-m4-departure-board.svg)
+![A platform display. On the left, large: Gleis 7. Next to it the time 14:32 and the train ICE 578. The destination Hamburg-Altona is in large letters, with the stops über Kassel – Göttingen – Hannover Hbf in smaller letters above it. A yellow strip at the bottom reads: ca. 15 Minuten später. At the bottom right, a row of boxes A to F shows the platform sections. Small headings name the parts: Gleis, Abfahrt / Zug, Ziel (über …), Hinweis and Abschnitte.](images/de2-m4-departure-board.svg)
 
 - *das Gleis* (from A1): the track. The platform you stand on is *der Bahnsteig*, but signs and announcements almost always say *Gleis*.
 - *die Abfahrt* (from A1): the time the train is planned to leave.

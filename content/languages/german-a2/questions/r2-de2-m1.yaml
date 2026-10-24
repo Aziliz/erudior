@@ -1,0 +1,458 @@
+# German A2, module 1, round 2: new question types for lessons 01–04 (de2-m1-r2-q01–q20)
+# and the honors lessons 04h1 and 04h2 (de2-m1-r2-h01–h26).
+
+# --- 01 Your life so far: the perfect, extended ---
+- id: de2-m1-r2-q01
+  lesson: de2-perfect-review
+  module_quiz: true
+  topic: Participles
+  type: text
+  stem: 'Complete with the past participle of "umziehen" (to move house): "Wir sind 2015 nach Wien ___."'
+  accept: [umgezogen]
+  explanation: |-
+    umziehen is separable, so -ge- goes between the prefix and the verb: um + ge + zogen = umgezogen. It's movement from one home to another, which is why the sentence uses sind.
+- id: de2-m1-r2-q02
+  lesson: de2-perfect-review
+  topic: Life events
+  type: label
+  stem: 'Name the stages of a life shown in the numbered pictures.'
+  image: {src: images/de2-m1-life-events-blank.svg, alt: 'Five numbered pictures on a timeline: a pram, a graduation cap, two wedding rings, a moving van with boxes and a rocking chair.'}
+  labels:
+    - {x: 12, y: 36, text: die Geburt}
+    - {x: 30.6, y: 36, text: der Abschluss}
+    - {x: 50, y: 36, text: die Hochzeit}
+    - {x: 69.4, y: 36, text: der Umzug}
+    - {x: 88.1, y: 36, text: die Rente}
+  distractors: [die Kindheit, der Lebenslauf]
+  explanation: |-
+    The pram stands for die Geburt (birth), the graduation cap for der Abschluss (a qualification), the rings for die Hochzeit (wedding), the moving van for der Umzug (a move to a new home) and the rocking chair for die Rente (retirement, pension). die Kindheit is a whole period of life, and der Lebenslauf is the CV that lists these events.
+- id: de2-m1-r2-q03
+  lesson: de2-perfect-review
+  module_quiz: true
+  topic: Participles
+  type: match
+  stem: 'Match each verb to its past participle.'
+  pairs:
+    - [studieren, studiert]
+    - [verlassen, verlassen]
+    - [nennen, genannt]
+    - [aufwachsen, aufgewachsen]
+    - [bekommen, bekommen]
+  distractors: [gestudiert, genennt]
+  explanation: |-
+    -ieren verbs take no ge-: studiert. Verbs with an inseparable prefix take no ge- either, so verlassen and bekommen look like their infinitives. nennen is a mixed verb: new vowel and -t, genannt. aufwachsen is separable: auf + ge + wachsen. "gestudiert" and "genennt" are the typical mistakes.
+- id: de2-m1-r2-q04
+  lesson: de2-perfect-review
+  topic: Perfect tense
+  stem: 'Which verbs form the perfect with sein? Select all that apply.'
+  choices: [aufwachsen, heiraten, sterben, verlassen, werden]
+  answer: [0, 2, 4]
+  explanation: |-
+    aufwachsen (ist aufgewachsen), sterben (ist gestorben) and werden (ist geworden) are changes of state, so they take sein. heiraten (hat geheiratet) and verlassen (hat verlassen, it has an accusative object: Ich habe meine Heimat verlassen) take haben.
+- id: de2-m1-r2-q05
+  lesson: de2-perfect-review
+  topic: Dates and years
+  type: order
+  stem: 'Put the words in order to say "In 2010 I moved to Hamburg." Start with the year.'
+  items: ['2010', bin, ich, nach Hamburg, umgezogen.]
+  explanation: |-
+    2010 bin ich nach Hamburg umgezogen. The year stands alone in position 1 (no "in"), so the auxiliary bin follows in position 2, then the subject ich; the participle umgezogen goes to the end of the sentence bracket.
+
+# --- 02 When I was a child: the simple past ---
+- id: de2-m1-r2-q06
+  lesson: de2-praeteritum
+  module_quiz: true
+  topic: Modal verbs
+  type: text
+  stem: 'Complete with the simple past of "können": "Mit sechs ___ ich schon lesen."'
+  accept: [konnte]
+  explanation: |-
+    Modal past: drop the umlaut and add -te: können → konnte. The ich form has no ending after -te. Not "könnte", which means "could" in the sense of "would be able to" (lesson 15).
+- id: de2-m1-r2-q07
+  lesson: de2-praeteritum
+  topic: Childhood and school
+  type: label
+  stem: 'Name the numbered parts of this old school report (Zeugnis).'
+  image: {src: images/de2-m1-zeugnis-blank.svg, alt: 'A school report from Grundschule Lindenweg for Peter Wolf with four numbered parts: 3b next to his name, the word Mathematik in the list of subjects, the grade 4 next to it, and a signature at the bottom.'}
+  labels:
+    - {x: 65.5, y: 27, text: die Klasse}
+    - {x: 24, y: 51.5, text: das Fach}
+    - {x: 75.8, y: 51.5, text: die Note}
+    - {x: 69.4, y: 83, text: die Unterschrift}
+  distractors: [die Pause, das Märchen]
+  explanation: |-
+    3b is the class (die Klasse): the third year, group b. Mathematik is a subject (das Fach) and 4 is its grade (die Note); in Germany 1 is the best grade. The signature at the bottom is die Unterschrift.
+- id: de2-m1-r2-q08
+  lesson: de2-praeteritum
+  topic: Simple past
+  type: match
+  stem: 'Match each simple past form to its infinitive.'
+  pairs:
+    - [ging, gehen]
+    - [kam, kommen]
+    - [gab, geben]
+    - [fand, finden]
+    - [wusste, wissen]
+  distractors: [gewinnen, sehen]
+  explanation: |-
+    Strong verbs change their vowel: gehen → ging, kommen → kam, geben → gab (es gab = there was), finden → fand. wissen is a mixed verb: new vowel and -te, wusste. The past of sehen is sah.
+- id: de2-m1-r2-q09
+  lesson: de2-praeteritum
+  module_quiz: true
+  topic: Modal verbs
+  stem: 'Which are correct simple past forms of modal verbs? Select all that apply.'
+  choices: [ich konnte, er mochte, wir durften, ich möchtete, sie müsste]
+  answer: [0, 1, 2]
+  explanation: |-
+    konnte (können), mochte (mögen, with g → ch) and durften (dürfen) are right: no umlaut, -te. möchten has no simple past of its own (use wollte), and müsste, with an umlaut, is a different form meaning "would have to" (lesson 15); the past of müssen is musste.
+- id: de2-m1-r2-q10
+  lesson: de2-praeteritum
+  topic: Modal verbs
+  type: order
+  stem: 'Put the words in order to say "As a child I wasn''t allowed to watch TV."'
+  items: [Als Kind, durfte, ich, nicht, fernsehen.]
+  explanation: |-
+    Als Kind durfte ich nicht fernsehen. "Als Kind" is position 1, the modal durfte is in position 2, the subject follows, and the infinitive fernsehen goes to the end with nicht just before it.
+
+# --- 03 Reasons and opinions: weil and dass ---
+- id: de2-m1-r2-q11
+  lesson: de2-weil-dass
+  module_quiz: true
+  topic: weil
+  type: order
+  stem: 'Complete the sentence "Ich kann nicht kommen, …" by putting the words in order.'
+  items: [weil, ich, heute, arbeiten, muss.]
+  explanation: |-
+    …, weil ich heute arbeiten muss. weil starts the clause, the subject comes right after it, and the conjugated verb (the modal muss) goes last of all, after the infinitive arbeiten.
+- id: de2-m1-r2-q12
+  lesson: de2-weil-dass
+  topic: Opinions and feelings
+  type: label
+  stem: 'How does each person feel? Name the numbered faces.'
+  image: {src: images/de2-m1-feelings-blank.svg, alt: 'Five numbered faces: a big smile, a frown with a tear, angry eyebrows with clenched teeth, wide eyes with an open mouth, and a wavy mouth with a drop of sweat.'}
+  labels:
+    - {x: 11.25, y: 43, text: glücklich}
+    - {x: 30.6, y: 43, text: traurig}
+    - {x: 50, y: 43, text: wütend}
+    - {x: 69.4, y: 43, text: überrascht}
+    - {x: 88.75, y: 43, text: nervös}
+  distractors: [enttäuscht, stolz]
+  explanation: |-
+    1 smiles: glücklich (happy). 2 frowns and cries: traurig (sad). 3 has angry eyebrows and clenched teeth: wütend (furious). 4 has wide eyes and an open mouth: überrascht (surprised). 5 has a wavy mouth and is sweating: nervös (nervous).
+- id: de2-m1-r2-q13
+  lesson: de2-weil-dass
+  topic: Subordinate clauses
+  type: text
+  stem: 'Complete with the perfect of "anrufen" (to call): "Ich bin enttäuscht, weil du nicht ___ ___."'
+  accept:
+    - [angerufen]
+    - [hast]
+  explanation: |-
+    In a subordinate clause the auxiliary goes last of all: weil du nicht angerufen hast. anrufen is separable, so the participle is an + ge + rufen = angerufen.
+- id: de2-m1-r2-q14
+  lesson: de2-weil-dass
+  module_quiz: true
+  topic: dass
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich glaube, dass er recht hat.', 'Ich glaube, er hat recht.', 'Ich glaube, dass er hat recht.', 'Weil es regnet, nehme ich den Bus.', 'Weil es regnet, ich nehme den Bus.']
+  answer: [0, 1, 3]
+  explanation: |-
+    With dass the verb goes to the end (dass er recht hat); without dass the second part is a main clause (er hat recht). Mixing the two (dass er hat recht) is wrong. A weil clause in position 1 is followed directly by the main verb: verb, comma, verb (regnet, nehme ich).
+- id: de2-m1-r2-q15
+  lesson: de2-weil-dass
+  topic: Opinions and feelings
+  type: match
+  stem: 'Match each German adjective to its meaning.'
+  pairs:
+    - [froh, glad]
+    - [wütend, furious]
+    - [enttäuscht, disappointed]
+    - [überrascht, surprised]
+    - [stolz, proud]
+  distractors: [nervous, satisfied]
+  explanation: |-
+    froh = glad, wütend = furious, enttäuscht = disappointed, überrascht = surprised, stolz = proud (stolz auf + accusative = proud of). "nervous" is nervös and "satisfied" is zufrieden.
+
+# --- 04 If, when and whether: wenn, als, ob ---
+- id: de2-m1-r2-q16
+  lesson: de2-wenn-als-ob
+  module_quiz: true
+  topic: wenn and als
+  type: text
+  stem: 'Fill in als, wenn or ob: "___ ich klein war, hatten wir einen Hund. ___ ich heute einen Hund sehe, denke ich an ihn. Ich weiß nicht, ___ ich wieder einen Hund möchte."'
+  accept:
+    - [als]
+    - [wenn]
+    - [ob]
+  explanation: |-
+    Als ich klein war: one period in the past. Wenn ich heute einen Hund sehe: every time, in the present. Ich weiß nicht, ob …: an indirect yes/no question (you can say "whether" in English).
+- id: de2-m1-r2-q17
+  lesson: de2-wenn-als-ob
+  topic: Indirect questions
+  type: match
+  stem: 'Which word fills each gap?'
+  pairs:
+    - ['___ ich ein Kind war, wohnten wir in Bonn.', als]
+    - ['Weißt du, ___ der Zug fährt? – Um 8.15 Uhr.', wann]
+    - ['Ich weiß nicht, ___ sie mitkommt oder nicht.', ob]
+    - ['___ es regnet, bleiben wir zu Hause.', wenn]
+  explanation: |-
+    als: one period in the past (als ich ein Kind war). wann: the question asks for a time, and the answer is a time (um 8.15 Uhr). ob: a yes/no question made indirect ("whether she's coming or not"). wenn: a condition with a result.
+- id: de2-m1-r2-q18
+  lesson: de2-wenn-als-ob
+  module_quiz: true
+  topic: wenn and als
+  stem: 'In which sentences is "wenn" correct in the gap? Select all that apply.'
+  choices: ['___ ich nach Hause komme, koche ich immer zuerst Tee.', '___ ich 2019 in Rom war, hat es jeden Tag geregnet.', '___ du Hilfe brauchst, ruf mich an.', 'Ich weiß nicht, ___ er heute kommt.']
+  answer: [0, 2]
+  explanation: |-
+    wenn is right for something that happens every time (… nach Hause komme, koche ich immer …) and for a condition (wenn du Hilfe brauchst). One stay in the past takes als: Als ich 2019 in Rom war. An indirect question takes ob or wann, never wenn: Ich weiß nicht, ob er heute kommt.
+- id: de2-m1-r2-q19
+  lesson: de2-wenn-als-ob
+  topic: Indirect questions
+  type: order
+  stem: 'Ask politely whether the shop is open on Monday. Put the words in order after "Können Sie mir sagen, …"'
+  items: [ob, Sie, am Montag, geöffnet, 'haben?']
+  explanation: |-
+    Können Sie mir sagen, ob Sie am Montag geöffnet haben? A yes/no question becomes indirect with ob; the subject pronoun Sie comes right after ob, and the conjugated verb haben goes to the end. The sentence as a whole is a question, so it ends with a question mark.
+- id: de2-m1-r2-q20
+  lesson: de2-wenn-als-ob
+  topic: Indirect questions
+  stem: 'How do you say "I don''t know if she''s at home"?'
+  choices: ['Ich weiß nicht, wenn sie zu Hause ist.', 'Ich weiß nicht, ob ist sie zu Hause.', 'Ich weiß nicht, ob sie zu Hause ist.', 'Ich weiß nicht, wann sie zu Hause ist.']
+  answer: 2
+  explanation: |-
+    "If" here means "whether", so German uses ob, with the verb at the end: ob sie zu Hause ist. wenn never starts an indirect question; "ob ist sie" keeps question word order; wann means "when", which changes the meaning.
+
+# --- 04h1 Honors: Lebensgeschichten ---
+- id: de2-m1-r2-h01
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  stem: 'A short biography in an encyclopedia is usually written in which tense?'
+  choices: ['the perfect (hat geheiratet)', 'the simple past (heiratete)', 'the present (heiratet)', 'the future (wird heiraten)']
+  answer: 1
+  explanation: |-
+    Written stories, including biographies, use the simple past: Sie heiratete 1872. The perfect is the tense of conversation; the present is only for what is still true today.
+- id: de2-m1-r2-h02
+  lesson: de2-m1-h-biographies
+  topic: Simple past
+  type: text
+  stem: 'Complete with the simple past of "heiraten": "1872 ___ sie den Ingenieur Carl Benz."'
+  accept: [heiratete]
+  explanation: |-
+    heiraten is weak. Its stem heirat- ends in -t, so it adds -ete: sie heiratete. "heiratet" without the final -e is the present tense.
+- id: de2-m1-r2-h03
+  lesson: de2-m1-h-biographies
+  topic: Simple past
+  type: text
+  stem: 'Complete with the simple past of "aufwachsen": "Sie ___ in Pforzheim ___."'
+  accept:
+    - [wuchs]
+    - [auf]
+  explanation: |-
+    wachsen is strong (wachsen – wuchs – gewachsen), so the er/sie form is wuchs with no ending. aufwachsen is separable: in a main clause the prefix goes to the end: Sie wuchs in Pforzheim auf.
+- id: de2-m1-r2-h04
+  lesson: de2-m1-h-biographies
+  topic: Simple past
+  type: match
+  stem: 'Match each infinitive to its simple past (er/sie form).'
+  pairs:
+    - [bleiben, blieb]
+    - [fliegen, flog]
+    - [finden, fand]
+    - [sprechen, sprach]
+    - [fahren, fuhr]
+  distractors: [fuhrte, bleibte]
+  explanation: |-
+    Each follows an ablaut pattern: ei → ie (bleiben, blieb), ie → o (fliegen, flog), i → a (finden, fand), e → a (sprechen, sprach), a → u (fahren, fuhr). Strong verbs never add -te, so "fuhrte" and "bleibte" are wrong.
+- id: de2-m1-r2-h05
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  type: order
+  stem: 'Put the events of Bertha Benz''s life in order, from the earliest.'
+  items: [Bertha wird in Pforzheim geboren., Sie heiratet Carl Benz., Carl bekommt ein Patent für den Motorwagen., Bertha fährt mit ihren Söhnen nach Pforzheim., Bertha stirbt in Ladenburg.]
+  explanation: |-
+    Born 1849, married 1872, patent 1886, the trip to Pforzheim on 5 August 1888, died 1944 in Ladenburg at 95.
+- id: de2-m1-r2-h06
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  type: label
+  stem: 'Name the numbered parts of this German CV (Lebenslauf).'
+  image: {src: images/de2-m1-lebenslauf-blank.svg, alt: 'A German CV with six numbered parts: a photo at the top right, four section headings whose text is hidden, and a place, date and signature at the bottom. Under heading 2: name, date of birth and address. Under heading 3: two jobs with dates. Under heading 4: a degree and the Abitur. Under heading 5: three languages with levels.'}
+  labels:
+    - {x: 79.7, y: 16, text: Foto}
+    - {x: 24, y: 17.8, text: Persönliche Daten}
+    - {x: 24, y: 36.5, text: Berufserfahrung}
+    - {x: 24, y: 51.5, text: Ausbildung}
+    - {x: 24, y: 66.5, text: Sprachkenntnisse}
+    - {x: 68.75, y: 90, text: 'Ort, Datum und Unterschrift'}
+  distractors: [Interessen, Hobbys]
+  explanation: |-
+    Name, date of birth and address are the Persönliche Daten. Jobs go under Berufserfahrung (work experience), the degree and the Abitur under Ausbildung (education), the languages under Sprachkenntnisse. A printed CV often ends with place, date and signature. The photo is optional today.
+- id: de2-m1-r2-h07
+  lesson: de2-m1-h-biographies
+  topic: Simple past
+  stem: 'Which are strong verbs, with a new vowel and no -te in the simple past? Select all that apply.'
+  choices: [fahren, heiraten, sterben, gründen, bleiben]
+  answer: [0, 2, 4]
+  explanation: |-
+    fahren – fuhr, sterben – starb and bleiben – blieb change their vowel and take no -te. heiraten (heiratete) and gründen (gründete) are weak.
+- id: de2-m1-r2-h08
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  stem: 'In the text, why did Bertha Benz buy fuel in a pharmacy in Wiesloch?'
+  choices: ['Carl had told her to stop there.', 'Her mother worked in the pharmacy.', 'It was cheaper than at the petrol station.', 'There were no petrol stations yet, and the fuel was sold in pharmacies.']
+  answer: 3
+  explanation: |-
+    "Tankstellen gab es noch nicht, und der Wagen brauchte Ligroin, eine Art Benzin aus der Apotheke." Carl knew nothing about the trip, and there were no petrol stations to compare with.
+- id: de2-m1-r2-h09
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  stem: 'Read: "Bergauf war der Motor zu schwach, und die Söhne mussten oft schieben." What happened?'
+  choices: ['Uphill the engine was too weak, so the sons often had to push.', 'The sons often wanted to drive uphill.', 'The engine broke down, and the sons went home.', 'The sons were too weak to push the car uphill.']
+  answer: 0
+  explanation: |-
+    bergauf = uphill, schwach = weak, mussten = had to (simple past of müssen), schieben = to push. It was the engine that was too weak, not the sons.
+- id: de2-m1-r2-h10
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  stem: 'Find the mistake: "Nach dem Abitur studierte sie Medizin, und dann sie arbeitete in Wien."'
+  choices: ['studierte should be studiert', 'Nach dem Abitur should be Nach Abitur', 'dann sie arbeitete should be dann arbeitete sie', 'arbeitete should be arbeitet']
+  answer: 2
+  explanation: |-
+    dann is in position 1 of its clause (after und, which doesn't count), so the verb follows straight away: und dann arbeitete sie in Wien. studierte and arbeitete are the right simple past forms.
+- id: de2-m1-r2-h11
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  stem: 'Tomasz has had his own workshop since June 2025 and still has it. Complete his biography: "Seit Juni 2025 ___ er eine eigene Werkstatt."'
+  choices: ['hat', 'hatte', 'hat gehabt', 'habe']
+  answer: 0
+  explanation: |-
+    With seit and something that is still true today, German uses the present: Seit Juni 2025 hat er … The simple past hatte and the perfect hat gehabt would mean it's over.
+- id: de2-m1-r2-h12
+  lesson: de2-m1-h-biographies
+  topic: Simple past
+  stem: 'Complete: "2005 ___ sie in Graz eine kleine Firma." (gründen, simple past)'
+  choices: ['gründte', 'gründete', 'grund', 'gegründet']
+  answer: 1
+  explanation: |-
+    gründen is weak, and its stem ends in -d, so it adds -ete: gründete. "gegründet" is the participle and would need hat.
+- id: de2-m1-r2-h13
+  lesson: de2-m1-h-biographies
+  topic: Biographies
+  stem: 'In a German tabular CV, in what order are the entries in each section usually listed today?'
+  choices: ['oldest first', 'in alphabetical order', 'most important first, without dates', 'newest first']
+  answer: 3
+  explanation: |-
+    Today a Lebenslauf usually starts each section with the current or most recent entry (seit 06/2025 …) and goes back in time. A biography, by contrast, tells the story oldest first.
+
+# --- 04h2 Honors: reported speech ---
+- id: de2-m1-r2-h14
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  stem: 'Anna says: "Ich habe keinen Hunger." Which sentence reports this correctly in everyday German?'
+  choices: ['Anna hat gesagt, dass ich keinen Hunger habe.', 'Anna hat gesagt, dass sie hat keinen Hunger.', 'Anna hat gesagt, dass sie keinen Hunger hat.', 'Anna hat gesagt, dass sie keinen Hunger hatte.']
+  answer: 2
+  explanation: |-
+    ich becomes sie (Anna), the verb goes to the end, and the tense stays as Anna said it: dass sie keinen Hunger hat. "dass ich …" forgets to change the pronoun; "hatte" would mean she wasn't hungry at some earlier time.
+- id: de2-m1-r2-h15
+  lesson: de2-m1-h-reported-speech
+  topic: Indirect questions
+  type: text
+  stem: 'Ben asked you: "Kommst du mit?" Report it: "Ben hat gefragt, ___ ich mitkomme."'
+  accept: [ob]
+  explanation: |-
+    "Kommst du mit?" is a yes/no question, so the reported question starts with ob (whether), and mitkomme joins up at the end.
+- id: de2-m1-r2-h16
+  lesson: de2-m1-h-reported-speech
+  topic: Indirect questions
+  type: text
+  stem: 'Lisa asked you: "Wo wohnst du?" Report it: "Lisa hat gefragt, wo ich ___."'
+  accept: [wohne]
+  explanation: |-
+    The question was put to you, so du becomes ich, and the verb takes the ich form: wohne. It goes to the end of the clause, after the question word wo.
+- id: de2-m1-r2-h17
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  type: text
+  stem: 'Lena told you: "Ruf mich morgen an!" Report it with a form of "sollen": "Lena hat gesagt, ich ___ sie morgen anrufen."'
+  accept: [soll, sollte]
+  explanation: |-
+    A command is reported with sollen: ich soll sie anrufen (in speech also ich sollte sie anrufen). mich becomes sie, because Lena is now "she".
+- id: de2-m1-r2-h18
+  lesson: de2-m1-h-reported-speech
+  topic: Indirect questions
+  type: order
+  stem: 'Your friend asked you: "Wann holst du mich ab?" Report it: "Sie hat gefragt, …"'
+  items: [wann, ich, sie, abhole.]
+  explanation: |-
+    Sie hat gefragt, wann ich sie abhole. du becomes ich and mich becomes sie; the question word wann stays at the front, the subject pronoun comes next, then the object pronoun, and the separable verb joins up at the end.
+- id: de2-m1-r2-h19
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  type: match
+  stem: 'Max said these things to you. Match each one to how you report it: "Max hat gesagt / gefragt, …"'
+  pairs:
+    - ['"Ich bin müde."', dass er müde ist]
+    - ['"Bist du müde?"', ob ich müde bin]
+    - ['"Warum bist du so müde?"', warum ich so müde bin]
+    - ['"Geh ins Bett!"', ich soll ins Bett gehen]
+  distractors: [dass ich müde bin, ob er müde ist]
+  explanation: |-
+    A statement takes dass (and Max's ich becomes er); a yes/no question takes ob; a W-question keeps its question word; a command becomes sollen. Max's du means you, so it becomes ich.
+- id: de2-m1-r2-h20
+  lesson: de2-m1-h-reported-speech
+  topic: Indirect questions
+  stem: 'Tim asked you: "Hast du heute Zeit?" Which are correct ways to report this? Select all that apply.'
+  choices: ['Tim hat gefragt, ob ich heute Zeit habe.', 'Tim wollte wissen, ob ich heute Zeit habe.', 'Tim hat gefragt, wenn ich heute Zeit habe.', 'Tim hat gefragt, ob ich habe heute Zeit.', 'Tim hat gefragt, ob du heute Zeit hast.']
+  answer: [0, 1]
+  explanation: |-
+    A yes/no question is reported with ob and the verb at the end; fragen and wissen wollen both work. wenn can't start a reported question, "ob ich habe" leaves the verb in the wrong place, and "ob du … hast" forgets that Tim's du is you, so it becomes ich.
+- id: de2-m1-r2-h21
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  stem: 'In the text "Das Gerücht im dritten Stock", what did Herr Weber really tell Frau Kühn?'
+  choices: ['He is moving to Vienna in May.', 'He will be at his daughter''s in Vienna for three weeks in May, and he asked her to water his plants.', 'His daughter is moving into his flat.', 'He wants to give his plants to Jonas.']
+  answer: 1
+  explanation: |-
+    "Ich bin im Mai drei Wochen bei meiner Tochter in Wien. Können Sie meine Blumen gießen?" He was going on holiday. The idea that he was moving out grew as the message was passed on.
+- id: de2-m1-r2-h22
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  stem: 'Frau Kühn told Jonas: "Er hat gefragt, ob wir seine Blumen gießen können." What did Jonas tell Mia?'
+  choices: ['that Herr Weber said they should take his plants', 'that Herr Weber asked them to water his plants', 'that Herr Weber was moving to Bonn', 'that Herr Weber was ill']
+  answer: 0
+  explanation: |-
+    Jonas whispered: "Er hat gesagt, wir sollen seine Blumen nehmen." He turned "water" into "take", which is how a message changes in Stille Post.
+- id: de2-m1-r2-h23
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  stem: 'A news report says: "Die Ministerin sagte, sie sei sehr zufrieden." What does the form "sei" show?'
+  choices: ['that the sentence is a question', 'that it will happen in the future', 'that the minister is giving an order', 'that the reporter is passing on what the minister said']
+  answer: 3
+  explanation: |-
+    sei is the Konjunktiv I of sein. News reports use it to mark reported speech: the reporter passes on the minister's words without claiming they're true. In conversation you'd say: Sie hat gesagt, sie ist sehr zufrieden.
+- id: de2-m1-r2-h24
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  stem: 'You call a colleague, but someone else answers: "Frau Ott ist leider nicht im Büro." What is that person most likely to say next?'
+  choices: ['Kann ich Sie verbinden?', 'Haben Sie etwas ausgerichtet?', 'Kann ich etwas ausrichten?', 'Können Sie das weitersagen?']
+  answer: 2
+  explanation: |-
+    "Kann ich etwas ausrichten?" = Can I take a message? ausrichten means to pass on a message. weitersagen is to tell others (often what shouldn't be passed on); "Haben Sie etwas ausgerichtet?" asks whether you passed something on, and "verbinden" (put you through) makes no sense if she isn't there.
+- id: de2-m1-r2-h25
+  lesson: de2-m1-h-reported-speech
+  topic: Reported speech
+  stem: 'Your mother says to you: "Dein Bruder hat meinen Schlüssel." You tell your brother. Which is right?'
+  choices: ['Mama hat gesagt, dass du ihren Schlüssel hast.', 'Mama hat gesagt, dass dein Bruder meinen Schlüssel hat.', 'Mama hat gesagt, dass du meinen Schlüssel hast.', 'Mama hat gesagt, dass er ihren Schlüssel hat.']
+  answer: 0
+  explanation: |-
+    You're talking to your brother, so "dein Bruder" becomes du; your mother is now "she", so "meinen Schlüssel" becomes ihren Schlüssel. "meinen" would mean your own key.
+- id: de2-m1-r2-h26
+  lesson: de2-m1-h-reported-speech
+  topic: Indirect questions
+  stem: 'Which sentence is written correctly?'
+  choices: ['Sie hat gefragt ob ich mitkomme.', 'Sie hat gefragt, ob ich mitkomme.', 'Sie hat gefragt, ob ich mitkomme?', 'Sie hat gefragt, ob ich komme mit.']
+  answer: 1
+  explanation: |-
+    A comma separates the main clause from the ob clause, the separable verb joins up at the end (mitkomme), and because the whole sentence is a statement it ends with a full stop, not a question mark.

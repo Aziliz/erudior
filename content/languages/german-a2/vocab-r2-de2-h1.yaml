@@ -1,0 +1,510 @@
+# German A2, honors module de2-h1 (round 2): words from the four Lesen und Hören lessons.
+# Checked against German A1, A2 and B1 vocabulary (including other round-2 files) on 2026-10-23.
+- id: de2-h1-r2-w01
+  lesson: de2-h-lesestrategien
+  term: das Plakat
+  pos: noun
+  plural: die Plakate
+  meanings:
+  - poster
+  - placard
+  - bill
+  example: Am Bahnhof hängt ein Plakat für das Konzert.
+  exampleEn: There is a poster for the concert at the station.
+- id: de2-h1-r2-w02
+  lesson: de2-h-lesestrategien
+  term: der Aushang
+  pos: noun
+  plural: die Aushänge
+  meanings:
+  - notice (posted on a board)
+  - notice
+  - posted notice
+  - announcement
+  example: Lies mal den Aushang im Treppenhaus!
+  exampleEn: Read the notice in the stairwell!
+- id: de2-h1-r2-w03
+  lesson: de2-h-lesestrategien
+  term: die Überschrift
+  pos: noun
+  plural: die Überschriften
+  meanings:
+  - headline
+  - heading
+  - title
+  alt:
+  - die Ueberschrift
+  example: Die Überschrift ist kurz, aber interessant.
+  exampleEn: The headline is short but interesting.
+- id: de2-h1-r2-w04
+  lesson: de2-h-lesestrategien
+  term: die Belohnung
+  pos: noun
+  plural: die Belohnungen
+  meanings:
+  - reward
+  example: Für die Katze gibt es eine Belohnung.
+  exampleEn: There is a reward for the cat.
+- id: de2-h1-r2-w05
+  lesson: de2-h-lesestrategien
+  term: überfliegen
+  pos: verb
+  meanings:
+  - to skim (a text)
+  - to skim
+  - to skim through
+  - to fly over
+  alt:
+  - ueberfliegen
+  example: Ich überfliege die Zeitung beim Frühstück.
+  exampleEn: I skim the newspaper at breakfast.
+  note: 'In the sense "to skim" it is inseparable: du überfliegst, er überfliegt; hat überflogen.'
+- id: de2-h1-r2-w06
+  lesson: de2-h-lesestrategien
+  term: die Einzelheit
+  pos: noun
+  plural: die Einzelheiten
+  meanings:
+  - detail
+  example: Die Einzelheiten stehen im zweiten Absatz.
+  exampleEn: The details are in the second paragraph.
+- id: de2-h1-r2-w07
+  lesson: de2-h-lesestrategien
+  term: die Hauptsache
+  pos: noun
+  plural: die Hauptsachen
+  meanings:
+  - main thing
+  - the main thing
+  - most important thing
+  - what matters
+  example: Hauptsache, wir sind pünktlich.
+  exampleEn: The main thing is that we are on time.
+  note: 'Often at the start of a sentence: Hauptsache, … = what matters is …'
+- id: de2-h1-r2-w08
+  lesson: de2-h-lesestrategien
+  term: ausverkauft
+  pos: adjective
+  meanings:
+  - sold out
+  example: Das Konzert ist leider ausverkauft.
+  exampleEn: Unfortunately the concert is sold out.
+- id: de2-h1-r2-w09
+  lesson: de2-h-lesestrategien
+  term: das Werkzeug
+  pos: noun
+  plural: die Werkzeuge
+  meanings:
+  - tool (or tools)
+  - tool
+  - tools
+  example: Hast du Werkzeug für das Fahrrad?
+  exampleEn: Do you have tools for the bike?
+  note: Often used without a plural for "tools" in general.
+- id: de2-h1-r2-w10
+  lesson: de2-h-lesestrategien
+  term: das Gerät
+  pos: noun
+  plural: die Geräte
+  meanings:
+  - appliance (device)
+  - appliance
+  - device
+  - gadget
+  - machine
+  alt:
+  - das Geraet
+  example: Das Gerät ist kaputt.
+  exampleEn: The appliance is broken.
+- id: de2-h1-r2-w11
+  lesson: de2-h-lesestrategien
+  term: die Spende
+  pos: noun
+  plural: die Spenden
+  meanings:
+  - donation
+  - contribution
+  example: Die Bibliothek freut sich über Spenden.
+  exampleEn: The library is happy about donations.
+- id: de2-h1-r2-w12
+  lesson: de2-h-woerter
+  term: das Wörterbuch
+  pos: noun
+  plural: die Wörterbücher
+  meanings:
+  - dictionary
+  alt:
+  - das Woerterbuch
+  example: Im Test darf man kein Wörterbuch benutzen.
+  exampleEn: You are not allowed to use a dictionary in the test.
+- id: de2-h1-r2-w13
+  lesson: de2-h-woerter
+  term: unbekannt
+  pos: adjective
+  meanings:
+  - unknown
+  - unfamiliar
+  example: Im Text gibt es drei unbekannte Wörter.
+  exampleEn: There are three unknown words in the text.
+- id: de2-h1-r2-w14
+  lesson: de2-h-woerter
+  term: der Zusammenhang
+  pos: noun
+  plural: die Zusammenhänge
+  meanings:
+  - context (of a word or event)
+  - context
+  - connection
+  - relationship
+  example: Aus dem Zusammenhang verstehe ich das Wort.
+  exampleEn: I understand the word from the context.
+- id: de2-h1-r2-w15
+  lesson: de2-h-woerter
+  term: erraten
+  pos: verb
+  meanings:
+  - to guess (correctly)
+  - to guess
+  - to work out
+  example: Hast du die Bedeutung erraten?
+  exampleEn: Did you guess the meaning?
+  note: 'Stem change: du errätst, er errät. Perfect: hat erraten.'
+- id: de2-h1-r2-w16
+  lesson: de2-h-woerter
+  term: das Gegenteil
+  pos: noun
+  plural: die Gegenteile
+  meanings:
+  - opposite
+  - the opposite
+  - contrary
+  example: Das Gegenteil von bekannt ist unbekannt.
+  exampleEn: The opposite of known is unknown.
+- id: de2-h1-r2-w17
+  lesson: de2-h-woerter
+  term: die Kleinigkeit
+  pos: noun
+  plural: die Kleinigkeiten
+  meanings:
+  - small thing (trifle)
+  - trifle
+  - little thing
+  - small thing
+  - something small
+  example: Ich bringe eine Kleinigkeit zum Essen mit.
+  exampleEn: I will bring a little something to eat.
+- id: de2-h1-r2-w18
+  lesson: de2-h-woerter
+  term: die Sicherheit
+  pos: noun
+  plural: die Sicherheiten
+  meanings:
+  - safety (or security)
+  - safety
+  - security
+  - certainty
+  example: Sicherheit ist im Straßenverkehr wichtig.
+  exampleEn: Safety is important in traffic.
+- id: de2-h1-r2-w19
+  lesson: de2-h-woerter
+  term: die Sauberkeit
+  pos: noun
+  plural: —
+  meanings:
+  - cleanliness
+  - cleanness
+  example: Die Sauberkeit im Hotel war super.
+  exampleEn: The cleanliness in the hotel was great.
+- id: de2-h1-r2-w20
+  lesson: de2-h-woerter
+  term: die Freundlichkeit
+  pos: noun
+  plural: die Freundlichkeiten
+  meanings:
+  - friendliness
+  - kindness
+  example: Danke für Ihre Freundlichkeit!
+  exampleEn: Thank you for your kindness!
+- id: de2-h1-r2-w21
+  lesson: de2-h-woerter
+  term: essbar
+  pos: adjective
+  meanings:
+  - edible
+  - eatable
+  - safe to eat
+  example: Ist dieser Pilz essbar?
+  exampleEn: Is this mushroom edible?
+- id: de2-h1-r2-w22
+  lesson: de2-h-hoeren
+  term: zuhören
+  pos: verb
+  meanings:
+  - to listen (to someone)
+  - to listen
+  - to listen to
+  alt:
+  - zuhoeren
+  example: Hör mir bitte zu!
+  exampleEn: Please listen to me!
+  note: 'Separable, with the dative: ich höre dir zu. Perfect: hat zugehört.'
+- id: de2-h1-r2-w23
+  lesson: de2-h-hoeren
+  term: der Lautsprecher
+  pos: noun
+  plural: die Lautsprecher
+  meanings:
+  - loudspeaker
+  - speaker
+  example: Die Durchsage kommt aus dem Lautsprecher.
+  exampleEn: The announcement comes from the loudspeaker.
+- id: de2-h1-r2-w24
+  lesson: de2-h-hoeren
+  term: Achtung
+  pos: interjection
+  meanings:
+  - attention! (in announcements)
+  - attention
+  - caution
+  - watch out
+  - look out
+  - warning
+  example: Achtung an Gleis 3!
+  exampleEn: Attention, platform 3!
+  note: As a noun, die Achtung also means respect.
+- id: de2-h1-r2-w25
+  lesson: de2-h-hoeren
+  term: zurückbleiben
+  pos: verb
+  meanings:
+  - to stand back (at train doors)
+  - stand back
+  - to stay back
+  - to stay behind
+  - to remain behind
+  alt:
+  - zurueckbleiben
+  example: Zurückbleiben, bitte! Die Türen schließen.
+  exampleEn: Please stand back! The doors are closing.
+  note: 'Separable. Perfect: ist zurückgeblieben.'
+- id: de2-h1-r2-w26
+  lesson: de2-h-hoeren
+  term: planmäßig
+  pos: adjective
+  meanings:
+  - scheduled (as planned)
+  - scheduled
+  - as planned
+  - on schedule
+  - according to plan
+  alt:
+  - planmaessig
+  example: Der Zug fährt planmäßig um 9 Uhr ab.
+  exampleEn: The train leaves on schedule at 9.
+- id: de2-h1-r2-w27
+  lesson: de2-h-hoeren
+  term: der Treffpunkt
+  pos: noun
+  plural: die Treffpunkte
+  meanings:
+  - meeting point
+  - meeting place
+  - rendezvous
+  example: Unser Treffpunkt ist vor dem Kino.
+  exampleEn: Our meeting point is in front of the cinema.
+- id: de2-h1-r2-w28
+  lesson: de2-h-hoeren
+  term: notieren
+  pos: verb
+  meanings:
+  - to note down
+  - to note
+  - to write down
+  - to jot down
+  - to make a note of
+  example: Ich notiere die Telefonnummer.
+  exampleEn: I write down the phone number.
+  note: 'Perfect: hat notiert (no ge-, like all -ieren verbs).'
+- id: de2-h1-r2-w29
+  lesson: de2-h-hoeren
+  term: halt
+  pos: particle
+  meanings:
+  - just (that is how it is)
+  - just
+  - simply
+  example: Das ist halt so.
+  exampleEn: That is just the way it is.
+  note: Unstressed modal particle, more common in the south. Halt! as an exclamation means Stop!
+- id: de2-h1-r2-w30
+  lesson: de2-h-hoeren
+  term: na ja
+  pos: interjection
+  meanings:
+  - oh well
+  - well
+  - well (hesitating)
+  alt:
+  - naja
+  example: Na ja, morgen ist auch noch ein Tag.
+  exampleEn: Oh well, tomorrow is another day.
+  kind: phrase
+- id: de2-h1-r2-w31
+  lesson: de2-h-hoeren
+  term: das Stichwort
+  pos: noun
+  plural: die Stichworte
+  meanings:
+  - keyword (in notes)
+  - keyword
+  - key word
+  - note
+  - cue
+  example: Ich schreibe nur Stichworte auf.
+  exampleEn: I only write down keywords.
+  note: In the sense "dictionary entry" the plural is die Stichwörter.
+- id: de2-h1-r2-w32
+  lesson: de2-h-hoeren
+  term: die Sprachnachricht
+  pos: noun
+  plural: die Sprachnachrichten
+  meanings:
+  - voice message
+  - voice note
+  - audio message
+  example: Ich schicke dir eine Sprachnachricht.
+  exampleEn: I will send you a voice message.
+- id: de2-h1-r2-w33
+  lesson: de2-h-geschichten
+  term: das Gedicht
+  pos: noun
+  plural: die Gedichte
+  meanings:
+  - poem
+  example: Das Gedicht hat nur acht Zeilen.
+  exampleEn: The poem has only eight lines.
+- id: de2-h1-r2-w34
+  lesson: de2-h-geschichten
+  term: der Dichter
+  pos: noun
+  plural: die Dichter
+  meanings:
+  - poet (male)
+  - poet
+  - writer
+  example: Goethe ist ein berühmter Dichter.
+  exampleEn: Goethe is a famous poet.
+  note: 'Female: die Dichterin.'
+- id: de2-h1-r2-w35
+  lesson: de2-h-geschichten
+  term: die Zeile
+  pos: noun
+  plural: die Zeilen
+  meanings:
+  - line (of text)
+  - line
+  - row
+  example: Lies bitte die erste Zeile vor.
+  exampleEn: Please read out the first line.
+- id: de2-h1-r2-w36
+  lesson: de2-h-geschichten
+  term: der Reim
+  pos: noun
+  plural: die Reime
+  meanings:
+  - rhyme
+  example: Haus und Maus sind ein Reim.
+  exampleEn: Haus and Maus are a rhyme.
+- id: de2-h1-r2-w37
+  lesson: de2-h-geschichten
+  term: der Vogel
+  pos: noun
+  plural: die Vögel
+  meanings:
+  - bird
+  example: Am Morgen singen die Vögel.
+  exampleEn: In the morning the birds sing.
+- id: de2-h1-r2-w38
+  lesson: de2-h-geschichten
+  term: der Baum
+  pos: noun
+  plural: die Bäume
+  meanings:
+  - tree
+  example: Im Garten steht ein alter Baum.
+  exampleEn: There is an old tree in the garden.
+- id: de2-h1-r2-w39
+  lesson: de2-h-geschichten
+  term: der Stern
+  pos: noun
+  plural: die Sterne
+  meanings:
+  - star
+  example: Heute Nacht sieht man viele Sterne.
+  exampleEn: You can see a lot of stars tonight.
+- id: de2-h1-r2-w40
+  lesson: de2-h-geschichten
+  term: die Prinzessin
+  pos: noun
+  plural: die Prinzessinnen
+  meanings:
+  - princess
+  example: Die Prinzessin wohnt in einem Schloss.
+  exampleEn: The princess lives in a castle.
+- id: de2-h1-r2-w41
+  lesson: de2-h-geschichten
+  term: die Hexe
+  pos: noun
+  plural: die Hexen
+  meanings:
+  - witch
+  example: Im Märchen wohnt die Hexe im Wald.
+  exampleEn: In the fairy tale the witch lives in the forest.
+- id: de2-h1-r2-w42
+  lesson: de2-h-geschichten
+  term: der Schatz
+  pos: noun
+  plural: die Schätze
+  meanings:
+  - treasure
+  - darling (term of endearment)
+  - sweetheart
+  example: Unter dem Baum lag ein Schatz.
+  exampleEn: A treasure lay under the tree.
+  note: 'Also a pet name: Schatz! = darling!'
+- id: de2-h1-r2-w43
+  lesson: de2-h-geschichten
+  term: schweigen
+  pos: verb
+  meanings:
+  - to be silent
+  - to keep quiet
+  - to say nothing
+  - to remain silent
+  example: Alle schweigen und hören zu.
+  exampleEn: Everyone is silent and listens.
+  note: 'Strong verb: schwieg, hat geschwiegen.'
+- id: de2-h1-r2-w44
+  lesson: de2-h-geschichten
+  term: vorlesen
+  pos: verb
+  meanings:
+  - to read aloud
+  - to read out
+  - to read to (someone)
+  - to read out loud
+  example: Mein Vater hat mir jeden Abend vorgelesen.
+  exampleEn: My father read to me every evening.
+  note: 'Separable, stem change: du liest vor, er liest vor. Perfect: hat vorgelesen.'
+- id: de2-h1-r2-w45
+  lesson: de2-h-geschichten
+  term: der Flügel
+  pos: noun
+  plural: die Flügel
+  meanings:
+  - wing
+  - grand piano
+  alt:
+  - der Fluegel
+  example: Der Vogel hat einen verletzten Flügel.
+  exampleEn: The bird has an injured wing.

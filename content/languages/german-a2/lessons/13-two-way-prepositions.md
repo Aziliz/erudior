@@ -25,6 +25,8 @@ The movement has to be from one place to another. Walking around inside the kitc
 
 A memory hook: Accusative = Arrow (both start with A). If you could draw an arrow to a new spot, use the accusative. If you could draw a dot, use the dative.
 
+![Two panels. Left, green, headed "Wo? → Dativ": a book lies on a table with a black dot above it, labeled Punkt (dot), and the sentence Das Buch liegt auf dem Tisch. Right, pink, headed "Wohin? → Akkusativ": a book in the air with a curved arrow down onto the table, labeled Pfeil (arrow), and the sentence Ich lege das Buch auf den Tisch.](images/de2-m4-dot-arrow.svg)
+
 ### The articles
 
 After a two-way preposition, the article simply takes the normal dative or accusative form:
@@ -87,6 +89,20 @@ Look at the pairs again. The putting verbs (*stellen, legen, setzen*) all have a
 
 *hängen* and *stecken* look the same in both meanings. Only the object, the case after the preposition and the perfect of *hängen* tell them apart. (*stecken* is regular in both meanings: *hat gesteckt*.)
 
+This chart sums up the choice:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the verb and the case with a two-way preposition
+  accDescr: Ask whether someone moves something to a new place. If yes, the question is Wohin, the preposition takes the accusative, and you use a putting verb with an object: stellen for upright things, legen for flat things, setzen for people, hängen with the perfect gehängt, or stecken. If no, the question is Wo, the preposition takes the dative, and you use a being verb with no object: stehen, liegen, sitzen, hängen with the perfect gehangen, or stecken.
+  A{"Does someone move something to a new place?"} -- yes --> B["Wohin? + accusative"]
+  A -- no --> C["Wo? + dative"]
+  B --> D["Putting verb + object: stellen, legen, setzen, hängen (gehängt), stecken"]
+  C --> E["Being verb, no object: stehen, liegen, sitzen, hängen (gehangen), stecken"]
+  D --> F["Ich stelle die Lampe neben das Sofa."]
+  E --> G["Die Lampe steht neben dem Sofa."]
+```
+
 ### The perfect forms
 
 | Putting (regular) | Perfect | Being (irregular) | Perfect |
@@ -128,6 +144,12 @@ The people and the money:
 - *die Nebenkosten* — the extra costs for heating, water and rubbish collection, paid on top of the rent. An advert might say: *Miete 650 € plus 180 € Nebenkosten.*
 
 Most of the things appear in the dialogue below. A few more: *die Möbel* (furniture) is a plural word: *Die Möbel kommen morgen.* *Die Decke* is both a blanket and the ceiling: *Die Lampe hängt an der Decke.* The dishwasher (*die Spülmaschine*) stands in the kitchen, and *der Müll* (rubbish) goes into the bin outside.
+
+Here is Lena's living room on moving day, with some of the new words:
+
+![A living room on moving day. A lamp, labeled die Lampe, hangs from the ceiling. A picture of mountains, das Bild, hangs on the wall above a sofa with two cushions, die Kissen. On the right is a window with a curtain on each side, der Vorhang. An oval rug, der Teppich, lies on the floor in front of the sofa, and a cardboard box marked Küche, der Karton, stands on the floor on the right.](images/de2-m4-living-room.svg)
+
+Describe the picture with *Wo?*: *Die Lampe hängt an der Decke. Der Teppich liegt vor dem Sofa. Der Karton steht neben dem Fenster.*
 
 The jobs: *sauber machen* (to clean), *abwaschen* (to wash up), *staubsaugen* (to vacuum) and, from A1, *aufräumen* (to tidy up) and *putzen* (to clean). *Wenn man auszieht, muss man die Wohnung sauber machen* — When you move out, you have to clean the flat.
 

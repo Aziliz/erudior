@@ -18,8 +18,7 @@ You'll learn to read a real-style *Hausordnung* (house rules), the infinitive us
 (*Bitte Tür schließen!*), and the second half of the two-way prepositions, which lesson 19 left
 for later: *Wohin?* with the accusative (*Die Flasche kommt in den Glascontainer*).
 
-The customs here are typical for Germany; Austria and Switzerland are similar but not identical,
-and the exact rules always depend on the town and on the building.
+The customs here are typical for Germany; the exact rules depend on the town and the building.
 
 ## Neighbours and the Hausordnung
 
@@ -55,14 +54,13 @@ New in passing: *die Ruhezeit* (quiet time), *den ganzen Tag* (all day), *der Ki
 Haustür* (front door of the building), *grillen* (to barbecue), *die Hausverwaltung* (the company
 that manages the building).
 
-Look at how the rules are written: no *Sie*, no *man*, and the verb at the very end, in the
-infinitive. That's the first grammar point of this lesson.
+Notice how the rules are written: no *Sie*, no *man*, and the infinitive at the very end.
 
 ## Infinitive commands on notices
 
 Notices, instructions and announcements often give an order with just the infinitive, placed at
-the end. This is called an **infinitive command**. It sounds neutral and impersonal: it isn't
-talking to anyone in particular, so it needs no *du* or *Sie*.
+the end. This is an **infinitive command**. It's impersonal: it talks to nobody in particular, so
+it needs no *du* or *Sie*.
 
 | Imperative (lesson 17) | Infinitive command | With man (lesson 15) |
 |---|---|---|
@@ -79,27 +77,19 @@ How to build one:
 3. Leave out the article if you want it to sound like a sign: *Bitte Tür schließen* and *Bitte
    die Tür schließen* are both fine.
 
-You hear infinitive commands outside notices too. On the Berlin U-Bahn a voice says *Zurückbleiben
-bitte!* (stand back, please) before the doors close, and on station platforms you'll hear *Bitte
-einsteigen!* In recipes they're everywhere: *Die Kartoffeln waschen und kochen.* — Wash and boil
-the potatoes.
+You hear them too: on the Berlin U-Bahn a voice says *Zurückbleiben bitte!* (stand back, please)
+before the doors close. Recipes are full of them: *Die Kartoffeln waschen und kochen.* — Wash and
+boil the potatoes. But don't use them face to face: *Tür schließen!* said to a friend sounds like
+an army order. With people, use the imperative and *bitte* (lesson 17).
 
-Don't use them to a person you're speaking to face to face; *Tür schließen!* said to a friend
-sounds like an army order. With people, use the imperative and *bitte* (lesson 17).
+## Quiet hours and parties
 
-## Quiet hours and quiet Sundays, briefly
-
-The first rule in the Hausordnung is about *Ruhezeiten* (quiet hours): usually night quiet from 22
-Uhr to 6 or 7 Uhr, in many buildings a midday rest, and quiet all day on Sundays and public
-holidays: no drilling (*bohren*), no mowing the lawn, and no throwing bottles into the glass bins.
-On Sundays almost all shops are closed too, so do your weekly shopping on Saturday. (The honors
-lesson in module 4 on clubs and quiet hours goes into the details.)
-
-If you're having a party, it's polite to put a note in the stairwell first: *Liebe Nachbarn, am
-Samstag feiern wir eine Party. Es kann ein bisschen laut werden. Wir bitten um Verständnis!* —
-Dear neighbours, we're having a party on Saturday. It may get a bit loud. Thank you for your
-understanding! (*Wir bitten um Verständnis* is a set phrase on notices: "we ask for your
-understanding".)
+The first rule is about *Ruhezeiten*, which the module 4 honors lesson on clubs and quiet hours
+covers in detail: no drilling (*bohren*) or loud music at night or on Sundays. Planning a party?
+Put a note in the stairwell first: *Liebe Nachbarn, am Samstag feiern wir eine Party. Es kann ein
+bisschen laut werden. Wir bitten um Verständnis!* — Dear neighbours, we're having a party on
+Saturday. It may get a bit loud. Thank you for your understanding! (*Wir bitten um Verständnis*,
+"we ask for your understanding", is a set phrase on notices.)
 
 ## Rubbish: four bins and a bottle bank
 
@@ -145,9 +135,8 @@ deposit logo and 25 cents Pfand. Reusable glass and plastic bottles (*Mehrweg*) 
 receipt, the *Pfandbon*. You give it to the cashier at the *Kasse* and the money comes off your
 shopping.
 
-On the street you'll often see empty bottles standing next to a bin, not in it. That's on
-purpose: people who collect bottles for the deposit can take them without searching through the
-rubbish.
+Empty bottles standing next to a street bin, not in it, are there on purpose: people who collect
+bottles for the deposit can take them easily.
 
 ## Wohin? Two-way prepositions with the accusative
 
@@ -162,15 +151,12 @@ something goes: movement to a place) they take the accusative.
 | das Treppenhaus | *Das Fahrrad steht im Treppenhaus.* | *Bitte kein Fahrrad ins Treppenhaus stellen!* |
 | der Keller | *Die Fahrräder sind im Keller.* | *Wir bringen die Fahrräder in den Keller.* |
 
-Only the article changes, and you know the accusative articles from lesson 9: *den* for
-masculine, *die* and *das* unchanged. *In das* is usually shortened to *ins*, just as *in dem*
+Only the article changes: *den* for masculine (lesson 9), *die* and *das* unchanged. *In das* is usually shortened to *ins*, just as *in dem*
 becomes *im*. (*Stellen* means to put something somewhere upright, like a bike or a bottle.)
 
-Three verbs help you here:
-
-- *werfen* (to throw; *du wirfst, er wirft*): *Er wirft die Dose in den Gelben Sack.*
-- *kommen in* (to go in, belong in): *Das kommt in die Biotonne.* — That goes in the organic bin.
-- *bringen* (to bring, take): *Ich bringe die Flaschen in den Supermarkt.*
+Two verbs help you here: *werfen* (to throw; *du wirfst, er wirft*): *Er wirft die Dose in den
+Gelben Sack*; and *kommen in* (to go in, belong in): *Das kommt in die Biotonne.* — That goes in the
+organic bin.
 
 The colour adjectives in *die gelbe Tonne*, *den Gelben Sack* have endings you'll study at A2;
 learn them as chunks. *Gelber Sack* is often written with a capital G because it's the name of a
@@ -189,8 +175,8 @@ glass) and an empty water bottle with a 25-cent Pfand logo. Where does each go?
 4. The yoghurt pot is plastic packaging → *Der Joghurtbecher kommt in die gelbe Tonne.*
 5. The apple core is food → *Der Apfelrest kommt in die Biotonne.* (*der Rest*: the rest, leftover)
 
-Each sentence is *Wohin?*, so each bin is in the accusative. Notice *den Glascontainer* and *den
-Supermarkt*: both masculine, both *den*.
+Each sentence is *Wohin?*, so each bin is accusative: masculine *den Glascontainer, den
+Supermarkt*.
 
 ### Example 2: Rewriting the house rules
 
@@ -204,8 +190,7 @@ Your neighbour asks what the Hausordnung says. Change each infinitive command in
 3. *Die Haustür ab 22 Uhr abschließen.* → *Ab 22 Uhr muss man die Haustür abschließen.* The
    separable verb is in one piece at the end, because it's an infinitive after a modal.
 
-In each sentence the time or place phrase comes first, so the modal verb is in position 2 and
-*man* follows it.
+The time or place phrase comes first, so the modal is in position 2 and *man* follows it.
 
 ## Dialogue: Im Treppenhaus
 
@@ -238,17 +223,15 @@ on Sunday! — Lukas: I see. Am I allowed to drill on Sunday? I still have to ha
 wall. — Mrs Schmitt: Better not. Sunday is quiet time. On Saturday it's no problem. — Lukas: Fine,
 then I'll do it on Saturday. Thanks a lot!*
 
-Spot the *Wohin?* phrases: *in die blaue Tonne, in den Supermarkt, in den Glascontainer, an die
-Wand*. And the *Wo?* phrases: *im zweiten Stock, im Hof, hinter dem Haus, an der Ecke*. *Seit
-Montag* (since Monday) is lesson 18; *hängen* means to hang, *unten* downstairs, *der Hof* the
-courtyard, and *lieber nicht* "better not".
+*Wohin?* phrases: *in die blaue Tonne, in den Supermarkt, in den Glascontainer, an die Wand*.
+*Wo?* phrases: *im zweiten Stock, im Hof, hinter dem Haus, an der Ecke*. New: *hängen* (to hang),
+*unten* (downstairs), *der Hof* (courtyard), *lieber nicht* (better not).
 
 ## Pronunciation
 
 - *Nachbar*: NACH-bar, with the throaty *ach* sound.
 - *Müll*: a short *ü*: say *i* as in *bitte* with tightly rounded lips. Don't say *Mull*.
 - *Pfand*: the *pf* is one quick sound; start with *p* and slide into *f*.
-- *Treppenhaus*: TREP-pen-house.
 - *wirft*: short *i*, and every consonant is said: virft.
 
 ## Common mistakes
