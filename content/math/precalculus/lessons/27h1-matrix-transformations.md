@@ -62,7 +62,7 @@ With $\theta = 90°$, $\cos\theta = 0$ and $\sin\theta = 1$, so $R = \begin{bmat
 You can put all three vertices in one matrix and multiply once: $R\begin{bmatrix} 1 & 4 & 1 \\ 1 & 1 & 3 \end{bmatrix} = \begin{bmatrix} -1 & -1 & -3 \\ 1 & 4 & 1 \end{bmatrix}$. The side from $(1, 1)$ to $(4, 1)$ was horizontal with length 3; its image runs from $(-1, 1)$ to $(-1, 4)$, vertical with length 3, as a quarter turn should give.
 
 ```plot
-{"x": [-4, 5], "y": [-1, 5], "equal": true, "polygons": [{"points": [[1, 1], [4, 1], [1, 3]], "fill": true}, {"points": [[-1, 1], [-1, 4], [-3, 1]], "fill": true}], "points": [{"at": [4, 1], "label": "(4, 1)"}, {"at": [-1, 4], "label": "(-1, 4)"}], "caption": "Example 1: the triangle (right) and its image after a 90° counterclockwise rotation about the origin (left)."}
+{"x": [-4, 5], "y": [-1, 5], "equal": true, "polygons": [{"points": [[1, 1], [4, 1], [1, 3]], "fill": true}, {"points": [[-1, 1], [-1, 4], [-3, 1]], "fill": true}], "points": [{"at": [4, 1], "label": "(4, 1)"}, {"at": [-1, 4]}], "labels": [{"at": [-2.0, 4.25], "text": "(-1, 4)"}], "caption": "Example 1: the triangle (right) and its image after a 90° counterclockwise rotation about the origin (left)."}
 ```
 
 ## Doing one transformation after another

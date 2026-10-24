@@ -293,7 +293,7 @@
   choices: ['$\frac{\sqrt3}{2}$', '$-\frac12$', '$1$', '$\frac12$']
   answer: 3
   explanation: |-
-    The slope is $\cos\frac{\pi}{3} = \frac12$. $\frac{\sqrt3}{2} = \sin\frac{\pi}{3}$ is the height of the point, not the slope; $-\frac12$ would come from using $-\sin$ or $-\cos$.
+    The slope is $\cos\frac{\pi}{3} = \frac12$. $\frac{\sqrt3}{2} = \sin\frac{\pi}{3}$ is the height of the point, not the slope; $-\frac12$ has the wrong sign (the derivative of $\sin x$ is $+\cos x$; the minus sign belongs to the derivative of $\cos x$, which is $-\sin x$).
 - id: pc-m10-r2-h12
   lesson: pc-m10-h-squeeze
   type: match

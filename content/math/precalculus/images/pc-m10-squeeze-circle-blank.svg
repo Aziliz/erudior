@@ -17,7 +17,7 @@
 <circle cx="450.0" cy="440.0" r="4.5" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
 <text x="458.0" y="460.0" font-size="17" text-anchor="start" fill="#1c2833" font-weight="bold" font-family="Helvetica, Arial, sans-serif">A</text>
 <circle cx="334.7" cy="167.4" r="4.5" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
-<text x="324.7" y="159.4" font-size="17" text-anchor="end" fill="#1c2833" font-weight="bold" font-family="Helvetica, Arial, sans-serif">P</text>
+<text x="333.0" y="152.0" font-size="17" text-anchor="middle" fill="#1c2833" font-weight="bold" font-family="Helvetica, Arial, sans-serif">P</text>
 <circle cx="450.0" cy="48.7" r="4.5" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
 <text x="460.0" y="48.7" font-size="17" text-anchor="start" fill="#1c2833" font-weight="bold" font-family="Helvetica, Arial, sans-serif">T</text>
 <text x="334.7" y="460.0" font-size="17" text-anchor="middle" fill="#1c2833" font-weight="bold" font-family="Helvetica, Arial, sans-serif">B</text>
