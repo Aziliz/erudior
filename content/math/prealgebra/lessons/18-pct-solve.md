@@ -138,7 +138,7 @@ A stock worth \$100 rises 20%, then falls 20%. What is it worth now?
 After the rise: $100 \times 1.2 = 120$. After the fall: $120 \times 0.8 = 96$. It ends at \$96, not \$100, because the 20% decrease is taken of the larger value, 120. Percent changes don't simply add.
 
 ```plot
-{"x": [0, 4], "y": [0, 140], "xLabel": "stage", "yLabel": "value ($)", "bars": [{"x": 1, "height": 100, "width": 0.7, "label": "start: 100"}, {"x": 2, "height": 120, "width": 0.7, "label": "after +20%: 120"}, {"x": 3, "height": 96, "width": 0.7, "label": "after −20%: 96"}], "caption": "The rise is 20% of 100 (+20); the fall is 20% of 120 (−24)"}
+{"x": [0.3, 3.7], "y": [0, 140], "grid": false, "xLabel": "stage", "yLabel": "value ($)", "bars": [{"x": 1, "height": 100, "width": 0.7, "label": "start"}, {"x": 2, "height": 120, "width": 0.7, "label": "after +20%"}, {"x": 3, "height": 96, "width": 0.7, "label": "after −20%"}], "segments": [{"from": [0.3, 0], "to": [3.7, 0]}], "labels": [{"at": [1, 106], "text": "$100"}, {"at": [2, 126], "text": "$120"}, {"at": [3, 102], "text": "$96"}], "caption": "The rise is 20% of 100 (+20); the fall is 20% of 120 (−24)"}
 ```
 
 ## Common mistakes

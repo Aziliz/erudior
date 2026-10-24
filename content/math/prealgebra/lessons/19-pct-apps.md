@@ -126,7 +126,7 @@ Most real savings accounts and loans use **compound interest**, where interest i
 Over a short time the difference is small, but it keeps widening. The graph follows \$1,000 at 5% for 20 years: simple interest adds the same \$50 every year (a straight line), while compound interest adds 5% of a growing balance (a curve that bends upward).
 
 ```plot
-{"x": [0, 20], "y": [0, 3000], "xLabel": "years", "yLabel": "balance ($)", "functions": [{"f": "1000 + 50*x", "label": "simple: 1000 + 50t", "dashed": true}, {"f": "1000*1.05^x", "label": "compound yearly"}], "points": [{"at": [20, 2000], "label": "2,000"}, {"at": [20, 2653.3], "label": "2,653.30"}], "caption": "$1,000 at 5% a year: simple vs compound interest"}
+{"x": [-3, 25], "y": [0, 3000], "xLabel": "years", "yLabel": "balance ($)", "functions": [{"f": "1000 + 50*x", "label": "simple: 1000 + 50t", "dashed": true, "from": 0, "to": 20}, {"f": "1000*1.05^x", "label": "compound yearly", "from": 0, "to": 20}], "points": [{"at": [20, 2000], "label": "2,000"}, {"at": [20, 2653.3], "label": "2,653.30"}], "caption": "$1,000 at 5% a year: simple vs compound interest"}
 ```
 
 You'll study compounding in algebra; for now, be sure which kind a problem describes.

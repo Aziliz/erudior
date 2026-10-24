@@ -42,7 +42,7 @@ Here $P$ is the principal, $r$ the annual rate as a decimal, $t$ the number of y
 Anything that is multiplied by the same factor every period shows **exponential growth**. Compare the shapes: simple interest adds the same amount each year, so its graph is a straight line; compound interest multiplies, so its graph curves upward more and more steeply.
 
 ```plot
-{"x": [0, 30], "y": [0, 18000], "xLabel": "years", "yLabel": "balance ($)", "functions": [{"f": "1000 + 100*x", "label": "simple: adds 100 a year", "dashed": true}, {"f": "1000*1.1^x", "label": "compound: × 1.1 a year"}], "points": [{"at": [30, 4000], "label": "4,000"}, {"at": [30, 17449.4], "label": "about 17,449"}], "caption": "$1,000 at 10% a year for 30 years: the straight line is simple interest, the curve is compound interest"}
+{"x": [-5, 37], "y": [0, 19000], "xLabel": "years", "yLabel": "balance ($)", "functions": [{"f": "1000 + 100*x", "label": "simple: adds 100 a year", "dashed": true, "from": 0, "to": 30}, {"f": "1000*1.1^x", "label": "compound: × 1.1 a year", "from": 0, "to": 30}], "points": [{"at": [30, 4000], "label": "4,000"}, {"at": [30, 17449.4], "label": "17,449"}], "caption": "$1,000 at 10% a year for 30 years: the straight line is simple interest, the curve is compound interest"}
 ```
 
 ### Example 1
@@ -138,7 +138,7 @@ The same reasoning works when something *loses* a fixed percent of its value eac
 $$A = P(1 - r)^t$$
 
 ```plot
-{"x": [0, 10], "y": [0, 30000], "xLabel": "years", "yLabel": "value ($)", "functions": [{"f": "28000*0.85^x", "label": "value = 28,000 × 0.85^t"}], "points": [{"at": [0, 28000], "label": "28,000"}, {"at": [3, 17195.5], "label": "about 17,196"}, {"at": [10, 5512.5], "label": "about 5,512"}], "caption": "A car losing 15% of its value each year: the drop gets smaller every year, and the value never reaches zero"}
+{"x": [-2.5, 12], "y": [0, 32000], "xLabel": "years", "yLabel": "value ($)", "functions": [{"f": "28000*0.85^x", "from": 0, "to": 10}], "points": [{"at": [0, 28000], "label": "28,000"}, {"at": [3, 17195.5], "label": "about 17,196"}, {"at": [10, 5512.5], "label": "5,512"}], "labels": [{"at": [7, 16000], "text": "value = 28,000 × 0.85^t"}], "caption": "A car losing 15% of its value each year: the drop gets smaller every year, and the value never reaches zero"}
 ```
 
 ### Example 5

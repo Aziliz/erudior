@@ -52,12 +52,10 @@
 <circle cx="375.3" cy="270.5" r="6" fill="#244d76" stroke="#244d76" stroke-width="2.5"/>
 <rect x="234.8" y="354.7" width="122.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
 <text x="239.8" y="370.7" font-size="15" text-anchor="start" fill="#1c2833">open dot (1, 1)</text>
-<rect x="82.2" y="238.5" width="137.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
-<text x="214.7" y="254.5" font-size="15" text-anchor="end" fill="#1c2833">closed dot (1, 3)</text>
+<rect x="205.0" y="236.0" width="137.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/><text x="210.0" y="252.0" font-size="15" text-anchor="start" fill="#1c2833">closed dot (1, 3)</text>
 <rect x="385.3" y="240.5" width="167.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
 <text x="390.3" y="256.5" font-size="15" text-anchor="start" fill="#1c2833">pieces meet at (4, 3)</text>
-<rect x="64.2" y="65.5" width="152.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
-<text x="69.2" y="81.5" font-size="15" text-anchor="start" fill="#1c2833">y = x² for x &lt; 1</text>
+<rect x="68.0" y="130.0" width="90.0" height="42" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/><text x="113.0" y="147.0" font-size="15" text-anchor="middle" fill="#1c2833">y = x²</text><text x="113.0" y="166.0" font-size="15" text-anchor="middle" fill="#1c2833">for x &lt; 1</text>
 <rect x="400.4" y="164.1" width="175.0" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
 <text x="405.4" y="180.1" font-size="15" text-anchor="start" fill="#1c2833">y = 7 − x for x &gt; 4</text>
 <rect x="223.8" y="280.5" width="152.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
