@@ -374,7 +374,7 @@
   image: {src: images/de1-m2-patchwork-blank.svg, alt: 'A family tree with first names only. Top row: Anja is married to Markus; Markus and Julia are divorced; Julia is married to Tom. Markus and Julia''s children are Ben (ich) and Lisa. Julia and Tom''s child is Emma. Six people are numbered.'}
   labels:
     - {x: 3.8, y: 17.5, text: die Stiefmutter}
-    - {x: 27.5, y: 17.5, text: der Vater}
+    - {x: 26.8, y: 17.5, text: der Vater}
     - {x: 58, y: 17.5, text: die Mutter}
     - {x: 82, y: 17.5, text: der Stiefvater}
     - {x: 52, y: 77.5, text: die Zwillingsschwester}
