@@ -85,7 +85,7 @@ $$f(x) = (x - 2)(x^2 - 2x + 2) = x^3 - 4x^2 + 6x - 4.$$
 Its graph crosses the $x$-axis only once, at $2$; the zeros $1 \pm i$ do not appear on it.
 
 ```plot
-{"x": [-1, 4], "y": [-12, 10], "functions": [{"f": "x^3 - 4x^2 + 6x - 4", "label": "y = x³ − 4x² + 6x − 4"}], "points": [{"at": [2, 0], "label": "2"}, {"at": [0, -4], "label": "(0, −4)"}], "caption": "One real zero (2) and a conjugate pair 1 ± i that the graph does not show."}
+{"x": [-1, 4], "y": [-12, 10], "functions": [{"f": "x^3 - 4x^2 + 6x - 4", "label": "y = x³ − 4x² + 6x − 4"}], "points": [{"at": [2, 0]}, {"at": [0, -4]}], "labels": [{"at": [1.6, 2], "text": "(2, 0)"}, {"at": [-0.55, -4.6], "text": "(0, −4)"}], "caption": "One real zero (2) and a conjugate pair 1 ± i that the graph does not show."}
 ```
 
 The whole search can be summed up in one chart.

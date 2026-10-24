@@ -99,7 +99,7 @@ The sign chart answers "up or down?" at each vertical asymptote: if $R > 0$ on t
 The two graphs below show the difference: an odd power flips sign across the asymptote, an even power does not.
 
 ```plot
-{"x": [-1, 7], "y": [-8, 8], "functions": [{"f": "1/(x - 3)", "label": "y = 1/(x − 3)"}, {"f": "1/(x - 3)^2", "label": "y = 1/(x − 3)²", "dashed": true}], "segments": [{"from": [3, -8], "to": [3, 8], "dashed": true}], "caption": "Near x = 3: 1/(x − 3) goes down on the left and up on the right; 1/(x − 3)² goes up on both sides."}
+{"x": [-1, 7], "y": [-8, 8], "functions": [{"f": "1/(x - 3)"}, {"f": "1/(x - 3)^2", "dashed": true}], "segments": [{"from": [3, -8], "to": [3, 8], "dashed": true}], "labels": [{"at": [5.3, -3.5], "text": "solid: y = 1/(x − 3)"}, {"at": [5.3, -5.5], "text": "dashed: y = 1/(x − 3)²"}], "caption": "Near x = 3: 1/(x − 3) goes down on the left and up on the right; 1/(x − 3)² goes up on both sides."}
 ```
 
 ## Common mistakes
