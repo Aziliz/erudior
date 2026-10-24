@@ -29,6 +29,10 @@ $$v = r\omega, \qquad a_t = r\alpha, \qquad a_c = \frac{v^2}{r} = r\omega^2.$$
 
 Here $v$ is the point's speed (tangential), $a_t$ its tangential acceleration (speeding up or slowing) and $a_c$ its centripetal acceleration. Points farther from the axis move faster. These relations need $\omega$ in rad/s; plugging in rpm or degrees per second gives nonsense.
 
+The picture shows these quantities for one point P on a disk turning counterclockwise about its axis.
+
+![A disk turning counterclockwise about a central axis. A radius r runs from the axis to a point P on the rim, at angle theta from a dashed reference line. The arc along the rim from the reference line to P has length s equal to r theta. At P the velocity v equals r omega and points along the rim, perpendicular to the radius; the centripetal acceleration a sub c points from P toward the axis.](images/phys-m5-rotating-disk.svg)
+
 ## Constant angular acceleration
 
 With $\alpha$ constant, the kinematic equations carry over symbol by symbol:
@@ -39,6 +43,20 @@ With $\alpha$ constant, the kinematic equations carry over symbol by symbol:
 | $\Delta x = v_0t + \tfrac12at^2$ | $\Delta\theta = \omega_0t + \tfrac12\alpha t^2$ |
 | $v^2 = v_0^2 + 2a\Delta x$ | $\omega^2 = \omega_0^2 + 2\alpha\Delta\theta$ |
 | $\Delta x = \tfrac12(v_0 + v)t$ | $\Delta\theta = \tfrac12(\omega_0 + \omega)t$ |
+
+Each equation leaves out one of the five quantities $\omega_0$, $\omega$, $\alpha$, $t$ and $\Delta\theta$. Pick the one that leaves out the quantity you neither know nor want:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a constant angular acceleration equation
+  accDescr: First check that the angular acceleration is constant; if not, use a graph of angular velocity against time instead. If it is constant, ask which quantity is neither given nor asked for. If the angle is missing, use omega equals omega zero plus alpha t. If the final angular velocity is missing, use delta theta equals omega zero t plus one half alpha t squared. If the time is missing, use omega squared equals omega zero squared plus two alpha delta theta. If the angular acceleration is missing, use delta theta equals one half of omega zero plus omega, times t.
+  S{"Is alpha constant?"} -- no --> G["Use the omega-t graph: slope and area"]
+  S -- yes --> Q{"Which quantity is not given and not wanted?"}
+  Q -- "angle" --> E1["omega = omega0 + alpha t"]
+  Q -- "final omega" --> E2["angle = omega0 t + half alpha t squared"]
+  Q -- "time" --> E3["omega squared = omega0 squared + 2 alpha times angle"]
+  Q -- "alpha" --> E4["angle = half (omega0 + omega) t"]
+```
 
 ### Example 1
 

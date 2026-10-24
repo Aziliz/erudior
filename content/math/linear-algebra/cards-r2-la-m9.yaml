@@ -1,0 +1,25 @@
+# Round 2 cards for la-m9 honors lessons 40h1-40h3
+- {front: 'Inner product axioms', back: 'Symmetric; additive and homogeneous in the first argument; $\langle \mathbf{u}, \mathbf{u}\rangle > 0$ for $\mathbf{u} \ne \mathbf{0}$.', topic: Inner product spaces}
+- {front: 'When is $\langle \mathbf{u}, \mathbf{v}\rangle = \mathbf{u}^TA\mathbf{v}$ an inner product?', back: 'Exactly when $A$ is symmetric and positive definite.', topic: Inner product spaces}
+- {front: 'Evaluation inner product on $\mathbb{P}_n$', back: '$\langle p, q\rangle = \sum p(t_i)q(t_i)$ over $n + 1$ different points $t_0, \dots, t_n$.', topic: Inner product spaces}
+- {front: 'Cauchy–Schwarz inequality', back: '$|\langle \mathbf{u}, \mathbf{v}\rangle| \le \|\mathbf{u}\|\|\mathbf{v}\|$; equality iff one is a multiple of the other.', topic: Inner product spaces}
+- {front: 'Triangle inequality', back: '$\|\mathbf{u} + \mathbf{v}\| \le \|\mathbf{u}\| + \|\mathbf{v}\|$', topic: Inner product spaces}
+- {front: 'Legendre polynomials (up to scaling)', back: '$1,\ t,\ t^2 - \tfrac13,\ t^3 - \tfrac35t$: Gram–Schmidt on $1, t, t^2, t^3$ with $\int_{-1}^1 fg$.', topic: Inner product spaces}
+- {front: 'Error of a best approximation', back: '$\|f - \hat f\|^2 = \|f\|^2 - \|\hat f\|^2$ (Pythagoras).', topic: Fourier approximation}
+- {front: 'Fourier coefficients on $[-\pi, \pi]$', back: '$a_k = \tfrac1\pi\int f\cos kt\,dt$, $b_k = \tfrac1\pi\int f\sin kt\,dt$; constant term $\tfrac{a_0}{2}$.', topic: Fourier approximation}
+- {front: 'Squared lengths of $1$, $\cos kt$, $\sin kt$ on $[-\pi, \pi]$', back: '$2\pi$, $\pi$, $\pi$ ($k \ge 1$); different ones are orthogonal.', topic: Fourier approximation}
+- {front: 'Fourier approximation of $t$ on $[-\pi, \pi]$', back: '$t \approx \sum_k \dfrac{2(-1)^{k+1}}{k}\sin kt = 2\sin t - \sin 2t + \tfrac23\sin 3t - \cdots$', topic: Fourier approximation}
+- {front: 'Householder reflection', back: '$H = I - \dfrac{2\mathbf{u}\mathbf{u}^T}{\mathbf{u}^T\mathbf{u}}$: reflects across $\mathbf{u}^\perp$; $H^T = H = H^{-1}$, $\det H = -1$.', topic: Householder reflections}
+- {front: 'Householder vector to send $\mathbf{x}$ to $\alpha\mathbf{e}_1$', back: '$\mathbf{u} = \mathbf{x} - \alpha\mathbf{e}_1$ with $\alpha = \pm\|\mathbf{x}\|$; software uses the sign opposite to $x_1$.', topic: Householder reflections}
+- {front: 'Householder QR', back: '$H_n\cdots H_1A = R$, $Q = H_1\cdots H_n$; each $H_k$ clears column $k$ below the diagonal.', topic: Numerical QR}
+- {front: 'Why not classical Gram–Schmidt on a computer?', back: 'With nearly dependent columns, rounding errors survive the subtractions and the computed $\mathbf{q}$''s lose orthogonality; modified Gram–Schmidt or Householder QR do much better.', topic: Numerical QR}
+- {front: 'Cost of Householder QR ($m \times n$)', back: 'About $2mn^2 - \tfrac23n^3$ operations.', topic: Numerical QR}
+- {front: 'Pseudoinverse from the SVD', back: '$A^+ = V_r\Sigma_r^{-1}U_r^T = \sum \tfrac{1}{\sigma_i}\mathbf{v}_i\mathbf{u}_i^T$', topic: Pseudoinverse}
+- {front: 'What is $A^+\mathbf{b}$?', back: 'The minimum-norm least-squares solution of $A\mathbf{x} = \mathbf{b}$ (the one in $\operatorname{Row} A$).', topic: Pseudoinverse}
+- {front: '$AA^+$ and $A^+A$', back: 'Projections onto $\operatorname{Col} A$ and onto $\operatorname{Row} A$.', topic: Pseudoinverse}
+- {front: 'Pseudoinverse of a rank-one matrix', back: '$A^+ = A^T/(\text{sum of squares of the entries of } A)$', topic: Pseudoinverse}
+- {front: 'Pseudoinverse with independent columns', back: '$A^+ = (A^TA)^{-1}A^T$, and $A^+A = I$.', topic: Pseudoinverse}
+- {front: 'Spectral and Frobenius norms from singular values', back: '$\|A\|_2 = \sigma_1$; $\|A\|_F = \sqrt{\sigma_1^2 + \cdots + \sigma_r^2}$.', topic: Low-rank approximation}
+- {front: 'Eckart–Young theorem', back: '$A_k = \sum_{i\le k}\sigma_i\mathbf{u}_i\mathbf{v}_i^T$ is the closest rank-$k$ matrix: $\|A - A_k\|_2 = \sigma_{k+1}$, $\|A - A_k\|_F = \sqrt{\sigma_{k+1}^2 + \cdots + \sigma_r^2}$.', topic: Low-rank approximation}
+- {front: 'Storage for a rank-$k$ approximation of an $m \times n$ matrix', back: '$k(m + n + 1)$ numbers instead of $mn$.', topic: Low-rank approximation}
+- {front: 'Why drop tiny singular values in $A^+$?', back: '$\tfrac{1}{\sigma_i}$ would amplify noise along $\mathbf{u}_i$; truncating gives stable answers.', topic: Low-rank approximation}

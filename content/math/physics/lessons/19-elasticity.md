@@ -128,6 +128,22 @@ $$\Delta P = -B\,\frac{\Delta V}{V_0}.$$
 
 The minus sign says that more pressure means less volume, so $B$ itself is positive. Water's bulk modulus is about $2.2\times10^{9}$ Pa; steel's about $1.6\times10^{11}$ Pa. Gases are easy to compress, liquids and solids very hard.
 
+The three kinds of deformation side by side, with the original shape dashed:
+
+![Three blocks. Left: a bar pulled by equal and opposite forces at its two ends, stretched longer than its dashed original outline (tension). Middle: a block with a force to the right along its top face and to the left along its bottom face, slanted into a parallelogram (shear). Right: a cube pushed inward on every side, smaller than its dashed original outline (bulk compression).](images/phys-m5-deformations.svg)
+
+```mermaid
+flowchart TD
+  accTitle: Which elastic modulus to use
+  accDescr: Ask how the load acts. A pull or push along the length, perpendicular to the end faces, is tensile or compressive stress; the strain is change in length over original length and the constant is Young's modulus Y. A force along a face, parallel to it, is shear stress; the strain is the sideways shift over the height and the constant is the shear modulus S. A pressure on all sides is bulk stress; the strain is the fractional volume change and the constant is the bulk modulus B.
+  Q{"How does the load act?"} -- "along the length" --> T["Tension or compression: strain = change in L / L0"]
+  Q -- "along a face" --> S["Shear: strain = sideways shift / height"]
+  Q -- "squeezes all sides" --> V["Bulk: strain = change in V / V0"]
+  T --> Y["Young's modulus Y"]
+  S --> SM["Shear modulus S"]
+  V --> B["Bulk modulus B"]
+```
+
 ### Example 4: water at the ocean floor
 
 By what percentage is water compressed at a depth of 4000 m? Use $\rho = 1000$ kg/m³ and ignore the atmosphere.

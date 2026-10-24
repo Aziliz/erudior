@@ -19,6 +19,10 @@ $$v_{\text{cm}} = R\omega, \qquad a_{\text{cm}} = R\alpha.$$
 
 The motion is a translation of the center plus a rotation about it. The top of the wheel moves at $v_{\text{cm}} + R\omega = 2v_{\text{cm}}$, the bottom at $v_{\text{cm}} - R\omega = 0$. That's why the top of a bicycle wheel's spokes look blurred in photos while the bottom ones look sharp.
 
+![A wheel rolling to the right on the ground. The contact point at the bottom is at rest. The center moves right at speed v; the top moves right at 2v; the point at the front of the wheel, level with the center, moves at 1.41v slanting down and forward. A dashed line from the contact point to the tip of the top arrow shows that speed grows in proportion to distance from the contact point.](images/phys-m5-rolling-velocities.svg)
+
+At any instant the wheel moves as if it were turning about the contact point: each point's velocity is perpendicular to the line joining it to the contact point, and its speed is $\omega$ times its distance from that point. The front point is $\sqrt2R$ from the contact point, so it moves at $\sqrt2v \approx 1.41v$, slanting down.
+
 The kinetic energy has both parts:
 
 $$K = \tfrac12Mv_{\text{cm}}^2 + \tfrac12I_{\text{cm}}\omega^2.$$
@@ -66,6 +70,19 @@ If the net external torque on a system is zero, its angular momentum is constant
 $$I_i\omega_i = I_f\omega_f.$$
 
 This is **conservation of angular momentum**. The striking consequence: if a system changes shape and its moment of inertia changes, its rotation rate adjusts in the opposite direction. A skater pulling in her arms reduces $I$, so $\omega$ increases. A diver tucks to spin faster and opens out to slow down before entering the water. A collapsing star can shrink to a neutron star spinning hundreds of times per second.
+
+Which conservation law to use depends on what acts on the system:
+
+```mermaid
+flowchart TD
+  accTitle: Which quantities are conserved in a rotation problem
+  accDescr: If the net external torque about the axis is not zero, angular momentum changes, and the change equals torque times time. If the net external torque is zero, angular momentum is conserved. Then ask whether anything converts mechanical energy: if parts slide against each other, stick together, or muscles do work, kinetic energy is not conserved; otherwise, as in rolling without slipping with no losses, mechanical energy is conserved too.
+  A{"Net external torque about the axis zero?"} -- no --> B["L changes: change in L = torque times time"]
+  A -- yes --> C["L conserved: I1 omega1 = I2 omega2"]
+  C --> D{"Sliding, sticking, or muscles doing work?"}
+  D -- yes --> E["Kinetic energy NOT conserved"]
+  D -- no --> F["Mechanical energy also conserved"]
+```
 
 ### Example 2
 

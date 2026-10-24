@@ -30,5 +30,5 @@
 <text x="560.0" y="267.0" font-size="22" text-anchor="middle" fill="#1f5f8b" font-weight="bold">−</text>
 <text x="80.0" y="317.0" font-size="22" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
 <text x="560.0" y="317.0" font-size="22" text-anchor="middle" fill="#1f5f8b" font-weight="bold">−</text>
-<text x="320.0" y="345.0" font-size="15" text-anchor="middle" fill="#1c2833">solid arrows: field lines   dashed: equipotentials</text>
+<text x="320.0" y="345.0" font-size="15" text-anchor="middle" fill="#1c2833">field lines (solid arrows), equipotentials (dashed)</text>
 </svg>

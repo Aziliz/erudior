@@ -1,0 +1,62 @@
+# Round 2 glossary for la-m9 (lessons 36, 40h1-40h3)
+- term: fitted value
+  aliases: [fitted values, predicted value]
+  definition: 'The value $\beta_0 + \beta_1x_i$ that a fitted line (or model) gives at a data point''s $x$; the residual is the observed $y_i$ minus the fitted value.'
+  topic: Linear regression
+- term: inner product space
+  aliases: [inner product spaces]
+  definition: 'A vector space with an operation $\langle \mathbf{u}, \mathbf{v}\rangle$ that is symmetric, linear in each argument and positive ($\langle \mathbf{u}, \mathbf{u}\rangle > 0$ for $\mathbf{u} \ne \mathbf{0}$). Lengths, angles, orthogonality and projections are defined from it.'
+  topic: Inner product spaces
+- term: Cauchy–Schwarz inequality
+  aliases: [Cauchy-Schwarz inequality, Cauchy–Schwarz]
+  definition: '$|\langle \mathbf{u}, \mathbf{v}\rangle| \le \|\mathbf{u}\|\,\|\mathbf{v}\|$ in any inner product space, with equality exactly when one vector is a multiple of the other.'
+  topic: Inner product spaces
+- term: triangle inequality
+  definition: '$\|\mathbf{u} + \mathbf{v}\| \le \|\mathbf{u}\| + \|\mathbf{v}\|$: one side of a triangle is never longer than the other two together. It follows from the Cauchy–Schwarz inequality.'
+  topic: Inner product spaces
+- term: Legendre polynomials
+  aliases: [Legendre polynomial]
+  definition: 'The orthogonal polynomials obtained by Gram–Schmidt on $1, t, t^2, \dots$ with $\langle f, g\rangle = \int_{-1}^1 f(t)g(t)\,dt$: up to scaling $1$, $t$, $t^2 - \tfrac13$, $t^3 - \tfrac35t$, …'
+  topic: Inner product spaces
+- term: trigonometric polynomial
+  aliases: [trigonometric polynomials]
+  definition: 'A combination $c_0 + \sum_{k=1}^n (a_k\cos kt + b_k\sin kt)$; its order is the largest $k$ used.'
+  topic: Fourier approximation
+- term: Fourier coefficients
+  aliases: [Fourier coefficient]
+  definition: 'The projection coefficients of $f$ onto $\cos kt$ and $\sin kt$ on $[-\pi, \pi]$: $a_k = \tfrac1\pi\int_{-\pi}^{\pi} f(t)\cos kt\,dt$, $b_k = \tfrac1\pi\int_{-\pi}^{\pi} f(t)\sin kt\,dt$; the constant term is $\tfrac{a_0}{2}$.'
+  topic: Fourier approximation
+- term: Fourier series
+  definition: 'The infinite sum $\tfrac{a_0}{2} + \sum_{k\ge1}(a_k\cos kt + b_k\sin kt)$ built from the Fourier coefficients of $f$; its partial sums are the best trigonometric approximations of $f$.'
+  topic: Fourier approximation
+- term: modified Gram–Schmidt
+  aliases: [modified Gram-Schmidt]
+  definition: 'Gram–Schmidt with each projection subtracted one at a time from the already reduced vector; the same in exact arithmetic, but much less affected by rounding than the classical version.'
+  topic: Numerical QR
+- term: Householder reflection
+  aliases: [Householder reflections, Householder matrix, Householder matrices]
+  definition: 'The matrix $H = I - \dfrac{2\mathbf{u}\mathbf{u}^T}{\mathbf{u}^T\mathbf{u}}$, which reflects across the hyperplane orthogonal to $\mathbf{u}$. It is symmetric, orthogonal and its own inverse; with $\mathbf{u} = \mathbf{x} - \alpha\mathbf{e}_1$, $|\alpha| = \|\mathbf{x}\|$, it sends $\mathbf{x}$ to $\alpha\mathbf{e}_1$.'
+  topic: Householder reflections
+- term: hyperplane
+  aliases: [hyperplanes]
+  definition: 'An $(n - 1)$-dimensional subspace of $\mathbb{R}^n$, such as $\mathbf{u}^\perp$ for a nonzero $\mathbf{u}$: a line in $\mathbb{R}^2$, a plane in $\mathbb{R}^3$.'
+  topic: Householder reflections
+- term: minimum-norm least-squares solution
+  aliases: [minimum-norm solution]
+  definition: 'The shortest least-squares solution of $A\mathbf{x} = \mathbf{b}$: the unique one in $\operatorname{Row} A$, equal to $A^+\mathbf{b}$.'
+  topic: Pseudoinverse
+- term: reduced SVD
+  aliases: [compact SVD]
+  definition: '$A = U_r\Sigma_rV_r^T$, the SVD keeping only the $r$ nonzero singular values and their singular vectors; $U_r$ and $V_r$ hold orthonormal bases of $\operatorname{Col} A$ and $\operatorname{Row} A$.'
+  topic: Pseudoinverse
+- term: Frobenius norm
+  definition: '$\|A\|_F = \sqrt{\sum a_{ij}^2}$, the length of $A$ viewed as a vector of entries; it equals $\sqrt{\sigma_1^2 + \cdots + \sigma_r^2}$.'
+  topic: Low-rank approximation
+- term: spectral norm
+  aliases: [matrix 2-norm]
+  definition: '$\|A\|_2 = \max_{\|\mathbf{x}\| = 1}\|A\mathbf{x}\|$, the largest stretch $A$ applies to a unit vector; it equals the largest singular value $\sigma_1$.'
+  topic: Low-rank approximation
+- term: Eckart–Young theorem
+  aliases: [Eckart-Young theorem]
+  definition: 'The first $k$ SVD terms $A_k = \sum_{i\le k}\sigma_i\mathbf{u}_i\mathbf{v}_i^T$ form the closest matrix of rank at most $k$ to $A$ in the spectral and Frobenius norms, with errors $\sigma_{k+1}$ and $\sqrt{\sigma_{k+1}^2 + \cdots + \sigma_r^2}$.'
+  topic: Low-rank approximation

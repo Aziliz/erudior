@@ -71,6 +71,10 @@ Decades before Newton, Johannes Kepler distilled Tycho Brahe's observations into
 {"x": [-4.6, 2.8], "y": [-1.8, 1.8], "curves": [{"x": "-1 + 2*cos(t)", "y": "1.6*sin(t)", "t": [0, "2pi"]}], "points": [[0.2, 0], [1, 0], [-3, 0]], "labels": [{"at": [0.2, -0.35], "text": "Sun (focus)"}, {"at": [1.85, -0.07], "text": "perihelion"}, {"at": [-3.8, -0.07], "text": "aphelion"}], "caption": "An elliptical orbit: the planet moves fastest at perihelion and slowest at aphelion"}
 ```
 
+![An elliptical orbit with the Sun at one focus, near the right end of the long axis. The closest point, perihelion, is at the right end; the farthest point, aphelion, at the left end; the center of the ellipse is midway; the semimajor axis a is half the long axis. Two shaded sectors drawn from the Sun have equal areas: a short wide one near perihelion and a long thin one near aphelion, swept out in equal times.](images/phys-m5-orbit.svg)
+
+The shaded sectors above are drawn to scale for this fairly elongated orbit: the planet covers the long arc near perihelion in the same time as the short arc near aphelion.
+
 ### Example 3
 
 Mars orbits the Sun at 1.52 times Earth's orbital radius. How long is a Martian year?
@@ -90,6 +94,20 @@ The minimum launch speed that lets an object coast to infinity (arriving with ze
 $$v_{\text{esc}} = \sqrt{\frac{2GM}{R}}.$$
 
 For Earth, $v_{\text{esc}} = 11.2$ km/s, exactly $\sqrt2$ times the speed of a low circular orbit. In a circular orbit the total energy is $E = K + U = \tfrac12\dfrac{GMm}{r} - \dfrac{GMm}{r} = -\dfrac{GMm}{2r}$: negative, meaning bound.
+
+The choice between the two sets of formulas comes up in every gravity problem:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a gravity formula
+  accDescr: If the object stays close to a planet's surface, with height changes much smaller than the planet's radius, use weight m g and potential energy change m g delta y. If distances change a lot, as for orbits, escape, or heights comparable to the radius, use F equals G M m over r squared and U equals minus G M m over r, with r measured from the planet's center. For a circular orbit, also set gravity equal to m v squared over r; otherwise use energy conservation.
+  Q{"Height change much smaller than the planet's radius?"} -- yes --> N["Use weight mg and change in U = mg times change in y"]
+  Q -- no --> F["Use F = GMm / r squared and U = -GMm / r"]
+  F --> R["Measure r from the planet's center"]
+  R --> C{"Circular orbit?"}
+  C -- yes --> O["Set GMm / r squared = m v squared / r"]
+  C -- no --> E["Use energy conservation"]
+```
 
 ## Where the formulas come from
 

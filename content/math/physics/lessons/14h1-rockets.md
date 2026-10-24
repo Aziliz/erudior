@@ -122,7 +122,7 @@ The same momentum bookkeeping handles anything that picks up or sheds mass. The 
 
 $$P = Fv = Rv^2.$$
 
-But the kinetic energy given to the sand each second is only $\tfrac12Rv^2$. Exactly half of the motor's power goes into kinetic energy and the other half becomes heat, as the sand skids on the belt before it catches up. Remarkably, the half-and-half split doesn't depend on how rough the belt is: rougher sand catches up sooner, but the friction force is larger, and the two effects cancel. (This is the perfectly inelastic collision result again: each grain sticking to a much heavier belt loses half its kinetic energy as seen from the belt.)
+But the kinetic energy given to the sand each second is only $\tfrac12Rv^2$. Exactly half of the motor's power goes into kinetic energy and the other half becomes heat, as the sand skids on the belt before it catches up. Remarkably, the half-and-half split doesn't depend on how rough the belt is: rougher sand catches up sooner, but the friction force is larger, and the two effects cancel.
 
 ### Example 4
 

@@ -40,3 +40,5 @@
 - {front: 'Row of $J$ in GPS linearization', back: '$[\,\mathbf{e}_i^T\ \ 1\,]$, $\mathbf{e}_i$ = unit vector from satellite toward the guess', topic: Positioning from distances}
 - {front: 'Gauss–Newton method', back: 'Linearize, solve least squares for a correction, update, repeat', topic: Positioning from distances}
 - {front: 'Dilution of precision', back: '$\sqrt{\operatorname{tr}((J^TJ)^{-1})}$; in the plane with two beacons $\theta$ apart, $\sqrt2/\sin\theta$', topic: Positioning from distances}
+- {front: 'Least-squares position from noisy distances', back: 'Solve the subtracted linear equations $M\mathbf{x} = \mathbf{c}$ by the normal equations $M^TM\hat{\mathbf{x}} = M^T\mathbf{c}$', topic: Positioning from distances}
+- {front: 'Position error covariance (independent range errors, s.d. $\sigma$)', back: '$\sigma^2(J^TJ)^{-1}$', topic: Positioning from distances}

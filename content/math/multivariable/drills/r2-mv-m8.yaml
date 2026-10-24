@@ -1,0 +1,120 @@
+# Round 2 drills for mv-m8 (honors lessons 38h1 and 38h2)
+- id: mv-m8-r2-div-cylinder
+  title: Divergence theorem on a cylinder, face by face
+  topic: Proofs of the big theorems
+  vars:
+    a: {min: 1, max: 4}
+    b: {min: 1, max: 4}
+    c: {min: 1, max: 3}
+    R: {min: 1, max: 3}
+    H: {min: 1, max: 4}
+  calc:
+    side: (a + b)*pi*R^2*H
+    top: c*H^2*pi*R^2
+    ans: side + top
+    ab: a + b
+    cH2: c*H^2
+  prompt: 'Find the outward flux of $\mathbf F = \langle {a:coef}x,\; {b:coef}y,\; {c:coef}z^2\rangle$ through the closed surface of the solid cylinder $x^2 + y^2 \le {R}^2$, $0 \le z \le {H}$ (side, top and bottom). (2 decimals.)'
+  answers:
+    - {name: ans, label: 'Flux', relTolerance: 0.001}
+  solution: |-
+    By the Divergence theorem: $\operatorname{div}\mathbf F = {a} + {b} + 2({c})z$, and $\iiint({ab} + {c2z})\,dV$ splits as below. Face by face, as in the proof:
+    Top ($z = {H}$, $\mathbf n = \mathbf k$): $\mathbf F\cdot\mathbf n = {c}\cdot{H}^2 = {cH2}$, times the area $\pi\cdot{R}^2$, gives $\approx {top:num2}$.
+    Bottom ($z = 0$, $\mathbf n = -\mathbf k$): $\mathbf F\cdot\mathbf n = 0$.
+    Side ($\mathbf n = \langle x, y, 0\rangle/{R}$): $\mathbf F\cdot\mathbf n = ({a}x^2 + {b}y^2)/{R}$; with $dS = {R}\,d\theta\,dz$ this integrates to $({a} + {b})\pi\cdot{R}^2\cdot{H} \approx {side:num2}$.
+    Total $\approx$ **{ans:num2}**.
+- id: mv-m8-r2-stokes-plane
+  title: Stokes' theorem on a tilted plane
+  topic: Proofs of the big theorems
+  vars:
+    p: {min: -3, max: 3}
+    q: {min: -3, max: 3}
+    R: {min: 1, max: 3}
+  where: ["k != 0"]
+  calc:
+    k: p + q - 1
+    ans: k*pi*R^2
+  prompt: 'Let $S$ be the part of the plane $z = {p}x {q:signed}y$ above the disk $x^2 + y^2 \le {R}^2$, oriented upward, and $\mathbf F = \langle y,\; z,\; x\rangle$. Find $\displaystyle\oint_C\mathbf F\cdot d\mathbf r$ around its boundary, oriented by the right-hand rule. (2 decimals.)'
+  answers:
+    - {name: ans, label: 'Circulation', relTolerance: 0.002}
+  solution: |-
+    $\operatorname{curl}\mathbf F = \langle 0 - 1,\; 0 - 1,\; 0 - 1\rangle = \langle -1, -1, -1\rangle$. For the graph $z = g(x, y)$ with $g_x = {p}$, $g_y = {q}$, the upward normal is $\langle -g_x, -g_y, 1\rangle$, so
+    $\operatorname{curl}\mathbf F\cdot\langle -g_x, -g_y, 1\rangle = ({p}) + ({q}) - 1 = {k}$.
+    By Stokes' theorem the circulation is ${k}\cdot\pi\cdot{R}^2 \approx$ **{ans:num2}**.
+- id: mv-m8-r2-cube-flux
+  title: Flux out of a small cube
+  topic: Proofs of the big theorems
+  vars:
+    k: {min: 1, max: 3}
+    x0: {min: -3, max: 3}
+    s: {choices: [1, 2]}
+  calc:
+    flux: k*((x0 + s/2)^3 - (x0 - s/2)^3)*s^2
+    lim: 3*k*x0^2
+    s3: s^3
+  prompt: 'For $\mathbf F = \langle {k:coef}x^3,\; 0,\; 0\rangle$, find the outward flux out of the cube of side {s} centered at $({x0}, 0, 0)$, and the limit of (flux)/(volume) as the side shrinks to 0 around the same center.'
+  answers:
+    - {name: flux, label: 'Flux'}
+    - {name: lim, label: 'Limit of flux/volume'}
+  solution: |-
+    Only the two faces $x = {x0} \pm \tfrac{{s}}{2}$ carry flux (on the others $\mathbf F\cdot\mathbf n = 0$), each of area ${s}^2$.
+    Flux $= {k}\left[\left({x0} + \tfrac{{s}}{2}\right)^3 - \left({x0} - \tfrac{{s}}{2}\right)^3\right]\cdot{s}^2 =$ **{flux}**.
+    In general it is ${k}\left(3x_0^2h^3 + \tfrac{h^5}{4}\right)$ for side $h$; dividing by $h^3$ and letting $h\to0$ leaves $3({k})x_0^2 =$ **{lim}**, which is $\operatorname{div}\mathbf F$ at the center.
+- id: mv-m8-r2-div-product
+  title: Divergence by the product rule
+  topic: Vector product rules
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+  where: ["a != 0", "b != 0"]
+  calc:
+    a2: 2*a
+    b2: 2*b
+    a3: 3*a
+    b3: 3*b
+    a5: 5*a
+    b5: 5*b
+  prompt: 'Use the product rule to find $\nabla\cdot(f\mathbf F)$ for $f = {a:coef}x^2 {b:signedcoef}yz$ and $\mathbf F = \langle x,\; y,\; z\rangle$.'
+  answers:
+    - {kind: expression, expression: 'a5*x^2 + b5*y*z', variables: [x, y, z], label: '$\nabla\cdot(f\mathbf F) =$', show: '${a5:coef}x^2 {b5:signedcoef}yz$'}
+  solution: |-
+    $\nabla f = \langle {a2:coef}x,\; {b:coef}z,\; {b:coef}y\rangle$, so $\nabla f\cdot\mathbf F = {a2:coef}x^2 + ({b})yz + ({b})yz = {a2:coef}x^2 {b2:signedcoef}yz$.
+    $\nabla\cdot\mathbf F = 3$, so $f\,\nabla\cdot\mathbf F = {a3:coef}x^2 {b3:signedcoef}yz$.
+    Sum: **${a5:coef}x^2 {b5:signedcoef}yz$**.
+- id: mv-m8-r2-grad-flux
+  title: Flux of a gradient through a sphere
+  topic: Green's identities
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    c: {min: -3, max: 3}
+    R: {min: 1, max: 3}
+  where: ["L != 0"]
+  calc:
+    L: 2*(a + b + c)
+    ans: L*4*pi*R^3/3
+  prompt: 'Let $u = {a}x^2 {b:signed}y^2 {c:signed}z^2$. Find the outward flux of $\nabla u$ through the sphere $x^2 + y^2 + z^2 = {R}^2$, that is, $\displaystyle\iint_S\frac{\partial u}{\partial n}\,dS$. (2 decimals.)'
+  answers:
+    - {name: ans, label: 'Flux', relTolerance: 0.001}
+  solution: |-
+    By Green's first identity with $u = 1$ (the Divergence theorem for $\nabla u$), the flux is $\iiint_E\nabla^2u\,dV$.
+    $\nabla^2u = 2({a}) + 2({b}) + 2({c}) = {L}$, a constant, so the flux is ${L}\cdot\tfrac43\pi\cdot{R}^3 \approx$ **{ans:num2}**.
+- id: mv-m8-r2-energy
+  title: Green's first identity for a linear function
+  topic: Green's identities
+  vars:
+    a: {min: -3, max: 3}
+    b: {min: -3, max: 3}
+    c: {min: -3, max: 3}
+    R: {min: 1, max: 3}
+  where: ["G != 0"]
+  calc:
+    G: a^2 + b^2 + c^2
+    ans: G*4*pi*R^3/3
+  prompt: 'Let $u = {a}x {b:signed}y {c:signed}z$ and $S$ the sphere of radius {R} centered at the origin. Use Green''s first identity to evaluate $\displaystyle\iint_S u\,\frac{\partial u}{\partial n}\,dS$. (2 decimals.)'
+  answers:
+    - {name: ans, label: 'Value', relTolerance: 0.002}
+  solution: |-
+    Green's first identity with $v = u$: $\iint_S u\,\partial_nu\,dS = \iiint_E\left(u\nabla^2u + |\nabla u|^2\right)dV$.
+    $u$ is linear, so $\nabla^2u = 0$ and $|\nabla u|^2 = ({a})^2 + ({b})^2 + ({c})^2 = {G}$, a constant.
+    The value is ${G}\cdot\tfrac43\pi\cdot{R}^3 \approx$ **{ans:num2}**.

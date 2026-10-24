@@ -56,9 +56,23 @@ In 2.0 s: $\Delta\theta = \tfrac12(15)(2.0)^2 = 30$ rad, so string unwound $= r\
 
 Earlier we treated pulleys as massless, so the tension was the same on both sides. A real pulley has a moment of inertia, and to give it angular acceleration the tensions on its two sides must differ. Solve these problems by combining $\sum F = ma$ for each hanging or sliding object with $\sum\tau = I\alpha$ for the pulley, linked by the no-slip condition $a = R\alpha$.
 
+```mermaid
+flowchart TD
+  accTitle: Solving a problem with a pulley that has mass
+  accDescr: Draw a separate free-body diagram for each block and for the pulley. Choose directions so that the blocks' positive direction matches the pulley's positive rotation. Write sum of forces equals m a for each block, and sum of torques equals I alpha for the pulley, using a different tension on each side of the pulley. Link them with a equals R alpha. Then solve the equations together for the acceleration and the tensions, and check that the tensions differ and that the acceleration tends to the massless-pulley answer when the pulley's mass goes to zero.
+  A["Free-body diagram for each block and for the pulley"] --> B["Choose matching positive directions"]
+  B --> C["Each block: sum F = m a"]
+  C --> D["Pulley: sum of torques = I alpha, a different tension on each side"]
+  D --> E["Link them: a = R alpha"]
+  E --> F["Solve together for a and the tensions"]
+  F --> G["Check: massless pulley limit gives the old answer"]
+```
+
 ### Example 3
 
 A 2.0 kg bucket hangs from a rope wrapped around a 3.0 kg solid-cylinder windlass of radius 0.10 m that turns without friction. The bucket is released. Find its acceleration and the rope tension.
+
+![A solid cylinder of mass M turning on a fixed axle, with a rope wound around it hanging down on the right to a bucket of mass m. The rope pulls down on the cylinder's rim with tension T at a lever arm equal to the radius R; the same tension pulls up on the bucket, whose weight mg pulls down. The bucket accelerates downward with acceleration a and the cylinder has angular acceleration alpha.](images/phys-m5-windlass.svg)
 
 Bucket (down positive): $mg - T = ma$.
 

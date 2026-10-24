@@ -1,0 +1,523 @@
+# Round 2 questions for mv-m8: new question types for core lessons 33-38, and the two honors lessons (38h1, 38h2)
+# ---- Lesson 33: curl and divergence
+- id: mv-m8-r2-q01
+  lesson: mv-curl-div
+  type: text
+  topic: Divergence
+  stem: 'The divergence of $\mathbf F = \langle 3x,\; -y,\; 2z\rangle$ is ___. (Give only the number.)'
+  accept: ['4']
+  explanation: |-
+    $P_x + Q_y + R_z = 3 + (-1) + 2 = 4$. It is the same at every point, so this field is a source everywhere.
+- id: mv-m8-r2-q02
+  lesson: mv-curl-div
+  type: match
+  module_quiz: true
+  topic: Curl
+  stem: 'For a scalar function $f$ and a vector field $\mathbf F$, match each expression to the kind of object it is.'
+  pairs:
+    - ['$\nabla\times\mathbf F$', A vector field]
+    - ['$\nabla\cdot\mathbf F$', A scalar function]
+    - ['$\nabla f$', A vector field]
+    - ['$\nabla^2 f$', A scalar function]
+    - ['$\nabla\times(\nabla\cdot\mathbf F)$', Not defined]
+  explanation: |-
+    Curl and gradient produce vectors; divergence and the Laplacian ($\nabla\cdot\nabla f$) produce scalars. $\nabla\cdot\mathbf F$ is a scalar, and curl only applies to vector fields, so the curl of a divergence is not defined.
+- id: mv-m8-r2-q03
+  lesson: mv-curl-div
+  topic: Curl
+  stem: 'Which of these fields are irrotational (curl $= \mathbf 0$ everywhere)? Select all that apply.'
+  choices: ['$\langle y,\; x,\; 0\rangle$', '$\langle -y,\; x,\; 0\rangle$', '$\langle yz,\; xz,\; xy\rangle$', '$\langle z,\; 0,\; -x\rangle$']
+  answer: [0, 2]
+  explanation: |-
+    $\langle y, x, 0\rangle$: $Q_x - P_y = 1 - 1 = 0$, curl $\mathbf 0$ (it is $\nabla(xy)$). $\langle yz, xz, xy\rangle = \nabla(xyz)$, curl $\mathbf 0$.
+    $\langle -y, x, 0\rangle$ has curl $\langle 0, 0, 2\rangle$, and $\langle z, 0, -x\rangle$ has $\mathbf j$ component $P_z - R_x = 1 - (-1) = 2$: both rotate.
+- id: mv-m8-r2-q04
+  lesson: mv-curl-div
+  type: label
+  module_quiz: true
+  topic: Curl
+  stem: 'A paddle wheel sits in the swirling field $\langle -y, x, 0\rangle$. Name the numbered parts of the picture.'
+  image: {src: images/mv-m8-paddle-wheel-blank.svg, alt: 'A paddle wheel with a vertical axle in fluid swirling counterclockwise as seen from above. Numbered markers sit on a long arrow up the axle, a curved arrow around the axle, the wheel, and the swirling arrows.'}
+  labels:
+    - {x: 46.8, y: 27.5, text: Curl vector}
+    - {x: 51.8, y: 48.0, text: Direction of spin}
+    - {x: 50.4, y: 64.5, text: Paddle wheel}
+    - {x: 81.4, y: 65.5, text: Fluid flow}
+  distractors: [Gradient vector, Divergence]
+  explanation: |-
+    The fluid swirls counterclockwise seen from above, so the wheel spins counterclockwise. By the right-hand rule the curl, $\langle 0, 0, 2\rangle$, points straight up the axle, and its length 2 is twice the angular speed. Divergence is a number, not an arrow.
+# ---- Lesson 34: parametric surfaces
+- id: mv-m8-r2-q05
+  lesson: mv-param-surfaces
+  type: text
+  topic: Surface area
+  stem: 'For the sphere of radius 3 parametrized by $\phi$ and $\theta$, $|\mathbf r_\phi\times\mathbf r_\theta| = $ ___ $\sin\phi$. (Give only the number.)'
+  accept: ['9']
+  explanation: |-
+    For radius $a$ the area factor is $a^2\sin\phi$, so here $9\sin\phi$. Integrating it over $0 \le \phi \le \pi$, $0 \le \theta \le 2\pi$ gives the area $4\pi\cdot9 = 36\pi$.
+- id: mv-m8-r2-q06
+  lesson: mv-param-surfaces
+  type: match
+  module_quiz: true
+  topic: Parametric surfaces
+  stem: 'Match each parametrization to the surface it traces.'
+  pairs:
+    - ['$\langle 2\sin\phi\cos\theta,\; 2\sin\phi\sin\theta,\; 2\cos\phi\rangle$', Sphere]
+    - ['$\langle 2\cos\theta,\; 2\sin\theta,\; z\rangle$', Cylinder]
+    - ['$\langle r\cos\theta,\; r\sin\theta,\; r\rangle$', Cone]
+    - ['$\langle x,\; y,\; x^2 + y^2\rangle$', Paraboloid]
+  distractors: [Plane, Hyperboloid of one sheet]
+  explanation: |-
+    Fixing $\rho = 2$ in spherical coordinates gives the sphere of radius 2; fixing $r = 2$ in cylindrical coordinates gives the cylinder $x^2 + y^2 = 4$. With $z = r$ the height equals the distance from the axis: the cone $z = \sqrt{x^2 + y^2}$. The last is the graph $z = x^2 + y^2$, a paraboloid.
+- id: mv-m8-r2-q07
+  lesson: mv-param-surfaces
+  topic: Parametric surfaces
+  stem: 'Which statements about $\mathbf N = \mathbf r_u\times\mathbf r_v$ for a smooth parametric surface are true? Select all that apply.'
+  choices: ['It is perpendicular to the tangent plane', 'Its length is the area scale factor in $dS = |\mathbf r_u\times\mathbf r_v|\,du\,dv$', 'It is always a unit vector', 'Swapping the roles of $u$ and $v$ reverses its direction']
+  answer: [0, 1, 3]
+  explanation: |-
+    $\mathbf r_u$ and $\mathbf r_v$ lie in the tangent plane, so their cross product is normal to it, and its length is the area of the parallelogram they span, the area factor. $\mathbf r_v\times\mathbf r_u = -\mathbf r_u\times\mathbf r_v$. It is not a unit vector in general (on a sphere of radius $a$ its length is $a^2\sin\phi$); divide by its length to get one.
+- id: mv-m8-r2-q08
+  lesson: mv-param-surfaces
+  type: label
+  topic: Parametric surfaces
+  stem: 'The map $\mathbf r(u, v)$ carries the rectangle on the left onto the surface on the right. Blue curves are those along which $u$ varies, green those along which $v$ varies. Name the numbered parts.'
+  image: {src: images/mv-m8-param-patch-blank.svg, alt: 'A gridded rectangle in the uv-plane mapped by r(u, v) to a curved gridded surface. At a point on the surface, a blue arrow follows a blue grid curve, a green arrow follows a green grid curve, and a red arrow sticks out of the surface. Numbered markers sit on the rectangle, the three arrows, and one blue grid curve.'}
+  labels:
+    - {x: 31.2, y: 47.4, text: Parameter domain}
+    - {x: 72.8, y: 74.6, text: Tangent vector r_u}
+    - {x: 69.1, y: 57.8, text: Tangent vector r_v}
+    - {x: 61.2, y: 44.7, text: Normal vector r_u × r_v}
+    - {x: 81.2, y: 47.6, text: Grid curve with v fixed}
+  distractors: [Grid curve with u fixed, Unit normal of the uv-plane]
+  explanation: |-
+    The rectangle $D$ is the parameter domain. Along a blue curve $u$ varies while $v$ is fixed, so the blue arrow tangent to it is $\mathbf r_u$; the green arrow is $\mathbf r_v$. Their cross product is the red normal, perpendicular to both.
+# ---- Lesson 35: surface integrals and flux
+- id: mv-m8-r2-q09
+  lesson: mv-surface-integrals
+  type: text
+  topic: Flux
+  stem: 'The flux of the constant field $\mathbf F = \langle 1, 2, 3\rangle$ upward through the square $[0, 2]\times[0, 2]$ in the plane $z = 0$ is ___.'
+  accept: ['12']
+  explanation: |-
+    $\mathbf n = \mathbf k$, so $\mathbf F\cdot\mathbf n = 3$ everywhere; times the area 4 gives 12. The horizontal parts of $\mathbf F$ slide along the square and carry no flux.
+- id: mv-m8-r2-q10
+  lesson: mv-surface-integrals
+  type: order
+  topic: Flux
+  stem: 'Put the steps for computing the upward flux of $\mathbf F$ through a surface $z = g(x, y)$ in order.'
+  items:
+    - 'Write the surface as $z = g(x, y)$ and find its shadow $D$ in the $xy$-plane'
+    - 'Compute the upward normal $\langle -g_x,\; -g_y,\; 1\rangle$'
+    - 'Dot $\mathbf F(x, y, g(x, y))$ with that normal'
+    - 'Integrate the result over $D$'
+  explanation: |-
+    You need $g$ before its partial derivatives, the normal before the dot product, and the integrand before integrating. The lengths cancel, so no square root appears.
+- id: mv-m8-r2-q11
+  lesson: mv-surface-integrals
+  topic: Flux
+  stem: 'Which of these changes reverse the sign of a flux integral $\iint_S\mathbf F\cdot d\mathbf S$? Select all that apply.'
+  choices: ['Reversing the orientation of $S$', 'Replacing $\mathbf F$ by $-\mathbf F$', 'Using $\mathbf r_v\times\mathbf r_u$ in place of $\mathbf r_u\times\mathbf r_v$', 'Reparametrizing $S$ without changing its orientation']
+  answer: [0, 1, 2]
+  explanation: |-
+    Flux depends on the side chosen as positive: reversing the normal (directly, or by swapping the cross product's order) flips the sign, and so does reversing the field. A new parametrization with the same orientation gives the same value.
+- id: mv-m8-r2-q12
+  lesson: mv-surface-integrals
+  type: match
+  module_quiz: true
+  topic: Surface integrals
+  stem: 'Match each surface integral to what it measures.'
+  pairs:
+    - ['$\iint_S 1\,dS$', Surface area of S]
+    - ['$\iint_S\delta\,dS$, with $\delta$ a mass per unit area', Mass of a thin shell]
+    - ['$\iint_S\mathbf v\cdot\mathbf n\,dS$, with $\mathbf v$ a fluid velocity', Volume of fluid crossing S per unit time]
+    - ['$\dfrac{\iint_S z\,dS}{\iint_S 1\,dS}$', Average height of the surface]
+  distractors: [Volume of the solid under S]
+  explanation: |-
+    Scalar surface integrals add a density over the surface: 1 gives area, a mass density gives mass, and dividing by the area gives an average. The flux of a velocity field is the volume crossing per unit time (Lesson 35). The volume under a surface is a double or triple integral, not a surface integral.
+# ---- Lesson 36: Stokes' theorem
+- id: mv-m8-r2-q13
+  lesson: mv-stokes
+  type: text
+  topic: Stokes' theorem
+  stem: 'Let $\mathbf F = \langle -y,\; x,\; 0\rangle$ and $C$ the circle $x^2 + y^2 = 9$ in the plane $z = 5$, counterclockwise seen from above. By Stokes'' theorem, $\oint_C\mathbf F\cdot d\mathbf r = $ ___ $\pi$. (Give only the number in front of $\pi$.)'
+  accept: ['18']
+  explanation: |-
+    Use the flat disk of radius 3 at height 5 with $\mathbf n = \mathbf k$. $\operatorname{curl}\mathbf F\cdot\mathbf k = 1 - (-1) = 2$, so the circulation is $2\cdot9\pi = 18\pi$.
+- id: mv-m8-r2-q14
+  lesson: mv-stokes
+  type: label
+  module_quiz: true
+  topic: Stokes' theorem
+  stem: 'Name the numbered parts of this picture of Stokes'' theorem.'
+  image: {src: images/mv-m8-stokes-net-blank.svg, alt: 'A dome-shaped surface over a flat disk. The rim carries arrows going counterclockwise seen from above, and an arrow points up and out of the dome. Numbered markers sit on the dome, the rim, the arrow out of the dome and the flat disk.'}
+  labels:
+    - {x: 39.3, y: 42.5, text: Surface S}
+    - {x: 71.4, y: 80.7, text: Boundary curve C}
+    - {x: 71.1, y: 18.4, text: Unit normal n}
+    - {x: 33.9, y: 72.0, text: Flat disk with the same boundary}
+  distractors: [Tangent plane, Shadow in the xy-plane]
+  explanation: |-
+    The dome is $S$; its rim is the boundary curve $C$, oriented by the right-hand rule: thumb along the outward normal $\mathbf n$, fingers curl counterclockwise as seen from above. The flat disk has the same boundary, so (with upward normal) it carries the same flux of $\operatorname{curl}\mathbf F$.
+- id: mv-m8-r2-q15
+  lesson: mv-stokes
+  topic: Stokes' theorem
+  stem: '$S$ is the upper unit hemisphere, oriented upward, with boundary the unit circle in the $xy$-plane. Which surfaces give the same value of $\iint\operatorname{curl}\mathbf F\cdot d\mathbf S$ for every smooth $\mathbf F$? Select all that apply.'
+  choices: ['The unit disk in the $xy$-plane, oriented upward', 'The paraboloid $z = 1 - x^2 - y^2$, $z \ge 0$, oriented upward', 'The unit disk in the $xy$-plane, oriented downward', 'The upper hemisphere of radius 2, oriented upward']
+  answer: [0, 1]
+  explanation: |-
+    Any surface with the same boundary curve and the matching orientation gives $\oint_C\mathbf F\cdot d\mathbf r$. The paraboloid meets $z = 0$ on the unit circle, so it qualifies. The downward disk induces the clockwise direction and gives the negative; the radius-2 hemisphere has a different boundary.
+- id: mv-m8-r2-q16
+  lesson: mv-stokes
+  type: order
+  topic: Stokes' theorem
+  stem: 'Put the steps of the "tiny patches" explanation of Stokes'' theorem in order.'
+  items:
+    - 'Cut $S$ into many tiny, nearly flat patches'
+    - 'On each patch, Green''s theorem gives circulation $\approx(\operatorname{curl}\mathbf F\cdot\mathbf n)\,\Delta S$'
+    - 'Add the circulations of all the patches'
+    - 'Interior edges are traversed twice in opposite directions and cancel, leaving the circulation around $C$'
+  explanation: |-
+    The patches come first, then the local estimate on each, then the sum; the cancellation happens in the sum, which leaves only the outer boundary. The sum of the $(\operatorname{curl}\mathbf F\cdot\mathbf n)\,\Delta S$ is the flux of the curl.
+# ---- Lesson 37: the Divergence theorem
+- id: mv-m8-r2-q17
+  lesson: mv-divergence
+  type: text
+  topic: Divergence theorem
+  stem: 'The outward flux of $\mathbf F = \langle 2x,\; 3y,\; -z\rangle$ through the surface of the box $[0, 2]\times[0, 1]\times[0, 3]$ is ___.'
+  accept: ['24']
+  explanation: |-
+    $\operatorname{div}\mathbf F = 2 + 3 - 1 = 4$, a constant, so the flux is $4$ times the volume $2\cdot1\cdot3 = 6$, which is 24.
+- id: mv-m8-r2-q18
+  lesson: mv-divergence
+  type: match
+  module_quiz: true
+  topic: Divergence theorem
+  stem: 'Each fundamental theorem says an integral of a derivative equals a boundary term. Match each integral to its boundary term.'
+  pairs:
+    - ['$\int_a^b F''(x)\,dx$', F(b) − F(a)]
+    - ['$\int_C\nabla f\cdot d\mathbf r$', f(end) − f(start)]
+    - ['$\iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S$', Circulation of F around the boundary curve]
+    - ['$\iiint_E\operatorname{div}\mathbf F\,dV$', Outward flux of F through the boundary surface]
+  distractors: [Area of the region]
+  explanation: |-
+    FTC, the fundamental theorem for line integrals, Stokes and the Divergence theorem: in each, integrating a derivative over a region equals evaluating the function on the boundary (two points, two endpoints, a curve, a closed surface).
+- id: mv-m8-r2-q19
+  lesson: mv-divergence
+  topic: Divergence theorem
+  stem: 'In which situations can the Divergence theorem NOT be applied directly as stated? Select all that apply.'
+  choices: ['$S$ is the upper hemisphere $x^2 + y^2 + z^2 = 1$, $z \ge 0$, without its base', '$\mathbf F = \mathbf x/|\mathbf x|^3$ and $S$ is the unit sphere centered at the origin', '$\mathbf F = \langle xy, yz, zx\rangle$ and $S$ is the surface of the cube $[0, 1]^3$', '$\mathbf F = \langle e^x, \sin y, z^2\rangle$ and $S$ is the unit sphere']
+  answer: [0, 1]
+  explanation: |-
+    The theorem needs a closed surface (the open hemisphere needs a lid first) and a field with continuous partial derivatives throughout the solid ($\mathbf x/|\mathbf x|^3$ blows up at the origin). The other two are smooth fields on closed surfaces.
+- id: mv-m8-r2-q20
+  lesson: mv-divergence
+  type: text
+  topic: Divergence theorem
+  stem: 'The outward flux of $\mathbf F = \langle x,\; y,\; z\rangle$ through the closed surface of the solid cylinder $x^2 + y^2 \le 1$, $0 \le z \le 2$ (side, top and bottom) is ___ $\pi$. (Give only the number in front of $\pi$.)'
+  accept: ['6']
+  explanation: |-
+    $\operatorname{div}\mathbf F = 3$ and the volume is $\pi\cdot1^2\cdot2 = 2\pi$, so the flux is $6\pi$. (Check: the side gives $1\cdot4\pi$, the top $2\cdot\pi$, the bottom 0.)
+# ---- Lesson 38: physics
+- id: mv-m8-r2-q21
+  lesson: mv-physics
+  type: label
+  module_quiz: true
+  topic: Applications to physics
+  stem: 'Name the numbered parts of this setup for Ampère''s law.'
+  image: {src: images/mv-m8-amperian-loop-blank.svg, alt: 'A long vertical wire with an upward arrow beside it, surrounded by a horizontal circle carrying arrows that go counterclockwise seen from above, with a dashed line from the wire to the circle. Numbered markers sit on the dashed line, the upward arrow, the circle and one arrow on the circle.'}
+  labels:
+    - {x: 54.6, y: 66.5, text: Radius r}
+    - {x: 53.2, y: 30.5, text: Current I}
+    - {x: 20.6, y: 63.5, text: Amperian loop C}
+    - {x: 76.5, y: 71.3, text: Magnetic field B}
+  distractors: [Electric field E, Gaussian surface]
+  explanation: |-
+    The current $I$ runs up the wire. The loop $C$ is a circle of radius $r$ around it, and $\mathbf B$ is tangent to the loop (counterclockwise from above, by the right-hand rule). Then $B\cdot2\pi r = \mu_0I$. A Gaussian surface is a closed surface, used for Gauss's law.
+- id: mv-m8-r2-q22
+  lesson: mv-physics
+  type: match
+  topic: Applications to physics
+  stem: 'Match each of Maxwell''s equations to what it says in words.'
+  pairs:
+    - [Gauss's law for E, Electric flux out of a closed surface is set by the charge inside]
+    - [Gauss's law for B, There are no magnetic monopoles]
+    - [Faraday's law, A changing magnetic flux makes a circulating electric field]
+    - [Ampère–Maxwell law, Currents and changing electric flux make a circulating magnetic field]
+  distractors: [Heat flows from hot to cold]
+  explanation: |-
+    The two Gauss laws are flux laws ($\nabla\cdot\mathbf E = \rho/\varepsilon_0$, $\nabla\cdot\mathbf B = 0$). Faraday and Ampère–Maxwell are circulation laws ($\nabla\times\mathbf E = -\partial_t\mathbf B$, $\nabla\times\mathbf B = \mu_0\mathbf J + \mu_0\varepsilon_0\partial_t\mathbf E$). Heat flowing from hot to cold is Fourier's law.
+- id: mv-m8-r2-q23
+  lesson: mv-physics
+  topic: Applications to physics
+  stem: 'Which laws are turned from integral form into differential form with the Divergence theorem (rather than Stokes'' theorem)? Select all that apply.'
+  choices: ['Gauss''s law for $\mathbf E$', 'Gauss''s law for $\mathbf B$', 'Faraday''s law', 'The continuity equation $\partial_t\rho + \nabla\cdot(\rho\mathbf v) = 0$', 'Ampère''s law']
+  answer: [0, 1, 3]
+  explanation: |-
+    Laws about flux through a closed surface become divergence laws: both Gauss laws and conservation of mass. Faraday's and Ampère's laws are about circulation around a loop, so they use Stokes' theorem and become curl laws.
+- id: mv-m8-r2-q24
+  lesson: mv-physics
+  type: text
+  topic: Applications to physics
+  stem: 'Near a long straight wire, $B = \dfrac{\mu_0I}{2\pi r}$. If you move twice as far from the wire, the field strength is multiplied by ___.'
+  accept: ['1/2', 'one half', 'half']
+  explanation: |-
+    $B$ is proportional to $1/r$, so doubling $r$ halves $B$. (For a point charge, $E \propto 1/r^2$ would drop to a quarter.)
+- id: mv-m8-r2-q25
+  lesson: mv-physics
+  type: order
+  module_quiz: true
+  topic: Applications to physics
+  stem: 'Put the steps for deriving a differential law (such as $\nabla\cdot\mathbf E = \rho/\varepsilon_0$) from an integral law in order.'
+  items:
+    - 'Write the integral law for an arbitrary region'
+    - 'Use the Divergence or Stokes theorem to turn the boundary integral into an integral over the region'
+    - 'Now both sides are integrals over the same arbitrary region'
+    - 'Since the region is arbitrary, the integrands agree at every point: the differential law'
+  explanation: |-
+    "True for every region, so true at every point" is the last step; before it, a theorem must turn both sides into integrals over the same region.
+# ---- Honors: mv-m8-h-proofs
+- id: mv-m8-r2-h01
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'In the proof of the Divergence theorem for a type 1 solid, why does the vertical side wall contribute nothing to $\iint_S R\,(\mathbf k\cdot\mathbf n)\,dS$?'
+  choices: ['Its normal is horizontal, so $\mathbf k\cdot\mathbf n = 0$', '$R$ is zero on the side wall', 'The side wall has zero area', 'Its flux cancels the flux through the top']
+  answer: 0
+  explanation: |-
+    The side wall is vertical, so its normal has no $\mathbf k$ component. $R$ need not vanish there, the wall can have any area, and nothing cancels: its contribution to this component is simply zero.
+- id: mv-m8-r2-h02
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'In the same proof, the bottom surface $z = u_1(x, y)$ contributes $-\iint_D R(x, y, u_1(x, y))\,dA$. Where does the minus sign come from?'
+  choices: ['The Fundamental Theorem of Calculus', 'The outward normal on the bottom points downward', '$R$ is negative on the bottom', 'Clairaut''s theorem']
+  answer: 1
+  explanation: |-
+    The upward-flux formula gives $+\iint_D R\,dA$; the bottom's outward normal points down, which reverses the sign. That minus sign is what matches the $-R(x, y, u_1)$ from the FTC on the volume side.
+- id: mv-m8-r2-h03
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: '$E$ is the solid between $z = x^2 + y^2$ and $z = 1$, and $\mathbf F = \langle 0, 0, z\rangle$. What is the outward flux through the bottom (paraboloid) surface?'
+  choices: ['$-\dfrac{\pi}{2}$', '$\dfrac{\pi}{2}$', '$-\pi$', '$0$']
+  answer: 0
+  explanation: |-
+    The shadow is the unit disk. Bottom: $-\iint_D r^2\,dA = -2\pi\cdot\tfrac14 = -\tfrac\pi2$. The top gives $\iint_D 1\,dA = \pi$, total $\tfrac\pi2$, which equals $\iiint_E 1\,dV$, the volume, as the theorem says ($\operatorname{div}\mathbf F = 1$).
+- id: mv-m8-r2-h04
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'On the boundary of the graph $z = g(x, y)$, $\oint_C P\,dx + Q\,dy + R\,dz$ equals which plane line integral around $C_1$?'
+  choices: ['$\oint_{C_1}P\,dx + Q\,dy$', '$\oint_{C_1}(P + Rg_x)\,dx + (Q + Rg_y)\,dy$', '$\oint_{C_1}(P - Rg_x)\,dx + (Q - Rg_y)\,dy$', '$\oint_{C_1}(P + R)\,dx + (Q + R)\,dy$']
+  answer: 1
+  explanation: |-
+    On $C$, $z = g(x, y)$, so $dz = g_x\,dx + g_y\,dy$ by the chain rule. Substituting gives $(P + Rg_x)\,dx + (Q + Rg_y)\,dy$. Dropping the $R$ terms would be correct only if $C$ were flat ($dz = 0$).
+- id: mv-m8-r2-h05
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'Where does the proof of Stokes'' theorem for a graph $z = g(x, y)$ use Clairaut''s theorem?'
+  choices: ['To cancel the $R_zg_xg_y$ terms', 'To apply Green''s theorem', 'To cancel $Rg_{yx} - Rg_{xy}$', 'To show the curl of a gradient is zero']
+  answer: 2
+  explanation: |-
+    After Green's theorem, the terms $Rg_{yx}$ and $Rg_{xy}$ appear with opposite signs; they cancel because the mixed partials of $g$ are equal, which needs continuous second partials of $g$. The $R_zg_xg_y$ terms cancel without Clairaut, being literally the same product.
+- id: mv-m8-r2-h06
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'Find the outward flux of $\mathbf F = \langle 0,\; y^3,\; 0\rangle$ out of the cube of side 2 centered at $(0, 2, 0)$.'
+  choices: ['$104$', '$96$', '$12$', '$13$']
+  answer: 0
+  explanation: |-
+    Only the faces $y = 1$ and $y = 3$ count, each of area 4: $(3^3 - 1^3)\cdot4 = 104$. Equivalently $3y_0^2h^3 + \tfrac{h^5}{4} = 96 + 8$. 96 forgets the $\tfrac{h^5}{4}$ correction; 12 is $\operatorname{div}\mathbf F$ at the center, and 13 is the flux divided by the volume 8.
+- id: mv-m8-r2-h07
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'Why does the Divergence theorem not apply to $\mathbf F = \mathbf x/|\mathbf x|^3$ on the unit ball?'
+  choices: ['The unit sphere is not a closed surface', 'Its divergence is not zero', 'It is not defined at the origin, so its partial derivatives are not continuous throughout the ball', 'Its flux through the unit sphere is zero']
+  answer: 2
+  explanation: |-
+    The FTC step of the proof needs continuous partial derivatives everywhere in $E$. Here they blow up at the origin. Indeed the flux is $4\pi$ while the divergence is 0 wherever it is defined.
+- id: mv-m8-r2-h08
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'Who first wrote down the theorem now called Stokes'' theorem?'
+  choices: ['Carl Friedrich Gauss, in 1813', 'George Green, in 1828', 'Mikhail Ostrogradsky, in 1826', 'William Thomson (Lord Kelvin), in an 1850 letter to Stokes']
+  answer: 3
+  explanation: |-
+    Thomson stated it in a letter to Stokes in 1850; Stokes set it on the 1854 Smith's Prize examination, which is how it got his name (it is also called the Kelvin–Stokes theorem). Ostrogradsky's 1826 proof was of the Divergence theorem.
+- id: mv-m8-r2-h09
+  lesson: mv-m8-h-proofs
+  type: text
+  topic: Proofs of the big theorems
+  stem: 'In the generalized Stokes theorem $\int_{\partial M}\omega = \int_M d\omega$, the symbol $\partial M$ stands for the ___ of $M$.'
+  accept: [boundary, edge, boundary surface, boundary curve]
+  explanation: |-
+    $\partial M$ is the boundary: two endpoints for an interval (FTC), a closed curve for a surface (Stokes), a closed surface for a solid (Divergence theorem).
+- id: mv-m8-r2-h10
+  lesson: mv-m8-h-proofs
+  type: order
+  topic: Proofs of the big theorems
+  stem: 'Put the steps of the proof of Stokes'' theorem for a graph $z = g(x, y)$ in order.'
+  items:
+    - 'Parametrize $C$ as $(x(t),\; y(t),\; g(x(t), y(t)))$ above the boundary $C_1$ of $D$'
+    - 'Substitute $dz = g_x\,dx + g_y\,dy$ to get a line integral around $C_1$ in the plane'
+    - 'Apply Green''s theorem over $D$'
+    - 'Simplify with the chain rule and Clairaut''s theorem'
+    - 'Recognize the result as the upward flux of $\operatorname{curl}\mathbf F$ through $S$'
+  explanation: |-
+    Each step uses the one before: the parametrization gives $dz$, the substitution gives a plane integral that Green's theorem can take, Green's integrand must be expanded with the chain rule, and the simplified integrand is $\operatorname{curl}\mathbf F\cdot\langle -g_x, -g_y, 1\rangle$.
+- id: mv-m8-r2-h11
+  lesson: mv-m8-h-proofs
+  type: match
+  topic: Proofs of the big theorems
+  stem: 'Match each hypothesis to the step of the proofs where it is used.'
+  pairs:
+    - [Continuous partial derivatives of R, The FTC step in z]
+    - [Outward orientation of S, The minus sign on the bottom surface]
+    - [Continuous second partials of g, Cancelling the mixed partials of g]
+    - [A region D where Green's theorem holds, Turning the plane line integral into a double integral]
+  distractors: [Making the side wall vertical]
+  explanation: |-
+    The FTC needs $R_z$ continuous; outward orientation gives the bottom its minus sign; Clairaut ($g_{xy} = g_{yx}$) needs continuous second partials; and the Stokes proof applies Green's theorem on $D$. A vertical side wall is part of a type 1 solid's shape, not a hypothesis on $\mathbf F$ or $g$.
+- id: mv-m8-r2-h12
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'Which solids are simple solid regions, that is, of type 1 and of the matching types for the $x$- and $y$-directions? Select all that apply.'
+  choices: ['A ball', 'A rectangular box', 'The solid between $z = x^2 + y^2$ and $z = 8 - x^2 - y^2$', 'The spherical shell $1 \le x^2 + y^2 + z^2 \le 4$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Lines parallel to any axis meet a ball, a box or the solid between the two paraboloids in a single segment. A vertical line through the hole of the shell meets it in two separate segments, so the shell is not simple. (The theorem still holds for the shell: cut it into simple pieces and add, as the lesson describes.)
+- id: mv-m8-r2-h13
+  lesson: mv-m8-h-proofs
+  type: text
+  topic: Proofs of the big theorems
+  stem: '$E$ is the solid between $z = x^2 + y^2$ (bottom) and $z = 1$ (top), and $\mathbf F = \langle 0, 0, z^2\rangle$. The outward flux through the bottom is ___ $\pi$. (Give the number in front of $\pi$, as a fraction.)'
+  accept: ['-1/3']
+  explanation: |-
+    The shadow is the unit disk. Bottom: $-\iint_D(r^2)^2\,dA = -2\pi\int_0^1r^5\,dr = -\tfrac{2\pi}{6} = -\tfrac\pi3$. (The top gives $\pi$; the total $\tfrac{2\pi}{3}$ equals $\iiint_E 2z\,dV$.)
+- id: mv-m8-r2-h14
+  lesson: mv-m8-h-proofs
+  topic: Proofs of the big theorems
+  stem: 'Which formula gives $\operatorname{div}\mathbf F(P_0)$ without any coordinates? ($B_\epsilon$ is the ball of radius $\epsilon$ about $P_0$, of volume $V_\epsilon$.)'
+  choices: ['$\displaystyle\lim_{\epsilon\to0}\iint_{\partial B_\epsilon}\mathbf F\cdot\mathbf n\,dS$', '$\displaystyle\lim_{\epsilon\to0}\frac{1}{V_\epsilon}\iiint_{B_\epsilon}|\mathbf F|\,dV$', '$\displaystyle\lim_{\epsilon\to0}\frac{1}{\pi\epsilon^2}\oint_{C_\epsilon}\mathbf F\cdot d\mathbf r$', '$\displaystyle\lim_{\epsilon\to0}\frac{1}{V_\epsilon}\iint_{\partial B_\epsilon}\mathbf F\cdot\mathbf n\,dS$']
+  answer: 3
+  explanation: |-
+    Divergence is outward flux per unit volume. Without dividing by $V_\epsilon$ the limit is 0; the circulation formula gives a component of curl, not divergence.
+# ---- Honors: mv-m8-h-green-identities
+- id: mv-m8-r2-h15
+  lesson: mv-m8-h-green-identities
+  topic: Vector product rules
+  stem: 'Which is the product rule for $\nabla\cdot(f\mathbf F)$?'
+  choices: ['$f\,\nabla\cdot\mathbf F$', '$\nabla f\times\mathbf F + f\,\nabla\cdot\mathbf F$', '$\nabla f\cdot\mathbf F + f\,\nabla\cdot\mathbf F$', '$\nabla f\cdot\mathbf F - f\,\nabla\cdot\mathbf F$']
+  answer: 2
+  explanation: |-
+    $(fP)_x + (fQ)_y + (fR)_z = (f_xP + f_yQ + f_zR) + f(P_x + Q_y + R_z)$. A cross product would make the first term a vector, but the left side is a scalar.
+- id: mv-m8-r2-h16
+  lesson: mv-m8-h-green-identities
+  topic: Vector product rules
+  stem: 'Which is the correct formula for $\nabla\cdot(\mathbf F\times\mathbf G)$?'
+  choices: ['$\mathbf G\cdot(\nabla\times\mathbf F) + \mathbf F\cdot(\nabla\times\mathbf G)$', '$\mathbf G\cdot(\nabla\times\mathbf F) - \mathbf F\cdot(\nabla\times\mathbf G)$', '$(\nabla\times\mathbf F)\cdot(\nabla\times\mathbf G)$', '$\mathbf F\cdot(\nabla\times\mathbf G) - \mathbf G\cdot(\nabla\times\mathbf F)$']
+  answer: 1
+  explanation: |-
+    The minus sign comes from $\mathbf F\times\mathbf G = -\mathbf G\times\mathbf F$. Check: if $\mathbf F = \mathbf G$, the left side is $\nabla\cdot\mathbf 0 = 0$, and only the two "difference" formulas give 0; of those, the sign is fixed by expanding one component.
+- id: mv-m8-r2-h17
+  lesson: mv-m8-h-green-identities
+  topic: Vector product rules
+  stem: 'Find $\nabla\cdot(f\mathbf F)$ for $f = x^2$ and $\mathbf F = \langle x, y, z\rangle$.'
+  choices: ['$3x^2$', '$5x^2$', '$2x^2$', '$6x$']
+  answer: 1
+  explanation: |-
+    $\nabla f\cdot\mathbf F = \langle 2x, 0, 0\rangle\cdot\langle x, y, z\rangle = 2x^2$ and $f\,\nabla\cdot\mathbf F = 3x^2$; total $5x^2$. Directly: $\nabla\cdot\langle x^3, x^2y, x^2z\rangle = 3x^2 + x^2 + x^2$. $3x^2$ and $2x^2$ are each one term of the product rule alone.
+- id: mv-m8-r2-h18
+  lesson: mv-m8-h-green-identities
+  topic: Green's identities
+  stem: 'On a closed surface $S$ with outward unit normal $\mathbf n$, the normal derivative $\dfrac{\partial v}{\partial n}$ means'
+  choices: ['$\nabla v\cdot\mathbf n$', '$\dfrac{\partial v}{\partial z}$', '$|\nabla v|$', '$\nabla v\times\mathbf n$']
+  answer: 0
+  explanation: |-
+    It is the directional derivative of $v$ in the outward normal direction, a scalar that can change from point to point on $S$. It equals $\partial v/\partial z$ only where $\mathbf n = \mathbf k$.
+- id: mv-m8-r2-h19
+  lesson: mv-m8-h-green-identities
+  topic: Green's identities
+  stem: 'Setting $u = 1$ in Green''s first identity gives'
+  choices: ['$\displaystyle\iiint_E\nabla v\,dV = \iint_S v\,dS$', '$\displaystyle\iiint_E|\nabla v|^2\,dV = \iint_S v\,\frac{\partial v}{\partial n}\,dS$', '$\displaystyle\iiint_E\nabla^2v\,dV = \iint_S\frac{\partial v}{\partial n}\,dS$', '$\displaystyle\iint_S\frac{\partial v}{\partial n}\,dS = 0$ for every $v$']
+  answer: 2
+  explanation: |-
+    With $u = 1$, $\nabla u = \mathbf 0$, leaving $\iiint\nabla^2v\,dV = \iint\partial_nv\,dS$: the Divergence theorem for $\nabla v$. The flux of $\nabla v$ is 0 only when $v$ is harmonic. The $|\nabla v|^2$ version comes from $u = v$ with $v$ harmonic.
+- id: mv-m8-r2-h20
+  lesson: mv-m8-h-green-identities
+  topic: Green's identities
+  stem: 'Find the outward flux of $\nabla u$, for $u = x^2 + y^2 + z^2$, through the sphere of radius 2.'
+  choices: ['$0$', '$16\pi$', '$32\pi$', '$64\pi$']
+  answer: 3
+  explanation: |-
+    $\nabla^2u = 6$, so the flux is $6\cdot\tfrac43\pi\cdot2^3 = 64\pi$. Directly: $\partial u/\partial n = \nabla u\cdot\mathbf n = 2r = 4$ on the sphere, times the area $16\pi$. ($16\pi$ is just the area; 0 would be right only for a harmonic $u$.)
+- id: mv-m8-r2-h21
+  lesson: mv-m8-h-green-identities
+  topic: Green's identities
+  stem: '$u_1$ and $u_2$ both solve $\nabla^2u = f$ in a connected solid $E$ with $u = h$ on its boundary. For $w = u_1 - u_2$ the energy identity gives $\iiint_E|\nabla w|^2\,dV = 0$. What follows?'
+  choices: ['$w$ is harmonic, but nothing more', '$\nabla w = \mathbf 0$, so $w$ is constant, and since $w = 0$ on the boundary, $u_1 = u_2$', '$w = 0$ on the boundary only', '$u_1 = u_2 + C$ for some constant $C$ that may be nonzero']
+  answer: 1
+  explanation: |-
+    A continuous integrand that is never negative and integrates to 0 must be 0, so $\nabla w = \mathbf 0$ and $w$ is constant on the connected region. The Dirichlet condition makes the constant 0. A nonzero constant is possible only for Neumann problems.
+- id: mv-m8-r2-h22
+  lesson: mv-m8-h-green-identities
+  topic: Green's identities
+  stem: 'For which constant $c$ can the Neumann problem $\nabla^2u = 6$ in the unit ball, $\dfrac{\partial u}{\partial n} = c$ on the unit sphere, have a solution?'
+  choices: ['$c = 6$', '$c = 8$', '$c = \tfrac12$', '$c = 2$']
+  answer: 3
+  explanation: |-
+    Compatibility: $\iint_S c\,dS = \iiint_E 6\,dV$, so $4\pi c = 8\pi$ and $c = 2$. Check: $u = x^2 + y^2 + z^2$ has $\nabla^2u = 6$ and $\partial u/\partial n = 2r = 2$ on the unit sphere.
+- id: mv-m8-r2-h23
+  lesson: mv-m8-h-green-identities
+  type: text
+  topic: Green's identities
+  stem: 'The boundary-value problem "$\nabla^2u = f$ in $E$, with the values of $u$ given on the boundary" is called the ___ problem.'
+  accept: [Dirichlet, Dirichlet's, Dirichlet problem]
+  explanation: |-
+    Prescribing the values is the Dirichlet problem (at most one solution); prescribing the normal derivative is the Neumann problem (unique up to a constant, and only solvable when the compatibility condition holds).
+- id: mv-m8-r2-h24
+  lesson: mv-m8-h-green-identities
+  type: text
+  topic: Green's identities
+  stem: 'Apply Green''s first identity with $u = v = x$ on the unit ball. It shows that $\iint_S x^2\,dS$ over the unit sphere equals ___ $\pi$. (Give the number in front of $\pi$, as a fraction.)'
+  accept: ['4/3']
+  explanation: |-
+    $\nabla^2x = 0$ and $|\nabla x|^2 = 1$, so the left side is the volume $\tfrac43\pi$. On the unit sphere $\partial x/\partial n = \mathbf i\cdot\langle x, y, z\rangle = x$, so the right side is $\iint x^2\,dS$. (Symmetry agrees: $x^2$, $y^2$, $z^2$ have equal integrals adding to $4\pi$.)
+- id: mv-m8-r2-h25
+  lesson: mv-m8-h-green-identities
+  type: match
+  topic: Green's identities
+  stem: 'Match each problem on a connected solid $E$ with boundary $S$ to what Green''s identities say about its solutions.'
+  pairs:
+    - ['$\nabla^2u = f$ in $E$, $u = h$ on $S$', At most one solution]
+    - ['$\nabla^2u = f$ in $E$, $\partial u/\partial n = h$ on $S$, with $\iint_S h\,dS = \iiint_E f\,dV$', Solutions differ only by a constant]
+    - ['$\nabla^2u = f$ in $E$, $\partial u/\partial n = h$ on $S$, with $\iint_S h\,dS \ne \iiint_E f\,dV$', No solution]
+    - ['$\nabla^2u = 0$ in $E$, with no boundary condition', Infinitely many solutions that differ by more than a constant]
+  distractors: [Exactly two solutions]
+  explanation: |-
+    Dirichlet: the energy identity forces the difference of two solutions to be 0. Neumann: it forces a constant difference, and Green's first identity with $u = 1$ shows the compatibility condition is necessary. Without boundary data, any harmonic function works, for example $0$, $x$ and $x^2 - y^2$.
+- id: mv-m8-r2-h26
+  lesson: mv-m8-h-green-identities
+  type: order
+  topic: Green's identities
+  stem: 'Put the steps of the derivation of Green''s second identity in order.'
+  items:
+    - 'Product rule: $\nabla\cdot(u\nabla v) = \nabla u\cdot\nabla v + u\,\nabla^2v$'
+    - 'Integrate over $E$ and apply the Divergence theorem to get Green''s first identity'
+    - 'Write the first identity again with $u$ and $v$ swapped'
+    - 'Subtract the two identities; the $\nabla u\cdot\nabla v$ terms cancel'
+  explanation: |-
+    The product rule is what the Divergence theorem turns into the first identity; the second identity is the difference of the first identity and its swapped copy.
+- id: mv-m8-r2-h27
+  lesson: mv-m8-h-green-identities
+  topic: Green's identities
+  stem: 'Which functions are harmonic on all of space ($\nabla^2u = 0$)? Select all that apply.'
+  choices: ['$x^2 + y^2 - 2z^2$', '$xyz$', '$x^2 + y^2 + z^2$', '$x^2 - y^2 + z^2$']
+  answer: [0, 1]
+  explanation: |-
+    $x^2 + y^2 - 2z^2$: $2 + 2 - 4 = 0$. $xyz$: every second partial $u_{xx}, u_{yy}, u_{zz}$ is 0. $x^2 + y^2 + z^2$ has Laplacian 6, and $x^2 - y^2 + z^2$ has $2 - 2 + 2 = 2$.
+- id: mv-m8-r2-h28
+  lesson: mv-m8-h-green-identities
+  topic: Green's identities
+  stem: 'The mean value property says that if $u$ is harmonic, its value at the center of a sphere (inside the region) equals'
+  choices: ['the maximum of $u$ on the sphere', 'the average of $u$ over the sphere', 'zero', 'the average of $\partial u/\partial n$ over the sphere']
+  answer: 1
+  explanation: |-
+    The center value is the average over the sphere. So a nonconstant harmonic function cannot have a strict maximum inside its region. The average of $\partial u/\partial n$ over a sphere is 0 for harmonic $u$ (zero flux of $\nabla u$), not $u$ at the center.

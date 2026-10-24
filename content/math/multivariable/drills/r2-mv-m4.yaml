@@ -28,22 +28,27 @@
   solution: |-
     $D_1 = {a}$.
     $D_2 = ({a})({b}) - ({d})^2 = {D2}$.
-    $D_3 = \det H = {a}\left(({b})({c}) - ({e})^2\right) - ({d})\left(({d})({c}) - 0\right) + 0 = {D3}$.
+    $D_3 = \det H = {a}\left(({b})({c}) - ({e})^2\right) - ({d})\left(({d})({c}) - 0\right) = {D3}$.
     Signs $+, +, +$ mean a minimum; $-, +, -$ a maximum; any other pattern with $D_3 \ne 0$ a saddle. Here $D_1 = {D1}$, $D_2 = {D2}$, $D_3 = {D3}$: **type {cls}**.
 - id: mv-m4-r2-crit3
   title: Critical point of a quadratic in three variables
   topic: Quadratic forms and the Hessian
   vars:
-    A: {min: -3, max: 3}
-    B: {min: -3, max: 3}
-    C: {min: -3, max: 3}
-    p: {min: -3, max: 3}
-    q: {min: -3, max: 3}
+    sg: {choices: [-1, 1]}
+    fl: {choices: [1, 1, -1]}
+    mA: {min: 1, max: 3}
+    mB: {min: 1, max: 3}
+    mC: {min: 1, max: 3}
+    p: {min: -2, max: 2}
+    q: {min: -2, max: 2}
     X: {min: -3, max: 3}
     Y: {min: -3, max: 3}
     Z: {min: -3, max: 3}
-  where: ["A != 0", "B != 0", "C != 0", "p != 0", "q != 0", "l1 != 0", "l2 != 0", "l3 != 0", "D2 != 0", "D3 != 0"]
+  where: ["p != 0", "q != 0", "l1 != 0", "l2 != 0", "l3 != 0", "D2 != 0", "D3 != 0"]
   calc:
+    A: sg*mA
+    B: sg*mB
+    C: sg*mC*fl
     A2: 2*A
     B2: 2*B
     C2: 2*C
@@ -75,15 +80,19 @@
     a: {min: 1, max: 3}
     b: {min: 1, max: 3}
     s: {min: -8, max: 6}
-  where: ["s != 0"]
+  where: ["s != 0", "k >= 1"]
   calc:
     k: a*p + b*q + s
     ss: a^2 + b^2
+    hs: ss/2
+    ha: a/2
+    hb: b/2
     t: max(0, -s/ss)
     X: p - a*t
     Y: q - b*t
     lam: 2*t
     gpq: a*p + b*q
+    lamA: 2*(gpq - k)/ss
   prompt: 'Maximize $f(x, y) = -(x - {p})^2 - (y - {q})^2$ subject to ${a:coef}x {b:signedcoef}y \le {k}$. Give the maximizing point and the KKT multiplier $\lambda$ (from $\nabla f = \lambda\nabla g$, with $\lambda = 0$ if the constraint is inactive). Exact fractions.'
   answers:
     - {name: X, kind: fraction, label: '$x =$'}
@@ -91,7 +100,7 @@
     - {name: lam, kind: fraction, label: '$\lambda =$'}
   solution: |-
     Inactive case: $\nabla f = \mathbf 0$ at $({p}, {q})$, where ${a:coef}x {b:signedcoef}y = {gpq}$. The limit is ${k}$, so this point is feasible exactly when ${gpq} \le {k}$.
-    Active case: $\nabla f = \langle -2(x - {p}), -2(y - {q})\rangle = \lambda\langle {a}, {b}\rangle$ gives $x = {p} - \tfrac{{a}}{2}\lambda$, $y = {q} - \tfrac{{b}}{2}\lambda$. Substituting into ${a:coef}x {b:signedcoef}y = {k}$: ${gpq} - \tfrac{{ss}}{2}\lambda = {k}$, so $\lambda = \dfrac{2({gpq} - {k})}{{ss}}$, which must be $\ge 0$.
+    Active case: $\nabla f = \langle -2(x - {p}), -2(y - {q})\rangle = \lambda\langle {a}, {b}\rangle$ gives $x = {p} - {ha:coef}\lambda$, $y = {q} - {hb:coef}\lambda$. Substituting into ${a:coef}x {b:signedcoef}y = {k}$: ${gpq} - {hs:coef}\lambda = {k}$, so $\lambda = \dfrac{2({gpq} - {k})}{{ss}} = {lamA:texfrac}$, which must be $\ge 0$.
     Exactly one case is valid here, giving $x =$ **${X:texfrac}$**, $y =$ **${Y:texfrac}$**, $\lambda =$ **${lam:texfrac}$**. ($f$ is concave and the constraint is linear, so this KKT point is the maximum: the point of the half-plane nearest $({p}, {q})$.)
 - id: mv-m4-r2-gd
   title: Two steps of gradient descent

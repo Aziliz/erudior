@@ -35,6 +35,17 @@ This explains tipping. An object resting on a base is stable as long as its cent
 4. Write $\sum F_x = 0$ and $\sum F_y = 0$.
 5. Solve. If a force comes out negative, it points opposite to the way you drew it.
 
+```mermaid
+flowchart TD
+  accTitle: Solving a static equilibrium problem
+  accDescr: Draw a free-body diagram with each force at the point where it acts. Choose a pivot where an unknown force acts, so it drops out. Write the sum of torques about that pivot equal to zero, counterclockwise positive. Write the horizontal and vertical force sums equal to zero. Solve; a negative force points the other way. Finally check with torques about a second point.
+  A["Free-body diagram, each force where it acts"] --> B["Pivot where an unknown force acts"]
+  B --> C["Sum of torques = 0, counterclockwise positive"]
+  C --> D["Sum Fx = 0 and sum Fy = 0"]
+  D --> E["Solve; negative means reversed"]
+  E --> F["Check with torques about another point"]
+```
+
 ### Example 1: a seesaw
 
 A 30 kg child sits 1.8 m from the pivot of a seesaw. Where must a 45 kg child sit on the other side to balance it? (The seesaw is uniform and pivoted at its center.)
@@ -77,7 +88,9 @@ Horizontal: hinge pushes outward, $H = T\cos 30^\circ = 891$ N. Vertical: $V + T
 
 ## Ladders
 
-A ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\circ$).
+
+
+![A ladder leaning at angle theta against a smooth wall. Four forces act on it: the wall pushes horizontally away from the wall at the top (N sub w); the weight W acts straight down at the ladder's midpoint; the floor pushes straight up at the foot (n); and floor friction f acts along the floor at the foot, toward the wall.](images/phys-m5-ladder.svg)A ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\circ$).
 
 ## Spread-out loads and stability
 
