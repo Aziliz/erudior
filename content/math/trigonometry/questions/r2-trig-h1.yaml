@@ -1,0 +1,531 @@
+# Honors module trig-h1 (Trigonometry in science and engineering), round 2
+# Lesson 90: rotations and robot arms
+- id: trig-h1-r2-h01
+  lesson: trig-h1-robot-arms
+  module_quiz: true
+  topic: Rotations
+  stem: 'Rotate the point $(3, 4)$ by $90^\circ$ counterclockwise about the origin. Where does it land?'
+  choices: ['$(-4, 3)$', '$(4, -3)$', '$(-3, 4)$', '$(3, -4)$']
+  answer: 0
+  explanation: |-
+    With $\cos 90^\circ = 0$ and $\sin 90^\circ = 1$: $x' = 3(0) - 4(1) = -4$ and $y' = 3(1) + 4(0) = 3$, so the point lands at $(-4, 3)$. $(4, -3)$ is the clockwise rotation (angle $-90^\circ$); $(-3, 4)$ and $(3, -4)$ are reflections, not rotations. Check: both $(3, 4)$ and $(-4, 3)$ are 5 from the origin.
+- id: trig-h1-r2-h02
+  lesson: trig-h1-robot-arms
+  type: text
+  topic: Rotations
+  stem: 'Rotating $(2, 0)$ by $60^\circ$ counterclockwise about the origin gives the point with x-coordinate ___ and y-coordinate ___. (Give exact values, or decimals to 2 places.)'
+  accept:
+    - ['1']
+    - ['sqrt(3)', 'sqrt3', 'sqrt 3', '√3', '1.73']
+  explanation: |-
+    $x' = 2\cos 60^\circ - 0\cdot\sin 60^\circ = 2\cdot\tfrac12 = 1$ and $y' = 2\sin 60^\circ + 0\cdot\cos 60^\circ = 2\cdot\tfrac{\sqrt3}{2} = \sqrt3 \approx 1.73$. A point on the positive $x$-axis at distance 2 simply moves to $(2\cos 60^\circ, 2\sin 60^\circ)$.
+- id: trig-h1-r2-h03
+  lesson: trig-h1-robot-arms
+  topic: Rotations
+  stem: 'After a counterclockwise rotation by $\theta$ about the origin, which expression gives the new y-coordinate of $(x, y)$?'
+  choices: ['$x\cos\theta - y\sin\theta$', '$x\sin\theta + y\cos\theta$', '$-x\sin\theta + y\cos\theta$', '$x\sin\theta - y\cos\theta$']
+  answer: 1
+  explanation: |-
+    Write $(x, y) = (r\cos\alpha, r\sin\alpha)$. The rotated point is $(r\cos(\alpha + \theta), r\sin(\alpha + \theta))$, and the sine sum formula gives $r\sin(\alpha + \theta) = r\sin\alpha\cos\theta + r\cos\alpha\sin\theta = x\sin\theta + y\cos\theta$. The first choice is the new $x$-coordinate; $-x\sin\theta + y\cos\theta$ is the $y$-coordinate after a *clockwise* rotation.
+- id: trig-h1-r2-h04
+  lesson: trig-h1-robot-arms
+  topic: Rotations
+  stem: 'Which statements about rotating points about the origin are true? Select all that apply.'
+  choices: ['Every point keeps its distance from the origin.', 'Rotating by $\theta$ and then by $\varphi$ is the same as rotating once by $\theta + \varphi$.', 'Rotating by $-\theta$ undoes a rotation by $\theta$.', 'Rotating by $\theta$ multiplies each point''s distance from the origin by $\cos\theta$.', 'Rotating by $90^\circ$ swaps the coordinates, sending $(x, y)$ to $(y, x)$.']
+  answer: [0, 1, 2]
+  explanation: |-
+    A rotation adds $\theta$ to a point's direction and leaves its distance $r$ alone, so distances are kept and two rotations add their angles; rotating by $-\theta$ subtracts the angle again. Distances are not scaled by $\cos\theta$. A $90^\circ$ rotation sends $(x, y)$ to $(-y, x)$, not $(y, x)$: for example $(1, 0)$ goes to $(0, 1)$, but $(0, 1)$ goes to $(-1, 0)$.
+- id: trig-h1-r2-h05
+  lesson: trig-h1-robot-arms
+  module_quiz: true
+  topic: Robot arm kinematics
+  stem: 'A two-link arm has $L_1 = 50$ cm and $L_2 = 20$ cm, with $\theta_1 = 90^\circ$ and elbow angle $\theta_2 = -90^\circ$ (measured from the direction of link 1). Where is the gripper?'
+  choices: ['$(0, 30)$', '$(50, 20)$', '$(20, 50)$', '$(0, 70)$']
+  answer: 2
+  explanation: |-
+    The elbow is at $(50\cos 90^\circ, 50\sin 90^\circ) = (0, 50)$. Link 2 points at $\theta_1 + \theta_2 = 0^\circ$, so it adds $(20, 0)$: the gripper is at $(20, 50)$. Using $-90^\circ$ as link 2's absolute direction gives $(0, 30)$; ignoring the elbow turn gives $(0, 70)$; $(50, 20)$ swaps the coordinates.
+- id: trig-h1-r2-h06
+  lesson: trig-h1-robot-arms
+  topic: Robot arm kinematics
+  stem: 'A two-link arm has $L_1 = 3$ m and $L_2 = 2$ m and its joints can turn freely. Which distances from the shoulder can the gripper reach?'
+  choices: ['Every distance from 0 to 5 m', 'Every distance from 2 to 3 m', 'Only the distance 5 m', 'Every distance from 1 to 5 m']
+  answer: 3
+  explanation: |-
+    The shoulder, elbow and gripper form a triangle (possibly flat), so the triangle inequality gives $|L_1 - L_2| \le d \le L_1 + L_2$, that is $1 \le d \le 5$. Folded back completely the gripper is 1 m away, fully stretched it is 5 m away, and every distance between is possible. The workspace is a ring, not a full disk, because the shorter link can't fold the gripper back to the shoulder.
+- id: trig-h1-r2-h07
+  lesson: trig-h1-robot-arms
+  module_quiz: true
+  type: text
+  topic: Robot arm kinematics
+  stem: 'An arm with $L_1 = L_2 = 10$ must reach the target $(10, 10)$. The law of cosines gives $\cos\theta_2 =$ ___, so the elbow angle is $\theta_2 = \pm$ ___ degrees.'
+  accept:
+    - ['0']
+    - ['90']
+  explanation: |-
+    $d^2 = 10^2 + 10^2 = 200$, so $\cos\theta_2 = \dfrac{d^2 - L_1^2 - L_2^2}{2L_1L_2} = \dfrac{200 - 100 - 100}{200} = 0$ and $\theta_2 = \pm 90^\circ$. The two solutions put the elbow at $(10, 0)$ or $(0, 10)$: either way the two links make a right angle.
+- id: trig-h1-r2-h08
+  lesson: trig-h1-robot-arms
+  type: order
+  topic: Robot arm kinematics
+  stem: 'Put the steps for solving the inverse kinematics of a two-link arm in order.'
+  items: ['Find the distance $d = \sqrt{x^2 + y^2}$ to the target', 'Find the two elbow angles $\theta_2 = \pm\cos^{-1}\dfrac{d^2 - L_1^2 - L_2^2}{2L_1L_2}$', 'Find the shoulder angle $\theta_1 = \varphi \mp \psi$ that goes with each elbow angle', 'Check both answers with the forward kinematics formulas']
+  explanation: |-
+    Everything depends on $d$, so it comes first. The elbow angle comes from $d$ by the law of cosines. The shoulder angle depends on the sign of $\theta_2$ ($\varphi - \psi$ for positive $\theta_2$, $\varphi + \psi$ for negative), so it comes after. Checking needs both angles, so it is last.
+- id: trig-h1-r2-h09
+  lesson: trig-h1-robot-arms
+  type: label
+  topic: Robot arm kinematics
+  stem: 'Name the numbered parts of this two-link robot arm.'
+  image: {src: images/trig-h1-arm-blank.svg, alt: 'A two-link robot arm on a base, with five numbered markers: two joints, the tip, and two angles.'}
+  labels:
+    - {x: 20.3, y: 84.3, text: Shoulder joint}
+    - {x: 47.4, y: 55.7, text: Elbow joint}
+    - {x: 54.6, y: 11.5, text: End effector}
+    - {x: 30.9, y: 79.1, text: 'Shoulder angle θ1, from the x-axis'}
+    - {x: 52.6, y: 43.2, text: 'Elbow angle θ2, from the direction of link 1'}
+  distractors: [Wrist joint, Workspace boundary]
+  explanation: |-
+    The shoulder (1) is fixed at the origin on the base, and the elbow (2) joins the two links. The gripper at the tip (3) is the end effector. The shoulder angle (4) is measured from the positive $x$-axis; the elbow angle (5) is measured from the dashed extension of link 1, which is why link 2 points at $\theta_1 + \theta_2$.
+- id: trig-h1-r2-h10
+  lesson: trig-h1-robot-arms
+  module_quiz: true
+  topic: Robot arm kinematics
+  stem: 'Why does a reachable target (not on the edge of the workspace) usually have two inverse-kinematics solutions?'
+  choices: ['The shoulder can turn clockwise or counterclockwise to the same angle.', 'The law of sines always gives two angles.', 'Both $\theta_2$ and $-\theta_2$ have the same cosine, giving mirror-image elbow positions.', 'The coordinates $x$ and $y$ can be swapped.']
+  answer: 2
+  explanation: |-
+    The law of cosines fixes only $\cos\theta_2$, and $\cos(-\theta_2) = \cos\theta_2$. The two answers are the elbow-up and elbow-down shapes, mirror images across the line from the shoulder to the target, like the two triangles of the ambiguous case. The direction the shoulder turns doesn't create a new position, and the law of sines isn't used here.
+- id: trig-h1-r2-h11
+  lesson: trig-h1-robot-arms
+  topic: Robot arm kinematics
+  stem: 'While solving an inverse kinematics problem you get $\cos\theta_2 = 1.3$. What does this mean?'
+  choices: ['The target is out of the arm''s reach.', 'The arm must fold back completely.', 'The elbow angle is 1.3 radians.', 'The calculator is in the wrong angle mode.']
+  answer: 0
+  explanation: |-
+    No angle has a cosine above 1, so no triangle with sides $L_1$, $L_2$ and $d$ exists: the target is farther than $L_1 + L_2$ (a value below $-1$ would mean it is closer than $|L_1 - L_2|$). Angle mode can't matter, because no angle was computed yet; $\cos\theta_2 = 1.3$ is not the angle itself.
+- id: trig-h1-r2-h12
+  lesson: trig-h1-robot-arms
+  topic: Robot arm kinematics
+  stem: 'In a two-link arm, $\theta_1$ is measured from the positive x-axis and $\theta_2$ from the direction of link 1. In what absolute direction does link 2 point?'
+  choices: ['$\theta_2$', '$\theta_1 + \theta_2$', '$\theta_2 - \theta_1$', '$180^\circ - \theta_2$']
+  answer: 1
+  explanation: |-
+    The elbow angle is relative: link 2 starts from link 1's direction, $\theta_1$, and turns a further $\theta_2$. So it points at $\theta_1 + \theta_2$, which is why the forward kinematics formulas contain $\cos(\theta_1 + \theta_2)$ and $\sin(\theta_1 + \theta_2)$. $180^\circ - \theta_2$ is the triangle's interior angle at the elbow, used in the law of cosines.
+- id: trig-h1-r2-h13
+  lesson: trig-h1-robot-arms
+  type: match
+  topic: Robot arm kinematics
+  stem: 'Match each quantity to its formula.'
+  pairs:
+    - ['New x-coordinate after rotating $(x, y)$ by $\theta$', 'x cos θ − y sin θ']
+    - ['New y-coordinate after rotating $(x, y)$ by $\theta$', 'x sin θ + y cos θ']
+    - ['x-coordinate of a two-link arm''s gripper', 'L1 cos θ1 + L2 cos(θ1 + θ2)']
+    - ['$\cos\theta_2$ in inverse kinematics', '(d² − L1² − L2²) / (2 L1 L2)']
+  distractors: ['L1 cos θ1 + L2 cos θ2']
+  explanation: |-
+    The rotation formulas come from the sum formulas. The gripper's $x$-coordinate adds the $x$-components of the two links, and link 2 points at $\theta_1 + \theta_2$, not $\theta_2$. The elbow angle comes from the law of cosines in the triangle shoulder, elbow, target.
+- id: trig-h1-r2-h14
+  lesson: trig-h1-robot-arms
+  module_quiz: true
+  topic: Robot arm kinematics
+  stem: 'An arm with $L_1 = 40$ and $L_2 = 30$ reaches the target $(0, 50)$ with elbow angle $\theta_2 = +90^\circ$. What is the shoulder angle $\theta_1$?'
+  choices: ['$90^\circ$', '$36.87^\circ$', '$126.87^\circ$', '$53.13^\circ$']
+  answer: 3
+  explanation: |-
+    $d = 50$ and the target is straight up, so $\varphi = 90^\circ$. The shoulder angle of the triangle: $\cos\psi = \dfrac{40^2 + 50^2 - 30^2}{2\cdot 40\cdot 50} = \dfrac{3200}{4000} = 0.8$, so $\psi \approx 36.87^\circ$. With positive $\theta_2$, $\theta_1 = \varphi - \psi \approx 53.13^\circ$. Check: link 2 points at $143.13^\circ$, and $40\cos 53.13^\circ + 30\cos 143.13^\circ = 24 - 24 = 0$, $40\sin 53.13^\circ + 30\sin 143.13^\circ = 32 + 18 = 50$. $126.87^\circ$ goes with $\theta_2 = -90^\circ$.
+
+# Lesson 91: phasors and AC circuits
+- id: trig-h1-r2-h15
+  lesson: trig-h1-phasors
+  module_quiz: true
+  topic: Phasors
+  stem: 'Write $3\cos\omega t + 4\sin\omega t$ as a single cosine.'
+  choices: ['$5\cos(\omega t - 53.13^\circ)$', '$5\cos(\omega t + 53.13^\circ)$', '$7\cos(\omega t - 53.13^\circ)$', '$5\cos(\omega t - 36.87^\circ)$']
+  answer: 0
+  explanation: |-
+    $4\sin\omega t = 4\cos(\omega t - 90^\circ)$, so the phasors are $(3, 0)$ and $(0, -4)$. Their sum $(3, -4)$ has length 5 and lies in quadrant IV at $\tan^{-1}(-\tfrac43) \approx -53.13^\circ$. So the sum is $5\cos(\omega t - 53.13^\circ)$. The plus sign forgets that sine lags cosine by $90^\circ$; 7 adds the amplitudes as numbers; $36.87^\circ$ uses $\tfrac34$ instead of $\tfrac43$.
+- id: trig-h1-r2-h16
+  lesson: trig-h1-phasors
+  type: text
+  topic: Phasors
+  stem: 'The wave $6\cos\omega t + 6\cos(\omega t + 60^\circ)$ has amplitude ___ (give an exact value, or a decimal to 2 places).'
+  accept: ['6sqrt(3)', '6 sqrt(3)', '6sqrt3', '6√3', 'sqrt(108)', '√108', '10.39']
+  explanation: |-
+    By the law of cosines for phasors, $R^2 = 6^2 + 6^2 + 2(6)(6)\cos 60^\circ = 36 + 36 + 36 = 108$, so $R = \sqrt{108} = 6\sqrt3 \approx 10.39$. Equivalently, two equal waves with phase difference $\Delta$ give $2A\cos\tfrac{\Delta}{2} = 12\cos 30^\circ = 6\sqrt3$.
+- id: trig-h1-r2-h17
+  lesson: trig-h1-phasors
+  topic: Phasors
+  stem: 'What is the phasor of $4\sin(\omega t + 30^\circ)$ when waves are written in cosine form?'
+  choices: ['$4\angle 30^\circ$', '$4\angle(-60^\circ)$', '$4\angle 120^\circ$', '$4\angle(-30^\circ)$']
+  answer: 1
+  explanation: |-
+    $\sin\theta = \cos(\theta - 90^\circ)$, so $4\sin(\omega t + 30^\circ) = 4\cos(\omega t + 30^\circ - 90^\circ) = 4\cos(\omega t - 60^\circ)$, with phasor $4\angle(-60^\circ)$. Using $30^\circ$ directly treats the sine as a cosine; $120^\circ$ adds the $90^\circ$ instead of subtracting it.
+- id: trig-h1-r2-h18
+  lesson: trig-h1-phasors
+  topic: Phasors
+  stem: 'Which of these can be written as a single sinusoid $R\cos(\omega t + \varphi)$ with the same $\omega$? Select all that apply.'
+  choices: ['$2\cos\omega t + 5\sin\omega t$', '$\cos(\omega t + 1) - \cos(\omega t - 1)$', '$\cos\omega t + \cos 2\omega t$', '$\sin\omega t + \sin 3\omega t$']
+  answer: [0, 1]
+  explanation: |-
+    The first two are sums of waves with the same angular frequency $\omega$, so their phasors add to a single phasor: $2\cos\omega t + 5\sin\omega t = \sqrt{29}\cos(\omega t - 68.2^\circ)$, and $\cos(\omega t + 1) - \cos(\omega t - 1) = -2\sin 1\,\sin\omega t$. The last two mix different frequencies ($\omega$ with $2\omega$ or $3\omega$); their shapes repeat but are not sinusoids, and phasors can't add them.
+- id: trig-h1-r2-h19
+  lesson: trig-h1-phasors
+  module_quiz: true
+  topic: Phasors
+  stem: 'Two waves of the same frequency, with amplitudes 5 and 3, are exactly $180^\circ$ out of phase. What is the amplitude of their sum?'
+  choices: ['8', '0', '2', '$\sqrt{34}$']
+  answer: 2
+  explanation: |-
+    The phasors point in opposite directions, so $R = |5 - 3| = 2$ (or $R^2 = 25 + 9 + 30\cos 180^\circ = 4$). This is destructive interference; it cancels completely only when the amplitudes are equal. 8 is the in-phase (constructive) case, and $\sqrt{34}$ is the $90^\circ$ case.
+- id: trig-h1-r2-h20
+  lesson: trig-h1-phasors
+  type: match
+  topic: Phasors
+  stem: 'Two waves of the same frequency each have amplitude $A$. Match each phase difference to the amplitude of their sum.'
+  pairs:
+    - ['$0^\circ$', '2A']
+    - ['$90^\circ$', '√2 times A']
+    - ['$120^\circ$', 'A']
+    - ['$180^\circ$', '0']
+  distractors: ['A/2']
+  explanation: |-
+    Two equal waves with phase difference $\Delta$ add to amplitude $2A\left|\cos\tfrac{\Delta}{2}\right|$: $2A\cos 0^\circ = 2A$, $2A\cos 45^\circ = \sqrt2 A$, $2A\cos 60^\circ = A$, and $2A\cos 90^\circ = 0$.
+- id: trig-h1-r2-h21
+  lesson: trig-h1-phasors
+  topic: AC circuits
+  stem: 'In an ideal inductor carrying an alternating current, how is the voltage timed relative to the current?'
+  choices: ['In phase with the current', 'Lagging the current by $90^\circ$', 'Leading the current by $180^\circ$', 'Leading the current by $90^\circ$']
+  answer: 3
+  explanation: |-
+    An inductor's voltage leads its current by $90^\circ$, so its phasor points straight up when the current's points along the positive $x$-axis. A resistor's voltage is in phase with the current; a capacitor's voltage lags by $90^\circ$.
+- id: trig-h1-r2-h22
+  lesson: trig-h1-phasors
+  module_quiz: true
+  type: text
+  topic: AC circuits
+  stem: 'A $100\ \mu$F capacitor is driven at 60 Hz. Its capacitive reactance is ___ ohms (to 2 decimal places).'
+  accept: ['26.53']
+  explanation: |-
+    $\omega = 2\pi(60) \approx 376.99$ rad/s, and $X_C = \dfrac{1}{\omega C} = \dfrac{1}{376.99 \times 0.0001} \approx 26.53\ \Omega$. Using $f$ instead of $\omega$ gives $\tfrac{1}{0.006} \approx 166.67$, a common slip.
+- id: trig-h1-r2-h23
+  lesson: trig-h1-phasors
+  module_quiz: true
+  topic: AC circuits
+  stem: 'A series circuit has $R = 40\ \Omega$, $X_L = 50\ \Omega$ and $X_C = 20\ \Omega$. What is its impedance?'
+  choices: ['$110\ \Omega$', '$50\ \Omega$', '$70\ \Omega$', '$30\ \Omega$']
+  answer: 1
+  explanation: |-
+    $Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{40^2 + 30^2} = \sqrt{2500} = 50\ \Omega$. Adding all three as numbers gives 110; $40 + 30 = 70$ adds the resistance and net reactance as numbers, though they are at right angles; 30 is the net reactance alone.
+- id: trig-h1-r2-h24
+  lesson: trig-h1-phasors
+  type: label
+  topic: AC circuits
+  stem: 'This is the phasor diagram of a series RLC circuit, with the current along the dashed horizontal axis. Name the numbered phasors.'
+  image: {src: images/trig-h1-rlc-phasors-blank.svg, alt: 'A phasor diagram with four numbered arrows from one point: one straight up, one straight down, one along the horizontal axis, and one up and to the right.'}
+  labels:
+    - {x: 26.8, y: 30.6, text: Inductor voltage}
+    - {x: 26.8, y: 74.1, text: Capacitor voltage}
+    - {x: 43.3, y: 56.1, text: Resistor voltage}
+    - {x: 42.3, y: 44.8, text: Source voltage}
+  distractors: [Reactance, Power factor]
+  explanation: |-
+    The resistor voltage (3) is in phase with the current, along the axis. The inductor voltage (1) leads by $90^\circ$ (straight up) and the capacitor voltage (2) lags by $90^\circ$ (straight down). The source voltage (4) is the sum of the three: the up and down arrows partly cancel, leaving an arrow up and to the right at the phase angle $\varphi$.
+- id: trig-h1-r2-h25
+  lesson: trig-h1-phasors
+  module_quiz: true
+  topic: AC circuits
+  stem: 'A series circuit has $L = 0.1$ H and $C = 10\ \mu$F. At what frequency does it resonate?'
+  choices: ['About 1000 Hz', 'About 6283 Hz', 'About 159.2 Hz', 'About 503.3 Hz']
+  answer: 2
+  explanation: |-
+    $LC = 0.1 \times 0.00001 = 10^{-6}$, so $\sqrt{LC} = 0.001$ and $f_0 = \dfrac{1}{2\pi(0.001)} \approx 159.2$ Hz. 1000 is $\omega_0$ in rad/s, not a frequency in Hz; 6283 multiplies by $2\pi$ instead of dividing; 503.3 Hz comes from reading $10\ \mu$F as $1\ \mu$F.
+- id: trig-h1-r2-h26
+  lesson: trig-h1-phasors
+  type: order
+  topic: Phasors
+  stem: 'Put the steps for adding two sinusoids of the same frequency in order.'
+  items: ['Write each wave in the form $A\cos(\omega t + \varphi)$', 'Find each phasor''s components $(A\cos\varphi, A\sin\varphi)$', 'Add the x-components and add the y-components', 'Find the length and direction angle of the sum']
+  explanation: |-
+    A sine must first be rewritten as a cosine so that every phasor uses the same reference; then the components can be found and added like any vectors. The length of the sum is the new amplitude and its direction (quadrant checked) is the new phase.
+- id: trig-h1-r2-h27
+  lesson: trig-h1-phasors
+  topic: AC circuits
+  stem: 'In a series RLC circuit driven by a 170 V source, the inductor''s voltage amplitude is 342.6 V. How is that possible?'
+  choices: ['The inductor stores energy and releases it all at once.', 'The source voltage is an average, so peaks can be higher.', 'The circuit must be at resonance, where voltages add.', 'The inductor and capacitor voltages are $180^\circ$ apart and largely cancel each other.']
+  answer: 3
+  explanation: |-
+    Phasors add as arrows. The inductor's voltage points straight up and the capacitor's straight down, so most of each cancels the other; only their difference combines with the resistor's voltage to make the source's 170 V. Each one alone can be larger than the source. (170 V is the source's peak, not an average.)
+- id: trig-h1-r2-h28
+  lesson: trig-h1-phasors
+  topic: AC circuits
+  stem: 'A circuit''s source voltage leads its current by $60^\circ$. What is its power factor?'
+  choices: ['0.5', '0.866', '60', '1']
+  answer: 0
+  explanation: |-
+    The power factor is $\cos\varphi = \cos 60^\circ = 0.5$, so the average power is half of what the same voltage and current amplitudes would deliver in phase. 0.866 is $\sin 60^\circ$; a power factor of 1 means voltage and current are in phase.
+
+# Lesson 92: Snell's law
+- id: trig-h1-r2-h29
+  lesson: trig-h1-refraction
+  module_quiz: true
+  topic: Refraction
+  stem: 'Light in air ($n = 1.00$) hits glass ($n = 1.50$) at $60^\circ$ from the normal. What is the angle of refraction?'
+  choices: ['$40.00^\circ$', '$35.26^\circ$', '$54.74^\circ$', 'There is none: total internal reflection']
+  answer: 1
+  explanation: |-
+    $\sin\theta_2 = \dfrac{1.00\sin 60^\circ}{1.50} \approx 0.5774$, so $\theta_2 \approx 35.26^\circ$, bent toward the normal. $40^\circ$ divides the angle instead of its sine; $54.74^\circ$ is the complement of the answer; total internal reflection can't happen going into a larger index.
+- id: trig-h1-r2-h30
+  lesson: trig-h1-refraction
+  module_quiz: true
+  type: text
+  topic: Total internal reflection
+  stem: 'The critical angle for light going from glass ($n = 1.50$) into air ($n = 1.00$) is ___ degrees (to 2 decimal places).'
+  accept: ['41.81']
+  explanation: |-
+    $\sin\theta_c = \dfrac{n_2}{n_1} = \dfrac{1.00}{1.50} \approx 0.6667$, so $\theta_c = \sin^{-1} 0.6667 \approx 41.81^\circ$. Light inside the glass hitting the surface at more than $41.81^\circ$ from the normal is totally reflected.
+- id: trig-h1-r2-h31
+  lesson: trig-h1-refraction
+  topic: Refraction
+  stem: 'A ray passes from a material with a smaller index of refraction into one with a larger index, not along the normal. How does it bend?'
+  choices: ['Away from the normal', 'It doesn''t bend', 'Toward the normal', 'It always reflects completely']
+  answer: 2
+  explanation: |-
+    Snell's law keeps $n\sin\theta$ the same on both sides. If $n$ gets larger, $\sin\theta$ must get smaller, so the angle from the normal shrinks: the ray bends toward the normal. Total internal reflection is possible only in the other direction, from a larger index to a smaller one.
+- id: trig-h1-r2-h32
+  lesson: trig-h1-refraction
+  topic: Total internal reflection
+  stem: 'In which of these cases is the light totally internally reflected? Use $n = 1.00$ for air, $1.33$ for water and $1.50$ for glass. Select all that apply.'
+  choices: ['From water into air, at $60^\circ$ from the normal', 'From air into water, at $80^\circ$ from the normal', 'From glass into water, at $70^\circ$ from the normal', 'From glass into air, at $30^\circ$ from the normal']
+  answer: [0, 2]
+  explanation: |-
+    Water to air: $\theta_c = \sin^{-1}\tfrac{1}{1.33} \approx 48.75^\circ$, and $60^\circ$ is beyond it. Glass to water: $\theta_c = \sin^{-1}\tfrac{1.33}{1.50} \approx 62.46^\circ$, and $70^\circ$ is beyond it. Air to water goes into a larger index, so there is no critical angle. Glass to air has $\theta_c \approx 41.81^\circ$, and $30^\circ$ is below it, so the light gets out.
+- id: trig-h1-r2-h33
+  lesson: trig-h1-refraction
+  type: label
+  topic: Refraction
+  stem: 'Light in air strikes a glass surface. Name the numbered parts.'
+  image: {src: images/trig-h1-refraction-blank.svg, alt: 'A ray of light meeting a flat surface between air above and glass below, with a dashed perpendicular line and six numbered markers on rays, the dashed line and two angles.'}
+  labels:
+    - {x: 34, y: 30, text: Incident ray}
+    - {x: 64, y: 30, text: Reflected ray}
+    - {x: 62.6, y: 79, text: Refracted ray}
+    - {x: 50, y: 13.6, text: Normal}
+    - {x: 45.6, y: 37.2, text: Angle of incidence}
+    - {x: 52.6, y: 63.1, text: Angle of refraction}
+  distractors: [Critical angle, Cladding]
+  explanation: |-
+    The incident ray (1) arrives at the boundary; the reflected ray (2) leaves at the same angle on the other side of the normal (4), the dashed line perpendicular to the surface. The refracted ray (3) continues into the glass, bent toward the normal. Angles are measured from the normal: the angle of incidence (5) and the angle of refraction (6).
+- id: trig-h1-r2-h34
+  lesson: trig-h1-refraction
+  module_quiz: true
+  topic: Refraction
+  stem: 'Water has index of refraction 1.33, and light travels at about $3.00 \times 10^8$ m/s in a vacuum. About how fast does light travel in water?'
+  choices: ['$3.99 \times 10^8$ m/s', '$1.33 \times 10^8$ m/s', '$3.00 \times 10^8$ m/s', '$2.26 \times 10^8$ m/s']
+  answer: 3
+  explanation: |-
+    $n = \tfrac{c}{v}$, so $v = \tfrac{c}{n} = \tfrac{3.00 \times 10^8}{1.33} \approx 2.26 \times 10^8$ m/s. Multiplying by 1.33 instead gives $3.99 \times 10^8$, faster than light in a vacuum, which is impossible here. Light is slower in water, not the same speed.
+- id: trig-h1-r2-h35
+  lesson: trig-h1-refraction
+  topic: Refraction
+  stem: 'A ray of light in air makes an angle of $50^\circ$ with the surface of a pond ($n = 1.33$). What angle does the ray in the water make with the normal?'
+  choices: ['$28.90^\circ$', '$35.17^\circ$', '$61.10^\circ$', '$40.00^\circ$']
+  answer: 0
+  explanation: |-
+    Snell's law needs the angle from the normal: $90^\circ - 50^\circ = 40^\circ$. Then $\sin\theta_2 = \tfrac{\sin 40^\circ}{1.33} \approx 0.4833$ and $\theta_2 \approx 28.90^\circ$. Using $50^\circ$ directly gives $35.17^\circ$; $61.10^\circ$ is the answer measured from the surface; $40^\circ$ is the incident angle, as if the ray didn't bend.
+- id: trig-h1-r2-h36
+  lesson: trig-h1-refraction
+  type: match
+  topic: Total internal reflection
+  stem: 'Match each material to its critical angle for light going from it into air ($n = 1.00$).'
+  pairs:
+    - ['Water, $n = 1.33$', '48.75°']
+    - ['Glass, $n = 1.50$', '41.81°']
+    - ['Diamond, $n = 2.42$', '24.41°']
+  distractors: ['65.59°', '90°']
+  explanation: |-
+    $\sin\theta_c = \tfrac{1}{n}$: $\sin^{-1}\tfrac{1}{1.33} \approx 48.75^\circ$, $\sin^{-1}\tfrac{1}{1.50} \approx 41.81^\circ$ and $\sin^{-1}\tfrac{1}{2.42} \approx 24.41^\circ$. The larger the index, the smaller the critical angle, so diamond traps light most easily. ($65.59^\circ$ is $90^\circ - 24.41^\circ$, measured from the surface.)
+- id: trig-h1-r2-h37
+  lesson: trig-h1-refraction
+  module_quiz: true
+  topic: Total internal reflection
+  stem: 'An optical fiber has core index 1.50 and cladding index 1.40. What is its acceptance angle in air?'
+  choices: ['About $5.74^\circ$', 'About $68.96^\circ$', 'About $32.58^\circ$', 'About $90^\circ$']
+  answer: 2
+  explanation: |-
+    The numerical aperture is $\sqrt{n_1^2 - n_2^2} = \sqrt{2.25 - 1.96} = \sqrt{0.29} \approx 0.5385$, and $\theta_a = \sin^{-1} 0.5385 \approx 32.58^\circ$. $68.96^\circ$ is the critical angle at the core–cladding wall, $\sin^{-1}\tfrac{1.40}{1.50}$; $5.74^\circ$ is $\sin^{-1}(1.50 - 1.40)$, subtracting the indices instead of their squares.
+- id: trig-h1-r2-h38
+  lesson: trig-h1-refraction
+  type: order
+  topic: Refraction
+  stem: 'Put these materials in order from the fastest speed of light to the slowest.'
+  items: ['Air ($n \approx 1.0003$)', 'Water ($n = 1.33$)', 'Glass ($n \approx 1.5$)', 'Diamond ($n = 2.42$)']
+  explanation: |-
+    Since $v = \tfrac{c}{n}$, a larger index means slower light. Light in diamond moves at only about $\tfrac{1}{2.42}$, roughly 41%, of its vacuum speed.
+- id: trig-h1-r2-h39
+  lesson: trig-h1-refraction
+  topic: Refraction
+  stem: 'In the wavefront derivation of Snell''s law, why do sines appear?'
+  choices: ['The wavefronts are curved, and sine measures their curvature.', 'Sine is the only trig function that is never negative.', 'The light''s speed changes like a sine wave as it crosses the boundary.', 'Each sine is a distance traveled over the hypotenuse $AB$ that two right triangles share.']
+  answer: 3
+  explanation: |-
+    In time $t$ the wave travels $v_1t$ in the first material and $v_2t$ in the second. These distances are legs of two right triangles with the same hypotenuse $AB$ on the boundary, so $\sin\theta_1 = \tfrac{v_1t}{AB}$ and $\sin\theta_2 = \tfrac{v_2t}{AB}$. Dividing gives $\tfrac{\sin\theta_1}{\sin\theta_2} = \tfrac{v_1}{v_2} = \tfrac{n_2}{n_1}$. The wavefronts in the derivation are straight, and the speed changes abruptly at the boundary.
+- id: trig-h1-r2-h40
+  lesson: trig-h1-refraction
+  module_quiz: true
+  type: text
+  topic: Refraction
+  stem: 'Light in water ($n = 1.33$) enters glass ($n = 1.50$) at $45^\circ$ from the normal. The angle of refraction is ___ degrees (to 1 decimal place).'
+  accept: ['38.8']
+  explanation: |-
+    $\sin\theta_2 = \dfrac{1.33\sin 45^\circ}{1.50} \approx \dfrac{0.9405}{1.50} \approx 0.6270$, so $\theta_2 \approx 38.8^\circ$. The ray bends toward the normal, but less than it would coming from air, because the two indices are closer.
+- id: trig-h1-r2-h41
+  lesson: trig-h1-refraction
+  topic: Total internal reflection
+  stem: 'Solving Snell''s law for light leaving water, you get $\sin\theta_2 = 1.15$. What does this tell you?'
+  choices: ['The light is totally reflected back into the water.', 'The refracted ray travels along the surface.', 'The angle should be found in radians instead.', 'The ray refracts at $180^\circ - \sin^{-1} 0.15$.']
+  answer: 0
+  explanation: |-
+    No angle has a sine greater than 1, so there is no refracted ray: the angle of incidence is beyond the critical angle and all the light reflects back into the water. A ray along the surface is the boundary case, $\sin\theta_2 = 1$ exactly. Radians don't change the sine.
+- id: trig-h1-r2-h42
+  lesson: trig-h1-refraction
+  topic: Total internal reflection
+  stem: 'Why does a well-cut diamond sparkle more than glass cut the same way?'
+  choices: ['Diamond has a larger critical angle, so more light escapes through the back.', 'Diamond''s small critical angle (about $24^\circ$) traps more light by total internal reflection, sending it back out the top.', 'Light travels faster in diamond, so more of it reaches your eye.', 'Diamond reflects every ray, at any angle.']
+  answer: 1
+  explanation: |-
+    With $n = 2.42$, diamond's critical angle is only about $24.4^\circ$ (glass: about $41.8^\circ$). Most light reaching the back faces of the stone is beyond that angle, so it is totally reflected and comes back out the top. Light is slower in diamond, not faster, and rays inside within the critical angle do escape.
+
+# Lesson 93: great-circle navigation
+- id: trig-h1-r2-h43
+  lesson: trig-h1-great-circles
+  module_quiz: true
+  topic: Great-circle distance
+  stem: 'Two towns are on the equator, at longitudes $10^\circ$ E and $70^\circ$ E. Using $R = 6371$ km, how far apart are they along the surface?'
+  choices: ['About 6672 km', 'About 382,260 km', 'About 6371 km', 'About 3336 km']
+  answer: 0
+  explanation: |-
+    The central angle is $70^\circ - 10^\circ = 60^\circ = \tfrac{\pi}{3}$ rad, so $d = 6371 \cdot \tfrac{\pi}{3} \approx 6672$ km. Multiplying by 60 forgets to convert to radians. 6371 km is the straight-line chord through the Earth ($2R\sin 30^\circ$), not the arc. 3336 km is the arc for $30^\circ$.
+- id: trig-h1-r2-h44
+  lesson: trig-h1-great-circles
+  module_quiz: true
+  type: text
+  topic: Great-circle distance
+  stem: 'Two places lie on the same meridian, at $10^\circ$ N and $40^\circ$ N. The central angle between them is ___ degrees, and with $R = 6371$ km they are ___ km apart (to the nearest km).'
+  accept:
+    - ['30']
+    - ['3336']
+  explanation: |-
+    On one meridian the central angle is the difference in latitude, $30^\circ = \tfrac{\pi}{6}$ rad. So $d = 6371 \cdot \tfrac{\pi}{6} \approx 3336$ km. The great-circle formula agrees: with $\Delta\lambda = 0$ it becomes $\cos c = \cos(\varphi_2 - \varphi_1)$.
+- id: trig-h1-r2-h45
+  lesson: trig-h1-great-circles
+  topic: Great-circle distance
+  stem: 'Which formula gives the central angle $c$ between points at latitudes $\varphi_1$, $\varphi_2$ with longitude difference $\Delta\lambda$?'
+  choices: ['$\cos c = \cos\varphi_1\cos\varphi_2 + \sin\varphi_1\sin\varphi_2\cos\Delta\lambda$', '$\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda$', '$c^2 = \varphi_1^2 + \varphi_2^2 - 2\varphi_1\varphi_2\cos\Delta\lambda$', '$\cos c = \sin\varphi_1\sin\varphi_2\cos\Delta\lambda + \cos\varphi_1\cos\varphi_2$']
+  answer: 1
+  explanation: |-
+    The dot product of the unit vectors $\langle\cos\varphi\cos\lambda, \cos\varphi\sin\lambda, \sin\varphi\rangle$ gives $\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda$. The first choice is the spherical law of cosines written with *colatitudes* but with latitudes plugged in. Check any choice with two points on the equator ($\varphi_1 = \varphi_2 = 0$): only the correct formula gives $c = \Delta\lambda$. The flat law of cosines doesn't apply to latitudes.
+- id: trig-h1-r2-h46
+  lesson: trig-h1-great-circles
+  topic: Great-circle distance
+  stem: 'Which of these are great circles of the Earth (treated as a sphere)? Select all that apply.'
+  choices: ['The equator', 'A meridian together with its opposite meridian, forming a full circle through both poles', 'The circle of latitude $40^\circ$ N', 'Any circle where the sphere meets a plane through its center', 'The Arctic Circle']
+  answer: [0, 1, 3]
+  explanation: |-
+    A great circle is a circle on the sphere whose center is the center of the sphere, which is exactly the cut made by a plane through the center. The equator and every full north–south circle through the poles qualify. Other circles of latitude, including $40^\circ$ N and the Arctic Circle (about $66.6^\circ$ N), have their centers on the Earth's axis above or below the center, so they are smaller and are not great circles.
+- id: trig-h1-r2-h47
+  lesson: trig-h1-great-circles
+  type: label
+  topic: Spherical triangles
+  stem: 'The North Pole and two places A and B form a spherical triangle. Name the numbered parts.'
+  image: {src: images/trig-h1-spherical-triangle-blank.svg, alt: 'A sphere with a triangle drawn on it: a point at the top, two arcs down to two points, an arc joining those points, a small angle mark at the top and a dashed equator, with five numbered markers.'}
+  labels:
+    - {x: 50, y: 19.3, text: North Pole}
+    - {x: 37.2, y: 32, text: 'Side equal to the colatitude of A'}
+    - {x: 48.5, y: 46.1, text: 'Great-circle route from A to B'}
+    - {x: 50, y: 25.9, text: Difference in longitude}
+    - {x: 50, y: 76.2, text: Equator}
+  distractors: [Rhumb line, Prime meridian]
+  explanation: |-
+    The triangle's top corner is the North Pole (1). The side from the pole down to A (2) spans $90^\circ - \varphi_1$, the colatitude of A. The arc joining A and B (3) is the great-circle route, with central angle $c$. The angle at the pole (4) is the difference in longitude, $\Delta\lambda$. The dashed curve (5) is the equator.
+- id: trig-h1-r2-h48
+  lesson: trig-h1-great-circles
+  module_quiz: true
+  topic: Spherical triangles
+  stem: 'A spherical triangle on a sphere of radius 1 has angles $120^\circ$, $90^\circ$ and $60^\circ$. What is its area?'
+  choices: ['$90$', '$\dfrac{3\pi}{2}$', '$2\pi$', '$\dfrac{\pi}{2}$']
+  answer: 3
+  explanation: |-
+    The spherical excess is $E = 120^\circ + 90^\circ + 60^\circ - 180^\circ = 90^\circ = \tfrac{\pi}{2}$ rad, and the area is $R^2E = \tfrac{\pi}{2}$. Using 90 forgets to convert to radians; $\tfrac{3\pi}{2}$ uses the whole angle sum, $270^\circ$, instead of the excess.
+- id: trig-h1-r2-h49
+  lesson: trig-h1-great-circles
+  topic: Great-circle distance
+  stem: 'In the initial-bearing formula, the numerator $\sin\Delta\lambda\cos\varphi_2$ is negative and the denominator is positive. In which range is the initial bearing?'
+  choices: ['$0^\circ$ to $90^\circ$ (northeast)', '$90^\circ$ to $180^\circ$ (southeast)', '$180^\circ$ to $270^\circ$ (southwest)', '$270^\circ$ to $360^\circ$ (northwest)']
+  answer: 3
+  explanation: |-
+    The numerator plays the role of $\sin\theta$ (east positive, west negative) and the denominator of $\cos\theta$ (north positive, south negative). Negative over positive means heading west and north: the northwest quadrant, $270^\circ$ to $360^\circ$ measured clockwise from north.
+- id: trig-h1-r2-h50
+  lesson: trig-h1-great-circles
+  type: match
+  topic: Spherical triangles
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Colatitude, 90° minus the latitude]
+    - [Spherical excess, A spherical triangle's angle sum minus 180°]
+    - [Rhumb line, A path that keeps one fixed bearing]
+    - [Initial bearing, The starting direction of a route, clockwise from north]
+  distractors: [The shortest path on a flat map]
+  explanation: |-
+    The colatitude is the angular distance from the North Pole, $90^\circ - \varphi$. The spherical excess $A + B + C - 180^\circ$ gives a spherical triangle's area, $R^2E$. A rhumb line holds a constant bearing, while a great-circle route's bearing changes, so the formula gives only its initial bearing.
+- id: trig-h1-r2-h51
+  lesson: trig-h1-great-circles
+  type: order
+  topic: Great-circle distance
+  stem: 'Put the steps for finding a great-circle distance in order.'
+  items: ['Write both positions in degrees, with south and west negative', 'Find the longitude difference $\Delta\lambda$', 'Compute $\cos c$ with the spherical law of cosines', 'Take the inverse cosine to get the central angle $c$', 'Multiply $c$, in radians, by the radius $R$']
+  explanation: |-
+    The signs must be right before $\Delta\lambda = \lambda_2 - \lambda_1$ is found; $\cos c$ needs $\Delta\lambda$; the angle comes from its cosine; and the arc length is $R$ times the angle in radians.
+- id: trig-h1-r2-h52
+  lesson: trig-h1-great-circles
+  module_quiz: true
+  topic: Great-circle distance
+  stem: 'Why does navigation software use the haversine formula instead of $\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda$?'
+  choices: ['The cosine formula is only an approximation.', 'The haversine formula accounts for the Earth''s flattening at the poles.', 'For nearby points $\cos c$ is extremely close to 1, so rounding it ruins $c$; the haversine form avoids this.', 'The haversine formula works in degrees and the cosine formula only in radians.']
+  answer: 2
+  explanation: |-
+    Both formulas are exact on a sphere and give the same distance. But for points 1 km apart, $\cos c \approx 0.9999999877$, and rounding to 8 digits changes the computed distance by about 10%. The haversine form works with $\sin^2\tfrac{c}{2}$, which is small for small distances and keeps its significant digits. Neither formula models the Earth's flattening.
+- id: trig-h1-r2-h53
+  lesson: trig-h1-great-circles
+  topic: Great-circle distance
+  stem: 'Denver is at longitude $104.99^\circ$ W and London at $0.13^\circ$ W. What is $\Delta\lambda = \lambda_{\text{London}} - \lambda_{\text{Denver}}$?'
+  choices: ['$105.12^\circ$', '$104.86^\circ$', '$-104.86^\circ$', '$75.14^\circ$']
+  answer: 1
+  explanation: |-
+    West longitudes are negative: $\lambda_{\text{London}} - \lambda_{\text{Denver}} = -0.13^\circ - (-104.99^\circ) = 104.86^\circ$. Adding the two numbers ($105.12^\circ$) treats one of them as east; $-104.86^\circ$ subtracts in the wrong order; $75.14^\circ$ is $180^\circ - 104.86^\circ$.
+- id: trig-h1-r2-h54
+  lesson: trig-h1-great-circles
+  module_quiz: true
+  type: text
+  topic: Great-circle distance
+  stem: 'Two places are at $(30^\circ\text{ N}, 0^\circ)$ and $(30^\circ\text{ N}, 90^\circ\text{ E})$. For them, $\cos c =$ ___, so the central angle is $c \approx$ ___ degrees (to 1 decimal place).'
+  accept:
+    - ['0.25', '1/4']
+    - ['75.5']
+  explanation: |-
+    $\cos c = \sin^2 30^\circ + \cos^2 30^\circ\cos 90^\circ = \tfrac14 + 0 = 0.25$, so $c = \cos^{-1} 0.25 \approx 75.5^\circ$. Along the $30^\circ$ parallel, a circle of radius $R\cos 30^\circ$, the route is $\tfrac{\pi}{2}R\cos 30^\circ \approx 1.360R$ long, while the great-circle route is $75.5^\circ \approx 1.318$ rad, only $1.318R$.
+- id: trig-h1-r2-h55
+  lesson: trig-h1-great-circles
+  topic: Spherical triangles
+  stem: 'Why does flat (plane) trigonometry work well for surveying a field, even though the Earth is round?'
+  choices: ['For small triangles the spherical law of cosines reduces to the plane law of cosines.', 'The Earth is flat over distances shorter than 100 km.', 'Spherical triangles always have angle sums of exactly $180^\circ$.', 'Surveyors measure only right triangles.']
+  answer: 0
+  explanation: |-
+    With small sides, $\cos x \approx 1 - \tfrac{x^2}{2}$ and $\sin x \approx x$ turn $\cos c = \cos a\cos b + \sin a\sin b\cos C$ into $c^2 \approx a^2 + b^2 - 2ab\cos C$, and the spherical excess of a small triangle is tiny. The Earth is never exactly flat, and spherical angle sums are always more than $180^\circ$; the difference is just too small to matter on a field.
+- id: trig-h1-r2-h56
+  lesson: trig-h1-great-circles
+  topic: Spherical triangles
+  stem: 'What can you say about the sum of the angles of a triangle drawn on a sphere with great-circle sides?'
+  choices: ['It is exactly $180^\circ$.', 'It is less than $180^\circ$.', 'It is more than $180^\circ$.', 'It is always exactly $270^\circ$.']
+  answer: 2
+  explanation: |-
+    Every spherical triangle has an angle sum greater than $180^\circ$; the excess is proportional to its area ($\text{Area} = R^2E$). The pole-and-equator triangle with three right angles has sum $270^\circ$, but that is one example, not a rule. Angle sums less than $180^\circ$ happen on saddle-shaped surfaces, not spheres.

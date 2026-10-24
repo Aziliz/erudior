@@ -13,7 +13,9 @@ In every circuit so far the currents were steady. Put a capacitor in a circuit w
 
 ## Charging a capacitor
 
-Connect an uncharged capacitor $C$ in series with a resistor $R$ and a battery of emf $\mathcal{E}$, and close the switch at $t = 0$.
+Connect an uncharged capacitor $C$ in series with a resistor $R$ and a battery of emf $\mathcal{E}$, and close the switch at $t = 0$. The circuit below does both jobs: with its switch at a, the battery charges the capacitor; moved to b, the switch removes the battery and lets the capacitor discharge through the same resistor.
+
+![An RC circuit with a two-way switch. A battery on the left connects through contact a of the switch, then a resistor R along the top wire, to a capacitor C on the right, which returns along the bottom wire to the battery. Contact b connects straight down to the bottom wire, bypassing the battery. The switch lever is shown touching contact a.](images/phys-m9-rc.svg)
 
 - At the first instant the capacitor has no charge, so no voltage across it; it acts like a plain wire. The full emf is across the resistor, and the current jumps to $I_0 = \mathcal{E}/R$.
 - As charge builds up, the capacitor's voltage $q/C$ rises, leaving less for the resistor, so the current shrinks.
@@ -60,7 +62,11 @@ Now disconnect the battery and let a charged capacitor (initial charge $Q_0$) di
 
 $$q(t) = Q_0e^{-t/RC}, \qquad I(t) = \frac{Q_0}{RC}e^{-t/RC} = \frac{V_0}{R}e^{-t/RC}.$$
 
-Both decay by the same factor in each equal time interval. The time for the charge to fall to half is $t_{1/2} = RC\ln 2 = 0.693\,RC$.
+Both decay by the same factor in each equal time interval. The time for the charge to fall to half is $t_{1/2} = RC\ln 2 = 0.693\,RC$. Each further $0.693\,RC$ halves it again, as the graph shows.
+
+```plot
+{"x": [0, 4.2], "y": [0, 1.1], "xLabel": "t / RC", "yLabel": "q / Q₀", "functions": [{"f": "exp(-x)"}], "labels": [{"at": [3.0, 0.8], "text": "q / Q₀ = e^(−t/RC)"}], "points": [{"at": [0.693, 0.5], "label": "1/2 at 0.693 RC"}, {"at": [1.386, 0.25], "label": "1/4 at 1.39 RC"}, {"at": [2.079, 0.125], "label": "1/8 at 2.08 RC"}], "caption": "A discharging capacitor loses half its remaining charge in every interval of RC ln 2."}
+```
 
 ### Example 2
 
@@ -78,7 +84,20 @@ When a capacitor charges to $\mathcal{E}$, the battery supplies energy $Q\mathca
 
 Because $\tau = RC$ can be set anywhere from nanoseconds to minutes by choosing components, RC circuits are the standard way to make electronics wait. A car's turn-signal flasher, a smoke detector's chirp interval and the delay before a bathroom fan shuts off all come from a capacitor charging until its voltage crosses a threshold, which triggers a switch that discharges it and starts the cycle over.
 
-RC circuits also act as filters. A capacitor needs time to respond, so it can't follow voltage changes much faster than $1/\tau$. Take the output across the capacitor and rapid fluctuations are smoothed away while slow changes pass through: a **low-pass filter**, used to remove hiss from audio and to smooth the ripple from a power supply. Take the output across the resistor instead and only the rapid changes get through, a high-pass filter. The crossover frequency is about $f = \dfrac{1}{2\pi RC}$. A 10 kΩ resistor with a 16 nF capacitor gives roughly 1 kHz.
+```mermaid
+flowchart TD
+  accTitle: How an RC timer repeats
+  accDescr: The capacitor charges through the resistor and its voltage rises. While the voltage is below the threshold, charging continues. When it reaches the threshold, a switch fires, which produces the flash, chirp or click and discharges the capacitor quickly. The switch then lets go and the capacitor starts charging again, so the cycle repeats with a period set by RC.
+  A["Capacitor charges through R"] --> B{"Has its voltage reached the threshold?"}
+  B -- not yet --> A
+  B -- yes --> C["Switch fires: flash, chirp or click"]
+  C --> D["Capacitor is discharged quickly"]
+  D --> A
+```
+
+RC circuits also act as filters. A capacitor needs time to respond, so it can't follow voltage changes much faster than $1/\tau$. Take the output across the capacitor and rapid fluctuations are smoothed away while slow changes pass through: a **low-pass filter**, used to remove hiss from audio and to smooth the ripple from a power supply. Take the output across the resistor instead and only the rapid changes get through, a high-pass filter.
+
+![A low-pass RC filter: two input terminals on the left, a resistor R along the top wire, a capacitor C connected from the top wire down to the bottom wire, and two output terminals on the right taken across the capacitor. A note says that for a high-pass filter R and C swap places so the output is across R.](images/phys-m9-lowpass.svg) The crossover frequency is about $f = \dfrac{1}{2\pi RC}$. A 10 kΩ resistor with a 16 nF capacitor gives roughly 1 kHz.
 
 ## Deriving the exponentials
 

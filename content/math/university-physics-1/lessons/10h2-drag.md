@@ -22,7 +22,7 @@ $$F_D = 6\pi\eta R v,$$
 
 which is **Stokes's law**: here $b = 6\pi\eta R$.
 
-**Quadratic drag**, $F_D = \tfrac12 C\rho A v^2$, applies to larger, faster objects: balls, cars, people, raindrops bigger than about a millimeter. The object has to shove fluid out of its way and leaves a turbulent wake behind it, so the drag depends on the fluid's density $\rho$ rather than its viscosity. $A$ is the object's cross-sectional area facing the flow, and the **drag coefficient** $C$ is a dimensionless number that depends on shape: roughly 0.5 for a smooth sphere, about 1 for a person falling flat, about 0.3 for a streamlined car. These values are approximate; $C$ is measured, not derived, and it changes somewhat with speed.
+**Quadratic drag**, $F_D = \tfrac12 C\rho A v^2$, applies to larger, faster objects: balls, cars, people, raindrops a few millimeters across. The object has to shove fluid out of its way and leaves a turbulent wake behind it, so the drag depends on the fluid's density $\rho$ rather than its viscosity. $A$ is the object's cross-sectional area facing the flow, and the **drag coefficient** $C$ is a dimensionless number that depends on shape: roughly 0.5 for a smooth sphere, about 1 for a person falling flat, about 0.3 for a streamlined car. These values are approximate; $C$ is measured, not derived, and it changes somewhat with speed.
 
 It's convenient to write the quadratic law as $F_D = cv^2$ with $c = \tfrac12 C\rho A$ (units kg/m).
 

@@ -363,7 +363,7 @@
     - {x: 81.4, y: 48.9, text: Vector B}
     - {x: 38.4, y: 68, text: Projection of A onto B}
     - {x: 60.1, y: 38.8, text: Part of A perpendicular to B}
-    - {x: 18.9, y: 74.1, text: Angle between A and B}
+    - {x: 22.4, y: 71.2, text: Angle between A and B}
   distractors: [Cross product of A and B]
   explanation: |-
     $\vec A$ is the vector being projected and $\vec B$ the direction it is projected onto. The thick segment along $\vec B$ is $\vec A_\parallel = (\vec A\cdot\hat B)\hat B$, the vector projection, and the dashed segment at a right angle is $\vec A_\perp = \vec A - \vec A_\parallel$. The arc marks the angle $\phi$ in $\vec A\cdot\vec B = AB\cos\phi$. The cross product would point out of the page, so it can't be drawn in this plane.

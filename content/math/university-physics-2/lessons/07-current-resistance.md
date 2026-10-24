@@ -19,6 +19,10 @@ $$I = \frac{\Delta Q}{\Delta t},$$
 
 measured in **amperes** (A): $1\text{ A} = 1\text{ C/s}$. By convention, current direction is the direction positive charges would move, from the high-potential (+) terminal of a battery, through the external circuit, to the low-potential (−) terminal. In metal wires the moving charges are actually electrons, flowing the opposite way; for circuit analysis the two descriptions are equivalent.
 
+The picture shows both descriptions for a uniform wire, together with the length $L$ and cross-sectional area $A$ that will set its resistance below.
+
+![A cylindrical wire with its + end (higher potential) on the left and its − end (lower potential) on the right. A red arrow above the wire points from + to − and is labeled conventional current I. Electrons inside the wire are drawn as small circles with minus signs, and a blue arrow below the wire points from − to + and is labeled electron drift. The circular end face is labeled area A, and a bracket under the wire is labeled length L.](images/phys-m9-wire.svg)
+
 A battery is a source of **electromotive force** (emf, symbol $\mathcal{E}$), which is not a force at all but the work per unit charge the source does (by chemistry, in a battery) moving charge through it: it does work $\mathcal{E}$ on each coulomb pushed through it, and with no current flowing it equals the voltage across the terminals. A 9 V battery gives each coulomb 9 J.
 
 ## Drift velocity
@@ -39,7 +43,11 @@ measured in **ohms** (Ω): $1\ \Omega = 1$ V/A. For many materials, notably meta
 
 $$V = IR.$$
 
-Components that obey it are called ohmic; their $I$–$V$ graph is a straight line through the origin. Diodes, light bulb filaments (whose resistance rises as they heat up) and transistors are non-ohmic.
+Components that obey it are called ohmic; their $I$–$V$ graph is a straight line through the origin. Diodes, light bulb filaments (whose resistance rises as they heat up) and transistors are non-ohmic. The graph contrasts the two kinds.
+
+```plot
+{"x": [0, 12], "y": [0, 1.25], "xLabel": "voltage V (V)", "yLabel": "current I (A)", "functions": [{"f": "x/10", "label": "ohmic, R = 10 Ω"}, {"f": "0.32*sqrt(x)", "dashed": true}], "labels": [{"at": [2.6, 0.95], "text": "filament bulb (dashed)"}], "caption": "An ohmic resistor gives a straight line through the origin. A filament's curve bends toward the voltage axis because its resistance V/I rises as it heats (shape illustrative)."}
+```
 
 ## Resistivity
 
@@ -85,7 +93,11 @@ Energy: $(0.060\text{ kW})(5 \times 30\text{ h}) = 9.0$ kWh. Cost: $9.0 \times 0
 
 ## Current as a derivative, and current density
 
-Current is the derivative of charge: $I = \dfrac{dQ}{dt}$, and the charge that flows in a time interval is $Q = \int I\,dt$. If the current in a wire is $I(t) = 4.0e^{-t/2}$ A, the total charge that ever passes is $\int_0^\infty 4.0e^{-t/2}\,dt = 8.0$ C.
+Current is the derivative of charge: $I = \dfrac{dQ}{dt}$, and the charge that flows in a time interval is $Q = \int I\,dt$. If the current in a wire is $I(t) = 4.0e^{-t/2}$ A, the total charge that ever passes is $\int_0^\infty 4.0e^{-t/2}\,dt = 8.0$ C. On a graph of $I$ against $t$, that charge is the area under the curve.
+
+```plot
+{"x": [0, 12], "y": [0, 4.5], "xLabel": "t (s)", "yLabel": "I (A)", "functions": [{"f": "4*exp(-x/2)"}], "labels": [{"at": [5.5, 2.5], "text": "I = 4.0 e^(−t/2) A"}], "shade": [{"f": "4*exp(-x/2)", "from": 0, "to": 12}], "caption": "The shaded area under I(t) is the charge that has passed: it approaches 8.0 C, most of it in the first few seconds."}
+```
 
 On the microscopic level, the **current density** $\vec J = nq\vec v_d$ (A/m²) is related to the field in the material by $\vec J = \vec E/\rho$, which is Ohm's law in local form. Integrating over a uniform wire, $I = JA$ and $V = EL$, gives back $V = I\rho L/A = IR$.
 

@@ -1,0 +1,164 @@
+# Round 2 drills for phys-m4 (honors lessons 14h1-14h3)
+- id: phys-m4-r2-path-work
+  title: Work by a conservative force in the plane
+  topic: Conservative force fields
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: -6, max: 6}
+    X: {min: 1, max: 4}
+    Y: {min: -3, max: 4}
+  where: ['b != 0', 'Y != 0']
+  calc:
+    a2: 2*a
+    W: a*X^2*Y + b*X
+    U: -(a*X^2*Y + b*X)
+  prompt: 'A force $\vec F = ({a2}xy {b:signed},\; {a}x^2)$ N acts in the $xy$-plane ($x$, $y$ in m). It passes the curl test. Find the work it does on a particle that moves from the origin to $({X}, {Y})$ m along any path. Give the exact value in joules.'
+  answers:
+    - {name: W, label: 'Work', tolerance: 0.001, units: {J: 1}}
+  solution: |-
+    Curl test: $\partial F_y/\partial x = {a2}x = \partial F_x/\partial y$, so a potential exists.
+
+    $U = -\int F_x\,dx = -({a}x^2y {b:signed}x) + g(y)$, and $-\partial U/\partial y = {a}x^2 - g'(y)$ must equal $F_y = {a}x^2$, so $g$ is a constant (take 0).
+
+    $W = -\Delta U = U(0, 0) - U({X}, {Y}) = 0 - ({U}) =$ **{W} J**.
+- id: phys-m4-r2-gradient-force
+  title: Force from a two-dimensional potential energy
+  topic: Conservative force fields
+  vars:
+    a: {min: 1, max: 6}
+    b: {min: 1, max: 6}
+    c: {min: -4, max: 4}
+    x0: {min: -3, max: 3}
+    y0: {min: -3, max: 3}
+  where: ['c != 0', 'abs(2*a*x0 + c*y0) + abs(2*b*y0 + c*x0) > 0']
+  calc:
+    a2: 2*a
+    b2: 2*b
+    Fx: -(2*a*x0 + c*y0)
+    Fy: -(2*b*y0 + c*x0)
+    Fm: sqrt(Fx^2 + Fy^2)
+  prompt: 'A particle has potential energy $U(x, y) = {a}x^2 + {b}y^2 {c:signedcoef}xy$ J ($x$, $y$ in m). Find the components of the force on it at $({x0}, {y0})$ m (exact, in N) and the magnitude of the force in N to 3 significant figures.'
+  answers:
+    - {name: Fx, label: '$F_x$', tolerance: 0.001, units: {N: 1}}
+    - {name: Fy, label: '$F_y$', tolerance: 0.001, units: {N: 1}}
+    - {format: sig4, name: Fm, label: 'Magnitude', relTolerance: 0.01, units: {N: 1}}
+  solution: |-
+    $\vec F = -\nabla U$: $F_x = -\dfrac{\partial U}{\partial x} = -({a2}x {c:signedcoef}y)$ and $F_y = -\dfrac{\partial U}{\partial y} = -({b2}y {c:signedcoef}x)$.
+
+    At $({x0}, {y0})$: $F_x =$ **{Fx} N**, $F_y =$ **{Fy} N**.
+
+    Magnitude: $\sqrt{({Fx})^2 + ({Fy})^2} =$ **{Fm:sig3} N**.
+- id: phys-m4-r2-rocket-gravity
+  title: Rocket rising against gravity
+  topic: Variable-mass systems
+  vars:
+    mt: {min: 50, max: 400, step: 10}
+    pct: {min: 50, max: 85, step: 5}
+    uex: {min: 2000, max: 4500, step: 100}
+    R: {min: 200, max: 4000, step: 100}
+  calc:
+    mi: mt*1000
+    T: uex*R
+    a0: T/mi - 9.8
+    tb: pct/100*mi/R
+    vb: uex*ln(1/(1 - pct/100)) - 9.8*tb
+    gl: 9.8*tb
+  where: ['T > 1.2*mi*9.8', 'T < 3*mi*9.8', 'tb > 20', 'tb < 400', 'vb > 200']
+  prompt: 'A rocket of total mass {mt} t (1 t = 1000 kg) rises vertically. Propellant making up {pct}% of the mass burns at a steady {R:dp0} kg/s, with exhaust speed {uex:dp0} m/s relative to the rocket. Ignoring drag and using $g = 9.8$ m/s² throughout, find the thrust (N), the acceleration at liftoff (m/s²) and the speed at burnout (m/s), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: T, label: 'Thrust', relTolerance: 0.01, units: {N: 1, kN: 1000, MN: 1000000}}
+    - {format: sig4, name: a0, label: 'Liftoff acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {format: sig4, name: vb, label: 'Burnout speed', relTolerance: 0.01, units: {'m/s': 1, 'km/s': 1000}}
+  solution: |-
+    Thrust: $uR = ({uex:dp0})({R:dp0}) = {T:texsci}$ N, that is **{T:sig3} N**.
+
+    Liftoff: $a = \dfrac{uR}{m_i} - g = \dfrac{{T:texsci}}{{mi:texsci}} - 9.8 =$ **{a0:sig3} m/s²**.
+
+    Burn time: $t_b = \dfrac{0.{pct}\times{mi:dp0}\text{ kg}}{{R:dp0}\text{ kg/s}} = {tb:sig3}$ s, and $m_i/m_f = 1/(1 - {pct}/100)$.
+
+    Burnout: $v = u\ln\dfrac{m_i}{m_f} - gt_b = {uex:dp0}\ln\dfrac{1}{1 - {pct}/100} - 9.8({tb:sig3}) =$ **{vb:sig3} m/s** (gravity loss {gl:sig3} m/s).
+- id: phys-m4-r2-conveyor
+  title: Force and power to run a loading conveyor
+  topic: Variable-mass systems
+  vars:
+    R: {min: 5, max: 120, step: 5}
+    v: {min: 0.5, max: 4, step: 0.5}
+  calc:
+    F: R*v
+    P: R*v^2
+    Q: 0.5*R*v^2
+  prompt: 'Gravel falls straight down onto a horizontal conveyor belt at {R} kg/s. The belt moves at a constant {v} m/s. Find the extra horizontal force the belt must exert (N), the extra power the motor supplies (W), and the rate at which energy becomes heat (W), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: F, label: 'Force', relTolerance: 0.01, units: {N: 1}}
+    - {format: sig4, name: P, label: 'Power', relTolerance: 0.01, units: {W: 1, kW: 1000}}
+    - {format: sig4, name: Q, label: 'Heat rate', relTolerance: 0.01, units: {W: 1, kW: 1000}}
+  solution: |-
+    The gravel arrives with no horizontal velocity, so its relative velocity is $-v$ and $0 = F - vR$: $F = Rv = {R}({v}) =$ **{F:sig3} N**.
+
+    Power: $P = Fv = Rv^2 =$ **{P:sig3} W**.
+
+    The gravel gains kinetic energy at $\tfrac12Rv^2$; the other half becomes heat: **{Q:sig3} W**.
+- id: phys-m4-r2-jet
+  title: Force of a water jet on a wall
+  topic: Variable-mass systems
+  vars:
+    dcm: {min: 1, max: 5, step: 0.5}
+    v: {min: 5, max: 40}
+  calc:
+    A: pi*(dcm/200)^2
+    mr: 1000*A*v
+    F: mr*v
+  prompt: 'A horizontal water jet {dcm} cm in diameter hits a wall head-on at {v} m/s and splashes out sideways along the wall. Taking $\rho = 1000$ kg/m³, find the mass flow rate (kg/s) and the force the jet exerts on the wall (N), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: mr, label: 'Mass flow rate', relTolerance: 0.01, units: {'kg/s': 1}}
+    - {format: sig4, name: F, label: 'Force', relTolerance: 0.01, units: {N: 1, kN: 1000}}
+  solution: |-
+    Area: $A = \pi({dcm}/200\text{ m})^2 = {A:sig3}$ m².
+
+    Mass flow rate: $\rho Av = 1000({A:sig3})({v}) =$ **{mr:sig3} kg/s**.
+
+    The wall removes all the forward momentum, so $F = \rho Av^2 = ({mr:sig3})({v}) =$ **{F:sig3} N**.
+- id: phys-m4-r2-restitution-cm
+  title: A one-dimensional collision through the CM frame
+  topic: Center-of-mass frame
+  vars:
+    ma: {min: 1, max: 10, step: 0.5}
+    mb: {min: 1, max: 10, step: 0.5}
+    v1: {min: 2, max: 12}
+    rest: {min: 0, max: 0.9, step: 0.1}
+  calc:
+    vcm: ma*v1/(ma + mb)
+    mu: ma*mb/(ma + mb)
+    Krel: 0.5*mu*v1^2
+    Kl: (1 - rest^2)*Krel
+    v1f: vcm - rest*(v1 - vcm)
+    v2f: vcm*(1 + rest)
+  prompt: 'A {ma} kg cart moving at {v1} m/s hits a {mb} kg cart at rest head-on. The coefficient of restitution is {rest}. Find the kinetic energy lost (J, 3 significant figures) and the final velocities of both carts (m/s, 2 decimal places; positive in the original direction of motion).'
+  answers:
+    - {format: sig4, name: Kl, label: 'Energy lost', relTolerance: 0.01, units: {J: 1}}
+    - {format: num2, name: v1f, label: '$v_{1f}$', tolerance: 0.011, units: {'m/s': 1}}
+    - {format: num2, name: v2f, label: '$v_{2f}$', tolerance: 0.011, units: {'m/s': 1}}
+  solution: |-
+    $v_{\text{cm}} = \dfrac{{ma}({v1})}{{ma} + {mb}} = {vcm:dp3}$ m/s and $\mu = \dfrac{({ma})({mb})}{{ma} + {mb}} = {mu:dp3}$ kg.
+
+    Relative kinetic energy: $\tfrac12\mu v_{\text{rel}}^2 = \tfrac12({mu:dp3})({v1})^2 = {Krel:sig3}$ J. Lost: $(1 - {rest}^2)({Krel:sig3}) =$ **{Kl:sig3} J**.
+
+    In the CM frame the carts move at ${v1} - {vcm:dp3}$ and $-{vcm:dp3}$ m/s; the collision reverses both and multiplies them by {rest}. Adding $v_{\text{cm}}$ back: $v_{1f} = v_{\text{cm}} - {rest}(v_1 - v_{\text{cm}}) =$ **{v1f:num2} m/s** and $v_{2f} = (1 + {rest})v_{\text{cm}} =$ **{v2f:num2} m/s**.
+- id: phys-m4-r2-energy-transfer
+  title: Energy transfer and largest deflection angle
+  topic: Center-of-mass frame
+  vars:
+    ma: {min: 2, max: 20}
+    mb: {min: 1, max: 19}
+  where: ['ma > mb']
+  calc:
+    fr: 4*ma*mb/(ma + mb)^2
+    th: asind(mb/ma)
+  prompt: 'A particle of mass {ma} u collides elastically with a particle of mass {mb} u at rest. (a) In a head-on collision, what fraction of the projectile''s kinetic energy goes to the target? Give a decimal to 3 significant figures. (b) In a glancing collision, what is the largest angle through which the projectile can be deflected? Give degrees to 1 decimal place.'
+  answers:
+    - {format: sig4, name: fr, label: '(a) Fraction', relTolerance: 0.01}
+    - {format: num1, name: th, label: '(b) Angle', tolerance: 0.06, units: {'°': 1, deg: 1, degrees: 1}}
+  solution: |-
+    (a) $\dfrac{4m_1m_2}{(m_1 + m_2)^2} = \dfrac{4({ma})({mb})}{({ma} + {mb})^2} =$ **{fr:sig3}**.
+
+    (b) The projectile is heavier, so $\sin\theta_{\max} = m_2/m_1 = {mb}/{ma}$ and $\theta_{\max} =$ **{th:num1}°**.

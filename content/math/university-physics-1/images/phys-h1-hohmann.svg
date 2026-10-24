@@ -14,5 +14,6 @@
 <text x="196" y="212">planet</text>
 <text x="174" y="254">parking orbit</text>
 <text x="174" y="298">target orbit</text>
-<text x="120.0" y="68" fill="#2c5d8a">transfer orbit</text>
+<text x="108" y="128" fill="#2c5d8a">transfer</text>
+<text x="108" y="148" fill="#2c5d8a">orbit</text>
 </svg>

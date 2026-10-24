@@ -1,0 +1,128 @@
+# Round 2 drills for the phys-m2 honors lessons (aiming projectiles; curved paths).
+- id: phys-m2-r2-launch-angles
+  title: Two launch angles that hit a target
+  topic: Projectile targeting
+  vars:
+    v0: {min: 14, max: 30}
+    x: {min: 10, max: 40, step: 2}
+    y: {min: 0, max: 10}
+  where: ['x^2 - 4*(9.8*x^2/(2*v0^2))*(y + 9.8*x^2/(2*v0^2)) > 0.1*x^2']
+  calc:
+    k: 9.8*x^2/(2*v0^2)
+    c: y + 9.8*x^2/(2*v0^2)
+    disc: x^2 - 4*k*c
+    u1: (x - sqrt(disc))/(2*k)
+    u2: (x + sqrt(disc))/(2*k)
+    lo: atand(u1)
+    hi: atand(u2)
+  prompt: 'A ball is launched at {v0} m/s toward a target {x} m away horizontally and {y} m above the launch point. Using $g = 9.8$ m/s² and no air resistance, find both launch angles above horizontal that hit the target, each to the nearest 0.1°.'
+  answers:
+    - {format: num1, name: lo, label: 'Lower angle (°)', tolerance: 0.1}
+    - {format: num1, name: hi, label: 'Higher angle (°)', tolerance: 0.1}
+  solution: |-
+    With $u = \tan\theta$ and $k = \dfrac{gx^2}{2v_0^2} = \dfrac{9.8({x})^2}{2({v0})^2} = {k:sig4}$ m, the target condition is $ku^2 - xu + (y + k) = 0$:
+
+    $${k:sig4}\,u^2 - {x}\,u + {c:sig4} = 0.$$
+
+    Discriminant: ${x}^2 - 4({k:sig4})({c:sig4}) = {disc:sig4}$, positive, so two angles work.
+
+    $u = \dfrac{{x} \pm \sqrt{{disc:sig4}}}{2({k:sig4})} = {u1:sig4}$ or ${u2:sig4}$.
+
+    So $\theta =$ **{lo:num1}°** (low shot) and **{hi:num1}°** (lob).
+- id: phys-m2-r2-min-speed
+  title: Minimum launch speed to reach a point
+  topic: Projectile targeting
+  vars:
+    x: {min: 5, max: 40}
+    y: {min: -10, max: 20}
+  where: ['y != 0']
+  calc:
+    d: sqrt(x^2 + y^2)
+    vmin: sqrt(9.8*(y + sqrt(x^2 + y^2)))
+    th: atand((y + sqrt(x^2 + y^2))/x)
+    al: atand(y/x)
+  prompt: 'A target is {x} m away horizontally and {y} m above the launch point (negative means below). Using $g = 9.8$ m/s² and no air resistance, find the smallest launch speed that can reach it (3 significant figures) and the launch angle above horizontal that it requires (nearest 0.1°).'
+  answers:
+    - {format: sig4, name: vmin, label: 'Minimum speed', relTolerance: 0.01, units: {'m/s': 1}}
+    - {format: num1, name: th, label: 'Angle (°)', tolerance: 0.1}
+  solution: |-
+    Straight-line distance: $d = \sqrt{{x}^2 + ({y})^2} = {d:sig4}$ m.
+
+    $v_{0,\min}^2 = g(y + d) = 9.8({y} + {d:sig4})$, so $v_{0,\min} =$ **{vmin:sig3} m/s**.
+
+    Angle: $\tan\theta = \dfrac{y + d}{x}$, so $\theta =$ **{th:num1}°**. (Check: the line to the target is at $\alpha = {al:num1}°$, and $45° + \alpha/2$ gives the same angle.)
+- id: phys-m2-r2-incline-range
+  title: Range along a slope
+  topic: Projectiles on slopes
+  vars:
+    v0: {min: 8, max: 30}
+    al: {min: 5, max: 30, step: 5}
+    th: {min: 20, max: 80, step: 5}
+  where: ['th >= al + 10']
+  calc:
+    L: 2*v0^2*cosd(th)*sind(th - al)/(9.8*cosd(al)^2)
+    Lmax: v0^2/(9.8*(1 + sind(al)))
+    best: 45 + al/2
+  prompt: 'A ball is thrown at {v0} m/s from the bottom of a slope that rises at {al}°. (a) If it is thrown at {th}° above horizontal, how far up the slope (measured along it) does it land? (b) What is the greatest distance up the slope any launch angle can reach at this speed? Use $g = 9.8$ m/s²; give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: L, label: '(a) Distance', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: Lmax, label: '(b) Greatest distance', relTolerance: 0.01, units: {m: 1}}
+  solution: |-
+    (a) $L = \dfrac{2v_0^2\cos\theta\sin(\theta - \alpha)}{g\cos^2\alpha} = \dfrac{2({v0})^2\cos {th}°\sin {th - al}°}{9.8\cos^2 {al}°} =$ **{L:sig3} m**.
+
+    (b) The best angle is $45° + \alpha/2 = {best}°$, and $L_{\max} = \dfrac{v_0^2}{g(1 + \sin\alpha)} = \dfrac{{v0}^2}{9.8(1 + \sin {al}°)} =$ **{Lmax:sig3} m**.
+- id: phys-m2-r2-tn-accel
+  title: Tangential and normal acceleration from r(t)
+  topic: Curvilinear motion
+  vars:
+    p: {min: 1, max: 4}
+    q: {min: -8, max: 8}
+    c: {choices: [-2, -1, 1, 2]}
+    T: {min: 1, max: 3}
+  where: ['q != 0', 'abs((2*p*T)*(2*p) + (q + 3*c*T^2)*(6*c*T)) / hypot(2*p*T, q + 3*c*T^2) >= 0.5', 'abs((2*p*T)*(6*c*T) - (q + 3*c*T^2)*(2*p)) / hypot(2*p*T, q + 3*c*T^2) >= 0.5']
+  calc:
+    vx: 2*p*T
+    vy: q + 3*c*T^2
+    ax: 2*p
+    ay: 6*c*T
+    p2: 2*p
+    c3: 3*c
+    c6: 6*c
+    sp: hypot(2*p*T, q + 3*c*T^2)
+    dot: (2*p*T)*(2*p) + (q + 3*c*T^2)*(6*c*T)
+    cr: (2*p*T)*(6*c*T) - (q + 3*c*T^2)*(2*p)
+    at: ((2*p*T)*(2*p) + (q + 3*c*T^2)*(6*c*T)) / hypot(2*p*T, q + 3*c*T^2)
+    an: abs((2*p*T)*(6*c*T) - (q + 3*c*T^2)*(2*p)) / hypot(2*p*T, q + 3*c*T^2)
+    rho: hypot(2*p*T, q + 3*c*T^2)^3 / abs((2*p*T)*(6*c*T) - (q + 3*c*T^2)*(2*p))
+  prompt: 'A particle moves with $\vec r(t) = ({p:coef}t^2)\,\hat\imath + ({q:coef}t {c:signedcoef}t^3)\,\hat\jmath$ (meters, seconds). At $t = {T}$ s, find its tangential acceleration (negative if it is slowing down), its normal acceleration and the radius of curvature of its path, each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: at, label: '$a_t =$', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {format: sig4, name: an, label: '$a_n =$', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {format: sig4, name: rho, label: '$\rho =$', relTolerance: 0.01, units: {m: 1}}
+  solution: |-
+    $\vec v = ({p2}t,\ {q} {c3:signed}t^2)$ and $\vec a = ({p2},\ {c6}t)$. At $t = {T}$ s: $\vec v = ({vx}, {vy})$ m/s, $\vec a = ({ax}, {ay})$ m/s², speed $v = {sp:sig4}$ m/s.
+
+    $a_t = \dfrac{\vec a\cdot\vec v}{v} = \dfrac{{dot}}{{sp:sig4}} =$ **{at:sig3} m/s²**.
+
+    $v_xa_y - v_ya_x = {cr}$, so $a_n = \dfrac{|{cr}|}{{sp:sig4}} =$ **{an:sig3} m/s²**.
+
+    $\rho = \dfrac{v^2}{a_n} =$ **{rho:sig3} m**.
+- id: phys-m2-r2-proj-curvature
+  title: Radius of curvature of a projectile's path
+  topic: Curvilinear motion
+  vars:
+    v0: {min: 10, max: 40}
+    th: {min: 15, max: 75, step: 5}
+  calc:
+    vx: v0*cosd(th)
+    an0: 9.8*cosd(th)
+    rl: v0^2/(9.8*cosd(th))
+    rt: (v0*cosd(th))^2/9.8
+  prompt: 'A ball is launched at {v0} m/s, {th}° above horizontal. Using $g = 9.8$ m/s² and no air resistance, find the radius of curvature of its path just after launch and at the top of its flight, each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: rl, label: 'At launch', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: rt, label: 'At the top', relTolerance: 0.01, units: {m: 1}}
+  solution: |-
+    At launch the normal part of $g$ is $a_n = g\cos\theta = 9.8\cos {th}° = {an0:sig4}$ m/s², so $\rho = \dfrac{v_0^2}{a_n} = \dfrac{{v0}^2}{{an0:sig4}} =$ **{rl:sig3} m**.
+
+    At the top $v = v_x = {v0}\cos {th}° = {vx:sig4}$ m/s and all of $g$ is normal, so $\rho = \dfrac{v_x^2}{g} =$ **{rt:sig3} m**.

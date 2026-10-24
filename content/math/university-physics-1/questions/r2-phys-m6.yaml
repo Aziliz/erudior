@@ -1,0 +1,462 @@
+# Round 2, module phys-m6: new question types for the core lessons (q) and the honors lessons (h).
+# ---- Lesson 20: simple harmonic motion ----
+- id: phys-m6-r2-q01
+  lesson: phys-shm
+  module_quiz: true
+  type: label
+  topic: Pendulums
+  stem: 'Name the numbered parts of this pendulum diagram.'
+  image: {src: images/phys-m6-pendulum-blank.svg, alt: 'A pendulum hanging from a pivot in the ceiling, pulled aside from the dashed vertical by an angle. A downward arrow comes from the bob, and two blue arrows split it into a part along the string and a part along the arc. Five points are numbered.'}
+  labels:
+    - {x: 43.3, y: 12.8, text: Pivot}
+    - {x: 52.1, y: 32.3, text: String of length L}
+    - {x: 62.9, y: 56.1, text: Bob}
+    - {x: 62.9, y: 76.9, text: Weight mg}
+    - {x: 57.9, y: 59.8, text: 'Restoring component, mg sin θ'}
+  distractors: [Normal force, Friction]
+  explanation: |-
+    The string (2) hangs from the pivot (1) and holds the bob (3). The only forces on the bob are its weight (4), straight down, and the string's tension (not drawn). The weight's component along the arc, $mg\sin\theta$ (5), points back toward the bottom and is the restoring force; the dashed arrow along the string is $mg\cos\theta$. There is no normal force or friction on a pendulum bob.
+- id: phys-m6-r2-q02
+  lesson: phys-shm
+  type: text
+  topic: Simple harmonic motion
+  stem: 'A 0.50 kg block on a spring with $k = 50$ N/m oscillates. Its angular frequency is ___ rad/s. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    $\omega = \sqrt{k/m} = \sqrt{50/0.50} = \sqrt{100} = 10$ rad/s. (The frequency in hertz would be $10/2\pi = 1.59$ Hz.)
+- id: phys-m6-r2-q03
+  lesson: phys-shm
+  module_quiz: true
+  type: order
+  topic: Simple harmonic motion
+  stem: 'A block on a spring is released from rest at $x = +A$. Put these moments of its first full cycle in order.'
+  items:
+    - 'Released from rest at $x = +A$'
+    - 'Passes $x = 0$ at top speed, moving in the $-x$ direction'
+    - 'Momentarily at rest at $x = -A$'
+    - 'Passes $x = 0$ at top speed, moving in the $+x$ direction'
+    - 'Back at rest at $x = +A$'
+  explanation: |-
+    With $x = A\cos\omega t$, the block reaches equilibrium (moving left) after $T/4$, the far end $x = -A$ after $T/2$, equilibrium again (moving right) after $3T/4$, and its starting point after one period $T$. The speed is largest at $x = 0$ and zero at the turning points.
+- id: phys-m6-r2-q04
+  lesson: phys-shm
+  type: match
+  topic: Simple harmonic motion
+  stem: 'Match each quantity for simple harmonic motion with amplitude $A$ and angular frequency $\omega$ to its formula.'
+  pairs:
+    - ['Maximum speed', 'Aω']
+    - ['Maximum acceleration', 'Aω²']
+    - ['Total mechanical energy of a mass on a spring', '½kA²']
+    - ['Period of a simple pendulum', '2π√(L/g)']
+  distractors: ['2π√(k/m)', 'A/ω']
+  explanation: |-
+    $v_{\max} = A\omega$ at equilibrium; $a_{\max} = A\omega^2$ at the turning points; the energy is all spring energy $\tfrac12kA^2$ at the turning points; a pendulum has $T = 2\pi\sqrt{L/g}$. $2\pi\sqrt{k/m}$ has the ratio upside down (the spring period is $2\pi\sqrt{m/k}$), and $A/\omega$ is not a quantity of SHM.
+- id: phys-m6-r2-q05
+  lesson: phys-shm
+  topic: Pendulums
+  stem: 'Treat a pendulum as an ideal simple pendulum swinging through small angles. Which changes would change its period? Select all that apply.'
+  choices: ['Making the string four times as long', 'Taking it to Mars', 'Using a bob with twice the mass', 'Pulling it aside to the left instead of to the right']
+  answer: [0, 1]
+  explanation: |-
+    $T = 2\pi\sqrt{L/g}$ depends only on the length and on $g$. Four times the length doubles the period; Mars has a smaller $g$, so the period is longer. The mass cancels out of the equation of motion, and the direction of the release makes no difference to the motion's timing.
+# ---- Lesson 21: damped and driven oscillations ----
+- id: phys-m6-r2-q06
+  lesson: phys-damped-driven
+  module_quiz: true
+  type: label
+  topic: Damped and driven oscillations
+  stem: 'This setup is a driven, damped oscillator. Name the numbered parts.'
+  image: {src: images/phys-m6-driven-setup-blank.svg, alt: 'A wheel at the left, turned by a motor, pushes a plate back and forth through a rod. The plate is joined by a zigzag coil to a block on a track, and the block is joined by a rod to a piston in a cylinder fixed to the right wall. Four parts are numbered.'}
+  labels:
+    - {x: 12.5, y: 59.7, text: Driver}
+    - {x: 39.6, y: 53, text: Spring}
+    - {x: 56.2, y: 60, text: Mass}
+    - {x: 81.9, y: 53, text: Damper (dashpot)}
+  distractors: [Pulley, Pendulum bob]
+  explanation: |-
+    The motor-driven wheel (1) is the driver: it moves the end of the spring back and forth, supplying the periodic force at the driving frequency. The spring (2) supplies $-kx$, the block (3) is the mass $m$, and the piston in oil (4) is the damper, which supplies the drag force $-bv$. There is no pulley or pendulum in the setup.
+- id: phys-m6-r2-q07
+  lesson: phys-damped-driven
+  type: text
+  topic: Damped and driven oscillations
+  stem: 'A 2.0 kg mass hangs on a spring with $k = 50$ N/m. The damping constant that makes it critically damped is $b =$ ___ kg/s. Give only the number.'
+  accept: ['20']
+  explanation: |-
+    Critical damping means $\gamma = \omega_0$, i.e. $b = 2\sqrt{mk} = 2\sqrt{2.0 \times 50} = 2\sqrt{100} = 20$ kg/s.
+- id: phys-m6-r2-q08
+  lesson: phys-damped-driven
+  type: match
+  topic: Damped and driven oscillations
+  stem: 'Match each oscillator to how it moves.'
+  pairs:
+    - ['Underdamped, released from rest', 'Oscillates inside a shrinking envelope']
+    - ['Critically damped, released from rest', 'Returns fastest without overshooting']
+    - ['Overdamped, released from rest', 'Creeps back slowly without oscillating']
+    - ['Driven, after the transient dies away', 'Oscillates at the driving frequency']
+  distractors: ['Oscillates forever at its natural frequency']
+  explanation: |-
+    Light damping ($\gamma < \omega_0$) leaves an oscillation at $\omega'$ inside the envelope $e^{-\gamma t}$; $\gamma = \omega_0$ is the fastest return with no overshoot; $\gamma > \omega_0$ is a slow creep. A driven oscillator's steady state is at the driving frequency, not its own. Only an undamped, undriven oscillator would oscillate forever at $\omega_0$.
+- id: phys-m6-r2-q09
+  lesson: phys-damped-driven
+  topic: Damped and driven oscillations
+  stem: 'A lightly damped oscillator is driven exactly at its natural frequency $\omega_0$, in the steady state. Which statements are true? Select all that apply.'
+  choices: ['Its amplitude is $F_0/(b\omega_0)$', 'Its displacement lags the driving force by $90^\circ$', 'Halving the damping constant $b$ halves the amplitude', 'Its displacement is in phase with the driving force']
+  answer: [0, 1]
+  explanation: |-
+    At $\omega = \omega_0$ the spring and inertia terms cancel, leaving $A = F_0/(b\omega_0)$ and $\tan\delta = \infty$, so $\delta = 90^\circ$ (the velocity, not the displacement, is in step with the force). Since $A \propto 1/b$, halving $b$ doubles the amplitude.
+- id: phys-m6-r2-q10
+  lesson: phys-damped-driven
+  module_quiz: true
+  type: order
+  topic: Damped and driven oscillations
+  stem: 'A 0.20 kg mass on a spring ($k = 80$ N/m, so $\omega_0 = 20$ rad/s) with $b = 0.80$ kg/s is driven by a force of amplitude 2.0 N. Order these driving frequencies from the largest steady-state amplitude to the smallest.'
+  items: ['$\omega = 20$ rad/s', '$\omega = 18$ rad/s', '$\omega = 10$ rad/s', '$\omega = 30$ rad/s', '$\omega = 60$ rad/s']
+  explanation: |-
+    $A = \dfrac{F_0/m}{\sqrt{(\omega_0^2 - \omega^2)^2 + (b\omega/m)^2}}$ with $F_0/m = 10$ and $b/m = 4.0$ s⁻¹ gives 0.125 m at 20 rad/s, 0.0955 m at 18, 0.0330 m at 10, 0.0194 m at 30 and 0.0031 m at 60 rad/s. Near resonance the response is largest; far above it inertia keeps the amplitude tiny.
+# ---- Lesson 22: waves ----
+- id: phys-m6-r2-q11
+  lesson: phys-waves
+  module_quiz: true
+  type: label
+  topic: Wave properties
+  stem: 'The top picture is a transverse wave and the bottom one a longitudinal wave. Name the numbered parts.'
+  image: {src: images/phys-m6-wave-parts-blank.svg, alt: 'Top: a sine wave along a dashed horizontal line, with a double arrow between two neighboring high points and a short arrow from the dashed line up to a high point. Bottom: vertical lines in a tube, crowded together in some places and spread apart in others. Six points are numbered.'}
+  labels:
+    - {x: 16.7, y: 22.3, text: Crest}
+    - {x: 33.3, y: 52.1, text: Trough}
+    - {x: 37.5, y: 16.4, text: Wavelength}
+    - {x: 83.3, y: 29.8, text: Amplitude}
+    - {x: 25, y: 77.7, text: Compression}
+    - {x: 41.7, y: 77.7, text: Rarefaction}
+  distractors: [Node, Antinode]
+  explanation: |-
+    A crest (1) is a high point and a trough (2) a low point. The distance between neighboring crests (3) is the wavelength, and the height of a crest above the equilibrium line (4) is the amplitude. In the longitudinal wave, the crowded region (5) is a compression and the spread-out region (6) a rarefaction. Nodes and antinodes belong to standing waves, not to a single traveling wave.
+- id: phys-m6-r2-q12
+  lesson: phys-waves
+  type: text
+  topic: Wave properties
+  stem: 'Waves travel along a rope at 120 m/s. A 40 Hz wave on it has a wavelength of ___ m. Give only the number.'
+  accept: ['3']
+  explanation: |-
+    $\lambda = v/f = 120/40 = 3$ m (3.0 m).
+- id: phys-m6-r2-q13
+  lesson: phys-waves
+  type: match
+  topic: Wave properties
+  stem: 'Match each wave to its kind.'
+  pairs:
+    - ['Sound traveling through air', 'Longitudinal mechanical wave']
+    - ['A pulse on a stretched guitar string', 'Transverse mechanical wave']
+    - ['A surface wave on the ocean', 'Mixed transverse and longitudinal']
+    - ['A radio wave', 'Electromagnetic wave']
+  explanation: |-
+    Air molecules move back and forth along the direction sound travels (longitudinal). A string moves sideways to the wave's direction (transverse). Water parcels in a surface wave move in small circles, a mix of both. Radio waves are electromagnetic and need no medium.
+- id: phys-m6-r2-q14
+  lesson: phys-waves
+  module_quiz: true
+  topic: Wave properties
+  stem: 'A wave on a light string passes into a heavier string (larger $\mu$) under the same tension. Which statements are true? Select all that apply.'
+  choices: ['The wave speed decreases', 'The wavelength decreases', 'The frequency stays the same', 'The frequency decreases']
+  answer: [0, 1, 2]
+  explanation: |-
+    $v = \sqrt{F_T/\mu}$ falls when $\mu$ rises. The frequency is set by the source (every point of the joint shakes the next string at the same rate), so it stays the same, and $\lambda = v/f$ shrinks along with $v$.
+- id: phys-m6-r2-q15
+  lesson: phys-waves
+  type: order
+  topic: Standing waves
+  stem: 'You know a string''s mass, length and tension. Put the steps for finding its third harmonic in order.'
+  items:
+    - 'Find the linear mass density $\mu = m/L$'
+    - 'Find the wave speed $v = \sqrt{F_T/\mu}$'
+    - 'Find the fundamental $f_1 = v/(2L)$'
+    - 'Multiply by 3: $f_3 = 3f_1$'
+  explanation: |-
+    Each step needs the one before: the speed needs $\mu$, the fundamental needs the speed, and the harmonics are whole-number multiples of the fundamental. (Example 2 of the lesson follows exactly these steps.)
+# ---- Lesson 23: sound ----
+- id: phys-m6-r2-q16
+  lesson: phys-sound
+  module_quiz: true
+  type: text
+  topic: Sound
+  stem: 'One machine produces 70 dB at a certain spot. Two identical machines running together produce ___ dB there. Give the answer to the nearest whole decibel; give only the number.'
+  accept: ['73']
+  explanation: |-
+    Two machines double the intensity, which adds $10\log_{10}2 = 3.01$ dB: $70 + 3 = 73$ dB. Decibel levels don't add directly (140 dB would be wrong).
+- id: phys-m6-r2-q17
+  lesson: phys-sound
+  type: match
+  topic: Sound
+  stem: 'Match each standing wave to how its length $L$ compares with the wavelength.'
+  pairs:
+    - ['Pipe open at both ends, fundamental', 'L is half a wavelength']
+    - ['Pipe closed at one end, fundamental', 'L is a quarter of a wavelength']
+    - ['Pipe closed at one end, third harmonic', 'L is three quarters of a wavelength']
+    - ['String fixed at both ends, second harmonic', 'L is one wavelength']
+  distractors: ['L is two wavelengths']
+  explanation: |-
+    Open–open: antinode, node, antinode, so $L = \lambda/2$. Closed–open: node to antinode is $\lambda/4$, and the third harmonic fits three of those, $3\lambda/4$. A string's $n$th harmonic has $L = n\lambda/2$, so the second has $L = \lambda$.
+- id: phys-m6-r2-q18
+  lesson: phys-sound
+  topic: Sound
+  stem: 'A pipe closed at one end has a fundamental frequency of 110 Hz. Which of these frequencies can it also resonate at? Select all that apply.'
+  choices: ['220 Hz', '330 Hz', '550 Hz', '440 Hz']
+  answer: [1, 2]
+  explanation: |-
+    A closed–open pipe resonates only at odd multiples of its fundamental: 110, 330, 550, 770 Hz… 220 Hz and 440 Hz are even multiples, which a closed pipe lacks.
+- id: phys-m6-r2-q19
+  lesson: phys-sound
+  type: order
+  topic: Sound
+  stem: 'Put these sounds in order from the lowest sound intensity level to the highest.'
+  items: ['Threshold of hearing', 'Normal conversation', 'Rock concert', 'Threshold of pain']
+  explanation: |-
+    The threshold of hearing is 0 dB ($10^{-12}$ W/m²), conversation about 60 dB, a rock concert about 110 dB and the threshold of pain about 120 dB (1 W/m²).
+- id: phys-m6-r2-q20
+  lesson: phys-sound
+  module_quiz: true
+  topic: Doppler effect
+  stem: 'Air is still. In which situations does a listener hear a higher frequency than the source emits? Select all that apply.'
+  choices: ['The source moves toward a stationary listener', 'The listener moves toward a stationary source', 'Source and listener move in the same direction at the same speed', 'The source moves away from a stationary listener']
+  answer: [0, 1]
+  explanation: |-
+    Any approach raises the frequency: the upper signs in $f' = f\dfrac{v \pm v_o}{v \mp v_s}$. If both move the same way at the same speed $u$, the listener recedes and the source approaches by equal amounts: $f' = f\dfrac{v - u}{v - u} = f$, no shift. A receding source lowers the frequency.
+# ---- Honors: Fourier analysis ----
+- id: phys-m6-r2-h01
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'A square wave (equal $+A$ and $-A$ halves) repeats 100 times per second. Which frequencies does its spectrum contain?'
+  choices: ['100, 200, 300, 400 Hz, …', '100, 300, 500, 700 Hz, …', '200, 400, 600, 800 Hz, …', '50, 150, 250, 350 Hz, …']
+  answer: 1
+  explanation: |-
+    The fundamental is $1/T = 100$ Hz, and the square wave's half-wave symmetry removes every even harmonic, leaving 100, 300, 500 Hz… The first choice includes the missing even harmonics; the last two are not multiples of 100 Hz at all, or skip the fundamental.
+- id: phys-m6-r2-h02
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'A square wave switches between $+3.0$ V and $-3.0$ V. What is the amplitude of its third harmonic?'
+  choices: ['1.0 V', '3.8 V', '1.3 V', '0.42 V']
+  answer: 2
+  explanation: |-
+    $b_n = \dfrac{4A}{n\pi}$, so $b_3 = \dfrac{4(3.0)}{3\pi} = 1.27 \approx 1.3$ V. 1.0 V is $A/3$ (forgetting the $4/\pi$); 3.8 V is the fundamental, $4A/\pi$; 0.42 V is $4/(3\pi)$ without the factor $A$.
+- id: phys-m6-r2-h03
+  lesson: phys-m6-h-fourier
+  type: text
+  topic: Fourier analysis
+  stem: 'The constant term $a_0$ of a Fourier series equals the ___ value of the signal over one period.'
+  accept: [average, mean, time-averaged, time average, time-average]
+  explanation: |-
+    $a_0 = \dfrac1T\displaystyle\int_0^T y\,dt$, the average (mean) of the signal over a period. Every harmonic averages to zero, so only $a_0$ survives the averaging.
+- id: phys-m6-r2-h04
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'What fraction of a square wave''s average power is carried by its fundamental alone?'
+  choices: ['81%', '93%', '64%', '41%']
+  answer: 0
+  explanation: |-
+    By Parseval's theorem the fundamental contributes $\tfrac12c_1^2 = \tfrac12(4A/\pi)^2 = (8/\pi^2)A^2 = 0.81A^2$ out of $\overline{y^2} = A^2$. 93% is the first three odd harmonics together; 64% is $\tfrac12(4/\pi)$, the amplitude ratio without squaring; 41% has an extra factor $\tfrac12$.
+- id: phys-m6-r2-h05
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'Which of these contain only odd harmonics? Select all that apply.'
+  choices: ['A square wave with equal $+A$ and $-A$ halves', 'A sawtooth wave', 'A string plucked at its exact middle', 'A string plucked one quarter of the way along']
+  answer: [0, 2]
+  explanation: |-
+    The square wave has half-wave symmetry, so its even harmonics vanish. A string plucked at the middle has $\sin(n\pi/2) = 0$ for every even $n$ (the middle is a node of every even harmonic). A sawtooth has every harmonic, and a string plucked at $L/4$ has a strong 2nd harmonic (it lacks only the 4th, 8th, …).
+- id: phys-m6-r2-h06
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'As more and more terms of a square wave''s Fourier series are added, what happens to the overshoot beside each jump?'
+  choices: ['It shrinks steadily toward zero', 'It grows without limit', 'It stays about 9% of the jump but gets wider', 'It stays about 9% of the jump but gets narrower']
+  answer: 3
+  explanation: |-
+    This is the Gibbs phenomenon: the peak of the partial sum next to a jump stays about 9% of the jump above the flat top (about $1.18A$ for a jump from $-A$ to $+A$), while the region it occupies narrows as more terms are added.
+- id: phys-m6-r2-h07
+  lesson: phys-m6-h-fourier
+  type: order
+  topic: Fourier analysis
+  stem: 'A string is plucked one quarter of the way along. Order these harmonics from the largest starting amplitude to the smallest.'
+  items: ['1st', '2nd', '3rd', '5th', '4th']
+  explanation: |-
+    $B_n/B_1 = \dfrac{\sin(n\pi/4)}{n^2\sin(\pi/4)}$ gives 1, 0.354, 0.111, then 0.040 for $n = 5$. The 4th harmonic has $\sin\pi = 0$: the pluck point $L/4$ is one of its nodes, so it is missing entirely.
+- id: phys-m6-r2-h08
+  lesson: phys-m6-h-fourier
+  type: match
+  topic: Fourier analysis
+  stem: 'Match each signal to its spectrum.'
+  pairs:
+    - ['Square wave', 'Odd harmonics, amplitudes falling as 1/n']
+    - ['Sawtooth wave', 'All harmonics, amplitudes falling as 1/n']
+    - ['String plucked at its middle', 'Odd harmonics, amplitudes falling as 1/n²']
+    - ['Pure sine wave', 'Fundamental only']
+  distractors: ['Even harmonics only']
+  explanation: |-
+    Square wave: $4A/(n\pi)$ for odd $n$. Sawtooth: $2A/(n\pi)$ for every $n$. Plucked string: $B_n \propto \sin(n\pi d/L)/n^2$, and at $d = L/2$ the even ones vanish. A pure sine is already a single harmonic.
+- id: phys-m6-r2-h09
+  lesson: phys-m6-h-fourier
+  type: text
+  topic: Fourier analysis
+  stem: 'A string fixed at both ends is plucked one fifth of the way along its length. The lowest harmonic missing from its sound is harmonic number $n =$ ___. Give only the number.'
+  accept: ['5']
+  explanation: |-
+    $B_n \propto \sin(n\pi/5)$, which is first zero at $n = 5$: the point $L/5$ is a node of the 5th harmonic (and of the 10th, 15th, …).
+- id: phys-m6-r2-h10
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'A string is plucked one third of the way along. What is the starting amplitude of its 2nd harmonic relative to the fundamental?'
+  choices: ['0', '0.50', '0.125', '0.25']
+  answer: 3
+  explanation: |-
+    $\dfrac{B_2}{B_1} = \dfrac{\sin(2\pi/3)}{2^2\sin(\pi/3)} = \dfrac14 = 0.25$, since $\sin(2\pi/3) = \sin(\pi/3)$. 0.50 forgets to square $n$; 0.125 uses $n^3$; 0 would need the pluck point to be a node of the 2nd harmonic, but its only interior node is at $L/2$.
+- id: phys-m6-r2-h11
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'A periodic signal is $y(t) = 2 + 3\cos\omega_1t + 4\sin\omega_1t$. What is the amplitude of its fundamental?'
+  choices: ['5', '7', '9', '1']
+  answer: 0
+  explanation: |-
+    The cosine and sine of the same frequency combine into one sinusoid of amplitude $c_1 = \sqrt{a_1^2 + b_1^2} = \sqrt{9 + 16} = 5$. 7 adds the coefficients, 9 also adds the constant (which is $a_0$, not part of any harmonic), and 1 subtracts them.
+- id: phys-m6-r2-h12
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'A click lasts about 1 ms. Roughly what range of frequencies does it contain?'
+  choices: ['About 1 Hz', 'About 1 kHz', 'About 1 MHz', 'A single frequency of 1 kHz']
+  answer: 1
+  explanation: |-
+    $\Delta f \sim 1/\Delta t = 1/(10^{-3}\text{ s}) = 10^3$ Hz, a spread of about 1 kHz (order of magnitude only). A short pulse is never a single frequency; only a signal lasting many cycles can be nearly pure.
+- id: phys-m6-r2-h13
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'A periodic signal is an even function of time, $y(-t) = y(t)$. What does its Fourier series contain?'
+  choices: ['Only sine terms', 'Only odd harmonics', 'Only cosine terms, plus possibly a constant', 'Only even harmonics']
+  answer: 2
+  explanation: |-
+    $\sin(n\omega_1t)$ is odd, so multiplying an even $y$ by it and integrating over a symmetric period gives zero: every $b_n = 0$. Cosines and the constant are even and can remain. Evenness says nothing about which harmonic numbers appear; that takes half-wave symmetry.
+- id: phys-m6-r2-h14
+  lesson: phys-m6-h-fourier
+  topic: Fourier analysis
+  stem: 'With $\omega_1 = 2\pi/T$ and every integral taken over one full period $T$, which statements are true? Select all that apply.'
+  choices: ['$\int\sin(2\omega_1t)\sin(3\omega_1t)\,dt = 0$', '$\int\sin(3\omega_1t)\cos(3\omega_1t)\,dt = 0$', '$\int\sin^2(3\omega_1t)\,dt = T/2$', '$\int\cos^2(2\omega_1t)\,dt = 0$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Different harmonics are orthogonal, and a sine is orthogonal to every cosine, even of the same frequency ($\sin\cos = \tfrac12\sin(6\omega_1t)$ integrates to zero). A harmonic times itself averages to $\tfrac12$, so its integral is $T/2$, not zero.
+# ---- Honors: coupled oscillators and normal modes ----
+- id: phys-m6-r2-h15
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'Two 1.0 kg blocks are connected wall–spring–block–spring–block–spring–wall, with outer springs $k = 100$ N/m and coupling spring $k'' = 25$ N/m. What are the two normal-mode angular frequencies?'
+  choices: ['10.0 and 11.2 rad/s', '11.2 and 12.2 rad/s', '10.0 and 14.1 rad/s', '10.0 and 12.2 rad/s']
+  answer: 3
+  explanation: |-
+    In phase: $\omega_1 = \sqrt{k/m} = \sqrt{100} = 10.0$ rad/s. Out of phase: $\omega_2 = \sqrt{(k + 2k')/m} = \sqrt{150} = 12.2$ rad/s. 11.2 uses $k + k'$ (forgetting the coupling spring stretches twice as far); 14.1 uses $k + 4k'$; giving the in-phase mode 11.2 wrongly lets the idle middle spring act.
+- id: phys-m6-r2-h16
+  lesson: phys-m6-h-normal-modes
+  type: text
+  topic: Normal modes
+  stem: 'Two equal masses are joined wall–spring–mass–spring–mass–spring–wall. In the in-phase normal mode, the stretch of the middle (coupling) spring is always ___.'
+  accept: ['0', zero, none, nothing]
+  explanation: |-
+    In phase, $x_1 = x_2$ at every instant, so the middle spring's stretch $x_2 - x_1$ is always zero. That is why this mode's frequency, $\sqrt{k/m}$, doesn't depend on $k'$.
+- id: phys-m6-r2-h17
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'For two equal masses joined by springs $k$, $k''$, $k$ between two walls, which mode has the higher frequency, and why?'
+  choices: ['The in-phase mode, because both masses move together', 'The out-of-phase mode, because the coupling spring adds stiffness', 'Neither: both modes have frequency $\sqrt{k/m}$', 'It depends on the amplitude of the motion']
+  answer: 1
+  explanation: |-
+    In the out-of-phase mode the coupling spring is stretched and compressed, adding $2k'$ to each mass's effective stiffness: $\omega_2 = \sqrt{(k + 2k')/m} > \sqrt{k/m}$. Normal-mode frequencies of a linear system don't depend on amplitude.
+- id: phys-m6-r2-h18
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'Which statements describe a normal mode of a system of coupled oscillators? Select all that apply.'
+  choices: ['Every part oscillates at the same frequency', 'The ratios of the parts'' amplitudes stay fixed', 'Energy flows back and forth between the masses', 'Each mass oscillates at its own different frequency']
+  answer: [0, 1]
+  explanation: |-
+    In a normal mode the whole system moves at one frequency with a fixed shape, so nothing flows from one part to another. Energy sloshing between masses (beats) happens when two modes with different frequencies are mixed.
+- id: phys-m6-r2-h19
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'Two identical pendulums, 1.00 m long with 0.50 kg bobs, are joined at the bobs by a weak spring with $k'' = 0.10$ N/m. One is released while the other hangs still. About how long until all the motion has passed to the second pendulum? ($g = 9.80$ m/s²)'
+  choices: ['50 s', '99 s', '16 s', '2.0 s']
+  answer: 0
+  explanation: |-
+    $\omega_1 = \sqrt{g/L} = 3.1305$ rad/s and $\omega_2 = \sqrt{g/L + 2k'/m} = \sqrt{10.20} = 3.1937$ rad/s, so $\Delta\omega = 0.0632$ rad/s and $t = \pi/\Delta\omega = 49.7 \approx 50$ s. 99 s is $2\pi/\Delta\omega$, the time for the motion to come all the way back; 16 s is $1/\Delta\omega$; 2.0 s is one swing of a single pendulum.
+- id: phys-m6-r2-h20
+  lesson: phys-m6-h-normal-modes
+  type: order
+  topic: Normal modes
+  stem: 'Put the steps for finding the normal modes of a set of coupled masses in order.'
+  items:
+    - 'Write Newton''s second law for each mass'
+    - 'Assume every coordinate oscillates as $a_j\cos\omega t$'
+    - 'Set the determinant of the amplitude equations to zero'
+    - 'Solve for the mode frequencies'
+    - 'For each frequency, find the amplitude ratios'
+  explanation: |-
+    The equations of motion come first; the trial solution turns them into linear equations for the amplitudes; a nonzero solution needs a zero determinant, which gives the frequencies; putting each frequency back gives that mode's shape.
+- id: phys-m6-r2-h21
+  lesson: phys-m6-h-normal-modes
+  type: match
+  topic: Normal modes
+  stem: 'Two equal masses are joined wall–spring–mass–spring–mass–spring–wall and released from rest. Match each starting position to the motion that follows.'
+  pairs:
+    - ['$x_1 = A$, $x_2 = A$', 'Pure in-phase mode']
+    - ['$x_1 = A$, $x_2 = -A$', 'Pure out-of-phase mode']
+    - ['$x_1 = A$, $x_2 = 0$', 'Beats: the motion passes back and forth between the masses']
+  distractors: ['Both masses stay at rest']
+  explanation: |-
+    Starting in a mode's exact shape gives that mode alone. $x_1 = A$, $x_2 = 0$ is half in-phase plus half out-of-phase ($q_1 = q_2 = A$), and the two frequencies beat. Any displacement from equilibrium makes the masses move.
+- id: phys-m6-r2-h22
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'Two equal beads sit on a light string under tension, dividing it into three equal segments. What is the ratio of the higher mode frequency to the lower?'
+  choices: ['2', '$\sqrt3$', '$\sqrt2$', '3']
+  answer: 1
+  explanation: |-
+    The beads act like the two-mass system with $k = k' = F/a$, so $\omega_2/\omega_1 = \sqrt{(k + 2k')/k} = \sqrt3 \approx 1.73$. The ratio 2 belongs to a continuous string's harmonics; with only two beads the second mode falls below that.
+- id: phys-m6-r2-h23
+  lesson: phys-m6-h-normal-modes
+  type: text
+  topic: Normal modes
+  stem: 'Three masses on a track are joined to each other and to two walls by springs, each moving only along the track. The system has ___ normal modes. Give only the number.'
+  accept: ['3']
+  explanation: |-
+    Each mass has one coordinate, so there are 3 coordinates and therefore 3 normal modes.
+- id: phys-m6-r2-h24
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'As a beaded string gets more and more beads (same length, tension and total mass per length), what do the frequencies of its lowest modes approach?'
+  choices: ['All the same frequency, $\sqrt{F/(ma)}$', 'The harmonics $f_n = nv/(2L)$ of a continuous string', 'Zero, because each bead''s mass shrinks', 'Odd harmonics only, $f_n = nv/(4L)$']
+  answer: 1
+  explanation: |-
+    For small angles $\sin\dfrac{n\pi}{2(N+1)} \approx \dfrac{n\pi a}{2L}$, so $\omega_n \to \dfrac{n\pi}{L}\sqrt{F/\mu}$ and $f_n = nv/(2L)$ with $v = \sqrt{F/\mu}$. Odd harmonics only, $nv/(4L)$, belong to a pipe closed at one end.
+- id: phys-m6-r2-h25
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'What does it mean for a medium to show dispersion?'
+  choices: ['Its waves lose energy as they travel', 'Its wave speed depends on frequency (or wavelength)', 'Its waves spread out over a larger area with distance', 'It reflects waves at its boundaries']
+  answer: 1
+  explanation: |-
+    Dispersion means the wave speed depends on frequency, as for the high modes of a beaded string, where short waves travel more slowly. Energy loss is damping (absorption), and spreading over a larger area is what gives the inverse-square law.
+- id: phys-m6-r2-h26
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'Which vibrational modes of a CO₂ molecule absorb infrared light? Select all that apply.'
+  choices: ['The asymmetric stretch', 'The bending modes', 'The symmetric stretch', 'Motion of the whole molecule in a straight line']
+  answer: [0, 1]
+  explanation: |-
+    The asymmetric stretch and the two bending modes absorb infrared, which makes CO₂ a greenhouse gas; the symmetric stretch does not. Moving the whole molecule along a line is not a vibration at all, so it is not one of the four vibrational modes.
+- id: phys-m6-r2-h27
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'Two 0.50 kg blocks with $k = 200$ N/m and $k'' = 50$ N/m have modes at 20.0 and 24.5 rad/s. Block 1 is pulled aside and released while block 2 is held at equilibrium and released at the same instant. About when is block 1 first momentarily without motion while block 2 swings fully?'
+  choices: ['0.22 s', '0.14 s', '1.40 s', '0.70 s']
+  answer: 3
+  explanation: |-
+    $\Delta\omega = 24.49 - 20.00 = 4.49$ rad/s, so the transfer time is $\pi/\Delta\omega = 0.70$ s. 1.40 s is $2\pi/\Delta\omega$, when the motion is back in block 1; 0.22 s is $1/\Delta\omega$; 0.14 s is $\pi$ divided by the average frequency.
+- id: phys-m6-r2-h28
+  lesson: phys-m6-h-normal-modes
+  topic: Normal modes
+  stem: 'For the two-mass system, $(k + k'' - m\omega^2)a_1 - k''a_2 = 0$. Put in $\omega^2 = (k + 2k'')/m$. What is the amplitude ratio $a_2/a_1$?'
+  choices: ['$+1$', '$0$', '$-1$', '$2$']
+  answer: 2
+  explanation: |-
+    $k + k' - (k + 2k') = -k'$, so $-k'a_1 - k'a_2 = 0$ and $a_2 = -a_1$: the masses move in opposite directions, the out-of-phase mode. $+1$ is the in-phase mode's ratio, from $\omega^2 = k/m$.
