@@ -28,7 +28,8 @@ function detectOs(): Os {
 }
 
 const mb = (n: number) => `${(n / 1024 / 1024).toFixed(0)} MB`;
-const find = (r: Release | null, re: RegExp) => r?.assets.find((a) => re.test(a.name));
+const find = (r: Release | null, re: RegExp) =>
+  r?.assets.find((a) => re.test(a.name));
 
 /** The desktop app: installers from the latest GitHub release (website only). */
 export default function DownloadPage({ api }: { api: AppApi }) {
@@ -38,8 +39,20 @@ export default function DownloadPage({ api }: { api: AppApi }) {
   const os = detectOs();
 
   useEffect(() => {
-    fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: "application/vnd.github+json" } })
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status === 404 ? "No release has been published yet." : `GitHub said ${r.status}.`))))
+    fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
+      headers: { Accept: "application/vnd.github+json" },
+    })
+      .then((r) =>
+        r.ok
+          ? r.json()
+          : Promise.reject(
+              new Error(
+                r.status === 404
+                  ? "No release has been published yet."
+                  : `GitHub said ${r.status}.`,
+              ),
+            ),
+      )
       .then(setRelease, (e) => setError((e as Error).message));
   }, []);
 
@@ -52,11 +65,18 @@ export default function DownloadPage({ api }: { api: AppApi }) {
 
   const link = (a: Asset | undefined, label: string, primary = false) =>
     a ? (
-      <a className={`btn${primary ? " primary" : ""}`} href={a.browser_download_url}>
+      <a
+        className={`btn${primary ? " primary" : ""}`}
+        href={a.browser_download_url}
+      >
         {label} <span className="small">({mb(a.size)})</span>
       </a>
     ) : (
-      <span className="btn" aria-disabled="true" title="Not in the current release yet">
+      <span
+        className="btn"
+        aria-disabled="true"
+        title="Not in the current release yet"
+      >
         {label} <span className="small">(coming soon)</span>
       </span>
     );
@@ -72,7 +92,9 @@ export default function DownloadPage({ api }: { api: AppApi }) {
             {msi && link(msi, ".msi")}
           </div>
           <p className="small muted">
-            Windows 10 or 11{msi ? " (the .msi is for IT departments)" : ""}. Windows may warn that the publisher is unknown: choose <b>More info</b>, then <b>Run anyway</b>.
+            Windows 10 or 11{msi ? " (the .msi is for IT departments)" : ""}.
+            Windows may warn that the publisher is unknown: choose{" "}
+            <b>More info</b>, then <b>Run anyway</b>.
           </p>
         </>
       ),
@@ -100,8 +122,10 @@ export default function DownloadPage({ api }: { api: AppApi }) {
           <p className="small">Or download the disk image:</p>
           <div className="row">{link(dmg, "Download .dmg", os === "mac")}</div>
           <p className="small muted">
-            macOS 10.15 or later, Apple silicon or Intel. The app isn't notarized by Apple yet. If macOS says it can't be opened, go to{" "}
-            <b>System Settings → Privacy &amp; Security</b> and choose <b>Open Anyway</b> (the Homebrew install skips this step).
+            macOS 10.15 or later, Apple silicon or Intel. The app isn't
+            notarized by Apple yet. If macOS says it can't be opened, go to{" "}
+            <b>System Settings → Privacy &amp; Security</b> and choose{" "}
+            <b>Open Anyway</b> (the Homebrew install skips this step).
           </p>
         </>
       ),
@@ -117,43 +141,58 @@ export default function DownloadPage({ api }: { api: AppApi }) {
             {appimage && link(appimage, "AppImage")}
           </div>
           <p className="small muted">
-            .deb for Debian, Ubuntu and Mint; .rpm for Fedora, RHEL and openSUSE{appimage ? "; the AppImage runs on most others" : ""}. Install with <code>sudo apt install ./Erudior_*.deb</code> or <code>sudo dnf install ./Erudior-*.rpm</code>. 64-bit x86 only.
+            .deb for Debian, Ubuntu and Mint; .rpm for Fedora, RHEL and openSUSE
+            {appimage ? "; the AppImage runs on most others" : ""}. Install with{" "}
+            <code>sudo apt install ./Erudior_*.deb</code> or{" "}
+            <code>sudo dnf install ./Erudior-*.rpm</code>. 64-bit x86 only.
           </p>
         </>
       ),
     },
   ];
-  const order = [...platforms].sort((a, b) => (a.id === os ? -1 : b.id === os ? 1 : 0));
+  const order = [...platforms].sort((a, b) =>
+    a.id === os ? -1 : b.id === os ? 1 : 0,
+  );
 
   return (
     <div className="page download">
       <div className="page-head">
-        <h1>Download Erudior</h1>
-        <p>
-          The desktop app has every course, works offline, and adds homeschool and classroom tools: students, attendance, grades, report cards,
-          transcripts and portfolios. Everything stays on your computer.
-        </p>
-        <p className="small muted">
-          {release ? (
-            <>
-              Version {release.tag_name.replace(/^v/, "")}, released {new Date(release.published_at).toLocaleDateString()} ·{" "}
-              <a href={release.html_url}>Release notes</a>
-            </>
-          ) : error ? (
-            <>
-              {error} See <a href={RELEASES}>all releases on GitHub</a>.
-            </>
-          ) : (
-            "Finding the latest version…"
-          )}
-        </p>
+        <div>
+          <h1>Download Erudior</h1>
+          <p>
+            The desktop app has every course, works offline, and adds homeschool
+            and classroom tools: students, attendance, grades, report cards,
+            transcripts and portfolios. Everything stays on your computer.
+          </p>
+          <p className="small muted">
+            {release ? (
+              <>
+                Version {release.tag_name.replace(/^v/, "")}, released{" "}
+                {new Date(release.published_at).toLocaleDateString()} ·{" "}
+                <a href={release.html_url}>Release notes</a>
+              </>
+            ) : error ? (
+              <>
+                {error} See <a href={RELEASES}>all releases on GitHub</a>.
+              </>
+            ) : (
+              "Finding the latest version…"
+            )}
+          </p>
+        </div>
       </div>
       <div className="download-grid">
         {order.map((p) => (
-          <section key={p.id} className={`download-card${p.id === os ? " current" : ""}`} aria-labelledby={`dl-${p.id}`}>
+          <section
+            key={p.id}
+            className={`download-card${p.id === os ? " current" : ""}`}
+            aria-labelledby={`dl-${p.id}`}
+          >
             <h2 id={`dl-${p.id}`}>
               {p.title}
-              {p.id === os && <span className="pill neutral">Your computer</span>}
+              {p.id === os && (
+                <span className="pill neutral">Your computer</span>
+              )}
             </h2>
             {p.body}
           </section>
