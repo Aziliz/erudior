@@ -59,6 +59,20 @@ $k = n$ gives back $w_0$, so there are exactly $n$ roots. They all have the same
 are spaced $\tfrac{2\pi}{n}$ (or $\tfrac{360^\circ}{n}$) apart: **the $n$ roots are the vertices of a regular
 $n$-gon** centered at the origin.
 
+The procedure, step by step:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the n nth roots of a complex number
+  accDescr: To solve w to the n equals z, write z in trigonometric form r cis theta. Every root has modulus equal to the nth root of r. The first root has argument theta over n. Add 360 degrees over n, or 2 pi over n, to get each next argument. Stop after n roots, for k from 0 to n minus 1. Convert to a plus b i if asked, and check one root by raising it to the nth power.
+  A["Solve wⁿ = z"] --> B["Write z = r cis θ"]
+  B --> C["Every root has modulus ⁿ√r"]
+  C --> D["First root's argument: θ/n"]
+  D --> E["Add 360°/n (or 2π/n) for each next root"]
+  E --> F["Stop after n roots: k = 0, 1, …, n − 1"]
+  F --> G["Convert to a + bi if asked, and check one root"]
+```
+
 ### Example 4
 
 Find the cube roots of $8i$.
@@ -97,6 +111,10 @@ $-16 = 16\operatorname{cis}180^\circ$. Roots: $2\operatorname{cis}(45^\circ + 90
 $$\sqrt2 + \sqrt2\,i,\quad -\sqrt2 + \sqrt2\,i,\quad -\sqrt2 - \sqrt2\,i,\quad \sqrt2 - \sqrt2\,i.$$
 A polynomial equation of degree 4 has four solutions in the complex numbers, and here
 they form a square.
+
+```plot
+{"x": [-2.8, 2.8], "y": [-2.8, 2.8], "equal": true, "circles": [{"center": [0, 0], "r": 2}], "polygons": [{"points": [[1.4142, 1.4142], [-1.4142, 1.4142], [-1.4142, -1.4142], [1.4142, -1.4142]]}], "segments": [{"from": [0, 0], "to": [1.4142, 1.4142], "dashed": true}], "points": [{"at": [1.4142, 1.4142], "label": "2 cis 45°"}, {"at": [-1.4142, 1.4142], "label": "2 cis 135°"}, {"at": [-1.4142, -1.4142], "label": "2 cis 225°"}, {"at": [1.4142, -1.4142], "label": "2 cis 315°"}], "xLabel": "real", "yLabel": "imaginary", "caption": "The four solutions of z⁴ = −16: modulus 2, arguments 90° apart starting at 45°"}
+```
 
 ### Example 7: square roots of a complex number
 

@@ -38,6 +38,22 @@ Notice each cable carries more than half the weight. As the cables flatten towar
 
 A shortcut for finding $a$ alone: treat the whole chain as one system of total mass $M$. Tensions inside the system are internal forces that cancel in pairs, so only external forces drive it: $a = F_{\text{net, ext}}/M$.
 
+Which route to take depends on what the question asks for:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for connected objects
+  accDescr: Start from a connected-objects problem and ask what you need. If you need only the common acceleration, treat the whole chain as one system, so the acceleration is the net external force divided by the total mass. If you need a tension or contact force, draw a separate free-body diagram for each object, pick one positive direction around the system, write the sum of forces equals m a along the motion for each object, and solve the equations together. Either way, finish by checking units, limiting cases and the sign of a.
+  P["Connected objects"] --> Q{"What do you need?"}
+  Q -- "only the acceleration" --> W["One system: a = net external force / total mass"]
+  Q -- "a tension or contact force" --> F["Separate free-body diagram for each object"]
+  F --> D["One positive direction around the system"]
+  D --> E["ΣF = ma along the motion, for each object"]
+  E --> X["Solve the equations together"]
+  W --> C["Check units, limiting cases and the sign of a"]
+  X --> C
+```
+
 ## The Atwood machine
 
 Two masses $m_1 > m_2$ hang on either side of an ideal pulley. Taking the direction in which $m_1$ falls as positive:
@@ -66,6 +82,10 @@ Check with $m_2$: $T - m_2g = 36.75 - 29.4 = 7.35$ N $= 3.0(2.45)$ ✓.
 ## A block on a table pulled by a hanging mass
 
 Block $m_1$ sits on a horizontal table with kinetic friction coefficient $\mu_k$; a rope over a pulley at the table's edge connects it to hanging mass $m_2$. Positive direction: $m_1$ moves toward the pulley, $m_2$ moves down.
+
+![Block m1 on a table, tied by a rope over a pulley at the table's edge to block m2, which hangs below. Forces on m1: normal force n up, weight m1g down, friction to the left, tension T to the right toward the pulley. Forces on m2: tension T up and weight m2g down.](images/phys-m3-table-pulley.svg)
+
+The picture shows both free-body diagrams on one sketch. The rope pulls $m_1$ toward the pulley and pulls $m_2$ up, with the same $T$ at both ends because the rope and pulley are ideal.
 
 - $m_1$ (horizontal): $T - \mu_k m_1 g = m_1 a$
 - $m_2$ (vertical): $m_2 g - T = m_2 a$

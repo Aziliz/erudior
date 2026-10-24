@@ -1,0 +1,45 @@
+# Round 2, honors module ps-h1 (Modern statistical methods): cards for lessons 90–93.
+# Lesson 90
+- {front: 'Total risk of $\mathbf X$ for $p$ independent $N(\theta_i, \sigma^2)$ means', back: '$E\sum(X_i - \theta_i)^2 = p\sigma^2$, the same for every $\boldsymbol\theta$', topic: Shrinkage estimation}
+- {front: 'Best constant multiple $c\mathbf X$ (needs $\boldsymbol\theta$)', back: '$c^* = \|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + p\sigma^2)$, risk $p\sigma^2\|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + p\sigma^2)$', topic: Shrinkage estimation}
+- {front: James–Stein estimator (toward 0), back: '$\hat{\boldsymbol\theta} = \big(1 - (p - 2)\sigma^2/\|\mathbf X\|^2\big)\mathbf X$, for $p \ge 3$', topic: Shrinkage estimation}
+- {front: Risk of James–Stein, back: '$p\sigma^2 - (p - 2)^2\sigma^4E[1/\|\mathbf X\|^2] < p\sigma^2$ for every $\boldsymbol\theta$; equals $2\sigma^2$ at $\boldsymbol\theta = \mathbf 0$', topic: Shrinkage estimation}
+- {front: 'Why $p - 2$ in James–Stein?', back: 'For $W \sim \chi^2_p$, $E(1/W) = 1/(p - 2)$, so $(p - 2)\sigma^2/\|\mathbf X\|^2$ is unbiased for the Bayes shrinkage $\sigma^2/(\sigma^2 + \tau^2)$ when $\theta_i \sim N(0, \tau^2)$', topic: Shrinkage estimation}
+- {front: Stein's lemma, back: '$Z \sim N(\theta, \sigma^2)$: $E[(Z - \theta)g(Z)] = \sigma^2E[g''(Z)]$ (integration by parts)', topic: Shrinkage estimation}
+- {front: Shrinking toward the grand mean, back: '$\hat\theta_i = \bar X + \big(1 - (p - 3)\sigma^2/\sum(X_j - \bar X)^2\big)(X_i - \bar X)$; beats $\mathbf X$ for $p \ge 4$', topic: Shrinkage estimation}
+- {front: Positive-part James–Stein, back: 'Use $\max(0, \text{factor})$; never flips signs, and its risk is no larger than James–Stein for every $\boldsymbol\theta$', topic: Shrinkage estimation}
+- {front: 'Stein''s paradox: what improves?', back: 'Total squared error over all coordinates; a single unusual $\theta_i$ can be estimated worse', topic: Shrinkage estimation}
+- {front: 'When is $\mathbf X$ admissible for normal means?', back: 'For $p = 1$ and $p = 2$; inadmissible for $p \ge 3$ (Stein, 1956)', topic: Shrinkage estimation}
+# Lesson 91
+- {front: Ridge criterion and solution, back: 'Minimize RSS $+ \lambda\sum\beta_j^2$; $\hat{\boldsymbol\beta} = (\mathbf X^{\mathsf T}\mathbf X + \lambda\mathbf I)^{-1}\mathbf X^{\mathsf T}\mathbf y$ (centered, standardized predictors)', topic: Regularized regression}
+- {front: Ridge slope for one centered predictor, back: '$b = S_{xy}/(S_{xx} + \lambda)$', topic: Regularized regression}
+- {front: Lasso criterion, back: 'Minimize RSS $+ \lambda\sum|\beta_j|$; can set coefficients exactly to 0', topic: Regularized regression}
+- {front: Lasso slope for one centered predictor, back: '$b = \operatorname{sign}(S_{xy})\max(|S_{xy}| - \lambda/2, 0)/S_{xx}$ (soft thresholding); zero when $\lambda \ge 2|S_{xy}|$', topic: Regularized regression}
+- {front: MSE of a one-predictor ridge slope, back: '$\big(\sigma^2S_{xx} + \lambda^2\beta^2\big)/(S_{xx} + \lambda)^2$; minimized at $\lambda^* = \sigma^2/\beta^2$', topic: Regularized regression}
+- {front: Bayesian reading of ridge, back: 'Posterior mean (and mode) with independent $N(0, \sigma^2/\lambda)$ priors on the coefficients', topic: Regularized regression}
+- {front: Why lasso gives zeros, back: 'The diamond $\sum|\beta_j| \le t$ has corners on the axes, where the RSS contours usually touch it first; the ridge disk has no corners', topic: Regularized regression}
+- {front: 'Choosing $\lambda$', back: 'K-fold cross-validation (often K = 5 or 10), then refit on all the data; never by training error, which always prefers $\lambda = 0$', topic: Regularized regression}
+- {front: One-standard-error rule, back: 'Take the largest $\lambda$ whose CV error is within one SE of the minimum CV error', topic: Regularized regression}
+- {front: Before fitting ridge or lasso, back: 'Standardize the predictors and leave the intercept unpenalized (center $y$)', topic: Regularized regression}
+# Lesson 92
+- {front: 'FWER for $m$ independent true-null tests at level $\alpha$', back: '$1 - (1 - \alpha)^m$; expected false rejections $m\alpha$', topic: Multiple testing}
+- {front: Distribution of a true-null p-value, back: 'Uniform(0, 1) for a continuous test statistic: $P(p \le u) = u$', topic: Multiple testing}
+- {front: FWER vs FDR, back: 'FWER $= P(V \ge 1)$; FDR $= E(V/R)$ with $V/R = 0$ when $R = 0$; FDR $\le$ FWER, with equality when all nulls are true', topic: Multiple testing}
+- {front: Holm's procedure, back: 'Sort p-values; reject while $p_{(k)} \le \alpha/(m - k + 1)$, stop at the first failure; controls FWER under any dependence', topic: Multiple testing}
+- {front: Benjamini–Hochberg procedure, back: 'Largest $k$ with $p_{(k)} \le kq/m$; reject the $k$ smallest p-values', topic: Multiple testing}
+- {front: 'BH guarantee', back: 'Independent tests: FDR $= m_0q/m \le q$; arbitrary dependence: use $q/(1 + \tfrac12 + \dots + \tfrac1m)$ (Benjamini–Yekutieli)', topic: Multiple testing}
+- {front: Step-down vs step-up, back: 'Step-down (Holm) starts at the smallest p-value and stops at the first failure; step-up (BH) finds the largest index under its line and rejects everything below it', topic: Multiple testing}
+- {front: BH-adjusted p-value, back: '$\tilde p_{(k)} = \min_{j \ge k}\min(1, mp_{(j)}/j)$; compare with $q$', topic: Multiple testing}
+- {front: When to control FWER vs FDR, back: 'FWER for a few confirmatory claims where one false claim is costly; FDR for large-scale screening with follow-up', topic: Multiple testing}
+- {front: Expected share of false discoveries in a screen, back: 'About $m_0\alpha/(m_0\alpha + m_1 \cdot \text{power})$', topic: Multiple testing}
+# Lesson 93
+- {front: 'Why MCMC?', back: 'To draw from a distribution known only up to a constant ($\pi = f/Z$, $Z$ unknown), such as a non-conjugate posterior', topic: Markov chain Monte Carlo}
+- {front: Stationary distribution, back: '$\pi P = \pi$: if $X_t \sim \pi$ then $X_{t+1} \sim \pi$', topic: Markov chain Monte Carlo}
+- {front: Detailed balance, back: '$\pi(x)P(x, y) = \pi(y)P(y, x)$ for all $x, y$; summing over $x$ shows $\pi P = \pi$', topic: Markov chain Monte Carlo}
+- {front: Metropolis–Hastings acceptance probability, back: '$\alpha = \min\big(1, f(y)q(x \mid y)/(f(x)q(y \mid x))\big)$; with a symmetric proposal, $\min(1, f(y)/f(x))$', topic: Markov chain Monte Carlo}
+- {front: When a proposal is rejected, back: 'Stay at $x$ and record $x$ again', topic: Markov chain Monte Carlo}
+- {front: Why Metropolis–Hastings works, back: '$\pi(x)q(y \mid x)\alpha(x, y) = \min\big(f(x)q(y \mid x), f(y)q(x \mid y)\big)/Z$ is symmetric in $x, y$, so detailed balance holds', topic: Markov chain Monte Carlo}
+- {front: Effective sample size (AR(1)-type chain), back: '$\text{ESS} \approx N(1 - \rho)/(1 + \rho)$; Monte Carlo SE $\approx s/\sqrt{\text{ESS}}$', topic: Markov chain Monte Carlo}
+- {front: Step size in random-walk Metropolis, back: 'Too small: high acceptance, slow crawl. Too large: frequent rejections. Rough targets: acceptance near 0.44 in one dimension, 0.23 in many', topic: Markov chain Monte Carlo}
+- {front: Practical MCMC checks, back: 'Discard burn-in, look at trace plots, run several chains from different starts (Gelman–Rubin R-hat), and use the ESS for standard errors', topic: Markov chain Monte Carlo}
+- {front: Gibbs sampler, back: 'Update each parameter in turn from its full conditional distribution; every update is accepted', topic: Markov chain Monte Carlo}

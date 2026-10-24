@@ -33,6 +33,13 @@ $1 - 2\sin^2 x$.
 
 Note that $\sin 2x$ is not $2\sin x$: at $x = \tfrac{\pi}{2}$, $\sin\pi = 0$ but $2\sin\tfrac{\pi}{2} = 2$.
 
+For an acute angle, the sine formula has a picture. An isosceles triangle with two sides of length 1
+and apex angle $2\theta$ has area $\tfrac12\sin 2\theta$: use one of the equal sides as the base, and the height to it
+is $1\cdot\sin 2\theta$. The altitude from the apex splits the triangle into two right triangles, so the triangle also has base $2\sin\theta$, height $\cos\theta$ and area $\tfrac12(2\sin\theta)(\cos\theta)$. The two areas are equal,
+so $\sin 2\theta = 2\sin\theta\cos\theta$.
+
+![An isosceles triangle with two sides of length 1 meeting at an apex angle of 2 theta. A dashed altitude from the apex splits it into two right triangles, each with angle theta at the apex, height cos theta and base sin theta, so the whole base is 2 sin theta.](images/trig-m6-double-isosceles.svg)
+
 ### Example 1
 
 $\sin\theta = \tfrac{5}{13}$ and $\theta$ is in quadrant II. Find $\sin 2\theta$, $\cos 2\theta$ and $\tan 2\theta$,
@@ -115,6 +122,18 @@ $$\frac{2\sin x\cos x}{2\cos^2 x} = \frac{\sin x}{\cos x} = \tan x. \;\checkmark
 
 When you need $\cos 2\theta$ and know only $\sin\theta$, use $1 - 2\sin^2\theta$: no square root, so no sign to
 decide. When you know only $\cos\theta$, use $2\cos^2\theta - 1$. Only $\sin 2\theta$ always needs both values.
+
+```mermaid
+flowchart TD
+  accTitle: Which form of cos 2x to use
+  accDescr: If you know only sine of x, use cos 2x = 1 minus 2 sine squared x. Otherwise, if you know only cosine of x, use cos 2x = 2 cosine squared x minus 1. Otherwise, if you need to cancel a 1, as in 1 plus cos 2x or 1 minus cos 2x, pick the form whose 1 cancels. Otherwise, with both sine and cosine present, use cos 2x = cosine squared x minus sine squared x.
+  A{"Know only sin x?"} -- yes --> B["cos 2x = 1 − 2 sin² x"]
+  A -- no --> C{"Know only cos x?"}
+  C -- yes --> D["cos 2x = 2 cos² x − 1"]
+  C -- no --> E{"Need a 1 to cancel?"}
+  E -- yes --> F["Pick the form whose 1 cancels"]
+  E -- no --> G["cos 2x = cos² x − sin² x"]
+```
 
 ## Common mistakes
 

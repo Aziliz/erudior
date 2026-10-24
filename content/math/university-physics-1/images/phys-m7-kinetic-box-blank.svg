@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360" role="img" font-family="sans-serif"><title>A molecule in a box of length L bounces off the right-hand wall, of area A. Its velocity component toward the wall reverses from plus v x to minus v x, while the component along the wall is unchanged.</title>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker></defs>
+<rect x="0" y="0" width="600" height="360" fill="#ffffff"/>
+<rect x="100" y="50" width="340" height="240" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="3" />
+<rect x="440" y="50" width="22" height="240" rx="0" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" />
+<circle cx="160" cy="100" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="220" cy="240" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="300" cy="90" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="260" cy="170" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="150" cy="200" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="350" cy="250" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="200" cy="140" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="320" y1="110" x2="428" y2="166" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
+<line x1="432" y1="174" x2="322" y2="230" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
+<circle cx="432" cy="170" r="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<circle cx="320" cy="110" r="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="100" y1="315" x2="440" y2="315" stroke="#1c2833" stroke-width="1.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="270" y="30" font-size="15" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">each bounce gives the wall 2mvₓ</text>
+</svg>

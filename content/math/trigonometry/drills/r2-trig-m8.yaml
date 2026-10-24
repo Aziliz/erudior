@@ -116,7 +116,7 @@
     - {name: py, label: '$y$', tolerance: 0.01}
   solution: |-
     $P$ is ${t:texfrac}$ of the way from $A$ to $B$: $P = A + {t:texfrac}(B - A)$, or by the section formula
-    $P = \dfrac{{n}A + {m}B}{{m} + {n}}$. So $x = \dfrac{{n}({x1}) + {m}({x2})}{{m} + {n}} =$ **{px:frac}** and $y = \dfrac{{n}({y1}) + {m}({y2})}{{m} + {n}} =$ **{py:frac}**.
+    $P = \dfrac{{n:coef}A + {m:coef}B}{{m} + {n}}$. So $x = \dfrac{{n}({x1}) + {m}({x2})}{{m} + {n}} =$ **{px:frac}** and $y = \dfrac{{n}({y1}) + {m}({y2})}{{m} + {n}} =$ **{py:frac}**.
 
 - id: trig-m8-r2-point-line
   title: Distance from a point to a line

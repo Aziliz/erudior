@@ -176,8 +176,8 @@ At $x = 0$ the formula is undefined ($\tfrac{0}{0}$), yet the values near 0 sett
 | $\dfrac{\sin x}{x}$ | 0.95885 | 0.99833 | 0.99998 | 0.9999998 |
 
 The values approach 1. The graph is even (both $\sin x$ and $x$ are odd, and an odd function
-divided by an odd one is even), so the same happens from the left. The next lesson proves that
-the limit really is 1, with a picture of the unit circle.
+divided by an odd one is even), so the same happens from the left. The Module 3 honors lesson on
+small angles proves that the limit really is 1, with a picture of the unit circle.
 
 ```plot
 {"x": [-15, 15.4], "y": [-0.4, 1.2], "functions": [{"f": "sin(x)/x", "label": "y = sin x / x"}, {"f": "1/abs(x)", "dashed": true}, {"f": "-1/abs(x)", "dashed": true}], "points": [{"at": [0, 1], "open": true, "label": "approaches 1"}], "caption": "y = (sin x)/x: undefined at 0 but approaching 1; envelope y = ±1/|x| (dashed)"}

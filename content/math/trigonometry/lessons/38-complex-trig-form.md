@@ -28,6 +28,24 @@ $$z = r(\cos\theta + i\sin\theta).$$
 This is the **trigonometric form** (or polar form) of $z$. It's often abbreviated
 $z = r\operatorname{cis}\theta$, where **cis** stands for "$\cos + i\sin$".
 
+The picture collects the names: the two axes, the number $z = a + bi$, its modulus $r = |z|$, its argument $\theta$, and its
+conjugate $\bar z = a - bi$ (used later in this lesson), the mirror image across the real axis.
+
+![The complex plane with a horizontal real axis and a vertical imaginary axis. The point z = a + bi in the first quadrant is joined to the origin by a segment labeled r = |z|, making angle θ with the positive real axis. Its mirror image across the real axis is the conjugate z̄ = a − bi, joined to the origin by a dashed segment.](images/trig-m9-complex-plane.svg)
+
+Converting $a + bi$ to trigonometric form always follows the same steps:
+
+```mermaid
+flowchart TD
+  accTitle: Writing a + bi in trigonometric form
+  accDescr: Start with z equals a plus b i. Plot the point (a, b) and note its quadrant. Compute the modulus r as the square root of a squared plus b squared. Find the reference angle from the inverse tangent of the absolute value of b over a. Place theta in the quadrant of (a, b). Write z as r times cos theta plus i sin theta.
+  A["z = a + bi"] --> B["Plot (a, b) and note the quadrant"]
+  B --> C["Modulus r = √(a² + b²)"]
+  C --> D["Reference angle = tan⁻¹ |b/a|"]
+  D --> E["Argument θ in the quadrant of (a, b)"]
+  E --> F["z = r(cos θ + i sin θ) = r cis θ"]
+```
+
 ```plot
 {"x": [-4, 2], "y": [-0.8, 4.5], "equal": true, "segments": [{"from": [0, 0], "to": [-2, 3.4641], "arrow": true, "label": "r = 4"}, {"from": [-2, 0], "to": [-2, 3.4641], "dashed": true}], "curves": [{"x": "0.7cos(t)", "y": "0.7sin(t)", "t": [0, 2.0944]}], "points": [{"at": [-2, 3.4641], "label": "−2 + 2√3 i"}], "labels": [{"at": [0.75, 0.75], "text": "θ = 2π/3"}], "xLabel": "real", "yLabel": "imaginary", "caption": "−2 + 2√3 i has modulus 4 and argument 2π/3"}
 ```
@@ -122,6 +140,10 @@ rotation is multiplication by $\operatorname{cis}45^\circ = \tfrac{\sqrt2}{2} + 
 $$(-1 + 3i)\left(\tfrac{\sqrt2}{2} + \tfrac{\sqrt2}{2}i\right) = \tfrac{\sqrt2}{2}(-1 - i + 3i + 3i^2) = \tfrac{\sqrt2}{2}(-4 + 2i) = -2\sqrt2 + \sqrt2\,i.$$
 The modulus stays $\sqrt{10}$ throughout ($8 + 2 = 10$ ✓), because multiplying by numbers of modulus 1
 only rotates. Computer graphics and signal processing use exactly this trick.
+
+```plot
+{"x": [-3.8, 3.8], "y": [-1, 3.8], "equal": true, "circles": [{"center": [0, 0], "r": 3.1623}], "segments": [{"from": [0, 0], "to": [3, 1], "arrow": true}, {"from": [0, 0], "to": [-1, 3], "arrow": true}, {"from": [0, 0], "to": [-2.8284, 1.4142], "arrow": true}], "points": [{"at": [3, 1], "label": "3 + i"}, {"at": [-1, 3], "label": "−1 + 3i (×i)"}, {"at": [-2.8284, 1.4142], "label": "−2√2 + √2 i"}], "xLabel": "real", "yLabel": "imaginary", "caption": "Rotating 3 + i by 90° and then 45° keeps it on the circle of radius √10"}
+```
 
 ## Common mistakes
 

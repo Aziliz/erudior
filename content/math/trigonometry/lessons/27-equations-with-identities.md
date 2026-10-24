@@ -26,6 +26,20 @@ Lesson 20 finish the job.
 4. **Solve each basic equation** and collect all solutions in the requested interval.
 5. **Check**, especially if you squared both sides.
 
+```mermaid
+flowchart TD
+  accTitle: The general plan for solving a trig equation with identities
+  accDescr: First, if the equation mixes angles such as 2x and x, use a double-angle or sum-to-product formula so only one angle remains. Second, if it mixes functions, use a Pythagorean identity so only one function remains. Third, move everything to one side and factor, without dividing by anything that could be zero. Fourth, solve each factor as a basic equation, dropping impossible ones such as sine equal to 2. Fifth, list the solutions in the interval. If you squared both sides, check every candidate in the original equation and discard extraneous ones.
+  A["One angle: double-angle or sum-to-product"] --> B["One function: Pythagorean identity"]
+  B --> C["Set equal to 0 and factor (never divide by a trig function)"]
+  C --> D["Solve each factor; drop impossible ones like sin x = 2"]
+  D --> E["List solutions in the interval"]
+  E --> F{"Did you square both sides?"}
+  F -- yes --> G["Check each candidate in the original equation"]
+  F -- no --> H["Done"]
+  G --> H
+```
+
 ### Example 1
 
 Solve $2\cos^2 x + 3\sin x - 3 = 0$ on $[0, 2\pi)$.
@@ -86,6 +100,13 @@ Check each in the *original* equation:
 | $\tfrac{3\pi}{2}$ | $-1 + 0 = -1$ | no |
 
 Solutions: $0$ and $\tfrac{\pi}{2}$. The other two solve $\sin x + \cos x = -1$, which has the same square.
+
+The graph shows why: $\sin x + \cos x$ meets the line $y = 1$ at the two real solutions and the line $y = -1$ at
+the two extraneous ones.
+
+```plot
+{"x": [0, 6.4], "y": [-1.7, 1.7], "functions": [{"f": "sin(x) + cos(x)", "label": "sin x + cos x"}, {"f": "1", "dashed": true, "label": "y = 1"}, {"f": "-1", "dashed": true, "label": "y = −1"}], "points": [{"at": [0, 1], "label": "0"}, {"at": [1.5708, 1], "label": "π/2"}, {"at": [3.1416, -1], "label": "π"}, {"at": [4.7124, -1], "label": "3π/2"}], "caption": "Squaring merges sin x + cos x = 1 with sin x + cos x = −1; only the crossings with y = 1 solve the original"}
+```
 (Alternatively, $\sin x + \cos x = \sqrt2\sin\left(x + \tfrac{\pi}{4}\right)$ from Lesson 23 avoids squaring entirely.)
 
 ## When the values aren't special

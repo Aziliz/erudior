@@ -17,7 +17,7 @@
     - {name: R, label: '$R$', tolerance: 0.01}
     - {name: c, label: '$c$', tolerance: 0.01}
   solution: |-
-    Extended law of sines: $2R = \dfrac{a}{\sin A} = \dfrac{{a}}{\sin {A}^\circ} \approx {D:num4}$, so $R \approx$ **{R:num2}**.
+    Extended law of sines: $2R = \dfrac{\,a}{\sin A} = \dfrac{{a}}{\sin {A}^\circ} \approx {D:num4}$, so $R \approx$ **{R:num2}**.
     The third angle is $C = 180^\circ - {A}^\circ - {B}^\circ = {C}^\circ$, and $c = 2R\sin C \approx {D:num4}\sin {C}^\circ \approx$ **{c:num2}**.
 
 - id: trig-m7-r2-circle-radii
@@ -32,8 +32,8 @@
     s: (a + b + c) / 2
     pr: s * (s - a) * (s - b) * (s - c)
     K: sqrt(pr)
-    abc: a * b * c
-    R: abc / (4 * K)
+    prod: a * b * c
+    R: prod / (4 * K)
     r: K / s
   prompt: 'A triangle has sides {a}, {b} and {c}. Find its area $K$, its circumradius $R$ and its inradius $r$. (2 decimals)'
   answers:
@@ -42,7 +42,7 @@
     - {name: r, label: '$r$', tolerance: 0.01}
   solution: |-
     $s = \dfrac{{a} + {b} + {c}}{2} = {s}$, and Heron gives $K = \sqrt{{pr:num4}} \approx$ **{K:num2}**.
-    Then $R = \dfrac{abc}{4K} = \dfrac{{abc}}{4({K:num4})} \approx$ **{R:num2}** and $r = \dfrac{K}{s} = \dfrac{{K:num4}}{{s}} \approx$ **{r:num2}**.
+    Then $R = \dfrac{abc}{4K} = \dfrac{{prod}}{4({K:num4})} \approx$ **{R:num2}** and $r = \dfrac{\,K}{s} = \dfrac{{K:num4}}{{s}} \approx$ **{r:num2}**.
 
 - id: trig-m7-r2-half-angle
   title: The largest angle from a half-angle formula

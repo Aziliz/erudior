@@ -37,6 +37,19 @@ $$\sum F_{\text{toward center}} = \frac{mv^2}{r}.$$
 
 The left side is the net inward force from real, identifiable forces: tension, gravity, friction, the normal force, or a combination. "Centripetal force" is a job description for whatever force(s) do the turning; it never belongs on a free-body diagram as an extra arrow. When the inward force disappears (a string snaps), the object continues in a straight line along the tangent. It doesn't fly outward; "centrifugal force" is what you feel in the car's non-inertial frame, not a real force in an inertial one.
 
+Every circular-motion problem in this lesson follows the same steps:
+
+```mermaid
+flowchart TD
+  accTitle: Steps for a circular-motion problem
+  accDescr: Find the center and radius of the circle. Draw a free-body diagram with real forces only, no centripetal arrow. Take one axis pointing toward the center. Along it, the sum of forces equals m v squared over r. Perpendicular to the plane of the circle, the sum of forces is zero. Then solve for the unknown.
+  A["Find the center and radius of the circle"] --> B["Free-body diagram: real forces only"]
+  B --> C["Take one axis pointing toward the center"]
+  C --> D["Toward the center: ΣF = mv²/r"]
+  D --> E["Perpendicular to the circle's plane: ΣF = 0"]
+  E --> F["Solve for the unknown"]
+```
+
 ### Example 1: car on a flat curve
 
 What is the maximum speed at which a car can round a flat curve of radius 50 m if $\mu_s = 0.80$ between tires and road?
@@ -52,6 +65,10 @@ The mass cancels: a truck and a motorcycle have the same limit (with the same ti
 Highway engineers tilt curves so the normal force helps. On a frictionless curve banked at angle $\theta$, the normal force tilts toward the center. Vertically, $n\cos\theta = mg$; horizontally (toward the center), $n\sin\theta = mv^2/r$. Dividing,
 
 $$\tan\theta = \frac{v^2}{rg}.$$
+
+![Cross-section of a road banked at angle theta, with the center of the curve to the left. A car on the road has its weight mg pointing straight down and the normal force n perpendicular to the road surface, tilted toward the center. Dashed arrows split n into a vertical part n cos theta and a horizontal part n sin theta pointing toward the center.](images/phys-m3-banked-curve.svg)
+
+In the picture, the vertical part of the normal force, $n\cos\theta$, holds the car up against its weight, and the horizontal part, $n\sin\theta$, points toward the center and does the turning. Nothing else is needed at the design speed.
 
 At this design speed no friction is needed at all. Faster than this, friction must act down the slope; slower, up the slope.
 

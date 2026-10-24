@@ -20,11 +20,11 @@ The left side can also be multiplied out with the binomial theorem. Two complex 
 flowchart TD
   accTitle: Deriving multiple-angle identities from De Moivre's theorem
   accDescr: Write cos n theta plus i sin n theta as cos theta plus i sin theta to the nth power. Expand the power with the binomial theorem, writing c for cos theta and s for sin theta. Replace powers of i using i squared equals negative 1. Collect the real terms, which equal cos n theta, and the imaginary terms, which equal sin n theta. If you want the formula in one function only, replace s squared with 1 minus c squared or c squared with 1 minus s squared.
-  A["cos nθ + i sin nθ = (cos θ + i sin θ)^n"] --> B["Expand with the binomial theorem (c = cos θ, s = sin θ)"]
+  A["cos nθ + i sin nθ = (cos θ + i sin θ)ⁿ"] --> B["Expand with the binomial theorem (c = cos θ, s = sin θ)"]
   B --> C["Simplify powers of i: i² = −1, i³ = −i, i⁴ = 1"]
   C --> D["Real terms = cos nθ"]
   C --> E["Imaginary terms = sin nθ"]
-  D --> F["Optional: use s² = 1 − c² to write it in cosine alone"]
+  D --> F["Optional: use s² = 1 − c² or c² = 1 − s² to write it in one function"]
   E --> F
 ```
 

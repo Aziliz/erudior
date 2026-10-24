@@ -61,6 +61,24 @@ $$\frac{x^2}{9} + \frac{y^2}{4} = 1,$$
 an ellipse. Solving $\cos t = \tfrac{x}{3}$ for $t$ with $\cos^{-1}$ would also work, but it only returns angles in $[0, \pi]$
 and gets messy; the identity removes $t$ in one step.
 
+The chart below sums up how to choose a method.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a way to eliminate the parameter
+  accDescr: Start with x equals f of t and y equals g of t. If x and y involve cos t and sin t, isolate cos t and sin t, then square and add using cos squared t plus sin squared t equals 1. Otherwise, if one equation is easy to solve for t, solve it and substitute into the other. Otherwise look for an identity that links the two, such as cos 2t equals 1 minus 2 sin squared t. In every case, finish by restricting x and y to the values the parametric equations actually reach, and state the orientation separately.
+  A["x = f(t), y = g(t)"] --> B{"Do x and y use cos t and sin t?"}
+  B -- yes --> C["Isolate cos t and sin t"]
+  C --> D["Square and add: cos² t + sin² t = 1"]
+  B -- no --> E{"Is one equation easy to solve for t?"}
+  E -- yes --> F["Solve for t and substitute into the other"]
+  E -- no --> G["Use an identity that links them, such as cos 2t = 1 − 2 sin² t"]
+  D --> H["Keep only the x and y values the curve actually reaches"]
+  F --> H
+  G --> H
+  H --> I["State the orientation separately"]
+```
+
 ### Example 2: an ellipse off the origin
 
 Eliminate the parameter from $x = 1 + 3\cos t$, $y = -2 + 2\sin t$, $0 \le t \le 2\pi$, and describe the
@@ -132,6 +150,10 @@ horizontal velocity stays $v_0\cos\theta$. Gravity pulls it down with accelerati
 $\tfrac12 gt^2$ from the height after $t$ seconds. So
 $$x = (v_0\cos\theta)\,t, \qquad y = h + (v_0\sin\theta)\,t - \tfrac12 g t^2,$$
 with $g \approx 9.8$ m/s² (or $32$ ft/s², making the last term $16t^2$ in feet).
+
+The picture names the parts of the setup.
+
+![A ball launched from a platform of height h. Its initial velocity v₀ is an arrow at angle θ above the horizontal, split into a horizontal component v₀ cos θ and a vertical component v₀ sin θ. The path is a parabola-shaped arc; a dotted line from its top down to the ground marks the maximum height, and a dimension line along the ground from the launch point to the landing point marks the horizontal distance (range).](images/trig-m9-projectile-parts.svg)
 
 The parametric form answers "when" questions directly:
 

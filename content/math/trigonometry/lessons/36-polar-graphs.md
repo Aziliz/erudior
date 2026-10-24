@@ -69,6 +69,29 @@ if $n$ is odd, $2n$ petals if $n$ is even.
 
 **Lemniscates** $r^2 = a^2\cos 2\theta$ or $r^2 = a^2\sin 2\theta$: a figure-eight (propeller) through the pole.
 
+The gallery shows one member of each family, each with the pole at the crossing of its axes.
+
+![Six polar graphs in a grid. A circle through the pole, r = 4 cos θ. A heart-shaped cardioid, r = 2 + 2 cos θ, with its point at the pole. A limaçon with a small inner loop, r = 1 + 2 cos θ. A three-petaled rose, r = 4 cos 3θ, with one petal along the polar axis. A four-petaled rose, r = 4 sin 2θ, with petals between the axes. A figure-eight lemniscate, r² = 16 cos 2θ, lying along the polar axis.](images/trig-m9-polar-gallery.svg)
+
+To name a graph from its equation, ask these questions in order:
+
+```mermaid
+flowchart TD
+  accTitle: Recognizing the standard polar graphs
+  accDescr: Ask first whether the equation is r equals a constant or r equals 2a cos theta or 2a sin theta; if so it is a circle. If not, ask whether r squared equals a squared cos 2 theta or a squared sin 2 theta; if so it is a lemniscate. If not, ask whether r equals a cos n theta or a sin n theta with n a whole number at least 2; if so it is a rose with n petals for odd n and 2n petals for even n. If not, ask whether r equals a plus b cos theta or a plus b sin theta with a and b positive; if so it is a limaçon, and comparing a with b gives an inner loop when a is less than b, a cardioid when a equals b, a dimple when a is between b and 2b, and a convex oval when a is at least 2b.
+  A{"r = a, r = 2a cos θ or r = 2a sin θ?"} -- yes --> C[Circle]
+  A -- no --> B{"r² = a² cos 2θ or a² sin 2θ?"}
+  B -- yes --> L[Lemniscate]
+  B -- no --> D{"r = a cos nθ or a sin nθ, n ≥ 2?"}
+  D -- yes --> R["Rose: n petals if n is odd, 2n if n is even"]
+  D -- no --> E{"r = a + b cos θ or a + b sin θ, a and b positive?"}
+  E -- yes --> F{"Compare a with b"}
+  F -- "a less than b" --> F1[Limaçon with inner loop]
+  F -- "a = b" --> F2[Cardioid]
+  F -- "b less than a, a less than 2b" --> F3[Dimpled limaçon]
+  F -- "a at least 2b" --> F4[Convex limaçon]
+```
+
 ### Example 2: a limaçon with an inner loop
 
 Graph $r = 1 + 2\cos\theta$.

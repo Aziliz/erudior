@@ -25,11 +25,27 @@ These are the **half-angle formulas**.
 **The sign.** In the sine and cosine formulas, the $\pm$ is *not* "both answers". Exactly one
 sign is right, and it is decided by the quadrant of $\tfrac{\theta}{2}$, **not** the quadrant of $\theta$.
 
+```mermaid
+flowchart TD
+  accTitle: Choosing the sign in a half-angle formula
+  accDescr: Start from the interval that contains theta. Divide every part of the inequality by 2 to get the interval for theta over 2. Read off the quadrant of theta over 2. Use the signs of sine and cosine in that quadrant to choose plus or minus in front of the square root. Finally, check that the squares of the sine and cosine of the half angle add to 1.
+  A["Interval for θ, e.g. 180° #lt; θ #lt; 270°"] --> B["Divide every part by 2"]
+  B --> C["Quadrant of θ/2, e.g. 90° #lt; θ/2 #lt; 135°: QII"]
+  C --> D["Signs of sin and cos in that quadrant pick the ±"]
+  D --> E["Check: sin² + cos² of θ/2 equals 1"]
+```
+
 **Why the tangent formulas have no $\pm$.** Multiply top and bottom of $\tan\tfrac{\theta}{2} = \tfrac{\sin(\theta/2)}{\cos(\theta/2)}$
 by $2\sin\tfrac{\theta}{2}$:
 $$\tan\frac{\theta}{2} = \frac{2\sin^2(\theta/2)}{2\sin(\theta/2)\cos(\theta/2)} = \frac{1 - \cos\theta}{\sin\theta},$$
 using the power-reducing formula on top and the double-angle formula underneath. The signs
 take care of themselves. Multiplying by $2\cos\tfrac{\theta}{2}$ instead gives the second form.
+
+For $0 < \theta < 180^\circ$ there is also a picture. Put $P = (\cos\theta, \sin\theta)$ on the unit circle and join it to
+$A = (-1, 0)$. The angle at $A$ is $\tfrac{\theta}{2}$ (an angle with its vertex on a circle is half the central angle on the
+same arc), and the right triangle $AFP$ has legs $1 + \cos\theta$ and $\sin\theta$, so $\tan\tfrac{\theta}{2} = \tfrac{\sin\theta}{1 + \cos\theta}$.
+
+![A unit circle with center O. Point A is at (−1, 0) and point P on the upper arc makes central angle theta with the positive x-axis. F is the foot of the perpendicular from P to the x-axis. Triangle AFP is shaded: the angle at A is theta/2, the vertical leg FP is sin theta, OF is cos theta, and the horizontal leg AF, marked by a dimension line, is 1 + cos theta. The radius OP is 1.](images/trig-m6-half-angle-circle.svg)
 
 ## Exact values
 

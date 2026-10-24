@@ -1,0 +1,39 @@
+# Round 2 glossary: trig-m7 honors lessons (circumcircle and incircle; half-angle formulas and the law of tangents)
+- term: circumcircle
+  aliases: [circumcircles, circumscribed circle]
+  definition: 'The circle through all three vertices of a triangle. Its radius is written $R$.'
+  topic: Circumcircle and incircle
+- term: circumcenter
+  aliases: [circumcentre]
+  definition: 'The center $O$ of a triangle''s circumcircle, where the perpendicular bisectors of the sides meet. Inside an acute triangle, at the midpoint of the hypotenuse of a right triangle, outside an obtuse one.'
+  topic: Circumcircle and incircle
+- term: extended law of sines
+  definition: '$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C} = 2R$, where $R$ is the radius of the circumcircle.'
+  topic: Circumcircle and incircle
+- term: inscribed angle theorem
+  definition: 'An angle with its vertex on a circle and chords as its sides equals half the central angle on the same arc. So inscribed angles on the same arc (same side) are equal, and an angle inscribed in a semicircle is $90^\circ$.'
+  topic: Circumcircle and incircle
+- term: incircle
+  aliases: [incircles, inscribed circle]
+  definition: 'The circle inside a triangle that touches all three sides. Its radius is the inradius $r$.'
+  topic: Circumcircle and incircle
+- term: incenter
+  aliases: [incentre]
+  definition: 'The center $I$ of a triangle''s incircle, where the three angle bisectors meet; it is the same distance $r$ from every side.'
+  topic: Circumcircle and incircle
+- term: inradius
+  definition: 'The radius $r$ of a triangle''s incircle: $r = \tfrac{K}{s}$, the area divided by the semiperimeter.'
+  topic: Circumcircle and incircle
+- term: Euler's inequality
+  definition: 'For every triangle, the circumradius is at least twice the inradius: $R \ge 2r$, with equality only for an equilateral triangle.'
+  topic: Circumcircle and incircle
+- term: ill-conditioned
+  definition: 'Describes a calculation in which small errors in the inputs (such as rounding) cause large errors in the result, for example finding a very small angle from its cosine.'
+  topic: Half-angle and tangent laws
+- term: law of tangents
+  definition: '$\dfrac{a - b}{a + b} = \dfrac{\tan\frac{A - B}{2}}{\tan\frac{A + B}{2}}$ in any triangle; with the included angle $C$ known, $\tan\frac{A - B}{2} = \frac{a - b}{a + b}\cot\frac{C}{2}$ solves SAS.'
+  topic: Half-angle and tangent laws
+- term: Mollweide's formulas
+  aliases: [Mollweide's formula]
+  definition: '$\dfrac{a + b}{c} = \dfrac{\cos\frac{A - B}{2}}{\sin\frac{C}{2}}$ and $\dfrac{a - b}{c} = \dfrac{\sin\frac{A - B}{2}}{\cos\frac{C}{2}}$; each uses all six parts, so it checks a solved triangle.'
+  topic: Half-angle and tangent laws

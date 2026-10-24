@@ -38,6 +38,13 @@ Write $\sin 5x\cos 3x$ as a sum.
 
 $\alpha = 5x$, $\beta = 3x$: $\sin 5x\cos 3x = \tfrac12\left[\sin 8x + \sin 2x\right]$.
 
+Graphing both sides shows they are the same function: the product, which is hard to picture, is
+an ordinary sum of two sine waves.
+
+```plot
+{"x": [0, 3.2], "y": [-1.2, 1.2], "functions": [{"f": "sin(5x)cos(3x)", "label": "sin 5x cos 3x"}, {"f": "0.5(sin(8x) + sin(2x))", "dashed": true, "label": "½(sin 8x + sin 2x)"}], "caption": "The product sin 5x cos 3x and the sum ½(sin 8x + sin 2x) have the same graph"}
+```
+
 ### Example 2
 
 Find $\cos 75^\circ\cos 15^\circ$ exactly.
@@ -122,6 +129,17 @@ You don't need to memorize all eight formulas cold. Remember the derivation: wri
 and difference formulas for sine (or cosine) one above the other, then add or subtract.
 Two lines on scrap paper rebuild any product-to-sum formula, and solving for $\alpha$ and $\beta$
 gives the sum-to-product versions.
+
+```mermaid
+flowchart TD
+  accTitle: Where product-to-sum and sum-to-product formulas come from
+  accDescr: Write the sum formula and the difference formula for sine one above the other. Adding them gives 2 sin alpha cos beta, and subtracting gives 2 cos alpha sin beta. Doing the same with the cosine formulas gives 2 cos alpha cos beta and 2 sin alpha sin beta. Dividing by 2 gives the four product-to-sum formulas. Substituting u = alpha + beta and v = alpha minus beta turns them around into the four sum-to-product formulas.
+  A["sin(α + β) and sin(α − β)"] -- "add / subtract" --> C["2 sin α cos β and 2 cos α sin β"]
+  B["cos(α − β) and cos(α + β)"] -- "add / subtract" --> D["2 cos α cos β and 2 sin α sin β"]
+  C --> E["Divide by 2: product-to-sum"]
+  D --> E
+  E -- "u = α + β, v = α − β" --> F["Sum-to-product"]
+```
 
 ## Common mistakes
 

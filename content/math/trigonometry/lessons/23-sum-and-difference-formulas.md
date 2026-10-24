@@ -50,6 +50,14 @@ These are the **sum formulas** and **difference formulas**. Memory aids: sine ke
 and mixes functions ("sin cos, cos sin"); cosine keeps functions together ("cos cos, sin
 sin") and *flips* the sign.
 
+For acute angles there is also a picture proof. Stack a right triangle with angle $\beta$ and hypotenuse 1
+on top of one with angle $\alpha$, and fit them in a rectangle: the right side of the rectangle is
+$\sin(\alpha + \beta)$, made of two pieces, and its top is $\cos(\alpha + \beta)$, the bottom minus a short piece.
+
+![A rectangle with corners O, R, S and T. Inside, right triangle OQR has angle alpha at O, hypotenuse OQ = cos beta, base OR = cos alpha cos beta and height RQ = sin alpha cos beta. On top of it, right triangle OQP has angle beta at O, hypotenuse OP = 1 and side QP = sin beta. The small triangle QSP has angle alpha at Q, side QS = cos alpha sin beta and side SP = sin alpha sin beta. The left side OT is sin(alpha + beta) and the top piece TP is cos(alpha + beta).](images/trig-m6-sum-rectangle.svg)
+
+Reading the right side, $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$; reading the top, $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$.
+
 ## Exact values
 
 Write the angle as a sum or difference of special angles.
@@ -133,6 +141,18 @@ product-to-sum formulas come from adding two sum formulas. In physics they descr
 waves combine. In Lesson 38 they explain why multiplying complex numbers adds their
 angles. If you remember only one group of identities beyond the Pythagorean ones, make it this
 one, because the others can be rebuilt from it in a few lines.
+
+```mermaid
+flowchart TD
+  accTitle: How the identities of this module come from one formula
+  accDescr: The cosine difference formula comes first, proved with distances on the unit circle. Replacing beta by negative beta gives the cosine sum formula, and the cofunction identity gives the sine sum and difference formulas; dividing gives tangent. Setting beta equal to alpha gives the double-angle formulas. Solving the cosine double-angle formula for the squares gives the power-reducing formulas, and renaming the angle gives the half-angle formulas. Adding and subtracting the sum and difference formulas gives the product-to-sum formulas, and substituting new letters gives the sum-to-product formulas.
+  A["cos(α − β), from distances on the unit circle"] --> B["Sum and difference formulas for sin, cos, tan"]
+  B -- "set β = α" --> C["Double-angle formulas"]
+  C -- "solve for sin² and cos²" --> D["Power-reducing formulas"]
+  D -- "rename 2x as θ" --> E["Half-angle formulas"]
+  B -- "add or subtract two formulas" --> F["Product-to-sum formulas"]
+  F -- "u = α + β, v = α − β" --> G["Sum-to-product formulas"]
+```
 
 ## Common mistakes
 

@@ -47,6 +47,10 @@ This is **Newton's third law**. The two forces of a pair act on *different* obje
 
 A classic confusion: the weight of a book on a table and the normal force on the book are equal and opposite, but they are not a third-law pair. They act on the same object (the book), and they are different kinds of force. The third-law partner of the book's weight is the book's pull on Earth; the partner of the normal force is the book pushing down on the table.
 
+The picture shows all four forces in this story. The two solid arrows are one third-law pair (gravity between the book and Earth); the two dashed arrows are the other (the contact push between the book and the table). Only the two arrows that start on the book belong on the book's free-body diagram.
+
+![A book resting on a table with four force arrows. Solid arrows: Earth pulls the book down (gravity) and the book pulls Earth up (gravity). Dashed arrows: the table pushes the book up (contact) and the book pushes the table down (contact).](images/phys-m3-third-law.svg)
+
 ## Free-body diagrams
 
 A **free-body diagram** (FBD) isolates one object and shows every force acting *on* it, as arrows starting from the object. It is the single most important step in a dynamics problem. A reliable method:
@@ -59,6 +63,23 @@ A **free-body diagram** (FBD) isolates one object and shows every force acting *
 6. Write $\sum F_x = ma_x$ and $\sum F_y = ma_y$, and solve.
 
 Never put "$ma$" on the diagram as a force; it's the result of the forces, not one of them.
+
+The same method as a flowchart, including the check that catches most diagram errors: every force must have an agent, some other object that exerts it.
+
+```mermaid
+flowchart TD
+  accTitle: Method for a free-body diagram problem
+  accDescr: Choose one object. Draw its weight. Add a force for everything touching it, then any non-contact forces. Check that every arrow has an agent, another object that exerts it; if not, remove it. Then choose axes, one along the acceleration, write the sum of forces equals m a for each axis, and solve.
+  A["Choose one object"] --> B["Draw its weight mg"]
+  B --> C["Add a force for everything touching it"]
+  C --> D["Add non-contact forces, if any"]
+  D --> E{"Does every arrow have an agent?"}
+  E -- no --> F["Remove it: ma and 'force of motion' are not forces"]
+  F --> E
+  E -- yes --> G["Choose axes, one along the acceleration"]
+  G --> H["Write ΣFx = max and ΣFy = may"]
+  H --> I["Solve"]
+```
 
 ```shape
 {"polygons": [{"points": [[-0.5, -0.5], [0.5, -0.5], [0.5, 0.5], [-0.5, 0.5]]}], "segments": [{"from": [0, 0.5], "to": [0, 2.2], "arrow": true, "label": "n"}, {"from": [0, -0.5], "to": [0, -2.2], "arrow": true, "label": "mg"}, {"from": [0.5, 0], "to": [2.4, 0], "arrow": true, "label": "F (applied)"}, {"from": [-0.5, 0], "to": [-1.4, 0], "arrow": true, "label": "f (friction)"}], "caption": "Free-body diagram of a box pushed across a floor"}

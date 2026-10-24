@@ -322,7 +322,7 @@
   choices: ['Bootstrap resamples are drawn with replacement', 'Each bootstrap resample has the same size $n$ as the data', 'Increasing $B$ makes the standard error of the statistic smaller', 'The 2.5th and 97.5th percentiles of the replicates give a 95% percentile interval', 'The bootstrap works well for the sample maximum', 'A permutation test reshuffles group labels without replacement']
   answer: [0, 1, 3, 5]
   explanation: |-
-    Resamples are size-$n$ draws with replacement, and the percentile interval uses the replicates' 2.5th and 97.5th percentiles. A larger $B$ only reduces Monte Carlo noise in the *estimate* of the SE; the SE itself is set by $n$. The bootstrap fails for the maximum, since a resample reproduces the sample maximum with probability about 0.632. Permutation tests shuffle without replacement.
+    Resamples are size-$n$ draws with replacement, and the percentile interval uses the replicates' 2.5th and 97.5th percentiles. A larger $B$ only reduces Monte Carlo noise in the estimate of the SE; the SE itself is set by $n$. The bootstrap fails for the maximum, since a resample reproduces the sample maximum with probability about 0.632. Permutation tests shuffle without replacement.
 
 - id: ps-m6-r2-q29
   lesson: ps-bootstrap
@@ -368,7 +368,7 @@
     - ['11']
     - ['0.45', '9/20']
   explanation: |-
-    Add successes to $a$ and failures to $b$: Beta$(3 + 6,\; 7 + 4) = $ Beta$(9, 11)$. Mean $9/20 = 0.45$, between the prior mean 0.3 and the sample proportion 0.6, with equal weights since $a + b = n = 10$.
+    Add successes to $a$ and failures to $b$: Beta$(3 + 6,\; 7 + 4)$, that is, Beta$(9, 11)$. Mean $9/20 = 0.45$, between the prior mean 0.3 and the sample proportion 0.6, with equal weights since $a + b = n = 10$.
 
 - id: ps-m6-r2-q33
   lesson: ps-bayes-inference

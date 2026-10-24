@@ -92,15 +92,14 @@ solutions of $\sin u = c$ when $-1 < c < 1$, so counting periods predicts how ma
 ```mermaid
 flowchart TD
   accTitle: Choosing a method for a trig equation
-  accDescr: If the equation is one trig function equal to a number, use Lesson 20's method. If it sets two sines, two cosines or two tangents equal, use the equal-value rules. If it sets a sine equal to a cosine, first use a cofunction identity to make both sines. If the argument is shifted, substitute u for the argument and find u's interval first. If a trig function is mixed with a plain x, no formula works, so graph to count the solutions and then find them numerically.
-  S["What kind of trig equation?"] --> A["sin, cos or tan of one argument equals a number"]
-  S --> B["Two sines, two cosines or two tangents set equal"]
-  S --> C["A sine set equal to a cosine"]
-  S --> E["A trig function mixed with a plain x"]
-  A --> A1["Lesson 20: reference angle, quadrants, add periods"]
-  B --> B1["Use the equal-value rules: two families for sine"]
-  C --> C1["Rewrite cos x as sin(π/2 − x), then use the rules"]
-  E --> E1["Graph to count solutions, then find them numerically"]
+  accDescr: First ask whether one trig function of one argument equals a number. If so, use Lesson 20's method, and for a shifted argument find the interval of u first. If not, ask whether two sines, two cosines or two tangents are set equal; if so, use the equal-value rules. If not, ask whether a sine is set equal to a cosine; if so, rewrite cos x as sin(π/2 − x) and then use the equal-value rules. Otherwise a trig function is mixed with a plain x: graph to count the solutions, then find them numerically.
+  A{"One trig function of one argument equals a number?"} -- yes --> A1["Lesson 20 method; for a shifted argument, find the interval of u first"]
+  A -- no --> B{"Two sines, two cosines or two tangents set equal?"}
+  B -- yes --> B1["Use the equal-value rules"]
+  B -- no --> C{"A sine set equal to a cosine?"}
+  C -- yes --> C1["Rewrite cos x as sin(π/2 − x)"]
+  C1 --> B1
+  C -- no --> D["A trig function mixed with a plain x: graph to count the solutions, then solve numerically"]
 ```
 
 ## Equations no formula can solve

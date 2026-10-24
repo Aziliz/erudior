@@ -123,7 +123,7 @@ A **trace plot**, the sampled value against iteration number, is the first check
 ![A trace plot of 200 Metropolis iterations for the Poisson rate. The chain starts at 9, drifts down through a shaded burn-in region over the first 25 or so iterations, then moves up and down between about 1 and 4 for the rest of the run, with occasional flat stretches where proposals were rejected.](images/ps-h1-mcmc-trace.svg)
 
 - **Burn-in.** A chain started far from where the posterior has its mass (here at $\lambda = 9$) takes a while
-  to get there. The early iterations, the **burn-in**, reflect the starting point rather than $\pi$ and
+  to get there. The early iterations, the **burn-in period**, reflect the starting point rather than $\pi$ and
   are discarded. Running several chains from scattered starting points and checking that they
   agree (the Gelman–Rubin $\hat R$ statistic compares their within- and between-chain variances) is
   standard practice.

@@ -1,0 +1,150 @@
+# Round 2, honors module ps-h1 (Modern statistical methods): terms bolded in lessons 90–93.
+# Lesson 90
+- term: shrinkage estimator
+  aliases: [shrinkage estimators]
+  definition: 'An estimator that deliberately pulls raw estimates toward a target (such as 0 or the grand mean), accepting some bias in exchange for lower variance.'
+  topic: Shrinkage estimation
+- term: empirical Bayes
+  aliases: [empirical Bayes estimator, empirical Bayes estimation]
+  definition: 'Bayesian estimation in which the parameters of the prior are estimated from the data themselves, which is possible when many related quantities are observed at once.'
+  topic: Shrinkage estimation
+- term: James–Stein estimator
+  aliases: [James-Stein estimator, James–Stein, James-Stein]
+  definition: 'For $p \ge 3$ independent $X_i \sim N(\theta_i, \sigma^2)$, the estimator $\big(1 - (p - 2)\sigma^2/\|\mathbf X\|^2\big)\mathbf X$; its total squared-error risk is below $p\sigma^2$ for every $\boldsymbol\theta$.'
+  topic: Shrinkage estimation
+- term: shrinkage factor
+  definition: 'The multiplier, such as $1 - (p - 2)\sigma^2/\|\mathbf X\|^2$ in James–Stein, that scales the distance of each estimate from the shrinkage target.'
+  topic: Shrinkage estimation
+- term: Stein's lemma
+  definition: 'For $Z \sim N(\theta, \sigma^2)$ and differentiable $g$ with $E|g''(Z)| < \infty$, $E[(Z - \theta)g(Z)] = \sigma^2E[g''(Z)]$; proved by integrating by parts.'
+  topic: Shrinkage estimation
+- term: Stein's paradox
+  definition: 'The fact that, for three or more normal means estimated together under total squared error, the sample values are inadmissible even when the means are unrelated, because shrinkage lowers the total risk.'
+  topic: Shrinkage estimation
+- term: positive-part James–Stein estimator
+  aliases: [positive-part James-Stein estimator, positive-part estimator]
+  definition: 'James–Stein with the shrinkage factor replaced by $\max(0, \text{factor})$, so estimates are never flipped past the target; its risk is no larger than plain James–Stein for every $\boldsymbol\theta$.'
+  topic: Shrinkage estimation
+# Lesson 91
+- term: overfitting
+  aliases: [overfit, overfitted]
+  definition: 'Fitting a model so closely to the noise in one sample that it predicts new data badly; training error keeps falling while error on new data rises.'
+  topic: Regularized regression
+- term: regularization
+  aliases: [regularisation, penalized regression, penalized least squares]
+  definition: 'Adding a penalty on the size of the coefficients to the fitting criterion, trading a little bias for lower variance.'
+  topic: Regularized regression
+- term: ridge regression
+  aliases: [ridge, ridge estimator]
+  definition: 'Least squares with the penalty $\lambda\sum\beta_j^2$; with centered predictors the solution is $(\mathbf X^{\mathsf T}\mathbf X + \lambda\mathbf I)^{-1}\mathbf X^{\mathsf T}\mathbf y$, which shrinks coefficients toward 0 but not to 0.'
+  topic: Regularized regression
+- term: lasso
+  aliases: [the lasso, lasso regression]
+  definition: 'Least absolute shrinkage and selection operator: least squares with the penalty $\lambda\sum|\beta_j|$, which can set coefficients exactly to 0 and so selects variables (Tibshirani, 1996).'
+  topic: Regularized regression
+- term: tuning parameter
+  aliases: [penalty parameter, regularization parameter]
+  definition: 'The constant $\lambda \ge 0$ that sets how strongly a penalty acts; $\lambda = 0$ gives least squares. It is usually chosen by cross-validation.'
+  topic: Regularized regression
+- term: bias–variance tradeoff
+  aliases: [bias-variance tradeoff, bias–variance trade-off, bias-variance trade-off]
+  definition: 'The pattern that making an estimator or model more constrained lowers its variance but raises its bias; MSE = variance + bias² is smallest at an intermediate setting.'
+  topic: Regularized regression
+- term: soft thresholding
+  aliases: [soft-thresholding, soft threshold]
+  definition: 'The operation $z \mapsto \operatorname{sign}(z)\max(|z| - c, 0)$: move toward 0 by $c$ and stop at 0. It gives the lasso solution for one predictor or orthogonal predictors.'
+  topic: Regularized regression
+- term: cross-validation
+  aliases: [cross validation, k-fold cross-validation]
+  definition: 'Estimating prediction error by repeatedly fitting on part of the data and measuring error on the held-out part; in K-fold CV the data are split into K folds and each is held out once.'
+  topic: Regularized regression
+- term: leave-one-out cross-validation
+  aliases: [LOOCV, leave-one-out]
+  definition: 'Cross-validation with $K = n$: each observation is predicted from a fit to the other $n - 1$.'
+  topic: Regularized regression
+- term: one-standard-error rule
+  aliases: [one-SE rule, one standard error rule]
+  definition: 'Choosing the simplest model (largest penalty) whose cross-validation error is within one standard error of the minimum.'
+  topic: Regularized regression
+# Lesson 92
+- term: false discovery proportion
+  aliases: [FDP]
+  definition: 'The fraction $V/R$ of rejected hypotheses that are true nulls (taken as 0 when nothing is rejected).'
+  topic: Multiple testing
+- term: false discovery rate
+  aliases: [FDR]
+  definition: 'The expected false discovery proportion, $E(V/R)$; controlled at level $q$ by the Benjamini–Hochberg procedure for independent tests.'
+  topic: Multiple testing
+- term: Holm's procedure
+  aliases: [Holm procedure, Holm's method, Holm method, Holm–Bonferroni method, Holm-Bonferroni method]
+  definition: 'A step-down method: compare the $k$-th smallest p-value with $\alpha/(m - k + 1)$ and reject until the first failure. It controls the familywise error rate under any dependence and is never less powerful than Bonferroni.'
+  topic: Multiple testing
+- term: step-down procedure
+  aliases: [step-down, step-down method]
+  definition: 'A multiple testing procedure that starts with the smallest p-value and works upward, stopping at the first hypothesis it fails to reject.'
+  topic: Multiple testing
+- term: Benjamini–Hochberg procedure
+  aliases: [Benjamini-Hochberg procedure, BH procedure, Benjamini–Hochberg, Benjamini-Hochberg]
+  definition: 'Find the largest $k$ with $p_{(k)} \le kq/m$ and reject the $k$ hypotheses with the smallest p-values; for independent tests the FDR is $m_0q/m \le q$.'
+  topic: Multiple testing
+- term: step-up procedure
+  aliases: [step-up, step-up method]
+  definition: 'A multiple testing procedure that finds the largest index whose p-value is under its threshold and rejects that hypothesis and all with smaller p-values, even if some of those are above their own thresholds.'
+  topic: Multiple testing
+- term: adjusted p-value
+  aliases: [adjusted p-values]
+  definition: 'The smallest overall level at which a multiple testing procedure would reject a hypothesis, so it can be compared directly with $\alpha$ or $q$; for Bonferroni it is $\min(1, mp)$.'
+  topic: Multiple testing
+# Lesson 93
+- term: Markov chain Monte Carlo
+  aliases: [MCMC]
+  definition: 'Methods that draw from a distribution known only up to a constant by simulating a Markov chain whose stationary distribution is that target, then averaging over the chain.'
+  topic: Markov chain Monte Carlo
+- term: Markov chain
+  aliases: [Markov chains]
+  definition: 'A sequence of random states in which the distribution of the next state depends on the past only through the current state.'
+  topic: Markov chain Monte Carlo
+- term: stationary distribution
+  aliases: [stationary distributions, invariant distribution]
+  definition: 'A distribution $\pi$ that a Markov chain keeps once it is in it: $\pi P = \pi$, or $\sum_x \pi(x)P(x, y) = \pi(y)$ for every $y$.'
+  topic: Markov chain Monte Carlo
+- term: detailed balance
+  aliases: [reversibility condition]
+  definition: 'The condition $\pi(x)P(x, y) = \pi(y)P(y, x)$ for all states; it implies that $\pi$ is a stationary distribution.'
+  topic: Markov chain Monte Carlo
+- term: ergodic theorem
+  aliases: [ergodic theorem for Markov chains]
+  definition: 'For an irreducible, aperiodic chain with stationary distribution $\pi$ (in simplified form), the distribution of $X_t$ converges to $\pi$ and long-run averages of $g(X_t)$ converge to $E_\pi[g(X)]$.'
+  topic: Markov chain Monte Carlo
+- term: Metropolis–Hastings algorithm
+  aliases: [Metropolis-Hastings algorithm, Metropolis–Hastings, Metropolis-Hastings, MH algorithm]
+  definition: 'From $x$, propose $y \sim q(y \mid x)$ and move there with probability $\min\big(1, f(y)q(x \mid y)/(f(x)q(y \mid x))\big)$, otherwise stay; the chain has stationary distribution proportional to $f$.'
+  topic: Markov chain Monte Carlo
+- term: Metropolis algorithm
+  aliases: [random-walk Metropolis, random walk Metropolis]
+  definition: 'Metropolis–Hastings with a symmetric proposal, so the acceptance probability is simply $\min(1, f(y)/f(x))$ (Metropolis and coauthors, 1953).'
+  topic: Markov chain Monte Carlo
+- term: proposal distribution
+  aliases: [proposal density]
+  definition: 'The easy-to-sample distribution $q(y \mid x)$ from which Metropolis–Hastings draws a candidate next state.'
+  topic: Markov chain Monte Carlo
+- term: acceptance probability
+  aliases: [acceptance ratio]
+  definition: 'In Metropolis–Hastings, $\alpha(x, y) = \min\big(1, f(y)q(x \mid y)/(f(x)q(y \mid x))\big)$, the chance of moving to the proposed state.'
+  topic: Markov chain Monte Carlo
+- term: trace plot
+  aliases: [trace plots]
+  definition: 'A plot of the sampled value against iteration number, used to spot burn-in, poor mixing and stuck chains.'
+  topic: Markov chain Monte Carlo
+- term: burn-in period
+  aliases: [warm-up, warmup, warm-up period]
+  definition: 'In MCMC, the early iterations that still reflect the starting value rather than the target distribution, and are discarded.'
+  topic: Markov chain Monte Carlo
+- term: effective sample size
+  aliases: [ESS]
+  definition: 'The number of independent draws that would estimate a mean as precisely as a set of correlated MCMC draws; about $N(1 - \rho)/(1 + \rho)$ when the lag-$k$ autocorrelation is $\rho^k$.'
+  topic: Markov chain Monte Carlo
+- term: Gibbs sampler
+  aliases: [Gibbs sampling]
+  definition: 'An MCMC method that updates each parameter in turn by drawing it from its conditional distribution given all the others; every update is accepted.'
+  topic: Markov chain Monte Carlo

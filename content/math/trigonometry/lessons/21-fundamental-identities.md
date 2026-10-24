@@ -52,10 +52,28 @@ $$1 + \cot^2 x = \csc^2 x.$$
 Each comes in several rearranged forms that are worth recognizing on sight:
 $$\sin^2 x = 1 - \cos^2 x, \quad \cos^2 x = 1 - \sin^2 x, \quad \sec^2 x - \tan^2 x = 1, \quad \csc^2 x - 1 = \cot^2 x.$$
 
+Each Pythagorean identity is the Pythagorean theorem for a right triangle with an acute angle $x$.
+Scale the basic triangle (hypotenuse 1) so that its adjacent side is 1, or so that its opposite side
+is 1, and the other two identities appear:
+
+![Three similar right triangles, each with an acute angle x. The first has hypotenuse 1, adjacent side cos x and opposite side sin x, giving sin² x + cos² x = 1. The second has adjacent side 1, opposite side tan x and hypotenuse sec x, giving 1 + tan² x = sec² x. The third has opposite side 1, adjacent side cot x and hypotenuse csc x, giving 1 + cot² x = csc² x.](images/trig-m6-three-triangles.svg)
+
 ## Using identities to find values
 
 Given one trig value and the quadrant, the Pythagorean identity gives the partner value;
 the sign comes from the quadrant.
+
+The same four steps work every time:
+
+```mermaid
+flowchart TD
+  accTitle: Finding all six trig values from one value and the quadrant
+  accDescr: Start with one trig value and the quadrant of the angle. Use the Pythagorean identity that contains the known function to find the square of a partner function. Take the square root, which gives a plus or minus answer. Use the quadrant to choose the sign. Then use the reciprocal and quotient identities to get the remaining functions.
+  A["Given: one trig value and the quadrant"] --> B["Pythagorean identity with that function: find the partner squared"]
+  B --> C["Take the square root: ± answer"]
+  C --> D["Quadrant decides the sign"]
+  D --> E["Reciprocal and quotient identities give the rest"]
+```
 
 ### Example 1
 

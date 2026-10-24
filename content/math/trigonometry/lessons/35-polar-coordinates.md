@@ -52,6 +52,11 @@ $$x = r\cos\theta, \qquad y = r\sin\theta.$$
 
 These hold for negative $r$ too, since $(-r)\cos\theta = r\cos(\theta + \pi)$.
 
+The picture puts all the parts together: the pole, the polar axis, the distance $r$, the angle $\theta$, and the right
+triangle whose legs are $x = r\cos\theta$ and $y = r\sin\theta$.
+
+![A point P joined to the pole O by a segment labeled r, at angle θ above the polar axis, which points to the right. A dashed vertical leg from P down to the polar axis is labeled y = r sin θ, and the horizontal leg along the axis from O is labeled x = r cos θ, forming a right triangle.](images/trig-m9-polar-parts.svg)
+
 ### Example 2
 
 Convert $\left(4, \tfrac{2\pi}{3}\right)$ and $\left(-2, \tfrac{\pi}{6}\right)$ to rectangular coordinates.
@@ -68,6 +73,23 @@ $$r^2 = x^2 + y^2, \qquad \tan\theta = \frac{y}{x}\ (x \ne 0).$$
 Taking $r = \sqrt{x^2 + y^2} \ge 0$, you must choose $\theta$ in the quadrant of $(x, y)$. The calculator's
 $\tan^{-1}\tfrac{y}{x}$ only returns angles between $-\tfrac{\pi}{2}$ and $\tfrac{\pi}{2}$, which is right for quadrants I and IV
 and wrong (off by $\pi$) for quadrants II and III. Points on an axis are read off directly.
+
+The whole procedure for choosing $\theta$ fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing θ when converting a point (x, y) to polar coordinates
+  accDescr: Start with a point (x, y) other than the pole. Compute r as the square root of x squared plus y squared. If the point is on an axis, read theta directly as 0, pi over 2, pi or 3 pi over 2. Otherwise find the reference angle as the inverse tangent of the absolute value of y over x, then use the quadrant. Quadrant I: theta equals the reference angle. Quadrant II: pi minus the reference angle. Quadrant III: pi plus the reference angle. Quadrant IV: 2 pi minus the reference angle.
+  A["Point (x, y), not the pole"] --> B["r = √(x² + y²)"]
+  B --> C{"Is the point on an axis?"}
+  C -- yes --> D["Read θ directly: 0, π/2, π or 3π/2"]
+  C -- no --> E["Reference angle = tan⁻¹ |y/x|"]
+  E --> F{"Which quadrant is (x, y) in?"}
+  F -- I --> G["θ = reference angle"]
+  F -- II --> H["θ = π − reference angle"]
+  F -- III --> I["θ = π + reference angle"]
+  F -- IV --> J["θ = 2π − reference angle"]
+```
 
 ### Example 3
 

@@ -56,7 +56,7 @@ flowchart TD
   D -- "e less than 1" --> E[Ellipse]
   D -- "e = 1" --> F[Parabola]
   D -- "e greater than 1" --> G[Hyperbola]
-  E --> H["d = numerator ÷ e. cos: directrix x = ±d. sin: directrix y = ±d. Sign as in the denominator"]
+  E --> H["d = numerator ÷ e. Directrix x = ±d for cos, y = ±d for sin, with the sign from the denominator"]
   F --> H
   G --> H
 ```

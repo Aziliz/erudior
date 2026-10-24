@@ -29,6 +29,20 @@ The **coefficient of static friction** $\mu_s$ is usually larger than $\mu_k$, w
 
 Friction depends on $n$, not on the weight. Pull up on a sled rope and $n$ drops, and so does the friction.
 
+Deciding which friction rule applies is the first step of every friction problem:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding between static and kinetic friction
+  accDescr: First ask whether the surfaces are sliding. If yes, use kinetic friction, mu k times n, opposite the sliding. If no, find the friction needed to keep the object at rest from the sum of forces equals zero. If that needed friction is at most mu s times n, static friction equals it and nothing moves. If it is larger, the object starts sliding and you switch to kinetic friction.
+  A{"Are the surfaces sliding?"} -- yes --> K["Kinetic: f = μk n, opposite the sliding"]
+  A -- no --> B["Find the friction f needed to stay at rest, from ΣF = 0"]
+  B --> C{"Is that f at most μs n?"}
+  C -- yes --> S["Static friction equals that f; nothing moves"]
+  C -- no --> D["The object starts to slide"]
+  D --> K
+```
+
 ### Example 1
 
 A 25 kg box rests on a floor with $\mu_s = 0.50$ and $\mu_k = 0.35$. (a) What horizontal force is needed to start it moving? (b) If you keep pushing with that force once it slides, what is its acceleration?
@@ -38,6 +52,12 @@ Normal force: $n = mg = 25(9.8) = 245$ N (no vertical forces besides $n$ and $mg
 (a) Maximum static friction: $\mu_s n = 0.50(245) = 122.5$ N. You need just over 122.5 N.
 
 (b) Once sliding, friction drops to $f_k = 0.35(245) = 85.75$ N. Net force: $122.5 - 85.75 = 36.75$ N, so $a = 36.75/25 = 1.47$ m/s².
+
+The graph shows the friction force on this box as your horizontal push grows slowly from zero. Static friction matches the push exactly (the 45° line) until it reaches its maximum of 122.5 N; then the box breaks loose and friction drops to the kinetic value, 85.75 N, whatever you push with after that.
+
+```plot
+{"x": [0, 200], "y": [0, 140], "xLabel": "push P (N)", "yLabel": "friction f (N)", "segments": [{"from": [0, 0], "to": [122.5, 122.5]}, {"from": [122.5, 122.5], "to": [122.5, 85.75], "dashed": true}, {"from": [122.5, 85.75], "to": [200, 85.75]}], "points": [{"at": [122.5, 122.5], "label": "μs n = 122.5 N"}, {"at": [122.5, 85.75]}], "labels": [{"at": [40, 60], "text": "static: f = P"}, {"at": [165, 98], "text": "kinetic: μk n = 85.75 N"}], "caption": "Friction on the 25 kg box of Example 1 as the horizontal push P increases"}
+```
 
 ## The inclined plane
 

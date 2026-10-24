@@ -13,17 +13,17 @@
   where: ["f == dv", "tp == if(m < c, 0, if(m == c, 1, 2))", "c > 1 or m > 1"]
   calc:
     p: m * dd
-    e: m / c
+    ee: m / c
     ed: p / c
     D: sg * dd
   prompt: 'The conic $r = \dfrac{{p}}{{c} {sg} {m:coef}{f}\theta}$ has a focus at the pole. Find its eccentricity $e$ (a fraction is fine) and its directrix.'
   answers:
-    - {name: e, label: '$e =$', tolerance: 0.005}
+    - {name: ee, label: '$e =$', tolerance: 0.005}
     - {name: D, label: 'Directrix: ${dv} =$', tolerance: 0.001}
   solution: |-
     Divide the numerator and denominator by {c} so the constant in the denominator is 1:
-    $r = \dfrac{{ed:texfrac}}{1 {sg} {e:texfrac}{f}\theta}$. So $e = \dfrac{{m}}{{c}} =$ **{e:frac}**, and the curve is {tp}.
-    The numerator is $ed = {ed:frac}$, so $d = \dfrac{ed}{e} = {dd}$. The function ${f}$ means the directrix is the line ${dv} = \pm d$, and the
+    $r = \dfrac{{ed:texfrac}}{1 {sg} {ee:texfrac}{f}\theta}$. So $e = \dfrac{{m}}{{c}} =$ **{ee:frac}**, and the curve is {tp}.
+    The numerator is $ed = {ed:frac}$, so $d = \dfrac{\,ed}{\,e} = {dd}$. The function ${f}$ means the directrix is the line ${dv} = \pm d$, and the
     sign in the denominator picks the side: ${dv} =$ **{D}**.
 
 - id: trig-m9-r2-orbit
@@ -31,19 +31,19 @@
   topic: Polar conics
   vars:
     a: {min: 0.4, max: 40, step: 0.1}
-    e: {min: 0.01, max: 0.97, step: 0.01}
+    ecc: {min: 0.01, max: 0.97, step: 0.01}
   calc:
-    rmin: a * (1 - e)
-    rmax: a * (1 + e)
-    num: a * (1 - e^2)
-  prompt: 'An object orbits the Sun on an ellipse with semi-major axis $a = {a}$ AU and eccentricity $e = {e}$. Find its perihelion and aphelion distances and the numerator $a(1 - e^2)$ of its polar equation $r = \dfrac{a(1 - e^2)}{1 + e\cos\theta}$. Give each to 2 decimal places.'
+    rmin: a * (1 - ecc)
+    rmax: a * (1 + ecc)
+    num: a * (1 - ecc^2)
+  prompt: 'An object orbits the Sun on an ellipse with semi-major axis $a = {a}$ AU and eccentricity $e = {ecc}$. Find its perihelion and aphelion distances and the numerator $a(1 - e^2)$ of its polar equation $r = \dfrac{a(1 - e^2)}{1 + e\cos\theta}$. Give each to 2 decimal places.'
   answers:
     - {name: rmin, label: 'Perihelion (AU)', tolerance: 0.01, format: num2}
     - {name: rmax, label: 'Aphelion (AU)', tolerance: 0.01, format: num2}
     - {name: num, label: '$a(1 - e^2) =$', tolerance: 0.01, format: num2}
   solution: |-
-    The nearest point is at $\theta = 0$: $r = a(1 - e) = {a}(1 - {e}) \approx$ **{rmin:num2} AU**. The farthest is at $\theta = \pi$:
-    $r = a(1 + e) = {a}(1 + {e}) \approx$ **{rmax:num2} AU**. The numerator is $a(1 - e^2) = {a}(1 - {e}^2) \approx$ **{num:num2}**.
+    The nearest point is at $\theta = 0$: $r = a(1 - e) = {a}(1 - {ecc}) \approx$ **{rmin:num2} AU**. The farthest is at $\theta = \pi$:
+    $r = a(1 + e) = {a}(1 + {ecc}) \approx$ **{rmax:num2} AU**. The numerator is $a(1 - e^2) = {a}(1 - {ecc}^2) \approx$ **{num:num2}**.
     (Check: $\dfrac{a(1 - e^2)}{1 + e} = a(1 - e)$.)
 
 - id: trig-m9-r2-cycloid-point
@@ -100,7 +100,7 @@
     - {name: x, label: '$x =$', tolerance: 0.01, format: num2}
     - {name: y, label: '$y =$', tolerance: 0.01, format: num2}
   solution: |-
-    $\dfrac{a}{b} = \dfrac{{a}}{{b}} = {k}$ is a whole number, so the path closes with **{k}** cusps. The center moves on a circle of radius
+    $\dfrac{\,a}{\,b} = \dfrac{{a}}{{b}} = {k}$ is a whole number, so the path closes with **{k}** cusps. The center moves on a circle of radius
     ${R}$ and the point turns at ${w}$ times the rate of the center, so with the formulas from the lesson
     $x = {R}\cos {deg}^\circ {sgn} {b}\cos({w} \cdot {deg}^\circ) \approx$ **{x:num2}** and $y = {R}\sin {deg}^\circ - {b}\sin({w} \cdot {deg}^\circ) \approx$ **{y:num2}**.
 

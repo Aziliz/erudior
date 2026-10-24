@@ -36,6 +36,21 @@ transform each side separately into the *same* third expression.
    by its **conjugate** $1 + \sin x$; the denominator becomes $1 - \sin^2 x = \cos^2 x$.
 7. **Keep an eye on the target.** If the other side has only $\tan$ and $\sec$, steer that way.
 
+The flowchart puts these moves in the order that usually works best. It is a checklist, not a rule:
+when you see a faster move, take it.
+
+```mermaid
+flowchart TD
+  accTitle: A checklist for verifying an identity
+  accDescr: Work on the more complicated side only. First look for a Pythagorean pattern such as 1 minus sine squared or secant squared minus 1, and substitute. Next, combine a sum of fractions over a common denominator, or split one fraction into two. Next, if a denominator is 1 plus or minus sine or cosine, multiply top and bottom by its conjugate. If still stuck, rewrite everything in sines and cosines. After each move, factor, cancel and compare with the other side, and go back to the top of the list until the two sides match.
+  A["Pick the more complicated side; work on it only"] --> B["Pythagorean pattern? Substitute it"]
+  B --> C["Fractions? Combine over a common denominator, or split"]
+  C --> D["Denominator 1 ± sin x or 1 ± cos x? Multiply by the conjugate"]
+  D --> E["Still stuck? Rewrite in sines and cosines"]
+  E --> F["Factor, cancel, compare with the other side"]
+  F -- "not equal yet" --> B
+```
+
 ### Example 1
 
 Verify $\sec x - \cos x = \sin x\tan x$.
@@ -87,6 +102,10 @@ To show an equation is *not* an identity, one counterexample is enough. Is
 $\sin x + \cos x = 1$ an identity? At $x = \tfrac{\pi}{4}$, the left side is $\tfrac{\sqrt2}{2} + \tfrac{\sqrt2}{2} = \sqrt2 \ne 1$. Not an
 identity. (It is true at $x = 0$, which shows why checking one value can't *prove* an
 identity.)
+
+```plot
+{"x": [-3.2, 6.4], "y": [-1.7, 1.7], "functions": [{"f": "sin(x) + cos(x)", "label": "sin x + cos x"}, {"f": "1", "dashed": true, "label": "y = 1"}], "points": [{"at": [0, 1]}, {"at": [1.5708, 1]}], "caption": "sin x + cos x equals 1 only at isolated points such as x = 0 and x = π/2, so the equation is not an identity"}
+```
 
 ```plot
 {"x": [-3.2, 3.2], "y": [-2.5, 2.5], "functions": [{"f": "1/cos(x) - cos(x)", "label": "sec x − cos x"}, {"f": "sin(x)tan(x)", "dashed": true, "label": "sin x tan x"}], "caption": "The two sides of Example 1 have identical graphs"}

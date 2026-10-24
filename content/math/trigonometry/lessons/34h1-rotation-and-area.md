@@ -101,8 +101,9 @@ Find the signed angle from $\mathbf{u} = \langle 3, 1\rangle$ to $\mathbf{v} = \
 $\mathbf{u}\cdot\mathbf{v} = -3 + 2 = -1$ and $\det(\mathbf{u}, \mathbf{v}) = 3\cdot2 - 1\cdot(-1) = 7$. Both equal $\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert = \sqrt{50}$
 times $\cos\varphi$ and $\sin\varphi$, so the point $(\cos\varphi, \sin\varphi)$ is a positive multiple of $(-1, 7)$: quadrant II.
 The reference angle is $\tan^{-1} 7 \approx 81.87^\circ$, so $\varphi \approx 180^\circ - 81.87^\circ = 98.13^\circ$, counterclockwise.
-(Spreadsheets and programming languages do this placement for you with the two-argument
-function $\text{atan2}(\det, \text{dot})$.) The signed angle from $\mathbf{v}$ back to $\mathbf{u}$ is $-98.13^\circ$.
+(Programming languages do this placement for you with the two-argument function
+$\text{atan2}(y, x)$, here $\text{atan2}(\det, \text{dot})$. Spreadsheets have it too, as ATAN2, but with the two
+arguments in the opposite order.) The signed angle from $\mathbf{v}$ back to $\mathbf{u}$ is $-98.13^\circ$.
 
 ## Area from the determinant
 

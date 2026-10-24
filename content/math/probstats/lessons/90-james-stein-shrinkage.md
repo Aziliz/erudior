@@ -32,10 +32,10 @@ To judge an estimator $\hat{\boldsymbol\theta}$ of the whole vector we add up th
 
 $$R(\boldsymbol\theta, \hat{\boldsymbol\theta}) = E\Big[\sum_{i=1}^p (\hat\theta_i - \theta_i)^2\Big].$$
 
-As a function of $\boldsymbol\theta$, this is the **risk function** of the estimator. The obvious estimator
+As a function of $\boldsymbol\theta$, this is the risk function of the estimator (the decision-theory honors lesson of the estimation module treats risk in general). The obvious estimator
 $\hat\theta_i = X_i$ is unbiased, is the MLE, and has risk $p\sigma^2$ whatever $\boldsymbol\theta$ is.
 
-An estimator is **admissible** if no other estimator has risk at least as small for every $\boldsymbol\theta$
+An estimator is admissible if no other estimator has risk at least as small for every $\boldsymbol\theta$
 and strictly smaller for some $\boldsymbol\theta$. An inadmissible estimator is beaten everywhere
 (or tied) by a competitor, so there is never a reason to use it.
 
