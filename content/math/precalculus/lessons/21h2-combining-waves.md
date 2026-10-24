@@ -24,7 +24,7 @@ $$a\sin x + b\cos x = R\sin(x + \varphi), \qquad R = \sqrt{a^2 + b^2},\quad \cos
 
 Writing a combination this way puts it in **amplitude-phase form**; $R$ is its amplitude and $\varphi$ is its **phase angle**.
 
-**Why it's true.** Expand the right side with the sum identity:
+*Why it's true.* Expand the right side with the sum identity:
 
 $$R\sin(x + \varphi) = R\sin x\cos\varphi + R\cos x\sin\varphi = (R\cos\varphi)\sin x + (R\sin\varphi)\cos x.$$
 

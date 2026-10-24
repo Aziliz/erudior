@@ -107,6 +107,12 @@ $n(1-p) \ge 10$.
 Because $X$ is integer-valued and the normal is continuous, we apply a **continuity correction**: treat the integer $k$ as the interval $[k - 0.5,\, k + 0.5]$. So
 $P(X \le k) \approx \Phi\big(\tfrac{k + 0.5 - np}{\sqrt{np(1-p)}}\big)$ and $P(X \ge k) \approx 1 - \Phi\big(\tfrac{k - 0.5 - np}{\sqrt{np(1-p)}}\big)$.
 
+The picture shows why. Each bar of the binomial pmf has width 1 and is centered on an integer, so the
+bar for $X = 10$ runs from 9.5 to 10.5. To catch all the bars for $P(X \le 10)$, the normal area must run
+up to 10.5, not 10. (For Bin(30, 0.4): exact 0.2915, corrected normal 0.2881.)
+
+![Bars of the Binomial(30, 0.4) pmf for x from 4 to 21 with the normal curve of mean 12 and variance 7.2 drawn over them. The bars for x up to 10 are shaded, the bar for x = 10 is labeled P(X = 10), and a dashed line at 10.5 marks the corrected cutoff. A solid line marks the mean, 12.](images/ps-m5-continuity-bars.svg)
+
 ### Example 3
 
 Each of 400 passengers independently buys a reserved seat with probability 0.3. Find
@@ -119,6 +125,26 @@ $P(X \le 110)$.
 
 The same idea applies to a Poisson count with a large mean $\lambda$, which is approximately
 $N(\lambda, \lambda)$ since it can be viewed as a sum of many independent Poisson pieces.
+
+## The procedure in one chart
+
+Every CLT calculation in this lesson follows the same steps; only the second and third change with
+the question.
+
+```mermaid
+flowchart TD
+  accTitle: Steps for a Central Limit Theorem approximation
+  accDescr: Step 1, find the mean and variance of one term. Step 2, decide whether the question is about a sum or a mean; a sum has mean n mu and variance n sigma squared, a mean has mean mu and variance sigma squared over n. Step 3, if the sum is a whole-number count, apply the continuity correction by moving the cutoff half a unit. Step 4, standardize the cutoff into a z-score. Step 5, read the probability from the standard normal distribution.
+  S1["1. Mean μ and variance σ² of one term"] --> Q{"2. Sum or mean?"}
+  Q -- sum --> SU["Mean nμ, variance nσ²"]
+  Q -- mean --> ME["Mean μ, variance σ²/n"]
+  SU --> CC{"3. Whole-number count?"}
+  ME --> Z["4. Standardize: z = (cutoff − mean) / SD"]
+  CC -- yes --> CO["Move the cutoff by 0.5 to include or exclude the boundary bar"]
+  CC -- no --> Z
+  CO --> Z
+  Z --> PH["5. Probability from the standard normal"]
+```
 
 ## Common mistakes
 

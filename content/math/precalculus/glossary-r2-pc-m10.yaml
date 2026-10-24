@@ -1,0 +1,29 @@
+- term: squeeze theorem
+  aliases: [sandwich theorem]
+  definition: 'If $g(x) \le f(x) \le h(x)$ near $a$ and $g$ and $h$ both approach $L$ as $x \to a$, then $f(x) \to L$ as well.'
+  topic: Squeeze theorem
+- term: power rule
+  definition: '$\frac{d}{dx}x^n = nx^{n-1}$. Proved with the binomial theorem for positive integers $n$; it also holds for other real exponents.'
+  topic: Derivative rules
+- term: constant multiple rule
+  definition: 'The derivative of a constant times a function is the constant times the derivative: $(cf)'' = cf''$.'
+  topic: Derivative rules
+- term: sum rule
+  definition: 'For derivatives: the derivative of a sum is the sum of the derivatives, $(f + g)'' = f'' + g''$ (likewise for differences).'
+  topic: Derivative rules
+- term: differentiable
+  aliases: [differentiability]
+  definition: '$f$ is differentiable at $a$ when $f''(a) = \lim_{h\to0}\frac{f(a + h) - f(a)}{h}$ exists as a finite number. Differentiable functions are continuous.'
+  topic: Derivative rules
+- term: vertical tangent
+  aliases: [vertical tangents, vertical tangent line]
+  definition: 'A tangent line that is vertical, as for $\sqrt[3]{x}$ at 0: the difference quotient grows without bound, so there is no derivative there.'
+  topic: Derivative rules
+- term: linear approximation
+  aliases: [tangent line approximation, linear approximations]
+  definition: 'Estimating $f(x)$ near $a$ by its tangent line: $f(x) \approx f(a) + f''(a)(x - a)$.'
+  topic: Linear approximation
+- term: "Newton's method"
+  aliases: [Newton-Raphson method, Newton–Raphson method]
+  definition: 'A way to approximate a zero of $f$: repeat $x_{n+1} = x_n - \frac{f(x_n)}{f''(x_n)}$, jumping each time to where the tangent line crosses the $x$-axis.'
+  topic: Linear approximation

@@ -1,0 +1,115 @@
+# Round 2 drills for module pc-m10 (honors lessons pc-m10-h-squeeze and pc-m10-h-rules).
+
+- id: pc-m10-r2-sin-ratio
+  title: Limit of a ratio of sines
+  topic: Trigonometric limits
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 1, max: 9}
+  where: ["a != b"]
+  calc:
+    L: a/b
+  prompt: 'Evaluate $\displaystyle\lim_{x\to 0}\frac{\sin {a}x}{\sin {b}x}$ ($x$ in radians) as an exact fraction.'
+  answers:
+    - {name: L, label: 'Limit', kind: fraction, lowestTerms: true}
+  solution: |-
+    Write $\dfrac{\sin {a}x}{\sin {b}x} = \dfrac{\sin {a}x}{ {a}x}\cdot\dfrac{ {b}x}{\sin {b}x}\cdot\dfrac{ {a}x}{ {b}x}$. The first two factors approach 1 because $\frac{\sin u}{u} \to 1$, and the last equals $\frac{ {a} }{ {b} }$ for every $x \ne 0$. The limit is **${L:texfrac}$**.
+
+- id: pc-m10-r2-one-minus-cos
+  title: A one-minus-cosine limit
+  topic: Trigonometric limits
+  vars:
+    k: {min: 1, max: 6}
+    c: {min: 1, max: 5}
+  calc:
+    k2: k^2
+    L: k^2/(2*c)
+  prompt: 'Evaluate $\displaystyle\lim_{x\to 0}\frac{1 - \cos {k}x}{ {c}x^2}$ as an exact fraction. (Use $\lim_{u\to0}\frac{1 - \cos u}{u^2} = \frac12$.)'
+  answers:
+    - {name: L, label: 'Limit', kind: fraction, lowestTerms: true}
+  solution: |-
+    Let $u = {k}x$, so $x^2 = \dfrac{u^2}{ {k2} }$. Then $\dfrac{1 - \cos {k}x}{ {c}x^2} = \dfrac{ {k2} }{ {c} }\cdot\dfrac{1 - \cos u}{u^2} \to \dfrac{ {k2} }{ {c} }\cdot\dfrac12 =$ **${L:texfrac}$**.
+
+- id: pc-m10-r2-sin-slope
+  title: Slope of a sine curve
+  topic: Trigonometric limits
+  vars:
+    A: {min: 2, max: 6}
+    t: {choices: [{label: '\frac{\pi}{6}', value: 0.5235987755982988}, {label: '\frac{\pi}{4}', value: 0.7853981633974483}, {label: '\frac{\pi}{3}', value: 1.0471975511965976}, {label: '\frac{2\pi}{3}', value: 2.0943951023931953}, {label: '\frac{3\pi}{4}', value: 2.356194490192345}, {label: '\frac{5\pi}{6}', value: 2.6179938779914944}]}
+  calc:
+    m: A*cos(t)
+    y0: A*sin(t)
+  funcs:
+    f(x): A*sin(x)
+  prompt: 'Using $\frac{d}{dx}\sin x = \cos x$, find the slope of the tangent to $y = {A}\sin x$ at $x = {t}$. Give it to 2 decimal places.'
+  figure:
+    type: plot
+    x: [-0.5, 3.6]
+    y: ['-A - 1', 'A + 1']
+    functions: ['f']
+    tangents:
+      - {f: 'f', at: 't'}
+    points:
+      - {at: [t, y0]}
+  answers:
+    - {name: m, label: 'Slope', tolerance: 0.0051}
+  solution: |-
+    By the constant multiple rule the derivative is ${A}\cos x$. At $x = {t}$ the slope is ${A}\cos {t} \approx$ **{m:num2}**.
+
+- id: pc-m10-r2-poly-slope
+  title: Slope of a polynomial by the power rule
+  topic: Derivative rules
+  vars:
+    n: {min: 3, max: 5}
+    a: {min: -3, max: 3}
+    b: {min: -6, max: 6}
+    c: {min: -9, max: 9}
+    d: {min: -9, max: 9}
+    x0: {min: -2, max: 2}
+  where: ["a != 0", "b != 0", "c != 0"]
+  calc:
+    m: n*a*x0^(n-1) + 2*b*x0 + c
+    na: n*a
+    b2: 2*b
+    n1: n - 1
+  prompt: 'Use the power, constant multiple and sum rules to find $f''({x0})$ for $f(x) = {a:coef}x^{n} {b:signedcoef}x^2 {c:signedcoef}x {d:signed}$.'
+  answers:
+    - {name: m, label: '$f''({x0}) =$'}
+  solution: |-
+    Term by term, $f'(x) = {na}x^{ {n1} } {b2:signed}x {c:signed}$ (the constant has derivative 0). At $x = {x0}$: $({na})({x0})^{ {n1} } + ({b2})({x0}) + ({c}) =$ **{m}**.
+
+- id: pc-m10-r2-linear-approx
+  title: Linear approximation of a square root
+  topic: Linear approximation
+  vars:
+    r: {min: 2, max: 10}
+    dd: {choices: [-0.4, -0.3, -0.2, -0.1, 0.1, 0.2, 0.3, 0.4, 0.5]}
+  calc:
+    N: r^2
+    xx: r^2 + dd
+    slope: 1/(2*r)
+    L: r + dd/(2*r)
+    tr: sqrt(r^2 + dd)
+    r2: 2*r
+  prompt: 'Use the linear approximation of $\sqrt{x}$ at $a = {N}$ to estimate $\sqrt{ {xx:num1} }$. Give the estimate to 4 decimal places.'
+  answers:
+    - {name: L, label: 'Estimate', tolerance: 0.000051}
+  solution: |-
+    $f({N}) = {r}$ and $f'({N}) = \dfrac{1}{2\sqrt{ {N} }} = \dfrac{1}{ {r2} }$. So $\sqrt{ {xx:num1} } \approx {r} + \dfrac{1}{ {r2} }({dd}) \approx$ **{L:dp4}**. (The true value is about {tr:dp4}.)
+
+- id: pc-m10-r2-newton-step
+  title: One step of Newton's method
+  topic: Linear approximation
+  vars:
+    c: {choices: [2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20]}
+    x0: {min: 1, max: 5}
+  where: ["abs(x0^2 - c) <= 2*x0 + 1", "x0^2 != c"]
+  calc:
+    fx: x0^2 - c
+    d: 2*x0
+    x1: x0 - (x0^2 - c)/(2*x0)
+  prompt: 'Apply one step of Newton''s method to $f(x) = x^2 - {c}$, starting at $x_0 = {x0}$. Give $x_1$ as an exact fraction or a decimal to 4 places.'
+  answers:
+    - {name: x1, label: '$x_1 =$', tolerance: 0.000051}
+  solution: |-
+    $f(x) = x^2 - {c}$ and $f'(x) = 2x$, so $f({x0}) = {fx}$ and $f'({x0}) = {d}$. Then $x_1 = {x0} - \dfrac{ {fx} }{ {d} } =$ **{x1:dp4}** (exactly ${x1:texfrac}$), a step toward $\sqrt{ {c} }$.

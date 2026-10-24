@@ -27,6 +27,13 @@ and 0 otherwise. Because $X \ge 0$, we always have $a\,\mathbf{1}\{X \ge a\} \le
 $X \ge a$; when it is 0, $X \ge 0$. Taking expectations of both sides,
 $a\,P(X \ge a) \le E[X]$.
 
+The picture shows the comparison for $a = 3$: the step function $3 \cdot \mathbf{1}\{x \ge 3\}$ never rises above the
+line $y = x$ on $x \ge 0$, so its average can't exceed the average of $X$.
+
+```plot
+{"x": [0, 8], "y": [0, 8], "xLabel": "value of X", "yLabel": "y", "functions": [{"f": "x", "from": 0, "to": 8, "label": "y = x"}], "segments": [{"from": [0, 0], "to": [3, 0]}, {"from": [3, 3], "to": [8, 3]}, {"from": [3, 0], "to": [3, 3], "dashed": true}], "points": [{"at": [3, 0], "open": true}, {"at": [3, 3]}], "labels": [{"at": [6, 3.5], "text": "y = 3·1{x ≥ 3}"}], "caption": "Markov's proof for a = 3: the step a·1{X ≥ a} (0 before 3, then 3) lies on or below X itself"}
+```
+
 Intuitively, a nonnegative quantity with mean 5 cannot exceed 50 more than 10% of the time;
 otherwise those values alone would push the mean above 5. The bound uses nothing but the
 mean, so it is usually crude, but it can't be improved in general: if $X$ is 0 with probability
@@ -46,6 +53,13 @@ So *any* distribution has at least $1 - 1/k^2$ of its probability within $k$ SDs
 at least 75% within 2 SDs and at least $8/9 \approx 89\%$ within 3 SDs. For a normal distribution the
 true figures are 95.4% and 99.7%; Chebyshev is the guarantee that holds when the shape is
 unknown. (For $k \le 1$ the bound says nothing.)
+
+The picture puts this on a skewed density, to stress that Chebyshev needs no symmetry. The band
+reaches $k$ SDs either side of the mean; whatever the shape, the two shaded tails together hold at
+most $1/k^2$ of the probability. (Here $k = 1.5$, so the guarantee is at least $1 - 1/2.25 \approx 0.56$
+inside the band; the true value for this gamma density is about 0.91.)
+
+![A right-skewed density with a vertical line at its mean mu. Dashed lines at mu minus k sigma and mu plus k sigma mark a band; the middle region inside the band is labeled at least 1 minus 1 over k squared, and the two shaded tails outside it are labeled at most 1 over k squared together.](images/ps-m5-chebyshev-band.svg)
 
 ### Example 1: bounds versus the truth
 
@@ -118,6 +132,26 @@ The LLN is about the *average*. The *total* number of heads minus $n/2$ does not
 its typical size grows like $\sqrt n$. Nor does the coin "correct" a run of tails: future flips
 are independent of past ones. Early deviations get *diluted* by many later flips, not
 cancelled. Believing otherwise is the gambler's fallacy.
+
+## Which tool when
+
+The bounds and the approximations of this module answer the same kind of question with different
+amounts of information. Use the strongest one your information allows.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a tool for a tail probability
+  accDescr: First ask whether the full distribution is known. If yes, compute the probability exactly. If not, ask whether the quantity is an average or sum of many independent values; if yes, the Central Limit Theorem gives an approximate value, and Chebyshev gives a guaranteed but conservative bound. If it is not an average, ask whether the variance is known; if yes, use Chebyshev. If only the mean is known and the variable is nonnegative, use Markov. If none of these hold, more information is needed.
+  Q1{"Full distribution known?"} -- yes --> EX["Compute the probability exactly"]
+  Q1 -- no --> Q2{"Average or sum of many iid values?"}
+  Q2 -- yes --> CLT["CLT: approximate value (next lesson)"]
+  Q2 -- yes --> CH2["Chebyshev on the mean: guaranteed bound"]
+  Q2 -- no --> Q3{"Variance known?"}
+  Q3 -- yes --> CH["Chebyshev: P(|X − μ| ≥ ε) ≤ σ²/ε²"]
+  Q3 -- no --> Q4{"X ≥ 0 and mean known?"}
+  Q4 -- yes --> MK["Markov: P(X ≥ a) ≤ E[X]/a"]
+  Q4 -- no --> NO["Need more information"]
+```
 
 ## Common mistakes
 

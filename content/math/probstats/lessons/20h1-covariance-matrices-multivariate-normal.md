@@ -112,7 +112,7 @@ a **multivariate normal distribution**, $\mathbf{X} \sim N_n(\boldsymbol{\mu}, \
 definition, often taken as the official one: $\mathbf{X}$ is multivariate normal exactly when every
 linear combination $\mathbf{a}^\top\mathbf{X}$ has a (possibly degenerate) normal distribution.
 
-**The density.** When $\Sigma$ is invertible (take $A$ square and invertible), solve for
+*The density.* When $\Sigma$ is invertible (take $A$ square and invertible), solve for
 $\mathbf{z} = A^{-1}(\mathbf{x} - \boldsymbol{\mu})$. The change-of-variables rule from the sums lesson, extended to $n$
 variables, multiplies the density of $\mathbf{Z}$, which is $(2\pi)^{-n/2}e^{-\mathbf{z}^\top\mathbf{z}/2}$, by
 $|\det A^{-1}| = 1/\sqrt{\det\Sigma}$ (because $\det\Sigma = (\det A)^2$). Since
@@ -124,7 +124,7 @@ With $n = 2$, $\det\Sigma = \sigma_X^2\sigma_Y^2(1 - \rho^2)$, and multiplying o
 formula from the core lesson. If $\Sigma$ is singular, some combination $\mathbf{a}^\top\mathbf{X}$ has variance 0 and is
 a constant, so $\mathbf{X}$ lives on a lower-dimensional flat and has no density in $n$ dimensions.
 
-**Properties.** All follow from the construction:
+*Properties.* All follow from the construction:
 
 1. *Linear maps stay normal:* $B\mathbf{X} + \mathbf{b} = (B\boldsymbol{\mu} + \mathbf{b}) + (BA)\mathbf{Z} \sim N(B\boldsymbol{\mu} + \mathbf{b},\; B\Sigma B^\top)$.
 2. *Marginals are normal:* any sub-vector, such as $(X_1, X_3)$, is a linear map of $\mathbf{X}$; its mean and

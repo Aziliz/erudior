@@ -1,0 +1,39 @@
+# Round 2, module pc-m8: terms introduced in the honors lessons on the cross product and on lines and planes.
+- term: Lagrange's identity
+  definition: '$\lVert\vec u \times \vec v\rVert^2 = \lVert\vec u\rVert^2\lVert\vec v\rVert^2 - (\vec u \cdot \vec v)^2$; with $\vec u \cdot \vec v = \lVert\vec u\rVert\lVert\vec v\rVert\cos\theta$ it gives $\lVert\vec u \times \vec v\rVert = \lVert\vec u\rVert\lVert\vec v\rVert\sin\theta$.'
+  topic: Cross product
+- term: right-hand rule
+  definition: 'Point the fingers of your right hand along $\vec u$ and curl them toward $\vec v$; your thumb points along $\vec u \times \vec v$. It also fixes the orientation of right-handed $x$, $y$, $z$ axes.'
+  topic: Cross product
+- term: anticommutative
+  definition: 'Changing sign when the order is swapped: $\vec v \times \vec u = -(\vec u \times \vec v)$.'
+  topic: Cross product
+- term: parallelepiped
+  aliases: [parallelepipeds]
+  definition: 'A slanted box whose six faces are parallelograms, built on three edge vectors from one corner; its volume is $\lvert\vec u \cdot (\vec v \times \vec w)\rvert$.'
+  topic: Cross product
+- term: triple scalar product
+  aliases: [scalar triple product, triple product]
+  definition: 'The number $\vec u \cdot (\vec v \times \vec w)$, equal to the determinant with rows $\vec u, \vec v, \vec w$; its absolute value is the volume of their parallelepiped.'
+  topic: Cross product
+- term: coplanar
+  definition: 'Lying in one plane. Three vectors are coplanar exactly when their triple scalar product is 0.'
+  topic: Cross product
+- term: torque
+  definition: 'The turning effect of a force about a pivot: $\vec\tau = \vec r \times \vec F$, with size $\lVert\vec r\rVert\lVert\vec F\rVert\sin\theta$, measured in newton-meters.'
+  topic: Cross product
+- term: direction vector
+  aliases: [direction vectors]
+  definition: 'A nonzero vector pointing along a line; the line is $\vec r(t) = \vec r_0 + t\vec d$.'
+  topic: Lines and planes in space
+- term: symmetric equations
+  definition: 'The form $\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$ of the line through $(x_0, y_0, z_0)$ with direction $\langle a, b, c \rangle$, when $a, b, c \ne 0$.'
+  topic: Lines and planes in space
+- term: skew lines
+  aliases: [skew line]
+  definition: 'Two lines in space that are not parallel and never meet.'
+  topic: Lines and planes in space
+- term: normal vector
+  aliases: [normal vectors]
+  definition: 'A nonzero vector perpendicular to a plane. The plane $ax + by + cz = d$ has normal vector $\langle a, b, c \rangle$.'
+  topic: Lines and planes in space

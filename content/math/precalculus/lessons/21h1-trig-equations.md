@@ -47,7 +47,7 @@ Solve $2\sin x + 1 = 0$: give the general solution and the solutions in $[0, 2\p
 So $x = \frac{7\pi}{6}$ or $x = \frac{11\pi}{6}$. Check with Lesson 20's method: sine is negative in Quadrants III and IV, and the reference angle for $\frac12$ is $\frac{\pi}{6}$, which gives $\pi + \frac{\pi}{6}$ and $2\pi - \frac{\pi}{6}$. The graph shows the same thing: the line $y = -\frac12$ crosses one period of $y = \sin x$ twice.
 
 ```plot
-{"x": [-0.5, 7], "y": [-1.6, 1.6], "functions": [{"f": "sin(x)", "label": "y = sin x"}, {"f": "-0.5", "dashed": true, "label": "y = −1/2"}], "points": [{"at": [3.6652, -0.5], "label": "7π/6"}, {"at": [5.7596, -0.5], "label": "11π/6"}], "caption": "y = sin x meets y = −1/2 twice in [0, 2π): at x = 7π/6 and x = 11π/6."}
+{"x": [-0.5, 7], "y": [-1.6, 1.6], "functions": [{"f": "sin(x)", "label": "y = sin x"}, {"f": "-0.5", "dashed": true}], "points": [{"at": [3.6652, -0.5], "label": "7π/6"}, {"at": [5.7596, -0.5], "label": "11π/6"}], "labels": [{"at": [0.9, -0.8], "text": "y = −1/2"}], "caption": "y = sin x meets y = −1/2 twice in [0, 2π): at x = 7π/6 and x = 11π/6."}
 ```
 
 ## When the value isn't special

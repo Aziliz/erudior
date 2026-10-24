@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="250" viewBox="0 0 660 250" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c2833">
+<title>Order statistics, spacings and range of five failure times</title>
+<rect width="660" height="250" fill="#ffffff"/>
+<line x1="40" y1="140" x2="630" y2="140" stroke="#1c2833" stroke-width="2"/>
+<polygon points="630,140 620,134 620,146" fill="#1c2833"/>
+<line x1="60" y1="132" x2="60" y2="148" stroke="#1c2833" stroke-width="2"/>
+<text x="60.0" y="170.0" text-anchor="middle" font-size="16" >0</text>
+<text x="620.0" y="170.0" text-anchor="end" font-size="16" >time</text>
+<rect x="60" y="92" width="90" height="34" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="150" y="92" width="65" height="34" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="215" y="92" width="105" height="34" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="320" y="92" width="80" height="34" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="400" y="92" width="175" height="34" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="150" cy="140" r="7" fill="#c0392b" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="215" cy="140" r="7" fill="#c0392b" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="320" cy="140" r="7" fill="#c0392b" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="400" cy="140" r="7" fill="#c0392b" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="575" cy="140" r="7" fill="#c0392b" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="150" y1="190" x2="575" y2="190" stroke="#1c2833" stroke-width="2"/>
+<line x1="150" y1="180" x2="150" y2="200" stroke="#1c2833" stroke-width="2"/>
+<line x1="575" y1="180" x2="575" y2="200" stroke="#1c2833" stroke-width="2"/>
+<line x1="150" y1="152" x2="150" y2="180" stroke="#1c2833" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="575" y1="152" x2="575" y2="180" stroke="#1c2833" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="105.0" y="115.0" text-anchor="middle" font-size="16" >D1</text>
+<text x="150.0" y="170.0" text-anchor="middle" font-size="15" >X(1)</text>
+<text x="182.5" y="115.0" text-anchor="middle" font-size="16" >D2</text>
+<text x="215.0" y="170.0" text-anchor="middle" font-size="15" >X(2)</text>
+<text x="267.5" y="115.0" text-anchor="middle" font-size="16" >D3</text>
+<text x="320.0" y="170.0" text-anchor="middle" font-size="15" >X(3)</text>
+<text x="360.0" y="115.0" text-anchor="middle" font-size="16" >D4</text>
+<text x="400.0" y="170.0" text-anchor="middle" font-size="15" >X(4)</text>
+<text x="487.5" y="115.0" text-anchor="middle" font-size="16" >D5</text>
+<text x="575.0" y="170.0" text-anchor="middle" font-size="15" >X(5)</text>
+<text x="362.5" y="220.0" text-anchor="middle" font-size="16" >range R = X(5) − X(1)</text>
+<text x="330.0" y="40.0" text-anchor="middle" font-size="16" >gaps between successive failures (spacings)</text>
+</svg>

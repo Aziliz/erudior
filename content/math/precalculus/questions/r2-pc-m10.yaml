@@ -208,7 +208,6 @@
 - id: pc-m10-r2-h03
   lesson: pc-m10-h-squeeze
   type: text
-  module_quiz: true
   topic: Trigonometric limits
   stem: '$\displaystyle\lim_{x\to 0}\frac{\sin 7x}{x} =$ ___ ($x$ in radians). Give only the number.'
   accept: ['7']
@@ -241,7 +240,6 @@
 - id: pc-m10-r2-h07
   lesson: pc-m10-h-squeeze
   type: label
-  module_quiz: true
   topic: Trigonometric limits
   stem: 'In the unit circle, $P$ is at angle $x$ (radians, $0 < x < \frac{\pi}{2}$) and $T$ is on the vertical line through $A = (1, 0)$. Name the numbered lengths.'
   image: {src: images/pc-m10-squeeze-circle-blank.svg, alt: 'A quarter of the unit circle centered at O with an angle x. Marker 1 is on the dashed vertical segment from P down to B on the x-axis. Marker 2 is on the vertical segment from A up to T. Marker 3 is on the arc of the circle from A to P. Marker 4 is on the segment from O to B along the x-axis.'}
@@ -267,7 +265,6 @@
 - id: pc-m10-r2-h09
   lesson: pc-m10-h-squeeze
   type: order
-  module_quiz: true
   topic: Squeeze theorem
   stem: 'Put the steps of the proof that $\displaystyle\lim_{x\to 0^+}\frac{\sin x}{x} = 1$ in order.'
   items:
@@ -351,7 +348,6 @@
 - id: pc-m10-r2-h17
   lesson: pc-m10-h-rules
   type: text
-  module_quiz: true
   topic: Derivative rules
   stem: 'For $f(x) = x^4$, $f''(2) =$ ___. Give only the number.'
   accept: ['32']
@@ -407,7 +403,6 @@
     Differentiable implies continuous: $f(a + h) - f(a) = \frac{f(a + h) - f(a)}{h}\cdot h \to f'(a) \cdot 0 = 0$. The derivative can be any number, including 0, and many non-polynomials are differentiable.
 - id: pc-m10-r2-h23
   lesson: pc-m10-h-rules
-  module_quiz: true
   topic: Derivative rules
   stem: 'Let $g(x) = \begin{cases} x^2 & x < 1 \\ 3x - 2 & x \ge 1 \end{cases}$. Which describes $g$ at $x = 1$?'
   choices:
@@ -423,7 +418,7 @@
   type: text
   topic: Linear approximation
   stem: 'Use the linear approximation of $\sqrt x$ at $a = 9$ to estimate $\sqrt{9.2}$. Your estimate is ___ (exact fraction, or a decimal to 4 places).'
-  accept: ['91/30', '3.0333', '3.03333', '3 1/30']
+  accept: ['91/30', '3.0333', '3.03333']
   explanation: |-
     $f(9) = 3$ and $f'(9) = \frac{1}{2\sqrt9} = \frac16$, so $\sqrt{9.2} \approx 3 + \frac16(0.2) = 3 + \frac{1}{30} = \frac{91}{30} \approx 3.0333$. (The true value is $3.03315\ldots$.)
 - id: pc-m10-r2-h25
@@ -441,7 +436,6 @@
 - id: pc-m10-r2-h26
   lesson: pc-m10-h-rules
   type: order
-  module_quiz: true
   topic: Linear approximation
   stem: 'Put the steps of Newton''s method for solving $f(x) = 0$ in order.'
   items:
@@ -471,12 +465,12 @@
     - ['Derivative of $\sin x$', 'cos x']
   distractors: ['(f(x) − f(a))/(x − a)', '−cos x']
   explanation: |-
-    The linear approximation is the tangent line. Newton's step moves to the tangent line's $x$-intercept. The power rule gives $nx^{n-1}$ and the derivative of $\sin x$ is $\cos x$ (radians). The secant slope $\frac{f(x) - f(a)}{x - a}$ approaches $f'(a)$ but is not the approximation itself, and $-\cos x$ is not the derivative of any of these.
+    The linear approximation is the tangent line. Newton's step moves to the tangent line's $x$-intercept. The power rule gives $nx^{n-1}$ and the derivative of $\sin x$ is $\cos x$ (radians). The secant slope $\frac{f(x) - f(a)}{x - a}$ approaches $f'(a)$ but is not the approximation itself, and $-\cos x$ is not the derivative of $\sin x$.
 - id: pc-m10-r2-h29
   lesson: pc-m10-h-rules
   topic: Linear approximation
   stem: 'What does the linear approximation of $x^8$ at $a = 1$ give for $(1.01)^8$?'
-  choices: ['$1.008$', '$1.8$', '$1.0829$', '$1.08$']
-  answer: 3
+  choices: ['$1.008$', '$1.08$', '$1.8$', '$1.0829$']
+  answer: 1
   explanation: |-
     $f(1) = 1$ and $f'(1) = 8$, so $(1.01)^8 \approx 1 + 8(0.01) = 1.08$. The true value is about $1.0829$, but that's not what the tangent line gives. $1.008$ and $1.8$ misplace the decimal.

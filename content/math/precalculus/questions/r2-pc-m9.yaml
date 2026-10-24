@@ -1,0 +1,689 @@
+# Round 2, module pc-m9: new question types for the core lessons (q) and the honors lessons (h).
+
+# ---------- pc-sequences
+- id: pc-m9-r2-q01
+  lesson: pc-sequences
+  type: label
+  topic: Sequences and series
+  stem: 'Name the numbered parts of this sum written in sigma notation.'
+  image: {src: images/pc-m9-sigma-parts-blank.svg, alt: 'The sum from k = 1 to 5 of (2k − 1) written with a large sigma. Five parts are numbered: the 5 above the sigma, the k below it, the 1 below it, the sigma itself and the expression (2k − 1).'}
+  labels:
+    - {x: 51.9, y: 13.3, text: Upper limit (last value of the index)}
+    - {x: 37.2, y: 76, text: Index of summation}
+    - {x: 57.2, y: 76, text: Lower limit (first value of the index)}
+    - {x: 70.3, y: 30.7, text: Term formula (what is added)}
+    - {x: 35.6, y: 45, text: Summation sign (add up)}
+  distractors: [Common difference, Number of terms]
+  explanation: |-
+    The sigma means "add up". The index $k$ starts at the lower limit 1 (below the sigma) and goes up by 1 to the upper limit 5 (above it). For each value of $k$ the term formula $2k - 1$ gives the number to add: $1 + 3 + 5 + 7 + 9 = 25$. The common difference (2) and the number of terms (5) are not written anywhere in the notation.
+
+- id: pc-m9-r2-q02
+  lesson: pc-sequences
+  module_quiz: true
+  type: text
+  topic: Sequences and series
+  stem: 'Evaluate $\displaystyle\sum_{k=3}^{6}(k^2 - 1)$. Give only the number: ___'
+  accept: ['82']
+  explanation: |-
+    The index runs $k = 3, 4, 5, 6$ (four terms): $(9 - 1) + (16 - 1) + (25 - 1) + (36 - 1) = 8 + 15 + 24 + 35 = 82$. Starting at $k = 1$ by mistake adds the terms $0$ and $3$ and gives $85$.
+
+- id: pc-m9-r2-q03
+  lesson: pc-sequences
+  type: text
+  topic: Arithmetic sequences
+  stem: 'An arithmetic sequence has $a_1 = -4$ and $d = 6$. Then $a_{10} =$ ___ and the sum of the first 10 terms is $S_{10} =$ ___.'
+  accept:
+    - ['50']
+    - ['230']
+  explanation: |-
+    $a_{10} = a_1 + 9d = -4 + 54 = 50$ (nine steps, not ten). Then $S_{10} = \dfrac{10(a_1 + a_{10})}{2} = \dfrac{10(-4 + 50)}{2} = 230$.
+
+- id: pc-m9-r2-q04
+  lesson: pc-sequences
+  type: order
+  topic: Arithmetic sequences
+  stem: 'Put the steps of the derivation of $S_n = \dfrac{n(a_1 + a_n)}{2}$ in order.'
+  items:
+    - 'Write $S_n$ forward, and under it write the same sum backward, from $a_n$ down to $a_1$.'
+    - 'Add the two lines column by column: every column adds to $a_1 + a_n$.'
+    - 'There are $n$ columns, so $2S_n = n(a_1 + a_n)$.'
+    - 'Divide by 2 to get $S_n = \dfrac{n(a_1 + a_n)}{2}$.'
+  explanation: |-
+    This is Gauss's pairing trick. The two lines must be written before they can be added; adding gives $n$ equal columns, which gives $2S_n$; dividing by 2 finishes.
+
+- id: pc-m9-r2-q05
+  lesson: pc-sequences
+  module_quiz: true
+  topic: Arithmetic sequences
+  stem: 'Which of these sequences are arithmetic? Select all that apply.'
+  choices: ['$a_n = 7 - 3n$', '$2, 5, 10, 17, \dots$', '$a_1 = 4$, $a_{n+1} = a_n + 2.5$', '$a_n = 2^n$']
+  answer: [0, 2]
+  explanation: |-
+    $a_n = 7 - 3n$ is linear in $n$, so the terms change by $-3$ each time: arithmetic. Adding 2.5 each step is arithmetic by definition. In $2, 5, 10, 17$ the differences are $3, 5, 7$, not constant (these are $n^2 + 1$). $2^n$ has a constant *ratio* of 2, so it is geometric, not arithmetic.
+
+# ---------- pc-geometric
+- id: pc-m9-r2-q06
+  lesson: pc-geometric
+  type: label
+  topic: Geometric sequences
+  stem: 'A ball is dropped from 10 m and each rebound reaches 60% of the height before it. Match each numbered arrow to its height.'
+  image: {src: images/pc-m9-bounce-blank.svg, alt: 'A ball dropped from a height bounces along the ground in smaller and smaller arcs. Four vertical arrows are numbered: the drop height and the heights of the first three rebounds.'}
+  labels:
+    - {x: 5.6, y: 54.5, text: 10 m}
+    - {x: 28.5, y: 67.9, text: 6 m}
+    - {x: 52.1, y: 75.9, text: 3.6 m}
+    - {x: 70.5, y: 80.7, text: 2.16 m}
+  distractors: [4 m, 1.44 m]
+  explanation: |-
+    Each height is $0.6$ times the one before: $10$, $10(0.6) = 6$, $6(0.6) = 3.6$, $3.6(0.6) = 2.16$ m. The distractors come from mistakes: 4 m is 40% of 10 (the height *lost*, not kept), and 1.44 m is $0.6 \times 2.4$, which does not appear in the sequence.
+
+- id: pc-m9-r2-q07
+  lesson: pc-geometric
+  module_quiz: true
+  type: text
+  topic: Geometric sequences
+  stem: 'Write $0.\overline{45} = 0.454545\ldots$ as a fraction in lowest terms: ___'
+  accept: ['5/11']
+  explanation: |-
+    $0.45 + 0.0045 + 0.000045 + \dots$ is geometric with $a_1 = 0.45$ and $r = 0.01$, so the sum is $\dfrac{0.45}{1 - 0.01} = \dfrac{45}{99} = \dfrac{5}{11}$.
+
+- id: pc-m9-r2-q08
+  lesson: pc-geometric
+  type: match
+  topic: Geometric sequences
+  stem: 'Match each infinite series to its sum.'
+  pairs:
+    - ['$\displaystyle\sum_{k=1}^{\infty} 8\left(\tfrac12\right)^{k-1}$', '16']
+    - ['$9 - \tfrac92 + \tfrac94 - \dots$', '6']
+    - ['$\displaystyle\sum_{k=1}^{\infty} 5(0.2)^{k-1}$', '6.25']
+    - ['$1 + 3 + 9 + 27 + \dots$', 'Diverges (no finite sum)']
+  distractors: ['-0.5']
+  explanation: |-
+    $\frac{8}{1 - 1/2} = 16$. The second has $r = -\frac12$: $\frac{9}{1 + 1/2} = 6$. The third: $\frac{5}{1 - 0.2} = 6.25$. The last has $r = 3$, so $|r| \ge 1$ and it diverges; plugging into the formula anyway gives the meaningless $\frac{1}{1 - 3} = -0.5$.
+
+- id: pc-m9-r2-q09
+  lesson: pc-geometric
+  module_quiz: true
+  topic: Geometric sequences
+  stem: 'Which infinite geometric series converge? Select all that apply.'
+  choices: ['$\displaystyle\sum_{k=1}^{\infty} (0.9)^k$', '$\displaystyle\sum_{k=1}^{\infty} (-1.1)^k$', '$4 - 2 + 1 - \tfrac12 + \dots$', '$1 - 1 + 1 - 1 + \dots$']
+  answer: [0, 2]
+  explanation: |-
+    A geometric series converges exactly when $|r| < 1$. $r = 0.9$ and $r = -\frac12$ qualify. $r = -1.1$ has $|r| > 1$, so the terms grow in size. $r = -1$ gives partial sums that jump between 1 and 0 forever, so it diverges too.
+
+- id: pc-m9-r2-q10
+  lesson: pc-geometric
+  type: text
+  topic: Geometric sequences
+  stem: 'A geometric sequence of positive numbers has $a_3 = 18$ and $a_6 = 486$. Its common ratio is $r =$ ___ and its first term is $a_1 =$ ___.'
+  accept:
+    - ['3']
+    - ['2']
+  explanation: |-
+    From term 3 to term 6 is three multiplications: $r^3 = \frac{486}{18} = 27$, so $r = 3$. Then $a_1 = \frac{a_3}{r^2} = \frac{18}{9} = 2$. Check: $2, 6, 18, 54, 162, 486$.
+
+# ---------- pc-induction
+- id: pc-m9-r2-q11
+  lesson: pc-induction
+  type: label
+  topic: Mathematical induction
+  stem: 'The dominoes stand for a proof by induction. Name the numbered parts.'
+  image: {src: images/pc-m9-dominoes-blank.svg, alt: 'A row of dominoes numbered 1, 2, 3, then later k and k + 1. Domino 1 is tipping over. A curved arrow goes from domino k to domino k + 1. Four places are numbered: domino 1, domino k, the arrow, and domino k + 1.'}
+  labels:
+    - {x: 7.7, y: 56.7, text: 'Base case: P(1) is true'}
+    - {x: 57.7, y: 56.7, text: 'Inductive hypothesis: assume P(k)'}
+    - {x: 64.7, y: 24, text: 'Inductive step: P(k) implies P(k + 1)'}
+    - {x: 71.8, y: 56.7, text: 'Must be proved: P(k + 1)'}
+  distractors: [Counterexample, 'Assume P(n) for all n']
+  explanation: |-
+    The first domino falling is the base case. Domino $k$ is the one we *assume* has fallen (the inductive hypothesis), and domino $k + 1$ is what we must show falls. The arrow between them is the inductive step: one falling domino knocks over the next. "Assume $P(n)$ for all $n$" would be circular; induction never assumes that.
+
+- id: pc-m9-r2-q12
+  lesson: pc-induction
+  module_quiz: true
+  type: order
+  topic: Mathematical induction
+  stem: 'Put the steps of the inductive step for $1 + 3 + 5 + \dots + (2n - 1) = n^2$ in order.'
+  items:
+    - 'Assume $1 + 3 + \dots + (2k - 1) = k^2$ for some $k \ge 1$.'
+    - 'Add the next odd number, $2k + 1$, to both sides.'
+    - 'The right side becomes $k^2 + 2k + 1$.'
+    - 'Factor it as $(k + 1)^2$, which is the formula for $n = k + 1$.'
+  explanation: |-
+    The hypothesis comes first, then the $(k + 1)$st term is added, the right side is simplified, and finally it is recognized as the target $P(k + 1)$. Each step uses the one before it.
+
+- id: pc-m9-r2-q13
+  lesson: pc-induction
+  type: text
+  topic: Mathematical induction
+  stem: 'The inequality $2^n > n^2$ holds for $n = 1$, fails for $n = 2, 3, 4$, and then holds from some point on. What is the smallest integer $m$ such that it holds for every $n \ge m$? This is the base case an induction proof would use. Give only the number: ___'
+  accept: ['5']
+  explanation: |-
+    $2^4 = 16 = 4^2$ (not greater), but $2^5 = 32 > 25$, $2^6 = 64 > 36$, and from then on the inequality keeps holding (an induction proof starting at $n = 5$ confirms it). So $m = 5$. The case $n = 1$ doesn't help, because the chain of dominoes breaks at $n = 2$.
+
+- id: pc-m9-r2-q14
+  lesson: pc-induction
+  topic: Mathematical induction
+  stem: 'Which of these are parts of a complete proof by induction that $P(n)$ holds for all $n \ge 1$? Select all that apply.'
+  choices: ['Show that $P(1)$ is true.', 'Show that for every $k \ge 1$, if $P(k)$ is true then $P(k + 1)$ is true.', 'Check that $P(n)$ is true for the first 100 values of $n$.', 'Assume that $P(k + 1)$ is true.']
+  answer: [0, 1]
+  explanation: |-
+    Induction needs exactly the base case and the inductive step. Checking many cases is evidence, not proof ($n^2 + n + 41$ is prime for $n = 0$ to $39$ and then fails). Assuming $P(k + 1)$ assumes what must be proved.
+
+- id: pc-m9-r2-q15
+  lesson: pc-induction
+  topic: Mathematical induction
+  stem: 'To prove that $4^n - 1$ is divisible by 3, assume $4^k - 1 = 3m$ for an integer $m$. Which expression equals $4^{k+1} - 1$?'
+  choices: ['$3m + 3$', '$12m + 4$', '$3(4m + 1)$', '$4(3m) - 1$']
+  answer: 2
+  explanation: |-
+    $4^k = 3m + 1$, so $4^{k+1} - 1 = 4(3m + 1) - 1 = 12m + 3 = 3(4m + 1)$, a multiple of 3. $12m + 4$ forgets the $-1$; $4(3m) - 1$ replaces $4^k$ by $3m$ instead of $3m + 1$.
+
+# ---------- pc-binomial
+- id: pc-m9-r2-q16
+  lesson: pc-binomial
+  type: label
+  topic: Binomial theorem
+  stem: 'Five entries of Pascal''s triangle are missing. Fill in each numbered entry.'
+  image: {src: images/pc-m9-pascal-blank.svg, alt: 'Pascal''s triangle, rows 0 to 6, drawn as circles with numbers. Five circles are empty and numbered: one in row 3, one in row 4, one in row 5 and two in row 6.'}
+  labels:
+    - {x: 50.6, y: 49.5, text: '3'}
+    - {x: 56.2, y: 62.5, text: '6'}
+    - {x: 50.6, y: 75.5, text: '10'}
+    - {x: 45.0, y: 88.5, text: '15'}
+    - {x: 56.2, y: 88.5, text: '20'}
+  distractors: ['12', '5']
+  explanation: |-
+    Each entry is the sum of the two above it. Row 3: $1 + 2 = 3$. Row 4: $3 + 3 = 6$. Row 5: $4 + 6 = 10$. Row 6: $5 + 10 = 15$ and $10 + 10 = 20$. These are $\binom31$, $\binom42$, $\binom52$, $\binom62$ and $\binom63$.
+
+- id: pc-m9-r2-q17
+  lesson: pc-binomial
+  module_quiz: true
+  type: text
+  topic: Binomial theorem
+  stem: 'What is the coefficient of $x^2$ in the expansion of $(x + 3)^5$? Give only the number: ___'
+  accept: ['270']
+  explanation: |-
+    The general term is $\binom5k x^{5-k}3^k$. For $x^2$ we need $k = 3$: $\binom53 \cdot 3^3 = 10 \cdot 27 = 270$. Forgetting to cube the 3 gives 30.
+
+- id: pc-m9-r2-q18
+  lesson: pc-binomial
+  type: match
+  topic: Binomial theorem
+  stem: 'Match each binomial coefficient to its value.'
+  pairs:
+    - ['$\binom72$', '21']
+    - ['$\binom70$', '1']
+    - ['$\binom63$', '20']
+    - ['$\binom87$', '8']
+  distractors: ['0', '35']
+  explanation: |-
+    $\binom72 = \frac{7 \cdot 6}{2} = 21$. $\binom70 = 1$ (one way to choose nothing; $0! = 1$). $\binom63 = \frac{6 \cdot 5 \cdot 4}{6} = 20$. $\binom87 = \binom81 = 8$ by symmetry. $\binom70$ is 1, not 0.
+
+- id: pc-m9-r2-q19
+  lesson: pc-binomial
+  module_quiz: true
+  topic: Binomial theorem
+  stem: 'Which statements about the expansion of $(a + b)^8$ are true? Select all that apply.'
+  choices: ['It has 9 terms.', 'Its coefficients add up to 256.', 'Its middle term is $70a^4b^4$.', 'The term containing $b^3$ is the 3rd term.']
+  answer: [0, 1, 2]
+  explanation: |-
+    $(a + b)^n$ has $n + 1 = 9$ terms, and its coefficients add to $2^8 = 256$ (set $a = b = 1$). The middle (5th) term has $k = 4$: $\binom84a^4b^4 = 70a^4b^4$. The term with $b^3$ has $k = 3$, which is the 4th term, not the 3rd.
+
+- id: pc-m9-r2-q20
+  lesson: pc-binomial
+  type: order
+  topic: Binomial theorem
+  stem: 'Put the steps for finding the coefficient of $x^3$ in $(2x - 1)^5$ in order.'
+  items:
+    - 'Write the general term $\binom5k(2x)^{5-k}(-1)^k$.'
+    - 'Set the power of $x$ equal to 3: $5 - k = 3$.'
+    - 'Solve: $k = 2$.'
+    - 'Compute $\binom52 \cdot 2^3 \cdot (-1)^2 = 80$.'
+  explanation: |-
+    General term, then set the exponent, then solve for $k$, then evaluate, raising both the 2 and the $-1$ to their powers. The coefficient is $10 \cdot 8 \cdot 1 = 80$.
+
+# ---------- pc-counting-probability
+- id: pc-m9-r2-q21
+  lesson: pc-counting-probability
+  type: label
+  topic: Probability
+  stem: 'One card is drawn from a standard 52-card deck. The circles show the hearts and the face cards (jacks, queens, kings). How many cards are in each numbered region?'
+  image: {src: images/pc-m9-venn-cards-blank.svg, alt: 'A Venn diagram inside a rectangle labeled 52 cards. One circle is labeled Hearts (13), the other Face cards (12), and they overlap. Four regions are numbered: hearts only, the overlap, face cards only, and outside both circles.'}
+  labels:
+    - {x: 30.5, y: 53, text: '10'}
+    - {x: 50, y: 53, text: '3'}
+    - {x: 69.5, y: 53, text: '9'}
+    - {x: 89.1, y: 84.8, text: '30'}
+  distractors: ['13', '12']
+  explanation: |-
+    Three cards (the jack, queen and king of hearts) are in both circles. That leaves $13 - 3 = 10$ hearts that aren't face cards and $12 - 3 = 9$ face cards that aren't hearts. Outside both: $52 - (10 + 3 + 9) = 30$. Writing 13 and 12 in the outer parts of the circles counts the overlap twice.
+
+- id: pc-m9-r2-q22
+  lesson: pc-counting-probability
+  module_quiz: true
+  type: match
+  topic: Counting
+  stem: 'Match each counting problem to the method that fits it.'
+  pairs:
+    - ['Choosing 4 toppings from 12 for a pizza', 'Combination']
+    - ['Awarding gold, silver and bronze medals among 8 runners', 'Permutation']
+    - ['Making a 4-digit PIN in which digits may repeat', 'Counting principle with repeats allowed']
+    - ['Dealing a 5-card hand from a deck', 'Combination']
+  distractors: [Addition rule for probabilities]
+  explanation: |-
+    Toppings and card hands are the same in any order: combinations. Medals are different positions, so order matters: a permutation, $_8P_3 = 336$. A PIN with repeats allowed has 10 choices at each of 4 stages: $10^4 = 10{,}000$.
+
+- id: pc-m9-r2-q23
+  lesson: pc-counting-probability
+  type: text
+  topic: Probability
+  stem: 'Two fair dice are rolled. What is the probability that the sum is 8? Give an exact fraction: ___'
+  accept: ['5/36']
+  explanation: |-
+    Of the 36 equally likely ordered outcomes, five give 8: $(2,6), (3,5), (4,4), (5,3), (6,2)$. So $P = \frac{5}{36}$. Counting $(4,4)$ twice or forgetting order gives wrong counts.
+
+- id: pc-m9-r2-q24
+  lesson: pc-counting-probability
+  module_quiz: true
+  topic: Probability
+  stem: 'One fair die is rolled once. Which pairs of events are mutually exclusive? Select all that apply.'
+  choices: ['Rolling an even number; rolling a 3', 'Rolling a number greater than 4; rolling an even number', 'Rolling a 1; rolling a 6', 'Rolling a prime number; rolling an odd number']
+  answer: [0, 2]
+  explanation: |-
+    Mutually exclusive events can't happen together. 3 is not even, and one roll can't be both 1 and 6. But 6 is both greater than 4 and even, and 3 and 5 are both prime and odd, so those pairs overlap.
+
+- id: pc-m9-r2-q25
+  lesson: pc-counting-probability
+  topic: Counting
+  stem: 'A password is 4 letters long, chosen from 26 letters, with no letter used twice. How many passwords are possible?'
+  choices: ['$456{,}976$', '$358{,}800$', '$14{,}950$', '$104$']
+  answer: 1
+  explanation: |-
+    Order matters and there are no repeats: $26 \cdot 25 \cdot 24 \cdot 23 = 358{,}800$. $26^4 = 456{,}976$ allows repeats; $\binom{26}{4} = 14{,}950$ ignores order; $104 = 26 \cdot 4$ adds instead of multiplying.
+
+# ---------- Honors: recurrence relations
+- id: pc-m9-r2-h01
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'What is the fixed point of the recurrence $a_{n+1} = 0.8a_n + 5$?'
+  choices: ['$25$', '$-25$', '$6.25$', '$4$']
+  answer: 0
+  explanation: |-
+    Solve $L = 0.8L + 5$: $0.2L = 5$, so $L = 25$. $-25$ comes from $\frac{c}{r - 1}$, $6.25 = \frac{5}{0.8}$ divides by $r$, and $4 = 0.8 \cdot 5$ multiplies.
+
+- id: pc-m9-r2-h02
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'Which formula solves $a_{n+1} = 0.8a_n + 5$ with $a_0 = 5$?'
+  choices: ['$a_n = 25 + 20(0.8)^n$', '$a_n = 25 - 20(0.8)^n$', '$a_n = 5(0.8)^n + 25$', '$a_n = 25 - 20(0.8)^{n-1}$']
+  answer: 1
+  explanation: |-
+    $L = 25$ and $a_0 - L = -20$, so $a_n = 25 - 20(0.8)^n$. Check: $a_0 = 5$ ✓, and $a_1 = 0.8(5) + 5 = 9 = 25 - 16$ ✓. The exponent $n - 1$ would fit a sequence starting at $a_1$.
+
+- id: pc-m9-r2-h03
+  lesson: pc-m9-h-recurrences
+  type: text
+  topic: Recurrence relations
+  stem: 'A sequence has $a_0 = 5$ and $a_{n+1} = 3a_n - 4$. Find $a_4$. Give only the number: ___'
+  accept: ['245']
+  explanation: |-
+    Here $L = \frac{-4}{1 - 3} = 2$, so $a_n = 2 + (5 - 2)3^n = 2 + 3^{n+1}$ and $a_4 = 2 + 243 = 245$. Directly: $5, 11, 29, 83, 245$.
+
+- id: pc-m9-r2-h04
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'Describe the long-run behavior of $a_{n+1} = -0.5a_n + 9$ with $a_0 = 0$.'
+  choices: ['It approaches $-6$.', 'It grows without bound.', 'It approaches 6 from below without passing it.', 'It approaches 6, landing alternately above and below it.']
+  answer: 3
+  explanation: |-
+    $L = \frac{9}{1 - (-0.5)} = 6$. Since $|r| = 0.5 < 1$, the terms approach 6, and since $r < 0$ the distance to 6 changes sign every step: $0, 9, 4.5, 6.75, 5.625, \dots$ The value $-6$ comes from $\frac{c}{r - 1}$.
+
+- id: pc-m9-r2-h05
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'In the Tower of Hanoi, $H_n = 2H_{n-1} + 1$ with $H_0 = 0$. What is the least number of moves for 6 disks?'
+  choices: ['$64$', '$32$', '$63$', '$127$']
+  answer: 2
+  explanation: |-
+    $H_n = 2^n - 1$, so $H_6 = 64 - 1 = 63$. Check with the rule: $1, 3, 7, 15, 31, 63$. $127 = H_7$.
+
+- id: pc-m9-r2-h06
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'A balance follows $B_{n+1} = 1.005B_n - P$ with $B_0 = 20{,}000$ (0.5% monthly interest, payment $P$). For which payment does the balance stay at \$20,000 forever?'
+  choices: ['$P = 200$', '$P = 1000$', '$P = 10$', '$P = 100$']
+  answer: 3
+  explanation: |-
+    The fixed point is $L = \frac{-P}{1 - 1.005} = 200P$. The balance stays put when it starts at the fixed point: $200P = 20{,}000$, so $P = 100$, exactly the monthly interest $0.005 \times 20{,}000$. Any smaller payment makes the debt grow.
+
+- id: pc-m9-r2-h07
+  lesson: pc-m9-h-recurrences
+  type: text
+  topic: Recurrence relations
+  stem: 'The recurrence $a_n = a_{n-1} + 6a_{n-2}$ has characteristic equation $x^2 - x - 6 = 0$. Its larger root is ___ and its smaller root is ___.'
+  accept:
+    - ['3']
+    - ['-2']
+  explanation: |-
+    $x^2 - x - 6 = (x - 3)(x + 2)$, so the roots are $3$ and $-2$. Every solution has the form $A \cdot 3^n + B(-2)^n$.
+
+- id: pc-m9-r2-h08
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'Solve $a_n = a_{n-1} + 6a_{n-2}$ with $a_0 = 5$ and $a_1 = 0$.'
+  choices: ['$a_n = 3 \cdot 3^n + 2(-2)^n$', '$a_n = 2 \cdot 3^n + 3(-2)^n$', '$a_n = 5 \cdot 3^n$', '$a_n = 2 \cdot 3^n - 3(-2)^n$']
+  answer: 1
+  explanation: |-
+    With $a_n = A \cdot 3^n + B(-2)^n$: $A + B = 5$ and $3A - 2B = 0$. Then $3A = 2(5 - A)$, so $A = 2$ and $B = 3$. Check $a_2$: the rule gives $0 + 6 \cdot 5 = 30$, the formula $18 + 12 = 30$ ✓. The first choice gives $a_1 = 9 - 4 = 5$, not 0.
+
+- id: pc-m9-r2-h09
+  lesson: pc-m9-h-recurrences
+  type: match
+  topic: Recurrence relations
+  stem: 'Match each recurrence to its explicit formula.'
+  pairs:
+    - ['$a_{n+1} = a_n + 4$, $a_0 = 1$', '1 + 4n']
+    - ['$a_{n+1} = 2a_n$, $a_0 = 3$', '3 · 2^n']
+    - ['$a_{n+1} = 2a_n + 1$, $a_0 = 0$', '2^n − 1']
+    - ['$a_n = 5a_{n-1} - 6a_{n-2}$, $a_0 = 2$, $a_1 = 5$', '2^n + 3^n']
+  distractors: ['2^n + 1']
+  explanation: |-
+    Adding 4 each time is arithmetic: $1 + 4n$. Doubling is geometric: $3 \cdot 2^n$. The third is the Tower of Hanoi rule: $L = -1$, so $2^n - 1$. The last has characteristic roots 2 and 3, with $A = B = 1$ (Example 4). Check any of them by computing the first few terms.
+
+- id: pc-m9-r2-h10
+  lesson: pc-m9-h-recurrences
+  type: order
+  topic: Recurrence relations
+  stem: 'Put the steps for solving $a_n = pa_{n-1} + qa_{n-2}$ (with two different characteristic roots) in order.'
+  items:
+    - 'Write the characteristic equation $x^2 - px - q = 0$.'
+    - 'Find its roots $x_1$ and $x_2$.'
+    - 'Write $a_n = Ax_1^{\,n} + Bx_2^{\,n}$.'
+    - 'Use $a_0$ and $a_1$ to solve for $A$ and $B$.'
+    - 'Check $a_2$ against the rule.'
+  explanation: |-
+    The equation comes from trying $a_n = x^n$; its roots give the two geometric solutions; their combination has two unknowns, fixed by the two initial conditions; a quick check of $a_2$ catches arithmetic slips.
+
+- id: pc-m9-r2-h11
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'With $\varphi = \frac{1 + \sqrt5}{2}$ and $\psi = \frac{1 - \sqrt5}{2}$, which statements about the Fibonacci numbers are true? Select all that apply.'
+  choices: ['$F_n$ equals $\dfrac{\varphi^n}{\sqrt5}$ rounded to the nearest whole number.', 'The ratio $\dfrac{F_{n+1}}{F_n}$ approaches $\varphi \approx 1.618$.', '$\psi^n$ grows without bound as $n$ increases.', 'The characteristic equation of the Fibonacci rule is $x^2 + x + 1 = 0$.']
+  answer: [0, 1]
+  explanation: |-
+    Since $|\psi| < 1$, $\frac{\psi^n}{\sqrt5}$ is less than $\frac12$ in size and shrinks, so rounding $\frac{\varphi^n}{\sqrt5}$ gives $F_n$; and the ratio of neighbors approaches $\varphi$. $\psi^n$ shrinks toward 0 (with alternating sign). The rule $F_n = F_{n-1} + F_{n-2}$ gives $x^2 = x + 1$, that is $x^2 - x - 1 = 0$.
+
+- id: pc-m9-r2-h12
+  lesson: pc-m9-h-recurrences
+  topic: Recurrence relations
+  stem: 'How many ways can a $2 \times 7$ strip be tiled with $1 \times 2$ dominoes?'
+  choices: ['$13$', '$34$', '$14$', '$21$']
+  answer: 3
+  explanation: |-
+    $T_n = T_{n-1} + T_{n-2}$ with $T_1 = 1$, $T_2 = 2$: $1, 2, 3, 5, 8, 13, 21$. So $T_7 = 21 = F_8$. $13 = T_6$ is one place too early; $14 = 2 \cdot 7$ is a guess, not a count.
+
+- id: pc-m9-r2-h13
+  lesson: pc-m9-h-recurrences
+  type: text
+  topic: Recurrence relations
+  stem: 'With $F_1 = F_2 = 1$, find $F_{15}$ (use the recurrence, or round $\varphi^{15}/\sqrt5$). Give only the number: ___'
+  accept: ['610']
+  explanation: |-
+    $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610$. Binet: $\frac{\varphi^{15}}{\sqrt5} \approx 609.9997$, which rounds to 610.
+
+# ---------- Honors: counting techniques
+- id: pc-m9-r2-h14
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'How many distinct arrangements of the letters of BANANA are there?'
+  choices: ['$720$', '$60$', '$120$', '$30$']
+  answer: 1
+  explanation: |-
+    Six letters: three A's, two N's, one B. $\frac{6!}{3!\,2!\,1!} = \frac{720}{12} = 60$. $720 = 6!$ treats the repeated letters as different; $120 = \frac{6!}{3!}$ divides out only the A's.
+
+- id: pc-m9-r2-h15
+  lesson: pc-m9-h-counting
+  type: text
+  topic: Advanced counting
+  stem: 'How many distinct arrangements of the letters of LEVEL are there? Give only the number: ___'
+  accept: ['30']
+  explanation: |-
+    Five letters: two L's, two E's, one V. $\frac{5!}{2!\,2!\,1!} = \frac{120}{4} = 30$.
+
+- id: pc-m9-r2-h16
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'On a street grid, how many shortest routes go from a corner to the corner 4 blocks east and 4 blocks north?'
+  choices: ['$16$', '$256$', '$70$', '$40{,}320$']
+  answer: 2
+  explanation: |-
+    A shortest route is a string of 4 E's and 4 N's: $\frac{8!}{4!\,4!} = \binom84 = 70$. $16 = 4 \cdot 4$ multiplies the distances, and $40{,}320 = 8!$ treats all moves as different.
+
+- id: pc-m9-r2-h17
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'Shortest routes go from $(0, 0)$ to $(4, 3)$ moving one block east or north at a time. How many pass through the corner $(2, 2)$?'
+  choices: ['$35$', '$9$', '$17$', '$18$']
+  answer: 3
+  explanation: |-
+    To $(2, 2)$: 2 E's and 2 N's, $\binom42 = 6$ routes. From $(2, 2)$ to $(4, 3)$: 2 E's and 1 N, $\binom31 = 3$ routes. Multiply the stages: $6 \cdot 3 = 18$. All routes: $\binom73 = 35$, so 17 avoid the corner.
+
+- id: pc-m9-r2-h18
+  lesson: pc-m9-h-counting
+  type: text
+  topic: Advanced counting
+  stem: 'A shop sells 3 kinds of donuts. How many different boxes of 6 donuts can you buy (only the number of each kind matters)? Give only the number: ___'
+  accept: ['28']
+  explanation: |-
+    Stars and bars with $n = 6$ stars and $k - 1 = 2$ bars: $\binom{8}{2} = 28$.
+
+- id: pc-m9-r2-h19
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'How many solutions does $x_1 + x_2 + x_3 + x_4 = 5$ have in nonnegative integers?'
+  choices: ['$56$', '$126$', '$35$', '$1024$']
+  answer: 0
+  explanation: |-
+    Five stars and three bars: $\binom{5 + 3}{3} = \binom83 = 56$. $1024 = 4^5$ would count 5 *different* objects placed in 4 groups; $\binom93 = 84$ and $\binom94 = 126$ use the wrong number of positions.
+
+- id: pc-m9-r2-h20
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'How many solutions does $x + y + z = 10$ have in *positive* integers?'
+  choices: ['$66$', '$36$', '$45$', '$120$']
+  answer: 1
+  explanation: |-
+    Give each variable 1 first, leaving 7 to share freely among 3: $\binom{7 + 2}{2} = \binom92 = 36$. $66 = \binom{12}{2}$ counts nonnegative solutions, where zeros are allowed.
+
+- id: pc-m9-r2-h21
+  lesson: pc-m9-h-counting
+  type: label
+  topic: Advanced counting
+  stem: 'The circles hold the numbers from 1 to 1000 divisible by 2, by 3 and by 5. Describe each numbered region.'
+  image: {src: images/pc-m9-venn3-blank.svg, alt: 'Three overlapping circles labeled divisible by 2, divisible by 3 and divisible by 5 inside a rectangle labeled integers 1 to 1000. Five spots are numbered: inside only the 2 circle, in the overlap of the 2 and 3 circles outside the 5 circle, in the center where all three overlap, outside all circles, and inside only the 5 circle.'}
+  labels:
+    - {x: 31.2, y: 37.3, text: Divisible by 2 only}
+    - {x: 50, y: 35.3, text: 'Divisible by 2 and 3, not 5'}
+    - {x: 50, y: 50.6, text: 'Divisible by 2, 3 and 5'}
+    - {x: 87.5, y: 86.3, text: Divisible by none of them}
+    - {x: 50, y: 74.5, text: Divisible by 5 only}
+  distractors: [Divisible by 3 only, 'Divisible by 3 and 5, not 2']
+  explanation: |-
+    A region is described by which circles it is inside. The center is inside all three (multiples of 30: 33 numbers). The region shared by the 2 and 3 circles but outside the 5 circle holds multiples of 6 that aren't multiples of 5 (133 numbers). Outside every circle are the 266 numbers divisible by none of 2, 3, 5. The two distractors are real regions, but neither is numbered.
+
+- id: pc-m9-r2-h22
+  lesson: pc-m9-h-counting
+  type: text
+  topic: Advanced counting
+  stem: 'How many integers from 1 to 100 are divisible by 2 or by 5? Give only the number: ___'
+  accept: ['60']
+  explanation: |-
+    $50$ multiples of 2, $20$ of 5, and $10$ of both (multiples of 10, counted twice). $50 + 20 - 10 = 60$.
+
+- id: pc-m9-r2-h23
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'How many integers from 1 to 60 are divisible by 2, 3 or 5?'
+  choices: ['$62$', '$42$', '$44$', '$16$']
+  answer: 2
+  explanation: |-
+    Singles: $30 + 20 + 12 = 62$. Pairs: multiples of 6, 10, 15: $10 + 6 + 4 = 20$. Triple: multiples of 30: $2$. Total $62 - 20 + 2 = 44$. Stopping after subtracting the pairs gives 42; $16 = 60 - 44$ counts the numbers divisible by none.
+
+- id: pc-m9-r2-h24
+  lesson: pc-m9-h-counting
+  type: order
+  topic: Advanced counting
+  stem: 'Put the steps for counting the elements of a set that lie in none of $A$, $B$, $C$ in order.'
+  items:
+    - 'Add the sizes $|A| + |B| + |C|$.'
+    - 'Subtract the three pairwise overlaps $|A \cap B|$, $|A \cap C|$, $|B \cap C|$.'
+    - 'Add back the triple overlap $|A \cap B \cap C|$ to get $|A \cup B \cup C|$.'
+    - 'Subtract $|A \cup B \cup C|$ from the total number of elements.'
+  explanation: |-
+    Inclusion–exclusion alternates: add singles, subtract pairs, add the triple. That gives the number in at least one set; the complement (total minus that) is the number in none.
+
+- id: pc-m9-r2-h25
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'Five letters are put into their five addressed envelopes at random. In how many of the $120$ orders does no letter go into its own envelope?'
+  choices: ['$44$', '$120$', '$76$', '$9$']
+  answer: 0
+  explanation: |-
+    $D_5 = 5!\left(1 - 1 + \frac12 - \frac16 + \frac1{24} - \frac1{120}\right) = 60 - 20 + 5 - 1 = 44$. The 76 others have at least one letter in place; $9 = D_4$.
+
+- id: pc-m9-r2-h26
+  lesson: pc-m9-h-counting
+  topic: Advanced counting
+  stem: 'Which statements must be true? Select all that apply.'
+  choices: ['Among any 30 people, at least 3 were born in the same month.', 'Among any 8 people, two were born on the same day of the week.', 'Among any 25 people, two share a birthday.', 'Among any 20 integers, two have the same last digit.']
+  answer: [0, 1, 3]
+  explanation: |-
+    Pigeonhole: $\lceil 30/12 \rceil = 3$; 8 people in 7 weekdays; 20 integers in 10 possible last digits. But 25 people can all have different birthdays (there are 366 possible), so a shared birthday is likely but not guaranteed.
+
+# ---------- Honors: binomial probability and expected value
+- id: pc-m9-r2-h27
+  lesson: pc-m9-h-binomial-probability
+  topic: Binomial probability
+  stem: 'In which situations is the count binomial? Select all that apply.'
+  choices: ['The number of heads in 20 flips of a fair coin', 'The number of aces among 5 cards dealt from one deck', 'The number of rolls of a die needed to get the first 6', 'The number of 12 unrelated patients who respond to a drug that works for 60% of patients']
+  answer: [0, 3]
+  explanation: |-
+    Coin flips and independent patients have a fixed $n$, two outcomes, independence and a constant $p$. Dealing without replacement changes the chance of an ace after each card, so the trials are not independent. Rolling until a 6 has no fixed number of trials.
+
+- id: pc-m9-r2-h28
+  lesson: pc-m9-h-binomial-probability
+  topic: Binomial probability
+  stem: 'A fair coin is flipped 4 times. What is the probability of exactly 2 heads?'
+  choices: ['$\tfrac12$', '$\tfrac1{16}$', '$\tfrac38$', '$\tfrac14$']
+  answer: 2
+  explanation: |-
+    $\binom42\left(\frac12\right)^4 = \frac{6}{16} = \frac38$. $\frac1{16}$ is the probability of one particular order such as HHTT; $\frac12$ assumes "2 out of 4" means half the time.
+
+- id: pc-m9-r2-h29
+  lesson: pc-m9-h-binomial-probability
+  type: text
+  topic: Binomial probability
+  stem: 'A player makes 80% of free throws, independently. In 5 shots, what is the probability of exactly 4 makes? Give the exact decimal: ___'
+  accept: ['0.4096']
+  explanation: |-
+    $\binom54(0.8)^4(0.2) = 5 \cdot 0.4096 \cdot 0.2 = 0.4096$. (It happens that $5 \cdot 0.2 = 1$.)
+
+- id: pc-m9-r2-h30
+  lesson: pc-m9-h-binomial-probability
+  topic: Binomial probability
+  stem: 'Each of 6 independent trials succeeds with probability 0.1. What is the probability of at least one success (to 4 decimal places)?'
+  choices: ['$0.6000$', '$0.5314$', '$0.3543$', '$0.4686$']
+  answer: 3
+  explanation: |-
+    Complement: $1 - 0.9^6 = 1 - 0.5314 = 0.4686$. $0.6 = 6 \times 0.1$ adds probabilities of overlapping events; $0.5314$ is the chance of *no* success; $0.3543$ is exactly one success.
+
+- id: pc-m9-r2-h31
+  lesson: pc-m9-h-binomial-probability
+  topic: Expected value
+  stem: 'A machine makes parts, and each is defective with probability 0.15, independently. What is the expected number of defective parts in a batch of 40?'
+  choices: ['$6$', '$34$', '$0.15$', '$5.1$']
+  answer: 0
+  explanation: |-
+    $E(X) = np = 40 \times 0.15 = 6$. $34$ is the expected number of *good* parts; $5.1 = np(1 - p)$ is a different quantity (the variance).
+
+- id: pc-m9-r2-h32
+  lesson: pc-m9-h-binomial-probability
+  type: text
+  topic: Expected value
+  stem: 'You pay \$2 to roll a die. If it shows 6 you receive \$9; otherwise you receive nothing. What is your expected net gain per game, in dollars? ___'
+  accept: ['-0.5', '-.5', '-1/2', '-$0.50', '-$0.5']
+  explanation: |-
+    Net gain is $9 - 2 = 7$ with probability $\frac16$ and $-2$ with probability $\frac56$: $E = \frac{7}{6} - \frac{10}{6} = -\frac{3}{6} = -0.5$. Equivalently, the expected prize is $\frac96 = 1.5$, minus the \$2 cost. You lose 50 cents per game on average.
+
+- id: pc-m9-r2-h33
+  lesson: pc-m9-h-binomial-probability
+  topic: Expected value
+  stem: 'A game pays \$20 with probability $\tfrac{1}{10}$, \$5 with probability $\tfrac{3}{10}$, and nothing otherwise. What price to play makes the game fair?'
+  choices: ['\$25.00', '\$12.50', '\$3.50', '\$2.50']
+  answer: 2
+  explanation: |-
+    The expected payout is $20(0.1) + 5(0.3) + 0(0.6) = 2 + 1.5 = 3.5$. A fair game's price equals its expected payout, \$3.50. \$12.50 averages the two prizes without weighting them; \$2.50 ignores the \$5 prize's probability.
+
+- id: pc-m9-r2-h34
+  lesson: pc-m9-h-binomial-probability
+  type: match
+  topic: Binomial probability
+  stem: 'For a binomial count with $n$ trials, success probability $p$ and $q = 1 - p$, match each expression to its meaning.'
+  pairs:
+    - ['$\binom nk p^kq^{n-k}$', 'Probability of exactly k successes']
+    - ['$np$', 'Expected number of successes']
+    - ['$1 - q^n$', 'Probability of at least one success']
+    - ['$q^n$', 'Probability of no successes']
+  distractors: [Probability of exactly one success, Number of possible orders of the trials]
+  explanation: |-
+    $\binom nk p^kq^{n-k}$ is the binomial formula. $np$ is the mean. $q^n$ is all failures, and its complement $1 - q^n$ is at least one success. Exactly one success would be $npq^{n-1}$.
+
+- id: pc-m9-r2-h35
+  lesson: pc-m9-h-binomial-probability
+  type: order
+  topic: Binomial probability
+  stem: 'Put the steps for finding the probability of at least 2 successes in 5 binomial trials in order.'
+  items:
+    - 'Identify $n = 5$, the success probability $p$, and $q = 1 - p$.'
+    - 'Compute $P(X = 0) = q^5$ and $P(X = 1) = 5pq^4$.'
+    - 'Add them to get $P(X \le 1)$.'
+    - 'Subtract from 1: $P(X \ge 2) = 1 - P(X \le 1)$.'
+  explanation: |-
+    "At least 2" is the complement of "0 or 1", which needs only two terms instead of four. You need $n$, $p$ and $q$ before computing anything, and the subtraction comes last.
+
+- id: pc-m9-r2-h36
+  lesson: pc-m9-h-binomial-probability
+  topic: Expected value
+  stem: 'You draw a card from a standard deck, look at it, put it back and shuffle, until you draw a heart. On average, how many draws does this take?'
+  choices: ['$13$', '$4$', '$3$', '$2$']
+  answer: 1
+  explanation: |-
+    Each draw is a heart with $p = \frac{13}{52} = \frac14$, and the expected number of trials until the first success is $\frac1p = 4$. Using the argument of Example 5: $E = 1 + \frac34E$, so $E = 4$. Three is the expected number of non-hearts before the first heart.
+
+- id: pc-m9-r2-h37
+  lesson: pc-m9-h-binomial-probability
+  topic: Expected value
+  stem: 'In American roulette, 18 of the 38 pockets are red. A \$10 bet on red wins \$10 if red comes up and loses the \$10 otherwise. What is the expected net gain of the bet?'
+  choices: ['\$0.00', '−\$0.26', '−\$5.26', '−\$0.53']
+  answer: 3
+  explanation: |-
+    $E = 10\left(\frac{18}{38}\right) - 10\left(\frac{20}{38}\right) = -\frac{20}{38} \approx -0.53$ dollars. The bet looks even, but the two green pockets make red less likely than not. $-5.26$ forgets to divide by 38 correctly ($-\frac{200}{38}$).
+
+- id: pc-m9-r2-h38
+  lesson: pc-m9-h-binomial-probability
+  type: text
+  topic: Binomial probability
+  stem: 'With $n = 10$ trials and $p = 0.3$, what is the probability of no successes, rounded to 4 decimal places? ___'
+  accept: ['0.0282']
+  explanation: |-
+    $P(X = 0) = (0.7)^{10} \approx 0.028248$, which rounds to $0.0282$. This is the leftmost bar of the histogram in the lesson.
+
+- id: pc-m9-r2-h39
+  lesson: pc-m9-h-binomial-probability
+  topic: Expected value
+  stem: 'A raffle sells 1000 tickets at \$2 each. There is one \$500 prize and five \$50 prizes. What is the expected net gain of one ticket?'
+  choices: ['−\$2.00', '\$0.75', '−\$1.00', '−\$1.25']
+  answer: 3
+  explanation: |-
+    The prizes total $500 + 5(50) = 750$, worth $\frac{750}{1000} = 0.75$ per ticket on average. Subtract the \$2 price: $0.75 - 2 = -1.25$. \$0.75 forgets the ticket price.

@@ -1,0 +1,21 @@
+# Module pc-m5, round 2 (honors lessons 21h1 and 21h2)
+- {front: 'General solution of $\sin x = c$ ($-1 < c < 1$)', back: '$x = \alpha + 2k\pi$ or $x = \pi - \alpha + 2k\pi$, where $\alpha = \sin^{-1}c$', topic: Trig equations}
+- {front: 'General solution of $\cos x = c$ ($-1 < c < 1$)', back: '$x = \pm\beta + 2k\pi$, where $\beta = \cos^{-1}c$', topic: Trig equations}
+- {front: 'General solution of $\tan x = c$', back: '$x = \tan^{-1}c + k\pi$ (tangent repeats every $\pi$)', topic: Trig equations}
+- {front: 'Why $\sin x = c$ has two solutions per turn', back: 'The line $y = c$ cuts the unit circle at two points, mirror images across the $y$-axis: angles $\alpha$ and $\pi - \alpha$.', topic: Trig equations}
+- {front: 'When does $\sin x = c$ or $\cos x = c$ have no solution?', back: 'When $|c| > 1$. When $c = \pm1$ there is only one solution per turn.', topic: Trig equations}
+- {front: 'Number of solutions of $\sin(Bx) = c$ in $[0, 2\pi)$', back: '$2B$ (for a positive whole number $B$ and $-1 < c < 1$): solve for $u = Bx$ over $[0, 2B\pi)$, then divide by $B$.', topic: Trig equations}
+- {front: 'Trig equation that is quadratic in $\sin x$ or $\cos x$', back: 'Substitute $u = \sin x$ (or $\cos x$), factor, set each factor to 0, then solve each basic equation.', topic: Trig equations}
+- {front: 'Why not divide both sides by $\cos x$?', back: 'You lose the solutions where $\cos x = 0$. Move everything to one side and factor instead.', topic: Trig equations}
+- {front: 'Squaring both sides of a trig equation', back: 'Can create extraneous solutions; check every candidate in the original equation.', topic: Trig equations}
+- {front: 'Solving $\sin 2x = \cos x$', back: '$2\sin x\cos x - \cos x = 0$, so $\cos x\,(2\sin x - 1) = 0$: on $[0, 2\pi)$, $x = \frac{\pi}{6}, \frac{\pi}{2}, \frac{5\pi}{6}, \frac{3\pi}{2}$.', topic: Trig equations}
+- {front: 'Amplitude-phase form of $a\sin x + b\cos x$', back: '$R\sin(x + \varphi)$ with $R = \sqrt{a^2 + b^2}$, $\cos\varphi = \frac{a}{R}$, $\sin\varphi = \frac{b}{R}$', topic: Combining sinusoids}
+- {front: 'Why $a\sin x + b\cos x = R\sin(x + \varphi)$ works', back: 'Expand: $R\sin(x + \varphi) = (R\cos\varphi)\sin x + (R\sin\varphi)\cos x$; match $R\cos\varphi = a$, $R\sin\varphi = b$.', topic: Combining sinusoids}
+- {front: 'Finding the phase angle $\varphi$', back: 'Take the direction of the point $(a, b)$. $\tan^{-1}\frac{b}{a}$ is right only when $a > 0$; when $a < 0$ add $\pi$.', topic: Combining sinusoids}
+- {front: 'Range of $a\sin x + b\cos x + D$', back: 'From $D - \sqrt{a^2 + b^2}$ to $D + \sqrt{a^2 + b^2}$', topic: Combining sinusoids}
+- {front: '$\sin x + \sqrt3\cos x$ as one sinusoid', back: '$2\sin\left(x + \frac{\pi}{3}\right)$; maximum 2 at $x = \frac{\pi}{6}$', topic: Combining sinusoids}
+- {front: '$\sin x + \cos x$ as one sinusoid', back: '$\sqrt2\sin\left(x + \frac{\pi}{4}\right)$', topic: Combining sinusoids}
+- {front: 'Sum-to-product for sines', back: '$\sin A + \sin B = 2\sin\frac{A + B}{2}\cos\frac{A - B}{2}$', topic: Combining sinusoids}
+- {front: 'Sum-to-product for cosines', back: '$\cos A + \cos B = 2\cos\frac{A + B}{2}\cos\frac{A - B}{2}$', topic: Combining sinusoids}
+- {front: 'Product-to-sum for $\sin u\cos v$', back: '$\sin u\cos v = \frac12\left[\sin(u + v) + \sin(u - v)\right]$', topic: Combining sinusoids}
+- {front: 'Beat frequency of tones at $f_1$ and $f_2$', back: '$|f_1 - f_2|$ beats per second; the tone heard is at the average $\frac{f_1 + f_2}{2}$.', topic: Combining sinusoids}

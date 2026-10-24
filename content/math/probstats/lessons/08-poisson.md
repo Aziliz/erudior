@@ -98,6 +98,8 @@ $\text{Bin}(n, \lambda t/n)$, and letting $n \to \infty$ gives the key fact:
 
 $$N(t) = \text{number of events in an interval of length } t \sim \text{Poisson}(\lambda t).$$
 
+![Events marked as dots on a time line; an interval of length 2 contains 2 events and a disjoint interval of length 3 contains 3; a bracket marks the gap between two events](images/ps-m2-poisson-process.svg)
+
 The rate scales with the interval: 3.2 calls per hour means a mean of 1.6 per half hour and
 76.8 per day. A useful consequence is that if independent Poisson counts are added, the total is
 Poisson with the summed mean (two disjoint intervals of one process form a longer interval); the
@@ -115,6 +117,25 @@ Flaws occur along a cable as a Poisson process with rate 0.4 per 100 meters.
 
 In Module 3 you will look at the *gaps* between events of a Poisson process; they turn out to be
 exponential random variables, the continuous cousin of the geometric.
+
+## Which discrete model?
+
+The five named distributions of this module answer different questions. This chart is a quick
+way to pick one.
+
+```mermaid
+flowchart TD
+  accTitle: Which discrete distribution fits?
+  accDescr: If you count events in a stretch of time or space with no fixed number of trials, use the Poisson. Otherwise, if you count trials until a fixed number of successes, use the geometric for the first success or the negative binomial for the r-th. If you count successes in a fixed number of trials, use the binomial when trials are independent with the same p, and the hypergeometric when sampling without replacement from a small population. A binomial with large n and small p is close to a Poisson with mean np.
+  A{"What is counted?"} -- "events in time or space" --> P["Poisson(lambda t)"]
+  A -- "trials until success number r" --> W{"r = 1?"}
+  W -- yes --> G["Geometric(p)"]
+  W -- no --> NB["Negative binomial(r, p)"]
+  A -- "successes in n trials" --> S{"Independent trials, same p?"}
+  S -- yes --> B["Binomial(n, p)"]
+  S -- "no: without replacement" --> H["Hypergeometric(N, K, n)"]
+  B -- "n large, p small" --> P
+```
 
 ## Common mistakes
 

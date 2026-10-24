@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="380" viewBox="0 0 440 380" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c2833">
+<title>Triangular support, the line x + y = 1 and a horizontal strip</title>
+<rect width="440" height="380" fill="#ffffff"/>
+<polygon points="80.0,320.0 340.0,320.0 340.0,60.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<polygon points="80.0,320.0 340.0,320.0 210.0,190.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="80" y1="60" x2="340" y2="320" stroke="#1c2833" stroke-width="2" stroke-dasharray="7 5"/>
+<polygon points="132.0,273.2 288.0,273.2 288.0,262.8 132.0,262.8" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="210.0" cy="190.0" r="5" fill="#1c2833"/>
+<line x1="60" y1="320" x2="390" y2="320" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="80" y1="340" x2="80" y2="30" stroke="#1c2833" stroke-width="1.5"/>
+<text x="385.0" y="345.0" text-anchor="middle" font-size="16" >x</text>
+<text x="60.0" y="40.0" text-anchor="middle" font-size="16" >y</text>
+<text x="80.0" y="345.0" text-anchor="middle" font-size="16" >0</text>
+<text x="210.0" y="345.0" text-anchor="middle" font-size="16" >1/2</text>
+<text x="340.0" y="345.0" text-anchor="middle" font-size="16" >1</text>
+<text x="68.0" y="195.0" text-anchor="end" font-size="16" >1/2</text>
+<text x="68.0" y="65.0" text-anchor="end" font-size="16" >1</text>
+<text x="241.2" y="117.2" text-anchor="end" font-size="16" >y = x</text>
+<text x="111.2" y="73.0" text-anchor="start" font-size="16" >x + y = 1</text>
+<text x="293.2" y="210.8" text-anchor="middle" font-size="16" >support</text>
+<text x="210.0" y="239.2" text-anchor="middle" font-size="16" >x + y &lt; 1</text>
+<text x="210.0" y="306.8" text-anchor="middle" font-size="14" >x from y to 1 − y</text>
+<text x="220.0" y="180.0" text-anchor="start" font-size="15" >(1/2, 1/2)</text>
+</svg>

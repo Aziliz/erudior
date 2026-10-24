@@ -100,6 +100,19 @@ $\operatorname{Var}(X) = 8(0.7)(0.3) = 1.68$, and for example $P(X = 8) = 0.7^8 
 
 What about $Y = 2X - 3$? Its MGF is $e^{-3t}(0.3 + 0.7e^{2t})^8$, with mean $2(5.6) - 3 = 8.2$.
 
+The method of Example 4, used again for sums throughout Modules 4 and 5:
+
+```mermaid
+flowchart TD
+  accTitle: The MGF method for a sum of independent variables
+  accDescr: Write down the MGF of each independent term. Multiply them to get the MGF of the sum. Simplify the product and compare it with the table of known MGFs. If it matches one, the uniqueness theorem says the sum has that distribution. If it matches none, you can still differentiate it at zero to get the moments.
+  A["Find the MGF of each independent term"] --> B["Multiply: M of the sum = product of the MGFs"]
+  B --> C["Simplify and compare with known MGFs"]
+  C --> D{"Matches a known form?"}
+  D -- yes --> E["Uniqueness: the sum has that distribution"]
+  D -- no --> F["Still differentiate at t = 0 for the moments"]
+```
+
 ### Example 4: sums of independent Poissons
 
 Breakdowns on line A are Poisson(1.5) per week and on line B Poisson(2.5), independently. The

@@ -1,0 +1,395 @@
+# Round 2, module pc-m8 (Vectors): new question types for the core lessons, and the two honors lessons.
+# ---- Core: pc-vectors-2d
+- id: pc-m8-r2-q01
+  lesson: pc-vectors-2d
+  type: text
+  topic: Vectors
+  stem: 'The vector from $P(-1, 2)$ to $Q(5, 10)$ has magnitude ___. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    Terminal minus initial: $\vec{PQ} = \langle 5 - (-1),\ 10 - 2 \rangle = \langle 6, 8 \rangle$. Its magnitude is $\sqrt{36 + 64} = \sqrt{100} = 10$.
+- id: pc-m8-r2-q02
+  lesson: pc-vectors-2d
+  type: text
+  module_quiz: true
+  topic: Vectors
+  stem: 'The direction angle of $\langle -3, 3 \rangle$, between $0^\circ$ and $360^\circ$, is ___ degrees. Give only the number.'
+  accept: ['135', '135°', '135 degrees']
+  explanation: |-
+    The reference angle is $\tan^{-1}\lvert 3 / (-3) \rvert = 45^\circ$. The first component is negative and the second positive, so the vector is in Quadrant II: $\theta = 180^\circ - 45^\circ = 135^\circ$. A calculator's $\tan^{-1}(-1) = -45^\circ$ is in the wrong quadrant.
+- id: pc-m8-r2-q03
+  lesson: pc-vectors-2d
+  topic: Vectors
+  stem: 'Which of these are unit vectors? Select all that apply.'
+  choices: ['$\left\langle \tfrac35, -\tfrac45 \right\rangle$', '$\langle 1, 1 \rangle$', '$\langle 0, -1 \rangle$', '$\left\langle \tfrac12, \tfrac{\sqrt3}{2} \right\rangle$', '$\left\langle \tfrac12, \tfrac12 \right\rangle$']
+  answer: [0, 2, 3]
+  explanation: |-
+    A unit vector has magnitude 1, so the squares of its components add to 1. $\tfrac{9}{25} + \tfrac{16}{25} = 1$, $0 + 1 = 1$ and $\tfrac14 + \tfrac34 = 1$: these three are unit vectors. $\langle 1, 1 \rangle$ has magnitude $\sqrt2$, and $\left\langle \tfrac12, \tfrac12 \right\rangle$ has magnitude $\sqrt{\tfrac12} \approx 0.71$; components of size at most 1 don't make a vector a unit vector.
+- id: pc-m8-r2-q04
+  lesson: pc-vectors-2d
+  type: label
+  module_quiz: true
+  topic: Vectors
+  stem: 'The arrow goes from $P(x_1, y_1)$ to $Q(x_2, y_2)$. Name the numbered parts.'
+  image: {src: images/pc-m8-vector-parts-blank.svg, alt: 'An arrow from a point at the lower left to a point at the upper right, with a dashed horizontal leg and a dashed vertical leg forming a right triangle, and an angle marked at the starting point. Six parts are numbered.'}
+  labels:
+    - {x: 17.3, y: 80.6, text: Initial point}
+    - {x: 78.8, y: 25.0, text: Terminal point}
+    - {x: 48.1, y: 80.6, text: 'Horizontal component, x₂ − x₁'}
+    - {x: 78.8, y: 52.8, text: 'Vertical component, y₂ − y₁'}
+    - {x: 27.5, y: 76.3, text: Direction angle}
+    - {x: 48.1, y: 52.8, text: 'The vector, whose length is its magnitude'}
+  distractors: [Unit vector, Scalar multiple]
+  explanation: |-
+    The arrow starts at the initial point $P$ and ends at the terminal point $Q$. The horizontal leg is the first component $x_2 - x_1$ and the vertical leg is the second component $y_2 - y_1$; the arrow is the hypotenuse, so its length is $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. The direction angle is measured at the start, counterclockwise from the positive $x$ direction.
+- id: pc-m8-r2-q05
+  lesson: pc-vectors-2d
+  type: match
+  topic: Vectors
+  stem: 'Draw $\vec u$ and $\vec v$ from the same starting point. Match each vector to its picture.'
+  pairs:
+    - ['$\vec u + \vec v$', 'The diagonal of the parallelogram from the common start']
+    - ['$\vec u - \vec v$', 'The arrow from the tip of v to the tip of u']
+    - ['$-2\vec u$', 'Twice as long as u, pointing the opposite way']
+    - ['$\dfrac{\vec u}{\lVert\vec u\rVert}$', 'Length 1, pointing the same way as u']
+  distractors: ['Half as long as u, pointing the same way']
+  explanation: |-
+    Tip to tail, $\vec u + \vec v$ runs along the parallelogram's diagonal. $\vec u - \vec v$ is what you add to $\vec v$ to get $\vec u$, so it runs from the tip of $\vec v$ to the tip of $\vec u$. Multiplying by $-2$ doubles the length and reverses the direction. Dividing by the magnitude keeps the direction and makes the length 1. Half as long in the same direction would be $\tfrac12\vec u$.
+- id: pc-m8-r2-q06
+  lesson: pc-vectors-2d
+  type: order
+  topic: Vectors
+  stem: 'You know the points $P$ and $Q$ and want the unit vector pointing from $P$ toward $Q$. Put the steps in order.'
+  items:
+    - 'Subtract coordinates (terminal minus initial) to get the components of $\vec{PQ}$'
+    - 'Compute the magnitude $\lVert\vec{PQ}\rVert$ from the components'
+    - 'Divide each component by the magnitude'
+    - 'Check that the result has magnitude 1'
+  explanation: |-
+    Each step needs the one before it: the magnitude is computed from the components, the division needs the magnitude, and the check needs the finished unit vector.
+# ---- Core: pc-dot-product
+- id: pc-m8-r2-q07
+  lesson: pc-dot-product
+  type: text
+  topic: Vectors in 3D
+  stem: '$\langle 3, -2, 5 \rangle \cdot \langle 4, 6, -1 \rangle =$ ___'
+  accept: ['-5']
+  explanation: |-
+    Multiply matching components and add: $3(4) + (-2)(6) + 5(-1) = 12 - 12 - 5 = -5$. The negative sign means the angle between the vectors is obtuse.
+- id: pc-m8-r2-q08
+  lesson: pc-dot-product
+  type: text
+  topic: Dot product
+  stem: 'Two nonzero vectors are orthogonal exactly when their ___ equals 0.'
+  accept: [dot product, dot products, scalar product, inner product, u · v, u·v]
+  explanation: |-
+    $\vec u \cdot \vec v = \lVert\vec u\rVert\lVert\vec v\rVert\cos\theta$, and for nonzero vectors this is 0 exactly when $\cos\theta = 0$, that is, when $\theta = 90^\circ$.
+- id: pc-m8-r2-q09
+  lesson: pc-dot-product
+  module_quiz: true
+  topic: Dot product
+  stem: 'Which pairs of vectors are orthogonal? Select all that apply.'
+  choices: ['$\langle 2, -3 \rangle$ and $\langle 3, 2 \rangle$', '$\langle 1, 2, 3 \rangle$ and $\langle 3, 0, -1 \rangle$', '$\langle 1, 1 \rangle$ and $\langle 1, -2 \rangle$', '$\langle 2, 0, 1 \rangle$ and $\langle 0, 5, 0 \rangle$', '$\langle 4, 1, -2 \rangle$ and $\langle 1, 2, 2 \rangle$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Orthogonal means a dot product of 0. $6 - 6 = 0$; $3 + 0 - 3 = 0$; $0 + 0 + 0 = 0$: these three pairs are orthogonal. $\langle 1, 1 \rangle \cdot \langle 1, -2 \rangle = -1$ and $\langle 4, 1, -2 \rangle \cdot \langle 1, 2, 2 \rangle = 4 + 2 - 4 = 2$ are not 0.
+- id: pc-m8-r2-q10
+  lesson: pc-dot-product
+  type: match
+  topic: Dot product
+  stem: 'Match each task to the tool that does it.'
+  pairs:
+    - [Find the angle between two vectors, 'Divide the dot product by the product of the magnitudes, then take the inverse cosine']
+    - [Test whether two vectors are perpendicular, Check whether the dot product is 0]
+    - [Find the part of u that points along v, Use the vector projection of u onto v]
+    - [Find a vector perpendicular to two given vectors in space, Use the cross product]
+  distractors: [Add the two magnitudes]
+  explanation: |-
+    $\cos\theta = \frac{\vec u \cdot \vec v}{\lVert\vec u\rVert\lVert\vec v\rVert}$ gives the angle; a zero dot product means perpendicular; $\text{proj}_{\vec v}\vec u = \frac{\vec u \cdot \vec v}{\lVert\vec v\rVert^2}\vec v$ is the part along $\vec v$; and $\vec u \times \vec v$ is perpendicular to both. Adding magnitudes answers none of these.
+- id: pc-m8-r2-q11
+  lesson: pc-dot-product
+  type: label
+  module_quiz: true
+  topic: Vectors in 3D
+  stem: 'These are right-handed axes drawn the usual way, with a point and its shadow in the $xy$-plane. The point is 4 units above the $xy$-plane. Name the numbered parts.'
+  image: {src: images/pc-m8-3d-axes-blank.svg, alt: 'Three unlabeled axes from a common origin, one pointing down and to the left, one to the right and one straight up, with tick marks one unit apart. A point above the horizontal plane is joined by a dashed vertical segment to a point in the plane, and an arrow runs from the origin to the upper point. Six parts are numbered.'}
+  labels:
+    - {x: 24.2, y: 84.5, text: Positive x-axis}
+    - {x: 87.9, y: 63.6, text: Positive y-axis}
+    - {x: 48.1, y: 18.6, text: Positive z-axis}
+    - {x: 48.1, y: 63.6, text: Origin}
+    - {x: 63.7, y: 31.8, text: 'Point (2, 3, 4)'}
+    - {x: 63.7, y: 72.7, text: 'Point (2, 3, 0)'}
+  distractors: ['Point (3, 2, 4)']
+  explanation: |-
+    In the usual right-handed drawing, $x$ comes toward you (down and to the left), $y$ goes right and $z$ goes up; curling the fingers of your right hand from $x$ to $y$ points your thumb up the $z$-axis. The lower point sits 2 ticks along $x$ and 3 ticks along $y$, so it is $(2, 3, 0)$, and the point 4 units straight above it is $(2, 3, 4)$. Reading 3 along $x$ and 2 along $y$, $(3, 2, 4)$, swaps the axes.
+- id: pc-m8-r2-q12
+  lesson: pc-dot-product
+  type: order
+  topic: Dot product
+  stem: 'A 10 N force moves a box 5 m in a straight line. Put these situations in order from the least work done to the most.'
+  items:
+    - 'The force points $120^\circ$ from the direction of motion'
+    - 'The force points $90^\circ$ from the direction of motion'
+    - 'The force points $60^\circ$ from the direction of motion'
+    - 'The force points along the direction of motion'
+  explanation: |-
+    $W = \lVert\vec F\rVert\lVert\vec d\rVert\cos\theta = 50\cos\theta$ joules: $50\cos 120^\circ = -25$, $50\cos 90^\circ = 0$, $50\cos 60^\circ = 25$ and $50\cos 0^\circ = 50$. A force partly opposing the motion does negative work.
+# ---- Honors: pc-m8-h-cross-product
+- id: pc-m8-r2-h01
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'Compute $\langle 1, 2, 3 \rangle \times \langle 4, 5, 6 \rangle$.'
+  choices: ['$\langle -3, -6, -3 \rangle$', '$\langle 3, -6, 3 \rangle$', '$\langle -3, 6, -3 \rangle$', '$\langle 4, 10, 18 \rangle$']
+  answer: 2
+  explanation: |-
+    $\mathbf{i}$: $2 \cdot 6 - 3 \cdot 5 = -3$. $\mathbf{j}$: $-(1 \cdot 6 - 3 \cdot 4) = -(-6) = 6$. $\mathbf{k}$: $1 \cdot 5 - 2 \cdot 4 = -3$. So the answer is $\langle -3, 6, -3 \rangle$; check: $\langle -3, 6, -3 \rangle \cdot \langle 1, 2, 3 \rangle = -3 + 12 - 9 = 0$. Dropping the minus sign on the middle term gives $\langle -3, -6, -3 \rangle$; $\langle 3, -6, 3 \rangle$ is $\langle 4, 5, 6 \rangle \times \langle 1, 2, 3 \rangle$, the reverse order; and $\langle 4, 10, 18 \rangle$ just multiplies matching components.
+- id: pc-m8-r2-h02
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'What is $\mathbf{i} \times \mathbf{k}$?'
+  choices: ['$\mathbf{j}$', '$-\mathbf{j}$', '$\vec 0$', '$-\mathbf{k}$']
+  answer: 1
+  explanation: |-
+    Around the cycle $\mathbf{i} \to \mathbf{j} \to \mathbf{k} \to \mathbf{i}$, $\mathbf{k} \times \mathbf{i} = \mathbf{j}$. Reversing the order flips the sign, so $\mathbf{i} \times \mathbf{k} = -\mathbf{j}$. The answer must be perpendicular to both $\mathbf{i}$ and $\mathbf{k}$, which rules out $-\mathbf{k}$, and it is $\vec 0$ only for parallel vectors.
+- id: pc-m8-r2-h03
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'Find the area of the parallelogram spanned by $\langle 2, 0, 0 \rangle$ and $\langle 1, 3, 4 \rangle$.'
+  choices: ['$10$', '$5$', '$2$', '$100$']
+  answer: 0
+  explanation: |-
+    $\langle 2, 0, 0 \rangle \times \langle 1, 3, 4 \rangle = \langle 0 \cdot 4 - 0 \cdot 3,\ 0 \cdot 1 - 2 \cdot 4,\ 2 \cdot 3 - 0 \cdot 1 \rangle = \langle 0, -8, 6 \rangle$, with length $\sqrt{64 + 36} = 10$. 5 would be the triangle (half the parallelogram), 100 forgets the square root, and 2 is the dot product.
+- id: pc-m8-r2-h04
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'Find the area of the triangle in the plane with vertices $(0, 0)$, $(6, 1)$ and $(2, 5)$.'
+  choices: ['$28$', '$16$', '$7$', '$14$']
+  answer: 3
+  explanation: |-
+    The sides from the origin are $\langle 6, 1 \rangle$ and $\langle 2, 5 \rangle$. The parallelogram has area $\lvert 6 \cdot 5 - 1 \cdot 2 \rvert = 28$, and the triangle is half: 14. 28 forgets the $\tfrac12$, and 16 comes from adding $6 \cdot 5 + 1 \cdot 2$ instead of subtracting.
+- id: pc-m8-r2-h05
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'Find the volume of the parallelepiped spanned by $\langle 1, 1, 0 \rangle$, $\langle 0, 2, 1 \rangle$ and $\langle 3, 0, 1 \rangle$.'
+  choices: ['$5$', '$1$', '$-5$', '$2$']
+  answer: 0
+  explanation: |-
+    The triple product is the determinant with these rows: $1(2 \cdot 1 - 1 \cdot 0) - 1(0 \cdot 1 - 1 \cdot 3) + 0 = 2 + 3 = 5$. The volume is $\lvert 5 \rvert = 5$. A volume is never negative, so $-5$ is out even though listing the vectors in another order can give a determinant of $-5$. Forgetting the minus sign on the middle term gives $2 - 3 = -1$, a volume of 1.
+- id: pc-m8-r2-h06
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'For which $k$ are $\langle 1, 2, 3 \rangle$, $\langle 0, 1, k \rangle$ and $\langle 2, 5, 9 \rangle$ coplanar?'
+  choices: ['$k = -3$', '$k = 0$', '$k = 3$', '$k = 9$']
+  answer: 2
+  explanation: |-
+    Coplanar means the triple product is 0: $1(9 - 5k) - 2(0 - 2k) + 3(0 - 2) = 9 - 5k + 4k - 6 = 3 - k$. This is 0 when $k = 3$. (Then $\langle 2, 5, 9 \rangle = 2\langle 1, 2, 3 \rangle + \langle 0, 1, 3 \rangle$, which confirms it.)
+- id: pc-m8-r2-h07
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'A 50 N force is applied to a wrench 0.4 m from the bolt, at $30^\circ$ to the handle. What is the size of the torque?'
+  choices: ['About 17.3 N·m', '10 N·m', '20 N·m', '125 N·m']
+  answer: 1
+  explanation: |-
+    $\lVert\vec\tau\rVert = \lVert\vec r\rVert\lVert\vec F\rVert\sin\theta = 0.4 \cdot 50 \cdot \sin 30^\circ = 20 \cdot 0.5 = 10$ N·m. Using cosine gives about 17.3; ignoring the angle gives 20; dividing 50 by 0.4 gives 125.
+- id: pc-m8-r2-h08
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'If $\vec u$ and $\vec v$ are nonzero vectors and $\vec u \times \vec v = \vec 0$, what must be true?'
+  choices: ['$\vec u$ and $\vec v$ are perpendicular', '$\vec u$ and $\vec v$ have the same length', 'One of them is a unit vector', '$\vec u$ and $\vec v$ are parallel']
+  answer: 3
+  explanation: |-
+    $\lVert\vec u \times \vec v\rVert = \lVert\vec u\rVert\lVert\vec v\rVert\sin\theta$, and with nonzero lengths this is 0 only when $\sin\theta = 0$, so $\theta = 0$ or $180^\circ$: parallel (same or opposite direction). Perpendicular vectors give the largest cross product, not zero; it is the dot product that is 0 for them.
+- id: pc-m8-r2-h09
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'On level ground, $\vec u$ points east and $\vec v$ points north. Using right-handed axes with $x$ east, $y$ north and $z$ up, which way does $\vec u \times \vec v$ point?'
+  choices: ['Straight up', 'Straight down', 'West', 'Northeast']
+  answer: 0
+  explanation: |-
+    East to north is $\mathbf{i}$ to $\mathbf{j}$, and $\mathbf{i} \times \mathbf{j} = \mathbf{k}$, which points up. By the right-hand rule: fingers east, curl toward north, thumb up. The answer must be perpendicular to the ground, which rules out west and northeast; straight down would be $\vec v \times \vec u$.
+- id: pc-m8-r2-h10
+  lesson: pc-m8-h-cross-product
+  type: text
+  topic: Cross product
+  stem: 'If $\lVert\vec u\rVert = 4$, $\lVert\vec v\rVert = 5$ and the angle between them is $30^\circ$, then $\lVert\vec u \times \vec v\rVert =$ ___. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    $\lVert\vec u \times \vec v\rVert = \lVert\vec u\rVert\lVert\vec v\rVert\sin\theta = 4 \cdot 5 \cdot \tfrac12 = 10$. (With cosine you would get the size of the dot product, $10\sqrt3 \approx 17.3$.)
+- id: pc-m8-r2-h11
+  lesson: pc-m8-h-cross-product
+  type: match
+  topic: Cross product
+  stem: 'Match each cross product of standard unit vectors to its value.'
+  pairs:
+    - ['$\mathbf{i} \times \mathbf{j}$', 'k']
+    - ['$\mathbf{j} \times \mathbf{k}$', 'i']
+    - ['$\mathbf{k} \times \mathbf{i}$', 'j']
+    - ['$\mathbf{j} \times \mathbf{i}$', '−k']
+    - ['$\mathbf{k} \times \mathbf{k}$', 'the zero vector']
+  distractors: ['−j']
+  explanation: |-
+    Following the cycle $\mathbf{i} \to \mathbf{j} \to \mathbf{k} \to \mathbf{i}$ gives a plus sign: $\mathbf{i} \times \mathbf{j} = \mathbf{k}$, $\mathbf{j} \times \mathbf{k} = \mathbf{i}$, $\mathbf{k} \times \mathbf{i} = \mathbf{j}$. Going against it flips the sign, so $\mathbf{j} \times \mathbf{i} = -\mathbf{k}$. Any vector crossed with itself is $\vec 0$.
+- id: pc-m8-r2-h12
+  lesson: pc-m8-h-cross-product
+  type: order
+  topic: Cross product
+  stem: 'You know the four corners $A$, $B$, $C$, $D$ of a parallelepiped that meet at corner $A$. Put the steps for finding its volume in order.'
+  items:
+    - 'Subtract $A$ from $B$, $C$ and $D$ to get the edge vectors $\vec u$, $\vec v$, $\vec w$'
+    - 'Compute the cross product $\vec v \times \vec w$'
+    - 'Take the dot product of $\vec u$ with $\vec v \times \vec w$'
+    - 'Take the absolute value'
+  explanation: |-
+    The edges come first, since everything is computed from them. The triple product $\vec u \cdot (\vec v \times \vec w)$ needs the cross product before the dot product, and the absolute value is applied last, because the triple product can be negative but a volume can't.
+- id: pc-m8-r2-h13
+  lesson: pc-m8-h-cross-product
+  topic: Cross product
+  stem: 'Which statements are true for all vectors $\vec u$ and $\vec v$ in space? Select all that apply.'
+  choices: ['$\vec u \times \vec u = \vec 0$', '$\vec v \times \vec u = -(\vec u \times \vec v)$', '$\vec u \times \vec v = \vec v \times \vec u$', '$(2\vec u) \times \vec v = 2(\vec u \times \vec v)$', '$\lVert\vec u \times \vec v\rVert = \lVert\vec u\rVert\,\lVert\vec v\rVert$']
+  answer: [0, 1, 3]
+  explanation: |-
+    A vector is parallel to itself, so $\vec u \times \vec u = \vec 0$; the cross product is anticommutative; and scalars pull out. It is not commutative ($\mathbf{i} \times \mathbf{j} = \mathbf{k}$ but $\mathbf{j} \times \mathbf{i} = -\mathbf{k}$), and $\lVert\vec u \times \vec v\rVert = \lVert\vec u\rVert\lVert\vec v\rVert\sin\theta$, which equals $\lVert\vec u\rVert\lVert\vec v\rVert$ only for perpendicular vectors.
+- id: pc-m8-r2-h14
+  lesson: pc-m8-h-cross-product
+  type: label
+  topic: Cross product
+  stem: 'The arrow along the bottom of the parallelogram is $\vec u$, the other arrow on the parallelogram is $\vec v$, and the upright arrow is perpendicular to the parallelogram. Name the numbered parts.'
+  image: {src: images/pc-m8-cross-parallelogram-blank.svg, alt: 'A shaded parallelogram in a tilted plane with two arrows along its sides from one corner, one along the bottom and one up the left side. A third arrow rises straight up from the same corner. An angle is marked between the two side arrows, and a dashed segment drops from the tip of the left arrow perpendicular to the bottom arrow. Four parts are numbered.'}
+  labels:
+    - {x: 26.9, y: 45.0, text: 'u × v'}
+    - {x: 35.7, y: 76.1, text: 'The angle θ between u and v'}
+    - {x: 51.9, y: 67.0, text: 'Height of the parallelogram, ‖v‖ sin θ'}
+    - {x: 60.6, y: 67.5, text: 'Region whose area is ‖u × v‖'}
+  distractors: ['v × u', 'Projection of v onto u']
+  explanation: |-
+    By the right-hand rule, fingers along $\vec u$ (the bottom arrow) curling toward $\vec v$ point the thumb up, so the upright arrow is $\vec u \times \vec v$; $\vec v \times \vec u$ would point down. The dashed segment is perpendicular to $\vec u$, so it is the height $\lVert\vec v\rVert\sin\theta$ (the projection of $\vec v$ onto $\vec u$ would lie along $\vec u$). Base $\lVert\vec u\rVert$ times that height is the shaded area, $\lVert\vec u \times \vec v\rVert$.
+# ---- Honors: pc-m8-h-lines-planes
+- id: pc-m8-r2-h15
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'Which parametric equations describe the line through $(2, -1, 4)$ with direction vector $\langle 3, 0, -2 \rangle$?'
+  choices: ['$x = 3 + 2t,\ y = -t,\ z = -2 + 4t$', '$x = 2 + 3t,\ y = -1,\ z = 4 - 2t$', '$x = 2 + 3t,\ y = -1 + t,\ z = 4 - 2t$', '$x = 2t + 3,\ y = -1,\ z = 4t - 2$']
+  answer: 1
+  explanation: |-
+    Point plus $t$ times direction: $x = 2 + 3t$, $y = -1 + 0t = -1$, $z = 4 - 2t$. The $y$-coordinate never changes because the direction has no $y$ part; writing $-1 + t$ adds a $y$ part that isn't there. The other two choices swap the roles of the point and the direction.
+- id: pc-m8-r2-h16
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'Which point lies on the line $x = 1 + 2t$, $y = 3 - t$, $z = 4t$?'
+  choices: ['$(5, 1, 4)$', '$(2, -1, 4)$', '$(-1, 4, 4)$', '$(5, 1, 8)$']
+  answer: 3
+  explanation: |-
+    A point is on the line if one value of $t$ gives all three coordinates. For $(5, 1, 8)$: $x = 5$ gives $t = 2$, and then $y = 3 - 2 = 1$ and $z = 8$. ✓ For $(5, 1, 4)$, $t = 2$ from $x$ but $z$ would need $t = 1$. $(2, -1, 4)$ is the direction vector, not a point of the line. For $(-1, 4, 4)$, $x$ and $y$ give $t = -1$, but $z$ would be $-4$.
+- id: pc-m8-r2-h17
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'Which vector is normal to the plane $3x - 2y + z = 7$?'
+  choices: ['$\langle 3, -2, 7 \rangle$', '$\langle 1, -2, 3 \rangle$', '$\langle 3, -2, 1 \rangle$', '$\langle 2, 3, 0 \rangle$']
+  answer: 2
+  explanation: |-
+    The coefficients of $x$, $y$, $z$ form a normal vector: $\langle 3, -2, 1 \rangle$. The 7 only shifts the plane and has nothing to do with its direction. $\langle 1, -2, 3 \rangle$ reverses the coefficients, and $\langle 2, 3, 0 \rangle$ has dot product $6 - 6 + 0 = 0$ with the normal, so it lies parallel to the plane instead of perpendicular to it.
+- id: pc-m8-r2-h18
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'Find an equation of the plane through $(1, -2, 3)$ with normal vector $\langle 2, 1, -1 \rangle$.'
+  choices: ['$2x + y - z = -3$', '$2x + y - z = 3$', '$x - 2y + 3z = 14$', '$2x + y - z = 0$']
+  answer: 0
+  explanation: |-
+    $2(x - 1) + 1(y + 2) - 1(z - 3) = 0$ gives $2x + y - z - 2 + 2 + 3 = 0$, so $2x + y - z = -3$. Check: $2(1) + (-2) - 3 = -3$. ✓ The equation $x - 2y + 3z = 14$ swaps the roles of the point and the normal: it passes through the point but has the wrong normal.
+- id: pc-m8-r2-h19
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'Find an equation of the plane through $(1, 0, 0)$, $(0, 2, 0)$ and $(0, 0, 3)$.'
+  choices: ['$x + 2y + 3z = 6$', '$6x + 3y + 2z = 6$', '$3x + 2y + z = 6$', '$6x + 3y + 2z = 1$']
+  answer: 1
+  explanation: |-
+    Directions in the plane: $\langle -1, 2, 0 \rangle$ and $\langle -1, 0, 3 \rangle$. Their cross product is $\langle 6, 3, 2 \rangle$. Using $(1, 0, 0)$: $6(x - 1) + 3y + 2z = 0$, so $6x + 3y + 2z = 6$. Check: $(0, 2, 0)$ gives 6 and $(0, 0, 3)$ gives 6. ✓ The plane $x + 2y + 3z = 6$ puts the intercepts in as coefficients; $(1, 0, 0)$ gives 1, not 6.
+- id: pc-m8-r2-h20
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'How are the lines $\vec r(t) = \langle 1, 0, 2 \rangle + t\langle 2, -1, 1 \rangle$ and $\vec r(s) = \langle 3, -1, 3 \rangle + s\langle -4, 2, -2 \rangle$ related?'
+  choices: ['They intersect at exactly one point', 'They are skew', 'They are parallel and distinct', 'They are the same line']
+  answer: 3
+  explanation: |-
+    The directions are multiples: $\langle -4, 2, -2 \rangle = -2\langle 2, -1, 1 \rangle$, so the lines are parallel or identical. Is $(1, 0, 2)$ on the second line? $3 - 4s = 1$ gives $s = \tfrac12$, and then $y = -1 + 1 = 0$ and $z = 3 - 1 = 2$. ✓ The lines share a point and a direction, so they are the same line.
+- id: pc-m8-r2-h21
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'The lines $x = 1 + t,\ y = 1 + t,\ z = t$ and $x = 3,\ y = 5 - s,\ z = s$ intersect. Where?'
+  choices: ['$(3, 5, 0)$', '$(2, 2, 1)$', '$(3, 3, 2)$', '$(3, 3, 0)$']
+  answer: 2
+  explanation: |-
+    From $x$: $1 + t = 3$, so $t = 2$. From $z$: $s = t = 2$. Then $y$: $1 + 2 = 3$ and $5 - 2 = 3$. ✓ Both lines pass through $(3, 3, 2)$. $(3, 5, 0)$ is only on the second line ($s = 0$) and $(2, 2, 1)$ only on the first ($t = 1$).
+- id: pc-m8-r2-h22
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'How far is the point $(1, 2, 3)$ from the plane $2x - y + 2z = 1$?'
+  choices: ['$\tfrac59$', '$\tfrac53$', '$5$', '$\tfrac73$']
+  answer: 1
+  explanation: |-
+    $D = \dfrac{\lvert 2(1) - 2 + 2(3) - 1 \rvert}{\sqrt{4 + 1 + 4}} = \dfrac{5}{3}$. Forgetting to divide gives 5, dividing by $a^2 + b^2 + c^2 = 9$ gives $\tfrac59$, and adding $d$ instead of subtracting it gives $\tfrac73$.
+- id: pc-m8-r2-h23
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'What is the distance between the parallel planes $x + 2y + 2z = 3$ and $x + 2y + 2z = 12$?'
+  choices: ['$9$', '$1$', '$5$', '$3$']
+  answer: 3
+  explanation: |-
+    $\dfrac{\lvert 12 - 3 \rvert}{\sqrt{1 + 4 + 4}} = \dfrac{9}{3} = 3$. 9 forgets to divide by the length of the normal, 1 divides by 9 instead of 3, and 5 adds the constants instead of subtracting them.
+- id: pc-m8-r2-h24
+  lesson: pc-m8-h-lines-planes
+  type: text
+  topic: Lines and planes in space
+  stem: 'The line $x = 2 + t$, $y = 1 - 2t$, $z = 3t$ meets the plane $x + y + z = 9$ when $t =$ ___, at the point ( ___ , ___ , ___ ).'
+  accept: [['3'], ['5'], ['-5'], ['9']]
+  explanation: |-
+    Substitute: $(2 + t) + (1 - 2t) + 3t = 9$, so $3 + 2t = 9$ and $t = 3$. Then $x = 5$, $y = 1 - 6 = -5$, $z = 9$. Check: $5 - 5 + 9 = 9$. ✓
+- id: pc-m8-r2-h25
+  lesson: pc-m8-h-lines-planes
+  topic: Lines and planes in space
+  stem: 'Which planes are perpendicular to the plane $x + y + z = 1$? Select all that apply.'
+  choices: ['$x - y = 3$', '$x + y - 2z = 0$', '$2x + 2y + 2z = 5$', '$y - z = 4$', '$x + 2y + 3z = 6$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Planes are perpendicular when their normals are. The normal here is $\langle 1, 1, 1 \rangle$. The normals $\langle 1, -1, 0 \rangle$, $\langle 1, 1, -2 \rangle$ and $\langle 0, 1, -1 \rangle$ each have dot product 0 with it. $\langle 2, 2, 2 \rangle$ is a multiple of $\langle 1, 1, 1 \rangle$, so that plane is parallel, and $\langle 1, 2, 3 \rangle \cdot \langle 1, 1, 1 \rangle = 6 \ne 0$.
+- id: pc-m8-r2-h26
+  lesson: pc-m8-h-lines-planes
+  type: match
+  topic: Lines and planes in space
+  stem: 'Match each object or quantity to what determines it.'
+  pairs:
+    - [A line in space, A point and a direction vector]
+    - [A plane in space, A point and a normal vector]
+    - [The normal of the plane through three points, The cross product of two edge vectors]
+    - [The distance from a point to a plane, The length of a projection onto the normal]
+  distractors: [A point and a slope]
+  explanation: |-
+    A line is a point plus multiples of a direction; a plane is every point $P$ with $\vec n \cdot \vec{P_0P} = 0$. Two edges from the same point lie in the plane, so their cross product is normal to it. The shortest path to a plane runs along the normal, so the distance is the length of the projection of $\vec{P_0P_1}$ onto $\vec n$. A single slope is not enough to describe a direction in space.
+- id: pc-m8-r2-h27
+  lesson: pc-m8-h-lines-planes
+  type: order
+  topic: Lines and planes in space
+  stem: 'Put the steps for finding the plane through three points $A$, $B$, $C$ in order.'
+  items:
+    - 'Subtract coordinates to get the vectors $\vec{AB}$ and $\vec{AC}$'
+    - 'Take their cross product to get a normal vector $\langle a, b, c \rangle$'
+    - 'Write $a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$ using the point $A$'
+    - 'Check that $B$ and $C$ satisfy the equation'
+  explanation: |-
+    The cross product needs the two edge vectors; the point-normal equation needs the normal; and the check needs the finished equation. If the cross product is $\vec 0$, the points are on one line and there is no single plane.
+- id: pc-m8-r2-h28
+  lesson: pc-m8-h-lines-planes
+  type: label
+  topic: Lines and planes in space
+  stem: 'The picture shows how a plane is described by a point and a normal vector. Name the numbered parts.'
+  image: {src: images/pc-m8-plane-normal-blank.svg, alt: 'A shaded plane drawn in perspective. From a point in the plane an arrow rises straight up, with a right-angle mark where it meets a second arrow that runs from that point to another point of the plane. Five parts are numbered.'}
+  labels:
+    - {x: 42.3, y: 44.1, text: 'Normal vector n'}
+    - {x: 42.3, y: 69.7, text: 'Fixed point P₀'}
+    - {x: 75.0, y: 75.0, text: 'Any point P of the plane'}
+    - {x: 58.7, y: 72.4, text: 'Vector P₀P, which lies in the plane'}
+    - {x: 80.8, y: 63.2, text: 'The plane'}
+  distractors: ['A point off the plane', 'A pair of skew lines']
+  explanation: |-
+    The plane is fixed by one point $P_0$ in it and a normal vector $\vec n$ perpendicular to it. Any other point $P$ of the plane gives an arrow $\vec{P_0P}$ lying flat in the plane, so $\vec n \cdot \vec{P_0P} = 0$; written out, that is $a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$.

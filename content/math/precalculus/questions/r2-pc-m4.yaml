@@ -1,0 +1,628 @@
+# Round 2 questions for pc-m4 (core lessons 15-19 and honors lessons 19h1-19h3)
+
+# ---------- Lesson 15: Exponential functions ----------
+- id: pc-m4-r2-q01
+  lesson: pc-exponential
+  type: text
+  topic: Exponential functions
+  stem: 'A quantity decreases by 15% each year, so it is modeled by $Q = Q_0 b^t$. What is the growth factor $b$, as a decimal? Give only the number.'
+  accept: ['0.85']
+  explanation: |-
+    Losing 15% leaves 85% of the amount, so each year multiplies by $1 - 0.15 = 0.85$. (Using $0.15$ would mean losing 85% each year.)
+- id: pc-m4-r2-q02
+  lesson: pc-exponential
+  type: label
+  module_quiz: true
+  topic: Exponential functions
+  stem: 'The picture shows $y = 2^x + 1$ and $y = \left(\tfrac12\right)^x + 1$. Name the numbered parts.'
+  image: {src: images/pc-m4-exp-features-blank.svg, alt: 'Two exponential curves, one rising to the right and one rising to the left, a dashed horizontal line below them, and the point where the curves cross the y-axis, with four numbered markers'}
+  labels:
+    - {x: 76.7, y: 26.4, text: Growth curve}
+    - {x: 26.4, y: 26.4, text: Decay curve}
+    - {x: 58.1, y: 72.0, text: Horizontal asymptote}
+    - {x: 51.6, y: 62.7, text: y-intercept}
+  distractors: [Vertical asymptote, x-intercept]
+  explanation: |-
+    $y = 2^x + 1$ rises to the right (growth, marker 1) and $y = \left(\tfrac12\right)^x + 1$ rises to the left, falling as $x$ increases (decay, marker 2). Both are shifted up 1, so both approach the dashed asymptote $y = 1$ (marker 3) and cross the $y$-axis at $(0, 1 + 1) = (0, 2)$ (marker 4). Neither graph has an $x$-intercept, since both stay above 1.
+- id: pc-m4-r2-q03
+  lesson: pc-exponential
+  topic: Exponential functions
+  stem: 'Which statements are true for every function $f(x) = b^x$ with $b > 0$ and $b \ne 1$? Select all that apply.'
+  choices: ['Its graph passes through $(0, 1)$', 'Its range is $(0, \infty)$', 'It is increasing', 'The line $y = 0$ is a horizontal asymptote', 'Its graph crosses the $x$-axis once']
+  answer: [0, 1, 3]
+  explanation: |-
+    $b^0 = 1$ for every allowed base, $b^x$ is always positive (range $(0, \infty)$), and the graph approaches $y = 0$ on one side. It is increasing only when $b > 1$; for $0 < b < 1$ it decreases. Because $b^x > 0$, the graph never touches the $x$-axis.
+- id: pc-m4-r2-q04
+  lesson: pc-exponential
+  type: match
+  topic: Exponential functions
+  stem: 'Match each description to the growth factor $b$ in $Q = Q_0 b^t$ ($t$ in years).'
+  pairs:
+    - [Grows 6% per year, '1.06']
+    - [Shrinks 6% per year, '0.94']
+    - [Doubles every year, '2']
+    - [Loses half every year, '0.5']
+  distractors: ['0.06', '1.6']
+  explanation: |-
+    The factor is what each year multiplies by: $1 + 0.06 = 1.06$ for 6% growth, $1 - 0.06 = 0.94$ for 6% loss, 2 for doubling and $\tfrac12$ for halving. $0.06$ is the rate, not the factor, and $1.6$ would be 60% growth.
+- id: pc-m4-r2-q05
+  lesson: pc-exponential
+  type: order
+  module_quiz: true
+  topic: Exponential functions
+  stem: '\$1,000 is invested at 6% for 5 years. Put the compounding methods in order from the smallest final balance to the largest.'
+  items: [Compounded annually, Compounded quarterly, Compounded monthly, Compounded continuously]
+  explanation: |-
+    The balances are $1000(1.06)^5 \approx 1338.23$, $1000(1.015)^{20} \approx 1346.86$, $1000(1.005)^{60} \approx 1348.85$ and $1000e^{0.3} \approx 1349.86$. Compounding more often always helps a little, and continuous compounding is the ceiling.
+
+# ---------- Lesson 16: Logarithms ----------
+- id: pc-m4-r2-q06
+  lesson: pc-logarithms
+  type: text
+  topic: Logarithms
+  stem: '$\log_2 32 =$ ___. Give only the number.'
+  accept: ['5']
+  explanation: |-
+    Ask "2 to what power is 32?" Since $2^5 = 32$, $\log_2 32 = 5$.
+- id: pc-m4-r2-q07
+  lesson: pc-logarithms
+  type: label
+  module_quiz: true
+  topic: Logarithms
+  stem: 'The picture shows the graph of $y = \log_2(x - 2)$. Name the numbered parts.'
+  image: {src: images/pc-m4-log-features-blank.svg, alt: 'A logarithm graph with a dashed vertical line, a shaded region to the left of that line, and two marked points on the curve, with four numbered markers'}
+  labels:
+    - {x: 31.7, y: 15.5, text: Vertical asymptote}
+    - {x: 39.6, y: 48.8, text: x-intercept}
+    - {x: 47.6, y: 38.4, text: Point where the output is 1}
+    - {x: 23.7, y: 23.8, text: Outside the domain}
+  distractors: [Horizontal asymptote, y-intercept]
+  explanation: |-
+    The argument $x - 2$ must be positive, so the domain is $x > 2$: the dashed line $x = 2$ is the vertical asymptote (marker 1) and everything to its left is outside the domain (marker 4). The output is 0 when $x - 2 = 1$, at the $x$-intercept $(3, 0)$ (marker 2), and 1 when $x - 2 = 2$, at $(4, 1)$ (marker 3). The graph has no $y$-intercept, since $x = 0$ is not in the domain.
+- id: pc-m4-r2-q08
+  lesson: pc-logarithms
+  topic: Logarithms
+  stem: 'For $x, y > 0$, which expressions are equal to $\log_3\left(x^2y\right)$? Select all that apply.'
+  choices: ['$2\log_3 x + \log_3 y$', '$\log_3 x^2 + \log_3 y$', '$(\log_3 x)^2 + \log_3 y$', '$2\log_3 x \cdot \log_3 y$', '$\dfrac{\ln\left(x^2y\right)}{\ln 3}$']
+  answer: [0, 1, 4]
+  explanation: |-
+    The product rule gives $\log_3 x^2 + \log_3 y$, and the power rule turns that into $2\log_3 x + \log_3 y$. Change of base gives $\frac{\ln(x^2y)}{\ln 3}$. $(\log_3 x)^2$ is not $\log_3 x^2$ (the power must be inside), and a log of a product is a sum of logs, not a product.
+- id: pc-m4-r2-q09
+  lesson: pc-logarithms
+  type: match
+  module_quiz: true
+  topic: Logarithms
+  stem: 'Match each logarithm statement to the same fact in exponential form.'
+  pairs:
+    - ['$\log_5 25 = 2$', '5² = 25']
+    - ['$\log 0.001 = -3$', '10⁻³ = 0.001']
+    - ['$\ln 1 = 0$', 'e⁰ = 1']
+    - ['$\log_4 2 = \tfrac12$', '4^(1/2) = 2']
+  distractors: ['25² = 5', '2⁴ = 16']
+  explanation: |-
+    $\log_b x = y$ means $b^y = x$: the base stays the base and the log's value becomes the exponent. $\log$ means base 10 and $\ln$ means base $e$. "25² = 5" mixes up the base and the result.
+- id: pc-m4-r2-q10
+  lesson: pc-logarithms
+  type: text
+  topic: Logarithms
+  stem: 'Evaluate $\log_4 \tfrac{1}{64}$. Give only the number.'
+  accept: ['-3']
+  explanation: |-
+    $64 = 4^3$, so $\frac{1}{64} = 4^{-3}$ and $\log_4 \frac1{64} = -3$.
+
+# ---------- Lesson 17: Exponential and logarithmic equations ----------
+- id: pc-m4-r2-q11
+  lesson: pc-exp-log-equations
+  type: order
+  module_quiz: true
+  topic: Exponential and logarithmic equations
+  stem: 'Put the steps for solving $5 \cdot 3^x = 40$ in order.'
+  items: ['Divide both sides by 5: $3^x = 8$', 'Take $\ln$ of both sides: $\ln 3^x = \ln 8$', 'Use the power rule: $x\ln 3 = \ln 8$', 'Divide: $x = \dfrac{\ln 8}{\ln 3} \approx 1.893$']
+  explanation: |-
+    Isolate the exponential first, then take a logarithm, bring the exponent down with the power rule, and divide. Taking $\ln$ before dividing by 5 would give $\ln 5 + x\ln 3$, which is correct but an extra step.
+- id: pc-m4-r2-q12
+  lesson: pc-exp-log-equations
+  type: text
+  topic: Exponential and logarithmic equations
+  stem: 'Solve $4^{x + 1} = 8^x$. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    Write both as powers of 2: $2^{2(x + 1)} = 2^{3x}$, so $2x + 2 = 3x$ and $x = 2$. Check: $4^3 = 64 = 8^2$.
+- id: pc-m4-r2-q13
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Which equations have no real solution? Select all that apply.'
+  choices: ['$e^x = -4$', '$2^x = 0$', '$\ln x = -4$', '$3^{2x} - 3^x - 2 = 0$', '$e^{2x} + 3e^x + 2 = 0$']
+  answer: [0, 1, 4]
+  explanation: |-
+    $e^x$ and $2^x$ are always positive, so they are never $-4$ or $0$. With $u = e^x$, $u^2 + 3u + 2 = 0$ gives $u = -1$ or $-2$, both impossible. But $\ln x = -4$ has the solution $x = e^{-4}$, and $3^{2x} - 3^x - 2 = 0$ gives $3^x = 2$ (rejecting $3^x = -1$), so $x = \log_3 2$.
+- id: pc-m4-r2-q14
+  lesson: pc-exp-log-equations
+  type: match
+  module_quiz: true
+  topic: Exponential and logarithmic equations
+  stem: 'Match each equation to the best first strategy.'
+  pairs:
+    - ['$9^x = 27^{x - 1}$', Rewrite both sides with the same base]
+    - ['$7 \cdot 2^x = 30$', 'Isolate the power, then take ln']
+    - ['$e^{2x} - 7e^x + 12 = 0$', Substitute u = eˣ]
+    - ['$\log_2 x + \log_2(x + 2) = 3$', 'Combine the logs, then rewrite in exponential form']
+  distractors: [Set the arguments equal]
+  explanation: |-
+    $9 = 3^2$ and $27 = 3^3$, so a common base exists. $7 \cdot 2^x = 30$ has no common base, so divide by 7 and take $\ln$. $e^{2x} = (e^x)^2$ makes the third a quadratic in $u = e^x$. The last has the unknown inside logs: combine with the product rule, rewrite as $x(x + 2) = 8$, and check. "Set the arguments equal" only works when one log equals another log with the same base.
+- id: pc-m4-r2-q15
+  lesson: pc-exp-log-equations
+  topic: Exponential and logarithmic equations
+  stem: 'Solving $\log_2 x + \log_2(x - 2) = 3$ gives the candidates $x = 4$ and $x = -2$. Why is $x = -2$ rejected?'
+  choices: ['It makes $x(x - 2)$ negative', 'Logarithm equations never have negative solutions', 'It makes $\log_2 x$ undefined in the original equation', 'It does not satisfy $x^2 - 2x - 8 = 0$']
+  answer: 2
+  explanation: |-
+    At $x = -2$ the original equation contains $\log_2(-2)$, which is undefined, so $-2$ is extraneous. It does satisfy the quadratic, and $x(x - 2) = 8$ is positive there; the combined form $\log_2\big(x(x - 2)\big)$ accepts it, which is exactly how it sneaked in. Some log equations do have negative solutions, for example $\log(x + 5) = 0$ gives $x = -4$.
+
+# ---------- Lesson 18: Exponential models ----------
+- id: pc-m4-r2-q16
+  lesson: pc-exp-models
+  type: label
+  module_quiz: true
+  topic: Exponential models
+  stem: 'The picture shows the logistic model $P(t) = \dfrac{1000}{1 + 9e^{-0.5t}}$. Name the numbered parts.'
+  image: {src: images/pc-m4-logistic-features-blank.svg, alt: 'An S-shaped curve below a dashed horizontal line, with five numbered markers on the line and along the curve'}
+  labels:
+    - {x: 13.3, y: 18.0, text: Carrying capacity}
+    - {x: 16.7, y: 83.2, text: Initial value}
+    - {x: 38.3, y: 54.2, text: Point of fastest growth}
+    - {x: 26.6, y: 73.7, text: Nearly exponential early growth}
+    - {x: 68.3, y: 21.3, text: Leveling off}
+  distractors: [Vertical asymptote, Half-life]
+  explanation: |-
+    The dashed line $P = 1000$ is the carrying capacity (marker 1). At $t = 0$ the curve is at $P(0) = \frac{1000}{10} = 100$ (marker 2). Early on, while $P$ is small, it grows almost exponentially (marker 4). Growth is fastest at half capacity, $(4.39, 500)$ (marker 3), and afterwards the curve levels off toward 1,000 (marker 5).
+- id: pc-m4-r2-q17
+  lesson: pc-exp-models
+  type: text
+  topic: Exponential models
+  stem: 'A substance has a half-life of 8 days. What fraction of it remains after 24 days? Give a fraction or a decimal.'
+  accept: ['1/8']
+  explanation: |-
+    24 days is $\frac{24}{8} = 3$ half-lives, so the amount is multiplied by $\left(\tfrac12\right)^3 = \tfrac18 = 0.125$.
+- id: pc-m4-r2-q18
+  lesson: pc-exp-models
+  type: match
+  module_quiz: true
+  topic: Exponential models
+  stem: 'Match each situation to the model that fits it best.'
+  pairs:
+    - ['Coffee cooling in a 20°C room', 'Newton''s law of cooling']
+    - [Money at 4% compounded continuously, Exponential growth]
+    - [Carbon-14 in a fossil, Exponential decay]
+    - [A flu spreading through a closed school, Logistic growth]
+  distractors: [Linear growth]
+  explanation: |-
+    Coffee approaches room temperature, not 0, so Newton's law fits. Continuous compounding is $Pe^{rt}$, exponential growth. Radioactive carbon-14 decays exponentially with a fixed half-life. A flu in a closed school runs out of new people to infect, so it levels off: logistic.
+- id: pc-m4-r2-q19
+  lesson: pc-exp-models
+  topic: Exponential models
+  stem: 'For the logistic model $P(t) = \dfrac{800}{1 + 15e^{-0.3t}}$, which statements are true? Select all that apply.'
+  choices: ['$P(0) = 50$', 'The carrying capacity is 800', '$P(t)$ eventually exceeds 800', 'Growth is fastest when $P = 400$', '$P(0) = \tfrac{800}{15}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $P(0) = \frac{800}{1 + 15} = 50$ (not $\frac{800}{15}$, which forgets the 1). The curve levels off at the carrying capacity 800 and never exceeds it when it starts below. Growth is fastest at half capacity, $P = 400$.
+- id: pc-m4-r2-q20
+  lesson: pc-exp-models
+  type: order
+  topic: Exponential models
+  stem: 'Put these decaying quantities in order from fastest decay to slowest. ($k$ is the continuous rate, per hour.)'
+  items: ['$k = -0.5$', Loses 30% each hour, Has a half-life of 2 hours, Keeps 90% each hour]
+  explanation: |-
+    Convert each to a continuous rate: $k = -0.5$; losing 30% gives $k = \ln 0.7 \approx -0.357$; a 2-hour half-life gives $k = -\frac{\ln 2}{2} \approx -0.347$; keeping 90% gives $k = \ln 0.9 \approx -0.105$. The more negative $k$ is, the faster the decay.
+
+# ---------- Lesson 19: Modeling with data ----------
+- id: pc-m4-r2-q21
+  lesson: pc-modeling-data
+  type: text
+  topic: Fitting models to data
+  stem: 'For the regression line $\hat y = 2x + 3$, what is the residual of the data point $(4, 9)$? Give only the number.'
+  accept: ['-2']
+  explanation: |-
+    Predicted: $\hat y = 2(4) + 3 = 11$. Residual $=$ observed $-$ predicted $= 9 - 11 = -2$: the point lies 2 below the line.
+- id: pc-m4-r2-q22
+  lesson: pc-modeling-data
+  type: match
+  module_quiz: true
+  topic: Fitting models to data
+  stem: 'Match each pattern in a table of data to the model it suggests.'
+  pairs:
+    - [Constant first differences, Linear]
+    - [Constant second differences, Quadratic]
+    - [Constant ratios of consecutive values, Exponential]
+    - [Equal increases each time x doubles, Logarithmic]
+  distractors: [Logistic]
+  explanation: |-
+    A line adds the same amount per step; a quadratic's differences change by a constant; an exponential multiplies by the same factor per step; and $\ln(2x) = \ln x + \ln 2$, so a logarithm adds the same amount each time $x$ doubles. (The first three tests need equally spaced $x$-values.)
+- id: pc-m4-r2-q23
+  lesson: pc-modeling-data
+  topic: Fitting models to data
+  stem: 'Which statements about the least-squares regression line are true? Select all that apply.'
+  choices: ['It passes through the point $(\bar x, \bar y)$', 'Its residuals add up to 0', 'It makes the sum of the absolute values of the residuals as small as possible', 'If $r$ is close to 1, a line is guaranteed to be the right model', 'It makes the sum of the squared residuals as small as possible']
+  answer: [0, 1, 4]
+  explanation: |-
+    The intercept formula $b = \bar y - m\bar x$ puts $(\bar x, \bar y)$ on the line, and the residuals add to 0. "Least squares" means the sum of *squared* residuals is minimized, not the sum of absolute values. A high $r$ can hide curved data; Example 5 in the lesson had $r \approx 0.96$ but a U-shaped residual plot.
+- id: pc-m4-r2-q24
+  lesson: pc-modeling-data
+  type: order
+  topic: Fitting models to data
+  stem: 'Put the steps for fitting $y = ab^x$ to data by linearizing in order.'
+  items: ['Replace each $y$-value by $\ln y$', 'Fit a line to the points $(x, \ln y)$', 'Read the slope $m$ and intercept $c$ of that line', 'Set $a = e^c$ and $b = e^m$']
+  explanation: |-
+    Taking logs of $y = ab^x$ gives $\ln y = \ln a + x\ln b$, a line in $x$ with intercept $c = \ln a$ and slope $m = \ln b$. Fit that line first, then undo the logs: $a = e^c$, $b = e^m$.
+- id: pc-m4-r2-q25
+  lesson: pc-modeling-data
+  module_quiz: true
+  topic: Fitting models to data
+  stem: 'A scatter plot of $\ln y$ against $x$ is a straight line with intercept $5.298$ and slope $0.262$. Which model fits the original data? (Note $e^{5.298} \approx 200$ and $e^{0.262} \approx 1.3$.)'
+  choices: ['$y = 0.262x + 5.298$', '$y = 5.298(0.262)^x$', '$y = 200 + 1.3x$', '$y = 200(1.3)^x$']
+  answer: 3
+  explanation: |-
+    $\ln y = 5.298 + 0.262x$, so $y = e^{5.298}\left(e^{0.262}\right)^x \approx 200(1.3)^x$. The first choice is the line for $\ln y$, not for $y$; the second forgets to undo the logs.
+
+# ---------- Honors: Hyperbolic functions ----------
+- id: pc-m4-r2-h01
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Which is the definition of $\sinh x$?'
+  choices: ['$\dfrac{e^x - e^{-x}}{2}$', '$\dfrac{e^x + e^{-x}}{2}$', '$\dfrac{e^{-x} - e^x}{2}$', '$e^x - e^{-x}$']
+  answer: 0
+  explanation: |-
+    $\sinh x$ is the odd part of $e^x$: $\frac{e^x - e^{-x}}{2}$. The second choice is $\cosh x$, the third is $-\sinh x$, and the last is missing the factor $\frac12$.
+- id: pc-m4-r2-h02
+  lesson: pc-m4-h-hyperbolic
+  type: text
+  topic: Hyperbolic functions
+  stem: '$\cosh x + \sinh x =$ ___. (Write your answer in terms of $x$.)'
+  accept: ['e^x', 'e^(x)', 'exp(x)', 'eˣ']
+  explanation: |-
+    $\frac{e^x + e^{-x}}{2} + \frac{e^x - e^{-x}}{2} = \frac{2e^x}{2} = e^x$. The $e^{-x}$ terms cancel.
+- id: pc-m4-r2-h03
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'For every real $x$, $\cosh^2 x - \sinh^2 x$ equals'
+  choices: ['$-1$', '$1$', '$\cosh 2x$', '$0$']
+  answer: 1
+  explanation: |-
+    $\cosh^2 x = \frac{e^{2x} + 2 + e^{-2x}}{4}$ and $\sinh^2 x = \frac{e^{2x} - 2 + e^{-2x}}{4}$; subtracting leaves $\frac44 = 1$. The sum $\cosh^2 x + \sinh^2 x$ is $\cosh 2x$.
+- id: pc-m4-r2-h04
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'If $\cosh x = \frac{13}{12}$ and $x > 0$, what is $\tanh x$?'
+  choices: ['$\tfrac{12}{13}$', '$\tfrac{5}{12}$', '$\tfrac{5}{13}$', '$\tfrac{13}{5}$']
+  answer: 2
+  explanation: |-
+    $\sinh^2 x = \cosh^2 x - 1 = \frac{169}{144} - 1 = \frac{25}{144}$, and $\sinh x > 0$ for $x > 0$, so $\sinh x = \frac{5}{12}$. Then $\tanh x = \frac{5/12}{13/12} = \frac{5}{13}$. ($\frac5{12}$ is $\sinh x$ itself.)
+- id: pc-m4-r2-h05
+  lesson: pc-m4-h-hyperbolic
+  type: text
+  topic: Hyperbolic functions
+  stem: 'If $\cosh x = \frac54$ and $\sinh x = \frac34$, then $e^x =$ ___. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    $e^x = \cosh x + \sinh x = \frac54 + \frac34 = 2$, so $x = \ln 2$.
+- id: pc-m4-r2-h06
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Solve $\sinh x = 2$.'
+  choices: ['$x = \ln(2 - \sqrt5)$', '$x = \ln 2 \approx 0.693$', '$x = \ln 4 \approx 1.386$', '$x = \ln\left(2 + \sqrt5\right) \approx 1.444$']
+  answer: 3
+  explanation: |-
+    $e^x - e^{-x} = 4$, so $e^{2x} - 4e^x - 1 = 0$ and $e^x = 2 \pm \sqrt5$. Since $2 - \sqrt5 < 0$, only $e^x = 2 + \sqrt5$ works: $x = \ln\left(2 + \sqrt5\right) \approx 1.444$. ($\ln(2 - \sqrt5)$ is undefined.)
+- id: pc-m4-r2-h07
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['$\cosh$ is an even function', '$\sinh$ is an odd function', 'The range of $\cosh$ is $[1, \infty)$', '$\tanh x = 2$ for some $x$', '$\sinh$ and $\cosh$ are periodic']
+  answer: [0, 1, 2]
+  explanation: |-
+    Replacing $x$ by $-x$ leaves $\cosh$ unchanged and flips the sign of $\sinh$. $\cosh$ has its minimum 1 at $x = 0$. $\tanh$ stays strictly between $-1$ and $1$, and unlike sine and cosine, the hyperbolic functions are not periodic.
+- id: pc-m4-r2-h08
+  lesson: pc-m4-h-hyperbolic
+  type: label
+  topic: Hyperbolic functions
+  stem: 'Name the numbered parts of this picture of the unit hyperbola.'
+  image: {src: images/pc-m4-unit-hyperbola-blank.svg, alt: 'The right branch of a hyperbola, two dashed lines through the origin, a point on the curve joined to the origin, and a shaded region, with five numbered markers'}
+  labels:
+    - {x: 62.7, y: 22.9, text: 'Point (cosh t, sinh t)'}
+    - {x: 44.0, y: 49.0, text: 'Vertex (1, 0)'}
+    - {x: 37.1, y: 44.7, text: Sector with area t/2}
+    - {x: 37.1, y: 61.2, text: Asymptote y = −x}
+    - {x: 62.5, y: 75.0, text: Unit hyperbola x² − y² = 1}
+  distractors: [Unit circle, 'Point (cos t, sin t)']
+  explanation: |-
+    Because $\cosh^2 t - \sinh^2 t = 1$, the point $(\cosh t, \sinh t)$ (marker 1) lies on the hyperbola $x^2 - y^2 = 1$ (marker 5), whose vertex is $(1, 0)$ (marker 2) and whose asymptotes are $y = \pm x$ (marker 4 is on $y = -x$). The shaded sector (marker 3) has area $\frac t2$, just like the circular sector for $(\cos t, \sin t)$.
+- id: pc-m4-r2-h09
+  lesson: pc-m4-h-hyperbolic
+  type: match
+  topic: Hyperbolic functions
+  stem: 'Match each trigonometric identity to its hyperbolic twin.'
+  pairs:
+    - ['$\cos^2 x + \sin^2 x = 1$', 'cosh²x − sinh²x = 1']
+    - ['$\sin 2x = 2\sin x\cos x$', 'sinh 2x = 2 sinh x cosh x']
+    - ['$\cos 2x = \cos^2 x - \sin^2 x$', 'cosh 2x = cosh²x + sinh²x']
+    - ['$\sin(-x) = -\sin x$', 'sinh(−x) = −sinh x']
+  distractors: ['cosh²x + sinh²x = 1']
+  explanation: |-
+    Each twin can be checked by writing everything in exponentials. The signs change where a product of two sines appears in the trig version: $\cos^2 + \sin^2$ becomes $\cosh^2 - \sinh^2$, and $\cos^2 - \sin^2$ becomes $\cosh^2 + \sinh^2$. $\cosh^2 x + \sinh^2 x$ equals $\cosh 2x$, not 1.
+- id: pc-m4-r2-h10
+  lesson: pc-m4-h-hyperbolic
+  type: order
+  topic: Hyperbolic functions
+  stem: 'Put the steps for finding the inverse of $y = \sinh x$ in order.'
+  items: ['Write $e^x - e^{-x} = 2y$', 'Multiply by $e^x$: $e^{2x} - 2ye^x - 1 = 0$', 'Use the quadratic formula: $e^x = y \pm \sqrt{y^2 + 1}$', 'Reject the minus sign, since $e^x > 0$', 'Take $\ln$: $x = \ln\left(y + \sqrt{y^2 + 1}\right)$']
+  explanation: |-
+    Clear the fraction, multiply through by $e^x$ to get a quadratic in $u = e^x$, solve it, keep only the positive root ($y - \sqrt{y^2 + 1}$ is always negative), and take the natural log.
+- id: pc-m4-r2-h11
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'How many real solutions does $\cosh x = 0.5$ have?'
+  choices: ['None', 'One', 'Two', 'Infinitely many']
+  answer: 0
+  explanation: |-
+    The range of $\cosh$ is $[1, \infty)$, so it never equals 0.5. (For a value $c > 1$ there are two solutions, $\pm\cosh^{-1} c$; for $c = 1$ there is one, $x = 0$.)
+- id: pc-m4-r2-h12
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'A cable hangs in the shape $y = 10\cosh\dfrac{x}{10}$ (meters) between supports at $x = -10$ and $x = 10$. How far below the supports is its lowest point?'
+  choices: ['$10$ m', '$5.43$ m', '$15.43$ m', '$1.54$ m']
+  answer: 1
+  explanation: |-
+    At the supports $y = 10\cosh 1 \approx 15.43$; at the lowest point, $x = 0$, $y = 10\cosh 0 = 10$. The sag is $15.43 - 10 \approx 5.43$ m. (15.43 m is the height of the supports, not the sag.)
+- id: pc-m4-r2-h13
+  lesson: pc-m4-h-hyperbolic
+  type: text
+  topic: Hyperbolic functions
+  stem: 'Solve $\cosh x = \frac54$ for $x > 0$. Give $x$ rounded to 4 decimal places.'
+  accept: ['0.6931']
+  explanation: |-
+    With $u = e^x$: $u + \frac1u = \frac52$, so $2u^2 - 5u + 2 = 0$ and $u = 2$ or $u = \frac12$. For $x > 0$ we need $u > 1$, so $e^x = 2$ and $x = \ln 2 \approx 0.6931$. (The other solution is $-\ln 2$.)
+- id: pc-m4-r2-h14
+  lesson: pc-m4-h-hyperbolic
+  topic: Hyperbolic functions
+  stem: 'Why are $\cosh$ and $\sinh$ called hyperbolic functions?'
+  choices: ['Their graphs are hyperbolas', 'They grow faster than any polynomial', 'The point $(\cosh t, \sinh t)$ lies on the hyperbola $x^2 - y^2 = 1$', '$\tanh x$ has two horizontal asymptotes, like a hyperbola']
+  answer: 2
+  explanation: |-
+    The identity $\cosh^2 t - \sinh^2 t = 1$ puts $(\cosh t, \sinh t)$ on the unit hyperbola, just as $(\cos t, \sin t)$ lies on the unit circle. The graphs $y = \cosh x$ and $y = \sinh x$ are not hyperbolas.
+
+# ---------- Honors: Logistic models ----------
+- id: pc-m4-r2-h15
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'What is the midpoint $t_m$ of $P(t) = \dfrac{600}{1 + 20e^{-0.4t}}$, the time when $P = 300$?'
+  choices: ['$t_m = 50$', '$t_m = \ln 20 \approx 3.00$', '$t_m = 0.4\ln 20 \approx 1.20$', '$t_m = \dfrac{\ln 20}{0.4} \approx 7.49$']
+  answer: 3
+  explanation: |-
+    $P = 300$ when $20e^{-0.4t} = 1$, so $t = \frac{\ln 20}{0.4} \approx 7.49$. The other choices forget to divide by $k$, multiply by it instead, or confuse the time with $\frac{C}{A + 1}$-type values.
+- id: pc-m4-r2-h16
+  lesson: pc-m4-h-logistic
+  type: text
+  topic: Logistic models
+  stem: 'A logistic model has carrying capacity 1000. Three years before its midpoint, $P = 230$. What is $P$ three years after the midpoint? Give only the number.'
+  accept: ['770']
+  explanation: |-
+    By symmetry, $P(t_m + s) + P(t_m - s) = C$, so $P = 1000 - 230 = 770$.
+- id: pc-m4-r2-h17
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'For $P(t) = \dfrac{1000}{1 + 9e^{-0.5t}}$, when does $P$ reach 750?'
+  choices: ['$t = 2\ln 27 \approx 6.59$', '$t = 2\ln 9 \approx 4.39$', '$t = \ln 9 \approx 2.20$', '$t = \ln 27 \approx 3.30$']
+  answer: 0
+  explanation: |-
+    $t = \frac1k\ln\frac{AP}{C - P} = \frac{1}{0.5}\ln\frac{9 \cdot 750}{250} = 2\ln 27 \approx 6.59$. $2\ln 9$ is the midpoint ($P = 500$), and the last two forget to divide by $k = 0.5$.
+- id: pc-m4-r2-h18
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'In the logistic model $P = \dfrac{C}{1 + Ae^{-kt}}$, which quantities are linear functions of $t$? Select all that apply.'
+  choices: ['$\ln\dfrac{P}{C - P}$', '$\ln P$', '$\ln\dfrac{C - P}{P}$', '$\dfrac{P}{C - P}$', '$\dfrac{1}{P}$']
+  answer: [0, 2]
+  explanation: |-
+    $\frac{C - P}{P} = Ae^{-kt}$, so $\ln\frac{C - P}{P} = \ln A - kt$ and the logit $\ln\frac{P}{C - P} = kt - \ln A$; both are linear. $\frac{P}{C - P} = \frac{e^{kt}}{A}$ is exponential, $\frac1P = \frac1C + \frac{A}{C}e^{-kt}$ is an exponential plus a constant, and $\ln P$ is not linear.
+- id: pc-m4-r2-h19
+  lesson: pc-m4-h-logistic
+  type: text
+  topic: Logistic models
+  stem: 'Logistic data with a known carrying capacity have logit $\ln\frac{P}{C - P} = -2.0$ at $t = 0$ and $0.5$ at $t = 5$. What is $k$? Give only the number.'
+  accept: ['0.5']
+  explanation: |-
+    The logit is linear with slope $k$: $k = \frac{0.5 - (-2.0)}{5 - 0} = \frac{2.5}{5} = 0.5$.
+- id: pc-m4-r2-h20
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'In the same fit, the logit line has intercept $-2.0$ at $t = 0$. What is $A$?'
+  choices: ['$A = e^{-2} \approx 0.135$', '$A = e^2 \approx 7.39$', '$A = 2$', '$A = -2$']
+  answer: 1
+  explanation: |-
+    The intercept is $-\ln A = -2.0$, so $\ln A = 2$ and $A = e^2 \approx 7.39$. Check: $P(0) = \frac{C}{1 + 7.39}$ is about 12% of $C$, and $\ln\frac{0.119}{0.881} \approx -2.0$. ✓
+- id: pc-m4-r2-h21
+  lesson: pc-m4-h-logistic
+  type: order
+  topic: Logistic models
+  stem: 'Put the steps of the three-point method for finding $C$ in order (data $P_0, P_1, P_2$ at equally spaced times).'
+  items: ['Take reciprocals $y_n = 1/P_n$', 'Compute the differences $d_1 = y_1 - y_0$ and $d_2 = y_2 - y_1$', 'Find $q = d_2/d_1$', 'Find $B = d_1/(q - 1)$', 'Find $c = y_0 - B$ and then $C = 1/c$']
+  explanation: |-
+    $\frac1P$ is a constant plus an exponential, $y_n = c + Bq^n$. Differences remove the constant and their ratio gives $q$; then $d_1 = B(q - 1)$ gives $B$; subtracting $B$ from $y_0$ leaves $c = \frac1C$.
+- id: pc-m4-r2-h22
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'A logistic process has values 80, 200 and 400 at equally spaced times. What is its carrying capacity?'
+  choices: ['400', '600', '800', '1000']
+  answer: 2
+  explanation: |-
+    Reciprocals: $\frac1{80}$, $\frac1{200}$, $\frac1{400}$. Differences: $d_1 = \frac{1}{200} - \frac{1}{80} = -\frac{3}{400}$ and $d_2 = \frac1{400} - \frac1{200} = -\frac{1}{400}$, so $q = \frac13$. Then $B = \frac{-3/400}{-2/3} = \frac{9}{800}$ and $c = \frac{1}{80} - \frac{9}{800} = \frac{1}{800}$, so $C = 800$. (The formula $\frac{P_1(P_0P_1 + P_1P_2 - 2P_0P_2)}{P_1^2 - P_0P_2} = \frac{200 \cdot 32000}{8000}$ agrees.)
+- id: pc-m4-r2-h23
+  lesson: pc-m4-h-logistic
+  type: text
+  topic: Logistic models
+  stem: 'A logistic model has $k = 0.5$ per day. How many days does it take to go from 10% to 90% of capacity? Round to 2 decimal places.'
+  accept: ['8.79']
+  explanation: |-
+    The logit rises from $\ln\frac19$ to $\ln 9$, a change of $\ln 81$, at rate $k$: $\frac{\ln 81}{0.5} \approx 8.79$ days, whatever $C$ and $A$ are.
+- id: pc-m4-r2-h24
+  lesson: pc-m4-h-logistic
+  type: match
+  topic: Logistic models
+  stem: 'Match each constant of the logistic model $P = \dfrac{C}{1 + e^{-k(t - t_m)}}$ to its meaning.'
+  pairs:
+    - ['$C$', The ceiling the curve approaches]
+    - ['$t_m$', The time when P is half of C]
+    - ['$k$', How quickly the curve climbs]
+  distractors: [The starting value P(0), The time when P reaches C]
+  explanation: |-
+    $C$ is the carrying capacity, $t_m$ the midpoint where $P = \frac C2$, and $k$ the rate (larger $k$, steeper S). $P(0)$ is not one of the three constants in this form, and $P$ never actually reaches $C$.
+- id: pc-m4-r2-h25
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'Why can a carrying capacity fitted to data be unreliable? Select all that apply.'
+  choices: ['Data from before the midpoint barely depend on $C$', 'The conditions that set the ceiling, such as birth rates or technology, can change', 'Logistic data never give a straight logit plot', 'Small measurement errors can shift a three-point estimate of $C$ a lot', 'Logistic curves always overshoot $C$ before settling']
+  answer: [0, 1, 3]
+  explanation: |-
+    Early on, a logistic curve looks exponential for many different $C$; the ceiling itself may move (Pearl and Reed's U.S. forecast of about 197 million was passed in 1967); and the three-point method is sensitive to noise. Logistic data do give a straight logit plot when $C$ is right, and the model never overshoots $C$.
+- id: pc-m4-r2-h26
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'In a logistic model, how does the ratio $\dfrac{P}{C - P}$ (those who have heard a rumor to those who haven''t) change over time?'
+  choices: ['It approaches 1', 'It grows linearly', 'It stays constant', 'It grows exactly exponentially, by a factor $e^k$ per unit time']
+  answer: 3
+  explanation: |-
+    $\frac{P}{C - P} = \frac{e^{kt}}{A}$, an exact exponential, even though $P$ itself levels off. That is why its logarithm, the logit, is linear in $t$. As $P \to C$ the ratio grows without bound; it is 1 only at the midpoint.
+- id: pc-m4-r2-h27
+  lesson: pc-m4-h-logistic
+  topic: Logistic models
+  stem: 'Which is the midpoint form of $P(t) = \dfrac{1000}{1 + 9e^{-0.5t}}$?'
+  choices: ['$\dfrac{1000}{1 + e^{-0.5(t - 4.39)}}$', '$\dfrac{1000}{1 + e^{-0.5(t + 4.39)}}$', '$\dfrac{1000}{1 + e^{-0.5(t - 9)}}$', '$\dfrac{1000}{1 + e^{-0.5t}}$']
+  answer: 0
+  explanation: |-
+    $t_m = \frac{\ln A}{k} = \frac{\ln 9}{0.5} \approx 4.39$, and $9e^{-0.5t} = e^{0.5 t_m}e^{-0.5t} = e^{-0.5(t - t_m)}$. A plus sign would shift the curve left; $t - 9$ uses $A$ instead of $t_m$; the last drops $A$ entirely.
+- id: pc-m4-r2-h28
+  lesson: pc-m4-h-logistic
+  type: text
+  topic: Logistic models
+  stem: 'A logistic process has values 120, 300 and 600 at equally spaced times. What is its carrying capacity $C$? Give only the number.'
+  accept: ['1200']
+  explanation: |-
+    Reciprocals $\frac1{120}, \frac1{300}, \frac1{600}$; differences $d_1 = -\frac{1}{200}$, $d_2 = -\frac{1}{600}$, so $q = \frac13$. $B = \frac{-1/200}{-2/3} = \frac{3}{400}$, $c = \frac{1}{120} - \frac{3}{400} = \frac{1}{1200}$, so $C = 1200$.
+
+# ---------- Honors: Comparing growth ----------
+- id: pc-m4-r2-h29
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'Which is larger, $5^{100}$ or $7^{80}$?'
+  choices: ['$7^{80}$', '$5^{100}$', 'They are equal', 'You can''t tell without computing both exactly']
+  answer: 1
+  explanation: |-
+    Compare common logs: $100\log 5 \approx 69.90$ and $80\log 7 \approx 67.61$. So $5^{100}$ is larger, by a factor of about $10^{2.29} \approx 195$.
+- id: pc-m4-r2-h30
+  lesson: pc-m4-h-growth-rates
+  type: text
+  topic: Comparing growth
+  stem: 'How many digits does $2^{50}$ have? Give only the number.'
+  accept: ['16']
+  explanation: |-
+    $\log 2^{50} = 50\log 2 \approx 15.05$, so the number of digits is $\lfloor 15.05 \rfloor + 1 = 16$. (Indeed $2^{50} = 1{,}125{,}899{,}906{,}842{,}624$.)
+- id: pc-m4-r2-h31
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'Given $50\log 3 \approx 23.856$, which is the best approximation of $3^{50}$?'
+  choices: ['$8.56 \times 10^{23}$', '$2.39 \times 10^{23}$', '$7.18 \times 10^{23}$', '$7.18 \times 10^{24}$']
+  answer: 2
+  explanation: |-
+    $3^{50} = 10^{23.856} = 10^{0.856} \times 10^{23} \approx 7.18 \times 10^{23}$. The whole-number part 23 sets the power of ten; the fractional part 0.856 gives the leading digits. The first choice reads the decimals as digits.
+- id: pc-m4-r2-h32
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'Which functions dominate $x^5$ as $x \to \infty$ (their ratio to $x^5$ grows without bound)? Select all that apply.'
+  choices: ['$1.01^x$', '$x^6$', '$100x^5$', '$(\ln x)^{10}$', '$e^{x/100}$']
+  answer: [0, 1, 4]
+  explanation: |-
+    Any exponential with base greater than 1 dominates any power, and $e^{x/100} = (e^{0.01})^x$ has base about 1.01. $\frac{x^6}{x^5} = x$ grows without bound. But $\frac{100x^5}{x^5} = 100$ stays fixed, and powers of $\ln x$ lose to every positive power of $x$.
+- id: pc-m4-r2-h33
+  lesson: pc-m4-h-growth-rates
+  type: order
+  topic: Comparing growth
+  stem: 'Put these functions in order from slowest-growing to fastest-growing as $x \to \infty$.'
+  items: ['$\ln x$', '$\sqrt{x}$', '$x^3$', '$1.05^x$', '$3^x$']
+  explanation: |-
+    Logarithms lose to every power, smaller powers lose to larger ones ($\frac{x^3}{\sqrt x} = x^{2.5}$), every power loses to every exponential with base above 1, and $\frac{3^x}{1.05^x} = \left(\frac{3}{1.05}\right)^x$ grows without bound.
+- id: pc-m4-r2-h34
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'Which inequality, true for every $y > 0$, does the lesson use to show that $\frac{\ln x}{x} \to 0$?'
+  choices: ['$\ln y \ge y - 1$', '$\ln y \le \dfrac{1}{y}$', '$e^y \le 1 + y$', '$\ln y \le y - 1$']
+  answer: 3
+  explanation: |-
+    From $e^u \ge 1 + u$ (the graph of $e^u$ lies above its tangent line at 0), taking $\ln$ gives $\ln y \le y - 1$. With $y = \sqrt x$ it gives $\ln x < 2\sqrt x$, so $\frac{\ln x}{x} < \frac{2}{\sqrt x}$. The other inequalities point the wrong way or are false (try $y = 1$ in the third... it holds with equality, but at $y = 1$ the second fails: $0 \le 1$ holds, yet at $y = 10$ it says $2.30 \le 0.1$).
+- id: pc-m4-r2-h35
+  lesson: pc-m4-h-growth-rates
+  type: text
+  topic: Comparing growth
+  stem: 'Bisection starts on an interval of width 1. What is the smallest number of steps that makes the interval narrower than 0.001? Give only the number.'
+  accept: ['10']
+  explanation: |-
+    After $n$ steps the width is $\frac{1}{2^n}$. We need $2^n > 1000$: $2^9 = 512$ is not enough, $2^{10} = 1024$ is. So 10 steps.
+- id: pc-m4-r2-h36
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'Bisection is used on $g(x) = x^3 - 5$, starting with $[1, 2]$. Which interval is kept after the first step?'
+  choices: ['$[1.5, 2]$', '$[1, 1.5]$', '$[1.25, 1.75]$', '$[1, 2]$']
+  answer: 0
+  explanation: |-
+    $g(1) = -4$ and $g(2) = 3$. The midpoint is 1.5 and $g(1.5) = 3.375 - 5 = -1.625 < 0$, the same sign as $g(1)$. The sign change, and so the zero ($\sqrt[3]{5} \approx 1.71$), is in $[1.5, 2]$.
+- id: pc-m4-r2-h37
+  lesson: pc-m4-h-growth-rates
+  type: match
+  topic: Comparing growth
+  stem: 'Match each number to how many digits it has.'
+  pairs:
+    - ['$2^{10}$', '4']
+    - ['$2^{20}$', '7']
+    - ['$5^{20}$', '14']
+    - ['$2^{100}$', '31']
+  distractors: ['30', '20']
+  explanation: |-
+    Use $\lfloor\log N\rfloor + 1$: $10\log 2 \approx 3.01$ gives 4 digits (1024); $20\log 2 \approx 6.02$ gives 7 (1,048,576); $20\log 5 \approx 13.98$ gives 14; $100\log 2 \approx 30.10$ gives 31. Using $\log N$ itself without adding 1 gives the distractor 30.
+- id: pc-m4-r2-h38
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'For $x > 1$, where is $x^{10}$ larger than $1.1^x$?'
+  choices: ['For every $x > 1$', 'Roughly for $1.01 < x < 685$', 'Only for $x > 685$', 'Nowhere, because exponentials always win']
+  answer: 1
+  explanation: |-
+    Comparing $10\log x$ with $x\log 1.1$ shows two crossovers, near $x \approx 1.0097$ and $x \approx 685.08$. Between them $x^{10}$ is larger (at $x = 100$ it is $10^{20}$ against about 13,781); after 685 the exponential wins forever. "Eventually" in the growth hierarchy does not mean "always".
+- id: pc-m4-r2-h39
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'On which of these can bisection be started directly (the theorem guarantees a zero inside)? Select all that apply.'
+  choices: ['$g(x) = x^3 - 2$ on $[1, 2]$', '$g(x) = x^2 - 2$ on $[-2, 2]$', '$g(x) = \dfrac1x$ on $[-1, 1]$', '$g(x) = 2^x - 3$ on $[1, 2]$', '$g(x) = \ln x$ on $[2, 3]$']
+  answer: [0, 3]
+  explanation: |-
+    Bisection needs a continuous $g$ with opposite signs at the ends. $x^3 - 2$ goes from $-1$ to $6$ and $2^x - 3$ from $-1$ to $1$: both qualify. $x^2 - 2$ is $2$ at both ends (it has two zeros inside, but no sign change to start from); $\frac1x$ changes sign but isn't continuous on $[-1, 1]$ and has no zero; $\ln x$ is positive on $[2, 3]$.
+- id: pc-m4-r2-h40
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'A computer does $10^9$ operations per second. What is the largest $n$ for which a job of $2^n$ operations finishes within one second?'
+  choices: ['$n = 30$', '$n = 31{,}623$', '$n = 1000$', '$n = 29$']
+  answer: 3
+  explanation: |-
+    $n \le \log_2 10^9 = \frac{9}{\log 2} \approx 29.9$, so $n = 29$ ($2^{30} \approx 1.07 \times 10^9$ is just too many). $31{,}623 \approx \sqrt{10^9}$ would be the answer for $n^2$ operations and 1000 for $n^3$.
+- id: pc-m4-r2-h41
+  lesson: pc-m4-h-growth-rates
+  type: text
+  topic: Comparing growth
+  stem: '$\log\left(2^{300}\right) \approx$ ___ (common log, rounded to 1 decimal place). Give only the number.'
+  accept: ['90.3']
+  explanation: |-
+    Power rule: $\log 2^{300} = 300\log 2 \approx 300(0.30103) \approx 90.3$. So $2^{300}$ has 91 digits.
+- id: pc-m4-r2-h42
+  lesson: pc-m4-h-growth-rates
+  topic: Comparing growth
+  stem: 'A job takes $2^n$ operations. If you switch to a computer twice as fast, how does the largest $n$ you can finish in a fixed time change?'
+  choices: ['It doubles', 'It grows by about 26%', 'It grows by 1', 'It is squared']
+  answer: 2
+  explanation: |-
+    Twice the operations allows $2^{n+1} = 2 \cdot 2^n$, so $n$ goes up by exactly 1. The 26% (a factor $\sqrt[3]{2} \approx 1.26$) is what happens for a job of $n^3$ operations.

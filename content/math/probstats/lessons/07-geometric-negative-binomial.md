@@ -101,6 +101,11 @@ With $r = 1$ this is the geometric distribution.
 the second, and so on, are $r$ independent geometric waiting times (each restart is fresh, by
 memorylessness). So $X = G_1 + \cdots + G_r$, and
 
+For example, with $r = 3$ the run of trials F F S F S F F F S splits into waits of 3, 2 and 4 trials:
+
+![Nine trials F F S F S F F F S split by braces into three geometric waits of 3, 2 and 4 trials, so X = 9 trials for r = 3 successes](images/ps-m2-negbin-waits.svg)
+
+
 $$E(X) = \frac{r}{p}, \qquad \operatorname{Var}(X) = \frac{rq}{p^2}.$$
 
 (The mean uses only additivity of expectation; the variance uses the additivity of variances for
@@ -131,6 +136,22 @@ $5/(5 - j)$. Adding the five waiting times,
 $$E(\text{boxes}) = \frac55 + \frac54 + \frac53 + \frac52 + \frac51 = 5\left(1 + \tfrac12 + \tfrac13 + \tfrac14 + \tfrac15\right) \approx 11.42.$$
 
 The last toy is the expensive one: its wait alone averages 5 boxes.
+
+## Fixed trials or fixed successes?
+
+The binomial and the negative binomial describe the same kind of independent trials and differ
+only in what is fixed and what is counted:
+
+```mermaid
+flowchart TD
+  accTitle: Binomial, geometric or negative binomial
+  accDescr: Independent trials with the same success probability p. If the number of trials n is fixed and you count successes, the count is binomial. If the number of successes needed is fixed and you count trials, the count is geometric when one success is needed and negative binomial when r successes are needed.
+  A["Independent trials, same p"] --> B{"What is fixed?"}
+  B -- "number of trials n" --> C["Count successes: Binomial(n, p)"]
+  B -- "number of successes r" --> D{"r = 1?"}
+  D -- yes --> E["Count trials: Geometric(p)"]
+  D -- no --> F["Count trials: Negative binomial(r, p)"]
+```
 
 ## Common mistakes
 

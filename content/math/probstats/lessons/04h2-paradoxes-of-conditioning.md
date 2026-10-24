@@ -16,10 +16,10 @@ though each coin's tosses are independent. This lesson collects famous puzzles i
 conditioning gives answers that feel wrong. None of them is a flaw in probability theory. Each one
 teaches a lesson about *what* you are conditioning on:
 
-- **averaging over groups** can reverse a comparison (Simpson's paradox);
-- **looking only at a selected group** can create an association that is not there in the whole
+- *averaging over groups* can reverse a comparison (Simpson's paradox);
+- *looking only at a selected group* can create an association that is not there in the whole
   population (Berkson's paradox);
-- the **same words** can describe different ways of getting information, with different answers
+- the *same words* can describe different ways of getting information, with different answers
   (the two-child problem and Bertrand's box).
 
 ## Simpson's paradox

@@ -1,0 +1,39 @@
+# Module pc-m5, round 2 (honors lessons 21h1 and 21h2)
+- term: trigonometric equation
+  aliases: [trigonometric equations, trig equation, trig equations]
+  definition: 'An equation whose unknown appears inside trig functions, such as $2\sin x + 1 = 0$. Unlike an identity, it holds only for particular angles.'
+  topic: Trig equations
+- term: principal value
+  aliases: [principal values]
+  definition: 'The single answer an inverse trig function returns, from its restricted range: $\sin^{-1}c$ in $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$, $\cos^{-1}c$ in $[0, \pi]$, $\tan^{-1}c$ in $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$.'
+  topic: Trig equations
+- term: general solution
+  aliases: [general solutions]
+  definition: 'A formula listing every solution of an equation, such as $x = \pm\frac{2\pi}{3} + 2k\pi$ ($k$ any integer) for $\cos x = -\frac12$.'
+  topic: Trig equations
+- term: amplitude-phase form
+  aliases: [harmonic addition]
+  definition: 'Writing $a\sin x + b\cos x$ as a single sinusoid $R\sin(x + \varphi)$, with $R = \sqrt{a^2 + b^2}$, $\cos\varphi = \frac{a}{R}$ and $\sin\varphi = \frac{b}{R}$.'
+  topic: Combining sinusoids
+- term: phase angle
+  definition: 'The angle $\varphi$ in $R\sin(x + \varphi)$: the direction of the point $(a, b)$ for $a\sin x + b\cos x$. The graph is the sine graph shifted left by $\varphi$.'
+  topic: Combining sinusoids
+- term: product-to-sum formula
+  aliases: [product-to-sum formulas, product-to-sum]
+  definition: 'An identity that rewrites a product of sines and cosines as a sum, such as $\sin u\cos v = \frac12\left[\sin(u + v) + \sin(u - v)\right]$.'
+  topic: Combining sinusoids
+- term: sum-to-product formulas
+  aliases: [sum-to-product formula, sum-to-product]
+  definition: '$\sin A + \sin B = 2\sin\frac{A + B}{2}\cos\frac{A - B}{2}$ and $\cos A + \cos B = 2\cos\frac{A + B}{2}\cos\frac{A - B}{2}$.'
+  topic: Combining sinusoids
+- term: frequency
+  aliases: [frequencies]
+  definition: 'The number of cycles a periodic process completes per unit of time: 1 divided by the period. Measured in hertz (Hz), cycles per second.'
+  topic: Combining sinusoids
+- term: beats
+  aliases: [beat]
+  definition: 'The regular swelling and fading in loudness heard when two tones of nearly equal frequency sound together.'
+  topic: Combining sinusoids
+- term: beat frequency
+  definition: 'The number of beats per second, $|f_1 - f_2|$, for two tones of frequencies $f_1$ and $f_2$.'
+  topic: Combining sinusoids

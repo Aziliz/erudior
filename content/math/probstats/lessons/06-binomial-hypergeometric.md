@@ -38,6 +38,12 @@ $p^k(1-p)^{n-k}$ by independence. The event $\{X = k\}$ is the disjoint union of
 sequences, and there are $\binom{n}{k}$ of them (choose which trials succeed). The binomial
 theorem confirms the total is 1: $\sum_k \binom{n}{k}p^k(1-p)^{n-k} = (p + 1 - p)^n = 1$.
 
+The tree for $n = 3$ shows the counting. Each path is one sequence of successes (S) and failures (F),
+and its probability is the product along its branches. The three shaded paths have exactly two
+successes, each with probability $p^2q$, so $P(X = 2) = \binom32 p^2 q = 3p^2q$.
+
+![Probability tree for three trials with eight outcomes; the three outcomes with exactly two successes, SSF, SFS and FSS, are shaded and each has probability p squared times q](images/ps-m2-binomial-tree.svg)
+
 **Mean.** Using the identity $k\binom{n}{k} = n\binom{n-1}{k-1}$ (choose a committee of $k$ with a
 chair, two ways),
 
@@ -134,6 +140,17 @@ $\text{Bin}(10, 0.08)$ gives 0.812, since here the sample is only 10% of the lot
 | Fixed $n$ independent trials, same $p$, count successes | Binomial$(n, p)$ |
 | Sample $n$ without replacement from $N$ with $K$ successes | Hypergeometric$(N, K, n)$ |
 | Same, but $n$ is a small fraction of $N$ | Binomial$(n, K/N)$ approximately |
+
+```mermaid
+flowchart TD
+  accTitle: Choosing among Bernoulli, binomial and hypergeometric
+  accDescr: If there is only one trial, use the Bernoulli distribution. With several trials, ask whether they are independent with the same success probability, as when sampling with replacement. If yes, use the binomial. If items are drawn without replacement from a finite population, use the hypergeometric, which is close to the binomial with p equal to K over N when the sample is a small fraction of the population.
+  A{"How many trials?"} -- one --> B["Bernoulli(p)"]
+  A -- "n trials, count successes" --> C{"Independent, same p?"}
+  C -- yes --> D["Binomial(n, p)"]
+  C -- "no: drawn without replacement" --> E["Hypergeometric(N, K, n)"]
+  E -- "n small compared with N" --> F["about Binomial(n, K/N)"]
+```
 
 ## Common mistakes
 

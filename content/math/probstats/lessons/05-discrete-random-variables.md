@@ -54,6 +54,11 @@ $$P(a < X \le b) = F(b) - F(a), \qquad p(x_i) = F(x_i) - F(x_i^-) \text{ (the ju
 
 For integer-valued $X$, watch the endpoints: $P(X < 5) = F(4)$ and $P(X \ge 5) = 1 - F(4)$.
 
+The picture shows these features on the cdf of the defect count in Example 1 below, which takes the
+values 0, 1, 2, 3 with probabilities 0.4, 0.3, 0.2, 0.1.
+
+![Step-function cdf rising from 0 to 1 with jumps of 0.4, 0.3, 0.2 and 0.1 at x = 0, 1, 2, 3; filled dots mark the value at each jump and open dots the limit from the left](images/ps-m2-cdf-anatomy.svg)
+
 ```plot
 {"x": [1, 13], "y": [0, 0.2], "xLabel": "sum", "yLabel": "p(x)", "bars": [{"x": 2, "height": 0.02778, "width": 0.7}, {"x": 3, "height": 0.05556, "width": 0.7}, {"x": 4, "height": 0.08333, "width": 0.7}, {"x": 5, "height": 0.11111, "width": 0.7}, {"x": 6, "height": 0.13889, "width": 0.7}, {"x": 7, "height": 0.16667, "width": 0.7}, {"x": 8, "height": 0.13889, "width": 0.7}, {"x": 9, "height": 0.11111, "width": 0.7}, {"x": 10, "height": 0.08333, "width": 0.7}, {"x": 11, "height": 0.05556, "width": 0.7}, {"x": 12, "height": 0.02778, "width": 0.7}], "caption": "pmf of the sum of two fair dice: p(x) = (6 − |x − 7|)/36"}
 ```
@@ -109,6 +114,19 @@ For a linear function, the shift $b$ moves every value and the mean together, so
 change spread; the scale $a$ multiplies every deviation:
 
 $$\operatorname{Var}(aX + b) = E\big[(aX + b - a\mu - b)^2\big] = a^2\operatorname{Var}(X), \qquad \operatorname{SD}(aX + b) = |a|\,\sigma.$$
+
+The steps for any pmf given as a table or formula:
+
+```mermaid
+flowchart TD
+  accTitle: From a pmf to the mean and standard deviation
+  accDescr: Check that the pmf is valid, with nonnegative values that sum to 1. Compute the mean as the sum of x times p of x. Compute the second moment, the sum of x squared times p of x, by LOTUS. Subtract the squared mean to get the variance, then take the square root for the standard deviation. For Y = aX + b, the mean becomes a times mu plus b and the standard deviation becomes the absolute value of a times sigma.
+  A["Check: p(x) at least 0 and sum of p(x) = 1"] --> B["Mean: mu = sum of x p(x)"]
+  B --> C["Second moment: E(X^2) = sum of x^2 p(x)"]
+  C --> D["Variance: E(X^2) - mu^2"]
+  D --> E["SD: square root of the variance"]
+  E --> F["For Y = aX + b: mean a mu + b, SD |a| sigma"]
+```
 
 ### Example 1: defects in a lot
 
