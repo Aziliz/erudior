@@ -43,6 +43,10 @@ $$K_{\max} = hf - \phi.$$
 
 The threshold frequency is $f_0 = \phi/h$. A graph of $K_{\max}$ against $f$ is a straight line with slope $h$ for every metal, which Millikan confirmed in 1916. In the lab, $K_{\max}$ is measured as $eV_{\text{stop}}$, where $V_{\text{stop}}$ is the stopping potential that just halts the fastest electrons.
 
+```plot
+{"x": [0, 16], "y": [-5, 5], "xLabel": "frequency f (10¹⁴ Hz)", "yLabel": "K max (eV)", "functions": [{"f": "0.4136*x - 2.28", "from": 5.51, "label": "sodium, φ = 2.28 eV"}, {"f": "0.4136*x - 2.28", "to": 5.51, "dashed": true}, {"f": "0.4136*x - 4.3", "from": 10.40, "label": "φ = 4.3 eV"}, {"f": "0.4136*x - 4.3", "to": 10.40, "dashed": true}], "points": [{"at": [5.51, 0], "label": "f₀ = 5.51"}, {"at": [10.40, 0], "label": "f₀ = 10.4"}, {"at": [0, -2.28], "label": "−φ"}, {"at": [0, -4.3], "label": "−φ"}], "caption": "Maximum kinetic energy against frequency for two metals: parallel lines with slope h = 4.14 × 10⁻¹⁵ eV·s. Each crosses zero at its threshold frequency; extended back (dashed), it meets the vertical axis at −φ. Below threshold no electrons come out"}
+```
+
 ### Example 2
 
 Sodium has a work function of 2.28 eV. (a) What is its threshold wavelength? (b) Light of 400 nm shines on it; what is the maximum kinetic energy of the ejected electrons and the stopping potential?
@@ -64,6 +68,10 @@ The **ground state** ($n = 1$) has $-13.6$ eV; 13.6 eV is needed to ionize the a
 $$hf = E_i - E_f = 13.6\text{ eV}\left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right).$$
 
 Transitions ending at $n = 2$ give the visible Balmer series (red 656 nm from $3\to2$, blue-green 486 nm from $4\to2$); those ending at $n = 1$ are in the ultraviolet. Absorption runs the other way: an atom absorbs only photons whose energy exactly matches a jump up.
+
+The energy-level diagram below draws these levels to scale. Downward arrows are emissions; the longer the arrow, the more energetic the photon. All Lyman lines (ending at $n = 1$) are longer than any Balmer line (ending at $n = 2$), which is why the Lyman series is entirely ultraviolet.
+
+![An energy-level diagram for hydrogen drawn to scale. Horizontal lines mark n = 1 at −13.60 eV (the ground state), n = 2 at −3.40 eV, n = 3 at −1.51 eV, n = 4 at −0.85 eV, and more levels crowding toward 0 eV, the ionization limit, above which the electron is free. Long downward arrows from n = 2 and n = 3 to n = 1 are labeled Lyman (UV); shorter arrows from n = 3 and n = 4 to n = 2 are labeled Balmer (visible). A dashed arrow from n = 1 up to 0 eV is labeled 13.6 eV.](images/phys-m12-hydrogen-levels.svg)
 
 ### Example 3
 

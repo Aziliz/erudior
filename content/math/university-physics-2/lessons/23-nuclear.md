@@ -38,6 +38,10 @@ $E_B = 0.030377(931.5) = 28.3$ MeV, or 7.07 MeV per nucleon. That's millions of 
 - **Fission**: a heavy nucleus such as uranium-235 splits into two medium nuclei (about 200 MeV per fission). Neutrons released can trigger more fissions, a chain reaction, used in reactors and bombs.
 - **Fusion**: light nuclei combine, as when hydrogen fuses into helium in the Sun (about 26.7 MeV per helium nucleus formed). It requires extreme temperatures to overcome electric repulsion.
 
+```plot
+{"x": [0, 250], "y": [0, 10], "xLabel": "mass number A", "yLabel": "binding energy per nucleon (MeV)", "segments": [{"from": [2, 1.11], "to": [4, 7.07]}, {"from": [4, 7.07], "to": [6, 5.33]}, {"from": [6, 5.33], "to": [12, 7.68]}, {"from": [12, 7.68], "to": [16, 7.98]}, {"from": [16, 7.98], "to": [56, 8.79]}, {"from": [56, 8.79], "to": [84, 8.72]}, {"from": [84, 8.72], "to": [120, 8.51]}, {"from": [120, 8.51], "to": [138, 8.39]}, {"from": [138, 8.39], "to": [208, 7.87]}, {"from": [208, 7.87], "to": [238, 7.57]}], "points": [{"at": [2, 1.11], "label": "²H"}, {"at": [4, 7.07], "label": "⁴He"}, {"at": [6, 5.33]}, {"at": [12, 7.68]}, {"at": [16, 7.98]}, {"at": [56, 8.79], "label": "⁵⁶Fe"}, {"at": [84, 8.72]}, {"at": [120, 8.51]}, {"at": [138, 8.39]}, {"at": [208, 7.87]}, {"at": [238, 7.57], "label": "²³⁸U"}], "labels": [{"at": [60, 4.5], "text": "fusion releases energy (move right)"}, {"at": [180, 6.2], "text": "fission releases energy (move left)"}], "caption": "Measured binding energy per nucleon for hydrogen-2, helium-4, lithium-6, carbon-12, oxygen-16, iron-56, krypton-84, tin-120, barium-138, lead-208 and uranium-238 (lines just join the points). Helium-4 is unusually tightly bound"}
+```
+
 ## Radioactive decay
 
 Unstable nuclei decay spontaneously, emitting radiation:
@@ -50,6 +54,25 @@ Unstable nuclei decay spontaneously, emitting radiation:
 | Gamma (γ) | high-energy photon | no change in $Z$ or $A$; nucleus drops to a lower energy state | follows many α and β decays |
 
 In every nuclear reaction, *charge* (sum of $Z$) and *nucleon number* (sum of $A$) are conserved: the numbers on both sides balance. Alpha particles are stopped by paper, beta particles by a few millimeters of aluminum, gamma rays need thick lead or concrete.
+
+![A radioactive source on the left emits three beams toward three barriers. The alpha beam stops at a sheet of paper. The beta beam passes the paper and stops in a few millimeters of aluminum. The gamma beam passes through both and is only weakened by several centimeters of lead.](images/phys-m12-penetration.svg)
+
+Many heavy nuclei reach stability only after a whole series of decays. Uranium-238 starts the longest natural chain; its first steps are below (with half-lives). Each step obeys the rules in the table.
+
+```mermaid
+flowchart TD
+  accTitle: The first steps of the uranium-238 decay chain
+  accDescr: Uranium-238 alpha decays, half-life 4.5 billion years, to thorium-234. Thorium-234 beta-minus decays, half-life 24 days, to protactinium-234m, an excited state of protactinium-234. Protactinium-234m beta-minus decays, half-life about 1.2 minutes, to uranium-234. Uranium-234 alpha decays, half-life 245,000 years, to thorium-230. Thorium-230 alpha decays, half-life 75,000 years, to radium-226. Radium-226 alpha decays, half-life 1600 years, to radon-222, a gas. After further decays, 8 alpha and 6 beta-minus in all, the chain ends at stable lead-206.
+  A["U-238 (Z = 92)"] -- "α, 4.5 billion y" --> B["Th-234 (Z = 90)"]
+  B -- "β⁻, 24 d" --> C["Pa-234m (Z = 91)"]
+  C -- "β⁻, 1.2 min" --> D["U-234 (Z = 92)"]
+  D -- "α, 245,000 y" --> E["Th-230 (Z = 90)"]
+  E -- "α, 75,000 y" --> F["Ra-226 (Z = 88)"]
+  F -- "α, 1600 y" --> G["Rn-222 (Z = 86), a gas"]
+  G -- "more α and β⁻ decays" --> H["Pb-206 (Z = 82), stable"]
+```
+
+Over the whole chain there are 8 alpha and 6 beta-minus decays: $A$ drops by $8 \times 4 = 32$ (238 to 206) and $Z$ by $16 - 6 = 10$ (92 to 82). Radon-222, a gas, seeps out of soil and rock, which is why it builds up in some basements.
 
 ## Half-life and the decay law
 

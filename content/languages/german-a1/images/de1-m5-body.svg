@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img"><title>A person standing, seen from the front, with the head, face, neck, arms, hands, belly, legs and feet labeled in German</title>
+<rect x="0" y="0" width="720" height="560" fill="#ffffff"/>
+<path d="M 310 330 L 312 500 L 346 500 L 354 360 L 366 360 L 374 500 L 408 500 L 410 330 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2" />
+<path d="M 312 500 L 312 522 L 270 522 C 268 510 290 500 312 500 Z" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<path d="M 408 500 L 408 522 L 450 522 C 452 510 430 500 408 500 Z" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<path d="M 300 175 L 255 300 L 278 308 L 310 220 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" />
+<path d="M 420 175 L 465 300 L 442 308 L 410 220 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" />
+<circle cx="262" cy="320" r="16" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<circle cx="458" cy="320" r="16" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<path d="M 300 170 C 298 250 305 300 308 335 L 412 335 C 415 300 422 250 420 170 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" />
+<path d="M 346 268 C 350 274 358 274 360 268" fill="none" stroke="#1c2833" stroke-width="2" />
+<rect x="346" y="140" width="28" height="32" rx="0" fill="#f8e1dc" stroke="#1c2833" stroke-width="2" />
+<circle cx="308" cy="95" r="12" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<circle cx="412" cy="95" r="12" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<ellipse cx="360" cy="90" rx="52" ry="60" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<path d="M 308 80 C 310 25 410 25 412 80 C 390 52 330 52 308 80 Z" fill="#e3d2b4" stroke="#1c2833" stroke-width="2" />
+<ellipse cx="340" cy="88" rx="9" ry="6" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<circle cx="340" cy="88" r="3" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<ellipse cx="380" cy="88" rx="9" ry="6" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<circle cx="380" cy="88" r="3" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<path d="M 360 92 L 353 112 L 365 112" fill="none" stroke="#1c2833" stroke-width="2" />
+<path d="M 344 126 C 354 134 366 134 376 126" fill="none" stroke="#1c2833" stroke-width="2.5" />
+<line x1="190" y1="40" x2="320" y2="50" stroke="#1c2833" stroke-width="1.5" />
+<rect x="144.2" y="27.0" width="91.6" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="190" y="45.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Kopf</text>
+<line x1="530" y1="60" x2="389" y2="88" stroke="#1c2833" stroke-width="1.5" />
+<rect x="484.2" y="47.0" width="91.6" height="26" rx="6" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<text x="530" y="65.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">das Auge</text>
+<line x1="190" y1="100" x2="296" y2="95" stroke="#1c2833" stroke-width="1.5" />
+<rect x="148.8" y="87.0" width="82.4" height="26" rx="6" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<text x="190" y="105.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">das Ohr</text>
+<line x1="540" y1="120" x2="364" y2="108" stroke="#1c2833" stroke-width="1.5" />
+<rect x="494.2" y="107.0" width="91.6" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="540" y="125.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Nase</text>
+<line x1="190" y1="150" x2="344" y2="128" stroke="#1c2833" stroke-width="1.5" />
+<rect x="144.2" y="137.0" width="91.6" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="190" y="155.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Mund</text>
+<line x1="540" y1="175" x2="374" y2="158" stroke="#1c2833" stroke-width="1.5" />
+<rect x="494.2" y="162.0" width="91.6" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="540" y="180.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Hals</text>
+<line x1="190" y1="230" x2="280" y2="240" stroke="#1c2833" stroke-width="1.5" />
+<rect x="148.8" y="217.0" width="82.4" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="190" y="235.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Arm</text>
+<line x1="530" y1="330" x2="474" y2="320" stroke="#1c2833" stroke-width="1.5" />
+<rect x="484.2" y="317.0" width="91.6" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="530" y="335.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Hand</text>
+<line x1="560" y1="260" x2="400" y2="262" stroke="#1c2833" stroke-width="1.5" />
+<rect x="509.6" y="247.0" width="100.8" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="560" y="265.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Bauch</text>
+<line x1="190" y1="420" x2="314" y2="420" stroke="#1c2833" stroke-width="1.5" />
+<rect x="144.2" y="407.0" width="91.6" height="26" rx="6" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<text x="190" y="425.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">das Bein</text>
+<line x1="560" y1="500" x2="450" y2="515" stroke="#1c2833" stroke-width="1.5" />
+<rect x="518.8" y="487.0" width="82.4" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="560" y="505.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Fuß</text>
+</svg>

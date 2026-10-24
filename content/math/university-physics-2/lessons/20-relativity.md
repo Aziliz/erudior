@@ -32,6 +32,10 @@ $$\Delta t = \gamma\,\Delta t_0, \qquad \gamma = \frac{1}{\sqrt{1 - v^2/c^2}}.$$
 
 The factor $\gamma$ (the **Lorentz factor**) is always at least 1. $\Delta t_0$ is the **proper time**, measured by a clock at rest relative to the events (both ticks happen at the clock). Every other observer measures a longer interval: moving clocks run slow. This is **time dilation**.
 
+The picture shows the light clock in both frames. From the ground, each half tick the pulse runs along the diagonal, a distance $c\Delta t/2$, while the clock moves $v\Delta t/2$, so $(c\Delta t/2)^2 = D^2 + (v\Delta t/2)^2$. Putting in $D = c\Delta t_0/2$ and solving for $\Delta t$ gives exactly $\gamma\Delta t_0$.
+
+![Left, the clock frame: a light pulse bounces straight up and down between two mirrors a distance D apart; one tick is 2D/c. Right, the ground frame: the clock moves right at speed v, shown at three positions; the pulse follows a slanted path of length cΔt/2 up to the top mirror and back down, while the clock moves vΔt/2 sideways during each half tick.](images/phys-m12-light-clock.svg)
+
 | $v/c$ | 0.10 | 0.50 | 0.80 | 0.90 | 0.99 | 0.999 |
 |---|---|---|---|---|---|---|
 | $\gamma$ | 1.005 | 1.155 | 1.667 | 2.294 | 7.09 | 22.4 |
@@ -57,6 +61,21 @@ Only lengths along the direction of motion contract; perpendicular dimensions do
 A spaceship 120 m long (proper length) passes Earth at $0.60c$. How long is it according to Earth observers?
 
 $\gamma = 1/\sqrt{1 - 0.36} = 1.25$. $L = 120/1.25 = 96$ m.
+
+The most common error in these problems is deciding who measures the "proper" quantity. This chart sorts it out.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding between proper and dilated or contracted quantities
+  accDescr: First ask whether the quantity is a time interval or a length. For a time interval, ask whether both events happen at the same place in your frame. If yes, you measure the proper time. If no, you measure a longer time, gamma times the proper time measured in the frame where the events are at one place. For a length, ask whether the object is at rest in your frame. If yes, you measure its proper length. If no, its length along the motion is the proper length divided by gamma, and its sizes perpendicular to the motion are unchanged.
+  A{"Time interval or length?"} -- "time" --> B{"Both events at the same place in your frame?"}
+  B -- "yes" --> C["You measure proper time Δt₀"]
+  B -- "no" --> D["You measure Δt = γΔt₀ (longer)"]
+  A -- "length" --> E{"Object at rest in your frame?"}
+  E -- "yes" --> F["You measure proper length L₀"]
+  E -- "no" --> G["Along the motion: L = L₀/γ (shorter)"]
+  G --> H["Across the motion: unchanged"]
+```
 
 ## Relativistic velocity addition
 

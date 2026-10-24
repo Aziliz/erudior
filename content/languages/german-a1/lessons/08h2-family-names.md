@@ -88,7 +88,7 @@ stepparents are usually *du* too.
 ## Whose? Annas Bruder
 
 English adds *'s* to show whose something is: Anna's brother. German does almost the same with
-names, but writes **no apostrophe**:
+names, but writes no apostrophe:
 
 - *Annas Bruder* — Anna's brother
 - *Peters Mutter* — Peter's mother

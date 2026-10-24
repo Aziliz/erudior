@@ -11,6 +11,21 @@ refs: [phys-ref-em-modern, phys-ref-constants]
 
 The previous lesson began with photons and mentioned that Planck introduced energy quanta to explain the light from glowing objects. This lesson tells that story properly, because it is where quantum physics started, and then adds the experiment that convinced most physicists that photons are real particles: the **Compton effect**, in which X-rays bounce off electrons like billiard balls. Along the way you get two practical tools, Wien's law and the Stefan–Boltzmann law, that astronomers and engineers use every day to read temperatures from light.
 
+The two experiments in this lesson bracket the early history of quantum physics, which unfolded over less than three decades.
+
+```mermaid
+flowchart TD
+  accTitle: Milestones in early quantum physics
+  accDescr: A timeline from top to bottom. 1900, Planck explains the blackbody spectrum with energy quanta n h f. 1905, Einstein proposes light quanta, photons, to explain the photoelectric effect. 1913, Bohr's model of hydrogen with quantized energy levels. 1916, Millikan confirms Einstein's photoelectric equation. 1923, Compton shows X-ray photons scatter off electrons carrying momentum h over lambda. 1924, de Broglie proposes matter waves. 1925 to 1926, Heisenberg and Schrodinger build quantum mechanics. 1927, Davisson and Germer observe electron diffraction.
+  A["1900: Planck, energy quanta nhf (blackbody)"] --> B["1905: Einstein, photons (photoelectric effect)"]
+  B --> C["1913: Bohr, quantized levels of hydrogen"]
+  C --> D["1916: Millikan confirms Einstein's equation"]
+  D --> E["1923: Compton, photons carry momentum h/λ"]
+  E --> F["1924: de Broglie, matter waves"]
+  F --> G["1925-26: Heisenberg and Schrödinger, quantum mechanics"]
+  G --> H["1927: Davisson and Germer, electron diffraction"]
+```
+
 ## Thermal radiation
 
 Every object above absolute zero emits electromagnetic radiation because its charged particles jiggle with thermal motion. At room temperature the radiation is infrared and invisible; a stove element at 1000 K glows dull red; a lamp filament near 3000 K glows yellow-white. An ideal absorber, which absorbs every wavelength that falls on it, is called a **blackbody**, and it is also the ideal emitter. A small hole in a hollow box is an excellent blackbody: light that enters bounces around inside and almost never gets out. The radiation leaking out of such a hole has a spectrum that depends *only* on the temperature, not on what the box is made of. That universality is what made it a fundamental puzzle.
