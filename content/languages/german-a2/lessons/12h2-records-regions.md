@@ -86,7 +86,7 @@ The superlative part takes its normal ending: *in der zweitgrößten Stadt*.
 | feminine | *eine der größten Städte* |
 | neuter | *eines der schönsten Länder* |
 
-*einer/eine/eines* matches the gender of the noun (one mountain, one city), and the noun itself is plural, because you pick one from a group. The *der* in the middle is the genitive plural ("of the"), and the adjective after it ends in *-en*. You'll learn the genitive properly at B1; for now, the chunk is enough:
+*einer/eine/eines* matches the gender of the noun (one mountain, one city), and the noun itself is plural, because you pick one from a group. The *der* in the middle is the genitive plural ("of the"), and the adjective after it ends in *-en*. Lesson 18 gives a first look at the genitive, and you'll learn it properly at B1; for now, the chunk is enough:
 
 - *Der Bodensee ist einer der größten Seen in Mitteleuropa.* — Lake Constance is one of the largest lakes in Central Europe.
 - *Zürich ist eine der teuersten Städte der Welt.* — Zurich is one of the most expensive cities in the world.

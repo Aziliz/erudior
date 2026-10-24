@@ -107,7 +107,7 @@ In the exam and in life, the trap is rarely a difficult word. It's a small one t
 
 Newspaper reports have a fixed shape. The headline gives the topic in a few words, often without a verb. The **lead**, the first sentence or paragraph, answers the most important W-questions: *Wer? Was? Wann? Wo?* The later paragraphs add details, quotes and the *Warum?* So if you only have time for one paragraph, read the first one. Reports use the simple past for what people said (*sagte*, *erklärte*) and the present or perfect for the news itself.
 
-> **Neustadt: Bibliothek verleiht jetzt auch Werkzeug**
+> Neustadt: Bibliothek verleiht jetzt auch Werkzeug
 >
 > Eine Bohrmaschine, ein Zelt oder eine Nähmaschine: In der Stadtbibliothek Neustadt kann man seit Montag nicht nur Bücher leihen, sondern auch Dinge für den Alltag. Die neue „Bibliothek der Dinge“ hat schon 120 Gegenstände. Bald sollen es 200 sein.
 >
@@ -117,7 +117,7 @@ Newspaper reports have a fixed shape. The headline gives the topic in a few word
 >
 > Die Bibliothek sucht noch Spenden: Wer gut erhaltene Dinge zu Hause hat, kann sie montags bis freitags von 10 bis 18 Uhr vorbeibringen. Kleidung und Möbel nimmt sie nicht an.
 
-**Neustadt: Library now lends tools too.** A drill, a tent or a sewing machine: since Monday you can borrow not only books but also things for everyday life at Neustadt city library. The new "Library of Things" already has 120 items. Soon there are to be 200. The idea came from the librarian Sabine Roth. "Many people buy a drill and use it for only ten minutes a year," she said at the opening. "That costs money and is bad for the environment." Borrowing is free. All you need is a library card. It costs adults 12 euros a year and nothing for children and young people under 18. You may keep the things for two weeks. But you only get electrical appliances from the age of 18. The library is still looking for donations: anyone who has things in good condition at home can drop them off Monday to Friday from 10 am to 6 pm. It doesn't accept clothes or furniture.
+Neustadt: Library now lends tools too. A drill, a tent or a sewing machine: since Monday you can borrow not only books but also things for everyday life at Neustadt city library. The new "Library of Things" already has 120 items. Soon there are to be 200. The idea came from the librarian Sabine Roth. "Many people buy a drill and use it for only ten minutes a year," she said at the opening. "That costs money and is bad for the environment." Borrowing is free. All you need is a library card. It costs adults 12 euros a year and nothing for children and young people under 18. You may keep the things for two weeks. But you only get electrical appliances from the age of 18. The library is still looking for donations: anyone who has things in good condition at home can drop them off Monday to Friday from 10 am to 6 pm. It doesn't accept clothes or furniture.
 
 (*verleihen* to lend out, *das Werkzeug* tools, *die Bohrmaschine* drill, *der Gegenstand* object, item, *die Eröffnung* opening, *der Ausweis* card, ID, *das Gerät* appliance, device, *die Spende* donation, *vorbeibringen* to drop off.)
 
@@ -127,10 +127,10 @@ The lead answers *Was?* (you can borrow things), *Wo?* (Neustadt city library) a
 
 Read the report in detail and decide: *richtig* or *falsch*?
 
-1. *Ein 16-jähriger Schüler kann eine elektrische Bohrmaschine leihen.* The third paragraph says *Elektrische Geräte bekommt man aber erst ab 18 Jahren.* He's 16: **falsch**. A reader who only saw *kostenlos* and *unter 18 nichts* would say *richtig*.
-2. *Ein Bibliotheksausweis ist für alle kostenlos.* Only for under-18s; adults pay 12 Euro: **falsch**.
-3. *Man kann ein altes Sofa spenden.* *Möbel nimmt sie nicht an*, and a sofa is furniture: **falsch**.
-4. *Die Bibliothek hat im Moment mehr als 100 Gegenstände.* *schon 120*: **richtig**. The 200 is a plan (*Bald sollen es 200 sein*), not a fact yet.
+1. *Ein 16-jähriger Schüler kann eine elektrische Bohrmaschine leihen.* The third paragraph says *Elektrische Geräte bekommt man aber erst ab 18 Jahren.* He's 16: *falsch*. A reader who only saw *kostenlos* and *unter 18 nichts* would say *richtig*.
+2. *Ein Bibliotheksausweis ist für alle kostenlos.* Only for under-18s; adults pay 12 Euro: *falsch*.
+3. *Man kann ein altes Sofa spenden.* *Möbel nimmt sie nicht an*, and a sofa is furniture: *falsch*.
+4. *Die Bibliothek hat im Moment mehr als 100 Gegenstände.* *schon 120*: *richtig*. The 200 is a plan (*Bald sollen es 200 sein*), not a fact yet.
 
 Every answer came from one sentence, and in three of the four a small word decided it.
 

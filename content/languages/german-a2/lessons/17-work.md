@@ -108,6 +108,20 @@ When the two subjects are different, you can't use *zu*; use a *dass* clause (le
 - *Ich hoffe, morgen früher zu gehen.* — I hope to leave earlier tomorrow. (I hope, I leave)
 - *Ich hoffe, dass mein Chef nichts dagegen hat.* — I hope my boss doesn't mind. (I hope, the boss minds)
 
+This chart sums up when you need *zu* and where it goes:
+
+```mermaid
+flowchart TD
+  accTitle: Do I need zu, and where does it go?
+  accDescr: Look at what comes before the second verb. After a modal verb, werden, würde, lassen or gehen, there is no zu, as in Ich muss arbeiten. After expressions like Zeit haben, Lust haben, versuchen, vergessen or es ist wichtig, ask whether both verbs have the same subject. If not, use a dass clause, as in Ich hoffe, dass der Chef kommt. If they do, use zu: with a separable verb zu goes in the middle, as in anzurufen; otherwise zu stands before the verb, as in zu arbeiten.
+  A{"What comes before the second verb?"} -- "modal verb, werden, würde, lassen, gehen" --> B["no zu: Ich muss arbeiten."]
+  A -- "Zeit haben, versuchen, es ist wichtig ..." --> C{"Same subject for both verbs?"}
+  C -- "no" --> D["dass clause: Ich hoffe, dass der Chef kommt."]
+  C -- "yes" --> E{"Separable verb?"}
+  E -- "yes" --> F["zu in the middle: anzurufen"]
+  E -- "no" --> G["zu before the verb: zu arbeiten"]
+```
+
 ## On the phone at work
 
 When you pick up a business call, say the company and your full name, not just *Hallo*.
