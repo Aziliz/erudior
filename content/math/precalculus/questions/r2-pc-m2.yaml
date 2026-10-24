@@ -246,7 +246,7 @@
   choices: ['$7$', '$3$', '$-3$', '$13$']
   answer: 0
   explanation: |-
-    $-1$ and $5$ are both 3 units from $x = 2$, so $f(-1) + f(5) = 2 \cdot 5 = 10$, giving $f(5) = 7$. The answer $-3$ comes from using origin symmetry; $3$ from using line symmetry.
+    $-1$ and $5$ are both 3 units from $x = 2$, so $f(-1) + f(5) = 2 \cdot 5 = 10$, giving $f(5) = 7$. The answer $-3$ comes from using origin symmetry; $3$ from using line symmetry; $13$ from adding $f(-1)$ to $2b$ instead of subtracting it.
 - id: pc-m2-r2-h05
   lesson: pc-m2-h-symmetry
   topic: Symmetry about a line or point
@@ -369,10 +369,10 @@
   lesson: pc-m2-h-composition-algebra
   topic: Algebra of composition
   stem: '$f$ is one-to-one with $f(1) = 4$. Let $g(x) = 3f(x - 2) + 1$. Find $g^{-1}(13)$.'
-  choices: ['$1$', '$-1$', '$7$', '$3$']
+  choices: ['$1$', '$-1$', '$6$', '$3$']
   answer: 3
   explanation: |-
-    By the formula $g^{-1}(x) = h + \frac1b f^{-1}\!\left(\frac{x - k}{a}\right)$ with $a = 3$, $b = 1$, $h = 2$, $k = 1$: $g^{-1}(13) = 2 + f^{-1}(4) = 2 + 1 = 3$. Directly: $3f(x - 2) + 1 = 13$ gives $f(x - 2) = 4$, so $x - 2 = 1$. Forgetting the shift gives 1; shifting the wrong way gives $-1$.
+    By the formula $g^{-1}(x) = h + \frac1b f^{-1}\!\left(\frac{x - k}{a}\right)$ with $a = 3$, $b = 1$, $h = 2$, $k = 1$: $g^{-1}(13) = 2 + f^{-1}(4) = 2 + 1 = 3$. Directly: $3f(x - 2) + 1 = 13$ gives $f(x - 2) = 4$, so $x - 2 = 1$. Forgetting the shift gives 1; shifting the wrong way gives $-1$; forgetting to apply $f^{-1}$ (using $2 + 4$) gives 6.
 - id: pc-m2-r2-h19
   lesson: pc-m2-h-composition-algebra
   topic: Algebra of composition
@@ -479,4 +479,4 @@
   choices: ['$7$', '$6.25$', '$6.5$', '$5.5$']
   answer: 2
   explanation: |-
-    $x_1 = 8$, $x_2 = 7$, $x_3 = 6.5$. Or use the fixed point $p = \frac{3}{1 - 0.5} = 6$: $x_3 - 6 = 0.5^3(10 - 6) = 0.5$, so $x_3 = 6.5$. The distance to 6 halves each step.
+    $x_1 = 8$, $x_2 = 7$, $x_3 = 6.5$. Or use the fixed point $p = \frac{3}{1 - 0.5} = 6$: $x_3 - 6 = 0.5^3(10 - 6) = 0.5$, so $x_3 = 6.5$. The distance to 6 halves each step. ($7$ is $x_2$, $6.25$ is $x_4$, and $5.5$ puts $x_3$ on the wrong side of 6.)

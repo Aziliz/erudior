@@ -89,7 +89,7 @@
     - {name: dmin, label: 'Smallest value'}
   solution: |-
     $D(x)$ is the total distance from $x$ to {p}, {q} and {r}. Its slope is (points to the left) − (points to the right), which changes from negative to positive at the median, **{q}**.
-    There $D({q}) = ({q} - ({p})) + 0 + ({r} - {q}) = {r} - ({p}) =$ **{dmin}**.
+    There $D({q}) = ({q} - ({p})) + 0 + ({r} - ({q})) = {r} - ({p}) =$ **{dmin}**.
 
 - id: pc-m1-r2-tiered-tax
   title: Tax under a tiered schedule

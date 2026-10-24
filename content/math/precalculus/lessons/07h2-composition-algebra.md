@@ -127,7 +127,7 @@ Iterate $f(x) = \sqrt{x + 6}$ starting from $x_0 = -5$, and find the fixed point
 
 $x_1 = \sqrt{1} = 1$, $x_2 = \sqrt{7} \approx 2.6458$, $x_3 = \sqrt{8.6458} \approx 2.9404$, $x_4 \approx 2.9900$, $x_5 \approx 2.9983$. The values close in on 3. Solve for the fixed point: $\sqrt{x + 6} = x$ requires $x \ge 0$; squaring gives $x^2 - x - 6 = 0$, so $x = 3$ or $x = -2$. Since a square root is never negative, $-2$ is extraneous: $f(-2) = 2 \ne -2$. The fixed point is 3.
 
-![Cobweb diagram for f(x) = √(x + 6). Starting at x₀ = −5 on the x-axis, a path goes up to the curve, across to the dashed line y = x, up to the curve again, and so on, spiraling in a staircase toward the fixed point (3, 3) where the curve crosses y = x.](images/pc-m2-cobweb.svg)
+![Cobweb diagram for f(x) = √(x + 6). Starting at x₀ = −5 on the x-axis, a path goes up to the curve, across to the dashed line y = x, up to the curve again, and so on, climbing in a staircase toward the fixed point (3, 3) where the curve crosses y = x.](images/pc-m2-cobweb.svg)
 
 Not every fixed point attracts. For a linear function $f(x) = mx + c$ with $m \ne 1$, the fixed point is $p = \frac{c}{1 - m}$, and subtracting $p = mp + c$ from $x_{n+1} = mx_n + c$ gives
 

@@ -24,7 +24,7 @@ Pick one vertex of a convex polygon and draw every diagonal from it. The vertex 
 
 ![A regular hexagon with three dashed diagonals drawn from its left vertex, cutting it into four numbered triangles. The caption reads: diagonals from one vertex, 4 triangles, 4 × 180° = 720°.](images/pre-m8-h-hexagon-triangles.svg)
 
-The triangles' angles together make up exactly the polygon's interior angles: every triangle corner sits at a vertex of the polygon, and at the chosen vertex the triangle corners fit side by side to make up its whole interior angle. Each triangle contributes 180°, so
+The triangles' angles together make up exactly the polygon's interior angles: every triangle corner sits at a vertex of the polygon, and wherever two or more triangles share a vertex (the chosen vertex, and the far end of each diagonal), their corners fit side by side to make up that vertex's whole interior angle. Each triangle contributes 180°, so
 
 $$\text{sum of interior angles} = (n - 2) \times 180°.$$
 
@@ -105,7 +105,7 @@ A **tessellation** (or tiling) covers a flat surface with shapes that leave no g
 - Regular hexagons: 120°, and $360 \div 120 = 3$. ✓
 - Any regular polygon with more than 6 sides: its angle is more than 120° but less than 180°. Two of them make less than 360° and three make more than 360°. ✗
 
-So there are exactly *three* regular tilings: triangles, squares and hexagons. Tilings that mix different regular polygons are possible too; the same rule (angles at each point add to 360°) tells you which mixtures can work.
+So there are exactly *three* regular tilings: triangles, squares and hexagons. Tilings that mix different regular polygons are possible too; the same rule (angles at each point add to 360°) rules out the mixtures that can't work. Passing the test at one point doesn't by itself guarantee that the pattern can be continued across a whole floor, but it is the first check.
 
 ![Left: a patch of a tiling by regular hexagons, three meeting at each point, with 120° + 120° + 120° = 360°. Right: a tiling by regular octagons with small squares in the gaps; two octagons and one square meet at each point, with 135° + 135° + 90° = 360°.](images/pre-m8-h-tilings.svg)
 
@@ -117,7 +117,7 @@ Octagons and square: $135° + 135° + 90° = 360°$. Yes; this is a common bathr
 
 ### A note on honeycombs
 
-Honeybees build their combs from hexagonal cells. A common explanation is that hexagons save wax: among the three regular tilings, hexagons enclose a given area with the least total wall length. In 1999 the mathematician Thomas Hales proved a stronger statement, long known as the honeycomb conjecture: of *all* ways to divide a flat surface into regions of equal area, the regular hexagon pattern uses the least total boundary. (How bees actually come to build hexagons is still studied by biologists; the math explains why the shape is efficient, not how bees achieve it.)
+Honeybees build their combs from hexagonal cells. A common explanation is that hexagons save wax: among the three regular tilings, hexagons enclose a given area with the least total wall length. In 1999 (published in 2001) the mathematician Thomas Hales proved a stronger statement, long known as the honeycomb conjecture: of *all* ways to divide a flat surface into regions of equal area, the regular hexagon pattern uses the least total boundary. (How bees actually come to build hexagons is still studied by biologists; the math explains why the shape is efficient, not how bees achieve it.)
 
 ## Common mistakes
 
