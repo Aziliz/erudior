@@ -76,6 +76,7 @@
     Rth: R1*R2/(R1 + R2)
     Vread: Vtrue*RV/(RV + Rth)
     err: 100*(Vtrue - Vread)/Vtrue
+  where: ['err > 2']
   prompt: 'Resistors $R_1 = {R1}$ MΩ and $R_2 = {R2}$ MΩ are in series across an ideal {Ev} V battery. A voltmeter with resistance {RV} MΩ is connected across $R_2$. Find the true voltage across $R_2$ with no meter attached (V), the meter''s reading (V), and the percentage by which the reading is low. Give 3 significant figures.'
   answers:
     - {format: sig4, name: Vtrue, label: 'True voltage', relTolerance: 0.01, units: {V: 1}}

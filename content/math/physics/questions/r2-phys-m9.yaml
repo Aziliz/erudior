@@ -321,10 +321,10 @@
   lesson: phys-m9-h-conduction
   topic: Conduction models
   stem: 'Aluminum has about $1.8\times10^{29}$ free electrons per m³ and resistivity $2.65\times10^{-8}$ Ω·m. Use the Drude model, $\rho = m/(ne^2\tau)$, to estimate the mean free time.'
-  choices: ['$7.4\times10^{-15}$ s', '$1.6\times10^{-14}$ s', '$1.4\times10^{14}$ s', '$2.5\times10^{-14}$ s']
+  choices: ['$7.4\times10^{-15}$ s', '$1.6\times10^{-14}$ s', '$1.3\times10^{14}$ s', '$2.5\times10^{-14}$ s']
   answer: 0
   explanation: |-
-    $\tau = \dfrac{m}{ne^2\rho} = \dfrac{9.11\times10^{-31}}{(1.8\times10^{29})(1.602\times10^{-19})^2(2.65\times10^{-8})} = 7.4\times10^{-15}$ s. $1.6\times10^{-14}$ s uses copper's $n$; $1.4\times10^{14}$ is $1/\tau$, from inverting the fraction; $2.5\times10^{-14}$ s is copper's own value.
+    $\tau = \dfrac{m}{ne^2\rho} = \dfrac{9.11\times10^{-31}}{(1.8\times10^{29})(1.602\times10^{-19})^2(2.65\times10^{-8})} = 7.4\times10^{-15}$ s. $1.6\times10^{-14}$ s uses copper's $n$; $1.3\times10^{14}$ is $1/\tau$, from inverting the fraction; $2.5\times10^{-14}$ s is copper's own value.
 - id: phys-m9-r2-h17
   lesson: phys-m9-h-conduction
   topic: Semiconductors
@@ -417,7 +417,7 @@
   choices: ['twelve times the running current', 'one-twelfth of the running current', 'equal to the running current', '144 times the running current']
   answer: 0
   explanation: |-
-    The voltage is the same, so $I = V/R$: one-twelfth the resistance gives twelve times the current, until the filament heats up (within a fraction of a second). 144 squares the ratio, which would apply to power at fixed current, not to current at fixed voltage.
+    The voltage is the same, so $I = V/R$: one-twelfth the resistance gives twelve times the current, until the filament heats up (within a fraction of a second). 144 squares the ratio, as if the current went as $1/R^2$; at fixed voltage it goes as $1/R$. (The starting power, $V^2/R$, is also about twelve times the running power.)
 - id: phys-m9-r2-h28
   lesson: phys-m9-h-conduction
   topic: Semiconductors

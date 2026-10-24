@@ -42,19 +42,19 @@ The drift is opposite to $E$ for a negative electron, as in the picture. Put thi
 
 $$J = \frac{ne^2\tau}{m}E, \qquad \sigma = \frac{ne^2\tau}{m}, \qquad \rho = \frac{m}{ne^2\tau}.$$
 
-Ohm's law falls out: $J$ is proportional to $E$ as long as $\tau$ doesn't depend on $E$. In a metal it doesn't, because the drift speed is tiny compared with the electrons' random speed of about $10^6$ m/s, so the field hardly changes how often they collide. The ratio $v_d/E = e\tau/m$ is called the **mobility**, $\mu$: the drift speed per unit field, in m²/(V·s). (The symbol $\mu$ is reused here; it's not the friction coefficient or $\mu_0$.)
+Ohm's law falls out: $J$ is proportional to $E$ as long as $\tau$ doesn't depend on $E$. In a metal it doesn't, because the drift speed is tiny compared with the electrons' random speed of about $10^6$ m/s, so the field hardly changes how often they collide. (That speed, about $1.6\times10^6$ m/s in copper, is itself a quantum result; Drude's classical gas of electrons would move about ten times slower at room temperature.) The ratio $v_d/E = e\tau/m$ is called the **mobility**, $\mu$: the drift speed per unit field, in m²/(V·s). (The symbol $\mu$ is reused here; it's not the friction coefficient or $\mu_0$.)
 
 ### Example 1: Collisions in copper
 
 Copper has $n = 8.5\times10^{28}$ free electrons per m³ and $\rho = 1.7\times10^{-8}$ Ω·m. Find the mean free time, the mobility, and the drift speed in a field of 0.017 V/m. ($m = 9.11\times10^{-31}$ kg, $e = 1.602\times10^{-19}$ C.)
 
-$$\tau = \frac{m}{ne^2\rho} = \frac{9.11\times10^{-31}}{(8.5\times10^{28})(1.602\times10^{-19})^2(1.7\times10^{-8})} = 2.5\times10^{-14}\text{ s}.$$
+$$\tau = \frac{m}{ne^2\rho} = \frac{9.11\times10^{-31}}{(8.5\times10^{28})(1.602\times10^{-19})^2(1.7\times10^{-8})} = 2.46\times10^{-14}\text{ s} \approx 2.5\times10^{-14}\text{ s}.$$
 
-Mobility: $\mu = e\tau/m = (1.602\times10^{-19})(2.5\times10^{-14})/(9.11\times10^{-31}) = 4.3\times10^{-3}$ m²/(V·s).
+Mobility: $\mu = e\tau/m = (1.602\times10^{-19})(2.46\times10^{-14})/(9.11\times10^{-31}) = 4.3\times10^{-3}$ m²/(V·s).
 
 Drift: $v_d = \mu E = (4.3\times10^{-3})(0.017) = 7.3\times10^{-5}$ m/s.
 
-That field is the one in lesson 35's copper wire carrying 1.0 A through 1.0 mm² ($E = \rho J = (1.7\times10^{-8})(1.0\times10^6) = 0.017$ V/m), and the drift speed matches the $7.4\times10^{-5}$ m/s found there from $I = nqv_dA$ (the small difference is rounding of $\tau$). At $10^6$ m/s, an electron covers $(1.6\times10^6)(2.5\times10^{-14}) \approx 4\times10^{-8}$ m, about 40 nm, between collisions. That is the **mean free path**, roughly 150 atomic spacings.
+That field is the one in lesson 35's copper wire carrying 1.0 A through 1.0 mm² ($E = \rho J = (1.7\times10^{-8})(1.0\times10^6) = 0.017$ V/m), and the drift speed matches the $7.4\times10^{-5}$ m/s found there from $I = nqv_dA$ (the small difference is rounding of $\tau$). At about $1.6\times10^6$ m/s, an electron covers $(1.6\times10^6)(2.46\times10^{-14}) \approx 4\times10^{-8}$ m, about 40 nm, between collisions. That is the **mean free path**, roughly 150 atomic spacings.
 
 Where the model is simplified: Drude assumed electrons bounce off the ions themselves. Quantum mechanics shows that electron waves pass through a *perfect*, motionless lattice without scattering at all. What scatters them is anything that breaks the perfect pattern: the vibrations of the ions, impurity atoms and defects. That is why the mean free path is so much longer than the spacing between atoms, and it leads directly to the temperature dependence.
 
@@ -96,7 +96,7 @@ Cooling a metal lowers its resistance, but for most metals it levels off at a sm
 
 A **semiconductor** such as silicon lies between metals and insulators. Each silicon atom shares its four outer electrons in bonds with four neighbors, so almost all electrons are tied up. At room temperature, heat shakes a few loose: in pure silicon about $10^{16}$ free electrons per m³, compared with $10^{28}$ to $10^{29}$ in a metal. Each freed electron leaves behind a gap in a bond, a **hole**. A neighboring bonded electron can hop into the hole, which moves the hole the other way, so holes behave like mobile positive charges.
 
-Heating a semiconductor frees *many* more carriers, and that effect outweighs the extra scattering. So a semiconductor's resistivity *falls* as temperature rises, the opposite of a metal. A **thermistor** is a semiconductor resistor designed to use this: its resistance changes strongly with temperature, which makes it a sensitive thermometer in thermostats and digital thermometers.
+Heating a semiconductor frees *many* more carriers, and that effect outweighs the extra scattering. So a semiconductor's resistivity *falls* as temperature rises, the opposite of a metal. A **thermistor** is a semiconductor resistor designed to use this (the common NTC, "negative temperature coefficient", type; PTC thermistors whose resistance rises with temperature also exist): its resistance changes strongly with temperature, which makes it a sensitive thermometer in thermostats and digital thermometers.
 
 Semiconductors become useful through **doping**: adding a tiny, controlled amount of another element.
 
@@ -116,7 +116,7 @@ That is about a million times lower than pure silicon's, yet still about 70,000 
 ```mermaid
 flowchart TD
   accTitle: From pure silicon to diodes and LEDs
-  accDescr: Pure silicon has very few free carriers. Adding phosphorus, with five outer electrons, gives n-type silicon with extra free electrons. Adding boron, with three outer electrons, gives p-type silicon with extra holes. Joining p-type and n-type silicon makes a p-n junction, which is a diode that lets current through in one direction only. In a light-emitting diode, electrons and holes that meet at the junction release their energy as light.
+  accDescr: Pure silicon has very few free carriers. Adding phosphorus, with five outer electrons, gives n-type silicon with extra free electrons. Adding boron, with three outer electrons, gives p-type silicon with extra holes. Joining p-type and n-type silicon makes a p-n junction, which is a diode that lets current through in one direction only. A light-emitting diode is a p-n junction made from other semiconductors, such as gallium nitride, in which electrons and holes that meet at the junction release their energy as light.
   A["Pure silicon: very few free carriers"] --> B["Add phosphorus (5 outer electrons)"]
   A --> C["Add boron (3 outer electrons)"]
   B --> D["n-type: extra free electrons"]
@@ -124,7 +124,7 @@ flowchart TD
   D --> F["Join them: a p-n junction"]
   E --> F
   F --> G["Diode: current flows one way only"]
-  G --> H["LED: electrons and holes meet and give off light"]
+  G --> H["LED (other semiconductors, such as gallium nitride): electrons and holes meet and give off light"]
 ```
 
 ## Diodes and LEDs

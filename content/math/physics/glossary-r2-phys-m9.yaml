@@ -95,5 +95,5 @@
   topic: Semiconductors
 - term: light-emitting diode
   aliases: [LED, LEDs, light-emitting diodes]
-  definition: 'A diode in which electrons and holes meeting at the junction give off their energy as light. Its forward voltage is roughly the photon energy in eV.'
+  definition: 'A diode in which electrons and holes meeting at the junction give off their energy as light. Its forward voltage, in volts, is roughly the photon energy in electron volts.'
   topic: Semiconductors

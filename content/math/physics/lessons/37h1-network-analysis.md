@@ -54,7 +54,7 @@ A common slip is to pair the resistors wrongly, for example $R_x = R_1R_3/R_2 = 
 
 An unbalanced bridge is useful too. A strain gauge is a thin wire pattern glued to a beam; when the beam stretches, the wire gets longer and thinner and its resistance rises slightly. Put it in a bridge in place of $R_x$, with all four resistors 100 Ω and $\mathcal{E} = 10$ V. Balanced, P and Q are both at 5.000 V. If strain raises the gauge to 102 Ω, find the voltage between P and Q (assume the meter draws no current).
 
-P is still at $10 \times 100/200 = 5.000$ V. Q is at $10 \times 102/202 = 5.050$ V. The difference is about 0.050 V, or 50 mV. A 2% change in one resistance became a clear signal against a zero background. That is how bathroom scales, load cells and many pressure sensors work.
+P is still at $10 \times 100/200 = 5.000$ V. Q is at $10 \times 102/202 = 5.050$ V. The difference is about 0.050 V, or 50 mV. A 2% change in one resistance became a clear signal against a zero background. That is how bathroom scales, load cells and many pressure sensors work. (Real strain gauges usually change by well under 1%, so their bridge signals are a few millivolts or less and are amplified; 2% keeps the arithmetic easy to follow.)
 
 ## Thévenin's theorem
 
@@ -111,7 +111,7 @@ Two 1.0 MΩ resistors form a divider across 10 V. What should a voltmeter across
 
 Ideal: $V_{\text{th}} = 5.0$ V. Seen from the lower resistor, $R_{\text{th}} = 1.0 \parallel 1.0 = 0.50$ MΩ.
 
-Real meter: $V_{\text{read}} = 5.0 \times \dfrac{10}{10 + 0.50} = 4.76$ V, about 5% low. With a 1.0 MΩ meter (common in older analog meters) the reading would be $5.0 \times 1.0/1.5 = 3.3$ V, a third low. In circuits of a few kilohms, $R_{\text{th}}$ is thousands of times smaller than 10 MΩ and the error is negligible; in megohm circuits it is not.
+Real meter: $V_{\text{read}} = 5.0 \times \dfrac{10}{10 + 0.50} = 4.76$ V, about 5% low. With a 1.0 MΩ meter (older analog meters often had this much resistance or less on their low ranges) the reading would be $5.0 \times 1.0/1.5 = 3.3$ V, a third low. In circuits of a few kilohms, $R_{\text{th}}$ is thousands of times smaller than 10 MΩ and the error is negligible; in megohm circuits it is not.
 
 ## Superposition
 
