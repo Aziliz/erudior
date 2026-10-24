@@ -96,7 +96,7 @@ $a = \frac{0.5 + 35.5}{2} = 18$ AU and $e = \frac{35.5 - 0.5}{36} = \frac{35}{36
 
 ## A trip to Mars
 
-The cheapest way (in fuel) to move a spacecraft between two circular orbits is to coast along half of an ellipse that just touches both: perihelion at the inner orbit and aphelion at the outer one. This is a **Hohmann transfer orbit**, described by Walter Hohmann in 1925. The spacecraft fires its engine once to enter the ellipse and once more to match the new orbit.
+The most fuel-efficient way to move a spacecraft between two circular orbits in the same plane using two engine burns is to coast along half of an ellipse that just touches both: perihelion at the inner orbit and aphelion at the outer one. This is a **Hohmann transfer orbit**, described by Walter Hohmann in 1925. The spacecraft fires its engine once to enter the ellipse and once more to match the new orbit.
 
 ### Example 5
 

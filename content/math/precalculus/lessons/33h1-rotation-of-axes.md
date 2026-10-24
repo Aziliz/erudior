@@ -106,7 +106,7 @@ $$\lambda^2 - (A + C)\lambda + \left(AC - \frac{B^2}{4}\right) = 0.$$
 
 Which root is $A'$? Working through the formulas shows $A' - C' = (A - C)\cos 2\theta + B\sin 2\theta$, and for the acute $\theta$ chosen above this has the same sign as $B$. So with $B > 0$, $A'$ is the larger root; with $B < 0$, it is the smaller one. (In Example 1, $B = -6$ and $A' = 2$ is the smaller root.)
 
-(Simplified for now: in linear algebra, $A'$ and $C'$ turn out to be the *eigenvalues* of the matrix $\begin{bmatrix} A & B/2 \\ B/2 & C \end{bmatrix}$, and the new axes point along its eigenvectors. You don't need that language here.)
+(A look ahead: in linear algebra, $A'$ and $C'$ turn out to be the *eigenvalues* of the matrix $\begin{bmatrix} A & B/2 \\ B/2 & C \end{bmatrix}$, and the new axes point along its eigenvectors; the Module 6 honors lesson on eigenvalues introduces those words. You don't need that language here.)
 
 ### Example 3
 

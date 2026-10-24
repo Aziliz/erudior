@@ -103,7 +103,7 @@ These properties are used in real devices:
 
 Check the equal-angle property for $\frac{x^2}{25} + \frac{y^2}{9} = 1$ at $P = \left(3, \frac{12}{5}\right)$.
 
-The tangent to $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ at $(x_0, y_0)$ is $\frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} = 1$ (you can check that it meets the ellipse only at $P$). Here that is $\frac{3x}{25} + \frac{4y}{15} = 1$, with slope $-\frac{9}{20}$, so a direction along it is $\vec t = (20, -9)$. From $P$, the vectors to the foci are $\vec{PF_2} = (1, -2.4)$ and $\vec{PF_1} = (-7, -2.4)$, of lengths 2.6 and 7.4 from Example 1. Using the dot product (Module 8):
+The tangent to $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ at $(x_0, y_0)$ is $\frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} = 1$ (you can check that it meets the ellipse only at $P$). Here that is $\frac{3x}{25} + \frac{4y}{15} = 1$, with slope $-\frac{9}{20}$, so a direction along it is $\vec t = (20, -9)$. From $P$, the vectors to the foci are $\vec{PF_2} = (1, -2.4)$ and $\vec{PF_1} = (-7, -2.4)$, of lengths 2.6 and 7.4 from Example 1. The angle between two vectors $\vec u = (u_1, u_2)$ and $\vec v = (v_1, v_2)$ satisfies $\cos\angle(\vec u, \vec v) = \frac{u_1v_1 + u_2v_2}{|\vec u|\,|\vec v|}$ (the dot product formula, developed fully in Module 8), so
 
 $$\cos\angle(\vec{PF_2}, \vec t) = \frac{20 + 21.6}{2.6\sqrt{481}} \approx 0.7295, \qquad \cos\angle(\vec{PF_1}, -\vec t) = \frac{140 - 21.6}{7.4\sqrt{481}} \approx 0.7295.$$
 

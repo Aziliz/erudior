@@ -112,7 +112,7 @@ So the "increasing and decreasing" of Module 1 becomes a computation. A derivati
 Here is the corner case. Secants through $(0, 0)$ from the right all have slope 1, and from the left all have slope $-1$, so the difference quotient has no single limit.
 
 ```plot
-{"x": [-3, 3], "y": [-1, 3], "functions": [{"f": "abs(x)", "label": "y = |x|"}], "points": [{"at": [0, 0]}], "labels": [{"at": [-1.9, 0.9], "text": "slope −1"}, {"at": [1.9, 0.9], "text": "slope 1"}, {"at": [0, -0.7], "text": "corner"}], "caption": "y = |x| is continuous at 0 but has no tangent slope there: the secant slopes are −1 from the left and 1 from the right."}
+{"x": [-3, 3], "y": [-1, 3], "functions": [{"f": "abs(x)", "label": "y = |x|"}], "points": [{"at": [0, 0]}], "labels": [{"at": [-1.9, 0.9], "text": "slope −1"}, {"at": [1.9, 0.9], "text": "slope 1"}, {"at": [1.2, -0.6], "text": "corner at (0, 0)"}], "caption": "y = |x| is continuous at 0 but has no tangent slope there: the secant slopes are −1 from the left and 1 from the right."}
 ```
 
 ## Common mistakes

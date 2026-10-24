@@ -88,7 +88,7 @@
     - {x: 16.5, y: 50.0, text: Focus}
     - {x: 91.9, y: 50.0, text: Vertex}
     - {x: 50.0, y: 11.0, text: Co-vertex}
-    - {x: 71.8, y: 50.0, text: Major axis}
+    - {x: 33.2, y: 50.0, text: Major axis}
     - {x: 50.0, y: 73.4, text: Minor axis}
   distractors: [Directrix, Asymptote]
   explanation: |-
@@ -249,7 +249,7 @@
   choices: ['$(3, -1)$', '$(4, -4.5)$', '$(4, -2.5)$', '$(-2.5, 4)$']
   answer: 2
   explanation: |-
-    $x = 1 + 4\left(\tfrac34\right) = 4$ and $y = 2 - 6\left(\tfrac34\right) = -2.5$. It is three quarters of the way along the segment. $(3, -1)$ is the midpoint ($t = \frac12$), and $(-2.5, 4)$ swaps the coordinates.
+    $x = 1 + 4\left(\tfrac34\right) = 4$ and $y = 2 - 6\left(\tfrac34\right) = -2.5$. It is three quarters of the way along the segment. $(3, -1)$ is the midpoint ($t = \frac12$), $(4, -4.5)$ forgets the starting $y$-value 2 (it uses $y = -6t$), and $(-2.5, 4)$ swaps the coordinates.
 # ---------- Lesson 32: Polar coordinates ----------
 - id: pc-m7-r2-q22
   lesson: pc-polar

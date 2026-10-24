@@ -87,6 +87,8 @@
     sb2: nb2*rb2/100
     tota: (sa1 + sa2)/(na1 + na2)*100
     totb: (sb1 + sb2)/(nb1 + nb2)*100
+    hda: na2/(na1 + na2)*100
+    hdb: nb2/(nb1 + nb2)*100
   where: ['ra1 > rb1', 'ra2 > rb2', 'ra1 > ra2 + 10', 'rb1 > rb2 + 10', 'totb > tota + 2']
   prompt: |-
     Method A succeeds on {sa1:int} of {na1} easy jobs ({ra1}%) and {sa2:int} of {na2} hard jobs
@@ -98,8 +100,8 @@
   solution: |-
     Combine the counts, not the percents. A: $\dfrac{{sa1:int} + {sa2:int}}{{na1} + {na2}} =$
     **{tota:num1}%**. B: $\dfrac{{sb1:int} + {sb2:int}}{{nb1} + {nb2}} =$ **{totb:num1}%**.
-    A is better on easy jobs and on hard jobs, yet B is better overall, because A was used mostly
-    on hard jobs: Simpson's paradox.
+    A is better on easy jobs and on hard jobs, yet B is better overall, because hard jobs make up a
+    larger share of A's jobs ({hda:num1}%) than of B's ({hdb:num1}%): Simpson's paradox.
 
 - id: ps-m1-r2-berkson
   title: Selection creates dependence (Berkson)

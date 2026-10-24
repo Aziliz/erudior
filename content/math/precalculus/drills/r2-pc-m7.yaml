@@ -6,7 +6,7 @@
     C: {min: -6, max: 9}
     B: {choices: [-8, -6, -5, -4, -3, -2, 2, 3, 4, 5, 6, 8]}
     G: {choices: [4, 6, 8, 10, 12, 20]}
-  where: ["A != 0", "C != 0", "A != C"]
+  where: ["A != 0", "C != 0", "A != C", "max(max(A, C), B^2 - 4*A*C) > 0"]
   calc:
     ct: (A - C)/B
     tt: atan2d(abs(B), sign(B)*(A - C))
@@ -25,7 +25,7 @@
     k: {choices: [-2, -1, 1, 2]}
     tp: {choices: [1, 2]}
     G: {choices: [4, 6, 8, 10, 12, 20]}
-  where: ["Ap != 0", "Cp != 0", "A != 0", "C != 0"]
+  where: ["Ap != 0", "Cp != 0", "A != 0", "C != 0", "max(Ap, Cp) > 0"]
   calc:
     Cp: Ap + 5*k
     A: if(tp == 1, (4*Ap + Cp)/5, (Ap + 4*Cp)/5)
