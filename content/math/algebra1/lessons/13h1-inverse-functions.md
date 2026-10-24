@@ -121,7 +121,7 @@ A point and its mirror image are exactly a pair whose connecting segment is perp
 > The graph of $f^{-1}$ is the reflection of the graph of $f$ across the line $y = x$.
 
 ```plot
-{"x": [-4, 6], "y": [-4, 6], "equal": true, "functions": [{"f": "2*x + 1", "label": "y = f(x)"}, {"f": "(x - 1)/2", "label": "y = f⁻¹(x)"}, {"f": "x", "dashed": true, "label": "y = x"}], "points": [{"at": [1, 3]}, {"at": [3, 1]}, {"at": [2, 2]}, {"at": [-1, -1]}], "segments": [{"from": [1, 3], "to": [3, 1], "dashed": true}], "caption": "f(x) = 2x + 1 and f⁻¹(x) = (x − 1)/2 are mirror images across y = x", "labels": [{"at": [-2.2, -0.55], "text": "(-1, -1)"}, {"at": [3.6, 0.35], "text": "(3, 1)"}, {"at": [1.85, 2.95], "text": "(1, 3)"}]}
+{"x": [-4, 6], "y": [-4, 6], "equal": true, "functions": [{"f": "2*x + 1", "label": "y = f(x)"}, {"f": "(x - 1)/2", "label": "y = f⁻¹(x)"}, {"f": "x", "dashed": true, "label": "y = x"}], "points": [{"at": [1, 3]}, {"at": [3, 1]}, {"at": [2, 2]}, {"at": [-1, -1]}], "segments": [{"from": [1, 3], "to": [3, 1], "dashed": true}], "caption": "f(x) = 2x + 1 and f⁻¹(x) = (x − 1)/2 are mirror images across y = x", "labels": [{"at": [-2.0, -0.8], "text": "(-1, -1)"}, {"at": [3.6, 0.35], "text": "(3, 1)"}, {"at": [1.85, 2.95], "text": "(1, 3)"}]}
 ```
 
 In the picture, $f(1) = 3$ and $f^{-1}(3) = 1$; the dashed segment from $(1, 3)$ to $(3, 1)$ crosses $y = x$ at a right angle at its midpoint $(2, 2)$. The two graphs meet at $(-1, -1)$, a point on the mirror line, where $f(-1) = -1$.
