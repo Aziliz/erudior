@@ -1,0 +1,26 @@
+# German B1, module 4 honors lessons (round 2): notecards
+# --- 20h1 Wie ein Gesetz entsteht ---
+- {front: 'Das Gesetz wird verabschiedet vs Das Gesetz ist verabschiedet', back: 'werden + participle = the action (it is being passed); sein + participle = the state afterwards (it has been passed, it is done).', topic: Passive}
+- {front: 'When is the state passive (sein + participle) possible?', back: 'Only when the action leaves a lasting result: geöffnet, geschlossen, verboten, geregelt, festgelegt. Not: ~~Der Minister ist kritisiert.~~', topic: Passive}
+- {front: 'Passive of a verb with a dative object (zustimmen, helfen)', back: 'The dative stays, there is no subject, the verb is singular: Dem Gesetz wurde zugestimmt. Den Bürgern wird geholfen.', topic: Passive}
+- {front: 'Passive of a verb with a preposition (abstimmen über)', back: 'The preposition phrase stays: Über das Gesetz wird abgestimmt. Or with a da-word: Darüber wird abgestimmt.', topic: Passive}
+- {front: 'Es wurde beschlossen, dass …', back: 'It was decided that … A passive that reports a decision without naming who made it. Also: Es wird erwartet / geprüft, dass / ob …', topic: Passive}
+- {front: 'Das lässt sich ändern.', back: 'That can be changed. sich lassen + infinitive = kann … werden.', topic: Passive}
+- {front: '"Can be done": four ways', back: 'Es kann gelöst werden. Es lässt sich lösen. Es ist (leicht) zu lösen. Es ist lösbar.', topic: Passive}
+- {front: 'Der Antrag ist online zu stellen.', back: 'Must, not can: The application must be made online. sein + zu without leicht/schwer/kaum/nur gives a rule.', topic: Passive}
+- {front: 'How a German federal law is made', back: 'Bill → (government bills: Bundesrat comments) → 1st reading → committee → 2nd and 3rd reading, vote → Bundesrat → countersignature → Federal President signs → Bundesgesetzblatt → in force.', topic: Politics}
+- {front: 'Zustimmungsgesetz vs other laws', back: 'Some laws need the Bundesrat''s consent (Zustimmung). For the others it can only object (Einspruch), and the Bundestag can overrule it.', topic: Politics}
+- {front: 'in Kraft treten', back: 'to come into force: on the day set in the law, or 14 days after it appears in the Bundesgesetzblatt.', topic: Politics}
+- {front: 'Es wurden Fehler gemacht.', back: 'Mistakes were made: a passive that names no one. When responsibility matters, ask: Von wem?', topic: Passive}
+# --- 20h2 Wer sagt das? ---
+- {front: 'laut, nach Angaben, zufolge', back: 'laut Polizei / laut einem Bericht; nach Angaben der Stadt (+ genitive); einer Studie zufolge (dative, zufolge after the noun). All: according to.', topic: Reporting claims}
+- {front: 'Wie die Polizei mitteilte, …', back: 'As the police announced, … The wie-clause is position 1, so the verb comes next: …, wurde niemand verletzt.', topic: Reporting claims}
+- {front: 'Er soll reich sein.', back: 'He is said to be rich. sollen = others say so (hearsay).', topic: Reporting claims}
+- {front: 'Sie will nichts gesehen haben.', back: 'She claims to have seen nothing. wollen = a claim about oneself.', topic: Reporting claims}
+- {front: 'Perfect infinitive after sollen / wollen', back: 'Participle + haben or sein (as in the Perfekt): Er soll das Geld genommen haben. Sie soll nach Spanien gefahren sein.', topic: Reporting claims}
+- {front: 'Der Sprecher sagte, die Lage sei ruhig.', back: 'sei (Konjunktiv I) marks reported speech: the paper passes the words on without confirming them.', topic: Reporting claims}
+- {front: 'tatsächlich, offenbar, anscheinend, vermutlich, angeblich', back: 'From most to least certain: in fact; evidently; apparently; presumably; allegedly.', topic: Reporting claims}
+- {front: 'scheinbar vs anscheinend', back: 'scheinbar = only seemingly (but not really); anscheinend = apparently (and probably true). Many people mix them up in speech.', topic: Reporting claims}
+- {front: 'Checking a claim: three questions', back: 'Who says it (source, Impressum)? Do other, independent sources report it? Do the date and photo belong to this story?', topic: Media}
+- {front: 'Eine Zensur findet nicht statt.', back: 'There is no censorship. From Article 5 of the Basic Law, which protects press freedom.', topic: Media}
+- {front: 'der öffentlich-rechtliche Rundfunk', back: 'Public-service broadcasting: ARD, ZDF and Deutschlandradio, financed mainly by a household fee (der Rundfunkbeitrag).', topic: Media}
