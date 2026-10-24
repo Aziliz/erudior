@@ -1,0 +1,464 @@
+# Honors module phys-h1 (Frontiers of physics), round 2
+# Lesson 90: Gravity as curved spacetime
+- id: phys-h1-r2-h01
+  lesson: phys-h1-gravity
+  module_quiz: true
+  topic: General relativity
+  stem: 'Which experimental fact did Einstein take as the starting point for the equivalence principle?'
+  choices: ['All objects fall with the same acceleration, because inertial mass equals gravitational mass', 'Every observer measures the same speed of light', 'Moving clocks run slow compared with clocks at rest', 'The force of gravity falls off as $1/r^2$']
+  answer: 0
+  explanation: 'Experiments find inertial and gravitational mass equal to about one part in $10^{15}$, so everything falls alike, and gravity can''t be told apart from acceleration in a small box. The constant speed of light and moving clocks belong to special relativity; the $1/r^2$ law is Newton''s and says nothing about the equality of the two masses.'
+- id: phys-h1-r2-h02
+  lesson: phys-h1-gravity
+  module_quiz: true
+  topic: General relativity
+  stem: 'Four identical clocks run for a year: one at sea level, one on the top floor of a tall building, one at the bottom of a deep mine, and one on a ship at sea level. Ignoring motion, which clock records the most time?'
+  choices: ['The clock at sea level on land', 'The clock on the top floor', 'The clock in the mine', 'The clock on the ship']
+  answer: 1
+  explanation: 'Clocks higher in a gravitational field run faster, by about $gh/c^2$, so the top-floor clock records the most time and the mine clock the least. The two sea-level clocks are at the same height and agree.'
+- id: phys-h1-r2-h03
+  lesson: phys-h1-gravity
+  topic: General relativity
+  stem: 'A clock is carried 1.00 km higher than an identical clock. By what fraction does it run faster? ($g = 9.8$ m/s², $c = 3.00\times10^8$ m/s)'
+  choices: ['$3.27\times10^{-5}$', '$1.09\times10^{-16}$', '$1.09\times10^{-13}$', '$5.44\times10^{-14}$']
+  answer: 2
+  explanation: '$gh/c^2 = (9.8)(1000)/(3.00\times10^8)^2 = 1.09\times10^{-13}$. Dividing by $c$ instead of $c^2$ gives $3.27\times10^{-5}$; leaving $h$ in km gives $1.09\times10^{-16}$; an extra factor of $\tfrac12$ gives $5.44\times10^{-14}$.'
+- id: phys-h1-r2-h04
+  lesson: phys-h1-gravity
+  topic: General relativity
+  stem: 'Compared with a clock on the ground, gravity makes a GPS satellite''s clock gain about 45.7 μs per day, and its orbital speed makes it lose about 7.2 μs per day. What is the net effect?'
+  choices: ['It loses about 38.5 μs per day', 'It gains about 52.9 μs per day', 'It loses about 7.2 μs per day; gravity has no effect on clocks', 'It gains about 38.5 μs per day']
+  answer: 3
+  explanation: 'The two effects act in opposite directions: $45.7 - 7.2 = 38.5$ μs gained per day, so the satellite clock runs fast. Adding them (52.9) ignores that the speed effect is a loss; the sign is wrong in the first choice; and gravity does change clock rates (it is the larger effect here).'
+- id: phys-h1-r2-h05
+  lesson: phys-h1-gravity
+  topic: Black holes and gravitational waves
+  stem: 'What is the Schwarzschild radius of a black hole of 20 solar masses? ($r_s = 2GM/c^2$, which is 2.95 km for one solar mass.)'
+  choices: ['59 km', '30 km', '5.9 km', '118 km']
+  answer: 0
+  explanation: '$r_s$ is proportional to $M$: $20 \times 2.95\text{ km} = 59$ km. 30 km comes from dropping the factor 2 ($GM/c^2$); 5.9 km is a decimal slip; 118 km doubles the answer again.'
+- id: phys-h1-r2-h06
+  lesson: phys-h1-gravity
+  topic: General relativity
+  stem: 'Starlight passing close to the Sun is deflected by 1.75 arcseconds. Why does light bend, even though photons have no mass?'
+  choices: ['Photons have a tiny mass that gravity pulls on', 'Light follows the straightest paths through spacetime, which the Sun''s mass curves', 'The Sun''s outer atmosphere refracts the light like a lens', 'The Sun''s magnetic field pushes on the light']
+  answer: 1
+  explanation: 'In general relativity, mass curves spacetime and light follows the curvature. Photons are massless; the deflection is the same at every wavelength, which rules out refraction by gas; and magnetic fields don''t deflect light.'
+- id: phys-h1-r2-h07
+  lesson: phys-h1-gravity
+  module_quiz: true
+  topic: Black holes and gravitational waves
+  stem: 'A gravitational wave with strain $h = 2.0\times10^{-21}$ passes a detector with 4.0 km arms. By how much does an arm''s length change?'
+  choices: ['$5.0\times10^{-25}$ m', '$8.0\times10^{-21}$ m', '$8.0\times10^{-18}$ m', '$2.0\times10^{-21}$ m']
+  answer: 2
+  explanation: '$\Delta L = hL = (2.0\times10^{-21})(4000\text{ m}) = 8.0\times10^{-18}$ m. Using $L = 4.0$ (km, not m) gives $8.0\times10^{-21}$; dividing gives $5.0\times10^{-25}$; and $h$ itself is a ratio, not a length.'
+- id: phys-h1-r2-h08
+  lesson: phys-h1-gravity
+  topic: Black holes and gravitational waves
+  stem: 'Suppose the Sun were suddenly replaced by a black hole of exactly the same mass. What would happen to Earth''s orbit?'
+  choices: ['Earth would spiral into the black hole', 'Earth would fly off in a straight line', 'Earth would orbit much faster', 'The orbit would stay the same']
+  answer: 3
+  explanation: 'Far from it, a black hole''s gravity is the same as any object of the same mass, so the orbit wouldn''t change (Earth would get very cold, though). A black hole only differs from the Sun close in, near its 3 km horizon.'
+- id: phys-h1-r2-h09
+  lesson: phys-h1-gravity
+  topic: Black holes and gravitational waves
+  stem: 'In the first detected merger, black holes of about 36 and 29 solar masses became one of about 62 solar masses. About how much energy left as gravitational waves? ($M_\odot = 1.99\times10^{30}$ kg, $c = 3.00\times10^8$ m/s)'
+  choices: ['$5.4\times10^{47}$ J', '$1.1\times10^{49}$ J', '$1.8\times10^{39}$ J', '$6.4\times10^{48}$ J']
+  answer: 0
+  explanation: 'The missing mass is $36 + 29 - 62 = 3$ solar masses, so $E = mc^2 = 3(1.99\times10^{30})(3.00\times10^8)^2 = 5.4\times10^{47}$ J. $1.1\times10^{49}$ J uses the final 62 solar masses, $6.4\times10^{48}$ J uses 36, and $1.8\times10^{39}$ J uses $mc$ instead of $mc^2$.'
+- id: phys-h1-r2-h10
+  lesson: phys-h1-gravity
+  module_quiz: true
+  topic: Black holes and gravitational waves
+  type: text
+  stem: 'The boundary around a black hole, inside which nothing, not even light, can get out, is called the ___.'
+  accept: [event horizon, horizon, event horizons, the event horizon]
+  explanation: 'The event horizon is the point of no return. For a non-rotating black hole it is a sphere whose radius is the Schwarzschild radius, $2GM/c^2$.'
+- id: phys-h1-r2-h11
+  lesson: phys-h1-gravity
+  topic: Black holes and gravitational waves
+  type: label
+  stem: 'Name the numbered parts of this gravitational-wave detector.'
+  image: {src: images/phys-h1-ligo-blank.svg, alt: 'An L-shaped interferometer with five numbered parts: a box at the left where the light starts, a slanted plate at the corner, a long tube along one side, a mirror at the far end of that tube, and a detector below the corner.'}
+  labels:
+    - {x: 10.8, y: 68.2, text: Laser}
+    - {x: 28.8, y: 68.2, text: Beam splitter}
+    - {x: 91.2, y: 68.2, text: End mirror}
+    - {x: 28.8, y: 92, text: Photodetector}
+    - {x: 60.6, y: 68.2, text: Arm (4 km long)}
+  distractors: [Converging lens, Prism]
+  explanation: 'The laser (1) sends light to the beam splitter (2), which divides it between the two 4 km arms (5). End mirrors (3) send the beams back, and the recombined light goes to the photodetector (4). A passing wave stretches one arm and squeezes the other, changing how the beams interfere. There are no lenses or prisms in the light path of the picture.'
+- id: phys-h1-r2-h12
+  lesson: phys-h1-gravity
+  module_quiz: true
+  topic: General relativity
+  stem: 'Which of these predictions of general relativity have been confirmed by observation? Select all that apply.'
+  choices: ['Starlight passing the Sun is bent by about 1.75 arcseconds', 'A clock lower in a gravitational field runs slower', 'Mercury''s orbit rotates by an extra 43 arcseconds per century', 'Gravitational waves travel faster than light', 'Inertial mass is about twice gravitational mass']
+  answer: [0, 1, 2]
+  explanation: 'Light bending (1919 onward), gravitational time dilation (Pound and Rebka, GPS, atomic clocks) and Mercury''s extra 43″ per century are all confirmed. Gravitational waves travel at the speed of light (shown by the 2017 neutron-star merger), and inertial and gravitational mass are equal, not in a 2:1 ratio.'
+- id: phys-h1-r2-h13
+  lesson: phys-h1-gravity
+  topic: Black holes and gravitational waves
+  type: order
+  stem: 'Put these in order from smallest to largest Schwarzschild radius (the size they would have if squeezed into black holes).'
+  items: ['Earth', 'The Sun', 'A black hole of 10 solar masses', 'Sagittarius A*, the black hole at the center of our galaxy']
+  explanation: '$r_s$ is proportional to mass: Earth about 9 mm, the Sun about 3 km, a 10-solar-mass black hole about 30 km, and Sagittarius A* (about $4\times10^6$ solar masses) about $1.3\times10^{10}$ m.'
+- id: phys-h1-r2-h14
+  lesson: phys-h1-gravity
+  topic: General relativity
+  type: match
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Equivalence principle, In a small box gravity can't be told apart from acceleration]
+    - [Gravitational redshift, Light loses frequency as it climbs out of gravity]
+    - [Gravitational lensing, A galaxy bends the light of objects behind it]
+    - [Schwarzschild radius, The radius of a non-rotating black hole's horizon]
+  distractors: [Moving clocks run slow]
+  explanation: 'These are the four general-relativity ideas of the lesson. "Moving clocks run slow" is time dilation from special relativity, caused by speed rather than gravity.'
+# Lesson 91: Particles and forces, the Standard Model
+- id: phys-h1-r2-h15
+  lesson: phys-h1-particles
+  module_quiz: true
+  topic: Particle physics
+  stem: 'The up quark has charge $+\tfrac23e$ and the down quark $-\tfrac13e$. Which combination is the neutron?'
+  choices: ['uud', 'udd', 'uuu', 'u$\bar{\text{d}}$']
+  answer: 1
+  explanation: 'udd has charge $\tfrac23 - \tfrac13 - \tfrac13 = 0$ and three quarks, so it is a neutral baryon: the neutron. uud is the proton (+1), uuu has charge +2, and u$\bar{\text{d}}$ is a meson (the $\pi^+$), not a baryon.'
+- id: phys-h1-r2-h16
+  lesson: phys-h1-particles
+  topic: Particle physics
+  stem: 'An electron and a positron, both nearly at rest, annihilate. What comes out?'
+  choices: ['One photon of 1.022 MeV', 'Two photons of 1.022 MeV each', 'Two photons of 0.511 MeV each, moving in opposite directions', 'Two photons of 0.256 MeV each, moving in the same direction']
+  answer: 2
+  explanation: 'The total momentum is zero, so a single photon (which always carries momentum) is impossible; two photons go off back to back with equal energies, sharing the 1.022 MeV of rest energy: 0.511 MeV each. Two 1.022 MeV photons would double the energy, and 0.256 MeV each would lose half.'
+- id: phys-h1-r2-h17
+  lesson: phys-h1-particles
+  topic: Particle physics
+  stem: 'What is the minimum photon energy needed to create an electron–positron pair?'
+  choices: ['0.511 MeV', '2.044 MeV', '0.256 MeV', '1.022 MeV']
+  answer: 3
+  explanation: 'The photon must supply both rest energies: $2m_ec^2 = 2(0.511) = 1.022$ MeV (and it needs a nearby nucleus to take up momentum). 0.511 MeV makes only one particle''s mass.'
+- id: phys-h1-r2-h18
+  lesson: phys-h1-particles
+  module_quiz: true
+  topic: Conservation laws in particle reactions
+  stem: 'Which of these reactions is forbidden because it does not conserve baryon number?'
+  choices: ['$p \to e^+ + \gamma$', '$n \to p + e^- + \bar\nu_e$', '$e^- + e^+ \to \gamma + \gamma$', '$\pi^+ \to \mu^+ + \nu_\mu$']
+  answer: 0
+  explanation: 'A proton has $B = 1$, but a positron and a photon have $B = 0$, so $p \to e^+ + \gamma$ is forbidden (protons have never been seen to decay). Neutron decay keeps $B = 1$; annihilation and pion decay involve no baryons at all ($B = 0$ on both sides), and they conserve charge and lepton number too.'
+- id: phys-h1-r2-h19
+  lesson: phys-h1-particles
+  topic: Particle physics
+  stem: 'A meson is made of a charm quark (charge $+\tfrac23e$) and an anti-up quark. What is its charge?'
+  choices: ['$+\tfrac43e$', '$0$', '$+e$', '$-e$']
+  answer: 1
+  explanation: 'An antiquark has the opposite charge of its quark, so the anti-up has $-\tfrac23e$. Total: $\tfrac23 - \tfrac23 = 0$. $+\tfrac43$ comes from forgetting to flip the antiquark''s sign.'
+- id: phys-h1-r2-h20
+  lesson: phys-h1-particles
+  topic: Particle physics
+  stem: 'Using $R \approx \hbar c/(mc^2)$ with $\hbar c = 197$ MeV·fm, estimate the range of a force carried by a particle with rest energy 500 MeV.'
+  choices: ['2.5 fm', '0.79 fm', '0.39 fm', '3.9 fm']
+  answer: 2
+  explanation: '$R \approx 197/500 = 0.39$ fm. 2.5 fm comes from dividing the other way ($500/197$), 0.79 fm doubles the estimate, and 3.9 fm is a decimal slip.'
+- id: phys-h1-r2-h21
+  lesson: phys-h1-particles
+  topic: Particle physics
+  stem: 'Why does the weak force act only over distances of about $10^{-18}$ m?'
+  choices: ['Its carriers are massless', 'Neutrinos absorb its carriers', 'It acts only on particles with color charge', 'Its carriers, the W and Z bosons, are very heavy']
+  answer: 3
+  explanation: 'A heavy carrier can exist only briefly, so it can''t travel far: $R \approx \hbar c/(mc^2) = 197/80\,400$ fm $\approx 2.5\times10^{-18}$ m for the W. Massless carriers (like the photon) give unlimited range; the weak force acts on all quarks and leptons, not just colored particles.'
+- id: phys-h1-r2-h22
+  lesson: phys-h1-particles
+  module_quiz: true
+  topic: Particle physics
+  stem: 'Where does most of a proton''s 938 MeV of rest energy come from?'
+  choices: ['The energy of the strong interaction among its quarks and gluons', 'The masses its three quarks get from the Higgs field', 'The electrons orbiting it', 'The W and Z bosons inside it']
+  answer: 0
+  explanation: 'The up and down quarks are light: uud adds up to only about 9 MeV. Almost all of the proton''s mass is strong-interaction energy, through $E = mc^2$. The Higgs field gives the quarks their small masses; electrons are outside the proton; and W and Z bosons are not constituents of the proton.'
+- id: phys-h1-r2-h23
+  lesson: phys-h1-particles
+  topic: Particle physics
+  stem: 'Protons enter the LHC with momentum 450 GeV/$c$. What magnetic field keeps them on a 2804 m bending radius? (Use $p\ (\text{GeV}/c) = 0.300\,B\ (\text{T})\,r\ (\text{m})$.)'
+  choices: ['0.160 T', '0.535 T', '8.33 T', '5.35 T']
+  answer: 1
+  explanation: '$B = \dfrac{p}{0.300r} = \dfrac{450}{0.300(2804)} = 0.535$ T. Leaving out the 0.300 gives 0.160 T; 5.35 T is a decimal slip; 8.33 T is the field needed at the full 7 TeV design energy.'
+- id: phys-h1-r2-h24
+  lesson: phys-h1-particles
+  module_quiz: true
+  topic: Particle physics
+  type: text
+  stem: 'Hadrons made of three quarks, such as the proton and the neutron, are called ___.'
+  accept: [baryons, baryon]
+  explanation: 'Baryons are three-quark hadrons ($B = +1$). Mesons, the other family of hadrons, are made of a quark and an antiquark.'
+- id: phys-h1-r2-h25
+  lesson: phys-h1-particles
+  topic: Particle physics
+  type: label
+  stem: 'Name the numbered groups of particles in this chart of the Standard Model.'
+  image: {src: images/phys-h1-standard-model-blank.svg, alt: 'A chart of particle symbols with four numbered groups: a block of six (u, c, t over d, s, b), a block of six (e, μ, τ over three neutrinos), a column of four (g, γ, Z, W), and a single box (H).'}
+  labels:
+    - {x: 25.9, y: 28.3, text: Quarks}
+    - {x: 25.9, y: 61.5, text: Leptons}
+    - {x: 95.2, y: 44.9, text: Force carriers (gauge bosons)}
+    - {x: 95.2, y: 88.3, text: Higgs boson}
+  distractors: [Mesons, Hadrons]
+  explanation: 'u, d, c, s, t, b are the six quarks (1); the electron, muon, tau and their neutrinos are the leptons (2); the gluon, photon, Z and W carry forces (3); H is the Higgs boson (4). Mesons and hadrons are particles built from quarks, not fundamental particles, so they are not on the chart.'
+- id: phys-h1-r2-h26
+  lesson: phys-h1-particles
+  module_quiz: true
+  topic: Particle physics
+  type: match
+  stem: 'Match each interaction to the particle that carries it.'
+  pairs:
+    - [Strong, Gluons]
+    - [Electromagnetic, Photon]
+    - [Weak, W and Z bosons]
+    - [Gravity, Graviton (hypothetical)]
+  distractors: [Higgs boson]
+  explanation: 'Gluons carry the strong force, photons the electromagnetic force, and W and Z bosons the weak force. Gravity is not part of the Standard Model; its proposed carrier, the graviton, has never been detected. The Higgs boson gives particles mass but is not the carrier of one of these forces.'
+- id: phys-h1-r2-h27
+  lesson: phys-h1-particles
+  topic: Particle physics
+  type: order
+  stem: 'Put the four fundamental interactions in order from strongest to weakest, for two protons about $10^{-15}$ m apart.'
+  items: ['Strong', 'Electromagnetic', 'Weak', 'Gravity']
+  explanation: 'Roughly: strong 1, electromagnetic $10^{-2}$, weak $10^{-6}$, gravity $10^{-38}$. Exact ratios depend on how they are compared, but the order doesn''t.'
+- id: phys-h1-r2-h28
+  lesson: phys-h1-particles
+  topic: Conservation laws in particle reactions
+  stem: 'Besides energy and momentum, which of these are conserved in every reaction the lesson describes? Select all that apply.'
+  choices: ['Electric charge', 'Baryon number', 'Lepton number', 'The number of photons', 'The total number of particles']
+  answer: [0, 1, 2]
+  explanation: 'Charge, baryon number and lepton number are conserved. Photons can be created and destroyed (annihilation makes two from none), and the number of particles changes in most reactions, for example $n \to p + e^- + \bar\nu_e$ turns one particle into three.'
+# Lesson 92: The expanding universe
+- id: phys-h1-r2-h29
+  lesson: phys-h1-cosmology
+  module_quiz: true
+  topic: Cosmology
+  stem: 'A star has a parallax angle of 0.25 arcsecond. How far away is it?'
+  choices: ['0.25 pc', '0.82 pc', '4.0 pc', '40 pc']
+  answer: 2
+  explanation: '$d = 1/p = 1/0.25 = 4.0$ pc (about 13 light-years). 0.25 pc uses $p$ itself as the distance, 0.82 pc multiplies 0.25 by 3.26, and 40 pc is a decimal slip.'
+- id: phys-h1-r2-h30
+  lesson: phys-h1-cosmology
+  topic: Cosmology
+  stem: 'A galaxy has redshift $z = 0.020$. Using $v \approx cz$ ($c = 3.00\times10^5$ km/s) and $H_0 = 70$ km/s/Mpc, how far away is it?'
+  choices: ['$4.2\times10^5$ Mpc', '0.012 Mpc', '8.6 Mpc', '86 Mpc']
+  answer: 3
+  explanation: '$v = (3.00\times10^5)(0.020) = 6000$ km/s, so $d = v/H_0 = 6000/70 = 86$ Mpc. Multiplying $v$ by $H_0$ gives $4.2\times10^5$; dividing $H_0$ by $v$ gives 0.012; 8.6 is a decimal slip.'
+- id: phys-h1-r2-h31
+  lesson: phys-h1-cosmology
+  module_quiz: true
+  topic: Cosmology
+  stem: 'Nearly every galaxy is moving away from us, faster the farther it is. What does this tell us?'
+  choices: ['Space is expanding, and observers in every galaxy would see the same pattern', 'The Milky Way is at the center of the explosion that made the universe', 'The Milky Way''s gravity pushes other galaxies away', 'Light slows down as it crosses space, making galaxies look redder']
+  answer: 0
+  explanation: 'Uniform expansion makes every galaxy see the others receding with speed proportional to distance, like raisins in rising dough, so there is no center. Gravity attracts, and the speed of light in empty space doesn''t change.'
+- id: phys-h1-r2-h32
+  lesson: phys-h1-cosmology
+  topic: Cosmology
+  stem: 'If the Hubble constant were 50 km/s/Mpc, what would the Hubble time $1/H_0$ be? (1 Mpc $= 3.086\times10^{19}$ km, 1 yr $= 3.156\times10^7$ s)'
+  choices: ['9.8 billion years', '19.6 billion years', '13.8 billion years', '39 billion years']
+  answer: 1
+  explanation: '$1/H_0 = (3.086\times10^{19}\text{ km})/(50\text{ km/s}) = 6.17\times10^{17}$ s $= 1.96\times10^{10}$ yr. A smaller $H_0$ means a longer time; 13.8 billion years is the measured age, not this calculation, and 9.8 and 39 are off by a factor of 2.'
+- id: phys-h1-r2-h33
+  lesson: phys-h1-cosmology
+  topic: Cosmology
+  stem: 'The cosmic microwave background is blackbody radiation at 2.725 K. Using Wien''s law ($\lambda_{\max}T = 2.898\times10^{-3}$ m·K), where does its spectrum peak?'
+  choices: ['About 1.06 μm, in the infrared', 'About 1.06 nm, in the X-ray range', 'About 1.06 mm, in the microwave range', 'About 1.06 m, in the radio range']
+  answer: 2
+  explanation: '$\lambda_{\max} = 2.898\times10^{-3}/2.725 = 1.06\times10^{-3}$ m $= 1.06$ mm, a microwave wavelength, hence the name. The other choices have the right digits but the wrong power of ten.'
+- id: phys-h1-r2-h34
+  lesson: phys-h1-cosmology
+  module_quiz: true
+  topic: Dark matter and dark energy
+  stem: 'Stars and gas far from a galaxy''s center orbit at about the same speed as those closer in. What does this flat rotation curve imply?'
+  choices: ['Almost all the galaxy''s mass is at its center', 'The galaxy is expanding along with space', 'The outer stars are moving faster than light', 'The mass inside each orbit keeps growing with distance, beyond the visible stars']
+  answer: 3
+  explanation: 'From $M(r) = v^2r/G$, constant $v$ means $M(r)$ grows in proportion to $r$, so there is unseen mass far out: dark matter. If the mass were concentrated at the center, speeds would fall as $1/\sqrt r$. Galaxies themselves are bound and don''t expand, and nothing here approaches light speed.'
+- id: phys-h1-r2-h35
+  lesson: phys-h1-cosmology
+  topic: Dark matter and dark energy
+  stem: 'Gas orbits a galaxy at 200 km/s, 10 kpc ($3.086\times10^{20}$ m) from its center. Treating the mass inside as if it were at the center, what is that mass? ($G = 6.67\times10^{-11}$ N·m²/kg²)'
+  choices: ['$1.85\times10^{41}$ kg', '$1.85\times10^{35}$ kg', '$9.2\times10^{35}$ kg', '$6.0\times10^{21}$ kg']
+  answer: 0
+  explanation: '$M = v^2r/G = (2.00\times10^5)^2(3.086\times10^{20})/(6.67\times10^{-11}) = 1.85\times10^{41}$ kg, about $9\times10^{10}$ solar masses. Leaving $v$ in km/s gives $1.85\times10^{35}$; using $v$ instead of $v^2$ gives $9.2\times10^{35}$; using $r = 10$ (kpc unconverted) gives $6.0\times10^{21}$.'
+- id: phys-h1-r2-h36
+  lesson: phys-h1-cosmology
+  topic: Dark matter and dark energy
+  stem: 'Which best describes the makeup of the universe today, by energy density?'
+  choices: ['About 68% ordinary matter, 27% dark matter, 5% dark energy', 'About 5% ordinary matter, 27% dark matter, 68% dark energy', 'About 27% ordinary matter, 68% dark matter, 5% dark energy', 'About 95% ordinary matter and 5% dark matter, with no dark energy']
+  answer: 1
+  explanation: 'Measurements (Planck satellite, 2018) give roughly 5% ordinary matter, 27% dark matter and 68% dark energy. Everything we see, stars, gas, planets and people, is in the 5%.'
+- id: phys-h1-r2-h37
+  lesson: phys-h1-cosmology
+  module_quiz: true
+  topic: Cosmology
+  type: text
+  stem: 'The 2.725 K blackbody radiation that reaches us from every direction, released about 380 000 years after the start of the universe, is called the cosmic ___ background.'
+  accept: [microwave]
+  explanation: 'The cosmic microwave background (CMB) was released when the universe became transparent at about 3000 K; the expansion has since stretched it by a factor of about 1100, into microwaves peaking near 1 mm.'
+- id: phys-h1-r2-h38
+  lesson: phys-h1-cosmology
+  topic: Cosmology
+  type: text
+  stem: 'A galaxy''s redshift is $z = 0.010$. Using $v \approx cz$ with $c = 3.00\times10^5$ km/s, its recession speed is ___ km/s. Give only the number.'
+  accept: ['3000', '3.0e3', '3.00e3']
+  explanation: '$v \approx cz = (3.00\times10^5)(0.010) = 3000$ km/s. At $z = 0.010$ this approximation is very good; for $z$ near 1 or larger it isn''t.'
+- id: phys-h1-r2-h39
+  lesson: phys-h1-cosmology
+  topic: Cosmology
+  type: label
+  stem: 'Name the numbered parts of this diagram of the parallax method.'
+  image: {src: images/phys-h1-parallax-blank.svg, alt: 'Earth''s orbit around the Sun seen at a slant, with two lines from opposite sides of the orbit meeting at a star high above, and distant stars in the background. Five numbered markers: the central body, one position of Earth, the star where the lines meet, the small angle at that star, and the line from the center to one Earth position.'}
+  labels:
+    - {x: 50, y: 82.6, text: Sun}
+    - {x: 28.8, y: 82.6, text: Earth}
+    - {x: 50, y: 13.5, text: Nearby star}
+    - {x: 52.5, y: 27.5, text: Parallax angle}
+    - {x: 60.6, y: 82.6, text: Baseline of 1 AU}
+  distractors: [Distant background star, Distance to the star]
+  explanation: 'The Sun (1) is at the center of Earth''s orbit, and Earth (2) views the nearby star (3) from opposite sides six months apart. The parallax angle (4) is the angle the 1 AU Earth–Sun baseline (5) makes as seen from the star; $d$ (pc) $= 1/p$ (arcsec). The distant stars are the fixed background, and the distance to the star is the dashed line, which has no marker.'
+- id: phys-h1-r2-h40
+  lesson: phys-h1-cosmology
+  module_quiz: true
+  topic: Cosmology
+  type: order
+  stem: 'Put these events in the history of the universe in order, earliest first.'
+  items: ['Hydrogen and helium nuclei form', 'Atoms form and the cosmic microwave background is released', 'The first stars form', 'The Sun and Earth form']
+  explanation: 'Nuclei formed in the first few minutes, atoms at about 380 000 years, the first stars within a few hundred million years, and the Sun and Earth about 4.6 billion years ago, roughly 9 billion years after the start.'
+- id: phys-h1-r2-h41
+  lesson: phys-h1-cosmology
+  topic: Cosmology
+  stem: 'Which observations are main lines of evidence for the hot Big Bang? Select all that apply.'
+  choices: ['Galaxies recede with speed proportional to distance', 'A 2.725 K blackbody background fills the sky', 'About a quarter of the mass of the oldest gas is helium', 'Galaxy rotation curves are flat', 'Nearby stars show parallax']
+  answer: [0, 1, 2]
+  explanation: 'Expansion, the cosmic microwave background and the light-element abundances are the three classic pieces of evidence. Flat rotation curves are evidence for dark matter, and parallax just measures distances to nearby stars.'
+- id: phys-h1-r2-h42
+  lesson: phys-h1-cosmology
+  topic: Cosmology
+  type: match
+  stem: 'Match each discovery to the people who made it.'
+  pairs:
+    - [Henrietta Leavitt, Cepheid stars' luminosity is tied to their period]
+    - [Lemaître and Hubble, Galaxies recede faster the farther away they are]
+    - [Penzias and Wilson, The cosmic microwave background]
+    - [Rubin and Ford, Galaxy rotation curves stay flat far out]
+  distractors: [Light bends near the Sun]
+  explanation: 'Leavitt (1912) gave astronomers their first standard candle; Lemaître (1927) and Hubble (1929) found the distance–speed relation; Penzias and Wilson found the CMB in 1965; Rubin and Ford''s rotation curves (1970s) were key evidence for dark matter. Light bending was measured by Eddington''s 1919 eclipse expeditions.'
+# Lesson 93: The physics of climate
+- id: phys-h1-r2-h43
+  lesson: phys-h1-climate
+  module_quiz: true
+  topic: Planetary energy balance
+  stem: 'The solar constant at Earth (1.00 AU) is 1361 W/m². What is the intensity of sunlight at a planet 2.00 AU from the Sun?'
+  choices: ['680 W/m²', '1361 W/m²', '340 W/m²', '5444 W/m²']
+  answer: 2
+  explanation: 'Intensity falls as $1/d^2$: $1361/2.00^2 = 340$ W/m². Halving (680) treats it as $1/d$; 5444 multiplies by 4 instead of dividing.'
+- id: phys-h1-r2-h44
+  lesson: phys-h1-climate
+  topic: Planetary energy balance
+  stem: 'In $T_e = \left[S(1 - \alpha)/(4\sigma)\right]^{1/4}$, where does the factor 4 come from?'
+  choices: ['From the $T^4$ in the Stefan–Boltzmann law', 'From the four seasons', 'From the planet''s emissivity of $\tfrac14$', 'Sunlight is caught by the cross-section $\pi R^2$ but radiated from the whole surface $4\pi R^2$']
+  answer: 3
+  explanation: 'Absorbed power $S(1 - \alpha)\pi R^2$ equals emitted power $4\pi R^2\sigma T^4$, and the ratio of the areas is 4. The $T^4$ is why there is a fourth root, not why there is a 4 in the denominator; the emissivity in the infrared is close to 1.'
+- id: phys-h1-r2-h45
+  lesson: phys-h1-climate
+  topic: Planetary energy balance
+  stem: 'With $S = 1361$ W/m², albedo 0.30 and $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴), what is Earth''s effective temperature?'
+  choices: ['255 K', '360 K', '278 K', '206 K']
+  answer: 0
+  explanation: '$T_e = [1361(0.70)/(4 \times 5.67\times10^{-8})]^{1/4} = 255$ K. Leaving out the 4 gives 360 K, ignoring the albedo gives 278 K, and using 0.30 instead of $1 - 0.30$ gives 206 K.'
+- id: phys-h1-r2-h46
+  lesson: phys-h1-climate
+  module_quiz: true
+  topic: Greenhouse effect and climate change
+  stem: 'How do greenhouse gases such as CO₂ warm Earth''s surface?'
+  choices: ['They absorb most of the incoming sunlight before it reaches the ground', 'They let most sunlight through but absorb infrared from the surface and emit part of it back down', 'They reflect sunlight back to space', 'They stop warm air from rising by convection']
+  answer: 1
+  explanation: 'Sunlight (peaking near 500 nm) passes through; the surface''s infrared (near 10 μm) is absorbed, and the gas radiates some of it back down, so the surface must warm to stay in balance. Reflecting sunlight would cool the planet.'
+- id: phys-h1-r2-h47
+  lesson: phys-h1-climate
+  topic: Planetary energy balance
+  stem: 'Earth''s surface is at about 288 K. Where is the peak of its thermal radiation? ($\lambda_{\max}T = 2.898\times10^{-3}$ m·K)'
+  choices: ['About 500 nm, visible light', 'About 1 mm, microwaves', 'About 10 μm, infrared', 'About 100 nm, ultraviolet']
+  answer: 2
+  explanation: '$\lambda_{\max} = 2.898\times10^{-3}/288 = 1.0\times10^{-5}$ m $= 10$ μm, in the infrared. 500 nm is the Sun''s peak (5772 K), and 1 mm is the 2.7 K cosmic background''s.'
+- id: phys-h1-r2-h48
+  lesson: phys-h1-climate
+  topic: Greenhouse effect and climate change
+  stem: 'In the one-layer model, the atmosphere absorbs all of the surface''s infrared ($\varepsilon = 1$). If $T_e = 255$ K, what is the surface temperature?'
+  choices: ['255 K', '510 K', '361 K', '303 K']
+  answer: 3
+  explanation: '$T_s = T_e(2/(2 - 1))^{1/4} = 2^{1/4}(255) = 303$ K. Doubling the temperature (510 K) treats it like the power; $\sqrt2(255) = 361$ K uses a square root instead of a fourth root; and 255 K is the no-atmosphere case.'
+- id: phys-h1-r2-h49
+  lesson: phys-h1-climate
+  module_quiz: true
+  topic: Greenhouse effect and climate change
+  stem: 'Using $\Delta F = 5.35\ln(C/C_0)$ W/m², what is the forcing from doubling CO₂ from 280 ppm to 560 ppm?'
+  choices: ['3.7 W/m²', '10.7 W/m²', '2.2 W/m²', '7.4 W/m²']
+  answer: 0
+  explanation: '$5.35\ln 2 = 5.35(0.693) = 3.7$ W/m². 10.7 multiplies 5.35 by 2 instead of taking the logarithm; 2.2 W/m² is the forcing for 280 to 420 ppm; 7.4 W/m² would be two doublings.'
+- id: phys-h1-r2-h50
+  lesson: phys-h1-climate
+  topic: Greenhouse effect and climate change
+  stem: 'What does the ice–albedo feedback do to an initial warming?'
+  choices: ['It reduces it, because melting ice absorbs heat', 'It amplifies it: less ice lowers the albedo, so more sunlight is absorbed', 'Nothing, because ice reflects only infrared', 'It reduces it, because open ocean radiates more infrared than ice']
+  answer: 1
+  explanation: 'Ice and snow are bright; when they melt, darker ground and ocean absorb more sunlight, which warms things further. That is an amplifying (positive) feedback. Ice reflects visible sunlight well, which is the point.'
+- id: phys-h1-r2-h51
+  lesson: phys-h1-climate
+  topic: Greenhouse effect and climate change
+  stem: 'Which feedback is the largest source of uncertainty in the climate sensitivity?'
+  choices: ['Water vapor', 'The ice–albedo feedback', 'Clouds', 'The increase in infrared emission from a warmer planet']
+  answer: 2
+  explanation: 'Clouds both reflect sunlight (cooling) and trap infrared (warming), and how they change with warming is hard to pin down. The water-vapor feedback and the extra emission from a warmer planet are well understood; ice–albedo is clearly amplifying.'
+- id: phys-h1-r2-h52
+  lesson: phys-h1-climate
+  module_quiz: true
+  topic: Planetary energy balance
+  type: text
+  stem: 'The fraction of incoming sunlight that a planet reflects straight back to space is called its ___.'
+  accept: [albedo, albedos, bond albedo]
+  explanation: 'Earth''s albedo is about 0.30: clouds, ice and bright ground reflect about 30% of incoming sunlight. Only the other 70% heats the planet.'
+- id: phys-h1-r2-h53
+  lesson: phys-h1-climate
+  topic: Planetary energy balance
+  type: label
+  stem: 'Name the numbered parts of this picture of Earth''s energy balance.'
+  image: {src: images/phys-h1-energy-balance-blank.svg, alt: 'Earth inside a shell of atmosphere with five numbered markers: parallel rays arriving from the left, a ray bouncing away to the upper left, rays leaving to the right, the shell itself, and a short arrow inside the shell pointing down at the surface.'}
+  labels:
+    - {x: 18.5, y: 57.1, text: Incoming sunlight}
+    - {x: 28.7, y: 35, text: Reflected sunlight}
+    - {x: 89.8, y: 57.1, text: Infrared radiated to space}
+    - {x: 59.3, y: 81.7, text: Atmosphere}
+    - {x: 59.3, y: 33.8, text: Infrared radiated back to the surface}
+  distractors: [Ultraviolet from the surface, Ozone hole]
+  explanation: 'Sunlight (1) arrives as a parallel beam; about 30% is reflected (2). The planet loses energy as infrared radiated to space (3) from all sides. Greenhouse gases in the atmosphere (4) absorb the surface''s infrared and radiate part of it back down (5), which warms the surface. The surface radiates infrared, not ultraviolet.'
+- id: phys-h1-r2-h54
+  lesson: phys-h1-climate
+  topic: Planetary energy balance
+  type: order
+  stem: 'Put these blackbody sources in order by the wavelength where their radiation peaks, shortest first.'
+  items: ['The Sun''s surface (5772 K)', 'A light bulb filament (2800 K)', 'Earth''s surface (288 K)', 'The cosmic microwave background (2.7 K)']
+  explanation: 'By Wien''s law, $\lambda_{\max} \propto 1/T$: the Sun peaks near 500 nm, the filament near 1.0 μm, Earth near 10 μm and the cosmic background near 1 mm. Hotter means shorter wavelength.'
+- id: phys-h1-r2-h55
+  lesson: phys-h1-climate
+  topic: Greenhouse effect and climate change
+  stem: 'Which changes would raise Earth''s effective temperature $T_e = [S(1 - \alpha)/(4\sigma)]^{1/4}$? Select all that apply.'
+  choices: ['A brighter Sun (larger $S$)', 'Melting ice that lowers the albedo', 'More CO₂, with $S$ and the albedo unchanged', 'A larger planet, with the same $S$ and albedo']
+  answer: [0, 1]
+  explanation: '$T_e$ depends only on $S$ and $\alpha$: a larger $S$ or a smaller $\alpha$ raises it. More CO₂ warms the surface (it raises $\varepsilon$ in the layer model) but, once balance is restored, the planet still radiates to space at the same $T_e$. The radius cancels out of the balance.'
+- id: phys-h1-r2-h56
+  lesson: phys-h1-climate
+  module_quiz: true
+  topic: Greenhouse effect and climate change
+  type: match
+  stem: 'Match each climate response to its effect on an initial warming. (An answer can be used more than once.)'
+  pairs:
+    - [More water vapor in warmer air, Amplifies the warming]
+    - [Melting ice and snow, Amplifies the warming]
+    - [A warmer planet radiating more infrared, Reduces the warming]
+    - [Changes in clouds, Uncertain, probably slightly amplifying]
+  distractors: [Reverses the warming into cooling]
+  explanation: 'Water vapor is a greenhouse gas and warmer air holds about 7% more per kelvin; melting ice lowers the albedo; both amplify. The extra infrared from a warmer planet ($\propto T^4$) is what stabilizes the climate. Cloud changes are the most uncertain, with most evidence pointing to a small amplifying effect.'

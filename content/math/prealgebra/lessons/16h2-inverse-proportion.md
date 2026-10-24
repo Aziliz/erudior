@@ -72,6 +72,8 @@ A 45 kg student sits 1.6 m from the fulcrum. Where should a 36 kg student sit to
 
 Weight and distance are inversely proportional here (the lighter student must sit farther out). So $45 \times 1.6 = 36 \times d$, which gives $72 = 36d$ and $d = 2$ m. (This ignores the board's own weight, which is fine when the board balances on its center.)
 
+Gears work the same way. When two gears mesh, their teeth pass the contact point one for one, so in a minute both gears move the same number of teeth past it: teeth × turns per minute is the same for both. A small gear driven by a large one must spin faster. A 36-tooth gear turning 20 times a minute drives a 12-tooth gear at $36 \times 20 \div 12 = 60$ turns a minute, three times as fast, because it has a third as many teeth.
+
 ## Recognizing the relationship from a table
 
 Data often arrives as a table, not a sentence. To test it, compute the ratio $\tfrac yx$ and the product $xy$ for every row:

@@ -53,13 +53,6 @@
   aliases: [positrons]
   definition: 'The antiparticle of the electron: the same mass, charge $+e$. Emitted in beta-plus decay; it annihilates with an electron.'
   topic: Nuclear reactions
-- term: annihilation
-  aliases: [annihilate, annihilates, pair annihilation]
-  definition: 'A particle and its antiparticle turning entirely into energy; an electron and positron at rest give two 0.511 MeV photons going in opposite directions.'
-  topic: Nuclear reactions
-- term: pair production
-  definition: 'A photon of at least 1.022 MeV turning into an electron and a positron near a nucleus (which takes up some momentum).'
-  topic: Nuclear reactions
 - term: threshold energy
   aliases: [threshold]
   definition: 'The least kinetic energy a projectile needs to cause a reaction with $Q < 0$: $K_{\text{th}} = -Q(1 + m_{\text{projectile}}/m_{\text{target}})$ at nonrelativistic speeds.'
