@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import { REPORT_REASONS, REVIEW_HELP, REVIEW_LABEL, api as community, type CommunityEntry, type Review } from "../lib/community";
-import { LEVELS, SUBJECTS, TYPES, normalizeLevel, normalizeSubject, normalizeType } from "../lib/taxonomy";
+import { LEVELS, SUBJECTS, TYPES, normalizeLevel, normalizeSubject, normalizeType, subjectKey } from "../lib/taxonomy";
 
 export function ReviewPill({ review }: { review: Review }) {
   return (
@@ -154,10 +154,10 @@ export default function CommunityCatalog({ api }: { api: AppApi }) {
               const mine = installed.get(c.id);
               const outdated = mine && (mine.community!.version < c.version || mine.community!.review !== c.review);
               return (
-                <div key={c.id} className="catalog-card">
+                <div key={c.id} className="catalog-card" data-subject={subjectKey(c.subject)}>
                   <div className="catalog-tags">
                     <ReviewPill review={c.review} />
-                    <span className="pill neutral">{c.subject}</span>
+                    <span className="pill neutral subject">{c.subject}</span>
                     <span className="pill neutral">{c.level}</span>
                     <span className="pill neutral">{c.type}</span>
                   </div>

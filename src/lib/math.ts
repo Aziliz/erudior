@@ -99,7 +99,7 @@ const escapeHtml = (s: string) =>
 /** Plain text with math rendered (for question stems, choices and other non-Markdown text). */
 export function renderMathText(src: string): string {
   return splitMath(src)
-    .map((s) => (s.math ? renderTex(s.text, s.display) : escapeHtml(s.text)))
+    .map((s) => (s.math ? (s.display ? renderTex(s.text, true) : `<span class="math-inline">${renderTex(s.text, false)}</span>`) : escapeHtml(s.text)))
     .join("");
 }
 
@@ -114,7 +114,7 @@ export function protectMath(src: string): { text: string; restore: (html: string
   const text = segs
     .map((s) => {
       if (!s.math) return s.text;
-      rendered.push(renderTex(s.text, s.display));
+      rendered.push(s.display ? renderTex(s.text, true) : `<span class="math-inline">${renderTex(s.text, false)}</span>`);
       const tag = `XMATHX${rendered.length - 1}XMATHX`;
       return s.display ? `\n\n${tag}\n\n` : tag;
     })

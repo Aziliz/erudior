@@ -8,6 +8,8 @@ import { finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Ses
 import { confirmAction, saveSessionState } from "../lib/storage";
 import { recordSession } from "../lib/quiz";
 import { LETTERS, formatClock } from "../lib/util";
+import { CalcDock } from "../components/Calculator";
+import { calcKind } from "../lib/calcKind";
 
 interface Props {
   api: AppApi;
@@ -276,6 +278,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
 
   return (
     <div className="runner">
+      <CalcDock kind={calcKind(course)} />
       <div className="runner-main">
         <div className="runner-bar">
           <button className="btn ghost sm" onClick={saveAndExit} title="Your place and time are saved">

@@ -67,6 +67,54 @@ function mathHeaders(html: string): string {
   return changed ? t.innerHTML : html;
 }
 
+/** Section headings that get their own color (every math/science lesson ends with these). */
+const SECTION_KINDS: [RegExp, string][] = [
+  [/^key points$|^quick review$|^summary$|^in short$/i, "sec-key"],
+  [/^common mistakes$|^watch out$|^pitfalls$/i, "sec-mistakes"],
+];
+const CALLOUTS: [RegExp, string][] = [
+  [/^(exam tip|tip|strategy|remember|hint)\b/i, "callout-tip"],
+  [/^(warning|caution|watch out|careful|note)\b/i, "callout-warn"],
+];
+
+/**
+ * Lessons get color for structure (website and app alike): "Key points" and "Common mistakes"
+ * sections, worked examples, tips and named rules or theorems each get a tinted box, so a long
+ * lesson isn't a wall of the same gray. Dialogue and reading texts in language courses stay plain.
+ */
+export function decorateLesson(html: string, opts: { foreign?: boolean } = {}): string {
+  if (typeof document === "undefined" || (!html.includes("<h2") && !html.includes("<h3") && !html.includes("<blockquote"))) return html;
+  const root = document.createElement("div");
+  root.innerHTML = html;
+  // Wrap "## Key points" / "## Common mistakes" sections and "### Example …" blocks.
+  const wrap = (head: Element, cls: string, stop: (el: Element) => boolean) => {
+    const box = document.createElement("section");
+    box.className = `lesson-box ${cls}`;
+    head.before(box);
+    let el: Element | null = head;
+    while (el && (el === head || !stop(el))) {
+      const next: Element | null = el.nextElementSibling;
+      box.append(el);
+      el = next;
+    }
+  };
+  for (const h of [...root.querySelectorAll(":scope > h2")]) {
+    const kind = SECTION_KINDS.find(([re]) => re.test(h.textContent?.trim() ?? ""))?.[1];
+    if (kind) wrap(h, kind, (el) => /^H[12]$/.test(el.tagName));
+  }
+  for (const h of [...root.querySelectorAll(":scope > h3, :scope > h4")]) {
+    if (/^(worked )?example\b/i.test(h.textContent?.trim() ?? "")) wrap(h, "sec-example", (el) => /^H[1-4]$/.test(el.tagName) || el.tagName === "SECTION");
+  }
+  if (!opts.foreign)
+    for (const q of [...root.querySelectorAll("blockquote")]) {
+      const lead = q.firstElementChild?.firstElementChild;
+      if (!lead || lead.tagName !== "STRONG" || q.firstElementChild?.firstChild !== lead) continue;
+      const label = lead.textContent?.trim() ?? "";
+      q.classList.add(CALLOUTS.find(([re]) => re.test(label))?.[1] ?? "callout-rule");
+    }
+  return root.innerHTML;
+}
+
 interface Pop {
   entry?: GlossaryEntry;
   term: string;
@@ -91,12 +139,13 @@ export default function Markdown({
   scope?: Record<string, number>;
 }) {
   const html = useMemo(() => {
-    const out = renderMarkdown(source, scope);
+    const plain = renderMarkdown(source, scope);
+    const out = className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     if (!foreignLang) return out;
     const code = foreignLang.replace(/[^A-Za-z-]/g, "");
     // Dialogues and reading texts are blockquotes in the target language, too.
     return out.replace(/<em>/g, `<em lang="${code}">`).replace(/<blockquote>/g, `<blockquote lang="${code}">`);
-  }, [source, scope, foreignLang]);
+  }, [source, scope, foreignLang, className]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);

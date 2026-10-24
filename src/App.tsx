@@ -46,6 +46,7 @@ import ReviewQueue from "./pages/ReviewQueue";
 import LivePlay from "./pages/LivePlay";
 import { LIVE } from "./lib/live";
 import { pageKey, pathToView, viewToPath, type RouteCourse } from "./lib/routes";
+import { subjectKey } from "./lib/taxonomy";
 
 /** The website keeps the address bar in step with the screen; the desktop app has no address bar. */
 const ROUTES = !store.inApp && typeof window !== "undefined";
@@ -135,7 +136,8 @@ export interface AppApi {
   addCommunityCourse: (id: string) => Promise<void>;
 }
 
-type Theme = "system" | "light" | "dark";
+type Theme = "system" | "light" | "dark" | "sepia" | "dim" | "contrast";
+const THEMES: Theme[] = ["system", "light", "dark", "sepia", "dim", "contrast"];
 
 type ReadingWidth = "full" | "comfortable";
 type TextSize = "100" | "115" | "130";
@@ -152,7 +154,7 @@ function readPref<T extends string>(key: string, allowed: T[], fallback: T): T {
 function readTheme(): Theme {
   try {
     const t = localStorage.getItem("examiner.theme");
-    return t === "light" || t === "dark" ? t : "system";
+    return THEMES.includes(t as Theme) ? (t as Theme) : "system";
   } catch {
     return "system";
   }
@@ -227,6 +229,22 @@ export default function App() {
       /* storage unavailable; theme just won't persist */
     }
   }, [theme]);
+
+  // Each subject has its own accent color on its course's screens (styles.css [data-subject]).
+  useEffect(() => {
+    const id =
+      "courseId" in view
+        ? view.courseId
+        : view.name === "overview"
+          ? view.catalogId
+          : view.name === "run"
+            ? allBanks.find((b) => b.id === view.session.bankId)?.courseId
+            : undefined;
+    const subject = id ? CATALOG.find((e) => e.id === id)?.subject : undefined;
+    const key = subject ? subjectKey(subject) : null;
+    if (key) document.documentElement.setAttribute("data-subject", key);
+    else document.documentElement.removeAttribute("data-subject");
+  }, [view]);
 
   // Reading width and text size (WCAG 1.4.8 / 1.4.4): applied to <html>, remembered per device.
   useEffect(() => {
@@ -896,9 +914,12 @@ export default function App() {
                 <label className="field">
                   <span>Theme</span>
                   <select className="select" value={theme} onChange={(e) => setTheme(e.target.value as Theme)}>
-                    <option value="system">System</option>
+                    <option value="system">System (light or dark)</option>
                     <option value="light">Light</option>
+                    <option value="sepia">Sepia (warm paper)</option>
+                    <option value="dim">Dim (soft dark)</option>
                     <option value="dark">Dark</option>
+                    <option value="contrast">High contrast</option>
                   </select>
                 </label>
                 <label className="field">

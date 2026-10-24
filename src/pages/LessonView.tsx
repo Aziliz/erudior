@@ -8,6 +8,8 @@ import { lessonQuizNeeded, lessonQuizQuestions, startLessonQuiz } from "../lib/s
 import { bestQuizScore } from "../lib/quiz";
 import { mainBank } from "./CourseHome";
 import { SpeakButton } from "./VocabRunner";
+import { CalcDock } from "../components/Calculator";
+import { calcKind } from "../lib/calcKind";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
   const key = lessonKey(course.id, lesson.id);
@@ -60,6 +62,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
 
   return (
     <div className="page lesson-page">
+      <CalcDock kind={calcKind(course)} />
       <button className="back" onClick={() => api.go({ name: "course", courseId: course.id, tab: "lessons" })}>
         ← {course.title}
       </button>

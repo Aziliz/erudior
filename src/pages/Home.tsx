@@ -2,6 +2,7 @@ import type { AppApi } from "../App";
 import { CATALOG } from "../lib/catalog";
 import { COMMUNITY } from "../lib/community";
 import { Mark } from "../components/Mark";
+import { subjectKey } from "../lib/taxonomy";
 
 /** The website's front page: what Erudior is, and the way into courses, the community and the app. */
 export default function Home({ api }: { api: AppApi }) {
@@ -86,10 +87,10 @@ export default function Home({ api }: { api: AppApi }) {
           </div>
           <div className="catalog-grid">
             {featured.map((e) => (
-              <button key={e.id} className="catalog-card home-course" onClick={() => api.go({ name: "overview", catalogId: e.id })}>
+              <button key={e.id} className="catalog-card home-course" data-subject={subjectKey(e.subject)} onClick={() => api.go({ name: "overview", catalogId: e.id })}>
                 <div className="catalog-tags">
-                  {[e.subject, ...e.level, ...e.type].map((t) => (
-                    <span key={t} className="pill neutral">
+                  {[e.subject, ...e.level, ...e.type].map((t, i) => (
+                    <span key={t} className={`pill neutral${i === 0 ? " subject" : ""}`}>
                       {t}
                     </span>
                   ))}

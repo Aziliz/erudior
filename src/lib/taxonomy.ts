@@ -92,3 +92,15 @@ export function knownSubject(subject: string): string | undefined {
 
 /** For display: the current subject name, "Other" if it isn't one. */
 export const normalizeSubject = (subject: string): string => knownSubject(subject) ?? "Other";
+
+/** The color family a subject uses (styles.css [data-subject]). */
+export function subjectKey(subject: string): "math" | "science" | "languages" | "business" | "humanities" | "arts" | "other" {
+  const s = normalizeSubject(subject);
+  if (["Math", "Computer science", "Engineering", "Technology", "Test prep"].includes(s)) return "math";
+  if (["Science", "Health", "Physical education", "Psychology"].includes(s)) return "science";
+  if (["Languages", "English and language arts", "Reading and literature", "Writing"].includes(s)) return "languages";
+  if (["Real estate", "Business", "Personal finance", "Economics", "Law", "Trades and vocational", "Life skills"].includes(s)) return "business";
+  if (["History", "Social studies", "Geography", "Government and civics", "Philosophy and religion"].includes(s)) return "humanities";
+  if (["Art", "Music"].includes(s)) return "arts";
+  return "other";
+}

@@ -44,7 +44,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme]) {
     --paper: #11171b;
     --surface: #182126;
     --sheet: #1b2925;
@@ -3569,4 +3569,477 @@ button.catalog-card.home-course {
   border-radius: var(--r-sm);
   background: var(--sheet);
   font-size: 0.875rem;
+}
+
+/* ---------- More themes (Display → Theme) ---------- */
+:root[data-theme="sepia"] {
+  --paper: #f4eedf;
+  --surface: #fbf7ec;
+  --sheet: #ebe2cc;
+  --rule: #d6c8a8;
+  --field: #8a7550;
+  --ink: #2b2417;
+  --ink-2: #4a3f2c;
+  --ink-3: #554833;
+  --pencil: #2b2417;
+  --accent: #7c4710;
+  --accent-ink: #ffffff;
+  --accent-soft: #f1e2c8;
+  --ok: #2f5f2a;
+  --ok-soft: #e1ebcf;
+  --bad: #8a2f1c;
+  --bad-soft: #f5dccf;
+  --flag: #6d4a06;
+  --flag-soft: #f3e3bd;
+  --study: #7f3908;
+  --study-soft: #f6e2c9;
+  --focus: #7c4710;
+  --shadow: 0 1px 2px rgba(60, 45, 20, 0.08), 0 4px 16px rgba(60, 45, 20, 0.06);
+  color-scheme: light;
+}
+:root[data-theme="dim"] {
+  --paper: #1f2328;
+  --surface: #272c32;
+  --sheet: #2e343b;
+  --rule: #3d444c;
+  --field: #6b7781;
+  --ink: #d5d9dd;
+  --ink-2: #b2b9c0;
+  --ink-3: #aab1b8;
+  --pencil: #d5d9dd;
+  --accent: #9dbfe0;
+  --accent-ink: #14202b;
+  --accent-soft: #2b3a4a;
+  --ok: #8ccaa5;
+  --ok-soft: #22362b;
+  --bad: #eaa093;
+  --bad-soft: #402823;
+  --flag: #ddbb6e;
+  --flag-soft: #3a3120;
+  --study: #eaa96f;
+  --study-soft: #3d2d1f;
+  --fig-0: #84b6e6;
+  --fig-1: #f39c55;
+  --fig-2: #68d391;
+  --fig-3: #d6a2e8;
+  --fig-4: #f6c768;
+  --fig-5: #fc8181;
+  --focus: #9dbfe0;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  color-scheme: dark;
+}
+:root[data-theme="contrast"] {
+  --paper: #ffffff;
+  --surface: #ffffff;
+  --sheet: #ececec;
+  --rule: #000000;
+  --field: #000000;
+  --ink: #000000;
+  --ink-2: #000000;
+  --ink-3: #1a1a1a;
+  --pencil: #000000;
+  --accent: #0b3c8c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e2ebfa;
+  --ok: #0b5527;
+  --ok-soft: #e1f3e6;
+  --bad: #8f1d0b;
+  --bad-soft: #fbe3de;
+  --flag: #5c3d00;
+  --flag-soft: #fbedc9;
+  --study: #6e2f00;
+  --study-soft: #fde9d6;
+  --focus: #000000;
+  --shadow: none;
+  color-scheme: light;
+}
+
+/* ---------- Subject colors ---------- */
+:root {
+  --subj: var(--accent);
+  --subj-soft: var(--accent-soft);
+}
+:root[data-subject="math"], [data-subject="math"] { --subj: #2456a6; --subj-soft: #e3ecfa; }
+:root[data-subject="science"], [data-subject="science"] { --subj: #1d6e43; --subj-soft: #dcf0e3; }
+:root[data-subject="languages"], [data-subject="languages"] { --subj: #74399a; --subj-soft: #efe4f6; }
+:root[data-subject="business"], [data-subject="business"] { --subj: #8a510a; --subj-soft: #f6ead6; }
+:root[data-subject="humanities"], [data-subject="humanities"] { --subj: #9b3344; --subj-soft: #f7e1e5; }
+:root[data-subject="arts"], [data-subject="arts"] { --subj: #a02d66; --subj-soft: #f7e0ec; }
+:root[data-subject="other"], [data-subject="other"] { --subj: #46545f; --subj-soft: #e5eaee; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme])[data-subject="math"], :root:not([data-theme]) [data-subject="math"] { --subj: #8db4f0; --subj-soft: #1d2b42; }
+  :root:not([data-theme])[data-subject="science"], :root:not([data-theme]) [data-subject="science"] { --subj: #79cfa0; --subj-soft: #17301f; }
+  :root:not([data-theme])[data-subject="languages"], :root:not([data-theme]) [data-subject="languages"] { --subj: #d0a8ec; --subj-soft: #2d2140; }
+  :root:not([data-theme])[data-subject="business"], :root:not([data-theme]) [data-subject="business"] { --subj: #f0b766; --subj-soft: #352715; }
+  :root:not([data-theme])[data-subject="humanities"], :root:not([data-theme]) [data-subject="humanities"] { --subj: #f19aa8; --subj-soft: #3a1d23; }
+  :root:not([data-theme])[data-subject="arts"], :root:not([data-theme]) [data-subject="arts"] { --subj: #f3a1c9; --subj-soft: #3a1c2c; }
+  :root:not([data-theme])[data-subject="other"], :root:not([data-theme]) [data-subject="other"] { --subj: #b6c3cf; --subj-soft: #232c34; }
+}
+:root:is([data-theme="dark"], [data-theme="dim"])[data-subject="math"], :root:is([data-theme="dark"], [data-theme="dim"]) [data-subject="math"] { --subj: #8db4f0; --subj-soft: #1d2b42; }
+:root:is([data-theme="dark"], [data-theme="dim"])[data-subject="science"], :root:is([data-theme="dark"], [data-theme="dim"]) [data-subject="science"] { --subj: #79cfa0; --subj-soft: #17301f; }
+:root:is([data-theme="dark"], [data-theme="dim"])[data-subject="languages"], :root:is([data-theme="dark"], [data-theme="dim"]) [data-subject="languages"] { --subj: #d0a8ec; --subj-soft: #2d2140; }
+:root:is([data-theme="dark"], [data-theme="dim"])[data-subject="business"], :root:is([data-theme="dark"], [data-theme="dim"]) [data-subject="business"] { --subj: #f0b766; --subj-soft: #352715; }
+:root:is([data-theme="dark"], [data-theme="dim"])[data-subject="humanities"], :root:is([data-theme="dark"], [data-theme="dim"]) [data-subject="humanities"] { --subj: #f19aa8; --subj-soft: #3a1d23; }
+:root:is([data-theme="dark"], [data-theme="dim"])[data-subject="arts"], :root:is([data-theme="dark"], [data-theme="dim"]) [data-subject="arts"] { --subj: #f3a1c9; --subj-soft: #3a1c2c; }
+:root:is([data-theme="dark"], [data-theme="dim"])[data-subject="other"], :root:is([data-theme="dark"], [data-theme="dim"]) [data-subject="other"] { --subj: #b6c3cf; --subj-soft: #232c34; }
+/* Sepia keeps its warm look; high contrast keeps one strong accent. */
+:root[data-theme="contrast"] { --subj: var(--accent) !important; --subj-soft: var(--accent-soft) !important; }
+
+/* A course's screens carry its subject color in the top bar. */
+:root[data-subject] .topbar {
+  box-shadow: inset 0 -3px 0 var(--subj);
+}
+.catalog-card[data-subject] {
+  border-top: 4px solid var(--subj);
+}
+.catalog-card[data-subject] .pill.subject {
+  background: var(--subj-soft);
+  color: var(--subj);
+  font-weight: 650;
+}
+
+/* ---------- Lesson color: headings, sections, examples, callouts ---------- */
+.lesson-page .prose h2 {
+  color: var(--subj);
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--subj-soft);
+}
+.prose .lesson-box {
+  margin: 1.4em 0;
+  padding: 2px 18px 12px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--rule);
+  border-left-width: 5px;
+}
+.prose .lesson-box > h2,
+.prose .lesson-box > h3,
+.prose .lesson-box > h4 {
+  margin-top: 0.8em;
+  border-bottom: 0;
+}
+.prose .lesson-box.sec-key {
+  background: var(--ok-soft);
+  border-left-color: var(--ok);
+}
+.prose .lesson-box.sec-key > h2 {
+  color: var(--ok);
+}
+.prose .lesson-box.sec-mistakes {
+  background: var(--flag-soft);
+  border-left-color: var(--flag);
+}
+.prose .lesson-box.sec-mistakes > h2 {
+  color: var(--flag);
+}
+.prose .lesson-box.sec-example {
+  background: var(--surface);
+  border-left-color: var(--subj);
+}
+.prose .lesson-box.sec-example > h3,
+.prose .lesson-box.sec-example > h4 {
+  color: var(--subj);
+}
+.prose blockquote.callout-tip {
+  background: var(--flag-soft);
+  border-left-color: var(--flag);
+}
+.prose blockquote.callout-warn {
+  background: var(--bad-soft);
+  border-left-color: var(--bad);
+}
+.prose blockquote.callout-rule {
+  background: var(--subj-soft);
+  border-left-color: var(--subj);
+}
+.prose blockquote.callout-rule > p:first-child > strong:first-child {
+  color: var(--subj);
+}
+
+/* ---------- Formulas: their own space ---------- */
+.math-display {
+  padding: 10px 16px;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--subj);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--subj-soft) 55%, var(--surface));
+}
+.lesson-box .math-display {
+  background: var(--surface);
+}
+.math-inline {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--subj-soft) 70%, transparent);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+th .math-inline,
+.choice .math-inline,
+button .math-inline {
+  background: none;
+  padding: 0;
+}
+
+/* ---------- Calculator ---------- */
+:root {
+  --calc-1: #2456a6;
+  --calc-2: #c2570c;
+  --calc-3: #1d7a45;
+  --calc-4: #8b3fa8;
+  --calc-w: 340px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --calc-1: #8db4f0;
+    --calc-2: #f39c55;
+    --calc-3: #68d391;
+    --calc-4: #d6a2e8;
+  }
+}
+:root:is([data-theme="dark"], [data-theme="dim"]) {
+  --calc-1: #8db4f0;
+  --calc-2: #f39c55;
+  --calc-3: #68d391;
+  --calc-4: #d6a2e8;
+}
+.calc-toggle {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 6px;
+  border: 1px solid var(--rule);
+  border-left: 0;
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font: 600 0.75rem var(--sans);
+}
+.calc-toggle span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.calc-toggle:hover {
+  background: var(--sheet);
+}
+.calc-panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 40;
+  width: var(--calc-w);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  overflow-y: auto;
+  background: var(--surface);
+  border-right: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  font-family: var(--sans);
+}
+:root.calc-open .shell {
+  padding-left: var(--calc-w);
+}
+@media (max-width: 820px) {
+  .calc-panel {
+    width: 100%;
+    top: auto;
+    max-height: 70vh;
+    border-right: 0;
+    border-top: 1px solid var(--rule);
+  }
+  :root.calc-open .shell {
+    padding-left: 0;
+    padding-bottom: 70vh;
+  }
+}
+.calc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calc-head h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+.calc-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: var(--sheet);
+}
+.calc-tabs button {
+  flex: 1;
+  border: 0;
+  padding: 6px;
+  border-radius: 5px;
+  background: none;
+  color: var(--ink-2);
+  font: 600 0.875rem var(--sans);
+  cursor: pointer;
+}
+.calc-tabs button[aria-selected="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.calc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.calc-screen {
+  padding: 10px;
+  border-radius: var(--r-sm);
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+}
+.calc-history {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  text-align: right;
+}
+.calc-history li {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.calc-input {
+  width: 100%;
+  border: 1px solid var(--field);
+  border-radius: 5px;
+  padding: 8px 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 500 1.0625rem ui-monospace, "SF Mono", Consolas, monospace;
+  text-align: right;
+}
+.calc-result {
+  margin-top: 6px;
+  text-align: right;
+  font: 700 1.375rem ui-monospace, "SF Mono", Consolas, monospace;
+  min-height: 1.6em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.calc-error {
+  color: var(--bad);
+  font: 500 0.8125rem var(--sans);
+  white-space: normal;
+}
+.calc-flags {
+  display: flex;
+  justify-content: space-between;
+  min-height: 1.2em;
+}
+.calc-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.calc-key {
+  min-height: 40px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font: 600 0.9375rem var(--sans);
+  cursor: pointer;
+}
+.calc-key:hover {
+  background: var(--sheet);
+}
+.calc-key.num {
+  background: var(--paper);
+  font-size: 1.0625rem;
+}
+.calc-key.op {
+  color: var(--accent);
+  font-size: 1.125rem;
+}
+.calc-key.eq {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.calc-key.on {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.graph-fns {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.graph-fn {
+  display: grid;
+  grid-template-columns: 10px auto 1fr;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+}
+.graph-fn .calc-input {
+  text-align: left;
+  font-size: 0.9375rem;
+  padding: 5px 8px;
+}
+.graph-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.graph {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  touch-action: none;
+  cursor: crosshair;
+}
+.graph-bg {
+  fill: var(--surface);
+}
+.graph-grid {
+  stroke: var(--rule);
+  stroke-width: 0.6;
+}
+.graph-axis {
+  stroke: var(--ink-3);
+  stroke-width: 1.2;
+}
+.graph-tick {
+  fill: var(--ink-2);
+  font: 9px var(--sans);
+}
+.graph-readout {
+  margin: 0;
+  min-height: 1.3em;
+  font-family: ui-monospace, Consolas, monospace;
+}
+.graph-controls {
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.calc-history button {
+  all: unset;
+  cursor: pointer;
+  font-family: ui-monospace, Consolas, monospace;
+}
+.calc-history button:hover {
+  text-decoration: underline;
+}
+.calc-history button:focus-visible {
+  outline: 2px solid var(--focus);
 }

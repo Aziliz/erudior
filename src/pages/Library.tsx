@@ -14,6 +14,7 @@ import { bankCoverage } from "../lib/session";
 import { courseNumbers } from "../lib/planner";
 import { daysBetween, today } from "../lib/srs";
 import { percent, uid } from "../lib/util";
+import { subjectKey } from "../lib/taxonomy";
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
@@ -361,9 +362,9 @@ function Catalog({ api }: { api: AppApi }) {
             const needs = have ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
             const open = () => api.go(have ? { name: "course", courseId: e.id } : { name: "overview", catalogId: e.id });
             return (
-              <div key={e.id} className="catalog-card">
+              <div key={e.id} className="catalog-card" data-subject={subjectKey(e.subject)}>
                 <div className="catalog-tags">
-                  <span className="pill neutral">{e.subject}</span>
+                  <span className="pill neutral subject">{e.subject}</span>
                   {e.level.map((l) => (
                     <span key={l} className="pill neutral">
                       {l}

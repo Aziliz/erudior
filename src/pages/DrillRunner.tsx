@@ -11,6 +11,8 @@ import MathText from "../components/MathText";
 import { logActivity } from "../lib/planner";
 import { shuffle } from "../lib/util";
 import Markdown from "../components/Markdown";
+import { CalcDock } from "../components/Calculator";
+import { calcKind } from "../lib/calcKind";
 
 interface Result {
   inst: DrillInstance;
@@ -173,6 +175,7 @@ export default function DrillRunner({ api, course, drills, count }: { api: AppAp
 
   return (
     <div className="runner-main" style={{ height: "100%" }}>
+      <CalcDock kind={calcKind(course)} />
       <h1 className="sr-only">Math drills: {course.title}</h1>
       <div className="runner-bar">
         <button className="btn ghost sm" onClick={back}>
