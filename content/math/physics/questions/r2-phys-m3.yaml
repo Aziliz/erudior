@@ -29,7 +29,7 @@
   choices: ['Earth''s gravitational pull on the book', 'The table''s upward push on the book', 'The book''s downward push on the table', 'The book''s gravitational pull on Earth']
   answer: [0, 1]
   explanation: |-
-    A free-body diagram shows only forces acting *on* the chosen object. The book's push on the table acts on the table, and its pull on Earth acts on Earth; those are the third-law partners of the two forces on the book.
+    A free-body diagram shows only forces acting on the chosen object. The book's push on the table acts on the table, and its pull on Earth acts on Earth; those are the third-law partners of the two forces on the book.
 - id: phys-m3-r2-q04
   lesson: phys-newton
   type: label
@@ -239,7 +239,7 @@
   choices: ['to the left, opposite the motion', 'to the right, in the direction of motion', 'nowhere, because the block is not sliding', 'down, into the cart']
   answer: 1
   explanation: |-
-    The block speeds up to the right, so it needs a net force to the right, and friction from the cart is the only horizontal force on it. Static friction opposes the *tendency to slide*: without it the cart would slide forward out from under the block.
+    The block speeds up to the right, so it needs a net force to the right, and friction from the cart is the only horizontal force on it. Static friction opposes the tendency to slide: without it the cart would slide forward out from under the block.
 - id: phys-m3-r2-h02
   lesson: phys-m3-h-friction-systems
   topic: Friction in systems
