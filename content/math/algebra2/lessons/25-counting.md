@@ -122,13 +122,13 @@ The flowchart below puts these questions in order. For a problem with several st
 ```mermaid
 flowchart TD
   accTitle: Choosing a counting method
-  accDescr: First ask whether rearranging the chosen items gives a different outcome. If not, order does not matter, so use combinations, n C r. If it does, ask whether an item can be used more than once. If repeats are allowed, use the counting principle and multiply the options in each slot, as in 10 to the 4th for a 4-digit PIN. If repeats are not allowed, ask whether you are arranging all of the items with some of them identical. If so, divide n factorial by the factorial of each group of identical items. Otherwise use permutations, n P r.
+  accDescr: First ask whether rearranging the chosen items gives a different outcome. If not, order does not matter, so use combinations, n C r. If it does, ask whether you are arranging all n items with some of them identical, like the letters of a word with repeated letters. If so, divide n factorial by the factorial of each group of identical items. If not, ask whether an item can be used more than once. If repeats are allowed, use the counting principle and multiply the options in each slot, as in 10 to the 4th for a 4-digit PIN. If repeats are not allowed, use permutations, n P r.
   A["Does rearranging the chosen items give a new outcome?"] -- no --> C["Combination: nCr"]
-  A -- yes --> B["Can an item be used more than once?"]
-  B -- yes --> R["Counting principle: multiply the options in each slot"]
-  B -- no --> D["Arranging all n items, some identical?"]
+  A -- yes --> D["Arranging all n items, some identical?"]
   D -- yes --> I["n! divided by the factorial of each group of identical items"]
-  D -- no --> P["Permutation: nPr"]
+  D -- no --> B["Can an item be used more than once?"]
+  B -- yes --> R["Counting principle: multiply the options in each slot"]
+  B -- no --> P["Permutation: nPr"]
 ```
 
 ## Common mistakes

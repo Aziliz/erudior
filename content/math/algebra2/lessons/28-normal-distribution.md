@@ -101,9 +101,9 @@ The chart sums up which tool to reach for.
 ```mermaid
 flowchart TD
   accTitle: Choosing a method for a normal probability
-  accDescr: First check whether the data are roughly normal, for example with a histogram. If not, normal methods do not apply; work with the actual distribution instead. If the data are roughly normal, ask whether the cutoffs are a whole number of standard deviations from the mean. If so, the 68-95-99.7 rule gives an estimate. If not, find the z-scores and use normalcdf or a z-table; for a greater-than question, subtract the left-tail area from 1.
+  accDescr: First check whether the data are roughly normal, for example with a histogram. If not, normal methods do not apply; work with the actual distribution instead. If the data are roughly normal, ask whether the cutoffs are exactly 1, 2 or 3 standard deviations from the mean. If so, the 68-95-99.7 rule gives an estimate. If not, find the z-scores and use normalcdf or a z-table; for a greater-than question, subtract the left-tail area from 1.
   A["Are the data roughly normal?"] -- no --> X["Don't use normal methods; work with the actual distribution"]
-  A -- yes --> B["Are the cutoffs a whole number of SDs from the mean?"]
+  A -- yes --> B["Are the cutoffs exactly 1, 2 or 3 SDs from the mean?"]
   B -- yes --> C["Use the 68-95-99.7 rule"]
   B -- no --> D["Find z-scores, then use normalcdf or a z-table"]
   D --> E["For a greater-than question, subtract the left area from 1"]

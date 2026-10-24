@@ -14,12 +14,12 @@ The binomial theorem lesson ended with a coin flipped 4 times: the number of way
 
 A trial with exactly two outcomes, called success and failure, is a *Bernoulli trial* (after Jacob Bernoulli, whose book on probability appeared in 1713). "Success" just means the outcome you are counting; it can be a defective part or a missed shot. A situation is a **binomial setting** when all four of these hold:
 
-- **Two outcomes:** each trial is a success or a failure.
+- **Binary (two outcomes):** each trial is a success or a failure.
 - **Independent:** the result of one trial doesn't change the probabilities for another.
-- **Fixed number:** the number of trials $n$ is decided in advance.
+- **Number fixed:** the number of trials $n$ is decided in advance.
 - **Same probability:** each trial has the same probability of success $p$.
 
-The first letters spell BINS, a common memory aid. The random variable $X$ = the number of successes in the $n$ trials then has a **binomial distribution** with parameters $n$ and $p$.
+The first letters (Binary, Independent, Number, Same) spell BINS, a common memory aid. The random variable $X$ = the number of successes in the $n$ trials then has a **binomial distribution** with parameters $n$ and $p$.
 
 ```mermaid
 flowchart TD

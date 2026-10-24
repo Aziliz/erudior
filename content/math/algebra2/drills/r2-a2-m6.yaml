@@ -19,7 +19,7 @@
     - {name: kk, label: '(a) $k$ (%)', tolerance: 0.006, format: num2}
     - {name: yy, label: '(b) yearly rate (%)', tolerance: 0.006, format: num2}
   solution: |-
-    (a) The yearly growth factor is {bf}, so $k = \ln {bf} \approx$ **{kk:num2}%**.
+    (a) The yearly growth factor is {bf:num4}, so $k = \ln {bf:num4} \approx$ **{kk:num2}%**.
     (b) The yearly growth factor is $e^{{kp}/100} \approx {ek:num4}$, so the yearly rate is **{yy:num2}%**.
     The continuous rate is always a little smaller than the yearly rate it matches.
 

@@ -12,7 +12,7 @@ The radicals lesson showed that $a^{m/n}$ means "take the $n$th root, then the $
 
 ## Power functions with rational exponents
 
-A **power function** is a function of the form $f(x) = kx^p$, where $k$ and $p$ are constants. You already know the whole-number cases ($x^2$, $x^3$) and $p = -1$ (the reciprocal function). With $p = \tfrac{m}{n}$, the shape depends on the size of $p$:
+A **power function** is a function of the form $f(x) = kx^p$, where $k$ and $p$ are constants. You already know the whole-number cases ($x^2$, $x^3$) and $p = -1$ (the reciprocal function). With $p = \tfrac{m}{n}$, the shape for $x > 0$ depends on the size of $p$:
 
 - $0 < p < 1$ (like $x^{1/2}$ or $x^{2/3}$): the graph rises ever more slowly and bends downward.
 - $p = 1$: a straight line.
@@ -46,7 +46,7 @@ The rules $(a^r)^s = a^{rs}$ and $a^r b^r = (ab)^r$ were stated for positive bas
 - $(-8)^{1/3} = -2$, since $(-2)^3 = -8$.
 - But $\tfrac13 = \tfrac26$, and $(-8)^{2/6} = \left((-8)^2\right)^{1/6} = 64^{1/6} = 2$.
 
-Equal exponents gave different answers. That's why this course defines $a^{m/n}$ for a negative $a$ only with $\tfrac{m}{n}$ in lowest terms. Calculators and programming languages disagree about these cases: some return $-2$ for $(-8)^{1/3}$, some return an error, and some return a complex number. With a negative base, rewrite the power as a radical before trusting a machine.
+Equal exponents gave different answers. That's why, with a negative base $a$, this course (like most textbooks) uses $a^{m/n}$ only with $\tfrac{m}{n}$ in lowest terms. Calculators and programming languages disagree about these cases: some return $-2$ for $(-8)^{1/3}$, some return an error, and some return a complex number. With a negative base, rewrite the power as a radical before trusting a machine.
 
 The same trouble explains $\sqrt{x^2} = |x|$. Using the power rule blindly, $(x^2)^{1/2} = x^{1}= x$, which is wrong for $x = -3$. The correct statement is $(x^2)^{1/2} = |x|$.
 
@@ -95,7 +95,7 @@ A movie wants a gorilla scaled up to 3 times normal height, with the same shape 
 2. Bone strength grows with cross-sectional area: $3^2 = 9$ times.
 3. The stress on the bones (weight per area of bone) grows by $\tfrac{27}{9} = 3$. A real giant ape would need proportionally much thicker legs, which is why large land animals such as elephants have stout limbs.
 
-Area as a power of volume: a cube of volume $V$ has edge $V^{1/3}$ and surface area $6\left(V^{1/3}\right)^2 = 6V^{2/3}$. A cube with 8 times the volume has $8^{2/3} = 4$ times the surface area, so only half as much surface per unit of volume. That ratio is why small animals lose heat faster than large ones.
+Area as a power of volume: a cube of volume $V$ has edge $V^{1/3}$ and surface area $6\left(V^{1/3}\right)^2 = 6V^{2/3}$. A cube with 8 times the volume has $8^{2/3} = 4$ times the surface area, so only half as much surface per unit of volume. That ratio is why small animals lose heat faster for their size than large ones.
 
 ## Finding the exponent
 

@@ -304,10 +304,10 @@
   lesson: a2-h-expected-value
   topic: Expected value
   stem: 'An insurer charges \$300 a year for a policy. With probability 0.002 it pays a \$100,000 claim; otherwise it pays nothing. What is the insurer''s expected profit per policy (ignoring other costs)?'
-  choices: ['\$299.80', '\$200', '\$100', 'A loss of \$99,700']
+  choices: ['\$300', '\$200', '\$100', 'A loss of \$99,700']
   answer: 2
   explanation: |-
-    Expected payout: $100{,}000(0.002) = 200$ dollars. Expected profit: $300 - 200 = 100$ dollars per policy. \$200 is the expected payout itself, \$299.80 subtracts the probability instead of the expected payout, and a loss of \$99,700 is what happens on the rare policy that has a claim.
+    Expected payout: $100{,}000(0.002) = 200$ dollars. Expected profit: $300 - 200 = 100$ dollars per policy. \$200 is the expected payout itself; \$300 is the most likely profit on one policy (no claim), not the expected profit; and a loss of \$99,700 is what happens on the rare policy that has a claim.
 - id: a2-m8-r2-h09
   lesson: a2-h-expected-value
   topic: Expected value

@@ -90,7 +90,7 @@
     cy: b^t
     p: t/s
   where: ['t != s', 'cx <= 256', 'cy <= 1000']
-  prompt: 'In $y = kx^p$, multiplying $x$ by {cx} multiplies $y$ by {cy}. Find $p$ as an exact fraction.'
+  prompt: 'In $y = kx^p$, multiplying $x$ by {cx} multiplies $y$ by {cy}. Give $p$ as a fraction in lowest terms (or a whole number).'
   answers:
     - {name: p, kind: fraction, lowestTerms: true, label: '$p =$'}
   solution: |-

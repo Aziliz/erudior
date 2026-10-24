@@ -70,10 +70,10 @@ flowchart LR
   Q(["Where is the change?"]) -- "outside f" --> O["Acts on y, as it looks"]
   Q -- "inside f" --> I["Acts on x, the opposite way"]
   O --> O1["f(x) + k: up k"]
-  O --> O2["a·f(x): vertical stretch by a, if a #gt; 1"]
+  O --> O2["a·f(x), a #gt; 1: stretch by a"]
   O --> O3["−f(x): flip over x-axis"]
   I --> I1["f(x − h): right h"]
-  I --> I2["f(bx): compress by 1/b, if b #gt; 1"]
+  I --> I2["f(bx), b #gt; 1: compress by 1/b"]
   I --> I3["f(−x): flip over y-axis"]
 ```
 

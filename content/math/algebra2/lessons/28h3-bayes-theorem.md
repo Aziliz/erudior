@@ -34,7 +34,7 @@ $$P(A \mid D) = \frac{P(A)\,P(D \mid A)}{P(D)}.$$
 
 This is **Bayes' theorem**. The denominator is usually found with the law of total probability. In words: the probability of a cause given the evidence equals (that cause's path) divided by (all paths that lead to the evidence).
 
-The rule is named for Thomas Bayes, an English minister who died in 1761; his essay on the problem was published after his death by his friend Richard Price, who presented it to the Royal Society in 1763. Pierre-Simon Laplace, working independently, stated the rule in general form in 1774 and used it widely.
+The rule is named for Thomas Bayes, an English minister who died in 1761; his essay on the problem was published after his death by his friend Richard Price, who presented it to the Royal Society in 1763. Pierre-Simon Laplace, working independently, stated the rule in 1774 for causes that are equally likely beforehand, later extended it to the general form above, and used it widely.
 
 ### Example 1: Which machine?
 

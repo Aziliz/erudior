@@ -38,7 +38,7 @@ Why this formula? Imagine repeating the experiment a large number $N$ of times. 
 
 $$\frac{x_1(p_1N) + x_2(p_2N) + \cdots}{N} = x_1p_1 + x_2p_2 + \cdots.$$
 
-So the expected value is the long-run average result per trial. The **law of large numbers** makes this precise: as the number of independent trials grows, the average result gets closer and closer to $E(X)$. It says nothing about any single trial, and it does not say that a streak of losses has to be "made up" soon (that belief is the gambler's fallacy).
+So the expected value is the long-run average result per trial. The **law of large numbers** makes this precise: as the number of independent trials grows, the average result gets closer and closer to $E(X)$ (not in a steady march: it still wanders, but the wandering shrinks). It says nothing about any single trial, and it does not say that a streak of losses has to be "made up" soon (that belief is the gambler's fallacy).
 
 The expected value need not be a value $X$ can actually take. A family's expected number of children might be 1.9, though no family has 1.9 children. Graphically, $E(X)$ is the balance point of the probability histogram.
 

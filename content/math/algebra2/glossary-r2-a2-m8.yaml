@@ -16,7 +16,7 @@
   definition: 'The probability-weighted average of a random variable, $E(X) = \sum x\,P(X = x)$; the long-run average result per trial.'
   topic: Expected value
 - term: law of large numbers
-  definition: 'As the number of independent trials grows, the average result gets closer and closer to the expected value. It says nothing about any single trial.'
+  definition: 'As the number of independent trials grows, the average result gets closer and closer to the expected value (it still wanders, but less and less). It says nothing about any single trial.'
   topic: Expected value
 - term: fair game
   aliases: [fair games]

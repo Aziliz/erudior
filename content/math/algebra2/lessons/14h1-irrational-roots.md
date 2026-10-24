@@ -132,7 +132,7 @@ Both formulas are special cases of **Newton's method**, a general way to solve e
 Estimate $\sqrt[3]{10}$ starting from $x = 2$.
 
 1. $\tfrac{10}{2^2} = 2.5$, so $x = \tfrac13(2 + 2 + 2.5) = \tfrac{6.5}{3} = 2.1667$ (to 4 decimal places).
-2. $\tfrac{10}{2.16667^2} = 2.13018$, so $x = \tfrac13(2.16667 + 2.16667 + 2.13018) = 2.1545$.
+2. $\tfrac{10}{2.16667^2} \approx 2.13017$, so $x = \tfrac13(2.16667 + 2.16667 + 2.13017) = 2.1545$.
 3. Check: $\sqrt[3]{10} = 2.15443\ldots$, and $2.1545^3 \approx 10.0009$.
 
 ## Common mistakes

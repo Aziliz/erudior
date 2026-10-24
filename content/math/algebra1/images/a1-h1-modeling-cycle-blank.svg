@@ -13,8 +13,8 @@
 <line x1="540" y1="332" x2="437" y2="332" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
 <line x1="285" y1="332" x2="182" y2="332" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
 <line x1="360" y1="300" x2="360" y2="126" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)" stroke-dasharray="8 6"/>
-<text x="233" y="320" font-size="15" text-anchor="middle">good</text>
-<text x="233" y="370" font-size="15" text-anchor="middle">enough</text>
+<text x="233" y="304" font-size="15" text-anchor="middle">good</text>
+<text x="233" y="322" font-size="15" text-anchor="middle">enough</text>
 <text x="372" y="200" font-size="15">not good enough:</text>
 <text x="372" y="220" font-size="15">revise</text>
 </svg>

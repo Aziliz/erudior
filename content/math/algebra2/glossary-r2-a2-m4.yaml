@@ -29,7 +29,7 @@
   topic: Power laws
 - term: astronomical unit
   aliases: [astronomical units, AU]
-  definition: 'A unit of distance equal to the average distance from Earth to the Sun, about 150 million km.'
+  definition: 'A unit of distance roughly equal to the average distance from Earth to the Sun: exactly 149,597,870,700 m by definition, about 150 million km.'
   topic: Power laws
 - term: square–cube law
   aliases: [square-cube law]
