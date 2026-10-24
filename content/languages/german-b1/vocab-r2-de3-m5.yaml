@@ -1,0 +1,314 @@
+# German B1, module 5 honors lessons (round 2): new words. Checked against every vocab file in
+# German A1, A2 and B1 (including round-2 files) by term + part of speech and by first meaning.
+
+# --- 25h1 Diplomatic German (de3-m5-h-diplomatic) ---
+- id: de3-m5-r2-w01
+  lesson: de3-m5-h-diplomatic
+  term: möglicherweise
+  pos: adverb
+  meanings:
+  - possibly (formal)
+  - possibly
+  - perhaps
+  - maybe
+  - it may be
+  example: Das ist möglicherweise ein Missverständnis.
+  exampleEn: That is possibly a misunderstanding.
+- id: de3-m5-r2-w02
+  lesson: de3-m5-h-diplomatic
+  term: sinnvoll
+  pos: adjective
+  meanings:
+  - sensible
+  - meaningful
+  - useful
+  - reasonable
+  - makes sense
+  example: Wäre es nicht sinnvoller, erst die Kunden zu fragen?
+  exampleEn: Wouldn't it make more sense to ask the customers first?
+- id: de3-m5-r2-w03
+  lesson: de3-m5-h-diplomatic
+  term: die Summe
+  pos: noun
+  plural: die Summen
+  meanings:
+  - sum (total)
+  - sum
+  - total
+  - amount
+  example: Die Summe in der Tabelle stimmt nicht.
+  exampleEn: The total in the table is wrong.
+- id: de3-m5-r2-w04
+  lesson: de3-m5-h-diplomatic
+  term: berechnen
+  pos: verb
+  meanings:
+  - to calculate (work out)
+  - to calculate
+  - to compute
+  - to work out
+  - to charge
+  example: Wir müssen die Kosten genau berechnen.
+  exampleEn: We have to calculate the costs exactly.
+  note: 'Also: to charge (a fee): eine Gebühr berechnen.'
+- id: de3-m5-r2-w05
+  lesson: de3-m5-h-diplomatic
+  term: sich verrechnen
+  pos: verb
+  meanings:
+  - to miscalculate
+  - to make a mistake in calculating
+  - to get a sum wrong
+  example: Entschuldigung, da habe ich mich verrechnet.
+  exampleEn: Sorry, I miscalculated there.
+- id: de3-m5-r2-w06
+  lesson: de3-m5-h-diplomatic
+  term: die Tabelle
+  pos: noun
+  plural: die Tabellen
+  meanings:
+  - table (of figures)
+  - table
+  - spreadsheet
+  - chart
+  example: Könnten Sie mir die Tabelle noch einmal schicken?
+  exampleEn: Could you send me the table again?
+- id: de3-m5-r2-w07
+  lesson: de3-m5-h-diplomatic
+  term: nachfragen
+  pos: verb
+  meanings:
+  - to ask (for more information)
+  - to enquire
+  - to inquire
+  - to check
+  - to ask again
+  example: Ich müsste erst nachfragen, ob der Raum frei ist.
+  exampleEn: I'd have to ask first whether the room is free.
+  note: 'Separable: ich frage nach, ich habe nachgefragt.'
+- id: de3-m5-r2-w08
+  lesson: de3-m5-h-diplomatic
+  term: erwarten
+  pos: verb
+  meanings:
+  - to expect
+  - to await
+  - to wait for
+  example: Wie viele Gäste erwarten wir?
+  exampleEn: How many guests are we expecting?
+- id: de3-m5-r2-w09
+  lesson: de3-m5-h-diplomatic
+  term: der Saal
+  pos: noun
+  plural: die Säle
+  meanings:
+  - hall (large room)
+  - hall
+  - auditorium
+  - large room
+  example: Der Saal im Erdgeschoss könnte reichen.
+  exampleEn: The hall on the ground floor could be enough.
+- id: de3-m5-r2-w10
+  lesson: de3-m5-h-diplomatic
+  term: reichen
+  pos: verb
+  meanings:
+  - to suffice (be enough)
+  - to be enough
+  - to suffice
+  - to reach
+  - to hand
+  - to pass
+  example: Das Geld reicht nicht für eine Reise.
+  exampleEn: The money isn't enough for a trip.
+# --- 25h2 Literature and history (de3-m5-h-literature) ---
+- id: de3-m5-r2-w11
+  lesson: de3-m5-h-literature
+  term: der Buchdruck
+  pos: noun
+  plural: —
+  meanings:
+  - printing (with movable type)
+  - printing
+  - book printing
+  - letterpress printing
+  - printing press
+  example: Der Buchdruck machte Bücher billiger.
+  exampleEn: Printing made books cheaper.
+- id: de3-m5-r2-w12
+  lesson: de3-m5-h-literature
+  term: die Druckerei
+  pos: noun
+  plural: die Druckereien
+  meanings:
+  - print shop
+  - printing works
+  - printer's
+  - printing house
+  example: Die Druckerei druckt auch Zeitungen.
+  exampleEn: The print shop also prints newspapers.
+- id: de3-m5-r2-w13
+  lesson: de3-m5-h-literature
+  term: das Verfahren
+  pos: noun
+  plural: die Verfahren
+  meanings:
+  - process (method)
+  - process
+  - method
+  - procedure
+  - technique
+  example: Gutenberg entwickelte ein neues Verfahren.
+  exampleEn: Gutenberg developed a new process.
+- id: de3-m5-r2-w14
+  lesson: de3-m5-h-literature
+  term: beweglich
+  pos: adjective
+  meanings:
+  - movable
+  - mobile
+  - flexible
+  - agile
+  example: Er druckte mit beweglichen Buchstaben.
+  exampleEn: He printed with movable letters.
+- id: de3-m5-r2-w15
+  lesson: de3-m5-h-literature
+  term: der Mönch
+  pos: noun
+  plural: die Mönche
+  meanings:
+  - monk
+  example: Im Kloster leben zwölf Mönche.
+  exampleEn: Twelve monks live in the monastery.
+- id: de3-m5-r2-w16
+  lesson: de3-m5-h-literature
+  term: abschreiben
+  pos: verb
+  meanings:
+  - to copy (by hand)
+  - to copy
+  - to write out
+  - to transcribe
+  example: Früher wurden Bücher mit der Hand abgeschrieben.
+  exampleEn: In the past, books were copied by hand.
+  note: 'Separable and strong: schrieb ab, hat abgeschrieben. Also: to copy (cheat) at school.'
+- id: de3-m5-r2-w17
+  lesson: de3-m5-h-literature
+  term: die Bibel
+  pos: noun
+  plural: die Bibeln
+  meanings:
+  - Bible
+  - the Bible
+  example: Luther übersetzte die Bibel ins Deutsche.
+  exampleEn: Luther translated the Bible into German.
+- id: de3-m5-r2-w18
+  lesson: de3-m5-h-literature
+  term: die Reformation
+  pos: noun
+  plural: —
+  meanings:
+  - Reformation
+  - the Reformation
+  example: Die Reformation begann 1517.
+  exampleEn: The Reformation began in 1517.
+- id: de3-m5-r2-w19
+  lesson: de3-m5-h-literature
+  term: die Übersetzung
+  pos: noun
+  plural: die Übersetzungen
+  meanings:
+  - translation
+  example: Die Übersetzung ist besser als das Original.
+  exampleEn: The translation is better than the original.
+- id: de3-m5-r2-w20
+  lesson: de3-m5-h-literature
+  term: die Spekulation
+  pos: noun
+  plural: die Spekulationen
+  meanings:
+  - speculation
+  example: Das ist reine Spekulation.
+  exampleEn: That is pure speculation.
+- id: de3-m5-r2-w21
+  lesson: de3-m5-h-literature
+  term: das Gedankenexperiment
+  pos: noun
+  plural: die Gedankenexperimente
+  meanings:
+  - thought experiment
+  example: 'Stell dir eine Welt ohne Telefon vor: ein Gedankenexperiment.'
+  exampleEn: 'Imagine a world without the telephone: a thought experiment.'
+- id: de3-m5-r2-w22
+  lesson: de3-m5-h-literature
+  term: verlaufen
+  pos: verb
+  meanings:
+  - to go (proceed, take a course)
+  - to proceed
+  - to go
+  - to run
+  - to take a course
+  example: Das Gespräch ist gut verlaufen.
+  exampleEn: The conversation went well.
+  note: 'Strong: es verläuft, verlief, ist verlaufen. sich verlaufen = to get lost (on foot).'
+- id: de3-m5-r2-w23
+  lesson: de3-m5-h-literature
+  term: der Reiter
+  pos: noun
+  plural: die Reiter
+  meanings:
+  - rider (male, on a horse)
+  - rider
+  - horseman
+  example: Der Reiter sprang vom Pferd.
+  exampleEn: The rider jumped off the horse.
+  note: 'Female: die Reiterin.'
+- id: de3-m5-r2-w24
+  lesson: de3-m5-h-literature
+  term: der Zügel
+  pos: noun
+  plural: die Zügel
+  meanings:
+  - rein
+  - reins
+  example: Sie hielt die Zügel in der linken Hand.
+  exampleEn: She held the reins in her left hand.
+  note: 'Usually plural: die Zügel.'
+- id: de3-m5-r2-w25
+  lesson: de3-m5-h-literature
+  term: der Sporn
+  pos: noun
+  plural: die Sporen
+  meanings:
+  - spur (for riding)
+  - spur
+  - spurs
+  example: Der Reiter trug Stiefel mit Sporen.
+  exampleEn: The rider wore boots with spurs.
+- id: de3-m5-r2-w26
+  lesson: de3-m5-h-literature
+  term: die Heide
+  pos: noun
+  plural: die Heiden
+  meanings:
+  - heath
+  - heathland
+  - moor
+  - moorland
+  example: Im Herbst blüht die Heide lila.
+  exampleEn: In autumn the heath flowers purple.
+  note: Not to be confused with der Heide (heathen).
+- id: de3-m5-r2-w27
+  lesson: de3-m5-h-literature
+  term: schief
+  pos: adjective
+  meanings:
+  - slanting
+  - crooked
+  - at an angle
+  - lopsided
+  - askew
+  - leaning
+  example: Das Bild hängt schief.
+  exampleEn: The picture is hanging crooked.

@@ -1,0 +1,445 @@
+# Round 2 vocabulary for de1-h1 (honors module: Kultur und Alltag, lessons 90-93)
+# --- 90: Ankommen -------------------------------------------------------------------
+- id: de1-h1-r2-w01
+  lesson: de1-h-ankommen
+  term: sich abmelden
+  pos: verb
+  meanings: ["to deregister (your address)", "to deregister", "to unregister", "to cancel your registration", "to sign out"]
+  example: Ich ziehe nach Kanada, also melde ich mich ab.
+  exampleEn: I'm moving to Canada, so I'm deregistering.
+  note: 'Separable and reflexive: ich melde mich ab, du meldest dich ab. Perfect: hat sich abgemeldet. The opposite of sich anmelden.'
+- id: de1-h1-r2-w02
+  lesson: de1-h-ankommen
+  term: der Reisepass
+  pos: noun
+  plural: die Reisepässe
+  meanings: ["passport (Reisepass)", "passport"]
+  example: Bitte bringen Sie Ihren Reisepass mit.
+  exampleEn: Please bring your passport.
+- id: de1-h1-r2-w03
+  lesson: de1-h-ankommen
+  term: die Meldebescheinigung
+  pos: noun
+  plural: die Meldebescheinigungen
+  meanings: ["certificate of registration (of your address)", "certificate of registration", "registration certificate", "proof of registration", "proof of address"]
+  example: Die Bank möchte meine Meldebescheinigung sehen.
+  exampleEn: The bank wants to see my certificate of registration.
+- id: de1-h1-r2-w04
+  lesson: de1-h-ankommen
+  term: die Haustür
+  pos: noun
+  plural: die Haustüren
+  meanings: ["front door (of a building)", "front door", "street door", "main door", "house door"]
+  example: Die Haustür ist ab 22 Uhr zu.
+  exampleEn: The front door is locked from 10 p.m.
+- id: de1-h1-r2-w05
+  lesson: de1-h-ankommen
+  kind: phrase
+  term: zum Beispiel
+  pos: phrase
+  alt: ["z. B.", "z.B."]
+  meanings: ["for example", "for instance", "e.g."]
+  example: Bringen Sie Ihre Unterlagen mit, zum Beispiel den Pass.
+  exampleEn: Bring your documents, for example your passport.
+- id: de1-h1-r2-w06
+  lesson: de1-h-ankommen
+  kind: phrase
+  term: das heißt
+  pos: phrase
+  alt: ["d. h.", "d.h."]
+  meanings: ["that is (i.e.)", "that is", "i.e.", "that means", "in other words"]
+  example: Der Termin ist morgen, das heißt am Dienstag.
+  exampleEn: The appointment is tomorrow, that is on Tuesday.
+- id: de1-h1-r2-w07
+  lesson: de1-h-ankommen
+  kind: phrase
+  term: und so weiter
+  pos: phrase
+  alt: ["usw."]
+  meanings: ["and so on", "etc.", "et cetera", "and so forth"]
+  example: Ich brauche Brot, Milch, Käse und so weiter.
+  exampleEn: I need bread, milk, cheese and so on.
+- id: de1-h1-r2-w08
+  lesson: de1-h-ankommen
+  term: circa
+  pos: adverb
+  alt: ["ca.", "zirka"]
+  meanings: ["approximately (circa)", "approximately", "about", "around", "roughly", "circa", "ca."]
+  example: Die Wartezeit ist circa 20 Minuten.
+  exampleEn: The waiting time is about 20 minutes.
+  note: 'Usually written ca. and read aloud as circa.'
+- id: de1-h1-r2-w09
+  lesson: de1-h-ankommen
+  term: gegebenenfalls
+  pos: adverb
+  alt: ["ggf."]
+  meanings: ["if necessary (formal)", "if necessary", "if applicable", "where applicable", "if need be"]
+  example: Gegebenenfalls müssen Sie einen neuen Termin buchen.
+  exampleEn: If necessary, you'll have to book a new appointment.
+  note: 'Formal; usually written ggf.'
+- id: de1-h1-r2-w10
+  lesson: de1-h-ankommen
+  term: dabeihaben
+  pos: verb
+  meanings: ["to have with you", "to have on you", "to carry", "to have with one"]
+  example: Hast du deinen Ausweis dabei?
+  exampleEn: Do you have your ID card with you?
+  note: 'Separable, with the forms of haben: du hast … dabei, er hat … dabei. Perfect: hat dabeigehabt.'
+- id: de1-h1-r2-w11
+  lesson: de1-h-ankommen
+  kind: phrase
+  term: unter anderem
+  pos: phrase
+  alt: ["u. a.", "u.a."]
+  meanings: ["among other things", "among others", "inter alia"]
+  example: Im Brief steht unter anderem die Steuer-ID.
+  exampleEn: Among other things, the letter contains the tax ID.
+- id: de1-h1-r2-w12
+  lesson: de1-h-ankommen
+  term: die Steuer-ID
+  pos: noun
+  plural: die Steuer-IDs
+  alt: ["die Steuer-Id", "die SteuerID"]
+  meanings: ["tax ID (in Germany)", "tax ID", "tax identification number", "tax ID number"]
+  example: Mein Chef braucht meine Steuer-ID.
+  exampleEn: My boss needs my tax ID.
+  note: 'Short for steuerliche Identifikationsnummer: an 11-digit number sent by post after your first registration.'
+# --- 91: Zusammen wohnen --------------------------------------------------------------
+- id: de1-h1-r2-w13
+  lesson: de1-h-zusammen-wohnen
+  term: die Dose
+  pos: noun
+  plural: die Dosen
+  meanings: ["can (tin)", "can", "tin"]
+  example: Die leere Dose kommt in die gelbe Tonne.
+  exampleEn: The empty can goes in the yellow bin.
+- id: de1-h1-r2-w14
+  lesson: de1-h-zusammen-wohnen
+  term: leer
+  pos: adjective
+  meanings: ["empty"]
+  example: Die Flasche ist leer.
+  exampleEn: The bottle is empty.
+- id: de1-h1-r2-w15
+  lesson: de1-h-zusammen-wohnen
+  term: werfen
+  pos: verb
+  meanings: ["to throw", "to toss", "to chuck"]
+  example: Er wirft die Zeitung in die Papiertonne.
+  exampleEn: He throws the newspaper in the paper bin.
+  note: 'Stem change e → i: du wirfst, er wirft. Perfect: hat geworfen.'
+- id: de1-h1-r2-w16
+  lesson: de1-h-zusammen-wohnen
+  term: bohren
+  pos: verb
+  meanings: ["to drill", "to bore"]
+  example: Am Sonntag darf man nicht bohren.
+  exampleEn: You're not allowed to drill on Sundays.
+- id: de1-h1-r2-w17
+  lesson: de1-h-zusammen-wohnen
+  term: die Biotonne
+  pos: noun
+  plural: die Biotonnen
+  meanings: ["organic waste bin", "organic bin", "food waste bin", "compost bin", "brown bin", "bio bin"]
+  example: Die Bananenschale kommt in die Biotonne.
+  exampleEn: The banana peel goes in the organic waste bin.
+- id: de1-h1-r2-w18
+  lesson: de1-h-zusammen-wohnen
+  term: der Restmüll
+  pos: noun
+  plural: '—'
+  meanings: ["general waste (non-recyclable)", "general waste", "residual waste", "non-recyclable waste", "general rubbish", "general trash", "landfill waste"]
+  example: Der alte Schwamm ist Restmüll.
+  exampleEn: The old sponge is general waste.
+- id: de1-h1-r2-w19
+  lesson: de1-h-zusammen-wohnen
+  term: der Glascontainer
+  pos: noun
+  plural: die Glascontainer
+  meanings: ["bottle bank", "glass container", "glass recycling container", "bottle bin", "glass bin"]
+  example: Der Glascontainer steht an der Ecke.
+  exampleEn: The bottle bank is on the corner.
+- id: de1-h1-r2-w20
+  lesson: de1-h-zusammen-wohnen
+  term: die Pfandflasche
+  pos: noun
+  plural: die Pfandflaschen
+  meanings: ["deposit bottle", "returnable bottle", "bottle with a deposit"]
+  example: Ich bringe die Pfandflaschen in den Supermarkt.
+  exampleEn: I'm taking the deposit bottles to the supermarket.
+- id: de1-h1-r2-w21
+  lesson: de1-h-zusammen-wohnen
+  term: der Gelbe Sack
+  pos: noun
+  plural: die Gelben Säcke
+  alt: ["der gelbe Sack"]
+  meanings: ["yellow bag (for packaging)", "yellow bag", "yellow sack", "recycling bag"]
+  example: Der Joghurtbecher kommt in den Gelben Sack.
+  exampleEn: The yoghurt pot goes in the yellow bag.
+  note: 'Accusative: in den Gelben Sack. In some towns there is a yellow bin (die gelbe Tonne) instead.'
+- id: de1-h1-r2-w22
+  lesson: de1-h-zusammen-wohnen
+  kind: phrase
+  term: Wir bitten um Verständnis.
+  pos: phrase
+  meanings: ["we ask for your understanding", "thank you for your understanding", "we apologise for any inconvenience", "we apologize for any inconvenience"]
+  example: Am Samstag feiern wir eine Party. Wir bitten um Verständnis.
+  exampleEn: We're having a party on Saturday. Thank you for your understanding.
+- id: de1-h1-r2-w23
+  lesson: de1-h-zusammen-wohnen
+  kind: phrase
+  term: lieber nicht
+  pos: phrase
+  meanings: ["better not", "rather not", "I'd rather not"]
+  example: Am Sonntag bohren? Lieber nicht!
+  exampleEn: Drilling on a Sunday? Better not!
+# --- 92: Märchen ---------------------------------------------------------------------
+- id: de1-h1-r2-w24
+  lesson: de1-h-maerchen
+  term: der Esel
+  pos: noun
+  plural: die Esel
+  meanings: ["donkey", "ass"]
+  example: Der Esel ist alt und müde.
+  exampleEn: The donkey is old and tired.
+- id: de1-h1-r2-w25
+  lesson: de1-h-maerchen
+  term: der Hahn
+  pos: noun
+  plural: die Hähne
+  meanings: ["rooster", "cock", "cockerel"]
+  example: Auf dem Bauernhof gibt es einen Hahn.
+  exampleEn: There is a rooster on the farm.
+  note: 'The hen is das Huhn.'
+- id: de1-h1-r2-w26
+  lesson: de1-h-maerchen
+  term: der Räuber
+  pos: noun
+  plural: die Räuber
+  meanings: ["robber", "bandit", "thief"]
+  example: Im Wald wohnen drei Räuber.
+  exampleEn: Three robbers live in the forest.
+- id: de1-h1-r2-w27
+  lesson: de1-h-maerchen
+  term: das Licht
+  pos: noun
+  plural: die Lichter
+  meanings: ["light (that shines)", "light", "lamp"]
+  example: Im Haus ist noch Licht.
+  exampleEn: There's still a light on in the house.
+- id: de1-h1-r2-w28
+  lesson: de1-h-maerchen
+  term: bellen
+  pos: verb
+  meanings: ["to bark"]
+  example: Der Hund bellt laut.
+  exampleEn: The dog barks loudly.
+- id: de1-h1-r2-w29
+  lesson: de1-h-maerchen
+  term: das Gespenst
+  pos: noun
+  plural: die Gespenster
+  meanings: ["ghost", "spook", "phantom", "spectre", "specter"]
+  example: Das Kind hat Angst vor Gespenstern.
+  exampleEn: The child is afraid of ghosts.
+- id: de1-h1-r2-w30
+  lesson: de1-h-maerchen
+  term: die Maus
+  pos: noun
+  plural: die Mäuse
+  meanings: ["mouse"]
+  example: Die Katze fängt eine Maus.
+  exampleEn: The cat catches a mouse.
+- id: de1-h1-r2-w31
+  lesson: de1-h-maerchen
+  term: weglaufen
+  pos: verb
+  meanings: ["to run away", "to run off"]
+  example: Der Hund ist weggelaufen.
+  exampleEn: The dog has run away.
+  note: 'Separable, stem change a → äu: er läuft weg. Perfect: ist weggelaufen. Simple past: lief weg.'
+- id: de1-h1-r2-w32
+  lesson: de1-h-maerchen
+  kind: phrase
+  term: Es war einmal …
+  pos: phrase
+  alt: ["Es war einmal", "Es war einmal ..."]
+  meanings: ["once upon a time", "once upon a time there was", "there was once"]
+  example: Es war einmal ein alter Esel.
+  exampleEn: Once upon a time there was an old donkey.
+- id: de1-h1-r2-w33
+  lesson: de1-h-maerchen
+  term: ging
+  pos: verb
+  meanings: ["went (past of gehen)", "went", "walked"]
+  example: Der Esel ging zum Fenster.
+  exampleEn: The donkey went to the window.
+  note: 'Simple past of gehen: ich ging, du gingst, er ging, wir gingen, ihr gingt, sie gingen. In speech: ist gegangen.'
+- id: de1-h1-r2-w34
+  lesson: de1-h-maerchen
+  term: kam
+  pos: verb
+  meanings: ["came (past of kommen)", "came"]
+  example: In der Nacht kam ein Räuber zurück.
+  exampleEn: In the night a robber came back.
+  note: 'Simple past of kommen: ich kam, du kamst, er kam, wir kamen, ihr kamt, sie kamen. In speech: ist gekommen.'
+- id: de1-h1-r2-w35
+  lesson: de1-h-maerchen
+  term: sah
+  pos: verb
+  meanings: ["saw (past of sehen)", "saw"]
+  example: Im Wald sahen sie ein Licht.
+  exampleEn: In the forest they saw a light.
+  note: 'Simple past of sehen: ich sah, du sahst, er sah, wir sahen, ihr saht, sie sahen. In speech: hat gesehen.'
+# --- 93: Gemütlich --------------------------------------------------------------------
+- id: de1-h1-r2-w36
+  lesson: de1-h-gemuetlich
+  term: der Kleingarten
+  pos: noun
+  plural: die Kleingärten
+  alt: ["der Schrebergarten"]
+  meanings: ["allotment garden", "allotment", "garden plot", "community garden plot", "small garden"]
+  example: Am Wochenende sind wir oft im Kleingarten.
+  exampleEn: At the weekend we're often at our allotment.
+- id: de1-h1-r2-w37
+  lesson: de1-h-gemuetlich
+  term: die Laube
+  pos: noun
+  plural: die Lauben
+  meanings: ["garden hut (in an allotment)", "garden hut", "summerhouse", "garden shed", "shed", "arbour", "arbor"]
+  example: In der Laube stehen ein Tisch und vier Stühle.
+  exampleEn: There's a table and four chairs in the garden hut.
+- id: de1-h1-r2-w38
+  lesson: de1-h-gemuetlich
+  term: das Beet
+  pos: noun
+  plural: die Beete
+  meanings: ["bed (in a garden)", "garden bed", "flower bed", "vegetable bed", "bed", "patch"]
+  example: Im Beet wachsen Tomaten.
+  exampleEn: Tomatoes are growing in the bed.
+- id: de1-h1-r2-w39
+  lesson: de1-h-gemuetlich
+  term: gießen
+  pos: verb
+  alt: ["giessen"]
+  meanings: ["to water (plants)", "to water", "to pour"]
+  example: Ich gieße jeden Abend die Blumen.
+  exampleEn: I water the flowers every evening.
+  note: 'Irregular perfect: hat gegossen.'
+- id: de1-h1-r2-w40
+  lesson: de1-h-gemuetlich
+  term: ernten
+  pos: verb
+  meanings: ["to harvest", "to pick (fruit or vegetables)", "to pick", "to reap", "to gather"]
+  example: Im Juli ernten wir Erdbeeren.
+  exampleEn: In July we pick strawberries.
+  note: 'Like arbeiten: du erntest, er erntet. Perfect: hat geerntet.'
+- id: de1-h1-r2-w41
+  lesson: de1-h-gemuetlich
+  term: die Blume
+  pos: noun
+  plural: die Blumen
+  meanings: ["flower"]
+  example: Die Blumen im Garten sind rot und gelb.
+  exampleEn: The flowers in the garden are red and yellow.
+- id: de1-h1-r2-w42
+  lesson: de1-h-gemuetlich
+  term: die Erdbeere
+  pos: noun
+  plural: die Erdbeeren
+  meanings: ["strawberry"]
+  example: Die Erdbeeren sind süß.
+  exampleEn: The strawberries are sweet.
+- id: de1-h1-r2-w43
+  lesson: de1-h-gemuetlich
+  term: die Tomate
+  pos: noun
+  plural: die Tomaten
+  meanings: ["tomato"]
+  example: Kemal gießt die Tomaten.
+  exampleEn: Kemal waters the tomatoes.
+  note: 'In Austria also der Paradeiser.'
+- id: de1-h1-r2-w44
+  lesson: de1-h-gemuetlich
+  term: der Zaun
+  pos: noun
+  plural: die Zäune
+  meanings: ["fence"]
+  example: Auf dem Zaun sitzt eine Katze.
+  exampleEn: A cat is sitting on the fence.
+- id: de1-h1-r2-w45
+  lesson: de1-h-gemuetlich
+  term: die Gießkanne
+  pos: noun
+  plural: die Gießkannen
+  alt: ["die Giesskanne"]
+  meanings: ["watering can"]
+  example: Die Gießkanne ist leer.
+  exampleEn: The watering can is empty.
+- id: de1-h1-r2-w46
+  lesson: de1-h-gemuetlich
+  term: die Kneipe
+  pos: noun
+  plural: die Kneipen
+  meanings: ["pub", "bar", "tavern"]
+  example: Nach der Arbeit gehen wir in die Kneipe.
+  exampleEn: After work we go to the pub.
+- id: de1-h1-r2-w47
+  lesson: de1-h-gemuetlich
+  term: der Stammtisch
+  pos: noun
+  plural: die Stammtische
+  meanings: ["regulars' table (in a pub)", "regulars' table", "regular get-together", "regular meeting"]
+  example: Wir haben jeden Donnerstag Stammtisch.
+  exampleEn: We meet at our regular table every Thursday.
+- id: de1-h1-r2-w48
+  lesson: de1-h-gemuetlich
+  term: die Gemütlichkeit
+  pos: noun
+  plural: '—'
+  alt: ["die Gemuetlichkeit"]
+  meanings: ["cosiness (Gemütlichkeit)", "cosiness", "coziness", "comfort", "snugness", "warmth"]
+  example: Im Winter liebe ich die Gemütlichkeit zu Hause.
+  exampleEn: In winter I love the cosiness at home.
+- id: de1-h1-r2-w49
+  lesson: de1-h-gemuetlich
+  kind: phrase
+  term: Schönen Feierabend!
+  pos: phrase
+  alt: ["Schönen Feierabend"]
+  meanings: ["have a nice evening (after work)", "have a nice evening", "enjoy your evening", "have a good evening", "enjoy your free time"]
+  example: Tschüss, Frau Berger, schönen Feierabend!
+  exampleEn: Bye, Mrs Berger, have a nice evening!
+- id: de1-h1-r2-w50
+  lesson: de1-h-gemuetlich
+  kind: phrase
+  term: Danke, gleichfalls!
+  pos: phrase
+  alt: ["Danke gleichfalls", "Danke, gleichfalls", "Gleichfalls!"]
+  meanings: ["thanks, you too", "thank you, you too", "same to you", "you too", "thanks, same to you", "likewise"]
+  example: Schönes Wochenende! — Danke, gleichfalls!
+  exampleEn: Have a nice weekend! — Thanks, you too!
+- id: de1-h1-r2-w51
+  lesson: de1-h-gemuetlich
+  term: das Häuschen
+  pos: noun
+  plural: die Häuschen
+  meanings: ["little house", "small house", "cottage"]
+  example: Im Garten steht ein kleines Häuschen.
+  exampleEn: There's a little house in the garden.
+- id: de1-h1-r2-w52
+  lesson: de1-h-gemuetlich
+  term: das Kaninchen
+  pos: noun
+  plural: die Kaninchen
+  meanings: ["rabbit", "bunny"]
+  example: Unser Kaninchen wohnt im Garten.
+  exampleEn: Our rabbit lives in the garden.
+- id: de1-h1-r2-w53
+  lesson: de1-h-gemuetlich
+  term: das Eichhörnchen
+  pos: noun
+  plural: die Eichhörnchen
+  meanings: ["squirrel"]
+  example: Auf dem Zaun sitzt ein Eichhörnchen.
+  exampleEn: A squirrel is sitting on the fence.

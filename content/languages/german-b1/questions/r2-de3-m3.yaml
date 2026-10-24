@@ -1,0 +1,549 @@
+# German B1, module 3 (round 2): new question types for the core lessons 11–15, and the honors lessons 15h1 and 15h2.
+
+# --- 11 de3-relative-all ---
+- id: de3-m3-r2-q01
+  lesson: de3-relative-all
+  type: text
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Complete with relative pronouns: "Das sind die Kollegen, mit ___ ich mich gut verstehe. Meine Schwester, ___ ich alles erzähle, wohnt in Wien."'
+  accept:
+    - [denen]
+    - [der]
+  explanation: |-
+    "mit" takes the dative, and "die Kollegen" is plural, so the dative plural "denen" (never "den"). "jemandem etwas erzählen": the person you tell is in the dative, and "meine Schwester" is feminine, so the dative feminine "der".
+- id: de3-m3-r2-q02
+  lesson: de3-relative-all
+  type: order
+  topic: Relative clauses
+  stem: 'Put the parts in order to say "That''s the colleague I often argue with." Start with "Das ist der Kollege,".'
+  items: ['Das ist der Kollege,', mit dem, ich mich, oft, streite.]
+  explanation: |-
+    The preposition and the relative pronoun stay together at the front of the relative clause ("mit dem"), never at the end as in English. Then the subject and the reflexive pronoun, the adverb, and the conjugated verb last: "Das ist der Kollege, mit dem ich mich oft streite."
+- id: de3-m3-r2-q03
+  lesson: de3-relative-all
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Das sind die Leute, denen das Haus gehört.', 'Ich kenne eine Frau, deren Mann Arzt ist.', 'Die Kinder, den ich helfe, sind sehr nett.', 'Das ist die Kollegin, die ich mit arbeite.', 'Das Problem, über das wir diskutiert haben, ist gelöst.']
+  answer: [0, 1, 4]
+  explanation: |-
+    "gehören" takes the dative, so "denen" (dative plural) is right; "deren" agrees with the owner "eine Frau" (feminine); "über das" puts the preposition first, with the accusative. "Die Kinder, den ich helfe" needs the dative plural "denen", and "die ich mit arbeite" leaves the preposition at the end, English-style: it must be "mit der ich arbeite".
+- id: de3-m3-r2-q04
+  lesson: de3-relative-all
+  type: label
+  topic: Relative clauses
+  stem: 'Name the numbered parts of this sentence: "Das ist die Kollegin, mit der ich ein Büro teile."'
+  image: {src: images/de3-m3-relative-parts-blank.svg, alt: 'The sentence "Das ist die Kollegin, mit der ich ein Büro teile." in boxes. Four boxes are numbered: "die Kollegin", "mit", "der" and "teile."'}
+  labels:
+    - {x: 26.3, y: 40.7, text: antecedent}
+    - {x: 43.7, y: 40.7, text: preposition}
+    - {x: 53.4, y: 40.7, text: relative pronoun}
+    - {x: 88.2, y: 40.7, text: conjugated verb}
+  distractors: [subject of the main clause, article]
+  explanation: |-
+    1 "die Kollegin" is the antecedent: it gives the gender and number (feminine singular). 2 "mit" is the preposition: it decides the case (dative). 3 "der" is the relative pronoun, dative feminine. 4 "teile" is the conjugated verb, at the end of the relative clause. The subject of the main clause is "das", which isn't numbered.
+- id: de3-m3-r2-q05
+  lesson: de3-relative-all
+  type: match
+  topic: Relative clauses
+  stem: 'Match each beginning to the relative pronoun that fills the gap.'
+  pairs:
+    - ['die Freunde, ___ ich am meisten vertraue', denen]
+    - ['der Bruder, mit ___ ich mich oft streite', dem]
+    - ['die Kritik, über ___ ich mich geärgert habe', die]
+    - ['die Nachbarin, ___ Hund jede Nacht bellt', deren]
+    - ['das Kind, ___ Eltern noch nicht da sind', dessen]
+  distractors: [den, der]
+  explanation: |-
+    "vertrauen" takes the dative: plural "denen". "mit" + dative masculine: "dem". "sich ärgern über" + accusative, feminine: "die". "whose" agrees with the owner: "die Nachbarin" (feminine) → "deren"; "das Kind" (neuter) → "dessen".
+
+# --- 12 de3-relative-wo-was ---
+- id: de3-m3-r2-q06
+  lesson: de3-relative-wo-was
+  type: text
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'Complete with one word each: "Das ist alles, ___ ich über die Stadt weiß." and "Das ist das Café, ___ wir uns kennengelernt haben."'
+  accept:
+    - [was]
+    - [wo]
+  explanation: |-
+    After "alles" the relative pronoun is "was", not "das". For a place, "wo" can replace "in dem": "das Café, wo wir uns kennengelernt haben" (= "in dem wir uns kennengelernt haben", which is two words).
+- id: de3-m3-r2-q07
+  lesson: de3-relative-wo-was
+  type: label
+  topic: Culture and sights
+  stem: 'Name the numbered sights in this old town.'
+  image: {src: images/de3-m3-altstadt-blank.svg, alt: 'An old town with a large church with two towers, a town hall with a clock, a castle on a hill, a statue on a pedestal, a fountain and an open-air stage. Six things are numbered.'}
+  labels:
+    - {x: 18.4, y: 53.1, text: der Dom}
+    - {x: 83.6, y: 31.3, text: die Burg}
+    - {x: 42.8, y: 54.2, text: das Rathaus}
+    - {x: 43.4, y: 86.5, text: der Brunnen}
+    - {x: 17.1, y: 76, text: das Denkmal}
+    - {x: 81.6, y: 89.4, text: die Bühne}
+  distractors: [das Schloss, die Galerie]
+  explanation: |-
+    1 is the cathedral with two towers (der Dom), 2 the castle on the hill (die Burg: built for defence; das Schloss is a palace), 3 the town hall with its clock (das Rathaus), 4 the fountain (der Brunnen), 5 the statue on its pedestal (das Denkmal) and 6 the open-air stage (die Bühne).
+- id: de3-m3-r2-q08
+  lesson: de3-relative-wo-was
+  type: match
+  topic: Relative clauses
+  stem: 'Match each beginning to the relative word that fills the gap.'
+  pairs:
+    - ['Das ist alles, ___ wir gesprochen haben.', worüber]
+    - ['die Stadt, ___ wir im Sommer fahren', wohin]
+    - ['das Dorf, ___ meine Großeltern kommen', woher]
+    - ['das Beste, ___ ich in Wien gegessen habe', was]
+    - ['das Buch, ___ ich gerade lese', das]
+  distractors: [wo, welches]
+  explanation: |-
+    "sprechen über" after "alles" needs a wo(r)- word: "worüber". Movement towards a place: "wohin"; origin: "woher". After a superlative used as a noun (das Beste) German uses "was". After a real noun with a gender (das Buch) the relative pronoun is "das". "wo" is for a place with no movement.
+- id: de3-m3-r2-q09
+  lesson: de3-relative-wo-was
+  module_quiz: true
+  topic: Relative clauses
+  stem: 'In which sentences is "was" the right word for the gap? Select all that apply.'
+  choices: ['Es gibt nichts, ___ mich hier stört.', 'Das ist das Schönste, ___ ich je gesehen habe.', 'Der Zug kam zu spät, ___ mich sehr geärgert hat.', 'Das ist das Gemälde, ___ mir am besten gefällt.', 'Die Stadt, ___ ich wohne, ist klein.']
+  answer: [0, 1, 2]
+  explanation: |-
+    "was" follows "nichts", a superlative used as a noun (das Schönste) and a whole clause (the train being late annoyed me). "das Gemälde" is a real noun, so "das"; for a place where someone lives, "wo" or "in der".
+- id: de3-m3-r2-q10
+  lesson: de3-relative-wo-was
+  type: order
+  topic: Relative clauses
+  stem: 'Put the words in order to say "That''s everything we talked about." Start with "Das".'
+  items: [Das, ist, 'alles,', worüber, wir, gesprochen, haben.]
+  explanation: |-
+    Main clause first ("Das ist alles"), then the relative clause starting with "worüber" (über + was becomes worüber), and the verb at the end: "gesprochen haben".
+
+# --- 13 de3-genitive ---
+- id: de3-m3-r2-q11
+  lesson: de3-genitive
+  type: text
+  module_quiz: true
+  topic: Genitive
+  stem: 'Put the words in brackets into the genitive: "das Haus ___" (der Vater), "die Fotos ___" (die Kinder), "der Name ___" (der Kollege).'
+  accept:
+    - [des Vaters]
+    - [der Kinder]
+    - [des Kollegen]
+  explanation: |-
+    Masculine: "des" and -s on the noun: des Vaters. Plural: "der" and no ending: der Kinder. "Kollege" is an n-noun, so it takes -n and no -s: des Kollegen.
+- id: de3-m3-r2-q12
+  lesson: de3-genitive
+  type: label
+  topic: Family history
+  stem: 'This is Jonas''s family tree. Jonas is "ich". Choose the genitive phrase that describes each numbered person from his point of view.'
+  image: {src: images/de3-m3-family-tree-blank.svg, alt: 'A family tree with names only. Top row: Karl and Ilse. Middle row: Michael married to Sabine, and Sabine''s brother Peter; Karl and Ilse are the parents of Sabine and Peter. Bottom row: Jonas (ich), the son of Michael and Sabine, and Lea, Peter''s daughter. Karl, Ilse, Peter and Lea are numbered.'}
+  labels:
+    - {x: 38.2, y: 17.6, text: der Vater meiner Mutter}
+    - {x: 69.7, y: 17.6, text: die Mutter meiner Mutter}
+    - {x: 78.9, y: 51, text: der Bruder meiner Mutter}
+    - {x: 78.9, y: 86.7, text: die Tochter meines Onkels}
+  distractors: [die Mutter meines Vaters, der Sohn meines Onkels]
+  explanation: |-
+    Jonas's mother is Sabine. Her parents Karl and Ilse are "der Vater meiner Mutter" and "die Mutter meiner Mutter" (feminine genitive: meiner, no ending on Mutter). Peter is her brother, "der Bruder meiner Mutter", so he is Jonas's uncle, and Lea is "die Tochter meines Onkels" (masculine genitive: meines Onkels).
+- id: de3-m3-r2-q13
+  lesson: de3-genitive
+  type: match
+  topic: Genitive
+  stem: 'Match each noun to its genitive singular form.'
+  pairs:
+    - [der Name, des Namens]
+    - [das Haus, des Hauses]
+    - [der Herr, des Herrn]
+    - [die Mutter, der Mutter]
+    - [das Zeugnis, des Zeugnisses]
+  distractors: [des Herrens, der Mutters]
+  explanation: |-
+    "Name" is one of the few n-nouns with -ns: des Namens. Nouns ending in -s take -es (des Hauses), and -nis doubles the s (des Zeugnisses). "Herr" is an n-noun: des Herrn. Feminine nouns never add an ending: der Mutter.
+- id: de3-m3-r2-q14
+  lesson: de3-genitive
+  module_quiz: true
+  topic: Genitive
+  stem: 'Which phrases are correct written German? Select all that apply.'
+  choices: ['Annas Großvater', 'Klaus'' Testament', 'Anna''s Buch', 'das Büro des Kollegens', 'am Ende des langen Tages']
+  answer: [0, 1, 4]
+  explanation: |-
+    Names take -s with no apostrophe (Annas), and only an apostrophe after an s sound (Klaus'). "Anna's" with an apostrophe is English influence. "Kollege" is an n-noun: des Kollegen, with no -s. "am Ende des langen Tages" is right: -en on the adjective after an article, -es on the noun.
+- id: de3-m3-r2-q15
+  lesson: de3-genitive
+  type: order
+  topic: Genitive
+  stem: 'Put the words in order to say "Anna''s grandfather built the house." Start with "Annas".'
+  items: [Annas, Großvater, hat, das Haus, gebaut.]
+  explanation: |-
+    A name in the genitive comes before its noun: "Annas Großvater" is the subject in position 1, the auxiliary "hat" is in position 2, and the participle "gebaut" goes to the end.
+
+# --- 14 de3-genitive-preps ---
+- id: de3-m3-r2-q16
+  lesson: de3-genitive-preps
+  type: text
+  module_quiz: true
+  topic: Prepositions
+  stem: 'Complete with genitive prepositions: "___ des Streiks fahren heute keine Züge." (because of) and "___ der Verspätung haben wir den Anschluss noch bekommen." (despite)'
+  accept:
+    - [wegen]
+    - [trotz]
+  explanation: |-
+    "wegen" means because of, "trotz" means despite; both take the genitive in written German: wegen des Streiks, trotz der Verspätung.
+- id: de3-m3-r2-q17
+  lesson: de3-genitive-preps
+  type: match
+  topic: Prepositions
+  stem: 'Match each preposition to its meaning.'
+  pairs:
+    - [wegen, because of]
+    - [trotz, despite]
+    - [während, during]
+    - [statt, instead of]
+    - [innerhalb, within]
+    - [außerhalb, outside]
+  distractors: [according to, thanks to]
+  explanation: |-
+    These are the six genitive prepositions of the lesson. "according to" would be "laut" and "thanks to" would be "dank", which are not among them.
+- id: de3-m3-r2-q18
+  lesson: de3-genitive-preps
+  module_quiz: true
+  topic: Prepositions
+  stem: 'Which phrases are correct in written standard German? Select all that apply.'
+  choices: ['wegen des starken Regens', 'innerhalb von zwei Wochen', 'trotz den Streik', 'während der ganzen Fahrt', 'innerhalb zwei Wochen']
+  answer: [0, 1, 3]
+  explanation: |-
+    "wegen des starken Regens" and "während der ganzen Fahrt" are genitives with -en on the adjective. A number without an article can't show the genitive, so "innerhalb von zwei Wochen" needs "von". "trotz den Streik" is accusative, which is wrong both in writing (trotz des Streiks) and in speech (trotz dem Streik).
+- id: de3-m3-r2-q19
+  lesson: de3-genitive-preps
+  topic: Travel problems
+  stem: 'Look at the departure board. Which sentence is true?'
+  image: {src: images/de3-m3-departures.svg, alt: 'A departure board at Frankfurt (Main) Hauptbahnhof. 14:12, ICE 578 to Hamburg, platform 7: about 40 minutes later, fault at the signal box. 14:20, RE 4512 to Fulda, platform 5: cancelled because of staff shortage. 14:30, RE 4518 to Hanau: today from platform 3 instead of platform 4. 14:45, RB 15 to Gelnhausen: replacement buses because of construction work.'}
+  choices: ['Der ICE nach Hamburg fällt wegen eines Streiks aus.', 'Der RE nach Hanau hat 40 Minuten Verspätung.', 'Wegen Personalmangels fällt der Zug nach Fulda aus.', 'Trotz der Bauarbeiten fährt die RB nach Gelnhausen normal.']
+  answer: 2
+  explanation: |-
+    The 14:20 to Fulda "fällt aus wegen Personalmangels": it is cancelled because of a staff shortage. The ICE to Hamburg is about 40 minutes late because of a fault, not cancelled; the RE to Hanau only leaves from a different platform; and because of the construction work there are replacement buses to Gelnhausen instead of the train.
+- id: de3-m3-r2-q20
+  lesson: de3-genitive-preps
+  type: order
+  topic: Prepositions
+  stem: 'Put the parts in order to say "The flight was cancelled because of the storm." Start with "Wegen".'
+  items: [Wegen, des Unwetters, ist, der Flug, ausgefallen.]
+  explanation: |-
+    The prepositional phrase "Wegen des Unwetters" fills position 1, so the auxiliary "ist" comes next in position 2, then the subject "der Flug", and the participle "ausgefallen" at the end (ausfallen takes sein).
+
+# --- 15 de3-participles ---
+- id: de3-m3-r2-q21
+  lesson: de3-participles
+  type: label
+  topic: Participles
+  stem: 'Choose the right phrase for each numbered picture.'
+  image: {src: images/de3-m3-participles-blank.svg, alt: 'Four pictures, numbered: a burning candle, a child asleep in bed, pieces of broken glass on the floor, and a tree lying on the ground next to its stump.'}
+  labels:
+    - {x: 25.7, y: 25, text: die brennende Kerze}
+    - {x: 73.7, y: 33, text: das schlafende Kind}
+    - {x: 25.7, y: 79.5, text: das zerbrochene Glas}
+    - {x: 76.3, y: 81.8, text: der umgefallene Baum}
+  distractors: [die gebrannte Kerze, das geschlafene Kind]
+  explanation: |-
+    The candle is burning and the child is sleeping now: present participles, brennend and schlafend. The glass is already broken and the tree has already fallen over: past participles, zerbrochen and umgefallen. "das geschlafene Kind" is impossible (schlafen has no object and takes haben), and "die gebrannte Kerze" is wrong because the candle is still burning, which needs the present participle.
+- id: de3-m3-r2-q22
+  lesson: de3-participles
+  type: text
+  module_quiz: true
+  topic: Adjective endings
+  stem: 'Write the adjective in brackets with the right ending: "wegen ___ Wetters" (schlecht), "mit ___ Obst" (frisch), "viele ___ Kunden" (zufrieden).'
+  accept:
+    - [schlechten]
+    - [frischem]
+    - [zufriedene]
+  explanation: |-
+    With no article the adjective shows the case itself, except in the masculine and neuter genitive, where the noun already has -s: wegen schlechten Wetters. Dative neuter: frischem (like "dem"). After "viele" the ending is strong: viele zufriedene Kunden (like "die").
+- id: de3-m3-r2-q23
+  lesson: de3-participles
+  type: match
+  topic: Participles
+  stem: 'Match each phrase to its meaning.'
+  pairs:
+    - [steigende Preise, prices that are rising]
+    - [die gestiegenen Preise, the prices that have risen]
+    - [das reparierte Fahrrad, the bike that has been repaired]
+    - [das weinende Kind, the child who is crying]
+    - [die bestellte Ware, the goods that were ordered]
+  distractors: [the bike that is repairing something, the goods that are ordering]
+  explanation: |-
+    A present participle (steigend, weinend) means the noun is doing it now. A past participle of a verb with an object (repariert, bestellt) is passive: something was done to the noun. "steigen" takes sein, so "gestiegen" is active and finished: the prices have risen.
+- id: de3-m3-r2-q24
+  lesson: de3-participles
+  module_quiz: true
+  topic: Adjective endings
+  stem: 'In which phrases does the adjective take a strong ending (the ending of the definite article)? Select all that apply.'
+  choices: ['viele neue Produkte', 'alle neuen Produkte', 'mit kaltem Wasser', 'der neue Laptop', 'trotz guter Qualität']
+  answer: [0, 2, 4]
+  explanation: |-
+    After "viele", with no article (mit kaltem Wasser, like "dem") and in the feminine genitive with no article (guter, like "der"), the adjective shows the case: strong endings. After "alle" and "der" the article shows the case, so the ending is weak (-e or -en).
+- id: de3-m3-r2-q25
+  lesson: de3-participles
+  type: order
+  topic: Participles
+  stem: 'Put the words in order to say "Please hand in the completed forms." Start with "Bitte".'
+  items: [Bitte, geben, Sie, die, ausgefüllten, Formulare, ab.]
+  explanation: |-
+    A polite instruction: the verb "geben" first after "Bitte", then "Sie", the object, and the separable prefix "ab" at the end. The participle "ausgefüllten" stands between the article and the noun like any adjective.
+
+# --- 15h1 de3-m3-h-participle-phrases (honors) ---
+- id: de3-m3-r2-h01
+  lesson: de3-m3-h-participle-phrases
+  topic: Extended participle phrases
+  stem: 'Which noun does the article "Die" belong to? "Die im Sommer bei Bauarbeiten am Marktplatz entdeckten Münzen stammen aus der Römerzeit."'
+  choices: ['Sommer', 'Bauarbeiten', 'Marktplatz', 'Münzen']
+  answer: 3
+  explanation: |-
+    "Sommer", "Bauarbeiten" and "Marktplatz" each come with their own preposition (im, bei, am), so they belong inside the phrase. The noun that "Die" belongs to is "Münzen", right after the participle "entdeckten": the coins that were discovered.
+- id: de3-m3-r2-h02
+  lesson: de3-m3-h-participle-phrases
+  topic: Extended participle phrases
+  stem: 'What does "die seit Februar laufenden Bauarbeiten" mean?'
+  choices: ['the construction work that has been going on since February', 'the construction work that ended in February', 'the construction work that will start in February', 'the runners at the construction site since February']
+  answer: 0
+  explanation: |-
+    "laufend" is the present participle of "laufen": the work is still going on, and "seit Februar" belongs to it. As a relative clause: die Bauarbeiten, die seit Februar laufen. "laufen" here means "to be in progress", not running.
+- id: de3-m3-r2-h03
+  lesson: de3-m3-h-participle-phrases
+  type: label
+  topic: Extended participle phrases
+  stem: 'Name the numbered parts of this phrase: "der beim Bau der neuen Brücke entdeckte Schatz".'
+  image: {src: images/de3-m3-h-bracket-blank.svg, alt: 'The phrase "der beim Bau der neuen Brücke entdeckte Schatz" in four numbered boxes, with a bracket joining "der" and "Schatz".'}
+  labels:
+    - {x: 8.3, y: 45, text: article}
+    - {x: 34.2, y: 45, text: expansion of the participle}
+    - {x: 65, y: 45, text: participle with an ending}
+    - {x: 83.9, y: 45, text: noun}
+  distractors: [relative pronoun, conjugated verb]
+  explanation: |-
+    The article "der" and the noun "Schatz" frame the phrase. "beim Bau der neuen Brücke" is the participle's own expansion (when it was discovered), and "entdeckte" is the participle with the adjective ending -e, right before the noun. There is no relative pronoun and no conjugated verb: that's what makes it a phrase, not a clause.
+- id: de3-m3-r2-h04
+  lesson: de3-m3-h-participle-phrases
+  type: text
+  topic: Extended participle phrases
+  stem: 'Turn the relative clause into a participle phrase: "der Zug, der gerade angekommen ist" → "der gerade ___ Zug". Write one word.'
+  accept: [angekommene]
+  explanation: |-
+    "ankommen" takes sein, so its participle is active: the train that has arrived. Before the noun it takes the weak ending after "der": der gerade angekommene Zug.
+- id: de3-m3-r2-h05
+  lesson: de3-m3-h-participle-phrases
+  type: text
+  topic: Extended participle phrases
+  stem: 'Turn the relative clause into a participle phrase: "die Münzen, die von Kindern gefunden wurden" → "die von Kindern ___ Münzen". Write one word.'
+  accept: [gefundenen]
+  explanation: |-
+    Delete "die … wurden", move "von Kindern gefunden" before the noun and give the participle its ending: after "die" in the plural the ending is -en: die von Kindern gefundenen Münzen.
+- id: de3-m3-r2-h06
+  lesson: de3-m3-h-participle-phrases
+  type: order
+  topic: Extended participle phrases
+  stem: 'Put the parts in order to say "the strike that had been announced for weeks". Start with "der".'
+  items: [der, seit Wochen, angekündigte, Streik]
+  explanation: |-
+    The article and the noun frame the phrase; the participle "angekündigte" stands directly before the noun, and its expansion "seit Wochen" comes before the participle: der seit Wochen angekündigte Streik.
+- id: de3-m3-r2-h07
+  lesson: de3-m3-h-participle-phrases
+  type: match
+  topic: Extended participle phrases
+  stem: 'Match each phrase to the relative clause with the same meaning.'
+  pairs:
+    - [die steigenden Preise, 'die Preise, die steigen']
+    - [die gestiegenen Preise, 'die Preise, die gestiegen sind']
+    - [die geplante Brücke, 'die Brücke, die geplant wurde']
+    - [die zu planende Brücke, 'die Brücke, die geplant werden muss']
+  distractors: ['die Brücke, die plant', 'die Preise, die gestiegen werden']
+  explanation: |-
+    Partizip I is active and happening now (die Preise, die steigen). "steigen" takes sein, so "gestiegen" is active and finished (die gestiegen sind). "planen" has an object, so "geplant" is passive (die geplant wurde). zu + Partizip I means "must be done" (die geplant werden muss).
+- id: de3-m3-r2-h08
+  lesson: de3-m3-h-participle-phrases
+  topic: Extended participle phrases
+  stem: 'Which phrases are correct German? Select all that apply.'
+  choices: ['der gerade angekommene Zug', 'die im Boden liegenden Mauern', 'der lange geschlafene Mann', 'ein für Kinder geeignetes Programm', 'der entdeckte beim Bau Schatz']
+  answer: [0, 1, 3]
+  explanation: |-
+    "angekommen" (a sein verb), "liegend" (Partizip I) and the adjective "geeignet" all work before a noun. "schlafen" takes haben and has no object, so it has no Partizip II before a noun: say "der Mann, der lange geschlafen hat". In "der entdeckte beim Bau Schatz" the expansion comes after the participle, English-style; it must come before: der beim Bau entdeckte Schatz.
+- id: de3-m3-r2-h09
+  lesson: de3-m3-h-participle-phrases
+  topic: Extended participle phrases
+  stem: 'What does "die noch zu prüfenden Anträge" mean?'
+  choices: ['the applications that are still checking something', 'the applications that still have to be checked', 'the applications that have already been checked', 'the applications in order to check']
+  answer: 1
+  explanation: |-
+    zu + Partizip I before a noun (the gerundive) is passive and means that something must be done: die Anträge, die noch geprüft werden müssen. It is not an infinitive with zu, and it doesn't say the checking has happened.
+- id: de3-m3-r2-h10
+  lesson: de3-m3-h-participle-phrases
+  topic: Extended participle phrases
+  stem: 'Which relative clause means the same as "die von der Stadt finanzierte Ausgrabung"?'
+  choices: ['die Ausgrabung, die die Stadt finanzieren muss', 'die Stadt, die die Ausgrabung finanziert', 'die Ausgrabung, die von der Stadt finanziert wird', 'die Ausgrabung, mit der sich die Stadt finanziert']
+  answer: 2
+  explanation: |-
+    "finanzieren" has an object, so the Partizip II is passive, and "von der Stadt" is the agent: die Ausgrabung, die von der Stadt finanziert wird (or wurde). "finanzieren muss" would be the meaning of zu + Partizip I, and the phrase is about the excavation, not the town.
+- id: de3-m3-r2-h11
+  lesson: de3-m3-h-participle-phrases
+  topic: Archaeology and museums
+  stem: 'According to the news report "Römischer Schatz unter dem Marktplatz", what did the workers come across?'
+  choices: ['a Roman helmet made of several parts', 'a clay pot covered with stones, with silver coins inside', 'an old wall lying in the ground', 'a collection of 40 Roman coins']
+  answer: 1
+  explanation: |-
+    "stießen Arbeiter auf ein mit Steinen abgedecktes Tongefäß. Darin lagen 312 Silbermünzen." The 40 coins were the previous record in Kronstein; the helmet and the wall come from the lesson's examples.
+- id: de3-m3-r2-h12
+  lesson: de3-m3-h-participle-phrases
+  topic: Archaeology and museums
+  stem: 'The report says: "Die bereits ausgegrabenen, aber noch zu untersuchenden Münzen sollen im Herbst im Stadtmuseum ausgestellt werden." What does this tell you?'
+  choices: ['The coins are still in the ground; they will be dug up in the autumn.', 'The coins have been examined and are already in the museum.', 'The coins have been dug up but still have to be examined; they are to be shown in the autumn.', 'The museum wants to sell the coins in the autumn.']
+  answer: 2
+  explanation: |-
+    "bereits ausgegrabenen" = already dug up (passive, finished); "noch zu untersuchenden" = still to be examined (zu + Partizip I: must be done); "sollen … ausgestellt werden" = are to be exhibited.
+- id: de3-m3-r2-h13
+  lesson: de3-m3-h-participle-phrases
+  type: text
+  topic: Archaeology and museums
+  stem: 'Complete with one verb: "Die Münzen ___ aus dem 2. Jahrhundert." (date from)'
+  accept: [stammen]
+  explanation: |-
+    "stammen aus" means to come from or to date from: Die Münzen stammen aus dem 2. Jahrhundert. The subject is plural, so the verb is "stammen".
+- id: de3-m3-r2-h14
+  lesson: de3-m3-h-participle-phrases
+  topic: Extended participle phrases
+  stem: 'Complete: "Wir besuchten die im 12. Jahrhundert gebaut___ Burg."'
+  choices: ['-e', '-en', '-er', '-es']
+  answer: 0
+  explanation: |-
+    The frame is "die … Burg", feminine accusative after "besuchten". After "die" the adjective (here the participle) takes the weak ending -e: die im 12. Jahrhundert gebaute Burg.
+
+# --- 15h2 de3-m3-h-official-genitive (honors) ---
+- id: de3-m3-r2-h15
+  lesson: de3-m3-h-official-genitive
+  topic: Genitive prepositions in writing
+  stem: 'Complete the sentence from an official letter: "___ der Bauarbeiten bleibt die Straße bis Mai gesperrt."'
+  choices: ['Aufgrund', 'Dank', 'Anlässlich', 'Mithilfe']
+  answer: 0
+  explanation: |-
+    The construction work is the reason, so "aufgrund" (because of, the formal "wegen"). "dank" is only for a good result, "anlässlich" means on the occasion of, and "mithilfe" means with the help of.
+- id: de3-m3-r2-h16
+  lesson: de3-m3-h-official-genitive
+  topic: Genitive prepositions in writing
+  stem: 'Which sentence uses "dank" in a way that sounds ironic or wrong?'
+  choices: ['Dank deiner Hilfe habe ich die Prüfung bestanden.', 'Dank der neuen Heizung ist die Wohnung warm.', 'Dank des Streiks kamen wir zwei Stunden zu spät.', 'Dank vieler Spenden konnte der Spielplatz gebaut werden.']
+  answer: 2
+  explanation: |-
+    "dank" means thanks to and is only used for a cause with a good result. Arriving two hours late because of a strike is not good, so here you need "wegen" or "aufgrund": Wegen des Streiks kamen wir zwei Stunden zu spät.
+- id: de3-m3-r2-h17
+  lesson: de3-m3-h-official-genitive
+  type: match
+  topic: Genitive prepositions in writing
+  stem: 'Match each preposition to its meaning.'
+  pairs:
+    - [aufgrund, due to]
+    - [infolge, as a result of]
+    - [angesichts, in view of]
+    - [bezüglich, regarding]
+    - [anlässlich, on the occasion of]
+    - [mithilfe, with the help of]
+  distractors: [instead of, despite]
+  explanation: |-
+    aufgrund = due to, because of; infolge = as a result of; angesichts = in view of; bezüglich = regarding; anlässlich = on the occasion of; mithilfe = with the help of. "instead of" is statt and "despite" is trotz (lesson 14).
+- id: de3-m3-r2-h18
+  lesson: de3-m3-h-official-genitive
+  type: text
+  topic: Genitive prepositions in writing
+  stem: 'Complete with "dessen" or "deren": "Anwohner, ___ Garage in der gesperrten Zone liegt, erhalten einen Parkausweis." and "Herr Kaya, ___ Antrag noch nicht vollständig ist, bekommt einen Brief."'
+  accept:
+    - [deren]
+    - [dessen]
+  explanation: |-
+    "dessen" and "deren" agree with the owner. "Anwohner" is plural, so "deren Garage" (even though Garage is feminine singular, that doesn't matter). "Herr Kaya" is masculine, so "dessen Antrag".
+- id: de3-m3-r2-h19
+  lesson: de3-m3-h-official-genitive
+  topic: Genitive prepositions in writing
+  stem: 'Complete: "Das ist die Mieterin, mit ___ kleinem Sohn ich manchmal Fußball spiele."'
+  choices: ['dessen', 'der', 'deren', 'ihrem']
+  answer: 2
+  explanation: |-
+    The owner "die Mieterin" is feminine, so "deren". "mit" goes in front and makes "kleinem Sohn" dative; the adjective takes the strong ending -em because there is no article after deren. "dessen" is for a masculine or neuter owner, and "ihrem" would make a main clause, so the verb couldn't be at the end.
+- id: de3-m3-r2-h20
+  lesson: de3-m3-h-official-genitive
+  topic: Genitive prepositions in writing
+  stem: 'Which phrases are correct standard written German? Select all that apply.'
+  choices: ['laut Fahrplan', 'den Fluss entlang', 'aufgrund von Bauarbeiten', 'dem Vater sein Haus', 'mangels ausreichende Nachfrage']
+  answer: [0, 1, 2]
+  explanation: |-
+    "laut" with a noun without an article takes no ending (laut Fahrplan); "entlang" after the noun takes the accusative (den Fluss entlang); "aufgrund von" is used before a noun without an article. "dem Vater sein Haus" is the spoken possessive dative: write "das Haus des Vaters". After "mangels" the feminine genitive with no article is "ausreichender Nachfrage".
+- id: de3-m3-r2-h21
+  lesson: de3-m3-h-official-genitive
+  type: label
+  topic: Official letters
+  stem: 'Name the numbered parts of this official letter.'
+  image: {src: images/de3-m3-h-letter-blank.svg, alt: 'An official letter from Stadt Kronstein, Tiefbauamt, to Frau Petra Berger about the renovation of Lindenstraße. Six parts are numbered: the line at the top, the address block, the date on the right, the bold subject line, the greeting and the closing.'}
+  labels:
+    - {x: 7.9, y: 7.3, text: der Absender}
+    - {x: 7.9, y: 17.5, text: der Empfänger}
+    - {x: 92.1, y: 13.4, text: das Datum}
+    - {x: 7.9, y: 36.6, text: der Betreff}
+    - {x: 7.9, y: 44.6, text: die Anrede}
+    - {x: 7.9, y: 80.9, text: die Grußformel}
+  distractors: [der Anhang, der Absatz]
+  explanation: |-
+    1 is the sender (der Absender: the town office), 2 the recipient's address (der Empfänger), 3 the place and date (das Datum), 4 the bold subject line (der Betreff), 5 the greeting (die Anrede: Sehr geehrte Frau Berger,) and 6 the closing (die Grußformel: Mit freundlichen Grüßen).
+- id: de3-m3-r2-h22
+  lesson: de3-m3-h-official-genitive
+  topic: Official letters
+  stem: 'According to the letter from the Tiefbauamt, who can get a free parking permit?'
+  choices: ['every resident of Lindenstraße, automatically', 'residents whose garage is in the closed zone, if they apply', 'only Frau Berger, because she asked', 'visitors to the information evening']
+  answer: 1
+  explanation: |-
+    "Anwohner, deren Garage in der gesperrten Zone liegt, erhalten auf Antrag einen kostenlosen Parkausweis": residents whose garage is in the closed zone receive one on application (auf Antrag), not automatically.
+- id: de3-m3-r2-h23
+  lesson: de3-m3-h-official-genitive
+  topic: Official letters
+  stem: 'According to the letter, why will the work take two weeks less than first planned?'
+  choices: ['thanks to the support of the municipal utilities', 'because of a burst pipe in January', 'because Frau Berger made an enquiry', 'in view of the long construction period']
+  answer: 0
+  explanation: |-
+    "Dank der Unterstützung der Stadtwerke dauern die Arbeiten zwei Wochen kürzer als ursprünglich geplant." The burst pipe is why the pipes must be replaced, and "angesichts der langen Bauzeit" introduces the request for understanding.
+- id: de3-m3-r2-h24
+  lesson: de3-m3-h-official-genitive
+  type: order
+  topic: Genitive prepositions in writing
+  stem: 'Put the parts in order to say "Lindenstraße is closed because of the renovation." Start with "Aufgrund".'
+  items: [Aufgrund, der Sanierung, ist, die Lindenstraße, gesperrt.]
+  explanation: |-
+    "Aufgrund der Sanierung" fills position 1, the verb "ist" is in position 2, then the subject "die Lindenstraße", and "gesperrt" at the end.
+- id: de3-m3-r2-h25
+  lesson: de3-m3-h-official-genitive
+  topic: Genitive prepositions in writing
+  stem: 'The book title "Der Dativ ist dem Genitiv sein Tod" is a joke. What construction does it use?'
+  choices: ['a genitive preposition with the dative', 'a relative clause with dessen', 'the possessive dative, a spoken way of showing possession', 'an extended participle phrase']
+  answer: 2
+  explanation: |-
+    "dem Genitiv sein Tod" (instead of "der Tod des Genitivs") is the possessive dative: dative + possessive + noun, as in "dem Vater sein Haus". It is common in everyday speech in many regions but not standard, so using it in a title that defends the genitive is the joke.
+- id: de3-m3-r2-h26
+  lesson: de3-m3-h-official-genitive
+  topic: Genitive prepositions in writing
+  stem: 'Which statement matches what the lesson says about the genitive debate?'
+  choices: ['Linguists agree that the genitive will disappear from writing soon.', 'The possessive dative is correct in formal letters.', 'wegen with the dative means something different from wegen with the genitive.', 'In letters and exams the genitive is still the safe choice after nouns and after wegen, trotz and aufgrund.']
+  answer: 3
+  explanation: |-
+    Whatever one thinks about language change, the practical rule is to write the genitive. Many linguists see change, not decay, and say the genitive is still normal in writing; the possessive dative is not standard; and wegen means the same with either case.
+- id: de3-m3-r2-h27
+  lesson: de3-m3-h-official-genitive
+  type: text
+  topic: Genitive prepositions in writing
+  stem: 'Complete with one preposition each: "___ des Stadtjubiläums gibt es ein großes Fest." (on the occasion of) and "___ Polizei gab es keine Verletzten." (according to)'
+  accept:
+    - [anlässlich]
+    - [laut]
+  explanation: |-
+    "anlässlich" (+ genitive) means on the occasion of: anlässlich des Stadtjubiläums. "laut" means according to; with a noun without an article there is no ending: laut Polizei.
+- id: de3-m3-r2-h28
+  lesson: de3-m3-h-official-genitive
+  topic: Genitive prepositions in writing
+  stem: 'Join the sentences: "Ich habe mit Herrn Kaya gesprochen. Sein Grundstück liegt direkt an der Baustelle." Which is correct?'
+  choices: ['Ich habe mit Herrn Kaya gesprochen, deren Grundstück direkt an der Baustelle liegt.', 'Ich habe mit Herrn Kaya gesprochen, dessen Grundstück liegt direkt an der Baustelle.', 'Ich habe mit Herrn Kaya gesprochen, dessen das Grundstück direkt an der Baustelle liegt.', 'Ich habe mit Herrn Kaya gesprochen, dessen Grundstück direkt an der Baustelle liegt.']
+  answer: 3
+  explanation: |-
+    The owner is masculine, so "dessen"; no article after it; and in the relative clause the verb goes to the end. "deren" is for a feminine or plural owner, the second choice keeps main-clause word order, and the third adds an article.
