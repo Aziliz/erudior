@@ -110,7 +110,7 @@ flowchart TD
   A{"Still connected to the battery?"} -->|"yes"| B["V stays fixed"]
   B --> C["Q = CV and U = ½CV² change in step with C"]
   A -->|"no, disconnected"| D["Q stays fixed"]
-  D --> E["V = Q/C and U = Q²/2C change inversely with C"]
+  D --> E["V = Q/C and U = Q²/(2C) change inversely with C"]
 ```
 
 ### Example 4

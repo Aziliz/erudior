@@ -127,7 +127,7 @@ What load resistance $R$ draws the most power from a source with emf $\mathcal{E
 The power peaks when the load matches the internal resistance, $R = r$, a result called **impedance matching** (used in audio amplifiers and antennas). At that point the source wastes as much power inside itself as it delivers, so the efficiency is only 50%.
 
 ```plot
-{"x": [0, 16], "y": [0, 20], "xLabel": "load resistance R (Ω)", "yLabel": "power to the load P (W)", "functions": [{"f": "144*x/(x + 2)^2", "label": "P = E²R/(R + r)²"}], "points": [{"at": [2, 18], "label": "peak at R = r = 2.0 Ω"}], "caption": "Power delivered to the load by a 12 V source with r = 2.0 Ω: largest when the load matches the internal resistance"}
+{"x": [0, 16], "y": [0, 24], "xLabel": "load resistance R (Ω)", "yLabel": "power to the load P (W)", "functions": [{"f": "144*x/(x + 2)^2"}], "points": [{"at": [2, 18]}], "labels": [{"at": [6.5, 20], "text": "peak at R = r = 2.0 Ω"}, {"at": [11, 13.5], "text": "P = E²R/(R + r)²"}], "caption": "Power delivered to the load by a 12 V source with r = 2.0 Ω: largest when the load matches the internal resistance"}
 ```
 
 ### Example 4

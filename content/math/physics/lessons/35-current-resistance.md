@@ -48,7 +48,7 @@ Components that obey it are called ohmic; their $I$–$V$ graph is a straight li
 The graph compares the two kinds. The ohmic resistor's line is straight, and its slope $I/V$ is $1/R$. The filament's curve bends over toward the voltage axis: each extra volt adds less current than the one before, because the hotter filament has a larger resistance.
 
 ```plot
-{"x": [0, 12], "y": [0, 1.4], "xLabel": "voltage V (V)", "yLabel": "current I (A)", "functions": [{"f": "x/10", "label": "ohmic resistor, R = 10 Ω"}, {"f": "0.35*sqrt(x)", "dashed": true, "label": "filament bulb (illustrative)"}], "caption": "I–V graphs: a straight line through the origin for an ohmic resistor; a curve that bends over for a filament, whose resistance rises as it heats"}
+{"x": [0, 12], "y": [0, 1.4], "xLabel": "voltage V (V)", "yLabel": "current I (A)", "functions": [{"f": "x/10"}, {"f": "0.35*sqrt(x)", "dashed": true}], "labels": [{"at": [8.5, 0.5], "text": "ohmic resistor, R = 10 Ω"}, {"at": [4.2, 1.0], "text": "filament bulb (illustrative)"}], "caption": "I–V graphs: a straight line through the origin for an ohmic resistor; a curve that bends over for a filament, whose resistance rises as it heats"}
 ```
 
 ## Resistivity

@@ -88,9 +88,9 @@ Horizontal: hinge pushes outward, $H = T\cos 30^\circ = 891$ N. Vertical: $V + T
 
 ## Ladders
 
+![A ladder leaning at angle theta against a smooth wall. Four forces act on it: the wall pushes horizontally away from the wall at the top (N sub w); the weight W acts straight down at the ladder's midpoint; the floor pushes straight up at the foot (n); and floor friction f acts along the floor at the foot, toward the wall.](images/phys-m5-ladder.svg)
 
-
-![A ladder leaning at angle theta against a smooth wall. Four forces act on it: the wall pushes horizontally away from the wall at the top (N sub w); the weight W acts straight down at the ladder's midpoint; the floor pushes straight up at the foot (n); and floor friction f acts along the floor at the foot, toward the wall.](images/phys-m5-ladder.svg)A ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\circ$).
+A ladder leaning on a smooth wall is held by the floor's normal force, floor friction, the wall's normal force, and gravity. Taking torques about the foot of the ladder eliminates the two floor forces and gives the wall force; horizontal balance then gives the friction needed. If friction would need to exceed $\mu_s n$, the ladder slips. Steeper ladders need less friction, which is why the usual safety rule is a 4:1 ratio of height to base distance (about $76^\circ$).
 
 ## Spread-out loads and stability
 

@@ -19,7 +19,7 @@ Lay one flat glass plate on another, touching along one edge, and slip something
 $$t = \frac{D}{L}\,x.$$
 
 ```shape
-{"segments": [{"from": [0, 0], "to": [10, 0]}, {"from": [0, 0], "to": [10, 1.2]}, {"from": [10, 0], "to": [10, 1.2], "label": "spacer, D"}, {"from": [6, 0], "to": [6, 0.72], "dashed": true, "label": "t"}, {"from": [0, -0.5], "to": [10, -0.5], "label": "L"}], "labels": [{"at": [1.2, 0.5], "text": "air wedge"}, {"at": [6, -0.25], "text": "x"}], "caption": "An air wedge (thickness greatly exaggerated): the gap t grows in proportion to the distance x from the touching edge"}
+{"segments": [{"from": [0, 0], "to": [10, 0]}, {"from": [0, 0], "to": [10, 2.4]}, {"from": [10, 0], "to": [10, 2.4]}, {"from": [6, 0], "to": [6, 1.44], "dashed": true}, {"from": [0, -0.7], "to": [6, -0.7], "label": "x"}, {"from": [0, -1.6], "to": [10, -1.6], "label": "L"}], "labels": [{"at": [8.0, 0.7], "text": "air wedge"}, {"at": [5.65, 0.6], "text": "t"}, {"at": [10.5, 1.2], "text": "D"}], "caption": "An air wedge (thickness greatly exaggerated): the gap t grows in proportion to the distance x from the touching edge, reaching D at the spacer a distance L away"}
 ```
 
 Light shining down reflects from the bottom of the top plate and from the top of the bottom plate, and the two reflections interfere. Count phase flips as the wave optics lesson taught. The first reflection is from glass into air, toward a lower index: no flip. The second is from air onto glass, a higher index: one flip. With exactly one flip, the reflections cancel when the extra path is a whole number of wavelengths:

@@ -96,6 +96,7 @@
     W: m*9.8
     f: W/(2*tand(th))
     thmin: atand(1/(2*mu))
+  where: ['th > thmin + 1']
   prompt: 'A uniform {m} kg ladder leans against a smooth wall at {th}° above the floor. Using $g = 9.8$ m/s², find the friction force the floor must supply (N). Then, if $\mu_s = {mu}$ at the floor, find the smallest angle at which the ladder can stand (degrees). Give both to 3 significant figures.'
   answers:
     - {format: sig4, name: f, label: 'Friction', relTolerance: 0.01, units: {N: 1}}
@@ -125,7 +126,7 @@
   solution: |-
     Sliding: $F = \mu_smg =$ **{Fs:sig3} N**.
 
-    Tipping about the front bottom edge: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H} =$ **{Ft:sig3} N**. Whichever force is smaller happens first.
+    Tipping about the bottom edge on the far side from you: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H} =$ **{Ft:sig3} N**. Whichever force is smaller happens first.
 
     Equal when $w/(2H) = \mu_s$: $H = w/(2\mu_s) =$ **{Hc:sig3} m**.
 - id: phys-m5-r2-ellipse-speeds

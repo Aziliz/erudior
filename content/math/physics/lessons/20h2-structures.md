@@ -44,7 +44,7 @@ flowchart TD
 Two rafters meet at the peak of a roof and make $30^\circ$ with the horizontal. A horizontal tie joins their feet, which rest on walls that push straight up. A 12 kN load acts at the peak. Find the force in each rafter and in the tie.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [6, 0], [3, 1.732]]}], "segments": [{"from": [3, 3.3], "to": [3, 1.85], "arrow": true, "label": "12 kN"}, {"from": [0, -1.2], "to": [0, -0.1], "arrow": true, "label": "6 kN"}, {"from": [6, -1.2], "to": [6, -0.1], "arrow": true, "label": "6 kN"}], "labels": [{"at": [0.9, 0.18], "text": "30°"}, {"at": [3, -0.35], "text": "tie"}, {"at": [1.1, 1.15], "text": "rafter"}, {"at": [4.9, 1.15], "text": "rafter"}], "caption": "A symmetric A-frame: a 12 kN load at the peak, each wall pushing up 6 kN"}
+{"polygons": [{"points": [[0, 0], [6, 0], [3, 1.732]]}], "segments": [{"from": [3, 3.3], "to": [3, 1.85], "arrow": true}, {"from": [0, -1.2], "to": [0, -0.1], "arrow": true}, {"from": [6, -1.2], "to": [6, -0.1], "arrow": true}], "labels": [{"at": [3.65, 2.75], "text": "12 kN"}, {"at": [0.6, -0.85], "text": "6 kN"}, {"at": [5.4, -0.85], "text": "6 kN"}, {"at": [0.9, 0.18], "text": "30°"}, {"at": [3, -0.35], "text": "tie"}, {"at": [1.1, 1.15], "text": "rafter"}, {"at": [4.9, 1.15], "text": "rafter"}], "caption": "A symmetric A-frame: a 12 kN load at the peak, each wall pushing up 6 kN"}
 ```
 
 *Supports.* By symmetry, each wall pushes up $6$ kN.
@@ -108,13 +108,13 @@ Push sideways on a tall box, or tilt the surface it rests on, and one of two thi
 
 A crate 0.60 m wide and 1.5 m tall ($w/h = 0.40$) on a surface with $\mu_s = 0.50$ tips at $21.8^\circ$, before it could slide at $26.6^\circ$.
 
-*Pushed on level ground.* Push horizontally with force $F$ at height $H$ on a box of mass $m$ and depth $w$ (in the direction of the push). Sliding starts when $F = \mu_smg$. Tipping starts about the front bottom edge, when the push's torque beats the weight's: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H}$. It tips first if $\dfrac{w}{2H} < \mu_s$, that is, if you push above the height $H = \dfrac{w}{2\mu_s}$.
+*Pushed on level ground.* Push horizontally with force $F$ at height $H$ on a box of mass $m$ and depth $w$ (in the direction of the push). Sliding starts when $F = \mu_smg$. Tipping starts about the bottom edge on the far side from you (the edge the box would tip over), when the push's torque beats the weight's: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H}$. It tips first if $\dfrac{w}{2H} < \mu_s$, that is, if you push above the height $H = \dfrac{w}{2\mu_s}$.
 
 ### Example 4: moving a refrigerator
 
 A 90 kg refrigerator is 0.70 m deep, front to back; $\mu_s = 0.45$ with the floor. You push on its front face at a height of 1.2 m. Does it slide or tip? Where should you push instead?
 
-Sliding needs $0.45(90)(9.8) = 397$ N. Tipping needs $\dfrac{90(9.8)(0.70)}{2(1.2)} = 257$ N. Tipping wins: it starts to topple at 257 N before it ever slides. To slide it, push below $H = \dfrac{0.70}{2(0.45)} = 0.78$ m. (This assumes the center of gravity is at the middle of the box; a real fridge with a heavy compressor at the bottom has a lower center of gravity and is a little harder to tip.)
+Sliding needs $0.45(90)(9.8) = 397$ N. Tipping needs $\dfrac{90(9.8)(0.70)}{2(1.2)} = 257$ N. Tipping wins: it starts to topple at 257 N before it ever slides. To slide it, push below $H = \dfrac{0.70}{2(0.45)} = 0.78$ m. (This assumes the center of gravity is halfway between the front and back. For a horizontal push, what matters is how far the center of gravity is, horizontally, from the edge the fridge tips over; its height doesn't enter $FH = mg\tfrac w2$. Height does matter on a tilted surface, as in the ramp case above.)
 
 ## Common mistakes
 

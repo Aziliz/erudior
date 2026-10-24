@@ -132,7 +132,7 @@
     - {x: 37.8, y: 35.7, text: Iris}
     - {x: 42.5, y: 57.1, text: Lens}
     - {x: 71.9, y: 28.0, text: Retina}
-    - {x: 87.5, y: 58.1, text: Optic nerve}
+    - {x: 87.5, y: 65.2, text: Optic nerve}
   distractors: [Pupil, Eyepiece]
   explanation: |-
     Light first bends at the curved cornea (1), which does most of the focusing. The iris (2) is the colored ring of tissue; the pupil is the opening in it, not the tissue itself. The lens (3) changes shape to fine-tune the focus (accommodation). The image forms on the retina (4), and the optic nerve (5) carries the signals to the brain. An eyepiece belongs to a microscope or telescope.

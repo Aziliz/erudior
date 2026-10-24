@@ -187,10 +187,9 @@
     - Identify the symmetry of the charge distribution
     - Choose a Gaussian surface on which E is constant and perpendicular to the surface
     - Find the charge enclosed by that surface
-    - Set E times the surface's area equal to the enclosed charge divided by ε0
-    - Solve for E
+    - Put the enclosed charge into E times the area = Qenc/ε0 and solve for E
   explanation: |-
-    The symmetry decides the surface (sphere, cylinder or pillbox). The enclosed charge depends on which surface you chose, and only then can you write $E\cdot A = Q_{\text{enc}}/\varepsilon_0$ and solve it for $E$.
+    The symmetry decides the surface (sphere, cylinder or pillbox). The enclosed charge depends on which surface you chose, and only once it is known can you put it into $E\cdot A = Q_{\text{enc}}/\varepsilon_0$ and solve for $E$.
 
 # ---------- Lesson 33: Electric potential ----------
 - id: phys-m8-r2-q16
@@ -538,16 +537,14 @@
   lesson: phys-m8-h-millikan
   topic: Charge quantization
   type: order
-  stem: 'Put the steps of finding one drop''s charge in order.'
+  stem: 'A drop''s fall time (field off) over a known distance and its balancing voltage have both been measured. Put the steps for calculating its charge in order.'
   items:
-    - Time the drop falling a known distance with the field off
-    - Calculate its terminal speed
+    - Divide the fall distance by the time to get the terminal speed
     - Use Stokes's law to find its radius
     - Use the radius and the oil's density to find its mass
-    - Switch the field on and find the voltage that holds it still
     - Calculate its charge from q = mgd/V
   explanation: |-
-    Each quantity depends on the one before: distance and time give $v$; $v$ gives $r$ through $6\pi\eta rv = \tfrac43\pi r^3\rho g$; $r$ gives $m$; and with $m$ known, the balancing voltage gives $q = mgd/V$.
+    Each quantity depends on the one before: distance and time give $v$; $v$ gives $r$ through $6\pi\eta rv = \tfrac43\pi r^3\rho g$; $r$ gives $m$; and with $m$ known, the balancing voltage gives $q = mgd/V$. (The two measurements themselves can be made in either order, which is why they are not steps here.)
 - id: phys-m8-r2-h26
   lesson: phys-m8-h-millikan
   topic: Charge quantization
@@ -704,13 +701,13 @@
   stem: 'Which changes would let a charged conducting sphere reach a higher potential before the gas around it breaks down? Select all that apply.'
   choices:
     - 'Polishing away bumps and points on its surface'
-    - 'Lowering the pressure of the surrounding air'
+    - 'Moving it from sea level to a high mountaintop, where the air is thinner'
     - 'Using a sphere of larger radius'
     - 'Attaching a thin metal spike to it'
     - 'Surrounding it with a gas of higher dielectric strength'
   answer: [0, 2, 4]
   explanation: |-
-    $V_{\max} = E_{\max}R$: a larger radius or a gas that withstands a stronger field both help, and smooth surfaces avoid the strong local fields at bumps. A spike creates a tiny radius with a huge local field, and thinner air breaks down more easily.
+    $V_{\max} = E_{\max}R$: a larger radius or a gas that withstands a stronger field both help, and smooth surfaces avoid the strong local fields at bumps. A spike creates a tiny radius with a huge local field, and the thinner air on a mountaintop breaks down more easily.
 - id: phys-m8-r2-h42
   lesson: phys-m8-h-breakdown
   topic: Dielectric breakdown

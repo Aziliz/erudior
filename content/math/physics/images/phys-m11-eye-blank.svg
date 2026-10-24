@@ -2,7 +2,7 @@
 <rect width="640" height="420" fill="#ffffff"/>
 <circle cx="350" cy="210" r="150" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5"/>
 <path d="M410.9,79.5 A144,144 0 0 1 410.9,340.5" fill="none" stroke="#8a3324" stroke-width="7"/>
-<path d="M495.7,218 L590,226 L590,262 L486.7,262 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M494.6,250 L590,258 L590,294 L474.3,294 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
 <path d="M223.1,130 Q130,210 223.1,290" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
 <rect x="238" y="132" width="9" height="52" fill="#5b4a3a"/>
 <rect x="238" y="236" width="9" height="52" fill="#5b4a3a"/>

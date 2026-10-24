@@ -194,9 +194,9 @@
     - ['Beam hinged to a wall and held by a cable: find the cable tension', 'The hinge']
     - ['Ladder against a smooth wall: find the wall''s push', 'The foot of the ladder']
     - ['Seesaw: where should the second child sit?', 'The seesaw''s pivot']
-  distractors: ['The middle of the object']
+  distractors: ['The top of the ladder']
   explanation: |-
-    Pick the point where unknown forces you don't want act, so they drop out: support A removes $F_A$; the hinge removes both hinge components; the foot removes floor friction and the floor's normal force; the pivot removes the pivot force (and a uniform seesaw's weight).
+    Pick the point where unknown forces you don't want act, so they drop out: support A removes $F_A$; the hinge removes both hinge components; the foot removes floor friction and the floor's normal force; the pivot removes the pivot force (and a uniform seesaw's weight). The top of the ladder would remove the very wall force you want.
 - id: phys-m5-r2-q19
   lesson: phys-equilibrium
   topic: Static equilibrium
@@ -445,7 +445,7 @@
   choices: ['The spin is fast, so the precession rate is much smaller than the spin rate', 'The bobbing (nutation) of a just-released gyroscope is ignored', 'The axle points straight up', 'The wheel is a solid disk']
   answer: [0, 1]
   explanation: |-
-    The derivation treats the extra angular momentum of the precession and the initial nutation as negligible, which needs fast spin. It works for any axle angle (the lesson's case is horizontal) and any wheel shape, through $I$.
+    The derivation treats the extra angular momentum of the precession and the initial nutation as negligible, which needs fast spin. The wheel's shape enters only through $I$. An axle pointing straight up is not assumed: there gravity would have no torque about the support at all. (For a tilted axle, the rate $Mgr/(I\omega)$ still holds, because the torque and the horizontal part of $\vec L$ it turns both shrink by the same factor.)
 
 # ---------- Honors 2: structures ----------
 - id: phys-m5-r2-h15
@@ -471,7 +471,7 @@
   choices: ['7.1 kN', '10 kN', '5.0 kN', '3.5 kN']
   answer: 2
   explanation: |-
-    At a foot, the rafter's horizontal push $F\cos 45^\circ = 7.07(0.7071) = 5.0$ kN is balanced by the tie. 7.1 kN is the rafter force; 10 kN is the load; 3.5 kN halves the answer again.
+    At a foot, the rafter's horizontal push $F\cos 45^\circ = 7.07(0.7071) = 5.0$ kN is balanced by the tie. 7.1 kN is the rafter force; 10 kN is the load; 3.5 kN is half the rafter force.
 - id: phys-m5-r2-h18
   lesson: phys-m5-h-structures
   type: match
@@ -544,10 +544,10 @@
   lesson: phys-m5-h-structures
   topic: Friction in equilibrium
   stem: 'A uniform 60 kg cabinet is 0.60 m deep. You push horizontally on its front face 1.5 m above the floor. What force starts it tipping (if it doesn''t slide first)? ($g = 9.8$ m/s²)'
-  choices: ['235 N', '118 N', '588 N', '47 N']
+  choices: ['235 N', '118 N', '588 N', '735 N']
   answer: 1
   explanation: |-
-    Torques about the front bottom edge: $FH = mg\tfrac w2$, so $F = \dfrac{60(9.8)(0.30)}{1.5} = 118$ N. 235 N uses the full depth instead of half; 588 N is the weight.
+    Torques about the bottom edge it tips over (the far edge from you): $FH = mg\tfrac w2$, so $F = \dfrac{60(9.8)(0.30)}{1.5} = 118$ N. 235 N uses the full depth instead of half; 588 N is the weight; 735 N swaps the two lever arms ($mgH/(2w)$).
 - id: phys-m5-r2-h27
   lesson: phys-m5-h-structures
   topic: Trusses

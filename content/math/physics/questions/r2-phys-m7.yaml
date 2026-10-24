@@ -108,13 +108,13 @@
   topic: Fluid dynamics
   stem: 'Which of these are explained, at least in part, by the Bernoulli effect (faster flow, lower pressure)? Select all that apply.'
   choices:
-    - 'A shower curtain bulging in toward the running water'
+    - 'A perfume atomizer drawing liquid up a tube into a fast air stream'
     - 'A roof lifting off in a strong wind'
     - 'A hydraulic jack lifting a car'
     - 'An iceberg floating with most of its volume under water'
   answer: [0, 1]
   explanation: |-
-    Moving air and water inside the shower, and fast wind over a roof, lower the pressure on one side, so the higher pressure on the other side pushes. A hydraulic jack works by Pascal's principle and an iceberg floats by Archimedes' principle; both are fluids at rest.
+    In the atomizer, fast air across the top of the tube lowers the pressure there, so the higher air pressure on the liquid pushes it up the tube; fast wind over a roof lowers the pressure above it, so the still air inside pushes the roof up. A hydraulic jack works by Pascal's principle and an iceberg floats by Archimedes' principle; both are fluids at rest.
 - id: phys-m7-r2-q10
   lesson: phys-fluid-flow
   type: match
@@ -666,7 +666,7 @@
   choices: ['600 W', '120 W', '480 W', '96 W']
   answer: 3
   explanation: |-
-    The layers are in series, so $R = 0.50 + 2.0 = 2.5$ m²·K/W and $Q/t = A\Delta T/R = (12)(20)/2.5 = 96$ W. Combining them like parallel resistors ($R = 0.40$) gives 600 W; ignoring the thinner layer gives 120 W; multiplying by $R$ gives 480 W.
+    The layers are in series, so $R = 0.50 + 2.0 = 2.5$ m²·K/W and $Q/t = A\Delta T/R = (12)(20)/2.5 = 96$ W. Combining them like parallel resistors ($R = 0.40$) gives 600 W; using only the 2.0 layer gives 120 W, and only the 0.50 layer, 480 W.
 - id: phys-m7-r2-h30
   lesson: phys-m7-h-radiation-balance
   topic: Insulation and radiation

@@ -52,7 +52,7 @@ $T = 306$ K and $T_s = 293$ K:
 
 $$P_{\text{net}} = (0.97)(5.67\times10^{-8})(1.5)\left(306^4 - 293^4\right) = 115\text{ W},$$
 
-comparable to a person's resting metabolic power (roughly 100 W), which is why an unclothed person feels cool in a room that seems comfortable when dressed. Wien's displacement law from the modern-physics module gives the peak: $\lambda_{\max} = (2.898\times10^{-3})/306 = 9.5\times10^{-6}$ m, in the infrared. That's what thermal cameras detect. (The 1.5 m² is an estimate: parts of the body, such as the inner arms, face each other and don't radiate to the room.)
+comparable to a person's resting metabolic power (roughly 100 W), which is why an unclothed person feels cool in a room that seems comfortable when dressed. Wien's displacement law, $\lambda_{\max}T = 2.898\times10^{-3}$ m·K (explained in the modern-physics module), gives the peak: $\lambda_{\max} = (2.898\times10^{-3})/306 = 9.5\times10^{-6}$ m, in the infrared. That's what thermal cameras detect. (The 1.5 m² is an estimate: parts of the body, such as the inner arms, face each other and don't radiate to the room.)
 
 ## Sunlight and the solar constant
 

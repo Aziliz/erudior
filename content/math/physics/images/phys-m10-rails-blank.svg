@@ -49,6 +49,18 @@
 <line x1="677.0" y1="296.0" x2="691.0" y2="282.0" stroke="#6b7785" stroke-width="2"/>
 <line x1="677.0" y1="360.0" x2="691.0" y2="374.0" stroke="#6b7785" stroke-width="2"/>
 <line x1="677.0" y1="374.0" x2="691.0" y2="360.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="209.0" y1="158.0" x2="223.0" y2="172.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="209.0" y1="172.0" x2="223.0" y2="158.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="209.0" y1="248.0" x2="223.0" y2="262.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="209.0" y1="262.0" x2="223.0" y2="248.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="287.0" y1="158.0" x2="301.0" y2="172.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="287.0" y1="172.0" x2="301.0" y2="158.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="287.0" y1="248.0" x2="301.0" y2="262.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="287.0" y1="262.0" x2="301.0" y2="248.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="365.0" y1="158.0" x2="379.0" y2="172.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="365.0" y1="172.0" x2="379.0" y2="158.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="365.0" y1="248.0" x2="379.0" y2="262.0" stroke="#6b7785" stroke-width="2"/>
+<line x1="365.0" y1="262.0" x2="379.0" y2="248.0" stroke="#6b7785" stroke-width="2"/>
 <line x1="80.0" y1="100.0" x2="680.0" y2="100.0" stroke="#1c2833" stroke-width="5"/>
 <line x1="80.0" y1="320.0" x2="680.0" y2="320.0" stroke="#1c2833" stroke-width="5"/>
 <path d="M 80 100 L 80 160 L 98 170 L 62 186 L 98 202 L 62 218 L 98 234 L 62 250 L 80 266 L 80 320" fill="none" stroke="#1c2833" stroke-width="3"/>

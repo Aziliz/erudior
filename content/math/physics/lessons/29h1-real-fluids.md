@@ -88,7 +88,7 @@ far into the turbulent range. For $\text{Re} < 2000$ the speed would have to be 
 
 ## Drag at low speed: Stokes's law
 
-The friction lesson in the forces module used a drag force growing as $v^2$, which fits fast, large objects such as skydivers. For a very small or very slow sphere, where the Reynolds number based on its diameter is less than about 1, the flow around it stays smooth and the drag is proportional to the speed instead. **Stokes's law** gives it for a sphere of radius $r$:
+The friction lesson in the forces module noted that drag grows roughly as $v^2$ for fast, large objects such as skydivers, but roughly in proportion to $v$ for slow motion through a thick fluid. For a very small or very slow sphere, where the Reynolds number based on its diameter is less than about 1, the flow around it stays smooth and the drag is exactly of that second kind. **Stokes's law** gives it for a sphere of radius $r$:
 
 $$F_D = 6\pi\eta rv.$$
 

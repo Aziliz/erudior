@@ -58,7 +58,7 @@ A bowler releases a ball sliding fast with almost no spin. At first the bottom o
 The speed $v$ falls while $R\omega$ rises. When they meet, $v = R\omega$, the contact point stops skidding, kinetic friction switches off, and the ball rolls on at constant speed (ignoring the small rolling resistance).
 
 ```plot
-{"x": [0, 3.5], "y": [0, 9], "xLabel": "time t (s)", "yLabel": "speed (m/s)", "functions": [{"f": "8 - 0.98*x", "from": 0, "to": 2.3324, "label": "v (center)"}, {"f": "2.45*x", "from": 0, "to": 2.3324, "label": "Rω"}, {"f": "5.714", "from": 2.3324, "to": 3.5}], "points": [{"at": [2.3324, 5.714], "label": "rolling starts"}], "caption": "A bowling ball released at 8.0 m/s with no spin (μk = 0.10): the center slows while Rω grows; once they are equal the ball rolls at 5.71 m/s"}
+{"x": [0, 3.5], "y": [0, 9], "xLabel": "time t (s)", "yLabel": "speed (m/s)", "functions": [{"f": "8 - 0.98*x", "from": 0, "to": 2.3324}, {"f": "2.45*x", "from": 0, "to": 2.3324}, {"f": "5.714", "from": 2.3324, "to": 3.5}], "points": [{"at": [2.3324, 5.714], "label": "rolling starts"}], "labels": [{"at": [0.9, 7.85], "text": "v (center)"}, {"at": [0.85, 3.4], "text": "Rω"}], "caption": "A bowling ball released at 8.0 m/s with no spin (μk = 0.10): the center slows while Rω grows; once they are equal the ball rolls at 5.71 m/s"}
 ```
 
 For a solid sphere ($c = \tfrac25$), setting $v_0 - \mu_kgt = R\alpha t = \tfrac52\mu_kgt$ gives the time to start rolling and the final speed:

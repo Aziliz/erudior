@@ -50,7 +50,7 @@ Since the energy at any point is $-GMm/(2a)$, write energy conservation at an ar
 
 $$\tfrac12mv^2 - \frac{GMm}{r} = -\frac{GMm}{2a} \quad\Rightarrow\quad v^2 = GM\left(\frac2r - \frac1a\right).$$
 
-This is the **vis-viva equation** ("living force," an old name for kinetic energy). It gives the speed anywhere on an orbit from just the distance and the semimajor axis. Check the special cases: for a circle ($r = a$) it gives $v^2 = GM/r$; for escape ($a \to \infty$, a parabola) it gives $v^2 = 2GM/r$. Both match the core lesson.
+This is the **vis-viva equation** (Latin for "living force," an old name for $mv^2$, twice what we now call kinetic energy). It gives the speed anywhere on an orbit from just the distance and the semimajor axis. Check the special cases: for a circle ($r = a$) it gives $v^2 = GM/r$; for escape ($a \to \infty$, a parabola) it gives $v^2 = 2GM/r$. Both match the core lesson.
 
 ### Example 1: a satellite on an ellipse
 
