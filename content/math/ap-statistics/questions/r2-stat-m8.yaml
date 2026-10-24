@@ -89,7 +89,7 @@
   labels:
     - {x: 57.8, y: 76.6, text: 'α, the Type I error probability'}
     - {x: 50.3, y: 72.4, text: 'β, the Type II error probability'}
-    - {x: 73.3, y: 52.6, text: Power}
+    - {x: 69.0, y: 62.0, text: Power}
     - {x: 54.5, y: 19.7, text: Rejection cutoff}
   distractors: [p-value, Confidence level]
   explanation: |-
@@ -690,7 +690,7 @@
   stem: 'In which situations do the conditions for the usual z or t procedure fail, so that an exact test is the better choice? Select all that apply.'
   choices:
     - 'A one-proportion test with $np_0 = 3$'
-    - 'A two-way table in which one expected count is 3.8'
+    - 'Comparing two proportions when one expected count in the $2 \times 2$ table is 3.8'
     - 'Eight paired differences that include one extreme outlier'
     - 'A simple random sample of 500 with $np_0 = 150$ and $n(1 - p_0) = 350$'
   answer: [0, 1, 2]

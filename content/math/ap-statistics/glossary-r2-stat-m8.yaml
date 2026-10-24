@@ -13,7 +13,7 @@
   definition: 'The size of an effect measured on a scale that does not depend on the sample size; in power planning, $d = \delta/\sigma$, the difference to detect in standard deviations of individual values.'
   topic: Power and sample size
 - term: winner's curse
-  aliases: [Type M error, exaggeration ratio]
+  aliases: [Type M error]
   definition: 'The tendency of statistically significant estimates from low-power studies to overstate the true effect, because only estimates that landed far from 0 cleared the significance bar.'
   topic: Power and sample size
 - term: observed power

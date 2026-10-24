@@ -106,8 +106,8 @@
     statistics $t_1 = (\bar{d} + \Delta)/SE$ and $t_2 = (\bar{d} - \Delta)/SE$ (3 decimals) and the TOST
     p-value (4 decimals).
   answers:
-    - {name: t1, label: '$t_1 =$', tolerance: 0.002, format: dp3}
-    - {name: t2, label: '$t_2 =$', tolerance: 0.002, format: dp3}
+    - {name: t1, label: '$t_1 =$', relTolerance: 0.004, format: dp3}
+    - {name: t2, label: '$t_2 =$', relTolerance: 0.004, format: dp3}
     - {name: pt, label: 'TOST p-value', tolerance: 0.0006, format: num4}
   solution: |-
     $SE = {sd}/\sqrt{{nn}} \approx {se:num4}$, df $= {dfree}$.
@@ -131,17 +131,17 @@
     mg: max(abs(lo), abs(hi))
   prompt: |-
     A paired study of {nn} items gives mean difference $\bar{d} = {dbar}$ and $s_d = {sd}$. Find the 90%
-    confidence interval for $\mu_d$ (3 decimals each). Then find the smallest equivalence margin $\Delta$
-    for which a TOST at $\alpha = 0.05$ would conclude equivalence (3 decimals).
+    confidence interval for $\mu_d$ (3 decimals each). Then find the equivalence margin $\Delta$
+    at which a TOST at $\alpha = 0.05$ has p-value exactly 0.05, so that any larger margin shows equivalence (3 decimals).
   answers:
     - {name: lo, label: 'lower', tolerance: 0.003, format: dp3}
     - {name: hi, label: 'upper', tolerance: 0.003, format: dp3}
-    - {name: mg, label: 'smallest $\Delta$', tolerance: 0.003, format: dp3}
+    - {name: mg, label: 'boundary $\Delta$', tolerance: 0.003, format: dp3}
   solution: |-
     $SE = {sd}/\sqrt{{nn}} \approx {se:num4}$, and for 90% with df $= {dfree}$, $t^* \approx {ts:dp3}$.
     Interval: ${dbar} \pm {ts:dp3}({se:num4}) =$ (**{lo:dp3}**, **{hi:dp3}**). TOST at 0.05 succeeds exactly
-    when this 90% interval lies inside $(-\Delta, \Delta)$, so $\Delta$ must exceed the larger endpoint size:
-    **{mg:dp3}** (strictly, any margin above it).
+    when this 90% interval lies inside $(-\Delta, \Delta)$, so the boundary is the larger endpoint size:
+    **{mg:dp3}**. At that margin one of the one-sided tests has p-value exactly 0.05; any larger margin puts the interval strictly inside and gives equivalence.
 
 - id: stat-m8-r2-noninferiority
   title: Non-inferiority test for two proportions
@@ -168,7 +168,7 @@
     $H_0: p_{\text{new}} - p_{\text{std}} \le -{del}$ against $H_a: p_{\text{new}} - p_{\text{std}} > -{del}$, using the
     unpooled standard error. Find $z$ (2 decimals) and the p-value (4 decimals).
   answers:
-    - {name: zz, label: '$z =$', tolerance: 0.011, format: num2}
+    - {name: zz, label: '$z =$', tolerance: 0.015, format: num2}
     - {name: pv, label: 'p-value', tolerance: 0.004, format: num4}
   solution: |-
     $\hat{p}_{\text{new}} = {p1:num4}$, $\hat{p}_{\text{std}} = {p2:num4}$, difference $= {diff:num4}$.
@@ -194,7 +194,7 @@
   answers:
     - {name: pv, label: 'p-value', tolerance: 0.0001, format: num4}
   solution: |-
-    Under $H_0$, $X \sim B({nn}, {p0})$ with mean {mu:num1}. The p-value is
+    Under $H_0$, $X \sim B({nn}, {p0})$ with mean {mu:num2}. The p-value is
     $P(X \ge {xx}) = 1 - P(X \le {xm}) = 1 - \text{binomcdf}({nn}, {p0}, {xm}) \approx$ **{pv:num4}**.
 
 - id: stat-m8-r2-sign-test
@@ -244,5 +244,5 @@
   answers:
     - {name: pv, label: 'p-value', tolerance: 0.0001, format: num4}
   solution: |-
-    Under $H_0$, $X \sim B({nn}, {p0})$ with mean {mu:num1}. Upper tail: $P(X \ge {xx}) = 1 - \text{binomcdf}({nn}, {p0}, {xm}) \approx {up:num4}$.
+    Under $H_0$, $X \sim B({nn}, {p0})$ with mean {mu:num2}. Upper tail: $P(X \ge {xx}) = 1 - \text{binomcdf}({nn}, {p0}, {xm}) \approx {up:num4}$.
     Lower tail: $P(X \le {xx}) = \text{binomcdf}({nn}, {p0}, {xx}) \approx {dn:num4}$. Double the smaller: p-value $\approx$ **{pv:num4}**.

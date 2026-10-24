@@ -72,7 +72,7 @@ effect, since operator-to-operator differences would swamp the jig effect.
 
 The picture makes the point. The old-jig values below are made up for illustration (the
 lesson gives only the differences), but they show the typical pattern: operators differ from
-one another by up to 13 units per hour, while each operator's change is only a few units. The
+one another by up to 15 units per hour, while each operator's change is only a few units. The
 lines mostly rise, which the paired test sees. A two-sample t test on the same 16 numbers
 would compare two widely spread columns and give $t \approx 0.95$, p-value $\approx 0.36$.
 

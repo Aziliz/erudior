@@ -129,4 +129,5 @@
     - {name: L, label: 'Length (ft)', tolerance: 0.006, format: num2}
   solution: |-
     The longest ladder equals the shortest segment that touches the inner corner and reaches both outer walls. At angle $\theta$ to the walls of the {a}-ft hallway, that segment has length $L(\theta) = \dfrac{ {a}}{\sin\theta} + \dfrac{ {b}}{\cos\theta}$. Setting $L'(\theta) = 0$ gives $\tan^3\theta = \dfrac{ {a}}{ {b}}$, so $\theta \approx {th:num1}°$, and the minimum is
-    $$L = \left({a}^{2/3} + {b}^{2/3}\right)^{3/2} \approx ({pa:dp3} + {pb:dp3})^{3/2} \approx$$ **{L:num2}** ft.
+    $$L = \left({a}^{2/3} + {b}^{2/3}\right)^{3/2} \approx ({pa:dp3} + {pb:dp3})^{3/2},$$
+    so the longest ladder is **{L:num2}** ft.

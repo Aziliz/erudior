@@ -163,7 +163,7 @@ $\alpha = 0.05$, so it rejects when the estimate is more than 1.96 SE from 0.
 2. Among the significant results, the average size of the estimate is about 2.49 SE (computed from
    the normal distribution cut off at 1.96).
 3. So a "significant" finding overstates the true effect by a factor of about 2.5 on average.
-   (With power 0.80 the factor is only about 1.13.)
+   (With power 0.80 the factor is only about 1.12.)
 
 This is one reason why striking results from small studies so often shrink when they are repeated.
 
