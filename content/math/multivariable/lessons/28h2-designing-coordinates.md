@@ -132,9 +132,9 @@ integral over a region of $\mathbb R^n$ uses an $n\times n$ Jacobian, and "volum
 $n$-dimensional volume. Two tools are enough to find the volume of the
 **n-ball** $x_1^2 + \dots + x_n^2 \le a^2$.
 
-**Scaling.** The map $x_i = a\,u_i$ has Jacobian $a^n$, so $V_n(a) = V_n(1)\,a^n$.
+*Scaling.* The map $x_i = a\,u_i$ has Jacobian $a^n$, so $V_n(a) = V_n(1)\,a^n$.
 
-**Slicing off two variables.** Split the coordinates into the last two, with
+*Slicing off two variables.* Split the coordinates into the last two, with
 $x_{n-1}^2 + x_n^2 = s^2$, and the other $n - 2$. For each point of the disk $s \le a$, the
 other coordinates fill an $(n - 2)$-ball of radius $\sqrt{a^2 - s^2}$. Integrating that
 slice's volume over the disk in polar coordinates gives, for $a = 1$,

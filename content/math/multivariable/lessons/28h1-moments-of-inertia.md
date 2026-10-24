@@ -97,7 +97,7 @@ where $d$ is the distance between the two axes.
 
 ![A lumpy solid with its center of mass marked. A dashed axis passes through the center of mass, and a second dashed axis parallel to it lies a distance d away. A small mass element dm sits inside the solid, and the formula I = I_cm + m d² is shown.](images/mv-m6-parallel-axis.svg)
 
-**Proof.** Choose coordinates with the center of mass at the origin and both axes parallel
+*Proof.* Choose coordinates with the center of mass at the origin and both axes parallel
 to the $z$-axis, the new one through $(d, 0)$. The squared distance from $(x, y, z)$ to the
 new axis is $(x - d)^2 + y^2 = x^2 + y^2 - 2dx + d^2$, so
 

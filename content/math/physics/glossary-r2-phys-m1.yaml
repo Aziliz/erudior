@@ -1,0 +1,57 @@
+# Round 2, module phys-m1: terms bolded in the honors lessons 02h1 and 02h2.
+- term: absolute uncertainty
+  aliases: [absolute uncertainties]
+  definition: 'The ± part of a measurement, in the same unit as the value: in $52.4 \pm 0.2$ g it is 0.2 g. It gives the range in which the true value plausibly lies.'
+  topic: Measurement uncertainty
+- term: fractional uncertainty
+  aliases: [fractional uncertainties, relative uncertainty]
+  definition: 'The absolute uncertainty divided by the value, $\delta x/|x|$; it has no unit. Products, quotients and powers combine fractional uncertainties.'
+  topic: Measurement uncertainty
+- term: percent uncertainty
+  definition: 'The fractional uncertainty written as a percentage: $0.2/52.4 = 0.38\%$.'
+  topic: Measurement uncertainty
+- term: random error
+  aliases: [random errors]
+  definition: 'Error that pushes repeated readings up and down unpredictably (reaction time, jitter). It shows up as scatter and is reduced by averaging.'
+  topic: Measurement uncertainty
+- term: systematic error
+  aliases: [systematic errors]
+  definition: 'Error that shifts every reading the same way (a zero offset, a miscalibrated instrument, a consistent misreading). Averaging does not reduce it; checking against standards or another method reveals it.'
+  topic: Measurement uncertainty
+- term: standard deviation
+  aliases: [sample standard deviation]
+  definition: 'A measure of the spread of readings: $s = \sqrt{\sum (x_i - \bar x)^2/(n-1)}$, roughly the typical distance of one reading from the mean.'
+  topic: Measurement uncertainty
+- term: standard error of the mean
+  aliases: [standard error]
+  definition: 'The uncertainty of an average of $n$ readings, $s/\sqrt n$. Four times as many readings halve it; it does not reduce systematic error.'
+  topic: Measurement uncertainty
+- term: propagation of uncertainty
+  aliases: [error propagation, uncertainty propagation]
+  definition: 'Finding the uncertainty of a calculated result from the uncertainties of the measured inputs: absolute uncertainties combine for sums and differences, fractional ones for products, quotients and powers.'
+  topic: Error propagation
+- term: adding in quadrature
+  aliases: [quadrature, in quadrature]
+  definition: 'Combining independent random uncertainties as the square root of the sum of their squares, $\sqrt{a^2 + b^2}$, like the sides of a right triangle. Adding them directly gives an upper bound instead.'
+  topic: Error propagation
+- term: percent error
+  definition: '$\dfrac{|\text{measured} - \text{accepted}|}{\text{accepted}} \times 100\%$: how far a result is from a trusted reference value.'
+  topic: Measurement uncertainty
+- term: error bar
+  aliases: [error bars]
+  definition: 'A line through a plotted point covering its best value ± uncertainty; a good fit passes through most error bars.'
+  topic: Measurement uncertainty
+- term: direction cosines
+  aliases: [direction cosine]
+  definition: 'The cosines of the angles a vector makes with the $x$, $y$ and $z$ axes: $A_x/A$, $A_y/A$, $A_z/A$. They are the components of the unit vector $\hat A$, and their squares add to 1.'
+  topic: Vector algebra
+- term: scalar projection
+  definition: 'The component of $\vec B$ along $\vec A$: $\vec A\cdot\vec B/A = B\cos\phi$. Negative when $\vec B$ leans against $\vec A$.'
+  topic: Vector algebra
+- term: vector projection
+  definition: 'The part of $\vec B$ that lies along $\vec A$: $(\vec A\cdot\vec B/A^2)\,\vec A$. What remains of $\vec B$ is perpendicular to $\vec A$.'
+  topic: Vector algebra
+- term: scalar triple product
+  aliases: [triple product]
+  definition: '$\vec A\cdot(\vec B\times\vec C)$. Its absolute value is the volume of the box (parallelepiped) with edges $\vec A$, $\vec B$, $\vec C$; it is zero when the three vectors lie in one plane.'
+  topic: Vector products

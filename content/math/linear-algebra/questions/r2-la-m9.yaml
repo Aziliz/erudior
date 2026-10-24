@@ -640,7 +640,7 @@
     - 'Build $\hat H_2$ from the part of column 2 of $H_1A$ below row 1'
     - 'Apply $H_2$ to get $R = H_2H_1A$, and take $Q = H_1H_2$'
   explanation: |-
-    $\hat H_2$ is built from column 2 *after* $H_1$ has acted, so $H_1A$ must be computed first. Each reflection only needs the column it clears, and the last step collects $R$ and $Q$.
+    $\hat H_2$ is built from column 2 after $H_1$ has acted, so $H_1A$ must be computed first. Each reflection only needs the column it clears, and the last step collects $R$ and $Q$.
 - id: la-m9-r2-h21
   lesson: la-m9-h-householder
   topic: Householder reflections

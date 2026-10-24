@@ -1,0 +1,114 @@
+# Round 2, honors module la-h1 (Linear algebra at work): terms bolded in lessons 90-93.
+
+# --- Graphs and networks ---
+- term: graph
+  aliases: [graphs]
+  definition: 'A set of nodes joined by edges, such as a road map, a circuit or a social network.'
+  topic: Graphs and networks
+- term: directed graph
+  aliases: [directed graphs]
+  definition: 'A graph whose edges each have a chosen direction, from a tail node to a head node. The direction is bookkeeping: a flow against the arrow is simply negative.'
+  topic: Graphs and networks
+- term: incidence matrix
+  aliases: [incidence matrices, edge-node incidence matrix]
+  definition: 'For a directed graph with $m$ edges and $n$ nodes, the $m \times n$ matrix $A$ with a row for each edge: $-1$ in the column of its tail, $+1$ in the column of its head, 0 elsewhere. $A\mathbf{x}$ lists the potential differences across the edges.'
+  topic: Graphs and networks
+- term: connected graph
+  aliases: [connected]
+  definition: 'A graph in which you can walk from any node to any other along edges. Its incidence matrix has rank $n - 1$, with null space spanned by $(1, 1, \dots, 1)$.'
+  topic: Graphs and networks
+- term: Kirchhoff's voltage law
+  aliases: [voltage law]
+  definition: 'Around every closed loop of a network, the potential differences add to zero. For an incidence matrix, $\mathbf{b} \in \operatorname{Col} A$ exactly when $\mathbf{b}$ is orthogonal to every loop vector.'
+  topic: Graphs and networks
+- term: Kirchhoff's current law
+  aliases: [current law]
+  definition: 'At every node, the flow in equals the flow out; for edge flows $\mathbf{y}$ and incidence matrix $A$, this is $A^T\mathbf{y} = \mathbf{0}$. Its solutions are spanned by loop flows, and there are $m - n + 1$ independent ones in a connected graph.'
+  topic: Graphs and networks
+- term: spanning tree
+  aliases: [spanning trees]
+  definition: 'A set of edges with no loop that still connects every node of a graph. In a connected graph it has $n - 1$ edges, and their rows of the incidence matrix form a basis of the row space.'
+  topic: Graphs and networks
+- term: graph Laplacian
+  aliases: [Laplacian matrix, Laplacian of a graph]
+  definition: 'The matrix $L = A^TA = D - W$ of a graph: node degrees on the diagonal, $-1$ for each pair of joined nodes. It is symmetric and positive semidefinite, and $L(1, \dots, 1) = \mathbf{0}$.'
+  topic: Graphs and networks
+- term: degree of a node
+  aliases: [degree matrix]
+  definition: 'The number of edges touching a node. The degrees form the diagonal of the graph Laplacian (the degree matrix $D$).'
+  topic: Graphs and networks
+- term: adjacency matrix
+  aliases: [adjacency matrices]
+  definition: 'The $n \times n$ matrix $W$ of a graph with $w_{jk} = 1$ when nodes $j$ and $k$ are joined by an edge and 0 otherwise.'
+  topic: Graphs and networks
+- term: matrix-tree theorem
+  aliases: [Kirchhoff's matrix-tree theorem]
+  definition: 'Kirchhoff (1847): the number of spanning trees of a connected graph equals the determinant of its Laplacian with any one row and the same-numbered column deleted.'
+  topic: Graphs and networks
+
+# --- PageRank and the power method ---
+- term: PageRank
+  definition: 'The importance score of web pages proposed by Brin and Page (1998): the steady-state vector of the Google matrix, so that a page ranks high when important pages link to it.'
+  topic: PageRank and the power method
+- term: link matrix
+  aliases: [hyperlink matrix]
+  definition: 'The column-stochastic matrix $S$ of a web: column $j$ has $1/d_j$ in the row of each page that page $j$ links to, where $d_j$ is its number of links.'
+  topic: PageRank and the power method
+- term: dangling node
+  aliases: [dangling nodes, dangling page, dangling pages]
+  definition: 'A page with no outgoing links. Its column of the link matrix would be zero, so it is replaced by $\tfrac1n$ in every entry.'
+  topic: PageRank and the power method
+- term: damping factor
+  definition: 'In PageRank, the probability $\alpha$ (often 0.85) that the random surfer follows a link rather than jumping to a random page.'
+  topic: PageRank and the power method
+- term: Google matrix
+  definition: '$G = \alpha S + \tfrac{1-\alpha}{n}J$, with $S$ the link matrix and $J$ the all-ones matrix. All its entries are positive, so it has a unique steady-state vector, the PageRank vector.'
+  topic: PageRank and the power method
+- term: power method
+  aliases: [power iteration]
+  definition: 'Repeatedly multiply a vector by $A$, rescaling each time; the direction approaches the eigenvector of the dominant eigenvalue, with error shrinking like $|\lambda_2/\lambda_1|^k$.'
+  topic: PageRank and the power method
+- term: dominant eigenvalue
+  definition: 'An eigenvalue strictly larger in absolute value than every other eigenvalue of the matrix. The power method converges to its eigenvector.'
+  topic: PageRank and the power method
+- term: Rayleigh quotient
+  definition: 'For a symmetric matrix $A$ and nonzero $\mathbf{x}$, the number $\dfrac{\mathbf{x}^TA\mathbf{x}}{\mathbf{x}^T\mathbf{x}}$; it equals $\lambda$ when $\mathbf{x}$ is an eigenvector and gives good eigenvalue estimates in the power method.'
+  topic: PageRank and the power method
+
+# --- Principal component analysis ---
+- term: principal component analysis
+  aliases: [PCA]
+  definition: 'Finding the orthogonal directions of greatest variance in a data set: the eigenvectors of its covariance matrix, ordered by eigenvalue.'
+  topic: Principal component analysis
+- term: mean-deviation form
+  aliases: [centered data, centering]
+  definition: 'A data matrix with the mean of the columns subtracted from every column, so each row adds to 0; usually written $B$.'
+  topic: Principal component analysis
+- term: covariance matrix
+  aliases: [sample covariance matrix, covariance matrices]
+  definition: 'For data in mean-deviation form $B$ with $N$ columns, $S = \tfrac{1}{N-1}BB^T$: variances on the diagonal, covariances off it. It is symmetric and positive semidefinite.'
+  topic: Principal component analysis
+- term: total variance
+  definition: 'The sum of the variances of all the variables: the trace of the covariance matrix, which also equals the sum of its eigenvalues.'
+  topic: Principal component analysis
+- term: principal components
+  aliases: [principal component]
+  definition: 'The unit eigenvectors $\mathbf{u}_1, \mathbf{u}_2, \dots$ of a covariance matrix, ordered by decreasing eigenvalue; the variance of the data along $\mathbf{u}_i$ is $\lambda_i$.'
+  topic: Principal component analysis
+
+# --- Positioning from distances ---
+- term: trilateration
+  definition: 'Finding a position from measured distances to points with known positions. Subtracting the squared-distance equations turns them into linear equations.'
+  topic: Positioning from distances
+- term: pseudorange
+  aliases: [pseudoranges]
+  definition: 'A GPS receiver''s measured distance to a satellite, $\rho_i = \|\mathbf{x} - \mathbf{s}_i\| + cb$, which includes the receiver''s clock offset $b$ times the speed of light.'
+  topic: Positioning from distances
+- term: Gauss–Newton method
+  aliases: [Gauss-Newton method, Gauss–Newton]
+  definition: 'A way to fit nonlinear equations: linearize them at the current guess, solve the resulting linear least-squares problem for a correction, update, and repeat.'
+  topic: Positioning from distances
+- term: dilution of precision
+  aliases: [DOP]
+  definition: 'In positioning, $\sqrt{\operatorname{tr}((J^TJ)^{-1})}$: how many times the satellite or beacon geometry magnifies range errors. Spread-out directions give a small value.'
+  topic: Positioning from distances

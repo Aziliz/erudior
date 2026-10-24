@@ -23,7 +23,7 @@
 <polygon points="320.0,345.0 313.7,331.0 326.3,331.0" fill="#a23b2a"/>
 <text x="332.0" y="340.0" font-size="18" fill="#a23b2a" text-anchor="start">30 kN</text>
 <text x="54.0" y="264.0" font-size="20" fill="#1c2833" text-anchor="end" font-weight="bold">A</text>
-<text x="314.0" y="254.0" font-size="20" fill="#1c2833" text-anchor="start" font-weight="bold">C</text>
+<text x="304.0" y="298.0" font-size="20" fill="#1c2833" text-anchor="end" font-weight="bold">C</text>
 <text x="576.0" y="264.0" font-size="20" fill="#1c2833" text-anchor="start" font-weight="bold">E</text>
 <text x="192.0" y="46.2" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="bold">B</text>
 <text x="448.0" y="46.2" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="bold">D</text>

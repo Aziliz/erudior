@@ -29,7 +29,7 @@
     den: if(k == 1, 5, 2)
     Icm: num/den*m*a^2
     I: Icm + m*d^2
-  prompt: 'A {k} has mass {m} kg and radius {a} m. Find its moment of inertia about an axis parallel to {k:ref} and {d} m from its center. (kg·m², 3 significant figures.)'
+  prompt: 'A {k} has mass {m} kg and radius {a} m. Find its moment of inertia about an axis {d} m from its center, parallel to its central axis (for the ball, a diameter; for the cylinder, its own axis). (kg·m², 3 significant figures.)'
   answers:
     - {name: I, label: '$I =$', sigfigs: 3}
   solution: |-

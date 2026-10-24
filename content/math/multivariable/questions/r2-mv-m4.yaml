@@ -322,7 +322,7 @@
   choices: ['$\langle 1, -2\rangle$', '$\langle 1, 0\rangle$', '$\langle 1, 1\rangle$', '$\langle 2, 1\rangle$']
   answer: 3
   explanation: |-
-    $H = \begin{bmatrix} 10 & 4\\ 4 & 4\end{bmatrix}$ has $\lambda^2 - 14\lambda + 24 = 0$, so $\lambda = 12$ and $2$. For $\lambda = 12$: $-2v_1 + 4v_2 = 0$ gives $\langle 2, 1\rangle$; along that unit direction $\mathbf u^{\mathsf T}H\mathbf u = 12$, the maximum. $\langle 1, -2\rangle$ is the other eigenvector, the direction of *least* curvature (2). Along $\langle 1, 0\rangle$ the value is $f_{xx} = 10$, and along $\langle 1, 1\rangle$ it is $(10 + 8 + 4)/2 = 11$, both less than 12.
+    $H = \begin{bmatrix} 10 & 4\\ 4 & 4\end{bmatrix}$ has $\lambda^2 - 14\lambda + 24 = 0$, so $\lambda = 12$ and $2$. For $\lambda = 12$: $-2v_1 + 4v_2 = 0$ gives $\langle 2, 1\rangle$; along that unit direction $\mathbf u^{\mathsf T}H\mathbf u = 12$, the maximum. $\langle 1, -2\rangle$ is the other eigenvector, the direction of least curvature (2). Along $\langle 1, 0\rangle$ the value is $f_{xx} = 10$, and along $\langle 1, 1\rangle$ it is $(10 + 8 + 4)/2 = 11$, both less than 12.
 - id: mv-m4-r2-h08
   lesson: mv-m4-h-hessian
   type: order
@@ -514,7 +514,7 @@
 - id: mv-m4-r2-h26
   lesson: mv-m4-h-kkt
   topic: Inequality constraints
-  stem: 'To *minimize* $f$ subject to $g \le k$, a minimum on the edge $g = k$ satisfies $\nabla f = \lambda\nabla g$ with'
+  stem: 'To minimize $f$ subject to $g \le k$, a minimum on the edge $g = k$ satisfies $\nabla f = \lambda\nabla g$ with'
   choices: ['$\lambda \ge 0$', '$\lambda = 0$', '$\lambda = 1$', '$\lambda \le 0$']
   answer: 3
   explanation: |-

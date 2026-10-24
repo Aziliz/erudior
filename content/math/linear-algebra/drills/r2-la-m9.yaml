@@ -67,7 +67,7 @@
   calc:
     bk: 2*q*(-1)^(k + 1)/k + 0
   prompt: |-
-    On $[-\pi, \pi]$ with $\langle f, g\rangle = \int_{-\pi}^{\pi} f(t)g(t)\,dt$, find the constant term $\tfrac{a_0}{2}$ and the coefficient $b_{k}$ of $\sin {k}t$ in the Fourier approximation of $f(t) = {p} {q:signedcoef}t$. Use $\int_{-\pi}^{\pi} t\sin kt\,dt = \dfrac{2\pi(-1)^{k+1}}{k}$. Give exact fractions.
+    On $[-\pi, \pi]$ with $\langle f, g\rangle = \int_{-\pi}^{\pi} f(t)g(t)\,dt$, find the constant term $\tfrac{a_0}{2}$ and the coefficient of $\sin {k}t$ in the Fourier approximation of $f(t) = {p} {q:signedcoef}t$. Use $\int_{-\pi}^{\pi} t\sin nt\,dt = \dfrac{2\pi(-1)^{n+1}}{n}$ for whole numbers $n \ge 1$. Give exact fractions.
   answers:
     - {name: p, label: '$\tfrac{a_0}{2} =$', kind: fraction, lowestTerms: true}
     - {name: bk, label: 'coefficient of $\sin {k}t$', kind: fraction, lowestTerms: true}

@@ -73,21 +73,21 @@ Result: $T = 2.010 \pm 0.016$ s. The uncertainty starts with a 1, so it keeps tw
 
 Most results are calculated, not read directly: a density from a mass and a volume, $g$ from a length and a period. **Propagation of uncertainty** answers the question: how uncertain is the result, given the uncertainties of the inputs?
 
-**Sums and differences.** If $q = x + y$ or $q = x - y$, the absolute uncertainties combine. In the worst case both errors push the same way, so $\delta q = \delta x + \delta y$. But if the errors are independent and random, they are unlikely to both be at their extremes in the same direction, and the standard rule is **adding in quadrature**:
+*Sums and differences.* If $q = x + y$ or $q = x - y$, the absolute uncertainties combine. In the worst case both errors push the same way, so $\delta q = \delta x + \delta y$. But if the errors are independent and random, they are unlikely to both be at their extremes in the same direction, and the standard rule is **adding in quadrature**:
 
 $$\delta q = \sqrt{(\delta x)^2 + (\delta y)^2}.$$
 
 A useful picture (an analogy, not a proof): independent errors combine like perpendicular vectors, so the total is found with the Pythagorean theorem. The proof comes from statistics, where the variances (squared spreads) of independent errors add. Note that subtraction does not subtract uncertainties: $q = x - y$ is uncertain by the same amount as $x + y$.
 
-**Products and quotients.** If $q = xy$ or $q = x/y$, the *fractional* uncertainties combine, in quadrature for independent errors:
+*Products and quotients.* If $q = xy$ or $q = x/y$, the *fractional* uncertainties combine, in quadrature for independent errors:
 
 $$\frac{\delta q}{|q|} = \sqrt{\left(\frac{\delta x}{x}\right)^2 + \left(\frac{\delta y}{y}\right)^2}.$$
 
 Why fractional? Write each input as its best value times a small factor, $x(1 + a)$ and $y(1 + b)$, where $a$ and $b$ are the fractional errors. Then $xy(1 + a)(1 + b) = xy(1 + a + b + ab) \approx xy(1 + a + b)$, because $ab$ is tiny. The fractional errors add, so fractional uncertainties are what combine. Division gives the same result, since $1/(1 + b) \approx 1 - b$.
 
-**Powers.** If $q = x^n$, then $\dfrac{\delta q}{|q|} = |n|\,\dfrac{\delta x}{|x|}$. Squaring a length doubles its fractional uncertainty. Do not treat $x^2 = x \cdot x$ as two independent factors and add in quadrature: both factors carry the *same* error, so it adds directly.
+*Powers.* If $q = x^n$, then $\dfrac{\delta q}{|q|} = |n|\,\dfrac{\delta x}{|x|}$. Squaring a length doubles its fractional uncertainty. Do not treat $x^2 = x \cdot x$ as two independent factors and add in quadrature: both factors carry the *same* error, so it adds directly.
 
-**Exact constants.** If $q = Cx$ with $C$ exact (like $2\pi$ or $\tfrac12$), then $\delta q = |C|\,\delta x$ and the fractional uncertainty is unchanged.
+*Exact constants.* If $q = Cx$ with $C$ exact (like $2\pi$ or $\tfrac12$), then $\delta q = |C|\,\delta x$ and the fractional uncertainty is unchanged.
 
 ```mermaid
 flowchart TD

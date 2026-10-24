@@ -342,31 +342,31 @@
 - id: la-h1-r2-h34
   lesson: la-h1-pca
   module_quiz: true
-  topic: Low-rank approximation
-  stem: 'A matrix has singular values $6$, $3$ and $2$. What is the Frobenius-norm error of its best rank-one approximation?'
-  choices: ['$\sqrt{13} \approx 3.61$', '$3$', '$5$', '$\sqrt{49} = 7$']
+  topic: Principal component analysis
+  stem: 'The line through the mean in the direction of the first principal component minimizes which quantity over all lines through the mean?'
+  choices: ['The sum of squared perpendicular distances from the points to the line', 'The sum of squared vertical distances from the points to the line', 'The sum of squared horizontal distances from the points to the line', 'The largest distance from a point to the line']
   answer: 0
   explanation: |-
-    By the Eckart–Young theorem, the error is the square root of the sum of the squares of the dropped singular values: $\sqrt{3^2 + 2^2} = \sqrt{13}$. The answer 3 is the error in the "largest stretch" sense ($\sigma_2$), and 5 adds the singular values without squaring. $7 = \|A\|_F$ is the size of the whole matrix.
+    Each squared deviation length splits into (squared score along the line) + (squared perpendicular distance), and the total is fixed. Maximizing the variance along the line therefore minimizes the perpendicular distances. Vertical distances are what the least-squares regression line minimizes, which is why the two lines usually differ.
 
 - id: la-h1-r2-h35
   lesson: la-h1-pca
-  topic: Low-rank approximation
-  stem: 'A matrix has singular values $4$ and $3$ (and no others). What is $\|A\|_F$?'
-  choices: ['$7$', '$12$', '$5$', '$25$']
+  topic: Principal component analysis
+  stem: 'Two variables have variances 100 and 1 and covariance 6. What is the off-diagonal entry of their correlation matrix?'
+  choices: ['$0.06$', '$6$', '$0.6$', '$0.36$']
   answer: 2
   explanation: |-
-    $\|A\|_F^2$ is the sum of the squared entries, which equals the sum of the $\sigma_i^2$: $16 + 9 = 25$, so $\|A\|_F = 5$. Forgetting the square root gives 25; adding the singular values gives 7.
+    Standardizing divides each variable by its standard deviation (10 and 1), so the covariance becomes $\tfrac{6}{10 \cdot 1} = 0.6$. Dividing by the variance 100 gives 0.06, and 0.36 is $0.6^2$.
 
 - id: la-h1-r2-h36
   lesson: la-h1-pca
   module_quiz: true
-  topic: Low-rank approximation
-  stem: 'A $600 \times 400$ image is replaced by its best rank-20 approximation, stored as singular values and singular vectors. How many numbers are stored?'
-  choices: ['$240{,}000$', '$4{,}800{,}000$', '$20{,}000$', '$20{,}020$']
+  topic: Principal component analysis
+  stem: 'Data on 11 individuals have covariance eigenvalues 6, 3 and 1. If each deviation is replaced by its projection onto the first two principal components, what is the total of the squared lengths of the parts that are lost?'
+  choices: ['$1$', '$11$', '$90$', '$10$']
   answer: 3
   explanation: |-
-    Each rank-one piece $\sigma_i\mathbf{u}_i\mathbf{v}_i^T$ needs $1 + 600 + 400 = 1001$ numbers, so 20 pieces need $20{,}020$. The full image has $240{,}000$ entries; $20{,}000$ forgets the $\sigma$'s; $4{,}800{,}000$ multiplies 20 by the whole image.
+    The lost part of each deviation is its component along $\mathbf{u}_3$, and the squared scores along $\mathbf{u}_3$ add to $(N - 1)\lambda_3 = 10 \times 1 = 10$. The answer 1 forgets the factor $N - 1$; 90 is $(N - 1)(\lambda_1 + \lambda_2)$, the part that is kept.
 
 - id: la-h1-r2-h37
   lesson: la-h1-pca
@@ -429,165 +429,161 @@
   lesson: la-h1-pca
   type: match
   module_quiz: true
-  topic: Low-rank approximation
+  topic: Principal component analysis
   stem: 'Match each term with its meaning.'
   pairs:
-    - ['Eckart–Young theorem', 'The truncated SVD is the best rank-k approximation']
-    - ['Frobenius norm', 'Square root of the sum of the squared entries']
-    - ['Total variance', 'Trace of the covariance matrix']
     - ['Mean-deviation form', 'Data with the mean subtracted from each column']
-  distractors: ['Largest eigenvalue of the covariance matrix']
+    - ['Total variance', 'Trace of the covariance matrix']
+    - ['Principal components', 'Unit eigenvectors of the covariance matrix']
+    - ['Scores', 'Projections of the deviations onto a component']
+  distractors: ['Largest entry of the covariance matrix']
   explanation: |-
-    Eckart–Young says that keeping the $k$ largest singular values is optimal. $\|A\|_F = \sqrt{\sum a_{ij}^2}$. The total variance is the sum of the variances, the trace of $S$ (also the sum of all its eigenvalues, not just the largest). Mean-deviation form is the centered data matrix $B$.
+    Centering gives $B$; the total variance is the sum of the variances, the trace of $S$ (and the sum of its eigenvalues); the principal components are the orthonormal eigenvectors of $S$; and an individual's score along $\mathbf{u}$ is $\mathbf{u}^T(\mathbf{x} - \mathbf{m})$.
 
-# --- Lesson 93: error-correcting codes ---
+# --- Lesson 93: trilateration, least squares and GPS ---
 - id: la-h1-r2-h43
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   module_quiz: true
-  topic: Error-correcting codes
-  stem: 'Add $(1, 1, 0, 1) + (0, 1, 1, 1)$ in $\mathbb{F}_2^4$.'
-  choices: ['$(1, 2, 1, 2)$', '$(0, 1, 0, 1)$', '$(1, 1, 1, 1)$', '$(1, 0, 1, 0)$']
+  topic: Positioning from distances
+  stem: 'Why does trilateration subtract the first circle equation $\|\mathbf{x} - \mathbf{p}_1\|^2 = r_1^2$ from the others?'
+  choices: ['To remove the measurement errors', 'To make every distance positive', 'To find the beacons'' positions', 'To cancel the quadratic term $\mathbf{x}\cdot\mathbf{x}$, leaving linear equations']
   answer: 3
   explanation: |-
-    Add entry by entry with $1 + 1 = 0$: $(1 + 0, 1 + 1, 0 + 1, 1 + 1) = (1, 0, 1, 0)$. $(1, 2, 1, 2)$ uses ordinary arithmetic, and $(0, 1, 0, 1)$ is its complement.
+    Every equation expands to $\mathbf{x}\cdot\mathbf{x} - 2\mathbf{p}_i\cdot\mathbf{x} + \mathbf{p}_i\cdot\mathbf{p}_i = r_i^2$, with the same $\mathbf{x}\cdot\mathbf{x}$. Subtracting cancels it, and what remains is linear in $\mathbf{x}$. Errors are not removed (that is the job of least squares), and the beacon positions are known from the start.
 
 - id: la-h1-r2-h44
-  lesson: la-h1-codes
-  topic: Error-correcting codes
-  stem: 'A linear code is a 5-dimensional subspace of $\mathbb{F}_2^{12}$. How many codewords does it have?'
-  choices: ['$5$', '$32$', '$60$', '$4096$']
+  lesson: la-h1-gps
+  topic: Positioning from distances
+  stem: 'Beacons sit at $(0, 0)$ and $(6, 0)$, and your squared distances to them are $r_1^2 = 13$ and $r_2^2 = 25$. What is your $x$-coordinate?'
+  choices: ['$x = 3$', '$x = 2$', '$x = -1$', '$x = 4$']
   answer: 1
   explanation: |-
-    Each codeword is $c_1\mathbf{b}_1 + \cdots + c_5\mathbf{b}_5$ for a basis, with each $c_i$ equal to 0 or 1, so there are $2^5 = 32$. $4096 = 2^{12}$ counts all of $\mathbb{F}_2^{12}$.
+    Subtracting: $2(6, 0)\cdot\mathbf{x} = 13 - 25 + 36$, so $12x = 24$ and $x = 2$. Check: $y^2 = 13 - 4 = 9$, and $(2 - 6)^2 + 9 = 25$. (Two beacons leave $y = \pm 3$ undecided; a third beacon off the line would settle it.)
 
 - id: la-h1-r2-h45
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   module_quiz: true
-  topic: Error-correcting codes
-  stem: 'The Hamming code of length 15 uses the $4 \times 15$ parity-check matrix whose column $j$ is $j$ in binary. What is the dimension of the code $\operatorname{Nul} H$?'
-  choices: ['$4$', '$15$', '$11$', '$19$']
+  topic: Positioning from distances
+  stem: 'Why does a GPS receiver need signals from at least four satellites for a position in space?'
+  choices: ['Three for the coordinates and one spare to check the answer', 'Each satellite only measures one coordinate, plus one for the time of day', 'Its own clock offset is a fourth unknown alongside $x$, $y$ and $z$', 'Two satellites are needed per coordinate pair']
   answer: 2
   explanation: |-
-    Columns 1, 2, 4 and 8 are the standard basis vectors of $\mathbb{F}_2^4$, so $\operatorname{rank} H = 4$. By the rank theorem, $\dim\operatorname{Nul} H = 15 - 4 = 11$: 11 data bits and 4 parity bits per block. (4 is the rank, not the null space's dimension.)
+    The pseudorange $\rho_i = \|\mathbf{x} - \mathbf{s}_i\| + cb$ involves the unknown clock offset $b$ as well as the three coordinates. Four unknowns need at least four equations. Each satellite gives a whole distance, not one coordinate.
 
 - id: la-h1-r2-h46
-  lesson: la-h1-codes
-  topic: Error-correcting codes
-  stem: 'A code has minimum distance $d = 5$. How many errors per block can nearest-codeword decoding always correct?'
-  choices: ['$2$', '$4$', '$5$', '$1$']
+  lesson: la-h1-gps
+  topic: Positioning from distances
+  stem: 'Light travels about 300 m per microsecond. If a receiver''s clock were off by 2 microseconds and nothing corrected it, about how large would the distance errors be?'
+  choices: ['About 600 m', 'About 300 m', 'About 6 m', 'About 60 km']
   answer: 0
   explanation: |-
-    Correcting $t$ errors needs $d \ge 2t + 1$; with $d = 5$, $t = 2$. Four is the number of errors it can detect ($d - 1$) if it doesn't try to correct.
+    $2\ \mu\text{s} \times 300\ \text{m}/\mu\text{s} = 600$ m. This is why the clock offset is solved for as an unknown instead of trusted.
 
 - id: la-h1-r2-h47
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   module_quiz: true
-  topic: Error-correcting codes
-  stem: 'With the lesson''s matrix $H$ (top row = 4s place), a received word has syndrome $H\mathbf{r} = (1, 1, 0)$. If exactly one bit was flipped, which one?'
-  choices: ['Bit 3', 'Bit 6', 'Bit 5', 'Bit 1']
+  topic: Positioning from distances
+  stem: 'In the plane, two beacons have perpendicular lines of sight from the receiver. What is the dilution of precision $\sqrt{\operatorname{tr}((J^TJ)^{-1})}$?'
+  choices: ['$1$', '$\sqrt2 \approx 1.41$', '$2$', '$0.5$']
   answer: 1
   explanation: |-
-    The syndrome equals the column of the flipped bit, and column $j$ is $j$ in binary with the 4s place on top: $110_2 = 4 + 2 = 6$. Reading it backward as $011_2$ gives 3.
+    The rows of $J$ are perpendicular unit vectors, so $J^TJ = I$ and $\operatorname{tr}(I^{-1}) = 2$; the DOP is $\sqrt2$. In general it is $\sqrt2/\sin\theta$, smallest at $\theta = 90^\circ$. Forgetting the square root gives 2.
 
 - id: la-h1-r2-h48
-  lesson: la-h1-codes
-  topic: Error-correcting codes
-  stem: 'What is the Hamming distance between $1011001$ and $1001011$?'
-  choices: ['$3$', '$4$', '$2$', '$5$']
+  lesson: la-h1-gps
+  topic: Positioning from distances
+  stem: 'Why do satellites bunched in one part of the sky give a poor position?'
+  choices: ['Their signals interfere with each other', 'They are farther away from the receiver', 'The rows of $J$ are nearly parallel, so $J^TJ$ is nearly singular and $(J^TJ)^{-1}$ is large', 'Their clocks disagree more']
   answer: 2
   explanation: |-
-    They differ only in positions 3 and 6. Equivalently, their sum $0010010$ has weight 2.
+    Nearly equal line-of-sight vectors make $J$ nearly rank-deficient. Then $(J^TJ)^{-1}$, which sets the size of the position errors, has large entries: a large DOP. It is a geometric, ill-conditioning problem, not a signal or clock problem.
 
 - id: la-h1-r2-h49
-  lesson: la-h1-codes
-  topic: Error-correcting codes
-  stem: 'Why does the Hamming (7,4) code have no codeword of weight 2?'
-  choices: ['Because $H$ has rank 3', 'Because the code has 16 codewords', 'Because every column of $H$ contains a 1', 'Because no two different columns of $H$ add to zero']
+  lesson: la-h1-gps
+  topic: Positioning from distances
+  stem: 'When a GPS receiver linearizes the pseudorange equations at a guess $\mathbf{x}_0$, what is row $i$ of the matrix $J$ (unknowns: position correction, then $c$ times the clock correction)?'
+  choices: ['$[\,\mathbf{s}_i^T\ \ 1\,]$, the satellite position and a 1', '$[\,\mathbf{x}_0^T\ \ 1\,]$, the guess and a 1', '$[\,\mathbf{e}_i^T\ \ 0\,]$, the unit line-of-sight vector and a 0', '$[\,\mathbf{e}_i^T\ \ 1\,]$, the unit line-of-sight vector and a 1']
   answer: 3
   explanation: |-
-    A weight-2 vector $\mathbf{e}_i + \mathbf{e}_j$ has syndrome (column $i$) + (column $j$), which is zero only if the two columns are equal; all seven columns are different. "Every column contains a 1" rules out weight 1, not weight 2.
+    A small move $\boldsymbol{\delta}$ changes the distance by about $\mathbf{e}_i\cdot\boldsymbol{\delta}$, with $\mathbf{e}_i = (\mathbf{x}_0 - \mathbf{s}_i)/\|\mathbf{x}_0 - \mathbf{s}_i\|$, and a clock correction adds $c\,\Delta b$ to every pseudorange with coefficient 1. A 0 would ignore the clock.
 
 - id: la-h1-r2-h50
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   module_quiz: true
-  topic: Error-correcting codes
-  stem: 'Two bits of a Hamming (7,4) codeword are flipped. What does the single-error decoder do?'
-  choices: ['It finds a nonzero syndrome, flips a third bit, and outputs a wrong codeword', 'It finds a zero syndrome and accepts the word', 'It finds and fixes both errors', 'It reports that two errors occurred']
+  topic: Positioning from distances
+  stem: 'After subtracting equations, four beacons give $x = 3$, $y = 4$ and $x + y = 7.3$. What is the least-squares estimate of $(x, y)$?'
+  choices: ['$(3.1, 4.1)$', '$(3, 4)$', '$(3.3, 4.3)$', '$(3.65, 3.65)$']
   answer: 0
   explanation: |-
-    The syndrome is the sum of two different columns of $H$, which is nonzero and equal to some third column. The decoder flips that bit, landing on a different codeword (as in the lesson's Example 3). Detecting double errors needs the extra overall parity bit of the extended code.
+    $M = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1\end{bmatrix}$, $M^TM = \begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}$, $M^T\mathbf{c} = (10.3, 11.3)$. So $\hat x = \tfrac{2(10.3) - 11.3}{3} = 3.1$ and $\hat y = \tfrac{2(11.3) - 10.3}{3} = 4.1$. The mismatch of 0.3 is shared out: each equation is off by 0.1. $(3, 4)$ ignores the third equation.
 
 - id: la-h1-r2-h51
-  lesson: la-h1-codes
-  topic: Error-correcting codes
-  stem: 'Why is the Hamming (7,4) code called a perfect code?'
-  choices: ['It corrects every pattern of errors', 'Its rate $4/7$ is the highest possible', 'The radius-1 balls around its 16 codewords fill all of $\mathbb{F}_2^7$ with no overlap', 'Its minimum distance equals its length']
+  lesson: la-h1-gps
+  topic: Positioning from distances
+  stem: 'Three beacons in the plane all lie on one straight line. Why can''t they fix your position?'
+  choices: ['Three distances are never enough in the plane', 'The circles never intersect', 'Your reflection across that line has the same distances to all three beacons', 'The linear equations become nonlinear']
   answer: 2
   explanation: |-
-    Each codeword plus its 7 neighbors at distance 1 makes 8 words, and $16 \times 8 = 128 = 2^7$, so every received word is within distance 1 of exactly one codeword. It does not correct two errors, and its minimum distance is 3.
+    Reflecting across the line keeps every distance to a point on the line, so two positions fit equally well. In the linear equations, the vectors $\mathbf{p}_i - \mathbf{p}_1$ are parallel, so the two equations cannot pin down both coordinates.
 
 - id: la-h1-r2-h52
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   type: text
-  topic: Error-correcting codes
-  stem: 'Encode the data bits $x_3x_5x_6x_7 = 0110$ with the Hamming (7,4) code. The parity bits are $x_1 =$ ___, $x_2 =$ ___ and $x_4 =$ ___.'
-  accept:
-    - ['1']
-    - ['1']
-    - ['0']
+  topic: Positioning from distances
+  stem: 'A GPS distance computed from signal travel time, which still includes the error of the receiver''s clock, is called a ___.'
+  accept: [pseudorange, pseudoranges, pseudo-range, pseudo range]
   explanation: |-
-    Mod 2: $x_1 = x_3 + x_5 + x_7 = 0 + 1 + 0 = 1$, $x_2 = x_3 + x_6 + x_7 = 0 + 1 + 0 = 1$, $x_4 = x_5 + x_6 + x_7 = 1 + 1 + 0 = 0$. The codeword is $(1, 1, 0, 0, 1, 1, 0)$.
+    The pseudorange is $\rho_i = \|\mathbf{x} - \mathbf{s}_i\| + cb$: the true distance plus the speed of light times the clock offset.
 
 - id: la-h1-r2-h53
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   type: label
-  topic: Error-correcting codes
-  stem: 'The three circles are the parity checks of the Hamming (7,4) code. Check $k$ contains every bit position whose binary form includes $k$ (check 1: positions 1, 3, 5, 7; check 2: positions 2, 3, 6, 7; check 4: positions 4 to 7). Name the bit position in each numbered region.'
-  image: {src: images/la-h1-venn-blank.svg, alt: 'Three overlapping circles labeled check 1 (upper left), check 2 (upper right) and check 4 (bottom), forming seven regions. Numbered markers sit in the region inside all three circles, the region only in check 1, the region in checks 1 and 2 only, the region in checks 2 and 4 only, and the region only in check 4.'}
+  topic: Positioning from distances
+  stem: 'The picture compares two satellite arrangements seen from a receiver. Name each numbered part.'
+  image: {src: images/la-h1-gps-blank.svg, alt: 'Two panels, each with a receiver on the curved surface of the Earth and four satellites joined to it by dashed lines. In the left panel the satellites are scattered across the sky; in the right panel they are bunched almost straight overhead. Four parts are numbered.'}
   labels:
-    - {x: 50.0, y: 50.0, text: 'Position 7'}
-    - {x: 30.5, y: 35.0, text: 'Position 1'}
-    - {x: 50.0, y: 33.0, text: 'Position 3'}
-    - {x: 59.1, y: 58.0, text: 'Position 6'}
-    - {x: 50.0, y: 77.0, text: 'Position 4'}
-  distractors: ['Position 2', 'Position 5']
+    - {x: 25.0, y: 79.5, text: 'Receiver (unknown position)'}
+    - {x: 11.7, y: 30.1, text: 'Satellite (known position)'}
+    - {x: 32.0, y: 53.8, text: 'Measured range'}
+    - {x: 74.3, y: 11.8, text: 'Clustered satellites: large DOP'}
+  distractors: ['Clock offset', 'Center of the Earth']
   explanation: |-
-    A position lies in exactly the circles of the powers of 2 that add up to it. $7 = 4 + 2 + 1$ is in all three circles; 1 is in check 1 only; $3 = 2 + 1$ is in checks 1 and 2; $6 = 4 + 2$ is in checks 2 and 4; 4 is in check 4 only. Position 2 is the region only in check 2, and $5 = 4 + 1$ is in checks 1 and 4, neither of which is marked.
+    The receiver sits on the ground and its position is the unknown; each satellite broadcasts its known position; the dashed line is the measured range. The right-hand group, bunched in one direction, gives nearly parallel rows of $J$ and a large dilution of precision. A clock offset has no place in a picture; it is a number.
 
 - id: la-h1-r2-h54
-  lesson: la-h1-codes
-  topic: Error-correcting codes
-  stem: 'Which vectors are codewords of the Hamming (7,4) code ($H\mathbf{x} = \mathbf{0}$ with the lesson''s $H$)? Select all that apply.'
-  choices: ['$(0, 0, 0, 0, 0, 0, 0)$', '$(1, 1, 1, 0, 0, 0, 0)$', '$(1, 1, 1, 1, 1, 1, 1)$', '$(1, 0, 0, 0, 0, 0, 0)$', '$(0, 1, 1, 0, 0, 1, 0)$']
+  lesson: la-h1-gps
+  topic: Positioning from distances
+  stem: 'Which of these make a GPS position estimate more reliable? Select all that apply.'
+  choices: ['Satellites spread widely across the sky', 'Using more than four satellites and least squares', 'Solving for the receiver''s clock offset', 'Choosing satellites that all lie in nearly the same direction', 'Solving the linearized equations once, without repeating']
   answer: [0, 1, 2]
   explanation: |-
-    The zero vector is in every subspace. $(1, 1, 1, 0, 0, 0, 0)$: columns 1, 2, 3 add to $001 + 010 + 011 = 000$. All ones: each row of $H$ has four 1s, and $4 \equiv 0$. $(1, 0, 0, 0, 0, 0, 0)$ has syndrome $001$ (a single error in bit 1). For $(0, 1, 1, 0, 0, 1, 0)$, the 4s check gives $x_4 + x_5 + x_6 + x_7 = 1$, so it fails (its syndrome $111$ points to bit 7).
+    Spread-out directions give a small DOP; extra measurements average out errors through least squares; and solving for the clock offset removes the largest error source. Bunched satellites give a large DOP, and a single linearized step is only accurate near the starting guess, so the receiver repeats it.
 
 - id: la-h1-r2-h55
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   type: order
-  topic: Error-correcting codes
-  stem: 'Put the steps for decoding a received Hamming (7,4) word that has one error in order.'
+  topic: Positioning from distances
+  stem: 'Put one round of the Gauss–Newton method in a GPS receiver in order.'
   items:
-    - 'Receive the 7-bit word $\mathbf{r}$'
-    - 'Compute the syndrome $H\mathbf{r}$'
-    - 'Read the syndrome as a binary number $j$'
-    - 'Flip bit $j$'
-    - 'Read the data bits from positions 3, 5, 6 and 7'
+    - 'Guess the position and clock offset'
+    - 'Predict the pseudorange to each satellite from the guess'
+    - 'Subtract the predicted pseudoranges from the measured ones'
+    - 'Solve the linear least-squares problem for the correction'
+    - 'Add the correction to the guess'
   explanation: |-
-    The syndrome $H\mathbf{r} = H\mathbf{e}$ comes from the received word; read in binary, it names the bad position; flipping that bit restores the codeword; and only then are the data bits read off.
+    Predictions need a guess; the mismatches need the predictions; the least-squares correction is computed from the mismatches; and the updated guess starts the next round.
 
 - id: la-h1-r2-h56
-  lesson: la-h1-codes
+  lesson: la-h1-gps
   type: match
   module_quiz: true
-  topic: Error-correcting codes
+  topic: Positioning from distances
   stem: 'Match each term with its meaning.'
   pairs:
-    - ['Syndrome', 'Hr, which depends only on the error']
-    - ['Hamming weight', 'The number of 1s in a vector']
-    - ['Parity-check matrix', 'Its null space is the code']
-    - ['Generator matrix', 'Its columns form a basis of the code']
-  distractors: ['The fraction k/n of message bits']
+    - ['Trilateration', 'Finding a position from distances to known points']
+    - ['Pseudorange', 'Range that includes the receiver clock error']
+    - ['Dilution of precision', 'How much the geometry magnifies range errors']
+    - ['Gauss–Newton method', 'Repeated linearize-and-least-squares updates']
+  distractors: ['Distance measured along the ground']
   explanation: |-
-    $H\mathbf{r} = H(\mathbf{c} + \mathbf{e}) = H\mathbf{e}$. The weight counts 1s. The code is $\operatorname{Nul} H$, and its basis vectors are the columns of $G$, so codewords are $G\mathbf{d}$. The fraction $k/n$ is the code's rate.
+    Trilateration uses distances (not angles). The pseudorange is $\|\mathbf{x} - \mathbf{s}_i\| + cb$. DOP is $\sqrt{\operatorname{tr}((J^TJ)^{-1})}$. Gauss–Newton fits a nonlinear model by solving a linear least-squares problem at each step.
