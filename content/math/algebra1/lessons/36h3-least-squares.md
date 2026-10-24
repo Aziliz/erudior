@@ -72,7 +72,7 @@ Find the least-squares line for $(1, 2), (2, 3), (3, 5), (4, 4), (5, 6)$.
 ![The five data points with the line y-hat equals 0.9x plus 1.3 passing through the point of averages (3, 4). Each residual is drawn as a dashed vertical segment with a shaded square on it whose area is the squared residual. A table lists residuals negative 0.2, negative 0.1, 1.0, negative 0.9 and 0.2, which add to 0, and squared residuals 0.04, 0.01, 1.00, 0.81 and 0.04, which add to 1.90.](images/a1-m8-squares.svg)
 
 ```plot
-{"x": [0, 1.8], "y": [0, 12], "functions": [{"f": "10x^2 - 18x + 10", "label": "S(m) = 10m² − 18m + 10"}], "points": [{"at": [0.9, 1.9], "label": "minimum at m = 0.9, S = 1.9"}], "xLabel": "slope m", "yLabel": "sum of squared residuals", "caption": "The sum of squared residuals is a parabola in the slope; the least-squares slope is its vertex"}
+{"x": [0, 1.8], "y": [0, 12], "functions": [{"f": "10x^2 - 18x + 10"}], "points": [{"at": [0.9, 1.9]}], "labels": [{"at": [0.9, 11], "text": "S(m) = 10m² − 18m + 10"}, {"at": [0.9, 0.7], "text": "minimum at m = 0.9, S = 1.9"}], "xLabel": "slope m", "yLabel": "sum of squared residuals", "caption": "The sum of squared residuals is a parabola in the slope; the least-squares slope is its vertex"}
 ```
 
 ## The slope and the correlation coefficient

@@ -90,7 +90,7 @@ A high $|r|$ is not enough. $r$ only measures how close the points are to a *lin
 For the car data, linear regression gives $\hat y = -2663x + 28{,}931$ with $r \approx -0.986$. Compare the residuals of the two models.
 
 ```plot
-{"x": [-0.5, 11], "y": [-2000, 34000], "points": [[0, 31000], [1, 26100], [2, 23600], [3, 19500], [4, 17300], [5, 14100], [6, 12700], [7, 11100], [8, 9100]], "functions": [{"f": "30980*0.86^x", "label": "exponential"}, {"f": "-2663x + 28931", "label": "linear", "dashed": true}], "xLabel": "age (years)", "yLabel": "value ($)", "caption": "The car data with both models: the exponential curve bends with the data; the line runs below the points at both ends and above them in the middle, and it drops below zero after about 11 years"}
+{"x": [-0.5, 11], "y": [-2000, 34000], "points": [[0, 31000], [1, 26100], [2, 23600], [3, 19500], [4, 17300], [5, 14100], [6, 12700], [7, 11100], [8, 9100]], "functions": [{"f": "30980*0.86^x"}, {"f": "-2663x + 28931", "dashed": true}], "xLabel": "age (years)", "yLabel": "value ($)", "caption": "The car data with both models: the exponential curve (solid) bends with the data; the line (dashed) runs below the points at both ends and above them in the middle, and it drops below zero after about 11 years"}
 ```
 
 | Age | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |

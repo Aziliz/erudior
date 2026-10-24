@@ -233,7 +233,7 @@
   solution: |-
     First write ${z}$ in polar form: its modulus is $r \approx {r:num4}$ and its argument is ${th}^\circ$.
     De Moivre: $(r\,\text{cis}\,\theta)^{n} = r^{n}\,\text{cis}({n}\theta)$. The modulus is $r^{n} \approx$ **{R:num4}**.
-    The argument is ${n} \cdot {th}^\circ = {nth}^\circ$, which is coterminal with **{A}°**.
+    The argument is ${n} \cdot {th}^\circ = {nth:dp0}^\circ$, which is coterminal with **{A}°**.
 
 - id: a2-h1-r2-avg-rate
   title: Average rate of change of a quadratic
