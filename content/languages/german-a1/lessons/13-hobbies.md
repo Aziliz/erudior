@@ -49,6 +49,11 @@ paint), *fotografieren* (to take photos). Others use *spielen* or *fahren* with 
 | *spazieren gehen* | to go for a walk |
 | *ins Kino gehen* | to go to the cinema |
 
+Here are six of these hobbies as pictures. Say each one aloud as a sentence: *Ich lese gern.
+Ich fahre gern Fahrrad.*
+
+![Six picture tiles with captions: an open book (lesen), a bicycle (Fahrrad fahren), a guitar (Gitarre spielen), a football (Fußball spielen), a camera (fotografieren) and mountains with a dotted path and a signpost (wandern).](images/de1-m4-hobbies.svg)
+
 Two small notes. German drops the article with sports and instruments here: *Ich spiele
 Fußball* (no *den*), *Ich spiele Gitarre*. And *ins Kino*, *ins Theater* and *ins Konzert* are
 fixed chunks for going somewhere; you will see why in later lessons.
@@ -112,6 +117,22 @@ You can't see from the infinitive whether a verb changes, so the vocabulary list
 stem change. Many common verbs with *e* or *a* do not change: *gehen*, *lernen*, *machen*,
 *spielen*, *wandern*, *malen*, *tanzen*.
 
+This chart sums up the decision you make each time you conjugate a verb in the present tense:
+
+```mermaid
+flowchart TD
+  accTitle: Does the stem vowel change?
+  accDescr: A decision chart for the present tense. First ask who the subject is. With ich, wir, ihr, sie (they) or Sie, use the plain stem with no vowel change, as in ich fahre and ihr fahrt. With du or er, sie, es, check the word list for a stem change. If there is none, use the plain stem, as in du spielst and er spielt. If there is one, it is a to ä as in du fährst and er fährt, e to i as in du gibst and er gibt, or e to ie as in du liest and er liest.
+  A{"Who is the subject?"} --> B["ich, wir, ihr, sie (they), Sie"]
+  A --> C["du or er/sie/es"]
+  B --> D["Plain stem: ich fahre, ihr fahrt"]
+  C --> E{"Stem change in the word list?"}
+  E -- no --> F["Plain stem: du spielst, er spielt"]
+  E -- yes --> G["a to ä: du fährst, er fährt"]
+  E -- yes --> H["e to i: du gibst, er gibt"]
+  E -- yes --> I["e to ie: du liest, er liest"]
+```
+
 Examples:
 
 - *Mein Vater fährt am Wochenende Fahrrad.* — My father cycles at the weekend.
@@ -132,6 +153,10 @@ and *am liebsten* its **superlative** ("most of all, like best").
 | *gern* | like doing | *Ich schwimme gern.* — I like swimming. |
 | *lieber* | prefer, would rather | *Ich jogge lieber.* — I prefer jogging. |
 | *am liebsten* | like most of all | *Am liebsten tanze ich.* — Most of all I like dancing. |
+
+Picture them as three steps, each one higher than the last:
+
+![Three steps rising from left to right. The lowest is gern, like doing, with the example Ich schwimme gern. The middle one is lieber, prefer, with Ich jogge lieber. The highest is am liebsten, like most of all, with Am liebsten tanze ich. An arrow underneath is labeled how much you like it.](images/de1-m4-gern-steps.svg)
 
 They all sit where *gern* sits, after the verb:
 

@@ -1,0 +1,161 @@
+# Round 2 drills for module phys-m8 (Electrostatics): honors lessons 06h1-06h3.
+- id: phys-m8-r2-image-plane
+  title: A charge above a grounded plane
+  topic: Method of images
+  vars:
+    qn: {min: 1, max: 9}
+    dcm: {min: 1, max: 10, step: 0.5}
+  calc:
+    dm: dcm/100
+    F: 8.99e9*(qn*1e-9)^2/(2*dm)^2*1e6
+    sig: -(qn*1e-9)/(2*pi*dm^2)*1e6
+    W: 8.99e9*(qn*1e-9)^2/(4*dm)*1e6
+  prompt: 'A $+{qn}$ nC point charge is held {dcm} cm above a large grounded metal plate. Using the method of images, find (a) the force on the charge in μN, (b) the induced surface charge density on the plate directly beneath the charge in μC/m² (with its sign), and (c) the work needed to move the charge very far away, in μJ. Give each to 3 significant figures ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: F, label: '(a) Force', relTolerance: 0.01, units: {'μN': 1, 'uN': 1, N: 1000000}}
+    - {format: sig4, name: sig, label: '(b) $\sigma$', relTolerance: 0.01, units: {'μC/m²': 1, 'μC/m^2': 1, 'uC/m^2': 1, 'C/m²': 1000000, 'C/m^2': 1000000}}
+    - {format: sig4, name: W, label: '(c) Work', relTolerance: 0.01, units: {'μJ': 1, 'uJ': 1, J: 1000000}}
+  solution: |-
+    The image is $-{qn}$ nC at {dcm} cm below the plate, so the two charges are $2d = 2({dm})$ m apart.
+
+    (a) $F = \dfrac{kq^2}{(2d)^2} = \dfrac{(8.99\times10^9)({qn}\times10^{-9})^2}{(2 \times {dm})^2} =$ **{F:sig3} μN**, toward the plate.
+
+    (b) Directly beneath ($r = 0$): $\sigma = -\dfrac{q}{2\pi d^2} = -\dfrac{{qn}\times10^{-9}}{2\pi({dm})^2} =$ **{sig:sig3} μC/m²**.
+
+    (c) $W = \dfrac{kq^2}{4d} = \dfrac{(8.99\times10^9)({qn}\times10^{-9})^2}{4 \times {dm}} =$ **{W:sig3} μJ**, half the energy of a real pair of charges $2d$ apart.
+- id: phys-m8-r2-image-sphere
+  title: A charge near a grounded sphere
+  topic: Method of images
+  vars:
+    qn: {min: 1, max: 12}
+    Rcm: {min: 2, max: 10}
+    acm: {min: 5, max: 40}
+  where: ['acm >= Rcm + 2']
+  calc:
+    qp: -qn*Rcm/acm
+    bcm: Rcm^2/acm
+    qa: abs(qp)
+    sepcm: acm - bcm
+    sep: sepcm/100
+    F: 8.99e9*(qn*1e-9)*abs(qp*1e-9)/sep^2*1e6
+  prompt: 'A grounded metal sphere of radius {Rcm} cm has its center {acm} cm from a $+{qn}$ nC point charge. Find (a) the image charge in nC (with its sign), (b) its distance from the sphere''s center in cm, and (c) the magnitude of the force on the point charge in μN. Give each to 3 significant figures ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: qp, label: '(a) Image charge', relTolerance: 0.01, units: {nC: 1}}
+    - {format: sig4, name: bcm, label: '(b) Distance from center', relTolerance: 0.01, units: {cm: 1, m: 100}}
+    - {format: sig4, name: F, label: '(c) Force', relTolerance: 0.01, units: {'μN': 1, 'uN': 1, N: 1000000}}
+  solution: |-
+    (a) $q' = -\dfrac{R}{a}\,q = -\dfrac{{Rcm}}{{acm}}({qn}\text{ nC}) =$ **{qp:sig3} nC**.
+
+    (b) $b = \dfrac{R^2}{a} = \dfrac{({Rcm})^2}{{acm}} =$ **{bcm:sig3} cm** from the center, on the line toward the charge.
+
+    (c) The charges are $a - b = {acm} - {bcm:sig4} = {sepcm:sig4}$ cm apart, so $F = \dfrac{k\,q\,|q'|}{(a - b)^2} = \dfrac{(8.99\times10^9)({qn}\times10^{-9})({qa:sig4}\times10^{-9})}{({sep:sig4})^2} =$ **{F:sig3} μN**, an attraction.
+- id: phys-m8-r2-slab-capacitor
+  title: A capacitor partly filled with a dielectric
+  topic: Dielectrics
+  vars:
+    Acm: {min: 50, max: 400, step: 10}
+    dmm: {min: 2, max: 8}
+    frac: {choices: [0.25, 0.5, 0.75]}
+    kap: {choices: [2.1, 3.7, 4.5, 5.6, 7]}
+    V: {min: 10, max: 200, step: 10}
+  calc:
+    tmm: frac*dmm
+    eff: dmm - tmm + tmm/kap
+    C: 8.85e-12*(Acm/10000)/(eff/1000)*1e12
+    Vs: V*(tmm/kap)/eff
+  prompt: 'Parallel plates of area {Acm} cm² are {dmm} mm apart. A slab with dielectric constant {kap} and thickness {tmm} mm lies against one plate, with air in the rest of the gap, and the capacitor is connected to {V} V. Find (a) the capacitance in pF and (b) the voltage across the slab in volts, each to 3 significant figures ($\varepsilon_0 = 8.85\times10^{-12}$ C²/(N·m²)).'
+  answers:
+    - {format: sig4, name: C, label: '(a) Capacitance', relTolerance: 0.01, units: {pF: 1, nF: 1000}}
+    - {format: sig4, name: Vs, label: '(b) Voltage across the slab', relTolerance: 0.01, units: {V: 1}}
+  solution: |-
+    (a) The air and the slab act like capacitors in series: $C = \dfrac{\varepsilon_0A}{d - t + t/\kappa}$, with $d - t + t/\kappa = {dmm} - {tmm} + {tmm}/{kap} = {eff:sig4}$ mm. So $C = \dfrac{(8.85\times10^{-12})({Acm}\times10^{-4})}{{eff:sig4}\times10^{-3}} =$ **{C:sig3} pF**.
+
+    (b) $D$ is the same in both layers, so $E$ in the slab is $1/\kappa$ of $E$ in the air, and the voltage splits in proportion to $t/\kappa$ and $d - t$: $V_{\text{slab}} = V\,\dfrac{t/\kappa}{d - t + t/\kappa} = {V}\cdot\dfrac{{tmm}/{kap}}{{eff:sig4}} =$ **{Vs:sig3} V**. The air layer takes the rest.
+- id: phys-m8-r2-dielectric-insert
+  title: Inserting a dielectric, with and without the battery
+  topic: Dielectrics
+  vars:
+    C0: {min: 5, max: 100, step: 5}
+    V: {min: 10, max: 200, step: 10}
+    kap: {choices: [2, 2.5, 3, 4, 5, 6]}
+  calc:
+    U0: 0.5*C0*1e-12*V^2*1e9
+    Va: V/kap
+    Ua: U0/kap
+    Qb: kap*C0*V/1000
+    Ub: kap*U0
+    Wb: (kap - 1)*C0*V*V/1000
+  prompt: 'A {C0} pF air capacitor is charged to {V} V. A slab with $\kappa = {kap}$ is then slid in to fill the gap. (a) If the battery was disconnected first, find the final voltage (V) and stored energy (nJ). (b) If the battery stays connected, find the final charge (nC) and stored energy (nJ). Give each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: Va, label: '(a) Voltage', relTolerance: 0.01, units: {V: 1}}
+    - {format: sig4, name: Ua, label: '(a) Energy', relTolerance: 0.01, units: {nJ: 1, 'μJ': 1000, 'uJ': 1000}}
+    - {format: sig4, name: Qb, label: '(b) Charge', relTolerance: 0.01, units: {nC: 1, pC: 0.001}}
+    - {format: sig4, name: Ub, label: '(b) Energy', relTolerance: 0.01, units: {nJ: 1, 'μJ': 1000, 'uJ': 1000}}
+  solution: |-
+    Before: $U_0 = \tfrac12C_0V^2 = \tfrac12({C0}\times10^{-12})({V})^2 = {U0:sig4}$ nJ. The slab multiplies $C$ by {kap}.
+
+    (a) Disconnected, so $Q$ is fixed: $V = {V}/{kap} =$ **{Va:sig3} V**, and $U = Q^2/(2C)$ falls by the same factor: $U = {U0:sig4}/{kap} =$ **{Ua:sig3} nJ**. The difference is work the field did pulling the slab in.
+
+    (b) Connected, so $V$ is fixed: $Q = \kappa C_0V = {kap}({C0}\text{ pF})({V}\text{ V}) =$ **{Qb:sig3} nC**, and $U = \tfrac12CV^2$ rises by the factor {kap}: **{Ub:sig3} nJ**. The battery supplied $(\kappa - 1)C_0V^2 = {Wb:sig3}$ nJ, twice the increase in stored energy.
+- id: phys-m8-r2-assembly-energy
+  title: Energy to assemble three charges
+  topic: Electrostatic energy
+  vars:
+    q1: {min: -5, max: 5}
+    q2: {min: -5, max: 5}
+    q3: {min: -5, max: 5}
+    scm: {min: 5, max: 50, step: 5}
+  where: ['q1 != 0', 'q2 != 0', 'q3 != 0', 'abs(q1*q2 + q1*q3 + q2*q3) >= 2']
+  calc:
+    s: scm/100
+    S: q1*q2 + q1*q3 + q2*q3
+    U: 8.99e9*S*1e-12/s
+  prompt: 'Charges of ${q1}$ μC, ${q2}$ μC and ${q3}$ μC are placed at the corners of an equilateral triangle with sides of {scm} cm. How much work does it take to assemble them, starting from very far apart? Give the answer in joules to 3 significant figures, with its sign ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {format: sig4, name: U, label: '$U =$', relTolerance: 0.01, units: {J: 1, mJ: 0.001}}
+  solution: |-
+    Every pair is the same distance $s = {s}$ m apart, so $U = \dfrac{k}{\,s}(q_1q_2 + q_1q_3 + q_2q_3)$.
+
+    The sum of the pair products is $({q1})({q2}) + ({q1})({q3}) + ({q2})({q3}) = {S}$ μC².
+
+    $U = \dfrac{8.99\times10^9}{{s}}({S}\times10^{-12}) =$ **{U:sig3} J**. A positive answer means work had to be done; a negative one means the charges would pull themselves together.
+- id: phys-m8-r2-sphere-self-energy
+  title: Electric energy of a nucleus
+  topic: Electrostatic energy
+  vars:
+    n: {choices: [{label: 'carbon-12 ($Z = 6$, $A = 12$)', value: 1}, {label: 'oxygen-16 ($Z = 8$, $A = 16$)', value: 2}, {label: 'iron-56 ($Z = 26$, $A = 56$)', value: 3}, {label: 'silver-107 ($Z = 47$, $A = 107$)', value: 4}, {label: 'gold-197 ($Z = 79$, $A = 197$)', value: 5}, {label: 'lead-208 ($Z = 82$, $A = 208$)', value: 6}, {label: 'uranium-238 ($Z = 92$, $A = 238$)', value: 7}]}
+  calc:
+    Z: if(n == 1, 6, if(n == 2, 8, if(n == 3, 26, if(n == 4, 47, if(n == 5, 79, if(n == 6, 82, 92))))))
+    A: if(n == 1, 12, if(n == 2, 16, if(n == 3, 56, if(n == 4, 107, if(n == 5, 197, if(n == 6, 208, 238))))))
+    R: 1.2*cbrt(A)
+    U: 0.6*1.44*Z^2/R
+  prompt: 'Model a {n} nucleus as a uniformly charged ball of radius $R = (1.2\text{ fm})A^{1/3}$. Find (a) its radius in fm and (b) its electric self-energy $\tfrac35k(Ze)^2/R$ in MeV, each to 3 significant figures. Use $ke^2 = 1.44$ MeV·fm.'
+  answers:
+    - {format: sig4, name: R, label: '(a) Radius', relTolerance: 0.01, units: {fm: 1}}
+    - {format: sig4, name: U, label: '(b) Self-energy', relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
+  solution: |-
+    (a) $R = 1.2({A})^{1/3} =$ **{R:sig3} fm**.
+
+    (b) $U = \dfrac35\cdot\dfrac{(ke^2)Z^2}{\,R} = 0.6 \times \dfrac{1.44 \times {Z}^2}{{R:sig4}} =$ **{U:sig3} MeV**. (Nuclear models use $Z(Z - 1)$ instead of $Z^2$, since a proton doesn't repel itself.)
+- id: phys-m8-r2-plate-force
+  title: Force between capacitor plates
+  topic: Electrostatic energy
+  vars:
+    Acm: {min: 50, max: 900, step: 50}
+    dmm: {min: 0.5, max: 5, step: 0.5}
+    V: {min: 100, max: 2000, step: 100}
+  where: ['V/(dmm/1000) < 2.5e6']
+  calc:
+    E: V/(dmm/1000)
+    P: 0.5*8.85e-12*E^2
+    F: P*Acm/10000*1000
+  prompt: 'A parallel-plate capacitor with plates of area {Acm} cm², {dmm} mm apart, is connected to {V} V. Find (a) the electrostatic pressure on each plate in Pa and (b) the force between the plates in mN, each to 3 significant figures ($\varepsilon_0 = 8.85\times10^{-12}$ C²/(N·m²)).'
+  answers:
+    - {format: sig4, name: P, label: '(a) Pressure', relTolerance: 0.01, units: {Pa: 1}}
+    - {format: sig4, name: F, label: '(b) Force', relTolerance: 0.01, units: {mN: 1, N: 1000}}
+  solution: |-
+    $E = V/d = {V}/({dmm}\times10^{-3}) = {E:sig4}$ V/m.
+
+    (a) $P = \tfrac12\varepsilon_0E^2 = \tfrac12(8.85\times10^{-12})({E:sig4})^2 =$ **{P:sig3} Pa**.
+
+    (b) $F = PA = ({P:sig4})({Acm}\times10^{-4}) =$ **{F:sig3} mN**, an attraction. (This is $\tfrac12QE$: each plate feels only the other plate's field.)

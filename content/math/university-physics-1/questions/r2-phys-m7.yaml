@@ -359,4 +359,386 @@
   choices: ['14.7', '13.7', '1.0', '0.068']
   answer: 0
   explanation: |-
-    The Carnot limit for heating is $\dfrac{T_H}{T_H - T_C} = \dfrac{293}{293 - 273} = 14.7$, in kelvins. 13.7 is the refrigerator COP $T_C/(T_H - T_C)$, 1.0 comes from using Celsius ($20/20$), and 0.068 is the Carnot efficiency $1 - T_C/T_H$ of an engine between these temperatures. Real heat pumps reach about 3 to 4 in such conditions, well below the limit.
+    The Carnot limit for heating is $\dfrac{T_H}{T_H - T_C} = \dfrac{293}{293 - 273} = 14.7$, in kelvins. 13.7 is the refrigerator COP $T_C/(T_H - T_C)$, 1.0 comes from using Celsius ($20/20$), and 0.068 is the Carnot efficiency $1 - T_C/T_H$ of an engine between these temperatures. Real heat pumps typically reach 2 to 4 in such conditions, well below the limit.
+# ---- Honors 29h1: Real engine cycles
+- id: phys-m7-r2-h01
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'What is the air-standard efficiency of an Otto cycle with compression ratio 8 ($\gamma = 1.4$)?'
+  choices: ['94.6%', '87.5%', '44.8%', '56.5%']
+  answer: 3
+  explanation: |-
+    $e = 1 - r^{1-\gamma} = 1 - 8^{-0.4} = 1 - 0.435 = 0.565$. Using $r^{-\gamma}$ instead gives 94.6%, and $1 - 1/r$ gives 87.5%. 44.8% uses the Brayton exponent $(\gamma - 1)/\gamma$, which belongs with a pressure ratio, not a volume ratio.
+- id: phys-m7-r2-h02
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'Air at 290 K is compressed adiabatically in an engine with compression ratio 9 ($\gamma = 1.4$). What is its temperature at the end of the compression stroke?'
+  choices: ['698 K', '543 K', '2610 K', '6290 K']
+  answer: 0
+  explanation: |-
+    Along an adiabat $TV^{\gamma-1}$ is constant, so $T_2 = T_1r^{\gamma-1} = 290(9)^{0.4} = 290(2.41) = 698$ K. 543 K uses the exponent $(\gamma - 1)/\gamma$ (for pressure ratios), 2610 K multiplies by $r$ itself, and 6290 K uses $r^\gamma$, which is the pressure ratio $P_2/P_1$.
+- id: phys-m7-r2-h03
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  type: text
+  stem: 'In the air-standard Otto cycle, the burning of the fuel is modeled as heat added at constant ___.'
+  accept: [volume]
+  explanation: |-
+    Gasoline burns so quickly after the spark that the piston barely moves, so the Otto cycle adds heat at constant volume (the vertical line 2 → 3 on the PV diagram). The Diesel and Brayton cycles add heat at constant pressure.
+- id: phys-m7-r2-h04
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  type: label
+  stem: 'Name the numbered steps of this Otto cycle.'
+  image: {src: images/phys-m7-otto-blank.svg, alt: 'A PV diagram with a closed loop: a vertical line at small volume, two curves falling from left to right, and a short vertical line at large volume. Arrows run up the left vertical line, down along the upper curve, down the right vertical line and back up along the lower curve.'}
+  labels:
+    - {x: 28.2, y: 37.1, text: Heat added at constant volume}
+    - {x: 44.7, y: 59.5, text: Adiabatic expansion (power stroke)}
+    - {x: 55.6, y: 80.6, text: Adiabatic compression}
+    - {x: 83.1, y: 79.7, text: Heat rejected at constant volume}
+  distractors: [Isothermal expansion, Heat added at constant pressure]
+  explanation: |-
+    The loop runs clockwise. The lower curve (3) is the adiabatic compression from large to small volume; the vertical line at small volume (1) is the spark, heat added at constant volume; the upper curve (2) is the adiabatic power stroke; and the short vertical line at large volume (4) is heat rejected at constant volume when the exhaust valve opens. There is no isothermal step, and the Otto cycle adds heat at constant volume, not constant pressure.
+- id: phys-m7-r2-h05
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  type: order
+  stem: 'Starting with the piston at the bottom and the cylinder full of fresh air (state 1), put the four steps of the Otto cycle in order.'
+  items:
+    - 'Adiabatic compression'
+    - 'Heat added at constant volume (spark)'
+    - 'Adiabatic expansion (power stroke)'
+    - 'Heat rejected at constant volume (exhaust valve opens)'
+  explanation: |-
+    1 → 2: the piston compresses the air with no heat flow. 2 → 3: the spark fires and the fuel burns at almost constant volume. 3 → 4: the hot gas pushes the piston down. 4 → 1: the exhaust valve opens and the pressure falls at the bottom of the stroke, returning to state 1.
+- id: phys-m7-r2-h06
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  type: match
+  stem: 'Match each ideal cycle to the machine it models.'
+  pairs:
+    - [Otto cycle, Gasoline engine with spark ignition]
+    - [Diesel cycle, Engine that ignites its fuel by compressing air]
+    - [Brayton cycle, Jet engine or gas turbine]
+    - [Carnot cycle, A theoretical limit too slow to build]
+  distractors: [Hydraulic lift]
+  explanation: |-
+    Otto: spark ignition, heat added at constant volume. Diesel: compression ignition, heat added at constant pressure. Brayton: continuous flow through compressor, combustor and turbine, heat added and rejected at constant pressure. Carnot: two isotherms and two adiabats, the efficiency limit, but its isothermal steps would be impractically slow.
+- id: phys-m7-r2-h07
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'Which changes raise the air-standard efficiency of an Otto cycle? Select all that apply.'
+  choices:
+    - 'A higher compression ratio'
+    - 'A working gas with a larger $\gamma$'
+    - 'Burning more fuel in each cycle'
+    - 'A larger cylinder with the same compression ratio'
+  answer: [0, 1]
+  explanation: |-
+    $e = 1 - 1/r^{\gamma-1}$ depends only on $r$ and $\gamma$, and it grows when either grows. More fuel or a bigger cylinder gives more work per cycle, but not a larger fraction of the heat turned into work.
+- id: phys-m7-r2-h08
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'What mainly limits the compression ratio of a gasoline engine to about 8–12?'
+  choices:
+    - 'The cylinder walls cannot withstand higher pressures'
+    - 'The fuel–air mixture would ignite on its own before the spark (knock)'
+    - 'The Otto efficiency formula stops increasing above $r = 12$'
+    - 'Higher ratios would make the intake stroke do net work'
+  answer: 1
+  explanation: |-
+    Gasoline engines compress fuel and air together, and compression heats the mixture. Too much compression makes it autoignite in uncontrolled pockets: engine knock. Diesel engines, which compress only air, routinely run at 14–22, so the walls can take it. The ideal efficiency keeps rising with $r$, just more slowly.
+- id: phys-m7-r2-h09
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'Find the air-standard efficiency of a Diesel cycle with compression ratio 20 and cutoff ratio 2.5 ($\gamma = 1.4$).'
+  choices: ['69.8%', '75.7%', '62.5%', '98.1%']
+  answer: 2
+  explanation: |-
+    $r^{\gamma - 1} = 20^{0.4} = 3.31$, and the cutoff factor is $\dfrac{2.5^{1.4} - 1}{1.4(2.5 - 1)} = \dfrac{3.607 - 1}{2.1} = 1.241$. So $e = 1 - 1.241/3.31 = 0.625$. 69.8% leaves out the cutoff factor (it's the Otto efficiency at $r = 20$), 75.7% divides by the factor instead of multiplying, and 98.1% uses $r^{\gamma}$ in place of $r^{\gamma-1}$.
+- id: phys-m7-r2-h10
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'At the same compression ratio, an ideal Diesel cycle is less efficient than an Otto cycle. Why are real diesel engines usually more efficient than gasoline engines?'
+  choices:
+    - 'Diesel fuel releases more energy per kilogram than gasoline'
+    - 'Diesel engines reject no heat to the surroundings'
+    - 'They compress only air, so they can use much higher compression ratios without knock'
+    - 'Adding heat at constant pressure always beats adding it at constant volume'
+  answer: 2
+  explanation: |-
+    The efficiency of both cycles rises with the compression ratio. Because a diesel injects fuel only at the top of the stroke, it can compress air to ratios of about 14–22 without knock, which more than makes up for the less favorable constant-pressure heat addition. Every engine must reject heat (second law), and the cycle efficiency doesn't depend on the fuel's energy content.
+- id: phys-m7-r2-h11
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'What is the ideal efficiency of a Brayton cycle with pressure ratio 15 ($\gamma = 1.4$)?'
+  choices: ['53.9%', '66.1%', '93.3%', '97.7%']
+  answer: 0
+  explanation: |-
+    $e = 1 - r_p^{-(\gamma-1)/\gamma} = 1 - 15^{-0.2857} = 1 - 0.461 = 0.539$. 66.1% uses the Otto exponent $\gamma - 1$, which belongs with a volume ratio; 93.3% is $1 - 1/r_p$; and 97.7% uses $r_p^{-\gamma}$.
+- id: phys-m7-r2-h12
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  type: text
+  stem: 'Air at 300 K passes through an ideal (adiabatic, reversible) compressor with pressure ratio 10 ($\gamma = 1.4$). It leaves at ___ K, to the nearest kelvin.'
+  accept: ['579']
+  explanation: |-
+    Along an adiabat $T \propto P^{(\gamma-1)/\gamma}$, so $T = 300(10)^{0.4/1.4} = 300(10)^{0.2857} = 300(1.931) = 579$ K.
+- id: phys-m7-r2-h13
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'An ideal Otto engine and a Carnot engine both work between a lowest temperature of 300 K and a highest of 2000 K. Why is the Otto efficiency lower?'
+  choices:
+    - 'The Otto cycle takes in and gives out heat over a range of temperatures, not only at the extremes'
+    - 'The Otto cycle has friction and the Carnot cycle does not'
+    - 'The Otto cycle uses air, and the Carnot cycle needs a monatomic gas'
+    - 'The Otto cycle does no work during its constant-volume steps, which wastes heat'
+  answer: 0
+  explanation: |-
+    Both are ideal and reversible in the air-standard model. The Carnot engine takes in all its heat at the top temperature and rejects all of it at the bottom; the Otto cycle takes in heat while the gas warms from $T_2$ to $T_3$ and rejects it while the gas cools from $T_4$ to $T_1$, so on average its heat enters cooler and leaves hotter. The Carnot limit holds for any working gas, and no work during a constant-volume step is not by itself a loss.
+- id: phys-m7-r2-h14
+  lesson: phys-m7-h-engine-cycles
+  topic: Engine cycles
+  stem: 'An ideal Otto engine with compression ratio 10 takes in air at 300 K, and combustion heats it to 1800 K ($\gamma = 1.4$, $C_V = \tfrac52R$). How much net work does it do per mole of air per cycle?'
+  choices: ['21.8 kJ', '18.1 kJ', '22.5 kJ', '13.1 kJ']
+  answer: 3
+  explanation: |-
+    $T_2 = 300(10)^{0.4} = 754$ K, so $Q_H = nC_V(T_3 - T_2) = 20.8(1800 - 754) = 21.8$ kJ per mole. With $e = 1 - 10^{-0.4} = 0.602$, $W = 0.602(21.8) = 13.1$ kJ. 21.8 kJ is the heat input, not the work; 18.1 kJ uses the Carnot efficiency $1 - 300/1800$; and 22.5 kJ takes $Q_H = C_VT_3$, forgetting that the gas was already at 754 K.
+# ---- Honors 29h2: Statistical meaning of entropy
+- id: phys-m7-r2-h15
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  type: text
+  stem: 'When 6 coins are tossed, the macrostate "exactly 3 heads" has a multiplicity of ___.'
+  accept: ['20']
+  explanation: |-
+    $\Omega = \binom63 = \dfrac{6!}{3!\,3!} = \dfrac{720}{36} = 20$ of the $2^6 = 64$ microstates.
+- id: phys-m7-r2-h16
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'Four fair coins are tossed. What is the probability of exactly 2 heads?'
+  choices: ['0.200', '0.375', '0.500', '0.0625']
+  answer: 1
+  explanation: |-
+    All 16 microstates are equally likely, and 6 of them have 2 heads: $6/16 = 0.375$. 0.200 treats the 5 macrostates (0 to 4 heads) as equally likely, which they are not; 0.500 is $2/4$; 0.0625 is the probability of one particular microstate, such as HHTT.
+- id: phys-m7-r2-h17
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'A system has $\Omega = 10^{20}$ accessible microstates. What is its entropy?'
+  choices: ['$2.76\times10^{-22}$ J/K', '$6.36\times10^{-22}$ J/K', '$1.38\times10^{-3}$ J/K', '$4.61\times10^{1}$ J/K']
+  answer: 1
+  explanation: |-
+    $S = k_B\ln\Omega = (1.38\times10^{-23})\ln(10^{20}) = (1.38\times10^{-23})(46.05) = 6.36\times10^{-22}$ J/K. $2.76\times10^{-22}$ uses $\log_{10}$ (20) instead of the natural log; $1.38\times10^{-3}$ multiplies $k_B$ by $\Omega$ itself; 46.1 J/K forgets $k_B$.
+- id: phys-m7-r2-h18
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: '2.0 mol of an ideal gas expands freely into a vacuum, tripling its volume. By counting microstates, what is its entropy change?'
+  choices: ['+18.3 J/K', '+49.9 J/K', '−18.3 J/K', '+9.13 J/K']
+  answer: 0
+  explanation: |-
+    Each molecule has 3 times as many positions available, so $\Omega$ grows by $3^N$ and $\Delta S = Nk_B\ln3 = nR\ln3 = 2.0(8.314)(1.099) = 18.3$ J/K, positive as an irreversible process requires. 49.9 J/K uses 3 instead of $\ln3$, −18.3 J/K has the ratio upside down, and 9.13 J/K is for one mole.
+- id: phys-m7-r2-h19
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'Which statements are correct? Select all that apply.'
+  choices:
+    - 'Two independent systems together have $\Omega = \Omega_A\Omega_B$ microstates'
+    - 'The entropies of two independent systems add'
+    - 'In an isolated system in equilibrium, some microstates are more likely than others'
+    - 'For very large numbers of particles, the most probable macrostate is overwhelmingly likely'
+  answer: [0, 1, 3]
+  explanation: |-
+    Each microstate of A can pair with each of B, so multiplicities multiply, and because $\ln(\Omega_A\Omega_B) = \ln\Omega_A + \ln\Omega_B$, entropies add. The fundamental assumption is that every accessible microstate is equally likely; macrostates differ only in how many microstates they contain, and for large $N$ the largest one dominates.
+- id: phys-m7-r2-h20
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  type: order
+  stem: 'Order these macrostates of 6 tossed coins from lowest entropy to highest.'
+  items: ['6 heads', '5 heads', '4 heads', '3 heads']
+  explanation: |-
+    $S = k_B\ln\Omega$ grows with the multiplicity: $\binom66 = 1$, $\binom65 = 6$, $\binom64 = 15$ and $\binom63 = 20$. The evenly mixed macrostate has the most microstates and the highest entropy.
+- id: phys-m7-r2-h21
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  type: match
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Microstate, A complete description of every particle]
+    - [Macrostate, 'A description by measurable quantities such as P, V and T']
+    - [Multiplicity, The number of microstates in a macrostate]
+    - [Boltzmann factor, The relative weight of a state of energy E at temperature T]
+  distractors: [The heat needed to melt 1 kg of a solid]
+  explanation: |-
+    A microstate lists every particle's state; a macrostate gives only what we can measure. The multiplicity $\Omega$ counts the microstates in a macrostate, and $S = k_B\ln\Omega$. The Boltzmann factor $e^{-E/(k_BT)}$ weights a state of energy $E$ in a system at temperature $T$. The heat to melt 1 kg is the latent heat of fusion.
+- id: phys-m7-r2-h22
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'Two large objects are in thermal contact: A at 300 K and B at 400 K. When 1.0 J of energy flows from B to A, by how much does the total entropy change?'
+  choices: ['$-8.3\times10^{-4}$ J/K', '$+1.0\times10^{-2}$ J/K', '$+5.8\times10^{-3}$ J/K', '$+8.3\times10^{-4}$ J/K']
+  answer: 3
+  explanation: |-
+    A gains $1.0/300$ J/K and B loses $1.0/400$ J/K, so $\Delta S = \dfrac{1}{300} - \dfrac{1}{400} = +8.3\times10^{-4}$ J/K. It is positive, which is why energy flows from hot to cold. The negative value has the direction reversed, $1/100$ divides by the temperature difference, and $5.8\times10^{-3}$ adds the two terms.
+- id: phys-m7-r2-h23
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'An Einstein solid has 4 oscillators sharing 3 quanta of energy. How many microstates does it have?'
+  choices: ['64', '20', '35', '12']
+  answer: 1
+  explanation: |-
+    $\Omega(N, q) = \binom{q + N - 1}{q} = \binom{6}{3} = 20$. The quanta are identical, so only how many sit in each oscillator matters. 64 is $4^3$, which treats the quanta as distinguishable; 35 is $\binom{7}{3}$, using $q + N$ instead of $q + N - 1$; and 12 is $4\times3$.
+- id: phys-m7-r2-h24
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'At 300 K, $k_BT = 0.0259$ eV. How does the probability of a particular state 0.10 eV above another compare with the probability of that lower state?'
+  choices: ['about 0.90 times as likely', 'about 0.021 times as likely', 'about 0.26 times as likely', 'about 0.77 times as likely']
+  answer: 1
+  explanation: |-
+    The ratio of Boltzmann factors is $e^{-\Delta E/(k_BT)} = e^{-0.10/0.0259} = e^{-3.87} = 0.021$, about 1 in 48. 0.90 is $e^{-0.10}$, forgetting to divide by $k_BT$; 0.26 is $0.0259/0.10$; and 0.77 is $e^{-0.0259/0.10}$, with the ratio upside down.
+- id: phys-m7-r2-h25
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'Treating each gas separately in a still atmosphere at a uniform 300 K, what is the scale height $H = RT/(Mg)$ of argon ($M = 0.040$ kg/mol, $g = 9.8$ m/s²)?'
+  choices: ['6.36 m', '0.573 km', '6.36 km', '63.6 km']
+  answer: 2
+  explanation: |-
+    $H = \dfrac{8.314(300)}{0.040(9.8)} = 6.36\times10^3$ m $= 6.36$ km. 6.36 m uses $M = 40$ (grams per mole, not kg/mol); 0.573 km uses $T = 27$ (Celsius); 63.6 km is helium's scale height. (In the real lower atmosphere winds keep the gases mixed, so each gas does not follow its own scale height.)
+- id: phys-m7-r2-h26
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  type: text
+  stem: 'According to the third law of thermodynamics, the entropy of a perfect crystal approaches ___ as its temperature approaches absolute zero.'
+  accept: ['0', zero]
+  explanation: |-
+    At absolute zero a perfect crystal is in its single lowest-energy microstate, so $\Omega = 1$ and $S = k_B\ln1 = 0$.
+- id: phys-m7-r2-h27
+  lesson: phys-m7-h-statistical-entropy
+  topic: Statistical entropy
+  stem: 'A box holds 10 gas molecules moving at random. At a given instant, what is the probability that all 10 are in the left half?'
+  choices: ['about 1/1000', '1/10', '1/20', '1/2']
+  answer: 0
+  explanation: |-
+    Each molecule is in the left half with probability 1/2, independently, so all 10 are there with probability $(1/2)^{10} = 1/1024$, about 1/1000. For a mole of molecules the same reasoning gives $2^{-6\times10^{23}}$: never observed. With only 10 molecules, such "entropy-lowering" fluctuations happen now and then.
+# ---- Honors 29h3: Viscous flow
+- id: phys-m7-r2-h28
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  type: label
+  stem: 'The picture shows smooth (laminar) flow in a pipe, seen in a lengthwise cut. Name the numbered parts.'
+  image: {src: images/phys-m7-pipe-profile-blank.svg, alt: 'A pipe seen in a lengthwise cut, with horizontal arrows starting on a vertical dashed line. The arrows are longest in the middle and shorter near the walls, and a dashed curve joins their tips.'}
+  labels:
+    - {x: 48.4, y: 18.5, text: 'Pipe wall, where the fluid is at rest'}
+    - {x: 64.5, y: 50, text: 'Fastest flow, on the axis'}
+    - {x: 32.3, y: 26.5, text: Slow layer near the wall}
+    - {x: 53.5, y: 67.6, text: Parabolic velocity profile}
+  distractors: [Turbulent eddy, Uniform plug flow]
+  explanation: |-
+    Viscous fluid sticks to the wall (1) (no slip) and moves fastest on the axis (2). Each layer is slowed by the slower layer outside it, so the speed falls toward the wall (3) along the parabola $v = \dfrac{\Delta P}{4\eta L}(R^2 - r^2)$ (4). In laminar flow there are no eddies, and the speed is not the same across the pipe.
+- id: phys-m7-r2-h29
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'Laminar flow passes through a pipe. If the pipe''s radius is halved and the pressure difference, length and fluid stay the same, the flow rate becomes'
+  choices: ['1/2 of the original', '1/4 of the original', '1/8 of the original', '1/16 of the original']
+  answer: 3
+  explanation: |-
+    Poiseuille's law, $Q = \pi R^4\Delta P/(8\eta L)$, has $R^4$: $(1/2)^4 = 1/16$. Two factors of $R$ come from the cross-sectional area and two more from the speed, which also falls because more of the fluid is close to the wall. 1/4 counts only the area.
+- id: phys-m7-r2-h30
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  type: text
+  stem: 'In laminar Poiseuille flow, the average speed across the pipe is ___ times the speed on the axis.'
+  accept: ['1/2', '0.5', one half, half]
+  explanation: |-
+    $Q = \pi R^4\Delta P/(8\eta L)$, so the average speed is $Q/(\pi R^2) = R^2\Delta P/(8\eta L)$, while the axis speed is $v(0) = R^2\Delta P/(4\eta L)$. The ratio is 1/2.
+- id: phys-m7-r2-h31
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'Olive oil ($\rho = 910$ kg/m³, $\eta = 0.080$ Pa·s) flows at an average 0.50 m/s through a pipe of diameter 2.0 cm. What is the Reynolds number, and is the flow laminar?'
+  choices: ['9100, turbulent', '114, laminar', '57, laminar', '0.0088, laminar']
+  answer: 1
+  explanation: |-
+    $\text{Re} = \dfrac{\rho vD}{\eta} = \dfrac{910(0.50)(0.020)}{0.080} = 114$, far below about 2000, so the flow is laminar. 9100 uses water's viscosity ($1.0\times10^{-3}$ Pa·s), 57 uses the radius in place of the diameter, and 0.0088 is the ratio upside down.
+- id: phys-m7-r2-h32
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'A glass bead of radius 0.025 mm and density 2500 kg/m³ sinks through water ($\eta = 1.0\times10^{-3}$ Pa·s) at 20°C. Using Stokes'' law, what is its terminal speed?'
+  choices: ['3.40 mm/s', '8.17 mm/s', '2.04 mm/s', '9.19 mm/s']
+  answer: 2
+  explanation: |-
+    $v_t = \dfrac{2r^2(\rho_s - \rho_f)g}{9\eta} = \dfrac{2(2.5\times10^{-5})^2(1500)(9.8)}{9(1.0\times10^{-3})} = 2.04\times10^{-3}$ m/s. Check: $\text{Re} = 1000(0.00204)(5.0\times10^{-5})/(1.0\times10^{-3}) = 0.10$, well below 1, so Stokes' law applies. 3.40 mm/s leaves out buoyancy (uses 2500 instead of 1500), 8.17 mm/s uses the diameter for $r$, and 9.19 mm/s drops the factor 2/9.
+- id: phys-m7-r2-h33
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'Which changes would increase the flow rate of laminar flow through a pipe? Select all that apply.'
+  choices:
+    - 'A larger pressure difference between the ends'
+    - 'A pipe of larger radius'
+    - 'A longer pipe'
+    - 'A more viscous fluid'
+  answer: [0, 1]
+  explanation: |-
+    $Q = \dfrac{\pi R^4\Delta P}{8\eta L}$: the flow rate grows with $\Delta P$ and (strongly) with $R$, and shrinks with the length $L$ and the viscosity $\eta$.
+- id: phys-m7-r2-h34
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  type: order
+  stem: 'The same fluid flows through each pipe under the same pressure difference, all in laminar flow. Order the pipes from the smallest flow rate to the largest.'
+  items: ['Radius 1 mm, length 1 m', 'Radius 1 mm, length 0.5 m', 'Radius 2 mm, length 4 m', 'Radius 2 mm, length 1 m']
+  explanation: |-
+    $Q \propto R^4/L$. In units of the first pipe: $1^4/1 = 1$, $1^4/0.5 = 2$, $2^4/4 = 4$ and $2^4/1 = 16$. Doubling the radius wins even against a pipe four times as long.
+- id: phys-m7-r2-h35
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  type: match
+  stem: 'Match each fluid to its approximate viscosity.'
+  pairs:
+    - [Air at 20°C, 0.000018 Pa·s]
+    - [Water at 20°C, 0.0010 Pa·s]
+    - [Olive oil at 20°C, About 0.08 Pa·s]
+    - [Glycerin at 20°C, About 1.4 Pa·s]
+  distractors: [About 500 Pa·s]
+  explanation: |-
+    Gases are far less viscous than liquids: air is about 1/55 as viscous as water. Olive oil is roughly 80 times as viscous as water, and glycerin over a thousand times. (500 Pa·s is more like a very stiff paste.)
+- id: phys-m7-r2-h36
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'In a falling-ball viscometer, a steel ball (radius 1.0 mm, density 7800 kg/m³) falls through glycerin (density 1260 kg/m³) at a steady 1.0 cm/s. What viscosity does Stokes'' law give?'
+  choices: ['1.70 Pa·s', '5.70 Pa·s', '1.97 Pa·s', '1.42 Pa·s']
+  answer: 3
+  explanation: |-
+    Solve $v_t = \dfrac{2r^2(\rho_s - \rho_f)g}{9\eta}$ for $\eta$: $\eta = \dfrac{2(1.0\times10^{-3})^2(6540)(9.8)}{9(0.010)} = 1.42$ Pa·s. Check: $\text{Re} = 1260(0.010)(0.0020)/1.42 = 0.018 \ll 1$, so Stokes' law applies. 1.70 Pa·s leaves out buoyancy, 5.70 Pa·s uses the diameter for $r$, and 1.97 Pa·s adds the densities instead of subtracting.
+- id: phys-m7-r2-h37
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  type: text
+  stem: 'For a small sphere sinking in the Stokes regime, doubling its radius (same material) multiplies its terminal speed by ___.'
+  accept: ['4']
+  explanation: |-
+    $v_t = 2r^2(\rho_s - \rho_f)g/(9\eta)$ grows as $r^2$: the weight minus buoyancy grows as $r^3$ but the drag $6\pi\eta rv$ only as $r$. So doubling $r$ gives 4 times the speed (as long as Re stays well below 1).
+- id: phys-m7-r2-h38
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'You compute a terminal speed with Stokes'' law and then find $\text{Re} = 50$ for that speed. What should you conclude?'
+  choices:
+    - 'The answer is fine, since Stokes'' law holds for any laminar flow'
+    - 'Stokes'' law does not apply; the real speed is higher than computed'
+    - 'The flow must be turbulent, so the drag is zero'
+    - 'Stokes'' law does not apply; the real speed is lower than computed'
+  answer: 3
+  explanation: |-
+    Stokes' law needs $\text{Re} \ll 1$. At larger Re the drag grows faster than linearly with speed, so the sphere reaches force balance at a lower speed than the linear law predicts. Turbulence makes drag larger, not zero.
+- id: phys-m7-r2-h39
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'Water ($\eta = 1.0\times10^{-3}$ Pa·s) flows at $2.0\times10^{-7}$ m³/s through a needle of inner radius 0.15 mm and length 3.0 cm. Assuming laminar Poiseuille flow, what pressure difference drives it?'
+  choices: ['15.1 kPa', '30.2 kPa', '1.89 kPa', '3.02 MPa']
+  answer: 1
+  explanation: |-
+    $\Delta P = \dfrac{8\eta LQ}{\pi R^4} = \dfrac{8(1.0\times10^{-3})(0.030)(2.0\times10^{-7})}{\pi(1.5\times10^{-4})^4} = 3.02\times10^4$ Pa. 15.1 kPa uses 4 in place of 8, 1.89 kPa uses the diameter in place of the radius, and 3.02 MPa leaves the length in centimeters. (Re is about 850, so the flow is laminar.)
+- id: phys-m7-r2-h40
+  lesson: phys-m7-h-viscous-flow
+  topic: Viscous flow
+  stem: 'In laminar flow through a pipe of radius $R$, how fast does the fluid move at $r = R/2$, halfway from the axis to the wall?'
+  choices: ['1/2 of the axis speed', '1/4 of the axis speed', '3/4 of the axis speed', '7/8 of the axis speed']
+  answer: 2
+  explanation: |-
+    $v(r) \propto R^2 - r^2$, so $v(R/2)/v(0) = (R^2 - R^2/4)/R^2 = 3/4$. The profile is a parabola, not a straight line, so halfway out the speed has dropped by only a quarter.

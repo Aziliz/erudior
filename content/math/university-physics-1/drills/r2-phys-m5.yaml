@@ -28,7 +28,7 @@
   topic: Rolling with slipping
   vars:
     L: {min: 0.5, max: 2, step: 0.1}
-    pct: {min: 0, max: 30, step: 5}
+    pct: {min: 0, max: 30, step: 10}
   calc:
     p: L*pct/100
     d: L/2 - p
@@ -39,7 +39,7 @@
     - {format: sig4, name: d, label: 'Pivot to center of mass', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
     - {format: sig4, name: b, label: 'Pivot to center of percussion', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
   solution: |-
-    Center of mass: $d = \tfrac L2 - {p:num2} = $ **{d:sig3} m** below the pivot.
+    Center of mass: $d = \tfrac L2 - {p:num2} =$ **{d:sig3} m** below the pivot.
 
     Parallel-axis theorem: $I_P = \tfrac1{12}ML^2 + Md^2$. With no impulse at the pivot, $b = \dfrac{I_P}{Md} = d + \dfrac{L^2}{12d} = {d:sig4} + \dfrac{({L})^2}{12({d:sig4})} =$ **{b:sig3} m** below the pivot ({fromend:sig3} m from the top end).
 - id: phys-m5-r2-precession

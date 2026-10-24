@@ -72,6 +72,11 @@ position 2, the infinitive closes it at the end.
 In English the two verbs stay together ("I can cook well"). In German they separate: *Ich
 kann gut kochen*, never "Ich kann kochen gut".
 
+The picture shows the bracket as a clamp: the modal verb and the infinitive hold everything in
+between. In a W-question the question word takes position 1, and the bracket works the same way.
+
+![Two sentences split into four boxes each. Top: Ich (position 1), kann (modal verb), am Samstag gut (middle), kochen. (infinitive at the end). Bottom: Wann (position 1), willst (modal verb), du (middle), mitkommen? (infinitive at the end). In both, a red bracket joins the modal verb box to the infinitive box over the middle.](images/de1-m4-bracket.svg)
+
 Yes/no questions start with the modal; the infinitive is still at the end:
 
 - *Kannst du Ski fahren?* — Can you ski?
@@ -126,6 +131,24 @@ False friend warning: *Ich will* does not mean "I will". It means "I want". The 
 *Mögen* mostly takes a noun, not an infinitive: *Ich mag Pizza.* — I like pizza. *Magst du
 Jazz?* — Do you like jazz? *Ich mag meine Kollegen.* — I like my colleagues. For liking
 activities, keep using *gern* from lesson 13: *Ich tanze gern* (I like dancing).
+
+This chart helps you pick the right verb:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing können, wollen, möchten, mögen or gern
+  accDescr: Start with what you want to say. For an ability or a possibility, use können, as in Ich kann schwimmen. For a wish or a plan, ask whether you are asking for something politely: if yes, use möchten, as in Ich möchte einen Kaffee; if it is a firm plan, use wollen, as in Ich will reisen. For liking a thing or a person, use mögen, as in Ich mag Jazz. For liking an activity, use the verb with gern, as in Ich tanze gern.
+  A{"What do you want to say?"} --> B["Ability or possibility"]
+  A --> C["A wish or a plan"]
+  A --> D["Liking a thing or person"]
+  A --> E["Liking an activity"]
+  B --> B1["können: Ich kann schwimmen."]
+  C --> C1{"Asking politely for something?"}
+  C1 -- yes --> C2["möchten: Ich möchte einen Kaffee."]
+  C1 -- "no, a firm plan" --> C3["wollen: Ich will reisen."]
+  D --> D1["mögen: Ich mag Jazz."]
+  E --> E1["verb + gern: Ich tanze gern."]
+```
 
 ## Useful little words for plans
 

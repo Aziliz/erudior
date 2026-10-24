@@ -9,16 +9,14 @@ refs: [de1-ref-verbs]
 ---
 ## What this lesson is for
 
-Lesson 1 gave you the sounds of the German letters and a few rules of thumb. This honors lesson
-goes one step further, to the things that make the difference between "readable" and "sounds
+Lesson 1 gave you the sounds of the German letters. This honors lesson goes one step further,
+to the things that make the difference between "readable" and "sounds
 German": how to tell long and short vowels apart from the spelling alone, what happens to *-e*
 and *-er* at the end of a word, the small catch in the throat that Germans put before words
 starting with a vowel, how a sentence rises and falls, and how the sounds differ between
-regions. At the end you'll see why *daß* became *dass* in 1996, and where the capital *ẞ*
-came from.
+regions. At the end you'll see why *daß* became *dass* in 1996.
 
-Everything here builds on Lesson 1, so keep its tables nearby. The new words for talking about
-pronunciation are *die Aussprache* (pronunciation), *aussprechen* (to pronounce), *der Laut*
+The new words for talking about pronunciation are *die Aussprache* (pronunciation), *aussprechen* (to pronounce), *der Laut*
 (a sound of speech), *die Silbe* (syllable) and *der Akzent* (accent).
 
 ## Long or short? Reading vowel length from the spelling
@@ -59,11 +57,11 @@ Work through the chart for each word.
 1. *Name*: no doubling, no *h*, no double consonant. Split it: *Na-me*. The *a* ends the
    syllable, so it's long: "NAH-meh".
 2. *Stadt*: *dt* is two different consonants, not a double one, and the *a* doesn't end a
-   syllable. The chart says "learn it": it's short, like English *shut* with an *a*.
+   syllable. The chart says "learn it": it's short, as Lesson 1's table showed.
 3. *Bett* (bed): double *t*, so short.
 4. *Boot* (boat): doubled vowel, so long.
 5. *Jahr*: vowel plus *h*, so long; the *h* is silent.
-6. *das*: a short everyday word; short, like the *u* in *bus*.
+6. *das*: one of the short everyday words; the *a* is short and clipped.
 
 ## The schwa and the vocalic r
 
@@ -84,8 +82,7 @@ called the **vocalic r**. Compare:
 Words like *bitte* and *bitter* that differ in a single sound are a **minimal pair**, and they
 are the best way to train your ear. The same melting happens after a long vowel: *der*, *wir*,
 *hier* (here) and *Bier* (beer) end in a short "uh" glide, and *aber* (but) and *oder* (or)
-end like *Lehrer*. If you pronounce a hard English *r* in these words, Germans understand you,
-but it's the clearest sign of an English accent.
+end like *Lehrer*. A hard English *r* here is the clearest sign of an English accent.
 
 ## The glottal stop: the catch before a vowel
 
@@ -95,8 +92,8 @@ of Germany, a word or word part that begins with a vowel usually starts with thi
 instead of being joined to the word before it.
 
 English links words: "an egg" can sound like "a-negg". German keeps them apart: *ein Ei* (an
-egg) is said "ein | Ei", with a fresh start on *Ei*. This is part of why German can sound
-"choppy" to English ears: it isn't being abrupt, it's marking where words begin.
+egg) is said "ein | Ei", with a fresh start on *Ei*. That's part of why German sounds "choppy"
+to English ears.
 
 The glottal stop also works inside words, at the border between two parts:
 
@@ -123,7 +120,6 @@ Lesson 1 covered the groups you meet every day. These come up as your vocabulary
 | *v* in borrowed words | English *v* | *das Klavier*, *die Universität*, *November* |
 | *y* in Greek words | like *ü* | *der Typ* (type, guy) |
 | *y* in English words | as in English | *das Handy* ("HEN-dee") |
-| *ph* | *f* | *die Philosophie* |
 
 A **loanword** is a word taken from another language, and loanwords often keep some of their
 old pronunciation and stress. That's why *v* is an *f* in old German words (*Vater*, *vier*,
@@ -142,9 +138,6 @@ English does, which makes it one of the easier parts:
 
 ![Three sentences with arrows showing their melody. Du wohnst in Berlin: the arrow falls at the end. Wohnst du in Berlin?: the arrow rises at the end. Wo wohnst du?: the arrow usually falls at the end.](images/de1-m1-melody.svg)
 
-The melody can even turn a statement into a question. *Du wohnst in Berlin?* with a rise means
-"You live in Berlin? Really?", just like in English.
-
 ### Example 2: Reading a long word aloud
 
 Take *das Mittagessen* (lunch), a word you'll meet in Lesson 9, and apply everything so far.
@@ -161,7 +154,7 @@ Result: "MIT-tahk | ess-en", with the stress at the start and a clean catch in t
 
 ### Example 3: A tongue twister
 
-Germans practise sounds with **tongue twisters** (*Zungenbrecher*, literally "tongue
+Germans practise sounds with tongue twisters (*Zungenbrecher*, literally "tongue
 breakers"). This one is traditional:
 
 > Fischers Fritz fischt frische Fische, frische Fische fischt Fischers Fritz.
@@ -169,13 +162,12 @@ breakers"). This one is traditional:
 (Fisher's Fritz fishes fresh fish.) Go through it slowly. Every *sch* is English *sh*. Every *i*
 before *sch* or *tz* is short. *Fritz* ends in *tz*, one quick "ts". *fischt* has *sch* and
 then *t* at once: "fisht". The *-e* in *frische* and *Fische* is a schwa, not silent. Say it
-slowly three times, then faster. The verb *fischt* is in position 2 both times; the second
-half simply starts with the object.
+slowly three times, then faster.
 
 ## One language, many accents
 
 German has several standard forms (you'll learn more about this in the next honors lesson),
-and the **pronunciation** of educated speakers differs by region. None of these is "wrong":
+and the pronunciation of educated speakers differs by region. None of these is "wrong":
 
 - The ending *-ig*: *zwanzig* ends with the *ich* sound in most of Germany, but with a *k*
   ("-tsik") in the south, in Austria and in Switzerland, where that counts as standard.
@@ -185,8 +177,8 @@ and the **pronunciation** of educated speakers differs by region. None of these 
 - The *r*: the throat *r* is usual in most of Germany, but many speakers in the south, in
   Austria and in Switzerland roll it with the tip of the tongue.
 
-For your own speaking, pick one model and stay with it. The pronunciation in this course (and
-in most learning materials) follows the standard of Germany.
+For your own speaking, pick one model and stay with it; this course follows the standard of
+Germany.
 
 ## Spelling reform: dass, Fluss and the capital ẞ
 
@@ -203,8 +195,8 @@ in Lesson 1: *ß* after a long vowel or diphthong, *ss* after a short one. Befor
 | *Straße* | *Straße* (no change) | long *a* |
 | *heißen* | *heißen* (no change) | diphthong *ei* |
 
-You'll still see *daß* on old signs and in books printed before about 2000. Now the spelling
-tells you the vowel length, which is useful for reading aloud.
+You'll still see *daß* on old signs and in older books. Now the spelling tells you the vowel
+length, which helps when reading aloud.
 
 Text in capitals used to be a problem: *ß* had no capital, so *STRASSE* was written with *SS*.
 Since 2017 the official rules also allow a capital *ẞ* (*STRAẞE*), though *SS* is still the
@@ -215,26 +207,24 @@ usual choice. Swiss Standard German has done without *ß* for decades and writes
 Kemal, a learner, sends a voice message to his tandem partner Jana. Read it aloud, using
 everything in this lesson.
 
-> Hallo Jana, hier ist Kemal! Ich lerne jetzt jeden Tag Aussprache. Das ist nicht leicht! Ich
-> sage immer "Bier" mit einem englischen r. Und "Spiegelei" ist ein Problem: ich sage
-> "Spie-ge-lei". Mein Lehrer sagt, Wörter mit einem Vokal am Anfang beginnen mit einem kleinen
-> Stopp. Er spielt jetzt oft Zungenbrecher mit uns. "Fischers Fritz" mache ich schon gut! Aber
+> Hallo Jana, hier ist Kemal! Ich lerne jetzt jeden Tag Aussprache. Das ist nicht leicht! Mein
+> "r" in "Bier" ist noch sehr englisch. Und "Spiegelei" ist ein Problem: ich sage
+> "Spie-ge-lei". Mein Lehrer sagt: "Ei" ist ein Wort, und ein Wort mit Vokal am Anfang beginnt
+> neu, mit Stopp. Wir machen jetzt oft Zungenbrecher. "Fischers Fritz" mache ich schon gut! Aber
 > "Blaukraut bleibt Blaukraut" ist sehr schwer. Verreist du im Sommer? Ich verreise nicht, ich
 > lerne. Bis bald!
 
-Hi Jana, it's Kemal! I'm practising pronunciation every day now. It isn't easy! I always say
-*Bier* with an English r. And *Spiegelei* is a problem: I say "Spie-ge-lei". My teacher says
-words with a vowel at the beginning start with a small stop. He often plays tongue twisters
-with us now. I can already do "Fischers Fritz" well! But "Blaukraut bleibt Blaukraut" is very
-hard. Are you going away in the summer? I'm not going away, I'm studying. See you soon!
+Hi Jana, it's Kemal! I'm practising pronunciation every day now. It isn't easy! My "r" in
+*Bier* is still very English. And *Spiegelei* is a problem: I say "Spie-ge-lei". My teacher
+says: *Ei* is a word, and a word with a vowel at the beginning starts fresh, with a stop. We
+often do tongue twisters now. I can already do "Fischers Fritz" well! But "Blaukraut bleibt
+Blaukraut" is very hard. Are you going away in the summer? I'm not going away, I'm studying.
+See you soon!
 
-(*jeden Tag* means every day, *leicht* easy, *schwer* hard, *am Anfang* at the beginning,
-*klein* small and *im Sommer* in the summer. *Blaukraut bleibt Blaukraut und Brautkleid bleibt
-Brautkleid*, "red cabbage stays red cabbage and a wedding dress stays a wedding dress", is
-another traditional tongue twister, a workout for *au*, *ei* and *bl*/*br*.)
+(*jeden Tag* means every day, *leicht* easy, *noch* still, *schwer* hard, *am Anfang* at the
+beginning and *im Sommer* in the summer. The full twister *Blaukraut bleibt Blaukraut und Brautkleid bleibt
+Brautkleid* means "red cabbage stays red cabbage and a wedding dress stays a wedding dress".)
 
-Listen to yourself in the message: *Bier* and *Lehrer* end in the vocalic *r*; *Aussprache*,
-*Akzent* and *ein* need a glottal stop at the start; *Verreist du …?* rises at the end.
 
 ## Common mistakes
 

@@ -79,6 +79,18 @@ In German, *nicht müssen* only means "not necessary". For "forbidden" you need 
 Memory hook: *müssen* is about need. Take the need away (*nicht müssen*) and you are free.
 *Dürfen* is about permission. Take the permission away (*nicht dürfen*) and it is forbidden.
 
+When you want to say "not", ask one question first:
+
+```mermaid
+flowchart TD
+  accTitle: nicht dürfen or nicht müssen?
+  accDescr: Ask whether the action is forbidden. If yes, use nicht dürfen, for example Du darfst hier nicht parken, which means you mustn't park here. If it is allowed but simply not necessary, use nicht müssen, for example Du musst nicht kommen, which means you don't have to come. English must not matches nicht dürfen; English don't have to matches nicht müssen.
+  A{"Is it forbidden?"} -- yes --> B["nicht dürfen"]
+  A -- "no, just not necessary" --> C["nicht müssen"]
+  B --> B1["Du darfst hier nicht parken. = You mustn't park here."]
+  C --> C1["Du musst nicht kommen. = You don't have to come."]
+```
+
 ## sollen: what someone else wants
 
 *Sollen* passes on an instruction, advice or expectation that comes from another person:

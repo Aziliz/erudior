@@ -72,10 +72,10 @@ For a photon beam ($m_b = 0$), $K_{\text{th}}$ is the photon's whole energy.
 ```mermaid
 flowchart TD
   accTitle: Checking whether a reaction can happen
-  accDescr: First check that charge and the other conserved quantities balance. Then compute the invariant mass of the initial particles. If it is less than the total mass of the products, the reaction cannot happen at this energy. If it is at least the total mass, energy and momentum allow it, and the minimum beam kinetic energy is M squared minus the square of the beam plus target masses, all over twice the target mass, times c squared.
+  accDescr: First check that charge and the other conserved quantities balance; if not, the reaction is forbidden. Then compute the invariant mass of the initial particles. If it is less than the total mass of the products, the reaction cannot happen at this energy. If it is at least the total mass, energy and momentum allow it, and at the threshold energy the products are at rest in the center-of-momentum frame.
   A["Charge and other conserved numbers balance?"] -- no --> X["Forbidden"]
   A -- yes --> B["Find the invariant mass of the initial particles"]
-  B --> C{"At least the total mass M of the products?"}
+  B --> C["At least the total mass M of the products?"]
   C -- no --> Y["Not enough energy: below threshold"]
   C -- yes --> D["Allowed by energy and momentum"]
   D --> E["Threshold: products at rest in the center-of-momentum frame"]

@@ -10,11 +10,11 @@ refs: [phys-ref-em-modern, phys-ref-constants]
 ---
 ## Where the energy is, and what it pushes on
 
-The potential lesson gave the energy of a pair of charges, $kq_1q_2/r$, and the capacitance lesson found the energy of a charged capacitor and the field energy density $\tfrac12\varepsilon_0E^2$. This lesson pulls those results together. It finds the energy needed to assemble any arrangement of charge, uses it to estimate the electric energy packed into an atomic nucleus, and then turns energy into force: the pressure on a charged conductor's surface, the pull between capacitor plates, and the method of virtual work, which finds forces from how the energy changes.
+The potential lesson gave the energy of a pair of charges, $kq_1q_2/r$, and the capacitance lesson found the energy of a charged capacitor and the field energy density $\tfrac12\varepsilon_0E^2$. This lesson pulls those results together. It finds the energy needed to assemble any arrangement of charge, uses it to estimate the electric energy packed into an atomic nucleus, and then turns energy into force: the pressure on a charged conductor's surface, the pull between capacitor plates, and the method of **virtual work**, which finds forces from how the energy changes.
 
 ## The energy of assembling charges
 
-Bring charges in from far away one at a time. The first costs nothing. The second costs $kq_1q_2/r_{12}$, the work against the first. The third costs $kq_1q_3/r_{13} + kq_2q_3/r_{23}$, and so on. The total, the **electrostatic potential energy** of the arrangement, is a sum over every pair, each counted once:
+Bring charges in from far away one at a time. The first costs nothing. The second costs $kq_1q_2/r_{12}$, the work against the first. The third costs $kq_1q_3/r_{13} + kq_2q_3/r_{23}$, and so on. The total, the electric potential energy of the arrangement, is a sum over every pair, each counted once:
 
 $$U = \sum_{\text{pairs}}\frac{kq_iq_j}{r_{ij}} = \frac12\sum_iq_iV_i,$$
 

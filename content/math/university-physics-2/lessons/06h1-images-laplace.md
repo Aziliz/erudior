@@ -29,7 +29,7 @@ Two quick checks show it agrees with what you know.
 
 Solutions of Laplace's equation have an averaging property: in a charge-free region, the potential at any point equals the average of $V$ over any sphere centered on that point (as long as the sphere contains no charge). In one dimension this is easy to see: a straight line's value at the midpoint of any interval is the average of its two end values.
 
-An average can't be bigger than every value it averages, so **$V$ has no local maximum or minimum in empty space**. Its extreme values are on the boundaries: on conductors or at charges.
+An average can't be bigger than every value it averages, so *$V$ has no local maximum or minimum in empty space*. Its extreme values are on the boundaries: on conductors or at charges.
 
 That has a famous consequence, **Earnshaw's theorem**: a charged particle cannot sit in stable equilibrium under electrostatic forces from fixed charges alone. A positive charge would need a point where $V$ has a minimum, so that it is pushed back from every direction; Laplace's equation rules such points out. At best you get a saddle, stable in some directions and unstable in others. This is why particle physicists who trap single ions add a magnetic field (a Penning trap) or use a rapidly oscillating field (a Paul trap): a static electric field alone cannot do it.
 
@@ -39,7 +39,7 @@ The most useful fact about Laplace's equation is the **uniqueness theorem**: in 
 
 *Why:* suppose $V_1$ and $V_2$ were both solutions. Their difference $W = V_1 - V_2$ satisfies Laplace's equation (the charge densities cancel) and is zero on every boundary. With no interior maximum or minimum, $W$ can be no larger and no smaller than its boundary values, so $W = 0$ everywhere.
 
-The practical meaning: **if you can guess a potential that satisfies the equation and matches the boundary conditions, it is the answer**, however you found it. For example, a closed metal box with nothing inside: $V$ equal to the box's potential everywhere inside satisfies Laplace's equation and the boundary condition, so it is the solution, and the field inside is zero no matter what charges sit outside. That is the Faraday cage from the electric field lesson, now proved.
+The practical meaning: *if you can guess a potential that satisfies the equation and matches the boundary conditions, it is the answer*, however you found it. For example, a closed metal box with nothing inside: $V$ equal to the box's potential everywhere inside satisfies Laplace's equation and the boundary condition, so it is the solution, and the field inside is zero no matter what charges sit outside. That is the Faraday cage from the electric field lesson, now proved.
 
 ## Image charge for a flat conductor
 

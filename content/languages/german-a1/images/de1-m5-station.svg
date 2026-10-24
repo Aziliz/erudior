@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" width="720" height="500" role="img"><title>A station scene: a plane in the sky, a train at a platform with a suitcase and a timetable, and a street with a tram, a bus and a taxi, each labeled in German</title>
+<rect x="0" y="0" width="720" height="500" fill="#ffffff"/>
+<path d="M 520 60 L 660 50 C 690 48 700 62 680 68 L 540 78 Z" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<polygon points="600,55 570,20 590,20 630,53" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<polygon points="600,72 580,105 600,105 630,70" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<polygon points="525,62 510,38 522,38 545,60" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="30" y="120" width="420" height="72" rx="8" fill="#dde8f3" stroke="#1c2833" stroke-width="2" />
+<path d="M 450 120 L 500 120 C 540 120 560 160 560 192 L 450 192 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2" />
+<path d="M 470 132 L 505 132 C 525 134 535 150 538 160 L 470 160 Z" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="48" y="135" width="40" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="108" y="135" width="40" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="168" y="135" width="40" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="228" y="135" width="40" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="288" y="135" width="40" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="348" y="135" width="40" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="408" y="135" width="40" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<line x1="250" y1="120" x2="250" y2="192" stroke="#1c2833" stroke-width="2" />
+<circle cx="80" cy="198" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="130" cy="198" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="300" cy="198" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="350" cy="198" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="480" cy="198" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="525" cy="198" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="10" y1="210" x2="600" y2="210" stroke="#1c2833" stroke-width="3" />
+<line x1="20" y1="207" x2="30" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="44" y1="207" x2="54" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="68" y1="207" x2="78" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="92" y1="207" x2="102" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="116" y1="207" x2="126" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="140" y1="207" x2="150" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="164" y1="207" x2="174" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="188" y1="207" x2="198" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="212" y1="207" x2="222" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="236" y1="207" x2="246" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="260" y1="207" x2="270" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="284" y1="207" x2="294" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="308" y1="207" x2="318" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="332" y1="207" x2="342" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="356" y1="207" x2="366" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="380" y1="207" x2="390" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="404" y1="207" x2="414" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="428" y1="207" x2="438" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="452" y1="207" x2="462" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="476" y1="207" x2="486" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="500" y1="207" x2="510" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="524" y1="207" x2="534" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="548" y1="207" x2="558" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="572" y1="207" x2="582" y2="214" stroke="#1c2833" stroke-width="2" />
+<line x1="596" y1="207" x2="606" y2="214" stroke="#1c2833" stroke-width="2" />
+<rect x="10" y="218" width="600" height="40" rx="0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" />
+<line x1="10" y1="224" x2="610" y2="224" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="10 6"/>
+<line x1="585" y1="258" x2="585" y2="150" stroke="#1c2833" stroke-width="4" />
+<rect x="565" y="128" width="40" height="34" rx="4" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<text x="585" y="153" font-family="sans-serif" font-size="22" font-weight="bold" fill="#1c2833" text-anchor="middle">3</text>
+<rect x="110" y="232" width="52" height="40" rx="5" fill="#f8e1dc" stroke="#1c2833" stroke-width="2" />
+<path d="M 124 232 L 124 222 L 148 222 L 148 232" fill="none" stroke="#1c2833" stroke-width="3" />
+<line x1="300" y1="300" x2="300" y2="262" stroke="#1c2833" stroke-width="4" />
+<rect x="262" y="262" width="76" height="50" rx="3" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<line x1="270" y1="274" x2="330" y2="274" stroke="#1c2833" stroke-width="1.5" />
+<line x1="270" y1="284" x2="330" y2="284" stroke="#1c2833" stroke-width="1.5" />
+<line x1="270" y1="294" x2="330" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<line x1="270" y1="304" x2="330" y2="304" stroke="#1c2833" stroke-width="1.5" />
+<rect x="0" y="330" width="720" height="140" rx="0" fill="#eceff1" stroke="#1c2833" stroke-width="2" />
+<line x1="0" y1="450" x2="300" y2="450" stroke="#1c2833" stroke-width="2" />
+<line x1="0" y1="456" x2="300" y2="456" stroke="#1c2833" stroke-width="2" />
+<line x1="0" y1="318" x2="300" y2="318" stroke="#1c2833" stroke-width="1.5" />
+<path d="M 130 350 L 150 322 L 170 350" fill="none" stroke="#1c2833" stroke-width="2" />
+<rect x="30" y="350" width="250" height="92" rx="14" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" />
+<rect x="48" y="364" width="32" height="30" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="94" y="364" width="32" height="30" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="140" y="364" width="32" height="30" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="186" y="364" width="32" height="30" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="232" y="364" width="32" height="30" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<circle cx="70" cy="444" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="110" cy="444" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="200" cy="444" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="240" cy="444" r="9" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="320" y="362" width="210" height="80" rx="10" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" />
+<rect x="334" y="374" width="30" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="374" y="374" width="30" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="414" y="374" width="30" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="454" y="374" width="30" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="494" y="374" width="30" height="26" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<rect x="506" y="374" width="18" height="40" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<circle cx="360" cy="444" r="11" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="490" cy="444" r="11" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M 560 420 L 560 398 L 584 398 L 600 376 L 660 376 L 680 398 L 704 400 L 704 420 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" />
+<rect x="604" y="356" width="56" height="20" rx="3" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<text x="632" y="371" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1c2833" text-anchor="middle">TAXI</text>
+<path d="M 606 396 L 616 382 L 630 382 L 630 396 Z" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<path d="M 638 396 L 638 382 L 656 382 L 670 396 Z" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<circle cx="588" cy="422" r="10" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="676" cy="422" r="10" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="420" y1="45" x2="520" y2="62" stroke="#1c2833" stroke-width="1.5" />
+<rect x="355.8" y="32.0" width="128.4" height="26" rx="6" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<text x="420" y="50.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">das Flugzeug</text>
+<line x1="250" y1="100" x2="250" y2="120" stroke="#1c2833" stroke-width="1.5" />
+<rect x="208.8" y="87.0" width="82.4" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="250" y="105.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Zug</text>
+<line x1="450" y1="240" x2="420" y2="210" stroke="#1c2833" stroke-width="1.5" />
+<rect x="399.6" y="227.0" width="100.8" height="26" rx="6" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<text x="450" y="245.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">das Gleis</text>
+<line x1="136" y1="296" x2="136" y2="272" stroke="#1c2833" stroke-width="1.5" />
+<rect x="81.0" y="283.0" width="110.0" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="136" y="301.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Koffer</text>
+<line x1="400" y1="290" x2="338" y2="287" stroke="#1c2833" stroke-width="1.5" />
+<rect x="335.8" y="277.0" width="128.4" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="400" y="295.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Fahrplan</text>
+<line x1="155" y1="485" x2="155" y2="456" stroke="#1c2833" stroke-width="1.5" />
+<rect x="77.0" y="472.0" width="156.0" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="155" y="490.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Straßenbahn</text>
+<line x1="425" y1="485" x2="425" y2="448" stroke="#1c2833" stroke-width="1.5" />
+<rect x="383.8" y="472.0" width="82.4" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="425" y="490.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Bus</text>
+<line x1="632" y1="485" x2="632" y2="432" stroke="#1c2833" stroke-width="1.5" />
+<rect x="586.2" y="472.0" width="91.6" height="26" rx="6" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<text x="632" y="490.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">das Taxi</text>
+</svg>

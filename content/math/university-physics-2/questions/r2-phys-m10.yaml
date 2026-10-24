@@ -378,7 +378,7 @@
   type: match
   stem: 'Match each situation to its magnetic field.'
   pairs:
-    - [On the axis of a loop, a distance z from its center, μ0 I R² / (2 (R² + z²)^(3/2))]
+    - ['On the axis of a loop, a distance z from its center', 'μ0 I R² / (2 (R² + z²)^(3/2))']
     - [Midpoint of a Helmholtz pair, (4/5)^(3/2) μ0 N I / R]
     - [Inside the windings of a toroid, μ0 N I / (2π r)]
     - [Center of a square loop of side s, 2√2 μ0 I / (π s)]

@@ -30,7 +30,6 @@
   definition: 'A reference frame that accelerates or rotates relative to inertial frames; Newton''s laws hold in it only if fictitious forces are added.'
   topic: Non-inertial frames
 - term: effective gravity
-  aliases: [g_eff]
   definition: 'In a frame accelerating at $\vec A$, the combination $\vec g_{\text{eff}} = \vec g - \vec A$ that objects behave as if it were gravity; a plumb line hangs along it.'
   topic: Non-inertial frames
 - term: centrifugal force
