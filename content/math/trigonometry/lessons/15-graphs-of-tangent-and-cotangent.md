@@ -43,6 +43,8 @@ Features of $y = \tan x$:
 The three points $\left(-\tfrac{\pi}{4}, -1\right)$, $(0, 0)$, $\left(\tfrac{\pi}{4}, 1\right)$ together with the two
 asymptotes are the "key points" for sketching one branch.
 
+![One branch of y = tan x between two dashed vertical asymptotes, x = −π/2 on the left and x = π/2 on the right. The curve rises from the bottom near the left asymptote through (−π/4, −1), the origin and (π/4, 1), and climbs toward the top near the right asymptote.](images/trig-m4-tan-branch.svg)
+
 ## The graph of $y = \cot x$
 
 $\cot x = \tfrac{\cos x}{\sin x}$ is undefined where $\sin x = 0$, at $x = k\pi$, so its
@@ -64,6 +66,24 @@ There is no amplitude (the graph is unbounded), but $A$ still stretches vertical
 points where the basic tangent is $\pm1$ now sit at height $D \pm A$. For a branch of
 tangent, the asymptotes are where $B(x - C) = \pm\tfrac{\pi}{2}$, and the center of the branch,
 where $y = D$, is at $x = C$.
+
+The flowchart collects the steps for both functions. (For cotangent, the branch between the
+asymptotes where the input is 0 and $\pi$ is centered where the input is $\tfrac{\pi}{2}$, half a
+period after $x = C$.)
+
+```mermaid
+flowchart TD
+  accTitle: Finding the features of a transformed tangent or cotangent graph
+  accDescr: For y = A tan(B(x - C)) + D or y = A cot(B(x - C)) + D, first factor B out of the input. The period of both is pi over B. Then ask whether the function is tangent or cotangent. For tangent, the asymptotes of one branch are where the input equals minus pi over 2 and pi over 2, the branch is centered at x = C at height D, and it rises if A is positive. For cotangent, the asymptotes are where the input equals 0 and pi, the center is at x = C plus half a period at height D, and the branch falls if A is positive. In both cases, halfway from the center to each asymptote the graph is at height D plus or minus A.
+  F["Factor: input = B(x - C)"] --> P["Period = π/B"]
+  P --> W{"Tangent or cotangent?"}
+  W -- tangent --> TA["Asymptotes: input = -π/2 and π/2"]
+  TA --> TC["Center x = C, height D; rises if A #gt; 0"]
+  W -- cotangent --> CA["Asymptotes: input = 0 and π"]
+  CA --> CC["Center x = C + half a period, height D; falls if A #gt; 0"]
+  TC --> H["Halfway from center to each asymptote: height D ± A"]
+  CC --> H
+```
 
 ### Example 1
 

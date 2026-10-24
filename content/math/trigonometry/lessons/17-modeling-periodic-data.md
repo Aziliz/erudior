@@ -31,6 +31,20 @@ To fit $y = A\cos\big(B(t - C)\big) + D$ (or the sine version) to a repeating qu
 A model built this way assumes the pattern is perfectly sinusoidal. Real data only
 approximately are, so treat predictions as estimates.
 
+Step 4 is where most choices are made. This chart sums it up, with $A$ the (positive) amplitude
+and $h$ the time of the moment you know:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the form of a sinusoidal model
+  accDescr: First compute the midline D as the average of the maximum and minimum, the amplitude A as half their difference, and B as 2 pi divided by the period. Then look at one moment you know, at time h. If the quantity is at a maximum then, use A cos(B(t - h)) + D. If it is at a minimum, use -A cos(B(t - h)) + D. If it is on the midline going up, use A sin(B(t - h)) + D. If it is on the midline going down, use -A sin(B(t - h)) + D.
+  S["D = (max + min)/2, A = (max - min)/2, B = 2π/period"] --> K{"What happens at a known time h?"}
+  K -- "at a maximum" --> C1["y = A cos(B(t - h)) + D"]
+  K -- "at a minimum" --> C2["y = -A cos(B(t - h)) + D"]
+  K -- "midline, rising" --> S1["y = A sin(B(t - h)) + D"]
+  K -- "midline, falling" --> S2["y = -A sin(B(t - h)) + D"]
+```
+
 ### Example 1: seasonal temperature
 
 In a certain city the average daily high is lowest in January, $31^\circ$F, and highest in
@@ -56,6 +70,8 @@ Check: at $t = 1$, $\cos(-\pi) = -1$ gives $T = 31$. ✓
 A Ferris wheel 50 m in diameter has its center 30 m above the ground and turns once every
 4 minutes. A rider boards at the bottom at $t = 0$. Write the rider's height $h(t)$ in
 meters and find when the rider first reaches 42.5 m.
+
+![A Ferris wheel with its center 30 m above the ground and a radius of 25 m drawn straight down to the boarding point at the bottom, 5 m above the ground. A height scale beside the wheel marks 0, 5, 30 and 55 m, with dotted lines from the boarding point, the center and the top of the wheel.](images/trig-m4-ferris.svg)
 
 - Midline: the center, $D = 30$. Amplitude: the radius, $25$. Lowest point $5$ m, highest $55$ m.
 - Period 4 min, so $B = \tfrac{2\pi}{4} = \tfrac{\pi}{2}$.

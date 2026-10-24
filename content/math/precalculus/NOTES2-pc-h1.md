@@ -42,7 +42,7 @@ Every bolded term in lessons 90–93 has an entry. On 2026-10-23 none of these t
 
 ## Verification
 
-- `vq.py` checks 45 facts with sympy and Python, and all pass. They cover every question key and the numbers in the lessons and figures, including:
+- `vq.py` checks 43 facts with sympy and Python, and all pass. They cover every question key and the numbers in the lessons and figures, including:
   - 30031 = 59 · 509, 2047 = 23 · 89 and 2³² + 1 = 641 · 6,700,417;
   - the $\mathbb{Z}$ listing and the Cantor pairing function are bijections;
   - the rational listing order in the grid picture;

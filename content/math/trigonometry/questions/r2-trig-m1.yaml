@@ -197,14 +197,15 @@
   lesson: trig-speed
   topic: Angular and linear speed
   type: match
-  stem: 'Match each situation to the quantity that is the same for both parts.'
+  stem: 'Match each pair of parts to the quantity they share.'
   pairs:
     - [Two points on one spinning disk, Angular speed]
     - [The rims of two pulleys joined by a belt, Linear speed]
-    - [A rolling tire's tread and the car (no slipping), Speed relative to the axle]
+    - [A bicycle's chainring and rear sprocket (joined by the chain), Linear speed]
+    - [The rear sprocket and the rear wheel it is fixed to, Angular speed]
   distractors: [Radius]
   explanation: |-
-    Points on one rigid disk share $\omega$ (but not $v$). A belt that doesn't slip gives both rims its own linear speed, so $r_1\omega_1 = r_2\omega_2$. A tire rolling without slipping carries the car forward at the same speed the tread moves around the axle, which is why $v = r\omega$ gives the car's speed.
+    Parts of one rigid body, like points on a disk or a sprocket fixed to its wheel, turn through the same angle in the same time, so they share $\omega$. A belt or chain that doesn't slip gives both rims its own linear speed, so $r_1\omega_1 = r_2\omega_2$. None of the pairs share a radius.
 - id: trig-m1-r2-q20
   lesson: trig-speed
   topic: Angular and linear speed
@@ -252,7 +253,6 @@
     $7.5^\circ$ is $\tfrac{7.5}{360} = \tfrac{1}{48}$ of a turn, so the circumference is $48 \times 5000 = 240{,}000$ stadia. $37{,}500$ multiplies 5000 by 7.5 and $667$ divides 5000 by 7.5; neither uses the fraction of a full turn. A larger angle for the same distance means a smaller Earth, not a larger one.
 - id: trig-m1-r2-h04
   lesson: trig-m1-h-earth-sky
-  module_quiz: true
   topic: Measuring the Earth
   type: text
   stem: 'A ship sails due south from latitude $25^\circ\,10''$ N to latitude $18^\circ\,40''$ N. It travels about ___ nautical miles.'
@@ -297,7 +297,6 @@
     $\theta \approx \tfrac{2}{5000} = 0.0004$ rad $= 0.4$ mrad. With the mil rule: 1 mrad covers 1 m per km of distance, which is 5 m at 5 km, so 2 m is $\tfrac{2}{5} = 0.4$ mrad.
 - id: trig-m1-r2-h09
   lesson: trig-m1-h-earth-sky
-  module_quiz: true
   topic: Small angles
   stem: 'A star has a parallax of $0.25''''$. How far away is it?'
   choices: ['0.25 pc', '25 pc', '4 pc, about 13 light-years', '4 light-years']
@@ -325,7 +324,7 @@
   stem: 'Put these angles in order from smallest to largest.'
   items: [1 arcsecond, 1 arcminute, 1 milliradian, 1 degree, 1 radian]
   explanation: |-
-    In arcseconds: $1'' $, then $1' = 60''$, then $1 \text{ mrad} = \tfrac{206{,}265''}{1000} \approx 206''$ (about $3.4'$), then $1^\circ = 3600''$, then $1 \text{ rad} \approx 206{,}265''$ (about $57.3^\circ$).
+    In arcseconds: $1''$, then $1' = 60''$, then $1 \text{ mrad} = \tfrac{206{,}265''}{1000} \approx 206''$ (about $3.4'$), then $1^\circ = 3600''$, then $1 \text{ rad} \approx 206{,}265''$ (about $57.3^\circ$).
 - id: trig-m1-r2-h12
   lesson: trig-m1-h-earth-sky
   topic: Small angles
@@ -352,7 +351,6 @@
     The approximation treats the object as an arc of a circle of radius $d$, which is only accurate when $D$ is much smaller than $d$. For the Moon $D/d \approx 0.009$; for the doorway $D/d = 1$, a large angle, where the chord and the arc differ a lot. The formula gives radians and works for any shape; a farther object looks smaller, not larger.
 - id: trig-m1-r2-h14
   lesson: trig-m1-h-earth-sky
-  module_quiz: true
   topic: Small angles
   stem: 'Which statements about the parsec are true? Select all that apply.'
   choices: ['It is a unit of distance', 'It is about 3.26 light-years', 'A star with parallax $0.5''''$ is 2 pc away', 'It is the distance light travels in one year']
@@ -371,7 +369,6 @@
 # ---- Honors: Relative rotation
 - id: trig-m1-r2-h16
   lesson: trig-m1-h-relative-rotation
-  module_quiz: true
   topic: Relative rotation
   type: text
   stem: 'At 8:20, the smaller angle between the hour hand and the minute hand of a clock is ___ degrees. Give only the number.'
@@ -408,7 +405,6 @@
     The minute hand turns $6^\circ$ per minute and the hour hand $0.5^\circ$, so the gap changes by $5.5^\circ$ per minute and closes a full $360^\circ$ every $\tfrac{360}{5.5} = \tfrac{720}{11}$ minutes. That happens 11 times in 12 hours, not 12. At 3:15 the hour hand is at $97.5^\circ$, $7.5^\circ$ past the minute hand.
 - id: trig-m1-r2-h20
   lesson: trig-m1-h-relative-rotation
-  module_quiz: true
   topic: Relative rotation
   stem: 'Why is the sidereal day (one turn relative to the stars) about 4 minutes shorter than the 24-hour solar day?'
   choices:
@@ -445,7 +441,6 @@
     $N_1\omega_1 = N_2\omega_2$ gives $\omega_2 = 900 \cdot \tfrac{15}{45} = 300$ rpm: the bigger gear turns slower. Meshing gears turn in opposite directions, so it turns counterclockwise. 2700 rpm comes from flipping the ratio.
 - id: trig-m1-r2-h24
   lesson: trig-m1-h-relative-rotation
-  module_quiz: true
   topic: Gears and rolling
   type: match
   stem: 'Match each connection between two rotating parts to what it does.'

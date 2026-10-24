@@ -65,6 +65,25 @@ $$\text{max} = D + |A|, \qquad \text{min} = D - |A|.$$
    midline and using the amplitude. Flip max and min if $A < 0$.
 4. Join smoothly and extend periodically.
 
+The same steps as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Graphing y = A sin(B(x - C)) + D in order
+  accDescr: Start by factoring B out of the argument so it reads B times the quantity x minus C. Then read the amplitude |A|, the period 2 pi over B, the phase shift C and the midline y = D. One cycle runs from x = C to x = C plus one period. Split that cycle into four equal quarters to get five x-values. At those x-values place the basic pattern measured from the midline: for sine midline, max, midline, min, midline; for cosine max, midline, min, midline, max. If A is negative, swap every max and min. Finally join the points with a smooth curve and repeat it every period.
+  F["Factor B out: the inside becomes B(x - C)"] --> R["Read amplitude |A|, period 2π/B, phase shift C, midline y = D"]
+  R --> CY["One cycle: from x = C to x = C + period"]
+  CY --> Q["Split it into 4 quarters: 5 x-values"]
+  Q --> P{"Sine or cosine?"}
+  P -- sine --> S["midline, max, midline, min, midline"]
+  P -- cosine --> K["max, midline, min, midline, max"]
+  S --> N{"Is A negative?"}
+  K --> N
+  N -- yes --> SW["Swap every max and min"]
+  N -- no --> J["Join smoothly and repeat every period"]
+  SW --> J
+```
+
 ### Example 1
 
 Graph $y = 3\sin\!\left(2x - \tfrac{\pi}{2}\right) + 1$.
@@ -117,6 +136,12 @@ period ($1.5$) before the max: $y = 3\sin\!\left(\tfrac{\pi}{3}(x + 0.5)\right) 
 same graph. Any phase shift can also change by a whole period.
 
 ## Summary table
+
+The picture shows where each constant appears on the graph of a sine curve with $A > 0$: the
+phase shift is the distance from the $y$-axis to the start of a cycle, the amplitude is measured
+from the midline, and a quarter period after the start comes the first maximum.
+
+![A sine-shaped wave with a dashed horizontal midline y = D. A double arrow along the bottom from the y-axis to the point where the cycle starts on the midline is the phase shift; a longer double arrow from that start to the end of the cycle is the period. A double arrow above the curve from the start to the first maximum is the quarter period, and a vertical double arrow from the midline up to that maximum is the amplitude.](images/trig-m4-sinusoid-parts.svg)
 
 | Constant | Effect | Formula |
 |---|---|---|

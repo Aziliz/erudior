@@ -15,6 +15,11 @@ moving counterclockwise around the unit circle at one unit of arc per second. It
 at time $t$ is $\sin t$, and its horizontal position is $\cos t$. Plotting the height
 against $t$ "unrolls" the circle into a wave.
 
+The picture shows one moment of that motion. The point has traveled an arc of length $t$, so on
+the graph it is plotted at $x = t$, at the same height $\sin t$.
+
+![On the left, the unit circle with a point P at angle t in quadrant I: a blue arc of length t runs from (1, 0) to P, a green horizontal leg of length cos t and a red vertical leg of length sin t form a right triangle. On the right, the graph of y = sin x from 0 to 2π. A dashed line carries the height of P across to the point (t, sin t) on the graph, where a red segment of the same length sin t stands above x = t.](images/trig-m4-unroll.svg)
+
 ## The graph of $y = \sin x$
 
 From the unit circle: the height starts at 0, rises to 1 at a quarter turn, returns to 0

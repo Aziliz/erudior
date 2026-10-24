@@ -59,6 +59,22 @@ $y = A\cos(B(x - C)) + D$ first. The reciprocal graph:
   maxima of the branches;
 - has range $(-\infty, D - |A|] \cup [D + |A|, \infty)$.
 
+As a procedure:
+
+```mermaid
+flowchart TD
+  accTitle: Graphing a secant or cosecant from its guide curve
+  accDescr: To graph y = A sec(B(x - C)) + D or y = A csc(B(x - C)) + D, first sketch the guide curve lightly, using cosine for secant and sine for cosecant. Draw a vertical asymptote everywhere the guide crosses its midline y = D. Mark each maximum and minimum of the guide; these are the vertices of the branches. Between each pair of neighboring asymptotes draw one U-shaped branch through its vertex. A branch whose vertex is at a maximum of the guide opens up; one whose vertex is at a minimum opens down. The range is y less than or equal to D minus |A| or y greater than or equal to D plus |A|.
+  G["Sketch the guide: cos for sec, sin for csc"] --> M["Asymptotes where the guide crosses its midline y = D"]
+  M --> V["Mark the guide's maxima and minima: the branch vertices"]
+  V --> B["Draw one U between each pair of asymptotes, through its vertex"]
+  B --> O{"Vertex at a max or a min of the guide?"}
+  O -- max --> U["Branch opens up"]
+  O -- min --> DN["Branch opens down"]
+  U --> RG["Range: y ≤ D - |A| or y ≥ D + |A|"]
+  DN --> RG
+```
+
 ### Example 1
 
 Describe $y = 2\csc x$: its asymptotes, local extrema and range.
@@ -114,6 +130,8 @@ antiderivatives.
 Each U-shaped branch sits between two consecutive asymptotes and touches the guide curve at
 exactly one point, its vertex. Branches alternate between opening up and opening down, just
 as the guide curve alternates between peaks and valleys.
+
+![The graph of y = sec x drawn over its dashed guide curve y = cos x. Dashed vertical asymptotes stand where the cosine crosses the x-axis. Between them, U-shaped branches open upward above each cosine peak, touching it at points such as (0, 1), and open downward below each cosine valley, touching it at points such as (π, −1).](images/trig-m4-sec-guide.svg)
 
 ## Common mistakes
 
