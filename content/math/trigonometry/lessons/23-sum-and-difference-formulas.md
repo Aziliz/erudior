@@ -52,7 +52,7 @@ sin") and *flips* the sign.
 
 For acute angles there is also a picture proof. Stack a right triangle with angle $\beta$ and hypotenuse 1
 on top of one with angle $\alpha$, and fit them in a rectangle: the right side of the rectangle is
-$\sin(\alpha + \beta)$, made of two pieces, and its top is $\cos(\alpha + \beta)$, the bottom minus a short piece.
+$\sin(\alpha + \beta)$, made of two pieces, and the top piece $TP$ is $\cos(\alpha + \beta)$, the bottom $OR$ minus the short piece $SP$.
 
 ![A rectangle with corners O, R, S and T. Inside, right triangle OQR has angle alpha at O, hypotenuse OQ = cos beta, base OR = cos alpha cos beta and height RQ = sin alpha cos beta. On top of it, right triangle OQP has angle beta at O, hypotenuse OP = 1 and side QP = sin beta. The small triangle QSP has angle alpha at Q, side QS = cos alpha sin beta and side SP = sin alpha sin beta. The left side OT is sin(alpha + beta) and the top piece TP is cos(alpha + beta).](images/trig-m6-sum-rectangle.svg)
 

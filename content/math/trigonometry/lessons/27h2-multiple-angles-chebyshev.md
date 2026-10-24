@@ -92,7 +92,7 @@ equation can be put in the form
 $$4c^3 - 3c = k \quad\text{with}\quad -1 \le k \le 1,$$
 then setting $c = \cos\theta$ turns it into $\cos 3\theta = k$, which you can solve with an inverse cosine.
 Because $3\theta$ can be $\cos^{-1}k$ plus any multiple of $360^\circ$, $\theta$ takes three values $120^\circ$ apart,
-giving three real roots. This is the **trigonometric solution of the cubic**, worked out by the
+giving three real roots (two of them are equal when $k = \pm1$). This is the **trigonometric solution of the cubic**, worked out by the
 French mathematician François Viète around 1600.
 
 ### Example 3

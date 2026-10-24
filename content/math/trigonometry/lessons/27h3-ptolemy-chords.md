@@ -35,7 +35,7 @@ Ptolemy used a circle of radius 60 (diameter 120 "parts") because he computed in
 **sexagesimal** system inherited from Babylonian astronomers. A value such as $84;51,10$ means
 $84 + \tfrac{51}{60} + \tfrac{10}{60^2}$, just like degrees, minutes and seconds in Lesson 1.
 
-Later astronomers in India tabulated the half-chord $R\sin\tfrac{\theta}{2}$ instead, and that half-chord is the
+Later astronomers in India tabulated the half-chord instead (half the chord of twice the angle, $R\sin\theta$), and that half-chord is the
 ancestor of our sine (the Module 3 honors lesson tells that story). This lesson is about how Ptolemy
 actually computed his chords.
 
@@ -134,7 +134,8 @@ $90^\circ$, $120^\circ$) is a multiple of $3^\circ$, and halving, adding and sub
 a fraction whose denominator is a power of 2. One degree, $3^\circ \times \tfrac13$, is never reached exactly. Getting
 the $1^\circ$ chord from the $3^\circ$ chord would mean dividing an angle by 3, and the previous honors
 lesson showed that this leads to a cubic equation. Ptolemy
-avoided the cubic with an inequality: for arcs $\beta < \alpha \le 180^\circ$,
+avoided the cubic with an inequality that was known before him (today it is often called Aristarchus's
+inequality): for arcs $\beta < \alpha \le 180^\circ$,
 $$\frac{\text{crd}\,\alpha}{\text{crd}\,\beta} < \frac{\alpha}{\beta}.$$
 (In modern terms, $\tfrac{\sin u}{u}$ decreases as $u$ grows from 0 to $90^\circ$.) This traps the $1^\circ$ chord from both sides.
 

@@ -105,8 +105,8 @@ gives $(8, 6, 10)$, which is $2 \times (4, 3, 5)$.
 
 ## Solving $a\sin x + b\cos x = c$
 
-Lesson 23 solved this equation by writing the left side as $R\sin(x + \varphi)$. The substitution gives
-a second, purely algebraic method. Replace $\sin x$ and $\cos x$ by their $t$ forms and multiply by
+Lesson 23 showed how to write the left side as $R\sin(x + \varphi)$, which turns this equation into the basic
+equation $\sin(x + \varphi) = \tfrac{c}{R}$. The substitution gives a second, purely algebraic method. Replace $\sin x$ and $\cos x$ by their $t$ forms and multiply by
 $1 + t^2$:
 $$2at + b(1 - t^2) = c(1 + t^2) \quad\Longrightarrow\quad (b + c)\,t^2 - 2a\,t + (c - b) = 0.$$
 A quadratic in $t$. Its discriminant is $4a^2 - 4(c - b)(c + b) = 4(a^2 + b^2 - c^2)$, so there are real
