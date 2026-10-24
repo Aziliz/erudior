@@ -28,7 +28,8 @@ jobs:
           - platform: windows-latest
             bundles: nsis,msi
           - platform: macos-latest
-            bundles: dmg
+            # "app" makes the signed .app.tar.gz the macOS auto-updater downloads.
+            bundles: app,dmg
             target: universal-apple-darwin
     runs-on: ${{ matrix.platform }}
 
