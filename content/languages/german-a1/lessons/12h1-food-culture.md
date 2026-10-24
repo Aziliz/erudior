@@ -19,12 +19,12 @@ The picture shows a traditional day of meals. It is simplified, but you'll meet 
 
 ![A timeline from 6 to 21 Uhr with four meals. At about 7 Uhr, das Frühstück (morning): a cup of coffee and a roll. At about 12:30, das Mittagessen (often the warm meal): a steaming plate of food. At about 15:30, Kaffee und Kuchen (afternoon, often Sunday): a slice of cake and a cup of coffee. At about 18:30, das Abendbrot (cold, with bread): slices of bread and cheese on a board. The title says the picture is simplified.](images/de1-m3-meals.svg)
 
-- ***das Frühstück*** — breakfast. On weekdays it is often quick. On weekends many families sit down to fresh *Brötchen* with butter, jam (*die Marmelade*), honey (*der Honig*), cheese, cold meat and a boiled egg.
-- ***das Mittagessen*** — lunch. Traditionally the main warm meal of the day, and many people still eat warm at midday, for example in a work canteen (*die Kantine*). At work, colleagues often greet each other at lunchtime with ***Mahlzeit!*** — literally "mealtime!" — which works as both "hello" and "enjoy your lunch".
-- ***Kaffee und Kuchen*** — coffee and cake, around three or four in the afternoon, especially on Sundays and birthdays.
-- ***das Abendbrot*** — "evening bread": a cold supper of bread, butter, cheese, cold meat and maybe a salad. The word is used mostly in northern and eastern Germany; everyone also says *das Abendessen*. Many working families now eat their warm meal in the evening instead.
+- *das Frühstück* — breakfast. On weekdays it is often quick. On weekends many families sit down to fresh *Brötchen* with butter, jam (*die Marmelade*), honey (*der Honig*), cheese, cold meat and a boiled egg.
+- *das Mittagessen* — lunch. Traditionally the main warm meal of the day, and many people still eat warm at midday, for example in a work canteen (*die Kantine*). At work, colleagues often greet each other at lunchtime with *Mahlzeit!* — literally "mealtime!" — which works as both "hello" and "enjoy your lunch".
+- *Kaffee und Kuchen* — coffee and cake, around three or four in the afternoon, especially on Sundays and birthdays.
+- *das Abendbrot* — "evening bread": a cold supper of bread, butter, cheese, cold meat and maybe a salad. The word is used mostly in northern and eastern Germany; everyone also says *das Abendessen*. Many working families now eat their warm meal in the evening instead.
 
-Before a meal, people say ***Guten Appetit!*** (enjoy your meal), and the answer is *Danke, gleichfalls!* (thanks, you too). When you've had enough, say *Ich bin satt* — I'm full. Don't translate "I'm full" word for word: *Ich bin voll* can sound like "I'm drunk" in casual speech.
+Before a meal, people say *Guten Appetit!* (enjoy your meal), and the answer is *Danke, gleichfalls!* (thanks, you too). When you've had enough, say *Ich bin satt* — I'm full. Don't translate "I'm full" word for word: *Ich bin voll* can sound like "I'm drunk" in casual speech.
 
 ## The bakery and the bread roll
 
@@ -58,7 +58,7 @@ German is the language of Germany, Austria, much of Switzerland and some other p
 
 ## Polite orders: Ich hätte gern …
 
-*Ich möchte einen Kaffee* is perfectly polite. Many Germans, especially at a bakery counter or in a shop, say ***Ich hätte gern …*** instead: "I would have, gladly …" — in English, "I'd like …". *hätte* is a form of *haben* called the **subjunctive** (in German grammar, *Konjunktiv II*): the "would" form that makes a request softer. *möchte* is actually the same kind of form, from *mögen*, which is why both sound polite.
+*Ich möchte einen Kaffee* is perfectly polite. Many Germans, especially at a bakery counter or in a shop, say *Ich hätte gern …* instead: "I would have, gladly …" — in English, "I'd like …". *hätte* is a form of *haben* called the **subjunctive** (in German grammar, *Konjunktiv II*): the "would" form that makes a request softer. *möchte* is actually the same kind of form, from *mögen*, which is why both sound polite.
 
 You only need four forms, and they follow the pattern of *möchte*:
 
@@ -78,7 +78,7 @@ You want a coffee and a pretzel at a bakery counter. Build the sentence step by 
 1. Start with the polite frame: *Ich hätte gern …*
 2. *Kaffee* is masculine (*der Kaffee*) and it is the object, so the article becomes *einen*: *einen Kaffee*.
 3. *Brezel* is feminine (*die Brezel*); feminine doesn't change: *eine Brezel*.
-4. Join them with *und* and add *bitte*: ***Ich hätte gern einen Kaffee und eine Brezel, bitte.***
+4. Join them with *und* and add *bitte*: *Ich hätte gern einen Kaffee und eine Brezel, bitte.*
 
 With *möchte* the accusative is the same: *Ich möchte einen Kaffee und eine Brezel, bitte.*
 
@@ -117,7 +117,7 @@ flowchart TD
   E -- "keep the change" --> G["Give exactly 4 Euro: Stimmt so!"]
 ```
 
-***Stimmt so*** literally means "it's right like that": the money you handed over is the right amount, so keep the change.
+*Stimmt so* literally means "it's right like that": the money you handed over is the right amount, so keep the change.
 
 Cash (*das Bargeld*) is still more common in Germany than in many other countries. Cards are now widely accepted, but some small bakeries, market stands and cafés take only cash: look for *Nur Barzahlung* or *Nur bar* (cash only).
 
@@ -126,7 +126,7 @@ Cash (*das Bargeld*) is still more common in Germany than in many other countrie
 Your coffee and cake cost 7,60 €. You want to give a tip of about 10 percent, and you have a 10-euro note.
 
 1. Ten percent of 7,60 € is 0,76 €, so about 8,36 €. Round to a friendly number: 8,40 €.
-2. Hand over the note and say the total: ***Acht Euro vierzig, bitte.***
+2. Hand over the note and say the total: *Acht Euro vierzig, bitte.*
 3. The server keeps 8,40 € and gives you back 10,00 − 8,40 = 1,60 €: *Und eins sechzig zurück.* (In quick speech people often drop *Euro*: *eins sechzig* = 1,60 €.)
 
 ## Reading: Sonntag bei Oma

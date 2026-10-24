@@ -86,7 +86,7 @@ Question: *Was darf man in der Halle nicht machen?*
 ## Ruhezeiten: quiet times
 
 Many newcomers are surprised by how quiet a German Sunday is. Sundays and public holidays are
-protected as days of rest by the constitution (Article 140 of the Basic Law, which takes over
+protected as days of rest (*die Sonntagsruhe*, Sunday rest) by the constitution (Article 140 of the Basic Law, which takes over
 Article 139 of the Weimar Constitution of 1919), so most shops are closed on Sundays. Bakeries
 may open for a few hours, and shops at large stations, airports and petrol stations stay open;
 the exact rules are made by each of the 16 states.

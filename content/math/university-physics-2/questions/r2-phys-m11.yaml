@@ -312,7 +312,7 @@
   choices: ['10', '40', '60', '20']
   answer: 3
   explanation: |-
-    The plate replaces 10.0 μm of air with glass, crossed twice: the optical path grows by $2t(n - 1) = 2(10.0\text{ μm})(0.50) = 10.0$ μm, which is $10.0/0.500 = 20$ wavelengths. One pass gives 10; ignoring the index ($2t/\lambda$) gives 40; using $n$ instead of $n - 1$ gives 60.
+    The plate replaces 10.0 μm of air with glass, crossed twice: the optical path grows by $2t(n - 1) = 2(10.0\,\mu\text{m})(0.50) = 10.0$ μm, which is $10.0/0.500 = 20$ wavelengths. One pass gives 10; ignoring the index ($2t/\lambda$) gives 40; using $n$ instead of $n - 1$ gives 60.
 - id: phys-m11-r2-h06
   lesson: phys-h-interferometers
   topic: Interferometry

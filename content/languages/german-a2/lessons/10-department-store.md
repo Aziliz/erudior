@@ -35,6 +35,10 @@ A *Kaufhaus* is a big shop with many *Abteilungen* (departments) on several floo
 
 *günstig* is the polite, positive way to say something is cheap; *billig* (A1) can sound like "cheap and nasty". *Die Jacke ist sehr günstig* is a compliment; *Die Jacke sieht billig aus* is not.
 
+The picture shows a small *Kaufhaus* in cross-section: the *Aufzug* on the left goes to every floor, and the *Rolltreppe* takes you up from the *Erdgeschoss* to the first floor (*der erste Stock*) and on to the second (*der zweite Stock*).
+
+![A department store in cross-section with three floors: Erdgeschoss at the bottom, 1. Stock and 2. Stock above. Labels: der Aufzug (a lift shaft on the left, with the lift car on the ground floor), die Rolltreppe (an escalator from the ground floor to the first floor, and another up to the second), die Umkleidekabine (a changing room with a curtain on the first floor) and die Kasse (the till, a counter with a cash register on the ground floor). A clothes rail stands on the second floor.](images/de2-m3-kaufhaus.svg)
+
 At the till you'll hear *Brauchen Sie eine Tüte?* (Do you need a bag?). Bags cost extra, so many people bring their own.
 
 ## Materials: aus + dative
@@ -120,6 +124,19 @@ Shops in Germany don't have to take back goods that are fine, but most will exch
 | die Garantie | guarantee, warranty |
 
 *umtauschen* and *zurückgeben* are separable: *Ich tausche die Hose um. Ich gebe die Schuhe zurück.* *zurückgeben* has the stem change of *geben*: *er gibt zurück*. *reklamieren* is not separable and has no *ge-* in the perfect: *Ich habe den Toaster reklamiert.*
+
+Which word you need depends on the situation:
+
+```mermaid
+flowchart TD
+  accTitle: Taking something back to a shop in Germany
+  accDescr: If the product is faulty, you reklamieren it and the guarantee or warranty applies. If it is not faulty, the shop does not have to take it back, but with the receipt most shops will let you umtauschen it for something else or zurückgeben it for your money. Without a receipt it is usually hard.
+  A["You want to take something back"] --> B{"Is it faulty?"}
+  B -- yes --> R["reklamieren: the guarantee covers it"]
+  B -- no --> C{"Do you have the Kassenzettel?"}
+  C -- yes --> U["Most shops let you umtauschen or zurückgeben"]
+  C -- no --> H["Usually difficult: the shop decides"]
+```
 
 ## Dialogue: At the customer service desk
 

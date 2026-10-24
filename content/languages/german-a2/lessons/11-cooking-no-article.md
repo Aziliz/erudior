@@ -30,6 +30,8 @@ This lesson teaches that third and last table, shows how *viele, einige* and *ei
 | der Zucker | sugar |
 | das Öl | oil |
 
+![Kitchen things on a worktop, from left to right: der Topf (a saucepan with a lid and two handles), die Pfanne (a frying pan with a long handle), der Teller (a plate), and standing upright die Gabel (fork), das Messer (knife) and der Löffel (spoon).](images/de2-m3-kitchen.svg)
+
 The verbs of cooking are mostly regular, but *braten*, *backen* and *schneiden* change their vowel or have an irregular perfect:
 
 | | present (du / er) | perfect |
@@ -175,6 +177,23 @@ In English:
 | no article | guter | guten | gute | gutes | gutem / guter, plural guten | gute |
 
 Three questions decide every ending: Is there an article? Does the article show gender and case? If not, which letter would *der/die/das* end in? If the article shows it, the adjective ends in *-e* or *-en*. If the article doesn't, or there is none, the adjective shows it.
+
+As a chart (the "five special boxes" are masculine nominative and feminine and neuter nominative and accusative):
+
+```mermaid
+flowchart TD
+  accTitle: Which adjective ending? All three tables in one chart
+  accDescr: If the adjective is not before a noun, it has no ending. If it is before a noun, look at the word in front. After a der-word, use -e in the five special boxes and -en everywhere else. After an ein-word, use -er, -e or -es in the five special boxes and -en everywhere else. With no article, or after a number, ein paar, viele or einige, use the ending of der, die, das, dem or den, except -e in the plural nominative and accusative.
+  A{"Is the adjective before a noun?"} -- no --> N["No ending: Der Fisch ist frisch."]
+  A -- yes --> B{"What comes before it?"}
+  B -- "der, dieser, alle" --> D{"One of the five special boxes?"}
+  D -- yes --> D1["-e: der frische Fisch"]
+  D -- no --> D2["-en: mit dem frischen Fisch"]
+  B -- "ein, kein, mein" --> E{"One of the five special boxes?"}
+  E -- yes --> E1["-er / -e / -es: ein frischer Fisch"]
+  E -- no --> E2["-en: mit einem frischen Fisch"]
+  B -- "nothing, a number, viele" --> F["Ending of der/die/das/dem: frischer Fisch, mit frischem Fisch"]
+```
 
 ## Pronunciation
 

@@ -1,53 +1,46 @@
-- id: phys-m12-r2-two-body-decay
-  title: Two-body decay at rest
-  topic: Relativistic collisions
+- id: phys-m12-r2-interval
+  title: Spacetime interval and proper time
+  topic: Spacetime and the Doppler effect
   vars:
-    M: {min: 500, max: 5000, step: 50}
-    m1: {min: 50, max: 2000, step: 10}
-    m2: {min: 0, max: 2000, step: 10}
+    dt: {min: 1, max: 20, step: 0.5}
+    b: {min: 0.05, max: 0.95, step: 0.05}
   calc:
-    E1: (M^2 + m1^2 - m2^2)/(2*M)
-    p: sqrt(E1^2 - m1^2)
-    K1: E1 - m1
-  where: ['M > m1 + m2 + 50', 'K1 > 0.1*E1']
-  prompt: 'A particle with rest energy {M} MeV, at rest, decays into two particles with rest energies {m1} MeV and {m2} MeV. Find the first product''s total energy (MeV, 4 significant figures), the momentum of each product (as $pc$ in MeV, 3 significant figures), and the first product''s kinetic energy (MeV, 3 significant figures).'
+    dx: round(b*300*dt)
+    cdt: 300*dt
+    s: sqrt(cdt^2 - dx^2)
+    tau: s/300
+  prompt: 'In Earth''s frame, two events are {dx} m apart and {dt:num1} μs apart in time. Using $c = 3.00\times10^8$ m/s, find the spacetime interval $\Delta s$ between them (m, 3 significant figures) and the proper time measured by a clock that travels at constant velocity from one event to the other (μs, 3 significant figures).'
   answers:
-    - {format: sig4, name: E1, label: '$E_1 =$', relTolerance: 0.001, units: {MeV: 1, GeV: 1000}}
-    - {format: sig4, name: p, label: '$pc =$', relTolerance: 0.01, units: {MeV: 1, 'MeV/c': 1}}
-    - {format: sig4, name: K1, label: '$K_1 =$', relTolerance: 0.015, units: {MeV: 1, GeV: 1000}}
+    - {format: sig4, name: s, label: '$\Delta s =$', relTolerance: 0.005, units: {m: 1, km: 1000}}
+    - {format: sig4, name: tau, label: 'Proper time', relTolerance: 0.005, units: {'μs': 1, us: 1}}
   solution: |-
-    The products fly apart back to back with equal momenta, and their energies add up to {M} MeV:
+    $c\Delta t = (300\text{ m/μs})({dt:num1}\text{ μs}) = {cdt:sig4}$ m.
 
-    $E_1 = \dfrac{(Mc^2)^2 + (m_1c^2)^2 - (m_2c^2)^2}{2Mc^2} = \dfrac{ {M}^2 + {m1}^2 - {m2}^2}{2({M})} =$ **{E1:sig4} MeV**.
+    $(\Delta s)^2 = (c\Delta t)^2 - (\Delta x)^2 = {cdt:sig4}^2 - {dx}^2 > 0$, so the separation is timelike and $\Delta s =$ **{s:sig3} m**.
 
-    $pc = \sqrt{E_1^2 - (m_1c^2)^2} = \sqrt{ {E1:sig4}^2 - {m1}^2} =$ **{p:sig3} MeV** for each product.
-
-    $K_1 = E_1 - m_1c^2 = {E1:sig4} - {m1} =$ **{K1:sig3} MeV**.
-- id: phys-m12-r2-threshold
-  title: Threshold energy and invariant mass
-  topic: Relativistic collisions
+    The clock is at rest in its own frame, so its time is $\Delta s/c = {s:sig4}/300 =$ **{tau:sig3} μs**, less than {dt:num1} μs.
+- id: phys-m12-r2-doppler
+  title: Relativistic Doppler shift
+  topic: Spacetime and the Doppler effect
   vars:
-    rx: {choices: [{label: '$\gamma + p \to p + \pi^0$ (photon beam on a proton at rest)', value: 1}, {label: '$p + p \to p + p + \pi^0$ (proton beam on a proton at rest)', value: 2}, {label: '$\pi^- + p \to K^0 + \Lambda$ (pion beam on a proton at rest)', value: 3}, {label: '$p + p \to p + p + p + \bar p$ (proton beam on a proton at rest)', value: 4}, {label: '$\gamma + e^- \to e^- + e^- + e^+$ (photon beam on an electron at rest)', value: 5}]}
-    fK: {min: 1.2, max: 5, step: 0.1}
+    lam: {choices: [{label: 'the hydrogen-alpha line, 656.3 nm', value: 656.3}, {label: 'the hydrogen-beta line, 486.1 nm', value: 486.1}, {label: 'the hydrogen Lyman-alpha line, 121.6 nm', value: 121.6}]}
+    b: {min: 0.05, max: 0.9, step: 0.01}
+    dir: {choices: [{label: receding from, value: 1}, {label: approaching, value: -1}]}
   calc:
-    ma: if(rx == 1, 0, if(rx == 2, 938.3, if(rx == 3, 139.6, if(rx == 4, 938.3, 0))))
-    mb: if(rx == 5, 0.511, 938.3)
-    S: if(rx == 1, 938.3 + 135.0, if(rx == 2, 2*938.3 + 135.0, if(rx == 3, 497.6 + 1115.7, if(rx == 4, 4*938.3, 3*0.511))))
-    Kth: (S^2 - (ma + mb)^2)/(2*mb)
-    raw: fK*Kth
-    mag: 10^(floor(log10(raw)) - 1)
-    Kb: round(raw/mag)*mag
-    rs: sqrt(ma^2 + mb^2 + 2*(Kb + ma)*mb)
-  prompt: 'For the reaction {rx}, the total rest energy of the products is {S:sig4} MeV. Rest energies: proton 938.3 MeV, $\pi^-$ 139.6 MeV, electron 0.511 MeV, photon 0. Find the threshold kinetic energy of the beam particle (MeV, 3 significant figures). Then find the invariant mass energy $\sqrt s$ (MeV, 3 significant figures) when the beam particle has kinetic energy {Kb:sig3} MeV.'
+    L0: lam
+    sg: dir
+    lo: lam*sqrt((1 + dir*b)/(1 - dir*b))
+    zz: lo/lam - 1
+  prompt: 'A source emits {lam} (lab wavelength). It is {dir} the observer at ${b}c$, moving directly along the line of sight. Find the observed wavelength (nm, 4 significant figures) and the redshift $z = \lambda_{\text{obs}}/\lambda_{\text{src}} - 1$ (3 significant figures; negative for a blueshift).'
   answers:
-    - {format: sig4, name: Kth, label: '$K_{\text{th}} =$', relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
-    - {format: sig4, name: rs, label: '$\sqrt s =$', relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
+    - {format: sig4, name: lo, label: '$\lambda_{\text{obs}} =$', relTolerance: 0.001, units: {nm: 1}}
+    - {format: sig4, name: zz, label: '$z =$', relTolerance: 0.01}
   solution: |-
-    Beam rest energy $m_ac^2 = {ma}$ MeV, target $m_bc^2 = {mb}$ MeV, products $\Sigma = {S:sig4}$ MeV.
+    For recession $\lambda_{\text{obs}} = \lambda_{\text{src}}\sqrt{\dfrac{1 + \beta}{1 - \beta}}$; for approach the signs of $\beta$ flip.
 
-    $K_{\text{th}} = \dfrac{\Sigma^2 - (m_ac^2 + m_bc^2)^2}{2m_bc^2} = \dfrac{ {S:sig4}^2 - ({ma} + {mb})^2}{2({mb})} =$ **{Kth:sig3} MeV**.
+    Here $\lambda_{\text{obs}} = {L0}\sqrt{\dfrac{1 + ({sg})({b})}{1 - ({sg})({b})}} =$ **{lo:sig4} nm**.
 
-    With $K = {Kb:sig3}$ MeV the beam's total energy is $E_a = K + m_ac^2$, and $(\sqrt s)^2 = (m_ac^2)^2 + (m_bc^2)^2 + 2E_am_bc^2$, so $\sqrt s =$ **{rs:sig3} MeV**. This is above $\Sigma$, so the reaction can happen.
+    $z = {lo:sig4}/{L0} - 1 =$ **{zz:sig3}**.
 - id: phys-m12-r2-tunneling
   title: Tunneling through a rectangular barrier
   topic: Quantum tunneling

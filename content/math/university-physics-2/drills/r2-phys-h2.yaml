@@ -35,7 +35,7 @@
     - {name: dEdt, label: '(a) V/(m·s)', sigfigs: 3, format: sci}
     - {name: Bu, label: '(b) μT', sigfigs: 3, format: sig3}
   solution: |-
-    (a) $E = Q/(\varepsilon_0\pi R^2)$, so $\dfrac{dE}{dt} = \dfrac{I}{\varepsilon_0\pi R^2} = \dfrac{{cur}}{(8.85\times10^{-12})\pi({Rcm}\times10^{-2})^2} =$ **{dEdt:sci}** V/(m·s).
+    (a) $E = Q/(\varepsilon_0\pi R^2)$, so $\dfrac{dE}{dt} = \dfrac{I}{\varepsilon_0\pi R^2} = \dfrac{{cur}}{(8.85\times10^{-12})\pi({Rcm}\times10^{-2})^2} = {dEdt:texsci}$ V/(m·s).
 
     (b) No conduction current crosses the gap, so the Ampère–Maxwell law on a circle of radius $r$ gives $B(2\pi r) = \mu_0\varepsilon_0\pi r^2\,dE/dt$, i.e. $B = \dfrac{\mu_0Ir}{2\pi R^2}$. With $r = {rcm}$ cm and $R = {Rcm}$ cm: $B =$ **{Bu:sig3}** μT.
 # Lesson 91: electric and magnetic fields in relativity
@@ -81,7 +81,7 @@
     - {name: lam10, label: '(b) $10^{-10}$ C/m', sigfigs: 3, format: sig3}
     - {name: Ep, label: '(c) V/m', sigfigs: 3, format: sig3}
   solution: |-
-    (a) $B = \dfrac{\mu_0I}{2\pi r} = \dfrac{(4\pi\times10^{-7})({cur})}{2\pi({rcm}\times10^{-2})} = {Bt:sci}$ T, so $F = evB =$ **{F17:sig3}** $\times10^{-17}$ N, toward the wire.
+    (a) $B = \dfrac{\mu_0I}{2\pi r} = \dfrac{(4\pi\times10^{-7})({cur})}{2\pi({rcm}\times10^{-2})} = {Bt:texsci}$ T, so $F = evB =$ **{F17:sig3}** $\times10^{-17}$ N, toward the wire.
 
     (b) In the proton's frame the wire's net density has size $\lambda' = \dfrac{vI}{c^2} = \dfrac{({vm}.0\times10^6)({cur})}{(3.00\times10^8)^2} =$ **{lam10:sig3}** $\times10^{-10}$ C/m (negative, since the proton moves along the current).
 
@@ -104,11 +104,11 @@
     - {name: P, label: '(b) W', sigfigs: 3, format: sci}
     - {name: tau, label: '(c) s', sigfigs: 3, format: sig3}
   solution: |-
-    (a) The magnetic force $evB$ is the centripetal force: $a = \dfrac{evB}{m_e} =$ **{acc:sci}** m/s².
+    (a) The magnetic force $evB$ is the centripetal force: $a = \dfrac{evB}{m_e} = {acc:texsci}$ m/s².
 
-    (b) Larmor: $P = \dfrac{e^2a^2}{6\pi\varepsilon_0c^3} =$ **{P:sci}** W.
+    (b) Larmor: $P = \dfrac{e^2a^2}{6\pi\varepsilon_0c^3} = {P:texsci}$ W.
 
-    (c) $K = \tfrac12m_ev^2 = {K:sci}$ J, so $K/P =$ **{tau:sig3}** s. Since $P \propto v^2 \propto K$, this time does not depend on the speed, only on $B$.
+    (c) $K = \tfrac12m_ev^2 = {K:texsci}$ J, so $K/P =$ **{tau:sig3}** s. Since $P \propto v^2 \propto K$, this time does not depend on the speed, only on $B$.
 - id: phys-h2-r2-correspondence
   title: Correspondence in hydrogen
   topic: Radiation from accelerating charges
@@ -124,9 +124,9 @@
     - {name: fph, label: '(b) Hz', sigfigs: 3, format: sci}
     - {name: ratio, label: '(c)', tolerance: 0.0006, format: dp3}
   solution: |-
-    (a) $f_{\text{orbit}} = 6.572\times10^{15}/{n}^3 =$ **{forb:sci}** Hz.
+    (a) $f_{\text{orbit}} = 6.572\times10^{15}/{n}^3 = {forb:texsci}$ Hz.
 
-    (b) $f_{\text{photon}} = (3.286\times10^{15})\left(\dfrac{1}{({n} - 1)^2} - \dfrac{1}{{n}^2}\right) = (3.286\times10^{15})\dfrac{2({n}) - 1}{{n}^2({n} - 1)^2} =$ **{fph:sci}** Hz.
+    (b) $f_{\text{photon}} = (3.286\times10^{15})\left(\dfrac{1}{({n} - 1)^2} - \dfrac{1}{{n}^2}\right) = (3.286\times10^{15})\dfrac{2({n}) - 1}{{n}^2({n} - 1)^2} = {fph:texsci}$ Hz.
 
     (c) The ratio is $\dfrac{n(2n - 1)}{2(n - 1)^2} =$ **{ratio:dp3}**, approaching 1 for large $n$ (the correspondence principle).
 # Lesson 93: photons as relativistic particles
@@ -159,13 +159,13 @@
         - {label: '$\pi^- + p \to K^0 + \Lambda$', value: 7}
   calc:
     mb: if(rx == 5 or rx == 6, 0, if(rx == 7, 139.6, 938.3))
-    mt: 938.3
+    mt: 2*469.15
     MM: if(rx == 1, 2011.6, if(rx == 2, 2017.5, if(rx == 3, 2424.5, if(rx == 4, 3753.2, if(rx == 5, 1073.3, if(rx == 6, 1079.2, 1613.3))))))
     K: (MM^2 - (mb + mt)^2)/(2*mt)
   prompt: 'A beam hits protons at rest in the reaction {rx}. Find the threshold kinetic energy of the beam particle in MeV, to 3 significant figures. Rest energies (MeV): $p$ 938.3, $n$ 939.6, $\pi^0$ 135.0, $\pi^\pm$ 139.6, $\eta$ 547.9, $K^0$ 497.6, $\Lambda$ 1115.7; the photon is massless.'
   answers:
     - {name: K, label: '$K_{\text{th}}$ (MeV)', sigfigs: 3, format: sig3}
   solution: |-
-    Beam rest energy $m_bc^2 = {mb}$ MeV, target $m_tc^2 = {mt}$ MeV, total rest energy of the products $Mc^2 = {MM}$ MeV. At threshold the invariant mass of beam plus target just equals $M$:
+    Beam rest energy $m_bc^2 = {mb:dp1}$ MeV, target $m_tc^2 = {mt:dp1}$ MeV, total rest energy of the products $Mc^2 = {MM:dp1}$ MeV. At threshold the invariant mass of beam plus target just equals $M$:
 
-    $K_{\text{th}} = \dfrac{M^2 - (m_b + m_t)^2}{2m_t}c^2 = \dfrac{({MM})^2 - ({mb} + {mt})^2}{2({mt})} =$ **{K:sig3}** MeV.
+    $K_{\text{th}} = \dfrac{M^2 - (m_b + m_t)^2}{2m_t}c^2 = \dfrac{({MM:dp1})^2 - ({mb:dp1} + {mt:dp1})^2}{2({mt:dp1})} =$ **{K:sig3}** MeV.

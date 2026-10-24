@@ -87,20 +87,13 @@ the potatoes.
 Don't use them to a person you're speaking to face to face; *Tür schließen!* said to a friend
 sounds like an army order. With people, use the imperative and *bitte* (lesson 17).
 
-## Ruhezeiten and quiet Sundays
+## Quiet hours and quiet Sundays, briefly
 
-Quiet hours (*Ruhezeiten*) are taken seriously. Usually:
-
-- *Nachtruhe* (night quiet) from 22 Uhr to 6 or 7 Uhr: no loud music, no parties without warning
-  the neighbours.
-- In many buildings a midday quiet time, often 13 to 15 Uhr, though this isn't the law
-  everywhere.
-- On Sundays and public holidays, quiet all day: no drilling (*bohren*), no mowing the lawn, no
-  throwing bottles into the glass bins.
-
-Sunday is also the day when almost all shops are closed. Restaurants, cafés, museums, petrol
-stations and shops in big railway stations are open, and in many places bakeries open for a few
-hours in the morning. So do your weekly shopping on Saturday.
+The first rule in the Hausordnung is about *Ruhezeiten* (quiet hours): usually night quiet from 22
+Uhr to 6 or 7 Uhr, in many buildings a midday rest, and quiet all day on Sundays and public
+holidays: no drilling (*bohren*), no mowing the lawn, and no throwing bottles into the glass bins.
+On Sundays almost all shops are closed too, so do your weekly shopping on Saturday. (The honors
+lesson in module 4 on clubs and quiet hours goes into the details.)
 
 If you're having a party, it's polite to put a note in the stairwell first: *Liebe Nachbarn, am
 Samstag feiern wir eine Party. Es kann ein bisschen laut werden. Wir bitten um Verständnis!* —
@@ -268,7 +261,6 @@ courtyard, and *lieber nicht* "better not".
   schließen!*
 - Putting glass in the yellow bin, or Pfand bottles in the glass container. Pfand bottles go back
   to the shop.
-- Planning to shop on Sunday. Most shops are closed; go on Saturday.
 - Saying *Mull* instead of *Müll*: the umlaut matters.
 
 ## Key points
@@ -281,7 +273,6 @@ courtyard, and *lieber nicht* "better not".
   to the *Glascontainer* by colour; Pfand bottles go back to the shop.
 - *Wo?* + dative (*in der Tonne*); *Wohin?* + accusative (*in die Tonne, in den Sack, ins
   Treppenhaus*).
-- Most shops are closed on Sundays.
 
 The words from this lesson are listed below; they join your vocabulary reviews when you complete
 the lesson.

@@ -30,7 +30,7 @@
   solution: |-
     The round trip through the cell changes the optical path by $2L(n - 1)$, and each fringe is one wavelength: $N = 2L(n - 1)/\lambda$.
 
-    $n - 1 = \dfrac{N\lambda}{2L} = \dfrac{({Nf})({lam}\times10^{-9}\text{ m})}{2({Lc:num1}\times10^{-2}\text{ m})} =$ **{nm1:texsci}**.
+    $n - 1 = \dfrac{N\lambda}{2L} = \dfrac{({Nf})({lam}\times10^{-9}\text{ m})}{2({Lc:num1}\times10^{-2}\text{ m})} = \mathbf{{nm1:texsci}}$.
 - id: phys-m11-r2-air-wedge
   title: Air-wedge fringe spacing
   topic: Interferometry

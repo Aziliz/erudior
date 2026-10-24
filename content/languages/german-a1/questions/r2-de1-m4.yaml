@@ -1,0 +1,437 @@
+# German A1, module 4 (Free time and plans), round 2: new question types for lessons 13-16
+# (de1-m4-r2-q01...) and the two honors lessons (de1-m4-r2-h01...).
+
+# --- 13 Hobbies and stem-changing verbs ---
+- id: de1-m4-r2-q01
+  lesson: de1-hobbies
+  type: text
+  module_quiz: true
+  topic: Stem-changing verbs
+  stem: 'Type the right form of "fahren": "Am Wochenende ___ meine Schwester Fahrrad."'
+  accept: [fährt, faehrt]
+  explanation: 'Fahren changes a to ä in the du and er/sie/es forms. Meine Schwester is sie (she), so: sie fährt. "Fahrt" without the umlaut is the ihr form.'
+- id: de1-m4-r2-q02
+  lesson: de1-hobbies
+  type: text
+  topic: Stem-changing verbs
+  stem: 'Type the du form of "treffen": "Wann ___ du deine Freunde?"'
+  accept: [triffst]
+  explanation: 'Treffen changes e to i in the du and er/sie/es forms and keeps its double f: du triffst, er trifft.'
+- id: de1-m4-r2-q03
+  lesson: de1-hobbies
+  type: order
+  topic: Likes and preferences
+  stem: 'Put the words in order: "Most of all, my brother likes playing football." Start with "Am liebsten".'
+  items: [Am liebsten, spielt, mein Bruder, Fußball.]
+  explanation: 'When am liebsten comes first, the verb stays in position 2 and the subject moves behind it: Am liebsten spielt mein Bruder Fußball. (Not "Am liebsten mein Bruder spielt".)'
+- id: de1-m4-r2-q04
+  lesson: de1-hobbies
+  type: match
+  topic: Stem-changing verbs
+  stem: 'Match each infinitive to its er/sie/es form.'
+  pairs:
+    - [fahren, fährt]
+    - [lesen, liest]
+    - [helfen, hilft]
+    - [sehen, sieht]
+    - [geben, gibt]
+  distractors: [lest, gebt]
+  explanation: 'a → ä: fährt; e → ie: liest, sieht; e → i: hilft, gibt. "Lest" and "gebt" are ihr forms, which never change their vowel.'
+- id: de1-m4-r2-q05
+  lesson: de1-hobbies
+  topic: Stem-changing verbs
+  stem: 'Which of these verbs change their stem vowel in the du and er/sie/es forms? Select all that apply.'
+  choices: [schlafen, geben, wandern, sehen, spielen]
+  answer: [0, 1, 3]
+  explanation: 'Schlafen (du schläfst), geben (du gibst) and sehen (du siehst) are stem-changing verbs. Wandern (du wanderst) and spielen (du spielst) are regular, even though they contain a and e.'
+- id: de1-m4-r2-q06
+  lesson: de1-hobbies
+  type: label
+  module_quiz: true
+  topic: Hobbies
+  stem: 'Which hobby does each numbered picture show?'
+  image: {src: images/de1-m4-hobbies-blank.svg, alt: 'Six numbered picture tiles: an open book, a bicycle, a guitar, a football, a camera, and mountains with a dotted path and a signpost.'}
+  labels:
+    - {x: 18.1, y: 22, text: lesen}
+    - {x: 50, y: 24, text: Fahrrad fahren}
+    - {x: 81.9, y: 27, text: Gitarre spielen}
+    - {x: 18.1, y: 72, text: Fußball spielen}
+    - {x: 50, y: 72.8, text: fotografieren}
+    - {x: 81.9, y: 78, text: wandern}
+  distractors: [schwimmen, tanzen]
+  explanation: 'The book is lesen (to read), the bicycle Fahrrad fahren, the guitar Gitarre spielen, the ball Fußball spielen, the camera fotografieren and the mountain path wandern (to hike). Nothing shows swimming or dancing.'
+
+# --- 14 Modal verbs: können, wollen, möchten ---
+- id: de1-m4-r2-q07
+  lesson: de1-modals-1
+  type: text
+  module_quiz: true
+  topic: Modal verbs
+  stem: 'Type the right form of "können": "Mein Bruder ___ sehr gut kochen."'
+  accept: [kann]
+  explanation: 'With modal verbs the ich and er/sie/es forms are the same and have no ending: ich kann, er kann. Not "kannt".'
+- id: de1-m4-r2-q08
+  lesson: de1-modals-1
+  type: order
+  topic: Sentence bracket
+  stem: 'Put the words in order: "I would like to go to the cinema this evening." Start with "Ich".'
+  items: [Ich, möchte, heute Abend, ins Kino, gehen.]
+  explanation: 'The modal möchte is in position 2 and the infinitive gehen closes the bracket at the end. Inside the bracket the time (heute Abend) comes before the place you go to (ins Kino), which stands right before the infinitive.'
+- id: de1-m4-r2-q09
+  lesson: de1-modals-1
+  type: match
+  topic: Modal verbs
+  stem: 'Match each verb to its meaning.'
+  pairs:
+    - [können, 'can, be able to']
+    - [wollen, want to]
+    - [möchten, would like to]
+    - [mögen, like (a thing or person)]
+  distractors: [must, have to]
+  explanation: 'Können = ability or possibility, wollen = a firm wish, möchten = a polite wish, mögen = liking a thing or person (Ich mag Jazz). "Must" is müssen, from lesson 15.'
+- id: de1-m4-r2-q10
+  lesson: de1-modals-1
+  topic: Modal verbs
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich kann gut schwimmen.', 'Er kannt gut schwimmen.', 'Willst du mitkommen?', 'Ich will zu reisen.', 'Sie möchte einen Tee.']
+  answer: [0, 2, 4]
+  explanation: 'Er kann has no ending (not "kannt"), and modal verbs never take zu: Ich will reisen. Willst du mitkommen? is right: the separable verb comes back together at the end. Sie möchte einen Tee is right: möchte can take a noun.'
+- id: de1-m4-r2-q11
+  lesson: de1-modals-1
+  type: label
+  module_quiz: true
+  topic: Sentence bracket
+  stem: 'The sentence "Ich kann am Samstag gut kochen." is split into four boxes. Name the part of the sentence each numbered box is.'
+  image: {src: images/de1-m4-bracket-blank.svg, alt: 'Two sentences in boxes with a red bracket joining the second and fourth box. Top row, numbered 1 to 4: Ich, kann, am Samstag gut, kochen. Bottom row: Wann, willst, du, mitkommen?'}
+  labels:
+    - {x: 9.9, y: 25.3, text: Position 1}
+    - {x: 27.6, y: 25.3, text: Modal verb (position 2)}
+    - {x: 54.6, y: 25.3, text: Middle}
+    - {x: 85.5, y: 25.3, text: Infinitive (end)}
+  distractors: [Past participle]
+  explanation: 'Ich fills position 1, the modal verb kann is in position 2 and opens the bracket, am Samstag gut is the middle, and the infinitive kochen closes the bracket at the end. The bottom row works the same way with the question word Wann in position 1.'
+
+# --- 15 Modal verbs: müssen, dürfen, sollen ---
+- id: de1-m4-r2-q12
+  lesson: de1-modals-2
+  type: text
+  module_quiz: true
+  topic: Rules and signs
+  stem: 'Type the right form of "dürfen": "Hier ___ man nicht rauchen."'
+  accept: [darf]
+  explanation: 'Man takes the er/sie/es form, and dürfen has no umlaut and no ending there: man darf.'
+- id: de1-m4-r2-q13
+  lesson: de1-modals-2
+  type: match
+  topic: Modal verbs
+  stem: 'Match each sentence to its meaning.'
+  pairs:
+    - [Du musst nicht kommen., You don't have to come.]
+    - [Du darfst nicht kommen., You're not allowed to come.]
+    - [Du sollst kommen., Someone wants you to come.]
+    - [Du kannst kommen., You're able to come.]
+  distractors: [You want to come.]
+  explanation: 'Nicht müssen = not necessary; nicht dürfen = forbidden; sollen passes on what another person wants; können = able or possible. "You want to come" would be Du willst kommen.'
+- id: de1-m4-r2-q14
+  lesson: de1-modals-2
+  topic: Rules and signs
+  stem: 'Which say that something is forbidden? Select all that apply.'
+  choices: ['Hier darf man nicht parken.', 'Rauchen verboten', 'Man muss hier nicht warten.', 'Du darfst nicht telefonieren.', 'Parken erlaubt']
+  answer: [0, 1, 3]
+  explanation: 'Nicht dürfen and verboten mean forbidden. Man muss hier nicht warten only says waiting is not necessary, and erlaubt means allowed.'
+- id: de1-m4-r2-q15
+  lesson: de1-modals-2
+  type: label
+  module_quiz: true
+  topic: Rules and signs
+  stem: 'What does each numbered sign mean?'
+  image: {src: images/de1-m4-signs-blank.svg, alt: 'Four numbered signs: a cigarette in a red ring with a red bar across it, a white P on a blue square, a mobile phone in a red ring with a red bar across it, and a face with a finger on its lips.'}
+  labels:
+    - {x: 13.2, y: 40, text: Hier darf man nicht rauchen.}
+    - {x: 38.2, y: 40, text: Hier darf man parken.}
+    - {x: 63.2, y: 40, text: Hier darf man nicht telefonieren.}
+    - {x: 88.2, y: 40, text: Hier muss man leise sein.}
+  distractors: [Hier muss man nicht parken.]
+  explanation: 'A red ring with a bar means forbidden: no smoking (1) and no phone calls (3). The blue P sign allows parking (2). The finger on the lips asks for quiet (4). "Hier muss man nicht parken" (you don''t have to park here) is not what a sign says.'
+- id: de1-m4-r2-q16
+  lesson: de1-modals-2
+  type: order
+  topic: Polite requests
+  stem: 'Put the words in order to ask politely: "May I open the window?"'
+  items: [Darf, ich, das Fenster, 'öffnen?']
+  explanation: 'A yes/no question starts with the modal verb (Darf), then the subject (ich), the middle (das Fenster) and the infinitive at the end (öffnen).'
+
+# --- 16 Dates, seasons, weather and invitations ---
+- id: de1-m4-r2-q17
+  lesson: de1-dates-weather
+  type: text
+  topic: Dates and ordinal numbers
+  stem: '"Heute ist der 3. Oktober" is read "Heute ist der ___ Oktober." Type the ordinal as a word.'
+  accept: [dritte]
+  explanation: 'Third is irregular: dritte (not "dreite"). After der the ordinal ends in -e: der dritte Oktober.'
+- id: de1-m4-r2-q18
+  lesson: de1-dates-weather
+  type: text
+  module_quiz: true
+  topic: Dates and ordinal numbers
+  stem: '"Ich habe am 1. Mai Geburtstag" is read "Ich habe am ___ Mai Geburtstag." Type the ordinal as a word.'
+  accept: [ersten]
+  explanation: 'First is erste, and after am the ordinal ends in -en: am ersten Mai.'
+- id: de1-m4-r2-q19
+  lesson: de1-dates-weather
+  type: order
+  topic: Dates and ordinal numbers
+  stem: 'Put these dates in order, from earliest to latest in the year.'
+  items: [am dritten März, am ersten Mai, am siebten Juli, am achten Oktober, am zwölften Dezember]
+  explanation: 'März (3rd month), Mai (5th), Juli (7th), Oktober (10th), Dezember (12th). The day numbers are dritten (3rd), ersten (1st), siebten (7th), achten (8th) and zwölften (12th).'
+- id: de1-m4-r2-q20
+  lesson: de1-dates-weather
+  type: label
+  module_quiz: true
+  topic: Weather
+  stem: 'Describe the weather in each numbered picture.'
+  image: {src: images/de1-m4-weather-blank.svg, alt: 'Four numbered weather pictures: a bright sun, a cloud with rain, a cloud with snowflakes, and gusts of wind bending a small tree.'}
+  labels:
+    - {x: 13.2, y: 38.3, text: Die Sonne scheint.}
+    - {x: 38.2, y: 38.3, text: Es regnet.}
+    - {x: 63.2, y: 38.3, text: Es schneit.}
+    - {x: 88.2, y: 38.3, text: Es ist windig.}
+  explanation: 'Sun: Die Sonne scheint. Rain: Es regnet (regnen). Snow: Es schneit (schneien). Wind: Es ist windig. The weather verbs need the placeholder es.'
+- id: de1-m4-r2-q21
+  lesson: de1-dates-weather
+  topic: Accusative prepositions
+  stem: 'Which phrases are correct? Select all that apply.'
+  choices: [für meinen Bruder, ohne der Schirm, durch den Park, für der Vater, für die Party]
+  answer: [0, 2, 4]
+  explanation: 'Für, ohne and durch always take the accusative, and only the masculine changes: für meinen Bruder, durch den Park, ohne den Schirm, für den Vater. Feminine stays the same: für die Party.'
+- id: de1-m4-r2-q22
+  lesson: de1-dates-weather
+  type: match
+  topic: Dates and ordinal numbers
+  stem: 'Match each written date to the way it is read.'
+  pairs:
+    - ['3.10.', der dritte Oktober]
+    - ['10.3.', der zehnte März]
+    - ['1.5.', der erste Mai]
+    - ['7.8.', der siebte August]
+  distractors: [der dritte Januar]
+  explanation: 'German dates are written day first, then month: 3.10. is the 3rd of October and 10.3. is the 10th of March. Seventh is siebte and first is erste.'
+
+# --- Honors: Clubs, quiet hours and favourite things ---
+- id: de1-m4-r2-h01
+  lesson: de1-m4-h-vereine
+  topic: Free time culture
+  stem: 'What do the letters "e. V." after a club''s name mean?'
+  choices: ['registered club (eingetragener Verein)', 'club open every day', 'European club', 'club for adults only']
+  answer: 0
+  explanation: 'E. V. is short for eingetragener Verein, a club entered in the official register, such as TC Rotbuche e. V.'
+- id: de1-m4-r2-h02
+  lesson: de1-m4-h-vereine
+  topic: Free time culture
+  stem: 'A club notice says: "Du musst nicht Mitglied sein." What does it mean?'
+  choices: ['You mustn''t be a member.', 'You don''t have to be a member.', 'You should be a member.', 'You can''t be a member.']
+  answer: 1
+  explanation: 'Nicht müssen means "not necessary": you can try the training without joining. "You mustn''t" would be nicht dürfen.'
+- id: de1-m4-r2-h03
+  lesson: de1-m4-h-vereine
+  topic: Free time culture
+  stem: 'The notice says: "In der Halle darf man nur mit Hallenschuhen spielen." Which statement is true?'
+  choices: ['You may play in any shoes you like.', 'Only children need indoor shoes.', 'You mustn''t play in outdoor shoes in the hall.', 'You have to buy shoes from the club.']
+  answer: 2
+  explanation: 'Nur means "only": indoor shoes are the only shoes allowed, so outdoor shoes (Straßenschuhe) are not. The notice says nothing about children or buying shoes.'
+- id: de1-m4-r2-h04
+  lesson: de1-m4-h-vereine
+  type: text
+  topic: Favourites and comparisons
+  stem: 'Type the German word for "favourite colour": "Meine ___ ist Blau."'
+  accept: [Lieblingsfarbe]
+  explanation: 'Lieblings- + Farbe, written as one word: die Lieblingsfarbe. It is feminine like die Farbe, so meine.'
+- id: de1-m4-r2-h05
+  lesson: de1-m4-h-vereine
+  topic: Favourites and comparisons
+  stem: 'Which article goes with "Lieblingsbuch"?'
+  choices: [der, die, den, das]
+  answer: 3
+  explanation: 'A compound noun takes its gender from the last noun: das Buch, so das Lieblingsbuch. Liebling (der) doesn''t decide.'
+- id: de1-m4-r2-h06
+  lesson: de1-m4-h-vereine
+  topic: Favourites and comparisons
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich trinke lieber Tee als Kaffee.', 'Ich trinke mehr gern Tee als Kaffee.', 'Mein Lieblingsfilm ist „Lola rennt“.', 'Mein Lieblings Film ist „Lola rennt“.', 'Meine Lieblingsfarbe ist Grün.']
+  answer: [0, 2, 4]
+  explanation: 'The comparative of gern is lieber, never "mehr gern", and the comparison word is als. Lieblings- words are written as one word: Lieblingsfilm, not "Lieblings Film".'
+- id: de1-m4-r2-h07
+  lesson: de1-m4-h-vereine
+  type: order
+  topic: Favourites and comparisons
+  stem: 'Put the parts in order: "My brother prefers chess to football."'
+  items: [Mein Bruder, spielt, lieber Schach, als Fußball.]
+  explanation: 'The verb spielt is in position 2, lieber and the preferred thing follow it, and the als part goes at the end: Mein Bruder spielt lieber Schach als Fußball.'
+- id: de1-m4-r2-h08
+  lesson: de1-m4-h-vereine
+  type: match
+  topic: Free time culture
+  stem: 'Match each word to what it means in Germany.'
+  pairs:
+    - [Nachtruhe, Quiet time usually from 22 to 6 Uhr]
+    - [Mittagsruhe, Quiet time often from 13 to 15 Uhr in house rules]
+    - [Sonntagsruhe, Rest on Sundays all day]
+    - [Hausordnung, The rules of a block of flats]
+  distractors: [The training plan of a club]
+  explanation: 'Night quiet is the firm rule (usually 22 to 6). Midday quiet is common but depends on the town and the house rules. Sundays are days of rest all day. The Hausordnung is a building''s house rules.'
+- id: de1-m4-r2-h09
+  lesson: de1-m4-h-vereine
+  topic: Free time culture
+  stem: 'Which statement about shopping on a Sunday in Germany is true?'
+  choices: ['Supermarkets open as usual.', 'All shops are closed, even at stations and airports.', 'Most shops are closed, but bakeries may open for a few hours and shops at big stations stay open.', 'Shops open only in the afternoon.']
+  answer: 2
+  explanation: 'Sundays are protected days of rest, so most shops are closed. Bakeries may open for a few hours, and shops at large stations, airports and petrol stations stay open; details depend on the state.'
+- id: de1-m4-r2-h10
+  lesson: de1-m4-h-vereine
+  type: text
+  topic: Free time culture
+  stem: 'House rules: "Fahrräder ___ man nicht im Treppenhaus parken." Type the right form of "dürfen".'
+  accept: [darf]
+  explanation: 'The subject is man (Fahrräder is the object, put first for emphasis), so the verb takes the er form: darf.'
+- id: de1-m4-r2-h11
+  lesson: de1-m4-h-vereine
+  topic: Free time culture
+  stem: 'Your neighbour asks: "Kann ich um 23 Uhr Klavier spielen?" The house rules say "Von 22 bis 6 Uhr ist Nachtruhe." What do you answer?'
+  choices: ['Nein, da muss man nicht Klavier spielen.', 'Ja, da soll man Klavier spielen.', 'Ja, um 23 Uhr ist Mittagsruhe.', 'Nein, da darf man nicht Klavier spielen.']
+  answer: 3
+  explanation: '23 Uhr is during the night quiet time, so playing is forbidden: nicht dürfen. "Muss man nicht" would only mean it isn''t necessary.'
+- id: de1-m4-r2-h12
+  lesson: de1-m4-h-vereine
+  topic: Free time culture
+  stem: 'Which statement about the Mittagsruhe (midday quiet) is correct?'
+  choices: ['It is a national law from 12 to 14 Uhr everywhere.', 'It depends on the town and the house rules; 13 to 15 Uhr is common.', 'It applies only on Sundays.', 'It means shops close for lunch.']
+  answer: 1
+  explanation: 'Unlike the night quiet and the Sunday rest, the Mittagsruhe is not a general law. Many house rules set it, often from 13 to 15 Uhr.'
+- id: de1-m4-r2-h13
+  lesson: de1-m4-h-vereine
+  topic: Favourites and comparisons
+  stem: 'Jana writes: "Am liebsten singe ich, aber Tennis macht auch Spaß." What does Jana like doing most?'
+  choices: [singing, playing tennis, hiking, playing football]
+  answer: 0
+  explanation: 'Am liebsten = most of all, so singing is her top choice. Tennis is also fun (macht auch Spaß), but it comes second.'
+- id: de1-m4-r2-h14
+  lesson: de1-m4-h-vereine
+  type: text
+  topic: Favourites and comparisons
+  stem: '"I prefer tea to coffee": "Ich trinke lieber Tee ___ Kaffee." Type the missing word.'
+  accept: [als]
+  explanation: 'After lieber, "than" is als: lieber Tee als Kaffee.'
+
+# --- Honors: The German year ---
+- id: de1-m4-r2-h15
+  lesson: de1-m4-h-feiertage
+  topic: Holidays and customs
+  stem: 'Which public holiday is the only one fixed by national law in Germany?'
+  choices: ['1 May, Tag der Arbeit', '25 December, Christmas Day', '3 October, Tag der Deutschen Einheit', '1 January, Neujahr']
+  answer: 2
+  explanation: 'The Day of German Unity was set by the Unification Treaty of 1990. All the other public holidays, even those that apply everywhere, are set by the 16 states.'
+- id: de1-m4-r2-h16
+  lesson: de1-m4-h-feiertage
+  topic: Holidays and customs
+  stem: 'Which of these are public holidays in every German state? Select all that apply.'
+  choices: ['Tag der Arbeit (1 May)', 'Heiligabend (24 December)', 'Tag der Deutschen Einheit (3 October)', 'Silvester (31 December)', 'Ostermontag (Easter Monday)']
+  answer: [0, 2, 4]
+  explanation: 'Labour Day, the Day of German Unity and Easter Monday are among the nine nationwide holidays. Christmas Eve and New Year''s Eve are not public holidays; shops just close early.'
+- id: de1-m4-r2-h17
+  lesson: de1-m4-h-feiertage
+  type: label
+  topic: Holidays and customs
+  stem: 'Which day of the German year is each numbered calendar page?'
+  image: {src: images/de1-m4-holidays-blank.svg, alt: 'Six numbered calendar pages: 1. Mai with a flower, 3. Oktober with the German flag, 11. November with a paper lantern, 6. Dezember with a boot full of sweets, 24. Dezember with a Christmas tree, and 31. Dezember with fireworks.'}
+  labels:
+    - {x: 17.1, y: 30.4, text: Tag der Arbeit}
+    - {x: 50, y: 30.4, text: Tag der Deutschen Einheit}
+    - {x: 82.9, y: 30.4, text: Sankt Martin}
+    - {x: 17.1, y: 78.6, text: Nikolaustag}
+    - {x: 50, y: 78.6, text: Heiligabend}
+    - {x: 82.9, y: 78.6, text: Silvester}
+  distractors: [Ostermontag]
+  explanation: '1 May is Labour Day, 3 October the Day of German Unity, 11 November St Martin''s Day (lanterns), 6 December St Nicholas'' Day (sweets in a boot), 24 December Christmas Eve and 31 December New Year''s Eve. Easter Monday has no fixed date.'
+- id: de1-m4-r2-h18
+  lesson: de1-m4-h-feiertage
+  topic: Holidays and customs
+  stem: 'When do most families in Germany open their Christmas presents?'
+  choices: ['On the morning of 25 December', 'On the evening of 24 December', 'On 6 December', 'On 26 December']
+  answer: 1
+  explanation: 'The Bescherung is usually on the evening of Heiligabend, 24 December. On 6 December children get small sweets from the Nikolaus.'
+- id: de1-m4-r2-h19
+  lesson: de1-m4-h-feiertage
+  type: text
+  topic: Dates and ranges
+  stem: '"vom 24. bis zum 26. Dezember" is read "vom vierundzwanzigsten bis zum ___ Dezember." Type the ordinal as a word.'
+  accept: [sechsundzwanzigsten]
+  explanation: '26 is above 19, so add -ste: sechsundzwanzigste. After zum the ending is -en: bis zum sechsundzwanzigsten.'
+- id: de1-m4-r2-h20
+  lesson: de1-m4-h-feiertage
+  type: text
+  topic: Dates and ranges
+  stem: 'A letter begins "Berlin, den 3. Oktober". It is read "Berlin, den ___ Oktober." Type the ordinal as a word.'
+  accept: [dritten]
+  explanation: 'After den (accusative) the ordinal takes -en: den dritten Oktober. Only der gives -e.'
+- id: de1-m4-r2-h21
+  lesson: de1-m4-h-feiertage
+  topic: Dates and ranges
+  stem: 'Which sentence is correct?'
+  choices: ['Die Ferien dauern vom erste bis zum vierzehnte August.', 'Die Ferien dauern von der erste bis der vierzehnte August.', 'Die Ferien dauern vom ersten bis zur vierzehnten August.', 'Die Ferien dauern vom ersten bis zum vierzehnten August.']
+  answer: 3
+  explanation: 'A date range is vom … bis zum …, and both ordinals end in -en: vom ersten bis zum vierzehnten. "Zur" is for feminine nouns; months are masculine.'
+- id: de1-m4-r2-h22
+  lesson: de1-m4-h-feiertage
+  type: match
+  topic: Holidays and customs
+  stem: 'Match each greeting to when you say it.'
+  pairs:
+    - [Frohe Weihnachten!, At Christmas]
+    - [Guten Rutsch!, Just before New Year]
+    - [Frohes neues Jahr!, From 1 January on]
+    - [Frohe Ostern!, At Easter]
+    - [Alles Gute zum Geburtstag!, On someone's birthday]
+  distractors: [On 3 October]
+  explanation: 'Guten Rutsch (a good "slide" into the new year) is said before midnight on 31 December; Frohes neues Jahr from New Year''s Day on. There is no fixed greeting for 3 October.'
+- id: de1-m4-r2-h23
+  lesson: de1-m4-h-feiertage
+  type: order
+  topic: Holidays and customs
+  stem: 'Starting in November, put these days in the order they come.'
+  items: [Sankt Martin, Nikolaustag, Heiligabend, Silvester, Neujahr]
+  explanation: 'Sankt Martin is 11 November, Nikolaustag 6 December, Heiligabend 24 December, Silvester 31 December and Neujahr 1 January.'
+- id: de1-m4-r2-h24
+  lesson: de1-m4-h-feiertage
+  topic: Dates and ranges
+  stem: 'Ostern 2027 ist am 28. März. Wann ist Ostermontag?'
+  choices: [am achtundzwanzigsten März, am neunundzwanzigsten März, am siebenundzwanzigsten März, am ersten April]
+  answer: 1
+  explanation: 'Easter Monday is the day after Easter Sunday: 29 March, am neunundzwanzigsten März (29 is above 19, so -ste, plus -n after am).'
+- id: de1-m4-r2-h25
+  lesson: de1-m4-h-feiertage
+  topic: Holidays and customs
+  stem: 'Your German colleague''s birthday is tomorrow. What do many Germans avoid doing today?'
+  choices: ['Saying "Guten Tag"', 'Talking about the weekend', 'Buying a present', 'Saying "Alles Gute zum Geburtstag"']
+  answer: 3
+  explanation: 'Many people think it brings bad luck to congratulate someone before the birthday. It is a superstition, but waiting for the day itself is the safe choice.'
+- id: de1-m4-r2-h26
+  lesson: de1-m4-h-feiertage
+  topic: Holidays and customs
+  stem: 'Which statement about Karneval and Fasching is true?'
+  choices: ['Fasching is a public holiday in every state.', 'Karneval is celebrated only in Austria.', 'Fasching is the usual word in southern Germany and Austria; Karneval in the Rhineland.', 'Both are celebrated in December.']
+  answer: 2
+  explanation: 'They are names for the same season. Its high point is in February or early March, with parades on Rosenmontag, which is not a public holiday.'
+- id: de1-m4-r2-h27
+  lesson: de1-m4-h-feiertage
+  topic: Dates and ranges
+  stem: 'A sign says "Weihnachtsmarkt: 27.11. bis 23.12." How do you read it?'
+  choices: ['vom siebenundzwanzigsten November bis zum dreiundzwanzigsten Dezember', 'vom siebenundzwanzigsten Dezember bis zum dreiundzwanzigsten November', 'vom siebenundzwanzigste November bis zum dreiundzwanzigste Dezember', 'von siebenundzwanzig November bis dreiundzwanzig Dezember']
+  answer: 0
+  explanation: 'Day first, then month: 27.11. is 27 November. A range is vom … bis zum …, with -en on both ordinals. The third choice forgets the -n; the last uses plain numbers instead of ordinals.'
+- id: de1-m4-r2-h28
+  lesson: de1-m4-h-feiertage
+  topic: Dates and ranges
+  stem: 'Complete: "Heute ist der ___ Mai." (1.)'
+  choices: [erste, ersten, erster, eins]
+  answer: 0
+  explanation: 'After der the ordinal ends in -e: der erste Mai. -en comes after am, vom, zum and den.'

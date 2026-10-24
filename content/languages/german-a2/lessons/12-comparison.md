@@ -38,6 +38,8 @@ The points of the compass are all masculine: *der Norden, der Süden, der Osten,
 
 *die Gegend* and *die Umgebung* are close. *die Gegend* is any area or region: *Das ist eine schöne Gegend.* *die Umgebung* is what surrounds a particular place: *Hamburg und Umgebung* (Hamburg and the surrounding area). *das Ufer* is the edge of a river or lake; the edge of the sea is *die Küste* or, where you swim, *der Strand* (A1).
 
+![A landscape. On the left, der Hügel (a hill) with der Wald (a group of trees) on it, and die Wiese (a meadow with flowers) in front. In the middle, der Fluss (a river) runs through the valley, and das Ufer is its bank. On the right, der Bauernhof (a farmhouse and a barn), das Feld (a striped field) in front, and der Berg (a mountain with snow on top) behind.](images/de2-m3-landscape.svg)
+
 New adjectives for describing places: *hoch* (high, tall), *tief* (deep), *breit* (wide, broad), *schmal* (narrow), *flach* (flat, shallow), *gefährlich* (dangerous), *sauber* (clean) and *schmutzig* (dirty). *hoch* loses its *c* before an ending: *ein hoher Berg*, *die hohen Häuser*.
 
 ## The comparative: -er
@@ -130,6 +132,15 @@ A few very common adjectives have irregular forms. You know the first from A1.
 - *nicht so … wie* means "not as … as": *Unser Dorf ist nicht so laut wie die Stadt.* — Our village isn't as noisy as the town.
 
 A short way to remember: different → *als*; the same → *wie*.
+
+```mermaid
+flowchart TD
+  accTitle: als or wie?
+  accDescr: When you compare two things, ask whether they are different or the same. If they are different, use the comparative and als, as in größer als. If they are the same, use so or genauso with the plain adjective and wie, as in so groß wie. Not the same is nicht so plus the plain adjective plus wie.
+  A{"Are the two things different or the same?"} -- different --> B["comparative + als: größer als"]
+  A -- the same --> C["so / genauso + adjective + wie: so groß wie"]
+  A -- "not the same (not as …)" --> D["nicht so + adjective + wie: nicht so groß wie"]
+```
 
 *immer* + comparative means that something keeps growing: *Die Stadt wird immer größer* (the city keeps getting bigger), *immer mehr Leute* (more and more people). *werden* (to become) is from lesson 8.
 

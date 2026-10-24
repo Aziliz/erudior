@@ -36,6 +36,10 @@ A few things to notice:
 - A *Hut* has a brim; a *Mütze* is a soft woolly hat or a cap. In winter you wear a *Mütze*.
 - *der Handschuh* is literally a "hand shoe".
 
+Here is a winter outfit with the words in place:
+
+![A person dressed for winter. Labels: die Mütze (woolly hat with a bobble) on the head, der Schal (scarf) round the neck, die Jacke (jacket) on the body, die Handschuhe (gloves) on the hands, die Hose (trousers) on the legs and die Stiefel (boots) on the feet.](images/de2-m3-outfit.svg)
+
 The verb for wearing clothes is *tragen*, which also means "to carry". It changes its vowel like *fahren*: *ich trage, du trägst, er trägt*. To try something on in a shop, use the separable verb *anprobieren*: *Kann ich die Jacke anprobieren?* (Can I try the jacket on?) Three useful adjectives: *eng* (tight), *bequem* (comfortable) and *modisch* (fashionable). *weit*, which you know as "far", also means "loose, wide" for clothes: *Die Hose ist zu weit.* Patterns are *gestreift* (striped), *kariert* (checked) and *bunt* (colourful).
 
 From lesson 7 you know that *passen* and *stehen* take the dative: *Die Hose passt mir* (the trousers fit me), *Das Kleid steht dir* (the dress suits you).
@@ -119,6 +123,22 @@ To choose an ending, ask three questions: What gender is the noun (or is it plur
 1. *Ich kaufe (ein) (blau) Pullover.* — masculine, accusative (object of *kaufen*), and *einen* shows it → *einen blauen Pullover*.
 2. *(Ein) (gelb) Mütze liegt auf dem Tisch.* — feminine, nominative → *Eine gelbe Mütze*.
 3. *Sie kommt mit (ein) (rot) Kleid.* — neuter, dative (after *mit*) → *mit einem roten Kleid*.
+
+The same questions as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an adjective ending after ein, kein or mein
+  accDescr: Start with an adjective before a noun after an ein-word. If the noun is plural or the case is dative, the ending is -en. Otherwise look at the gender. Feminine nominative or accusative takes -e. Neuter nominative or accusative takes -es. Masculine nominative takes -er, and masculine accusative takes -en.
+  A["Adjective after ein, kein, mein …"] --> B{"Plural or dative?"}
+  B -- yes --> EN1["-en: meinen neuen Schuhen"]
+  B -- no --> C{"Gender of the noun?"}
+  C -- feminine --> E["-e: eine neue Jacke"]
+  C -- neuter --> ES["-es: ein neues Kleid"]
+  C -- masculine --> D{"Nominative or accusative?"}
+  D -- nominative --> ER["-er: ein neuer Rock"]
+  D -- accusative --> EN2["-en: einen neuen Rock"]
+```
 
 ## Small spelling changes
 

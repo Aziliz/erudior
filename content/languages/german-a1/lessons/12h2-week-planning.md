@@ -13,7 +13,7 @@ In lesson 11 you learned the clock and the little words *um*, *am* and *von … 
 
 ## Reading opening hours
 
-Every shop, bakery, doctor's practice and café has a sign with its ***Öffnungszeiten*** (opening hours). They use short forms for the days: *Mo, Di, Mi, Do, Fr, Sa, So*, and a dash means *bis*.
+Every shop, bakery, doctor's practice and café has a sign with its *Öffnungszeiten* (opening hours). They use short forms for the days: *Mo, Di, Mi, Do, Fr, Sa, So*, and a dash means *bis*.
 
 ![Two door signs. Left: Bäckerei Krume, Öffnungszeiten: Mo–Fr 6:30–18:00, Sa 7:00–13:00, So 8:00–11:00, feiertags geschlossen. Right: Café am Markt, Öffnungszeiten: Di–Fr 8–18 Uhr, Sa–So 9–18 Uhr, Montag Ruhetag.](images/de1-m3-hours.svg)
 
@@ -24,8 +24,8 @@ To read a line aloud, say the days with *von … bis* and the times with *von �
 
 Three more words you'll see on signs:
 
-- ***geöffnet*** — open; ***geschlossen*** — closed. *Heute geschlossen!* — Closed today!
-- ***der Ruhetag*** — the "rest day": a restaurant's or café's fixed day off each week. *Montag Ruhetag* means it is closed every Monday.
+- *geöffnet* — open; *geschlossen* — closed. *Heute geschlossen!* — Closed today!
+- *der Ruhetag* — the "rest day": a restaurant's or café's fixed day off each week. *Montag Ruhetag* means it is closed every Monday.
 - *feiertags* — on public holidays (*der Feiertag*, public holiday). *feiertags geschlossen* = closed on public holidays.
 
 A cultural note, simplified: in Germany most shops are closed on Sundays and public holidays. The exact rules are set by each federal state, and there are exceptions: bakeries may open for a few hours on Sunday morning, and shops at petrol stations, big train stations and airports stay open. So the bakery on the sign opening *So 8:00–11:00* is completely normal.
@@ -34,10 +34,10 @@ A cultural note, simplified: in Germany most shops are closed on Sundays and pub
 
 Use the two signs above.
 
-1. *Kann ich am Sonntag um halb elf Brötchen kaufen?* — Can I buy rolls on Sunday at 10:30? The bakery is open on Sunday from 8:00 to 11:00, and 10:30 is inside that time: **yes**.
+1. *Kann ich am Sonntag um halb elf Brötchen kaufen?* — Can I buy rolls on Sunday at 10:30? The bakery is open on Sunday from 8:00 to 11:00, and 10:30 is inside that time: yes.
 2. *Ist das Café am Montag geöffnet?* — No: *Montag Ruhetag*. It's closed every Monday.
 3. *Wie lange ist die Bäckerei am Samstag geöffnet?* — From 7:00 to 13:00: *sechs Stunden*.
-4. How many hours a week is the bakery open? Monday to Friday 6:30–18:00 is 11½ hours a day, so 5 × 11,5 = 57,5 hours; plus 6 on Saturday and 3 on Sunday: **66,5 hours** (*sechsundsechzigeinhalb Stunden*).
+4. How many hours a week is the bakery open? Monday to Friday 6:30–18:00 is 11½ hours a day, so 5 × 11,5 = 57,5 hours; plus 6 on Saturday and 3 on Sunday: 66,5 hours (*sechsundsechzigeinhalb Stunden*).
 
 ## Habits: montags, abends
 
@@ -45,12 +45,12 @@ In lesson 11 you said *am Montag* (on Monday) and *am Abend* (in the evening). F
 
 | am … (one time, or from context) | regularly: every … |
 |---|---|
-| am Montag | ***montags*** — on Mondays |
-| am Sonntag | ***sonntags*** — on Sundays |
-| am Morgen | ***morgens*** — in the mornings |
+| am Montag | *montags* — on Mondays |
+| am Sonntag | *sonntags* — on Sundays |
+| am Morgen | *morgens* — in the mornings |
 | am Nachmittag | *nachmittags* — in the afternoons |
-| am Abend | ***abends*** — in the evenings |
-| in der Nacht | ***nachts*** — at night |
+| am Abend | *abends* — in the evenings |
+| in der Nacht | *nachts* — at night |
 
 Every day works the same way: *dienstags, mittwochs, donnerstags, freitags, samstags*, and also *vormittags* and *mittags*.
 
@@ -67,7 +67,7 @@ Some time phrases have no preposition at all. With *jeder* (every), *nächster* 
 | | masculine | feminine | neuter |
 |---|---|---|---|
 | every | jeden Tag, jeden Morgen | jede Woche | jedes Jahr, jedes Wochenende |
-| next | nächsten Montag, nächsten Monat | ***nächste Woche*** | nächstes Jahr |
+| next | nächsten Montag, nächsten Monat | *nächste Woche* | nächstes Jahr |
 | this | diesen Freitag, diesen Sommer | diese Woche | dieses Wochenende |
 | the whole | den ganzen Tag | die ganze Woche | das ganze Wochenende |
 
@@ -81,7 +81,7 @@ You can also say *am nächsten Montag*, with *am*, but the short accusative form
 
 ### How long: dauern and the accusative
 
-The same accusative says how long something lasts. The verb for "to last, to take (time)" is ***dauern***: *Wie lange dauert der Film?* — How long is the film?
+The same accusative says how long something lasts. The verb for "to last, to take (time)" is *dauern*: *Wie lange dauert der Film?* — How long is the film?
 
 - *Der Film dauert zwei Stunden.* — The film lasts two hours. (plural: no change)
 - *Der Kurs dauert einen Tag.* — The course takes one day. (*der Tag* → *einen Tag*)
@@ -93,15 +93,15 @@ English often adds "for"; German usually needs no word at all. (*Ich bleibe für
 
 Say "I go shopping every Saturday" and "The appointment takes an hour".
 
-1. "every Saturday": *der Samstag* is masculine, *jeder* takes the masculine accusative ending *-en*: *jeden Samstag*. The verb is *einkaufen*, separable: ***Ich kaufe jeden Samstag ein.*** (Or with the time first: *Jeden Samstag kaufe ich ein.*)
-2. "an hour": *die Stunde* is feminine, so it stays *eine Stunde*. *Der Termin* (appointment) *dauert* … : ***Der Termin dauert eine Stunde.***
+1. "every Saturday": *der Samstag* is masculine, *jeder* takes the masculine accusative ending *-en*: *jeden Samstag*. The verb is *einkaufen*, separable: *Ich kaufe jeden Samstag ein.* (Or with the time first: *Jeden Samstag kaufe ich ein.*)
+2. "an hour": *die Stunde* is feminine, so it stays *eine Stunde*. *Der Termin* (appointment) *dauert* … : *Der Termin dauert eine Stunde.*
 
 ## Around eight, shortly after eight
 
 | German | English |
 |---|---|
 | um acht | at eight |
-| ***gegen*** acht | around eight, at about eight |
+| *gegen* acht | around eight, at about eight |
 | kurz nach acht | shortly after eight |
 | kurz vor acht | shortly before eight |
 | Punkt acht | at eight on the dot |
@@ -110,11 +110,11 @@ Say "I go shopping every Saturday" and "The appointment takes an hour".
 
 ## How often: a longer scale
 
-Lesson 11 gave you *immer, oft, manchmal, nie*. Add ***meistens*** (mostly, usually) and ***selten*** (rarely):
+Lesson 11 gave you *immer, oft, manchmal, nie*. Add *meistens* (mostly, usually) and *selten* (rarely):
 
 immer → meistens → oft → manchmal → selten → nie
 
-To count, use ***einmal*** (once), *zweimal* (twice), *dreimal* … with ***pro*** (per) or with the accusative: *einmal pro Woche* or *einmal die Woche* — once a week; *dreimal am Tag* — three times a day.
+To count, use *einmal* (once), *zweimal* (twice), *dreimal* … with *pro* (per) or with the accusative: *einmal pro Woche* or *einmal die Woche* — once a week; *dreimal am Tag* — three times a day.
 
 - *Ich gehe zweimal pro Woche schwimmen.* — I go swimming twice a week.
 - *Wir essen selten im Restaurant.* — We rarely eat in a restaurant.
@@ -135,7 +135,7 @@ Words: *ich*, *spiele*, *Fußball*, *samstags*, *um zehn*.
 
 1. The verb goes second: *spiele*.
 2. Two time phrases: general (*samstags*) before specific (*um zehn*).
-3. Start with the subject: ***Ich spiele samstags um zehn Fußball.*** Or start with the time: ***Samstags um zehn spiele ich Fußball.***
+3. Start with the subject: *Ich spiele samstags um zehn Fußball.* Or start with the time: *Samstags um zehn spiele ich Fußball.*
 
 The whole choice of time words fits in one chart:
 
