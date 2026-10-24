@@ -37,7 +37,7 @@
   topic: Piecewise models
 - term: effective rate
   aliases: [effective tax rate, average tax rate]
-  definition: 'Total tax divided by income, $T(x)/x$. Under a tiered schedule it is lower than the top marginal rate that applies.'
+  definition: 'Total tax divided by income, $T(x)/x$. Under a tiered schedule it is never higher than the marginal rate, and it is lower once part of the income falls in a higher bracket.'
   topic: Piecewise models
 - term: ceiling function
   definition: 'The function $\lceil x \rceil$ giving the smallest integer greater than or equal to $x$; it rounds toward $+\infty$. Example: $\lceil -2.3 \rceil = -2$. Also $\lceil x \rceil = -\lfloor -x \rfloor$.'

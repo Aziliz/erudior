@@ -238,7 +238,7 @@
   choices: ['$30.5$', '$28$', '$25.5$', '$14$']
   answer: 1
   explanation: |-
-    The interval $[2.5, 3.5]$ has midpoint 3, so for a quadratic the rate is $2am + b = 2(5)(3) - 2 = 28$, whatever $h$ is. Check: $f(3.5) = 54.25$, $f(2.5) = 26.25$, and $\tfrac{28}{1} = 28$. The forward quotient on $[3, 3.5]$ gives 30.5 and the backward one on $[2.5, 3]$ gives 25.5.
+    The interval $[2.5, 3.5]$ has midpoint 3, so for a quadratic the rate is $2am + b = 2(5)(3) - 2 = 28$, whatever $h$ is. Check: $f(3.5) = 54.25$, $f(2.5) = 26.25$, and $\tfrac{28}{1} = 28$. The forward quotient on $[3, 3.5]$ gives 30.5 and the backward one on $[2.5, 3]$ gives 25.5; dividing the difference 28 by 2 instead of by $2h = 1$ gives 14.
 - id: pc-m1-r2-h10
   lesson: pc-m1-h-concavity
   topic: Concavity
@@ -299,7 +299,7 @@
   choices: ['$2x + 1$', '$-2x - 1$', '$3$', '$2x + 3$']
   answer: 2
   explanation: |-
-    On $-2 \le x < 1$, $x - 1 < 0$ and $x + 2 \ge 0$, so $f(x) = -(x - 1) + (x + 2) = 3$. $2x + 1$ is the piece for $x \ge 1$ and $-2x - 1$ the piece for $x < -2$. $2x + 3$ comes from forgetting to change the sign of $x - 1$ inside the interval.
+    On $-2 \le x < 1$, $x - 1 < 0$ and $x + 2 \ge 0$, so $f(x) = -(x - 1) + (x + 2) = 3$. $2x + 1$ is the piece for $x \ge 1$ and $-2x - 1$ the piece for $x < -2$. $2x + 3$ comes from distributing the minus sign wrongly, writing $-(x - 1)$ as $x + 1$.
 - id: pc-m1-r2-h16
   lesson: pc-m1-h-piecewise-models
   topic: Piecewise models
@@ -339,7 +339,7 @@
   choices: ['23%', '30%', '20%', '26%']
   answer: 0
   explanation: |-
-    $T(100{,}000) = 8{,}000 + 0.30(50{,}000) = 23{,}000$, so the effective rate is $\tfrac{23{,}000}{100{,}000} = 23\%$. 30% is the marginal rate, which applies only to the dollars above \$50,000.
+    $T(100{,}000) = 8{,}000 + 0.30(50{,}000) = 23{,}000$, so the effective rate is $\tfrac{23{,}000}{100{,}000} = 23\%$. 30% is the marginal rate, which applies only to the dollars above \$50,000. 20% is the middle bracket's rate (and the average of the three rates), not the share of income paid; 26% comes from taxing everything above the first \$20,000 at 30%: $2{,}000 + 0.30(80{,}000) = 26{,}000$.
 - id: pc-m1-r2-h21
   lesson: pc-m1-h-piecewise-models
   topic: Piecewise models
@@ -347,7 +347,7 @@
   choices: ['\$600', '\$400', '\$5,500', '\$500']
   answer: 3
   explanation: |-
-    $T(49{,}000) = 2{,}000 + 0.20(29{,}000) = 7{,}800$ and $T(51{,}000) = 8{,}000 + 0.30(1{,}000) = 8{,}300$: up \$500. The first \$1,000 of the raise is taxed at 20% and the second at 30%. Taxing the whole \$51,000 at 30% versus \$49,000 at 20% would give \$5,500, the myth the lesson debunks.
+    $T(49{,}000) = 2{,}000 + 0.20(29{,}000) = 7{,}800$ and $T(51{,}000) = 8{,}000 + 0.30(1{,}000) = 8{,}300$: up \$500. The first \$1,000 of the raise is taxed at 20% and the second at 30%. Taxing the whole \$2,000 raise at 30% gives \$600, and at 20% gives \$400. Taxing the whole \$51,000 at 30% versus \$49,000 at 20% would give \$5,500, the myth the lesson debunks.
 - id: pc-m1-r2-h22
   lesson: pc-m1-h-piecewise-models
   topic: Piecewise models
