@@ -108,7 +108,7 @@ When the two subjects are different, you can't use *zu*; use a *dass* clause (le
 - *Ich hoffe, morgen früher zu gehen.* — I hope to leave earlier tomorrow. (I hope, I leave)
 - *Ich hoffe, dass mein Chef nichts dagegen hat.* — I hope my boss doesn't mind. (I hope, the boss minds)
 
-This chart sums up when you need *zu* and where it goes:
+One refinement: "different subjects" means the second action needs a new subject that isn't in the main clause. With *bitten*, the person asked is already named (*Der Chef bittet uns, morgen früher zu kommen*: *uns* will come), so *zu* is right. This chart sums up when you need *zu* and where it goes:
 
 ```mermaid
 flowchart TD
