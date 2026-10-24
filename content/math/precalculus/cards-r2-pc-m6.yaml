@@ -47,7 +47,7 @@
   back: 'The long-run probability of each state, and the long-run fraction of time the chain spends in each state.'
   topic: Markov chains
 - front: 'Chains that don''t settle'
-  back: 'Periodic chains, such as $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$, cycle forever. Chains with an absorbing state (column with 1 on the diagonal) end up stuck there.'
+  back: 'Periodic chains, such as $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$, cycle forever. If some absorbing state (column with 1 on the diagonal) can be reached from every state, the chain ends up stuck in an absorbing state with probability 1.'
   topic: Markov chains
 - front: 'Row convention for Markov chains'
   back: 'Many books use rows for "from" states: rows add to 1 and $\mathbf{x}_{n+1} = \mathbf{x}_nP$ with row vectors. It is the transpose of the column convention.'

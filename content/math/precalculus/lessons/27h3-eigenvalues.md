@@ -46,7 +46,7 @@ A quadratic has two roots, counted with multiplicity, so a $2 \times 2$ matrix h
 
 ## Finding the eigenvectors
 
-For each eigenvalue, solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$. Because $\det(A - \lambda I) = 0$, the two equations are multiples of each other (Lesson 22's dependent system), so one of them can be dropped. Let one component be free, solve for the other, and pick any convenient nonzero value.
+For each eigenvalue, solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$. Because $\det(A - \lambda I) = 0$, the two equations are multiples of each other (Lesson 22's dependent system), so one of them can be dropped. Let one component be free, solve for the other, and pick any convenient nonzero value. (One exception: if $A - \lambda I$ is the zero matrix, which happens only when $A = \lambda I$, both equations read $0 = 0$ and every nonzero vector is an eigenvector.)
 
 ```mermaid
 flowchart TD
@@ -97,7 +97,7 @@ If a starting vector can be written as a combination of eigenvectors, $\mathbf{x
 
 $$A^n\mathbf{x}_0 = c_1\lambda_1^n\mathbf{v}_1 + c_2\lambda_2^n\mathbf{v}_2.$$
 
-No matrix powers need to be computed. In the long run the term with the larger $|\lambda|$ takes over.
+No matrix powers need to be computed. In the long run the term with the larger $|\lambda|$ takes over (as long as its coefficient is not 0).
 
 ### Example 3: The weather chain, solved exactly
 

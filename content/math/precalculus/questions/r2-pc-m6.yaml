@@ -8,7 +8,7 @@
   type: text
   topic: Systems and Gaussian elimination
   stem: 'In row-echelon form, the first nonzero entry of each row is called the row''s ___.'
-  accept: [pivot, pivots, pivot entry, leading entry, leading entries, leading coefficient, leading term]
+  accept: [pivot, pivots, pivot entry, pivot element, leading entry, leading entries, leading element, leading coefficient]
   explanation: |-
     The first nonzero entry of a row is its pivot (also called the leading entry). In row-echelon form each pivot is to the right of the pivot in the row above, and everything below a pivot is 0.
 

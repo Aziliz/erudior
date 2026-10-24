@@ -56,7 +56,7 @@
   topic: Eigenvalues and eigenvectors
 - term: characteristic equation of the matrix
   aliases: [characteristic equation of a matrix, characteristic polynomial]
-  definition: 'The equation $\det(A - \lambda I) = 0$, whose solutions are the eigenvalues of $A$. For a $2 \times 2$ matrix it is $\lambda^2 - (\text{trace})\lambda + \det A = 0$.'
+  definition: 'The equation $\det(A - \lambda I) = 0$, whose solutions are the eigenvalues of $A$; its left side, $\det(A - \lambda I)$, is the characteristic polynomial. For a $2 \times 2$ matrix it is $\lambda^2 - (\text{trace})\lambda + \det A = 0$.'
   topic: Eigenvalues and eigenvectors
 - term: trace
   definition: 'The sum of the main-diagonal entries of a square matrix; for $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$ it is $a + d$. It equals the sum of the eigenvalues.'
