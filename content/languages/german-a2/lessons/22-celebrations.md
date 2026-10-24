@@ -22,6 +22,18 @@ Festivals are where a language meets a culture. In this lesson you learn the mai
 | February / March | der Karneval, der Fasching | people dress up in costumes, parades in the streets |
 | March / April | Ostern | painted eggs, chocolate bunnies, family lunch |
 
+The same year as a timeline:
+
+```mermaid
+timeline
+  accTitle: The festive year in Germany
+  accDescr: A timeline of the main festivals. In December come Advent, with four Sundays before Christmas, Heiligabend on the 24th and Weihnachten on the 25th and 26th, then Silvester on the 31st. Neujahr is on 1 January. Karneval or Fasching falls in February or March, and Ostern in March or April.
+  December : Advent (four Sundays) : Heiligabend (24th) : Weihnachten (25th and 26th) : Silvester (31st)
+  January : Neujahr (1st)
+  February or March : Karneval, Fasching
+  March or April : Ostern
+```
+
 Some notes on the words:
 
 - *Weihnachten, Ostern* and *Neujahr* are neuter, and *Silvester* is masculine or neuter, but all four are usually used without an article: *Weihnachten ist bald. Was machst du Silvester?* In good wishes, *Weihnachten* and *Ostern* behave like plurals: *Frohe Weihnachten! Frohe Ostern!* With a preposition, Germans say *an* or *zu*: *an Weihnachten* (more southern), *zu Ostern* (more northern). Both are correct.
@@ -31,6 +43,10 @@ Some notes on the words:
 - *schmücken* means to decorate: *Wir schmücken den Weihnachtsbaum mit Kerzen und Sternen.* The decorations are *die Dekoration* (casually *die Deko*).
 - *der Brauch* (plural *die Bräuche*) is a custom; *die Tradition* is a tradition. *Das ist bei uns Tradition* — that's a tradition in our family.
 - Private celebrations: *die Feier* is a celebration or party (*die Geburtstagsfeier*, *die Hochzeitsfeier*); the host is *der Gastgeber* or *die Gastgeberin*. A *Torte* is a layered cream cake, fancier than a *Kuchen*.
+
+A living room in December, with the words you need for it (*der Stern* is the star, *das Geschenk* the present):
+
+![A living room in December: a decorated Christmas tree with a star on top, an Advent calendar with numbered doors on the wall, a present under the tree, and a candle on a table by a snowy window. Labels name der Stern, der Weihnachtsbaum, der Adventskalender, das Geschenk and die Kerze.](images/de2-m6-christmas-room.svg)
 
 ### What to say
 
@@ -107,6 +123,16 @@ These three all translate as "when", but they do different jobs (lesson 4):
 - *wenn* is for things that happen again and again ("whenever"), and for the present and the future: *Wenn das Wetter an Ostern schön ist, suchen die Kinder die Eier im Garten. Wenn du kommst, backe ich eine Torte.*
 
 A test: if you can say "whenever", or the time is now or later, use *wenn*. If it happened once in the past, *als*.
+
+```mermaid
+flowchart TD
+  accTitle: wann, wenn or als
+  accDescr: First ask whether you are asking a question about time, directly or indirectly. If yes, use wann. If not, ask whether it is one single event or period in the past. If yes, use als. If it happens again and again, or in the present or future, use wenn.
+  A{"Is it a question about time (direct or indirect)?"} -- yes --> W["wann: Wann kommst du?"]
+  A -- no --> B{"One single event or period in the past?"}
+  B -- yes --> ALS["als: Als ich klein war, ..."]
+  B -- "no: again and again, now or future" --> WENN["wenn: Wenn es schneit, ..."]
+```
 
 ## Text: an invitation and an answer
 

@@ -42,6 +42,10 @@ A few notes:
 - *aufnehmen* is separable and works like *nehmen*: *Sie nimmt die Sendung auf* — she's recording the programme; *hat aufgenommen*.
 - *sich einloggen* is reflexive (lesson 5): *Ich logge mich ein. Hast du dich schon eingeloggt?*
 
+Here are some of these words on a laptop screen: a video page with an advert, a comment and a password box.
+
+![A laptop. On the screen is a web page with a password box at the top right, a video player, an advert saying -50 % Jetzt kaufen!, and a comment saying Tolles Video, danke! Labels name der Bildschirm, die Tastatur, das Video, die Werbung, der Kommentar and das Passwort.](images/de2-m6-laptop.svg)
+
 ## What a relative clause does
 
 Compare these two ways of saying the same thing:
@@ -104,6 +108,8 @@ Look at the same noun in two different jobs:
 
 A memory hook: gender looks back, case looks inside.
 
+![The sentence Das ist der Artikel, den ich dir geschickt habe. An arrow from den points back to der Artikel: gender and number, masculine singular. A second arrow from inside the clause points to den: case, ich sent it, so it is the object and accusative. The final verb habe is marked: verb at the end.](images/de2-m6-relative-arrows.svg)
+
 The case of the antecedent in the main clause doesn't matter: in *Ich habe einen Laptop, der sehr leicht ist*, the main clause has *einen*, but inside its own clause the laptop is the subject, so: *der*.
 
 ## Word order inside the relative clause
@@ -141,6 +147,19 @@ With a preposition, the preposition comes first, before the relative pronoun: *d
 ### alles, was
 
 After *alles*, *etwas*, *nichts* and *das*, German uses *was* as the relative pronoun: *Das ist alles, was ich weiß.* — That's everything I know. *Gibt es etwas, was du nicht online kaufst?* — Is there anything you don't buy online?
+
+The whole choice fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a relative pronoun
+  accDescr: Start with the noun before the comma and note its gender or whether it is plural. Then ask what job the pronoun does inside the relative clause. If it is the subject, use the nominative der, die, das or plural die. If it is the direct object, use the accusative: den for masculine, otherwise the same as the nominative. If it follows a dative verb or a dative preposition, use the dative dem, der, dem or plural denen, with the preposition first. After alles, etwas or nichts, use was.
+  A["Noun before the comma: masculine, feminine, neuter or plural?"] --> B{"Job of the pronoun inside the clause?"}
+  B -- subject --> C["Nominative: der, die, das, die"]
+  B -- direct object --> D["Accusative: den, die, das, die"]
+  B -- "after a dative verb or preposition" --> E["Dative: dem, der, dem, denen (preposition first)"]
+  F["After alles, etwas, nichts"] --> G["was"]
+```
 
 ## Defining words with relative clauses
 

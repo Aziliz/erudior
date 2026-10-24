@@ -31,7 +31,23 @@ The adult version of the exam has four parts. Lesen, Hören and Schreiben are ta
 | Schreiben (writing) | 30 minutes | 2 | an informal SMS of 20–30 words; a semi-formal e-mail of 30–40 words; each covers three content points |
 | Sprechen (speaking) | about 15 minutes | 3 | in pairs, with no preparation time: asking and answering questions with word cards; talking about your own life; planning an appointment together |
 
-There are 100 points: 75 for the written parts and 25 for speaking. To pass you need 60 points overall, and at least 45 of the 75 written points and 15 of the 25 speaking points. The grades:
+There are 100 points: 75 for the written parts and 25 for speaking. To pass you need 60 points overall, and at least 45 of the 75 written points and 15 of the 25 speaking points. All three conditions must be met:
+
+![Three bars. The written exam (Lesen, Hören, Schreiben) has 75 points, with a mark at 45: at least 45. Speaking has 25 points, with a mark at 15: at least 15. The total has 100 points, with a mark at 60: at least 60 to pass.](images/de2-m6-exam-points.svg)
+
+```mermaid
+flowchart TD
+  accTitle: Did I pass the Goethe-Zertifikat A2?
+  accDescr: Three checks, all needed. First, at least 45 of the 75 written points. If not, the exam is not passed. Second, at least 15 of the 25 speaking points. If not, not passed. Third, at least 60 of 100 points overall. If not, not passed. If all three are yes, you have passed.
+  A{"Written part: at least 45 of 75?"} -- no --> X["Not passed"]
+  A -- yes --> B{"Speaking: at least 15 of 25?"}
+  B -- no --> X
+  B -- yes --> C{"Total: at least 60 of 100?"}
+  C -- no --> X
+  C -- yes --> P["Passed"]
+```
+
+So 70 points in all is not a pass if only 12 of them come from Sprechen. The grades:
 
 | points | grade |
 |---|---|

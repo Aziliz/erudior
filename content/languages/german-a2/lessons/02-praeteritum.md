@@ -26,6 +26,18 @@ German has two everyday past tenses, the perfect (*ich habe gespielt*) and the s
 
 So in speech you mix the two: the perfect for most verbs, the simple past for *sein, haben* and the modals. *Gestern war ich bei Oma. Wir haben Kuchen gegessen, und ich musste ihr den Computer erklären.* That one sentence uses both, and it's completely normal.
 
+When you're not sure which tense to choose, ask these questions:
+
+```mermaid
+flowchart TD
+  accTitle: Which past tense should I use?
+  accDescr: A decision chart. If you are writing a story, report, biography or fairy tale, use the simple past for all verbs. If you are speaking or writing a message to a friend, check the verb: for sein, haben, werden and the modal verbs, use the simple past, such as war, hatte, konnte; for all other verbs, use the perfect, such as habe gespielt.
+  A["Speaking or writing?"] -- "a story, report or fairy tale" --> P["simple past for all verbs: ging, sagte"]
+  A -- "speaking, chatting, messages" --> B["Is the verb sein, haben, werden or a modal?"]
+  B -- yes --> P2["simple past: war, hatte, wurde, konnte"]
+  B -- no --> Q["perfect: habe gespielt, bin gegangen"]
+```
+
 In northern Germany people use the simple past a little more in speech than in the south, Austria and Switzerland, where the perfect is almost everything. You won't go wrong with the rule in the table.
 
 ## sein, haben and werden
@@ -149,6 +161,10 @@ The noun is *die Erinnerung* (memory): *Ich habe schöne Erinnerungen an meine K
 ## School in Germany
 
 Children usually go to *der Kindergarten* from age three, and to *die Grundschule* (primary school) at six. School years are counted in *Klassen*: *Ich war in der dritten Klasse* (I was in third grade, in year 3). *Die Klasse* also means the group of children. A school subject is *das Fach*, and at the end of each half-year children get a report, *das Zeugnis*, with *Noten* (grades) from 1 (sehr gut) to 6 (ungenügend). In Germany a 1 is the best grade, not the worst! Between lessons there's *die Pause*, and children play outside on *der Schulhof* (the schoolyard).
+
+Here is what Opa's report from the text below might have looked like:
+
+![A school report (Zeugnis) from Grundschule Lindenweg for Peter Wolf, Klasse 3b, school year 1961/62, second half-year. Subjects and grades: Deutsch 2, Mathematik 4, Sport 1, Musik 3. The teacher's comment reads: Peter ist fleißig, aber oft frech (Peter works hard but is often cheeky). A signature line is at the bottom.](images/de2-m1-zeugnis.svg)
 
 ## Allowed and forbidden
 

@@ -11,10 +11,9 @@ refs: [de1-ref-modals, de1-ref-verbs]
 
 In lessons 13 to 15 you learned to say what you like doing (*Ich spiele gern Fußball*), what
 you can and want to do (*Ich kann schwimmen, ich will reisen*) and what the rules are (*Hier
-darf man nicht rauchen*). This honors lesson puts all of that to work in real German life. You
-will read three longer texts of the kind you meet when you live in Germany: a notice from a
-sports club, the house rules of a block of flats and an e-mail from a friend. On the way you
-learn two things that make your German sound more natural: the *Lieblings-* words (*mein
+darf man nicht rauchen*). This honors lesson puts that to work in three texts you could meet
+in Germany: a sports club notice, the house rules of a block of flats and an e-mail from a
+friend. You also learn two things that make your German sound more natural: the *Lieblings-* words (*mein
 Lieblingsfilm*, my favourite film) and comparisons with *lieber … als …* (*Ich spiele lieber
 Tennis als Fußball*).
 
@@ -35,7 +34,6 @@ a club, use the chunk *im Verein*:
 
 - *Ich spiele im Verein Fußball.* — I play football in a club.
 - *Meine Tochter singt im Chor.* — My daughter sings in a choir.
-- *Spielst du im Verein?* — Do you play for a club?
 
 Here is a notice (*der Aushang*) of the kind you find on the board at a sports hall:
 
@@ -254,7 +252,6 @@ the hills around Freiburg).
 - *Chor*: the ch sounds like k here: "kohr" (as in English "chorus").
 - *Lieblings-*: the b is said like p because it ends a syllable: "LEEP-lings".
 - *Ruhe, Ruhezeit*: the h is silent and only shows that the u is long: "ROO-e".
-- *Schach*: the ch is the throaty ach sound after a: "shahkh".
 
 ## Common mistakes
 
@@ -264,8 +261,6 @@ the hills around Freiburg).
   die Lieblingsfarbe*, so *meine Lieblingsfarbe*.
 - Using *wie* or *dann* for "than": "lieber Tee wie Kaffee". In standard German it is *als*:
   *lieber Tee als Kaffee*. (You may hear *wie* in some regions; it is informal.)
-- Reading *nicht müssen* in a rule as a ban: *Du musst nicht Mitglied sein* means you don't have
-  to be a member, so you are free to join or not.
 - Treating the *Mittagsruhe* as a national law. It is common in house rules, but the night
   quiet and the Sunday rest are the firm rules.
 

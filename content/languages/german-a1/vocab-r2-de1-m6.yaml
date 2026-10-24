@@ -1,0 +1,133 @@
+# Round 2 vocabulary for de1-m6 (honors lessons 24h1 and 24h2)
+# --- 24h1: telling a story in the past -------------------------------------------
+- id: de1-m6-r2-w01
+  lesson: de1-m6-h-past-stories
+  term: konnte
+  pos: verb
+  meanings: ["could (past of können)", "could", "was able to", "were able to"]
+  example: Ich konnte gestern nicht kommen.
+  exampleEn: I couldn't come yesterday.
+  note: 'ich konnte, du konntest, er konnte, wir konnten, ihr konntet, sie konnten. No umlaut: könnte is a different form (would be able to).'
+- id: de1-m6-r2-w02
+  lesson: de1-m6-h-past-stories
+  term: musste
+  pos: verb
+  meanings: ["had to (past of müssen)", "had to", "needed to"]
+  example: Wir mussten lange warten.
+  exampleEn: We had to wait a long time.
+  note: 'ich musste, du musstest, er musste, wir mussten, ihr musstet, sie mussten.'
+- id: de1-m6-r2-w03
+  lesson: de1-m6-h-past-stories
+  term: wollte
+  pos: verb
+  meanings: ["wanted to (past of wollen)", "wanted to", "wanted"]
+  example: Ich wollte früh aufstehen.
+  exampleEn: I wanted to get up early.
+  note: 'ich wollte, du wolltest, er wollte, wir wollten, ihr wolltet, sie wollten. Also the past of möchte.'
+- id: de1-m6-r2-w04
+  lesson: de1-m6-h-past-stories
+  term: durfte
+  pos: verb
+  meanings: ["was allowed to (past of dürfen)", "was allowed to", "were allowed to", "could", "might"]
+  example: Früher durfte man hier rauchen.
+  exampleEn: You used to be allowed to smoke here.
+  note: 'ich durfte, du durftest, er durfte, wir durften, ihr durftet, sie durften.'
+- id: de1-m6-r2-w05
+  lesson: de1-m6-h-past-stories
+  term: sollte
+  pos: verb
+  meanings: ["was supposed to (past of sollen)", "was supposed to", "were supposed to", "should"]
+  example: Der Zug sollte um acht abfahren.
+  exampleEn: The train was supposed to leave at eight.
+  note: 'ich sollte, du solltest, er sollte, wir sollten, ihr solltet, sie sollten.'
+- id: de1-m6-r2-w06
+  lesson: de1-m6-h-past-stories
+  term: mochte
+  pos: verb
+  meanings: ["liked (past of mögen)", "liked", "was fond of"]
+  example: Ich mochte den Film nicht.
+  exampleEn: I didn't like the film.
+  note: 'ich mochte, du mochtest, er mochte, wir mochten, ihr mochtet, sie mochten.'
+- id: de1-m6-r2-w07
+  lesson: de1-m6-h-past-stories
+  kind: phrase
+  term: es gab
+  pos: phrase
+  meanings: ["there was (past of es gibt)", "there was", "there were"]
+  example: Es gab kein Taxi.
+  exampleEn: There was no taxi.
+- id: de1-m6-r2-w08
+  lesson: de1-m6-h-past-stories
+  term: der Wecker
+  pos: noun
+  plural: die Wecker
+  meanings: ["alarm clock", "alarm"]
+  example: Mein Wecker klingelt um sechs.
+  exampleEn: My alarm clock goes off at six.
+- id: de1-m6-r2-w09
+  lesson: de1-m6-h-past-stories
+  term: klingeln
+  pos: verb
+  meanings: ["to ring (a bell or alarm)", "to ring", "to go off"]
+  example: Das Handy hat dreimal geklingelt.
+  exampleEn: The phone rang three times.
+  note: 'ich klingle, du klingelst. Perfect: hat geklingelt.'
+- id: de1-m6-r2-w10
+  lesson: de1-m6-h-past-stories
+  term: aufwachen
+  pos: verb
+  meanings: ["to wake up", "to awake", "to wake"]
+  example: Ich bin um halb acht aufgewacht.
+  exampleEn: I woke up at half past seven.
+  note: 'Separable: ich wache auf. Perfect with sein: ist aufgewacht.'
+- id: de1-m6-r2-w11
+  lesson: de1-m6-h-past-stories
+  kind: phrase
+  term: zum Schluss
+  pos: phrase
+  meanings: ["in the end (zum Schluss)", "in the end", "finally", "at the end", "lastly"]
+  example: Zum Schluss war alles gut.
+  exampleEn: In the end everything was fine.
+# --- 24h2: letters, e-mails and postcards ----------------------------------------
+- id: de1-m6-r2-w12
+  lesson: de1-m6-h-letters
+  term: die Briefmarke
+  pos: noun
+  plural: die Briefmarken
+  meanings: ["stamp (for a letter)", "stamp", "postage stamp"]
+  example: Ich brauche eine Briefmarke für die Postkarte.
+  exampleEn: I need a stamp for the postcard.
+- id: de1-m6-r2-w13
+  lesson: de1-m6-h-letters
+  kind: phrase
+  term: Freundliche Grüße
+  pos: phrase
+  alt: ["freundliche Grüße", "Freundliche Grüsse"]
+  meanings: ["kind regards (formal closing)", "kind regards", "best regards", "regards"]
+  example: Freundliche Grüße aus Bremen
+  exampleEn: Kind regards from Bremen
+- id: de1-m6-r2-w14
+  lesson: de1-m6-h-letters
+  term: Moin
+  pos: interjection
+  alt: [Moin moin]
+  meanings: ["hi (in northern Germany)", "hi", "hello", "morning"]
+  example: Moin! Wie geht's?
+  exampleEn: Hi! How are you?
+  note: 'Northern Germany, at any time of day.'
+- id: de1-m6-r2-w15
+  lesson: de1-m6-h-letters
+  term: Servus
+  pos: interjection
+  meanings: ["hi or bye (Bavaria and Austria)", "hi", "hello", "bye", "goodbye"]
+  example: Servus, Toni!
+  exampleEn: Hi, Toni!
+  note: 'Informal; used in Bavaria and Austria for both hello and goodbye.'
+- id: de1-m6-r2-w16
+  lesson: de1-m6-h-letters
+  term: Grüezi
+  pos: interjection
+  meanings: ["hello (Swiss, polite)", "hello", "good day"]
+  example: Grüezi, Frau Meier!
+  exampleEn: Hello, Ms Meier!
+  note: 'Swiss German, to people you address with Sie.'

@@ -27,28 +27,28 @@
 <text x="174" y="616" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Brenner</text>
 <text x="174" y="664" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833" >Anlage</text>
 <text x="174" y="686" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Formular Wohnungsgeberbestätigung</text>
-<line x1="78" y1="64" x2="590" y2="64" stroke="#1c2833" stroke-width="1.5" />
-<circle cx="590" cy="64" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<line x1="78" y1="64" x2="450" y2="64" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="450" cy="64" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
 <rect x="35.4" y="50" width="85.2" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
 <text x="78" y="70" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Absender</text>
-<line x1="78" y1="195" x2="224" y2="195" stroke="#1c2833" stroke-width="1.5" />
-<circle cx="224" cy="195" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
-<rect x="31.2" y="181" width="93.6" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
-<text x="78" y="201" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anschrift</text>
-<line x1="78" y1="236" x2="550" y2="156" stroke="#1c2833" stroke-width="1.5" />
-<circle cx="550" cy="156" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
-<rect x="18.6" y="222" width="118.8" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
-<text x="78" y="242" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Aktenzeichen</text>
-<line x1="78" y1="294" x2="294" y2="294" stroke="#1c2833" stroke-width="1.5" />
-<circle cx="294" cy="294" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
-<rect x="39.6" y="280" width="76.8" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
-<text x="78" y="300" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Betreff</text>
-<line x1="78" y1="338" x2="234" y2="338" stroke="#1c2833" stroke-width="1.5" />
-<circle cx="234" cy="338" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
-<rect x="43.8" y="324" width="68.4" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
-<text x="78" y="344" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anrede</text>
-<line x1="78" y1="658" x2="198" y2="658" stroke="#1c2833" stroke-width="1.5" />
-<circle cx="198" cy="658" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
-<rect x="43.8" y="644" width="68.4" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
-<text x="78" y="664" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anlage</text>
+<line x1="78" y1="184" x2="170" y2="184" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="170" cy="184" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="31.2" y="170" width="93.6" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="190" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anschrift</text>
+<line x1="78" y1="108" x2="446" y2="156" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="446" cy="156" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="18.6" y="94" width="118.8" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="114" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Aktenzeichen</text>
+<line x1="78" y1="295" x2="170" y2="295" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="170" cy="295" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="39.6" y="281" width="76.8" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="301" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Betreff</text>
+<line x1="78" y1="339" x2="170" y2="339" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="170" cy="339" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="43.8" y="325" width="68.4" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="345" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anrede</text>
+<line x1="78" y1="659" x2="170" y2="659" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="170" cy="659" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="43.8" y="645" width="68.4" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="665" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anlage</text>
 </svg>

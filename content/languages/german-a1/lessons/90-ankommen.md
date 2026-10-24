@@ -14,9 +14,9 @@ weeks after you arrive in a German-speaking country to live: registering your ad
 appointment at the *Amt* (the public office), and reading the formal letters that start to arrive
 in your post box.
 
-Official German is famous for its long words, like *Wohnungsgeberbestätigung*. So the grammar
-point here is reading those long compound nouns, including the small "glue" letters such as the
-*s* in *Geburtstag*. Everything is about Germany unless it says otherwise; the rules are a
+Official German is famous for its long words and short forms. So the reading point here is
+the abbreviations you'll see in letters and on notices (*z. B., ca., ggf.*), and the capital *Ihr*
+that tells you a sentence is about you. Everything is about Germany unless it says otherwise; the rules are a
 simplified guide, and the details depend on the town.
 
 ## Die Anmeldung: registering your address
@@ -69,23 +69,20 @@ To open a bank account (*das Konto*) you go to a bank with your passport, and of
 Meldebescheinigung. And one tip that saves a lot of trouble: put your name on the post box
 (*der Briefkasten*) and on the doorbell at once, or the post can't be delivered.
 
+![The entrance of a block of flats: a front door with glass, the house number 8 above it, a doorbell panel with six buttons and name tags beside the door, and a row of six post boxes with name tags on the wall. Labels name the parts: die Haustür, die Hausnummer, die Klingel and der Briefkasten.](images/de1-h1-entrance.svg)
+
+The names on the bells and the post boxes are how the post carrier, delivery drivers and your
+visitors find you: *Bei wem soll ich klingeln?* — Whose bell should I ring? *Klingeln Sie bei
+Brandt!* (*klingeln*: to ring the bell; *die Klingel*: the bell.)
+
 ## Reading a letter from the Amt
 
-Formal letters follow a fixed layout. Once you know where each part is, you can find the
+Formal letters follow the fixed layout you met in lesson 23: the sender at the top, your address,
+the place and date, a one-line subject (*der Betreff*), the greeting *Sehr geehrter Herr …* and
+the closing *Mit freundlichen Grüßen*. Once you know where each part is, you can find the
 important information fast, even if you don't understand every word.
 
-| Part | German name | What it tells you |
-|---|---|---|
-| sender | *der Absender* | who wrote it (top, often in small print) |
-| address | *der Empfänger* | who it's for: you |
-| date | *das Datum* | top right, as *Neustadt, 12. Oktober 2026* or *12.10.2026* |
-| subject line | *der Betreff* | what it's about, in one line, often in bold |
-| greeting | *die Anrede* | *Sehr geehrte Frau …, / Sehr geehrter Herr …,* |
-| closing | *der Gruß* | *Mit freundlichen Grüßen* |
-
-![A formal letter from the Bürgeramt Mitte. A small sender line at the top, the recipient's address on the left, the date on the right, a bold subject line, the greeting Sehr geehrter Herr Brandt, three lines of text with a short list, and the closing Mit freundlichen Grüßen. Labels at the side name the parts: Absender, Empfänger, Datum, Betreff, Anrede, Text and Gruß.](images/de1-h1-letter.svg)
-
-Here is a letter like the one in the picture, written for this course:
+Here is a letter from a Bürgeramt, written for this course:
 
 > Bürgeramt Mitte · Rathausplatz 1 · 12345 Neustadt
 >
@@ -136,49 +133,50 @@ Before you read every word, scan the letter for four things: who, what, when, wh
 That's the whole letter in four lines. The words you didn't know (*Anfrage*, *vorher*) didn't
 stop you, because the layout told you where to look.
 
-## Long words: compound nouns and linking letters
+## Abbreviations in official German
 
-From lesson 5 you know that German builds a **compound noun** by joining nouns, and that the last
-part decides the gender and the meaning: *das Haus + die Tür = die Haustür* (the front door of a
-building). Official German loves very long compounds. Read them from the right:
+Letters, forms and notices are full of short forms. An **abbreviation** (*die Abkürzung*) is
+written with a full stop, and in most cases you read it aloud as the full words: *z. B.* is said
+*zum Beispiel*, never "zet be". Only a few are said letter by letter, like *PLZ* (lesson 3) or
+*ICE* (the fast train).
 
-*Wohnungsgeberbestätigung* = *Wohnung* (flat) + *Geber* (giver) + *Bestätigung* (confirmation):
-"flat-giver confirmation", the landlord's confirmation. The last part is *die Bestätigung*, so the
-whole word is feminine.
-
-Often there's a small extra letter between two parts. This is a **linking element**. It doesn't
-change the meaning; it just joins the parts smoothly. The most common ones:
-
-| Linking element | Example | Parts |
+| Abbreviation | Full form | Meaning |
 |---|---|---|
-| *-s-* | *der Geburtstag* | *die Geburt* (birth) + *der Tag* |
-| *-s-* | *die Wohnungstür* | *die Wohnung* + *die Tür* |
-| *-n-* or *-en-* | *die Straßenbahn* | *die Straße* + *die Bahn* |
-| *-er-* | *der Kinderwagen* | *das Kind* + *der Wagen* (pram) |
-| none | *das Rathaus* | *der Rat* (council) + *das Haus* |
-| *-e* dropped | *die Schultasche* | *die Schule* + *die Tasche* |
+| *z. B.* | *zum Beispiel* | for example |
+| *d. h.* | *das heißt* | that is, i.e. |
+| *usw.* | *und so weiter* | and so on, etc. |
+| *bzw.* | *beziehungsweise* | or; or rather; respectively |
+| *ca.* | *circa* | about, approximately |
+| *ggf.* | *gegebenenfalls* | if necessary, if applicable |
+| *evtl.* | *eventuell* | possibly, perhaps |
+| *u. a.* | *unter anderem* | among other things |
+| *Nr.* | *Nummer* | number |
+| *Str.* | *Straße* | street |
 
-There's no complete rule for which linking letter a word takes, so learn compounds as words. But
-one rule is very reliable and helps with official German: after a first part ending in *-ung,
--heit, -keit, -ion* or *-tät*, there is almost always an *-s-*. So *Wohnung* + *Geber* =
-*Wohnungsgeber*, *Information* + *Blatt* = *Informationsblatt* (information sheet), *Universität*
-+ *Stadt* = *Universitätsstadt* (university town).
+Watch out for *evtl.*: *eventuell* means "possibly", not "eventually". *Ich komme eventuell
+später* means "I may come later", not "I'll come in the end".
 
-### Example 2: Taking a long word apart
+The second thing to watch in formal letters is the capital *I*. *Ihr, Ihre, Ihren* with a
+capital letter means "your" (formal, from *Sie*, lesson 6); *ihr* with a small letter means "her",
+"their", or "you" (several friends). In a letter from an office, the capital forms are always
+about you: *Ihre Anmeldung* (your registration), *Ihren Reisepass* (your passport; masculine
+accusative, so *-en*).
 
-You see *Anmeldebestätigung* on a page. What is it, and what gender?
+### Example 2: Decoding a notice
 
-1. Start from the right and look for a word you know or can guess: *Bestätigung* (confirmation),
-   which you've just met in *Wohnungsgeberbestätigung*.
-2. What's left: *Anmelde-*. That's the verb *anmelden* without its *-n*. A verb often starts a
-   compound this way, as its stem plus *-e*: *Anmeldeformular*, *Wartezimmer* (waiting room, from
-   *warten*).
-3. Put it together from the right: a confirmation of registration.
-4. Gender: from the last part, *die Bestätigung*, so *die Anmeldebestätigung*.
+On the door of the Bürgeramt you read:
 
-Now try one with a linking *s*: *Staatsangehörigkeit* (lesson 23). Right part: *Angehörigkeit*
-(belonging, membership). Left part: *Staat* (state) + linking *-s-*. "State membership":
-nationality. Feminine, because of *-keit*.
+> Bitte bringen Sie Ihre Unterlagen (z. B. Pass, Mietvertrag usw.) mit. Wartezeit ca. 20 Minuten. Ggf. müssen Sie einen neuen Termin buchen.
+
+Read each short form as its full words, then translate:
+
+1. *z. B.* = *zum Beispiel*; *usw.* = *und so weiter*: "Please bring your documents (for example
+   passport, rental contract and so on)." *Der Mietvertrag* is a compound: *die Miete* (rent,
+   lesson 19) + *der Vertrag* (contract), so it's masculine.
+2. *ca.* = *circa*: "Waiting time about 20 minutes."
+3. *Ggf.* = *gegebenenfalls*: "If necessary you'll have to book a new appointment." The modal
+   *müssen* is in position 2 after *ggf.*, so *Sie* comes after it (inversion, lesson 12).
+4. *Ihre* has a capital *I*: it's your documents, not "her" documents.
 
 ## Dialogue: Am Bürgeramt
 
@@ -225,17 +223,17 @@ dem zehnten Oktober*.
 - *Amt*: short *a*, and the *m* and *t* both sound: "amt".
 - *Anmeldung*: AN-mel-dung; the stress is on the separable prefix, as in *anmelden*.
 - *Bürgeramt*: BÜR-ger-amt, with a tiny catch in the throat before *amt*.
-- *Wohnungsgeberbestätigung*: say it in parts, each with its own stress, the first one strongest:
-  WOH-nungs-ge-ber-be-STÄ-ti-gung.
+- *Wohnungsgeberbestätigung*: say it in parts; the main stress is on the first one:
+  WOH-nungs-geber-bestätigung.
+- *beziehungsweise*: be-TSEE-ungs-vai-ze; *gegebenenfalls*: ge-GAY-be-nen-fals.
 - *Personalausweis*: per-so-NAAL-aus-vice.
 
 ## Common mistakes
 
 - Missing the two-week deadline for the Anmeldung, or going without the landlord's confirmation.
-- Reading a long compound from the left. The meaning and gender come from the right: *die
-  Wohnungsgeberbestätigung* is a confirmation, not a flat.
-- Taking the linking *s* for a plural or a possessive. *Geburtstag* isn't "births' day"; the *s*
-  is only glue.
+- Reading *evtl.* as "eventually". *Eventuell* means "possibly".
+- Saying abbreviations letter by letter: *z. B.* is read *zum Beispiel*, *usw.* is *und so weiter*.
+- Reading *Ihre Anmeldung* as "her registration". With a capital *I*, *Ihr/Ihre* means "your".
 - Writing *Herr* in an address on a letter: it's *Herrn Lukas Brandt*. (In the greeting it's *Sehr
   geehrter Herr Brandt*, without the *-n*.)
 - Forgetting the name on the post box: the post won't arrive.
@@ -247,11 +245,12 @@ dem zehnten Oktober*.
   your passport or ID card and the *Wohnungsgeberbestätigung*; book a *Termin* first.
 - After the Anmeldung: the *Meldebescheinigung*, then the *Steuer-ID* by post; also the
   *Rundfunkbeitrag* and health insurance.
-- A formal letter: *Absender, Empfänger, Datum, Betreff, Anrede, Text, Gruß*. Scan it for who,
-  what, when and what to do.
-- Compound nouns: read from the right; the last part gives the gender.
-- Linking elements join the parts: *-s-* (*Geburtstag*), *-n-/-en-* (*Straßenbahn*), *-er-*
-  (*Kinderwagen*). After *-ung, -heit, -keit, -ion, -tät* expect *-s-*.
+- Scan a formal letter for who (*Absender*), what (*Betreff*), when (numbers) and what to do
+  (*Bitte …*, imperatives).
+- Abbreviations are read as full words: *z. B.* (zum Beispiel), *d. h.*, *usw.*, *bzw.*, *ca.*,
+  *ggf.*, *evtl.* (possibly!), *u. a.*
+- Capital *Ihr/Ihre/Ihren* = your (formal); small *ihr* = her, their, you (plural).
+- Put your name on the post box and the doorbell.
 
 The words from this lesson are listed below; they join your vocabulary reviews when you complete
 the lesson.

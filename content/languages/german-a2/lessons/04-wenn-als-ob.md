@@ -50,6 +50,8 @@ You can add *dann* (then) at the start of the main clause for emphasis. It sits 
 
 A memory hook: *als* is for "once, back then". If you can add "every time" or "whenever" in English, use *wenn*.
 
+![Three timelines with the present marked jetzt. Top, als: one block in the past, labeled once, back then. Middle, wenn: many dots before and after now, labeled again and again, past or present. Bottom, wenn: one dot after now, labeled in the future.](images/de2-m1-als-wenn.svg)
+
 In an *als* clause, Germans like the simple past, even for verbs that would be in the perfect in conversation: *Als ich ankam*, *Als sie das hörte*. It's the "storytelling" tense from lesson 2.
 
 ## wann: the question word
@@ -107,6 +109,23 @@ Here's the big trap for English speakers. English uses "if" for both conditions 
 | indirect question: *I don't know if he's coming.* | *Ich weiß nicht, ob er kommt.* | you can say "whether" in English |
 
 The test works every time: if "whether" fits, use *ob*.
+
+Here are all the "when" and "if" words of this lesson in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: wann, wenn, als or ob?
+  accDescr: A decision chart for English when and if. If it is a question, direct or indirect, about the time, use wann. If it is an indirect yes/no question where whether fits in English, use ob. If it is a condition with a result, use wenn. For time: one event or one period in the past takes als; something repeated, or something in the present or future, takes wenn.
+  A["English when or if"] --> Q["A question about the time?"]
+  Q -- yes --> W["wann: Weißt du, wann er kommt?"]
+  Q -- no --> O["Does whether fit?"]
+  O -- yes --> OB["ob: Ich weiß nicht, ob er kommt."]
+  O -- no --> C["A condition with a result?"]
+  C -- yes --> WE["wenn: Wenn es regnet, …"]
+  C -- no --> T["One event or period in the past?"]
+  T -- yes --> ALS["als: Als ich 18 war, …"]
+  T -- "no: repeated, present or future" --> WE2["wenn: Wenn ich müde bin, …"]
+```
 
 ## Decisions, plans and problems
 

@@ -25,6 +25,10 @@ The grammar is a pattern you have half-met already. With modal verbs, a second v
 | | *die Besprechung* — meeting | *aufhören* — to stop |
 | | *die Überstunde* — hour of overtime | |
 
+Here are some of these things in an office:
+
+![An office: a chair, a desk with a telephone, a contract on a clipboard and a laptop, and a printer on a cabinet, with the German names der Stuhl, das Telefon, der Vertrag, der Schreibtisch and der Drucker](images/de2-m5-office.svg)
+
 A few notes on these words:
 
 - *der Kollege* ends in *-e* and adds *-n* in every case except the nominative singular: *Ich spreche mit meinem Kollegen.* — I'm talking to my colleague. The feminine is regular: *die Kollegin, die Kolleginnen*.

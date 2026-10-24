@@ -1,0 +1,706 @@
+# Round 2, module de1-m1: new question types for the core lessons (q) and questions for the
+# honors lessons 04h1–04h3 (h).
+
+# ---------- Lesson 01: Sounds, letters and spelling ----------
+- id: de1-m1-r2-q01
+  lesson: de1-sounds
+  topic: Pronunciation
+  type: label
+  stem: 'Where is each sound made? Pick the sound for each numbered part of the mouth.'
+  image: {src: images/de1-m1-mouth-blank.svg, alt: 'A simplified side view of the mouth with four numbered parts: the lips at the front, the hard palate just behind the top teeth, the soft palate further back, and the small uvula hanging at the very back.'}
+  labels:
+    - {x: 18.5, y: 43.1, text: 'Lips rounded: ü, ö'}
+    - {x: 37.0, y: 28.3, text: 'Soft ch: ich, nicht'}
+    - {x: 54.4, y: 30.3, text: 'Rough ch: Nacht, noch'}
+    - {x: 60.0, y: 40.6, text: 'Throat r: richtig'}
+  distractors: ['English w: water', 'Silent h: Jahr']
+  explanation: |-
+    The lips (1) round and push forward for ü and ö. The soft ch of ich (2) is made with the middle of the tongue close to the hard palate. The rough ch after a, o, u (3) is made further back, at the soft palate. The throat r (4) is made near the uvula, at the very back. German has no English w sound, and a silent h isn't made anywhere.
+
+- id: de1-m1-r2-q02
+  lesson: de1-sounds
+  module_quiz: true
+  topic: Spelling
+  type: text
+  stem: 'Fill in ß or ss, as written in Germany. Type only the missing letters: "Stra___e" (street, long a) and "Wa___er" (water, short a).'
+  accept:
+    - [ß]
+    - [ss]
+  explanation: |-
+    After a long vowel or a diphthong, a sharp s is written ß: Straße. After a short vowel it is ss: Wasser. (In Switzerland both are written with ss: Strasse.)
+
+- id: de1-m1-r2-q03
+  lesson: de1-sounds
+  topic: Pronunciation
+  stem: 'Which of these words have the soft ch sound of "ich"? Select all that apply.'
+  choices: [nicht, Nacht, Milch, auch, noch]
+  answer: [0, 2]
+  explanation: |-
+    After a, o, u and au, ch is the rough sound at the back of the mouth: Nacht, auch, noch. After any other letter it is the soft hiss of ich: nicht (after i) and Milch (after l).
+
+- id: de1-m1-r2-q04
+  lesson: de1-sounds
+  topic: Pronunciation
+  type: match
+  stem: 'Match each German spelling to the sound it usually makes.'
+  pairs:
+    - ['w (wie)', like English v]
+    - ['v (vier)', like English f]
+    - ['z (zehn)', 'ts, as in cats']
+    - ['j (ja)', like English y]
+    - ['ei (nein)', 'like English "eye"']
+  distractors: [like English w]
+  explanation: |-
+    German w is English v (wie = "vee"), v is usually f (vier = "feer"), z is ts (zehn = "tsayn"), j is y (ja = "yah") and ei sounds like "eye" (nein = "nine"). No German letter makes the English w sound.
+
+- id: de1-m1-r2-q05
+  lesson: de1-sounds
+  module_quiz: true
+  topic: Spelling
+  stem: 'Why is "heißen" written with ß, but "Wasser" with ss?'
+  choices:
+    - 'ß follows the diphthong ei; ss follows a short vowel'
+    - 'ß is used in verbs and ss in nouns'
+    - 'ß is the old spelling and ss is the new one'
+    - 'ß comes before -en and ss before -er'
+  answer: 0
+  explanation: |-
+    The choice depends on the sound before it: after a long vowel or a diphthong (ei, au, eu) write ß, after a short vowel write ss. The ei in heißen is a diphthong; the a in Wasser is short. Verbs and nouns can have either (die Straße, essen), and both letters are current spelling.
+
+# ---------- Lesson 02: Greetings and introductions ----------
+- id: de1-m1-r2-q06
+  lesson: de1-greetings
+  topic: Greetings
+  type: label
+  stem: 'Which greeting fits each part of the day? Pick a greeting for each number.'
+  image: {src: images/de1-m1-greeting-times-blank.svg, alt: 'A timeline from 6:00 to 24:00 split into three unlabeled parts: 1 is the morning until about 10:30, 2 is the middle of the day until about 18:00, 3 is the evening. Number 4 is on a bed with a moon.'}
+  labels:
+    - {x: 18.8, y: 35.7, text: Guten Morgen}
+    - {x: 48.8, y: 35.7, text: Guten Tag}
+    - {x: 80.1, y: 35.7, text: Guten Abend}
+    - {x: 90.2, y: 77.1, text: Gute Nacht}
+  distractors: [Auf Wiedersehen, 'Wie bitte?']
+  explanation: |-
+    Guten Morgen is for the morning until about 10 or 11 (1), Guten Tag for the middle of the day (2) and Guten Abend from about 6 p.m. (3). Gute Nacht (4) is only said when someone goes to bed. Auf Wiedersehen means goodbye at any time, and Wie bitte? means "pardon?".
+
+- id: de1-m1-r2-q07
+  lesson: de1-greetings
+  topic: Verbs
+  type: text
+  stem: 'Complete with the right form of heißen: "Wie ___ du?"'
+  accept: [heißt, heisst]
+  explanation: |-
+    The du form normally ends in -st, but the stem heiß- already ends in ß, so du adds only -t: du heißt. (In Switzerland: du heisst.)
+
+- id: de1-m1-r2-q08
+  lesson: de1-greetings
+  topic: Greetings
+  type: order
+  stem: 'Put the words in order to ask "How are you?" formally.'
+  items: [Wie, geht, es, Ihnen]
+  explanation: |-
+    Wie geht es Ihnen? The question word comes first and the verb geht second; es (it) and Ihnen (to you) follow. The informal version is Wie geht's? or Wie geht es dir?
+
+- id: de1-m1-r2-q09
+  lesson: de1-greetings
+  topic: Greetings
+  stem: 'Which people would you normally address with Sie? Select all that apply.'
+  choices:
+    - a bank clerk you don't know
+    - your little brother
+    - your new boss at a bank
+    - a classmate at your language course
+    - an older neighbour you call Frau Huber
+  answer: [0, 2, 4]
+  explanation: |-
+    Sie is for adults you don't know, staff in shops and offices, your boss and anyone you call Herr or Frau. Family members (your brother) and classmates are du.
+
+- id: de1-m1-r2-q10
+  lesson: de1-greetings
+  module_quiz: true
+  topic: Greetings
+  type: match
+  stem: 'Match each question word to its meaning.'
+  pairs:
+    - [wer, who]
+    - [wie, how]
+    - [woher, where from]
+    - [wo, where]
+  distractors: [when]
+  explanation: |-
+    wer = who (not "where", despite the look), wie = how (Wie heißt du? is literally "How are you called?"), woher = where from (answer with aus), wo = where (answer with in). "When" is wann, from Lesson 4.
+
+# ---------- Lesson 03: Numbers, age and phone numbers ----------
+- id: de1-m1-r2-q11
+  lesson: de1-numbers
+  topic: Personal details
+  type: label
+  stem: 'Name the numbered parts of this German address.'
+  image: {src: images/de1-m1-envelope-blank.svg, alt: 'An envelope addressed to Lisa Krämer, Lindenstraße 14, 04107 Leipzig. Number 1 is on Lisa, 2 on Krämer, 3 on Lindenstraße, 4 on 14, 5 on 04107 and 6 on Leipzig.'}
+  labels:
+    - {x: 45.5, y: 53.0, text: Vorname (first name)}
+    - {x: 58.1, y: 53.0, text: Familienname (surname)}
+    - {x: 51.3, y: 63.3, text: Straße (street)}
+    - {x: 69.3, y: 63.3, text: Hausnummer (house number)}
+    - {x: 46.5, y: 73.6, text: Postleitzahl (postcode)}
+    - {x: 60.0, y: 73.6, text: Stadt (city)}
+  distractors: [Telefonnummer (phone number), Handynummer (mobile number)]
+  explanation: |-
+    Lisa is the first name (1) and Krämer the surname (2). In a German address the street (3) comes first and the house number (4) after it. On the last line the five-digit postcode (5) comes before the town or city (6). There's no phone number on the envelope.
+
+- id: de1-m1-r2-q12
+  lesson: de1-numbers
+  module_quiz: true
+  topic: Numbers
+  type: text
+  stem: 'Write 73 as a German word.'
+  accept: [dreiundsiebzig]
+  explanation: |-
+    Units first, then und, then the ten, all as one word: drei + und + siebzig = dreiundsiebzig. Note siebzig, not siebenzig.
+
+- id: de1-m1-r2-q13
+  lesson: de1-numbers
+  topic: Numbers
+  type: text
+  stem: 'You hear "achtundvierzig". Write the number in digits. Give only the number.'
+  accept: ['48']
+  explanation: |-
+    acht (8) und vierzig (40): 48. The unit comes first in German, so the most common mistake is writing 84.
+
+- id: de1-m1-r2-q14
+  lesson: de1-numbers
+  topic: Numbers
+  stem: 'Which of these numbers are spelled correctly? Select all that apply.'
+  choices: [sechzehn, siebenzehn, dreißig, sechszig, einundzwanzig]
+  answer: [0, 2, 4]
+  explanation: |-
+    sechzehn (16) drops the s of sechs, dreißig (30) ends in -ßig, and einundzwanzig (21) uses ein, not eins. siebenzehn should be siebzehn (17), and sechszig should be sechzig (60).
+
+- id: de1-m1-r2-q15
+  lesson: de1-numbers
+  module_quiz: true
+  topic: Personal details
+  type: order
+  stem: 'Put the parts of a German address in the order they are written on an envelope, from top left to bottom right.'
+  items: [Vorname, Familienname, Straße, Hausnummer, Postleitzahl, Stadt]
+  explanation: |-
+    Lisa Krämer / Lindenstraße 14 / 04107 Leipzig: first name and surname, then the street with the house number after it, then the postcode before the town.
+
+# ---------- Lesson 04: The present tense and asking questions ----------
+- id: de1-m1-r2-q16
+  lesson: de1-present-tense
+  topic: Verbs
+  type: text
+  stem: 'Complete with the right form of arbeiten: "Er ___ heute in Köln."'
+  accept: [arbeitet]
+  explanation: |-
+    The stem arbeit- ends in -t, so an e is added before the ending -t: er arbeitet. "Er arbeitt" can't be said clearly.
+
+- id: de1-m1-r2-q17
+  lesson: de1-present-tense
+  module_quiz: true
+  topic: Word order
+  type: order
+  stem: 'Put the words in order, starting with "Heute": "Today I''m working in Cologne."'
+  items: [Heute, arbeite, ich, in Köln]
+  explanation: |-
+    Heute arbeite ich in Köln. The verb must be the second element, so when the sentence starts with Heute, the subject ich moves to just after the verb. "Heute ich arbeite" is English word order.
+
+- id: de1-m1-r2-q18
+  lesson: de1-present-tense
+  topic: Verbs
+  type: match
+  stem: 'Match each pronoun to the right form of sein.'
+  pairs:
+    - [ich, bin]
+    - [du, bist]
+    - [er, ist]
+    - [wir, sind]
+    - [ihr, seid]
+  distractors: [seit]
+  explanation: |-
+    ich bin, du bist, er ist, wir sind, ihr seid (and sie/Sie sind). seit means "since" and only sounds like seid.
+
+- id: de1-m1-r2-q19
+  lesson: de1-present-tense
+  topic: Questions
+  stem: 'Which of these are correct yes/no questions? Select all that apply.'
+  choices: ['Wohnst du hier?', 'Wohnen du hier?', 'Arbeitet ihr heute?', 'Tust du hier wohnen?', 'Spielt Lara oft Tennis?']
+  answer: [0, 2, 4]
+  explanation: |-
+    A yes/no question puts the conjugated verb first, with the right ending: Wohnst du, Arbeitet ihr, Spielt Lara. "Wohnen du" has the wrong ending (du takes -st), and German has no helper verb like English "do", so "Tust du hier wohnen?" is wrong.
+
+- id: de1-m1-r2-q20
+  lesson: de1-present-tense
+  topic: Verbs
+  stem: 'Which form is correct? "Du ___ sehr gut." (antworten)'
+  choices: [antwortst, antwortet, antwortest, antworten]
+  answer: 2
+  explanation: |-
+    The stem antwort- ends in -t, so an e goes before the du ending -st: du antwortest. antwortst is hard to say and wrong; antwortet is the er or ihr form; antworten is the wir, sie or Sie form.
+
+# ---------- Honors 04h1: Sounds in depth ----------
+- id: de1-m1-r2-h01
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'In which word is the stressed vowel long because it ends its syllable?'
+  choices: [Name, Bett, Stadt, Hallo]
+  answer: 0
+  explanation: |-
+    Name splits into Na-me, so the a ends an open syllable and is long. Bett and Hallo have a double consonant, so the vowel is short; Stadt has a short a too.
+
+- id: de1-m1-r2-h02
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'Which word has a short vowel even though only one consonant follows it?'
+  choices: [Tag, das, gut, Weg]
+  answer: 1
+  explanation: |-
+    das is one of the short everyday words (with was, es, in, mit, an, um, bis, man, hat). Tag, gut and Weg are long, because longer forms such as Ta-ge, gu-te and We-ge have open syllables.
+
+- id: de1-m1-r2-h03
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'How does the ending -er in "Lehrer" (teacher) usually sound in standard German?'
+  choices:
+    - 'like a hard English r'
+    - 'like a rolled r'
+    - 'like a short "uh", with no consonant r'
+    - 'it is silent'
+  answer: 2
+  explanation: |-
+    Final -er is a vocalic r: the r melts into a short open vowel close to the u in English "but". So Lehrer is roughly "LAY-ruh". A hard English r is the clearest sign of an English accent; the ending is never silent.
+
+- id: de1-m1-r2-h04
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'How are "verreisen" (to go away on a trip) and "vereisen" (to ice over) told apart in speech?'
+  choices:
+    - 'They sound exactly the same.'
+    - 'verreisen is stressed on the first syllable.'
+    - 'vereisen has a rolled r.'
+    - 'vereisen has a glottal stop before -eisen and no r sound there.'
+  answer: 3
+  explanation: |-
+    verreisen is ver- + reisen, with an r sound starting the second part. vereisen is ver- + eisen: the second part starts with a vowel, so it begins with a glottal stop, "fer | EYE-zen". Both are stressed on the second part.
+
+- id: de1-m1-r2-h05
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'How is "Spiegelei" (fried egg) pronounced?'
+  choices:
+    - '"SHPEE-gel | ei", with a small catch before ei'
+    - '"shpee-GE-lie", joined together'
+    - '"SPEE-gel-ee", with English sp'
+    - '"shpee-ge-LEI", stressed at the end'
+  answer: 0
+  explanation: |-
+    Spiegelei is Spiegel (mirror) + Ei (egg). The second part starts with a vowel, so it gets a glottal stop: "SHPEE-gel | ei". The first part of a compound carries the main stress, and sp at the start is "shp".
+
+- id: de1-m1-r2-h06
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'Which sentence usually rises at the end?'
+  choices: ['Wo wohnst du?', 'Wohnst du in Berlin?', 'Du wohnst in Berlin.', 'Woher kommst du?']
+  answer: 1
+  explanation: |-
+    Yes/no questions usually rise: Wohnst du in Berlin? Statements fall, and W-questions such as Wo wohnst du? and Woher kommst du? usually fall too, because the question word already marks them as questions.
+
+- id: de1-m1-r2-h07
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Spelling
+  stem: 'Which is the current spelling of "must" in "ich ___"?'
+  choices: [muß, mus, muss, mußs]
+  answer: 2
+  explanation: |-
+    The u is short, so since the 1996 spelling reform it's written ss: ich muss. muß is the old spelling you may still see in older books; mus would suggest a z sound or a long vowel.
+
+- id: de1-m1-r2-h08
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Spelling
+  stem: 'How may "Straße" be written in capital letters under the official rules today?'
+  choices:
+    - 'STRASSE or STRAẞE'
+    - 'only STRAẞE'
+    - 'only STRAßE, with a small ß'
+    - 'only STRASE'
+  answer: 0
+  explanation: |-
+    Traditionally ß had no capital, so capitals used SS: STRASSE. Since 2017 the official rules also allow the capital ẞ: STRAẞE. SS is still the more usual choice. STRASE drops a letter and would change the sound.
+
+- id: de1-m1-r2-h09
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'An Austrian newsreader says "zwanzig" with a k sound at the end ("-tsik"). This is…'
+  choices:
+    - 'a mistake in standard German'
+    - 'the pronunciation from before 1996'
+    - 'a dialect word, not standard German'
+    - 'normal standard pronunciation in Austria'
+  answer: 3
+  explanation: |-
+    The ending -ig is said like ich in most of Germany, but with a k in the south, in Austria and in Switzerland, where it counts as standard. The spelling reform changed spellings, not pronunciation.
+
+- id: de1-m1-r2-h10
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  type: text
+  stem: 'In careful German, a word or word part that starts with a vowel (ein | Ei) begins with a small catch in the throat called a ___.'
+  accept: [glottal stop, Knacklaut, glottal stops, glottal]
+  explanation: |-
+    It's a glottal stop (German Knacklaut): a brief closing of the throat, like the break in English "uh-oh". It keeps ein Ei from running together as "ei-nei".
+
+- id: de1-m1-r2-h11
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  type: match
+  stem: 'Match each spelling to how it is pronounced.'
+  pairs:
+    - ['pf (Apfel)', 'both letters: p then f']
+    - ['chs (sechs)', ks]
+    - ['ng (Finger)', 'ng as in singer, with no g']
+    - ['-tion (Information)', 'tsion, stressed']
+    - ['v (Klavier)', like English v]
+  distractors: ['sh, as in ship']
+  explanation: |-
+    pf keeps both letters (Apfel, Kopf); chs is usually ks (sechs, Fuchs); ng never adds a g (Finger is "FING-uh"); -tion is "tsion" and takes the stress (In-for-ma-TSION); v in loanwords like Klavier is an English v. "sh" is the sound of sch.
+
+- id: de1-m1-r2-h12
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'Which of these are minimal pairs, words that differ in only one sound? Select all that apply.'
+  choices: ['bitte – bitter', 'Wein – Wien', 'schon – schön', 'Stadt – Straße', 'Tag – Woche']
+  answer: [0, 1, 2]
+  explanation: |-
+    bitte/bitter differ only in the final sound (schwa vs vocalic r), Wein/Wien only in the vowel ("eye" vs "ee"), and schon/schön only in o vs ö. Stadt/Straße and Tag/Woche differ in several sounds.
+
+- id: de1-m1-r2-h13
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  type: order
+  stem: 'Put the parts in order to make the second half of the tongue twister, starting with "Frische Fische": "Fisher''s Fritz fishes fresh fish."'
+  items: [Frische Fische, fischt, Fischers Fritz]
+  explanation: |-
+    Frische Fische fischt Fischers Fritz. The sentence starts with the object, so the verb fischt must still be second, and the subject Fischers Fritz follows it.
+
+- id: de1-m1-r2-h14
+  lesson: de1-m1-h-sounds-in-depth
+  topic: Pronunciation
+  stem: 'In which words does v sound like English v (not f)? Select all that apply.'
+  choices: [Klavier, Vater, Universität, vier, November]
+  answer: [0, 2, 4]
+  explanation: |-
+    In loanwords such as Klavier, Universität and November, v is an English v. In old German words such as Vater (father) and vier (four), v sounds like f.
+
+# ---------- Honors 04h2: du, Sie and the German-speaking world ----------
+- id: de1-m1-r2-h15
+  lesson: de1-m1-h-german-world
+  topic: German-speaking countries
+  type: label
+  stem: 'Name the numbered countries and regions where German is an official language.'
+  image: {src: images/de1-m1-dach-map-blank.svg, alt: 'A simplified map of central Europe with six numbered areas: 1 is the large country in the north, 2 the country to the south-east of it, 3 the country to the south-west, 4 a tiny dot between 3 and 2, 5 a small country on the western border of 1, and 6 a region south of 2.'}
+  labels:
+    - {x: 47.8, y: 40.3, text: Deutschland}
+    - {x: 71.6, y: 72.9, text: Österreich}
+    - {x: 34.4, y: 80.6, text: die Schweiz}
+    - {x: 43.4, y: 77.0, text: Liechtenstein}
+    - {x: 23.4, y: 53.4, text: Luxemburg}
+    - {x: 54.2, y: 81.8, text: Südtirol (Italien)}
+  distractors: [Polen, Frankreich]
+  explanation: |-
+    Germany (1) is the large country in the north, Austria (2) lies to its south-east and Switzerland (3) to its south-west. Tiny Liechtenstein (4) sits between Switzerland and Austria, Luxembourg (5) on Germany's western border, and South Tyrol (6) is the northern Italian province just south of Austria. Poland and France are neighbours where German is not an official language.
+
+- id: de1-m1-r2-h16
+  lesson: de1-m1-h-german-world
+  topic: German-speaking countries
+  stem: 'In which of these countries is German the only official language?'
+  choices: [die Schweiz, Liechtenstein, Luxemburg, Belgien]
+  answer: 1
+  explanation: |-
+    Liechtenstein has German as its only official language. Switzerland has four national languages (German, French, Italian, Romansh), Luxembourg three (Luxembourgish, French, German) and Belgium three (Dutch, French, German).
+
+- id: de1-m1-r2-h17
+  lesson: de1-m1-h-german-world
+  topic: German-speaking countries
+  stem: 'What does "hoch" (high) in "Hochdeutsch" refer to?'
+  choices:
+    - 'the language of the upper classes'
+    - 'a more correct form of German'
+    - 'the higher-lying middle and south of the German-speaking area'
+    - 'German as spoken in the Swiss mountains only'
+  answer: 2
+  explanation: |-
+    "High" is geography: standard German grew mainly out of the dialects of the higher, hilly middle and south, as opposed to the flat north where Low German (Plattdeutsch) is spoken. It says nothing about class or correctness.
+
+- id: de1-m1-r2-h18
+  lesson: de1-m1-h-german-world
+  topic: Greetings
+  stem: 'A shop assistant in Hamburg says "Moin!" to you at 7 p.m. What does she mean?'
+  choices: ['Goodbye.', 'Good night.', 'Good morning, as a joke.', 'Hello.']
+  answer: 3
+  explanation: |-
+    Moin is the everyday hello of northern Germany and works at any time of day, including the evening. Its origin is debated, but it isn't simply short for Guten Morgen.
+
+- id: de1-m1-r2-h19
+  lesson: de1-m1-h-german-world
+  topic: Greetings
+  stem: 'Who can you greet with "Grüß dich"?'
+  choices:
+    - 'a friend you say du to'
+    - 'your doctor'
+    - 'a shop assistant you don''t know'
+    - 'your friend''s grandmother, whom you call Frau Huber'
+  answer: 0
+  explanation: |-
+    dich is a du form, so Grüß dich is only for one person you say du to. For the others, use Grüß Gott or Guten Tag.
+
+- id: de1-m1-r2-h20
+  lesson: de1-m1-h-german-world
+  topic: Address
+  type: text
+  stem: 'Complete with duzen: "___ du deine Lehrerin?" (Do you say du to your teacher?)'
+  accept: [Duzt]
+  explanation: |-
+    The stem duz- ends in -z, so the du form adds only -t: du duzt. In a yes/no question the verb comes first: Duzt du deine Lehrerin?
+
+- id: de1-m1-r2-h21
+  lesson: de1-m1-h-german-world
+  topic: Address
+  type: text
+  stem: 'Complete with siezen: "Wir ___ Frau Klein." (We say Sie to Ms Klein.)'
+  accept: [siezen]
+  explanation: |-
+    The wir form is the same as the infinitive: wir siezen.
+
+- id: de1-m1-r2-h22
+  lesson: de1-m1-h-german-world
+  topic: Greetings
+  type: match
+  stem: 'Match each greeting to how it is used.'
+  pairs:
+    - [Moin, 'hello in northern Germany, any time of day']
+    - [Grüezi, polite hello in Switzerland]
+    - [Servus, informal hi and bye in Bavaria and Austria]
+    - [Hoi, informal hi in Switzerland]
+  distractors: [goodbye at bedtime]
+  explanation: |-
+    Moin is the northern hello, Grüezi the polite Swiss hello (for people you say Sie to), Servus the informal hello and goodbye of Bavaria and Austria, and Hoi the informal Swiss hi. Goodbye at bedtime is Gute Nacht.
+
+- id: de1-m1-r2-h23
+  lesson: de1-m1-h-german-world
+  topic: German-speaking countries
+  type: match
+  stem: 'German is pluricentric. Match each word from Germany to the form used in the country named.'
+  pairs:
+    - ['Januar, in Austria', Jänner]
+    - ['Fahrrad, in Switzerland', Velo]
+    - ['Straße, in Switzerland', Strasse]
+  distractors: [Servus]
+  explanation: |-
+    Austria says Jänner for January; Switzerland says Velo for bicycle and writes ss instead of ß (Strasse). Servus is a greeting, not one of these words.
+
+- id: de1-m1-r2-h24
+  lesson: de1-m1-h-german-world
+  topic: German-speaking countries
+  stem: 'Which statements about Swiss German (Schweizerdeutsch) are true? Select all that apply.'
+  choices:
+    - 'German-speaking Swiss of every background use it in everyday speech.'
+    - 'In writing and on the news, Swiss Standard German is used.'
+    - 'As a learner in Switzerland, you speak standard German.'
+    - 'It is the language of Swiss newspapers.'
+    - 'Only older people in the countryside speak it.'
+  answer: [0, 1, 2]
+  explanation: |-
+    Swiss German dialects are the everyday spoken language of German-speaking Switzerland, across all ages and backgrounds. Newspapers, schools and the news use Swiss Standard German, and learners speak standard German there too.
+
+- id: de1-m1-r2-h25
+  lesson: de1-m1-h-german-world
+  topic: Address
+  stem: 'Two colleagues, aged 58 and 26, have said Sie to each other for a month. Who usually offers du?'
+  choices:
+    - 'the 26-year-old'
+    - 'the 58-year-old'
+    - 'nobody: colleagues always keep Sie'
+    - 'whoever has worked there for less time'
+  answer: 1
+  explanation: |-
+    The older or more senior person usually offers du (Wir können gern du sagen). It's a custom, not a law, and many workplaces use du from the first day.
+
+- id: de1-m1-r2-h26
+  lesson: de1-m1-h-german-world
+  topic: Address
+  stem: 'You are talking to two business clients you say Sie to. Which question fits?'
+  choices: ['Wie heißt ihr?', 'Wie heißt du?', 'Wie heißen ihr?', 'Wie heißen Sie?']
+  answer: 3
+  explanation: |-
+    Sie is used for one person or many, so two clients you'd address formally get Sie: Wie heißen Sie? ihr is for two or more people you'd each say du to. "Wie heißen ihr" mixes the ihr pronoun with the wrong ending.
+
+- id: de1-m1-r2-h27
+  lesson: de1-m1-h-german-world
+  topic: Address
+  type: order
+  stem: 'Put the words in order, starting with "Im Büro": "In the office we all say du."'
+  items: [Im Büro, duzen, wir, alle]
+  explanation: |-
+    Im Büro duzen wir alle. The place phrase is first, so the verb duzen is second and the subject wir follows; alle (all) comes after the subject.
+
+- id: de1-m1-r2-h28
+  lesson: de1-m1-h-german-world
+  topic: German-speaking countries
+  stem: 'A colleague in Vienna writes "Jänner" for January. This is…'
+  choices:
+    - 'a spelling mistake'
+    - 'correct Austrian standard German'
+    - 'Swiss German dialect'
+    - 'the spelling from before 1996'
+  answer: 1
+  explanation: |-
+    German has several standards. Jänner is the standard Austrian word for January, just as correct in Austria as Januar is in Germany.
+
+# ---------- Honors 04h3: Numbers in everyday life ----------
+- id: de1-m1-r2-h29
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  type: text
+  stem: '"Sieben mal acht ist ___." Write the result in digits. Give only the number.'
+  accept: ['56']
+  explanation: |-
+    mal means times: 7 · 8 = 56 (sechsundfünfzig).
+
+- id: de1-m1-r2-h30
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  type: text
+  stem: 'How do you say the sign ":" in "20 : 4 = 5"? Write the two German words.'
+  accept: [geteilt durch]
+  explanation: |-
+    20 : 4 is zwanzig geteilt durch vier (in casual speech also just zwanzig durch vier). German schools write division with a colon.
+
+- id: de1-m1-r2-h31
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  stem: 'How do you say 81 − 36 = 45?'
+  choices:
+    - 'achtzigeins minus dreißigsechs ist vierzigfünf'
+    - 'einsundachtzig minus sechsunddreißig ist fünfundvierzig'
+    - 'einundachtzig minus sechsunddreißig ist fünfundvierzig'
+    - 'einundachtzig minus sechsunddreißig ist vierundfünfzig'
+  answer: 2
+  explanation: |-
+    Each two-digit number is unit + und + ten: einundachtzig, sechsunddreißig, fünfundvierzig. Inside a number eins becomes ein. vierundfünfzig is 54, the reversed number.
+
+- id: de1-m1-r2-h32
+  lesson: de1-m1-h-numbers-life
+  topic: Verbs
+  stem: 'Which form is correct? "Du ___ sehr schnell." (rechnen)'
+  choices: [rechnst, rechnest, rechnet, rechnen]
+  answer: 1
+  explanation: |-
+    The stem rechn- ends in n after another consonant, so an e goes before the ending: du rechnest. rechnet is the er or ihr form, rechnen the wir, sie or Sie form.
+
+- id: de1-m1-r2-h33
+  lesson: de1-m1-h-numbers-life
+  topic: Verbs
+  stem: 'Which verb forms are correct? Select all that apply.'
+  choices: [er zeichnet, du lernst, du rechnst, er öffnet, du wohnest]
+  answer: [0, 1, 3]
+  explanation: |-
+    zeichnen and öffnen have consonant + n stems, so they add e: er zeichnet, er öffnet; for the same reason it's du rechnest, not rechnst. After r (lernen) or a silent h (wohnen) no e is added: du lernst, du wohnst.
+
+- id: de1-m1-r2-h34
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  type: match
+  stem: 'Match each German school grade to its name.'
+  pairs:
+    - ['1', sehr gut]
+    - ['3', befriedigend]
+    - ['4', ausreichend]
+    - ['6', ungenügend]
+  distractors: [ausgezeichnet]
+  explanation: |-
+    The German scale: 1 sehr gut, 2 gut, 3 befriedigend, 4 ausreichend, 5 mangelhaft, 6 ungenügend. ausgezeichnet (excellent) isn't a grade name.
+
+- id: de1-m1-r2-h35
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  stem: 'Anna, at school in Zurich, says: "Ich habe eine Fünf in Mathe." What does that mean?'
+  choices:
+    - 'She failed.'
+    - 'She got the best grade.'
+    - 'She got a good grade, above the pass mark.'
+    - 'She got the worst grade.'
+  answer: 2
+  explanation: |-
+    Swiss grades run from 6 (best) to 1 (worst) with 4 as the pass mark, so a 5 is good. In Germany or Austria, a 5 would be a fail.
+
+- id: de1-m1-r2-h36
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  stem: 'Which grade is a pass in Germany, Austria and Switzerland?'
+  choices: ['5', '4', '6', '1']
+  answer: 1
+  explanation: |-
+    A 4 passes everywhere: ausreichend in Germany, Genügend in Austria, and the pass mark in Switzerland. A 5 fails in Germany and Austria, a 6 fails in Germany, and a 1 fails in Switzerland.
+
+- id: de1-m1-r2-h37
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  stem: 'Which sentence is correct?'
+  choices: ['Ich habe einen Eins.', 'Ich habe ein Eins.', 'Ich habe eine eins.', 'Ich habe eine Eins.']
+  answer: 3
+  explanation: |-
+    A number used as a noun is capitalized and feminine: die Eins, so eine Eins. einen and ein would be masculine or neuter, and lowercase eins is the counting number, not the noun.
+
+- id: de1-m1-r2-h38
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  stem: 'You order two coffees in a German café by holding up fingers. What is the usual German way to show "two"?'
+  choices:
+    - 'index and middle finger'
+    - 'thumb and index finger'
+    - 'index finger, twice'
+    - 'two thumbs'
+  answer: 1
+  explanation: |-
+    Germans usually count from the thumb: one is the thumb, two is thumb and index finger. Index and middle finger will usually be understood, but thumb and index finger is the local way and can't be misread.
+
+- id: de1-m1-r2-h39
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  stem: 'A handwritten German 1 often has a long upstroke. How do Germans keep their 7 from looking like a 1?'
+  choices:
+    - 'They write the 7 smaller.'
+    - 'They underline the 7.'
+    - 'They put a short bar across the 7.'
+    - 'They add a curl at the bottom of the 7.'
+  answer: 2
+  explanation: |-
+    A German 1 with a long upstroke looks like an American 7, so the German 7 gets a short line across its middle. A 7 without a bar may be read as a 1.
+
+- id: de1-m1-r2-h40
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  type: order
+  stem: 'Put the German school grades in order, from best to worst.'
+  items: [sehr gut, gut, befriedigend, ausreichend, mangelhaft, ungenügend]
+  explanation: |-
+    1 sehr gut, 2 gut, 3 befriedigend, 4 ausreichend (the lowest pass), 5 mangelhaft, 6 ungenügend.
+
+- id: de1-m1-r2-h41
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  stem: 'Which of these say 2 + 2 = 4? Select all that apply.'
+  choices: [zwei plus zwei ist vier, zwei und zwei ist vier, zwei plus zwei ist gleich vier, zwei mal zwei ist vier, zwei minus zwei ist vier]
+  answer: [0, 1, 2]
+  explanation: |-
+    plus (or casually und) is +, and "equals" can be ist or ist gleich. zwei mal zwei is 2 · 2, a multiplication, and zwei minus zwei is 2 − 2.
+
+- id: de1-m1-r2-h42
+  lesson: de1-m1-h-numbers-life
+  topic: Numbers
+  type: text
+  stem: 'Writing 52 when you hear "fünfundzwanzig" is a common mix-up. Its German name is "der ___".'
+  accept: [Zahlendreher]
+  explanation: |-
+    der Zahlendreher, a "number turner": the digits end up in the wrong order because German says the unit first. Saying important numbers digit by digit avoids it.

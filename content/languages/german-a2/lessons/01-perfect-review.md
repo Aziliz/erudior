@@ -40,6 +40,22 @@ Life stories are full of the second group:
 - *Mit 25 ist sie Mutter geworden.* — At 25 she became a mother.
 - *Wir sind dreimal umgezogen.* — We moved house three times.
 
+The same questions as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: haben or sein in the perfect?
+  accDescr: A decision chart for the auxiliary. If the verb has an accusative object, use haben. Otherwise, if it describes movement from one place to another, such as fahren or umziehen, use sein. If it describes a change of state, such as aufwachsen, sterben or werden, use sein. The three verbs sein, bleiben and passieren also take sein. Everything else takes haben.
+  A["Does the verb have an accusative object?"] -- yes --> H["haben"]
+  A -- no --> B["Movement from A to B? fahren, umziehen"]
+  B -- yes --> S["sein"]
+  B -- no --> C["Change of state? aufwachsen, sterben, werden"]
+  C -- yes --> S
+  C -- no --> D["sein, bleiben or passieren?"]
+  D -- yes --> S
+  D -- no --> H
+```
+
 ## Participles: the patterns you know
 
 A quick review of the main types from A1:
@@ -91,6 +107,23 @@ Verbs ending in *-ieren* come from French or Latin. They are always weak and the
 
 So two groups have no *ge-*: verbs with an inseparable prefix and verbs in *-ieren*. Everything else has one somewhere.
 
+This chart puts all the participle rules of this lesson in the order to check them:
+
+```mermaid
+flowchart TD
+  accTitle: How to build a past participle
+  accDescr: A decision chart. First ask whether the verb ends in -ieren; if so, there is no ge- and the ending is -t, as in studiert. If not, ask whether it has an inseparable prefix such as be-, emp-, ent-, er-, ge-, ver- or zer-; if so, there is no ge-, as in verstanden. If not, ask whether it has a separable prefix; if so, -ge- goes between the prefix and the verb, as in aufgewachsen. Otherwise the participle starts with ge-: weak verbs end in -t (geheiratet), strong verbs in -en (geschrieben), and mixed verbs change the vowel and end in -t (genannt).
+  A["Verb ends in -ieren?"] -- yes --> A1["no ge-, ending -t: studiert"]
+  A -- no --> B["Inseparable prefix? be-, emp-, ent-, er-, ge-, ver-, zer-"]
+  B -- yes --> B1["no ge-: verstanden, erlebt"]
+  B -- no --> C["Separable prefix? auf-, um-, an- …"]
+  C -- yes --> C1["prefix + ge + participle: aufgewachsen"]
+  C -- no --> D["ge- at the front"]
+  D --> D1["weak: ge…t (geheiratet)"]
+  D --> D2["strong: ge…en (geschrieben)"]
+  D --> D3["mixed: new vowel + t (genannt)"]
+```
+
 ## Mixed verbs
 
 A small group of verbs behaves partly like weak verbs and partly like strong ones: they change their vowel, but the participle ends in *-t*. These are the **mixed verbs**. You met four at A1. Two more are useful at A2:
@@ -137,6 +170,8 @@ For your birth, use *geboren* (born) with *sein*: *Ich bin 1993 in Linz geboren.
 Most of the new words in this lesson name stages and events of *das Leben* (life): *die Geburt* (birth), *die Kindheit* (childhood), *die Jugend* (youth, the teenage years), *der Abschluss* (a qualification), *das Studium* (a degree course), *die Hochzeit* (wedding), *der Umzug* (a move to a new home) and *die Heimat* (the place where you feel you belong).
 
 *die Erfahrung* is experience you gain over time (*Ich habe viel Erfahrung mit Kindern*); *das Erlebnis* is one memorable thing that happened to you (*Die Reise war ein tolles Erlebnis*). To retire is *in Rente gehen*: *Mein Vater ist letztes Jahr in Rente gegangen.* A retired person is *ein Rentner* or *eine Rentnerin*. A CV is *der Lebenslauf*, literally "the run of a life". *Die Vergangenheit* is the past, and it's also the grammar word for past tenses.
+
+![Five pictures on a timeline labeled das Leben: a pram for die Geburt (birth), a graduation cap for der Abschluss (a qualification), two wedding rings for die Hochzeit (wedding), a moving van with boxes for der Umzug (a move) and a rocking chair for die Rente (retirement, pension).](images/de2-m1-life-events.svg)
 
 ## Text: An interview for the club newsletter
 

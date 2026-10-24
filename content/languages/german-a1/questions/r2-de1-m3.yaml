@@ -1,0 +1,510 @@
+# German A1, round 2, module de1-m3: new question types for lessons 09–12 and the two honors lessons
+
+# --- 09 Food, drink and the accusative ---
+- id: de1-m3-r2-q01
+  lesson: de1-food-accusative
+  module_quiz: true
+  type: label
+  topic: Food and drink
+  stem: 'Name the numbered things on this breakfast table.'
+  image: {src: images/de1-m3-breakfast-blank.svg, alt: 'A breakfast table with six things on it, numbered from left to right: a jug of milk, a cup of coffee, a bread roll on a plate, a boiled egg in an egg cup, a wedge of cheese and an apple.'}
+  labels:
+    - {x: 11.8, y: 47.4, text: die Milch}
+    - {x: 27.9, y: 58.9, text: der Kaffee}
+    - {x: 44.9, y: 58.9, text: das Brötchen}
+    - {x: 61.0, y: 36.8, text: das Ei}
+    - {x: 76.5, y: 64.2, text: der Käse}
+    - {x: 90.4, y: 58.9, text: der Apfel}
+  distractors: [die Wurst, der Saft]
+  explanation: |-
+    1 is a jug of milk (die Milch), 2 a cup of coffee (der Kaffee), 3 a bread roll (das Brötchen), 4 a boiled egg (das Ei), 5 cheese (der Käse) and 6 an apple (der Apfel). There is no sausage (die Wurst) or juice (der Saft) on the table.
+- id: de1-m3-r2-q02
+  lesson: de1-food-accusative
+  module_quiz: true
+  type: text
+  topic: Accusative
+  stem: 'Complete with the right form of essen and the right article: "Mein Bruder ___ ___ Apfel." (der Apfel)'
+  accept:
+    - [isst]
+    - [einen, den]
+  explanation: |-
+    essen changes e to i in the er/sie/es form: er isst. Apfel is masculine and the direct object, so the article takes -en: einen Apfel (or den Apfel for a particular apple). "esst" is the ihr form, and "ein Apfel" is the nominative.
+- id: de1-m3-r2-q03
+  lesson: de1-food-accusative
+  type: match
+  topic: Accusative
+  stem: 'Complete "Ich möchte ___ …" for each food. Match each noun to the article it needs.'
+  pairs:
+    - [der Tee, einen]
+    - [die Cola, eine]
+    - [das Ei, ein]
+    - [die Nudeln (plural), no article]
+  distractors: [einem, einer]
+  explanation: |-
+    After möchte the food is the direct object, so it is in the accusative. Only the masculine changes: der Tee → einen Tee. Feminine stays eine Cola, neuter stays ein Ei, and ein has no plural, so you say just Ich möchte Nudeln. einem and einer are dative forms you'll meet later.
+- id: de1-m3-r2-q04
+  lesson: de1-food-accusative
+  topic: Accusative
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich nehme einen Kaffee.', 'Das ist einen Apfel.', 'Er isst ein Brötchen.', 'Wir möchten einen Wasser.']
+  answer: [0, 2]
+  explanation: |-
+    "Ich nehme einen Kaffee" is right: Kaffee is masculine and the object. "Er isst ein Brötchen" is right: Brötchen is neuter, so ein doesn't change. "Das ist einen Apfel" is wrong because sein never takes the accusative (Das ist ein Apfel). "einen Wasser" is wrong because Wasser is neuter: ein Wasser.
+- id: de1-m3-r2-q05
+  lesson: de1-food-accusative
+  type: order
+  topic: Food and drink
+  stem: 'Put this café conversation in order.'
+  items:
+    - 'Kellner: Guten Tag! Was möchten Sie?'
+    - 'Gast: Ich nehme einen Tee, bitte.'
+    - 'Kellner: Mit Milch oder ohne Milch?'
+    - 'Gast: Ohne Milch, bitte. Haben Sie auch Apfelkuchen?'
+    - 'Kellner: Ja, natürlich. Ein Stück Apfelkuchen?'
+    - 'Gast: Ja, gern.'
+  explanation: |-
+    The waiter opens with the question, the guest orders a tea, the waiter asks about milk, the guest answers and asks about cake, the waiter offers a piece, and the guest accepts. Each line answers the one before it.
+
+# --- 10 Shopping and prices ---
+- id: de1-m3-r2-q06
+  lesson: de1-shopping
+  type: text
+  topic: Numbers
+  stem: 'Write the number 347 in German as one word.'
+  accept: [dreihundertsiebenundvierzig]
+  explanation: |-
+    Hundreds first, then the last two digits as you learned them, units before tens: dreihundert + siebenundvierzig = dreihundertsiebenundvierzig. Big numbers are written as one word.
+- id: de1-m3-r2-q07
+  lesson: de1-shopping
+  module_quiz: true
+  type: match
+  topic: Prices
+  stem: 'Match each written number or price to how it is said.'
+  pairs:
+    - ['1.500', tausendfünfhundert]
+    - ['1,50 €', ein Euro fünfzig]
+    - ['15,00 €', fünfzehn Euro]
+    - ['0,15 €', fünfzehn Cent]
+  distractors: [hundertfünfzig, eins Komma fünf]
+  explanation: |-
+    In German a point separates thousands and a comma separates euros from cents. So 1.500 is one thousand five hundred (tausendfünfhundert), 1,50 € is ein Euro fünfzig, 15,00 € is fünfzehn Euro and 0,15 € is fünfzehn Cent. Prices are never read with "Komma".
+- id: de1-m3-r2-q08
+  lesson: de1-shopping
+  module_quiz: true
+  topic: Shopping
+  stem: 'Which are correct ways to ask for an amount? Select all that apply.'
+  choices: ['ein Kilo Äpfel', 'zwei Flaschen Wasser', 'ein Kilo von Äpfeln', 'zwei Kilos Kartoffeln', 'drei Stück Kuchen']
+  answer: [0, 1, 4]
+  explanation: |-
+    German puts the amount straight before the food with no word for "of", so "ein Kilo von Äpfeln" is wrong. Kilo and Stück stay singular after a number (zwei Kilo, drei Stück), so "zwei Kilos" is wrong, while the feminine Flasche takes its plural: zwei Flaschen Wasser.
+- id: de1-m3-r2-q09
+  lesson: de1-shopping
+  type: order
+  topic: Shopping
+  stem: 'Put this conversation at a market stall in order.'
+  items:
+    - 'Verkäufer: Guten Tag! Was brauchen Sie?'
+    - 'Kundin: Was kosten die Äpfel?'
+    - 'Verkäufer: 2,50 € das Kilo.'
+    - 'Kundin: Dann nehme ich zwei Kilo, bitte. Das ist alles.'
+    - 'Verkäufer: Das macht fünf Euro.'
+    - 'Kundin: Hier sind zehn Euro.'
+  explanation: |-
+    Greeting, asking the price, the answer, choosing the amount and finishing, the total (2 × 2,50 € = 5 €), then paying. This is the same sequence as the shopping chart in the lesson.
+- id: de1-m3-r2-q10
+  lesson: de1-shopping
+  type: label
+  topic: Prices
+  stem: 'This price tag says 1.299,95 €. What does each numbered part show?'
+  image: {src: images/de1-m3-price-tag-blank.svg, alt: 'A price tag headed ANGEBOT for a blue bicycle with the price 1.299,95 €. Four lines point to the point, the comma, the 95 and the euro sign, numbered 1 to 4.'}
+  labels:
+    - {x: 18.8, y: 90.3, text: Separates thousands}
+    - {x: 42.2, y: 90.3, text: Separates euros from cents}
+    - {x: 65.6, y: 90.3, text: The cents}
+    - {x: 87.5, y: 90.3, text: The euro sign}
+  distractors: [A decimal point, The thousands]
+  explanation: |-
+    German swaps the English marks: the point (1) separates thousands and the comma (2) separates euros from cents. 95 (3) are the cents, and the euro sign (4) comes after the number. The price is said tausendzweihundertneunundneunzig Euro fünfundneunzig.
+
+# --- 11 Days, times and the clock ---
+- id: de1-m3-r2-q11
+  lesson: de1-time
+  module_quiz: true
+  type: label
+  topic: Time
+  stem: 'It is between three and four o''clock. When the minute hand points to each numbered spot, how do you say the time in everyday German?'
+  image: {src: images/de1-m3-clock-blank.svg, alt: 'A clock face with no hands. Five spots on the rim are numbered: 1 at the 3, 2 at the 4, 3 at the 6, 4 at the 8 and 5 at the 9.'}
+  labels:
+    - {x: 89.2, y: 50.0, text: Viertel nach drei}
+    - {x: 84.0, y: 69.6, text: zwanzig nach drei}
+    - {x: 50.0, y: 89.2, text: halb vier}
+    - {x: 16.0, y: 69.6, text: zwanzig vor vier}
+    - {x: 10.8, y: 50.0, text: Viertel vor vier}
+  distractors: [halb drei, Viertel vor drei]
+  explanation: |-
+    The minute hand at the 3 means 3:15 (Viertel nach drei), at the 4 means 3:20 (zwanzig nach drei), at the 6 means 3:30 (halb vier: halfway to four), at the 8 means 3:40 (zwanzig vor vier) and at the 9 means 3:45 (Viertel vor vier). "halb drei" would be 2:30.
+- id: de1-m3-r2-q12
+  lesson: de1-time
+  module_quiz: true
+  type: text
+  topic: Time
+  stem: 'It is 7:30. Say it the everyday way: "Es ist ___ ___."'
+  accept:
+    - [halb]
+    - [acht]
+  explanation: |-
+    halb points to the next hour: 7:30 is "half (of the way) to eight", halb acht. "halb sieben" would be 6:30.
+- id: de1-m3-r2-q13
+  lesson: de1-time
+  type: match
+  topic: Prepositions
+  stem: 'Which little word goes before each time? Match them.'
+  pairs:
+    - [acht Uhr, um]
+    - [Montag, am]
+    - [Abend, am]
+    - [Nacht, in der]
+  distractors: [im, an]
+  explanation: |-
+    Clock times take um (um acht Uhr). Days and parts of the day take am (am Montag, am Abend). The night is the exception: in der Nacht.
+- id: de1-m3-r2-q14
+  lesson: de1-time
+  topic: Time
+  stem: 'It is 15:45. Which are correct ways to say the time? Select all that apply.'
+  choices: ['fünfzehn Uhr fünfundvierzig', 'Viertel vor vier', 'Viertel nach drei', 'halb vier']
+  answer: [0, 1]
+  explanation: |-
+    The official time is fünfzehn Uhr fünfundvierzig, and in everyday speech 3:45 is Viertel vor vier, a quarter to four. Viertel nach drei is 3:15, and halb vier is 3:30.
+- id: de1-m3-r2-q15
+  lesson: de1-time
+  type: order
+  topic: Time
+  stem: 'Put these parts of the day in order, from earliest to latest.'
+  items: [der Morgen, der Vormittag, der Mittag, der Nachmittag, der Abend]
+  explanation: |-
+    der Morgen (early morning), der Vormittag (before midday), der Mittag (midday), der Nachmittag (after midday), der Abend (evening). vor = before and nach = after, so Vormittag comes before Mittag and Nachmittag after it.
+
+# --- 12 A day in my life ---
+- id: de1-m3-r2-q16
+  lesson: de1-daily-routine
+  module_quiz: true
+  type: order
+  topic: Word order
+  stem: 'Put the words in order to say "At seven I get up." Start with the time phrase.'
+  items: [Um sieben, stehe, ich, auf.]
+  explanation: |-
+    The time phrase fills position 1, so the verb part comes next (stehe), then the subject (ich), and the prefix auf goes to the very end: Um sieben stehe ich auf.
+- id: de1-m3-r2-q17
+  lesson: de1-daily-routine
+  type: text
+  topic: Separable verbs
+  stem: 'Complete with anrufen: "Ich ___ heute meine Mutter ___."'
+  accept:
+    - [rufe]
+    - [an]
+  explanation: |-
+    anrufen is separable. The conjugated part rufe goes in position 2 and the prefix an goes to the very end: Ich rufe heute meine Mutter an.
+- id: de1-m3-r2-q18
+  lesson: de1-daily-routine
+  topic: Separable verbs
+  stem: 'Which of these verbs are separable? Select all that apply.'
+  choices: [aufstehen, frühstücken, einkaufen, duschen, fernsehen]
+  answer: [0, 2, 4]
+  explanation: |-
+    aufstehen, einkaufen and fernsehen have separable prefixes (auf, ein, fern): Ich stehe auf, ich kaufe ein, ich sehe fern. frühstücken and duschen never split: Ich frühstücke, ich dusche.
+- id: de1-m3-r2-q19
+  lesson: de1-daily-routine
+  type: match
+  topic: Separable verbs
+  stem: 'Match each separable verb to its meaning.'
+  pairs:
+    - [aufräumen, to tidy up]
+    - [abholen, to pick up]
+    - [mitkommen, to come along]
+    - [ankommen, to arrive]
+  distractors: [to get up, to phone]
+  explanation: |-
+    aufräumen = to tidy up, abholen = to pick up, mitkommen = to come along, ankommen = to arrive. "to get up" is aufstehen and "to phone" is anrufen.
+- id: de1-m3-r2-q20
+  lesson: de1-daily-routine
+  module_quiz: true
+  type: label
+  topic: Word order
+  stem: 'This sentence means "Tomorrow morning I''m phoning my mother." What job does each numbered box do?'
+  image: {src: images/de1-m3-sentence-slots-blank.svg, alt: 'Five boxes in a row, numbered 1 to 5: Morgen früh, rufe, ich, meine Mutter, an.'}
+  labels:
+    - {x: 13.3, y: 23.1, text: Position 1 (time phrase)}
+    - {x: 34.4, y: 23.1, text: Position 2 (conjugated verb)}
+    - {x: 51.4, y: 23.1, text: Subject}
+    - {x: 69.7, y: 23.1, text: Object}
+    - {x: 89.4, y: 23.1, text: Separable prefix}
+  distractors: [Infinitive]
+  explanation: |-
+    Morgen früh fills position 1, the conjugated verb part rufe is in position 2, the subject ich follows the verb (inversion), meine Mutter is the object, and an, the prefix of anrufen, goes to the very end.
+
+# --- 12h1 Honors: Brötchen, Kaffee und Kuchen ---
+- id: de1-m3-r2-h01
+  lesson: de1-m3-h-food-culture
+  topic: Polite requests
+  stem: 'Which is the most polite correct way to order a pretzel (die Brezel)?'
+  choices: ['Ich will eine Brezel.', 'Ich habe gern eine Brezel.', 'Ich hätte gern eine Brezel.', 'Ich hätte gern einen Brezel.']
+  answer: 2
+  explanation: |-
+    Ich hätte gern + accusative is the politest order, and Brezel is feminine, so eine stays eine. "Ich will" sounds blunt, "Ich habe gern eine Brezel" means "I like having a pretzel", and "einen Brezel" uses the masculine form for a feminine noun.
+- id: de1-m3-r2-h02
+  lesson: de1-m3-h-food-culture
+  type: text
+  topic: Polite requests
+  stem: 'Complete the order: "Ich hätte gern ___ Kaffee, bitte." (der Kaffee)'
+  accept: [einen]
+  explanation: |-
+    What you'd like is the object of hätte, so it is accusative, and masculine ein becomes einen: Ich hätte gern einen Kaffee.
+- id: de1-m3-r2-h03
+  lesson: de1-m3-h-food-culture
+  topic: Polite requests
+  stem: 'You want another coffee. Complete: "Noch ___ Kaffee, bitte!"'
+  choices: ['ein', 'einen', 'eine', 'einem']
+  answer: 1
+  explanation: |-
+    noch ein means "another one", and the article still follows the accusative rule: der Kaffee → noch einen Kaffee. "ein" forgets the masculine -en.
+- id: de1-m3-r2-h04
+  lesson: de1-m3-h-food-culture
+  topic: Food culture
+  stem: 'Your host asks: "Möchtest du noch ein Stück Kuchen?" You have had enough. What do you say?'
+  choices: ['Ja, noch ein Stück, bitte.', 'Guten Appetit!', 'Nein danke, ich bin voll.', 'Nein danke, ich bin satt.']
+  answer: 3
+  explanation: |-
+    Ich bin satt means "I'm full". "Ich bin voll" is a word-for-word translation and can sound like "I'm drunk" in casual speech. Guten Appetit is said before a meal.
+- id: de1-m3-r2-h05
+  lesson: de1-m3-h-food-culture
+  type: match
+  topic: Food culture
+  stem: 'Match each regional or Austrian word to the standard German word.'
+  pairs:
+    - [die Semmel, das Brötchen]
+    - [der Erdapfel, die Kartoffel]
+    - [der Topfen, der Quark]
+    - [der Paradeiser, die Tomate]
+  distractors: [die Sahne, die Brezel]
+  explanation: |-
+    Semmel is the Bavarian and Austrian bread roll (Brötchen), Erdapfel the Austrian potato (Kartoffel), Topfen the Austrian and Bavarian quark, and Paradeiser the Austrian tomato. Cream (Sahne) is Schlagobers in Austria.
+- id: de1-m3-r2-h06
+  lesson: de1-m3-h-food-culture
+  type: label
+  topic: Food culture
+  stem: 'This timeline shows a traditional German day of meals (simplified). Name each numbered meal.'
+  image: {src: images/de1-m3-meals-blank.svg, alt: 'A timeline from 6 to 21 Uhr with four meals numbered 1 to 4: at about 7 Uhr coffee and a roll, at about 12:30 a steaming plate of food, at about 15:30 a slice of cake and a cup of coffee, and at about 18:30 slices of bread and cheese on a board.'}
+  labels:
+    - {x: 12.9, y: 40.0, text: das Frühstück}
+    - {x: 44.3, y: 40.0, text: das Mittagessen}
+    - {x: 61.4, y: 41.2, text: Kaffee und Kuchen}
+    - {x: 78.6, y: 36.2, text: das Abendbrot}
+  distractors: [der Feierabend, das Wochenende]
+  explanation: |-
+    Breakfast (das Frühstück) in the morning, the warm lunch (das Mittagessen) at midday, coffee and cake (Kaffee und Kuchen) in the afternoon, and the cold bread supper (das Abendbrot) in the evening. Feierabend is the end of the working day, not a meal.
+- id: de1-m3-r2-h07
+  lesson: de1-m3-h-food-culture
+  topic: Food culture
+  stem: 'At 12:30 a colleague passes you in the corridor and says "Mahlzeit!". What does it mean here?'
+  choices: ['A lunchtime greeting, like "hello, enjoy your lunch"', 'An invitation to eat together', 'A complaint that lunch is late', 'A request to go back to work']
+  answer: 0
+  explanation: |-
+    Mahlzeit literally means "mealtime". Between colleagues around midday it works as a greeting and a wish to enjoy lunch; you simply answer "Mahlzeit!" too.
+- id: de1-m3-r2-h08
+  lesson: de1-m3-h-food-culture
+  topic: Food culture
+  stem: 'Your bill is 4,60 €. You want to tip about 10 percent, and you hand over a 10-euro note. What do you say?'
+  choices: ['Stimmt so.', 'Vier Euro sechzig, bitte.', 'Fünf Euro, bitte.', 'Zehn Euro, bitte.']
+  answer: 2
+  explanation: |-
+    10 percent of 4,60 € is 0,46 €, so about 5 €. You tell the server the total: Fünf Euro, bitte, and get 5 € back. "Stimmt so" with a 10-euro note would leave a 5,40 € tip, "Vier Euro sechzig" leaves no tip, and "Zehn Euro" means you want no change.
+- id: de1-m3-r2-h09
+  lesson: de1-m3-h-food-culture
+  topic: Food culture
+  stem: 'Which are true about tipping in a German café? Select all that apply.'
+  choices: ['You usually tell the server the total you want to pay.', '"Stimmt so" means "keep the change".', 'The tip is always added to the bill for you.', 'You usually leave the tip on the table when you go.']
+  answer: [0, 1]
+  explanation: |-
+    The tip isn't on the bill. People round up or add about 5 to 10 percent by telling the server the total, or by handing over money and saying "Stimmt so" (keep the change). Leaving coins on the table is not the usual way.
+- id: de1-m3-r2-h10
+  lesson: de1-m3-h-food-culture
+  type: text
+  topic: Food culture
+  stem: 'Complete: "Ich esse zwei ___ Brot." (die Scheibe, slice)'
+  accept: [Scheiben]
+  explanation: |-
+    Amounts go straight before the food with no "of", and a feminine measure word like Scheibe takes its plural after a number: zwei Scheiben Brot.
+- id: de1-m3-r2-h11
+  lesson: de1-m3-h-food-culture
+  topic: Food culture
+  stem: 'In the reading "Sonntag bei Oma", why does the narrator say "Nein danke, Oma"?'
+  choices: ['She doesn''t like apple cake.', 'She is full.', 'She doesn''t drink coffee.', 'She has to go home.']
+  answer: 1
+  explanation: |-
+    Oma offers another piece of cake and she answers "Nein danke, Oma, ich bin satt!" — she's full. It is Jonas who doesn't drink coffee, and they go home only at nine.
+- id: de1-m3-r2-h12
+  lesson: de1-m3-h-food-culture
+  topic: Food culture
+  stem: 'In the reading, what do they eat at seven o''clock?'
+  choices: ['A cold meal: bread, butter, cheese, sausage and a little salad', 'A warm meal with potatoes and meat', 'Apple cake and a gateau with cream', 'Rolls and pretzels from the supermarket']
+  answer: 0
+  explanation: |-
+    At seven there's Abendbrot: "Brot, Butter, Käse, Wurst und ein bisschen Salat", and the text says they don't eat a warm meal in the evening. The cakes are at three, and Oma never buys bread at the supermarket.
+- id: de1-m3-r2-h13
+  lesson: de1-m3-h-food-culture
+  type: order
+  topic: Food culture
+  stem: 'Put these lines in order: paying for your coffee in a café.'
+  items:
+    - 'Gast: Zahlen, bitte!'
+    - 'Kellnerin: Zusammen oder getrennt?'
+    - 'Gast: Getrennt, bitte.'
+    - 'Kellnerin: Ihr Kaffee macht 3,40 Euro.'
+    - 'Gast: Vier Euro, bitte.'
+  explanation: |-
+    You ask to pay, the server asks whether you're paying together or separately, you answer, the server tells you your total, and you say the amount you want to pay including the tip (here 0,60 €).
+- id: de1-m3-r2-h14
+  lesson: de1-m3-h-food-culture
+  topic: Polite requests
+  stem: 'Why do both "Ich möchte …" and "Ich hätte gern …" sound polite?'
+  choices: ['They are both in the perfect tense.', 'They both use the dative.', 'They are both questions.', 'They are both subjunctive "would" forms.']
+  answer: 3
+  explanation: |-
+    hätte is the subjunctive (Konjunktiv II) of haben, and möchte is the subjunctive of mögen. The "would" form softens the request, like English "I would like".
+- id: de1-m3-r2-h15
+  lesson: de1-m3-h-food-culture
+  topic: Food culture
+  stem: 'Which are regional words for a plain bread roll (das Brötchen)? Select all that apply.'
+  choices: [die Semmel, die Schrippe, der Weck, die Brezel, die Torte]
+  answer: [0, 1, 2]
+  explanation: |-
+    Semmel (Bavaria, Austria, parts of eastern Germany), Schrippe (Berlin) and Weck (the southwest) all name the plain roll. A Brezel is a pretzel and a Torte is a layered cream cake.
+
+# --- 12h2 Honors: Planning the week ---
+- id: de1-m3-r2-h16
+  lesson: de1-m3-h-week-planning
+  topic: Opening hours
+  stem: 'Look at the signs. Can you buy rolls at Bäckerei Krume on Sunday at 10:30?'
+  image: {src: images/de1-m3-hours.svg, alt: 'Two door signs. Bäckerei Krume, Öffnungszeiten: Mo–Fr 6:30–18:00, Sa 7:00–13:00, So 8:00–11:00, feiertags geschlossen. Café am Markt, Öffnungszeiten: Di–Fr 8–18 Uhr, Sa–So 9–18 Uhr, Montag Ruhetag.'}
+  choices: ['No, bakeries are always closed on Sundays.', 'Yes, it is open on Sunday from 8:00 to 11:00.', 'No, it opens at 11:00 on Sunday.', 'Yes, but only if it is a public holiday.']
+  answer: 1
+  explanation: |-
+    The bakery's sign says So 8:00–11:00, and 10:30 falls inside that time. Many German bakeries open for a few hours on Sunday mornings. On public holidays (feiertags) this bakery is closed.
+- id: de1-m3-r2-h17
+  lesson: de1-m3-h-week-planning
+  topic: Opening hours
+  stem: 'Look at the signs. You want a coffee at Café am Markt on Monday at 10:00. What happens?'
+  image: {src: images/de1-m3-hours.svg, alt: 'Two door signs. Bäckerei Krume, Öffnungszeiten: Mo–Fr 6:30–18:00, Sa 7:00–13:00, So 8:00–11:00, feiertags geschlossen. Café am Markt, Öffnungszeiten: Di–Fr 8–18 Uhr, Sa–So 9–18 Uhr, Montag Ruhetag.'}
+  choices: ['It is open: it opens at 8:00.', 'It is open: it opens at 9:00.', 'It is closed: Monday is its closing day.', 'It is closed until 18:00.']
+  answer: 2
+  explanation: |-
+    "Montag Ruhetag" means the café closes every Monday. Its hours start on Tuesday (Di–Fr 8–18 Uhr).
+- id: de1-m3-r2-h18
+  lesson: de1-m3-h-week-planning
+  type: text
+  topic: Opening hours
+  stem: 'Bäckerei Krume is open Sa 7:00–13:00. How many hours is it open on Saturday? Give only the number.'
+  accept: ['6', sechs]
+  explanation: |-
+    From 7:00 to 13:00 is 13 − 7 = 6 hours: sechs Stunden.
+- id: de1-m3-r2-h19
+  lesson: de1-m3-h-week-planning
+  topic: Time expressions
+  stem: 'How do you say "I work on Mondays (every Monday)"?'
+  choices: ['Ich arbeite montags.', 'Ich arbeite Montags.', 'Ich arbeite am Montags.', 'Ich arbeite in Montag.']
+  answer: 0
+  explanation: |-
+    montags is an adverb meaning "every Monday" and is written with a small letter, without am. A capital M is only right at the start of a sentence (Montags arbeite ich).
+- id: de1-m3-r2-h20
+  lesson: de1-m3-h-week-planning
+  type: text
+  topic: Accusative
+  stem: 'Complete: "___ Montag habe ich frei." (Next Monday I have the day off.)'
+  accept: [nächsten, naechsten]
+  explanation: |-
+    With nächster the time phrase is in the accusative with no preposition. Montag is masculine, so it takes -en: nächsten Montag. "nächste Montag" forgets the masculine ending.
+- id: de1-m3-r2-h21
+  lesson: de1-m3-h-week-planning
+  type: match
+  topic: Accusative
+  stem: 'Match each English time phrase to its German form.'
+  pairs:
+    - [every day, jeden Tag]
+    - [next week, nächste Woche]
+    - [this weekend, dieses Wochenende]
+    - [the whole day, den ganzen Tag]
+  distractors: [jede Tag, am nächste Woche]
+  explanation: |-
+    These are accusatives of time with no preposition. Tag is masculine (jeden, den ganzen), Woche feminine (nächste) and Wochenende neuter (dieses). "jede Tag" has the wrong ending, and "am nächste Woche" adds a preposition that isn't needed.
+- id: de1-m3-r2-h22
+  lesson: de1-m3-h-week-planning
+  topic: Accusative
+  stem: 'Complete: "Der Termin dauert ___ Stunde."'
+  choices: ['einen', 'für eine', 'um eine', 'eine']
+  answer: 3
+  explanation: |-
+    After dauern, the length of time is in the accusative alone. Stunde is feminine, so eine doesn't change. "einen" is the masculine form, and dauern takes no preposition.
+- id: de1-m3-r2-h23
+  lesson: de1-m3-h-week-planning
+  topic: Time expressions
+  stem: 'How do you say "I''ll come at around seven"?'
+  choices: ['Ich komme um gegen sieben.', 'Ich komme gegen sieben.', 'Ich komme sieben gegen.', 'Ich komme gegen sieben Uhren.']
+  answer: 1
+  explanation: |-
+    gegen replaces um: gegen sieben (or gegen sieben Uhr). Uhr never takes a plural in times.
+- id: de1-m3-r2-h24
+  lesson: de1-m3-h-week-planning
+  type: order
+  topic: Time expressions
+  stem: 'Put these frequency words in order, from most often to least often.'
+  items: [immer, meistens, oft, manchmal, selten, nie]
+  explanation: |-
+    immer (always), meistens (mostly, usually), oft (often), manchmal (sometimes), selten (rarely), nie (never).
+- id: de1-m3-r2-h25
+  lesson: de1-m3-h-week-planning
+  topic: Time expressions
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich komme morgen um acht.', 'Ich komme um acht morgen.', 'Jeden Morgen trinke ich Tee.', 'Ich jogge jede Morgen.', 'Nächste Woche habe ich frei.']
+  answer: [0, 2, 4]
+  explanation: |-
+    With two time phrases, the general one comes first: morgen um acht, not um acht morgen. Morgen (the morning) is masculine, so it's jeden Morgen, not jede Morgen. Nächste Woche is a correct accusative of time with a feminine noun.
+- id: de1-m3-r2-h26
+  lesson: de1-m3-h-week-planning
+  topic: Time expressions
+  stem: 'In the reading "Unsere Woche", how often does Ela have football?'
+  choices: ['Every day', 'Once a week, on Mondays', 'Twice a week', 'Only on Sundays']
+  answer: 2
+  explanation: |-
+    "Ela hat dienstags und donnerstags Fußball": on Tuesdays and Thursdays, twice a week. Can plays guitar on Mondays.
+- id: de1-m3-r2-h27
+  lesson: de1-m3-h-week-planning
+  topic: Time expressions
+  stem: 'In the reading, who gets up at four every day?'
+  choices: ['Mama', 'Can', 'Ela', 'Papa']
+  answer: 3
+  explanation: |-
+    "Papa arbeitet morgens in der Bäckerei, er steht jeden Tag um vier auf." Mama works in the afternoons at an office.
+- id: de1-m3-r2-h28
+  lesson: de1-m3-h-week-planning
+  type: text
+  topic: Time expressions
+  stem: 'Complete with the right form of dauern: "Wie lange ___ der Kurs? – Zwei Stunden."'
+  accept: [dauert]
+  explanation: |-
+    der Kurs is er, so the regular ending -t: der Kurs dauert. Wie lange dauert …? asks how long something takes.
+- id: de1-m3-r2-h29
+  lesson: de1-m3-h-week-planning
+  topic: Opening hours
+  stem: 'Which sentence means "The café is closed on Mondays"?'
+  choices: ['Montags ist das Café geschlossen.', 'Montags ist das Café geöffnet.', 'Am Montags ist das Café zu spät.', 'Das Café ist montags offen.']
+  answer: 0
+  explanation: |-
+    geschlossen means closed, and montags means every Monday. geöffnet and offen both mean open.
+- id: de1-m3-r2-h30
+  lesson: de1-m3-h-week-planning
+  topic: Time expressions
+  stem: 'Someone asks: "Wie oft gehst du schwimmen?" Which answer fits?'
+  choices: ['Zwei Stunden.', 'Um zwei.', 'Zweimal pro Woche.', 'Gegen zwei.']
+  answer: 2
+  explanation: |-
+    Wie oft? asks how often, so the answer is a frequency: zweimal pro Woche, twice a week. "Zwei Stunden" answers Wie lange?, and "Um zwei" or "Gegen zwei" answer Wann?

@@ -104,10 +104,10 @@
   stem: 'The sentence "Ich kann am Samstag gut kochen." is split into four boxes. Name the part of the sentence each numbered box is.'
   image: {src: images/de1-m4-bracket-blank.svg, alt: 'Two sentences in boxes with a red bracket joining the second and fourth box. Top row, numbered 1 to 4: Ich, kann, am Samstag gut, kochen. Bottom row: Wann, willst, du, mitkommen?'}
   labels:
-    - {x: 9.9, y: 25.3, text: Position 1}
-    - {x: 27.6, y: 25.3, text: Modal verb (position 2)}
-    - {x: 54.6, y: 25.3, text: Middle}
-    - {x: 85.5, y: 25.3, text: Infinitive (end)}
+    - {x: 9.9, y: 36.5, text: Position 1}
+    - {x: 27.6, y: 36.5, text: Modal verb (position 2)}
+    - {x: 54.6, y: 36.5, text: Middle}
+    - {x: 85.5, y: 36.5, text: Infinitive (end)}
   distractors: [Past participle]
   explanation: 'Ich fills position 1, the modal verb kann is in position 2 and opens the bracket, am Samstag gut is the middle, and the infinitive kochen closes the bracket at the end. The bottom row works the same way with the question word Wann in position 1.'
 

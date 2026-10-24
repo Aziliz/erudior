@@ -9,12 +9,12 @@
 <rect x="60" y="50" width="140" height="90" rx="0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" />
 <text x="130" y="88" font-family="sans-serif" font-size="20" text-anchor="middle" font-weight="normal" fill="#1c2833" >2 + 3 = 5</text>
 <text x="130" y="122" font-family="sans-serif" font-size="20" text-anchor="middle" font-weight="normal" fill="#1c2833" >× ÷ −</text>
-<circle cx="360" cy="96" r="44" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
-<path d="M 340 66 C 355 60 366 78 354 90 C 344 100 330 90 340 66 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
-<path d="M 370 100 C 388 96 394 116 380 128 C 368 122 364 110 370 100 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
-<path d="M 310 136 A 60 60 0 0 0 406 136" fill="none" stroke="#1c2833" stroke-width="3" />
-<line x1="360" y1="154" x2="360" y2="162" stroke="#1c2833" stroke-width="4" />
-<rect x="334" y="162" width="52" height="8" rx="3" fill="#c9ced6" stroke="#1c2833" stroke-width="2" />
+<circle cx="360" cy="82" r="40" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 340 52 C 355 46 366 64 354 76 C 344 86 330 76 340 52 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<path d="M 370 86 C 388 82 394 102 380 114 C 368 108 364 96 370 86 Z" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<path d="M 314 112 A 56 56 0 0 0 406 112" fill="none" stroke="#1c2833" stroke-width="3" />
+<line x1="360" y1="136" x2="360" y2="144" stroke="#1c2833" stroke-width="4" />
+<rect x="334" y="144" width="52" height="8" rx="3" fill="#c9ced6" stroke="#1c2833" stroke-width="2" />
 <ellipse cx="560" cy="128" rx="14" ry="10" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
 <ellipse cx="616" cy="118" rx="14" ry="10" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
 <line x1="573" y1="126" x2="573" y2="60" stroke="#1c2833" stroke-width="4" />

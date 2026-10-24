@@ -1,0 +1,196 @@
+# German A1, module 5 honors lessons (round 2): words for stations, tickets and flat hunting.
+# Checked against German A1, A2 and B1 vocabulary: none of these terms or first meanings exists
+# elsewhere. Words the lessons gloss that A2/B1 already teach (stehen, liegen, die Kaution, die
+# Nebenkosten, der Keller, gültig, ausfallen, das Haustier …) are deliberately left out so the A2 and
+# B1 builds (which carry the A1 words) don't get duplicates.
+
+# --- 20h1 Unterwegs (de1-m5-h-unterwegs) ---
+- id: de1-m5-r2-w01
+  lesson: de1-m5-h-unterwegs
+  term: der Hauptbahnhof
+  pos: noun
+  plural: die Hauptbahnhöfe
+  meanings: [main station, central station, main railway station, main train station]
+  note: Short form Hbf on boards and tickets.
+  example: Der Zug fährt vom Hauptbahnhof ab.
+  exampleEn: The train leaves from the main station.
+- id: de1-m5-r2-w02
+  lesson: de1-m5-h-unterwegs
+  term: die Richtung
+  pos: noun
+  plural: die Richtungen
+  meanings: [direction, way]
+  example: Die U-Bahn fährt Richtung Zentrum.
+  exampleEn: The underground goes towards the centre.
+- id: de1-m5-r2-w03
+  lesson: de1-m5-h-unterwegs
+  term: der Fahrkartenautomat
+  pos: noun
+  plural: die Fahrkartenautomaten
+  meanings: [ticket machine, ticket vending machine]
+  example: Der Fahrkartenautomat ist neben dem Eingang.
+  exampleEn: The ticket machine is next to the entrance.
+- id: de1-m5-r2-w04
+  lesson: de1-m5-h-unterwegs
+  term: entwerten
+  pos: verb
+  meanings: ['to validate (a ticket)', to validate, to stamp, to stamp a ticket]
+  example: Bitte entwerten Sie die Fahrkarte vor der Fahrt.
+  exampleEn: Please validate the ticket before the journey.
+- id: de1-m5-r2-w05
+  lesson: de1-m5-h-unterwegs
+  term: der Eingang
+  pos: noun
+  plural: die Eingänge
+  meanings: [entrance, way in, entry]
+  example: Der Eingang ist links.
+  exampleEn: The entrance is on the left.
+- id: de1-m5-r2-w06
+  lesson: de1-m5-h-unterwegs
+  term: der Ausgang
+  pos: noun
+  plural: die Ausgänge
+  meanings: [exit, way out]
+  example: Wo ist der Ausgang, bitte?
+  exampleEn: Where is the exit, please?
+- id: de1-m5-r2-w07
+  lesson: de1-m5-h-unterwegs
+  term: der Notausgang
+  pos: noun
+  plural: die Notausgänge
+  meanings: [emergency exit, fire exit]
+  example: Der Notausgang ist hinten rechts.
+  exampleEn: The emergency exit is at the back on the right.
+- id: de1-m5-r2-w08
+  lesson: de1-m5-h-unterwegs
+  term: die Linie
+  pos: noun
+  plural: die Linien
+  meanings: ['line (bus, tram or train route)', line, route]
+  example: Nimm die Linie 4 bis zum Markt.
+  exampleEn: Take line 4 to the market.
+- id: de1-m5-r2-w09
+  lesson: de1-m5-h-unterwegs
+  term: die Tageskarte
+  pos: noun
+  plural: die Tageskarten
+  meanings: [day ticket, day pass]
+  example: Mit der Tageskarte fahre ich den ganzen Tag.
+  exampleEn: With the day ticket I travel all day.
+- id: de1-m5-r2-w10
+  lesson: de1-m5-h-unterwegs
+  kind: phrase
+  term: Vorsicht!
+  pos: phrase
+  meanings: ['Caution!', careful, watch out, look out, be careful]
+  example: Vorsicht, die Tür schließt!
+  exampleEn: Careful, the door is closing!
+
+# --- 20h2 Eine Wohnung suchen (de1-m5-h-wohnungssuche) ---
+- id: de1-m5-r2-w11
+  lesson: de1-m5-h-wohnungssuche
+  term: der Quadratmeter
+  pos: noun
+  plural: die Quadratmeter
+  meanings: [square metre, square meter, square metres, square meters]
+  note: Written m² or qm.
+  example: Die Wohnung hat 78 Quadratmeter.
+  exampleEn: The flat is 78 square metres.
+- id: de1-m5-r2-w12
+  lesson: de1-m5-h-wohnungssuche
+  term: die Kaltmiete
+  pos: noun
+  plural: die Kaltmieten
+  meanings: ['rent without bills (cold rent)', cold rent, basic rent, net rent, rent without bills]
+  note: KM in ads.
+  example: Die Kaltmiete ist 820 Euro.
+  exampleEn: The rent without bills is 820 euros.
+- id: de1-m5-r2-w13
+  lesson: de1-m5-h-wohnungssuche
+  term: die Warmmiete
+  pos: noun
+  plural: die Warmmieten
+  meanings: ['rent including bills (warm rent)', warm rent, rent with bills, rent including bills, total rent]
+  note: WM in ads. Electricity is usually extra.
+  example: Die Warmmiete ist 1030 Euro.
+  exampleEn: The rent including bills is 1,030 euros.
+- id: de1-m5-r2-w14
+  lesson: de1-m5-h-wohnungssuche
+  term: das Dachgeschoss
+  pos: noun
+  plural: die Dachgeschosse
+  alt: [das Dachgeschoß]
+  meanings: [attic floor, top floor (under the roof), attic storey, attic]
+  note: DG in ads. Austria spells it Dachgeschoß.
+  example: Wir wohnen im Dachgeschoss.
+  exampleEn: We live on the attic floor.
+- id: de1-m5-r2-w15
+  lesson: de1-m5-h-wohnungssuche
+  term: das Obergeschoss
+  pos: noun
+  plural: die Obergeschosse
+  alt: [das Obergeschoß]
+  meanings: [upper floor, upper storey, floor (above the ground floor)]
+  note: OG in ads; 1. OG = im ersten Stock. Austria spells it Obergeschoß.
+  example: Das Bad ist im Obergeschoss.
+  exampleEn: The bathroom is on the upper floor.
+- id: de1-m5-r2-w16
+  lesson: de1-m5-h-wohnungssuche
+  term: der Flur
+  pos: noun
+  plural: die Flure
+  meanings: [hallway, hall, corridor]
+  example: Die Schuhe sind im Flur.
+  exampleEn: The shoes are in the hallway.
+- id: de1-m5-r2-w17
+  lesson: de1-m5-h-wohnungssuche
+  term: die Einbauküche
+  pos: noun
+  plural: die Einbauküchen
+  alt: [die Einbaukueche]
+  meanings: [fitted kitchen, built-in kitchen]
+  note: EBK in ads.
+  example: Die Wohnung hat eine Einbauküche.
+  exampleEn: The flat has a fitted kitchen.
+- id: de1-m5-r2-w18
+  lesson: de1-m5-h-wohnungssuche
+  term: möbliert
+  pos: adjective
+  alt: [moebliert]
+  meanings: [furnished]
+  note: möbl. in ads.
+  example: Das Zimmer ist möbliert.
+  exampleEn: The room is furnished.
+- id: de1-m5-r2-w19
+  lesson: de1-m5-h-wohnungssuche
+  term: die Besichtigung
+  pos: noun
+  plural: die Besichtigungen
+  meanings: ['viewing (of a flat)', viewing, visit, tour]
+  example: Die Besichtigung ist am Samstag.
+  exampleEn: The viewing is on Saturday.
+- id: de1-m5-r2-w20
+  lesson: de1-m5-h-wohnungssuche
+  kind: phrase
+  term: ab sofort
+  pos: phrase
+  meanings: ['available now (from now on)', from now on, available now, starting now, available immediately, as of now]
+  example: Das Zimmer ist ab sofort frei.
+  exampleEn: The room is available now.
+- id: de1-m5-r2-w21
+  lesson: de1-m5-h-wohnungssuche
+  term: niedrig
+  pos: adjective
+  meanings: [low]
+  example: Die Miete ist niedrig.
+  exampleEn: The rent is low.
+- id: de1-m5-r2-w22
+  lesson: de1-m5-h-wohnungssuche
+  term: die Abkürzung
+  pos: noun
+  plural: die Abkürzungen
+  alt: [die Abkuerzung]
+  meanings: [abbreviation, shortcut]
+  note: Also means a shortcut (a shorter way).
+  example: KM ist die Abkürzung für Kaltmiete.
+  exampleEn: KM is the abbreviation for cold rent.

@@ -15,7 +15,7 @@ This lesson finds how strongly an accelerating charge radiates and in which dire
 
 ## The kink in the field lines
 
-A picture due to J. J. Thomson shows why acceleration matters. A charge sits at rest; at $t = 0$ it is jolted to a small speed during a short time $\Delta t$, then coasts. News of the jolt spreads outward at $c$. At a later time $t$, field lines outside the sphere of radius $ct$ still point to where the charge would have been with no jolt, while lines inside point to where it actually is. The two sets of lines must connect across the thin shell where the news is arriving, so each line has a **kink** there: a short stretch running almost sideways.
+A picture due to J. J. Thomson shows why acceleration matters. A charge sits at rest; at $t = 0$ it is jolted to a small speed during a short time $\Delta t$, then coasts. News of the jolt spreads outward at $c$. At a later time $t$, field lines outside the sphere of radius $ct$ still point to where the charge would have been with no jolt, while lines inside point to where it actually is. The two sets of lines must connect across the thin shell where the news is arriving, so each line has a kink there: a short stretch running almost sideways.
 
 That sideways stretch is the radiation. Working out the geometry of the kink (a short argument with similar triangles, done carefully in more advanced texts) gives a transverse **radiation field**
 

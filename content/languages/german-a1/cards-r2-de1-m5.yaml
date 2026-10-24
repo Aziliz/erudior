@@ -1,0 +1,28 @@
+# German A1, module 5 honors lessons (round 2): notecards
+# --- 20h1 Unterwegs ---
+- {front: 'ICE, IC/EC, RE, RB, S, U: which are long-distance trains?', back: 'ICE (Intercity-Express) and IC/EC (Intercity, Eurocity). RE (Regional-Express) and RB (Regionalbahn) are regional; S is the S-Bahn and U the U-Bahn.', topic: Public transport}
+- {front: 'The five columns of a departure board', back: 'Zeit (time), Zug (train), Richtung (direction, last stop), Gleis (platform), Hinweis (note). Always read the Hinweis.', topic: Public transport}
+- {front: 'Hinweis: +10', back: 'About 10 minutes late (10 Minuten Verspätung).', topic: Public transport}
+- {front: 'Hinweis: fällt aus', back: 'The train is cancelled (ausfallen). Not the same as fährt ab (leaves).', topic: Public transport}
+- {front: 'Hinweis: heute Gleis 8', back: 'Today from platform 8: a platform change. The note beats the platform printed in the Gleis column.', topic: Public transport}
+- {front: 'Bitte entwerten', back: 'Stamp (validate) the ticket in the small machine before the trip. An unstamped ticket counts as no ticket.', topic: Public transport}
+- {front: 'Riding without a valid ticket in Germany: what happens?', back: 'You pay an extra fare, usually 60 euros. Informally this is called schwarzfahren.', topic: Public transport}
+- {front: 'Deutschlandticket: where is it valid?', back: 'A monthly subscription for local and regional transport in all of Germany (bus, tram, U-Bahn, S-Bahn, RE, RB), but not ICE, IC or EC trains.', topic: Public transport}
+- {front: 'Swiss words: das Billett, der Perron, das Tram', back: 'Ticket, platform, tram (standard German: die Fahrkarte, der Bahnsteig, die Straßenbahn).', topic: Public transport}
+- {front: 'Nominal style', back: 'Nouns made from verbs instead of full sentences, on signs and in announcements: Nächster Halt: Hauptbahnhof. Ausstieg links.', topic: Nominal style}
+- {front: 'Nouns from -fahren, -steigen, -gehen: which gender?', back: '-fahrt nouns are feminine (die Abfahrt, die Einfahrt); -stieg and -gang nouns are masculine (der Ausstieg, der Einstieg, der Eingang, der Ausgang).', topic: Nominal style}
+- {front: 'die Abfahrt or die Ankunft?', back: 'die Abfahrt = departure (ab = away, from abfahren); die Ankunft = arrival (from ankommen).', topic: Nominal style}
+- {front: 'How do you say "towards the airport"?', back: 'Richtung Flughafen, or in Richtung Flughafen. Not nach Richtung.', topic: Nominal style}
+# --- 20h2 Eine Wohnung suchen ---
+- {front: '3 ZKB', back: '3 Zimmer, Küche, Bad: three rooms plus a kitchen and a bathroom. Kitchen, bathroom and hallway are never counted as rooms.', topic: Flat hunting}
+- {front: 'KM, NK, WM', back: 'Kaltmiete (rent without bills), Nebenkosten (additional costs), Warmmiete (rent with bills). KM + NK = WM.', topic: Flat hunting}
+- {front: 'What is usually not in the Warmmiete?', back: 'Electricity (der Strom): you usually have your own contract with an electricity company.', topic: Flat hunting}
+- {front: 'Kaution: the limit in Germany', back: 'At most three months'' Kaltmiete (cold rent, not warm rent); tenants may pay it in three parts.', topic: Flat hunting}
+- {front: 'EBK', back: 'Einbauküche: a fitted kitchen is included. Many German rental flats come without a kitchen.', topic: Flat hunting}
+- {front: 'EG, 1. OG, DG', back: 'Erdgeschoss (ground floor), erstes Obergeschoss (one floor up, im ersten Stock), Dachgeschoss (attic floor). The cellar is der Keller.', topic: Flat hunting}
+- {front: '2. OG in American English', back: 'The third floor: two floors above the ground floor (British: the second floor).', topic: Flat hunting}
+- {front: 'inkl. and zzgl.', back: 'inklusive = including; zuzüglich = plus, not including. NK 210 € inkl. Heizung: heating is included.', topic: Flat hunting}
+- {front: 'Asking about the rent', back: 'Wie hoch ist die Miete? Wie hoch sind die Nebenkosten? (Rent is hoch or niedrig; Nebenkosten is plural.)', topic: Flat hunting}
+- {front: 'Is the flat still available? From when?', back: 'Ist die Wohnung noch frei? Ab wann ist die Wohnung frei? (ab sofort = available now)', topic: Flat hunting}
+- {front: 'Reading a long compound like die Dachgeschosswohnung', back: 'Start at the end: Wohnung (so it is feminine), then what kind: Dachgeschoss (Dach + Geschoss). A flat on the attic floor.', topic: Compound nouns}
+- {front: 'das Haus, der Schlüssel: what is the gender of Hausschlüssel?', back: 'der Hausschlüssel: the last part decides the gender and the plural (die Hausschlüssel).', topic: Compound nouns}

@@ -100,6 +100,20 @@ In English you can leave out "that", and in German, after verbs of thinking and 
 
 Both are correct, and the version without *dass* is very common in speech. What you can't do is mix the two: *Ich glaube, dass er ist krank* is wrong.
 
+So the word at the start of the second clause decides where its verb goes:
+
+```mermaid
+flowchart TD
+  accTitle: Where does the verb go?
+  accDescr: A decision chart for the position of the conjugated verb in the second part of a sentence. After und, aber, oder, denn or sondern, the second part is a main clause, and the verb stays in position 2. After weil, dass or another subordinating conjunction, the verb goes to the end of the clause. After verbs like glauben or finden with dass left out, the verb is in position 2 again.
+  A["What starts the second clause?"] --> B["und, aber, oder, denn, sondern"]
+  A --> C["weil, dass"]
+  A --> D["nothing: dass left out after glauben, finden"]
+  B --> B1["verb in position 2: denn ich bin müde"]
+  C --> C1["verb at the end: weil ich müde bin"]
+  D --> D1["verb in position 2: Ich glaube, er ist müde"]
+```
+
 Don't confuse *dass* with *das*. *das* (one *s*) is the article or "that" as a pronoun: *Das stimmt.* *dass* (double *s*) is the conjunction. A quick test: if you can replace it with *dies* or *welches*, it's *das*.
 
 ## Starting with the subordinate clause
@@ -110,6 +124,8 @@ You can put the subordinate clause first, for emphasis. Then the whole subordina
 - *Dass du gekommen bist, finde ich toll.* — I think it's great that you came.
 
 The pattern is easy to remember as "verb, comma, verb": *… bin, bleibe …*. Saying *Weil ich krank bin, ich bleibe zu Hause* is a typical English-speaker mistake.
+
+![Two versions of the same sentence in word boxes. Top: Ich bleibe zu Hause, weil ich krank bin. bleibe is in position 2, weil is the conjunction and bin is at the end; a bracket joins weil and bin. Bottom: Weil ich krank bin, bleibe ich zu Hause. The whole weil clause is position 1, so bleibe comes straight after the comma in position 2: verb, comma, verb.](images/de2-m1-verb-end.svg)
 
 ## Talking about opinions
 
@@ -141,6 +157,8 @@ The pattern is easy to remember as "verb, comma, verb": *… bin, bleibe …*. S
 | *enttäuscht* | disappointed |
 | *wütend* | furious, very angry |
 | *nervös* | nervous |
+
+![Five faces with their feelings: glücklich (a big smile), traurig (a frown and a tear), wütend (angry eyebrows and clenched teeth), überrascht (wide eyes and an open mouth) and nervös (a wavy mouth and a drop of sweat).](images/de2-m1-feelings.svg)
 
 *froh* is "glad about a situation"; *glücklich* is a deeper "happy" (*ein glückliches Leben*). The nouns *die Angst* (fear), *die Sorge* (worry), *die Hoffnung* (hope), *die Freude* (joy) and *das Gefühl* (feeling) all combine with *dass*:
 

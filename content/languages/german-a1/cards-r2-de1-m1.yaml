@@ -1,0 +1,42 @@
+# Round 2, module de1-m1: cards for the honors lessons 04h1–04h3.
+
+# 04h1 Sounds in depth
+- {front: 'Open syllable rule', back: 'A stressed vowel that ends its syllable is usually long: Na-me, ha-ben, le-ben.', topic: Pronunciation}
+- {front: 'Short everyday words with one final consonant', back: 'das, was, es, in, mit, an, um, bis, man, hat: all short. But der, wir, mir are long.', topic: Pronunciation}
+- {front: 'Why is Tag long?', back: 'Its longer form Ta-ge has an open syllable, so the a is long in Tag too (also Weg, gut).', topic: Pronunciation}
+- {front: 'schwa', back: 'The weak unstressed e of bitte, Name, -en: like the a in "about". Never silent.', topic: Pronunciation}
+- {front: 'Final -er (Lehrer, aber, oder)', back: 'Vocalic r: a short "uh"-like vowel, no consonant r.', topic: Pronunciation}
+- {front: 'Glottal stop', back: 'A small catch before a word or word part starting with a vowel: ein | Ei, Spiegel | ei, ver | eisen.', topic: Pronunciation}
+- {front: 'verreisen vs vereisen', back: 'ver-reisen (to go on a trip): r sound. ver | eisen (to ice over): glottal stop, no r.', topic: Pronunciation}
+- {front: 'pf, chs, ng, -tion', back: 'pf = p + f (Apfel); chs = ks (sechs); ng has no g (Finger); -tion = tsion, stressed (Information).', topic: Pronunciation}
+- {front: 'v in loanwords', back: 'English v: Klavier, Universität, November. In old German words v = f: Vater, vier.', topic: Pronunciation}
+- {front: 'Sentence melody', back: 'Statements fall, W-questions usually fall, yes/no questions rise.', topic: Pronunciation}
+- {front: 'Spelling reform 1996', back: 'ss after a short vowel (dass, Fluss, muss), ß after a long vowel or diphthong (Straße, heißen).', topic: Spelling}
+- {front: 'Capital ß', back: 'SS is usual (STRASSE); since 2017 a capital ẞ is also allowed (STRAẞE). Switzerland writes ss everywhere.', topic: Spelling}
+
+# 04h2 du, Sie and the German-speaking world
+- {front: 'Where is German an official language?', back: 'Germany, Austria, Switzerland, Liechtenstein, Luxembourg, Belgium (east) and South Tyrol (Italy).', topic: German-speaking countries}
+- {front: 'Liechtenstein', back: 'German is the only official language.', topic: German-speaking countries}
+- {front: 'Hochdeutsch', back: 'Standard German. "High" means the higher-lying middle and south of the area, not better German.', topic: German-speaking countries}
+- {front: 'Swiss German (Schweizerdeutsch)', back: 'Everyday spoken dialects in German-speaking Switzerland; writing and news use Swiss Standard German.', topic: German-speaking countries}
+- {front: 'Pluricentric German', back: 'Several standards: Jänner (Austria) for Januar, Velo (Switzerland) for Fahrrad, Strasse (Switzerland) for Straße.', topic: German-speaking countries}
+- {front: 'Moin', back: 'Hello in northern Germany, at any time of day.', topic: Greetings}
+- {front: 'Servus', back: 'Informal hi AND bye in Bavaria and Austria.', topic: Greetings}
+- {front: 'Grüezi / Hoi', back: 'Swiss hello: Grüezi (polite, Sie), Hoi (informal).', topic: Greetings}
+- {front: 'Grüß dich', back: 'Hi to one person you say du to (south, Austria). Not for Sie.', topic: Greetings}
+- {front: 'duzen / siezen', back: 'To say du / Sie to someone. Stems end in -z: du duzt, du siezt.', topic: Address}
+- {front: 'Who offers du?', back: 'Usually the older or more senior person: Wir können gern du sagen. Accept and stay with du.', topic: Address}
+- {front: 'Addressing a group', back: 'ihr if you would say du to each person; Sie if you would say Sie.', topic: Address}
+
+# 04h3 Numbers in everyday life
+- {front: '+  −  ·  :', back: 'plus, minus, mal, geteilt durch. "Equals" = ist (or ist gleich).', topic: Numbers}
+- {front: 'German maths signs', back: 'Multiplication with a dot (6 · 7), division with a colon (20 : 4).', topic: Numbers}
+- {front: 'rechnen, zeichnen, öffnen', back: 'Consonant + n stem adds e: du rechnest, er zeichnet, er öffnet.', topic: Verbs}
+- {front: 'lernen, wohnen (no extra e)', back: 'After r, l or a silent h, the n needs no e: du lernst, du wohnst.', topic: Verbs}
+- {front: 'Number nouns', back: 'Capitalized and feminine: die Eins, eine Fünf, die Sieben (also bus lines: Ich nehme die Fünf).', topic: Numbers}
+- {front: 'German school grades', back: '1 sehr gut, 2 gut, 3 befriedigend, 4 ausreichend, 5 mangelhaft, 6 ungenügend. 1–4 pass.', topic: Numbers}
+- {front: 'Austrian school grades', back: '1 Sehr gut to 5 Nicht genügend; 4 Genügend is the lowest pass.', topic: Numbers}
+- {front: 'Swiss school grades', back: '6 is best, 1 worst, 4 is the pass mark; half grades like 5.5 are common.', topic: Numbers}
+- {front: 'Showing "one" with your hand', back: 'The thumb (der Daumen). Two = thumb + index finger.', topic: Numbers}
+- {front: 'Handwritten 7 in Germany', back: 'Has a bar across it, because a German 1 has a long upstroke.', topic: Numbers}
+- {front: 'der Zahlendreher', back: 'Writing a number with its digits swapped (52 for fünfundzwanzig). Say important numbers digit by digit.', topic: Numbers}

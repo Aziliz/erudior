@@ -24,6 +24,17 @@ Register is the level of formality you choose for a reader. A message has three 
 
 The semi-formal level is the one learners find tricky. Use *Sie*, but a warmer opening and closing: *Liebe Frau Brandt, … Viele Grüße*. *Sehr geehrte …* is correct too, but it sounds like a letter from a bank. The exam's e-mail task is usually semi-formal.
 
+To choose, ask one question: who will read it?
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the register of a message
+  accDescr: Ask who will read the message. A friend, family member or classmate you call du gets an informal message: Hallo or Liebe, du, and Viele or Liebe Grüße. A person you know but call Sie, such as a teacher, neighbour or landlord, gets a semi-formal message: Liebe Frau or Lieber Herr, Sie, and Viele or Herzliche Grüße. An office, a company or a stranger gets a formal message: Sehr geehrte or Sehr geehrter, Sie, and Mit freundlichen Grüßen.
+  A{"Who reads the message?"} -- "friend, family: du" --> I["Informal: Hallo Tim, / Liebe Sara, ... Viele Grüße"]
+  A -- "someone you know, but Sie" --> S["Semi-formal: Liebe Frau Brandt, ... Herzliche Grüße"]
+  A -- "office, company, stranger" --> F["Formal: Sehr geehrter Herr Wagner, ... Mit freundlichen Grüßen"]
+```
+
 Rules that still apply from A1:
 
 - *Liebe* + woman, *Lieber* + man; *Sehr geehrte Frau*, *Sehr geehrter Herr*. Always with the surname: *Liebe Frau Brandt*, not *Liebe Frau Anna*.
@@ -140,6 +151,10 @@ Translation: Dear Ms Brandt, unfortunately I can't come to the course next week,
 Translation: Subject: Appointment on 12 June – request to reschedule. Dear Mr Wagner, we have an appointment for the repair of the heating on Thursday, 12 June, at 9 am. Unfortunately I won't be at home that day. Could we move the appointment to next week if possible? I can be reached every day from 3 pm. Please find a photo of the heating attached. Yours sincerely, Anna Lindqvist
 
 E-mail words: *der Betreff* is the subject line; *der Anhang* the attachment (*im Anhang* — attached); *weiterleiten* is to forward (*Ich leite dir die Mail weiter*); *erreichbar* means reachable, available by phone.
+
+![The e-mail to Mr Wagner in a mail program: the An line with his address, the Betreff line Termin am 12. Juni, an attachment called heizung.jpg, the opening Sehr geehrter Herr Wagner, the text, the closing Mit freundlichen Grüßen and the name. Labels name der Empfänger, der Betreff, der Anhang, die Anrede and der Gruß.](images/de2-m6-email.svg)
+
+The person you write to is *der Empfänger* (the recipient, in the *An* line); the opening line is *die Anrede*, and the closing is *der Gruß* (or *die Grußformel*).
 
 ## Dialogue: a message thread
 
