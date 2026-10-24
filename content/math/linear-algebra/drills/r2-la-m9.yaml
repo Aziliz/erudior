@@ -62,7 +62,7 @@
   vars:
     p: {min: -5, max: 5}
     q: {min: -3, max: 3}
-    k: {min: 1, max: 4}
+    k: {min: 2, max: 5}
   where: ["p != 0", "q != 0"]
   calc:
     bk: 2*q*(-1)^(k + 1)/k + 0
@@ -72,7 +72,7 @@
     - {name: p, label: '$\tfrac{a_0}{2} =$', kind: fraction, lowestTerms: true}
     - {name: bk, label: 'coefficient of $\sin {k}t$', kind: fraction, lowestTerms: true}
   solution: |-
-    Constant term: $\dfrac{\langle f, 1\rangle}{\langle 1, 1\rangle} = \dfrac{2\pi({p}) + 0}{2\pi} =$ **{p}** (the ${q}t$ part is odd, so it integrates to 0).
+    Constant term: $\dfrac{\langle f, 1\rangle}{\langle 1, 1\rangle} = \dfrac{2\pi({p}) + 0}{2\pi} =$ **{p}** (the ${q:coef}t$ part is odd, so it integrates to 0).
     The constant ${p}$ is orthogonal to $\sin {k}t$, so $b = \dfrac{1}{\pi}\cdot({q})\cdot\dfrac{2\pi(-1)^{{k}+1}}{{k}} =$ **${bk:texfrac}$**.
 
 - id: la-m9-r2-householder

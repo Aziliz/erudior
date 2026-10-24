@@ -267,7 +267,7 @@
     cc: {min: 3, max: 9}
     xx: {min: 0, max: 8}
     yy: {min: 0, max: 8}
-  where: ["xx != 0 or yy != 0"]
+  where: ["xx != 0 or yy != 0", "bb != 0"]
   calc:
     r1s: xx^2 + yy^2
     r2s: (xx - aa)^2 + yy^2
@@ -295,8 +295,8 @@
   title: Least-squares position from four beacons
   topic: Positioning from distances
   vars:
-    xx: {min: 1, max: 9}
-    yy: {min: 1, max: 9}
+    xx: {min: 2, max: 8}
+    yy: {min: 2, max: 8}
     e1: {min: -3, max: 3}
     e2: {min: -3, max: 3}
     e3: {min: -3, max: 3}

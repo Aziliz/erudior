@@ -51,7 +51,7 @@
   lesson: mv-param-surfaces
   type: text
   topic: Surface area
-  stem: 'For the sphere of radius 3 parametrized by $\phi$ and $\theta$, $|\mathbf r_\phi\times\mathbf r_\theta| = $ ___ $\sin\phi$. (Give only the number.)'
+  stem: 'For the sphere of radius 3 parametrized by $\phi$ and $\theta$, $|\mathbf r_\phi\times\mathbf r_\theta|$ = ___ $\sin\phi$. (Give only the number.)'
   accept: ['9']
   explanation: |-
     For radius $a$ the area factor is $a^2\sin\phi$, so here $9\sin\phi$. Integrating it over $0 \le \phi \le \pi$, $0 \le \theta \le 2\pi$ gives the area $4\pi\cdot9 = 36\pi$.
@@ -140,7 +140,7 @@
   lesson: mv-stokes
   type: text
   topic: Stokes' theorem
-  stem: 'Let $\mathbf F = \langle -y,\; x,\; 0\rangle$ and $C$ the circle $x^2 + y^2 = 9$ in the plane $z = 5$, counterclockwise seen from above. By Stokes'' theorem, $\oint_C\mathbf F\cdot d\mathbf r = $ ___ $\pi$. (Give only the number in front of $\pi$.)'
+  stem: 'Let $\mathbf F = \langle -y,\; x,\; 0\rangle$ and $C$ the circle $x^2 + y^2 = 9$ in the plane $z = 5$, counterclockwise seen from above. By Stokes'' theorem, $\oint_C\mathbf F\cdot d\mathbf r$ = ___ $\pi$. (Give only the number in front of $\pi$.)'
   accept: ['18']
   explanation: |-
     Use the flat disk of radius 3 at height 5 with $\mathbf n = \mathbf k$. $\operatorname{curl}\mathbf F\cdot\mathbf k = 1 - (-1) = 2$, so the circulation is $2\cdot9\pi = 18\pi$.

@@ -100,7 +100,9 @@ $$(Q_x - P_y) - g_x(R_y - Q_z) - g_y(P_z - R_x).$$
 
 **Compare with the flux of the curl.** With $\operatorname{curl}\mathbf F = \langle R_y - Q_z,\; P_z - R_x,\; Q_x - P_y\rangle$, the upward-flux integrand $-(\text{first})g_x - (\text{second})g_y + (\text{third})$ is exactly the same expression. So
 
-$$\oint_C\mathbf F\cdot d\mathbf r = \iint_D\Big[(Q_x - P_y) - g_x(R_y - Q_z) - g_y(P_z - R_x)\Big]dA = \iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S.\ ∎$$
+$$\oint_C\mathbf F\cdot d\mathbf r = \iint_D\Big[(Q_x - P_y) - g_x(R_y - Q_z) - g_y(P_z - R_x)\Big]dA = \iint_S\operatorname{curl}\mathbf F\cdot d\mathbf S.$$
+
+∎
 
 A surface that is not a single graph can usually be cut into pieces that are graphs (over the $xy$-, $yz$- or $xz$-plane). The theorem holds on each piece, and the line integrals along the cuts cancel because neighboring pieces traverse them in opposite directions.
 

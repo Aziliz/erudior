@@ -171,7 +171,7 @@
   labels:
     - {x: 26.4, y: 75.7, text: Constraint curve}
     - {x: 38.6, y: 16.6, text: Level curve tangent to the constraint}
-    - {x: 31.1, y: 32.8, text: Level curve crossing the constraint}
+    - {x: 51.0, y: 43.6, text: Level curve crossing the constraint}
     - {x: 58.4, y: 27.4, text: Constrained maximum}
     - {x: 57.2, y: 9.9, text: Level curve that misses the constraint}
   distractors: [Constrained minimum, Unconstrained maximum]

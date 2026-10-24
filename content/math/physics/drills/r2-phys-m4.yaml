@@ -40,23 +40,6 @@
     Final mass: $m_f = {m0:dp0}(1 - {pct}/100) = {mf:sig4}$ kg, so the mass ratio is $m_0/m_f =$ **{ratio:sig3}**.
 
     Rocket equation: $\Delta v = u\ln(m_0/m_f) = {ux}\ln({ratio:num4}) =$ **{dv:sig3} m/s**.
-- id: phys-m4-r2-propellant
-  title: Propellant needed for a given delta-v
-  topic: Rockets and variable mass
-  vars:
-    dv: {min: 500, max: 9000, step: 250}
-    ux: {min: 2000, max: 4500, step: 100}
-  calc:
-    ratio: exp(dv/ux)
-    frac: 100*(1 - 1/ratio)
-  prompt: 'A rocket stage with exhaust speed {ux} m/s must change its speed by {dv} m/s in free space. What mass ratio $m_0/m_f$ does it need, and what percentage of its starting mass must be propellant? Give both to 3 significant figures.'
-  answers:
-    - {format: sig4, name: ratio, label: 'Mass ratio', relTolerance: 0.01}
-    - {format: sig4, name: frac, label: 'Propellant (%)', relTolerance: 0.01, units: {'%': 1}}
-  solution: |-
-    Solve the rocket equation for the mass ratio: $\dfrac{m_0}{m_f} = e^{\Delta v/u} = e^{{dv}/{ux}} =$ **{ratio:sig3}**.
-
-    The propellant is the mass burned: $\dfrac{m_0 - m_f}{m_0} = 1 - \dfrac{m_f}{m_0} = 1 - \dfrac{1}{{ratio:num4}} =$ **{frac:sig3}%**.
 - id: phys-m4-r2-conveyor
   title: Sand falling onto a conveyor belt
   topic: Rockets and variable mass
@@ -121,7 +104,7 @@
     D: h0*(1 + cr^2)/(1 - cr^2)
   prompt: 'A ball is dropped from {h0} m onto a hard floor. The coefficient of restitution is {cr}. Ignoring air resistance, how high does it rise after bounce number {n}, and what total distance does it travel before it stops? Give both in meters to 3 significant figures.'
   answers:
-    - {format: sig4, name: hn, label: 'Height after bounce {n}', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
+    - {format: sig4, name: hn, label: 'Height', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
     - {format: sig4, name: D, label: 'Total distance', relTolerance: 0.01, units: {m: 1}}
   solution: |-
     Each bounce reaches $e^2 = {cr}^2$ times the previous height, so after {n} bounces $h = {h0}({cr})^{2 \times {n}} =$ **{hn:sig3} m**.

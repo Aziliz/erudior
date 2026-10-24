@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" width="720" height="470" font-family="sans-serif">
+<rect width="720" height="470" fill="#ffffff"/>
+<rect x="40.0" y="90.0" width="120.0" height="200.0" rx="0" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="560.0" y="90.0" width="120.0" height="200.0" rx="0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="170.0" y1="130.0" x2="535.0" y2="130.0" stroke="#8a96a3" stroke-width="1.6"/>
+<polygon points="545.0,130.0 535.0,134.5 535.0,125.5" fill="#8a96a3"/>
+<line x1="170.0" y1="190.0" x2="535.0" y2="190.0" stroke="#8a96a3" stroke-width="1.6"/>
+<polygon points="545.0,190.0 535.0,194.5 535.0,185.5" fill="#8a96a3"/>
+<line x1="170.0" y1="250.0" x2="535.0" y2="250.0" stroke="#8a96a3" stroke-width="1.6"/>
+<polygon points="545.0,250.0 535.0,254.5 535.0,245.5" fill="#8a96a3"/>
+<rect x="240.0" y="110.0" width="240.0" height="160.0" rx="0" fill="none" stroke="#a3341f" stroke-width="5"/>
+<line x1="240.0" y1="230.0" x2="240.0" y2="166.0" stroke="#a3341f" stroke-width="0"/>
+<polygon points="240.0,150.0 247.2,166.0 232.8,166.0" fill="#a3341f"/>
+<line x1="480.0" y1="150.0" x2="480.0" y2="214.0" stroke="#a3341f" stroke-width="0"/>
+<polygon points="480.0,230.0 472.8,214.0 487.2,214.0" fill="#a3341f"/>
+<line x1="340.0" y1="270.0" x2="340.0" y2="335.0" stroke="#a3341f" stroke-width="4"/>
+<line x1="380.0" y1="270.0" x2="380.0" y2="335.0" stroke="#a3341f" stroke-width="4"/>
+<path d="M 352 340 A 32 32 0 0 0 352 404" fill="#f7ebcf" stroke="#1c2833" stroke-width="8"/>
+<path d="M 368 340 A 32 32 0 0 1 368 404" fill="#f7ebcf" stroke="#1c2833" stroke-width="8"/>
+<rect x="290.0" y="360.0" width="26.0" height="24.0" rx="0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="404.0" y="360.0" width="26.0" height="24.0" rx="0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="290.0" y1="372.0" x2="210.0" y2="372.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="210.0" y1="372.0" x2="210.0" y2="440.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="430.0" y1="372.0" x2="510.0" y2="372.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="510.0" y1="372.0" x2="510.0" y2="440.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="210.0" y1="440.0" x2="340.0" y2="440.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="388.0" y1="440.0" x2="510.0" y2="440.0" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="340.0" y1="420.0" x2="340.0" y2="460.0" stroke="#1c2833" stroke-width="3"/>
+<line x1="356.0" y1="428.0" x2="356.0" y2="452.0" stroke="#1c2833" stroke-width="6"/>
+<line x1="372.0" y1="420.0" x2="372.0" y2="460.0" stroke="#1c2833" stroke-width="3"/>
+<line x1="388.0" y1="428.0" x2="388.0" y2="452.0" stroke="#1c2833" stroke-width="6"/>
+<text x="100.0" y="198.0" font-size="30" text-anchor="middle" fill="#1c2833" font-weight="bold">N</text>
+<text x="620.0" y="198.0" font-size="30" text-anchor="middle" fill="#1c2833" font-weight="bold">S</text>
+<text x="360.0" y="80.0" font-size="16" text-anchor="middle" fill="#1c2833">field</text>
+<text x="250.0" y="100.0" font-size="18" text-anchor="start" fill="#1c2833">coil</text>
+<text x="440.0" y="345.0" font-size="16" text-anchor="start" fill="#1c2833">commutator</text>
+<text x="276.0" y="410.0" font-size="16" text-anchor="end" fill="#1c2833">brush</text>
+<text x="410.0" y="470.0" font-size="16" text-anchor="start" fill="#1c2833">battery</text>
+</svg>
