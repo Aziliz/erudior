@@ -15,13 +15,15 @@ That small *mir* is everywhere in everyday German, and some very useful verbs on
 
 ## The pattern: a thing for yourself
 
-A **dative reflexive** is a reflexive pronoun in the dative case. You use it when the sentence already has an accusative object (the thing) and the person who receives, wants or experiences that thing is the subject. The sentence has the same shape as a giving sentence from lesson 7, only the dative points back to the subject:
+A **dative reflexive** is a reflexive pronoun in the dative case. You use it mainly when the sentence already has an accusative object (the thing) and the person who receives, wants or experiences that thing is the subject. The sentence has the same shape as a giving sentence from lesson 7, only the dative points back to the subject:
 
 | sentence | who gets the book? |
 |---|---|
 | *Ich kaufe meinem Bruder ein Buch.* | my brother (dative noun) |
 | *Ich kaufe ihm ein Buch.* | him (dative pronoun) |
 | *Ich kaufe mir ein Buch.* | me, the subject (dative reflexive) |
+
+A verb that always takes the dative, like *helfen*, has a dative reflexive even without a thing: *Ich helfe mir selbst* (I help myself). The "each other" section below comes back to this.
 
 The forms are the ones from lesson 5. Only *ich* and *du* have their own dative forms; all the others look like the accusative:
 

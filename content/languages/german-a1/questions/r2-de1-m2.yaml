@@ -108,10 +108,10 @@
   module_quiz: true
   topic: Possessives
   stem: 'Which sentences are correct? Select all that apply.'
-  choices: ['Wir haben eine Katze.', 'Er habt zwei Brüder.', 'Meine Eltern sind geschieden.', 'Das ist euere Mutter.', 'Habt ihr Geschwister?']
+  choices: ['Wir haben eine Katze.', 'Er habt zwei Brüder.', 'Meine Eltern sind geschieden.', 'Das ist euer Mutter.', 'Habt ihr Geschwister?']
   answer: [0, 2, 4]
   explanation: |-
-    "Wir haben", "Meine Eltern sind" (Eltern is plural) and "Habt ihr" are right. The er form of haben is hat, not habt, and euer drops its second e before an ending: eure Mutter, not euere.
+    "Wir haben", "Meine Eltern sind" (Eltern is plural) and "Habt ihr" are right. The er form of haben is hat, not habt, and Mutter is feminine, so euer needs the ending -e (and drops its second e): eure Mutter.
 - id: de1-m2-r2-q10
   lesson: de1-family
   type: order
@@ -236,21 +236,21 @@
 - id: de1-m2-r2-q21
   lesson: de1-describing
   topic: Negation
-  stem: 'Your friend asks: "Ist das nicht dein Handy?" It IS your phone. What do you answer? "___, das ist mein Handy."'
+  stem: 'Your friend says: "Das ist nicht dein Handy." But it IS your phone. What do you answer? "___, das ist mein Handy!"'
   choices: ['Ja', 'Nein', 'Doch', 'Nicht']
   answer: 2
   explanation: |-
-    To contradict a negative question, German says doch: Doch, das ist mein Handy. Ja doesn't fit after a negative question, and nein would agree that it isn't your phone.
+    To contradict a negative statement or question, German says doch: Doch, das ist mein Handy! Ja answers a positive question, nein would agree that it isn't your phone, and nicht is not an answer word.
 
 # --- 08h1 de1-m2-h-people-gender (honors) ---
 - id: de1-m2-r2-h01
   lesson: de1-m2-h-people-gender
   topic: People and gender
   stem: 'Why is "Mädchen" (girl) a neuter noun?'
-  choices: ['Because all words for young people are neuter.', 'Because it ends in -chen, and -chen nouns are always neuter.', 'Because the article das means "that girl".', 'It isn''t neuter: the singular is die Mädchen.']
+  choices: ['Because all words for young people are neuter.', 'Because it is a "little" form in -chen, and those are always neuter.', 'Because the article das means "that girl".', 'It isn''t neuter: the singular is die Mädchen.']
   answer: 1
   explanation: |-
-    Nouns ending in -chen are always neuter, whatever they mean: das Mädchen, das Brötchen. Not all words for young people are neuter (der Junge, boy, is masculine), and die Mädchen is the plural.
+    Nouns made with the "little" ending -chen are always neuter, whatever they mean: das Mädchen, das Brötchen. (der Kuchen, where -chen is not that ending, is masculine.) Not all words for young people are neuter (der Junge, boy, is masculine), and die Mädchen is the plural.
 - id: de1-m2-r2-h02
   lesson: de1-m2-h-people-gender
   topic: People and gender
@@ -294,7 +294,7 @@
 - id: de1-m2-r2-h06
   lesson: de1-m2-h-people-gender
   topic: People and gender
-  stem: 'Which of these always include both men and women? Select all that apply.'
+  stem: 'Which of these can name a mixed group of female and male teachers? Select all that apply.'
   choices: ['Lehrerinnen und Lehrer', 'die Lehrkräfte', 'Lehrer*innen', 'die Lehrerinnen']
   answer: [0, 1, 2]
   explanation: |-
@@ -374,10 +374,10 @@
   image: {src: images/de1-m2-patchwork-blank.svg, alt: 'A family tree with first names only. Top row: Anja is married to Markus; Markus and Julia are divorced; Julia is married to Tom. Markus and Julia''s children are Ben (ich) and Lisa. Julia and Tom''s child is Emma. Six people are numbered.'}
   labels:
     - {x: 3.8, y: 17.5, text: die Stiefmutter}
-    - {x: 26.3, y: 17.5, text: der Vater}
+    - {x: 27.5, y: 17.5, text: der Vater}
     - {x: 58, y: 17.5, text: die Mutter}
     - {x: 82, y: 17.5, text: der Stiefvater}
-    - {x: 49, y: 77.5, text: die Zwillingsschwester}
+    - {x: 52, y: 77.5, text: die Zwillingsschwester}
     - {x: 80, y: 77.5, text: die Halbschwester}
   distractors: [die Tante, der Halbbruder]
   explanation: |-

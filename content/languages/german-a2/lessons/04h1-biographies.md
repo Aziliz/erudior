@@ -11,7 +11,7 @@ refs: [de2-ref-past]
 
 In lesson 1 you told your own life story in the perfect; in lesson 2 you learned to *recognise* the simple past (*ging, kam, fand*), the tense of written stories. This honors lesson takes the next step: you'll read a longer biography of a real person, build the simple past of any verb from its dictionary entry, and write a short third-person biography, the way an encyclopedia or a museum sign does. You'll also turn a German tabular CV, *der Lebenslauf*, into sentences.
 
-Producing the simple past of all verbs is officially B1 material, so treat this lesson as a head start. You only need the third-person forms (*er, sie, es* and plural *sie*), because those are the forms biographies use.
+Producing the simple past of all verbs is usually taught at B1, so treat this lesson as a head start. You only need the third-person forms (*er, sie, es* and plural *sie*), because those are the forms biographies use.
 
 ## Why biographies use the simple past
 
@@ -48,13 +48,13 @@ Strong verbs change their stem vowel. This vowel change is called **ablaut**, an
 |---|---|---|
 | ei → ie → ie | *bleiben – blieb – geblieben* | *schreiben, scheinen* |
 | ie → o → o | *fliegen – flog – geflogen* | *ziehen – zog – gezogen* |
-| i → a → u | *finden – fand – gefunden* | *trinken, beginnen – begann – begonnen* |
+| i → a → u | *finden – fand – gefunden* | *trinken – trank – getrunken* (but *beginnen – begann – begonnen*, with *o*) |
 | e → a → o | *sprechen – sprach – gesprochen* | *sterben – starb, helfen – half, nehmen – nahm* |
 | e → a → e | *geben – gab – gegeben* | *sehen – sah, lesen – las, essen – aß* |
 | a → u → a | *fahren – fuhr – gefahren* | *tragen – trug, wachsen – wuchs* |
 | a (au) → ie/i → a (au) | *schlafen – schlief – geschlafen* | *fallen – fiel, halten – hielt, laufen – lief – gelaufen* |
 
-A few very common verbs don't fit a pattern and are simply learned: *gehen – ging – gegangen, kommen – kam – gekommen, stehen – stand – gestanden, sein – war – gewesen, werden – wurde – geworden*. The *er/sie/es* form has no ending at all (*er fuhr, sie starb*); the plural adds *-en* (*sie fuhren, sie starben*).
+A few very common verbs don't fit a pattern and are simply learned: *gehen – ging – gegangen, kommen – kam – gekommen, stehen – stand – gestanden, sein – war – gewesen, werden – wurde – geworden*. The *er/sie/es* form of a strong verb has no ending at all (*er fuhr, sie starb*); the plural adds *-en* (*sie fuhren, sie starben*). *werden* is the exception: *er wurde, sie wurden*.
 
 ### Mixed verbs
 

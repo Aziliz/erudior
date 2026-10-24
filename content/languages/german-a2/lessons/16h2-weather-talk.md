@@ -15,7 +15,7 @@ This honors lesson gives you more weather verbs and how they work, three ways to
 
 ## The weather verbs: es does the work
 
-Weather verbs have no real subject. Nobody "does" the raining, so German uses *es*, like English "it". A verb that only works with this empty *es* is called an **impersonal verb**. You know *es regnet* and *es schneit* from A1. Here are more:
+Weather verbs have no real subject. Nobody "does" the raining, so German uses *es*, like English "it". A verb used with this empty *es* as its only possible subject is called an **impersonal verb**. You know *es regnet* and *es schneit* from A1. Here are more:
 
 | Verb | Meaning | Noun |
 |---|---|---|
@@ -39,7 +39,7 @@ Besides the verbs, there are two other patterns: *es gibt* + accusative for what
 
 ### Adjectives from weather nouns
 
-Most weather adjectives are made by adding *-ig* to the noun: *die Sonne → sonnig, der Wind → windig, der Nebel → neblig* (the *e* drops), *die Wolke → wolkig* (cloudy), *der Frost → frostig* (frosty). One important exception: *der Regen → regnerisch* (rainy), with *-isch*. You'll hear *bewölkt* and *wolkig* for much the same thing; in forecasts, *wolkig* usually means partly cloudy, and *bedeckt* means completely overcast.
+Most weather adjectives are made by adding *-ig* to the noun: *die Sonne → sonnig, der Wind → windig, der Nebel → neblig* (the *e* drops), *die Wolke → wolkig* (cloudy), *der Frost → frostig* (frosty). One important exception: *der Regen → regnerisch* (rainy), with *-isch* (likewise *der Sturm → stürmisch*, stormy). You'll hear *bewölkt* and *wolkig* for much the same thing; in forecasts, *wolkig* usually means partly cloudy, and *bedeckt* means completely overcast.
 
 ## Talking about tomorrow: three ways
 
@@ -94,7 +94,7 @@ A few things you'll hear about that have no exact English equivalent:
 
 - ***Aprilwetter***: the quickly changing weather of April, sun, rain and hail in one afternoon. A common saying: *April, April, der macht, was er will.* — April does what it wants.
 - ***Die Eisheiligen***: in folk tradition, frost is still possible until the "ice saints" days, 11 to 15 May, so many gardeners wait until after them to plant tomatoes. It's a rule of thumb, not a forecast.
-- ***Der Föhn***: a warm, dry wind that comes down the north side of the Alps, bringing clear views and sudden warmth to Munich or Innsbruck. Many people say the *Föhn* gives them headaches; whether it really does is not clearly proven. (*der Föhn* is also the everyday word for a hairdryer.)
+- ***Der Föhn***: a warm, dry wind that comes down from the Alps; on the north side it brings clear views and sudden warmth to Munich or Innsbruck (when the wind blows the other way, the south side gets it). Many people say the *Föhn* gives them headaches; whether it really does is not clearly proven. (*der Föhn* is also the everyday word for a hairdryer.)
 - ***Hitzefrei***: on very hot days, schools in Germany may send pupils home early. The rules differ from state to state, and many schools no longer have a fixed temperature for it, but every German child knows the word.
 
 And the most-quoted weather saying of all, popular with hikers and parents: *Es gibt kein schlechtes Wetter, nur falsche Kleidung.* — There's no bad weather, only the wrong clothes.

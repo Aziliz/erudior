@@ -266,7 +266,7 @@
 - id: de2-m4-r2-h05
   lesson: de2-m4-h-figurative
   topic: Figurative position verbs
-  stem: 'Which sentence is correct? (I was very attached to my old flat.)'
+  stem: 'Which sentence is correct in standard German as used in Germany? (I was very attached to my old flat.)'
   choices:
     - Ich habe sehr an meiner alten Wohnung gehängt.
     - Ich habe sehr an meine alte Wohnung gehangen.
@@ -274,7 +274,7 @@
     - Ich bin sehr an meiner alten Wohnung gehangen.
   answer: 2
   explanation: |-
-    "hängen an" + dative = to be attached to. It's the being verb, so the perfect is hat gehangen (gehängt is for hanging something up). The case is fixed: an meiner alten Wohnung (dative), not an meine alte Wohnung. Standard German uses haben here.
+    "hängen an" + dative = to be attached to. It's the being verb, so the perfect is hat gehangen (gehängt is for hanging something up). The case is fixed: an meiner alten Wohnung (dative), not an meine alte Wohnung. Standard German in Germany uses haben here; "ist gehangen" is heard in southern Germany, Austria and Switzerland.
 - id: de2-m4-r2-h06
   lesson: de2-m4-h-figurative
   topic: Prepositions in fixed expressions
@@ -307,7 +307,7 @@
   lesson: de2-m4-h-figurative
   type: text
   topic: Figurative position verbs
-  stem: 'Type the verb: "Wo ___ du denn? Ich warte seit einer Stunde!" (Where on earth are you?)'
+  stem: 'Type the position verb German uses here: "Wo ___ du denn? Ich warte seit einer Stunde!" (Where on earth are you?)'
   accept: [steckst]
   explanation: |-
     "Wo steckst du?" (from stecken) asks where a person is, often a bit impatiently. The du form is steckst.
@@ -315,7 +315,7 @@
   lesson: de2-m4-h-figurative
   type: text
   topic: Figurative position verbs
-  stem: 'Type the verb: "Was ___ in dem Brief?" (What does the letter say?)'
+  stem: 'Type the position verb German uses here: "Was ___ in dem Brief?" (What does the letter say?)'
   accept: [steht]
   explanation: |-
     German says that things "stand" in a text: Was steht in dem Brief? The subject is "was", so the verb is in the third person singular: steht.
@@ -420,7 +420,7 @@
   choices: [regnerisch, regnig, regnerig, geregnet]
   answer: 0
   explanation: |-
-    Most weather adjectives take -ig (sonnig, windig, neblig), but der Regen is the exception: regnerisch. "geregnet" is the past participle (es hat geregnet).
+    Most weather adjectives take -ig (sonnig, windig, neblig), but der Regen is an exception: regnerisch. "geregnet" is the past participle (es hat geregnet).
 - id: de2-m4-r2-h21
   lesson: de2-m4-h-wetter
   topic: Weather and forecasts
@@ -432,7 +432,7 @@
     - thick fog in the valleys
   answer: 1
   explanation: |-
-    The Föhn is a warm, dry wind that comes down the north side of the Alps and brings sudden warmth and clear views. In everyday German, der Föhn is also a hairdryer.
+    The Föhn is a warm, dry wind that comes down from the Alps; in Munich and Innsbruck, on the north side, it brings sudden warmth and clear views. In everyday German, der Föhn is also a hairdryer.
 - id: de2-m4-r2-h22
   lesson: de2-m4-h-wetter
   topic: Weather and forecasts
@@ -440,7 +440,7 @@
   choices: [Ich bin kalt., Ich mache kalt., Mir ist kalt., Mich ist kalt.]
   answer: 2
   explanation: |-
-    For feeling cold, German puts the person in the dative: Mir ist kalt (or: Ich friere). "Ich bin kalt" describes you as a cold person, "Ich mache kalt" isnt German, and "mich" is the accusative.
+    For feeling cold, German puts the person in the dative: Mir ist kalt (or: Ich friere). "Ich bin kalt" describes you as a cold person, "Ich mache kalt" isn't German, and "mich" is the accusative.
 - id: de2-m4-r2-h23
   lesson: de2-m4-h-wetter
   type: text

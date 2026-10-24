@@ -42,7 +42,7 @@ koo-ZEE-ne.
 ## Patchwork families
 
 When parents separate and find new partners, the result is often called *die Patchworkfamilie*
-(patchwork family, a word taken from English). Its members have their own words:
+(patchwork family; the first part is the English word *patchwork*). Its members have their own words:
 
 | Word | Meaning |
 |---|---|

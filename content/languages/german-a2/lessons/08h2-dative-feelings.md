@@ -51,7 +51,7 @@ A second group has a real subject, usually *das*, *es* or a *dass*-clause, and g
 - *Das ist mir unangenehm.* — That makes me uncomfortable. / I feel awkward about that.
 - *Die Wohnung ist uns zu teuer.* — The flat is too expensive for us.
 
-When a *dass*- or *wenn*-clause is the real subject, *es* holds position 1 and the clause follows: *Es ist mir wichtig, dass du ehrlich bist.* — It's important to me that you're honest. If something else comes first, *es* disappears: *Mir ist wichtig, dass du ehrlich bist.*
+When a *dass*- or *wenn*-clause is the real subject, *es* holds position 1 and the clause follows: *Es ist mir wichtig, dass du ehrlich bist.* — It's important to me that you're honest. If something else comes first, *es* is usually left out: *Mir ist wichtig, dass du ehrlich bist.* (*Mir ist es wichtig, dass …* is also correct.)
 
 ## Verbs of feeling and thinking with the dative
 
@@ -80,10 +80,10 @@ Because the thing is the subject, the verb must be plural for a plural thing:
 ```mermaid
 flowchart TD
   accTitle: Who is the subject in a feeling sentence?
-  accDescr: Start with an English feeling sentence such as I am cold, I like it or I can't think of the word. If it is a body sensation such as cold, hot, sick or dizzy, use Mir ist with no subject: Mir ist kalt. If a thing or person causes the feeling, make that the subject and put the person in the dative, with the verb agreeing with the thing: Die Wörter fallen mir nicht ein. Otherwise use a normal verb with ich as the subject, such as Ich mag dich.
+  accDescr: Start with an English feeling sentence such as I am cold, I like it or I can't think of the word. If it is a body sensation such as cold, hot, sick or dizzy, use Mir ist with no subject: Mir ist kalt. If not, ask whether the verb or phrase is one that takes the dative, such as gefallen, fehlen, einfallen or egal sein. If it is, the thing or person that causes the feeling is the subject and the person who feels is in the dative, with the verb agreeing with the thing: Die Wörter fallen mir nicht ein. Otherwise use a normal verb with ich as the subject, such as Ich mag dich.
   A["English: I am cold / I can't think of the words"] --> B{"A body sensation? (cold, hot, sick, dizzy)"}
   B -- yes --> C["Mir ist + adjective, no subject: Mir ist kalt."]
-  B -- no --> D{"Does a thing or person cause the feeling?"}
+  B -- no --> D{"A dative verb or phrase? (gefallen, fehlen, einfallen, egal sein)"}
   D -- yes --> E["Thing = subject, person = dative: Die Wörter fallen mir nicht ein."]
   D -- no --> F["Normal verb with ich: Ich mag dich."]
 ```

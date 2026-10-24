@@ -44,7 +44,7 @@ What does change is who is speaking. Pronouns and possessives must fit the new s
 | *hier* | *dort, da* | you're somewhere else now |
 | *morgen* (said last week) | *am nächsten Tag* | if "tomorrow" is already over |
 
-![Three people. Anna, on the left, says in direct speech: Ich bin krank. Kommst du morgen zu mir? Her words are meant for Clara. Ben, in the middle, passes them on to Clara in reported speech: Anna hat gesagt, dass sie krank ist. Sie hat gefragt, ob du morgen zu ihr kommst. Ich has become sie, and zu mir has become zu ihr; du stays du because Ben is talking to Clara.](images/de2-m1-reporting.svg)
+![Three people. Anna, on the left, says in direct speech: Ich bin krank. Kommst du morgen zu mir? Her words are meant for Clara; an arrow labeled a message for Clara points from Anna to Ben. Ben, in the middle, passes them on to Clara in reported speech: Anna hat gesagt, dass sie krank ist. Sie hat gefragt, ob du morgen zu ihr kommst. Ich has become sie, and zu mir has become zu ihr; du stays du because Ben is talking to Clara.](images/de2-m1-reporting.svg)
 
 ### Example 1: pronouns step by step
 
@@ -183,7 +183,7 @@ At A2 you only need to *recognise* it. The common forms are *er/sie/es sei* (fro
 ## Key points
 
 - Direct speech quotes the exact words („…“); reported speech retells them in your own sentence.
-- Statements: *sagen, dass …* or *sagen* + main clause. W-questions keep the W-word; yes/no questions take *ob*. In all of them the verb goes to the end.
+- Statements: *sagen, dass …* or *sagen* + main clause. W-questions keep the W-word; yes/no questions take *ob*. In the *dass*, question-word and *ob* clauses the verb goes to the end.
 - Commands and instructions: *sollen* (*Sie hat gesagt, ich soll …*).
 - In everyday German keep the original tense; change the pronouns, possessives and words like *hier* and *morgen* to fit the new speaker.
 - Messages: *Kann ich etwas ausrichten? Ich sage es weiter. Sie hat dir auf die Mailbox gesprochen.*

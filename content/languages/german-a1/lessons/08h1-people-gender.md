@@ -24,7 +24,9 @@ lesson presents it as a debate.
 
 Three words for people that you already know are neuter: *das Kind* (child), *das Baby* and
 *das Mädchen* (girl). *Mädchen* is neuter because of its ending: it began as a "little" form of
-an old word for a young woman, and nouns in *-chen* are always neuter, whatever they mean.
+an old word for a young woman, and nouns made with the "little" ending *-chen* are always neuter,
+whatever they mean. (Not every noun that happens to end in *-chen* is a "little" form: *der
+Kuchen*, cake, is masculine.)
 
 Which pronoun do you use after *das Mädchen*? The grammar rule says the pronoun follows the
 noun's gender, so the textbook form is *es*:
@@ -112,7 +114,7 @@ As a result, German now has several ways to write about mixed groups. Using them
 | **gender star** and similar signs | *Lehrer\*innen*, *Lehrer:innen*, *Lehrer_innen*, *LehrerInnen* | universities, some cities, companies and media |
 
 The star, the colon and the underscore are meant to include people who are neither male nor
-female. When people read them aloud, they make a tiny break before *-innen*: *Lehrer … innen*.
+female; the older capital *I* (*LehrerInnen*) was made to name women and men. When people read them aloud, they make a tiny break before *-innen*: *Lehrer … innen*.
 That break matters: without it you would be saying *Lehrerinnen*, which means female teachers
 only.
 

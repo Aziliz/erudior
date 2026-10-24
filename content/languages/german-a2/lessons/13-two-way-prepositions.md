@@ -149,7 +149,7 @@ Here is Lena's living room on moving day, with some of the new words:
 
 ![A living room on moving day. A lamp, labeled die Lampe, hangs from the ceiling. A picture of mountains, das Bild, hangs on the wall above a sofa with two cushions, die Kissen. On the right is a window with a curtain on each side, der Vorhang. An oval rug, der Teppich, lies on the floor in front of the sofa, and a cardboard box marked Küche, der Karton, stands on the floor on the right.](images/de2-m4-living-room.svg)
 
-Describe the picture with *Wo?*: *Die Lampe hängt an der Decke. Der Teppich liegt vor dem Sofa. Der Karton steht neben dem Fenster.*
+Describe the picture with *Wo?*: *Die Lampe hängt an der Decke. Der Teppich liegt vor dem Sofa. Der Karton steht unter dem Fenster.*
 
 The jobs: *sauber machen* (to clean), *abwaschen* (to wash up), *staubsaugen* (to vacuum) and, from A1, *aufräumen* (to tidy up) and *putzen* (to clean). *Wenn man auszieht, muss man die Wohnung sauber machen* — When you move out, you have to clean the flat.
 

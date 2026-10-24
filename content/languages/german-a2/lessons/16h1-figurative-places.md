@@ -22,17 +22,17 @@ This honors lesson teaches the most useful of these uses. You'll also learn the 
 | What decides the case? | the question *Wo?* (dative) or *Wohin?* (accusative) | the expression itself: learn it with its case |
 | Example | *Das Buch liegt auf dem Tisch.* *Ich lege das Buch auf den Tisch.* | *Das liegt am Wetter.* (always dative) *Ich denke an dich.* (always accusative) |
 
-So when you meet a two-way preposition, first ask: is there a real place here? If yes, use lesson 13. If no, it's a fixed expression, and you need to know its case. One more shortcut: when a two-way preposition says *when* something happens, it takes the dative: *am Montag, im Juli, in der Nacht, vor einer Woche, zwischen den Feiertagen*.
+So when you meet a two-way preposition, first ask: is there a real place here? If yes, use lesson 13. If no, it's a fixed expression, and you need to know its case. One more shortcut: when a two-way preposition says *when* something happens, it almost always takes the dative: *am Montag, im Juli, in der Nacht, vor einer Woche, zwischen den Feiertagen*.
 
 ```mermaid
 flowchart TD
   accTitle: Choosing the case after a two-way preposition
-  accDescr: First ask whether the preposition names a real place. If it does, ask Wo or Wohin: a position takes the dative and movement to a new place takes the accusative. If it does not name a place, ask whether it says when something happens: time expressions such as am Montag, im Juli and vor einer Woche take the dative. Otherwise it is a fixed expression, and you learn its case with it, for example liegen an plus dative or denken an plus accusative.
+  accDescr: First ask whether the preposition names a real place. If it does, ask Wo or Wohin: a position takes the dative and movement to a new place takes the accusative. If it does not name a place, ask whether it says when something happens: time expressions such as am Montag, im Juli and vor einer Woche take the dative, except über for a stretch of time, which takes the accusative, as in übers Wochenende. Otherwise it is a fixed expression, and you learn its case with it, for example liegen an plus dative or denken an plus accusative.
   A{"Is it a real place?"} -- yes --> B{"Wo? or Wohin?"}
   B -- "Wo? (position)" --> C["Dative: im Flur"]
   B -- "Wohin? (movement)" --> D["Accusative: in den Flur"]
   A -- no --> E{"Does it say when?"}
-  E -- yes --> F["Dative: am Montag, vor einer Woche"]
+  E -- yes --> F["Dative: am Montag, vor einer Woche (but über + Akk: übers Wochenende)"]
   E -- no --> G["Fixed expression: learn its case"]
   G --> H["liegen an + Dat, denken an + Akk"]
 ```
@@ -73,7 +73,7 @@ The case is always dative, even though nothing is "at" anything. In the past: *D
 ## sitzen, hängen, stecken
 
 - **Clothes that fit: *sitzen*.** *Die Hose sitzt perfekt.* — The trousers fit perfectly. (Compare *passen*, lesson 7: *passen* is about size, *sitzen* about how well it hangs on you.)
-- **Being attached to something: *hängen an* + dative.** *Ich hänge an meiner alten Wohnung.* — I'm attached to my old flat. *Er hängt sehr an seiner Oma.* — He's very attached to his grandma. The perfect is *hat gehangen*, as for the being verb.
+- **Being attached to something: *hängen an* + dative.** *Ich hänge an meiner alten Wohnung.* — I'm attached to my old flat. *Er hängt sehr an seiner Oma.* — He's very attached to his grandma. The perfect is *hat gehangen*, as for the being verb (in southern Germany, Austria and Switzerland you'll also hear *ist gehangen*).
 - **Where someone is: *stecken*.** *Wo steckst du denn?* — Where on earth are you? *Wo steckt mein Schlüssel?* — Where has my key got to? Also *in Schwierigkeiten stecken* (to be in trouble) and *Wer steckt dahinter?* (who's behind it?).
 
 The picture shows four of these uses:
@@ -88,7 +88,7 @@ Decide the case in each sentence.
 2. *___ Zeitung steht, dass es morgen regnet.* No real place, but *stehen in* for a text always takes the dative: *In der Zeitung*.
 3. *Die Verspätung liegt ___ Stau.* A reason, *liegen an* + dative: *am Stau*.
 4. *Ich denke oft ___ meine Kindheit.* *denken an* + accusative (lesson 6): *an meine Kindheit*.
-5. *Wir fahren ___ Wochenende aufs Land.* A time: dative, *am Wochenende*. And *aufs Land* is a fixed accusative (see below).
+5. *Wir fahren ___ Wochenende aufs Land.* A time: dative, *am Wochenende*. (*übers Wochenende*, accusative, is also correct, with a slightly different meaning: for the whole weekend; see below.) And *aufs Land* is a fixed accusative (see below).
 
 ## Two-way prepositions in set phrases
 
@@ -108,7 +108,7 @@ Many short phrases with two-way prepositions are frozen. Here are the ones you'l
 | *über* (a topic) | accusative | about | *ein Film über den Krieg* |
 | *übers Wochenende* | accusative | over the weekend (for its length) | *Wir fahren übers Wochenende weg.* |
 
-Notice that *vor* in *vor Freude* gives a reason, and that *über* meaning "about" a topic is always accusative, as in *sprechen über* (lesson 6). *über* with a stretch of time (*übers Wochenende, über Nacht*) is the one time expression that takes the accusative: it measures how long, rather than saying when.
+Notice that *vor* in *vor Freude* gives a reason, and that *über* meaning "about" a topic is always accusative, as in *sprechen über* (lesson 6). *über* with a stretch of time (*übers Wochenende, über Nacht*) is the main exception, taking the accusative: it measures how long, rather than saying when.
 
 ### Example 2: From English to German
 
@@ -169,7 +169,7 @@ In English:
 >
 > Jana: Oh, design just isn't my thing. It's up to you: lamp or no lamp?
 
-(*endlich* = at last, *der Unfall* = accident, *der Möbelwagen* = removal van, *die Fahrbahn* = roadway, *fertig* = finished, *wegwerfen* = to throw away, *passen zu* = to go with, suit.) Count the figurative uses: *gesteckt* (the perfect of *stecken* is regular), *im Stau gestanden, liegt an, vor allem, unter uns, hänge an, steht auf, aufs Land, liegt mir, liegt bei*. *im Radio*, like *in der Zeitung*, names the medium the news comes from. Only *in meiner Straße, auf der Fahrbahn* and *in die neue Wohnung* are real places.
+(*endlich* = at last, *der Unfall* = accident, *der Möbelwagen* = removal van, *die Fahrbahn* = roadway, *fertig* = finished, *wegwerfen* = to throw away, *passen zu* = to go with, suit.) Count the figurative uses: *gesteckt* (the perfect of *stecken* is regular), *im Stau gestanden, liegt an, vor allem, unter uns, hänge an, steht auf, aufs Land, liegt mir, liegt bei*. *im Radio*, like *in der Zeitung*, names the medium the news comes from. Only *auf der Autobahn, in meiner Straße, auf der Fahrbahn* and *in die neue Wohnung* are real places.
 
 ## Pronunciation
 
@@ -184,12 +184,12 @@ In English:
 - *Es sagt in der Zeitung …* — English word-for-word. German says *In der Zeitung steht …*
 - *Ich hänge an meiner Wohnung* in the perfect as *habe … gehängt*. Being attached is the being verb: *Ich habe an der Wohnung gehangen.*
 - Using *stehen auf* at work or with strangers. It's colloquial; in neutral German say *Ich mag …* or *Ich interessiere mich für …*
-- *über das Wochenende* as dative (*über dem Wochenende*). A stretch of time with *über* is accusative: *übers Wochenende*.
+- *über dem Wochenende* (dative) for a stretch of time. With *über*, a stretch of time is accusative: *übers* (*über das*) *Wochenende*.
 
 ## Key points
 
 - In a **figurative meaning** there is no real place, so *Wo?/Wohin?* doesn't decide the case: the **fixed expression** does.
-- Time expressions with two-way prepositions take the dative (*am Montag, vor einer Woche*), except *über* + accusative for a stretch (*übers Wochenende*).
+- Time expressions with two-way prepositions almost always take the dative (*am Montag, vor einer Woche*); the main exception is *über* + accusative for a stretch (*übers Wochenende*).
 - *stehen in* + Dat = be written in; *im Stau stehen* = be stuck in traffic; *stehen auf* + Akk = be into (colloquial).
 - *liegen an* + Dat = be because of (*Woran liegt das? – Das liegt am Wetter*); *liegen bei* = be up to; *jemandem liegen* = suit, be good at.
 - *sitzen* = fit well; *hängen an* + Dat = be attached to (*gehangen*); *Wo steckst du?* = where are you?

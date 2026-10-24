@@ -21,7 +21,7 @@
 - {front: 'Fahrenheit → Celsius', back: 'C = (F − 32) × 5/9. Example: 68 °F = 20 °C.', topic: Temperatures}
 - {front: 'It''s minus five.', back: 'Es sind minus fünf Grad. / Es sind fünf Grad unter null.', topic: Temperatures}
 - {front: 'I''m cold.', back: 'Mir ist kalt. / Ich friere. (Not: Ich bin kalt.)', topic: Weather and forecasts}
-- {front: 'der Föhn', back: 'A warm, dry wind coming down the north side of the Alps; also a hairdryer.', topic: Weather and forecasts}
+- {front: 'der Föhn', back: 'A warm, dry wind coming down from the Alps (in Munich and Innsbruck, on the north side); also a hairdryer.', topic: Weather and forecasts}
 - {front: 'die Eisheiligen', back: '11–15 May: in folk tradition, frost is possible until then, so gardeners wait to plant.', topic: Weather and forecasts}
 - {front: 'Es gibt kein schlechtes Wetter …', back: '… nur falsche Kleidung. (There''s no bad weather, only the wrong clothes.)', topic: Weather and forecasts}
 - {front: 'Es regnet in Strömen. / Es gießt wie aus Eimern.', back: 'It''s pouring. / It''s bucketing down (informal).', topic: Weather and forecasts}

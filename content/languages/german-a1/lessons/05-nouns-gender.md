@@ -112,14 +112,14 @@ Here are the checks in the order to try them when you meet a new noun:
 ```mermaid
 flowchart TD
   accTitle: Finding the article of a new noun
-  accDescr: First, if you already know the noun with its article, use that article. If not, and it is a compound noun, use the article of its last part. Otherwise, if it ends in -ung, -heit, -keit, -schaft, -ion or -tät, it is die (feminine). If it ends in -chen or -lein, it is das (neuter). If none of these fits, look it up and learn it with its article.
+  accDescr: First, if you already know the noun with its article, use that article. If not, and it is a compound noun, use the article of its last part. Otherwise, if it ends in -ung, -heit, -keit, -schaft, -ion or -tät, it is die (feminine); for -ion and -tät there are a few exceptions. If it is a small-form word ending in -chen or -lein, such as Brötchen, it is das (neuter); this does not apply to words like der Kuchen, where -chen is not a small-form ending. If none of these fits, look it up and learn it with its article.
   A["New noun: der, die or das?"] --> B{"Do you know it with its article?"}
   B -- yes --> C["Use that article"]
   B -- no --> D{"Is it a compound noun?"}
   D -- yes --> E["Use the article of the last part"]
   D -- no --> F{"Ends in -ung, -heit, -keit, -schaft, -ion or -tät?"}
-  F -- yes --> G["die (feminine)"]
-  F -- no --> H{"Ends in -chen or -lein?"}
+  F -- yes --> G["die (feminine); -ion and -tät have a few exceptions"]
+  F -- no --> H{"A small-form word in -chen or -lein, like Brötchen?"}
   H -- yes --> I["das (neuter)"]
   H -- no --> J["Look it up and learn it with its article"]
 ```

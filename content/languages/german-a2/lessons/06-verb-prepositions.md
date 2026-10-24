@@ -117,7 +117,7 @@ flowchart TD
   C --> E["Answer: Ich warte auf ihn."]
 ```
 
- Two very common phrases: *Ich denke daran!* (I won't forget!) and *Ich habe keine Lust dazu* (I don't feel like it).
+Two very common phrases: *Ich denke daran!* (I won't forget!) and *Ich habe keine Lust dazu* (I don't feel like it).
 
 ## Dialogue: Kaffee mit Selin
 

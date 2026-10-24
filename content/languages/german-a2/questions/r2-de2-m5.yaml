@@ -73,11 +73,11 @@
   stem: 'Which school subject does each numbered picture stand for?'
   image: {src: images/de2-m5-subjects-blank.svg, alt: 'Six numbered pictures: a board with sums, a globe, musical notes, a paint palette with a brush, a football and a flask'}
   labels:
-    - {x: 18.1, y: 23.8, text: Mathe}
+    - {x: 10.6, y: 30.5, text: Mathe}
     - {x: 50.0, y: 23.8, text: Erdkunde}
     - {x: 81.9, y: 23.8, text: Musik}
     - {x: 18.1, y: 69.0, text: Kunst}
-    - {x: 50.0, y: 69.0, text: Sport}
+    - {x: 50.0, y: 77.5, text: Sport}
     - {x: 81.9, y: 69.0, text: Chemie}
   distractors: [Physik, Geschichte]
   explanation: |-
@@ -469,11 +469,11 @@
   image: {src: images/de2-m5-letter-blank.svg, alt: 'A letter from the Bürgeramt of Musterstadt to Daniel Costa in the standard German layout; six parts are numbered'}
   labels:
     - {x: 48.6, y: 7.4, text: Absender}
-    - {x: 14.2, y: 21.4, text: Anschrift}
+    - {x: 13.3, y: 21.4, text: Anschrift}
     - {x: 52.2, y: 18.1, text: Aktenzeichen}
-    - {x: 14.2, y: 34.3, text: Betreff}
-    - {x: 14.2, y: 39.4, text: Anrede}
-    - {x: 14.2, y: 76.6, text: Anlage}
+    - {x: 13.3, y: 34.3, text: Betreff}
+    - {x: 13.3, y: 39.4, text: Anrede}
+    - {x: 13.3, y: 76.6, text: Anlage}
   distractors: [Datum, Grußformel]
   explanation: |-
     1 the sender (Stadt Musterstadt, Bürgeramt), 2 the address field, 3 the file number in the reference block, 4 the bold subject line, 5 the greeting (Sehr geehrter Herr Costa,), 6 the enclosure. The date is further down in the reference block, and the closing formula (Mit freundlichen Grüßen) comes after the text.

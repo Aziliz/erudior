@@ -75,9 +75,9 @@
   stem: 'Name the numbered parts of this old school report (Zeugnis).'
   image: {src: images/de2-m1-zeugnis-blank.svg, alt: 'A school report from Grundschule Lindenweg for Peter Wolf with four numbered parts: 3b next to his name, the word Mathematik in the list of subjects, the grade 4 next to it, and a signature at the bottom.'}
   labels:
-    - {x: 65.5, y: 27, text: die Klasse}
-    - {x: 24, y: 51.5, text: das Fach}
-    - {x: 75.8, y: 51.5, text: die Note}
+    - {x: 71.5, y: 27, text: die Klasse}
+    - {x: 35.5, y: 51.5, text: das Fach}
+    - {x: 84, y: 51.5, text: die Note}
     - {x: 69.4, y: 83, text: die Unterschrift}
   distractors: [die Pause, das Märchen]
   explanation: |-
@@ -436,10 +436,10 @@
   lesson: de2-m1-h-reported-speech
   topic: Reported speech
   stem: 'You call a colleague, but someone else answers: "Frau Ott ist leider nicht im Büro." What is that person most likely to say next?'
-  choices: ['Kann ich Sie verbinden?', 'Haben Sie etwas ausgerichtet?', 'Kann ich etwas ausrichten?', 'Können Sie das weitersagen?']
+  choices: ['Kann ich Sie mit Frau Ott verbinden?', 'Haben Sie etwas ausgerichtet?', 'Kann ich etwas ausrichten?', 'Können Sie das weitersagen?']
   answer: 2
   explanation: |-
-    "Kann ich etwas ausrichten?" = Can I take a message? ausrichten means to pass on a message. weitersagen is to tell others (often what shouldn't be passed on); "Haben Sie etwas ausgerichtet?" asks whether you passed something on, and "verbinden" (put you through) makes no sense if she isn't there.
+    "Kann ich etwas ausrichten?" = Can I take a message? ausrichten means to pass on a message. weitersagen is to tell others (often what shouldn't be passed on); "Haben Sie etwas ausgerichtet?" asks whether you passed something on, and "Kann ich Sie mit Frau Ott verbinden?" (put you through to her) makes no sense if she isn't there.
 - id: de2-m1-r2-h25
   lesson: de2-m1-h-reported-speech
   topic: Reported speech

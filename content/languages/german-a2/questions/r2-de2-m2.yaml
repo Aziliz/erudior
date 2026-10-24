@@ -11,7 +11,7 @@
   labels:
     - {x: 50, y: 21, text: der Spiegel}
     - {x: 38, y: 34, text: die Zahnbürste}
-    - {x: 60.7, y: 48.5, text: die Seife}
+    - {x: 60, y: 47.5, text: die Seife}
     - {x: 85, y: 52, text: das Handtuch}
     - {x: 14.9, y: 27.9, text: die Creme}
     - {x: 26.7, y: 29.2, text: der Kamm}
