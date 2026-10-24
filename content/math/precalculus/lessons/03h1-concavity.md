@@ -30,7 +30,7 @@ This only works if you compare intervals fairly. With a table of data, use **equ
 A function is **concave up** on an interval if its graph bends upward there: every secant segment joining two points of the graph in that interval lies on or above the graph between those points. Equivalently, the slopes of secant lines increase as you move to the right. A function is **concave down** if the graph bends downward: secant segments lie on or below the graph, and secant slopes decrease from left to right. (These two descriptions really are equivalent, but proving it takes a careful argument with three secant lines; here we use whichever is convenient.)
 
 ```plot
-{"x": [-1, 5], "y": [-1, 9], "functions": [{"f": "x^2/2", "from": -1, "to": 4.2, "label": "concave up"}], "segments": [{"from": [0, 0], "to": [3, 4.5]}], "points": [{"at": [0, 0]}, {"at": [3, 4.5]}], "caption": "Concave up: the secant segment from (0, 0) to (3, 4.5) lies above the curve y = x²/2 between its endpoints."}
+{"x": [-1, 5], "y": [-1, 9], "functions": [{"f": "x^2/2", "from": -1, "to": 4.2}], "labels": [{"at": [1.3, 7], "text": "y = x²/2, concave up"}], "segments": [{"from": [0, 0], "to": [3, 4.5]}], "points": [{"at": [0, 0]}, {"at": [3, 4.5]}], "caption": "Concave up: the secant segment from (0, 0) to (3, 4.5) lies above the curve y = x²/2 between its endpoints."}
 ```
 
 Concavity and direction are separate questions, so a curve can combine them in four ways:

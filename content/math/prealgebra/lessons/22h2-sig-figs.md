@@ -28,7 +28,7 @@ Some numbers aren't measured at all. **Exact numbers** come from counting (24 st
 2. A zero *between* nonzero digits is significant: 4,007 has 4; 30.08 has 4.
 3. *Leading* zeros, before the first nonzero digit, are never significant. They only place the decimal point: 0.0062 has 2.
 4. *Trailing* zeros after a decimal point are significant, because nobody would write them unless they were measured: 2.50 has 3; 0.004050 has 4.
-5. Trailing zeros in a whole number with no decimal point are ambiguous. Does 1,500 mean "about 1,500, to the nearest hundred" (2 significant figures) or "exactly 1,500 to the nearest unit" (4)? You can't tell. Conventions differ (some books write "1500." with a final point to mean 4), so this course uses scientific notation to remove the doubt.
+5. Trailing zeros in a whole number with no decimal point are ambiguous. Does 1,500 mean "about 1,500, to the nearest hundred" (2 significant figures) or "1,500 to the nearest one" (4)? You can't tell. Conventions differ (some books write "1500." with a final point to mean 4), so this course uses scientific notation to remove the doubt.
 
 ![The number 0.004050 written digit by digit. The first three zeros, before the 4, are leading zeros and are not significant. The digits 4, 0, 5, 0 are the four significant figures: the zero between 4 and 5 is significant, and the trailing zero after the decimal point is significant.](images/pre-m6-sigfig-zeros.svg)
 

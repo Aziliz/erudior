@@ -33,7 +33,7 @@
 <text x="514.7" y="452.9" font-size="14" text-anchor="middle" fill="#1c2833">3</text>
 <text x="324.7" y="398.8" font-size="14" text-anchor="end" fill="#1c2833">1</text>
 <text x="324.7" y="357.7" font-size="14" text-anchor="end" fill="#1c2833">2</text>
-<text x="324.7" y="316.6" font-size="14" text-anchor="end" fill="#1c2833">3</text>
+<text x="324.7" y="305.0" font-size="14" text-anchor="end" fill="#1c2833">3</text>
 <text x="324.7" y="275.5" font-size="14" text-anchor="end" fill="#1c2833">4</text>
 <text x="324.7" y="234.5" font-size="14" text-anchor="end" fill="#1c2833">5</text>
 <text x="324.7" y="193.4" font-size="14" text-anchor="end" fill="#1c2833">6</text>
@@ -49,7 +49,7 @@
 <text x="402.0" y="333.6" font-size="15" text-anchor="start" fill="#1c2833">breakpoint (1, 3)</text>
 <rect x="245.6" y="283.6" width="47.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
 <text x="269.3" y="299.6" font-size="15" text-anchor="middle" fill="#1c2833">y = 3</text>
-<rect x="123.0" y="176.4" width="92.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
-<text x="128.0" y="192.4" font-size="15" text-anchor="start" fill="#1c2833">y = −2x − 1</text>
-<rect x="392.0" y="176.4" width="85.0" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
-<text x="472.0" y="192.4" font-size="15" text-anchor="end" fill="#1c2833">y = 2x + 1</text></svg>
+<rect x="137.0" y="176.4" width="92.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
+<text x="142.0" y="192.4" font-size="15" text-anchor="start" fill="#1c2833">y = −2x − 1</text>
+<rect x="372.0" y="176.4" width="85.0" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
+<text x="452.0" y="192.4" font-size="15" text-anchor="end" fill="#1c2833">y = 2x + 1</text></svg>

@@ -124,7 +124,7 @@
   labels:
     - {x: 21.25, y: 64.3, text: Coefficient}
     - {x: 46.9, y: 64.3, text: Base}
-    - {x: 55.6, y: 23.2, text: Exponent}
+    - {x: 55.6, y: 17, text: Exponent}
     - {x: 82.5, y: 64.3, text: Standard form}
   distractors: [Radicand, Quotient]
   explanation: |-
@@ -198,7 +198,7 @@
   choices: ['$8\sqrt{10}$', '$13\sqrt{2}$', '$8\sqrt{2}$', '$15\sqrt{16}$']
   answer: 1
   explanation: |-
-    Simplify first: $\sqrt8 = 2\sqrt2$, so $5\sqrt8 = 10\sqrt2$. Now they are like radicals: $3\sqrt2 + 10\sqrt2 = 13\sqrt2$. ($8\sqrt2$ forgets to simplify $\sqrt8$; $8\sqrt{10}$ adds the radicands.)
+    Simplify first: $\sqrt8 = 2\sqrt2$, so $5\sqrt8 = 10\sqrt2$. Now they are like radicals: $3\sqrt2 + 10\sqrt2 = 13\sqrt2$. ($8\sqrt2$ forgets to simplify $\sqrt8$; $8\sqrt{10}$ adds the radicands; $15\sqrt{16}$ multiplies the coefficients and the radicands, which is only right for a product.)
 
 - id: pre-m6-r2-h04
   lesson: pre-m6-h-radicals
@@ -207,7 +207,7 @@
   choices: ['$10\sqrt{5}$', '$\dfrac{\sqrt{10}}{5}$', '$\sqrt{2}$', '$2\sqrt{5}$']
   answer: 3
   explanation: |-
-    Multiply top and bottom by $\sqrt5$: $\dfrac{10\sqrt5}{5} = 2\sqrt5$. ($10\sqrt5$ multiplies the top only, which changes the value.) Check: $\tfrac{10}{2.236} \approx 4.47$ and $2\sqrt5 \approx 4.47$.
+    Multiply top and bottom by $\sqrt5$: $\dfrac{10\sqrt5}{5} = 2\sqrt5$. ($10\sqrt5$ multiplies the top only, which changes the value. $\sqrt2$ divides 10 by 5 as if 10 were under the root too, and $\tfrac{\sqrt{10}}{5}$ moves the 10 under the root.) Check: $\tfrac{10}{2.236} \approx 4.47$ and $2\sqrt5 \approx 4.47$.
 
 - id: pre-m6-r2-h05
   lesson: pre-m6-h-radicals
@@ -216,7 +216,7 @@
   choices: ['9', '18', '$\dfrac{1}{9}$', '243']
   answer: 0
   explanation: |-
-    The denominator 3 is a cube root and the numerator 2 a square: $\sqrt[3]{27} = 3$ and $3^2 = 9$. (18 multiplies 27 by $\tfrac23$; $\tfrac19$ would be $27^{-2/3}$.)
+    The denominator 3 is a cube root and the numerator 2 a square: $\sqrt[3]{27} = 3$ and $3^2 = 9$. (18 multiplies 27 by $\tfrac23$; $\tfrac19$ would be $27^{-2/3}$; 243 squares 27 to get 729 and then divides by 3 instead of taking the cube root.)
 
 - id: pre-m6-r2-h06
   lesson: pre-m6-h-radicals
@@ -243,7 +243,7 @@
   choices: ['15', '45', '225', '$9\sqrt{5}$']
   answer: 1
   explanation: |-
-    The power applies to both factors: $3^2 \cdot \left(\sqrt5\right)^2 = 9 \cdot 5 = 45$. (15 forgets to square the 3; $9\sqrt5$ forgets to square the root.)
+    The power applies to both factors: $3^2 \cdot \left(\sqrt5\right)^2 = 9 \cdot 5 = 45$. (15 forgets to square the 3; $9\sqrt5$ forgets to square the root; 225 treats $\sqrt5$ as 5, giving $15^2$.)
 
 - id: pre-m6-r2-h09
   lesson: pre-m6-h-radicals
@@ -314,7 +314,7 @@
   image: {src: images/pre-m6-radical-parts-blank.svg, alt: 'A large 4, then a radical sign with a small 3 in its crook, and the number 10 under the radical, with numbered markers on the 4, the small 3, the radical sign and the 10.'}
   labels:
     - {x: 28.75, y: 79, text: Coefficient}
-    - {x: 33.5, y: 38, text: Index}
+    - {x: 38.1, y: 27, text: Index}
     - {x: 44, y: 50, text: Radical sign}
     - {x: 60.6, y: 79, text: Radicand}
   distractors: [Exponent, Base]
