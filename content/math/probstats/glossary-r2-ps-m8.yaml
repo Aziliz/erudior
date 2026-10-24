@@ -1,0 +1,68 @@
+# Round 2 glossary for module ps-m8 (honors lessons 36h1 and 36h2).
+- term: multiple linear regression model
+  aliases: [multiple regression, multiple linear regression]
+  definition: 'The model $Y_i = \beta_0 + \beta_1x_{i1} + \cdots + \beta_kx_{ik} + \varepsilon_i$ with i.i.d. $N(0, \sigma^2)$ errors; in matrix form $\mathbf{Y} = \mathbf{X}\boldsymbol\beta + \boldsymbol\varepsilon$.'
+  topic: Multiple regression
+- term: design matrix
+  aliases: [model matrix]
+  definition: 'The $n \times p$ matrix $\mathbf{X}$ of a linear model: a column of ones for the intercept and one column per predictor, so that the mean vector is $\mathbf{X}\boldsymbol\beta$.'
+  topic: Multiple regression
+- term: column space
+  aliases: [column space of X]
+  definition: 'The set of all linear combinations $\mathbf{X}\mathbf{b}$ of the columns of $\mathbf{X}$. Least squares projects $\mathbf{y}$ orthogonally onto it to get the fitted values.'
+  topic: Multiple regression
+- term: hat matrix
+  aliases: [projection matrix]
+  definition: '$\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, which turns the data into the fitted values, $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$. It is symmetric and idempotent with trace $p$.'
+  topic: Multiple regression
+- term: adjusted R-squared
+  aliases: [adjusted R², adjusted R2]
+  definition: '$R^2_{\text{adj}} = 1 - \dfrac{\text{SSE}/(n - p)}{\text{SST}/(n - 1)}$: $R^2$ with a penalty for each estimated coefficient, so that adding a useless predictor can lower it.'
+  topic: Multiple regression
+- term: overall F test
+  aliases: [overall F-test, regression F test]
+  definition: 'The test of $H_0: \beta_1 = \cdots = \beta_k = 0$ in a multiple regression, using $F = \dfrac{\text{SSR}/(p - 1)}{\text{SSE}/(n - p)}$, which has an $F_{p-1,\,n-p}$ distribution under $H_0$.'
+  topic: Multiple regression
+- term: variance inflation factor
+  aliases: [VIF, variance inflation factors]
+  definition: '$1/(1 - R_j^2)$, where $R_j^2$ comes from regressing predictor $x_j$ on the other predictors: the factor by which correlation among predictors multiplies $\operatorname{Var}(b_j)$.'
+  topic: Multiple regression
+- term: multicollinearity
+  aliases: [collinearity]
+  definition: 'Strong correlation among the predictors of a regression. It inflates the variances of the individual coefficients, even when the model as a whole fits well.'
+  topic: Multiple regression
+- term: leverage
+  aliases: [leverages, hat value, hat values]
+  definition: 'The diagonal entry $h_{ii}$ of the hat matrix: how strongly $y_i$ pulls its own fitted value. Leverages lie between 0 and 1 and sum to $p$; values above $2p/n$ are often flagged.'
+  topic: Multiple regression
+- term: blocking
+  definition: 'Grouping experimental units into blocks of similar units and comparing treatments within blocks, so that differences between blocks are removed from the error.'
+  topic: Two-way ANOVA
+- term: block
+  aliases: [blocks]
+  definition: 'A group of similar experimental units (a site, a day, a batch) within which all treatments are compared.'
+  topic: Two-way ANOVA
+- term: randomized block design
+  aliases: [randomized complete block design, RCBD, randomized blocks]
+  definition: 'A design in which each of $b$ blocks contains one unit per treatment and the $k$ treatments are assigned at random within each block. Analyzed with SST = SSTr + SSB + SSE and $(k - 1)(b - 1)$ error df.'
+  topic: Two-way ANOVA
+- term: additive model
+  aliases: [additivity]
+  definition: 'A two-factor model with no interaction, such as $Y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}$: each factor shifts the mean by the same amount whatever the level of the other.'
+  topic: Two-way ANOVA
+- term: factorial design
+  aliases: [factorial experiment, factorial designs]
+  definition: 'An experiment that runs every combination of the levels of two or more factors, usually with replication, so that main effects and interactions can be estimated.'
+  topic: Two-way ANOVA
+- term: main effect
+  aliases: [main effects]
+  definition: 'The average effect of one factor in a factorial design, averaged over the levels of the other factors; in two-way ANOVA, $\alpha_i$ or $\beta_j$.'
+  topic: Two-way ANOVA
+- term: interaction
+  aliases: [interactions, interaction effect]
+  definition: 'In a factorial design, the extent to which the effect of one factor depends on the level of another; in two-way ANOVA, the terms $(\alpha\beta)_{ij}$, estimated by $\bar y_{ij\cdot} - \bar y_{i\cdot\cdot} - \bar y_{\cdot j\cdot} + \bar y$.'
+  topic: Two-way ANOVA
+- term: interaction plot
+  aliases: [interaction plots]
+  definition: 'A plot of cell means with one line for each level of one factor across the levels of the other. Parallel lines suggest no interaction.'
+  topic: Two-way ANOVA
