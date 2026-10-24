@@ -35,7 +35,7 @@ A ball is thrown upward from a 5-foot platform, and (ignoring air resistance) it
 Over the whole interval $[0, 4]$ the average rate is $\dfrac{5 - 5}{4} = 0$ ft/s: the ball ends where it started. An average over a long interval can hide everything that happened inside it.
 
 ```plot
-{"x": [0, 4.5], "y": [0, 80], "functions": [{"f": "-16*x^2 + 64*x + 5", "from": 0, "to": 4.07}], "points": [{"at": [0, 5], "label": "(0, 5)"}, {"at": [1, 53], "label": "(1, 53)"}, {"at": [2, 69], "label": "(2, 69)"}, {"at": [3, 53], "label": "(3, 53)"}], "segments": [{"from": [0, 5], "to": [1, 53], "dashed": true, "label": "slope 48"}, {"from": [2, 69], "to": [3, 53], "dashed": true, "label": "slope -16"}], "xLabel": "t (seconds)", "yLabel": "height (feet)", "caption": "Two secant lines: average velocity 48 ft/s on [0, 1] and -16 ft/s on [2, 3]"}
+{"x": [0, 4.5], "y": [0, 80], "functions": [{"f": "-16*x^2 + 64*x + 5", "from": 0, "to": 4.07}], "points": [{"at": [0, 5], "label": "(0, 5)"}, {"at": [1, 53]}, {"at": [2, 69], "label": "(2, 69)"}, {"at": [3, 53], "label": "(3, 53)"}], "segments": [{"from": [0, 5], "to": [1, 53], "dashed": true}, {"from": [2, 69], "to": [3, 53], "dashed": true}], "xLabel": "t (seconds)", "yLabel": "height (feet)", "caption": "Two secant lines: average velocity 48 ft/s on [0, 1] and -16 ft/s on [2, 3]", "labels": [{"at": [0.95, 25], "text": "slope 48"}, {"at": [2.3, 50], "text": "slope -16"}, {"at": [0.6, 60], "text": "(1, 53)"}]}
 ```
 
 ## Rates from a table
@@ -107,7 +107,7 @@ For $f(x) = x^2$, simplify the difference quotient at $a = 3$, and find what it 
 That limiting value, 6, is the **instantaneous rate of change** of $x^2$ at $x = 3$. On the graph, as the second point slides toward $(3, 9)$, the secant lines turn toward a single line that just touches the curve there: the tangent line, with slope 6.
 
 ```plot
-{"x": [1.5, 6], "y": [0, 30], "functions": [{"f": "x^2", "label": "y = x²"}], "tangents": [{"f": "x^2", "at": 3}], "segments": [{"from": [3, 9], "to": [5, 25], "dashed": true}, {"from": [3, 9], "to": [4, 16], "dashed": true}], "points": [{"at": [3, 9], "label": "(3, 9)"}, {"at": [4, 16], "label": "(4, 16)"}, {"at": [5, 25], "label": "(5, 25)"}], "labels": [{"at": [5.3, 19], "text": "tangent"}], "caption": "Secant slopes 8 (to (5, 25)) and 7 (to (4, 16)) approach the tangent slope 6 at (3, 9)"}
+{"x": [1.5, 6], "y": [0, 30], "functions": [{"f": "x^2", "label": "y = x²"}], "tangents": [{"f": "x^2", "at": 3}], "segments": [{"from": [3, 9], "to": [5, 25], "dashed": true}, {"from": [3, 9], "to": [4, 16], "dashed": true}], "points": [{"at": [3, 9]}, {"at": [4, 16]}, {"at": [5, 25]}], "labels": [{"at": [5.3, 19], "text": "tangent"}, {"at": [2.85, 11.8], "text": "(3, 9)"}, {"at": [3.6, 19.5], "text": "(4, 16)"}, {"at": [4.5, 27], "text": "(5, 25)"}], "caption": "Secant slopes 8 (to (5, 25)) and 7 (to (4, 16)) approach the tangent slope 6 at (3, 9)"}
 ```
 
 The same idea gives the ball's velocity at an instant. Using the shortcut with $p = 1$ and $q = 1 + h$: the average velocity on $[1, 1 + h]$ is $-16(2 + h) + 64 = 32 - 16h$, which approaches 32 as $h$ approaches 0. One second after the throw, the ball is rising at 32 feet per second. (Check with $h = 1$: $32 - 16 = 16$, the average on $[1, 2]$ from Example 1.)

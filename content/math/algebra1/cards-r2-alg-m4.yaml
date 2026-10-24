@@ -17,7 +17,7 @@
 - {front: 'When is a given corner optimal?', back: 'When the level-line slope lies between the slopes of the two edges that meet at that corner.', topic: Linear programming}
 - {front: 'Sensitivity range in the workshop problem ($P = px + 20y$)', back: '$(4, 4)$ stays best for $20 \le p \le 40$ (edge slopes $-1$ and $-2$).', topic: Linear programming}
 - {front: 'Two corners tie for the best value', back: 'The level lines are parallel to the edge between them, and every point of that edge is also best.', topic: Linear programming}
-- {front: 'Unbounded feasible region', back: 'An optimum exists only if the objective can''t improve forever in the open direction; then it is at a corner. Minimizing a positive-coefficient cost with $x, y \ge 0$ always has a minimum.', topic: Linear programming}
+- {front: 'Unbounded feasible region', back: 'An optimum exists only if the objective can''t improve forever in the open direction; then it is at a corner. Minimizing a positive-coefficient cost with $x, y \ge 0$ over a nonempty region always has a minimum.', topic: Linear programming}
 - {front: 'Infeasible problem', back: 'The constraints contradict each other (for example $x + y \le 4$ and $x + y \ge 6$): the feasible region is empty.', topic: Linear programming}
 - {front: 'Whole-number answers in linear programming', back: 'Don''t just round the best corner: the rounded point may break a constraint or not be best. Compare the allowed whole-number points nearby.', topic: Linear programming}
 - {front: 'Simplex method', back: 'Dantzig, 1947: move from a vertex along an edge to a better neighboring vertex until none is better.', topic: Linear programming}

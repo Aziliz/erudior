@@ -8,13 +8,13 @@ topics: [Rational exponents]
 drills: [a1-m7-r2-rational-power, a1-m7-r2-monthly-rate, a1-m7-r2-half-life]
 refs: [alg-ref-polynomials, a1-ref-data]
 ---
-This module has used two ideas side by side: roots (Lessons 28 and 29) and exponential functions (Lesson 30). Lesson 30 even mixed them, saying that a growth factor of $b$ per year is $\sqrt b$ per half-year. This honors lesson makes that precise. It defines $n$th roots in general, then gives a meaning to exponents like $\tfrac12$, $\tfrac23$ and $-\tfrac34$ by the same method Lesson 18 used for zero and negative exponents: choose the only definition that keeps the exponent rules working. The payoff is a set of tools for exponential models at any time, not just whole-number times: monthly rates from yearly ones, half-lives, and a famous law of planetary motion.
+This module has used two ideas side by side: roots (Lessons 28 and 29) and exponential functions (Lesson 30). Lesson 30 even mixed them, rewriting growth of 21% per year (factor $1.21$) as 10% per half-year (factor $1.1 = \sqrt{1.21}$). This honors lesson makes that precise. It defines $n$th roots in general, then gives a meaning to exponents like $\tfrac12$, $\tfrac23$ and $-\tfrac34$ by the same method Lesson 18 used for zero and negative exponents: choose the only definition that keeps the exponent rules working. The payoff is a set of tools for exponential models at any time, not just whole-number times: monthly rates from yearly ones, half-lives, and a famous law of planetary motion.
 
 ## nth roots
 
 For a whole number $n \ge 2$, an **nth root** of $a$ is a number whose $n$th power is $a$. It is written $\sqrt[n]{a}$, and $n$ is the **index** of the radical. A square root has index 2, which is usually left unwritten.
 
-- **Even index** ($n = 2, 4, 6, \dots$): every even power is nonnegative, so a negative number has no real even root. A positive number has two, such as $3$ and $-3$ for $\sqrt[4]{81}$, and the symbol means the nonnegative one: $\sqrt[4]{81} = 3$.
+- **Even index** ($n = 2, 4, 6, \dots$): every even power is nonnegative, so a negative number has no real even root. A positive number has two real even roots, such as $3$ and $-3$, the two fourth roots of 81, and the symbol means the nonnegative one: $\sqrt[4]{81} = 3$.
 - **Odd index** ($n = 3, 5, \dots$): every real number has exactly one real odd root, with the same sign: $\sqrt[5]{-32} = -2$ because $(-2)^5 = -32$.
 
 So $\sqrt[4]{16} = 2$, $\sqrt[3]{-125} = -5$, $\sqrt[5]{1} = 1$, and $\sqrt[4]{-16}$ is not a real number.

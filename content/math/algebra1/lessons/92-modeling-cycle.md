@@ -106,7 +106,7 @@ $$T = 20 + 70\left(\tfrac12\right)^{t/10}.$$
 6. *Compute and report.* At $t = 30$: $20 + 70\left(\tfrac12\right)^{3} = 20 + 8.75 = 28.75$, so "about 29 °C after half an hour, assuming the room stays at 20 °C." Real cooling also depends on the cup, stirring and evaporation, so treat the model as an approximation.
 
 ```plot
-{"x": [0, 60], "y": [0, 100], "xLabel": "time t (min)", "yLabel": "temperature T (°C)", "functions": [{"f": "20 + 70*0.5^(x/10)", "label": "revised: T = 20 + 70(1/2)^(t/10)"}, {"f": "90*(55/90)^(x/10)", "label": "first try: T = 90(0.611)^(t/10)", "dashed": true}, {"f": "20", "label": "room temperature 20 °C", "dashed": true}], "points": [[0, 90], [5, 70], [10, 55], [15, 45], [20, 37]], "caption": "The first model drops toward 0 °C; the revised model levels off at room temperature and fits the data"}
+{"x": [0, 60], "y": [0, 100], "xLabel": "time t (min)", "yLabel": "temperature T (°C)", "functions": [{"f": "20 + 70*0.5^(x/10)"}, {"f": "90*(55/90)^(x/10)", "dashed": true, "to": 40}, {"f": "20", "dashed": true}], "points": [[0, 90], [5, 70], [10, 55], [15, 45], [20, 37]], "caption": "Revised model T = 20 + 70(1/2)^(t/10) fits the data and levels off at room temperature; the first try, T = 90(0.611)^(t/10), drops below 20 °C toward 0 °C", "labels": [{"at": [42, 32], "text": "revised model"}, {"at": [47, 10.5], "text": "first try"}, {"at": [14, 12.5], "text": "room temperature 20 °C"}]}
 ```
 
 ## Common mistakes

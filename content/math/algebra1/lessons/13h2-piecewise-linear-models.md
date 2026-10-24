@@ -35,7 +35,7 @@ Using the phone plan, find $C(7)$ and $C(14.5)$, and find how much data was used
 A bill of exactly \$35 is different: every $g$ from 0 to 10 gives it, so the data used can't be pinned down. A flat piece has many inputs for one output.
 
 ```plot
-{"x": [0, 20], "y": [0, 100], "functions": [{"f": "35", "from": 0, "to": 10}, {"f": "35 + 6*(x - 10)", "from": 10, "to": 20}], "points": [{"at": [10, 35], "label": "breakpoint (10, 35)"}, {"at": [14.5, 62], "label": "(14.5, 62)"}, {"at": [16, 71], "label": "(16, 71)"}], "xLabel": "data used (GB)", "yLabel": "monthly bill ($)", "caption": "Flat up to the allowance, then rising $6 per GB"}
+{"x": [0, 20], "y": [0, 100], "functions": [{"f": "35", "from": 0, "to": 10}, {"f": "35 + 6*(x - 10)", "from": 10, "to": 20}], "points": [{"at": [10, 35]}, {"at": [14.5, 62]}, {"at": [16, 71]}], "xLabel": "data used (GB)", "yLabel": "monthly bill ($)", "caption": "Flat up to the allowance, then rising $6 per GB", "labels": [{"at": [17, 55], "text": "(14.5, 62)"}, {"at": [13, 76], "text": "(16, 71)"}, {"at": [14, 27], "text": "breakpoint (10, 35)"}]}
 ```
 
 ## Pieces that join, and pieces that jump
@@ -58,11 +58,11 @@ For which value of $k$ is $f(x) = \begin{cases} 2x + 1, & x < 3 \\ kx - 5, & x \
 4. With $k = 4$, both formulas give 7 at $x = 3$. With $k = 3$, say, the second piece starts at $f(3) = 4$, and the graph jumps down from just under 7 to 4.
 
 ```plot
-{"x": [-1, 6], "y": [-2, 16], "functions": [{"f": "2*x + 1", "from": -1, "to": 3, "label": "2x + 1"}, {"f": "4*x - 5", "from": 3, "to": 5, "label": "4x - 5"}], "points": [{"at": [3, 7], "label": "(3, 7)"}], "caption": "k = 4: the pieces meet at (3, 7), so f is continuous"}
+{"x": [-1, 6], "y": [-2, 16], "functions": [{"f": "2*x + 1", "from": -1, "to": 3, "label": "2x + 1"}, {"f": "4*x - 5", "from": 3, "to": 5, "label": "4x - 5"}], "points": [{"at": [3, 7]}], "caption": "k = 4: the pieces meet at (3, 7), so f is continuous", "labels": [{"at": [3.75, 5.6], "text": "(3, 7)"}]}
 ```
 
 ```plot
-{"x": [-1, 6], "y": [-2, 16], "functions": [{"f": "2*x + 1", "from": -1, "to": 3, "label": "2x + 1"}, {"f": "3*x - 5", "from": 3, "to": 5, "label": "3x - 5"}], "points": [{"at": [3, 7], "open": true, "label": "(3, 7)"}, {"at": [3, 4], "label": "(3, 4)"}], "caption": "k = 3: a jump at x = 3"}
+{"x": [-1, 6], "y": [-2, 16], "functions": [{"f": "2*x + 1", "from": -1, "to": 3, "label": "2x + 1"}, {"f": "3*x - 5", "from": 3, "to": 5, "label": "3x - 5"}], "points": [{"at": [3, 7], "open": true, "label": "(3, 7)"}, {"at": [3, 4]}], "caption": "k = 3: a jump at x = 3", "labels": [{"at": [3.6, 2.6], "text": "(3, 4)"}]}
 ```
 
 ## Tax brackets: the rate on the next dollar
@@ -101,7 +101,7 @@ Find the tax, the marginal rate and the average rate for an income of \$75,000.
 The average rate is the slope of the segment from the origin to the point $(x, T(x))$: an average rate of change from 0 to $x$ (Lesson 10). Because the early layers are taxed at lower rates, that segment is less steep than the piece the point lies on, so the average rate is below the marginal rate.
 
 ```plot
-{"x": [0, 100], "y": [0, 25], "functions": [{"f": "0.1*x", "from": 0, "to": 20}, {"f": "2 + 0.2*(x - 20)", "from": 20, "to": 60}, {"f": "10 + 0.3*(x - 60)", "from": 60, "to": 100}], "points": [{"at": [20, 2], "label": "(20, 2)"}, {"at": [60, 10], "label": "(60, 10)"}, {"at": [75, 14.5], "label": "(75, 14.5)"}], "segments": [{"from": [0, 0], "to": [75, 14.5], "dashed": true, "label": "average rate"}], "xLabel": "income (thousands of $)", "yLabel": "tax (thousands of $)", "caption": "The tax function T: slopes 0.1, 0.2, 0.3; the dashed segment's slope is the average rate"}
+{"x": [0, 100], "y": [0, 25], "functions": [{"f": "0.1*x", "from": 0, "to": 20}, {"f": "2 + 0.2*(x - 20)", "from": 20, "to": 60}, {"f": "10 + 0.3*(x - 60)", "from": 60, "to": 100}], "points": [{"at": [20, 2]}, {"at": [60, 10]}, {"at": [75, 14.5]}], "segments": [{"from": [0, 0], "to": [75, 14.5], "dashed": true}], "xLabel": "income (thousands of $)", "yLabel": "tax (thousands of $)", "caption": "The tax function T: slopes 0.1, 0.2, 0.3; the dashed segment's slope is the average rate", "labels": [{"at": [83, 12.0], "text": "(75, 14.5)"}, {"at": [69, 7.0], "text": "(60, 10)"}, {"at": [29, 0.6], "text": "(20, 2)"}, {"at": [30, 9.8], "text": "average rate"}]}
 ```
 
 ### A common myth

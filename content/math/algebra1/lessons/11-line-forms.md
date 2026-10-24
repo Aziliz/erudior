@@ -87,7 +87,7 @@ Graph $3x - 4y = 12$ using its intercepts, and find its slope.
 A horizontal line through $(a, b)$ has slope 0, so its equation is $y = b$: every point has the same $y$-coordinate. A vertical line through $(a, b)$ is $x = a$: every point has the same $x$-coordinate. A vertical line is not the graph of a function (it fails the vertical line test in the most dramatic way possible).
 
 ```plot
-{"x": [-3, 7], "y": [-3, 6], "functions": [{"f": "2", "label": "y = 2"}], "segments": [{"from": [3, -3], "to": [3, 6], "label": "x = 3"}], "points": [{"at": [3, 2], "label": "(3, 2)"}, {"at": [-1, 2], "label": "(-1, 2)"}, {"at": [3, -1], "label": "(3, -1)"}], "equal": true, "caption": "Through (3, 2): the horizontal line y = 2 and the vertical line x = 3"}
+{"x": [-3, 7], "y": [-3, 6], "functions": [{"f": "2", "label": "y = 2"}], "segments": [{"from": [3, -3], "to": [3, 6]}], "points": [{"at": [3, 2], "label": "(3, 2)"}, {"at": [-1, 2], "label": "(-1, 2)"}, {"at": [3, -1], "label": "(3, -1)"}], "equal": true, "caption": "Through (3, 2): the horizontal line y = 2 and the vertical line x = 3", "labels": [{"at": [3.75, 4.5], "text": "x = 3"}]}
 ```
 
 Every point on the horizontal line, such as $(-1, 2)$, has $y = 2$; every point on the vertical line, such as $(3, -1)$, has $x = 3$.

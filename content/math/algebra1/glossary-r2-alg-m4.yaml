@@ -37,5 +37,5 @@
   definition: 'Linear programming in which some or all variables must be whole numbers. The best whole-number plan need not be the rounded best corner, and such problems are much harder in general.'
   topic: Linear programming
 - term: simplex method
-  definition: 'The standard procedure for linear programming, invented by George Dantzig in 1947: start at a vertex and move along edges to neighboring vertices with better objective values until no neighbor is better.'
+  definition: 'A standard procedure for linear programming, invented by George Dantzig in 1947: start at a vertex and move along edges to neighboring vertices with better objective values until no neighbor is better.'
   topic: Linear programming

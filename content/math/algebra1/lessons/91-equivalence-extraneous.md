@@ -63,7 +63,7 @@ Solve $\sqrt{x + 6} = x$.
 Where did $-2$ come from? It solves the "partner" equation $\sqrt{x + 6} = -x$: $\sqrt 4 = 2 = -(-2)$. Squaring could not tell the two equations apart. The graph shows it: the curve $y = \sqrt{x + 6}$ meets the line $y = x$ once, at $x = 3$. It meets the line $y = -x$ at $x = -2$.
 
 ```plot
-{"x": [-7, 6], "y": [-4, 6], "equal": true, "functions": [{"f": "sqrt(x + 6)", "label": "y = √(x + 6)"}, {"f": "x", "label": "y = x"}, {"f": "-x", "label": "y = −x", "dashed": true}], "points": [{"at": [3, 3], "label": "(3, 3): real solution"}, {"at": [-2, 2], "label": "(−2, 2): solves √(x + 6) = −x"}], "caption": "Squaring √(x + 6) = x also catches the crossing with y = −x, which gives the extraneous −2"}
+{"x": [-7, 6], "y": [-4, 6], "equal": true, "functions": [{"f": "sqrt(x + 6)"}, {"f": "x", "label": "y = x"}, {"f": "-x", "dashed": true}], "points": [{"at": [3, 3]}, {"at": [-2, 2]}], "caption": "y = √(x + 6) meets y = x only at (3, 3), the real solution. Squaring also catches its crossing with y = −x at (−2, 2), which gives the extraneous −2.", "labels": [{"at": [4.6, 2.2], "text": "y = √(x + 6)"}, {"at": [2.2, 3.55], "text": "(3, 3)"}, {"at": [-4.1, 2.3], "text": "(−2, 2)"}, {"at": [2.6, -1.5], "text": "y = −x"}]}
 ```
 
 A quick test catches most extraneous solutions before the full check: a principal square root is never negative (Lesson 28), so the side equal to it must be $\ge 0$. In Example 2 the right side is $x$, so any candidate with $x < 0$ fails at once.
