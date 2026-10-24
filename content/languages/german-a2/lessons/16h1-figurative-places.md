@@ -131,7 +131,7 @@ Notice how *daran* points forward to a whole *dass* clause: *Es liegt daran, das
 
 Emil is helping his friend Jana move house, but he's very late.
 
-> Jana: Da bist du ja endlich! Wo steckst du denn? Ich warte seit zwei Stunden!
+> Jana: Da bist du ja endlich! Wo hast du denn gesteckt? Ich warte seit zwei Stunden!
 >
 > Emil: Tut mir leid! Ich habe über eine Stunde im Stau gestanden.
 >
@@ -151,7 +151,7 @@ Emil is helping his friend Jana move house, but he's very late.
 
 In English:
 
-> Jana: There you are at last! Where on earth are you? I've been waiting for two hours!
+> Jana: There you are at last! Where on earth have you been? I've been waiting for two hours!
 >
 > Emil: Sorry! I was stuck in traffic for over an hour.
 >
@@ -169,7 +169,7 @@ In English:
 >
 > Jana: Oh, design just isn't my thing. It's up to you: lamp or no lamp?
 
-(*endlich* = at last, *der Unfall* = accident, *der Möbelwagen* = removal van, *die Fahrbahn* = roadway, *fertig* = finished, *wegwerfen* = to throw away, *passen zu* = to go with, suit.) Count the figurative uses: *steckst, im Stau gestanden, liegt an, vor allem, unter uns, hänge an, steht auf, aufs Land, liegt mir, liegt bei*. Only *in meiner Straße* and *in die neue Wohnung* are real places.
+(*endlich* = at last, *der Unfall* = accident, *der Möbelwagen* = removal van, *die Fahrbahn* = roadway, *fertig* = finished, *wegwerfen* = to throw away, *passen zu* = to go with, suit.) Count the figurative uses: *gesteckt* (the perfect of *stecken* is regular), *im Stau gestanden, liegt an, vor allem, unter uns, hänge an, steht auf, aufs Land, liegt mir, liegt bei*. *im Radio*, like *in der Zeitung*, names the medium the news comes from. Only *in meiner Straße, auf der Fahrbahn* and *in die neue Wohnung* are real places.
 
 ## Pronunciation
 

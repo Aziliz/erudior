@@ -1,16 +1,16 @@
 ---
 id: de3-h-gedichte
 module: de3-h1
-title: 'Gedichte: reading poems by Goethe and Heine'
+title: 'Gedichte: reading poems by Eichendorff and Heine'
 minutes: 45
 topics: [Poems, Old and poetic German]
 refs: [de3-ref-past-future]
 ---
 ## What this lesson is for
 
-In lesson 13 one of the genitive examples was *Goethes Gedichte*, Goethe's poems. This lesson opens them. Poems are short, so they're perfect for a learner: you can read one in five minutes, learn it by heart in a week and keep it for life. Many Germans can still recite a poem they learned at school, and the two in this lesson are among the best known.
+In lesson 13 one of the genitive examples was *Goethes Gedichte*, Goethe's poems. This lesson opens the world of German poetry. (If you did the honors lesson on stories in German A2, you already met Goethe's *Wandrers Nachtlied*; here you go further.) Poems are short, so they're perfect for a learner: you can read one in five minutes and learn it by heart in a week. Both poems in this lesson are among the best known in German.
 
-Poems are also hard in a special way. They use old forms (*spürest du*, *im Walde*), unusual word order and words chosen for their sound. This lesson gives you the tools: the words for talking about a poem, the three common rhyme patterns, and a method for turning poetic German into everyday German. Then you read Johann Wolfgang von Goethe's *Wandrers Nachtlied* and part of Heinrich Heine's *Die Lore-Ley*. Both are long out of copyright, so you read the original texts. (Lesson 90, on the Kurzgeschichte, looked at prose; you can do the two lessons in either order.)
+Poems are also hard in a special way. They use old forms (*hätt'*, *die Lande*), unusual word order and words chosen for their sound. This lesson gives you the tools: the words for talking about a poem, the three common rhyme patterns, and a method for turning poetic German into everyday German. Then you read Joseph von Eichendorff's *Mondnacht* and part of Heinrich Heine's *Die Lore-Ley*. Both are long out of copyright, so you read the original texts.
 
 ## Talking about a poem
 
@@ -50,60 +50,69 @@ A small example of couplet rhyme, written for this course:
 
 *Baum / Traum* is *a*, *Haus / raus* is *b*: *aabb*. (In the garden the first tree is blooming, the winter was a long dream. The children run out of the house, spring calls: "Everybody come out!")
 
-Rhyme in German is about sound, not spelling: *Ruh* and *du* rhyme, and so do *Hauch* and *auch*. A rhyme starts at the last stressed vowel: *Gipfeln* and *Wipfeln* rhyme from the *i* onwards.
+A rhyme starts at the last stressed vowel: *Nacht* and *sacht* rhyme from the *a* onwards, *Felder* and *Wälder* from the *e* / *ä*.
 
-## Text 1: Goethe, Wandrers Nachtlied
+## Text 1: Eichendorff, Mondnacht
 
-Goethe (1749–1832) wrote this poem in pencil on the wooden wall of a hut on the Kickelhahn, a hill near Ilmenau in Thuringia, in September 1780. He was 31. He printed it in 1815 under the title *Ein Gleiches* ("Another of the same"), because it followed an earlier poem called *Wandrers Nachtlied*; most people know it by that title. Franz Schubert and many other composers set it to music. A witness later reported that Goethe visited the hut again in 1831, a few months before his death, read the lines on the wall and wept; the story may be partly polished, but it's part of the poem's fame.
+Joseph von Eichendorff (1788–1857) was one of the great poets of German Romanticism, the movement that loved nature, night, longing and the feeling of being far from home. He published *Mondnacht* (Moonlit Night) in 1837, and Robert Schumann set it to music in 1840. The text here is in modern spelling; Eichendorff wrote *geküßt*, *Daß* and *müßt'*.
 
-> Über allen Gipfeln
+> Es war, als hätt' der Himmel
 >
-> Ist Ruh,
+> Die Erde still geküsst,
 >
-> In allen Wipfeln
+> Dass sie im Blütenschimmer
 >
-> Spürest du
+> Von ihm nun träumen müsst'.
 >
-> Kaum einen Hauch;
+> Die Luft ging durch die Felder,
 >
-> Die Vögelein schweigen im Walde.
+> Die Ähren wogten sacht,
 >
-> Warte nur, balde
+> Es rauschten leis die Wälder,
 >
-> Ruhest du auch.
+> So sternklar war die Nacht.
+>
+> Und meine Seele spannte
+>
+> Weit ihre Flügel aus,
+>
+> Flog durch die stillen Lande,
+>
+> Als flöge sie nach Haus.
 
-A plain translation: *Over all the mountain tops is peace. In all the treetops you feel hardly a breath of wind. The little birds are silent in the forest. Just wait, soon you will rest too.*
+A plain translation: *It was as if the sky had quietly kissed the earth, so that, in the shimmer of blossom, she now had to dream of him. The air moved through the fields, the ears of grain swayed gently, the forests rustled softly, so starry-clear was the night. And my soul spread its wings wide, flew through the silent lands, as if it were flying home.*
 
-Words: *der Gipfel* is a mountain top, *der Wipfel* a treetop; they rhyme, and the eye moves from the mountains down to the trees and then to the birds. *der Hauch* is a breath, the lightest movement of air. *schweigen* means to be silent (*schwieg, hat geschwiegen*).
+Words: *der Schimmer* (shimmer, glow), *die Blüte* (blossom), *die Ähre* (ear of grain), *wogen* (to sway, surge like waves), *sacht* (gently), *rauschen* (to rustle, murmur), *die Seele* (soul), *der Flügel* (wing).
 
-Notice the old and poetic forms. Each one is still understandable today:
+Two things to notice first. The grammar you know from lessons 21–23 is everywhere: *als hätt' der Himmel … geküsst* and *als flöge sie* are *als ob* sentences with the verb moved forward, in Konjunktiv II: "as if the sky had kissed", "as if it were flying". The whole poem is a comparison with something unreal. And the poem uses grammatical gender: *der Himmel* is masculine and *die Erde* feminine, so *sie* (she, the earth) dreams *von ihm* (of him, the sky). In English the love story disappears; in German it's built into the articles.
+
+The old and poetic forms are all still understandable:
 
 | in the poem | everyday German | what happened |
 |---|---|---|
-| *Ruh* | *Ruhe* | final *-e* dropped for the rhythm and the rhyme with *du* |
-| *spürest, ruhest* | *spürst, ruhst* | old full ending *-est* for *du* |
-| *Vögelein* | *Vöglein, kleine Vögel* | diminutive *-lein* (like *-chen*) |
-| *im Walde* | *im Wald* | old dative ending *-e* |
-| *balde* | *bald* | old form with *-e* |
+| *hätt'* | *hätte* | final *-e* dropped for the rhythm |
+| *müsst'* | *müsste* | final *-e* dropped (Konjunktiv II of *müssen*) |
+| *leis* | *leise* | final *-e* dropped |
+| *flöge* | *würde fliegen* | Konjunktiv II of *fliegen*, today rare in speech |
+| *die Lande* | *die Länder, das Land* | old poetic plural of *Land* |
+| *nach Haus* | *nach Hause* | final *-e* dropped |
 
-Dropping a sound like this is called **elision** (in German *die Elision*). The dative *-e* survives today in a few fixed phrases: *zu Hause, nach Hause, im Grunde, auf dem Lande*. In poems, songs and very formal writing you'll meet it more often. Don't copy these forms into your own e-mails: *spürest* and *balde* sound 200 years old.
+Dropping a sound like this is called **elision** (*die Elision*); in old texts it's often marked with an apostrophe: *hätt', müsst'*. The *-e* at the end of *nach Hause* and *zu Hause* is an old dative ending that survives in everyday German (also *im Grunde*, *auf dem Lande*); older poems use it much more: *im Walde, dem Manne*. Don't copy these forms into your own e-mails: *flöge* and *die Lande* sound 200 years old.
 
-### Example 1: The rhyme scheme of Wandrers Nachtlied
+### Example 1: The rhyme scheme of Mondnacht
 
-Write down the last word of each line and give letters:
+Write down the last word of each line and give letters. Stanza 1:
 
-1. *Gipfeln*: new sound, **a**
-2. *Ruh*: new sound, **b**
-3. *Wipfeln*: rhymes with *Gipfeln*, **a**
-4. *du*: rhymes with *Ruh*, **b**
-5. *Hauch*: new sound, **c**
-6. *Walde*: new sound, **d**
-7. *balde*: rhymes with *Walde*, **d**
-8. *auch*: rhymes with *Hauch*, **c**
+1. *Himmel*: new sound, **a**
+2. *geküsst*: new sound, **b**
+3. *Blütenschimmer*: **a**? *Himmel* and *Schimmer* share the stressed vowel and the *mm*, but end differently (*-el*, *-er*). This is an **impure rhyme** (*der unreine Reim*): close enough for the ear, not identical. Count it as **a**.
+4. *müsst'*: rhymes with *geküsst*, **b**
 
-The scheme is *abab cddc*: four lines of alternate rhyme, then four of enclosed rhyme. The poem calms down as it rhymes: the last rhyme, *auch*, closes the circle that *Hauch* opened.
+Stanza 2: *Felder* / *Wälder* (*e* and *ä* sound the same here, **c**), *sacht* / *Nacht* (**d**). Stanza 3: *spannte* / *Lande* (impure again, **e**), *aus* / *Haus* (**f**).
 
-Notice also lines 7 and 8. The sentence *Warte nur, balde ruhest du auch* doesn't stop at the end of line 7; it runs on into line 8. This is called **enjambment** (*der Zeilensprung*). When you read aloud, don't stop at *balde*; let the voice carry on. The short last line then lands like a final breath. What *ruhen* means here, sleep at the end of the day or the rest of death, the poem doesn't say. Most readers hear both; that's interpretation, and you're free to disagree.
+The scheme is *abab cdcd efef*: three stanzas of alternate rhyme (*Kreuzreim*), four lines each. Rhyme is about sound, not spelling: *Felder* and *Wälder* rhyme perfectly even though one has *e* and the other *ä*.
+
+Now look at lines 9 and 10: *Und meine Seele spannte / Weit ihre Flügel aus*. The sentence doesn't stop at the end of line 9; it runs on into line 10. This is called **enjambment** (*der Zeilensprung*). Here it even splits a separable verb: *spannte … aus* (from *ausspannen*, to spread out). When you read aloud, don't stop after *spannte*; let the voice carry on, and the wings open with the sentence. What the last line means, a soul longing for a home on earth or in heaven, the poem doesn't say. Many readers hear both; that's interpretation, and you're free to disagree.
 
 ## Text 2: Heine, Die Lore-Ley
 
@@ -160,23 +169,23 @@ flowchart TD
   E --> F["Eine eigene Deutung finden"]
 ```
 
-Read aloud first, because rhyme and rhythm are sounds. And when you learn a poem by heart, learn it in the same order: stanza by stanza, saying it out loud.
+Read aloud first, because rhyme and rhythm are sounds, and learn a poem by heart the same way: stanza by stanza, out loud.
 
 ## Common mistakes
 
 - *der Vers* is one line, not a stanza. "The second verse of the song" is *die zweite Strophe*.
-- Copying old forms into your own writing: ~~Ich gehe balde nach Hause~~ → *Ich gehe bald nach Hause.* ~~Du spürest~~ → *du spürst.*
+- Copying old forms into your own writing: ~~Ich hätt' gern Zeit~~ → *Ich hätte gern Zeit.* ~~durch die Lande reisen~~ → *durch das Land reisen.*
 - Writing *daß* because you saw it in an old poem. Since 1996 the standard spelling is *dass*.
 - Stopping at the end of every line when you read aloud. With enjambment, the sentence goes on.
 - *der Dichter* is a poet (or a great writer, in a solemn way); a writer in general is *der Schriftsteller* (lesson 1).
-- Rhymes are for the ear: don't look only at the spelling. *Ruh* rhymes with *du*.
+- Rhymes are for the ear: don't look only at the spelling. *Felder* rhymes with *Wälder*.
 
 ## Key points
 
 - *das Gedicht, die Strophe* (stanza), *die Zeile / der Vers* (line), *der Reim, das Reimschema*.
 - Rhyme schemes: *Paarreim aabb, Kreuzreim abab, umarmender Reim abba*. Give each new sound a new letter.
-- Old poetic forms: dropped *-e* (*Ruh*), *-est* for *du* (*spürest*), dative *-e* (*im Walde*), *-lein* (*Vögelein*). Understand them; don't use them.
+- Old poetic forms: dropped *-e* (*hätt', leis*), old plurals (*die Lande*), Konjunktiv II forms like *flöge*, dative *-e* (*im Walde*). Understand them; don't use them.
 - Poems change word order for rhythm and rhyme. Find verb and subject, then rewrite the line in normal order.
-- Goethe's *Wandrers Nachtlied* (1780): *abab cddc*, with enjambment at the end. Heine's *Die Lore-Ley* (1824): a "tale from olden times" that was invented in 1801.
+- Eichendorff's *Mondnacht* (1837): *abab cdcd efef*, a comparison in Konjunktiv II, with impure rhymes and enjambment. Heine's *Die Lore-Ley* (1824): a "tale from olden times" that was invented in 1801.
 
 The words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.

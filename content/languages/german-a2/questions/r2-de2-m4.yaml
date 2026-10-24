@@ -45,6 +45,7 @@
     The putting verbs are regular: gelegt, gesetzt (and gehängt for hanging something up). The being verbs are irregular: gelegen, gesessen, gehangen. "Gesitzt" and "geliegt" don't exist.
 - id: de2-m4-r2-q04
   lesson: de2-two-way
+  module_quiz: true
   topic: Two-way prepositions
   stem: 'Which sentences use the accusative correctly, because something moves to a new place? Select all that apply.'
   choices:
@@ -60,7 +61,7 @@
   type: order
   topic: Position verbs
   stem: 'Put the words in order to ask: "Where did you put the key?"'
-  items: [Wohin, hast, du, den Schlüssel, gelegt?]
+  items: [Wohin, hast, du, den Schlüssel, 'gelegt?']
   explanation: |-
     Question word first (Wohin), then the auxiliary hast in position 2, the subject du, the object den Schlüssel, and the past participle gelegt at the end: Wohin hast du den Schlüssel gelegt?
 
@@ -144,7 +145,7 @@
   type: order
   topic: Wishes and advice
   stem: 'Put the parts in order: "If I had time, I would come along."'
-  items: [Wenn, ich, Zeit, hätte,, würde, ich mitkommen.]
+  items: [Wenn, ich, Zeit, 'hätte,', würde, ich mitkommen.]
   explanation: |-
     In the wenn clause the verb (hätte) goes to the end. Then comes the comma, and the main clause starts with its verb (würde) because the whole wenn clause is in position 1: Wenn ich Zeit hätte, würde ich mitkommen.
 - id: de2-m4-r2-q14
@@ -298,7 +299,7 @@
   lesson: de2-m4-h-figurative
   topic: Prepositions in fixed expressions
   stem: 'Complete: "Wir fahren ___ Wochenende weg." (for the whole weekend, Friday to Sunday)'
-  choices: [über dem, übers, ins, im]
+  choices: [über dem, übers, auf dem, im]
   answer: 1
   explanation: |-
     über with a stretch of time takes the accusative: übers (über das) Wochenende = for the length of the weekend. "Über dem" is the dative, which doesn't fit. ("Am Wochenende" would also be correct, but it means "at the weekend", not "over the weekend".)
@@ -328,7 +329,7 @@
     - [liegen an + dative, to be because of]
     - [hängen an + dative, to be attached to]
     - [Die Hose sitzt., The trousers fit well.]
-    - [Wo steckst du?, Where are you?]
+    - ['Wo steckst du?', 'Where are you?']
   distractors: [to be written in]
   explanation: |-
     All five are figurative uses of the position verbs. "To be written in" would be stehen in (In der Zeitung steht …), which isn't in the list.
@@ -355,7 +356,7 @@
     - {x: 56.2, y: 11.4, text: im Stau stehen}
     - {x: 9.4, y: 59.1, text: Das liegt am Wetter.}
     - {x: 57.8, y: 56.8, text: an der Wohnung hängen}
-  distractors: [Wo steckst du?, Die Hose sitzt.]
+  distractors: ['Wo steckst du?', Die Hose sitzt.]
   explanation: |-
     1 a newspaper: In der Zeitung steht … (it says in the paper). 2 cars that can't move: im Stau stehen. 3 bad weather as the reason for something: Das liegt am Wetter. 4 loving a home: an der Wohnung hängen (to be attached to the flat).
 - id: de2-m4-r2-h14
@@ -363,7 +364,7 @@
   type: order
   topic: Figurative position verbs
   stem: 'Put the parts in order: "It''s because I don''t sleep enough."'
-  items: [Es, liegt, daran,, dass, ich, zu wenig, schlafe.]
+  items: [Es, liegt, 'daran,', dass, ich, zu wenig, schlafe.]
   explanation: |-
     Main clause first, verb in position 2: Es liegt daran. daran points forward to the dass clause, and in the dass clause the verb goes to the end: Es liegt daran, dass ich zu wenig schlafe.
 
@@ -436,10 +437,10 @@
   lesson: de2-m4-h-wetter
   topic: Weather and forecasts
   stem: 'You''re cold. What do you say?'
-  choices: [Ich bin kalt., Es ist mir kalt., Mir ist kalt., Mich ist kalt.]
+  choices: [Ich bin kalt., Ich mache kalt., Mir ist kalt., Mich ist kalt.]
   answer: 2
   explanation: |-
-    For feeling cold, German puts the person in the dative: Mir ist kalt (or: Ich friere). "Ich bin kalt" describes you as a cold person, and "mich" is the accusative.
+    For feeling cold, German puts the person in the dative: Mir ist kalt (or: Ich friere). "Ich bin kalt" describes you as a cold person, "Ich mache kalt" isnt German, and "mich" is the accusative.
 - id: de2-m4-r2-h23
   lesson: de2-m4-h-wetter
   type: text
