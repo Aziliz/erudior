@@ -104,7 +104,7 @@ Knowing the path helps you predict. When the bird appears, you can guess it will
 
 ## A poem: Goethe's Wandrers Nachtlied
 
-Goethe (1749–1832) is Germany's most famous writer (*der Dichter*). By most accounts he wrote this short poem (*das Gedicht*) in pencil on the wooden wall of a hut on the Kickelhahn, a hill near Ilmenau in Thuringia, in September 1780. It was first printed in 1815, under the title *Ein Gleiches* ("another of the same kind"), because it followed an earlier poem called *Wandrers Nachtlied*. Today it's usually called *Wandrers Nachtlied* or *Wandrers Nachtlied II*, "The Wanderer's Night Song". Franz Schubert and many other composers set it to music.
+Goethe (1749–1832) is Germany's most famous writer (*der Dichter*). By most accounts he wrote this short poem (*das Gedicht*) in pencil on the wooden wall of a hut on the Kickelhahn, a hill near Ilmenau in Thuringia, in September 1780. A magazine printed it without his permission in 1800; Goethe published it himself in 1815, in his collected works, under the title *Ein Gleiches* ("another of the same kind"), because it followed an earlier poem called *Wandrers Nachtlied*. Today it's usually called *Wandrers Nachtlied* or *Wandrers Nachtlied II*, "The Wanderer's Night Song". Franz Schubert and many other composers set it to music.
 
 > Über allen Gipfeln
 >
@@ -141,7 +141,7 @@ Poems often use older or shortened forms to fit the rhythm and the rhyme. Here a
 | *balde* | *bald* (soon) | an older form; it rhymes with *Walde* |
 | *Ruhest du auch* | *ruhst du auch* (you will rest too) | older ending; the present used for the future |
 
-*Vögelein* is a **diminutive**, a form that makes something small or dear. German makes diminutives with *-chen* or *-lein* and usually an umlaut: *der Vogel* → *das Vögelchen* or *das Vögelein* (also *Vöglein*), *das Buch* → *das Büchlein*. Every diminutive is neuter. Printed versions of the poem differ slightly in this word (*Vögel*, *Vöglein*, *Vögelein*); this lesson follows the 1815 printing.
+*Vögelein* is a **diminutive**, a form that makes something small or dear. German makes diminutives with *-chen* or *-lein* and usually an umlaut: *der Vogel* → *das Vögelchen* or *das Vögelein* (also *Vöglein*), *das Buch* → *das Büchlein*. Every diminutive is neuter. Early copies and printings of the poem differ slightly in this word (*Vögel*, *Vöglein*, *Vögelein*); this lesson follows Goethe's 1815 edition.
 
 The lines (*die Zeilen*) rhyme in four pairs, but the pairs are not next to each other: *Gipfeln* and *Wipfeln*, *Ruh* and *du*, *Hauch* and *auch*, *Walde* and *balde*. A **rhyme** (*der Reim*) is two words whose endings sound the same from the last stressed vowel on. The **rhyme scheme** labels the pattern with letters: lines 1–4 are *abab* (Gipfeln, Ruh, Wipfeln, du), lines 5–8 are *cddc* (Hauch, Walde, balde, auch). Notice also that every line starts with a capital letter. That was the rule in poems of Goethe's time, not a sign of nouns.
 
@@ -171,7 +171,7 @@ Poems are made to be heard. When you read one aloud (*vorlesen*), pause at the e
 - The **narrator** tells a story in the simple past; characters speak in the present and perfect.
 - Fairy tales: *Es war einmal …*, a problem, a journey, a helper, a reward, *Und wenn sie nicht gestorben sind …*
 - Work out strong past forms from their consonants and the context: *grub* → *graben*, *flog* → *fliegen*.
-- Goethe's *Wandrers Nachtlied* (written 1780, printed 1815): from the summits to the treetops to the birds to *du*.
+- Goethe's *Wandrers Nachtlied* (written 1780, published by Goethe in 1815): from the summits to the treetops to the birds to *du*.
 - Poems use old and short forms: *Ruh, spürest, im Walde, balde*.
 - A **diminutive** (*-chen, -lein*) is small or dear, and always neuter.
 - A **rhyme scheme** labels rhyming lines with letters: *abab cddc*.
