@@ -33,6 +33,21 @@ where $\theta$ is the angle between $\vec v$ and $\vec B$. Three features make t
 
 In diagrams, a field pointing into the page is drawn as × marks (the tail of an arrow), and out of the page as dots (the tip).
 
+The flowchart sums up the procedure for finding the direction.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the direction of the magnetic force
+  accDescr: First ask whether the velocity or current is parallel to the field; if it is, there is no force. If not, point your right-hand fingers along the velocity or current, curl them toward the field, and read the force on a positive charge from your thumb. If the charge is negative, reverse that direction; otherwise the thumb direction is the force.
+  A{"Is v (or I) parallel to B?"} -- yes --> Z["No magnetic force"]
+  A -- no --> B["Point right-hand fingers along v (or I)"]
+  B --> C["Curl fingers toward B"]
+  C --> D["Thumb: force on a positive charge"]
+  D --> E{"Is the charge negative?"}
+  E -- yes --> F["Force is opposite the thumb"]
+  E -- no --> G["Force is along the thumb"]
+```
+
 ### Example 1
 
 A proton moves at $3.0\times10^6$ m/s east through a 0.50 T field pointing north. Find the force on it.
@@ -46,6 +61,10 @@ If a charged particle moves perpendicular to a uniform field, the magnetic force
 $$|q|vB = \frac{mv^2}{r} \quad\Rightarrow\quad r = \frac{mv}{|q|B}.$$
 
 Faster or heavier particles make wider circles; stronger fields make tighter ones. The period, $T = \dfrac{2\pi r}{v} = \dfrac{2\pi m}{|q|B}$, doesn't depend on the speed. This **cyclotron frequency**, $f = \dfrac{|q|B}{2\pi m}$, is the principle of the cyclotron accelerator.
+
+The picture shows the geometry for a positive charge in a field pointing into the page. At every point the force is perpendicular to the velocity and points to the center, so the charge goes around counterclockwise (a negative charge would go clockwise).
+
+![A shaded region filled with × marks for a magnetic field into the page. A positive charge at the bottom of a circle moves to the right; its force arrow points straight up toward the center of the circle, and a dashed radius r runs from the center to the circle. An arrowhead on the circle shows counterclockwise motion.](images/phys-m10-orbit.svg)
 
 If the velocity also has a component along $\vec B$, that part is unaffected, and the particle spirals in a helix around the field lines. That's how Earth's field funnels solar-wind particles toward the poles to make the aurora.
 
@@ -82,6 +101,10 @@ A rectangular loop carrying current in a magnetic field feels forces on opposite
 $$\tau = NIAB\sin\phi,$$
 
 where $\phi$ is the angle between the field and the loop's normal. The quantity $\mu = NIA$ is the loop's **magnetic dipole moment**. The torque tries to align the loop's normal with the field, just as a compass needle aligns. An electric **motor** keeps the loop turning by reversing the current every half turn (with a commutator), so the torque always pushes the same rotational way. Analog meters and loudspeakers work on the same force.
+
+![A simple DC motor: a rectangular coil sits between the north pole of a magnet on the left and the south pole on the right, with field lines running from N to S. The coil's two ends connect to a split ring (two half rings with gaps), which touches two fixed brushes wired to a battery.](images/phys-m10-motor.svg)
+
+In the picture, the two halves of the split ring (the commutator) turn with the coil, while the brushes stay still. Every half turn, each brush slides from one half ring to the other, which reverses the current in the coil just as the torque would otherwise reverse.
 
 ## Why a loop feels torque but no net force
 

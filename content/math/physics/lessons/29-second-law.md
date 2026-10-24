@@ -23,6 +23,10 @@ $$e = \frac{W}{Q_H} = 1 - \frac{Q_C}{Q_H}.$$
 
 Car engines manage about 25–35%, power plants 33–45%. Why not 100%? That's the second law.
 
+The energy-flow diagrams below compare an engine with a refrigerator (described later in this lesson). The arrow widths hint at the sizes: in an engine the heat in is split into work and exhaust heat; in a refrigerator the work and the heat removed add up to the heat dumped.
+
+![Two energy-flow diagrams. Left, a heat engine: heat Q_H flows from a hot reservoir at T_H into the engine, work W comes out to the side, and heat Q_C flows down to a cold reservoir at T_C, with W = Q_H − Q_C. Right, a refrigerator: work W goes in, heat Q_C is drawn up from the cold reservoir, and heat Q_H is delivered to the hot reservoir, with Q_C + W = Q_H.](images/phys-m7-engine.svg)
+
 ## The second law
 
 The **second law of thermodynamics** has several equivalent statements:
@@ -37,6 +41,18 @@ If either could be violated, the other could be too, by hooking devices together
 What's the best possible efficiency between two given temperatures? Sadi Carnot showed that it belongs to a **reversible** engine, one with no friction and with heat flowing only across infinitesimal temperature differences. The **Carnot cycle** uses two isothermal and two adiabatic steps, and its efficiency depends only on the reservoir temperatures (in kelvins):
 
 $$e_{\text{Carnot}} = 1 - \frac{T_C}{T_H}.$$
+
+The four steps run in a loop:
+
+```mermaid
+flowchart TD
+  accTitle: The Carnot cycle
+  accDescr: A loop of four steps. Step 1 to 2, isothermal expansion at the hot temperature, absorbing heat Q_H. Step 2 to 3, adiabatic expansion, in which the gas cools from T_H to T_C. Step 3 to 4, isothermal compression at the cold temperature, rejecting heat Q_C. Step 4 to 1, adiabatic compression, in which the gas warms from T_C back to T_H, and the cycle repeats.
+  A["1 to 2: isothermal expansion at TH, absorbs QH"] --> B["2 to 3: adiabatic expansion, cools from TH to TC"]
+  B --> C["3 to 4: isothermal compression at TC, rejects QC"]
+  C --> D["4 to 1: adiabatic compression, warms from TC to TH"]
+  D --> A
+```
 
 No real engine operating between $T_H$ and $T_C$ can beat this. To raise the efficiency limit you must widen the temperature gap, which is why power plants run hot steam and why cold cooling water helps. Even an ideal engine between 500 K and 300 K tops out at 40%.
 

@@ -15,3 +15,4 @@
 - {front: 'Artificial gravity in a station of radius r', back: '$\omega = \sqrt{g/r}$, period $2\pi\sqrt{r/g}$; "down" is outward.', topic: Accelerating frames}
 - {front: 'Coriolis force', back: 'Acts on objects moving in a rotating frame, perpendicular to the velocity, size $2m\omega v$ (motion perpendicular to the axis); deflects to the right in the Northern Hemisphere.', topic: Accelerating frames}
 - {front: 'Is Earth an inertial frame?', back: 'Nearly. Its rotation gives a centrifugal term of only $\omega^2R_E \approx 0.034$ m/s² at the equator, and a Coriolis effect that matters only for large, long-lasting motions.', topic: Accelerating frames}
+- {front: 'Inertial frame vs accelerating frame in one problem', back: 'Pick one. Inertial: real forces only, $\sum\vec F = m\vec a$. Accelerating: add $-m\vec A$ and use accelerations measured in that frame. Both give the same physical answer.', topic: Accelerating frames}

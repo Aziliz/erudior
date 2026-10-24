@@ -53,6 +53,10 @@ The headline consequence, the **Bernoulli effect**: at the same height, *faster 
 - part of an airplane wing's lift (air moves faster over the curved top);
 - a Venturi meter, which measures flow speed from the pressure drop at a constriction.
 
+In the picture, open tubes rising from a Venturi tube show the pressure: the fluid column stands higher over the wide section, where the flow is slow, than over the narrow section, where the streamlines crowd together and the flow is fast.
+
+![A horizontal pipe that narrows in the middle and widens again, with streamlines that crowd together in the narrow part. A vertical tube above the wide section holds a tall column of fluid (higher pressure); a tube above the narrow section holds a short column (lower pressure). An arrow at the left shows the flow direction.](images/phys-m7-venturi.svg)
+
 ### Example 2
 
 In Example 1's pipe (horizontal), the pressure in the wide section is $2.50\times10^5$ Pa. What is the pressure in the narrow section?
@@ -84,6 +88,20 @@ Real fluids have **viscosity**, internal friction between layers. In a pipe, vis
 ## Pipes that change height
 
 When a pipe climbs, the fluid gains gravitational energy, and that also has to be paid for out of pressure. All three terms of Bernoulli's equation then come into play. A good routine: use continuity to get any unknown speed first, then Bernoulli for the pressure.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a pipe-flow problem
+  accDescr: First list what you know at points 1 and 2: pressure, speed, height and pipe size. If a speed is unknown, use continuity, A1 v1 = A2 v2, to find it. Then apply Bernoulli's equation between the two points and solve for the unknown. If the answer is a negative absolute pressure, the flow is impossible and the liquid would cavitate; otherwise check units and signs and you are done.
+  A["List P, v, y and pipe size at points 1 and 2"] --> B{"Is a speed unknown?"}
+  B -- yes --> C["Continuity: A1 v1 = A2 v2"]
+  B -- no --> D["Bernoulli between points 1 and 2"]
+  C --> D
+  D --> E["Solve for the unknown"]
+  E --> F{"Absolute pressure below zero?"}
+  F -- yes --> G["Flow impossible: the liquid would cavitate"]
+  F -- no --> H["Check units and signs: done"]
+```
 
 ### Example 4
 

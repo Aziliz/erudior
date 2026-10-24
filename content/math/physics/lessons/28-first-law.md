@@ -27,6 +27,10 @@ $$\Delta E_{\text{int}} = Q - W,$$
 
 with the sign convention: $Q > 0$ when heat flows *into* the system, $W > 0$ when the system does work *on* its surroundings. This course uses that physics-textbook convention throughout. The AP Physics 2 exam (and most chemistry books) instead lets $W$ stand for the work done *on* the gas, and so writes $\Delta U = Q + W$, with $W = -P\Delta V$ at constant pressure. The two $W$'s are the same size with opposite signs, so the physics is identical; just check which one a problem means. In this lesson, $W$ always means work done *by* the gas.
 
+The picture shows the bookkeeping for a gas heated from below: heat $Q$ flows in, the gas pushes the piston up and does work $W$ lifting the weight, and whatever is left over raises the gas's internal energy.
+
+![A cylinder of gas closed by a piston that supports a weight. A hot plate under the cylinder sends heat Q into the gas (red arrows); an arrow beside the piston shows the work W done by the gas as it lifts the weight.](images/phys-m7-piston.svg)
+
 Internal energy is a **state variable**: it depends only on the current state (for an ideal gas, only on $T$), not on history. $Q$ and $W$ individually depend on the path, but their difference doesn't.
 
 ### Example 1
@@ -49,6 +53,18 @@ For an ideal gas (monatomic, $E_{\text{int}} = \tfrac32nRT$), four idealized pro
 | **Adiabatic** | no heat flow, $Q = 0$ | $-\Delta E_{\text{int}}$ | $PV^\gamma$ = constant |
 
 The **molar specific heats** of an ideal monatomic gas are $C_V = \tfrac32R$ at constant volume and $C_P = C_V + R = \tfrac52R$ at constant pressure. Heating at constant pressure takes more heat for the same temperature rise because some of the energy goes into work as the gas expands. The ratio $\gamma = C_P/C_V$ is $\tfrac53$ for monatomic and about $\tfrac75$ for diatomic gases.
+
+To recognize the process in a word problem, look for what is held fixed:
+
+```mermaid
+flowchart TD
+  accTitle: Identifying a thermodynamic process
+  accDescr: Ask what the problem holds fixed. If no heat flows, the process is adiabatic and the work done by the gas equals minus the change in internal energy. If the temperature is fixed, it is isothermal, the internal energy of an ideal gas does not change, and Q equals W. If the volume is fixed, it is isochoric, no work is done, and Q equals the change in internal energy. If the pressure is fixed, it is isobaric and W equals P times the change in volume.
+  A{"What does the problem hold fixed?"} -- "no heat flow" --> B["Adiabatic: Q = 0, W = minus change in E"]
+  A -- temperature --> C["Isothermal: change in E = 0, Q = W"]
+  A -- volume --> D["Isochoric: W = 0, Q = change in E"]
+  A -- pressure --> E["Isobaric: W = P times change in V"]
+```
 
 ```plot
 {"x": [0, 5], "y": [0, 5], "xLabel": "V", "yLabel": "P", "functions": [{"f": "4", "from": 1, "to": 4, "label": "isobaric"}, {"f": "4/x", "from": 1, "to": 4.5, "label": "isothermal", "dashed": true}, {"f": "4/x^(5/3)", "from": 1, "to": 4.5, "label": "adiabatic"}], "segments": [{"from": [1, 0.3], "to": [1, 4]}], "labels": [{"at": [1.4, 2.2], "text": "isochoric (vertical)"}], "caption": "Processes starting from the same state on a PV diagram; the adiabat falls more steeply than the isotherm"}

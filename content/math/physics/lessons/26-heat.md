@@ -94,6 +94,23 @@ Warm the water to 30°C: $0.50(4186)(30) = 62\,790$ J.
 
 Total: $2.40\times10^5$ J. Melting takes most of the energy.
 
+When a calorimetry problem might involve a phase change, plan before you calculate:
+
+```mermaid
+flowchart TD
+  accTitle: Planning a calorimetry problem
+  accDescr: List every object with its mass, specific heat and starting temperature. Guess the final state, including whether anything melts, freezes, boils or condenses. If no phase change happens, write m c times (Tf minus Ti) for each object. If one does, also add plus or minus m L for each phase change and split the warming into stages. Set the sum of all heats to zero and solve. If the answer contradicts your guess, go back and guess again.
+  A["List each object: m, c, starting temperature"] --> B["Guess the final state"]
+  B --> C{"Does anything change phase?"}
+  C -- no --> D["Write m c (Tf - Ti) for each object"]
+  C -- yes --> E["Add plus or minus m L, and split warming into stages"]
+  D --> F["Set the sum of all Q to zero and solve"]
+  E --> F
+  F --> G{"Answer agrees with the guess?"}
+  G -- yes --> H["Done"]
+  G -- no --> B
+```
+
 ## Heat transfer
 
 Heat moves in three ways:
@@ -101,6 +118,10 @@ Heat moves in three ways:
 - **Conduction**, through a material by molecular collisions. The rate through a slab of area $A$, thickness $L$ and **thermal conductivity** $k$ is $\dfrac{Q}{t} = \dfrac{kA\,\Delta T}{L}$. Metals conduct well; air, foam and fiberglass poorly, which makes them good insulators.
 - **Convection**, by bulk motion of a fluid: warm air rising, ocean currents.
 - **Radiation**, by electromagnetic waves, needing no medium (sunlight). A surface at absolute temperature $T$ radiates power $P = e\sigma AT^4$ (the Stefan–Boltzmann law, $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴), emissivity $0 \le e \le 1$).
+
+A pot of water on a burner shows all three at once:
+
+![A pot of water on a gas burner. Heat conducts along the pot's metal handle (arrow along the handle), convection currents circulate in the water (two loops rising in the middle and sinking at the sides), and wavy arrows carry radiation outward from the flames.](images/phys-m7-heat-transfer.svg)
 
 The conduction formula is full of proportional reasoning: double the area or the temperature difference and the heat flow doubles; double the thickness and it halves. Because the rate depends on the temperature *difference*, a hot object cools fastest when it is much hotter than its surroundings and more and more slowly as it approaches room temperature.
 

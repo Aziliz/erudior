@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 580" width="520" height="580" font-family="sans-serif" fill="#1c2833">
+<rect width="520" height="580" fill="#ffffff"/>
+<text x="200" y="34" font-size="20" text-anchor="middle" font-weight="bold">°F</text>
+<rect x="184" y="50" width="32" height="460" rx="16" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="200" cy="530" r="30" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="192" y="310" width="16" height="210" fill="#e6a596"/>
+<circle cx="200" cy="530" r="22" fill="#e6a596"/>
+<line x1="216" y1="470" x2="238" y2="470" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="476" font-size="18" text-anchor="end">−20</text>
+<line x1="216" y1="460" x2="227" y2="460" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="450" x2="227" y2="450" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="440" x2="227" y2="440" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="430" x2="227" y2="430" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="420" x2="238" y2="420" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="426" font-size="18" text-anchor="end">−15</text>
+<line x1="216" y1="410" x2="227" y2="410" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="400" x2="227" y2="400" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="390" x2="227" y2="390" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="380" x2="227" y2="380" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="370" x2="238" y2="370" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="376" font-size="18" text-anchor="end">−10</text>
+<line x1="216" y1="360" x2="227" y2="360" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="350" x2="227" y2="350" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="340" x2="227" y2="340" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="330" x2="227" y2="330" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="320" x2="238" y2="320" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="326" font-size="18" text-anchor="end">−5</text>
+<line x1="216" y1="310" x2="227" y2="310" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="300" x2="227" y2="300" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="290" x2="227" y2="290" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="280" x2="227" y2="280" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="270" x2="238" y2="270" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="276" font-size="18" text-anchor="end" font-weight="bold">0</text>
+<line x1="216" y1="260" x2="227" y2="260" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="250" x2="227" y2="250" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="240" x2="227" y2="240" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="230" x2="227" y2="230" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="220" x2="238" y2="220" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="226" font-size="18" text-anchor="end">5</text>
+<line x1="216" y1="210" x2="227" y2="210" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="200" x2="227" y2="200" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="190" x2="227" y2="190" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="180" x2="227" y2="180" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="170" x2="238" y2="170" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="176" font-size="18" text-anchor="end">10</text>
+<line x1="216" y1="160" x2="227" y2="160" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="150" x2="227" y2="150" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="140" x2="227" y2="140" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="130" x2="227" y2="130" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="120" x2="238" y2="120" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="126" font-size="18" text-anchor="end">15</text>
+<line x1="216" y1="110" x2="227" y2="110" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="100" x2="227" y2="100" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="90" x2="227" y2="90" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="80" x2="227" y2="80" stroke="#1c2833" stroke-width="1.3"/>
+<line x1="216" y1="70" x2="238" y2="70" stroke="#1c2833" stroke-width="2"/>
+<text x="172" y="76" font-size="18" text-anchor="end">20</text>
+<line x1="240" y1="310" x2="320" y2="310" stroke="#1c2833" stroke-width="2"/>
+<circle cx="240" cy="310" r="4" fill="#1c2833"/>
+<text x="326" y="316" font-size="17">noon: −4°F</text>
+<line x1="240" y1="380" x2="320" y2="380" stroke="#1c2833" stroke-width="2"/>
+<circle cx="240" cy="380" r="4" fill="#1c2833"/>
+<text x="326" y="386" font-size="17">6 a.m.: −11°F</text>
+<line x1="300" y1="374" x2="300" y2="320" stroke="#244d76" stroke-width="2.5"/>
+<path d="M293,324 L300,313 L307,324 Z" fill="#244d76"/>
+<text x="326" y="351.0" font-size="17" fill="#244d76" font-weight="bold">rose 7°</text>
+</svg>

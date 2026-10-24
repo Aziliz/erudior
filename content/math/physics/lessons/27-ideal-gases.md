@@ -32,6 +32,28 @@ Special cases for a fixed amount of gas:
 - Constant $V$: $P_1/T_1 = P_2/T_2$ (Gay-Lussac's law).
 - In general: $\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}$.
 
+To choose one, ask what the problem holds fixed:
+
+```mermaid
+flowchart TD
+  accTitle: Which gas law to use
+  accDescr: For a fixed amount of gas, ask which quantity stays constant. Constant temperature gives Boyle's law, P1 V1 = P2 V2. Constant pressure gives Charles's law, V1 over T1 = V2 over T2. Constant volume gives Gay-Lussac's law, P1 over T1 = P2 over T2. If none stays constant, use the combined law, P1 V1 over T1 = P2 V2 over T2. Temperatures are always in kelvins and pressures absolute.
+  A{"Fixed amount of gas: what stays constant?"} -- temperature --> B["Boyle: P1 V1 = P2 V2"]
+  A -- pressure --> C["Charles: V1/T1 = V2/T2"]
+  A -- volume --> D["Gay-Lussac: P1/T1 = P2/T2"]
+  A -- "none of them" --> E["Combined: P1 V1/T1 = P2 V2/T2"]
+  B --> F["Use kelvins and absolute pressure"]
+  C --> F
+  D --> F
+  E --> F
+```
+
+On a PV graph, each constant-temperature curve (an isotherm) is a hyperbola, $P = nRT/V$. Halving the volume doubles the pressure, and a hotter gas has its own isotherm farther from the origin:
+
+```plot
+{"x": [0, 5], "y": [0, 5], "xLabel": "V (L)", "yLabel": "P (atm)", "functions": [{"f": "2/x", "from": 0.4, "to": 5, "label": "300 K"}, {"f": "4/x", "from": 0.8, "to": 5, "label": "600 K", "dashed": true}], "points": [{"at": [1, 2], "label": "(1, 2)"}, {"at": [2, 1], "label": "(2, 1)"}], "caption": "Isotherms of a fixed amount of gas: PV is constant along each curve; doubling T doubles PV"}
+```
+
 At **STP** (0°C, 1 atm), one mole of any ideal gas occupies 22.4 L.
 
 ### Example 1

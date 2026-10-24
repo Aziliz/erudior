@@ -51,6 +51,10 @@ $$\frac{F_1}{A_1} = \frac{F_2}{A_2} \quad\Rightarrow\quad F_2 = F_1\frac{A_2}{A_
 
 Force is multiplied, but energy isn't created: the volume pushed in equals the volume pushed out, $A_1d_1 = A_2d_2$, so the small piston moves much farther. Work in equals work out, $F_1d_1 = F_2d_2$, just as with pulleys.
 
+The picture shows the parts of a hydraulic lift. The same pressure acts on both pistons, so the larger piston gets the larger force.
+
+![A hydraulic lift: a narrow column of fluid on the left topped by a small piston pushed down by the applied force F₁, connected through the bottom to a wide column on the right topped by a large piston that carries a load and pushes up with force F₂. Caption: same pressure throughout, F₁/A₁ = F₂/A₂.](images/phys-m7-hydraulic.svg)
+
 ### Example 2
 
 A car lift has pistons of diameter 2.0 cm and 30 cm. What force on the small piston lifts a 1500 kg car? How far must it move to raise the car 0.10 m?
@@ -78,6 +82,19 @@ A floating object sinks until it displaces its own weight of fluid, so the subme
 $$\frac{V_{\text{sub}}}{V} = \frac{\rho_{\text{obj}}}{\rho_{\text{fluid}}}.$$
 
 Ice (917 kg/m³) floats in seawater (1025 kg/m³) with $917/1025 = 89\%$ submerged: the tip of the iceberg is about a tenth. A steel ship floats because its hull encloses lots of air, so its average density is below water's.
+
+The chart sums up how to decide what an object in a fluid will do.
+
+```mermaid
+flowchart TD
+  accTitle: Will it sink or float?
+  accDescr: Compare the object's average density with the fluid's density. If the object is denser, it sinks, and its apparent weight is its weight minus the buoyant force. If the densities are equal, it is neutrally buoyant and stays at any depth. If the fluid is denser, the object rises and floats, with the fraction submerged equal to the object's density divided by the fluid's density.
+  A["Compare the object's average density with the fluid's density"] --> B{"Which is larger?"}
+  B -- "object denser" --> C["Sinks: apparent weight = weight minus buoyant force"]
+  B -- "equal" --> D["Neutrally buoyant: stays at any depth"]
+  B -- "fluid denser" --> E["Rises and floats"]
+  E --> F["Fraction submerged = object density / fluid density"]
+```
 
 ### Example 3
 

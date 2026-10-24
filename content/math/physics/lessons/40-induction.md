@@ -39,6 +39,17 @@ The size of the emf depends on how *fast* the flux changes. The minus sign is Le
 
 To find the direction: (1) find the direction of the original field through the loop; (2) decide whether the flux is increasing or decreasing; (3) the induced field opposes the change; (4) use the right-hand rule for loops to find the current that makes that induced field.
 
+```mermaid
+flowchart TD
+  accTitle: Finding the direction of an induced current with Lenz's law
+  accDescr: Step 1, find the direction of the external field through the loop. Step 2, decide whether the flux is increasing or decreasing. If it is increasing, the induced field points opposite to the external field; if decreasing, the induced field points the same way. Finally, use the right-hand rule for loops to find the current direction that makes that induced field.
+  A["Find the direction of the external field through the loop"] --> B{"Is the flux increasing or decreasing?"}
+  B -- increasing --> C["Induced field points opposite the external field"]
+  B -- decreasing --> D["Induced field points the same way as the external field"]
+  C --> E["Right-hand rule for loops gives the current"]
+  D --> E
+```
+
 Lenz's law is energy conservation in disguise. If induced currents *aided* the change, pushing a magnet slightly toward a coil would make it pull itself in faster and faster, creating energy from nothing. Instead, you always have to do work against the induced effects, and that work becomes the electrical energy.
 
 ### Example 1
@@ -54,6 +65,10 @@ $|\mathcal{E}| = N\dfrac{\Delta\Phi_B}{\Delta t} = 200\dfrac{4.0\times10^{-3}}{0
 A conducting rod of length $L$ sliding at speed $v$ along two rails in a perpendicular field $B$ sweeps out area at the rate $Lv$, so the flux through the circuit changes at rate $BLv$:
 
 $$\mathcal{E} = BLv.$$
+
+![A sliding rod on two horizontal rails in a magnetic field into the page (× marks). A resistor R joins the rails at the left end. The rod at the right moves to the right with velocity v, and arrows show the induced current I flowing up through the rod, left along the top rail and right along the bottom rail: counterclockwise.](images/phys-m10-rails.svg)
+
+In the picture the field points into the page and the enclosed area grows, so the flux into the page increases. The induced current therefore circulates counterclockwise, making a field out of the page inside the loop: up through the rod.
 
 Microscopically, the charges in the moving rod feel a magnetic force $qvB$ along it, which pushes them to one end. With a resistor $R$ closing the circuit, current $I = BLv/R$ flows, and the field then exerts a force $ILB$ on the rod that opposes its motion (Lenz again). Keeping the rod moving at constant speed requires a pushing force, and the power you supply, $Fv = \dfrac{B^2L^2v^2}{R}$, exactly equals the electrical power $I^2R$ dissipated.
 
@@ -78,6 +93,10 @@ an alternating voltage with peak value $NBA\omega$. This is an AC **generator**.
 Changing flux through a solid piece of metal induces swirling **eddy currents** inside it. They heat the metal (induction stoves heat the pan directly) and, by Lenz's law, they resist motion, which is how magnetic brakes on trains and roller coasters work. Transformer and motor cores are made of thin insulated layers to block eddy currents and their energy loss.
 
 A **transformer** has two coils wound on a shared iron core. An alternating current in the primary coil ($N_p$ turns) creates a changing flux that passes through the secondary ($N_s$ turns), inducing a voltage
+
+![A transformer: a rectangular iron core with a few turns of a primary coil, connected to an AC source, wound on its left side, and many turns of a secondary coil, connected to a load, wound on its right side.](images/phys-m10-transformer.svg)
+
+The core carries the changing flux from one coil to the other, so every turn of either coil links the same flux. Each turn therefore has the same emf, and the voltage of each coil is proportional to its number of turns:
 
 $$\frac{V_s}{V_p} = \frac{N_s}{N_p}.$$
 
