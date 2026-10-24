@@ -96,7 +96,7 @@ An Otto cycle at $r = 18$ would give $1 - 18^{-0.4} = 69\%$, but no gasoline eng
 
 ## The Brayton cycle
 
-Gas turbines in power plants and jet engines run continuously instead of in pulses: a compressor raises the pressure of incoming air, fuel burns at steady pressure in a combustion chamber, and the hot gas expands through a turbine. The ideal **Brayton cycle** is adiabatic compression, heat added at constant pressure, adiabatic expansion, and heat rejected at constant pressure. Its design number is the **pressure ratio** $r_p = P_{\max}/P_{\min}$. For an adiabat $T \propto P^{(\gamma-1)/\gamma}$, and the same cancellation as in the Otto derivation gives
+Gas turbines in power plants and jet engines run continuously instead of in pulses: a compressor raises the pressure of incoming air, fuel burns at steady pressure in a combustion chamber, and the hot gas expands through a turbine. The ideal Brayton cycle is adiabatic compression, heat added at constant pressure, adiabatic expansion, and heat rejected at constant pressure. Its design number is the **pressure ratio** $r_p = P_{\max}/P_{\min}$. For an adiabat $T \propto P^{(\gamma-1)/\gamma}$, and the same cancellation as in the Otto derivation gives
 
 $$e_{\text{Brayton}} = 1 - \frac{1}{r_p^{(\gamma-1)/\gamma}}.$$
 

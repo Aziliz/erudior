@@ -1,0 +1,139 @@
+- id: phys-m12-r2-two-body-decay
+  title: Two-body decay at rest
+  topic: Relativistic collisions
+  vars:
+    M: {min: 500, max: 5000, step: 50}
+    m1: {min: 50, max: 2000, step: 10}
+    m2: {min: 0, max: 2000, step: 10}
+  calc:
+    E1: (M^2 + m1^2 - m2^2)/(2*M)
+    p: sqrt(E1^2 - m1^2)
+    K1: E1 - m1
+  where: ['M > m1 + m2 + 50', 'K1 > 0.1*E1']
+  prompt: 'A particle with rest energy {M} MeV, at rest, decays into two particles with rest energies {m1} MeV and {m2} MeV. Find the first product''s total energy (MeV, 4 significant figures), the momentum of each product (as $pc$ in MeV, 3 significant figures), and the first product''s kinetic energy (MeV, 3 significant figures).'
+  answers:
+    - {format: sig4, name: E1, label: '$E_1 =$', relTolerance: 0.001, units: {MeV: 1, GeV: 1000}}
+    - {format: sig4, name: p, label: '$pc =$', relTolerance: 0.01, units: {MeV: 1, 'MeV/c': 1}}
+    - {format: sig4, name: K1, label: '$K_1 =$', relTolerance: 0.015, units: {MeV: 1, GeV: 1000}}
+  solution: |-
+    The products fly apart back to back with equal momenta, and their energies add up to {M} MeV:
+
+    $E_1 = \dfrac{(Mc^2)^2 + (m_1c^2)^2 - (m_2c^2)^2}{2Mc^2} = \dfrac{ {M}^2 + {m1}^2 - {m2}^2}{2({M})} =$ **{E1:sig4} MeV**.
+
+    $pc = \sqrt{E_1^2 - (m_1c^2)^2} = \sqrt{ {E1:sig4}^2 - {m1}^2} =$ **{p:sig3} MeV** for each product.
+
+    $K_1 = E_1 - m_1c^2 = {E1:sig4} - {m1} =$ **{K1:sig3} MeV**.
+- id: phys-m12-r2-threshold
+  title: Threshold energy and invariant mass
+  topic: Relativistic collisions
+  vars:
+    rx: {choices: [{label: '$\gamma + p \to p + \pi^0$ (photon beam on a proton at rest)', value: 1}, {label: '$p + p \to p + p + \pi^0$ (proton beam on a proton at rest)', value: 2}, {label: '$\pi^- + p \to K^0 + \Lambda$ (pion beam on a proton at rest)', value: 3}, {label: '$p + p \to p + p + p + \bar p$ (proton beam on a proton at rest)', value: 4}, {label: '$\gamma + e^- \to e^- + e^- + e^+$ (photon beam on an electron at rest)', value: 5}]}
+    fK: {min: 1.2, max: 5, step: 0.1}
+  calc:
+    ma: if(rx == 1, 0, if(rx == 2, 938.3, if(rx == 3, 139.6, if(rx == 4, 938.3, 0))))
+    mb: if(rx == 5, 0.511, 938.3)
+    S: if(rx == 1, 938.3 + 135.0, if(rx == 2, 2*938.3 + 135.0, if(rx == 3, 497.6 + 1115.7, if(rx == 4, 4*938.3, 3*0.511))))
+    Kth: (S^2 - (ma + mb)^2)/(2*mb)
+    raw: fK*Kth
+    mag: 10^(floor(log10(raw)) - 1)
+    Kb: round(raw/mag)*mag
+    rs: sqrt(ma^2 + mb^2 + 2*(Kb + ma)*mb)
+  prompt: 'For the reaction {rx}, the total rest energy of the products is {S:sig4} MeV. Rest energies: proton 938.3 MeV, $\pi^-$ 139.6 MeV, electron 0.511 MeV, photon 0. Find the threshold kinetic energy of the beam particle (MeV, 3 significant figures). Then find the invariant mass energy $\sqrt s$ (MeV, 3 significant figures) when the beam particle has kinetic energy {Kb:sig3} MeV.'
+  answers:
+    - {format: sig4, name: Kth, label: '$K_{\text{th}} =$', relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
+    - {format: sig4, name: rs, label: '$\sqrt s =$', relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
+  solution: |-
+    Beam rest energy $m_ac^2 = {ma}$ MeV, target $m_bc^2 = {mb}$ MeV, products $\Sigma = {S:sig4}$ MeV.
+
+    $K_{\text{th}} = \dfrac{\Sigma^2 - (m_ac^2 + m_bc^2)^2}{2m_bc^2} = \dfrac{ {S:sig4}^2 - ({ma} + {mb})^2}{2({mb})} =$ **{Kth:sig3} MeV**.
+
+    With $K = {Kb:sig3}$ MeV the beam's total energy is $E_a = K + m_ac^2$, and $(\sqrt s)^2 = (m_ac^2)^2 + (m_bc^2)^2 + 2E_am_bc^2$, so $\sqrt s =$ **{rs:sig3} MeV**. This is above $\Sigma$, so the reaction can happen.
+- id: phys-m12-r2-tunneling
+  title: Tunneling through a rectangular barrier
+  topic: Quantum tunneling
+  vars:
+    E: {min: 0.5, max: 4.5, step: 0.1}
+    dU: {min: 0.5, max: 5, step: 0.1}
+    L: {min: 0.1, max: 1.5, step: 0.05}
+  calc:
+    U: E + dU
+    kap: sqrt(2*511000*dU)/197.3
+    pre: 16*(E/U)*(1 - E/U)
+    T: pre*exp(-2*kap*L)
+  where: ['kap*L >= 1.5', 'kap*L <= 8']
+  prompt: 'An electron with energy {E:num1} eV meets a rectangular barrier {U:num1} eV high and {L:num2} nm wide. Find the decay constant $\kappa$ inside the barrier (nm⁻¹, 3 significant figures) and the transmission probability from the thick-barrier formula $T \approx 16\frac{E}{U}\left(1 - \frac{E}{U}\right)e^{-2\kappa L}$ (3 significant figures). Use $m_ec^2 = 511{,}000$ eV and $\hbar c = 197.3$ eV·nm.'
+  answers:
+    - {format: sig4, name: kap, label: '$\kappa =$', relTolerance: 0.005, units: {'nm⁻¹': 1, '/nm': 1, 'nm^-1': 1}}
+    - {format: sci, name: T, label: '$T \approx$', relTolerance: 0.025}
+  solution: |-
+    $U - E = {dU:num1}$ eV, so $\kappa = \dfrac{\sqrt{2(511{,}000)({dU:num1})}}{197.3} =$ **{kap:sig3} nm⁻¹**.
+
+    Prefactor: $16({E:num1}/{U:num1})(1 - {E:num1}/{U:num1}) = {pre:sig3}$. Exponent: $2\kappa L = 2({kap:sig4})({L:num2})$.
+
+    $T \approx {pre:sig3}\,e^{-2\kappa L} =$ **{T:sig3}**.
+- id: phys-m12-r2-stm
+  title: Scanning tunneling microscope sensitivity
+  topic: Quantum tunneling
+  vars:
+    phi: {min: 3, max: 5.5, step: 0.1}
+    dd: {min: 0.01, max: 0.2, step: 0.01}
+    up: {choices: [{label: widens, value: 1}, {label: narrows, value: -1}]}
+  calc:
+    kap: sqrt(2*511000*phi)/197.3
+    ratio: exp(-2*kap*dd*up)
+  prompt: 'An STM tip sits above a metal surface with work function {phi:num1} eV, which you may take as the barrier height above the tunneling electrons. The gap {up} by {dd:num2} nm. Find $\kappa$ (nm⁻¹, 3 significant figures) and the ratio of the new tunneling current to the old one (3 significant figures), taking the current proportional to $e^{-2\kappa d}$. Use $m_ec^2 = 511{,}000$ eV and $\hbar c = 197.3$ eV·nm.'
+  answers:
+    - {format: sig4, name: kap, label: '$\kappa =$', relTolerance: 0.005, units: {'nm⁻¹': 1, '/nm': 1, 'nm^-1': 1}}
+    - {format: sig4, name: ratio, label: '$I_{\text{new}}/I_{\text{old}} =$', relTolerance: 0.01}
+  solution: |-
+    $\kappa = \dfrac{\sqrt{2(511{,}000)({phi:num1})}}{197.3} =$ **{kap:sig3} nm⁻¹**.
+
+    The gap {up} by $\Delta d = {dd:num2}$ nm, so the current is multiplied by $e^{-2\kappa\,\Delta d}$ with $\Delta d$ positive for a wider gap and negative for a narrower one: ratio $=$ **{ratio:sig3}**.
+- id: phys-m12-r2-alpha-q
+  title: Alpha decay Q-value
+  topic: Nuclear energetics
+  vars:
+    iso: {choices: [{label: 'uranium-238 (238.050788 u) to thorium-234 (234.043601 u)', value: 1}, {label: 'radium-226 (226.025410 u) to radon-222 (222.017578 u)', value: 2}, {label: 'polonium-210 (209.982874 u) to lead-206 (205.974465 u)', value: 3}, {label: 'plutonium-239 (239.052163 u) to uranium-235 (235.043930 u)', value: 4}, {label: 'thorium-232 (232.038055 u) to radium-228 (228.031070 u)', value: 5}, {label: 'radon-222 (222.017578 u) to polonium-218 (218.008973 u)', value: 6}, {label: 'americium-241 (241.056829 u) to neptunium-237 (237.048173 u)', value: 7}]}
+  calc:
+    mP: if(iso == 1, 238.050788, if(iso == 2, 226.025410, if(iso == 3, 209.982874, if(iso == 4, 239.052163, if(iso == 5, 232.038055, if(iso == 6, 222.017578, 241.056829))))))
+    mD: if(iso == 1, 234.043601, if(iso == 2, 222.017578, if(iso == 3, 205.974465, if(iso == 4, 235.043930, if(iso == 5, 228.031070, if(iso == 6, 218.008973, 237.048173))))))
+    A: round(mP)
+    dm: mP - mD - 4.002603
+    Q: dm*931.5
+    Ka: Q*(A - 4)/A
+  prompt: 'Find the Q-value (MeV, 3 significant figures) and the alpha particle''s kinetic energy (MeV, 3 significant figures) for the alpha decay of {iso}, starting at rest. Helium-4 is 4.002603 u; 1 u = 931.5 MeV/$c^2$. Share the energy using mass numbers.'
+  answers:
+    - {format: sig4, name: Q, label: '$Q =$', relTolerance: 0.005, units: {MeV: 1, keV: 0.001}}
+    - {format: sig4, name: Ka, label: '$K_\alpha =$', relTolerance: 0.005, units: {MeV: 1, keV: 0.001}}
+  solution: |-
+    Mass lost: $\Delta m = {mP:dp6} - {mD:dp6} - 4.002603 = {dm:dp6}$ u.
+
+    $Q = {dm:dp6}(931.5) =$ **{Q:sig3} MeV**.
+
+    The alpha particle (mass number 4) and the daughter (mass number {A} − 4) share it in inverse proportion to their masses: $K_\alpha = Q\,\dfrac{A - 4}{A} = {Q:sig4}\cdot\dfrac{ {A} - 4}{ {A} } =$ **{Ka:sig3} MeV**.
+- id: phys-m12-r2-semf
+  title: Liquid-drop binding energy
+  topic: Nuclear energetics
+  vars:
+    A: {min: 40, max: 240}
+  calc:
+    Z: round(A/(2 + 0.015*A^(2/3)))
+    N: A - Z
+    vol: 15.75*A
+    surf: 17.8*A^(2/3)
+    coul: 0.711*Z*(Z - 1)/A^(1/3)
+    asym: 23.7*(A - 2*Z)^2/A
+    sgn: if(mod(A, 2) == 1, 0, if(mod(Z, 2) == 0, 1, -1))
+    pair: sgn*11.18/sqrt(A)
+    EB: vol - surf - coul - asym + pair
+    per: EB/A
+  prompt: 'Use the semi-empirical mass formula with $a_V = 15.75$ MeV, $a_S = 17.8$ MeV, $a_C = 0.711$ MeV, $a_A = 23.7$ MeV and $\delta = 11.18/\sqrt{A}$ MeV (add for even $Z$ and even $N$, subtract for odd $Z$ and odd $N$, zero for odd $A$) to estimate the binding energy of the nucleus with $Z = {Z}$ and $A = {A}$ (MeV, 4 significant figures) and its binding energy per nucleon (MeV, 3 significant figures).'
+  answers:
+    - {format: sig4, name: EB, label: '$E_B =$', relTolerance: 0.005, units: {MeV: 1, GeV: 1000}}
+    - {format: sig4, name: per, label: '$E_B/A =$', relTolerance: 0.005, units: {MeV: 1}}
+  solution: |-
+    $Z = {Z}$, $N = {N}$.
+
+    Volume $15.75({A}) = {vol:sig4}$; surface $17.8({A})^{2/3} = {surf:sig4}$; Coulomb $0.711({Z})({Z} - 1)/{A}^{1/3} = {coul:sig4}$; asymmetry $23.7({A} - 2 \cdot {Z})^2/{A} = {asym:sig3}$; pairing ${pair:sig3}$ (all MeV).
+
+    $E_B = {vol:sig4} - {surf:sig4} - {coul:sig4} - {asym:sig3} + ({pair:sig3}) =$ **{EB:sig4} MeV**, or **{per:sig3} MeV** per nucleon.

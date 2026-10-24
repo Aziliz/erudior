@@ -50,7 +50,7 @@ $$g(r) = \frac{GM}{R^3}\,r = g_s\frac{r}{R} \quad (r \le R),$$
 rising linearly from zero at the center to the surface value $g_s$, then falling off as $1/r^2$ outside.
 
 ```plot
-{"x": [0, 3], "y": [0, 1.15], "xLabel": "r / R", "yLabel": "g / g_s", "functions": [{"f": "x", "from": 0, "to": 1}, {"f": "1/x^2", "from": 1, "to": 3}], "labels": [{"at": [0.3, 0.82], "text": "inside: g ∝ r"}, {"at": [2.1, 0.45], "text": "outside: g ∝ 1/r²"}], "points": [{"at": [1, 1], "label": "surface"}], "caption": "Gravity of a uniform planet: linear inside, inverse-square outside"}
+{"x": [0, 3], "y": [0, 1.15], "xLabel": "r / R", "yLabel": "g / g_s", "functions": [{"f": "x", "from": 0, "to": 1}, {"f": "1/x^2", "from": 1, "to": 3}], "labels": [{"at": [0.45, 0.9], "text": "inside: g ∝ r"}, {"at": [2.1, 0.45], "text": "outside: g ∝ 1/r²"}], "points": [{"at": [1, 1], "label": "surface"}], "caption": "Gravity of a uniform planet: linear inside, inverse-square outside"}
 ```
 
 *Simplified model.* Earth is not uniform: its iron core is much denser than its rocky mantle. Going down, you leave relatively light rock above you while staying close to the dense core, so real $g$ actually *increases* with depth through the mantle, to about 10.7 m/s² near the boundary between the mantle and the outer core (roughly 2,900 km down), before falling to zero at the center.
