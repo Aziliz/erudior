@@ -118,6 +118,8 @@ Lesson numbers below are the file numbers in `lessons/` (an `h` number is an hon
 
 ## Review (2026-10-16)
 
+(Lesson numbers in this review use the numbering before the 2026-10-17 renumbering described under "Gap lessons" below: old 26–34 are now 27–35 and old 35–38 are now 37–40. The outline above uses the current file numbers.)
+
 Independent review in three parts: every question solved before checking its key, every lesson solution checked against its ODE with sympy, every drill generated hundreds of times against an independent solver. All answer keys were correct. App fix from this review: typed answers like 5te^(2t) and tsin(t) now parse as products.
 
 # Diff-eq review, modules de-m1 to de-m4 (lessons 01-17, questions/drills m1-m4, cards.yaml)
