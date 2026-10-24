@@ -16,6 +16,7 @@ export default function CommunityPage({ api }: { api: AppApi }) {
           </button>
         )}
       </div>
+      <h2 className="sr-only">Courses</h2>
       <CommunityCatalog api={api} />
     </div>
   );

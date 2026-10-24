@@ -2,7 +2,8 @@
 // review. Needs the API (cd worker && npm run dev) and the web app:
 //   VITE_COMMUNITY_API=http://localhost:8787 npx vite --port 5181
 //   node scripts/community-walkthrough.mjs [light|dark] [width] [shots dir]
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import fs from "node:fs";
 const axeSrc = fs.readFileSync(new URL("../node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
 const scheme = process.argv[2] || "light";
@@ -29,8 +30,8 @@ const btn = (name) => pg.getByRole("button", { name }).first();
 const tag = Math.random().toString(36).slice(2, 6);
 const title = `Backyard birds ${tag}`;
 
-await pg.goto(B); await pg.waitForTimeout(1500);
-await btn(/^Create$/).click(); await pg.waitForTimeout(800);
+await pg.goto(B + "community"); await pg.waitForTimeout(1500);
+await pg.getByRole("button", { name: "Create a course" }).or(pg.getByRole("link", { name: "Create a course" })).first().click(); await pg.waitForTimeout(800);
 await audit("signin");
 await pg.getByLabel(/^Name$/).fill(`Pat ${tag}`);
 await btn("Sign in (dev)").click(); await pg.waitForTimeout(2000);
@@ -47,18 +48,18 @@ await btn("New course").click(); await pg.waitForTimeout(1200);
 await pg.getByLabel(/^Title$/).fill(title);
 await pg.getByLabel(/^Description/).fill("Common backyard birds and how to tell them apart.");
 await pg.getByRole("combobox", { name: /^Subject/ }).selectOption("Science");
-await pg.getByRole("combobox", { name: /^Level/ }).selectOption("Elementary");
+await pg.getByRole("combobox", { name: /^Level/ }).selectOption("Elementary School");
 await audit("editor-about");
 await btn(/^Lessons/).click(); await pg.waitForTimeout(300);
 await pg.getByLabel("Lesson title").fill("Chickadees");
-await pg.getByLabel(/^Text \(/).fill("The **black-capped chickadee** says its own name. <b>not html</b>");
+await pg.getByLabel(/^Text:/).fill("The **black-capped chickadee** says its own name. <b>not html</b>");
 await btn(/^Image$/).click(); await pg.waitForTimeout(200);
 const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAEklEQVR4nGP4z8CAQOgcbAAADtYP8ZUCZbsAAAAASUVORK5CYII=", "base64");
 await pg.getByLabel(/^Image \(PNG/).setInputFiles({ name: "bird.png", mimeType: "image/png", buffer: png }); await pg.waitForTimeout(1200);
 check("image uploaded", await pg.locator("img.block-image").count() === 1);
 await pg.getByLabel(/^Description for people/).fill("A chickadee on a branch");
 await btn(/^Question$/).click(); await pg.waitForTimeout(200);
-await pg.getByLabel(/^Question$/).fill("Which bird says its own name?");
+await pg.getByLabel(/^Question( ·|$)/).fill("Which bird says its own name?");
 await pg.getByLabel("Choice 1", { exact: true }).fill("Chickadee");
 await pg.getByLabel("Choice 2", { exact: true }).fill("Junco");
 await pg.getByLabel("Choice 1 is right").check();
@@ -70,6 +71,28 @@ await btn("Add a deck").click(); await btn("Add card").click(); await pg.waitFor
 await pg.getByLabel("Card 1 front").fill("Black cap, white cheeks");
 await pg.getByLabel("Card 1 back").fill("Chickadee");
 await audit("editor-cards");
+// Everything official courses have: calculator, formulas, typed answers, modules, glossary, drills, language.
+await btn(/^About$/).click(); await pg.waitForTimeout(200);
+await pg.getByRole("combobox", { name: /^Calculator/ }).selectOption("basic");
+await btn(/^Lessons/).click(); await pg.waitForTimeout(200);
+await btn(/^Formula$/).click(); await pg.waitForTimeout(200);
+await pg.getByLabel(/^Formula in TeX/).fill("a^2 + b^2 = c^2");
+await btn(/^Question$/).click(); await pg.waitForTimeout(200);
+await pg.getByRole("combobox", { name: "Question type" }).last().selectOption("text");
+await pg.getByLabel(/^Question( ·| \(mark|$)/).last().fill("The chickadee's cap is ___.");
+await pg.getByLabel(/^Answer$/).fill("black");
+await audit("editor-lesson-more");
+await btn(/^Modules/).click(); await pg.waitForTimeout(200);
+await audit("editor-modules");
+await btn(/^Glossary/).click(); await btn("Add term").click(); await pg.waitForTimeout(200);
+await pg.getByLabel("Term 1", { exact: true }).fill("cap");
+await pg.getByLabel("Definition 1", { exact: true }).fill("The top of a bird's head.");
+await audit("editor-glossary");
+await btn(/^Drills/).click(); await btn("Add a drill").click(); await btn("Try it").click(); await pg.waitForTimeout(300);
+await audit("editor-drills");
+await btn(/^Language and reading/).click(); await btn("This course teaches a language").click(); await btn("Add a book").click(); await pg.waitForTimeout(200);
+await pg.getByLabel("Book 1 title", { exact: true }).fill("Birds of the backyard");
+await audit("editor-language");
 await btn(/^Publish$/).click(); await pg.waitForTimeout(1600);
 check("saved", (await pg.locator(".save-state").textContent())?.includes("saved"));
 await audit("editor-publish");
@@ -77,9 +100,9 @@ await pg.locator("section.panel").getByRole("button", { name: /^Publish$/ }).cli
 check("published", (await pg.locator(".page-head").textContent())?.includes("Published version 1"));
 
 // Library
-await btn(/^Library$/).click(); await pg.waitForTimeout(1500);
+await pg.goto(B + "community"); await pg.waitForTimeout(1500);
 await pg.fill('[aria-label="Search community courses"]', tag); await pg.waitForTimeout(300);
-const card = pg.locator(".community .catalog-card").filter({ hasText: title });
+const card = pg.locator(".catalog-card").filter({ hasText: title });
 check("in community catalog, not reviewed", (await card.count()) === 1 && (await card.locator(".pill").first().textContent()) === "Not reviewed");
 await audit("library-community");
 await card.getByRole("button", { name: /Start course/ }).click(); await pg.waitForTimeout(2000);
@@ -98,14 +121,14 @@ await pg.goto(`http://localhost:8787/auth/dev?name=Rae%20${tag}&role=reviewer&re
 await pg.getByLabel("I'm 18 or older").check();
 await pg.getByLabel("I accept the community course terms").check();
 await btn(/^Continue$/).click(); await pg.waitForTimeout(800);
-await btn("Review queue").click(); await pg.waitForTimeout(1000);
+await pg.goto(B + "admin"); await pg.waitForTimeout(1500);
 const item = pg.locator(".review-item").filter({ hasText: title });
 check("waiting for review", (await item.count()) === 1);
 check("report listed", (await pg.locator("li.panel").filter({ hasText: title }).filter({ hasText: "Wrong or misleading" }).count()) >= 1);
 await item.getByRole("button", { name: /Read the course/ }).click(); await pg.waitForTimeout(800);
 await audit("review-queue");
 await item.getByRole("button", { name: /Mark version 1 reviewed/ }).click(); await pg.waitForTimeout(1000);
-await btn(/^Library$/).click(); await pg.waitForTimeout(1500);
+await pg.goto(B + "community"); await pg.waitForTimeout(1500);
 await pg.fill('[aria-label="Search community courses"]', tag); await pg.waitForTimeout(300);
 check("tag now reviewed", (await card.locator(".pill").first().textContent()) === "Reviewed");
 await card.getByRole("button", { name: /^Update/ }).click(); await pg.waitForTimeout(2000);

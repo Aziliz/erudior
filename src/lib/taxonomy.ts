@@ -104,3 +104,11 @@ export function subjectKey(subject: string): "math" | "science" | "languages" | 
   if (["Art", "Music"].includes(s)) return "arts";
   return "other";
 }
+
+/** The calculator a subject gets by default. Real exams set the rules: the PSI real estate exams
+ * allow only a basic calculator; math and science get a graphing one (AP exams allow it). */
+export function calculatorForSubject(subject: string | undefined): "basic" | "scientific" | "graphing" {
+  if (subject && ["Real estate", "Law"].includes(subject)) return "basic";
+  if (subject && ["Math", "Science", "Engineering", "Computer science", "Economics", "Business", "Personal finance", "Test prep"].includes(subject)) return "graphing";
+  return "scientific";
+}

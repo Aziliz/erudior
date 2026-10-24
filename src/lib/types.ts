@@ -364,8 +364,8 @@ export interface Course {
   vocab?: VocabItem[];
   /** Recommended reading for the course's level. */
   readingList?: ReadingItem[];
-  /** The calculator offered while studying; by default it follows the subject (lib/calcKind.ts). */
-  calculator?: "basic" | "scientific" | "graphing";
+  /** The calculator offered while studying ("none": no calculator); by default it follows the subject (lib/calcKind.ts). */
+  calculator?: "basic" | "scientific" | "graphing" | "none";
   /** Community courses (made by users on the website): never count toward homeschool records. */
   community?: CommunityInfo;
 }

@@ -6,17 +6,30 @@ import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { ReviewPill } from "../components/CommunityCatalog";
 import { api as community, imageUrl, type Review } from "../lib/community";
-import { LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, toCourse, upgradeDoc, type Block, type CommunityDoc } from "../lib/communityFormat";
-import { shrinkImage } from "../lib/portfolio";
+import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
+import { calculatorForSubject } from "../lib/taxonomy";
+import { renderFigure } from "../lib/figure";
+import { Drills, Glossary, Language, Modules, References, newId } from "./CommunityTabs";
+import { ImagePicker, QuestionEditor, Q_KIND_LABEL, newQuestion } from "./CommunityQuestion";
 
 type Save = "saved" | "saving" | "unsaved" | "error";
-type Tab = "about" | "lessons" | "cards" | "publish";
+type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "publish";
 
-const newId = (prefix: string, taken: string[]) => {
-  for (let i = 1; ; i++) if (!taken.includes(`${prefix}${i}`)) return `${prefix}${i}`;
+const BLOCK_LABEL: Record<Block["type"], string> = {
+  heading: "Heading",
+  text: "Text",
+  list: "List",
+  image: "Image",
+  question: "Question",
+  callout: "Tip or rule box",
+  example: "Worked example",
+  math: "Formula",
+  figure: "Graph or drawing",
+  diagram: "Diagram",
 };
+const ADDABLE: Block["type"][] = ["heading", "text", "list", "example", "callout", "math", "image", "figure", "diagram", "question"];
 
-const BLOCK_LABEL: Record<Block["type"], string> = { heading: "Heading", text: "Text", list: "List", image: "Image", question: "Question" };
+const CALC_LABEL: Record<CalcChoice, string> = { basic: "Basic", scientific: "Scientific", graphing: "Graphing", none: "No calculator" };
 
 export default function CommunityEditor({ api, id }: { api: AppApi; id: string }) {
   const [doc, setDoc] = useState<CommunityDoc | null>(null);
@@ -112,8 +125,13 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
         {(
           [
             ["about", "About"],
+            ["modules", `Modules (${doc.modules?.length || 1})`],
             ["lessons", `Lessons (${doc.lessons.length})`],
             ["cards", `Notecards (${doc.decks.reduce((s, k) => s + k.cards.length, 0)})`],
+            ["glossary", `Glossary (${doc.glossary?.length ?? 0})`],
+            ["refs", `Reference sheets (${doc.references?.length ?? 0})`],
+            ["drills", `Drills (${doc.drills?.length ?? 0})`],
+            ["language", "Language and reading"],
             ["publish", "Publish"],
           ] as [Tab, string][]
         ).map(([t, label]) => (
@@ -126,7 +144,12 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
       <fieldset disabled={readOnly} className="plain-fieldset">
         {tab === "about" && <About doc={doc} update={update} />}
         {tab === "lessons" && <Lessons api={api} doc={doc} update={update} ix={Math.min(lessonIx, doc.lessons.length - 1)} setIx={setLessonIx} />}
+        {tab === "modules" && <Modules api={api} doc={doc} update={update} />}
         {tab === "cards" && <Decks doc={doc} update={update} />}
+        {tab === "glossary" && <Glossary doc={doc} update={update} />}
+        {tab === "refs" && <References doc={doc} update={update} />}
+        {tab === "drills" && <Drills doc={doc} update={update} />}
+        {tab === "language" && <Language doc={doc} update={update} />}
         {tab === "publish" && (
           <Publish
             api={api}
@@ -179,6 +202,51 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
           ))}
         </select>
       </label>
+      <label className="field">
+        <span>Calculator beside lessons, quizzes and drills</span>
+        <select
+          className="select"
+          value={doc.calculator ?? ""}
+          onChange={(e) => update((d) => ({ ...d, calculator: (e.target.value || undefined) as CalcChoice | undefined }))}
+        >
+          <option value="">Usual for {doc.subject} ({CALC_LABEL[calculatorForSubject(doc.subject)].toLowerCase()})</option>
+          {CALCULATORS.map((c) => (
+            <option key={c} value={c}>
+              {CALC_LABEL[c]}
+            </option>
+          ))}
+        </select>
+      </label>
+      <fieldset className="plain-fieldset span-2">
+        <legend>Practice exam (drawn from all the questions in the course)</legend>
+        <div className="row">
+          {(
+            [
+              ["questionCount", "Questions", 300, "up to 50"],
+              ["minutes", "Time limit (minutes)", 600, "1.5 per question"],
+              ["passingPercent", "Passing score (%)", 100, "70"],
+            ] as const
+          ).map(([k, label, max, ph]) => (
+            <label key={k} className="field">
+              <span>{label}</span>
+              <input
+                className="input"
+                type="number"
+                min={1}
+                max={max}
+                placeholder={ph}
+                value={doc.exam?.[k] ?? ""}
+                onChange={(e) =>
+                  update((d) => {
+                    const exam = { ...d.exam, [k]: e.target.value === "" ? undefined : Math.round(Number(e.target.value)) };
+                    return { ...d, exam: Object.values(exam).some((v) => v !== undefined) ? exam : undefined };
+                  })
+                }
+              />
+            </label>
+          ))}
+        </div>
+      </fieldset>
     </section>
   );
 }
@@ -199,17 +267,19 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
   const setBlocks = (fn: (b: Block[]) => Block[]) => setLesson((l) => ({ ...l, blocks: fn(l.blocks) }));
   const addBlock = (type: Block["type"]) => {
     const qids = doc.lessons.flatMap((l) => l.blocks.flatMap((b) => (b.type === "question" ? [b.id] : [])));
-    const b: Block =
-      type === "heading"
-        ? { type, text: "" }
-        : type === "text"
-          ? { type, md: "" }
-          : type === "list"
-            ? { type, ordered: false, items: [""] }
-            : type === "image"
-              ? { type, imageId: "", alt: "", caption: "" }
-              : { type, id: newId("q", qids), stem: "", choices: ["", ""], answer: [], explanation: "" };
-    setBlocks((bs) => [...bs, b]);
+    const blank: Record<Block["type"], () => Block> = {
+      heading: () => ({ type: "heading", text: "" }),
+      text: () => ({ type: "text", md: "" }),
+      list: () => ({ type: "list", ordered: false, items: [""] }),
+      image: () => ({ type: "image", imageId: "", alt: "", caption: "" }),
+      question: () => ({ type: "question", ...newQuestion(newId("q", qids)) }),
+      callout: () => ({ type: "callout", kind: "tip", title: "", md: "" }),
+      example: () => ({ type: "example", title: "", md: "" }),
+      math: () => ({ type: "math", tex: "" }),
+      figure: () => ({ type: "figure", spec: FIGURE_START, caption: "" }),
+      diagram: () => ({ type: "diagram", code: "flowchart LR\n  A[Start] --> B[Next step]", title: "", description: "" }),
+    };
+    setBlocks((bs) => [...bs, blank[type]()]);
   };
 
   return (
@@ -270,6 +340,7 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
                 {preview ? "Edit" : "Preview"}
               </button>
             </div>
+            <LessonSettings doc={doc} lesson={lesson} setLesson={setLesson} />
           </div>
 
           {preview ? (
@@ -290,7 +361,7 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
               ))}
               <div className="panel add-blocks">
                 <span className="small muted">Add a block:</span>
-                {(["heading", "text", "list", "image", "question"] as Block["type"][]).map((t) => (
+                {ADDABLE.map((t) => (
                   <button key={t} className="btn sm" disabled={lesson.blocks.length >= LIMITS.blocksPerLesson} onClick={() => addBlock(t)}>
                     {BLOCK_LABEL[t]}
                   </button>
@@ -301,6 +372,80 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
         </section>
       ) : null}
     </div>
+  );
+}
+
+const FIGURE_START = JSON.stringify({ type: "plot", x: [-5, 5], y: [-5, 5], functions: ["x^2 - 2"], points: [{ at: [0, -2], label: "vertex" }] }, null, 2);
+
+function LessonSettings({
+  doc,
+  lesson,
+  setLesson,
+}: {
+  doc: CommunityDoc;
+  lesson: CommunityDoc["lessons"][number];
+  setLesson: (fn: (l: CommunityDoc["lessons"][number]) => CommunityDoc["lessons"][number]) => void;
+}) {
+  const modules = doc.modules ?? [];
+  const toggle = (list: string[] | undefined, id: string, on: boolean) => {
+    const next = on ? [...(list ?? []), id] : (list ?? []).filter((x) => x !== id);
+    return next.length ? next : undefined;
+  };
+  return (
+    <details className="lesson-settings">
+      <summary>Lesson settings{lesson.honors ? " · honors" : ""}</summary>
+      <div className="form-grid">
+        {modules.length > 0 && (
+          <label className="field">
+            <span>Module</span>
+            <select className="select" value={lesson.module ?? modules[0].id} onChange={(e) => setLesson((l) => ({ ...l, module: e.target.value }))}>
+              {modules.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.title}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+        <label className="field">
+          <span>About how many minutes (optional)</span>
+          <input
+            className="input"
+            type="number"
+            min={1}
+            max={LIMITS.minutes}
+            value={lesson.minutes ?? ""}
+            onChange={(e) => setLesson((l) => ({ ...l, minutes: e.target.value === "" ? undefined : Math.max(1, Math.round(Number(e.target.value))) }))}
+          />
+        </label>
+        <label className="check span-2">
+          <input type="checkbox" checked={!!lesson.honors} onChange={(e) => setLesson((l) => ({ ...l, honors: e.target.checked || undefined }))} />
+          Honors lesson: optional extra depth, not needed to finish the course
+        </label>
+        {(doc.drills?.length ?? 0) > 0 && (
+          <fieldset className="plain-fieldset">
+            <legend className="small">Drills offered with this lesson</legend>
+            {doc.drills!.map((x) => (
+              <label key={x.id} className="check">
+                <input type="checkbox" checked={!!lesson.drills?.includes(x.id)} onChange={(e) => setLesson((l) => ({ ...l, drills: toggle(l.drills, x.id, e.target.checked) }))} />
+                {x.title}
+              </label>
+            ))}
+          </fieldset>
+        )}
+        {(doc.references?.length ?? 0) > 0 && (
+          <fieldset className="plain-fieldset">
+            <legend className="small">Reference sheets offered with this lesson</legend>
+            {doc.references!.map((r) => (
+              <label key={r.id} className="check">
+                <input type="checkbox" checked={!!lesson.refs?.includes(r.id)} onChange={(e) => setLesson((l) => ({ ...l, refs: toggle(l.refs, r.id, e.target.checked) }))} />
+                {r.title}
+              </label>
+            ))}
+          </fieldset>
+        )}
+      </div>
+    </details>
   );
 }
 
@@ -321,10 +466,9 @@ function BlockEditor({
   onMove: (d: number) => void;
   onDelete: () => void;
 }) {
-  const [busy, setBusy] = useState(false);
-  const label = `${BLOCK_LABEL[b.type]} (block ${n})`;
+  const label = `${b.type === "question" ? `Question: ${Q_KIND_LABEL[b.kind ?? "choice"]}` : BLOCK_LABEL[b.type]} (block ${n})`;
   return (
-    <fieldset className="panel block-edit">
+    <fieldset className={`panel block-edit block-${b.type}`}>
       <legend>{label}</legend>
       <div className="row block-tools">
         <button className="btn sm ghost" disabled={n === 1} onClick={() => onMove(-1)}>
@@ -338,14 +482,26 @@ function BlockEditor({
         </button>
       </div>
       {b.type === "heading" && (
-        <label className="field">
-          <span>Heading text</span>
-          <input className="input" value={b.text} maxLength={LIMITS.short} onChange={(e) => onChange({ ...b, text: e.target.value })} />
-        </label>
+        <div className="row" style={{ alignItems: "flex-end" }}>
+          <label className="field grow">
+            <span>Heading text ("Key points" and "Common mistakes" get their own colored box)</span>
+            <input className="input" value={b.text} maxLength={LIMITS.short} onChange={(e) => onChange({ ...b, text: e.target.value })} />
+          </label>
+          <label className="field">
+            <span>Size</span>
+            <select className="select" value={b.level ?? 2} onChange={(e) => onChange({ ...b, level: Number(e.target.value) === 3 ? 3 : undefined })}>
+              <option value={2}>Section</option>
+              <option value={3}>Subsection</option>
+            </select>
+          </label>
+        </div>
       )}
       {b.type === "text" && (
         <label className="field">
-          <span>Text (**bold**, *italic*, [link text](https://…); a blank line starts a new paragraph)</span>
+          <span>
+            Text: **bold**, *italic*, [link](https://…), tables with | pipes |, math like $x^2$ or $$a^2 + b^2 = c^2$$, [[term]] links to the
+            glossary. A blank line starts a new paragraph.
+          </span>
           <textarea className="textarea" rows={6} value={b.md} maxLength={LIMITS.text} onChange={(e) => onChange({ ...b, md: e.target.value })} />
         </label>
       )}
@@ -366,6 +522,60 @@ function BlockEditor({
           </label>
         </>
       )}
+      {(b.type === "callout" || b.type === "example") && (
+        <div className="form-grid">
+          {b.type === "callout" && (
+            <label className="field">
+              <span>Kind of box</span>
+              <select className="select" value={b.kind} onChange={(e) => onChange({ ...b, kind: e.target.value as typeof b.kind })}>
+                <option value="tip">Tip</option>
+                <option value="warning">Warning</option>
+                <option value="rule">Rule or theorem</option>
+              </select>
+            </label>
+          )}
+          <label className="field">
+            <span>{b.type === "example" ? "Example title (optional)" : "Title (like Exam tip or Pythagorean theorem)"}</span>
+            <input className="input" value={b.title} maxLength={LIMITS.short} onChange={(e) => onChange({ ...b, title: e.target.value })} />
+          </label>
+          <label className="field span-2">
+            <span>{b.type === "example" ? "The problem and its worked solution (Markdown and math)" : "Text (Markdown and math)"}</span>
+            <textarea className="textarea" rows={5} value={b.md} maxLength={LIMITS.text} onChange={(e) => onChange({ ...b, md: e.target.value })} />
+          </label>
+        </div>
+      )}
+      {b.type === "math" && (
+        <>
+          <label className="field">
+            <span>Formula in TeX, like \frac{'{a}'}{'{b}'} or x = \frac{'{-b \\pm \\sqrt{b^2 - 4ac}}'}{'{2a}'}</span>
+            <input className="input code" value={b.tex} maxLength={LIMITS.short * 4} onChange={(e) => onChange({ ...b, tex: e.target.value })} />
+          </label>
+          {b.tex.trim() && <Markdown source={`$$${b.tex}$$`} />}
+        </>
+      )}
+      {b.type === "figure" && <FigureFields b={b} onChange={onChange} />}
+      {b.type === "diagram" && (
+        <div className="form-grid">
+          <label className="field span-2">
+            <span>
+              Mermaid diagram (flowchart, sequenceDiagram, timeline, pie, mindmap… see{" "}
+              <a href="https://mermaid.js.org/intro/" target="_blank" rel="noreferrer">
+                mermaid.js.org
+              </a>
+              )
+            </span>
+            <textarea className="textarea code" rows={6} value={b.code} maxLength={LIMITS.text} spellCheck={false} onChange={(e) => onChange({ ...b, code: e.target.value })} />
+          </label>
+          <label className="field">
+            <span>Title</span>
+            <input className="input" value={b.title} maxLength={LIMITS.short} onChange={(e) => onChange({ ...b, title: e.target.value })} />
+          </label>
+          <label className="field">
+            <span>What it shows, for people who can't see it</span>
+            <input className="input" value={b.description} maxLength={LIMITS.short * 2} onChange={(e) => onChange({ ...b, description: e.target.value })} />
+          </label>
+        </div>
+      )}
       {b.type === "image" && (
         <div className="form-grid">
           <div className="span-2">
@@ -375,31 +585,7 @@ function BlockEditor({
               <p className="small muted">No image yet.</p>
             )}
           </div>
-          <label className="field">
-            <span>{b.imageId ? "Replace image" : "Image"} (PNG, JPEG, WebP or GIF)</span>
-            <input
-              className="input"
-              type="file"
-              accept="image/png,image/jpeg,image/webp,image/gif"
-              disabled={busy}
-              onChange={async (e) => {
-                const f = e.target.files?.[0];
-                if (!f) return;
-                setBusy(true);
-                try {
-                  // Large photos are shrunk to 1,600 px first; small images go up as they are.
-                  const blob = f.size > 1.5 * 1024 * 1024 || f.type === "image/jpeg" ? await (await fetch(await shrinkImage(f))).blob() : f;
-                  const { id } = await community.upload(blob);
-                  onChange({ ...b, imageId: id });
-                } catch (err) {
-                  api.toast((err as Error).message);
-                } finally {
-                  setBusy(false);
-                  e.target.value = "";
-                }
-              }}
-            />
-          </label>
+          <ImagePicker api={api} label={b.imageId ? "Replace image" : "Image"} onPicked={(id) => onChange({ ...b, imageId: id })} />
           <label className="field">
             <span>Description for people who can't see it (alt text)</span>
             <input className="input" value={b.alt} maxLength={LIMITS.short} onChange={(e) => onChange({ ...b, alt: e.target.value })} />
@@ -410,71 +596,52 @@ function BlockEditor({
           </label>
         </div>
       )}
-      {b.type === "question" && (
-        <>
-          <label className="field">
-            <span>Question</span>
-            <textarea className="textarea" rows={2} value={b.stem} maxLength={LIMITS.text} onChange={(e) => onChange({ ...b, stem: e.target.value })} />
-          </label>
-          <fieldset className="plain-fieldset choices-edit">
-            <legend className="small">Choices (check the right answer; check more than one for "select all that apply")</legend>
-            {b.choices.map((c, ci) => (
-              <div key={ci} className="row">
-                <label className="check">
-                  <input
-                    type="checkbox"
-                    checked={b.answer.includes(ci)}
-                    onChange={(e) => onChange({ ...b, answer: e.target.checked ? [...b.answer, ci].sort() : b.answer.filter((x) => x !== ci) })}
-                  />
-                  <span className="sr-only">Choice {ci + 1} is right</span>
-                </label>
-                <input
-                  className="input grow"
-                  aria-label={`Choice ${ci + 1}`}
-                  value={c}
-                  maxLength={LIMITS.short}
-                  onChange={(e) => onChange({ ...b, choices: b.choices.map((x, i) => (i === ci ? e.target.value : x)) })}
-                />
-                <button
-                  className="btn sm ghost"
-                  disabled={b.choices.length <= 2}
-                  onClick={() =>
-                    onChange({
-                      ...b,
-                      choices: b.choices.filter((_, i) => i !== ci),
-                      answer: b.answer.filter((x) => x !== ci).map((x) => (x > ci ? x - 1 : x)),
-                    })
-                  }
-                >
-                  Remove<span className="sr-only"> choice {ci + 1}</span>
-                </button>
-              </div>
-            ))}
-            <button className="btn sm" disabled={b.choices.length >= LIMITS.choices} onClick={() => onChange({ ...b, choices: [...b.choices, ""] })}>
-              Add choice
-            </button>
-          </fieldset>
-          <label className="field" style={{ marginTop: 8 }}>
-            <span>Explanation shown after answering (optional)</span>
-            <textarea className="textarea" rows={2} value={b.explanation} maxLength={LIMITS.text} onChange={(e) => onChange({ ...b, explanation: e.target.value })} />
-          </label>
-        </>
-      )}
+      {b.type === "question" && <QuestionEditor api={api} q={b} onChange={(q) => onChange({ ...q, type: "question" })} />}
     </fieldset>
+  );
+}
+
+/** A graph or drawing: the figure spec as JSON, drawn live as you type. */
+function FigureFields({ b, onChange }: { b: Extract<Block, { type: "figure" }>; onChange: (b: Block) => void }) {
+  let svg = "";
+  let error = "";
+  try {
+    svg = renderFigure(readFigure(b.spec));
+  } catch (e) {
+    error = (e as Error).message;
+  }
+  return (
+    <div className="form-grid">
+      <label className="field">
+        <span>
+          Figure as JSON: "type" is plot, shape or numberline; add functions, points, segments, polygons, circles, labels, shading, bars… (the same
+          figure format as official courses)
+        </span>
+        <textarea className="textarea code" rows={12} value={b.spec} maxLength={LIMITS.text} spellCheck={false} onChange={(e) => onChange({ ...b, spec: e.target.value })} />
+      </label>
+      <div>
+        {error ? <p className="notice error small">{error}</p> : <div className="figure" dangerouslySetInnerHTML={{ __html: svg }} />}
+        <label className="field">
+          <span>Caption (optional)</span>
+          <input className="input" value={b.caption} maxLength={LIMITS.short} onChange={(e) => onChange({ ...b, caption: e.target.value })} />
+        </label>
+      </div>
+    </div>
   );
 }
 
 function LessonPreview({ doc, ix }: { doc: CommunityDoc; ix: number }) {
   const course = toCourse(doc, { id: "preview", version: 0, review: "not_reviewed", author: "" }, imageUrl) as {
     lessons: { body: string; title: string; quiz?: string[] }[];
-    banks: { questions: { id: string; stem: string; choices: string[]; answer: number[] }[] }[];
+    banks: { questions: { id: string; type?: string; stem: string; choices: string[]; answer: number[]; left?: string[]; accept?: string[][] }[] }[];
+    glossary: { term: string; definition: string }[];
   };
   const l = course.lessons[ix];
   const qs = (course.banks[0]?.questions ?? []).filter((q) => l.quiz?.includes(q.id));
   return (
     <section className="panel" aria-label="Lesson preview">
       <h2>{l.title}</h2>
-      <Markdown source={l.body} />
+      <Markdown source={l.body} glossary={course.glossary} />
       {qs.length > 0 && (
         <>
           <h3>Lesson quiz</h3>
@@ -483,12 +650,26 @@ function LessonPreview({ doc, ix }: { doc: CommunityDoc; ix: number }) {
               <li key={q.id}>
                 {q.stem}
                 <ul>
-                  {q.choices.map((c, i) => (
-                    <li key={i}>
-                      {c}
-                      {q.answer.includes(i) && " (right)"}
-                    </li>
-                  ))}
+                  {q.type === "text"
+                    ? (q.accept ?? []).map((a, i) => <li key={i}>Accepted: {a.join(" / ")}</li>)
+                    : q.type === "order"
+                      ? q.choices.map((c, i) => (
+                          <li key={i}>
+                            {i + 1}. {c}
+                          </li>
+                        ))
+                      : q.type === "match" || q.type === "label"
+                        ? q.answer.map((a, i) => (
+                            <li key={i}>
+                              {q.left?.[i] ?? `Marker ${i + 1}`} → {q.choices[a]}
+                            </li>
+                          ))
+                        : q.choices.map((c, i) => (
+                            <li key={i}>
+                              {c}
+                              {q.answer.includes(i) && " (right)"}
+                            </li>
+                          ))}
                 </ul>
               </li>
             ))}

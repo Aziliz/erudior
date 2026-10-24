@@ -2,7 +2,7 @@
 // community courses in the Library; the web build also has the course editor and review queue.
 
 import type { CommunityDoc, CommunityMeta } from "./communityFormat";
-import { toCourse } from "./communityFormat";
+import { imageIds, toCourse } from "./communityFormat";
 import { inApp } from "./storage";
 
 export const API = (import.meta.env?.VITE_COMMUNITY_API ?? "").trim().replace(/\/+$/, "");
@@ -134,7 +134,7 @@ async function dataUrl(id: string): Promise<string> {
 export async function downloadCommunityCourse(id: string): Promise<Record<string, unknown>> {
   const c = await api.course(id);
   const images = new Map<string, string>();
-  for (const l of c.doc.lessons) for (const b of l.blocks) if (b.type === "image" && !images.has(b.imageId)) images.set(b.imageId, await dataUrl(b.imageId));
+  for (const img of imageIds(c.doc)) images.set(img, await dataUrl(img));
   const meta: CommunityMeta = { id: c.id, version: c.version, review: c.review, author: c.author };
   return toCourse(c.doc, meta, (img) => images.get(img) ?? "");
 }

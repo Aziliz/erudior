@@ -189,7 +189,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(language ? { language } : {}),
     ...(vocab.length ? { vocab } : {}),
     ...(readingList.length ? { readingList } : {}),
-    ...(["basic", "scientific", "graphing"].includes(str(raw.calculator)) ? { calculator: str(raw.calculator) as Course["calculator"] } : {}),
+    ...(["basic", "scientific", "graphing", "none"].includes(str(raw.calculator)) ? { calculator: str(raw.calculator) as Course["calculator"] } : {}),
     ...(community(raw.community) ? { community: community(raw.community)! } : {}),
   };
 }

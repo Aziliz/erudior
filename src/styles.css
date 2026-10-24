@@ -3694,7 +3694,8 @@ button.catalog-card.home-course {
 }
 .catalog-card[data-subject] .pill.subject {
   background: var(--subj-soft);
-  color: var(--subj);
+  color: var(--ink);
+  box-shadow: inset 3px 0 0 var(--subj);
   font-weight: 650;
 }
 
@@ -4290,4 +4291,60 @@ a.btn:hover {
 }
 .calc-pane .calc-history {
   min-height: 96px;
+}
+/* Community course editor: rows of small fields (drill values, pairs, reading list…). */
+.community-editor .row > .input,
+.community-editor .row > .select {
+  width: auto;
+  flex: 1 1 8em;
+  min-width: 0;
+}
+.community-editor .row > .input.grow {
+  flex: 3 1 14rem;
+}
+.community-editor .row > .num-input {
+  flex: 0 0 6.5em;
+}
+.community-editor .plain-fieldset .row + .row,
+.reading-row + .reading-row {
+  margin-top: 6px;
+}
+.community-editor .plain-fieldset > legend {
+  margin-bottom: 6px;
+}
+.community-editor .plain-fieldset + .field,
+.community-editor .field + .plain-fieldset,
+.community-editor .plain-fieldset + .plain-fieldset,
+.community-editor .form-grid + .plain-fieldset {
+  margin-top: 12px;
+}
+.lesson-settings {
+  margin-top: 12px;
+}
+.lesson-settings > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.lesson-settings[open] > summary {
+  margin-bottom: 10px;
+}
+.textarea.code,
+.input.code {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.875rem;
+}
+.drill-sample {
+  margin-bottom: 12px;
+  background: var(--sheet);
+}
+.community-editor .figure svg {
+  max-width: 100%;
+  height: auto;
+}
+.community-editor .row > .select {
+  flex: 0 1 auto;
+}
+.community-editor .plain-fieldset > .check {
+  margin-top: 10px;
+  min-height: 24px;
 }
