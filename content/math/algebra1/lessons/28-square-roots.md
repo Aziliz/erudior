@@ -65,9 +65,9 @@ The flowchart shows the same procedure, including what to do if you didn't spot 
 ```mermaid
 flowchart TD
   accTitle: How to simplify a square root
-  accDescr: Start with the square root of n. Ask whether n has a perfect-square factor other than 1. If yes, write n as the largest perfect square factor times what is left, take the square root of the perfect square and move it outside as a multiplier, then ask the question again about what is left under the root. If no, the root is in simplest radical form.
+  accDescr: Start with the square root of n. Ask whether n has a perfect-square factor other than 1. If yes, write n as the largest perfect square factor you can spot times what is left, take the square root of the perfect square and move it outside as a multiplier, then ask the question again about what is left under the root. If no, the root is in simplest radical form.
   A["Start with √n"] --> B{"Does n have a perfect-square factor other than 1?"}
-  B -- "yes" --> C["Write n = (largest perfect square) × (rest)"]
+  B -- "yes" --> C["Write n = (the largest perfect square you spot) × (rest)"]
   C --> D["Take the root of the perfect square; it moves outside as a multiplier"]
   D --> B
   B -- "no" --> E["Done: simplest radical form"]

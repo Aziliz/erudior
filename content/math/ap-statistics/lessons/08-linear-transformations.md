@@ -75,10 +75,10 @@ flowchart TD
   S --> P["Spread: SD, IQR, range"]
   S --> V["Variance"]
   S --> H["Shape"]
-  C --> C2["a + b × old (if b < 0, low and high positions swap)"]
+  C --> C2["a + b × old (if b is negative, low and high positions swap)"]
   P --> P2["|b| × old (adding a has no effect)"]
   V --> V2["b² × old"]
-  H --> H2["Unchanged (mirror image if b < 0)"]
+  H --> H2["Unchanged (mirror image if b is negative)"]
 ```
 
 The last row explains why converting units can't change how unusual a value is. A

@@ -8,7 +8,7 @@ topics: [History of quadratics, Golden ratio]
 drills: [alg-m6-r2-khwarizmi, alg-m6-r2-golden-cut]
 refs: [alg-ref-polynomials]
 ---
-In Lesson 23 you completed the square with a picture: a square, two strips, and a missing corner. That picture is close to four thousand years old. People solved quadratic problems long before anyone wrote $x$, $=$ or a minus sign, and their methods were the same completing-the-square steps you know, told as recipes or proved with drawings. This honors lesson follows quadratic equations through a few landmarks, solves the old problems with the tools of Lessons 22–24, and ends with the most famous quadratic of all, the one behind the golden ratio.
+In Lesson 23 you completed the square with a picture: a square, two strips, and a missing corner. The idea behind that picture may be close to four thousand years old. People solved quadratic problems long before anyone wrote $x$, $=$ or a minus sign, and their methods were the same completing-the-square steps you know, told as recipes or proved with drawings. This honors lesson follows quadratic equations through a few landmarks, solves the old problems with the tools of Lessons 22–24, and ends with the most famous quadratic of all, the one behind the golden ratio.
 
 A word on sources: we know these methods from surviving texts, and historians still debate how the ancient authors *thought* about them. Where this lesson describes their reasoning rather than their written steps, it says so.
 

@@ -71,7 +71,7 @@
     specification is {lsl} to {usl} mm. What proportion of parts are out of specification?
     Give 4 decimal places.
   answers:
-    - {name: pout, label: 'Proportion out of spec', tolerance: 0.0006, format: dp4}
+    - {name: pout, label: 'Proportion out of spec', tolerance: 0.0002, format: dp4}
   solution: |-
     Lower limit: $z = \dfrac{{lsl} - {mu}}{{sd}} = {zl:num2}$, and $\Phi({zl:num2}) = {pl:num4}$.
     Upper limit: $z = \dfrac{{usl} - {mu}}{{sd}} = {zu:num2}$, and $1 - \Phi({zu:num2}) = {pu:num4}$.

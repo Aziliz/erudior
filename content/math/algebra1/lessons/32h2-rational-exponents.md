@@ -34,10 +34,10 @@ Exponents written as fractions are called **rational exponents**. The denominato
 ```mermaid
 flowchart TD
   accTitle: Evaluating a power with a rational exponent
-  accDescr: To evaluate a positive base a raised to m over n, first check whether the exponent is negative; if it is, use the reciprocal of the base and make the exponent positive. Then take the nth root of the base, the denominator tells which root. Then raise the result to the mth power, the numerator. Taking the root first keeps the numbers small.
+  accDescr: To evaluate a positive base a raised to m over n, first check whether the exponent is negative; if it is, replace the base by its reciprocal and make the exponent positive. Then take the nth root of the base; the denominator n tells which root. Then raise the result to the mth power, the numerator. Taking the root first keeps the numbers small.
   A["a^(m/n), with a positive base a"] --> B{"Is the exponent negative?"}
-  B -- "yes" --> C["Use the reciprocal: a^(−m/n) = 1 / a^(m/n)"]
-  B -- "no" --> D["Take the nth root of a (the denominator)"]
+  B -- "yes" --> C["Flip the base and drop the minus sign: a^(−m/n) = (1/a)^(m/n)"]
+  B -- "no" --> D["Take the nth root of the base (n is the denominator)"]
   C --> D
   D --> E["Raise the result to the mth power (the numerator)"]
 ```

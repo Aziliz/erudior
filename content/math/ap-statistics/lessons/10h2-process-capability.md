@@ -187,7 +187,7 @@ what would 9 mean?
 
 - Confusing specification limits (what the design requires) with natural variation (what the
   process produces, about $\mu \pm 3\sigma$).
-- Reporting $C_p$ for an off-center process. $C_p$ assumes centering; $C_{pk}$ does not.
+- Reporting only $C_p$ for an off-center process. $C_p$ assumes centering; $C_{pk}$ does not.
 - Dividing by $6\sigma$ in $C_{pk}$. Each side of the process gets only $3\sigma$.
 - Adding only one tail when both limits matter.
 - Computing capability for an unstable process, or from a non-normal distribution without

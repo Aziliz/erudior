@@ -8,7 +8,7 @@ topics: [Sums and products of roots]
 drills: [alg-m6-r2-vieta-sum-product, alg-m6-r2-vieta-symmetric, alg-m6-r2-vieta-other-root]
 refs: [alg-ref-polynomials]
 ---
-Lesson 22 ended by running the factoring method backward: the roots $r$ and $s$ come from the equation $(x - r)(x - s) = 0$. Multiply that product out and something useful appears. The coefficients of a quadratic are built from its roots in a simple way, so you can learn a lot about the roots (their sum, their product, their signs, how far apart they are) without solving the equation at all. This honors lesson develops that idea and uses it to check answers, build equations and find unknown coefficients.
+Lesson 22 also ran the factoring method backward: the roots $r$ and $s$ come from the equation $(x - r)(x - s) = 0$. Multiply that product out and something useful appears. The coefficients of a quadratic are built from its roots in a simple way, so you can learn a lot about the roots (their sum, their product, their signs, how far apart they are) without solving the equation at all. This honors lesson develops that idea and uses it to check answers, build equations and find unknown coefficients.
 
 ## From factors to coefficients
 
@@ -53,7 +53,7 @@ $$x^2 - Sx + P = 0.$$
 
 For example, two numbers with sum 10 and product 21 solve $x^2 - 10x + 21 = 0$, which factors as $(x - 3)(x - 7) = 0$: the numbers are 3 and 7.
 
-Not every sum and product is possible. Two numbers with sum 4 and product 5 would solve $x^2 - 4x + 5 = 0$, whose discriminant is $16 - 20 = -4$. No real numbers work. In general the discriminant of $x^2 - Sx + P$ is $S^2 - 4P$, so real numbers with sum $S$ and product $P$ exist exactly when $P \le \tfrac{S^2}{4}$. That is the same fact as Lesson 26's result that, for a fixed sum, the product is largest when the two numbers are equal (each $\tfrac S2$, product $\tfrac{S^2}{4}$).
+Not every sum and product is possible. Two numbers with sum 4 and product 5 would solve $x^2 - 4x + 5 = 0$, whose discriminant is $16 - 20 = -4$. No real numbers work. In general the discriminant of $x^2 - Sx + P$ is $S^2 - 4P$, so real numbers with sum $S$ and product $P$ exist exactly when $P \le \tfrac{S^2}{4}$. In words: for a fixed sum, the product is largest when the two numbers are equal (each $\tfrac S2$, product $\tfrac{S^2}{4}$). It is the same fact behind Lesson 26's remark that a fixed length of fence, used on all four sides, encloses the most area as a square.
 
 ### Example 2
 
@@ -125,7 +125,7 @@ The product and sum also tell you the signs of the roots before you solve.
 ```mermaid
 flowchart TD
   accTitle: Signs of the roots from the sum and product
-  accDescr: First check that the discriminant b squared minus 4ac is at least 0; if not, there are no real roots. Then look at the product c/a. A negative product means one positive and one negative root. A zero product means one root is 0. A positive product means both roots have the same sign, and the sum minus b/a decides it: a positive sum means both roots are positive, a negative sum means both are negative.
+  accDescr: First check that the discriminant b squared minus 4ac is at least 0; if not, there are no real roots. Then look at the product c/a. A negative product means one positive and one negative root. A zero product means one root is 0. A positive product means both roots have the same sign, and the sum, minus b over a, decides it: a positive sum means both roots are positive, a negative sum means both are negative.
   A{"Is b² − 4ac ≥ 0?"} -- no --> B["No real roots"]
   A -- yes --> C{"Sign of the product c/a"}
   C -- negative --> D["One positive root and one negative root"]

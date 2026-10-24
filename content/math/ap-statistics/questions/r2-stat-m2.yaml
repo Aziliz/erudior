@@ -416,9 +416,9 @@
   type: text
   topic: Normal probability plots
   stem: 'Right-skewed data with only positive values can often be made close to normal by taking the ___ of each value.'
-  accept: [log, logs, logarithm, logarithms, log10, ln, natural log, natural logarithm, log base 10, logarithm base 10]
+  accept: [log, logs, logarithm, logarithms, log10, ln, natural log, natural logarithm, log base 10, logarithm base 10, square root, square roots, sqrt]
   explanation: |-
-    Taking logarithms pulls in large values much more than small ones, which can remove right skew. In Example 3 the repair times' plot had $r = 0.946$; their base-10 logs gave $r = 0.9985$.
+    Taking logarithms pulls in large values much more than small ones, which can remove right skew. In Example 3 the repair times' plot had $r = 0.946$; their base-10 logs gave $r = 0.9985$. Square roots also pull in large values, more gently, and can fix milder right skew.
 
 - id: stat-m2-r2-h13
   lesson: stat-m2-h-quantile-plots

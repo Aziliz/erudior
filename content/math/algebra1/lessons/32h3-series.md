@@ -101,8 +101,8 @@ flowchart TD
   accDescr: First decide whether the terms have a common difference or a common ratio. With a common difference, the series is arithmetic and the sum of n terms is n times the first term plus the last term, over 2. With a common ratio r, ask whether the sum has n terms or goes on forever. For n terms, the sum is a1 times 1 minus r to the n, over 1 minus r, when r is not 1. For an infinite sum, it exists only when the absolute value of r is less than 1, and then it equals a1 over 1 minus r. If the absolute value of r is 1 or more, the infinite series has no sum.
   A{"Common difference or common ratio?"} -- "difference d" --> B["Arithmetic: S = n(a1 + an) / 2"]
   A -- "ratio r" --> C{"n terms or forever?"}
-  C -- "n terms" --> D["S = a1(1 − r^n) / (1 − r)"]
-  C -- "forever" --> E{"Is |r| < 1?"}
+  C -- "n terms" --> D["S = a1(1 − r^n) / (1 − r), for r ≠ 1"]
+  C -- "forever" --> E{"Is |r| less than 1?"}
   E -- "yes" --> F["S = a1 / (1 − r)"]
   E -- "no" --> G["No sum: the series diverges"]
 ```

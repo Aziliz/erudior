@@ -73,10 +73,10 @@ Turning a word problem into a formula follows the same few steps every time:
 ```mermaid
 flowchart TD
   accTitle: Writing an exponential model from a description
-  accDescr: Find the initial value a, the amount at time zero. Then decide how the amount changes each step. If it grows by a percent r, the factor is b = 1 + r. If it shrinks by a percent r, the factor is b = 1 − r. If it doubles, b = 2; if it halves, b = 0.5. Write y = a times b to the t, and check that t counts the same time steps that the rate uses.
+  accDescr: Find the initial value a, the amount at time zero. Then decide how the amount changes each step. If it grows at a rate r, written as a decimal, the factor is b = 1 + r. If it shrinks at a rate r, the factor is b = 1 − r. If it doubles, b = 2; if it halves, b = 0.5. Write y = a times b to the t, and check that t counts the same time steps that the rate uses.
   A["Find the initial value a (the amount at t = 0)"] --> B{"How does it change each step?"}
-  B -- "grows r%" --> C["b = 1 + r"]
-  B -- "shrinks r%" --> D["b = 1 − r"]
+  B -- "grows by rate r" --> C["b = 1 + r (r as a decimal)"]
+  B -- "shrinks by rate r" --> D["b = 1 − r (r as a decimal)"]
   B -- "doubles or halves" --> E["b = 2 or b = 0.5"]
   C --> F["Write y = a · b^t"]
   D --> F
