@@ -60,6 +60,14 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - **App updates:** built in but turned off while the repo is private (see Releases).
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
+## Live hosting and web addresses (2026-10-24)
+
+- Live: app.erudior.com (Pages project `erudior`), courses.erudior.com/v1/ (R2 `erudior-courses`, CORS GET/HEAD *), api.erudior.com (Worker `erudior-community`, D1 `erudior-community` e29b2c3f-3867-41a9-bba7-aa86a3463c39, private R2 `erudior-community`). Cloudflare account 262dfbe98a9322b1f31a693ba1ed5ef3.
+- GitHub Aziliz/examiner is **public** (Jon's choice: private repo was out of free Actions minutes). Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, COURSE_SIGNING_KEY, GOOGLE_CLIENT_SECRET, OAUTH_GITHUB_CLIENT_SECRET. Variables: COURSES_URL, R2_BUCKET, PAGES_PROJECT, COMMUNITY_API, D1_DATABASE_ID, ADMIN_EMAILS, GOOGLE_CLIENT_ID, OAUTH_GITHUB_CLIENT_ID.
+- Production signing public key in `src/lib/courseKeys.ts`; Jon holds the secret key (password manager).
+- Google sign-in: Cloud project `erudior`, External, still in Testing mode. GitHub OAuth app "Erudior" (Aziliz).
+- Website addresses (`src/lib/routes.ts`, wired in App.tsx; website only, not the desktop app): `/` library, `/<course-title-slug>` course or catalog overview (course id also accepted, then rewritten), `/<course>/<tab>`, `/<course>/lessons/<lessonId>`, `/<course>/reference/<id>`, `/progress`, `/search?q=`, `/create`, `/review`, `/live`. Tab switches and overview→course replace the history entry; other screens push one. Activities (practice, results, cards, drills) get an address but reopen the course on reload/back. Pages serves index.html for unknown paths (no 404.html).
+
 ## Question types, pictures, diagrams, honors (v0.22.0)
 
 - **Question kinds** (`src/lib/questions.ts`): choice (single or select-all), `text` (fill in the blank: `___` blanks, `accept` lists, normalized matching), `match`, `label` (image + percent `markers`), `order`. Every kind keeps `choices`/`answer`; answers are `Chosen = (number|string)[]`. All scored all-or-nothing; reviews mark each part. UI: `src/components/QuestionBody.tsx` (Runner + Results), bank editor `src/components/QuestionKindEditor.tsx` (all kinds, picture upload, click-to-place markers). Live rooms use choice questions without pictures only. Community courses stay choice-only.

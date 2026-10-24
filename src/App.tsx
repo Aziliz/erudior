@@ -41,6 +41,28 @@ import CommunityEditor from "./pages/CommunityEditor";
 import ReviewQueue from "./pages/ReviewQueue";
 import LivePlay from "./pages/LivePlay";
 import { LIVE } from "./lib/live";
+import { pageKey, pathToView, viewToPath, type RouteCourse } from "./lib/routes";
+
+/** The website keeps the address bar in step with the screen; the desktop app has no address bar. */
+const ROUTES = !store.inApp && typeof window !== "undefined";
+
+/** Screens that hold an activity's in-memory state; going back to one reopens its course instead. */
+function restorable(v: View): View {
+  switch (v.name) {
+    case "run":
+    case "results":
+    case "editor":
+    case "courseEdit":
+    case "deckEdit":
+      return { name: "library" };
+    case "cards":
+    case "drill":
+    case "vocab":
+      return { name: "course", courseId: v.courseId };
+    default:
+      return v;
+  }
+}
 
 export type View =
   | { name: "library" }
@@ -286,6 +308,8 @@ export default function App() {
         );
       } catch (e) {
         setLoadError(String(e));
+      } finally {
+        setCatalogTried(true);
       }
     })();
   }, [reload]);
@@ -294,6 +318,76 @@ export default function App() {
   const enrolled = family && studentId ? new Set(progress.enrolled ?? []) : null;
   const myCourses = enrolled ? courses.filter((c) => enrolled.has(c.id)) : courses;
   const allBanks = [...myCourses.flatMap((c) => c.banks), ...standalone];
+
+  // Website addresses: app.erudior.com/<course>, /<course>/lessons/<id>, … (see lib/routes.ts).
+  // An address typed or reloaded is opened once the courses (and the catalog) are known.
+  const pendingPath = useRef<string | null>(
+    ROUTES && window.location.pathname !== "/" ? window.location.pathname + window.location.search : null,
+  );
+  const fromPop = useRef(false);
+  const lastPage = useRef<string | null>(null);
+  const [catalogTried, setCatalogTried] = useState(false);
+  const routeCourses = (): RouteCourse[] => {
+    const seen = new Map<string, RouteCourse>();
+    for (const c of [...courses, ...CATALOG]) if (!seen.has(c.id)) seen.set(c.id, { id: c.id, title: c.title });
+    return [...seen.values()];
+  };
+  const bankCourse = (bankId: string) => allBanks.find((b) => b.id === bankId)?.courseId;
+
+  useEffect(() => {
+    if (!ROUTES || !ready || !pendingPath.current) return;
+    const url = new URL(pendingPath.current, window.location.origin);
+    const v = pathToView(url.pathname, url.search, myCourses, CATALOG);
+    if (v || catalogTried) {
+      pendingPath.current = null;
+      if (v && view.name === "library") setView(v);
+      else setView((cur) => ({ ...cur })); // write the address for the screen we're on
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready, catalogTried, courses]);
+
+  useEffect(() => {
+    if (!ROUTES || !ready || pendingPath.current) return;
+    const key = pageKey(view);
+    const path = viewToPath(view, routeCourses(), bankCourse);
+    const title = (() => {
+      const id = "courseId" in view ? view.courseId : view.name === "overview" ? view.catalogId : null;
+      const t = id ? routeCourses().find((c) => c.id === id)?.title : null;
+      return t ? `${t} · Erudior` : "Erudior";
+    })();
+    document.title = title;
+    if (fromPop.current) {
+      fromPop.current = false;
+      lastPage.current = key;
+      return;
+    }
+    const write = (push: boolean) => {
+      const fn = push ? window.history.pushState : window.history.replaceState;
+      try {
+        fn.call(window.history, { erudiorView: view }, "", path);
+      } catch {
+        fn.call(window.history, null, "", path); // a screen whose state can't be stored
+      }
+    };
+    write(lastPage.current !== null && lastPage.current !== key);
+    lastPage.current = key;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, ready]);
+
+  useEffect(() => {
+    if (!ROUTES) return;
+    const onPop = (e: PopStateEvent) => {
+      const saved = (e.state as { erudiorView?: View } | null)?.erudiorView;
+      const v = saved
+        ? restorable(saved)
+        : pathToView(window.location.pathname, window.location.search, myCourses, CATALOG) ?? { name: "library" };
+      fromPop.current = true;
+      setView(v);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [courses, studentId]);
 
   // Look for an unfinished session whenever we're not inside one.
   const banksKey = allBanks.map((b) => b.id + b.questions.length).join();
