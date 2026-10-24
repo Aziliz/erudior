@@ -54,11 +54,11 @@
 - id: phys-h2-r2-h07
   lesson: phys-h2-maxwell
   topic: Maxwell's equations
-  stem: 'Which of Maxwell''s equations shows directly that a plane electromagnetic wave in vacuum has no oscillating field component along its direction of travel?'
+  stem: 'For a plane electromagnetic wave in vacuum traveling along $x$ (fields depending only on $x$ and $t$), which equation gives $\partial E_x/\partial x = 0$, the lesson''s first step in showing that the wave is transverse?'
   choices: ['Gauss''s law with no charge, $\nabla\cdot\vec E = 0$', 'Faraday''s law', 'The continuity equation', 'The Ampère–Maxwell law with $\vec J = \vec 0$']
   answer: 0
   explanation: |-
-    For a wave traveling along $x$ the fields depend only on $x$ and $t$, so $\nabla\cdot\vec E = \partial E_x/\partial x = 0$: $E_x$ cannot oscillate along the travel direction (and $\nabla\cdot\vec B = 0$ does the same for $\vec B$). Faraday's and the Ampère–Maxwell law link the two fields and fix $E = cB$; the continuity equation is about charge.
+    For a wave traveling along $x$ the fields depend only on $x$ and $t$, so $\nabla\cdot\vec E = \partial E_x/\partial x = 0$: $E_x$ cannot vary along the travel direction as a wave must (and $\nabla\cdot\vec B = 0$ does the same for $\vec B$). Faraday's and the Ampère–Maxwell law contain no divergence: they link the two fields and fix $E = cB$ (the Ampère–Maxwell law's $x$ component also rules out a time-varying $E_x$, but it says nothing about $\partial E_x/\partial x$); the continuity equation is about charge.
 - id: phys-h2-r2-h08
   lesson: phys-h2-maxwell
   topic: Maxwell's equations
@@ -89,7 +89,7 @@
   type: text
   topic: Maxwell's equations
   stem: 'A field is $\vec E = (5.0\,x\,\hat\imath + 3.0\,y\,\hat\jmath + 2.0\,z\,\hat k)\times10^3$ V/m² (with $x, y, z$ in meters). The charge density is ___ $\times10^{-8}$ C/m³. Give only the number.'
-  accept: ['8.85', '8.9']
+  accept: ['8.85', '8.854', '8.9']
   explanation: |-
     $\nabla\cdot\vec E = (5.0 + 3.0 + 2.0)\times10^3 = 1.0\times10^4$ V/m², so $\rho = \varepsilon_0\nabla\cdot\vec E = (8.85\times10^{-12})(1.0\times10^4) = 8.85\times10^{-8}$ C/m³ (8.9 to two significant figures).
 - id: phys-h2-r2-h12

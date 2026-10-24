@@ -110,7 +110,7 @@ $$v = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = \frac{1}{\sqrt{(4\pi\times10^{-7})(8
 
 Two constants measured with currents and charges at rest give the speed of light, with no optics anywhere in the calculation.
 
-The equations say more than the speed. For a **plane wave** traveling along $x$, the fields depend only on $x$ and $t$. Gauss's law with no charge then gives $\partial E_x/\partial x = 0$, so there is no oscillating field component along the direction of travel: the wave is transverse. Faraday's law links $\vec B$ to $\vec E$, as the next example shows, making $\vec B$ perpendicular to $\vec E$ with $E = cB$ and $\vec E\times\vec B$ along the direction of travel.
+The equations say more than the speed. For a **plane wave** traveling along $x$, the fields depend only on $x$ and $t$. Gauss's law with no charge then gives $\partial E_x/\partial x = 0$, so $E_x$ cannot vary along the direction of travel the way a wave must (the $x$ component of the Ampère–Maxwell law also gives $\partial E_x/\partial t = 0$, so any $E_x$ is just a constant field, not part of the wave): the wave is transverse. Faraday's law links $\vec B$ to $\vec E$, as the next example shows, making $\vec B$ perpendicular to $\vec E$ with $E = cB$ and $\vec E\times\vec B$ along the direction of travel.
 
 ### Example 3
 

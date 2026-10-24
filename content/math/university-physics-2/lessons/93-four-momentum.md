@@ -95,13 +95,13 @@ The heavy nucleus takes the needed momentum at almost no energy cost; the correc
 
 ### Example 3
 
-In 1955 Owen Chamberlain, Emilio Segrè and their team at Berkeley discovered the antiproton by firing protons at protons at rest: $p + p \to p + p + p + \bar p$. What beam kinetic energy is needed? ($m_pc^2 = 938.3$ MeV.)
+In 1955 Owen Chamberlain, Emilio Segrè and their team at Berkeley discovered the antiproton by firing a proton beam into a copper target. The basic reaction is a beam proton striking a proton (or neutron) at rest, for example $p + p \to p + p + p + \bar p$. What beam kinetic energy is needed? ($m_pc^2 = 938.3$ MeV.)
 
 Here $m_b = m_t = m_p$ and $M = 4m_p$:
 
 $$K_{\text{th}} = \frac{(4m_p)^2 - (2m_p)^2}{2m_p}c^2 = 6m_pc^2 = 5.63\text{ GeV}.$$
 
-Creating only $2m_pc^2 = 1.88$ GeV of new mass takes 5.63 GeV of beam energy. The Bevatron accelerator that made the discovery was built to reach about 6 GeV with this threshold in mind. Fixed targets waste most of the beam's energy on moving the products along, which is why modern colliders aim two beams at each other: head-on, equal and opposite momenta cancel, and the whole energy is available.
+Creating only $2m_pc^2 = 1.88$ GeV of new mass takes 5.63 GeV of beam energy. The Bevatron accelerator that made the discovery was built to reach a little over 6 GeV with this threshold in mind. (Nucleons inside the copper nuclei are not quite at rest; their motion lowers the effective threshold somewhat, but the free-proton value sets the scale.) Fixed targets waste most of the beam's energy on moving the products along, which is why modern colliders aim two beams at each other: head-on, equal and opposite momenta cancel, and the whole energy is available.
 
 ## Compton's formula in four lines
 
