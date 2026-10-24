@@ -36,6 +36,11 @@ Then $P(L \le \theta \le U) = 1 - \alpha$, and $[L, U]$ is a $100(1-\alpha)\%$ *
 Notation: $z_{\alpha/2}$ is the value with area $\alpha/2$ to its right under $N(0, 1)$ (1.960 for $\alpha = 0.05$), and
 $t_{\alpha/2,\,\nu}$ the same for $t_\nu$.
 
+The picture shows step 2 for the $t$ pivot: the two cutoffs leave area $\alpha/2$ in each tail, so the
+pivot falls between them with probability $1 - \alpha$.
+
+![The t density of the pivot T equals x-bar minus mu over S over root n. Dashed cutoffs at minus t alpha over 2 and t alpha over 2. The central region between them is shaded and labeled area 1 minus alpha; each tail beyond a cutoff is shaded in a second color and labeled area alpha over 2.](images/ps-m6-pivot-areas.svg)
+
 ## Normal mean, $\sigma$ known
 
 Start from $-z_{\alpha/2} \le \dfrac{\bar X - \mu}{\sigma/\sqrt n} \le z_{\alpha/2}$. Multiply by $\sigma/\sqrt n$, subtract $\bar X$, and multiply by $-1$
@@ -140,6 +145,26 @@ Assume normal populations with equal variances. Find a 95% interval for $\mu_A -
 
 The interval lies entirely above 0, so the data favor supplier A, though the size of the
 advantage is poorly determined.
+
+## Choosing the interval
+
+The chart summarizes which pivot to use. When none fits, the bootstrap of the next lesson takes over.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a confidence interval
+  accDescr: A chain of questions. Is the target a difference of two means? If yes, use the pooled t interval with n1 plus n2 minus 2 df when equal variances are assumed, and Welch's t otherwise. If not, is it one proportion? If yes, use the large-sample z interval or the Wilson interval. If not, is it a variance of normal data? If yes, use the chi-square interval with n minus 1 df. Otherwise it is one mean: use the z interval if sigma is known and the t interval with n minus 1 df if it is not.
+  A{"Difference of two means?"} -- "yes" --> G{"Equal variances?"}
+  G -- "yes" --> H["Pooled t, n1 + n2 − 2 df"]
+  G -- "no" --> I["Welch's t"]
+  A -- "no" --> B{"One proportion?"}
+  B -- "yes" --> P["Large-sample z or Wilson"]
+  B -- "no" --> E{"A variance (normal data)?"}
+  E -- "yes" --> E1["Chi-square, n − 1 df"]
+  E -- "no: one mean" --> C{"σ known?"}
+  C -- "yes" --> C1["z interval"]
+  C -- "no" --> C2["t interval, n − 1 df"]
+```
 
 ## Common mistakes
 

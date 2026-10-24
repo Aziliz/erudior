@@ -175,28 +175,29 @@
     Divide: ${a:coef}x {b:signed} = {a}(x {d:signed}) + ({kk})$, so $f(x) = {a} + \dfrac{ {kk} }{x {d:signed}}$.
     So $h =$ **{hh}**, $v =$ **{vv}**, $k =$ **{kk}**: the graph of $\tfrac1x$ stretched by $k$ and centered at $({hh}, {vv})$.
 
-- id: pc-m3-r2-lf-inverse
-  title: Evaluate the inverse of a linear fractional function
+- id: pc-m3-r2-lf-reflect
+  title: Use the center of symmetry
   topic: Linear fractional functions
   vars:
-    a: {min: -5, max: 5}
-    b: {min: -9, max: 9}
-    c: {min: 1, max: 3}
-    d: {min: -9, max: 9}
-    y0: {min: -6, max: 6}
-  where: ["a != 0", "b != 0", "d != 0", "a*d - b*c != 0", "a - c*y0 != 0"]
+    a: {choices: [-4, -3, -2, -1, 1, 2, 3, 4]}
+    kk: {choices: [-12, -6, -4, -3, -2, 2, 3, 4, 6, 12]}
+    hh: {min: -5, max: 5}
+    s: {choices: [1, 2, 3, 4, 6]}
+  where: ["hh != 0", "bb != 0"]
   calc:
-    nb: -b
-    nc: -c
-    num: d*y0 - b
-    den: a - c*y0
-    xv: (d*y0 - b)/(a - c*y0)
-  prompt: 'Let $f(x) = \dfrac{ {a:coef}x {b:signed} }{ {c:coef}x {d:signed} }$. Find $f^{-1}({y0})$ exactly (an integer or a fraction).'
+    nh: -hh
+    bb: kk - a*hh
+    x1: hh + s
+    x2: hh - s
+    y1: a + kk/s
+    y2: a - kk/s
+    twov: 2*a
+  prompt: 'For $f(x) = \dfrac{ {a:coef}x {bb:signed} }{ x {nh:signed} }$, you are told that $f({x1}) = {y1:frac}$. Use the center of symmetry (no substitution) to find $f({x2})$. Give an exact answer.'
   answers:
-    - {name: xv, label: '$f^{-1}({y0}) =$', kind: fraction}
+    - {name: y2, label: '$f({x2}) =$', kind: fraction}
   solution: |-
-    The inverse swaps $a$ and $d$ and negates $b$ and $c$: $f^{-1}(x) = \dfrac{ {d:coef}x {nb:signed} }{ {nc:coef}x {a:signed} }$.
-    At $x = {y0}$: $\dfrac{ {d}({y0}) {nb:signed} }{ {nc}({y0}) {a:signed} } = \dfrac{ {num} }{ {den} } =$ **{xv:frac}**.
+    The asymptotes are $x = {hh}$ and $y = {a}$, so the center is $({hh}, {a})$. The inputs ${x1}$ and ${x2}$ are both {s} units from ${hh}$, so $f({x1}) + f({x2}) = 2({a}) = {twov}$.
+    Then $f({x2}) = {twov} - {y1:frac} =$ **{y2:frac}**.
 
 - id: pc-m3-r2-lens
   title: Thin-lens image distance

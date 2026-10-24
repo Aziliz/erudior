@@ -1,0 +1,54 @@
+# Round 2 drills for module ps-m5 (honors lessons 22h1 and 22h2)
+- id: ps-m5-r2-hoeffding-n
+  title: Sample size from Hoeffding's inequality
+  topic: Concentration inequalities
+  vars:
+    eps: {choices: [0.01, 0.02, 0.025, 0.03, 0.04, 0.05, 0.1]}
+    dl: {choices: [{label: '0.10', value: 0.1}, {label: '0.05', value: 0.05}, {label: '0.01', value: 0.01}, {label: '0.001', value: 0.001}]}
+    rg: {choices: [1, 2, 5, 10]}
+  calc:
+    raw: rg^2*ln(2/dl)/(2*eps^2)
+    nh: ceil(raw - 1e-9)
+  where: ['nh <= 500000']
+  prompt: |-
+    Each observation is known to lie between 0 and {rg}; nothing else is known about its distribution.
+    Using Hoeffding's inequality, find the smallest $n$ that guarantees
+    $P(|\bar X_n - \mu| \ge {eps}) \le {dl}$.
+  answers:
+    - {name: nh, label: '$n =$', format: integer}
+  solution: |-
+    Two-sided Hoeffding for values in an interval of length {rg}:
+    $P(|\bar X_n - \mu| \ge {eps}) \le 2\exp\!\Big(-\dfrac{2n({eps})^2}{{rg}^2}\Big)$.
+    Setting this $\le {dl}$ and taking logs: $n \ge \dfrac{{rg}^2\ln(2/{dl})}{2({eps})^2} = {raw:num2}$.
+    Round up: $n =$ **{nh:int}**.
+
+- id: ps-m5-r2-chernoff-binom
+  title: Chernoff and Hoeffding bounds for a binomial tail
+  topic: Concentration inequalities
+  vars:
+    nn: {min: 40, max: 400, step: 20}
+    pp: {choices: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5]}
+    dd: {choices: [0.05, 0.1, 0.15, 0.2]}
+  calc:
+    kk: round(nn*(pp + dd))
+    aa: kk/nn
+    kl: aa*ln(aa/pp) + (1 - aa)*ln((1 - aa)/(1 - pp))
+    ch: exp(-nn*kl)
+    hf: exp(-2*nn*(aa - pp)^2)
+    mu: nn*pp
+    qa: 1 - aa
+    qp: 1 - pp
+  where: ['pp + dd <= 0.9', 'nn*kl >= 1', 'nn*kl <= 12']
+  prompt: |-
+    $S \sim \text{Bin}({nn}, {pp})$. Find (a) the Chernoff bound $e^{-nD(a\,\|\,p)}$ and (b) the Hoeffding bound
+    $e^{-2n(a - p)^2}$ for $P(S \ge {kk:int})$. Give each to 3 significant figures.
+  answers:
+    - {name: ch, label: '(a) Chernoff', sigfigs: 3}
+    - {name: hf, label: '(b) Hoeffding', sigfigs: 3}
+  solution: |-
+    The cutoff as a proportion is $a = {kk:int}/{nn} = {aa:num2}$, above $p = {pp}$ (the mean is {mu:num1}).
+
+    (a) $D(a\,\|\,p) = {aa:num2}\ln\dfrac{{aa:num2}}{{pp}} + {qa:num2}\ln\dfrac{{qa:num2}}{{qp:num2}}$. Computing,
+    $D = {kl:dp3}$ (to 3 places; keep full precision), so the bound is $e^{-{nn}D} =$ **{ch:sig3}**.
+
+    (b) $e^{-2({nn})({aa:num2} - {pp})^2} =$ **{hf:sig3}**. It is never smaller than the Chernoff bound, because $D(a\,\|\,p) \ge 2(a - p)^2$.

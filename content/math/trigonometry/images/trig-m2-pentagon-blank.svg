@@ -5,7 +5,7 @@
 <line x1="260.0" y1="240.0" x2="371.7" y2="393.7" stroke="#1c2833" stroke-width="2.5"/>
 <line x1="260.0" y1="240.0" x2="260.0" y2="393.7" stroke="#1c2833" stroke-width="2.5" stroke-dasharray="7 5"/>
 <polyline points="260.0,379.7 274.0,379.7 274.0,393.7" fill="none" stroke="#1c2833" stroke-width="1.8"/>
-<path d="M260.0,240.0 L260.0,282.0 A42,42 0 0 0 284.7,274.0 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M260.0,240.0 L260.0,325.0 A85,85 0 0 0 310.0,308.8 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="260" cy="240" r="5" fill="#1c2833"/>
 <circle cx="260.0" cy="50.0" r="4" fill="#1c2833"/>
 <circle cx="440.7" cy="181.3" r="4" fill="#1c2833"/>

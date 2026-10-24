@@ -53,6 +53,10 @@ The conditional mean is a straight line with slope $\rho\sigma_Y/\sigma_X$, the 
 a value $k$ SDs above average in $X$ predicts a value only $\rho k$ SDs above average in $Y$:
 this is **regression to the mean**.
 
+The next picture shows a density contour (an ellipse) in standard units with $\rho = 0.6$ and three lines through its centre. The dashed SD line (slope $\sigma_Y/\sigma_X$) is the ellipse's long axis, but it is *not* the best prediction: the line of conditional means $E[Y \mid X = x]$ is flatter, with slope $\rho\sigma_Y/\sigma_X$. Predicting $X$ from $Y$ uses a third, steeper line, $E[X \mid Y = y]$. The two regression lines differ unless $|\rho| = 1$.
+
+![An ellipse tilted up to the right with its centre marked; a dashed line along its long axis labeled SD line, a flatter solid line labeled E[Y given X = x], and a steeper dotted line labeled E[X given Y = y], all through the centre](images/ps-m4-bvn-lines.svg)
+
 ```plot
 {"x": [40, 100], "y": [40, 105], "xLabel": "midterm x", "yLabel": "final y", "points": [[85.7, 86.9], [77.4, 76.8], [60.3, 79.3], [67.9, 77.5], [67.1, 91.1], [93.6, 94.0], [60.6, 58.2], [83.8, 76.6], [71.2, 87.7], [80.2, 73.3], [70.0, 76.8], [73.9, 98.8], [74.9, 78.9], [71.1, 67.7], [76.5, 88.4], [73.5, 81.6], [82.3, 72.9], [88.1, 95.8], [69.1, 76.6], [68.1, 80.9], [74.1, 72.2], [53.4, 74.4], [73.1, 72.8], [64.8, 83.6], [61.8, 58.8], [54.2, 67.0], [67.8, 77.1], [75.1, 66.7], [64.7, 53.3], [60.9, 62.1], [64.4, 63.7], [68.5, 68.0], [58.4, 65.5], [64.7, 93.0], [59.2, 69.4], [68.7, 90.0], [87.4, 91.5], [71.7, 87.3], [89.9, 95.3], [63.1, 71.1], [58.6, 72.0], [67.2, 94.4], [70.9, 60.4], [73.7, 80.6], [73.9, 84.3], [66.8, 61.5], [78.9, 87.0], [69.1, 76.6], [77.0, 92.4], [74.5, 84.7], [72.5, 77.1], [72.2, 79.7], [62.8, 49.4], [75.4, 98.6], [75.8, 81.8], [65.2, 58.4], [95.4, 84.1], [71.7, 74.2], [57.2, 60.3], [54.3, 65.4], [61.5, 62.3], [48.1, 64.1], [74.1, 73.4], [59.4, 66.4], [73.9, 64.3], [56.2, 57.6], [72.2, 75.0], [80.8, 73.3], [75.9, 76.4], [52.6, 58.9]], "functions": [{"f": "75 + 0.72*(x - 70)", "label": "E[Y | X = x]"}], "caption": "70 simulated pairs from a bivariate normal with ρ = 0.6, and the line of conditional means"}
 ```
@@ -104,6 +108,22 @@ $k/(n+1)$: the $n$ points split $(0, 1)$ into $n + 1$ gaps of equal average leng
 ### Example 2: series and parallel systems
 
 Five components have iid exponential lifetimes with mean 1000 hours (rate $\lambda = 0.001$).
+
+```mermaid
+flowchart LR
+  accTitle: Series and parallel systems
+  accDescr: In a series system the signal passes through components 1, 2 and 3 one after another, so the system fails when the first component fails and its lifetime is the minimum. In a parallel system the components sit side by side, so the system works until the last one fails and its lifetime is the maximum.
+  subgraph S["Series: lifetime = minimum"]
+    direction LR
+    a1["1"] --> a2["2"] --> a3["3"]
+  end
+  subgraph P["Parallel: lifetime = maximum"]
+    direction LR
+    s(( )) --> b1["1"] --> t(( ))
+    s --> b2["2"] --> t
+    s --> b3["3"] --> t
+  end
+```
 
 (a) *Series system* (fails when the first component fails): lifetime $X_{(1)}$.
 $P(X_{(1)} > x) = (e^{-\lambda x})^5 = e^{-5\lambda x}$, so the minimum is exponential with rate $5\lambda$, mean

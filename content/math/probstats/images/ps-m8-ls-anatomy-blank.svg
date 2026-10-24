@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" width="720" height="440" role="img">
+<title>Parts of a least squares fit</title>
+<rect x="0" y="0" width="720" height="440" fill="#ffffff"/>
+<line x1="90" y1="390" x2="650" y2="390" stroke="#1c2833" stroke-width="2"/>
+<line x1="90" y1="390" x2="90" y2="54" stroke="#1c2833" stroke-width="2"/>
+<text x="650" y="420" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="end">x</text>
+<text x="76" y="60" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="end">y</text>
+<line x1="90" y1="320.7" x2="650" y2="85.5" stroke="#2c5e8f" stroke-width="3"/>
+<line x1="440.0" y1="89.7" x2="440.0" y2="173.7" stroke="#b03a2e" stroke-width="3" stroke-dasharray="7 5"/>
+<circle cx="160.0" cy="314.8" r="7" fill="#1c2833"/>
+<circle cx="230.0" cy="204.8" r="7" fill="#1c2833"/>
+<circle cx="300.0" cy="289.6" r="7" fill="#1c2833"/>
+<circle cx="440.0" cy="89.7" r="7" fill="#1c2833"/>
+<circle cx="510.0" cy="228.3" r="7" fill="#1c2833"/>
+<circle cx="580.0" cy="91.4" r="7" fill="#1c2833"/>
+<circle cx="440.0" cy="173.7" r="7" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="362.0" y="195.1" width="16" height="16" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="90" cy="320.7" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5"/>
+<polyline points="482.0,156.1 552.0,156.1 552.0,126.7" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+</svg>

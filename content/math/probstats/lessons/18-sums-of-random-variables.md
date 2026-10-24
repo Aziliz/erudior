@@ -59,6 +59,12 @@ $1 \cdot 1$ is nonzero when $0 < x < 1$ and $0 < z - x < 1$, that is $z - 1 < x 
 - For $0 < z \le 1$: $x \in (0, z)$, so $f_Z(z) = z$.
 - For $1 < z < 2$: $x \in (z - 1, 1)$, so $f_Z(z) = 2 - z$.
 
+In the $(x, y)$ plane, $f_Z(z)$ is the length of the line $x + y = z$ inside the unit square, measured along $x$. That length grows until $z = 1$ and then shrinks:
+
+```plot
+{"x": [-0.15, 1.6], "y": [-0.15, 1.6], "equal": true, "xLabel": "x", "yLabel": "y", "polygons": [{"points": [[0, 0], [1, 0], [1, 1], [0, 1]]}], "segments": [{"from": [0, 0.6], "to": [0.6, 0], "dashed": true}, {"from": [0.4, 1], "to": [1, 0.4], "dashed": true}], "labels": [{"at": [0.2, 0.2], "text": "x + y = 0.6"}, {"at": [1.2, 1.2], "text": "x + y = 1.4"}], "caption": "For z = 0.6, x runs over (0, 0.6); for z = 1.4, x runs over (0.4, 1). Both have length 0.6, so f(0.6) = f(1.4) = 0.6"}
+```
+
 ```plot
 {"x": [-0.3, 2.3], "y": [0, 1.25], "xLabel": "z", "yLabel": "density", "functions": [{"f": "x", "from": 0, "to": 1}, {"f": "2 - x", "from": 1, "to": 2}, {"f": "1", "from": 0, "to": 1, "dashed": true}], "labels": [{"at": [0.3, 1.08], "text": "one uniform"}, {"at": [1.55, 0.8], "text": "sum of two"}], "caption": "The sum of two independent Uniform(0, 1) variables has a triangular density"}
 ```
@@ -127,6 +133,20 @@ The same argument gives a family of "closure" results:
 
 The conditions matter: binomials with different $p$, or gammas with different scales, do *not*
 give a binomial or gamma sum (the MGF product isn't of that form).
+
+Which method to reach for:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for the distribution of a sum
+  accDescr: First check that the terms are independent; if not, you can still get the mean and variance from the covariance rules, but the distribution needs the joint model. If they are independent and come from a closed family with matching conditions, such as Poisson, normal, binomial with the same p, or gamma with the same scale, read the answer from the closure table. Otherwise, if the MGFs are known, multiply them and recognize the product. If no MGF is recognizable, use the convolution sum or integral, or a change of variables with a Jacobian.
+  A{"Are the terms independent?"} -- no --> B["Mean and variance from covariance rules; distribution needs the joint model"]
+  A -- yes --> C{"Same closed family, conditions met?"}
+  C -- yes --> D["Read it from the closure table"]
+  C -- no --> E{"Is the product of MGFs a known MGF?"}
+  E -- yes --> F["MGF method"]
+  E -- no --> G["Convolution sum or integral, or Jacobian change of variables"]
+```
 
 ### Example 4: a two-leg journey
 

@@ -30,6 +30,11 @@ Fix one acute angle $\theta$ of a right triangle. Relative to $\theta$:
 "Opposite" and "adjacent" depend on which acute angle you are looking at. Switch to the
 other acute angle and the two legs trade names; the hypotenuse never changes.
 
+The picture below shows one triangle twice. Nothing about the triangle changes between
+the two panels; only the angle you stand at does.
+
+![The same right triangle drawn twice. On the left the marked angle θ is at the lower left corner: the bottom leg is labeled adjacent, the vertical leg opposite and the slanted side hypotenuse. On the right the marked angle β is at the top corner: now the bottom leg is labeled opposite and the vertical leg adjacent, while the hypotenuse is unchanged.](images/trig-m2-two-views.svg)
+
 ```shape
 {"polygons": [{"points": [[0, 0], [6, 0], [6, 3.5]]}], "rightAngles": [[[6, 0], [0, 0], [6, 3.5]]], "labels": [{"at": [1.2, 0.3], "text": "θ"}, {"at": [3, -0.45], "text": "adjacent"}, {"at": [7.2, 1.75], "text": "opposite"}, {"at": [2.6, 2.3], "text": "hypotenuse"}]}
 ```
@@ -97,6 +102,19 @@ $\tfrac{3\sqrt{10}}{2 \cdot 10}$.
 
 ```shape
 {"polygons": [{"points": [[0, 0], [6.3246, 0], [6.3246, 3]]}], "rightAngles": [[[6.3246, 0], [0, 0], [6.3246, 3]]], "labels": [{"at": [1.4, 0.3], "text": "θ"}, {"at": [3.16, -0.45], "text": "2√10"}, {"at": [6.75, 1.5], "text": "3"}, {"at": [2.9, 2.0], "text": "7"}], "caption": "A triangle with sin θ = 3/7"}
+```
+
+Example 2 follows a routine that works for any single given ratio:
+
+```mermaid
+flowchart TD
+  accTitle: Finding all six ratios from one given ratio
+  accDescr: Start with one ratio of an acute angle. Draw a right triangle whose two sides match the numerator and denominator of that ratio. Use the Pythagorean theorem to find the third side. Write all six ratios from the three sides. Rationalize any square root in a denominator. Check that each bottom-row ratio is the reciprocal of its partner and that sine and cosine are below 1.
+  A["Given one ratio, such as sin θ = 3/7"] --> B["Draw a right triangle with those two sides"]
+  B --> C["Find the third side with the Pythagorean theorem"]
+  C --> D["Write all six ratios from opp, adj and hyp"]
+  D --> E["Rationalize square roots in denominators"]
+  E --> F["Check: reciprocal pairs, and sin and cos below 1"]
 ```
 
 ## Using a calculator

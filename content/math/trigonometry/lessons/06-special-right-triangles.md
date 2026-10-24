@@ -57,7 +57,22 @@ From the $60^\circ$ angle the legs swap roles.
 
 A pattern helps with recall: the sines of $30^\circ, 45^\circ, 60^\circ$ are
 $\tfrac{\sqrt1}{2}, \tfrac{\sqrt2}{2}, \tfrac{\sqrt3}{2}$, and the cosines are the same list
-backward. The reciprocals follow: $\csc 30^\circ = 2$, $\sec 30^\circ = \tfrac{2}{\sqrt3} = \tfrac{2\sqrt3}{3}$,
+backward. If you forget a value, rebuild it instead of guessing:
+
+```mermaid
+flowchart TD
+  accTitle: Rebuilding an exact value from a special triangle
+  accDescr: To find an exact trig value of 30, 45 or 60 degrees, first ask which angle it is. For 45 degrees, draw half a square with sides 1, 1 and root 2. For 30 or 60 degrees, draw half an equilateral triangle with sides 1, root 3 and 2, where the short leg is opposite 30 degrees. Then label the opposite, adjacent and hypotenuse from the chosen angle, form the ratio, and rationalize the denominator.
+  A["Which angle?"] -->|45°| B["Half a square: sides 1, 1, √2"]
+  A -->|"30° or 60°"| C["Half an equilateral triangle: sides 1, √3, 2"]
+  C --> D["Short leg 1 is opposite 30°"]
+  B --> E["Label opp, adj, hyp from the angle"]
+  D --> E
+  E --> F["Form the ratio"]
+  F --> G["Rationalize: 1/√2 = √2/2"]
+```
+
+The reciprocals follow: $\csc 30^\circ = 2$, $\sec 30^\circ = \tfrac{2}{\sqrt3} = \tfrac{2\sqrt3}{3}$,
 $\cot 60^\circ = \tfrac{\sqrt3}{3}$, and so on.
 
 ### Example 1

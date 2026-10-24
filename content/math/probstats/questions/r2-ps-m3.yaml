@@ -15,7 +15,7 @@
     - {x: 29.0, y: 52.8, text: The median}
   distractors: ['The probability P(X = x₀)', The cdf F(x)]
   explanation: |-
-    Probabilities are *areas* under a density curve: the shaded region between $a$ and $b$ is $P(a \le X \le b)$ and the shaded region beyond $c$ is $P(X > c)$. The solid segment is the *height* of the curve at $x_0$, which is a density (probability per unit length), not a probability; $P(X = x_0)$ is 0 for a continuous variable. The dashed line has half the area on each side, so it is the median. The cdf would be a different, increasing curve.
+    Probabilities are areas under a density curve: the shaded region between $a$ and $b$ is $P(a \le X \le b)$ and the shaded region beyond $c$ is $P(X > c)$. The solid segment is the height of the curve at $x_0$, which is a density (probability per unit length), not a probability; $P(X = x_0)$ is 0 for a continuous variable. The dashed line has half the area on each side, so it is the median. The cdf would be a different, increasing curve.
 
 - id: ps-m3-r2-q02
   lesson: ps-continuous-rv
@@ -145,7 +145,7 @@
     - {x: 77.5, y: 64.3, text: 'The area above μ + 2σ, about 2.3%'}
   distractors: [About 99.7% of the area, 'The area above μ + 2σ, about 5%']
   explanation: |-
-    The normal curve peaks at its mean and changes from bending down to bending up at $\mu \pm \sigma$, the inflection points. About 68% of the area lies within one standard deviation and 95% within two. Only the *upper* tail beyond $\mu + 2\sigma$ is shaded: $1 - \Phi(2) \approx 0.023$. The 5% figure is both tails together. The 99.7% bracket is the longest one, which is not numbered.
+    The normal curve peaks at its mean and changes from bending down to bending up at $\mu \pm \sigma$, the inflection points. About 68% of the area lies within one standard deviation and 95% within two. Only the upper tail beyond $\mu + 2\sigma$ is shaded: $1 - \Phi(2) \approx 0.023$. The 5% figure is both tails together. The 99.7% bracket is the longest one, which is not numbered.
 
 - id: ps-m3-r2-q12
   lesson: ps-normal
@@ -215,7 +215,7 @@
   pairs:
     - ['$\text{Gamma}(1, \theta)$', Exponential with mean θ]
     - ['$\text{Gamma}(\nu/2, 2)$', Chi-square with ν degrees of freedom]
-    - ['$\text{Beta}(1, 1)$', Uniform on (0, 1)]
+    - ['$\text{Beta}(1, 1)$', 'Uniform on (0, 1)']
     - ['$Z^2$', Chi-square with 1 degree of freedom]
     - ['Sum of $k$ independent Exponential$(\lambda)$', Gamma with shape k and scale 1/λ]
   distractors: [Poisson with mean λ]
@@ -296,7 +296,7 @@
   stem: 'Match each transformed variable to its distribution. ($Z \sim \text{N}(0, 1)$, $U \sim \text{U}(0, 1)$, and $F$ is the continuous, strictly increasing cdf of $X$.)'
   pairs:
     - ['$e^X$ for $X \sim \text{N}(\mu, \sigma^2)$', Lognormal]
-    - ['$F(X)$', Uniform on (0, 1)]
+    - ['$F(X)$', 'Uniform on (0, 1)']
     - ['$-\ln(U)/\lambda$', Exponential with rate λ]
     - ['$3Z + 1$', Normal with mean 1 and variance 9]
   distractors: [Normal with mean 1 and variance 3, Chi-square with 1 degree of freedom]
@@ -329,7 +329,7 @@
   choices: ['$P(X \le x)$', '$P(x < X \le x + \Delta x)$ for a new item', '$P(X > x)$', '$P(x < X \le x + \Delta x \mid X > x)$']
   answer: 3
   explanation: |-
-    The hazard is a conditional rate: $h(x)\,\Delta x \approx \dfrac{f(x)\,\Delta x}{S(x)}$, the chance that an item that has *survived* to $x$ fails in the next $\Delta x$. The unconditional chance for a new item is $f(x)\,\Delta x$.
+    The hazard is a conditional rate: $h(x)\,\Delta x \approx \dfrac{f(x)\,\Delta x}{S(x)}$, the chance that an item that has survived to $x$ fails in the next $\Delta x$. The unconditional chance for a new item is $f(x)\,\Delta x$.
 
 - id: ps-m3-r2-h04
   lesson: ps-m3-h-hazard-weibull
@@ -461,7 +461,7 @@
   choices: ['15 seconds', '5 seconds', '10 seconds', '7.5 seconds']
   answer: 1
   explanation: |-
-    With probability $\tfrac{60}{90} = \tfrac23$ the wait is 0. With probability $\tfrac13$ you arrive during red and wait a time uniform on $(0, 30)$, mean 15. So $E(W) = \tfrac23 \cdot 0 + \tfrac13 \cdot 15 = 5$ seconds. 15 is the mean wait *given* a red light.
+    With probability $\tfrac{60}{90} = \tfrac23$ the wait is 0. With probability $\tfrac13$ you arrive during red and wait a time uniform on $(0, 30)$, mean 15. So $E(W) = \tfrac23 \cdot 0 + \tfrac13 \cdot 15 = 5$ seconds. 15 is the mean wait given a red light.
 
 - id: ps-m3-r2-h17
   lesson: ps-m3-h-mixed-distributions

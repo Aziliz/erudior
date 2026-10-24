@@ -598,8 +598,8 @@
   answer: 2
   explanation: |-
     The condition leaves $GG$, $GB$, $BG$, equally likely, and only one of them is $GG$:
-    $\tfrac{1/4}{3/4} = \tfrac13$. The answer $\tfrac12$ would be right if we had learned that a
-    *particular* child (say the older) is a girl.
+    $\tfrac{1/4}{3/4} = \tfrac13$. The answer $\tfrac12$ would be right if we had learned that one
+    particular child (say the older) is a girl.
 
 - id: ps-m1-r2-h26
   lesson: ps-m1-h-paradoxes

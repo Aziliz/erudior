@@ -615,11 +615,11 @@
 - id: pc-m3-r2-h28
   lesson: pc-m3-h-linear-fractional
   topic: Linear fractional functions
-  stem: 'What is the inverse of $f(x) = \dfrac{x + 2}{x - 1}$?'
-  choices: ['$\dfrac{x - 1}{x + 2}$', '$\dfrac{x - 2}{x + 1}$', '$\dfrac{x + 2}{x - 1}$', '$\dfrac{-x + 2}{x + 1}$']
+  stem: '$f(x) = \dfrac{2x - 5}{x + 4}$ has asymptotes $x = -4$ and $y = 2$. What are the asymptotes of $f^{-1}$?'
+  choices: ['$x = -4$ and $y = 2$', '$x = 4$ and $y = -2$', '$x = 2$ and $y = -4$', '$x = -2$ and $y = 4$']
   answer: 2
   explanation: |-
-    Swap $a = 1$ and $d = -1$, and negate $b$ and $c$: $f^{-1}(x) = \dfrac{-x - 2}{-x + 1} = \dfrac{x + 2}{x - 1}$. So $f$ is its own inverse (this happens when $a = -d$). Check: $f(2) = 4$ and $f(4) = \frac63 = 2$. The reciprocal $\frac{x - 1}{x + 2}$ is the common confusion of $f^{-1}$ with $\frac1f$.
+    Reflecting across $y = x$ turns the vertical line $x = -4$ into the horizontal line $y = -4$, and $y = 2$ into $x = 2$. Check with the formula: $f^{-1}(x) = \dfrac{4x + 5}{-x + 2}$, whose denominator is 0 at $x = 2$ and whose leading-coefficient ratio is $\frac{4}{-1} = -4$. Changing signs instead of swapping gives the wrong pairs.
 - id: pc-m3-r2-h29
   lesson: pc-m3-h-linear-fractional
   type: match

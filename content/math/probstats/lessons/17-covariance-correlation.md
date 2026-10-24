@@ -52,6 +52,10 @@ The sign is the point. When $X$ is above its mean and $Y$ tends to be above its 
 $(X - \mu_X)(Y - \mu_Y)$ is usually positive, so the covariance is positive; when one tends to be
 high while the other is low, it is negative.
 
+The picture shows why. Dashed lines through the mean point split the plane into four quadrants. A point up and to the right of the mean point (or down and to the left) has a positive product of deviations: the area of its green rectangle counts as positive. A point in the other two quadrants contributes a negative product (the red rectangle). The covariance is the probability-weighted average of these signed areas.
+
+![A scatter of points with dashed lines through the mean point; a green rectangle joins the mean point to a point up and to the right, and a red rectangle joins it to a point up and to the left; the quadrants are marked (+)(+) greater than 0, (−)(+) less than 0, (−)(−) greater than 0 and (+)(−) less than 0](images/ps-m4-cov-quadrants.svg)
+
 Rules (all follow from linearity):
 
 - $\operatorname{Cov}(X, X) = \operatorname{Var}(X)$ and $\operatorname{Cov}(X, Y) = \operatorname{Cov}(Y, X)$.

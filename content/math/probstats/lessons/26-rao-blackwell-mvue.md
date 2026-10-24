@@ -106,6 +106,22 @@ So the recipe is: *find a complete sufficient statistic, then find any unbiased 
 either by guessing from $E[T]$, $E[T^2]$, … or by Rao–Blackwellizing a simple unbiased estimator. Examples
 1 and 2 therefore produced the MVUEs of $p$, $p^2$ and $e^{-\lambda}$.
 
+The chart puts the recipe in order.
+
+```mermaid
+flowchart TD
+  accTitle: A recipe for the minimum-variance unbiased estimator
+  accDescr: Start from the model and the target tau of theta. Find a sufficient statistic T with the factorization theorem. If T is complete, for example the sum of t of X i in an exponential family, either guess an unbiased function of T, or start from any simple unbiased estimator W and compute E of W given T by Rao–Blackwell; either way the result is the unique MVUE by Lehmann–Scheffé. If T is not complete, E of W given T still improves on W but need not be the best.
+  A["Model f(x; θ) and target τ(θ)"] --> B["Find a sufficient statistic T (factorization)"]
+  B --> C{"Is T complete?"}
+  C -- "yes" --> D{"Can you spot an unbiased function of T?"}
+  D -- "yes" --> E["It is the unique MVUE (Lehmann–Scheffé)"]
+  D -- "no" --> F["Take any simple unbiased W"]
+  F --> G["Compute E(W | T) (Rao–Blackwell)"]
+  G --> E
+  C -- "no" --> H["E(W | T) still beats W, but may not be best"]
+```
+
 ## Where complete sufficient statistics come from
 
 A one-parameter **exponential family** has a density or pmf of the form

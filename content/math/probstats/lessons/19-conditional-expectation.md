@@ -90,6 +90,20 @@ Let $X$ indicate the supplier.
 Averaging the two SDs (or variances) would miss the 21 units that come from the suppliers
 having different means.
 
+```mermaid
+flowchart TD
+  accTitle: The law of total variance as two parts
+  accDescr: The total variance of Y splits into two parts that add. The within part is the average of the conditional variances, E of Var of Y given X. The between part is the variance of the conditional means, Var of E of Y given X. In the supplier example the within part is 22, the between part is 21, and the total is 43.
+  V["Var(Y) = 43"] --> W["Within: E[Var(Y | X)] = 22, average spread inside each group"]
+  V --> B["Between: Var(E[Y | X]) = 21, spread of the group means"]
+```
+
+The density of $Y$ is the mixture $0.7f_A + 0.3f_B$. If each supplier's life is roughly normal, it looks like this: one wide hump with a shoulder on the right, wider than either supplier's own curve.
+
+```plot
+{"x": [35, 80], "y": [0, 0.11], "xLabel": "life (thousand km)", "yLabel": "density", "functions": [{"f": "0.7*exp(-(x-50)^2/32)/sqrt(32*pi) + 0.3*exp(-(x-60)^2/72)/sqrt(72*pi)"}, {"f": "exp(-(x-50)^2/32)/sqrt(32*pi)", "dashed": true}, {"f": "exp(-(x-60)^2/72)/sqrt(72*pi)", "dashed": true}], "caption": "Dashed: supplier A (taller, left) and supplier B (right), normal shapes assumed. Solid: the mixture 0.7 A + 0.3 B, mean 53, SD 6.56"}
+```
+
 ### Example 3: a random sum
 
 The number of trains $N$ through a junction in an hour is Poisson with mean 12. Train $i$

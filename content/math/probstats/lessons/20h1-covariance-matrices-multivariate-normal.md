@@ -197,7 +197,7 @@ $\rho = 0.6$, a good midterm makes a poor final surprising. The picture shows th
 the 98.9% ellipse.
 
 ```plot
-{"x": [38, 104], "y": [36, 114], "xLabel": "midterm x", "yLabel": "final y", "curves": [{"x": "70 + 10*cos(t)", "y": "75 + 7.2*cos(t) + 9.6*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 20*cos(t)", "y": "75 + 14.4*cos(t) + 19.2*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 30*cos(t)", "y": "75 + 21.6*cos(t) + 28.8*sin(t)", "t": [0, "2pi"]}], "points": [{"at": [70, 75], "label": "mean"}, {"at": [85, 60], "label": "(85, 60)"}], "labels": [{"at": [80, 92], "text": "39%"}, {"at": [88, 103], "text": "86%"}, {"at": [96, 112], "text": "98.9%"}], "caption": "Ellipses Q = 1, 4, 9 hold 39%, 86% and 98.9% of the probability; the point (85, 60) lies outside all three"}
+{"x": [38, 104], "y": [36, 114], "xLabel": "midterm x", "yLabel": "final y", "curves": [{"x": "70 + 10*cos(t)", "y": "75 + 7.2*cos(t) + 9.6*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 20*cos(t)", "y": "75 + 14.4*cos(t) + 19.2*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 30*cos(t)", "y": "75 + 21.6*cos(t) + 28.8*sin(t)", "t": [0, "2pi"]}], "points": [{"at": [70, 75], "label": "mean"}, {"at": [85, 60], "label": "(85, 60)"}], "caption": "From the inside out, the ellipses Q = 1, 4, 9 hold 39%, 86% and 98.9% of the probability; the point (85, 60) lies outside all three"}
 ```
 
 ## Common mistakes

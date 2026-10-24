@@ -4,7 +4,7 @@
 - {front: Definition of tanh x, back: '$\tanh x = \dfrac{\sinh x}{\cosh x}$; it stays between $-1$ and $1$', topic: Hyperbolic functions}
 - {front: 'cosh x + sinh x and cosh x − sinh x', back: '$\cosh x + \sinh x = e^x$ and $\cosh x - \sinh x = e^{-x}$', topic: Hyperbolic functions}
 - {front: Fundamental hyperbolic identity, back: '$\cosh^2 x - \sinh^2 x = 1$ (minus sign, unlike $\cos^2 + \sin^2 = 1$)', topic: Hyperbolic functions}
-- {front: Why "hyperbolic"?, back: 'The point $(\cosh t, \sinh t)$ lies on the unit hyperbola $x^2 - y^2 = 1$; the sector from $(1, 0)$ to it has area $\frac t2$.', topic: Hyperbolic functions}
+- {front: 'Why "hyperbolic"?', back: 'The point $(\cosh t, \sinh t)$ lies on the unit hyperbola $x^2 - y^2 = 1$; the sector from $(1, 0)$ to it has area $\frac t2$.', topic: Hyperbolic functions}
 - {front: Hyperbolic double-angle formulas, back: '$\sinh 2x = 2\sinh x\cosh x$ and $\cosh 2x = \cosh^2 x + \sinh^2 x$', topic: Hyperbolic functions}
 - {front: Formula for the inverse of sinh, back: '$\sinh^{-1} y = \ln\left(y + \sqrt{y^2 + 1}\right)$, from the quadratic in $u = e^x$', topic: Hyperbolic functions}
 - {front: Formula for the inverse of cosh, back: '$\cosh^{-1} y = \ln\left(y + \sqrt{y^2 - 1}\right)$ for $y \ge 1$ (the nonnegative solution; $\cosh x = y$ also has its negative)', topic: Hyperbolic functions}
@@ -22,7 +22,7 @@
 - {front: Comparing huge numbers, back: 'For $a, b > 0$: $a < b \iff \log a < \log b$. Compare exponents times logs, e.g. $300\log 2$ vs. $200\log 3$.', topic: Comparing growth}
 - {front: The growth hierarchy, back: 'For $p > 0$, $b > 1$: $\ln x \ll x^p \ll b^x$ as $x \to \infty$ (each is dominated by the next)', topic: Comparing growth}
 - {front: Key inequality for logs, back: '$\ln y \le y - 1$ for all $y > 0$ (from $e^u \ge 1 + u$)', topic: Comparing growth}
-- {front: Why ln x / x → 0, back: '$\ln x = 2\ln\sqrt x < 2\sqrt x$, so $0 < \dfrac{\ln x}{x} < \dfrac{2}{\sqrt x}$ for $x > 1$', topic: Comparing growth}
+- {front: 'Why ln x / x → 0', back: '$\ln x = 2\ln\sqrt x < 2\sqrt x$, so $0 < \dfrac{\ln x}{x} < \dfrac{2}{\sqrt x}$ for $x > 1$', topic: Comparing growth}
 - {front: 'Crossovers of 1.1ˣ and x¹⁰', back: 'Near $x \approx 1.01$ and $x \approx 685$; $x^{10}$ is larger in between. "Eventually" can take a long time.', topic: Comparing growth}
 - {front: Bisection method, back: 'Start with $[a, b]$ where continuous $g$ changes sign; test the midpoint and keep the half with the sign change. Width after $n$ steps: $\dfrac{b - a}{2^n}$.', topic: Comparing growth}
 - {front: Bisection steps per decimal place, back: 'About 3.3 steps ($\log_2 10 \approx 3.32$) for each extra correct decimal place', topic: Comparing growth}

@@ -62,7 +62,7 @@ game ends with probability 1, and $P(\text{Ben wins}) = 1 - \tfrac{6}{11} = \tfr
 ## Craps: a race against seven
 
 In the dice game craps, the shooter's first roll of two dice (the come-out roll) can end the game
-at once or set a **point**:
+at once or set a *point*:
 
 ```mermaid
 flowchart TD
@@ -134,9 +134,9 @@ So the step sizes $d_i = P_i - P_{i-1}$ satisfy $d_{i+1} = \rho\, d_i$ with $\rh
 $d_i = \rho^{i-1} d_1$. Because $P_0 = 0$, the value $P_i$ is the sum of the first $i$ steps:
 $P_i = d_1(1 + \rho + \cdots + \rho^{i-1})$.
 
-- **Fair game** ($p = q = \tfrac12$, so $\rho = 1$): $P_i = i\,d_1$, and $P_N = 1$ forces
+- *Fair game* ($p = q = \tfrac12$, so $\rho = 1$): $P_i = i\,d_1$, and $P_N = 1$ forces
   $d_1 = 1/N$. So $P_i = \dfrac{i}{N}$.
-- **Unfair game** ($\rho \ne 1$): the geometric sum gives $P_i = d_1 \dfrac{1 - \rho^i}{1 - \rho}$,
+- *Unfair game* ($\rho \ne 1$): the geometric sum gives $P_i = d_1 \dfrac{1 - \rho^i}{1 - \rho}$,
   and $P_N = 1$ gives
   $$P_i = \frac{1 - \rho^{\,i}}{1 - \rho^{N}}, \qquad \rho = \frac{q}{p}.$$
 

@@ -51,6 +51,12 @@ $2(E\hat\theta - \theta)\,E[\hat\theta - E\hat\theta]$ is zero because $E[\hat\t
 
 A small bias can be worth paying for a large cut in variance, as the figure shows.
 
+Bias and variance are separate failings, and the target picture below shows all four combinations.
+Each dot is the estimate from one sample; bias is how far the cloud's center sits from the bullseye,
+and variance is how spread out the cloud is.
+
+![Four targets, each with a bullseye marking the true parameter and nine dots marking estimates from nine samples. Low bias, low variance: the dots are tightly clustered on the bullseye. Low bias, high variance: the dots are scattered widely but centered on the bullseye. High bias, low variance: the dots are tightly clustered but off to the upper right. High bias, high variance: the dots are scattered widely and centered off to the upper right.](images/ps-m6-targets.svg)
+
 ### Example 1: dividing by $n - 1$, $n$, or $n + 1$
 
 For a normal sample, $\operatorname{Var}(S^2) = 2\sigma^4/(n-1)$ (previous lesson), so $\operatorname{MSE}(S^2) = 2\sigma^4/(n-1)$. For

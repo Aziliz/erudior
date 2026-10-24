@@ -34,6 +34,21 @@ In practice: multiply, drop every factor not involving $\theta$, and recognize t
 density. A prior family is **conjugate** to a model when the posterior stays in the same family;
 then updating just means updating parameters.
 
+The cycle below is the whole method. Its loop is a practical strength: today's posterior is
+tomorrow's prior, so data can be absorbed batch by batch.
+
+```mermaid
+flowchart TD
+  accTitle: The Bayesian updating cycle
+  accDescr: The prior and the likelihood of the data are multiplied. Factors without theta are dropped and the family is recognized, giving the posterior. The posterior is summarized by its mean, its mode (the MAP estimate) and credible intervals. When more data arrive, the posterior becomes the new prior and the cycle repeats.
+  A["Prior π(θ)"] --> C["Multiply: likelihood × prior"]
+  B["Data x, likelihood f(x | θ)"] --> C
+  C --> D["Drop factors without θ; recognize the family"]
+  D --> E["Posterior π(θ | x)"]
+  E --> F["Summaries: posterior mean, MAP, credible interval"]
+  E -- "more data: posterior becomes the new prior" --> A
+```
+
 ## The beta–binomial model
 
 Let $\theta$ be a success probability with a beta distribution prior, Beta$(a, b)$:
@@ -52,6 +67,14 @@ $$E[\theta \mid x] = \frac{a + x}{a + b + n} = \underbrace{\frac{a + b}{a + b + 
 
 a weighted average of the prior mean and the sample proportion. As $n$ grows, the data weight
 goes to 1 and the prior washes out.
+
+The plot shows this with two analysts who start far apart: one with a Beta(2, 8) prior (mean 0.2),
+the other with Beta(8, 2) (mean 0.8). After both see 30 successes in 100 trials, their posteriors,
+Beta(32, 78) and Beta(38, 72), have means 0.291 and 0.345 and overlap heavily.
+
+```plot
+{"x": [0, 1], "y": [0, 10], "xLabel": "θ", "yLabel": "density", "functions": [{"f": "72 x (1 - x)^7", "dashed": true}, {"f": "72 x^7 (1 - x)", "dashed": true}, {"f": "exp(lgamma(110) - lgamma(32) - lgamma(78) + 31 ln(x) + 77 ln(1 - x))"}, {"f": "exp(lgamma(110) - lgamma(38) - lgamma(72) + 37 ln(x) + 71 ln(1 - x))"}], "labels": [{"at": [0.12, 4.1], "text": "prior Beta(2, 8)"}, {"at": [0.86, 4.1], "text": "prior Beta(8, 2)"}, {"at": [0.5, 9.3], "text": "posteriors after 30 of 100"}], "caption": "Two very different priors (dashed) lead to similar posteriors (solid) once 100 observations are in"}
+```
 
 ### Example 1
 

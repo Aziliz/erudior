@@ -28,7 +28,7 @@ Suppose the sequence ever reached a value $L$ that the rule leaves unchanged. Th
 
 $$L = \frac{c}{1 - r}.$$
 
-This value is the **fixed point** (or equilibrium) of the recurrence. Now measure every term by its distance from $L$. Subtracting $L = rL + c$ from $a_{n+1} = ra_n + c$ gives
+This value is the **fixed point** (or equilibrium) of the recurrence. In the language of iteration, $L$ is a fixed point of the function $f(x) = rx + c$, and the sequence is built by $a_{n+1} = f(a_n)$. Now measure every term by its distance from $L$. Subtracting $L = rL + c$ from $a_{n+1} = ra_n + c$ gives
 
 $$a_{n+1} - L = r\,(a_n - L).$$
 

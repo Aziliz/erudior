@@ -5,7 +5,7 @@ honors: true
 title: 'Linear fractional functions: every one is a transformed 1/x'
 minutes: 40
 topics: [Linear fractional functions]
-drills: [pc-m3-r2-lf-form, pc-m3-r2-lf-inverse, pc-m3-r2-lens]
+drills: [pc-m3-r2-lf-form, pc-m3-r2-lf-reflect, pc-m3-r2-lens]
 refs: [pc-ref-functions]
 ---
 ## The simplest rational functions
@@ -14,7 +14,7 @@ Lessons 12 and 13 found asymptotes and graphed rational functions of every shape
 
 $$f(x) = \frac{ax + b}{cx + d}, \qquad c \ne 0,$$
 
-called **linear fractional functions**. You have graphed many of them, and they always seem to look the same: two branches hugging a vertical and a horizontal asymptote, like $y = \frac1x$. This lesson proves that this is no accident. Every such function is $\frac1x$ moved by the transformations of Module 2. The same algebra explains their inverses and compositions, and it shows up in physics: the thin-lens equation of optics is a linear fractional function.
+called **linear fractional functions**. You have graphed many of them, and they always seem to look the same: two branches hugging a vertical and a horizontal asymptote, like $y = \frac1x$. This lesson proves that this is no accident. Every such function is $\frac1x$ moved by the transformations of Module 2. The same algebra gives each graph a center of symmetry and explains what happens to the asymptotes under inverses and compositions (Honors Lesson 7h2 found the inverse formula itself), and it shows up in physics: the thin-lens equation of optics is a linear fractional function.
 
 ## Dividing it out
 
@@ -66,24 +66,20 @@ $$f(h + s) + f(h - s) = 2v,$$
 
 because $\frac{k}{s} + v$ and $\frac{k}{-s} + v$ add to $2v$. In Example 1, $f(4) = 9$ and $f(2) = -5$, and $9 + (-5) = 4 = 2 \cdot 2$. ✓ So after plotting one branch, you can draw the other by reflecting through the center.
 
-## Inverses stay in the family
+## Inverses: the asymptotes trade places
 
-Solve $y = \dfrac{ax + b}{cx + d}$ for $x$:
-
-$$y(cx + d) = ax + b \implies cxy - ax = b - dy \implies x = \frac{dy - b}{-cy + a}.$$
-
-So the inverse is again linear fractional:
+Honors Lesson 7h2 found the inverse by solving for $x$, with the pattern "swap $a$ and $d$, change the signs of $b$ and $c$":
 
 $$f^{-1}(x) = \frac{dx - b}{-cx + a}.$$
 
-The pattern is easy to remember: swap $a$ and $d$, and change the signs of $b$ and $c$. Because an inverse reflects the graph across $y = x$ (Lesson 7), the asymptotes trade places: $f^{-1}$ has vertical asymptote $x = \frac ac$ and horizontal asymptote $y = -\frac dc$. Every linear fractional function with $ad - bc \ne 0$ is one-to-one, as its graph shows (each branch is strictly increasing or strictly decreasing, and the two branches cover different $y$-values).
+The transformed form adds a picture. An inverse reflects the graph across $y = x$ (Lesson 7), and that reflection turns the vertical line $x = h$ into the horizontal line $y = h$ and the horizontal line $y = v$ into the vertical line $x = v$. So $f^{-1}$ has vertical asymptote $x = \frac ac$ and horizontal asymptote $y = -\frac dc$, and its center of symmetry is $(v, h)$, the original center with its coordinates swapped. This also explains why $f$ is one-to-one when $ad - bc \ne 0$: the value $v$ is the one output it never takes (the vertical asymptote of $f^{-1}$), and every other output comes from exactly one input.
 
 ### Example 2
 
 Find the inverse of $f(x) = \dfrac{2x + 1}{x - 3}$ and check it.
 
 1. Swap $a = 2$ and $d = -3$, change the signs of $b$ and $c$: $f^{-1}(x) = \dfrac{-3x - 1}{-x + 2} = \dfrac{3x + 1}{x - 2}$.
-2. Asymptotes of $f^{-1}$: $x = 2$ and $y = 3$, the asymptotes of $f$ swapped.
+2. Asymptotes of $f^{-1}$: $x = 2$ and $y = 3$, the asymptotes of $f$ swapped, so its center is $(2, 3)$. In transformed form, $f^{-1}(x) = 3 + \dfrac{7}{x - 2}$: the same stretch $k = 7$.
 3. Check: $f(4) = 9$, and $f^{-1}(9) = \dfrac{27 + 1}{9 - 2} = \dfrac{28}{7} = 4$. ✓
 
 ## Compositions stay in the family too
@@ -92,7 +88,7 @@ Compose two linear fractional functions and clear the small fractions: the resul
 
 $$g(g(x)) = \frac{1}{1 - \frac{1}{1 - x}} = \frac{1 - x}{(1 - x) - 1} = \frac{x - 1}{x}, \qquad g(g(g(x))) = \frac{1}{1 - \frac{x - 1}{x}} = \frac{x}{x - (x - 1)} = x.$$
 
-Applying $g$ three times gives back $x$ (for $x \ne 0, 1$): starting at 2, the values cycle $2 \to -1 \to \tfrac12 \to 2$. (In Module 6 you will multiply matrices; composing $\frac{ax + b}{cx + d}$ functions turns out to match multiplying the matrices $\begin{bmatrix} a & b \\ c & d \end{bmatrix}$, which is one reason these functions matter in higher mathematics.)
+Applying $g$ three times gives back $x$ (for $x \ne 0, 1$): starting at 2, the values cycle $2 \to -1 \to \tfrac12 \to 2$. Honors Lesson 7h2 met functions that undo themselves in two steps (involutions); $g$ takes three. Its center is $(1, 0)$, and $g(g(x)) = 1 - \frac1x$ has center $(0, 1)$: composing moves the center around, just as composing transformations of $\frac1x$ should.
 
 ## An application: the thin-lens equation
 
@@ -131,5 +127,5 @@ The center of symmetry also has meaning here: $d_o = 20$ and $d_i = 20$ (twice t
 - $\dfrac{ax + b}{cx + d} = v + \dfrac{k}{x - h}$ with $h = -\dfrac dc$, $v = \dfrac ac$, $k = \dfrac{bc - ad}{c^2}$: a stretched, shifted $\frac1x$.
 - The asymptotes $x = h$, $y = v$ cross at the center of symmetry: $f(h + s) + f(h - s) = 2v$.
 - $ad - bc = 0$ gives a constant; otherwise $f$ is one-to-one.
-- Inverse: $\dfrac{dx - b}{-cx + a}$; the asymptotes swap. Compositions are again linear fractional.
+- Inverse: $\dfrac{dx - b}{-cx + a}$; the asymptotes and the center's coordinates swap. Compositions are again linear fractional.
 - Thin lens: $d_i = \dfrac{f d_o}{d_o - f}$, with asymptotes $d_o = f$ and $d_i = f$.

@@ -104,6 +104,22 @@ infinite). The density $8xy$ *looks* like $g(x)h(y)$, but it is $8xy \cdot \math
 and the indicator ties $x$ and $y$ together. Indeed $f_X f_Y = 4x^3 \cdot 4y(1-y^2) \ne 8xy$.
 *A non-rectangular support always means dependence*: learning $X = 0.3$ forces $Y < 0.3$.
 
+The checks fit in one decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether X and Y are independent
+  accDescr: For a discrete pair, compare every cell with the product of its row and column totals; if every cell matches, X and Y are independent, and if even one cell differs they are dependent. For a continuous pair, first ask whether the support is a rectangle, possibly infinite. If not, they are dependent. If it is, ask whether the density factors as g of x times h of y on that rectangle. If yes they are independent; if no, dependent.
+  S{"Discrete or continuous?"} -- discrete --> T{"Every cell equals row total times column total?"}
+  T -- yes --> I1["Independent"]
+  T -- no --> D1["Dependent: one failing cell is enough"]
+  S -- continuous --> R{"Is the support a rectangle?"}
+  R -- no --> D2["Dependent"]
+  R -- yes --> G{"Does f factor as g(x) times h(y)?"}
+  G -- yes --> I2["Independent"]
+  G -- no --> D3["Dependent"]
+```
+
 ### Example 3: which failure comes first?
 
 A pump's seal fails after an exponential time $X$ with mean 2 years (rate $a = 0.5$), and its

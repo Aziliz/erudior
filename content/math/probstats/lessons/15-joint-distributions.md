@@ -123,6 +123,10 @@ $$P(X + Y < 1) = \int_0^{1/2} \int_y^{1-y} 8xy\,dx\,dy = \int_0^{1/2} 4y\big[(1-
 Integrating $y$ first would split the region at $x = \tfrac12$ into two pieces; choosing the order
 that keeps one piece saves work.
 
+The picture labels the pieces of part (c): the edge of the support, the line $x + y = 1$, the region where both conditions hold, and one horizontal strip, along which $x$ runs from $y$ to $1 - y$.
+
+![The triangle 0 < y < x < 1 with the line x + y = 1 dashed, the part of the triangle below that line shaded, and a thin horizontal strip across the shaded part from the diagonal y = x to the line x + y = 1](images/ps-m4-joint-region.svg)
+
 ### Example 3: uniform on a region
 
 If $(X, Y)$ is **uniformly distributed on a region** $R$ of area $|R|$, the density is the

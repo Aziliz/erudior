@@ -51,6 +51,25 @@ Products are awkward to differentiate, so we maximize the **log-likelihood**
 $\ell(\theta) = \ln L(\theta) = \sum \ln f(x_i; \theta)$ instead; since $\ln$ is increasing, it has the same maximizer.
 Typically we solve $\ell'(\theta) = 0$ and check that it is a maximum (for instance $\ell'' < 0$).
 
+The chart collects the whole procedure, including the case where calculus fails (the uniform
+example below).
+
+```mermaid
+flowchart TD
+  accTitle: Finding a maximum likelihood estimate
+  accDescr: Write the likelihood as the product of the densities, then take logs. If the support does not depend on theta, solve the score equation l prime of theta equals 0 and check that the second derivative is negative; if it is not, check other critical points and the boundary. If the support depends on theta, sketch the likelihood instead, since the maximum is often at a boundary such as the largest observation. Once the MLE is found, the MLE of any function g of theta is g of the MLE, by invariance.
+  A["Write L(θ) = product of f(xi; θ)"] --> B["Take logs: ℓ(θ) = sum of ln f(xi; θ)"]
+  B --> C{"Does the support depend on θ?"}
+  C -- "no" --> D["Solve ℓ′(θ) = 0"]
+  D --> E{"ℓ″ #lt; 0 at the solution?"}
+  E -- "yes" --> G["MLE found"]
+  E -- "no" --> H["Check other critical points and the boundary"]
+  H --> G
+  C -- "yes" --> F["Sketch L(θ): the maximum is often at a boundary, such as max xi"]
+  F --> G
+  G --> I["MLE of g(θ) is g(MLE), by invariance"]
+```
+
 ### Example 1: Bernoulli
 
 With $x_i \in \{0, 1\}$ and $s = \sum x_i$ successes,
@@ -67,6 +86,13 @@ Signal faults on six days: $2, 0, 3, 1, 4, 2$. Model: iid Poisson($\lambda$).
 1. $\ell(\lambda) = \sum\big(x_i\ln\lambda - \lambda - \ln x_i!\big) = \Big(\sum x_i\Big)\ln\lambda - n\lambda - \text{const}$.
 2. $\ell'(\lambda) = \sum x_i/\lambda - n = 0$ gives $\hat\lambda = \bar x$.
 3. Here $\sum x_i = 12$, $n = 6$, so $\hat\lambda = 2$ faults per day.
+
+The log-likelihood has its peak in the same place as the likelihood: its tangent is horizontal at
+$\lambda = 2$.
+
+```plot
+{"x": [0.3, 5], "y": [-10, 2], "xLabel": "λ", "yLabel": "log-likelihood (constant dropped)", "functions": [{"f": "12 ln(x) - 6x"}], "segments": [{"from": [1, -3.68], "to": [3, -3.68], "dashed": true}], "points": [{"at": [2, -3.68], "label": "λ̂ = 2"}], "caption": "Poisson log-likelihood 12 ln λ − 6λ for the six counts: concave, with a horizontal tangent at the MLE"}
+```
 
 ```plot
 {"x": [0, 5], "y": [0, 1.1], "xLabel": "λ", "yLabel": "relative likelihood", "functions": [{"f": "(x/2)^12 e^(-6(x - 2))"}], "points": [{"at": [2, 1], "label": "MLE λ̂ = 2"}], "caption": "Poisson likelihood for the six counts, scaled so its maximum is 1"}

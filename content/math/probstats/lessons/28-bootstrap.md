@@ -31,6 +31,8 @@ original values appear twice or more and others not at all. (Any particular obse
 left out with probability $(1 - 1/n)^n \approx e^{-1} \approx 0.368$, so a bootstrap sample contains about 63% of the
 distinct original values.) The statistic computed from it, $\hat\theta^*$, is a **bootstrap replicate**.
 
+![The data 3, 5, 6 and 10, with mean 6. An arrow labeled draw 4 values from the data with replacement, repeat B times, leads to three resamples: 5, 5, 10, 3 with mean 5.75; 6, 10, 10, 10 with mean 9; and 3, 3, 6, 5 with mean 4.25. Values repeat within a resample and some values are missing.](images/ps-m6-resampling.svg)
+
 ## Bootstrap standard errors
 
 The algorithm:
@@ -40,6 +42,21 @@ The algorithm:
 3. Repeat $B$ times, giving $\hat\theta^*_1, \dots, \hat\theta^*_B$.
 4. The **bootstrap standard error** is the standard deviation of the replicates,
    $$\widehat{\text{SE}}_{\text{boot}} = \sqrt{\frac{1}{B-1}\sum_{b=1}^B\big(\hat\theta^*_b - \bar\theta^*\big)^2}, \qquad \bar\theta^* = \frac1B\sum_b\hat\theta^*_b.$$
+
+As a flowchart, with the three things the replicates give:
+
+```mermaid
+flowchart TD
+  accTitle: The bootstrap algorithm
+  accDescr: From the data x1 to xn, draw n values with replacement and compute the statistic on them to get one replicate. Repeat until there are B replicates. Then the standard deviation of the replicates is the bootstrap standard error, their 2.5th and 97.5th percentiles give a 95 percent percentile interval, and their mean minus the original estimate estimates the bias.
+  A["Data x1, …, xn and the estimate"] --> B["Draw n values with replacement"]
+  B --> C["Compute the statistic on them: one replicate"]
+  C --> D{"B replicates yet?"}
+  D -- "no" --> B
+  D -- "yes" --> E["SE: standard deviation of the replicates"]
+  D -- "yes" --> F["95% interval: 2.5th and 97.5th percentiles"]
+  D -- "yes" --> G["Bias: mean of replicates minus the estimate"]
+```
 
 The difference $\bar\theta^* - \hat\theta$ estimates the bias of $\hat\theta$, by the same plug-in logic. A few hundred to
 a couple of thousand replicates are plenty for a standard error. Two separate errors are at play:

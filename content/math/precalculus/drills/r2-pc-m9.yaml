@@ -100,7 +100,7 @@
   answers:
     - {name: ans, label: 'Ways'}
   solution: |-
-    If every child must get one, hand those out first; either way, {left} marbles are shared freely among {kids} children. Stars and bars: {left} stars and {km1} bars in {top} positions, so $\dbinom{ {top} }{ {km1} } =$ **{ans:dp0}**.
+    After first handing out one marble to each child when that is required, {left} marbles are left to share freely among {kids} children. Stars and bars: {left} stars and {km1} bars in {top} positions, so $\dbinom{ {top} }{ {km1} } =$ **{ans:dp0}**.
 
 - id: pc-m9-r2-incl-excl
   title: Divisible by one number or another

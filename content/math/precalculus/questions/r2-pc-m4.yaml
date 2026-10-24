@@ -245,7 +245,7 @@
   choices: ['It passes through the point $(\bar x, \bar y)$', 'Its residuals add up to 0', 'It makes the sum of the absolute values of the residuals as small as possible', 'If $r$ is close to 1, a line is guaranteed to be the right model', 'It makes the sum of the squared residuals as small as possible']
   answer: [0, 1, 4]
   explanation: |-
-    The intercept formula $b = \bar y - m\bar x$ puts $(\bar x, \bar y)$ on the line, and the residuals add to 0. "Least squares" means the sum of *squared* residuals is minimized, not the sum of absolute values. A high $r$ can hide curved data; Example 5 in the lesson had $r \approx 0.96$ but a U-shaped residual plot.
+    The intercept formula $b = \bar y - m\bar x$ puts $(\bar x, \bar y)$ on the line, and the residuals add to 0. "Least squares" means the sum of squared residuals is minimized, not the sum of absolute values. A high $r$ can hide curved data; Example 5 in the lesson had $r \approx 0.96$ but a U-shaped residual plot.
 - id: pc-m4-r2-q24
   lesson: pc-modeling-data
   type: order

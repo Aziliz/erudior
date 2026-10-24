@@ -145,6 +145,28 @@ With $\sigma_1 = \sigma_2$ the ratio $S_1^2/S_2^2 \sim F_{10, 7}$, and $P(F_{10,
 not rare with samples this small, which is why variance comparisons need large samples to
 detect modest differences.
 
+## How the families fit together
+
+All three new families are built from independent standard normals, as the chart traces.
+
+```mermaid
+flowchart TD
+  accTitle: How the chi-square, t and F distributions are built from standard normals
+  accDescr: Squaring a standard normal Z gives a chi-square with 1 df. Adding nu independent such squares gives a chi-square with nu df. Dividing an independent Z by the square root of a chi-square over its df gives t with nu df. The ratio of two independent chi-squares, each divided by its df, gives F with nu1 and nu2 df. Squaring a t with nu df gives F with 1 and nu df.
+  Z["Standard normal Z"] -- "square it" --> C1["Chi-square, 1 df"]
+  C1 -- "add ν independent copies" --> CN["Chi-square, ν df"]
+  Z -- "numerator" --> T["t, ν df: Z / √(V/ν)"]
+  CN -- "V in the denominator" --> T
+  CN -- "two independent ones, each over its df" --> F["F, ν1 and ν2 df"]
+  T -- "square it" --> F1["F, 1 and ν df"]
+```
+
+Their shapes are worth knowing at sight: chi-square and $F$ live on the positive axis and are
+right-skewed (chi-square centered near its df, $F$ near 1), while $t$ is a symmetric bell with a lower
+peak and heavier tails than the standard normal.
+
+![Four density curves in separate panels. Top left: chi-square with 5 df, right-skewed on 0 to 16 with its peak near 3. Top right: F with 5 and 10 df, right-skewed on 0 to 4 with its peak below 1. Bottom left: t with 2 df, a symmetric bell on minus 4 to 4 with peak about 0.35 and heavy tails. Bottom right: the standard normal, a symmetric bell with peak about 0.40 and thin tails.](images/ps-m6-families.svg)
+
 ## Common mistakes
 
 - *Using $n$ degrees of freedom for $S^2$.* It is $n - 1$ for $(n-1)S^2/\sigma^2$ and for the $t$ statistic.

@@ -59,7 +59,7 @@
   choices: ['$a_n = 7 - 3n$', '$2, 5, 10, 17, \dots$', '$a_1 = 4$, $a_{n+1} = a_n + 2.5$', '$a_n = 2^n$']
   answer: [0, 2]
   explanation: |-
-    $a_n = 7 - 3n$ is linear in $n$, so the terms change by $-3$ each time: arithmetic. Adding 2.5 each step is arithmetic by definition. In $2, 5, 10, 17$ the differences are $3, 5, 7$, not constant (these are $n^2 + 1$). $2^n$ has a constant *ratio* of 2, so it is geometric, not arithmetic.
+    $a_n = 7 - 3n$ is linear in $n$, so the terms change by $-3$ each time: arithmetic. Adding 2.5 each step is arithmetic by definition. In $2, 5, 10, 17$ the differences are $3, 5, 7$, not constant (these are $n^2 + 1$). $2^n$ has a constant ratio of 2, so it is geometric, not arithmetic.
 
 # ---------- pc-geometric
 - id: pc-m9-r2-q06
@@ -75,7 +75,7 @@
     - {x: 70.5, y: 80.7, text: 2.16 m}
   distractors: [4 m, 1.44 m]
   explanation: |-
-    Each height is $0.6$ times the one before: $10$, $10(0.6) = 6$, $6(0.6) = 3.6$, $3.6(0.6) = 2.16$ m. The distractors come from mistakes: 4 m is 40% of 10 (the height *lost*, not kept), and 1.44 m is $0.6 \times 2.4$, which does not appear in the sequence.
+    Each height is $0.6$ times the one before: $10$, $10(0.6) = 6$, $6(0.6) = 3.6$, $3.6(0.6) = 2.16$ m. The distractors come from mistakes: 4 m is 40% of 10 (the height lost, not kept), and 1.44 m is $0.6 \times 2.4$, which does not appear in the sequence.
 
 - id: pc-m9-r2-q07
   lesson: pc-geometric
@@ -136,7 +136,7 @@
     - {x: 71.8, y: 56.7, text: 'Must be proved: P(k + 1)'}
   distractors: [Counterexample, 'Assume P(n) for all n']
   explanation: |-
-    The first domino falling is the base case. Domino $k$ is the one we *assume* has fallen (the inductive hypothesis), and domino $k + 1$ is what we must show falls. The arrow between them is the inductive step: one falling domino knocks over the next. "Assume $P(n)$ for all $n$" would be circular; induction never assumes that.
+    The first domino falling is the base case. Domino $k$ is the one we assume has fallen (the inductive hypothesis), and domino $k + 1$ is what we must show falls. The arrow between them is the inductive step: one falling domino knocks over the next. "Assume $P(n)$ for all $n$" would be circular; induction never assumes that.
 
 - id: pc-m9-r2-q12
   lesson: pc-induction
@@ -485,12 +485,12 @@
   choices: ['$56$', '$126$', '$35$', '$1024$']
   answer: 0
   explanation: |-
-    Five stars and three bars: $\binom{5 + 3}{3} = \binom83 = 56$. $1024 = 4^5$ would count 5 *different* objects placed in 4 groups; $126 = \binom94$ uses the wrong number of positions and bars.
+    Five stars and three bars: $\binom{5 + 3}{3} = \binom83 = 56$. $1024 = 4^5$ would count 5 different objects placed in 4 groups; $126 = \binom94$ uses the wrong number of positions and bars.
 
 - id: pc-m9-r2-h20
   lesson: pc-m9-h-counting
   topic: Advanced counting
-  stem: 'How many solutions does $x + y + z = 10$ have in *positive* integers?'
+  stem: 'How many solutions does $x + y + z = 10$ have in positive integers?'
   choices: ['$66$', '$36$', '$45$', '$120$']
   answer: 1
   explanation: |-
@@ -596,7 +596,7 @@
   choices: ['$0.6000$', '$0.5314$', '$0.3543$', '$0.4686$']
   answer: 3
   explanation: |-
-    Complement: $1 - 0.9^6 = 1 - 0.5314 = 0.4686$. $0.6 = 6 \times 0.1$ adds probabilities of overlapping events; $0.5314$ is the chance of *no* success; $0.3543$ is exactly one success.
+    Complement: $1 - 0.9^6 = 1 - 0.5314 = 0.4686$. $0.6 = 6 \times 0.1$ adds probabilities of overlapping events; $0.5314$ is the chance of no success; $0.3543$ is exactly one success.
 
 - id: pc-m9-r2-h31
   lesson: pc-m9-h-binomial-probability
@@ -605,7 +605,7 @@
   choices: ['$6$', '$34$', '$0.15$', '$5.1$']
   answer: 0
   explanation: |-
-    $E(X) = np = 40 \times 0.15 = 6$. $34$ is the expected number of *good* parts; $5.1 = np(1 - p)$ is a different quantity (the variance, met in statistics).
+    $E(X) = np = 40 \times 0.15 = 6$. $34$ is the expected number of good parts; $5.1 = np(1 - p)$ is a different quantity (the variance, met in statistics).
 
 - id: pc-m9-r2-h32
   lesson: pc-m9-h-binomial-probability
