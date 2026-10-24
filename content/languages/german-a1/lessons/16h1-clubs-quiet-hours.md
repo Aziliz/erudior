@@ -23,7 +23,8 @@ Tennis als Fußball*).
 A *Verein* is a club or association. Germans organize a great deal of their free time in
 clubs: football and tennis, choirs and brass bands, chess, gardening, hiking, carnival and
 much more. A club that is entered in the official register adds the letters *e. V.* to its
-name, short for *eingetragener Verein* (registered club): *SV Lindenau e. V.*
+name, short for *eingetragener Verein* (registered club): *TC Rotbuche e. V.* (TC is short
+for *Tennisclub*).
 
 The numbers are large. In March 2026 there were about 629,000 registered clubs in Germany,
 according to the research group ZiviZ, and the German Olympic Sports Confederation (DOSB)
@@ -41,7 +42,7 @@ a club, use the chunk *im Verein*:
 
 Here is a notice (*der Aushang*) of the kind you find on the board at a sports hall:
 
-> **SV Lindenau e. V. — Tennis für alle!**
+> **TC Rotbuche e. V. — Tennis für alle!**
 >
 > Möchtest du Tennis spielen? Dann komm zu uns!
 >
@@ -51,28 +52,24 @@ Here is a notice (*der Aushang*) of the kind you find on the board at a sports h
 >
 > Du musst nicht Mitglied sein: Das erste Training ist kostenlos.
 >
-> Du kannst keinen Schläger? Kein Problem, wir haben Schläger für dich.
+> Du hast keinen Schläger? Kein Problem, wir haben Schläger für dich.
 >
 > Wichtig: In der Halle darf man nur mit Hallenschuhen spielen.
 >
-> Information und Anmeldung: Frau Becker, Tel. 0341 555 0172
+> Information und Anmeldung: Frau Becker (nach dem Training in der Halle)
 
-Wait — one line in that notice is broken German. Before you read the translation, look at the
-sixth line again. *Du kannst keinen Schläger?* uses *können* with a noun, which does not make
-sense here. The club means *Du hast keinen Schläger?* (You haven't got a racket?). Real notices
-are written by volunteers and sometimes contain slips; an honors learner can spot them. Here is
-the corrected notice in English:
+Translation:
 
-> SV Lindenau (registered club). Tennis for everyone! Would you like to play tennis? Then come
-> to us! Training for children (from age 8): Monday and Wednesday, 4 to 5:30 p.m. Training for
-> adults: Tuesday and Thursday, 7 to 9 p.m. You don't have to be a member: the first training
-> session is free. You haven't got a racket? No problem, we have rackets for you. Important: in
-> the hall you may only play in indoor shoes. Information and registration: Ms Becker,
-> phone 0341 555 0172.
+> TC Rotbuche (registered tennis club). Tennis for everyone! Would you like to play tennis?
+> Then come to us! Training for children (from age 8): Monday and Wednesday, 4 to 5:30 p.m.
+> Training for adults: Tuesday and Thursday, 7 to 9 p.m. You don't have to be a member: the
+> first training session is free. You haven't got a racket? No problem, we have rackets for
+> you. Important: in the hall you may only play in indoor shoes. Information and registration:
+> Ms Becker (after training, in the hall).
 
 New words: *das Mitglied* (member), *kostenlos* (free of charge), *der Schläger* (racket),
 *die Halle* (hall, sports hall), *die Hallenschuhe* (indoor sports shoes: shoes that don't
-leave marks on the floor), *die Anmeldung* (registration), *Erwachsene* (adults).
+leave marks on the floor), *die Anmeldung* (registration), *Erwachsene* (adults), *ab* (from, with an age or a time).
 
 ### Example 1: Reading the notice
 
@@ -239,8 +236,8 @@ flowchart TD
 > Liebe Mia,
 >
 > wie geht's? Ich bin jetzt seit zwei Monaten in Freiburg, und ich bin schon in zwei Vereinen!
-> Am Dienstag spiele ich Tennis, und am Donnerstag singe ich im Chor. Ich singe lieber als ich
-> Tennis spiele, aber Tennis macht auch Spaß.
+> Am Dienstag spiele ich Tennis, und am Donnerstag singe ich im Chor. Am liebsten singe ich,
+> aber Tennis macht auch Spaß. Ich spiele lieber Tennis als Fußball!
 >
 > Am Wochenende ist es hier sehr ruhig. Am Sonntag sind die Geschäfte geschlossen, und man darf
 > nicht laut sein. Am Anfang war das komisch, aber jetzt finde ich es schön. Am Sonntag wandere
@@ -255,16 +252,16 @@ flowchart TD
 Translation:
 
 > Dear Mia, how are you? I've been in Freiburg for two months now, and I'm already in two
-> clubs! On Tuesdays I play tennis, and on Thursdays I sing in a choir. I prefer singing to
-> playing tennis, but tennis is fun too. At the weekend it's very quiet here. On Sundays the
+> clubs! On Tuesdays I play tennis, and on Thursdays I sing in a choir. Most of all I like
+> singing, but tennis is fun too. I prefer tennis to football! At the weekend it's very quiet here. On Sundays the
 > shops are closed and you mustn't be loud. At first that was strange, but now I think it's
 > nice. On Sundays I often go hiking in the Black Forest. That's my favourite hobby! Will you
 > come to Freiburg some time? Then we can go hiking together. Best wishes, Jana
 
 Two forms here are beyond A1 and are only for reading: *seit zwei Monaten* (for two months;
-*seit* + dative comes in lesson 18) and *war* (was; lesson 22). The comparison *Ich singe lieber
-als ich Tennis spiele* uses a second verb after *als*; in your own sentences, keep to the
-simpler *lieber … als* + noun.
+*seit* + dative comes in lesson 18) and *war* (was; lesson 22). Also new: *am Anfang* (at
+first), *komisch* (strange, funny), *mal* (some time) and *der Schwarzwald* (the Black Forest,
+the hills around Freiburg).
 
 ## Pronunciation
 

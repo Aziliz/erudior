@@ -61,7 +61,7 @@
     pre: 16*(E/U)*(1 - E/U)
     T: pre*exp(-2*kap*L)
   where: ['kap*L >= 1.5', 'kap*L <= 8']
-  prompt: 'An electron with energy {E:num1} eV meets a rectangular barrier {U:num1} eV high and {L:num2} nm wide. Find the decay constant $\kappa$ inside the barrier (nm⁻¹, 3 significant figures) and the transmission probability from the thick-barrier formula $T \approx 16\frac{E}{U}\left(1 - \frac{E}{U}\right)e^{-2\kappa L}$ (3 significant figures). Use $m_ec^2 = 511{,}000$ eV and $\hbar c = 197.3$ eV·nm.'
+  prompt: 'An electron with energy {E:num1} eV meets a rectangular barrier {U:num1} eV high and {L:num2} nm wide. Find the decay constant $\kappa$ inside the barrier (nm⁻¹, 3 significant figures) and the transmission probability from the thick-barrier formula $T \approx 16(E/U)(1 - E/U)\,e^{-2\kappa L}$ (3 significant figures). Use $m_ec^2 = 511{,}000$ eV and $\hbar c = 197.3$ eV·nm.'
   answers:
     - {format: sig4, name: kap, label: '$\kappa =$', relTolerance: 0.005, units: {'nm⁻¹': 1, '/nm': 1, 'nm^-1': 1}}
     - {format: sci, name: T, label: '$T \approx$', relTolerance: 0.025}
@@ -110,7 +110,7 @@
 
     $Q = {dm:dp6}(931.5) =$ **{Q:sig3} MeV**.
 
-    The alpha particle (mass number 4) and the daughter (mass number {A} − 4) share it in inverse proportion to their masses: $K_\alpha = Q\,\dfrac{A - 4}{A} = {Q:sig4}\cdot\dfrac{ {A} - 4}{ {A} } =$ **{Ka:sig3} MeV**.
+    The alpha particle (mass number 4) and the daughter (mass number {A} − 4) share it in inverse proportion to their masses: $K_\alpha = Q(A - 4)/A = {Q:sig4}\cdot\dfrac{ {A} - 4}{ {A} } =$ **{Ka:sig3} MeV**.
 - id: phys-m12-r2-semf
   title: Liquid-drop binding energy
   topic: Nuclear energetics
@@ -127,7 +127,7 @@
     pair: sgn*11.18/sqrt(A)
     EB: vol - surf - coul - asym + pair
     per: EB/A
-  prompt: 'Use the semi-empirical mass formula with $a_V = 15.75$ MeV, $a_S = 17.8$ MeV, $a_C = 0.711$ MeV, $a_A = 23.7$ MeV and $\delta = 11.18/\sqrt{A}$ MeV (add for even $Z$ and even $N$, subtract for odd $Z$ and odd $N$, zero for odd $A$) to estimate the binding energy of the nucleus with $Z = {Z}$ and $A = {A}$ (MeV, 4 significant figures) and its binding energy per nucleon (MeV, 3 significant figures).'
+  prompt: 'Use the semi-empirical mass formula with $a_V = 15.75$ MeV, $a_S = 17.8$ MeV, $a_C = 0.711$ MeV, $a_A = 23.7$ MeV and $\delta = 11.18/\sqrt A$ MeV (add for even $Z$ and even $N$, subtract for odd $Z$ and odd $N$, zero for odd $A$) to estimate the binding energy of the nucleus with $Z = {Z}$ and $A = {A}$ (MeV, 4 significant figures) and its binding energy per nucleon (MeV, 3 significant figures).'
   answers:
     - {format: sig4, name: EB, label: '$E_B =$', relTolerance: 0.005, units: {MeV: 1, GeV: 1000}}
     - {format: sig4, name: per, label: '$E_B/A =$', relTolerance: 0.005, units: {MeV: 1}}

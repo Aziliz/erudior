@@ -516,7 +516,7 @@
     - {x: 37.1, y: 23.5, text: Precession of the axle}
   distractors: [Centrifugal force]
   explanation: |-
-    $\vec L$ (1) points along the spinning axle. The weight (2) acts at the rotor's center. Its torque about the pivot (4) is horizontal and perpendicular to the axle (3), and since $d\vec L = \vec\tau\,dt$ the end of $\vec L$ moves that way, so the axle precesses around the vertical (5). No centrifugal force is needed in this explanation.
+    $\vec L$ (1) points along the spinning axle. The weight (2) acts at the rotor's center, and its torque about the pivot (4) is horizontal and perpendicular to the axle (3). Since $d\vec L = \vec\tau\,dt$, the end of $\vec L$ moves in the direction of the torque, so the axle precesses around the vertical (5). No centrifugal force is needed in this explanation.
 - id: phys-m5-r2-h28
   lesson: phys-m5-h-gyroscopes
   topic: Gyroscopes
