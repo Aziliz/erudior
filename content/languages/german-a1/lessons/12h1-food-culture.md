@@ -11,7 +11,7 @@ refs: [de1-ref-articles]
 
 In lesson 9 you learned to order in a café with *möchten* and the accusative (*Ich nehme einen Kaffee*), and in lesson 10 you bought cheese and apples at the market and paid. This honors lesson looks at the culture around those words: when Germans eat what, why the bakery matters so much, why the same bread roll has five names, and how people pay and tip. You'll also learn the politest way to order, *Ich hätte gern …*, and how to ask for another one with *noch ein*.
 
-Everything here builds on grammar you already know: the accusative, *möchten*, quantities without "of", and prices. The new words are listed at the end. Some descriptions of "how Germans eat" are generalizations: habits differ between families, regions and generations, and the lesson says so where it matters.
+Everything here builds on grammar you already know. Descriptions of "how Germans eat" are generalizations: habits differ between families, regions and generations.
 
 ## A day of meals
 
@@ -19,16 +19,16 @@ The picture below shows a traditional day of meals. It is simplified: many peopl
 
 ![A timeline from 6 to 21 Uhr with four meals. At about 7 Uhr, das Frühstück (morning): a cup of coffee and a roll. At about 12:30, das Mittagessen (often the warm meal): a steaming plate of food. At about 15:30, Kaffee und Kuchen (afternoon, often Sunday): a slice of cake and a cup of coffee. At about 18:30, das Abendbrot (cold, with bread): slices of bread and cheese on a board. The title says the picture is simplified.](images/de1-m3-meals.svg)
 
-- ***das Frühstück*** — breakfast. On weekdays it is often quick: coffee and a slice of bread or some muesli (*das Müsli*). On weekends many families sit down to fresh *Brötchen* with butter, jam (*die Marmelade*), honey (*der Honig*), cheese, cold meat and a boiled egg.
+- ***das Frühstück*** — breakfast. On weekdays it is often quick. On weekends many families sit down to fresh *Brötchen* with butter, jam (*die Marmelade*), honey (*der Honig*), cheese, cold meat and a boiled egg.
 - ***das Mittagessen*** — lunch. Traditionally this was the main warm meal of the day, and at school, at work in a canteen (*die Kantine*) or at home many people still eat warm at midday. At work, colleagues often greet each other at lunchtime with ***Mahlzeit!*** — literally "mealtime!" — which works as both "hello" and "enjoy your lunch".
-- ***Kaffee und Kuchen*** — coffee and cake, around three or four in the afternoon. It is especially a weekend and Sunday custom, and the classic way to visit grandparents or celebrate a birthday.
+- ***Kaffee und Kuchen*** — coffee and cake, around three or four in the afternoon, especially on Sundays and birthdays.
 - ***das Abendbrot*** — "evening bread": a cold supper of bread, butter, cheese, cold meat and maybe a salad. The word is used mostly in northern and eastern Germany; everywhere people also say *das Abendessen*. Families where everyone works all day often eat their warm meal in the evening instead.
 
 Before a meal, people say ***Guten Appetit!*** (enjoy your meal), and the answer is *Danke, gleichfalls!* (thanks, you too). When you've had enough, say *Ich bin satt* — I'm full. Don't translate "I'm full" word for word: *Ich bin voll* can sound like "I'm drunk" in casual speech.
 
 ## The bakery and the bread roll
 
-Germany is a bread country. Even a small town usually has several bakeries, and in 2014 "German bread culture" (*die deutsche Brotkultur*) was added to Germany's national list of intangible cultural heritage. A typical bakery sells dark rye breads, wholegrain breads with seeds, white rolls, pretzels (*die Brezel*) and cakes. You buy bread by the loaf or ask for it sliced; a slice is *eine Scheibe*, and it works like the quantities in lesson 10: *eine Scheibe Brot*, *zwei Scheiben Käse* (no "of", and feminine *Scheibe* takes the plural).
+Germany is a bread country. Even small towns usually have a bakery, and in 2014 "German bread culture" (*die deutsche Brotkultur*) was added to Germany's national list of intangible cultural heritage. A typical bakery sells dark rye breads, wholegrain breads with seeds, white rolls, pretzels (*die Brezel*) and cakes. You buy bread by the loaf or ask for it sliced; a slice is *eine Scheibe*, and it works like the quantities in lesson 10: *eine Scheibe Brot*, *zwei Scheiben Käse* (no "of", and feminine *Scheibe* takes the plural).
 
 The plain bread roll is the star, and its name changes as you travel. This is a **regional variant**: a word that is normal in one region but not everywhere. The map in people's heads looks roughly like this (simplified: the borders are fuzzy, and *Brötchen* is understood everywhere):
 
@@ -40,7 +40,7 @@ The plain bread roll is the star, and its name changes as you travel. This is a 
 | der Weck, das Weckle | the southwest (for example Baden-Württemberg) |
 | das Rundstück | Hamburg and the far north |
 
-In Bavaria the pretzel is also called *die Breze* or *die Brezn*. You don't need to use these words, but you should recognize them on a bakery sign.
+In Bavaria the pretzel is also called *die Breze* or *die Brezn*. Recognize these words on a bakery sign; you don't need to use them.
 
 ### Same food, different words
 
@@ -54,7 +54,7 @@ German is the language of Germany, Austria, much of Switzerland and some other p
 | der Quark | der Topfen | quark (a soft fresh cheese) |
 | das Brötchen | die Semmel | bread roll |
 
-*Erdapfel* means "earth apple", just like French *pomme de terre*. In Switzerland a mid-morning snack is *das Znüni* (from *um neun*, at nine), and a carrot is *das Rüebli*. Learn the standard word actively; recognize the others.
+*Erdapfel* means "earth apple", like French *pomme de terre*. Learn the standard word actively; recognize the others.
 
 ## Polite orders: Ich hätte gern …
 
@@ -119,7 +119,7 @@ flowchart TD
 
 ***Stimmt so*** literally means "it's right like that": the money you handed over is the right amount, so keep the change.
 
-Paying in cash (*das Bargeld*) is still more common in Germany than in many other countries. Cards are now accepted almost everywhere, but some small bakeries, market stands and cafés take only cash: look for a sign saying *Nur Barzahlung* or *Nur bar* (cash only).
+Cash (*das Bargeld*) is still more common in Germany than in many other countries. Cards are now widely accepted, but some small bakeries, market stands and cafés take only cash: look for *Nur Barzahlung* or *Nur bar* (cash only).
 
 ### Example 3: working out what to say
 
@@ -128,8 +128,6 @@ Your coffee and cake cost 7,60 €. You want to give a tip of about 10 percent, 
 1. Ten percent of 7,60 € is 0,76 €, so about 8,36 €. Round to a friendly number: 8,40 €.
 2. Hand over the note and say the total: ***Acht Euro vierzig, bitte.***
 3. The server keeps 8,40 € and gives you back 10,00 − 8,40 = 1,60 €: *Und eins sechzig zurück.* (In quick speech people often drop *Euro*: *eins sechzig* = 1,60 €.)
-
-If you had paid with a 5-euro note and three 1-euro coins (8 €), you could simply say *Stimmt so*: that's a tip of 0,40 €, about 5 percent.
 
 ## Reading: Sonntag bei Oma
 
@@ -185,26 +183,23 @@ In English:
 >
 > Shop assistant: And 2.90 back. Have a nice Sunday!
 
-*Grüß Gott* is the everyday greeting in Bavaria and Austria, and in Munich the customer naturally says *Semmeln* and *Breze*. *Sonst noch etwas?* means "anything else?". Many German bakeries open for a few hours on Sunday mornings even though most other shops are closed. Check the maths: if a *Semmel* costs 0,45 € and a *Breze* 0,90 €, then 4 × 0,45 + 0,90 = 2,70 €, plus two pieces of cake at 2,20 € = 4,40 €, makes 7,10 €; and 10,00 − 7,10 = 2,90 €.
+*Grüß Gott* is the everyday greeting in Bavaria and Austria, and in Munich the customer naturally says *Semmeln* and *Breze*. *Sonst noch etwas?* means "anything else?". Many bakeries open for a few hours on Sunday mornings, when most other shops are closed.
 
 ## Pronunciation
 
-- *Semmel*: short *e*, ZEM-mel; the German *s* before a vowel sounds like English *z*.
-- *Brezel*: BRAY-tsel, with a long *e* and *z* = *ts*.
+- *Semmel*: ZEM-mel; *s* before a vowel sounds like English *z*. *Brezel*: BRAY-tsel.
 - *Mahlzeit*: MAAL-tseit; the *h* only makes the *a* long.
-- *Appetit*: stress on the last syllable, a-pe-TEET.
-- *hätte*: short *ä* like the *e* in "bet", and a clear double *t*: HET-te.
-- *Stimmt so*: the *St* at the start is "sht": SHTIMMT zo.
+- *Appetit*: stressed at the end, a-pe-TEET.
+- *hätte*: short *ä* like the *e* in "bet": HET-te. *Stimmt so*: SHTIMMT zo.
 
 ## Common mistakes
 
 - *Ich hätte gern ein Kaffee.* — The object of *hätte* is accusative: *einen Kaffee*.
-- *Ich hätte einen Kaffee.* — Without *gern* this means something else ("I would have a coffee …" in a condition). The polite order is *Ich hätte gern …*.
 - *Noch ein Kaffee, bitte!* — After *noch*, the accusative rule still applies: *Noch einen Kaffee, bitte!*
 - *Ich bin voll.* — Say *Ich bin satt* for "I'm full".
 - Leaving coins on the table as a tip. Tell the server the total, or say *Stimmt so*.
 - *zwei Scheibe Brot* — *Scheibe* is feminine and takes the plural after a number: *zwei Scheiben Brot*.
-- Thinking *Semmel* or *Schrippe* is wrong German. They are regional variants, correct where they're used; *Brötchen* is just the most widespread.
+- Thinking *Semmel* or *Schrippe* is wrong German. They are regional variants, correct where they're used.
 
 ## Key points
 

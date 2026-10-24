@@ -50,9 +50,9 @@ The field lines in phys-m8-image-plane are computed numerically from the charge 
 Label markers were previewed on every blank.
 
 **Other figures**: Mermaid 6 (3 core, 1 per honors lesson: method of images, battery
-connected/disconnected, virtual-work rule), all with accTitle/accDescr, rendered. Inline figures 4
-(ring geometry; grounded-sphere image; slab capacitor; E across the gap; surface-layer field ramp,
-which is 5 counting both in 06h2), rendered with the app's renderer and checked.
+connected/disconnected, virtual-work rule), all with accTitle/accDescr, rendered. Inline figures 5
+(ring geometry in 02; grounded-sphere image in 06h1; slab capacitor and E across the gap in 06h2;
+surface-layer field ramp in 06h3), rendered with the app's renderer and checked.
 
 **Questions** (72, `questions/r2-phys-m8.yaml`)
 - Core phys-m8-r2-q01…q30, 5 per lesson: text 8 (q02, q05, q07, q12, q15, q17, q22, q27), select-all

@@ -40,7 +40,7 @@
   stem: 'Light travels at $2.00\times10^8$ m/s in a certain plastic. The plastic''s index of refraction is ___. (Use $c = 3.00\times10^8$ m/s and give only the number.)'
   accept: ['1.5', '1.50']
   explanation: |-
-    $n = c/v = (3.00\times10^8)/(2.00\times10^8) = 1.50$. The index is always at least 1, because nothing slows light below... rather, light is never faster in a material than in vacuum.
+    $n = c/v = (3.00\times10^8)/(2.00\times10^8) = 1.50$. Dividing the other way gives 0.667, which can't be right: light is slower in the plastic than in vacuum, so $n$ must be more than 1.
 - id: phys-m11-r2-q05
   lesson: phys-light
   type: match
@@ -427,10 +427,10 @@
   lesson: phys-h-gratings-xray
   topic: Grating spectroscopy
   stem: 'A grating with 500 lines/mm is used in first order at 500 nm. What is its angular dispersion?'
-  choices: ['$5.0\times10^{-4}$ rad/nm', '$5.2\times10^{-4}$ rad/nm', '$1.0\times10^{-3}$ rad/nm', '$2.6\times10^{-4}$ rad/nm']
+  choices: ['$5.0\times10^{-4}$ rad/nm', '$5.2\times10^{-4}$ rad/nm', '$1.2\times10^{-3}$ rad/nm', '$2.6\times10^{-4}$ rad/nm']
   answer: 1
   explanation: |-
-    $d = 2.00$ μm and $\sin\theta = 0.500/2.00 = 0.250$, so $\cos\theta = 0.968$. $d\theta/d\lambda = m/(d\cos\theta) = 1/(2000\text{ nm} \times 0.968) = 5.2\times10^{-4}$ rad/nm. Leaving out $\cos\theta$ gives $5.0\times10^{-4}$; $1.0\times10^{-3}$ is the second-order value.
+    $d = 2.00$ μm and $\sin\theta = 0.500/2.00 = 0.250$, so $\cos\theta = 0.968$. $d\theta/d\lambda = m/(d\cos\theta) = 1/(2000\text{ nm} \times 0.968) = 5.2\times10^{-4}$ rad/nm. Leaving out $\cos\theta$ gives $5.0\times10^{-4}$; using $2d$ in place of $d$ gives $2.6\times10^{-4}$; $1.2\times10^{-3}$ is the second-order value at this wavelength.
 - id: phys-m11-r2-h19
   lesson: phys-h-gratings-xray
   topic: Grating spectroscopy
