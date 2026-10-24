@@ -24,6 +24,10 @@ Factors and multiples are two views of the same fact:
 
 To list every factor of a number, find its **factor pairs**: pairs of numbers whose product is the number. Test 1, 2, 3, … in order, and stop as soon as the factors would start repeating.
 
+A factor pair is a way to arrange that many objects in a rectangle with no gaps: 12 dots fit in 1 row of 12, 2 rows of 6 or 3 rows of 4 (and turning those rectangles sideways gives 12 rows of 1, 6 rows of 2 and 4 rows of 3).
+
+![Twelve dots arranged three ways: 1 row of 12, 2 rows of 6, and 3 rows of 4. The factors of 12 are 1, 2, 3, 4, 6 and 12; a 5-row arrangement is impossible because 5 is not a factor.](images/pre-m1-factor-arrays.svg)
+
 ### Example 1
 
 List all factors of 60.
@@ -75,6 +79,18 @@ Notice that 2 is the only even prime: every other even number has 2 as a factor.
 
 To decide whether $n$ is prime, try dividing it by the primes 2, 3, 5, 7, 11, … up to $\sqrt{n}$. If none divides it, $n$ is prime. The same factor-pair reasoning as before explains why you can stop at the square root.
 
+```mermaid
+flowchart TD
+  accTitle: Testing whether a whole number n greater than 1 is prime
+  accDescr: List the primes 2, 3, 5, 7 and so on up to the square root of n. Try dividing n by each one in turn. If one of them divides n with no remainder, n is composite. If none of them does, n is prime.
+  A["List the primes up to the square root of n"] --> B["Divide n by the next prime on the list"]
+  B --> C{"Remainder 0?"}
+  C -- "yes" --> D["n is composite"]
+  C -- "no" --> E{"Any primes left on the list?"}
+  E -- "yes" --> B
+  E -- "no" --> F["n is prime"]
+```
+
 ### Example 2
 
 Is 91 prime? Is 97 prime?
@@ -86,7 +102,9 @@ $\sqrt{91}$ is a little more than 9 (since $9^2 = 81$ and $10^2 = 100$), so test
 
 For 97: also test 2, 3, 5, 7. Odd; digit sum 16 (not a multiple of 3); doesn't end in 0 or 5; $97 \div 7 = 13$ R 6. No prime up to $\sqrt{97}$ divides it, so 97 is prime.
 
-A visual way to find all primes up to some limit is the *sieve*: write out the numbers, then cross out every multiple of 2 after 2, every multiple of 3 after 3, every multiple of 5 after 5, and so on. Whatever survives is prime.
+A visual way to find all primes up to some limit is the *sieve*: write out the numbers, then cross out every multiple of 2 after 2, every multiple of 3 after 3, every multiple of 5 after 5, and so on. Whatever survives is prime. (It is called the sieve of Eratosthenes, after the Greek scholar who is credited with it.) For the numbers up to 50 you only need to cross out multiples of 2, 3, 5 and 7, because $7^2 = 49$ and the next prime, 11, has $11^2 = 121 > 50$.
+
+![The numbers 1 to 50 in a grid of ten columns. The primes 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43 and 47 are shaded green; every other number except 1 is crossed out as composite. 1 is neither shaded nor crossed out.](images/pre-m1-sieve.svg)
 
 ## Even and odd
 

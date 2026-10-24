@@ -17,7 +17,11 @@ Percents are everywhere: sales tax, interest rates, test scores, battery levels,
 
 $$37\% = \frac{37}{100} = 0.37$$
 
-On a 10-by-10 grid of 100 squares, 37% is 37 shaded squares. 100% is the whole grid, and 0% is none of it. Percents can be greater than 100% (more than one whole: 150% = 1.5) and can be fractional (0.5% = half of one percent = 0.005).
+On a 10-by-10 grid of 100 squares, 37% is 37 shaded squares. 100% is the whole grid, and 0% is none of it.
+
+![A 10-by-10 grid of 100 squares with 37 squares shaded: three full columns of 10 and 7 squares of the fourth column. The caption reads 37% = 37/100 = 0.37.](images/pre-m5-hundred-grid.svg)
+
+ Percents can be greater than 100% (more than one whole: 150% = 1.5) and can be fractional (0.5% = half of one percent = 0.005).
 
 ## Percent to decimal and back
 
@@ -85,6 +89,23 @@ $5 \div 6 = 0.8333\ldots$, so $\tfrac56 = 83.333\ldots\% = 83\tfrac13\%$. Rounde
 | 1 | 1 | 100% |
 
 Knowing this table by heart makes mental percent calculations quick: 25% of something is a quarter of it, 20% is a fifth, 10% is a tenth.
+
+The same facts fit on one bar. Fractions name points above it, and the decimal and percent for each point sit below it, so 1/4, 0.25 and 25% are literally the same spot:
+
+![A long bar from 0 to 1 with a tick every 5% and a heavier tick every 10%. Above the bar the points 0, 1/4, 1/2, 3/4 and 1 are labeled; below them are the decimals 0, 0.25, 0.5, 0.75 and 1 and the percents 0%, 25%, 50%, 75% and 100%.](images/pre-m5-percent-bar.svg)
+
+And here are the conversions as a map. Going through the decimal always works; the arrow straight from percent to fraction is a shortcut.
+
+```mermaid
+flowchart LR
+  accTitle: Converting among fractions, decimals and percents
+  accDescr: Three boxes in a row, Fraction, Decimal and Percent. Fraction to decimal: divide the top by the bottom. Decimal to fraction: write over 10, 100 or 1000 and simplify. Decimal to percent: multiply by 100 and add the percent sign. Percent to decimal: divide by 100. Percent to fraction directly: write over 100 and simplify.
+  F[Fraction] -- "divide top by bottom" --> D[Decimal]
+  D -- "over 10, 100 or 1000, simplify" --> F
+  D -- "times 100, add %" --> P[Percent]
+  P -- "divide by 100" --> D
+  P -- "over 100, simplify" --> F
+```
 
 ### Example 2
 

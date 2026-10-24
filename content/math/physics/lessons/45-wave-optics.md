@@ -19,6 +19,8 @@ As with sound, two coherent waves interfere constructively where their path diff
 
 ## Young's double-slit experiment
 
+![A laser lights two narrow slits a distance d apart in an opaque barrier. A screen a distance L away shows evenly spaced bright fringes, with the central fringe (m = 0) straight ahead. Two rays from the slits meet at a point P on the screen at angle θ from the straight-ahead line.](images/phys-m11-double-slit.svg)
+
 Light of wavelength $\lambda$ falls on two narrow slits a distance $d$ apart. Each slit acts as a source, and on a distant screen the waves arrive with path difference $d\sin\theta$ at angle $\theta$. Bright fringes (maxima) occur where
 
 $$d\sin\theta = m\lambda, \qquad m = 0, \pm1, \pm2, \ldots$$
@@ -83,6 +85,18 @@ Light reflecting from the top and bottom surfaces of a thin film (soap bubble, o
 - A reflection off a medium with a *higher* index flips the wave (a half-wavelength phase shift); reflection off a lower index doesn't.
 
 For a soap film in air (one flip, at the top surface), constructive reflection occurs when $2nt = (m + \tfrac12)\lambda$. Since the condition depends on wavelength, different thicknesses reflect different colors: the swirling colors of a bubble map its thickness. Anti-reflection coatings on glasses use a film whose reflections cancel.
+
+Which condition applies depends only on the number of flips, as this chart (and Example 5 below) shows:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the thin-film condition by counting phase flips
+  accDescr: Light reflects from the top and bottom surfaces of a thin film of index n and thickness t. Count the reflections that go onto a higher index; each one flips the wave by half a wavelength. With exactly one flip, as for a soap film in air, reflection is bright when 2 n t equals m plus one half, times lambda, and dark when 2 n t equals m lambda. With zero or two flips, as for a coating on glass with an index between air and glass, the conditions swap: bright when 2 n t equals m lambda, dark when 2 n t equals m plus one half, times lambda.
+  A["Light reflects from the top and bottom of a film"] --> B["Count reflections onto a higher index: each flips the wave by half a wavelength"]
+  B --> C{"How many flips?"}
+  C -- "one, e.g. soap film in air" --> D["Bright: 2nt = (m + 1/2)λ. Dark: 2nt = mλ"]
+  C -- "zero or two, e.g. coating on glass" --> E["Bright: 2nt = mλ. Dark: 2nt = (m + 1/2)λ"]
+```
 
 ### Example 3
 

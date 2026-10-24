@@ -101,14 +101,14 @@ $1528 = 184 + 367.5x$, so $x = 3.66$ m. She can climb about three quarters of th
 
 Push sideways on a tall box, or tilt the surface it rests on, and one of two things happens first: it slides, or it tips over its bottom edge. Each has its own condition, and whichever threshold is lower wins.
 
-**On a tilting ramp.** A uniform box of width $w$ (along the slope) and height $h$ sits on a ramp of angle $\theta$. It slides when $\tan\theta > \mu_s$ (the incline lesson). It tips when the vertical line through its center of gravity passes outside the downhill edge of its base. Measured in the box's own frame, the center is $\tfrac h2$ above the base and $\tfrac w2$ from the edge, and the vertical through it reaches the edge when $\tan\theta = \dfrac{w/2}{h/2} = \dfrac wh$. So:
+*On a tilting ramp.* A uniform box of width $w$ (along the slope) and height $h$ sits on a ramp of angle $\theta$. It slides when $\tan\theta > \mu_s$ (the incline lesson). It tips when the vertical line through its center of gravity passes outside the downhill edge of its base. Measured in the box's own frame, the center is $\tfrac h2$ above the base and $\tfrac w2$ from the edge, and the vertical through it reaches the edge when $\tan\theta = \dfrac{w/2}{h/2} = \dfrac wh$. So:
 
 - it slides first if $\mu_s < w/h$;
 - it tips first if $w/h < \mu_s$.
 
 A crate 0.60 m wide and 1.5 m tall ($w/h = 0.40$) on a surface with $\mu_s = 0.50$ tips at $21.8^\circ$, before it could slide at $26.6^\circ$.
 
-**Pushed on level ground.** Push horizontally with force $F$ at height $H$ on a box of mass $m$ and depth $w$ (in the direction of the push). Sliding starts when $F = \mu_smg$. Tipping starts about the front bottom edge, when the push's torque beats the weight's: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H}$. It tips first if $\dfrac{w}{2H} < \mu_s$, that is, if you push above the height $H = \dfrac{w}{2\mu_s}$.
+*Pushed on level ground.* Push horizontally with force $F$ at height $H$ on a box of mass $m$ and depth $w$ (in the direction of the push). Sliding starts when $F = \mu_smg$. Tipping starts about the front bottom edge, when the push's torque beats the weight's: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H}$. It tips first if $\dfrac{w}{2H} < \mu_s$, that is, if you push above the height $H = \dfrac{w}{2\mu_s}$.
 
 ### Example 4: moving a refrigerator
 

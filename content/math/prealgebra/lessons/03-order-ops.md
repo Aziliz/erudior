@@ -19,6 +19,8 @@ $$5^3 = 5 \times 5 \times 5 = 125$$
 
 The 5 is the **base** (the number being multiplied) and the small raised 3 is the exponent (how many times the base appears as a factor). The whole expression $5^3$ is called a **power**, read "five to the third power" or "five cubed." Similarly $7^2$ is "seven squared" ($= 49$); the names come from geometry, since a square with side 7 has area $7^2$ and a cube with edge 5 has volume $5^3$.
 
+![A 3-by-3 square made of 9 unit squares, labeled 3² = 3 × 3 = 9, "3 squared", next to a 3-by-3-by-3 cube made of 27 unit cubes, labeled 3³ = 3 × 3 × 3 = 27, "3 cubed".](images/pre-m1-square-cube.svg)
+
 Two special cases:
 
 - Any number to the first power is itself: $9^1 = 9$.
@@ -34,6 +36,15 @@ Work in this order:
 2. *Exponents* (and roots).
 3. *Multiplication and division*, together, from left to right.
 4. *Addition and subtraction*, together, from left to right.
+
+```mermaid
+flowchart TD
+  accTitle: The order of operations
+  accDescr: First simplify inside grouping symbols such as parentheses, brackets and fraction bars, innermost first, using steps 2 to 4 inside each group. Then evaluate exponents. Then do multiplication and division together from left to right. Last, do addition and subtraction together from left to right.
+  A["1. Grouping symbols, innermost first (use steps 2 to 4 inside each group)"] --> B["2. Exponents"]
+  B --> C["3. Multiplication and division, together, left to right"]
+  C --> D["4. Addition and subtraction, together, left to right"]
+```
 
 Many people remember this with the acronym **PEMDAS** ("Please Excuse My Dear Aunt Sally"): Parentheses, Exponents, Multiplication/Division, Addition/Subtraction. The acronym hides a trap: M comes before D in the word, but multiplication does *not* come before division. They have equal rank and are done in the order they appear, left to right. The same goes for A and S.
 

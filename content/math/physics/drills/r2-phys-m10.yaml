@@ -1,0 +1,113 @@
+# Round 2, module phys-m10: drills for the honors lessons (charged particles; AC power).
+- id: phys-m10-r2-helix
+  title: Radius and pitch of a helical path
+  topic: Particle motion in fields
+  vars:
+    vm: {min: 1.0, max: 9.9, step: 0.1}
+    th: {min: 10, max: 80, step: 5}
+    BmT: {min: 0.5, max: 5.0, step: 0.1}
+  calc:
+    v: vm*1e6
+    vperp: v*sind(th)
+    vpar: v*cosd(th)
+    Bt: BmT/1000
+    per: 2*pi*9.11e-31/(1.602e-19*Bt)
+    rcm: 100*9.11e-31*vperp/(1.602e-19*Bt)
+    pcm: 100*vpar*per
+  prompt: 'An electron moves at ${vm}\times10^6$ m/s at {th}° to a uniform {BmT} mT magnetic field. Find the radius and the pitch of its helical path, in centimeters to 3 significant figures. ($e = 1.602\times10^{-19}$ C, $m_e = 9.11\times10^{-31}$ kg)'
+  answers:
+    - {format: sig4, name: rcm, label: 'Radius', relTolerance: 0.01, units: {cm: 1, m: 100, mm: 0.1}}
+    - {format: sig4, name: pcm, label: 'Pitch', relTolerance: 0.01, units: {cm: 1, m: 100, mm: 0.1}}
+  solution: |-
+    Split the velocity: $v_\perp = v\sin{th}^\circ = {vperp:texsci}$ m/s and $v_\parallel = v\cos{th}^\circ = {vpar:texsci}$ m/s.
+
+    Radius: $r = \dfrac{m_ev_\perp}{eB} = \dfrac{(9.11\times10^{-31})({vperp:texsci})}{(1.602\times10^{-19})({Bt:texsci})} =$ **{rcm:sig3} cm**.
+
+    Period: $T = \dfrac{2\pi m_e}{eB} = {per:texsci}$ s. Pitch: $p = v_\parallel T =$ **{pcm:sig3} cm**.
+- id: phys-m10-r2-cyclotron
+  title: Cyclotron frequency and exit energy
+  topic: Particle motion in fields
+  vars:
+    part: {choices: [{label: 'protons', value: 1.673e-27}, {label: 'deuterons', value: 3.344e-27}]}
+    Bf: {min: 0.5, max: 2.0, step: 0.1}
+    Rd: {min: 0.20, max: 0.90, step: 0.05}
+  calc:
+    fMHz: 1.602e-19*Bf/(2*pi*part)/1e6
+    KJ: (1.602e-19*Bf*Rd)^2/(2*part)
+    KMeV: KJ/1.602e-13
+  where: ['KJ/(part*9e16) < 0.04']
+  prompt: 'A cyclotron accelerates {part} (charge $+e$) in a {Bf} T field with dees of radius {Rd} m. Find the frequency of the accelerating voltage (MHz) and the kinetic energy of the particles as they leave (MeV), each to 3 significant figures. ($e = 1.602\times10^{-19}$ C, $m_p = 1.673\times10^{-27}$ kg, $m_d = 3.344\times10^{-27}$ kg, $1\text{ MeV} = 1.602\times10^{-13}$ J)'
+  answers:
+    - {format: sig4, name: fMHz, label: 'Frequency', relTolerance: 0.01, units: {MHz: 1, Hz: 0.000001, kHz: 0.001}}
+    - {format: sig4, name: KMeV, label: 'Energy', relTolerance: 0.01, units: {MeV: 1, keV: 0.001}}
+  solution: |-
+    Frequency: $f = \dfrac{eB}{2\pi m} = \dfrac{(1.602\times10^{-19})({Bf})}{2\pi({part:texsci})} =$ **{fMHz:sig3} MHz** (the same for every orbit).
+
+    Energy at the rim, where $r = R$: $K = \dfrac{e^2B^2R^2}{2m} = \dfrac{(1.602\times10^{-19})^2({Bf})^2({Rd})^2}{2({part:texsci})} = {KJ:texsci}$ J $=$ **{KMeV:sig3} MeV**.
+- id: phys-m10-r2-hall
+  title: Hall voltage in a metal strip
+  topic: The Hall effect
+  vars:
+    metal: {choices: [{label: 'copper ($n = 8.49\times10^{28}$ m⁻³)', value: 8.49e28}, {label: 'silver ($n = 5.86\times10^{28}$ m⁻³)', value: 5.86e28}, {label: 'gold ($n = 5.90\times10^{28}$ m⁻³)', value: 5.90e28}]}
+    cur: {min: 1, max: 20}
+    Bf: {min: 0.2, max: 2.0, step: 0.1}
+    tmm: {min: 0.05, max: 0.50, step: 0.05}
+  calc:
+    VuV: 1e6*cur*Bf/(metal*1.602e-19*tmm/1000)
+  prompt: 'A strip of {metal} {tmm} mm thick carries {cur:dp0} A. A {Bf} T field is perpendicular to its flat face. Find the Hall voltage across the strip, in microvolts to 3 significant figures. ($e = 1.602\times10^{-19}$ C)'
+  answers:
+    - {format: sig4, name: VuV, label: '$V_H$', relTolerance: 0.01, units: {'μV': 1, uV: 1, mV: 1000, V: 1000000}}
+  solution: |-
+    The thickness is the dimension along the field: $t = {tmm}$ mm $= {tmm}\times10^{-3}$ m.
+
+    $V_H = \dfrac{IB}{nqt} = \dfrac{({cur:dp0})({Bf})}{({metal:texsci})(1.602\times10^{-19})({tmm}\times10^{-3})} =$ **{VuV:sig3} μV**.
+- id: phys-m10-r2-transmission
+  title: Power lost in a transmission line
+  topic: Power transmission
+  vars:
+    PMW: {min: 1, max: 50}
+    VkV: {choices: [11, 22, 69, 115, 138, 230, 345, 500]}
+    Rl: {min: 1, max: 20, step: 0.5}
+  calc:
+    cur: PMW*1e6/(VkV*1000)
+    lossk: cur^2*Rl/1000
+    pct: 100*lossk/(PMW*1000)
+  where: ['pct < 30', 'lossk > 0.1']
+  prompt: 'A power plant delivers {PMW:dp0} MW at {VkV:dp0} kV (power factor 1) through lines with a total resistance of {Rl} Ω. Find the current in the lines (A) and the power lost in them (kW), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: cur, label: 'Current', relTolerance: 0.01, units: {A: 1, kA: 1000}}
+    - {format: sig4, name: lossk, label: 'Power lost', relTolerance: 0.01, units: {kW: 1, W: 0.001, MW: 1000}}
+  solution: |-
+    Current: $I = \dfrac PV = \dfrac{{PMW:dp0}\times10^6\text{ W}}{{VkV:dp0}\times10^3\text{ V}} =$ **{cur:sig3} A**.
+
+    Loss: $P_{\text{loss}} = I^2R_{\text{line}} = ({cur:sig4})^2({Rl}) =$ **{lossk:sig3} kW**, which is {pct:sig3}% of the power sent.
+- id: phys-m10-r2-rlc-power
+  title: Phase angle and power in a series RLC circuit
+  topic: Phase and power factor
+  vars:
+    R: {min: 10, max: 100, step: 5}
+    LmH: {min: 20, max: 400, step: 10}
+    CuF: {min: 10, max: 150, step: 5}
+  calc:
+    w: 2*pi*60
+    XL: w*LmH/1000
+    XC: 1/(w*CuF*1e-6)
+    Z: sqrt(R^2 + (XL - XC)^2)
+    Irms: 120/Z
+    phi: atand((XL - XC)/R)
+    pf: R/Z
+    P: Irms^2*R
+  where: ['abs(phi) > 5', 'abs(phi) < 80', 'abs(phi + 15.54) > 0.3']
+  prompt: 'A series circuit with $R = {R:dp0}\ \Omega$, $L = {LmH:dp0}$ mH and $C = {CuF:dp0}\ \mu$F is driven by a 120 V (rms), 60 Hz source. Find the phase angle $\varphi$ (in degrees to the nearest 0.1°, negative if the current leads), the power factor (to 3 decimal places), and the average power (W, to 3 significant figures).'
+  answers:
+    - {name: phi, label: '$\varphi$ (degrees)', tolerance: 0.06}
+    - {name: pf, label: 'Power factor', tolerance: 0.0006}
+    - {format: sig4, name: P, label: 'Average power', relTolerance: 0.01, units: {W: 1, kW: 1000}}
+  solution: |-
+    $\omega = 2\pi(60) = 377$ rad/s. $X_L = \omega L = {XL:num2}\ \Omega$, $X_C = \dfrac{1}{\omega C} = {XC:num2}\ \Omega$.
+
+    $Z = \sqrt{R^2 + (X_L - X_C)^2} = {Z:num2}\ \Omega$, so $I_{\text{rms}} = 120/Z = {Irms:sig4}$ A.
+
+    Phase angle: $\tan\varphi = \dfrac{X_L - X_C}{R}$, so $\varphi =$ **{phi:num1}°**. Power factor: $\cos\varphi = R/Z =$ **{pf:dp3}**.
+
+    Average power: $P = I_{\text{rms}}^2R = I_{\text{rms}}V_{\text{rms}}\cos\varphi =$ **{P:sig3} W**.

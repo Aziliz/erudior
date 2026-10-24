@@ -125,13 +125,15 @@ And by the maximum principle the temperature inside stays between the boundary e
 ## Potential flow
 
 Picture water moving steadily and smoothly past an obstacle. If the flow has no swirl,
-$\nabla\times\mathbf v = \mathbf 0$, then on a simply connected region $\mathbf v = \nabla\phi$ for a
-**velocity potential** $\phi$ (Lesson 31). If the water is also incompressible,
+$\nabla\times\mathbf v = \mathbf 0$, and no net circulation around the obstacle, then
+$\mathbf v = \nabla\phi$ for a **velocity potential** $\phi$ (Lesson 31). (Around an obstacle in the
+plane the region has a hole, so curl-free alone is not enough; the winding-number honors lesson
+of Module 7 shows what goes wrong. Zero circulation is an extra assumption.) If the water is also incompressible,
 $0 = \nabla\cdot\mathbf v = \nabla^2\phi$. So $\phi$ is harmonic, and the whole flow is found by
 solving Laplace's equation; this model is called **potential flow**. At a solid wall the water
 can slide along but not pass through, so the normal velocity is zero:
-$\partial\phi/\partial n = \nabla\phi\cdot\mathbf n = 0$, a Neumann condition. Its solutions are unique up
-to an added constant in $\phi$, which doesn't change $\mathbf v$. (Potential flow ignores
+$\partial\phi/\partial n = \nabla\phi\cdot\mathbf n = 0$, a Neumann condition. On a bounded region its
+solutions are unique up to an added constant in $\phi$, which doesn't change $\mathbf v$. (Potential flow ignores
 viscosity, so it is a model of an ideal fluid; real flows behave this way only away from walls
 and wakes.)
 
@@ -149,7 +151,11 @@ works, and find the speed on the cylinder.
    the case $n = -1$. So $\phi$ is harmonic for $r > 0$.
 2. *Far away.* As $r \to \infty$ the $a^2/r$ term fades and $\phi \approx Ur\cos\theta = Ux$. ✓
 3. *Wall.* The normal to the cylinder is radial: $\dfrac{\partial\phi}{\partial r} = U\left(1 - \dfrac{a^2}{r^2}\right)\cos\theta$,
-   which is 0 at $r = a$. ✓ By uniqueness, this is the flow.
+   which is 0 at $r = a$. ✓ For a region with a hole that runs off to infinity, uniqueness
+   needs both the far-field condition and zero circulation; with those (which we accept
+   without proof) this is the flow. Adding a circulating term $\frac{\Gamma}{2\pi}\theta$ to
+   $\phi$ gives other flows that also satisfy the wall condition; they produce lift, the
+   starting point of the theory of airplane wings.
 4. *Speed on the wall.* The velocity there is purely tangential, with component
    $\dfrac1r\dfrac{\partial\phi}{\partial\theta} = -\dfrac{U}{a}(a + a)\sin\theta = -2U\sin\theta$. The speed $2U|\sin\theta|$ is 0 at
    the front and back ($\theta = \pi$ and $0$, the **stagnation points**) and $2U$ at the top and

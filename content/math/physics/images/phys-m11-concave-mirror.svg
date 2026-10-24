@@ -15,14 +15,14 @@
 <line x1="558.0" y1="294.0" x2="569.0" y2="285.0" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="555.1" y1="315.0" x2="566.1" y2="306.0" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="551.7" y1="336.0" x2="562.7" y2="327.0" stroke="#1c2833" stroke-width="1.5"/>
-<line x1="260.0" y1="210.0" x2="260.0" y2="144.0" stroke="#244d76" stroke-width="4"/><polygon points="260.0,130.0 266.3,144.0 253.7,144.0" fill="#244d76"/>
-<line x1="410.0" y1="210.0" x2="410.0" y2="238.0" stroke="#2f6b45" stroke-width="4"/><polygon points="410.0,250.0 404.6,238.0 415.4,238.0" fill="#2f6b45"/>
-<line x1="260.0" y1="130.0" x2="550.0" y2="130.0" stroke="#8a3324" stroke-width="2"/><polygon points="560.0,130.0 550.0,134.5 550.0,125.5" fill="#8a3324"/>
-<line x1="560.0" y1="130.0" x2="350.0" y2="298.0" stroke="#8a3324" stroke-width="2"/>
-<line x1="260.0" y1="130.0" x2="560.0" y2="250.0" stroke="#8a3324" stroke-width="2"/>
-<line x1="560.0" y1="250.0" x2="360.0" y2="250.0" stroke="#8a3324" stroke-width="2"/><polygon points="350.0,250.0 360.0,245.5 360.0,254.5" fill="#8a3324"/>
-<line x1="260.0" y1="130.0" x2="560.0" y2="210.0" stroke="#8a3324" stroke-width="2" stroke-dasharray="6 4"/>
-<line x1="560.0" y1="210.0" x2="350.0" y2="266.0" stroke="#8a3324" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="260.0" y1="210.0" x2="260.0" y2="124.0" stroke="#244d76" stroke-width="4"/><polygon points="260.0,110.0 266.3,124.0 253.7,124.0" fill="#244d76"/>
+<line x1="410.0" y1="210.0" x2="410.0" y2="248.0" stroke="#2f6b45" stroke-width="4"/><polygon points="410.0,260.0 404.6,248.0 415.4,248.0" fill="#2f6b45"/>
+<line x1="260.0" y1="110.0" x2="550.0" y2="110.0" stroke="#8a3324" stroke-width="2"/><polygon points="560.0,110.0 550.0,114.5 550.0,105.5" fill="#8a3324"/>
+<line x1="560.0" y1="110.0" x2="350.0" y2="320.0" stroke="#8a3324" stroke-width="2"/>
+<line x1="260.0" y1="110.0" x2="560.0" y2="260.0" stroke="#8a3324" stroke-width="2"/>
+<line x1="560.0" y1="260.0" x2="360.0" y2="260.0" stroke="#8a3324" stroke-width="2"/><polygon points="350.0,260.0 360.0,255.5 360.0,264.5" fill="#8a3324"/>
+<line x1="260.0" y1="110.0" x2="560.0" y2="210.0" stroke="#8a3324" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="560.0" y1="210.0" x2="350.0" y2="280.0" stroke="#8a3324" stroke-width="2" stroke-dasharray="6 4"/>
 <circle cx="360" cy="210" r="6" fill="#1c2833"/>
 <circle cx="460" cy="210" r="6" fill="#1c2833"/>
 <text x="360.0" y="196.0" font-size="18" fill="#1c2833" text-anchor="middle" font-weight="normal">C</text>

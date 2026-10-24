@@ -84,9 +84,24 @@ LCM: all primes 2, 3, 5, 7, larger powers: $2^2 \times 3^2 \times 5 \times 7 = 4
 
 Check with a useful fact: for two numbers, GCF × LCM = the product of the numbers. Here $6 \times 1{,}260 = 7{,}560$ and $84 \times 90 = 7{,}560$. ✓
 
+A Venn diagram makes both rules easy to see. Put each number's prime factors in its own circle, and put the factors the two numbers share (one 2 and one 3) in the overlap. The GCF is the product of the overlap; the LCM is the product of everything in the diagram, counting each prime once where it is written.
+
+![A Venn diagram. The left circle is 84 = 2 × 2 × 3 × 7 and the right circle is 90 = 2 × 3 × 3 × 5. The overlap holds the shared factors 2 and 3; the left-only part holds 2 and 7; the right-only part holds 3 and 5. GCF = 2 × 3 = 6, and LCM = 2 × 7 × 2 × 3 × 3 × 5 = 1,260.](images/pre-m1-venn-84-90.svg)
+
+This also explains the check: the overlap is counted once in the LCM, so GCF × LCM uses every prime of both numbers exactly as often as $84 \times 90$ does.
+
 ## GCF or LCM? Word problems
 
 Ask yourself whether you are *splitting* things into equal groups (the answer is smaller than the numbers: GCF) or waiting for things to *line up* again (the answer is bigger than the numbers: LCM).
+
+```mermaid
+flowchart TD
+  accTitle: Deciding between GCF and LCM in a word problem
+  accDescr: Picture the situation. If you are splitting things into equal groups with nothing left over, use the GCF, and the answer is no bigger than the smallest number. If you are waiting for repeating events to happen together again, use the LCM, and the answer is no smaller than the largest number.
+  A["Picture the situation"] --> B{"What is happening?"}
+  B -- "splitting into equal groups, nothing left over" --> C["GCF: the answer is no bigger than the smallest number"]
+  B -- "repeating events lining up again" --> D["LCM: the answer is no smaller than the largest number"]
+```
 
 ### Example 3
 

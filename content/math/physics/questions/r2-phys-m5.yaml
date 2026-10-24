@@ -37,16 +37,15 @@
   type: label
   topic: Rotational kinematics
   stem: 'A disk turns counterclockwise about its axis. Name the numbered parts of the picture for the point on its rim.'
-  image: {src: images/phys-m5-rotating-disk-blank.svg, alt: 'A disk turning counterclockwise with five numbered parts: the center of the disk, the line from the center to a point on the rim, the curved arc along the rim from a dashed reference line to the point, an arrow at the point pointing along the rim, and an arrow at the point pointing toward the center.'}
+  image: {src: images/phys-m5-rotating-disk-blank.svg, alt: 'A disk turning counterclockwise with four numbered parts: the center of the disk, the curved arc along the rim from a dashed reference line to the point, an arrow at the point pointing along the rim, and an arrow at the point pointing toward the center.'}
   labels:
     - {x: 41.1, y: 55.0, text: Axis of rotation}
-    - {x: 49.7, y: 40.6, text: Radius r}
     - {x: 65.3, y: 39.2, text: Arc length s}
     - {x: 46.7, y: 12.6, text: Velocity v}
     - {x: 53.1, y: 34.9, text: Centripetal acceleration}
-  distractors: [Angular momentum, Torque]
+  distractors: [Angular momentum, Torque, Angular acceleration]
   explanation: |-
-    The disk turns about its axis (1). The radius (2) runs to the point; the arc (3) it has swept from the reference line has length $s = r\theta$. The velocity (4) is tangent to the rim, $v = r\omega$, and the centripetal acceleration (5) points toward the axis, $a_c = r\omega^2$.
+    The disk turns about its axis (1). The arc (2) swept from the reference line to the point has length $s = r\theta$. The velocity (3) is tangent to the rim, $v = r\omega$, and the centripetal acceleration (4) points along the radius toward the axis, $a_c = r\omega^2$. The radius itself is the line the acceleration lies along, not an arrow.
 - id: phys-m5-r2-q05
   lesson: phys-rot-kin
   module_quiz: true
@@ -250,7 +249,7 @@
     - [Strain, Fractional change in length]
   distractors: [Force per unit length]
   explanation: |-
-    Below the elastic limit the material springs back; beyond it, deformation is plastic (permanent). The ultimate strength is the top of the stress–strain curve. Strain is $\Delta L/L_0$, a ratio with no units; stress is force per unit *area*, not length.
+    Below the elastic limit the material springs back; beyond it, deformation is plastic (permanent). The ultimate strength is the top of the stress–strain curve. Strain is $\Delta L/L_0$, a ratio with no units; stress is force per unit area, not per unit length.
 - id: phys-m5-r2-q24
   lesson: phys-elasticity
   topic: Elasticity

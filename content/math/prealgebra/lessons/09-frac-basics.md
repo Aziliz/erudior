@@ -41,6 +41,10 @@ $$\frac{a}{b} = \frac{a \times c}{b \times c}$$
 
 Why? Because $\dfrac{c}{c} = 1$, and multiplying by 1 doesn't change a number. (You'll see in Lesson 10 that multiplying fractions works this way.)
 
+A **fraction wall** shows many equivalent fractions at once. Each row is the same whole, cut into a different number of equal pieces. Pieces that line up are equal amounts: one half lines up with two quarters, three sixths and six twelfths, and one third lines up with two sixths and four twelfths.
+
+![A fraction wall: six bars of equal length stacked on top of each other. The top bar is one whole. Below it the bars are cut into halves, thirds, quarters, sixths and twelfths, and each piece is labeled with its fraction.](images/pre-m3-fraction-wall.svg)
+
 ### Example 1
 
 Find the missing number: $\dfrac{4}{9} = \dfrac{?}{63}$.
@@ -70,6 +74,18 @@ Each canceled pair is a factor of $\tfrac{2}{2}$, $\tfrac33$ or $\tfrac77$, whic
 - *Same denominator:* the larger numerator is larger. $\tfrac57 > \tfrac37$ (more of the same-size pieces).
 - *Same numerator:* the smaller denominator is larger. $\tfrac38 > \tfrac3{10}$ (same number of pieces, but eighths are bigger than tenths).
 - *Otherwise:* rewrite both with a common denominator, or use **cross-multiplication**: to compare $\tfrac ab$ and $\tfrac cd$ (positive denominators), compare $a \times d$ with $b \times c$.
+
+This chart sums up which comparison method to reach for.
+
+```mermaid
+flowchart TD
+  accTitle: Which method to use when comparing two fractions
+  accDescr: If the denominators are the same, the fraction with the larger numerator is larger. If not, but the numerators are the same, the fraction with the smaller denominator is larger. If neither is the same, rewrite both fractions with a common denominator, or cross-multiply, and compare.
+  A["Same denominators?"] -->|yes| B["Larger numerator is larger"]
+  A -->|no| C["Same numerators?"]
+  C -->|yes| D["Smaller denominator is larger"]
+  C -->|no| E["Use a common denominator or cross-multiply"]
+```
 
 ### Example 3
 

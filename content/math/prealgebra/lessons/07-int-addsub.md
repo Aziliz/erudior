@@ -34,6 +34,10 @@ Looking at many such trips, two patterns appear.
 
 A money picture makes these rules concrete. Positive numbers are dollars you have; negative numbers are debts. If you owe \$8 and earn \$5, you still owe \$3: $-8 + 5 = -3$. If you owe \$8 and then borrow \$5 more, you owe \$13: $-8 + (-5) = -13$.
 
+A third model uses counters: each + counter is worth $+1$ and each − counter is worth $-1$. One of each together is a **zero pair**, worth $1 + (-1) = 0$, so zero pairs can be removed without changing the total. To find $-5 + 3$, lay out five − counters and three + counters, remove the three zero pairs, and read what is left: two − counters, so $-5 + 3 = -2$. That is the different-signs rule in action: the 3 cancels part of the 5, and the leftover has the sign of the larger group.
+
+![Five negative counters in a row above three positive counters. Each of the first three negatives is circled with the positive below it as a zero pair worth 0. Two negative counters are left over, so −5 + 3 = −2.](images/pre-m2-counters.svg)
+
 Two consequences:
 
 - A number plus its opposite is zero: $7 + (-7) = 0$. Opposites are also called **additive inverses** for this reason.
@@ -65,6 +69,26 @@ Some cases:
 The third line is the famous one: *subtracting a negative is the same as adding a positive.* In money terms, if a \$9 debt is taken away from you (someone cancels it), you are \$9 better off.
 
 On the number line, $a - b$ is the signed distance from $b$ to $a$. For example, $5 - (-9) = 14$ says that going from $-9$ to 5 is a trip of 14 units to the right. That's why the distance between two numbers in the last lesson was $|a - b|$.
+
+```numberline
+{"x": [-11, 7], "points": [{"at": [-9, 0], "label": "-9"}, {"at": [5, 0], "label": "5"}], "segments": [{"from": [-9, 0], "to": [5, 0], "arrow": true, "label": "14 units right"}], "caption": "5 - (-9) = 14: the trip from -9 to 5 is 14 units to the right"}
+```
+
+The whole procedure for adding and subtracting fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Adding and subtracting integers
+  accDescr: If the problem is a subtraction, first rewrite it as adding the opposite, changing only the second number. Then look at the signs of the two numbers being added. If the signs are the same, add the absolute values and keep the common sign. If the signs are different, subtract the smaller absolute value from the larger and take the sign of the number with the larger absolute value.
+  A[Integer problem] --> B{"Subtraction?"}
+  B -- yes --> C["Add the opposite: a - b becomes a + (-b)"]
+  B -- no --> D{"Same signs?"}
+  C --> D
+  D -- yes --> E[Add the absolute values]
+  E --> F[Keep the common sign]
+  D -- no --> G[Subtract the smaller absolute value from the larger]
+  G --> H[Take the sign of the number with the larger absolute value]
+```
 
 ### Example 2
 

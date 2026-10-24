@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="260" viewBox="0 0 680 260" font-family="sans-serif" fill="#1c2833">
+<rect x="0" y="0" width="680" height="260" fill="#ffffff"/>
+<rect x="60.0" y="110" width="56.0" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="88.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="116.0" y="110" width="56.0" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="144.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="172.0" y="110" width="56.0" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="200.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="228.0" y="110" width="56.0" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="256.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="284.0" y="110" width="56.0" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="312.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="340.0" y="110" width="56.0" height="50" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="368.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="396.0" y="110" width="56.0" height="50" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="424.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="452.0" y="110" width="56.0" height="50" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="480.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="508.0" y="110" width="56.0" height="50" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="536.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="564.0" y="110" width="56.0" height="50" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="592.0" y="141.0" font-size="16" text-anchor="middle" font-weight="normal">7</text>
+<rect x="60" y="110" width="560" height="50" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M60,102 L60,90 L396.0,90 L396.0,102" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="228.0" y="80" font-size="17" text-anchor="middle" font-weight="bold">Amount: 42 (60%)</text>
+<path d="M60,168 L60,180 L620,180 L620,168" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="340.0" y="204" font-size="17" text-anchor="middle" font-weight="bold">Base: 100% = 10 × 7 = 70</text>
+<text x="60.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">0%</text>
+<text x="116.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">10%</text>
+<text x="172.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">20%</text>
+<text x="228.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">30%</text>
+<text x="284.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">40%</text>
+<text x="340.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">50%</text>
+<text x="396.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">60%</text>
+<text x="452.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">70%</text>
+<text x="508.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">80%</text>
+<text x="564.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">90%</text>
+<text x="620.0" y="232" font-size="14" text-anchor="middle" font-weight="normal">100%</text>
+<text x="340.0" y="26" font-size="16" text-anchor="middle" font-weight="normal">42 is 60% of what number? Each tenth (10%) is 42 ÷ 6 = 7.</text>
+</svg>

@@ -69,6 +69,10 @@ Why does it work? Two ways to see it.
 
 *Meaning of division.* $6 \div \tfrac12$ asks "how many halves fit in 6?" Each whole holds 2 halves, so 6 holds 12. And $6 \times 2 = 12$: dividing by $\tfrac12$ is the same as multiplying by 2, its reciprocal.
 
+The same counting works when the divisor isn't a unit fraction. The picture below asks how many $\tfrac34$ pieces fit in 3 wholes. Each whole holds 4 quarters, so there are 12 quarters, and every 3 quarters make one piece: $12 \div 3 = 4$ pieces. The rule agrees: $3 \div \tfrac34 = 3 \times \tfrac43 = 4$.
+
+![Three bars, each one whole cut into four quarters. The twelve quarters are colored in four runs of three quarters, with one run crossing from the first whole into the second and another from the second into the third. There are 4 runs, so 3 divided by 3/4 is 4.](images/pre-m3-divide-quarters.svg)
+
 *Algebra.* Write the division as a big fraction and multiply top and bottom by $\tfrac dc$ (that's multiplying by 1):
 
 $$\frac{\tfrac ab}{\tfrac cd} = \frac{\tfrac ab \times \tfrac dc}{\tfrac cd \times \tfrac dc} = \frac{\tfrac ab \times \tfrac dc}{1} = \frac ab \times \frac dc.$$
@@ -90,6 +94,20 @@ $12 \div \tfrac34 = \tfrac{12}{1} \times \tfrac43 = \tfrac{48}{3} = 16$ pieces. 
 ### Dividing by a whole number
 
 To divide by a whole number, multiply by its reciprocal: $\tfrac{4}{5} \div 8 = \tfrac45 \times \tfrac18 = \tfrac{4}{40} = \tfrac1{10}$. Splitting four fifths of a cake among 8 people gives each one tenth of the cake.
+
+### The whole procedure
+
+```mermaid
+flowchart TD
+  accTitle: Steps for multiplying or dividing fractions
+  accDescr: First write any whole number over 1 and any mixed number as an improper fraction. If the problem is a division, change the division to multiplication and flip only the divisor. Then cancel common factors between any numerator and any denominator, multiply the numerators and the denominators, and check that the answer is in simplest form and has a sensible size.
+  A["Write whole numbers over 1 and mixed numbers as improper fractions"] --> B["Dividing?"]
+  B -->|yes| C["Change ÷ to × and flip the divisor"]
+  B -->|no| D["Cancel common factors, numerator against denominator"]
+  C --> D
+  D --> E["Multiply numerators and multiply denominators"]
+  E --> F["Check: simplest form and a sensible size"]
+```
 
 ## Size check
 

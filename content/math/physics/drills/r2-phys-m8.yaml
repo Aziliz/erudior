@@ -1,0 +1,128 @@
+- id: phys-m8-r2-dipole-torque
+  title: Dipole in a uniform field
+  topic: Electric dipoles
+  vars:
+    q: {min: 1, max: 9}
+    dmm: {min: 1, max: 9}
+    EkN: {min: 10, max: 90, step: 10}
+    th: {min: 10, max: 170, step: 10}
+  where: ['th != 90']
+  calc:
+    p: q*1e-9*dmm*1e-3
+    E: EkN*1000
+    tau: p*E*sind(th)
+    U: -p*E*cosd(th)
+  prompt: 'Charges of $\pm{q}$ nC are {dmm} mm apart in a uniform field of {EkN} kN/C, with the dipole moment at ${th}^\circ$ to the field. Find the dipole moment, the magnitude of the torque, and the potential energy $U = -pE\cos\theta$ (signed), each to 3 significant figures.'
+  answers:
+    - {name: p, label: '$p$ (C·m)', format: sci, relTolerance: 0.01, units: {'C·m': 1, 'C*m': 1, 'C m': 1}}
+    - {name: tau, label: '$\tau$ (N·m)', format: sci, relTolerance: 0.01, units: {'N·m': 1, 'N*m': 1, 'N m': 1}}
+    - {name: U, label: '$U$ (J)', format: sci, relTolerance: 0.01, units: {J: 1}}
+  solution: |-
+    $p = qd = ({q}\times10^{-9})({dmm}\times10^{-3}) = \mathbf{{p:texsci}}$ C·m.
+
+    $\tau = pE\sin\theta = ({p:texsci})({E:dp0})\sin{th}^\circ = \mathbf{{tau:texsci}}$ N·m.
+
+    $U = -pE\cos\theta = -({p:texsci})({E:dp0})\cos{th}^\circ = \mathbf{{U:texsci}}$ J. (Negative when the moment points within $90^\circ$ of the field, positive beyond.)
+- id: phys-m8-r2-dipole-axis
+  title: Field on a dipole's axis
+  topic: Electric dipoles
+  vars:
+    q: {min: 1, max: 9}
+    dmm: {min: 1, max: 5}
+    rcm: {min: 1, max: 20}
+  where: ['rcm*10 >= 5*dmm']
+  calc:
+    d: dmm/1000
+    r: rcm/100
+    Eex: 8.99e9*q*1e-9*(1/(r - d/2)^2 - 1/(r + d/2)^2)
+    p: q*1e-9*d
+    Eap: 2*8.99e9*p/r^3
+  prompt: 'A dipole is made of $\pm{q}$ nC charges {dmm} mm apart. Find the field on its axis {rcm} cm from its center (a) exactly, from the two point charges, and (b) with the far-field formula $E \approx 2kp/r^3$. Give both in N/C to 3 significant figures ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {name: Eex, label: '(a) exact', format: sig4, relTolerance: 0.01, units: {'N/C': 1, 'V/m': 1, 'kN/C': 1000}}
+    - {name: Eap, label: '(b) approximate', format: sig4, relTolerance: 0.01, units: {'N/C': 1, 'V/m': 1, 'kN/C': 1000}}
+  solution: |-
+    (a) The nearer charge is $r - d/2$ away and the farther one $r + d/2$; their fields point opposite ways along the axis:
+    $E = kq\left[\dfrac1{(r - d/2)^2} - \dfrac1{(r + d/2)^2}\right] =$ **{Eex:sig3} N/C**.
+
+    (b) $p = qd = {p:texsci}$ C·m, so $E \approx \dfrac{2kp}{r^3} =$ **{Eap:sig3} N/C**. The closer $r$ is to $d$, the more the two answers differ.
+- id: phys-m8-r2-oil-balance
+  title: Charge on a balanced oil drop
+  topic: Charge quantization
+  vars:
+    n: {min: 1, max: 8}
+    m: {min: 1.0, max: 6.0, step: 0.1}
+    dmm: {choices: [8, 10, 12, 15]}
+  calc:
+    Vr: round(m*1e-15*9.8*dmm/1000/(n*1.602e-19))
+    q: m*1e-15*9.8*dmm/1000/Vr
+  where: ['Vr >= 150', 'Vr <= 3000']
+  prompt: 'An oil drop of mass ${m}\times10^{-15}$ kg hangs motionless between horizontal plates {dmm} mm apart when the voltage across them is {Vr} V. Find the drop''s charge (magnitude, in C to 3 significant figures) and the number of excess electrons it carries. ($g = 9.8$ m/s², $e = 1.602\times10^{-19}$ C)'
+  answers:
+    - {name: q, label: 'Charge (C)', format: sci, relTolerance: 0.01, units: {C: 1}}
+    - {name: n, label: 'Electrons', format: integer}
+  solution: |-
+    Balanced: $qE = mg$ with $E = V/d$, so $q = \dfrac{mgd}{V} = \dfrac{({m}\times10^{-15})(9.8)({dmm}\times10^{-3})}{{Vr}} = \mathbf{{q:texsci}}$ C.
+
+    $n = q/e = {q:texsci}/(1.602\times10^{-19}) \approx$ **{n}** electrons.
+- id: phys-m8-r2-stokes-radius
+  title: Oil drop radius and mass from its fall
+  topic: Charge quantization
+  vars:
+    dist: {choices: [0.50, 1.00, 1.50, 2.00]}
+    t: {min: 5.0, max: 30.0, step: 0.5}
+  calc:
+    v: dist/1000/t
+    r: sqrt(9*1.8e-5*v/(2*900*9.8))
+    rum: r*1e6
+    m: 4/3*pi*r^3*900
+  prompt: 'With the field off, an oil drop (density 900 kg/m³) falls {dist:num2} mm at constant speed in {t:num1} s through air ($\eta = 1.8\times10^{-5}$ Pa·s). Using Stokes''s law, find its radius in micrometers and its mass in kg, to 3 significant figures. ($g = 9.8$ m/s²)'
+  answers:
+    - {name: rum, label: 'Radius (μm)', format: sig4, relTolerance: 0.01, units: {'μm': 1, 'um': 1, m: 1000000}}
+    - {name: m, label: 'Mass (kg)', format: sci, relTolerance: 0.01, units: {kg: 1}}
+  solution: |-
+    Terminal speed: $v = \dfrac{{dist:num2}\times10^{-3}\text{ m}}{{t:num1}\text{ s}} = {v:texsci}$ m/s.
+
+    Drag balances weight, $6\pi\eta rv = \tfrac43\pi r^3\rho g$, so $r = \sqrt{\dfrac{9\eta v}{2\rho g}} = {r:texsci}$ m $=$ **{rum:sig3} μm**.
+
+    $m = \tfrac43\pi r^3\rho = \mathbf{{m:texsci}}$ kg.
+- id: phys-m8-r2-breakdown-sphere
+  title: Highest voltage on a charged sphere
+  topic: Dielectric breakdown
+  vars:
+    Rcm: {min: 5, max: 50, step: 5}
+    Emax: {choices: [2.5, 3.0]}
+  calc:
+    R: Rcm/100
+    VkV: Emax*1e6*R/1000
+    QuC: Emax*1e6*R^2/8.99e9*1e6
+  prompt: 'A conducting sphere of radius {Rcm} cm is surrounded by air that breaks down at ${Emax}\times10^6$ V/m. Find the highest potential it can reach (in kV) and the charge it then holds (in μC), to 3 significant figures ($k = 8.99\times10^9$ N·m²/C²).'
+  answers:
+    - {name: VkV, label: 'Potential (kV)', format: sig4, relTolerance: 0.01, units: {kV: 1, V: 0.001, MV: 1000}}
+    - {name: QuC, label: 'Charge (μC)', format: sig4, relTolerance: 0.01, units: {'μC': 1, 'uC': 1, C: 1000000}}
+  solution: |-
+    At the surface $E = V/R$, so $V_{\max} = E_{\max}R = ({Emax}\times10^6)({R}) =$ **{VkV:sig3} kV**.
+
+    $Q = \dfrac{V_{\max}R}{k} = \dfrac{E_{\max}R^2}{k} =$ **{QuC:sig3} μC**.
+- id: phys-m8-r2-connected-spheres
+  title: Charge sharing between connected spheres
+  topic: Dielectric breakdown
+  vars:
+    R1: {min: 6, max: 30}
+    R2: {min: 1, max: 5}
+    Q: {min: 10, max: 200, step: 10}
+  calc:
+    Q1: Q*R1/(R1 + R2)
+    Q2: Q*R2/(R1 + R2)
+    ratio: R1/R2
+  prompt: 'Two conducting spheres, of radius {R1} cm and {R2} cm, are far apart and joined by a thin wire. Together they hold {Q} nC. Find the charge on each sphere (nC) and the ratio of the small sphere''s surface field to the large sphere''s, to 3 significant figures.'
+  answers:
+    - {name: Q1, label: 'Large sphere (nC)', format: sig4, relTolerance: 0.01, units: {nC: 1}}
+    - {name: Q2, label: 'Small sphere (nC)', format: sig4, relTolerance: 0.01, units: {nC: 1}}
+    - {name: ratio, label: '$E_{\text{small}}/E_{\text{large}}$', format: sig4, relTolerance: 0.01}
+  solution: |-
+    Same potential: $kQ_1/R_1 = kQ_2/R_2$, so charge is shared in proportion to radius.
+
+    $Q_1 = {Q}\cdot\dfrac{{R1}}{{R1} + {R2}} =$ **{Q1:sig3} nC**, $Q_2 = {Q}\cdot\dfrac{{R2}}{{R1} + {R2}} =$ **{Q2:sig3} nC**.
+
+    Surface field $E = V/R$ with the same $V$, so $E_{\text{small}}/E_{\text{large}} = R_1/R_2 =$ **{ratio:sig3}**.

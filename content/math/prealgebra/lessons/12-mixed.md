@@ -19,6 +19,10 @@ $2\tfrac34$ means $2 + \tfrac34$. The plus sign is understood, not written. (Don
 {"x": [0, 4], "points": [{"at": [2.75, 0], "label": "2 3/4 = 11/4"}], "caption": "2 3/4 lies three quarters of the way from 2 to 3"}
 ```
 
+Picture $2\tfrac34$ with circles cut into quarters: two whole circles and three quarters of a third circle. Counting quarters gives $4 + 4 + 3 = 11$ of them, so $2\tfrac34 = \tfrac{11}{4}$.
+
+![Three circles, each cut into four quarters. The first two circles are fully shaded and the third has three of its four quarters shaded, for eleven shaded quarters in all: 2 3/4 equals 11/4.](images/pre-m3-mixed-pies.svg)
+
 ## Converting between forms
 
 *Mixed number to improper fraction.* Each whole is $\tfrac44$ here, so 2 wholes are $\tfrac84$, and $\tfrac84 + \tfrac34 = \tfrac{11}{4}$. The shortcut: multiply the whole number by the denominator, add the numerator, and keep the denominator.
@@ -90,6 +94,20 @@ $-2\tfrac13$ means $-(2 + \tfrac13) = -\tfrac73$, *not* $-2 + \tfrac13$. The neg
 Compute $1\tfrac12 - 3\tfrac34$.
 
 Improper: $\tfrac32 - \tfrac{15}{4} = \tfrac64 - \tfrac{15}{4} = -\tfrac94 = -2\tfrac14$.
+
+### Which method when?
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method for mixed-number arithmetic
+  accDescr: For multiplication or division, always convert every mixed number to an improper fraction first. For addition or subtraction, if any number is negative, convert to improper fractions. Otherwise you can either work with the whole parts and fraction parts separately, regrouping when a fraction part is too small to subtract from or when the fraction sum is improper, or convert to improper fractions. Finish by writing the answer in simplest form and comparing it with an estimate.
+  A["Multiplying or dividing?"] -->|yes| B["Convert to improper fractions first"]
+  A -->|"no: adding or subtracting"| C["Any negative numbers?"]
+  C -->|yes| B
+  C -->|no| D["Wholes and fractions separately, regrouping when needed, or convert"]
+  B --> E["Simplest form; compare with an estimate"]
+  D --> E
+```
 
 ## Estimating with mixed numbers
 

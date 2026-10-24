@@ -127,7 +127,7 @@ $$M_J = \frac{4\pi^2(4.22\times10^8)^3}{(6.67\times10^{-11})(1.528\times10^5)^2}
 
 about 318 times Earth's mass.
 
-**Binary stars.** When two bodies of similar mass orbit each other, both move around their common center of mass, and the heavier one is not fixed. Newton's analysis then gives the same law with the total mass, and with $a$ now the semimajor axis of their *separation*:
+*Binary stars.* When two bodies of similar mass orbit each other, both move around their common center of mass, and the heavier one is not fixed. Newton's analysis then gives the same law with the total mass, and with $a$ now the semimajor axis of their *separation*:
 
 $$M_1 + M_2 = \frac{4\pi^2a^3}{GT^2}.$$
 

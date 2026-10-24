@@ -9,9 +9,9 @@ refs: [phys-ref-em-modern, phys-ref-constants]
 ---
 ## What is everything made of?
 
-The nuclear physics lesson built nuclei out of protons and neutrons and explained beta decay, in which a neutron turns into a proton while an electron and an antineutrino fly out. That raises questions the lesson left alone. Are protons and neutrons themselves made of something smaller? What is an antineutrino? What holds the pieces together, and why does beta decay happen at all?
+The nuclear physics lesson built nuclei out of protons and neutrons and explained beta decay, in which a neutron turns into a proton while an electron and an antineutrino fly out. It left questions open. Are protons and neutrons themselves made of something smaller? What is an antineutrino? What holds the pieces together, and why does beta decay happen at all?
 
-The answers make up the **Standard Model** of particle physics, built between the 1960s and 1970s and confirmed in detail since. It lists the smallest known building blocks of matter, the forces between them, and the rules for which reactions can happen. This lesson draws on three earlier tools: rest energy $E_0 = mc^2$ from relativity, the photon from the quantum lesson, and the circular path of a charged particle in a magnetic field.
+The answers make up the **Standard Model** of particle physics, built in the 1960s and 1970s and tested in detail since. It lists the smallest known building blocks of matter, the forces between them, and the rules for which reactions can happen. This lesson uses rest energy $E_0 = mc^2$, photons, and the circular path of a charge in a magnetic field.
 
 ## Antimatter
 
@@ -33,24 +33,24 @@ The electron and positron each have rest energy 0.511 MeV, and they are nearly a
 
 $$\lambda = \frac{hc}{E} = \frac{1240\text{ eV·nm}}{511\,000\text{ eV}} = 2.43\times10^{-3}\text{ nm} = 2.43\text{ pm}.$$
 
-The two photons leave back to back, so a ring of detectors that catches both at the same instant knows the annihilation happened on the line between them. Many such lines locate the tracer in the body.
+The photons leave back to back, so detectors that catch both at once know the annihilation happened on the line between them; many such lines locate the tracer.
 
 ## Inside the proton: quarks
 
-By the early 1960s accelerators had produced hundreds of short-lived particles that feel the strong force, collectively called **hadrons**. In 1964 Murray Gell-Mann and George Zweig independently proposed that hadrons are built from a few smaller particles, which Gell-Mann named **quarks**. Experiments at SLAC from 1968 on fired high-energy electrons at protons and found that they bounced off small, hard, point-like pieces inside, much as Rutherford had found the nucleus inside the atom.
+By the early 1960s accelerators had produced hundreds of short-lived particles that feel the strong force, collectively called **hadrons**. In 1964 Murray Gell-Mann and George Zweig independently proposed that hadrons are built from a few smaller particles, which Gell-Mann named **quarks**. From 1968, electrons fired at protons at SLAC bounced off small, point-like pieces inside, much as Rutherford had found the nucleus inside the atom.
 
-Quarks have fractional charges: the **up** quark (u) has charge $+\tfrac23e$ and the **down** quark (d) has $-\tfrac23e + \tfrac13e = -\tfrac13e$. Hadrons come in two families:
+Quarks have fractional charges: the **up** quark (u) has charge $+\tfrac23e$ and the **down** quark (d) has charge $-\tfrac13e$. Hadrons come in two families:
 
 - **Baryons** are made of three quarks. The proton is uud: charge $\tfrac23 + \tfrac23 - \tfrac13 = +1$. The neutron is udd: charge $\tfrac23 - \tfrac13 - \tfrac13 = 0$.
 - **Mesons** are made of a quark and an antiquark. The positive pion, $\pi^+$, is u$\bar{\text{d}}$: charge $\tfrac23 + \tfrac13 = +1$ (the antidown has charge $+\tfrac13$).
 
 No one has ever isolated a single quark. The force between quarks does not weaken as they separate; pulling them apart takes so much energy that new quark–antiquark pairs are created, and they come out as hadrons. This is called **confinement**.
 
-There are six kinds ("flavors") of quark, in three **generations** of increasing mass: up and down; charm and strange; top and bottom. The heaviest, the top quark, found at Fermilab in 1995, is about as heavy as a gold atom. Ordinary matter uses only the first generation.
+There are six kinds ("flavors") of quark, in three **generations** of increasing mass: up and down; charm and strange; top and bottom. The heaviest, the top quark, found at Fermilab in 1995, is nearly as heavy as a whole gold atom. Ordinary matter uses only the first generation.
 
 ## Leptons
 
-The other matter particles, the **leptons**, don't feel the strong force. There are three charged ones, the electron, the muon (about 207 times the electron's mass) and the tau, and three neutral **neutrinos**, one paired with each. Neutrinos interact so weakly that trillions from the Sun pass through your body every second without effect. They were long thought to be massless, but experiments around 1998–2001 showed they change type in flight, which requires mass; their masses are tiny but not yet known exactly.
+The other matter particles, the **leptons**, don't feel the strong force at all. There are three charged ones, the electron, the muon (about 207 times the electron's mass) and the tau, and three neutral **neutrinos**, one paired with each. Neutrinos interact so weakly that hundreds of trillions from the Sun pass through your body every second without effect. They were long thought to be massless, but experiments around 1998–2001 showed they change type in flight, which requires mass; their masses are tiny but not yet known exactly.
 
 ![The Standard Model chart. Quarks fill two rows of three: up, charm, top above down, strange, bottom. Leptons fill two rows of three: electron, muon, tau above the electron, muon and tau neutrinos. The three columns are generations I, II and III. A separate column holds the force carriers: gluon, photon, Z boson and W boson. Below it is the Higgs boson.](images/phys-h1-standard-model.svg)
 
@@ -82,7 +82,7 @@ In the Standard Model, a force between two particles comes from exchanging a thi
 | Weak | quarks, leptons | W⁺, W⁻, Z⁰ | about $10^{-18}$ m | $10^{-6}$ |
 | Gravity | everything with energy | (graviton, hypothetical) | unlimited | $10^{-38}$ |
 
-The strengths are order-of-magnitude comparisons for two protons about $10^{-15}$ m apart; different books quote different values, especially for the weak force, because the comparison depends on the energy and distance. The strong force between nucleons from the nuclear lesson is a leftover of the gluon force between their quarks, much as the forces between neutral molecules are leftovers of the electric forces inside them. The weak force is the one that changes one kind of quark or lepton into another: in beta decay, a d quark in a neutron becomes a u quark by emitting a W⁻, which then decays into an electron and an antineutrino.
+The strengths are rough comparisons for two protons about $10^{-15}$ m apart; books quote different values, especially for the weak force, because the comparison depends on energy and distance. The strong force between nucleons from the nuclear lesson is a leftover of the gluon force between their quarks. The weak force is the one that changes one kind of quark or lepton into another: in beta decay, a d quark in a neutron becomes a u quark by emitting a W⁻, which then decays into an electron and an antineutrino.
 
 ### Range from the carrier's mass
 
@@ -90,7 +90,7 @@ Why is the weak force so short-ranged? In 1935 Hideki Yukawa argued that a force
 
 $$R \approx \frac{\hbar c}{mc^2}, \qquad \hbar c = 197\text{ MeV·fm}.$$
 
-This is an estimate, not an exact law, but it captures the pattern: heavy carriers give short-range forces, and a massless carrier (the photon) gives unlimited range. From the nuclear force's range of about 1.4 fm, Yukawa predicted a carrier of about 140 MeV; the pion, found in 1947 with 140 MeV, fits.
+This is an estimate, not an exact law, but it captures the pattern: heavy carriers give short-range forces, and a massless carrier (the photon) gives unlimited range. From the short range of the nuclear force, Yukawa predicted a carrier about 200 times the electron's mass. The pion, found in 1947 with a rest energy of 140 MeV (which gives $R \approx 197/140 = 1.4$ fm), fits the idea.
 
 ### Example 2: the range of the weak force
 
@@ -127,7 +127,7 @@ Rest energies: proton 938.27 MeV, neutron 939.57 MeV, electron and positron 0.51
 
 ## Accelerators: momentum from a magnetic field
 
-To make heavy particles like the Higgs, you collide others at enormous energies. In a circular accelerator, magnets bend the beam. The magnetism lesson's result $r = mv/(qB)$ is really $r = p/(qB)$, and it stays true at relativistic speeds if $p$ is the relativistic momentum $\gamma mv$. For a particle of charge $e$ it's convenient to write
+To make heavy particles like the Higgs, physicists collide others at enormous energies, in rings where magnets bend the beam. The magnetism lesson's result $r = mv/(qB)$ is really $r = p/(qB)$, and it stays true at relativistic speeds if $p$ is the relativistic momentum $\gamma mv$. For a particle of charge $e$ it's convenient to write
 
 $$p\ (\text{in GeV}/c) = 0.300\,B\ (\text{in T})\ r\ (\text{in m}).$$
 
@@ -137,7 +137,7 @@ The LHC was designed for 7.0 TeV protons, bent by magnets of 8.33 T. At this ene
 
 $$r = \frac{p}{0.300B} = \frac{7000}{0.300(8.33)} = 2.80\times10^3\text{ m}.$$
 
-The LHC tunnel is 26.7 km around; the 2.8 km bending radius applies inside the bending magnets, and straight sections fill the rest. Each proton's Lorentz factor is $E/(mc^2) = 7000/0.938 \approx 7500$, so its speed is within about 1 part in $10^8$ of $c$.
+The 2.8 km radius applies inside the bending magnets; with straight sections, the ring is 26.7 km around. Each proton's Lorentz factor is $E/(mc^2) = 7000/0.938 \approx 7500$, so its speed is within about 1 part in $10^8$ of $c$.
 
 ## Common mistakes
 

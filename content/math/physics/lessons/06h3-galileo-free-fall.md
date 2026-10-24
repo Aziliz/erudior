@@ -34,7 +34,7 @@ Experiments agreed. In 1586 the Flemish engineer Simon Stevin reported that he a
 
 Showing that objects fall *together* is easier than showing *how* they fall. Galileo's answer, described in his *Two New Sciences* (1638), was to "dilute" gravity: let a ball roll down a long, gently sloping, smooth groove. The motion is the same kind as free fall, only slower, so it can be timed. He timed it with a water clock, weighing the water that flowed out of a container while the ball rolled.
 
-His result: starting from rest, the distance covered is proportional to the **square** of the time. In 2 time units the ball goes 4 times as far as in 1, in 3 units 9 times as far. Equivalently, the distances covered in successive equal intervals go as the odd numbers 1, 3, 5, 7, …, a pattern called the **odd-number rule**.
+His result: starting from rest, the distance covered is proportional to the *square* of the time. In 2 time units the ball goes 4 times as far as in 1, in 3 units 9 times as far. Equivalently, the distances covered in successive equal intervals go as the odd numbers 1, 3, 5, 7, …, a pattern called the **odd-number rule**.
 
 ![A ball released from rest at the top of an incline, shown at equal time intervals tau. The total distances from the start grow as 1, 4, 9 and 16 units, so the distances covered in the four successive intervals are 1, 3, 5 and 7 units.](images/phys-m2-galileo.svg)
 

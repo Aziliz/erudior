@@ -297,11 +297,11 @@
 - id: mv-h1-r2-h32
   lesson: mv-h1-harmonic
   topic: Harmonic functions
-  stem: 'Which is Green''s first identity (outward normal $\mathbf n$ on the boundary $S$ of $E$)?'
-  choices: ['$\iiint_E f\,\nabla^2g\,dV = \iint_S f\,\nabla g\cdot\mathbf n\,dS$', '$\iiint_E\left(f\nabla^2g - g\nabla^2f\right)dV = \iint_S f\,\nabla g\cdot\mathbf n\,dS$', '$\iiint_E\left(f\nabla^2g + \nabla f\cdot\nabla g\right)dV = \iint_S f\,\nabla g\cdot\mathbf n\,dS$', '$\iiint_E\nabla f\cdot\nabla g\,dV = \iint_S g\,\nabla f\cdot\mathbf n\,dS$']
+  stem: 'A steady flow of water is irrotational and incompressible, with $\mathbf v = \nabla\phi$. Which equation does $\phi$ satisfy?'
+  choices: ['$\nabla\times\phi = \mathbf 0$', '$\nabla\phi = \mathbf 0$', '$\nabla^2\phi = 0$', '$\partial\phi/\partial t = \nabla^2\phi$']
   answer: 2
   explanation: |-
-    Apply the Divergence theorem to the field $f\nabla g$, whose divergence is $\nabla f\cdot\nabla g + f\nabla^2g$ by the product rule. The first choice drops the $\nabla f\cdot\nabla g$ term; the second mixes the left side of the second identity with the right side of the first.
+    Incompressible means $\nabla\cdot\mathbf v = 0$, and $\nabla\cdot\nabla\phi = \nabla^2\phi$, so $\phi$ is harmonic. Irrotational is what allowed $\mathbf v = \nabla\phi$ in the first place. $\nabla\phi = \mathbf 0$ would mean no flow; the curl of a scalar is undefined; the last is a heat equation, not a steady flow.
 - id: mv-h1-r2-h33
   lesson: mv-h1-harmonic
   topic: Harmonic functions
@@ -347,37 +347,36 @@
   lesson: mv-h1-harmonic
   type: order
   topic: Harmonic functions
-  stem: 'Put the steps of the uniqueness proof for the Dirichlet problem in order.'
+  stem: 'Put the steps of the proof of the mean value property in order.'
   items:
-    - 'Suppose $u_1$ and $u_2$ both solve it, and let $w = u_1 - u_2$'
-    - 'Note that $w$ is harmonic in $E$ and $w = 0$ on $S$'
-    - 'Apply Green''s first identity with $f = g = w$ to get $\iiint_E|\nabla w|^2\,dV = 0$'
-    - 'Conclude $\nabla w = \mathbf 0$, so $w$ is constant'
-    - 'Since $w = 0$ on $S$, the constant is 0, so $u_1 = u_2$'
+    - 'Let $A(r)$ be the average of $u$ over the sphere of radius $r$ around $\mathbf p$'
+    - 'Differentiate under the integral: $A''(r)$ is a multiple of the flux of $\nabla u$ through that sphere'
+    - 'Use the Divergence theorem: the flux equals $\iiint\nabla^2u\,dV = 0$'
+    - 'So $A$ is constant; let $r \to 0$ to get $A(r) = u(\mathbf p)$'
   explanation: |-
-    The difference of two solutions has Laplacian $F - F = 0$ and boundary values $h - h = 0$. Green's first identity then kills both other terms, a nonnegative integrand with integral 0 vanishes, and the boundary value fixes the constant.
+    Define the sphere average, differentiate it with the chain rule (the radial derivative is the normal derivative), turn the flux into a volume integral of the Laplacian, which is zero, and finally use continuity at the center to identify the constant.
 - id: mv-h1-r2-h38
   lesson: mv-h1-harmonic
   topic: Harmonic functions
-  stem: 'Is there a harmonic function $u$ in the unit ball with normal derivative $\partial u/\partial n = z^2$ on the unit sphere?'
-  choices: ['Yes, exactly one', 'Yes, unique up to an added constant', 'No, because $\iint_S z^2\,dS = \tfrac{4\pi}{3} \ne 0$', 'No, because $z^2$ is not harmonic']
-  answer: 2
+  stem: 'In the potential flow $\phi = U(r + a^2/r)\cos\theta$ past a cylinder of radius $a$, where on the cylinder is the water fastest, and how fast?'
+  choices: ['At the front and back, speed $2U$', 'At the top and bottom, speed $U$', 'At the front and back, speed 0', 'At the top and bottom, speed $2U$']
+  answer: 3
   explanation: |-
-    For harmonic $u$, $\iint_S\partial u/\partial n\,dS = \iiint\nabla^2u\,dV = 0$, so the prescribed flux must total zero. Here it totals $4\pi/3$, so no solution exists. Boundary data need not be harmonic; with $\partial u/\partial n = z$ (total 0) the solution is $u = z + C$.
+    On $r = a$ the velocity is tangential with component $\frac1r\phi_\theta = -2U\sin\theta$, so the speed is $2U|\sin\theta|$: largest, $2U$, at $\theta = \pm\pi/2$ (top and bottom). The front and back ($\theta = \pi, 0$) are stagnation points, where the speed is 0, the slowest, not the fastest.
 - id: mv-h1-r2-h39
   lesson: mv-h1-harmonic
   module_quiz: true
   type: match
   topic: Harmonic functions
-  stem: 'Match each result with what it says.'
+  stem: 'Match each feature of potential flow with the equation that expresses it.'
   pairs:
-    - [Dirichlet problem, At most one solution]
-    - [Neumann problem, Solutions differ only by a constant]
-    - [Mean value property, Value at a point equals the average over a sphere around it]
-    - [Maximum principle, Largest and smallest values occur on the boundary]
-  distractors: [Solutions differ by a linear function]
+    - [Irrotational, 'Curl of v is zero']
+    - [Incompressible, 'Divergence of v is zero']
+    - [Solid wall, 'Normal derivative of φ is zero']
+    - [Stagnation point, 'v is the zero vector']
+  distractors: ['φ is zero on the wall']
   explanation: |-
-    Green's first identity proves both uniqueness statements: with prescribed values the difference of two solutions is 0, while with prescribed normal derivatives it is only forced to be constant. The mean value property comes from the zero flux of $\nabla u$, and the maximum principle follows from it.
+    No swirl is $\nabla\times\mathbf v = \mathbf 0$ (so $\mathbf v = \nabla\phi$); no compression is $\nabla\cdot\mathbf v = 0$ (so $\nabla^2\phi = 0$); water can't pass through a wall, so $\partial\phi/\partial n = \mathbf v\cdot\mathbf n = 0$ there (the value of $\phi$ itself is not fixed); and a stagnation point is where the fluid is momentarily at rest.
 - id: mv-h1-r2-h40
   lesson: mv-h1-harmonic
   topic: Harmonic functions
@@ -398,10 +397,10 @@
   lesson: mv-h1-harmonic
   type: text
   topic: Harmonic functions
-  stem: '$u$ satisfies $\nabla^2u = 6$ in the unit ball. The total outward flux $\iint_S\partial u/\partial n\,dS$ over the unit sphere is ___. (Exact form like 8π, or 2 decimal places.)'
-  accept: ['8π', '8pi', '8*pi', '8 pi', '25.13']
+  stem: 'Water approaches a cylindrical bridge pier at 3 m/s (far upstream). In the potential-flow model, the fastest water speed on the pier''s surface is ___ m/s. Give only the number.'
+  accept: ['6', six]
   explanation: |-
-    Green's first identity with $f = 1$: $\iint_S\partial u/\partial n\,dS = \iiint_E\nabla^2u\,dV = 6\cdot\tfrac43\pi = 8\pi \approx 25.13$. (Check with $u = x^2 + y^2 + z^2$: $\partial u/\partial n = 2$ on the unit sphere, times area $4\pi$.)
+    The speed on the cylinder is $2U|\sin\theta|$, largest at the sides: $2(3) = 6$ m/s, whatever the pier's radius. (Real piers also have a wake behind them, which the ideal model leaves out.)
 # --- Lesson 93: curvature of surfaces and Gauss-Bonnet ---
 - id: mv-h1-r2-h43
   lesson: mv-h1-gauss-bonnet

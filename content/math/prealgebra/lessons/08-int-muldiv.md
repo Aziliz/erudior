@@ -17,7 +17,13 @@ Multiplication is repeated addition, so
 
 $$3 \times (-4) = (-4) + (-4) + (-4) = -12.$$
 
-Three debts of \$4 are a debt of \$12. Because multiplication is commutative, $(-4) \times 3 = -12$ as well. *A positive times a negative is negative.*
+Three debts of \$4 are a debt of \$12. On the number line, $3 \times (-4)$ is three jumps of 4 to the left, starting from 0:
+
+```numberline
+{"x": [-14, 2], "points": [{"at": [0, 0], "label": "0"}, {"at": [-4, 0], "label": "-4"}, {"at": [-8, 0], "label": "-8"}, {"at": [-12, 0], "label": "-12"}], "segments": [{"from": [0, 0], "to": [-4, 0], "arrow": true}, {"from": [-4, 0], "to": [-8, 0], "arrow": true}, {"from": [-8, 0], "to": [-12, 0], "arrow": true}], "caption": "3 × (-4): three jumps of -4 from 0 land on -12"}
+```
+
+Because multiplication is commutative, $(-4) \times 3 = -12$ as well. *A positive times a negative is negative.*
 
 ## Multiplying two negatives
 
@@ -54,6 +60,22 @@ With several factors, each negative factor flips the sign. So count the negative
 
 - an *even* number of negative factors gives a positive product;
 - an *odd* number of negative factors gives a negative product.
+
+If any factor is 0, the product is 0 no matter how many negatives there are. The chart puts the whole sign check in order:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the sign of a product or quotient
+  accDescr: First check whether any factor is zero; if so, the product is zero, and dividing by zero is undefined. Otherwise count the negative factors. An even count gives a positive result and an odd count gives a negative result. Then multiply or divide the absolute values and attach that sign.
+  A[Product or quotient of integers] --> B{"Any factor equal to 0?"}
+  B -- yes --> C["Product is 0 (dividing by 0 is undefined)"]
+  B -- no --> D[Count the negative numbers]
+  D --> E{"Even or odd count?"}
+  E -- even --> F[Result is positive]
+  E -- odd --> G[Result is negative]
+  F --> H[Multiply or divide the absolute values and attach the sign]
+  G --> H
+```
 
 ### Example 1
 

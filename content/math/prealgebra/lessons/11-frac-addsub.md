@@ -34,6 +34,17 @@ When denominators differ, rewrite each fraction as an equivalent fraction with a
 3. Add or subtract the numerators; keep the denominator.
 4. Simplify.
 
+```mermaid
+flowchart TD
+  accTitle: Steps for adding or subtracting fractions
+  accDescr: First check whether the denominators are the same. If they are not, find the LCD, the least common multiple of the denominators, and rewrite each fraction with the LCD by multiplying its top and bottom by the same number. Once the denominators match, add or subtract the numerators and keep the denominator. Finally simplify, and if the result is improper you may write it as a mixed number.
+  A["Same denominators?"] -->|no| B["Find the LCD: the LCM of the denominators"]
+  B --> C["Rewrite each fraction with the LCD, top and bottom times the same number"]
+  A -->|yes| D["Add or subtract the numerators; keep the denominator"]
+  C --> D
+  D --> E["Simplify; an improper result may become a mixed number"]
+```
+
 ### Example 1
 
 Add $\dfrac{5}{6} + \dfrac{3}{8}$.
@@ -92,6 +103,10 @@ All the earlier rules still hold. Multiplication and division come before additi
 ## Estimating with benchmark fractions
 
 Before adding exactly, it helps to estimate with **benchmark fractions**: 0, $\tfrac12$ and 1. Round each fraction to the nearest benchmark by comparing its numerator with half its denominator. For $\tfrac{7}{8} + \tfrac{5}{12}$: $\tfrac78$ is close to 1 (7 is nearly 8), and $\tfrac{5}{12}$ is close to $\tfrac12$ (5 is close to 6). So the sum should be about $1\tfrac12$. The exact answer is $\tfrac{21}{24} + \tfrac{10}{24} = \tfrac{31}{24} = 1\tfrac{7}{24}$, a little less than $1\tfrac12$, which fits. If your exact answer had come out as $\tfrac{12}{20}$, the estimate would immediately tell you something went wrong.
+
+```numberline
+{"x": [0, 1], "points": [{"at": [0, 0], "label": "0"}, {"at": [0.5, 0], "label": "1/2"}, {"at": [1, 0], "label": "1"}, {"at": [0.41667, 0], "label": "5/12", "open": true}, {"at": [0.875, 0], "label": "7/8", "open": true}], "caption": "5/12 sits just left of the benchmark 1/2, and 7/8 sits just left of 1"}
+```
 
 Benchmarks also settle comparisons quickly. Is $\tfrac{4}{9} + \tfrac{3}{7}$ more or less than 1? Each fraction is a bit less than $\tfrac12$ (4 is less than half of 9, and 3 is less than half of 7), so the sum is less than 1 with no common denominator needed.
 

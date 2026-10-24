@@ -71,7 +71,25 @@ Proportion: $\dfrac{42}{B} = \dfrac{60}{100}$, so $60B = 4{,}200$ and $B = 70$.
 
 Check: 60% of 70 is $0.6 \times 70 = 42$. ✓ Since 42 is *less than* 100% of the base, the base must be bigger than 42, which it is.
 
+A bar model shows the same reasoning without an equation. Split the whole into ten equal pieces of 10% each. Six pieces (60%) make 42, so one piece is $42 \div 6 = 7$, and all ten pieces are $10 \times 7 = 70$.
+
+![A bar split into ten equal cells, each holding the number 7. The first six cells are shaded and a bracket above them reads Amount: 42 (60%). A bracket under the whole bar reads Base: 100% = 10 × 7 = 70. A scale from 0% to 100% in steps of 10% runs underneath.](images/pre-m5-bar-model.svg)
+
 ## Recognizing the type in a word problem
+
+Before computing anything, decide which kind of problem you have. This chart sums up the choices in this lesson:
+
+```mermaid
+flowchart TD
+  accTitle: Which kind of percent problem is it?
+  accDescr: Start by asking whether a quantity changed from an old value to a new value. If yes, it is a percent change problem: divide the change, new minus original, by the original and multiply by 100. If no, ask which of the three numbers is missing. If the amount is missing, multiply the percent as a decimal by the base. If the percent is missing, divide the part by the whole and multiply by 100. If the base is missing, divide the amount by the percent as a decimal.
+  Q1{"Did a quantity change from an old value to a new one?"}
+  Q1 -- yes --> C["Percent change = (new - original) ÷ original × 100%"]
+  Q1 -- no --> Q2{"Which number is missing?"}
+  Q2 -- "the amount (part)" --> A["Amount = percent × base"]
+  Q2 -- "the percent" --> P["Percent = part ÷ whole × 100%"]
+  Q2 -- "the base (whole)" --> B["Base = amount ÷ percent"]
+```
 
 ### Example 4
 
@@ -118,6 +136,10 @@ Write the percent of change as a decimal $r$ (15% is $r = 0.15$). To increase a 
 A stock worth \$100 rises 20%, then falls 20%. What is it worth now?
 
 After the rise: $100 \times 1.2 = 120$. After the fall: $120 \times 0.8 = 96$. It ends at \$96, not \$100, because the 20% decrease is taken of the larger value, 120. Percent changes don't simply add.
+
+```plot
+{"x": [0, 4], "y": [0, 140], "xLabel": "stage", "yLabel": "value ($)", "bars": [{"x": 1, "height": 100, "width": 0.7, "label": "start: 100"}, {"x": 2, "height": 120, "width": 0.7, "label": "after +20%: 120"}, {"x": 3, "height": 96, "width": 0.7, "label": "after −20%: 96"}], "caption": "The rise is 20% of 100 (+20); the fall is 20% of 120 (−24)"}
+```
 
 ## Common mistakes
 

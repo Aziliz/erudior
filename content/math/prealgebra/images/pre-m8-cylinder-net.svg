@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420" font-family="sans-serif" fill="#1c2833">
+<rect width="700" height="420" fill="#ffffff"/>
+<path d="M 60 140 L 60 300 A 60 18 0 0 0 180 300 L 180 140" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<ellipse cx="120" cy="140" rx="60" ry="18" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M 60 300 A 60 18 0 0 1 180 300" fill="none" stroke="#1c2833" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="120.0" y1="140.0" x2="180.0" y2="140.0" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="120" cy="140" r="3.5" fill="#1c2833"/>
+<text x="150.0" y="116.0" font-size="17" text-anchor="middle" font-weight="bold">r</text>
+<text x="190.0" y="226.0" font-size="17" text-anchor="start" font-weight="bold">h</text>
+<text x="120.0" y="380.0" font-size="16" text-anchor="middle">cylinder</text>
+<rect x="300" y="150" width="301.6" height="140" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="348" cy="102" r="48" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="348" cy="338" r="48" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<text x="348.0" y="108.0" font-size="17" text-anchor="middle" font-weight="bold">πr²</text>
+<text x="348.0" y="344.0" font-size="17" text-anchor="middle" font-weight="bold">πr²</text>
+<text x="450.8" y="226.0" font-size="17" text-anchor="middle" font-weight="bold">area 2πr × h</text>
+<text x="510.8" y="140.0" font-size="16" text-anchor="middle" font-weight="bold">length 2πr (circumference)</text>
+<text x="611.6" y="226.0" font-size="17" text-anchor="start" font-weight="bold">h</text>
+<text x="450.8" y="410.0" font-size="16" text-anchor="middle">its net</text>
+</svg>

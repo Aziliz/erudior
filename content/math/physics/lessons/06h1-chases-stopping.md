@@ -14,7 +14,7 @@ The constant-acceleration lesson followed one object at a time. Many real questi
 
 ## Writing both motions on one set of axes
 
-The rule is simple: **one origin, one positive direction, one clock**, shared by both objects. Write each object's position as a function of that common time $t$. Two objects are side by side when their positions are equal, so a **meeting time** is a solution of
+The rule is simple: *one origin, one positive direction, one clock*, shared by both objects. Write each object's position as a function of that common time $t$. Two objects are side by side when their positions are equal, so a **meeting time** is a solution of
 
 $$x_A(t) = x_B(t).$$
 

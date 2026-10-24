@@ -15,6 +15,10 @@ The previous lesson built one tool, the thin-lens equation $\dfrac1{d_o} + \dfra
 
 Light enters the eye through the curved, transparent **cornea**, passes through the pupil and an adjustable lens, and forms a real, inverted image on the **retina**, the light-sensitive layer at the back. The cornea does most of the bending; the lens fine-tunes it. The brain flips the image, so you never notice it is upside down.
 
+![A cross-section of the eye. Parallel rays from the left bend at the curved cornea, pass through the opening in the iris (the pupil) and the lens, and meet at a point on the retina at the back. The optic nerve leaves the back of the eye.](images/phys-m11-eye.svg)
+
+The iris, the colored ring around the pupil, adjusts the size of the opening to control how much light gets in; the optic nerve carries the retina's signals to the brain.
+
 A camera focuses by moving its lens closer to or farther from the sensor. The eye can't do that: the lens-to-retina distance is fixed at about 2.0 cm. Instead, muscles change the lens's shape, and so its focal length. This is **accommodation**. Relaxed, the eye focuses on distant objects; tensed, it bulges the lens to focus on close ones.
 
 Two distances describe an eye's range:
@@ -41,6 +45,18 @@ Lens power $P = 1/f$ (in diopters, with $f$ in meters) was introduced in the pre
 **Hyperopia** (farsightedness): the eye focuses too weakly, so its near point is farther than 25 cm and close-up reading blurs. A converging lens takes an object at 25 cm and makes a virtual image at the eye's near point, where the eye can focus.
 
 **Presbyopia** is the loss of accommodation with age: the lens stiffens and the near point recedes, even in eyes that see distant things clearly. Reading glasses (converging) or bifocals (two powers in one lens) help.
+
+The choice of lens comes down to one question:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a corrective lens
+  accDescr: Ask what blurs. If distant objects blur, the eye is myopic: its far point is closer than infinity, and it needs a diverging lens of negative power with focal length equal to minus the far point. If close objects blur, the eye is hyperopic or presbyopic: its near point is beyond 25 centimeters, and it needs a converging lens of positive power that images an object at 25 centimeters at the eye's near point.
+  A{"What blurs?"} -- "distant objects" --> B["Myopia: far point closer than infinity"]
+  B --> C["Diverging lens, negative power, f = -(far point)"]
+  A -- "close objects" --> D["Hyperopia or presbyopia: near point beyond 25 cm"]
+  D --> E["Converging lens, positive power: object at 25 cm imaged at the near point"]
+```
 
 ### Example 2: prescriptions
 

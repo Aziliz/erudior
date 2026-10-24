@@ -22,7 +22,7 @@
 
     The amplitude goes as $e^{-bt/(2m)}$; setting it to $\tfrac12$ gives $t_{1/2} = \dfrac{2m\ln 2}{\,b} = \dfrac{2({m})(0.6931)}{{b:dp2}} =$ **{th:sig3} s**.
 
-    The period is $2\pi/\omega_0 = {T0:num4}$ s, so that's $t_{1/2}/T = $ **{ncyc:sig3}** oscillations.
+    The period is $2\pi/\omega_0 = {T0:num4}$ s, so that's $t_{1/2}/T =$ **{ncyc:sig3}** oscillations.
 - id: phys-m6-r2-driven-amplitude
   title: Amplitude of a driven, damped oscillator
   topic: Driven oscillations
@@ -68,7 +68,7 @@
   solution: |-
     $\omega_0 = \sqrt{k/m} = {w0:num4}$ rad/s, so $f_0 = \omega_0/2\pi =$ **{f0:sig3} Hz**.
 
-    $b_c = 2\sqrt{mk} = 2m\omega_0 =$ **{bc:sig3} kg/s**. (With, say, $b = {frac:num2}\,b_c$ instead, $Q = \sqrt{mk}/b = {Q:num2}$ and it would overshoot a little.)
+    $b_c = 2\sqrt{mk} = 2m\omega_0 =$ **{bc:sig3} kg/s**. (With, say, $b = {frac:num2}\,b_c$ instead, $Q = \sqrt{mk}/b = {Q:num2}$: underdamped, so it would overshoot before settling.)
 - id: phys-m6-r2-equal-temperament
   title: Equal-tempered note frequencies
   topic: Musical acoustics

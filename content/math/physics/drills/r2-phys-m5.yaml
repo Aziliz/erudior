@@ -101,7 +101,7 @@
     - {format: sig4, name: f, label: 'Friction', relTolerance: 0.01, units: {N: 1}}
     - {format: sig4, name: thmin, label: 'Smallest angle', relTolerance: 0.01, units: {'°': 1, deg: 1, degrees: 1}}
   solution: |-
-    Torques about the foot: $N_wL\sin\theta = W\tfrac L2\cos\theta$, and $f = N_w$, so $f = \dfrac{W}{2\tan\theta} = \dfrac{{W:num1}}{2\tan {th}^\circ} =$ **{f:sig3} N**.
+    Torques about the foot: $N_wL\sin\theta = W\tfrac L2\cos\theta$, and $f = N_w$, so $f = W/(2\tan\theta) = \dfrac{{W:num1}}{2\tan {th}^\circ} =$ **{f:sig3} N**.
 
     Slipping starts when $f = \mu_sW$: $\tan\theta = \dfrac{1}{2\mu_s} = \dfrac{1}{2({mu})}$, so $\theta_{\min} =$ **{thmin:sig3}°**.
 - id: phys-m5-r2-tip-slide
@@ -127,7 +127,7 @@
 
     Tipping about the front bottom edge: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H} =$ **{Ft:sig3} N**. Whichever force is smaller happens first.
 
-    Equal when $\dfrac{w}{2H} = \mu_s$: $H = \dfrac{w}{2\mu_s} =$ **{Hc:sig3} m**.
+    Equal when $w/(2H) = \mu_s$: $H = w/(2\mu_s) =$ **{Hc:sig3} m**.
 - id: phys-m5-r2-ellipse-speeds
   title: Speeds on an elliptical orbit
   topic: Elliptical orbits

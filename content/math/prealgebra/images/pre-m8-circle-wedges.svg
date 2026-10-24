@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" width="700" height="330" font-family="sans-serif" fill="#1c2833">
+<rect width="700" height="330" fill="#ffffff"/>
+<path d="M 130 160 L 230.0 160.0 A 100 100 0 0 0 216.6 110.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 216.6 110.0 A 100 100 0 0 0 180.0 73.4 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 180.0 73.4 A 100 100 0 0 0 130.0 60.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 130.0 60.0 A 100 100 0 0 0 80.0 73.4 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 80.0 73.4 A 100 100 0 0 0 43.4 110.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 43.4 110.0 A 100 100 0 0 0 30.0 160.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 30.0 160.0 A 100 100 0 0 0 43.4 210.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 43.4 210.0 A 100 100 0 0 0 80.0 246.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 80.0 246.6 A 100 100 0 0 0 130.0 260.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 130.0 260.0 A 100 100 0 0 0 180.0 246.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 180.0 246.6 A 100 100 0 0 0 216.6 210.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 130 160 L 216.6 210.0 A 100 100 0 0 0 230.0 160.0 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="130.0" y="300.0" font-size="16" text-anchor="middle">12 equal wedges</text>
+<path d="M 315.9 100 L 290.0 196.6 A 100 100 0 0 0 341.8 196.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 341.8 196.6 L 315.9 100.0 A 100 100 0 0 1 367.6 100.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 367.6 100 L 341.8 196.6 A 100 100 0 0 0 393.5 196.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 393.5 196.6 L 367.6 100.0 A 100 100 0 0 1 419.4 100.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 419.4 100 L 393.5 196.6 A 100 100 0 0 0 445.3 196.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 445.3 196.6 L 419.4 100.0 A 100 100 0 0 1 471.2 100.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 471.2 100 L 445.3 196.6 A 100 100 0 0 0 497.1 196.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 497.1 196.6 L 471.2 100.0 A 100 100 0 0 1 522.9 100.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 522.9 100 L 497.1 196.6 A 100 100 0 0 0 548.8 196.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 548.8 196.6 L 522.9 100.0 A 100 100 0 0 1 574.7 100.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<path d="M 574.7 100 L 548.8 196.6 A 100 100 0 0 0 600.6 196.6 Z" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 600.6 196.6 L 574.7 100.0 A 100 100 0 0 1 626.5 100.0 Z" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="290.0" y1="226.0" x2="600.6" y2="226.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="290.0" y1="218.0" x2="290.0" y2="234.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="600.6" y1="218.0" x2="600.6" y2="234.0" stroke="#1c2833" stroke-width="2"/>
+<text x="445.3" y="252.0" font-size="16" text-anchor="middle" font-weight="bold">base ≈ half the circumference = πr</text>
+<text x="282.0" y="155.0" font-size="18" text-anchor="end" font-weight="bold">r</text>
+<text x="458.2" y="62.0" font-size="16" text-anchor="middle">Rearranged: almost a parallelogram</text>
+<text x="458.2" y="82.0" font-size="16" text-anchor="middle">height r, area ≈ πr × r = πr²</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 460" width="520" height="460" font-family="sans-serif" role="img"><title>Measuring a star's distance by parallax</title>
+<rect width="520" height="460" fill="#ffffff"/>
+<circle cx="40" cy="30" r="2.5" fill="#1c2833"/>
+<circle cx="95" cy="55" r="2.5" fill="#1c2833"/>
+<circle cx="150" cy="22" r="2.5" fill="#1c2833"/>
+<circle cx="380" cy="28" r="2.5" fill="#1c2833"/>
+<circle cx="440" cy="58" r="2.5" fill="#1c2833"/>
+<circle cx="485" cy="24" r="2.5" fill="#1c2833"/>
+<circle cx="60" cy="90" r="2.5" fill="#1c2833"/>
+<circle cx="470" cy="100" r="2.5" fill="#1c2833"/>
+<ellipse cx="260" cy="380" rx="110" ry="38" fill="none" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="150" y1="380" x2="260" y2="60" stroke="#244d76" stroke-width="2"/>
+<line x1="370" y1="380" x2="260" y2="60" stroke="#244d76" stroke-width="2"/>
+<line x1="260" y1="380" x2="260" y2="60" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="8 5"/>
+<line x1="260" y1="380" x2="370" y2="380" stroke="#a23b2a" stroke-width="3"/>
+<path d="M260,125 A65,65 0 0 0 281.1,121.5" fill="none" stroke="#a23b2a" stroke-width="2.5"/>
+<circle cx="260" cy="380" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<circle cx="150" cy="380" r="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<circle cx="370" cy="380" r="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<polygon points="260,46 264,56 275,57 266,64 269,75 260,69 251,75 254,64 245,57 256,56" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.5"/>
+</svg>

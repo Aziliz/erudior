@@ -19,6 +19,10 @@ A flat mirror forms an image as far behind the mirror as the object is in front,
 
 A **concave mirror** (curved inward, like the inside of a spoon) reflects rays parallel to its axis so they converge through the **focal point** F, a distance $f$ (the **focal length**) in front of the mirror. For a spherical mirror of radius of curvature $R$, $f = R/2$. A **convex mirror** (curved outward) makes parallel rays diverge as if from a focal point behind it; we give it a negative focal length.
 
+The center of curvature C, the center of the sphere the mirror is cut from, lies on the axis at distance $R$, twice as far out as F. The diagram traces three rays from the top of an object standing beyond C.
+
+![A concave mirror on the right with its principal axis. The center of curvature C and focal point F are marked on the axis. An object arrow stands beyond C. A ray parallel to the axis reflects through F, a ray through F reflects parallel to the axis, and a ray to the mirror's center reflects symmetrically; they meet below the axis between C and F at a smaller, inverted real image.](images/phys-m11-concave-mirror.svg)
+
 ## Thin lenses
 
 A **converging lens** (thicker in the middle) refracts parallel rays to a focal point on the far side. A **diverging lens** (thinner in the middle) spreads them as if from a focal point on the near side; its focal length is negative. A lens has a focal point on each side, at equal distances for a thin lens.
@@ -39,6 +43,23 @@ $$m = \frac{h_i}{h_o} = -\frac{d_i}{d_o}.$$
 - $d_o > 0$ for real objects.
 - $d_i > 0$ for a real image (in front of a mirror; on the far side of a lens); $d_i < 0$ for a virtual image (behind a mirror; on the same side of a lens as the object).
 - $m > 0$: upright image; $m < 0$: inverted. $|m| > 1$: enlarged.
+
+Every lens or mirror problem follows the same steps:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a thin-lens or mirror problem
+  accDescr: First give the focal length its sign, positive for a converging lens or concave mirror and negative for a diverging lens or convex mirror. Solve 1 over d i equals 1 over f minus 1 over d o. If d i is positive the image is real, on the far side of a lens or in front of a mirror; if negative it is virtual, on the object's side of a lens or behind a mirror. Then find the magnification m equals minus d i over d o. A negative m means the image is inverted and a positive m means it is upright.
+  A["Give f its sign: + converging lens or concave mirror, - diverging lens or convex mirror"] --> B["Solve 1/di = 1/f - 1/do"]
+  B --> C{"Is di positive?"}
+  C -- "yes" --> D["Real image: far side of a lens, in front of a mirror"]
+  C -- "no" --> E["Virtual image: object's side of a lens, behind a mirror"]
+  D --> F["Magnification m = -di/do"]
+  E --> F
+  F --> G{"Is m negative?"}
+  G -- "yes" --> H["Inverted"]
+  G -- "no" --> I["Upright"]
+```
 
 ## Ray diagrams
 

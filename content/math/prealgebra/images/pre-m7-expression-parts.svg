@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="sans-serif" fill="#1c2833">
+<rect width="640" height="360" fill="#ffffff"/>
+<text x="120" y="205" font-size="64" text-anchor="middle">3</text>
+<text x="160" y="205" font-size="64" text-anchor="middle" font-style="italic">x</text>
+<text x="192" y="175" font-size="38" text-anchor="middle">2</text>
+<text x="245" y="205" font-size="64" text-anchor="middle">−</text>
+<text x="292" y="205" font-size="64" text-anchor="middle">5</text>
+<text x="332" y="205" font-size="64" text-anchor="middle" font-style="italic">x</text>
+<text x="400" y="205" font-size="64" text-anchor="middle">+</text>
+<text x="455" y="205" font-size="64" text-anchor="middle">8</text>
+<path d="M96,228 L96,238 L144.0,238 L152.0,248 L160.0,238 L208,238 L208,228" fill="none" stroke="#244d76" stroke-width="2.5"/>
+<path d="M222,228 L222,238 L281.0,238 L289.0,248 L297.0,238 L356,238 L356,228" fill="none" stroke="#244d76" stroke-width="2.5"/>
+<path d="M436,228 L436,238 L447.0,238 L455.0,248 L463.0,238 L474,238 L474,228" fill="none" stroke="#244d76" stroke-width="2.5"/>
+<line x1="118" y1="150" x2="80" y2="85" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="118" cy="150" r="3.5" fill="#1c2833"/>
+<line x1="162" y1="150" x2="215" y2="85" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="162" cy="150" r="3.5" fill="#1c2833"/>
+<line x1="193" y1="140" x2="345" y2="85" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="193" cy="140" r="3.5" fill="#1c2833"/>
+<line x1="458" y1="150" x2="520" y2="85" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="458" cy="150" r="3.5" fill="#1c2833"/>
+<line x1="289" y1="248" x2="289" y2="300" stroke="#1c2833" stroke-width="1.8"/>
+<circle cx="289" cy="248" r="3.5" fill="#1c2833"/>
+<text x="80" y="72" font-size="20" text-anchor="middle">coefficient</text>
+<text x="215" y="72" font-size="20" text-anchor="middle">variable</text>
+<text x="345" y="72" font-size="20" text-anchor="middle">exponent</text>
+<text x="520" y="72" font-size="20" text-anchor="middle">constant term</text>
+<text x="289" y="324" font-size="20" text-anchor="middle">term</text>
+<text x="152" y="324" font-size="20" text-anchor="middle">term</text>
+<line x1="152" y1="248" x2="152" y2="300" stroke="#1c2833" stroke-width="1.8"/>
+<text x="455" y="324" font-size="20" text-anchor="middle">term</text>
+<line x1="455" y1="248" x2="455" y2="300" stroke="#1c2833" stroke-width="1.8"/>
+</svg>

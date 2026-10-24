@@ -43,6 +43,18 @@ Least means farthest left. The negatives go first, and the one farthest from zer
 
 Result: $-9, -6, -1, 0, 2, 4$.
 
+The chart below sums up how to compare any two integers without drawing the number line.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding which of two integers is greater
+  accDescr: Start with two integers. If they have different signs, or one of them is zero, the one farther right on the number line is greater, so a positive beats zero and zero beats a negative. If both are positive, the one with the larger absolute value is greater. If both are negative, the one with the smaller absolute value is greater, because it is closer to zero and so farther right.
+  A[Two integers to compare] --> B{"Same sign?"}
+  B -- "no, or one is 0" --> C["Positive #gt; 0 #gt; negative"]
+  B -- "both positive" --> D[Larger absolute value is greater]
+  B -- "both negative" --> E["Smaller absolute value is greater (closer to 0)"]
+```
+
 ## Absolute value
 
 The **absolute value** of a number is its distance from 0 on the number line. It's written with vertical bars: $|{-6}|$ is read "the absolute value of negative six." Since distance is never negative,
@@ -76,6 +88,10 @@ In general, the distance between two numbers $a$ and $b$ is $|a - b|$: subtract 
 At 6 a.m. the temperature was $-11^\circ$F. By noon it was $-4^\circ$F. By how many degrees did it rise?
 
 Both are negative (same side of zero), so subtract absolute values: $11 - 4 = 7$. The temperature rose 7 degrees. Check on a number line: from $-11$, move 7 to the right and you land on $-4$. ✓
+
+A thermometer is a number line stood on end: warmer is higher, just as greater is farther right. Each small mark below is 1 degree.
+
+![A Fahrenheit thermometer scale from −20 to 20 with a mark every degree. The red column reaches −4. Pointers mark 6 a.m. at −11°F and noon at −4°F, with an upward arrow between them labeled rose 7°.](images/pre-m2-thermometer.svg)
 
 ### Example 4
 

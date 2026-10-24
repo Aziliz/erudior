@@ -43,6 +43,16 @@ $$\text{discount} = \text{rate} \times \text{original price}, \qquad \text{sale 
 
 Shortcut: after a 30% discount you pay 70%, so the sale price is $0.70 \times \text{original}$.
 
+A purchase with a discount and tax is a chain of two multiplications. To work backward from a total to the original price, divide by the same numbers in reverse order.
+
+```mermaid
+flowchart TD
+  accTitle: From the price on the tag to what you pay
+  accDescr: A chain of three boxes. Start with the original price. Multiply by 1 minus the discount rate to get the sale price. Multiply the sale price by 1 plus the tax rate to get the total you pay.
+  O["Original price"] -- "× (1 - discount rate)" --> S["Sale price"]
+  S -- "× (1 + tax rate)" --> T["Total you pay"]
+```
+
 ### Example 3
 
 An \$85 pair of shoes is 30% off, and there is 6% sales tax. What do you pay?
@@ -50,6 +60,10 @@ An \$85 pair of shoes is 30% off, and there is 6% sales tax. What do you pay?
 Sale price: $0.70 \times 85 = 59.50$. Tax is figured on the sale price: $0.06 \times 59.50 = 3.57$. Total: $59.50 + 3.57 = 63.07$, so \$63.07.
 
 (Equivalently, $85 \times 0.70 \times 1.06 = 63.07$.)
+
+The receipt shows each step:
+
+![A store receipt. Shoes $85.00; 30% off −$25.50; a line; Sale price $59.50; Tax 6% +$3.57; a heavier line; TOTAL $63.07.](images/pre-m5-receipt.svg)
 
 ### Finding the original price
 
@@ -107,7 +121,13 @@ $330 = 3{,}000 \times r \times 2 = 6{,}000r$, so $r = 330 \div 6{,}000 = 0.055 =
 
 ### A note on compound interest
 
-Most real savings accounts and loans use **compound interest**, where interest is added to the principal and then itself earns interest. For the same rate and time, compound interest is a bit more than simple interest. For example, \$1,000 at 5% compounded yearly for 2 years grows to $1{,}000 \times 1.05 \times 1.05 = 1{,}102.50$, compared with \$1,100 under simple interest. You'll study compounding in algebra; for now, be sure which kind a problem describes.
+Most real savings accounts and loans use **compound interest**, where interest is added to the principal and then itself earns interest. For the same rate and time, compound interest is a bit more than simple interest. For example, \$1,000 at 5% compounded yearly for 2 years grows to $1{,}000 \times 1.05 \times 1.05 = 1{,}102.50$, compared with \$1,100 under simple interest.
+
+Over a short time the difference is small, but it keeps widening. The graph follows \$1,000 at 5% for 20 years: simple interest adds the same \$50 every year (a straight line), while compound interest adds 5% of a growing balance (a curve that bends upward).
+
+```plot
+{"x": [0, 20], "y": [0, 3000], "xLabel": "years", "yLabel": "balance ($)", "functions": [{"f": "1000 + 50*x", "label": "simple: 1000 + 50t", "dashed": true}, {"f": "1000*1.05^x", "label": "compound yearly"}], "points": [{"at": [20, 2000], "label": "2,000"}, {"at": [20, 2653.3], "label": "2,653.30"}], "caption": "$1,000 at 5% a year: simple vs compound interest"}
+``` You'll study compounding in algebra; for now, be sure which kind a problem describes.
 
 ## Common mistakes
 

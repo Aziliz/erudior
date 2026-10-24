@@ -19,6 +19,10 @@ $$c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = 3.00\times10^8\text{ m/s},$$
 
 and as with any wave $c = f\lambda$. The field magnitudes are linked by $E = cB$.
 
+The picture shows one moment of such a wave. The electric field oscillates in one plane and the magnetic field in the plane at right angles to it, in step with each other, and both are perpendicular to the direction the wave travels.
+
+![A snapshot of an electromagnetic wave traveling to the right along an axis. The electric field is drawn as a wave of vertical arrows, and the magnetic field as a wave of arrows perpendicular to both the electric field and the axis, peaking at the same places. A bracket marks one wavelength between two crests.](images/phys-m11-em-wave.svg)
+
 EM waves carry energy. Their *intensity* (average power per area) is $I = \tfrac12c\varepsilon_0E_0^2$, where $E_0$ is the peak field. Sunlight at Earth's distance delivers about 1360 W/m². They also carry momentum, exerting a small radiation pressure, $I/c$ for absorbed light, which solar sails use.
 
 *The electromagnetic spectrum.* All EM waves are the same phenomenon, differing only in frequency and wavelength:
@@ -90,6 +94,20 @@ Find the critical angle for light going from glass ($n = 1.52$) into air, and in
 Into air: $\sin\theta_c = 1/1.52 = 0.658$, so $\theta_c = 41.1^\circ$.
 
 Into water: $\sin\theta_c = 1.33/1.52 = 0.875$, so $\theta_c = 61.0^\circ$. The smaller the index difference, the larger the critical angle.
+
+This chart pulls together everything that can happen to light at a boundary.
+
+```mermaid
+flowchart TD
+  accTitle: What happens when light reaches a boundary
+  accDescr: When light reaches a boundary between two materials, part of it reflects, with the angle of reflection equal to the angle of incidence. If the second material has a higher index of refraction, the rest refracts toward the normal. If it has a lower index, compare the angle of incidence with the critical angle: below it, the light refracts away from the normal; above it, total internal reflection sends all the light back and none passes through.
+  A["Light reaches a boundary"] --> R["Part reflects: angle of reflection equals angle of incidence"]
+  A --> B{"Is the second index higher?"}
+  B -- "yes, n2 above n1" --> C["Refracts toward the normal"]
+  B -- "no, n2 below n1" --> D{"Angle of incidence above the critical angle?"}
+  D -- "no" --> E["Refracts away from the normal"]
+  D -- "yes" --> F["Total internal reflection: no light passes"]
+```
 
 ## Why Snell's law has sines in it
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 230" width="760" height="230" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="760" height="230" fill="#ffffff"/>
+<rect x="30.0" y="30.0" width="110.0" height="64.0" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="30.0" y="94.0" width="110.0" height="70.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="85.0" y="141.0" font-size="34" text-anchor="middle" fill="#1c2833" font-weight="bold">3</text>
+<rect x="140.0" y="30.0" width="110.0" height="64.0" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="140.0" y="94.0" width="110.0" height="70.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="195.0" y="141.0" font-size="34" text-anchor="middle" fill="#1c2833" font-weight="bold">4</text>
+<rect x="250.0" y="30.0" width="110.0" height="64.0" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="250.0" y="94.0" width="110.0" height="70.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="305.0" y="141.0" font-size="34" text-anchor="middle" fill="#1c2833" font-weight="bold">7</text>
+<rect x="360.0" y="30.0" width="40.0" height="64.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="360.0" y="94.0" width="40.0" height="70.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="380.0" y="141.0" font-size="34" text-anchor="middle" fill="#1c2833" font-weight="bold">.</text>
+<rect x="400.0" y="30.0" width="110.0" height="64.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="400.0" y="94.0" width="110.0" height="70.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="455.0" y="141.0" font-size="34" text-anchor="middle" fill="#1c2833" font-weight="bold">2</text>
+<rect x="510.0" y="30.0" width="110.0" height="64.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="510.0" y="94.0" width="110.0" height="70.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="565.0" y="141.0" font-size="34" text-anchor="middle" fill="#1c2833" font-weight="bold">0</text>
+<rect x="620.0" y="30.0" width="110.0" height="64.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="620.0" y="94.0" width="110.0" height="70.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="675.0" y="141.0" font-size="34" text-anchor="middle" fill="#1c2833" font-weight="bold">5</text>
+<line x1="30.0" y1="182.0" x2="360.0" y2="182.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="30.0" y1="176.0" x2="30.0" y2="188.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="360.0" y1="176.0" x2="360.0" y2="188.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="400.0" y1="182.0" x2="730.0" y2="182.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="400.0" y1="176.0" x2="400.0" y2="188.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="730.0" y1="176.0" x2="730.0" y2="188.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="195.0" y="210.0" font-size="16" text-anchor="middle" fill="#1c2833">whole-number part</text>
+<text x="565.0" y="210.0" font-size="16" text-anchor="middle" fill="#1c2833">decimal part (fractions of 1)</text>
+</svg>

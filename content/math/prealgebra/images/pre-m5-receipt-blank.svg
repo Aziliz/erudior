@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="400" viewBox="0 0 420 400" font-family="sans-serif" fill="#1c2833">
+<rect x="0" y="0" width="420" height="400" fill="#ffffff"/>
+<rect x="60" y="20" width="300" height="360" fill="#f8f8f4" stroke="#1c2833" stroke-width="2"/>
+<text x="210" y="52" font-size="18" text-anchor="middle" font-weight="bold">RECEIPT</text>
+<line x1="80" y1="68" x2="340" y2="68" stroke="#1c2833" stroke-dasharray="4 4"/>
+<text x="335" y="110" font-size="17" text-anchor="end" font-weight="normal">$85.00</text>
+<text x="335" y="155" font-size="17" text-anchor="end" font-weight="normal">−$25.50</text>
+<text x="335" y="200" font-size="17" text-anchor="end" font-weight="normal">$59.50</text>
+<text x="335" y="245" font-size="17" text-anchor="end" font-weight="normal">+$3.57</text>
+<text x="335" y="320" font-size="17" text-anchor="end" font-weight="bold">$63.07</text>
+<line x1="80" y1="175" x2="340" y2="175" stroke="#1c2833"/>
+<line x1="80" y1="285" x2="340" y2="285" stroke="#1c2833" stroke-width="2"/>
+</svg>

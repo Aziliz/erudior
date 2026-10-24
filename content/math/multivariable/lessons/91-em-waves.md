@@ -89,7 +89,7 @@ $$c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = \frac{1}{\sqrt{(1.25663706\times10^{
 
 In one dimension the wave equation is $u_{zz} = u_{tt}/c^2$, and any $u = f(z - ct)$ solves it
 (chain rule: $u_{zz} = f''$, $u_{tt} = c^2f''$): a shape moving in the $+z$ direction at speed
-$c$ without changing. Maxwell saw in 1862, and worked out fully in his 1865 paper, that this
+$c$ without changing (the PDE honors lesson of Module 3 derives d'Alembert's general solution). Maxwell saw in 1862, and worked out fully in his 1865 paper, that this
 speed, computed from electrical measurements, agreed with the measured speed of light to
 within the accuracy of the time. He concluded that light is an electromagnetic wave.
 Heinrich Hertz produced and detected such waves at radio wavelengths in 1887–88.

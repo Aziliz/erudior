@@ -136,6 +136,24 @@
     - {name: val, label: '(b) average', format: integer}
   solution: |-
     $\nabla^2u = {ta} + ({tb}) + 2k = 0$ gives $k =$ **{cc}**. Then $u$ is harmonic, so its average over a sphere is its value at the center: ${a}({p})^2 + ({b})({q})^2 + ({cc})({w})^2 =$ **{val}**.
+- id: mv-h1-r2-cylinder-flow
+  title: Potential flow past a cylinder
+  topic: Harmonic functions
+  vars:
+    U: {min: 1, max: 8}
+    rad: {choices: [0.5, 1, 2, 3]}
+    ang: {choices: [10, 20, 30, 45, 60, 75, 120, 135, 150]}
+    mult: {choices: [1.5, 2, 2.5, 3, 4]}
+  calc:
+    dist: mult*rad
+    wall: 2*U*abs(sind(ang))
+    ahead: U*(1 - 1/mult^2)
+  prompt: 'Water flows at speed {U} m/s past a long cylinder of radius {rad} m, with potential $\phi = {U}\left(r + \dfrac{a^2}{r}\right)\cos\theta$ ($a = {rad}$). Find the speed (a) on the cylinder at $\theta = {ang}^\circ$ and (b) on the axis directly upstream, at distance {dist} m from the center. Give 3 significant figures.'
+  answers:
+    - {name: wall, label: '(a) m/s', sigfigs: 3, format: sig3}
+    - {name: ahead, label: '(b) m/s', sigfigs: 3, format: sig3}
+  solution: |-
+    On the wall the velocity is tangential: $\dfrac1r\dfrac{\partial\phi}{\partial\theta} = -2U\sin\theta$, so the speed is $2({U})|\sin {ang}^\circ| =$ **{wall:sig3}** m/s. On the upstream axis ($\theta = \pi$) the velocity is radial: $\left|\dfrac{\partial\phi}{\partial r}\right| = U\left(1 - \dfrac{a^2}{r^2}\right) = {U}\left(1 - \dfrac{1}{{mult}^2}\right) =$ **{ahead:sig3}** m/s, slowing toward the stagnation point at $r = a$.
 # Lesson 93: curvature of surfaces
 - id: mv-h1-r2-principal-curv
   title: Principal and Gaussian curvature at a flat spot
