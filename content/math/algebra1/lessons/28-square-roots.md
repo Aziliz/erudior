@@ -126,7 +126,7 @@ Square roots show up whenever you undo a square. The classic case is the Pythago
 A 12-foot ladder leans against a wall with its base 4 feet from the wall. How high up the wall does it reach? Give the exact answer in simplest form and a decimal.
 
 ```shape
-{"equal": true, "polygons": [{"points": [[0, 0], [4, 0], [0, 11.31]]}], "rightAngles": [[[0, 0], [4, 0], [0, 11.31]]], "segments": [{"from": [0, 0], "to": [4, 0], "label": "4 ft"}, {"from": [0, 0], "to": [0, 11.31], "label": "h"}], "labels": [{"at": [4.2, 6.2], "text": "ladder 12 ft"}], "caption": "The wall, the ground and the ladder form a right triangle with hypotenuse 12"}
+{"polygons": [{"points": [[0, 0], [4, 0], [0, 11.31]]}], "rightAngles": [[[0, 0], [4, 0], [0, 11.31]]], "segments": [{"from": [0, 0], "to": [4, 0], "label": "4 ft"}, {"from": [0, 0], "to": [0, 11.31], "label": "h"}], "labels": [{"at": [3.1, 6.4], "text": "ladder 12 ft"}], "caption": "The wall, the ground and the ladder form a right triangle with hypotenuse 12"}
 ```
 
 1. With height $h$: $h^2 + 4^2 = 12^2$, so $h^2 = 144 - 16 = 128$.
