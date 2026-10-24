@@ -21,6 +21,10 @@ Each place to the right of the **decimal point** is worth one tenth of the place
 
 So 347.205 means $300 + 40 + 7 + \dfrac{2}{10} + \dfrac{0}{100} + \dfrac{5}{1000}$. The place names end in "-ths" to signal a fraction: tenths, hundredths, thousandths. A number written with a decimal point is a **decimal**.
 
+The chart as a picture: the point separates the whole-number places from the places worth fractions of 1.
+
+![A place value chart for 347.205. The column headings are Hundreds, Tens and Ones on the left of the decimal point, and Tenths, Hundredths and Thousandths on the right. The digits are 3, 4, 7, point, 2, 0, 5. A bracket under the left three columns says whole-number part; a bracket under the right three says decimal part (fractions of 1).](images/pre-m4-place-value.svg)
+
 *Reading decimals.* Read the whole part, say "and" for the point, then read the digits after the point as a whole number followed by the name of the last place. 347.205 is "three hundred forty-seven and two hundred five thousandths." 0.06 is "six hundredths." Reading this way tells you the fraction directly: 0.06 is $\tfrac{6}{100}$.
 
 *Zeros.* Zeros at the end of a decimal don't change its value: $0.5 = 0.50 = 0.500$, because $\tfrac{5}{10} = \tfrac{50}{100} = \tfrac{500}{1000}$. Zeros between the point and other digits do matter: 0.05 is ten times smaller than 0.5. A zero in front of the point, as in 0.5, is just there to make the point visible.
@@ -80,6 +84,20 @@ $5.0000 \div 11$: 11 into 50 is 4 (44, remainder 6); 11 into 60 is 5 (55, remain
 Why must a fraction's decimal either stop or repeat? When you divide by $b$, the only possible remainders are $0, 1, \ldots, b - 1$. If you ever get remainder 0 the decimal stops. If not, within $b$ steps some remainder must come back, and from then on the digits repeat.
 
 A fraction in simplest form terminates exactly when its denominator has no prime factors other than 2 and 5 (the primes in 10). So $\tfrac{3}{8}$, $\tfrac{7}{20}$ and $\tfrac{9}{25}$ terminate, while $\tfrac13$, $\tfrac{5}{6}$ and $\tfrac{2}{7}$ repeat.
+
+The test as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Will a fraction's decimal terminate or repeat?
+  accDescr: Top to bottom. Start with a fraction and write it in simplest form. Then factor the denominator into primes. Ask whether the only prime factors are 2 and 5. If yes, the decimal terminates, as with 3/8 = 0.375. If no, because some other prime such as 3, 7 or 11 appears, the decimal repeats, as with 5/6 = 0.8333 and so on.
+  A["Write the fraction in simplest form"] --> B["Factor the denominator into primes"]
+  B --> C{"Only 2s and 5s?"}
+  C -- yes --> D["Terminates, like 3/8 = 0.375"]
+  C -- no --> E["Repeats, like 5/6 = 0.8333..."]
+```
+
+Simplify first. $\tfrac{3}{12}$ has a 3 in its denominator, but it equals $\tfrac14 = 0.25$, which terminates.
 
 ### Fractions worth memorizing
 

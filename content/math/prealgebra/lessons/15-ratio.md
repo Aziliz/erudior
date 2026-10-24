@@ -45,6 +45,10 @@ Profit of \$4,500 is split between two partners in the ratio 2 : 7. How much doe
 
 There are $2 + 7 = 9$ parts in all, each worth $4{,}500 \div 9 = 500$ dollars. The partners get $2 \times 500 = \$1{,}000$ and $7 \times 500 = \$3{,}500$. Check: they add to \$4,500. ✓
 
+A **tape diagram** makes the parts visible: one bar for the whole, cut into 9 equal parts.
+
+![A bar labeled Whole profit: $4,500 (9 parts), cut into 9 equal boxes of $500 each. The first 2 boxes are shaded blue and bracketed Partner A, 2 parts: $1,000. The other 7 are shaded gold and bracketed Partner B, 7 parts: $3,500.](images/pre-m4-tape.svg)
+
 ## Rates
 
 A **rate** is a ratio of two quantities with *different* units, like miles per hour or dollars per pound. The units are part of the answer: "300 miles in 5 hours" is the rate $\dfrac{300 \text{ miles}}{5 \text{ hours}}$.
@@ -87,6 +91,22 @@ Sara earns \$18.50 per hour. How much does she earn in a 7.5-hour shift? How man
 Earnings: $18.50 \times 7.5 = 138.75$, so \$138.75.
 
 Hours: $740 \div 18.50 = 40$ hours.
+
+## Ratio or rate?
+
+The words in this lesson fit together like this:
+
+```mermaid
+flowchart TD
+  accTitle: Kinds of comparisons by division
+  accDescr: A comparison of two quantities by division splits into two branches. If the quantities have the same kind of unit, it is a ratio: convert to the same unit and the units cancel. Ratios are part to part, like girls to boys, or part to whole, like girls to all students. If the quantities have different units, it is a rate, like miles per hour. A rate per one unit is a unit rate, and a unit rate that is a cost per unit is a unit price.
+  A["Compare two quantities by division"] --> B["Same kind of unit: ratio"]
+  A --> C["Different units: rate"]
+  B --> D["Part to part, like girls : boys"]
+  B --> E["Part to whole, like girls : all students"]
+  C --> F["Unit rate: per 1 unit, like 60 miles per hour"]
+  F --> G["Unit price: cost per 1 unit, like 24 cents per ounce"]
+```
 
 ## Common mistakes
 

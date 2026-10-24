@@ -5,7 +5,7 @@
 <line x1="260.0" y1="210.0" x2="346.0" y2="87.1" stroke="#b03a2e" stroke-width="3"/>
 <circle cx="260" cy="210" r="6" fill="#1c2833"/>
 <text x="262.0" y="238.0" font-size="17" text-anchor="middle" font-weight="bold">center</text>
-<text x="312.0" y="140.0" font-size="17" text-anchor="start" font-weight="bold">radius r</text>
+<text x="330.0" y="160.0" font-size="17" text-anchor="start" font-weight="bold">radius r</text>
 <text x="180.0" y="200.0" font-size="17" text-anchor="middle" font-weight="bold">diameter d</text>
 <text x="110.0" y="360.0" font-size="17" text-anchor="middle" font-weight="bold">circumference C</text>
 </svg>

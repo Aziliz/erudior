@@ -45,6 +45,12 @@ $$3.6 \times 0.25 = \frac{36}{10} \times \frac{25}{100} = \frac{900}{1000} = 0.9
 
 The denominators multiply to $10 \times 100 = 1000$, which has 3 zeros: one from each decimal place.
 
+A picture shows the same thing for a smaller product. In a square worth 1, split into 100 small squares, 0.3 is 3 columns and 0.2 is 2 rows. Taking 0.3 *of* 0.2 means the overlap, which is 6 small squares out of 100:
+
+![A 10 by 10 grid representing 1. The first 3 columns are shaded to show 0.3, the first 2 rows are shaded to show 0.2, and the 6 squares where they overlap are shaded darker. The key says 0.3 × 0.2 = 6/100 = 0.06, and each small square is 0.01.](images/pre-m4-dec-grid.svg)
+
+So $0.3 \times 0.2 = 0.06$: one decimal place from each factor gives hundredths.
+
 Estimate check: $3.6 \times 0.25$ is about a quarter of 4, which is 1. ✓
 
 ### Multiplying by powers of 10
@@ -110,6 +116,23 @@ $87.40 \div 4 = 21.85$. Each pays \$21.85.
 Ground beef costs \$5.48 per pound. Ty buys a package for \$9.32. How many pounds is it, to the nearest tenth?
 
 $9.32 \div 5.48$: move both points two places, $932 \div 548 \approx 1.700\ldots$ Rounded: 1.7 pounds.
+
+## Where the point goes: a summary
+
+```mermaid
+flowchart TD
+  accTitle: Where the decimal point goes in each operation
+  accDescr: Start by asking which operation you are doing. For adding or subtracting, line up the decimal points, pad with zeros, and bring the point straight down. For multiplying, multiply as whole numbers, then count the decimal places in both factors and give the product that many. For dividing, move the point in the divisor to make it whole, move the point in the dividend the same number of places, then divide with the quotient's point directly above. Every path ends with checking the answer against an estimate.
+  A{"Which operation?"} -- "add or subtract" --> B["Line up the points; pad with zeros"]
+  A -- multiply --> C["Multiply as whole numbers"]
+  A -- divide --> D["Shift both points until the divisor is whole"]
+  B --> B2["Bring the point straight down"]
+  C --> C2["Count decimal places in both factors"]
+  D --> D2["Divide; point goes straight up into the quotient"]
+  B2 --> E["Check with an estimate"]
+  C2 --> E
+  D2 --> E
+```
 
 ## Common mistakes
 

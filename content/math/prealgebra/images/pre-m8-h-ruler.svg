@@ -38,7 +38,7 @@
 <rect x="430.0" y="66" width="60.0" height="30" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 4"/>
 <line x1="430.0" y1="96.0" x2="430.0" y2="150.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="7 5"/>
 <line x1="490.0" y1="96.0" x2="490.0" y2="150.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="7 5"/>
-<text x="460.0" y="87.0" font-size="15" text-anchor="middle" font-weight="bold">6.5 to 7.5</text>
-<text x="20.0" y="34.0" font-size="16" text-anchor="start">Measured to the nearest centimeter, the bar reads 7 cm.</text>
-<text x="20.0" y="58.0" font-size="16" text-anchor="start">Its true length could be anywhere in the shaded interval.</text>
+<text x="460.0" y="58.0" font-size="15" text-anchor="middle" font-weight="bold">6.5 cm to 7.5 cm</text>
+<text x="20.0" y="30.0" font-size="16" text-anchor="start">Measured to the nearest centimeter, the bar reads 7 cm.</text>
+<text x="20.0" y="52.0" font-size="16" text-anchor="start">Its true length could be anywhere in the shaded interval.</text>
 </svg>

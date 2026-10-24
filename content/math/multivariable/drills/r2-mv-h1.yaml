@@ -18,7 +18,7 @@
     - {name: gin, label: '(a) m/s²', sigfigs: 3, format: sig3}
     - {name: gout, label: '(b) m/s²', sigfigs: 3, format: sig3}
   solution: |-
-    Only the mass closer to the center counts. Inside a uniform ball the enclosed mass grows like $r^3$, so $|\mathbf g| = g_0\,r/R$: at $r = {rin}$ km, $|\mathbf g| = {gs}\cdot\dfrac{{rin}}{{Rkm}} =$ **{gin:sig3}** m/s². Outside, the planet acts like a point mass, so $|\mathbf g| = g_0R^2/r^2$: at $r = {rout}$ km, $|\mathbf g| = {gs}\cdot\left(\dfrac{{Rkm}}{{rout}}\right)^2 =$ **{gout:sig3}** m/s².
+    Only the mass closer to the center counts. Inside a uniform ball the enclosed mass grows like $r^3$, so $|\mathbf g| = g_0\,r/R$: at $r = {rin:dp0}$ km, $|\mathbf g| = {gs}\cdot\dfrac{{rin:dp0}}{{Rkm:dp0}} =$ **{gin:sig3}** m/s². Outside, the planet acts like a point mass, so $|\mathbf g| = g_0R^2/r^2$: at $r = {rout:dp0}$ km, $|\mathbf g| = {gs}\cdot\left(\dfrac{{Rkm:dp0}}{{rout:dp0}}\right)^2 =$ **{gout:sig3}** m/s².
 - id: mv-h1-r2-tunnel
   title: A tunnel through a uniform planet
   topic: Gravitational fields
@@ -33,7 +33,7 @@
   answers:
     - {name: oneway, label: 'Time (minutes)', sigfigs: 3, format: sig3}
   solution: |-
-    Inside, the force per kilogram along the tunnel is $-\dfrac{g_0}{R}x$, so $x'' = -\dfrac{g_0}{R}x$: simple harmonic motion with period $T = 2\pi\sqrt{R/g_0} = 2\pi\sqrt{{Rm}/{gs}} \approx {per:sig3}$ s. The far side is half a period away: $T/2 = {per:sig3}/2$ s $=$ **{oneway:sig3}** minutes.
+    Inside, the force per kilogram along the tunnel is $-\dfrac{g_0}{R}x$, so $x'' = -\dfrac{g_0}{R}x$: simple harmonic motion with period $T = 2\pi\sqrt{R/g_0} = 2\pi\sqrt{{Rm:dp0}/{gs}} \approx {per:sig3}$ s. The far side is half a period away: $T/2 = {per:sig3}/2$ s $=$ **{oneway:sig3}** minutes.
 - id: mv-h1-r2-poisson-density
   title: Density from the potential (Poisson's equation)
   topic: Gravitational fields
@@ -215,4 +215,4 @@
   answers:
     - {name: area, label: 'Area', sigfigs: 3, format: sig3}
   solution: |-
-    By Gauss–Bonnet with $K = 1/R^2$, the angle excess equals area$/R^2$. Excess: ${A} + {B} + {C} - 180 = {exc}^\circ = {exc}\cdot\dfrac{\pi}{180}$ rad. Area $= {exc}\cdot\dfrac{\pi}{180}\cdot{Rad}^2 =$ **{area:sig3}**.
+    By Gauss–Bonnet with $K = 1/R^2$, the angle excess equals area$/R^2$. Excess: ${A} + {B} + {C} - 180 = {exc}^\circ = {exc}\cdot\dfrac{\pi}{180}$ rad. Area $= {exc}\cdot\dfrac{\pi}{180}\cdot{Rad:dp0}^2 =$ **{area:sig3}**.

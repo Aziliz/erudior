@@ -25,14 +25,15 @@
     kind: {choices: [{label: quarter-wave, value: 4}, {label: half-wave, value: 2}]}
     lam: {min: 400, max: 700, step: 1}
   calc:
-    t: lam/(kind*mat)/1000
+    k: kind
+    t: lam/(k*mat)/1000
   prompt: 'A {kind} plate for light of vacuum wavelength {lam} nm is cut from {mat}. What is its thinnest possible thickness, in micrometers to 3 significant figures?'
   answers:
     - {format: sig3, name: t, label: 'Thickness', relTolerance: 0.01, units: {'μm': 1, um: 1, nm: 0.001, mm: 1000}}
   solution: |-
-    A {kind} plate delays one polarization by $\lambda/{kind}$ relative to the other, and a thickness $t$ gives a path difference $t\,|n_e - n_o|$. So
+    A {kind} plate delays one polarization by $\lambda/{k}$ relative to the other, and a thickness $t$ gives a path difference $t\,|n_e - n_o|$. So
 
-    $t = \dfrac{\lambda}{{kind}\,|n_e - n_o|} = \dfrac{{lam}\text{ nm}}{{kind}({mat:num4})} =$ **{t:sig3} μm**.
+    $t = \dfrac{\lambda}{{k}\,|n_e - n_o|} = \dfrac{{lam}\text{ nm}}{{k}({mat:num4})} =$ **{t:sig3} μm**.
 - id: phys-m11-r2-air-wedge
   title: Thickness from air-wedge fringes
   topic: Air wedges and Newton's rings
@@ -74,7 +75,6 @@
     N: {min: 8, max: 150}
   calc:
     nm1: N*lam*1e-9/(2*Lc/100)
-    nm1e4: nm1*1e4
   where: ['nm1 < 1.5e-3']
   prompt: 'An evacuated glass cell with an inside length of {Lc:num2} cm sits in one arm of a Michelson interferometer lit with {lam} light. As a gas slowly fills the cell, {N} fringes pass the detector. Find $n - 1$ for the gas, to 3 significant figures (for example, 2.72e-4).'
   answers:
@@ -82,4 +82,4 @@
   solution: |-
     The light crosses the cell twice, and the gas adds $2L(n - 1)/\lambda$ wavelengths to that path, so $N = \dfrac{2L(n - 1)}{\lambda}$:
 
-    $n - 1 = \dfrac{N\lambda}{2L} = \dfrac{{N}({lam:num1}\times10^{-9}\text{ m})}{2({Lc:num2}\times10^{-2}\text{ m})} =$ **{nm1e4:sig3} × 10⁻⁴**.
+    $n - 1 = \dfrac{N\lambda}{2L} = \dfrac{{N}({lam:num1}\times10^{-9}\text{ m})}{2({Lc:num2}\times10^{-2}\text{ m})} = \mathbf{{nm1:texsci}}$.

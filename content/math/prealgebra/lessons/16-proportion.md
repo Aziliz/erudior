@@ -99,6 +99,25 @@ $$\frac{6}{4} = \frac{h}{22} \quad\Rightarrow\quad 4h = 132 \quad\Rightarrow\qua
 
 A proportion only fits when the two quantities grow together at a fixed ratio. If a taxi charges a \$3 flat fee plus \$2 per mile, a 10-mile ride (\$23) doesn't cost twice a 5-mile ride (\$13), because of the fixed fee. Before setting up a proportion, ask: if one quantity doubles, does the other double too?
 
+A graph shows the difference. A proportional relationship is a straight line through the origin (0 miles, \$0). The taxi's line starts at \$3, so doubling the miles does not double the fare.
+
+```plot
+{"x": [0, 11], "y": [0, 26], "xLabel": "miles", "yLabel": "dollars", "functions": [{"f": "2x", "label": "$2 per mile: proportional"}, {"f": "3 + 2x", "label": "$3 + $2 per mile: not proportional", "dashed": true}], "points": [{"at": [5, 10], "label": "(5, 10)"}, {"at": [10, 20], "label": "(10, 20)"}, {"at": [5, 13], "label": "(5, 13)"}, {"at": [10, 23], "label": "(10, 23)"}], "caption": "Doubling 5 miles to 10 doubles 10 dollars to 20, but turns 13 dollars into 23, not 26"}
+```
+
+The whole method for word problems, including that first question:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a proportion word problem
+  accDescr: First ask whether the two quantities are proportional, that is, whether doubling one doubles the other. If not, for example because of a fixed fee, do not use a proportion. If yes, write two ratios with the same units in the same positions, using a letter for the unknown. Then set the cross products equal, divide to get the letter alone, and check the answer with a unit rate or an estimate.
+  A{"If one quantity doubles, does the other double?"} -- no --> X["Not proportional: don't use a proportion"]
+  A -- yes --> B["Write two ratios, like units in like positions"]
+  B --> C["Set the cross products equal"]
+  C --> D["Divide to get the unknown alone"]
+  D --> E["Check with a unit rate or estimate"]
+```
+
 ## Scale factors
 
 When two figures or quantities are proportional, the number you multiply by to go from one to the other is called the **scale factor**. In Example 4 the scale factor from map inches to real miles is 25. In Example 6, every length on the tree's triangle is $\tfrac{22}{4} = 5.5$ times the matching length on the person's triangle, so the height is $6 \times 5.5 = 33$ feet, the same answer as the proportion gave.
