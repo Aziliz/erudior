@@ -59,7 +59,7 @@ times faster than the main hump. Heat flow smooths out sharp features first; Jos
 his theory of heat in the early 1800s on exactly this idea of splitting a profile into sines.
 
 ```plot
-{"x": [0, 3.1416], "y": [-0.2, 1.4], "functions": [{"f": "sin(x) + 0.5*sin(3*x)", "label": "t = 0"}, {"f": "exp(-0.1)*sin(x) + 0.5*exp(-0.9)*sin(3*x)", "label": "t = 0.1", "dashed": true}, {"f": "exp(-0.5)*sin(x) + 0.5*exp(-4.5)*sin(3*x)", "label": "t = 0.5"}], "xLabel": "x", "yLabel": "u", "caption": "u = e^(−t) sin x + ½e^(−9t) sin 3x: the ripple disappears long before the hump"}
+{"x": [0, 3.1416], "y": [-0.2, 1.4], "functions": [{"f": "sin(x) + 0.5*sin(3*x)"}, {"f": "exp(-0.1)*sin(x) + 0.5*exp(-0.9)*sin(3*x)", "dashed": true}, {"f": "exp(-0.5)*sin(x) + 0.5*exp(-4.5)*sin(3*x)"}], "labels": [{"at": [0.7, 1.13], "text": "t = 0"}, {"at": [1.5708, 0.78], "text": "t = 0.1"}, {"at": [1.5708, 0.33], "text": "t = 0.5"}], "xLabel": "x", "yLabel": "u", "caption": "u = e^(−t) sin x + ½e^(−9t) sin 3x at t = 0 (two humps and a dip), t = 0.1 (dashed) and t = 0.5 (one smooth hump): the ripple disappears long before the hump"}
 ```
 
 ## The wave equation and d'Alembert's solution
@@ -112,7 +112,7 @@ $u = \tfrac12\left(e^{-(x - t)^2} + e^{-(x + t)^2}\right)$.
    the original height, has arrived at $x = 3$.
 
 ```plot
-{"x": [-5, 5], "y": [-0.1, 1.15], "functions": [{"f": "exp(-x^2)", "label": "t = 0"}, {"f": "0.5*(exp(-(x-1)^2) + exp(-(x+1)^2))", "label": "t = 1", "dashed": true}, {"f": "0.5*(exp(-(x-3)^2) + exp(-(x+3)^2))", "label": "t = 3"}], "xLabel": "x", "yLabel": "u", "caption": "d'Alembert's solution with c = 1: the bump splits into two half-height bumps moving apart at speed 1"}
+{"x": [-5, 5], "y": [-0.1, 1.15], "functions": [{"f": "exp(-x^2)"}, {"f": "0.5*(exp(-(x-1)^2) + exp(-(x+1)^2))", "dashed": true}, {"f": "0.5*(exp(-(x-3)^2) + exp(-(x+3)^2))"}], "labels": [{"at": [0.95, 0.9], "text": "t = 0"}, {"at": [-1.4, 0.6], "text": "t = 1"}, {"at": [-3, 0.57], "text": "t = 3"}, {"at": [3, 0.57], "text": "t = 3"}], "xLabel": "x", "yLabel": "u", "caption": "d'Alembert's solution with c = 1 at t = 0, t = 1 (dashed) and t = 3: the bump splits into two half-height bumps moving apart at speed 1"}
 ```
 
 ## Laplace's equation and harmonic functions

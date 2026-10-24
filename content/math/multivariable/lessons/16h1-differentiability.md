@@ -89,7 +89,7 @@ $\cos^2\theta\sin\theta$. For a differentiable function it would have to be
 $A\cos\theta + B\sin\theta$, a single sine wave; here it is not.
 
 ```plot
-{"x": [0, 6.2832], "y": [-0.6, 0.6], "functions": [{"f": "cos(x)^2*sin(x)", "label": "actual slope cos²θ sin θ"}, {"f": "0*x", "dashed": true, "label": "∇f(0,0)·u = 0"}], "xLabel": "direction angle θ (radians)", "yLabel": "slope", "caption": "Directional slopes of x²y/(x² + y²) at the origin: not of the form A cos θ + B sin θ"}
+{"x": [0, 6.2832], "y": [-0.6, 0.7], "functions": [{"f": "cos(x)^2*sin(x)"}, {"f": "0*x", "dashed": true}], "labels": [{"at": [1.6, 0.5], "text": "actual slope cos²θ sin θ"}, {"at": [4.7, 0.1], "text": "∇f(0,0)·u = 0 (dashed)"}], "xLabel": "direction angle θ (radians)", "yLabel": "slope", "caption": "Directional slopes of x²y/(x² + y²) at the origin: not of the form A cos θ + B sin θ"}
 ```
 
 *(c) Every directional derivative exists, but $f$ is not continuous.* Take Lesson 12's

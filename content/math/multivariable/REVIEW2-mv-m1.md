@@ -75,4 +75,4 @@ No change needed beyond the pointer.
 
 ## Counts
 
-Answer-key errors 0; explanation errors 1 (h19); factual fixes 5 (06h2 ×4, 06 key); picture fixes 1 (skew-lines SVG pair).
+Answer-key errors 0; factual fixes 4 (06h2: Example 3 trace, second-derivative paragraph, intro overstatement, "linear algebra" attribution); picture fixes 1 (skew-lines SVG pair); other fixes 2 (h19 distractor explanation, missing "three minus signs" branch in the Lesson 6 key).

@@ -119,7 +119,7 @@ No Taylor polynomial exists here ($|t|$ has a corner at 0), yet the projection g
 quadratic that is closest *on average over the whole interval*.
 
 ```plot
-{"xLabel": "t", "x": [-1, 1], "y": [-0.1, 1.2], "functions": [{"f": "abs(x)", "label": "|t|"}, {"f": "(15*x^2 + 3)/16", "label": "best quadratic", "dashed": true}], "caption": "|t| and its least-squares quadratic (15t² + 3)/16 on [−1, 1]"}
+{"xLabel": "t", "x": [-1, 1], "y": [-0.1, 1.2], "functions": [{"f": "abs(x)"}, {"f": "(15*x^2 + 3)/16", "label": "best quadratic", "dashed": true}], "labels": [{"at": [-0.62, 0.74], "text": "|t|"}], "caption": "|t| and its least-squares quadratic (15t² + 3)/16 on [−1, 1]"}
 ```
 
 ## Fourier approximation
