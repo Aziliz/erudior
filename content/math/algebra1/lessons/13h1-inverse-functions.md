@@ -94,9 +94,9 @@ Notice the reverse order again: $f$ multiplies by 3 and then subtracts 7, while 
 
 ### Example 2
 
-A streaming service charges $C(n) = 12 + 4n$ dollars for a month with $n$ rentals (Lesson 8, Example 3). Find $C^{-1}$, compute $C^{-1}(32)$, and say what it means.
+A streaming service charges $C(r) = 12 + 4r$ dollars for a month with $r$ rentals (Lesson 8, Example 3). Find $C^{-1}$, compute $C^{-1}(32)$, and say what it means.
 
-1. Solve $y = 12 + 4n$ for $n$: $n = \dfrac{y - 12}{4}$. In context it's clearer *not* to swap letters, because $n$ and $C$ have meanings. So $C^{-1}(y) = \dfrac{y - 12}{4}$, where $y$ is a monthly bill in dollars.
+1. Solve $y = 12 + 4r$ for $r$: $r = \dfrac{y - 12}{4}$. In context it's clearer *not* to swap letters, because $r$ and $C$ have meanings. So $C^{-1}(y) = \dfrac{y - 12}{4}$, where $y$ is a monthly bill in dollars.
 2. $C^{-1}(32) = \dfrac{32 - 12}{4} = 5$.
 3. Meaning: a bill of \$32 comes from 5 rentals. The input of $C^{-1}$ is in dollars and its output is a number of rentals: the units swap along with the inputs and outputs.
 4. The domain of $C^{-1}$ is the range of $C$: the bills \$12, \$16, \$20, …. A bill of \$30 isn't possible, and indeed $C^{-1}(30) = 4.5$ is not a whole number of rentals.

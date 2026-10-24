@@ -371,7 +371,7 @@
 - id: alg-m3-r2-h07
   lesson: alg-m3-h-inverse-functions
   topic: Inverse functions
-  stem: 'A streaming service charges $C(n) = 12 + 4n$ dollars for a month with $n$ rentals. What does $C^{-1}(40)$ represent?'
+  stem: 'A streaming service charges $C(r) = 12 + 4r$ dollars for a month with $r$ rentals. What does $C^{-1}(40)$ represent?'
   choices:
     - 'The bill, in dollars, for a month with 40 rentals'
     - 'The reciprocal of the bill for a month with 40 rentals'
