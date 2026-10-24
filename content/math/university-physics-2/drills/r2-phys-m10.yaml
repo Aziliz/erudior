@@ -126,7 +126,7 @@
     - {name: P, label: '(b) Power', format: sig4, relTolerance: 0.01, units: {W: 1, kW: 1000}}
     - {name: eff, label: '(c) Efficiency', format: sig4, relTolerance: 0.01, units: {'%': 1}}
   solution: |-
-    (a) $I = \dfrac{V - \mathcal{E}_b}{R} = \dfrac{{V:dp0} - {eb:num1}}{{R}} =$ **{I:sig3} A**.
+    (a) $I = \dfrac{V - \mathcal{E}_b}{\,R} = \dfrac{{V:dp0} - {eb:num1}}{{R}} =$ **{I:sig3} A**.
 
     (b) $P = \mathcal{E}_bI = ({eb:num1})({I:sig4}) =$ **{P:sig3} W**.
 
@@ -155,7 +155,7 @@
 
     (a) $I = V/Z =$ **{I:sig3} A**. (b) $V_L = IX_L =$ **{VL:sig3} V** (it can exceed the source voltage; the element voltages add as phasors).
 
-    (c) $\tan\phi = \dfrac{X_L - X_C}{R}$, so $\phi =$ **{phi:num1}°**.
+    (c) $\tan\phi = \dfrac{X_L - X_C}{\,R}$, so $\phi =$ **{phi:num1}°**.
 - id: phys-m10-r2-rlc-resonance
   title: Resonance, Q and bandwidth
   topic: Driven RLC circuits
@@ -177,6 +177,6 @@
   solution: |-
     (a) $\omega_0 = \dfrac{1}{\sqrt{LC}} = {w0:sig4}$ rad/s, so $f_0 = \omega_0/2\pi =$ **{f0:sig3} Hz**.
 
-    (b) $Q = \dfrac{\omega_0L}{R} =$ **{Q:sig3}**.
+    (b) $Q = \dfrac{\omega_0L}{\,R} =$ **{Q:sig3}**.
 
-    (c) $\Delta f = \dfrac{f_0}{Q} = \dfrac{R}{2\pi L} =$ **{df:sig3} Hz**.
+    (c) $\Delta f = \dfrac{f_0}{Q} = \dfrac{\,R}{2\pi L} =$ **{df:sig3} Hz**.

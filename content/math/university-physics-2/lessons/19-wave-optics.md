@@ -19,9 +19,7 @@ As with sound, two coherent waves interfere constructively where their path diff
 
 ## Young's double-slit experiment
 
-Light of wavelength $\lambda$ falls on two narrow slits a distance $d$ apart. Each slit acts as a source, and on a distant screen the waves arrive with path difference $d\sin\theta$ at angle $\theta$.
-
-![Young's double-slit setup seen from above. A laser on the left lights a barrier containing two narrow slits a distance d apart. A screen a distance L away shows a row of bright fringes, with the central bright fringe on the center line. Rays from the two slits meet at a point P on the screen; a dashed line from the upper slit drops perpendicular to the lower ray, marking a short highlighted segment of the lower ray near the slits: the path difference d sin theta.](images/phys-m11-double-slit.svg) Bright fringes (maxima) occur where
+Light of wavelength $\lambda$ falls on two narrow slits a distance $d$ apart. Each slit acts as a source, and on a distant screen the waves arrive with path difference $d\sin\theta$ at angle $\theta$. Bright fringes (maxima) occur where
 
 $$d\sin\theta = m\lambda, \qquad m = 0, \pm1, \pm2, \ldots$$
 
@@ -32,6 +30,8 @@ For a screen at distance $L$ and small angles ($\sin\theta \approx \tan\theta = 
 $$\Delta y = \frac{\lambda L}{d}.$$
 
 Smaller slit spacing or longer wavelength spreads the fringes out.
+
+![Young's double-slit setup seen from above. A laser on the left lights a barrier containing two narrow slits a distance d apart. A screen a distance L away shows a row of bright fringes, with the central bright fringe on the center line. Rays from the two slits meet at a point P on the screen; a dashed line from the upper slit drops perpendicular to the lower ray, marking a short highlighted segment of the lower ray near the slits: the path difference d sin theta.](images/phys-m11-double-slit.svg)
 
 ```plot
 {"x": [-3, 3], "y": [0, 1.1], "xLabel": "position on screen (fringe spacings)", "yLabel": "relative intensity", "functions": [{"f": "cos(pi*x)^2"}], "caption": "Ideal double-slit pattern: equally spaced bright fringes of equal brightness"}

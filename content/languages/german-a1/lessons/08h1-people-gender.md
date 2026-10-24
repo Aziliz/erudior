@@ -118,9 +118,9 @@ only.
 
 What is official? The Council for German Orthography (*Rat für deutsche Rechtschreibung*), which
 sets the spelling rules for Germany, Austria, Switzerland and other German-speaking areas,
-decided in 2023 not to make the star and similar signs part of official spelling. In 2024 some
-German states, Bavaria and Hesse among them, told their schools and state offices not to use
-them. At the same time many universities, cities and companies do use them. So the honest
+decided in 2023 not to make the star and similar signs part of official spelling. In 2024
+Bavaria told its state offices and schools not to use them, and Hesse did the same for its
+schools. At the same time many universities, cities and companies do use them. So the honest
 answer is: it depends on who is writing, and the debate is still going on.
 
 What should you do as a learner? Recognise all of these forms when you read. In your own
@@ -135,7 +135,8 @@ German job adverts almost always add three letters after the job title:
 
 *(m/w/d)* stands for *männlich, weiblich, divers*: male, female, diverse. Since the end of 2018,
 German civil registers have allowed *divers* as a third entry for people who are neither male
-nor female, and German law says a job advert must be open to everyone. Adding *(m/w/d)* shows
+nor female, and German law says a job advert must not shut anyone out because of their
+gender. Adding *(m/w/d)* shows
 that it is. You'll also see *(w/m/d)* or *(m/w/x)*. A *Bäckerei* is a bakery and *der Bäcker*
 a baker; *Wir suchen* means "we are looking for"; *im Laden* means "in the shop".
 
@@ -222,9 +223,9 @@ Fill the gap: *Das ist das Mädchen aus Polen. ___ spricht Deutsch und Polnisch.
 - After *das Mädchen* the textbook pronoun is *es*; *sie* is common in speech.
 - Female job titles: add *-in* (some with an umlaut), drop a final *-e* first, or change
   *-mann* to *-frau*. Plural *-innen* with double *n*.
-- The **generic masculine** (*die Lehrer*) is traditional; the **paired form** (*Lehrerinnen
-  und Lehrer*), neutral words (*Lehrkräfte*) and signs like the **gender star**
-  (*Lehrer\*innen*) are the main kinds of **gender-fair language**. Their use is debated; the
+- The generic masculine (*die Lehrer*) is traditional; the paired form (*Lehrerinnen
+  und Lehrer*), neutral words (*Lehrkräfte*) and signs like the gender star
+  (*Lehrer\*innen*) are the main kinds of gender-fair language. Their use is debated; the
   paired form is accepted everywhere.
 - *(m/w/d)* in job adverts means *männlich, weiblich, divers*.
 

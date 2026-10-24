@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" font-family="sans-serif" font-size="16">
+<rect width="640" height="380" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker>
+<marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#244d76"/></marker></defs>
+<rect x="10" y="10" width="190" height="360" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="1.2"/>
+<rect x="210" y="10" width="420" height="360" rx="10" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.2"/>
+<rect x="70.0" y="84" width="70" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="1"/>
+<rect x="70.0" y="294" width="70" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="1"/>
+<line x1="97" y1="292" x2="97" y2="100" stroke="#244d76" stroke-width="3" marker-end="url(#ab)"/>
+<line x1="113" y1="98" x2="113" y2="290" stroke="#244d76" stroke-width="3" marker-end="url(#ab)"/>
+<line x1="153" y1="98" x2="153" y2="292" stroke="#1c2833" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<rect x="230.0" y="84" width="60" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="0.45"/>
+<rect x="230.0" y="294" width="60" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="0.45"/>
+<rect x="390.0" y="84" width="60" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="1"/>
+<rect x="390.0" y="294" width="60" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="1"/>
+<rect x="550.0" y="84" width="60" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="0.45"/>
+<rect x="550.0" y="294" width="60" height="12" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" opacity="0.45"/>
+<line x1="260" y1="292" x2="416" y2="100" stroke="#244d76" stroke-width="3" marker-end="url(#ab)"/>
+<line x1="424" y1="100" x2="580" y2="290" stroke="#244d76" stroke-width="3" marker-end="url(#ab)"/>
+<line x1="260" y1="334" x2="420" y2="334" stroke="#1c2833" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<line x1="420" y1="98" x2="420" y2="292" stroke="#1c2833" stroke-width="1.2" stroke-dasharray="5 5"/>
+<line x1="470" y1="40" x2="560" y2="40" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<text x="572" y="46">v</text>
+</svg>

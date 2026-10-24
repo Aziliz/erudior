@@ -84,9 +84,9 @@
 <text x="475" y="43.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Post</text>
 <rect x="104.2" y="468.0" width="91.6" height="26" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
 <text x="150" y="486.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">der Park</text>
-<line x1="150" y1="298" x2="212" y2="300" stroke="#1c2833" stroke-width="1.5" />
-<rect x="72.0" y="285.0" width="156.0" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
-<text x="150" y="303.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Haltestelle</text>
+<line x1="118" y1="300" x2="212" y2="300" stroke="#1c2833" stroke-width="1.5" />
+<rect x="40.0" y="287.0" width="156.0" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
+<text x="118" y="305.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Haltestelle</text>
 <line x1="427" y1="476" x2="427" y2="460" stroke="#1c2833" stroke-width="1.5" />
 <rect x="381.2" y="463.0" width="91.6" height="26" rx="6" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5" />
 <text x="427" y="481.76" font-family="sans-serif" font-size="16" font-weight="normal" fill="#1c2833" text-anchor="middle">die Bank</text>

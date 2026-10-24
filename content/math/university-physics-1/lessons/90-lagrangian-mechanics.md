@@ -98,7 +98,7 @@ Blocks of mass $m_1 = 3.0$ kg and $m_2 = 2.0$ kg hang on either side of a string
 
 $$a = \ddot x = \frac{(m_1 - m_2)g}{m_1 + m_2 + \tfrac12M} = \frac{(1.0)(9.8)}{6.0} = 1.63\text{ m/s}^2.$$
 
-With a massless pulley the denominator would be 5.0 kg and $a = 1.96$ m/s²; the pulley's rotational inertia acts like an extra 1.0 kg of mass that has to be accelerated. The Newtonian solution (lesson 16) needs three equations and two different tensions; here neither tension appears. If you *want* a tension, go back to Newton for one block: $T_1 = m_1(g - a) = 3.0(9.8 - 1.63) = 24.5$ N.
+With a massless pulley the denominator would be 5.0 kg and $a = 1.96$ m/s²; the pulley's rotational inertia acts like an extra 1.0 kg of mass that has to be accelerated. The Newtonian solution (lesson 16) needs three equations and two different tensions; here neither tension appears. If you *want* a tension, go back to Newton for one block: the string pulls up on $m_1$ with $m_1(g - a) = 3.0(9.8 - 1.63) = 24.5$ N. (In this module $T$ means kinetic energy, so tensions get no symbol of their own here.)
 
 ### Example 3: a physical pendulum
 
