@@ -716,3 +716,202 @@ jemand	jemand	pronoun	someone
 niemand	niemand	pronoun	nobody
 alle	alle	pronoun	everybody (all people)
 beide	beide	pronoun	both
+de1-h1-r2-w01	sich abmelden	verb	to deregister (your address)
+de1-h1-r2-w02	der Reisepass	noun	passport (full, official word)
+de1-h1-r2-w03	die Meldebescheinigung	noun	certificate of registration (of your address)
+de1-h1-r2-w04	die Haustür	noun	front door (of a building)
+de1-h1-r2-w05	zum Beispiel	phrase	for example
+de1-h1-r2-w06	das heißt	phrase	that is (i.e.)
+de1-h1-r2-w07	und so weiter	phrase	and so on
+de1-h1-r2-w08	circa	adverb	approximately (circa)
+de1-h1-r2-w09	gegebenenfalls	adverb	if necessary (formal)
+de1-h1-r2-w10	dabeihaben	verb	to have with you
+de1-h1-r2-w11	unter anderem	phrase	among other things
+de1-h1-r2-w12	die Steuer-ID	noun	tax ID (in Germany)
+de1-h1-r2-w13	die Dose	noun	can (tin)
+de1-h1-r2-w14	leer	adjective	empty
+de1-h1-r2-w15	werfen	verb	to throw
+de1-h1-r2-w16	bohren	verb	to drill
+de1-h1-r2-w17	die Biotonne	noun	organic waste bin
+de1-h1-r2-w18	der Restmüll	noun	general waste (non-recyclable)
+de1-h1-r2-w19	der Glascontainer	noun	bottle bank
+de1-h1-r2-w20	die Pfandflasche	noun	deposit bottle
+de1-h1-r2-w21	der Gelbe Sack	noun	yellow bag (for packaging)
+de1-h1-r2-w22	Wir bitten um Verständnis.	phrase	we ask for your understanding
+de1-h1-r2-w23	lieber nicht	phrase	better not
+de1-h1-r2-w24	der Esel	noun	donkey
+de1-h1-r2-w25	der Hahn	noun	rooster
+de1-h1-r2-w26	der Räuber	noun	robber
+de1-h1-r2-w27	das Licht	noun	light (that shines)
+de1-h1-r2-w28	bellen	verb	to bark
+de1-h1-r2-w29	das Gespenst	noun	ghost
+de1-h1-r2-w30	die Maus	noun	mouse
+de1-h1-r2-w31	weglaufen	verb	to run away
+de1-h1-r2-w32	Es war einmal …	phrase	once upon a time
+de1-h1-r2-w33	ging	verb	went (past of gehen)
+de1-h1-r2-w34	kam	verb	came (past of kommen)
+de1-h1-r2-w35	sah	verb	saw (past of sehen)
+de1-h1-r2-w36	der Kleingarten	noun	allotment garden
+de1-h1-r2-w37	die Laube	noun	garden hut (in an allotment)
+de1-h1-r2-w38	das Beet	noun	bed (in a garden)
+de1-h1-r2-w39	gießen	verb	to water (plants)
+de1-h1-r2-w40	ernten	verb	to harvest
+de1-h1-r2-w41	die Blume	noun	flower
+de1-h1-r2-w42	die Erdbeere	noun	strawberry
+de1-h1-r2-w43	die Tomate	noun	tomato
+de1-h1-r2-w44	der Zaun	noun	fence
+de1-h1-r2-w45	die Gießkanne	noun	watering can
+de1-h1-r2-w46	die Kneipe	noun	pub
+de1-h1-r2-w47	der Stammtisch	noun	regulars' table (in a pub)
+de1-h1-r2-w48	die Gemütlichkeit	noun	cosiness (Gemütlichkeit)
+de1-h1-r2-w49	Schönen Feierabend!	phrase	have a nice evening (after work)
+de1-h1-r2-w50	Danke, gleichfalls!	phrase	thanks, you too
+de1-h1-r2-w51	das Häuschen	noun	little house
+de1-h1-r2-w52	das Kaninchen	noun	rabbit
+de1-h1-r2-w53	das Eichhörnchen	noun	squirrel
+de1-m1-r2-w01	die Aussprache	noun	pronunciation
+de1-m1-r2-w02	aussprechen	verb	to pronounce
+de1-m1-r2-w03	der Akzent	noun	accent (way of speaking)
+de1-m1-r2-w04	die Silbe	noun	syllable
+de1-m1-r2-w05	der Laut	noun	sound (of speech)
+de1-m1-r2-w06	das Spiegelei	noun	fried egg
+de1-m1-r2-w07	verreisen	verb	to go away (on a trip)
+de1-m1-r2-w08	der Zungenbrecher	noun	tongue twister
+de1-m1-r2-w09	duzen	verb	to say du (to someone)
+de1-m1-r2-w10	siezen	verb	to say Sie (to someone)
+de1-m1-r2-w11	Servus	interjection	hi or bye (Bavaria and Austria)
+de1-m1-r2-w12	Moin	interjection	hello (northern Germany)
+de1-m1-r2-w13	Grüezi	interjection	hello (in Switzerland
+de1-m1-r2-w14	Grüß dich	phrase	hi (to one person you say du to)
+de1-m1-r2-w15	Liechtenstein		Liechtenstein
+de1-m1-r2-w16	Luxemburg		Luxembourg
+de1-m1-r2-w17	Belgien		Belgium
+de1-m1-r2-w18	die Muttersprache	noun	native language
+de1-m1-r2-w19	Hochdeutsch		standard German
+de1-m1-r2-w20	rechnen	verb	to calculate
+de1-m1-r2-w21	zählen	verb	to count
+de1-m1-r2-w22	zeichnen	verb	to draw
+de1-m1-r2-w23	plus	conjunction	plus (in sums)
+de1-m1-r2-w24	minus	conjunction	minus (in sums)
+de1-m1-r2-w25	mal	adverb	times (in multiplication)
+de1-m1-r2-w26	geteilt durch	phrase	divided by
+de1-m1-r2-w27	der Finger	noun	finger
+de1-m1-r2-w28	der Daumen	noun	thumb
+de1-m1-r2-w29	die Eins	noun	one (as a grade or digit)
+de1-m1-r2-w30	Mathe		maths (school subject
+de1-m2-r2-w01	das Mädchen	noun	girl
+de1-m2-r2-w02	die Schülerin	noun	pupil (female, at school)
+de1-m2-r2-w03	die Verkäuferin	noun	salesperson (female)
+de1-m2-r2-w04	die Kellnerin	noun	waitress
+de1-m2-r2-w05	die Köchin	noun	cook (female, as a job)
+de1-m2-r2-w06	die Polizistin	noun	police officer (female)
+de1-m2-r2-w07	die Ingenieurin	noun	engineer (female)
+de1-m2-r2-w08	der Kaufmann	noun	businessman
+de1-m2-r2-w09	die Kauffrau	noun	businesswoman
+de1-m2-r2-w10	der Feuerwehrmann	noun	firefighter (male)
+de1-m2-r2-w11	die Feuerwehrfrau	noun	firefighter (female)
+de1-m2-r2-w12	die Lehrkraft	noun	teacher (any gender, formal word)
+de1-m2-r2-w13	der Krankenpfleger	noun	nurse (male)
+de1-m2-r2-w14	die Krankenpflegerin	noun	nurse (female)
+de1-m2-r2-w15	die Dame	noun	lady
+de1-m2-r2-w16	die Mama	noun	mum
+de1-m2-r2-w17	der Papa	noun	dad
+de1-m2-r2-w18	die Patchworkfamilie	noun	patchwork family
+de1-m2-r2-w19	der Stiefvater	noun	stepfather
+de1-m2-r2-w20	die Stiefmutter	noun	stepmother
+de1-m2-r2-w21	der Halbbruder	noun	half-brother
+de1-m2-r2-w22	die Halbschwester	noun	half-sister
+de1-m2-r2-w23	der Zwilling	noun	twin
+de1-m2-r2-w24	das Einzelkind	noun	only child
+de1-m2-r2-w25	getrennt	adjective	separated (couple)
+de1-m2-r2-w26	der Nachname	noun	last name (everyday word)
+de1-m2-r2-w27	der Spitzname	noun	nickname
+de1-m3-r2-w01	die Semmel	noun	bread roll (southern German and Austrian word)
+de1-m3-r2-w02	die Brezel	noun	pretzel
+de1-m3-r2-w03	die Sahne	noun	cream
+de1-m3-r2-w04	der Quark	noun	quark (a soft fresh cheese)
+de1-m3-r2-w05	die Marmelade	noun	jam
+de1-m3-r2-w06	der Honig	noun	honey
+de1-m3-r2-w07	das Abendbrot	noun	supper (a cold evening meal with bread)
+de1-m3-r2-w08	die Mahlzeit	noun	meal (a time when you eat)
+de1-m3-r2-w09	satt	adjective	full (after eating)
+de1-m3-r2-w10	Guten Appetit!	phrase	Enjoy your meal!
+de1-m3-r2-w11	Stimmt so.	phrase	Keep the change.
+de1-m3-r2-w12	Ich hätte gern	phrase	I'd like (polite
+de1-m3-r2-w13	die Scheibe	noun	slice
+de1-m3-r2-w14	das Bargeld	noun	cash
+de1-m3-r2-w15	der Bäcker	noun	baker (male)
+de1-m3-r2-w16	montags	adverb	on Mondays
+de1-m3-r2-w17	sonntags	adverb	on Sundays
+de1-m3-r2-w18	morgens	adverb	in the mornings (every morning)
+de1-m3-r2-w19	abends	adverb	in the evenings (every evening)
+de1-m3-r2-w20	nachts	adverb	at night (every night)
+de1-m3-r2-w21	nächste Woche	phrase	next week
+de1-m3-r2-w22	jeden Tag	phrase	every day
+de1-m3-r2-w23	den ganzen Tag	phrase	all day
+de1-m3-r2-w24	gegen	preposition	around (with a time; gegen acht)
+de1-m3-r2-w25	dauern	verb	to last (take time)
+de1-m3-r2-w26	meistens	adverb	mostly (most of the time)
+de1-m3-r2-w27	selten	adverb	rarely
+de1-m3-r2-w28	einmal	adverb	once (one time)
+de1-m3-r2-w29	pro	preposition	per
+de1-m3-r2-w30	geöffnet	adjective	open (of a shop or office)
+de1-m3-r2-w31	geschlossen	adjective	closed
+de1-m3-r2-w32	die Öffnungszeiten	noun	opening hours
+de1-m3-r2-w33	der Ruhetag	noun	closing day (a restaurant's weekly day off)
+de1-m4-r2-w01	der Sportverein	noun	sports club
+de1-m4-r2-w02	der Chor	noun	choir
+de1-m4-r2-w03	das Tennis	noun	tennis
+de1-m4-r2-w04	das Schach	noun	chess
+de1-m4-r2-w05	die Halle	noun	hall (large building, e.g. a sports hall)
+de1-m4-r2-w06	die Nachtruhe	noun	quiet time at night
+de1-m4-r2-w07	die Mittagsruhe	noun	quiet time at midday
+de1-m4-r2-w08	der Lieblingsfilm	noun	favourite film
+de1-m4-r2-w09	die Lieblingsfarbe	noun	favourite colour
+de1-m4-r2-w10	das Lieblingsessen	noun	favourite food
+de1-m4-r2-w11	Frohes neues Jahr!	phrase	Happy New Year! (from 1 January on)
+de1-m4-r2-w12	Frohe Ostern!	phrase	Happy Easter!
+de1-m4-r2-w13	Alles Gute zum Geburtstag!	phrase	Happy birthday!
+de1-m4-r2-w14	der Fasching	noun	carnival (Bavarian and Austrian word)
+de1-m4-r2-w15	der Nikolaustag	noun	St Nicholas' Day (6 December)
+de1-m4-r2-w16	der Weihnachtsmarkt	noun	Christmas market
+de1-m4-r2-w17	die Laterne	noun	lantern
+de1-m4-r2-w18	das Osterei	noun	Easter egg
+de1-m4-r2-w19	der Adventskranz	noun	Advent wreath
+de1-m4-r2-w20	das Plätzchen	noun	Christmas biscuit (small cookie)
+de1-m4-r2-w22	die Mitternacht	noun	midnight
+de1-m5-r2-w01	der Hauptbahnhof	noun	main station
+de1-m5-r2-w02	die Richtung	noun	direction
+de1-m5-r2-w03	der Fahrkartenautomat	noun	ticket machine
+de1-m5-r2-w04	entwerten	verb	to validate (a ticket)
+de1-m5-r2-w05	der Eingang	noun	entrance
+de1-m5-r2-w06	der Ausgang	noun	exit
+de1-m5-r2-w07	der Notausgang	noun	emergency exit
+de1-m5-r2-w08	die Linie	noun	line (bus, tram or train route)
+de1-m5-r2-w09	die Tageskarte	noun	day ticket
+de1-m5-r2-w10	Vorsicht!	phrase	Caution!
+de1-m5-r2-w11	der Quadratmeter	noun	square metre
+de1-m5-r2-w12	die Kaltmiete	noun	rent without bills (cold rent)
+de1-m5-r2-w13	die Warmmiete	noun	rent including bills (warm rent)
+de1-m5-r2-w14	das Dachgeschoss	noun	attic floor
+de1-m5-r2-w15	das Obergeschoss	noun	upper floor
+de1-m5-r2-w16	der Flur	noun	hallway
+de1-m5-r2-w17	die Einbauküche	noun	fitted kitchen
+de1-m5-r2-w18	möbliert	adjective	furnished
+de1-m5-r2-w19	die Besichtigung	noun	viewing (of a flat)
+de1-m5-r2-w20	ab sofort	phrase	available now (from now on)
+de1-m5-r2-w21	niedrig	adjective	low
+de1-m5-r2-w22	die Abkürzung	noun	abbreviation
+de1-m6-r2-w01	konnte	verb	could (past of können)
+de1-m6-r2-w02	musste	verb	had to (past of müssen)
+de1-m6-r2-w03	wollte	verb	wanted to (past of wollen)
+de1-m6-r2-w04	durfte	verb	was allowed to (past of dürfen)
+de1-m6-r2-w05	sollte	verb	was supposed to (past of sollen)
+de1-m6-r2-w06	mochte	verb	liked (past of mögen)
+de1-m6-r2-w07	es gab	phrase	there was (past of es gibt)
+de1-m6-r2-w08	der Wecker	noun	alarm clock
+de1-m6-r2-w09	klingeln	verb	to ring (a bell or alarm)
+de1-m6-r2-w10	aufwachen	verb	to wake up
+de1-m6-r2-w11	zum Schluss	phrase	in the end (as the last part of a story)
+de1-m6-r2-w12	die Briefmarke	noun	stamp (for a letter)
+de1-m6-r2-w13	Freundliche Grüße	phrase	kind regards (formal closing)

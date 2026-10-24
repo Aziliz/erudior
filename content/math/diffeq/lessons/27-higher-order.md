@@ -128,8 +128,8 @@ rarely worth it beyond order 2.
 
 ## Beam deflection
 
-A uniform beam with stiffness $EI$ under a load $w$ per unit length satisfies
-$EI\,y^{(4)} = w$. With constant $w$, integrating four times gives
+A uniform beam with stiffness $EI$ under a downward load $w$ per unit length satisfies
+$EI\,y^{(4)} = w$, where $y$ is the downward deflection. With constant $w$, integrating four times gives
 $y = \dfrac{w}{24EI}x^4 + c_3x^3 + c_2x^2 + c_1x + c_0$, and the four constants come from
 **boundary conditions** at the two ends (for a clamped end, $y = y' = 0$). Engineers use
 exactly this to size floor joists and bridge girders.

@@ -118,8 +118,9 @@ of the problem, and in a column they are the loads at which it buckles.
 
 Stand a slender column of length $L$ upright with pinned ends, and press down on the top with
 a force $P$. For small sideways deflection $y(x)$ (now measured sideways, with $x$ along the
-column), the compressive force produces a bending moment $Py$, and setting it equal to the
-beam's moment gives
+column), the compressive force produces a bending moment $Py$. The beam resists with its own
+moment, $-EI\,y''$ in the sign convention where a moment that bows the column outward is positive.
+Setting the two equal gives
 
 $$EI\,y'' + Py = 0, \qquad y(0) = 0, \quad y(L) = 0.$$
 
@@ -156,7 +157,7 @@ needs a nonlinear model. Second, real columns are never perfectly straight, so t
 bending gradually as $P$ approaches $P_{\text{cr}}$, and short, stocky columns fail by crushing
 before they buckle. Euler's formula is a model for slender columns. Other end conditions change
 the constant: a column clamped at the base and free at the top (a flagpole loaded from above)
-has $P_{\text{cr}} = \dfrac{\pi^2EI}{4L^2}$, a quarter of the pinned value.
+has $P_{\text{cr}} = \dfrac{\pi^2EI}{4L^2}$, a quarter of the pinned value (stated here without derivation).
 
 ## Common mistakes
 

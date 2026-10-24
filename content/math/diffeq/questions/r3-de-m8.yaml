@@ -122,7 +122,7 @@
   choices: ['It classified equilibria by the eigenvalues of the Jacobian', 'It proved that a bounded planar trajectory approaches a closed orbit or an equilibrium', 'It gave the first numerical method for solving systems', 'It decided stability from a function and its derivative along trajectories, without solving the equations']
   answer: 3
   explanation: |-
-    Lyapunov''s second, or direct, method generalizes the energy argument: find a positive definite $V$ and check the sign of $\dot V = V_xF + V_yG$, which needs no solutions. The trapping-region result is the Poincaré–Bendixson theorem (Lesson 90), and classification by Jacobian eigenvalues is the linearization of Lesson 37.
+    Lyapunov's second, or direct, method generalizes the energy argument: find a positive definite $V$ and check the sign of $\dot V = V_xF + V_yG$, which needs no solutions. The trapping-region result is the Poincaré–Bendixson theorem (Lesson 90), and classification by Jacobian eigenvalues is the linearization of Lesson 37.
 - id: de-m8-r3-h14
   lesson: de-m8-h-lyapunov
   type: text
@@ -138,7 +138,7 @@
   choices: ['Because $\dot E = -2y^2$ when $c = 2$', 'Because $E = 2$ at the upright equilibria $(\pm\pi, 0)$, so a larger level region around the origin would reach them', 'Because $E$ is at most 2 everywhere in the plane', 'Because the linearization at the origin has determinant 2']
   answer: 1
   explanation: |-
-    At $(\pm\pi, 0)$, $E = 0 + 1 - \cos\pi = 2$. For $c < 2$ the piece of $E \le c$ around the origin is a closed oval inside $|x| < \pi$, and LaSalle sends everything in it to the origin. At level 2 the curve runs into the saddles, which are equilibria and so can't be in the origin''s basin. $E$ is unbounded (it grows with $y$), and the determinant of the linearization is 1.
+    At $(\pm\pi, 0)$, $E = 0 + 1 - \cos\pi = 2$. For any level $k < 2$ the piece of $E \le k$ around the origin is a closed oval inside $|x| < \pi$, and LaSalle sends everything in it to the origin. At level 2 the curve runs into the saddles, which are equilibria and so can't be in the origin's basin. $E$ is unbounded (it grows with $y$), and the determinant of the linearization is 1.
 - id: de-m8-r3-h16
   lesson: de-m8-h-lyapunov
   topic: Lyapunov functions

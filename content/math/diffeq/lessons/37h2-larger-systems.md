@@ -120,6 +120,11 @@ For a $2 \times 2$ matrix, $a_1 = -T$ and $a_2 = D$, so this is the familiar $T 
 $3 \times 3$ matrix, $a_1 = -\operatorname{tr}A$, $a_2 = E_2$ and $a_3 = -\det A$. (The conditions
 for degree 3 force $a_2 > 0$ too.)
 
+**A note on numbering.** The Module 7 honors lesson on poles and stability wrote the same test for
+$a_3s^3 + a_2s^2 + a_1s + a_0$, numbering each coefficient by its power of $s$. Here the numbering
+starts from the leading term instead. With leading coefficient 1, that lesson's $a_2$, $a_1$, $a_0$ are
+this table's $a_1$, $a_2$, $a_3$, and its condition $a_2a_1 > a_3a_0$ is the condition $a_1a_2 > a_3$ here.
+
 **Why positive coefficients are needed.** If every root has negative real part, the
 polynomial is a product of factors $(\lambda + r)$ with $r > 0$ and
 $(\lambda^2 + 2s\lambda + s^2 + w^2)$ with $s > 0$, and multiplying such factors gives only

@@ -96,7 +96,7 @@ A handy shortcut for the derivative condition: $y'(0) = \lambda c_1 + \mu c_2$. 
 $-1(1) + 2c_2 = 3$.
 
 ```plot
-{"x": [0, 6], "y": [-2.5, 2.5], "xLabel": "t", "functions": [{"f": "exp(-x)*(cos(2x) + 2sin(2x))", "label": "y(t)"}, {"f": "sqrt(5)exp(-x)", "dashed": true}, {"f": "-sqrt(5)exp(-x)", "dashed": true}], "labels": [{"at": [2.4, 1.2], "text": "envelope ±√5 e^(−t)"}], "caption": "y = e^(−t)(cos 2t + 2 sin 2t): oscillation inside a decaying envelope."}
+{"x": [0, 6], "y": [-2.5, 2.5], "xLabel": "t", "functions": [{"f": "exp(-x)*(cos(2x) + 2sin(2x))"}, {"f": "sqrt(5)exp(-x)", "dashed": true}, {"f": "-sqrt(5)exp(-x)", "dashed": true}], "labels": [{"at": [2.4, 1.2], "text": "envelope ±√5 e^(−t)"}, {"at": [3.3, -0.8], "text": "y(t) (solid)"}], "caption": "y = e^(−t)(cos 2t + 2 sin 2t): oscillation inside a decaying envelope."}
 ```
 
 ## Amplitude–phase form

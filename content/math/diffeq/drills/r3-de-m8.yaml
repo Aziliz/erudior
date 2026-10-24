@@ -1,0 +1,57 @@
+# Round 3 drills for module de-m8 (honors lesson 37h3, Lyapunov functions)
+- id: de-m8-r3-vdot
+  title: Derivative of V along trajectories
+  topic: Lyapunov functions
+  vars:
+    p: {choices: [1, 2, 3]}
+    q: {choices: [1, 2, 3]}
+    a: {min: -4, max: 4}
+    b: {min: -4, max: 4}
+    c: {min: -4, max: 4}
+    d: {min: -4, max: 4}
+    k: {min: -3, max: 3}
+    x0: {min: -2, max: 2}
+    y0: {min: -2, max: 2}
+  where: ['a != 0', 'b != 0', 'c != 0', 'd != 0', 'k != 0', 'x0 != 0', 'y0 != 0']
+  calc:
+    F0: a*x0 + b*y0
+    G0: c*x0 + d*y0 + k*x0^3
+    P2: 2*p
+    Q2: 2*q
+    vd: 2*p*x0*F0 + 2*q*y0*G0
+  prompt: 'For the system $x'' = {a:coef}x {b:signedcoef}y$, $y'' = {c:coef}x {d:signedcoef}y {k:signedcoef}x^3$ and $V = {p:coef}x^2 + {q:coef}y^2$, find $\dot V$ (the derivative of $V$ along trajectories) at the point $({x0}, {y0})$.'
+  answers:
+    - {name: vd, label: '$\dot V =$', format: integer}
+  solution: |-
+    $\dot V = V_x\,x' + V_y\,y' = {P2}x \cdot x' + {Q2}y \cdot y'$. At $({x0}, {y0})$ the right-hand sides are $x' = {F0}$ and $y' = {G0}$, so $\dot V = {P2} \cdot ({x0}) \cdot ({F0}) + {Q2} \cdot ({y0}) \cdot ({G0}) =$ **{vd}**.
+- id: de-m8-r3-posdef
+  title: When is a quadratic form positive definite?
+  topic: Lyapunov functions
+  vars:
+    a: {min: 1, max: 9}
+    c: {min: 1, max: 9}
+  calc:
+    F: 4*a*c
+    K: sqrt(4*a*c)
+  prompt: 'The quadratic form $V = {a:coef}x^2 + kxy + {c:coef}y^2$ is positive definite exactly when $|k| < K$. Find $K$ (exact, or to 2 decimal places).'
+  answers:
+    - {name: K, label: '$K =$', tolerance: 0.006}
+  solution: |-
+    $ax^2 + bxy + cy^2$ is positive definite exactly when the $x^2$ coefficient is positive and $4ac - b^2 > 0$. Here the $x^2$ coefficient is ${a} > 0$, and the second condition reads $4 \cdot {a} \cdot {c} - k^2 > 0$, that is $k^2 < {F}$. So $|k| < \sqrt{{F}}$, and $K = \sqrt{{F}} \approx$ **{K:num2}**.
+- id: de-m8-r3-basin
+  title: A disk inside the basin of attraction
+  topic: Lyapunov functions
+  vars:
+    a: {choices: [1, 2, 3]}
+    m: {choices: [1, 2, 3, 4, 5, 6]}
+  calc:
+    Rs: 2*a/m
+    R: sqrt(2*a/m)
+    E: sqrt(a/m)
+    A2: 2*a
+    M4: 4*m
+  prompt: 'For $x'' = -{a:coef}x {m:signedcoef}xy^2$, $y'' = -{a:coef}y {m:signedcoef}x^2y$, use $V = x^2 + y^2$. Find the radius $R$ of the largest open disk around the origin on which $\dot V < 0$ at every point except the origin (2 decimal places).'
+  answers:
+    - {name: R, label: '$R \approx$', tolerance: 0.006}
+  solution: |-
+    $\dot V = 2x(-{a:coef}x {m:signedcoef}xy^2) + 2y(-{a:coef}y {m:signedcoef}x^2y) = -{A2}(x^2 + y^2) + {M4}x^2y^2$. On the circle of radius $r$, $x^2y^2 = \tfrac14r^4\sin^2 2\theta$ is at most $\tfrac14r^4$, with equality on the diagonals. So the largest value of $\dot V$ on that circle is $-{A2}r^2 + {m:coef}r^4 = -r^2\big({A2} - {m:coef}r^2\big)$, which is negative exactly when $r^2 < \dfrac{{A2}}{{m}} = {Rs:num4}$. So $R = \sqrt{{Rs:num4}} \approx$ **{R:num2}**. The disk can't be any bigger: the saddles $(\pm{E:num4}, \pm{E:num4})$ lie on its edge.

@@ -17,8 +17,8 @@ a general method.
 
 A marble rolling in a bowl with friction keeps losing energy, so it ends up at the bottom; we
 know that without solving its equations of motion. In 1892 Aleksandr Lyapunov made this
-precise for any system, with an "energy-like" function in place of energy. His **direct
-method** decides stability from one function and its rate of change, with no solutions needed.
+precise for any system, with an "energy-like" function in place of energy. His **direct method**
+decides stability from one function and its rate of change, with no solutions needed.
 
 ## Two kinds of stability
 
@@ -178,8 +178,8 @@ unless $y' = -\sin x$ is zero too, so it crosses and keeps losing energy. Joseph
 building on Evgenii Barbashin and Nikolai Krasovskii, 1952) turned this into a theorem.
 
 A set is an **invariant set** if every solution starting in it stays in it for all time,
-forward and backward (equilibria and closed orbits are examples). It is **positively
-invariant** if solutions starting in it stay in it for all $t \ge 0$. When $\dot V \le 0$, a closed,
+forward and backward (equilibria and closed orbits are examples). It is
+**positively invariant** if solutions starting in it stay in it for all $t \ge 0$. When $\dot V \le 0$, a closed,
 bounded piece of $\{V \le c\}$ is positively invariant: solutions can't climb out.
 
 **LaSalle's invariance principle** (stated without proof). Let $\Omega$ be closed, bounded and

@@ -716,6 +716,205 @@ jemand	jemand	pronoun	someone	lang-german-a1
 niemand	niemand	pronoun	nobody	lang-german-a1
 alle	alle	pronoun	everybody (all people)	lang-german-a1
 beide	beide	pronoun	both	lang-german-a1
+de1-h1-r2-w01	sich abmelden	verb	to deregister (your address)	lang-german-a1
+de1-h1-r2-w02	der Reisepass	noun	passport (full, official word)	lang-german-a1
+de1-h1-r2-w03	die Meldebescheinigung	noun	certificate of registration (of your address)	lang-german-a1
+de1-h1-r2-w04	die Haustür	noun	front door (of a building)	lang-german-a1
+de1-h1-r2-w05	zum Beispiel	phrase	for example	lang-german-a1
+de1-h1-r2-w06	das heißt	phrase	that is (i.e.)	lang-german-a1
+de1-h1-r2-w07	und so weiter	phrase	and so on	lang-german-a1
+de1-h1-r2-w08	circa	adverb	approximately (circa)	lang-german-a1
+de1-h1-r2-w09	gegebenenfalls	adverb	if necessary (formal)	lang-german-a1
+de1-h1-r2-w10	dabeihaben	verb	to have with you	lang-german-a1
+de1-h1-r2-w11	unter anderem	phrase	among other things	lang-german-a1
+de1-h1-r2-w12	die Steuer-ID	noun	tax ID (in Germany)	lang-german-a1
+de1-h1-r2-w13	die Dose	noun	can (tin)	lang-german-a1
+de1-h1-r2-w14	leer	adjective	empty	lang-german-a1
+de1-h1-r2-w15	werfen	verb	to throw	lang-german-a1
+de1-h1-r2-w16	bohren	verb	to drill	lang-german-a1
+de1-h1-r2-w17	die Biotonne	noun	organic waste bin	lang-german-a1
+de1-h1-r2-w18	der Restmüll	noun	general waste (non-recyclable)	lang-german-a1
+de1-h1-r2-w19	der Glascontainer	noun	bottle bank	lang-german-a1
+de1-h1-r2-w20	die Pfandflasche	noun	deposit bottle	lang-german-a1
+de1-h1-r2-w21	der Gelbe Sack	noun	yellow bag (for packaging)	lang-german-a1
+de1-h1-r2-w22	Wir bitten um Verständnis.	phrase	we ask for your understanding	lang-german-a1
+de1-h1-r2-w23	lieber nicht	phrase	better not	lang-german-a1
+de1-h1-r2-w24	der Esel	noun	donkey	lang-german-a1
+de1-h1-r2-w25	der Hahn	noun	rooster	lang-german-a1
+de1-h1-r2-w26	der Räuber	noun	robber	lang-german-a1
+de1-h1-r2-w27	das Licht	noun	light (that shines)	lang-german-a1
+de1-h1-r2-w28	bellen	verb	to bark	lang-german-a1
+de1-h1-r2-w29	das Gespenst	noun	ghost	lang-german-a1
+de1-h1-r2-w30	die Maus	noun	mouse	lang-german-a1
+de1-h1-r2-w31	weglaufen	verb	to run away	lang-german-a1
+de1-h1-r2-w32	Es war einmal …	phrase	once upon a time	lang-german-a1
+de1-h1-r2-w33	ging	verb	went (past of gehen)	lang-german-a1
+de1-h1-r2-w34	kam	verb	came (past of kommen)	lang-german-a1
+de1-h1-r2-w35	sah	verb	saw (past of sehen)	lang-german-a1
+de1-h1-r2-w36	der Kleingarten	noun	allotment garden	lang-german-a1
+de1-h1-r2-w37	die Laube	noun	garden hut (in an allotment)	lang-german-a1
+de1-h1-r2-w38	das Beet	noun	bed (in a garden)	lang-german-a1
+de1-h1-r2-w39	gießen	verb	to water (plants)	lang-german-a1
+de1-h1-r2-w40	ernten	verb	to harvest	lang-german-a1
+de1-h1-r2-w41	die Blume	noun	flower	lang-german-a1
+de1-h1-r2-w42	die Erdbeere	noun	strawberry	lang-german-a1
+de1-h1-r2-w43	die Tomate	noun	tomato	lang-german-a1
+de1-h1-r2-w44	der Zaun	noun	fence	lang-german-a1
+de1-h1-r2-w45	die Gießkanne	noun	watering can	lang-german-a1
+de1-h1-r2-w46	die Kneipe	noun	pub	lang-german-a1
+de1-h1-r2-w47	der Stammtisch	noun	regulars' table (in a pub)	lang-german-a1
+de1-h1-r2-w48	die Gemütlichkeit	noun	cosiness (Gemütlichkeit)	lang-german-a1
+de1-h1-r2-w49	Schönen Feierabend!	phrase	have a nice evening (after work)	lang-german-a1
+de1-h1-r2-w50	Danke, gleichfalls!	phrase	thanks, you too	lang-german-a1
+de1-h1-r2-w51	das Häuschen	noun	little house	lang-german-a1
+de1-h1-r2-w52	das Kaninchen	noun	rabbit	lang-german-a1
+de1-h1-r2-w53	das Eichhörnchen	noun	squirrel	lang-german-a1
+de1-m1-r2-w01	die Aussprache	noun	pronunciation	lang-german-a1
+de1-m1-r2-w02	aussprechen	verb	to pronounce	lang-german-a1
+de1-m1-r2-w03	der Akzent	noun	accent (way of speaking)	lang-german-a1
+de1-m1-r2-w04	die Silbe	noun	syllable	lang-german-a1
+de1-m1-r2-w05	der Laut	noun	sound (of speech)	lang-german-a1
+de1-m1-r2-w06	das Spiegelei	noun	fried egg	lang-german-a1
+de1-m1-r2-w07	verreisen	verb	to go away (on a trip)	lang-german-a1
+de1-m1-r2-w08	der Zungenbrecher	noun	tongue twister	lang-german-a1
+de1-m1-r2-w09	duzen	verb	to say du (to someone)	lang-german-a1
+de1-m1-r2-w10	siezen	verb	to say Sie (to someone)	lang-german-a1
+de1-m1-r2-w11	Servus	interjection	hi or bye (Bavaria and Austria)	lang-german-a1
+de1-m1-r2-w12	Moin	interjection	hello (northern Germany)	lang-german-a1
+de1-m1-r2-w13	Grüezi	interjection	hello (in Switzerland	lang-german-a1
+de1-m1-r2-w14	Grüß dich	phrase	hi (to one person you say du to)	lang-german-a1
+de1-m1-r2-w15	Liechtenstein		Liechtenstein	lang-german-a1
+de1-m1-r2-w16	Luxemburg		Luxembourg	lang-german-a1
+de1-m1-r2-w17	Belgien		Belgium	lang-german-a1
+de1-m1-r2-w18	die Muttersprache	noun	native language	lang-german-a1
+de1-m1-r2-w19	Hochdeutsch		standard German	lang-german-a1
+de1-m1-r2-w20	rechnen	verb	to calculate	lang-german-a1
+de1-m1-r2-w21	zählen	verb	to count	lang-german-a1
+de1-m1-r2-w22	zeichnen	verb	to draw	lang-german-a1
+de1-m1-r2-w23	plus	conjunction	plus (in sums)	lang-german-a1
+de1-m1-r2-w24	minus	conjunction	minus (in sums)	lang-german-a1
+de1-m1-r2-w25	mal	adverb	times (in multiplication)	lang-german-a1
+de1-m1-r2-w26	geteilt durch	phrase	divided by	lang-german-a1
+de1-m1-r2-w27	der Finger	noun	finger	lang-german-a1
+de1-m1-r2-w28	der Daumen	noun	thumb	lang-german-a1
+de1-m1-r2-w29	die Eins	noun	one (as a grade or digit)	lang-german-a1
+de1-m1-r2-w30	Mathe		maths (school subject	lang-german-a1
+de1-m2-r2-w01	das Mädchen	noun	girl	lang-german-a1
+de1-m2-r2-w02	die Schülerin	noun	pupil (female, at school)	lang-german-a1
+de1-m2-r2-w03	die Verkäuferin	noun	salesperson (female)	lang-german-a1
+de1-m2-r2-w04	die Kellnerin	noun	waitress	lang-german-a1
+de1-m2-r2-w05	die Köchin	noun	cook (female, as a job)	lang-german-a1
+de1-m2-r2-w06	die Polizistin	noun	police officer (female)	lang-german-a1
+de1-m2-r2-w07	die Ingenieurin	noun	engineer (female)	lang-german-a1
+de1-m2-r2-w08	der Kaufmann	noun	businessman	lang-german-a1
+de1-m2-r2-w09	die Kauffrau	noun	businesswoman	lang-german-a1
+de1-m2-r2-w10	der Feuerwehrmann	noun	firefighter (male)	lang-german-a1
+de1-m2-r2-w11	die Feuerwehrfrau	noun	firefighter (female)	lang-german-a1
+de1-m2-r2-w12	die Lehrkraft	noun	teacher (any gender, formal word)	lang-german-a1
+de1-m2-r2-w13	der Krankenpfleger	noun	nurse (male)	lang-german-a1
+de1-m2-r2-w14	die Krankenpflegerin	noun	nurse (female)	lang-german-a1
+de1-m2-r2-w15	die Dame	noun	lady	lang-german-a1
+de1-m2-r2-w16	die Mama	noun	mum	lang-german-a1
+de1-m2-r2-w17	der Papa	noun	dad	lang-german-a1
+de1-m2-r2-w18	die Patchworkfamilie	noun	patchwork family	lang-german-a1
+de1-m2-r2-w19	der Stiefvater	noun	stepfather	lang-german-a1
+de1-m2-r2-w20	die Stiefmutter	noun	stepmother	lang-german-a1
+de1-m2-r2-w21	der Halbbruder	noun	half-brother	lang-german-a1
+de1-m2-r2-w22	die Halbschwester	noun	half-sister	lang-german-a1
+de1-m2-r2-w23	der Zwilling	noun	twin	lang-german-a1
+de1-m2-r2-w24	das Einzelkind	noun	only child	lang-german-a1
+de1-m2-r2-w25	getrennt	adjective	separated (couple)	lang-german-a1
+de1-m2-r2-w26	der Nachname	noun	last name (everyday word)	lang-german-a1
+de1-m2-r2-w27	der Spitzname	noun	nickname	lang-german-a1
+de1-m3-r2-w01	die Semmel	noun	bread roll (southern German and Austrian word)	lang-german-a1
+de1-m3-r2-w02	die Brezel	noun	pretzel	lang-german-a1
+de1-m3-r2-w03	die Sahne	noun	cream	lang-german-a1
+de1-m3-r2-w04	der Quark	noun	quark (a soft fresh cheese)	lang-german-a1
+de1-m3-r2-w05	die Marmelade	noun	jam	lang-german-a1
+de1-m3-r2-w06	der Honig	noun	honey	lang-german-a1
+de1-m3-r2-w07	das Abendbrot	noun	supper (a cold evening meal with bread)	lang-german-a1
+de1-m3-r2-w08	die Mahlzeit	noun	meal (a time when you eat)	lang-german-a1
+de1-m3-r2-w09	satt	adjective	full (after eating)	lang-german-a1
+de1-m3-r2-w10	Guten Appetit!	phrase	Enjoy your meal!	lang-german-a1
+de1-m3-r2-w11	Stimmt so.	phrase	Keep the change.	lang-german-a1
+de1-m3-r2-w12	Ich hätte gern	phrase	I'd like (polite	lang-german-a1
+de1-m3-r2-w13	die Scheibe	noun	slice	lang-german-a1
+de1-m3-r2-w14	das Bargeld	noun	cash	lang-german-a1
+de1-m3-r2-w15	der Bäcker	noun	baker (male)	lang-german-a1
+de1-m3-r2-w16	montags	adverb	on Mondays	lang-german-a1
+de1-m3-r2-w17	sonntags	adverb	on Sundays	lang-german-a1
+de1-m3-r2-w18	morgens	adverb	in the mornings (every morning)	lang-german-a1
+de1-m3-r2-w19	abends	adverb	in the evenings (every evening)	lang-german-a1
+de1-m3-r2-w20	nachts	adverb	at night (every night)	lang-german-a1
+de1-m3-r2-w21	nächste Woche	phrase	next week	lang-german-a1
+de1-m3-r2-w22	jeden Tag	phrase	every day	lang-german-a1
+de1-m3-r2-w23	den ganzen Tag	phrase	all day	lang-german-a1
+de1-m3-r2-w24	gegen	preposition	around (with a time; gegen acht)	lang-german-a1
+de1-m3-r2-w25	dauern	verb	to last (take time)	lang-german-a1
+de1-m3-r2-w26	meistens	adverb	mostly (most of the time)	lang-german-a1
+de1-m3-r2-w27	selten	adverb	rarely	lang-german-a1
+de1-m3-r2-w28	einmal	adverb	once (one time)	lang-german-a1
+de1-m3-r2-w29	pro	preposition	per	lang-german-a1
+de1-m3-r2-w30	geöffnet	adjective	open (of a shop or office)	lang-german-a1
+de1-m3-r2-w31	geschlossen	adjective	closed	lang-german-a1
+de1-m3-r2-w32	die Öffnungszeiten	noun	opening hours	lang-german-a1
+de1-m3-r2-w33	der Ruhetag	noun	closing day (a restaurant's weekly day off)	lang-german-a1
+de1-m4-r2-w01	der Sportverein	noun	sports club	lang-german-a1
+de1-m4-r2-w02	der Chor	noun	choir	lang-german-a1
+de1-m4-r2-w03	das Tennis	noun	tennis	lang-german-a1
+de1-m4-r2-w04	das Schach	noun	chess	lang-german-a1
+de1-m4-r2-w05	die Halle	noun	hall (large building, e.g. a sports hall)	lang-german-a1
+de1-m4-r2-w06	die Nachtruhe	noun	quiet time at night	lang-german-a1
+de1-m4-r2-w07	die Mittagsruhe	noun	quiet time at midday	lang-german-a1
+de1-m4-r2-w08	der Lieblingsfilm	noun	favourite film	lang-german-a1
+de1-m4-r2-w09	die Lieblingsfarbe	noun	favourite colour	lang-german-a1
+de1-m4-r2-w10	das Lieblingsessen	noun	favourite food	lang-german-a1
+de1-m4-r2-w11	Frohes neues Jahr!	phrase	Happy New Year! (from 1 January on)	lang-german-a1
+de1-m4-r2-w12	Frohe Ostern!	phrase	Happy Easter!	lang-german-a1
+de1-m4-r2-w13	Alles Gute zum Geburtstag!	phrase	Happy birthday!	lang-german-a1
+de1-m4-r2-w14	der Fasching	noun	carnival (Bavarian and Austrian word)	lang-german-a1
+de1-m4-r2-w15	der Nikolaustag	noun	St Nicholas' Day (6 December)	lang-german-a1
+de1-m4-r2-w16	der Weihnachtsmarkt	noun	Christmas market	lang-german-a1
+de1-m4-r2-w17	die Laterne	noun	lantern	lang-german-a1
+de1-m4-r2-w18	das Osterei	noun	Easter egg	lang-german-a1
+de1-m4-r2-w19	der Adventskranz	noun	Advent wreath	lang-german-a1
+de1-m4-r2-w20	das Plätzchen	noun	Christmas biscuit (small cookie)	lang-german-a1
+de1-m4-r2-w22	die Mitternacht	noun	midnight	lang-german-a1
+de1-m5-r2-w01	der Hauptbahnhof	noun	main station	lang-german-a1
+de1-m5-r2-w02	die Richtung	noun	direction	lang-german-a1
+de1-m5-r2-w03	der Fahrkartenautomat	noun	ticket machine	lang-german-a1
+de1-m5-r2-w04	entwerten	verb	to validate (a ticket)	lang-german-a1
+de1-m5-r2-w05	der Eingang	noun	entrance	lang-german-a1
+de1-m5-r2-w06	der Ausgang	noun	exit	lang-german-a1
+de1-m5-r2-w07	der Notausgang	noun	emergency exit	lang-german-a1
+de1-m5-r2-w08	die Linie	noun	line (bus, tram or train route)	lang-german-a1
+de1-m5-r2-w09	die Tageskarte	noun	day ticket	lang-german-a1
+de1-m5-r2-w10	Vorsicht!	phrase	Caution!	lang-german-a1
+de1-m5-r2-w11	der Quadratmeter	noun	square metre	lang-german-a1
+de1-m5-r2-w12	die Kaltmiete	noun	rent without bills (cold rent)	lang-german-a1
+de1-m5-r2-w13	die Warmmiete	noun	rent including bills (warm rent)	lang-german-a1
+de1-m5-r2-w14	das Dachgeschoss	noun	attic floor	lang-german-a1
+de1-m5-r2-w15	das Obergeschoss	noun	upper floor	lang-german-a1
+de1-m5-r2-w16	der Flur	noun	hallway	lang-german-a1
+de1-m5-r2-w17	die Einbauküche	noun	fitted kitchen	lang-german-a1
+de1-m5-r2-w18	möbliert	adjective	furnished	lang-german-a1
+de1-m5-r2-w19	die Besichtigung	noun	viewing (of a flat)	lang-german-a1
+de1-m5-r2-w20	ab sofort	phrase	available now (from now on)	lang-german-a1
+de1-m5-r2-w21	niedrig	adjective	low	lang-german-a1
+de1-m5-r2-w22	die Abkürzung	noun	abbreviation	lang-german-a1
+de1-m6-r2-w01	konnte	verb	could (past of können)	lang-german-a1
+de1-m6-r2-w02	musste	verb	had to (past of müssen)	lang-german-a1
+de1-m6-r2-w03	wollte	verb	wanted to (past of wollen)	lang-german-a1
+de1-m6-r2-w04	durfte	verb	was allowed to (past of dürfen)	lang-german-a1
+de1-m6-r2-w05	sollte	verb	was supposed to (past of sollen)	lang-german-a1
+de1-m6-r2-w06	mochte	verb	liked (past of mögen)	lang-german-a1
+de1-m6-r2-w07	es gab	phrase	there was (past of es gibt)	lang-german-a1
+de1-m6-r2-w08	der Wecker	noun	alarm clock	lang-german-a1
+de1-m6-r2-w09	klingeln	verb	to ring (a bell or alarm)	lang-german-a1
+de1-m6-r2-w10	aufwachen	verb	to wake up	lang-german-a1
+de1-m6-r2-w11	zum Schluss	phrase	in the end (as the last part of a story)	lang-german-a1
+de1-m6-r2-w12	die Briefmarke	noun	stamp (for a letter)	lang-german-a1
+de1-m6-r2-w13	Freundliche Grüße	phrase	kind regards (formal closing)	lang-german-a1
 geboren	geboren	adjective	born	lang-german-a2
 die-geburt	die Geburt	noun	birth	lang-german-a2
 aufwachsen	aufwachsen	verb	to grow up	lang-german-a2
@@ -1383,3 +1582,203 @@ passend	passend	adjective	suitable	lang-german-a2
 korrigieren	korrigieren	verb	to correct	lang-german-a2
 uhrzeit	die Uhrzeit	noun	time (on the clock)	lang-german-a2
 gespraech	das Gespräch	noun	conversation	lang-german-a2
+de2-h1-r2-w01	das Plakat	noun	poster	lang-german-a2
+de2-h1-r2-w02	der Aushang	noun	notice (posted on a board)	lang-german-a2
+de2-h1-r2-w03	die Überschrift	noun	heading (of a text)	lang-german-a2
+de2-h1-r2-w04	die Belohnung	noun	reward	lang-german-a2
+de2-h1-r2-w05	überfliegen	verb	to skim (a text)	lang-german-a2
+de2-h1-r2-w06	die Einzelheit	noun	detail	lang-german-a2
+de2-h1-r2-w07	die Hauptsache	noun	main thing	lang-german-a2
+de2-h1-r2-w08	ausverkauft	adjective	sold out	lang-german-a2
+de2-h1-r2-w09	das Werkzeug	noun	tool (or tools)	lang-german-a2
+de2-h1-r2-w10	das Gerät	noun	appliance (device)	lang-german-a2
+de2-h1-r2-w11	die Spende	noun	donation	lang-german-a2
+de2-h1-r2-w12	das Wörterbuch	noun	dictionary	lang-german-a2
+de2-h1-r2-w13	unbekannt	adjective	unknown	lang-german-a2
+de2-h1-r2-w14	der Zusammenhang	noun	context (of a word or event)	lang-german-a2
+de2-h1-r2-w15	erraten	verb	to guess (correctly)	lang-german-a2
+de2-h1-r2-w16	das Gegenteil	noun	opposite (the contrary)	lang-german-a2
+de2-h1-r2-w17	die Kleinigkeit	noun	small thing (trifle)	lang-german-a2
+de2-h1-r2-w18	die Sicherheit	noun	safety (or security)	lang-german-a2
+de2-h1-r2-w19	die Sauberkeit	noun	cleanliness	lang-german-a2
+de2-h1-r2-w20	die Freundlichkeit	noun	friendliness	lang-german-a2
+de2-h1-r2-w21	essbar	adjective	edible	lang-german-a2
+de2-h1-r2-w22	zuhören	verb	to listen (to someone)	lang-german-a2
+de2-h1-r2-w23	der Lautsprecher	noun	loudspeaker	lang-german-a2
+de2-h1-r2-w24	Achtung	interjection	attention! (in announcements)	lang-german-a2
+de2-h1-r2-w25	zurückbleiben	verb	to stand back (at train doors)	lang-german-a2
+de2-h1-r2-w26	planmäßig	adjective	scheduled (as planned)	lang-german-a2
+de2-h1-r2-w27	der Treffpunkt	noun	meeting point	lang-german-a2
+de2-h1-r2-w28	notieren	verb	to note down	lang-german-a2
+de2-h1-r2-w29	halt	particle	just (that is how it is)	lang-german-a2
+de2-h1-r2-w30	na ja	interjection	oh well	lang-german-a2
+de2-h1-r2-w31	das Stichwort	noun	keyword (in notes)	lang-german-a2
+de2-h1-r2-w32	die Sprachnachricht	noun	voice message	lang-german-a2
+de2-h1-r2-w33	das Gedicht	noun	poem	lang-german-a2
+de2-h1-r2-w34	der Dichter	noun	poet (male)	lang-german-a2
+de2-h1-r2-w35	die Zeile	noun	line (of text)	lang-german-a2
+de2-h1-r2-w36	der Reim	noun	rhyme	lang-german-a2
+de2-h1-r2-w37	der Vogel	noun	bird	lang-german-a2
+de2-h1-r2-w38	der Baum	noun	tree	lang-german-a2
+de2-h1-r2-w39	der Stern	noun	star	lang-german-a2
+de2-h1-r2-w40	die Prinzessin	noun	princess	lang-german-a2
+de2-h1-r2-w41	die Hexe	noun	witch	lang-german-a2
+de2-h1-r2-w42	der Schatz	noun	treasure	lang-german-a2
+de2-h1-r2-w43	schweigen	verb	to be silent	lang-german-a2
+de2-h1-r2-w44	vorlesen	verb	to read aloud	lang-german-a2
+de2-h1-r2-w45	der Flügel	noun	wing	lang-german-a2
+de2-m1-r2-w01	heimlich	adjective	secretly	lang-german-a2
+de2-m1-r2-w02	das Benzin	noun	petrol	lang-german-a2
+de2-m1-r2-w03	tanken	verb	to fill up (with fuel)	lang-german-a2
+de2-m1-r2-w04	die Bremse	noun	brake	lang-german-a2
+de2-m1-r2-w05	der Motor	noun	engine	lang-german-a2
+de2-m1-r2-w06	das Pferd	noun	horse	lang-german-a2
+de2-m1-r2-w07	der Kilometer	noun	kilometre	lang-german-a2
+de2-m1-r2-w08	die Rückfahrt	noun	return journey	lang-german-a2
+de2-m1-r2-w09	die Berufserfahrung	noun	work experience	lang-german-a2
+de2-m1-r2-w10	weitersagen	verb	to pass on (tell others)	lang-german-a2
+de2-m1-r2-w11	flüstern	verb	to whisper	lang-german-a2
+de2-m1-r2-w12	das Gerücht	noun	rumour	lang-german-a2
+de2-m1-r2-w13	versprechen	verb	to promise	lang-german-a2
+de2-m1-r2-w14	verraten	verb	to give away (a secret)	lang-german-a2
+de2-m1-r2-w15	das Geheimnis	noun	secret	lang-german-a2
+de2-m1-r2-w16	der Zettel	noun	note (slip of paper)	lang-german-a2
+de2-m1-r2-w17	die Mailbox	noun	voicemail	lang-german-a2
+de2-m2-r2-w01	sich merken	verb	to remember (make a mental note of)	lang-german-a2
+de2-m2-r2-w02	sich ansehen	verb	to have a look at	lang-german-a2
+de2-m2-r2-w03	sich anschauen	verb	to take a look at (southern German	lang-german-a2
+de2-m2-r2-w04	sich ausdenken	verb	to make up (invent)	lang-german-a2
+de2-m2-r2-w05	sich gönnen	verb	to treat yourself to	lang-german-a2
+de2-m2-r2-w06	brechen	verb	to break	lang-german-a2
+de2-m2-r2-w07	sich verstauchen	verb	to sprain	lang-german-a2
+de2-m2-r2-w08	einander	pronoun	each other	lang-german-a2
+de2-m2-r2-w09	miteinander	adverb	with each other	lang-german-a2
+de2-m2-r2-w10	das Gedächtnis	noun	memory (the ability to remember)	lang-german-a2
+de2-m2-r2-w11	vergesslich	adjective	forgetful	lang-german-a2
+de2-m2-r2-w12	Stell dir vor!		Guess what!	lang-german-a2
+de2-m2-r2-w13	leidtun	verb	to feel sorry for (dative)	lang-german-a2
+de2-m2-r2-w14	einfallen	verb	to occur to (an idea	lang-german-a2
+de2-m2-r2-w15	auffallen	verb	to strike (be noticed by)	lang-german-a2
+de2-m2-r2-w16	vorkommen	verb	to seem (to someone)	lang-german-a2
+de2-m2-r2-w17	leichtfallen	verb	to be easy for	lang-german-a2
+de2-m2-r2-w18	schwerfallen	verb	to be hard for	lang-german-a2
+de2-m2-r2-w19	schwindlig	adjective	dizzy	lang-german-a2
+de2-m2-r2-w20	übel	adjective	sick (nauseous)	lang-german-a2
+de2-m2-r2-w21	unangenehm	adjective	unpleasant	lang-german-a2
+de2-m2-r2-w22	angenehm	adjective	pleasant	lang-german-a2
+de2-m2-r2-w23	recht	adjective	all right (with someone)	lang-german-a2
+de2-m2-r2-w24	komisch	adjective	strange (odd)	lang-german-a2
+de2-m2-r2-w25	lieb haben	verb	to love (family	lang-german-a2
+de2-m2-r2-w26	das Heimweh	noun	homesickness	lang-german-a2
+de2-m2-r2-w27	Schluss machen		to break up	lang-german-a2
+de2-m2-r2-w28	der Schwarm	noun	crush (a person you are in love with)	lang-german-a2
+de2-m3-r2-w01	die Erwachsene	noun	adult (female)	lang-german-a2
+de2-m3-r2-w02	die Jugendliche	noun	young person (female)	lang-german-a2
+de2-m3-r2-w03	fließend	adjective	fluent (also running	lang-german-a2
+de2-m3-r2-w04	folgend	adjective	following	lang-german-a2
+de2-m3-r2-w05	hausgemacht	adjective	homemade	lang-german-a2
+de2-m3-r2-w06	gefüllt	adjective	stuffed (food)	lang-german-a2
+de2-m3-r2-w07	die Paprika	noun	pepper (the vegetable)	lang-german-a2
+de2-m3-r2-w08	das Würstchen	noun	small sausage	lang-german-a2
+de2-m3-r2-w09	die Fläche	noun	area (size of a surface)	lang-german-a2
+de2-m3-r2-w10	der Meter	noun	metre	lang-german-a2
+de2-m3-r2-w11	doppelt	adjective	double	lang-german-a2
+de2-m3-r2-w12	mindestens	adverb	at least	lang-german-a2
+de2-m3-r2-w13	höchstens	adverb	at most	lang-german-a2
+de2-m3-r2-w14	deutschsprachig	adjective	German-speaking	lang-german-a2
+de2-m3-r2-w15	übrigens	adverb	by the way	lang-german-a2
+de2-m3-r2-w16	mit Abstand		by far	lang-german-a2
+de2-m4-r2-w01	die Schwierigkeit	noun	difficulty	lang-german-a2
+de2-m4-r2-w02	im Moment	phrase	at the moment	lang-german-a2
+de2-m4-r2-w03	vor allem	phrase	above all	lang-german-a2
+de2-m4-r2-w04	unter uns	phrase	between you and me	lang-german-a2
+de2-m4-r2-w05	dahinter	adverb	behind it	lang-german-a2
+de2-m4-r2-w06	der Möbelwagen	noun	removal van	lang-german-a2
+de2-m4-r2-w07	hageln	verb	to hail (weather)	lang-german-a2
+de2-m4-r2-w08	donnern	verb	to thunder	lang-german-a2
+de2-m4-r2-w09	blitzen	verb	to flash with lightning	lang-german-a2
+de2-m4-r2-w10	nieseln	verb	to drizzle	lang-german-a2
+de2-m4-r2-w11	tauen	verb	to thaw	lang-german-a2
+de2-m4-r2-w12	der Hagel	noun	hail	lang-german-a2
+de2-m4-r2-w13	der Donner	noun	thunder	lang-german-a2
+de2-m4-r2-w14	der Blitz	noun	lightning (a flash)	lang-german-a2
+de2-m4-r2-w15	der Frost	noun	frost	lang-german-a2
+de2-m4-r2-w16	wolkig	adjective	cloudy (partly)	lang-german-a2
+de2-m4-r2-w17	regnerisch	adjective	rainy	lang-german-a2
+de2-m4-r2-w18	schwül	adjective	humid (hot and close)	lang-german-a2
+de2-m4-r2-w19	das Thermometer	noun	thermometer	lang-german-a2
+de2-m4-r2-w20	der Schatten	noun	shade	lang-german-a2
+de2-m4-r2-w21	der Wetterbericht	noun	weather report	lang-german-a2
+de2-m4-r2-w22	die Luft	noun	air	lang-german-a2
+de2-m4-r2-w23	abkühlen	verb	to cool down	lang-german-a2
+de2-m4-r2-w24	deutlich	adjective	clear (distinct	lang-german-a2
+de2-m4-r2-w25	örtlich	adjective	local (in places)	lang-german-a2
+de2-m4-r2-w26	der Eimer	noun	bucket	lang-german-a2
+de2-m4-r2-w27	das Komma	noun	comma (also the decimal point)	lang-german-a2
+de2-m5-r2-w01	das Anschreiben	noun	cover letter	lang-german-a2
+de2-m5-r2-w02	das Arbeitszeugnis	noun	reference (written by an employer)	lang-german-a2
+de2-m5-r2-w03	die Zusage	noun	acceptance (a yes to an application or invitation)	lang-german-a2
+de2-m5-r2-w04	einstellen	verb	to hire (staff)	lang-german-a2
+de2-m5-r2-w05	der Arbeitsvertrag	noun	employment contract	lang-german-a2
+de2-m5-r2-w06	die Sprachkenntnisse	noun	language skills	lang-german-a2
+de2-m5-r2-w07	hiermit	adverb	hereby	lang-german-a2
+de2-m5-r2-w08	sorgfältig	adjective	careful (thorough)	lang-german-a2
+de2-m5-r2-w09	motiviert	adjective	motivated	lang-german-a2
+de2-m5-r2-w10	teamfähig	adjective	good at teamwork	lang-german-a2
+de2-m5-r2-w11	die Tätigkeit	noun	activity (work you do)	lang-german-a2
+de2-m5-r2-w12	stets	adverb	always (formal)	lang-german-a2
+de2-m5-r2-w13	das Arzneimittel	noun	medicine (official word)	lang-german-a2
+de2-m5-r2-w14	die Packungsbeilage	noun	package insert (official word)	lang-german-a2
+de2-m5-r2-w15	der Beipackzettel	noun	package insert (everyday word)	lang-german-a2
+de2-m5-r2-w16	verschreiben	verb	to prescribe	lang-german-a2
+de2-m5-r2-w17	rezeptfrei	adjective	without a prescription	lang-german-a2
+de2-m5-r2-w18	die Dosierung	noun	dosage	lang-german-a2
+de2-m5-r2-w19	einnehmen	verb	to take (a medicine)	lang-german-a2
+de2-m5-r2-w20	wirken	verb	to work (have an effect)	lang-german-a2
+de2-m5-r2-w21	der Wirkstoff	noun	active ingredient	lang-german-a2
+de2-m5-r2-w22	die Salbe	noun	ointment	lang-german-a2
+de2-m5-r2-w23	die Kapsel	noun	capsule	lang-german-a2
+de2-m5-r2-w24	der Tropfen	noun	drop (of liquid)	lang-german-a2
+de2-m5-r2-w25	das Schmerzmittel	noun	painkiller	lang-german-a2
+de2-m5-r2-w26	schlucken	verb	to swallow	lang-german-a2
+de2-m5-r2-w27	die Schwangerschaft	noun	pregnancy	lang-german-a2
+de2-m5-r2-w28	der Apotheker	noun	pharmacist (male)	lang-german-a2
+de2-m5-r2-w29	die Apothekerin	noun	pharmacist (female)	lang-german-a2
+de2-m5-r2-w30	der Bescheid	noun	official decision (in a letter)	lang-german-a2
+de2-m5-r2-w31	das Schreiben	noun	letter (official)	lang-german-a2
+de2-m5-r2-w32	das Aktenzeichen	noun	file number	lang-german-a2
+de2-m5-r2-w33	der Sachbearbeiter	noun	official handling a case (male)	lang-german-a2
+de2-m5-r2-w34	die Sachbearbeiterin	noun	official handling a case (female)	lang-german-a2
+de2-m5-r2-w35	der Widerspruch	noun	objection (to an official decision)	lang-german-a2
+de2-m5-r2-w36	die Mahnung	noun	payment reminder	lang-german-a2
+de2-m5-r2-w37	der Betrag	noun	amount (of money)	lang-german-a2
+de2-m5-r2-w38	fällig	adjective	due (to be paid)	lang-german-a2
+de2-m5-r2-w39	die Anlage	noun	enclosure (with a letter)	lang-german-a2
+de2-m5-r2-w40	beifügen	verb	to enclose	lang-german-a2
+de2-m5-r2-w41	das Finanzamt	noun	tax office	lang-german-a2
+de2-m5-r2-w42	die Anschrift	noun	address (formal)	lang-german-a2
+de2-m5-r2-w43	benötigen	verb	to need (formal)	lang-german-a2
+de2-m6-r2-w06	die Umfrage	noun	survey	lang-german-a2
+de2-m6-r2-w12	die Wirtschaft	noun	economy	lang-german-a2
+de2-m6-r2-w13	die Wettervorhersage	noun	weather forecast	lang-german-a2
+de2-m6-r2-w15	prüfen	verb	to check	lang-german-a2
+de2-m6-r2-w19	der Zuschauer	noun	viewer	lang-german-a2
+de2-m6-r2-w20	der Sender	noun	broadcaster	lang-german-a2
+de2-m6-r2-w24	die Einschulung	noun	first day of school	lang-german-a2
+de2-m6-r2-w25	die Schultüte	noun	school cone (cone of sweets for the first school day)	lang-german-a2
+de2-m6-r2-w26	die Taufe	noun	christening	lang-german-a2
+de2-m6-r2-w27	die Konfirmation	noun	confirmation (Protestant)	lang-german-a2
+de2-m6-r2-w28	der Polterabend	noun	Polterabend (pre-wedding party where china is smashed)	lang-german-a2
+de2-m6-r2-w29	die Scherbe	noun	broken piece (of china or glass)	lang-german-a2
+de2-m6-r2-w30	der Junggesellenabschied	noun	stag or hen party	lang-german-a2
+de2-m6-r2-w31	das Standesamt	noun	registry office	lang-german-a2
+de2-m6-r2-w32	die Trauung	noun	wedding ceremony	lang-german-a2
+de2-m6-r2-w33	das Brautpaar	noun	bride and groom	lang-german-a2
+de2-m6-r2-w34	die Braut	noun	bride	lang-german-a2
+de2-m6-r2-w35	der Bräutigam	noun	groom	lang-german-a2
+de2-m6-r2-w37	das Jubiläum	noun	anniversary	lang-german-a2
+de2-m6-r2-w38	die Einweihungsparty	noun	housewarming party	lang-german-a2
+de2-m6-r2-w39	der Tod	noun	death	lang-german-a2
+de2-m6-r2-w40	die Beerdigung	noun	funeral	lang-german-a2
+de2-m6-r2-w41	Herzliches Beileid!	phrase	My condolences!	lang-german-a2
+de2-m6-r2-w42	Alles Gute!	phrase	All the best!	lang-german-a2
