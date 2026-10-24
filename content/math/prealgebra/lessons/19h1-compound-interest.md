@@ -138,7 +138,7 @@ The same reasoning works when something *loses* a fixed percent of its value eac
 $$A = P(1 - r)^t$$
 
 ```plot
-{"x": [0, 10], "y": [0, 30000], "xLabel": "years", "yLabel": "value ($)", "functions": [{"f": "28000*0.85^x", "label": "value = 28,000 × 0.85^t"}], "points": [{"at": [0, 28000], "label": "28,000"}, {"at": [3, 17195.5], "label": "about 17,196"}, {"at": [10, 5511.8], "label": "about 5,512"}], "caption": "A car losing 15% of its value each year: the drop gets smaller every year, and the value never reaches zero"}
+{"x": [0, 10], "y": [0, 30000], "xLabel": "years", "yLabel": "value ($)", "functions": [{"f": "28000*0.85^x", "label": "value = 28,000 × 0.85^t"}], "points": [{"at": [0, 28000], "label": "28,000"}, {"at": [3, 17195.5], "label": "about 17,196"}, {"at": [10, 5512.5], "label": "about 5,512"}], "caption": "A car losing 15% of its value each year: the drop gets smaller every year, and the value never reaches zero"}
 ```
 
 ### Example 5

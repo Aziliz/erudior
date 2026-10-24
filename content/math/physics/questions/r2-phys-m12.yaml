@@ -119,10 +119,10 @@
     - [Compton scattering, Photons carry momentum in collisions]
     - [Davisson–Germer experiment, Electrons diffract like waves]
     - [Hydrogen line spectrum, Atoms have discrete energy levels]
-    - [Blackbody spectrum, Energy is exchanged in quanta (Planck)]
+    - [Blackbody spectrum, 'Planck''s quanta remove the classical short-wavelength runaway']
   distractors: [Light has the same speed for all observers]
   explanation: |-
-    The photoelectric effect showed light's energy comes in photons of $hf$; Compton's X-ray shift showed photons carry momentum $h/\lambda$; electron diffraction from crystals (Davisson and Germer, 1927) confirmed de Broglie's matter waves; sharp spectral lines reveal discrete levels; and Planck's quantum assumption fixed the blackbody curve. The constancy of light's speed is a postulate of relativity, not one of these quantum results.
+    The photoelectric effect showed light's energy comes in photons of $hf$; Compton's X-ray shift showed photons carry momentum $h/\lambda$; electron diffraction from crystals (Davisson and Germer, 1927) confirmed de Broglie's matter waves; sharp spectral lines reveal discrete levels; and Planck's quantum assumption fixed the blackbody curve, where classical theory predicted power growing without limit at short wavelengths. The constancy of light's speed is a postulate of relativity, not one of these quantum results.
 
 # ---- Core: phys-atomic
 - id: phys-m12-r2-q11
@@ -321,7 +321,7 @@
   labels:
     - {x: 16.1, y: 66.2, text: The stay-at-home twin's worldline}
     - {x: 31.1, y: 70.2, text: The traveler's outbound leg}
-    - {x: 34.8, y: 34.9, text: The traveler's return leg}
+    - {x: 28.1, y: 25.8, text: The traveler's return leg}
     - {x: 46.1, y: 50.0, text: The turnaround event}
     - {x: 20.6, y: 22.5, text: Light signal from the turnaround}
   distractors: [A line of simultaneity, A spacelike interval]
@@ -380,7 +380,7 @@
     - ['$(\Delta s)^2 > 0$', A clock can travel between the events]
     - ['$(\Delta s)^2 = 0$', Only a light pulse connects the events]
     - ['$(\Delta s)^2 < 0$', Some observer sees the events as simultaneous]
-    - ['$\Delta s/c$ for a timelike pair', Time read by a clock present at both events]
+    - ['$\Delta s/c$ for a timelike pair', Time read by an inertial clock present at both events]
   distractors: [The events happen at the same place for everyone]
   explanation: |-
     Positive means timelike (a slower-than-light trip connects the events), zero means lightlike, and negative means spacelike (no signal connects them, and some frame sees them as simultaneous). For a timelike pair, $\Delta s/c$ is the proper time of a clock that travels straight from one to the other. No interval makes two separate events happen at the same place for every observer.

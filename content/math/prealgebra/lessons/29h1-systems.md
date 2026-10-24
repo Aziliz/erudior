@@ -31,7 +31,7 @@ Solve by graphing: $y = 2x - 1$ and $y = -x + 5$.
 Both equations are in slope-intercept form. The first line starts at $(0, -1)$ and rises 2 for each step right; the second starts at $(0, 5)$ and falls 1 for each step right. Drawn on one grid, they cross at $(2, 3)$.
 
 ```plot
-{"x": [-2, 6], "y": [-3, 7], "equal": true, "functions": [{"f": "2x - 1", "label": "y = 2x - 1"}, {"f": "-x + 5", "label": "y = -x + 5", "dashed": true}], "points": [{"at": [2, 3], "label": "(2, 3)"}], "caption": "The lines cross at (2, 3), the solution of the system"}
+{"x": [-2, 6], "y": [-3, 7], "equal": true, "functions": [{"f": "2x - 1", "label": "y = 2x - 1"}, {"f": "-x + 5", "dashed": true}], "points": [{"at": [2, 3], "label": "(2, 3)"}], "labels": [{"at": [4.5, 1.9], "text": "y = -x + 5"}], "caption": "The lines cross at (2, 3), the solution of the system"}
 ```
 
 Check: $2(2) - 1 = 3$ ✓ and $-2 + 5 = 3$ ✓.
@@ -113,7 +113,7 @@ Multiply the first equation by 2: $2x + 4y = 8$. Subtract it from the second: $0
 The graph explains why. Solving each equation for $y$ gives $y = -\tfrac12 x + 2$ and $y = -\tfrac12 x + 3.75$: the same slope, different $y$-intercepts. The lines are parallel and never meet.
 
 ```plot
-{"x": [-4, 8], "y": [-2, 6], "equal": true, "functions": [{"f": "-x/2 + 2", "label": "x + 2y = 4"}, {"f": "-x/2 + 3.75", "label": "2x + 4y = 15", "dashed": true}], "caption": "Parallel lines: same slope -1/2, different intercepts, so no solution"}
+{"x": [-4, 8], "y": [-2, 6], "equal": true, "functions": [{"f": "-x/2 + 2"}, {"f": "-x/2 + 3.75", "dashed": true}], "labels": [{"at": [5.5, 3.4], "text": "2x + 4y = 15"}, {"at": [-2.2, 0.9], "text": "x + 2y = 4"}], "caption": "Parallel lines: same slope -1/2, different intercepts, so no solution"}
 ```
 
 If instead the second equation were $2x + 4y = 8$, the same steps would give $0 = 0$. That equation is just the first one doubled, so both describe the same line, and every point on it is a solution.

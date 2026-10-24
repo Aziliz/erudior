@@ -100,7 +100,7 @@
   labels:
     - {x: 17.1, y: 34.6, text: 'Amount (the part)'}
     - {x: 21.2, y: 69.2, text: 'Base (the whole)'}
-    - {x: 70.6, y: 42.3, text: '10% of the base'}
+    - {x: 70.6, y: 48, text: '10% of the base'}
   distractors: ['Percent change', 'Interest']
   explanation: |-
     The shaded 60% is the amount, 42. The whole bar, 100%, is the base, the number being asked for. Each of the ten equal cells is 10% of the base: $42 \div 6 = 7$, so the base is $10 \times 7 = 70$.

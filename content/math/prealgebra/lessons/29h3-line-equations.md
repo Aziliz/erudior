@@ -129,7 +129,7 @@ Point-slope form with $(2, 19)$: $h - 19 = -2.5(t - 2)$, so $h = -2.5t + 5 + 19 
 The intercept 24 means the candle was 24 cm tall when lit. It burns out when $h = 0$: $-2.5t + 24 = 0$, so $t = 9.6$ hours.
 
 ```plot
-{"x": [0, 13], "y": [0, 26], "xLabel": "t (hours)", "yLabel": "h (cm)", "functions": [{"f": "-2.5x + 24", "from": 0, "to": 9.6}], "points": [{"at": [2, 19], "label": "(2, 19)"}, {"at": [6, 9], "label": "(6, 9)"}, {"at": [9.6, 0], "label": "(9.6, 0)"}], "caption": "The candle model: slope -2.5 cm per hour, starting height 24 cm"}
+{"x": [0, 13], "y": [0, 26], "xLabel": "t (hours)", "yLabel": "h (cm)", "functions": [{"f": "-2.5x + 24", "from": 0, "to": 9.6}], "points": [{"at": [2, 19], "label": "(2, 19)"}, {"at": [6, 9], "label": "(6, 9)"}, {"at": [9.6, 0]}], "labels": [{"at": [10.5, 2.6], "text": "(9.6, 0)"}], "caption": "The candle model: slope -2.5 cm per hour, starting height 24 cm"}
 ```
 
 A model is a simplification. "A steady rate" is an assumption: a real candle may burn a little unevenly, and the model means nothing for $t > 9.6$, where it would predict a negative height. Use a linear model only within the range where its assumptions are reasonable.

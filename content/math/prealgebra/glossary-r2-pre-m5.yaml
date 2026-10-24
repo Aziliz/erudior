@@ -42,5 +42,5 @@
   definition: 'The plain difference new − original, in the quantity''s own units (people, dollars, percentage points).'
   topic: Percent reasoning
 - term: Simpson's paradox
-  definition: 'A comparison that holds in every group but reverses when the groups are combined, because the groups have different sizes.'
+  definition: 'A comparison that holds in every group but reverses when the groups are combined, because the groups make up very different shares of each combined total (an overall percent is a weighted average).'
   topic: Percent reasoning

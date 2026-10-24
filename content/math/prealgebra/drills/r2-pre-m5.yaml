@@ -110,7 +110,7 @@
   answers:
     - {name: net, label: 'Overall change (%)', tolerance: 0.001}
   solution: |-
-    Multipliers: {m1} and {m2}. Their product is {m1} × {m2} = {mm}. Overall change: ({mm} − 1) × 100% = **{net}%**. (Adding the two percents would wrongly give {naive}%.)
+    Multipliers: {m1} and {m2}. Their product is {m1} × {m2} = {mm:num4}. Overall change: ({mm:num4} − 1) × 100% = **{net}%**. (Adding the two percents would wrongly give {naive}%.)
 
 - id: pre-m5-r2-undo-change
   title: Undoing a percent change

@@ -17,5 +17,5 @@
 - {front: '4% to 5%', back: 'Up 1 percentage point; up 25% relative to the original.', topic: 'Percent reasoning'}
 - {front: 'Percentage points vs percent', back: 'Points: subtract the two percents. Percent change: divide that difference by the original.', topic: 'Percent reasoning'}
 - {front: 'Relative vs absolute risk', back: '2 in 10,000 → 3 in 10,000 is +50% relative, but only +0.01 percentage point (1 more case per 10,000).', topic: 'Percent reasoning'}
-- {front: 'Simpson''s paradox', back: 'One side wins in every group but loses overall, because the groups have different sizes. Check the groups before comparing totals.', topic: 'Percent reasoning'}
+- {front: 'Simpson''s paradox', back: 'One side wins in every group but loses overall, because the groups make up different shares of each total. Check the groups before comparing totals.', topic: 'Percent reasoning'}
 - {front: 'When does the order of discounts matter?', back: 'Only when a flat amount (like \$10 off) is involved; percent changes are multiplications, so their order doesn''t matter.', topic: 'Percent reasoning'}

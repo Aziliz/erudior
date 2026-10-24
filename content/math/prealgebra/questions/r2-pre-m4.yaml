@@ -371,10 +371,10 @@
   lesson: pre-m4-h-inverse
   topic: Inverse proportion
   stem: 'Eight workers can harvest a field in 15 days. Working at the same rate, how long would 12 workers take?'
-  choices: ['22.5 days', '19 days', '10 days', '12 days']
+  choices: ['22.5 days', '19 days', '10 days', '11 days']
   answer: 2
   explanation: |-
-    More workers, fewer days: inverse. Total work is $8 \times 15 = 120$ worker-days, so 12 workers take $120 \div 12 = 10$ days. 22.5 comes from a direct proportion ($\tfrac{8}{15} = \tfrac{12}{d}$), which wrongly says more workers take longer.
+    More workers, fewer days: inverse. Total work is $8 \times 15 = 120$ worker-days, so 12 workers take $120 \div 12 = 10$ days. 22.5 comes from a direct proportion ($\tfrac{8}{15} = \tfrac{12}{d}$), which wrongly says more workers take longer. 11 and 19 come from thinking additively: taking the 4 extra workers off 15 days, or adding them on.
 
 - id: pre-m4-r2-h15
   lesson: pre-m4-h-inverse
@@ -412,10 +412,10 @@
   lesson: pre-m4-h-inverse
   topic: Inverse proportion
   stem: 'A 40-tooth gear turning at 90 revolutions per minute drives a 24-tooth gear. The teeth mesh one for one, so (teeth) × (revolutions per minute) is the same for both gears. How fast does the smaller gear turn?'
-  choices: ['54 rpm', '106 rpm', '216 rpm', '150 rpm']
+  choices: ['54 rpm', '106 rpm', '3600 rpm', '150 rpm']
   answer: 3
   explanation: |-
-    $40 \times 90 = 3600$ teeth pass the contact point each minute, so the small gear turns $3600 \div 24 = 150$ rpm. A smaller gear must spin faster, which rules out 54 (a direct proportion).
+    $40 \times 90 = 3600$ teeth pass the contact point each minute, so the small gear turns $3600 \div 24 = 150$ rpm. A smaller gear must spin faster, which rules out 54 (a direct proportion). 106 adds the 16-tooth difference to 90, and 3600 is the number of teeth per minute, not turns: it still has to be divided by 24.
 
 - id: pre-m4-r2-h19
   lesson: pre-m4-h-inverse
@@ -442,7 +442,7 @@
   choices: ['12 hours', '15 hours', '10 hours', '9.6 hours']
   answer: 1
   explanation: |-
-    Five machines for 8 hours is 40 machine-hours for 4,000 bottles, or 100 bottles per machine-hour. 6,000 bottles need 60 machine-hours; with 4 machines that's $60 \div 4 = 15$ hours. 12 hours ignores the change in machines, and 10 hours ignores the extra bottles.
+    Five machines for 8 hours is 40 machine-hours for 4,000 bottles, or 100 bottles per machine-hour. 6,000 bottles need 60 machine-hours; with 4 machines that's $60 \div 4 = 15$ hours. 12 hours ignores the change in machines, 10 hours ignores the extra bottles, and 9.6 hours ($12 \times \tfrac45$) wrongly treats fewer machines as taking less time.
 
 - id: pre-m4-r2-h22
   lesson: pre-m4-h-inverse
@@ -464,7 +464,7 @@
   choices: ['146.7 Hz', '440 Hz', '330 Hz', '240 Hz']
   answer: 2
   explanation: |-
-    $60 \times 220 = 13{,}200$, so $f = 13{,}200 \div 40 = 330$ Hz. A shorter string sounds higher. 146.7 Hz uses a direct proportion, and 440 Hz would need half the length (30 cm).
+    $60 \times 220 = 13{,}200$, so $f = 13{,}200 \div 40 = 330$ Hz. A shorter string sounds higher. 146.7 Hz uses a direct proportion, 240 Hz adds 20 Hz for the 20 cm (thinking additively), and 440 Hz would need half the length (30 cm).
 
 - id: pre-m4-r2-h24
   lesson: pre-m4-h-inverse

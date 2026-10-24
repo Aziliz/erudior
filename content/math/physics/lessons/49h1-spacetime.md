@@ -119,7 +119,7 @@ The asymmetry is plain here too: Blair sees the switch from slow to fast signals
 - Using $(\Delta x)^2 + (c\,\Delta t)^2$: the interval has a minus sign, and with this sign convention, timelike intervals are positive.
 - Treating the twins symmetrically. Only the twin with a straight worldline is inertial for the whole trip; the traveler's frame changes at the turnaround.
 - Thinking that acceleration itself ages the traveler less. A longer cruise with the same brief turnaround gives a bigger age gap.
-- Assuming events simultaneous in one frame are simultaneous in all. That holds only for events at the same place; events separated along the direction of motion get different times in other frames.
+- Assuming events simultaneous in one frame are simultaneous in all. That holds only for events with no separation along the direction of motion (in this lesson's one dimension, events at the same place); events separated along the direction of motion get different times in other frames.
 - Using the sound Doppler formula for light. Light's formula has a square root and depends only on the relative speed.
 
 ## Key points

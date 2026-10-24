@@ -53,7 +53,7 @@
     tE: 2*dist/bet
     tT: tE/gam
     gap: tE - tT
-  prompt: 'A traveler flies to a star {dist:num1} light-years away at ${bet:num2}c$, turns around at once, and returns at the same speed. Find the trip''s duration on Earth, the time on the traveler''s clock, and how much younger the traveler is than a twin who stayed home (all in years, to 3 significant figures).'
+  prompt: 'A traveler flies to a star {dist:num1} light-years away at ${bet:num2}c$, turns around at once, and returns at the same speed. Find the trip''s duration on Earth, the time on the traveler''s clock, and how much younger the traveler is than a twin who stayed home (all in years, to 3 significant figures; subtract unrounded values for the age difference).'
   answers:
     - {name: tE, label: 'Earth time', format: sig3, relTolerance: 0.006, units: {yr: 1, years: 1, year: 1}}
     - {name: tT, label: 'Traveler time', format: sig3, relTolerance: 0.006, units: {yr: 1, years: 1, year: 1}}
