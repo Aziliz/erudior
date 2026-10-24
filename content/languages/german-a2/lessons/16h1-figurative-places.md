@@ -78,7 +78,7 @@ The case is always dative, even though nothing is "at" anything. In the past: *D
 
 The picture shows four of these uses:
 
-![Four panels. Top left: a newspaper with the headline Mieten steigen, captioned In der Zeitung steht … Top right: a line of cars bumper to bumper, captioned im Stau stehen. Bottom left: a thunderstorm cloud and a person under a broken umbrella, captioned Das liegt am Wetter. Bottom right: a person hugging a small house with a heart above it, captioned an der Wohnung hängen.](images/de2-m4-figurative.svg)
+![Four panels. Top left: a newspaper with the headline Mieten steigen, captioned In der Zeitung steht … Top right: a line of cars bumper to bumper on a road, captioned im Stau stehen. Bottom left: a grey cloud with lightning and rain, captioned Das liegt am Wetter. Bottom right: a person with both arms around a small house, a heart beside it, captioned an der Wohnung hängen.](images/de2-m4-figurative.svg)
 
 ### Example 1: Literal or figurative?
 

@@ -142,7 +142,7 @@ In English:
 >
 > If you have any further questions about this matter, we will be happy to help. Yours sincerely, p.p. Jana Albers
 
-Notes: *die Leitung* = pipe (also "management", lesson 25); *das Rohr* = pipe, tube; *der Rohrbruch* = burst pipe; *der Haushalt* = household; *die Zufahrt* = access (by car); *beruhigen* = to reassure; *der Gehweg* = pavement, sidewalk; *erhalten* = to receive; *auf Antrag* = on application; *dennoch* = nevertheless; *zur Verfügung stehen* = to be available; *im Auftrag* (*i. A.*) = on behalf of, signed by an employee for the office. *müssen … erneuert werden* is a passive with a modal (lesson 18). Find the ten prepositions with the genitive (one of them, *laut Bauplan*, shows no ending) and the two uses of *deren*.
+Notes: *die Leitung* = pipe (also "management", lesson 25); *das Rohr* = pipe, tube; *der Rohrbruch* = burst pipe; *der Haushalt* = household; *die Zufahrt* = access (by car); *beruhigen* = to reassure; *der Gehweg* = pavement, sidewalk; *erhalten* = to receive; *auf Antrag* = on application; *dennoch* = nevertheless; *zur Verfügung stehen* = to be available; *im Auftrag* (*i. A.*) = on behalf of, signed by an employee for the office. *müssen … erneuert werden* is a passive with a modal (lesson 18). Find the ten genitive prepositions (*mithilfe* is used with *von* here, and *laut Bauplan* shows no ending) and the two uses of *deren*.
 
 ## Common mistakes
 

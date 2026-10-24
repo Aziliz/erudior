@@ -25,7 +25,7 @@
 | 05 n-nouns | SVG `de3-m1-n-declension.svg` (der Kollege vs der Tisch); Mermaid: is it a weak noun? |
 
 ## Questions (`questions/r2-de3-m1.yaml`, 55)
-- Core `de3-m1-r2-q01`–`q25` (5 per lesson, 10 `module_quiz`): text 8, match 5, order 5, select-all 5, label 3
+- Core `de3-m1-r2-q01`–`q25` (5 per lesson, 10 `module_quiz`): text 7, match 5, order 5, select-all 5, label 3
   (bracket, timeline, time-clause bars). Every lesson has text + order/match + select-all; label where a picture fits.
 - Honors `de3-m1-r2-h01`–`h30` (15 per lesson): multiple choice 18, text 5, match 2, order 2, select-all 2,
   label 1 (tense timeline); one MC uses the plaque image.
