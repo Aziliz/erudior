@@ -15,7 +15,7 @@ Laplace's equation and the wave equation in passing. A partial differential equa
 relates an unknown function of several variables to its partial derivatives, and three of them
 run through physics and engineering. This lesson does two things with the tools of this module.
 It uses partial derivatives to *check* and *build* solutions, and it uses the chain rule to
-*change variables* in a PDE, which is how the wave equation was first solved in general. Solving
+*change variables* in a PDE, which is the idea behind d'Alembert's general solution of the wave equation. Solving
 PDEs systematically is a course of its own; here the goal is to see what the equations say and how
 far the chain rule alone can take you.
 

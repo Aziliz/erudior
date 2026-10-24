@@ -89,7 +89,7 @@ halfway between $\mathbf{x}$ and $\alpha\mathbf{e}_1$.
 {"x": [-2.5, 6], "y": [-1.5, 5], "equal": true, "functions": [{"f": "x/2", "dashed": true, "label": "mirror"}], "segments": [{"from": [0, 0], "to": [3, 4], "arrow": true, "label": "x"}, {"from": [0, 0], "to": [5, 0], "arrow": true}, {"from": [3, 4], "to": [5, 0], "dashed": true}, {"from": [0, 0], "to": [-2, 4], "arrow": true}], "labels": [{"at": [3.6, 0.35], "text": "Hx = 5e₁"}, {"at": [-1.15, 4.6], "text": "u = x − 5e₁"}], "caption": "For x = (3, 4), u = x − 5e₁ = (−2, 4); H reflects x across the line perpendicular to u (y = x/2) onto (5, 0)"}
 ```
 
-*Which sign?* By hand, either works. Software takes $\alpha = -\operatorname{sign}(x_1)\|\mathbf{x}\|$
+*Which sign?* By hand, either works. Library routines (LAPACK, for example) usually take $\alpha = -\operatorname{sign}(x_1)\|\mathbf{x}\|$
 (the sign opposite to $x_1$). Then computing $u_1 = x_1 - \alpha$ adds two numbers of the same
 sign instead of subtracting nearly equal ones, which would happen when $\mathbf{x}$ already
 points almost along $\mathbf{e}_1$.

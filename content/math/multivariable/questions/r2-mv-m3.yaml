@@ -195,7 +195,7 @@
   items:
     - 'Choose a nearby base point $(a, b)$ where $f$ is easy to compute'
     - 'Compute $f(a, b)$, $f_x(a, b)$ and $f_y(a, b)$'
-    - 'Write $L(x, y) = f(a, b) + f_x(a, b)(x - a) + f_y(a, b)(y - b)$'
+    - 'Substitute those three values into $L(x, y) = f(a, b) + f_x(a, b)(x - a) + f_y(a, b)(y - b)$'
     - 'Evaluate $L$ at the point you want'
   explanation: |-
     The base point comes first, since every value in $L$ is computed there. With those numbers you can write $L$, and only then evaluate it. In Lesson 14's example: base $(3, 4)$, values $5, \tfrac35, \tfrac45$, then $L(3.02, 3.97) = 4.988$.
@@ -240,7 +240,7 @@
     - 'Move every term to one side to write the equation as $F(x, y, z) = 0$'
     - 'Compute the partial derivatives $F_x$ and $F_z$'
     - 'Form $\partial z/\partial x = -F_x/F_z$'
-    - 'Substitute the coordinates of the point, if one is given'
+    - 'Substitute the coordinates of the point, if one is given, into that formula'
   explanation: |-
     The formula $-F_x/F_z$ only applies to an equation of the form $F = 0$, so rearranging comes first: here $F = x^2z + yz^3 + xy - 5$. Then $F_x = 2xz + y$ and $F_z = x^2 + 3yz^2$, so $\partial z/\partial x = -\dfrac{2xz + y}{x^2 + 3yz^2}$, and finally plug in a point.
 - id: mv-m3-r2-q22
