@@ -31,7 +31,7 @@ Some vocabulary:
 - A **proof** is an argument that shows a statement is true in *every* case it covers, using definitions and facts already known.
 - A **counterexample** is a single case where a statement fails. One counterexample is enough to show a general statement is false.
 
-A famous open conjecture: *every even number greater than 2 is the sum of two primes* ($8 = 3 + 5$, $20 = 7 + 13$, $100 = 3 + 97$). Christian Goldbach proposed it in a letter to Euler in 1742, computers have checked it for every even number up to at least $4 \times 10^{18}$, and still nobody has proved it. Until someone does, it is called **Goldbach's conjecture**, not Goldbach's theorem.
+A famous open conjecture: *every even number greater than 2 is the sum of two primes* ($8 = 3 + 5$, $20 = 7 + 13$, $100 = 3 + 97$). It grew out of letters between Christian Goldbach and Euler in 1742 (Goldbach wrote about sums of three primes, and Euler, replying, put the claim in this two-prime form), computers have checked it for every even number up to at least $4 \times 10^{18}$, and still nobody has proved it. Until someone does, it is called **Goldbach's conjecture**, not Goldbach's theorem.
 
 ```mermaid
 flowchart TD

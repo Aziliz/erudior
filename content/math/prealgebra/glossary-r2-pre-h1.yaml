@@ -22,7 +22,7 @@
   definition: 'An argument that shows a statement is true in every case it covers, using definitions and facts already known.'
   topic: Proof
 - term: Goldbach's conjecture
-  definition: 'The unproved statement, from a 1742 letter by Christian Goldbach, that every even number greater than 2 is the sum of two primes.'
+  definition: 'The unproved statement, from 1742 letters between Christian Goldbach and Leonhard Euler, that every even number greater than 2 is the sum of two primes.'
   topic: Proof
 - term: parity
   definition: 'Whether a whole number is even or odd. Even numbers can be written $2k$ and odd numbers $2k + 1$.'

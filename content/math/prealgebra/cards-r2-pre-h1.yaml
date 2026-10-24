@@ -15,7 +15,7 @@
 - {front: 'Proof that odd × odd = odd', back: '$(2j + 1)(2k + 1) = 2(2jk + j + k) + 1$, one more than an even number.', topic: 'Parity'}
 - {front: 'Examples vs proof', back: 'Examples cannot prove a statement about all numbers; one counterexample disproves it. $n^2 + n + 41$ is prime for $n = 0$ to 39 but $41^2$ at $n = 40$.', topic: 'Proof'}
 - {front: 'Sum of three consecutive whole numbers', back: '$(n - 1) + n + (n + 1) = 3n$: always 3 times the middle number.', topic: 'Proof'}
-- {front: 'Perfect squares divided by 4', back: 'Remainder 0 (even numbers) or 1 (odd numbers). So a sum of two squares never leaves remainder 3.', topic: 'Parity'}
+- {front: 'Perfect squares divided by 4', back: 'Remainder 0 (squares of even numbers) or 1 (squares of odd numbers). So a sum of two squares never leaves remainder 3.', topic: 'Parity'}
 - {front: 'Goldbach''s conjecture', back: 'Every even number greater than 2 is the sum of two primes. Checked by computer to at least $4 \times 10^{18}$; still unproved.', topic: 'Proof'}
 - {front: 'Invariant', back: 'A quantity no allowed move changes. If the start and the goal differ in it, the goal is impossible.', topic: 'Parity'}
 - {front: 'Chessboard with opposite corners removed', back: 'Cannot be covered by 31 dominoes: each domino covers one light and one dark square, but 32 light and 30 dark squares remain.', topic: 'Parity'}

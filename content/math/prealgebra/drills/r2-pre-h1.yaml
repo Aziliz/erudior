@@ -43,7 +43,7 @@
   solution: |-
     Only the last digit of the base matters, and it is {ld}. The last digits of its powers cycle with length 4: {c1}, {c2}, {c3}, {c4}, then repeat.
 
-    Divide the exponent by 4: ${ex} = {qt} \times 4 + {rm}$. A remainder of {rm} means position {pos} of the cycle (remainder 0 would mean position 4).
+    Divide the exponent by 4: ${ex} = {qt} \times 4 + {rm}$. A remainder of {rm} points to position {pos} of the cycle (a remainder of 0 always points to the last position, 4).
 
     The last digit is **{ans}**.
 
@@ -93,7 +93,7 @@
   solution: |-
     Call the middle number $n$. The numbers are spread evenly around it ({half} below and {half} above), so the ones below and above cancel in pairs and the sum is ${kk}n$.
 
-    So ${kk}n = {sm}$ and $n = {mid}$. The largest is {half} more than the middle: ${mid} + {half} =$ **{big}**.
+    So ${kk}n$ equals {sm}, and dividing by {kk} gives $n = {mid}$. The largest is {half} more than the middle: ${mid} + {half} =$ **{big}**.
 
 # --- pre-h1-counting-multiples ---
 - id: pre-h1-r2-multiples-range
