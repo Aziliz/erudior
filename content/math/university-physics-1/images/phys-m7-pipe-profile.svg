@@ -19,6 +19,6 @@
 <text x="450" y="182.0" font-size="15" text-anchor="start" font-weight="normal" font-style="normal" fill="#1c2833">(v max)</text>
 <text x="310" y="46" font-size="15" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1c2833">wall: fluid at rest</text>
 <text x="420" y="240" font-size="15" text-anchor="start" font-weight="normal" font-style="normal" fill="#1c2833">parabolic profile</text>
-<text x="560" y="312" font-size="15" text-anchor="end" font-weight="normal" font-style="normal" fill="#1c2833">flow</text>
-<line x1="500" y1="306" x2="500" y2="306" stroke="#1c2833" stroke-width="2"/>
+<text x="460" y="310" font-size="15" text-anchor="end" font-weight="normal" font-style="normal" fill="#1c2833">flow</text>
+<line x1="470" y1="305" x2="560" y2="305" stroke="#1c2833" stroke-width="2" marker-end="url(#ah)"/>
 </svg>
