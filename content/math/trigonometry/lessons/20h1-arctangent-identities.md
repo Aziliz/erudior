@@ -102,7 +102,7 @@ acute angles are $\tan^{-1}x$ and $\tan^{-1}\tfrac1x$, and they are complementar
 two flat pieces with a jump at 0.
 
 ```plot
-{"x": [-5, 5], "y": [-2.2, 2.2], "functions": [{"f": "atan(x) + atan(1/x)", "from": 0.01, "to": 5, "label": "x > 0: π/2"}, {"f": "atan(x) + atan(1/x)", "from": -5, "to": -0.01, "label": "x < 0: −π/2"}], "points": [{"at": [0, 1.5708], "open": true}, {"at": [0, -1.5708], "open": true}], "caption": "y = tan⁻¹ x + tan⁻¹(1/x) is constant on each side of 0"}
+{"x": [-5, 5], "y": [-2.2, 2.2], "functions": [{"f": "atan(x) + atan(1/x)", "from": 0.01, "to": 5}, {"f": "atan(x) + atan(1/x)", "from": -5, "to": -0.01}], "labels": [{"at": [3, 1.8], "text": "x > 0: π/2"}, {"at": [-3, -1.35], "text": "x < 0: −π/2"}], "points": [{"at": [0, 1.5708], "open": true}, {"at": [0, -1.5708], "open": true}], "caption": "y = tan⁻¹ x + tan⁻¹(1/x) is constant on each side of 0"}
 ```
 
 ## Doubling, and Machin's formula

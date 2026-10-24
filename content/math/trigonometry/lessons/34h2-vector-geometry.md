@@ -98,7 +98,7 @@ Foot: $F = (6, 5) - \tfrac{26}{25}\langle 3, 4\rangle = (6 - 3.12,\ 5 - 4.16) = 
 Check: $3(2.88) + 4(0.84) = 8.64 + 3.36 = 12$, so $F$ is on the line, and $\lVert Q - F\rVert = \lVert\langle 3.12, 4.16\rangle\rVert = 5.2$. ✓
 
 ```plot
-{"x": [-1, 8], "y": [-1, 7], "equal": true, "functions": [{"f": "3 - 0.75x", "label": "3x + 4y = 12"}], "segments": [{"from": [6, 5], "to": [2.88, 0.84], "dashed": true, "label": "d = 5.2"}], "points": [{"at": [6, 5], "label": "Q(6, 5)"}, {"at": [2.88, 0.84], "label": "F"}], "rightAngles": [[[2.88, 0.84], [6, 5], [0, 3]]], "caption": "The distance is measured along the normal ⟨3, 4⟩"}
+{"x": [-1, 8], "y": [-1, 7], "equal": true, "functions": [{"f": "3 - 0.75x"}], "segments": [{"from": [6, 5], "to": [2.88, 0.84], "dashed": true}], "points": [{"at": [6, 5], "label": "Q(6, 5)"}, [2.88, 0.84]], "labels": [{"at": [1.6, 3.2], "text": "3x + 4y = 12"}, {"at": [5.3, 2.7], "text": "d = 5.2"}, {"at": [2.6, 0.2], "text": "F"}], "rightAngles": [[[2.88, 0.84], [6, 5], [0, 3]]], "caption": "The distance is measured along the normal ⟨3, 4⟩"}
 ```
 
 ## Proving theorems with the dot product
@@ -118,7 +118,7 @@ $$(-\mathbf{a} - \mathbf{p})\cdot(\mathbf{a} - \mathbf{p}) = -(\mathbf{p} + \mat
 The two sides are orthogonal, so the angle at $P$ is $90^\circ$. No coordinates were needed.
 
 ```plot
-{"x": [-4, 4], "y": [-1.5, 4], "equal": true, "circles": [{"center": [0, 0], "r": 3}], "segments": [{"from": [-3, 0], "to": [3, 0], "label": "diameter"}, {"from": [-3, 0], "to": [1.268, 2.719]}, {"from": [1.268, 2.719], "to": [3, 0]}], "points": [{"at": [-3, 0], "label": "A"}, {"at": [3, 0], "label": "B"}, {"at": [1.268, 2.719], "label": "P"}, {"at": [0, 0], "label": "O"}], "rightAngles": [[[1.268, 2.719], [-3, 0], [3, 0]]], "caption": "Thales: the angle at P is 90° wherever P sits on the circle"}
+{"x": [-4, 4], "y": [-3.5, 3.5], "equal": true, "circles": [{"center": [0, 0], "r": 3}], "segments": [{"from": [-3, 0], "to": [3, 0]}, {"from": [-3, 0], "to": [1.268, 2.719]}, {"from": [1.268, 2.719], "to": [3, 0]}], "points": [[-3, 0], [3, 0], [1.268, 2.719], {"at": [0, 0], "label": "O"}], "labels": [{"at": [-3.35, 0.35], "text": "A"}, {"at": [3.35, 0.35], "text": "B"}, {"at": [1.45, 3.1], "text": "P"}, {"at": [-1.5, -0.8], "text": "diameter AB"}], "rightAngles": [[[1.268, 2.719], [-3, 0], [3, 0]]], "caption": "Thales: the angle at P is 90° wherever P sits on the circle"}
 ```
 
 The identical algebra proves that the diagonals of a rhombus are perpendicular. In a

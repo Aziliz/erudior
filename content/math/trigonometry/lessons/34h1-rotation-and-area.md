@@ -53,7 +53,7 @@ $$\left\langle 4\cdot\tfrac{\sqrt3}{2} - 2\cdot\tfrac12,\ 4\cdot\tfrac12 + 2\cdo
 Check the length: $2.464^2 + 3.732^2 \approx 6.07 + 13.93 = 20.00 = 4^2 + 2^2$. The length is unchanged, as it should be.
 
 ```plot
-{"x": [-1, 6], "y": [-1, 5], "equal": true, "segments": [{"from": [0, 0], "to": [4, 2], "arrow": true, "label": "v = ⟨4, 2⟩"}, {"from": [0, 0], "to": [2.464, 3.732], "arrow": true, "label": "rotated 30°"}], "curves": [{"x": "1.5cos(t)", "y": "1.5sin(t)", "t": [0.4636, 0.9872]}], "caption": "Rotation keeps the length and adds 30° to the direction angle"}
+{"x": [-1, 6], "y": [-1, 5], "equal": true, "segments": [{"from": [0, 0], "to": [4, 2], "arrow": true}, {"from": [0, 0], "to": [2.464, 3.732], "arrow": true}], "labels": [{"at": [4.6, 1.5], "text": "v = ⟨4, 2⟩"}, {"at": [3.6, 3.7], "text": "rotated 30°"}], "curves": [{"x": "1.5cos(t)", "y": "1.5sin(t)", "t": [0.4636, 0.9872]}], "caption": "Rotation keeps the length and adds 30° to the direction angle"}
 ```
 
 ### Example 2: building a square
@@ -158,7 +158,7 @@ The sum is $65$, so the area is $\tfrac{65}{2} = 32.5$. The sum is positive, so 
 counterclockwise. A negative first term is normal; only the total matters.
 
 ```plot
-{"x": [-1, 9], "y": [-1, 8], "equal": true, "polygons": [{"points": [[2, 1], [7, 2], [8, 6], [3, 7], [0, 4]]}], "points": [{"at": [2, 1], "label": "(2, 1)"}, {"at": [7, 2], "label": "(7, 2)"}, {"at": [8, 6], "label": "(8, 6)"}, {"at": [3, 7], "label": "(3, 7)"}, {"at": [0, 4], "label": "(0, 4)"}], "caption": "The pentagon of Example 5: area 32.5"}
+{"x": [-1, 9], "y": [-1, 8], "equal": true, "polygons": [{"points": [[2, 1], [7, 2], [8, 6], [3, 7], [0, 4]]}], "points": [[2, 1], [7, 2], [8, 6], [3, 7], [0, 4]], "labels": [{"at": [2.2, 0.4], "text": "(2, 1)"}, {"at": [7.9, 1.6], "text": "(7, 2)"}, {"at": [8.1, 6.6], "text": "(8, 6)"}, {"at": [3, 7.5], "text": "(3, 7)"}, {"at": [1, 4.2], "text": "(0, 4)"}], "caption": "The pentagon of Example 5: area 32.5"}
 ```
 
 ## Which way does the path turn?

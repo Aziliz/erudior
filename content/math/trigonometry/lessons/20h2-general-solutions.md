@@ -136,7 +136,7 @@ for $x > 1$ and below $-1$ for $x < -1$, where cosine cannot reach it, and on $[
 $\cos x - x$ only decreases. Counting solutions with a graph before solving is always worth it.
 
 ```plot
-{"x": [-2, 2.5], "y": [-1.6, 1.8], "equal": true, "functions": [{"f": "cos(x)", "label": "y = cos x"}, {"f": "x", "dashed": true, "label": "y = x"}], "points": [{"at": [0.7391, 0.7391], "label": "x ≈ 0.7391"}], "caption": "cos x = x has exactly one solution"}
+{"x": [-2, 2.5], "y": [-1.6, 1.8], "equal": true, "functions": [{"f": "cos(x)"}, {"f": "x", "dashed": true}], "labels": [{"at": [-1.2, 1.0], "text": "y = cos x"}, {"at": [0.6, 1.45], "text": "y = x"}], "points": [{"at": [0.7391, 0.7391]}], "caption": "cos x = x has exactly one solution, x ≈ 0.7391"}
 ```
 
 ### Example 5: Kepler's equation

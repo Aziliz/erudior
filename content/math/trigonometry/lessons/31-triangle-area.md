@@ -133,10 +133,12 @@ law of sines works: every side is a chord of that same circle.
 
 ## Heron's formula and rounding
 
-Heron's formula is exact when the sides are exact, but when the sides are measured
-values it can be sensitive to rounding for very thin triangles, where one factor $s - a$ is
-tiny. In that case, find an angle with the law of cosines and use $\tfrac12 ab\sin C$ instead, carrying
-full precision.
+Heron's formula is exact when the sides are exact. For a very thin triangle, where one factor
+$s - a$ is tiny compared with the sides, the area is very sensitive to small errors in the
+measured sides; that sensitivity belongs to the triangle itself, so switching to another
+formula (such as the law of cosines followed by $\tfrac12 ab\sin C$) does not remove it. What you can
+control is rounding: carry full precision, and don't round $s$ before subtracting, or the tiny
+factor $s - a$ loses most of its digits.
 
 ## Common mistakes
 

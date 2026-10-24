@@ -90,7 +90,7 @@ The graph shows the pattern in radians: each branch of $y = \tan x$ crosses the 
 exactly once, so the solutions are one period ($\pi$, or $180^\circ$) apart.
 
 ```plot
-{"x": [0, 6.3], "y": [-4, 4], "functions": [{"f": "tan(x)", "label": "y = tan x"}, {"f": "4/3", "dashed": true, "label": "y = 4/3"}], "points": [{"at": [0.9273, 1.3333], "label": "0.9273 (53.13°)"}, {"at": [4.0689, 1.3333], "label": "4.0689 (233.13°)"}], "caption": "tan x = 4/3 has one solution in each period of length π"}
+{"x": [0, 6.3], "y": [-4, 4], "functions": [{"f": "tan(x)"}, {"f": "4/3", "dashed": true}], "points": [{"at": [0.9273, 1.3333]}, {"at": [4.0689, 1.3333]}], "labels": [{"at": [1.95, 0.6], "text": "0.9273 (53.13°)"}, {"at": [5.2, 0.55], "text": "4.0689 (233.13°)"}, {"at": [2.9, -3.4], "text": "y = tan x"}, {"at": [5.7, 1.6], "text": "y = 4/3"}], "caption": "tan x = 4/3 has one solution in each period of length π"}
 ```
 
 ### Example 4: values that aren't special

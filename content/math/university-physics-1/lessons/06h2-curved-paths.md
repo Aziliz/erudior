@@ -74,7 +74,7 @@ Check: $0.768^2 + 8.45^2 = 72.0 = 6^2 + 6^2$.
 Radius of curvature: $\rho = \dfrac{61}{8.45} = 7.22$ m. Almost all of this particle's acceleration goes into turning it.
 
 ```plot
-{"x": [-5, 25], "y": [-6.5, 14], "equal": true, "xLabel": "x (m)", "yLabel": "y (m)", "curves": [{"x": "3*t^2", "y": "8*t - t^3", "t": [0, 2.8]}], "circles": [{"center": [7.621, 1.455], "r": 7.219}], "points": [{"at": [3, 7]}, {"at": [7.621, 1.455], "label": "center"}], "labels": [{"at": [3, 10.6], "text": "t = 1 s"}], "segments": [{"from": [3, 9.9], "to": [3, 7.6], "arrow": true}], "caption": "The path r(t) = (3t², 8t − t³) and its osculating circle at t = 1 s (radius 7.22 m)"}
+{"x": [-5, 25], "y": [-6.5, 14], "equal": true, "xLabel": "x (m)", "yLabel": "y (m)", "curves": [{"x": "3*t^2", "y": "8*t - t^3", "t": [0, 2.6]}], "circles": [{"center": [7.621, 1.455], "r": 7.219}], "points": [{"at": [3, 7]}, {"at": [7.621, 1.455], "label": "center"}], "labels": [{"at": [3, 10.6], "text": "t = 1 s"}], "segments": [{"from": [3, 9.9], "to": [3, 7.6], "arrow": true}], "caption": "The path r(t) = (3t², 8t − t³) and its osculating circle at t = 1 s (radius 7.22 m)"}
 ```
 
 ## The projectile revisited

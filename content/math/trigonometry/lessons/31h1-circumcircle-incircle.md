@@ -155,9 +155,10 @@ inside the triangle.
 The circumcircle is always at least twice as large as the incircle:
 $$R \ge 2r,$$
 with equality only for an equilateral triangle. This is **Euler's inequality**. It follows from a
-formula of Euler's for the distance between the two centers, $OI^2 = R(R - 2r)$; since a squared
-distance can't be negative, $R - 2r \ge 0$. (We state that distance formula without proof; its
-proof needs more geometry than this course covers.)
+formula for the distance between the two centers, $OI^2 = R(R - 2r)$, named for Euler, who published it
+in 1765 (William Chapple had published it in 1746); since a squared distance can't be negative,
+$R - 2r \ge 0$. (We state that distance formula without proof; its proof needs more geometry than
+this course covers.)
 
 For an equilateral triangle with side 6: $R = \tfrac{6}{2\sin 60^\circ} = 2\sqrt3 \approx 3.46$ and
 $r = \tfrac{K}{s} = \tfrac{9\sqrt3}{9} = \sqrt3 \approx 1.73$, exactly half. The ratio $\tfrac{R}{r}$ works as a measure of how far a

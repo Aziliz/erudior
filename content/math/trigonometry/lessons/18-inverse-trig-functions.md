@@ -31,7 +31,7 @@ $y = \tfrac12$ crosses the full sine curve over and over (open dots), but it cro
 piece exactly once.
 
 ```plot
-{"x": [-6.4, 6.4], "y": [-1.6, 1.6], "functions": [{"f": "sin(x)", "dashed": true}, {"f": "sin(x)", "from": -1.5708, "to": 1.5708, "label": "kept piece"}, {"f": "0.5", "dashed": true}], "points": [{"at": [0.5236, 0.5], "label": "π/6"}, {"at": [2.618, 0.5], "open": true}, {"at": [-3.6652, 0.5], "open": true}, {"at": [-5.7596, 0.5], "open": true}], "caption": "sin x = 1/2 has infinitely many solutions, but only π/6 lies on the kept piece from −π/2 to π/2"}
+{"x": [-6.4, 6.4], "y": [-1.6, 1.6], "functions": [{"f": "sin(x)", "dashed": true}, {"f": "sin(x)", "from": -1.5708, "to": 1.5708}, {"f": "0.5", "dashed": true}], "labels": [{"at": [-2.4, -1.35], "text": "kept piece"}, {"at": [1.0, 0.2], "text": "π/6"}], "points": [{"at": [0.5236, 0.5]}, {"at": [2.618, 0.5], "open": true}, {"at": [-3.6652, 0.5], "open": true}, {"at": [-5.7596, 0.5], "open": true}], "caption": "sin x = 1/2 has infinitely many solutions, but only π/6 lies on the kept piece from −π/2 to π/2"}
 ```
 
 ## Inverse sine
