@@ -178,9 +178,9 @@
     kk: 4*a^2/(1 + 4*a^2*(p^2 + q^2))^2
   prompt: 'Find the Gaussian curvature of $z = {a}(x^2 + y^2)$ at the point above $({p}, {q})$. Give an exact fraction or 4 significant figures.'
   answers:
-    - {name: kk, label: '$K =$', sigfigs: 4, format: sig3}
+    - {name: kk, label: '$K =$', sigfigs: 4, format: sig4}
   solution: |-
-    $f_{xx} = f_{yy} = {ta}$, $f_{xy} = 0$, $f_x = {fx}$, $f_y = {fy}$. So $K = \dfrac{f_{xx}f_{yy} - f_{xy}^2}{(1 + f_x^2 + f_y^2)^2} = \dfrac{{num}}{{den}} \approx$ **{kk:sig3}**.
+    $f_{xx} = f_{yy} = {ta}$, $f_{xy} = 0$, $f_x = {fx}$, $f_y = {fy}$. So $K = \dfrac{f_{xx}f_{yy} - f_{xy}^2}{(1 + f_x^2 + f_y^2)^2} = \dfrac{{num}}{{den}} \approx$ **{kk:sig4}**.
 - id: mv-h1-r2-sphere-triangle
   title: Area of a spherical triangle
   topic: Curvature of surfaces

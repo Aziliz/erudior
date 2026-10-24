@@ -50,7 +50,7 @@ How a sound starts and dies away also matters (a piano note played backward soun
 
 A complex tone contains components at 450, 750 and 1050 Hz. (a) What pitch do you expect to hear? (b) Which harmonics are these? (c) Could this tone come from an ideal pipe closed at one end?
 
-(a) The wave repeats at the greatest frequency that divides all three: 450 = 3(150), 750 = 5(150), 1050 = 7(150), so $f_1 = 150$ Hz. (300 Hz divides 1050? No: $1050/300 = 3.5$.) The pitch is 150 Hz, even though nothing is present at 150 Hz.
+(a) The wave repeats at the greatest frequency that divides all three: 450 = 3(150), 750 = 5(150), 1050 = 7(150), so $f_1 = 150$ Hz. (No larger frequency works: 300 Hz, for instance, doesn't divide 450.) The pitch is 150 Hz, even though nothing is present at 150 Hz.
 
 (b) The 3rd, 5th and 7th harmonics.
 
@@ -58,7 +58,7 @@ A complex tone contains components at 450, 750 and 1050 Hz. (a) What pitch do yo
 
 ## Where you pluck matters
 
-For an ideal string, harmonic $n$ has nodes at $L/n$, $2L/n$, …. Plucking (or striking) a point gives that point a large displacement, so harmonics with a node there are not excited at all. Pluck a string exactly in the middle and every even harmonic, which has a node at $L/2$, is missing: the tone is hollow, like a clarinet's. Pluck near the end (as at a guitar's bridge) and many harmonics are present: a bright, twangy tone. This is why guitarists move their picking hand to change the sound, and why piano hammers strike about 1/7 to 1/9 of the way along the string (a design tradition often explained as weakening the harsh-sounding 7th harmonic; the real reasons are partly about hammer contact time too).
+For an ideal string, harmonic $n$ has nodes at $L/n$, $2L/n$, …. Plucking (or striking) a point gives that point a large displacement, so harmonics with a node there are not excited at all. Pluck a string exactly in the middle and every even harmonic, which has a node at $L/2$, is missing: the tone is hollow, like a clarinet's. Pluck near the end (as at a guitar's bridge) and many harmonics are present: a bright, twangy tone. This is one reason guitarists move their picking hand to change the sound. (Real strings are stiff and pluck points are not exact, so a "missing" harmonic is in practice just much weaker.)
 
 ### Example 2
 
