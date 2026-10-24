@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 860" width="720" height="860" role="img"><title>A letter from the Bürgeramt of Musterstadt to Daniel Costa in the German standard layout: sender, address field, reference block with file number and date, subject line, greeting, text with a deadline, closing, signature and enclosure, with the parts labeled</title>
+<rect x="0" y="0" width="720" height="860" fill="#ffffff"/>
+<rect x="150" y="20" width="520" height="820" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<text x="646" y="58" font-family="sans-serif" font-size="19" text-anchor="end" font-weight="bold" fill="#1c2833" >Stadt Musterstadt</text>
+<text x="646" y="80" font-family="sans-serif" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833" >Bürgeramt</text>
+<text x="174" y="132" font-family="sans-serif" font-size="11" text-anchor="start" font-weight="normal" fill="#1c2833" text-decoration="underline">Stadt Musterstadt · Bürgeramt · Marktplatz 1 · 12345 Musterstadt</text>
+<text x="174" y="162" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Herrn</text>
+<text x="174" y="184" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Daniel Costa</text>
+<text x="174" y="206" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Gartenweg 5</text>
+<text x="174" y="228" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >12345 Musterstadt</text>
+<text x="450" y="162" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Aktenzeichen: 32-04/0457</text>
+<text x="450" y="184" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Sachbearbeiterin:</text>
+<text x="450" y="206" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Frau Brenner</text>
+<text x="450" y="228" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Tel. 0123 456-78</text>
+<text x="450" y="250" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Datum: 12.02.2026</text>
+<text x="174" y="300" font-family="sans-serif" font-size="16" text-anchor="start" font-weight="bold" fill="#1c2833" >Anmeldung Ihrer Wohnung – fehlende Unterlagen</text>
+<text x="174" y="344" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Sehr geehrter Herr Costa,</text>
+<text x="174" y="378" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >bei Ihrer Anmeldung am 05.02.2026 fehlte die</text>
+<text x="174" y="400" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Wohnungsgeberbestätigung. Bitte reichen Sie diese</text>
+<text x="174" y="422" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >bis zum 26.02.2026 beim Bürgeramt ein. Das Formular</text>
+<text x="174" y="444" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >ist diesem Schreiben beigefügt.</text>
+<text x="174" y="466" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" ></text>
+<text x="174" y="488" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Für Rückfragen stehen wir Ihnen gern zur Verfügung.</text>
+<text x="174" y="530" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Mit freundlichen Grüßen</text>
+<text x="174" y="552" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Im Auftrag</text>
+<path d="M 178 590 C 190 566 200 598 214 578 C 224 566 234 596 260 582" fill="none" stroke="#1c2833" stroke-width="2" />
+<text x="174" y="616" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Brenner</text>
+<text x="174" y="664" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833" >Anlage</text>
+<text x="174" y="686" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Formular Wohnungsgeberbestätigung</text>
+<line x1="78" y1="64" x2="590" y2="64" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="590" cy="64" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="35.4" y="50" width="85.2" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="70" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Absender</text>
+<line x1="78" y1="195" x2="224" y2="195" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="224" cy="195" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="31.2" y="181" width="93.6" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="201" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anschrift</text>
+<line x1="78" y1="236" x2="550" y2="156" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="550" cy="156" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="18.6" y="222" width="118.8" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="242" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Aktenzeichen</text>
+<line x1="78" y1="294" x2="294" y2="294" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="294" cy="294" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="39.6" y="280" width="76.8" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="300" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Betreff</text>
+<line x1="78" y1="338" x2="234" y2="338" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="234" cy="338" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="43.8" y="324" width="68.4" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="344" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anrede</text>
+<line x1="78" y1="658" x2="198" y2="658" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="198" cy="658" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="0"/>
+<rect x="43.8" y="644" width="68.4" height="28" rx="6" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<text x="78" y="664" font-family="sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#1c2833" >Anlage</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 760" width="720" height="760" role="img"><title>A one-page German CV (Lebenslauf) for Lena Hoffmann with a photo top right, personal details, work experience, education, language skills, and place, date and signature at the bottom; the section headings are hidden</title>
+<rect x="0" y="0" width="720" height="760" fill="#ffffff"/>
+<rect x="110" y="20" width="500" height="720" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<text x="140" y="78" font-family="sans-serif" font-size="30" text-anchor="start" font-weight="bold" fill="#1c2833" >Lebenslauf</text>
+<rect x="474" y="46" width="104" height="128" rx="0" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5" />
+<circle cx="526" cy="98" r="24" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 488 174 C 492 138 560 138 564 174" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" />
+<rect x="140" y="188" width="183.60000000000002" height="22" rx="4" fill="#c9ced6" stroke="#1c2833" stroke-width="0" />
+<line x1="140" y1="214" x2="580" y2="214" stroke="#c9ced6" stroke-width="1" />
+<text x="140" y="242" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Name:</text>
+<text x="300" y="242" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Lena Hoffmann</text>
+<text x="140" y="266" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Geburtsdatum:</text>
+<text x="300" y="266" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >12.03.2000</text>
+<text x="140" y="290" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Adresse:</text>
+<text x="300" y="290" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Lindenstraße 8, 04109 Leipzig</text>
+<rect x="140" y="312" width="162.0" height="22" rx="4" fill="#c9ced6" stroke="#1c2833" stroke-width="0" />
+<line x1="140" y1="338" x2="580" y2="338" stroke="#c9ced6" stroke-width="1" />
+<text x="140" y="366" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >seit 07/2019</text>
+<text x="300" y="366" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Kauffrau für Büromanagement,</text>
+<text x="140" y="390" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" ></text>
+<text x="300" y="390" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Druckerei Weber GmbH, Leipzig</text>
+<text x="140" y="414" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" ></text>
+<text x="300" y="414" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Kundenbetreuung, Angebote, Rechnungen</text>
+<rect x="140" y="436" width="108.0" height="22" rx="4" fill="#c9ced6" stroke="#1c2833" stroke-width="0" />
+<line x1="140" y1="462" x2="580" y2="462" stroke="#c9ced6" stroke-width="1" />
+<text x="140" y="490" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >08/2016 – 06/2019</text>
+<text x="300" y="490" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Ausbildung zur Kauffrau für</text>
+<text x="140" y="514" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" ></text>
+<text x="300" y="514" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Büromanagement, Druckerei Weber</text>
+<text x="140" y="538" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >2010 – 2016</text>
+<text x="300" y="538" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Realschule Leipzig-Nord, Abschluss</text>
+<rect x="140" y="572" width="172.8" height="22" rx="4" fill="#c9ced6" stroke="#1c2833" stroke-width="0" />
+<line x1="140" y1="598" x2="580" y2="598" stroke="#c9ced6" stroke-width="1" />
+<text x="140" y="626" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Deutsch:</text>
+<text x="300" y="626" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Muttersprache</text>
+<text x="140" y="650" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Englisch:</text>
+<text x="300" y="650" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >gut (B2)</text>
+<text x="140" y="690" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Leipzig, 10.02.2026</text>
+<path d="M 360 696 C 372 670 380 700 392 680 C 400 666 410 698 424 682 C 432 674 440 690 456 684" fill="none" stroke="#1c2833" stroke-width="2" />
+<line x1="350" y1="704" x2="560" y2="704" stroke="#1c2833" stroke-width="1" />
+</svg>

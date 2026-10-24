@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 860" width="720" height="860" role="img"><title>A letter from the Bürgeramt of Musterstadt to Daniel Costa in the German standard layout: sender, address field, reference block with file number and date, subject line, greeting, text with a deadline, closing, signature and enclosure</title>
+<rect x="0" y="0" width="720" height="860" fill="#ffffff"/>
+<rect x="90" y="20" width="520" height="820" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="2" />
+<text x="586" y="58" font-family="sans-serif" font-size="19" text-anchor="end" font-weight="bold" fill="#1c2833" >Stadt Musterstadt</text>
+<text x="586" y="80" font-family="sans-serif" font-size="15" text-anchor="end" font-weight="normal" fill="#1c2833" >Bürgeramt</text>
+<text x="114" y="132" font-family="sans-serif" font-size="11" text-anchor="start" font-weight="normal" fill="#1c2833" text-decoration="underline">Stadt Musterstadt · Bürgeramt · Marktplatz 1 · 12345 Musterstadt</text>
+<text x="114" y="162" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Herrn</text>
+<text x="114" y="184" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Daniel Costa</text>
+<text x="114" y="206" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Gartenweg 5</text>
+<text x="114" y="228" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >12345 Musterstadt</text>
+<text x="390" y="162" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Aktenzeichen: 32-04/0457</text>
+<text x="390" y="184" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Sachbearbeiterin:</text>
+<text x="390" y="206" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Frau Brenner</text>
+<text x="390" y="228" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Tel. 0123 456-78</text>
+<text x="390" y="250" font-family="sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#1c2833" >Datum: 12.02.2026</text>
+<text x="114" y="300" font-family="sans-serif" font-size="16" text-anchor="start" font-weight="bold" fill="#1c2833" >Anmeldung Ihrer Wohnung – fehlende Unterlagen</text>
+<text x="114" y="344" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Sehr geehrter Herr Costa,</text>
+<text x="114" y="378" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >bei Ihrer Anmeldung am 05.02.2026 fehlte die</text>
+<text x="114" y="400" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Wohnungsgeberbestätigung. Bitte reichen Sie diese</text>
+<text x="114" y="422" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >bis zum 26.02.2026 beim Bürgeramt ein. Das Formular</text>
+<text x="114" y="444" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >ist diesem Schreiben beigefügt.</text>
+<text x="114" y="466" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" ></text>
+<text x="114" y="488" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Für Rückfragen stehen wir Ihnen gern zur Verfügung.</text>
+<text x="114" y="530" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Mit freundlichen Grüßen</text>
+<text x="114" y="552" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Im Auftrag</text>
+<path d="M 118 590 C 130 566 140 598 154 578 C 164 566 174 596 200 582" fill="none" stroke="#1c2833" stroke-width="2" />
+<text x="114" y="616" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Brenner</text>
+<text x="114" y="664" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#1c2833" >Anlage</text>
+<text x="114" y="686" font-family="sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#1c2833" >Formular Wohnungsgeberbestätigung</text>
+</svg>

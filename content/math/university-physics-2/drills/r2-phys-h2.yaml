@@ -35,7 +35,7 @@
     - {name: dEdt, label: '(a) V/(m·s)', sigfigs: 3, format: sci}
     - {name: Bu, label: '(b) μT', sigfigs: 3, format: sig3}
   solution: |-
-    (a) $E = Q/(\varepsilon_0\pi R^2)$, so $\dfrac{dE}{dt} = \dfrac{I}{\varepsilon_0\pi R^2} = \dfrac{{cur}}{(8.85\times10^{-12})\pi({Rcm}\times10^{-2})^2} = {dEdt:texsci}$ V/(m·s).
+    (a) $E = Q/(\varepsilon_0\pi R^2)$, so $\dfrac{dE}{dt} = \dfrac{I}{\varepsilon_0\pi R^2} = \dfrac{{cur}}{(8.85\times10^{-12})\pi({Rcm}\times10^{-2})^2} =$ **${dEdt:texsci}$** V/(m·s).
 
     (b) No conduction current crosses the gap, so the Ampère–Maxwell law on a circle of radius $r$ gives $B(2\pi r) = \mu_0\varepsilon_0\pi r^2\,dE/dt$, i.e. $B = \dfrac{\mu_0Ir}{2\pi R^2}$. With $r = {rcm}$ cm and $R = {Rcm}$ cm: $B =$ **{Bu:sig3}** μT.
 # Lesson 91: electric and magnetic fields in relativity
@@ -104,9 +104,9 @@
     - {name: P, label: '(b) W', sigfigs: 3, format: sci}
     - {name: tau, label: '(c) s', sigfigs: 3, format: sig3}
   solution: |-
-    (a) The magnetic force $evB$ is the centripetal force: $a = \dfrac{evB}{m_e} = {acc:texsci}$ m/s².
+    (a) The magnetic force $evB$ is the centripetal force: $a = \dfrac{evB}{m_e} =$ **${acc:texsci}$** m/s².
 
-    (b) Larmor: $P = \dfrac{e^2a^2}{6\pi\varepsilon_0c^3} = {P:texsci}$ W.
+    (b) Larmor: $P = \dfrac{e^2a^2}{6\pi\varepsilon_0c^3} =$ **${P:texsci}$** W.
 
     (c) $K = \tfrac12m_ev^2 = {K:texsci}$ J, so $K/P =$ **{tau:sig3}** s. Since $P \propto v^2 \propto K$, this time does not depend on the speed, only on $B$.
 - id: phys-h2-r2-correspondence
@@ -124,9 +124,9 @@
     - {name: fph, label: '(b) Hz', sigfigs: 3, format: sci}
     - {name: ratio, label: '(c)', tolerance: 0.0006, format: dp3}
   solution: |-
-    (a) $f_{\text{orbit}} = 6.572\times10^{15}/{n}^3 = {forb:texsci}$ Hz.
+    (a) $f_{\text{orbit}} = 6.572\times10^{15}/{n}^3 =$ **${forb:texsci}$** Hz.
 
-    (b) $f_{\text{photon}} = (3.286\times10^{15})\left(\dfrac{1}{({n} - 1)^2} - \dfrac{1}{{n}^2}\right) = (3.286\times10^{15})\dfrac{2({n}) - 1}{{n}^2({n} - 1)^2} = {fph:texsci}$ Hz.
+    (b) $f_{\text{photon}} = (3.286\times10^{15})\left(\dfrac{1}{({n} - 1)^2} - \dfrac{1}{{n}^2}\right) = (3.286\times10^{15})\dfrac{2({n}) - 1}{{n}^2({n} - 1)^2} =$ **${fph:texsci}$** Hz.
 
     (c) The ratio is $\dfrac{n(2n - 1)}{2(n - 1)^2} =$ **{ratio:dp3}**, approaching 1 for large $n$ (the correspondence principle).
 # Lesson 93: photons as relativistic particles
