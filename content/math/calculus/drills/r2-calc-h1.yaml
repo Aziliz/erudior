@@ -74,6 +74,7 @@
   vars:
     L: {min: 3, max: 8}
     bb: {min: 1, max: 3}
+  where: ['L > bb']
   calc:
     cc: L*L - bb*L
     a2: sqrt(cc + bb)
