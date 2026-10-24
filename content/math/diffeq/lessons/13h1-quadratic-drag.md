@@ -43,7 +43,8 @@ Re has no units.
 
 These cutoffs are rough guides, not sharp boundaries. Between them neither law is exact,
 and engineers use measured drag curves. (A smooth sphere also has a sudden drop in $C_d$,
-the "drag crisis," near Re ≈ 300,000; rough or irregular bodies like a person don't.)
+the "drag crisis," near Re ≈ 300,000. Roughening the surface moves the drop to a lower Re,
+which is why golf balls are dimpled; bluff, sharp-edged bodies like a person show no such drop.)
 
 ```mermaid
 flowchart TD

@@ -37,12 +37,12 @@
 - term: perihelion
   aliases:
   - periapsis
-  definition: 'The point of an orbit around the Sun nearest the Sun, at distance $a(1 - e)$; the body moves fastest there.'
+  definition: 'The point of an orbit around the Sun nearest the Sun, at distance $a(1 - e)$; the body moves fastest there. (Periapsis is the general name for the nearest point to whatever body is orbited.)'
   topic: Kepler's laws
 - term: aphelion
   aliases:
   - apoapsis
-  definition: 'The point of an orbit around the Sun farthest from the Sun, at distance $a(1 + e)$; the body moves slowest there.'
+  definition: 'The point of an orbit around the Sun farthest from the Sun, at distance $a(1 + e)$; the body moves slowest there. (Apoapsis is the general name for the farthest point from whatever body is orbited.)'
   topic: Kepler's laws
 - term: Kepler's laws
   aliases:

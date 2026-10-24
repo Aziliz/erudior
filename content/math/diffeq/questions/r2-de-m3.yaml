@@ -197,7 +197,7 @@
   choices: ['$\text{Re} \approx 2000$, so quadratic drag', '$\text{Re} \approx 2000$, so linear drag', '$\text{Re} \approx 0.002$, so linear (Stokes) drag', '$\text{Re} \approx 0.002$, so quadratic drag']
   answer: 2
   explanation: |-
-    $\text{Re} = \dfrac{\rho vD}{\mu} = \dfrac{1.2(0.003)(10^{-5})}{1.8 \times 10^{-5}} = 0.002$, far below 1, so viscosity dominates and drag is proportional to speed. Getting 2000 usually comes from leaving $D$ in micrometers or $v$ in mm/s.
+    $\text{Re} = \dfrac{\rho vD}{\mu} = \dfrac{1.2(0.003)(10^{-5})}{1.8 \times 10^{-5}} = 0.002$, far below 1, so viscosity dominates and drag is proportional to speed. Getting 2000 comes from leaving $D$ in micrometers (10 instead of $10^{-5}$ m).
 - id: de-m3-r2-h03
   lesson: de-m3-h-quadratic-drag
   topic: Quadratic drag
@@ -218,10 +218,10 @@
   lesson: de-m3-h-quadratic-drag
   topic: Quadratic drag
   stem: 'An object with terminal velocity 40 m/s (quadratic drag) is dropped from rest. How fast is it moving after falling 50 m?'
-  choices: ['about 31.3 m/s', 'about 22.0 m/s', 'about 27.1 m/s', 'about 40.0 m/s']
+  choices: ['about 31.3 m/s', 'about 18.3 m/s', 'about 27.1 m/s', 'about 40.0 m/s']
   answer: 2
   explanation: |-
-    $v^2 = v_T^2\left(1 - e^{-2gx/v_T^2}\right) = 1600\left(1 - e^{-980/1600}\right) \approx 1600(0.458) \approx 733$, so $v \approx 27.1$ m/s. 31.3 m/s is the no-drag speed $\sqrt{2gx}$; 40 m/s is never quite reached.
+    $v^2 = v_T^2\left(1 - e^{-2gx/v_T^2}\right) = 1600\left(1 - e^{-980/1600}\right) \approx 1600(0.458) \approx 733$, so $v \approx 27.1$ m/s. 31.3 m/s is the no-drag speed $\sqrt{2gx}$; 18.3 m/s is $v_T(1 - e^{-2gx/v_T^2})$, which forgets that the formula gives $v^2$, not $v$; 40 m/s is never quite reached.
 - id: de-m3-r2-h06
   lesson: de-m3-h-quadratic-drag
   topic: Quadratic drag

@@ -43,7 +43,7 @@
   stem: 'A particle moves along the curved path. Name the numbered parts of the picture.'
   image: {src: images/calc-m11-velocity-blank.svg, alt: 'A curved path with a point on it. One arrow runs from the origin to the point. A second arrow starts at the point and points along the path. Two dashed segments, one horizontal and one vertical, form a right triangle with the second arrow.'}
   labels:
-    - {x: 31.3, y: 69.3, text: Position vector}
+    - {x: 24.0, y: 76.8, text: Position vector}
     - {x: 57.8, y: 41.0, text: Velocity vector}
     - {x: 58.8, y: 51.1, text: Horizontal component dx/dt}
     - {x: 68.3, y: 39.9, text: Vertical component dy/dt}

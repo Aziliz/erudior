@@ -9,7 +9,7 @@
 - {front: Bifurcation, back: 'A sudden change in the equilibria as a parameter crosses a critical value, such as two equilibria merging and disappearing.', topic: Phase lines and stability}
 - {front: Existence and uniqueness theorem, back: 'If $F$ and $\frac{\partial F}{\partial y}$ are continuous near $(x_0, y_0)$, the IVP $y'' = F(x, y)$, $y(x_0) = y_0$ has exactly one solution on some interval around $x_0$.', topic: Existence and uniqueness}
 - {front: 'A non-unique IVP', back: '$y'' = 3y^{2/3}$, $y(0) = 0$: both $y = 0$ and $y = x^3$ work; $\frac{\partial F}{\partial y} = 2y^{-1/3}$ fails at $y = 0$.', topic: Existence and uniqueness}
-- {front: What uniqueness implies, back: 'Solution curves cannot cross; for $y'' = g(y)$, solutions are monotonic and never reach an equilibrium in finite time.', topic: Existence and uniqueness}
+- {front: What uniqueness implies, back: 'Solution curves cannot cross; for $y'' = g(y)$, nonconstant solutions are monotonic and never reach an equilibrium in finite time.', topic: Existence and uniqueness}
 - {front: Euler's method errors, back: 'Local (one step) $\propto h^2$; global (at a fixed $x$) $\propto h$. Order 1: halving $h$ halves the error.', topic: Numerical methods for differential equations}
 - {front: Improved Euler (Heun) step, back: '$k_1 = F(x_n, y_n)$, $k_2 = F(x_n + h, y_n + hk_1)$, $y_{n+1} = y_n + \frac h2(k_1 + k_2)$. Order 2.', topic: Numerical methods for differential equations}
 - {front: RK4 step, back: '$k_1 = F(x_n, y_n)$, $k_2 = F(x_n + \frac h2, y_n + \frac h2k_1)$, $k_3 = F(x_n + \frac h2, y_n + \frac h2k_2)$, $k_4 = F(x_n + h, y_n + hk_3)$; $y_{n+1} = y_n + \frac h6(k_1 + 2k_2 + 2k_3 + k_4)$. Order 4.', topic: Numerical methods for differential equations}
@@ -17,4 +17,4 @@
 - {front: 'Halving $h$ for a method of order $p$', back: 'Divides the error by about $2^p$: 2 for Euler, 4 for improved Euler, 16 for RK4.', topic: Numerical methods for differential equations}
 - {front: 'Error estimate from runs with $h$ and $\frac h2$ (order 1)', back: 'Error of the better run $\approx y_{h/2} - y_h$; improved estimate $2y_{h/2} - y_h$.', topic: Numerical methods for differential equations}
 - {front: "Euler's method on $y' = -ky$", back: 'Multiplies by $1 - kh$ each step; values decay only if $h < \frac2k$ (without sign flips if $h < \frac1k$).', topic: Numerical methods for differential equations}
-- {front: Stiff equation, back: 'Very fast and very slow decay together; explicit methods need tiny steps for stability, so implicit methods like backward Euler $y_{n+1} = \frac{y_n}{1 + kh}$ are used.', topic: Numerical methods for differential equations}
+- {front: Stiff equation, back: 'Very fast and very slow decay together; explicit methods need tiny steps for stability, so implicit methods like backward Euler are used (on $y'' = -ky$ it gives $y_{n+1} = \frac{y_n}{1 + kh}$, stable for every $h$).', topic: Numerical methods for differential equations}

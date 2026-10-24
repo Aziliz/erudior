@@ -42,7 +42,7 @@
   calc:
     vr: v0*vT/sqrt(v0^2 + vT^2)
     tf: vT/9.8*atanh(vr/vT)
-  prompt: 'A ball with terminal velocity {vT} m/s (quadratic drag) is thrown straight up at {v0} m/s and falls back to the launch point. Using $g = 9.8$ m/s², find its speed when it returns (1 decimal place) and the time it spends falling from the top (2 decimal places).'
+  prompt: 'A ball with terminal velocity {vT} m/s (quadratic drag) is thrown straight up at {v0} m/s and falls back to the launch point. Using $g = 9.8$ m/s², find its speed when it returns (1 decimal place) and the time it spends falling from the top (2 decimal places). Keep full precision in the return speed when you use it to find the time.'
   answers:
     - {name: vr, label: 'Return speed (m/s)', tolerance: 0.06}
     - {name: tf, label: 'Fall time (s)', tolerance: 0.006}
