@@ -43,7 +43,7 @@ Thursday. Today the word is also used for any regular meeting: language learners
 
 ## Der Kleingarten
 
-Most people in German cities live in flats, without a garden (lesson 91). The answer, for many,
+Most people in German cities live in flats, without a garden (see *Zusammen wohnen*). The answer, for many,
 is *der Kleingarten*: a small garden you rent in a *Kleingartenanlage*, a group of gardens
 with paths, hedges and fences, often near a railway line or on the edge of town. There are about
 900,000 of them in Germany. You don't rent one from a landlord but from a club, the
@@ -70,7 +70,7 @@ In big cities the waiting lists for a garden are often long.
 ![A small rented garden: a wooden hut with a little roof and a window, a tree with apples, a vegetable bed with tomato plants, red flowers, a watering can on the grass, and a low wooden fence around the garden. Labels name the parts: die Laube, der Baum, das Beet, die Blume, die Gießkanne and der Zaun.](images/de1-h1-garden.svg)
 
 The jobs in the garden have simple verbs: *gießen* (to water: *Ich gieße die Blumen*), *ernten* (to
-harvest, pick: *Im Juli ernten wir Erdbeeren*) and *grillen* (to barbecue, lesson 91). The things
+harvest, pick: *Im Juli ernten wir Erdbeeren*) and *grillen* (to barbecue, from *Zusammen wohnen*). The things
 you grow: *die Tomate, die Erdbeere* (strawberry), *der Apfel* (lesson 9), *die Blume* (flower).
 
 ## The diminutive: -chen and -lein
@@ -88,23 +88,23 @@ Building one takes three steps:
 ```mermaid
 flowchart TD
   accTitle: How to make a diminutive
-  accDescr: Start with the noun. If it ends in -e, drop the -e. If the stressed vowel is a, o, u or au, it usually takes an umlaut. Then add -chen, or -lein in older or southern German. The new word is always neuter, das, and its plural looks the same as the singular.
-  A["Noun: die Katze"] --> B{"Ends in -e?"}
-  B -- "yes: drop it" --> C["Katz-"]
-  B -- no --> C
-  C --> D{"a, o, u or au?"}
-  D -- "usually: umlaut" --> E["Kätz-"]
-  D -- no --> E
-  E --> F["Add -chen: Kätzchen"]
-  F --> G["Always das: das Kätzchen, plural die Kätzchen"]
+  accDescr: Start with the noun, for example die Katze. If it ends in -e, drop the -e, giving Katz-. If its vowel is a, o, u or au, it usually takes an umlaut, giving Kätz-. Then add -chen, or -lein, giving Kätzchen. The new word is always neuter, das, and its plural looks the same: das Kätzchen, die Kätzchen.
+  A["Start with the noun: die Katze"] --> B{"Ends in -e?"}
+  B -- yes --> C["Drop the -e: Katz-"]
+  B -- no --> D{"Vowel a, o, u or au?"}
+  C --> D
+  D -- yes --> E["Usually add an umlaut: Kätz-"]
+  D -- no --> F["Add -chen or -lein: Kätzchen"]
+  E --> F
+  F --> G["Always das; plural the same: das Kätzchen, die Kätzchen"]
 ```
 
 Two facts make diminutives easy to use:
 
-- **They are always neuter**, whatever the gender of the noun they come from: *der Hund → das
+- They are always neuter, whatever the gender of the noun they come from: *der Hund → das
   Hündchen*, *die Katze → das Kätzchen*. This is why *das Mädchen* is neuter even though it means
   a girl (lesson 5).
-- **The plural looks the same as the singular**: *ein Brötchen, zwei Brötchen*. Only the article
+- The plural looks the same as the singular: *ein Brötchen, zwei Brötchen*. Only the article
   changes: *das Brötchen, die Brötchen*.
 
 The ending *-lein* means the same thing. It sounds older or more poetic, and you find it in fairy
@@ -140,8 +140,8 @@ words, always with *das*:
 | *ein bisschen* | a little | *der Bissen* (a bite) |
 
 Fairy-tale names are full of them: *Rotkäppchen* (Little Red Riding Hood) is the girl with the red
-*Käppchen* (little cap, from *die Kappe*), and *Hänsel* and *Gretel* use *-el*, a short form of
-the old *-lein*.
+*Käppchen* (little cap, from *die Kappe*), and *Hänsel* and *Gretel* use *-el*, a southern
+cousin of *-lein*.
 
 ### Around the German-speaking countries
 
