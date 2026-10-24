@@ -25,7 +25,7 @@ flowchart TD
 
 ## The first law: ellipses with the Sun at a focus
 
-**Kepler's first law:** each planet moves on an ellipse with the Sun at one focus.
+**Kepler's first law**: each planet moves on an ellipse with the Sun at one focus.
 
 Orbits are usually described by two numbers instead of $e$ and $d$: the eccentricity $e$ and the **semi-major axis** $a$, half the length of the major axis. Distances are often given in **astronomical units** (AU); 1 AU is about 149.6 million km, roughly the average distance from Earth to the Sun.
 
@@ -57,7 +57,7 @@ At $\theta = 90°$, $\cos\theta = 0$, so $r = a(1 - e^2) = 1.524(1 - 0.0934^2) \
 
 ## The second law: equal areas in equal times
 
-**Kepler's second law:** the line from the Sun to a planet sweeps out equal areas in equal times.
+**Kepler's second law**: the line from the Sun to a planet sweeps out equal areas in equal times.
 
 ![An elliptical orbit with the Sun at the right focus. Two shaded wedges with their tips at the Sun are swept in the same time: near the Sun the wedge is short and wide because the planet moves fast; far from the Sun it is long and thin because the planet moves slowly. The two wedges have equal areas.](images/pc-m7-kepler-areas.svg)
 
@@ -73,7 +73,7 @@ $q = 17.8(0.033) \approx 0.59$ AU, inside Venus's orbit, and $Q = 17.8(1.967) \a
 
 ## The third law: periods and sizes
 
-**Kepler's third law:** the square of a planet's **orbital period** $T$ is proportional to the cube of its semi-major axis. For objects orbiting the Sun, with $T$ in years and $a$ in AU, the constant is 1:
+**Kepler's third law**: the square of a planet's **orbital period** $T$ is proportional to the cube of its semi-major axis. For objects orbiting the Sun, with $T$ in years and $a$ in AU, the constant is 1:
 
 $$T^2 = a^3, \qquad T = a^{3/2}.$$
 

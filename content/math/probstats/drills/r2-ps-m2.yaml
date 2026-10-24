@@ -145,4 +145,4 @@
     Exactly, all four must survive: $P(S = 0) = (1 - {a})(1 - {b})(1 - {c})(1 - {d}) \approx$ **{exact:dp4}**.
 
     Poisson: $P(S = 0) \approx e^{-\lambda} = e^{-{lam}} \approx$ **{approx:dp4}**. The two differ by
-    much less than the bound {ssq:dp4}.
+    less than the bound {ssq:dp4}, as Le Cam's inequality guarantees.

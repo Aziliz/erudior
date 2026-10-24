@@ -12,7 +12,7 @@ refs: [ps-ref-estimation]
 
 The point-estimators lesson compared estimators by mean squared error and found that a biased
 estimator can beat an unbiased one. The Bayesian lesson produced yet another kind of estimator,
-the posterior mean. Which should we use? **Decision theory**, developed by Abraham Wald in the
+the posterior mean. Which should we use? **Decision theory**, developed largely by Abraham Wald in the
 1940s, gives a common language for the question: an estimator is a decision rule, a wrong answer
 has a cost, and rules are compared by their average cost. The framework explains why there is
 usually no single best estimator, what Bayes estimators and "minimax" estimators each optimize,

@@ -1,0 +1,61 @@
+- term: rotation of axes
+  definition: 'Turning the coordinate axes through an angle $\theta$ about the origin so that a tilted conic lines up with the new axes; choosing $\cot 2\theta = \frac{A - C}{B}$ removes the $xy$ term.'
+  topic: Rotation of axes
+- term: rotation formulas
+  definition: 'For axes rotated counterclockwise by $\theta$: $x = x''\cos\theta - y''\sin\theta$ and $y = x''\sin\theta + y''\cos\theta$, the old coordinates in terms of the new ones.'
+  topic: Rotation of axes
+- term: invariants
+  aliases: [invariant, rotation invariants]
+  definition: 'Combinations of a conic''s coefficients that do not change under a rotation of axes: $A + C$, $B^2 - 4AC$, and the constant $F$.'
+  topic: Rotation of axes
+- term: generator
+  aliases: [generators]
+  definition: 'One of the straight lines through the apex that make up a cone; every generator makes the same angle with the cone''s axis.'
+  topic: Geometry of conics
+- term: nappes
+  aliases: [nappe]
+  definition: 'The two halves of a double cone, one on each side of the apex.'
+  topic: Geometry of conics
+- term: Dandelin spheres
+  aliases: [Dandelin sphere]
+  definition: 'Spheres inscribed in a cone that touch both the cone (along a circle) and a cutting plane (at one point); the points where they touch the plane are the foci of the slice. Described by Germinal Pierre Dandelin in 1822.'
+  topic: Geometry of conics
+- term: focal radii
+  aliases: [focal radius]
+  definition: 'The segments from a point on a conic to its foci. On the ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ they have lengths $a + ex_0$ and $a - ex_0$.'
+  topic: Geometry of conics
+- term: reflective property
+  aliases: [reflection property, reflective properties]
+  definition: 'How a conic reflects rays: a parabola sends rays parallel to its axis through the focus, an ellipse sends rays from one focus to the other, and a hyperbola sends rays aimed at one focus toward the other.'
+  topic: Geometry of conics
+- term: Kepler's first law
+  definition: 'Each planet moves on an ellipse with the Sun at one focus.'
+  topic: Orbits
+- term: Kepler's second law
+  aliases: [law of equal areas]
+  definition: 'The line from the Sun to a planet sweeps out equal areas in equal times, so the planet moves fastest at perihelion and slowest at aphelion.'
+  topic: Orbits
+- term: Kepler's third law
+  definition: 'The square of a planet''s period is proportional to the cube of its semi-major axis; for orbits around the Sun, $T^2 = a^3$ with $T$ in years and $a$ in AU (a very good approximation).'
+  topic: Orbits
+- term: semi-major axis
+  aliases: [semimajor axis]
+  definition: 'Half the length of an ellipse''s major axis, the distance $a$ from the center to a vertex; for an orbit it is the average of the perihelion and aphelion distances.'
+  topic: Orbits
+- term: astronomical unit
+  aliases: [astronomical units, AU]
+  definition: 'A unit of distance of about 149.6 million km, roughly the average distance from Earth to the Sun.'
+  topic: Orbits
+- term: perihelion
+  definition: 'The point of an orbit around the Sun that is closest to the Sun; its distance is $a(1 - e)$.'
+  topic: Orbits
+- term: aphelion
+  definition: 'The point of an orbit around the Sun that is farthest from the Sun; its distance is $a(1 + e)$.'
+  topic: Orbits
+- term: orbital period
+  definition: 'The time an object takes to go once around its orbit.'
+  topic: Orbits
+- term: Hohmann transfer orbit
+  aliases: [Hohmann transfer]
+  definition: 'Half of an ellipse that touches an inner circular orbit at perihelion and an outer one at aphelion; the most fuel-efficient two-burn path between them.'
+  topic: Orbits

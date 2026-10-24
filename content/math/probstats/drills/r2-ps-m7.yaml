@@ -1,0 +1,155 @@
+- id: ps-m7-r2-trinity-binomial
+  title: Score and Wald statistics for a proportion
+  topic: Wald, score and likelihood ratio tests
+  vars:
+    nn: {min: 60, max: 400, step: 20}
+    p0: {choices: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6]}
+    rel: {min: 0.7, max: 1.35, step: 0.01}
+  calc:
+    xx: round(nn*p0*rel)
+    phat: xx/nn
+    sc: (phat - p0)^2/(p0*(1 - p0)/nn)
+    wd: (phat - p0)^2/(phat*(1 - phat)/nn)
+    nv: p0*(1 - p0)/nn
+    av: phat*(1 - phat)/nn
+  where: ['xx > 0', 'xx < nn', 'sc >= 0.3', 'sc <= 12']
+  prompt: |-
+    In {nn} independent trials there are {xx} successes. For $H_0: p = {p0}$ against $H_1: p \ne {p0}$,
+    compute the score statistic $S$ and the Wald statistic $W$ (both on the chi-square scale, 3 decimals).
+  answers:
+    - {name: sc, label: '$S =$', tolerance: 0.005, format: dp3}
+    - {name: wd, label: '$W =$', tolerance: 0.005, format: dp3}
+  solution: |-
+    $\hat p = {xx}/{nn} = {phat:num4}$. The score statistic uses the null variance
+    $p_0(1 - p_0)/n = {nv:sig4}$:
+    $S = \dfrac{(\hat p - p_0)^2}{p_0(1-p_0)/n} =$ **{sc:dp3}** (the square of the one-proportion $z$).
+
+    The Wald statistic uses the variance at the MLE, $\hat p(1 - \hat p)/n = {av:sig4}$:
+    $W = \dfrac{(\hat p - p_0)^2}{\hat p(1-\hat p)/n} =$ **{wd:dp3}**.
+
+    Each is compared with $\chi^2_1$ (3.841 at the 5% level).
+
+- id: ps-m7-r2-trinity-poisson
+  title: Wald, score and likelihood ratio statistics for a Poisson mean
+  topic: Wald, score and likelihood ratio tests
+  vars:
+    nn: {min: 20, max: 80}
+    lam0: {choices: [1, 1.5, 2, 2.5, 3, 4, 5]}
+    rel: {min: 0.75, max: 1.3, step: 0.01}
+  calc:
+    tot: round(nn*lam0*rel)
+    xbar: tot/nn
+    wd: (xbar - lam0)^2/(xbar/nn)
+    sc: (xbar - lam0)^2/(lam0/nn)
+    lr: 2*(tot*ln(xbar/lam0) - (tot - nn*lam0))
+  where: ['tot > 0', 'sc >= 0.3', 'sc <= 12']
+  prompt: |-
+    Counts $X_1, \dots, X_{{nn}}$ are Poisson($\lambda$) with total $\sum x_i = {tot}$. For $H_0: \lambda = {lam0}$,
+    compute the Wald, score and likelihood ratio statistics (3 decimals each).
+  answers:
+    - {name: wd, label: 'Wald $W =$', tolerance: 0.005, format: dp3}
+    - {name: sc, label: 'Score $S =$', tolerance: 0.005, format: dp3}
+    - {name: lr, label: 'LR $=$', tolerance: 0.005, format: dp3}
+  solution: |-
+    $\hat\lambda = \bar x = {tot}/{nn} = {xbar:num4}$ and $I(\lambda) = 1/\lambda$.
+
+    Wald (variance at the MLE): $W = \dfrac{(\bar x - \lambda_0)^2}{\bar x/n} =$ **{wd:dp3}**.
+
+    Score (variance at $\lambda_0$): $S = \dfrac{(\bar x - \lambda_0)^2}{\lambda_0/n} =$ **{sc:dp3}**.
+
+    Likelihood ratio: $2\left[\sum x_i\ln\dfrac{\bar x}{\lambda_0} - n(\bar x - \lambda_0)\right] =$ **{lr:dp3}**.
+
+    All three are compared with $\chi^2_1$; they differ because they measure the distance from $\lambda_0$ in different ways.
+
+- id: ps-m7-r2-sprt-bounds
+  title: Wald's SPRT boundaries
+  topic: Sequential tests
+  vars:
+    al: {choices: [{label: '0.01', value: 0.01}, {label: '0.025', value: 0.025}, {label: '0.05', value: 0.05}, {label: '0.10', value: 0.1}]}
+    be: {choices: [{label: '0.05', value: 0.05}, {label: '0.10', value: 0.1}, {label: '0.20', value: 0.2}]}
+  calc:
+    lowb: ln(be/(1 - al))
+    upb: ln((1 - be)/al)
+    qa: 1 - al
+    qb: 1 - be
+  prompt: |-
+    A sequential probability ratio test is to have Type I error probability $\alpha = {al}$ and Type II
+    error probability $\beta = {be}$. Find Wald's lower and upper boundaries for the log likelihood ratio
+    sum $S_n$ (4 decimals).
+  answers:
+    - {name: lowb, label: 'Lower boundary', tolerance: 0.0005, format: num4}
+    - {name: upb, label: 'Upper boundary', tolerance: 0.0005, format: num4}
+  solution: |-
+    Lower (accept $H_0$): $\ln\dfrac{\beta}{1 - \alpha} = \ln\dfrac{{be}}{{qa}} =$ **{lowb:num4}**.
+
+    Upper (reject $H_0$): $\ln\dfrac{1 - \beta}{\alpha} = \ln\dfrac{{qb}}{{al}} =$ **{upb:num4}**.
+
+- id: ps-m7-r2-sprt-lines
+  title: SPRT acceptance and rejection lines for a defect rate
+  topic: Sequential tests
+  vars:
+    p0: {choices: [0.02, 0.05, 0.1]}
+    mult: {choices: [2, 3, 4]}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.10', value: 0.1}]}
+    be: {choices: [{label: '0.05', value: 0.05}, {label: '0.10', value: 0.1}, {label: '0.20', value: 0.2}]}
+  calc:
+    p1: round(p0*mult, 2)
+    lowb: ln(be/(1 - al))
+    upb: ln((1 - be)/al)
+    du: ln(p1/p0)
+    dv: ln((1 - p1)/(1 - p0))
+    den: du - dv
+    slope: -dv/den
+    hrej: upb/den
+    hacc: -lowb/den
+  prompt: |-
+    Items are defective independently with probability $p$. An SPRT of $H_0: p = {p0}$ against
+    $H_1: p = {p1}$ uses $\alpha = {al}$ and $\beta = {be}$. After $n$ items with $d$ defectives it rejects when
+    $d \ge h_1 + sn$ and accepts $H_0$ when $d \le -h_0 + sn$. Find $s$, $h_1$ and $h_0$ (3 decimals).
+  answers:
+    - {name: slope, label: '$s =$', tolerance: 0.0005, format: dp3}
+    - {name: hrej, label: '$h_1 =$', tolerance: 0.0005, format: dp3}
+    - {name: hacc, label: '$h_0 =$', tolerance: 0.0005, format: dp3}
+  solution: |-
+    A defective adds $\ln({p1}/{p0}) = {du:num4}$ and a good item adds $\ln\dfrac{1 - {p1}}{1 - {p0}} = {dv:num4}$, so
+    $S_n = d({du:num4}) + (n - d)({dv:num4})$. Divide by ${du:num4} - ({dv:num4}) = {den:num4}$.
+
+    Boundaries: lower $\ln\frac{\beta}{1-\alpha} = {lowb:num4}$, upper $\ln\frac{1-\beta}{\alpha} = {upb:num4}$.
+
+    Slope $s = {dv:num4}$ negated, divided by {den:num4}: $s =$ **{slope:dp3}**.
+    Rejection intercept $h_1 = {upb:num4}/{den:num4} =$ **{hrej:dp3}**.
+    Acceptance intercept $h_0 = {lowb:num4}$ negated, divided by {den:num4}: $h_0 =$ **{hacc:dp3}**.
+
+- id: ps-m7-r2-sprt-asn
+  title: Average sample number of an SPRT
+  topic: Sequential tests
+  vars:
+    p0: {choices: [0.02, 0.05, 0.1]}
+    mult: {choices: [2, 3, 4]}
+    al: {choices: [{label: '0.05', value: 0.05}, {label: '0.10', value: 0.1}]}
+    be: {choices: [{label: '0.05', value: 0.05}, {label: '0.10', value: 0.1}, {label: '0.20', value: 0.2}]}
+  calc:
+    p1: round(p0*mult, 2)
+    lowb: ln(be/(1 - al))
+    upb: ln((1 - be)/al)
+    du: ln(p1/p0)
+    dv: ln((1 - p1)/(1 - p0))
+    ez0: p0*du + (1 - p0)*dv
+    ez1: p1*du + (1 - p1)*dv
+    asn0: ((1 - al)*lowb + al*upb)/ez0
+    asn1: (be*lowb + (1 - be)*upb)/ez1
+  prompt: |-
+    An SPRT of $H_0: p = {p0}$ against $H_1: p = {p1}$ for Bernoulli data uses $\alpha = {al}$ and $\beta = {be}$
+    with Wald's boundaries. Use Wald's approximation (ignore overshoot) to find the average sample number
+    under $H_0$ and under $H_1$ (1 decimal).
+  answers:
+    - {name: asn0, label: '$E_0(N) \approx$', tolerance: 0.1, format: num1}
+    - {name: asn1, label: '$E_1(N) \approx$', tolerance: 0.1, format: num1}
+  solution: |-
+    Increments: defective ${du:num4}$, good ${dv:num4}$. Boundaries: $a = {lowb:num4}$, $b = {upb:num4}$.
+
+    Mean increments: $E_0(Z) = {p0}({du:num4}) + (1 - {p0})({dv:num4}) = {ez0:num4}$ and
+    $E_1(Z) = {p1}({du:num4}) + (1 - {p1})({dv:num4}) = {ez1:num4}$.
+
+    By Wald's identity, $E_0(N) \approx \dfrac{(1-\alpha)a + \alpha b}{E_0(Z)} =$ **{asn0:num1}** and
+    $E_1(N) \approx \dfrac{\beta a + (1-\beta) b}{E_1(Z)} =$ **{asn1:num1}**.
