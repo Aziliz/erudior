@@ -30,7 +30,7 @@ So the error is a function that starts at 0 with slope 0, and whose bending is c
 *Error bound for linear approximation.* If $|f''(t)| \le M$ for every $t$ between $a$ and $x$, then
 $$|f(x) - L(x)| \le \frac{M}{2}(x - a)^2.$$
 
-*Why (for $x > a$).* We use one fact proved with the Mean Value Theorem in Lesson 17: a function whose derivative is never negative on an interval never decreases there.
+*Why (for $x > a$).* We use one consequence of the Mean Value Theorem (Lesson 17, by the same argument that shows $f' > 0$ makes $f$ increasing): a function whose derivative is never negative on an interval never decreases there.
 
 - Let $p(t) = M(t - a) - E'(t)$. Then $p(a) = 0$ and $p'(t) = M - f''(t) \ge 0$, so $p(t) \ge 0$ for $t \ge a$. That says $E'(t) \le M(t - a)$.
 - Let $q(t) = \frac M2(t - a)^2 - E(t)$. Then $q(a) = 0$ and $q'(t) = M(t - a) - E'(t) \ge 0$, so $q(x) \ge 0$. That says $E(x) \le \frac M2(x - a)^2$.
@@ -70,7 +70,7 @@ The actual error at $x = 0.1$ is $0.1 - \sin 0.1 \approx 0.000167$. Both bounds 
 
 ## Why Newton's method doubles the digits
 
-Let $r$ be a root of $f$ and write $e_n = x_n - r$ for the error at step $n$. Expanding $f(r)$ around the current guess $x_n$ with the exact form of the error from Lesson 44 (the error of the tangent line equals $\frac12 f''(\xi)(r - x_n)^2$ for some $\xi$ between $x_n$ and $r$):
+Let $r$ be a root of $f$ and write $e_n = x_n - r$ for the error at step $n$. Expanding $f(r)$ around the current guess $x_n$ with the exact (Lagrange) form of the error, the equality behind the bound that Lesson 44 states (the error of the tangent line equals $\frac12 f''(\xi)(r - x_n)^2$ for some $\xi$ between $x_n$ and $r$):
 $$0 = f(r) = f(x_n) + f'(x_n)(r - x_n) + \tfrac12 f''(\xi)(r - x_n)^2.$$
 Divide by $f'(x_n)$ and rearrange, using $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$:
 $$x_{n+1} - r = \frac{f''(\xi)}{2f'(x_n)}(x_n - r)^2, \qquad\text{so}\qquad e_{n+1} \approx C\,e_n^2,\quad C = \frac{f''(r)}{2f'(r)}.$$

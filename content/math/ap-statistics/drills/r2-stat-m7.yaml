@@ -93,7 +93,7 @@
     cdf: tcdf(lev, dfree)
     cover: 2*cdf - 1
     nominal: 2*normcdf(lev) - 1
-    area: (1 + nominal)/2
+    area: round(normcdf(lev), 3)
     ts: invt(area, dfree)
   prompt: |-
     An analyst with $n = {nn}$ observations from a normal population reports
@@ -102,7 +102,7 @@
     used (3 decimal places).
   answers:
     - {name: cover, label: 'True coverage', tolerance: 0.001, format: dp3}
-    - {name: ts, label: 'Correct $t^*$', tolerance: 0.002, format: dp3}
+    - {name: ts, label: 'Correct $t^*$', tolerance: 0.001, format: dp3}
   solution: |-
     With $s$ in place of $\sigma$, the standardized statistic has a t distribution with
     df $= {dfree}$. $\text{tcdf}({lev:num4}, {dfree}) \approx {cdf:num4}$, so the true coverage is
