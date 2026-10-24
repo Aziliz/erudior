@@ -9,20 +9,20 @@ refs: [de1-ref-articles]
 ---
 ## What this lesson is for
 
-In lesson 9 you learned to order in a café with *möchten* and the accusative (*Ich nehme einen Kaffee*), and in lesson 10 you bought cheese and apples at the market and paid. This honors lesson looks at the culture around those words: when Germans eat what, why the bakery matters so much, why the same bread roll has five names, and how people pay and tip. You'll also learn the politest way to order, *Ich hätte gern …*, and how to ask for another one with *noch ein*.
+In lesson 9 you ordered in a café with *möchten* and the accusative, and in lesson 10 you shopped at the market and paid. This honors lesson looks at the culture around those words: when Germans eat what, why the bread roll has five names, and how people pay and tip. You'll also learn the politest way to order, *Ich hätte gern …*, and how to ask for another one with *noch ein*.
 
 Everything here builds on grammar you already know. Descriptions of "how Germans eat" are generalizations: habits differ between families, regions and generations.
 
 ## A day of meals
 
-The picture below shows a traditional day of meals. It is simplified: many people today eat differently, but you'll meet all four ideas in German life and in German texts.
+The picture shows a traditional day of meals. It is simplified, but you'll meet all four ideas in German life and texts.
 
 ![A timeline from 6 to 21 Uhr with four meals. At about 7 Uhr, das Frühstück (morning): a cup of coffee and a roll. At about 12:30, das Mittagessen (often the warm meal): a steaming plate of food. At about 15:30, Kaffee und Kuchen (afternoon, often Sunday): a slice of cake and a cup of coffee. At about 18:30, das Abendbrot (cold, with bread): slices of bread and cheese on a board. The title says the picture is simplified.](images/de1-m3-meals.svg)
 
 - ***das Frühstück*** — breakfast. On weekdays it is often quick. On weekends many families sit down to fresh *Brötchen* with butter, jam (*die Marmelade*), honey (*der Honig*), cheese, cold meat and a boiled egg.
-- ***das Mittagessen*** — lunch. Traditionally this was the main warm meal of the day, and at school, at work in a canteen (*die Kantine*) or at home many people still eat warm at midday. At work, colleagues often greet each other at lunchtime with ***Mahlzeit!*** — literally "mealtime!" — which works as both "hello" and "enjoy your lunch".
+- ***das Mittagessen*** — lunch. Traditionally the main warm meal of the day, and many people still eat warm at midday, for example in a work canteen (*die Kantine*). At work, colleagues often greet each other at lunchtime with ***Mahlzeit!*** — literally "mealtime!" — which works as both "hello" and "enjoy your lunch".
 - ***Kaffee und Kuchen*** — coffee and cake, around three or four in the afternoon, especially on Sundays and birthdays.
-- ***das Abendbrot*** — "evening bread": a cold supper of bread, butter, cheese, cold meat and maybe a salad. The word is used mostly in northern and eastern Germany; everywhere people also say *das Abendessen*. Families where everyone works all day often eat their warm meal in the evening instead.
+- ***das Abendbrot*** — "evening bread": a cold supper of bread, butter, cheese, cold meat and maybe a salad. The word is used mostly in northern and eastern Germany; everyone also says *das Abendessen*. Many working families now eat their warm meal in the evening instead.
 
 Before a meal, people say ***Guten Appetit!*** (enjoy your meal), and the answer is *Danke, gleichfalls!* (thanks, you too). When you've had enough, say *Ich bin satt* — I'm full. Don't translate "I'm full" word for word: *Ich bin voll* can sound like "I'm drunk" in casual speech.
 
@@ -80,7 +80,7 @@ You want a coffee and a pretzel at a bakery counter. Build the sentence step by 
 3. *Brezel* is feminine (*die Brezel*); feminine doesn't change: *eine Brezel*.
 4. Join them with *und* and add *bitte*: ***Ich hätte gern einen Kaffee und eine Brezel, bitte.***
 
-The same order with *möchte* is *Ich möchte einen Kaffee und eine Brezel, bitte* — the accusative is identical because both verbs take an object.
+With *möchte* the accusative is the same: *Ich möchte einen Kaffee und eine Brezel, bitte.*
 
 ### Another one: noch ein
 
@@ -141,7 +141,7 @@ In English:
 >
 > At seven o'clock there's Abendbrot: bread, butter, cheese, sausage and a little salad. Grandma always buys the bread at the bakery by the market, never at the supermarket. In the evening we don't eat a warm meal; that's normal at Grandma's. We say "Enjoy your meal!" and eat together. At nine we drive home. Jonas is tired and full, and I'm full too.
 
-(*bei Oma* = at Grandma's; *die Torte* = gateau, a layered cream cake; *der Kakao* = hot chocolate; *noch eins* = another one, used without a noun; *in der Bäckerei am Markt* = at the bakery by the market; *nach Hause* = home. Lübeck is a city in northern Germany, so *Abendbrot* is the natural word there.)
+(*bei Oma* = at Grandma's; *die Torte* = gateau; *der Kakao* = hot chocolate; *noch eins* = another one, without a noun; *in der Bäckerei am Markt* = at the bakery by the market; *nach Hause* = home. Lübeck is in northern Germany, where *Abendbrot* is the natural word.)
 
 ## Dialogue: An der Bäckerei in München
 

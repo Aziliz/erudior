@@ -1,0 +1,80 @@
+# Round 2, module de1-m1: terms bolded in the honors lessons 04h1–04h3.
+- term: open syllable
+  aliases: [open syllables, offene Silbe]
+  definition: 'A syllable that ends in a vowel, such as the first syllable of Na-me or ha-ben. A stressed vowel in an open syllable is usually long. A syllable that ends in a consonant (Stadt, Wort) is closed, and its vowel is often short.'
+  topic: Pronunciation
+
+- term: schwa
+  aliases: [Schwa, reduced e]
+  definition: 'The weak, relaxed vowel of an unstressed e, as in bitte, Name or the ending -en; it sounds like the a in English "about". A final e in German is never silent: it is a schwa.'
+  topic: Pronunciation
+
+- term: vocalic r
+  aliases: [vocalised r, vocalized r]
+  definition: 'The r that turns into a vowel-like sound after a vowel, especially in the ending -er: Lehrer, aber, oder end in a short sound close to the u in English "but", and der, wir, hier end in a short "uh" glide. No consonant r is heard.'
+  topic: Pronunciation
+
+- term: glottal stop
+  aliases: [glottal stops, Knacklaut, Glottisschlag]
+  definition: 'A brief closing of the throat, like the break in English "uh-oh". In careful standard German of Germany, a word or word part that starts with a vowel usually begins with one: ein | Ei, Spiegel | ei, ver | eisen. It is often softer or missing in the south, Austria and Switzerland.'
+  topic: Pronunciation
+
+- term: minimal pair
+  aliases: [minimal pairs]
+  definition: 'Two words that differ in only one sound, such as bitte and bitter, Wein and Wien, or schon and schön. Practising minimal pairs trains you to hear and make the difference.'
+  topic: Pronunciation
+
+- term: loanword
+  aliases: [loanwords, loan word, loan words, borrowed word, Fremdwort, Lehnwort]
+  definition: 'A word taken from another language, such as Klavier, Information, Handy or Universität. Loanwords often keep some of their original pronunciation and stress: v sounds like English v in Klavier, and -tion is stressed in Information.'
+  topic: Pronunciation
+
+- term: intonation
+  aliases: [sentence melody, Satzmelodie, Intonation]
+  definition: 'The rise and fall of the voice across a sentence. In German, statements and W-questions usually fall at the end (Wo wohnst du?), and yes/no questions usually rise (Wohnst du in Berlin?).'
+  topic: Pronunciation
+
+- term: spelling reform
+  aliases: [Rechtschreibreform, 1996 spelling reform]
+  definition: 'The reform of German spelling agreed in 1996 by Germany, Austria and Switzerland, taught in schools from 1998 and revised in 2004 and 2006. Its best-known rule: ss after a short vowel (dass, Fluss, muss; formerly daß, Fluß, muß) and ß after a long vowel or diphthong (Straße, heißen).'
+  topic: Spelling
+
+- term: official language
+  aliases: [official languages, Amtssprache]
+  definition: 'A language a state uses for its laws, offices and schools. German is an official language in Germany, Austria, Switzerland, Liechtenstein, Luxembourg and Belgium, and in South Tyrol in Italy.'
+  topic: German-speaking countries
+
+- term: standard German
+  aliases: [Standard German, Hochdeutsch, Standarddeutsch, High German]
+  definition: 'The form of German used in writing, schools, news and between people from different regions, and the form you learn in this course. Its German name Hochdeutsch ("High German") refers to the higher-lying middle and south of the German-speaking area, not to quality.'
+  topic: German-speaking countries
+
+- term: dialect
+  aliases: [dialects, Dialekt, Mundart]
+  definition: 'A regional form of a language with its own sounds, words and some grammar, such as Bavarian, Swabian or Low German (Plattdeutsch). Many German speakers use a dialect at home and standard German at work or with people from elsewhere.'
+  topic: German-speaking countries
+
+- term: Swiss German
+  aliases: [Schweizerdeutsch, Schwyzerdütsch]
+  definition: 'The family of German dialects spoken in everyday life by German-speaking Swiss people of every background. In writing, at school and in the news they use Swiss Standard German, which learners also speak in Switzerland.'
+  topic: German-speaking countries
+
+- term: pluricentric language
+  aliases: [pluricentric, plurizentrische Sprache]
+  definition: 'A language with more than one standard form. German has standards in Germany, Austria and Switzerland that differ in some words (Januar / Jänner, Fahrrad / Velo), spellings (Straße / Strasse) and sounds. All of them are correct where they are used.'
+  topic: German-speaking countries
+
+- term: cardinal number
+  aliases: [cardinal numbers, Kardinalzahl, counting number]
+  definition: 'A number used for counting: eins, zwei, drei, zwanzig. Compare the ordinal numbers (erste, zweite) used for dates and order.'
+  topic: Numbers
+
+- term: number noun
+  aliases: [number nouns, Zahlsubstantiv]
+  definition: 'A number used as a noun to name a digit, a school grade or a bus line. It is capitalized and always feminine: die Eins, eine Fünf, die Sieben. Ich habe eine Eins in Mathe means I got the top grade (in Germany) in maths.'
+  topic: Numbers
+
+- term: decimal comma
+  aliases: [Dezimalkomma]
+  definition: 'The comma German uses where English uses a decimal point: 2,5 is two point five, said zwei Komma fünf. A point (or a small space) separates thousands: 1.000.'
+  topic: Numbers

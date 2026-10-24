@@ -1,0 +1,552 @@
+# Round 2, honors module phys-h2 (Honors: Maxwell, relativity and quanta): lessons 90-93.
+# --- Lesson 90: Maxwell's equations in differential form ---
+- id: phys-h2-r2-h01
+  lesson: phys-h2-maxwell
+  module_quiz: true
+  topic: Maxwell's equations
+  stem: 'Which equation is Gauss''s law written at a single point?'
+  choices: ['$\nabla\times\vec E = \rho/\varepsilon_0$', '$\nabla\cdot\vec B = \rho/\varepsilon_0$', '$\nabla\cdot\vec E = \rho/\varepsilon_0$', '$\nabla\cdot\vec E = 0$ everywhere']
+  answer: 2
+  explanation: |-
+    The divergence theorem turns $\oint\vec E\cdot d\vec A = Q_{\text{enc}}/\varepsilon_0$ into $\nabla\cdot\vec E = \rho/\varepsilon_0$: field lines spread out from charge density. The curl of $\vec E$ is set by a changing magnetic field (Faraday), $\nabla\cdot\vec B$ is always zero, and $\nabla\cdot\vec E = 0$ holds only where there is no charge.
+- id: phys-h2-r2-h02
+  lesson: phys-h2-maxwell
+  topic: Maxwell's equations
+  stem: 'In a region the electric field is $\vec E = (2.0\times10^4\text{ V/m}^2)(x\,\hat\imath + y\,\hat\jmath + z\,\hat k)$. What is the charge density there?'
+  choices: ['$1.77\times10^{-7}$ C/m³', '$5.31\times10^{-7}$ C/m³', '$6.0\times10^4$ C/m³', '$6.8\times10^{15}$ C/m³']
+  answer: 1
+  explanation: |-
+    $\nabla\cdot\vec E = 3(2.0\times10^4) = 6.0\times10^4$ V/m² (one term from each coordinate), so $\rho = \varepsilon_0\nabla\cdot\vec E = (8.85\times10^{-12})(6.0\times10^4) = 5.31\times10^{-7}$ C/m³. $1.77\times10^{-7}$ counts only one of the three terms; $6.0\times10^4$ forgets $\varepsilon_0$; $6.8\times10^{15}$ divides by $\varepsilon_0$ instead of multiplying.
+- id: phys-h2-r2-h03
+  lesson: phys-h2-maxwell
+  module_quiz: true
+  topic: Maxwell's equations
+  stem: 'Why can Ampère''s original law, $\nabla\times\vec B = \mu_0\vec J$, not be correct when currents change?'
+  choices: ['It predicts magnetic monopoles', 'It gives the wrong field around a long straight wire', 'It contradicts Faraday''s law', 'It forces $\nabla\cdot\vec J = 0$, so charge could never build up anywhere']
+  answer: 3
+  explanation: |-
+    The divergence of any curl is zero, so the law requires $\nabla\cdot\vec J = 0$. By the continuity equation $\nabla\cdot\vec J + \partial\rho/\partial t = 0$, that would mean $\partial\rho/\partial t = 0$ everywhere, which a charging capacitor contradicts. Adding $\mu_0\varepsilon_0\,\partial\vec E/\partial t$ fixes it. The law is correct for steady currents such as a long straight wire, and it says nothing about monopoles or Faraday's law.
+- id: phys-h2-r2-h04
+  lesson: phys-h2-maxwell
+  topic: Maxwell's equations
+  stem: 'A capacitor with circular plates of radius 4.0 cm is charged by a steady 3.0 A current. Ignoring edge effects, what is the magnetic field in the gap 2.0 cm from the axis?'
+  choices: ['Zero, since no current crosses the gap', '$3.0\times10^{-5}$ T', '$1.5\times10^{-5}$ T', '$7.5\times10^{-6}$ T']
+  answer: 3
+  explanation: |-
+    The Ampère–Maxwell law on a circle of radius $r$ in the gap gives $B(2\pi r) = \mu_0\varepsilon_0\pi r^2\,dE/dt$ with $dE/dt = I/(\varepsilon_0\pi R^2)$, so $B = \dfrac{\mu_0Ir}{2\pi R^2} = \dfrac{(4\pi\times10^{-7})(3.0)(0.020)}{2\pi(0.040)^2} = 7.5\times10^{-6}$ T. $3.0\times10^{-5}$ T uses the wire formula at 2.0 cm, $1.5\times10^{-5}$ T is the value at the rim, and zero ignores the displacement current.
+- id: phys-h2-r2-h05
+  lesson: phys-h2-maxwell
+  topic: Maxwell's equations
+  stem: 'A plane wave in vacuum has $\vec E = E_0\sin(ky - \omega t)\,\hat k$, traveling along $+y$. Along which direction does its magnetic field point when $\sin(ky - \omega t) > 0$?'
+  choices: ['$+x$', '$-x$', '$+y$', '$+z$']
+  answer: 0
+  explanation: |-
+    The fields are perpendicular to each other and to the travel direction, and $\vec E\times\vec B$ points along the travel direction. With $\vec E$ along $+z$, $\hat k\times\hat\imath = \hat\jmath$, so $\vec B$ is along $+x$ (in phase with $\vec E$). $-x$ would send the wave along $-y$; $+y$ is the travel direction (a wave in vacuum is transverse); $+z$ is parallel to $\vec E$.
+- id: phys-h2-r2-h06
+  lesson: phys-h2-maxwell
+  module_quiz: true
+  topic: Maxwell's equations
+  stem: 'An electromagnetic wave in vacuum has an electric field amplitude of 300 V/m. What is its magnetic field amplitude?'
+  choices: ['$3.8\times10^{-4}$ T', '$1.0\times10^{-6}$ T', '$9.0\times10^{10}$ T', '$3.3\times10^{-15}$ T']
+  answer: 1
+  explanation: |-
+    Faraday's law applied to a plane wave gives $B_0 = E_0/c = 300/(3.00\times10^8) = 1.0\times10^{-6}$ T. $9.0\times10^{10}$ T multiplies by $c$, $3.3\times10^{-15}$ T divides by $c^2$, and $3.8\times10^{-4}$ T multiplies by $\mu_0$.
+- id: phys-h2-r2-h07
+  lesson: phys-h2-maxwell
+  topic: Maxwell's equations
+  stem: 'Which of Maxwell''s equations shows directly that a plane electromagnetic wave in vacuum has no oscillating field component along its direction of travel?'
+  choices: ['Faraday''s law', 'Gauss''s law with no charge, $\nabla\cdot\vec E = 0$', 'The continuity equation', 'The Ampère–Maxwell law with $\vec J = \vec 0$']
+  answer: 1
+  explanation: |-
+    For a wave traveling along $x$ the fields depend only on $x$ and $t$, so $\nabla\cdot\vec E = \partial E_x/\partial x = 0$: $E_x$ cannot oscillate along the travel direction (and $\nabla\cdot\vec B = 0$ does the same for $\vec B$). Faraday's and the Ampère–Maxwell law link the two fields and fix $E = cB$; the continuity equation is about charge.
+- id: phys-h2-r2-h08
+  lesson: phys-h2-maxwell
+  topic: Maxwell's equations
+  stem: 'In a region the electric field is a uniform 500 V/m along $+x$. What does that tell you about the charge in the region?'
+  choices: ['There is positive charge density proportional to 500 V/m', 'There is no charge density in the region', 'There is negative charge density, since the field points away', 'Nothing, since the divergence of a field cannot be found from its value']
+  answer: 1
+  explanation: |-
+    A uniform field has every partial derivative equal to zero, so $\nabla\cdot\vec E = 0$ and $\rho = \varepsilon_0\nabla\cdot\vec E = 0$. The charges that make the field (for example on capacitor plates) lie outside the region. Divergence depends on how the field changes from point to point, not on how strong it is.
+- id: phys-h2-r2-h09
+  lesson: phys-h2-maxwell
+  module_quiz: true
+  topic: Maxwell's equations
+  stem: 'Which follow from Maxwell''s equations in empty space? Select all that apply.'
+  choices: ['Electromagnetic waves travel at $1/\sqrt{\mu_0\varepsilon_0}$', 'The waves are transverse', 'In a plane wave $E = cB$, with $\vec E$ perpendicular to $\vec B$', 'Higher-frequency waves travel faster', 'The waves need a material medium to travel through']
+  answer: [0, 1, 2]
+  explanation: |-
+    Combining Faraday's law and the Ampère–Maxwell law with $\nabla\cdot\vec E = 0$ gives a wave equation with speed $1/\sqrt{\mu_0\varepsilon_0} = c$ for every frequency, so the speed does not depend on frequency. Gauss's laws make the waves transverse, and Faraday's law gives $E = cB$ with perpendicular fields. The equations hold in empty space, so no medium is needed.
+- id: phys-h2-r2-h10
+  lesson: phys-h2-maxwell
+  type: text
+  topic: Maxwell's equations
+  stem: 'The term $\mu_0\varepsilon_0\,\partial\vec E/\partial t$ that Maxwell added to Ampère''s law comes from the ___ current.'
+  accept: [displacement, displacement current]
+  explanation: |-
+    $\varepsilon_0\,\partial\vec E/\partial t$ is the displacement current density. It acts like a current in the magnetic law (for example between capacitor plates) and makes the equations consistent with charge conservation.
+- id: phys-h2-r2-h11
+  lesson: phys-h2-maxwell
+  type: text
+  topic: Maxwell's equations
+  stem: 'A field is $\vec E = (5.0\,x\,\hat\imath + 3.0\,y\,\hat\jmath + 2.0\,z\,\hat k)\times10^3$ V/m² (with $x, y, z$ in meters). The charge density is ___ $\times10^{-8}$ C/m³. Give only the number.'
+  accept: ['8.85', '8.9', '8.8']
+  explanation: |-
+    $\nabla\cdot\vec E = (5.0 + 3.0 + 2.0)\times10^3 = 1.0\times10^4$ V/m², so $\rho = \varepsilon_0\nabla\cdot\vec E = (8.85\times10^{-12})(1.0\times10^4) = 8.85\times10^{-8}$ C/m³ (8.9 to two significant figures).
+- id: phys-h2-r2-h12
+  lesson: phys-h2-maxwell
+  type: match
+  topic: Maxwell's equations
+  stem: 'Match each equation to what it expresses.'
+  pairs:
+    - ['$\nabla\cdot\vec E = \rho/\varepsilon_0$', Electric field lines start and end on charge]
+    - ['$\nabla\cdot\vec B = 0$', No magnetic monopoles]
+    - ['$\nabla\times\vec E = -\partial\vec B/\partial t$', A changing magnetic field makes a curling electric field]
+    - ['$\nabla\times\vec B = \mu_0\vec J + \mu_0\varepsilon_0\,\partial\vec E/\partial t$', Currents and changing electric fields make a curling magnetic field]
+    - ['$\nabla\cdot\vec J + \partial\rho/\partial t = 0$', Charge is conserved locally]
+  distractors: [Current is proportional to voltage]
+  explanation: |-
+    The four Maxwell equations are Gauss's law, Gauss's law for magnetism (no monopoles), Faraday's law and the Ampère–Maxwell law; the fifth line is the continuity equation, which the full equations imply. "Current is proportional to voltage" is Ohm's law, a property of materials, not one of these.
+- id: phys-h2-r2-h13
+  lesson: phys-h2-maxwell
+  type: order
+  topic: Maxwell's equations
+  stem: 'Put the steps for finding the magnetic field between the plates of a charging circular capacitor (radius $R$, current $I$) in order.'
+  items:
+    - 'Write the field between the plates: $E = Q/(\varepsilon_0\pi R^2)$'
+    - 'Differentiate: $dE/dt = I/(\varepsilon_0\pi R^2)$'
+    - 'Apply the Ampère–Maxwell law on a circle of radius $r$: $B(2\pi r) = \mu_0\varepsilon_0\pi r^2\,dE/dt$'
+    - 'Solve: $B = \mu_0Ir/(2\pi R^2)$'
+  explanation: |-
+    Each step uses the result of the one before: the field gives its rate of change, the rate of change is the only "current" through a circle in the gap, and solving gives $B$. At $r = R$ this matches the wire's field $\mu_0I/(2\pi R)$.
+- id: phys-h2-r2-h14
+  lesson: phys-h2-maxwell
+  module_quiz: true
+  type: label
+  topic: Maxwell's equations
+  stem: 'The picture shows a capacitor being charged. Name the numbered parts.'
+  image: {src: images/phys-h2-capacitor-gap-blank.svg, alt: 'Two parallel plates seen edge-on with wires on each side; arrows point right along the wires and across the gap, and a dashed loop circles the axis in the gap. Four parts are numbered.'}
+  labels:
+    - {x: 20.8, y: 46.1, text: Conduction current in the wire}
+    - {x: 42.3, y: 78.9, text: Capacitor plate}
+    - {x: 50, y: 25, text: Growing electric field}
+    - {x: 50, y: 68.9, text: Magnetic field line}
+  distractors: [Current of charges crossing the gap, Electric field line around the axis]
+  explanation: |-
+    Current flows in the wires and stops at the plates; no charge crosses the gap. Between the plates the electric field grows as charge builds up, and that changing field (the displacement current) makes a magnetic field that circles the axis, just as the current in the wire does.
+# --- Lesson 91: electric and magnetic fields in relativity ---
+- id: phys-h2-r2-h15
+  lesson: phys-h2-fields-relativity
+  module_quiz: true
+  topic: Fields and relativity
+  stem: 'In the lab, a charge moving parallel to a neutral current-carrying wire feels a magnetic force. What pushes it in its own rest frame?'
+  choices: ['Nothing; the force vanishes because the charge is at rest', 'A magnetic force, since the current is the same in every frame', 'Its own electric field, reflected by the wire', 'An electric force, because the wire has a net charge in that frame']
+  answer: 3
+  explanation: |-
+    In the charge's frame the ions and electrons move at different speeds than in the lab, so length contraction changes their densities by different amounts and the wire is no longer neutral. Its electric field pushes the charge, which is now at rest and so feels no magnetic force. The motion cannot depend on the frame, so the force cannot simply vanish.
+- id: phys-h2-r2-h16
+  lesson: phys-h2-fields-relativity
+  topic: Fields and relativity
+  stem: 'A row of charges at rest has a line charge density of 2.0 nC/m. What density do observers measure when the row moves along its length at $0.60c$?'
+  choices: ['1.6 nC/m', '2.0 nC/m', '2.5 nC/m', '3.1 nC/m']
+  answer: 2
+  explanation: |-
+    $\gamma = 1/\sqrt{1 - 0.36} = 1.25$. Charge is invariant, but the spacing contracts by $\gamma$, so $\lambda = \gamma\lambda_0 = 2.5$ nC/m. 1.6 nC/m divides by $\gamma$, 2.0 nC/m ignores contraction, and 3.1 nC/m uses $\gamma^2$.
+- id: phys-h2-r2-h17
+  lesson: phys-h2-fields-relativity
+  module_quiz: true
+  topic: Fields and relativity
+  stem: 'A proton moves at $3.0\times10^6$ m/s parallel to a wire carrying 20 A, in the direction of the current. In the proton''s frame, what is the size of the wire''s net line charge density? (Take $\gamma = 1$.)'
+  choices: ['Zero; a neutral wire is neutral in every frame', '$6.7\times10^{-10}$ C/m', '0.20 C/m', '$6.0\times10^7$ C/m']
+  answer: 1
+  explanation: |-
+    The net density is $\gamma vI/c^2 = (3.0\times10^6)(20)/(3.00\times10^8)^2 = 6.7\times10^{-10}$ C/m (negative, so the proton is attracted, as parallel currents attract). 0.20 C/m divides by $c$ only once and $6.0\times10^7$ forgets $c^2$ entirely. Neutrality is not invariant: the ions and electrons contract differently.
+- id: phys-h2-r2-h18
+  lesson: phys-h2-fields-relativity
+  topic: Fields and relativity
+  stem: 'A lab has a uniform magnetic field of 0.50 T along $+z$ and no electric field. What electric field does an observer moving at $4.0\times10^6$ m/s along $+x$ measure ($\gamma \approx 1$)?'
+  choices: ['$2.0\times10^6$ V/m along $+y$', '$2.0\times10^6$ V/m along $-y$', '$8.0\times10^6$ V/m along $-y$', 'None; a magnetic field cannot produce an electric field']
+  answer: 1
+  explanation: |-
+    $E'_y = \gamma(E_y - vB_z) = -(4.0\times10^6)(0.50) = -2.0\times10^6$ V/m. Check: a charge at rest in the moving frame moves at $+v$ in the lab and feels $q\vec v\times\vec B$, with $\hat\imath\times\hat k = -\hat\jmath$. $+y$ has the sign wrong, and $8.0\times10^6$ divides $v$ by $B$ instead of multiplying.
+- id: phys-h2-r2-h19
+  lesson: phys-h2-fields-relativity
+  module_quiz: true
+  topic: Fields and relativity
+  stem: 'In one frame, $\vec E = (2.0\times10^5\text{ V/m})\,\hat\imath$ and $\vec B = (1.0\times10^{-3}\text{ T})\,\hat\imath$. Can any inertial observer see a purely magnetic field?'
+  choices: ['Yes, an observer moving along $x$ at $E/B$', 'Yes, because $E < cB$', 'No, because $\vec E\cdot\vec B \ne 0$ in every frame', 'No, because magnetic fields are never seen alone']
+  answer: 2
+  explanation: |-
+    $\vec E\cdot\vec B = (2.0\times10^5)(1.0\times10^{-3}) = 200$ V·T/m is invariant. A purely magnetic field would have $\vec E\cdot\vec B = 0$, so no frame has one. Comparing $E$ with $cB$ only decides the question when $\vec E\cdot\vec B = 0$, and a boost along $x$ leaves both $x$ components unchanged anyway. Pure magnetic fields do occur, for example around a magnet at rest.
+- id: phys-h2-r2-h20
+  lesson: phys-h2-fields-relativity
+  topic: Fields and relativity
+  stem: 'A velocity selector has $\vec E = (6.0\times10^4\text{ V/m})\,\hat\jmath$ and $\vec B = (4.0\times10^{-3}\text{ T})\,\hat k$. In which frame is there no electric field?'
+  choices: ['One moving at $1.5\times10^7$ m/s along $+x$', 'One moving at $1.5\times10^7$ m/s along $-x$', 'One moving at $6.7\times10^{-8}$ m/s along $+x$', 'One moving at $2.4\times10^2$ m/s along $+x$']
+  answer: 0
+  explanation: |-
+    $E'_y = \gamma(E_y - vB_z) = 0$ gives $v = E/B = 6.0\times10^4/4.0\times10^{-3} = 1.5\times10^7$ m/s along $+x$, the direction of $\vec E\times\vec B$ ($\hat\jmath\times\hat k = \hat\imath$). Along $-x$ doubles $E'_y$ instead; $6.7\times10^{-8}$ is $B/E$ and $2.4\times10^2$ is $EB$.
+- id: phys-h2-r2-h21
+  lesson: phys-h2-fields-relativity
+  topic: Fields and relativity
+  stem: 'In the lab there is a pure electric field of $3.0\times10^4$ V/m and no magnetic field. Which of these could some other inertial observer measure?'
+  choices: ['A pure magnetic field of $1.0\times10^{-4}$ T', 'No fields at all', 'An electric field of $3.0\times10^4$ V/m and a magnetic field parallel to it', 'A stronger electric field together with a perpendicular magnetic field']
+  answer: 3
+  explanation: |-
+    Both invariants must keep their lab values: $\vec E\cdot\vec B = 0$ and $E^2 - c^2B^2 = (3.0\times10^4)^2 > 0$. A boost perpendicular to $\vec E$ gives $E' = \gamma E$ with a perpendicular $\vec B'$, keeping $E'^2 - c^2B'^2$ fixed. A pure magnetic field or no field would make $E^2 - c^2B^2 \le 0$, and parallel fields would make $\vec E\cdot\vec B \ne 0$.
+- id: phys-h2-r2-h22
+  lesson: phys-h2-fields-relativity
+  topic: Fields and relativity
+  stem: 'A charge moves at constant velocity $0.60c$. At a given distance straight ahead of it, how does its electric field compare with the Coulomb field of the same charge at rest?'
+  choices: ['0.64 times', '0.80 times', '1.25 times', '1.56 times']
+  answer: 0
+  explanation: |-
+    $\gamma = 1.25$. Along the line of motion the field is weakened by $1/\gamma^2 = 1 - v^2/c^2 = 0.64$; at the sides it is strengthened by $\gamma = 1.25$. 0.80 is $1/\gamma$ and 1.56 is $\gamma^2$.
+- id: phys-h2-r2-h23
+  lesson: phys-h2-fields-relativity
+  topic: Fields and relativity
+  stem: 'In the wire example, the electric force in the moving charge''s frame is $\gamma$ times the magnetic force in the lab. Why is this not a contradiction?'
+  choices: ['The charge is different in the two frames', 'The same sideways momentum is delivered in both frames, but the charge''s clock runs slow in the lab, so the lab force is smaller', 'The factor $\gamma$ is always so close to 1 that it can be ignored', 'The magnetic force does no work, so it can have any size']
+  answer: 1
+  explanation: |-
+    A sideways push changes the sideways momentum by the same amount in both frames, but the time over which it acts is longer by $\gamma$ in the lab, where the charge moves. So the lab force is smaller by $\gamma$ and both frames predict the same motion. Charge is invariant; $\gamma$ is not always near 1; and the size of the force matters, whatever its work.
+- id: phys-h2-r2-h24
+  lesson: phys-h2-fields-relativity
+  module_quiz: true
+  topic: Fields and relativity
+  stem: 'Which quantities are the same for all inertial observers? Select all that apply.'
+  choices: ['$\vec E\cdot\vec B$', '$E^2 - c^2B^2$', 'The total charge of a particle', 'The magnitude of the electric field', 'The line charge density of a row of charges']
+  answer: [0, 1, 2]
+  explanation: |-
+    $\vec E\cdot\vec B$ and $E^2 - c^2B^2$ are the field invariants, and charge is invariant. The size of $\vec E$ changes when perpendicular components mix with $\vec B$, and a line charge density changes by $\gamma$ through length contraction.
+- id: phys-h2-r2-h25
+  lesson: phys-h2-fields-relativity
+  type: text
+  topic: Fields and relativity
+  stem: 'Crossed fields $E = 4.5\times10^4$ V/m and $B = 3.0\times10^{-3}$ T (perpendicular) become a purely magnetic field in a frame moving at ___ $\times10^7$ m/s. Give only the number.'
+  accept: ['1.5']
+  explanation: |-
+    Setting $E'_\perp = \gamma(E - vB) = 0$ gives $v = E/B = 4.5\times10^4/3.0\times10^{-3} = 1.5\times10^7$ m/s. It exists because $E < cB = 9.0\times10^5$ V/m.
+- id: phys-h2-r2-h26
+  lesson: phys-h2-fields-relativity
+  type: text
+  topic: Fields and relativity
+  stem: 'In the lab, $E_x = 250$ V/m. An observer moves along $+x$ at $0.80c$. The $x$ component of the electric field that observer measures is ___ V/m. Give only the number.'
+  accept: ['250']
+  explanation: |-
+    Field components along the direction of the relative motion do not change: $E'_x = E_x = 250$ V/m. Only the perpendicular components mix with $\vec B$ and pick up factors of $\gamma$.
+- id: phys-h2-r2-h27
+  lesson: phys-h2-fields-relativity
+  type: match
+  topic: Fields and relativity
+  stem: 'For two observers in relative motion along $x$, match each quantity to how it compares between them.'
+  pairs:
+    - [Total charge of a particle, Same in every inertial frame]
+    - ['$\vec E\cdot\vec B$', Same in every inertial frame]
+    - [Density of a row of charges that is at rest for one observer, Larger by a factor gamma for the other]
+    - ['$E_y$', Mixes with B_z]
+  distractors: [Smaller by a factor gamma for the other, Mixes with E_x]
+  explanation: |-
+    Charge and the invariant $\vec E\cdot\vec B$ are the same for everyone. A row of charges is least dense in its own rest frame; the other observer sees its spacing contracted, so its density is larger by $\gamma$. $E'_y = \gamma(E_y - vB_z)$ mixes with $B_z$, while $E_x$ is unchanged and mixes with nothing.
+- id: phys-h2-r2-h28
+  lesson: phys-h2-fields-relativity
+  type: order
+  topic: Fields and relativity
+  stem: 'A charge moves at constant velocity $0.80c$. Order these electric field strengths, all at the same distance from the charge''s present position, from weakest to strongest.'
+  items:
+    - Straight ahead of the moving charge
+    - The Coulomb field of the same charge at rest
+    - To the side of the moving charge
+  explanation: |-
+    With $\gamma = 5/3$, the field straight ahead is $1/\gamma^2 = 0.36$ times the Coulomb value and the field at the side is $\gamma = 1.67$ times it: the field is squeezed into a pancake perpendicular to the motion.
+- id: phys-h2-r2-h29
+  lesson: phys-h2-fields-relativity
+  module_quiz: true
+  type: label
+  topic: Fields and relativity
+  stem: 'The top panel shows a wire and a positive charge in the lab; the bottom panel shows the same situation in the charge''s rest frame. Name the numbered parts.'
+  image: {src: images/phys-h2-wire-frames-blank.svg, alt: 'Two panels each showing a wire with plus and minus charges and a positive charge above it with an upward arrow. In the bottom panel the plus charges are closer together and the minus charges farther apart. Five parts are numbered.'}
+  labels:
+    - {x: 24.3, y: 83, text: Positive ions moving and crowded together}
+    - {x: 38.7, y: 87.4, text: Electrons at rest and spread apart}
+    - {x: 50, y: 70.9, text: Test charge at rest}
+    - {x: 50, y: 62, text: Electric force away from the wire}
+    - {x: 33.3, y: 20.9, text: Magnetic field into the page}
+  distractors: [Electrons crowded together, Magnetic force toward the wire]
+  explanation: |-
+    In the charge's frame the electrons (moving with the charge in the lab) are at rest, so their spacing expands, while the ions move backward and their spacing contracts. The wire is positive, and the charge, now at rest, is pushed away by an electric force. In the lab the wire is neutral, the charge moves, and the current's magnetic field (into the page above the wire) pushes it away too.
+# --- Lesson 92: radiation from accelerating charges ---
+- id: phys-h2-r2-h30
+  lesson: phys-h2-radiation
+  module_quiz: true
+  topic: Radiation from accelerating charges
+  stem: 'Which of these charges radiates electromagnetic waves?'
+  choices: ['A charged sphere at rest', 'A proton moving in a straight line at constant speed', 'An electron moving at $0.99c$ in a straight line at constant speed', 'An electron moving in a circle at constant speed']
+  answer: 3
+  explanation: |-
+    Only accelerated charges radiate, and moving in a circle is accelerated motion (the velocity changes direction). A charge at rest or in uniform motion, however fast, just carries its field along; by relativity, uniform motion is equivalent to rest.
+- id: phys-h2-r2-h31
+  lesson: phys-h2-radiation
+  topic: Radiation from accelerating charges
+  stem: 'How does the radiation electric field of an accelerated charge depend on the distance $r$ from it?'
+  choices: ['As $1/r$', 'As $1/r^2$', 'As $1/r^3$', 'It does not depend on $r$']
+  answer: 0
+  explanation: |-
+    $E_{\text{rad}} = qa\sin\theta/(4\pi\varepsilon_0c^2r)$ falls as $1/r$, so the intensity falls as $1/r^2$ and the power through any sphere is the same: the energy really escapes. $1/r^2$ is the Coulomb field, which loses to the radiation field far away.
+- id: phys-h2-r2-h32
+  lesson: phys-h2-radiation
+  topic: Radiation from accelerating charges
+  stem: 'Electrons in a vertical radio antenna oscillate up and down. Where does the antenna send no signal?'
+  choices: ['Horizontally, in every direction', 'Straight up, along the antenna', 'At $45^\circ$ above the horizontal', 'Nowhere; it radiates equally in all directions']
+  answer: 1
+  explanation: |-
+    The radiated intensity goes as $\sin^2\theta$, where $\theta$ is measured from the acceleration. Along the antenna ($\theta = 0$) it is zero; horizontally ($\theta = 90^\circ$) it is strongest; at $45^\circ$ it is half the maximum.
+- id: phys-h2-r2-h33
+  lesson: phys-h2-radiation
+  module_quiz: true
+  topic: Radiation from accelerating charges
+  stem: 'At a fixed distance from an accelerating charge, what is the intensity at $30^\circ$ from the direction of acceleration, as a fraction of the maximum intensity?'
+  choices: ['0.87', '0.75', '0.50', '0.25']
+  answer: 3
+  explanation: |-
+    Intensity is proportional to $\sin^2\theta$, which is largest (1) at $90^\circ$. At $30^\circ$, $\sin^2 30^\circ = 0.25$. 0.50 forgets to square, and 0.75 and 0.87 use cosine (measuring from the perpendicular).
+- id: phys-h2-r2-h34
+  lesson: phys-h2-radiation
+  topic: Radiation from accelerating charges
+  stem: 'An electron has an acceleration of $1.0\times10^{18}$ m/s². How much power does it radiate?'
+  choices: ['$5.7\times10^{-36}$ W', '$5.7\times10^{-18}$ W', '$8.5\times10^{-18}$ W', '$1.7\times10^{-9}$ W']
+  answer: 1
+  explanation: |-
+    Larmor: $P = \dfrac{e^2a^2}{6\pi\varepsilon_0c^3} = \dfrac{(1.602\times10^{-19})^2(1.0\times10^{18})^2}{6\pi(8.85\times10^{-12})(3.00\times10^8)^3} = 5.7\times10^{-18}$ W. $8.5\times10^{-18}$ uses $4\pi$ in place of $6\pi$, $5.7\times10^{-36}$ forgets to square $a$, and $1.7\times10^{-9}$ uses $c^2$ in place of $c^3$.
+- id: phys-h2-r2-h35
+  lesson: phys-h2-radiation
+  topic: Radiation from accelerating charges
+  stem: 'In the simple model of Rayleigh scattering, how much more strongly do air molecules scatter 400 nm light than 600 nm light?'
+  choices: ['1.5 times', '2.25 times', '3.4 times', '5.1 times']
+  answer: 3
+  explanation: |-
+    Scattered power goes as $1/\lambda^4$ (acceleration grows as $f^2$, power as $a^2$), so the ratio is $(600/400)^4 = 5.06$. 1.5 is the wavelength ratio itself, 2.25 its square and 3.4 its cube.
+- id: phys-h2-r2-h36
+  lesson: phys-h2-radiation
+  module_quiz: true
+  topic: Radiation from accelerating charges
+  stem: 'What does classical electromagnetism predict for an electron orbiting a proton?'
+  choices: ['It spirals into the proton in about $10^{-11}$ s, radiating a continuous spectrum', 'It orbits forever, radiating sharp spectral lines', 'It spirals in over about a billion years', 'It radiates only when it jumps between allowed orbits']
+  answer: 0
+  explanation: |-
+    The orbiting electron accelerates, so by the Larmor formula it radiates, loses energy and spirals in; the calculation gives about $1.6\times10^{-11}$ s, with a frequency that rises continuously. Stable orbits and jumps between allowed orbits are Bohr's quantum postulates, which contradict classical theory.
+- id: phys-h2-r2-h37
+  lesson: phys-h2-radiation
+  topic: Radiation from accelerating charges
+  stem: 'The classical collapse time of an orbit is $t = r_0^3/(4r_e^2c)$. By what factor would it change if the starting radius were doubled?'
+  choices: ['2', '4', '8', '16']
+  answer: 2
+  explanation: |-
+    $t$ is proportional to $r_0^3$, so doubling $r_0$ multiplies it by $2^3 = 8$. Larger orbits have smaller accelerations ($a \propto 1/r^2$), radiate much less, and take longer to decay.
+- id: phys-h2-r2-h38
+  lesson: phys-h2-radiation
+  topic: Radiation from accelerating charges
+  stem: 'In hydrogen, what is the ratio of the frequency of the photon emitted in the jump from $n = 10$ to $n = 9$ to the classical orbital frequency in orbit $n = 10$?'
+  choices: ['Exactly 1', 'About 1.17', 'About 3.0', 'About 0.85']
+  answer: 1
+  explanation: |-
+    The ratio is $\dfrac{n(2n - 1)}{2(n - 1)^2} = \dfrac{10(19)}{2(81)} = 1.17$. It approaches 1 only as $n$ grows (the correspondence principle); 3.0 is the value for $n = 2$, and 0.85 is the ratio upside down.
+- id: phys-h2-r2-h39
+  lesson: phys-h2-radiation
+  module_quiz: true
+  topic: Radiation from accelerating charges
+  stem: 'Which of these involve radiation from accelerating charges? Select all that apply.'
+  choices: ['The continuous X-ray spectrum from electrons stopping in a metal target', 'Synchrotron light from electrons circling in a storage ring', 'Sunlight scattered by air molecules', 'The steady magnetic field around a wire carrying constant current', 'The electric field of a charge moving at constant velocity']
+  answer: [0, 1, 2]
+  explanation: |-
+    Bremsstrahlung comes from electrons decelerating, synchrotron light from electrons accelerated sideways in magnets, and scattered skylight from molecular electrons driven back and forth by sunlight. A constant current produces a static field, and a uniformly moving charge's field moves with it without radiating.
+- id: phys-h2-r2-h40
+  lesson: phys-h2-radiation
+  type: text
+  topic: Radiation from accelerating charges
+  stem: 'If the acceleration of a slow charge is tripled, the power it radiates is multiplied by ___. Give only the number.'
+  accept: ['9']
+  explanation: |-
+    The Larmor formula $P = q^2a^2/(6\pi\varepsilon_0c^3)$ depends on $a^2$, so tripling $a$ multiplies $P$ by $3^2 = 9$.
+- id: phys-h2-r2-h41
+  lesson: phys-h2-radiation
+  type: text
+  topic: Radiation from accelerating charges
+  stem: 'Bohr''s ___ principle says quantum predictions must agree with classical physics in the limit of large quantum numbers.'
+  accept: [correspondence]
+  explanation: |-
+    The correspondence principle. For hydrogen, the frequency of the photon from $n$ to $n - 1$ approaches the classical orbital frequency as $n$ grows.
+- id: phys-h2-r2-h42
+  lesson: phys-h2-radiation
+  type: match
+  topic: Radiation from accelerating charges
+  stem: 'Match each source of radiation to the accelerating charges behind it.'
+  pairs:
+    - [Radio antenna, Electrons driven back and forth along a conductor]
+    - [Continuous X-rays from an X-ray tube, Electrons decelerating in a metal target]
+    - [Synchrotron radiation, Charges moving in circles in a magnetic field]
+    - [Blue sky, Electrons in air molecules driven by sunlight]
+  distractors: [Charges moving at constant velocity]
+  explanation: |-
+    Every source is an acceleration: oscillation in an antenna, braking (bremsstrahlung) in an X-ray tube, sideways (centripetal) acceleration in a synchrotron, and driven oscillation in Rayleigh scattering. Charges at constant velocity do not radiate.
+- id: phys-h2-r2-h43
+  lesson: phys-h2-radiation
+  type: order
+  topic: Radiation from accelerating charges
+  stem: 'Put the steps of the classical collapse-time calculation for hydrogen in order.'
+  items:
+    - 'Write the orbit''s energy: $E = -ke^2/(2r)$'
+    - 'Differentiate: $dE/dt = \dfrac{ke^2}{2r^2}\dfrac{dr}{dt}$'
+    - 'Set $dE/dt = -P$, using the Larmor formula with $a = ke^2/(m_er^2)$'
+    - 'Separate variables and integrate from $r_0$ to 0'
+  explanation: |-
+    The energy as a function of radius links $dE/dt$ to $dr/dt$; the Larmor power supplies $dE/dt$; the result $r^2\,dr/dt = -\tfrac43r_e^2c$ is then integrated to give $t = r_0^3/(4r_e^2c) \approx 1.6\times10^{-11}$ s.
+- id: phys-h2-r2-h44
+  lesson: phys-h2-radiation
+  module_quiz: true
+  type: label
+  topic: Radiation from accelerating charges
+  stem: 'The picture shows the radiation pattern of a charge accelerating upward. Name the numbered parts.'
+  image: {src: images/phys-h2-dipole-pattern-blank.svg, alt: 'Two rounded lobes extending left and right from a central charge, a vertical dashed line through the charge, an upward arrow at the charge, and a slanted arrow going outward with a short arrow across it. Five parts are numbered.'}
+  labels:
+    - {x: 50, y: 50, text: Accelerating charge}
+    - {x: 50, y: 35.7, text: Acceleration}
+    - {x: 50, y: 11.9, text: Direction with no radiation}
+    - {x: 87.5, y: 50, text: Direction of strongest radiation}
+    - {x: 82.2, y: 26.5, text: Radiated electric field}
+  distractors: [Magnetic field of the charge, Velocity of the charge]
+  explanation: |-
+    The lobes show intensity proportional to $\sin^2\theta$, measured from the acceleration: zero along the line of acceleration (the vertical axis) and largest perpendicular to it. The radiated electric field is transverse, perpendicular to the direction the wave travels.
+# --- Lesson 93: photons as relativistic particles ---
+- id: phys-h2-r2-h45
+  lesson: phys-h2-four-momentum
+  module_quiz: true
+  topic: Four-momentum
+  stem: 'For a photon, the four-momentum product $P\cdot P = E^2/c^2 - p^2$ equals zero. What does that say?'
+  choices: ['The photon has no energy', 'The photon has no momentum', 'The photon''s energy and momentum satisfy $E = pc$ in every frame', 'The photon''s energy is the same in every frame']
+  answer: 2
+  explanation: |-
+    $P\cdot P = m^2c^2$, so $P\cdot P = 0$ means $m = 0$ and $E = pc$, a relation every observer agrees on. The photon still has energy and momentum, and their values do change from frame to frame (the Doppler effect).
+- id: phys-h2-r2-h46
+  lesson: phys-h2-four-momentum
+  topic: Four-momentum
+  stem: 'Two photons, each of energy 2.0 MeV, travel at $90^\circ$ to each other. What is the invariant mass of the pair (as $Mc^2$)?'
+  choices: ['0', '2.0 MeV', '2.8 MeV', '4.0 MeV']
+  answer: 2
+  explanation: |-
+    $M^2c^4 = 2E_1E_2(1 - \cos\theta) = 2(2.0)(2.0)(1 - 0) = 8.0$ MeV², so $Mc^2 = 2.8$ MeV. Zero adds the photons' masses; 4.0 MeV is the total energy, which equals $Mc^2$ only for photons traveling head-on.
+- id: phys-h2-r2-h47
+  lesson: phys-h2-four-momentum
+  module_quiz: true
+  topic: Four-momentum
+  stem: 'Two photons from one point have energies 100 MeV and 60 MeV. Could they come from the decay of a neutral pion ($m_\pi c^2 = 135.0$ MeV)?'
+  choices: ['No, because their energies add to 160 MeV, not 135 MeV', 'Yes, if the angle between them is about $121^\circ$', 'Yes, at any angle between them', 'No, because a pair of photons always has zero invariant mass']
+  answer: 1
+  explanation: |-
+    Need $2E_1E_2(1 - \cos\theta) = 135^2$: $1 - \cos\theta = 18225/12000 = 1.519$, so $\cos\theta = -0.519$ and $\theta = 121^\circ$. A moving pion gives its photons more total energy than 135 MeV, so the sum need not be 135 MeV; the invariant mass depends on the angle; and two photons have zero invariant mass only if they travel in the same direction.
+- id: phys-h2-r2-h48
+  lesson: phys-h2-four-momentum
+  topic: Four-momentum
+  stem: 'Why can''t a free electron at rest absorb a photon and simply move off?'
+  choices: ['The invariant mass of electron plus photon is larger than the electron''s mass', 'The photon''s charge would have to be absorbed too', 'Photons can only be absorbed by nuclei', 'The electron would have to move faster than light']
+  answer: 0
+  explanation: |-
+    Before, $M^2c^4 = (m_ec^2)^2 + 2Em_ec^2$; after, a single electron has invariant mass $m_e$. These match only if $E = 0$, so energy and momentum cannot both be conserved. Photons are uncharged, electrons bound in atoms can absorb photons (the atom takes up momentum), and nothing requires a speed above $c$.
+- id: phys-h2-r2-h49
+  lesson: phys-h2-four-momentum
+  topic: Four-momentum
+  stem: 'What is the threshold photon energy for $\gamma + p \to p + \pi^0$ on a proton at rest? ($m_pc^2 = 938.3$ MeV, $m_\pi c^2 = 135.0$ MeV.)'
+  choices: ['135 MeV', '145 MeV', '280 MeV', '1073 MeV']
+  answer: 1
+  explanation: |-
+    $K_{\text{th}} = \dfrac{(m_p + m_\pi)^2 - m_p^2}{2m_p}c^2 = \dfrac{1073.3^2 - 938.3^2}{2(938.3)} = 145$ MeV. 135 MeV is only the pion's rest energy (the recoil takes the rest), 280 MeV is the threshold for a proton beam making a $\pi^0$, and 1073 MeV is the total mass of the products.
+- id: phys-h2-r2-h50
+  lesson: phys-h2-four-momentum
+  module_quiz: true
+  topic: Four-momentum
+  stem: 'Why do particle physicists collide two beams head-on instead of firing one beam at a stationary target?'
+  choices: ['Head-on beams move faster than light relative to each other', 'Stationary targets absorb the beam before it can react', 'With equal and opposite momenta the total momentum is zero, so all the energy can make new particles', 'Fixed targets violate conservation of energy']
+  answer: 2
+  explanation: |-
+    The energy available to make mass is the invariant mass $Mc^2$. In a head-on collision of equal beams the lab is the center-of-momentum frame, so the whole energy counts. With a fixed target much of the beam's energy must stay as motion of the products to conserve momentum: $6m_pc^2$ of kinetic energy to make one $p\bar p$ pair. Nothing moves faster than light in either case.
+- id: phys-h2-r2-h51
+  lesson: phys-h2-four-momentum
+  topic: Four-momentum
+  stem: 'For $p + p \to p + p + p + \bar p$ with a proton beam on protons at rest, what is the threshold kinetic energy of the beam, in units of $m_pc^2$?'
+  choices: ['2', '4', '6', '7']
+  answer: 2
+  explanation: |-
+    $K_{\text{th}} = \dfrac{(4m_p)^2 - (2m_p)^2}{2m_p}c^2 = 6m_pc^2 = 5.63$ GeV. 2 is the new mass created, 4 is the total mass of the products, and 7 is the beam's total energy $K + m_pc^2$, not its kinetic energy.
+- id: phys-h2-r2-h52
+  lesson: phys-h2-four-momentum
+  topic: Four-momentum
+  stem: 'A gamma ray collides head-on with a photon of energy $1.0\times10^{-3}$ eV. What minimum gamma-ray energy can make an electron–positron pair? ($m_ec^2 = 0.511$ MeV.)'
+  choices: ['$5.1\times10^8$ eV', '1.022 MeV', '$1.0\times10^{15}$ eV', '$2.6\times10^{14}$ eV']
+  answer: 3
+  explanation: |-
+    Head-on, $M^2c^4 = 4E_1E_2 \ge (2m_ec^2)^2$, so $E_1 \ge (m_ec^2)^2/E_2 = (0.511\times10^6)^2/(1.0\times10^{-3}) = 2.6\times10^{14}$ eV. $1.0\times10^{15}$ eV uses $(2m_ec^2)^2/E_2$, forgetting the factor 4; $5.1\times10^8$ eV divides $m_ec^2$ by $E_2$ without squaring; 1.022 MeV is the threshold near a nucleus.
+- id: phys-h2-r2-h53
+  lesson: phys-h2-four-momentum
+  module_quiz: true
+  topic: Four-momentum
+  stem: 'Which processes are impossible at any energy? Select all that apply.'
+  choices: ['A free electron absorbs a photon', 'A single photon turns into an electron–positron pair in empty space', 'A photon scatters off a free electron', 'Two photons collide and make an electron–positron pair', 'A neutral pion decays into two photons']
+  answer: [0, 1]
+  explanation: |-
+    The first two fail on invariant mass: a free electron plus photon has more than $m_e$, and a single photon has $M = 0 < 2m_e$. Compton scattering happens; two photons can make a pair if $2E_1E_2(1 - \cos\theta) \ge (2m_ec^2)^2$; and $\pi^0 \to \gamma\gamma$ is how most neutral pions decay.
+- id: phys-h2-r2-h54
+  lesson: phys-h2-four-momentum
+  type: text
+  topic: Four-momentum
+  stem: 'Two photons, each of energy 0.511 MeV, collide head-on. Their invariant mass is $Mc^2 =$ ___ MeV. Give only the number.'
+  accept: ['1.022', '1.02']
+  explanation: |-
+    $M^2c^4 = 2E_1E_2(1 - \cos180^\circ) = 4(0.511)^2$, so $Mc^2 = 2(0.511) = 1.022$ MeV: exactly enough to make an electron–positron pair at rest, which is the reverse of pair annihilation at rest.
+- id: phys-h2-r2-h55
+  lesson: phys-h2-four-momentum
+  type: text
+  topic: Four-momentum
+  stem: 'The threshold photon energy for making an electron–positron pair by striking a free electron at rest is ___ $m_ec^2$. Give only the number.'
+  accept: ['4']
+  explanation: |-
+    Products: the original electron plus the pair, $M = 3m_e$; target $m_e$; photon mass 0. $K_{\text{th}} = \dfrac{(3m_e)^2 - m_e^2}{2m_e}c^2 = 4m_ec^2 = 2.044$ MeV.
+- id: phys-h2-r2-h56
+  lesson: phys-h2-four-momentum
+  type: match
+  topic: Four-momentum
+  stem: 'Match each process to its threshold.'
+  pairs:
+    - [Photon makes an electron–positron pair near a heavy nucleus, About 1.022 MeV]
+    - [Photon makes an electron–positron pair on a free electron, 2.044 MeV]
+    - [Proton beam on protons at rest makes a proton–antiproton pair, 5.63 GeV]
+    - [A free electron absorbs a photon, Impossible at any energy]
+  distractors: [0.511 MeV, 1.88 GeV]
+  explanation: |-
+    With $K_{\text{th}} = [M^2 - (m_b + m_t)^2]c^2/(2m_t)$: a heavy nucleus gives $2m_ec^2(1 + m_e/m_t) \approx 1.022$ MeV, a free electron $4m_ec^2 = 2.044$ MeV, and $p\bar p$ production $6m_pc^2 = 5.63$ GeV. 1.88 GeV is just the rest energy of the new pair. Absorption by a free electron fails on invariant mass at every energy.
+- id: phys-h2-r2-h57
+  lesson: phys-h2-four-momentum
+  type: order
+  topic: Four-momentum
+  stem: 'Put the steps of the four-momentum derivation of the Compton formula in order.'
+  items:
+    - 'Write conservation of four-momentum: $P + Q = P'' + Q''$'
+    - 'Isolate the recoiling electron, $Q'' = P + Q - P''$, and square both sides'
+    - 'Evaluate the products with the electron at rest: $m_e(E - E'') = (EE''/c^2)(1 - \cos\theta)$'
+    - 'Substitute $E = hc/\lambda$ to get $\lambda'' - \lambda = (h/m_ec)(1 - \cos\theta)$'
+  explanation: |-
+    Squaring $Q'$ removes the electron's unknown recoil speed and angle, because $Q'\cdot Q' = m_e^2c^2$ whatever they are. The remaining products give a relation between $E$ and $E'$, which becomes the wavelength shift.
+- id: phys-h2-r2-h58
+  lesson: phys-h2-four-momentum
+  module_quiz: true
+  type: label
+  topic: Four-momentum
+  stem: 'The picture shows pair production in a bubble chamber with a magnetic field into the page. Name the numbered parts.'
+  image: {src: images/phys-h2-pair-production-blank.svg, alt: 'A wavy line comes from the left to a small circle; two curved tracks leave the circle, one curving up and one curving down. Small crosses mark the field. Five parts are numbered.'}
+  labels:
+    - {x: 23.3, y: 55, text: Incoming photon}
+    - {x: 45, y: 55, text: Nucleus}
+    - {x: 64.9, y: 42.7, text: Positron track}
+    - {x: 67, y: 67.4, text: Electron track}
+    - {x: 93.3, y: 10, text: Magnetic field into the page}
+  distractors: [Proton track, Recoiling nucleus track]
+  explanation: |-
+    The photon is uncharged and leaves no track. Near a nucleus it creates an electron–positron pair, and the nucleus absorbs the momentum needed. With the field into the page, $q\vec v\times\vec B$ bends a positive particle moving right upward and a negative one downward, so the upper track is the positron.

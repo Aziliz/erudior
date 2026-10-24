@@ -32,6 +32,11 @@ Along the way you learn the words for trains, buses, planes, tickets and timetab
 | *das Flugzeug* | plane | *der Urlaub* | holiday, vacation |
 | *der Flughafen* | airport | *der Koffer* | suitcase |
 
+The picture puts eight of these words in one scene (blue labels for *der*, pink for *die*, green for
+*das*):
+
+![A station scene. In the sky: das Flugzeug (plane). A long der Zug (train) stands on das Gleis (the track) next to a platform with a sign showing the number 3. On the platform: der Koffer (suitcase) and der Fahrplan (timetable) on a post. In the street below: die Straßenbahn (tram) on rails with a pole up to an overhead wire, der Bus (bus) and das Taxi (taxi) with a TAXI sign on its roof.](images/de1-m5-station.svg)
+
 Five useful verbs. All except *fliegen* are separable:
 
 - *abfahren* — to leave, to depart: *Der Zug fährt um 8 Uhr ab.* — The train leaves at 8.
@@ -116,6 +121,19 @@ English uses "to" for everything; German chooses:
 - *zu* + people and places with an article: *zu Anna*, *zum Arzt*, *zur Bank*, *zum Bahnhof*.
 - Countries that have an article (*die Schweiz*, *die Türkei*, *die USA*) take *in* + accusative:
   *in die Schweiz*, *in die USA*. Learn these as chunks for now.
+
+When you're not sure which "to" you need, ask yourself where you're going:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing nach, zu or in for "to"
+  accDescr: Ask where you are going. Going home: nach Hause. A city, or a country without an article such as Berlin or Spanien: nach, as in nach Berlin. A country with an article such as die Schweiz or die USA: in plus the accusative, as in in die Schweiz. A person, or a place with an article such as Anna, der Arzt or die Post: zu, as in zu Anna, zum Arzt, zur Post.
+  Q{"Where are you going?"}
+  Q --> H["Home"] --> NH["nach Hause"]
+  Q --> C["A city, or a country with no article: Berlin, Spanien"] --> N["nach Berlin, nach Spanien"]
+  Q --> L["A country with an article: die Schweiz, die USA"] --> I["in die Schweiz, in die USA"]
+  Q --> P["A person, or a place with an article: Anna, der Arzt, die Post"] --> Z["zu Anna, zum Arzt, zur Post"]
+```
 
 This table shows "where to", "where" and "where from" side by side. *Wohin?* means "where to?":
 

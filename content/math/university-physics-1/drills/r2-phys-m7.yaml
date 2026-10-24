@@ -11,7 +11,7 @@
     T2: T1*cr^0.4
     QH: 2.5*8.314*(T3 - T2)/1000
     W: eff*QH
-  prompt: 'An air-standard Otto cycle ($\gamma = 1.4$, $C_V = \tfrac52R$, $R = 8.314$ J/(mol·K)) has compression ratio {cr}. Air enters at {T1} K and combustion heats it to {T3} K. Find the efficiency (as a decimal), the temperature at the end of compression (K), and the net work per mole of air per cycle (kJ). Give all three to 3 significant figures.'
+  prompt: 'An air-standard Otto cycle ($\gamma = 1.4$, $C_V = \tfrac52R$, $R = 8.314$ J/(mol·K)) has compression ratio {cr}. Air enters at {T1} K and combustion heats it to {T3:dp0} K. Find the efficiency (as a decimal), the temperature at the end of compression (K), and the net work per mole of air per cycle (kJ). Give all three to 3 significant figures.'
   answers:
     - {name: eff, label: 'Efficiency', format: sig4, relTolerance: 0.01}
     - {name: T2, label: '$T_2$', format: sig4, relTolerance: 0.01, units: {K: 1}}
@@ -21,7 +21,7 @@
 
     Adiabatic compression: $T_2 = T_1r^{\gamma-1} = {T1}({cr})^{0.4} =$ **{T2:sig3} K**.
 
-    Heat in at constant volume: $Q_H = C_V(T_3 - T_2) = 20.785({T3} - {T2:sig4}) = {QH:sig4}$ kJ per mole, so $W = eQ_H =$ **{W:sig3} kJ**.
+    Heat in at constant volume: $Q_H = C_V(T_3 - T_2) = 20.785({T3:dp0} - {T2:sig4}) = {QH:sig4}$ kJ per mole, so $W = eQ_H =$ **{W:sig3} kJ**.
 - id: phys-m7-r2-diesel-brayton
   title: Diesel and Brayton efficiencies
   topic: Engine cycles
@@ -90,6 +90,8 @@
     Rm: Rmm/1000
     Q: pi*Rm^4*dPk*1000/(8*fl*Lcm/100)*1e6
     vav: Q*1e-6/(pi*Rm^2)
+    Rey: 1000*vav*2*Rm/fl
+  where: ['Q >= 0.01', 'Rey < 1500']
   prompt: 'The fluid is {fl}. It flows smoothly (laminar flow) through a tube of inner radius {Rmm} mm and length {Lcm} cm, driven by a pressure difference of {dPk} kPa. Find the volume flow rate in mL/s and the average flow speed in m/s, to 3 significant figures.'
   answers:
     - {name: Q, label: 'Flow rate', format: sig4, relTolerance: 0.01, units: {'mL/s': 1, 'L/s': 1000}}
@@ -113,7 +115,7 @@
   answers:
     - {name: Rey, label: 'Re', format: sig4, relTolerance: 0.01}
   solution: |-
-    With $D = {D}$ cm $= {D}\times10^{-2}$ m: $\text{Re} = \dfrac{\rho vD}{\eta} = \dfrac{({rho})({v})({D}\times10^{-2})}{{eta:texsci}} =$ **{Rey:sig3}**. Compare with about 2000 (laminar below) and about 3000 (usually turbulent above).
+    With $D = {D}$ cm $= {D}\times10^{-2}$ m: $\text{Re} = \dfrac{\rho vD}{\eta} = \dfrac{({rho:sig4})({v})({D}\times10^{-2})}{{eta:sig3}} =$ **{Rey:sig3}**. Compare with about 2000 (laminar below) and about 3000 (usually turbulent above).
 - id: phys-m7-r2-stokes
   title: Stokes settling speed
   topic: Viscous flow

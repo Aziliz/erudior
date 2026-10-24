@@ -35,6 +35,11 @@ Learn every place with its article; you'll need the gender in the next lesson.
 | *das Café* | café | *der Weg* | way, path |
 | *das Museum* | museum | | |
 
+Here are eight of these places in a small town centre. The label colours show the gender: blue for
+*der* words and pink for *die* words (in the next pictures, green is for *das* words).
+
+![A small town centre. A main street crosses a side street. Top left: die Kirche (church) with a tower. Top right: die Post (post office) with an envelope sign. Bottom left: der Park (park) with trees, and die Haltestelle (bus stop) with a round H sign on the pavement. At the corner of the crossing: die Ampel (traffic lights). Bottom right: die Bank (bank) with a euro sign and die Apotheke (pharmacy) with a large A. On the right, the main street crosses a river on die Brücke (bridge). Feminine labels are pink and the masculine label is blue.](images/de1-m5-town.svg)
+
 To ask whether something exists nearby, use *es gibt* (lesson 10) with the accusative:
 
 - *Gibt es hier in der Nähe eine Apotheke?* — Is there a pharmacy nearby?
@@ -134,6 +139,20 @@ Two details:
 Verbs whose stem ends in *-t* or *-d* keep an *-e*: *Warte!*, *Finde!*, *Antworte!* — Answer!
 With other verbs you may also see an *-e* in careful writing (*Gehe!*, *Komme!*), but in everyday
 speech the short form is normal.
+
+The whole recipe for the *du* imperative fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: How to build the du imperative
+  accDescr: Start from the present-tense du form, for example du nimmst, du fährst or du wartest. Drop du and the ending -st; after s, ß or z drop only the -t, so du liest becomes lies. Then ask whether the verb has the a to ä change. If yes, take the umlaut off: fährst becomes Fahr. If no, keep everything else, including an e to i change and the e before -st in wartest: Nimm, Lies, Warte. Finally the verb goes first, and a separable prefix goes to the end: Bieg links ab.
+  A["Start with the du form: du nimmst, du fährst, du wartest"] --> B["Drop du and the ending -st (after s, ß or z only -t: du liest, lies)"]
+  B --> C{"Does the verb change a to ä?"}
+  C -- "yes" --> D["Take the umlaut off: fährst, Fahr!"]
+  C -- "no" --> E["Keep the rest: Nimm! Lies! Warte!"]
+  D --> F["Verb first, separable prefix at the end: Bieg links ab!"]
+  E --> F
+```
 
 ### The ihr form: the ihr verb without ihr
 

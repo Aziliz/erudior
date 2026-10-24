@@ -24,8 +24,8 @@ The new words for talking about pronunciation are *die Aussprache* (pronunciatio
 Lesson 1 said a vowel is long before *h*, when doubled, and in *ie*, and short before a double
 consonant. Two more patterns cover most of the rest.
 
-First, a vowel at the end of a syllable is usually long. Such a syllable is called an **open
-syllable**: *Na-me*, *ha-ben*, *le-ben*, *Ta-ge*. A syllable that ends in a consonant is closed,
+First, a vowel at the end of a syllable is usually long. Such a syllable is called an
+**open syllable**: *Na-me*, *ha-ben*, *le-ben*, *Ta-ge*. A syllable that ends in a consonant is closed,
 and the vowel there is often short: *Stadt*, *Wort*, *jetzt*.
 
 Second, a one-syllable word often "borrows" its length from a longer form of the same word.
