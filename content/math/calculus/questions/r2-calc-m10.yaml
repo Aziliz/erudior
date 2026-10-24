@@ -137,15 +137,15 @@
   lesson: calc-alternating-ratio
   type: match
   topic: Ratio and root tests
-  stem: 'Match each series to the test the strategy chart sends it to first.'
+  stem: 'Following the strategy chart, match each series to the test that settles it.'
   pairs:
-    - ['$\sum\dfrac{n!}{10^n}$', Ratio test]
+    - ['$\sum\dfrac{10^n}{n!}$', Ratio test]
     - ['$\sum\left(\dfrac{n}{3n + 1}\right)^n$', Root test]
     - ['$\sum\dfrac{(-1)^n}{\sqrt[3]{n}}$', Alternating series test]
     - ['$\sum\dfrac{n}{n + 1}$', Divergence test]
   distractors: [Integral test]
   explanation: |-
-    $\frac{n}{n + 1} \to 1 \ne 0$: the divergence test settles it. A factorial calls for the ratio test, and a whole term to the $n$th power for the root test. For $\sum\frac{(-1)^n}{n^{1/3}}$, the absolute values form a divergent p-series ($p = \frac13$), so the alternating series test is what shows (conditional) convergence.
+    $\frac{n}{n + 1} \to 1 \ne 0$: the divergence test settles it. The terms $\frac{10^n}{n!}$ do go to 0, and a factorial calls for the ratio test ($L = 0$, converges), and a whole term to the $n$th power for the root test. For $\sum\frac{(-1)^n}{n^{1/3}}$, the absolute values form a divergent p-series ($p = \frac13$), so the alternating series test is what shows (conditional) convergence.
 - id: calc-m10-r2-q14
   lesson: calc-alternating-ratio
   topic: Alternating series
@@ -347,10 +347,10 @@
     - ['$\pi$', 'Machin''s formula with arctangent series']
     - ['$\ln 2$', 'The ln((1 + x)/(1 − x)) series with x = 1/3']
     - ['$e^{10}$', 'Argument reduction, then a short Taylor polynomial']
-    - ['$\sum\frac{1}{n^2}$ to 4 decimals', 'A partial sum plus integral bounds on the tail']
+    - ['$\sum\frac{1}{n^2}$ to 3 decimals', 'A partial sum plus integral bounds on the tail']
   distractors: ['The Leibniz series']
   explanation: |-
-    Machin's formula uses arctangents of $\frac15$ and $\frac1{239}$, which converge fast. $x = \frac13$ makes $\frac{1 + x}{1 - x} = 2$. $e^{10} = 2^{14}e^{r}$ with small $r$. For $\sum\frac{1}{n^2}$, ten terms and the integral sandwich give about 4 decimals. The Leibniz series is the slow method these replace.
+    Machin's formula uses arctangents of $\frac15$ and $\frac1{239}$, which converge fast. $x = \frac13$ makes $\frac{1 + x}{1 - x} = 2$. $e^{10} = 2^{14}e^{r}$ with small $r$. For $\sum\frac{1}{n^2}$, ten terms and the integral sandwich give the midpoint $1.64522$, within $0.0003$ of the sum (3 decimals; about 20 terms would give 4). The Leibniz series is the slow method these replace.
 - id: calc-m10-r2-h11
   lesson: calc-m10-h-computing
   type: order
