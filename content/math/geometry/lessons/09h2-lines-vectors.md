@@ -72,7 +72,7 @@ $$\cos\varphi = \frac{|\vec u \cdot \vec v|}{|\vec u|\,|\vec v|}.$$
 A second formula, which you may see in precalculus, uses slopes: $\tan\varphi = \left|\dfrac{m_2 - m_1}{1 + m_1 m_2}\right|$. It comes from a trigonometric identity not proved in this course, and it breaks down when $m_1 m_2 = -1$ (the lines are then perpendicular) or a line is vertical. The cosine formula always works.
 
 ```plot
-{"x": [-3, 4], "y": [-2, 6], "equal": true, "functions": [{"f": "2x + 1", "label": "y = 2x + 1"}, {"f": "-3x + 4", "label": "y = −3x + 4"}], "points": [{"at": [0.6, 2.2], "label": "(0.6, 2.2)"}], "caption": "The lines y = 2x + 1 and y = −3x + 4 meet at (0.6, 2.2) at an angle of 45°."}
+{"x": [-3, 4], "y": [-2, 6], "equal": true, "functions": [{"f": "2x + 1"}, {"f": "-3x + 4"}], "points": [{"at": [0.6, 2.2]}], "labels": [{"at": [3.2, 5.3], "text": "y = 2x + 1"}, {"at": [3.0, -1.6], "text": "y = −3x + 4"}, {"at": [1.75, 2.05], "text": "(0.6, 2.2)"}], "caption": "The lines y = 2x + 1 and y = −3x + 4 meet at (0.6, 2.2) at an angle of 45°."}
 ```
 
 ### Example 2
@@ -108,7 +108,7 @@ $$PF = |t|\sqrt{A^2 + B^2} = \frac{|Ax_0 + By_0 + C|}{A^2 + B^2}\sqrt{A^2 + B^2}
 which is exactly Lesson 9's formula. Going twice as far, to $(x_0 + 2tA,\ y_0 + 2tB)$, lands on the mirror image of $P$ in the line, since $F$ is then the midpoint (reflections are Module 9's topic).
 
 ```plot
-{"x": [-6, 6], "y": [-3, 9], "equal": true, "functions": [{"f": "(9 - 3x)/4", "label": "3x + 4y = 9"}], "segments": [{"from": [2, 7], "to": [-1, 3]}, {"from": [-1, 3], "to": [-4, -1], "dashed": true}], "points": [{"at": [2, 7], "label": "P(2, 7)"}, {"at": [-1, 3], "label": "F(−1, 3)"}, {"at": [-4, -1], "label": "P′(−4, −1)"}], "rightAngles": [[[-1, 3], [2, 7], [3, 0]]], "caption": "The foot F of the perpendicular from P, and P′, the reflection of P in the line."}
+{"x": [-6, 6], "y": [-3, 9], "equal": true, "functions": [{"f": "(9 - 3x)/4"}], "segments": [{"from": [2, 7], "to": [-1, 3]}, {"from": [-1, 3], "to": [-4, -1], "dashed": true}], "points": [{"at": [2, 7], "label": "P(2, 7)"}, {"at": [-1, 3]}, {"at": [-4, -1]}], "labels": [{"at": [-4.2, 6.8], "text": "3x + 4y = 9"}, {"at": [-2.95, 2.55], "text": "F(−1, 3)"}, {"at": [-4.2, -1.9], "text": "P′(−4, −1)"}], "rightAngles": [[[-1, 3], [2, 7], [3, 0]]], "caption": "The foot F of the perpendicular from P, and P′, the reflection of P in the line."}
 ```
 
 ### Example 4

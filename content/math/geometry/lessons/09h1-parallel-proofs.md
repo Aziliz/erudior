@@ -38,7 +38,7 @@ The Alternate Interior Angles Converse is shorter still: if $\angle 3 \cong \ang
 
 ## Euclid's split: which facts need the parallel postulate?
 
-The proof above used the parallel postulate (to get exactly one line $\ell'$). Euclid, in Book I of the *Elements*, proved the converse in a way that does not use it at all. His Proposition 27 says, in modern words, that if alternate interior angles are congruent then the lines are parallel, and his proof is indirect.
+The proof above leaned on the parallel postulate: it applied the Corresponding Angles Postulate, which is equivalent to it, to the line $\ell'$. Euclid, in Book I of the *Elements*, proved the converse in a way that does not use it at all. His Proposition 27 says, in modern words, that if alternate interior angles are congruent then the lines are parallel, and his proof is indirect.
 
 *Euclid's argument.* Suppose $\angle 3 \cong \angle 6$ but $\ell$ and $m$ are not parallel. Then they meet at some point $R$, say on the right of $t$. Points $P$, $Q$, $R$ form a triangle. The triangle's angle at $P$ is $\angle 4$, so $\angle 3$, which forms a linear pair with it, is an **exterior angle** of $\triangle PQR$; and $\angle 6$, the triangle's angle at $Q$, is one of its remote interior angles. The Exterior Angle Inequality says an exterior angle is *greater* than each remote interior angle, so $m\angle 3 > m\angle 6$. That contradicts $\angle 3 \cong \angle 6$. (If $R$ is on the left, the roles swap: $\angle 6$ is an exterior angle of the triangle and $\angle 3$ a remote interior angle, so $m\angle 6 > m\angle 3$, again a contradiction.) So the lines are parallel. $\blacksquare$
 
@@ -64,7 +64,7 @@ Commentators on Euclid felt that a statement as complicated as the fifth postula
 Many angle problems show two parallel lines joined by a path that bends between them. No transversal crosses both lines, so none of the Lesson 8 theorems applies directly. The fix is to draw one.
 
 ```shape
-{"segments": [{"from": [-1, 4], "to": [9, 4]}, {"from": [-1, 0], "to": [9, 0]}, {"from": [1, 4], "to": [5, 2]}, {"from": [5, 2], "to": [1, 0]}, {"from": [-1, 2], "to": [9, 2], "dashed": true}], "points": [{"at": [1, 4], "label": "A"}, {"at": [5, 2], "label": "P"}, {"at": [1, 0], "label": "B"}], "labels": [{"at": [9.4, 4], "text": "ℓ"}, {"at": [9.4, 0], "text": "m"}, {"at": [9.4, 2], "text": "n"}, {"at": [2.3, 3.75], "text": "a"}, {"at": [2.3, 0.25], "text": "b"}, {"at": [4.0, 2.25], "text": "a"}, {"at": [4.0, 1.75], "text": "b"}], "caption": "Auxiliary line n through P, parallel to ℓ and m, splits angle APB into a copy of a and a copy of b."}
+{"segments": [{"from": [-1, 4], "to": [9, 4]}, {"from": [-1, 0], "to": [9, 0]}, {"from": [1, 4], "to": [5, 2]}, {"from": [5, 2], "to": [1, 0]}, {"from": [-1, 2], "to": [9, 2], "dashed": true}], "points": [{"at": [1, 4], "label": "A"}, {"at": [5, 2], "label": "P"}, {"at": [1, 0]}], "labels": [{"at": [9.4, 4], "text": "ℓ"}, {"at": [9.4, 0], "text": "m"}, {"at": [9.4, 2], "text": "n"}, {"at": [0.55, 0.25], "text": "B"}, {"at": [3.3, 3.3], "text": "a"}, {"at": [3.3, 0.3], "text": "b"}, {"at": [3.7, 2.12], "text": "a"}, {"at": [3.5, 1.45], "text": "b"}], "caption": "Auxiliary line n through P, parallel to ℓ and m, splits angle APB into a copy of a and a copy of b."}
 ```
 
 **Bend theorem.** Let $\ell \parallel m$, with $A$ on $\ell$, $B$ on $m$, and $P$ a point between the lines. If $a$ is the angle at $A$ between $\ell$ and $\overline{AP}$ and $b$ is the angle at $B$ between $m$ and $\overline{BP}$, both on the side toward which the path bends, then $m\angle APB = a + b$.
@@ -96,7 +96,7 @@ The same trick handles a zigzag with any number of bends: draw a parallel throug
 For one bend this is exactly the bend theorem: $a$ and $b$ open toward the bend, $\angle APB$ opens the other way, and $a + b = m\angle APB$.
 
 ```shape
-{"segments": [{"from": [-1, 6], "to": [8, 6]}, {"from": [-1, 0], "to": [8, 0]}, {"from": [0, 6], "to": [4.29, 4]}, {"from": [4.29, 4], "to": [2.29, 2]}, {"from": [2.29, 2], "to": [5.15, 0]}], "points": [{"at": [0, 6], "label": "A"}, {"at": [4.29, 4], "label": "P"}, {"at": [2.29, 2], "label": "Q"}, {"at": [5.15, 0], "label": "B"}], "labels": [{"at": [8.4, 6], "text": "ℓ"}, {"at": [8.4, 0], "text": "m"}, {"at": [1.5, 5.7], "text": "25°"}, {"at": [3.5, 4], "text": "70°"}, {"at": [3.1, 2], "text": "80°"}, {"at": [4.0, 0.3], "text": "x"}], "caption": "A path with two bends between parallel lines ℓ and m (Example 3)."}
+{"segments": [{"from": [-1, 6], "to": [8, 6]}, {"from": [-1, 0], "to": [8, 0]}, {"from": [0, 6], "to": [4.29, 4]}, {"from": [4.29, 4], "to": [2.29, 2]}, {"from": [2.29, 2], "to": [5.15, 0]}], "points": [{"at": [0, 6], "label": "A"}, {"at": [4.29, 4], "label": "P"}, {"at": [2.29, 2]}, {"at": [5.15, 0], "label": "B"}], "labels": [{"at": [8.4, 6], "text": "ℓ"}, {"at": [8.4, 0], "text": "m"}, {"at": [1.9, 1.8], "text": "Q"}, {"at": [1.8, 5.5], "text": "25°"}, {"at": [3.4, 3.6], "text": "70°"}, {"at": [3.1, 1.95], "text": "80°"}, {"at": [4.0, 0.3], "text": "x"}], "caption": "A path with two bends between parallel lines ℓ and m (Example 3)."}
 ```
 
 ### Example 3

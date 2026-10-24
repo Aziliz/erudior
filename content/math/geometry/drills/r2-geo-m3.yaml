@@ -36,8 +36,9 @@
     points:
       - {at: [0, 4], label: 'A'}
       - {at: [PX, 2], label: 'P'}
-      - {at: [BX, 0], label: 'B'}
+      - {at: [BX, 0]}
     labels:
+      - {at: ['BX - 0.45', 0.25], text: 'B'}
       - {at: ['max(PX, 0) + 1.9', 4], text: 'ℓ'}
       - {at: ['max(PX, 0) + 1.9', 0], text: 'm'}
   solution: |-
@@ -75,9 +76,10 @@
     points:
       - {at: [0, 6], label: 'A'}
       - {at: [PX, 4], label: 'P'}
-      - {at: [QX, 2], label: 'Q'}
+      - {at: [QX, 2]}
       - {at: [BX, 0], label: 'B'}
     labels:
+      - {at: ['QX - 0.4', 1.8], text: 'Q'}
       - {at: ['hi + 0.4', 6], text: 'ℓ'}
       - {at: ['hi + 0.4', 0], text: 'm'}
   solution: |-

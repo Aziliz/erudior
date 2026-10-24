@@ -102,7 +102,7 @@ A river runs along the $x$-axis. A hiker starts at $A(0, 3)$, must touch the riv
 
 **Step 3.** The shortest length is $A'B = \sqrt{12^2 + 9^2} = \sqrt{225} = 15$ (Pythagorean theorem, Module 6). Check: $AP = \sqrt{4^2 + 3^2} = 5$ and $PB = \sqrt{8^2 + 6^2} = 10$, total 15.
 
-**Step 4.** Compare a different point, $Q = (6, 0)$: $AQ + QB = \sqrt{45} + \sqrt{72} \approx 6.71 + 8.49 = 15.20$, longer, as the theorem promises. And the angles match: $\overline{AP}$ drops 3 over a run of 4 and $\overline{PB}$ rises 6 over a run of 8, the same steepness.
+**Step 4.** Compare a different point, $Q = (6, 0)$: $AQ + QB = \sqrt{45} + \sqrt{72} \approx 6.708 + 8.485 \approx 15.19$, longer, as the theorem promises. And the angles match: $\overline{AP}$ drops 3 over a run of 4 and $\overline{PB}$ rises 6 over a run of 8, the same steepness.
 
 ## Several points: where the diagonals cross
 
@@ -140,7 +140,7 @@ So $14 < AC + BD < 24$. In words: the diagonals of a convex quadrilateral add to
 - **Checking only one inequality for a polygon.** Test the longest side against the sum of all the others; that's the one that can fail.
 - **Reflecting the wrong way in Heron's problem.** Reflect one of the points *across the line the path must touch*, then join the image to the *other* point with a straight segment.
 - **Joining $A$ to $B$ directly.** The segment $\overline{AB}$ doesn't touch $\ell$ when both points are on the same side; the straight segment that solves the problem is $\overline{A'B}$.
-- **Assuming the best point is halfway along.** In Example 2 the point halfway between the two hikers' positions along the river, $x = 6$, is not the answer; the best point, $x = 4$, is nearer to $A$, the point that is closer to the river.
+- **Assuming the best point is halfway along.** In Example 2 the point of the river halfway between the start and the camp, $x = 6$, is not the answer; the best point, $x = 4$, is nearer to $A$, the point that is closer to the river.
 
 ## Key points
 

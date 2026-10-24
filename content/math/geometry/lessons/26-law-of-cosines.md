@@ -72,7 +72,7 @@ If the sides fail the triangle inequality, the formula tells you: for sides 3, 4
 Two boats leave a harbor at the same time. One travels 12 km in a straight line, the other 9 km, and the angle between their paths is $115^\circ$. How far apart are they?
 
 ```shape
-{"segments": [{"from": [0, 0], "to": [11.28, 4.1], "label": "12 km"}, {"from": [0, 0], "to": [-6.36, 6.36], "label": "9 km"}, {"from": [-6.36, 6.36], "to": [11.28, 4.1], "dashed": true, "label": "d"}], "points": [{"at": [0, 0], "label": "harbor"}, {"at": [11.28, 4.1]}, {"at": [-6.36, 6.36]}], "labels": [{"at": [0.2, 1.6], "text": "115°"}], "caption": "Two paths from the harbor with 115° between them; d is the distance between the boats."}
+{"segments": [{"from": [0, 0], "to": [11.28, 4.1], "label": "12 km"}, {"from": [0, 0], "to": [-6.36, 6.36]}, {"from": [-6.36, 6.36], "to": [11.28, 4.1], "dashed": true, "label": "d"}], "points": [{"at": [0, 0]}, {"at": [11.28, 4.1]}, {"at": [-6.36, 6.36]}], "labels": [{"at": [0.2, 1.6], "text": "115°"}, {"at": [0, -1.0], "text": "harbor"}, {"at": [-4.4, 2.6], "text": "9 km"}], "caption": "Two paths from the harbor with 115° between them; d is the distance between the boats."}
 ```
 
 The paths are two sides with the $115^\circ$ angle between them (SAS):

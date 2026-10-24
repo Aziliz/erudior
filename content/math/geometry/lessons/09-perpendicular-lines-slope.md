@@ -45,7 +45,7 @@ Also: every vertical line is parallel to every other vertical line and perpendic
 *Why negative reciprocals?* Take a line with slope $\tfrac{a}{b}$: it goes $b$ right and $a$ up. Rotate that step by $90^\circ$ counterclockwise: going right $b$ becomes going up $b$, and going up $a$ becomes going left $a$. The new step is $-a$ across and $b$ up, so its slope is $\tfrac{b}{-a} = -\tfrac{b}{a}$. Rotating a line by $90^\circ$ flips and negates its slope.
 
 ```plot
-{"x": [-4, 5], "y": [-1, 5], "equal": true, "segments": [{"from": [0, 0], "to": [3, 2], "arrow": true, "label": "3 right, 2 up"}, {"from": [0, 0], "to": [-2, 3], "arrow": true, "label": "2 left, 3 up"}], "rightAngles": [[[0, 0], [3, 2], [-2, 3]]], "caption": "Turning the step (3 right, 2 up) by 90° gives (2 left, 3 up): slope 2/3 becomes −3/2."}
+{"x": [-4, 5], "y": [-1, 5], "equal": true, "segments": [{"from": [0, 0], "to": [3, 2], "arrow": true}, {"from": [0, 0], "to": [-2, 3], "arrow": true}], "labels": [{"at": [2.8, 0.55], "text": "3 right, 2 up"}, {"at": [-2.6, 1.6], "text": "2 left, 3 up"}], "rightAngles": [[[0, 0], [3, 2], [-2, 3]]], "caption": "Turning the step (3 right, 2 up) by 90° gives (2 left, 3 up): slope 2/3 becomes −3/2."}
 ```
 
 ```plot

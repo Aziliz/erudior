@@ -266,10 +266,10 @@
   lesson: geo-h-lines-vectors
   topic: Slope criteria proofs
   stem: 'The lines $y = m x + b_1$ and $y = m x + b_2$ have the same slope and $b_1 \ne b_2$. Why do they never meet?'
-  choices: ['Because a slope can only belong to one line', 'Because their $y$-intercepts are both positive', 'Because they are perpendicular to the same line', 'Because $mx + b_1 = mx + b_2$ would mean $b_1 = b_2$, which is false']
+  choices: ['Because a slope can only belong to one line', 'Because their $y$-intercepts are both positive', 'Because their slopes multiply to $-1$', 'Because $mx + b_1 = mx + b_2$ would mean $b_1 = b_2$, which is false']
   answer: 3
   explanation: |-
-    A common point would satisfy both equations, so $mx + b_1 = mx + b_2$; subtracting $mx$ leaves $b_1 = b_2$, a contradiction. Many lines share a slope, so the first choice is false; the other two are not reasons.
+    A common point would satisfy both equations, so $mx + b_1 = mx + b_2$; subtracting $mx$ leaves $b_1 = b_2$, a contradiction. Many lines share a slope, so the first choice is false; the sign of the intercepts is irrelevant; and equal slopes multiply to $m^2$, never $-1$ (slopes multiplying to $-1$ is the test for perpendicular lines).
 - id: geo-m3-r2-h16
   lesson: geo-h-lines-vectors
   type: text

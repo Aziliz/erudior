@@ -4,7 +4,7 @@
   definition: 'If two sides and a non-included angle of one triangle are congruent to the corresponding parts of another, and the side opposite the angle is at least as long as the other given side, the triangles are congruent. (The name is this course''s; some books write SsA.)'
   topic: SSA and congruence
 - term: superposition
-  definition: 'Euclid''s method of proving triangles congruent by imagining one moved and laid on top of the other. Modern axiom systems avoid it by taking SAS as an axiom.'
+  definition: 'Euclid''s method of proving triangles congruent by imagining one moved and laid on top of the other. Many modern axiom systems (Hilbert''s, for example) avoid it by taking SAS as an axiom.'
   topic: SSA and congruence
 - term: degenerate triangle
   aliases: [degenerate triangles, degenerate]

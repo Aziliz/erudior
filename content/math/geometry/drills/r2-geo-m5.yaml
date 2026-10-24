@@ -33,7 +33,7 @@
       - {at: [xb, 0], label: 'B'}
       - {at: [xc, ht], label: 'C'}
   solution: |-
-    Side $\overline{AB}$ lies on the $x$-axis, so the altitude from $C$ is the vertical line $x = {xc}$. Side $\overline{BC}$ has slope $\dfrac{{ht}}{{xc} - {xb}} = {ms:texfrac}$, so the altitude from $A$, perpendicular to it, has slope ${ma:texfrac}$ and passes through $A({xa}, 0)$: $y = {ma:texfrac}\,(x {nxa:signed})$. At $x = {xc}$, $y = {ma:texfrac} \cdot {dca} = {hy}$. So $H =$ **({xc}, {hy})**. (It is outside the triangle exactly when the triangle is obtuse.)
+    Side $\overline{AB}$ lies on the $x$-axis, so the altitude from $C$ is the vertical line $x = {xc}$. Side $\overline{BC}$ has slope $\dfrac{{ht}}{{xc} - {xb}} = {ms:texfrac}$, so the altitude from $A$, perpendicular to it, has slope ${ma:texfrac}$ and passes through $A({xa}, 0)$: $y = {ma:texfrac}\,(x {nxa:signed})$. At $x = {xc}$, $y = {ma:texfrac} \cdot ({dca}) = {hy}$. So $H =$ **({xc}, {hy})**. (It is outside the triangle exactly when the triangle is obtuse.)
 
 - id: geo-m5-r2-euler
   title: Orthocenter from the Euler line
@@ -101,8 +101,6 @@
     k: {choices: [2, 3, 4, 5]}
   where: ["2*k < n", "gcd(n, k) == 1"]
   calc:
-    turn: 360*k
-    each: 360*k/n
     tip: 180 - 360*k/n
     tsum: 180*(n - 2*k)
   prompt: 'Find each tip angle of the star polygon $\{{n}/{k}\}$ (to 2 decimal places if needed) and the sum of its {n} tip angles, in degrees.'
@@ -110,7 +108,7 @@
     - {name: tip, label: 'Each tip angle'}
     - {name: tsum, label: 'Sum of the tips'}
   solution: |-
-    Walking once around $\{{n}/{k}\}$ you circle the center {k} times, so you turn $360^\circ \cdot {k} = {turn}^\circ$ in all, in {n} equal turns of $\dfrac{{turn}^\circ}{{n}}$ each. Each tip angle is what's left of a straight angle: $180^\circ - \dfrac{{turn}^\circ}{{n}} =$ **{tip}°** (rounded to 2 decimal places if needed). The {n} tips add to $180({n} - 2 \cdot {k}) =$ **{tsum}°**.
+    Walking once around $\{{n}/{k}\}$ you circle the center {k} times, so you turn $360^\circ \cdot {k}$ in all, in {n} equal turns of $\dfrac{360^\circ \cdot {k}}{{n}}$ each. Each tip angle is what's left of a straight angle: $180^\circ - \dfrac{360^\circ \cdot {k}}{{n}} =$ **{tip}°** (rounded to 2 decimal places if needed). The {n} tips add to $180({n} - 2 \cdot {k}) =$ **{tsum}°**.
 
 - id: geo-m5-r2-vertex-fill
   title: The third polygon at a vertex

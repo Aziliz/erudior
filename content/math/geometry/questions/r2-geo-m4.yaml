@@ -27,7 +27,7 @@
   lesson: geo-tri-angles
   type: match
   topic: Triangle classification
-  stem: 'Each line gives the three angles of a triangle. Match each triangle to its classification by angles.'
+  stem: 'Each line gives the three angles of a triangle. Match each triangle to its most specific classification by angles (an equiangular triangle is also acute, so choose the more specific name).'
   pairs:
     - ['$60^\circ, 60^\circ, 60^\circ$', Equiangular]
     - ['$25^\circ, 65^\circ, 90^\circ$', Right]

@@ -11,7 +11,7 @@
 <line x1="285.0" y1="50.0" x2="425.0" y2="300.0" stroke="#1c2833" stroke-width="2" stroke-dasharray="2 5"/>
 <circle cx="285.0" cy="300.0" r="3.5" fill="#1c2833"/>
 <text x="275.0" y="220.0" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">h</text>
-<text x="395.0" y="175.0" font-size="18" text-anchor="start" fill="#1c2833" font-style="italic">ℓ</text>
+<text x="380.0" y="190.0" font-size="18" text-anchor="start" fill="#1c2833" font-style="italic">ℓ</text>
 <text x="168.0" y="205.0" font-size="18" text-anchor="end" fill="#1c2833">lateral edge</text>
 <text x="230.0" y="372.0" font-size="18" text-anchor="middle" fill="#1c2833">base edge s</text>
 <text x="318.0" y="292.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">s/2</text>
