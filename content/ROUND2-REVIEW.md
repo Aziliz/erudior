@@ -38,8 +38,11 @@ scope unless something new contradicts it.
    (geometry, forces, circuits, structures, labels), text readable and not overlapping, nothing
    cut off, markers on the parts their `labels` name. Fix the SVG or the markers.
 4. **Mermaid diagrams and plots.** Content correct, `accTitle`/`accDescr` describe the whole
-   diagram, readable. Preview Mermaid via a `.mmd` file in your /tmp folder. For ```plot blocks,
-   check the functions and labels by reasoning or Python (labels must not sit on curves).
+   diagram, readable. Preview Mermaid via a `.mmd` file in your /tmp folder. For ```plot,
+   ```figure, ```shape and ```numberline blocks, render every one with the app's own code and
+   stylesheet (`PLAYWRIGHT_MODULE=$(npm root -g)/playwright/index.mjs node scripts/preview-plots.mjs <lesson.md> /tmp/<your-folder>`
+   writes one PNG per block), Read each PNG, and check the functions in Python. Labels must not
+   sit on curves, lines, axes or each other, and nothing may be cut off.
 5. **Drills.** For each new drill, generate instances and recompute the answers independently in
    Python from the prompt as shown. Rounded answers: a correctly rounded value must be accepted
    (`tolerance` ≥ half the last place, `relTolerance`, or `sigfigs`); fraction answers are exact

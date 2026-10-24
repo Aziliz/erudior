@@ -105,7 +105,7 @@
   topic: Probability density functions
   vars:
     n: {min: 2, max: 3}
-    b: {min: 1, max: 4}
+    b: {min: 2, max: 4}
   calc:
     n1: n + 1
     n2: n + 2

@@ -20,6 +20,6 @@
 <text x="400.0" y="105.0" text-anchor="start" font-size="16" fill="#1c2833" stroke="none">inner radius r</text>
 <line x1="396.0" y1="100.0" x2="299.5" y2="169.7" stroke="#1c2833" stroke-width="1.2"/>
 <text x="340.0" y="28.0" text-anchor="start" font-size="16" fill="#1c2833" stroke="none">thickness Δx</text>
-<text x="260.0" y="310.0" text-anchor="end" font-size="16" fill="#1c2833" stroke="none">hole</text>
-<line x1="264.0" y1="300.0" x2="286.0" y2="256.0" stroke="#1c2833" stroke-width="1.2"/>
+<text x="232.0" y="322.0" text-anchor="end" font-size="16" fill="#1c2833" stroke="none">hole</text>
+<line x1="236.0" y1="314.0" x2="284.0" y2="258.0" stroke="#1c2833" stroke-width="1.2"/>
 </svg>

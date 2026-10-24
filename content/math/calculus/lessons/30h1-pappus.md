@@ -39,7 +39,7 @@ Find the centroid of the region between $y = x$ and $y = x^2$ for $0 \le x \le 1
 The centroid is $\left(\frac12, \frac25\right)$. Sanity check: it must lie inside the region's horizontal and vertical extent, and at $x = \frac12$ the region runs from $y = \frac14$ to $y = \frac12$, so $\bar y = 0.4$ is inside. (A centroid doesn't always lie inside the region; for a crescent or a ring it can fall in the gap.)
 
 ```plot
-{"x": [-0.2, 1.3], "y": [-0.2, 1.2], "equal": true, "functions": [{"f": "x", "label": "y = x"}, {"f": "x^2", "label": "y = x²"}], "shade": [{"f": "x", "g": "x^2", "from": 0, "to": 1}], "points": [{"at": [0.5, 0.4], "label": "centroid (1/2, 2/5)"}], "caption": "The region between y = x and y = x² balances at (1/2, 2/5)"}
+{"x": [-0.2, 1.3], "y": [-0.2, 1.2], "equal": true, "functions": [{"f": "x"}, {"f": "x^2"}], "shade": [{"f": "x", "g": "x^2", "from": 0, "to": 1}], "points": [{"at": [0.5, 0.4]}], "labels": [{"at": [0.55, 0.75], "text": "y = x"}, {"at": [1.02, 0.55], "text": "y = x²"}], "caption": "The region between y = x and y = x² balances at its centroid (1/2, 2/5), the dot"}
 ```
 
 ## The first theorem of Pappus: volume

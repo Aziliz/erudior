@@ -37,7 +37,7 @@ For which $k$ is $f(x) = kx(2 - x)$ on $[0, 2]$ (and 0 elsewhere) a density? The
 3. $P\left(X \le \frac12\right) = \frac34\int_0^{1/2}(2x - x^2)\,dx = \frac34\left(\frac14 - \frac1{24}\right) = \frac34\cdot\frac{5}{24} = \frac{5}{32} \approx 0.156.$
 
 ```plot
-{"x": [-0.3, 2.3], "y": [-0.1, 1], "functions": [{"f": "0.75x(2 - x)", "from": 0, "to": 2, "label": "f(x) = (3/4)x(2 − x)"}], "shade": [{"f": "0.75x(2 - x)", "from": 0, "to": 0.5}], "caption": "The shaded area, 5/32, is P(X ≤ 1/2); the whole area under the curve is 1"}
+{"x": [-0.3, 2.3], "y": [-0.1, 1], "functions": [{"f": "0.75x(2 - x)", "from": 0, "to": 2}], "labels": [{"at": [1, 0.88], "text": "f(x) = (3/4)x(2 − x)"}], "shade": [{"f": "0.75x(2 - x)", "from": 0, "to": 0.5}], "caption": "The shaded area, 5/32, is P(X ≤ 1/2); the whole area under the curve is 1"}
 ```
 
 ## The cumulative distribution function
@@ -112,7 +112,7 @@ The mean is $\frac1\lambda = 4$, so $\lambda = \frac14$ per minute.
 - Median: $m = 4\ln2 \approx 2.77$ minutes. Half of all waits are under 2.77 minutes, even though the mean is 4.
 
 ```plot
-{"x": [-0.5, 14], "y": [-0.02, 0.3], "functions": [{"f": "0.25exp(-0.25x)", "from": 0, "to": 14, "label": "f(x) = 0.25e^(−0.25x)"}], "shade": [{"f": "0.25exp(-0.25x)", "from": 6, "to": 14}], "points": [{"at": [2.77, 0], "label": "median 2.77"}, {"at": [4, 0], "label": "mean 4"}], "caption": "Exponential waiting time with mean 4 minutes; the shaded tail is P(X > 6) ≈ 0.223"}
+{"x": [-0.5, 14], "y": [-0.02, 0.3], "functions": [{"f": "0.25exp(-0.25x)", "from": 0, "to": 14}], "labels": [{"at": [9, 0.15], "text": "f(x) = 0.25e^(−0.25x)"}], "shade": [{"f": "0.25exp(-0.25x)", "from": 6, "to": 14}], "points": [{"at": [2.77, 0]}, {"at": [4, 0]}], "caption": "Exponential waiting time with mean 4 minutes. The dots on the x-axis mark the median (2.77) and the mean (4); the shaded tail is P(X > 6) ≈ 0.223"}
 ```
 
 ## Two more densities to know

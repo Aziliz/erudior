@@ -61,7 +61,7 @@ For rotation about the $y$-axis the radius is $x$: $S = \int2\pi x\,ds$.
 
 ![A curve y = f(x) above a horizontal axis of rotation, with its mirror image dashed below. A short piece of the curve of length ds, at height y, sweeps out a thin band around the axis; the band's circumference is 2πy.](images/calc-m7-band.svg)
 
-The band's radius $y$ is measured from the axis to the curve, and its width is the slanted length $ds$ of the piece of curve, not the horizontal step $dx$.
+The band's radius $y$ is measured from the axis to the curve, and its width is the slanted length $ds$ of the piece of curve.
 
 The width of the band is $ds$, not $dx$. Using $dx$ would treat each band as a flat-sided cylinder and give the wrong answer for any slanted curve.
 
