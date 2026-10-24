@@ -82,8 +82,8 @@ This is a compartment model: amounts of something moving between well-mixed boxe
 ```
 
 After an hour, almost all the salt left is in tank 3, decaying like $e^{-0.05t}$: the dominant
-eigenvalue $-0.05$ belongs to the largest, slowest tank. The same chain, with the gut, the
-blood and the body's tissues as compartments, is a standard simplified model for how a
+eigenvalue $-0.05$ belongs to the largest, slowest tank. The first two links of such a chain,
+with the gut and the blood as compartments, are the standard simplified model for how a
 drug taken by mouth rises and then falls in the blood.
 
 ### Example 2: a third-order equation

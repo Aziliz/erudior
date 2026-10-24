@@ -46,9 +46,9 @@ ordinary point at all.
 ```mermaid
 flowchart TD
   accTitle: The power series method, step by step
-  accDescr: Start by checking whether x0 is an ordinary point, that is, whether P(x0) is nonzero. If it is zero, x0 is a singular point and an ordinary power series may fail, so the method of Frobenius is needed instead. If x0 is ordinary, substitute the series for y, y prime and y double prime; shift indices so every sum shows x to the n; handle leftover low-order terms separately; set each coefficient to zero to get a recurrence; compute coefficients from a0 = y(0) and a1 = y prime of 0; and group the a0 terms and the a1 terms to get two independent solutions.
+  accDescr: Start by checking whether x0 is an ordinary point, that is, whether P(x0) is nonzero. If it is zero, x0 is a singular point and an ordinary power series may fail; if the singular point is regular, the method of Frobenius can be used instead. If x0 is ordinary, substitute the series for y, y prime and y double prime; shift indices so every sum shows x to the n; handle leftover low-order terms separately; set each coefficient to zero to get a recurrence; compute coefficients from a0 = y(0) and a1 = y prime of 0; and group the a0 terms and the a1 terms to get two independent solutions.
   A{"Is P(x0) nonzero?"} -->|"yes: ordinary point"| B["Substitute the series for y, y′, y″"]
-  A -->|"no: singular point"| Z["Power series may fail: use Frobenius"]
+  A -->|"no: singular point"| Z["Power series may fail: Frobenius if the point is regular singular"]
   B --> C["Shift indices so every sum shows xⁿ"]
   C --> D["Handle leftover low-order terms"]
   D --> E["Set each coefficient to zero: recurrence"]

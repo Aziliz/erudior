@@ -31,7 +31,7 @@ With the undefined terms in hand, we can define new objects precisely.
 
 The picture shows one of each figure with its name.
 
-![A line through points A and B with arrows at both ends, a ray starting at C through D, a segment from E to F, a single point G, and a shaded parallelogram standing for plane P](images/geo-m1-figures.svg)
+![A line through points A and B with arrows at both ends, a ray starting at E through F, a segment from C to D, a single point G, and a shaded parallelogram standing for plane P](images/geo-m1-figures.svg)
 
 ```shape
 {"segments": [{"from": [0, 0], "to": [10, 0], "arrow": true}, {"from": [10, 0], "to": [0, 0], "arrow": true}, {"from": [0, -2], "to": [6, -2]}, {"from": [0, -4], "to": [10, -4], "arrow": true}], "points": [{"at": [3, 0], "label": "A"}, {"at": [7, 0], "label": "B"}, {"at": [0, -2], "label": "C"}, {"at": [6, -2], "label": "D"}, {"at": [0, -4], "label": "E"}, {"at": [4, -4], "label": "F"}], "caption": "Top: line AB. Middle: segment CD. Bottom: ray EF, which starts at E."}

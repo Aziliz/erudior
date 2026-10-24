@@ -70,7 +70,7 @@ $$M^{-1}K = \begin{bmatrix} \frac{k_1 + k_2}{m_1} & -\frac{k_2}{m_1} \\[2pt] -\f
 Its discriminant $T^2 - 4D$ works out to $\left(\frac{k_1 + k_2}{m_1} - \frac{k_2 + k_3}{m_2}\right)^2 + \frac{4k_2^2}{m_1m_2} \ge 0$,
 so the eigenvalues are real. Its trace is positive and its determinant is
 $\dfrac{k_1k_2 + k_1k_3 + k_2k_3}{m_1m_2} > 0$, so both eigenvalues are positive. (For any
-number of masses the same holds, because the spring energy $\tfrac12\mathbf{x}^{T}K\mathbf{x}$ is
+number of masses in a chain attached to at least one wall the same holds, because the spring energy $\tfrac12\mathbf{x}^{T}K\mathbf{x}$ is
 positive for every nonzero displacement; we state that general fact without proof.)
 
 Since each frequency comes with a cosine and a sine, the general solution for two masses is
@@ -184,7 +184,7 @@ $$t = \frac{\pi}{\omega_2 - \omega_1}.$$
 ### Example 4
 
 With $m = 1$ kg, $k = 1$ N/m and $\kappa = 0.05$ N/m: $\omega_1 = 1$ and $\omega_2 = \sqrt{1.1} \approx 1.0488$
-rad/s. Mass 1 is momentarily still, with all the motion in mass 2, at
+rad/s. Mass 1 is almost still (its envelope is zero), with nearly all the motion in mass 2, at
 $t = \pi/0.0488 \approx 64.4$ s, and the motion is back in mass 1 at about $128.7$ s.
 
 ```plot

@@ -110,9 +110,9 @@
     kc: (p + q + r)*(p*q + q*r + r*p) - p*q*r
     s12: (p + q + r)*(p*q + q*r + r*p)
     w: sqrt(p*q + q*r + r*p)
-  prompt: 'A feedback loop $x_1'' = -{p:coef}x_1 - kx_3$, $x_2'' = x_1 - {q:coef}x_2$, $x_3'' = x_2 - {r:coef}x_3$ has $\det(\lambda I - A) = (\lambda + {p})(\lambda + {q})(\lambda + {r}) + k$. Find the largest feedback strength $k$ for which the steady state is stable, and the angular frequency of the oscillation that appears at that $k$ (2 decimal places).'
+  prompt: 'A feedback loop $x_1'' = -{p:coef}x_1 - kx_3$, $x_2'' = x_1 - {q:coef}x_2$, $x_3'' = x_2 - {r:coef}x_3$ has $\det(\lambda I - A) = (\lambda + {p})(\lambda + {q})(\lambda + {r}) + k$. Find the critical feedback strength $k_c$ (the steady state is stable for $0 \le k < k_c$ and unstable for $k > k_c$), and the angular frequency of the oscillation that appears at that $k$ (2 decimal places).'
   answers:
     - {name: kc, label: '$k_c =$'}
     - {name: w, label: '$\omega \approx$', tolerance: 0.006}
   solution: |-
-    Expanding, $\det(\lambda I - A) = \lambda^3 + {s1}\lambda^2 + {s2}\lambda + ({s3} + k)$. Routh–Hurwitz needs $a_1 = {s1} > 0$, $a_3 = {s3} + k > 0$ and $a_1a_2 > a_3$: ${s1} \cdot {s2} = {s12} > {s3} + k$, so $k < {s12} - {s3}$. The largest is $k_c =$ **{kc}**. There the polynomial is $(\lambda + {s1})(\lambda^2 + {s2})$, with roots $\pm i\sqrt{{s2}}$, so $\omega = \sqrt{{s2}} \approx$ **{w:num2}**.
+    Expanding, $\det(\lambda I - A) = \lambda^3 + {s1}\lambda^2 + {s2}\lambda + ({s3} + k)$. Routh–Hurwitz needs $a_1 = {s1} > 0$, $a_3 = {s3} + k > 0$ and $a_1a_2 > a_3$: ${s1} \cdot {s2} = {s12} > {s3} + k$, so $k < {s12} - {s3}$. The threshold is $k_c =$ **{kc}**. There the polynomial is $(\lambda + {s1})(\lambda^2 + {s2})$, with roots $\pm i\sqrt{{s2}}$, so $\omega = \sqrt{{s2}} \approx$ **{w:num2}**.

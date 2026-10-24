@@ -227,7 +227,7 @@
   lesson: de-nonhomog-systems
   type: match
   topic: Nonhomogeneous systems
-  stem: 'For $\mathbf{x}'' = A\mathbf{x} + \mathbf{g}(t)$, where $A$ has eigenvalues $-1$ and $3$, match each forcing $\mathbf{g}$ to a method that works.'
+  stem: 'For $\mathbf{x}'' = A\mathbf{x} + \mathbf{g}(t)$, where $A$ has eigenvalues $-1$ and $3$, match each forcing $\mathbf{g}$ to the simplest method that works.'
   pairs:
     - ['$\mathbf{g} = (2, -1)$', Try a constant vector]
     - ['$\mathbf{g} = e^{2t}(1, 0)$', Try e^(2t) times a constant vector]
@@ -235,7 +235,7 @@
     - ['$\mathbf{g} = e^{-t}(0, 4)$', Variation of parameters]
   distractors: [Try sin t times a constant vector]
   explanation: |-
-    Constant forcing gets a constant guess (the equilibrium), and $e^{2t}$ forcing gets $e^{2t}\mathbf{a}$ because 2 is not an eigenvalue. Linear forcing gets $t\mathbf{a}_1 + \mathbf{a}_0$. The rate $-1$ is an eigenvalue, so the simple guess $e^{-t}\mathbf{a}$ fails; variation of parameters handles it (as in Lesson 36, Example 4).
+    Constant forcing gets a constant guess (the equilibrium), and $e^{2t}$ forcing gets $e^{2t}\mathbf{a}$ because 2 is not an eigenvalue. Linear forcing gets $t\mathbf{a}_1 + \mathbf{a}_0$. Variation of parameters would also work for these three, but the guesses are simpler. The rate $-1$ is an eigenvalue, so the simple guess $e^{-t}\mathbf{a}$ fails; variation of parameters handles it (as in Lesson 36, Example 4).
 
 # ---------- Lesson 37: Nonlinear systems and linearization ----------
 - id: de-m8-r2-q21

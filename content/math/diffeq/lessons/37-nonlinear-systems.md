@@ -51,12 +51,12 @@ The whole procedure, for each equilibrium in turn:
 ```mermaid
 flowchart TD
   accTitle: Classifying the equilibria of a nonlinear system by linearization
-  accDescr: Solve F = 0 and G = 0 together to find every equilibrium. Compute the Jacobian matrix of partial derivatives and evaluate it at one equilibrium. Find its trace, determinant and discriminant, or its eigenvalues. If no eigenvalue has zero real part, the nonlinear system has the same type and stability as the linearization there. If some eigenvalue has zero real part, linearization is inconclusive and another argument is needed, such as a conserved quantity. Then repeat for the next equilibrium.
+  accDescr: Solve F = 0 and G = 0 together to find every equilibrium. Compute the Jacobian matrix of partial derivatives and evaluate it at one equilibrium. Find its trace, determinant and discriminant, or its eigenvalues. If no eigenvalue has zero real part, the nonlinear system has the same stability as the linearization there, and the same type except that a repeated eigenvalue can turn a node into a spiral. If some eigenvalue has zero real part, linearization is inconclusive and another argument is needed, such as a conserved quantity. Then repeat for the next equilibrium.
   A["Solve F = 0 and G = 0 together: all equilibria"] --> B["Compute the Jacobian J of partial derivatives"]
   B --> C["Evaluate J at one equilibrium"]
   C --> D["Find T, D and T² − 4D (or the eigenvalues)"]
   D --> E{"Any eigenvalue with zero real part?"}
-  E -- no --> F["Same type and stability as the linearization"]
+  E -- no --> F["Same stability; same type, except a repeated eigenvalue may give a spiral"]
   E -- yes --> G["Inconclusive: try another argument, such as a conserved quantity"]
   F --> H["Repeat for the next equilibrium"]
   G --> H

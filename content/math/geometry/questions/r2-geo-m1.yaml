@@ -7,7 +7,7 @@
   type: label
   topic: Undefined terms
   stem: 'Name each numbered figure.'
-  image: {src: images/geo-m1-figures-blank.svg, alt: 'Five figures: a straight path through A and B with arrowheads at both ends; a straight path starting at a dot C, passing D, with an arrowhead only at the far end; a straight path from dot E to dot F with no arrowheads; a single dot G; and a shaded parallelogram marked P.'}
+  image: {src: images/geo-m1-figures-blank.svg, alt: 'Five figures: a straight path through A and B with arrowheads at both ends; a straight path starting at a dot E, passing F, with an arrowhead only at the far end; a straight path from dot C to dot D with no arrowheads; a single dot G; and a shaded parallelogram marked P.'}
   labels:
     - {x: 25.0, y: 23.3, text: Line}
     - {x: 83.3, y: 23.3, text: Ray}
@@ -16,7 +16,7 @@
     - {x: 78.8, y: 68.3, text: Plane}
   distractors: [Angle, Opposite rays]
   explanation: |-
-    1 goes on forever both ways (arrows at both ends): a line. 2 has one endpoint, $C$, and goes on forever through $D$: a ray. 3 stops at both endpoints: a segment. 4 is a single location: a point. 5 is a flat surface drawn as a parallelogram: a plane. Opposite rays would be two rays from one endpoint pointing opposite ways.
+    1 goes on forever both ways (arrows at both ends): a line. 2 has one endpoint, $E$, and goes on forever through $F$: a ray. 3 stops at both endpoints: a segment. 4 is a single location: a point. 5 is a flat surface drawn as a parallelogram: a plane. Opposite rays would be two rays from one endpoint pointing opposite ways.
 - id: geo-m1-r2-q02
   lesson: geo-basics
   type: text
