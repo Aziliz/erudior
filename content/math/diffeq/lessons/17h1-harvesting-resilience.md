@@ -129,7 +129,7 @@ toward 25. The safety margin $P_2 - P_1$ (how far the stock can fall before it c
 recover) shrinks from 100 to 10, and the return time grows without bound.
 
 ```plot
-{"x": [0, 28], "y": [0, 12], "xLabel": "quota h", "yLabel": "return time T_R", "functions": [{"f": "1/sqrt(1 - x/25)", "to": 24.9}], "segments": [{"from": [25, 0], "to": [25, 12], "dashed": true}], "labels": [{"at": [12, 4], "text": "T_R = 1/√(1 − h/25)"}, {"at": [22.5, 10], "text": "h = 25"}], "caption": "Return time for the quota model with r = 1, K = 100. It blows up as the quota approaches the bifurcation value 25."}
+{"x": [0, 30], "y": [0, 12], "xLabel": "quota h", "yLabel": "return time T_R", "functions": [{"f": "1/sqrt(1 - x/25)", "to": 24.9}], "segments": [{"from": [25, 0], "to": [25, 12], "dashed": true}], "labels": [{"at": [12, 4], "text": "T_R = 1/√(1 − h/25)"}, {"at": [22.5, 10], "text": "h = 25"}], "caption": "Return time for the quota model with r = 1, K = 100. It blows up as the quota approaches the bifurcation value 25."}
 ```
 
 ## Critical slowing down
