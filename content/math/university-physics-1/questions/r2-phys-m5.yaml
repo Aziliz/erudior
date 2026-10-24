@@ -252,7 +252,7 @@
   stem: 'Put these Earth satellites in order of orbital period, shortest first.'
   items: ['The International Space Station (about 400 km up)', 'A GPS satellite (about 20 200 km up)', 'A geostationary satellite (about 35 800 km up)', 'The Moon (about 384 000 km away)']
   explanation: |-
-    Kepler's third law: $T^2 \propto r^3$, so a larger orbit always has a longer period. The ISS takes about 92 min, a GPS satellite about 12 h, a geostationary satellite 24 h (by design) and the Moon about 27 days.
+    Kepler's third law: $T^2 \propto r^3$, so a larger orbit always has a longer period. The ISS takes about 92 min, a GPS satellite about 12 h, a geostationary satellite one sidereal day, about 23 h 56 min (by design, so it keeps pace with Earth's rotation) and the Moon about 27 days.
 - id: phys-m5-r2-q24
   lesson: phys-gravitation
   module_quiz: true

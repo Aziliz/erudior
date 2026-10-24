@@ -107,7 +107,7 @@ Tidal stretching can win against a body's own gravity. Consider a small moon of 
 
 $$\frac{2GMr}{D^3} > \frac{Gm}{r^2} \quad\Leftrightarrow\quad D < r\left(\frac{2M}{m}\right)^{1/3} = R_p\left(\frac{2\rho_p}{\rho_m}\right)^{1/3},$$
 
-using $M/m = \rho_pR_p^3/(\rho_mr^3)$ for a planet of radius $R_p$ and density $\rho_p$ and a moon of density $\rho_m$. This distance is the **Roche limit**, after Édouard Roche, who in 1849 calculated it for a fluid moon. Our estimate ignores the moon's own rotation and its stretching into an egg shape; Roche's fluid calculation gives a larger coefficient, $D \approx 2.44R_p(\rho_p/\rho_m)^{1/3}$, instead of our $1.26R_p(\rho_p/\rho_m)^{1/3}$. Solid moons with real strength can survive inside it.
+using $M/m = \rho_pR_p^3/(\rho_mr^3)$ for a planet of radius $R_p$ and density $\rho_p$ and a moon of density $\rho_m$. This distance is the **Roche limit**, after Édouard Roche, who calculated it for a fluid moon in 1848 (published in 1849). Our estimate ignores the moon's own rotation and its stretching into an egg shape; Roche's fluid calculation gives a larger coefficient, $D \approx 2.44R_p(\rho_p/\rho_m)^{1/3}$, instead of our $1.26R_p(\rho_p/\rho_m)^{1/3}$. Solid moons with real strength can survive inside it.
 
 ### Example 3: how close could the Moon come?
 

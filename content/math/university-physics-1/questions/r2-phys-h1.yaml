@@ -349,7 +349,7 @@
   topic: Kepler orbits
   type: text
   stem: 'The point of an orbit closest to the body being orbited is called the ___.'
-  accept: [periapsis, periapse, pericenter, perigee, perihelion]
+  accept: [periapsis, periapse, pericenter, pericentre, perigee, perihelion]
   explanation: |-
     It is the periapsis (perigee around Earth, perihelion around the Sun). The farthest point is the apoapsis.
 - id: phys-h1-r2-h40

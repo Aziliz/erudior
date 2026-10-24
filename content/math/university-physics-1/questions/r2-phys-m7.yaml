@@ -21,9 +21,9 @@
   topic: Pressure
   type: text
   stem: 'Using the rule that every 10 m of water adds about 1 atm, the gauge pressure on a diver 25 m below the surface of a lake is about ___ atm. (Give only the number.)'
-  accept: ['2.5']
+  accept: ['2.5', '2.4', '2.42']
   explanation: |-
-    Gauge pressure counts only the water: 25 m is 2.5 times 10 m, so about 2.5 atm. The absolute pressure adds the atmosphere on top: about 3.5 atm. (The exact gauge value is $\rho gh = 1000(9.8)(25) = 2.45\times10^5$ Pa $= 2.4$ atm.)
+    Gauge pressure counts only the water: 25 m is 2.5 times 10 m, so about 2.5 atm. The absolute pressure adds the atmosphere on top: about 3.5 atm. (The exact gauge value is $\rho gh = 1000(9.8)(25) = 2.45\times10^5$ Pa $= 2.42$ atm, so 2.4 is also accepted.)
 - id: phys-m7-r2-q03
   lesson: phys-fluid-statics
   topic: Buoyancy
@@ -640,7 +640,7 @@
   choices: ['1/2 of the original', '1/4 of the original', '1/8 of the original', '1/16 of the original']
   answer: 3
   explanation: |-
-    Poiseuille's law, $Q = \pi R^4\Delta P/(8\eta L)$, has $R^4$: $(1/2)^4 = 1/16$. Two factors of $R$ come from the cross-sectional area and two more from the speed, which also falls because more of the fluid is close to the wall. 1/4 counts only the area.
+    Poiseuille's law, $Q = \pi R^4\Delta P/(8\eta L)$, has $R^4$: $(1/2)^4 = 1/16$. Two factors of $R$ come from the cross-sectional area and two more from the speed: in a narrower pipe all the fluid is closer to the motionless wall, so the velocity profile $v = \dfrac{\Delta P}{4\eta L}(R^2 - r^2)$ is scaled down by $R^2$. 1/4 counts only the area.
 - id: phys-m7-r2-h30
   lesson: phys-m7-h-viscous-flow
   topic: Viscous flow

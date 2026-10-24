@@ -31,7 +31,7 @@
   topic: Engine cycles
 - term: combined-cycle
   aliases: [combined cycle, combined-cycle plant]
-  definition: 'A power plant that uses a gas turbine''s hot exhaust to make steam for a second, steam turbine; the best convert about 60% of the fuel''s energy to electricity.'
+  definition: 'A power plant that uses a gas turbine''s hot exhaust to make steam for a second, steam turbine; the best convert a little over 60% of the fuel''s energy to electricity.'
   topic: Engine cycles
 - term: microstate
   aliases: [microstates]

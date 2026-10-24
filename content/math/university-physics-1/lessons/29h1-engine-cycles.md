@@ -70,7 +70,7 @@ A Carnot engine between the extreme temperatures would reach $1 - 300/2000 = 85\
 
 ## Why not a much higher compression ratio?
 
-Raising $r$ from 8 to 12 raises the ideal efficiency from 56% to 63%, so why do gasoline engines stop around 8 to 12? Because the fuel and air are compressed together. If the compression heats the mixture too much, it ignites on its own before the spark, in uncontrolled pockets; this **engine knock** (detonation) hammers the pistons and can destroy the engine. Higher-octane fuel resists autoignition and allows a somewhat higher ratio.
+Raising $r$ from 8 to 12 raises the ideal efficiency from 56% to 63%, so why do gasoline engines usually stop around 8 to 12 (a few modern direct-injection designs reach 13 or 14)? Because the fuel and air are compressed together. If the compression heats the mixture too much, it ignites on its own before the spark, in uncontrolled pockets; this **engine knock** (detonation) hammers the pistons and can destroy the engine. Higher-octane fuel resists autoignition and allows a somewhat higher ratio.
 
 Real gasoline engines reach roughly 25–35% efficiency, with the best modern designs near 40% at their most efficient operating point. The gap from the ideal comes from friction, heat lost through the cylinder walls, incomplete combustion, and the fact that hot combustion gases have a lower $\gamma$ than cool air.
 
@@ -106,7 +106,7 @@ A gas turbine has pressure ratio 20 and takes in air at 300 K. Find its ideal ef
 
 $(\gamma - 1)/\gamma = 0.4/1.4 = 0.2857$. $20^{0.2857} = 2.354$, so $e = 1 - 1/2.354 = 0.575$, about 57%.
 
-The compressor outlet is at $T = 300(2.354) = 706$ K before any fuel burns. Real simple-cycle gas turbines reach roughly 35–45%. In a **combined-cycle** plant, the turbine's hot exhaust (still several hundred degrees Celsius) boils water for a steam turbine, and the best such plants convert about 60% of the fuel's energy to electricity.
+The compressor outlet is at $T = 300(2.354) = 706$ K before any fuel burns. Real simple-cycle gas turbines reach roughly 35–45%. In a **combined-cycle** plant, the turbine's hot exhaust (still several hundred degrees Celsius) boils water for a steam turbine, and the best such plants now convert a little over 60% of the fuel's energy to electricity.
 
 ```plot
 {"x": [2, 24], "y": [0, 0.8], "xLabel": "compression ratio r", "yLabel": "ideal efficiency", "functions": [{"f": "1 - x^(-0.4)"}, {"f": "1 - x^(-0.4)*(2^1.4 - 1)/1.4", "dashed": true}], "points": [{"at": [10, 0.602]}, {"at": [18, 0.632]}], "labels": [{"at": [5, 0.63], "text": "Otto"}, {"at": [15, 0.5], "text": "Diesel, cutoff 2"}], "caption": "Air-standard efficiencies (γ = 1.4). Dots: a gasoline engine at r = 10 (60%) and a diesel at r = 18 (63%). At equal r the Otto cycle wins, but diesels run at much higher r."}
