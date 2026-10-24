@@ -959,7 +959,7 @@
   definition: 'Choosing a load resistance equal to the source''s internal resistance to transfer maximum power.'
   topic: Series and parallel circuits
 - term: time constant
-  aliases: [τ, RC time constant]
+  aliases: [RC time constant]
   definition: 'The characteristic time of exponential change; $\tau = RC$ for an RC circuit, $L/R$ for an RL circuit.'
   topic: RC circuits
 - term: low-pass filter
@@ -1413,7 +1413,7 @@
   definition: 'Joining of light nuclei into a heavier one, releasing energy; powers the Sun.'
   topic: Nuclear structure
 - term: alpha decay
-  aliases: [alpha particle, α]
+  aliases: [alpha particle]
   definition: 'Emission of a helium-4 nucleus; $Z$ drops by 2 and $A$ by 4.'
   topic: Radioactive decay
 - term: beta decay

@@ -21,6 +21,10 @@ function linkTerms(md: string): string {
 }
 
 export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry | undefined {
+  // Exact spelling first, so symbols that differ only in case (N newton, n refractive index;
+  // H henry, h Planck's constant) find the right entry; then ignore case.
+  const exact = glossary.find((g) => g.term === term || g.aliases?.includes(term));
+  if (exact) return exact;
   const t = term.toLowerCase();
   return glossary.find(
     (g) => g.term.toLowerCase() === t || g.aliases?.some((a) => a.toLowerCase() === t),

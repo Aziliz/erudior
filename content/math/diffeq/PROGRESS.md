@@ -78,7 +78,7 @@ Lesson numbers below are the file numbers in `lessons/` (an `h` number is an hon
 - [x] 37 de-nonlinear — Nonlinear systems and linearization (Nonlinear systems) drills: de-jacobian, de-predator-prey-eq
 - [x] 37h1 de-m8-h-coupled-oscillators — Coupled oscillators and normal modes (honors) (Coupled oscillators) drills: de-m8-r2-mode-freqs, de-m8-r2-beat-time
 - [x] 37h2 de-m8-h-larger-systems — Larger systems and the Routh–Hurwitz test (honors) (Stability of larger systems) drills: de-m8-r2-peak-time, de-m8-r2-char-poly-3x3, de-m8-r2-critical-gain
-- [ ] 37h3 de-m8-h-lyapunov — Lyapunov functions and the direct method (honors) (Lyapunov functions) drills: de-m8-r3-vdot, de-m8-r3-posdef, de-m8-r3-basin (round 3, being written)
+- [x] 37h3 de-m8-h-lyapunov — Lyapunov functions and the direct method (honors) (Lyapunov functions) drills: de-m8-r3-vdot, de-m8-r3-posdef, de-m8-r3-basin (round 3)
 
 ### de-m9 Series solutions, Fourier series and PDEs
 - [x] 38 de-series — Series solutions near ordinary points (Series solutions) drills: de-recurrence, de-series-coef
