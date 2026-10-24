@@ -157,6 +157,8 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                 ) : (
                   <select
                     id={id}
+                    // Spelled out too: a left item that is only math can leave the <label> without a readable name.
+                    aria-label={spoken(left) || `Item ${i + 1}`}
                     className="input match-pick"
                     value={pick}
                     disabled={off}
