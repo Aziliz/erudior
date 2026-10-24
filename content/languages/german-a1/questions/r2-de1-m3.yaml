@@ -341,7 +341,7 @@
   choices: ['The narrator doesn''t like apple cake.', 'The narrator is full.', 'The narrator doesn''t drink coffee.', 'The narrator has to go home.']
   answer: 1
   explanation: |-
-    Oma offers another piece of cake and she the narrator answers "Nein danke, Oma, ich bin satt!": the narrator is full. It is Jonas who doesn't drink coffee, and they go home only at nine.
+    Oma offers another piece of cake, and the narrator answers "Nein danke, Oma, ich bin satt!": the narrator is full. It is Jonas who doesn't drink coffee, and they go home only at nine.
 - id: de1-m3-r2-h12
   lesson: de1-m3-h-food-culture
   topic: Food culture
