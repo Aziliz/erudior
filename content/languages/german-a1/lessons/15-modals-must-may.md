@@ -132,6 +132,10 @@ Signs (*das Schild*, plural *die Schilder*) are often very short. Many use *verb
 | *Bitte Ausweis zeigen* | Please show ID | *Man muss den Ausweis zeigen.* |
 | *Heute geschlossen* | Closed today | *Man kann heute nicht einkaufen.* |
 
+Many signs use only a picture. A red ring with a red bar across means "not allowed":
+
+![Four signs with captions. A cigarette inside a red ring with a red bar across it: Rauchen verboten. A white P on a blue square: Parken erlaubt. A mobile phone inside a red ring with a red bar: Telefonieren verboten. A face with a finger on its lips: Bitte leise sein!](images/de1-m4-signs.svg)
+
 *Geschlossen* (closed) comes from *schließen* (to close); its opposite on a door is *geöffnet*
 (open), from *öffnen*.
 

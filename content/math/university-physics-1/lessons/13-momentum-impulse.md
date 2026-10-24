@@ -123,7 +123,7 @@ $$J = \int_0^{0.010} (4.0\times10^{7})(0.010\,t - t^2)\,dt = (4.0\times10^{7})\l
 The ball leaves at $v = J/m = 6.67/0.45 = 14.8$ m/s. The force peaks at the midpoint, $t = 0.005$ s: $F_{\max} = (4.0\times10^{7})(0.005)(0.005) = 1000$ N. The average force is $J/\Delta t = 667$ N, two-thirds of the peak, as expected for a parabolic pulse.
 
 ```plot
-{"x": [0, 0.011], "y": [0, 1150], "xLabel": "t (s)", "yLabel": "F (N)", "functions": [{"f": "4e7*x*(0.010 - x)", "from": 0, "to": 0.010, "label": "F(t)"}, {"f": "667", "from": 0, "to": 0.010, "dashed": true, "label": "average 667 N"}], "shade": [{"f": "4e7*x*(0.010 - x)", "from": 0, "to": 0.010}], "caption": "The kick's force pulse: the shaded area is the impulse, 6.67 N·s; the average force gives the same area over 0.010 s"}
+{"x": [0, 11], "y": [0, 1.15], "xLabel": "t (ms)", "yLabel": "F (kN)", "functions": [{"f": "0.04*x*(10 - x)", "from": 0, "to": 10, "label": "F(t)"}, {"f": "0.667", "from": 0, "to": 10, "dashed": true, "label": "average 0.667 kN"}], "shade": [{"f": "0.04*x*(10 - x)", "from": 0, "to": 10}], "caption": "The kick's force pulse: the shaded area is the impulse, 6.67 N·s; the average force gives the same area over 10 ms"}
 ```
 
 ## Rockets: momentum with changing mass

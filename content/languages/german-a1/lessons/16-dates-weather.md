@@ -27,6 +27,12 @@ All months are masculine (*der Januar*) and, like all nouns, written with a capi
 The seasons (*die Jahreszeiten*) are masculine too: *der Frühling* (spring), *der Sommer*
 (summer), *der Herbst* (autumn, fall), *der Winter* (winter).
 
+The year wheel shows which months belong to which season. It uses whole months, the way weather
+services count; by the calendar, spring starts around 20 March, summer around 21 June, autumn
+around 22 or 23 September and winter around 21 December.
+
+![A ring of the twelve months, starting with Januar at the top and running clockwise. Dezember, Januar and Februar are shaded blue and marked der Winter; März, April and Mai green, der Frühling; Juni, Juli and August yellow, der Sommer; September, Oktober and November pink, der Herbst.](images/de1-m4-seasons.svg)
+
 To say "in" a month or season, use *im*: *im Mai* (in May), *im Winter* (in winter). *Im* is
 short for *in dem*; for now just learn *im* + month or season as a chunk.
 
@@ -91,6 +97,8 @@ it is just a placeholder subject, like "it" in "it's raining". These verbs are c
 
 To ask: *Wie ist das Wetter heute?* — What's the weather like today?
 
+![Four weather pictures with captions: a bright sun (Die Sonne scheint.), a cloud with rain (Es regnet.), a cloud with snowflakes (Es schneit.), and gusts of wind bending a small tree (Es ist windig.).](images/de1-m4-weather.svg)
+
 Nouns for the weather: *die Sonne* (sun), *der Regen* (rain), *der Schnee* (snow), *der Wind*
 (wind). *Im Winter gibt es oft Schnee.* — In winter there's often snow.
 
@@ -128,6 +136,20 @@ Saying no politely, with a reason:
 
 - *Leider kann ich nicht. Ich muss arbeiten.* — Unfortunately I can't. I have to work.
 - *Schade, da habe ich keine Zeit.* — What a pity, I don't have time then.
+
+The whole conversation follows one of two paths:
+
+```mermaid
+flowchart TD
+  accTitle: Answering an invitation
+  accDescr: An invitation arrives, for example Kommst du am Samstag? If you can come, say Ja, gern! Ich komme gern, and thank the person: Danke für die Einladung! If you can't come, say Leider kann ich nicht, give a reason such as Ich muss arbeiten, and end kindly with Schade! Viel Spaß!
+  A["Einladung: Kommst du am Samstag?"] --> B{"Can you come?"}
+  B -- yes --> C["Ja, gern! Ich komme gern."]
+  C --> D["Danke für die Einladung!"]
+  B -- no --> E["Leider kann ich nicht."]
+  E --> F["Reason: Ich muss arbeiten."]
+  F --> G["Schade! Viel Spaß!"]
+```
 
 ## A message and two answers
 
