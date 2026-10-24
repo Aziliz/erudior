@@ -1,0 +1,23 @@
+# Round 2 cards for phys-m1 honors lessons.
+- {front: 'How to report a result with its uncertainty', back: 'Round $\delta x$ to 1 significant figure (2 if it starts with 1), then round the value to the same decimal place: $9.81 \pm 0.06$.', topic: Measurement uncertainty}
+- {front: 'Relative uncertainty', back: '$\delta x/|x|$, usually as a percentage; unitless, so it compares the quality of different measurements.', topic: Measurement uncertainty}
+- {front: 'Random vs systematic error', back: 'Random error scatters readings both ways and averages down; systematic error shifts every reading the same way and does not.', topic: Measurement uncertainty}
+- {front: 'Sample standard deviation', back: '$s = \sqrt{\dfrac{\sum (x_i - \bar x)^2}{n - 1}}$: the spread of single readings.', topic: Measurement uncertainty}
+- {front: 'Standard error of the mean', back: '$\delta\bar x = s/\sqrt n$. Four times the readings halves it.', topic: Measurement uncertainty}
+- {front: 'When do two results agree?', back: 'Roughly, when the discrepancy is within about 2 uncertainties (a rule of thumb). Much more points to a mistake or systematic error.', topic: Measurement uncertainty}
+- {front: 'Uncertainty of a sum or difference', back: 'Add absolute uncertainties in quadrature: $\delta q = \sqrt{(\delta x)^2 + (\delta y)^2}$, even for a difference.', topic: Error propagation}
+- {front: 'Uncertainty of a product or quotient', back: 'Add relative uncertainties in quadrature: $\dfrac{\delta q}{|q|} = \sqrt{\left(\dfrac{\delta x}{x}\right)^2 + \left(\dfrac{\delta y}{y}\right)^2}$.', topic: Error propagation}
+- {front: 'Uncertainty of a power $x^n$', back: '$\dfrac{\delta q}{|q|} = |n|\dfrac{\delta x}{|x|}$: squaring doubles the relative uncertainty.', topic: Error propagation}
+- {front: 'General uncertainty rule (calculus)', back: '$\delta q = |dq/dx|\,\delta x$; for several independent inputs, add the partial-derivative terms in quadrature. Angles in radians.', topic: Error propagation}
+- {front: 'Why subtracting nearly equal numbers is risky', back: 'The absolute uncertainties add while the result gets small, so the relative uncertainty can become large.', topic: Error propagation}
+- {front: 'Scalar projection of A onto B', back: '$\vec A\cdot\hat B = A\cos\phi = \dfrac{\vec A\cdot\vec B}{|\vec B|}$', topic: Vector projections}
+- {front: 'Vector projection of A onto B', back: '$\vec A_\parallel = \dfrac{\vec A\cdot\vec B}{B^2}\vec B$; the rest, $\vec A_\perp = \vec A - \vec A_\parallel$, is perpendicular to $\vec B$.', topic: Vector projections}
+- {front: 'Direction cosines', back: '$\cos\alpha = A_x/A$, $\cos\beta = A_y/A$, $\cos\gamma = A_z/A$; $\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$.', topic: Vector projections}
+- {front: 'Components in axes rotated by φ (counterclockwise)', back: '$A_{x''} = A_x\cos\varphi + A_y\sin\varphi$, $A_{y''} = -A_x\sin\varphi + A_y\cos\varphi$', topic: Vector projections}
+- {front: 'What stays the same when the axes rotate?', back: 'Magnitudes, angles between vectors and dot products. Components change.', topic: Vector projections}
+- {front: 'Scalar triple product', back: '$\vec A\cdot(\vec B\times\vec C)$ = the determinant of the components; $|\ldots|$ is the volume of the parallelepiped.', topic: Triple products}
+- {front: 'Test for three coplanar vectors', back: 'Their scalar triple product is zero.', topic: Triple products}
+- {front: 'Cyclic property of the scalar triple product', back: '$\vec A\cdot(\vec B\times\vec C) = \vec B\cdot(\vec C\times\vec A) = \vec C\cdot(\vec A\times\vec B)$; swapping two vectors flips the sign.', topic: Triple products}
+- {front: 'BAC-CAB rule', back: '$\vec A\times(\vec B\times\vec C) = \vec B(\vec A\cdot\vec C) - \vec C(\vec A\cdot\vec B)$', topic: Triple products}
+- {front: 'Is the cross product associative?', back: 'No: $(\hat\imath\times\hat\imath)\times\hat\jmath = \vec 0$ but $\hat\imath\times(\hat\imath\times\hat\jmath) = -\hat\jmath$.', topic: Triple products}
+- {front: 'Centripetal acceleration as a triple product', back: '$\vec a = \vec\omega\times(\vec\omega\times\vec r)$, which points at the axis with magnitude $\omega^2\rho$ ($\rho$ = distance from the axis).', topic: Triple products}

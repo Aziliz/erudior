@@ -55,6 +55,21 @@ A 0.20 kg ball is pressed against a vertical spring ($k = 500$ N/m), compressing
 
 Energy stored: $\tfrac12(500)(0.10)^2 = 2.5$ J. At the highest point, $K = 0$ and all of it is gravitational: $mgh = 2.5$ J, so $h = \dfrac{2.5}{0.20(9.8)} = 1.28$ m.
 
+The same steps work for every energy-conservation problem:
+
+```mermaid
+flowchart TD
+  accTitle: Steps for an energy-conservation problem
+  accDescr: Choose the system and the initial and final moments. Choose a zero for each potential energy. Write the kinetic and potential energies at both moments. Ask whether friction or another nonconservative force does work. If not, set the initial total equal to the final total. If so, add the nonconservative work to the initial side. Then solve for the unknown.
+  A["Pick the initial and final moments"] --> B["Choose a zero for each U"]
+  B --> C["Write K and U at both moments"]
+  C --> D{"Friction or other nonconservative work?"}
+  D -->|no| E["Ki + Ui = Kf + Uf"]
+  D -->|yes| F["Ki + Ui + Wnc = Kf + Uf"]
+  E --> G["Solve for the unknown"]
+  F --> G
+```
+
 ## When friction acts
 
 Friction and other **nonconservative forces** (air drag, your muscles, a motor) change the mechanical energy. Including their work $W_{\text{nc}}$,
@@ -90,6 +105,10 @@ At constant speed the tension equals the weight: $T = 900(9.8) = 8820$ N. $P = T
 ## Energy diagrams
 
 Plotting $U(x)$ shows the motion at a glance. With total energy $E$ drawn as a horizontal line, the kinetic energy at each point is the gap $E - U(x)$. The object can only be where $U \le E$; the points where $E = U$ are **turning points**, where it stops and reverses. Minima of $U$ are stable equilibria (like the bottom of a bowl); maxima are unstable.
+
+Each feature of an energy diagram has a name:
+
+![An energy diagram: a double-well potential curve U(x) with a dashed total energy line E; the bottoms of the wells are stable equilibria, the central hump is an unstable equilibrium, the curve meets the E line at turning points, the kinetic energy is the vertical gap from the curve up to E, and regions beyond the turning points are not allowed](images/phys-m4-energy-diagram.svg)
 
 ```plot
 {"x": [-2.2, 2.2], "y": [-1.5, 3], "xLabel": "x", "yLabel": "energy", "functions": [{"f": "x^4 - 2*x^2", "label": "U(x)"}, {"f": "1.5", "dashed": true}], "points": [{"at": [-1, -1], "label": "stable"}, {"at": [0, 0], "label": "unstable"}, {"at": [-1.607, 1.5]}, {"at": [1.607, 1.5]}], "labels": [{"at": [-0.75, 1.7], "text": "E"}, {"at": [0.8, 1.75], "text": "turning points"}], "caption": "A double-well potential: with energy E the particle moves between the outer turning points"}

@@ -119,9 +119,8 @@
     Lm: {min: 0.2, max: 3, step: 0.1}
     Ts: {min: 0.8, max: 4, step: 0.1}
   calc:
-    grav: 9.81
-    per: 2 * pi * sqrt(Lm / grav)
-    Lneed: grav * Ts^2 / (4 * pi^2)
+    per: 2 * pi * sqrt(Lm / 9.81)
+    Lneed: 9.81 * Ts^2 / (4 * pi^2)
   prompt: 'For small swings a pendulum''s period is $T = 2\pi\sqrt{\dfrac{L}{g}}$ with $g = 9.81$ m/s². Find the period of a pendulum {Lm:num1} m long, and the length that gives a period of {Ts:num1} s. Give both to 2 decimals.'
   answers:
     - {name: per, label: 'Period (s)', tolerance: 0.006}

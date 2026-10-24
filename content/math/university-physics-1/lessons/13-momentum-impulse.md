@@ -49,6 +49,21 @@ $$\vec p_{\text{total, initial}} = \vec p_{\text{total, final}}.$$
 
 This is **conservation of momentum**. It holds for each component separately: if external forces are only vertical (gravity and normal forces), horizontal momentum is still conserved. It also holds approximately during brief collisions and explosions even when external forces exist, because the internal forces are so much larger for that short time.
 
+Before using conservation, decide whether it applies:
+
+```mermaid
+flowchart TD
+  accTitle: Is momentum conserved?
+  accDescr: Choose the system. If the net external force on it is zero, total momentum is conserved. If not, check whether external forces act along only some directions; momentum is then conserved along the directions with no external force. Otherwise, if the event is a brief collision or explosion, momentum is approximately conserved during it. If none of these apply, momentum is not conserved, and impulse equals the change in momentum.
+  A["Choose the system"] --> B{"Net external force zero?"}
+  B -->|yes| C["Total momentum conserved"]
+  B -->|no| D{"Zero along some direction?"}
+  D -->|yes| E["Conserved along that direction"]
+  D -->|no| F{"Brief collision or explosion?"}
+  F -->|yes| G["Approximately conserved during it"]
+  F -->|no| H["Not conserved: impulse = change in momentum"]
+```
+
 ### Example 2: recoil
 
 A 70 kg skater standing on frictionless ice throws a 5.0 kg ball forward at 12 m/s. How fast does she recoil?
@@ -83,6 +98,8 @@ A 60 kg person stands at one end of a 120 kg, 4.0 m raft at rest on still water 
 
 No external horizontal forces, and the system starts at rest, so the CM stays put. If she moves 4.0 m relative to the raft and the raft moves $d$ backward, her ground displacement is $4.0 - d$. Setting the CM displacement to zero: $60(4.0 - d) - 120d = 0$, so $d = 240/180 = 1.33$ m.
 
+![Before: a person stands at the left end of a raft. After: she stands at the right end, the raft has moved 1.33 m left, she has moved 2.67 m right, and a dashed line marks the center of mass of person plus raft, which has not moved](images/phys-m4-raft.svg)
+
 ## Time-varying forces and continuous objects
 
 The general second law is $\vec F_{\text{net}} = d\vec p/dt$, and the impulse of a time-varying force is an integral:
@@ -104,6 +121,10 @@ A kick delivers a force $F(t) = (4.0\times10^{7})\,t\,(0.010 - t)$ N to a 0.45 k
 $$J = \int_0^{0.010} (4.0\times10^{7})(0.010\,t - t^2)\,dt = (4.0\times10^{7})\left[\frac{0.010\,t^2}{2} - \frac{t^3}{3}\right]_0^{0.010} = (4.0\times10^{7})(1.667\times10^{-7}) = 6.67\text{ N·s}.$$
 
 The ball leaves at $v = J/m = 6.67/0.45 = 14.8$ m/s. The force peaks at the midpoint, $t = 0.005$ s: $F_{\max} = (4.0\times10^{7})(0.005)(0.005) = 1000$ N. The average force is $J/\Delta t = 667$ N, two-thirds of the peak, as expected for a parabolic pulse.
+
+```plot
+{"x": [0, 0.011], "y": [0, 1150], "xLabel": "t (s)", "yLabel": "F (N)", "functions": [{"f": "4e7*x*(0.010 - x)", "from": 0, "to": 0.010, "label": "F(t)"}, {"f": "667", "from": 0, "to": 0.010, "dashed": true, "label": "average 667 N"}], "shade": [{"f": "4e7*x*(0.010 - x)", "from": 0, "to": 0.010}], "caption": "The kick's force pulse: the shaded area is the impulse, 6.67 N·s; the average force gives the same area over 0.010 s"}
+```
 
 ## Rockets: momentum with changing mass
 

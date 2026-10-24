@@ -39,6 +39,10 @@ A 15 kg sled is pulled 20 m across level snow by a rope with tension 50 N at $25
 
 Net work: $906 - 600 = 306$ J.
 
+The picture shows the same kind of situation, a crate dragged by a rope at an angle $\theta$, with the sign of the work each force does.
+
+![A crate on a floor with five arrows: the rope force up and to the right at angle theta does positive work, friction to the left does negative work, the normal force up and the weight down do zero work, and the displacement points right](images/phys-m4-crate-forces.svg)
+
 ## Kinetic energy and the work–energy theorem
 
 **Kinetic energy** is the energy of motion:
@@ -106,6 +110,26 @@ $$W_{\text{net}} = \int F_{\text{net}}\,dx = \int m v\frac{dv}{dx}\,dx = \int_{v
 A force $F(x) = 3x^2 - 2x$ N acts on a particle along the $x$ axis. How much work does it do as the particle moves from $x = 1$ m to $x = 3$ m?
 
 $$W = \int_1^3 (3x^2 - 2x)\,dx = \left[x^3 - x^2\right]_1^3 = (27 - 9) - (1 - 1) = 18\text{ J}.$$
+
+The work is the shaded area under the force curve between the two positions:
+
+```plot
+{"x": [0, 3.5], "y": [-1, 24], "xLabel": "x (m)", "yLabel": "F (N)", "functions": [{"f": "3*x^2 - 2*x", "from": 0, "to": 3.3, "label": "F = 3x² − 2x"}], "shade": [{"f": "3*x^2 - 2*x", "from": 1, "to": 3}], "caption": "Work from x = 1 m to x = 3 m: the shaded area, 18 J"}
+```
+
+## Which method when
+
+Newton's laws and the work–energy theorem describe the same physics, so either will solve a problem in principle; the question is which is shorter.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing between Newton's second law and the work-energy theorem
+  accDescr: If the question asks about time or acceleration, use Newton's second law with kinematics. If it asks about speed after a distance, use the work-energy theorem. If the force varies with position, use the work-energy theorem with work as the area under the force graph or an integral. If the force varies with time, use Newton's second law or impulse.
+  Q["What does the question ask for?"] -->|"time or acceleration"| N["Newton's second law, then kinematics"]
+  Q -->|"speed after a distance"| W["Work-energy theorem"]
+  Q -->|"force varies with position"| I["Work as area or integral, then work-energy"]
+  Q -->|"force varies with time"| T["Newton's second law or impulse"]
+```
 
 ## Common mistakes
 

@@ -25,7 +25,7 @@
     - ['-1', '−1']
     - [pi, π]
   explanation: |-
-    Cosine is the horizontal coordinate of the unit-circle point. It is smallest, $-1$, when the point is at $(-1, 0)$, a half turn: $x = \pi$. The key points of one cycle are $(0, 1), (\tfrac{\pi}{2}, 0), (\pi, -1), (\tfrac{3\pi}{2}, 0), (2\pi, 1)$. ($\tfrac{3\pi}{2}$ is where *sine* has its minimum.)
+    Cosine is the horizontal coordinate of the unit-circle point. It is smallest, $-1$, when the point is at $(-1, 0)$, a half turn: $x = \pi$. The key points of one cycle are $(0, 1), (\tfrac{\pi}{2}, 0), (\pi, -1), (\tfrac{3\pi}{2}, 0), (2\pi, 1)$. ($\tfrac{3\pi}{2}$ is where sine has its minimum.)
 - id: trig-m4-r2-q03
   lesson: trig-graph-sincos
   topic: Graphs of sine and cosine
@@ -47,7 +47,7 @@
   choices: ['Its range is $[-1, 1]$', 'Its zeros are at $x = k\pi$ for every integer $k$', 'It is symmetric about the $y$-axis', 'Its maxima are at $x = \tfrac{\pi}{2} + 2k\pi$', 'It repeats every $\pi$ units']
   answer: [0, 1, 3]
   explanation: |-
-    Sine's values run from $-1$ to $1$, it is zero at every multiple of $\pi$, and it peaks at $\tfrac{\pi}{2}$ and every full turn after that. It is *not* symmetric about the $y$-axis: sine is odd, so its graph is symmetric about the origin (cosine is the even one). Its period is $2\pi$, not $\pi$: after $\pi$ units the graph is upside down.
+    Sine's values run from $-1$ to $1$, it is zero at every multiple of $\pi$, and it peaks at $\tfrac{\pi}{2}$ and every full turn after that. It is not symmetric about the $y$-axis: sine is odd, so its graph is symmetric about the origin (cosine is the even one). Its period is $2\pi$, not $\pi$: after $\pi$ units the graph is upside down.
 - id: trig-m4-r2-q05
   lesson: trig-graph-sincos
   topic: Graphs of sine and cosine
@@ -362,7 +362,7 @@
   choices: ['$x = k\pi$', '$x = 2k\pi$', '$x = \tfrac{\pi}{2} + 2k\pi$', '$x = \tfrac{\pi}{2} + k\pi$']
   answer: 2
   explanation: |-
-    $x\sin x = x$ with $x > 0$ means $\sin x = 1$, so $x = \tfrac{\pi}{2} + 2k\pi$. At $\tfrac{\pi}{2} + k\pi$ with $k$ odd, $\sin x = -1$, and the graph touches the *lower* envelope $y = -x$ instead. At $k\pi$ the graph is zero, crossing the axis.
+    $x\sin x = x$ with $x > 0$ means $\sin x = 1$, so $x = \tfrac{\pi}{2} + 2k\pi$. At $\tfrac{\pi}{2} + k\pi$ with $k$ odd, $\sin x = -1$, and the graph touches the lower envelope $y = -x$ instead. At $k\pi$ the graph is zero, crossing the axis.
 - id: trig-m4-r2-h08
   lesson: trig-m4-h-combining
   topic: Combining trig graphs

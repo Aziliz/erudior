@@ -72,3 +72,11 @@
 - term: rule of three
   definition: 'After $n$ independent trials with no events, $3/n$ is an approximate 95% upper confidence bound for the event probability (from $1 - 0.05^{1/n} \approx -\ln(0.05)/n$).'
   topic: Intervals for a proportion
+- term: risk function
+  aliases: [risk functions]
+  definition: 'For an estimator $\delta$ and a loss $L$, the expected loss as a function of the parameter: $R(\theta, \delta) = E_\theta[L(\theta, \delta(X))]$. Under squared-error loss it is the mean squared error.'
+  topic: Decision theory
+- term: admissible
+  aliases: [admissibility, inadmissible]
+  definition: 'An estimator is admissible if no other estimator dominates it, that is, has risk no larger for every parameter value and strictly smaller for at least one. A dominated estimator is inadmissible.'
+  topic: Decision theory

@@ -16,20 +16,20 @@
     r4: round(b + d4, 2)
     r5: round(b + d5, 2)
     m: mean(r1, r2, r3, r4, r5)
-    s: stdev(r1, r2, r3, r4, r5)
-    se: s / sqrt(5)
-  where: ['s > 0.025']
+    sd: stdev(r1, r2, r3, r4, r5)
+    se: sd / sqrt(5)
+  where: ['sd > 0.025']
   prompt: 'Five timings of the same event are {r1:num2}, {r2:num2}, {r3:num2}, {r4:num2} and {r5:num2} s. Find the mean (exact, to 3 decimal places), the sample standard deviation and the standard error of the mean (each to 2 significant figures).'
   answers:
     - {name: m, label: 'Mean', format: dp3, tolerance: 0.0006, units: {s: 1}}
-    - {name: s, label: 'Standard deviation', format: sig2, relTolerance: 0.05, units: {s: 1}}
+    - {name: sd, label: 'Standard deviation', format: sig2, relTolerance: 0.05, units: {s: 1}}
     - {name: se, label: 'Standard error', format: sig2, relTolerance: 0.05, units: {s: 1}}
   solution: |-
     Mean: $\bar t = \dfrac{ {r1:num2} + {r2:num2} + {r3:num2} + {r4:num2} + {r5:num2} }{5} =$ **{m:dp3} s**.
 
-    Standard deviation (divide by $n - 1 = 4$): $s = \sqrt{\dfrac{\sum (t_i - \bar t)^2}{4}} =$ **{s:sig2} s**.
+    Standard deviation (divide by $n - 1 = 4$): $s = \sqrt{\dfrac{\sum (t_i - \bar t)^2}{4}} =$ **{sd:sig2} s**.
 
-    Standard error: $\delta\bar t = \dfrac{s}{\sqrt5} = \dfrac{ {s:sig3} }{2.236} =$ **{se:sig2} s**.
+    Standard error: $\delta\bar t = \dfrac{s}{\sqrt5} = \dfrac{ {sd:sig3} }{2.236} =$ **{se:sig2} s**.
 - id: phys-m1-r2-pendulum-g
   title: g from a pendulum, with uncertainty
   topic: Error propagation

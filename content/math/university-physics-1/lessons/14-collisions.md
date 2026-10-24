@@ -19,6 +19,17 @@ In a collision two objects exert large forces on each other for a short time. Th
 
 In every case, momentum is conserved. Kinetic energy is never *gained* in a collision unless stored energy is released (an explosion, a compressed spring).
 
+```mermaid
+flowchart TD
+  accTitle: Classifying a collision and choosing equations
+  accDescr: In every collision, write momentum conservation. Then ask whether the objects stick together. If yes, it is perfectly inelastic: one common final velocity. If not, ask whether kinetic energy is conserved. If yes, it is elastic: also conserve kinetic energy, or use the reversal of relative velocity. If not, it is inelastic: momentum alone, plus one more fact such as a measured final velocity or the coefficient of restitution.
+  A["Every collision: conserve momentum"] --> B{"Do they stick together?"}
+  B -->|yes| C["Perfectly inelastic: one common velocity"]
+  B -->|no| D{"Is kinetic energy conserved?"}
+  D -->|yes| E["Elastic: relative velocity reverses"]
+  D -->|no| F["Inelastic: need one more fact"]
+```
+
 ## Perfectly inelastic collisions
 
 With a common final velocity $v_f$,
@@ -73,6 +84,12 @@ Three special cases build intuition:
 - *Heavy hits light* ($m_1 \gg m_2$): the heavy object barely slows, and the light one leaves at about $2v_{1i}$.
 - *Light hits heavy* ($m_1 \ll m_2$): the light object bounces back with nearly its original speed; the heavy one barely moves (a ball bouncing off a wall).
 
+The graph shows both final velocities, as fractions of $v_{1i}$, for every mass ratio:
+
+```plot
+{"x": [0, 6], "y": [-1.1, 2.1], "xLabel": "mass ratio m₁/m₂", "yLabel": "final velocity ÷ v₁ᵢ", "functions": [{"f": "(x - 1)/(x + 1)", "label": "projectile v₁f"}, {"f": "2*x/(x + 1)", "label": "target v₂f"}], "points": [{"at": [1, 0], "label": "equal masses"}], "caption": "Elastic head-on collision with the target at rest: the projectile bounces back when m₁ < m₂; the target never exceeds twice v₁ᵢ"}
+```
+
 ### Example 3
 
 A 0.30 kg cart moving at 2.0 m/s collides elastically with a 0.20 kg cart at rest. Find both final velocities.
@@ -96,7 +113,11 @@ A 1200 kg car heading east at 15 m/s collides at an intersection with a 1800 kg 
 $x$: $1200(15) = 3000\,v_x$, so $v_x = 6.0$ m/s.
 $y$: $1800(12) = 3000\,v_y$, so $v_y = 7.2$ m/s.
 
-Speed $= \sqrt{6.0^2 + 7.2^2} = 9.37$ m/s, at $\tan^{-1}(7.2/6.0) = 50.2^\circ$ north of east. Accident investigators run this calculation in reverse, from skid marks to pre-crash speeds.
+Speed $= \sqrt{6.0^2 + 7.2^2} = 9.37$ m/s, at $\tan^{-1}(7.2/6.0) = 50.2^\circ$ north of east. The momentum vectors add tip to tail: the car's 18 000 kg·m/s east plus the truck's 21 600 kg·m/s north give the wreckage's 28 100 kg·m/s.
+
+![Momentum vector triangle: the car's momentum points east, the truck's points north from its tip, and the total momentum runs from the start to the end at 50.2 degrees north of east](images/phys-m4-intersection.svg)
+
+Accident investigators run this calculation in reverse, from skid marks to pre-crash speeds.
 
 A neat result: when equal masses collide elastically with one initially at rest, they move off at right angles to each other (unless the collision is head-on). Energy conservation $v_1^2 = v_{1f}^2 + v_{2f}^2$ plus momentum $\vec v_1 = \vec v_{1f} + \vec v_{2f}$ is the Pythagorean theorem, so the two final velocities must be perpendicular.
 
