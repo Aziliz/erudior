@@ -156,6 +156,13 @@ export default function DownloadPage() {
 
   return (
     <div className="page download">
+      <div className="notice dev-notice" role="note">
+        <p>
+          <b>Erudior is still being built.</b> It's an early version (below 1.0): courses are still being written and checked, and the homeschool and
+          classroom tools haven't been tested by families or schools yet. Please don't use it to replace a homeschool program or regular school for now.
+          It's fine as extra practice alongside your child's education.
+        </p>
+      </div>
       <div className="page-head">
         <div>
           <h1>Download Erudior</h1>

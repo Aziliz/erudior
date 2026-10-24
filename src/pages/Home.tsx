@@ -92,6 +92,10 @@ export default function Home() {
             Study in your browser
           </a>
         </div>
+        <p className="notice dev-notice small" role="note">
+          <b>Early version:</b> Erudior is still being built and tested. Don't use it to replace homeschool or regular school yet; it's fine as extra
+          practice.
+        </p>
         <p className="small muted home-stats">
           Free for Windows, macOS and Linux · No accounts, no ads{n ? ` · ${n} courses in ${subjects.join(", ")}` : ""}
         </p>

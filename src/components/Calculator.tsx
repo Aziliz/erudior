@@ -44,6 +44,10 @@ interface Line {
   result: string;
 }
 
+/** History lives while the calculator is open, even when you move to another question or
+ * screen; closing the calculator clears it. */
+let openHistory: Line[] = [];
+
 const BASIC_KEYS = [
   ["MC", "MR", "M−", "M+"],
   ["C", "⌫", "%", "÷"],
@@ -89,7 +93,15 @@ export function Calculator({ kind, onClose }: { kind: CalcKind; onClose: () => v
           </button>
         </div>
       )}
-      {kind === "graphing" && tab === "graph" ? <Grapher /> : <Keypad kind={kind} />}
+      {/* Both stay mounted so switching tabs keeps the entry, memory and history. */}
+      <div hidden={kind === "graphing" && tab === "graph"}>
+        <Keypad kind={kind} />
+      </div>
+      {kind === "graphing" && (
+        <div hidden={tab !== "graph"}>
+          <Grapher />
+        </div>
+      )}
     </aside>
   );
 }
@@ -102,7 +114,9 @@ function Keypad({ kind }: { kind: CalcKind }) {
   const [ans, setAns] = useState(0);
   const [memory, setMemory] = useState(0);
   const [deg, setDeg] = useState(false);
-  const [history, setHistory] = useState<Line[]>([]);
+  const [history, setHistoryState] = useState<Line[]>(() => openHistory);
+  const setHistory = (fn: Line[] | ((h: Line[]) => Line[])) =>
+    setHistoryState((h) => (openHistory = typeof fn === "function" ? fn(h) : fn));
   const input = useRef<HTMLInputElement>(null);
   // After "=", typing an operator continues from the answer; typing a number starts over.
   const fresh = useRef(false);
@@ -117,7 +131,7 @@ function Keypad({ kind }: { kind: CalcKind }) {
       setResult(r);
       setError("");
       setAns(v);
-      setHistory((h) => [{ expr, result: r }, ...h].slice(0, 30));
+      setHistory((h) => [{ expr, result: r }, ...h].slice(0, 100));
       fresh.current = true;
     } catch (e) {
       setError(friendly((e as Error).message));
@@ -227,24 +241,6 @@ function Keypad({ kind }: { kind: CalcKind }) {
   return (
     <div className="calc-body">
       <div className="calc-screen">
-        {!basic && history.length > 0 && (
-          <ol className="calc-history" aria-label="Earlier results">
-            {history
-              .slice(0, 6)
-              .reverse()
-              .map((h, i) => (
-                <li key={i}>
-                  <button className="linklike" onClick={() => setExpr(h.expr)} title="Use this expression again">
-                    {h.expr}
-                  </button>
-                  <span> = </span>
-                  <button className="linklike" onClick={() => insert(h.result.replace(" × 10^", "e"))} title="Insert this result">
-                    {h.result}
-                  </button>
-                </li>
-              ))}
-          </ol>
-        )}
         <input
           ref={input}
           className="calc-input"
@@ -290,6 +286,32 @@ function Keypad({ kind }: { kind: CalcKind }) {
           </button>
         ))}
       </div>
+      <section className="calc-history" aria-labelledby="calc-history-h">
+        <div className="calc-history-head">
+          <h3 id="calc-history-h">History</h3>
+          {history.length > 0 && (
+            <button className="btn ghost sm" onClick={() => setHistory([])}>
+              Clear
+            </button>
+          )}
+        </div>
+        {history.length === 0 ? (
+          <p className="small muted">Your calculations show here. History clears when you close the calculator.</p>
+        ) : (
+          <ol aria-label="Earlier calculations, newest first">
+            {history.map((h, i) => (
+              <li key={history.length - i}>
+                <button onClick={() => setExpr(h.expr)} title="Use this expression again" aria-label={`Use again: ${h.expr}`}>
+                  {h.expr}
+                </button>
+                <button className="calc-history-result" onClick={() => insert(h.result.replace(" × 10^", "e"))} title="Insert this result" aria-label={`Insert result ${h.result}`}>
+                  = {h.result}
+                </button>
+              </li>
+            ))}
+          </ol>
+        )}
+      </section>
     </div>
   );
 }
@@ -579,7 +601,13 @@ export function CalcDock({ kind }: { kind: CalcKind | null }) {
   }, [kind, open]);
   if (!kind) return null;
   return open ? (
-    <Calculator kind={kind} onClose={() => set(false)} />
+    <Calculator
+      kind={kind}
+      onClose={() => {
+        openHistory = [];
+        set(false);
+      }}
+    />
   ) : (
     <button className="calc-toggle" onClick={() => set(true)} aria-label={`Open the ${KIND_LABEL[kind].toLowerCase()}`} title={KIND_LABEL[kind]}>
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
