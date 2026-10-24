@@ -468,5 +468,5 @@
   topic: Ptolemy's theorem
   type: order
   stem: 'Put the steps for finding the diagonal of an isosceles trapezoid with Ptolemy''s theorem in order.'
-  items: ['Note that an isosceles trapezoid is cyclic, with congruent diagonals $d$', 'Pair the opposite sides: the two bases, and the two legs', 'Write $d^2 = (\text{base}_1)(\text{base}_2) + (\text{leg})^2$', 'Take the positive square root of the right side']
-  explanation: 'Ptolemy applies only after you know the quadrilateral is cyclic. Then the products of opposite sides go on the right side of the equation, and the square root gives $d$. Example 2 in the lesson: bases 6 and 12, legs 5, so $d^2 = 72 + 25 = 97$.'
+  items: ['Note that an isosceles trapezoid is cyclic, with congruent diagonals $d$, so Ptolemy''s theorem applies', 'Write Ptolemy''s relation with the bases and the legs as the pairs of opposite sides: $d^2 = (\text{base}_1)(\text{base}_2) + (\text{leg})^2$', 'Substitute the given lengths and simplify the right side', 'Take the positive square root of the right side']
+  explanation: 'Ptolemy applies only after you know the quadrilateral is cyclic. Then you write the relation, put in the numbers, and the square root gives $d$. Example 2 in the lesson: bases 6 and 12, legs 5, so $d^2 = 72 + 25 = 97$ and $d = \sqrt{97}$.'
