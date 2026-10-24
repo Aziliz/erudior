@@ -500,6 +500,7 @@ def build(folder: pathlib.Path):
         "author": "Erudior",
         "revision": meta.get("revision", 1),
         "changelog": meta.get("changelog"),
+        **({"disclaimer": meta["disclaimer"]} if meta.get("disclaimer") else {}),
         "modules": modules,
         "lessons": lessons,
         "banks": [{

@@ -194,12 +194,13 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Erudior",
-    "revision": 14,
-    "changelog": "Adds a disclaimer: this course is for education only and doesn't replace professional advice.",
+    "revision": 15,
+    "changelog": "Adds a disclaimer: this course is for education only, doesn't replace professional advice, and isn't an approved pre-licensing course.",
     "disclaimer": (
         "The information in this course is for educational and informational purposes only and should not be used to "
         "replace professional advice, including legal, tax, financial or real estate brokerage advice. It is independent "
-        "study material, not affiliated with PSI, the Colorado Division of Real Estate or any school, and laws, rules and "
+        "study material, not affiliated with PSI, the Colorado Division of Real Estate or any school. It is not an approved "
+        "pre-licensing course and does not count toward the education hours required for a Colorado license. Laws, rules and "
         "Commission forms change. Students are responsible for how they choose to use this content, and Erudior assumes "
         "no liability for the use or misuse of the information in it."
     ),

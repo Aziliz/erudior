@@ -246,7 +246,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
       <div className="row" style={{ marginTop: 24, justifyContent: "space-between" }}>
         <span className="faint small">
           Erudior {version}. Data is stored in {location}.{" "}
-          <button className="linkish" onClick={() => api.go({ name: "terms" })}>
+          <button className="linkish" onClick={() => api.go({ name: "legal", page: "terms" })}>
             Terms of Use
           </button>{" "}
           {UPDATES_ENABLED && (

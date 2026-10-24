@@ -128,6 +128,34 @@ ok("author sees why", mine.status === "removed" && mine.reviewNote === "Copied t
 ok("restore", (await rev.call("POST", `/review/${id}`, { action: "restore" })).status === 200);
 ok("back in catalog", (await anon.call("GET", "/catalog")).data.courses.some((c) => c.id === id));
 
+// Editors: the owner adds another author by email; editors can change and publish, not delete.
+ok("editor can't before being added", (await other.call("PUT", `/drafts/${id}`, doc)).status === 404);
+ok("unknown email refused", (await author.call("POST", `/drafts/${id}/editors`, { email: "nobody@example.test" })).status === 404);
+const add = await author.call("POST", `/drafts/${id}/editors`, { email: `other.${tag.toLowerCase()}@example.test` });
+ok("add editor", add.status === 201, add.data);
+ok("editor saves", (await other.call("PUT", `/drafts/${id}`, { ...doc, description: "Edited by an editor." })).status === 200);
+ok("editor publishes", (await other.call("POST", `/drafts/${id}/publish`)).status === 200);
+ok("editor can't delete", (await other.call("DELETE", `/drafts/${id}`)).status === 404);
+ok("editor can't add editors", (await other.call("POST", `/drafts/${id}/editors`, { email: "x@example.test" })).status === 404);
+const ed = (await other.call("GET", "/mine")).data.courses.find((c) => c.id === id);
+ok("shows in editor's courses", ed && ed.role === "editor", ed);
+const list = (await author.call("GET", `/drafts/${id}/editors`)).data;
+ok("editor list", list.editors.length === 1 && list.owner.name === `Author ${tag}`, list);
+
+// Takeover: only after the owner has been away for a year; the old owner stays as an editor.
+const taker = client();
+await taker.login(`Taker ${tag}`);
+await taker.call("POST", "/me/accept", { adult: true, terms: true });
+ok("can't take over an active author's course", (await taker.call("POST", `/drafts/${id}/claim`)).status === 403);
+await author.login(`Author ${tag}`);
+await author.call("GET", `/auth/dev?name=${encodeURIComponent(`Author ${tag}`)}&away=400`);
+entry = (await anon.call("GET", "/catalog")).data.courses.find((c) => c.id === id);
+ok("catalog marks it claimable", entry.claimable === true, entry);
+ok("take over", (await taker.call("POST", `/drafts/${id}/claim`)).status === 200);
+ok("new owner edits", (await taker.call("GET", `/drafts/${id}`)).data.role === "owner");
+ok("old owner is an editor", (await author.call("GET", `/drafts/${id}`)).data.role === "editor");
+ok("no longer claimable", !(await anon.call("GET", "/catalog")).data.courses.find((c) => c.id === id).claimable);
+
 // Admin: role changes and bans.
 const admin = client();
 await admin.login("Admin", null);

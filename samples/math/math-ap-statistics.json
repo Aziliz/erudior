@@ -5,8 +5,9 @@
  "title": "AP Statistics",
  "description": "AP Statistics: exploring one- and two-variable data, z-scores and the normal model, correlation and regression, sampling and experimental design, probability, random variables, sampling distributions and the Central Limit Theorem, confidence intervals and significance tests for proportions and means, and chi-square tests, with AP-style four-step inference. Also covers topics the 2026–27 AP framework dropped but college intro courses still teach (geometric distribution, combining random variables, transformations, goodness of fit, slope inference), each marked with an AP scope note.",
  "author": "Erudior",
- "revision": 4,
- "changelog": "Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for.",
+ "revision": 5,
+ "changelog": "Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for. Adds the College Board trademark notice.",
+ "disclaimer": "AP® is a registered trademark of the College Board, which is not affiliated with, and does not endorse, this course. It is independent study material covering AP Statistics topics: it is not an authorized AP course, and AP scores come only from the College Board's AP Exam.",
  "modules": [
   {
    "id": "stat-m1",

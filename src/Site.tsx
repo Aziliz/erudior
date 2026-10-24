@@ -5,13 +5,13 @@ import Home from "./pages/Home";
 import DownloadPage from "./pages/DownloadPage";
 import { Mark } from "./components/Mark";
 import { appUrl } from "./lib/site";
-import { GENERAL_DISCLAIMER, TermsOfUse } from "./components/Terms";
+import { GENERAL_DISCLAIMER, LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 
-type Page = "home" | "download" | "terms";
+type Page = "home" | "download" | LegalPage;
 
 function pageFor(path: string): Page | null {
   const p = path.replace(/\/+$/, "") || "/";
-  return p === "/" ? "home" : p === "/download" ? "download" : p === "/terms" ? "terms" : null;
+  return p === "/" ? "home" : p === "/download" ? "download" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
 }
 
 export default function Site() {
@@ -24,7 +24,8 @@ export default function Site() {
   // Light/dark/sepia… chosen in the app carries over when the site shares its browser storage
   // (it doesn't across domains, so the site follows the system setting).
   useEffect(() => {
-    document.title = page === "download" ? "Download Erudior" : page === "terms" ? "Erudior Terms of Use" : "Erudior: free courses and homeschool records";
+    document.title =
+      page === "download" ? "Download Erudior" : page === "home" || !page ? "Erudior: free courses and homeschool records" : `Erudior ${LEGAL_TITLES[page]}`;
     window.scrollTo({ top: 0 });
   }, [page]);
 
@@ -67,7 +68,22 @@ export default function Site() {
         </a>
       </header>
       <main id="main" className="main" tabIndex={-1}>
-        {page === "home" ? <Home /> : page === "terms" ? <div className="page"><TermsOfUse /></div> : <DownloadPage />}
+        {page === "home" ? (
+          <Home />
+        ) : page === "download" ? (
+          <DownloadPage />
+        ) : (
+          <div className="page">
+            <LegalView
+              page={page}
+              linkTo={(to, label) => (
+                <a href={`/${to}`} onClick={(e) => go(e, to)}>
+                  {label}
+                </a>
+              )}
+            />
+          </div>
+        )}
         <footer className="site-footer small muted">
           <span>Erudior · free courses and homeschool records</span>
           <a href={appUrl("/")}>Web app</a>
@@ -78,6 +94,12 @@ export default function Site() {
           <a href="https://github.com/Aziliz/examiner/releases">Releases</a>
           <a href="/terms" onClick={(e) => go(e, "terms")} aria-current={page === "terms" ? "page" : undefined}>
             Terms of Use
+          </a>
+          <a href="/privacy" onClick={(e) => go(e, "privacy")} aria-current={page === "privacy" ? "page" : undefined}>
+            Privacy Policy
+          </a>
+          <a href="/licenses" onClick={(e) => go(e, "licenses")} aria-current={page === "licenses" ? "page" : undefined}>
+            Licenses
           </a>
           <p className="site-disclaimer">{GENERAL_DISCLAIMER}</p>
         </footer>

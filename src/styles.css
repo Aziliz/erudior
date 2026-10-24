@@ -4203,6 +4203,13 @@ a.brand {
   margin: 4px auto 0;
   text-align: center;
 }
+.licenses-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.8125rem;
+  max-height: 70vh;
+  overflow: auto;
+}
 .app-legal {
   margin-top: 32px;
   text-align: center;

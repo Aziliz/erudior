@@ -25,10 +25,13 @@ export interface CommunityEntry {
   review: Review;
   counts: { lessons: number; questions: number; cards: number };
   updated: string | null;
+  /** The author hasn't signed in for a year: another author may take the course over. */
+  claimable?: boolean;
 }
 
 export interface Me {
-  user: { id: string; name: string; role: "author" | "reviewer" | "admin"; accepted: boolean; provider: string } | null;
+  /** `accepted`: agreed to the current community terms; `termsChanged`: agreed to an older version. */
+  user: { id: string; name: string; role: "author" | "reviewer" | "admin"; accepted: boolean; termsChanged?: boolean; provider: string } | null;
   providers: { google: boolean; github: boolean; dev: boolean };
 }
 
@@ -41,6 +44,13 @@ export interface MyCourse {
   reviewNote: string | null;
   updated: string;
   openReports: number;
+  /** Older servers leave it out (then it's the owner). */
+  role?: "owner" | "editor";
+}
+
+export interface Editors {
+  owner: { id: string; name: string } | null;
+  editors: { id: string; name: string; added: string }[];
 }
 
 export interface ReviewQueue {
@@ -101,7 +111,15 @@ export const api = {
   rename: (name: string) => call("PUT", "/me", { name }),
   mine: () => call<{ courses: MyCourse[] }>("GET", "/mine").then((r) => r.courses),
   create: () => call<{ id: string }>("POST", "/drafts").then((r) => r.id),
-  draft: (id: string) => call<{ id: string; status: MyCourse["status"]; version: number; review: Review; reviewNote: string | null; doc: CommunityDoc }>("GET", `/drafts/${id}`),
+  draft: (id: string) =>
+    call<{ id: string; status: MyCourse["status"]; version: number; review: Review; reviewNote: string | null; role?: "owner" | "editor" | "admin"; doc: CommunityDoc }>(
+      "GET",
+      `/drafts/${id}`,
+    ),
+  editors: (id: string) => call<Editors>("GET", `/drafts/${id}/editors`),
+  addEditor: (id: string, email: string) => call("POST", `/drafts/${id}/editors`, { email }),
+  removeEditor: (id: string, userId: string) => call("DELETE", `/drafts/${id}/editors/${userId}`),
+  claim: (id: string) => call("POST", `/drafts/${id}/claim`),
   save: (id: string, doc: CommunityDoc) => call("PUT", `/drafts/${id}`, doc),
   publish: (id: string) => call<{ version: number }>("POST", `/drafts/${id}/publish`),
   unpublish: (id: string) => call("POST", `/drafts/${id}/unpublish`),

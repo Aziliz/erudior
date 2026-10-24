@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { ReviewPill } from "../components/CommunityCatalog";
-import { api as community, imageUrl, type Review } from "../lib/community";
+import { api as community, imageUrl, type Editors, type Review } from "../lib/community";
 import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
 import { calculatorForSubject } from "../lib/taxonomy";
 import { renderFigure } from "../lib/figure";
@@ -33,7 +33,7 @@ const CALC_LABEL: Record<CalcChoice, string> = { basic: "Basic", scientific: "Sc
 
 export default function CommunityEditor({ api, id }: { api: AppApi; id: string }) {
   const [doc, setDoc] = useState<CommunityDoc | null>(null);
-  const [meta, setMeta] = useState<{ status: string; version: number; review: Review; reviewNote: string | null } | null>(null);
+  const [meta, setMeta] = useState<{ status: string; version: number; review: Review; reviewNote: string | null; role?: string } | null>(null);
   const [save, setSave] = useState<Save>("saved");
   const [saveError, setSaveError] = useState("");
   const [tab, setTab] = useState<Tab>("about");
@@ -47,7 +47,7 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
       (d) => {
         setDoc(upgradeDoc(d.doc));
         latest.current = d.doc;
-        setMeta({ status: d.status, version: d.version, review: d.review, reviewNote: d.reviewNote });
+        setMeta({ status: d.status, version: d.version, review: d.review, reviewNote: d.reviewNote, role: d.role });
       },
       (e) => setLoadError((e as Error).message),
     );
@@ -160,6 +160,7 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
             onChange={(m) => setMeta({ ...meta, ...m })}
           />
         )}
+        {tab === "publish" && <EditorsPanel api={api} id={id} canManage={meta.role !== "editor"} />}
       </fieldset>
     </div>
   );
@@ -842,6 +843,82 @@ function Publish({
           </button>
         )}
       </div>
+    </section>
+  );
+}
+
+/** Who may change this course besides its owner and Erudior's admins. Owners (and admins) add and remove editors; an editor can step down. */
+function EditorsPanel({ api, id, canManage }: { api: AppApi; id: string; canManage: boolean }) {
+  const [list, setList] = useState<Editors | null>(null);
+  const [email, setEmail] = useState("");
+  const [busy, setBusy] = useState(false);
+  const load = () => community.editors(id).then(setList, (e) => api.toast((e as Error).message));
+  useEffect(() => {
+    load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+  return (
+    <section className="panel" style={{ marginTop: 16 }}>
+      <h2>Editors</h2>
+      <p className="muted">
+        Editors can change and publish this course but can't delete it or add other editors. Erudior's admins can also change it. If the owner doesn't
+        sign in for a year, another author may take the course over.
+      </p>
+      {list && (
+        <ul className="plain-list" style={{ marginTop: 8 }}>
+          {list.owner && (
+            <li>
+              {list.owner.name} <span className="faint small">(owner)</span>
+            </li>
+          )}
+          {list.editors.map((e) => (
+            <li key={e.id} className="row" style={{ gap: 8 }}>
+              <span>{e.name}</span>
+              {canManage && (
+                <button
+                  className="btn sm ghost"
+                  onClick={async () => {
+                    if (!window.confirm(`Remove ${e.name} as an editor?`)) return;
+                    await community.removeEditor(id, e.id).catch((err) => api.toast((err as Error).message));
+                    load();
+                  }}
+                >
+                  Remove<span className="sr-only"> {e.name}</span>
+                </button>
+              )}
+            </li>
+          ))}
+          {list.editors.length === 0 && <li className="faint">No editors yet.</li>}
+        </ul>
+      )}
+      {canManage && (
+        <form
+          className="row"
+          style={{ marginTop: 12, alignItems: "flex-end" }}
+          onSubmit={async (e) => {
+            e.preventDefault();
+            setBusy(true);
+            try {
+              await community.addEditor(id, email.trim());
+              setEmail("");
+              api.toast("Editor added.");
+              load();
+            } catch (err) {
+              api.toast((err as Error).message);
+            } finally {
+              setBusy(false);
+            }
+          }}
+        >
+          <label className="field">
+            <span>Add an editor by the email they sign in with</span>
+            <input className="input" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="off" />
+          </label>
+          <button className="btn" type="submit" disabled={busy}>
+            Add editor
+          </button>
+        </form>
+      )}
     </section>
   );
 }

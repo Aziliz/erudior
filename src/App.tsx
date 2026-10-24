@@ -12,7 +12,7 @@ import Runner from "./pages/Runner";
 import Results from "./pages/Results";
 import Editor from "./pages/Editor";
 import ProgressPage from "./pages/ProgressPage";
-import { TermsOfUse } from "./components/Terms";
+import { LegalView, type LegalPage } from "./components/Terms";
 import CourseHome, { type CourseTab } from "./pages/CourseHome";
 import LessonView from "./pages/LessonView";
 import CardsRunner from "./pages/CardsRunner";
@@ -74,7 +74,7 @@ export type View =
   | { name: "community" }
   | { name: "library" }
   | { name: "progress" }
-  | { name: "terms" }
+  | { name: "legal"; page: LegalPage }
   | { name: "bank"; bankId: string }
   | { name: "editor"; bankId: string; isNew?: boolean }
   | { name: "run"; session: Session; initial?: RunState }
@@ -642,13 +642,20 @@ export default function App() {
     case "progress":
       body = <ProgressPage api={api} />;
       break;
-    case "terms":
+    case "legal":
       body = (
         <div className="page">
           <button className="back" onClick={() => api.go({ name: "library" })}>
             ← Library
           </button>
-          <TermsOfUse />
+          <LegalView
+            page={view.page}
+            linkTo={(page, label) => (
+              <button className="linkish" onClick={() => api.go({ name: "legal", page })}>
+                {label}
+              </button>
+            )}
+          />
         </div>
       );
       break;

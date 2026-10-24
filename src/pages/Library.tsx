@@ -211,8 +211,12 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       )}
       <p className="app-legal small faint">
         {GENERAL_DISCLAIMER}{" "}
-        <button className="linkish" onClick={() => api.go({ name: "terms" })}>
+        <button className="linkish" onClick={() => api.go({ name: "legal", page: "terms" })}>
           Terms of Use
+        </button>{" "}
+        ·{" "}
+        <button className="linkish" onClick={() => api.go({ name: "legal", page: "privacy" })}>
+          Privacy Policy
         </button>
       </p>
     </div>

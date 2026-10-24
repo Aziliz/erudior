@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
-import { REPORT_REASONS, REVIEW_HELP, REVIEW_LABEL, api as community, type CommunityEntry, type Review } from "../lib/community";
+import { AUTHORING, REPORT_REASONS, REVIEW_HELP, REVIEW_LABEL, api as community, type CommunityEntry, type Review } from "../lib/community";
 import { LEVELS, SUBJECTS, TYPES, normalizeLevel, normalizeSubject, normalizeType, subjectKey } from "../lib/taxonomy";
 
 export function ReviewPill({ review }: { review: Review }) {
@@ -91,6 +91,21 @@ export default function CommunityCatalog({ api }: { api: AppApi }) {
       .filter(Boolean)
       .every((w) => hay.includes(w));
   });
+
+  async function takeOver(c: CommunityEntry) {
+    if (
+      !window.confirm(
+        `Take over "${c.title}"? Its author hasn't signed in for over a year. You become its owner and can update and publish it; the author stays on as an editor.`,
+      )
+    )
+      return;
+    try {
+      await community.claim(c.id);
+      api.go({ name: "communityEdit", id: c.id });
+    } catch (e) {
+      api.toast((e as Error).message);
+    }
+  }
 
   async function start(id: string) {
     setBusy(id);
@@ -186,6 +201,11 @@ export default function CommunityCatalog({ api }: { api: AppApi }) {
                       <button className="btn sm primary" disabled={busy !== null} onClick={() => start(c.id)}>
                         {busy === c.id ? "Adding…" : "Start course"}
                         <span className="sr-only">: {c.title}</span>
+                      </button>
+                    )}
+                    {AUTHORING && c.claimable && (
+                      <button className="btn sm ghost" title="The author hasn't signed in for over a year" onClick={() => takeOver(c)}>
+                        Take over<span className="sr-only"> {c.title}</span>
                       </button>
                     )}
                     <button className="btn sm ghost" aria-expanded={reporting === c.id} onClick={() => setReporting(reporting === c.id ? null : c.id)}>

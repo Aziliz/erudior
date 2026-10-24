@@ -3,12 +3,16 @@
 // Public:   GET /catalog, GET /courses/:id, GET /images/:id, POST /courses/:id/report
 // Sign-in:  GET /auth/{google,github}/start?return=/path, …/callback, POST /auth/logout, GET /me
 // Authors:  POST /me/accept, PUT /me, GET /mine, POST /drafts, GET|PUT|DELETE /drafts/:id,
-//           POST /drafts/:id/publish, POST /drafts/:id/unpublish, POST /images
+//           POST /drafts/:id/publish, POST /drafts/:id/unpublish, POST /images,
+//           GET|POST /drafts/:id/editors, DELETE /drafts/:id/editors/:userId, POST /drafts/:id/claim
 // Review:   GET /review, GET /review/all, POST /review/:id, POST /reports/:id/resolve   (reviewer, admin)
 // Admin:    GET /admin/users, POST /admin/users/:id                    (admin)
 //
-// Only adults (18+) who accept the terms can publish. Courses go live at once tagged "Not
-// reviewed"; a reviewer marks a version Reviewed, and any new version is Not reviewed again.
+// Only adults (18+) who accept the current terms (TERMS_VERSION) can publish. Courses go live at
+// once tagged "Not reviewed"; a reviewer marks a version Reviewed, and any new version is Not
+// reviewed again. Under terms v2 published courses belong to Erudior; the owner, editors the owner
+// adds, and admins can change them. If the owner hasn't been seen for a year (CLAIM_DAYS), any
+// author can take the course over (the old owner stays on as an editor).
 
 import { LIMITS, IMAGE_TYPES, checkDoc, emptyDoc, imageIds, upgradeDoc, type CommunityDoc } from "../../src/lib/communityFormat.ts";
 import { normalizeLevel, normalizeSubject, normalizeType } from "../../src/lib/taxonomy.ts";
@@ -40,6 +44,8 @@ interface User {
   role: Role;
   banned: number;
   accepted_at: string | null;
+  terms_version?: number;
+  last_seen_at?: string | null;
 }
 interface CourseRow {
   id: string;
@@ -63,6 +69,10 @@ interface CourseRow {
 const SESSION_COOKIE = "erudior_session";
 const STATE_COOKIE = "erudior_oauth";
 const SESSION_DAYS = 30;
+/** Community course terms version; users who accepted an older one must accept again. */
+const TERMS_VERSION = 2;
+/** Days without signing in after which another author may take over a course. */
+const CLAIM_DAYS = 365;
 
 class HttpError extends Error {
   constructor(
@@ -137,7 +147,8 @@ async function currentUser(req: Request, env: Env): Promise<User | null> {
 async function needUser(req: Request, env: Env, accepted = true): Promise<User> {
   const u = await currentUser(req, env);
   if (!u) throw new HttpError(401, "Sign in first.");
-  if (accepted && !u.accepted_at) throw new HttpError(403, "Confirm you're 18 or older and accept the terms first.");
+  if (accepted && (!u.accepted_at || (u.terms_version ?? 0) < TERMS_VERSION))
+    throw new HttpError(403, u.accepted_at ? "The community terms changed; accept the new terms first." : "Confirm you're 18 or older and accept the terms first.");
   return u;
 }
 
@@ -145,7 +156,14 @@ function needRole(u: User, ...roles: Role[]) {
   if (!roles.includes(u.role)) throw new HttpError(403, "Not allowed.");
 }
 
+async function seen(env: Env, userId: string) {
+  await env.DB.prepare("UPDATE users SET last_seen_at = ? WHERE id = ? AND (last_seen_at IS NULL OR last_seen_at < ?)")
+    .bind(now(), userId, new Date(Date.now() - 86400_000).toISOString())
+    .run();
+}
+
 async function startSession(env: Env, userId: string): Promise<string> {
+  await seen(env, userId);
   const token = b64url(crypto.getRandomValues(new Uint8Array(32)));
   const expires = new Date(Date.now() + SESSION_DAYS * 86400_000).toISOString();
   await env.DB.prepare("INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)").bind(await sha256(token), userId, expires).run();
@@ -168,7 +186,7 @@ async function upsertUser(env: Env, provider: string, providerId: string, email:
   await env.DB.prepare("INSERT INTO users (id, provider, provider_id, email, display_name, role, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
     .bind(id, provider, providerId, email, display, isAdmin ? "admin" : "author", now())
     .run();
-  return { id, provider, email, display_name: display, role: isAdmin ? "admin" : "author", banned: 0, accepted_at: null };
+  return { id, provider, email, display_name: display, role: isAdmin ? "admin" : "author", banned: 0, accepted_at: null, terms_version: 0 };
 }
 
 // ---------- OAuth ----------
@@ -263,6 +281,9 @@ async function devLogin(req: Request, env: Env): Promise<Response> {
   if (role && ["author", "reviewer", "admin"].includes(role)) await env.DB.prepare("UPDATE users SET role = ? WHERE id = ?").bind(role, user.id).run();
   const headers = new Headers({ Location: `${env.APP_ORIGIN}${safeReturn(url.searchParams.get("return"))}` });
   headers.append("Set-Cookie", await startSession(env, user.id));
+  // Tests: pretend this user was last seen long ago (?away=400 days).
+  const away = Number(url.searchParams.get("away") ?? 0);
+  if (away > 0) await env.DB.prepare("UPDATE users SET last_seen_at = ? WHERE id = ?").bind(new Date(Date.now() - away * 86400_000).toISOString(), user.id).run();
   return new Response(null, { status: 302, headers });
 }
 
@@ -276,7 +297,9 @@ const counts = (d: CommunityDoc) => ({
 
 const tag = (c: { version: number; reviewed_version: number }) => (c.version > 0 && c.reviewed_version === c.version ? "reviewed" : "not_reviewed");
 
-function publicCourse(c: CourseRow & { author: string }) {
+const claimable = (lastSeen: string | null | undefined) => !!lastSeen && Date.now() - Date.parse(lastSeen) > CLAIM_DAYS * 86400_000;
+
+function publicCourse(c: CourseRow & { author: string; author_seen?: string | null }) {
   return {
     id: c.id,
     title: c.title,
@@ -289,13 +312,21 @@ function publicCourse(c: CourseRow & { author: string }) {
     review: tag(c),
     counts: JSON.parse(c.counts),
     updated: c.published_at,
+    // The author hasn't signed in for a year: another author may take the course over.
+    ...(claimable(c.author_seen) ? { claimable: true } : {}),
   };
 }
 
-async function ownCourse(env: Env, u: User, id: string): Promise<CourseRow> {
+const isEditor = async (env: Env, courseId: string, userId: string) =>
+  !!(await env.DB.prepare("SELECT 1 AS x FROM course_editors WHERE course_id = ? AND user_id = ?").bind(courseId, userId).first());
+
+/** A course the user may change: they own it, the owner made them an editor, or they're an admin. `ownerOnly`: owner or admin. */
+async function ownCourse(env: Env, u: User, id: string, ownerOnly = false): Promise<CourseRow> {
   const c = await env.DB.prepare("SELECT * FROM courses WHERE id = ?").bind(id).first<CourseRow>();
-  if (!c || (c.owner_id !== u.id && u.role !== "admin")) throw new HttpError(404, "Course not found.");
-  return c;
+  if (!c) throw new HttpError(404, "Course not found.");
+  if (c.owner_id === u.id || u.role === "admin") return c;
+  if (!ownerOnly && (await isEditor(env, c.id, u.id))) return c;
+  throw new HttpError(404, "Course not found.");
 }
 
 async function readJson<T>(req: Request, max = LIMITS.docBytes + 4096): Promise<T> {
@@ -375,14 +406,14 @@ async function route(req: Request, env: Env): Promise<Response> {
   // Public
   if (method === "GET" && p === "/catalog") {
     const rows = await env.DB.prepare(
-      "SELECT c.*, u.display_name AS author FROM courses c JOIN users u ON u.id = c.owner_id WHERE c.status = 'published' AND u.banned = 0 ORDER BY c.published_at DESC LIMIT 1000",
+      "SELECT c.*, u.display_name AS author, u.last_seen_at AS author_seen FROM courses c JOIN users u ON u.id = c.owner_id WHERE c.status = 'published' AND u.banned = 0 ORDER BY c.published_at DESC LIMIT 1000",
     ).all<CourseRow & { author: string }>();
     return json({ format: "erudior-community-catalog", version: 1, courses: rows.results.map(publicCourse) }, 200, { "Cache-Control": "public, max-age=60" });
   }
   let r = m(/^\/courses\/([\w-]+)$/);
   if (method === "GET" && r) {
     const c = await env.DB.prepare(
-      "SELECT c.*, u.display_name AS author FROM courses c JOIN users u ON u.id = c.owner_id WHERE c.id = ? AND u.banned = 0",
+      "SELECT c.*, u.display_name AS author, u.last_seen_at AS author_seen FROM courses c JOIN users u ON u.id = c.owner_id WHERE c.id = ? AND u.banned = 0",
     )
       .bind(r[1])
       .first<CourseRow & { author: string }>();
@@ -434,8 +465,10 @@ async function route(req: Request, env: Env): Promise<Response> {
   }
   if (method === "GET" && p === "/me") {
     const u = await currentUser(req, env);
+    if (u) await seen(env, u.id);
+    const current = !!u?.accepted_at && (u.terms_version ?? 0) >= TERMS_VERSION;
     return json({
-      user: u && { id: u.id, name: u.display_name, role: u.role, accepted: !!u.accepted_at, provider: u.provider },
+      user: u && { id: u.id, name: u.display_name, role: u.role, accepted: current, termsChanged: !!u.accepted_at && !current, provider: u.provider },
       providers: { google: !!env.GOOGLE_CLIENT_ID, github: !!env.GITHUB_CLIENT_ID, dev: env.DEV_LOGIN === "1" },
     });
   }
@@ -443,7 +476,7 @@ async function route(req: Request, env: Env): Promise<Response> {
     const u = await needUser(req, env, false);
     const body = await readJson<{ adult?: boolean; terms?: boolean }>(req, 1000);
     if (body.adult !== true || body.terms !== true) throw new HttpError(400, "Both boxes are required.");
-    await env.DB.prepare("UPDATE users SET accepted_at = ? WHERE id = ?").bind(now(), u.id).run();
+    await env.DB.prepare("UPDATE users SET accepted_at = ?, terms_version = ? WHERE id = ?").bind(now(), TERMS_VERSION, u.id).run();
     return json({ ok: true });
   }
   if (method === "PUT" && p === "/me") {
@@ -459,9 +492,9 @@ async function route(req: Request, env: Env): Promise<Response> {
   if (method === "GET" && p === "/mine") {
     const u = await needUser(req, env);
     const rows = await env.DB.prepare(
-      "SELECT c.*, (SELECT COUNT(*) FROM reports r WHERE r.course_id = c.id AND r.resolved_at IS NULL) AS open_reports FROM courses c WHERE owner_id = ? ORDER BY updated_at DESC",
+      "SELECT c.*, (SELECT COUNT(*) FROM reports r WHERE r.course_id = c.id AND r.resolved_at IS NULL) AS open_reports FROM courses c WHERE owner_id = ? OR id IN (SELECT course_id FROM course_editors WHERE user_id = ?) ORDER BY updated_at DESC",
     )
-      .bind(u.id)
+      .bind(u.id, u.id)
       .all<CourseRow & { open_reports: number }>();
     return json({
       courses: rows.results.map((c) => ({
@@ -473,6 +506,7 @@ async function route(req: Request, env: Env): Promise<Response> {
         reviewNote: c.review_note,
         updated: c.updated_at,
         openReports: c.open_reports,
+        role: c.owner_id === u.id ? "owner" : "editor",
       })),
     });
   }
@@ -491,7 +525,15 @@ async function route(req: Request, env: Env): Promise<Response> {
   if (r && method === "GET") {
     const u = await needUser(req, env);
     const c = await ownCourse(env, u, r[1]);
-    return json({ id: c.id, status: c.status, version: c.version, review: tag(c), reviewNote: c.review_note, doc: upgradeDoc(JSON.parse(c.draft)) });
+    return json({
+      id: c.id,
+      status: c.status,
+      version: c.version,
+      review: tag(c),
+      reviewNote: c.review_note,
+      role: c.owner_id === u.id ? "owner" : u.role === "admin" ? "admin" : "editor",
+      doc: upgradeDoc(JSON.parse(c.draft)),
+    });
   }
   if (r && method === "PUT") {
     const u = await needUser(req, env);
@@ -507,7 +549,7 @@ async function route(req: Request, env: Env): Promise<Response> {
   }
   if (r && method === "DELETE") {
     const u = await needUser(req, env);
-    const c = await ownCourse(env, u, r[1]);
+    const c = await ownCourse(env, u, r[1], true);
     await env.DB.prepare("DELETE FROM courses WHERE id = ?").bind(c.id).run();
     return json({ ok: true });
   }
@@ -526,7 +568,9 @@ async function route(req: Request, env: Env): Promise<Response> {
     const ids = imageIds(doc);
     for (const id of ids) {
       const img = await env.DB.prepare("SELECT owner_id FROM images WHERE id = ?").bind(id).first<{ owner_id: string }>();
-      if (!img || img.owner_id !== c.owner_id) return json({ error: "An image in this course is missing; upload it again." }, 400);
+      // Pictures can come from the owner, any editor, or whoever is publishing.
+      const fromTeam = img && (img.owner_id === c.owner_id || img.owner_id === u.id || (await isEditor(env, c.id, img.owner_id)));
+      if (!fromTeam) return json({ error: "An image in this course is missing; upload it again." }, 400);
     }
     const version = c.version + 1;
     await env.FILES.put(`courses/${c.id}.v${version}.json`, JSON.stringify(doc), { httpMetadata: { contentType: "application/json" } });
@@ -537,6 +581,62 @@ async function route(req: Request, env: Env): Promise<Response> {
       .run();
     return json({ ok: true, version });
   }
+  // Editors: the owner (or an admin) chooses who else may change the course.
+  r = m(/^\/drafts\/([\w-]+)\/editors$/);
+  if (r && method === "GET") {
+    const u = await needUser(req, env);
+    const c = await ownCourse(env, u, r[1]);
+    const rows = await env.DB.prepare(
+      "SELECT u.id, u.display_name AS name, e.created_at AS added FROM course_editors e JOIN users u ON u.id = e.user_id WHERE e.course_id = ? ORDER BY e.created_at",
+    )
+      .bind(c.id)
+      .all();
+    const owner = await env.DB.prepare("SELECT id, display_name AS name FROM users WHERE id = ?").bind(c.owner_id).first();
+    return json({ owner, editors: rows.results });
+  }
+  if (r && method === "POST") {
+    const u = await needUser(req, env);
+    const c = await ownCourse(env, u, r[1], true);
+    const body = await readJson<{ email?: string }>(req, 1000);
+    const email = (body.email ?? "").trim().toLowerCase();
+    if (!email.includes("@")) throw new HttpError(400, "Enter the email address they sign in with.");
+    const who = await env.DB.prepare("SELECT * FROM users WHERE lower(email) = ? AND banned = 0").bind(email).first<User>();
+    if (!who) throw new HttpError(404, "Nobody with that email has signed in to Erudior yet. Ask them to sign in once, then add them.");
+    if (who.id === c.owner_id) throw new HttpError(400, "That's the course's owner.");
+    const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM course_editors WHERE course_id = ?").bind(c.id).first<{ n: number }>();
+    if ((n?.n ?? 0) >= 20) throw new HttpError(429, "A course can have up to 20 editors.");
+    await env.DB.prepare("INSERT OR IGNORE INTO course_editors (course_id, user_id, added_by, created_at) VALUES (?, ?, ?, ?)").bind(c.id, who.id, u.id, now()).run();
+    await log(env, c.id, c.version, u.id, "add_editor", who.display_name);
+    return json({ ok: true, editor: { id: who.id, name: who.display_name } }, 201);
+  }
+  r = m(/^\/drafts\/([\w-]+)\/editors\/([\w-]+)$/);
+  if (r && method === "DELETE") {
+    const u = await needUser(req, env);
+    // Owners and admins remove anyone; an editor can step down.
+    const c = r[2] === u.id ? await ownCourse(env, u, r[1]) : await ownCourse(env, u, r[1], true);
+    await env.DB.prepare("DELETE FROM course_editors WHERE course_id = ? AND user_id = ?").bind(c.id, r[2]).run();
+    await log(env, c.id, c.version, u.id, "remove_editor", r[2]);
+    return json({ ok: true });
+  }
+  // Take over a course whose owner hasn't signed in for a year.
+  r = m(/^\/drafts\/([\w-]+)\/claim$/);
+  if (r && method === "POST") {
+    const u = await needUser(req, env);
+    const c = await env.DB.prepare("SELECT c.*, u.last_seen_at AS author_seen FROM courses c JOIN users u ON u.id = c.owner_id WHERE c.id = ?")
+      .bind(r[1])
+      .first<CourseRow & { author_seen: string | null }>();
+    if (!c || c.status === "draft") throw new HttpError(404, "Course not found.");
+    if (c.status === "removed") throw new HttpError(403, "This course was taken down.");
+    if (c.owner_id === u.id) throw new HttpError(400, "It's already yours.");
+    if (!claimable(c.author_seen)) throw new HttpError(403, "The author has signed in within the last year; ask them to add you as an editor.");
+    await env.DB.prepare("UPDATE courses SET owner_id = ?, updated_at = ? WHERE id = ?").bind(u.id, now(), c.id).run();
+    // The previous owner stays on as an editor, so they can still help if they come back.
+    await env.DB.prepare("INSERT OR IGNORE INTO course_editors (course_id, user_id, added_by, created_at) VALUES (?, ?, ?, ?)").bind(c.id, c.owner_id, u.id, now()).run();
+    await env.DB.prepare("DELETE FROM course_editors WHERE course_id = ? AND user_id = ?").bind(c.id, u.id).run();
+    await log(env, c.id, c.version, u.id, "claim", `from ${c.owner_id}`);
+    return json({ ok: true });
+  }
+
   if (method === "POST" && p === "/images") {
     const u = await needUser(req, env);
     const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM images WHERE owner_id = ?").bind(u.id).first<{ n: number }>();

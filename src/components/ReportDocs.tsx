@@ -317,7 +317,7 @@ export function TranscriptDoc({ d }: { d: StudentData }) {
       <p className="doc-small">One credit is a full-year course (about 120–180 hours). Courses taken elsewhere name the provider.</p>
       <Signature
         family={d.family}
-        note="I certify that this is a true and accurate record of the student's high school work in our home school. Prepared with Erudior from records kept on the family's computer."
+        note="I certify that this is a true and accurate record of the student's high school work in our home school. Prepared with Erudior from records kept on the family's computer. Credits are awarded by the home school; Erudior is a study tool and does not grant credit or accreditation."
       />
     </article>
   );
