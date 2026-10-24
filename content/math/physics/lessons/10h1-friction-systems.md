@@ -14,7 +14,7 @@ In the friction lesson the direction of friction was usually obvious: a box slid
 
 ## Static friction is an unknown, not a formula
 
-The single most useful idea is this: static friction is whatever force is needed to keep two surfaces from sliding over each other, up to a limit. So in a static problem you treat its size and direction as **unknowns**, find them from Newton's second law, and only then compare the size with the limit $\mu_s n$. The procedure:
+The single most useful idea is this: static friction is whatever force is needed to keep two surfaces from sliding over each other, up to a limit. So in a static problem you treat its size and direction as unknowns, find them from Newton's second law, and only then compare the size with the limit $\mu_s n$. The procedure:
 
 1. Assume the surfaces in question do not slip. Then the objects in contact share the same acceleration.
 2. Solve for that acceleration and for the friction force $f$ needed to make it happen, letting the sign of $f$ tell you its direction.

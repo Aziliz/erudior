@@ -408,7 +408,7 @@
   choices: ['$24\pi$', '$\tfrac{32}{3}\pi$', '$128\pi$', '$32\pi$']
   answer: 3
   explanation: |-
-    The semi-axes are $a = 2$, $b = 3$, $c = 4$. The map $x = 2u$, $y = 3v$, $z = 4w$ sends the unit ball onto the ellipsoid with Jacobian $abc = 24$, so $V = 24\cdot\tfrac43\pi = 32\pi$. $24\pi$ forgets the $\tfrac43$, and $128\pi$ uses $a^2b^2c^2$-style factors instead of $abc$.
+    The semi-axes are $a = 2$, $b = 3$, $c = 4$. The map $x = 2u$, $y = 3v$, $z = 4w$ sends the unit ball onto the ellipsoid with Jacobian $abc = 24$, so $V = 24\cdot\tfrac43\pi = 32\pi$. $24\pi$ forgets the $\tfrac43$ of the unit ball's volume.
 - id: mv-m6-r2-h17
   lesson: mv-m6-h-designing-coordinates
   type: text

@@ -118,7 +118,7 @@
     ans: 4*pi*a^(n+3)/(n+3)
   prompt: 'Evaluate $\displaystyle\iiint_B {n}\,dV$ over the ball $x^2 + y^2 + z^2 \le {a}^2$. (2 decimals.)'
   answers:
-    - {name: ans, label: 'Value', relTolerance: 0.001}
+    - {name: ans, label: 'Value', tolerance: 0.005}
   solution: |-
     In spherical coordinates $\sqrt{x^2 + y^2 + z^2} = \rho$, so the integrand is a power of $\rho$; multiplied by the $\rho^2$ in $dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi$ it becomes $\rho^{{n2}}$:
     $\displaystyle\int_0^\pi\sin\phi\,d\phi\int_0^{2\pi}d\theta\int_0^{{a}}\rho^{{n2}}\,d\rho = 2\cdot2\pi\cdot\frac{{a}^{{n3}}}{{n3}} \approx$ **{ans:num2}**.

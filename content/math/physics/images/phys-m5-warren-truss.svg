@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="sans-serif" role="img"><title>A bridge truss made of three equilateral triangles with a load at the bottom middle joint</title>
+<rect width="640" height="360" fill="#ffffff"/>
+<line x1="80.0" y1="270.0" x2="200.0" y2="62.2" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<line x1="200.0" y1="62.2" x2="320.0" y2="270.0" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<line x1="320.0" y1="270.0" x2="440.0" y2="62.2" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<line x1="440.0" y1="62.2" x2="560.0" y2="270.0" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<line x1="80.0" y1="270.0" x2="320.0" y2="270.0" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<line x1="320.0" y1="270.0" x2="560.0" y2="270.0" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<line x1="200.0" y1="62.2" x2="440.0" y2="62.2" stroke="#1c2833" stroke-width="6" stroke-linecap="round"/>
+<circle cx="80.0" cy="270.0" r="8.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="320.0" cy="270.0" r="8.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="560.0" cy="270.0" r="8.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="200.0" cy="62.2" r="8.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="440.0" cy="62.2" r="8.0" fill="#ffffff" stroke="#1c2833" stroke-width="2.5"/>
+<polygon points="80.0,278.0 58.0,310.0 102.0,310.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<line x1="46.0" y1="312.0" x2="114.0" y2="312.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<polygon points="560.0,278.0 538.0,304.0 582.0,304.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="548.0" cy="310.0" r="5.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="560.0" cy="310.0" r="5.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="572.0" cy="310.0" r="5.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="526.0" y1="316.0" x2="594.0" y2="316.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="320.0" y1="280.0" x2="320.0" y2="331.0" stroke="#a23b2a" stroke-width="4" stroke-linecap="round"/>
+<polygon points="320.0,345.0 313.7,331.0 326.3,331.0" fill="#a23b2a"/>
+<text x="332.0" y="340.0" font-size="18" fill="#a23b2a" text-anchor="start">30 kN</text>
+<text x="54.0" y="264.0" font-size="20" fill="#1c2833" text-anchor="end" font-weight="bold">A</text>
+<text x="314.0" y="254.0" font-size="20" fill="#1c2833" text-anchor="start" font-weight="bold">C</text>
+<text x="576.0" y="264.0" font-size="20" fill="#1c2833" text-anchor="start" font-weight="bold">E</text>
+<text x="192.0" y="46.2" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="bold">B</text>
+<text x="448.0" y="46.2" font-size="20" fill="#1c2833" text-anchor="middle" font-weight="bold">D</text>
+<text x="200.0" y="296.0" font-size="16" fill="#1c2833" text-anchor="middle">4.0 m</text>
+<text x="80.0" y="336.0" font-size="16" fill="#1c2833" text-anchor="middle">pin</text>
+<text x="560.0" y="340.0" font-size="16" fill="#1c2833" text-anchor="middle">roller</text>
+</svg>

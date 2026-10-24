@@ -133,10 +133,10 @@
   lesson: phys-m1-h-uncertainty
   topic: Measurement uncertainty
   stem: 'A mass is measured as $52.4 \pm 0.2$ g. What is its percent uncertainty?'
-  choices: ['0.2%', '0.38%', '2.6%', '0.0038%']
+  choices: ['0.2%', '0.38%', '3.8%', '0.0038%']
   answer: 1
   explanation: |-
-    Fractional uncertainty $= 0.2/52.4 = 0.0038$, which is 0.38%. Quoting 0.2% confuses the absolute uncertainty (0.2 g) with a percentage; 0.0038% forgets to multiply by 100; 2.6% comes from $52.4/0.2$ with a slipped decimal, upside down.
+    Fractional uncertainty $= 0.2/52.4 = 0.0038$, which is 0.38%. Quoting 0.2% confuses the absolute uncertainty (0.2 g) with a percentage; 0.0038% forgets to multiply by 100; 3.8% slips a decimal place.
 - id: phys-m1-r2-h02
   lesson: phys-m1-h-uncertainty
   topic: Measurement uncertainty
@@ -316,7 +316,7 @@
   choices: ['$(8.66, 5.00)$ N', '$(5.00, -8.66)$ N', '$(8.66, -5.00)$ N', '$(10.0, 0)$ N']
   answer: 2
   explanation: |-
-    $F_{x'} = F_x\cos30^\circ + F_y\sin30^\circ = 8.66$ N and $F_{y'} = -F_x\sin30^\circ + F_y\cos30^\circ = -5.00$ N. The new $x'$ axis has turned toward the force's left, so from the new axes the force points below $x'$: negative $y'$ component. Check: $\sqrt{8.66^2 + 5^2} = 10$ N. Rotating the vector instead of the axes gives $(8.66, 5.00)$.
+    $F_{x'} = F_x\cos30^\circ + F_y\sin30^\circ = 8.66$ N and $F_{y'} = -F_x\sin30^\circ + F_y\cos30^\circ = -5.00$ N. The $x'$ axis has turned $30^\circ$ counterclockwise past the force, so the force lies $30^\circ$ below $x'$: its $y'$ component is negative. Check: $\sqrt{8.66^2 + 5^2} = 10$ N. Rotating the vector instead of the axes gives $(8.66, 5.00)$.
 - id: phys-m1-r2-h23
   lesson: phys-m1-h-vector-algebra
   topic: Vector algebra
@@ -353,7 +353,7 @@
   type: text
   topic: Vector products
   stem: 'Write $\hat\imath\times\hat k$ as a signed unit vector (for example, -i). $\hat\imath\times\hat k =$ ___'
-  accept: ['-j', '-ĵ', 'minus j', '-1j', '-y']
+  accept: ['-j', '-ĵ', 'minus j', '-j hat']
   explanation: |-
     Forward around the cycle, $\hat k\times\hat\imath = \hat\jmath$. Reversing the order flips the sign, so $\hat\imath\times\hat k = -\hat\jmath$. Check with the formula: $(1, 0, 0)\times(0, 0, 1) = (0\cdot1 - 0\cdot0,\ 0\cdot0 - 1\cdot1,\ 1\cdot0 - 0\cdot0) = (0, -1, 0)$.
 - id: phys-m1-r2-h27

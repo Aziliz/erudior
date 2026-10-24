@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" font-family="sans-serif" role="img"><title>An elliptical orbit with the Sun at one focus, showing perihelion, aphelion, the semimajor axis and two equal-area sectors</title>
+<rect width="640" height="380" fill="#ffffff"/>
+<polygon points="527.1,200.0 514.0,288.3 517.5,285.8 521.1,283.2 524.6,280.4 528.2,277.5 531.8,274.4 535.3,271.1 538.9,267.7 542.4,264.0 545.8,260.1 549.2,255.9 552.4,251.5 555.6,246.9 558.5,241.9 561.3,236.7 563.7,231.1 565.9,225.3 567.6,219.2 568.9,213.0 569.7,206.5 570.0,200.0 569.7,193.5 568.9,187.0 567.6,180.8 565.9,174.7 563.7,168.9 561.3,163.3 558.5,158.1 555.6,153.1 552.4,148.5 549.2,144.1 545.8,139.9 542.4,136.0 538.9,132.3 535.3,128.9 531.8,125.6 528.2,122.5 524.6,119.6 521.1,116.8 517.5,114.2 514.0,111.7" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="527.1,200.0 71.0,187.8 70.9,188.4 70.8,189.0 70.7,189.6 70.6,190.2 70.5,190.8 70.5,191.4 70.4,192.0 70.3,192.7 70.3,193.3 70.2,193.9 70.2,194.5 70.2,195.1 70.1,195.7 70.1,196.3 70.1,196.9 70.0,197.5 70.0,198.2 70.0,198.8 70.0,199.4 70.0,200.0 70.0,200.6 70.0,201.2 70.0,201.8 70.0,202.5 70.1,203.1 70.1,203.7 70.1,204.3 70.2,204.9 70.2,205.5 70.2,206.1 70.3,206.7 70.3,207.3 70.4,208.0 70.5,208.6 70.5,209.2 70.6,209.8 70.7,210.4 70.8,211.0 70.9,211.6 71.0,212.2" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5" stroke-linejoin="round"/>
+<ellipse cx="320" cy="200" rx="250" ry="140" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="70.0" y1="200.0" x2="570.0" y2="200.0" stroke="#1c2833" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="6 5"/>
+<line x1="70.0" y1="42.0" x2="320.0" y2="42.0" stroke="#244d76" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="70.0" y1="34.0" x2="70.0" y2="50.0" stroke="#244d76" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="320.0" y1="34.0" x2="320.0" y2="50.0" stroke="#244d76" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="527.1" cy="200.0" r="13.0" fill="#f2c14e" stroke="#1c2833" stroke-width="2"/>
+<circle cx="112.9" cy="200.0" r="4.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="320.0" cy="200.0" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
+<circle cx="570.0" cy="200.0" r="7.0" fill="#244d76" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="70.0" cy="200.0" r="7.0" fill="#244d76" stroke="#1c2833" stroke-width="1.5"/>
+<text x="527.1" y="234.0" font-size="16" fill="#1c2833" text-anchor="middle">Sun (focus)</text>
+<text x="564.0" y="184.0" font-size="16" fill="#1c2833" text-anchor="end">perihelion</text>
+<text x="84.0" y="184.0" font-size="16" fill="#1c2833" text-anchor="start">aphelion</text>
+<text x="195.0" y="32.0" font-size="16" fill="#244d76" text-anchor="middle">semimajor axis a</text>
+<text x="320.0" y="224.0" font-size="15" fill="#1c2833" text-anchor="middle">center</text>
+<text x="320.0" y="370.0" font-size="16" fill="#1c2833" text-anchor="middle">shaded sectors: equal areas, swept in equal times</text>
+</svg>

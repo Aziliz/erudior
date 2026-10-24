@@ -19,6 +19,10 @@ $$a = -\frac{k}{m}x.$$
 
 The acceleration always points toward equilibrium and is largest at the extremes. The object overshoots equilibrium (it has speed there, and inertia carries it on), slows as the spring stretches the other way, stops, and returns. The cycle repeats forever if there's no friction.
 
+The picture shows three moments in one cycle. At each end the block is momentarily at rest and the acceleration is largest; at equilibrium the block is fastest and the acceleration is zero.
+
+![Three snapshots of a block on a horizontal spring. At x = −A the spring is compressed, the block is at rest, and a large acceleration arrow points right toward equilibrium. At x = 0 the block moves right at maximum speed with zero acceleration. At x = +A the spring is stretched, the block is at rest, and a large acceleration arrow points left. The distance from equilibrium to either end is the amplitude A.](images/phys-m6-spring-cycle.svg)
+
 ## Describing the oscillation
 
 The position follows a sine or cosine curve:
@@ -67,7 +71,11 @@ $v = 20\sqrt{0.10^2 - 0.06^2} = 20(0.08) = 1.6$ m/s.
 
 ## The simple pendulum
 
-A **simple pendulum** is a point mass on a light string of length $L$. Displaced by angle $\theta$, gravity's component along the arc is $-mg\sin\theta$. For small angles, $\sin\theta \approx \theta$ (in radians; accurate to 1% up to about $14^\circ$), and with arc length $s = L\theta$ the restoring force is $-\dfrac{mg}{L}s$, Hooke's-law form with effective $k = mg/L$. So
+A **simple pendulum** is a point mass on a light string of length $L$. Displaced by angle $\theta$, gravity's component along the arc is $-mg\sin\theta$. The picture splits the weight into a part along the string, which the tension balances (when the bob is moving, the tension is a little larger, and the extra supplies the centripetal force), and a part along the arc, which pulls the bob back toward the bottom.
+
+![A pendulum of length L hanging from a ceiling, pulled aside by angle θ from the dashed vertical line. The arc from the bottom to the bob is the arc length s = Lθ. Forces on the bob: tension T along the string toward the pivot and weight mg straight down. The weight is split into mg cos θ along the string, away from the pivot, and mg sin θ along the arc, toward equilibrium.](images/phys-m6-pendulum.svg)
+
+ For small angles, $\sin\theta \approx \theta$ (in radians; accurate to 1% up to about $14^\circ$), and with arc length $s = L\theta$ the restoring force is $-\dfrac{mg}{L}s$, Hooke's-law form with effective $k = mg/L$. So
 
 $$\omega = \sqrt{\frac gL}, \qquad T = 2\pi\sqrt{\frac Lg}.$$
 
@@ -105,6 +113,23 @@ An oscillator's acceleration is $a = -49x$ (SI units) and its amplitude is 0.040
 $\omega^2 = 49$, so $\omega = 7.0$ rad/s and $T = 2\pi/7.0 = 0.898$ s.
 
 $v_{\max} = A\omega = 0.040(7.0) = 0.28$ m/s; $a_{\max} = A\omega^2 = 0.040(49) = 1.96$ m/s².
+
+The chart sums up how to find the period of any oscillator in this lesson.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the period of an oscillator
+  accDescr: Start by asking what is oscillating. For a mass on a spring, use T = 2π times the square root of m over k. For a simple pendulum at small angles, use T = 2π times the square root of L over g. For a rigid object swinging on a pivot, use T = 2π times the square root of I over mgd. For anything else, write the acceleration as a = −(constant) times x; the constant is ω squared, and T = 2π/ω.
+  A["What is oscillating?"] --> B["Mass on a spring"]
+  A --> C["Simple pendulum, small angle"]
+  A --> D["Rigid object on a pivot"]
+  A --> E["Something else"]
+  B --> F["T = 2π √(m/k)"]
+  C --> G["T = 2π √(L/g)"]
+  D --> H["T = 2π √(I/mgd)"]
+  E --> I["Write a = −(constant) × x"]
+  I --> J["ω² = constant, so T = 2π/ω"]
+```
 
 ## Common mistakes
 

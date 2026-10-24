@@ -272,7 +272,7 @@
   lesson: mv-m4-h-hessian
   type: text
   topic: Quadratic forms and the Hessian
-  stem: 'For $Q(h, k) = Ah^2 + 2Bhk + Ck^2$ with $A \ne 0$, completing the square gives $A\,Q(h, k) = (Ah + Bk)^2 + (\text{___})\,k^2$. Write the missing expression in terms of $A$, $B$, $C$.'
+  stem: 'For $Q(h, k) = Ah^2 + 2Bhk + Ck^2$ with $A \ne 0$, completing the square gives $A\,Q(h, k) = (Ah + Bk)^2 + E\,k^2$, where $E =$ ___. Write the missing expression in terms of $A$, $B$, $C$.'
   accept: ['AC-B^2', 'AC - B^2', 'AC-B²', 'AC-BB', 'AC-B*B', 'A*C-B^2', '-B^2+AC', 'CA-B^2', 'AC-(B^2)']
   explanation: |-
     $A\,Q = A^2h^2 + 2ABhk + ACk^2$, and $(Ah + Bk)^2 = A^2h^2 + 2ABhk + B^2k^2$. The difference is $(AC - B^2)k^2$. That coefficient is the discriminant $D$ of the second-derivative test.
@@ -646,7 +646,7 @@
     - 'convergence to a saddle point'
   answer: 0
   explanation: |-
-    Each error is the square of the one before ($10^{-2} \to 10^{-4} \to 10^{-8}$), so the number of correct digits doubles: quadratic convergence. Gaining one digit per step would look like $10^{-1}, 10^{-2}, 10^{-3}, 10^{-4}$, the steady pace of gradient descent at best. The kind of critical point cannot be read from the errors.
+    Each error is the square of the one before ($10^{-2} \to 10^{-4} \to 10^{-8}$), so the number of correct digits doubles: quadratic convergence. Gaining one digit per step would look like $10^{-1}, 10^{-2}, 10^{-3}, 10^{-4}$ (linear convergence). The kind of critical point cannot be read from the errors.
 - id: mv-m4-r2-h39
   lesson: mv-m4-h-numerical
   topic: Numerical optimization

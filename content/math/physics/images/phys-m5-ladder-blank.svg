@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 440" width="480" height="440" font-family="sans-serif" role="img"><title>Forces on a ladder leaning against a smooth wall, unlabeled</title>
+<rect width="480" height="440" fill="#ffffff"/>
+<rect x="400" y="30" width="40" height="360" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<line x1="30.0" y1="390.0" x2="440.0" y2="390.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="40.0" y1="392.0" x2="28.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="64.0" y1="392.0" x2="52.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="88.0" y1="392.0" x2="76.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="112.0" y1="392.0" x2="100.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="136.0" y1="392.0" x2="124.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="160.0" y1="392.0" x2="148.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="184.0" y1="392.0" x2="172.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="208.0" y1="392.0" x2="196.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="232.0" y1="392.0" x2="220.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="256.0" y1="392.0" x2="244.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="280.0" y1="392.0" x2="268.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="304.0" y1="392.0" x2="292.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="328.0" y1="392.0" x2="316.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="352.0" y1="392.0" x2="340.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="376.0" y1="392.0" x2="364.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="400.0" y1="392.0" x2="388.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="424.0" y1="392.0" x2="412.0" y2="404.0" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="228.9" y1="386.5" x2="393.9" y2="100.7" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="241.1" y1="393.5" x2="406.1" y2="107.7" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<line x1="247.3" y1="354.7" x2="259.4" y2="361.7" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="265.6" y1="323.0" x2="277.7" y2="330.0" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="283.9" y1="291.2" x2="296.1" y2="298.2" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="302.3" y1="259.5" x2="314.4" y2="266.5" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="320.6" y1="227.7" x2="332.7" y2="234.7" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="338.9" y1="196.0" x2="351.1" y2="203.0" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="357.3" y1="164.2" x2="369.4" y2="171.2" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="375.6" y1="132.5" x2="387.7" y2="139.5" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<path d="M277.0,390 A42,42 0 0 0 256.0,353.6" fill="none" stroke="#1c2833" stroke-width="2"/>
+<line x1="400.0" y1="104.2" x2="314.0" y2="104.2" stroke="#a23b2a" stroke-width="3.5" stroke-linecap="round"/>
+<polygon points="300.0,104.2 314.0,97.9 314.0,110.5" fill="#a23b2a"/>
+<line x1="317.5" y1="247.1" x2="317.5" y2="333.1" stroke="#244d76" stroke-width="3.5" stroke-linecap="round"/>
+<polygon points="317.5,347.1 311.2,333.1 323.8,333.1" fill="#244d76"/>
+<line x1="235.0" y1="390.0" x2="235.0" y2="294.0" stroke="#2f6b45" stroke-width="3.5" stroke-linecap="round"/>
+<polygon points="235.0,280.0 241.3,294.0 228.7,294.0" fill="#2f6b45"/>
+<line x1="140.0" y1="380.0" x2="218.0" y2="380.0" stroke="#5b3f8c" stroke-width="3.5" stroke-linecap="round"/>
+<polygon points="232.0,380.0 218.0,386.3 218.0,373.7" fill="#5b3f8c"/>
+<circle cx="317.5" cy="247.1" r="5.0" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
+</svg>
