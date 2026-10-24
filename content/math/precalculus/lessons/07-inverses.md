@@ -20,7 +20,7 @@ $$x_1 \ne x_2 \implies f(x_1) \ne f(x_2).$$
 Graphically this is the **horizontal line test**: $f$ is one-to-one exactly when no horizontal line meets its graph more than once. A horizontal line $y = c$ collects all inputs with output $c$; two crossings mean two inputs share an output. Functions that are always increasing or always decreasing pass automatically.
 
 ```plot
-{"x": [-4, 4], "y": [-2, 9], "functions": [{"f": "x^2", "label": "y = x²"}, {"f": "4", "dashed": true, "label": "y = 4"}], "points": [{"at": [-2, 4], "label": "(−2, 4)"}, {"at": [2, 4], "label": "(2, 4)"}], "caption": "The horizontal line y = 4 meets y = x² twice, at x = −2 and x = 2, so x² on all reals is not one-to-one."}
+{"x": [-4, 4], "y": [-2, 9], "functions": [{"f": "x^2", "label": "y = x²"}, {"f": "4", "dashed": true, "label": "y = 4"}], "points": [{"at": [-2, 4], "label": "(−2, 4)"}, {"at": [2, 4]}], "labels": [{"at": [2.75, 3.2], "text": "(2, 4)"}], "caption": "The horizontal line y = 4 meets y = x² twice, at x = −2 and x = 2, so x² on all reals is not one-to-one."}
 ```
 
 ## The inverse function

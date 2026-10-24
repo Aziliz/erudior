@@ -135,7 +135,7 @@ flowchart LR
   accTitle: Which probability rule to use
   accDescr: Start from what the question asks. For one event with equally likely outcomes, divide favorable outcomes by total outcomes. For the event not happening, subtract its probability from 1. For A and B with independent events, multiply the two probabilities. For an expected count, multiply the probability by the number of trials. When there are no equally likely outcomes to count, estimate with successes divided by trials.
   Q{"What does the question ask?"}
-  Q -- "one event" --> A["favorable ÷ total"]
+  Q -- "one event, equally likely outcomes" --> A["favorable ÷ total"]
   Q -- "NOT an event" --> B["1 − P(event)"]
   Q -- "A and B, independent" --> C["P(A) × P(B)"]
   Q -- "how many times to expect" --> D["P × number of trials"]

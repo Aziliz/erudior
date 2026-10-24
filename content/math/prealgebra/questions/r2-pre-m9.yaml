@@ -94,12 +94,12 @@
   type: match
   stem: 'Match each set of data to the display that fits it best.'
   pairs:
-    - ['Monthly rainfall in one city over a year', Line graph]
+    - ['How a city''s average temperature changed month by month over a year', Line graph]
     - ['The share of a budget spent on each expense', Circle graph]
     - ['The number of members in each of five clubs', Bar graph]
     - ['Exact prices, weights and sizes of 20 products', Table]
   explanation: |-
-    Change over time (month by month) calls for a line graph. Shares of one whole that add to 100% suit a circle graph. Comparing amounts across categories (clubs) is what bar graphs do. Several variables with exact values belong in a table.
+    Change over time (month by month) calls for a line graph, whose rising and falling segments show the trend. Shares of one whole that add to 100% suit a circle graph. Comparing amounts across categories (clubs) is what bar graphs do. Several variables with exact values belong in a table.
 
 - id: pre-m9-r2-q09
   lesson: pre-graphs
@@ -329,7 +329,7 @@
   choices: ['Runner Q is faster', 'Runner P is faster', 'Runner P''s lap times are more consistent', 'Their lap times vary by the same amount']
   answer: 2
   explanation: |-
-    The means are equal, so neither is faster on average. The MAD is the typical distance from the mean: P's laps are usually within about 0.8 s of 60 s, while Q's typically miss by about 3.5 s. P is more consistent.
+    The means are equal, so neither is faster on average. The MAD is the typical distance from the mean: P's laps are typically about 0.8 s from 60 s, while Q's are typically about 3.5 s away. P is more consistent.
 
 - id: pre-m9-r2-h14
   lesson: pre-m9-h-spread

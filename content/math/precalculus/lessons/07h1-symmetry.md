@@ -131,11 +131,11 @@ Two compositions with absolute value create graphs from a known one, and they ar
 - $y = \lvert f(x) \rvert$: keep every point on or above the $x$-axis and reflect every point below it up across the $x$-axis. The result is never below the axis, but it is usually not even.
 
 ```plot
-{"x": [-5, 5], "y": [-5, 6], "functions": [{"f": "x^2 - 2*x - 3", "dashed": true, "label": "y = f(x)"}, {"f": "abs(x^2 - 2*x - 3)", "label": "y = |f(x)|"}], "points": [{"at": [1, 4], "label": "(1, 4)"}, {"at": [-1, 0]}, {"at": [3, 0]}], "caption": "f(x) = x² − 2x − 3 (dashed) and |f(x)|: the part between the zeros −1 and 3 flips up, so the vertex (1, −4) becomes (1, 4)."}
+{"x": [-5, 5], "y": [-5, 6], "functions": [{"f": "x^2 - 2*x - 3", "dashed": true}, {"f": "abs(x^2 - 2*x - 3)"}], "points": [{"at": [1, 4], "label": "(1, 4)"}, {"at": [-1, 0]}, {"at": [3, 0]}], "labels": [{"at": [-3.3, 3], "text": "y = |f(x)|"}, {"at": [3.8, -3], "text": "y = f(x)"}], "caption": "f(x) = x² − 2x − 3 (dashed) and |f(x)| (solid): the part between the zeros −1 and 3 flips up, so the vertex (1, −4) becomes (1, 4)."}
 ```
 
 ```plot
-{"x": [-5, 5], "y": [-5, 6], "functions": [{"f": "x^2 - 2*x - 3", "dashed": true, "label": "y = f(x)"}, {"f": "x^2 - 2*abs(x) - 3", "label": "y = f(|x|)"}], "points": [{"at": [1, -4], "label": "(1, −4)"}, {"at": [-1, -4], "label": "(−1, −4)"}], "caption": "f(|x|) keeps the right half of f and mirrors it across the y-axis, giving two vertices (±1, −4) and zeros ±3."}
+{"x": [-5, 5], "y": [-5, 6], "functions": [{"f": "x^2 - 2*x - 3", "dashed": true}, {"f": "x^2 - 2*abs(x) - 3"}], "points": [{"at": [1, -4]}, {"at": [-1, -4]}], "labels": [{"at": [1.1, -4.7], "text": "(1, −4)"}, {"at": [-1.1, -4.7], "text": "(−1, −4)"}, {"at": [3.9, -2], "text": "y = f(|x|)"}], "caption": "f(x) = x² − 2x − 3 (dashed) and f(|x|) (solid): f(|x|) keeps the right half of f and mirrors it across the y-axis, giving two vertices (±1, −4) and zeros ±3."}
 ```
 
 ## Common mistakes

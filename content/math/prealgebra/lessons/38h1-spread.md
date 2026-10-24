@@ -63,7 +63,7 @@ Find the MAD for each town in the table above.
 
 Same mean, same range, but Town B's MAD is more than twice Town A's: a typical day in Town B is 8 degrees from its average, against about 3 in Town A. The MAD saw what the range missed.
 
-In later statistics courses you will meet the **standard deviation**, which does the same job as the MAD but squares the deviations instead of taking absolute values. The idea, "a typical distance from the mean," is the same.
+In later statistics courses you will meet the **standard deviation**, which does the same job as the MAD but squares the deviations instead of taking absolute values (and takes a square root at the end to get back to the original units). The idea, "a typical distance from the mean," is the same.
 
 ## Quartiles and the five-number summary
 
@@ -75,7 +75,7 @@ The median splits ordered data into two halves. **Quartiles** go one step furthe
 
 The halves are the values below the median and the values above it. When the count is odd, the median is the middle value, and it is left out of both halves. When the count is even, the data split evenly into two halves.
 
-This "median of each half" method is the one most school courses use. Some calculators and spreadsheets use slightly different rules, so for a small data set they may report a slightly different Q1 or Q3. That's a difference of convention, not an error; with large data sets the rules nearly agree.
+This "median of each half" method is the one many school courses use. Some calculators and spreadsheets use slightly different rules, so for a small data set they may report a slightly different Q1 or Q3. That's a difference of convention, not an error; with large data sets the rules nearly agree.
 
 Together, the minimum, Q1, median, Q3 and maximum form the **five-number summary**. The **interquartile range** (IQR) is the spread of the middle half of the data:
 
@@ -159,7 +159,7 @@ Use the rule on Examples 3 and 4.
 
 *Example 4 (ages):* IQR = 8, so $1.5 \times 8 = 12$. Fences: $6 - 12 = -6$ and $14 + 12 = 26$. The 30 is above 26, so it's flagged, which fits the story: the counselor isn't one of the children. In the box plot, the right whisker would end at 15 and the 30 would be a lone dot.
 
-*Example 3 (homework):* IQR = 19, so $1.5 \times 19 = 28.5$. Fences: $16.5 - 28.5 = -12$ and $35.5 + 28.5 = 64$. The 60 looks far from the rest, but it is below 64, so it is *not* flagged. The rule is stricter than the eye.
+*Example 3 (homework):* IQR = 19, so $1.5 \times 19 = 28.5$. Fences: $16.5 - 28.5 = -12$ and $35.5 + 28.5 = 64$. The 60 looks far from the rest, but it is below 64, so it is *not* flagged. The rule is more cautious than the eye: it flags fewer values.
 
 ## Which spread goes with which center
 

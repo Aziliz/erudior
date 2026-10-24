@@ -155,7 +155,7 @@ Isolate the absolute value, then look at the number on the other side before spl
 - *Solving $|u| = -4$ anyway.* With a negative number on the other side, stop: no solution.
 - *Using "and" for a greater-than inequality*: $|x| > 3$ is not $-3 > x > 3$, which no number satisfies; it is $x < -3$ or $x > 3$.
 - *Reversing only one symbol* when dividing a compound inequality by a negative; both symbols reverse.
-- *Distributing a number into the bars*: $|x - 2| + 3$ is not $|x + 1|$, and $-|x|$ is not $|-x|$.
+- *Moving a number or a sign into the bars*: $|x - 2| + 3$ is not $|x + 1|$, and $-|x|$ is not $|-x|$.
 
 ## Key points
 
