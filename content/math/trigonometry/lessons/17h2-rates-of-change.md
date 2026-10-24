@@ -158,8 +158,9 @@ velocity at $t = 0.25$ s.
 
 The greatest speed is $|a|\omega = 6 \cdot 3\pi = 18\pi \approx 56.5$ cm/s, reached every time it passes
 equilibrium. At $t = 0.25$: $18\pi\cos(0.75\pi) = 18\pi\left(-\tfrac{\sqrt2}{2}\right) \approx -40.0$ cm/s. The
-negative sign means it is moving down, even though its displacement there ($3\sqrt2 \approx 4.24$ cm)
-is still above equilibrium: it is on its way back.
+negative sign means it is moving in the negative direction (down, if up is positive), even though
+its displacement there ($3\sqrt2 \approx 4.24$ cm) is still positive: it is on its way back toward
+equilibrium.
 
 ## The pendulum
 

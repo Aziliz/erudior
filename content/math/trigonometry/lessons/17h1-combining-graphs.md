@@ -49,7 +49,8 @@ from it.
 ```
 
 Notice that $y = x + \sin x$ is *not* periodic, even though one of its parts is: the line keeps
-climbing. Adding a periodic function to a non-periodic one gives a non-periodic result.
+climbing while $\sin x$ stays between $-1$ and 1, so the sum grows without bound and can never
+repeat its values.
 
 ### Example 2: a wave plus its overtone
 
@@ -188,7 +189,8 @@ small angles proves that the limit really is 1, with a picture of the unit circl
 - **Multiplying or adding the periods.** The period of a sum comes from the least common
   multiple: periods 6 and 4 give 12, not 24 or 10.
 - **Assuming every sum is periodic.** If the ratio of the periods is irrational, the sum never
-  repeats; if one part is not periodic (like $x$), neither is the sum.
+  repeats; if one part grows without bound (like $x$) while the other stays bounded (like
+  $\sin x$), the sum grows without bound too, so it is not periodic.
 - **Putting the peaks of a product at the envelope.** A product touches its envelope where the
   sine is $\pm1$, but its local maxima are usually nearby, not exactly there.
 - **Forgetting the envelope's sign.** For $f(x)\sin x$ with $f$ sometimes negative, the envelope

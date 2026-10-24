@@ -386,7 +386,7 @@
   choices: ['It approaches 0', 'It grows without bound', 'It approaches $\tfrac{\pi}{180}$', 'It approaches 1']
   answer: 3
   explanation: |-
-    The formula is undefined at 0, but the values settle down: about 0.9983 at $x = 0.1$ and 0.99998 at $x = 0.01$. They approach 1 (the next honors lesson proves it). The value $\tfrac{\pi}{180}$ would appear if $x$ were measured in degrees.
+    The formula is undefined at 0, but the values settle down: about 0.9983 at $x = 0.1$ and 0.99998 at $x = 0.01$. They approach 1 (the Module 3 honors lesson on small angles proves it). The value $\tfrac{\pi}{180}$ would appear if $x$ were measured in degrees.
 - id: trig-m4-r2-h11
   lesson: trig-m4-h-combining
   topic: Combining trig graphs

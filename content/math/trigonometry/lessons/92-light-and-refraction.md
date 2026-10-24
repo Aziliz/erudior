@@ -25,7 +25,7 @@ The bending of the ray as it crosses is called **refraction**.
 
 ## Snell's law
 
-Each transparent material has an **index of refraction** $n$: the speed of light in a vacuum, $c$, divided by its speed in the material, $n = \tfrac{c}{v}$. Light is slower in denser optical materials, so $n \ge 1$. Some typical values (they vary slightly with the color of the light): air $1.0003$ (we'll use $1.00$), water $1.33$, ordinary glass about $1.5$, diamond $2.42$.
+Each transparent material has an **index of refraction** $n$: the speed of light in a vacuum, $c$, divided by its speed in the material, $n = \tfrac{c}{v}$. Light travels more slowly in a material than in a vacuum, so $n \ge 1$, and the larger $n$ is, the slower the light (such a material is called optically denser). Some typical values (they vary slightly with the color of the light): air $1.0003$ (we'll use $1.00$), water $1.33$, ordinary glass about $1.5$, diamond $2.42$.
 
 **Snell's law** connects the two angles:
 $$n_1\sin\theta_1 = n_2\sin\theta_2.$$

@@ -77,7 +77,7 @@ $R^2 = 4 + 4 + 8\cos 120^\circ = 8 - 4 = 4$, so $R = 2$. Two waves of size 2 add
 
 ## Phasors in AC circuits
 
-Household electricity is **alternating current** (AC): the voltage is a sinusoid. In North America it alternates at 60 Hz with a peak of about 170 V (the familiar "120 V" is the root-mean-square value, $170/\sqrt2 \approx 120$). In a circuit driven at one frequency, every voltage and current is a sinusoid of that frequency, so phasors describe them all. Each of the three basic components shifts the timing in its own way. Taking the current as $I\cos\omega t$ (phasor along the positive $x$-axis):
+Household electricity is **alternating current** (AC): the voltage is a sinusoid. In North America it alternates at 60 Hz with a peak of about 170 V (the familiar "120 V" is the root-mean-square value, $170/\sqrt2 \approx 120$). In a circuit of ideal components driven at one frequency, once it has settled into its steady state, every voltage and current is a sinusoid of that frequency, so phasors describe them all. Each of the three basic components shifts the timing in its own way. Taking the current as $I\cos\omega t$ (phasor along the positive $x$-axis):
 
 | Component | Voltage amplitude | Voltage phasor direction |
 |---|---|---|

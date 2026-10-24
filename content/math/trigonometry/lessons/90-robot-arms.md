@@ -7,7 +7,7 @@ topics: [Rotations, Robot arm kinematics]
 drills: [trig-h1-r2-rotate-point, trig-h1-r2-forward-kin, trig-h1-r2-inverse-kin]
 refs: [trig-ref-identities, trig-ref-triangles]
 ---
-A factory robot that welds car bodies, a telescope mount that follows a star, and the character in a video game that swings a sword all face the same two questions. If I turn these joints by these angles, where does the tip end up? And the reverse: to put the tip *there*, how should I turn the joints? This lesson answers both for a simple arm moving in a plane, and it needs nothing new. The sum formulas (Module 6) rotate points, vectors (Module 8) add up the arm's pieces, and the law of cosines (Module 7) runs the arm backward. Along the way you'll meet an old friend from the ambiguous case: a problem with two correct answers.
+A factory robot that welds car bodies, a telescope mount that follows a star, and the character in a video game that swings a sword all face the same two questions. If I turn these joints by these angles, where does the tip end up? And the reverse: to put the tip *there*, how should I turn the joints? This lesson answers both for a simple arm moving in a plane, and it needs nothing new. The sum formulas (Module 6) rotate points, vectors (Module 8) add up the arm's pieces, and the law of cosines (Module 7) runs the arm backward. Along the way you'll meet a problem with two correct answers, which recalls the ambiguous case (though for a different reason).
 
 ## Rotating a point
 
@@ -87,7 +87,7 @@ $$\cos\theta_2 = \frac{d^2 - L_1^2 - L_2^2}{2L_1L_2}.$$
 $$\cos\psi = \frac{L_1^2 + d^2 - L_2^2}{2L_1 d}.$$
 Link 1 is turned away from the target line by $\psi$, to one side or the other.
 
-**Two answers.** $\cos\theta_2 = c$ has two solutions with $-180^\circ < \theta_2 < 180^\circ$: $\theta_2 = \pm\cos^{-1} c$. They are mirror images across the line from shoulder to target, which is why they are called the **elbow-up and elbow-down** solutions. With positive $\theta_2$ the elbow sits on the clockwise side of the target line, so $\theta_1 = \varphi - \psi$; with negative $\theta_2$ it sits on the other side, so $\theta_1 = \varphi + \psi$. This is the ambiguous case of Module 7 again: the same three lengths, two different triangles (one a reflection of the other).
+**Two answers.** $\cos\theta_2 = c$ has two solutions with $-180^\circ < \theta_2 < 180^\circ$: $\theta_2 = \pm\cos^{-1} c$. They are mirror images across the line from shoulder to target, which is why they are called the **elbow-up and elbow-down** solutions. With positive $\theta_2$ the elbow sits on the clockwise side of the target line, so $\theta_1 = \varphi - \psi$; with negative $\theta_2$ it sits on the other side, so $\theta_1 = \varphi + \psi$. This recalls the ambiguous case of Module 7, where the same data also give two answers, but the reason is different. There, SSA data allow two *different* triangles. Here the three sides fix the triangle completely (SSS); the two solutions are the same triangle flipped to either side of the target line.
 
 ```mermaid
 flowchart TD

@@ -94,7 +94,7 @@
   choices: ['The shoulder can turn clockwise or counterclockwise to the same angle.', 'The law of sines always gives two angles.', 'Both $\theta_2$ and $-\theta_2$ have the same cosine, giving mirror-image elbow positions.', 'The coordinates $x$ and $y$ can be swapped.']
   answer: 2
   explanation: |-
-    The law of cosines fixes only $\cos\theta_2$, and $\cos(-\theta_2) = \cos\theta_2$. The two answers are the elbow-up and elbow-down shapes, mirror images across the line from the shoulder to the target, like the two triangles of the ambiguous case. The direction the shoulder turns doesn't create a new position, and the law of sines isn't used here.
+    The law of cosines fixes only $\cos\theta_2$, and $\cos(-\theta_2) = \cos\theta_2$. The two answers are the elbow-up and elbow-down shapes, mirror images across the line from the shoulder to the target: the same triangle (fixed by its three sides) flipped to either side of that line. The direction the shoulder turns doesn't create a new position, and the law of sines isn't used here.
 - id: trig-h1-r2-h11
   lesson: trig-h1-robot-arms
   topic: Robot arm kinematics
@@ -149,7 +149,7 @@
   type: text
   topic: Phasors
   stem: 'The wave $6\cos\omega t + 6\cos(\omega t + 60^\circ)$ has amplitude ___ (give an exact value, or a decimal to 2 places).'
-  accept: ['6sqrt(3)', '6 sqrt(3)', '6sqrt3', '6√3', 'sqrt(108)', '√108', '10.39']
+  accept: ['6sqrt(3)', '6 sqrt(3)', '6*sqrt(3)', '6sqrt3', '6√3', 'sqrt(108)', '√108', '10.39']
   explanation: |-
     By the law of cosines for phasors, $R^2 = 6^2 + 6^2 + 2(6)(6)\cos 60^\circ = 36 + 36 + 36 = 108$, so $R = \sqrt{108} = 6\sqrt3 \approx 10.39$. Equivalently, two equal waves with phase difference $\Delta$ give $2A\cos\tfrac{\Delta}{2} = 12\cos 30^\circ = 6\sqrt3$.
 - id: trig-h1-r2-h17

@@ -43,7 +43,7 @@
   topic: Phasors
 - term: alternating current
   aliases: [AC]
-  definition: 'Electric current (and voltage) that varies sinusoidally with time, such as household electricity at 60 Hz in North America.'
+  definition: 'Electric current (and voltage) that reverses direction periodically, usually as a sinusoid; household electricity in North America alternates at 60 Hz.'
   topic: AC circuits
 - term: inductive and capacitive reactance
   aliases: [reactance, inductive reactance, capacitive reactance]
