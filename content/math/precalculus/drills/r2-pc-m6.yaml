@@ -137,4 +137,4 @@
   answers:
     - {name: y, label: '$y =$', kind: fraction}
   solution: |-
-    Solve $(A {nl1:signed}I)\mathbf{v} = \mathbf{0}$. The first row of $A {nl1:signed}I$ is $({am}, {b})$, so ${am:coef}x {b:signedcoef}y = 0$ (the second row is a multiple of it, because $\det(A {nl1:signed}I) = 0$). With $x = 1$: ${am} {b:signedcoef}y = 0$, so ${b:coef}y = {nam}$ and $y =$ **{y:frac}**. Check: $A\begin{bmatrix} 1 \\ y \end{bmatrix} = {l1}\begin{bmatrix} 1 \\ y \end{bmatrix}$.
+    Solve $(A {nl1:signedcoef}I)\mathbf{v} = \mathbf{0}$. The first row of $A {nl1:signedcoef}I$ is $({am}, {b})$, so ${am:coef}x {b:signedcoef}y = 0$ (the second row is a multiple of it, because $\det(A {nl1:signedcoef}I) = 0$). With $x = 1$: ${am} {b:signedcoef}y = 0$, so ${b:coef}y = {nam}$ and $y =$ **{y:frac}**. Check: $A\begin{bmatrix} 1 \\ y \end{bmatrix} = {l1}\begin{bmatrix} 1 \\ y \end{bmatrix}$.

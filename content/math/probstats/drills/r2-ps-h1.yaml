@@ -151,3 +151,133 @@
     Bias $= -\lambda\beta/(S_{xx} + \lambda) = {bias:sig3}$, so $\operatorname{MSE} = \operatorname{Var} + \text{Bias}^2 =$ **{mse:sig3}**.
 
     For comparison, least squares has MSE $\sigma^2/S_{xx} = {mls:sig3}$, and the best penalty is $\lambda^* = \sigma^2/\beta^2 = {lstar:sig3}$.
+
+- id: ps-h1-r2-fwer
+  title: Chance of a false rejection among many tests
+  topic: Multiple testing
+  vars:
+    m: {choices: [3, 5, 8, 10, 15, 20, 30, 50]}
+    al: {choices: [0.01, 0.05, 0.1]}
+  calc:
+    none: (1 - al)^m
+    fw: 1 - none
+    ev: m*al
+  prompt: |-
+    $m = {m}$ independent tests are each run at level $\alpha = {al}$, and every null hypothesis is true.
+    Find the probability of at least one false rejection (4 decimals) and the expected number of false rejections.
+  answers:
+    - {name: fw, label: '$P(V \ge 1) =$', tolerance: 0.0006, format: num4}
+    - {name: ev, label: '$E(V) =$', tolerance: 0.001}
+  solution: |-
+    $P(\text{no false rejection}) = (1 - {al})^{{m}} = {none:num4}$, so $P(V \ge 1) = 1 - {none:num4} =$ **{fw:num4}**.
+
+    Each test rejects with probability ${al}$, so $E(V) = m\alpha = {m}({al}) =$ **{ev}**.
+
+- id: ps-h1-r2-bh-count
+  title: Count Benjamini–Hochberg rejections
+  topic: Multiple testing
+  vars:
+    q: {choices: [0.05, 0.1]}
+    u1: {min: 0.001, max: 0.012, step: 0.001}
+    d2: {min: 0.001, max: 0.02, step: 0.001}
+    d3: {min: 0.001, max: 0.02, step: 0.001}
+    d4: {min: 0.001, max: 0.03, step: 0.001}
+    d5: {min: 0.001, max: 0.03, step: 0.001}
+    d6: {min: 0.001, max: 0.3, step: 0.001}
+  calc:
+    p1: round(u1, 3)
+    p2: round(p1 + d2, 3)
+    p3: round(p2 + d3, 3)
+    p4: round(p3 + d4, 3)
+    p5: round(p4 + d5, 3)
+    p6: round(p5 + d6, 3)
+    t1: q/6
+    t2: 2*q/6
+    t3: 3*q/6
+    t4: 4*q/6
+    t5: 5*q/6
+    t6: q
+    k: max(1*(p1 <= t1), 2*(p2 <= t2), 3*(p3 <= t3), 4*(p4 <= t4), 5*(p5 <= t5), 6*(p6 <= t6))
+  where: ['abs(p1 - t1) > 0.0004', 'abs(p2 - t2) > 0.0004', 'abs(p3 - t3) > 0.0004', 'abs(p4 - t4) > 0.0004', 'abs(p5 - t5) > 0.0004', 'abs(p6 - t6) > 0.0004', 'p6 < 1']
+  prompt: |-
+    Six sorted p-values are
+    $${p1:dp3},\; {p2:dp3},\; {p3:dp3},\; {p4:dp3},\; {p5:dp3},\; {p6:dp3}.$$
+    How many hypotheses does the Benjamini–Hochberg procedure reject at $q = {q}$?
+  answers:
+    - {name: k, label: 'Rejections', format: integer}
+  solution: |-
+    Compare each $p_{(k)}$ with its line $kq/m$:
+    $${t1:dp4},\; {t2:dp4},\; {t3:dp4},\; {t4:dp4},\; {t5:dp4},\; {t6:dp4}.$$
+    Find the *largest* $k$ with $p_{(k)}$ on or below its line (BH is step-up: earlier p-values above their lines don't matter)
+    and reject the $k$ smallest. Answer: **{k}**.
+
+- id: ps-h1-r2-holm-count
+  title: Count Holm rejections
+  topic: Multiple testing
+  vars:
+    al: {choices: [0.05, 0.1]}
+    u1: {min: 0.001, max: 0.012, step: 0.001}
+    d2: {min: 0.001, max: 0.015, step: 0.001}
+    d3: {min: 0.001, max: 0.015, step: 0.001}
+    d4: {min: 0.001, max: 0.02, step: 0.001}
+    d5: {min: 0.001, max: 0.03, step: 0.001}
+    d6: {min: 0.001, max: 0.3, step: 0.001}
+  calc:
+    p1: round(u1, 3)
+    p2: round(p1 + d2, 3)
+    p3: round(p2 + d3, 3)
+    p4: round(p3 + d4, 3)
+    p5: round(p4 + d5, 3)
+    p6: round(p5 + d6, 3)
+    t1: al/6
+    t2: al/5
+    t3: al/4
+    t4: al/3
+    t5: al/2
+    t6: al
+    r1: p1 <= t1
+    r2: r1*(p2 <= t2)
+    r3: r2*(p3 <= t3)
+    r4: r3*(p4 <= t4)
+    r5: r4*(p5 <= t5)
+    r6: r5*(p6 <= t6)
+    k: r1 + r2 + r3 + r4 + r5 + r6
+  where: ['abs(p1 - t1) > 0.0004', 'abs(p2 - t2) > 0.0004', 'abs(p3 - t3) > 0.0004', 'abs(p4 - t4) > 0.0004', 'abs(p5 - t5) > 0.0004', 'abs(p6 - t6) > 0.0004', 'p6 < 1']
+  prompt: |-
+    Six sorted p-values are
+    $${p1:dp3},\; {p2:dp3},\; {p3:dp3},\; {p4:dp3},\; {p5:dp3},\; {p6:dp3}.$$
+    How many hypotheses does Holm's procedure reject at $\alpha = {al}$?
+  answers:
+    - {name: k, label: 'Rejections', format: integer}
+  solution: |-
+    Holm compares $p_{(k)}$ with $\alpha/(m - k + 1)$:
+    $${t1:dp4},\; {t2:dp4},\; {t3:dp4},\; {t4:dp4},\; {t5:dp4},\; {t6:dp4}.$$
+    Start at the smallest p-value and reject while each is on or below its threshold; stop at the first one above.
+    Answer: **{k}**.
+
+- id: ps-h1-r2-expected-fdp
+  title: Expected share of false discoveries in a screen
+  topic: Multiple testing
+  vars:
+    m: {choices: [500, 1000, 2000, 5000]}
+    pct: {choices: [80, 90, 95, 98]}
+    al: {choices: [0.001, 0.01, 0.05]}
+    pw: {choices: [0.5, 0.6, 0.7, 0.8, 0.9]}
+  calc:
+    m0: m*pct/100
+    m1: m - m0
+    ev: m0*al
+    es: m1*pw
+    fr: ev/(ev + es)
+  prompt: |-
+    A screen runs {m:dp0} tests, each at level $\alpha = {al}$. Suppose {pct}% of the null hypotheses are true and each real effect is
+    detected with power {pw}. Find the expected number of false discoveries and, using expected counts, the fraction of discoveries that are false (3 decimals).
+  answers:
+    - {name: ev, label: 'False discoveries', tolerance: 0.01}
+    - {name: fr, label: 'Fraction false', tolerance: 0.0015, format: dp3}
+  solution: |-
+    True nulls: $m_0 = {m0:dp0}$; real effects: ${m1:dp0}$.
+
+    Expected false discoveries $= m_0\alpha = {m0:dp0}({al}) =$ **{ev}**; expected true discoveries $= {m1:dp0}({pw}) = {es}$.
+
+    Fraction false $\approx {ev}/({ev} + {es}) =$ **{fr:dp3}**.
