@@ -108,6 +108,8 @@ export const api = {
   remove: (id: string) => call("DELETE", `/drafts/${id}`),
   upload: (file: Blob) => call<{ id: string; url: string }>("POST", "/images", undefined, file),
   queue: () => call<ReviewQueue>("GET", "/review"),
+  allCourses: (q = "") =>
+    call<{ courses: (CommunityEntry & { status: "published" | "removed" | "unpublished"; reviewNote: string | null })[] }>("GET", `/review/all?q=${encodeURIComponent(q)}`),
   review: (id: string, action: "reviewed" | "not_reviewed" | "remove" | "restore", note: string) => call("POST", `/review/${id}`, { action, note }),
   resolve: (id: string, resolution: string) => call("POST", `/reports/${id}/resolve`, { resolution }),
   users: (q: string) => call<{ users: { id: string; provider: string; email: string | null; display_name: string; role: string; banned: number }[] }>("GET", `/admin/users?q=${encodeURIComponent(q)}`),

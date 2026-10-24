@@ -4,7 +4,7 @@
 // Sign-in:  GET /auth/{google,github}/start?return=/path, …/callback, POST /auth/logout, GET /me
 // Authors:  POST /me/accept, PUT /me, GET /mine, POST /drafts, GET|PUT|DELETE /drafts/:id,
 //           POST /drafts/:id/publish, POST /drafts/:id/unpublish, POST /images
-// Review:   GET /review, POST /review/:id, POST /reports/:id/resolve   (reviewer, admin)
+// Review:   GET /review, GET /review/all, POST /review/:id, POST /reports/:id/resolve   (reviewer, admin)
 // Admin:    GET /admin/users, POST /admin/users/:id                    (admin)
 //
 // Only adults (18+) who accept the terms can publish. Courses go live at once tagged "Not
@@ -565,6 +565,18 @@ async function route(req: Request, env: Env): Promise<Response> {
       "SELECT c.*, u.display_name AS author FROM courses c JOIN users u ON u.id = c.owner_id WHERE c.status = 'removed' ORDER BY c.updated_at DESC LIMIT 50",
     ).all<CourseRow & { author: string }>();
     return json({ waiting: waiting.results.map(publicCourse), reports: reports.results, removed: removed.results.map(publicCourse) });
+  }
+  // Admin page: every published or taken-down course, newest first, with its tag.
+  if (method === "GET" && p === "/review/all") {
+    const u = await needUser(req, env);
+    needRole(u, "reviewer", "admin");
+    const q = `%${(url.searchParams.get("q") ?? "").slice(0, 80)}%`;
+    const rows = await env.DB.prepare(
+      "SELECT c.*, u.display_name AS author FROM courses c JOIN users u ON u.id = c.owner_id WHERE c.status IN ('published', 'removed', 'unpublished') AND (c.title LIKE ? OR u.display_name LIKE ?) ORDER BY c.published_at DESC LIMIT 500",
+    )
+      .bind(q, q)
+      .all<CourseRow & { author: string }>();
+    return json({ courses: rows.results.map((c) => ({ ...publicCourse(c), status: c.status, reviewNote: c.review_note })) });
   }
   r = m(/^\/review\/([\w-]+)$/);
   if (r && method === "POST") {

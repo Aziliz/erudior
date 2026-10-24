@@ -4,8 +4,9 @@ name: Build installers
 # Windows (.exe, .msi), Linux (.deb, .rpm, AppImage) and macOS (universal .dmg). The
 # website's Download page (app.erudior.com/download) offers the latest release, and the
 # Homebrew cask (Aziliz/homebrew-erudior) installs its .dmg under a fixed name.
-# In-app updates are still off (to turn them on: set includeUpdaterJson: true and follow
-# src/lib/updates.ts).
+# In-app updates: tauri-action uploads latest.json and the signed update bundles; installed
+# apps (Windows, macOS, AppImage) check it at startup. Needs the TAURI_SIGNING_PRIVATE_KEY
+# secret (the key whose public half is in tauri.conf.json; no password).
 # Run it by hand from the Actions tab to just build (installers are attached
 # to the workflow run as artifacts).
 on:
@@ -70,16 +71,21 @@ jobs:
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
         with:
           tagName: ${{ github.ref_name }}
           releaseName: Erudior ${{ github.ref_name }}
           releaseBody: Download the installer for your system below.
           releaseDraft: false
-          includeUpdaterJson: false
+          includeUpdaterJson: true
           args: --bundles ${{ matrix.bundles }}${{ matrix.target && format(' --target {0}', matrix.target) || '' }}
 
       - name: Build (manual run)
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
         run: npx tauri build --bundles ${{ matrix.bundles }}${{ matrix.target && format(' --target {0}', matrix.target) || '' }}
 
       # Homebrew's cask downloads releases/latest/download/Erudior-macOS-universal.dmg, so the

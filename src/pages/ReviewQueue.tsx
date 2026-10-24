@@ -4,7 +4,9 @@ import Markdown from "../components/Markdown";
 import { api as community, imageUrl, type CommunityEntry, type Me, type ReviewQueue as Queue } from "../lib/community";
 import { toCourse, type CommunityDoc } from "../lib/communityFormat";
 
-/** Reviewers: courses waiting for review, open reports, taken-down courses; admins also manage users. */
+/** The hidden admin page (/admin, linked from nowhere): every community course with its
+ * Reviewed / Not reviewed tag, courses waiting for review, open reports, taken-down courses;
+ * admins also manage people. Reviewers and admins only (the API checks). */
 export default function ReviewQueue({ api }: { api: AppApi }) {
   const [q, setQ] = useState<Queue | null>(null);
   const [me, setMe] = useState<Me | null>(null);
@@ -21,7 +23,7 @@ export default function ReviewQueue({ api }: { api: AppApi }) {
   if (error)
     return (
       <div className="page">
-        <h1>Review queue</h1>
+        <h1>Admin</h1>
         <p className="notice error">{error}</p>
       </div>
     );
@@ -29,14 +31,13 @@ export default function ReviewQueue({ api }: { api: AppApi }) {
 
   return (
     <div className="page">
-      <button className="back" onClick={() => api.go({ name: "create" })}>
-        ← Your courses
-      </button>
-      <h1>Review queue</h1>
+      <h1>Admin</h1>
       <p className="muted">
         Mark a version Reviewed once you've read it and checked it's accurate, suitable for students, and not copied. Take down anything that breaks the terms;
         the author sees your note.
       </p>
+
+      <AllCourses api={api} onChange={load} />
 
       <h2 className="section-title">Waiting for review ({q.waiting.length})</h2>
       {q.waiting.length === 0 && <p className="muted small">Nothing waiting.</p>}
@@ -104,6 +105,100 @@ export default function ReviewQueue({ api }: { api: AppApi }) {
 
       {me?.user?.role === "admin" && <Users api={api} />}
     </div>
+  );
+}
+
+/** Every course: search, and flip its tag either way. */
+function AllCourses({ api, onChange }: { api: AppApi; onChange: () => void }) {
+  type Row = Awaited<ReturnType<typeof community.allCourses>>["courses"][number];
+  const [rows, setRows] = useState<Row[] | null>(null);
+  const [q, setQ] = useState("");
+  const [only, setOnly] = useState<"" | "reviewed" | "not_reviewed" | "removed">("");
+  const [busy, setBusy] = useState<string | null>(null);
+  const load = (text = q) => community.allCourses(text).then((r) => setRows(r.courses), (e) => api.toast((e as Error).message));
+  useEffect(() => {
+    const t = window.setTimeout(() => load(q), 250);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q]);
+  const act = async (c: Row, action: "reviewed" | "not_reviewed") => {
+    setBusy(c.id);
+    try {
+      await community.review(c.id, action, "");
+      api.toast(action === "reviewed" ? `"${c.title}" marked Reviewed` : `"${c.title}" marked Not reviewed`);
+      await load();
+      onChange();
+    } catch (e) {
+      api.toast((e as Error).message);
+    } finally {
+      setBusy(null);
+    }
+  };
+  const shown = (rows ?? []).filter((c) => (only === "removed" ? c.status === "removed" : only ? c.status === "published" && c.review === only : true));
+  return (
+    <section aria-labelledby="admin-all">
+      <h2 id="admin-all" className="section-title">
+        All community courses {rows && `(${shown.length})`}
+      </h2>
+      <div className="catalog-filters">
+        <input className="input" type="search" placeholder="Search by title or author" aria-label="Search community courses" value={q} onChange={(e) => setQ(e.target.value)} />
+        <label className="field inline-field">
+          <span>Show</span>
+          <select className="select" value={only} onChange={(e) => setOnly(e.target.value as typeof only)}>
+            <option value="">All</option>
+            <option value="reviewed">Reviewed</option>
+            <option value="not_reviewed">Not reviewed</option>
+            <option value="removed">Taken down</option>
+          </select>
+        </label>
+      </div>
+      {!rows ? (
+        <p className="muted small">Loading…</p>
+      ) : shown.length === 0 ? (
+        <p className="muted small">No courses.</p>
+      ) : (
+        <table className="table admin-table">
+          <thead>
+            <tr>
+              <th scope="col">Course</th>
+              <th scope="col">Author</th>
+              <th scope="col">Version</th>
+              <th scope="col">Status</th>
+              <th scope="col">Tag</th>
+            </tr>
+          </thead>
+          <tbody>
+            {shown.map((c) => (
+              <tr key={c.id}>
+                <td>
+                  <b>{c.title}</b>
+                  <div className="small muted">
+                    {c.subject} · {c.level}
+                  </div>
+                </td>
+                <td>{c.author}</td>
+                <td>{c.version}</td>
+                <td>{c.status === "published" ? "Published" : c.status === "removed" ? "Taken down" : "Unpublished"}</td>
+                <td>
+                  {c.status === "published" ? (
+                    <div className="seg" role="group" aria-label={`Tag for ${c.title}`}>
+                      <button aria-pressed={c.review === "reviewed"} disabled={busy === c.id || c.review === "reviewed"} onClick={() => act(c, "reviewed")}>
+                        Reviewed
+                      </button>
+                      <button aria-pressed={c.review !== "reviewed"} disabled={busy === c.id || c.review !== "reviewed"} onClick={() => act(c, "not_reviewed")}>
+                        Not reviewed
+                      </button>
+                    </div>
+                  ) : (
+                    <span className="muted small">—</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </section>
   );
 }
 

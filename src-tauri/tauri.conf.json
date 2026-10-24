@@ -59,7 +59,7 @@
         "installMode": "currentUser"
       }
     },
-    "createUpdaterArtifacts": false,
+    "createUpdaterArtifacts": true,
     "macOS": {
       "minimumSystemVersion": "10.15",
       "signingIdentity": "-"
@@ -67,7 +67,7 @@
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDcyMTVGRENGRUNCODQ5RjIKUldUeVNianN6LzBWY25xWFBhRXhTU2UrWlJSM0lBV2ZZUWNLOUN3WjJ5b1R5U2UxeUgxWVhnam0K",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEJBQzU1QURBRDY0RTgyQUQKUldTdGdrN1cybHJGdXJFajVvMDR2TWU0ZE5RakViYkV3K0tjTWZKb2hLSjVYdkw5RkVjQnQwV2wK",
       "endpoints": [
         "https://github.com/Aziliz/examiner/releases/latest/download/latest.json"
       ],

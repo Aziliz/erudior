@@ -213,12 +213,14 @@ fn data_location(app: AppHandle) -> Result<String, String> {
 }
 
 /// How this copy was installed, so the app knows whether it can update itself.
-/// Tauri's updater can replace an AppImage or a Windows install, but not a
+/// Tauri's updater can replace an AppImage, a Windows install or the macOS app, but not a
 /// .deb or .rpm installed through the system package manager.
 #[tauri::command]
 fn install_kind() -> &'static str {
     if cfg!(target_os = "windows") {
         "windows"
+    } else if cfg!(target_os = "macos") {
+        "macos"
     } else if cfg!(target_os = "linux") {
         if std::env::var_os("APPIMAGE").is_some() {
             "appimage"

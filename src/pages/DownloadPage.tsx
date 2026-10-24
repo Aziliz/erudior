@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { AppApi } from "../App";
+import { appUrl } from "../lib/site";
 
 const REPO = "Aziliz/examiner";
 const RELEASES = `https://github.com/${REPO}/releases`;
@@ -9,11 +9,16 @@ interface Asset {
   name: string;
   size: number;
   browser_download_url: string;
+  /** "sha256:…" (GitHub adds it to newer uploads). */
+  digest?: string | null;
 }
 interface Release {
   tag_name: string;
+  name: string;
   published_at: string;
   html_url: string;
+  draft: boolean;
+  prerelease: boolean;
   assets: Asset[];
 }
 
@@ -27,59 +32,61 @@ function detectOs(): Os {
   return "other";
 }
 
-const mb = (n: number) => `${(n / 1024 / 1024).toFixed(0)} MB`;
-const find = (r: Release | null, re: RegExp) =>
-  r?.assets.find((a) => re.test(a.name));
+const mb = (n: number) => `${Math.max(1, Math.round(n / 1024 / 1024))} MB`;
+const find = (r: Release | null, re: RegExp) => r?.assets.find((a) => re.test(a.name));
+const version = (r: Release) => r.tag_name.replace(/^v/, "");
 
-/** The desktop app: installers from the latest GitHub release (website only). */
-export default function DownloadPage({ api }: { api: AppApi }) {
-  const [release, setRelease] = useState<Release | null>(null);
+/** Downloads, install steps and answers (erudior.com/download). */
+export default function DownloadPage() {
+  const [releases, setReleases] = useState<Release[] | null>(null);
   const [error, setError] = useState("");
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState("");
   const os = detectOs();
 
   useEffect(() => {
-    fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-      headers: { Accept: "application/vnd.github+json" },
-    })
-      .then((r) =>
-        r.ok
-          ? r.json()
-          : Promise.reject(
-              new Error(
-                r.status === 404
-                  ? "No release has been published yet."
-                  : `GitHub said ${r.status}.`,
-              ),
-            ),
-      )
-      .then(setRelease, (e) => setError((e as Error).message));
+    fetch(`https://api.github.com/repos/${REPO}/releases?per_page=10`, { headers: { Accept: "application/vnd.github+json" } })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`GitHub said ${r.status}.`))))
+      .then((list: Release[]) => {
+        const published = list.filter((r) => !r.draft && !r.prerelease && r.assets.length);
+        if (!published.length) throw new Error("No release has been published yet.");
+        setReleases(published);
+      })
+      .catch((e) => setError((e as Error).message));
   }, []);
 
+  const release = releases?.[0] ?? null;
   const exe = find(release, /-setup\.exe$/i) ?? find(release, /\.exe$/i);
   const msi = find(release, /\.msi$/i);
   const deb = find(release, /\.deb$/i);
   const rpm = find(release, /\.rpm$/i);
   const appimage = find(release, /\.AppImage$/i);
-  const dmg = find(release, /universal\.dmg$/i) ?? find(release, /\.dmg$/i);
+  const dmg = find(release, /macOS-universal\.dmg$/i) ?? find(release, /\.dmg$/i);
+
+  const copy = (text: string) =>
+    navigator.clipboard?.writeText(text).then(() => {
+      setCopied(text);
+      setTimeout(() => setCopied(""), 1600);
+    });
 
   const link = (a: Asset | undefined, label: string, primary = false) =>
     a ? (
-      <a
-        className={`btn${primary ? " primary" : ""}`}
-        href={a.browser_download_url}
-      >
+      <a className={`btn${primary ? " primary" : ""}`} href={a.browser_download_url}>
         {label} <span className="small">({mb(a.size)})</span>
       </a>
     ) : (
-      <span
-        className="btn"
-        aria-disabled="true"
-        title="Not in the current release yet"
-      >
+      <span className="btn" aria-disabled="true" title="Not in the current release yet">
         {label} <span className="small">(coming soon)</span>
       </span>
     );
+
+  const cmd = (text: string) => (
+    <div className="row code-row">
+      <code className="install-cmd">{text}</code>
+      <button className="btn sm" onClick={() => copy(text)} aria-label={`Copy: ${text}`}>
+        {copied === text ? "Copied" : "Copy"}
+      </button>
+    </div>
+  );
 
   const platforms: { id: Os; title: string; body: React.ReactNode }[] = [
     {
@@ -88,14 +95,17 @@ export default function DownloadPage({ api }: { api: AppApi }) {
       body: (
         <>
           <div className="row">
-            {link(exe, "Download .exe", os === "windows")}
+            {link(exe, "Download for Windows", os === "windows")}
             {msi && link(msi, ".msi")}
           </div>
-          <p className="small muted">
-            Windows 10 or 11{msi ? " (the .msi is for IT departments)" : ""}.
-            Windows may warn that the publisher is unknown: choose{" "}
-            <b>More info</b>, then <b>Run anyway</b>.
-          </p>
+          <ol className="small install-steps">
+            <li>Open the downloaded file.</li>
+            <li>
+              If Windows says it protected your PC, choose <b>More info</b>, then <b>Run anyway</b>. (The installer isn't code-signed yet.)
+            </li>
+            <li>Erudior installs for your user account (no administrator password) and adds a Start menu entry.</li>
+          </ol>
+          <p className="small muted">Windows 10 or 11, 64-bit. The .msi is for IT departments installing on many computers.</p>
         </>
       ),
     },
@@ -104,29 +114,18 @@ export default function DownloadPage({ api }: { api: AppApi }) {
       title: "macOS",
       body: (
         <>
-          <p className="small">With Homebrew:</p>
-          <div className="row code-row">
-            <code className="install-cmd">{BREW}</code>
-            <button
-              className="btn sm"
-              onClick={() => {
-                navigator.clipboard?.writeText(BREW).then(() => {
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 1600);
-                });
-              }}
-            >
-              {copied ? "Copied" : "Copy"}
-            </button>
-          </div>
+          <p className="small">With Homebrew (recommended):</p>
+          {cmd(BREW)}
           <p className="small">Or download the disk image:</p>
-          <div className="row">{link(dmg, "Download .dmg", os === "mac")}</div>
-          <p className="small muted">
-            macOS 10.15 or later, Apple silicon or Intel. The app isn't
-            notarized by Apple yet. If macOS says it can't be opened, go to{" "}
-            <b>System Settings → Privacy &amp; Security</b> and choose{" "}
-            <b>Open Anyway</b> (the Homebrew install skips this step).
-          </p>
+          <div className="row">{link(dmg, "Download for Mac", os === "mac")}</div>
+          <ol className="small install-steps">
+            <li>Open the .dmg and drag Erudior into Applications.</li>
+            <li>
+              The first time, macOS may say it can't check the app. Open <b>System Settings → Privacy &amp; Security</b> and choose <b>Open Anyway</b>.
+              (The app isn't notarized by Apple yet; the Homebrew install skips this step.)
+            </li>
+          </ol>
+          <p className="small muted">macOS 10.15 or later, Apple silicon or Intel.</p>
         </>
       ),
     },
@@ -140,19 +139,20 @@ export default function DownloadPage({ api }: { api: AppApi }) {
             {link(rpm, "Download .rpm")}
             {appimage && link(appimage, "AppImage")}
           </div>
+          <p className="small">Debian, Ubuntu, Mint:</p>
+          {cmd("sudo apt install ./Erudior_*_amd64.deb")}
+          <p className="small">Fedora, RHEL, openSUSE:</p>
+          {cmd("sudo dnf install ./Erudior-*.x86_64.rpm")}
           <p className="small muted">
-            .deb for Debian, Ubuntu and Mint; .rpm for Fedora, RHEL and openSUSE
-            {appimage ? "; the AppImage runs on most others" : ""}. Install with{" "}
-            <code>sudo apt install ./Erudior_*.deb</code> or{" "}
-            <code>sudo dnf install ./Erudior-*.rpm</code>. 64-bit x86 only.
+            64-bit x86. The AppImage runs on most other distributions (make it executable, then open it) and updates itself; the .deb and .rpm update
+            when you install a newer package.
           </p>
         </>
       ),
     },
   ];
-  const order = [...platforms].sort((a, b) =>
-    a.id === os ? -1 : b.id === os ? 1 : 0,
-  );
+  const order = [...platforms].sort((a, b) => (a.id === os ? -1 : b.id === os ? 1 : 0));
+  const files = release ? [exe, msi, dmg, deb, rpm, appimage].filter((a): a is Asset => !!a) : [];
 
   return (
     <div className="page download">
@@ -160,16 +160,14 @@ export default function DownloadPage({ api }: { api: AppApi }) {
         <div>
           <h1>Download Erudior</h1>
           <p>
-            The desktop app has every course, works offline, and adds homeschool
-            and classroom tools: students, attendance, grades, report cards,
-            transcripts and portfolios. Everything stays on your computer.
+            The desktop app is free. It downloads any course from the catalog when you start it and keeps working offline after that. It also has the
+            homeschool and classroom tools: students, attendance, grades, report cards, transcripts, portfolios and live rooms. Everything stays on your
+            computer.
           </p>
           <p className="small muted">
             {release ? (
               <>
-                Version {release.tag_name.replace(/^v/, "")}, released{" "}
-                {new Date(release.published_at).toLocaleDateString()} ·{" "}
-                <a href={release.html_url}>Release notes</a>
+                Version {version(release)}, released {new Date(release.published_at).toLocaleDateString()} · <a href={release.html_url}>What's new</a>
               </>
             ) : error ? (
               <>
@@ -181,36 +179,117 @@ export default function DownloadPage({ api }: { api: AppApi }) {
           </p>
         </div>
       </div>
+
       <div className="download-grid">
         {order.map((p) => (
-          <section
-            key={p.id}
-            className={`download-card${p.id === os ? " current" : ""}`}
-            aria-labelledby={`dl-${p.id}`}
-          >
+          <section key={p.id} className={`download-card${p.id === os ? " current" : ""}`} aria-labelledby={`dl-${p.id}`}>
             <h2 id={`dl-${p.id}`}>
               {p.title}
-              {p.id === os && (
-                <span className="pill neutral">Your computer</span>
-              )}
+              {p.id === os && <span className="pill neutral">Your computer</span>}
             </h2>
             {p.body}
           </section>
         ))}
       </div>
-      <p className="small muted" style={{ marginTop: 24 }}>
-        Just want to study? You don't need to install anything:{" "}
-        <a
-          href="/courses"
-          onClick={(e) => {
-            e.preventDefault();
-            api.go({ name: "library" });
-          }}
-        >
-          browse the courses here
-        </a>
-        .
+
+      <p className="small muted" style={{ marginTop: 16 }}>
+        Just want to study? Nothing to install: <a href={appUrl("/courses")}>use Erudior in your browser</a>. Homeschool records, classroom mode and
+        hosting live rooms need the desktop app.
       </p>
+
+      <section className="download-faq" aria-labelledby="faq">
+        <h2 id="faq" className="section-title">
+          Questions
+        </h2>
+        <details>
+          <summary>Does the app come with every course?</summary>
+          <p>
+            It comes with the course catalog, not the courses themselves. Choose <b>Start course</b> and that course downloads (a few megabytes); from then
+            on it works without internet. When a course gets a new version, the app offers it the next time it's online, and your progress is kept.
+          </p>
+        </details>
+        <details>
+          <summary>Where is my data stored?</summary>
+          <p>
+            In your user folder: <code>%APPDATA%\com.erudior.app</code> on Windows, <code>~/Library/Application Support/com.erudior.app</code> on macOS,
+            and <code>~/.local/share/com.erudior.app</code> on Linux. Nothing about your children is sent anywhere. Use{" "}
+            <b>Parent area → Settings and backup</b> to save an encrypted backup you can restore on another computer.
+          </p>
+        </details>
+        <details>
+          <summary>How do updates work?</summary>
+          <p>
+            On Windows, macOS and the AppImage, the app checks for a new version when it starts and offers to install it. With Homebrew, run{" "}
+            <code>brew upgrade --cask --greedy erudior</code>. The .deb and .rpm show a notice instead; install the newer package to update.
+          </p>
+        </details>
+        <details>
+          <summary>Why does my computer warn me about the installer?</summary>
+          <p>
+            Windows and macOS warn about apps that aren't signed with a paid certificate. Erudior's installers are built in public from its source code
+            on GitHub, and you can compare a download against the SHA-256 checksums below.
+          </p>
+        </details>
+        <details>
+          <summary>How do I uninstall it?</summary>
+          <p>
+            Windows: Settings → Apps → Erudior → Uninstall. macOS: drag Erudior from Applications to the Trash (or run{" "}
+            <code>brew uninstall --cask erudior</code>). Linux: <code>sudo apt remove erudior</code> or <code>sudo dnf remove erudior</code>. Your data
+            folder stays until you delete it.
+          </p>
+        </details>
+        <details>
+          <summary>Is it really free?</summary>
+          <p>Yes: the app, the courses and the updates. There are no ads and nothing to buy.</p>
+        </details>
+      </section>
+
+      {release && (
+        <section className="download-files" aria-labelledby="files">
+          <h2 id="files" className="section-title">
+            Files and checksums (version {version(release)})
+          </h2>
+          <div className="table-wrap">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">File</th>
+                  <th scope="col">Size</th>
+                  <th scope="col">SHA-256</th>
+                </tr>
+              </thead>
+              <tbody>
+                {files.map((a) => (
+                  <tr key={a.name}>
+                    <td>
+                      <a href={a.browser_download_url}>{a.name}</a>
+                    </td>
+                    <td>{mb(a.size)}</td>
+                    <td>
+                      <code className="sha">{a.digest?.replace(/^sha256:/, "") ?? "listed on the release page"}</code>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {releases && releases.length > 1 && (
+            <>
+              <h3>Earlier versions</h3>
+              <ul className="plain-list small">
+                {releases.slice(1, 6).map((r) => (
+                  <li key={r.tag_name}>
+                    <a href={r.html_url}>Version {version(r)}</a> <span className="muted">({new Date(r.published_at).toLocaleDateString()})</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          <p className="small">
+            <a href={RELEASES}>Every release on GitHub</a>
+          </p>
+        </section>
+      )}
     </div>
   );
 }

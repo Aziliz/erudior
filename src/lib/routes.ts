@@ -1,6 +1,6 @@
 // Web addresses for screens (website only), so the browser's back button and links work:
-//   /                                  home page
-//   /courses, /community, /download     the course library, community courses, desktop app
+//   / (or /courses)                    the course library (the home page is erudior.com)
+//   /community                          community courses
 //   /colorado-real-estate-broker       a course (or its catalog overview before it's started)
 //   /colorado-real-estate-broker/cards a course tab ("today" is the bare course address)
 //   /colorado-real-estate-broker/lessons/<lessonId>
@@ -56,14 +56,10 @@ function courseOf(v: View): string | null {
 export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: string) => string | undefined): string {
   const course = (id: string) => "/" + courseSlug(id, all);
   switch (v.name) {
-    case "home":
-      return "/";
     case "library":
-      return "/courses";
+      return "/";
     case "community":
       return "/community";
-    case "download":
-      return "/download";
     case "progress":
       return "/progress";
     case "search":
@@ -73,7 +69,7 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
     case "communityEdit":
       return "/create/" + encodeURIComponent(v.id);
     case "review":
-      return "/review";
+      return "/admin";
     case "live":
       return "/live";
     case "who":
@@ -125,15 +121,14 @@ export function pageKey(v: View): string {
 /** The screen for an address, or null if it can't be shown (unknown course, etc.). */
 export function pathToView(pathname: string, search: string, installed: RouteCourse[], catalog: RouteCourse[]): View | null {
   const parts = pathname.split("/").filter(Boolean);
-  if (!parts.length) return { name: "home" };
+  if (!parts.length) return { name: "library" };
   const [first, second, third] = parts;
   if (first === "courses" && !second) return { name: "library" };
   if (first === "community" && !second) return { name: "community" };
-  if (first === "download" && !second) return { name: "download" };
   if (first === "progress") return { name: "progress" };
   if (first === "search") return { name: "search", q: new URLSearchParams(search).get("q") ?? "" };
   if (first === "create") return second ? { name: "communityEdit", id: decodeURIComponent(second) } : { name: "create" };
-  if (first === "review") return { name: "review" };
+  if (first === "admin" && !second) return { name: "review" };
   if (first === "live") return { name: "live" };
   const have = findCourse(first, installed);
   if (!have) {

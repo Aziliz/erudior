@@ -1,21 +1,17 @@
-// App self-updates. Installs on Windows and AppImage; .deb/.rpm installs get a
+// App self-updates. Installs on Windows, macOS and AppImage; .deb/.rpm installs get a
 // notice with a link to the release page, since the system package manager
-// owns those files.
+// owns those files. Releases (Build installers, on a v* tag) publish latest.json, signed
+// with the TAURI_SIGNING_PRIVATE_KEY secret; the public key is in tauri.conf.json.
 
 import { invoke } from "@tauri-apps/api/core";
 import { inApp } from "./storage";
 
 export const RELEASES_URL = "https://github.com/Aziliz/examiner/releases/latest";
 
-/**
- * Off: the repo is private, so its releases (and latest.json) can't be fetched
- * by installed copies. To turn updates back on, publish releases somewhere
- * public, set this to true, set bundle.createUpdaterArtifacts in
- * tauri.conf.json, and add the signing secret to CI.
- */
-export const UPDATES_ENABLED = false;
+/** On since v0.24.0 (the repo and its releases are public). */
+export const UPDATES_ENABLED = true;
 
-export type InstallKind = "windows" | "appimage" | "linux-package" | "other";
+export type InstallKind = "windows" | "macos" | "appimage" | "linux-package" | "other";
 
 export interface AvailableUpdate {
   version: string;
@@ -39,7 +35,7 @@ export async function checkForUpdate(): Promise<AvailableUpdate | null> {
   return {
     version: update.version,
     notes: update.body ?? undefined,
-    canInstall: kind === "windows" || kind === "appimage",
+    canInstall: kind === "windows" || kind === "macos" || kind === "appimage",
     install: async (onProgress) => {
       let total = 0;
       let got = 0;

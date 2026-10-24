@@ -82,7 +82,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
     <div className="page">
       <div className="page-head">
         <div>
-          <h1>{store.inApp ? "Library" : "Courses"}</h1>
+          <h1>{store.inApp || import.meta.env?.VITE_AS_DESKTOP === "1" ? "Library" : "Courses"}</h1>
           <p className="muted">Each course keeps its own lessons, questions, notecards and progress.</p>
         </div>
         <div className="row">

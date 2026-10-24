@@ -52,11 +52,6 @@ export default function CreateHome({ api }: { api: AppApi }) {
           </p>
         </div>
         <div className="row">
-          {(u.role === "reviewer" || u.role === "admin") && (
-            <button className="btn" onClick={() => api.go({ name: "review" })}>
-              Review queue
-            </button>
-          )}
           <button
             className="btn primary"
             onClick={async () => {
