@@ -9,12 +9,12 @@
 - {front: 'Scaling a result by a constant $c$', back: 'Multiplies the absolute error by $|c|$; leaves the relative error unchanged.', topic: Computing with series}
 - {front: 'Modulus of $a + bi$', back: '$|a + bi| = \sqrt{a^2 + b^2}$, its distance from 0; $|zw| = |z|\,|w|$.', topic: Complex power series}
 - {front: 'Powers of $i$', back: '$i, -1, -i, 1$, then repeat (period 4).', topic: Complex power series}
-- {front: 'Where a complex power series converges', back: 'On a disk $|z - a| < R$; the real interval of convergence is its slice on the real axis.', topic: Complex power series}
+- {front: 'Where a complex power series converges', back: 'On a disk $|z - a| < R$; the real interval of convergence is its slice on the real axis (endpoints checked separately).', topic: Complex power series}
 - {front: 'Euler''s formula', back: '$e^{i\theta} = \cos\theta + i\sin\theta$ (θ in radians)', topic: Euler's formula}
 - {front: 'Euler''s identity', back: '$e^{i\pi} + 1 = 0$', topic: Euler's formula}
 - {front: 'Multiplying $r_1e^{i\theta_1}$ by $r_2e^{i\theta_2}$', back: '$r_1r_2e^{i(\theta_1 + \theta_2)}$: moduli multiply, angles add.', topic: Euler's formula}
 - {front: 'De Moivre''s formula', back: '$(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta$', topic: Euler's formula}
 - {front: '$\cos\theta$ and $\sin\theta$ as exponentials', back: '$\cos\theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2}$, $\sin\theta = \dfrac{e^{i\theta} - e^{-i\theta}}{2i}$', topic: Euler's formula}
 - {front: '$\int e^x\cos x\,dx$ via complex exponentials', back: 'Real part of $\int e^{(1 + i)x}dx$: $\dfrac{e^x}{2}(\cos x + \sin x) + C$', topic: Euler's formula}
-- {front: 'Radius of convergence of the Taylor series of a rational function at $a$', back: 'The distance from $a$ to the nearest zero of the denominator, real or complex.', topic: Complex power series}
+- {front: 'Radius of convergence of the Taylor series of a rational function (in lowest terms) at $a$', back: 'The distance from $a$ to the nearest zero of the denominator, real or complex.', topic: Complex power series}
 - {front: 'Why $\frac{1}{1 + x^2}$ has $R = 1$ at 0', back: 'It blows up at the complex points $\pm i$, which are 1 away from 0.', topic: Complex power series}
