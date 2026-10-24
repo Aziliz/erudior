@@ -94,7 +94,7 @@
   where: ['B > 0', 'dot != 0', 'perp > 0.5', 'abs(sp) > 0.5', 'b1 != 0', 'a1 != 0']
   prompt: 'For $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$ and $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$, find the scalar projection of $\vec A$ onto $\vec B$ (with its sign) and the magnitude of the part of $\vec A$ perpendicular to $\vec B$, each to 3 significant figures.'
   answers:
-    - {name: sp, label: '$\vec A\cdot\hat B =$', format: sig3, sigfigs: 3}
+    - {name: sp, label: '$\vec A\cdot\hat B =$', format: sig3, relTolerance: 0.006}
     - {name: perp, label: '$|\vec A_\perp| =$', format: sig3, relTolerance: 0.006}
   solution: |-
     $\vec A\cdot\vec B = ({a1})({b1}) + ({a2})({b2}) + ({a3})({b3}) = {dot}$ and $|\vec B| = {B:sig4}$, so $\vec A\cdot\hat B = \dfrac{ {dot} }{ {B:sig4} } =$ **{sp:sig3}**.

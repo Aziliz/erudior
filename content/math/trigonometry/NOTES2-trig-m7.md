@@ -76,8 +76,9 @@ tangent laws".
   tangent piece of AC, the B and C pieces of BC, the incenter, and the middle of the radius.
 
 ## Errors found in existing content
-None. All existing trig-m7 lessons, questions (44), drills (9), cards and glossary entries were
-read; nothing was edited.
+None found. The four core lessons, the m7 drills, cards and glossary entries were read in full;
+the 44 existing m7 questions were read at the stem level, with about a quarter checked in full.
+Nothing existing was edited.
 
 ## Sources
 Standard triangle geometry and trigonometry (inscribed angle theorem, extended law of sines,

@@ -19,9 +19,9 @@
 <circle cx="606.0" cy="90.0" r="6" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
 <circle cx="606.0" cy="250.0" r="6" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
 <text x="70.0" y="177.0" font-size="16" text-anchor="end" fill="#1c2833">input</text>
-<text x="70.0" y="199.0" font-size="17" text-anchor="end" fill="#1c2833" font-style="italic">v<tspan font-size="12" dy="5" font-style="normal">in</tspan></text>
+<text x="70.0" y="199.0" font-size="17" text-anchor="end" fill="#1c2833" font-style="italic">v<tspan font-size="14" dy="5" font-style="normal">in</tspan></text>
 <text x="628.0" y="177.0" font-size="16" text-anchor="start" fill="#1c2833">output</text>
-<text x="628.0" y="199.0" font-size="17" text-anchor="start" fill="#1c2833" font-style="italic">v<tspan font-size="12" dy="5" font-style="normal">out</tspan></text>
+<text x="628.0" y="199.0" font-size="17" text-anchor="start" fill="#1c2833" font-style="italic">v<tspan font-size="14" dy="5" font-style="normal">out</tspan></text>
 <text x="300.0" y="68.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">R</text>
 <text x="494.0" y="176.0" font-size="18" text-anchor="start" fill="#1c2833" font-style="italic">C</text>
 <text x="360.0" y="300.0" font-size="15" text-anchor="middle" fill="#1c2833">Low-pass: output across C.  High-pass: swap R and C (output across R).</text>

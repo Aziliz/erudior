@@ -113,7 +113,7 @@ A 1200 kg car heading east at 15 m/s collides at an intersection with a 1800 kg 
 $x$: $1200(15) = 3000\,v_x$, so $v_x = 6.0$ m/s.
 $y$: $1800(12) = 3000\,v_y$, so $v_y = 7.2$ m/s.
 
-Speed $= \sqrt{6.0^2 + 7.2^2} = 9.37$ m/s, at $\tan^{-1}(7.2/6.0) = 50.2^\circ$ north of east. The momentum vectors add tip to tail: the car's 18 000 kg·m/s east plus the truck's 21 600 kg·m/s north give the wreckage's 28 100 kg·m/s.
+Speed $= \sqrt{6.0^2 + 7.2^2} = 9.37$ m/s, at $\tan^{-1}(7.2/6.0) = 50.2^\circ$ north of east. The momentum vectors add tip to tail: the car's 18 000 kg·m/s east plus the truck's 21 600 kg·m/s north gives the wreckage's 28 100 kg·m/s.
 
 ![Momentum vector triangle: the car's momentum points east, the truck's points north from its tip, and the total momentum runs from the start to the end at 50.2 degrees north of east](images/phys-m4-intersection.svg)
 

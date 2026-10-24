@@ -108,6 +108,8 @@ so at least 55 collisions. Real collisions are mostly glancing; averaging over d
 
 Now let the collision be elastic but not head-on, with $m_2$ at rest and $m_1$ arriving at speed $v$. In the CM frame the projectile moves at speed $v_1' = \dfrac{m_2}{m_1 + m_2}v$ before and after; only its direction changes. Its final lab velocity is $\vec v_{1f} = \vec v_{\text{cm}} + \vec v_1'$, where $\vec v_{\text{cm}}$ has length $\dfrac{m_1}{m_1 + m_2}v$. As $\theta^*$ ranges over every possible value, the tip of $\vec v_{1f}$ traces a circle of radius $v_1'$ centered at the tip of $\vec v_{\text{cm}}$.
 
+The diagram is drawn for $m_1 = 2m_2$, so the circle's radius is half the distance $OC$.
+
 ![Velocity diagram: the CM velocity runs from the origin O to the circle's center C, the circle's radius is the projectile's CM-frame speed, and the final lab velocity runs from O to a point on the circle; the largest lab angle occurs where that line is tangent to the circle](images/phys-m4-velocity-circle.svg)
 
 - If $m_1 > m_2$, the circle's radius is smaller than the distance to its center, so the origin lies outside it. The lab velocity can tilt only until it is tangent to the circle, at angle $\theta_{\max}$ with $\sin\theta_{\max} = \dfrac{v_1'}{v_{\text{cm}}} = \dfrac{m_2}{m_1}$.
