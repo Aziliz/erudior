@@ -1,0 +1,190 @@
+# German A1, module 4 honors lessons (round 2): clubs, quiet hours, favourites, holidays.
+# Checked against German A1, A2 and B1 vocabulary (terms and first meanings): none exists elsewhere.
+# Words A2/B1 already teach (der Verein, das Mitglied, der Feiertag, Weihnachten, Ostern,
+# Silvester, Guten Rutsch!, kostenlos, der Müll, das Treppenhaus...) are glossed in the lessons only.
+
+# --- 16h1 Clubs, quiet hours and favourite things (de1-m4-h-vereine) ---
+- id: de1-m4-r2-w01
+  lesson: de1-m4-h-vereine
+  term: der Sportverein
+  pos: noun
+  plural: die Sportvereine
+  meanings: [sports club, sport club, sports association]
+  example: Ich spiele im Sportverein Fußball.
+  exampleEn: I play football at the sports club.
+- id: de1-m4-r2-w02
+  lesson: de1-m4-h-vereine
+  term: der Chor
+  pos: noun
+  plural: die Chöre
+  meanings: [choir, chorus]
+  example: Meine Tochter singt im Chor.
+  exampleEn: My daughter sings in a choir.
+  note: 'Ch is said like k: "kohr".'
+- id: de1-m4-r2-w03
+  lesson: de1-m4-h-vereine
+  term: das Tennis
+  pos: noun
+  plural: —
+  meanings: [tennis]
+  example: Am Dienstag spiele ich Tennis.
+  exampleEn: On Tuesdays I play tennis.
+- id: de1-m4-r2-w04
+  lesson: de1-m4-h-vereine
+  term: das Schach
+  pos: noun
+  plural: —
+  meanings: [chess]
+  example: Mein Bruder spielt lieber Schach als Fußball.
+  exampleEn: My brother prefers chess to football.
+- id: de1-m4-r2-w05
+  lesson: de1-m4-h-vereine
+  term: die Halle
+  pos: noun
+  plural: die Hallen
+  meanings: [hall, sports hall, gym, gymnasium]
+  example: In der Halle spielen wir Tennis.
+  exampleEn: We play tennis in the hall.
+- id: de1-m4-r2-w06
+  lesson: de1-m4-h-vereine
+  term: die Nachtruhe
+  pos: noun
+  plural: —
+  meanings: [quiet time at night, night quiet, quiet hours at night, night-time quiet]
+  example: Von 22 bis 6 Uhr ist Nachtruhe.
+  exampleEn: From 10 p.m. to 6 a.m. is night quiet time.
+- id: de1-m4-r2-w07
+  lesson: de1-m4-h-vereine
+  term: die Mittagsruhe
+  pos: noun
+  plural: —
+  meanings: [quiet time at midday, midday quiet, midday rest, quiet hours at midday]
+  example: Von 13 bis 15 Uhr ist Mittagsruhe.
+  exampleEn: From 1 to 3 p.m. is midday quiet time.
+- id: de1-m4-r2-w08
+  lesson: de1-m4-h-vereine
+  term: der Lieblingsfilm
+  pos: noun
+  plural: die Lieblingsfilme
+  meanings: [favourite film, favorite film, favourite movie, favorite movie]
+  example: Was ist dein Lieblingsfilm?
+  exampleEn: What's your favourite film?
+- id: de1-m4-r2-w09
+  lesson: de1-m4-h-vereine
+  term: die Lieblingsfarbe
+  pos: noun
+  plural: die Lieblingsfarben
+  meanings: [favourite colour, favorite color, favourite color, favorite colour]
+  example: Meine Lieblingsfarbe ist Grün.
+  exampleEn: My favourite colour is green.
+- id: de1-m4-r2-w10
+  lesson: de1-m4-h-vereine
+  term: das Lieblingsessen
+  pos: noun
+  plural: die Lieblingsessen
+  meanings: [favourite food, favorite food, favourite dish, favorite dish, favourite meal]
+  example: Mein Lieblingsessen ist Pizza.
+  exampleEn: My favourite food is pizza.
+
+# --- 16h2 The German year (de1-m4-h-feiertage) ---
+- id: de1-m4-r2-w11
+  lesson: de1-m4-h-feiertage
+  kind: phrase
+  pos: phrase
+  term: Frohes neues Jahr!
+  meanings: ['Happy New Year! (from 1 January on)', Happy New Year]
+  alt: [Frohes Neues Jahr!]
+  example: Frohes neues Jahr, Frau Weber!
+  exampleEn: Happy New Year, Ms Weber!
+  note: Before midnight on 31 December people say Guten Rutsch! instead.
+- id: de1-m4-r2-w12
+  lesson: de1-m4-h-feiertage
+  kind: phrase
+  pos: phrase
+  term: Frohe Ostern!
+  meanings: [Happy Easter!, Happy Easter]
+  example: Frohe Ostern und viel Spaß beim Eiersuchen!
+  exampleEn: Happy Easter and have fun looking for eggs!
+- id: de1-m4-r2-w13
+  lesson: de1-m4-h-feiertage
+  kind: phrase
+  pos: phrase
+  term: Alles Gute zum Geburtstag!
+  meanings: [Happy birthday!, happy birthday, all the best for your birthday]
+  example: Alles Gute zum Geburtstag, Lea!
+  exampleEn: Happy birthday, Lea!
+  note: Many Germans think it is bad luck to say this before the birthday.
+- id: de1-m4-r2-w14
+  lesson: de1-m4-h-feiertage
+  term: der Fasching
+  pos: noun
+  plural: —
+  meanings: ['carnival (southern German and Austrian word)', carnival, Shrovetide, Mardi Gras]
+  example: Im Februar ist Fasching.
+  exampleEn: Carnival is in February.
+  note: In the Rhineland the usual word is der Karneval.
+- id: de1-m4-r2-w15
+  lesson: de1-m4-h-feiertage
+  term: der Nikolaustag
+  pos: noun
+  plural: die Nikolaustage
+  meanings: ['St Nicholas'' Day (6 December)', St Nicholas' Day, Saint Nicholas Day, St. Nicholas Day]
+  example: Am Nikolaustag sind Süßigkeiten in den Schuhen.
+  exampleEn: On St Nicholas' Day there are sweets in the shoes.
+- id: de1-m4-r2-w16
+  lesson: de1-m4-h-feiertage
+  term: der Weihnachtsmarkt
+  pos: noun
+  plural: die Weihnachtsmärkte
+  meanings: [Christmas market, Christmas fair]
+  example: Der Weihnachtsmarkt ist bis zum 23. Dezember geöffnet.
+  exampleEn: The Christmas market is open until 23 December.
+- id: de1-m4-r2-w17
+  lesson: de1-m4-h-feiertage
+  term: die Laterne
+  pos: noun
+  plural: die Laternen
+  meanings: [lantern, street lamp]
+  example: Am 11. November gehen die Kinder mit Laternen durch die Straßen.
+  exampleEn: On 11 November the children walk through the streets with lanterns.
+- id: de1-m4-r2-w18
+  lesson: de1-m4-h-feiertage
+  term: das Osterei
+  pos: noun
+  plural: die Ostereier
+  meanings: [Easter egg]
+  example: Die Kinder suchen Ostereier im Garten.
+  exampleEn: The children are looking for Easter eggs in the garden.
+- id: de1-m4-r2-w19
+  lesson: de1-m4-h-feiertage
+  term: der Adventskranz
+  pos: noun
+  plural: die Adventskränze
+  meanings: [Advent wreath]
+  example: Auf dem Adventskranz brennen vier Kerzen.
+  exampleEn: Four candles are burning on the Advent wreath.
+- id: de1-m4-r2-w20
+  lesson: de1-m4-h-feiertage
+  term: das Plätzchen
+  pos: noun
+  plural: die Plätzchen
+  meanings: ['Christmas biscuit (small cookie)', biscuit, cookie, Christmas cookie, Christmas biscuit]
+  alt: [das Plaetzchen]
+  example: Opa backt schon Plätzchen.
+  exampleEn: Grandpa is already baking Christmas biscuits.
+- id: de1-m4-r2-w21
+  lesson: de1-m4-h-feiertage
+  term: dauern
+  pos: verb
+  meanings: [to last (take time), to last, to take (time)]
+  example: Die Ferien dauern vom 1. bis zum 14. August.
+  exampleEn: The holidays last from 1 to 14 August.
+  note: 'Regular. Wie lange dauert das? Perfect: hat gedauert.'
+- id: de1-m4-r2-w22
+  lesson: de1-m4-h-feiertage
+  term: die Mitternacht
+  pos: noun
+  plural: —
+  meanings: [midnight]
+  example: Um Mitternacht gibt es Feuerwerk.
+  exampleEn: At midnight there are fireworks.

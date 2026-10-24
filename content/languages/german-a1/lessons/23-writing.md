@@ -88,6 +88,12 @@ Compare: *…, denn ich bin krank* (reason, normal order) but *Deshalb komme ich
 (result, verb first). Using *deshalb* correctly in a message shows good control of word
 order, but you can always say the same thing with *denn*.
 
+The picture compares the two kinds of linking word. *Denn* and *aber* sit in front of the
+sentence, in position 0, so the verb is still in position 2. *Deshalb* takes position 1
+itself, so the verb comes right after it.
+
+![Three sentences in slots. After "Ich komme heute nicht,": denn in position 0, ich in position 1, bin in position 2, then krank. After "Gestern war ich müde,": aber in position 0, heute in position 1, habe in position 2, then "ich Zeit". After "Ich bin krank.": position 0 is empty, Deshalb in position 1, komme in position 2, then "ich nicht".](images/de1-m6-position-zero.svg)
+
 ## Writing a short message
 
 Personal messages and e-mails in German follow a simple frame.
@@ -114,6 +120,17 @@ Some rules that make your message look right:
 A good short message has a clear purpose and answers the points it must cover. A typical
 pattern is: say why you are writing, give the information or reason, ask a question or
 make a suggestion, and close. About 30 words is enough.
+
+```mermaid
+flowchart TD
+  accTitle: The building blocks of a short message
+  accDescr: Six steps from top to bottom. The opening, such as Liebe Julia. The reason for writing, such as vielen Dank für die Einladung. The information or reason, such as Leider kann ich nicht kommen, denn meine Mutter hat Geburtstag. A question or suggestion, such as Hast du am Sonntag Zeit. The closing, such as Viele Grüße. Your name.
+  A["Opening: Liebe Julia,"] --> B["Why you are writing: vielen Dank für die Einladung!"]
+  B --> C["Information and reason: Leider kann ich nicht kommen, denn ..."]
+  C --> D["Question or suggestion: Hast du am Sonntag Zeit?"]
+  D --> E["Closing: Viele Grüße"]
+  E --> F["Your name: Marco"]
+```
 
 Here is an informal message that says no to an invitation (an *Absage*):
 
@@ -179,6 +196,11 @@ Points to watch:
 - *Ledig* means single (never married), *verheiratet* married, *geschieden* divorced (lesson
   6). *Divers* is the third official option for gender.
 - The *Unterschrift* is your signature, written by hand; *unterschreiben* is to sign.
+
+Here is a filled-in form for a German course. Compare each field name with the answer next
+to it:
+
+![A course registration form for "Sprachschule am Markt: Deutschkurs A1", filled in by hand: Vorname Lukas, Familienname Berger, Geburtsdatum 02.11.2001, Geburtsort Graz, Staatsangehörigkeit österreichisch, Familienstand verheiratet, and a handwritten signature in the Unterschrift field.](images/de1-m6-form.svg)
 
 ## Dialogue: help with a course registration
 

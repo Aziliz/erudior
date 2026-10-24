@@ -35,10 +35,27 @@ That last point matters. At A1 nobody expects you to follow a fast conversation 
 native speakers. You are expected to manage with patience on both sides, and to ask for help
 when you need it. That is a skill too, and this lesson gives you the words for it.
 
+The six levels form a staircase. A1 and A2 are the "basic user" levels, B1 and B2
+"independent user", and C1 and C2 "proficient user":
+
+![The six CEFR levels drawn as a staircase rising from left to right: A1, A2, B1, B2, C1, C2. A1 and A2 are bracketed as basic user, B1 and B2 as independent user, C1 and C2 as proficient user. An arrow labeled "You are here" points to A1.](images/de1-m6-cefr-steps.svg)
+
 ## The Goethe-Zertifikat A1: Start Deutsch 1
 
 The exam has four parts. Hören, Lesen and Schreiben are written in one block of about 65
 minutes; Sprechen is a separate oral exam.
+
+```mermaid
+flowchart TD
+  accTitle: The parts of the Goethe-Zertifikat A1
+  accDescr: The written exam, about 65 minutes, has three parts in this order: Hören, about 20 minutes, then Lesen, about 25 minutes, then Schreiben, about 20 minutes. Sprechen is a separate oral exam of about 15 minutes in a small group. Together the parts give 100 points, and you pass with 60.
+  W["Written exam, about 65 min"] --> H["Hören, about 20 min"]
+  H --> L["Lesen, about 25 min"]
+  L --> S["Schreiben, about 20 min"]
+  O["Oral exam: Sprechen, about 15 min, small group"]
+  S --> R["100 points in total, pass with 60"]
+  O --> R
+```
 
 | part | time (about) | what it tests |
 |---|---|---|

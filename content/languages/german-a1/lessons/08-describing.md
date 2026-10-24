@@ -155,11 +155,12 @@ To choose between *kein* and *nicht*, ask what you are negating:
 flowchart TD
   accTitle: Choosing kein or nicht
   accDescr: Ask what you are negating. A noun that would have ein or eine takes kein or keine, as in Das ist kein Hund. A noun with no article also takes kein, as in Ich habe keine Zeit. A noun with der, die, das or a possessive takes nicht, as in Das ist nicht mein Schlüssel. A verb or the whole sentence takes nicht, usually at the end, as in Ich verstehe das nicht. An adjective takes nicht right before it, as in Das ist nicht teuer.
-  A{"What are you negating?"} -- "a noun with ein or eine" --> K1["kein: Das ist kein Hund."]
-  A -- "a noun with no article" --> K2["kein: Ich habe keine Zeit."]
-  A -- "a noun with der, die, das or mein" --> N1["nicht: Das ist nicht mein Schlüssel."]
-  A -- "a verb or the whole sentence" --> N2["nicht, usually at the end: Ich verstehe das nicht."]
-  A -- "an adjective" --> N3["nicht before it: Das ist nicht teuer."]
+  A{"Are you negating a noun?"} -- yes --> B{"Would it have ein or no article?"}
+  B -- yes --> K["kein: Das ist kein Hund. Ich habe keine Zeit."]
+  B -- "no: der, die, das or mein" --> N1["nicht: Das ist nicht mein Schlüssel."]
+  A -- no --> C{"Is it an adjective?"}
+  C -- yes --> N3["nicht before it: Das ist nicht teuer."]
+  C -- "no: a verb or the whole sentence" --> N2["nicht, usually at the end: Ich verstehe das nicht."]
 ```
 
 ## Doch: yes, to a negative

@@ -1,0 +1,127 @@
+# Round 2 drills for the phys-m11 honors lessons.
+- id: phys-m11-r2-michelson
+  title: Counting Michelson fringes
+  topic: Interferometry
+  vars:
+    lam: {choices: [{label: '632.8', value: 632.8}, {label: '589.0', value: 589.0}, {label: '532.0', value: 532.0}, {label: '450.0', value: 450.0}]}
+    Nf: {min: 100, max: 2000, step: 10}
+  calc:
+    dd: Nf*lam/2/1000
+  prompt: 'A Michelson interferometer is lit with {lam} nm light. As one mirror slides, {Nf} fringes pass the center of the pattern. How far did the mirror move, in micrometers to 3 significant figures?'
+  answers:
+    - {format: sig4, name: dd, label: 'Mirror moved', relTolerance: 0.01, units: {'μm': 1, um: 1, mm: 1000, nm: 0.001}}
+  solution: |-
+    Each fringe is a path change of one wavelength, and the path changes by twice the mirror's motion: $2\Delta d = N\lambda$.
+
+    $\Delta d = \dfrac{N\lambda}{2} = \dfrac{({Nf})({lam}\text{ nm})}{2} =$ **{dd:sig3} μm**.
+- id: phys-m11-r2-gas-cell
+  title: Index of a gas from a fringe count
+  topic: Interferometry
+  vars:
+    lam: {choices: [{label: '632.8', value: 632.8}, {label: '589.0', value: 589.0}, {label: '532.0', value: 532.0}]}
+    Lc: {min: 2.0, max: 10.0, step: 0.5}
+    Nf: {min: 10, max: 90}
+  calc:
+    nm1: Nf*lam*1e-9/(2*Lc/100)
+  where: ['nm1 < 0.002']
+  prompt: 'An evacuated cell {Lc:num1} cm long sits in one arm of a Michelson interferometer lit with {lam} nm light. As a gas is let in, {Nf} fringes pass. Find $n - 1$ for the gas, to 3 significant figures.'
+  answers:
+    - {name: nm1, label: '$n - 1 =$', format: sci, relTolerance: 0.01}
+  solution: |-
+    The round trip through the cell changes the optical path by $2L(n - 1)$, and each fringe is one wavelength: $N = 2L(n - 1)/\lambda$.
+
+    $n - 1 = \dfrac{N\lambda}{2L} = \dfrac{({Nf})({lam}\times10^{-9}\text{ m})}{2({Lc:num1}\times10^{-2}\text{ m})} =$ **{nm1:texsci}**.
+- id: phys-m11-r2-air-wedge
+  title: Air-wedge fringe spacing
+  topic: Interferometry
+  vars:
+    lam: {choices: [{label: '632.8', value: 632.8}, {label: '589.0', value: 589.0}, {label: '546.1', value: 546.1}]}
+    Lc: {min: 5.0, max: 15.0, step: 0.5}
+    Dh: {min: 10, max: 120, step: 5}
+  calc:
+    dx: lam*1e-9*(Lc/100)/(2*Dh*1e-6)*1000
+  prompt: 'Two flat glass plates {Lc:num1} cm long touch at one end and are held apart by a fiber {Dh} μm thick at the other. In {lam} nm light, how far apart are the dark fringes, in mm to 3 significant figures?'
+  answers:
+    - {format: sig4, name: dx, label: 'Fringe spacing', relTolerance: 0.01, units: {mm: 1, cm: 10, 'μm': 0.001, um: 0.001}}
+  solution: |-
+    Neighboring dark fringes are where the gap thickness differs by $\lambda/2$, and the gap grows by $D/L$ per unit length, so $\Delta x = \dfrac{\lambda L}{2D}$.
+
+    $\Delta x = \dfrac{({lam}\times10^{-9})({Lc:num1}\times10^{-2})}{2({Dh}\times10^{-6})}\text{ m} =$ **{dx:sig3} mm**.
+- id: phys-m11-r2-resolving-power
+  title: Resolving two close spectral lines
+  topic: Grating spectroscopy
+  vars:
+    lam: {min: 420, max: 680, step: 1}
+    dl: {min: 0.05, max: 0.60, step: 0.05}
+    mo: {min: 1, max: 3}
+  calc:
+    lam2: lam + dl
+    R: (lam + dl/2)/dl
+    Nmin: R/mo
+  prompt: 'Two spectral lines are at {lam:dp0}.00 nm and {lam2:num2} nm. Find the resolving power needed to separate them, and the number of grating lines that must be illuminated in order {mo}, each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: R, label: '$R =$', relTolerance: 0.01}
+    - {format: sig4, name: Nmin, label: 'Lines $N =$', relTolerance: 0.01}
+  solution: |-
+    $R = \dfrac{\lambda}{\Delta\lambda}$, using the average wavelength: $R = \dfrac{{lam:dp0} + {dl:num2}/2}{{dl:num2}} =$ **{R:sig3}**.
+
+    $R = Nm$, so $N = R/m = {R:sig4}/{mo} =$ **{Nmin:sig3}** lines.
+- id: phys-m11-r2-bragg
+  title: Bragg angles
+  topic: X-ray diffraction
+  vars:
+    dsp: {min: 0.150, max: 0.400, step: 0.005}
+    lam: {choices: [{label: '0.0710', value: 0.0710}, {label: '0.154', value: 0.154}, {label: '0.179', value: 0.179}]}
+    mo: {min: 1, max: 2}
+  calc:
+    th: asind(mo*lam/(2*dsp))
+    dev: 2*th
+  where: ['mo*lam/(2*dsp) < 0.95']
+  prompt: 'X-rays of wavelength {lam} nm reflect from crystal planes {dsp:num3} nm apart. Find the order-{mo} Bragg angle (measured from the planes) and the total angle through which the beam is deflected, in degrees to 3 significant figures.'
+  answers:
+    - {format: sig4, name: th, label: 'Bragg angle', relTolerance: 0.01, units: {'°': 1, deg: 1}}
+    - {format: sig4, name: dev, label: 'Deflection', relTolerance: 0.01, units: {'°': 1, deg: 1}}
+  solution: |-
+    Bragg's law: $2d\sin\theta = m\lambda$, so $\sin\theta = \dfrac{{mo}({lam})}{2({dsp:num3})}$ and $\theta =$ **{th:sig3}°** from the planes.
+
+    The beam turns through $2\theta =$ **{dev:sig3}°**.
+- id: phys-m11-r2-lens-pair
+  title: Two separated thin lenses
+  topic: Ray-transfer matrices
+  vars:
+    f1: {min: 5, max: 30}
+    f2: {min: -30, max: 30}
+    sep: {min: 1, max: 20}
+  calc:
+    Aa: 1 - sep/f1
+    Cc: -1/f1 - Aa/f2
+    feff: -1/Cc
+    bfd: -Aa/Cc
+  where: ['abs(f2) >= 5', 'abs(Cc) > 0.005', 'abs(feff) <= 200', 'abs(bfd) <= 200', 'abs(bfd) >= 1', 'abs(Aa) >= 0.05']
+  prompt: 'Light meets a thin lens with $f_1 = {f1}$ cm, then travels {sep} cm to a second thin lens with $f_2 = {f2}$ cm. Find the effective focal length of the pair and the back focal distance (from the second lens), in cm to 3 significant figures (include the sign).'
+  answers:
+    - {format: sig4, name: feff, label: '$f =$', relTolerance: 0.01, units: {cm: 1}}
+    - {format: sig4, name: bfd, label: 'BFD $=$', relTolerance: 0.01, units: {cm: 1}}
+  solution: |-
+    $M = L_2T L_1$. Multiplying, $A = 1 - \dfrac{d}{f_1} = {Aa:sig4}$ and $C = -\dfrac{1}{f_1} - \dfrac{A}{f_2} = {Cc:sig4}$ cm⁻¹.
+
+    Effective focal length $f = -1/C =$ **{feff:sig3} cm**. Back focal distance $-A/C =$ **{bfd:sig3} cm** (negative means the focus is virtual, before the second lens).
+- id: phys-m11-r2-achromat
+  title: Designing an achromatic doublet
+  topic: Aberrations
+  vars:
+    fmm: {min: 50, max: 300, step: 10}
+    V1: {choices: [64.2, 60.3, 58.6]}
+    V2: {choices: [36.4, 32.2, 29.5]}
+  calc:
+    P: 1000/fmm
+    P1: P*V1/(V1 - V2)
+    P2: -P*V2/(V1 - V2)
+  prompt: 'Design an achromatic doublet with focal length {fmm} mm from a crown glass with Abbe number $V_1 = {V1}$ and a flint glass with $V_2 = {V2}$. Find the power of each element in diopters, to 3 significant figures (include the sign).'
+  answers:
+    - {format: sig4, name: P1, label: 'Crown $P_1 =$', relTolerance: 0.01, units: {D: 1}}
+    - {format: sig4, name: P2, label: 'Flint $P_2 =$', relTolerance: 0.01, units: {D: 1}}
+  solution: |-
+    Total power $P = 1/f = 1/({fmm}\times10^{-3}\text{ m}) = {P:sig4}$ D. Color correction needs $P_1/V_1 + P_2/V_2 = 0$ with $P_1 + P_2 = P$.
+
+    $P_1 = \dfrac{PV_1}{V_1 - V_2} =$ **{P1:sig3} D** and $P_2 = -\dfrac{PV_2}{V_1 - V_2} =$ **{P2:sig3} D**.

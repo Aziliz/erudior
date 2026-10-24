@@ -1,0 +1,274 @@
+# Round 2, module de1-m1: words introduced by the honors lessons 04h1–04h3.
+
+# --- 04h1 Sounds in depth ---
+- id: de1-m1-r2-w01
+  lesson: de1-m1-h-sounds-in-depth
+  term: die Aussprache
+  pos: noun
+  plural: —
+  meanings: [pronunciation]
+  example: Deine Aussprache ist sehr gut.
+  exampleEn: Your pronunciation is very good.
+
+- id: de1-m1-r2-w02
+  lesson: de1-m1-h-sounds-in-depth
+  term: aussprechen
+  pos: verb
+  meanings: [to pronounce, to say (a word or sound)]
+  example: Wie spricht man das aus?
+  exampleEn: How do you pronounce that?
+  note: 'Separable (Lesson 12): ich spreche … aus. Stem change like sprechen: du sprichst aus, er spricht aus.'
+
+- id: de1-m1-r2-w03
+  lesson: de1-m1-h-sounds-in-depth
+  term: der Akzent
+  pos: noun
+  plural: die Akzente
+  meanings: [accent (way of speaking), accent]
+  example: Sie spricht Deutsch mit Akzent.
+  exampleEn: She speaks German with an accent.
+  note: 'Stress on the second syllable: ak-ZENT.'
+
+- id: de1-m1-r2-w04
+  lesson: de1-m1-h-sounds-in-depth
+  term: die Silbe
+  pos: noun
+  plural: die Silben
+  meanings: [syllable]
+  example: Das Wort "Name" hat zwei Silben.
+  exampleEn: The word "Name" has two syllables.
+
+- id: de1-m1-r2-w05
+  lesson: de1-m1-h-sounds-in-depth
+  term: der Laut
+  pos: noun
+  plural: die Laute
+  meanings: [sound (of speech), sound, speech sound]
+  example: Das "ch" in "ich" ist ein Laut.
+  exampleEn: The "ch" in "ich" is one sound.
+  note: Not the same word as the adjective laut (loud).
+
+- id: de1-m1-r2-w06
+  lesson: de1-m1-h-sounds-in-depth
+  term: das Spiegelei
+  pos: noun
+  plural: die Spiegeleier
+  meanings: [fried egg, sunny-side-up egg, egg sunny side up]
+  example: Zum Frühstück esse ich ein Spiegelei.
+  exampleEn: I eat a fried egg for breakfast.
+  note: 'Spiegel (mirror) + Ei (egg), with a glottal stop before -ei.'
+
+- id: de1-m1-r2-w07
+  lesson: de1-m1-h-sounds-in-depth
+  term: verreisen
+  pos: verb
+  meanings: [to go away (on a trip), to go on a trip, to travel, to go away]
+  example: Wir verreisen im Sommer.
+  exampleEn: We're going away in the summer.
+  note: 'Perfect with sein: ist verreist. Compare vereisen (to ice over), with a glottal stop and no r.'
+
+- id: de1-m1-r2-w08
+  lesson: de1-m1-h-sounds-in-depth
+  term: der Zungenbrecher
+  pos: noun
+  plural: die Zungenbrecher
+  meanings: [tongue twister]
+  example: Der Zungenbrecher ist sehr schwer.
+  exampleEn: The tongue twister is very hard.
+
+# --- 04h2 du, Sie and the German-speaking world ---
+- id: de1-m1-r2-w09
+  lesson: de1-m1-h-german-world
+  term: duzen
+  pos: verb
+  meanings: [to say du (to someone), to use du, to call someone du, to be on first-name terms]
+  example: Wir duzen uns.
+  exampleEn: We say du to each other.
+  note: 'The stem ends in -z, so: du duzt, er duzt.'
+
+- id: de1-m1-r2-w10
+  lesson: de1-m1-h-german-world
+  term: siezen
+  pos: verb
+  meanings: [to say Sie (to someone), to use Sie, to call someone Sie, to address formally]
+  example: Ich sieze meine Chefin.
+  exampleEn: I say Sie to my boss.
+  note: 'The stem ends in -z, so: du siezt, er siezt.'
+
+- id: de1-m1-r2-w11
+  lesson: de1-m1-h-german-world
+  term: Servus
+  pos: interjection
+  meanings: [hi or bye (Bavaria and Austria), hi, hello, bye, goodbye, see you]
+  example: Servus, Florian!
+  exampleEn: Hi, Florian!
+  note: Informal; used both when you meet and when you leave.
+
+- id: de1-m1-r2-w12
+  lesson: de1-m1-h-german-world
+  term: Moin
+  pos: interjection
+  alt: [Moin moin]
+  meanings: [hello (northern Germany), hello, hi, morning]
+  example: Moin, Lea!
+  exampleEn: Hi, Lea!
+  note: Used at any time of day, not only in the morning.
+
+- id: de1-m1-r2-w13
+  lesson: de1-m1-h-german-world
+  term: Grüezi
+  pos: interjection
+  meanings: [hello (in Switzerland, formal), hello, good day]
+  example: Grüezi, Frau Meier!
+  exampleEn: Hello, Ms Meier!
+  note: For people you say Sie to; informal Swiss hi is Hoi.
+
+- id: de1-m1-r2-w14
+  lesson: de1-m1-h-german-world
+  kind: phrase
+  term: Grüß dich
+  pos: phrase
+  alt: [Grüss dich]
+  meanings: [hi (to one person you say du to), hi, hello]
+  example: Grüß dich, Anna! Wie geht's?
+  exampleEn: Hi, Anna! How are you?
+  note: Southern Germany and Austria. dich is a du form, so not for people you say Sie to.
+
+- id: de1-m1-r2-w15
+  lesson: de1-m1-h-german-world
+  term: Liechtenstein
+  meanings: [Liechtenstein]
+  example: In Liechtenstein spricht man Deutsch.
+  exampleEn: In Liechtenstein people speak German.
+  note: Country name, neuter, used without an article.
+
+- id: de1-m1-r2-w16
+  lesson: de1-m1-h-german-world
+  term: Luxemburg
+  meanings: [Luxembourg, Luxemburg]
+  example: Luxemburg ist klein.
+  exampleEn: Luxembourg is small.
+  note: Country name and its capital city, used without an article.
+
+- id: de1-m1-r2-w17
+  lesson: de1-m1-h-german-world
+  term: Belgien
+  meanings: [Belgium]
+  example: Mein Freund kommt aus Belgien.
+  exampleEn: My friend is from Belgium.
+  note: Country name, neuter, used without an article.
+
+- id: de1-m1-r2-w18
+  lesson: de1-m1-h-german-world
+  term: die Muttersprache
+  pos: noun
+  plural: die Muttersprachen
+  meanings: [native language, mother tongue, first language]
+  example: Meine Muttersprache ist Englisch.
+  exampleEn: My native language is English.
+
+- id: de1-m1-r2-w19
+  lesson: de1-m1-h-german-world
+  term: Hochdeutsch
+  meanings: [standard German, High German]
+  example: In der Schule sprechen wir Hochdeutsch.
+  exampleEn: At school we speak standard German.
+  note: Language name, capitalized and used without an article, like Deutsch.
+
+# --- 04h3 Numbers in everyday life ---
+- id: de1-m1-r2-w20
+  lesson: de1-m1-h-numbers-life
+  term: rechnen
+  pos: verb
+  meanings: [to calculate, to do sums, to work out, to do arithmetic, to do maths, to do math]
+  example: Ben rechnet schnell.
+  exampleEn: Ben calculates fast.
+  note: 'Extra e: du rechnest, er rechnet.'
+
+- id: de1-m1-r2-w21
+  lesson: de1-m1-h-numbers-life
+  term: zählen
+  pos: verb
+  meanings: [to count]
+  example: Das Kind zählt bis zehn.
+  exampleEn: The child counts to ten.
+
+- id: de1-m1-r2-w22
+  lesson: de1-m1-h-numbers-life
+  term: zeichnen
+  pos: verb
+  meanings: [to draw, to sketch]
+  example: Emma zeichnet ein Haus.
+  exampleEn: Emma is drawing a house.
+  note: 'Extra e: du zeichnest, er zeichnet. zeichnen is drawing with lines; malen is painting.'
+
+- id: de1-m1-r2-w23
+  lesson: de1-m1-h-numbers-life
+  term: plus
+  pos: conjunction
+  meanings: [plus (in sums), plus, and]
+  example: Zwei plus drei ist fünf.
+  exampleEn: Two plus three is five.
+
+- id: de1-m1-r2-w24
+  lesson: de1-m1-h-numbers-life
+  term: minus
+  pos: conjunction
+  meanings: [minus (in sums), minus, take away, less]
+  example: Zehn minus vier ist sechs.
+  exampleEn: Ten minus four is six.
+
+- id: de1-m1-r2-w25
+  lesson: de1-m1-h-numbers-life
+  term: mal
+  pos: adverb
+  meanings: [times (in multiplication), times, multiplied by]
+  example: Drei mal vier ist zwölf.
+  exampleEn: Three times four is twelve.
+  note: In everyday speech mal is also a small word meaning "just" or "once" (later courses).
+
+- id: de1-m1-r2-w26
+  lesson: de1-m1-h-numbers-life
+  kind: phrase
+  term: geteilt durch
+  pos: phrase
+  meanings: [divided by]
+  example: Zwanzig geteilt durch vier ist fünf.
+  exampleEn: Twenty divided by four is five.
+
+- id: de1-m1-r2-w27
+  lesson: de1-m1-h-numbers-life
+  term: der Finger
+  pos: noun
+  plural: die Finger
+  meanings: [finger]
+  example: Ich zähle mit den Fingern.
+  exampleEn: I count on my fingers.
+  note: 'No g sound after the ng: "FING-uh".'
+
+- id: de1-m1-r2-w28
+  lesson: de1-m1-h-numbers-life
+  term: der Daumen
+  pos: noun
+  plural: die Daumen
+  meanings: [thumb]
+  example: Eins zeigt man mit dem Daumen.
+  exampleEn: You show one with your thumb.
+
+- id: de1-m1-r2-w29
+  lesson: de1-m1-h-numbers-life
+  term: die Eins
+  pos: noun
+  plural: die Einsen
+  meanings: [one (as a grade or digit), one, a one, top grade]
+  example: Ich habe eine Eins in Mathe.
+  exampleEn: I got a one in maths.
+  note: 'Number nouns are feminine: die Eins, die Zwei, die Sechs. In Germany and Austria a 1 is the best grade.'
+
+- id: de1-m1-r2-w30
+  lesson: de1-m1-h-numbers-life
+  term: Mathe
+  meanings: [maths (school subject, informal), maths, math, mathematics]
+  example: Morgen haben wir Mathe.
+  exampleEn: We have maths tomorrow.
+  note: Short for die Mathematik; as a school subject usually without an article.

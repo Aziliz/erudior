@@ -61,6 +61,11 @@ When a time phrase starts the sentence, *haben* still stays in position 2 and th
 follows it (lesson 12). In a yes/no question *haben* moves to position 1. In a W-question
 the question word comes first and *haben* second. The participle is always last.
 
+The picture shows the bracket in three sentences. Only the first part (*haben*) moves; the
+participle stays at the end every time.
+
+![Three sentences split into slots. "Ich habe am Samstag meine Oma besucht": Ich in position 1, habe in position 2, "am Samstag meine Oma" in the middle, besucht at the end. "Am Samstag habe ich meine Oma besucht": Am Samstag in position 1, habe in position 2, "ich meine Oma" in the middle, besucht at the end. "Hast du die Postkarte bekommen?": Hast in position 1, du in position 2, "die Postkarte" in the middle, bekommen at the end. A line under each sentence joins the form of haben to the participle.](images/de1-m6-perfect-bracket.svg)
+
 ## Building the past participle
 
 ### Pattern 1: regular verbs, ge- + stem + -t
@@ -205,6 +210,30 @@ A quick test: if you can hear the stress on the first syllable of the verb (*EIN
 (*be-SU-chen*, *ver-KAU-fen*), there is no *ge-*. *Bekommen* and *vergessen* look the same
 in the infinitive and the participle; only the sentence tells you which one it is.
 
+### Which pattern? A checklist
+
+When you meet a new verb, ask these questions in order. The first "yes" tells you how to
+build the participle.
+
+```mermaid
+flowchart TD
+  accTitle: How to build the past participle
+  accDescr: A checklist in order. First, does the verb end in -ieren? If yes, there is no ge- and it ends in -t, as in studiert. If no, does it have an inseparable prefix such as be-, ver- or er-? If yes, there is no ge-, as in besucht or verloren. If no, does it have a stressed separable prefix such as ein-, an- or auf-? If yes, -ge- goes after the prefix, as in eingekauft or angerufen. If no, check which list the verb is on. A strong verb takes ge- and -en, often with a new vowel, as in gesehen or getrunken. A mixed verb takes ge- and -t with a new vowel, as in gebracht or gewusst. Any other verb is weak and takes ge- and -t, as in gemacht or gearbeitet.
+  A["Ends in -ieren?"] -- yes --> A1["No ge-, ends in -t: studiert"]
+  A -- no --> B["Inseparable prefix (be-, ver-, er-)?"]
+  B -- yes --> B1["No ge-: besucht, verloren"]
+  B -- no --> C["Stressed separable prefix (ein-, an-, auf-)?"]
+  C -- yes --> C1["-ge- after the prefix: eingekauft, angerufen"]
+  C -- no --> D["Which list is the verb on?"]
+  D -- strong --> D1["ge- ... -en: gesehen, getrunken"]
+  D -- mixed --> D2["ge- ... -t, new vowel: gebracht, gewusst"]
+  D -- weak --> D3["ge- ... -t: gemacht, gearbeitet"]
+```
+
+The last step is the only one you can't work out from the infinitive: strong and mixed verbs
+have to be learned (the reference sheet lists them). A separable verb keeps the ending of its
+base verb: *anrufen* → *angerufen* (strong, like *gerufen*), *einkaufen* → *eingekauft* (weak).
+
 ## Time words for the past
 
 These words tell you a sentence is about the past:
@@ -221,6 +250,10 @@ These words tell you a sentence is about the past:
 | damals | back then, at that time |
 | gerade | just (a moment ago) |
 | schon | already, ever |
+
+Here are the most important ones on a strip of days. Imagine today is Thursday:
+
+![A strip of days. The first seven, Monday to Sunday, are bracketed as "letzte Woche". The next five, Monday to Friday, are "diese Woche". Today, Thursday, is shaded. Tuesday is labeled vorgestern, Wednesday gestern, Thursday heute and Friday morgen.](images/de1-m6-timeline.svg)
 
 *Letzte* ("last") takes the ending of the noun's gender: *letzte Woche* (die Woche),
 *letzten Monat* (der Monat), *letztes Wochenende* (das Wochenende). Learn them as chunks.

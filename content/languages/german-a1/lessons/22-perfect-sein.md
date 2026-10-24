@@ -44,6 +44,22 @@ A memory hook: if you can ask "from where to where?", it's *sein*. And verbs tha
 direct object (an accusative: *einen Film sehen*, *ein Buch kaufen*) use *haben*. Almost all
 the *sein* verbs at A1 have no object at all.
 
+This chart puts the questions in order. It is a rule of thumb that works for the verbs at A1:
+
+```mermaid
+flowchart TD
+  accTitle: haben or sein in the perfect?
+  accDescr: A rule of thumb in order. First, does the verb have an accusative object? If yes, use haben, as in Ich habe das Auto gefahren. If no, does someone move from one place to another? If yes, use sein, as in Ich bin nach Köln gefahren. If no, does someone or something change state? If yes, use sein, as in Ich bin aufgestanden. If no, is the verb sein, bleiben or passieren? If yes, use sein, as in Ich bin zu Hause geblieben. Otherwise use haben, as in Ich habe lange geschlafen.
+  A["Accusative object?"] -- yes --> H1["haben: Ich habe das Auto gefahren."]
+  A -- no --> B["Movement from A to B?"]
+  B -- yes --> S1["sein: Ich bin nach Köln gefahren."]
+  B -- no --> C["Change of state?"]
+  C -- yes --> S2["sein: Ich bin aufgestanden."]
+  C -- no --> D["sein, bleiben or passieren?"]
+  D -- yes --> S3["sein: Ich bin zu Hause geblieben."]
+  D -- no --> H2["haben: Ich habe lange geschlafen."]
+```
+
 The word order is the same as with *haben*: the form of *sein* in position 2, the
 participle last.
 
@@ -143,6 +159,11 @@ Some words for travel stories:
   beach, river.
 - *im Ausland* means "abroad": *Letztes Jahr war ich im Ausland.* — Last year I was abroad.
 - *in der Natur* means "out in nature, outdoors".
+
+![A landscape with labels: der Berg (a mountain with a snowy peak), der See (a lake in a green valley), das Dorf (a few houses and a church), der Strand (a strip of sand), das Meer (the sea, reaching to the horizon) and die Insel (a small island with a palm tree).](images/de1-m6-landscape.svg)
+
+The lake is surrounded by land; the sea stretches to the horizon. That is the difference
+between *der See* and *das Meer*.
 
 Remember *wohin* (where to) from lesson 18 for asking about a destination. *Wo* asks about
 a position:

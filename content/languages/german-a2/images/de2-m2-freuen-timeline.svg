@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" role="img"><title>A timeline from past through now to future: sich freuen über points to something already here or past, sich freuen auf points to something in the future</title>
+<rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+<line x1="40" y1="200" x2="670" y2="200" stroke="#1c2833" stroke-width="3"/>
+<path d="M 670 190 L 690 200 L 670 210 Z" fill="#1c2833"/>
+<line x1="360" y1="185" x2="360" y2="215" stroke="#1c2833" stroke-width="3"/>
+<text x="120" y="240" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">past</text>
+<text x="360" y="240" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" font-style="normal" fill="#1c2833" text-anchor="middle">now</text>
+<text x="600" y="240" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">future</text>
+<rect x="40" y="30" width="290" height="120" rx="10" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="185" y="62" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" font-style="normal" fill="#1c2833" text-anchor="middle">sich freuen über + Akk</text>
+<text x="185" y="90" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">be pleased about something</text>
+<text x="185" y="115" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">you already have or that happened</text>
+<text x="185" y="140" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="italic" fill="#1c2833" text-anchor="middle">über das Geschenk</text>
+<rect x="390" y="30" width="290" height="120" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="535" y="62" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" font-style="normal" fill="#1c2833" text-anchor="middle">sich freuen auf + Akk</text>
+<text x="535" y="90" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">look forward to something</text>
+<text x="535" y="115" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">that is still coming</text>
+<text x="535" y="140" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="italic" fill="#1c2833" text-anchor="middle">auf die Ferien</text>
+<path d="M 185 150 L 240 192" fill="none" stroke="#1c2833" stroke-width="2"/><circle cx="240" cy="200" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<path d="M 535 150 L 560 192" fill="none" stroke="#1c2833" stroke-width="2"/><circle cx="560" cy="200" r="7" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<rect x="40" y="270" width="640" height="70" rx="10" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="360" y="298" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">Ich freue mich über deine Karte. — I'm pleased about your card.</text>
+<text x="360" y="325" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" font-style="normal" fill="#1c2833" text-anchor="middle">Ich freue mich auf das Wochenende. — I'm looking forward to the weekend.</text>
+</svg>
