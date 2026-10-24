@@ -341,6 +341,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Version history
 
+- **v0.24.0:** erudior.com public site (desktop app features with screenshots, download guide with checksums and FAQ), app.erudior.com starts on Courses, hidden /admin for review tags, calculator (basic/scientific/graphing), lesson colors, subject colors, sepia/dim/high-contrast themes, formula panels, in-app updates on (Windows, macOS, AppImage).
 - **v0.23.0:** website home page (/), Courses (/courses), Community page with Create inside, Download page; five levels (Elementary School … Professional) and two types (Course, Exam prep); macOS universal .dmg and Homebrew tap; releases publish automatically.
 - **v0.22.0:** question types (text, match, label, order), pictures in questions, Mermaid diagrams, honors lessons/modules; Biology revision 2.
 - **v0.1.0:** the exam simulator: banks, timed and practice modes, editor, progress.
