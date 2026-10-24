@@ -109,7 +109,7 @@ $$t = (2 + i) + (2 - i) = 4.$$
 The imaginary parts cancel and the formula gives the real answer. The other two roots, from $t^2 + 4t + 1 = 0$, are $-2 \pm \sqrt3$: also real.
 
 ```plot
-{"x": [-5, 5.5], "y": [-30, 30], "functions": [{"f": "x^3 - 15x - 4", "label": "y = t³ − 15t − 4"}], "points": [{"at": [4, 0], "label": "4"}, {"at": [-3.732, 0], "label": "−2 − √3"}, {"at": [-0.268, 0], "label": "−2 + √3"}], "xLabel": "t", "caption": "Bombelli's cubic has three real roots, yet Cardano's formula reaches them through 2 ± 11i."}
+{"x": [-5, 5.5], "y": [-30, 30], "functions": [{"f": "x^3 - 15x - 4", "label": "y = t³ − 15t − 4"}], "points": [{"at": [4, 0]}, {"at": [-3.732, 0]}, {"at": [-0.268, 0]}], "labels": [{"at": [3.5, 4], "text": "4"}, {"at": [-2.8, -11], "text": "−2 − √3"}, {"at": [-1.5, -6], "text": "−2 + √3"}], "xLabel": "t", "caption": "Bombelli's cubic has three real roots, yet Cardano's formula reaches them through 2 ± 11i."}
 ```
 
 This is the **casus irreducibilis** (Latin for "irreducible case"): when $D < 0$ the cubic has three different real roots, and the formula can only reach them through non-real numbers. It was proved in the 1800s that no formula using only real radicals can avoid this. So complex numbers were not invented to solve $x^2 = -1$ (people were happy to say that has no solution); they were accepted because they were needed to reach *real* answers.
