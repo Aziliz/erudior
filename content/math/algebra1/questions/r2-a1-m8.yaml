@@ -334,14 +334,14 @@
   lesson: a1-m8-h-normal
   type: order
   topic: Normal distributions
-  stem: 'Put the steps for finding the percent of a data set below a value $x$ with a normal model in order.'
+  stem: 'The data are roughly normal. Put the steps for finding the percent of the data above a value $x$ in order.'
   items:
-    - 'Check that a graph of the data is roughly symmetric and bell-shaped'
     - 'Compute $z = (x - \mu)/\sigma$'
     - 'Find the area to the left of $z$ from a table or technology'
-    - 'Write that area as a percent and interpret it in context'
+    - 'Subtract that area from 1 to get the area to the right'
+    - 'Write the area to the right as a percent and interpret it in context'
   explanation: |-
-    The model has to fit before any of its numbers mean anything. Then standardize, because the table is for the standard normal distribution; then read the area; then state the answer in context.
+    Each step uses the result of the one before. Standardize first, because the table is for the standard normal distribution; the table gives the area to the left of $z$; the area above $x$ is 1 minus that; then state it as a percent in context. (Before any of this, check a graph: the model has to fit before its numbers mean anything.)
 
 - id: a1-m8-r2-h11
   lesson: a1-m8-h-normal
@@ -402,10 +402,10 @@
   lesson: a1-m8-h-simpsons-paradox
   topic: Simpson's paradox
   stem: 'A tutoring program had an 80% pass rate among its 40 students with strong backgrounds and a 50% pass rate among its 160 students with weak backgrounds. What is its overall pass rate?'
-  choices: ['65%', '56%', '50%', '62%']
+  choices: ['65%', '56%', '50%', '74%']
   answer: 1
   explanation: |-
-    Passes: $0.80(40) + 0.50(160) = 32 + 80 = 112$ out of 200, so $\tfrac{112}{200} = 56\%$. As a weighted average: $0.2(80\%) + 0.8(50\%) = 56\%$. 65% averages the two rates as if the groups were the same size; the overall rate is pulled toward the larger group.
+    Passes: $0.80(40) + 0.50(160) = 32 + 80 = 112$ out of 200, so $\tfrac{112}{200} = 56\%$. As a weighted average: $0.2(80\%) + 0.8(50\%) = 56\%$. 65% averages the two rates as if the groups were the same size; the overall rate is pulled toward the larger group. 74% swaps the weights ($0.8(80\%) + 0.2(50\%)$), and 50% is just the larger group's rate, ignoring the strong-background students.
 
 - id: a1-m8-r2-h17
   lesson: a1-m8-h-simpsons-paradox

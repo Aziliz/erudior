@@ -123,7 +123,7 @@
     - {name: exx, label: 'Expected count', tolerance: 0.06}
     - {name: gapx, label: 'Observed − expected', tolerance: 0.06}
   solution: |-
-    Expected count $= \dfrac{\text{row total} \times \text{column total}}{\text{grand total}} = \dfrac{{r1} \times {k1}}{{N}} = \dfrac{{prod}}{{N}} \approx$ **{ex}**.
+    Expected count $= \dfrac{\text{row total} \times \text{column total}}{\text{grand total}} = \dfrac{{r1} \times {k1}}{{N}} = \dfrac{{prod:dp0}}{{N}} \approx$ **{ex}**.
     Observed − expected $= {a} - {ex} =$ **{gap}**. (A positive gap means more city residents walk than "no association" predicts; a negative gap, fewer.)
 
 - id: a1-m8-r2-lsrl-points

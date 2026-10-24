@@ -25,7 +25,7 @@ So the same model can be written $A = ae^{kt}$ with $k = \ln b$. The number $k$ 
 | $2$ | 100% | $0.69315$ (69.3%) |
 | $0.80$ | $-20\%$ | $-0.22314$ ($-22.3\%$) |
 
-Notice that for growth the continuous rate is always a little smaller than $r$. That makes sense: a continuous rate compounds on itself all through the period, so it needs a smaller rate to produce the same growth over a whole period. For small rates the two are close, because $\ln(1 + r) \approx r$ when $r$ is near 0: $\ln 1.01 \approx 0.00995$, but $\ln 1.20 \approx 0.182$.
+Notice that for growth the continuous rate is always smaller than $r$. That makes sense: a continuous rate compounds on itself all through the period, so it needs a smaller rate to produce the same growth over a whole period. For small rates the two are close, because $\ln(1 + r) \approx r$ when $r$ is near 0: $\ln 1.01 \approx 0.00995$, but $\ln 1.20 \approx 0.182$.
 
 ### Example 1
 

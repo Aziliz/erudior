@@ -232,7 +232,7 @@
   choices: ['About 7,570 years', 'About 4,220 years', 'About 3,440 years', 'About 2,290 years']
   answer: 0
   explanation: |-
-    $\lambda = \dfrac{\ln 2}{5730}$, and $e^{-\lambda t} = 0.40$ gives $t = \dfrac{5730\ln 0.40}{-\ln 2} \approx 7{,}570$ years. Check: 40% is between 50% (5,730 years) and 25% (11,460 years). 4,220 years is the age if 60% remained; 3,440 and 2,290 come from multiplying 5,730 by 0.6 or 0.4, as if decay were linear.
+    $\lambda = \dfrac{\ln 2}{5730}$, and $e^{-\lambda t} = 0.40$ gives $t = \dfrac{5730\ln 0.40}{-\ln 2} \approx 7{,}570$ years. Check: 40% is between 50% (5,730 years) and 25% (11,460 years). 4,220 years is the age if 60% remained; 3,440 and 2,290 come from simply multiplying 5,730 by 0.6 or 0.4, which has no basis in how decay works.
 - id: a2-m6-r2-h07
   lesson: a2-m6-h-continuous-growth
   topic: Continuous growth
@@ -305,7 +305,7 @@
 - id: a2-m6-r2-h14
   lesson: a2-m6-h-continuous-growth
   topic: Continuous growth
-  stem: 'The exact rule for continuous growth would be "divide 69.3 by the percent rate." Why do people use 72 instead for yearly compounding?'
+  stem: 'For continuous growth the doubling time is $\dfrac{\ln 2}{k}$, so the rule "divide 69.3 by the percent rate" is exact apart from rounding. Why do people use 72 instead for yearly compounding?'
   choices:
     - '72 is exact for every rate, and 69.3 is only an estimate.'
     - '72 makes the answer come out in months instead of years.'

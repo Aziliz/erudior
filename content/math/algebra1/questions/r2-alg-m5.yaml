@@ -42,7 +42,7 @@
     - {x: 80.0, y: 14.1, text: Power of ten}
   distractors: [Constant term, Radicand]
   explanation: |-
-    In $7x^4$, $x$ is the base, 4 is the exponent (it counts the factors of $x$), and 7 is the coefficient multiplying the power. In $3.2 \times 10^{-5}$, 3.2 is the decimal part, which must be at least 1 and less than 10, and $10^{-5}$ is the power of ten that sets the size.
+    In $7x^4$, $x$ is the base, 4 is the exponent (it counts the factors of $x$), and 7 is the coefficient multiplying the power. In $3.2 \times 10^{-5}$, 3.2 is the decimal part, which (ignoring its sign) must be at least 1 and less than 10, and $10^{-5}$ is the power of ten that sets the size.
 - id: alg-m5-r2-q05
   lesson: alg-exponent-rules
   type: match
@@ -198,7 +198,7 @@
   type: match
   module_quiz: true
   topic: Factoring
-  stem: 'Match each polynomial to the method that factors it.'
+  stem: 'Match each polynomial to the method the factoring strategy in this lesson chooses for it.'
   pairs:
     - ['$4x^2 - 49$', 'Difference of squares']
     - ['$x^3 + 8$', 'Sum of cubes']
@@ -244,7 +244,7 @@
   choices: ['Quotient $x + 7$, remainder 21', 'Quotient $x + 3$, remainder $-1$', 'Quotient $x + 3$, remainder 1', 'Quotient $x + 3$, remainder 13']
   answer: 2
   explanation: |-
-    $x^2 \div x = x$; subtract $x(x + 2) = x^2 + 2x$ to leave $3x + 7$. Then $3x \div x = 3$; subtract $3(x + 2) = 3x + 6$ to leave 1. Check: $(x + 2)(x + 3) + 1 = x^2 + 5x + 7$. Quotient $x + 7$ with remainder 21 is the result of dividing by $x - 2$ instead, and remainder 13 comes from adding the 6 instead of subtracting it.
+    $x^2 \div x = x$; subtract $x(x + 2) = x^2 + 2x$ to leave $3x + 7$. Then $3x \div x = 3$; subtract $3(x + 2) = 3x + 6$ to leave 1. Check: $(x + 2)(x + 3) + 1 = x^2 + 5x + 7$. Quotient $x + 7$ with remainder 21 is the result of dividing by $x - 2$ instead, remainder 13 comes from adding the 6 instead of subtracting it, and remainder $-1$ comes from subtracting the wrong way round, $6 - 7$.
 - id: alg-m5-r2-h03
   lesson: alg-m5-h-polynomial-division
   topic: Polynomial division
@@ -252,7 +252,7 @@
   choices: ['$x^2 - 2x + 4$', '$x^2 + 4$', '$x^2 + 2x - 4$', '$x^2 + 2x + 4$']
   answer: 3
   explanation: |-
-    Write the dividend as $x^3 + 0x^2 + 0x - 8$. Synthetic division with $c = 2$: bring down 1; $0 + 2 = 2$; $0 + 4 = 4$; $-8 + 8 = 0$. Quotient $x^2 + 2x + 4$, remainder 0. This matches the difference of cubes: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$. $x^2 - 2x + 4$ belongs to the sum of cubes $x^3 + 8$.
+    Write the dividend as $x^3 + 0x^2 + 0x - 8$. Synthetic division with $c = 2$: bring down 1; $0 + 2 = 2$; $0 + 4 = 4$; $-8 + 8 = 0$. Quotient $x^2 + 2x + 4$, remainder 0. This matches the difference of cubes: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$. $x^2 - 2x + 4$ belongs to the sum of cubes $x^3 + 8$; $x^2 + 4$ leaves out the middle term, and $x^2 + 2x - 4$ copies the minus sign of $-8$ onto the last term.
 - id: alg-m5-r2-h04
   lesson: alg-m5-h-polynomial-division
   type: text
@@ -358,7 +358,7 @@
   choices: ['$x^2 + 6x + 11$', '$x^2 + 5x + 5$', '$x^2 + 5x + 6$', '$x^2 + 7x + 18$']
   answer: 2
   explanation: |-
-    Base area = volume ÷ height. Synthetic division by $x + 1$ ($c = -1$) with $1, 6, 11, 6$: $1$; $6 - 1 = 5$; $11 - 5 = 6$; $6 - 6 = 0$. So the base area is $x^2 + 5x + 6$. Using $c = 1$ by mistake gives $x^2 + 7x + 18$ with a nonzero remainder.
+    Base area = volume ÷ height. Synthetic division by $x + 1$ ($c = -1$) with $1, 6, 11, 6$: $1$; $6 - 1 = 5$; $11 - 5 = 6$; $6 - 6 = 0$. So the base area is $x^2 + 5x + 6$. Using $c = 1$ by mistake gives $x^2 + 7x + 18$ with a nonzero remainder. Multiplying by the top-row number instead of the one just written below the line gives $x^2 + 5x + 5$ ($11 + 6(-1) = 5$), and $x^2 + 6x + 11$ just drops the last coefficient without dividing.
 - id: alg-m5-r2-h15
   lesson: alg-m5-h-polynomial-division
   topic: Polynomial division
@@ -429,7 +429,7 @@
   choices: ['80', '5', '10', '32']
   answer: 0
   explanation: |-
-    With $a = 2x$ and $b = 1$, the $x^4$ term is $\dbinom51 (2x)^4 (1)^1 = 5 \cdot 16x^4 = 80x^4$. Using $2x^4$ instead of $(2x)^4$ gives 10, and 32 is the coefficient of $x^5$.
+    With $a = 2x$ and $b = 1$, the $x^4$ term is $\dbinom51 (2x)^4 (1)^1 = 5 \cdot 16x^4 = 80x^4$. Using $2x^4$ instead of $(2x)^4$ gives 10, leaving out the $2^4$ altogether gives 5, and 32 is the coefficient of $x^5$.
 - id: alg-m5-r2-h23
   lesson: alg-m5-h-binomial-expansion
   type: order

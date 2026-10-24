@@ -43,5 +43,5 @@
   topic: Least-squares regression
 - term: regression to the mean
   aliases: [regression toward the mean, regression towards the mean]
-  definition: 'When $|r| < 1$, predicted values are fewer standard deviations from their mean than the inputs are from theirs ($\hat z_y = r z_x$), so extreme values tend to be followed by less extreme ones. Described by Francis Galton in 1886.'
+  definition: 'When $|r| < 1$, predicted values (for inputs away from their mean) are fewer standard deviations from their mean than the inputs are from theirs ($\hat z_y = r z_x$), so extreme values tend to be followed by less extreme ones. Described by Francis Galton in 1886.'
   topic: Least-squares regression

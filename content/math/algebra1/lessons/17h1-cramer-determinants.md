@@ -130,7 +130,7 @@ Compare $\begin{cases} x + y = 2 \\ x + 1.1y = 2.1 \end{cases}$ with the same sy
 4. A change of $0.1$ in one constant moved the solution from $(1, 1)$ to $(0, 2)$, a whole unit in each coordinate.
 
 ```plot
-{"x": [-2, 4], "y": [-1, 4], "functions": [{"f": "2 - x", "label": "x + y = 2"}, {"f": "(2.1 - x)/1.1", "label": "x + 1.1y = 2.1"}, {"f": "(2.2 - x)/1.1", "label": "x + 1.1y = 2.2", "dashed": true}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [0, 2], "label": "(0, 2)"}], "caption": "Nearly parallel lines: nudging one line a little slides the crossing point a long way"}
+{"x": [-2, 4], "y": [-1, 4], "functions": [{"f": "2 - x"}, {"f": "(2.1 - x)/1.1"}, {"f": "(2.2 - x)/1.1", "dashed": true}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [0, 2], "label": "(0, 2)"}], "labels": [{"at": [2.35, 3.55], "text": "steepest: x + y = 2"}, {"at": [2.35, 3.15], "text": "other solid: x + 1.1y = 2.1"}, {"at": [2.35, 2.75], "text": "dashed: x + 1.1y = 2.2"}], "caption": "Nearly parallel lines: nudging one line a little slides the crossing point a long way"}
 ```
 
 The graph shows why. The lines are almost parallel, so they cross at a shallow angle, and sliding one of them a tiny bit moves the crossing point a long way along the other. With $1.01$ in place of $1.1$ it is worse: $D = 0.01$, and changing a constant by just $0.01$ moves the solution by a whole unit. A system like this is called **ill-conditioned**. If its numbers come from measurements, its exact solution can't be trusted. (This is a simplified picture. Later courses measure the problem with a "condition number" rather than with $D$ alone, because multiplying an equation by 1,000 changes $D$ without changing the lines.)

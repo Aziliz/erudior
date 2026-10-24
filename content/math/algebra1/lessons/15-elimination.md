@@ -24,7 +24,7 @@ Solve $\begin{cases} 3x + 2y = 7 \\ 5x - 2y = 1 \end{cases}$.
 Here is what the addition did, in a picture. The sum $8x = 8$ is a new equation, and its graph is the vertical line $x = 1$. Because every solution of the system satisfies the sum, that new line passes through the same intersection point. Elimination swaps a slanted line for a simpler one through the same point.
 
 ```plot
-{"x": [-2, 4], "y": [-2, 6], "functions": [{"f": "(7 - 3*x)/2", "label": "3x + 2y = 7"}, {"f": "(5*x - 1)/2", "label": "5x - 2y = 1"}], "segments": [{"from": [1, -2], "to": [1, 6], "dashed": true, "label": "sum: 8x = 8"}], "points": [{"at": [1, 2], "label": "(1, 2)"}], "caption": "The sum of the two equations, x = 1, goes through the same intersection point"}
+{"x": [-2, 4], "y": [-2, 6], "functions": [{"f": "(7 - 3*x)/2"}, {"f": "(5*x - 1)/2", "label": "5x - 2y = 1"}], "segments": [{"from": [1, -2], "to": [1, 6], "dashed": true}], "points": [{"at": [1, 2]}], "labels": [{"at": [1.6, 2.05], "text": "(1, 2)"}, {"at": [1.62, 5.5], "text": "sum: x = 1"}, {"at": [-1.0, 3.5], "text": "3x + 2y = 7"}], "caption": "The sum of the two equations, x = 1, goes through the same intersection point"}
 ```
 
 ## Making coefficients opposites

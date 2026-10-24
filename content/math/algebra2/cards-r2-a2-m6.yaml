@@ -5,7 +5,7 @@
 - {front: 'Effective annual rate (APY)', back: '$\left(1 + \tfrac rn\right)^n - 1$; continuous: $e^r - 1$. Compare accounts by this, not by the nominal rate.', topic: Effective rates}
 - {front: 'APY of 6% compounded monthly', back: '$1.005^{12} - 1 \approx 6.17\%$.', topic: Effective rates}
 - {front: 'Exact doubling time', back: 'Continuous rate $k$: $\dfrac{\ln 2}{k}$. Yearly rate $r$: $\dfrac{\ln 2}{\ln(1 + r)}$.', topic: Continuous growth}
-- {front: 'Rule of 72', back: 'At $R$% a year, doubling takes about $72 \div R$ years. Good for about 4–12%; $69.3 \div R$ is exact for continuous growth.', topic: Continuous growth}
+- {front: 'Rule of 72', back: 'At $R$% a year, doubling takes about $72 \div R$ years. Good for about 4–12%; $69.3 \div R$ is essentially exact for continuous growth.', topic: Continuous growth}
 - {front: 'Half-life and decay constant', back: '$h = \dfrac{\ln 2}{\lambda}$ and $\lambda = \dfrac{\ln 2}{h}$ for $A = A_0e^{-\lambda t}$.', topic: Continuous growth}
 - {front: 'Radiocarbon age from fraction $f$ remaining', back: '$t = \dfrac{5730\ln f}{-\ln 2}$ years (simplified; real ages are calibrated).', topic: Continuous growth}
 - {front: 'Continuous rate from two measurements', back: '$k = \dfrac{1}{t}\ln\dfrac{A(t)}{A_0}$', topic: Continuous growth}
