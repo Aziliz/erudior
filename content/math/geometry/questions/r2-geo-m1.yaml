@@ -240,7 +240,7 @@
   choices: ['Bisect any angle', 'Trisect any angle', 'Construct a regular hexagon', 'Mark a segment exactly 3.7 cm long']
   answer: [0, 2]
   explanation: |-
-    Angle bisection and the regular hexagon are standard constructions. Trisecting an arbitrary angle was proved impossible in the 1800s, and the straightedge has no scale, so there is no way to measure out 3.7 cm.
+    Angle bisection and the regular hexagon are standard constructions. Trisecting an arbitrary angle was proved impossible in the 1800s, and the straightedge has no scale, so with no given unit length there is no way to measure out 3.7 cm (if a 1 cm segment were given, 3.7 cm could be constructed from it).
 
 # ---------- Honors lesson: Betweenness, half-planes and Pasch's axiom ----------
 - id: geo-m1-r2-h01
@@ -282,7 +282,7 @@
   choices: ['$(1.5, 2.5)$', '$(2, 4)$', '$(1.25, 1.75)$', 'It does not cross $\ell$']
   answer: 0
   explanation: |-
-    With $d = y - (3x - 2)$: $d_P = 4 - 1 = 3$ and $d_Q = 1 - 4 = -3$. Opposite signs, so the segment crosses $\ell$, at $t = \tfrac{3}{3 - (-3)} = \tfrac12$ of the way from $P$: the midpoint $(1.5, 2.5)$. Check: $3(1.5) - 2 = 2.5$. The point $(1.25, 1.75)$ is on $\ell$ but not on $\overline{PQ}$, and $(2, 4)$ is on $\ell$ but beyond $Q$.
+    With $d = y - (3x - 2)$: $d_P = 4 - 1 = 3$ and $d_Q = 1 - 4 = -3$. Opposite signs, so the segment crosses $\ell$, at $t = \tfrac{3}{3 - (-3)} = \tfrac12$ of the way from $P$: the midpoint $(1.5, 2.5)$. Check: $3(1.5) - 2 = 2.5$. The point $(1.25, 1.75)$ is on $\ell$ but not on $\overline{PQ}$, and $(2, 4)$ is on $\ell$ but not on $\overline{PQ}$ (the segment reaches $x = 2$ only at $Q(2, 1)$).
 - id: geo-m1-r2-h06
   lesson: geo-m1-h-plane-separation
   type: text
