@@ -91,7 +91,7 @@ $$T(x) = \begin{cases} 0.10x & 0 \le x \le 20{,}000 \\ 2{,}000 + 0.20(x - 20{,}0
 Each piece starts where the last one ended, so $T$ is continuous, and each slope is a bracket's rate: the marginal rate is the slope of $T$.
 
 ```plot
-{"x": [0, 90], "y": [0, 22], "functions": [{"f": "0.1*x", "to": 20}, {"f": "2 + 0.2*(x - 20)", "from": 20, "to": 50}, {"f": "8 + 0.3*(x - 50)", "from": 50}], "points": [{"at": [20, 2]}, {"at": [50, 8]}], "labels": [{"at": [14, 5], "text": "(20, 2)"}, {"at": [60, 5.5], "text": "(50, 8)"}], "xLabel": "taxable income (thousands of dollars)", "yLabel": "tax (thousands of dollars)", "caption": "The made-up tax schedule, in thousands of dollars: three line pieces with slopes 0.10, 0.20 and 0.30, joined without jumps at (20, 2) and (50, 8)."}
+{"x": [0, 90], "y": [0, 22], "functions": [{"f": "0.1*x", "to": 20}, {"f": "2 + 0.2*(x - 20)", "from": 20, "to": 50}, {"f": "8 + 0.3*(x - 50)", "from": 50}], "points": [{"at": [20, 2]}, {"at": [50, 8]}], "labels": [{"at": [12, 4], "text": "(20, 2)"}, {"at": [60, 5.5], "text": "(50, 8)"}], "xLabel": "taxable income (thousands of dollars)", "yLabel": "tax (thousands of dollars)", "caption": "The made-up tax schedule, in thousands of dollars: three line pieces with slopes 0.10, 0.20 and 0.30, joined without jumps at (20, 2) and (50, 8)."}
 ```
 
 ### Example 3
