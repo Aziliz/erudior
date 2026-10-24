@@ -46,11 +46,11 @@ Setting them equal: $1.25t^2 = 25t$, so $t(1.25t - 25) = 0$. The root $t = 0$ is
 That 50 m/s is exactly twice the speeder's speed, and it is no accident. Both cars covered the same distance in the same time, so their *average* velocities were equal. The police car's average velocity, for constant acceleration from rest, is half its final velocity, so its final velocity must be $2 \times 25$ m/s. The $v$–$t$ graph shows the same thing: the areas under the two lines are equal at the catch.
 
 ```plot
-{"x": [0, 24], "y": [0, 650], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "25*x", "from": 0, "to": 23, "label": "speeder"}, {"f": "1.25*x^2", "from": 0, "to": 22.5, "label": "police", "dashed": true}], "points": [{"at": [20, 500], "label": "catch: 20 s, 500 m"}], "caption": "Positions of the two cars: they meet where the line and the parabola cross"}
+{"x": [0, 24], "y": [0, 650], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "25*x", "from": 0, "to": 23, "label": "speeder"}, {"f": "1.25*x^2", "from": 0, "to": 22.5, "label": "police", "dashed": true}], "points": [{"at": [20, 500]}], "labels": [{"at": [7, 560], "text": "catch (dot): 20 s, 500 m"}], "caption": "Positions of the two cars: they meet where the line and the parabola cross"}
 ```
 
 ```plot
-{"x": [0, 24], "y": [0, 60], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "25", "from": 0, "to": 23, "label": "speeder"}, {"f": "2.5*x", "from": 0, "to": 22, "label": "police", "dashed": true}], "points": [{"at": [10, 25], "label": "equal speeds: largest gap"}], "caption": "Velocities: at 20 s the triangle under the police line has the same area as the rectangle under the speeder's"}
+{"x": [0, 24], "y": [0, 60], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "25", "from": 0, "to": 23, "label": "speeder"}, {"f": "2.5*x", "from": 0, "to": 22, "label": "police", "dashed": true}], "points": [{"at": [10, 25]}], "labels": [{"at": [6.5, 35], "text": "dot: equal speeds, largest gap"}], "caption": "Velocities: at 20 s the triangle under the police line has the same area as the rectangle under the speeder's"}
 ```
 
 The second graph also answers a question students often get wrong: when is the speeder farthest ahead? Not at the start, and not at the catch, but at $t = 10$ s, when the two speeds are equal. Before that the speeder is faster and the gap grows; after it the police car is faster and the gap shrinks. (Gap at 10 s: $250 - 125 = 125$ m.)
