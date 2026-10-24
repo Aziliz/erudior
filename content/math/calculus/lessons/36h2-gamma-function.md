@@ -37,7 +37,7 @@ The shift by one (the power is $s - 1$, not $s$) is a historical convention, exp
 *Why it converges.* The integral is improper at both ends when $0 < s < 1$ (the integrand blows up at 0) and always improper at $\infty$. Split it at 1 and use the comparison test from Lesson 35 on each piece.
 
 - On $(0, 1]$: $e^{-x} \le 1$, so $x^{s-1}e^{-x} \le x^{s-1} = \frac{1}{x^{1-s}}$. That is a p-integral on $(0, 1]$ with $p = 1 - s$, which converges when $p < 1$, that is, when $s > 0$.
-- On $[1, \infty)$: $x^{s-1}e^{-x/2} \to 0$ as $x \to \infty$ (exponentials beat powers), so for large $x$ it is below 1 and $x^{s-1}e^{-x} = x^{s-1}e^{-x/2}\cdot e^{-x/2} \le e^{-x/2}$. And $\int_1^\infty e^{-x/2}\,dx$ converges.
+- On $[1, \infty)$: $x^{s-1}e^{-x/2} \to 0$ as $x \to \infty$ (exponentials beat powers), so for large $x$ it is below 1 and $x^{s-1}e^{-x} = x^{s-1}e^{-x/2}\cdot e^{-x/2} \le e^{-x/2}$. And $\int_1^\infty e^{-x/2}\,dx$ converges. (Before $x$ is that large, the integral is over a bounded interval of a continuous function, an ordinary integral.)
 
 So $\Gamma(s)$ is a finite number for every $s > 0$. For $s \le 0$ the piece near 0 diverges.
 
@@ -58,7 +58,7 @@ $$\Gamma(2) = 1\cdot\Gamma(1) = 1, \quad \Gamma(3) = 2\Gamma(2) = 2, \quad \Gamm
 This also explains the convention $0! = 1$: it is $\Gamma(1)$, the integral of $e^{-x}$ over $[0, \infty)$.
 
 ```plot
-{"x": [0, 5.2], "y": [0, 10], "functions": [{"f": "gamma(x)", "from": 0.1, "to": 5.2, "label": "y = Γ(x)"}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [2, 1], "label": "(2, 1)"}, {"at": [3, 2]}, {"at": [4, 6], "label": "(4, 6)"}, {"at": [0.5, 1.7725], "label": "(1/2, √π)"}], "labels": [{"at": [3.45, 1.3], "text": "(3, 2)"}], "caption": "The gamma function for x > 0 passes through (n, (n − 1)!) and rises without bound as x → 0⁺; its minimum, about 0.8856, is near x ≈ 1.4616"}
+{"x": [0, 5.2], "y": [0, 10], "functions": [{"f": "gamma(x)", "from": 0.1, "to": 5.2, "label": "y = Γ(x)"}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [2, 1]}, {"at": [3, 2]}, {"at": [4, 6], "label": "(4, 6)"}, {"at": [0.5, 1.7725], "label": "(1/2, √π)"}], "labels": [{"at": [1.95, 1.8], "text": "(2, 1)"}, {"at": [3.45, 1.3], "text": "(3, 2)"}], "caption": "The gamma function for x > 0 passes through (n, (n − 1)!) and rises without bound as x → 0⁺; its minimum, about 0.8856, is near x ≈ 1.4616"}
 ```
 
 ## $\Gamma\left(\frac12\right) = \sqrt\pi$

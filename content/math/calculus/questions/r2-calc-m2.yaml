@@ -288,7 +288,7 @@
   choices: ['$0.2$ m/s', '$0.0005$ m/s', '$0.4$ m/s', '$0.02$ m/s']
   answer: 2
   explanation: |-
-    One reading can be $0.01$ m too high and the other $0.01$ m too low, so the numerator can be off by $0.02$ m. Dividing by $h = 0.05$ s gives up to $0.4$ m/s. ($0.2$ m/s forgets that both readings can be wrong; $0.0005$ multiplies by $h$ instead of dividing.)
+    One reading can be $0.01$ m too high and the other $0.01$ m too low, so the numerator can be off by $0.02$ m. Dividing by $h = 0.05$ s gives up to $0.4$ m/s. ($0.2$ m/s forgets that both readings can be wrong; $0.02$ m/s is the numerator's error, never divided by $h$; $0.0005$ multiplies by $h$ instead of dividing.)
 - id: calc-m2-r2-h12
   lesson: calc-m2-h-numerical
   type: text

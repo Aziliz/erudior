@@ -9,7 +9,7 @@
 - {front: 'Best step in double precision (well-scaled functions)', back: 'About $10^{-8}$ for a forward difference, about $10^{-5}$ for a central difference (rules of thumb).', topic: Numerical differentiation}
 - {front: 'Minimizing $Ah + \dfrac{B}{h}$', back: 'Make the terms equal: $h = \sqrt{B/A}$, giving a minimum of $2\sqrt{AB}$.', topic: Numerical differentiation}
 - {front: 'Noisy data and difference quotients', back: 'Readings off by up to $\delta$ can put a forward difference off by up to $2\delta/h$: smaller $h$ magnifies noise.', topic: Numerical differentiation}
-- {front: 'Piece-by-piece shortcut for one-sided derivatives', back: 'Valid only if $f$ is continuous at the seam (and the pieces'' derivatives have limits there). Check continuity first.', topic: Smoothness}
+- {front: 'Piece-by-piece shortcut for one-sided derivatives', back: 'Guaranteed when $f$ is continuous at the seam (and the pieces'' derivatives have limits there); if $f$ jumps, it can give the wrong answer. Check continuity first.', topic: Smoothness}
 - {front: '$x^2\sin(1/x)$, with $f(0) = 0$', back: 'Differentiable everywhere with $f''(0) = 0$, but $f''$ is not continuous at 0: differentiable, not $C^1$.', topic: Smoothness}
 - {front: 'Darboux''s theorem', back: 'A derivative on an interval takes every value between any two of its values, so it can never jump.', topic: Smoothness}
 - {front: 'Smoothness ladder', back: '$C^\infty \subset \dots \subset C^2 \subset C^1 \subset$ differentiable $\subset C^0$; no step reverses.', topic: Smoothness}

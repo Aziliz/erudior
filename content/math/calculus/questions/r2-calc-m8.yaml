@@ -114,7 +114,7 @@
   choices: ['$\tfrac14\sec^4x + C$', '$\tfrac13\tan^3x + C$', '$\tfrac13\sec^3x + C$', '$\tfrac12\tan^2x\sec x + C$']
   answer: 2
   explanation: |-
-    The tangent power is odd. Save $\sec x\tan x$: the integrand is $\sec^2x\cdot\sec x\tan x$. With $u = \sec x$, $du = \sec x\tan x\,dx$, this is $\int u^2\,du = \frac{u^3}{3} = \frac13\sec^3x + C$. The answer $\frac14\sec^4x$ treats $\sec^3x\,dx$ as if it were $du$ for $u = \sec x$, missing that $du$ uses one $\sec x$ together with the $\tan x$.
+    The tangent power is odd. Save $\sec x\tan x$: the integrand is $\sec^2x\cdot\sec x\tan x$. With $u = \sec x$, $du = \sec x\tan x\,dx$, this is $\int u^2\,du = \frac{u^3}{3} = \frac13\sec^3x + C$. The answer $\frac14\sec^4x$ treats $\sec^3x\,dx$ as if it were $du$ for $u = \sec x$, missing that $du$ uses one $\sec x$ together with the $\tan x$. The two tangent answers come from guessing a power rule in $\tan x$; differentiating shows they are wrong (for example, $\left(\frac13\tan^3x\right)' = \tan^2x\sec^2x$).
 
 # 33 Partial fractions
 - id: calc-m8-r2-q11
@@ -153,15 +153,14 @@
   lesson: calc-partial-fractions
   topic: Partial fractions
   type: order
-  stem: 'Put the steps for integrating a rational function by partial fractions in order.'
+  stem: 'Put the steps for integrating a proper rational function by partial fractions in order.'
   items:
-    - 'If the fraction is improper, divide first'
     - 'Factor the denominator completely'
     - 'Write one term for each factor, with extra terms for repeated factors'
     - 'Clear denominators and solve for the constants'
     - 'Integrate each term'
   explanation: |-
-    The decomposition only exists for a proper fraction, so division comes first. The factors determine which terms to write, the terms must be set up before their constants can be found, and only then can each simple piece be integrated (logs, powers and arctangents).
+    The factors determine which terms to write, the terms must be set up before their constants can be found, and only then can each simple piece be integrated (logs, powers and arctangents). (An improper fraction needs long division before any of this, since the decomposition only exists for a proper fraction.)
 - id: calc-m8-r2-q15
   lesson: calc-partial-fractions
   module_quiz: true
@@ -267,11 +266,10 @@
   stem: 'Put the steps for evaluating $\displaystyle\int_1^\infty\frac{dx}{x^2}$ in order.'
   items:
     - 'Replace $\infty$ by $t$: $\displaystyle\lim_{t\to\infty}\int_1^t\frac{dx}{x^2}$'
-    - 'Find the antiderivative $-\frac1x$'
-    - 'Evaluate from 1 to $t$: $1 - \frac1t$'
+    - 'Evaluate the ordinary integral from 1 to $t$: $\Big[-\frac1x\Big]_1^t = 1 - \frac1t$'
     - 'Take the limit as $t \to \infty$: the integral converges to 1'
   explanation: |-
-    An improper integral is defined as a limit of ordinary integrals, so set up the limit first. Inside it, integrate and evaluate at the finite limits; the limit is taken last.
+    An improper integral is defined as a limit of ordinary integrals, so set up the limit first. Inside it, integrate and evaluate at the finite limits 1 and $t$; the limit is taken last.
 - id: calc-m8-r2-q25
   lesson: calc-improper
   module_quiz: true

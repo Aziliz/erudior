@@ -35,8 +35,8 @@
     mid: (lo + hi)/2
   prompt: 'For $\displaystyle\sum_{n=1}^\infty\frac{1}{n^{p}}$, use $S_{{N}}$ and the integral test to find a lower bound and an upper bound for the sum $S$. Give each to 4 decimal places.'
   answers:
-    - {name: lo, label: '$S \ge$', tolerance: 0.00015, format: dp4}
-    - {name: hi, label: '$S \le$', tolerance: 0.00015, format: dp4}
+    - {name: lo, label: '$S \ge$', tolerance: 0.00007, format: dp4}
+    - {name: hi, label: '$S \le$', tolerance: 0.00007, format: dp4}
   solution: |-
     Adding the first {N} terms: $S_{{N}} \approx {S:dp6}$. The terms are positive and decreasing, so
     $$S_{{N}} + \int_{{N1}}^\infty\frac{dx}{x^{p}} \le S \le S_{{N}} + \int_{{N}}^\infty\frac{dx}{x^{p}}, \qquad \int_c^\infty\frac{dx}{x^{p}} = \frac{1}{({p} - 1)\,c^{{p} - 1}}.$$
@@ -69,7 +69,7 @@
   topic: Complex power series
   vars:
     p: {min: -4, max: 4}
-    q: {min: 1, max: 4}
+    q: {min: 2, max: 4}
     a: {min: -3, max: 3}
   where: ["p != 0"]
   calc:

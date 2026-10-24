@@ -132,7 +132,7 @@ with $0 < a < 1$, $b$ an odd integer and $ab > 1 + \tfrac{3\pi}{2}$ (G. H. Hardy
 
 ## Key points
 
-- The one-sided derivatives at a seam equal the limits of the pieces' derivatives only when $f$ is continuous there (and those limits exist).
+- The one-sided derivatives at a seam are guaranteed to equal the limits of the pieces' derivatives when $f$ is continuous there (and those limits exist); if $f$ jumps, the shortcut can give the wrong answer.
 - A derivative can exist everywhere and still be discontinuous ($x^2\sin(1/x)$), but by Darboux's theorem it can never jump.
 - Smoothness classes: $C^\infty \subset \dots \subset C^2 \subset C^1 \subset$ differentiable $\subset C^0$; $\lvert x\rvert$, $x\lvert x\rvert$ and $\lvert x\rvert^3$ climb the ladder one rung at a time.
 - A $C^2$ join matches value, slope and second derivative; transition curves on roads and railways and cubic splines are built this way.
