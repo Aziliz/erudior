@@ -70,7 +70,7 @@ is orthogonal to everything. Expanding $\|\mathbf{u} + \mathbf{v}\|^2 = \|\mathb
 For example, $\mathbf{u} = (2, 1)$ and $\mathbf{v} = (-1, 2)$ are orthogonal, since $-2 + 2 = 0$. Their sum is $(1, 3)$, and $\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 = 5 + 5 = 10 = \|(1, 3)\|^2$. In the picture, $\mathbf{u}$, $\mathbf{v}$ (moved to the tip of $\mathbf{u}$) and $\mathbf{u} + \mathbf{v}$ form a right triangle.
 
 ```plot
-{"x": [-2, 4], "y": [-1, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "u"}, {"from": [2, 1], "to": [1, 3], "arrow": true, "label": "v"}, {"from": [0, 0], "to": [1, 3], "arrow": true, "label": "u + v"}, {"from": [0, 0], "to": [-1, 2], "arrow": true, "dashed": true, "label": "v"}], "rightAngles": [[[2, 1], [0, 0], [1, 3]]], "caption": "Orthogonal u and v: ‖u‖² + ‖v‖² = 5 + 5 = 10 = ‖u + v‖²"}
+{"x": [-2, 4], "y": [-1, 4], "equal": true, "segments": [{"from": [0, 0], "to": [2, 1], "arrow": true, "label": "u"}, {"from": [2, 1], "to": [1, 3], "arrow": true, "label": "v"}, {"from": [0, 0], "to": [1, 3], "arrow": true}, {"from": [0, 0], "to": [-1, 2], "arrow": true, "dashed": true}], "labels": [{"at": [1.05, 1.6], "text": "u + v"}, {"at": [-0.85, 1.0], "text": "v"}], "rightAngles": [[[2, 1], [0, 0], [1, 3]]], "caption": "Orthogonal u and v: ‖u‖² + ‖v‖² = 5 + 5 = 10 = ‖u + v‖²"}
 ```
 
 ## Orthogonal complements
