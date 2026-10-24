@@ -46,7 +46,7 @@ Setting them equal: $1.25t^2 = 25t$, so $t(1.25t - 25) = 0$. The root $t = 0$ is
 That 50 m/s is exactly twice the speeder's speed, and it is no accident. Both cars covered the same distance in the same time, so their *average* velocities were equal. The police car's average velocity, for constant acceleration from rest, is half its final velocity, so its final velocity must be $2 \times 25$ m/s. The $v$–$t$ graph shows the same thing: the areas under the two lines are equal at the catch.
 
 ```plot
-{"x": [0, 24], "y": [0, 650], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "25*x", "from": 0, "to": 23, "label": "speeder"}, {"f": "1.25*x^2", "from": 0, "to": 22.5, "label": "police", "dashed": true}], "points": [{"at": [20, 500]}], "labels": [{"at": [7, 560], "text": "catch (dot): 20 s, 500 m"}], "caption": "Positions of the two cars: they meet where the line and the parabola cross"}
+{"x": [0, 24], "y": [0, 700], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "25*x", "from": 0, "to": 24, "label": "speeder"}, {"f": "1.25*x^2", "from": 0, "to": 21.5, "label": "police", "dashed": true}], "points": [{"at": [20, 500]}], "labels": [{"at": [7, 560], "text": "catch (dot): 20 s, 500 m"}], "caption": "Positions of the two cars: they meet where the line and the parabola cross"}
 ```
 
 ```plot
