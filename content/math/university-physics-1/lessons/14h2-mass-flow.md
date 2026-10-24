@@ -57,7 +57,7 @@ A rocket of total mass $2.0\times10^5$ kg burns $1.5\times10^5$ kg of propellant
 Gravity cost 1470 m/s, more than a third of the 4160 m/s the same burn would give in empty space. Real launch vehicles also lose speed to drag and tip over toward horizontal during the climb, so this vertical model is a simplification; it shows the size of the gravity loss, not a real trajectory.
 
 ```plot
-{"x": [0, 160], "y": [0, 4.5], "xLabel": "time (s)", "yLabel": "speed (km/s)", "functions": [{"f": "3*ln(200000/(200000 - 1000*x))", "from": 0, "to": 150, "label": "no gravity"}, {"f": "3*ln(200000/(200000 - 1000*x)) - 0.0098*x", "from": 0, "to": 150, "label": "rising against gravity"}], "caption": "Example 1's rocket: the gap between the curves is the gravity loss gt, 1.47 km/s at burnout"}
+{"x": [0, 160], "y": [0, 4.5], "xLabel": "time (s)", "yLabel": "speed (km/s)", "functions": [{"f": "3*ln(200000/(200000 - 1000*x))", "from": 0, "to": 150}, {"f": "3*ln(200000/(200000 - 1000*x)) - 0.0098*x", "from": 0, "to": 150}], "labels": [{"at": [103, 3.1], "text": "no gravity"}, {"at": [128, 0.5], "text": "rising against gravity"}], "caption": "Example 1's rocket: the gap between the curves is the gravity loss gt, 1.47 km/s at burnout"}
 ```
 
 ## Mass joining a moving body: the conveyor belt

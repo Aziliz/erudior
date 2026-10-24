@@ -4,12 +4,12 @@
 <rect x="100" y="50" width="340" height="240" rx="0" fill="#ffffff" stroke="#1c2833" stroke-width="3" />
 <rect x="440" y="50" width="22" height="240" rx="0" fill="#e8e2f3" stroke="#1c2833" stroke-width="2" />
 <circle cx="160" cy="100" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
-<circle cx="220" cy="240" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="165" cy="262" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="300" cy="90" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="260" cy="170" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="150" cy="200" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="350" cy="250" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
-<circle cx="200" cy="140" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="178" cy="152" r="7" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
 <line x1="320" y1="110" x2="428" y2="166" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
 <line x1="432" y1="174" x2="322" y2="230" stroke="#1c2833" stroke-width="3" marker-end="url(#ah)"/>
 <circle cx="432" cy="170" r="8" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>

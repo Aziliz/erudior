@@ -96,7 +96,7 @@ Time constant: $\tau = v_T/g = 5.27$ s. Ninety percent of $v_T$ needs $\tanh(t/\
 
 Distance: $y = \dfrac{v_T^2}{g}\ln\cosh(1.472) = 272(0.830) = 226$ m.
 
-Without drag, 7.76 s of free fall would give 76 m/s and 295 m. Drag has taken off a third of her speed already, and from then on she gains almost nothing: the rest of a long jump is at a steady speed near 52 m/s. (These numbers are for illustration; real skydivers change $C$ and $A$ a lot just by changing posture.)
+Without drag, 7.76 s of free fall would give 76 m/s and 295 m. Drag has already taken nearly 40% off her speed, and from then on she gains almost nothing: the rest of a long jump is at a steady speed near 52 m/s. (These numbers are for illustration; real skydivers change $C$ and $A$ a lot just by changing posture.)
 
 ## Thrown upward
 

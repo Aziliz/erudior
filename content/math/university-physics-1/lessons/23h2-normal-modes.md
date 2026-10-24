@@ -68,11 +68,11 @@ $$t_{\text{transfer}} = \frac{\pi}{\Delta\omega},$$
 and then the energy flows back. This is the beat phenomenon of the sound lesson, $f_{\text{beat}} = |f_1 - f_2|$, now seen as energy sloshing between two oscillators. Weak coupling ($k' \ll k$) makes $\Delta\omega$ small and the transfer slow.
 
 ```plot
-{"x": [0, 13], "y": [-1.3, 1.3], "xLabel": "t (s)", "yLabel": "x₁ / A", "functions": [{"f": "cos(0.25*x)*cos(8*x)", "to": 12.6}], "caption": "Block 1, released first: its swing dies away and returns"}
+{"x": [0, 14], "y": [-1.3, 1.3], "xLabel": "t (s)", "yLabel": "x₁ / A", "functions": [{"f": "cos(0.25*x)*cos(8*x)", "to": 12.6}], "caption": "Block 1, released first: its swing dies away and returns"}
 ```
 
 ```plot
-{"x": [0, 13], "y": [-1.3, 1.3], "xLabel": "t (s)", "yLabel": "x₂ / A", "functions": [{"f": "sin(0.25*x)*sin(8*x)", "to": 12.6}], "caption": "Block 2, released from equilibrium: it swings fully after π/Δω ≈ 6.3 s. Weak coupling, ω̄ = 8 rad/s and Δω = 0.5 rad/s"}
+{"x": [0, 14], "y": [-1.3, 1.3], "xLabel": "t (s)", "yLabel": "x₂ / A", "functions": [{"f": "sin(0.25*x)*sin(8*x)", "to": 12.6}], "caption": "Block 2, released from equilibrium: it swings fully after π/Δω ≈ 6.3 s. Weak coupling, ω̄ = 8 rad/s and Δω = 0.5 rad/s"}
 ```
 
 ### Example 2

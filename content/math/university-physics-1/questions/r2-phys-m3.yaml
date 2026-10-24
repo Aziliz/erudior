@@ -428,7 +428,7 @@
     - [A skydiver in free fall, Quadratic drag]
   distractors: [No drag at all]
   explanation: |-
-    Tiny, slow objects have Reynolds numbers far below 1 (about 0.02 for the droplet), so viscosity dominates and drag is linear. A baseball or a skydiver moves fast enough, and is big enough, for $Re$ in the tens of thousands or more, where drag grows as $v^2$.
+    Tiny, slow objects have Reynolds numbers far below 1 (roughly 0.002 to 0.02 for the droplet, depending on whether 10 μm is its diameter or its radius), so viscosity dominates and drag is linear. A baseball or a skydiver moves fast enough, and is big enough, for $Re$ in the tens of thousands or more, where drag grows as $v^2$.
 - id: phys-m3-r2-h24
   lesson: phys-m3-h-drag
   topic: Drag

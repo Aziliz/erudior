@@ -87,7 +87,7 @@ Three special cases build intuition:
 The graph shows both final velocities, as fractions of $v_{1i}$, for every mass ratio:
 
 ```plot
-{"x": [0, 6], "y": [-1.1, 2.1], "xLabel": "mass ratio m₁/m₂", "yLabel": "final velocity ÷ v₁ᵢ", "functions": [{"f": "(x - 1)/(x + 1)", "label": "projectile"}, {"f": "2*x/(x + 1)", "label": "target"}], "points": [{"at": [1, 0], "label": "equal masses"}], "caption": "Elastic head-on collision with the target at rest: the projectile bounces back when m₁ < m₂; the target never exceeds twice v₁ᵢ"}
+{"x": [0, 6], "y": [-1.1, 2.1], "xLabel": "mass ratio m₁/m₂", "yLabel": "final velocity ÷ v₁ᵢ", "functions": [{"f": "(x - 1)/(x + 1)", "label": "projectile"}, {"f": "2*x/(x + 1)", "label": "target"}], "points": [{"at": [1, 0]}], "labels": [{"at": [2.1, -0.45], "text": "equal masses"}], "caption": "Elastic head-on collision with the target at rest: the projectile bounces back when m₁ < m₂; the target never exceeds twice v₁ᵢ"}
 ```
 
 ### Example 3

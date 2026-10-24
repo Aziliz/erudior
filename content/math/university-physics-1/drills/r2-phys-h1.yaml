@@ -97,7 +97,7 @@
     - {format: sig4, name: ecc, label: '$e =$', relTolerance: 0.01}
     - {format: sig4, name: T, label: 'Period', relTolerance: 0.01, units: {min: 1, h: 60}}
   solution: |-
-    Distances from Earth's center: $r_p = {rp}$ km and $r_a = {rap}$ km.
+    Distances from Earth's center: $r_p = {rp:sig5}$ km and $r_a = {rap:sig5}$ km.
 
     $a = \tfrac12(r_p + r_a) =$ **{sma:sig3} km**; $e = \dfrac{r_a - r_p}{r_a + r_p} =$ **{ecc:sig3}**.
 
@@ -119,7 +119,7 @@
     - {format: sig4, name: vp, label: 'Perigee speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
     - {format: sig4, name: va, label: 'Apogee speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
   solution: |-
-    $a = \tfrac12({rp} + {rap}) = {sma:sig4}$ km. Vis-viva, $v^2 = GM\left(\dfrac{2}{\,r} - \dfrac{1}{\,a}\right)$, with distances in meters:
+    $a = \tfrac12({rp:sig5} + {rap:sig5}) = {sma:sig5}$ km. Vis-viva, $v^2 = GM\left(\dfrac{2}{\,r} - \dfrac{1}{\,a}\right)$, with distances in meters:
 
     Perigee: **{vp:sig3} km/s**. Apogee: **{va:sig3} km/s**.
 

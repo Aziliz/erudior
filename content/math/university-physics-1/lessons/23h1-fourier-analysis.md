@@ -59,7 +59,7 @@ Only odd harmonics appear, as the half-wave symmetry predicted, and their amplit
 The graph shows how the partial sums close in on the square wave.
 
 ```plot
-{"x": [0, 2], "y": [-1.6, 1.6], "xLabel": "t / T", "yLabel": "y / A", "functions": [{"f": "4/pi*sin(2*pi*x)", "dashed": true}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5)"}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5 + sin(14*pi*x)/7 + sin(18*pi*x)/9 + sin(22*pi*x)/11 + sin(26*pi*x)/13 + sin(30*pi*x)/15 + sin(34*pi*x)/17 + sin(38*pi*x)/19)"}], "labels": [{"at": [0.25, 1.45], "text": "1 term"}, {"at": [1.12, 1.45], "text": "10 terms"}], "caption": "Square wave of height A: the fundamental alone (dashed), the first 3 odd harmonics, and the first 10"}
+{"x": [0, 2.2], "y": [-1.6, 1.6], "xLabel": "t / T", "yLabel": "y / A", "functions": [{"f": "4/pi*sin(2*pi*x)", "dashed": true, "to": 2}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5)", "to": 2}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5 + sin(14*pi*x)/7 + sin(18*pi*x)/9 + sin(22*pi*x)/11 + sin(26*pi*x)/13 + sin(30*pi*x)/15 + sin(34*pi*x)/17 + sin(38*pi*x)/19)", "to": 2}], "labels": [{"at": [0.75, -1.47], "text": "1 term"}, {"at": [1.12, 1.45], "text": "10 terms"}], "caption": "Square wave of height A: the fundamental alone (dashed), the first 3 odd harmonics, and the first 10"}
 ```
 
 More terms sharpen the corners, but right beside each jump the sum always overshoots, by about 9% of the jump, no matter how many terms you add; the overshoot just gets narrower. This is the **Gibbs phenomenon**, and it's why a sharp edge needs very high harmonics to reproduce well.
