@@ -6,7 +6,7 @@
 - {front: 'Chase with a top speed', back: 'Solve the one-phase model; if the speed at the catch exceeds the top speed, split at the moment top speed is reached and close the remaining gap at the speed difference.', topic: Chase problems}
 - {front: 'Stopping distance', back: '$d = vt_r + \dfrac{v^2}{2a}$: reaction distance grows with $v$, braking distance with $v^2$.', topic: Stopping distance}
 - {front: 'Minimum braking to avoid a slower vehicle ahead (gap $D$, reaction $t_r$)', back: '$a = \dfrac{(\Delta v)^2}{2(D - \Delta v\,t_r)}$, with $\Delta v$ the closing speed.', topic: Stopping distance}
-- {front: 'Dilemma zone', back: 'Where a driver can neither stop ($d > vt_r + v^2/2a$ needed) nor clear the intersection before red; gone if $vt_y - W \ge vt_r + v^2/(2a)$.', topic: Stopping distance}
+- {front: 'Dilemma zone', back: 'Where a driver can neither stop (the distance to the line is less than $vt_r + v^2/(2a)$) nor clear the intersection before red; gone if $vt_y - W \ge vt_r + v^2/(2a)$.', topic: Stopping distance}
 - {front: 'Angle to hit a target $(x, y)$ at speed $v_0$', back: '$A\tan^2\theta - x\tan\theta + (y + A) = 0$, with $A = \dfrac{gx^2}{2v_0^2}$; discriminant positive: two angles, zero: one, negative: none.', topic: Aiming projectiles}
 - {front: 'Safety parabola', back: '$y = \dfrac{v_0^2}{2g} - \dfrac{gx^2}{2v_0^2}$: the edge of what speed $v_0$ can reach.', topic: Aiming projectiles}
 - {front: 'Farthest throw from height $h$', back: '$x = \dfrac{v_0}{g}\sqrt{v_0^2 + 2gh}$ at $\tan\theta = \dfrac{v_0}{\sqrt{v_0^2 + 2gh}}$ (below 45°).', topic: Aiming projectiles}

@@ -308,11 +308,11 @@
   stem: 'A police car starts 2 s after a speeder passes and accelerates only up to a top speed. Put the steps of the solution in order.'
   items:
     - Restart the clock when the police car starts and give the speeder its head start
-    - Solve the one-phase model and check the police car's speed at the catch
     - Find when and where the police car reaches its top speed
+    - Check where the speeder is at that moment, to confirm it is still ahead
     - Close the remaining gap at the difference of the two speeds
   explanation: |-
-    The head start must be in place before any equation is written. The quick one-phase solution tests whether the top speed matters; when it would be exceeded, the motion is split at the moment top speed is reached, and only then is the remaining gap known.
+    The head start must be in place before any equation is written. The motion is split at the moment the police car reaches top speed; only once both positions at that moment are known can you confirm there was no catch during the acceleration phase and find the remaining gap, which then closes at the speed difference. (The lesson also tries the one-phase model first as a quick test of whether the top speed matters at all.)
 - id: phys-m2-r2-h11
   lesson: phys-m2-h-chases
   type: label
@@ -583,7 +583,7 @@
     - {x: 74.6, y: 69.7, text: 7 units}
   distractors: [2 units, 4 units]
   explanation: |-
-    With constant acceleration from rest, the total distances after 1, 2, 3, 4 intervals are 1, 4, 9, 16 units, so the intervals themselves cover the odd numbers 1, 3, 5, 7. Equal growth (1, 2, 3, 4) would mean the acceleration was not constant.
+    With constant acceleration from rest, the total distances after 1, 2, 3, 4 intervals are 1, 4, 9, 16 units, so the intervals themselves cover the odd numbers 1, 3, 5, 7. Intervals of 1, 2, 3, 4 units would grow by equal steps too (so the acceleration would still be constant), but they would not fit a start from rest, where the second interval must be three times the first.
 - id: phys-m2-r2-h39
   lesson: phys-m2-h-galileo
   topic: Free-fall experiments

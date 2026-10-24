@@ -5,7 +5,7 @@
   vars:
     u: {min: 20, max: 35}
     acc: {min: 2.0, max: 4.0, step: 0.5}
-    td: {min: 0, max: 3.0, step: 0.5}
+    td: {min: 0.5, max: 3.0, step: 0.5}
   calc:
     head: u*td
     t: (u + sqrt(u^2 + 2*acc*head)) / acc

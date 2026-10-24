@@ -39,7 +39,7 @@ A 15 kg sled is pulled 20 m across level snow by a rope with tension 50 N at $25
 
 Net work: $906 - 600 = 306$ J.
 
-The picture shows the four forces on the sled and its displacement. Only the rope's tension (along part of its length) and friction have components along $\vec d$, so only they do work.
+The picture shows the four forces on the sled and its displacement. Only the rope's tension (through its horizontal component) and friction have components along $\vec d$, so only they do work.
 
 ![A sled on level snow with five arrows: the rope tension pointing up and to the right at 25 degrees, kinetic friction pointing left, the normal force pointing up, the weight pointing down, and the displacement pointing right along the ground.](images/m4-sled-forces.svg)
 

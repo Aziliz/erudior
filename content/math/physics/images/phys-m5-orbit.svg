@@ -12,8 +12,8 @@
 <circle cx="320.0" cy="200.0" r="3.5" fill="#1c2833" stroke="#1c2833" stroke-width="1"/>
 <circle cx="570.0" cy="200.0" r="7.0" fill="#244d76" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="70.0" cy="200.0" r="7.0" fill="#244d76" stroke="#1c2833" stroke-width="1.5"/>
-<text x="519.1" y="240.0" font-size="16" fill="#1c2833" text-anchor="middle">Sun (focus)</text>
-<text x="540.0" y="148.0" font-size="16" fill="#1c2833" text-anchor="middle">perihelion</text>
+<text x="506.0" y="230.0" font-size="16" fill="#1c2833" text-anchor="end">Sun (focus)</text>
+<text x="603.0" y="176.0" font-size="15" fill="#1c2833" text-anchor="middle">perihelion</text>
 <text x="84.0" y="184.0" font-size="16" fill="#1c2833" text-anchor="start">aphelion</text>
 <text x="195.0" y="32.0" font-size="16" fill="#244d76" text-anchor="middle">semimajor axis a</text>
 <text x="320.0" y="224.0" font-size="15" fill="#1c2833" text-anchor="middle">center</text>

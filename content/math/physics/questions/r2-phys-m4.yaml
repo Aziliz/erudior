@@ -259,10 +259,10 @@
   lesson: phys-m4-h-rockets
   type: order
   topic: Rockets and variable mass
-  stem: 'Put the events of a two-stage launch in order.'
+  stem: 'Put the events of a two-stage launch in order, for the usual sequence shown in the lesson, where the second stage ignites after separation.'
   items: ['The first-stage engines ignite at liftoff', 'The first stage runs out of propellant', 'The empty first stage separates and falls away', 'The second-stage engine ignites', 'The second stage burns out with the payload at its final speed']
   explanation: |-
-    The first stage burns until it is empty; only then is it dropped, so its dead weight is no longer carried. The second stage then ignites and burns the rest of the way. Igniting the second stage before separation would push against the first stage it is still attached to.
+    The first stage burns until it is empty; only then is it dropped, so its dead weight is no longer carried. The second stage then ignites and burns the rest of the way. (Some rockets "hot stage", lighting the second stage a moment before separation; this question asks about the usual sequence.)
 - id: phys-m4-r2-h08
   lesson: phys-m4-h-rockets
   topic: Rockets and variable mass
@@ -362,7 +362,7 @@
   type: text
   topic: Restitution and gravity assists
   stem: 'In a collision with coefficient of restitution 0.60, ___ % of the relative kinetic energy (the kinetic energy in the center-of-mass frame) is lost. (Give only the number.)'
-  accept: ['64']
+  accept: ['64', '64%', '64 percent']
   explanation: |-
     In the center-of-mass frame every speed is multiplied by $e$, so every kinetic energy is multiplied by $e^2 = 0.36$. The fraction lost is $1 - e^2 = 0.64$, or 64%. (Not 40%: $e$ scales speeds, not energies.)
 - id: phys-m4-r2-h19

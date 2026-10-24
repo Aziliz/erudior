@@ -41,6 +41,8 @@ $$\nabla\times\mathbf B = \mu_0\mathbf J + \mu_0\varepsilon_0\frac{\partial\math
 The new term (Maxwell called $\varepsilon_0\,\partial\mathbf E/\partial t$ the **displacement current**) says a
 changing electric field makes a magnetic field, just as Faraday's law says a changing magnetic
 field makes an electric one. That two-way coupling is what lets a wave carry itself.
+(The consistency argument above is the standard modern way to motivate the term. Maxwell
+himself arrived at it in 1861–62 by a different route, through a mechanical model of the ether.)
 
 ## The curl of a curl
 
@@ -170,7 +172,7 @@ $E_0$ here is an "effective" amplitude). Then
 
 $$E_0 = \sqrt{\frac{2I}{c\varepsilon_0}} = \sqrt{\frac{2(1361)}{(2.998\times10^8)(8.854\times10^{-12})}} \approx 1.01\times10^3\text{ V/m},$$
 
-and $B_0 = E_0/c \approx 3.38\times10^{-6}$ T, several times weaker than the Earth's own magnetic field (roughly 25 to 65 microtesla at
+and $B_0 = E_0/c \approx 3.38\times10^{-6}$ T, roughly 7 to 20 times weaker than the Earth's own magnetic field (roughly 25 to 65 microtesla at
 the surface). The
 electric field is strong by everyday standards, but the magnetic field is tiny, which is
 why the figure above exaggerates $\mathbf B$.

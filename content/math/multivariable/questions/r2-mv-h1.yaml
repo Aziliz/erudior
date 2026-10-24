@@ -48,10 +48,10 @@
   module_quiz: true
   topic: Gravitational fields
   stem: 'Which statements are true for a planet whose density depends only on the distance from its center? Select all that apply.'
-  choices: ['Outside the planet its field is the same as that of a point mass at the center', 'The field at radius $r$ depends only on the mass closer to the center than $r$', 'The field strength is largest at the center', 'Gauss''s law for gravity holds only for spherical surfaces', 'The field points toward the center']
+  choices: ['Outside the planet its field is the same as that of a point mass at the center', 'The field at radius $r$ depends only on the mass closer to the center than $r$', 'The field strength is largest at the center', 'Gauss''s law for gravity holds only for spherical surfaces', 'Wherever the field is not zero, it points toward the center']
   answer: [0, 1, 4]
   explanation: |-
-    Symmetry makes $\mathbf g = g(r)\hat{\mathbf r}$, and Gauss's law on the sphere of radius $r$ gives $g(r) = -GM_{\text{enc}}(r)/r^2$: only the inner mass counts, outside it is the point-mass field, and the minus sign means it points to the center. At the center $M_{\text{enc}} = 0$, so the field there is zero, not largest. Gauss's law holds for every closed surface; spheres are just where it is easy to use.
+    Symmetry makes $\mathbf g = g(r)\hat{\mathbf r}$, and Gauss's law on the sphere of radius $r$ gives $g(r) = -GM_{\text{enc}}(r)/r^2$: only the inner mass counts, outside it is the point-mass field, and the minus sign means it points to the center wherever it is not zero. At the center $M_{\text{enc}} = 0$, so the field there is zero, not largest. Gauss's law holds for every closed surface; spheres are just where it is easy to use.
 - id: mv-h1-r2-h07
   lesson: mv-h1-gravity
   module_quiz: true
@@ -221,7 +221,7 @@
   choices: ['$2.65\times10^3$ W/m²', '$1.33\times10^3$ W/m²', '$3.34\times10^{-6}$ W/m²', '$4.43\times10^{-6}$ W/m²']
   answer: 1
   explanation: |-
-    $I = \tfrac12c\varepsilon_0E_0^2 = \tfrac12(2.998\times10^8)(8.854\times10^{-12})(10^6) \approx 1327$ W/m². Leaving out the $\tfrac12$ (using the peak of $|\mathbf S|$ instead of its average) gives $2.65\times10^3$; $3.34\times10^{-6}$ is $B_0$ in tesla, not an intensity.
+    $I = \tfrac12c\varepsilon_0E_0^2 = \tfrac12(2.998\times10^8)(8.854\times10^{-12})(10^6) \approx 1327$ W/m². Leaving out the $\tfrac12$ (using the peak of $|\mathbf S|$ instead of its average) gives $2.65\times10^3$; $3.34\times10^{-6}$ is $B_0$ in tesla, not an intensity; $4.43\times10^{-6}$ is the average energy density $\tfrac12\varepsilon_0E_0^2$ in J/m³, which still has to be multiplied by the speed $c$ at which the energy moves.
 - id: mv-h1-r2-h24
   lesson: mv-h1-em-waves
   topic: Electromagnetic waves
@@ -276,7 +276,7 @@
   choices: ['$-1$', '$24$', '$7$', 'It depends on the radius, so it must be integrated']
   answer: 0
   explanation: |-
-    $u_{xx} + u_{yy} = 2 - 2 = 0$, so $u$ is harmonic and its average over any circle equals its value at the center: $u(2, -1) = 4 - 1 + 2(2)(-1) = -1$. The radius doesn't matter. ($7$ forgets the sign of the $xy$ term.)
+    $u_{xx} + u_{yy} = 2 - 2 = 0$, so $u$ is harmonic and its average over any circle equals its value at the center: $u(2, -1) = 4 - 1 + 2(2)(-1) = -1$. The radius doesn't matter. ($7$ forgets the sign of the $xy$ term; $24$ adds $r^2 = 25$, as if $u$ grew with the radius like $x^2 + y^2$ does.)
 - id: mv-h1-r2-h30
   lesson: mv-h1-harmonic
   type: text
@@ -384,7 +384,7 @@
   choices: ['$\tfrac73$', '$2$', '$3$', '$\tfrac83$']
   answer: 0
   explanation: |-
-    The center value is the average of the boundary values. The average of $x^2$ over the unit sphere is $\tfrac13$ (by symmetry $x^2$, $y^2$, $z^2$ have equal averages summing to 1), so the center is $\tfrac13 + 2 = \tfrac73$. Taking $x^2 + 2$ at the center ($x = 0$) gives 2, wrong because $x^2 + 2$ is not harmonic.
+    The center value is the average of the boundary values. The average of $x^2$ over the unit sphere is $\tfrac13$ (by symmetry $x^2$, $y^2$, $z^2$ have equal averages summing to 1), so the center is $\tfrac13 + 2 = \tfrac73$. Taking $x^2 + 2$ at the center ($x = 0$) gives 2, wrong because $x^2 + 2$ is not harmonic; 3 and $\tfrac83$ use 1 or $\tfrac23$ in place of the average $\tfrac13$ of $x^2$.
 - id: mv-h1-r2-h41
   lesson: mv-h1-harmonic
   topic: Harmonic functions
@@ -478,7 +478,7 @@
   choices: ['$4\pi abc$', '$\tfrac{4\pi}{abc}$', '$4\pi$', 'It depends on $a$, $b$ and $c$ and has no simple formula']
   answer: 2
   explanation: |-
-    The ellipsoid is shaped like a sphere topologically ($\chi = 2$), so by the Gauss–Bonnet theorem $\iint K\,dA = 2\pi\chi = 4\pi$, whatever $a$, $b$, $c$ are. Its curvature varies from point to point, but the total is fixed. ($4\pi abc$ is a mix-up with the ellipsoid''s volume $\tfrac43\pi abc$.)
+    The ellipsoid is shaped like a sphere topologically ($\chi = 2$), so by the Gauss–Bonnet theorem $\iint K\,dA = 2\pi\chi = 4\pi$, whatever $a$, $b$, $c$ are. Its curvature varies from point to point, but the total is fixed. ($4\pi abc$ is a mix-up with the ellipsoid's volume $\tfrac43\pi abc$; $\tfrac{4\pi}{abc}$ and "no simple formula" both assume the total must depend on the axes, which Gauss–Bonnet rules out.)
 - id: mv-h1-r2-h51
   lesson: mv-h1-gauss-bonnet
   type: match

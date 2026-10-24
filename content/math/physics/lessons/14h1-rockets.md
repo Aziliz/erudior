@@ -84,7 +84,7 @@ Only about 7% of the rocket can be tanks, engines, structure *and* payload; 93% 
 
 ## Staging
 
-A single-stage rocket has to carry its empty first tanks all the way to the end of the burn, and accelerating that dead weight wastes propellant. **Staging** fixes this: the rocket is built as a stack of rockets, and each stage is dropped when its propellant runs out, so the next stage starts with a much smaller mass.
+A single-stage rocket has to carry its empty first tanks all the way to the end of the burn, and accelerating that dead weight wastes propellant. **Staging** fixes this: the rocket is built as a stack of rockets, and each stage is dropped when its propellant runs out, so the next stage starts with a much smaller mass. The chart shows the usual sequence, in which the upper stage ignites after separation. (Some rockets instead "hot stage": the upper-stage engine lights a moment before the stages separate.)
 
 ```mermaid
 flowchart TD

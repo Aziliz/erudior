@@ -74,7 +74,7 @@ theorem**:
 flowchart TD
   accTitle: Finding a field with Gauss's law
   accDescr: First ask whether the mass has spherical, cylindrical or planar symmetry. If not, Gauss's law is still true but does not find the field, so integrate over the mass directly or solve Poisson's equation. If it does, choose a Gaussian surface on which the field is constant and normal, or parallel to the surface. Write the flux in terms of the unknown field magnitude, find the enclosed mass, set the flux equal to minus 4 pi G times the enclosed mass, and solve.
-  A["Is the mass spherical, cylindrical or planar in shape?"] -- no --> B["Integrate over the mass, or solve Poisson's equation"]
+  A["Does the mass have spherical, cylindrical or planar symmetry?"] -- no --> B["Integrate over the mass, or solve Poisson's equation"]
   A -- yes --> C["Pick a Gaussian surface matching the symmetry"]
   C --> D["Flux = unknown g times area (other parts give 0)"]
   D --> E["Find the enclosed mass"]

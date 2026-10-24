@@ -57,8 +57,8 @@ the directions of the eigenvectors, which are perpendicular. Hence:
 So the sign of $K$ classifies the point just as $D$ classified critical points: $K > 0$ means
 the surface bends the same way in every direction (an **elliptic point**, like the top of a
 dome), $K < 0$ means it bends up in some directions and down in others (a **hyperbolic
-point**, saddle-shaped), and $K = 0$ means at least one principal curvature is 0 (a cylinder,
-or a flat **planar point** if both are 0).
+point**, saddle-shaped), and $K = 0$ means at least one principal curvature is 0 (a parabolic point, like any point of a
+cylinder, if exactly one is 0, or a flat **planar point** if both are 0).
 
 ### Example 1: a saddle in disguise
 
