@@ -4,20 +4,24 @@
   title: Listing the integers
   topic: Infinite sets
   vars:
-    n: {min: 2, max: 40}
+    k: {min: 1, max: 20}
+    par:
+      choices:
+        - {label: even, value: 0}
+        - {label: odd, value: 1}
     z: {min: -20, max: 20}
   where: ['z != 0']
   calc:
+    n: 2*k + par
     fn: if(mod(n, 2) == 0, n/2, -(n - 1)/2)
     gz: if(z > 0, 2*z, 1 - 2*z)
-    nm1: n - 1
     twoz: 2*z
   prompt: 'The list $0, 1, -1, 2, -2, 3, -3, \dots$ matches the positive integers with the integers by $f(n) = \tfrac n2$ for even $n$ and $f(n) = -\tfrac{n-1}{2}$ for odd $n$. Find $f({n})$, and find the position $m$ of the integer ${z}$ in the list (so that $f(m) = {z}$).'
   answers:
     - {name: fn, label: '$f({n}) =$'}
     - {name: gz, label: '$m =$'}
   solution: |-
-    If ${n}$ is even, $f({n}) = \tfrac{ {n} }{2}$; if it is odd, $f({n}) = -\tfrac{ {nm1} }{2}$. Here that gives $f({n}) =$ **{fn}**.
+    The number ${n}$ is {par}, so use the {par} formula: $f({n}) =$ **{fn}**. (Even positions hold $1, 2, 3, \dots$; odd positions hold $0, -1, -2, \dots$)
     Going back, the inverse is $f^{-1}(z) = 2z$ for $z > 0$ and $f^{-1}(z) = 1 - 2z$ for $z \le 0$. For $z = {z}$ the position is $m =$ **{gz}**. Check: $f({gz}) = {z}$.
 
 - id: pc-h1-r2-pairing
@@ -81,7 +85,7 @@
   solution: |-
     Partial fractions: $\dfrac{1}{k(k+1)} = \dfrac1k - \dfrac{1}{k+1}$. Written out, the sum telescopes:
     $\left(\tfrac{1}{ {m} } - \tfrac{1}{ {m} + 1}\right) + \dots + \left(\tfrac{1}{ {n} } - \tfrac{1}{ {n1} }\right)$, and every term cancels except the first and the last:
-    $\dfrac{1}{ {m} } - \dfrac{1}{ {n1} } = \dfrac{ {num} }{ {den} } =$ **$\dfrac{ {rn} }{ {rd} }$**.
+    $\dfrac{1}{ {m} } - \dfrac{1}{ {n1} } = \dfrac{ {num} }{ {den:dp0} } =$ **${S:texfrac}$**.
 
 - id: pc-h1-r2-telescope-infinite
   title: Sum of a telescoping series
@@ -90,7 +94,6 @@
     c: {min: 1, max: 6}
     dd:
       choices:
-        - {label: '1', value: 1}
         - {label: '1 + \tfrac12', value: 2}
         - {label: '1 + \tfrac12 + \tfrac13', value: 3}
         - {label: '1 + \tfrac12 + \tfrac13 + \tfrac14', value: 4}
@@ -107,8 +110,8 @@
     - {name: S, label: 'Sum', kind: fraction}
   solution: |-
     Partial fractions: $\dfrac{ {c} }{k(k + {d})} = \dfrac{ {c} }{ {d} }\left(\dfrac1k - \dfrac{1}{k + {d}}\right)$ (check by combining the fractions).
-    In the partial sums, each $-\tfrac{1}{k + {d}}$ cancels the $+\tfrac{1}{k + {d}}$ that comes ${d}$ terms later. What survives at the start is $1 + \dots + \tfrac{1}{ {d} }$, that is ${dd}$, and the leftover negative terms at the end go to 0 as $n \to \infty$.
-    So the sum is $\dfrac{ {c} }{ {d} }\left({dd}\right) =$ **$\dfrac{ {rn} }{ {rd} }$**.
+    In the partial sums, each $-\tfrac{1}{k + {d}}$ cancels the $+\tfrac{1}{k + {d}}$ that comes ${d}$ terms later. What survives at the start is the first ${d}$ unit fractions, ${dd}$, and the leftover negative terms at the end go to 0 as $n \to \infty$.
+    So the sum is $\dfrac{ {c} }{ {d} }\left({dd}\right) =$ **${S:texfrac}$**.
 
 # Lesson 93: area under a curve
 - id: pc-h1-r2-riemann-right
@@ -120,6 +123,8 @@
     n: {min: 2, max: 6}
   calc:
     sq: n*(n + 1)*(2*n + 1)/6
+    cb3: c*b^3
+    n3: n^3
     num: c*b^3*n*(n + 1)*(2*n + 1)
     den: 6*n^3
     g: gcd(c*b^3*n*(n + 1)*(2*n + 1), 6*n^3)
@@ -139,8 +144,8 @@
   tolerance: 0.0006
   solution: |-
     The width is $\Delta x = \tfrac{ {b} }{ {n} }$, and the right endpoints are $x_i = \tfrac{ {b}i}{ {n} }$ for $i = 1, \dots, {n}$. The sum is
-    $\displaystyle\sum_{i=1}^{ {n} } {c:coef}\left(\frac{ {b}i}{ {n} }\right)^2 \cdot \frac{ {b} }{ {n} } = \frac{ {c} \cdot {b}^3}{ {n}^3} \sum_{i=1}^{ {n} } i^2$, and $\sum_{i=1}^{ {n} } i^2 = \tfrac{ {n}({n} + 1)(2 \cdot {n} + 1)}{6} = {sq}$.
-    So $R_{ {n} } = \dfrac{ {num} }{ {den} } = \dfrac{ {rn} }{ {rd} } \approx$ **{R:dp3}**. (It overestimates the exact area ${ex:texfrac}$, because the curve rises.)
+    $\displaystyle\sum_{i=1}^{ {n} } {c:coef}\left(\frac{ {b}i}{ {n} }\right)^2 \cdot \frac{ {b} }{ {n} } = \frac{ {cb3} }{ {n}^3} \sum_{i=1}^{ {n} } i^2$, and $\sum_{i=1}^{ {n} } i^2 = \tfrac{ {n}({n} + 1)(2 \cdot {n} + 1)}{6} = {sq}$.
+    So $R_{ {n} } = \dfrac{ {cb3} \cdot {sq} }{ {n3} } = {R:texfrac} \approx$ **{R:dp3}**. (It overestimates the exact area ${ex:texfrac}$, because the curve rises.)
 
 - id: pc-h1-r2-area-parabola
   title: Exact area under a parabola
@@ -163,7 +168,7 @@
   tolerance: 0.0006
   solution: |-
     The area under $x^2$ from ${p}$ to ${q}$ is the area from 0 to ${q}$ minus the area from 0 to ${p}$: $\tfrac{ {q3} }{3} - \tfrac{ {p3} }{3}$.
-    Multiplying the height by ${a}$ multiplies every rectangle, and so the area, by ${a}$: ${a} \cdot \dfrac{ {q3} - {p3} }{3} = \dfrac{ {num} }{3} =$ **$\dfrac{ {rn} }{ {rd} }$** $\approx {A:dp3}$.
+    Multiplying the height by ${a}$ multiplies every rectangle, and so the area, by ${a}$: ${a} \cdot \dfrac{ {q3} - {p3} }{3} = \dfrac{ {num} }{3} =$ **${A:texfrac}$**.
 
 - id: pc-h1-r2-archimedes
   title: Archimedes' parabolic segment
@@ -195,4 +200,4 @@
     - {name: seg, label: 'Region:', tolerance: 0.0006}
   solution: |-
     The triangle has base ${base}$ and height ${k}$: area $\tfrac12 \cdot {base} \cdot {k} =$ **{tri}**.
-    Archimedes: the parabolic segment is $\tfrac43$ of its inscribed triangle, $1 + \tfrac14 + \tfrac1{16} + \dots = \tfrac43$ times it. So the region has area $\tfrac43 \cdot {tri} =$ **$\dfrac{ {rn} }{ {rd} }$** $\approx {seg:dp3}$.
+    Archimedes: the parabolic segment is $\tfrac43$ of its inscribed triangle, $1 + \tfrac14 + \tfrac1{16} + \dots = \tfrac43$ times it. So the region has area $\tfrac43 \cdot {tri} =$ **${seg:texfrac}$**.

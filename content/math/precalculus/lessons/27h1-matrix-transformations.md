@@ -30,7 +30,7 @@ Feed in the two unit vectors:
 
 $$A\begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} a \\ c \end{bmatrix} \text{ (the first column)}, \qquad A\begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} b \\ d \end{bmatrix} \text{ (the second column)}.$$
 
-Every point is a combination of these, $(x, y) = x(1, 0) + y(0, 1)$, so by linearity it goes to $x(\text{first column}) + y(\text{second column})$. That gives a recipe that works in both directions: **to find the matrix of a transformation, ask where $(1, 0)$ and $(0, 1)$ go, and write those images as the columns.**
+Every point is a combination of these, $(x, y) = x(1, 0) + y(0, 1)$, so by linearity it goes to $x(\text{first column}) + y(\text{second column})$. That gives a recipe that works in both directions: *to find the matrix of a transformation, ask where $(1, 0)$ and $(0, 1)$ go, and write those images as the columns.*
 
 ![Left: the unit square with arrows along (1, 0) and (0, 1). Right: after multiplying by A = [3 1; 1 2], the square becomes a parallelogram whose sides are the arrows (3, 1) and (1, 2), the columns of A. Its area is |det A| = 5.](images/pc-m6-unit-square-map.svg)
 
@@ -67,7 +67,7 @@ You can put all three vertices in one matrix and multiply once: $R\begin{bmatrix
 
 ## Doing one transformation after another
 
-If $B$ acts first and then $A$, a point $\mathbf{x}$ goes to $B\mathbf{x}$ and then to $A(B\mathbf{x})$. Because multiplication is associative, that equals $(AB)\mathbf{x}$: **the composition is the product $AB$**, with the transformation done first written on the *right*, exactly as in function composition $f(g(x))$.
+If $B$ acts first and then $A$, a point $\mathbf{x}$ goes to $B\mathbf{x}$ and then to $A(B\mathbf{x})$. Because multiplication is associative, that equals $(AB)\mathbf{x}$: *the composition is the product $AB$*, with the transformation done first written on the *right*, exactly as in function composition $f(g(x))$.
 
 ```mermaid
 flowchart LR
@@ -104,7 +104,7 @@ $$(a + b)(c + d) - 2 \cdot \tfrac12 ac - 2 \cdot \tfrac12 bd - 2bc = ad + bc - 2
 
 (Other arrangements of the columns give the same result up to sign; we show this one case.) Since every region can be approximated by tiny squares, and each tiny square is scaled the same way, a linear transformation multiplies *every* area by $|\det A|$.
 
-The **sign** of the determinant carries information too. If $\det A > 0$, the transformation keeps orientation: a shape traced counterclockwise still traces counterclockwise, and the letter F still reads as an F. If $\det A < 0$, orientation is reversed, as in a mirror. The reflections in the gallery have determinant $-1$; rotations have determinant $\cos^2\theta + \sin^2\theta = 1$; a shear has determinant 1, so it slants shapes without changing their area.
+The *sign* of the determinant carries information too. If $\det A > 0$, the transformation keeps orientation: a shape traced counterclockwise still traces counterclockwise, and the letter F still reads as an F. If $\det A < 0$, orientation is reversed, as in a mirror. The reflections in the gallery have determinant $-1$; rotations have determinant $\cos^2\theta + \sin^2\theta = 1$; a shear has determinant 1, so it slants shapes without changing their area.
 
 If $\det A = 0$, the whole plane is squashed onto a line (or a point), and area becomes 0. The projection in the gallery does this. Many points land on the same image, so there is no way to undo the transformation: this is the geometric meaning of "a matrix with determinant 0 has no inverse." Finally, doing $B$ and then $A$ scales areas by $|\det B|$ and then by $|\det A|$, which is why $\det(AB) = \det A \cdot \det B$ (Lesson 25).
 
@@ -146,7 +146,7 @@ Rotations, stretches and shifts then all become matrix products, and a whole seq
 
 ## Common mistakes
 
-- *Writing the images of $(1, 0)$ and $(0, 1)$ as rows.* They are the **columns** of the matrix.
+- *Writing the images of $(1, 0)$ and $(0, 1)$ as rows.* They are the *columns* of the matrix.
 - *Reading a product in the wrong order.* In $AB\mathbf{x}$, $B$ acts first.
 - *Rotating clockwise by mistake.* The standard rotation matrix turns counterclockwise for positive $\theta$; the $-\sin\theta$ is in the top row.
 - *Forgetting the absolute value.* Area scales by $|\det A|$; a negative determinant means a flip, not a negative area.

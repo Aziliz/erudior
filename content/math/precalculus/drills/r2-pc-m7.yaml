@@ -15,7 +15,7 @@
   answers:
     - {name: th, label: '$\theta =$', tolerance: 0.06}
   solution: |-
-    $\cot 2\theta = \dfrac{A - C}{\,B} = \dfrac{ {A} - ({C}) }{ {B} } = {ct:num4}$ (rounded). For $0° < 2\theta < 180°$ this gives $2\theta \approx {tt:num2}°$, so $\theta \approx$ **{th:num1}°**. (A negative cotangent puts $2\theta$ between $90°$ and $180°$.)
+    $\cot 2\theta = \dfrac{A - C}{\,B} = \dfrac{ {A} - ({C}) }{ {B} } \approx {ct:num4}$. For $0° < 2\theta < 180°$ this gives $2\theta \approx {tt:num2}°$, so $\theta \approx$ **{th:num1}°**. (A negative cotangent puts $2\theta$ between $90°$ and $180°$.)
 
 - id: pc-m7-r2-rotated-coefs
   title: New coefficients after a rotation
@@ -137,10 +137,9 @@
   vars:
     a: {min: 0.3, max: 45, step: 0.01}
   calc:
-    a3: a^3
     T: a^1.5
   prompt: 'An asteroid orbits the Sun with semi-major axis {a:num2} AU. Use Kepler''s third law to find its period in years, to 2 decimal places.'
   answers:
     - {name: T, label: '$T =$ (years)', tolerance: 0.006}
   solution: |-
-    With $T$ in years and $a$ in AU, $T^2 = a^3$, so $T = a^{3/2} = \sqrt{ {a:num2}^3 } = \sqrt{ {a3:num4} } \approx$ **{T:num2}** years.
+    With $T$ in years and $a$ in AU, $T^2 = a^3$, so $T = a^{3/2} = ({a:num2})^{3/2} \approx$ **{T:num2}** years. (Equivalently, $T = \sqrt{a^3}$.)

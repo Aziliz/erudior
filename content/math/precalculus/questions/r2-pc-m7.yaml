@@ -25,7 +25,7 @@
     - ['3']
     - ['-4']
   explanation: |-
-    $4p = 12$, so $p = 3$. The vertex is $(2, -1)$ and the parabola opens up, so the directrix is $p$ units *below* the vertex: $y = -1 - 3 = -4$. (The focus is $p$ units above, at $(2, 2)$.)
+    $4p = 12$, so $p = 3$. The vertex is $(2, -1)$ and the parabola opens up, so the directrix is $p$ units below the vertex: $y = -1 - 3 = -4$. (The focus is $p$ units above, at $(2, 2)$.)
 - id: pc-m7-r2-q03
   lesson: pc-parabolas
   topic: Parabolas
@@ -60,7 +60,7 @@
     - ['$(x - 4)^2 = y$', Up]
   distractors: [Toward the directrix]
   explanation: |-
-    The squared variable decides the pair of directions ($x^2$: up or down; $y^2$: left or right) and the sign of $4p$ picks one: $-5 < 0$ down, $7 > 0$ right, $-2 < 0$ left, $1 > 0$ up. A parabola always opens *away* from its directrix.
+    The squared variable decides the pair of directions ($x^2$: up or down; $y^2$: left or right) and the sign of $4p$ picks one: $-5 < 0$ down, $7 > 0$ right, $-2 < 0$ left, $1 > 0$ up. A parabola always opens away from its directrix.
 - id: pc-m7-r2-q06
   lesson: pc-parabolas
   topic: Parabolas
@@ -606,7 +606,7 @@
   choices: ['$2a$', '$2ex_0$', '$0$', '$2c$']
   answer: 1
   explanation: |-
-    $PF_1 = a + ex_0$ and $PF_2 = a - ex_0$, so the difference is $2ex_0$. Their *sum* is $2a$. The difference is 0 only on the minor axis ($x_0 = 0$) and $2c$ only at the right vertex.
+    $PF_1 = a + ex_0$ and $PF_2 = a - ex_0$, so the difference is $2ex_0$. Their sum is $2a$. The difference is 0 only on the minor axis ($x_0 = 0$) and $2c$ only at the right vertex.
 - id: pc-m7-r2-h26
   lesson: pc-m7-h-conic-geometry
   topic: Geometry of conics

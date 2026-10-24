@@ -1,0 +1,21 @@
+# Round 2, module ps-m4: cards for the honors lessons 20h1 and 20h2
+- {front: 'Covariance matrix', back: '$\Sigma = E[(\mathbf{X} - \boldsymbol{\mu})(\mathbf{X} - \boldsymbol{\mu})^\top]$, $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$; symmetric, variances on the diagonal', topic: Covariance matrices}
+- {front: 'Mean and covariance of $A\mathbf{X} + \mathbf{b}$', back: '$E = A\boldsymbol{\mu} + \mathbf{b}$, $\operatorname{Cov} = A\Sigma A^\top$', topic: Covariance matrices}
+- {front: 'Variance of a linear combination (matrix form)', back: '$\operatorname{Var}(\mathbf{a}^\top\mathbf{X}) = \mathbf{a}^\top\Sigma\mathbf{a} = \sum_i\sum_j a_ia_j\Sigma_{ij}$', topic: Covariance matrices}
+- {front: 'Covariance of two linear combinations', back: '$\operatorname{Cov}(\mathbf{a}^\top\mathbf{X}, \mathbf{c}^\top\mathbf{X}) = \mathbf{a}^\top\Sigma\mathbf{c}$', topic: Covariance matrices}
+- {front: 'Which matrices are covariance matrices?', back: 'Exactly the symmetric positive semidefinite ones: $\mathbf{a}^\top\Sigma\mathbf{a} \ge 0$ for all $\mathbf{a}$, since it is a variance', topic: Covariance matrices}
+- {front: 'Smallest common correlation of $n$ variables', back: '$\rho \ge -1/(n-1)$, from $\operatorname{Var}(\sum Z_i) = n + n(n-1)\rho \ge 0$', topic: Covariance matrices}
+- {front: 'Construction of $N_n(\boldsymbol{\mu}, \Sigma)$', back: '$\mathbf{X} = \boldsymbol{\mu} + A\mathbf{Z}$, $\mathbf{Z}$ iid $N(0, 1)$, $AA^\top = \Sigma$ (e.g. the Cholesky factor $L$)', topic: Multivariate normal}
+- {front: 'Multivariate normal density', back: '$(2\pi)^{-n/2}(\det\Sigma)^{-1/2}\exp\!\big(-\tfrac12(\mathbf{x} - \boldsymbol{\mu})^\top\Sigma^{-1}(\mathbf{x} - \boldsymbol{\mu})\big)$, for invertible $\Sigma$', topic: Multivariate normal}
+- {front: 'Multivariate normal conditional distribution', back: '$\mathbf{X}_1 \mid \mathbf{X}_2 = \mathbf{x}_2$ is normal with mean $\boldsymbol{\mu}_1 + \Sigma_{12}\Sigma_{22}^{-1}(\mathbf{x}_2 - \boldsymbol{\mu}_2)$ and covariance $\Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$', topic: Multivariate normal}
+- {front: '2 by 2 Cholesky factor', back: '$\ell_{11} = \sigma_1$, $\ell_{21} = \Sigma_{12}/\sigma_1$, $\ell_{22} = \sqrt{\sigma_2^2 - \ell_{21}^2}$', topic: Multivariate normal}
+- {front: 'Distribution of the squared Mahalanobis distance', back: '$(\mathbf{X} - \boldsymbol{\mu})^\top\Sigma^{-1}(\mathbf{X} - \boldsymbol{\mu}) \sim \chi^2_n$; in two dimensions $P(Q \le c) = 1 - e^{-c/2}$', topic: Multivariate normal}
+- {front: 'Uncorrelated components of a multivariate normal', back: 'Are independent (the density factors when $\Sigma$ is diagonal); not true without joint normality', topic: Multivariate normal}
+- {front: 'Joint density of all order statistics', back: '$n!\,f(y_1)\cdots f(y_n)$ for $y_1 < \cdots < y_n$', topic: Ranges and spacings}
+- {front: 'Joint density of the min and max', back: '$n(n-1)f(u)f(v)[F(v) - F(u)]^{n-2}$ for $u < v$; also $P(\min > u, \max \le v) = [F(v) - F(u)]^n$', topic: Ranges and spacings}
+- {front: 'Joint density of $X_{(j)}$ and $X_{(k)}$ ($j < k$)', back: '$\dfrac{n!}{(j-1)!(k-j-1)!(n-k)!}F(u)^{j-1}f(u)[F(v) - F(u)]^{k-j-1}f(v)[1 - F(v)]^{n-k}$, $u < v$', topic: Ranges and spacings}
+- {front: 'Range of $n$ Uniform(0, 1) values', back: '$P(R \le r) = nr^{n-1} - (n-1)r^n$; Beta$(n-1, 2)$; $E[R] = (n-1)/(n+1)$', topic: Ranges and spacings}
+- {front: 'Rényi representation', back: 'For iid exponentials with rate $\lambda$, the spacings $D_k = X_{(k)} - X_{(k-1)}$ are independent, $D_k \sim$ exponential with rate $(n - k + 1)\lambda$', topic: Ranges and spacings}
+- {front: 'Mean and variance of the $k$th exponential order statistic', back: '$E[X_{(k)}] = \frac1\lambda\sum_{i=1}^{k}\frac1{n-i+1}$, $\operatorname{Var}(X_{(k)}) = \frac1{\lambda^2}\sum_{i=1}^{k}\frac1{(n-i+1)^2}$', topic: Ranges and spacings}
+- {front: 'Range of $n$ iid exponentials', back: 'Distributed as the maximum of $n - 1$ of them: $P(R \le r) = (1 - e^{-\lambda r})^{n-1}$', topic: Ranges and spacings}
+- {front: 'When does a $k$-out-of-$n$ system fail?', back: 'At failure number $n - k + 1$, i.e. at $X_{(n-k+1)}$', topic: Ranges and spacings}

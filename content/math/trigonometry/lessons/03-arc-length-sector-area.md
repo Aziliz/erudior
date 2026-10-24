@@ -14,6 +14,13 @@ definition is a formula for the length of an arc, and a short proportion turns i
 formula for the area of a pie-shaped slice. Both formulas are *only* this simple in
 radians, which is the first concrete payoff for learning the new unit.
 
+## The parts of a circle you need
+
+This lesson keeps returning to the same few pieces of a circle, so here they are in one picture.
+The chord and the sector are defined later in the lesson.
+
+![A circle with its center marked. Two radii make a central angle theta. The arc between the radii is highlighted, a dashed chord joins the arc's endpoints, and the pie-slice region between the two radii is shaded as the sector.](images/trig-m1-sector-parts.svg)
+
 ## Arc length
 
 An **arc** is the part of a circle between two points on it. If a central angle of
@@ -95,6 +102,23 @@ area does it water?
 ```
 
 ## Units
+
+Before using either formula, run through the same few checks:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing and using the arc length and sector area formulas
+  accDescr: First ask whether the angle is in radians. If not, multiply the degrees by pi over 180. Then ask whether you want a length or an area. For a length along the circle use s equals r theta. For an area use A equals one half r squared theta, and if the region lies between two arcs with radii R and r, use A equals one half theta times R squared minus r squared. Finally attach the right units: length units for s and square units for A.
+  A{"Is the angle in radians?"} -->|"no"| B["Multiply the degrees by π/180"]
+  A -->|"yes"| C{"Length or area?"}
+  B --> C
+  C -->|"length along the circle"| D["s = r θ"]
+  C -->|"area of a slice"| E["A = ½ r² θ"]
+  C -->|"area between two arcs"| G["A = ½ θ (R² − r²)"]
+  D --> H["Units: same as r"]
+  E --> I["Units: square units"]
+  G --> I
+```
 
 - In $s = r\theta$, $s$ has the units of $r$ (radians carry no units).
 - In $A = \tfrac12 r^2\theta$, $A$ has the units of $r^2$.

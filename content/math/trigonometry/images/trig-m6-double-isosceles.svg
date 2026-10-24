@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 325" width="560" height="325" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="560" height="325" fill="#ffffff"/>
+<polygon points="280.0,35.0 129.0,258.8 280.0,258.8" fill="#dde8f3" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="280.0,35.0 280.0,258.8 431.0,258.8" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<line x1="280.0" y1="35.0" x2="280.0" y2="258.8" stroke="#1c2833" stroke-width="2" stroke-dasharray="6 4"/>
+<polyline points="292.0,258.8 292.0,246.8 280.0,246.8" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 257.6 68.2 A 40 40 0 0 0 280.0 75.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 280.0 83.0 A 48 48 0 0 0 306.8 74.8" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="267.0" y="93.0" font-size="16" text-anchor="middle" font-style="italic" fill="#1c2833">θ</text>
+<text x="295.0" y="101.0" font-size="16" text-anchor="middle" font-style="italic" fill="#1c2833">θ</text>
+<text x="192.5" y="146.9" font-size="16" text-anchor="end" fill="#1c2833">1</text>
+<text x="367.5" y="146.9" font-size="16" text-anchor="start" fill="#1c2833">1</text>
+<text x="288.0" y="176.9" font-size="16" text-anchor="start" fill="#1c2833">cos θ</text>
+<text x="204.5" y="282.8" font-size="16" text-anchor="middle" fill="#1c2833">sin θ</text>
+<text x="355.5" y="282.8" font-size="16" text-anchor="middle" fill="#1c2833">sin θ</text>
+<text x="280.0" y="310.8" font-size="15" text-anchor="middle" fill="#1c2833">base = 2 sin θ,  apex angle = 2θ</text>
+</svg>

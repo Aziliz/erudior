@@ -79,6 +79,18 @@ Both hold only in **quadrant IV**, where $x > 0$, $y < 0$.
 
 This is the standard technique whenever one function value and a sign condition are
 given: find the quadrant first, then choose $x$ and $y$ with the right signs.
+The flowchart sums up the steps.
+
+```mermaid
+flowchart TD
+  accTitle: Finding all six functions from one value and a sign condition
+  accDescr: Start with one trig value and a sign condition. First find the one quadrant where both conditions hold. Then choose x and y from the given ratio, giving each the sign it has in that quadrant. Next compute r as the square root of x squared plus y squared, which is always positive. Then write the six ratios y over r, x over r, y over x and their reciprocals. Finally check every sign against ASTC.
+  A["Given: one trig value and a sign condition"] --> B["Find the quadrant where both conditions hold"]
+  B --> C["Choose x and y from the ratio, with that quadrant's signs"]
+  C --> D["r = square root of x² + y², always positive"]
+  D --> E["Write y/r, x/r, y/x and their reciprocals"]
+  E --> F["Check each sign against ASTC"]
+```
 
 ## Quadrantal angles
 

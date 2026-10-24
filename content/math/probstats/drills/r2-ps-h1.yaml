@@ -73,3 +73,81 @@
     Factor: $1 - {k3}/{ss:num4} =$ **{fac:num4}**.
 
     $\hat\theta_1 = {xb:num4} + {fac:num4}({x1:num1} - {xb:num4}) =$ **{est:dp3}**.
+
+- id: ps-h1-r2-ridge-1d
+  title: Ridge slope for one predictor
+  topic: Regularized regression
+  vars:
+    sxx: {min: 10, max: 120, step: 2}
+    sxy: {min: -80, max: 80, step: 0.5}
+    lam: {choices: [1, 2, 5, 10, 20, 50]}
+  calc:
+    bls: sxy/sxx
+    den: sxx + lam
+    b: sxy/den
+  where: ['abs(sxy) >= 3']
+  prompt: |-
+    A centered predictor has $S_{xx} = {sxx}$ and $S_{xy} = {sxy:num1}$. Find the ridge estimate of the slope,
+    minimizing $\sum(y_i - \bar y - b x_i)^2 + \lambda b^2$ with $\lambda = {lam}$ (4 decimals).
+  answers:
+    - {name: b, label: '$b^{\text{ridge}} =$', tolerance: 0.0006, format: num4}
+  solution: |-
+    Setting the derivative $-2S_{xy} + 2bS_{xx} + 2\lambda b$ to zero gives $b = S_{xy}/(S_{xx} + \lambda)$:
+
+    $b = {sxy:num1}/({sxx} + {lam}) = {sxy:num1}/{den} =$ **{b:num4}**.
+
+    (Least squares would give ${bls:num4}$; the penalty shrinks it toward 0.)
+
+- id: ps-h1-r2-lasso-1d
+  title: Lasso slope by soft thresholding
+  topic: Regularized regression
+  vars:
+    sxx: {min: 10, max: 100, step: 2}
+    sxy: {min: -60, max: 60, step: 0.5}
+    lam: {choices: [4, 10, 20, 40, 60, 100]}
+  calc:
+    half: lam/2
+    ab: abs(sxy)
+    cut: ab - half
+    b: if(cut <= 0, 0, sign(sxy)*cut/sxx)
+    bls: sxy/sxx
+  where: ['ab >= 2']
+  prompt: |-
+    A centered predictor has $S_{xx} = {sxx}$ and $S_{xy} = {sxy:num1}$. Find the lasso estimate of the slope,
+    minimizing $\sum(y_i - \bar y - b x_i)^2 + \lambda|b|$ with $\lambda = {lam}$ (4 decimals; enter 0 if the slope is zero).
+  answers:
+    - {name: b, label: '$b^{\text{lasso}} =$', tolerance: 0.0006, format: num4}
+  solution: |-
+    Soft thresholding: $b = \operatorname{sign}(S_{xy})\max(|S_{xy}| - \lambda/2,\, 0)/S_{xx}$.
+
+    $|S_{xy}| - \lambda/2 = {ab:num1} - {half:num1} = {cut:num1}$. If this is not positive the slope is 0; otherwise divide by $S_{xx} = {sxx}$ and keep the sign of $S_{xy}$.
+
+    $b =$ **{b:num4}** (least squares: ${bls:num4}$).
+
+- id: ps-h1-r2-ridge-mse
+  title: Bias, variance and MSE of a ridge slope
+  topic: Regularized regression
+  vars:
+    beta: {choices: [0.5, 1, 1.5, 2, -1, -0.5]}
+    s2: {choices: [1, 4, 9]}
+    sxx: {min: 2, max: 40}
+    lam: {min: 1, max: 20}
+  calc:
+    den: sxx + lam
+    bias: -lam*beta/den
+    vr: s2*sxx/den^2
+    mse: vr + bias^2
+    mls: s2/sxx
+    lstar: s2/beta^2
+  prompt: |-
+    One centered predictor has $S_{xx} = {sxx}$; the true slope is $\beta = {beta}$ and the error variance is $\sigma^2 = {s2}$.
+    For the ridge slope $b = S_{xy}/(S_{xx} + \lambda)$ with $\lambda = {lam}$, find its variance and its MSE (3 significant figures each).
+  answers:
+    - {name: vr, label: 'Variance', sigfigs: 3, format: sig3}
+    - {name: mse, label: 'MSE', sigfigs: 3, format: sig3}
+  solution: |-
+    $\operatorname{Var}(b) = \sigma^2S_{xx}/(S_{xx} + \lambda)^2 = {s2}({sxx})/{den}^2 =$ **{vr:sig3}**.
+
+    Bias $= -\lambda\beta/(S_{xx} + \lambda) = {bias:sig3}$, so $\operatorname{MSE} = \operatorname{Var} + \text{Bias}^2 =$ **{mse:sig3}**.
+
+    For comparison, least squares has MSE $\sigma^2/S_{xx} = {mls:sig3}$, and the best penalty is $\lambda^* = \sigma^2/\beta^2 = {lstar:sig3}$.

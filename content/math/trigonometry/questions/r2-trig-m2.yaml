@@ -1,0 +1,509 @@
+# Round 2, module trig-m2: new question types for the core lessons and the two honors lessons.
+# ---- Lesson 05: the six trig ratios ----
+- id: trig-m2-r2-q01
+  lesson: trig-ratios
+  module_quiz: true
+  type: label
+  topic: Trig ratios
+  stem: 'The angle $\theta$ is marked at the lower right corner of this right triangle. Name the numbered parts relative to $\theta$.'
+  image: {src: images/trig-m2-sides-blank.svg, alt: 'A right triangle with the right angle at the lower left and the angle θ marked at the lower right. Four parts are numbered: the slanted side, the vertical side on the left, the bottom side and the corner at the lower left.'}
+  labels:
+    - {x: 51.0, y: 53.1, text: Hypotenuse}
+    - {x: 15.4, y: 53.1, text: Opposite side}
+    - {x: 51.0, y: 84.4, text: Adjacent side}
+    - {x: 17.1, y: 81.6, text: Right angle}
+  distractors: [Diagonal, Midline]
+  explanation: |-
+    The slanted side is across from the right angle, so it is the hypotenuse. The vertical side on the left is across from $\theta$, so it is the opposite side. The bottom side touches $\theta$ and is not the hypotenuse, so it is the adjacent side. The triangle is drawn the other way round from the lesson's pictures on purpose: always label from the marked angle, not from the position on the page.
+- id: trig-m2-r2-q02
+  lesson: trig-ratios
+  type: text
+  topic: Trig ratios
+  stem: '$\theta$ is acute and $\cos\theta = \dfrac{12}{13}$. Then $\sec\theta =$ ___. Give an exact fraction.'
+  accept: ['13/12']
+  explanation: |-
+    Secant is the reciprocal of cosine: $\sec\theta = \dfrac{1}{\cos\theta} = \dfrac{13}{12}$. (It is not $\tfrac{13}{5}$, which is $\csc\theta$: secant pairs with cosine.)
+- id: trig-m2-r2-q03
+  lesson: trig-ratios
+  type: match
+  topic: Trig ratios
+  stem: 'Match each trig ratio of an acute angle $\theta$ to its definition.'
+  pairs:
+    - ['$\sin\theta$', opposite over hypotenuse]
+    - ['$\cos\theta$', adjacent over hypotenuse]
+    - ['$\tan\theta$', opposite over adjacent]
+    - ['$\csc\theta$', hypotenuse over opposite]
+    - ['$\sec\theta$', hypotenuse over adjacent]
+  distractors: [adjacent over opposite]
+  explanation: |-
+    SOH-CAH-TOA gives sine, cosine and tangent; cosecant, secant and cotangent are their reciprocals, so $\csc\theta = \tfrac{\text{hyp}}{\text{opp}}$ and $\sec\theta = \tfrac{\text{hyp}}{\text{adj}}$. "Adjacent over opposite" is $\cot\theta$, which is not in the list.
+- id: trig-m2-r2-q04
+  lesson: trig-ratios
+  module_quiz: true
+  topic: Trig ratios
+  stem: '$\theta$ is an acute angle of a right triangle. Which statements are always true? Select all that apply.'
+  choices: ['$\sin\theta < 1$', '$\sec\theta > 1$', '$\tan\theta < 1$', '$\csc\theta = \dfrac{1}{\sin\theta}$', '$\cot\theta = \dfrac{1}{\cos\theta}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    The hypotenuse is the longest side, so $\sin\theta = \tfrac{\text{opp}}{\text{hyp}} < 1$ and $\sec\theta = \tfrac{\text{hyp}}{\text{adj}} > 1$. Cosecant is the reciprocal of sine. Tangent can be any positive number ($\tan 60^\circ = \sqrt3 > 1$), and $\cot\theta = \tfrac{1}{\tan\theta}$, not $\tfrac{1}{\cos\theta}$ (that is $\sec\theta$).
+- id: trig-m2-r2-q05
+  lesson: trig-ratios
+  type: order
+  topic: Trig ratios
+  stem: '$\theta$ is acute and $\sin\theta = \dfrac37$. Put the steps for finding $\tan\theta$ in order.'
+  items:
+    - 'Draw a right triangle with opposite side 3 and hypotenuse 7'
+    - 'Find the adjacent side: $\sqrt{7^2 - 3^2} = 2\sqrt{10}$'
+    - 'Write $\tan\theta = \dfrac{3}{2\sqrt{10}}$'
+    - 'Rationalize: $\tan\theta = \dfrac{3\sqrt{10}}{20}$'
+  explanation: |-
+    Each step needs the one before it: the triangle gives two sides, the Pythagorean theorem gives the third, then tangent is opposite over adjacent, and rationalizing comes last.
+# ---- Lesson 06: special right triangles and cofunctions ----
+- id: trig-m2-r2-q06
+  lesson: trig-special
+  module_quiz: true
+  type: label
+  topic: Special angles
+  stem: 'This 30°–60°–90° triangle is drawn to scale, with the right angle at the lower right. Name the numbered parts.'
+  image: {src: images/trig-m2-306090-blank.svg, alt: 'A right triangle with a long horizontal bottom side, a shorter vertical side on the right and the right angle at the lower right. Five parts are numbered: the vertical side, the bottom side, the slanted side, the angle at the left corner and the angle at the top corner.'}
+  labels:
+    - {x: 77.9, y: 61.7, text: Short leg}
+    - {x: 50.4, y: 87.5, text: Long leg}
+    - {x: 50.4, y: 61.7, text: Hypotenuse}
+    - {x: 34.4, y: 82.5, text: 30° angle}
+    - {x: 73.1, y: 49.5, text: 60° angle}
+  distractors: [45° angle]
+  explanation: |-
+    The slanted side is across from the right angle, so it is the hypotenuse. Of the two legs, the vertical one is shorter, so it is the short leg, and the smallest angle ($30^\circ$) is across from it, at the left corner. The angle at the top is $60^\circ$, across from the long (bottom) leg. A 30°–60°–90° triangle has no $45^\circ$ angle.
+- id: trig-m2-r2-q07
+  lesson: trig-special
+  type: text
+  topic: Cofunctions
+  stem: '$\sin 35^\circ = \cos\theta$ for an acute angle $\theta$. Then $\theta =$ ___ degrees. Give only the number.'
+  accept: ['55']
+  explanation: |-
+    By the cofunction identity, $\sin\theta = \cos(90^\circ - \theta)$, so $\sin 35^\circ = \cos 55^\circ$. In a right triangle with a $35^\circ$ angle, the other acute angle is $55^\circ$, and the side opposite one is adjacent to the other.
+- id: trig-m2-r2-q08
+  lesson: trig-special
+  type: match
+  topic: Special angles
+  stem: 'Match each trig value to its exact form.'
+  pairs:
+    - ['$\sin 30^\circ$', '1/2']
+    - ['$\cos 30^\circ$', '√3/2']
+    - ['$\tan 60^\circ$', '√3']
+    - ['$\sec 45^\circ$', '√2']
+  distractors: ['√3/3', '2']
+  explanation: |-
+    From the triangles: $\sin 30^\circ = \tfrac12$, $\cos 30^\circ = \tfrac{\sqrt3}{2}$, $\tan 60^\circ = \tfrac{\sqrt3}{1} = \sqrt3$ and $\sec 45^\circ = \tfrac{\sqrt2}{1} = \sqrt2$. The extras are $\tan 30^\circ = \tfrac{\sqrt3}{3}$ and $\csc 30^\circ = 2$, which are not in the list.
+- id: trig-m2-r2-q09
+  lesson: trig-special
+  module_quiz: true
+  topic: Special angles
+  stem: 'Which of these equal $\dfrac{\sqrt3}{2}$? Select all that apply.'
+  choices: ['$\sin 60^\circ$', '$\cos 30^\circ$', '$\sin 30^\circ$', '$\cos\dfrac{\pi}{6}$', '$\tan 60^\circ$']
+  answer: [0, 1, 3]
+  explanation: |-
+    In the 30°–60°–90° triangle with sides $1, \sqrt3, 2$, the long leg $\sqrt3$ is opposite $60^\circ$ and adjacent to $30^\circ$, so $\sin 60^\circ = \cos 30^\circ = \tfrac{\sqrt3}{2}$, and $\tfrac{\pi}{6}$ is $30^\circ$. But $\sin 30^\circ = \tfrac12$ and $\tan 60^\circ = \sqrt3$.
+- id: trig-m2-r2-q10
+  lesson: trig-special
+  type: order
+  topic: Special angles
+  stem: 'Put these values in order from smallest to largest.'
+  items: ['$\sin 30^\circ$', '$\tan 30^\circ$', '$\sin 45^\circ$', '$\tan 60^\circ$']
+  explanation: |-
+    $\sin 30^\circ = 0.5$, $\tan 30^\circ = \tfrac{\sqrt3}{3} \approx 0.577$, $\sin 45^\circ = \tfrac{\sqrt2}{2} \approx 0.707$ and $\tan 60^\circ = \sqrt3 \approx 1.732$.
+# ---- Lesson 07: solving right triangles ----
+- id: trig-m2-r2-q11
+  lesson: trig-solve-right
+  module_quiz: true
+  type: order
+  topic: Solving right triangles
+  stem: 'In right triangle $ABC$ with $C = 90^\circ$, $A = 40^\circ$ and $a = 9$. Put the steps for finding $b$ in order.'
+  items:
+    - 'Write $\tan 40^\circ = \dfrac{9}{b}$'
+    - 'Multiply both sides by $b$: $b\tan 40^\circ = 9$'
+    - 'Divide by $\tan 40^\circ$: $b = \dfrac{9}{\tan 40^\circ}$'
+    - 'Evaluate in degree mode: $b \approx 10.73$'
+  explanation: |-
+    Side $a$ is opposite $A$ and $b$ is adjacent, so tangent links them. The unknown starts in the denominator, so it ends up dividing: $b = \tfrac{9}{\tan 40^\circ} \approx 10.73$, not $9\tan 40^\circ \approx 7.55$.
+- id: trig-m2-r2-q12
+  lesson: trig-solve-right
+  type: text
+  topic: Solving right triangles
+  stem: 'A right triangle has legs 20 and 21. Its hypotenuse is ___, and its larger acute angle is opposite the leg of length ___.'
+  accept:
+    - ['29']
+    - ['21']
+  explanation: |-
+    $c = \sqrt{20^2 + 21^2} = \sqrt{400 + 441} = \sqrt{841} = 29$. The larger angle is across from the longer leg, 21. (Indeed $\tan^{-1}\tfrac{21}{20} \approx 46.4^\circ$.)
+- id: trig-m2-r2-q13
+  lesson: trig-solve-right
+  type: match
+  topic: Solving right triangles
+  stem: 'Right triangle $ABC$ has $C = 90^\circ$. Match each situation to the one function that links the known and wanted parts directly.'
+  pairs:
+    - ['Know $A$ and $c$, want $a$', sine]
+    - ['Know $A$ and $c$, want $b$', cosine]
+    - ['Know $A$ and $b$, want $a$', tangent]
+    - ['Know $a$ and $c$, want $A$', inverse sine]
+    - ['Know $a$ and $b$, want $A$', inverse tangent]
+  distractors: [secant]
+  explanation: |-
+    $a$ is opposite $A$, $b$ is adjacent and $c$ is the hypotenuse. Opposite and hypotenuse: sine. Adjacent and hypotenuse: cosine. Opposite and adjacent: tangent. To get an angle from two sides, use the inverse of the function that links them: $A = \sin^{-1}\tfrac{a}{c}$ or $A = \tan^{-1}\tfrac{a}{b}$.
+- id: trig-m2-r2-q14
+  lesson: trig-solve-right
+  module_quiz: true
+  topic: Solving right triangles
+  stem: 'In right triangle $ABC$ with $C = 90^\circ$, $A = 40^\circ$ and $a = 9$. Which expressions equal $b$? Select all that apply.'
+  choices: ['$\dfrac{9}{\tan 40^\circ}$', '$9\tan 50^\circ$', '$9\tan 40^\circ$', '$\dfrac{9}{\sin 40^\circ}$', '$9\cot 40^\circ$']
+  answer: [0, 1, 4]
+  explanation: |-
+    $\tan 40^\circ = \tfrac{9}{b}$ gives $b = \tfrac{9}{\tan 40^\circ} = 9\cot 40^\circ$. From angle $B = 50^\circ$, $b$ is opposite and $a$ adjacent, so $b = 9\tan 50^\circ$ (the cofunction identity says $\tan 50^\circ = \cot 40^\circ$). $9\tan 40^\circ$ multiplies when it should divide, and $\tfrac{9}{\sin 40^\circ}$ is the hypotenuse $c$.
+- id: trig-m2-r2-q15
+  lesson: trig-solve-right
+  type: text
+  topic: Solving right triangles
+  stem: 'In right triangle $ABC$ with $C = 90^\circ$, $A = 27.6^\circ$. Then $B =$ ___ degrees. Give only the number.'
+  accept: ['62.4']
+  explanation: |-
+    The acute angles of a right triangle are complementary: $B = 90^\circ - 27.6^\circ = 62.4^\circ$.
+# ---- Lesson 08: elevation, depression and bearings ----
+- id: trig-m2-r2-q16
+  lesson: trig-applications
+  module_quiz: true
+  type: label
+  topic: Elevation and depression
+  stem: 'An observer on the ground looks at the top of a tower. Name the numbered parts.'
+  image: {src: images/trig-m2-elev-depr-blank.svg, alt: 'Level ground with an observer point at the left and a tower at the right. A straight line runs from the observer up to the top of the tower, and a dashed line runs left from the top of the tower. Two angles are shaded, one at the observer and one at the top of the tower. Four parts are numbered.'}
+  labels:
+    - {x: 49.2, y: 54.4, text: Line of sight}
+    - {x: 46.9, y: 26.5, text: Horizontal line}
+    - {x: 19.8, y: 79.2, text: Angle of elevation}
+    - {x: 78.6, y: 29.6, text: Angle of depression}
+  distractors: [Angle measured from the vertical, Bearing]
+  explanation: |-
+    The straight line from eye to object is the line of sight. The dashed line at the top is horizontal. The angle at the observer, up from the horizontal ground to the line of sight, is the angle of elevation; the angle at the top, down from the horizontal to the line of sight, is the angle of depression. The two horizontals are parallel, so these angles are equal.
+- id: trig-m2-r2-q17
+  lesson: trig-applications
+  type: text
+  topic: Bearings
+  stem: 'Written as a three-digit bearing, the compass bearing S $35^\circ$ E is ___ degrees.'
+  accept: ['145', '145°']
+  explanation: |-
+    Face south ($180^\circ$) and turn $35^\circ$ toward east. Turning from south toward east is counterclockwise, which lowers the bearing: $180^\circ - 35^\circ = 145^\circ$.
+- id: trig-m2-r2-q18
+  lesson: trig-applications
+  type: match
+  topic: Bearings
+  stem: 'Match each compass bearing to the same direction as a three-digit bearing.'
+  pairs:
+    - ['N $20^\circ$ E', '020°']
+    - ['S $40^\circ$ E', '140°']
+    - ['S $10^\circ$ W', '190°']
+    - ['N $80^\circ$ W', '280°']
+  distractors: ['220°', '100°']
+  explanation: |-
+    N $a$ E is $a$; S $a$ E is $180^\circ - a$; S $a$ W is $180^\circ + a$; N $a$ W is $360^\circ - a$. So $020^\circ$, $140^\circ$, $190^\circ$ and $280^\circ$. ($220^\circ$ would be S $40^\circ$ W and $100^\circ$ would be S $80^\circ$ E.)
+- id: trig-m2-r2-q19
+  lesson: trig-applications
+  topic: Elevation and depression
+  stem: 'A lighthouse keeper looks down at a boat on the water. Which statements are true? Select all that apply.'
+  choices:
+    - 'The angle of depression is measured down from the horizontal'
+    - 'The angle of depression from the lighthouse equals the angle of elevation from the boat'
+    - 'The angle of depression is measured from the vertical side of the lighthouse'
+    - 'The height of the lighthouse is opposite the angle of elevation at the boat'
+    - 'The angle of depression is always larger than the angle of elevation from the boat'
+  answer: [0, 1, 3]
+  explanation: |-
+    Both angles are measured from the horizontal, never the vertical. The horizontal at the top and the water are parallel, so the two angles are alternate interior angles and are equal, not one larger than the other. At the boat, the lighthouse height is the side across from the angle of elevation.
+- id: trig-m2-r2-q20
+  lesson: trig-applications
+  module_quiz: true
+  type: order
+  topic: Elevation and depression
+  stem: 'Two angles of elevation to the same peak are measured from points a known distance apart on level ground. Put the steps for finding the height in order.'
+  items:
+    - 'Write an expression for the height $h$ in each right triangle'
+    - 'Set the two expressions for $h$ equal'
+    - 'Solve that equation for the unknown distance $x$'
+    - 'Substitute $x$ back to find $h$'
+  explanation: |-
+    Neither triangle alone has enough information; the shared height ties them together. For example, $h = x\tan 35^\circ = (x + 1000)\tan 28^\circ$ gives $x \approx 3155.6$ m and then $h = x\tan 35^\circ \approx 2209.6$ m.
+# ---- Honors: exact values from regular polygons ----
+- id: trig-m2-r2-h01
+  lesson: trig-m2-h-exact-geometry
+  topic: Regular polygons
+  stem: 'In a regular 9-sided polygon, the center, a vertex and the midpoint of a neighboring side form a right triangle. What is its angle at the center?'
+  choices: ['$20^\circ$', '$40^\circ$', '$70^\circ$', '$140^\circ$']
+  answer: 0
+  explanation: |-
+    The central angle for one side is $\tfrac{360^\circ}{9} = 40^\circ$, and the apothem cuts it in half: $\tfrac{180^\circ}{9} = 20^\circ$. ($40^\circ$ forgets the halving; $70^\circ$ is the other acute angle of the right triangle; $140^\circ$ is the polygon's interior angle.)
+- id: trig-m2-r2-h02
+  lesson: trig-m2-h-exact-geometry
+  topic: Regular polygons
+  stem: 'A regular octagon has circumradius 10. To two decimals, how long is each side?'
+  choices: ['$3.83$', '$7.65$', '$8.28$', '$14.14$']
+  answer: 1
+  explanation: |-
+    $s = 2R\sin\tfrac{180^\circ}{8} = 20\sin 22.5^\circ \approx 7.65$. ($3.83$ is half a side, $10\sin 22.5^\circ$; $8.28$ uses tangent, $20\tan 22.5^\circ$, which is the side of the octagon drawn *around* the circle; $14.14$ uses the full central angle, $20\sin 45^\circ$.)
+- id: trig-m2-r2-h03
+  lesson: trig-m2-h-exact-geometry
+  topic: Regular polygons
+  stem: 'A regular hexagon has side 6. What is its apothem?'
+  choices: ['$6\sqrt3$', '$3$', '$3\sqrt3$', '$2\sqrt3$']
+  answer: 2
+  explanation: |-
+    A regular hexagon's circumradius equals its side, so $R = 6$, and the center angle of the small right triangle is $30^\circ$. Then $a = 6\cos 30^\circ = 6\cdot\tfrac{\sqrt3}{2} = 3\sqrt3$. Equivalently, the apothem is the long leg of a 30°–60°–90° triangle with short leg 3. ($3$ is half a side; $6\sqrt3$ doubles the answer; $2\sqrt3$ divides 6 by $\sqrt3$.)
+- id: trig-m2-r2-h04
+  lesson: trig-m2-h-exact-geometry
+  topic: Regular polygons
+  stem: 'Using $\sin 15^\circ = \dfrac{\sqrt6 - \sqrt2}{4}$ and $\cos 15^\circ = \dfrac{\sqrt6 + \sqrt2}{4}$, find the exact area of a regular 12-gon with circumradius 1.'
+  choices: ['$\pi$', '$6$', '$\dfrac{3\sqrt3}{2}$', '$3$']
+  answer: 3
+  explanation: |-
+    Area $= n\cdot\tfrac12 s a$ with $s = 2\sin 15^\circ$ and $a = \cos 15^\circ$: $12\cdot\tfrac12\cdot 2\sin 15^\circ\cos 15^\circ = 12\cdot\tfrac{(\sqrt6 - \sqrt2)(\sqrt6 + \sqrt2)}{16} = 12\cdot\tfrac{6 - 2}{16} = 3$. It is a little less than $\pi$, the area of the circle. ($\tfrac{3\sqrt3}{2}$ is the regular hexagon with circumradius 1.)
+- id: trig-m2-r2-h05
+  lesson: trig-m2-h-exact-geometry
+  module_quiz: true
+  topic: Exact values from geometry
+  stem: 'What is the exact value of $\tan 15^\circ$?'
+  choices: ['$2 + \sqrt3$', '$2 - \sqrt3$', '$\sqrt3 - 1$', '$\dfrac{\sqrt6 - \sqrt2}{4}$']
+  answer: 1
+  explanation: |-
+    Extending the $\sqrt3$ leg of the 30°–60°–90° triangle by its hypotenuse 2 gives a right triangle with legs 1 and $2 + \sqrt3$ and a $15^\circ$ angle, so $\tan 15^\circ = \tfrac{1}{2 + \sqrt3} = 2 - \sqrt3 \approx 0.268$. ($2 + \sqrt3$ is $\tan 75^\circ$; $\tfrac{\sqrt6 - \sqrt2}{4}$ is $\sin 15^\circ$.)
+- id: trig-m2-r2-h06
+  lesson: trig-m2-h-exact-geometry
+  topic: Exact values from geometry
+  stem: 'In the halving construction, leg $CA$ of right triangle $BCA$ is extended past $A$ to $D$ with $AD = AB$. Why is the angle at $D$ exactly half of angle $BAC$?'
+  choices:
+    - 'Triangle $ABD$ is isosceles, and angle $BAC$ is its exterior angle, equal to the sum of the two equal base angles'
+    - 'Triangle $BCD$ is similar to triangle $BCA$, so its angles are half as large'
+    - 'Point $D$ is twice as far from $C$ as point $A$ is'
+    - 'Angle $ABD$ is a right angle, so the angles at $A$ and $D$ split $90^\circ$'
+  answer: 0
+  explanation: |-
+    $AD = AB$ makes triangle $ABD$ isosceles, so its angles at $B$ and $D$ are equal. Angle $BAC$ is the exterior angle at $A$, which equals the sum of those two remote interior angles, so each is half of it. Triangle $BCD$ is not similar to $BCA$ (its angles are different), $CD$ is not $2\,CA$ in general, and angle $ABD$ is obtuse, not right.
+- id: trig-m2-r2-h07
+  lesson: trig-m2-h-exact-geometry
+  module_quiz: true
+  topic: Exact values from geometry
+  stem: 'In the golden triangle with legs 1 and apex angle $36^\circ$, the base $x$ satisfies $x^2 + x - 1 = 0$. What is $\sin 18^\circ$?'
+  choices: ['$\dfrac{\sqrt5 - 1}{2}$', '$\dfrac{1 + \sqrt5}{4}$', '$\dfrac{\sqrt5 - 1}{4}$', '$\dfrac{\sqrt{10 - 2\sqrt5}}{4}$']
+  answer: 2
+  explanation: |-
+    $x = \tfrac{\sqrt5 - 1}{2}$. The altitude from the apex splits the triangle into right triangles with an $18^\circ$ angle, hypotenuse 1 and opposite side $\tfrac{x}{2}$, so $\sin 18^\circ = \tfrac{\sqrt5 - 1}{4} \approx 0.309$. ($\tfrac{\sqrt5 - 1}{2}$ is $x$ itself, $\tfrac{1 + \sqrt5}{4}$ is $\cos 36^\circ$, and $\tfrac{\sqrt{10 - 2\sqrt5}}{4}$ is $\sin 36^\circ$.)
+- id: trig-m2-r2-h08
+  lesson: trig-m2-h-exact-geometry
+  topic: Regular polygons
+  stem: 'A regular decagon (10 sides) has circumradius 4. What is its exact side length?'
+  choices: ['$\sqrt5 - 1$', '$2(\sqrt5 + 1)$', '$4\sin 36^\circ$', '$2(\sqrt5 - 1)$']
+  answer: 3
+  explanation: |-
+    $s = 2R\sin\tfrac{180^\circ}{10} = 8\sin 18^\circ = 8\cdot\tfrac{\sqrt5 - 1}{4} = 2(\sqrt5 - 1) \approx 2.47$. ($\sqrt5 - 1$ is half a side; $4\sin 36^\circ \approx 2.35$ uses the full central angle without the 2; $2(\sqrt5 + 1) = 8\cos 36^\circ$ uses the wrong value.)
+- id: trig-m2-r2-h09
+  lesson: trig-m2-h-exact-geometry
+  type: text
+  topic: Exact values from geometry
+  stem: 'A right triangle has legs 5 and 12 and hypotenuse 13, and $\theta$ is the angle opposite the leg of length 5. Using $\tan\dfrac{\theta}{2} = \dfrac{\text{opp}}{\text{adj} + \text{hyp}}$, $\tan\dfrac{\theta}{2} =$ ___. Give an exact fraction.'
+  accept: ['1/5']
+  explanation: |-
+    $\tan\tfrac{\theta}{2} = \tfrac{5}{12 + 13} = \tfrac{5}{25} = \tfrac15$. Check: $\theta = \tan^{-1}\tfrac{5}{12} \approx 22.62^\circ$, and $\tan 11.31^\circ \approx 0.2$.
+- id: trig-m2-r2-h10
+  lesson: trig-m2-h-exact-geometry
+  module_quiz: true
+  type: text
+  topic: Regular polygons
+  stem: 'The segment from the center of a regular polygon to the midpoint of a side, perpendicular to that side, is called the ___.'
+  accept: [apothem, the apothem, apothems]
+  explanation: |-
+    The apothem is a leg of the polygon's right triangle; the circumradius, which goes to a vertex, is the hypotenuse.
+- id: trig-m2-r2-h11
+  lesson: trig-m2-h-exact-geometry
+  type: match
+  topic: Regular polygons
+  stem: 'The angle at the center of the small right triangle in a regular polygon is $\dfrac{180^\circ}{n}$. Match each angle to its polygon.'
+  pairs:
+    - ['$15^\circ$', Regular 12-gon]
+    - ['$18^\circ$', Regular decagon]
+    - ['$22.5^\circ$', Regular octagon]
+    - ['$30^\circ$', Regular hexagon]
+    - ['$36^\circ$', Regular pentagon]
+  distractors: [Regular nonagon]
+  explanation: |-
+    Solve $\tfrac{180^\circ}{n} = \text{angle}$: $n = 12, 10, 8, 6, 5$. A regular nonagon ($n = 9$) gives $20^\circ$, which is not listed.
+- id: trig-m2-r2-h12
+  lesson: trig-m2-h-exact-geometry
+  type: order
+  topic: Exact values from geometry
+  stem: 'Triangle $ABC$ has $AB = AC = 1$, apex angle $A = 36^\circ$ and base $BC = x$. Put the steps of the derivation of $x$ in order.'
+  items:
+    - 'Bisect the $72^\circ$ angle at $B$, meeting $AC$ at $D$'
+    - 'Triangle $BCD$ has angles $36^\circ, 72^\circ, 72^\circ$, so $BD = BC = x$'
+    - 'Triangle $ABD$ has two $36^\circ$ angles, so $AD = BD = x$ and $DC = 1 - x$'
+    - 'Similar triangles give $\dfrac{x}{1} = \dfrac{1 - x}{x}$'
+    - 'Solve $x^2 + x - 1 = 0$: $x = \dfrac{\sqrt5 - 1}{2}$'
+  explanation: |-
+    The point $D$ must exist before anything about it can be said; $BD = x$ is needed before $AD = BD$ tells you $AD = x$; the proportion needs $DC = 1 - x$; and the quadratic comes from the proportion.
+- id: trig-m2-r2-h13
+  lesson: trig-m2-h-exact-geometry
+  topic: Exact values from geometry
+  stem: 'Let $\varphi = \dfrac{1 + \sqrt5}{2}$ be the golden ratio. Which are exactly equal to $\dfrac{\sqrt5 - 1}{4}$? Select all that apply.'
+  choices: ['$\sin 18^\circ$', '$\cos 72^\circ$', '$\cos 36^\circ$', '$\dfrac{1}{2\varphi}$', '$\sin 36^\circ$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $\sin 18^\circ = \tfrac{\sqrt5 - 1}{4}$, and $\cos 72^\circ = \sin 18^\circ$ by the cofunction identity. Also $\tfrac{1}{\varphi} = \tfrac{2}{1 + \sqrt5} = \tfrac{\sqrt5 - 1}{2}$, so $\tfrac{1}{2\varphi} = \tfrac{\sqrt5 - 1}{4}$. But $\cos 36^\circ = \tfrac{1 + \sqrt5}{4} \approx 0.809$ and $\sin 36^\circ \approx 0.588$.
+- id: trig-m2-r2-h14
+  lesson: trig-m2-h-exact-geometry
+  module_quiz: true
+  type: label
+  topic: Regular polygons
+  stem: 'A regular pentagon with the right triangle used to find its side and apothem. Name the numbered parts.'
+  image: {src: images/trig-m2-pentagon-blank.svg, alt: 'A regular pentagon with a dot at its center. A solid segment runs from the center to the lower right vertex, and a dashed segment runs straight down from the center to the midpoint of the bottom side, meeting it at a right angle. The small angle at the center between them is shaded. Five parts are numbered.'}
+  labels:
+    - {x: 50.0, y: 52.2, text: Center}
+    - {x: 63.3, y: 72.9, text: Circumradius}
+    - {x: 50.0, y: 78.2, text: Apothem}
+    - {x: 60.7, y: 85.6, text: Half of a side}
+    - {x: 53.6, y: 64.6, text: Half of the central angle}
+  distractors: [Diagonal, Full central angle]
+  explanation: |-
+    The segment to a vertex is the circumradius $R$ (the hypotenuse); the dashed segment to the midpoint of a side is the apothem $a$; the part of the bottom side between them is $\tfrac{s}{2}$. The shaded angle lies between the radius and the apothem, so it is half of the $72^\circ$ central angle: $36^\circ$.
+# ---- Honors: measurement error and the horizon ----
+- id: trig-m2-r2-h15
+  lesson: trig-m2-h-measurement-error
+  module_quiz: true
+  topic: Measurement error
+  stem: 'From 40 m away on level ground, the angle of elevation to the top of a pole (at eye level) is $50^\circ \pm 1^\circ$. Between what heights above eye level is the top?'
+  choices: ['$46.7$ m and $48.7$ m', '$30.2$ m and $31.1$ m', '$32.4$ m and $34.8$ m', '$46.0$ m and $49.4$ m']
+  answer: 3
+  explanation: |-
+    Compute both ends: $40\tan 49^\circ \approx 46.0$ m and $40\tan 51^\circ \approx 49.4$ m (the middle value is $40\tan 50^\circ \approx 47.7$ m). Adding $\pm 1$ m to 47.7 confuses degrees with meters; $30.2$ to $31.1$ uses sine; $32.4$ to $34.8$ divides by tangent.
+- id: trig-m2-r2-h16
+  lesson: trig-m2-h-measurement-error
+  topic: Measurement error
+  stem: 'A height is reported as $12.0 \pm 0.3$ m. What is the relative error?'
+  choices: ['$0.3\%$', '$0.025\%$', '$2.5\%$', '$25\%$']
+  answer: 2
+  explanation: |-
+    Relative error is absolute error divided by the value: $\tfrac{0.3}{12.0} = 0.025 = 2.5\%$. ($0.3\%$ treats the absolute error as a percent; $0.025\%$ forgets to multiply the decimal by 100; $25\%$ slips a decimal place.)
+- id: trig-m2-r2-h17
+  lesson: trig-m2-h-measurement-error
+  topic: Measurement error
+  stem: 'You measure a height with $h = d\tan\theta$ and can choose where to stand. Your angle reading has a fixed uncertainty. Which angle of elevation gives the smallest relative error in $h$?'
+  choices: ['$10^\circ$', '$30^\circ$', '$80^\circ$', '$45^\circ$']
+  answer: 3
+  explanation: |-
+    The relative error is about $\tfrac{\Delta\theta}{\sin\theta\cos\theta}$, and $\sin\theta\cos\theta$ is largest, $\tfrac12$, at $45^\circ$ (because $(\sin\theta - \cos\theta)^2 \ge 0$). Very shallow and very steep angles are the worst.
+- id: trig-m2-r2-h18
+  lesson: trig-m2-h-measurement-error
+  topic: Measurement error
+  stem: 'With $d = 200$ m and $\theta = 30^\circ$, an angle error of $\pm 0.2^\circ$ changes $h = d\tan\theta$ by about how much? Use $\Delta h \approx \dfrac{d\,\Delta\theta}{\cos^2\theta}$.'
+  choices: ['$0.52$ m', '$0.93$ m', '$0.81$ m', '$53.3$ m']
+  answer: 1
+  explanation: |-
+    Convert to radians: $0.2^\circ = 0.2\cdot\tfrac{\pi}{180} \approx 0.003491$. Then $\Delta h \approx \tfrac{200(0.003491)}{\cos^2 30^\circ} = \tfrac{0.6981}{0.75} \approx 0.93$ m. ($53.3$ m uses degrees; $0.81$ m divides by $\cos 30^\circ$ only once; $0.52$ m multiplies by $\cos^2 30^\circ$.)
+- id: trig-m2-r2-h19
+  lesson: trig-m2-h-measurement-error
+  topic: Measurement error
+  stem: 'Which angle of elevation gives the same relative error in $h = d\tan\theta$ as $20^\circ$ does?'
+  choices: ['$70^\circ$', '$40^\circ$', '$160^\circ$', '$10^\circ$']
+  answer: 0
+  explanation: |-
+    The relative error depends on $\sin\theta\cos\theta$, which is unchanged when $\theta$ is replaced by its complement: $\sin 70^\circ\cos 70^\circ = \cos 20^\circ\sin 20^\circ$. An angle of elevation of $160^\circ$ makes no sense.
+- id: trig-m2-r2-h20
+  lesson: trig-m2-h-measurement-error
+  module_quiz: true
+  topic: Horizon and Earth's radius
+  stem: 'Your eyes are 25 m above the sea. Using $R = 6371$ km and ignoring refraction, about how far away is the horizon?'
+  choices: ['$17.8$ km', '$12.6$ km', '$89.3$ km', '$564$ km']
+  answer: 0
+  explanation: |-
+    $d \approx \sqrt{2Rh} = \sqrt{2(6\,371\,000)(25)} \approx 17\,848$ m $\approx 17.8$ km (or $3.57\sqrt{25} \approx 17.8$ km). $12.6$ km forgets the 2; $89.3$ km is $3.57 \times 25$ without the square root; $564$ km mixes kilometers for $R$ with meters for $h$.
+- id: trig-m2-r2-h21
+  lesson: trig-m2-h-measurement-error
+  topic: Horizon and Earth's radius
+  stem: 'In the triangle formed by the Earth''s center $O$, an observer $P$ and the horizon point $T$, why is the right angle at $T$?'
+  choices:
+    - 'The observer stands straight up, so $OP$ is perpendicular to the ground'
+    - 'The line of sight just touches the Earth at $T$, and a tangent line is perpendicular to the radius there'
+    - 'Light travels in straight lines, so every angle at the surface is $90^\circ$'
+    - 'The horizontal at $P$ is parallel to $OT$'
+  answer: 1
+  explanation: |-
+    The line of sight to the horizon grazes the Earth, so it is tangent at $T$, and a tangent to a circle is perpendicular to the radius at the point of contact. The horizontal at $P$ is perpendicular to $OP$, which is why the dip angle at $P$ equals the angle at $O$, but it is not parallel to $OT$.
+- id: trig-m2-r2-h22
+  lesson: trig-m2-h-measurement-error
+  topic: Horizon and Earth's radius
+  stem: 'From 200 m above sea level, the dip of the horizon is $0.454^\circ$. Estimate the Earth''s radius with $R = \dfrac{h\cos\alpha}{1 - \cos\alpha}$.'
+  choices: ['About 25 km', 'About 3200 km', 'About 6400 km', 'About 12,700 km']
+  answer: 2
+  explanation: |-
+    $\cos 0.454^\circ \approx 0.99996861$ (keep all the digits), so $R \approx \tfrac{200(0.99996861)}{0.00003139} \approx 6.37\times 10^6$ m, about 6400 km. About 25 km is $\tfrac{h}{\tan\alpha}$, the wrong formula; 3200 km is half the radius; 12,700 km is the diameter.
+- id: trig-m2-r2-h23
+  lesson: trig-m2-h-measurement-error
+  type: text
+  topic: Horizon and Earth's radius
+  stem: 'The angle between the horizontal at an observer and the line of sight to the sea horizon is called the ___ of the horizon.'
+  accept: [dip, the dip, dip angle]
+  explanation: |-
+    It is the dip of the horizon, $\alpha$, with $\cos\alpha = \tfrac{R}{R + h}$. It is tiny: under a degree even from a 500 m hill.
+- id: trig-m2-r2-h24
+  lesson: trig-m2-h-measurement-error
+  type: text
+  topic: Horizon and Earth's radius
+  stem: 'From 4 m above the sea, with $R = 6371$ km and ignoring refraction, the horizon is about ___ km away. Round to the nearest tenth.'
+  accept: ['7.1']
+  explanation: |-
+    $d \approx \sqrt{2(6\,371\,000)(4)} \approx 7139$ m $\approx 7.1$ km. The rule $3.57\sqrt{h} = 3.57 \times 2 = 7.14$ km agrees.
+- id: trig-m2-r2-h25
+  lesson: trig-m2-h-measurement-error
+  module_quiz: true
+  type: order
+  topic: Measurement error
+  stem: 'The same instrument (fixed angle uncertainty) is used to measure a height with $h = d\tan\theta$. Put these angles of elevation in order from the smallest relative error in $h$ to the largest.'
+  items: ['$45^\circ$', '$35^\circ$', '$20^\circ$', '$8^\circ$']
+  explanation: |-
+    Relative error is about $\tfrac{\Delta\theta}{\sin\theta\cos\theta}$. The values of $\tfrac{1}{\sin\theta\cos\theta}$ are $2.00$ at $45^\circ$, $2.13$ at $35^\circ$, $3.11$ at $20^\circ$ and $7.26$ at $8^\circ$: the farther from $45^\circ$, the worse.
+- id: trig-m2-r2-h26
+  lesson: trig-m2-h-measurement-error
+  type: match
+  topic: Horizon and Earth's radius
+  stem: 'Match each quantity to its formula ($R$ is the Earth''s radius, $h$ the height, $\alpha$ the dip, $d$ the horizontal distance, $\theta$ the angle of elevation).'
+  pairs:
+    - ['Distance to the horizon', square root of (2Rh + h²)]
+    - ['Earth''s radius from the dip', h cos α divided by (1 − cos α)]
+    - ['Absolute error in $h = d\tan\theta$', d Δθ divided by cos² θ]
+    - ['Relative error in $h = d\tan\theta$', Δθ divided by (sin θ cos θ)]
+  distractors: [d divided by tan θ]
+  explanation: |-
+    $d = \sqrt{(R + h)^2 - R^2} = \sqrt{2Rh + h^2}$; $\cos\alpha = \tfrac{R}{R + h}$ solves to $R = \tfrac{h\cos\alpha}{1 - \cos\alpha}$; $\Delta h \approx \tfrac{d\,\Delta\theta}{\cos^2\theta}$, and dividing by $h = d\tan\theta$ gives $\tfrac{\Delta\theta}{\sin\theta\cos\theta}$. $\tfrac{d}{\tan\theta}$ is not any of these.
+- id: trig-m2-r2-h27
+  lesson: trig-m2-h-measurement-error
+  topic: Measurement error
+  stem: 'Which statements about measuring a height with $h = d\tan\theta$ are true? Select all that apply.'
+  choices:
+    - 'A 1% error in $d$ gives about a 1% error in $h$'
+    - 'At $45^\circ$ the relative error is about $2\,\Delta\theta$, with $\Delta\theta$ in radians'
+    - 'Standing very close, so the angle is steep, reduces the relative error'
+    - 'In $\Delta h \approx \dfrac{d\,\Delta\theta}{\cos^2\theta}$, $\Delta\theta$ must be in radians'
+    - 'The relative error at $10^\circ$ is much smaller than at $80^\circ$'
+  answer: [0, 1, 3]
+  explanation: |-
+    $h$ is proportional to $d$, so relative errors in $d$ pass straight through. At $45^\circ$, $\sin\theta\cos\theta = \tfrac12$, giving $2\,\Delta\theta$. The formula comes from arc length, which needs radians. Steep angles increase the error, and $10^\circ$ and $80^\circ$ are complements, so their relative errors are about the same.
+- id: trig-m2-r2-h28
+  lesson: trig-m2-h-measurement-error
+  type: label
+  topic: Horizon and Earth's radius
+  stem: 'An observer above the sea looks at the horizon (not to scale). Name the numbered parts.'
+  image: {src: images/trig-m2-horizon-blank.svg, alt: 'A large circle for the Earth with a dot at its center. A point above the circle has a vertical segment down through the surface to the center, a dashed horizontal line to the right, and a line down to a point where it touches the circle, which is joined to the center. The angle between the dashed horizontal and the touching line is shaded, and so is the angle at the center. Five parts are numbered.'}
+  labels:
+    - {x: 58.7, y: 51.2, text: Horizon point}
+    - {x: 30.4, y: 93.0, text: Center of the Earth}
+    - {x: 38.7, y: 22.7, text: Dip of the horizon}
+    - {x: 44.5, y: 34.9, text: Line of sight to the horizon}
+    - {x: 30.4, y: 27.9, text: Height above sea level}
+  distractors: [Angle of elevation, Diameter]
+  explanation: |-
+    The line of sight touches the Earth at the horizon point, where it is perpendicular to the radius. The shaded angle at the observer, down from the horizontal to the line of sight, is the dip of the horizon; it equals the shaded angle at the center. The short vertical segment above the surface is the height $h$. The dip is measured downward, so it is not an angle of elevation.

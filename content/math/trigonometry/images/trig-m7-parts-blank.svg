@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 370" width="600" height="370" font-family="sans-serif" fill="#1c2833">
+<rect width="600" height="370" fill="#ffffff"/>
+<polygon points="80.0,310.0 520.0,310.0 220.0,80.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="220.0" y1="80.0" x2="220.0" y2="310.0" stroke="#1c2833" stroke-width="2" stroke-dasharray="7 5"/>
+<polyline points="220,292 238,292 238,310" fill="none" stroke="#1c2833" stroke-width="1.6"/>
+<text x="64.0" y="332.0" font-size="20" text-anchor="middle" font-weight="bold">A</text>
+<text x="536.0" y="332.0" font-size="20" text-anchor="middle" font-weight="bold">B</text>
+<text x="220.0" y="66.0" font-size="20" text-anchor="middle" font-weight="bold">C</text>
+</svg>

@@ -45,9 +45,31 @@ Everything else follows from $\pi = 180^\circ$. Multiply by a form of 1:
 
 $$\text{degrees} \to \text{radians: multiply by } \frac{\pi}{180^\circ}, \qquad \text{radians} \to \text{degrees: multiply by } \frac{180^\circ}{\pi}.$$
 
+Which factor to use depends only on the direction you are converting:
+
+```mermaid
+flowchart TD
+  accTitle: Converting between degrees and radians
+  accDescr: If the angle is in degrees and you want radians, multiply by pi over 180, then simplify the fraction in front of pi. If the angle is in radians and you want degrees, multiply by 180 over pi; when the angle is a multiple of pi, the pi cancels. In both cases, check the size: degree numbers are about 57 times the radian numbers.
+  A{"What unit is the angle in now?"}
+  A -->|"degrees"| B["Multiply by π/180"]
+  B --> C["Simplify the fraction in front of π"]
+  A -->|"radians"| D["Multiply by 180/π"]
+  D --> E["Cancel π if it is there"]
+  C --> F["Check the size: degrees ≈ 57 × radians"]
+  E --> F
+```
+
 One radian is $\tfrac{180^\circ}{\pi} \approx 57.296^\circ$, a bit less than $60^\circ$.
 That's a useful sanity check: $2$ radians is about $115^\circ$, $3$ radians is a bit less
 than a half turn, and $6.28$ radians is about one full turn.
+
+Laying radius-length arcs around a circle shows the same thing: six of them fit, with a gap of
+about $0.28$ radian left before the starting point.
+
+```plot
+{"x": [-1.7, 1.7], "y": [-1.5, 1.5], "equal": true, "circles": [{"center": [0, 0], "r": 1}], "segments": [{"from": [0, 0], "to": [1, 0]}, {"from": [0, 0], "to": [0.5403, 0.8415], "dashed": true}, {"from": [0, 0], "to": [-0.4161, 0.9093], "dashed": true}, {"from": [0, 0], "to": [-0.99, 0.1411], "dashed": true}, {"from": [0, 0], "to": [-0.6536, -0.7568], "dashed": true}, {"from": [0, 0], "to": [0.2837, -0.9589], "dashed": true}, {"from": [0, 0], "to": [0.9602, -0.2794], "dashed": true}], "points": [[1.0000, 0.0000], [0.5403, 0.8415], [-0.4161, 0.9093], [-0.9900, 0.1411], [-0.6536, -0.7568], [0.2837, -0.9589], [0.9602, -0.2794]], "labels": [{"at": [0.675, 1.002], "text": "1 rad"}, {"at": [-0.520, 1.087], "text": "2 rad"}, {"at": [-1.237, 0.126], "text": "3 rad"}, {"at": [-0.817, -0.996], "text": "4 rad"}, {"at": [0.355, -1.249], "text": "5 rad"}, {"at": [1.200, -0.399], "text": "6 rad"}], "caption": "Marking off arcs one radius long: six fit around the circle with a little left over, because a full turn is 2π ≈ 6.28 radians"}
+```
 
 ### Example 1
 

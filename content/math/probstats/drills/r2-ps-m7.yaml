@@ -80,9 +80,9 @@
     - {name: lowb, label: 'Lower boundary', tolerance: 0.0005, format: num4}
     - {name: upb, label: 'Upper boundary', tolerance: 0.0005, format: num4}
   solution: |-
-    Lower (accept $H_0$): $\ln\dfrac{\beta}{1 - \alpha} = \ln\dfrac{{be}}{{qa}} =$ **{lowb:num4}**.
+    Lower (accept $H_0$): $\ln\dfrac{\beta}{1 - \alpha} = \ln\dfrac{{be}}{{qa:sig4}} =$ **{lowb:num4}**.
 
-    Upper (reject $H_0$): $\ln\dfrac{1 - \beta}{\alpha} = \ln\dfrac{{qb}}{{al}} =$ **{upb:num4}**.
+    Upper (reject $H_0$): $\ln\dfrac{1 - \beta}{\alpha} = \ln\dfrac{{qb:sig4}}{{al}} =$ **{upb:num4}**.
 
 - id: ps-m7-r2-sprt-lines
   title: SPRT acceptance and rejection lines for a defect rate
@@ -116,9 +116,10 @@
 
     Boundaries: lower $\ln\frac{\beta}{1-\alpha} = {lowb:num4}$, upper $\ln\frac{1-\beta}{\alpha} = {upb:num4}$.
 
-    Slope $s = {dv:num4}$ negated, divided by {den:num4}: $s =$ **{slope:dp3}**.
-    Rejection intercept $h_1 = {upb:num4}/{den:num4} =$ **{hrej:dp3}**.
-    Acceptance intercept $h_0 = {lowb:num4}$ negated, divided by {den:num4}: $h_0 =$ **{hacc:dp3}**.
+    Solving $S_n \ge$ upper and $S_n \le$ lower for $d$:
+    slope $s = \dfrac{-({dv:num4})}{{den:num4}} =$ **{slope:dp3}**,
+    rejection intercept $h_1 = \dfrac{{upb:num4}}{{den:num4}} =$ **{hrej:dp3}**,
+    acceptance intercept $h_0 = \dfrac{-({lowb:num4})}{{den:num4}} =$ **{hacc:dp3}**.
 
 - id: ps-m7-r2-sprt-asn
   title: Average sample number of an SPRT

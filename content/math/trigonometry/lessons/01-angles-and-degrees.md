@@ -26,6 +26,10 @@ is the **initial side**, its final position is the **terminal side**, and the co
 endpoint is the **vertex**. The angle measures how far, and in which direction, the ray
 turned.
 
+The picture shows the three parts and the rotation that joins them.
+
+![An angle drawn on coordinate axes. The initial side points along the positive x-axis from the vertex at the origin; a curved arrow turns counterclockwise from it to the terminal side, which points up and to the left.](images/trig-m1-angle-parts.svg)
+
 - A counterclockwise rotation gives a **positive angle**.
 - A clockwise rotation gives a **negative angle**.
 
@@ -95,6 +99,20 @@ Coterminal angles will turn out to have identical trigonometric values, so a sta
 move in this course is to replace an angle by the coterminal angle in $[0^\circ, 360^\circ)$.
 To find it, add or subtract $360^\circ$ until you land in that interval. For large
 angles, divide by 360 to see how many full turns to remove.
+
+The procedure is a short loop:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the coterminal angle between 0 and 360 degrees
+  accDescr: Start with the angle. If it is already at least 0 degrees and less than 360 degrees, you are done. If it is negative, add 360 degrees and check again. If it is 360 degrees or more, subtract 360 degrees and check again. For very large angles, first divide by 360 to see how many full turns to remove at once.
+  A["Start with the angle"] --> B{"Is it from 0° up to (not including) 360°?"}
+  B -->|"yes"| F["Done: that is the coterminal angle"]
+  B -->|"no, it is negative"| C["Add 360°"]
+  B -->|"no, it is 360° or more"| D["Subtract 360°"]
+  C --> B
+  D --> B
+```
 
 ```plot
 {"x": [-3, 3], "y": [-3, 3], "equal": true, "segments": [{"from": [0, 0], "to": [2.6, 0], "arrow": true}, {"from": [0, 0], "to": [1.84, -1.84], "arrow": true}], "curves": [{"x": "0.7cos(t)", "y": "0.7sin(t)", "t": [0, 5.4978]}, {"x": "1.2cos(t)", "y": "1.2sin(t)", "t": [-0.7854, 0]}], "labels": [{"at": [-1.1, 0.9], "text": "315°"}, {"at": [1.7, -0.45], "text": "−45°"}], "caption": "315° and −45° share a terminal side, so they are coterminal"}

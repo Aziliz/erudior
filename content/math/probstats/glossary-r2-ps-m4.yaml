@@ -1,0 +1,48 @@
+# Round 2, module ps-m4: terms bolded in the honors lessons 20h1 and 20h2
+- term: random vector
+  aliases: [random vectors]
+  definition: 'A list $\mathbf{X} = (X_1, \dots, X_n)^\top$ of random variables defined on the same sample space, treated as one object.'
+  topic: Covariance matrices
+- term: mean vector
+  aliases: [mean vectors]
+  definition: 'The vector of means of a random vector, $\boldsymbol{\mu} = E[\mathbf{X}] = (E[X_1], \dots, E[X_n])^\top$.'
+  topic: Covariance matrices
+- term: covariance matrix
+  aliases: [covariance matrices, variance-covariance matrix]
+  definition: 'The $n \times n$ matrix $\Sigma = E[(\mathbf{X} - \boldsymbol{\mu})(\mathbf{X} - \boldsymbol{\mu})^\top]$ with entries $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$; symmetric, with the variances on the diagonal.'
+  topic: Covariance matrices
+- term: correlation matrix
+  aliases: [correlation matrices]
+  definition: 'The matrix of correlations $\rho_{ij} = \Sigma_{ij}/(\sigma_i\sigma_j)$ of a random vector; it has 1s on the diagonal.'
+  topic: Covariance matrices
+- term: positive semidefinite
+  aliases: [positive semidefinite matrix]
+  definition: 'A symmetric matrix $\Sigma$ is positive semidefinite if $\mathbf{a}^\top\Sigma\mathbf{a} \ge 0$ for every vector $\mathbf{a}$ (equivalently, all its eigenvalues are $\ge 0$). Covariance matrices are exactly the symmetric positive semidefinite matrices.'
+  topic: Covariance matrices
+- term: multivariate normal distribution
+  aliases: [multivariate normal, multivariate normal distributions]
+  definition: 'The distribution of $\mathbf{X} = \boldsymbol{\mu} + A\mathbf{Z}$ with $\mathbf{Z}$ a vector of iid standard normals; written $N_n(\boldsymbol{\mu}, \Sigma)$ with $\Sigma = AA^\top$. Equivalently, every linear combination $\mathbf{a}^\top\mathbf{X}$ is normal.'
+  topic: Multivariate normal
+- term: Cholesky factorization
+  aliases: [Cholesky factor, Cholesky decomposition]
+  definition: 'Writing a positive definite matrix as $\Sigma = LL^\top$ with $L$ lower triangular with positive diagonal; $\boldsymbol{\mu} + L\mathbf{Z}$ then has covariance matrix $\Sigma$.'
+  topic: Multivariate normal
+- term: Mahalanobis distance
+  definition: 'The distance $\sqrt{(\mathbf{x} - \boldsymbol{\mu})^\top\Sigma^{-1}(\mathbf{x} - \boldsymbol{\mu})}$ of a point from the mean, measured in a way that accounts for the SDs and correlations. For $N_n(\boldsymbol{\mu}, \Sigma)$ its square has a chi-square distribution with $n$ degrees of freedom.'
+  topic: Multivariate normal
+- term: sample range
+  aliases: [range of a sample]
+  definition: 'The largest minus the smallest value of a sample, $R = X_{(n)} - X_{(1)}$.'
+  topic: Ranges and spacings
+- term: spacings
+  aliases: [spacing]
+  definition: 'The gaps between successive order statistics, $D_k = X_{(k)} - X_{(k-1)}$ (with $D_1 = X_{(1)}$ for nonnegative data).'
+  topic: Ranges and spacings
+- term: Rényi representation
+  aliases: [Renyi representation]
+  definition: 'For $n$ iid exponential variables with rate $\lambda$, the spacings $D_1, \dots, D_n$ of the order statistics are independent, and $D_k$ is exponential with rate $(n - k + 1)\lambda$.'
+  topic: Ranges and spacings
+- term: k-out-of-n system
+  aliases: [k-out-of-n systems]
+  definition: 'A system of $n$ components that works while at least $k$ of them work; it fails at failure number $n - k + 1$. Series ($k = n$) and parallel ($k = 1$) systems are the extremes.'
+  topic: Ranges and spacings

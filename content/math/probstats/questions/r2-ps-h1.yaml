@@ -144,3 +144,174 @@
   distractors: [Risk of the MLE at θ = 0, Bias of James–Stein]
   explanation: |-
     $\mathbf X$ has constant risk $p\sigma^2 = 10$. James–Stein starts at $2\sigma^2 = 2$ when $\boldsymbol\theta = \mathbf 0$ and rises toward 10 but never reaches it. The dashed "oracle" $c^*\mathbf X$, with $c^* = \|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + 10)$, has risk $10\|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + 10)$, lower still, but it needs the unknown $\boldsymbol\theta$. The MLE is $\mathbf X$, whose risk at 0 is 10, not 2.
+
+# ---- Lesson 91: Ridge regression, the lasso and cross-validation ----
+- id: ps-h1-r2-h14
+  lesson: ps-h1-ridge-lasso
+  module_quiz: true
+  topic: Regularized regression
+  stem: 'One centered predictor has $S_{xx} = 50$ and $S_{xy} = 30$. What is the ridge estimate of the slope with $\lambda = 25$ (criterion RSS $+ \lambda b^2$)?'
+  choices: ['$0.35$', '$0.6$', '$0.4$', '$1.2$']
+  answer: 2
+  explanation: |-
+    $b^{\text{ridge}} = S_{xy}/(S_{xx} + \lambda) = 30/75 = 0.4$. 0.6 is least squares ($\lambda = 0$); 0.35 is the lasso answer $(30 - 12.5)/50$; 1.2 subtracts $\lambda$ in the denominator.
+
+- id: ps-h1-r2-h15
+  lesson: ps-h1-ridge-lasso
+  topic: Regularized regression
+  stem: 'One centered predictor has $S_{xx} = 40$ and $S_{xy} = -18$. What is the lasso estimate of the slope with $\lambda = 30$ (criterion RSS $+ \lambda|b|$)?'
+  choices: ['$-0.075$', '$-0.45$', '$0$', '$-0.257$']
+  answer: 0
+  explanation: |-
+    Soft thresholding: $|S_{xy}| - \lambda/2 = 18 - 15 = 3 > 0$, so $b = \operatorname{sign}(S_{xy}) \cdot 3/40 = -0.075$. The slope is zero only when $\lambda \ge 2|S_{xy}| = 36$. $-0.45$ is least squares and $-0.257 = -18/70$ is ridge with the same $\lambda$.
+
+- id: ps-h1-r2-h16
+  lesson: ps-h1-ridge-lasso
+  module_quiz: true
+  topic: Regularized regression
+  stem: 'Which method can set some regression coefficients exactly to zero, and so selects variables?'
+  choices:
+    - 'Ridge regression with a large $\lambda$'
+    - 'The lasso'
+    - 'Least squares on standardized predictors'
+    - 'Ridge regression with $\lambda$ chosen by cross-validation'
+  answer: 1
+  explanation: |-
+    The absolute-value penalty has a kink at 0, so the minimum can sit exactly at 0 (soft thresholding); geometrically, the diamond constraint has corners on the axes. Ridge divides by $S_{xx} + \lambda$ (or adds $\lambda\mathbf I$), which shrinks coefficients toward 0 but leaves them nonzero for any finite $\lambda$.
+
+- id: ps-h1-r2-h17
+  lesson: ps-h1-ridge-lasso
+  topic: Regularized regression
+  stem: 'Why are predictors usually standardized before fitting ridge or lasso?'
+  choices:
+    - 'Standardizing makes the errors normally distributed'
+    - 'Without it the matrix $\mathbf X^{\mathsf T}\mathbf X + \lambda\mathbf I$ may not be invertible'
+    - 'Cross-validation only works with standardized predictors'
+    - 'The penalty treats all coefficients alike, so a coefficient''s size must not depend on the units of its predictor'
+  answer: 3
+  explanation: |-
+    A coefficient's size depends on its predictor's units: switching from metres to millimetres divides the coefficient by 1000 and nearly removes its penalty. Standardizing puts every predictor on the same scale so the penalty is fair. $\mathbf X^{\mathsf T}\mathbf X + \lambda\mathbf I$ is invertible for any $\lambda > 0$ either way, and standardizing does nothing to the error distribution.
+
+- id: ps-h1-r2-h18
+  lesson: ps-h1-ridge-lasso
+  topic: Regularized regression
+  stem: 'For a single centered predictor with true slope $\beta = 2$ and error variance $\sigma^2 = 9$, which ridge penalty $\lambda$ minimizes the MSE of the slope estimate?'
+  choices: ['$2.25$', '$0.444$', '$4.5$', '$1.5$']
+  answer: 0
+  explanation: |-
+    $\operatorname{MSE}(\lambda) = (\sigma^2S_{xx} + \lambda^2\beta^2)/(S_{xx} + \lambda)^2$ has derivative $2S_{xx}(\lambda\beta^2 - \sigma^2)/(S_{xx} + \lambda)^3$, which is zero at $\lambda^* = \sigma^2/\beta^2 = 9/4 = 2.25$, whatever $S_{xx}$ is. 0.444 inverts the ratio, 4.5 uses $\sigma^2/\beta$, and 1.5 uses $\sigma/\beta$.
+
+- id: ps-h1-r2-h19
+  lesson: ps-h1-ridge-lasso
+  topic: Regularized regression
+  stem: 'With $N(0, \sigma^2)$ errors, the ridge estimate with penalty $\lambda$ is the posterior mean of $\boldsymbol\beta$ under which prior?'
+  choices:
+    - 'A flat (uniform) prior on each $\beta_j$'
+    - 'Independent Laplace (double exponential) priors on the $\beta_j$'
+    - 'Independent $N(0, \sigma^2/\lambda)$ priors on the $\beta_j$'
+    - 'Independent $N(0, \lambda\sigma^2)$ priors on the $\beta_j$'
+  answer: 2
+  explanation: |-
+    The log posterior is $-\text{RSS}/(2\sigma^2) - \sum\beta_j^2/(2\tau^2)$ plus a constant; multiplying by $-2\sigma^2$ gives RSS $+ (\sigma^2/\tau^2)\sum\beta_j^2$, so $\lambda = \sigma^2/\tau^2$, that is $\tau^2 = \sigma^2/\lambda$. The posterior is normal, so its mean and mode agree. Larger $\lambda$ means a tighter prior, not a wider one. A flat prior gives least squares; Laplace priors give the lasso as the posterior mode.
+
+- id: ps-h1-r2-h20
+  lesson: ps-h1-ridge-lasso
+  topic: Regularized regression
+  stem: 'Why can''t $\lambda$ be chosen by minimizing the residual sum of squares on the data used to fit the model?'
+  choices:
+    - 'The residual sum of squares does not depend on $\lambda$'
+    - 'The residual sum of squares is always smallest at the largest $\lambda$'
+    - 'It would choose the $\lambda$ that maximizes the bias'
+    - 'Least squares minimizes that sum, so the training error is always smallest at $\lambda = 0$'
+  answer: 3
+  explanation: |-
+    Least squares is by definition the minimizer of the training RSS, so any penalty can only raise it. Training error measures fit to this sample, noise included; the error on new data is what matters, and cross-validation or a held-out test set estimates it.
+
+- id: ps-h1-r2-h21
+  lesson: ps-h1-ridge-lasso
+  topic: Regularized regression
+  stem: 'Cross-validation errors for four values of $\lambda$ are $\lambda = 0.1$: 3.20; $\lambda = 1$: 2.95; $\lambda = 10$: 3.05; $\lambda = 100$: 3.60. The standard error at the minimum is 0.15. Which $\lambda$ does the one-standard-error rule choose?'
+  choices: ['$\lambda = 1$', '$\lambda = 10$', '$\lambda = 100$', '$\lambda = 0.1$']
+  answer: 1
+  explanation: |-
+    The minimum is 2.95 at $\lambda = 1$, so the threshold is $2.95 + 0.15 = 3.10$. The rule takes the largest $\lambda$ (the most heavily penalized, simplest model) with CV error at most 3.10: $\lambda = 10$ (3.05). $\lambda = 100$ (3.60) is above the threshold, and $\lambda = 1$ is the plain minimum rule.
+
+- id: ps-h1-r2-h22
+  lesson: ps-h1-ridge-lasso
+  module_quiz: true
+  type: text
+  topic: Regularized regression
+  stem: 'One centered predictor has $S_{xx} = 20$ and $S_{xy} = 12$. With $\lambda = 8$ the lasso estimate of the slope (criterion RSS $+ \lambda|b|$) is ___. Give only the number.'
+  accept: ['0.4']
+  explanation: |-
+    $|S_{xy}| - \lambda/2 = 12 - 4 = 8 > 0$, so $b = 8/20 = 0.4$. (Least squares gives $12/20 = 0.6$; ridge with $\lambda = 8$ would give $12/28 \approx 0.429$.)
+
+- id: ps-h1-r2-h23
+  lesson: ps-h1-ridge-lasso
+  type: text
+  topic: Regularized regression
+  stem: 'One centered predictor has $S_{xx} = 25$ and $S_{xy} = -15$. The lasso slope (criterion RSS $+ \lambda|b|$) is exactly zero for every $\lambda$ at or above ___. Give only the number.'
+  accept: ['30']
+  explanation: |-
+    Soft thresholding gives zero when $|S_{xy}| - \lambda/2 \le 0$, that is $\lambda \ge 2|S_{xy}| = 30$. The sign of $S_{xy}$ does not matter, and $S_{xx}$ only scales the nonzero answers.
+
+- id: ps-h1-r2-h24
+  lesson: ps-h1-ridge-lasso
+  module_quiz: true
+  type: order
+  topic: Regularized regression
+  stem: 'Put the steps of choosing $\lambda$ by $K$-fold cross-validation in order.'
+  items:
+    - 'Split the data at random into $K$ folds'
+    - 'Fit the model for each $\lambda$ on all folds but one'
+    - 'Compute the squared prediction errors on the held-out fold'
+    - 'Average the errors over all $K$ folds for each $\lambda$'
+    - 'Choose the $\lambda$ with the smallest average error'
+    - 'Refit on all the data with the chosen $\lambda$'
+  explanation: |-
+    The folds must exist before anything is held out; each fit is evaluated only on the fold it did not see; the CV error for a $\lambda$ is the average over all $K$ folds; and only after $\lambda$ is chosen is the final model fitted to the full data set.
+
+- id: ps-h1-r2-h25
+  lesson: ps-h1-ridge-lasso
+  topic: Regularized regression
+  stem: 'Which statements about ridge regression are true? Select all that apply.'
+  choices:
+    - 'For every $\lambda > 0$, $\mathbf X^{\mathsf T}\mathbf X + \lambda\mathbf I$ is invertible, even when $p > n$'
+    - 'With a moderate $\lambda$ it sets the weakest coefficients exactly to zero'
+    - 'At $\lambda = 0$ it is ordinary least squares'
+    - 'Increasing $\lambda$ lowers the variance of the coefficient estimates'
+    - 'The intercept is normally penalized along with the slopes'
+  answer: [0, 2, 3]
+  explanation: |-
+    $\mathbf v^{\mathsf T}(\mathbf X^{\mathsf T}\mathbf X + \lambda\mathbf I)\mathbf v = \|\mathbf X\mathbf v\|^2 + \lambda\|\mathbf v\|^2 > 0$ for $\mathbf v \ne \mathbf 0$, so the matrix is positive definite and invertible. $\lambda = 0$ removes the penalty. More penalty means less variance (and more bias). Ridge never gives exact zeros (that is the lasso), and the intercept is left unpenalized; with centered data it is $\bar y$.
+
+- id: ps-h1-r2-h26
+  lesson: ps-h1-ridge-lasso
+  type: match
+  topic: Regularized regression
+  stem: 'Match each term to its description.'
+  pairs:
+    - [Ridge penalty, Sum of squared coefficients times λ]
+    - [Lasso penalty, Sum of absolute coefficients times λ]
+    - [Cross-validation, Estimates prediction error on held-out data]
+    - [Soft thresholding, Moves an estimate toward 0 by a fixed amount and stops at 0]
+  distractors: [Average squared residual on the data used for fitting]
+  explanation: |-
+    Ridge adds $\lambda\sum\beta_j^2$ and the lasso adds $\lambda\sum|\beta_j|$. Cross-validation holds out part of the data to estimate error on new data; the training error (the distractor) is what it replaces. Soft thresholding, $\operatorname{sign}(z)(|z| - c)_+$, is the lasso's one-predictor solution.
+
+- id: ps-h1-r2-h27
+  lesson: ps-h1-ridge-lasso
+  module_quiz: true
+  type: label
+  topic: Regularized regression
+  stem: 'Both panels show the same contours of the residual sum of squares and a constraint region: a diamond on the left, a disk on the right. Name the numbered parts.'
+  image: {src: images/ps-h1-lasso-ridge-blank.svg, alt: 'Two panels with axes b1 and b2. In each, nested ellipses surround a point in the upper right. Left: a shaded diamond centered at the origin, with a dot where the outer ellipse touches its top corner on the b2 axis. Right: a shaded disk centered at the origin, with a dot where the outer ellipse touches it at a point off both axes.'}
+  labels:
+    - {x: 23.4, y: 39.8, text: Least squares estimate}
+    - {x: 16.1, y: 55.0, text: Lasso estimate}
+    - {x: 70.6, y: 57.1, text: Ridge estimate}
+    - {x: 38.7, y: 41.4, text: Contour of the residual sum of squares}
+    - {x: 63.2, y: 70.8, text: Ridge constraint region}
+  distractors: [Lasso constraint region, Prior mean]
+  explanation: |-
+    The ellipses are contours of the residual sum of squares, centered at the least squares estimate. The penalized solution is where the smallest contour touches the constraint region. The diamond $|b_1| + |b_2| \le t$ is the lasso region, and its contact point is a corner on the $b_2$ axis, so $b_1 = 0$. The disk $b_1^2 + b_2^2 \le t^2$ is the ridge region; its contact point has both coefficients nonzero. Marker 5 is inside the disk, so it is the ridge region, not the lasso region.

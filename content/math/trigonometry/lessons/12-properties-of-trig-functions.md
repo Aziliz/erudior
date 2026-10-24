@@ -52,6 +52,10 @@ the opposite point $(-x, -y)$, and
 $$\tan(t + \pi) = \frac{-y}{-x} = \frac{y}{x} = \tan t.$$
 So tangent and cotangent have period $\pi$.
 
+```plot
+{"x": [-1.5, 1.5], "y": [-1.5, 1.5], "equal": true, "circles": [{"center": [0, 0], "r": 1}], "segments": [{"from": [-0.6, -0.8], "to": [0.6, 0.8], "dashed": true}], "points": [{"at": [0.6, 0.8], "label": "(x, y): t"}, {"at": [-0.6, -0.8], "label": "(−x, −y): t + π"}, [0, 0]], "caption": "t and t + π give opposite points on one line through the origin, so y/x (the tangent, the slope of that line) is the same"}
+```
+
 Periodicity lets you strip whole periods from an angle before evaluating.
 
 ### Example 1
@@ -114,6 +118,26 @@ $\tan t = -\tfrac34$ with $t$ in quadrant II. Find $\tan(-t)$, $\tan(t + \pi)$ a
 $\tan(-t) = -\tan t = \tfrac34$ (odd). $\tan(t + \pi) = \tan t = -\tfrac34$ (period $\pi$).
 For secant, use a point in quadrant II: $x = -4$, $y = 3$, $r = 5$, so $\sec t = -\tfrac54$, and since
 secant is even, $\sec(-t) = -\tfrac54$.
+
+## Putting the properties to work
+
+Periodicity and symmetry combine into one routine for any input, however large or negative:
+
+```mermaid
+flowchart TD
+  accTitle: Evaluating a trig function at a large or negative input
+  accDescr: Start with a function value such as tan of 13 pi over 4 or cosine of minus t. First strip whole periods: subtract multiples of 2 pi for sine, cosine, secant and cosecant, or multiples of pi for tangent and cotangent. Then, if the input is still negative, use symmetry: cosine and secant are even, so the minus sign disappears; sine, tangent, cosecant and cotangent are odd, so the minus sign comes out in front. Finally evaluate the remaining angle with a reference angle or the unit circle.
+  A["Value such as tan(13π/4) or cos(−t)"] --> B{"Which function?"}
+  B -- "sin, cos, sec, csc" --> C1["Strip multiples of 2π"]
+  B -- "tan, cot" --> C2["Strip multiples of π"]
+  C1 --> D{"Input still negative?"}
+  C2 --> D
+  D -- "yes, cos or sec (even)" --> E1["f(−t) = f(t): drop the minus sign"]
+  D -- "yes, sin, tan, csc or cot (odd)" --> E2["f(−t) = −f(t): move the minus sign out"]
+  D -- no --> F["Evaluate with a reference angle or the unit circle"]
+  E1 --> F
+  E2 --> F
+```
 
 ## Common mistakes
 

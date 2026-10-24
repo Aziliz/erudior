@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 232" width="700" height="232" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="700" height="232" fill="#ffffff"/>
+<polygon points="40.0,165.0 146.5,165.0 146.5,90.4" fill="#dde8f3" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="135.5,165.0 135.5,154.0 146.5,154.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 68.0 165.0 A 28 28 0 0 0 62.9 148.9" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="76.0" y="158.0" font-size="15" text-anchor="middle" font-style="italic" fill="#1c2833">x</text>
+<text x="93.2" y="187.0" font-size="16" text-anchor="middle" fill="#1c2833">cos x</text>
+<text x="154.5" y="133.7" font-size="16" text-anchor="start" fill="#1c2833">sin x</text>
+<text x="85.2" y="116.2" font-size="16" text-anchor="end" fill="#1c2833">1</text>
+<text x="103.2" y="217.0" font-size="15" text-anchor="middle" fill="#1c2833">sin² x + cos² x = 1</text>
+<polygon points="221.5,165.0 351.5,165.0 351.5,74.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="340.5,165.0 340.5,154.0 351.5,154.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 249.5 165.0 A 28 28 0 0 0 244.4 148.9" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="257.5" y="158.0" font-size="15" text-anchor="middle" font-style="italic" fill="#1c2833">x</text>
+<text x="286.5" y="187.0" font-size="16" text-anchor="middle" fill="#1c2833">1</text>
+<text x="359.5" y="125.5" font-size="16" text-anchor="start" fill="#1c2833">tan x</text>
+<text x="278.5" y="108.0" font-size="16" text-anchor="end" fill="#1c2833">sec x</text>
+<text x="296.5" y="217.0" font-size="15" text-anchor="middle" fill="#1c2833">1 + tan² x = sec² x</text>
+<polygon points="426.5,165.0 612.1,165.0 612.1,35.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="601.1,165.0 601.1,154.0 612.1,154.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 454.5 165.0 A 28 28 0 0 0 449.4 148.9" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="462.5" y="158.0" font-size="15" text-anchor="middle" font-style="italic" fill="#1c2833">x</text>
+<text x="519.3" y="187.0" font-size="16" text-anchor="middle" fill="#1c2833">cot x</text>
+<text x="620.1" y="106.0" font-size="16" text-anchor="start" fill="#1c2833">1</text>
+<text x="511.3" y="88.5" font-size="16" text-anchor="end" fill="#1c2833">csc x</text>
+<text x="529.3" y="217.0" font-size="15" text-anchor="middle" fill="#1c2833">1 + cot² x = csc² x</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 300" width="780" height="300" font-family="sans-serif" fill="#1c2833">
+<rect width="780" height="300" fill="#ffffff"/>
+<polygon points="70.0,215.0 190.0,215.0 120.0,128.4" fill="#dcf0e3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M 94 215 A 24 24 0 0 0 82.0 194.2" fill="none" stroke="#1c2833" stroke-width="1.6"/>
+<text x="66.0" y="239.0" font-size="17" text-anchor="middle" font-weight="bold">C</text>
+<text x="130.0" y="237.0" font-size="17" text-anchor="middle" font-style="italic">a</text>
+<text x="81.0" y="175.7" font-size="17" text-anchor="end" font-style="italic">b</text>
+<text x="167.0" y="165.7" font-size="17" text-anchor="start" font-style="italic">c</text>
+<text x="130.0" y="36.0" font-size="18" text-anchor="middle" font-weight="bold">C = 60°</text>
+<text x="130.0" y="272.0" font-size="18" text-anchor="middle">c² &lt; a² + b²</text>
+<polygon points="330.0,215.0 450.0,215.0 330.0,115.0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="330,199 346,199 346,215" fill="none" stroke="#1c2833" stroke-width="1.6"/>
+<text x="326.0" y="239.0" font-size="17" text-anchor="middle" font-weight="bold">C</text>
+<text x="390.0" y="237.0" font-size="17" text-anchor="middle" font-style="italic">a</text>
+<text x="316.0" y="169.0" font-size="17" text-anchor="end" font-style="italic">b</text>
+<text x="402.0" y="159.0" font-size="17" text-anchor="start" font-style="italic">c</text>
+<text x="390.0" y="36.0" font-size="18" text-anchor="middle" font-weight="bold">C = 90°</text>
+<text x="390.0" y="272.0" font-size="18" text-anchor="middle">c² = a² + b²</text>
+<polygon points="640.0,215.0 760.0,215.0 590.0,128.4" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M 664 215 A 24 24 0 0 0 628.0 194.2" fill="none" stroke="#1c2833" stroke-width="1.6"/>
+<text x="636.0" y="239.0" font-size="17" text-anchor="middle" font-weight="bold">C</text>
+<text x="700.0" y="237.0" font-size="17" text-anchor="middle" font-style="italic">a</text>
+<text x="601.0" y="175.7" font-size="17" text-anchor="end" font-style="italic">b</text>
+<text x="687.0" y="165.7" font-size="17" text-anchor="start" font-style="italic">c</text>
+<text x="650.0" y="36.0" font-size="18" text-anchor="middle" font-weight="bold">C = 120°</text>
+<text x="650.0" y="272.0" font-size="18" text-anchor="middle">c² &gt; a² + b²</text>
+</svg>

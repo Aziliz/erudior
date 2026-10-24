@@ -70,6 +70,18 @@ $$8400\pi \,\frac{\text{in}}{\text{min}} \cdot \frac{60 \text{ min}}{1 \text{ h}
 Unit conversion is where most errors in these problems happen. Writing each factor as a
 fraction whose units cancel keeps it honest.
 
+The whole chain from Example 1, one step per box:
+
+```mermaid
+flowchart TD
+  accTitle: From revolutions per minute to miles per hour
+  accDescr: Start with the rotation rate in revolutions per minute. Multiply by 2 pi to get radians per minute. Multiply by the radius in inches to get the linear speed in inches per minute, using v equals r omega. Multiply by 60 to get inches per hour. Divide by 63,360, the number of inches in a mile, to get miles per hour.
+  A["Rotation rate in rpm"] -->|"× 2π"| B["Angular speed in rad/min"]
+  B -->|"× radius in inches (v = r ω)"| C["Linear speed in in/min"]
+  C -->|"× 60 min/h"| D["Linear speed in in/h"]
+  D -->|"÷ 63,360 in/mi"| E["Linear speed in mi/h"]
+```
+
 ### Example 2
 
 Earth turns once on its axis about every 24 hours. Its equatorial radius is about 3960
@@ -86,6 +98,10 @@ because the speed is steady.
 
 A belt connects a pulley of radius 5 cm to a pulley of radius 15 cm. The small pulley
 spins at 12 rad/s. How fast does the large pulley spin?
+
+```shape
+{"circles": [{"center": [0, 0], "r": 1}, {"center": [6, 0], "r": 3}], "segments": [{"from": [-0.3333, 0.9428], "to": [5.0000, 2.8284]}, {"from": [-0.3333, -0.9428], "to": [5.0000, -2.8284]}, {"from": [0, 0], "to": [1, 0], "label": "5 cm"}, {"from": [6, 0], "to": [9, 0], "label": "15 cm"}], "points": [[0, 0], [6, 0]], "labels": [{"at": [-0.2, 1.6], "text": "12 rad/s"}, {"at": [6, 3.5], "text": "4 rad/s"}, {"at": [0.4, -2.9], "text": "belt: 60 cm/s everywhere"}], "caption": "The belt moves at one linear speed, so the pulley with three times the radius turns at one third the angular speed"}
+```
 
 The belt doesn't slip, so every point on the belt, and the rim of each pulley, has the same
 linear speed:

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 440" width="480" height="440" font-family="sans-serif" font-size="17" fill="#1c2833">
+<rect width="480" height="440" fill="#ffffff"/>
+<line x1="40.0" y1="225.0" x2="440.0" y2="225.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="230.0" y1="425.0" x2="230.0" y2="25.0" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="230" cy="225" r="160" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="278.0" y1="30.0" x2="278.0" y2="420.0" stroke="#1c2833" stroke-width="2.2" stroke-dasharray="8 6"/>
+<line x1="230.0" y1="225.0" x2="278.0" y2="72.4" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="230.0" y1="225.0" x2="278.0" y2="377.6" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M264.0,225.0 A34,34 0 0 0 240.2,192.6" fill="none" stroke="#1c2833" stroke-width="2"/>
+<path d="M251.0,291.8 A70,70 0 0 0 300.0,225.0" fill="none" stroke="#1c2833" stroke-width="2"/>
+<circle cx="278.0" cy="72.4" r="6" fill="#1c2833"/>
+<circle cx="278.0" cy="377.6" r="6" fill="#1c2833"/>
+<circle cx="278.0" cy="225.0" r="4" fill="#1c2833"/>
+<text x="288.0" y="40.0" text-anchor="start">x = c</text>
+<text x="292.0" y="66.4" text-anchor="start">angle β</text>
+<text x="290.0" y="399.6" text-anchor="start">angle 2π − β</text>
+<text x="254.4" y="179.1" text-anchor="middle" font-size="19" font-style="italic">β</text>
+<text x="286.0" y="247.0" text-anchor="start" font-style="italic">c</text>
+</svg>

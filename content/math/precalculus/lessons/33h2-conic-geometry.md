@@ -119,7 +119,7 @@ Both angles are about $43.2°$, one on each side of $P$: equal, as claimed.
 
 ## Key points
 
-- Dandelin spheres touch the cutting plane at the foci; equal tangent segments prove $PF_1 + PF_2 = $ constant.
+- Dandelin spheres touch the cutting plane at the foci; equal tangent segments prove that $PF_1 + PF_2$ is constant.
 - The plane of a sphere's contact circle meets the cutting plane in a directrix; $e = \frac{\cos\beta}{\cos\alpha}$ classifies the slice.
 - Ellipse focal radii: $PF_1 = a + ex_0$, $PF_2 = a - ex_0$; directrices $x = \pm\frac ae$.
 - The tangent to $x^2 = 4py$ at $(x_0, y_0)$ has slope $\frac{x_0}{2p}$ and meets the axis at $(0, -y_0)$; the isosceles triangle proves the reflective property.

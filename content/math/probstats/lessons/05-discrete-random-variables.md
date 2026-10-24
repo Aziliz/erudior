@@ -54,14 +54,15 @@ $$P(a < X \le b) = F(b) - F(a), \qquad p(x_i) = F(x_i) - F(x_i^-) \text{ (the ju
 
 For integer-valued $X$, watch the endpoints: $P(X < 5) = F(4)$ and $P(X \ge 5) = 1 - F(4)$.
 
-The picture shows these features on the cdf of the defect count in Example 1 below, which takes the
-values 0, 1, 2, 3 with probabilities 0.4, 0.3, 0.2, 0.1.
-
-![Step-function cdf rising from 0 to 1 with jumps of 0.4, 0.3, 0.2 and 0.1 at x = 0, 1, 2, 3; filled dots mark the value at each jump and open dots the limit from the left](images/ps-m2-cdf-anatomy.svg)
-
 ```plot
 {"x": [1, 13], "y": [0, 0.2], "xLabel": "sum", "yLabel": "p(x)", "bars": [{"x": 2, "height": 0.02778, "width": 0.7}, {"x": 3, "height": 0.05556, "width": 0.7}, {"x": 4, "height": 0.08333, "width": 0.7}, {"x": 5, "height": 0.11111, "width": 0.7}, {"x": 6, "height": 0.13889, "width": 0.7}, {"x": 7, "height": 0.16667, "width": 0.7}, {"x": 8, "height": 0.13889, "width": 0.7}, {"x": 9, "height": 0.11111, "width": 0.7}, {"x": 10, "height": 0.08333, "width": 0.7}, {"x": 11, "height": 0.05556, "width": 0.7}, {"x": 12, "height": 0.02778, "width": 0.7}], "caption": "pmf of the sum of two fair dice: p(x) = (6 − |x − 7|)/36"}
 ```
+
+The cdf features above (jumps, flat stretches, the value at each jump) are easiest to see in a
+picture. Here is the cdf of the defect count in Example 1 below, which takes the values 0, 1, 2, 3
+with probabilities 0.4, 0.3, 0.2, 0.1.
+
+![Step-function cdf rising from 0 to 1 with jumps of 0.4, 0.3, 0.2 and 0.1 at x = 0, 1, 2, 3; filled dots mark the value at each jump and open dots the limit from the left](images/ps-m2-cdf-anatomy.svg)
 
 ## Expected value
 

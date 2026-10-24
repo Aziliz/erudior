@@ -51,6 +51,10 @@ The special triangles give the quadrant I points:
 Every other special point is a reflection of one of these, with signs set by the
 quadrant. That is the reference-angle idea from the last lesson, now as a picture.
 
+The same sixteen points labeled with their angles, in radians outside the circle and degrees inside:
+
+![The unit circle with sixteen dots: the four axis points and the points at every multiple of 30 and 45 degrees. Outside each dot is its radian measure, from 0 at the right counterclockwise through pi over 6, pi over 4, pi over 3, pi over 2, 2 pi over 3, 3 pi over 4, 5 pi over 6, pi, 7 pi over 6, 5 pi over 4, 4 pi over 3, 3 pi over 2, 5 pi over 3, 7 pi over 4 and 11 pi over 6. Inside the circle, each non-axis radius is labeled with its degree measure.](images/trig-m3-unit-circle.svg)
+
 ```plot
 {"x": [-1.6, 1.6], "y": [-1.6, 1.6], "equal": true, "circles": [{"center": [0, 0], "r": 1}], "points": [{"at": [0.866, 0.5], "label": "(√3/2, 1/2)"}, {"at": [0.7071, 0.7071]}, {"at": [0.5, 0.866], "label": "(1/2, √3/2)"}, {"at": [-0.866, 0.5], "label": "(−√3/2, 1/2)"}, {"at": [-0.7071, 0.7071]}, {"at": [-0.5, 0.866]}, {"at": [-0.866, -0.5], "label": "(−√3/2, −1/2)"}, {"at": [-0.7071, -0.7071]}, {"at": [-0.5, -0.866]}, {"at": [0.866, -0.5], "label": "(√3/2, −1/2)"}, {"at": [0.7071, -0.7071]}, {"at": [0.5, -0.866]}, {"at": [1, 0]}, {"at": [0, 1]}, {"at": [-1, 0]}, {"at": [0, -1]}], "caption": "Special points on the unit circle; each quadrant mirrors quadrant I"}
 ```
@@ -63,6 +67,25 @@ The full table with all sixteen points is on the reference sheet. Rather than me
 - Points with denominator 3 are close to the $y$-axis: $|x| = \tfrac12$, $|y| = \tfrac{\sqrt3}{2}$.
 - Points with denominator 4 sit on the diagonals: $|x| = |y| = \tfrac{\sqrt2}{2}$.
 - The signs come from the quadrant.
+
+Put together, reading any special value takes four steps:
+
+```mermaid
+flowchart TD
+  accTitle: Reading a special value off the unit circle
+  accDescr: Start with a special number t, a multiple of pi over 6 or pi over 4. First add or subtract 2 pi until t is between 0 and 2 pi. Then look at the denominator of t in lowest terms. Denominator 6 means the point is near the x-axis, with x of size root 3 over 2 and y of size one half. Denominator 4 means the point is on a diagonal, with both sizes root 2 over 2. Denominator 3 means the point is near the y-axis, with x of size one half and y of size root 3 over 2. Any whole multiple of pi over 2 is a point on an axis. Next give x and y the signs of the quadrant. Finally read cosine as x, sine as y, and tangent as y over x.
+  A["Special number t"] --> B["Add or subtract 2π until 0 ≤ t #lt; 2π"]
+  B --> C{"Denominator of t in lowest terms?"}
+  C -- 6 --> D1["Near the x-axis: |x| = √3/2, |y| = 1/2"]
+  C -- 4 --> D2["On a diagonal: |x| = |y| = √2/2"]
+  C -- 3 --> D3["Near the y-axis: |x| = 1/2, |y| = √3/2"]
+  C -- "multiple of π/2" --> D4["On an axis: (±1, 0) or (0, ±1)"]
+  D1 --> E["Give x and y the quadrant's signs"]
+  D2 --> E
+  D3 --> E
+  D4 --> F
+  E --> F["cos t = x, sin t = y, tan t = y/x"]
+```
 
 ### Example 1
 

@@ -10,7 +10,7 @@
 <text x="246.7" y="222.3" font-style="italic">θ</text>
 <text x="188" y="274" text-anchor="end">center</text>
 <text x="355.3" y="138.5" fill="#b5532a">arc s</text>
-<text x="294.3" y="197.5">chord</text>
+<text x="319.8" y="171.1" text-anchor="middle" font-size="15">chord</text>
 <text x="287.7" y="290.8">radius r</text>
 <text x="225.7" y="181.0">sector</text>
 </svg>

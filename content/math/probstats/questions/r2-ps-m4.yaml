@@ -234,7 +234,7 @@
     - ['Sum of $n$ exponentials, each with mean $\theta$', 'Gamma with shape n and scale θ']
   distractors: ['Normal with mean μ1 + μ2 and SD σ1 + σ2', 'Exponential with mean nθ']
   explanation: |-
-    These are the closure rules from the MGF method. For normals the *variances* add, not the SDs, and a sum of
+    These are the closure rules from the MGF method. For normals the variances add, not the SDs, and a sum of
     $n$ exponentials is gamma (shape $n$), not exponential.
 
 - id: ps-m4-r2-q18
@@ -612,7 +612,7 @@
   answer: 2
   explanation: |-
     $P(R \le r) = nr^{n-1} - (n-1)r^n = 3(0.25) - 2(0.125) = 0.5$. 0.125 is $0.5^3$, the chance that all three fall in
-    one *fixed* half; the range can sit anywhere.
+    one fixed half; the range can sit anywhere.
 
 - id: ps-m4-r2-h20
   lesson: ps-m4-h-ranges-spacings
@@ -675,7 +675,7 @@
   answer: [0, 2, 4]
   explanation: |-
     By the Rényi representation the spacings are independent with rates $n\lambda, (n-1)\lambda, \dots, \lambda$, so their means grow:
-    $D_1$ has the *smallest* mean $1/(n\lambda)$ and $D_n$ the largest, $1/\lambda$. The range is $D_2 + \cdots + D_n$, whose rates
+    $D_1$ has the smallest mean $1/(n\lambda)$ and $D_n$ the largest, $1/\lambda$. The range is $D_2 + \cdots + D_n$, whose rates
     $(n-1)\lambda, \dots, \lambda$ are exactly those of the maximum of $n - 1$ exponentials.
 
 - id: ps-m4-r2-h25

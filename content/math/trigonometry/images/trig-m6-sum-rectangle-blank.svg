@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 430" width="620" height="430" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="620" height="430" fill="#ffffff"/>
+<polygon points="150.0,395.0 419.6,395.0 419.6,50.6 150.0,50.6" fill="#ffffff" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="150.0,395.0 419.6,395.0 419.6,239.4" fill="#dde8f3" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="150.0,395.0 419.6,239.4 310.6,50.6" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="419.6,239.4 419.6,50.6 310.6,50.6" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="407.6,395.0 407.6,383.0 419.6,383.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<polyline points="409.2,245.4 403.2,235.0 413.6,229.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<polyline points="419.6,62.6 407.6,62.6 407.6,50.6" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 196.0 395.0 A 46 46 0 0 0 189.8 372.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="202.0" y="386.0" font-size="16" text-anchor="middle" font-style="italic" fill="#1c2833">α</text>
+<path d="M 210.6 360.0 A 70 70 0 0 0 179.6 331.6" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="216.0" y="343.0" font-size="16" text-anchor="middle" font-style="italic" fill="#1c2833">β</text>
+<path d="M 419.6 209.4 A 30 30 0 0 0 404.6 213.4" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="407.6" y="203.4" font-size="16" text-anchor="middle" font-style="italic" fill="#1c2833">α</text>
+<circle cx="150.0" cy="395.0" r="3.5" fill="#1c2833"/>
+<text x="134.0" y="413.0" font-size="16" text-anchor="middle" fill="#1c2833">O</text>
+<circle cx="419.6" cy="395.0" r="3.5" fill="#1c2833"/>
+<text x="433.6" y="413.0" font-size="16" text-anchor="middle" fill="#1c2833">R</text>
+<circle cx="419.6" cy="239.4" r="3.5" fill="#1c2833"/>
+<text x="431.6" y="245.4" font-size="16" text-anchor="middle" fill="#1c2833">Q</text>
+<circle cx="310.6" cy="50.6" r="3.5" fill="#1c2833"/>
+<text x="310.6" y="38.6" font-size="16" text-anchor="middle" fill="#1c2833">P</text>
+<circle cx="419.6" cy="50.6" r="3.5" fill="#1c2833"/>
+<text x="433.6" y="42.6" font-size="16" text-anchor="middle" fill="#1c2833">S</text>
+<circle cx="150.0" cy="50.6" r="3.5" fill="#1c2833"/>
+<text x="134.0" y="42.6" font-size="16" text-anchor="middle" fill="#1c2833">T</text>
+<text x="292.8" y="331.0" font-size="16" text-anchor="start" fill="#1c2833">cos β</text>
+<text x="355.1" y="149.0" font-size="16" text-anchor="end" fill="#1c2833">sin β</text>
+<text x="219.4" y="217.7" font-size="16" text-anchor="end" fill="#1c2833">1</text>
+<text x="140.0" y="227.8" font-size="16" text-anchor="end" fill="#1c2833">sin(α + β)</text>
+<text x="230.3" y="38.6" font-size="16" text-anchor="middle" fill="#1c2833">cos(α + β)</text>
+</svg>

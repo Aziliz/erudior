@@ -81,7 +81,7 @@ The penalty halves the mean squared error, at the price of an estimator that is 
 0.25, not 0.5.
 
 ```plot
-{"x": [0, 20], "y": [0, 0.27], "xLabel": "penalty λ", "yLabel": "error", "functions": [{"f": "(4 + 0.25*x^2)/(4 + x)^2", "label": "MSE"}, {"f": "4/(4 + x)^2", "label": "variance", "dashed": true}, {"f": "0.25*x^2/(4 + x)^2", "label": "bias²", "dashed": true}], "points": [{"at": [4, 0.125], "label": "λ* = 4"}], "caption": "Example 1: as λ grows the variance falls and the squared bias rises; their sum, the MSE, is smallest at λ* = σ²/β² = 4"}
+{"x": [0, 20], "y": [0, 0.27], "xLabel": "penalty λ", "yLabel": "error", "functions": [{"f": "(4 + 0.25*x^2)/(4 + x)^2"}, {"f": "4/(4 + x)^2", "dashed": true}, {"f": "0.25*x^2/(4 + x)^2", "dashed": true}], "points": [{"at": [4, 0.125], "label": "λ* = 4"}], "labels": [{"at": [9, 0.165], "text": "MSE"}, {"at": [15, 0.125], "text": "bias²"}, {"at": [8, 0.045], "text": "variance"}], "caption": "Example 1: as λ grows the variance falls and the squared bias rises; their sum, the MSE, is smallest at λ* = σ²/β² = 4"}
 ```
 
 ## The lasso

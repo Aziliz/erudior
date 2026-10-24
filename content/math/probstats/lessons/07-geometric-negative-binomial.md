@@ -101,15 +101,14 @@ With $r = 1$ this is the geometric distribution.
 the second, and so on, are $r$ independent geometric waiting times (each restart is fresh, by
 memorylessness). So $X = G_1 + \cdots + G_r$, and
 
-For example, with $r = 3$ the run of trials F F S F S F F F S splits into waits of 3, 2 and 4 trials:
-
-![Nine trials F F S F S F F F S split by braces into three geometric waits of 3, 2 and 4 trials, so X = 9 trials for r = 3 successes](images/ps-m2-negbin-waits.svg)
-
-
 $$E(X) = \frac{r}{p}, \qquad \operatorname{Var}(X) = \frac{rq}{p^2}.$$
 
 (The mean uses only additivity of expectation; the variance uses the additivity of variances for
 independent variables, proved in Module 4.)
+
+For example, with $r = 3$ the run of trials F F S F S F F F S splits into waits of 3, 2 and 4 trials:
+
+![Nine trials F F S F S F F F S split by braces into three geometric waits of 3, 2 and 4 trials, so X = 9 trials for r = 3 successes](images/ps-m2-negbin-waits.svg)
 
 **Link to the binomial.** Needing more than $n$ trials for $r$ successes is the same event as
 having fewer than $r$ successes in the first $n$ trials:

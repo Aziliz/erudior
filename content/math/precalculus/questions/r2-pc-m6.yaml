@@ -1,0 +1,798 @@
+# Round 2, module pc-m6 (Systems and matrices): new question types for the core lessons
+# (pc-m6-r2-q01 to q30) and questions for the three honors lessons (pc-m6-r2-h01 to h42).
+
+# ---------- Lesson 22: pc-gaussian ----------
+- id: pc-m6-r2-q01
+  lesson: pc-gaussian
+  module_quiz: true
+  type: text
+  topic: Systems and Gaussian elimination
+  stem: 'In row-echelon form, the first nonzero entry of each row is called the row''s ___.'
+  accept: [pivot, pivots, pivot entry, leading entry, leading entries, leading coefficient, leading term]
+  explanation: |-
+    The first nonzero entry of a row is its pivot (also called the leading entry). In row-echelon form each pivot is to the right of the pivot in the row above, and everything below a pivot is 0.
+
+- id: pc-m6-r2-q02
+  lesson: pc-gaussian
+  type: order
+  topic: Systems and Gaussian elimination
+  stem: 'Put the steps for solving a system of three linear equations in $x$, $y$, $z$ by Gaussian elimination in order.'
+  items:
+    - Write the augmented matrix
+    - Use the first row to clear the entries below the first pivot
+    - Use the second row to clear the entry below the second pivot
+    - Solve the last row for $z$
+    - Substitute upward to find $y$, then $x$
+  explanation: |-
+    Elimination works column by column from the left: first clear below the first pivot, then below the second, which leaves a staircase (row-echelon form). The last row then has one unknown, $z$, and back-substitution finds $y$ from row 2 and $x$ from row 1.
+
+- id: pc-m6-r2-q03
+  lesson: pc-gaussian
+  topic: Systems and Gaussian elimination
+  stem: 'A system in $x$, $y$, $z$ reduces to $\left[\begin{array}{ccc|c} 1 & 2 & -1 & 3 \\ 0 & 1 & 4 & 2 \\ 0 & 0 & 0 & 0 \end{array}\right]$. Which statements are true? Select all that apply.'
+  choices: ['The system is consistent', '$z$ is a free variable', 'The system has exactly one solution', '$(-1, 2, 0)$ is a solution']
+  answer: [0, 1, 3]
+  explanation: |-
+    The zero row says $0 = 0$, which is always true, so there is no contradiction: the system is consistent. Column 3 has no pivot, so $z = t$ is free and there are infinitely many solutions, not one. Row 2 gives $y = 2 - 4t$ and row 1 gives $x = 3 - 2y + z = -1 + 9t$. With $t = 0$ that is $(-1, 2, 0)$; check row 1: $-1 + 4 - 0 = 3$. ✓
+
+- id: pc-m6-r2-q04
+  lesson: pc-gaussian
+  module_quiz: true
+  type: label
+  topic: Systems and Gaussian elimination
+  stem: 'Each numbered panel shows the two lines of a system of two linear equations in $x$ and $y$. How many solutions does each system have?'
+  image: {src: images/pc-m6-solution-cases-blank.svg, alt: 'Three panels with two lines each. In panel 1 the lines cross at one marked point. In panel 2 the lines are parallel. In panel 3 the two lines lie exactly on top of each other.'}
+  labels:
+    - {x: 7.1, y: 19.0, text: One solution}
+    - {x: 39.3, y: 19.0, text: No solution}
+    - {x: 71.4, y: 19.0, text: Infinitely many solutions}
+  distractors: [Exactly two solutions]
+  explanation: |-
+    Each solution of the system is a point on both lines. Lines that cross share exactly one point (panel 1). Parallel lines share none, so that system is inconsistent (panel 2). Identical lines share every point, so that dependent system has infinitely many solutions (panel 3). Two straight lines can never meet in exactly two points, which is why a linear system never has exactly two solutions.
+
+- id: pc-m6-r2-q05
+  lesson: pc-gaussian
+  type: match
+  topic: Systems and Gaussian elimination
+  stem: 'Each row below is the last row of a row-echelon form for a system in $x$, $y$, $z$ (coefficients, then the constant). Match each row to what it tells you.'
+  pairs:
+    - ['$\left[\begin{array}{ccc|c} 0 & 0 & 0 & 4 \end{array}\right]$', The system has no solution]
+    - ['$\left[\begin{array}{ccc|c} 0 & 0 & 0 & 0 \end{array}\right]$', The equation is always true and gives no information]
+    - ['$\left[\begin{array}{ccc|c} 0 & 0 & 2 & 6 \end{array}\right]$', z = 3]
+  distractors: [z = 6, z = 4]
+  explanation: |-
+    $[0\ 0\ 0 \mid 4]$ reads $0 = 4$, a contradiction, so there is no solution. $[0\ 0\ 0 \mid 0]$ reads $0 = 0$: always true, so it can be dropped (and if a variable is left without a pivot, there are infinitely many solutions). $[0\ 0\ 2 \mid 6]$ reads $2z = 6$, so $z = 3$; forgetting to divide by 2 gives $z = 6$.
+
+# ---------- Lesson 23: pc-matrix-ops ----------
+- id: pc-m6-r2-q06
+  lesson: pc-matrix-ops
+  module_quiz: true
+  type: text
+  topic: Matrix operations
+  stem: 'If $A$ is $3 \times 2$ and $B$ is $2 \times 4$, then $AB$ has ___ rows and ___ columns.'
+  accept:
+    - ['3', three]
+    - ['4', four]
+  explanation: |-
+    $(3 \times 2)(2 \times 4)$: the inner sizes (2 and 2) match, so the product is defined, and the outer sizes give its size, $3 \times 4$: 3 rows and 4 columns.
+
+- id: pc-m6-r2-q07
+  lesson: pc-matrix-ops
+  type: match
+  topic: Matrix operations
+  stem: '$A$ is $2 \times 3$, $B$ is $3 \times 3$ and $C$ is $3 \times 1$. Match each product to its size.'
+  pairs:
+    - ['$AB$', 2 × 3]
+    - ['$BC$', 3 × 1]
+    - ['$AC$', 2 × 1]
+    - ['$CA$', Undefined]
+  distractors: [3 × 2, 1 × 3]
+  explanation: |-
+    Check the inner sizes, then read the outer ones. $AB$: $(2 \times 3)(3 \times 3)$ gives $2 \times 3$. $BC$: $(3 \times 3)(3 \times 1)$ gives $3 \times 1$. $AC$: $(2 \times 3)(3 \times 1)$ gives $2 \times 1$. $CA$: $(3 \times 1)(2 \times 3)$ has inner sizes 1 and 2, which don't match, so it is undefined.
+
+- id: pc-m6-r2-q08
+  lesson: pc-matrix-ops
+  topic: Matrix operations
+  stem: 'Which statements are true for all square matrices $A$, $B$, $C$ of the same size? Select all that apply.'
+  choices: ['$(AB)C = A(BC)$', '$AB = BA$', '$A(B + C) = AB + AC$', 'If $AB = O$, then $A = O$ or $B = O$']
+  answer: [0, 2]
+  explanation: |-
+    Matrix multiplication is associative and distributes over addition. It is not commutative: in Lesson 23's Example 2, $AB$ and $BA$ were different. And a product can be the zero matrix without either factor being zero: $\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}\begin{bmatrix} 1 & -1 \\ -1 & 1 \end{bmatrix} = O$.
+
+- id: pc-m6-r2-q09
+  lesson: pc-matrix-ops
+  module_quiz: true
+  type: label
+  topic: Matrix operations
+  stem: 'The picture shows the matrices $C$ and $D$ and their product $CD$. Name the numbered parts that are used to compute one entry of the product.'
+  image: {src: images/pc-m6-row-times-column-blank.svg, alt: 'C, a 2 by 3 matrix with its second row shaded; D, a 3 by 2 matrix with its first column shaded; and their 2 by 2 product CD with its bottom-left entry shaded. Marker 1 is beside the shaded row of C, marker 2 below the shaded column of D, marker 3 beside the shaded entry of CD.'}
+  labels:
+    - {x: 3.7, y: 54.3, text: Row 2 of C}
+    - {x: 38.0, y: 79.0, text: Column 1 of D}
+    - {x: 58.7, y: 54.3, text: 'Entry in row 2, column 1 of CD'}
+  distractors: [Row 1 of C, Column 2 of D]
+  explanation: |-
+    An entry of a product is a row of the first matrix dotted with a column of the second. Row 2 of $C$, $(-1, 3, 1)$, times column 1 of $D$, $(2, 0, 4)$, gives $(-1)(2) + (3)(0) + (1)(4) = 2$, the entry in row 2, column 1 of $CD$.
+
+- id: pc-m6-r2-q10
+  lesson: pc-matrix-ops
+  type: text
+  topic: Matrix operations
+  stem: 'Find the entry in row 1, column 2 of $\begin{bmatrix} 1 & 3 \\ -2 & 0 \end{bmatrix}\begin{bmatrix} 4 & -1 \\ 2 & 5 \end{bmatrix}$. Give only the number.'
+  accept: ['14']
+  explanation: |-
+    Row 1 of the first matrix is $(1, 3)$ and column 2 of the second is $(-1, 5)$: $1(-1) + 3(5) = -1 + 15 = 14$.
+
+# ---------- Lesson 24: pc-matrix-inverse ----------
+- id: pc-m6-r2-q11
+  lesson: pc-matrix-inverse
+  module_quiz: true
+  type: text
+  topic: Inverse matrices
+  stem: 'For $A = \begin{bmatrix} 5 & 3 \\ 3 & 2 \end{bmatrix}$, $\det A =$ ___, and the entry in row 1, column 2 of $A^{-1}$ is ___.'
+  accept:
+    - ['1']
+    - ['-3', '−3']
+  explanation: |-
+    $\det A = 5(2) - 3(3) = 1$. Swap the diagonal entries, negate the others and divide by 1: $A^{-1} = \begin{bmatrix} 2 & -3 \\ -3 & 5 \end{bmatrix}$, so the row 1, column 2 entry is $-3$. Check: $AA^{-1} = \begin{bmatrix} 10 - 9 & -15 + 15 \\ 6 - 6 & -9 + 10 \end{bmatrix} = I$.
+
+- id: pc-m6-r2-q12
+  lesson: pc-matrix-inverse
+  type: order
+  topic: Inverse matrices
+  stem: '$A$ is invertible. Put the lines of the derivation that solves $AX = B$ in order.'
+  items:
+    - '$AX = B$'
+    - '$A^{-1}(AX) = A^{-1}B$'
+    - '$(A^{-1}A)X = A^{-1}B$'
+    - '$IX = A^{-1}B$'
+    - '$X = A^{-1}B$'
+  explanation: |-
+    Multiply both sides on the left by $A^{-1}$, regroup using the associative property, replace $A^{-1}A$ by $I$, and use $IX = X$. Multiplying on the left on both sides is what puts $A^{-1}$ in front of $B$.
+
+- id: pc-m6-r2-q13
+  lesson: pc-matrix-inverse
+  topic: Inverse matrices
+  stem: 'Which matrices are invertible? Select all that apply.'
+  choices: ['$\begin{bmatrix} 2 & 4 \\ 1 & 2 \end{bmatrix}$', '$\begin{bmatrix} 3 & 1 \\ 5 & 2 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$', '$\begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 0 & 1 & 1 \end{bmatrix}$']
+  answer: [1, 2]
+  explanation: |-
+    A square matrix is invertible exactly when its determinant is not 0. $\begin{bmatrix} 3 & 1 \\ 5 & 2 \end{bmatrix}$ has determinant $6 - 5 = 1$ and $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ has determinant $0 - 1 = -1$, so both are invertible. $\begin{bmatrix} 2 & 4 \\ 1 & 2 \end{bmatrix}$ has determinant $4 - 4 = 0$ (its first row is twice its second). In the $3 \times 3$ matrix, row 2 is twice row 1, so its determinant is 0 as well.
+
+- id: pc-m6-r2-q14
+  lesson: pc-matrix-inverse
+  module_quiz: true
+  type: match
+  topic: Inverse matrices
+  stem: '$A$ and $B$ are invertible $n \times n$ matrices and $k \ne 0$. Match each expression to an equal one.'
+  pairs:
+    - ['$(AB)^{-1}$', B⁻¹A⁻¹]
+    - ['$(A^{-1})^{-1}$', A]
+    - ['$(kA)^{-1}$', (1/k)A⁻¹]
+    - ['$AA^{-1}$', I]
+  distractors: [A⁻¹B⁻¹, kA⁻¹]
+  explanation: |-
+    To undo "first $B$, then $A$" you undo $A$ first: $(AB)^{-1} = B^{-1}A^{-1}$, in reverse order (since matrix multiplication isn't commutative, $A^{-1}B^{-1}$ is generally different). The inverse of $A^{-1}$ is $A$. Scaling by $k$ is undone by scaling by $\frac1k$: $(kA)\left(\frac1k A^{-1}\right) = I$. And $AA^{-1} = I$ by definition.
+
+- id: pc-m6-r2-q15
+  lesson: pc-matrix-inverse
+  type: text
+  topic: Inverse matrices
+  stem: 'Use $A^{-1}$ to solve $2x + y = 7$, $5x + 3y = 18$. Then $x =$ ___ and $y =$ ___.'
+  accept:
+    - ['3']
+    - ['1']
+  explanation: |-
+    $A = \begin{bmatrix} 2 & 1 \\ 5 & 3 \end{bmatrix}$ has $\det A = 6 - 5 = 1$, so $A^{-1} = \begin{bmatrix} 3 & -1 \\ -5 & 2 \end{bmatrix}$. Then $X = A^{-1}\begin{bmatrix} 7 \\ 18 \end{bmatrix} = \begin{bmatrix} 21 - 18 \\ -35 + 36 \end{bmatrix} = \begin{bmatrix} 3 \\ 1 \end{bmatrix}$. Check: $2(3) + 1 = 7$ and $5(3) + 3(1) = 18$.
+
+# ---------- Lesson 25: pc-determinants ----------
+- id: pc-m6-r2-q16
+  lesson: pc-determinants
+  module_quiz: true
+  type: label
+  topic: Determinants and Cramer's rule
+  stem: 'The picture shows how to find the minor and cofactor of one entry of $\begin{bmatrix} 2 & -1 & 3 \\ 0 & 4 & 1 \\ 5 & 2 & -2 \end{bmatrix}$, with the checkerboard of signs beside it. Name the numbered parts.'
+  image: {src: images/pc-m6-minor-blank.svg, alt: 'The 3 by 3 matrix with its top row and middle column crossed out and the top middle entry circled. The four entries left over are shaded. Beside it, a 3 by 3 checkerboard of plus and minus signs with the top middle sign shaded.'}
+  labels:
+    - {x: 24.7, y: 21.7, text: Entry a₁₂}
+    - {x: 33.4, y: 24.3, text: Crossed-out row}
+    - {x: 24.4, y: 72.2, text: Crossed-out column}
+    - {x: 10.2, y: 73.9, text: Entries that form the minor M₁₂}
+    - {x: 71.8, y: 20.0, text: 'Sign for position (1, 2)'}
+  distractors: [Main diagonal]
+  explanation: |-
+    The circled entry is $a_{12} = -1$ (row 1, column 2). To find its minor, cross out its row and its column; the four entries left, $0, 1, 5, -2$, form $M_{12} = (0)(-2) - (1)(5) = -5$. The checkerboard has $-$ in position $(1, 2)$, so the cofactor is $C_{12} = -M_{12} = 5$.
+
+- id: pc-m6-r2-q17
+  lesson: pc-determinants
+  type: text
+  topic: Determinants and Cramer's rule
+  stem: 'For $\begin{bmatrix} 2 & -1 & 3 \\ 0 & 4 & 1 \\ 5 & 2 & -2 \end{bmatrix}$, the minor $M_{23}$ is ___ and the cofactor $C_{23}$ is ___.'
+  accept:
+    - ['9']
+    - ['-9', '−9']
+  explanation: |-
+    Cross out row 2 and column 3: $M_{23} = \begin{vmatrix} 2 & -1 \\ 5 & 2 \end{vmatrix} = 4 - (-5) = 9$. The sign is $(-1)^{2 + 3} = -1$ (a $-$ on the checkerboard), so $C_{23} = -9$.
+
+- id: pc-m6-r2-q18
+  lesson: pc-determinants
+  type: match
+  topic: Determinants and Cramer's rule
+  stem: 'Match each change to a $3 \times 3$ matrix with its effect on the determinant.'
+  pairs:
+    - [Swap two rows, Changes its sign]
+    - [Multiply one row by 5, Multiplies it by 5]
+    - [Add 3 times row 1 to row 2, Leaves it unchanged]
+    - [Replace row 2 with a copy of row 1, Makes it 0]
+  distractors: [Multiplies it by 3]
+  explanation: |-
+    A row swap changes the sign. Scaling one row by $k$ scales the determinant by $k$. Adding a multiple of one row to another (the row operation used in elimination) leaves the determinant unchanged, so "add 3 times row 1" does not multiply it by 3. Two equal rows make the determinant 0.
+
+- id: pc-m6-r2-q19
+  lesson: pc-determinants
+  module_quiz: true
+  topic: Determinants and Cramer's rule
+  stem: 'A square system $AX = B$ has $\det A = 0$. Which statements are true? Select all that apply.'
+  choices: ['Cramer''s rule cannot be used', '$A$ has no inverse', 'The system has exactly one solution', 'The system has no solution or infinitely many']
+  answer: [0, 1, 3]
+  explanation: |-
+    Cramer's rule divides by $D = \det A$, which is 0. A matrix with determinant 0 is singular, so $X = A^{-1}B$ is not available either. A square system has exactly one solution only when $\det A \ne 0$; otherwise it has none or infinitely many, and elimination tells which.
+
+- id: pc-m6-r2-q20
+  lesson: pc-determinants
+  type: order
+  topic: Determinants and Cramer's rule
+  stem: 'Put the lines of the derivation of Cramer''s rule for $x$ in order (assume $ad - bc \ne 0$).'
+  items:
+    - '$ax + by = e$ and $cx + dy = f$'
+    - '$adx + bdy = ed$ and $bcx + bdy = bf$'
+    - '$(ad - bc)x = ed - bf$'
+    - '$x = \dfrac{ed - bf}{ad - bc} = \dfrac{D_x}{D}$'
+  explanation: |-
+    Multiply the first equation by $d$ and the second by $b$ so the $y$-terms match, subtract to eliminate $y$, and divide by $ad - bc$. The numerator $ed - bf$ is $D_x$, the determinant with the $x$-column replaced by the constants, and the denominator is $D$.
+
+# ---------- Lesson 26: pc-partial-fractions ----------
+- id: pc-m6-r2-q21
+  lesson: pc-partial-fractions
+  module_quiz: true
+  type: text
+  topic: Partial fractions
+  stem: 'In $\dfrac{x - 7}{(x + 3)(x - 2)} = \dfrac{A}{x + 3} + \dfrac{B}{x - 2}$, $A =$ ___ and $B =$ ___.'
+  accept:
+    - ['2']
+    - ['-1', '−1']
+  explanation: |-
+    Clear denominators: $x - 7 = A(x - 2) + B(x + 3)$. At $x = -3$: $-10 = -5A$, so $A = 2$. At $x = 2$: $-5 = 5B$, so $B = -1$. Check: $\frac{2}{x + 3} - \frac{1}{x - 2} = \frac{2(x - 2) - (x + 3)}{(x + 3)(x - 2)} = \frac{x - 7}{(x + 3)(x - 2)}$.
+
+- id: pc-m6-r2-q22
+  lesson: pc-partial-fractions
+  type: order
+  topic: Partial fractions
+  stem: 'A proper rational expression is to be split into partial fractions. Put the steps in order.'
+  items:
+    - Factor the denominator completely
+    - Write the form of the decomposition with unknown constants
+    - Multiply both sides by the denominator
+    - Solve for the constants
+    - Check by recombining the fractions
+  explanation: |-
+    The factors decide which terms appear, so factoring comes first. Clearing the denominators turns the equation into a polynomial identity, from which the constants are found by substituting convenient values or matching coefficients. Recombining (or testing a value) checks the result.
+
+- id: pc-m6-r2-q23
+  lesson: pc-partial-fractions
+  type: match
+  topic: Partial fractions
+  stem: 'Match each factor of a denominator to the terms it contributes to a partial fraction decomposition.'
+  pairs:
+    - ['$x - 3$', A/(x − 3)]
+    - ['$(x - 3)^2$', A/(x − 3) + B/(x − 3)²]
+    - ['$x^2 + 4$', (Bx + C)/(x² + 4)]
+  distractors: [B/(x² + 4), B/(x − 3)² alone]
+  explanation: |-
+    A linear factor gets a constant numerator. A repeated factor $(x - 3)^2$ needs a term for each power, $\frac{A}{x - 3} + \frac{B}{(x - 3)^2}$; the squared term alone can't match every numerator. The irreducible quadratic $x^2 + 4$ needs a linear numerator $Bx + C$; a constant over it is not enough.
+
+- id: pc-m6-r2-q24
+  lesson: pc-partial-fractions
+  topic: Partial fractions
+  stem: 'Which expressions must be divided (polynomial division) before they can be decomposed? Select all that apply.'
+  choices: ['$\dfrac{x^3 + 1}{x^2 - 4}$', '$\dfrac{x^2}{x^2 - 1}$', '$\dfrac{5x + 2}{x^2 - x}$', '$\dfrac{7}{(x + 1)^3}$']
+  answer: [0, 1]
+  explanation: |-
+    Division is needed when the fraction is improper: degree of numerator $\ge$ degree of denominator. $\frac{x^3 + 1}{x^2 - 4}$ has $3 \ge 2$ and $\frac{x^2}{x^2 - 1}$ has $2 \ge 2$. The other two are proper: $1 < 2$ and $0 < 3$.
+
+- id: pc-m6-r2-q25
+  lesson: pc-partial-fractions
+  type: text
+  topic: Partial fractions
+  stem: 'How many unknown constants does the partial fraction decomposition of $\dfrac{x^2 + 1}{(x - 2)^3(x + 5)}$ need? ___'
+  accept: ['4', four]
+  explanation: |-
+    The repeated factor $(x - 2)^3$ contributes three terms, $\frac{A}{x - 2} + \frac{B}{(x - 2)^2} + \frac{C}{(x - 2)^3}$, and $x + 5$ contributes $\frac{D}{x + 5}$: four constants. In general the count equals the degree of the denominator, here $3 + 1 = 4$.
+
+# ---------- Lesson 27: pc-linear-programming ----------
+- id: pc-m6-r2-q26
+  lesson: pc-linear-programming
+  module_quiz: true
+  type: label
+  topic: Linear programming
+  stem: 'The picture shows the feasible region for $x \ge 0$, $y \ge 0$, $x + y \le 6$, $2x + y \le 8$ (shaded), the dashed line $30x + 20y = 60$ and an open dot at $(5, 3)$. Name the numbered parts.'
+  image: {src: images/pc-m6-lp-parts-blank.svg, alt: 'A shaded quadrilateral with corners at (0, 0), (4, 0), (2, 4) and (0, 6), bounded by two solid lines; a dashed line crossing the shaded region; and an open dot at (5, 3) outside it.'}
+  labels:
+    - {x: 23.0, y: 60.0, text: Feasible region}
+    - {x: 20.0, y: 22.7, text: Boundary line}
+    - {x: 35.0, y: 50.0, text: Corner point}
+    - {x: 31.0, y: 80.9, text: Level line of the objective function}
+    - {x: 68.0, y: 56.4, text: Infeasible point}
+  distractors: [Unbounded region]
+  explanation: |-
+    1 is the shaded feasible region, where all four inequalities hold. 2 is on the solid line $2x + y = 8$, a boundary line. 3 is the corner $(2, 4)$, where the two slanted boundary lines cross. 4 is on the dashed line where $P = 30x + 20y$ equals 60, a level line of the objective function; sliding it up raises $P$. 5 is $(5, 3)$, which breaks $x + y \le 6$ ($5 + 3 = 8$), so it is infeasible. The region is a polygon, so it is bounded.
+
+- id: pc-m6-r2-q27
+  lesson: pc-linear-programming
+  type: text
+  topic: Linear programming
+  stem: 'Maximize $P = 3x + 5y$ subject to $x \ge 0$, $y \ge 0$, $x + y \le 6$ and $2x + y \le 8$. The maximum value of $P$ is ___.'
+  accept: ['30']
+  explanation: |-
+    The corners are $(0, 0)$, $(4, 0)$, $(2, 4)$ and $(0, 6)$ (Lesson 27, Example 1). $P$ there: $0$, $12$, $6 + 20 = 26$ and $30$. The maximum is 30, at $(0, 6)$. With this objective the best corner is not the one where both slanted constraints are tight.
+
+- id: pc-m6-r2-q28
+  lesson: pc-linear-programming
+  type: order
+  topic: Linear programming
+  stem: 'Put the steps of the corner point method in order.'
+  items:
+    - Name the variables
+    - Write the objective function and the constraints
+    - Graph the feasible region
+    - Find the corner points
+    - Evaluate the objective function at each corner point
+  explanation: |-
+    The objective and constraints are written in terms of the variables, the region comes from the constraints, the corners come from the region (by solving pairs of boundary equations), and only then can the objective be compared at the corners.
+
+- id: pc-m6-r2-q29
+  lesson: pc-linear-programming
+  module_quiz: true
+  topic: Systems of inequalities
+  stem: 'Which points are in the feasible region of $x \ge 0$, $y \ge 0$, $x + 3y \ge 9$, $x + y \ge 5$? Select all that apply.'
+  choices: ['$(0, 5)$', '$(2, 2)$', '$(6, 0)$', '$(10, 1)$']
+  answer: [0, 3]
+  explanation: |-
+    Test each point in both inequalities. $(0, 5)$: $0 + 15 = 15 \ge 9$ and $5 \ge 5$, feasible. $(10, 1)$: $13 \ge 9$ and $11 \ge 5$, feasible. $(2, 2)$: $2 + 6 = 8$, which fails $x + 3y \ge 9$. $(6, 0)$: $6 \ge 5$ holds, but $6 \ge 9$ fails.
+
+- id: pc-m6-r2-q30
+  lesson: pc-linear-programming
+  type: match
+  topic: Systems of inequalities
+  stem: 'Match each inequality to how its graph is drawn.'
+  pairs:
+    - ['$y < 2x + 1$', Dashed line; shade below it]
+    - ['$y \ge 2x + 1$', Solid line; shade above it]
+    - ['$y \le 2x + 1$', Solid line; shade below it]
+    - ['$y > 2x + 1$', Dashed line; shade above it]
+  explanation: |-
+    Strict inequalities ($<$, $>$) leave out the boundary, so the line is dashed; $\le$ and $\ge$ include it, so it is solid. With $y$ alone on the left, "$y$ greater" is above the line and "$y$ less" is below. A test point confirms it: $(0, 0)$ gives $0 < 1$, true, and the origin is below the line.
+
+# ---------- Honors 27h1: pc-m6-h-transformations ----------
+- id: pc-m6-r2-h01
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'Which matrix rotates the plane $90°$ counterclockwise about the origin?'
+  choices: ['$\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$', '$\begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    The columns are the images of $(1, 0)$ and $(0, 1)$. A quarter turn counterclockwise sends $(1, 0)$ to $(0, 1)$ and $(0, 1)$ to $(-1, 0)$, so the matrix is $\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ ($\theta = 90°$ in the rotation matrix). $\begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$ turns clockwise, $-I$ turns $180°$, and $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ reflects across $y = x$.
+
+- id: pc-m6-r2-h02
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'A linear transformation sends $(1, 0)$ to $(2, 5)$ and $(0, 1)$ to $(-1, 3)$. What is its matrix?'
+  choices: ['$\begin{bmatrix} 2 & 5 \\ -1 & 3 \end{bmatrix}$', '$\begin{bmatrix} 2 & -1 \\ 5 & 3 \end{bmatrix}$', '$\begin{bmatrix} 5 & 2 \\ 3 & -1 \end{bmatrix}$', '$\begin{bmatrix} -1 & 2 \\ 3 & 5 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    The image of $(1, 0)$ is the first column and the image of $(0, 1)$ is the second column: $\begin{bmatrix} 2 & -1 \\ 5 & 3 \end{bmatrix}$. Writing the images as rows gives $\begin{bmatrix} 2 & 5 \\ -1 & 3 \end{bmatrix}$, which sends $(1, 0)$ to $(2, -1)$ instead.
+
+- id: pc-m6-r2-h03
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'Where does $\begin{bmatrix} 1 & 2 \\ -1 & 3 \end{bmatrix}$ send the point $(4, -1)$?'
+  choices: ['$(5, 5)$', '$(6, -1)$', '$(2, -7)$', '$(-2, 7)$']
+  answer: 2
+  explanation: |-
+    $\begin{bmatrix} 1 & 2 \\ -1 & 3 \end{bmatrix}\begin{bmatrix} 4 \\ -1 \end{bmatrix} = \begin{bmatrix} 4 - 2 \\ -4 - 3 \end{bmatrix} = \begin{bmatrix} 2 \\ -7 \end{bmatrix}$. Multiplying by columns instead of rows gives $(5, 5)$; dropping the sign of $-1$ gives $(6, -1)$.
+
+- id: pc-m6-r2-h04
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'Rotate the point $(2, 0)$ by $30°$ counterclockwise about the origin. Where does it land?'
+  choices: ['$(1, \sqrt3)$', '$(\sqrt3, -1)$', '$(-1, \sqrt3)$', '$(\sqrt3, 1)$']
+  answer: 3
+  explanation: |-
+    $R(30°)\begin{bmatrix} 2 \\ 0 \end{bmatrix} = \begin{bmatrix} 2\cos 30° \\ 2\sin 30° \end{bmatrix} = \begin{bmatrix} \sqrt3 \\ 1 \end{bmatrix}$. $(\sqrt3, -1)$ is a clockwise turn, $(1, \sqrt3)$ is a $60°$ turn, and $(-1, \sqrt3)$ is a $120°$ turn.
+
+- id: pc-m6-r2-h05
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: '$F$ reflects across the $x$-axis and $R$ rotates $90°$ counterclockwise. Which single transformation is "first $R$, then $F$", that is, $FR$?'
+  choices: ['Reflection across the line $y = -x$', 'Reflection across the line $y = x$', 'Rotation by $90°$ clockwise', 'Rotation by $180°$']
+  answer: 0
+  explanation: |-
+    $FR = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}$, which sends $(x, y)$ to $(-y, -x)$: reflection across $y = -x$. The other order, $RF$, is reflection across $y = x$. It can't be a rotation, since its determinant is $-1$.
+
+- id: pc-m6-r2-h06
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'The matrix $\begin{bmatrix} 2 & 5 \\ 1 & 4 \end{bmatrix}$ is applied to a triangle of area 6. What is the area of the image?'
+  choices: ['78', '18', '3', '2']
+  answer: 1
+  explanation: |-
+    Areas are multiplied by $|\det A| = |2(4) - 5(1)| = 3$, so the image has area $6 \times 3 = 18$. Using $ad + bc = 13$ gives 78; 3 is the scale factor itself, not the new area.
+
+- id: pc-m6-r2-h07
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'Which matrix reverses orientation, turning a triangle labeled counterclockwise into one labeled clockwise?'
+  choices: ['$\begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$', '$\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$', '$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$', '$\begin{bmatrix} 1 & 3 \\ 0 & 1 \end{bmatrix}$']
+  answer: 2
+  explanation: |-
+    Orientation is reversed exactly when the determinant is negative. $\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ has determinant $4 - 6 = -2$. The others have determinants $3$, $1$ (a rotation) and $1$ (a shear).
+
+- id: pc-m6-r2-h08
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'Geometrically, why does $\begin{bmatrix} 2 & 6 \\ 1 & 3 \end{bmatrix}$ have no inverse?'
+  choices: ['It rotates the plane, and a rotation cannot be undone', 'It doubles every area, and areas cannot be halved', 'It moves the origin to another point', 'It squashes the plane onto a line, so different points land on the same image']
+  answer: 3
+  explanation: |-
+    The determinant is $6 - 6 = 0$, so every area becomes 0: both columns, $(2, 1)$ and $(6, 3)$, lie on the line $y = \tfrac12 x$, and every image lands on that line. Many points share an image, so no transformation can send each image back to a single original point. Rotations can always be undone, and linear transformations never move the origin.
+
+- id: pc-m6-r2-h09
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'What is the inverse of the shear $\begin{bmatrix} 1 & 3 \\ 0 & 1 \end{bmatrix}$?'
+  choices: ['$\begin{bmatrix} 1 & -3 \\ 0 & 1 \end{bmatrix}$', '$\begin{bmatrix} 1 & 0 \\ 3 & 1 \end{bmatrix}$', '$\begin{bmatrix} 1 & \frac13 \\ 0 & 1 \end{bmatrix}$', '$\begin{bmatrix} -1 & 3 \\ 0 & -1 \end{bmatrix}$']
+  answer: 0
+  explanation: |-
+    The shear slides each point right by 3 times its height; sliding left by 3 times its height undoes it. The $2 \times 2$ formula agrees: the determinant is 1, so swap the diagonal (both 1) and negate the 3. Check: $\begin{bmatrix} 1 & 3 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & -3 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$.
+
+- id: pc-m6-r2-h10
+  lesson: pc-m6-h-transformations
+  type: text
+  topic: Linear transformations
+  stem: 'The matrix $\begin{bmatrix} 3 & 1 \\ 1 & 2 \end{bmatrix}$ sends the unit square to a parallelogram. The area of that parallelogram is ___.'
+  accept: ['5', five]
+  explanation: |-
+    The unit square has area 1, and areas are multiplied by $|\det A| = |3(2) - 1(1)| = 5$. The parallelogram has vertices $(0, 0)$, $(3, 1)$, $(4, 3)$ and $(1, 2)$.
+
+- id: pc-m6-r2-h11
+  lesson: pc-m6-h-transformations
+  type: match
+  topic: Linear transformations
+  stem: 'Match each matrix to the transformation it performs.'
+  pairs:
+    - ['$\begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix}$', Reflection across the y-axis]
+    - ['$\begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix}$', Enlargement by a factor of 3]
+    - ['$\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}$', Vertical shear]
+    - ['$\begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}$', Projection onto the y-axis]
+  distractors: [Reflection across the x-axis]
+  explanation: |-
+    Read each matrix by its columns, the images of $(1, 0)$ and $(0, 1)$. $\begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix}$ sends $(x, y)$ to $(-x, y)$: reflection across the $y$-axis. $3I$ multiplies every vector by 3. $\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}$ sends $(x, y)$ to $(x, y + 2x)$: points slide vertically by an amount proportional to $x$, a vertical shear. $\begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}$ sends $(x, y)$ to $(0, y)$: projection onto the $y$-axis.
+
+- id: pc-m6-r2-h12
+  lesson: pc-m6-h-transformations
+  type: label
+  topic: Linear transformations
+  stem: 'Each numbered panel shows the letter F (dashed outline) and its image (shaded) under a $2 \times 2$ matrix. Name each transformation.'
+  image: {src: images/pc-m6-transform-gallery-blank.svg, alt: 'Four coordinate grids, each with a dashed letter F standing on the positive x-axis next to the y-axis and a shaded image. Panel 1: the shaded F is twice as wide. Panel 2: the shaded F hangs upside down below the x-axis. Panel 3: the shaded F lies on its back to the left of the y-axis. Panel 4: the shaded F leans to the right like italic type.'}
+  labels:
+    - {x: 11.5, y: 39.2, text: 'Horizontal stretch, factor 2'}
+    - {x: 59.0, y: 39.2, text: Reflection across the x-axis}
+    - {x: 11.5, y: 89.2, text: Rotation by 90° counterclockwise}
+    - {x: 59.0, y: 89.2, text: 'Horizontal shear, factor 0.5'}
+  distractors: [Rotation by 90° clockwise, Reflection across the y-axis]
+  explanation: |-
+    Panel 1 keeps heights and doubles widths: $\begin{bmatrix} 2 & 0 \\ 0 & 1 \end{bmatrix}$. Panel 2 flips the F below the $x$-axis: $\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$. In panel 3 the top of the F, which pointed up, now points left: a quarter turn counterclockwise, $\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ (a clockwise turn would have put it to the right of the $y$-axis, below the $x$-axis). In panel 4 each point slides right by half its height while the base stays put: $\begin{bmatrix} 1 & 0.5 \\ 0 & 1 \end{bmatrix}$.
+
+- id: pc-m6-r2-h13
+  lesson: pc-m6-h-transformations
+  topic: Linear transformations
+  stem: 'Which statements are true of every linear transformation $T(\mathbf{x}) = A\mathbf{x}$ of the plane, including those with $\det A = 0$? Select all that apply.'
+  choices: ['It sends the origin to the origin', 'It sends the midpoint of a segment to the midpoint of the segment''s image', 'It keeps the length of every segment the same', 'It sends every line to a line']
+  answer: [0, 1]
+  explanation: |-
+    $A\mathbf{0} = \mathbf{0}$ always. The midpoint of $\mathbf{u}$ and $\mathbf{v}$ is $\tfrac12(\mathbf{u} + \mathbf{v})$, and $A\left(\tfrac12(\mathbf{u} + \mathbf{v})\right) = \tfrac12(A\mathbf{u} + A\mathbf{v})$, the midpoint of the images. Lengths are kept only by special matrices such as rotations and reflections; a stretch changes them. And when $\det A = 0$ some lines collapse to a single point: the projection onto the $x$-axis sends the whole $y$-axis to the origin.
+
+- id: pc-m6-r2-h14
+  lesson: pc-m6-h-transformations
+  type: order
+  topic: Linear transformations
+  stem: 'A point is reflected across the $x$-axis (matrix $F$), then rotated $90°$ counterclockwise (matrix $R$), then stretched horizontally by 2 (matrix $S$). Put the matrices in the order they appear, from left to right, in the single product that does all three.'
+  items:
+    - '$S = \begin{bmatrix} 2 & 0 \\ 0 & 1 \end{bmatrix}$'
+    - '$R = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$'
+    - '$F = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$'
+  explanation: |-
+    The point is $\mathbf{x}$, and the first transformation must touch it first: $S(R(F\mathbf{x})) = (SRF)\mathbf{x}$. The matrix applied first is on the right, next to $\mathbf{x}$, and the last one is on the left. The product is $SRF = \begin{bmatrix} 0 & 2 \\ 1 & 0 \end{bmatrix}$.
+
+# ---------- Honors 27h2: pc-m6-h-markov ----------
+- id: pc-m6-r2-h15
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'Using this lesson''s convention (columns are "from" states), which matrix could be a transition matrix?'
+  choices: ['$\begin{bmatrix} 0.7 & 0.3 \\ 0.5 & 0.5 \end{bmatrix}$', '$\begin{bmatrix} 0.7 & 0.5 \\ 0.3 & 0.5 \end{bmatrix}$', '$\begin{bmatrix} 0.6 & 0.6 \\ 0.4 & 0.6 \end{bmatrix}$', '$\begin{bmatrix} 1.2 & 0.5 \\ -0.2 & 0.5 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    Every entry must be between 0 and 1 and each column must add to 1. $\begin{bmatrix} 0.7 & 0.5 \\ 0.3 & 0.5 \end{bmatrix}$ qualifies. $\begin{bmatrix} 0.7 & 0.3 \\ 0.5 & 0.5 \end{bmatrix}$ has rows adding to 1 (the other convention), but its columns add to 1.2 and 0.8. $\begin{bmatrix} 0.6 & 0.6 \\ 0.4 & 0.6 \end{bmatrix}$ has a column adding to 1.2. The last one has columns adding to 1 but entries outside $[0, 1]$, which can't be probabilities.
+
+- id: pc-m6-r2-h16
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'For the transition matrix $P = \begin{bmatrix} 0.9 & 0.3 \\ 0.1 & 0.7 \end{bmatrix}$ (states 1 and 2, columns are "from"), what is the probability of moving from state 2 to state 1 in one step?'
+  choices: ['0.1', '0.7', '0.3', '0.9']
+  answer: 2
+  explanation: |-
+    Entry $(i, j)$ is the probability of going from state $j$ to state $i$. From state 2 to state 1 is row 1, column 2: 0.3. The 0.1 in row 2, column 1 is the move from state 1 to state 2; 0.7 is staying in state 2.
+
+- id: pc-m6-r2-h17
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'With $P = \begin{bmatrix} 0.9 & 0.3 \\ 0.1 & 0.7 \end{bmatrix}$, the process starts in state 1. What is the probability that it is in state 1 after two steps?'
+  choices: ['0.81', '0.90', '0.75', '0.84']
+  answer: 3
+  explanation: |-
+    $\mathbf{x}_1 = P\begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0.9 \\ 0.1 \end{bmatrix}$, and the first entry of $\mathbf{x}_2 = P\mathbf{x}_1$ is $0.9(0.9) + 0.3(0.1) = 0.81 + 0.03 = 0.84$. The value 0.81 counts only the route that stays in state 1 both times and misses the route 1 → 2 → 1. 0.75 is the long-run (steady-state) value, not the two-step one.
+
+- id: pc-m6-r2-h18
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'What is the steady-state vector of $P = \begin{bmatrix} 0.9 & 0.3 \\ 0.1 & 0.7 \end{bmatrix}$?'
+  choices: ['$(0.75, 0.25)$', '$(0.25, 0.75)$', '$(0.5, 0.5)$', '$(0.9, 0.1)$']
+  answer: 0
+  explanation: |-
+    Solve $(P - I)\mathbf{q} = \mathbf{0}$: the first row gives $-0.1q_1 + 0.3q_2 = 0$, so $q_1 = 3q_2$. With $q_1 + q_2 = 1$: $4q_2 = 1$, so $\mathbf{q} = (0.75, 0.25)$. Check: $0.9(0.75) + 0.3(0.25) = 0.675 + 0.075 = 0.75$. $(0.9, 0.1)$ is just the first column, the state after one step from state 1.
+
+- id: pc-m6-r2-h19
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'Which transition matrix is NOT regular?'
+  choices: ['$\begin{bmatrix} 0.5 & 1 \\ 0.5 & 0 \end{bmatrix}$', '$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$', '$\begin{bmatrix} 0.9 & 0.2 \\ 0.1 & 0.8 \end{bmatrix}$', '$\begin{bmatrix} 0.3 & 0.6 \\ 0.7 & 0.4 \end{bmatrix}$']
+  answer: 1
+  explanation: |-
+    A matrix is regular if some power has all positive entries. The powers of $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ alternate between itself and $I$, which always contain zeros: the chain just switches back and forth. $\begin{bmatrix} 0.5 & 1 \\ 0.5 & 0 \end{bmatrix}$ has a zero, but its square $\begin{bmatrix} 0.75 & 0.5 \\ 0.25 & 0.5 \end{bmatrix}$ is all positive, so it is regular. The other two are already all positive.
+
+- id: pc-m6-r2-h20
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'What does the steady-state vector of a regular Markov chain tell you?'
+  choices: ['The state probabilities after exactly one step', 'The starting probabilities that make the chain regular', 'The long-run probability of each state, whatever the starting state', 'The single state the chain stays in after a while']
+  answer: 2
+  explanation: |-
+    For a regular chain, $P^n\mathbf{x}_0$ approaches the steady state $\mathbf{q}$ from any start, so $\mathbf{q}$ gives the long-run probabilities (and the long-run fraction of time in each state). The chain keeps moving between states forever; it is the probabilities that settle down, not the state itself.
+
+- id: pc-m6-r2-h21
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'Why does each column of a transition matrix (columns are "from" states) add to 1?'
+  choices: ['Because the process must arrive at each state from somewhere', 'Because the steady-state vector adds to 1', 'Because no probability can be larger than 1', 'Because from any state, the process must go to some state (possibly the same one)']
+  answer: 3
+  explanation: |-
+    Column $j$ lists the probabilities of all possible next states starting from state $j$. Exactly one of those outcomes happens, so the probabilities add to 1. Nothing forces the probabilities of arriving at a state (a row) to add to 1, and "no probability exceeds 1" is true but doesn't make a column add to exactly 1.
+
+- id: pc-m6-r2-h22
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'In the bike-share example, $P = \begin{bmatrix} 0.6 & 0.1 & 0.1 \\ 0.2 & 0.7 & 0.1 \\ 0.2 & 0.2 & 0.8 \end{bmatrix}$ (columns from A, B, C). Today there are 300 bikes at A, 300 at B and 400 at C. How many do we expect at A tomorrow?'
+  choices: ['250', '320', '300', '200']
+  answer: 0
+  explanation: |-
+    Station A's count tomorrow is row 1 of $P$ times today's counts: $0.6(300) + 0.1(300) + 0.1(400) = 180 + 30 + 40 = 250$. Using column 1 instead of row 1 gives $0.6(300) + 0.2(300) + 0.2(400) = 320$. 200 is the long-run count, not tomorrow's.
+
+- id: pc-m6-r2-h23
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'In a three-state chain (columns are "from" states), state 3 is absorbing. What must be true of the transition matrix?'
+  choices: ['Row 3 is $(0, 0, 1)$', 'Column 3 is $(0, 0, 1)$', 'Column 3 is $(\tfrac13, \tfrac13, \tfrac13)$', 'Every diagonal entry is 1']
+  answer: 1
+  explanation: |-
+    Absorbing means that once in state 3 the process stays there: from state 3 the probability of going to state 3 is 1 and to the others is 0. That is column 3 ("from state 3"). Row 3 being $(0, 0, 1)$ would mean nothing ever enters state 3 from the other states. If every diagonal entry were 1, every state would be absorbing.
+
+- id: pc-m6-r2-h24
+  lesson: pc-m6-h-markov
+  type: text
+  topic: Markov chains
+  stem: 'For the weather chain $P = \begin{bmatrix} 0.8 & 0.4 \\ 0.2 & 0.6 \end{bmatrix}$ (sunny, rainy), today is rainy. The probability of sun tomorrow is ___, and two days from now it is ___. Give decimals.'
+  accept:
+    - ['0.4', '.4', 40%, 2/5]
+    - ['0.56', '.56', 56%, 14/25]
+  explanation: |-
+    $\mathbf{x}_0 = (0, 1)$, so $\mathbf{x}_1 = P\mathbf{x}_0 = (0.4, 0.6)$, the second column. Then the first entry of $\mathbf{x}_2 = P\mathbf{x}_1$ is $0.8(0.4) + 0.4(0.6) = 0.32 + 0.24 = 0.56$.
+
+- id: pc-m6-r2-h25
+  lesson: pc-m6-h-markov
+  type: text
+  topic: Markov chains
+  stem: 'The chain $P = \begin{bmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{bmatrix}$ has steady-state vector $(q_1, q_2)$. Then $q_1 =$ ___.'
+  accept: ['0.4', '.4', 2/5, 40%]
+  explanation: |-
+    $(P - I)\mathbf{q} = \mathbf{0}$ gives $-0.3q_1 + 0.2q_2 = 0$, so $q_2 = 1.5q_1$. Then $q_1 + 1.5q_1 = 1$, so $q_1 = 0.4$ and $q_2 = 0.6$. Check: $0.7(0.4) + 0.2(0.6) = 0.28 + 0.12 = 0.4$.
+
+- id: pc-m6-r2-h26
+  lesson: pc-m6-h-markov
+  type: match
+  topic: Markov chains
+  stem: '$P$ is a transition matrix (columns are "from" states) and $\mathbf{x}_0$ is the starting state vector. Match each item to its meaning.'
+  pairs:
+    - ['$P\mathbf{x}_0$', State probabilities after one step]
+    - ['$P^3\mathbf{x}_0$', State probabilities after three steps]
+    - ['Entry $(2, 1)$ of $P^2$', Probability of going from state 1 to state 2 in two steps]
+    - ['$\mathbf{q}$ with $P\mathbf{q} = \mathbf{q}$ and entries adding to 1', Steady-state vector]
+  distractors: [Probability of going from state 2 to state 1 in two steps]
+  explanation: |-
+    Each multiplication by $P$ moves one step forward, so $P\mathbf{x}_0$ is one step and $P^3\mathbf{x}_0$ three steps. Entries of $P^2$ are two-step probabilities, and entry $(i, j)$ means from state $j$ to state $i$, so $(2, 1)$ is from 1 to 2. A probability vector unchanged by $P$ is the steady state.
+
+- id: pc-m6-r2-h27
+  lesson: pc-m6-h-markov
+  type: order
+  topic: Markov chains
+  stem: 'Put the steps for finding the steady state of a regular transition matrix $P$ in order.'
+  items:
+    - Form the matrix $P - I$
+    - Solve $(P - I)\mathbf{q} = \mathbf{0}$ in terms of a free variable
+    - Use the condition that the entries of $\mathbf{q}$ add to 1 to find the free variable
+    - Check that $P\mathbf{q} = \mathbf{q}$
+  explanation: |-
+    $P\mathbf{q} = \mathbf{q}$ is the system $(P - I)\mathbf{q} = \mathbf{0}$. Its equations are dependent, so the solution has a free variable; the "add to 1" condition fixes it. Multiplying $P\mathbf{q}$ at the end checks the arithmetic.
+
+- id: pc-m6-r2-h28
+  lesson: pc-m6-h-markov
+  topic: Markov chains
+  stem: 'Which statements are true for every regular transition matrix $P$? Select all that apply.'
+  choices: ['$P$ has exactly one steady-state vector', 'Some power of $P$ has all entries positive', '$P^n\mathbf{x}_0$ approaches the steady state for every starting state vector $\mathbf{x}_0$', 'Every entry of $P$ itself is positive']
+  answer: [0, 1, 2]
+  explanation: |-
+    "Some power of $P$ is all positive" is the definition of regular, and the main theorem gives a unique steady state approached from every start. $P$ itself can contain zeros: $\begin{bmatrix} 0.5 & 1 \\ 0.5 & 0 \end{bmatrix}$ is regular because its square is all positive.
+
+# ---------- Honors 27h3: pc-m6-h-eigen ----------
+- id: pc-m6-r2-h29
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'Which vector is an eigenvector of $\begin{bmatrix} 5 & -2 \\ 1 & 2 \end{bmatrix}$?'
+  choices: ['$(1, 2)$', '$(1, 0)$', '$(2, 1)$', '$(0, 1)$']
+  answer: 2
+  explanation: |-
+    $\begin{bmatrix} 5 & -2 \\ 1 & 2 \end{bmatrix}\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 8 \\ 4 \end{bmatrix} = 4\begin{bmatrix} 2 \\ 1 \end{bmatrix}$, so $(2, 1)$ is an eigenvector with eigenvalue 4. The others are turned: $(1, 2) \to (1, 5)$, $(1, 0) \to (5, 1)$ and $(0, 1) \to (-2, 2)$, none a multiple of the original.
+
+- id: pc-m6-r2-h30
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'What is the characteristic equation of $\begin{bmatrix} 3 & 2 \\ 1 & 4 \end{bmatrix}$?'
+  choices: ['$\lambda^2 + 7\lambda + 10 = 0$', '$\lambda^2 - 7\lambda + 14 = 0$', '$\lambda^2 - 10\lambda + 7 = 0$', '$\lambda^2 - 7\lambda + 10 = 0$']
+  answer: 3
+  explanation: |-
+    $\det\begin{bmatrix} 3 - \lambda & 2 \\ 1 & 4 - \lambda \end{bmatrix} = (3 - \lambda)(4 - \lambda) - 2 = \lambda^2 - 7\lambda + 10$: the trace is 7 and the determinant is $12 - 2 = 10$. Using $ad + bc = 14$ instead of $ad - bc$ gives the 14; the $+7\lambda$ has the sign of the trace term wrong.
+
+- id: pc-m6-r2-h31
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'What are the eigenvalues of $\begin{bmatrix} 1 & 2 \\ 3 & 2 \end{bmatrix}$?'
+  choices: ['$4$ and $-1$', '$1$ and $2$', '$-4$ and $1$', '$3$ and $2$']
+  answer: 0
+  explanation: |-
+    The trace is 3 and the determinant is $2 - 6 = -4$, so $\lambda^2 - 3\lambda - 4 = (\lambda - 4)(\lambda + 1) = 0$, giving $\lambda = 4$ and $\lambda = -1$. Check: they add to 3 and multiply to $-4$. The diagonal entries 1 and 2 are the eigenvalues only for a triangular matrix.
+
+- id: pc-m6-r2-h32
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'A $2 \times 2$ matrix has trace 6 and determinant 8. What are its eigenvalues?'
+  choices: ['$1$ and $8$', '$2$ and $4$', '$3$ and $3$', '$-2$ and $-4$']
+  answer: 1
+  explanation: |-
+    The eigenvalues solve $\lambda^2 - 6\lambda + 8 = (\lambda - 2)(\lambda - 4) = 0$: they must add to 6 and multiply to 8, and 2 and 4 do. 1 and 8 multiply to 8 but add to 9; 3 and 3 add to 6 but multiply to 9; $-2$ and $-4$ add to $-6$.
+
+- id: pc-m6-r2-h33
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'A matrix rotates the plane by $60°$ about the origin. How many real eigenvalues does it have?'
+  choices: ['One', 'Two', 'None', 'Infinitely many']
+  answer: 2
+  explanation: |-
+    A $60°$ rotation turns every nonzero vector off its line, so no real eigenvector exists. Algebraically, the trace is $2\cos 60° = 1$ and the determinant is 1, so $\lambda^2 - \lambda + 1 = 0$, whose discriminant $1 - 4 = -3$ is negative: the eigenvalues are complex.
+
+- id: pc-m6-r2-h34
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: '0 is an eigenvalue of the square matrix $A$. What follows?'
+  choices: ['$A$ is the zero matrix', '$A$ is the identity matrix', 'Every vector is an eigenvector of $A$', '$A$ is singular (has no inverse)']
+  answer: 3
+  explanation: |-
+    $\lambda = 0$ means $A\mathbf{v} = \mathbf{0}$ for some nonzero $\mathbf{v}$, so $\det(A - 0I) = \det A = 0$ and $A$ is singular. $A$ need not be zero: $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ has eigenvalues 1 and 0, and $(1, 1)$ is not one of its eigenvectors.
+
+- id: pc-m6-r2-h35
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: '$\mathbf{v}$ is an eigenvector of $A$ with eigenvalue 3. What is $A^4\mathbf{v}$?'
+  choices: ['$81\mathbf{v}$', '$12\mathbf{v}$', '$3\mathbf{v}$', '$64\mathbf{v}$']
+  answer: 0
+  explanation: |-
+    Each multiplication by $A$ multiplies $\mathbf{v}$ by 3, so four of them multiply by $3^4 = 81$. Multiplying 3 by 4 gives the 12, and $4^3 = 64$ swaps base and exponent.
+
+- id: pc-m6-r2-h36
+  lesson: pc-m6-h-eigen
+  type: order
+  topic: Eigenvalues and eigenvectors
+  stem: 'Put the steps for finding an eigenvector of a $2 \times 2$ matrix $A$ in order.'
+  items:
+    - 'Write the characteristic equation $\det(A - \lambda I) = 0$'
+    - Solve it for the eigenvalues
+    - 'For one eigenvalue $\lambda$, form the matrix $A - \lambda I$'
+    - 'Solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$ using a free variable'
+    - 'Check that $A\mathbf{v} = \lambda\mathbf{v}$'
+  explanation: |-
+    The eigenvalues come from the characteristic equation, and each eigenvalue is needed to build $A - \lambda I$. That system is dependent, so a free variable gives the eigenvector, and multiplying by $A$ checks it.
+
+- id: pc-m6-r2-h37
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'Why does every transition matrix $P$ (columns adding to 1) have 1 as an eigenvalue?'
+  choices: ['Every entry of $P$ is at most 1', 'The columns of $P - I$ add to zero, so $P - I$ is singular', 'The trace of $P$ is always 1', 'The determinant of $P$ is always 1']
+  answer: 1
+  explanation: |-
+    Each column of $P - I$ is a column of $P$ with 1 subtracted from one entry, so it adds to $1 - 1 = 0$. Then adding all the rows of $P - I$ gives a row of zeros, the rows are dependent, and $\det(P - I) = 0$, which is exactly the statement that 1 is an eigenvalue. The trace and determinant are not always 1: the weather matrix has trace 1.4 and determinant 0.4.
+
+- id: pc-m6-r2-h38
+  lesson: pc-m6-h-eigen
+  type: text
+  topic: Eigenvalues and eigenvectors
+  stem: 'The eigenvalues of $\begin{bmatrix} 6 & -2 \\ 2 & 1 \end{bmatrix}$ are ___ (the smaller) and ___ (the larger).'
+  accept:
+    - ['2']
+    - ['5']
+  explanation: |-
+    The trace is 7 and the determinant is $6 - (-4) = 10$, so $\lambda^2 - 7\lambda + 10 = (\lambda - 2)(\lambda - 5) = 0$. The eigenvalues are 2 and 5.
+
+- id: pc-m6-r2-h39
+  lesson: pc-m6-h-eigen
+  type: text
+  topic: Eigenvalues and eigenvectors
+  stem: '$A = \begin{bmatrix} 4 & 1 \\ 2 & 3 \end{bmatrix}$ has eigenvalue 2. Its eigenvectors of the form $(1, y)$ have $y =$ ___.'
+  accept: ['-2', '−2']
+  explanation: |-
+    $A - 2I = \begin{bmatrix} 2 & 1 \\ 2 & 1 \end{bmatrix}$, so $2x + y = 0$. With $x = 1$, $y = -2$. Check: $A\begin{bmatrix} 1 \\ -2 \end{bmatrix} = \begin{bmatrix} 2 \\ -4 \end{bmatrix} = 2\begin{bmatrix} 1 \\ -2 \end{bmatrix}$.
+
+- id: pc-m6-r2-h40
+  lesson: pc-m6-h-eigen
+  type: match
+  topic: Eigenvalues and eigenvectors
+  stem: 'Match each matrix to its eigenvalues.'
+  pairs:
+    - ['$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$', 1 and −1]
+    - ['$\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$', No real eigenvalues]
+    - ['$\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$', 1 only (repeated)]
+    - ['$\begin{bmatrix} 3 & 0 \\ 0 & 5 \end{bmatrix}$', 3 and 5]
+  distractors: [0 and 1]
+  explanation: |-
+    The reflection across $y = x$ keeps $(1, 1)$ fixed ($\lambda = 1$) and flips $(1, -1)$ ($\lambda = -1$). The $90°$ rotation has $\lambda^2 + 1 = 0$, so no real eigenvalues. The shear has $(\lambda - 1)^2 = 0$. A diagonal (or triangular) matrix has its diagonal entries as eigenvalues.
+
+- id: pc-m6-r2-h41
+  lesson: pc-m6-h-eigen
+  type: label
+  topic: Eigenvalues and eigenvectors
+  stem: 'Thin arrows show the vectors $(1, 1)$, $(1, -2)$ and $(0, 1)$; thick arrows show their images under $A = \begin{bmatrix} 4 & 1 \\ 2 & 3 \end{bmatrix}$; dashed lines pass through the origin. Name the numbered parts.'
+  image: {src: images/pc-m6-eigen-directions-blank.svg, alt: 'Three thin arrows from the origin, each with a longer thick arrow. Two thick arrows lie along dashed lines through their thin arrows; the third thick arrow points in a different direction from its thin arrow.'}
+  labels:
+    - {x: 66.6, y: 21.6, text: Image of an eigenvector with eigenvalue 5}
+    - {x: 40.1, y: 80.0, text: Image of an eigenvector with eigenvalue 2}
+    - {x: 29.0, y: 39.4, text: Image of a vector that is not an eigenvector}
+    - {x: 13.5, y: 60.6, text: Line of eigenvectors for eigenvalue 5}
+  distractors: [Line of eigenvectors for eigenvalue 2]
+  explanation: |-
+    $A(1, 1) = (5, 5)$: same line, five times as long (marker 1, eigenvalue 5). $A(1, -2) = (2, -4)$: same line, twice as long (marker 2, eigenvalue 2). $A(0, 1) = (1, 3)$ points in a new direction, so $(0, 1)$ is not an eigenvector (marker 3). Marker 4 is on the dashed line $y = x$, every nonzero point of which is an eigenvector for eigenvalue 5; the other dashed line, $y = -2x$, holds the eigenvectors for eigenvalue 2.
+
+- id: pc-m6-r2-h42
+  lesson: pc-m6-h-eigen
+  topic: Eigenvalues and eigenvectors
+  stem: 'Which statements about the two eigenvalues of every $2 \times 2$ matrix $A$ are true? Select all that apply.'
+  choices: ['They add to the trace of $A$', 'They multiply to $\det A$', 'They are the diagonal entries of $A$', 'They are real numbers']
+  answer: [0, 1]
+  explanation: |-
+    They are the roots of $\lambda^2 - (\text{trace})\lambda + \det A = 0$, so their sum is the trace and their product is the determinant (counting a repeated eigenvalue twice). They equal the diagonal entries only for triangular matrices, and they can be complex: a $90°$ rotation has eigenvalues $\pm i$.

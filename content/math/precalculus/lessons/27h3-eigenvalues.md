@@ -34,7 +34,7 @@ $$(A - \lambda I)\mathbf{v} = \mathbf{0}.$$
 
 $$\det(A - \lambda I) = 0.$$
 
-This is the **characteristic equation** of $A$. For $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$,
+This is called the **characteristic equation of the matrix** $A$. For $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$,
 
 $$\det\begin{bmatrix} a - \lambda & b \\ c & d - \lambda \end{bmatrix} = (a - \lambda)(d - \lambda) - bc = \lambda^2 - (a + d)\lambda + (ad - bc).$$
 
@@ -42,7 +42,7 @@ The number $a + d$, the sum of the main-diagonal entries, is the **trace** of $A
 
 $$\lambda^2 - (\text{trace})\,\lambda + \det A = 0.$$
 
-A quadratic has two roots, counted with multiplicity, so a $2 \times 2$ matrix has two eigenvalues, which may be equal or complex. Reading the quadratic backward (the sum and product of its roots) gives a quick check: **the eigenvalues add to the trace and multiply to the determinant.**
+A quadratic has two roots, counted with multiplicity, so a $2 \times 2$ matrix has two eigenvalues, which may be equal or complex. Reading the quadratic backward (the sum and product of its roots) gives a quick check: *the eigenvalues add to the trace and multiply to the determinant.*
 
 ## Finding the eigenvectors
 
@@ -127,7 +127,7 @@ This matrix has trace 1 and determinant $-1$, so its eigenvalues solve $\lambda^
 
 $$\lambda = \frac{1 + \sqrt5}{2} \approx 1.618 \quad\text{and}\quad \lambda = \frac{1 - \sqrt5}{2} \approx -0.618.$$
 
-The first is the golden ratio $\varphi$. Since $|-0.618| < 1$, that part fades, and in the long run each Fibonacci number is about $\varphi$ times the one before: $\tfrac{89}{55} \approx 1.61818$, $\tfrac{144}{89} \approx 1.61798$, $\tfrac{233}{144} \approx 1.61806$, closing in on $1.61803\ldots$ Working the combination out exactly gives Binet's formula, $F_n = \dfrac{\varphi^n - (1 - \varphi)^n}{\sqrt5}$. The same idea predicts the long-run growth rate of any population model of the form $\mathbf{x}_{n+1} = A\mathbf{x}_n$: it is the eigenvalue with the largest absolute value.
+The first is the golden ratio $\varphi$. Since $|-0.618| < 1$, that part fades, and in the long run each Fibonacci number is about $\varphi$ times the one before: $\tfrac{89}{55} \approx 1.61818$, $\tfrac{144}{89} \approx 1.61798$, $\tfrac{233}{144} \approx 1.61806$, closing in on $1.61803\ldots$ Working the combination out exactly gives Binet's formula, $F_n = \dfrac{\varphi^n - (1 - \varphi)^n}{\sqrt5}$, which the Module 9 honors lesson on recurrence relations derives another way (its "characteristic equation" $x^2 = x + 1$ is this one in disguise). The same idea predicts the long-run growth rate of any population model of the form $\mathbf{x}_{n+1} = A\mathbf{x}_n$: it is the eigenvalue with the largest absolute value.
 
 ## Common mistakes
 

@@ -150,9 +150,9 @@
     are still working, the next gap has mean $\theta/m$ and variance $\theta^2/m^2$. Failure number {kk} comes after the
     gaps with $m = {nn}, \dots, {lo:int}$:
 
-    $E = {th}\displaystyle\sum_{m={lo:int}}^{{nn:int}}\frac1m = {th}({s1:dp3}) =$ **{ek:num1}** hours.
+    $E = {th:dp0}\displaystyle\sum_{m={lo:int}}^{{nn:int}}\frac1m = {th:dp0}({s1:dp4}) =$ **{ek:num1}** hours.
 
-    $\operatorname{Var} = {th}^2\displaystyle\sum_{m={lo:int}}^{{nn:int}}\frac1{m^2} = {th}^2({s2:dp3})$, so the SD is **{sk:num1}** hours.
+    $\operatorname{Var} = {th:dp0}^2\displaystyle\sum_{m={lo:int}}^{{nn:int}}\frac1{m^2} = {th:dp0}^2({s2:dp4})$, so the SD is **{sk:num1}** hours.
 
 - id: ps-m4-r2-exp-range
   title: How close together are exponential failures?
@@ -167,11 +167,11 @@
     pr: (1 - exp(-fr))^(nn - 1)
   prompt: |-
     {nn} components have iid exponential lifetimes with mean {th} hours. Find the probability that every failure
-    happens within {rr:int} hours of the first failure, that is $P(X_{(n)} - X_{(1)} \le {rr:int})$ (4 decimals).
+    happens within {rr:dp0} hours of the first failure, that is $P(X_{(n)} - X_{(1)} \le {rr:dp0})$ (4 decimals).
   answers:
     - {name: pr, label: 'Probability', tolerance: 0.0005, format: num4}
   solution: |-
     After the first failure, the remaining gaps are independent exponentials with rates $(n-1)\lambda, \dots, \lambda$:
     exactly the gaps of the maximum of $n - 1 = {n1:int}$ iid exponentials. So the range is distributed as that maximum, and
 
-    $P(R \le {rr:int}) = \big(1 - e^{-{rr:int}/{th}}\big)^{{n1:int}} = (1 - e^{-{fr:num2}})^{{n1:int}} =$ **{pr:num4}**.
+    $P(R \le {rr:dp0}) = \big(1 - e^{-{rr:dp0}/{th}}\big)^{{n1:int}} = (1 - e^{-{fr:num2}})^{{n1:int}} =$ **{pr:num4}**.

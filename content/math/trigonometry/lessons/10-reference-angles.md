@@ -32,6 +32,10 @@ First reduce $\theta$ to the coterminal angle in $[0^\circ, 360^\circ)$, then:
 
 In every case you measure the shortest way back to the $x$-axis.
 
+The picture shows one angle in each quadrant, with its reference angle shaded.
+
+![Four panels, one per quadrant. Each shows an angle theta in standard position with a counterclockwise arc from the positive x-axis to its terminal side, and the reference angle shaded between the terminal side and the nearest part of the x-axis. Quadrant I: the reference angle is theta itself. Quadrant II: 180 degrees minus theta. Quadrant III: theta minus 180 degrees. Quadrant IV: 360 degrees minus theta.](images/trig-m3-reference-quadrants.svg)
+
 ```plot
 {"x": [-1.5, 1.5], "y": [-1.5, 1.5], "equal": true, "segments": [{"from": [0, 0], "to": [1.3, 0]}, {"from": [0, 0], "to": [-1.0392, -0.6], "arrow": true}], "curves": [{"x": "0.35cos(t)", "y": "0.35sin(t)", "t": [0, 3.6652]}, {"x": "0.75cos(t)", "y": "0.75sin(t)", "t": [3.1416, 3.6652], "color": "#d9480f"}], "labels": [{"at": [0.35, 0.45], "text": "210°"}, {"at": [-0.95, -0.22], "text": "30°"}], "caption": "The reference angle of 210° is 210° − 180° = 30°"}
 ```
@@ -53,6 +57,27 @@ where the sign is decided by the quadrant of $\theta$ (ASTC).
 1. Find the reference angle $\theta'$.
 2. Evaluate the function at $\theta'$ (a special triangle, or a calculator).
 3. Attach the sign the function has in $\theta$'s quadrant.
+
+As a flowchart, with the reduction step included:
+
+```mermaid
+flowchart TD
+  accTitle: The reference-angle method for an exact value
+  accDescr: Start with an angle theta. If it is not between 0 and 360 degrees, first add or subtract 360 degrees until it is. Then ask which quadrant the terminal side is in. Quadrant I gives a reference angle equal to theta, quadrant II gives 180 degrees minus theta, quadrant III gives theta minus 180 degrees, and quadrant IV gives 360 degrees minus theta. Next evaluate the function at the reference angle, then attach the sign the function has in theta's quadrant, using ASTC.
+  A["Angle θ"] --> B{"Is θ in 0° to 360°?"}
+  B -- no --> C["Add or subtract 360° until it is"]
+  C --> D{"Which quadrant?"}
+  B -- yes --> D
+  D -- I --> E1["θ′ = θ"]
+  D -- II --> E2["θ′ = 180° − θ"]
+  D -- III --> E3["θ′ = θ − 180°"]
+  D -- IV --> E4["θ′ = 360° − θ"]
+  E1 --> F["Evaluate the function at θ′"]
+  E2 --> F
+  E3 --> F
+  E4 --> F
+  F --> G["Attach the sign from ASTC for θ's quadrant"]
+```
 
 ### Example 1
 
