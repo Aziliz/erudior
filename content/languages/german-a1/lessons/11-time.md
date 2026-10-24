@@ -59,6 +59,10 @@ When people talk, they normally use the 12-hour clock and count minutes *nach* (
 
 *halb vier* does not mean half past four. It means "half (of the way) to four", so 3:30. Think of the hour you are moving towards: at 3:30 you are halfway to four. *halb eins* is 12:30, *halb acht* is 7:30.
 
+The clock below shows the whole system for the hour between three and four. The right half counts *nach drei*, the left half counts *vor vier*, and the bottom is *halb vier*:
+
+![A clock face showing the hour between 3:00 and 4:00, with the hands at half past three. A green band on the right, from 12 to 4, is labeled nach drei (5, 10, 20 past). A purple band on the left, from 8 to 12, is labeled vor vier (20, 10, 5 to). The 3 is labeled 3:15 Viertel nach drei and the 9 is labeled 3:45 Viertel vor vier. A yellow band at the bottom is labeled 3:30 halb vier (halfway to four), with 3:25 fünf vor halb vier and 3:35 fünf nach halb vier.](images/de1-m3-clock.svg)
+
 People also count from *halb*: *fünf vor halb vier* is 3:25 and *fünf nach halb vier* is 3:35. You don't have to say these yourself, but you will hear them.
 
 In parts of southern and eastern Germany and in Austria you may also hear *viertel vier* for 3:15 and *drei viertel vier* (also written *dreiviertel vier*) for 3:45, counting quarters towards the next hour like *halb*. Everyone understands *Viertel nach* and *Viertel vor*, so use those.
@@ -106,6 +110,10 @@ The parts of the day are masculine too, except the night:
 
 *vor* means before and *nach* means after, so *Vormittag* is "before midday" and *Nachmittag* "after midday".
 
+On a 24-hour line the parts of the day look like this:
+
+![A bar from 0 to 24 hours divided into the parts of the day: die Nacht from 0 to 5, der Morgen from 5 to 9, der Vormittag from 9 to 12, der Mittag from 12 to 14, der Nachmittag from 14 to 18, der Abend from 18 to 23 and the night again from 23 to 24. The title says the edges are rough, not fixed.](images/de1-m3-day-parts.svg)
+
 ### Today, tomorrow, yesterday
 
 *heute* (today, lesson 4), *morgen* (tomorrow) and *gestern* (yesterday) combine with the parts of the day: *heute Abend* (this evening), *gestern Abend* (last night, yesterday evening), *morgen Nachmittag* (tomorrow afternoon). Careful: *morgen* in small letters is tomorrow, *der Morgen* with a capital is the morning. Tomorrow morning is *morgen früh*, not *morgen Morgen* (*früh* = early).
@@ -120,6 +128,21 @@ The parts of the day are masculine too, except the night:
 | von … bis | from … until | *von neun bis fünf* — from nine to five |
 
 *am* is short for *an dem*, but you can learn it as one word. Notice that the night is the exception: not *am Nacht* but *in der Nacht*.
+
+To pick the right word, ask what kind of time you mean:
+
+```mermaid
+flowchart TD
+  accTitle: um, am, in der or von … bis?
+  accDescr: To choose the little word before a time, ask what kind of time it is. A clock time takes um, as in um acht Uhr. A day or the weekend takes am, as in am Montag and am Wochenende. A part of the day also takes am, as in am Abend, except the night, which is in der Nacht. A stretch of time from one point to another takes von … bis, as in von neun bis fünf.
+  Q{"What kind of time is it?"}
+  Q -- "a clock time" --> U["um acht Uhr"]
+  Q -- "a day or the weekend" --> A["am Montag, am Wochenende"]
+  Q -- "a part of the day" --> P{"Is it the night?"}
+  P -- no --> A2["am Morgen, am Abend"]
+  P -- yes --> N["in der Nacht"]
+  Q -- "from … until …" --> V["von neun bis fünf"]
+```
 
 - *Der Kurs beginnt um halb neun.* — The course starts at half past eight. (*beginnen* = to begin)
 - *Am Freitag arbeite ich nicht.* — I don't work on Friday.

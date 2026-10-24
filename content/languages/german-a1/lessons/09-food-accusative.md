@@ -29,6 +29,10 @@ Learn every food word with its article, as always. Many drinks are masculine, wh
 | der Salat — salad | | das Essen — food, meal |
 | der Kuchen — cake | | |
 
+Here are six of these words on a breakfast table:
+
+![A breakfast table seen from the front with six things on it, each labeled with its article: a jug of milk (die Milch), a cup of coffee on a saucer (der Kaffee), a bread roll on a plate (das Brötchen), a boiled egg in an egg cup (das Ei), a wedge of cheese (der Käse) and an apple (der Apfel).](images/de1-m3-breakfast.svg)
+
 The three meals are all neuter: *das Frühstück* (breakfast), *das Mittagessen* (lunch) and *das Abendessen* (dinner). *Mittag* means midday and *Abend* means evening, so the words explain themselves.
 
 Two words name whole groups, and German treats them as one uncountable thing, like English *fruit*: *das Obst* (fruit) and *das Gemüse* (vegetables). So *Gemüse ist gesund* — "vegetables are healthy" — uses a singular verb. (*gesund* means healthy.)
@@ -64,6 +68,21 @@ Possessives follow *ein*: *mein* becomes *meinen* for a masculine object. *Ich t
 ### Which verbs take the accusative?
 
 Most verbs that act on something take a direct object in the accusative: *essen*, *trinken*, *nehmen*, *möchten*, *haben*, *machen*, *hören*, *lernen*, *fragen* and many more. One verb never does: *sein*. After *sein* you keep the nominative, because nothing is being done to anything: *Das ist ein Kuchen* but *Ich esse einen Kuchen*.
+
+The questions you ask yourself for each noun fit in a small chart:
+
+```mermaid
+flowchart TD
+  accTitle: Which article form? Nominative or accusative
+  accDescr: Start with a noun in the sentence. If the verb is sein, use the nominative: der, ein, kein. If the verb is not sein, ask whether the noun is the direct object. If it is not, use the nominative. If it is the direct object and masculine, use den, einen or keinen. If it is the direct object and feminine, neuter or plural, nothing changes: die, das, eine, ein, keine, kein.
+  A["A noun in your sentence"] --> B{"Is the verb sein?"}
+  B -- yes --> N["Nominative: der, ein, kein"]
+  B -- no --> C{"Is the noun the direct object?"}
+  C -- no --> N
+  C -- yes --> D{"Is it masculine?"}
+  D -- yes --> M["Add n: den, einen, keinen"]
+  D -- no --> F["No change: die, das, eine, ein, keine"]
+```
 
 ## The verbs: essen, trinken, nehmen
 

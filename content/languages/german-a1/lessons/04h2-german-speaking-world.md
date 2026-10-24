@@ -36,7 +36,7 @@ several more places:
 ![A simplified map of central Europe showing Deutschland with Berlin, Österreich with Wien, die Schweiz with Bern, the small dot of Liechtenstein between Switzerland and Austria, Luxemburg and Ostbelgien on Germany's western border, and Südtirol in Italy just south of Austria.](images/de1-m1-dach-map.svg)
 
 German is the most widely spoken first language in the European Union. You'll also hear the
-short form **DACH** for the three big German-speaking countries: *D* (Deutschland), *A*
+short form *DACH* for the three big German-speaking countries: *D* (Deutschland), *A*
 (Austria, from its Latin name) and *CH* (Switzerland, from Latin *Confoederatio Helvetica*).
 Those letters are also the countries' international car codes.
 
@@ -86,8 +86,8 @@ greetings you'll hear in particular regions:
 | *Grüezi* | Switzerland | hello to people you say *Sie* to |
 | *Hoi* | Switzerland | hi, informal |
 
-*Moin* comes from Low German and has nothing to do with *Morgen*, which is why it works in the
-evening. *Grüß dich* literally means "(God) greet you", and its *dich* is the *du* form, so it's
+Most experts trace *Moin* to a Low German word for "nice" rather than to *Morgen* (the origin
+is debated), and either way it works in the evening too. *Grüß dich* literally means "(God) greet you", and its *dich* is the *du* form, so it's
 only for people you'd say *du* to. In Switzerland, *Grüezi* is the safe choice in shops and
 offices. You don't have to use these greetings yourself, but you should recognise them. A
 learner who answers *Moin!* in Hamburg or *Servus!* among friends in Munich is doing well.
@@ -108,7 +108,7 @@ only *-t*.
 | sie / Sie | *duzen* | *siezen* |
 
 *Im Büro duzen wir alle.* — In the office we all say *du*.
-*Ich sieze meinen Chef.* — I say *Sie* to my boss.
+*Ich sieze meine Chefin.* — I say *Sie* to my boss.
 *Duzt du deine Lehrerin?* — Do you say *du* to your teacher?
 
 When people move from *Sie* to *du*, someone offers it, often with *Wir können gern du sagen*
@@ -158,13 +158,13 @@ For each situation, decide *du*, *ihr* or *Sie*, and say how you'd greet the per
 
 ### Example 2: Forms of duzen and siezen
 
-Fill in: *Wir ___ uns.* (duzen) — *Lisa ___ ihren Chef.* (siezen) — *___ du Herrn Klein?*
+Fill in: *Wir ___ uns.* (duzen) — *Lisa ___ Frau Klein.* (siezen) — *___ du Frau Klein?*
 (duzen)
 
 1. *wir* takes the infinitive form: *Wir duzen uns.* (We say *du* to each other.)
 2. *Lisa* is *sie* (she); the ending is *-t*. The stem *siez-* ends in *z*, but *-t* is added
-   anyway: *Lisa siezt ihren Chef.*
-3. *du*: the stem *duz-* ends in *-z*, so add only *-t*, not *-st*: *Duzt du Herrn Klein?* It's
+   anyway: *Lisa siezt Frau Klein.*
+3. *du*: the stem *duz-* ends in *-z*, so add only *-t*, not *-st*: *Duzt du Frau Klein?* It's
    a yes/no question, so the verb comes first.
 
 ## Reading: new in Vienna
@@ -177,7 +177,7 @@ Nadia, from Canada, writes to her German teacher in Toronto.
 > bisschen anders. Am Morgen sagen die Leute nicht "Guten Morgen", sie sagen "Grüß Gott", und im
 > Büro sagt mein Kollege Florian immer "Servus". Er sagt auch "Servus" am Abend, für "Tschüss"!
 > Ich duze Florian, er ist sehr nett. Meine Chefin sieze ich. Sie heißt Frau Magistra Huber.
-> Magistra ist ein Titel, und in Österreich sagt man ihn oft. Der Januar heißt hier "Jänner".
+> Magistra ist ein Titel, und in Österreich sind Titel wichtig. Der Januar heißt hier "Jänner".
 > Ich verstehe viel, aber nicht alles!
 >
 > Viele Grüße
@@ -187,7 +187,7 @@ Dear Mrs Becker, Many greetings from Vienna! I live here now and work in an offi
 here is a bit different. In the morning people don't say *Guten Morgen*, they say *Grüß Gott*,
 and in the office my colleague Florian always says *Servus*. He also says *Servus* in the
 evening, for "bye"! I say *du* to Florian; he's very nice. I say *Sie* to my boss. She's called
-Frau Magistra Huber. *Magistra* is a title, and in Austria people use it a lot. January is
+Frau Magistra Huber. *Magistra* is a title, and in Austria titles are important. January is
 called *Jänner* here. I understand a lot, but not everything! Best wishes, Nadia
 
 (*ein bisschen* means a bit, *anders* different, *die Leute* people, *der Kollege* the

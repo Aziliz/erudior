@@ -44,6 +44,10 @@ German swaps the English comma and point:
 
 So *1.250* is one thousand two hundred and fifty, not one and a quarter. This matters a lot when you read prices.
 
+Here is a price tag with every part of the German style in one price:
+
+![A yellow price tag headed ANGEBOT (special offer) for a blue bicycle, Fahrrad, blau, showing the price 1.299,95 €. Labels point out that the point separates thousands, the comma separates euros from cents, 95 are the cents, and the euro sign comes after the number. Below: said tausendzweihundertneunundneunzig Euro fünfundneunzig.](images/de1-m3-price-tag.svg)
+
 ## Prices: Euro and Cent
 
 Germany, Austria and most EU countries pay in *Euro* (*der Euro*) and *Cent* (*der Cent*). Prices are written with a comma, and the euro sign usually comes after the number: *3,50 €*.
@@ -132,6 +136,20 @@ All of these take an accusative object.
 Note that *suchen* and *bezahlen* need no preposition: "look *for*" and "pay *for*" are just *suchen* and *bezahlen* plus the object.
 
 Some useful little words: *viel* (a lot, much), *wenig* (little, not much), *alles* (everything), *zusammen* (together). *Das kostet viel.* — That costs a lot. *Ich habe wenig Geld.* — I have little money. *Ist das alles?* — Is that everything? In a café the waiter asks *Zusammen oder getrennt?* — Together or separately? (*getrennt* = separately.)
+
+Most short shopping conversations follow the same steps, and the dialogue below does too:
+
+```mermaid
+flowchart TD
+  accTitle: The steps of a shopping conversation
+  accDescr: A shopping conversation at a market stall goes in seven steps. One, greet: Guten Tag. Two, ask about the price or whether there is something: Was kostet der Käse? or Gibt es Eier? Three, choose with welcher and dieser: Welchen Käse? Diesen, bitte. Four, say the amount with no word for of: 200 Gramm Käse, ein Kilo Äpfel. Five, finish: Das ist alles. Six, the seller gives the total: Das macht acht Euro. Seven, pay and get your change: Und zwei Euro zurück.
+  A["1 Greet: Guten Tag!"] --> B["2 Ask: Was kostet …? Gibt es …?"]
+  B --> C["3 Choose: Welchen Käse? Diesen, bitte."]
+  C --> D["4 Amount: 200 Gramm Käse, ein Kilo Äpfel"]
+  D --> E["5 Finish: Das ist alles."]
+  E --> F["6 Seller: Das macht 8 Euro."]
+  F --> G["7 Pay: Hier sind 10 Euro. Und 2 Euro zurück."]
+```
 
 ## Dialogue: At the market
 

@@ -69,7 +69,7 @@ $\Delta\theta = \tfrac12(\omega_0 + \omega)t = \tfrac12(25.13)(12) = 150.8$ rad,
 On a graph of $\omega$ against $t$, the angle turned is the area under the line, here a triangle: $\tfrac12(12)(25.13) = 150.8$ rad.
 
 ```plot
-{"x": [0, 14], "y": [0, 28], "xLabel": "t (s)", "yLabel": "ω (rad/s)", "functions": [{"f": "25.13 - 2.094*x", "from": 0, "to": 12, "label": "ω(t)"}], "shade": [{"f": "25.13 - 2.094*x", "from": 0, "to": 12}], "caption": "The fan slowing down: the shaded area is the 150.8 rad it turns through"}
+{"x": [0, 14], "y": [0, 28], "xLabel": "t (s)", "yLabel": "ω (rad/s)", "functions": [{"f": "25.13 - 2.094*x", "from": 0, "to": 12}], "labels": [{"at": [7.5, 13], "text": "ω(t)"}], "shade": [{"f": "25.13 - 2.094*x", "from": 0, "to": 12}], "caption": "The fan slowing down: the shaded area is the 150.8 rad it turns through"}
 ```
 
 ### Example 2

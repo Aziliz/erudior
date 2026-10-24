@@ -75,7 +75,7 @@
     - {name: H, label: 'Scale height', format: sig4, relTolerance: 0.01, units: {km: 1, m: 0.001}}
     - {name: frac, label: 'Fraction remaining', format: sig4, relTolerance: 0.01}
   solution: |-
-    $H = \dfrac{RT}{Mg} = \dfrac{8.314({T})}{({gas})(9.8)}$ m $=$ **{H:sig3} km**.
+    $H = \dfrac{RT}{Mg} = \dfrac{8.314({T})}{({gas:dp3})(9.8)}$ m $=$ **{H:sig3} km**.
 
     The density falls as $e^{-mgy/(k_BT)} = e^{-y/H}$: $e^{-{y}/{H:sig4}} =$ **{frac:sig3}**.
 - id: phys-m7-r2-poiseuille
@@ -90,7 +90,7 @@
     Rm: Rmm/1000
     Q: pi*Rm^4*dPk*1000/(8*fl*Lcm/100)*1e6
     vav: Q*1e-6/(pi*Rm^2)
-  prompt: '{fl} flows smoothly (laminar flow) through a tube of inner radius {Rmm} mm and length {Lcm} cm, driven by a pressure difference of {dPk} kPa. Find the volume flow rate in mL/s and the average flow speed in m/s, to 3 significant figures.'
+  prompt: 'The fluid is {fl}. It flows smoothly (laminar flow) through a tube of inner radius {Rmm} mm and length {Lcm} cm, driven by a pressure difference of {dPk} kPa. Find the volume flow rate in mL/s and the average flow speed in m/s, to 3 significant figures.'
   answers:
     - {name: Q, label: 'Flow rate', format: sig4, relTolerance: 0.01, units: {'mL/s': 1, 'L/s': 1000}}
     - {name: vav, label: 'Average speed', format: sig4, relTolerance: 0.01, units: {'m/s': 1, 'cm/s': 0.01}}
@@ -109,7 +109,7 @@
     rho: if(fl == 1, 1000, if(fl == 2, 1.2, if(fl == 3, 910, 1260)))
     eta: if(fl == 1, 0.001, if(fl == 2, 0.000018, if(fl == 3, 0.08, 1.4)))
     Rey: rho*v*(D/100)/eta
-  prompt: '{fl} flows at an average speed of {v} m/s through a pipe of diameter {D} cm. Find the Reynolds number $\text{Re} = \rho vD/\eta$ to 3 significant figures. (Below about 2000 the flow is laminar; above about 3000 it is usually turbulent.)'
+  prompt: 'The fluid is {fl}. It flows at an average speed of {v} m/s through a pipe of diameter {D} cm. Find the Reynolds number $\text{Re} = \rho vD/\eta$ to 3 significant figures. (Below about 2000 the flow is laminar; above about 3000 it is usually turbulent.)'
   answers:
     - {name: Rey, label: 'Re', format: sig4, relTolerance: 0.01}
   solution: |-
@@ -131,6 +131,6 @@
     - {name: vmm, label: 'Terminal speed', format: sig4, relTolerance: 0.01, units: {'mm/s': 1, 'm/s': 1000}}
     - {name: Rey, label: 'Re', format: sci, relTolerance: 0.01}
   solution: |-
-    $v_t = \dfrac{2r^2(\rho_s - \rho_f)g}{9\eta} = \dfrac{2({rm:texsci})^2({gr} - 1000)(9.8)}{9(1.0\times10^{-3})} =$ **{vmm:sig3} mm/s**.
+    $v_t = \dfrac{2r^2(\rho_s - \rho_f)g}{9\eta} = \dfrac{2({rm:texsci})^2({gr:dp0} - 1000)(9.8)}{9(1.0\times10^{-3})} =$ **{vmm:sig3} mm/s**.
 
     $\text{Re} = \dfrac{1000\,v_t(2r)}{1.0\times10^{-3}} =$ **{Rey:texsci}**, below 1, so Stokes' law applies.

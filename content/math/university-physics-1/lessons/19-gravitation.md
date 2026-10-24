@@ -98,7 +98,7 @@ For Earth, $v_{\text{esc}} = 11.2$ km/s, exactly $\sqrt2$ times the speed of a l
 Plotted against orbit radius (in units where $GMm = 1$), the kinetic energy is always half the size of the potential energy and the total is the negative of the kinetic energy: moving to a higher orbit raises the total energy (it becomes less negative) even though the satellite slows down.
 
 ```plot
-{"x": [0.5, 4], "y": [-2.2, 1.2], "xLabel": "r", "yLabel": "energy", "functions": [{"f": "1/(2*x)", "label": "K"}, {"f": "-1/x", "label": "U"}, {"f": "-1/(2*x)", "label": "E", "dashed": true}], "caption": "Circular orbits: K = GMm/2r, U = −GMm/r, E = −GMm/2r"}
+{"x": [0, 4], "y": [-2.2, 1.2], "xLabel": "r", "yLabel": "energy", "functions": [{"f": "1/(2*x)"}, {"f": "-1/x"}, {"f": "-1/(2*x)", "dashed": true}], "labels": [{"at": [1.5, 0.55], "text": "K"}, {"at": [1.3, -1.2], "text": "U"}, {"at": [0.22, -0.9], "text": "E"}], "caption": "Circular orbits: K = GMm/2r, U = −GMm/r, E = −GMm/2r"}
 ```
 
 ## Potential energy from the force law

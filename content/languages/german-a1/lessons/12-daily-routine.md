@@ -58,6 +58,23 @@ The rule is the same in statements and in questions: the conjugated verb in its 
 
 When the verb is in the infinitive, for example after *möchte*, it stays in one piece at the end: *Ich möchte heute einkaufen.* — I'd like to go shopping today.
 
+Here is one sentence taken apart, slot by slot:
+
+![Five boxes in a row: Morgen früh, labeled Position 1; rufe, labeled Position 2 (verb); ich, labeled Subject; meine Mutter, labeled Object; and an., labeled Prefix (end). A bracket joins rufe and an, with the note rufe … an = anrufen (to phone): the verb splits. Below: Tomorrow morning I'm phoning my mother.](images/de1-m3-sentence-slots.svg)
+
+And here is the whole decision as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Building a sentence with a separable verb
+  accDescr: Start with a separable verb such as anrufen. If the sentence already has möchte, the separable verb stays in one piece at the end: Ich möchte meine Mutter anrufen. If not, split it. Conjugate the verb part and put it in position 2 (rufe), then put the prefix at the very end (an): Ich rufe meine Mutter an.
+  A["A separable verb: anrufen"] --> B{"Is there a möchte in the sentence?"}
+  B -- yes --> W["Keep it whole at the end: Ich möchte meine Mutter anrufen."]
+  B -- no --> C["Conjugate the verb part, position 2: rufe"]
+  C --> D["Prefix to the very end: an"]
+  D --> E["Ich rufe meine Mutter an."]
+```
+
 ### Not every verb splits
 
 Only these little prefixes split off. Ordinary verbs stay whole, even when they look long:

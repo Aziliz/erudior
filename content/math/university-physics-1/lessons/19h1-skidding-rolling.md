@@ -87,7 +87,7 @@ Distance sliding: $d = v_0t^* - \tfrac12\mu_kg(t^*)^2 = 8.0(2.332) - \tfrac12(0.
 Energy: $K_i = \tfrac12(7.0)(8.0)^2 = 224$ J; $K_f = \tfrac12(1 + c)Mv_f^2 = \tfrac12(1.4)(7.0)(5.714)^2 = 160$ J. So 64 J, exactly $\tfrac{c}{1 + c} = \tfrac27$ of the start, is turned into heat by kinetic friction.
 
 ```plot
-{"x": [0, 3.5], "y": [0, 9], "xLabel": "t (s)", "yLabel": "speed (m/s)", "functions": [{"f": "8 - 0.98*x", "from": 0, "to": 2.332, "label": "v"}, {"f": "2.45*x", "from": 0, "to": 2.332, "label": "Rω"}, {"f": "5.714", "from": 2.332, "to": 3.5, "dashed": true}], "points": [{"at": [2.332, 5.714], "label": "rolling begins"}], "caption": "Example 1: the center slows and the spin speeds up until v = Rω at 2.33 s"}
+{"x": [0, 3.5], "y": [0, 9], "xLabel": "t (s)", "yLabel": "speed (m/s)", "functions": [{"f": "8 - 0.98*x", "from": 0, "to": 2.332}, {"f": "2.45*x", "from": 0, "to": 2.332}, {"f": "5.714", "from": 2.332, "to": 3.5, "dashed": true}], "labels": [{"at": [0.8, 7.9], "text": "v"}, {"at": [1.2, 1.9], "text": "Rω"}], "points": [{"at": [2.332, 5.714], "label": "rolling begins"}], "caption": "Example 1: the center slows and the spin speeds up until v = Rω at 2.33 s"}
 ```
 
 The lost fraction is general. With no initial spin, $K_f/K_i = \dfrac{(1 + c)v_f^2}{v_0^2} = \dfrac{1}{1 + c}$, so the fraction lost is $\dfrac{c}{1 + c}$, again independent of $\mu_k$: a hoop launched without spin loses half its kinetic energy before it rolls.
