@@ -96,7 +96,7 @@ Show that $f(x) = \dfrac{x}{1 - |x|}$ is a one-to-one correspondence from $(-1, 
 3. Because $f$ has an inverse defined on all of $\mathbb{R}$, it is a one-to-one correspondence. For instance $f(0.75) = \frac{0.75}{0.25} = 3$ and $f^{-1}(3) = \frac34$.
 
 ```plot
-{"x": [-1.2, 1.2], "y": [-8, 8], "functions": [{"f": "x/(1 - abs(x))", "from": -0.94, "to": 0.94}], "points": [{"at": [0.75, 3]}], "segments": [{"from": [-1, -8], "to": [-1, 8], "dashed": true}, {"from": [1, -8], "to": [1, 8], "dashed": true}], "caption": "f(x) = x/(1 − |x|) stretches (−1, 1) over the whole real line. The dashed lines x = ±1 are vertical asymptotes.", "labels": [{"at": [0.42, 4.2], "text": "(0.75, 3)"}]}
+{"x": [-1.2, 1.2], "y": [-8, 8], "functions": [{"f": "x/(1 - abs(x))", "from": -0.94, "to": 0.94}], "points": [{"at": [0.75, 3]}], "segments": [{"from": [-1, -8], "to": [-1, -1.3], "dashed": true}, {"from": [-1, 0], "to": [-1, 8], "dashed": true}, {"from": [1, -8], "to": [1, -1.3], "dashed": true}, {"from": [1, 0], "to": [1, 8], "dashed": true}], "caption": "f(x) = x/(1 − |x|) stretches (−1, 1) over the whole real line. The dashed lines x = ±1 are vertical asymptotes.", "labels": [{"at": [0.42, 4.2], "text": "(0.75, 3)"}]}
 ```
 
 So $(-1, 1)$, $(0, 1)$ and $\mathbb{R}$ all have the same, uncountable cardinality.
