@@ -1,0 +1,315 @@
+# Round 2, module de3-m6: words introduced by the honors lessons 30h1 and 30h2.
+# Checked against every vocab file in German A1, A2 and B1 (including r2 files) and PRIOR-WORDS.tsv.
+# Left out because other files own them: bestätigen, behaupten, warnen, die Brücke, bezüglich,
+# der Bescheid, der Widerspruch, das Aktenzeichen, der Sachbearbeiter, fällig, die Mahnung,
+# beifügen, die Anlage, hiermit, das Schreiben, gegebenenfalls, zufolge, die Angabe, bestreiten.
+
+# --- 30h1 Reported speech in full ---
+- id: de3-m6-r2-w01
+  lesson: de3-m6-h-reported-news
+  term: einräumen
+  pos: verb
+  meanings: [to admit (concede), to concede, to admit, to acknowledge]
+  example: Der Minister räumte ein, dass er einen Fehler gemacht hatte.
+  exampleEn: The minister admitted that he had made a mistake.
+  note: 'Separable: er räumt ein, hat eingeräumt. Also "to put away (into a cupboard)".'
+
+- id: de3-m6-r2-w02
+  lesson: de3-m6-h-reported-news
+  term: dementieren
+  pos: verb
+  meanings: [to deny (officially), to deny, to issue a denial]
+  example: Die Firma dementierte den Bericht.
+  exampleEn: The company denied the report.
+  note: 'Perfect: hat dementiert. Used for officially denying a report or rumour.'
+
+- id: de3-m6-r2-w03
+  lesson: de3-m6-h-reported-news
+  term: sich äußern
+  pos: verb
+  meanings: [to comment (give one's view), to comment, to express an opinion, to give one's view, to make a statement]
+  example: Die Stadt wollte sich nicht äußern.
+  exampleEn: The city declined to comment.
+  note: 'sich äußern zu + dative: Er äußerte sich zu dem Unfall.'
+
+- id: de3-m6-r2-w04
+  lesson: de3-m6-h-reported-news
+  term: das Zitat
+  pos: noun
+  plural: die Zitate
+  meanings: [quotation, quote]
+  example: Das Zitat stammt von einer Ärztin.
+  exampleEn: The quotation comes from a doctor.
+
+- id: de3-m6-r2-w05
+  lesson: de3-m6-h-reported-news
+  term: die Pressemitteilung
+  pos: noun
+  plural: die Pressemitteilungen
+  meanings: [press release, press statement]
+  example: Die Polizei hat eine Pressemitteilung veröffentlicht.
+  exampleEn: The police have published a press release.
+
+- id: de3-m6-r2-w06
+  lesson: de3-m6-h-reported-news
+  term: fordern
+  pos: verb
+  meanings: [to demand, to call for, to require]
+  example: Die Anwohner fordern einen Ersatzbus.
+  exampleEn: The residents are demanding a replacement bus.
+
+- id: de3-m6-r2-w07
+  lesson: de3-m6-h-reported-news
+  term: auffordern
+  pos: verb
+  meanings: [to call on (someone to do something), to call on, to ask, to request, to urge]
+  example: Die Polizei forderte die Leute auf, zu Hause zu bleiben.
+  exampleEn: The police called on people to stay at home.
+  note: 'Separable: fordert … auf, hat aufgefordert. jemanden auffordern, etwas zu tun.'
+
+- id: de3-m6-r2-w08
+  lesson: de3-m6-h-reported-news
+  term: die Sperrung
+  pos: noun
+  plural: die Sperrungen
+  meanings: [closure (of a road or bridge), closure, blocking]
+  example: Die Sperrung der Straße dauert zwei Wochen.
+  exampleEn: The road closure lasts two weeks.
+
+- id: de3-m6-r2-w09
+  lesson: de3-m6-h-reported-news
+  term: das Gutachten
+  pos: noun
+  plural: die Gutachten
+  meanings: [expert report, expert opinion, survey report, assessment]
+  example: Ein Gutachten zeigt, dass das Dach repariert werden muss.
+  exampleEn: An expert report shows that the roof must be repaired.
+
+- id: de3-m6-r2-w10
+  lesson: de3-m6-h-reported-news
+  term: der Umweg
+  pos: noun
+  plural: die Umwege
+  meanings: [detour, roundabout way]
+  example: Wegen der Baustelle müssen wir einen Umweg fahren.
+  exampleEn: Because of the roadworks we have to take a detour.
+
+- id: de3-m6-r2-w11
+  lesson: de3-m6-h-reported-news
+  term: die Bürgerversammlung
+  pos: noun
+  plural: die Bürgerversammlungen
+  meanings: [public meeting (for residents), residents' meeting, town meeting, public meeting]
+  example: Bei der Bürgerversammlung waren über hundert Leute.
+  exampleEn: There were over a hundred people at the public meeting.
+
+- id: de3-m6-r2-w12
+  lesson: de3-m6-h-reported-news
+  term: einsetzen
+  pos: verb
+  meanings: [to put into service, to use, to deploy, to bring in]
+  example: Die Stadt setzt am Wochenende mehr Busse ein.
+  exampleEn: The city is putting more buses into service at the weekend.
+  note: 'Separable: setzt … ein, hat eingesetzt. Not the same as sich einsetzen für (to campaign for).'
+
+- id: de3-m6-r2-w13
+  lesson: de3-m6-h-reported-news
+  term: verärgert
+  pos: adjective
+  meanings: [annoyed, angry, cross, irritated]
+  example: Viele Kunden sind verärgert über die Preise.
+  exampleEn: Many customers are annoyed about the prices.
+
+- id: de3-m6-r2-w14
+  lesson: de3-m6-h-reported-news
+  term: vorgehen
+  pos: verb
+  meanings: [to take priority, to come first, to go ahead]
+  example: Die Gesundheit geht vor.
+  exampleEn: Health comes first.
+  note: 'Separable: geht vor, ist vorgegangen. Also: Geh schon vor! (Go on ahead!); of a clock: to be fast.'
+
+- id: de3-m6-r2-w15
+  lesson: de3-m6-h-reported-news
+  term: die Fähre
+  pos: noun
+  plural: die Fähren
+  meanings: [ferry]
+  example: Wir fahren mit der Fähre über den Fluss.
+  exampleEn: We take the ferry across the river.
+
+# --- 30h2 Letters from offices and landlords ---
+- id: de3-m6-r2-w16
+  lesson: de3-m6-h-official-letters
+  term: bewilligen
+  pos: verb
+  meanings: [to grant (an application), to grant, to approve, to award]
+  example: Die Stadt hat meinen Antrag bewilligt.
+  exampleEn: The city has granted my application.
+
+- id: de3-m6-r2-w17
+  lesson: de3-m6-h-official-letters
+  term: die Begründung
+  pos: noun
+  plural: die Begründungen
+  meanings: [reasons (given for something), reasons, reason, justification, explanation, grounds]
+  example: In der Begründung steht, warum der Antrag abgelehnt wurde.
+  exampleEn: The reasons section says why the application was rejected.
+
+- id: de3-m6-r2-w18
+  lesson: de3-m6-h-official-letters
+  term: die Bekanntgabe
+  pos: noun
+  plural: die Bekanntgaben
+  meanings: [notification (official), notification, announcement]
+  example: Der Widerspruch ist innerhalb eines Monats nach Bekanntgabe möglich.
+  exampleEn: An objection is possible within one month of notification.
+
+- id: de3-m6-r2-w19
+  lesson: de3-m6-h-official-letters
+  kind: phrase
+  term: Widerspruch einlegen
+  meanings: [to lodge an objection, to object, to file an objection, to appeal]
+  example: Ich habe gegen den Bescheid Widerspruch eingelegt.
+  exampleEn: I lodged an objection to the decision.
+  note: 'einlegen is separable: Ich lege Widerspruch ein. Also: Widerspruch erheben.'
+
+- id: de3-m6-r2-w20
+  lesson: de3-m6-h-official-letters
+  kind: phrase
+  term: einen Antrag stellen
+  meanings: [to submit an application, to apply, to make an application]
+  example: Sie können den Antrag auch online stellen.
+  exampleEn: You can also submit the application online.
+
+- id: de3-m6-r2-w21
+  lesson: de3-m6-h-official-letters
+  kind: phrase
+  term: zur Verfügung stellen
+  meanings: [to make available, to provide, to supply]
+  example: Die Firma stellt allen Mitarbeitern einen Laptop zur Verfügung.
+  exampleEn: The company provides all employees with a laptop.
+  note: 'zur Verfügung stehen = to be available: Ich stehe Ihnen gern zur Verfügung.'
+
+- id: de3-m6-r2-w22
+  lesson: de3-m6-h-official-letters
+  kind: phrase
+  term: in Anspruch nehmen
+  meanings: [to make use of, to use, to take up (an offer)]
+  example: Viele Mieter nehmen die Beratung in Anspruch.
+  exampleEn: Many tenants make use of the advice service.
+
+- id: de3-m6-r2-w23
+  lesson: de3-m6-h-official-letters
+  kind: phrase
+  term: zur Kenntnis nehmen
+  meanings: [to take note of, to note, to acknowledge]
+  example: Wir haben Ihre Beschwerde zur Kenntnis genommen.
+  exampleEn: We have taken note of your complaint.
+
+- id: de3-m6-r2-w24
+  lesson: de3-m6-h-official-letters
+  term: das Einschreiben
+  pos: noun
+  plural: die Einschreiben
+  meanings: [registered letter, registered mail, registered post]
+  example: Ich schicke den Widerspruch per Einschreiben.
+  exampleEn: I'm sending the objection by registered post.
+
+- id: de3-m6-r2-w25
+  lesson: de3-m6-h-official-letters
+  term: die Abrechnung
+  pos: noun
+  plural: die Abrechnungen
+  meanings: [statement (of costs), statement, bill, settlement, invoice]
+  example: Die Abrechnung kam im Mai.
+  exampleEn: The statement came in May.
+
+- id: de3-m6-r2-w26
+  lesson: de3-m6-h-official-letters
+  term: die Vorauszahlung
+  pos: noun
+  plural: die Vorauszahlungen
+  meanings: [advance payment, prepayment, payment in advance]
+  example: Meine monatliche Vorauszahlung beträgt 210 Euro.
+  exampleEn: My monthly advance payment is 210 euros.
+
+- id: de3-m6-r2-w27
+  lesson: de3-m6-h-official-letters
+  term: die Nachzahlung
+  pos: noun
+  plural: die Nachzahlungen
+  meanings: [additional payment, back payment, extra payment]
+  example: Dieses Jahr habe ich eine Nachzahlung von 167 Euro.
+  exampleEn: This year I have an additional payment of 167 euros.
+
+- id: de3-m6-r2-w28
+  lesson: de3-m6-h-official-letters
+  term: das Guthaben
+  pos: noun
+  plural: die Guthaben
+  meanings: [credit (money owed to you), credit, credit balance, balance]
+  example: Das Guthaben wird mit der nächsten Miete verrechnet.
+  exampleEn: The credit is set against the next rent.
+
+- id: de3-m6-r2-w29
+  lesson: de3-m6-h-official-letters
+  term: der Beleg
+  pos: noun
+  plural: die Belege
+  meanings: [proof of payment (document), receipt, voucher, record, proof]
+  example: Bitte heben Sie alle Belege auf.
+  exampleEn: Please keep all receipts.
+
+- id: de3-m6-r2-w30
+  lesson: de3-m6-h-official-letters
+  term: gemäß
+  pos: preposition
+  meanings: [in accordance with, according to, under, pursuant to]
+  example: Gemäß Paragraf 5 müssen Sie die Unterlagen vorlegen.
+  exampleEn: In accordance with section 5, you must present the documents.
+  note: '+ dative, usually before the noun. Abbreviation: gem.'
+
+- id: de3-m6-r2-w31
+  lesson: de3-m6-h-official-letters
+  term: anbei
+  pos: adverb
+  meanings: [enclosed (with this letter), enclosed, attached, herewith]
+  example: Anbei finden Sie die Rechnung.
+  exampleEn: Please find the invoice enclosed.
+
+- id: de3-m6-r2-w32
+  lesson: de3-m6-h-official-letters
+  term: betragen
+  pos: verb
+  meanings: [to amount to, to come to, to be (of an amount)]
+  example: Die Miete beträgt 750 Euro im Monat.
+  exampleEn: The rent is 750 euros a month.
+  note: 'Like tragen: es beträgt, betrug, hat betragen.'
+
+- id: de3-m6-r2-w33
+  lesson: de3-m6-h-official-letters
+  term: einsehen
+  pos: verb
+  meanings: [to inspect (documents), to inspect, to look at, to see]
+  example: Sie können die Belege im Büro einsehen.
+  exampleEn: You can inspect the receipts in the office.
+  note: 'Separable, like sehen: sieht … ein, hat eingesehen. Also "to realize, accept": Er sieht seinen Fehler ein.'
+
+- id: de3-m6-r2-w34
+  lesson: de3-m6-h-official-letters
+  term: anpassen
+  pos: verb
+  meanings: [to adjust, to adapt, to change (to fit)]
+  example: Die Hausverwaltung passt die Vorauszahlung an.
+  exampleEn: The property management is adjusting the advance payment.
+  note: 'Separable: passt … an, hat angepasst. sich anpassen = to adapt (oneself).'
+
+- id: de3-m6-r2-w35
+  lesson: de3-m6-h-official-letters
+  term: die Heizkosten
+  pos: noun
+  plural: die Heizkosten (plural only)
+  meanings: [heating costs, heating bill]
+  example: Im Winter steigen die Heizkosten.
+  exampleEn: In winter the heating costs go up.

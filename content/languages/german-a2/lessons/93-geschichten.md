@@ -143,7 +143,7 @@ Poems often use older or shortened forms to fit the rhythm and the rhyme. Here a
 
 *Vögelein* is a **diminutive**, a form that makes something small or dear. German makes diminutives with *-chen* or *-lein* and usually an umlaut: *der Vogel* → *das Vögelchen* or *das Vögelein* (also *Vöglein*), *das Buch* → *das Büchlein*. Every diminutive is neuter. Printed versions of the poem differ slightly in this word (*Vögel*, *Vöglein*, *Vögelein*); this lesson follows the 1815 printing.
 
-The lines (*die Zeilen*) rhyme in pairs: *Gipfeln* and *Wipfeln*, *Ruh* and *du*, *Hauch* and *auch*, *Walde* and *balde*. A **rhyme** (*der Reim*) is two words whose endings sound the same from the last stressed vowel on. The **rhyme scheme** labels the pattern with letters: lines 1–4 are *abab* (Gipfeln, Ruh, Wipfeln, du), lines 5–8 are *cddc* (Hauch, Walde, balde, auch). Notice also that every line starts with a capital letter. That was the rule in poems of Goethe's time, not a sign of nouns.
+The lines (*die Zeilen*) rhyme in four pairs, but the pairs are not next to each other: *Gipfeln* and *Wipfeln*, *Ruh* and *du*, *Hauch* and *auch*, *Walde* and *balde*. A **rhyme** (*der Reim*) is two words whose endings sound the same from the last stressed vowel on. The **rhyme scheme** labels the pattern with letters: lines 1–4 are *abab* (Gipfeln, Ruh, Wipfeln, du), lines 5–8 are *cddc* (Hauch, Walde, balde, auch). Notice also that every line starts with a capital letter. That was the rule in poems of Goethe's time, not a sign of nouns.
 
 ### Example 3: Reading the poem in modern German
 

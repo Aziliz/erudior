@@ -40,7 +40,7 @@ flowchart TD
   D --> E["1990er: Spätaussiedler, Flüchtlinge aus Jugoslawien"]
   E --> F["2000: neues Staatsangehörigkeitsrecht"]
   F --> G["2005: Zuwanderungsgesetz"]
-  G --> H["2015/16: viele Geflüchtete, u. a. aus Syrien"]
+  G --> H["2015/16: viele Geflüchtete aus Syrien und anderen Ländern"]
   H --> I["2022: Geflüchtete aus der Ukraine"]
   I --> J["2024: Einbürgerung nach fünf Jahren"]
 ```
