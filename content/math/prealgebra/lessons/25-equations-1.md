@@ -19,16 +19,16 @@ Is $y = -3$ a solution of $4 - 2y = 10$? Left side: $4 - 2(-3) = 4 + 6 = 10$. Ri
 
 ## The balance idea
 
-The picture shows $3x + 5 = 20$ as a balance: three boxes of unknown weight $x$ and 5 unit cubes on the left, 20 unit cubes on the right. Taking 5 cubes off each pan keeps it level and leaves $3x = 15$; splitting each side into three equal groups leaves one box balancing 5 cubes, so $x = 5$.
-
-![A balance scale, level. The left pan holds three boxes marked x and five small unit cubes; the right pan holds twenty unit cubes. A key shows that a small cube weighs 1 and a box marked x has an unknown weight.](images/pre-m7-balance.svg)
-
 Think of an equation as a balanced scale. Whatever you do to one side, you must do to the other to keep it balanced. This gives the **properties of equality**:
 
 - **Addition property of equality**: adding the same number to both sides gives an equivalent equation.
 - **Subtraction property of equality**: subtracting the same number from both sides gives an equivalent equation.
 - **Multiplication property of equality**: multiplying both sides by the same nonzero number gives an equivalent equation.
 - **Division property of equality**: dividing both sides by the same nonzero number gives an equivalent equation.
+
+The picture shows $3x + 5 = 20$ as a balance: three boxes of unknown weight $x$ and 5 unit cubes on the left, 20 unit cubes on the right. Taking 5 cubes off each pan keeps it level and leaves $3x = 15$; splitting each side into three equal groups leaves one box balancing 5 cubes, so $x = 5$.
+
+![A balance scale, level. The left pan holds three boxes marked x and five small unit cubes; the right pan holds twenty unit cubes. A key shows that a small cube weighs 1 and a box marked x has an unknown weight.](images/pre-m7-balance.svg)
 
 **Equivalent equations** have the same solutions. The strategy is to keep transforming the equation into simpler equivalent ones until it says $x = \text{(a number)}$. To get the variable alone (to **isolate** it), undo whatever has been done to it using **inverse operations**: addition and subtraction undo each other, and multiplication and division undo each other.
 

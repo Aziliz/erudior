@@ -92,7 +92,7 @@
     - {name: e0, label: '$E_0 =$ (V/m)', sigfigs: 3, format: sig3}
     - {name: b0, label: '$B_0 =$ (μT)', sigfigs: 3, format: sig3}
   solution: |-
-    $I = \tfrac12c\varepsilon_0E_0^2$, so $E_0 = \sqrt{\dfrac{2({inten})}{(2.998\times10^8)(8.854\times10^{-12})}} =$ **{e0:sig3}** V/m. Then $B_0 = E_0/c = {e0:sig3}/(2.998\times10^8)$ T $=$ **{b0:sig3}** μT.
+    $I = \tfrac12c\varepsilon_0E_0^2$, so $E_0 = \sqrt{\dfrac{2({inten:dp0})}{(2.998\times10^8)(8.854\times10^{-12})}} =$ **{e0:sig3}** V/m. Then $B_0 = E_0/c = {e0:sig3}/(2.998\times10^8)$ T $=$ **{b0:sig3}** μT.
 # Lesson 92: harmonic functions
 - id: mv-h1-r2-mean-value
   title: Averages of a harmonic function
@@ -153,7 +153,7 @@
     - {name: wall, label: '(a) m/s', sigfigs: 3, format: sig3}
     - {name: ahead, label: '(b) m/s', sigfigs: 3, format: sig3}
   solution: |-
-    On the wall the velocity is tangential: $\dfrac1r\dfrac{\partial\phi}{\partial\theta} = -2U\sin\theta$, so the speed is $2({U})|\sin {ang}^\circ| =$ **{wall:sig3}** m/s. On the upstream axis ($\theta = \pi$) the velocity is radial: $\left|\dfrac{\partial\phi}{\partial r}\right| = U\left(1 - \dfrac{a^2}{r^2}\right) = {U}\left(1 - \dfrac{1}{{mult}^2}\right) =$ **{ahead:sig3}** m/s, slowing toward the stagnation point at $r = a$.
+    On the wall the velocity is tangential: $\dfrac1r\dfrac{\partial\phi}{\partial\theta} = -2U\sin\theta$, so the speed is $2({U})|\sin {ang}^\circ| =$ **{wall:sig3}** m/s. On the upstream axis ($\theta = \pi$) the velocity is radial, and here $r/a = {mult}$: $\left|\dfrac{\partial\phi}{\partial r}\right| = U\left(1 - \dfrac{a^2}{r^2}\right) = {U}\left(1 - \dfrac{1}{{mult}^2}\right) =$ **{ahead:sig3}** m/s, slowing toward the stagnation point at $r = a$.
 # Lesson 93: curvature of surfaces
 - id: mv-h1-r2-principal-curv
   title: Principal and Gaussian curvature at a flat spot

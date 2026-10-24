@@ -14,32 +14,30 @@ The last lesson ended with a short note: most real savings accounts and loans us
 
 ## Year by year
 
-Follow \$1,000 at 5% a year for five years both ways. With simple interest, each year adds 5% of the *original* \$1,000, which is always \$50. With compound interest, each year adds 5% of *whatever is in the account*, and the account keeps getting bigger.
+Follow \$1,000 for five years both ways. To keep the arithmetic exact, use a rate of 10% a year. With simple interest, each year adds 10% of the *original* \$1,000, which is always \$100. With compound interest, each year adds 10% of *whatever is in the account*, and the account keeps getting bigger.
 
 | Year | Simple interest balance | Compound interest balance | Interest added that year (compound) |
 |---|---|---|---|
 | 0 | \$1,000.00 | \$1,000.00 | |
-| 1 | \$1,050.00 | \$1,050.00 | \$50.00 |
-| 2 | \$1,100.00 | \$1,102.50 | \$52.50 |
-| 3 | \$1,150.00 | \$1,157.63 | \$55.13 |
-| 4 | \$1,200.00 | \$1,215.51 | \$57.88 |
-| 5 | \$1,250.00 | \$1,276.28 | \$60.77 |
+| 1 | \$1,100.00 | \$1,100.00 | \$100.00 |
+| 2 | \$1,200.00 | \$1,210.00 | \$110.00 |
+| 3 | \$1,300.00 | \$1,331.00 | \$121.00 |
+| 4 | \$1,400.00 | \$1,464.10 | \$133.10 |
+| 5 | \$1,500.00 | \$1,610.51 | \$146.41 |
 
-(Banks round to the cent; the table rounds only for display, and the multiplication keeps every digit.)
-
-Look at the right-hand column: the yearly interest itself grows by 5% each year. That is the "interest on interest."
+Look at the right-hand column: the yearly interest itself grows by 10% each year. That is the "interest on interest." After five years compounding is ahead by \$110.51, and the lead grows every year.
 
 ## The compound interest formula
 
-Adding 5% to a balance is the same as multiplying it by 1.05 (Lesson 18: an increase at rate $r$ multiplies by $1 + r$). So each year *multiplies* the balance by 1.05:
+Adding 10% to a balance is the same as multiplying it by 1.1 (Lesson 18: an increase at rate $r$ multiplies by $1 + r$). So each year *multiplies* the balance by 1.1:
 
-$$1{,}000 \to 1{,}000(1.05) \to 1{,}000(1.05)(1.05) \to 1{,}000(1.05)(1.05)(1.05) \to \cdots$$
+$$1{,}000 \to 1{,}000(1.1) \to 1{,}000(1.1)(1.1) \to 1{,}000(1.1)(1.1)(1.1) \to \cdots$$
 
-After $t$ years there are $t$ factors of 1.05, which is a power:
+After $t$ years there are $t$ factors of 1.1, which is a power:
 
 $$A = P(1 + r)^t$$
 
-Here $P$ is the principal, $r$ the annual rate as a decimal, $t$ the number of years, and $A$ the balance at the end. The number $1 + r$ is the **growth factor**: what the balance is multiplied by each year. Check: $1{,}000 \times 1.05^5 = 1{,}276.28$, matching the table. Order of operations matters here: raise $1.05$ to the power first, then multiply by $P$.
+Here $P$ is the principal, $r$ the annual rate as a decimal, $t$ the number of years, and $A$ the balance at the end. The number $1 + r$ is the **growth factor**: what the balance is multiplied by each year. Check: $1{,}000 \times 1.1^5 = 1{,}000 \times 1.61051 = 1{,}610.51$, matching the table. Order of operations matters here: raise $1.1$ to the power first, then multiply by $P$. The same formula with $r = 0.05$ gives the lesson 19 example: $1{,}000 \times 1.05^2 = 1{,}102.50$.
 
 Anything that is multiplied by the same factor every period shows **exponential growth**. Compare the shapes: simple interest adds the same amount each year, so its graph is a straight line; compound interest multiplies, so its graph curves upward more and more steeply.
 
@@ -151,12 +149,27 @@ Each year it keeps 85%: $A = 28{,}000(0.85)^3 = 28{,}000 \times 0.614125 = 17{,}
 
 A common wrong answer subtracts $3 \times 15\% = 45\%$ of the original, giving \$15,400. That treats each year's loss as 15% of the *original* price, but the second and third years' losses are 15% of a smaller value. (Real cars don't lose value at a perfectly constant percent; this is a standard simplified model.)
 
+## Which formula?
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an interest or growth formula
+  accDescr: First ask whether the amount grows or shrinks. If it shrinks by the same percent r each year, as with a depreciating car, use A equals P times (1 minus r) to the power t. If it grows, ask whether interest earns interest. If not, it is simple interest, I equals P r t. If it does, ask how many times a year interest is added. Once a year gives A equals P times (1 plus r) to the power t. n times a year gives A equals P times (1 plus r over n) to the power n t.
+  Q0{"Does the amount grow or shrink?"}
+  Q0 -- "shrinks by r each year" --> DD["A = P(1 - r) to the power t"]
+  Q0 -- "grows" --> Q1{"Does interest earn interest?"}
+  Q1 -- "no" --> S["Simple: I = Prt"]
+  Q1 -- "yes" --> Q2{"How many times a year is it added?"}
+  Q2 -- "once" --> Y["A = P(1 + r) to the power t"]
+  Q2 -- "n times" --> N["A = P(1 + r/n) to the power nt"]
+```
+
 ## Common mistakes
 
 - *Using the yearly rate for each period.* With monthly compounding at 6%, each month pays $\tfrac{0.06}{12} = 0.005$, not 0.06.
 - *Using years as the exponent when compounding monthly.* Ten years of monthly compounding is $nt = 120$ periods.
 - *Multiplying before raising to the power.* In $2{,}500(1.04)^{10}$, compute $1.04^{10}$ first; $(2{,}500 \times 1.04)^{10}$ is a different, enormous number.
-- *Rounding the growth factor early.* $1 + \tfrac{0.04}{12}$ is $1.003333\ldots$; using 1.003 over 120 months loses about \$38.
+- *Rounding the growth factor early.* $1 + \tfrac{0.04}{12}$ is $1.003333\ldots$; using 1.003 over 120 months gives \$3,581.39, about \$146 too little.
 - *Comparing stated rates instead of APYs* when the compounding differs.
 - *Treating the rule of 72 as exact.* It's an estimate, best for moderate rates.
 - *Subtracting the same amount each year for depreciation.* A constant *percent* loss shrinks by a smaller amount each year.

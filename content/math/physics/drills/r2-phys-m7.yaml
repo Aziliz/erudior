@@ -55,7 +55,7 @@
   answers:
     - {name: hcm, label: '$h =$', format: sig4, relTolerance: 0.01, units: {cm: 1, mm: 0.1, m: 100}}
   solution: |-
-    $h = \dfrac{2\gamma\cos\theta}{\rho gr} = \dfrac{2({gam})\cos {th}°}{({dens})(9.8)({rad:texsci})} = {hm:texsci}$ m $=$ **{hcm:sig3} cm**.
+    $h = \dfrac{2\gamma\cos\theta}{\rho gr} = \dfrac{2({gam})\cos({th}^\circ)}{({dens})(9.8)({rad:texsci})} = {hm:texsci}$ m $=$ **{hcm:sig3} cm**.
 - id: phys-m7-r2-rect-cycle
   title: Efficiency of a rectangular cycle
   topic: Engine cycles

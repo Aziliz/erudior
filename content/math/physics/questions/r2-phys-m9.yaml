@@ -1,0 +1,428 @@
+# Round 2 questions for phys-m9 (Electric circuits): core lessons 35-37 and honors 37h1, 37h2.
+
+# ---------- Lesson 35: Current, resistance, and power ----------
+- id: phys-m9-r2-q01
+  lesson: phys-current
+  module_quiz: true
+  topic: Current and resistance
+  type: label
+  stem: 'A wire connects a higher-potential end (+) to a lower-potential end (−). Name the numbered parts of the picture.'
+  image: {src: images/phys-m9-wire-blank.svg, alt: 'A cylindrical wire between a + end on the left and a − end on the right, with electrons drawn inside. Marker 1 is at the circular end face, marker 2 on a bracket under the whole wire, marker 3 on an arrow above the wire pointing from + to −, and marker 4 on an arrow below the wire pointing from − to +.'}
+  labels:
+    - {x: 20.8, y: 31.1, text: Cross-sectional area}
+    - {x: 50.0, y: 80.6, text: Length}
+    - {x: 50.0, y: 26.4, text: Conventional current direction}
+    - {x: 50.0, y: 68.1, text: Electron drift direction}
+  distractors: [Resistivity, Electric field lines]
+  explanation: |-
+    Conventional current runs from the high-potential (+) end to the low-potential (−) end, the way positive charges would move. The electrons that actually carry the current in a metal are negative, so they drift the opposite way, from − to +. The end face is the cross-sectional area $A$ and the bracket marks the length $L$, the two dimensions in $R = \rho L/A$.
+- id: phys-m9-r2-q02
+  lesson: phys-current
+  topic: Current and resistance
+  type: text
+  stem: 'A steady current of 3.0 A flows in a wire for 2.0 minutes. The charge that passes any point in the wire is ___ C. (Give only the number.)'
+  accept: ['360']
+  explanation: |-
+    $\Delta Q = I\Delta t = (3.0\text{ A})(120\text{ s}) = 360$ C. Forgetting to convert minutes to seconds gives 6.0 C.
+- id: phys-m9-r2-q03
+  lesson: phys-current
+  topic: Electric power
+  type: match
+  stem: 'Match each quantity to its unit.'
+  pairs:
+    - [Current, ampere]
+    - [Resistance, ohm]
+    - [Resistivity, ohm-meter]
+    - [Power, watt]
+    - [Energy on an electric bill, kilowatt-hour]
+  distractors: [coulomb, volt per ampere-second]
+  explanation: |-
+    Current is in amperes (C/s); resistance in ohms (V/A); resistivity in ohm-meters, since $\rho = RA/L$ has units Ω·m²/m; power in watts (J/s). Electric bills charge for energy in kilowatt-hours: 1 kWh = (1000 W)(3600 s) = 3.6 MJ. The coulomb is the unit of charge.
+- id: phys-m9-r2-q04
+  lesson: phys-current
+  module_quiz: true
+  topic: Current and resistance
+  stem: 'Which changes would increase the resistance of a copper wire? Select all that apply.'
+  choices: ['Making the wire longer', 'Using a wire of larger diameter', 'Heating the wire', 'Replacing it with a nichrome wire of the same length and diameter']
+  answer: [0, 2, 3]
+  explanation: |-
+    $R = \rho L/A$. A longer wire has larger $L$; a hotter metal has a larger resistivity, because the vibrating atoms scatter electrons more often; nichrome's resistivity is about 60 times copper's. A larger diameter increases $A$ and *lowers* the resistance.
+- id: phys-m9-r2-q05
+  lesson: phys-current
+  topic: Current and resistance
+  stem: 'As the voltage across a filament light bulb is raised, its I–V graph bends over toward the voltage axis: each extra volt adds less current than the one before. This shows that the bulb''s resistance'
+  choices: ['increases as the filament heats up', 'decreases as the filament heats up', 'stays constant, as Ohm''s law requires', 'falls to zero at high voltage']
+  answer: 0
+  explanation: |-
+    The resistance at any point is $R = V/I$. Along a curve that bends toward the voltage axis, $V$ grows faster than $I$, so $R$ grows. A hotter metal filament has a higher resistivity. Ohm's law with constant $R$ holds only for ohmic parts, and a filament bulb is non-ohmic.
+
+# ---------- Lesson 36: DC circuits and Kirchhoff's rules ----------
+- id: phys-m9-r2-q06
+  lesson: phys-dc-circuits
+  module_quiz: true
+  topic: Series and parallel circuits
+  type: label
+  stem: 'Name the numbered parts of this circuit. (The two meters are drawn as blank circles; tell them apart by how they are connected.)'
+  image: {src: images/phys-m9-meters-blank.svg, alt: 'A circuit loop. Marker 1 is beside a two-plate symbol on the left side. Marker 2 is at a lever between two contacts on the top wire. Marker 3 is at a blank meter circle on the top wire, in line with everything else. Marker 4 is beside a zigzag symbol between the top and bottom wires. Marker 5 is beside a second blank meter circle connected across the two ends of the zigzag.'}
+  labels:
+    - {x: 6.9, y: 51.2, text: Battery}
+    - {x: 28.5, y: 15.2, text: Switch}
+    - {x: 41.0, y: 12.9, text: Ammeter}
+    - {x: 57.5, y: 51.2, text: Resistor}
+    - {x: 91.4, y: 51.2, text: Voltmeter}
+  distractors: [Capacitor]
+  explanation: |-
+    The long-and-short plates are the battery, the lever is a closed switch, and the zigzag is the resistor. The meter on the top wire is in series, so all the current passes through it: that is the ammeter. The meter connected across the resistor's two ends is in parallel with it: that is the voltmeter.
+- id: phys-m9-r2-q07
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  type: text
+  stem: 'A 12 Ω resistor and a 6.0 Ω resistor are connected in parallel. Their equivalent resistance is ___ Ω. (Give only the number.)'
+  accept: ['4', '4.0']
+  explanation: |-
+    Product over sum: $\dfrac{12 \times 6.0}{12 + 6.0} = \dfrac{72}{18} = 4.0$ Ω, less than the smaller resistor, as it must be. 18 Ω would be the series total.
+- id: phys-m9-r2-q08
+  lesson: phys-dc-circuits
+  module_quiz: true
+  topic: Series and parallel circuits
+  type: order
+  stem: 'A 2.0 Ω resistor is in series with a parallel pair of 3.0 Ω and 6.0 Ω, all across an ideal 8.0 V battery. Put the resistors in order of the power they dissipate, largest first.'
+  items: ['The 2.0 Ω resistor', 'The 3.0 Ω resistor', 'The 6.0 Ω resistor']
+  explanation: |-
+    The pair is $3.0 \parallel 6.0 = 2.0$ Ω, so the total is 4.0 Ω and the battery current is 2.0 A. The 2.0 Ω resistor gets $I^2R = 8.0$ W. The pair has $2.0 \times 2.0 = 4.0$ V across it, so the 3.0 Ω gets $V^2/R = 5.3$ W and the 6.0 Ω gets 2.7 W. In parallel, the smaller resistor takes more current and more power.
+- id: phys-m9-r2-q09
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'A battery with emf $\mathcal{E}$ and internal resistance $r$ supplies current to a resistor. Which statements are true? Select all that apply.'
+  choices: ['The terminal voltage is less than the emf while current flows', 'With the resistor disconnected, the terminal voltage equals the emf', 'The terminal voltage rises when the battery delivers more current', 'Some power, $I^2r$, heats the battery itself']
+  answer: [0, 1, 3]
+  explanation: |-
+    $V_{\text{terminal}} = \mathcal{E} - Ir$: less than $\mathcal{E}$ whenever $I > 0$, equal to it when $I = 0$, and *lower* (not higher) when the current increases. The internal resistance dissipates $I^2r$ inside the battery, which is why batteries warm up under heavy loads.
+- id: phys-m9-r2-q10
+  lesson: phys-dc-circuits
+  topic: Kirchhoff's rules
+  type: match
+  stem: 'Match each statement to what it is based on or what it means.'
+  pairs:
+    - [Junction rule, Conservation of charge]
+    - [Loop rule, Conservation of energy]
+    - [Resistors in series, Same current through each]
+    - [Resistors in parallel, Same voltage across each]
+  distractors: [Conservation of momentum]
+  explanation: |-
+    Charge can't pile up at a junction (junction rule), and a charge that goes around a loop returns to the same potential, so the gains and drops add to zero (loop rule). Series parts share one path, hence one current; parallel parts connect across the same two points, hence one voltage.
+- id: phys-m9-r2-q11
+  lesson: phys-dc-circuits
+  topic: Series and parallel circuits
+  stem: 'In the circuit shown, the three bulbs are identical and the battery is ideal. Bulb A burns out (its filament breaks). What happens to bulbs B and C?'
+  image: {src: images/phys-m9-bulbs.svg, alt: 'A battery on the left, bulb A on the top wire, and bulbs B and C side by side in parallel between the top and bottom wires.'}
+  choices: ['B and C get brighter', 'B and C stay the same', 'B and C both go out', 'B goes out and C stays lit']
+  answer: 2
+  explanation: |-
+    All the battery current passes through A before splitting between B and C. A broken filament opens that single path, so no current reaches B or C and every bulb goes out. Contrast this with removing B or C, which only changes how the current divides.
+
+# ---------- Lesson 37: RC circuits ----------
+- id: phys-m9-r2-q12
+  lesson: phys-rc
+  module_quiz: true
+  topic: RC circuits
+  type: label
+  stem: 'Name the numbered parts of this RC circuit.'
+  image: {src: images/phys-m9-rc-blank.svg, alt: 'A circuit loop. Marker 1 is beside a symbol with one long and one short plate on the left side. Marker 2 is above a two-way lever on the top wire, whose second contact leads straight down to the bottom wire. Marker 3 is above a zigzag on the top wire. Marker 4 is beside a symbol with two equal parallel plates on the right side.'}
+  labels:
+    - {x: 8.3, y: 52.4, text: Battery}
+    - {x: 40.3, y: 15.2, text: Switch}
+    - {x: 66.7, y: 13.8, text: Resistor}
+    - {x: 91.7, y: 52.4, text: Capacitor}
+  distractors: [Ammeter, Bulb]
+  explanation: |-
+    A battery has one long ($+$) and one short plate; a capacitor has two equal plates. The zigzag is the resistor. The two-way switch either connects the battery (charging) or bypasses it so the capacitor discharges through the resistor.
+- id: phys-m9-r2-q13
+  lesson: phys-rc
+  topic: RC circuits
+  type: text
+  stem: 'A 20 kΩ resistor is in series with a 50 μF capacitor. The time constant is ___ s. (Give only the number.)'
+  accept: ['1', '1.0']
+  explanation: |-
+    $\tau = RC = (20\times10^3\ \Omega)(50\times10^{-6}\text{ F}) = 1.0$ s. Kilohms times microfarads gives milliseconds: $20 \times 50 = 1000$ ms.
+- id: phys-m9-r2-q14
+  lesson: phys-rc
+  topic: RC circuits
+  type: order
+  stem: 'A turn-signal flasher uses an RC circuit. Starting with an empty capacitor, put the stages of one cycle in order.'
+  items: ['The capacitor charges through the resistor', 'The capacitor''s voltage reaches the threshold', 'A switch is triggered and discharges the capacitor', 'The empty capacitor begins charging again']
+  explanation: |-
+    The capacitor's voltage rises with time constant $RC$ until it crosses a set threshold; that triggers a switch (which also flashes the lamp) and discharges the capacitor, and the cycle starts over. Choosing $R$ and $C$ sets how long each cycle takes.
+- id: phys-m9-r2-q15
+  lesson: phys-rc
+  topic: RC circuits
+  stem: 'A 9.0 V battery, a switch and a 3.0 kΩ resistor $R_1$ are in series with a parallel pair: a 6.0 kΩ resistor $R_2$ and an uncharged capacitor. Which statements are true? Select all that apply.'
+  choices: ['Just after the switch closes, no current flows through $R_2$', 'Just after the switch closes, the battery current is 3.0 mA', 'Long after the switch closes, the capacitor''s voltage is 9.0 V', 'Long after the switch closes, the battery current is 1.0 mA']
+  answer: [0, 1, 3]
+  explanation: |-
+    Just after: the uncharged capacitor acts as a wire across $R_2$, so $R_2$ carries no current and only $R_1$ limits the battery current, $9.0/3.0\text{ k}\Omega = 3.0$ mA. Long after: the capacitor is a break, so $R_1$ and $R_2$ are in series: $I = 9.0/9.0\text{ k}\Omega = 1.0$ mA. The capacitor shares $R_2$'s voltage, $(1.0\text{ mA})(6.0\text{ k}\Omega) = 6.0$ V, not the full 9.0 V.
+- id: phys-m9-r2-q16
+  lesson: phys-rc
+  module_quiz: true
+  topic: RC circuits
+  type: match
+  stem: 'A capacitor charges through a resistor from a battery. Match each quantity to how it behaves after the switch closes.'
+  pairs:
+    - [Charge on the capacitor, Rises toward a final value]
+    - [Voltage across the capacitor, Rises toward a final value]
+    - [Current in the circuit, Decays toward zero]
+    - [Voltage across the resistor, Decays toward zero]
+    - [Emf of the battery, Stays constant]
+  distractors: [Rises without limit]
+  explanation: |-
+    The capacitor's charge and voltage follow $1 - e^{-t/RC}$, rising toward $C\mathcal{E}$ and $\mathcal{E}$. The current, and with it the resistor's voltage $IR$, follow $e^{-t/RC}$ and decay to zero. The loop rule ties them together: $\mathcal{E} = IR + q/C$ at every instant, with the emf fixed.
+
+# ---------- Honors 37h1: Dividers, bridges and equivalent circuits ----------
+- id: phys-m9-r2-h01
+  lesson: phys-m9-h-network-analysis
+  topic: Bridge circuits
+  stem: 'In a Wheatstone bridge like the one in the lesson, $R_1 = 150$ Ω and $R_2 = 300$ Ω share one side, and the adjustable $R_3$ shares the other side with the unknown $R_x$. The galvanometer reads zero with $R_3 = 220$ Ω. What is $R_x$?'
+  choices: ['110 Ω', '440 Ω', '205 Ω', '220 Ω']
+  answer: 1
+  explanation: |-
+    Balance: $R_1/R_2 = R_3/R_x$, so $R_x = R_2R_3/R_1 = 300 \times 220/150 = 440$ Ω. 110 Ω inverts the ratio ($R_1R_3/R_2$); 205 Ω pairs the resistors wrongly ($R_1R_2/R_3$); 220 Ω assumes $R_x$ simply equals $R_3$, which is true only when $R_1 = R_2$.
+- id: phys-m9-r2-h02
+  lesson: phys-m9-h-network-analysis
+  topic: Bridge circuits
+  stem: 'A Wheatstone bridge is balanced. The battery is replaced with one of twice the emf. Why does the bridge stay balanced?'
+  choices: ['The galvanometer''s resistance increases to compensate', 'The internal resistance of the new battery cancels the change', 'The potentials at P and Q both double, so they stay equal', 'The current through the unknown resistor stays the same']
+  answer: 2
+  explanation: |-
+    Each side of the bridge is a voltage divider, so the potentials at P and Q are both proportional to the emf. If they were equal before, they are still equal after doubling, and no current flows through the galvanometer. The emf cancels out of the balance condition $R_1/R_2 = R_3/R_x$. The currents in the resistors do double.
+- id: phys-m9-r2-h03
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  type: text
+  stem: 'A 9.0 V battery drives a voltage divider: $R_1 = 2.0$ kΩ on top and $R_2 = 1.0$ kΩ below, with output terminals across $R_2$. The Thévenin voltage at the terminals is ___ V. (Give only the number.)'
+  accept: ['3', '3.0']
+  explanation: |-
+    $V_{\text{th}}$ is the open-circuit voltage, the unloaded divider output: $9.0 \times \dfrac{1.0}{2.0 + 1.0} = 3.0$ V. Using $R_1$ in the numerator gives 6.0 V, the voltage across the top resistor.
+- id: phys-m9-r2-h04
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  type: text
+  stem: 'For the same divider (9.0 V battery, $R_1 = 2.0$ kΩ, $R_2 = 1.0$ kΩ, terminals across $R_2$), the Thévenin resistance is ___ kΩ. (Give a fraction or 2 decimal places.)'
+  accept: ['2/3', '0.67', '0.667']
+  explanation: |-
+    Replace the ideal battery with a wire. From the terminals, $R_1$ and $R_2$ both connect the same two points, so they are in parallel: $\dfrac{2.0 \times 1.0}{2.0 + 1.0} = \tfrac23 \approx 0.67$ kΩ. Check: $I_{\text{sc}} = 9.0/2.0\text{ k}\Omega = 4.5$ mA and $V_{\text{oc}}/I_{\text{sc}} = 3.0/4.5 = 0.67$ kΩ. Adding them (3.0 kΩ) is the resistance the battery sees, not what the terminals see.
+- id: phys-m9-r2-h05
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  stem: 'A network has Thévenin equivalent $V_{\text{th}} = 6.0$ V and $R_{\text{th}} = 3.0$ Ω. A 9.0 Ω load is connected to its terminals. What current flows through the load?'
+  choices: ['2.0 A', '0.67 A', '2.7 A', '0.50 A']
+  answer: 3
+  explanation: |-
+    The load is in series with $R_{\text{th}}$: $I = \dfrac{6.0}{3.0 + 9.0} = 0.50$ A (and the load voltage is 4.5 V). 2.0 A ignores the load; 0.67 A ignores $R_{\text{th}}$; 2.7 A treats the two resistances as parallel.
+- id: phys-m9-r2-h06
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  stem: 'The divider in the picture (12 V battery, 6.0 kΩ and 3.0 kΩ) feeds a load connected across terminals a and b. Which load resistance receives the most power?'
+  image: {src: images/phys-m9-thevenin.svg, alt: 'A 12 V battery with a 6.0 kΩ resistor on the top wire and a 3.0 kΩ resistor across terminals a and b, shown to act like a 4.0 V source in series with 2.0 kΩ.'}
+  choices: ['2.0 kΩ', '3.0 kΩ', '6.0 kΩ', '9.0 kΩ']
+  answer: 0
+  explanation: |-
+    Seen from a and b, the divider is a 4.0 V source with internal resistance $R_{\text{th}} = 2.0$ kΩ. Maximum power transfer happens when the load matches it: 2.0 kΩ, which gets 2.0 mW. (3.0 kΩ gets 1.9 mW, 6.0 kΩ gets 1.5 mW, 9.0 kΩ gets 1.2 mW.) Matching the 3.0 kΩ resistor ignores the 6.0 kΩ one, which also contributes to $R_{\text{th}}$.
+- id: phys-m9-r2-h07
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  stem: 'Two 1.0 MΩ resistors in series form a divider across 10 V. A voltmeter whose resistance is 1.0 MΩ is connected across the lower resistor. What does it read?'
+  choices: ['5.0 V', '3.3 V', '6.7 V', '4.8 V']
+  answer: 1
+  explanation: |-
+    Seen from the lower resistor, $V_{\text{th}} = 5.0$ V and $R_{\text{th}} = 1.0 \parallel 1.0 = 0.50$ MΩ. The meter is the load: $V = 5.0 \times \dfrac{1.0}{1.0 + 0.50} = 3.3$ V. 5.0 V is the reading of an ideal meter; 4.8 V would be a 10 MΩ meter; 6.7 V is the voltage across the upper resistor while the meter is connected.
+- id: phys-m9-r2-h08
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  stem: 'Thévenin''s theorem lets you replace which of these, as seen from two terminals, by one emf in series with one resistance? Select all that apply.'
+  choices: ['A network of several batteries and resistors', 'A single battery with internal resistance', 'A circuit containing a filament bulb whose resistance changes with current', 'A voltage divider made of two resistors']
+  answer: [0, 1, 3]
+  explanation: |-
+    The theorem holds for linear circuits: ideal batteries and ohmic resistors, which includes a real battery modeled as an emf with internal resistance, and any divider. A filament bulb is non-ohmic, so the terminal voltage doesn't fall in a straight line as more current is drawn and no single $V_{\text{th}}$ and $R_{\text{th}}$ describe it at every load.
+- id: phys-m9-r2-h09
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  type: order
+  stem: 'A source has $V_{\text{th}} = 12$ V and $R_{\text{th}} = 4.0$ Ω. Put these loads in order of the power they receive, largest first.'
+  items: ['4.0 Ω', '8.0 Ω', '1.0 Ω', '32 Ω']
+  explanation: |-
+    $P = \dfrac{V_{\text{th}}^2R}{(R + R_{\text{th}})^2} = \dfrac{144R}{(R + 4)^2}$: 4.0 Ω gets 9.0 W (the matched load), 8.0 Ω gets 8.0 W, 1.0 Ω gets 5.8 W and 32 Ω gets 3.6 W. Power falls off on both sides of the match, more slowly for larger loads.
+- id: phys-m9-r2-h10
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  type: match
+  stem: 'Match each idea to its description.'
+  pairs:
+    - [Wheatstone bridge, Compares an unknown resistance with known ones]
+    - [Thévenin equivalent, One emf in series with one resistance]
+    - [Loading effect, A meter changes the voltage it measures]
+    - [Superposition theorem, Adds the currents from each source acting alone]
+  distractors: [Makes a battery's internal resistance zero]
+  explanation: |-
+    A balanced bridge gives $R_x$ from three known resistors. Any linear two-terminal network has a Thévenin equivalent. A voltmeter of finite resistance is a load, so it pulls the voltage down. Superposition adds the currents (not powers) from each battery alone, with the others replaced by wires.
+- id: phys-m9-r2-h11
+  lesson: phys-m9-h-network-analysis
+  topic: Bridge circuits
+  type: label
+  stem: 'Name the numbered parts of this Wheatstone bridge.'
+  image: {src: images/phys-m9-bridge-blank.svg, alt: 'A diamond of four resistors. Marker 1 is beside a long-and-short plate symbol in the wire joining the top and bottom corners. Marker 2 is at a blank circle connecting the left and right corners. Marker 3 is beside the upper right resistor, which has an arrow drawn through it.'}
+  labels:
+    - {x: 5.8, y: 46.7, text: Battery}
+    - {x: 50.0, y: 60.4, text: Galvanometer}
+    - {x: 68.3, y: 31.1, text: Adjustable resistor}
+  distractors: [Capacitor, Switch]
+  explanation: |-
+    The battery drives both sides of the bridge. The galvanometer bridges the two midpoints and shows zero at balance. The resistor with an arrow through it is adjustable; it is varied until the galvanometer reads zero.
+- id: phys-m9-r2-h12
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  stem: 'Three branches connect junctions A and B. Branch 1: a 10 V battery and a 5.0 Ω resistor. Branch 2: a 5.0 V battery and a 5.0 Ω resistor. Branch 3: a 10 Ω resistor. Both batteries have $+$ toward A. Using superposition, find the current through the 10 Ω resistor.'
+  choices: ['0.40 A', '1.5 A', '0.20 A', '0.60 A']
+  answer: 3
+  explanation: |-
+    10 V alone: $5.0 \parallel 10 = 3.33$ Ω in series with 5.0 Ω gives 8.33 Ω and 1.2 A; the pair has 4.0 V across it, so the 10 Ω carries 0.40 A. 5.0 V alone: the same structure gives 0.60 A, 2.0 V across the pair, and 0.20 A in the 10 Ω. Both flow from A to B through the 10 Ω, so the total is 0.60 A. (Check: A is at 6.0 V above B, and $6.0/10 = 0.60$ A.) 0.40 A and 0.20 A are the single-source parts; 1.5 A adds the emfs and ignores the other resistors.
+- id: phys-m9-r2-h13
+  lesson: phys-m9-h-network-analysis
+  topic: Bridge circuits
+  stem: 'A bridge has four 100 Ω resistors and a 10 V battery. A strain gauge in the $R_x$ position rises to 102 Ω. About how large is the voltage between P and Q (measured with a meter that draws no current)?'
+  choices: ['0 V', '50 mV', '2.0 V', '0.50 V']
+  answer: 1
+  explanation: |-
+    P stays at $10 \times 100/200 = 5.000$ V; Q moves to $10 \times 102/202 = 5.050$ V. The difference is about 0.050 V = 50 mV. 0 V assumes the bridge is still balanced; 2.0 V and 0.50 V overstate how much a 2% change moves a divider's output.
+- id: phys-m9-r2-h14
+  lesson: phys-m9-h-network-analysis
+  topic: Equivalent circuits
+  stem: 'An ideal 3.0 V battery drives current through a 1.0 Ω resistor. An ammeter with 0.50 Ω resistance is inserted in series to measure the current. What does it read?'
+  choices: ['3.0 A', '2.0 A', '6.0 A', '9.0 A']
+  answer: 1
+  explanation: |-
+    The meter adds its resistance to the loop: $I = 3.0/(1.0 + 0.50) = 2.0$ A, a third less than the 3.0 A that flows without it. That is the ammeter's version of the loading effect, and why ammeters need resistance much smaller than the circuit's. 6.0 A would follow from treating the meter as being in parallel with the resistor ($R = 0.33$ Ω, giving 9.0 A) or from $3.0/0.50$ alone.
+
+# ---------- Honors 37h2: Inside a conductor ----------
+- id: phys-m9-r2-h15
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  type: label
+  stem: 'This picture shows the Drude model of a metal carrying a current. Name the numbered parts.'
+  image: {src: images/phys-m9-lattice-blank.svg, alt: 'A box filled with a grid of circles marked +. An electron (a circle marked −) sits at the left end of a zigzag path that bounces between the circles. Marker 1 is next to one of the + circles, marker 2 next to the − circle, marker 3 on an arrow above the box pointing right, and marker 4 on an arrow below the box pointing left.'}
+  labels:
+    - {x: 34.7, y: 23.1, text: Positive ion}
+    - {x: 18.8, y: 62.4, text: Electron}
+    - {x: 50.0, y: 9.5, text: Electric field direction}
+    - {x: 59.7, y: 92.9, text: Electron drift direction}
+  distractors: [Hole, Proton]
+  explanation: |-
+    The fixed lattice of positive ions fills the metal; the free electrons zigzag between collisions. An electron is negative, so the field pushes it opposite to $E$: its net drift (marker 4) is opposite to the field (marker 3), even though each individual path segment points in a random direction.
+- id: phys-m9-r2-h16
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  stem: 'Aluminum has about $1.8\times10^{29}$ free electrons per m³ and resistivity $2.65\times10^{-8}$ Ω·m. Use the Drude model, $\rho = m/(ne^2\tau)$, to estimate the mean free time.'
+  choices: ['$7.4\times10^{-15}$ s', '$1.6\times10^{-14}$ s', '$1.4\times10^{14}$ s', '$2.5\times10^{-14}$ s']
+  answer: 0
+  explanation: |-
+    $\tau = \dfrac{m}{ne^2\rho} = \dfrac{9.11\times10^{-31}}{(1.8\times10^{29})(1.602\times10^{-19})^2(2.65\times10^{-8})} = 7.4\times10^{-15}$ s. $1.6\times10^{-14}$ s uses copper's $n$; $1.4\times10^{14}$ is $1/\tau$, from inverting the fraction; $2.5\times10^{-14}$ s is copper's own value.
+- id: phys-m9-r2-h17
+  lesson: phys-m9-h-conduction
+  topic: Semiconductors
+  type: text
+  stem: 'Silicon doped with phosphorus, whose atoms have five outer electrons, is called ___-type silicon.'
+  accept: ['n', 'n-type', 'n type']
+  explanation: |-
+    Four of phosphorus's five outer electrons go into bonds with silicon neighbors; the fifth is nearly free, so the extra carriers are negative electrons: n-type. Boron (three outer electrons) makes p-type silicon, with holes.
+- id: phys-m9-r2-h18
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  stem: 'The electron mobility in copper is about $4.3\times10^{-3}$ m²/(V·s). What is the drift speed in a copper wire with a field of 0.034 V/m inside it?'
+  choices: ['$7.9\times10^{-6}$ m/s', '$1.3\times10^{-1}$ m/s', '$1.5\times10^{-4}$ m/s', '$7.3\times10^{-5}$ m/s']
+  answer: 2
+  explanation: |-
+    $v_d = \mu E = (4.3\times10^{-3})(0.034) = 1.5\times10^{-4}$ m/s, still a fraction of a millimeter per second. $7.3\times10^{-5}$ m/s is the speed at half this field; $1.3\times10^{-1}$ divides $\mu$ by $E$; $7.9\times10^{-6}$ divides $E$ by... nothing physical — it is $\mu E^2/\ldots$ type slip, so check units: $\mu E$ has units (m²/(V·s))(V/m) = m/s.
+- id: phys-m9-r2-h19
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  stem: 'According to the free-electron picture, why does a metal''s resistivity increase as it gets hotter?'
+  choices: ['Heat removes free electrons from the metal', 'The vibrating ions scatter electrons more often, shortening the mean free time', 'The metal expands, so its electrons have farther to travel', 'Hot electrons move more slowly through the lattice']
+  answer: 1
+  explanation: |-
+    $\rho = m/(ne^2\tau)$. In a metal, $n$ hardly changes with temperature, but stronger lattice vibrations scatter electrons more often, so $\tau$ shrinks and $\rho$ rises. Thermal expansion changes the wire's size only slightly and isn't the main cause.
+- id: phys-m9-r2-h20
+  lesson: phys-m9-h-conduction
+  topic: Semiconductors
+  stem: 'Unlike a metal, a pure semiconductor''s resistivity falls as its temperature rises. Why?'
+  choices: ['Its ions stop vibrating when heated', 'Its mean free time grows with temperature', 'Its atoms lose their bonds and become a metal', 'Heat frees many more charge carriers, which outweighs the extra scattering']
+  answer: 3
+  explanation: |-
+    In a semiconductor almost all electrons are tied up in bonds, and heat frees more of them (each leaving a hole). The carrier density $n$ rises steeply, which outweighs the shorter mean free time from extra scattering, so $\sigma = ne\mu$ rises and $\rho$ falls. Thermistors use this effect.
+- id: phys-m9-r2-h21
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  stem: 'Which statements about superconductors are true? Select all that apply.'
+  choices: ['Below the critical temperature, the resistivity is exactly zero', 'A current started in a superconducting loop keeps flowing with no battery', 'Every metal becomes a superconductor if cooled enough', 'Some superconductors work above the boiling point of liquid nitrogen, 77 K']
+  answer: [0, 1, 3]
+  explanation: |-
+    Superconductivity means exactly zero resistance below a critical temperature, so a loop current persists (for years in experiments). Copper-oxide ceramics such as YBCO superconduct at about 90 K, above 77 K. But not every metal superconducts: copper, silver and gold have not been found to at ordinary pressure; their resistance just levels off at a small value.
+- id: phys-m9-r2-h22
+  lesson: phys-m9-h-conduction
+  topic: Semiconductors
+  type: match
+  stem: 'Match each element added to silicon with the type of silicon it makes.'
+  pairs:
+    - [Phosphorus (5 outer electrons), n-type]
+    - [Boron (3 outer electrons), p-type]
+    - [Arsenic (5 outer electrons), n-type]
+    - [Gallium (3 outer electrons), p-type]
+  distractors: [Superconductor]
+  explanation: |-
+    An atom with five outer electrons has one left over after bonding, a free electron: n-type. An atom with three leaves a bond one electron short, a hole: p-type. Silicon itself has four.
+- id: phys-m9-r2-h23
+  lesson: phys-m9-h-conduction
+  topic: Semiconductors
+  type: order
+  stem: 'Put these materials in order of resistivity at room temperature, lowest first.'
+  items: [Silver, Copper, Nichrome, Pure silicon, Glass]
+  explanation: |-
+    Silver about $1.6\times10^{-8}$, copper $1.7\times10^{-8}$, nichrome about $1\times10^{-6}$, pure silicon about $2\times10^{3}$, and glass $10^{10}$ to $10^{14}$ Ω·m. Silver is the best conductor of all metals at room temperature, just ahead of copper.
+- id: phys-m9-r2-h24
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  stem: 'A platinum thermometer has $R_0 = 100.0$ Ω at 0 °C and $\alpha = 3.85\times10^{-3}$ per °C. It reads 119.25 Ω. What is the temperature?'
+  choices: ['19 °C', '119 °C', '5000 °C', '50 °C']
+  answer: 3
+  explanation: |-
+    $T = \dfrac{R/R_0 - 1}{\alpha} = \dfrac{0.1925}{3.85\times10^{-3}} = 50$ °C. 19 °C reads the 19.25 Ω change as degrees; 5000 °C divides $\Delta R$ by $\alpha$ without dividing by $R_0$; 119 °C reads the resistance as a temperature.
+- id: phys-m9-r2-h25
+  lesson: phys-m9-h-conduction
+  topic: Semiconductors
+  stem: 'Which describes the current–voltage behavior of a silicon diode?'
+  choices: ['A straight line through the origin, like a resistor', 'Equal current for either polarity, rising steeply above about 0.6 V', 'Almost no current in reverse; little current forward until about 0.6–0.7 V, then a rapid rise', 'Large current in reverse, none forward']
+  answer: 2
+  explanation: |-
+    A diode is a one-way valve. In reverse bias the carrier-free layer at the p–n junction widens and almost no current flows. Forward, the current stays small until roughly 0.6–0.7 V for silicon, then rises steeply. It is strongly non-ohmic.
+- id: phys-m9-r2-h26
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  type: text
+  stem: 'A metal has resistivity $2.0\times10^{-8}$ Ω·m at 20 °C and temperature coefficient $4.0\times10^{-3}$ per °C. At 70 °C its resistivity is ___ $\times10^{-8}$ Ω·m. (Give only the number.)'
+  accept: ['2.4', '2.40']
+  explanation: |-
+    $\rho = \rho_0[1 + \alpha(T - T_0)] = 2.0[1 + (4.0\times10^{-3})(50)] = 2.0(1.20) = 2.4$, in units of $10^{-8}$ Ω·m.
+- id: phys-m9-r2-h27
+  lesson: phys-m9-h-conduction
+  topic: Conduction models
+  stem: 'A filament bulb''s cold resistance is about one-twelfth of its resistance when lit. At the instant it is switched on, the current is about'
+  choices: ['one-twelfth of the running current', 'equal to the running current', 'twelve times the running current', '144 times the running current']
+  answer: 2
+  explanation: |-
+    The voltage is the same, so $I = V/R$: one-twelfth the resistance gives twelve times the current, until the filament heats up (within a fraction of a second). 144 squares the ratio, which would apply to power at fixed current, not to current at fixed voltage.
+- id: phys-m9-r2-h28
+  lesson: phys-m9-h-conduction
+  topic: Semiconductors
+  stem: 'Silicon is doped with $2.0\times10^{22}$ donor atoms per m³, each freeing one electron, and the electron mobility is 0.12 m²/(V·s). What is its resistivity?'
+  choices: ['$3.8\times10^{2}$ Ω·m', '$2.6\times10^{-3}$ Ω·m', '$3.1\times10^{-4}$ Ω·m', '$2.6\times10^{3}$ Ω·m']
+  answer: 1
+  explanation: |-
+    $\sigma = ne\mu = (2.0\times10^{22})(1.602\times10^{-19})(0.12) = 3.8\times10^{2}$ (Ω·m)⁻¹, so $\rho = 1/\sigma = 2.6\times10^{-3}$ Ω·m. $3.8\times10^{2}$ is the conductivity, not the resistivity; $3.1\times10^{-4}$ leaves out the mobility; $2.6\times10^{3}$ has the wrong sign on the exponent.

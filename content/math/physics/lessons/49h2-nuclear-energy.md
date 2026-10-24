@@ -10,7 +10,7 @@ refs: [phys-ref-em-modern, phys-ref-constants]
 ---
 ## Bookkeeping with mass
 
-The nuclear physics lesson found the binding energy of a nucleus from its mass defect, and said that fission and fusion release energy by moving toward the peak of the binding-energy curve. This honors lesson makes that quantitative for any reaction. One number, the Q-value, computed from a table of masses, tells you whether a reaction or decay can happen on its own, how much energy it releases, and how that energy is shared among the products. We then apply it to beta decay and the neutrino, to reactions that need an energy input, to fission reactors and fusion, and finally to what radiation does when it is absorbed by the body.
+The nuclear physics lesson found the binding energy of a nucleus from its mass defect, and said that fission and fusion release energy by moving toward the peak of the binding-energy curve. This honors lesson makes that quantitative for any reaction. One number from a table of masses, the Q-value, tells whether a reaction can happen on its own and how much energy it releases. We apply it to beta decay, to reactions that need an energy input, to fission and fusion, and finally to what absorbed radiation does to the body.
 
 ## The Q-value
 
@@ -32,7 +32,7 @@ How is 4.27 MeV shared? The uranium starts at rest, so the thorium and the alpha
 
 $$K_\alpha = Q\,\frac{A - 4}{A} = 4.27 \times \frac{234}{238} = 4.20 \text{ MeV},$$
 
-and the recoiling thorium gets the other 0.07 MeV. Measured alphas from U-238 mostly have 4.20 MeV: every alpha from this decay has the same energy, so the alpha spectrum is a sharp line.
+and the recoiling thorium gets the other 0.07 MeV. Most alphas measured from U-238 do have 4.20 MeV (a smaller group has a little less, because the thorium is sometimes left in an excited state). Alpha energies come in sharp lines, unlike the beta energies below.
 
 ## Beta decay and the neutrino
 
@@ -40,7 +40,7 @@ For beta-minus decay, the parent atom has $Z$ electrons and the daughter atom $Z
 
 Here early experimenters hit a puzzle. A two-body decay, like alpha decay, should give the electron one fixed energy. Instead beta electrons come out with every energy from nearly zero up to $Q$. Either energy wasn't conserved, or a third, unseen particle was carrying off the rest. In 1930 Wolfgang Pauli proposed the second option: a neutral, extremely light particle now called the **neutrino**. It interacts so weakly that it passes through the Earth almost unhindered, and it wasn't detected until 1956, by Clyde Cowan and Frederick Reines at a nuclear reactor. In beta-minus decay the third particle is an antineutrino; in beta-plus, a neutrino.
 
-Beta-plus decay emits a **positron**, the electron's antiparticle: same mass, positive charge. Now the electrons don't cancel. The parent atom has $Z$ electrons, the daughter atom only $Z - 1$, so the daughter atom is left with one electron too many to shed, and a positron is created as well. Two electron masses must be subtracted:
+Beta-plus decay emits a **positron**, the electron's antiparticle: same mass, positive charge. Now the electrons don't cancel. The parent atom carries $Z$ electrons but the daughter atom only $Z - 1$, so the difference in atomic masses includes one spare electron mass that is not available as energy; and the positron's mass must be created as well. Two electron masses must be subtracted:
 
 $$Q_{\beta^+} = [M(\text{parent}) - M(\text{daughter}) - 2m_e]c^2, \qquad 2m_ec^2 = 1.022\text{ MeV}.$$
 
@@ -50,7 +50,7 @@ A positron doesn't last long. When it meets an electron, the two **annihilate**:
 
 $^{18}_{9}\text{F} \to {}^{18}_{8}\text{O} + e^+ + \nu$. Atomic masses: F-18 18.000938 u, O-18 17.999160 u. Find $Q$.
 
-Mass difference: $0.001778$ u $\times 931.5 = 1.656$ MeV. Subtract $1.022$ MeV: $Q = 0.634$ MeV, shared among the positron, the neutrino and (a little) the recoil. In a PET (positron emission tomography) scan, the patient receives a sugar labeled with F-18. Each positron annihilates within about a millimeter, and the scanner detects the two 0.511 MeV photons arriving at opposite detectors at the same instant; the source lies on the line between them. Millions of such lines map where the sugar is being used.
+Mass difference: $0.001778$ u $\times 931.5 = 1.656$ MeV. Subtract $1.022$ MeV: $Q = 0.634$ MeV, shared among the positron, the neutrino and (a little) the recoil. In a PET (positron emission tomography) scan, the patient receives a sugar labeled with F-18. Each positron annihilates within a millimeter or two, and the scanner detects the two 0.511 MeV photons arriving at opposite detectors at the same instant; the source lies on the line between them. Millions of such lines map where the sugar is being used.
 
 ## Reactions that need energy: threshold
 
@@ -85,7 +85,7 @@ Each fission frees 2 or 3 neutrons, which can cause more fissions: a **chain rea
 ```mermaid
 flowchart TD
   accTitle: One generation of a chain reaction in a reactor
-  accDescr: A slow neutron is absorbed by uranium-235, which splits into two fragments that carry about 200 megaelectronvolts and releases 2 or 3 fast neutrons. Some fast neutrons escape or are absorbed by control rods. The rest are slowed by the moderator, and each slow neutron can cause the next fission. The multiplication factor k is the average number of neutrons per fission that go on to cause another fission; a steady reactor holds k at 1.
+  accDescr: A cycle. A slow neutron is absorbed by uranium-235, which splits into two fragments with about 200 MeV and releases 2 or 3 fast neutrons. Some escape or are absorbed by control rods; the rest are slowed by the moderator, and each can cause the next fission.
   A["Slow neutron absorbed by U-235"] --> B["Nucleus splits: two fragments, about 200 MeV"]
   B --> C["2 or 3 fast neutrons released"]
   C --> D["Some escape or hit control rods"]
