@@ -297,10 +297,10 @@
   lesson: phys-m9-h-network-analysis
   topic: Equivalent circuits
   stem: 'An ideal 3.0 V battery drives current through a 1.0 Ω resistor. An ammeter with 0.50 Ω resistance is inserted in series to measure the current. What does it read?'
-  choices: ['3.0 A', '2.0 A', '6.0 A', '9.0 A']
-  answer: 1
+  choices: ['2.0 A', '3.0 A', '6.0 A', '9.0 A']
+  answer: 0
   explanation: |-
-    The meter adds its resistance to the loop: $I = 3.0/(1.0 + 0.50) = 2.0$ A, a third less than the 3.0 A that flows without it. That is the ammeter's version of the loading effect, and why ammeters need resistance much smaller than the circuit's. 6.0 A would follow from treating the meter as being in parallel with the resistor ($R = 0.33$ Ω, giving 9.0 A) or from $3.0/0.50$ alone.
+    The meter adds its resistance to the loop: $I = 3.0/(1.0 + 0.50) = 2.0$ A, a third less than the 3.0 A that flows without it. That is the ammeter's version of the loading effect, and why an ammeter needs a resistance much smaller than the rest of its branch. 3.0 A ignores the meter's resistance; 6.0 A uses the meter's resistance alone ($3.0/0.50$); 9.0 A treats the meter as in parallel with the resistor ($1.0 \parallel 0.50 = 0.33$ Ω).
 
 # ---------- Honors 37h2: Inside a conductor ----------
 - id: phys-m9-r2-h15
@@ -337,10 +337,10 @@
   lesson: phys-m9-h-conduction
   topic: Conduction models
   stem: 'The electron mobility in copper is about $4.3\times10^{-3}$ m²/(V·s). What is the drift speed in a copper wire with a field of 0.034 V/m inside it?'
-  choices: ['$7.9\times10^{-6}$ m/s', '$1.3\times10^{-1}$ m/s', '$1.5\times10^{-4}$ m/s', '$7.3\times10^{-5}$ m/s']
+  choices: ['7.9 m/s', '$1.3\times10^{-1}$ m/s', '$1.5\times10^{-4}$ m/s', '$7.3\times10^{-5}$ m/s']
   answer: 2
   explanation: |-
-    $v_d = \mu E = (4.3\times10^{-3})(0.034) = 1.5\times10^{-4}$ m/s, still a fraction of a millimeter per second. $7.3\times10^{-5}$ m/s is the speed at half this field; $1.3\times10^{-1}$ divides $\mu$ by $E$; $7.9\times10^{-6}$ divides $E$ by... nothing physical — it is $\mu E^2/\ldots$ type slip, so check units: $\mu E$ has units (m²/(V·s))(V/m) = m/s.
+    Mobility is drift speed per unit field, so $v_d = \mu E = (4.3\times10^{-3})(0.034) = 1.5\times10^{-4}$ m/s, still a fraction of a millimeter per second. $7.3\times10^{-5}$ m/s is the lesson's value for half this field (0.017 V/m); $1.3\times10^{-1}$ divides $\mu$ by $E$ and 7.9 divides $E$ by $\mu$. Only $\mu E$ has units of speed: (m²/(V·s))(V/m) = m/s.
 - id: phys-m9-r2-h19
   lesson: phys-m9-h-conduction
   topic: Conduction models
@@ -414,8 +414,8 @@
   lesson: phys-m9-h-conduction
   topic: Conduction models
   stem: 'A filament bulb''s cold resistance is about one-twelfth of its resistance when lit. At the instant it is switched on, the current is about'
-  choices: ['one-twelfth of the running current', 'equal to the running current', 'twelve times the running current', '144 times the running current']
-  answer: 2
+  choices: ['twelve times the running current', 'one-twelfth of the running current', 'equal to the running current', '144 times the running current']
+  answer: 0
   explanation: |-
     The voltage is the same, so $I = V/R$: one-twelfth the resistance gives twelve times the current, until the filament heats up (within a fraction of a second). 144 squares the ratio, which would apply to power at fixed current, not to current at fixed voltage.
 - id: phys-m9-r2-h28

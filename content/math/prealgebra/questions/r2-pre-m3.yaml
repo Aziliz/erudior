@@ -1,0 +1,510 @@
+# Round 2, module pre-m3 (Fractions): new question types for the core lessons, and the
+# questions for the two honors lessons.
+
+# --- pre-frac-basics ---
+- id: pre-m3-r2-q01
+  lesson: pre-frac-basics
+  type: text
+  topic: Equivalent fractions
+  stem: 'Find the missing numerator: $\dfrac{3}{8} = \dfrac{?}{56}$. Give only the number. The missing numerator is ___.'
+  accept: ['21']
+  explanation: |-
+    $8 \times 7 = 56$, so multiply the numerator by 7 as well: $3 \times 7 = 21$. So $\tfrac38 = \tfrac{21}{56}$.
+
+- id: pre-m3-r2-q02
+  lesson: pre-frac-basics
+  type: order
+  module_quiz: true
+  topic: Fraction basics
+  stem: 'Put these fractions in order from least to greatest.'
+  items: ['$\dfrac{3}{8}$', '$\dfrac{2}{5}$', '$\dfrac{4}{9}$', '$\dfrac{1}{2}$']
+  explanation: |-
+    Cross-multiply neighbors: $\tfrac38$ vs $\tfrac25$: $3 \times 5 = 15 < 16 = 8 \times 2$. $\tfrac25$ vs $\tfrac49$: $2 \times 9 = 18 < 20 = 5 \times 4$. $\tfrac49$ vs $\tfrac12$: $4 \times 2 = 8 < 9$. (With the common denominator 360 they are $\tfrac{135}{360}$, $\tfrac{144}{360}$, $\tfrac{160}{360}$ and $\tfrac{180}{360}$.)
+
+- id: pre-m3-r2-q03
+  lesson: pre-frac-basics
+  topic: Equivalent fractions
+  stem: 'Which fractions are equivalent to $\dfrac{3}{4}$? Select all that apply.'
+  choices: ['$\dfrac{9}{12}$', '$\dfrac{6}{10}$', '$\dfrac{15}{20}$', '$\dfrac{4}{3}$', '$\dfrac{21}{28}$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $\tfrac9{12}$, $\tfrac{15}{20}$ and $\tfrac{21}{28}$ are $\tfrac34$ with top and bottom multiplied by 3, 5 and 7. $\tfrac6{10} = \tfrac35$ (the top was multiplied by 2 but the bottom by $2\tfrac12$), and $\tfrac43$ is the reciprocal, which is greater than 1.
+
+- id: pre-m3-r2-q04
+  lesson: pre-frac-basics
+  type: match
+  topic: Equivalent fractions
+  stem: 'Match each fraction to its simplest form.'
+  pairs:
+    - ['$\dfrac{18}{24}$', '3/4']
+    - ['$\dfrac{14}{21}$', '2/3']
+    - ['$\dfrac{25}{40}$', '5/8']
+    - ['$\dfrac{12}{30}$', '2/5']
+  distractors: ['3/5']
+  explanation: |-
+    Divide by the GCF each time: $\tfrac{18}{24}$ by 6 is $\tfrac34$; $\tfrac{14}{21}$ by 7 is $\tfrac23$; $\tfrac{25}{40}$ by 5 is $\tfrac58$; $\tfrac{12}{30}$ by 6 is $\tfrac25$.
+
+- id: pre-m3-r2-q05
+  lesson: pre-frac-basics
+  type: label
+  module_quiz: true
+  topic: Equivalent fractions
+  stem: 'This fraction wall has one whole on top and, below it, the same whole cut into halves, thirds, quarters, sixths and twelfths. Name the size of each numbered piece.'
+  image: {src: images/pre-m3-fraction-wall-blank.svg, alt: 'Six bars of equal length stacked on top of each other. The top bar is one whole piece; the bars below are cut into 2, 3, 4, 6 and 12 equal pieces. Numbered markers sit on one piece in each of the lower five bars.'}
+  labels:
+    - {x: 71.9, y: 28.5, text: '1/2'}
+    - {x: 20.8, y: 44.2, text: '1/3'}
+    - {x: 60.9, y: 60, text: '1/4'}
+    - {x: 28.1, y: 75.8, text: '1/6'}
+    - {x: 90.1, y: 91.5, text: '1/12'}
+  distractors: ['1/5', '1/8']
+  explanation: |-
+    Count the pieces in each bar: 2 pieces make halves, 3 make thirds, 4 make quarters, 6 make sixths and 12 make twelfths. The more pieces the whole is cut into, the smaller each piece.
+
+- id: pre-m3-r2-q06
+  lesson: pre-frac-basics
+  type: text
+  topic: Fraction basics
+  stem: 'In the fraction $\dfrac{5}{9}$, the 9 tells how many equal parts the whole is cut into. It is called the ___.'
+  accept: [denominator, the denominator]
+  explanation: |-
+    The bottom number is the denominator; the top number (here 5, the number of parts taken) is the numerator.
+
+# --- pre-frac-muldiv ---
+- id: pre-m3-r2-q07
+  lesson: pre-frac-muldiv
+  type: text
+  topic: Dividing fractions
+  stem: 'Divide: $\dfrac{4}{9} \div \dfrac{2}{3} =$ ___. Give a fraction.'
+  accept: ['2/3']
+  explanation: |-
+    Multiply by the reciprocal of the divisor: $\tfrac49 \times \tfrac32$. Cancel 4 with 2 (leaving 2 and 1) and 3 with 9 (leaving 1 and 3): $\tfrac{2}{3} \times \tfrac{1}{1} = \tfrac23$. Check: $\tfrac23 \times \tfrac23 = \tfrac49$. ✓
+
+- id: pre-m3-r2-q08
+  lesson: pre-frac-muldiv
+  type: order
+  module_quiz: true
+  topic: Dividing fractions
+  stem: 'Put the steps for computing $3\tfrac13 \div \tfrac56$ in order.'
+  items:
+    - 'Rewrite $3\tfrac13$ as $\tfrac{10}{3}$'
+    - 'Rewrite the problem as $\tfrac{10}{3} \times \tfrac{6}{5}$'
+    - 'Cancel common factors to get $\tfrac{2}{1} \times \tfrac{2}{1}$'
+    - 'Multiply to get 4'
+  explanation: |-
+    Convert the mixed number first, then change ÷ to × and flip the divisor $\tfrac56$. Cancel 10 with 5 (leaving 2 and 1) and 6 with 3 (leaving 2 and 1), then multiply: $2 \times 2 = 4$.
+
+- id: pre-m3-r2-q09
+  lesson: pre-frac-muldiv
+  type: match
+  topic: Dividing fractions
+  stem: 'Match each number to its reciprocal.'
+  pairs:
+    - ['$\dfrac{3}{5}$', '5/3']
+    - ['$7$', '1/7']
+    - ['$-\dfrac{2}{9}$', '-9/2']
+    - ['$\dfrac{1}{4}$', '4']
+  distractors: ['-3/5', '9/2']
+  explanation: |-
+    Flip each fraction; a whole number is over 1, so $7 = \tfrac71$ flips to $\tfrac17$. The sign stays: the reciprocal of $-\tfrac29$ is $-\tfrac92$, since $-\tfrac29 \times -\tfrac92 = 1$. $-\tfrac35$ is the opposite of $\tfrac35$, not its reciprocal.
+
+- id: pre-m3-r2-q10
+  lesson: pre-frac-muldiv
+  topic: Multiplying fractions
+  stem: 'Which of these are greater than 10? Select all that apply.'
+  choices: ['$10 \div \tfrac12$', '$10 \times \tfrac32$', '$10 \div \tfrac56$', '$10 \times \tfrac56$', '$10 \div \tfrac54$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Dividing by a fraction less than 1 makes a positive number larger ($10 \div \tfrac12 = 20$, $10 \div \tfrac56 = 12$), and multiplying by a number greater than 1 does too ($10 \times \tfrac32 = 15$). Multiplying by $\tfrac56$ gives $8\tfrac13$, and dividing by $\tfrac54$, which is more than 1, gives 8.
+
+# --- pre-frac-addsub ---
+- id: pre-m3-r2-q11
+  lesson: pre-frac-addsub
+  type: text
+  topic: Adding and subtracting fractions
+  stem: 'To add $\dfrac{3}{8} + \dfrac{5}{12}$, rewrite both with the LCD 24: $\dfrac{3}{8} = \dfrac{?}{24}$ and $\dfrac{5}{12} = \dfrac{?}{24}$. The numerators are ___ and ___.'
+  accept:
+    - ['9']
+    - ['10']
+  explanation: |-
+    $24 \div 8 = 3$, so $\tfrac38 = \tfrac{3 \times 3}{8 \times 3} = \tfrac{9}{24}$. $24 \div 12 = 2$, so $\tfrac5{12} = \tfrac{10}{24}$. The sum is $\tfrac{19}{24}$.
+
+- id: pre-m3-r2-q12
+  lesson: pre-frac-addsub
+  type: order
+  module_quiz: true
+  topic: Adding and subtracting fractions
+  stem: 'Put the steps for adding two fractions with unlike denominators in order.'
+  items:
+    - 'Find the LCD of the denominators'
+    - 'Rewrite each fraction with the LCD as its denominator'
+    - 'Add the numerators and keep the denominator'
+    - 'Simplify the result'
+  explanation: |-
+    You need the common denominator before you can rewrite the fractions, the fractions must have like denominators before you add, and simplifying comes last, once there is a single fraction to simplify.
+
+- id: pre-m3-r2-q13
+  lesson: pre-frac-addsub
+  topic: Adding and subtracting fractions
+  stem: 'Which numbers can be used as a common denominator for $\dfrac{1}{6}$ and $\dfrac{3}{8}$? Select all that apply.'
+  choices: ['12', '14', '24', '36', '48']
+  answer: [2, 4]
+  explanation: |-
+    A common denominator must be a multiple of both 6 and 8. 24 (the LCD) and 48 are. 12 and 36 are multiples of 6 but not of 8, and 14 is just $6 + 8$, a multiple of neither.
+
+- id: pre-m3-r2-q14
+  lesson: pre-frac-addsub
+  type: match
+  topic: Adding and subtracting fractions
+  stem: 'Match each fraction to its nearest benchmark: 0, 1/2 or 1.'
+  pairs:
+    - ['$\dfrac{7}{8}$', '1']
+    - ['$\dfrac{5}{12}$', '1/2']
+    - ['$\dfrac{1}{9}$', '0']
+    - ['$\dfrac{11}{20}$', '1/2']
+  explanation: |-
+    Compare the numerator with half the denominator. 7 is nearly 8, so $\tfrac78$ is close to 1. 5 is close to 6 (half of 12) and 11 is close to 10 (half of 20), so both are near $\tfrac12$. 1 is far less than half of 9, so $\tfrac19$ is close to 0.
+
+- id: pre-m3-r2-q15
+  lesson: pre-frac-addsub
+  type: text
+  topic: Adding and subtracting fractions
+  stem: 'Subtract: $\dfrac{2}{3} - \dfrac{1}{4} =$ ___. Give a fraction in simplest form.'
+  accept: ['5/12']
+  explanation: |-
+    The LCD of 3 and 4 is 12: $\tfrac{8}{12} - \tfrac{3}{12} = \tfrac{5}{12}$, which is already in simplest form.
+
+# --- pre-mixed ---
+- id: pre-m3-r2-q16
+  lesson: pre-mixed
+  type: text
+  topic: Mixed numbers
+  stem: 'Write $3\tfrac25$ as an improper fraction: ___.'
+  accept: ['17/5']
+  explanation: |-
+    Whole number times denominator, plus numerator: $3 \times 5 + 2 = 17$. Keep the denominator: $\tfrac{17}{5}$.
+
+- id: pre-m3-r2-q17
+  lesson: pre-mixed
+  type: order
+  topic: Mixed numbers
+  stem: 'Put the steps for computing $5\tfrac14 - 2\tfrac23$ by working with whole and fraction parts in order.'
+  items:
+    - 'Rewrite with denominator 12: $5\tfrac{3}{12} - 2\tfrac{8}{12}$'
+    - 'Borrow 1 whole: $4\tfrac{15}{12} - 2\tfrac{8}{12}$'
+    - 'Subtract the fractions and the wholes: $2\tfrac{7}{12}$'
+  explanation: |-
+    With a common denominator you can see that $\tfrac{8}{12}$ can't be taken from $\tfrac{3}{12}$, so you borrow 1 whole, $\tfrac{12}{12}$, to make $4\tfrac{15}{12}$. Then $\tfrac{15}{12} - \tfrac{8}{12} = \tfrac{7}{12}$ and $4 - 2 = 2$. Check: $\tfrac{21}{4} - \tfrac{8}{3} = \tfrac{63}{12} - \tfrac{32}{12} = \tfrac{31}{12} = 2\tfrac{7}{12}$.
+
+- id: pre-m3-r2-q18
+  lesson: pre-mixed
+  module_quiz: true
+  topic: Mixed numbers
+  stem: 'Which of these are equal to $2\tfrac34$? Select all that apply.'
+  choices: ['$\dfrac{11}{4}$', '$2 + \dfrac34$', '$\dfrac{22}{8}$', '$2 \times \dfrac34$', '$\dfrac{5}{4}$']
+  answer: [0, 1, 2]
+  explanation: |-
+    A mixed number means whole plus fraction: $2 + \tfrac34 = \tfrac84 + \tfrac34 = \tfrac{11}{4}$, and $\tfrac{22}{8}$ simplifies to $\tfrac{11}{4}$. $2 \times \tfrac34 = \tfrac32$ reads the mixed number as a product, and $\tfrac54$ adds the 2 to the numerator instead of multiplying it by the denominator.
+
+- id: pre-m3-r2-q19
+  lesson: pre-mixed
+  type: match
+  topic: Mixed numbers
+  stem: 'Match each mixed number to the equal improper fraction.'
+  pairs:
+    - ['$1\tfrac23$', '5/3']
+    - ['$2\tfrac15$', '11/5']
+    - ['$3\tfrac34$', '15/4']
+    - ['$4\tfrac12$', '9/2']
+  distractors: ['7/4', '6/5']
+  explanation: |-
+    Use $a\tfrac bc = \tfrac{ac + b}{c}$: $1 \times 3 + 2 = 5$, $2 \times 5 + 1 = 11$, $3 \times 4 + 3 = 15$, $4 \times 2 + 1 = 9$. $\tfrac74$ and $\tfrac65$ come from adding the whole number to the numerator instead.
+
+# --- pre-m3-h-complex-fractions (honors) ---
+- id: pre-m3-r2-h01
+  lesson: pre-m3-h-complex-fractions
+  topic: Complex fractions
+  stem: 'Simplify $\dfrac{\tfrac23}{\tfrac49}$.'
+  choices: ['$\dfrac{8}{27}$', '$\dfrac{3}{2}$', '$\dfrac{27}{8}$', '$\dfrac{2}{3}$']
+  answer: 1
+  explanation: |-
+    Multiply the top by the reciprocal of the bottom: $\tfrac23 \times \tfrac94 = \tfrac{18}{12} = \tfrac32$. $\tfrac{8}{27}$ multiplies the two fractions instead of dividing, and $\tfrac{27}{8}$ flips the top instead of the bottom.
+
+- id: pre-m3-r2-h02
+  lesson: pre-m3-h-complex-fractions
+  topic: Complex fractions
+  stem: 'Which expression equals $\dfrac{15}{4}$?'
+  choices: ['$\dfrac{\tfrac34}{5}$', '$\dfrac{3}{4 \times 5}$', '$\dfrac{3}{\tfrac45}$', '$\dfrac{\tfrac35}{4}$']
+  answer: 2
+  explanation: |-
+    $\dfrac{3}{\tfrac45} = 3 \div \tfrac45 = 3 \times \tfrac54 = \tfrac{15}{4}$. The main bar decides the order: $\dfrac{\tfrac34}{5} = \tfrac34 \div 5 = \tfrac{3}{20}$, which equals $\dfrac{3}{4 \times 5}$, and $\dfrac{\tfrac35}{4} = \tfrac{3}{20}$ as well.
+
+- id: pre-m3-r2-h03
+  lesson: pre-m3-h-complex-fractions
+  type: text
+  topic: Complex fractions
+  stem: 'Simplify $\dfrac{\tfrac12 + \tfrac14}{\tfrac12 - \tfrac14}$. The value is ___.'
+  accept: ['3']
+  explanation: |-
+    Multiply every term by the LCD 4: $\dfrac{2 + 1}{2 - 1} = \dfrac31 = 3$. Or simplify first: $\tfrac34 \div \tfrac14 = \tfrac34 \times 4 = 3$.
+
+- id: pre-m3-r2-h04
+  lesson: pre-m3-h-complex-fractions
+  topic: Complex fractions
+  stem: 'To simplify $\dfrac{\tfrac16 + \tfrac29}{\tfrac{5}{12}}$ by Method 2, what is the smallest number you can multiply the top and bottom by to clear every small fraction?'
+  choices: ['12', '72', '18', '36']
+  answer: 3
+  explanation: |-
+    The LCD must be a multiple of every small denominator: 6, 9 and 12. $6 = 2 \times 3$, $9 = 3^2$, $12 = 2^2 \times 3$, so the LCM is $2^2 \times 3^2 = 36$. 18 misses 12, 12 misses 9, and 72 works but isn't the smallest. (Multiplying by 36 gives $\tfrac{6 + 8}{15} = \tfrac{14}{15}$.)
+
+- id: pre-m3-r2-h05
+  lesson: pre-m3-h-complex-fractions
+  topic: Complex fractions
+  stem: 'Simplify $\dfrac{2 - \tfrac13}{1 + \tfrac16}$.'
+  choices: ['$\dfrac{10}{7}$', '$0$', '$\dfrac{7}{10}$', '$\dfrac{5}{7}$']
+  answer: 0
+  explanation: |-
+    Multiply every term by 6: $\dfrac{12 - 2}{6 + 1} = \dfrac{10}{7}$. Getting 0 comes from multiplying only the fractions by 6 ($\tfrac{2 - 2}{1 + 1}$), and $\tfrac7{10}$ flips the answer.
+
+- id: pre-m3-r2-h06
+  lesson: pre-m3-h-complex-fractions
+  topic: Complex fractions
+  stem: 'Which are equal to $\dfrac{\tfrac34}{\tfrac58}$? Select all that apply.'
+  choices: ['$\dfrac34 \times \dfrac85$', '$\dfrac{6}{5}$', '$1\tfrac15$', '$\dfrac43 \times \dfrac58$', '$\dfrac{15}{32}$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Dividing by $\tfrac58$ is multiplying by $\tfrac85$: $\tfrac34 \times \tfrac85 = \tfrac{24}{20} = \tfrac65 = 1\tfrac15$. $\tfrac43 \times \tfrac58$ flips the top instead (it is $\tfrac56$), and $\tfrac{15}{32}$ is the product $\tfrac34 \times \tfrac58$.
+
+- id: pre-m3-r2-h07
+  lesson: pre-m3-h-complex-fractions
+  type: order
+  topic: Complex fractions
+  stem: 'Put the steps for simplifying $\dfrac{3 - \tfrac14}{2 + \tfrac56}$ by Method 2 in order.'
+  items:
+    - 'Find the LCD of the small denominators 4 and 6: 12'
+    - 'Multiply every term on top and bottom by 12'
+    - 'Get $\dfrac{36 - 3}{24 + 10}$'
+    - 'Simplify to $\dfrac{33}{34}$'
+  explanation: |-
+    The LCD comes first, since it is what you multiply by. Multiplying each term, whole numbers included, gives $\tfrac{36 - 3}{24 + 10} = \tfrac{33}{34}$, which is in simplest form (33 and 34 share no factor).
+
+- id: pre-m3-r2-h08
+  lesson: pre-m3-h-complex-fractions
+  topic: Complex fractions
+  stem: 'Simplify $\dfrac{-\tfrac35}{\tfrac{9}{10}}$.'
+  choices: ['$\dfrac{2}{3}$', '$-\dfrac{27}{50}$', '$-\dfrac{3}{2}$', '$-\dfrac{2}{3}$']
+  answer: 3
+  explanation: |-
+    $-\tfrac35 \times \tfrac{10}{9}$: cancel 5 with 10 (leaving 1 and 2) and 3 with 9 (leaving 1 and 3) to get $-\tfrac{2}{3}$. A negative divided by a positive is negative. $-\tfrac{27}{50}$ multiplies instead of dividing, and $-\tfrac32$ is the reciprocal of the answer.
+
+- id: pre-m3-r2-h09
+  lesson: pre-m3-h-complex-fractions
+  type: text
+  topic: Continued fractions
+  stem: 'Evaluate the continued fraction $2 + \cfrac{1}{1 + \cfrac{1}{2}}$. Give an improper fraction: ___.'
+  accept: ['8/3']
+  explanation: |-
+    Work from the bottom up: $1 + \tfrac12 = \tfrac32$; $1 \div \tfrac32 = \tfrac23$; $2 + \tfrac23 = \tfrac83$.
+
+- id: pre-m3-r2-h10
+  lesson: pre-m3-h-complex-fractions
+  topic: Continued fractions
+  stem: 'Which continued fraction equals $\dfrac{7}{5}$?'
+  choices: ['$1 + \cfrac{1}{2 + \cfrac{1}{5}}$', '$1 + \cfrac{1}{2 + \cfrac{1}{2}}$', '$1 + \cfrac{1}{5 + \cfrac{1}{2}}$', '$2 + \cfrac{1}{2}$']
+  answer: 1
+  explanation: |-
+    $\tfrac75 = 1 + \tfrac25$, and $\tfrac25 = 1 \div \tfrac52$ with $\tfrac52 = 2 + \tfrac12$. So $\tfrac75 = 1 + \cfrac{1}{2 + \cfrac12}$. Check: $2 + \tfrac12 = \tfrac52$, flip to $\tfrac25$, add 1 to get $\tfrac75$. The others equal $\tfrac{16}{11}$, $\tfrac{13}{11}$ and $\tfrac52$.
+
+- id: pre-m3-r2-h11
+  lesson: pre-m3-h-complex-fractions
+  type: order
+  topic: Continued fractions
+  stem: 'Put the steps for writing $\dfrac{25}{7}$ as a continued fraction in order.'
+  items:
+    - 'Split off the whole number: $\tfrac{25}{7} = 3 + \tfrac47$'
+    - 'Flip the leftover: $\tfrac47 = 1 \div \tfrac74$'
+    - 'Split again: $\tfrac74 = 1 + \tfrac34$'
+    - 'Flip and split: $\tfrac43 = 1 + \tfrac13$'
+  explanation: |-
+    Each step splits off a whole number and flips what is left: $25 \div 7 = 3$ R 4, $7 \div 4 = 1$ R 3, $4 \div 3 = 1$ R 1. So $\tfrac{25}{7} = 3 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{3}}}$.
+
+- id: pre-m3-r2-h12
+  lesson: pre-m3-h-complex-fractions
+  type: match
+  topic: Continued fractions
+  stem: 'Match each continued fraction to its value.'
+  pairs:
+    - ['$1 + \cfrac{1}{2}$', '3/2']
+    - ['$1 + \cfrac{1}{1 + \cfrac{1}{2}}$', '5/3']
+    - ['$2 + \cfrac{1}{3}$', '7/3']
+    - ['$1 + \cfrac{1}{3 + \cfrac{1}{2}}$', '9/7']
+  distractors: ['4/3']
+  explanation: |-
+    Evaluate from the bottom up. $1 + \tfrac12 = \tfrac32$. $1 + \tfrac12 = \tfrac32$, flip to $\tfrac23$, add 1: $\tfrac53$. $2 + \tfrac13 = \tfrac73$. $3 + \tfrac12 = \tfrac72$, flip to $\tfrac27$, add 1: $\tfrac97$.
+
+- id: pre-m3-r2-h13
+  lesson: pre-m3-h-complex-fractions
+  topic: Continued fractions
+  stem: 'Why does the process of writing a fraction such as $\tfrac{43}{30}$ as a continued fraction always come to an end?'
+  choices: ['Each step divides by the previous remainder, and remainders keep getting smaller until one is 0', 'Each step makes the numerator larger, until it passes the denominator', 'Every fraction can be simplified to have numerator 1', 'The process stops after at most four steps for any fraction']
+  answer: 0
+  explanation: |-
+    The divisions use shrinking whole-number remainders (for $\tfrac{43}{30}$: 13, 4, 1, then 0). A list of shrinking whole numbers can't continue forever, so the process ends. The number of steps is not limited to four; it depends on the fraction.
+
+- id: pre-m3-r2-h14
+  lesson: pre-m3-h-complex-fractions
+  topic: Continued fractions
+  stem: 'The continued fraction of $\pi$ begins $3 + \cfrac{1}{7 + \cfrac{1}{15 + \dotsb}}$. Cutting it off after the 7 gives $\tfrac{22}{7}$. Which statement is true?'
+  choices: ['$\tfrac{22}{7}$ equals $\pi$ exactly', '$\tfrac{22}{7}$ is slightly larger than $\pi$', '$\tfrac{22}{7}$ is slightly smaller than $\pi$', '$\tfrac{22}{7}$ is farther from $\pi$ than 3 is']
+  answer: 1
+  explanation: |-
+    $\tfrac{22}{7}$ is too big by about 0.0013, much closer than 3, which is too small by about 0.14. The cut-off fractions alternate below and above $\pi$: 3 below, $\tfrac{22}{7}$ above, $\tfrac{333}{106}$ below, $\tfrac{355}{113}$ above. No fraction equals $\pi$ exactly, since its continued fraction never ends.
+
+- id: pre-m3-r2-h15
+  lesson: pre-m3-h-complex-fractions
+  type: text
+  topic: Complex fractions
+  stem: 'Most calculators read 3/4/5 from left to right, as $\dfrac{\tfrac34}{5}$. As a fraction, that equals ___.'
+  accept: ['3/20']
+  explanation: |-
+    $\tfrac34 \div 5 = \tfrac34 \times \tfrac15 = \tfrac{3}{20}$. If you meant $3 \div \tfrac45 = \tfrac{15}{4}$, you would have to type 3/(4/5).
+
+# --- pre-m3-h-fraction-problems (honors) ---
+- id: pre-m3-r2-h16
+  lesson: pre-m3-h-fraction-problems
+  topic: Fraction word problems
+  stem: 'Kim spends $\tfrac14$ of her savings on a phone and then $\tfrac13$ of what remains on a game. What fraction of her savings is left?'
+  choices: ['$\dfrac{5}{12}$', '$\dfrac{1}{12}$', '$\dfrac{1}{2}$', '$\dfrac{7}{12}$']
+  answer: 2
+  explanation: |-
+    After the phone, $\tfrac34$ is left; the game takes $\tfrac13$ of that, leaving $\tfrac23$ of it. $\tfrac23 \times \tfrac34 = \tfrac12$. $\tfrac5{12}$ is $1 - \tfrac14 - \tfrac13$, which treats the $\tfrac13$ as a fraction of the whole; $\tfrac1{12}$ multiplies the spent fractions; $\tfrac7{12}$ is the total of $\tfrac14 + \tfrac13$.
+
+- id: pre-m3-r2-h17
+  lesson: pre-m3-h-fraction-problems
+  type: text
+  topic: Fraction word problems
+  stem: 'Omar has $240. He spends $\tfrac13$ of it on a bike repair and then $\tfrac38$ of what remains on a helmet. He has ___ dollars left. Give only the number.'
+  accept: ['100', '$100']
+  explanation: |-
+    Fractions left: $\tfrac23$, then $\tfrac58$. $\tfrac23 \times \tfrac58 \times 240 = \tfrac{10}{24} \times 240 = 100$. Step by step: the repair costs $80, leaving $160; the helmet costs $\tfrac38 \times 160 = 60$, leaving $100.
+
+- id: pre-m3-r2-h18
+  lesson: pre-m3-h-fraction-problems
+  topic: Fraction word problems
+  stem: 'A baker used $\tfrac14$ of a bag of flour, then $\tfrac23$ of the flour that was left. Now 10 cups remain. How many cups were in the bag at the start?'
+  choices: ['30', '120', '$2\tfrac12$', '40']
+  answer: 3
+  explanation: |-
+    Fraction left: $\tfrac34 \times \tfrac13 = \tfrac14$. So $\tfrac14$ of the bag is 10 cups, and the bag held $10 \div \tfrac14 = 40$ cups. Check: use 10 (leaving 30), then use 20 (leaving 10). ✓ 120 comes from $1 - \tfrac14 - \tfrac23 = \tfrac1{12}$, $2\tfrac12$ from multiplying 10 by $\tfrac14$, and 30 from undoing only the last step.
+
+- id: pre-m3-r2-h19
+  lesson: pre-m3-h-fraction-problems
+  type: label
+  topic: Fraction word problems
+  stem: 'Both bars show the same whole amount of money. First $\tfrac13$ of it is spent (top bar); then $\tfrac14$ of the rest is spent (bottom bar). Name the numbered parts of the bottom bar.'
+  image: {src: images/pre-m3-rest-bars-blank.svg, alt: 'Two bars of equal length. The top bar has its first third shaded and the other two thirds in a second color. The bottom bar has the same first third shaded, and its remaining two thirds is cut into four equal parts: the first part in a third color and the other three in a fourth color. Numbered markers sit on the first third, on the single part and on the group of three parts.'}
+  labels:
+    - {x: 21.25, y: 67.5, text: 'Spent first (1/3 of the whole)'}
+    - {x: 43.75, y: 67.5, text: 'Spent second (1/4 of the rest)'}
+    - {x: 73.75, y: 67.5, text: 'Left (1/2 of the whole)'}
+  distractors: ['Spent second (1/4 of the whole)', 'Left (5/12 of the whole)']
+  explanation: |-
+    The first third is the first purchase. The remaining two thirds is cut into 4 equal parts, so one part is $\tfrac14$ of the rest, which is $\tfrac16$ of the whole, not $\tfrac14$ of it. The other three parts are left: $\tfrac34 \times \tfrac23 = \tfrac12$ of the whole. $\tfrac5{12}$ would come from subtracting $\tfrac13$ and $\tfrac14$ from 1.
+
+- id: pre-m3-r2-h20
+  lesson: pre-m3-h-fraction-problems
+  topic: Fraction word problems
+  stem: 'A club spends $\tfrac25$ of its budget, then $\tfrac12$ of what remains. Which expressions give the fraction of the budget that is left? Select all that apply.'
+  choices: ['$\dfrac35 \times \dfrac12$', '$1 - \dfrac25 - \dfrac12 \times \dfrac35$', '$\dfrac{3}{10}$', '$1 - \dfrac25 - \dfrac12$', '$\dfrac25 \times \dfrac12$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Left after each step: $\tfrac35$, then $\tfrac12$ of that, so $\tfrac35 \times \tfrac12 = \tfrac3{10}$. Subtracting both amounts spent also works if the second is figured on the rest: $1 - \tfrac25 - \tfrac3{10} = \tfrac3{10}$. $1 - \tfrac25 - \tfrac12 = \tfrac1{10}$ treats the half as half of the whole budget, and $\tfrac25 \times \tfrac12$ multiplies the spent fractions.
+
+- id: pre-m3-r2-h21
+  lesson: pre-m3-h-fraction-problems
+  topic: Combined rates
+  stem: 'Dev can mow a lawn in 2 hours, and Ella can mow it in 3 hours. Working together at those rates, how long do they take?'
+  choices: ['2 hours 30 minutes', '1 hour 12 minutes', '5 hours', '1 hour 20 minutes']
+  answer: 1
+  explanation: |-
+    Rates: $\tfrac12 + \tfrac13 = \tfrac56$ lawn per hour. Time: $1 \div \tfrac56 = \tfrac65 = 1\tfrac15$ hours, and $\tfrac15$ of 60 minutes is 12 minutes. (Product over sum: $\tfrac{2 \times 3}{2 + 3} = \tfrac65$.) 2 h 30 min averages the times and 5 hours adds them; both are slower than Dev alone.
+
+- id: pre-m3-r2-h22
+  lesson: pre-m3-h-fraction-problems
+  type: text
+  topic: Combined rates
+  stem: 'One printer finishes a job in 5 hours and a slower one in 20 hours. Working together, they finish the job in ___ hours. Give only the number.'
+  accept: ['4']
+  explanation: |-
+    Rates: $\tfrac15 + \tfrac1{20} = \tfrac4{20} + \tfrac1{20} = \tfrac{5}{20} = \tfrac14$ job per hour, so the job takes $1 \div \tfrac14 = 4$ hours. Product over sum agrees: $\tfrac{100}{25} = 4$.
+
+- id: pre-m3-r2-h23
+  lesson: pre-m3-h-fraction-problems
+  type: order
+  topic: Combined rates
+  stem: 'Put the steps for solving a working-together problem in order.'
+  items:
+    - 'Write each worker''s rate as 1 job divided by that worker''s time'
+    - 'Add the rates to get the combined rate'
+    - 'Divide 1 job by the combined rate to get the time'
+    - 'Check that the time is shorter than the fastest worker''s time alone'
+  explanation: |-
+    Times can't be added directly, so first turn them into rates. Rates of workers on the same job add. The time is the reciprocal of the combined rate, and the check needs that final time.
+
+- id: pre-m3-r2-h24
+  lesson: pre-m3-h-fraction-problems
+  topic: Combined rates
+  stem: 'A hose fills a pool in 2 hours. A leak would drain the full pool in 6 hours. With the hose on and the leak open, how long does it take to fill the pool?'
+  choices: ['3 hours', '$1\tfrac12$ hours', '4 hours', '8 hours']
+  answer: 0
+  explanation: |-
+    The leak works against the hose, so subtract: $\tfrac12 - \tfrac16 = \tfrac36 - \tfrac16 = \tfrac26 = \tfrac13$ pool per hour. Time: $1 \div \tfrac13 = 3$ hours. $1\tfrac12$ hours adds the rates as if the leak helped, 4 hours subtracts the times, and 8 hours adds them.
+
+- id: pre-m3-r2-h25
+  lesson: pre-m3-h-fraction-problems
+  topic: Combined rates
+  stem: 'Three painters can each paint a room alone in 3, 6 and 6 hours. How long do the three take working together?'
+  choices: ['2 hours', '15 hours', '$1\tfrac12$ hours', '5 hours']
+  answer: 2
+  explanation: |-
+    Add all three rates: $\tfrac13 + \tfrac16 + \tfrac16 = \tfrac26 + \tfrac16 + \tfrac16 = \tfrac46 = \tfrac23$ room per hour. Time: $1 \div \tfrac23 = \tfrac32 = 1\tfrac12$ hours. 2 hours uses product over sum on only two of the painters (that shortcut is for two workers), 15 adds the times and 5 averages them.
+
+- id: pre-m3-r2-h26
+  lesson: pre-m3-h-fraction-problems
+  type: match
+  topic: Combined rates
+  stem: 'Match each situation with the right result.'
+  pairs:
+    - ['Driving equal distances out and back at 20 mph and 30 mph: average speed', '24 mph (harmonic mean)']
+    - ['Driving one hour at 20 mph, then one hour at 30 mph: average speed', '25 mph (plain average)']
+    - ['Two pipes that fill a tank alone in 20 and 30 minutes, both open: time to fill', '12 minutes (product over sum)']
+  distractors: ['50 minutes (sum of the times)']
+  explanation: |-
+    Equal distances: $\tfrac{2 \times 20 \times 30}{20 + 30} = \tfrac{1200}{50} = 24$ mph. Equal times: 50 miles in 2 hours is 25 mph. Two pipes: $\tfrac{20 \times 30}{20 + 30} = \tfrac{600}{50} = 12$ minutes. Adding the times would make two pipes slower than one.
+
+- id: pre-m3-r2-h27
+  lesson: pre-m3-h-fraction-problems
+  type: text
+  topic: Combined rates
+  stem: 'A train travels from one city to another at 40 mph and returns along the same track at 60 mph. Its average speed for the round trip is ___ mph. Give only the number.'
+  accept: ['48']
+  explanation: |-
+    Equal distances, so use the harmonic mean: $\tfrac{2 \times 40 \times 60}{40 + 60} = \tfrac{4800}{100} = 48$ mph. Check with a distance of 120 miles: 3 hours out, 2 hours back, 240 miles in 5 hours is 48 mph. (The plain average, 50, is wrong because more time is spent at 40 mph.)
+
+- id: pre-m3-r2-h28
+  lesson: pre-m3-h-fraction-problems
+  topic: Combined rates
+  stem: 'Sam drives 60 miles at 30 mph and the same 60 miles back at 60 mph. Why is his average speed (40 mph) less than 45 mph, the average of the two speeds?'
+  choices: ['He drives farther at 30 mph than at 60 mph', 'Average speed always ignores the faster part of a trip', 'He spends more time at 30 mph than at 60 mph, so the slower speed counts for more', 'The distance of 60 miles was too short for the average to be accurate']
+  answer: 2
+  explanation: |-
+    He drives the same distance each way, but the slow half takes 2 hours and the fast half only 1 hour. Average speed is total distance over total time, so it is weighted by time and leans toward the slower speed. The distance itself cancels out of the formula $\tfrac{2ab}{a+b}$.
+
+- id: pre-m3-r2-h29
+  lesson: pre-m3-h-fraction-problems
+  topic: Combined rates
+  stem: 'Two workers take $a$ hours and $b$ hours to do a job alone. Which statements about them working together are true? Select all that apply.'
+  choices: ['Their rates add: $\tfrac1a + \tfrac1b$ jobs per hour', 'Together they take $\tfrac{ab}{a + b}$ hours', 'Together they finish sooner than the faster worker alone', 'Together they take $a + b$ hours', 'Together they take the average of $a$ and $b$ hours']
+  answer: [0, 1, 2]
+  explanation: |-
+    Rates add, and the time is the reciprocal of $\tfrac1a + \tfrac1b = \tfrac{a+b}{ab}$, which is $\tfrac{ab}{a+b}$. Since the faster worker gets help, the job is done sooner than that worker alone could do it. Adding or averaging the times would make the pair slower than the faster worker.

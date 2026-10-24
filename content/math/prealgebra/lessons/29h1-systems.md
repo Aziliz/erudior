@@ -155,9 +155,9 @@ A historical note: methods very close to elimination appear in *The Nine Chapter
 ## Common mistakes
 
 - *Checking only one equation.* A pair can satisfy one equation and fail the other; check both.
-- *Substituting back into the same equation you just used*, which only gives $0 = 0$ or a true statement like $7 = 7$ and finds nothing new.
+- *Substituting into the equation you just solved.* Putting $x = 7 - 2y$ back into $x + 2y = 7$ gives $7 = 7$ and finds nothing. Substitute into the *other* equation.
 - *Multiplying only one side, or only some terms*, before eliminating. Every term on both sides gets multiplied.
-- *Sign slips when subtracting equations*: $4 - (-2y)$ style errors. Multiplying by a negative and adding avoids them.
+- *Sign slips when subtracting equations.* Subtracting $5x - 2y = 8$ from $3x + 2y = 16$ gives $-2x + 4y = 8$, not $-2x = 8$, because $2y - (-2y) = 4y$. Multiplying by a negative and adding avoids such slips.
 - *Stopping after one variable.* The answer to a system is a pair; find the second value too.
 - *Calling $0 = 0$ "no solution."* A true statement means infinitely many solutions; a false one means none.
 
