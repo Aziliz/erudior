@@ -5,7 +5,8 @@
  "title": "German A2",
  "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
+ "changelog": "Honors lessons with longer texts and culture, pictures and diagrams in every lesson, new question types and vocabulary; corrections from a second full review.",
  "modules": [
   {
    "id": "de2-m1",

@@ -164,7 +164,7 @@
   "order": 1,
   "title": "Pre-algebra and Arithmetic",
   "description": "Arithmetic and pre-algebra from place value up through the level of a college developmental math course: whole numbers, integers, fractions, decimals, ratios and proportions, percents, exponents and scientific notation, expressions and equations, measurement and basic geometry, and basic data and probability, with word problems throughout.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School"
@@ -173,9 +173,10 @@
    "Course"
   ],
   "lessons": 38,
-  "questions": 438,
-  "cards": 217,
-  "drills": 96,
+  "honors": 26,
+  "questions": 995,
+  "cards": 479,
+  "drills": 169,
   "lessonIds": [
    "pre-place-value",
    "pre-whole-ops",
@@ -216,6 +217,37 @@
    "pre-graphs",
    "pre-probability"
   ],
+  "honorsLessonIds": [
+   "pre-m1-h-bases",
+   "pre-m1-h-euclid",
+   "pre-m1-h-estimation",
+   "pre-m2-h-sign-rules",
+   "pre-m2-h-distance",
+   "pre-m3-h-complex-fractions",
+   "pre-m3-h-fraction-problems",
+   "pre-m4-h-repeating",
+   "pre-m4-h-inverse",
+   "pre-m5-h-compound-interest",
+   "pre-m5-h-percent-reasoning",
+   "pre-m6-h-radicals",
+   "pre-m6-h-sig-figs",
+   "pre-m7-h-systems",
+   "pre-m7-h-absolute-value",
+   "pre-m7-h-line-equations",
+   "pre-m8-h-polygon-angles",
+   "pre-m8-h-cones-spheres",
+   "pre-m8-h-measurement-error",
+   "pre-m8-h-scaling",
+   "pre-m9-h-spread",
+   "pre-m9-h-expected",
+   "pre-h1-remainders",
+   "pre-h1-parity",
+   "pre-h1-counting-multiples",
+   "pre-h1-strategies"
+  ],
+  "honorsModuleIds": [
+   "pre-h1"
+  ],
   "outline": [
    {
     "title": "Whole numbers",
@@ -225,6 +257,11 @@
      "Exponents and the order of operations",
      "Factors, multiples, divisibility and primes",
      "Prime factorization, GCF and LCM"
+    ],
+    "honors": [
+     "Place value in other bases",
+     "Euclid's algorithm and counting divisors",
+     "Bounds, error and Fermi problems"
     ]
    },
    {
@@ -233,6 +270,10 @@
      "Integers, the number line and absolute value",
      "Adding and subtracting integers",
      "Multiplying and dividing integers"
+    ],
+    "honors": [
+     "Honors: Why the sign rules have to be true",
+     "Honors: Distance, absolute value equations and net change"
     ]
    },
    {
@@ -242,6 +283,10 @@
      "Multiplying and dividing fractions",
      "Adding and subtracting fractions",
      "Mixed numbers"
+    ],
+    "honors": [
+     "Complex fractions and continued fractions",
+     "Fraction problems: the rest, working together and average speed"
     ]
    },
    {
@@ -251,6 +296,10 @@
      "Operations with decimals",
      "Ratios, rates and unit rates",
      "Proportions"
+    ],
+    "honors": [
+     "Honors: Repeating decimals as fractions",
+     "Honors: Direct and inverse proportion"
     ]
    },
    {
@@ -259,6 +308,10 @@
      "Percents, fractions and decimals",
      "Solving percent problems and percent change",
      "Tax, tips, discounts, commission and simple interest"
+    ],
+    "honors": [
+     "Compound interest and exponential growth",
+     "Reasoning with percents: chains, reversals and percentage points"
     ]
    },
    {
@@ -267,6 +320,10 @@
      "Powers and square roots",
      "Exponent rules, zero and negative exponents",
      "Scientific notation"
+    ],
+    "honors": [
+     "Simplifying square roots and fractional exponents",
+     "Significant figures and sizes in powers of ten"
     ]
    },
    {
@@ -279,6 +336,11 @@
      "Money word problems",
      "Inequalities and number lines",
      "Graphing linear equations"
+    ],
+    "honors": [
+     "Systems of two linear equations",
+     "Absolute value equations and compound inequalities",
+     "Writing equations of lines"
     ]
    },
    {
@@ -290,6 +352,12 @@
      "Circles",
      "Volume and surface area",
      "The Pythagorean theorem"
+    ],
+    "honors": [
+     "Angles of polygons and tilings",
+     "Pyramids, cones and spheres",
+     "Precision and measurement error",
+     "Scaling area and volume"
     ]
    },
    {
@@ -298,7 +366,22 @@
      "Mean, median, mode and range",
      "Reading tables and graphs",
      "Simple probability"
+    ],
+    "honors": [
+     "Measuring spread: MAD, quartiles and box plots",
+     "Tree diagrams, dependent events and expected value"
     ]
+   },
+   {
+    "title": "Honors: Number theory and problem solving",
+    "lessons": [],
+    "honors": [
+     "Remainders and clock arithmetic",
+     "Even, odd and proof",
+     "Counting multiples and the zeros at the end of n!",
+     "Problem-solving strategies: patterns, sums and smaller cases"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -308,7 +391,7 @@
   "order": 2,
   "title": "Algebra 1",
   "description": "High school Algebra 1: real numbers, linear equations and inequalities, absolute value, functions and lines, systems, exponents, polynomials and factoring, quadratics, square roots, exponential growth and decay, sequences, and data analysis. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School"
@@ -317,9 +400,10 @@
    "Course"
   ],
   "lessons": 36,
-  "questions": 435,
-  "cards": 184,
-  "drills": 93,
+  "honors": 24,
+  "questions": 951,
+  "cards": 414,
+  "drills": 155,
   "lessonIds": [
    "alg-real-numbers",
    "alg-expressions",
@@ -358,6 +442,35 @@
    "a1-scatter",
    "a1-regression-models"
   ],
+  "honorsLessonIds": [
+   "alg-m1-h-decimals-fractions",
+   "alg-m1-h-rates-averages",
+   "alg-m2-h-abs-cases",
+   "alg-m2-h-tolerance",
+   "alg-m3-h-inverse-functions",
+   "alg-m3-h-piecewise-models",
+   "alg-m3-h-average-rate",
+   "alg-m4-h-cramer",
+   "alg-m4-h-linear-programming",
+   "alg-m5-h-polynomial-division",
+   "alg-m5-h-binomial-expansion",
+   "alg-m6-h-vieta",
+   "alg-m6-h-quad-inequalities",
+   "alg-m6-h-history",
+   "a1-m7-h-irrational-roots",
+   "a1-m7-h-rational-exponents",
+   "a1-m7-h-series",
+   "a1-m8-h-normal",
+   "a1-m8-h-simpsons-paradox",
+   "a1-m8-h-least-squares",
+   "a1-h1-proof",
+   "a1-h1-equivalence",
+   "a1-h1-modeling",
+   "a1-h1-recursive"
+  ],
+  "honorsModuleIds": [
+   "a1-h1"
+  ],
   "outline": [
    {
     "title": "Foundations and linear equations",
@@ -367,6 +480,10 @@
      "Solving linear equations",
      "Literal equations and formulas",
      "Linear equations in applications"
+    ],
+    "honors": [
+     "Inside the real numbers: decimals, fractions and density",
+     "Rates that combine: work, average speed and weighted averages"
     ]
    },
    {
@@ -374,6 +491,10 @@
     "lessons": [
      "Linear and compound inequalities",
      "Absolute value equations and inequalities"
+    ],
+    "honors": [
+     "Honors: Absolute value by cases",
+     "Honors: Tolerance, error bounds and the triangle inequality"
     ]
    },
    {
@@ -385,6 +506,11 @@
      "Equations of lines",
      "Parallel and perpendicular lines; linear models",
      "Piecewise and step functions"
+    ],
+    "honors": [
+     "Inverse functions",
+     "Piecewise linear models",
+     "Average rate of change and the slope of a curve"
     ]
    },
    {
@@ -394,6 +520,10 @@
      "Solving systems by elimination",
      "Applications of linear systems",
      "Linear inequalities in two variables and systems of inequalities"
+    ],
+    "honors": [
+     "Honors: Determinants and Cramer's rule",
+     "Honors: Linear programming in depth"
     ]
    },
    {
@@ -403,6 +533,10 @@
      "Polynomial operations and special products",
      "Factoring: greatest common factor and grouping",
      "Factoring trinomials and special patterns"
+    ],
+    "honors": [
+     "Dividing polynomials, the remainder theorem and the factor theorem",
+     "Pascal's triangle, binomial expansion and polynomial identities"
     ]
    },
    {
@@ -414,6 +548,11 @@
      "Graphing quadratic functions",
      "Quadratic applications: maximum, minimum, and projectiles",
      "Solving f(x) = g(x): linear-quadratic systems and intersections"
+    ],
+    "honors": [
+     "Sums and products of roots (Vieta's formulas)",
+     "Quadratic inequalities",
+     "Quadratics through history: from Babylon to the golden ratio"
     ]
    },
    {
@@ -424,6 +563,11 @@
      "Exponential functions: growth and decay",
      "Comparing linear and exponential models",
      "Arithmetic and geometric sequences"
+    ],
+    "honors": [
+     "Proving irrationality and rationalizing denominators",
+     "nth roots and rational exponents",
+     "Series: adding up a sequence"
     ]
    },
    {
@@ -433,7 +577,23 @@
      "Two-way tables and relative frequency",
      "Scatter plots, correlation, and lines of fit",
      "Fitting quadratic and exponential models to data"
+    ],
+    "honors": [
+     "Honors: z-scores and normal distributions",
+     "Honors: Simpson's paradox and expected counts",
+     "Honors: Where the line of best fit comes from"
     ]
+   },
+   {
+    "title": "Honors: Algebraic reasoning and modeling",
+    "lessons": [],
+    "honors": [
+     "Proving it with algebra",
+     "Reasoning about solving: equivalence and extraneous solutions",
+     "The modeling cycle",
+     "Recursive models: multiply, then add"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -443,7 +603,7 @@
   "order": 3,
   "title": "Algebra 2",
   "description": "High school Algebra 2: function transformations, composition and inverses, complex numbers, nonlinear systems, systems in three variables and matrices, polynomial functions, radicals and rational exponents, rational expressions and functions, polynomial and rational inequalities, exponentials and logarithms, sequences and series, counting and the binomial theorem, probability and the normal distribution, and an introduction to the unit circle and trig graphs. Every lesson teaches with worked examples and graphs, and every skill has generated practice problems.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School"
@@ -452,9 +612,10 @@
    "Course"
   ],
   "lessons": 30,
-  "questions": 351,
-  "cards": 186,
-  "drills": 84,
+  "honors": 24,
+  "questions": 841,
+  "cards": 422,
+  "drills": 149,
   "lessonIds": [
    "a2-transformations",
    "a2-piecewise",
@@ -487,6 +648,35 @@
    "a2-unit-circle",
    "a2-trig-graphs"
   ],
+  "honorsLessonIds": [
+   "a2-m1-h-symmetry",
+   "a2-m1-h-inverses",
+   "a2-m2-h-complex-plane",
+   "a2-m2-h-matrix-algebra",
+   "a2-m2-h-cramer",
+   "a2-m3-h-locating-zeros",
+   "a2-m3-h-roots-coefficients",
+   "a2-m4-h-irrational-roots",
+   "a2-m4-h-power-laws",
+   "a2-m5-h-slant-asymptotes",
+   "a2-m5-h-partial-fractions",
+   "a2-m6-h-continuous-growth",
+   "a2-m6-h-log-scales",
+   "a2-m7-h-differences",
+   "a2-m7-h-loans",
+   "a2-h-expected-value",
+   "a2-h-binomial-dist",
+   "a2-h-bayes",
+   "a2-m9-h-tangent",
+   "a2-m9-h-trig-equations",
+   "a2-h1-conics",
+   "a2-h1-parametric",
+   "a2-h1-polar-complex",
+   "a2-h1-rates"
+  ],
+  "honorsModuleIds": [
+   "a2-h1"
+  ],
   "outline": [
    {
     "title": "Functions and their transformations",
@@ -495,6 +685,10 @@
      "Piecewise-defined functions",
      "Combining and composing functions",
      "Inverse functions"
+    ],
+    "honors": [
+     "Symmetry and the general transformation",
+     "Inverses of composite and piecewise functions"
     ]
    },
    {
@@ -505,6 +699,11 @@
      "Nonlinear systems",
      "Systems in three variables",
      "Solving systems with matrices"
+    ],
+    "honors": [
+     "The geometry of complex numbers",
+     "Matrix arithmetic and inverses",
+     "Determinants and Cramer's rule"
     ]
    },
    {
@@ -513,6 +712,10 @@
      "Polynomial functions: end behavior, zeros, and multiplicity",
      "Polynomial division; the remainder and factor theorems",
      "The rational root theorem and finding all zeros"
+    ],
+    "honors": [
+     "Locating real zeros with Descartes' rule of signs, bounds and bisection",
+     "Roots and coefficients: Vieta's formulas and polynomial identities"
     ]
    },
    {
@@ -520,6 +723,10 @@
     "lessons": [
      "Radicals and rational exponents",
      "Radical equations"
+    ],
+    "honors": [
+     "Irrational roots, proof and approximation",
+     "Power functions and power laws"
     ]
    },
    {
@@ -530,6 +737,10 @@
      "Rational equations and applications",
      "Graphing rational functions",
      "Polynomial and rational inequalities"
+    ],
+    "honors": [
+     "Slant asymptotes and end behavior",
+     "Partial fraction decomposition"
     ]
    },
    {
@@ -538,6 +749,10 @@
      "Exponential functions, growth and decay, and compound interest",
      "Logarithms and their properties",
      "Exponential and logarithmic equations"
+    ],
+    "honors": [
+     "Continuous growth rates, e and effective yield",
+     "Logarithmic scales and fitting models to data"
     ]
    },
    {
@@ -545,6 +760,10 @@
     "lessons": [
      "Arithmetic sequences and series",
      "Geometric sequences and series"
+    ],
+    "honors": [
+     "Finite differences and sums of powers",
+     "Recurrences, savings plans and loans"
     ]
    },
    {
@@ -554,6 +773,11 @@
      "The binomial theorem and Pascal's triangle",
      "Probability",
      "The normal distribution and sampling"
+    ],
+    "honors": [
+     "Random variables and expected value",
+     "The binomial distribution",
+     "Bayes' theorem and reasoning from evidence"
     ]
    },
    {
@@ -561,7 +785,22 @@
     "lessons": [
      "Angles, radians and the unit circle",
      "Graphs of sine and cosine"
+    ],
+    "honors": [
+     "Tangent and the reciprocal trig functions",
+     "Inverse trig functions and trig equations"
     ]
+   },
+   {
+    "title": "Honors: Toward precalculus and beyond",
+    "lessons": [],
+    "honors": [
+     "Conic sections",
+     "Parametric equations",
+     "Complex numbers in polar form",
+     "Rates of change: a first step into calculus"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -571,7 +810,7 @@
   "order": 4,
   "title": "Geometry",
   "description": "Euclidean geometry from the first definitions through a college introduction: points, lines and angles; logic and proof; parallel lines; triangle congruence and similarity; special segments and quadrilaterals; right triangles, trigonometry and the Laws of Sines and Cosines; circles; area, surface area and volume; coordinates, parabolas and transformations; and, at the college level, axiomatic systems, the parallel postulate, non-Euclidean geometry and geometric probability.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School"
@@ -580,9 +819,10 @@
    "Course"
   ],
   "lessons": 41,
-  "questions": 476,
-  "cards": 184,
-  "drills": 103,
+  "honors": 30,
+  "questions": 1101,
+  "cards": 475,
+  "drills": 166,
   "lessonIds": [
    "geo-basics",
    "geo-measure",
@@ -626,6 +866,41 @@
    "geo-non-euclid",
    "geo-probability"
   ],
+  "honorsLessonIds": [
+   "geo-m1-h-plane-separation",
+   "geo-m1-h-counting",
+   "geo-m2-h-symbolic-logic",
+   "geo-m2-h-proof-methods",
+   "geo-m2-h-induction",
+   "geo-h-parallel-proofs",
+   "geo-h-lines-vectors",
+   "geo-m4-h-ssa-congruence",
+   "geo-m4-h-shortest-paths",
+   "geo-m5-h-concurrency",
+   "geo-m5-h-varignon",
+   "geo-m5-h-tilings",
+   "geo-m6-h-triples",
+   "geo-m6-h-triangulation",
+   "geo-m6-h-golden",
+   "geo-m7-h-power-radical",
+   "geo-m7-h-concyclic",
+   "geo-m8-h-polyhedra",
+   "geo-m8-h-frustums-pappus",
+   "geo-m8-h-isoperimetric",
+   "geo-h-isometries",
+   "geo-h-matrices",
+   "geo-h-conics",
+   "geo-m10-h-projective-planes",
+   "geo-m10-h-saccheri",
+   "geo-m10-h-buffon-bertrand",
+   "geo-h1-constructible",
+   "geo-h1-ceva-menelaus",
+   "geo-h1-nine-point",
+   "geo-h1-ptolemy"
+  ],
+  "honorsModuleIds": [
+   "geo-h1"
+  ],
   "outline": [
    {
     "title": "Foundations of geometry",
@@ -634,6 +909,10 @@
      "Measuring segments and angles",
      "Angle pairs",
      "Constructions with compass and straightedge"
+    ],
+    "honors": [
+     "Betweenness, half-planes and Pasch's axiom",
+     "Counting lines, planes, regions and angles"
     ]
    },
    {
@@ -642,6 +921,11 @@
      "Inductive reasoning and conditional statements",
      "Deductive reasoning and algebraic proof",
      "Two-column and paragraph proofs"
+    ],
+    "honors": [
+     "Symbolic logic: truth tables, negations and valid arguments",
+     "Proof strategies: contrapositive, contradiction and cases",
+     "Mathematical induction: from patterns to proofs"
     ]
    },
    {
@@ -649,6 +933,10 @@
     "lessons": [
      "Parallel lines and transversals",
      "Perpendicular lines and slope"
+    ],
+    "honors": [
+     "Proofs with parallel lines: converses and auxiliary lines",
+     "Slopes and vectors: proving the slope rules"
     ]
    },
    {
@@ -659,6 +947,10 @@
      "ASA, AAS, HL and CPCTC",
      "Isosceles and equilateral triangles",
      "Inequalities in triangles"
+    ],
+    "honors": [
+     "When SSA works: the Long Side SSA Theorem",
+     "Shortest paths and the Triangle Inequality"
     ]
    },
    {
@@ -669,6 +961,11 @@
      "Polygons and their angle sums",
      "Parallelograms",
      "Rectangles, rhombuses, squares, trapezoids and kites"
+    ],
+    "honors": [
+     "Proving the triangle centers exist",
+     "Varignon's theorem and classifying quadrilaterals by their diagonals",
+     "Turning angles, star polygons and tilings"
     ]
    },
    {
@@ -681,6 +978,11 @@
      "Sine, cosine and tangent",
      "The Law of Sines",
      "The Law of Cosines and solving any triangle"
+    ],
+    "honors": [
+     "Pythagorean triples and more proofs",
+     "Triangulation, bearings and measuring the unreachable",
+     "The golden ratio and figures similar to their own parts"
     ]
    },
    {
@@ -690,6 +992,10 @@
      "Chords and tangents",
      "Inscribed angles and other angles in circles",
      "Segment lengths in circles and the equation of a circle"
+    ],
+    "honors": [
+     "The power of a point and the radical axis",
+     "Concyclic points and the circumcircle"
     ]
    },
    {
@@ -699,6 +1005,11 @@
      "Circles, sectors and regular polygons",
      "Solids and surface area",
      "Volume and Cavalieri's principle"
+    ],
+    "honors": [
+     "Regular polyhedra, Euler's formula and angle defect",
+     "Frustums, spherical caps and Pappus's theorem",
+     "The isoperimetric problem: the most area for the least fence"
     ]
    },
    {
@@ -708,6 +1019,11 @@
      "Translations, reflections and rotations",
      "Dilations, compositions and symmetry",
      "Parabolas from focus and directrix; all circles are similar"
+    ],
+    "honors": [
+     "Reflections as building blocks; symmetry groups",
+     "Rotations by any angle and transformation matrices",
+     "Ellipses and hyperbolas from their foci"
     ]
    },
    {
@@ -716,7 +1032,23 @@
      "Axiomatic systems and Euclid's postulates",
      "Non-Euclidean geometry",
      "Geometric probability"
+    ],
+    "honors": [
+     "Finite geometries and projective planes",
+     "Geometry without the parallel postulate",
+     "Buffon's needle and Bertrand's paradox"
     ]
+   },
+   {
+    "title": "Honors: Constructions and classic theorems",
+    "lessons": [],
+    "honors": [
+     "What compass and straightedge can build",
+     "Ceva's and Menelaus's theorems",
+     "The Euler line and the nine-point circle",
+     "Cyclic quadrilaterals and Ptolemy's theorem"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -726,7 +1058,7 @@
   "order": 5,
   "title": "Trigonometry",
   "description": "Trigonometry from the first angle through a full college course: degrees and radians, arc length and angular speed, right-triangle trig, the unit circle, graphs of all six functions and sinusoidal models, inverse functions, identities and equations, the laws of sines and cosines, vectors, polar coordinates, parametric equations, and complex numbers in trigonometric form with De Moivre's theorem.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School",
@@ -736,9 +1068,10 @@
    "Course"
   ],
   "lessons": 39,
-  "questions": 447,
-  "cards": 216,
-  "drills": 92,
+  "honors": 24,
+  "questions": 980,
+  "cards": 470,
+  "drills": 150,
   "lessonIds": [
    "trig-angles",
    "trig-radians",
@@ -780,6 +1113,35 @@
    "trig-complex-trig",
    "trig-demoivre"
   ],
+  "honorsLessonIds": [
+   "trig-m1-h-earth-sky",
+   "trig-m1-h-relative-rotation",
+   "trig-m2-h-exact-geometry",
+   "trig-m2-h-measurement-error",
+   "trig-m3-h-segments",
+   "trig-m3-h-small-angles",
+   "trig-m4-h-combining",
+   "trig-m4-h-rates",
+   "trig-m5-h-arctan-identities",
+   "trig-m5-h-general-solutions",
+   "trig-m6-h-tan-half",
+   "trig-m6-h-multiple-angles",
+   "trig-m6-h-ptolemy",
+   "trig-m7-h-circles",
+   "trig-m7-h-half-angles",
+   "trig-m8-h-rotation-area",
+   "trig-m8-h-vector-geometry",
+   "trig-m9-h-polar-conics",
+   "trig-m9-h-cycloids",
+   "trig-m9-h-roots-of-unity",
+   "trig-h1-robot-arms",
+   "trig-h1-phasors",
+   "trig-h1-refraction",
+   "trig-h1-great-circles"
+  ],
+  "honorsModuleIds": [
+   "trig-h1"
+  ],
   "outline": [
    {
     "title": "Angles and their measure",
@@ -788,6 +1150,10 @@
      "Radian measure",
      "Arc length and sector area",
      "Angular and linear speed"
+    ],
+    "honors": [
+     "Measuring the Earth and the sky with arcs",
+     "Relative rotation: clocks, gears, rolling wheels and the sky"
     ]
    },
    {
@@ -797,6 +1163,10 @@
      "Special right triangles and cofunctions",
      "Solving right triangles",
      "Elevation, depression and bearings"
+    ],
+    "honors": [
+     "Exact values from regular polygons: 15°, 22.5°, 18° and 36°",
+     "Indirect measurement: error, the best angle and the size of the Earth"
     ]
    },
    {
@@ -806,6 +1176,10 @@
      "Reference angles",
      "The unit circle",
      "Domain, range, periodicity and symmetry"
+    ],
+    "honors": [
+     "The six functions as lengths: one picture and its history",
+     "Small angles: comparing sin t, t and tan t"
     ]
    },
    {
@@ -816,6 +1190,10 @@
      "Graphs of tangent and cotangent",
      "Graphs of secant and cosecant",
      "Modeling periodic data and harmonic motion"
+    ],
+    "honors": [
+     "Sums, products and envelopes: combining trig graphs",
+     "How fast a sinusoid changes: slopes, speeds and the pendulum"
     ]
    },
    {
@@ -824,6 +1202,10 @@
      "Inverse sine, cosine and tangent",
      "Compositions and other inverse functions",
      "Solving basic trig equations"
+    ],
+    "honors": [
+     "Adding arctangents and computing π",
+     "Families of solutions and equations without exact answers"
     ]
    },
    {
@@ -836,6 +1218,11 @@
      "Half-angle formulas",
      "Product-to-sum and sum-to-product formulas",
      "Solving trig equations with identities"
+    ],
+    "honors": [
+     "The tangent half-angle substitution",
+     "Multiple angles, Chebyshev polynomials and cubics",
+     "Ptolemy's chords: the identities before sine"
     ]
    },
    {
@@ -845,6 +1232,10 @@
      "The ambiguous case (SSA)",
      "The law of cosines",
      "Area of a triangle"
+    ],
+    "honors": [
+     "Honors: The circumcircle, the incircle and the extended law of sines",
+     "Honors: Half-angle formulas for triangles and the law of tangents"
     ]
    },
    {
@@ -853,6 +1244,10 @@
      "Vectors in the plane",
      "The dot product and angles between vectors",
      "Vector applications - forces, navigation and work"
+    ],
+    "honors": [
+     "Rotating vectors and measuring area with the determinant",
+     "Geometry and proof with vectors"
     ]
    },
    {
@@ -863,7 +1258,23 @@
      "Parametric equations",
      "Complex numbers in trigonometric form",
      "De Moivre's theorem and nth roots"
+    ],
+    "honors": [
+     "Conics in polar form",
+     "Cycloids and rolling curves",
+     "De Moivre's theorem at work: identities and roots of unity"
     ]
+   },
+   {
+    "title": "Honors: Trigonometry in science and engineering",
+    "lessons": [],
+    "honors": [
+     "Rotations and robot arms",
+     "Phasors: adding waves and AC circuits",
+     "Light at a boundary: Snell's law",
+     "Great-circle navigation"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -873,7 +1284,7 @@
   "order": 6,
   "title": "Precalculus",
   "description": "Precalculus from the high school course through college precalculus, assuming Algebra 2: functions in depth, transformations, composition and inverses, polynomial and rational functions, exponential and logarithmic models, a compact trigonometry review, systems and matrices, conic sections, parametric and polar equations, vectors, sequences and series, induction, the binomial theorem, counting and probability, and a first look at limits and the derivative.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School",
@@ -883,9 +1294,10 @@
    "Course"
   ],
   "lessons": 43,
-  "questions": 527,
-  "cards": 225,
-  "drills": 105,
+  "honors": 29,
+  "questions": 1144,
+  "cards": 500,
+  "drills": 181,
   "lessonIds": [
    "pc-functions",
    "pc-piecewise",
@@ -931,6 +1343,40 @@
    "pc-limits-algebra",
    "pc-tangent"
   ],
+  "honorsLessonIds": [
+   "pc-m1-h-concavity",
+   "pc-m1-h-piecewise-models",
+   "pc-m2-h-symmetry",
+   "pc-m2-h-composition-algebra",
+   "pc-m3-h-cubic-formula",
+   "pc-m3-h-interpolation",
+   "pc-m3-h-linear-fractional",
+   "pc-m4-h-hyperbolic",
+   "pc-m4-h-logistic",
+   "pc-m4-h-growth-rates",
+   "pc-m5-h-trig-equations",
+   "pc-m5-h-combining-waves",
+   "pc-m6-h-transformations",
+   "pc-m6-h-markov",
+   "pc-m6-h-eigen",
+   "pc-m7-h-rotation",
+   "pc-m7-h-conic-geometry",
+   "pc-m7-h-orbits",
+   "pc-m8-h-cross-product",
+   "pc-m8-h-lines-planes",
+   "pc-m9-h-recurrences",
+   "pc-m9-h-counting",
+   "pc-m9-h-binomial-probability",
+   "pc-m10-h-squeeze",
+   "pc-m10-h-rules",
+   "pc-h1-proof",
+   "pc-h1-infinity",
+   "pc-h1-series",
+   "pc-h1-area"
+  ],
+  "honorsModuleIds": [
+   "pc-h1"
+  ],
   "outline": [
    {
     "title": "Functions in depth",
@@ -938,6 +1384,10 @@
      "Functions, notation, domain and range",
      "Piecewise functions and reading graphs",
      "Increasing, decreasing, extrema and average rate of change"
+    ],
+    "honors": [
+     "Concavity and how rates change",
+     "Piecewise models: absolute value sums, tiered rates and rounding"
     ]
    },
    {
@@ -947,6 +1397,10 @@
      "Transformations of graphs",
      "Combining functions and composition",
      "Inverse functions"
+    ],
+    "honors": [
+     "Symmetry beyond even and odd",
+     "The algebra of composition, inverses and iteration"
     ]
    },
    {
@@ -959,6 +1413,11 @@
      "Rational functions: holes and asymptotes",
      "Slant asymptotes and graphing rational functions",
      "Polynomial and rational inequalities"
+    ],
+    "honors": [
+     "Solving cubics: Cardano's formula and the case for complex numbers",
+     "Polynomial interpolation: one curve through given points",
+     "Linear fractional functions: every one is a transformed 1/x"
     ]
    },
    {
@@ -969,6 +1428,11 @@
      "Solving exponential and logarithmic equations",
      "Exponential, logarithmic and logistic models",
      "Modeling with functions and fitting data"
+    ],
+    "honors": [
+     "Hyperbolic functions: exponentials in disguise",
+     "Inside the logistic model: symmetry, the logit and fitting S-curves",
+     "Comparing growth: huge numbers, crossover points and bisection"
     ]
    },
    {
@@ -976,6 +1440,10 @@
     "lessons": [
      "Radians and the unit circle",
      "Trig graphs and key identities"
+    ],
+    "honors": [
+     "Solving trigonometric equations",
+     "Adding waves"
     ]
    },
    {
@@ -987,6 +1455,11 @@
      "Determinants and Cramer's rule",
      "Partial fraction decomposition",
      "Systems of inequalities and linear programming"
+    ],
+    "honors": [
+     "Matrices as transformations of the plane",
+     "Markov chains and steady states",
+     "Eigenvalues and eigenvectors"
     ]
    },
    {
@@ -998,6 +1471,11 @@
      "Parametric equations",
      "Polar coordinates and polar graphs",
      "Polar equations of conics"
+    ],
+    "honors": [
+     "Rotation of axes",
+     "Why the definitions agree: Dandelin spheres and reflection",
+     "Orbits and Kepler's laws"
     ]
    },
    {
@@ -1005,6 +1483,10 @@
     "lessons": [
      "Vectors in the plane",
      "The dot product and vectors in space"
+    ],
+    "honors": [
+     "The cross product: area, volume and torque",
+     "Lines and planes in space"
     ]
    },
    {
@@ -1015,6 +1497,11 @@
      "Mathematical induction",
      "The binomial theorem",
      "Counting and probability basics"
+    ],
+    "honors": [
+     "Recurrence relations: from a rule to a formula",
+     "Counting techniques: repetition, overlaps and pigeons",
+     "Repeated trials: binomial probability and expected value"
     ]
    },
    {
@@ -1023,7 +1510,22 @@
      "Limits from tables and graphs",
      "Evaluating limits algebraically",
      "Tangent lines and the derivative"
+    ],
+    "honors": [
+     "The squeeze theorem and the limits of trigonometry",
+     "Derivative rules, differentiability and linear approximation"
     ]
+   },
+   {
+    "title": "Honors: Proof, infinity and the road to calculus",
+    "lessons": [],
+    "honors": [
+     "How to prove it",
+     "Comparing infinite sets",
+     "When infinite sums add up",
+     "Area under a curve and the road to calculus"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -1033,7 +1535,7 @@
   "order": 7,
   "title": "Calculus",
   "description": "Single-variable calculus from the first limit through Calculus II, layered AP Calculus AB, then BC, then college Calculus I and II: limits and continuity, the derivative and its rules, related rates, optimization and curve sketching, integrals and the Fundamental Theorem, applications of integration, techniques of integration, improper integrals, hyperbolic functions, introductory differential equations (separable and first-order linear), sequences and series, Taylor series, and calculus with parametric and polar curves.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School",
@@ -1044,9 +1546,10 @@
    "Exam prep"
   ],
   "lessons": 46,
-  "questions": 518,
-  "cards": 302,
-  "drills": 99,
+  "honors": 29,
+  "questions": 1157,
+  "cards": 577,
+  "drills": 159,
   "lessonIds": [
    "calc-limits-intro",
    "calc-limit-laws",
@@ -1095,6 +1598,40 @@
    "calc-parametric",
    "calc-polar"
   ],
+  "honorsLessonIds": [
+   "calc-m1-h-precise-limits",
+   "calc-m1-h-ivt-at-work",
+   "calc-m2-h-numerical",
+   "calc-m2-h-smoothness",
+   "calc-m3-h-leibniz-rule",
+   "calc-m3-h-proofs",
+   "calc-m3-h-implicit-curves",
+   "calc-m4-h-error-convergence",
+   "calc-m4-h-cauchy-growth",
+   "calc-m5-h-mvt-inequalities",
+   "calc-m5-h-convexity",
+   "calc-m5-h-optimization-models",
+   "calc-m6-h-integral-functions",
+   "calc-m6-h-sums-integrals",
+   "calc-m7-h-pappus",
+   "calc-m7-h-probability",
+   "calc-m8-h-reduction",
+   "calc-m8-h-gamma",
+   "calc-m8-h-romberg",
+   "calc-m9-h-phase-lines",
+   "calc-m9-h-numerical-methods",
+   "calc-m10-h-computing",
+   "calc-m10-h-complex",
+   "calc-h-cycloid-surface",
+   "calc-h-polar-conics",
+   "calc-h1-sequence-limits",
+   "calc-h1-completeness",
+   "calc-h1-big-theorems",
+   "calc-h1-integrability"
+  ],
+  "honorsModuleIds": [
+   "calc-h1"
+  ],
   "outline": [
    {
     "title": "Limits and continuity",
@@ -1104,6 +1641,10 @@
      "Infinite limits and limits at infinity",
      "The squeeze theorem, trig limits and ε-δ",
      "Continuity and the Intermediate Value Theorem"
+    ],
+    "honors": [
+     "Precise limits: infinity, the limit laws, and limits that fail",
+     "The IVT at work: bisection, fixed points and existence proofs"
     ]
    },
    {
@@ -1112,6 +1653,10 @@
      "The derivative at a point",
      "The derivative as a function; differentiability",
      "Basic rules: power, sum, exponential; higher derivatives"
+    ],
+    "honors": [
+     "Numerical derivatives: how good is a difference quotient?",
+     "How smooth is smooth? Corners, splines and strange derivatives"
     ]
    },
    {
@@ -1122,6 +1667,11 @@
      "The chain rule",
      "Implicit differentiation and inverse trig derivatives",
      "Exponentials, logarithms and inverse functions"
+    ],
+    "honors": [
+     "Higher derivatives and Leibniz's rule",
+     "Proving the chain rule and the inverse function rule",
+     "Implicit curves: special tangents, singular points and orthogonal families"
     ]
    },
    {
@@ -1130,6 +1680,10 @@
      "Related rates",
      "Linear approximation, differentials and Newton's method",
      "L'Hôpital's rule and indeterminate forms"
+    ],
+    "honors": [
+     "How accurate? Error bounds and the speed of Newton's method",
+     "Why L'Hôpital's rule works, and orders of growth"
     ]
    },
    {
@@ -1139,6 +1693,11 @@
      "Increasing, decreasing and the first derivative test",
      "Concavity, the second derivative test and curve sketching",
      "Optimization"
+    ],
+    "honors": [
+     "The Mean Value Theorem at work: inequalities and counting roots",
+     "Convex functions and the classic inequalities",
+     "Optimization models: light, inventory and corners"
     ]
    },
    {
@@ -1149,6 +1708,10 @@
      "The Fundamental Theorem of Calculus",
      "Integration by substitution",
      "Motion, net change and average value"
+    ],
+    "honors": [
+     "Functions defined by integrals",
+     "From sums to integrals and back"
     ]
    },
    {
@@ -1159,6 +1722,10 @@
      "Volume: cylindrical shells",
      "Arc length and surface area",
      "Work, fluid force and center of mass"
+    ],
+    "honors": [
+     "Honors: Centroids and the theorems of Pappus",
+     "Honors: Probability density functions"
     ]
    },
    {
@@ -1170,6 +1737,11 @@
      "Integration strategy and numerical integration",
      "Improper integrals",
      "Hyperbolic functions"
+    ],
+    "honors": [
+     "Reduction formulas and the Wallis product",
+     "The gamma function",
+     "Richardson extrapolation and Romberg integration"
     ]
    },
    {
@@ -1178,6 +1750,10 @@
      "Slope fields and Euler's method",
      "Separable equations, exponential and logistic growth",
      "First-order linear equations and integrating factors"
+    ],
+    "honors": [
+     "Phase lines, stability and uniqueness",
+     "Better numerical methods and their errors"
     ]
    },
    {
@@ -1188,6 +1764,10 @@
      "Alternating series, absolute convergence, ratio and root tests",
      "Power series",
      "Taylor and Maclaurin series"
+    ],
+    "honors": [
+     "Computing with series: π, e and logarithms",
+     "Complex power series and Euler's formula"
     ]
    },
    {
@@ -1195,7 +1775,22 @@
     "lessons": [
      "Calculus with parametric curves",
      "Calculus in polar coordinates"
+    ],
+    "honors": [
+     "Surfaces from parametric curves, and the fastest slide",
+     "Conics in polar form and Kepler's laws"
     ]
+   },
+   {
+    "title": "Honors: Toward analysis",
+    "lessons": [],
+    "honors": [
+     "Sequence limits, precisely",
+     "Completeness: the real line has no gaps",
+     "Why the big theorems are true",
+     "What makes a function integrable"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -1205,7 +1800,7 @@
   "order": 8,
   "title": "Multivariable Calculus",
   "description": "A complete college Calculus III course. It opens with a bridge from single-variable calculus, then builds vectors and the geometry of space, vector functions and motion, partial derivatives and the gradient, optimization with Lagrange multipliers and least squares fitting, double and triple integrals in every coordinate system, change of variables, and finishes with vector fields, line and surface integrals, and the theorems of Green, Stokes and Gauss with their uses in physics.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "College"
@@ -1214,9 +1809,10 @@
    "Course"
   ],
   "lessons": 38,
-  "questions": 443,
-  "cards": 196,
-  "drills": 76,
+  "honors": 23,
+  "questions": 953,
+  "cards": 417,
+  "drills": 131,
   "lessonIds": [
    "mv-bridge",
    "mv-vectors",
@@ -1257,6 +1853,34 @@
    "mv-divergence",
    "mv-physics"
   ],
+  "honorsLessonIds": [
+   "mv-m1-h-distances",
+   "mv-m1-h-quadratic-forms",
+   "mv-m2-h-frenet-serret",
+   "mv-m2-h-kepler",
+   "mv-h-differentiability",
+   "mv-h-derivative-matrix",
+   "mv-h-pdes",
+   "mv-m4-h-hessian",
+   "mv-m4-h-kkt",
+   "mv-m4-h-numerical",
+   "mv-m5-h-numerical",
+   "mv-m5-h-improper",
+   "mv-m6-h-moments-of-inertia",
+   "mv-m6-h-designing-coordinates",
+   "mv-m7-h-winding",
+   "mv-m7-h-shoelace",
+   "mv-m8-h-proofs",
+   "mv-m8-h-green-identities",
+   "mv-m8-h-vector-potentials",
+   "mv-h1-gravity",
+   "mv-h1-em-waves",
+   "mv-h1-harmonic",
+   "mv-h1-gauss-bonnet"
+  ],
+  "honorsModuleIds": [
+   "mv-h1"
+  ],
   "outline": [
    {
     "title": "Vectors and the geometry of space",
@@ -1267,6 +1891,10 @@
      "The cross product",
      "Lines and planes",
      "Cylinders and quadric surfaces"
+    ],
+    "honors": [
+     "Vector identities and distances in space",
+     "Quadratic forms: tilted conics and quadric surfaces"
     ]
    },
    {
@@ -1276,6 +1904,10 @@
      "Arc length and curvature",
      "The TNB frame and components of acceleration",
      "Motion in space and projectiles"
+    ],
+    "honors": [
+     "Torsion and the Frenet–Serret formulas",
+     "Kepler's laws from Newton's law of gravitation"
     ]
    },
    {
@@ -1287,6 +1919,11 @@
      "Tangent planes and linear approximation",
      "The chain rule",
      "Directional derivatives and the gradient"
+    ],
+    "honors": [
+     "Differentiability in depth: proofs and counterexamples",
+     "The derivative as a matrix",
+     "Partial differential equations and the chain rule"
     ]
    },
    {
@@ -1296,6 +1933,11 @@
      "Absolute extrema on closed regions",
      "Lagrange multipliers",
      "Least squares fitting"
+    ],
+    "honors": [
+     "Why the second-derivative test works: quadratic forms and the Hessian",
+     "Inequality constraints and the meaning of the multiplier",
+     "Optimization by computer: gradient descent and Newton's method"
     ]
    },
    {
@@ -1305,6 +1947,10 @@
      "Double integrals over general regions",
      "Double integrals in polar coordinates",
      "Applications: mass, centers of mass, surface area"
+    ],
+    "honors": [
+     "Approximating double integrals: midpoint, Simpson and Monte Carlo",
+     "Improper double integrals and when Fubini fails"
     ]
    },
    {
@@ -1314,6 +1960,10 @@
      "Cylindrical coordinates",
      "Spherical coordinates",
      "Change of variables and Jacobians"
+    ],
+    "honors": [
+     "Moments of inertia of solids",
+     "Designing coordinates: ellipsoids, tori and higher dimensions"
     ]
    },
    {
@@ -1323,6 +1973,10 @@
      "Line integrals",
      "Conservative fields and the fundamental theorem",
      "Green's theorem"
+    ],
+    "honors": [
+     "Holes and the winding number",
+     "Polygons, the shoelace formula and centroids"
     ]
    },
    {
@@ -1334,7 +1988,23 @@
      "Stokes' theorem",
      "The Divergence theorem",
      "Vector calculus in physics"
+    ],
+    "honors": [
+     "Proving the Divergence and Stokes theorems",
+     "Product rules, Green's identities and uniqueness",
+     "Vector potentials and the Helmholtz decomposition"
     ]
+   },
+   {
+    "title": "Honors: Vector calculus in physics and geometry",
+    "lessons": [],
+    "honors": [
+     "Gravity from Gauss's law",
+     "Light from Maxwell's equations",
+     "Harmonic functions: mean values, maxima and potential flow",
+     "Curvature of surfaces and the Gauss–Bonnet theorem"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -1344,7 +2014,7 @@
   "order": 9,
   "title": "Differential Equations",
   "description": "Ordinary differential equations from the AP-calculus bridge (slope fields, separable equations, exponential and logistic growth, Euler's method) through a full sophomore college course: first-order methods and models, autonomous equations and bifurcations, numerical methods, second-order and higher-order linear equations, vibrations and circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series solutions, and an introduction to Fourier series and the heat and wave equations.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "College"
@@ -1353,9 +2023,10 @@
    "Course"
   ],
   "lessons": 41,
-  "questions": 463,
-  "cards": 195,
-  "drills": 86,
+  "honors": 28,
+  "questions": 1051,
+  "cards": 467,
+  "drills": 152,
   "lessonIds": [
    "de-intro",
    "de-slope-fields",
@@ -1399,6 +2070,39 @@
    "de-heat-wave",
    "de-heat-boundary"
   ],
+  "honorsLessonIds": [
+   "de-m1-h-orthogonal",
+   "de-m1-h-beyond-logistic",
+   "de-m2-h-picard",
+   "de-m2-h-gronwall",
+   "de-m2-h-riccati",
+   "de-m3-h-quadratic-drag",
+   "de-m3-h-drug-dosing",
+   "de-m4-h-harvesting",
+   "de-m4-h-stiff",
+   "de-m4-h-adaptive",
+   "de-m5-h-wronskian",
+   "de-m5-h-sturm",
+   "de-m6-h-annihilators",
+   "de-m6-h-quality-factor",
+   "de-m6-h-beams",
+   "de-m7-h-periodic",
+   "de-m7-h-s-rules",
+   "de-m7-h-poles",
+   "de-m8-h-coupled-oscillators",
+   "de-m8-h-larger-systems",
+   "de-m8-h-lyapunov",
+   "de-m9-h-frobenius",
+   "de-m9-h-laplace",
+   "de-m9-h-dalembert",
+   "de-h1-limit-cycles",
+   "de-h1-hopf",
+   "de-h1-logistic-map",
+   "de-h1-lorenz"
+  ],
+  "honorsModuleIds": [
+   "de-h1"
+  ],
   "outline": [
    {
     "title": "Bridge: differential equations at the AP level",
@@ -1408,6 +2112,10 @@
      "Separable equations",
      "Exponential and logistic growth",
      "Euler's method"
+    ],
+    "honors": [
+     "Families of curves and orthogonal trajectories",
+     "Beyond the logistic: epidemics, data and the Gompertz curve"
     ]
    },
    {
@@ -1418,6 +2126,11 @@
      "Linear first-order equations",
      "Exact equations",
      "Bernoulli and homogeneous equations"
+    ],
+    "honors": [
+     "Picard iteration: where existence comes from",
+     "Grönwall's inequality and continuous dependence",
+     "Riccati and Clairaut equations"
     ]
    },
    {
@@ -1426,6 +2139,10 @@
      "Growth, decay, interest and cooling",
      "Mixing problems",
      "Falling objects and RL/RC circuits"
+    ],
+    "honors": [
+     "Quadratic drag in depth",
+     "Drug dosing and compartment models"
     ]
    },
    {
@@ -1435,6 +2152,11 @@
      "Population models and bifurcations",
      "Error and the improved Euler method",
      "Runge–Kutta methods"
+    ],
+    "honors": [
+     "Harvesting policies and resilience",
+     "Stiff equations and implicit methods",
+     "Error estimates and adaptive step size"
     ]
    },
    {
@@ -1444,6 +2166,10 @@
      "Constant coefficients: real roots",
      "Constant coefficients: complex roots",
      "Reduction of order"
+    ],
+    "honors": [
+     "Inside the Wronskian: Abel's formula and the space of solutions",
+     "Zeros of solutions: Sturm's theorems"
     ]
    },
    {
@@ -1455,6 +2181,11 @@
      "Forced vibrations, resonance and RLC circuits",
      "Sinusoidal response with complex exponentials",
      "Higher-order linear equations"
+    ],
+    "honors": [
+     "The annihilator method: where the guesses come from",
+     "How sharp is resonance? Damping ratio and the Q factor",
+     "Beams and buckling: boundary value problems"
     ]
    },
    {
@@ -1465,6 +2196,11 @@
      "Solving IVPs with Laplace transforms",
      "Step functions and the second shifting theorem",
      "Impulses and convolution"
+    ],
+    "honors": [
+     "Periodic inputs: square waves, sawtooths and rectified sines",
+     "Calculus in s: multiplying and dividing by t",
+     "Transfer functions, poles and stability"
     ]
    },
    {
@@ -1475,6 +2211,11 @@
      "Complex and repeated eigenvalues",
      "Nonhomogeneous systems and the matrix exponential",
      "Nonlinear systems and linearization"
+    ],
+    "honors": [
+     "Coupled oscillators and normal modes",
+     "Larger systems and the Routh–Hurwitz test",
+     "Lyapunov functions and the direct method"
     ]
    },
    {
@@ -1484,7 +2225,23 @@
      "Fourier series",
      "The heat and wave equations",
      "Heat flow with insulated ends and nonzero end temperatures"
+    ],
+    "honors": [
+     "The method of Frobenius and Bessel's equation",
+     "Laplace's equation: steady states in two dimensions",
+     "d'Alembert's solution: waves that travel"
     ]
+   },
+   {
+    "title": "Honors: Nonlinear dynamics and chaos",
+    "lessons": [],
+    "honors": [
+     "Limit cycles and the Poincaré–Bendixson theorem",
+     "Bifurcations in the plane and the Hopf bifurcation",
+     "From Euler's method to chaos: the logistic map",
+     "The Lorenz equations and strange attractors"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -1494,7 +2251,7 @@
   "order": 10,
   "title": "Linear Algebra",
   "description": "A first course in linear algebra, starting from high school vectors, elimination and matrix arithmetic and building through row reduction, span and independence, linear transformations, matrix algebra and factorizations, determinants, vector spaces, eigenvalues, orthogonality and least squares, symmetric matrices, quadratic forms and the singular value decomposition, with applications to networks, chemistry, graphics, Markov chains and regression.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "College"
@@ -1503,9 +2260,10 @@
    "Course"
   ],
   "lessons": 40,
-  "questions": 480,
-  "cards": 206,
-  "drills": 86,
+  "honors": 25,
+  "questions": 1029,
+  "cards": 458,
+  "drills": 147,
   "lessonIds": [
    "la-plane-vectors",
    "la-elimination",
@@ -1548,6 +2306,36 @@
    "la-pos-def",
    "la-svd"
   ],
+  "honorsLessonIds": [
+   "la-m1-h-vector-geometry",
+   "la-m1-h-leontief",
+   "la-m2-h-rref-unique",
+   "la-m2-h-iterative",
+   "la-m3-h-affine",
+   "la-m3-h-mod2",
+   "la-m4-h-lines",
+   "la-m4-h-inverses",
+   "la-m5-h-pivoting-ldu",
+   "la-m5-h-block-elimination",
+   "la-m6-h-permutation-formula",
+   "la-m6-h-determinant-geometry",
+   "la-m7-h-dimension-proofs",
+   "la-m7-h-linear-maps",
+   "la-m7-h-function-spaces",
+   "la-m8-h-cayley-hamilton",
+   "la-m8-h-jordan-form",
+   "la-m8-h-perron-frobenius",
+   "la-m9-h-inner-product-spaces",
+   "la-m9-h-householder",
+   "la-m9-h-pseudoinverse",
+   "la-h1-graphs",
+   "la-h1-pagerank",
+   "la-h1-pca",
+   "la-h1-gps"
+  ],
+  "honorsModuleIds": [
+   "la-h1"
+  ],
   "outline": [
    {
     "title": "Bridge: vectors, systems and matrices",
@@ -1555,6 +2343,10 @@
      "Vectors in the plane",
      "Solving systems by elimination",
      "Matrix arithmetic"
+    ],
+    "honors": [
+     "Honors: Proving geometry with vectors",
+     "Honors: The Leontief input–output model"
     ]
    },
    {
@@ -1564,6 +2356,10 @@
      "Row reduction and echelon forms",
      "Existence, uniqueness and the general solution",
      "Applications: networks, chemistry and curve fitting"
+    ],
+    "honors": [
+     "Honors: Why the reduced echelon form is unique",
+     "Honors: Iterative methods: Jacobi and Gauss–Seidel"
     ]
    },
    {
@@ -1573,6 +2369,10 @@
      "The matrix equation Ax = b",
      "Solution sets and parametric vector form",
      "Linear independence"
+    ],
+    "honors": [
+     "Affine and convex combinations",
+     "Linear algebra mod 2: Lights Out and error-correcting codes"
     ]
    },
    {
@@ -1581,6 +2381,10 @@
      "Linear transformations",
      "The standard matrix and geometric transformations",
      "One-to-one and onto"
+    ],
+    "honors": [
+     "Projections, reflections and rotations through any line",
+     "Preimages and one-sided inverses"
     ]
    },
    {
@@ -1590,6 +2394,10 @@
      "The inverse of a matrix",
      "Elementary matrices and the invertible matrix theorem",
      "LU factorization"
+    ],
+    "honors": [
+     "Row exchanges, PA = LU and the LDU factorization",
+     "Block elimination, Schur complements and rank-one updates"
     ]
    },
    {
@@ -1598,6 +2406,10 @@
      "Determinants by cofactor expansion",
      "Properties of determinants",
      "Cramer's rule, the adjugate, and area and volume"
+    ],
+    "honors": [
+     "The permutation formula and what makes a determinant",
+     "Determinants in geometry: cross products, orientation and polygon areas"
     ]
    },
    {
@@ -1608,6 +2420,11 @@
      "Bases",
      "Coordinates and change of basis",
      "Dimension and rank"
+    ],
+    "honors": [
+     "Why dimension works: exchange, extension and sums of subspaces",
+     "Matrices of linear maps between vector spaces",
+     "Spaces of functions and sequences: interpolation and linear recurrences"
     ]
    },
    {
@@ -1619,6 +2436,11 @@
      "Complex eigenvalues",
      "Discrete dynamical systems and Markov chains",
      "Systems of differential equations"
+    ],
+    "honors": [
+     "The Cayley–Hamilton theorem and the minimal polynomial",
+     "Defective matrices and the Jordan form",
+     "Population models and the Perron–Frobenius theorem"
     ]
    },
    {
@@ -1632,7 +2454,23 @@
      "Quadratic forms",
      "Positive definite matrices and Cholesky factorization",
      "The singular value decomposition"
+    ],
+    "honors": [
+     "Inner product spaces and Fourier approximation",
+     "Householder reflections and stable QR",
+     "The pseudoinverse and low-rank approximation"
     ]
+   },
+   {
+    "title": "Honors: Linear algebra at work",
+    "lessons": [],
+    "honors": [
+     "Graphs, networks and the incidence matrix",
+     "Ranking web pages: PageRank and the power method",
+     "Finding structure in data with principal components",
+     "Where am I? Trilateration, least squares and GPS"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -1642,7 +2480,7 @@
   "order": 11,
   "title": "AP Statistics",
   "description": "AP Statistics: exploring one- and two-variable data, z-scores and the normal model, correlation and regression, sampling and experimental design, probability, random variables, sampling distributions and the Central Limit Theorem, confidence intervals and significance tests for proportions and means, and chi-square tests, with AP-style four-step inference. Also covers topics the 2026–27 AP framework dropped but college intro courses still teach (geometric distribution, combining random variables, transformations, goodness of fit, slope inference), each marked with an AP scope note.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "High School"
@@ -1652,9 +2490,10 @@
    "Exam prep"
   ],
   "lessons": 39,
-  "questions": 430,
-  "cards": 214,
-  "drills": 83,
+  "honors": 27,
+  "questions": 1001,
+  "cards": 486,
+  "drills": 157,
   "lessonIds": [
    "stat-data-types",
    "stat-cat-displays",
@@ -1696,6 +2535,38 @@
    "stat-chi-two-way",
    "stat-reg-inference"
   ],
+  "honorsLessonIds": [
+   "stat-m1-h-density",
+   "stat-m1-h-robust",
+   "stat-m1-h-combining",
+   "stat-m2-h-quantile-plots",
+   "stat-m2-h-capability",
+   "stat-m3-h-least-squares",
+   "stat-m3-h-regression-mean",
+   "stat-m3-h-risk-odds",
+   "stat-m4-h-survey-estimation",
+   "stat-m4-h-factorial",
+   "stat-m4-h-causal-inference",
+   "stat-m5-h-inclusion-exclusion",
+   "stat-m5-h-bayes-odds",
+   "stat-m6-h-indicators",
+   "stat-m6-h-covariance",
+   "stat-m7-h-proportion-intervals",
+   "stat-m7-h-student-t",
+   "stat-m8-h-power-planning",
+   "stat-m8-h-equivalence",
+   "stat-m8-h-exact-tests",
+   "stat-m9-h-chi-theory",
+   "stat-m9-h-chi-followup",
+   "stat-m9-h-reg-intervals",
+   "stat-h1-resampling",
+   "stat-h1-bayesian",
+   "stat-h1-multiple-testing",
+   "stat-h1-meta-analysis"
+  ],
+  "honorsModuleIds": [
+   "stat-h1"
+  ],
   "outline": [
    {
     "title": "Exploring one-variable data",
@@ -1706,6 +2577,11 @@
      "Measures of center",
      "Measures of spread",
      "Five-number summary, outliers and boxplots"
+    ],
+    "honors": [
+     "Density histograms, bin widths and smooth curves",
+     "Robust statistics: resistance made precise",
+     "Summaries from grouped and combined data"
     ]
    },
    {
@@ -1715,6 +2591,10 @@
      "Linear transformations of data",
      "Density curves and the normal distribution",
      "Normal calculations and inverse normal"
+    ],
+    "honors": [
+     "Normal probability plots in depth",
+     "Specification limits and process capability"
     ]
    },
    {
@@ -1725,6 +2605,11 @@
      "Residuals, r² and influential points",
      "Transformations to achieve linearity",
      "Two-way tables and conditional distributions"
+    ],
+    "honors": [
+     "The mathematics of least squares",
+     "Regression to the mean: Galton, fallacies and two regression lines",
+     "Relative risk, odds ratios and adjusting for a lurking variable"
     ]
    },
    {
@@ -1733,6 +2618,11 @@
      "Sampling methods and bias",
      "Designing experiments",
      "Observational studies, confounding and scope of inference"
+    ],
+    "honors": [
+     "Estimating from complex samples",
+     "Factorial experiments and interaction",
+     "Cause and effect without an experiment"
     ]
    },
    {
@@ -1743,6 +2633,10 @@
      "Conditional probability and independence",
      "Tree diagrams and Bayes' theorem",
      "Counting: permutations and combinations"
+    ],
+    "honors": [
+     "Inclusion–exclusion, birthdays and matching",
+     "Bayes with odds: likelihood ratios and weighing evidence"
     ]
    },
    {
@@ -1752,6 +2646,10 @@
      "Transforming and combining random variables",
      "The binomial distribution",
      "The geometric distribution"
+    ],
+    "honors": [
+     "Linearity of expectation and indicator variables",
+     "Covariance: when random variables move together"
     ]
    },
    {
@@ -1762,6 +2660,10 @@
      "Confidence intervals for a proportion",
      "Confidence intervals for a mean (t procedures)",
      "Comparing two groups with confidence intervals"
+    ],
+    "honors": [
+     "Better intervals for a proportion: coverage, plus four and Wilson",
+     "Where t comes from: degrees of freedom, robustness and prediction"
     ]
    },
    {
@@ -1771,6 +2673,11 @@
      "Type I and Type II errors and power",
      "Significance tests for proportions",
      "Significance tests for means"
+    ],
+    "honors": [
+     "Planning a study: power curves and sample size",
+     "Showing that a difference is small: equivalence and non-inferiority",
+     "Exact tests: binomial, sign and signed-rank"
     ]
    },
    {
@@ -1779,7 +2686,23 @@
      "Chi-square goodness-of-fit test",
      "Chi-square tests for two-way tables",
      "Inference for the regression slope"
+    ],
+    "honors": [
+     "Where the chi-square test comes from",
+     "After the chi-square test: residuals, effect size and exact tests",
+     "Predicting with a regression line: confidence and prediction intervals"
     ]
+   },
+   {
+    "title": "Honors: Beyond the AP exam",
+    "lessons": [],
+    "honors": [
+     "Resampling: the bootstrap and permutation tests",
+     "Bayesian inference for a proportion",
+     "Many tests at once: multiple comparisons and the replication crisis",
+     "Effect sizes and meta-analysis: combining the evidence"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -1789,7 +2712,7 @@
   "order": 12,
   "title": "Probability and Statistics",
   "description": "Calculus-based probability and mathematical statistics at the college level: probability axioms, counting and Bayes' theorem, discrete and continuous random variables, moment generating functions, joint distributions, covariance and conditional expectation, the law of large numbers and the Central Limit Theorem, sampling distributions, point estimation, maximum likelihood and minimum-variance unbiased estimators, confidence intervals and the bootstrap, hypothesis testing and likelihood ratio tests, regression, ANOVA and nonparametric methods. Assumes Calculus I–II; a little multivariable calculus is used for joint densities.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Math",
   "level": [
    "College"
@@ -1798,9 +2721,10 @@
    "Course"
   ],
   "lessons": 36,
-  "questions": 459,
-  "cards": 289,
-  "drills": 105,
+  "honors": 21,
+  "questions": 940,
+  "cards": 499,
+  "drills": 160,
   "lessonIds": [
    "ps-axioms",
    "ps-counting",
@@ -1839,6 +2763,32 @@
    "ps-anova",
    "ps-nonparametric"
   ],
+  "honorsLessonIds": [
+   "ps-m1-h-first-step",
+   "ps-m1-h-paradoxes",
+   "ps-m2-h-pgf-branching",
+   "ps-m2-h-poisson-paradigm",
+   "ps-m3-h-hazard-weibull",
+   "ps-m3-h-mixed-distributions",
+   "ps-m4-h-multivariate-normal",
+   "ps-m4-h-ranges-spacings",
+   "ps-m5-h-chernoff-hoeffding",
+   "ps-m5-h-convergence-slutsky",
+   "ps-m6-h-numerical-mle",
+   "ps-m6-h-decision-shrinkage",
+   "ps-m6-h-proportion-intervals",
+   "ps-m7-h-wald-score-lrt",
+   "ps-m7-h-sprt",
+   "ps-m8-h-multiple-regression",
+   "ps-m8-h-two-way-anova",
+   "ps-h1-james-stein",
+   "ps-h1-ridge-lasso",
+   "ps-h1-multiple-testing",
+   "ps-h1-mcmc"
+  ],
+  "honorsModuleIds": [
+   "ps-h1"
+  ],
   "outline": [
    {
     "title": "Probability foundations",
@@ -1847,6 +2797,10 @@
      "Counting and equally likely outcomes",
      "Conditional probability and Bayes' theorem",
      "Independence"
+    ],
+    "honors": [
+     "Honors: First-step analysis and the gambler's ruin",
+     "Honors: Paradoxes of conditioning"
     ]
    },
    {
@@ -1857,6 +2811,10 @@
      "Geometric and negative binomial distributions",
      "The Poisson distribution",
      "Moment generating functions"
+    ],
+    "honors": [
+     "Probability generating functions and branching processes",
+     "The Poisson paradigm and the law of small numbers"
     ]
    },
    {
@@ -1867,6 +2825,10 @@
      "The normal distribution",
      "The gamma and beta distributions",
      "Functions of a random variable"
+    ],
+    "honors": [
+     "Hazard functions and the Weibull distribution",
+     "Mixed distributions, censoring and the general quantile function"
     ]
    },
    {
@@ -1878,6 +2840,10 @@
      "Sums of independent random variables",
      "Conditional expectation and the laws of total expectation and variance",
      "The bivariate normal distribution and order statistics"
+    ],
+    "honors": [
+     "Covariance matrices and the multivariate normal distribution",
+     "Joint order statistics: ranges and spacings"
     ]
    },
    {
@@ -1885,6 +2851,10 @@
     "lessons": [
      "Markov and Chebyshev inequalities and the law of large numbers",
      "The Central Limit Theorem"
+    ],
+    "honors": [
+     "Exponential tail bounds: Chernoff and Hoeffding",
+     "Modes of convergence and Slutsky's theorem"
     ]
    },
    {
@@ -1897,6 +2867,11 @@
      "Confidence intervals from pivotal quantities",
      "The bootstrap and resampling",
      "Introduction to Bayesian inference"
+    ],
+    "honors": [
+     "Fisher information at work: numerical MLEs and standard errors",
+     "Loss, risk and admissibility: decision theory for estimators",
+     "Intervals for a proportion: coverage under the microscope"
     ]
    },
    {
@@ -1906,6 +2881,10 @@
      "Tests for means and variances of normal samples",
      "Most powerful tests and likelihood ratio tests",
      "Tests for proportions and chi-square tests"
+    ],
+    "honors": [
+     "Wald, score and likelihood ratio tests",
+     "Sequential testing: Wald's probability ratio test"
     ]
    },
    {
@@ -1914,7 +2893,22 @@
      "Simple linear regression",
      "One-way analysis of variance",
      "Nonparametric methods"
+    ],
+    "honors": [
+     "Honors: Multiple regression in matrix form",
+     "Honors: Blocking and two-way ANOVA"
     ]
+   },
+   {
+    "title": "Honors: Modern statistical methods",
+    "lessons": [],
+    "honors": [
+     "Shrinkage, empirical Bayes and Stein's paradox",
+     "Ridge regression, the lasso and cross-validation",
+     "Multiple testing and the false discovery rate",
+     "Markov chain Monte Carlo"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -1924,7 +2918,7 @@
   "order": 13,
   "title": "Physics",
   "description": "Algebra-based physics at the high school / AP Physics 1 and 2 level (no calculus): measurement and vectors, kinematics, Newton's laws, energy and momentum, rotation and gravitation, oscillations, waves and sound, fluids and thermodynamics, electrostatics, circuits, magnetism and induction, optics, and modern physics. For the calculus-based versions, see University Physics I and II.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Science",
   "level": [
    "High School"
@@ -1934,9 +2928,10 @@
    "Exam prep"
   ],
   "lessons": 49,
-  "questions": 558,
-  "cards": 274,
-  "drills": 144,
+  "honors": 33,
+  "questions": 1266,
+  "cards": 583,
+  "drills": 236,
   "lessonIds": [
    "phys-measurement",
    "phys-vectors",
@@ -1988,12 +2983,54 @@
    "phys-atomic",
    "phys-nuclear"
   ],
+  "honorsLessonIds": [
+   "phys-m1-h-uncertainty",
+   "phys-m1-h-vector-algebra",
+   "phys-m2-h-chases",
+   "phys-m2-h-aiming",
+   "phys-m2-h-galileo",
+   "phys-m3-h-friction-systems",
+   "phys-m3-h-accelerating-frames",
+   "phys-m4-h-rockets",
+   "phys-m4-h-restitution",
+   "phys-m5-h-rolling-dynamics",
+   "phys-m5-h-structures",
+   "phys-m5-h-orbits",
+   "phys-m6-h-damped-driven",
+   "phys-m6-h-harmonics-music",
+   "phys-m6-h-impedance-ultrasound",
+   "phys-m7-h-real-fluids",
+   "phys-m7-h-engine-cycles",
+   "phys-m7-h-radiation-balance",
+   "phys-m8-h-dipoles",
+   "phys-m8-h-millikan",
+   "phys-m8-h-breakdown",
+   "phys-m9-h-network-analysis",
+   "phys-m9-h-conduction",
+   "phys-m10-h-particles",
+   "phys-m10-h-ac-power",
+   "phys-m11-h-polarization",
+   "phys-m11-h-interferometry",
+   "phys-m12-h-spacetime",
+   "phys-m12-h-nuclear-energy",
+   "phys-h1-gravity",
+   "phys-h1-particles",
+   "phys-h1-cosmology",
+   "phys-h1-climate"
+  ],
+  "honorsModuleIds": [
+   "phys-h1"
+  ],
   "outline": [
    {
     "title": "Measurement and vectors",
     "lessons": [
      "Measurement, units, and significant figures",
      "Vectors"
+    ],
+    "honors": [
+     "Measurement uncertainty and error propagation",
+     "Vector algebra in three dimensions"
     ]
    },
    {
@@ -2003,6 +3040,11 @@
      "Constant acceleration and free fall",
      "Projectile motion",
      "Motion in two dimensions and relative motion"
+    ],
+    "honors": [
+     "Two moving objects: chases, meetings and stopping distances",
+     "Aiming a projectile: targets, slopes and the best angle",
+     "How we know: Galileo, falling bodies and measuring g"
     ]
    },
    {
@@ -2012,6 +3054,10 @@
      "Friction and inclined planes",
      "Tension, pulleys, and connected objects",
      "Uniform circular motion"
+    ],
+    "honors": [
+     "Friction in systems of objects",
+     "Accelerating frames and fictitious forces"
     ]
    },
    {
@@ -2021,6 +3067,10 @@
      "Potential energy, conservation of energy, and power",
      "Momentum, impulse, and center of mass",
      "Collisions"
+    ],
+    "honors": [
+     "Honors: Rockets and variable-mass systems",
+     "Honors: Restitution, bouncing, and gravity assists"
     ]
    },
    {
@@ -2032,6 +3082,11 @@
      "Static equilibrium",
      "Elasticity",
      "Gravitation and orbits"
+    ],
+    "honors": [
+     "Honors: Rolling with friction, angular impulse and precession",
+     "Honors: Trusses, ladders and tipping",
+     "Honors: Elliptical orbits, transfers and weighing the heavens"
     ]
    },
    {
@@ -2040,6 +3095,11 @@
      "Simple harmonic motion",
      "Waves and superposition",
      "Sound"
+    ],
+    "honors": [
+     "Damped and driven oscillators",
+     "Harmonics, timbre, and musical scales",
+     "Wave reflection, impedance, and ultrasound imaging"
     ]
    },
    {
@@ -2051,6 +3111,11 @@
      "Ideal gases and kinetic theory",
      "The first law of thermodynamics",
      "Heat engines, entropy, and the second law"
+    ],
+    "honors": [
+     "Real fluids: viscosity, drag, and surface tension",
+     "Engine cycles: Otto, Diesel, and the refrigerator",
+     "Insulation, radiation, and a planet's temperature"
     ]
    },
    {
@@ -2061,6 +3126,11 @@
      "Gauss's law",
      "Electric potential and potential energy",
      "Capacitance and dielectrics"
+    ],
+    "honors": [
+     "Honors: Electric dipoles and polar molecules",
+     "Honors: Weighing the electron's charge: the oil-drop experiment",
+     "Honors: Sharp points, sparks and lightning"
     ]
    },
    {
@@ -2069,6 +3139,10 @@
      "Current, resistance, and power",
      "DC circuits and Kirchhoff's rules",
      "RC circuits"
+    ],
+    "honors": [
+     "Honors: Dividers, bridges and equivalent circuits",
+     "Honors: Inside a conductor: metals, semiconductors and superconductors"
     ]
    },
    {
@@ -2078,6 +3152,10 @@
      "Sources of magnetic fields",
      "Electromagnetic induction",
      "Inductance, RL and LC circuits, and AC"
+    ],
+    "honors": [
+     "Honors: Charged particles at work: helices, cyclotrons, e/m and the Hall effect",
+     "Honors: AC power and the grid: phase, power factor and transmission"
     ]
    },
    {
@@ -2087,6 +3165,10 @@
      "Mirrors and thin lenses",
      "The eye and optical instruments",
      "Interference and diffraction"
+    ],
+    "honors": [
+     "Honors: Polarization by reflection, scattering and birefringence",
+     "Honors: Interferometers: measuring with light waves"
     ]
    },
    {
@@ -2096,7 +3178,22 @@
      "Photons, atoms, and matter waves",
      "Atoms with many electrons, X-rays, and lasers",
      "Nuclear physics and radioactivity"
+    ],
+    "honors": [
+     "Spacetime diagrams, the interval, and the twin paradox",
+     "Nuclear reactions: Q-values, fission, fusion, and radiation dose"
     ]
+   },
+   {
+    "title": "Honors: Frontiers of physics",
+    "lessons": [],
+    "honors": [
+     "Gravity as curved spacetime: clocks, black holes and gravitational waves",
+     "Particles and forces: the Standard Model",
+     "The expanding universe: cosmology, dark matter and dark energy",
+     "Climate physics: forcing, feedbacks and sensitivity"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -2106,7 +3203,7 @@
   "order": 14,
   "title": "University Physics I",
   "description": "Calculus-based University Physics I: measurement and vectors, kinematics, Newton's laws, work and energy, momentum and collisions, rotation, gravitation, oscillations, waves and sound, fluids, and thermodynamics. Assumes Calculus I (derivatives and integrals are used throughout).",
-  "revision": 3,
+  "revision": 4,
   "subject": "Science",
   "level": [
    "College"
@@ -2115,9 +3212,10 @@
    "Course"
   ],
   "lessons": 29,
-  "questions": 319,
-  "cards": 162,
-  "drills": 86,
+  "honors": 22,
+  "questions": 771,
+  "cards": 372,
+  "drills": 138,
   "lessonIds": [
    "phys-measurement",
    "phys-vectors",
@@ -2149,12 +3247,43 @@
    "phys-first-law",
    "phys-second-law"
   ],
+  "honorsLessonIds": [
+   "phys-m1-h-uncertainty",
+   "phys-m1-h-vector-algebra",
+   "phys-m2-h-aiming",
+   "phys-m2-h-curved-paths",
+   "phys-m3-h-friction-systems",
+   "phys-m3-h-drag",
+   "phys-m3-h-noninertial",
+   "phys-m4-h-conservative-fields",
+   "phys-m4-h-mass-flow",
+   "phys-m4-h-cm-frame",
+   "phys-m5-h-skidding",
+   "phys-m5-h-gyroscopes",
+   "phys-m5-h-tides",
+   "phys-m6-h-fourier",
+   "phys-m6-h-normal-modes",
+   "phys-m7-h-engine-cycles",
+   "phys-m7-h-statistical-entropy",
+   "phys-m7-h-viscous-flow",
+   "phys-h1-lagrangian",
+   "phys-h1-symmetry",
+   "phys-h1-kepler",
+   "phys-h1-maneuvers"
+  ],
+  "honorsModuleIds": [
+   "phys-h1"
+  ],
   "outline": [
    {
     "title": "Measurement and vectors",
     "lessons": [
      "Measurement, units, and significant figures",
      "Vectors"
+    ],
+    "honors": [
+     "Measurement uncertainty and error propagation",
+     "Vector algebra: projections, rotated axes and triple products"
     ]
    },
    {
@@ -2164,6 +3293,10 @@
      "Constant acceleration and free fall",
      "Projectile motion",
      "Motion in two dimensions and relative motion"
+    ],
+    "honors": [
+     "Aiming a projectile: targets, slopes and the safety parabola",
+     "Curved paths: tangential and normal acceleration"
     ]
    },
    {
@@ -2173,6 +3306,11 @@
      "Friction and inclined planes",
      "Tension, pulleys, and connected objects",
      "Uniform circular motion"
+    ],
+    "honors": [
+     "Friction in systems: stacked blocks, best angles and the capstan",
+     "Drag: linear, quadratic and the Reynolds number",
+     "Accelerating frames and fictitious forces"
     ]
    },
    {
@@ -2182,6 +3320,11 @@
      "Potential energy, conservation of energy, and power",
      "Momentum, impulse, and center of mass",
      "Collisions"
+    ],
+    "honors": [
+     "Conservative force fields in two and three dimensions",
+     "Systems with mass flowing in or out: rockets in gravity, belts, jets, and chains",
+     "Collisions in the center-of-mass frame"
     ]
    },
    {
@@ -2192,6 +3335,11 @@
      "Rolling and angular momentum",
      "Static equilibrium",
      "Gravitation and orbits"
+    ],
+    "honors": [
+     "Skidding, rolling and the sweet spot",
+     "Gyroscopes, precession and unbalanced spin",
+     "The shell theorem, gravity inside a planet, and tides"
     ]
    },
    {
@@ -2201,6 +3349,10 @@
      "Damped and driven oscillations",
      "Waves and superposition",
      "Sound"
+    ],
+    "honors": [
+     "Fourier analysis: harmonics and spectra",
+     "Coupled oscillators and normal modes"
     ]
    },
    {
@@ -2212,7 +3364,23 @@
      "Ideal gases and kinetic theory",
      "The first law of thermodynamics",
      "Heat engines, entropy, and the second law"
+    ],
+    "honors": [
+     "Real engine cycles: Otto, Diesel and Brayton",
+     "Counting microstates: the statistical meaning of entropy",
+     "Viscous flow, Stokes drag and the Reynolds number"
     ]
+   },
+   {
+    "title": "Honors: Analytical mechanics and orbits",
+    "lessons": [],
+    "honors": [
+     "Lagrangian mechanics",
+     "Symmetry, conservation laws and the Hamiltonian",
+     "Central forces and the Kepler problem",
+     "Orbital maneuvers and transfers"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -2222,7 +3390,7 @@
   "order": 15,
   "title": "University Physics II",
   "description": "Calculus-based University Physics II: electric charge and fields, Gauss's law, electric potential, capacitance, current and DC circuits, RC circuits, magnetic forces and fields, induction, inductance and AC circuits, electromagnetic waves and optics, interference and diffraction, and an introduction to relativity, quantum and nuclear physics. Assumes University Physics I and Calculus II.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Science",
   "level": [
    "College"
@@ -2231,9 +3399,10 @@
    "Course"
   ],
   "lessons": 23,
-  "questions": 261,
-  "cards": 128,
-  "drills": 66,
+  "honors": 18,
+  "questions": 630,
+  "cards": 296,
+  "drills": 107,
   "lessonIds": [
    "phys-coulomb",
    "phys-efield",
@@ -2259,6 +3428,29 @@
    "phys-blackbody-compton",
    "phys-nuclear"
   ],
+  "honorsLessonIds": [
+   "phys-m8-h-images",
+   "phys-m8-h-dielectrics",
+   "phys-m8-h-energy",
+   "phys-m9-h-network-methods",
+   "phys-m9-h-transients",
+   "phys-m10-h-field-calculations",
+   "phys-m10-h-induced-fields",
+   "phys-m10-h-driven-rlc",
+   "phys-h-interferometers",
+   "phys-h-gratings-xray",
+   "phys-h-ray-matrices",
+   "phys-m12-h-spacetime",
+   "phys-m12-h-tunneling",
+   "phys-m12-h-liquid-drop",
+   "phys-h2-maxwell",
+   "phys-h2-fields-relativity",
+   "phys-h2-radiation",
+   "phys-h2-four-momentum"
+  ],
+  "honorsModuleIds": [
+   "phys-h2"
+  ],
   "outline": [
    {
     "title": "Electrostatics",
@@ -2269,6 +3461,11 @@
      "Electric potential and potential energy",
      "Electric dipoles",
      "Capacitance and dielectrics"
+    ],
+    "honors": [
+     "Laplace's equation and the method of images",
+     "Dielectrics in depth",
+     "Electrostatic energy and forces on conductors"
     ]
    },
    {
@@ -2277,6 +3474,10 @@
      "Current, resistance, and power",
      "DC circuits and Kirchhoff's rules",
      "RC circuits"
+    ],
+    "honors": [
+     "Honors: Node voltages, Thévenin and Norton, bridges and ladders",
+     "Honors: Transients, oscillators and filters"
     ]
    },
    {
@@ -2287,6 +3488,11 @@
      "The Hall effect and magnetism in matter",
      "Electromagnetic induction",
      "Inductance, RL and LC circuits, and AC"
+    ],
+    "honors": [
+     "Field calculations: loops, coils and magnetic dipoles",
+     "Induced electric fields, magnetic braking and back emf",
+     "Driven RLC circuits: phasors, resonance and Q"
     ]
    },
    {
@@ -2297,6 +3503,11 @@
      "Mirrors and thin lenses",
      "Refraction at curved surfaces and optical instruments",
      "Interference and diffraction"
+    ],
+    "honors": [
+     "Interferometers: measuring with light waves",
+     "Grating spectrometers and X-ray diffraction",
+     "Ray matrices, lens systems and aberrations"
     ]
    },
    {
@@ -2306,7 +3517,23 @@
      "Photons, atoms, and matter waves",
      "Blackbody radiation and the Compton effect",
      "Nuclear physics and radioactivity"
+    ],
+    "honors": [
+     "Spacetime diagrams, the twin paradox and the relativistic Doppler effect",
+     "Quantum tunneling",
+     "Q-values and the liquid-drop model of the nucleus"
     ]
+   },
+   {
+    "title": "Honors: Maxwell, relativity and quanta",
+    "lessons": [],
+    "honors": [
+     "Maxwell's equations in differential form",
+     "Electric and magnetic fields in relativity",
+     "Radiation from accelerating charges and the classical atom",
+     "Photons as relativistic particles: invariant mass and thresholds"
+    ],
+    "isHonors": true
    }
   ]
  },
@@ -2316,7 +3543,7 @@
   "order": 16,
   "title": "Biology",
   "description": "High school biology for one full credit, written for learners studying on their own: the chemistry of life, cells and membranes, photosynthesis and respiration, cell division, Mendelian and molecular genetics, biotechnology, evolution and population genetics, the diversity of life, human body systems and homeostasis, and ecology, with the math biologists use (probability, Hardy-Weinberg, chi-square, population growth). Optional honors material goes further: 22 honors lessons inside the modules and three honors modules (research and biostatistics; development, stem cells and the genome; behavior, disease and conservation).",
-  "revision": 2,
+  "revision": 3,
   "subject": "Science",
   "level": [
    "High School"
@@ -2586,7 +3813,7 @@
   "order": 100,
   "title": "German A1",
   "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, and a reading list points to graded readers you can try on your own.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Languages",
   "level": [
    "High School",
@@ -2749,7 +3976,7 @@
   "order": 101,
   "title": "German A2",
   "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -2916,7 +4143,7 @@
   "order": 102,
   "title": "German B1",
   "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Unlocks when German A2 is complete.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",

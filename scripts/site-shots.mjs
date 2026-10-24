@@ -7,7 +7,8 @@
 //   VITE_COMMUNITY_API=http://localhost:8787 npx vite --port 5182
 //   node scripts/site-shots.mjs [out dir]   (default public/shots)
 // PLAYWRIGHT_MODULE overrides where Playwright is found.
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import fs from "node:fs";
 
 const OUT = process.argv[2] || "public/shots";

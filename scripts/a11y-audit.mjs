@@ -2,7 +2,8 @@
 // and reports horizontal overflow (reflow). Needs the dev server (npx vite --port 5179) and Playwright.
 //   node scripts/a11y-audit.mjs [light|dark] [viewport width]
 // PLAYWRIGHT_MODULE / CHROMIUM_PATH override where Playwright and Chromium are found.
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import fs from "node:fs";
 const axeSrc = fs.readFileSync(new URL("../node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
 const scheme = process.argv[2] || "light";

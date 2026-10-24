@@ -3,7 +3,8 @@
 // drawn. Then opens a few lesson quizzes and audits each question shown.
 //   npx vite --port 5182
 //   node scripts/course-audit.mjs "Biology" [light|dark] [width] [quizzes=4] [from] [to]
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import fs from "node:fs";
 const axeSrc = fs.readFileSync(new URL("../node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
 const title = process.argv[2];

@@ -1,6 +1,7 @@
 // End-to-end check of the homeschool features in a browser (VITE_HOMESCHOOL=1 npx vite --port 5181),
 // with an axe audit of each new screen. node scripts/homeschool-walkthrough.mjs [light|dark] [width] [shots dir]
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import fs from "node:fs";
 const axeSrc = fs.readFileSync(new URL("../node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
 const scheme = process.argv[2] || "light";

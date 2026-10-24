@@ -2,7 +2,8 @@
 // their browsers. Needs the API (cd worker && npm run dev) and
 //   VITE_HOMESCHOOL=1 VITE_COMMUNITY_API=http://localhost:8787 npx vite --port 5181
 //   node scripts/live-walkthrough.mjs [light|dark] [width] [shots dir]
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import fs from "node:fs";
 const axeSrc = fs.readFileSync(new URL("../node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
 const scheme = process.argv[2] || "light";
