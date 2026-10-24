@@ -139,11 +139,11 @@ This chart shows how to choose.
 ```mermaid
 flowchart TD
   accTitle: Choosing a method for a vector line integral
-  accDescr: First test whether F is conservative, with P sub y equal to Q sub x on a simply connected region, or curl F equal to zero in space. If it is, find a potential f; the integral is f at the end minus f at the start, which is zero for a closed curve. If it is not conservative, ask whether C is a closed curve in the plane with F smooth, that is with continuous partial derivatives, everywhere inside. If so, use Green's theorem, the double integral of Q sub x minus P sub y. Otherwise, parametrize C and integrate F of r of t dotted with r prime of t.
+  accDescr: First test whether F is conservative, with P sub y equal to Q sub x on a simply connected region, or curl F equal to zero in space. If it is, find a potential f; the integral is f at the end minus f at the start, which is zero for a closed curve. If it is not conservative, ask whether C is a simple closed curve in the plane with F smooth, that is with continuous partial derivatives, everywhere inside. If so, use Green's theorem, the double integral of Q sub x minus P sub y. Otherwise, parametrize C and integrate F of r of t dotted with r prime of t.
   T{"Is F conservative? (Py = Qx on a simply connected region; curl F = 0 in 3D)"}
   T -- yes --> Pot["Find a potential f"]
   Pot --> FT["Integral = f(end) − f(start); 0 for a closed curve"]
-  T -- no --> Cl{"Is C a closed plane curve, with F smooth everywhere inside?"}
+  T -- no --> Cl{"Is C a simple closed plane curve, with F smooth everywhere inside?"}
   Cl -- yes --> Gr["Green's theorem: double integral of Qx − Py"]
   Cl -- no --> Par["Parametrize C and integrate F(r(t)) · r′(t)"]
 ```

@@ -24,7 +24,7 @@ To add $\vec A + \vec B$, place the tail of $\vec B$ at the head of $\vec A$; th
 Subtraction looks like this: to find $\vec A - \vec B$, flip $\vec B$ and add it tip to tail.
 
 ```shape
-{"segments": [{"from": [0, 0], "to": [4, 0], "arrow": true, "label": "A"}, {"from": [4, 0], "to": [4, -3], "arrow": true, "label": "−B"}, {"from": [0, 0], "to": [4, -3], "arrow": true, "dashed": true, "label": "A − B"}], "caption": "Subtracting: with A = 4 units east and B = 3 units north, add −B (3 units south); A − B is 5 units long, pointing south of east"}
+{"segments": [{"from": [0, 0], "to": [4, 0], "arrow": true, "label": "A"}, {"from": [4, 0], "to": [4, -3], "arrow": true, "label": "−B"}, {"from": [0, 0], "to": [4, -3], "arrow": true, "dashed": true}], "labels": [{"at": [1.55, -1.95], "text": "A − B"}], "caption": "Subtracting: with A = 4 units east and B = 3 units north, add −B (3 units south); A − B is 5 units long, pointing south of east"}
 ```
 
 Multiplying a vector by a scalar $c$ stretches it by $|c|$, and a negative $c$ also reverses it.

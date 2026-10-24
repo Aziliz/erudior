@@ -80,7 +80,7 @@ outside, and the last edge gave $-2$: the triangle $O$, $(0, 2)$, $(1, 0)$ lies 
 quadrilateral and is subtracted.
 
 ```plot
-{"x": [-0.5, 4.5], "y": [-0.5, 4.5], "equal": true, "polygons": [{"points": [[1, 0], [4, 1], [3, 4], [0, 2]]}, {"points": [[0, 0], [4, 1], [3, 4]], "fill": true}, {"points": [[0, 0], [0, 2], [1, 0]], "fill": true}], "points": [{"at": [0, 0], "label": "O"}, {"at": [1, 0], "label": "(1, 0)"}, {"at": [4, 1], "label": "(4, 1)"}, {"at": [3, 4], "label": "(3, 4)"}, {"at": [0, 2], "label": "(0, 2)"}], "caption": "Two fan triangles from O: the large one (signed area 6.5) adds, the small one at the lower left (signed area −1) is subtracted"}
+{"x": [-1, 4.5], "y": [-0.9, 4.5], "equal": true, "polygons": [{"points": [[1, 0], [4, 1], [3, 4], [0, 2]]}, {"points": [[0, 0], [4, 1], [3, 4]], "fill": true}, {"points": [[0, 0], [0, 2], [1, 0]], "fill": true}], "points": [{"at": [0, 0]}, {"at": [1, 0]}, {"at": [4, 1], "label": "(4, 1)"}, {"at": [3, 4], "label": "(3, 4)"}, {"at": [0, 2]}], "labels": [{"at": [-0.25, 0.12], "text": "O"}, {"at": [-0.55, 1.95], "text": "(0, 2)"}, {"at": [1.3, -0.65], "text": "(1, 0)"}], "caption": "Two fan triangles from O: the large one (signed area 6.5) adds, the small one at the lower left (signed area −1) is subtracted"}
 ```
 
 ## Orientation, and when the formula misleads
