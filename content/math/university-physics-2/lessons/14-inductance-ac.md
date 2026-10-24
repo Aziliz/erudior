@@ -50,7 +50,7 @@ Connect an inductor $L$ in series with a resistor $R$ and a battery $\mathcal{E}
 $$I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau}\right), \qquad \tau = \frac LR.$$
 
 ```plot
-{"x": [0, 5], "y": [0, 1.15], "functions": [{"f": "1 - exp(-x)", "label": "I / (ℰ/R)"}, {"f": "1", "dashed": true}], "points": [{"at": [1, 0.632], "label": "63% at t = τ"}], "xLabel": "t / τ", "yLabel": "I / (ℰ/R)", "caption": "Current rising in an RL circuit: 63% of the final value after one time constant, over 99% after five"}
+{"x": [0, 5], "y": [0, 1.15], "functions": [{"f": "1 - exp(-x)"}, {"f": "1", "dashed": true}], "points": [{"at": [1, 0.632]}], "labels": [{"at": [1.75, 0.55], "text": "63% at t = τ"}, {"at": [3.5, 1.07], "text": "final value ℰ/R"}], "xLabel": "t / τ", "yLabel": "I / (ℰ/R)", "caption": "Current rising in an RL circuit: 63% of the final value after one time constant, over 99% after five"}
 ```
 
 The time constant $L/R$ plays the same role as $RC$. If the battery is then removed (with a path left for the current), the current decays as $I = I_0e^{-t/\tau}$. An inductor acts like an open circuit at the instant of switching on and like a plain wire once the current is steady, the opposite of a capacitor.
@@ -104,13 +104,14 @@ $$X_C = \frac{1}{\omega C}, \qquad X_L = \omega L.$$
 A capacitor blocks low frequencies and passes high ones; an inductor does the reverse.
 
 ```plot
-{"x": [0, 3], "y": [0, 4], "functions": [{"f": "x", "label": "X_L = ωL"}, {"f": "1/x", "dashed": true, "label": "X_C = 1/(ωC)"}], "points": [{"at": [1, 1], "label": "resonance: X_L = X_C"}], "xLabel": "ω / ω₀", "yLabel": "reactance / √(L/C)", "caption": "Inductive reactance rises with frequency and capacitive reactance falls; they are equal at the resonant frequency"}
+{"x": [0, 3], "y": [0, 4], "functions": [{"f": "x"}, {"f": "1/x", "dashed": true}], "points": [{"at": [1, 1]}], "labels": [{"at": [1.5, 2.1], "text": "X_L = ωL"}, {"at": [0.85, 3.0], "text": "X_C = 1/(ωC)"}, {"at": [2.0, 0.95], "text": "resonance: X_L = X_C"}], "xLabel": "ω / ω₀", "yLabel": "reactance / √(L/C)", "caption": "Inductive reactance rises with frequency and capacitive reactance falls; they are equal at the resonant frequency"}
 ```
 
 The picture shows the series RLC circuit that the rest of this section analyzes.
 
 ![A series circuit: an AC source, a resistor R, an inductor L and a capacitor C connected in one loop](images/phys-m10-rlc.svg)
- In a series RLC circuit the total opposition, the **impedance**, is
+
+In a series RLC circuit the total opposition, the **impedance**, is
 
 $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I_{\text{rms}} = \frac{V_{\text{rms}}}{Z}.$$
 

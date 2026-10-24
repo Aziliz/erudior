@@ -21,7 +21,7 @@ $$I \propto \left(\frac{\sin(N\phi/2)}{\sin(\phi/2)}\right)^2.$$
 The principal maxima are at $\phi = 2\pi m$, where all $N$ phasors line up and the intensity is $N^2$ times that of one slit. Move away from a maximum and the phasors start to curl. When $\phi$ has changed by $2\pi/N$, the $N$ phasors close into a full polygon and add to zero: that is the first dark point beside the maximum. The more slits, the smaller this change, so the narrower the line.
 
 ```plot
-{"x": [-1.5, 1.5], "y": [0, 1.15], "functions": [{"f": "(sin(2*pi*(x + 0.0001))/(2*sin(pi*(x + 0.0001))))^2", "dashed": true, "label": "N = 2"}, {"f": "(sin(8*pi*(x + 0.0001))/(8*sin(pi*(x + 0.0001))))^2", "label": "N = 8"}], "xLabel": "phase difference φ / 2π (the order m)", "yLabel": "intensity / peak", "caption": "Two slits give broad fringes; eight slits with the same spacing put the light into much narrower principal maxima at the same angles"}
+{"x": [0.5, 3.5], "y": [0, 1.15], "functions": [{"f": "(sin(2*pi*(x + 0.0001))/(2*sin(pi*(x + 0.0001))))^2", "dashed": true}, {"f": "(sin(8*pi*(x + 0.0001))/(8*sin(pi*(x + 0.0001))))^2"}], "xLabel": "m", "yLabel": "intensity / peak", "caption": "Dashed: two slits (N = 2) give broad fringes. Solid: eight slits (N = 8) with the same spacing put the light into much narrower principal maxima at the same places. Horizontal axis: the phase difference φ divided by 2π, which equals the order m at each principal maximum."}
 ```
 
 To turn a phase change into an angle, differentiate $\phi$: $\Delta\phi = \dfrac{2\pi}{\lambda}d\cos\theta\,\Delta\theta$. Setting $\Delta\phi = 2\pi/N$ gives the angular half-width of a line,

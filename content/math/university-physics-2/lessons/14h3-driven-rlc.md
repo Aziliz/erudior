@@ -73,7 +73,7 @@ $$\frac{P}{P_{\max}} = \frac{1}{1 + Q^2\left(\dfrac{\omega}{\omega_0} - \dfrac{\
 The shape of the resonance depends only on $Q$. A large $Q$ means a tall, narrow peak.
 
 ```plot
-{"x": [0.4, 1.8], "y": [0, 1.1], "functions": [{"f": "1/(1 + 4*(x - 1/x)^2)", "dashed": true, "label": "Q = 2"}, {"f": "1/(1 + 64*(x - 1/x)^2)", "label": "Q = 8"}], "xLabel": "ω / ω₀", "yLabel": "P / P_max", "caption": "Resonance curves of average power for two quality factors. The higher-Q circuit has a much narrower peak"}
+{"x": [0.4, 1.8], "y": [0, 1.1], "functions": [{"f": "1/(1 + 4*(x - 1/x)^2)", "dashed": true}, {"f": "1/(1 + 64*(x - 1/x)^2)"}], "labels": [{"at": [1.55, 0.6], "text": "Q = 2 (dashed)"}, {"at": [1.22, 0.3], "text": "Q = 8"}], "xLabel": "ω / ω₀", "yLabel": "P / P_max", "caption": "Resonance curves of average power for two quality factors. The higher-Q circuit has a much narrower peak"}
 ```
 
 *Bandwidth.* The **half-power points** are the frequencies where $P = \tfrac12P_{\max}$, which happens when $|\omega L - 1/(\omega C)| = R$. Multiplying through by $\omega/L$ gives $\omega^2 \mp \dfrac RL\omega - \omega_0^2 = 0$, whose positive roots are $\omega_\pm = \sqrt{\left(\dfrac{R}{2L}\right)^2 + \omega_0^2} \pm \dfrac{R}{2L}$. Their difference is exactly
