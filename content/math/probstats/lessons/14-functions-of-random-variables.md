@@ -136,8 +136,8 @@ To choose a method for a new problem, this chart is a good guide.
 ```mermaid
 flowchart TD
   accTitle: Which method to use for a function of a random variable
-  accDescr: If only the mean of g of X is needed, use LOTUS. Otherwise, if X is discrete, add the pmf of X over all x with g of x equal to y. If X is continuous and g is strictly monotone on the range of X, use the change-of-variables formula. If g is not monotone there, use the cdf method and handle each branch. In every case, state the range of y at the end.
-  A{"Need only the mean E[g(X)]?"} -- "yes" --> L["LOTUS: integrate g(x) f(x)"]
+  accDescr: If only the mean of g of X is needed, use LOTUS: sum g of x times the pmf, or integrate g of x times the pdf. Otherwise, if X is discrete, add the pmf of X over all x with g of x equal to y. If X is continuous and g is strictly monotone on the range of X, use the change-of-variables formula. If g is not monotone there, use the cdf method and handle each branch. In every case, state the range of y at the end.
+  A{"Need only the mean E[g(X)]?"} -- "yes" --> L["LOTUS: sum g(x) p(x) or integrate g(x) f(x)"]
   A -- "no" --> B{"Is X discrete?"}
   B -- "yes" --> S["Add p_X(x) over all x with g(x) = y"]
   B -- "no" --> C{"Is g strictly monotone on the range of X?"}
