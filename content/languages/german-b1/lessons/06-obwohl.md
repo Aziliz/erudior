@@ -50,6 +50,21 @@ A quick test: put "and that's why" between the two facts. If it makes sense, use
 - *Ich kaufe Bio-Gemüse, weil es gesünder ist.* — healthier, that's why I buy it.
 - *Ich kaufe Bio-Gemüse, obwohl es teurer ist.* — dearer, and yet I buy it.
 
+The chart below puts the four words together. First decide whether the result is the expected one or a surprise; then decide which half of the sentence gets the connector.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing weil, deshalb, obwohl or trotzdem
+  accDescr: Start with two facts. If the result follows as expected (and that's why), put weil with the verb at the end before the reason, or deshalb with the verb straight after before the result. If the result is unexpected (and yet), put obwohl with the verb at the end before the fact, or trotzdem with the verb straight after before the result.
+  A["Two facts: one should lead to the other"] --> B{"Does the result follow as expected?"}
+  B -- "yes: and that's why" --> C{"Which half gets the word?"}
+  B -- "no: and yet" --> D{"Which half gets the word?"}
+  C -- "the reason" --> E["weil + verb at the end"]
+  C -- "the result" --> F["deshalb + verb straight after"]
+  D -- "the fact" --> G["obwohl + verb at the end"]
+  D -- "the result" --> H["trotzdem + verb straight after"]
+```
+
 ## trotzdem: the same idea from the other end
 
 *trotzdem* (anyway, nevertheless, even so) is the partner of *obwohl*, just as *deshalb* is the partner of *weil*. It is a linking adverb, so it takes position 1 and the verb comes straight after it. It introduces the surprising result, not the fact:
@@ -66,6 +81,10 @@ Watch which half each word belongs to. *obwohl* sits in front of the fact (*obwo
 
 - *Obwohl der Lohn niedrig ist, arbeitet sie gern dort.*
 - *Der Lohn ist niedrig. Trotzdem arbeitet sie gern dort.* — The pay is low. She likes working there all the same.
+
+Here are the same two sentences cut into boxes. Compare where the conjugated verb ends up: after *obwohl* it travels to the very end; after *trotzdem* it comes straight next.
+
+![Two sentences cut into word boxes. First: Sie arbeitet gern dort (main clause), obwohl (conjunction), der Lohn (subject), niedrig (middle), ist (verb at the end). Second: Der Lohn ist niedrig (the fact), Trotzdem (position 1), arbeitet (verb in position 2), sie (subject), gern dort (rest).](images/de3-m2-obwohl-trotzdem.svg)
 
 *trotzdem* can also stand later in the sentence, after the verb: *Sie arbeitet trotzdem gern dort.* In more formal writing you'll find two synonyms, *dennoch* (all the same) and *jedoch* (however): *Die Preise sind gestiegen. Dennoch kaufen viele Menschen mehr als früher.* *jedoch* is more like *aber* and can also stand after the verb: *Das Angebot war gut, die Qualität jedoch nicht.*
 

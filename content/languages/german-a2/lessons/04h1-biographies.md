@@ -9,9 +9,9 @@ refs: [de2-ref-past]
 ---
 ## From your story to someone else's
 
-In lesson 1 you told your own life story in the perfect: *Ich bin in Breslau aufgewachsen, ich habe Chemie studiert.* In lesson 2 you learned that written texts use the simple past instead, and you practised *recognising* forms like *ging, kam, fand*. This honors lesson takes the next step. You'll read a longer biography of a real person, learn how to build the simple past of any verb from its dictionary entry, and write a short biography yourself, in the third person, the way an encyclopedia, a museum sign or a newspaper does.
+In lesson 1 you told your own life story in the perfect; in lesson 2 you learned to *recognise* the simple past (*ging, kam, fand*), the tense of written stories. This honors lesson takes the next step: you'll read a longer biography of a real person, build the simple past of any verb from its dictionary entry, and write a short third-person biography, the way an encyclopedia or a museum sign does. You'll also turn a German tabular CV, *der Lebenslauf*, into sentences.
 
-You'll also meet a very German document: the tabular CV, *der Lebenslauf*, and turn its dry lines into sentences. Producing the simple past of all verbs is officially B1 material, so treat this lesson as a head start. In this lesson you only need the third-person forms (*er, sie, es* and plural *sie*), because those are the forms that biographies use.
+Producing the simple past of all verbs is officially B1 material, so treat this lesson as a head start. You only need the third-person forms (*er, sie, es* and plural *sie*), because those are the forms biographies use.
 
 ## Why biographies use the simple past
 
@@ -23,7 +23,7 @@ A biography is a written story about the past, and in German written stories the
 | *Er hat Medizin studiert.* | *Er studierte Medizin.* |
 | *Sie ist 1944 gestorben.* | *Sie starb 1944.* |
 
-Two details are worth knowing. First, *wurde … geboren* is the standard way to give a birth in a biography (*Sie wurde 1849 geboren*), especially for people who have died. Second, the perfect hasn't disappeared from writing: news reports, for example, often open with a perfect sentence and then continue in the simple past. For a biography, though, stick to the simple past.
+*wurde … geboren* is the standard way to give a birth in a biography (*Sie wurde 1849 geboren*), especially for people who have died. (News reports often open with a perfect sentence and then continue in the simple past; a biography sticks to the simple past.)
 
 ## The three forms of a verb
 
@@ -99,15 +99,15 @@ To move the story forward, use time words in position 1, followed directly by th
 
 > Bertha Ringer wurde am 3. Mai 1849 in Pforzheim geboren und wuchs dort auf. 1872 heiratete sie den Ingenieur Carl Benz. Carl hatte eine große Idee: einen Wagen mit Motor, ohne Pferde. Aber er hatte kaum Geld. Bertha glaubte an seine Idee und gab das Geld von ihrer Familie für seine kleine Firma.
 >
-> 1886 bekam Carl ein Patent für seinen „Motorwagen". Aber nur wenige Menschen interessierten sich für das Auto. Viele fanden es laut und gefährlich. Bertha wollte allen zeigen, dass das Auto auch weite Strecken fahren kann.
+> 1886 bekam Carl ein Patent für seinen „Motorwagen“. Aber nur wenige Menschen interessierten sich für das Auto. Viele fanden es laut und gefährlich. Bertha wollte allen zeigen, dass das Auto auch weite Strecken fahren kann.
 >
-> Am 5. August 1888 fuhr sie früh am Morgen mit ihren Söhnen Eugen (15) und Richard (13) heimlich los. Carl wusste nichts davon. Ihr Ziel war Pforzheim, wo ihre Mutter lebte, rund 100 Kilometer von Mannheim entfernt. Unterwegs gab es viele Probleme. Tankstellen gab es noch nicht, und der Wagen brauchte Ligroin, eine Art Benzin aus der Apotheke. In Wiesloch kaufte Bertha es in der Stadt-Apotheke und tankte. Heute nennt man diese Apotheke oft „die erste Tankstelle der Welt".
+> Am 5. August 1888 fuhr sie früh am Morgen mit ihren Söhnen Eugen (15) und Richard (13) heimlich los. Carl wusste nichts davon. Ihr Ziel war Pforzheim, wo ihre Mutter lebte, rund 100 Kilometer von Mannheim entfernt. Unterwegs gab es viele Probleme. Tankstellen gab es noch nicht, und der Wagen brauchte Ligroin, eine Art Benzin aus der Apotheke. In Wiesloch kaufte Bertha es in der Stadt-Apotheke und tankte. Heute nennt man diese Apotheke oft „die erste Tankstelle der Welt“.
 >
 > Eine Leitung war verstopft; Bertha machte sie mit ihrer Hutnadel wieder frei. Ein Schmied reparierte die Kette, und weil die Bremsen aus Holz nicht mehr gut funktionierten, machte ein Schuster Leder auf die Bremsen. Bergauf war der Motor zu schwach, und die Söhne mussten oft schieben.
 >
 > Am Abend, als es schon dunkel war, kamen sie in Pforzheim an. Bertha schickte Carl ein Telegramm. Ein paar Tage später begann die Rückfahrt nach Mannheim. Nach der Reise hatte Bertha Ideen für Carl: Das Auto brauchte zum Beispiel einen weiteren Gang für die Berge.
 >
-> Bertha Benz starb am 5. Mai 1944 in Ladenburg, zwei Tage nach ihrem 95. Geburtstag. Heute kann man ihre Strecke auf der „Bertha Benz Memorial Route" nachfahren.
+> Bertha Benz starb am 5. Mai 1944 in Ladenburg, zwei Tage nach ihrem 95. Geburtstag. Heute kann man ihre Strecke auf der „Bertha Benz Memorial Route“ nachfahren.
 
 In English:
 
@@ -125,7 +125,7 @@ In English:
 
 Notice the forms: weak *heiratete, kaufte, tankte, reparierte, schickte*; strong *wuchs … auf, gab, fuhr … los, fanden, kamen … an, begann, starb*; mixed *wusste*; and *wurde … geboren, war, hatte, wollte, mussten*. The one present tense, *Heute nennt man …*, is about today. *dass das Auto … fahren kann* keeps the present because it's what Bertha wanted to show in general. (*der Ingenieur* = engineer; *die Strecke* = distance, route; *die Leitung* = pipe, line; *verstopft* = blocked; *die Hutnadel* = hatpin; *der Schmied* = blacksmith; *der Schuster* = cobbler; *das Leder* = leather; *bergauf* = uphill; *schieben* = to push; *der Gang* = gear.)
 
-The facts in this text come from standard histories of the car; the story is told simply, and some popular versions add details (a note left on the kitchen table, Carl asleep) that aren't well documented, so they're left out here.
+The story is simplified; popular versions add details (a note on the kitchen table, Carl asleep) that aren't well documented, so they're left out.
 
 ```mermaid
 timeline
@@ -177,7 +177,6 @@ So a CV lists newest first, but a biography tells the story oldest first. With *
 - *Sie heiratet 1872.* — Without *-te* it's the present. Past: *heiratete*.
 - *Er fuhrte, sie gabte.* — Strong verbs take no *-te*: *fuhr, gab*.
 - *Seit 2025 arbeitete sie bei Siemens.* — If it's still true, use the present: *Seit 2025 arbeitet sie bei Siemens.*
-- *Bertha Benz ist 1849 geboren.* — Not wrong, but for a historical person a biography says *wurde 1849 geboren*.
 - Mixing tenses at random: choose the simple past for the whole story and only switch to the present for what is true today.
 
 ## Key points

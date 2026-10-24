@@ -1,0 +1,458 @@
+# Round 2 questions for de1-m6 (core lessons 21-24 and honors lessons 24h1, 24h2)
+# --- Lesson 21: the perfect with haben -------------------------------------------
+- id: de1-m6-r2-q01
+  lesson: de1-perfect-haben
+  module_quiz: true
+  type: text
+  topic: Past participles
+  stem: 'Type the past participle of the separable verb "anrufen" (to phone): "Hast du deine Mutter ___?"'
+  accept: [angerufen]
+  explanation: |-
+    In a separable verb, ge- goes between the prefix and the stem: an + ge + rufen = "angerufen", written as one word. "Rufen" is a strong verb, so the participle ends in -en, not -t ("angeruft" is wrong).
+- id: de1-m6-r2-q02
+  lesson: de1-perfect-haben
+  type: order
+  topic: Perfect tense
+  stem: 'Put the words in order to ask: "What did you (plural) do at the weekend?"'
+  items: [Was, habt, ihr, am Wochenende, 'gemacht?']
+  explanation: |-
+    "Was habt ihr am Wochenende gemacht?" The question word comes first, haben second (habt for ihr), the subject right after it, and the participle last. Everything else goes inside the bracket.
+- id: de1-m6-r2-q03
+  lesson: de1-perfect-haben
+  module_quiz: true
+  type: match
+  topic: Past participles
+  stem: 'Match each verb to its past participle.'
+  pairs:
+    - [besuchen, besucht]
+    - [einkaufen, eingekauft]
+    - [trinken, getrunken]
+    - [wissen, gewusst]
+    - [studieren, studiert]
+  distractors: [gebesucht, gestudiert]
+  explanation: |-
+    besuchen → besucht (inseparable be-, so no ge-); einkaufen → eingekauft (separable: -ge- after the prefix); trinken → getrunken (strong: ge- … -en with a new vowel); wissen → gewusst (mixed); studieren → studiert (-ieren verbs have no ge-). "Gebesucht" and "gestudiert" are the classic mistakes.
+- id: de1-m6-r2-q04
+  lesson: de1-perfect-haben
+  topic: Past participles
+  stem: 'Which past participles are spelled correctly? Select all that apply.'
+  choices: [verkauft, gestudiert, angerufen, gebringt, verloren]
+  answer: [0, 2, 4]
+  explanation: |-
+    "Verkauft" (ver- blocks ge-), "angerufen" (separable an-, strong rufen) and "verloren" (ver-, strong) are right. "Gestudiert" is wrong because -ieren verbs take no ge- (studiert). "Gebringt" is wrong because bringen is a mixed verb: gebracht.
+- id: de1-m6-r2-q05
+  lesson: de1-perfect-haben
+  type: label
+  topic: Time words for the past
+  stem: 'Today is Thursday. Name the numbered days and the numbered week.'
+  image: {src: images/de1-m6-timeline-blank.svg, alt: 'A strip of twelve days: Monday to Sunday of one week, then Monday to Friday of the next week, which is labeled "diese Woche". Thursday of this week is shaded as today. The first week and four days of this week are numbered.'}
+  labels:
+    - {x: 30.6, y: 16, text: letzte Woche}
+    - {x: 69.4, y: 63, text: vorgestern}
+    - {x: 77.2, y: 77.8, text: gestern}
+    - {x: 85, y: 63, text: heute}
+    - {x: 92.8, y: 77.8, text: morgen}
+  explanation: |-
+    The whole week before this one is "letzte Woche". Counting back from today (Thursday): Wednesday is "gestern" (yesterday) and Tuesday is "vorgestern" (the day before yesterday). Thursday is "heute", and Friday is "morgen" (tomorrow).
+# --- Lesson 22: the perfect with sein, war and hatte -------------------------------
+- id: de1-m6-r2-q06
+  lesson: de1-perfect-sein
+  type: text
+  topic: haben or sein
+  stem: 'Complete with the perfect of "aufstehen" (to get up): "Er ___ heute um sechs ___."'
+  accept:
+    - [ist]
+    - [aufgestanden]
+  explanation: |-
+    "Aufstehen" is a change of state, so it takes sein: "ist" for er. It is separable and strong, so -ge- goes after the prefix and the participle ends in -en: "aufgestanden". Full sentence: "Er ist heute um sechs aufgestanden."
+- id: de1-m6-r2-q07
+  lesson: de1-perfect-sein
+  module_quiz: true
+  type: match
+  topic: haben or sein
+  stem: 'Match each verb to its perfect form (er/sie/es).'
+  pairs:
+    - [fliegen, ist geflogen]
+    - [bleiben, ist geblieben]
+    - [treffen, hat getroffen]
+    - [ankommen, ist angekommen]
+    - [schreiben, hat geschrieben]
+  distractors: [hat geflogen, ist getroffen]
+  explanation: |-
+    Fliegen (movement), ankommen (movement) and bleiben (one of the three special verbs) take sein. Treffen and schreiben have an accusative object (jemanden treffen, einen Brief schreiben) and take haben.
+- id: de1-m6-r2-q08
+  lesson: de1-perfect-sein
+  topic: haben or sein
+  stem: 'Which verbs form the perfect with sein? Select all that apply.'
+  choices: [passieren, bleiben, besuchen, ankommen, schlafen, kaufen]
+  answer: [0, 1, 3]
+  explanation: |-
+    "Ist passiert" and "ist geblieben" are the special cases you learn by heart; "ist angekommen" is movement to a place. "Besuchen" and "kaufen" have an accusative object (hat besucht, hat gekauft), and "schlafen" is neither movement nor change (hat geschlafen).
+- id: de1-m6-r2-q09
+  lesson: de1-perfect-sein
+  module_quiz: true
+  type: label
+  topic: Holidays and places
+  stem: 'Name the numbered places in this landscape.'
+  image: {src: images/de1-m6-landscape-blank.svg, alt: 'A landscape: two mountains with snowy peaks, a lake surrounded by green land, a few houses and a church, a strip of sand, the sea reaching to the horizon, and a small island with a palm tree. Six places are numbered.'}
+  labels:
+    - {x: 20.8, y: 38.6, text: der Berg}
+    - {x: 18.8, y: 78.4, text: der See}
+    - {x: 45.8, y: 72.3, text: das Dorf}
+    - {x: 69.4, y: 78.4, text: der Strand}
+    - {x: 83.3, y: 86.4, text: das Meer}
+    - {x: 85.4, y: 62.7, text: die Insel}
+  distractors: [der Fluss, der Park]
+  explanation: |-
+    1 is a mountain (der Berg). 2 is water surrounded by land, a lake: der See (masculine). 5 is the open sea reaching to the horizon: das Meer (neuter). 3 is a village (das Dorf), 4 the sandy beach (der Strand), and 6 a small island (die Insel). There is no river or park in the picture.
+- id: de1-m6-r2-q10
+  lesson: de1-perfect-sein
+  type: order
+  topic: Perfect tense
+  stem: 'Put the words in order to ask: "When did you (plural) get home?"'
+  items: [Wann, seid, ihr, nach Hause, 'gekommen?']
+  explanation: |-
+    "Wann seid ihr nach Hause gekommen?" The question word first, then the auxiliary (kommen is movement, so sein: seid for ihr), the subject, the rest, and the participle last.
+# --- Lesson 23: linking sentences and writing messages ------------------------------
+- id: de1-m6-r2-q11
+  lesson: de1-writing
+  type: order
+  topic: Conjunctions
+  stem: 'Put the parts in order: "I''m not coming today, because I''m ill."'
+  items: ['Ich komme heute nicht,', denn, ich, bin, krank.]
+  explanation: |-
+    "Ich komme heute nicht, denn ich bin krank." Denn stands in position 0, so the sentence after it keeps normal order: subject (ich) in position 1, verb (bin) in position 2. "Denn bin ich krank" and "denn ich krank bin" are both wrong.
+- id: de1-m6-r2-q12
+  lesson: de1-writing
+  type: text
+  topic: Conjunctions
+  stem: 'Type the missing conjunction: "Das ist kein Tee, ___ Kaffee." (That isn''t tea, it''s coffee.)'
+  accept: [sondern]
+  explanation: |-
+    After a negative (kein, nicht), the correction is introduced by "sondern". "Aber" would be wrong here, because it doesn't replace the first idea.
+- id: de1-m6-r2-q13
+  lesson: de1-writing
+  module_quiz: true
+  type: match
+  topic: Writing messages
+  stem: 'Match each person you are writing to with the right opening.'
+  pairs:
+    - ['your friend Anna', 'Liebe Anna,']
+    - ['your friend Tom', 'Lieber Tom,']
+    - ['Ms Weber at the bank', 'Sehr geehrte Frau Weber,']
+    - ['Mr Klein, your landlord', 'Sehr geehrter Herr Klein,']
+    - ['a company, no name known', 'Sehr geehrte Damen und Herren,']
+  distractors: ['Lieber Anna,', 'Sehr geehrter Frau Weber,']
+  explanation: |-
+    Liebe/Lieber and geehrte/geehrter follow the person: -e for a woman (Liebe Anna, Sehr geehrte Frau Weber), -er for a man (Lieber Tom, Sehr geehrter Herr Klein). Friends get Liebe/Lieber; people you call Sie get Sehr geehrte/geehrter; if you don't know a name, write "Sehr geehrte Damen und Herren,".
+- id: de1-m6-r2-q14
+  lesson: de1-writing
+  module_quiz: true
+  topic: Conjunctions
+  stem: 'Which sentences are correct? Select all that apply.'
+  choices: ['Ich bleibe zu Hause, denn ich bin krank.', 'Ich bleibe zu Hause, denn ich krank bin.', 'Deshalb ich komme nicht.', 'Ich bin krank. Deshalb komme ich nicht.', 'Er kommt nicht heute, sondern morgen.', 'Das Zimmer ist klein, sondern hell.']
+  answer: [0, 3, 4]
+  explanation: |-
+    After denn the word order stays normal (ich bin krank). Deshalb takes position 1, so the verb comes straight after it (Deshalb komme ich). Sondern needs a negative before it: "nicht heute, sondern morgen" is right, but "klein, sondern hell" has no negative, so it needs aber.
+- id: de1-m6-r2-q15
+  lesson: de1-writing
+  type: label
+  topic: Forms
+  stem: 'Lukas has filled in this form, but six field names are missing. Name each numbered field.'
+  image: {src: images/de1-m6-form-blank.svg, alt: 'A course registration form. The first row says Vorname: Lukas. The next rows have no field names; their answers are Berger, 02.11.2001, Graz, österreichisch, verheiratet and a handwritten signature. The six empty field names are numbered.'}
+  labels:
+    - {x: 22.7, y: 32.3, text: Familienname}
+    - {x: 22.7, y: 43.8, text: Geburtsdatum}
+    - {x: 22.7, y: 55.3, text: Geburtsort}
+    - {x: 22.7, y: 66.8, text: Staatsangehörigkeit}
+    - {x: 22.7, y: 78.3, text: Familienstand}
+    - {x: 22.7, y: 89.8, text: Unterschrift}
+  distractors: [Geschlecht, Adresse]
+  explanation: |-
+    Berger is the surname (Familienname); 02.11.2001 is a date of birth (Geburtsdatum: 2 November 2001); Graz is a city, so it is the place of birth (Geburtsort); österreichisch (Austrian) is a nationality (Staatsangehörigkeit); verheiratet (married) is a marital status (Familienstand); the handwriting is the signature (Unterschrift).
+# --- Lesson 24: the A1 exam and review ----------------------------------------------
+- id: de1-m6-r2-q16
+  lesson: de1-exam-review
+  module_quiz: true
+  type: order
+  topic: A1 exam
+  stem: 'Put the CEFR levels in order, from the first level to the highest.'
+  items: [A1, A2, B1, B2, C1, C2]
+  explanation: |-
+    The six levels run A1, A2 (basic user), B1, B2 (independent user), C1, C2 (proficient user). This course takes you to A1; the next step is A2.
+- id: de1-m6-r2-q17
+  lesson: de1-exam-review
+  type: match
+  topic: A1 exam
+  stem: 'Match each part of the Goethe A1 exam with what it tests.'
+  pairs:
+    - [Hören, 'Short conversations, phone messages and announcements']
+    - [Lesen, 'Signs, notes, short e-mails and small ads']
+    - [Schreiben, 'A form and a short message of about 30 words']
+    - [Sprechen, 'Introducing yourself and asking questions in a small group']
+  distractors: ['A long essay about a book']
+  explanation: |-
+    Hören is listening, Lesen reading, Schreiben writing (a form plus a message of about 30 words), and Sprechen speaking, in a small group. There is no essay at A1.
+- id: de1-m6-r2-q18
+  lesson: de1-exam-review
+  type: text
+  topic: Classroom phrases
+  stem: 'Type the missing word: "Hast du ___ Zeit für die Prüfung?" (Do you have enough time for the exam?)'
+  accept: [genug]
+  explanation: |-
+    "Genug" means "enough". It never changes its form and usually comes before the noun: genug Zeit, genug Geld.
+- id: de1-m6-r2-q19
+  lesson: de1-exam-review
+  topic: A1 exam
+  stem: 'Which statements about the Goethe-Zertifikat A1: Start Deutsch 1 are true? Select all that apply.'
+  choices: ['There are 100 points in total.', 'You pass with 50 points.', 'The writing part includes filling in a form.', 'In the speaking part you get 30 minutes to prepare alone.', 'Hören, Lesen and Schreiben are written in one block.']
+  answer: [0, 2, 4]
+  explanation: |-
+    The exam has 100 points and you need 60 (not 50) to pass. Schreiben has a form and a short message. Hören, Lesen and Schreiben form one written block of about 65 minutes; Sprechen is a separate group exam with no preparation time.
+- id: de1-m6-r2-q20
+  lesson: de1-exam-review
+  type: text
+  topic: Small words
+  stem: 'Type the missing word: "Ist ___ da?" — "Nein, hier ist niemand." (Is anybody there?)'
+  accept: [jemand]
+  explanation: |-
+    "Jemand" means "somebody, anybody"; its opposite is "niemand" (nobody). Like etwas and nichts, they come in pairs.
+# --- Honors 24h1: telling a story in the past ---------------------------------------
+- id: de1-m6-r2-h01
+  lesson: de1-m6-h-past-stories
+  topic: Simple past of modals
+  stem: 'Complete: "Ich ___ gestern nicht kommen, denn ich war krank."'
+  choices: ['könnte', 'konnte', 'kann', 'konntet']
+  answer: 1
+  explanation: |-
+    The simple past of können drops the umlaut and adds -te: "konnte", with no ending for ich. "Könnte" (with umlaut) is the subjunctive, "could / would be able to", not the past. "Kann" is present, and "konntet" is the ihr form.
+- id: de1-m6-r2-h02
+  lesson: de1-m6-h-past-stories
+  topic: Simple past of modals
+  stem: 'Which form completes "Wir ___ lange warten." (We had to wait a long time.)?'
+  choices: ['müssten', 'musstet', 'mussten', 'gemusst']
+  answer: 2
+  explanation: |-
+    müssen → muss- + te, plus -n for wir: "mussten". "Müssten" keeps the umlaut (that means "would have to"), "musstet" is the ihr form, and "gemusst" is a participle, which doesn't go with an infinitive like warten.
+- id: de1-m6-r2-h03
+  lesson: de1-m6-h-past-stories
+  type: text
+  topic: Simple past of modals
+  stem: 'Type the past of "wollen": "Früher ___ ich Lehrerin werden." (I used to want to be a teacher.)'
+  accept: [wollte]
+  explanation: |-
+    wollen → wollte, with no ending for ich. The infinitive "werden" stays at the end of the sentence.
+- id: de1-m6-r2-h04
+  lesson: de1-m6-h-past-stories
+  type: text
+  topic: Simple past of modals
+  stem: 'Type the past of "müssen" for du: "___ du gestern arbeiten?" (Did you have to work yesterday?)'
+  accept: [musstest]
+  explanation: |-
+    müssen → muss- + te, plus -st for du: "Musstest du gestern arbeiten?" In a yes/no question the modal comes first and the infinitive stays at the end.
+- id: de1-m6-r2-h05
+  lesson: de1-m6-h-past-stories
+  topic: Telling stories
+  stem: 'What does "Es gab keinen Kaffee." mean?'
+  choices: ['There was no coffee.', 'Nobody gave me coffee.', 'The coffee was not good.', 'I didn''t drink any coffee.']
+  answer: 0
+  explanation: |-
+    "Es gab" is the simple past of "es gibt" (there is / there are), so "Es gab keinen Kaffee" means "There was no coffee." It is followed by the accusative, like es gibt.
+- id: de1-m6-r2-h06
+  lesson: de1-m6-h-past-stories
+  type: order
+  topic: Simple past of modals
+  stem: 'Put the words in order to ask: "Why didn''t you want to come along?"'
+  items: [Warum, wolltest, du, nicht, 'mitkommen?']
+  explanation: |-
+    "Warum wolltest du nicht mitkommen?" The question word first, the modal second (wolltest for du), the subject, nicht, and the infinitive at the end. A separable verb stays in one piece when it is an infinitive.
+- id: de1-m6-r2-h07
+  lesson: de1-m6-h-past-stories
+  type: match
+  topic: Simple past of modals
+  stem: 'Match each modal verb to its simple past (ich form).'
+  pairs:
+    - [können, konnte]
+    - [müssen, musste]
+    - [dürfen, durfte]
+    - [wollen, wollte]
+    - [mögen, mochte]
+  distractors: [könnte, müsste]
+  explanation: |-
+    All of them drop the umlaut and add -te; mögen also changes g to ch (mochte). "Könnte" and "müsste" keep the umlaut: they are subjunctive forms (could / would have to), not the past.
+- id: de1-m6-r2-h08
+  lesson: de1-m6-h-past-stories
+  topic: Simple past of modals
+  stem: 'Which sentences are correct German? Select all that apply.'
+  choices: ['Gestern musste ich arbeiten.', 'Gestern ich musste arbeiten.', 'Ich konnte nicht schlafen.', 'Ich habe nicht schlafen gekonnt.', 'Wir wollten ins Kino gehen.', 'Er konntet gut schwimmen.']
+  answer: [0, 2, 4]
+  explanation: |-
+    After a time word the verb comes next (Gestern musste ich), so "Gestern ich musste" is wrong. "Ich habe nicht schlafen gekonnt" is wrong: with an infinitive, the perfect of a modal would be the double infinitive (habe … schlafen können), but "konnte" is what people say. "Konntet" is the ihr form, so it can't go with er.
+- id: de1-m6-r2-h09
+  lesson: de1-m6-h-past-stories
+  topic: Telling stories
+  stem: |-
+    Read: "Am Samstag wollten wir ans Meer fahren. Aber das Auto war kaputt, und es gab keinen Zug. Wir mussten zu Hause bleiben. Wir haben einen Film gesehen." What did they do on Saturday?
+  choices: ['They drove to the sea.', 'They took the train to the sea.', 'They repaired the car.', 'They stayed at home and watched a film.']
+  answer: 3
+  explanation: |-
+    They wanted (wollten) to go to the sea, but the car was broken and there was no train, so they had to stay at home (mussten zu Hause bleiben) and watched a film (haben einen Film gesehen). "Wollten" only tells you the plan, not what happened.
+- id: de1-m6-r2-h10
+  lesson: de1-m6-h-past-stories
+  topic: Simple past of modals
+  stem: 'How do Germans usually say "I had to work" in conversation?'
+  choices: ['Ich habe arbeiten gemusst.', 'Ich musste arbeiten.', 'Ich habe gemusst arbeiten.', 'Ich muss arbeiten gehabt.']
+  answer: 1
+  explanation: |-
+    With modal verbs the simple past is the normal choice in speech: "Ich musste arbeiten." The perfect of a modal with an infinitive needs a double infinitive (Ich habe arbeiten müssen), which is correct but less common; the other three options are not correct German.
+- id: de1-m6-r2-h11
+  lesson: de1-m6-h-past-stories
+  topic: Simple past of modals
+  stem: 'What does "Könnten Sie mir bitte helfen?" mean?'
+  choices: ['Could you help me, please?', 'Were you able to help me?', 'Did you have to help me?', 'You helped me, thank you.']
+  answer: 0
+  explanation: |-
+    "Könnten" with an umlaut is the subjunctive, used for polite requests: "Could you help me, please?" The past "were you able to" would be "Konnten Sie …" without the umlaut.
+- id: de1-m6-r2-h12
+  lesson: de1-m6-h-past-stories
+  type: order
+  topic: Telling stories
+  stem: 'Put the sentences of this story in a logical order.'
+  items: ['Mein Wecker hat nicht geklingelt.', 'Ich bin zu spät aufgewacht.', 'Ich bin schnell zur Haltestelle gelaufen.', 'Der Bus war schon weg.', 'Ich musste zwanzig Minuten warten.']
+  explanation: |-
+    The alarm clock didn't ring, so I woke up too late. Then I ran to the bus stop, but the bus had already gone, so I had to wait twenty minutes. Each event causes the next one.
+- id: de1-m6-r2-h13
+  lesson: de1-m6-h-past-stories
+  type: text
+  topic: Telling stories
+  stem: 'Type the missing word: "Gestern ___ es keine Brötchen in der Bäckerei." (Yesterday there were no rolls at the bakery.)'
+  accept: [gab]
+  explanation: |-
+    "Es gibt" in the past is "es gab", and it is the same for one thing or many: es gab keine Brötchen.
+- id: de1-m6-r2-h14
+  lesson: de1-m6-h-past-stories
+  topic: Simple past of modals
+  stem: 'What does "Früher durfte ich nicht allein in die Stadt fahren." mean?'
+  choices: ['I didn''t want to go into town alone.', 'I couldn''t find the way into town alone.', 'I wasn''t allowed to go into town alone.', 'I shouldn''t go into town alone.']
+  answer: 2
+  explanation: |-
+    "Durfte" is the past of dürfen (may, to be allowed to): "I wasn't allowed to go into town alone." "Didn't want to" would be wollte, "couldn't" konnte, and "shouldn't" sollte.
+# --- Honors 24h2: letters, e-mails and postcards ------------------------------------
+- id: de1-m6-r2-h15
+  lesson: de1-m6-h-letters
+  type: label
+  topic: Letters and e-mails
+  stem: 'Name the numbered parts of this formal letter.'
+  image: {src: images/de1-m6-letter-blank.svg, alt: 'A formal German letter from Paul Novak in Bremen to Frau Berger at a language school. Six parts are numbered: the address at the top left, the address below it, the place and date on the right, a bold line, the opening line and the closing line. A signature and a typed name follow at the bottom.'}
+  labels:
+    - {x: 13.3, y: 9.4, text: Absender}
+    - {x: 13.3, y: 26.8, text: Empfänger}
+    - {x: 60.5, y: 36.5, text: Ort und Datum}
+    - {x: 13.3, y: 43.8, text: Betreff}
+    - {x: 13.3, y: 51, text: Anrede}
+    - {x: 13.3, y: 75.4, text: Grußformel}
+  distractors: [Briefmarke, Unterschrift]
+  explanation: |-
+    1 is the sender's address (Absender: Paul Novak, who signs the letter), 2 the recipient's (Empfänger: Frau Berger). 3 is the place and date (Bremen, 12. Mai 2026), 4 the bold subject line (Betreff), 5 the salutation (Anrede: Sehr geehrte Frau Berger,), and 6 the closing (Grußformel: Mit freundlichen Grüßen). The signature below the closing is not numbered, and a stamp goes on the envelope, not in the letter.
+- id: de1-m6-r2-h16
+  lesson: de1-m6-h-letters
+  topic: Register
+  stem: 'You are writing to your landlord, Herr Schmidt, for the first time. Which opening is correct?'
+  choices: ['Sehr geehrte Herr Schmidt,', 'Sehr geehrter Herrn Schmidt,', 'Liebe Herr Schmidt,', 'Sehr geehrter Herr Schmidt,']
+  answer: 3
+  explanation: |-
+    For a man the ending is -er: "Sehr geehrter Herr Schmidt,". "Geehrte" is for a woman, "Herrn" is the wrong form after the opening, and "Liebe" would need -r for a man (Lieber Herr Schmidt), which is also too familiar for a first letter.
+- id: de1-m6-r2-h17
+  lesson: de1-m6-h-letters
+  topic: Register
+  stem: 'You are writing to Frau Roth, whom you address with Sie. Which sentences are written correctly? Select all that apply.'
+  choices: ['Können Sie mir bitte helfen?', 'Können sie mir bitte helfen?', 'Vielen Dank für Ihre Antwort.', 'Vielen Dank für ihre Antwort.', 'Ich freue mich auf Ihre Nachricht.']
+  answer: [0, 2, 4]
+  explanation: |-
+    The polite Sie and its forms (Ihre, Ihnen) always have a capital letter. With a small letter, "sie" means "they" and "ihre" means "her" or "their", so "Können sie mir helfen?" asks whether they can help, and "ihre Antwort" is her or their answer.
+- id: de1-m6-r2-h18
+  lesson: de1-m6-h-letters
+  type: match
+  topic: Register
+  stem: 'Match each greeting with where and how it is used.'
+  pairs:
+    - [Moin, 'Northern Germany, at any time of day']
+    - [Servus, 'Bavaria and Austria, informal, for hello and goodbye']
+    - [Grüezi, 'Switzerland, a polite hello']
+    - [Grüß Gott, 'Southern Germany and Austria, a polite hello']
+  distractors: ['Only in the morning, everywhere in Germany']
+  explanation: |-
+    Moin is northern and is used all day, not only in the morning. Servus is the informal hello and goodbye of Bavaria and Austria. Grüezi is the Swiss polite greeting, and Grüß Gott the polite greeting of southern Germany and Austria.
+- id: de1-m6-r2-h19
+  lesson: de1-m6-h-letters
+  type: text
+  topic: Register
+  stem: 'Make the request formal. Informal: "Kannst du mir die Hausaufgabe schicken?" Formal: "___ Sie mir die Hausaufgabe schicken?"'
+  accept: [können]
+  explanation: |-
+    With Sie the verb takes the -en form: "Können Sie mir die Hausaufgabe schicken?"
+- id: de1-m6-r2-h20
+  lesson: de1-m6-h-letters
+  type: text
+  topic: Letters and e-mails
+  stem: 'Complete the formal closing: "Mit freundlichen ___"'
+  accept: [Grüßen, Grüssen, Gruessen]
+  explanation: |-
+    "Mit freundlichen Grüßen" is the standard formal closing, with no comma after it. In Switzerland it is written "Grüssen".
+- id: de1-m6-r2-h21
+  lesson: de1-m6-h-letters
+  type: order
+  topic: Letters and e-mails
+  stem: 'Put these parts of a formal letter in order, from top to bottom.'
+  items: [Betreff, Anrede, Text, Grußformel, Unterschrift]
+  explanation: |-
+    The bold subject line (Betreff) comes first, then the salutation (Sehr geehrte …,), the text, the closing (Mit freundlichen Grüßen) and the signature.
+- id: de1-m6-r2-h22
+  lesson: de1-m6-h-letters
+  topic: Register
+  stem: 'An e-mail starts "Liebe Frau Weber,". Which form of address should the rest of the e-mail use?'
+  choices: ['du, because Liebe is informal', 'Sie, because she is addressed with her surname', 'ihr, because it is a letter', 'Sie, but written with a small s']
+  answer: 1
+  explanation: |-
+    "Liebe Frau Weber" is friendly, but a surname always goes with Sie, and Sie is always written with a capital S. Du goes with a first name (Liebe Anna).
+- id: de1-m6-r2-h23
+  lesson: de1-m6-h-letters
+  topic: Letters and e-mails
+  stem: 'You are thanking your friend Lisa: "Danke für ___ Postkarte!" Which word fits?'
+  choices: ['Ihre', 'dein', 'deine', 'ihre']
+  answer: 2
+  explanation: |-
+    Lisa is a friend, so the du form: dein. "Postkarte" is feminine (die Postkarte), so it takes -e: "deine Postkarte". "Ihre" would be the formal Sie form, and "ihre" means "her" or "their".
+- id: de1-m6-r2-h24
+  lesson: de1-m6-h-letters
+  topic: Register
+  stem: 'Traditionally, who offers to switch from Sie to du?'
+  choices: ['The younger person', 'The older or more senior person', 'Whoever speaks first', 'The person who is visiting']
+  answer: 1
+  explanation: |-
+    By tradition the older person, or the one in the higher position, offers du (Wollen wir uns duzen?). It is a custom, not a rule, and many young people, clubs and companies use du from the start; if unsure, use Sie.
+- id: de1-m6-r2-h25
+  lesson: de1-m6-h-letters
+  topic: Letters and e-mails
+  stem: |-
+    Read the postcard: "Liebe Oma, viele Grüße von der Insel Rügen! Wir sind am Samstag angekommen. Das Wetter war leider schlecht, aber gestern hat die Sonne geschienen, und wir waren am Strand. Am Freitag fahren wir zurück. Dein Max" What was the weather like yesterday?
+  choices: ['It rained all day.', 'It was bad, so they stayed inside.', 'It snowed.', 'The sun was shining.']
+  answer: 3
+  explanation: |-
+    "Gestern hat die Sonne geschienen" means "yesterday the sun was shining", and they went to the beach. The weather was bad before that ("war leider schlecht").
+- id: de1-m6-r2-h26
+  lesson: de1-m6-h-letters
+  topic: Register
+  stem: 'When do you write "Hallo zusammen,"?'
+  choices: ['To a group of people, for example your course', 'Only to your boss', 'To someone you don''t know', 'At the end of a formal letter']
+  answer: 0
+  explanation: |-
+    "Zusammen" means "together", so "Hallo zusammen" greets everyone in a group at once: a course, a team, a club.
+- id: de1-m6-r2-h27
+  lesson: de1-m6-h-letters
+  topic: Letters and e-mails
+  stem: 'Which place and date line is written the German way?'
+  choices: ['Bremen, Mai 12, 2026', 'Bremen, 12 Mai, 2026', 'Bremen, 12. Mai 2026', '12th Mai 2026, Bremen']
+  answer: 2
+  explanation: |-
+    German puts the day first, with a full stop because it is an ordinal number (read: zwölfter Mai), and no comma before the year: "Bremen, 12. Mai 2026".

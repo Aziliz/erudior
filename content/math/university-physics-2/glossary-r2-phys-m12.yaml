@@ -1,0 +1,104 @@
+- term: spacetime
+  definition: 'Space and time together, treated as one four-dimensional geometry in which different observers slice time and space differently but agree on the spacetime interval.'
+  topic: Spacetime and the Doppler effect
+- term: spacetime diagram
+  aliases: [spacetime diagrams, Minkowski diagram]
+  definition: 'A graph with position $x$ across and $ct$ up. Light travels at $45^\circ$; an object at rest is a vertical line.'
+  topic: Spacetime and the Doppler effect
+- term: event
+  aliases: [events]
+  definition: 'Something that happens at one place at one instant: a single point in spacetime, given by $(x, t)$ in a chosen frame.'
+  topic: Spacetime and the Doppler effect
+- term: worldline
+  aliases: [worldlines, world line]
+  definition: 'The line on a spacetime diagram traced by an object through all the events of its history.'
+  topic: Spacetime and the Doppler effect
+- term: light cone
+  aliases: [light cones]
+  definition: 'The $45^\circ$ lines (a cone in more dimensions) through an event, traced by light. Only events inside its future half can be affected by the event.'
+  topic: Spacetime and the Doppler effect
+- term: spacetime interval
+  aliases: [interval]
+  definition: 'The quantity $(\Delta s)^2 = (c\Delta t)^2 - (\Delta x)^2$ between two events, the same in every inertial frame. For timelike separations, $\Delta s/c$ is the proper time.'
+  topic: Spacetime and the Doppler effect
+- term: timelike
+  aliases: [timelike separation]
+  definition: 'Describes two events with $(\Delta s)^2 > 0$: a clock moving slower than light can be present at both, and all observers agree on their order.'
+  topic: Spacetime and the Doppler effect
+- term: spacelike
+  aliases: [spacelike separation]
+  definition: 'Describes two events with $(\Delta s)^2 < 0$: no signal can connect them, some frame sees them as simultaneous, and observers can disagree about their order.'
+  topic: Spacetime and the Doppler effect
+- term: lightlike
+  aliases: [lightlike separation, null separation]
+  definition: 'Describes two events with $(\Delta s)^2 = 0$: only a light signal can connect them.'
+  topic: Spacetime and the Doppler effect
+- term: redshift
+  aliases: [redshifted, redshifts, z (redshift)]
+  definition: 'A shift of light to longer wavelengths, as from a receding source; measured by $z = \lambda_{\text{obs}}/\lambda_{\text{src}} - 1$. A shift to shorter wavelengths is a blueshift.'
+  topic: Spacetime and the Doppler effect
+- term: relativistic Doppler effect
+  definition: 'The change in observed frequency of light from a moving source: $\lambda_{\text{obs}} = \lambda_{\text{src}}\sqrt{(1 + \beta)/(1 - \beta)}$ for a receding source, with $\beta$ reversed for approach.'
+  topic: Spacetime and the Doppler effect
+- term: transverse Doppler effect
+  definition: 'The redshift, by the factor $\gamma$, of light from a source moving at right angles to the line of sight; it comes purely from time dilation and has no counterpart for sound.'
+  topic: Spacetime and the Doppler effect
+- term: quantum tunneling
+  aliases: [tunneling, tunnelling]
+  definition: 'The passage of a particle through a region where its energy is less than the potential energy, which is impossible classically but has a nonzero probability in quantum mechanics.'
+  topic: Quantum tunneling
+- term: turning point
+  aliases: [turning points]
+  definition: 'The place where a particle''s potential energy equals its total energy, so a classical particle stops and reverses there.'
+  topic: Quantum tunneling
+- term: classically forbidden region
+  aliases: [classically forbidden regions, forbidden region]
+  definition: 'A region where $U > E$, so the kinetic energy would be negative; classical particles never enter it, but the quantum wave function decays into it.'
+  topic: Quantum tunneling
+- term: penetration depth
+  definition: 'The distance $1/\kappa$ over which a wave function decaying as $e^{-\kappa x}$ inside a barrier falls by a factor of $e$; $\kappa = \sqrt{2m(U - E)}/\hbar$.'
+  topic: Quantum tunneling
+- term: transmission coefficient
+  aliases: [transmission probability]
+  definition: 'The probability $T$ that a particle gets through a barrier; for a thick barrier $T \approx 16\frac{E}{U}(1 - \frac{E}{U})e^{-2\kappa L}$.'
+  topic: Quantum tunneling
+- term: scanning tunneling microscope
+  aliases: [STM, scanning tunneling microscopes]
+  definition: 'A microscope that images a conducting surface atom by atom by holding a sharp tip a fraction of a nanometer away and measuring the tunneling current, which changes about tenfold per 0.1 nm of gap.'
+  topic: Quantum tunneling
+- term: tunneling current
+  definition: 'The current of electrons tunneling across a thin gap or insulating layer; it is roughly proportional to $e^{-2\kappa d}$ for a gap $d$.'
+  topic: Quantum tunneling
+- term: Geiger–Nuttall law
+  aliases: [Geiger-Nuttall law]
+  definition: 'The empirical rule (1911) that alpha emitters with higher alpha energies have much shorter half-lives; in modern form, log(half-life) falls roughly linearly with $1/\sqrt{E_\alpha}$. Tunneling theory explains it.'
+  topic: Quantum tunneling
+- term: Q-value
+  aliases: [Q value, Q-values]
+  definition: 'The energy released in a nuclear reaction or decay: $Q = (\sum m_{\text{initial}} - \sum m_{\text{final}})c^2$. Positive Q releases energy.'
+  topic: Nuclear energetics
+- term: exothermic
+  definition: 'Describes a reaction with $Q > 0$, which releases energy as kinetic energy of the products.'
+  topic: Nuclear energetics
+- term: endothermic
+  definition: 'Describes a reaction with $Q < 0$, which can occur only if the colliding particles supply kinetic energy (somewhat more than $|Q|$).'
+  topic: Nuclear energetics
+- term: semi-empirical mass formula
+  aliases: [SEMF, liquid-drop model, liquid drop model, Weizsäcker formula]
+  definition: 'A formula for nuclear binding energy based on treating the nucleus as a charged liquid drop: $E_B = a_VA - a_SA^{2/3} - a_CZ(Z - 1)/A^{1/3} - a_A(A - 2Z)^2/A \pm \delta$, with fitted coefficients.'
+  topic: Nuclear energetics
+- term: volume term
+  definition: 'The term $a_VA$ in the semi-empirical mass formula: binding proportional to the number of nucleons, because each is bound to its nearest neighbors.'
+  topic: Nuclear energetics
+- term: surface term
+  definition: 'The term $-a_SA^{2/3}$ in the semi-empirical mass formula: nucleons at the surface have fewer neighbors, which lowers the binding, most of all for light nuclei.'
+  topic: Nuclear energetics
+- term: Coulomb term
+  definition: 'The term $-a_CZ(Z - 1)/A^{1/3}$ in the semi-empirical mass formula: the electric repulsion between every pair of protons, which lowers the binding most for heavy nuclei.'
+  topic: Nuclear energetics
+- term: asymmetry term
+  definition: 'The term $-a_A(A - 2Z)^2/A$ in the semi-empirical mass formula: by the exclusion principle, an excess of neutrons or protons must occupy higher energy levels.'
+  topic: Nuclear energetics
+- term: pairing term
+  definition: 'The term $\pm\delta$ in the semi-empirical mass formula: extra binding for even $Z$ and even $N$, less for odd $Z$ and odd $N$, zero for odd $A$.'
+  topic: Nuclear energetics

@@ -85,6 +85,16 @@ These two are the most common time conjunctions, and they still cause mistakes a
 
 Only one box takes *als*: a single event (or period) in the past. Everything else is *wenn*. A tip: if you can add *jedes Mal* (every time), it's *wenn*.
 
+```mermaid
+flowchart TD
+  accTitle: als or wenn?
+  accDescr: A decision chart. If the sentence is not about the past, use wenn, as in Wenn du ankommst, ruf mich an. If it is about the past, ask whether it was a single event or period. If yes, use als, as in Als ich zehn war. If it happened repeatedly, every time, use wenn, as in Wenn wir Oma besuchten, gab es Kuchen.
+  A{"Is it about the past?"} -- no --> W1["wenn: Wenn du ankommst, ruf mich an."]
+  A -- yes --> B{"One single event or period?"}
+  B -- yes --> ALS["als: Als ich zehn war, bekam ich einen Hund."]
+  B -- "no, again and again" --> W2["wenn: Wenn wir Oma besuchten, gab es Kuchen."]
+```
+
 ## Overview
 
 | conjunction | meaning | typical tense pattern |
@@ -98,6 +108,10 @@ Only one box takes *als*: a single event (or period) in the past. Everything els
 | *solange* | as long as | same tense in both |
 | *bevor* | before | same tense in both |
 | *nachdem* | after | one step further back |
+
+The pictures show four of these conjunctions as bars on a timeline: pink for the time clause, blue for the main clause.
+
+![Four small timelines. während: a shorter pink bar lies under a longer blue bar, within the same stretch of time, so both happen at once; example Während ich koche, schlafen die Kinder. seit: a pink dot marks the start, and a blue bar runs from it up to a line marked jetzt (now); example Seit Oma zu uns gezogen ist, kocht sie oft. bis: a blue bar ends exactly at a pink dot; example Wir wohnten dort, bis wir eine Wohnung fanden. sobald: a pink dot is followed immediately by a blue bar; example Sobald die Kinder kommen, essen wir.](images/de3-m1-time-clauses.svg)
 
 ## Family words
 

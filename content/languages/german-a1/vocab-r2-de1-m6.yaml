@@ -106,28 +106,3 @@
   meanings: ["kind regards (formal closing)", "kind regards", "best regards", "regards"]
   example: Freundliche Grüße aus Bremen
   exampleEn: Kind regards from Bremen
-- id: de1-m6-r2-w14
-  lesson: de1-m6-h-letters
-  term: Moin
-  pos: interjection
-  alt: [Moin moin]
-  meanings: ["hi (in northern Germany)", "hi", "hello", "morning"]
-  example: Moin! Wie geht's?
-  exampleEn: Hi! How are you?
-  note: 'Northern Germany, at any time of day.'
-- id: de1-m6-r2-w15
-  lesson: de1-m6-h-letters
-  term: Servus
-  pos: interjection
-  meanings: ["hi or bye (Bavaria and Austria)", "hi", "hello", "bye", "goodbye"]
-  example: Servus, Toni!
-  exampleEn: Hi, Toni!
-  note: 'Informal; used in Bavaria and Austria for both hello and goodbye.'
-- id: de1-m6-r2-w16
-  lesson: de1-m6-h-letters
-  term: Grüezi
-  pos: interjection
-  meanings: ["hello (Swiss, polite)", "hello", "good day"]
-  example: Grüezi, Frau Meier!
-  exampleEn: Hello, Ms Meier!
-  note: 'Swiss German, to people you address with Sie.'

@@ -81,8 +81,8 @@ as if you couldn't be bothered to write three words. Don't use it.
 
 ### Saying hello around the German-speaking countries
 
-Spoken greetings change from region to region. You learned *Grüß Gott* in lesson 1. Three
-more you will hear:
+Spoken greetings change from region to region. You learned *Grüß Gott* in lesson 1, and the
+honors lesson on the German-speaking world (module 1) shows more. Three you will hear often:
 
 - *Moin* (or *Moin moin*): northern Germany, at any time of day, not just in the morning.
 - *Servus*: Bavaria and Austria, informal, for both hello and goodbye.

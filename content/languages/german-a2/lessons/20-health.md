@@ -63,6 +63,16 @@ The doctor gives you *ein Rezept*. You know this word from lesson 11 as a recipe
 
 The emergency number in Germany and Austria and across the EU is *112* (*eins eins zwei*): *Rufen Sie einen Krankenwagen!* — Call an ambulance! When your practice is closed (at night, at the weekend) and it isn't life-threatening but can't wait, Germany has the medical on-call service, *116 117*, which answers around the clock. Hospitals have *die Notaufnahme*, the emergency department.
 
+```mermaid
+flowchart TD
+  accTitle: Who to call when you are ill in Germany
+  accDescr: If it is life-threatening, call 112 for an ambulance. If it is not life-threatening but cannot wait and your practice is closed, call the medical on-call service on 116 117. Otherwise, call your practice and make an appointment.
+  A{"Is it life-threatening?"} -- "yes" --> B["112: Rufen Sie einen Krankenwagen!"]
+  A -- "no" --> C{"Can it wait until the practice opens?"}
+  C -- "no" --> D["116 117: medical on-call service"]
+  C -- "yes" --> E["Call the Praxis and make a Termin"]
+```
+
 ## seit: how long so far
 
 To say how long something has been going on and still is, German uses *seit* + dative and the **present tense**:
@@ -82,6 +92,10 @@ The questions are *Seit wann …?* (since when) and *Wie lange schon …?* (how 
 - *Wie lange haben Sie schon Fieber?* — *Seit zwei Tagen.*
 
 Compare *vor* (lesson 14), which points to a moment in the past: *Ich habe mich vor drei Tagen erkältet.* — I caught a cold three days ago.
+
+The time line shows the difference: *vor* points back to one finished moment, *seit* covers the whole stretch up to now.
+
+![A time line from Monday to Thursday. On Monday: Ich habe mich erkältet. A bar from Monday up to today is labeled seit drei Tagen: Ich habe Husten, in the present tense. An arrow from Thursday back to Monday is labeled vor drei Tagen: Ich habe mich erkältet, in the past.](images/de2-m5-seit-vor.svg)
 
 ## Advice: sollte and müsste
 

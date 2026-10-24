@@ -55,7 +55,9 @@ Some verbs change their meaning with the preposition. The most important pair:
 - *Ich freue mich auf die Ferien.* — I'm looking forward to the holidays. (the future)
 - *Ich freue mich über die Karte.* — I'm pleased about the card. (something here now, or past)
 
-Think of *auf* as looking ahead at something on the way, and *über* as being happy about something you already have.
+Think of *auf* as looking ahead at something on the way, and *über* as being happy about something you already have. On a timeline:
+
+![A timeline from past through now to future. sich freuen über + accusative points to something you already have or that happened, for example über das Geschenk. sich freuen auf + accusative points to something still coming, for example auf die Ferien. Below: Ich freue mich über deine Karte, I'm pleased about your card; Ich freue mich auf das Wochenende, I'm looking forward to the weekend.](images/de2-m2-freuen-timeline.svg)
 
 Others take two prepositions at once: *Ich streite mich mit meinem Bruder über das Auto* (I argue with my brother about the car); *Ich entschuldige mich bei dir für gestern* (I apologise to you for yesterday). The person is in the dative (*mit, bei*), the thing in the accusative (*über, für*).
 
@@ -103,7 +105,19 @@ When you answer and don't want to repeat the thing, German uses the same trick w
 
 For people, don't use a *da-*word; use the preposition and a pronoun, as in A1: *Wartest du auf Tom?* — *Ja, ich warte auf ihn.* *Sprichst du oft mit deiner Mutter?* — *Ja, ich spreche jeden Tag mit ihr.*
 
-The pattern is the same in both directions: thing → *wo-/da-* word; person → preposition + pronoun or *wen/wem*. Two very common phrases: *Ich denke daran!* (I won't forget!) and *Ich habe keine Lust dazu* (I don't feel like it).
+The pattern is the same in both directions: thing → *wo-/da-* word; person → preposition + pronoun or *wen/wem*.
+
+```mermaid
+flowchart TD
+  accTitle: Asking and answering about a prepositional object
+  accDescr: Take a verb such as warten auf and decide whether the prepositional object is a thing or a person. For a thing, ask with a wo-word, Worauf wartest du?, and answer with a da-word, Ich warte darauf. For a person, ask with the preposition plus wen or wem, Auf wen wartest du?, and answer with the preposition plus a pronoun, Ich warte auf ihn.
+  A{"warten auf + Akk: a thing or a person?"} -- thing --> B["Ask: Worauf wartest du?"]
+  A -- person --> C["Ask: Auf wen wartest du?"]
+  B --> D["Answer: Ich warte darauf."]
+  C --> E["Answer: Ich warte auf ihn."]
+```
+
+ Two very common phrases: *Ich denke daran!* (I won't forget!) and *Ich habe keine Lust dazu* (I don't feel like it).
 
 ## Dialogue: Kaffee mit Selin
 

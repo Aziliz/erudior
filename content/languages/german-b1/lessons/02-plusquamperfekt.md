@@ -42,6 +42,10 @@ Use the past perfect for an event that was already finished *before* the time yo
 - *Sie konnte nicht mitkommen. Sie hatte sich das Bein gebrochen.* — She couldn't come. She had broken her leg.
 - *Die Stadt sah 1950 ganz anders aus. Bomben hatten fast alle alten Häuser zerstört.* — The city looked completely different in 1950. Bombs had destroyed almost all the old houses.
 
+The picture shows the two points with an example from the text at the end of this lesson:
+
+![A timeline with three points. Point A, 1961 shortly before: Die Tante war geflohen, past perfect. Point B, 1961: Die Regierung baute die Mauer, simple past. Now, heute: Berlin ist wieder eine Stadt, present. A dashed arrow looks back from B to A.](images/de3-m1-timeline.svg)
+
 Do not use it just because something is "long ago". A whole story set in 1945 is told in the simple past. You only switch to the past perfect when you step back from your story's time to something earlier. This is the **sequence of tenses** in a narrative:
 
 | timeline | tense | example |
@@ -81,6 +85,17 @@ Two warnings:
 - *Bevor du gehst, mach bitte das Licht aus.* — Before you go, please turn off the light.
 
 Again: *bevor* is the conjunction; *vor* is the preposition (*vor dem Krieg*, before the war); *vorher* and *zuvor* are adverbs (beforehand, previously).
+
+This chart helps you choose between the three kinds of word for "after" and "before":
+
+```mermaid
+flowchart TD
+  accTitle: nach, nachdem or danach? vor, bevor or vorher?
+  accDescr: A decision chart for the words meaning after and before. Ask what follows the word. If a noun follows, use the preposition nach or vor with the dative, as in nach dem Krieg and vor dem Krieg. If a clause with a subject and the verb at the end follows, use the conjunction nachdem or bevor, as in nachdem der Krieg zu Ende war. If the word stands alone in a main clause and the verb follows it directly, use the adverb danach or vorher, as in Danach ging er nach Hause.
+  A{"What follows the word?"} -- "a noun" --> B["Preposition + dative: nach dem Krieg, vor dem Krieg"]
+  A -- "a clause, verb at the end" --> C["Conjunction: nachdem der Krieg zu Ende war, bevor er ging"]
+  A -- "the verb of a main clause" --> D["Adverb: Danach ging er nach Hause. Vorher aß er."]
+```
 
 ## Time adverbs: vorher, zuvor, anschließend
 

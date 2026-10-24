@@ -13,7 +13,7 @@ In lesson 2 the past perfect let you stand at a point in the past and look back 
 
 This honors lesson puts those two ideas together. The **Futur II** (English "future perfect": *will have done*) lets you stand at a point in the *future* and look back: *Bis Freitag werde ich den Bericht geschrieben haben.* — By Friday I will have written the report. And, just as *wird wohl* guesses about the present, *wird wohl … haben* guesses about the past: *Er wird den Zug verpasst haben.* — He has probably missed the train.
 
-Strictly speaking the Futur II belongs to B2. You won't need to produce it in the B1 exam, but you will meet it in crime novels and TV detective series, in news and in formal letters, and once you see how it is built, it holds no surprises. The theme is crime stories: detectives, suspects and alibis.
+Strictly speaking the Futur II belongs to B2. You won't need to produce it in the B1 exam, but you will meet it in crime novels and TV detective series, in news and in formal letters. The theme is crime stories: detectives, suspects and alibis.
 
 ## The form: werden + perfect infinitive
 
@@ -30,7 +30,7 @@ The Futur II has two parts. *werden* in position 2 is conjugated exactly as in t
 
 You already know which helper to use: the same one as in the perfect. *Sie hat das Buch gelesen* → *Sie wird das Buch gelesen haben.* *Er ist angekommen* → *Er wird angekommen sein.* Separable verbs keep their prefix on the participle (*angekommen, eingeschlafen*), and inseparable ones have no *ge-* (*verpasst, entdeckt*).
 
-You have seen the perfect infinitive before, without its name: lesson 25 uses it with *scheinen* (*Er scheint die E-Mail nicht gelesen zu haben*). Here it simply follows *werden*, without *zu*.
+You will meet the perfect infinitive again in lesson 25, after *scheinen* … *zu* (*Er scheint die E-Mail nicht gelesen zu haben*). Here it simply follows *werden*, without *zu*.
 
 Word order follows the rules of the sentence bracket:
 
@@ -57,14 +57,14 @@ Both versions are correct. The Futur II sounds more formal or more emphatic, as 
 
 ## Use 2: a guess about the past
 
-The second use is more common in everyday conversation than the first. Remember *Er wird wohl krank sein* — he's probably ill (now). Move the guess into the past and you get the Futur II: *Er wird wohl krank gewesen sein* — he was probably ill.
+In conversation, this second use is probably the one you will hear more often. Remember *Er wird wohl krank sein* — he's probably ill (now). Move the guess into the past and you get the Futur II: *Er wird wohl krank gewesen sein* — he was probably ill.
 
 | guess about … | form | example | English |
 |---|---|---|---|
 | now | Futur I (+ *wohl*) | *Sie wird wohl schon zu Hause sein.* | She's probably home by now. |
 | the past | Futur II (+ *wohl*) | *Sie wird wohl den Bus genommen haben.* | She probably took the bus. |
 
-Nothing in these sentences is about the future. *werden* here does not mean "will"; it marks a **supposition**: the speaker thinks something is likely but has not checked it. *wohl*, *sicher*, *schon* or *bestimmt* usually come with it, but even without them the meaning is a guess, and context tells you which use you are hearing:
+Nothing in these sentences is about the future. *werden* here does not mean "will"; it marks a supposition: the speaker thinks something is likely but has not checked it. *wohl*, *sicher*, *schon* or *bestimmt* usually come with it, but even without them the meaning is a guess, and context tells you which use you are hearing:
 
 - *Wo ist mein Schlüssel?* — *Du wirst ihn wieder im Auto gelassen haben.* — Where's my key? You'll have left it in the car again.
 - *Das Licht im Büro ist aus. Die Kollegen werden schon gegangen sein.* — The office light is off. The colleagues will have left already.
@@ -106,25 +106,25 @@ With the Futur II you have met all six German tenses of the indicative. The pict
 
 1. The facts you guess at: *Der Einbrecher ist durch das Fenster gekommen.* (*kommen* takes *sein*.)
 2. Futur II: *Der Einbrecher wird durch das Fenster gekommen sein.* — The burglar probably came through the window.
-3. Inside *Ich vermute, dass …*, *werden* goes to the very end: *Ich vermute, dass der Einbrecher durch das Fenster gekommen sein wird.* This is grammatical but heavy; with *vermuten* the guess is already clear, so most people would simply write *Ich vermute, dass der Einbrecher durch das Fenster gekommen ist.*
+3. Inside *Ich vermute, dass …*, *werden* goes to the very end: *Ich vermute, dass der Einbrecher durch das Fenster gekommen sein wird.* Correct but heavy: *vermuten* already marks the guess, so most people write *Ich vermute, dass der Einbrecher durch das Fenster gekommen ist.*
 
 ## Text: Der Einbruch in der Bäckerei
 
 Detective series are hugely popular in German-speaking countries. The best known is *Tatort*, which has run on Sunday evenings on German public television since 1970, with teams of detectives in different cities, including Austrian and Swiss ones. Here is an original scene in that style.
 
-> Kommissarin Yilmaz steht am Tatort, einer kleinen Bäckerei. Die Kasse ist leer, das Fenster zum Hof ist offen. „Der Täter wird durch dieses Fenster eingestiegen sein", sagt sie. „Sehen Sie die Spuren an der Wand?"
+> Kommissarin Yilmaz steht am Tatort, einer kleinen Bäckerei. Die Kasse ist leer, das Fenster zum Hof ist offen. „Der Täter wird durch dieses Fenster eingestiegen sein“, sagt sie. „Sehen Sie die Spuren an der Wand?“
 >
-> Ihr Kollege, Kommissar Berger, nickt. „Und er wird Handschuhe getragen haben. Es gibt keine Fingerabdrücke."
+> Ihr Kollege, Kommissar Berger, nickt. „Und er wird Handschuhe getragen haben. Es gibt keine Fingerabdrücke.“
 >
-> „Wer hat den Einbruch gemeldet?"
+> „Wer hat den Einbruch gemeldet?“
 >
-> „Der Bäcker selbst, um halb fünf. Er sagt, er war die ganze Nacht zu Hause. Seine Frau bestätigt das. Ein gutes Alibi."
+> „Der Bäcker selbst, um halb fünf. Er sagt, er war die ganze Nacht zu Hause. Seine Frau bestätigt das. Ein gutes Alibi.“
 >
-> „Vielleicht zu gut." Die Kommissarin schaut auf den Boden. „Der Täter hat nur die Kasse geöffnet und den Tresor nicht angefasst. Er wird gewusst haben, dass dort kein Geld war. Wer weiß so etwas?"
+> „Vielleicht zu gut.“ Die Kommissarin schaut auf den Boden. „Der Täter hat nur die Kasse geöffnet und den Tresor nicht angefasst. Er wird gewusst haben, dass dort kein Geld war. Wer weiß so etwas?“
 >
-> „Jemand, der hier arbeitet", sagt Berger. „Ich habe einen Verdacht. Die Aushilfe war gestern sehr nervös."
+> „Jemand, der hier arbeitet“, sagt Berger. „Ich habe einen Verdacht. Die Aushilfe war gestern sehr nervös.“
 >
-> „Gut. Wir ermitteln weiter. Bis heute Abend werden wir alle Angestellten befragt haben. Und spätestens morgen wissen wir mehr."
+> „Gut. Wir ermitteln weiter. Bis heute Abend werden wir alle Angestellten befragt haben. Und spätestens morgen wissen wir mehr.“
 
 Translation:
 
@@ -142,14 +142,13 @@ Translation:
 >
 > "Good. We'll keep investigating. By this evening we'll have questioned all the employees. And by tomorrow at the latest we'll know more."
 
-Notes: three Futur II sentences are guesses about the past (*wird … eingestiegen sein, wird … getragen haben, wird … gewusst haben*); one is a plan finished by a future point (*werden … befragt haben*). The last sentence uses the present for the future (*spätestens morgen wissen wir*). *einsteigen* (ist eingestiegen) = to climb in, get in; *der Fingerabdruck* = fingerprint; *melden* = to report; *bestätigen* = to confirm; *der Tresor* = safe; *anfassen* = to touch; *die Aushilfe* = temporary worker, temp. *Kommissar* and *Kommissarin* are police ranks; "detective" or "inspector" are the usual translations.
+Notes: three Futur II sentences are guesses about the past (*wird … eingestiegen sein, wird … getragen haben, wird … gewusst haben*); one is a plan finished by a future point (*werden … befragt haben*). The last sentence uses the present for the future (*spätestens morgen wissen wir*). *einsteigen* (ist eingestiegen) = to climb in, get in; *der Fingerabdruck* = fingerprint; *melden* = to report; *bestätigen* = to confirm; *der Tresor* = safe; *anfassen* = to touch; *die Aushilfe* = temporary worker, temp.
 
 ## Pronunciation
 
 - *der Kommissar*: ko-mi-SAR, stress on the last syllable; *die Kommissarin*: ko-mi-SA-rin.
 - *das Alibi*: A-li-bi, stress on the first syllable.
 - *ermitteln*: er-MIT-teln; *die Ermittlung*: er-MITT-lung.
-- *der Tatort*: TAT-ort, a small break before *ort* (*Tat* + *Ort*).
 - *der Verdacht*: fer-DACHT, *ch* as in *ach*; *verdächtig*: fer-DÄCH-tig, *ch* as in *ich*.
 
 ## Common mistakes

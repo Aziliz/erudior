@@ -28,6 +28,8 @@ The question is *Wie sieht er/sie aus?* — What does he/she look like? *aussehe
 | | *eine Brille tragen* | to wear glasses |
 | overall | *hübsch, schön, hässlich* | pretty, beautiful, ugly |
 
+![Head and shoulders of a man, labeled in German: die Haare (hair), die Brille (glasses), die Nase (nose), der Mund (mouth), der Bart (beard) and das Ohr (ear).](images/de2-m2-face.svg)
+
 German usually talks about hair in the plural: *Seine Haare sind kurz.* — His hair is short. *Ihre Haare sind lockig.* — Her hair is curly. The singular *das Haar* is a single hair, or the hair as a whole in a more formal style: *Ihr Haar ist sehr schön.*
 
 Two patterns describe a person:
@@ -78,6 +80,18 @@ Look at *du wirst* (no *d*) and *er wird* (no extra *-t*). Simple past: *wurde* 
 - With an adjective, for a change of state: *Es wird kalt.* — It's getting cold. *Ich werde müde.* — I'm getting tired. *Er ist ganz rot geworden.* — He went bright red.
 - With a job or role, without an article: *Ich möchte Krankenpfleger werden.* — I'd like to become a nurse. *Sie ist Mutter geworden.* — She has become a mother.
 - With an age, for birthdays: *Meine Tochter wird nächste Woche zehn.* — My daughter turns ten next week.
+
+```mermaid
+flowchart TD
+  accTitle: Three uses of werden, to become
+  accDescr: werden means to become. With an adjective it describes a change of state, as in Es wird kalt. With a job or role it takes no article, as in Sie wird Ärztin. With an age it means to turn, as in Er wird zehn. In all three uses the perfect is ist geworden.
+  W["werden = to become"] --> A["+ adjective, a change: Es wird kalt."]
+  W --> B["+ job or role, no article: Sie wird Ärztin."]
+  W --> C["+ age, to turn: Er wird zehn."]
+  A --> P["Perfect with sein: ist geworden"]
+  B --> P
+  C --> P
+```
 
 Don't confuse *werden* with *wollen*. *Ich will Ärztin werden* means "I want to become a doctor": *will* is from *wollen* (to want), not English "will". You will also see *werden* used for the future (*Es wird regnen* — It will rain); that is lesson 14.
 

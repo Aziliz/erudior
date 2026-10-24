@@ -35,6 +35,12 @@ The two halves have different word orders, and this is the part to practise:
 
 The comparative always stays right after *je* or *desto*, together with its noun if there is one: *je mehr Zeit …, desto mehr Kraft …*. Don't separate them: ~~Je ich mehr trainiere~~ is wrong.
 
+A graph shows the idea of a proportional clause: as one value goes up, another goes up with it (*je mehr …, desto mehr …*) or goes down (*je mehr …, desto weniger …*). The lines here are a simplified picture, not real data.
+
+```plot
+{"x": [0, 10], "y": [0, 10], "functions": [{"f": "1 + 0.8x", "label": "Ausdauer"}, {"f": "9 - 0.6x", "label": "Stress", "dashed": true}], "xLabel": "Training (Stunden pro Woche)", "yLabel": "Punkte", "caption": "Je mehr man trainiert, desto größer die Ausdauer und desto kleiner der Stress (simplified)"}
+```
+
 ### umso instead of desto
 
 *umso* means exactly the same as *desto* and works the same way: *Je mehr man sich bewegt, umso besser schläft man.* Use whichever you like; *desto* is slightly more common in writing.
@@ -78,12 +84,25 @@ Examples:
 - *Sie hat den schwersten Wettkampf des Jahres gewonnen.* — She won the hardest competition of the year.
 - *Der älteste Spieler in unserer Mannschaft ist 52.* — The oldest player on our team is 52.
 
+The podium shows a race result. You can describe it both ways: *Lea ist die schnellste Läuferin* (with a noun) or *Lea ist am schnellsten gelaufen* (without one). *Aylin war langsamer als Lea, aber schneller als Mia. Mia hat die längste Zeit gebraucht.*
+
+![A podium for a 10 km city run with three runners: Lea in first place with 41:20, Aylin in second place with 43:05 and Mia in third place with 44:50. Times are in minutes and seconds.](images/de3-m2-podium.svg)
+
 ### am besten or der beste?
 
 Both are superlatives, but they are used differently:
 
 - *am* + *-sten* stands without a noun, after verbs like *sein* or as an adverb: *Lisa läuft am schnellsten. Dieser Schuh ist am bequemsten.*
 - *der/die/das* + *-ste* + ending stands before a noun (or with a noun understood): *Lisa ist die schnellste Läuferin. Lisa ist die schnellste* (the fastest one).
+
+```mermaid
+flowchart TD
+  accTitle: am schnellsten or der schnellste?
+  accDescr: For a superlative, ask whether a noun follows or is understood. If yes, use der, die or das with -ste and the normal adjective ending, as in die schnellste Läuferin. If the superlative stands alone after sein or describes how someone does something, use am with -sten, as in Lisa läuft am schnellsten.
+  A["You want a superlative: the fastest"] --> B{"Does a noun follow, or is one understood?"}
+  B -- yes --> C["der / die / das + -ste + ending: die schnellste Läuferin"]
+  B -- "no: after sein, or how someone does it" --> D["am + -sten: Lisa läuft am schnellsten."]
+```
 
 ### mehr, weniger and the irregular forms
 

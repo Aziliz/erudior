@@ -24,6 +24,10 @@ A **two-part connector** has one word in the first part of the sentence and anot
 | *nicht nur … sondern auch* | not only … but also | *Das Haus ist nicht nur groß, sondern auch billig.* |
 | *zwar … aber* | admittedly …, but | *Die Lage ist zwar zentral, aber laut.* |
 
+The chart shows what the first four pairs say about two things, here a balcony and a garden. Both *sowohl … als auch* and *nicht nur … sondern auch* mean "both", but the second pair presents the second item as extra news.
+
+![A chart answering: does the flat have a balcony and a garden? sowohl … als auch: balcony yes, garden yes, meaning both. nicht nur … sondern auch: yes and yes, meaning both, with the second as news. entweder … oder: yes and no, or no and yes, meaning one of the two. weder … noch: no and no, meaning neither.](images/de3-m2-pairs.svg)
+
 The simplest way to use them is to connect two words or phrases inside one clause, as in all the examples above. Then there's nothing new about the word order: the pair just sits where the words would be.
 
 - *Ich möchte entweder eine WG oder eine kleine Wohnung.* — I'd like either a flat-share or a small flat.
@@ -91,6 +95,10 @@ If this feels clumsy, you can always rephrase so that each subject has its own v
 | *das Treppenhaus* | stairwell |
 | *die Lage* | location |
 | *die Nachbarschaft* | neighbourhood; the neighbours |
+
+Four of the building types side by side:
+
+![Four buildings in a row: a detached house with a fence and a tree, labeled das Einfamilienhaus; three joined narrow houses, labeled das Reihenhaus; a four-storey block of flats, labeled das Mehrfamilienhaus; and a tall tower with many floors, labeled das Hochhaus.](images/de3-m2-houses.svg)
 
 *der Altbau* in Germany usually means a building from before about 1950, with high ceilings and wooden floors; many people love them. *Lage, Lage, Lage* is a German saying about what matters when you buy property. Two adjectives describe it: *zentral* (central) and *ländlich* (rural).
 

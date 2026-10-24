@@ -57,6 +57,24 @@ The test is the subject:
 
 With the same subject, *damit* is also possible, and many people say it: *Ich spare, damit ich ein Auslandssemester machen kann.* It isn't wrong, but *um … zu* is shorter and sounds better. In the exam, use *um … zu* when you can.
 
+The chart sums up this lesson's choices. For each clause, ask what it adds (a goal, "without" or "instead of") and then whether the subject is the same in both parts.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing um … zu, damit, ohne … zu, ohne dass or statt … zu
+  accDescr: For a goal, ask whether the same person acts and wants the goal. If yes, use um … zu with the infinitive at the end; if not, use damit with the verb at the end. For without, use ohne … zu with the same subject and ohne dass with a different subject. For instead of, use statt … zu (or anstatt … zu).
+  A["What does the clause add?"] --> G["a goal: in order to"]
+  A --> W["without doing"]
+  A --> S["instead of doing"]
+  G --> Q1{"Same subject in both parts?"}
+  Q1 -- yes --> U["um … zu + infinitive"]
+  Q1 -- no --> D["damit + verb at the end"]
+  W --> Q2{"Same subject in both parts?"}
+  Q2 -- yes --> O["ohne … zu + infinitive"]
+  Q2 -- no --> OD["ohne dass + verb at the end"]
+  S --> ST["(an)statt … zu + infinitive"]
+```
+
 Note the modal in many *damit* clauses: *damit … kann*. A purpose often means "so that it's possible", so *können* is very common. Don't add *wollen*: the wanting is already in *damit*.
 
 ### damit has two meanings
@@ -118,6 +136,10 @@ Germany has two main types of university. A *Universität* (often *Uni*) is more
 | *der Studienplatz* | place at university |
 | *die Mensa* | university canteen |
 | *das Studentenwohnheim* | hall of residence |
+
+Here is a small campus with some of these places:
+
+![A campus map. Top left a lecture hall with curved rows of seats and a lectern, labeled der Hörsaal; top right a building full of bookshelves, labeled die Bibliothek; bottom left a building with a plate, knife and fork, labeled die Mensa; bottom middle a block with many windows and a bed, labeled das Studentenwohnheim; bottom right a round yellow sign with a green H, labeled die Bushaltestelle.](images/de3-m2-campus.svg)
 
 *sich einschreiben* (to enrol, register) is separable and strong, like *schreiben*: *Ich schreibe mich ein, ich habe mich eingeschrieben*. The infinitive with *zu* is *sich einzuschreiben*. Many universities also say *sich immatrikulieren*.
 

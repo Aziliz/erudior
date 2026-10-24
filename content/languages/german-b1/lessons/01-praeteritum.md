@@ -84,6 +84,22 @@ A small group, the **mixed verbs**, does both: the vowel changes like a strong v
 
 *Er kannte die Antwort, aber er nannte keinen Namen.* — He knew the answer, but he didn't give a name.
 
+The chart sums up how to find the simple past of any verb. The first question is answered by the dictionary or the reference sheet: compare the infinitive with the past form.
+
+```mermaid
+flowchart TD
+  accTitle: Weak, strong or mixed: finding the simple past
+  accDescr: A decision chart. First ask whether the stem vowel changes in the past. If not, the verb is weak: add -te to the stem, or -ete after -t or -d, as in sagte and arbeitete. If the vowel changes, ask whether -te is also added. If yes, the verb is mixed, as in brachte, dachte and kannte. If no, the verb is strong: new vowel and no -te, as in fand, schrieb and fuhr. For all three types, a separable prefix goes to the end of a main clause, as in rief an.
+  A["Infinitive: what is the simple past?"] --> B{"Does the stem vowel change?"}
+  B -- no --> C["Weak: stem + -te (sagte), -ete after -t or -d (arbeitete)"]
+  B -- yes --> D{"Is -te added as well?"}
+  D -- yes --> E["Mixed: new vowel + -te (brachte, dachte, kannte)"]
+  D -- no --> F["Strong: new vowel, no -te (fand, schrieb, fuhr)"]
+  C --> G["Separable verb? Prefix to the end of a main clause: rief ... an"]
+  E --> G
+  F --> G
+```
+
 ## Separable verbs in the simple past
 
 In a main clause a **separable verb** splits in the simple past exactly as it does in the present: the past form goes to position 2, the prefix to the end.
@@ -92,6 +108,10 @@ In a main clause a **separable verb** splits in the simple past exactly as it do
 - simple past: *Sie stand um sechs auf.* — She got up at six.
 - *Der Zug kam pünktlich an.* — The train arrived on time.
 - *Er rief sofort die Polizei an.* — He phoned the police at once.
+
+The two parts of the verb frame the main clause, like a bracket:
+
+![The sentence Plötzlich rief der Zeuge die Polizei an, split into five boxes: Plötzlich (position 1), rief (the verb's past form, position 2), der Zeuge (subject), die Polizei (object) and an (separable prefix, at the end). A bracket joins rief and an.](images/de3-m1-bracket.svg)
 
 In a subordinate clause the verb goes to the end and joins up again: *…, als sie um sechs aufstand*; *…, weil der Zug pünktlich ankam*. This is the same rule you know from the present.
 

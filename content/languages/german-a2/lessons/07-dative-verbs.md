@@ -108,6 +108,17 @@ When a sentence has a dative and an accusative object, the order depends on whet
 | accusative noun | *Ich gebe dem Kind den Ball.* | *Ich gebe ihm den Ball.* |
 | accusative pronoun | *Ich gebe ihn dem Kind.* | *Ich gebe ihn ihm.* |
 
+The same three rules as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Ordering a dative and an accusative object
+  accDescr: Look at the two objects. If both are nouns, the dative comes first: Ich gebe dem Kind den Ball. If one is a pronoun and one a noun, the pronoun comes first: Ich gebe ihm den Ball, or Ich gebe ihn dem Kind. If both are pronouns, the accusative comes first: Ich gebe ihn ihm.
+  A{"Two objects: nouns or pronouns?"} -- two nouns --> B["Dative first: dem Kind den Ball"]
+  A -- "one pronoun, one noun" --> C["Pronoun first: ihm den Ball / ihn dem Kind"]
+  A -- two pronouns --> D["Accusative first: ihn ihm"]
+```
+
 A memory hook: short words go first. Pronouns are short, so they jump ahead of nouns; and of two pronouns, the accusative (*es, ihn, sie*) is usually the shorter, quick one. Rule 3 also gives you the very common *Gib es mir!* (Give it to me!) and *Ich zeige es dir* (I'll show you).
 
 These rules apply in every sentence type: *Hast du ihm das Geld schon gegeben?* — Have you given him the money yet? *…, weil ich es ihr gezeigt habe.* — … because I showed it to her.
@@ -146,6 +157,8 @@ Notes: *Er wird achtzig* uses *werden* (to become), which is lesson 8; *etwas Be
 | *das Portemonnaie* | wallet, purse |
 | *der Regenschirm* | umbrella |
 | *die Sonnenbrille* | sunglasses (one pair, singular) |
+
+![Six things, each labeled in German: die Kette (necklace), der Ring, der Regenschirm (umbrella), die Sonnenbrille (sunglasses), das Portemonnaie (wallet) and das Paket (parcel).](images/de2-m2-gifts.svg)
 
 *die Sonnenbrille* is singular like *die Brille*: *Wo ist meine Sonnenbrille? Sie gehört mir!* In southern Germany you'll hear *der Geldbeutel* for *das Portemonnaie*; *die Geldbörse* is a more formal word.
 

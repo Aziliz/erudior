@@ -71,6 +71,10 @@ Careful with *umziehen*. In A1 it meant to move house: *Wir ziehen nach Hamburg 
 
 The things you use: *der Spiegel* (mirror), *die Zahnbürste* (toothbrush), *die Zahnpasta* (toothpaste), *die Seife* (soap), *das Shampoo*, *das Handtuch* (towel), *der Kamm* (comb) and *die Creme* (cream) for *die Haut* (skin).
 
+Here are six of them in a bathroom:
+
+![A bathroom with a mirror above the washbasin, a toothbrush in a cup, a bar of soap, a towel on a rail, and a jar of cream and a comb on a shelf, each labeled in German: der Spiegel, die Zahnbürste, die Seife, das Handtuch, die Creme, der Kamm.](images/de2-m2-bathroom.svg)
+
 ## The dative reflexive: washing your hands
 
 What happens when you wash not yourself but your hands? German says "I wash to myself the hands":
@@ -91,6 +95,17 @@ Now there are two objects. *die Hände* is the thing being washed (accusative), 
 | *sie / Sie* | *sich* | *sich* |
 
 The rule is simple: if the sentence already has an accusative object (the hands, the teeth, a jacket), the reflexive pronoun is dative. If not, it is accusative.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an accusative or a dative reflexive pronoun
+  accDescr: Start with a reflexive verb such as sich waschen. Ask whether the sentence has another accusative object, such as die Hände or eine Jacke. If not, use the accusative pronouns mich, dich, sich, uns, euch, sich, as in Ich wasche mich. If it does, use the dative pronouns mir, dir, sich, uns, euch, sich, as in Ich wasche mir die Hände. Only the ich and du forms are different.
+  A["Reflexive verb, e.g. sich waschen"] --> B{"Another accusative object in the sentence? (die Hände, eine Jacke)"}
+  B -- no --> C["Accusative: mich, dich, sich, uns, euch, sich"]
+  B -- yes --> D["Dative: mir, dir, sich, uns, euch, sich"]
+  C --> E["Ich wasche mich."]
+  D --> F["Ich wasche mir die Hände."]
+```
 
 - *Ich ziehe mich an.* — I get dressed. (no other object: accusative)
 - *Ich ziehe mir eine Jacke an.* — I put on a jacket. (*eine Jacke* is the object: dative)

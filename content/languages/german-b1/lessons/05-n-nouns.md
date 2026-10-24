@@ -37,6 +37,10 @@ A weak noun (the pattern is called the **n-declension**) is masculine (the one n
 
 The ending helps the listener: in *Der Hund beißt den Jungen*, the *-n* shows that the boy is the object, even if the word order changes (*Den Jungen beißt der Hund*).
 
+Compare a weak noun with a normal masculine noun. The normal noun changes only in the genitive and the plural; the weak noun has *-n* everywhere except the nominative singular.
+
+![A table comparing der Kollege with der Tisch. Nominative: der Kollege, der Tisch. Accusative: den Kollegen, den Tisch. Dative: dem Kollegen, dem Tisch. Genitive: des Kollegen, des Tisches. Plural: die Kollegen, die Tische. The -n endings of Kollege are highlighted in pink, and the endings -es and -e of Tisch in green.](images/de3-m1-n-declension.svg)
+
 ### How to recognise weak nouns
 
 You can't tell from every noun, but three groups cover almost all of them:
@@ -50,6 +54,20 @@ You can't tell from every noun, but three groups cover almost all of them:
 *der Herr* adds only *-n* in the singular but *-en* in the plural: *Ich gebe Herrn Schulz den Brief* (dative singular), *Sehr geehrte Damen und Herren* (plural). *der Nachbar* and *der Bauer* add *-n*: *den Nachbarn, dem Bauern* (female: *die Bäuerin*, farmer).
 
 Watch out: not every masculine noun in *-e* is weak, but the exceptions are rare at B1 (*der Käse* is normal). And feminine nouns are never weak: *die Kollegin, die Kollegin, der Kollegin*.
+
+```mermaid
+flowchart TD
+  accTitle: Is it a weak noun?
+  accDescr: A decision chart. If the noun is not masculine, it is not weak; the only neuter exception is das Herz. If it is masculine, ask whether it is a person or animal ending in -e, such as der Kollege or der Löwe. If not, ask whether it is a foreign word for a person ending in -ant, -ent, -ist, -at or -oge, such as der Student. If not, ask whether it is one of the short nouns Mensch, Herr, Nachbar, Bauer, Held, Bär or Prinz. A yes at any of these steps means a weak noun with -n or -en in every form except the nominative singular; three noes mean a normal noun.
+  A{"Is the noun masculine?"} -- no --> N["Not weak (only exception: das Herz)"]
+  A -- yes --> B{"Person or animal ending in -e? (der Kollege, der Löwe)"}
+  B -- yes --> W["Weak noun: -n or -en in every form except nominative singular"]
+  B -- no --> C{"Foreign word for a person in -ant, -ent, -ist, -at, -oge?"}
+  C -- yes --> W
+  C -- no --> D{"Mensch, Herr, Nachbar, Bauer, Held, Bär, Prinz?"}
+  D -- yes --> W
+  D -- no --> X["Normal noun: den Tisch, dem Tisch, des Tisches"]
+```
 
 ### The Name group: -ns in the genitive
 

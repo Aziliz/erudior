@@ -14,7 +14,7 @@
     - {format: sig4, name: s, label: '$\Delta s =$', relTolerance: 0.005, units: {m: 1, km: 1000}}
     - {format: sig4, name: tau, label: 'Proper time', relTolerance: 0.005, units: {'μs': 1, us: 1}}
   solution: |-
-    $c\Delta t = (300\text{ m/μs})({dt:num1}\text{ μs}) = {cdt:sig4}$ m.
+    Light travels 300 m per μs, so $c\Delta t = 300({dt:num1}) = {cdt:sig4}$ m.
 
     $(\Delta s)^2 = (c\Delta t)^2 - (\Delta x)^2 = {cdt:sig4}^2 - {dx}^2 > 0$, so the separation is timelike and $\Delta s =$ **{s:sig3} m**.
 

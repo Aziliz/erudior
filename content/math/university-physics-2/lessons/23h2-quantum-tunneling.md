@@ -61,7 +61,7 @@ An electron with $E = 2.0$ eV meets a barrier $U = 5.0$ eV high and $L = 0.50$ n
 **Double the width.** Now $2\kappa L = 17.7$, and $T \approx 3.84e^{-17.7} = 7.5\times10^{-8}$. Doubling the width did not halve $T$; it *squared* the exponential factor, cutting $T$ by a factor of about 7000.
 
 ```plot
-{"x": [0, 1], "y": [-8, 0], "xLabel": "barrier width L (nm)", "yLabel": "log₁₀ T", "functions": [{"f": "-log10(1 + 1.0417*sinh(8.875*x)^2)"}], "points": [{"at": [0.5, -3.27], "label": "Example 1: T = 5.4 × 10⁻⁴"}], "caption": "Transmission of a 2.0 eV electron through a 5.0 eV barrier, on a logarithmic scale: past about 0.2 nm, log T falls along a straight line, losing a factor of 10 for about every 0.13 nm of extra width"}
+{"x": [0, 1], "y": [-8, 1], "xLabel": "barrier width L (nm)", "yLabel": "log₁₀ T", "functions": [{"f": "-log10(1 + 1.0417*sinh(8.875*x)^2)"}], "points": [{"at": [0.5, -3.27], "label": "Example 1: T = 5.4 × 10⁻⁴"}], "caption": "Transmission of a 2.0 eV electron through a 5.0 eV barrier, on a logarithmic scale: past about 0.2 nm, log T falls along a straight line, losing a factor of 10 for about every 0.13 nm of extra width"}
 ```
 
 ### Example 2

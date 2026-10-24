@@ -102,7 +102,10 @@ export function normalizeCourse(raw: unknown): Course {
       topic: str(d.topic) || undefined,
       vars: (isObj(d.vars) ? d.vars : {}) as Drill["vars"],
       funcs: (isObj(d.funcs) ? d.funcs : undefined) as Drill["funcs"],
-      calc: (isObj(d.calc) ? d.calc : undefined) as Drill["calc"],
+      // YAML reads a bare number (`mt: 938.3`) as a number; calc entries are expressions (text).
+      calc: (isObj(d.calc)
+        ? Object.fromEntries(Object.entries(d.calc).map(([k, v]) => [k, typeof v === "number" ? String(v) : v]))
+        : undefined) as Drill["calc"],
       where: arr(d.where).length ? arr(d.where).map(String) : undefined,
       prompt: str(d.prompt),
       answer: str(d.answer),

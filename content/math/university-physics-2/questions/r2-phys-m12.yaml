@@ -173,7 +173,7 @@
     - 'The recoiling electron''s kinetic energy equals the energy the photon lost'
   answer: [1, 2, 3]
   explanation: |-
-    $\Delta\lambda = \frac{h}{m_ec}(1 - \cos\theta)$ depends only on the angle and is largest, 4.86 pm, at $180^\circ$. A longer wavelength means less energy, and by energy conservation the electron gets exactly what the photon lost. The *fractional* change depends on the incoming wavelength, but the shift itself does not.
+    $\Delta\lambda = \frac{h}{m_ec}(1 - \cos\theta)$ depends only on the angle and is largest, 4.86 pm, at $180^\circ$. A longer wavelength means less energy, and by energy conservation the electron gets exactly what the photon lost. The fractional change depends on the incoming wavelength, but the shift itself does not.
 
 # ---------- Nuclear physics (core) ----------
 - id: phys-m12-r2-q15
@@ -559,7 +559,7 @@
   choices: ['The reaction is impossible', 'It releases 2.0 MeV of kinetic energy', 'It can occur only if the colliding particles bring in at least 2.0 MeV of kinetic energy, and in fact somewhat more', 'The products have 2.0 MeV less rest energy than the reactants']
   answer: 2
   explanation: |-
-    Negative $Q$ means the products have *more* rest energy than the reactants, so kinetic energy must be supplied. Because momentum is also conserved, some kinetic energy stays in the motion of the products, so the beam needs more than $|Q|$.
+    Negative $Q$ means the products have more rest energy than the reactants, so kinetic energy must be supplied. Because momentum is also conserved, some kinetic energy stays in the motion of the products, so the beam needs more than $|Q|$.
 - id: phys-m12-r2-h36
   lesson: phys-m12-h-liquid-drop
   type: text

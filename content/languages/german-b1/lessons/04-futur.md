@@ -52,6 +52,15 @@ English uses "will" or "going to" almost every time it talks about the future. G
 
 Rule of thumb: if a time word already makes the future clear and it's a plan, use the present. If you predict, promise or announce, use *werden*.
 
+```mermaid
+flowchart TD
+  accTitle: Present or werden for the future?
+  accDescr: A decision chart for talking about the future. If it is a plan or arrangement and a time word makes the future clear, use the present, as in Morgen fahre ich nach Hamburg. If it is a prediction, forecast, promise or firm resolution, use werden plus infinitive, as in Es wird bald regnen and Ich werde dir helfen.
+  A{"Talking about the future: what kind of statement?"} -- "a plan, with a time word" --> P["Present: Morgen fahre ich nach Hamburg."]
+  A -- "a prediction or forecast" --> W["werden + infinitive: Es wird bald regnen."]
+  A -- "a promise or resolution" --> W2["werden + infinitive: Ich werde dir helfen."]
+```
+
 ## Guessing about now: werden + wohl
 
 German also uses the future form to make an assumption about the present. You are not sure, but you think something is probably true. The little word *wohl* (probably, I suppose) or *sicher* (surely) usually comes with it.
@@ -80,6 +89,19 @@ Other words that soften a statement: *wahrscheinlich* (probably), *vermutlich* (
 | past participle | passive *(preview)* | *Das Auto wird in Bayern gebaut.* | The car is built in Bavaria. |
 
 You met the full verb at A2 (*Ich will Ärztin werden*). The passive comes in module 4; for now, just notice the participle (*gebaut*) and don't read it as "will". The future of the full verb uses *werden* twice, and that is fine: *Es wird kalt werden.* — It's going to get cold.
+
+When you meet *werden* in a text, ask the questions in this chart:
+
+```mermaid
+flowchart TD
+  accTitle: The jobs of werden
+  accDescr: A decision chart for reading werden. If werden comes with a noun or adjective, it is the full verb to become, as in Es wird kalt. If it comes with an infinitive at the end, it is the future, as in Es wird regnen, unless it is a guess about the present, often with wohl, as in Er wird wohl krank sein, meaning he is probably ill. If it comes with a past participle at the end, it is the passive, as in Das Auto wird gebaut.
+  A{"What comes with werden?"} -- "a noun or adjective" --> B["Full verb, to become: Es wird kalt."]
+  A -- "an infinitive at the end" --> C{"A guess about now, often with wohl?"}
+  C -- no --> D["Future: Es wird regnen."]
+  C -- yes --> E["Assumption: Er wird wohl krank sein."]
+  A -- "a past participle at the end" --> F["Passive: Das Auto wird gebaut."]
+```
 
 ## Technology and science words
 

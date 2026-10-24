@@ -1,0 +1,513 @@
+# German A1, module 5 (round 2): new question types for the core lessons, and the honors lessons.
+
+# --- 17 de1-city-imperative ---
+- id: de1-m5-r2-q01
+  lesson: de1-city-imperative
+  type: text
+  topic: Imperative
+  stem: 'You tell a friend to read the text. Write the du imperative of "lesen": "___ bitte den Text!" (Give only the verb.)'
+  accept: [Lies]
+  explanation: |-
+    Start from the du form: du liest. Drop du, and because the stem ends in s, drop only the -t: lies. The e to ie change stays. "Les" and "Lese" are common mistakes; the standard du imperative is Lies!
+- id: de1-m5-r2-q02
+  lesson: de1-city-imperative
+  type: order
+  module_quiz: true
+  topic: Imperative
+  stem: 'Put the words in order to make a polite instruction: "Turn left at the traffic lights!"'
+  items: ['Biegen', 'Sie', 'an der Ampel links', 'ab!']
+  explanation: |-
+    In the Sie imperative the verb comes first and Sie second: Biegen Sie … Abbiegen is separable, so the prefix ab goes to the very end: Biegen Sie an der Ampel links ab!
+- id: de1-m5-r2-q03
+  lesson: de1-city-imperative
+  type: match
+  topic: Imperative
+  stem: 'Match each verb to its du imperative.'
+  pairs:
+    - [nehmen, Nimm!]
+    - [fahren, Fahr!]
+    - [warten, Warte!]
+    - [lesen, Lies!]
+    - [sein, Sei!]
+  distractors: [Nehm!, Fähr!]
+  explanation: |-
+    Start from the du form and drop du and -st: du nimmst → Nimm! (e to i stays), du fährst → Fahr! (a to ä verbs lose the umlaut), du wartest → Warte! (the e before -st stays), du liest → Lies! Sein is irregular: Sei! Nehm! ignores the stem change, and Fähr! keeps an umlaut that the imperative drops.
+- id: de1-m5-r2-q04
+  lesson: de1-city-imperative
+  topic: Imperative
+  stem: 'Which are correct imperatives? Select all that apply.'
+  choices: ['Nimm den Bus!', 'Gehen Sie geradeaus!', 'Fähr langsam!', 'Seid bitte leise!', 'Abbiegen Sie links!']
+  answer: [0, 1, 3]
+  explanation: |-
+    Nimm den Bus! (du), Gehen Sie geradeaus! (Sie) and Seid bitte leise! (ihr, from sein) are all correct. Fähr langsam! is wrong because a to ä verbs drop the umlaut: Fahr langsam! Abbiegen Sie links! is wrong because the separable prefix goes to the end: Biegen Sie links ab!
+- id: de1-m5-r2-q05
+  lesson: de1-city-imperative
+  type: label
+  module_quiz: true
+  topic: Directions
+  stem: 'Name the numbered places in this town centre.'
+  image: {src: images/de1-m5-town-blank.svg, alt: 'A small town centre with a main street crossing a side street and a river with a bridge on the right. There is a church with a tower, a building with an envelope sign, a park with trees, a round H sign on the pavement, traffic lights, a building with a euro sign, a building with a large A and the bridge. Six places are numbered.'}
+  labels:
+    - {x: 21.5, y: 28.0, text: die Kirche}
+    - {x: 66.0, y: 24.6, text: die Post}
+    - {x: 31.9, y: 60.0, text: die Haltestelle}
+    - {x: 59.3, y: 68.4, text: die Bank}
+    - {x: 74.6, y: 81.0, text: die Apotheke}
+    - {x: 90.8, y: 51.6, text: die Brücke}
+  distractors: [das Krankenhaus, das Museum]
+  explanation: |-
+    The building with a tower and a cross is die Kirche (church); the envelope marks die Post (post office); the round H sign is die Haltestelle (bus or tram stop); the euro sign marks die Bank; the big A is the sign of a German die Apotheke (pharmacy); and the road over the river is die Brücke (bridge). There is no hospital or museum in the picture.
+
+# --- 18 de1-travel-dative ---
+- id: de1-m5-r2-q06
+  lesson: de1-travel-dative
+  type: text
+  module_quiz: true
+  topic: Dative
+  stem: 'Write the missing article: "Wir fahren mit ___ Straßenbahn zum Zoo."'
+  accept: [der]
+  explanation: |-
+    Mit always takes the dative, and Straßenbahn is feminine (die Straßenbahn). The feminine dative article is der: mit der Straßenbahn. Die would be nominative or accusative; dem is for masculine and neuter nouns.
+- id: de1-m5-r2-q07
+  lesson: de1-travel-dative
+  type: match
+  topic: Prepositions
+  stem: 'Match each preposition and article to its short form.'
+  pairs:
+    - [zu dem, zum]
+    - [zu der, zur]
+    - [von dem, vom]
+    - [bei dem, beim]
+  distractors: [im, mitm]
+  explanation: |-
+    zu dem → zum (zum Bahnhof), zu der → zur (zur Post), von dem → vom (vom Hotel), bei dem → beim (beim Arzt). Im is the short form of in dem (lesson 19), and mit dem has no standard short form.
+- id: de1-m5-r2-q08
+  lesson: de1-travel-dative
+  type: order
+  topic: Transport
+  stem: 'Put the words in order: "Do I have to change in Munich?"'
+  items: ['Muss', 'ich', 'in München', 'umsteigen?']
+  explanation: |-
+    A yes/no question starts with the conjugated verb, here the modal muss. The subject ich follows, and the infinitive umsteigen goes to the end (the sentence bracket): Muss ich in München umsteigen?
+- id: de1-m5-r2-q09
+  lesson: de1-travel-dative
+  topic: Prepositions
+  stem: 'Which prepositions always take the dative? Select all that apply.'
+  choices: [mit, für, seit, ohne, bei, durch]
+  answer: [0, 2, 4]
+  explanation: |-
+    Mit, seit and bei are three of the seven prepositions that always take the dative (aus, bei, mit, nach, seit, von, zu). Für, ohne and durch always take the accusative (lesson 16): für dich, ohne den Koffer, durch die Stadt.
+- id: de1-m5-r2-q10
+  lesson: de1-travel-dative
+  type: label
+  module_quiz: true
+  topic: Transport
+  stem: 'Name the numbered things in this station scene.'
+  image: {src: images/de1-m5-station-blank.svg, alt: 'A station scene: a plane in the sky, a long train on a track next to a platform with a number 3 sign, a suitcase and a timetable board on the platform, and in the street below a tram under an overhead wire, a bus and a taxi. Six things are numbered.'}
+  labels:
+    - {x: 34.7, y: 32.0, text: der Zug}
+    - {x: 55.6, y: 42.0, text: das Gleis}
+    - {x: 18.9, y: 50.4, text: der Koffer}
+    - {x: 21.5, y: 80.0, text: die Straßenbahn}
+    - {x: 59.0, y: 82.0, text: der Bus}
+    - {x: 88.9, y: 81.0, text: das Taxi}
+  distractors: [die U-Bahn, das Fahrrad]
+  explanation: |-
+    Der Zug (train) stands on das Gleis (the track, also the platform number). On the platform is der Koffer (suitcase). In the street, the vehicle on rails with a pole up to the overhead wire is die Straßenbahn (tram); then come der Bus and das Taxi. The U-Bahn runs underground, and there is no bicycle in the picture.
+- id: de1-m5-r2-q11
+  lesson: de1-travel-dative
+  topic: Prepositions
+  stem: 'A friend asks: "Wohin fährst du im Sommer?" You''re going to Switzerland. Which answer is correct?'
+  choices: ['Ich fahre nach die Schweiz.', 'Ich fahre zur Schweiz.', 'Ich fahre nach Schweiz.', 'Ich fahre in die Schweiz.']
+  answer: 3
+  explanation: |-
+    Countries with an article, like die Schweiz, take in + accusative: in die Schweiz. Nach is only for cities and countries without an article (nach Österreich), so nach die Schweiz and nach Schweiz are wrong. Zur is for people and places such as zur Post, not for countries.
+
+# --- 19 de1-home ---
+- id: de1-m5-r2-q12
+  lesson: de1-home
+  type: text
+  topic: Two-way prepositions
+  stem: 'Write the missing article: "Die Lampe ist über ___ Tisch."'
+  accept: [dem]
+  explanation: |-
+    The sentence says where the lamp is (Wo?), so über takes the dative. Tisch is masculine (der Tisch), and the masculine dative article is dem: über dem Tisch. Den would be the accusative, used only for movement (Wohin?).
+- id: de1-m5-r2-q13
+  lesson: de1-home
+  type: label
+  module_quiz: true
+  topic: Home
+  stem: 'Name the numbered rooms in this floor plan.'
+  image: {src: images/de1-m5-flat-blank.svg, alt: 'A floor plan of a flat. Top row: a room with a stove, a fridge and a round table; a room with a bath, a toilet and a basin; a room with a double bed and a wardrobe. A hallway runs across the middle. Below it a large room with a sofa and a coffee table, and outside it a platform with a railing. Five places are numbered.'}
+  labels:
+    - {x: 20.8, y: 22.0, text: die Küche}
+    - {x: 44.4, y: 22.0, text: das Bad}
+    - {x: 75.0, y: 26.0, text: das Schlafzimmer}
+    - {x: 55.6, y: 66.0, text: das Wohnzimmer}
+    - {x: 75.0, y: 87.0, text: der Balkon}
+  distractors: [der Garten, die Treppe]
+  explanation: |-
+    The stove and fridge show die Küche (kitchen); the bath and toilet das Bad (bathroom); the double bed das Schlafzimmer (bedroom); the sofa das Wohnzimmer (living room); and the platform with a railing outside is der Balkon (balcony). There is no garden or staircase in this flat.
+- id: de1-m5-r2-q14
+  lesson: de1-home
+  type: label
+  topic: Two-way prepositions
+  stem: 'Wo ist der Ball? Choose the preposition for each numbered picture.'
+  image: {src: images/de1-m5-prepositions-blank.svg, alt: 'Eight small pictures of a ball and a box: the ball on top of a box; under a table; on the floor beside a box; floating above a box; inside an open box; peeking out over the back of a box; on the floor in front of a box, covering part of it; between two boxes. Six pictures are numbered.'}
+  labels:
+    - {x: 3.9, y: 6.9, text: auf}
+    - {x: 28.9, y: 6.9, text: unter}
+    - {x: 53.9, y: 6.9, text: neben}
+    - {x: 3.9, y: 56.9, text: in}
+    - {x: 28.9, y: 56.9, text: hinter}
+    - {x: 78.9, y: 56.9, text: zwischen}
+  distractors: [an, gegenüber]
+  explanation: |-
+    The ball is auf dem Karton (on top), unter dem Tisch (under), neben dem Karton (beside), im Karton (inside the open box), hinter dem Karton (only its top shows behind the box) and zwischen den Kartons (between two boxes). An is for touching a vertical surface, such as a picture an der Wand.
+- id: de1-m5-r2-q15
+  lesson: de1-home
+  type: match
+  topic: Pronouns for things
+  stem: '"Ich finde ___ schön." Match each noun to the pronoun that replaces it.'
+  pairs:
+    - [der Schrank, ihn]
+    - [die Lampe, sie]
+    - [das Sofa, es]
+    - [die Stühle, sie]
+  distractors: [er, den]
+  explanation: |-
+    The pronoun takes the gender of the noun, and here it is a direct object (accusative). Only the masculine changes: der Schrank → ihn. Die Lampe → sie, das Sofa → es, and the plural die Stühle → sie. Er is the subject form, and den is an article, not a pronoun.
+- id: de1-m5-r2-q16
+  lesson: de1-home
+  topic: Two-way prepositions
+  stem: 'Which sentences correctly say where something is? Select all that apply.'
+  choices: ['Das Foto ist an der Wand.', 'Das Buch ist auf den Tisch.', 'Die Katze ist unter dem Bett.', 'Die Milch ist im Kühlschrank.', 'Wir sind in die Küche.']
+  answer: [0, 2, 3]
+  explanation: |-
+    Location (Wo?) needs the dative: an der Wand, unter dem Bett, im Kühlschrank (in dem). Auf den Tisch and in die Küche are accusative, which is for movement; for location say auf dem Tisch and in der Küche.
+
+# --- 20 de1-body-health ---
+- id: de1-m5-r2-q17
+  lesson: de1-body-health
+  type: text
+  topic: Pronouns
+  stem: 'You ask a friend to help you and your brother. Write the missing pronoun: "Kannst du ___ bitte helfen?"'
+  accept: [uns]
+  explanation: |-
+    Helfen takes the dative, and "us" in the dative is uns (the same form as the accusative). Mich or mir would mean only you.
+- id: de1-m5-r2-q18
+  lesson: de1-body-health
+  type: match
+  module_quiz: true
+  topic: Pronouns
+  stem: 'Match each subject pronoun to its dative form.'
+  pairs:
+    - [ich, mir]
+    - [du, dir]
+    - [er, ihm]
+    - [sie (she), ihr]
+    - [Sie (formal you), Ihnen]
+  distractors: [mich, dich]
+  explanation: |-
+    The dative pronouns: ich → mir, du → dir, er → ihm, sie (she) → ihr, Sie → Ihnen (Wie geht es Ihnen?). Mich and dich are the accusative forms.
+- id: de1-m5-r2-q19
+  lesson: de1-body-health
+  type: order
+  topic: Health
+  stem: 'Put the words in order: "I''ve had a temperature since yesterday."'
+  items: ['Seit gestern', 'habe', 'ich', 'Fieber.']
+  explanation: |-
+    The time phrase seit gestern comes first, so the verb habe stays in position 2 and the subject ich comes right after it (inversion): Seit gestern habe ich Fieber. Seit + present tense is how German says "have had since".
+- id: de1-m5-r2-q20
+  lesson: de1-body-health
+  topic: Health
+  stem: 'Which sentences correctly say how you feel? Select all that apply.'
+  choices: ['Mir geht es nicht gut.', 'Mich geht es gut.', 'Mir ist kalt.', 'Ich habe Kopfschmerzen.', 'Meine Füße tut weh.']
+  answer: [0, 2, 3]
+  explanation: |-
+    Mir geht es nicht gut, Mir ist kalt and Ich habe Kopfschmerzen are correct. Feelings take the dative mir, not mich, so Mich geht es gut is wrong. Füße is plural, so the verb is tun: Meine Füße tun weh.
+- id: de1-m5-r2-q21
+  lesson: de1-body-health
+  type: label
+  module_quiz: true
+  topic: Body
+  stem: 'Name the numbered parts of the body.'
+  image: {src: images/de1-m5-body-blank.svg, alt: 'A person standing, seen from the front, with a head, face, ears, neck, arms, hands, belly, legs and feet. Six parts are numbered.'}
+  labels:
+    - {x: 50.0, y: 8.0, text: der Kopf}
+    - {x: 42.8, y: 17.0, text: das Ohr}
+    - {x: 38.9, y: 43.8, text: der Arm}
+    - {x: 63.6, y: 57.1, text: die Hand}
+    - {x: 50.0, y: 45.5, text: der Bauch}
+    - {x: 59.7, y: 91.4, text: der Fuß}
+  distractors: [der Rücken, der Zahn]
+  explanation: |-
+    From the top: der Kopf (head), das Ohr (ear), der Arm (arm), die Hand (hand), der Bauch (stomach, belly) and der Fuß (foot). The back (der Rücken) can't be seen from the front, and no tooth (der Zahn) is numbered.
+
+# --- 20h1 de1-m5-h-unterwegs (honors) ---
+- id: de1-m5-r2-h01
+  lesson: de1-m5-h-unterwegs
+  topic: Public transport
+  stem: 'Look at the board. You want to go to Munich. From which platform does your train leave today?'
+  image: {src: images/de1-m5-h-departures.svg, alt: 'A departure board headed Abfahrt. 08:04 S 3 Flughafen Gleis 2. 08:12 RE 7 Köln Hbf Gleis 5, note +10. 08:20 ICE 591 München Hbf Gleis 7, note heute Gleis 8. 08:31 RB 42 Bonn Gleis 4, note fällt aus. 08:45 IC 2013 Berlin Hbf Gleis 9.'}
+  choices: ['Gleis 7', 'Gleis 8', 'Gleis 5', 'Gleis 9']
+  answer: 1
+  explanation: |-
+    The ICE to München Hbf is planned for Gleis 7, but the Hinweis column says heute Gleis 8: today it leaves from platform 8. The note always beats the printed platform.
+- id: de1-m5-r2-h02
+  lesson: de1-m5-h-unterwegs
+  module_quiz: true
+  topic: Public transport
+  stem: 'Look at the board again. Which train is cancelled?'
+  image: {src: images/de1-m5-h-departures.svg, alt: 'A departure board headed Abfahrt. 08:04 S 3 Flughafen Gleis 2. 08:12 RE 7 Köln Hbf Gleis 5, note +10. 08:20 ICE 591 München Hbf Gleis 7, note heute Gleis 8. 08:31 RB 42 Bonn Gleis 4, note fällt aus. 08:45 IC 2013 Berlin Hbf Gleis 9.'}
+  choices: ['the RE 7 to Köln', 'the ICE 591 to München', 'the S 3 to the airport', 'the RB 42 to Bonn']
+  answer: 3
+  explanation: |-
+    Fällt aus (from ausfallen) means the train is cancelled: that's the RB 42 to Bonn. The RE 7 runs about 10 minutes late (+10), and the ICE runs but from another platform.
+- id: de1-m5-r2-h03
+  lesson: de1-m5-h-unterwegs
+  type: text
+  topic: Public transport
+  stem: 'The RE 7 to Köln is planned for 08:12, and the note says +10. At about what time should it leave? Write the time on the 24-hour clock, like 08:12.'
+  accept: ['08:22', '8:22', '08.22', '8.22', '0822', '08:22 Uhr', '8:22 Uhr', '8.22 Uhr']
+  explanation: |-
+    +10 means about 10 minutes late (10 Minuten Verspätung): 08:12 + 10 minutes = 08:22. The train still runs; it is not cancelled.
+- id: de1-m5-r2-h04
+  lesson: de1-m5-h-unterwegs
+  topic: Public transport
+  stem: 'On a board or ticket you see "Hbf". What does it stand for?'
+  choices: ['Haltestelle', 'Hauptbahnhof', 'Hafen', 'Hinweis']
+  answer: 1
+  explanation: |-
+    Hbf is short for Hauptbahnhof, the main station of a town (Köln Hbf, München Hbf). People always say the full word. A Haltestelle is a bus or tram stop.
+- id: de1-m5-r2-h05
+  lesson: de1-m5-h-unterwegs
+  module_quiz: true
+  topic: Public transport
+  stem: 'You have a Deutschlandticket. Which train can you NOT take with it?'
+  choices: ['an RE (Regional-Express)', 'an S-Bahn', 'an RB (Regionalbahn)', 'an ICE (Intercity-Express)']
+  answer: 3
+  explanation: |-
+    The Deutschlandticket covers local and regional transport: buses, trams, U-Bahn, S-Bahn, RE and RB. Long-distance trains such as the ICE, IC and EC need a separate ticket.
+- id: de1-m5-r2-h06
+  lesson: de1-m5-h-unterwegs
+  topic: Public transport
+  stem: 'Your paper ticket says "Bitte entwerten". Which statements are true? Select all that apply.'
+  choices: ['You stamp it in a small machine before the trip.', 'It is valid without stamping.', 'If an inspector finds it unstamped, it counts as no ticket.', 'Entwerten means to throw the ticket away.']
+  answer: [0, 2]
+  explanation: |-
+    Entwerten means to validate or stamp a ticket. A ticket that says Bitte entwerten is not valid until it is stamped, so an unstamped one counts as riding without a ticket. It has nothing to do with throwing the ticket away.
+- id: de1-m5-r2-h07
+  lesson: de1-m5-h-unterwegs
+  type: match
+  module_quiz: true
+  topic: Public transport
+  stem: 'Match each sign to its meaning.'
+  pairs:
+    - [Eingang, entrance]
+    - [Ausgang, exit]
+    - [Notausgang, emergency exit]
+    - ['Vorsicht!', 'Caution!']
+  distractors: [arrival, departure]
+  explanation: |-
+    Eingang is the way in, Ausgang the way out, Notausgang the emergency exit (die Not, need or emergency), and Vorsicht! warns you to be careful. Arrival is die Ankunft and departure die Abfahrt.
+- id: de1-m5-r2-h08
+  lesson: de1-m5-h-unterwegs
+  type: match
+  topic: Nominal style
+  stem: 'Match each verb to the noun made from it.'
+  pairs:
+    - [abfahren, die Abfahrt]
+    - [ankommen, die Ankunft]
+    - [aussteigen, der Ausstieg]
+    - [eingehen, der Eingang]
+  distractors: [die Aussteigung, der Abfahrt]
+  explanation: |-
+    -fahren gives -fahrt (feminine): die Abfahrt. -steigen gives -stieg (masculine): der Ausstieg. -gehen gives -gang (masculine): der Eingang. Ankommen gives die Ankunft, a word to learn as it is. Die Aussteigung doesn't exist, and Abfahrt is feminine, not der Abfahrt.
+- id: de1-m5-r2-h09
+  lesson: de1-m5-h-unterwegs
+  type: text
+  topic: Nominal style
+  stem: 'Write the noun with its article: einsteigen → ___ (getting on, the way on).'
+  accept: ['der Einstieg']
+  explanation: |-
+    Like aussteigen → der Ausstieg, einsteigen gives der Einstieg: -steigen verbs make masculine nouns in -stieg. You see it on doors and in announcements: Einstieg vorne (get on at the front).
+- id: de1-m5-r2-h10
+  lesson: de1-m5-h-unterwegs
+  module_quiz: true
+  topic: Nominal style
+  stem: 'On the train you hear: "Nächster Halt: Rathaus. Ausstieg in Fahrtrichtung rechts." What does it tell you?'
+  choices: ['Change trains at the town hall.', 'Get on at the front of the train.', 'Stay on the train until the last stop.', 'The next stop is Rathaus; get off on the right.']
+  answer: 3
+  explanation: |-
+    Nächster Halt = next stop (Rathaus, town hall). Ausstieg (from aussteigen) in Fahrtrichtung rechts = getting off on the right-hand side in the direction of travel. Nothing is said about changing trains.
+- id: de1-m5-r2-h11
+  lesson: de1-m5-h-unterwegs
+  topic: Nominal style
+  stem: 'How do you say "the S 1 towards the airport"?'
+  choices: ['die S 1 nach Richtung Flughafen', 'die S 1 zur Richtung Flughafen', 'die S 1 Richtung Flughafen', 'die S 1 für Flughafen']
+  answer: 2
+  explanation: |-
+    "Towards" is Richtung + place (or in Richtung + place): die S 1 Richtung Flughafen. Nach and zur don't go with Richtung, and für means "for".
+- id: de1-m5-r2-h12
+  lesson: de1-m5-h-unterwegs
+  topic: Public transport
+  stem: 'In Zurich someone says: "Ein Billett nach Bern, bitte." What do they want?'
+  choices: ['a ticket to Bern', 'a timetable for Bern', 'a seat on the tram to Bern', 'a letter to Bern']
+  answer: 0
+  explanation: |-
+    In Switzerland das Billett is the usual word for a ticket (standard German: die Fahrkarte). Other Swiss words: der Perron (platform) and das Tram (tram).
+- id: de1-m5-r2-h13
+  lesson: de1-m5-h-unterwegs
+  type: order
+  topic: Public transport
+  stem: 'Your paper ticket says "Bitte entwerten", and you have to change trains in Köln. Put the steps of your trip in order.'
+  items: ['Buy the ticket at the Fahrkartenautomat', 'Stamp the ticket', 'Get on the train', 'Change trains in Köln', 'Get off at your stop']
+  explanation: |-
+    You need the ticket before you can stamp it, and a ticket that says Bitte entwerten must be stamped before the trip. Then einsteigen (get on), umsteigen in Köln (change) and finally aussteigen (get off).
+- id: de1-m5-r2-h14
+  lesson: de1-m5-h-unterwegs
+  topic: Public transport
+  stem: 'In the text "Mein erster Tag in Hamburg", why doesn''t the writer stamp the ticket?'
+  choices: ['There is no machine at the station.', 'The day ticket is already valid.', 'The U-Bahn is free in Hamburg.', 'The inspector stamps it later.']
+  answer: 1
+  explanation: |-
+    The text says: Sie ist schon gültig, ich muss sie nicht entwerten (It's already valid; I don't have to stamp it). Many tickets from machines and apps are valid straight away.
+- id: de1-m5-r2-h15
+  lesson: de1-m5-h-unterwegs
+  topic: Nominal style
+  stem: 'Which article goes with "Ausgang"?'
+  choices: ['die', 'das', 'der', 'den']
+  answer: 2
+  explanation: |-
+    Nouns in -gang from gehen are masculine: der Ausgang, der Eingang. (Den would be the masculine accusative: Ich suche den Ausgang.)
+
+# --- 20h2 de1-m5-h-wohnungssuche (honors) ---
+- id: de1-m5-r2-h16
+  lesson: de1-m5-h-wohnungssuche
+  module_quiz: true
+  topic: Flat hunting
+  stem: 'Read the ad: "2-Zi.-Whg., EG, 54 m², KM 590 €, NK 160 €, zzgl. Strom." How much is the Warmmiete?'
+  choices: ['590 €', '750 €', '430 €', '160 €']
+  answer: 1
+  explanation: |-
+    Warmmiete = Kaltmiete + Nebenkosten = 590 € + 160 € = 750 € a month. Zzgl. Strom (plus electricity) means electricity is extra on top. 590 € is only the cold rent; 430 € comes from subtracting instead of adding.
+- id: de1-m5-r2-h17
+  lesson: de1-m5-h-wohnungssuche
+  type: text
+  topic: Flat hunting
+  stem: 'An ad says: "KM 640 €, NK 190 €, Kaution 3 KM". How much is the deposit in euros? Give only the number, without a thousands separator.'
+  accept: ['1920']
+  explanation: |-
+    Kaution 3 KM means three times the Kaltmiete: 3 × 640 € = 1920 €. The Nebenkosten don't count; three times the warm rent (830 €) would be 2490 €, which is wrong. In Germany the law limits the deposit to three months' cold rent.
+- id: de1-m5-r2-h18
+  lesson: de1-m5-h-wohnungssuche
+  topic: Flat hunting
+  stem: 'What does an ad for a "3-Zimmer-Wohnung" (3 ZKB) offer?'
+  choices: ['three rooms in total, including the kitchen', 'three bedrooms and a living room', 'three rooms plus a kitchen and a bathroom', 'three rooms and a kitchen, but no bathroom']
+  answer: 2
+  explanation: |-
+    ZKB = Zimmer, Küche, Bad. The rooms never include the kitchen, the bathroom or the hallway, so 3 ZKB is three rooms plus a kitchen and a bathroom. The three rooms might be a living room and two bedrooms.
+- id: de1-m5-r2-h19
+  lesson: de1-m5-h-wohnungssuche
+  type: match
+  module_quiz: true
+  topic: Flat hunting
+  stem: 'Match each ad abbreviation to its meaning.'
+  pairs:
+    - [EBK, fitted kitchen]
+    - [DG, attic floor]
+    - [möbl., furnished]
+    - [zzgl., plus (not included)]
+  distractors: [including, ground floor]
+  explanation: |-
+    EBK = Einbauküche (fitted kitchen), DG = Dachgeschoss (attic floor), möbl. = möbliert (furnished), zzgl. = zuzüglich (plus, not included). Including is inkl. (inklusive), and the ground floor is EG (Erdgeschoss).
+- id: de1-m5-r2-h20
+  lesson: de1-m5-h-wohnungssuche
+  type: label
+  topic: Flat hunting
+  stem: 'Name the numbered floors of this building.'
+  image: {src: images/de1-m5-h-building-blank.svg, alt: 'A cut-open block of flats: a room below the ground, the floor at street level with the front door, two floors above it and a floor under the roof. Five floors are numbered.'}
+  labels:
+    - {x: 75.0, y: 85.6, text: der Keller}
+    - {x: 70.8, y: 73.1, text: das Erdgeschoss}
+    - {x: 69.4, y: 57.7, text: der erste Stock}
+    - {x: 69.4, y: 42.3, text: der zweite Stock}
+    - {x: 68.1, y: 26.0, text: das Dachgeschoss}
+  distractors: [der Balkon, der Flur]
+  explanation: |-
+    Below the ground is der Keller (cellar). The street level with the front door is das Erdgeschoss (EG), floor zero. Above it come der erste Stock (1. OG) and der zweite Stock (2. OG), and under the roof das Dachgeschoss (DG).
+- id: de1-m5-r2-h21
+  lesson: de1-m5-h-wohnungssuche
+  topic: Flat hunting
+  stem: 'Your new flat is "im 2. OG". Which floor is that in American English?'
+  choices: ['the ground floor', 'the second floor', 'the third floor', 'the attic']
+  answer: 2
+  explanation: |-
+    German counts from the Erdgeschoss (floor zero), so 2. OG is two floors above the ground floor: the third level, which Americans call the third floor (British English: the second floor).
+- id: de1-m5-r2-h22
+  lesson: de1-m5-h-wohnungssuche
+  topic: Flat hunting
+  stem: 'Which of these are part of the Nebenkosten? Select all that apply.'
+  choices: ['water', 'rubbish collection', 'the Kaltmiete', 'the caretaker', 'the Kaution']
+  answer: [0, 1, 3]
+  explanation: |-
+    Nebenkosten are the additional costs of the building: water, rubbish collection, cleaning, the caretaker, insurance and often heating. The Kaltmiete is the rent for the flat itself, and the Kaution is a deposit you pay once and get back when you move out.
+- id: de1-m5-r2-h23
+  lesson: de1-m5-h-wohnungssuche
+  topic: Compound nouns
+  stem: '"das Haus" + "der Schlüssel": which article goes with "Hausschlüssel"?'
+  choices: ['der', 'das', 'die', 'den']
+  answer: 0
+  explanation: |-
+    The last part of a compound decides the gender: a house key is a kind of key (der Schlüssel), so der Hausschlüssel. Das comes from wrongly taking the gender of the first part.
+- id: de1-m5-r2-h24
+  lesson: de1-m5-h-wohnungssuche
+  type: text
+  module_quiz: true
+  topic: Compound nouns
+  stem: 'Write the article: "___ Dachgeschosswohnung" (a flat on the attic floor).'
+  accept: [die]
+  explanation: |-
+    Read from the end: the last part is Wohnung, which is feminine (die Wohnung), so the whole word is die Dachgeschosswohnung. Das Dachgeschoss only says what kind of flat.
+- id: de1-m5-r2-h25
+  lesson: de1-m5-h-wohnungssuche
+  type: order
+  topic: Flat hunting
+  stem: 'Put the words in order: "From when is the flat available?"'
+  items: ['Ab wann', 'ist', 'die Wohnung', 'frei?']
+  explanation: |-
+    A W-question starts with the question word (here ab wann), then the verb ist in position 2, then the subject die Wohnung, and the adjective frei at the end: Ab wann ist die Wohnung frei?
+- id: de1-m5-r2-h26
+  lesson: de1-m5-h-wohnungssuche
+  module_quiz: true
+  topic: Flat hunting
+  stem: 'You want to know how much the rent is. Which question is correct?'
+  choices: ['Wie viel ist die Miete hoch?', 'Wie groß ist die Miete?', 'Wie hoch sind die Miete?', 'Wie hoch ist die Miete?']
+  answer: 3
+  explanation: |-
+    A rent is hoch or niedrig, so you ask Wie hoch ist die Miete? Die Miete is singular, so the verb is ist (Wie hoch sind … is for the plural Nebenkosten). Wie groß asks about size, and Wie viel … hoch mixes two questions.
+- id: de1-m5-r2-h27
+  lesson: de1-m5-h-wohnungssuche
+  topic: Flat hunting
+  stem: 'In the phone call, Herr Brandt says: "Die Nebenkosten sind 210 Euro mit Heizung. Strom kommt noch dazu." What does Sara pay on top of the rent and the 210 euros?'
+  choices: ['heating', 'the fitted kitchen', 'electricity', 'nothing']
+  answer: 2
+  explanation: |-
+    Heating is already in the Nebenkosten (mit Heizung). Strom kommt noch dazu means electricity comes on top, usually with its own contract.
+- id: de1-m5-r2-h28
+  lesson: de1-m5-h-wohnungssuche
+  topic: Flat hunting
+  stem: 'Why is it worth mentioning "EBK" in a German flat ad?'
+  choices: ['Many rental flats in Germany come without a kitchen.', 'The kitchen is counted as a room.', 'A fitted kitchen makes the deposit smaller.', 'It means the flat is on the ground floor.']
+  answer: 0
+  explanation: |-
+    Many German rental flats come without a kitchen, and tenants often bring their own. EBK (Einbauküche) tells you a fitted kitchen is included. The kitchen is never counted as a room, and EG, not EBK, is the ground floor.
+- id: de1-m5-r2-h29
+  lesson: de1-m5-h-wohnungssuche
+  topic: Flat hunting
+  stem: 'A flat has 60 m² and a Kaltmiete of 690 €. What is the cold rent per square metre?'
+  choices: ['1,15 €/m²', '11,50 €/m²', '13,80 €/m²', '115 €/m²']
+  answer: 1
+  explanation: |-
+    Divide the cold rent by the size: 690 € ÷ 60 m² = 11,50 € per square metre (in German written with a comma). 13,80 comes from dividing by 50, and 1,15 and 115 have the decimal point in the wrong place.

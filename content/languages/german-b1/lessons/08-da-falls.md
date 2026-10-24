@@ -112,6 +112,10 @@ One more trap: in German the adverb, not a conjunction, is used here, so it chan
 
 In Germany the *Haftpflichtversicherung* is not compulsory, but most households have one: it pays when you damage someone else's things, for example when your washing machine floods the neighbours' flat. *Anspruch* is a key word in official letters: *Sie haben Anspruch auf …* (You are entitled to …). *das Kleingedruckte* is an adjectival noun: *im Kleingedruckten*.
 
+The timeline shows how a typical fixed-term contract works. It starts on a date (*der Vertragsbeginn*) and runs for a set term (*die Laufzeit*) until it ends (*das Vertragsende*). If you want to leave, you must give notice before the notice period (*die Kündigungsfrist*) begins; if you miss that date, the contract is renewed (*die Verlängerung*). The exact rules depend on the contract and the country, so always read the small print.
+
+![A timeline of a mobile phone contract in 2026. A long bar from 1 January to 31 December is labeled die Laufzeit (12 Monate). A short shaded block in December, starting after 30 November, is labeled die Kündigungsfrist (1 Monat). The start is labeled der Vertragsbeginn and 31 December das Vertragsende. A dashed arrow into 2027 is labeled die Verlängerung. Below: Cancel by 30.11., or the contract is renewed.](images/de3-m2-contract.svg)
+
 ## A letter: Ihre Schadensmeldung
 
 Tobias's bike was stolen from the cellar. He reported it to his insurance company and got this answer.
@@ -145,6 +149,20 @@ In English:
 > Blauwal Insurance
 
 Notes: *gestohlen wurde* is a passive (lessons 16–17): "was stolen". *grundsätzlich* = in principle; *im Rahmen* = within the scope of; *der Ersatz* = replacement, compensation; *genügen* = to be enough; *der Kontoauszug* = bank statement; *der Zeitwert* = current value; *nach Ablauf* = after the end of; *sich wenden an* = to contact, turn to. *innerhalb von* means "within". Find the connectors: *da* (known reason, first), *sodass* (result), *falls* (condition), *also* (conclusion).
+
+The letter follows the usual path of a claim, which you can see in this chart (the steps and the 14-day deadline are those of Tobias's letter; every insurer sets its own):
+
+```mermaid
+flowchart TD
+  accTitle: How an insurance claim goes, as in Tobias's letter
+  accDescr: Damage happens. You report it to the insurance company. You send the documents, such as the invoice and the police certificate. If the documents are complete and arrive within the deadline, the company processes the case and pays the current value minus the excess. If not, the company closes the case.
+  S["Der Schaden passiert"] --> M["den Schaden melden"]
+  M --> U["die Unterlagen schicken: Rechnung, Bescheinigung der Polizei"]
+  U --> Q{"vollständig und innerhalb der Frist?"}
+  Q -- ja --> B["Die Versicherung bearbeitet den Fall"]
+  B --> E["Ersatz: Zeitwert minus Selbstbeteiligung"]
+  Q -- nein --> X["Der Fall wird geschlossen"]
+```
 
 ## Pronunciation
 
