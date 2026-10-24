@@ -149,7 +149,7 @@ shape (think of a ring, whose centroid is the empty center).
   countries, lakes and building footprints the same way, from outlines with thousands of
   vertices.
 - **Planimeters.** Lesson 32's planimeter is the mechanical version: as you trace the boundary,
-  its wheel adds up a line integral equal to the enclosed area.
+  its wheel adds up a line integral proportional to the enclosed area, and the dial is scaled to read the area.
 - **Computer graphics and geometry software.** The orientation test decides which way a polygon
   faces and whether a point is to the left of an edge, steps inside many algorithms.
 

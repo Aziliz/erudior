@@ -17,11 +17,11 @@
   items:
     - 'Choose the object or system'
     - 'Draw its free-body diagram'
-    - 'Choose axes, ideally one along the acceleration'
+    - 'Choose axes that suit the forces drawn, ideally one along the acceleration'
     - 'Write $\sum F = ma$ for each axis'
     - 'Solve the equations for the unknowns'
   explanation: |-
-    You can't draw a free-body diagram until you know which object it is for, and you can't write component equations until the forces are drawn and the axes chosen. Solving comes last; afterward, check units and limiting cases.
+    You can't draw a free-body diagram until you know which object it is for. The axes are chosen after the forces are drawn, so that as many forces as possible lie along them, and you can't write component equations until both are done. Solving comes last; afterward, check units and limiting cases.
 - id: phys-m3-r2-q03
   lesson: phys-newton
   topic: Free-body diagrams
@@ -131,12 +131,12 @@
   topic: Tension and pulleys
   stem: 'Put the steps for finding the acceleration and tension of two blocks joined by a rope in order.'
   items:
-    - 'Draw a separate free-body diagram for each block'
     - 'Choose a positive direction for each block that matches the motion of the system'
     - 'Write $\sum F = ma$ along the motion for each block'
-    - 'Solve the equations together for $a$ and $T$'
+    - 'Add the two equations so that $T$ cancels, and solve for $a$'
+    - 'Substitute $a$ into one block''s equation to find $T$'
   explanation: |-
-    The forces must be drawn before the signs can be chosen, the signs must be fixed before writing the equations (so both blocks share the same $a$), and the equations come before solving them.
+    The signs must be fixed before writing the equations (so both blocks share the same $a$). Adding the equations eliminates the tension, which gives $a$; only once $a$ is known can either equation give $T$.
 - id: phys-m3-r2-q13
   lesson: phys-tension
   topic: Tension and pulleys

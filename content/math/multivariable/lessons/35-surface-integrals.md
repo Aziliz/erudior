@@ -111,8 +111,8 @@ Before computing, decide which kind of integral you have and look for a shortcut
 ```mermaid
 flowchart TD
   accTitle: Choosing a method for a surface integral
-  accDescr: First decide whether the integral is a scalar surface integral of f dS or a flux integral of F dot dS. For a scalar integral, multiply f by the length of r_u cross r_v, or by the square root of 1 plus g_x squared plus g_y squared for a graph. For a flux integral, if F dot n is constant on the surface, multiply it by the area. If not, and the surface is closed, consider the Divergence theorem of Lesson 37. Otherwise choose the orientation and integrate F of r dotted with r_u cross r_v over the parameter domain.
-  A{"f dS or F · dS?"} -- "scalar f dS" --> B["Multiply f by the length of r_u × r_v (graph: square root of 1 + g_x² + g_y²)"]
+  accDescr: First decide whether the integral is a scalar surface integral of f dS or a flux integral of F dot dS. For a scalar integral, integrate f times the length of r_u cross r_v over the parameter domain, or f times the square root of 1 plus g_x squared plus g_y squared for a graph. For a flux integral, if F dot n is constant on the surface, multiply it by the area. If not, and the surface is closed, consider the Divergence theorem of Lesson 37. Otherwise choose the orientation and integrate F of r dotted with r_u cross r_v over the parameter domain.
+  A{"f dS or F · dS?"} -- "scalar f dS" --> B["Integrate f times the length of r_u × r_v over D (graph: square root of 1 + g_x² + g_y²)"]
   A -- "flux F · dS" --> C{"Is F · n constant on S?"}
   C -- "yes" --> D["Flux = (F · n) × area"]
   C -- "no" --> E{"Is S closed?"}

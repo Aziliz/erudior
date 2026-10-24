@@ -93,7 +93,7 @@ Check Green's first identity for $u = v = z$ on the unit ball.
 
 ## Boundary-value problems and uniqueness
 
-Steady-state temperatures, electrostatic potentials and the hydraulic head in steady groundwater flow all satisfy **Poisson's equation** $\nabla^2u = f$ inside a region, where $f$ is set by the sources (heat produced, charge present). With no sources it is **Laplace's equation** $\nabla^2u = 0$, whose solutions are the harmonic functions. To pin down a solution we also need information on the boundary $S$:
+Steady-state temperatures, electrostatic potentials and (in a uniform aquifer, a simplifying assumption) the hydraulic head in steady groundwater flow all satisfy **Poisson's equation** $\nabla^2u = f$ inside a region, where $f$ is set by the sources (heat produced, charge present). With no sources it is **Laplace's equation** $\nabla^2u = 0$, whose solutions are the harmonic functions. To pin down a solution we also need information on the boundary $S$:
 
 - the **Dirichlet problem** prescribes the values $u = h$ on $S$ (a fixed temperature on the surface);
 - the **Neumann problem** prescribes the normal derivative $\dfrac{\partial u}{\partial n} = h$ on $S$ (a fixed heat flow through the surface).

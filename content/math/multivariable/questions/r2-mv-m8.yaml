@@ -260,7 +260,7 @@
   type: text
   topic: Applications to physics
   stem: 'Near a long straight wire, $B = \dfrac{\mu_0I}{2\pi r}$. If you move twice as far from the wire, the field strength is multiplied by ___.'
-  accept: ['1/2', 'one half', 'half']
+  accept: ['1/2', 'one half', 'half', 'a half']
   explanation: |-
     $B$ is proportional to $1/r$, so doubling $r$ halves $B$. (For a point charge, $E \propto 1/r^2$ would drop to a quarter.)
 - id: mv-m8-r2-q25

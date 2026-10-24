@@ -130,7 +130,7 @@ A car's engine turns the wheels, but the engine cannot push on the road; only th
 - Writing $f_s = \mu_s n$ before checking that the surfaces are at the point of slipping.
 - Assuming a ramp-and-pulley system moves in a particular direction without comparing $m_2 g$ with $m_1 g\sin\theta$ first.
 - Using the same acceleration for stacked blocks after they slip.
-- On a banked curve, taking $n = mg\cos\theta$ as on an ordinary incline. The car's acceleration is horizontal, not along the slope, so find $n$ from the vertical and inward equations; at and above the design speed it is larger than $mg\cos\theta$.
+- On a banked curve, taking $n = mg\cos\theta$ as on an ordinary incline. The car's acceleration is horizontal, not along the slope, so find $n$ from the vertical and inward equations. Solving them gives $n = mg\cos\theta + \dfrac{mv^2}{r}\sin\theta$, larger than $mg\cos\theta$ at any nonzero speed.
 
 ## Key points
 

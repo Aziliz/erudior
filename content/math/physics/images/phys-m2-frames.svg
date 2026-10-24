@@ -20,5 +20,5 @@
 <line x1="430.0" y1="313.0" x2="678.0" y2="313.0" stroke="#244d76" stroke-width="2.5"/>
 <polygon points="690.0,313.0 678.0,318.4 678.0,307.6" fill="#244d76"/>
 <text x="560.0" y="348.0" text-anchor="middle" font-size="16">hand moves 20 m; ball follows a parabola</text>
-<text x="560.0" y="370.0" text-anchor="middle" font-size="15">starting velocity (20, 4.9) m/s</text>
+<text x="560.0" y="370.0" text-anchor="middle" font-size="15">starting velocity (20, 4.9) m/s; height not to scale</text>
 </svg>

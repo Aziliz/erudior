@@ -93,7 +93,7 @@
     cy: a3*b1 - a1*b3
     cz: a1*b2 - a2*b1
   where: ['a1 != 0', 'b2 != 0', 'cx != 0', 'cy != 0', 'cz != 0']
-  prompt: 'For $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$ and $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$, find the components of $\vec A\times\vec B$.'
+  prompt: 'For $\vec A = ({a1}, {a2}, {a3})$ and $\vec B = ({b1}, {b2}, {b3})$, find the components of $\vec A\times\vec B$.'
   answers:
     - {name: cx, label: '$x$ component', format: integer}
     - {name: cy, label: '$y$ component', format: integer}
@@ -121,7 +121,7 @@
     magA: sqrt(a1^2 + a2^2 + a3^2)
     comp: dp / magA
   where: ['a1 != 0', 'b1 != 0', 'abs(dp) >= 2']
-  prompt: 'A force $\vec F = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$ N acts on an object moving in the direction of $\vec d = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$. Find the component of $\vec F$ along $\vec d$ in newtons (to 3 significant figures; negative if it opposes the motion).'
+  prompt: 'A force $\vec F = ({b1}, {b2}, {b3})$ N acts on an object moving in the direction of $\vec d = ({a1}, {a2}, {a3})$. Find the component of $\vec F$ along $\vec d$ in newtons (to 3 significant figures; negative if it opposes the motion).'
   answers:
     - {name: comp, label: '$F_\parallel =$', format: sig3, sigfigs: 3, units: {N: 1}}
   solution: |-
@@ -150,7 +150,7 @@
     trip: a1*kx + a2*ky + a3*kz
     vol: abs(trip)
   where: ['trip != 0']
-  prompt: 'Find the volume of the box (parallelepiped) with edges $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$, $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$ and $\vec C = {c1}\hat\imath {c2:signed}\hat\jmath {c3:signed}\hat k$, all in meters.'
+  prompt: 'Find the volume of the box (parallelepiped) with edges $\vec A = ({a1}, {a2}, {a3})$, $\vec B = ({b1}, {b2}, {b3})$ and $\vec C = ({c1}, {c2}, {c3})$, all in meters.'
   answers:
     - {name: vol, label: 'Volume', format: integer, units: {'m³': 1, 'm^3': 1}}
   solution: |-

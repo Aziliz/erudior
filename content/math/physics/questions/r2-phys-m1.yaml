@@ -7,7 +7,7 @@
   type: text
   topic: Units and conversions
   stem: 'How many cubic centimeters are in one cubic meter? Give only the number.'
-  accept: ['1000000', '1e6', '10^6', '1 000 000', '1,000,000']
+  accept: ['1000000', '1e6', '10^6', '10⁶', '1 000 000', '1,000,000']
   explanation: |-
     $1\text{ m} = 100\text{ cm}$, so $1\text{ m}^3 = (100\text{ cm})^3 = 100^3\text{ cm}^3 = 10^6\text{ cm}^3$, one million. The conversion factor is cubed, not just multiplied by 100 (which would give 100) or squared (10 000).
 - id: phys-m1-r2-q02
@@ -19,7 +19,7 @@
     - ['newton (force)', 'kg·m/s²']
     - ['joule (energy)', 'kg·m²/s²']
     - ['watt (power)', 'kg·m²/s³']
-    - ['kg·m/s (momentum)', 'kg·m/s']
+    - ['unit of momentum (mass × velocity)', 'kg·m/s']
   distractors: ['kg/(m·s²)']
   explanation: |-
     From $F = ma$: $1\text{ N} = 1\text{ kg·m/s}^2$. A joule is a newton times a meter, $\text{kg·m}^2/\text{s}^2$. A watt is a joule per second, $\text{kg·m}^2/\text{s}^3$. Momentum is mass times velocity, kg·m/s. The leftover, kg/(m·s²), is the pascal (newton per square meter), the unit of pressure.
@@ -265,10 +265,10 @@
   lesson: phys-m1-h-vector-algebra
   topic: Vector algebra
   stem: 'What is the unit vector in the direction of $\vec A = 3\hat\imath + 4\hat k$?'
-  choices: ['$3\hat\imath + 4\hat k$', '$0.43\hat\imath + 0.57\hat k$', '$0.6\hat\imath + 0.8\hat k$', '$0.2\hat\imath + 0.25\hat k$']
+  choices: ['$3\hat\imath + 4\hat k$', '$0.43\hat\imath + 0.57\hat k$', '$0.6\hat\imath + 0.8\hat k$', '$0.12\hat\imath + 0.16\hat k$']
   answer: 2
   explanation: |-
-    $A = \sqrt{3^2 + 4^2} = 5$, so $\hat A = \vec A/5 = 0.6\hat\imath + 0.8\hat k$, which has length $\sqrt{0.36 + 0.64} = 1$. Dividing by the sum of components (7) gives 0.43 and 0.57, a vector of the wrong length; $0.2\hat\imath + 0.25\hat k$ takes reciprocals of the components.
+    $A = \sqrt{3^2 + 4^2} = 5$, so $\hat A = \vec A/5 = 0.6\hat\imath + 0.8\hat k$, which has length $\sqrt{0.36 + 0.64} = 1$. Dividing by the sum of components (7) gives 0.43 and 0.57, a vector of the wrong length; $0.12\hat\imath + 0.16\hat k$ divides by $A^2 = 25$ instead of $A$.
 - id: phys-m1-r2-h17
   lesson: phys-m1-h-vector-algebra
   topic: Vector algebra
@@ -281,10 +281,10 @@
   lesson: phys-m1-h-vector-algebra
   topic: Vector algebra
   stem: 'Find the scalar projection (component) of $\vec B = 4\hat\imath + 2\hat\jmath - \hat k$ along $\vec A = \hat\imath + 2\hat\jmath + 2\hat k$.'
-  choices: ['6', '2', '0.67', '1.33']
+  choices: ['6', '2', '0.67', '1.31']
   answer: 1
   explanation: |-
-    $\vec A\cdot\vec B = 4 + 4 - 2 = 6$ and $A = \sqrt{1 + 4 + 4} = 3$, so the component is $6/3 = 2$. The bare dot product, 6, forgets to divide by $A$; 0.67 divides by $A^2$ (that is the factor in the vector projection, not the component).
+    $\vec A\cdot\vec B = 4 + 4 - 2 = 6$ and $A = \sqrt{1 + 4 + 4} = 3$, so the component is $6/3 = 2$. The bare dot product, 6, forgets to divide by $A$; 0.67 divides by $A^2$ (that is the factor in the vector projection, not the component); 1.31 divides by $B = \sqrt{21}$, which gives the component of $\vec A$ along $\vec B$ instead.
 - id: phys-m1-r2-h19
   lesson: phys-m1-h-vector-algebra
   topic: Vector products
@@ -308,7 +308,7 @@
   choices: ['6 m²', '1.5 m²', '0 m²', '3 m²']
   answer: 3
   explanation: |-
-    $\vec A\times\vec B = 6\hat k$ m², so the parallelogram on $\vec A$ and $\vec B$ has area 6 m², and the triangle is half of it: 3 m². (For this right triangle, $\tfrac12 \times 2 \times 3 = 3$ m² agrees.) 6 m² is the whole parallelogram; 0 is the dot product.
+    $\vec A\times\vec B = 6\hat k$ m², so the parallelogram on $\vec A$ and $\vec B$ has area 6 m², and the triangle is half of it: 3 m². (For this right triangle, $\tfrac12 \times 2 \times 3 = 3$ m² agrees.) 6 m² is the whole parallelogram; 1.5 m² halves a second time; 0 is the dot product.
 - id: phys-m1-r2-h22
   lesson: phys-m1-h-vector-algebra
   topic: Vector algebra
@@ -343,7 +343,7 @@
     - {x: 41.7, y: 85.3, text: Vector A}
     - {x: 23.6, y: 55.2, text: Vector B}
     - {x: 34.7, y: 64.0, text: Height (B sin φ)}
-    - {x: 61.1, y: 55.2, text: Direction of A × B (out of the page)}
+    - {x: 63.3, y: 55.2, text: Direction of A × B (out of the page)}
     - {x: 21.7, y: 78.8, text: Angle φ between A and B}
   distractors: [Direction of B × A, Resultant A + B]
   explanation: |-
@@ -353,7 +353,7 @@
   type: text
   topic: Vector products
   stem: 'Write $\hat\imath\times\hat k$ as a signed unit vector (for example, -i). $\hat\imath\times\hat k =$ ___'
-  accept: ['-j', '-ĵ', 'minus j', '-j hat']
+  accept: ['-j', '-ĵ', '−j', '−ĵ', 'minus j', 'negative j', '-j hat']
   explanation: |-
     Forward around the cycle, $\hat k\times\hat\imath = \hat\jmath$. Reversing the order flips the sign, so $\hat\imath\times\hat k = -\hat\jmath$. Check with the formula: $(1, 0, 0)\times(0, 0, 1) = (0\cdot1 - 0\cdot0,\ 0\cdot0 - 1\cdot1,\ 1\cdot0 - 0\cdot0) = (0, -1, 0)$.
 - id: phys-m1-r2-h27

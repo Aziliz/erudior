@@ -176,11 +176,11 @@
   type: order
   stem: 'Put the steps for evaluating $\oint_C P\,dx + Q\,dy$ with Green''s theorem in order.'
   items:
-    - 'Check that $C$ is a simple closed curve and that $P$, $Q$ have continuous partials on $D$'
-    - 'Compute $Q_x - P_y$'
+    - 'Identify $P$ and $Q$, and check that $C$ is a simple closed curve and that $P$, $Q$ have continuous partials on $D$'
+    - 'Compute $Q_x - P_y$ from that $P$ and $Q$'
     - 'Set up the double integral of $Q_x - P_y$ over $D$'
     - 'Evaluate the double integral, changing the sign if $C$ runs clockwise'
-  explanation: 'The theorem applies only when its conditions hold, so check them first. The integrand $Q_x - P_y$ is needed before the double integral can be set up and evaluated. The sign rule uses the orientation of $C$: counterclockwise as stated, clockwise with a minus sign.'
+  explanation: 'First read off $P$ (the coefficient of $dx$) and $Q$ (the coefficient of $dy$) and make sure the theorem applies. The integrand $Q_x - P_y$ is needed before the double integral can be set up and evaluated. The sign rule uses the orientation of $C$: counterclockwise as stated, clockwise with a minus sign.'
 - id: mv-m7-r2-q19
   lesson: mv-green
   module_quiz: true
@@ -349,9 +349,9 @@
   lesson: mv-m7-h-shoelace
   topic: Shoelace formula
   stem: 'What does the shoelace formula give for the outline $(0, 0)\to(4, 4)\to(4, 0)\to(0, 4)\to(0, 0)$?'
-  choices: ['$8$', '$16$', '$-8$', '$0$, though the outline encloses two triangles of total area 8']
+  choices: ['$8$', '$16$', '$-8$', '$0$']
   answer: 3
-  explanation: 'The terms are $0$, $4\cdot0 - 4\cdot4 = -16$, $4\cdot4 - 0\cdot0 = 16$ and $0$, so the result is 0. The outline crosses itself at $(2, 2)$: one triangle (area 4) is traversed counterclockwise and the other (area 4) clockwise, so they cancel.'
+  explanation: 'The terms are $0$, $4\cdot0 - 4\cdot4 = -16$, $4\cdot4 - 0\cdot0 = 16$ and $0$, so the result is 0, even though the outline encloses two triangles of total area 8. The outline crosses itself at $(2, 2)$: one triangle (area 4) is traversed counterclockwise and the other (area 4) clockwise, so they cancel.'
 - id: mv-m7-r2-h20
   lesson: mv-m7-h-shoelace
   topic: Shoelace formula

@@ -99,7 +99,7 @@ Ground frame: the ball starts with velocity $\vec v_{\text{ball,G}} = \vec v_{\t
 
 Both observers measure the same acceleration, 9.8 m/s² downward, and the same flight time. Only the velocities and the shape of the path differ.
 
-![Two panels. Left, the passenger's frame: a ball goes straight up from a hand and straight back down into it. Right, the ground frame: the ball follows a parabola from the hand's starting position to the hand's position 20 m farther along, with a starting velocity of (20, 4.9) m/s.](images/phys-m2-frames.svg)
+![Two panels. Left, the passenger's frame: a ball goes straight up from a hand and straight back down into it. Right, the ground frame: the ball follows a parabola from the hand's starting position to the hand's position 20 m farther along, with a starting velocity of (20, 4.9) m/s. The height of the path is exaggerated: the real ball rises only about 1.2 m.](images/phys-m2-frames.svg)
 
 ## Common mistakes
 
