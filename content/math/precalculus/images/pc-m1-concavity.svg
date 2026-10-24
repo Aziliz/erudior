@@ -27,7 +27,7 @@
 <text x="79.2" y="183.6" font-size="14" text-anchor="middle" fill="#1c2833">-1</text>
 <text x="300.0" y="183.6" font-size="14" text-anchor="middle" fill="#1c2833">1</text>
 <text x="410.4" y="183.6" font-size="14" text-anchor="middle" fill="#1c2833">2</text>
-<text x="520.8" y="183.6" font-size="14" text-anchor="middle" fill="#1c2833">3</text>
+<text x="512.0" y="183.6" font-size="14" text-anchor="end" fill="#1c2833">3</text>
 <text x="183.6" y="453.8" font-size="14" text-anchor="end" fill="#1c2833">-6</text>
 <text x="183.6" y="406.6" font-size="14" text-anchor="end" fill="#1c2833">-5</text>
 <text x="183.6" y="359.4" font-size="14" text-anchor="end" fill="#1c2833">-4</text>
