@@ -344,7 +344,7 @@
   choices: ['0.04', '0.2', '0.4', '2.0']
   answer: 2
   explanation: |-
-    The line $y = 2 + x$ passes through $(3, 5)$, so the means penalty is 0. The slope penalty is $S_{xx}(b - \hat{b})^2 = 10(1 - 0.8)^2 = 0.4$. Directly: the errors are $0, 1, -1, 1, -1$, so SSE $= 4.0 = 3.6 + 0.4$. 0.04 forgets to multiply by $S_{xx}$, and 2.0 multiplies $10 \times 0.2$ without squaring.
+    The line $y = 2 + x$ passes through $(3, 5)$, so the means penalty is 0. The slope penalty is $S_{xx}(b - \hat{b})^2 = 10(1 - 0.8)^2 = 0.4$. Directly: the errors are $0, 1, -1, 1, -1$, so SSE $= 4.0 = 3.6 + 0.4$. 0.04 forgets to multiply by $S_{xx}$, 0.2 is just the slope difference $1 - 0.8$ (not squared or multiplied by $S_{xx}$), and 2.0 multiplies $10 \times 0.2$ without squaring.
 
 - id: stat-m3-r2-h02
   lesson: stat-m3-h-least-squares
@@ -393,8 +393,8 @@
     - {x: 61.7, y: 34.0, text: Total deviation y − ȳ}
     - {x: 69.0, y: 28.9, text: Residual y − ŷ}
     - {x: 69.0, y: 41.7, text: Explained part ŷ − ȳ}
-    - {x: 30.3, y: 51.5, text: Horizontal line at the mean of y}
-    - {x: 85.9, y: 14.7, text: Least-squares line}
+    - {x: 30.3, y: 46.8, text: Horizontal line at the mean of y}
+    - {x: 85.9, y: 20.2, text: Least-squares line}
   distractors: [SD line, Leverage]
   explanation: |-
     The total deviation $7 - 5 = 2$ (1) splits into the explained part $5.8 - 5 = 0.8$ (3), from the mean line (4) up to the least-squares line (5), plus the residual $7 - 5.8 = 1.2$ (2) from the line up to the point. Summed over all points, the squares give $\text{SST} = \text{SSR} + \text{SSE}$.
@@ -451,7 +451,7 @@
     - 'Because the first and last points are excluded from the fit'
   answer: 1
   explanation: |-
-    The residuals satisfy $\sum e_i = 0$ and $\sum (x_i - \bar{x})e_i = 0$, one equation for each estimated quantity (intercept and slope). Given any $n - 2$ residuals the other two are forced, so there are $n - 2$ degrees of freedom. No data points are excluded, and the line needn't pass through any data point.
+    The residuals satisfy $\sum e_i = 0$ and $\sum (x_i - \bar{x})e_i = 0$, one equation for each estimated quantity (intercept and slope). Given any $n - 2$ residuals the other two are forced (when their $x$ values differ), so there are $n - 2$ degrees of freedom. No data points are excluded, and the line needn't pass through any data point.
 
 - id: stat-m3-r2-h11
   lesson: stat-m3-h-least-squares
@@ -491,7 +491,7 @@
   choices: ['20', '10', '0.25', '0.5']
   answer: 1
   explanation: |-
-    The slope penalty is $S_{xx}(b - \hat{b})^2 = 40(1.0 - 1.5)^2 = 40 \times 0.25 = 10$. The line goes through the point of means, so there is no intercept penalty. 20 forgets to square the 0.5; 0.25 forgets to multiply by $S_{xx}$.
+    The slope penalty is $S_{xx}(b - \hat{b})^2 = 40(1.0 - 1.5)^2 = 40 \times 0.25 = 10$. The line goes through the point of means, so there is no intercept penalty. 20 forgets to square the 0.5; 0.25 forgets to multiply by $S_{xx}$; 0.5 is just the slope difference.
 
 # ---- Honors: regression to the mean
 - id: stat-m3-r2-h15
@@ -626,7 +626,7 @@
   choices: ['83.2', '72.0', '100.0', '88.8']
   answer: 0
   explanation: |-
-    $100 + 0.6(72 - 100) = 100 - 16.8 = 83.2$. So regression alone explains about 11.2 of the 12-point gain, leaving about 0.8 points that the program might explain, and only a control group could confirm even that. 88.8 uses $1 - r = 0.4$ in place of $r$.
+    $100 + 0.6(72 - 100) = 100 - 16.8 = 83.2$. So regression alone explains about 11.2 of the 12-point gain, leaving about 0.8 points that the program might explain, and only a control group could confirm even that. 88.8 uses $1 - r = 0.4$ in place of $r$; 72.0 assumes no regression at all ($r = 1$), and 100.0 assumes complete regression ($r = 0$).
 
 - id: stat-m3-r2-h27
   lesson: stat-m3-h-regression-mean
@@ -639,7 +639,7 @@
     - 'It is horizontal at $\bar{y}$, one SD above the mean'
   answer: 0
   explanation: |-
-    The SD line rises one SD of $y$ per SD of $x$ through the point of means, along the long axis of the cloud. The least-squares line has slope $r\,s_y/s_x$, which is flatter when $0 < r < 1$. Slope $r$ through the origin is the regression line in z-scores, not the SD line.
+    The SD line rises one SD of $y$ per SD of $x$ through the point of means, along the long direction of the cloud. The least-squares line has slope $r\,s_y/s_x$, which is flatter when $0 < r < 1$. Slope $r$ through the origin is the regression line in z-scores, not the SD line.
 
 # ---- Honors: relative risk, odds ratios and standardization
 - id: stat-m3-r2-h28
@@ -783,4 +783,4 @@
   choices: ['1.75', '7', '3.5', 'impossible to compute']
   answer: 2
   explanation: |-
-    With 240 exposed and 560 unexposed controls, $\text{OR} = (120 \times 560)/(80 \times 240) = 3.5$. Multiplying the whole controls column by 2 puts a factor of 2 on the top and the bottom of $ad/bc$, which cancels. The "risk among the exposed" would change, which is why case-control studies report odds ratios.
+    With 240 exposed and 560 unexposed controls, $\text{OR} = (120 \times 560)/(80 \times 240) = 3.5$. Multiplying the whole controls column by 2 puts a factor of 2 on the top and the bottom of $ad/bc$, which cancels. 1.75 and 7 come from dividing or multiplying by the factor of 2 instead of letting it cancel. The "risk among the exposed" would change, which is why case-control studies report odds ratios.

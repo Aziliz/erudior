@@ -64,9 +64,9 @@
     - {name: sse, label: 'SSE', tolerance: 0.06, format: dp1}
     - {name: sres, label: '$s =$', tolerance: 0.006, format: dp2}
   solution: |-
-    $\text{SST} = (n - 1)s_y^2 = {df1} \times {sy}^2 = {sst}$. Since $\text{SSE} = \text{SST}(1 - r^2)$,
-    $\text{SSE} = {sst}(1 - ({rr})^2) =$ **{sse:dp1}**. Then
-    $s = \sqrt{\text{SSE}/(n - 2)} = \sqrt{{sse:num4}/{dfr}} =$ **{sres:dp2}**.
+    $\text{SST} = (n - 1)s_y^2 = {df1} \times {sy}^2 = {sst:dp0}$. Since $\text{SSE} = \text{SST}(1 - r^2)$,
+    $\text{SSE} = {sst:dp0}(1 - ({rr})^2) =$ **{sse:dp1}**. Then
+    $s = \sqrt{\text{SSE}/(n - 2)} = \sqrt{{sse:sig8}/{dfr}} =$ **{sres:dp2}**.
 
 # ---- Honors: regression to the mean
 - id: stat-m3-r2-retest
@@ -85,6 +85,7 @@
     zx: dev/sd
     zy: rr*dev/sd
     ad: abs(dev)
+    pd: rr*abs(dev)
   prompt: |-
     A test and a retest both have mean {mu} and standard deviation {sd}, and scores on the two
     have correlation $r = {rr}$. A student scored {xs} on the first test. Use the least-squares
@@ -98,7 +99,7 @@
     $\hat{z} = r z = {rr} \times ({zx:num4}) = {zy:num4}$, so the predicted retest is
     ${mu} + ({zy:num4})({sd}) =$ **{pred:dp1}**. (With equal SDs this is just
     ${mu} + {rr}({xs} - {mu})$.) The first score was {ad} points from the mean; the prediction is
-    ${rr} \times {ad}$ points from it, which is **{closer:dp1}** points closer.
+    ${rr} \times {ad} = {pd:num4}$ points from it, which is ${ad} - {pd:num4} =$ **{closer:dp1}** points closer.
 
 - id: stat-m3-r2-two-lines
   title: The two regression slopes
@@ -160,7 +161,7 @@
   solution: |-
     Risks: exposed ${aa}/{n1} = {p1:num4}$, not exposed ${cc}/{n2} = {p2:num4}$. Relative risk
     $= {p1:num4}/{p2:num4} =$ **{rrisk:dp2}**. Odds ratio
-    $= \dfrac{ad}{bc} = \dfrac{{aa} \times {dd}}{{bb} \times {cc}} = \dfrac{{adp}}{{bcp}} =$ **{orr:dp2}**.
+    $= \dfrac{ad}{bc} = \dfrac{{aa} \times {dd}}{{bb} \times {cc}} = \dfrac{{adp:dp0}}{{bcp:dp0}} =$ **{orr:dp2}**.
 
 - id: stat-m3-r2-standardize
   title: Crude and standardized rates
@@ -189,7 +190,7 @@
     - {name: crude, label: '(a) %', tolerance: 0.06, format: dp1}
     - {name: adj, label: '(b) %', tolerance: 0.06, format: dp1}
   solution: |-
-    (a) Crude: $\dfrac{{s1} + {s2}}{{n1} + {n2}} = \dfrac{{st}}{{nt}} =$ **{crude:dp1}%**.
+    (a) Crude: $\dfrac{{s1} + {s2}}{{n1} + {n2}} = \dfrac{{st:dp0}}{{nt:dp0}} =$ **{crude:dp1}%**.
     (b) Stratum rates: mild ${s1}/{n1} = {p1}\%$, severe ${s2}/{n2} = {p2}\%$. Weight them by the
     standard mix and add: ${ww}\% \times {p1}\% + {w2}\% \times {p2}\% =$ **{adj:dp1}%**. The crude rate
     uses the hospital's own mix ({n1} mild to {n2} severe), so it changes with the case mix; the

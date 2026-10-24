@@ -29,7 +29,7 @@
   topic: Regression to the mean
 - term: SD line
   aliases: [standard deviation line]
-  definition: 'The line through $(\bar{x}, \bar{y})$ with slope $\pm s_y/s_x$ (the sign of $r$), along the long axis of a scatterplot. The least-squares line of $y$ on $x$ is flatter than it when $|r| < 1$.'
+  definition: 'The line through $(\bar{x}, \bar{y})$ with slope $\pm s_y/s_x$ (the sign of $r$), roughly along the long direction of the cloud in a scatterplot. The least-squares line of $y$ on $x$ is flatter than it when $|r| < 1$.'
   topic: Regression to the mean
 - term: risk
   aliases: [absolute risk]
