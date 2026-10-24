@@ -147,7 +147,7 @@ For our four-page web, the eigenvalues of $S$ are $1$, $0$ and $-\tfrac12 \pm \t
 $|\lambda_2(G)| = 0.85 \times 0.707 \approx 0.60$, faster than the guarantee.
 
 ```plot
-{"x": [0, 12], "y": [0, 0.6], "xLabel": "step k", "yLabel": "error", "points": [{"at": [0, 0.527]}, {"at": [1, 0.157]}, {"at": [2, 0.134]}, {"at": [3, 0.097]}, {"at": [4, 0.041]}, {"at": [5, 0.021]}, {"at": [6, 0.017]}, {"at": [7, 0.013]}, {"at": [8, 0.005]}, {"at": [9, 0.003]}, {"at": [10, 0.002]}, {"at": [11, 0.002]}, {"at": [12, 0.001]}], "caption": "Four-page web: total distance from x_k to the PageRank vector, starting from the uniform vector"}
+{"x": [0, 15], "y": [0, 0.6], "xLabel": "step k", "yLabel": "error", "points": [{"at": [0, 0.527]}, {"at": [1, 0.157]}, {"at": [2, 0.134]}, {"at": [3, 0.097]}, {"at": [4, 0.041]}, {"at": [5, 0.021]}, {"at": [6, 0.017]}, {"at": [7, 0.013]}, {"at": [8, 0.005]}, {"at": [9, 0.003]}, {"at": [10, 0.002]}, {"at": [11, 0.002]}, {"at": [12, 0.001]}], "caption": "Four-page web: total distance from x_k to the PageRank vector, starting from the uniform vector"}
 ```
 
 ### Example 3

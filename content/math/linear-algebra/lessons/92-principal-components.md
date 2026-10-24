@@ -144,7 +144,7 @@ Each line wins by its own measure. Use regression to predict one variable from a
 PCA when no variable is singled out and you want the shape of the cloud.
 
 ```plot
-{"x": [5, 15], "y": [16, 24], "equal": true, "xLabel": "length (mm)", "yLabel": "width (mm)", "points": [{"at": [7, 18]}, {"at": [9, 20]}, {"at": [10, 20], "label": "mean"}, {"at": [11, 22]}, {"at": [13, 20]}], "functions": [{"f": "20 + 0.5*(x - 10)", "label": "first component"}, {"f": "20 + 0.4*(x - 10)", "dashed": true, "label": "least squares"}], "caption": "The leaves with the first-component line (solid) and the least-squares line (dashed)"}
+{"x": [5, 15], "y": [16, 24], "equal": true, "xLabel": "length (mm)", "yLabel": "width (mm)", "points": [{"at": [7, 18]}, {"at": [9, 20]}, {"at": [10, 20]}, {"at": [11, 22]}, {"at": [13, 20]}], "functions": [{"f": "20 + 0.5*(x - 10)"}, {"f": "20 + 0.4*(x - 10)", "dashed": true}], "labels": [{"at": [10.6, 18.9], "text": "mean"}, {"at": [12.4, 23.2], "text": "first component"}, {"at": [13.4, 20.5], "text": "least squares"}], "caption": "The leaves with the first-component line (solid) and the least-squares line (dashed)"}
 ```
 
 ## Computing PCA with the SVD

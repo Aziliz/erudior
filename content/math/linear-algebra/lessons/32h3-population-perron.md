@@ -67,7 +67,7 @@ Write $\rho(A)$ for the largest absolute value of an eigenvalue of $A$ (its *spe
 eigenvalue equal to $\rho(A)$ and strictly larger in absolute value than every other eigenvalue is a
 *dominant eigenvalue*. A square matrix $A$ with nonnegative entries is a **primitive matrix** if
 some power $A^k$ has all entries strictly positive. (A regular stochastic matrix is exactly a
-primitive stochastic matrix.) The *Perron–Frobenius theorem* describes the eigenvalues of primitive matrices:
+primitive stochastic matrix.) The **Perron–Frobenius theorem** describes the eigenvalues of primitive matrices:
 
 > *Perron–Frobenius theorem (for primitive matrices).* If $A$ is primitive, then:
 > 1. $r = \rho(A)$ is a positive real eigenvalue of $A$, and it is dominant: $|\lambda| < r$ for every other eigenvalue $\lambda$.

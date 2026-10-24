@@ -50,6 +50,10 @@
   aliases: [primitive, primitive matrices]
   definition: 'A square matrix with nonnegative entries some power of which has all entries positive. A regular stochastic matrix is a primitive stochastic matrix.'
   topic: Perron–Frobenius theorem
+- term: Perron–Frobenius theorem
+  aliases: [Perron-Frobenius theorem, Perron–Frobenius]
+  definition: 'For a primitive matrix $A$ (nonnegative, with some power entirely positive): the spectral radius $r = \rho(A)$ is a positive, simple eigenvalue, strictly larger in absolute value than every other eigenvalue, with an eigenvector whose entries are all positive. Perron proved it for positive matrices (1907); Frobenius extended it to nonnegative matrices (1912).'
+  topic: Perron–Frobenius theorem
 - term: net reproductive number
   aliases: [$R_0$, R0]
   definition: 'In a Leslie model, $R_0 = f_1\ell_1 + f_2\ell_2 + \cdots$, the expected number of daughters of a newborn female over her lifetime ($\ell_i$ is the chance of surviving to class $i$). The population grows in the long run exactly when $R_0 > 1$.'
