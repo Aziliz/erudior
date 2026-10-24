@@ -49,7 +49,7 @@ The picture also proves a useful inequality. Going from 0 to $z + w$ directly is
 
 $$|z + w| \le |z| + |w|.$$
 
-Equality happens only when $z$ and $w$ point in the same direction. For example, $|3 + 4i| = 5$, while $|3| + |4i| = 7$: the straight path is shorter.
+Equality happens only when $z$ and $w$ point in the same direction (or one of them is 0). For example, $|3 + 4i| = 5$, while $|3| + |4i| = 7$: the straight path is shorter.
 
 ## Multiplying by i is a quarter turn
 

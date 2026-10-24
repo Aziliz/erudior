@@ -133,4 +133,4 @@
   solution: |-
     $i = \tfrac{{apr}\%}{12} = {mr:num4}$ and $n = {n}$ payments.
     $M = \dfrac{A_0\,i}{1 - (1 + i)^{-n}} = \dfrac{{A0:dp0}({mr:num4})}{1 - (1 + {mr:num4})^{-{n}}} \approx {M:dp2}$, so the payment is **{M:money}**.
-    Total paid: {n} × {M:money} ≈ {tot:money}, so the interest is about **{I:money0}**.
+    Total paid: {n} payments of about {M:money}, which is about {tot:money} using the unrounded payment, so the interest is about **{I:money0}**.

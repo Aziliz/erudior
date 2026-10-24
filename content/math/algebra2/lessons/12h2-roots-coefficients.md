@@ -61,7 +61,7 @@ Without solving, find the sum, the sum of pairwise products, and the product of 
 3. Check: the rational root theorem finds the roots $3$, $-1$ and $\tfrac12$. Their sum is $3 - 1 + \tfrac12 = \tfrac52$; pairwise products $-3 + \tfrac32 - \tfrac12 = -2$; product $3 \cdot (-1) \cdot \tfrac12 = -\tfrac32$. ✓
 
 ```plot
-{"x": [-2, 4], "y": [-12, 10], "functions": [{"f": "2*x^3 - 5*x^2 - 4*x + 3", "label": "y = 2x³ - 5x² - 4x + 3", "from": -1.6, "to": 3.6}], "points": [{"at": [-1, 0], "label": "-1"}, {"at": [0.5, 0], "label": "1/2"}, {"at": [3, 0], "label": "3"}], "caption": "The zeros -1, 1/2 and 3 add to 5/2 and multiply to -3/2, as Vieta's formulas predict"}
+{"x": [-2, 4], "y": [-12, 10], "functions": [{"f": "2*x^3 - 5*x^2 - 4*x + 3", "label": "y = 2x³ - 5x² - 4x + 3", "from": -1.6, "to": 3.6}], "points": [{"at": [-1, 0]}, {"at": [0.5, 0], "label": "1/2"}, {"at": [3, 0]}], "labels": [{"at": [-1.3, 0.9], "text": "-1"}, {"at": [2.75, 0.9], "text": "3"}], "caption": "The zeros -1, 1/2 and 3 add to 5/2 and multiply to -3/2, as Vieta's formulas predict"}
 ```
 
 ## Symmetric expressions in the roots

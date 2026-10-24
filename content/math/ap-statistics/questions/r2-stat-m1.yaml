@@ -324,14 +324,14 @@
   module_quiz: true
   topic: Boxplots and outliers
   stem: 'This modified boxplot shows 10 delivery times. Name each numbered part.'
-  image: {src: images/stat-m1-boxplot-parts-blank.svg, alt: 'A modified boxplot above a number line from 5 to 35: left whisker from 9 to the box, box from 12 to 18 with a line at 14.5, right whisker to 22, and a separate open circle at 30. Markers: 1 at the left whisker end, 2 at the left edge of the box, 3 at the line inside the box, 4 at the right edge of the box, 5 at the right whisker end, 6 at the separate circle.'}
+  image: {src: images/stat-m1-boxplot-parts-blank.svg, alt: 'A modified boxplot above a number line from 5 to 35: left whisker from 9 to the box, box from 12 to 18 with a line at 14.5, right whisker to 22, and a separate open circle at 30. Markers: 1 at the left whisker end, 2 at the left edge of the box, 3 at the line inside the box, 4 at the right edge of the box, 5 at the right whisker end, 6 just above the separate circle.'}
   labels:
     - {x: 18.1, y: 41.7, text: Minimum}
     - {x: 26.8, y: 48.3, text: Q1}
     - {x: 34.0, y: 35.0, text: Median}
     - {x: 44.2, y: 48.3, text: Q3}
     - {x: 55.8, y: 41.7, text: Largest value that is not an outlier}
-    - {x: 79.0, y: 41.7, text: Outlier}
+    - {x: 79.0, y: 33.5, text: Outlier}
   distractors: [Mean, Upper fence]
   explanation: |-
     The box runs from $Q_1$ (12) to $Q_3$ (18) with the median (14.5) inside. The left whisker reaches the minimum, 9, since there are no low outliers. The upper fence is $18 + 1.5 \times 6 = 27$, so 30 is plotted separately as an outlier and the right whisker stops at 22, the largest value that is not an outlier. A boxplot doesn't show the mean, and the fence itself is not drawn.
@@ -431,7 +431,7 @@
   choices: ['40', '2', '6.98', '4']
   answer: 3
   explanation: |-
-    $h = 2 \cdot \text{IQR} \cdot n^{-1/3} = 2 \times 20 \times 1000^{-1/3} = 40/10 = 4$. Forgetting the $n^{-1/3}$ factor gives 40, and 6.98 is Scott's rule $3.49\,s\,n^{-1/3}$ with $s = 20$ wrongly used for the IQR.
+    $h = 2 \cdot \text{IQR} \cdot n^{-1/3} = 2 \times 20 \times 1000^{-1/3} = 40/10 = 4$. Forgetting the $n^{-1/3}$ factor gives 40, dropping the factor 2 gives 2, and 6.98 is Scott's rule $3.49\,s\,n^{-1/3}$ with $s = 20$ wrongly used for the IQR.
 
 - id: stat-m1-r2-h06
   lesson: stat-m1-h-density
@@ -701,7 +701,7 @@
   stem: 'The midrange, $(\min + \max)/2$, is the value of $c$ that minimizes the ___ of the distances $|x_i - c|$. (One word.)'
   accept: [largest, maximum, max, greatest, biggest, largest one, maximum one]
   explanation: |-
-    Any $c$ other than the midpoint of the two extremes is farther from one of them. Because it depends only on the minimum and maximum, the midrange is the least resistant measure of center.
+    Any $c$ other than the midpoint of the two extremes is farther from one of them. Because it depends only on the minimum and maximum, the midrange is among the least resistant measures of center: if the largest value is wrong by some amount, the midrange is off by half that amount, while the mean of $n$ values is off by only $1/n$ of it.
 
 # ---- Honors: summaries from grouped and combined data
 - id: stat-m1-r2-h30

@@ -42,8 +42,8 @@ middle values gives the same minimum. With absolute distances, a value 10 units 
 median ignores how far out the extreme values are.
 
 Two more centers fit the same pattern. The **midrange**, $(\min + \max)/2$, minimizes the
-*largest* distance $\max |x_i - c|$; it depends only on the two most extreme values, so it is the
-least resistant summary of all. The mode maximizes the number of values hit exactly.
+*largest* distance $\max |x_i - c|$; it depends only on the two most extreme values, so it is
+among the least resistant summaries there are. The mode maximizes the number of values hit exactly.
 
 ```plot
 {"x": [0, 18], "y": [0, 450], "xLabel": "c", "yLabel": "sum of squares", "functions": [{"f": "(x-2)^2+(x-3)^2+(x-5)^2+(x-9)^2+(x-16)^2"}], "points": [{"at": [7, 130], "label": "mean 7, minimum 130"}], "caption": "Sum of squared distances from c for the data 2, 3, 5, 9, 16"}

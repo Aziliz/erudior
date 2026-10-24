@@ -45,7 +45,7 @@ Equivalently, from $3^x = 10$ write $x = \log_3 10$ and use change of base.
 A graph makes the answer believable: the solution of $3^x = 10$ is the $x$-coordinate where the curve $y = 3^x$ crosses the horizontal line $y = 10$.
 
 ```plot
-{"x": [-1, 3], "y": [-1, 16], "functions": [{"f": "3^x", "label": "y = 3^x", "from": -1, "to": 2.5}, {"f": "10", "label": "y = 10", "dashed": true}], "points": [{"at": [2.096, 10], "label": "x ≈ 2.096"}], "segments": [{"from": [2.096, 0], "to": [2.096, 10], "dashed": true}], "caption": "3^x = 10 where the curve meets the line: x = ln 10 / ln 3 ≈ 2.096"}
+{"x": [-1, 3], "y": [-1, 16], "functions": [{"f": "3^x", "label": "y = 3^x", "from": -1, "to": 2.5}, {"f": "10", "dashed": true}], "points": [{"at": [2.096, 10]}], "segments": [{"from": [2.096, 0], "to": [2.096, 10], "dashed": true}], "caption": "3^x = 10 where the curve meets the line: x = ln 10 / ln 3 ≈ 2.096", "labels": [{"at": [-0.55, 10.7], "text": "y = 10"}, {"at": [2.6, 8.6], "text": "x ≈ 2.096"}]}
 ```
 
 Don't take the log before isolating: $\ln(5 \cdot 3^x - 7)$ can't be split, since there's no rule for the log of a difference.

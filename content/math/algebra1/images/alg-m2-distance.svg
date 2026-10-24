@@ -11,6 +11,7 @@
 <polygon points="200,95 212,89 212,101" fill="#1c2833"/>
 <line x1="380" y1="95" x2="550" y2="95" stroke="#1c2833" stroke-width="2"/>
 <polygon points="560,95 548,89 548,101" fill="#1c2833"/>
+<circle cx="380" cy="95" r="5" fill="#1c2833"/>
 <line x1="380" y1="83" x2="380" y2="136" stroke="#1c2833" stroke-width="1.2" stroke-dasharray="4 4"/>
 <line x1="200" y1="103" x2="200" y2="138" stroke="#1c2833" stroke-width="1.2" stroke-dasharray="4 4"/>
 <line x1="560" y1="103" x2="560" y2="138" stroke="#1c2833" stroke-width="1.2" stroke-dasharray="4 4"/>

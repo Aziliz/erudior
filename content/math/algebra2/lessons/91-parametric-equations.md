@@ -31,7 +31,7 @@ Graph $x = 2t - 1$, $y = t^2 + 3$ for $-2 \le t \le 2$.
 The points lie on a parabola with its lowest point at $(-1, 3)$, reached at $t = 0$. Since $x$ increases with $t$, the point moves from left to right.
 
 ```plot
-{"x": [-6, 4], "y": [0, 8], "curves": [{"x": "2*t - 1", "y": "t^2 + 3", "t": [-2, 2]}], "points": [{"at": [-5, 7], "label": "t = −2"}, {"at": [-3, 4], "label": "t = −1"}, {"at": [-1, 3], "label": "t = 0"}, {"at": [1, 4], "label": "t = 1"}, {"at": [3, 7], "label": "t = 2"}], "segments": [{"from": [-4.1, 5.4], "to": [-3.9, 5.05], "arrow": true}, {"from": [1.9, 5.25], "to": [2.1, 5.6], "arrow": true}], "caption": "x = 2t − 1, y = t² + 3: the arrows show the orientation (left to right as t increases)"}
+{"x": [-6, 4], "y": [0, 8], "curves": [{"x": "2*t - 1", "y": "t^2 + 3", "t": [-2, 2]}], "points": [{"at": [-5, 7], "label": "t = −2"}, {"at": [-3, 4], "label": "t = −1"}, {"at": [-1, 3], "label": "t = 0"}, {"at": [1, 4], "label": "t = 1"}, {"at": [3, 7], "label": "t = 2"}], "segments": [{"from": [-4.1, 5.4], "to": [-3.9, 5.05], "arrow": true}, {"from": [1.9, 5.1], "to": [2.1, 5.4], "arrow": true}], "caption": "x = 2t − 1, y = t² + 3: the arrows show the orientation (left to right as t increases)"}
 ```
 
 ## Eliminating the parameter
@@ -130,7 +130,7 @@ $$x = t - \sin t, \qquad y = 1 - \cos t,$$
 where $t$ is the angle the wheel has turned, in radians. The $t$ term is how far the wheel's center has rolled; the $\sin t$ and $\cos t$ terms describe the dot turning around the center. Each arch has width $2\pi$, the wheel's circumference, and the dot touches the ground with a sharp point (a cusp) once per turn.
 
 ```plot
-{"x": [-0.5, 7], "y": [-0.5, 2.6], "equal": true, "curves": [{"x": "t - sin(t)", "y": "1 - cos(t)", "t": [0, 6.2832]}], "circles": [{"center": [3.1416, 1], "r": 1}], "points": [{"at": [3.1416, 2], "label": "t = π"}, {"at": [0, 0], "label": "t = 0"}, {"at": [6.2832, 0], "label": "t = 2π"}], "caption": "One arch of the cycloid x = t − sin t, y = 1 − cos t, with the rolling wheel drawn at t = π"}
+{"x": [-0.5, 7.5], "y": [-0.5, 2.6], "equal": true, "curves": [{"x": "t - sin(t)", "y": "1 - cos(t)", "t": [0, 6.2832]}], "circles": [{"center": [3.1416, 1], "r": 1}], "points": [{"at": [3.1416, 2]}, {"at": [0, 0], "label": "t = 0"}, {"at": [6.2832, 0]}], "labels": [{"at": [3.1416, 2.35], "text": "t = π"}, {"at": [6.8, 0.4], "text": "t = 2π"}], "caption": "One arch of the cycloid x = t − sin t, y = 1 − cos t, with the rolling wheel drawn at t = π"}
 ```
 
 ## Common mistakes

@@ -25,7 +25,7 @@ flowchart TD
   accDescr: Replace the inequality symbol with an equals sign to get the boundary line and graph it. If the symbol is less than or equal to, or greater than or equal to, draw the line solid; if it is strictly less than or greater than, draw it dashed. Pick a test point that is not on the line, often (0, 0). If the test point makes the inequality true, shade its side of the line; if false, shade the other side.
   A["Replace the symbol with = and graph the boundary line"] --> B{"Symbol ≤ or ≥?"}
   B -- yes --> C[Solid line]
-  B -- "no: < or >" --> D[Dashed line]
+  B -- "no: #lt; or #gt;" --> D[Dashed line]
   C --> E["Pick a test point not on the line, often (0, 0)"]
   D --> E
   E --> F{Is the inequality true there?}

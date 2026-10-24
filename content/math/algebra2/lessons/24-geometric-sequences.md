@@ -146,7 +146,7 @@ flowchart TD
   D -- yes --> G["Geometric: aₙ = a₁ · rⁿ⁻¹"]
   G --> H{"Sum of how many terms?"}
   H -- "n terms" --> I["Sₙ = a₁(1 − rⁿ) ÷ (1 − r)"]
-  H -- "infinitely many" --> J{"Is |r| < 1?"}
+  H -- "infinitely many" --> J{"Is |r| less than 1?"}
   J -- yes --> K["S = a₁ ÷ (1 − r)"]
   J -- no --> L["Diverges: no finite sum"]
 ```

@@ -15,7 +15,7 @@ A **linear equation in three variables** has the form $ax + by + cz = d$. A solu
 
 Geometrically, each such equation describes a flat plane in three-dimensional space. Three planes can meet in a single point (one solution), have no point common to all three (no solution), or share a whole line or plane (infinitely many solutions). The algebra tells you which case you're in, just as with two lines.
 
-The picture shows the main cases. "No solution" can happen in more than one way: the planes can be parallel, or each pair can meet in a line without all three ever sharing a point, like the three sides of a tent with no floor.
+The picture shows the main cases. "No solution" can happen in more than one way: the planes can be parallel, or each pair can meet in a line without all three ever sharing a point, like the three long faces of a triangular prism (the two sloping sides and the floor of a ridge tent).
 
 ![Four panels of three planes each. Top left: three planes cross at a single marked point, labeled one point: one solution. Top right: three planes turn around one common line like pages of a book, labeled a common line: infinitely many. Bottom left: three parallel stacked planes, labeled parallel planes: no solution. Bottom right: three planes form the sides of a triangular tube, each pair meeting in a line but with no point on all three, labeled meet only in pairs: no solution.](images/a2-m2-planes.svg)
 

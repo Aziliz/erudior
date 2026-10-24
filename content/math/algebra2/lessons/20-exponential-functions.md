@@ -27,7 +27,7 @@ Compare $f(x) = 2x$ and $g(x) = 2^x$. For each step of 1 in $x$, $f$ adds 2 whil
 The graph shows the same comparison. The two meet at $x = 1$ and $x = 2$ (and $2^x$ is even a little lower in between), but after that the exponential pulls away fast.
 
 ```plot
-{"x": [0, 6], "y": [0, 40], "functions": [{"f": "2*x", "label": "y = 2x (adds 2)"}, {"f": "2^x", "label": "y = 2^x (doubles)", "from": 0, "to": 5.3}], "points": [{"at": [1, 2], "label": "(1, 2)"}, {"at": [2, 4], "label": "(2, 4)"}, {"at": [5, 32], "label": "(5, 32)"}, {"at": [5, 10], "label": "(5, 10)"}], "caption": "Linear growth adds a fixed amount; exponential growth multiplies by a fixed factor"}
+{"x": [0, 6], "y": [0, 40], "functions": [{"f": "2*x"}, {"f": "2^x", "label": "y = 2^x (doubles)", "from": 0, "to": 5.3}], "points": [{"at": [1, 2]}, {"at": [2, 4]}, {"at": [5, 32]}, {"at": [5, 10]}], "caption": "Linear growth adds a fixed amount; exponential growth multiplies by a fixed factor", "labels": [{"at": [0.75, 4], "text": "(1, 2)"}, {"at": [1.7, 7], "text": "(2, 4)"}, {"at": [5.6, 29], "text": "(5, 32)"}, {"at": [5.5, 7], "text": "(5, 10)"}, {"at": [4.5, 3.5], "text": "y = 2x (adds 2)"}]}
 ```
 
 ## Graphs

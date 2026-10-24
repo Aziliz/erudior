@@ -14,7 +14,7 @@
 # Robust statistics
 - {front: 'What the mean minimizes', back: '$\sum (x_i - c)^2$, because $\sum (x_i - c)^2 = \sum (x_i - \bar{x})^2 + n(\bar{x} - c)^2$.', topic: 'Robust statistics'}
 - {front: 'What the median minimizes', back: '$\sum |x_i - c|$. For even $n$, any $c$ between the two middle values.', topic: 'Robust statistics'}
-- {front: 'Midrange', back: '$(\min + \max)/2$; minimizes the largest distance $\max|x_i - c|$. Least resistant center.', topic: 'Robust statistics'}
+- {front: 'Midrange', back: '$(\min + \max)/2$; minimizes the largest distance $\max|x_i - c|$. Among the least resistant centers.', topic: 'Robust statistics'}
 - {front: 'Breakdown point', back: 'Smallest fraction of wild values that can push a statistic anywhere. Mean, SD, range: one value. IQR: 25%. Median, MAD: about 50%.', topic: 'Robust statistics'}
 - {front: 'Trimmed vs winsorized mean', back: 'Trimmed: drop $p\%$ from each end, average the rest. Winsorized: replace them with the most extreme remaining values, average all $n$.', topic: 'Robust statistics'}
 - {front: 'MAD', back: '$\text{median}\,|x_i - \text{median}|$. Breakdown point 50%.', topic: 'Robust statistics'}

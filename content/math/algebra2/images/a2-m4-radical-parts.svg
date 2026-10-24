@@ -15,12 +15,12 @@
 <text x="128" y="62" text-anchor="middle" font-size="16">index</text>
 <text x="226" y="268" text-anchor="middle" font-size="16">radicand</text>
 <text x="420" y="268" text-anchor="middle" font-size="16">base</text>
-<text x="560" y="62" text-anchor="middle" font-size="16">power (numerator)</text>
-<text x="580" y="136" text-anchor="middle" font-size="16">root</text>
+<text x="548" y="62" text-anchor="middle" font-size="16">power (numerator)</text>
+<text x="566" y="136" text-anchor="middle" font-size="16">root</text>
 <line x1="128" y1="68" x2="128" y2="116" stroke="#1c2833" stroke-width="1.2"/>
-<line x1="520" y1="68" x2="488" y2="88" stroke="#1c2833" stroke-width="1.2"/>
-<line x1="560" y1="131" x2="492" y2="136" stroke="#1c2833" stroke-width="1.2"/>
-<text x="580" y="154" text-anchor="middle" font-size="16">(denominator)</text>
+<line x1="508" y1="68" x2="488" y2="88" stroke="#1c2833" stroke-width="1.2"/>
+<line x1="546" y1="131" x2="492" y2="136" stroke="#1c2833" stroke-width="1.2"/>
+<text x="566" y="154" text-anchor="middle" font-size="16">(denominator)</text>
 <text x="175" y="306" text-anchor="middle" font-size="15">Radical form</text>
 <text x="470" y="306" text-anchor="middle" font-size="15">Rational exponent form</text>
 </svg>

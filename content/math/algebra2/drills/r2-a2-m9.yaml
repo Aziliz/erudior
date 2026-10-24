@@ -165,4 +165,4 @@
   solution: |-
     Set $-{R}\cos\left(\dfrac{2\pi}{{T}}t\right) + {c} = {Hn}$, so $\cos\left(\dfrac{2\pi}{{T}}t\right) = \dfrac{{c} - {Hn}}{{R}} \approx {cr:dp4}$.
     The first solution is the principal value: $\dfrac{2\pi}{{T}}t = \arccos({cr:dp4})$, so $t = \dfrac{{T}}{2\pi}\arccos({cr:dp4}) \approx$ **{t1:num2}** min (radian mode).
-    By symmetry the rider comes back down through {Hn} m at $t = {T} - {t1:num2} \approx {t2:num2}$ min, so the time above {Hn} m is ${t2:num2} - {t1:num2} \approx$ **{above:num2}** min.
+    By symmetry the rider comes back down through {Hn} m at $t \approx {T} - {t1:dp4} = {t2:dp4}$ min, so the time above {Hn} m is ${t2:dp4} - {t1:dp4} \approx$ **{above:num2}** min. (Keep the unrounded times until the end: subtracting the 2-decimal times can be off by 0.01.)

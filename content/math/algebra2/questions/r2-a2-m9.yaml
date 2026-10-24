@@ -354,8 +354,8 @@
   type: text
   stem: 'In degrees, $\arccos\left(\tfrac12\right) =$ ___ and $\arcsin\left(-1\right) =$ ___. Give numbers only.'
   accept:
-    - ['60']
-    - ['-90', '−90']
+    - ['60', '60°']
+    - ['-90', '−90', '-90°', '−90°']
   explanation: |-
     $\cos 60^\circ = \tfrac12$ and $60^\circ$ is in $[0^\circ, 180^\circ]$, the range of arccos. $\sin(-90^\circ) = -1$ and $-90^\circ$ is in $[-90^\circ, 90^\circ]$, the range of arcsin. ($270^\circ$ also has sine $-1$, but it is out of range.)
 - id: a2-m9-r2-h26

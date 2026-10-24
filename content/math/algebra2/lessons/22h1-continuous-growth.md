@@ -60,7 +60,7 @@ $$\left(1 + \frac rn\right)^{nt} = \left[\left(1 + \frac1m\right)^m\right]^{rt}.
 As $n$ grows without bound, so does $m$, and the bracket approaches $e$. The whole expression approaches $e^{rt}$, which is the continuous compounding formula.
 
 ```plot
-{"x": [0, 50], "y": [1.8, 3], "functions": [{"f": "(1 + 1/x)^x", "label": "y = (1 + 1/n)^n", "from": 1, "to": 50}, {"f": "e", "label": "y = e ≈ 2.718", "dashed": true}], "points": [{"at": [1, 2], "label": "n = 1: 2"}, {"at": [10, 2.5937], "label": "n = 10: 2.594"}], "xLabel": "n", "caption": "(1 + 1/n)^n climbs toward e but never reaches it"}
+{"x": [0, 50], "y": [1.8, 3], "functions": [{"f": "(1 + 1/x)^x", "from": 1, "to": 50}, {"f": "e", "dashed": true}], "points": [{"at": [1, 2], "label": "n = 1: 2"}, {"at": [10, 2.5937]}], "xLabel": "n", "caption": "(1 + 1/n)^n climbs toward e but never reaches it", "labels": [{"at": [40, 2.76], "text": "y = e ≈ 2.718"}, {"at": [36, 2.58], "text": "y = (1 + 1/n)^n"}, {"at": [19, 2.5], "text": "n = 10: 2.594"}]}
 ```
 
 Proving that this limit exists takes calculus. Calculus also gives a much faster way to compute $e$, previewed here without proof:

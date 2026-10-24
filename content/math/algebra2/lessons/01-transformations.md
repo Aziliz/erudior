@@ -66,14 +66,14 @@ This chart sums up the six basic moves. The first question is always where the c
 ```mermaid
 flowchart LR
   accTitle: Reading a change to the formula y = f(x)
-  accDescr: Ask where the change is. A change outside f acts on the outputs, the way it looks: f(x) + k shifts the graph up k, a times f(x) stretches it vertically by a factor of a, and negative f(x) reflects it across the x-axis. A change inside f acts on the inputs, the opposite way to how it looks: f(x − h) shifts the graph right h, f(bx) compresses it horizontally by a factor of 1/b, and f(−x) reflects it across the y-axis.
+  accDescr: Ask where the change is. A change outside f acts on the outputs, the way it looks: f(x) + k shifts the graph up k, a times f(x) stretches it vertically by a factor of a (when a is greater than 1), and negative f(x) reflects it across the x-axis. A change inside f acts on the inputs, the opposite way to how it looks: f(x − h) shifts the graph right h, f(bx) compresses it horizontally by a factor of 1/b (when b is greater than 1), and f(−x) reflects it across the y-axis.
   Q(["Where is the change?"]) -- "outside f" --> O["Acts on y, as it looks"]
   Q -- "inside f" --> I["Acts on x, the opposite way"]
   O --> O1["f(x) + k: up k"]
-  O --> O2["a·f(x): vertical stretch by a"]
+  O --> O2["a·f(x): vertical stretch by a, if a #gt; 1"]
   O --> O3["−f(x): flip over x-axis"]
   I --> I1["f(x − h): right h"]
-  I --> I2["f(bx): compress by 1/b"]
+  I --> I2["f(bx): compress by 1/b, if b #gt; 1"]
   I --> I3["f(−x): flip over y-axis"]
 ```
 

@@ -105,7 +105,7 @@
   topic: Absolute value
   type: label
   stem: 'This picture shows the solutions of $|x - c| \le r$ with the labels removed. Name each numbered part.'
-  image: {src: images/alg-m2-distance-blank.svg, alt: 'A number line with a shaded interval between two closed dots and a tick mark in the middle of the interval. A double arrow above runs from one dot to the other, and dashed lines connect it to the dots and the middle tick. Four parts are numbered.'}
+  image: {src: images/alg-m2-distance-blank.svg, alt: 'A number line with a shaded interval between two closed dots and a tick mark in the middle of the interval. Above it, two arrows start at a dot over the middle tick and run out to the two dots, and dashed lines connect it to the dots and the middle tick. Four parts are numbered.'}
   labels:
     - {x: 26.3, y: 65.2, text: 'Left endpoint, c − r'}
     - {x: 50, y: 65.2, text: 'Center, c'}

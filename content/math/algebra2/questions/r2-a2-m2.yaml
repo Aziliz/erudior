@@ -219,7 +219,7 @@
   choices: ['It can have exactly one solution', 'It can have exactly two solutions', 'It can have infinitely many solutions', 'It can have no solution even when no two of its planes are parallel', 'Reaching $0 = 0$ during elimination means it has exactly one solution']
   answer: [0, 2, 3]
   explanation: |-
-    Three planes can share one point, a whole line (or plane), or no point. "No solution" doesn't need parallel planes: three planes can meet in pairs along three parallel lines, like the sides of a tent. Two solutions is impossible, since two common points would put the whole line through them on all three planes. Reaching $0 = 0$ signals dependent equations (infinitely many solutions if the rest is consistent), not one solution.
+    Three planes can share one point, a whole line (or plane), or no point. "No solution" doesn't need parallel planes: three planes can meet in pairs along three parallel lines, like the three long faces of a triangular prism. Two solutions is impossible, since two common points would put the whole line through them on all three planes. Reaching $0 = 0$ signals dependent equations (infinitely many solutions if the rest is consistent), not one solution.
 - id: a2-m2-r2-q20
   lesson: alg-three-var
   type: match

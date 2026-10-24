@@ -232,10 +232,10 @@
   module_quiz: true
   topic: Parametric equations
   stem: 'For the same ball ($y = 48t - 16t^2$ feet), what is its greatest height?'
-  choices: ['72 ft', '144 ft', '36 ft', '18 ft']
+  choices: ['72 ft', '144 ft', '36 ft', '48 ft']
   answer: 2
   explanation: |-
-    The vertex of $y = -16t^2 + 48t$ is at $t = -\tfrac{48}{2(-16)} = 1.5$ s, where $y = 48(1.5) - 16(2.25) = 72 - 36 = 36$ ft. 72 ft forgets the $-16t^2$ term, and 144 ft comes from using 96 ft/s as the vertical speed.
+    The vertex of $y = -16t^2 + 48t$ is at $t = -\tfrac{48}{2(-16)} = 1.5$ s, where $y = 48(1.5) - 16(2.25) = 72 - 36 = 36$ ft. 72 ft forgets the $-16t^2$ term, 48 ft forgets to square $t$ ($72 - 16 \cdot 1.5$), and 144 ft comes from using 96 ft/s as the vertical speed.
 - id: a2-h1-r2-h25
   lesson: a2-h1-parametric
   topic: Parametric equations
@@ -326,7 +326,7 @@
   stem: 'Write $\dfrac{8\,\text{cis}\,200^\circ}{2\,\text{cis}\,50^\circ}$ in polar form: ___ cis ___°. Give only the numbers.'
   accept:
     - ['4']
-    - ['150']
+    - ['150', '150°', '150 degrees']
   explanation: |-
     Divide the moduli and subtract the arguments: $\tfrac82 = 4$ and $200^\circ - 50^\circ = 150^\circ$, so the quotient is $4\,\text{cis}\,150^\circ$.
 - id: a2-h1-r2-h35
@@ -445,10 +445,10 @@
     - ['$f(x) = 5x - 2$', The rates stay the same]
     - ['$g(x) = x^2$', The rates go up by the same amount each step]
     - ['$k(x) = 3^x$', The rates are multiplied by the same factor each step]
-    - ['$m(x) = 7$', The rates are all zero]
-  distractors: [The rates go down by the same amount each step]
+    - ['$m(x) = 4 - x^2$', The rates go down by the same amount each step]
+  distractors: [The rates are all zero]
   explanation: |-
-    $f$: $5, 5, 5$ (constant, like any line). $g$: $1, 3, 5$ (up by 2 each step). $k$: $2, 6, 18$ (each 3 times the last). $m$ is constant, so every rate is $0$. Rates going down by a fixed amount would come from a quadratic opening downward, such as $-x^2$.
+    $f$: $5, 5, 5$ (constant, like any line). $g$: $1, 3, 5$ (up by 2 each step). $k$: $2, 6, 18$ (each 3 times the last). $m$: $-1, -3, -5$ (down by 2 each step, as for any quadratic opening downward). All-zero rates would need a constant function, which none of these is.
 - id: a2-h1-r2-h47
   lesson: a2-h1-rates
   module_quiz: true
@@ -535,7 +535,7 @@
   choices: ['$24$', '$16$', '$12$', '$6$']
   answer: 2
   explanation: |-
-    $\dfrac{2^5 - 2^3}{5 - 3} = \dfrac{32 - 8}{2} = 12$. 24 forgets to divide by the change in $x$, and 6 divides by 4.
+    $\dfrac{2^5 - 2^3}{5 - 3} = \dfrac{32 - 8}{2} = 12$. 24 forgets to divide by the change in $x$, 6 divides by 4, and 16 is $k(4)$, the function's value at the midpoint, not a rate.
 - id: a2-h1-r2-h56
   lesson: a2-h1-rates
   topic: Average rate of change

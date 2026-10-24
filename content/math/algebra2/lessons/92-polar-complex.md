@@ -13,7 +13,7 @@ Two lessons in this course meet here. The complex numbers lesson pictured $a + b
 
 Picture $z = a + bi$ as an arrow from the origin to the point $(a, b)$.
 
-- Its length is the modulus of $z$, written $|z|$ or $r$: $\;|z| = \sqrt{a^2 + b^2}$. For a real number this is the ordinary absolute value, so the notation fits. (The honors lesson on the geometry of complex numbers in Module 2 studies the modulus in more detail, and proves that $|zw| = |z|\,|w|$. It leaves the angle half of the story for later; this lesson supplies it.)
+- Its length is the **modulus** of $z$, written $|z|$ or $r$: $\;|z| = \sqrt{a^2 + b^2}$. For a real number this is the ordinary absolute value, so the notation fits. (The honors lesson on the geometry of complex numbers in Module 2 studies the modulus in more detail, and proves that $|zw| = |z|\,|w|$. It leaves the angle half of the story for later; this lesson supplies it.)
 - The angle from the positive real axis to the arrow, measured counterclockwise, is an **argument** of $z$, written $\theta$.
 
 ![The complex plane with a point z = a + bi in the first quadrant. An arrow of length r runs from the origin to z, the angle theta is marked from the positive real axis, and dashed lines show the real part a along the horizontal axis and the imaginary part b up to the point.](images/a2-h1-polar-form.svg)

@@ -17,7 +17,7 @@
     - {name: qq, label: '$q =$'}
   solution: |-
     Multiply the top and bottom by $\sqrt{{s}}$, using $\sqrt{{s}} \cdot \sqrt{{s}} = {s}$:
-    $\dfrac{{c}}{{m:coef}\sqrt{{s}}} \cdot \dfrac{\sqrt{{s}}}{\sqrt{{s}}} = \dfrac{{c}\sqrt{{s}}}{{ms}}$.
+    $\dfrac{{c}}{{m:coef}\sqrt{{s}}} \cdot \dfrac{\sqrt{{s}}}{\sqrt{{s}}} = \dfrac{{c:coef}\sqrt{{s}}}{{ms}}$.
     Divide {c} and {ms} by their greatest common factor, {g}: $p =$ **{pp}** and $q =$ **{qq}**.
 
 - id: a1-m7-r2-rationalize-conj
@@ -142,8 +142,8 @@
   answers:
     - {name: S, label: '$S_{{n}} =$'}
   solution: |-
-    $a_1 = {a1}$ and $r = {r}$. Use $S_n = \dfrac{a_1(1 - r^n)}{1 - r}$ with $({r})^{{n}} = {rn}$:
-    $S_{{n}} = \dfrac{{a1}(1 - ({rn}))}{{omr}} =$ **{S}**.
+    $a_1 = {a1}$ and $r = {r}$. Use $S_n = \dfrac{a_1(1 - r^n)}{1 - r}$ with $({r})^{{n}} = {rn:dp0}$:
+    $S_{{n}} = \dfrac{{a1}(1 - ({rn:dp0}))}{{omr}} =$ **{S}**.
 
 - id: a1-m7-r2-infinite-geom
   title: Sum of an infinite geometric series

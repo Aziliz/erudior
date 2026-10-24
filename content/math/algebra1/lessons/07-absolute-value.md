@@ -107,18 +107,18 @@ Once the absolute value is isolated, look at the number on the other side before
 | $\lvert u \rvert \le 0$ | only where $u = 0$ | the distance must be exactly 0 |
 | $\lvert u \rvert > 0$ | everything except where $u = 0$ | every nonzero distance is positive |
 
-This chart sums up the whole lesson: isolate, look at the number on the other side, then let the symbol choose the rule.
+This chart sums up the whole lesson: isolate, look at the number on the other side, then let the symbol choose the rule. (When $k = 0$, use the table above: the rules still give the right answer, but $|u| \le 0$ is a single point rather than an interval, and $|u| < 0$ has no solution.)
 
 ```mermaid
 flowchart TD
   accTitle: Which rule to use for an absolute value equation or inequality
-  accDescr: Top to bottom. First isolate the absolute value so that the absolute value of u stands alone on one side and a number k on the other. Then ask whether k is negative. If k is negative, an equation or a less-than inequality has no solution, and a greater-than inequality is true for every x. If k is zero or positive, look at the symbol. An equals sign gives u equals k or u equals negative k. A less-than symbol gives the double inequality negative k less than u less than k, one interval. A greater-than symbol gives u less than negative k or u greater than k, two rays. In every case, finish by solving for x and checking.
+  accDescr: Top to bottom. First isolate the absolute value so that the absolute value of u stands alone on one side and a number k on the other. Then ask whether k is negative. If k is negative, an equation or a less-than inequality has no solution, and a greater-than inequality is true for every x. If k is zero or positive, look at the symbol. An equals sign gives u equals k or u equals negative k. A less-than symbol gives the double inequality negative k less than u less than k, one interval. A greater-than symbol gives u less than negative k or u greater than k, two rays. (For k equal to zero, the table above the chart gives the answers.) In every case, finish by solving for x and checking.
   A["Isolate: |u| alone on one side, a number k on the other"] --> B{"Is k negative?"}
   B -- yes --> C["= or less than: no solution. Greater than: every x"]
   B -- no --> D{"Which symbol?"}
   D -- "=" --> E["u = k or u = -k"]
-  D -- "less than" --> F["-k < u < k: one interval"]
-  D -- "greater than" --> G["u < -k or u > k: two rays"]
+  D -- "less than" --> F["-k #lt; u #lt; k: one interval"]
+  D -- "greater than" --> G["u #lt; -k or u #gt; k: two rays"]
   E --> H["Solve for x and check"]
   F --> H
   G --> H

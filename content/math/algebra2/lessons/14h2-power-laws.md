@@ -21,7 +21,7 @@ A **power function** is a function of the form $f(x) = kx^p$, where $k$ and $p$ 
 Every power function $x^p$ with $p > 0$ passes through $(0, 0)$ and $(1, 1)$. Between 0 and 1, a bigger exponent gives a *smaller* value: $0.25^{1/2} = 0.5$ but $0.25^{3/2} = 0.125$.
 
 ```plot
-{"x": [-4, 4], "y": [-2, 4], "equal": true, "functions": [{"f": "sqrt(x)", "from": 0, "to": 4, "label": "y = x^(1/2)"}, {"f": "cbrt(x)", "label": "y = x^(1/3)"}, {"f": "cbrt(x)^2", "label": "y = x^(2/3)", "dashed": true}, {"f": "sqrt(x)^3", "from": 0, "to": 2.5, "label": "y = x^(3/2)"}], "points": [{"at": [1, 1], "label": "(1, 1)"}], "caption": "Rational powers: x^(1/2) and x^(3/2) exist only for x ≥ 0, while x^(1/3) and x^(2/3) are defined for all x"}
+{"x": [-4, 9], "y": [-2, 5], "functions": [{"f": "sqrt(x)", "from": 0, "to": 9, "label": "x^(1/2)"}, {"f": "cbrt(x)", "from": -4, "to": 9, "label": "x^(1/3)"}, {"f": "cbrt(x)^2", "from": -4, "to": 9, "label": "x^(2/3)", "dashed": true}, {"f": "sqrt(x)^3", "from": 0, "to": 2.9, "label": "x^(3/2)"}], "points": [{"at": [1, 1]}], "labels": [{"at": [2.1, 0.45], "text": "(1, 1)"}], "caption": "Rational powers: x^(1/2) and x^(3/2) exist only for x ≥ 0, while x^(1/3) and x^(2/3) are defined for all x"}
 ```
 
 The domain comes from the denominator. Write the exponent as a fraction $\tfrac{m}{n}$ *in lowest terms* with $n > 0$. If $n$ is odd, the $n$th root of a negative number exists, so every real $x$ is allowed. If $n$ is even, $x$ must be nonnegative. A negative exponent means a reciprocal, so it also rules out $x = 0$.
@@ -78,7 +78,7 @@ $$T = a^{3/2}.$$
 3. Scaling check: a planet 4 times as far out as another has a year $4^{3/2} = 8$ times as long.
 
 ```plot
-{"x": [0, 6], "y": [0, 14], "xLabel": "average distance a (AU)", "yLabel": "period T (years)", "functions": [{"f": "sqrt(x)^3", "from": 0, "to": 5.8, "label": "T = a^(3/2)"}], "points": [{"at": [0.387, 0.241], "label": "Mercury"}, {"at": [0.723, 0.615], "label": "Venus"}, {"at": [1, 1], "label": "Earth"}, {"at": [1.524, 1.881], "label": "Mars"}, {"at": [5.203, 11.86], "label": "Jupiter"}], "caption": "Measured planetary periods lie on the curve T = a^(3/2)"}
+{"x": [0, 6], "y": [0, 14], "xLabel": "average distance a (AU)", "yLabel": "period T (years)", "functions": [{"f": "sqrt(x)^3", "from": 0, "to": 5.8, "label": "T = a^(3/2)"}], "points": [[0.387, 0.241], [0.723, 0.615], [1, 1], [1.524, 1.881], [5.203, 11.86]], "labels": [{"at": [1.2, 4.6], "text": "Mercury, Venus, Earth"}, {"at": [2.15, 1.0], "text": "Mars"}, {"at": [5.55, 10.2], "text": "Jupiter"}], "segments": [{"from": [0.7, 4.0], "to": [0.7, 1.1], "arrow": true}], "caption": "Measured planetary periods lie on the curve T = a^(3/2)"}
 ```
 
 ## The square–cube law

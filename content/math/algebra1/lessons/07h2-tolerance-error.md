@@ -60,7 +60,7 @@ Write the difference so that $x - 3$ appears:
 
 $$|(5x - 2) - 13| = |5x - 15| = |5(x - 3)| = 5\,|x - 3| \le 5(0.1) = 0.5.$$
 
-The step $|5(x - 3)| = 5|x - 3|$ uses the rule $|ab| = |a|\,|b|$ (the size of a product is the product of the sizes). So the error in $y$ is at most 5 times the error in $x$. In general, for a linear formula $y = kx + b$:
+The step $|5(x - 3)| = 5|x - 3|$ uses the rule $|ab| = |a|\,|b|$ (the size of a product is the product of the sizes). So the error in $y$ is at most 5 times the error in $x$. In general, for a linear formula $y = kx + b$ with measured input $x_0$ and computed output $y_0 = kx_0 + b$:
 
 $$|y - y_0| = |k|\,|x - x_0|.$$
 

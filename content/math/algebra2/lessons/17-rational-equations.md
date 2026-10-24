@@ -51,7 +51,7 @@ The value $x = 3$ is an extraneous solution: it solves the cleared equation but 
 The graphs show why there is no solution. The left side $\dfrac{x}{x - 3}$ and the right side $\dfrac{3}{x - 3} + 2$ are two curves that never meet: subtracting them gives $\dfrac{x - 3}{x - 3} - 2 = -1$ at every allowed $x$, so the left side is always exactly 1 below the right side. Both have the vertical asymptote $x = 3$, so the only "meeting point" the algebra finds is the one place where neither side exists.
 
 ```plot
-{"x": [-6, 12], "y": [-6, 10], "functions": [{"f": "x/(x - 3)", "label": "left side x/(x − 3)"}, {"f": "3/(x - 3) + 2", "dashed": true, "label": "right side 3/(x − 3) + 2"}], "segments": [{"from": [3, -6], "to": [3, 10], "dashed": true, "label": "x = 3"}], "caption": "The two sides of Example 2 never cross; the left side is always 1 below the right side"}
+{"x": [-6, 12], "y": [-6, 10], "functions": [{"f": "x/(x - 3)"}, {"f": "3/(x - 3) + 2", "dashed": true}], "labels": [{"at": [-2.5, 3.5], "text": "right side (dashed)"}, {"at": [-2.5, -3], "text": "left side (solid)"}], "segments": [{"from": [3, -6], "to": [3, 10], "dashed": true, "label": "x = 3"}], "caption": "The two sides of Example 2 never cross; the left side is always 1 below the right side"}
 ```
 
 ### Example 3

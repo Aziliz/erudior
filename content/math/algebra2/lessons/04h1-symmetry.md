@@ -23,7 +23,7 @@ These two patterns get names.
 
 The definitions say "the domain" deliberately. Both tests compare $x$ with $-x$, so the domain itself must be symmetric: if $x$ is allowed, $-x$ must be too. The function $\sqrt{x}$ has domain $x \ge 0$, so it can't be even or odd.
 
-The names come from powers. If $n$ is even, $(-x)^n = x^n$; if $n$ is odd, $(-x)^n = -x^n$. So $x^2$, $x^4$, $x^6$ are even functions and $x$, $x^3$, $x^5$ are odd ones. A polynomial whose terms all have even exponents (a constant counts, since $c = cx^0$) is even, and one whose terms all have odd exponents is odd. Mix the two kinds and the polynomial is usually neither.
+The names come from powers. If $n$ is even, $(-x)^n = x^n$; if $n$ is odd, $(-x)^n = -x^n$. So $x^2$, $x^4$, $x^6$ are even functions and $x$, $x^3$, $x^5$ are odd ones. A polynomial whose terms all have even exponents (a constant counts, since $c = cx^0$) is even, and one whose terms all have odd exponents is odd. Mix the two kinds (both with nonzero coefficients) and the polynomial is neither.
 
 Two consequences are worth knowing:
 
@@ -53,7 +53,7 @@ Parity (being even or odd) behaves like the sign rules for multiplying, or like 
 | odd × odd | even | $(-f(x))(-g(x)) = f(x)g(x)$ |
 | even × odd | odd | $f(x)(-g(x)) = -f(x)g(x)$ |
 
-For example, $x^3 \cdot \dfrac{1}{x}$ is odd times odd, and indeed it equals $x^2$ (for $x \ne 0$), which is even. Sums are simpler: even plus even is even and odd plus odd is odd, but even plus odd is usually neither, as $r(x) = x^3 + x^2$ showed.
+For example, $x^3 \cdot \dfrac{1}{x}$ is odd times odd, and indeed it equals $x^2$ (for $x \ne 0$), which is even. Sums are simpler: even plus even is even and odd plus odd is odd, but even plus odd is neither unless one of the two is the zero function, as $r(x) = x^3 + x^2$ showed.
 
 ## Every function is even plus odd
 

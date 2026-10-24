@@ -102,7 +102,7 @@ Find the vertices, foci and asymptotes of $9x^2 - 16y^2 = 144$.
 Check with the definition: $x = 5$ gives $\tfrac{y^2}{9} = \tfrac{25}{16} - 1 = \tfrac{9}{16}$, so $(5, \tfrac94)$ is on the curve. Its distances to the foci are $\tfrac94$ and $\sqrt{10^2 + (\tfrac94)^2} = \sqrt{\tfrac{1681}{16}} = \tfrac{41}{4}$, and $\tfrac{41}{4} - \tfrac94 = 8 = 2a$.
 
 ```plot
-{"x": [-10, 10], "y": [-7, 7], "equal": true, "curves": [{"x": "4*cosh(t)", "y": "3*sinh(t)", "t": [-1.9, 1.9], "color": "var(--fig-0)"}, {"x": "-4*cosh(t)", "y": "3*sinh(t)", "t": [-1.9, 1.9], "color": "var(--fig-0)"}], "functions": [{"f": "0.75*x", "dashed": true, "label": "y = 3x/4"}, {"f": "-0.75*x", "dashed": true, "label": "y = −3x/4"}], "points": [{"at": [4, 0]}, {"at": [-4, 0]}, {"at": [5, 0]}, {"at": [-5, 0]}], "caption": "The hyperbola x²/16 − y²/9 = 1: vertices V at (±4, 0), foci F at (±5, 0), and the two asymptotes", "labels": [{"at": [3.3, 0.9], "text": "V"}, {"at": [-3.7, 0.9], "text": "V"}, {"at": [5.3, 0.9], "text": "F"}, {"at": [-5.7, 0.9], "text": "F"}]}
+{"x": [-10, 10], "y": [-7, 7], "equal": true, "curves": [{"x": "4*cosh(t)", "y": "3*sinh(t)", "t": [-1.9, 1.9], "color": "var(--fig-0)"}, {"x": "-4*cosh(t)", "y": "3*sinh(t)", "t": [-1.9, 1.9], "color": "var(--fig-0)"}], "functions": [{"f": "0.75*x", "dashed": true}, {"f": "-0.75*x", "dashed": true}], "points": [{"at": [4, 0]}, {"at": [-4, 0]}, {"at": [5, 0]}, {"at": [-5, 0]}], "caption": "The hyperbola x²/16 − y²/9 = 1: vertices V at (±4, 0), foci F at (±5, 0), and the asymptotes y = ±3x/4 (dashed)", "labels": [{"at": [3.3, 0.9], "text": "V"}, {"at": [-3.7, 0.9], "text": "V"}, {"at": [5.3, 0.9], "text": "F"}, {"at": [-5.7, 0.9], "text": "F"}]}
 ```
 
 ## Shifting the center and completing the square

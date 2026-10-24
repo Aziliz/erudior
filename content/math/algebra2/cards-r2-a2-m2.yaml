@@ -4,7 +4,7 @@
 - {front: '$z\bar z$', back: '$|z|^2 = a^2 + b^2$ for $z = a + bi$, a nonnegative real number', topic: Complex plane geometry}
 - {front: 'Reciprocal of a nonzero complex number $z$', back: '$\dfrac1z = \dfrac{\bar z}{|z|^2}$', topic: Complex plane geometry}
 - {front: 'Geometric meaning of adding complex numbers', back: 'Arrows add head to tail: $0$, $z$, $w$ and $z + w$ form a parallelogram', topic: Complex plane geometry}
-- {front: 'Triangle inequality', back: '$|z + w| \le |z| + |w|$, with equality only when $z$ and $w$ point the same way', topic: Complex plane geometry}
+- {front: 'Triangle inequality', back: '$|z + w| \le |z| + |w|$, with equality only when $z$ and $w$ point the same way (or one is 0)', topic: Complex plane geometry}
 - {front: 'Multiplying by $i$ (geometrically)', back: 'Rotates every point $90°$ counterclockwise about 0: $(a, b) \to (-b, a)$', topic: Complex plane geometry}
 - {front: 'Taking the conjugate (geometrically)', back: 'Reflects the point across the real axis; $|\bar z| = |z|$', topic: Complex plane geometry}
 - {front: 'Modulus of a product', back: '$|zw| = |z|\,|w|$ (moduli multiply, but they do not add)', topic: Complex plane geometry}

@@ -39,7 +39,7 @@
   topic: Density histograms and smoothing
 - term: midrange
   aliases: [mid-range]
-  definition: 'The average of the minimum and maximum, $(\min + \max)/2$. It minimizes the largest distance to the data and is the least resistant measure of center.'
+  definition: 'The average of the minimum and maximum, $(\min + \max)/2$. It minimizes the largest distance to the data and is among the least resistant measures of center.'
   topic: Robust statistics
 - term: breakdown point
   definition: 'The smallest fraction of the data that, if replaced by arbitrarily wild values, can make a statistic arbitrarily large or small. Mean: one value (essentially 0%); IQR: 25%; median and MAD: about 50%.'

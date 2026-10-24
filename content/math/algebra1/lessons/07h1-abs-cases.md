@@ -97,7 +97,7 @@ Solve $|2x - 1| \le x + 4$.
 5. Check an inside value, $x = 0$: $|-1| = 1 \le 4$. True. Check an outside value, $x = 6$: $|11| = 11 \le 10$ is false, as it should be.
 
 ```plot
-{"x": [-3, 7], "y": [-1, 12], "functions": [{"f": "abs(2x - 1)", "label": "y = |2x - 1|"}, {"f": "x + 4", "label": "y = x + 4", "dashed": true}], "points": [{"at": [-1, 3], "label": "(-1, 3)"}, {"at": [5, 9], "label": "(5, 9)"}], "caption": "The V is on or below the line for -1 ≤ x ≤ 5"}
+{"x": [-3, 7], "y": [-1, 12], "functions": [{"f": "abs(2x - 1)"}, {"f": "x + 4", "dashed": true}], "points": [{"at": [-1, 3]}, {"at": [5, 9]}], "labels": [{"at": [-1.6, 7.2], "text": "y = |2x - 1|"}, {"at": [2.2, 7.6], "text": "y = x + 4"}, {"at": [-1.1, 1.0], "text": "(-1, 3)"}, {"at": [5.9, 8.2], "text": "(5, 9)"}], "caption": "The V is on or below the line for -1 ≤ x ≤ 5"}
 ```
 
 ### Example 4

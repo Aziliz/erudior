@@ -56,7 +56,7 @@ The proper piece also tells you where the graph is relative to its asymptote. Si
 - where $\dfrac{r(x)}{Q(x)} < 0$, it is below;
 - where $r(x) = 0$ (and $Q(x) \ne 0$), the graph crosses the asymptote.
 
-Because $r$ has smaller degree than $Q$, there are only finitely many crossings, and a sign chart for $\dfrac{r}{Q}$, the tool from the inequalities lesson, finds them all. A graph can never cross a vertical asymptote, since the function has no value there, but crossing a horizontal or slant asymptote in the middle of the graph is perfectly normal.
+A nonzero polynomial $r$ has only finitely many zeros, so there are only finitely many crossings (if $r = 0$, the function is just the polynomial $q$, apart from any holes), and a sign chart for $\dfrac{r}{Q}$, the tool from the inequalities lesson, finds them all. A graph can never cross a vertical asymptote, since the function has no value there, but crossing a horizontal or slant asymptote in the middle of the graph is perfectly normal.
 
 ### Example 1
 
@@ -69,7 +69,7 @@ Find the asymptotes of $f(x) = \dfrac{x^2 - 4}{x - 1}$ and describe where the gr
 5. Intercepts: $x = \pm 2$ and $f(0) = \tfrac{-4}{-1} = 4$.
 
 ```plot
-{"x": [-8, 9], "y": [-8, 10], "functions": [{"f": "(x^2 - 4)/(x - 1)", "label": "f(x) = (x² − 4)/(x − 1)"}, {"f": "x + 1", "dashed": true, "label": "y = x + 1"}], "segments": [{"from": [1, -8], "to": [1, 10], "dashed": true, "label": "x = 1"}], "points": [{"at": [-2, 0], "label": "(−2, 0)"}, {"at": [2, 0], "label": "(2, 0)"}, {"at": [0, 4], "label": "(0, 4)"}], "caption": "The left branch stays above the slant asymptote y = x + 1 and the right branch stays below it"}
+{"x": [-8, 9], "y": [-8, 10], "functions": [{"f": "(x^2 - 4)/(x - 1)"}, {"f": "x + 1", "dashed": true}], "labels": [{"at": [-4.5, 8], "text": "f(x) = (x² − 4)/(x − 1)"}, {"at": [-3.5, -7.2], "text": "y = x + 1 (dashed)"}], "segments": [{"from": [1, -8], "to": [1, 10], "dashed": true, "label": "x = 1"}], "points": [{"at": [-2, 0], "label": "(−2, 0)"}, {"at": [2, 0], "label": "(2, 0)"}, {"at": [0, 4], "label": "(0, 4)"}], "caption": "The left branch stays above the slant asymptote y = x + 1 and the right branch stays below it"}
 ```
 
 ### Example 2
@@ -93,7 +93,7 @@ Where does $g(x) = \dfrac{2x^2 + x - 3}{x^2 - 4}$ cross its horizontal asymptote
 5. The other features, from the graphing lesson: vertical asymptotes $x = \pm 2$ (the numerator is 3 at $x = -2$ and 7 at $x = 2$), $x$-intercepts $-\tfrac32$ and $1$ from $(2x + 3)(x - 1)$, and $y$-intercept $\tfrac34$.
 
 ```plot
-{"x": [-14, 8], "y": [-6, 8], "functions": [{"f": "(2x^2 + x - 3)/(x^2 - 4)", "label": "g(x)"}], "segments": [{"from": [-14, 2], "to": [8, 2], "dashed": true, "label": "y = 2"}, {"from": [-2, -6], "to": [-2, 8], "dashed": true}, {"from": [2, -6], "to": [2, 8], "dashed": true}], "points": [{"at": [-5, 2], "label": "crosses at (−5, 2)"}], "caption": "g crosses its horizontal asymptote y = 2 once, at x = −5, then rises toward the vertical asymptote x = −2"}
+{"x": [-14, 8], "y": [-6, 8], "functions": [{"f": "(2x^2 + x - 3)/(x^2 - 4)", "label": "g(x)"}], "segments": [{"from": [-14, 2], "to": [8, 2], "dashed": true}, {"from": [-2, -6], "to": [-2, 8], "dashed": true}, {"from": [2, -6], "to": [2, 8], "dashed": true}], "points": [{"at": [-5, 2]}], "labels": [{"at": [-8, 3], "text": "crosses y = 2 at (−5, 2)"}, {"at": [5, 1.2], "text": "y = 2"}], "caption": "g crosses its horizontal asymptote y = 2 once, at x = −5, then rises toward the vertical asymptote x = −2"}
 ```
 
 ## An application: average cost
@@ -124,7 +124,7 @@ Find the production level with the least average cost, and that cost.
 The trick works whenever the function has the form $px + \dfrac{q}{x}$ with $p, q > 0$: the minimum on $x > 0$ is $2\sqrt{pq}$, at $x = \sqrt{q/p}$, where the two terms are equal. The model itself is a simplification: real costs don't follow an exact quadratic, but the shape (falling, a minimum, then rising toward a slant asymptote) shows up in many real cost curves.
 
 ```plot
-{"x": [0, 400], "y": [0, 40], "functions": [{"f": "0.04x + 6 + 900/x", "label": "A(x)"}, {"f": "0.04x + 6", "dashed": true, "label": "y = 0.04x + 6"}], "points": [{"at": [150, 18], "label": "minimum (150, 18)"}], "xLabel": "items per week", "yLabel": "dollars per item", "caption": "Average cost falls, bottoms out at $18 per item when 150 items are made, then rises along its slant asymptote"}
+{"x": [0, 400], "y": [0, 40], "functions": [{"f": "0.04x + 6 + 900/x"}, {"f": "0.04x + 6", "dashed": true}], "points": [{"at": [150, 18]}], "labels": [{"at": [260, 33], "text": "A(x) = 0.04x + 6 + 900/x"}, {"at": [150, 22.5], "text": "minimum (150, 18)"}, {"at": [250, 6], "text": "slant asymptote y = 0.04x + 6 (dashed)"}], "xLabel": "items per week", "yLabel": "dollars per item", "caption": "Average cost falls, bottoms out at $18 per item when 150 items are made, then rises along its slant asymptote"}
 ```
 
 ## Common mistakes

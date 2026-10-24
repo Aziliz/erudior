@@ -132,7 +132,7 @@ Put the remainder theorem together with "remainder 0 means it divides exactly" a
 So three statements say the same thing: $c$ is a zero of $P$; $x - c$ is a factor of $P(x)$; the graph of $y = P(x)$ crosses or touches the $x$-axis at $x = c$.
 
 ```plot
-{"x": [-4.5, 3.5], "y": [-6, 16], "functions": [{"f": "x^3 - 7*x + 6", "label": "y = x³ - 7x + 6"}], "points": [{"at": [-3, 0], "label": "x = -3"}, {"at": [1, 0], "label": "x = 1"}, {"at": [2, 0], "label": "x = 2"}], "caption": "y = x³ - 7x + 6 = (x - 1)(x - 2)(x + 3) meets the x-axis at the zeros 1, 2 and -3"}
+{"x": [-4.5, 3.5], "y": [-6, 16], "functions": [{"f": "x^3 - 7*x + 6", "label": "y = x³ - 7x + 6"}], "points": [{"at": [-3, 0], "label": "x = -3"}, {"at": [1, 0], "label": "x = 1"}, {"at": [2, 0]}], "labels": [{"at": [2.55, -2.6], "text": "x = 2"}], "caption": "y = x³ - 7x + 6 = (x - 1)(x - 2)(x + 3) meets the x-axis at the zeros 1, 2 and -3"}
 ```
 
 How do you find a first zero to try? A useful fact: *if a polynomial has integer coefficients, every integer zero divides the constant term.* The reason: if $c$ is an integer and $P(c) = 0$, move the constant term to one side. Every other term of $P(c)$ has a factor of $c$, so the constant term equals $c$ times an integer. (This is the whole-number case of the *rational root theorem*, which you'll meet in Algebra 2. Non-integer zeros such as $\tfrac12$ need that fuller version.)

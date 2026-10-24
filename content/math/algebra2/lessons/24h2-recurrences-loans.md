@@ -126,7 +126,7 @@ The table shown by a lender, with each payment split into interest and principal
 The interest shrinks every month because the balance shrinks, so more of each payment goes to principal. That is why the balance falls slowly at first and faster near the end.
 
 ```plot
-{"x": [0, 60], "y": [0, 26000], "functions": [{"f": "24000*1.005^x - 463.987*(1.005^x - 1)/0.005", "label": "balance", "from": 0, "to": 60}, {"f": "24000 - 400*x", "dashed": true, "label": "straight line, for comparison", "from": 0, "to": 60}], "xLabel": "months", "yLabel": "balance owed (dollars)", "caption": "The balance of the 24,000-dollar car loan bows above a straight line: early payments are mostly interest"}
+{"x": [0, 60], "y": [0, 26000], "functions": [{"f": "24000*1.005^x - 463.987*(1.005^x - 1)/0.005", "from": 0, "to": 60}, {"f": "24000 - 400*x", "dashed": true, "from": 0, "to": 60}], "labels": [{"at": [44, 12500], "text": "loan balance (solid)"}, {"at": [15, 9500], "text": "straight line (dashed)"}], "xLabel": "months", "yLabel": "balance owed (dollars)", "caption": "The balance of the 24,000-dollar car loan bows above a straight line: early payments are mostly interest"}
 ```
 
 ### Example 5

@@ -154,7 +154,7 @@
     Components: $v_0\cos\theta = {v}\cos {ang}^\circ \approx {vx:num4}$ ft/s and $v_0\sin\theta = {v}\sin {ang}^\circ \approx {vy:num4}$ ft/s.
     Greatest height: the vertex of $y = {h0} + {vy:num4}t - 16t^2$ is at $t = \tfrac{{vy:num4}}{32} \approx {tt:num4}$ s, where $y \approx$ **{H:num2} ft**.
     Landing: solve $-16t^2 + {vy:num4}t + {h0} = 0$; the positive root of the quadratic formula is $t \approx$ **{T:num2} s**.
-    Distance: $x \approx {vx:num4} \times {T:num4} \approx$ **{R:num1} ft**.
+    Distance: $x \approx {vx:num4} \times {T:num4} \approx {R:num1}$, which rounds to **{R:int} ft**.
 
 - id: a2-h1-r2-modulus-argument
   title: Modulus and argument of a complex number

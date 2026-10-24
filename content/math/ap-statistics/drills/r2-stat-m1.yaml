@@ -114,7 +114,7 @@
     10% of 10 values is one value at each end. **Trimmed:** drop {a1} and {a10}; the other eight
     add to {mid}, so the trimmed mean is ${mid}/8 =$ **{tm:dp3}**. **Winsorized:** replace {a1} by
     {a2} and {a10} by {a9}; the ten values add to {wsum}, so the winsorized mean is
-    ${wsum}/10 =$ **{wm:dp3}**. (The ordinary mean is {mn:dp3}, pulled up by {a10}.)
+    ${wsum}/10 =$ **{wm:dp3}**. (The ordinary mean, which keeps {a1} and {a10}, is {mn:dp3}.)
 
 - id: stat-m1-r2-mad
   title: Median absolute deviation
@@ -157,7 +157,7 @@
     mdn: {min: 20, max: 80}
     mad: {min: 2, max: 12}
     dv: {min: -60, max: 60}
-  where: ['dv != 0', 'mdn + dv > 0']
+  where: ['dv != 0', 'mdn + dv > 0', 'abs(abs(0.6745*dv/mad) - 3.5) > 0.005']
   calc:
     val: mdn + dv
     mz: 0.6745 * (val - mdn) / mad

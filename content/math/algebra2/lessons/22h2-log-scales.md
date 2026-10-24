@@ -107,7 +107,7 @@ Suppose you didn't know the law and had only measurements. The table gives each 
 | Saturn | 9.537 | 29.46 | 0.979 | 1.469 |
 
 ```plot
-{"x": [-0.6, 1.2], "y": [-0.8, 1.7], "equal": true, "functions": [{"f": "1.5*x", "label": "log T = 1.5 log a", "dashed": true}], "points": [{"at": [-0.412, -0.618], "label": "Mercury"}, {"at": [-0.141, -0.211], "label": "Venus"}, {"at": [0, 0], "label": "Earth"}, {"at": [0.183, 0.274], "label": "Mars"}, {"at": [0.716, 1.074], "label": "Jupiter"}, {"at": [0.979, 1.469], "label": "Saturn"}], "xLabel": "log₁₀ a", "yLabel": "log₁₀ T", "caption": "Planets on a log-log graph: a straight line of slope 1.5 through the origin"}
+{"x": [-0.6, 1.2], "y": [-0.8, 1.7], "equal": true, "functions": [{"f": "1.5*x", "label": "log T = 1.5 log a", "dashed": true}], "points": [{"at": [-0.412, -0.618]}, {"at": [-0.141, -0.211]}, {"at": [0, 0]}, {"at": [0.183, 0.274]}, {"at": [0.716, 1.074]}, {"at": [0.979, 1.469]}], "xLabel": "log₁₀ a", "yLabel": "log₁₀ T", "caption": "Planets on a log-log graph: a straight line of slope 1.5 through the origin", "labels": [{"at": [-0.237, -0.668], "text": "Mercury"}, {"at": [-0.281, -0.191], "text": "Venus"}, {"at": [-0.125, 0.02], "text": "Earth"}, {"at": [0.298, 0.224], "text": "Mars"}, {"at": [0.861, 1.024], "text": "Jupiter"}, {"at": [0.834, 1.489], "text": "Saturn"}]}
 ```
 
 1. The points lie on a line through $(0, 0)$. The intercept is the log of the coefficient in $T = (\text{coefficient}) \cdot a^p$, so the coefficient is $10^0 = 1$.

@@ -32,7 +32,7 @@ The last decision, which endpoints to include, is where most errors happen, so t
 ```mermaid
 flowchart TD
   accTitle: Solving a polynomial or rational inequality with a sign chart
-  accDescr: Move everything to one side so the inequality compares an expression with 0. Combine it into one fraction and factor. The critical values are the zeros of the numerator and of the denominator. Test the sign on each interval between critical values and keep the intervals with the sign the inequality asks for. Then decide each endpoint. A zero of the numerator is included with less than or equal or greater than or equal, and left out with strict less than or greater than. A zero of the denominator is always left out.
+  accDescr: Move everything to one side so the inequality compares an expression with 0. Combine it into one fraction and factor. The critical values are the zeros of the numerator and of the denominator. Test the sign on each interval between critical values and keep the intervals with the sign the inequality asks for. Then decide each endpoint. A zero of the numerator is included with less than or equal or greater than or equal, and left out with strict less than or greater than. A zero of the denominator is always left out, even if it is also a zero of the numerator.
   A["Get 0 on one side"] --> B["Combine into one fraction and factor"]
   B --> C["Critical values: zeros of the numerator and the denominator"]
   C --> D["Find the sign on each interval"]
@@ -40,7 +40,7 @@ flowchart TD
   E --> F{"What kind of critical value is the endpoint?"}
   F -- "numerator zero, with ≤ or ≥" --> G["Include it"]
   F -- "numerator zero, with #lt; or #gt;" --> H["Leave it out"]
-  F -- "denominator zero" --> I["Always leave it out"]
+  F -- "denominator zero (even if also a numerator zero)" --> I["Always leave it out"]
 ```
 
 A **polynomial inequality** is one like $p(x) > 0$ with $p$ a polynomial; a **rational inequality** has a variable in a denominator. The same six steps solve both.
@@ -101,10 +101,10 @@ Solve $\dfrac{x + 1}{x - 3} \le 0$.
 
 The solution is $[-1, 3)$.
 
-The graph tells the same story: $y = \dfrac{x + 1}{x - 3}$ touches the $x$-axis at $x = -1$, stays below it until the vertical asymptote $x = 3$, and is above it everywhere else.
+The graph tells the same story: $y = \dfrac{x + 1}{x - 3}$ crosses the $x$-axis at $x = -1$, stays below it from there to the vertical asymptote $x = 3$, and is above it for $x < -1$ and for $x > 3$.
 
 ```plot
-{"x": [-6, 9], "y": [-8, 8], "functions": [{"f": "(x + 1)/(x - 3)", "label": "y = (x + 1)/(x − 3)"}], "segments": [{"from": [3, -8], "to": [3, 8], "dashed": true, "label": "x = 3"}], "points": [{"at": [-1, 0], "label": "(−1, 0)"}], "caption": "Below the x-axis exactly for −1 < x < 3; equal to 0 at x = −1; undefined at x = 3"}
+{"x": [-6, 9], "y": [-8, 8], "functions": [{"f": "(x + 1)/(x - 3)"}], "labels": [{"at": [-3, 4], "text": "y = (x + 1)/(x − 3)"}], "segments": [{"from": [3, -8], "to": [3, 8], "dashed": true, "label": "x = 3"}], "points": [{"at": [-1, 0], "label": "(−1, 0)"}], "caption": "Below the x-axis exactly for −1 < x < 3; equal to 0 at x = −1; undefined at x = 3"}
 ```
 
 ```numberline

@@ -90,7 +90,7 @@
   choices: ['$\dfrac{1}{3x}$', '$-\dfrac{1}{3x}$', '$\dfrac{x - 3}{3x}$', '$-3x$']
   answer: 1
   explanation: |-
-    Multiply the top and bottom by $3x$: the top becomes $3 - x$ and the bottom $3x(x - 3)$. Since $3 - x = -(x - 3)$, the result is $-\dfrac{1}{3x}$ (for $x \ne 0, 3$). Missing the opposite factors gives $\dfrac{1}{3x}$, and $\dfrac{x - 3}{3x}$ comes from simplifying only the top and forgetting to divide by $x - 3$.
+    Multiply the top and bottom by $3x$: the top becomes $3 - x$ and the bottom $3x(x - 3)$. Since $3 - x = -(x - 3)$, the result is $-\dfrac{1}{3x}$ (for $x \ne 0, 3$). Missing the opposite factors gives $\dfrac{1}{3x}$, and $\dfrac{x - 3}{3x}$ comes from simplifying only the top and forgetting to divide by $x - 3$. $-3x$ is the reciprocal of the answer, from flipping the fraction once too often.
 - id: a2-m5-r2-q10
   lesson: alg-rational-add
   topic: Rational expressions
@@ -277,7 +277,7 @@
   choices: ['$y = x + 2$', '$y = x + 3$', '$y = x$', '$y = x + 1$']
   answer: 0
   explanation: |-
-    Synthetic division by $x + 1$ (use $-1$) on $1, 3, 1$: bring down 1; $3 + (-1) = 2$; $1 + (-2) = -1$. So $f(x) = x + 2 - \dfrac{1}{x + 1}$, and the slant asymptote is $y = x + 2$. Dividing only the leading terms gives $y = x$, which has the right slope but misses the $+2$.
+    Synthetic division by $x + 1$ (use $-1$) on $1, 3, 1$: bring down 1; $3 + (-1) = 2$; $1 + (-2) = -1$. So $f(x) = x + 2 - \dfrac{1}{x + 1}$, and the slant asymptote is $y = x + 2$. Dividing only the leading terms gives $y = x$, which has the right slope but misses the $+2$. $y = x + 3$ divides $x^2 + 3x$ by $x$ and ignores the $+1$ in the divisor, and $y = x + 1$ just copies the denominator.
 - id: a2-m5-r2-h02
   lesson: a2-m5-h-slant-asymptotes
   topic: Slant asymptotes
@@ -474,7 +474,7 @@
   choices: ['$\dfrac{10}{11}$', '$\dfrac{3}{2}$', '$\dfrac{175}{132}$', '$\dfrac{20}{11}$']
   answer: 2
   explanation: |-
-    $\dfrac{2}{k(k + 2)} = \dfrac1k - \dfrac{1}{k + 2}$. Each negative piece cancels a positive piece two terms later, so $1 + \tfrac12$ survives at the start and $-\tfrac{1}{11} - \tfrac{1}{12}$ at the end: $\tfrac32 - \tfrac{1}{11} - \tfrac{1}{12} = \tfrac{198 - 12 - 11}{132} = \tfrac{175}{132}$. $\tfrac32$ is the sum with infinitely many terms, and $\tfrac{10}{11}$ is the answer for the gap-of-one sum $\sum \tfrac{1}{k(k+1)}$.
+    $\dfrac{2}{k(k + 2)} = \dfrac1k - \dfrac{1}{k + 2}$. Each negative piece cancels a positive piece two terms later, so $1 + \tfrac12$ survives at the start and $-\tfrac{1}{11} - \tfrac{1}{12}$ at the end: $\tfrac32 - \tfrac{1}{11} - \tfrac{1}{12} = \tfrac{198 - 12 - 11}{132} = \tfrac{175}{132}$. $\tfrac32$ is the sum with infinitely many terms, and $\tfrac{10}{11}$ is the answer for the gap-of-one sum $\sum \tfrac{1}{k(k+1)}$. $\tfrac{20}{11}$ doubles that, treating $\tfrac{2}{k(k + 2)}$ as if it were $\tfrac{2}{k(k + 1)}$.
 - id: a2-m5-r2-h24
   lesson: a2-m5-h-partial-fractions
   topic: Partial fractions
@@ -482,7 +482,7 @@
   choices: ['$\tfrac13$', '$8$', '$-\tfrac13$', '$\tfrac83$']
   answer: 3
   explanation: |-
-    Cover up $x - 1$ and put $x = 1$ into what is left: $A = \dfrac{3 + 5}{1 + 2} = \dfrac83$. The value $\tfrac13$ is $B$ (cover up $x + 2$: $\dfrac{-6 + 5}{-3} = \tfrac13$), and 8 forgets to divide by $x + 2$.
+    Cover up $x - 1$ and put $x = 1$ into what is left: $A = \dfrac{3 + 5}{1 + 2} = \dfrac83$. The value $\tfrac13$ is $B$ (cover up $x + 2$: $\dfrac{-6 + 5}{-3} = \tfrac13$), and 8 forgets to divide by $x + 2$. $-\tfrac13$ is $B$ with a sign slip.
 - id: a2-m5-r2-h25
   lesson: a2-m5-h-partial-fractions
   topic: Partial fractions

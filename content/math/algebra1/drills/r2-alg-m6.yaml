@@ -75,13 +75,15 @@
     q: p + w
     b: -(p + q)
     c: p*q
+    np: -p
+    nq: -q
   where: ['b != 0', 'c != 0']
   prompt: 'The solution of $x^2 {b:signedcoef}x {c:signed} {sym} 0$ is the interval between two numbers $p$ and $q$ (with $p < q$). Find $p$ and $q$.'
   answers:
     - {name: p, label: '$p =$'}
     - {name: q, label: '$q =$'}
   solution: |-
-    Factor: two numbers with product {c} and sum {b} give the roots ${p}$ and ${q}$.
+    Factor: $x^2 {b:signedcoef}x {c:signed} = (x {np:signed})(x {nq:signed})$, so the roots are ${p}$ and ${q}$.
     The parabola opens up, so it is below the $x$-axis between its roots. So $p =$ **{p}** and $q =$ **{q}** (endpoints included only for $\le$).
 
 - id: alg-m6-r2-quad-ineq-outside
@@ -144,13 +146,14 @@
     sq: h^2
     tot: c + h^2
     side: r + h
+    neg: -(r + 2*h)
   prompt: '"A square and {b} roots equal {c}": $x^2 + {b}x = {c}$. Following al-Khwarizmi, what number do you add to both sides to complete the square, and what is the positive solution?'
   answers:
     - {name: sq, label: 'Number added'}
     - {name: r, label: '$x =$'}
   solution: |-
     Halve the roots: $\tfrac{{b}}{2} = {h}$. Square it: **{sq}**. Add it to both sides: $x^2 + {b}x + {sq} = {c} + {sq} = {tot}$, that is $(x + {h})^2 = {tot}$.
-    The square root of {tot} is {side}, so $x + {h} = {side}$ and $x =$ **{r}**. (The negative root, $-{side} - {h}$, was not considered: a side can't be negative.)
+    The square root of {tot} is {side}, so $x + {h} = {side}$ and $x =$ **{r}**. (The negative root, $x = -{side} - {h} = {neg}$, was not considered: a side can't be negative.)
 
 - id: alg-m6-r2-golden-cut
   title: Cut a segment in the golden ratio

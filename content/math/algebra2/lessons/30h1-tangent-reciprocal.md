@@ -30,7 +30,7 @@ Draw the vertical line $x = 1$. It touches the unit circle only at $(1, 0)$, so 
 
 $$\frac{\text{height of } T}{1} = \frac{\sin\theta}{\cos\theta} = \tan\theta.$$
 
-So $T = (1, \tan\theta)$: the tangent of $\theta$ is literally the length of a piece of the tangent line, measured up from the $x$-axis (down when it is negative). The same similar triangles give the length of $OT$ as $\dfrac{1}{\cos\theta}$; that segment cuts through the circle, and Latin *secare* means "to cut", which is where the name secant (below) comes from. The Danish mathematician Thomas Fincke introduced the words *tangens* and *secans* in a geometry book in 1583.
+So $T = (1, \tan\theta)$: the tangent of $\theta$ is literally the length of a piece of the tangent line, measured up from the $x$-axis (down when it is negative). For an angle in quadrant I, as in the picture, the same similar triangles give the length of $OT$ as $\dfrac{1}{\cos\theta}$; that segment cuts through the circle, and Latin *secare* means "to cut", which is where the name secant (below) comes from. The Danish mathematician Thomas Fincke introduced the words *tangens* and *secans* in a geometry book in 1583.
 
 ![The unit circle with the vertical tangent line x = 1. The terminal side at angle θ passes through P = (cos θ, sin θ) on the circle and continues to T = (1, tan θ) on the tangent line. A small right triangle under P has height sin θ; a larger similar triangle under T has height tan θ.](images/a2-m9-tangent-line.svg)
 

@@ -132,7 +132,7 @@ Here $f(1) = -1 < 0$ and $f(2) = 5 > 0$. Values of $f(m)$ are rounded.
 After 7 steps the interval has width $\tfrac{1}{2^7} = \tfrac{1}{128} \approx 0.0078$, less than 0.01. The zero is between 1.3203 and 1.3281, and the midpoint $1.3242$ is within 0.004 of it. (The true value is $1.3247$ to four decimal places.)
 
 ```plot
-{"x": [0.9, 2.1], "y": [-2, 5.5], "functions": [{"f": "x^3 - x - 1", "label": "f(x) = x³ - x - 1"}], "segments": [{"from": [1, -0.5], "to": [2, -0.5], "label": "step 1"}, {"from": [1, -1], "to": [1.5, -1], "label": "step 2"}, {"from": [1.25, -1.5], "to": [1.5, -1.5], "label": "step 3"}], "points": [{"at": [1.3247, 0], "label": "zero ≈ 1.3247"}], "caption": "Each bisection step keeps the half of the interval where f changes sign"}
+{"x": [0.9, 2.1], "y": [-2.3, 5.5], "functions": [{"f": "x^3 - x - 1", "label": "f(x) = x³ - x - 1"}], "segments": [{"from": [1, -0.5], "to": [2, -0.5], "label": "step 1"}, {"from": [1, -1.1], "to": [1.5, -1.1], "label": "step 2"}, {"from": [1.25, -1.7], "to": [1.5, -1.7], "label": "step 3"}], "points": [{"at": [1.3247, 0]}], "labels": [{"at": [1.12, 0.45], "text": "zero ≈ 1.3247"}], "caption": "Each bisection step keeps the half of the interval where f changes sign"}
 ```
 
 How many steps do you need in general? To get from width 1 to width at most 0.01 you need $2^n \ge 100$; since $2^6 = 64$ and $2^7 = 128$, that's 7 steps. Each extra decimal place costs about $3\tfrac13$ more steps, because $2^{10} = 1024 \approx 10^3$.
