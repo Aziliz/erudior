@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 350" width="640" height="350" font-family="sans-serif" font-size="17" fill="#1c2833">
+<rect width="640" height="350" fill="#ffffff"/>
+<polygon points="90,335 170,335 152,303 108,303" fill="#e8e2f3" stroke="#1c2833" stroke-width="2"/>
+<line x1="130" y1="295" x2="460" y2="295" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="303.2" y1="195.0" x2="398.5" y2="140.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="130" y1="295" x2="303.2" y2="195.0" stroke="#1f5f99" stroke-width="16" stroke-linecap="round"/>
+<line x1="303.2" y1="195.0" x2="342.0" y2="50.1" stroke="#1e7a45" stroke-width="12" stroke-linecap="round"/>
+<line x1="355.6" y1="53.7" x2="328.5" y2="46.5" stroke="#1c2833" stroke-width="5" stroke-linecap="round"/>
+<line x1="355.6" y1="53.7" x2="360.7" y2="34.4" stroke="#1c2833" stroke-width="5" stroke-linecap="round"/>
+<line x1="328.5" y1="46.5" x2="333.7" y2="27.2" stroke="#1c2833" stroke-width="5" stroke-linecap="round"/>
+<circle cx="130.0" cy="295.0" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="303.2" cy="195.0" r="11" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<path d="M200.0,295.0 A70,70 0 0 0 190.6,260.0" fill="none" stroke="#1c2833" stroke-width="2"/>
+<path d="M350.8,167.5 A55,55 0 0 0 317.4,141.9" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="208.0" y="281.0" font-size="20" text-anchor="start" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic">θ₁</text>
+<text x="363.2" y="157.0" font-size="20" text-anchor="start" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic">θ₂</text>
+<text x="210.6" y="225.0" font-size="17" text-anchor="end" stroke="#ffffff" stroke-width="4" paint-order="stroke">L₁ = 40 cm</text>
+<text x="306.6" y="122.6" font-size="17" text-anchor="end" stroke="#ffffff" stroke-width="4" paint-order="stroke">L₂ = 30 cm</text>
+<text x="110.0" y="273.0" font-size="17" text-anchor="end" stroke="#ffffff" stroke-width="4" paint-order="stroke">shoulder</text>
+<text x="323.2" y="221.0" font-size="17" text-anchor="start" stroke="#ffffff" stroke-width="4" paint-order="stroke">elbow</text>
+<text x="372.0" y="36.1" font-size="17" text-anchor="start" stroke="#ffffff" stroke-width="4" paint-order="stroke">gripper at (x, y)</text>
+<text x="464.0" y="301.0" font-size="17" text-anchor="start" stroke="#ffffff" stroke-width="4" paint-order="stroke">x-axis</text>
+</svg>

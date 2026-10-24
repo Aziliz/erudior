@@ -12,7 +12,7 @@ refs: [ps-ref-testing]
 
 Every test in this module so far collects a fixed number $n$ of observations and then decides.
 But inspection often happens one item at a time. If the first three rail clips you test are all
-defective, do you really need 77 more to conclude the lot is bad? If 40 in a row are fine, is it
+defective, do you really need to finish all 77 that a fixed-sample plan calls for (Example 3) to conclude the lot is bad? If 40 in a row are fine, is it
 worth testing more? A **sequential test** looks at the data as they arrive and, after each
 observation, chooses among three actions: reject $H_0$, stop without rejecting, or take another
 observation.

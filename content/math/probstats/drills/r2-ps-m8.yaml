@@ -33,7 +33,7 @@
   answers:
     - {name: b1, label: '$b_1 =$', tolerance: 0.0006, format: num4}
     - {name: b2, label: '$b_2 =$', tolerance: 0.0006, format: num4}
-    - {name: b0, label: '$b_0 =$', tolerance: 0.002, format: num4}
+    - {name: b0, label: '$b_0 =$', tolerance: 0.005, format: num4}
   solution: |-
     Solve $\begin{bmatrix} {s11v} & {s12v} \\ {s12v} & {s22v} \end{bmatrix}\begin{bmatrix} b_1 \\ b_2 \end{bmatrix} = \begin{bmatrix} {s1y:num1} \\ {s2y:num1} \end{bmatrix}$.
     The determinant is $S_{11}S_{22} - S_{12}^2 = {det:dp0}$.
@@ -57,7 +57,7 @@
     se: sres*sqrt(cjj)
     tt: bj/se
     pv: 2*(1 - tcdf(abs(tt), dfree))
-  where: ['abs(tt) >= 0.5', 'abs(tt) <= 6', 'pv >= 0.0005']
+  where: ['abs(tt) >= 0.5', 'abs(tt) <= 6', 'pv >= 0.0005', 'se >= 0.1']
   prompt: |-
     A regression on $n = {nn}$ observations has {kk} predictors plus an intercept and residual
     standard deviation $s = {sres:num2}$. For one coefficient, $b_j = {bj:num2}$ and the matching
@@ -160,7 +160,7 @@
     mse: sse/6
     ff: mstr/mse
     pv: 1 - fcdf(ff, 2, 6)
-  where: ['abs(bl4) <= 15', 'sse >= 2', 'ff <= 60', 'pv >= 0.0005', 'abs(t1) + abs(t2) >= 2']
+  where: ['abs(bl4) <= 15', 'sse >= 4', 'ff <= 30', 'pv >= 0.0005', 'abs(t1) + abs(t2) >= 2']
   prompt: |-
     Three treatments are compared in four blocks (one observation per treatment in each block):
 
@@ -171,7 +171,7 @@
     - {name: sstr, label: 'SSTr', tolerance: 0.01, format: num2}
     - {name: ssb, label: 'SSB', tolerance: 0.01, format: num2}
     - {name: sse, label: 'SSE', tolerance: 0.01, format: num2}
-    - {name: ff, label: '$F =$', tolerance: 0.02, format: num2}
+    - {name: ff, label: '$F =$', tolerance: 0.05, format: num2}
   solution: |-
     Treatment means ${tm1:num2}, {tm2:num2}, {tm3:num2}$; block means ${bm1:num2}, {bm2:num2}, {bm3:num2}, {bm4:num2}$; grand mean ${gm:num4}$.
 

@@ -49,7 +49,7 @@ into steps of $\tfrac{\pi}{2}$, just as with the multiple angles in Lesson 20.
 
 Solve $\sin 2x = \cos x$ on $[0, 2\pi)$.
 
-A **cofunction identity** turns the cosine into a sine: $\cos x = \sin\left(\tfrac{\pi}{2} - x\right)$. Now the equation is
+A cofunction identity (Lesson 6) turns the cosine into a sine: $\cos x = \sin\left(\tfrac{\pi}{2} - x\right)$. Now the equation is
 $\sin 2x = \sin\left(\tfrac{\pi}{2} - x\right)$.
 
 **Family 1:** $2x = \tfrac{\pi}{2} - x + 2k\pi$, so $x = \tfrac{\pi}{6} + \tfrac{2k\pi}{3}$: that is $\tfrac{\pi}{6}, \tfrac{5\pi}{6}, \tfrac{3\pi}{2}$.
