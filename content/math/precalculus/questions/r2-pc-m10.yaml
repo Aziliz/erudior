@@ -7,9 +7,9 @@
   module_quiz: true
   topic: Limits
   stem: 'Name the numbered features of this graph.'
-  image: {src: images/pc-m10-discontinuities-blank.svg, alt: 'A graph with four numbered features. Marker 1 is an open dot on a line at x = −2, with a separate filled dot above it at height 4. Marker 2 is between an open dot at height 3 and a filled dot at height 1, both at x = 0. Marker 3 is on a dashed vertical line at x = 3 where the curve shoots up on the left and down on the right. Marker 4 is a dot on an unbroken part of the curve at x = 5.'}
+  image: {src: images/pc-m10-discontinuities-blank.svg, alt: 'A graph with four numbered features. Marker 1 is at x = −2, between an open dot on a line at height 2 and a separate filled dot above it at height 4. Marker 2 is between an open dot at height 3 and a filled dot at height 1, both at x = 0. Marker 3 is on a dashed vertical line at x = 3 where the curve shoots up on the left and down on the right. Marker 4 is a dot on an unbroken part of the curve at x = 5.'}
   labels:
-    - {x: 26.5, y: 46.5, text: Removable discontinuity (hole)}
+    - {x: 26.5, y: 37.2, text: Removable discontinuity (hole)}
     - {x: 44.9, y: 46.5, text: Jump discontinuity}
     - {x: 67.0, y: 80.1, text: Infinite discontinuity (vertical asymptote)}
     - {x: 83.2, y: 41.9, text: Point where f is continuous}
