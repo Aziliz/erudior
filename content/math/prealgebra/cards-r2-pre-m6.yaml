@@ -1,0 +1,28 @@
+# Round 2, module pre-m6: cards for the new core pictures and the honors lessons.
+- {front: 'Whole numbers, integers, rational, irrational, real: how do they fit together?', back: 'Whole numbers ⊂ integers ⊂ rational numbers; rational and irrational numbers together make the real numbers.', topic: 'Real numbers'}
+- {front: 'When is $\sqrt{n}$ rational (for $n \ge 0$ rational)?', back: 'When $n$ is the square of a whole number, fraction or decimal ($49$, $\tfrac{9}{25}$, $0.36$). Otherwise it is irrational.', topic: 'Real numbers'}
+- {front: 'Coefficient too big or too small after multiplying in scientific notation', back: '10 or more: move its point 1 place left and add 1 to the exponent. Less than 1: move it 1 place right and subtract 1.', topic: 'Scientific notation'}
+# Radicals and fractional exponents
+- {front: 'Product rule for square roots', back: '$\sqrt{a} \cdot \sqrt{b} = \sqrt{ab}$ for $a, b \ge 0$.', topic: 'Radicals'}
+- {front: 'Quotient rule for square roots', back: '$\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}}$ for $a \ge 0$, $b > 0$.', topic: 'Radicals'}
+- {front: 'Three conditions for simplest radical form', back: 'No perfect-square factor left under the root; no fraction under the root; no radical in a denominator.', topic: 'Radicals'}
+- {front: 'Simplify $\sqrt{n}$ with prime factors', back: 'Each pair of equal prime factors leaves the radical as one factor: $\sqrt{180} = \sqrt{2^2 \cdot 3^2 \cdot 5} = 6\sqrt5$.', topic: 'Radicals'}
+- {front: 'Adding square roots', back: 'Only like radicals (same index and radicand) combine: add the coefficients. $\sqrt{12} + \sqrt{27} = 2\sqrt3 + 3\sqrt3 = 5\sqrt3$; $\sqrt2 + \sqrt3$ stays as it is.', topic: 'Radicals'}
+- {front: 'Multiplying $\left(a\sqrt{x}\right)\left(b\sqrt{y}\right)$', back: 'Coefficients times coefficients, radicands times radicands: $ab\sqrt{xy}$, then simplify.', topic: 'Radicals'}
+- {front: 'Rationalize $\dfrac{c}{\sqrt{a}}$', back: 'Multiply top and bottom by $\sqrt{a}$: $\dfrac{c\sqrt{a}}{a}$. Example: $\dfrac{6}{\sqrt3} = 2\sqrt3$.', topic: 'Radicals'}
+- {front: '$\sqrt8 = 2\sqrt2$ on graph paper', back: 'A tilted square in a 4-by-4 square has area 16 − 8 = 8, so side √8; each side is the diagonal of a 2-by-2 square, 2√2.', topic: 'Radicals'}
+- {front: '$b^{1/n}$', back: '$\sqrt[n]{b}$, the positive $n$th root (for $b > 0$). Example: $9^{1/2} = 3$, $8^{1/3} = 2$.', topic: 'Fractional exponents'}
+- {front: '$b^{m/n}$', back: '$\left(\sqrt[n]{b}\right)^m$: root first (denominator), then power (numerator). $16^{3/4} = 2^3 = 8$.', topic: 'Fractional exponents'}
+- {front: 'Why $9^{1/2} = 3$', back: 'Power of a power: $\left(9^{1/2}\right)^2 = 9^1 = 9$, so $9^{1/2}$ is the positive number whose square is 9.', topic: 'Fractional exponents'}
+- {front: 'Negative fractional exponent', back: 'Reciprocal of the positive one: $27^{-2/3} = \dfrac{1}{27^{2/3}} = \dfrac19$.', topic: 'Fractional exponents'}
+# Significant figures and powers of ten
+- {front: 'Which zeros are significant?', back: 'Between nonzero digits: yes. Leading zeros: never. Trailing zeros after a decimal point: yes. Trailing zeros in a whole number with no decimal point: ambiguous.', topic: 'Significant figures'}
+- {front: 'Significant figures in scientific notation', back: 'Every digit of the coefficient counts: $1.50 \times 10^3$ has 3.', topic: 'Significant figures'}
+- {front: 'Rounding rule for multiplying or dividing measurements', back: 'Keep as many significant figures as the measurement with the fewest.', topic: 'Significant figures'}
+- {front: 'Rounding rule for adding or subtracting measurements', back: 'Round to the place of the least precise measurement (the last digit farthest left).', topic: 'Significant figures'}
+- {front: 'Exact numbers in a calculation', back: 'Counts and defined conversions never limit the significant figures of the answer.', topic: 'Significant figures'}
+- {front: 'When to round in a multistep calculation', back: 'Only once, at the end; keep extra digits in between.', topic: 'Significant figures'}
+- {front: 'Round 86,451 to 3 significant figures', back: '86,500, best written $8.65 \times 10^4$ (keep placeholder zeros, or use scientific notation).', topic: 'Significant figures'}
+- {front: 'giga-, mega-, kilo-', back: '$10^9$, $10^6$, $10^3$ (billion, million, thousand).', topic: 'Powers of ten'}
+- {front: 'milli-, micro-, nano-', back: '$10^{-3}$, $10^{-6}$, $10^{-9}$ (thousandth, millionth, billionth); micro- is written µ.', topic: 'Powers of ten'}
+- {front: 'Differ by $n$ orders of magnitude', back: 'One quantity is about $10^n$ times the other; compare the coefficients too, not just the exponents.', topic: 'Powers of ten'}

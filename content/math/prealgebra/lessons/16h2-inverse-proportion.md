@@ -1,14 +1,14 @@
 ---
 id: pre-m4-h-inverse
 module: pre-m4
-title: 'Honors: Inverse proportion and working together'
+title: 'Honors: Direct and inverse proportion'
 minutes: 45
 honors: true
-topics: [Inverse proportion, Combined rates]
-drills: [pre-m4-r2-inverse, pre-m4-r2-together]
+topics: [Inverse proportion]
+drills: [pre-m4-r2-inverse, pre-m4-r2-work-units]
 refs: [pre-ref-arithmetic]
 ---
-Lesson 16 asked one question before every proportion: if one quantity doubles, does the other double too? When the answer is yes, a proportion works. This lesson is about a second common answer: *the other one halves*. Double your speed and a trip takes half the time; double the number of painters and (ideally) the job takes half as many days. Quantities like these are inversely proportional, and they have their own simple rule. The same idea explains two classic puzzles: how long a job takes when two people work together, and why the average speed of a round trip is not the average of the two speeds.
+Lesson 16 asked one question before every proportion: if one quantity doubles, does the other double too? When the answer is yes, a proportion works. This lesson is about a second common answer: *the other one halves*. Double your speed and a trip takes half the time; double the number of painters and (ideally) the job takes half as many days. Quantities like these are inversely proportional, and they have their own simple rule. This lesson shows how to recognize the two kinds of relationship from words, tables and graphs, how to solve inverse problems (painters, seesaws, gears and guitar strings), and how to handle problems where both kinds happen at once.
 
 ## Two ways quantities can be linked
 
@@ -72,63 +72,65 @@ A 45 kg student sits 1.6 m from the fulcrum. Where should a 36 kg student sit to
 
 Weight and distance are inversely proportional here (the lighter student must sit farther out). So $45 \times 1.6 = 36 \times d$, which gives $72 = 36d$ and $d = 2$ m. (This ignores the board's own weight, which is fine when the board balances on its center.)
 
-## Working together: add rates, not times
+## Recognizing the relationship from a table
 
-How long do two people take to finish a job together? The tempting answers, adding the times or averaging them, are both wrong. Together should be *faster* than either person alone, so the answer must be less than the shorter time.
+Data often arrives as a table, not a sentence. To test it, compute the ratio $\tfrac yx$ and the product $xy$ for every row:
 
-The key is to think in rates. A **work rate** is how much of a job gets done per unit of time. Someone who mows a lawn in 3 hours has a work rate of $\tfrac13$ of the lawn per hour. When two people work at the same time, their rates add.
+| $x$ | 2 | 3 | 4 | 6 |
+|---|---|---|---|---|
+| Table A: $y$ | 18 | 12 | 9 | 6 |
+| Table B: $y$ | 5 | 7.5 | 10 | 15 |
+| Table C: $y$ | 20 | 17 | 14 | 8 |
+
+- Table A: products $36, 36, 36, 36$. Inversely proportional, with $k = 36$.
+- Table B: ratios $2.5, 2.5, 2.5, 2.5$. Directly proportional, with $k = 2.5$.
+- Table C: products $40, 51, 56, 48$ and ratios $10, 5.\overline{6}, 3.5, 1.\overline{3}$. Neither. The values of $y$ go *down* as $x$ goes up, but going down is not enough for inverse proportion: the product has to stay fixed. (Table C drops by 3 for each step of 1 in $x$, which is a linear pattern of the kind you'll graph in Module 7.)
 
 ### Example 3
 
-Hose A can fill a tank in 6 hours; hose B can fill it in 3 hours. How long do they take running together?
+Strings of the same material under the same tension follow an inverse rule, at least approximately: the frequency of the note (in hertz, vibrations per second) times the string's length stays the same. The ancient Greeks already knew that halving a string raises its note by an octave. A 60 cm string sounds at 220 Hz. What frequency does a 45 cm string of the same kind give?
 
-Rates: A fills $\tfrac16$ of the tank per hour, B fills $\tfrac13 = \tfrac26$. Together: $\tfrac16 + \tfrac26 = \tfrac36 = \tfrac12$ of the tank per hour. Half a tank per hour means the whole tank takes **2 hours**.
+The product is $60 \times 220 = 13{,}200$. For 45 cm: $45 \times f = 13{,}200$, so $f = 13{,}200 \div 45 \approx 293.3$ Hz. A shorter string gives a higher note, as it should. (Real strings are a little stiff, so this is an idealized model.)
 
-Sanity check: 2 hours is less than B's 3 hours alone. ✓ (Averaging gives 4.5 hours and adding gives 9, both slower than B alone.)
+For one fixed job, time and work rate are inversely proportional too: rate × time = 1 job. That's why, when people work together, you add their *rates* and only then turn the total back into a time. The Module 3 honors lesson on fraction problems works through those problems in detail.
+
+## When both kinds happen at once
+
+Some problems mix a direct relationship and an inverse one. The trick is to find a quantity that stays fixed, such as "worker-days per job."
 
 ### Example 4
 
-Ana can mow the lawn in 40 minutes and Ben in 60 minutes. How long together?
+Six painters paint 2 houses in 10 days. Working at the same rate, how many painters are needed to paint 3 houses in 5 days?
 
-Rates: $\tfrac{1}{40} + \tfrac{1}{60} = \tfrac{3}{120} + \tfrac{2}{120} = \tfrac{5}{120} = \tfrac{1}{24}$ of the lawn per minute. So together they take **24 minutes**.
+Count the work in painter-days (one painter working for one day):
 
-For two workers there's a shortcut, "product over sum": $\tfrac{40 \times 60}{40 + 60} = \tfrac{2400}{100} = 24$. It comes from adding the two rates, so it only works for exactly two workers both helping.
+1. Total work so far: $6 \times 10 = 60$ painter-days for 2 houses.
+2. Work per house: $60 \div 2 = 30$ painter-days.
+3. Work for 3 houses: $3 \times 30 = 90$ painter-days.
+4. Spread over 5 days: $90 \div 5 = 18$ painters.
 
-Rates can also work against each other.
+Each step has a direction you can check. More houses means more painters (direct). Fewer days also means more painters (inverse). Both push the number up: from 6 to 9 for the extra house, then from 9 to 18 for halving the time.
 
 ### Example 5
 
-A pipe fills a pool in 4 hours, but a leak would empty the full pool in 6 hours. With both going, how long does the pool take to fill?
+Four machines fill 3,000 bottles in 6 hours. How long would 5 machines take to fill 4,500 bottles?
 
-The leak's rate counts as negative: $\tfrac14 - \tfrac16 = \tfrac{3}{12} - \tfrac{2}{12} = \tfrac{1}{12}$ of the pool per hour. The pool fills in **12 hours**.
+The fixed quantity is bottles per machine-hour: $3{,}000 \div (4 \times 6) = 125$. Five machines fill $5 \times 125 = 625$ bottles per hour, so 4,500 bottles take $4{,}500 \div 625 = 7.2$ hours.
 
-Where's the inverse proportion? For one fixed job, time = 1 ÷ rate: doubling the rate halves the time. That's why you add the rates, not the times.
-
-## Average speed is not the average of the speeds
-
-The same idea catches people with speeds.
-
-### Example 6
-
-Lee drives 120 miles to a city at 60 mph and returns the same 120 miles at 40 mph. What is the average speed for the round trip?
-
-Average speed means total distance ÷ total time. Going takes $120 \div 60 = 2$ hours; returning takes $120 \div 40 = 3$ hours. Total: 240 miles in 5 hours, so the average speed is $240 \div 5 = 48$ mph.
-
-Not 50. Lee spends more *time* at the slower speed (3 hours versus 2), so the average leans toward 40. Averaging the two speeds would be right only if the two legs took equal *times*, not equal distances.
+Check the directions: 50% more bottles pushes the time up (to 9 hours with 4 machines); one more machine pulls it back down ($9 \times \tfrac45 = 7.2$). ✓
 
 ## Common mistakes
 
 - *Using a direct proportion for an inverse relationship.* Ask which way the answer should move: fewer workers means more days.
-- *Adding or averaging times for people working together.* Add the rates, then turn the total rate back into a time.
-- *Forgetting to flip at the end.* A combined rate of $\tfrac{1}{24}$ lawn per minute means 24 minutes, not $\tfrac{1}{24}$ minute.
-- *Using "product over sum" for three workers.* For three, add all three rates.
-- *Averaging speeds over equal distances.* Divide total distance by total time.
-- *Treating a model as exact.* Real workers and real seesaws only approximately follow these rules.
+- *Calling anything that decreases "inverse."* Inverse proportion needs a constant product; $y = 20 - 3x$ decreases but isn't inverse.
+- *Setting up ratios for an inverse problem.* For inverse, set products equal: $x_1 y_1 = x_2 y_2$.
+- *Ignoring one of the changes in a mixed problem.* When the job size and the time both change, find the fixed quantity (like worker-days per job) first.
+- *Treating a model as exact.* Real workers, seesaws and strings only approximately follow these rules.
 
 ## Key points
 
-- Directly proportional: the ratio $\tfrac yx$ is constant ($y = kx$); double one, double the other.
-- Inversely proportional: the product $xy$ is constant ($y = \tfrac kx$); double one, halve the other. Solve with $x_1 y_1 = x_2 y_2$.
-- Lever law: weight × distance is the same on both sides of the fulcrum.
-- Working together: add the work rates (subtract one that undoes the work), then time = 1 ÷ total rate.
-- Average speed = total distance ÷ total time, which is not usually the average of the speeds.
+- Directly proportional: the ratio $\tfrac yx$ is constant ($y = kx$); double one, double the other. The graph is a line through the origin.
+- Inversely proportional: the product $xy$ is constant ($y = \tfrac kx$); double one, halve the other. The graph is a curve that never touches the axes. Solve with $x_1 y_1 = x_2 y_2$.
+- Test a table by computing the ratio and the product for every row.
+- Lever law: weight × distance is the same on both sides of the fulcrum. Gears: teeth × turning speed is the same for both gears.
+- Mixed problems: find the fixed quantity (worker-days per job, items per machine-hour), then scale.

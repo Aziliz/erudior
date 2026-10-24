@@ -1,0 +1,28 @@
+# Round 2, module pre-m6: terms bolded in the honors lessons.
+- term: simplest radical form
+  definition: 'A square root written with no perfect-square factor (other than 1) left under the radical, no fraction under the radical, and no radical in a denominator: $\sqrt{72}$ in simplest radical form is $6\sqrt2$.'
+  topic: Radicals
+- term: like radicals
+  aliases: [like radical]
+  definition: 'Radicals with the same index and the same radicand, such as $3\sqrt5$ and $-7\sqrt5$. They combine by adding their coefficients: $3\sqrt5 + 4\sqrt5 = 7\sqrt5$.'
+  topic: Radicals
+- term: rationalizing the denominator
+  aliases: [rationalize the denominator, rationalizing a denominator]
+  definition: 'Rewriting a fraction so that no radical is left in its denominator, by multiplying the top and bottom by the same radical: $\dfrac{1}{\sqrt2} = \dfrac{\sqrt2}{2}$.'
+  topic: Radicals
+- term: index
+  aliases: [index of a radical]
+  definition: 'The small number $n$ in $\sqrt[n]{b}$ that tells which root to take: 3 for a cube root. A square root has index 2, which is not written.'
+  topic: Radicals
+- term: fractional exponent
+  aliases: [fractional exponents, rational exponent, rational exponents]
+  definition: 'An exponent that is a fraction. For $b > 0$, $b^{1/n} = \sqrt[n]{b}$ and $b^{m/n} = \left(\sqrt[n]{b}\right)^m$: the denominator is a root and the numerator a power. Example: $8^{2/3} = 4$.'
+  topic: Fractional exponents
+- term: significant figures
+  aliases: [significant figure, significant digits, significant digit, sig figs]
+  definition: 'The digits of a measured number that carry real information: nonzero digits, zeros between them, and trailing zeros after a decimal point. Leading zeros are not significant. 0.004050 has 4.'
+  topic: Significant figures
+- term: exact numbers
+  aliases: [exact number]
+  definition: 'Numbers that come from counting or from a definition (24 students; 1 ft = 12 in), so they have no uncertainty and never limit the significant figures of an answer.'
+  topic: Significant figures
