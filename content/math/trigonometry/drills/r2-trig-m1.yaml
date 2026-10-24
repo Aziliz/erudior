@@ -20,9 +20,9 @@
     - {name: nm, label: 'Nautical miles', format: integer, units: {'nmi': 1, 'nautical miles': 1}}
     - {name: km, label: 'Kilometers', tolerance: 0.051, units: {'km': 1}}
   solution: |-
-    Write each latitude in minutes, counting south as negative: ${D1} \cdot 60 + {M1}$ gives ${a1}'$, and ${D2} \cdot 60 + {M2}$ gives ${a2}'$.
-    The difference is $\lvert {a2} - ({a1}) \rvert =$ **{nm}** minutes of latitude, so about **{nm} nautical miles**.
-    In kilometers: ${nm} \times 1.852 \approx$ **{km:num1} km**.
+    Write each latitude in minutes, counting south as negative: ${D1} \cdot 60 + {M1}$ gives ${a1:dp0}'$, and ${D2} \cdot 60 + {M2}$ gives ${a2:dp0}'$.
+    The difference is $\lvert {a2:dp0} - ({a1:dp0}) \rvert =$ **{nm:dp0}** minutes of latitude, so about **{nm:dp0} nautical miles**.
+    In kilometers: ${nm:dp0} \times 1.852 \approx$ **{km:dp1} km**.
 
 - id: trig-m1-r2-angular-size
   title: Angular size with the small-angle approximation
@@ -40,8 +40,8 @@
     - {name: mr, label: 'Milliradians', tolerance: 0.006, units: {'mrad': 1}}
     - {name: am, label: 'Arcminutes', tolerance: 0.051, units: {'′': 1, "'": 1, 'arcmin': 1}}
   solution: |-
-    Put both lengths in meters: $\theta \approx \dfrac{\,D}{\,d} = \dfrac{{D}}{{dk} \times 1000} \approx {th:sig3}$ rad, which is **{mr:num2} mrad**.
-    One radian is $\dfrac{180 \times 60}{\pi} \approx 3437.7'$, so $\theta \approx {th:sig3} \times 3437.7 \approx$ **{am:num1}′**.
+    Put both lengths in meters: $\theta \approx \dfrac{\,D}{\,d} = \dfrac{{D}}{{dk} \times 1000} \approx {th:sig4}$ rad, which is **{mr:num2} mrad**.
+    One radian is $\dfrac{180 \times 60}{\pi} \approx 3437.7'$, so $\theta \approx {th:sig4} \times \dfrac{10800}{\pi} \approx$ **{am:num1}′**.
 
 - id: trig-m1-r2-parallax
   title: Distance from parallax
@@ -110,12 +110,12 @@
   calc:
     w2: w * N1 / N2
     out: w2 * N3 / N4
-  prompt: 'A motor turns at {w} rpm. Its {N1}-tooth gear meshes with a {N2}-tooth gear. A {N3}-tooth gear on the same shaft as the {N2}-tooth gear meshes with a {N4}-tooth output gear. Find the output speed in rpm (1 decimal).'
+  prompt: 'A motor turns at {w} rpm. Its gear, with {N1} teeth, meshes with a gear with {N2} teeth. On the same shaft as that gear is a second gear with {N3} teeth, which meshes with an output gear with {N4} teeth. Find the output speed in rpm (1 decimal).'
   answers:
     - {name: out, label: 'Output', tolerance: 0.051, units: {'rpm': 1}}
   solution: |-
-    Meshing gears satisfy $N_1\omega_1 = N_2\omega_2$. Stage 1: $\omega = {w} \cdot \dfrac{{N1}}{{N2}} \approx {w2:num2}$ rpm.
-    The {N3}-tooth gear shares that shaft, so it turns at the same speed. Stage 2: ${w2:num2} \cdot \dfrac{{N3}}{{N4}} \approx$ **{out:num1} rpm**.
+    Meshing gears satisfy $N_1\omega_1 = N_2\omega_2$. Stage 1: $\omega = {w:dp0} \cdot \dfrac{{N1}}{{N2}} \approx {w2:dp2}$ rpm.
+    The gear with {N3} teeth shares that shaft, so it turns at the same speed. Stage 2: ${w2:dp2} \cdot \dfrac{{N3}}{{N4}} \approx$ **{out:num1} rpm**.
     Two meshes reverse the direction twice, so the output turns the same way as the motor.
 
 - id: trig-m1-r2-tire-size

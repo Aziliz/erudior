@@ -1,0 +1,224 @@
+# Round 2 drills, module ps-m6 (honors lessons 29h1-29h3)
+# ---------------------------------------------------------------- 29h1: numerical MLEs and information
+- id: ps-m6-r2-newton-step
+  title: One Newton step for a truncated Poisson MLE
+  topic: Likelihood computation
+  vars:
+    nn: {min: 8, max: 25}
+    sx: {min: 10, max: 60}
+    l0: {choices: [0.5, 0.8, 1, 1.2, 1.5, 2]}
+  where: ['sx >= nn + 2', 'sx <= 2.5*nn', 's2 < 0', 'l1 > 0']
+  calc:
+    xbar: sx/nn
+    e0: exp(-l0)
+    s1: sx/l0 - nn/(1 - e0)
+    s2: -sx/l0^2 + nn*e0/(1 - e0)^2
+    l1: l0 - s1/s2
+  prompt: |-
+    A log records daily fault counts only on days with at least one fault, modeled as zero-truncated
+    Poisson$(\lambda)$. There are $n = {nn}$ logged days with $\sum x_i = {sx}$, so
+    $$\ell'(\lambda) = \frac{{sx}}{\lambda} - \frac{{nn}}{1 - e^{-\lambda}}, \qquad \ell''(\lambda) = -\frac{{sx}}{\lambda^2} + \frac{{nn}\,e^{-\lambda}}{(1 - e^{-\lambda})^2}.$$
+    Starting from $\lambda_0 = {l0}$, find $\ell'(\lambda_0)$, $\ell''(\lambda_0)$ and the next Newton iterate $\lambda_1$ (3 decimals).
+  answers:
+    - {name: s1, label: '$\ell''(\lambda_0) =$', tolerance: 0.005, format: dp3}
+    - {name: s2, label: '$\ell''''(\lambda_0) =$', tolerance: 0.005, format: dp3}
+    - {name: l1, label: '$\lambda_1 =$', tolerance: 0.002, format: dp3}
+  solution: |-
+    With $e^{-{l0}} = {e0:num4}$:
+    $\ell'({l0}) = {sx}/{l0} - {nn}/(1 - {e0:num4}) = {s1:dp3}$ and
+    $\ell''({l0}) = -{sx}/{l0}^2 + {nn}({e0:num4})/(1 - {e0:num4})^2 = {s2:dp3}$.
+    Newton: $\lambda_1 = \lambda_0 - \ell'(\lambda_0)/\ell''(\lambda_0) = {l0} - ({s1:dp3})/({s2:dp3}) =$ **{l1:dp3}**.
+    (Repeating the step converges to the MLE, which solves $\bar x = \lambda/(1 - e^{-\lambda})$ with $\bar x = {xbar:num2}$.)
+
+- id: ps-m6-r2-wald-exp
+  title: Standard error and Wald interval for an exponential rate
+  topic: Likelihood computation
+  vars:
+    nn: {min: 10, max: 60}
+    xbar: {min: 2, max: 20, step: 0.5}
+    lev: {choices: [{label: '90%', value: 0.9}, {label: '95%', value: 0.95}, {label: '99%', value: 0.99}]}
+  calc:
+    sx: nn*xbar
+    lam: 1/xbar
+    jj: nn/lam^2
+    se: lam/sqrt(nn)
+    zc: invnorm(1 - (1 - lev)/2)
+    lo: lam - zc*se
+    hi: lam + zc*se
+  prompt: |-
+    $n = {nn}$ component lifetimes, modeled as exponential with rate $\lambda$, total $\sum x_i = {sx:num1}$ hours.
+    Find the MLE $\hat\lambda$, its standard error $1/\sqrt{J(\hat\lambda)}$ from the observed information, and the
+    {lev} Wald interval for $\lambda$. Give 4 decimals.
+  answers:
+    - {name: lam, label: '$\hat\lambda =$', tolerance: 0.0001, format: num4}
+    - {name: se, label: 'SE', tolerance: 0.0001, format: num4}
+    - {name: lo, label: 'Lower', tolerance: 0.0003, format: num4}
+    - {name: hi, label: 'Upper', tolerance: 0.0003, format: num4}
+  solution: |-
+    $\ell(\lambda) = n\ln\lambda - \lambda\sum x_i$, so $\hat\lambda = n/\sum x_i = {nn}/{sx:num1} =$ **{lam:num4}** per hour.
+    $\ell''(\lambda) = -n/\lambda^2$, so $J(\hat\lambda) = {nn}/{lam:num4}^2 = {jj:num1}$ and SE $= 1/\sqrt{J} = \hat\lambda/\sqrt n =$ **{se:num4}**.
+    With $z = {zc:num4}$ ({lev}): ${lam:num4} \pm {zc:num4} \times {se:num4}$, from **{lo:num4}** to **{hi:num4}**.
+
+- id: ps-m6-r2-info-matrix-se
+  title: Standard errors from a two-parameter information matrix
+  topic: Likelihood computation
+  vars:
+    aa: {min: 20, max: 100}
+    dd: {min: 5, max: 50}
+    bb: {min: -30, max: 30}
+  where: ['bb != 0', 'aa*dd - bb^2 >= 0.15*aa*dd']
+  calc:
+    det: aa*dd - bb^2
+    v1: dd/det
+    v2: aa/det
+    se1: sqrt(v1)
+    se2: sqrt(v2)
+    rho: -bb/sqrt(aa*dd)
+    nv1: 1/sqrt(aa)
+  prompt: |-
+    The information matrix of a whole sample for two parameters $(\eta_1, \eta_2)$, evaluated at the MLE, is
+    $$\begin{pmatrix} {aa} & {bb} \\ {bb} & {dd} \end{pmatrix}.$$
+    Find the approximate standard errors of $\hat\eta_1$ and $\hat\eta_2$ and the correlation between them (4 decimals).
+  answers:
+    - {name: se1, label: '$\text{SE}(\hat\eta_1) =$', tolerance: 0.0002, format: num4}
+    - {name: se2, label: '$\text{SE}(\hat\eta_2) =$', tolerance: 0.0002, format: num4}
+    - {name: rho, label: 'Correlation', tolerance: 0.0002, format: num4}
+  solution: |-
+    The covariance matrix is the inverse. Determinant: ${aa} \times {dd} - ({bb})^2 = {det}$, so
+    $\operatorname{Var}(\hat\eta_1) \approx {dd}/{det} = {v1:num4}$ and $\operatorname{Var}(\hat\eta_2) \approx {aa}/{det} = {v2:num4}$; the covariance is $-({bb})/{det}$.
+    SEs: **{se1:num4}** and **{se2:num4}**. Correlation: $\dfrac{-({bb})/{det}}{\text{SE}_1\,\text{SE}_2} = -\dfrac{{bb}}{\sqrt{{aa} \times {dd}}} =$ **{rho:num4}**.
+    (The naive $1/\sqrt{{aa}} = {nv1:num4}$ would ignore the second parameter.)
+
+# ---------------------------------------------------------------- 29h2: decision theory
+- id: ps-m6-r2-binomial-risk
+  title: Minimax versus maximum likelihood for a proportion
+  topic: Decision theory
+  vars:
+    nn: {choices: [4, 9, 16, 25, 36, 49, 64, 81, 100]}
+    pp: {choices: [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]}
+  calc:
+    rt: sqrt(nn)
+    ka: rt/2
+    den: nn + rt
+    rmm: 1/(4*(1 + rt)^2)
+    rml: pp*(1 - pp)/nn
+  prompt: |-
+    $X \sim$ Binomial$({nn}, p)$, squared-error loss. The minimax estimator has the form $\dfrac{X + a}{{nn} + 2a}$.
+    Find $a$, the (constant) risk of the minimax estimator, and the risk of the MLE $X/{nn}$ when $p = {pp}$.
+    Give the risks to 3 significant figures.
+  answers:
+    - {name: ka, label: '$a =$', tolerance: 0.001}
+    - {name: rmm, label: 'Minimax risk', sigfigs: 3, format: sig3}
+    - {name: rml, label: 'MLE risk at $p = {pp}$', sigfigs: 3, format: sig3}
+  solution: |-
+    The risk of $(X + a)/(n + 2a)$ is constant when $a = \sqrt n/2 = \sqrt{{nn}}/2 =$ **{ka}**, giving $\dfrac{X + {ka}}{{den}}$ with risk
+    $\dfrac{1}{4(1 + \sqrt n)^2} = \dfrac{1}{4(1 + {rt})^2} =$ **{rmm:sig3}**.
+    The MLE is unbiased, so its risk is its variance $p(1-p)/n = {pp}(1 - {pp})/{nn} =$ **{rml:sig3}**.
+    The MLE is better at this $p$ exactly when its risk is the smaller of the two.
+
+- id: ps-m6-r2-james-stein
+  title: A James–Stein estimate
+  topic: Decision theory
+  vars:
+    x1: {min: -3, max: 3, step: 0.1}
+    x2: {min: -3, max: 3, step: 0.1}
+    x3: {min: -3, max: 3, step: 0.1}
+    x4: {min: -3, max: 3, step: 0.1}
+    x5: {min: -3, max: 3, step: 0.1}
+  where: ['ss >= 5', 'abs(x1) >= 0.5']
+  calc:
+    ss: x1^2 + x2^2 + x3^2 + x4^2 + x5^2
+    cf: 1 - 3/ss
+    e1: cf*x1
+  prompt: |-
+    Five independent readings $X_i \sim N(\theta_i, 1)$ are $x = ({x1}, {x2}, {x3}, {x4}, {x5})$. Find $\lVert x\rVert^2$, the
+    James–Stein shrinkage factor $1 - (p-2)/\lVert x\rVert^2$, and the James–Stein estimate of $\theta_1$ (3 decimals).
+  answers:
+    - {name: ss, label: '$\lVert x\rVert^2 =$', tolerance: 0.001, format: num2}
+    - {name: cf, label: 'Factor', tolerance: 0.001, format: dp3}
+    - {name: e1, label: 'Estimate of $\theta_1$', tolerance: 0.002, format: dp3}
+  solution: |-
+    $\lVert x\rVert^2 = ({x1})^2 + ({x2})^2 + ({x3})^2 + ({x4})^2 + ({x5})^2 =$ **{ss:num2}**.
+    With $p = 5$, the factor is $1 - 3/{ss:num2} =$ **{cf:dp3}**, and the estimate of $\theta_1$ is ${cf:dp3} \times ({x1}) =$ **{e1:dp3}**.
+    Every reading is pulled toward 0 by the same factor.
+
+# ---------------------------------------------------------------- 29h3: intervals for a proportion
+- id: ps-m6-r2-wilson
+  title: Wilson interval for a proportion
+  topic: Intervals for a proportion
+  vars:
+    nn: {min: 10, max: 80}
+    xx: {min: 0, max: 40}
+    lev: {choices: [{label: '90%', value: 0.9}, {label: '95%', value: 0.95}, {label: '99%', value: 0.99}]}
+  where: ['xx <= nn']
+  calc:
+    ph: xx/nn
+    zc: invnorm(1 - (1 - lev)/2)
+    z2n: zc^2/nn
+    cen: (ph + z2n/2)/(1 + z2n)
+    hw: zc/(1 + z2n)*sqrt(ph*(1 - ph)/nn + zc^2/(4*nn^2))
+    lo: cen - hw
+    hi: cen + hw
+    wl: ph - zc*sqrt(ph*(1 - ph)/nn)
+    wh: ph + zc*sqrt(ph*(1 - ph)/nn)
+  prompt: |-
+    In {nn} trials there are {xx} successes. Find the {lev} Wilson interval for $p$. Give the endpoints to 3 decimals.
+  answers:
+    - {name: lo, label: 'Lower', tolerance: 0.002, format: dp3}
+    - {name: hi, label: 'Upper', tolerance: 0.002, format: dp3}
+  solution: |-
+    $\hat p = {xx}/{nn} = {ph:num4}$, $z = {zc:num4}$, $z^2/n = {z2n:num4}$.
+    Center: $\dfrac{\hat p + z^2/(2n)}{1 + z^2/n} = {cen:num4}$. Half-width: $\dfrac{z}{1 + z^2/n}\sqrt{\dfrac{\hat p(1-\hat p)}{n} + \dfrac{z^2}{4n^2}} = {hw:num4}$.
+    Interval: from **{lo:dp3}** to **{hi:dp3}**. (The Wald interval would be ${wl:dp3}$ to ${wh:dp3}$.)
+
+- id: ps-m6-r2-zero-successes
+  title: Upper bound after zero events
+  topic: Intervals for a proportion
+  vars:
+    nn: {min: 10, max: 300}
+    lev: {choices: [{label: '90%', value: 0.9}, {label: '95%', value: 0.95}, {label: '99%', value: 0.99}]}
+  calc:
+    al: 1 - lev
+    up: 1 - al^(1/nn)
+    lal: -ln(al)
+    apx: lal/nn
+  prompt: |-
+    A part passes all {nn} tests, with no failures. Find the exact one-sided {lev} upper confidence bound for its
+    failure probability, $1 - \alpha^{1/n}$, and its approximation $-\ln(\alpha)/n$ (4 decimals).
+  answers:
+    - {name: up, label: 'Exact bound', tolerance: 0.0001, format: num4}
+    - {name: apx, label: 'Approximation', tolerance: 0.0001, format: num4}
+  solution: |-
+    The bound is the $p$ at which zero failures has probability $\alpha = {al:num2}$: $(1 - p)^{{nn}} = {al:num2}$, so
+    $p = 1 - {al:num2}^{1/{nn}} =$ **{up:num4}**. Since $\ln(1 - p) \approx -p$, $p \approx -\ln({al:num2})/{nn} = {lal:num4}/{nn} =$ **{apx:num4}**.
+    (For 95%, $-\ln 0.05 \approx 3$: the rule of three.)
+
+- id: ps-m6-r2-wald-coverage
+  title: Exact coverage of a Wald interval
+  topic: Intervals for a proportion
+  vars:
+    pp: {choices: [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9]}
+    lev: {choices: [{label: '90%', value: 1.645}, {label: '95%', value: 1.96}]}
+  funcs:
+    hw(x): lev*sqrt((x/5)*(1 - x/5)/5)
+    cv(x): binompdf(5, pp, x)*(abs(x/5 - pp) <= hw(x))
+  calc:
+    c0: cv(0)
+    c1: cv(1)
+    c2: cv(2)
+    c3: cv(3)
+    c4: cv(4)
+    c5: cv(5)
+    cov: c0 + c1 + c2 + c3 + c4 + c5
+    h1: hw(1)
+    h2: hw(2)
+  prompt: |-
+    With $n = 5$ trials, the {lev} Wald interval is $\hat p \pm {lev}\sqrt{\hat p(1 - \hat p)/5}$. If the true $p = {pp}$, what
+    is the exact probability that the interval contains $p$? Give 4 decimals.
+  answers:
+    - {name: cov, label: 'Coverage', tolerance: 0.0005, format: num4}
+  solution: |-
+    The half-widths are 0 for $x = 0$ and 5, ${h1:num4}$ for $x = 1$ and 4, and ${h2:num4}$ for $x = 2$ and 3. For each $x$, the
+    contribution is $P(X = x)$ if $|x/5 - {pp}|$ is at most the half-width, and 0 otherwise:
+    $x = 0$: {c0:num4}; $x = 1$: {c1:num4}; $x = 2$: {c2:num4}; $x = 3$: {c3:num4}; $x = 4$: {c4:num4}; $x = 5$: {c5:num4}.
+    Coverage $=$ **{cov:num4}**, compared with the nominal {lev} level.

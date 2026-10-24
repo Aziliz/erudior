@@ -31,7 +31,7 @@ When the angle $A$ is obtuse, the height from $B$ lands on the extension of side
 triangle. Its length is $c\sin(180^\circ - A)$, which equals $c\sin A$, so the area formula needs no change:
 
 ```shape
-{"polygons": [{"points": [[3, 0], [10, 0], [0, 3.5]]}], "segments": [{"from": [3, 0], "to": [0, 0], "dashed": true}, {"from": [0, 3.5], "to": [0, 0], "dashed": true, "label": "h"}], "rightAngles": [[[0, 0], [3, 0], [0, 3.5]]], "labels": [{"at": [3.2, -0.45], "text": "A"}, {"at": [10.35, -0.3], "text": "C"}, {"at": [0, 3.95], "text": "B"}, {"at": [1.6, 0.4], "text": "180° − A"}, {"at": [2.0, 2.0], "text": "c"}, {"at": [5.4, 2.3], "text": "a"}, {"at": [6.5, -0.45], "text": "b"}], "caption": "Obtuse A: the height c sin(180° − A) = c sin A lies outside the triangle"}
+{"polygons": [{"points": [[3, 0], [10, 0], [0, 3.5]]}], "segments": [{"from": [3, 0], "to": [0, 0], "dashed": true}, {"from": [0, 3.5], "to": [0, 0], "dashed": true, "label": "h"}], "rightAngles": [[[0, 0], [3, 0], [0, 3.5]]], "labels": [{"at": [3.2, -0.45], "text": "A"}, {"at": [10.35, -0.3], "text": "C"}, {"at": [0, 3.95], "text": "B"}, {"at": [1.35, 0.4], "text": "180° − A"}, {"at": [2.0, 2.0], "text": "c"}, {"at": [5.4, 2.3], "text": "a"}, {"at": [6.5, -0.45], "text": "b"}], "caption": "Obtuse A: the height c sin(180° − A) = c sin A lies outside the triangle"}
 ```
 
 At $A = 90^\circ$ the formula is $\tfrac12 bc$, the right-triangle area. The area is largest, for

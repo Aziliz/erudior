@@ -1,0 +1,155 @@
+# Round 2 drills for trig-m8 honors lessons
+- id: trig-m8-r2-rotate
+  title: Rotate a vector
+  topic: Rotations and signed area
+  vars:
+    a: {min: -8, max: 8}
+    b: {min: -8, max: 8}
+    th: {choices: [30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330, 20, 50, 70, 110, 160, 200, 250, 290, 340]}
+  where: ["a != 0", "b != 0", "abs(rx + 15.54) > 0.1", "abs(ry + 15.54) > 0.1"]
+  calc:
+    rx: a*cosd(th) - b*sind(th)
+    ry: a*sind(th) + b*cosd(th)
+  prompt: 'Rotate $\mathbf{v} = \langle {a}, {b}\rangle$ counterclockwise by ${th}^\circ$. Give both components to 2 decimal places.'
+  answers:
+    - {name: rx, label: 'First component', tolerance: 0.01}
+    - {name: ry, label: 'Second component', tolerance: 0.01}
+  solution: |-
+    Use $\langle a\cos\theta - b\sin\theta,\ a\sin\theta + b\cos\theta\rangle$:
+    first $= ({a})\cos {th}^\circ - ({b})\sin {th}^\circ \approx$ **{rx:num2}**, second $= ({a})\sin {th}^\circ + ({b})\cos {th}^\circ \approx$ **{ry:num2}**.
+    The length is still $\sqrt{({a})^2 + ({b})^2}$.
+  figure:
+    type: plot
+    x: [-12, 12]
+    y: [-12, 12]
+    equal: true
+    segments:
+      - {from: [0, 0], to: ['a', 'b'], arrow: true, label: 'v'}
+
+- id: trig-m8-r2-triangle-area
+  title: Triangle area from coordinates
+  topic: Rotations and signed area
+  vars:
+    x1: {min: -6, max: 6}
+    y1: {min: -6, max: 6}
+    x2: {min: -6, max: 6}
+    y2: {min: -6, max: 6}
+    x3: {min: -6, max: 6}
+    y3: {min: -6, max: 6}
+  where: ["dt != 0", "abs(dt) >= 4"]
+  calc:
+    u1: x2 - x1
+    u2: y2 - y1
+    w1: x3 - x1
+    w2: y3 - y1
+    dt: u1*w2 - u2*w1
+    ar: abs(dt) / 2
+  prompt: 'For the triangle with vertices $A({x1}, {y1})$, $B({x2}, {y2})$, $C({x3}, {y3})$, find $\det(\overrightarrow{AB}, \overrightarrow{AC})$ and the area.'
+  answers:
+    - {name: dt, label: '$\det(\overrightarrow{AB}, \overrightarrow{AC})$', format: integer}
+    - {name: ar, label: 'Area', tolerance: 0.001}
+  solution: |-
+    $\overrightarrow{AB} = \langle {u1}, {u2}\rangle$ and $\overrightarrow{AC} = \langle {w1}, {w2}\rangle$, so
+    $\det = ({u1})({w2}) - ({u2})({w1}) =$ **{dt}**. The area is half its absolute value: **{ar}**.
+    (A positive determinant means $A, B, C$ run counterclockwise; negative, clockwise.)
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    equal: true
+    polygons:
+      - {points: [['x1', 'y1'], ['x2', 'y2'], ['x3', 'y3']]}
+    points:
+      - {at: ['x1', 'y1'], label: 'A'}
+      - {at: ['x2', 'y2'], label: 'B'}
+      - {at: ['x3', 'y3'], label: 'C'}
+
+- id: trig-m8-r2-signed-angle
+  title: Signed angle between two vectors
+  topic: Rotations and signed area
+  vars:
+    u1: {min: -9, max: 9}
+    u2: {min: -9, max: 9}
+    v1: {min: -9, max: 9}
+    v2: {min: -9, max: 9}
+  where: ["u1 != 0 or u2 != 0", "v1 != 0 or v2 != 0", "dt != 0", "abs(phi + 15.54) > 0.1"]
+  calc:
+    dp: u1*v1 + u2*v2
+    dt: u1*v2 - u2*v1
+    phi: atan2d(dt, dp)
+    turn: if(dt > 0, 1, -1)
+  prompt: 'Find the dot product, the determinant $\det(\mathbf{u}, \mathbf{v})$, and the signed angle from $\mathbf{u} = \langle {u1}, {u2}\rangle$ to $\mathbf{v} = \langle {v1}, {v2}\rangle$ in degrees, between $-180^\circ$ and $180^\circ$ (2 decimals; counterclockwise is positive).'
+  answers:
+    - {name: dp, label: '$\mathbf{u}\cdot\mathbf{v}$', format: integer}
+    - {name: dt, label: '$\det(\mathbf{u}, \mathbf{v})$', format: integer}
+    - {name: phi, label: '$\varphi$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    $\mathbf{u}\cdot\mathbf{v} = ({u1})({v1}) + ({u2})({v2}) =$ **{dp}** and $\det = ({u1})({v2}) - ({u2})({v1}) =$ **{dt}**.
+    $\cos\varphi$ and $\sin\varphi$ have the signs of these two numbers, so $\varphi = \text{atan2}({dt}, {dp}) \approx$ **{phi:num2}°**
+    (the sign of the determinant says the turn is counterclockwise if positive, clockwise if negative).
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    segments:
+      - {from: [0, 0], to: ['u1', 'u2'], arrow: true, label: 'u'}
+      - {from: [0, 0], to: ['v1', 'v2'], arrow: true, label: 'v'}
+
+- id: trig-m8-r2-section
+  title: Divide a segment in a ratio
+  topic: Vector geometry
+  vars:
+    x1: {min: -8, max: 8}
+    y1: {min: -8, max: 8}
+    x2: {min: -8, max: 8}
+    y2: {min: -8, max: 8}
+    m: {min: 1, max: 4}
+    n: {min: 1, max: 4}
+  where: ["m != n", "gcd(m, n) == 1", "abs(x2 - x1) + abs(y2 - y1) >= 5", "abs(px + 15.54) > 0.1", "abs(py + 15.54) > 0.1"]
+  calc:
+    px: (n*x1 + m*x2) / (m + n)
+    py: (n*y1 + m*y2) / (m + n)
+    t: m / (m + n)
+  prompt: 'Point $P$ lies on segment $AB$ with $A({x1}, {y1})$ and $B({x2}, {y2})$, and $AP : PB = {m} : {n}$. Find $P$ (fractions or 2 decimals).'
+  answers:
+    - {name: px, label: '$x$', tolerance: 0.01}
+    - {name: py, label: '$y$', tolerance: 0.01}
+  solution: |-
+    $P$ is ${t:texfrac}$ of the way from $A$ to $B$: $P = A + {t:texfrac}(B - A)$, or by the section formula
+    $P = \dfrac{{n}A + {m}B}{{m} + {n}}$. So $x = \dfrac{{n}({x1}) + {m}({x2})}{{m} + {n}} =$ **{px:frac}** and $y = \dfrac{{n}({y1}) + {m}({y2})}{{m} + {n}} =$ **{py:frac}**.
+
+- id: trig-m8-r2-point-line
+  title: Distance from a point to a line
+  topic: Vector geometry
+  vars:
+    a: {min: -6, max: 6}
+    b: {min: -6, max: 6}
+    c: {min: -15, max: 15}
+    x0: {min: -6, max: 6}
+    y0: {min: -6, max: 6}
+  where: ["a != 0", "b != 0", "a*x0 + b*y0 - c != 0", "abs(fx + 15.54) > 0.1", "abs(fy + 15.54) > 0.1"]
+  calc:
+    r: a*x0 + b*y0 - c
+    nn: a^2 + b^2
+    d: abs(r) / sqrt(nn)
+    fx: x0 - r*a/nn
+    fy: y0 - r*b/nn
+  prompt: 'Find the distance from $Q({x0}, {y0})$ to the line ${a:coef}x {b:signedcoef}y = {c}$, and the point $F$ on the line closest to $Q$ (2 decimals).'
+  answers:
+    - {name: d, label: 'Distance', tolerance: 0.01}
+    - {name: fx, label: '$F$: $x$', tolerance: 0.01}
+    - {name: fy, label: '$F$: $y$', tolerance: 0.01}
+  solution: |-
+    Plug $Q$ into the line: $({a})({x0}) + ({b})({y0}) - ({c}) = {r}$, and $a^2 + b^2 = {nn}$.
+    Distance $= \dfrac{|{r}|}{\sqrt{{nn}}} \approx$ **{d:num2}**.
+    Foot: $F = Q - \dfrac{{r}}{{nn}}\langle {a}, {b}\rangle \approx$ **({fx:num2}, {fy:num2})**.
+  figure:
+    type: plot
+    x: [-10, 10]
+    y: [-10, 10]
+    equal: true
+    functions:
+      - {f: '(c - a*x)/b'}
+    points:
+      - {at: ['x0', 'y0'], label: 'Q'}
