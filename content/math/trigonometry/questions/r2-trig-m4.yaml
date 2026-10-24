@@ -444,9 +444,9 @@
     - 'Confirm that no shorter shift works: the period is 24'
   explanation: |-
     The periods are $\dfrac{2\pi}{\pi/4} = 8$ and $\dfrac{2\pi}{\pi/6} = 12$. Their ratio in lowest terms, $\tfrac23$, tells you that 3 of the first period equal 2 of the second: $L = 24$. The last step is the check; here the terms have different frequencies, so 24 is the smallest period.
-# ---------- trig-m4-h-small-angles (honors, lesson 17h2) ----------
+# ---------- trig-m4-h-rates (honors, lesson 17h2) ----------
 - id: trig-m4-r2-h16
-  lesson: trig-m4-h-small-angles
+  lesson: trig-m4-h-rates
   topic: Rates of change of sinusoids
   stem: 'What is the average rate of change of $y = \cos x$ from $x = 0$ to $x = \tfrac{\pi}{2}$?'
   choices: ['$-\tfrac{2}{\pi}$', '$-1$', '$\tfrac{2}{\pi}$', '$-\tfrac{\pi}{2}$']
@@ -454,7 +454,7 @@
   explanation: |-
     $\dfrac{\cos\frac{\pi}{2} - \cos 0}{\frac{\pi}{2} - 0} = \dfrac{0 - 1}{\pi/2} = -\dfrac{2}{\pi} \approx -0.637$. It is negative because cosine falls on this interval. $-1$ forgets to divide by the width, and $-\tfrac{\pi}{2}$ divides the wrong way.
 - id: trig-m4-r2-h17
-  lesson: trig-m4-h-small-angles
+  lesson: trig-m4-h-rates
   topic: Rates of change of sinusoids
   stem: 'Over which interval does $y = \sin x$ have the greatest average rate of change?'
   choices: ['$\left[\tfrac{\pi}{3}, \tfrac{\pi}{2}\right]$', '$\left[\tfrac{\pi}{6}, \tfrac{\pi}{3}\right]$', '$\left[\tfrac{\pi}{2}, \tfrac{2\pi}{3}\right]$', '$\left[0, \tfrac{\pi}{6}\right]$']
@@ -462,123 +462,123 @@
   explanation: |-
     All four intervals have width $\tfrac{\pi}{6}$, so compare the rises: $0.5$ on $[0, \tfrac{\pi}{6}]$, $0.366$ on $[\tfrac{\pi}{6}, \tfrac{\pi}{3}]$, $0.134$ on $[\tfrac{\pi}{3}, \tfrac{\pi}{2}]$, and $-0.134$ on $[\tfrac{\pi}{2}, \tfrac{2\pi}{3}]$ (sine is falling there). The rates are about $0.955$, $0.699$, $0.256$ and $-0.256$: sine climbs fastest near its zero.
 - id: trig-m4-r2-h18
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
-  stem: 'For $0 < x < \tfrac{\pi}{2}$ (radians), which inequality is true?'
-  choices: ['$x < \sin x < \tan x$', '$\sin x < x < \tan x$', '$\tan x < x < \sin x$', '$\sin x < \tan x < x$']
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
+  stem: 'What is the slope of the graph of $y = \sin x$ at $x = \tfrac{\pi}{3}$?'
+  choices: ['$\tfrac{\sqrt3}{2}$', '$\tfrac12$', '$-\tfrac12$', '$1$']
   answer: 1
   explanation: |-
-    In the unit circle, triangle $OAP$ (area $\tfrac12\sin x$) fits inside the sector (area $\tfrac12 x$), which fits inside triangle $OAT$ (area $\tfrac12\tan x$). So $\sin x < x < \tan x$. For example at $x = 0.5$: $0.479 < 0.5 < 0.546$.
+    The slope of $y = \sin x$ at $x$ is $\cos x$, and $\cos\tfrac{\pi}{3} = \tfrac12$. A difference quotient agrees: $\dfrac{\sin(\frac{\pi}{3} + 0.001) - \sin\frac{\pi}{3}}{0.001} \approx 0.4996$. $\tfrac{\sqrt3}{2}$ is the height $\sin\tfrac{\pi}{3}$, not the slope.
 - id: trig-m4-r2-h19
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
-  stem: 'In the area proof that $\tfrac{\sin x}{x} \to 1$, which region has area $\tfrac12 x$?'
-  choices: ['The triangle $OAP$', 'The triangle $OAT$', 'The sector $OAP$', 'The whole quarter circle']
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
+  stem: 'What is the slope of the graph of $y = \cos x$ at $x = \tfrac{\pi}{2}$?'
+  choices: ['$0$', '$1$', '$-1$', '$-\tfrac{\pi}{2}$']
   answer: 2
   explanation: |-
-    A sector of radius $r$ and angle $\theta$ (in radians) has area $\tfrac12 r^2\theta$; with $r = 1$ and $\theta = x$ that is $\tfrac12 x$. The triangles have areas $\tfrac12\sin x$ ($OAP$) and $\tfrac12\tan x$ ($OAT$), and the quarter circle has area $\tfrac{\pi}{4}$.
+    The slope of $y = \cos x$ is $-\sin x$, and $-\sin\tfrac{\pi}{2} = -1$. On the graph, cosine is crossing the axis on its way down at $\tfrac{\pi}{2}$, as steeply as it ever falls. $0$ is the height there, not the slope, and $+1$ forgets the minus sign.
 - id: trig-m4-r2-h20
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
-  stem: 'Without a calculator, estimate $\sin 0.05$ ($0.05$ radians).'
-  choices: ['$0.9988$', '$0.0009$', '$0.5$', '$0.05$']
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
+  stem: 'In the argument that the slope of $\sin x$ is $\cos x$, what does $\dfrac{\cos h - 1}{h}$ approach as $h$ shrinks to 0?'
+  choices: ['$1$', '$-\tfrac12$', '$-1$', '$0$']
   answer: 3
   explanation: |-
-    For small angles in radians, $\sin x \approx x$, so $\sin 0.05 \approx 0.05$ (the true value is $0.049979$). $0.0009$ is $\sin(0.05^\circ)$, what a calculator in degree mode gives, and $0.9988$ is close to $\cos 0.05$.
+    For small $h$, $1 - \cos h \approx \tfrac{h^2}{2}$, so $\dfrac{\cos h - 1}{h} \approx -\dfrac{h}{2}$, which goes to 0. (For example, at $h = 0.1$ it is about $-0.04996$.) $-\tfrac12$ is the limit of $\dfrac{\cos h - 1}{h^2}$, with $h^2$ in the denominator, and 1 is the limit of the other quotient, $\dfrac{\sin h}{h}$.
 - id: trig-m4-r2-h21
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
-  stem: 'Use $\cos x \approx 1 - \tfrac{x^2}{2}$ to estimate $\cos 0.2$.'
-  choices: ['$0.80$', '$0.98$', '$0.96$', '$0.99$']
-  answer: 1
-  explanation: |-
-    $1 - \tfrac{(0.2)^2}{2} = 1 - \tfrac{0.04}{2} = 0.98$; the true value is $0.98007$. $0.96$ forgets to halve $x^2$, and $0.80$ uses $1 - x$.
-- id: trig-m4-r2-h22
-  lesson: trig-m4-h-small-angles
+  lesson: trig-m4-h-rates
   topic: Rates of change of sinusoids
   stem: 'What is the steepest slope of the graph of $y = 3\sin(2x) + 1$?'
   choices: ['$3$', '$7$', '$\tfrac32$', '$6$']
   answer: 3
   explanation: |-
-    Near a midline crossing, $3\sin(2x) \approx 3 \cdot 2x$, a line of slope $|A|B = 3 \cdot 2 = 6$. That is the steepest the curve gets. The amplitude 3 alone ignores how fast the wave repeats, and the $+1$ shift does not change any slope.
-- id: trig-m4-r2-h23
-  lesson: trig-m4-h-small-angles
+    The slope is $AB\cos(Bx) = 3 \cdot 2\cos(2x) = 6\cos(2x)$, which is largest, 6, where $\cos(2x) = 1$: at the upward midline crossings. The amplitude 3 alone ignores how fast the wave repeats, and the $+1$ shift does not change any slope.
+- id: trig-m4-r2-h22
+  lesson: trig-m4-h-rates
   topic: Rates of change of sinusoids
   stem: 'A rider''s height is $h(t) = 20 - 15\cos\!\left(\tfrac{\pi}{3}t\right)$ m, $t$ in minutes. What is the fastest rate at which the rider rises?'
   choices: ['$15$ m/min', '$20$ m/min', '$5\pi \approx 15.7$ m/min', '$\tfrac{\pi}{3} \approx 1.05$ m/min']
   answer: 2
   explanation: |-
     The steepest slope of a sinusoid is $|A|B = 15 \cdot \tfrac{\pi}{3} = 5\pi \approx 15.7$ m/min, reached at the hub's height on the way up. It matches the rim's linear speed $r\omega = 15 \cdot \tfrac{\pi}{3}$, since at the side of the wheel the rider moves straight up. 15 is the amplitude alone, and 20 is the hub height.
+- id: trig-m4-r2-h23
+  lesson: trig-m4-h-rates
+  topic: Oscillation speed
+  stem: 'A mass on a spring has displacement $d = 4\cos(5t)$ cm, $t$ in seconds. What is its greatest speed?'
+  choices: ['$4$ cm/s', '$20$ cm/s', '$\tfrac45$ cm/s', '$5$ cm/s']
+  answer: 1
+  explanation: |-
+    The velocity is the slope of the displacement graph, $-4 \cdot 5\sin(5t) = -20\sin(5t)$, so the greatest speed is $|a|\omega = 4 \cdot 5 = 20$ cm/s, reached as the mass passes equilibrium. 4 cm is the amplitude (a distance, not a speed), and 5 is the angular frequency.
 - id: trig-m4-r2-h24
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
+  lesson: trig-m4-h-rates
+  topic: Oscillation speed
   stem: 'For small swings a pendulum''s period is $T = 2\pi\sqrt{L/g}$. If the length is made 4 times as long, what happens to the period?'
   choices: ['It doubles', 'It becomes 4 times as long', 'It halves', 'It stays the same']
   answer: 0
   explanation: |-
     $T$ is proportional to $\sqrt{L}$, and $\sqrt{4L} = 2\sqrt{L}$, so the period doubles. For example, a 0.25 m pendulum has $T \approx 1.00$ s and a 1 m pendulum has $T \approx 2.01$ s.
 - id: trig-m4-r2-h25
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
-  stem: 'Which is the best estimate of $\sin 3^\circ$?'
-  choices: ['$3$', '$0.1411$', '$0.0524$', '$0.0349$']
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
+  stem: 'Where is the slope of the graph of $y = 2\sin x + 5$ equal to 0?'
+  choices: ['Where $y = 5$', 'At $x = k\pi$', 'At $x = \tfrac{\pi}{2} + k\pi$', 'Nowhere; it is never level']
   answer: 2
   explanation: |-
-    Convert to radians first: $3^\circ = \tfrac{3\pi}{180} \approx 0.0524$, and for a small angle $\sin x \approx x$. (The true value is $0.05234$.) $3$ applies the shortcut to degrees, $0.1411$ is $\sin 3$ in radians, and $0.0349$ is $2^\circ$ in radians.
+    The slope is $2\cos x$, which is 0 where $\cos x = 0$: at $x = \tfrac{\pi}{2} + k\pi$, the peaks ($y = 7$) and troughs ($y = 3$). At $x = k\pi$ the graph is on its midline $y = 5$, where it is steepest, not level.
 - id: trig-m4-r2-h26
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
   type: text
-  stem: 'From 500 m away, the top of a cliff is $2^\circ$ above the horizontal. Using the small-angle approximation, its height above eye level is about ___ m. Give the nearest whole number.'
-  accept: ['17']
+  stem: 'The slope of the graph of $y = 4\sin\tfrac{x}{2}$ at $x = 0$ is ___. Give a number.'
+  accept: ['2']
   explanation: |-
-    $2^\circ = \tfrac{2\pi}{180} \approx 0.03491$ rad, and $\tan x \approx x$ for small angles, so the height is about $500 \times 0.03491 \approx 17.45$, which rounds to 17 m. (The exact value, $500\tan 2^\circ \approx 17.46$ m, rounds the same way.)
+    With $A = 4$ and $B = \tfrac12$ the slope is $AB\cos(Bx) = 2\cos\tfrac{x}{2}$, which is 2 at $x = 0$. Stretching the graph up by 4 multiplies slopes by 4, and stretching it sideways by 2 (period $4\pi$) halves them.
 - id: trig-m4-r2-h27
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
   type: match
-  stem: 'Match each quantity to its small-angle approximation ($x$ in radians, $d$ in degrees, both small).'
+  stem: 'Match each function to the slope of its graph at $x = 0$.'
   pairs:
-    - ['$\sin x$', 'x']
-    - ['$\tan x$', 'x']
-    - ['$\cos x$', '1 − x²/2']
-    - ['$\sin(d^\circ)$', '0.01745 d']
-  distractors: ['1 − x', 'd']
+    - ['$y = \sin x$', '1']
+    - ['$y = \cos x$', '0']
+    - ['$y = 5\sin 3x$', '15']
+    - ['$y = -2\sin\tfrac{x}{2}$', '−1']
+  distractors: ['5', '−2']
   explanation: |-
-    $\sin x \approx x$ and $\tan x \approx x$ (both ratios to $x$ approach 1), and $\cos x \approx 1 - \tfrac{x^2}{2}$. In degrees you must convert first: $d^\circ = \tfrac{\pi}{180}d \approx 0.01745d$ radians, so $\sin(d^\circ) \approx 0.01745d$, not $d$.
+    The slope of $A\sin(Bx)$ at 0 is $AB\cos 0 = AB$: $1 \cdot 1 = 1$, $5 \cdot 3 = 15$ and $-2 \cdot \tfrac12 = -1$. Cosine is at its peak at 0, so its slope there is $-\sin 0 = 0$. 5 and $-2$ are amplitudes (with sign), which forget the factor $B$.
 - id: trig-m4-r2-h28
-  lesson: trig-m4-h-small-angles
+  lesson: trig-m4-h-rates
   topic: Rates of change of sinusoids
   stem: 'Which statements about $y = 4\sin\!\left(\tfrac{\pi}{2}t\right)$ are true? Select all that apply.'
   choices: ['Its steepest slope is $2\pi$', 'Its slope is 0 at its maxima', 'It is steepest at $t = 1$', 'It is steepest at $t = 0$ and at $t = 2$', 'Its steepest slope is 4']
   answer: [0, 1, 3]
   explanation: |-
-    The steepest slope is $|A|B = 4 \cdot \tfrac{\pi}{2} = 2\pi \approx 6.28$, reached at the midline crossings $t = 0, 2, 4, \ldots$ (rising at 0, falling at 2). At $t = 1$ the graph is at its maximum 4, where the slope is 0. The amplitude 4 alone is not a slope.
+    The slope is $4 \cdot \tfrac{\pi}{2}\cos\!\left(\tfrac{\pi}{2}t\right) = 2\pi\cos\!\left(\tfrac{\pi}{2}t\right)$. Its size is greatest, $2\pi \approx 6.28$, at the midline crossings $t = 0, 2, 4, \ldots$ (rising at 0, falling at 2). At $t = 1$ the graph is at its maximum 4, where the slope is 0. The amplitude 4 alone is not a slope.
 - id: trig-m4-r2-h29
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
   type: order
-  stem: 'Put the steps of the proof that $\tfrac{\sin x}{x} \to 1$ (for $0 < x < \tfrac{\pi}{2}$) in order.'
+  stem: 'Put the steps of the argument that the slope of $y = \sin x$ is $\cos x$ in order.'
   items:
-    - 'Nest the regions: triangle $OAP$ inside sector $OAP$ inside triangle $OAT$'
-    - 'Compare their areas: $\tfrac12\sin x < \tfrac12 x < \tfrac12\tan x$'
-    - 'Divide by $\tfrac12\sin x$: $1 < \tfrac{x}{\sin x} < \tfrac{1}{\cos x}$'
-    - 'Take reciprocals: $\cos x < \tfrac{\sin x}{x} < 1$'
-    - 'Let $x$ shrink to 0: $\cos x \to 1$, so $\tfrac{\sin x}{x} \to 1$'
+    - 'Write the difference quotient $\dfrac{\sin(x + h) - \sin x}{h}$'
+    - 'Expand $\sin(x + h)$ with the sum formula'
+    - 'Regroup as $\sin x \cdot \dfrac{\cos h - 1}{h} + \cos x \cdot \dfrac{\sin h}{h}$'
+    - 'Let $h$ shrink: $\dfrac{\cos h - 1}{h} \to 0$ and $\dfrac{\sin h}{h} \to 1$'
+    - 'Conclude that the slope at $x$ is $\cos x$'
   explanation: |-
-    The geometry comes first (the nesting), then the areas it implies. Dividing by $\tfrac12\sin x$ gives bounds on $\tfrac{x}{\sin x}$; taking reciprocals flips the inequalities and gives bounds on $\tfrac{\sin x}{x}$. Only then can the squeeze be applied as $x \to 0$.
+    The slope is the limit of a difference quotient, so that comes first. The sum formula $\sin(x + h) = \sin x\cos h + \cos x\sin h$ turns it into something that can be regrouped around the two small-angle quotients. Only after regrouping can you let $h$ shrink and use their limits, which leaves $\sin x \cdot 0 + \cos x \cdot 1 = \cos x$.
 - id: trig-m4-r2-h30
-  lesson: trig-m4-h-small-angles
-  topic: Small-angle approximations
+  lesson: trig-m4-h-rates
+  topic: Rates of change of sinusoids
   type: label
-  stem: 'The picture is the one used to prove $\sin x < x < \tan x$. Name the numbered parts.'
-  image: {src: images/trig-m4-sin-x-tan-blank.svg, alt: 'A quarter of the unit circle with center O and the point A on the x-axis. A ray at angle x meets the circle at P and the vertical line through A at T. Five parts are numbered: the vertical segment under P, the arc from A to P, the vertical segment from A up to T, the segment from O to A, and the point T.'}
+  stem: 'The picture shows $y = \sin x$ with four tangent lines and one secant line. Name the numbered parts.'
+  image: {src: images/trig-m4-slopes-blank.svg, alt: 'One cycle of the sine graph with short straight lines touching it at four points: the origin, the peak, the zero at the middle of the cycle, and the trough. A dashed line joins two points on either side of the trough. Five parts are numbered.'}
   labels:
-    - {x: 59.2, y: 69.7, text: 'Height of P: sin x'}
-    - {x: 70.9, y: 61.5, text: Arc of length x}
-    - {x: 75.0, y: 48.1, text: 'Tangent segment: tan x'}
-    - {x: 38.4, y: 87.2, text: Radius of length 1}
-    - {x: 75.0, y: 21.8, text: 'Point (1, tan x)'}
-  distractors: ['Height of P: cos x', Arc of length sin x]
+    - {x: 16.2, y: 50.0, text: 'Steepest rise: slope 1'}
+    - {x: 34.7, y: 16.7, text: 'Maximum: slope 0'}
+    - {x: 53.1, y: 50.0, text: 'Steepest fall: slope −1'}
+    - {x: 71.6, y: 83.3, text: 'Minimum: slope 0'}
+    - {x: 67.9, y: 72.1, text: 'Secant line: average rate of change'}
+  distractors: [Vertical asymptote, 'Maximum: slope 1']
   explanation: |-
-    $P = (\cos x, \sin x)$, so its height is $\sin x$. On the unit circle an arc's length equals its angle in radians, so arc $AP$ has length $x$. The ray $OP$ has slope $\tan x$, so where it meets the line $x = 1$ it is at height $\tan x$: that is $T = (1, \tan x)$, and segment $AT$ has length $\tan x$. $OA$ is a radius, length 1.
+    The slope of $\sin x$ is $\cos x$. At the origin that is $\cos 0 = 1$, the steepest rise; at the peak $\tfrac{\pi}{2}$ and the trough $\tfrac{3\pi}{2}$ it is 0 (level tangent lines); at $\pi$ it is $\cos\pi = -1$, the steepest fall. The dashed line joins two points of the curve, so it is a secant line, and its slope is the average rate of change between them.

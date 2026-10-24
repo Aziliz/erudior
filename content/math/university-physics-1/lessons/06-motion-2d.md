@@ -24,7 +24,9 @@ A subtle but important point: acceleration is any change in the velocity vector,
 - a **tangential** part, along the velocity, which changes the speed;
 - a **radial** (centripetal) part, perpendicular to the velocity, which changes the direction.
 
-We'll study the second one in detail in the circular-motion lesson.
+We'll study the second one in detail in the circular-motion lesson. The picture shows a car braking on a curve: its acceleration points inward (turning it) and backward (slowing it).
+
+![A car moving counterclockwise along a curved road. Its velocity arrow points along the road. Its acceleration arrow points inward and somewhat backward, and is split into a tangential component pointing backward along the road, which reduces the speed, and a radial component pointing toward the center of the curve, which changes the direction.](images/phys-m2-curve-accel.svg)
 
 ### Example 1
 
@@ -58,6 +60,19 @@ Let S = swimmer, W = water, G = ground. $\vec v_{SG} = \vec v_{SW} + \vec v_{WG}
 
 ```shape
 {"x": [-2.7, 2.0], "y": [-0.2, 1.95], "segments": [{"from": [0, 0], "to": [-1.2, 1.6], "arrow": true}, {"from": [-1.2, 1.6], "to": [0, 1.6], "arrow": true}, {"from": [0, 0], "to": [0, 1.6], "arrow": true, "dashed": true}], "labels": [{"at": [-1.55, 0.7], "text": "swimmer/water 2.0 m/s"}, {"at": [-0.6, 1.75], "text": "water/ground 1.2 m/s"}, {"at": [1.08, 0.8], "text": "swimmer/ground 1.6 m/s"}], "caption": "Heading upstream so the resultant points straight across"}
+```
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a heading to cross a river
+  accDescr: Write the swimmer's ground velocity as her velocity relative to the water plus the water's velocity relative to the ground. If the goal is the fastest crossing, head straight across; the crossing time is the river width divided by the swimming speed, and the current carries her downstream by the current speed times that time. If the goal is to land directly opposite, check that the swimming speed is greater than the current. If it is, head upstream at an angle whose sine is the current speed divided by the swimming speed; the crossing time is the width divided by the swimming speed times the cosine of that angle. If not, landing opposite is impossible.
+  S["v_SG = v_SW + v_WG"] --> G{"Goal?"}
+  G -- fastest crossing --> F["Head straight across"]
+  F --> F2["t = width / v_SW; drift = v_WG × t"]
+  G -- land opposite --> C{"Is v_SW greater than v_WG?"}
+  C -- yes --> U["Head upstream: sin α = v_WG / v_SW"]
+  U --> U2["t = width / (v_SW cos α)"]
+  C -- no --> X["Impossible: she always drifts downstream"]
 ```
 
 Heading straight across is the fastest way over; heading upstream is the way to land opposite. These are different goals with different answers, and the swimmer can land opposite only if her speed relative to the water exceeds the current's.

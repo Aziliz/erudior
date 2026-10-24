@@ -20,6 +20,17 @@ Flick one end of a rope and a pulse runs along it; drop a stone in a pond and ri
 
 Water waves are a mix: water parcels move in small circles.
 
+```mermaid
+flowchart TD
+  accTitle: Kinds of waves
+  accDescr: Waves divide into mechanical waves, which need a medium, and electromagnetic waves, which do not and are covered in University Physics II. Mechanical waves are transverse, where the medium moves perpendicular to the direction of travel, as on a string; longitudinal, where the medium moves parallel to it, as for sound in air; or a mix of both, as for water waves, whose water parcels move in small circles.
+  W["Waves"] --> M["Mechanical: need a medium"]
+  W --> EM["Electromagnetic: no medium needed (University Physics II)"]
+  M --> T["Transverse: medium moves perpendicular to travel (string)"]
+  M --> L["Longitudinal: medium moves parallel to travel (sound in air)"]
+  M --> X["Mixed: parcels move in small circles (water waves)"]
+```
+
 ## Describing periodic waves
 
 If the source oscillates in SHM, the wave is a repeating sinusoid in both space and time.
@@ -27,6 +38,10 @@ If the source oscillates in SHM, the wave is a repeating sinusoid in both space 
 - **Wavelength** $\lambda$: the distance between adjacent crests (one full repeat in space).
 - **Period** $T$ and **frequency** $f = 1/T$: how often a point in the medium completes an oscillation (set by the source).
 - **Amplitude** $A$: the maximum displacement of the medium.
+
+The picture labels these on a transverse wave, and shows the compressions and rarefactions of a longitudinal wave, where the wavelength is the distance from one compression to the next.
+
+![Top: a transverse sine wave along a dashed equilibrium line, with a crest, a trough, the wavelength marked as the distance between two neighboring crests, and the amplitude marked as the height of a crest above the equilibrium line. Bottom: a longitudinal wave drawn as vertical lines in a tube, crowded together at two compressions and spread apart at a rarefaction between them.](images/phys-m6-wave-parts.svg)
 
 In one period the wave advances one wavelength, so its speed is
 

@@ -26,7 +26,9 @@ $$y = v_{0y}t - \tfrac12gt^2, \qquad v_y = v_{0y} - gt.$$
 
 Eliminating $t$ ($t = x/v_{0x}$) gives $y = x\tan\theta - \dfrac{g}{2v_0^2\cos^2\theta}x^2$, a downward parabola. That's why every projectile path, from a basketball shot to a fountain's arc, is parabolic.
 
-The speed at any moment is $\sqrt{v_x^2 + v_y^2}$, and the velocity is always tangent to the path.
+The speed at any moment is $\sqrt{v_x^2 + v_y^2}$, and the velocity is always tangent to the path. The picture shows how the two components behave along the way: $v_x$ is the same everywhere, while $v_y$ shrinks to zero at the top and then grows downward.
+
+![A projectile's dashed parabolic path over level ground. On the way up, the velocity arrow v points up and to the right, split into a horizontal component vx and an upward vertical component vy. At the top the velocity is horizontal (vy = 0) and the acceleration g points straight down. On the way down, the velocity points down and to the right, with the same vx and a downward vy. The maximum height H and the range R are marked.](images/phys-m2-projectile-parts.svg)
 
 ## Horizontal launches
 
@@ -57,6 +59,19 @@ The range is largest when $\sin 2\theta = 1$, that is $\theta = 45^\circ$. Compl
 ```
 
 These shortcut formulas hold only when the projectile lands at its launch height. For a cliff, a basket above the shooter, or a ball hit from a tee into a hill, go back to the component equations.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a projectile problem
+  accDescr: First resolve the launch velocity into horizontal and vertical components. Then ask whether the projectile lands at its launch height. If yes, the level-ground formulas for time of flight, maximum height and range apply. If no, write the vertical equation with the landing height, solve the quadratic for t and keep the positive root. Either way, use that time in x equals v0x times t, and find the impact velocity from vx and vy.
+  A["Resolve: v0x = v0 cos θ, v0y = v0 sin θ"] --> B{"Lands at launch height?"}
+  B -- yes --> C["Use T, H and R formulas"]
+  B -- no --> D["Solve y(t) = landing height for t"]
+  D --> E["Keep the positive root"]
+  E --> F["x = v0x t"]
+  C --> G["Impact: vx = v0x, vy = v0y − gt"]
+  F --> G
+```
 
 ### Example 2
 

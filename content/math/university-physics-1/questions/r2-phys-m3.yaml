@@ -1,0 +1,226 @@
+# Round 2, module phys-m3 (Forces and Newton's laws): new question types for the core lessons
+# (phys-m3-r2-q01...) and questions for the honors lessons (phys-m3-r2-h01...).
+
+# ---- Lesson 07: Newton's laws and free-body diagrams ----
+- id: phys-m3-r2-q01
+  lesson: phys-newton
+  module_quiz: true
+  type: label
+  topic: Newton's laws
+  stem: 'A book rests on a table, which stands on the ground. Name each numbered force.'
+  image: {src: images/phys-m3-third-law-blank.svg, alt: 'A book on a table standing on the ground (Earth). Four force arrows are numbered: one pointing down from the book, one pointing up from the top of the book, one pointing down from the underside of the tabletop, and one pointing up inside the ground.'}
+  labels:
+    - {x: 40.2, y: 55.7, text: Earth's gravity on the book}
+    - {x: 52.7, y: 28.4, text: Normal force of the table on the book}
+    - {x: 71.4, y: 60.6, text: Push of the book on the table}
+    - {x: 47.3, y: 92.0, text: Gravitational pull of the book on Earth}
+  distractors: [Normal force of the floor on the table, Friction on the book]
+  explanation: |-
+    Arrow 1 starts on the book and points down: the book's weight, Earth's gravity on it. Arrow 2 also acts on the book, pointing up from the surface it touches: the table's normal force. Arrow 3 acts on the table: the book pressing down on it, the third-law partner of arrow 2. Arrow 4 acts on Earth: the book's gravitational pull on Earth, the partner of arrow 1. Nothing pushes the book sideways, so there is no friction on it, and no arrow is drawn on the table legs.
+- id: phys-m3-r2-q02
+  lesson: phys-newton
+  type: text
+  topic: Free-body diagrams
+  stem: 'A 60 kg person stands on a bathroom scale in an elevator that accelerates upward at 1.5 m/s². Using $g = 9.8$ m/s², the scale reads ___ N. Give only the number.'
+  accept: ['678']
+  explanation: |-
+    The scale reads the normal force. With up positive, $n - mg = ma$, so $n = m(g + a) = 60(9.8 + 1.5) = 60(11.3) = 678$ N, more than her true weight of 588 N.
+- id: phys-m3-r2-q03
+  lesson: phys-newton
+  type: match
+  topic: Newton's laws
+  stem: 'Match each observation to the law of motion it illustrates most directly.'
+  pairs:
+    - [A spacecraft with its engines off coasts at constant velocity, First law]
+    - [Passengers lurch forward when a bus brakes suddenly, First law]
+    - [The same push speeds up an empty cart faster than a loaded one, Second law]
+    - [A swimmer pushes water backward and moves forward, Third law]
+    - [A rifle recoils when it fires a bullet, Third law]
+  explanation: |-
+    The first law covers objects that keep their velocity when nothing changes it: the coasting spacecraft, and the passengers whose bodies keep moving forward while the bus slows under them. The second law relates force, mass and acceleration: the same force gives the smaller mass the larger acceleration. The third law gives force pairs on different objects: the swimmer pushes the water back and the water pushes the swimmer forward; the gas pushes the bullet forward and the rifle back.
+- id: phys-m3-r2-q04
+  lesson: phys-newton
+  module_quiz: true
+  topic: Free-body diagrams
+  stem: 'A person pushes a box across a rough floor. Which forces belong on the free-body diagram of the box? Select all that apply.'
+  choices: ['The weight of the box', 'The normal force from the floor', 'Kinetic friction from the floor', 'The push of the person', 'The push of the box on the person', 'A force $ma$ along the motion']
+  answer: [0, 1, 2, 3]
+  explanation: |-
+    The diagram shows forces acting on the box, each with an agent: Earth (weight), the floor (normal force and friction) and the person (the push). The box's push on the person acts on the person, so it goes on the person's diagram. $ma$ is the result of the forces, not another force.
+- id: phys-m3-r2-q05
+  lesson: phys-newton
+  topic: Newton's laws
+  stem: 'In this picture of a book on a table, which two forces form a Newton''s third-law pair?'
+  image: {src: images/phys-m3-third-law.svg, alt: 'A book on a table with four labeled force arrows: Earth pulls book (gravity), table pushes book up (contact), book pushes table down (contact), book pulls Earth up (gravity).'}
+  choices: ['Earth pulls book and table pushes book up', 'Table pushes book up and book pulls Earth up', 'Earth pulls book and book pulls Earth up', 'Earth pulls book and book pushes table down']
+  answer: 2
+  explanation: |-
+    A third-law pair is one interaction between two objects: the same kind of force, acting on each of the two. Earth pulls the book down by gravity and the book pulls Earth up by gravity. The weight and the table's push are equal and opposite here, but both act on the book and they are different interactions (that equality comes from the second law with $a = 0$). The other two choices mix forces from different interactions.
+
+# ---- Lesson 08: Friction and inclined planes ----
+- id: phys-m3-r2-q06
+  lesson: phys-friction
+  module_quiz: true
+  type: label
+  topic: Inclined planes
+  stem: 'A block slides down a 30° ramp with friction. Name each numbered arrow.'
+  image: {src: images/phys-m3-incline-blank.svg, alt: 'A block on a ramp inclined at 30 degrees. Three solid arrows start at the block: straight down, perpendicular away from the ramp, and up along the ramp. Two dashed arrows also start there: a short one down along the ramp and one perpendicular into the ramp. All five are numbered.'}
+  labels:
+    - {x: 51.6, y: 70.2, text: Weight}
+    - {x: 44.6, y: 30.9, text: Normal force}
+    - {x: 60.4, y: 40.6, text: Kinetic friction}
+    - {x: 45.2, y: 52.9, text: Weight component along the slope}
+    - {x: 58.5, y: 64.6, text: Weight component into the slope}
+  distractors: [Applied push, Tension]
+  explanation: |-
+    The weight $mg$ points straight down (1). The normal force is perpendicular to the ramp, away from it (2). Kinetic friction opposes the sliding, so it points up the slope (3). The dashed arrows are the two components of the weight: $mg\sin\theta$ down the slope (4, the shorter one at 30°) and $mg\cos\theta$ into the slope (5), which the normal force balances. Nothing pushes or pulls the block, so there is no applied force or tension.
+- id: phys-m3-r2-q07
+  lesson: phys-friction
+  type: text
+  topic: Friction
+  stem: 'A board is tilted slowly until a box on it just starts to slide, at 25°. The coefficient of static friction is $\mu_s =$ ___ (2 decimal places).'
+  accept: ['0.47', '0.466', '0.4663']
+  explanation: |-
+    On the verge of slipping, $mg\sin\theta = \mu_s mg\cos\theta$, so $\mu_s = \tan 25^\circ = 0.4663 \approx 0.47$.
+- id: phys-m3-r2-q08
+  lesson: phys-friction
+  type: order
+  topic: Friction
+  stem: 'A heavy box sits on a floor. You push it horizontally, increasing the push slowly, then hold the push steady once the box moves. Put the stages in order.'
+  items:
+    - 'Static friction equals your push and the box stays put'
+    - 'Static friction reaches its maximum, $\mu_s n$'
+    - 'The box breaks loose and friction drops to $\mu_k n$'
+    - 'The box speeds up, because your push now exceeds the friction'
+  explanation: |-
+    Static friction matches the push as it grows, so nothing moves at first. When the needed friction reaches $\mu_s n$, static friction can't grow any more and the box breaks loose. Sliding friction $\mu_k n$ is smaller, so the same push now exceeds friction and the box accelerates.
+- id: phys-m3-r2-q09
+  lesson: phys-friction
+  topic: Inclined planes
+  stem: 'A block slides down a ramp with kinetic friction, $a = g(\sin\theta - \mu_k\cos\theta)$. Which changes would increase its acceleration? Select all that apply.'
+  choices: ['Making the ramp steeper', 'Using surfaces with a smaller $\mu_k$', 'Doubling the block''s mass', 'Using a block of the same mass and surfaces with twice the contact area', 'Doing the experiment on the Moon']
+  answer: [0, 1]
+  explanation: |-
+    A steeper ramp raises $\sin\theta$ and lowers $\cos\theta$, and a smaller $\mu_k$ shrinks the friction term, so both increase $a$. The mass cancels out of the formula, and in this friction model contact area doesn't matter. On the Moon, $g$ is smaller, so the acceleration is smaller.
+- id: phys-m3-r2-q10
+  lesson: phys-friction
+  module_quiz: true
+  topic: Friction
+  stem: 'You push down and forward on a 10 kg box resting on a floor ($\mu_s = 0.50$), with a 30 N force directed $30^\circ$ below horizontal. The box doesn''t move. What is the static friction force? ($g = 9.8$ m/s²)'
+  choices: ['57 N', '49 N', '30 N', '26 N']
+  answer: 3
+  explanation: |-
+    Static friction balances the horizontal part of the push: $30\cos 30^\circ = 26$ N. (Check that it holds: $n = 98 + 30\sin 30^\circ = 113$ N, so $\mu_s n = 56.5$ N, more than 26 N.) 57 N is the maximum $\mu_s n$, which applies only on the verge of slipping; 49 N is $\mu_s mg$, which also ignores the push's downward part; 30 N is the whole push, not its horizontal component.
+
+# ---- Lesson 09: Tension, pulleys, and connected objects ----
+- id: phys-m3-r2-q11
+  lesson: phys-tension
+  module_quiz: true
+  type: label
+  topic: Tension and pulleys
+  stem: 'Block 1 slides across a rough table, pulled by a rope over a pulley to hanging block 2. Name each numbered force.'
+  image: {src: images/phys-m3-table-pulley-blank.svg, alt: 'Block m1 on a table, tied by a rope over a pulley at the table edge to block m2 hanging below. Block 1 has four numbered arrows: up, down, left and right. Block 2 has two numbered arrows: up and down.'}
+  labels:
+    - {x: 43.7, y: 23.3, text: Normal force on block 1}
+    - {x: 32.5, y: 55.7, text: Weight of block 1}
+    - {x: 22.1, y: 41.4, text: Kinetic friction on block 1}
+    - {x: 56.0, y: 34.1, text: Rope tension on block 1}
+    - {x: 80.7, y: 59.3, text: Rope tension on block 2}
+    - {x: 77.0, y: 87.5, text: Weight of block 2}
+  distractors: [Normal force on block 2]
+  explanation: |-
+    Block 1 moves toward the pulley, so the rope pulls it right (4) and kinetic friction points left, against the sliding (3); the table pushes up (1) and gravity pulls down (2). Block 2 hangs in the air: the rope pulls it up (5) and gravity pulls it down (6). Nothing touches block 2 from below, so it has no normal force.
+- id: phys-m3-r2-q12
+  lesson: phys-tension
+  type: text
+  topic: Tension and pulleys
+  stem: 'An Atwood machine has masses of 6.0 kg and 2.0 kg on an ideal pulley. Using $g = 9.8$ m/s², the acceleration is ___ m/s². Give only the number.'
+  accept: ['4.9']
+  explanation: |-
+    $a = \dfrac{m_1 - m_2}{m_1 + m_2}g = \dfrac{6.0 - 2.0}{8.0}(9.8) = 4.9$ m/s².
+- id: phys-m3-r2-q13
+  lesson: phys-tension
+  type: match
+  topic: Tension and pulleys
+  stem: 'Match each setup (ideal rope and pulley) to the acceleration of its objects.'
+  pairs:
+    - ['Atwood machine, $m_1 > m_2$', '(m1 − m2)g / (m1 + m2)']
+    - ['Block $m_1$ on a frictionless table pulled by hanging $m_2$', 'm2 g / (m1 + m2)']
+    - ['Block $m_1$ on a table with friction $\mu_k$, pulled by hanging $m_2$', '(m2 − μk m1)g / (m1 + m2)']
+    - ['A single block sliding down a frictionless incline', 'g sin θ']
+  distractors: ['g cos θ', '(m1 + m2)g / (m1 − m2)']
+  explanation: |-
+    For each connected system, the net external driving force divided by the total mass gives the acceleration. Atwood: $(m_1 - m_2)g$ drives $m_1 + m_2$. Frictionless table: only $m_2g$ drives both blocks. With friction, $\mu_k m_1 g$ opposes it. A single block on a frictionless incline: $mg\sin\theta/m = g\sin\theta$ ($g\cos\theta$ is the component into the slope).
+- id: phys-m3-r2-q14
+  lesson: phys-tension
+  topic: Tension and pulleys
+  stem: 'In an Atwood machine with $m_1 > m_2$ and an ideal pulley, which statements are true while the masses accelerate? Select all that apply.'
+  choices: ['The tension is less than $m_1g$', 'The tension is greater than $m_2g$', 'The tension equals the average of the two weights', 'The acceleration is less than $g$', 'The tension equals $(m_1 - m_2)g$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $m_1$ accelerates down, so its net force points down: $T < m_1g$. $m_2$ accelerates up: $T > m_2g$. $a = \dfrac{m_1 - m_2}{m_1 + m_2}g$ is less than $g$ whenever $m_2 > 0$. The tension $T = \dfrac{2m_1m_2}{m_1 + m_2}g$ is less than the average weight $\tfrac12(m_1 + m_2)g$ unless the masses are equal (for 5.0 and 3.0 kg: 36.75 N versus 39.2 N). $(m_1 - m_2)g$ is the net driving force on the whole system, not the tension.
+- id: phys-m3-r2-q15
+  lesson: phys-tension
+  module_quiz: true
+  topic: Tension and pulleys
+  stem: 'A load hangs from a movable pulley supported by two strands of one rope; one end of the rope is tied to the ceiling. You pull the free end of the rope upward with an acceleration of 2.0 m/s². What is the load''s acceleration?'
+  choices: ['2.0 m/s² upward', '1.0 m/s² upward', '4.0 m/s² upward', '1.0 m/s² downward']
+  answer: 1
+  explanation: |-
+    The rope length gives $2y_{\text{load}} + (\text{distance to the free end}) = $ constant, so pulling the free end up by $d$ raises the load by only $d/2$. Differentiating twice, the load's acceleration is half the end's: 1.0 m/s², upward. 2.0 m/s² ignores the two strands; 4.0 m/s² inverts the ratio; the load rises, not falls, when you pull.
+
+# ---- Lesson 10: Uniform circular motion ----
+- id: phys-m3-r2-q16
+  lesson: phys-circular
+  module_quiz: true
+  type: label
+  topic: Circular motion
+  stem: 'A car rounds a frictionless banked curve at its design speed; the center of the curve is to the left. Name each numbered part.'
+  image: {src: images/phys-m3-banked-curve-blank.svg, alt: 'Cross-section of a banked road rising to the right, with an arrow at the top pointing left toward the center of the curve. A car on the road has a solid arrow tilted up and left, a solid arrow straight down, a dashed arrow straight up and a dashed arrow pointing left. The bank angle at the bottom left is also numbered.'}
+  labels:
+    - {x: 39.9, y: 35.8, text: Normal force}
+    - {x: 47.6, y: 72.0, text: Weight}
+    - {x: 47.6, y: 35.8, text: Vertical component of the normal force}
+    - {x: 40.5, y: 57.8, text: Horizontal component of the normal force}
+    - {x: 24.6, y: 83.8, text: Bank angle}
+  distractors: [Centripetal force, Static friction]
+  explanation: |-
+    The road pushes perpendicular to its surface (1); gravity pulls straight down (2). The dashed arrows are the parts of the normal force: the vertical part $n\cos\theta$ (3) balances the weight, and the horizontal part $n\sin\theta$ (4) points toward the center and supplies the inward force. The angle at the bottom left (5) is the bank angle. "Centripetal force" is not a separate force on the diagram; here it is the job done by arrow 4. The curve is frictionless, so there is no friction arrow.
+- id: phys-m3-r2-q17
+  lesson: phys-circular
+  type: match
+  topic: Circular motion
+  stem: 'Match each object moving in a circle to the real force that supplies its inward (centripetal) force.'
+  pairs:
+    - [A car rounding a flat curve, Static friction]
+    - [A satellite in a circular orbit, Gravity]
+    - [A puck on frictionless ice whirled on a string, Tension]
+    - [A car on a frictionless banked curve at its design speed, The normal force]
+  distractors: [Kinetic friction, Centrifugal force]
+  explanation: |-
+    The tires don't slide sideways on a flat curve, so static friction does the turning. Gravity alone turns a satellite. The string's tension pulls the puck inward. On a frictionless banked curve, the horizontal part of the normal force points toward the center. Kinetic friction would mean the tires are skidding, and centrifugal force is not a real force in an inertial frame.
+- id: phys-m3-r2-q18
+  lesson: phys-circular
+  type: text
+  topic: Circular motion
+  stem: 'A wheel turns at a steady 120 revolutions per minute. Its period is ___ s. Give only the number.'
+  accept: ['0.5', '1/2']
+  explanation: |-
+    120 rpm is $120/60 = 2.0$ revolutions per second, so $f = 2.0$ Hz and $T = 1/f = 0.50$ s.
+- id: phys-m3-r2-q19
+  lesson: phys-circular
+  topic: Circular motion
+  stem: 'A roller coaster car passes the top of a vertical loop faster than $\sqrt{gr}$, on the inside of the track. Which statements are true at that moment? Select all that apply.'
+  choices: ['The normal force on the car points down', '$n + mg = mv^2/r$', '$n = mg$', 'The net force points toward the center of the loop', 'The car''s acceleration is zero']
+  answer: [0, 1, 3]
+  explanation: |-
+    At the top, the center is below the car, and the track (above the car, since it rides on the inside) pushes down. Both the normal force and gravity point toward the center, so $n + mg = mv^2/r$, and the net force is inward. The car moves in a circle, so its acceleration is $v^2/r$, not zero, and $n = mv^2/r - mg$, which equals $mg$ only at one particular speed.
+- id: phys-m3-r2-q20
+  lesson: phys-circular
+  module_quiz: true
+  topic: Circular motion
+  stem: 'A curve of radius 120 m is banked at $15^\circ$. At what speed can a car take it with no friction needed? ($g = 9.8$ m/s²)'
+  choices: ['33.7 m/s', '66.3 m/s', '17.8 m/s', '315 m/s']
+  answer: 2
+  explanation: |-
+    $\tan\theta = v^2/(rg)$, so $v = \sqrt{rg\tan\theta} = \sqrt{120(9.8)(0.268)} = 17.8$ m/s. 33.7 m/s uses $\cos\theta$ instead of $\tan\theta$; 66.3 m/s divides by $\tan\theta$ (inverting the formula); 315 m/s forgets the square root.

@@ -51,6 +51,8 @@ $$f_n = \frac{nv}{4L}, \qquad n = 1, 3, 5, \ldots \text{ (odd only)}$$
 
 A closed pipe's fundamental is an octave lower than an open pipe of the same length, and it lacks the even harmonics, which gives it a darker sound.
 
+![Three pipes with curves showing how far the air moves along each one. Open at both ends, fundamental: antinodes A at both ends and a node N in the middle, so L is half a wavelength and f1 = v/2L. Closed at one end, fundamental: a node at the closed end and an antinode at the open end, so L is a quarter wavelength and f1 = v/4L. Closed at one end, third harmonic: node, antinode, node, antinode from the closed end, so L is three quarters of a wavelength and f3 = 3v/4L.](images/phys-m6-pipes.svg)
+
 ### Example 2
 
 An organ pipe 0.85 m long is closed at one end. With $v = 343$ m/s, find its fundamental and the next two frequencies it can produce. What would the fundamental be if the pipe were open at both ends?
@@ -79,6 +81,21 @@ With $v$ the speed of sound, $v_o$ the observer's speed and $v_s$ the source's s
 $$f' = f\,\frac{v \pm v_o}{v \mp v_s}.$$
 
 Sign rule: use the upper signs (+ on top, − on the bottom) for motion *toward* the other party, which raises the frequency; lower signs for motion *away*. Check: approaching should always give a higher pitch.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the signs in the Doppler formula
+  accDescr: Start from f prime equals f times v plus or minus v o, over v minus or plus v s. If the observer moves toward the source, the numerator is v plus v o; if away, v minus v o. Then, if the source moves toward the observer, the denominator is v minus v s; if away, v plus v s. Anything that is not moving relative to the air has speed zero and its sign does not matter. Finally check that approaching raises the frequency and receding lowers it.
+  A["f′ = f (v ± v_o) / (v ∓ v_s)"] --> B{"Observer moving toward the source?"}
+  B -- "toward" --> C["Numerator v + v_o"]
+  B -- "away" --> D["Numerator v − v_o"]
+  C --> E{"Source moving toward the observer?"}
+  D --> E
+  E -- "toward" --> F["Denominator v − v_s"]
+  E -- "away" --> G["Denominator v + v_s"]
+  F --> H["Check: approach raises f, receding lowers it"]
+  G --> H
+```
 
 ### Example 3
 

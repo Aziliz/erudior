@@ -1,0 +1,167 @@
+# Round 2 drills for module phys-m1 (honors lessons on uncertainty and vector algebra).
+- id: phys-m1-r2-sem
+  title: Mean, standard deviation and standard error
+  topic: Measurement uncertainty
+  vars:
+    b: {min: 1.50, max: 3.50, step: 0.01}
+    d1: {min: -0.09, max: 0.09, step: 0.01}
+    d2: {min: -0.09, max: 0.09, step: 0.01}
+    d3: {min: -0.09, max: 0.09, step: 0.01}
+    d4: {min: -0.09, max: 0.09, step: 0.01}
+    d5: {min: -0.09, max: 0.09, step: 0.01}
+  calc:
+    r1: round(b + d1, 2)
+    r2: round(b + d2, 2)
+    r3: round(b + d3, 2)
+    r4: round(b + d4, 2)
+    r5: round(b + d5, 2)
+    m: mean(r1, r2, r3, r4, r5)
+    s: stdev(r1, r2, r3, r4, r5)
+    se: s / sqrt(5)
+  where: ['s > 0.025']
+  prompt: 'Five timings of the same event are {r1:num2}, {r2:num2}, {r3:num2}, {r4:num2} and {r5:num2} s. Find the mean (exact, to 3 decimal places), the sample standard deviation and the standard error of the mean (each to 2 significant figures).'
+  answers:
+    - {name: m, label: 'Mean', format: dp3, tolerance: 0.0006, units: {s: 1}}
+    - {name: s, label: 'Standard deviation', format: sig2, relTolerance: 0.05, units: {s: 1}}
+    - {name: se, label: 'Standard error', format: sig2, relTolerance: 0.05, units: {s: 1}}
+  solution: |-
+    Mean: $\bar t = \dfrac{ {r1:num2} + {r2:num2} + {r3:num2} + {r4:num2} + {r5:num2} }{5} =$ **{m:dp3} s**.
+
+    Standard deviation (divide by $n - 1 = 4$): $s = \sqrt{\dfrac{\sum (t_i - \bar t)^2}{4}} =$ **{s:sig2} s**.
+
+    Standard error: $\delta\bar t = \dfrac{s}{\sqrt5} = \dfrac{ {s:sig3} }{2.236} =$ **{se:sig2} s**.
+- id: phys-m1-r2-pendulum-g
+  title: g from a pendulum, with uncertainty
+  topic: Error propagation
+  vars:
+    L: {min: 0.400, max: 1.500, step: 0.005}
+    err: {min: -0.006, max: 0.006, step: 0.001}
+    dL: {choices: [0.001, 0.002, 0.003, 0.005]}
+    dT: {choices: [0.002, 0.005, 0.01]}
+  calc:
+    T: round(2*pi*sqrt(L/9.80)*(1 + err), 3)
+    grav: 4*pi^2*L/T^2
+    rL: dL/L
+    rT: 2*dT/T
+    rel: sqrt(rL^2 + rT^2)
+    dg: grav*rel
+  prompt: 'A pendulum has length $L = {L:dp3} \pm {dL:dp3}$ m and period $T = {T:dp3} \pm {dT:dp3}$ s. Find $g = 4\pi^2 L/T^2$ (3 significant figures) and its uncertainty $\delta g$, combining relative uncertainties in quadrature (2 significant figures).'
+  answers:
+    - {name: grav, label: '$g =$', format: sig3, relTolerance: 0.002, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {name: dg, label: '$\delta g =$', format: sig2, relTolerance: 0.05, units: {'m/s²': 1, 'm/s^2': 1}}
+  solution: |-
+    $g = \dfrac{4\pi^2({L:dp3})}{({T:dp3})^2} =$ **{grav:sig3} m/s²**.
+
+    Relative uncertainties: $\dfrac{\delta L}{L} = \dfrac{ {dL:dp3} }{ {L:dp3} } = {rL:sig3}$; $T$ is squared, so it contributes $2\dfrac{\delta T}{T} = {rT:sig3}$.
+
+    $\dfrac{\delta g}{g} = \sqrt{({rL:sig3})^2 + ({rT:sig3})^2} = {rel:sig3}$, so $\delta g = {rel:sig3} \times {grav:sig3} =$ **{dg:sig2} m/s²**.
+- id: phys-m1-r2-sphere-volume
+  title: Volume of a sphere, with uncertainty
+  topic: Error propagation
+  vars:
+    dia: {min: 2.00, max: 9.99, step: 0.01}
+    dd: {choices: [0.01, 0.02, 0.05]}
+  calc:
+    V: pi*dia^3/6
+    rel: 3*dd/dia
+    dV: V*rel
+  prompt: 'A ball bearing has diameter $d = {dia:num2} \pm {dd:num2}$ cm. Find its volume $V = \pi d^3/6$ in cm³ (3 significant figures) and the uncertainty $\delta V$ (2 significant figures).'
+  answers:
+    - {name: V, label: '$V =$', format: sig3, sigfigs: 3, units: {'cm³': 1, 'cm^3': 1}}
+    - {name: dV, label: '$\delta V =$', format: sig2, relTolerance: 0.05, units: {'cm³': 1, 'cm^3': 1}}
+  solution: |-
+    $V = \dfrac{\pi({dia:num2})^3}{6} =$ **{V:sig3} cm³**.
+
+    $d$ is cubed, so the relative uncertainty triples: $\dfrac{\delta V}{V} = 3\cdot\dfrac{ {dd:num2} }{ {dia:num2} } = {rel:sig3}$.
+
+    $\delta V = {rel:sig3} \times {V:sig3} =$ **{dV:sig2} cm³**.
+- id: phys-m1-r2-projection
+  title: Scalar projection and perpendicular part
+  topic: Vector projections
+  vars:
+    a1: {min: -6, max: 6}
+    a2: {min: -6, max: 6}
+    a3: {min: -6, max: 6}
+    b1: {min: -4, max: 4}
+    b2: {min: -4, max: 4}
+    b3: {min: -4, max: 4}
+  calc:
+    dot: a1*b1 + a2*b2 + a3*b3
+    A: sqrt(a1^2 + a2^2 + a3^2)
+    B: sqrt(b1^2 + b2^2 + b3^2)
+    sp: dot / B
+    perp: sqrt(max(A^2 - sp^2, 0))
+  where: ['B > 0', 'dot != 0', 'perp > 0.5', 'abs(sp) > 0.5', 'b1 != 0', 'a1 != 0']
+  prompt: 'For $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$ and $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$, find the scalar projection of $\vec A$ onto $\vec B$ (with its sign) and the magnitude of the part of $\vec A$ perpendicular to $\vec B$, each to 3 significant figures.'
+  answers:
+    - {name: sp, label: '$\vec A\cdot\hat B =$', format: sig3, sigfigs: 3}
+    - {name: perp, label: '$|\vec A_\perp| =$', format: sig3, relTolerance: 0.006}
+  solution: |-
+    $\vec A\cdot\vec B = ({a1})({b1}) + ({a2})({b2}) + ({a3})({b3}) = {dot}$ and $|\vec B| = {B:sig4}$, so $\vec A\cdot\hat B = \dfrac{ {dot} }{ {B:sig4} } =$ **{sp:sig3}**.
+
+    $|\vec A|^2 = {a1}^2 + ({a2})^2 + ({a3})^2 = {A:sig4}^2$, and the two parts are perpendicular, so $|\vec A_\perp| = \sqrt{|\vec A|^2 - (\vec A\cdot\hat B)^2} =$ **{perp:sig3}**.
+- id: phys-m1-r2-rotate-axes
+  title: Components in rotated axes
+  topic: Vector projections
+  vars:
+    F: {min: 10, max: 80}
+    th: {min: 0, max: 355, step: 5}
+    ph: {min: 10, max: 60, step: 5}
+  calc:
+    Fx: F*cosd(th)
+    Fy: F*sind(th)
+    Fxp: Fx*cosd(ph) + Fy*sind(ph)
+    Fyp: -Fx*sind(ph) + Fy*cosd(ph)
+  where: ['abs(Fxp) > 1', 'abs(Fyp) > 1']
+  prompt: 'A force of {F} N points at {th}° counterclockwise from the $+x$ axis. New axes $x''$ and $y''$ are the old ones rotated {ph}° counterclockwise. Find $F_{x''}$ and $F_{y''}$ (with signs), each to 3 significant figures.'
+  answers:
+    - {name: Fxp, label: '$F_{x''} =$', format: sig3, relTolerance: 0.006, units: {N: 1}}
+    - {name: Fyp, label: '$F_{y''} =$', format: sig3, relTolerance: 0.006, units: {N: 1}}
+  figure:
+    type: plot
+    x: [-1.2, 1.2]
+    y: [-1.2, 1.2]
+    equal: true
+    segments:
+      - {from: [0, 0], to: ['cosd(th)', 'sind(th)'], arrow: true, label: 'F'}
+      - {from: [0, 0], to: ['1.1*cosd(ph)', '1.1*sind(ph)'], dashed: true, label: 'x′'}
+      - {from: [0, 0], to: ['-1.1*sind(ph)', '1.1*cosd(ph)'], dashed: true, label: 'y′'}
+    caption: 'F = {F} N at {th}°; dashed lines are the rotated axes'
+  solution: |-
+    Old components: $F_x = {F}\cos{th}^\circ = {Fx:sig4}$ N and $F_y = {F}\sin{th}^\circ = {Fy:sig4}$ N.
+
+    $F_{x'} = F_x\cos{ph}^\circ + F_y\sin{ph}^\circ =$ **{Fxp:sig3} N**
+
+    $F_{y'} = -F_x\sin{ph}^\circ + F_y\cos{ph}^\circ =$ **{Fyp:sig3} N**
+
+    Shortcut: the force makes angle ${th}^\circ - {ph}^\circ$ with the new $x'$ axis, so $F_{x'} = F\cos({th}^\circ - {ph}^\circ)$ and $F_{y'} = F\sin({th}^\circ - {ph}^\circ)$.
+- id: phys-m1-r2-triple
+  title: Scalar triple product and volume
+  topic: Triple products
+  vars:
+    a1: {min: -4, max: 4}
+    a2: {min: -4, max: 4}
+    a3: {min: -4, max: 4}
+    b1: {min: -4, max: 4}
+    b2: {min: -4, max: 4}
+    b3: {min: -4, max: 4}
+    c1: {min: -4, max: 4}
+    c2: {min: -4, max: 4}
+    c3: {min: -4, max: 4}
+  calc:
+    k1: b2*c3 - b3*c2
+    k2: b3*c1 - b1*c3
+    k3: b1*c2 - b2*c1
+    t: a1*k1 + a2*k2 + a3*k3
+    vol: abs(t)
+  where: ['t != 0', 'a1 != 0', 'b1 != 0', 'c1 != 0']
+  prompt: 'For $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$, $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$ and $\vec C = {c1}\hat\imath {c2:signed}\hat\jmath {c3:signed}\hat k$ (in meters), find the scalar triple product $\vec A\cdot(\vec B\times\vec C)$ and the volume of the parallelepiped they span (exact).'
+  answers:
+    - {name: t, label: '$\vec A\cdot(\vec B\times\vec C) =$', format: integer}
+    - {name: vol, label: 'Volume', format: integer, units: {'m³': 1, 'm^3': 1}}
+  solution: |-
+    $\vec B\times\vec C = ({k1})\hat\imath + ({k2})\hat\jmath + ({k3})\hat k$.
+
+    $\vec A\cdot(\vec B\times\vec C) = ({a1})({k1}) + ({a2})({k2}) + ({a3})({k3}) =$ **{t}**
+
+    The volume is the absolute value: **{vol} m³**.

@@ -8,10 +8,10 @@
 <path d="M20,250 L200,250 L280,210 L380,210 L460,250 L580,250" fill="none" stroke="#1c2833" stroke-width="3"/>
 <line x1="96" y1="40" x2="124" y2="40" stroke="#1c2833" stroke-width="2"/>
 <line x1="316" y1="100" x2="344" y2="100" stroke="#1c2833" stroke-width="2"/>
-<path d="M20,145 L200,145 L280,165 L380,165 L460,145 L580,145" fill="none" stroke="#244d76" stroke-width="1.5" stroke-dasharray="7 5"/>
-<path d="M20,215 L200,215 L280,195 L380,195 L460,215 L580,215" fill="none" stroke="#244d76" stroke-width="1.5" stroke-dasharray="7 5"/>
-<line x1="30" y1="180" x2="90" y2="180" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
-<line x1="290" y1="180" x2="375" y2="180" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
-<text x="60" y="172" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">v₁</text>
-<text x="333" y="172" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">v₂</text>
+<path d="M20,138 L200,138 L280,162 L380,162 L460,138 L580,138" fill="none" stroke="#244d76" stroke-width="1.5" stroke-dasharray="7 5"/>
+<path d="M20,222 L200,222 L280,198 L380,198 L460,222 L580,222" fill="none" stroke="#244d76" stroke-width="1.5" stroke-dasharray="7 5"/>
+<line x1="40" y1="180" x2="75" y2="180" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="262" y1="180" x2="336" y2="180" stroke="#1c2833" stroke-width="2.5" marker-end="url(#ah)"/>
+<text x="57" y="172" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">v₁</text>
+<text x="293" y="172" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#1c2833">v₂</text>
 </svg>

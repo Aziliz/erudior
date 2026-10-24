@@ -73,6 +73,10 @@ $$\omega = \sqrt{\frac gL}, \qquad T = 2\pi\sqrt{\frac Lg}.$$
 
 The mass cancels (heavy and light bobs swing together, just as they fall together), and the amplitude doesn't matter as long as it's small. Pendulum clocks are adjusted by moving the bob to change $L$.
 
+The picture shows the forces on the bob. Its weight splits into a part along the string, $mg\cos\theta$, which the string's tension balances (with a little extra tension to curve the path), and the part along the arc, $mg\sin\theta$, which pulls the bob back toward the bottom.
+
+![A pendulum of length L hangs from a pivot and is pulled aside by an angle theta from the dashed vertical. The bob's weight mg points straight down and is split into mg cos theta along the string, pointing away from the pivot, and mg sin theta along the arc, pointing back toward the bottom. The arc from the bottom to the bob is marked s = L theta.](images/phys-m6-pendulum.svg)
+
 ### Example 3
 
 How long must a pendulum be to have a period of exactly 2.00 s (a "seconds pendulum," which ticks once per second each way)? Use $g = 9.80$ m/s².
@@ -96,6 +100,19 @@ Newton's second law for a spring is the differential equation
 $$m\frac{d^2x}{dt^2} = -kx \quad\Rightarrow\quad \frac{d^2x}{dt^2} = -\omega^2x, \qquad \omega^2 = \frac km.$$
 
 Try $x = A\cos(\omega t + \phi)$: then $\dfrac{dx}{dt} = -A\omega\sin(\omega t + \phi)$ and $\dfrac{d^2x}{dt^2} = -A\omega^2\cos(\omega t + \phi) = -\omega^2x$ ✓. Any system whose equation of motion has this form oscillates at angular frequency $\omega$, which is how to find the period of a new oscillator: get its equation into the form $\ddot x = -(\text{something})\,x$, and $\omega^2$ is the something. For the pendulum, torque about the pivot gives $mL^2\ddot\theta = -mgL\sin\theta \approx -mgL\theta$, so $\omega^2 = g/L$.
+
+The same recipe works for any oscillator you meet:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the angular frequency of a new oscillator
+  accDescr: Six steps in order. Displace the system slightly from its stable equilibrium. Write the restoring force, or the restoring torque for something that rotates. Apply Newton's second law or its rotational form. Use the small-displacement or small-angle approximation, such as sin theta about equal to theta. Rearrange into the form second derivative of the displacement equals minus a positive constant times the displacement. Then omega is the square root of that constant and the period is 2 pi over omega.
+  A["Displace the system slightly from stable equilibrium"] --> B["Write the restoring force or torque"]
+  B --> C["Apply Newton's second law (or its rotational form)"]
+  C --> D["Use a small-displacement or small-angle approximation"]
+  D --> E["Rearrange to: acceleration = −(constant) × displacement"]
+  E --> F["ω = √(constant), T = 2π/ω"]
+```
 
 The velocity and acceleration are $v = -A\omega\sin(\omega t + \phi)$ and $a = -A\omega^2\cos(\omega t + \phi)$, so $v_{\max} = A\omega$ and $a_{\max} = A\omega^2$. Velocity is a quarter cycle out of step with position: it's largest when $x = 0$.
 

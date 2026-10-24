@@ -41,8 +41,8 @@
     - {name: R, label: '$R$', tolerance: 0.01}
     - {name: r, label: '$r$', tolerance: 0.01}
   solution: |-
-    $s = \dfrac{{a} + {b} + {c}}{2} = {s}$, and Heron gives $K = \sqrt{{pr:num4}} \approx$ **{K:num2}**.
-    Then $R = \dfrac{abc}{4K} = \dfrac{{prod}}{4({K:num4})} \approx$ **{R:num2}** and $r = \dfrac{\,K}{s} = \dfrac{{K:num4}}{{s}} \approx$ **{r:num2}**.
+    $s = \dfrac{{a} + {b} + {c}}{2} = {s}$, and Heron gives $K = \sqrt{{pr:dp2}} \approx$ **{K:num2}**.
+    Then $R = \dfrac{abc}{4K} = \dfrac{{prod:dp0}}{4({K:num4})} \approx$ **{R:num2}** and $r = \dfrac{\,K}{\,s} = \dfrac{{K:num4}}{{s}} \approx$ **{r:num2}**.
 
 - id: trig-m7-r2-half-angle
   title: The largest angle from a half-angle formula

@@ -68,6 +68,27 @@
     Divide the change in $y$ by the change in $x$, which is {wd}:
     $\dfrac{{y2:num4} - ({y1:num4})}{{wd}} \approx$ **{avg:dp3}**.
 
+- id: trig-m4-r2-slope-at
+  title: Slope of a sinusoid at a point
+  topic: Rates of change of sinusoids
+  vars:
+    A: {min: -5, max: 5}
+    B: {choices: [0.5, 1, 2, 3, 4]}
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
+    x0: {min: -3, max: 3, step: 0.1}
+  calc:
+    AB: A * B
+    u: B * x0
+    slope: A * B * if(f == 0, cos(u), -sin(u))
+  where: ["A != 0", "abs(slope) > 0.01"]
+  prompt: 'Find the slope of the graph of $y = {A:coef}{f}({B:coef}x)$ at $x = {x0}$ ($x$ in radians). Give 3 decimals.'
+  answers:
+    - {name: slope, label: 'Slope', tolerance: 0.0006, format: dp3}
+  solution: |-
+    The slope of $y = A\sin(Bx)$ is $AB\cos(Bx)$, and the slope of $y = A\cos(Bx)$ is $-AB\sin(Bx)$.
+    Here $AB = {AB}$ and $Bx = {B}({x0}) = {u:num4}$ radians, so the slope is $\approx$ **{slope:dp3}**.
+    (Check with a difference quotient: the average rate over $[{x0}, {x0} + 0.001]$ comes out very close to this.)
+
 - id: trig-m4-r2-max-rate
   title: Fastest rate of change of a sinusoidal model
   topic: Rates of change of sinusoids
@@ -91,28 +112,9 @@
     $t = {q1}$, reaches its minimum at $t = {q2}$, and crosses the midline going up three quarters of a period after the
     maximum: $t = {C} + \tfrac34({P}) =$ **{tf}**.
 
-- id: trig-m4-r2-small-angle
-  title: Small-angle estimate of a height
-  topic: Small-angle approximations
-  vars:
-    dg: {min: 0.5, max: 6, step: 0.5}
-    dist: {min: 100, max: 1500, step: 50}
-  calc:
-    rad: dg * pi / 180
-    est: dist * rad
-    ex: dist * tan(rad)
-  prompt: 'From {dist} m away, the top of a tower is ${dg}^\circ$ above the horizontal. Convert the angle to radians (4 decimals), estimate the height above eye level with $\tan x \approx x$, and find the height with the tangent itself. Give both heights to the nearest 0.1 m.'
-  answers:
-    - {name: rad, label: 'Angle in radians', tolerance: 0.00006}
-    - {name: est, label: 'Estimate', tolerance: 0.13, units: {'m': 1}}
-    - {name: ex, label: 'Height with tan', tolerance: 0.06, units: {'m': 1}}
-  solution: |-
-    ${dg}^\circ = {dg} \cdot \dfrac{\pi}{180} \approx$ **{rad:num4}** rad. Small angle: height $\approx {dist} \times {rad:num4} \approx$ **{est:num1} m**.
-    With the tangent: ${dist}\tan {dg}^\circ \approx$ **{ex:num1} m**. For an angle this small the two agree closely.
-
 - id: trig-m4-r2-pendulum
   title: Period and length of a pendulum
-  topic: Small-angle approximations
+  topic: Oscillation speed
   vars:
     Lm: {min: 0.2, max: 3, step: 0.1}
     Ts: {min: 0.8, max: 4, step: 0.1}

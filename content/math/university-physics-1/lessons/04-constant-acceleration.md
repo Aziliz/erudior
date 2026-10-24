@@ -21,6 +21,10 @@ The displacement is the area under that line: a rectangle $v_0 t$ plus a triangl
 
 $$x - x_0 = v_0 t + \tfrac12 a t^2. \tag{2}$$
 
+```plot
+{"x": [0, 6], "y": [0, 16], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "4 + 2*x", "from": 0, "to": 5, "label": "v = v0 + at"}], "shade": [{"f": "4 + 2*x", "g": "4", "from": 0, "to": 5}], "polygons": [{"points": [[0, 0], [5, 0], [5, 4], [0, 4]]}], "labels": [{"at": [2.5, 2], "text": "rectangle: v0 t"}, {"at": [3.6, 6.6], "text": "triangle: ½at²"}], "caption": "With v0 = 4 m/s and a = 2 m/s², the area under the v–t line up to 5 s is a rectangle (20 m) plus a triangle (25 m)"}
+```
+
 Because $v$ changes linearly, the average velocity is the average of the end values, $\tfrac12(v_0 + v)$, so
 
 $$x - x_0 = \tfrac12(v_0 + v)\,t. \tag{3}$$
@@ -30,6 +34,19 @@ Eliminating $t$ between (1) and (2) gives a time-free equation:
 $$v^2 = v_0^2 + 2a(x - x_0). \tag{4}$$
 
 Each equation leaves out one of the five quantities $\Delta x, v_0, v, a, t$: (1) has no $\Delta x$, (2) no $v$, (3) no $a$, (4) no $t$. So the strategy is: list the three you know and the one you want, then pick the equation missing the fifth.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a constant-acceleration equation
+  accDescr: First ask whether the acceleration is constant. If not, use calculus or split the motion into phases of constant acceleration. If it is, list the three known quantities and the one wanted, and find the fifth quantity that is neither known nor wanted. If displacement is missing, use v equals v0 plus a t. If final velocity is missing, use delta x equals v0 t plus one half a t squared. If acceleration is missing, use delta x equals one half of v0 plus v, times t. If time is missing, use v squared equals v0 squared plus 2 a delta x.
+  Q{"Is a constant?"} -- no --> N["Integrate a(t), or split into constant-a phases"]
+  Q -- yes --> L["List 3 knowns and 1 unknown wanted"]
+  L --> M{"Which quantity is neither known nor wanted?"}
+  M -- "Δx" --> E1["(1) v = v0 + at"]
+  M -- "v" --> E2["(2) Δx = v0 t + ½at²"]
+  M -- "a" --> E3["(3) Δx = ½(v0 + v)t"]
+  M -- "t" --> E4["(4) v² = v0² + 2aΔx"]
+```
 
 These equations are valid only while $a$ is constant. If a car accelerates and then brakes, treat each phase separately, using the final velocity of the first phase as the initial velocity of the second.
 
@@ -70,6 +87,8 @@ $$v_y^2 = 14.7^2 - 2(9.8)(-20.0) = 216.09 + 392 = 608.09,$$
 so the speed is $\sqrt{608.09} = 24.7$ m/s (and $v_y = -24.7$ m/s, downward).
 
 A useful symmetry: when the ball comes back down past the roof, it has the same speed it was thrown with, 14.7 m/s, and the time up equals the time down.
+
+![A building 20.0 m tall with a ball's vertical path beside it, drawn as an up leg and a down leg side by side. A: thrown up from roof level at 14.7 m/s. B: the top, 11.0 m above the roof, where v = 0. C: back at roof level moving down at 14.7 m/s. D: just before hitting the ground, moving down at 24.7 m/s.](images/phys-m2-roof-throw.svg)
 
 ### Example 3
 

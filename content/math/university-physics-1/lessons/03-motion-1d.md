@@ -70,6 +70,22 @@ The area fact comes from $\Delta x = v\,\Delta t$ for each thin strip of time: t
 
 *Acceleration–time ($a$–$t$) graph.* The area under it is the change in velocity, $\Delta v$.
 
+The four graph facts fit together in one picture: going down the chain takes slopes (derivatives), going back up takes areas (integrals).
+
+```mermaid
+flowchart LR
+  accTitle: How the three motion graphs are linked
+  accDescr: The slope of the position-time graph gives the velocity-time graph, and the slope of the velocity-time graph gives the acceleration-time graph. Going back, the area under the acceleration-time graph gives the change in velocity, and the area under the velocity-time graph gives the displacement.
+  X["x–t graph"] -- slope --> V["v–t graph"]
+  V -- slope --> A["a–t graph"]
+  A -- "area = Δv" --> V
+  V -- "area = Δx" --> X
+```
+
+Reading the direction of motion and whether the object speeds up straight off a $v$–$t$ graph is a skill worth practicing. Above the axis the object moves in $+x$, below it in $-x$; it speeds up wherever the graph moves away from the axis and slows down wherever it moves toward it.
+
+![A velocity-time graph in four straight pieces: rising from 0 to 6 m/s over 4 s (speeding up while moving in +x), flat at 6 m/s until 7 s (constant velocity), falling to zero at 8.5 s (slowing down while still moving in +x), where it turns around, then continuing down to −4 m/s at 9.5 s (speeding up while moving in −x).](images/phys-m2-vt-segments.svg)
+
 ### Example 2
 
 Use the $v$–$t$ graph above. (a) What is the acceleration from 0 to 4 s? (b) What is the displacement from 0 to 7 s? (c) When does the object turn around?

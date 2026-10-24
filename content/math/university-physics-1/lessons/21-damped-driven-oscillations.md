@@ -43,6 +43,18 @@ The system still oscillates, slightly slower than $\omega_0$, inside an envelope
 
 **Overdamped** ($\gamma > \omega_0$, heavy damping). Both roots are real and negative, and $x$ is a sum of two decaying exponentials. The system creeps back to equilibrium without oscillating, more slowly than in the critical case, because the slower exponential ($r = -\gamma + \sqrt{\gamma^2 - \omega_0^2}$, close to zero) lingers. Think of a spring moving through honey.
 
+Which regime you are in comes down to one comparison:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding which damping regime an oscillator is in
+  accDescr: First compute the decay rate gamma equal to b over 2m and the natural frequency omega zero equal to the square root of k over m. Then compare them. If gamma is less than omega zero, the oscillator is underdamped and oscillates at omega prime inside a decaying envelope. If gamma equals omega zero, which is b equal to 2 times the square root of m k, it is critically damped and returns fastest without overshooting. If gamma is greater than omega zero, it is overdamped and creeps back without oscillating.
+  A["Compute γ = b/2m and ω₀ = √(k/m)"] --> B{"Compare γ with ω₀"}
+  B -- "γ less than ω₀" --> C["Underdamped: oscillates at ω′ inside a decaying envelope"]
+  B -- "γ equal to ω₀ (b = 2√(mk))" --> D["Critically damped: fastest return, no overshoot"]
+  B -- "γ greater than ω₀" --> E["Overdamped: creeps back, no oscillation"]
+```
+
 ```plot
 {"x": [0, 6], "y": [-0.6, 1.1], "xLabel": "t (s)", "yLabel": "x (m)", "functions": [{"f": "exp(-0.5*x)*(cos(1.936*x) + 0.2582*sin(1.936*x))", "to": 5.5}, {"f": "(1 + 2*x)*exp(-2*x)", "to": 5.5}, {"f": "1.0303*exp(-0.3431*x) - 0.0303*exp(-11.657*x)", "dashed": true, "to": 5.5}], "labels": [{"at": [2.6, -0.42], "text": "underdamped"}, {"at": [1.75, 0.3], "text": "critical"}, {"at": [3.2, 0.5], "text": "overdamped"}], "caption": "The three regimes for ω₀ = 2 rad/s, each released from rest at x = 1 m: γ = 0.5, 2 and 6 s⁻¹"}
 ```
@@ -82,6 +94,10 @@ $\omega' = \sqrt{100 - 25} = 8.66$ rad/s, so $T' = 2\pi/8.66 = 0.726$ s. Each cy
 Now push the damped oscillator with a sinusoidal force $F_0\cos\omega t$. The **driving frequency** $\omega$ is set by whatever pushes and need not equal $\omega_0$. The equation is
 
 $$m\ddot x + b\dot x + kx = F_0\cos\omega t.$$
+
+The picture shows one way to build this in a lab: a motor-driven wheel moves the far end of the spring back and forth, and a damper (a piston in a cylinder of oil, often called a dashpot) supplies the $-bv$ force.
+
+![A motor-driven wheel at the left pushes a sliding plate back and forth through a connecting rod. The plate is joined by a spring to a mass resting on a track, and the mass is joined to a damper, a piston in a cylinder fixed to the right wall. Labels: driver F0 cos omega t, spring k, mass m, damper b. The equation m x double dot plus b x dot plus k x equals F0 cos omega t is written below.](images/phys-m6-driven-setup.svg)
 
 Its general solution is the damped solution above plus one particular solution. The damped part dies away as $e^{-\gamma t}$ and is called the **transient**. What remains is the **steady state**, an oscillation at the *driving* frequency:
 
