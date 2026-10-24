@@ -412,7 +412,7 @@
   stem: 'An account starts at \$0. At the end of each month it earns 1% interest and then a \$200 deposit is added: $B_n = 1.01\,B_{n-1} + 200$. What is the balance after 3 months?'
   choices: ['\$600.00', '\$612.08', '\$618.18', '\$606.02']
   answer: 3
-  explanation: '$B_1 = 1.01(0) + 200 = 200$, $B_2 = 1.01(200) + 200 = 402$, $B_3 = 1.01(402) + 200 = 606.02$. \$600 ignores interest; \$612.08 adds each deposit before the interest; \$618.18 gives every deposit three months of interest.'
+  explanation: '$B_1 = 1.01(0) + 200 = 200$, $B_2 = 1.01(200) + 200 = 402$, $B_3 = 1.01(402) + 200 = 606.02$. \$600 ignores interest; \$612.08 adds each deposit before the interest; \$618.18 gives all \$600 three months of interest ($600 \times 1.01^3$).'
 - id: a1-h1-r2-h53
   lesson: a1-h1-recursive
   module_quiz: true
@@ -440,9 +440,9 @@
   lesson: a1-h1-recursive
   topic: Recursive models
   type: order
-  stem: 'Put the steps for finding $a_{20}$ of $a_n = r\,a_{n-1} + d$ (with $a_1$ known) without computing all the terms in order.'
-  items: ['Find the equilibrium $E = \dfrac{d}{1 - r}$', 'Find the starting distance $a_1 - E$', 'Write $a_n = E + (a_1 - E)\,r^{\,n-1}$', 'Substitute $n = 20$ and evaluate']
-  explanation: 'The starting distance needs $E$, and the explicit formula needs both $E$ and $a_1 - E$; only then can you substitute $n = 20$.'
+  stem: 'For $a_1 = 50$ and $a_n = 0.5\,a_{n-1} + 30$, put the steps for finding $a_{20}$ without computing all the terms in order.'
+  items: ['Find the equilibrium: $E = \dfrac{30}{1 - 0.5} = 60$', 'Find the starting distance: $a_1 - E = 50 - 60 = -10$', 'Write the explicit formula: $a_n = 60 - 10(0.5)^{n-1}$', 'Substitute $n = 20$: $a_{20} = 60 - 10(0.5)^{19} \approx 59.99998$']
+  explanation: 'Each step uses the result of the one before: the starting distance needs $E = 60$, the explicit formula $a_n = E + (a_1 - E)\,r^{\,n-1}$ needs both $60$ and $-10$, and only then can you substitute $n = 20$.'
 - id: a1-h1-r2-h57
   lesson: a1-h1-recursive
   topic: Recursive models

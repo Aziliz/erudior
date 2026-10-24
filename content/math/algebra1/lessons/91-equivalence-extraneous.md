@@ -13,13 +13,13 @@ Lesson 3 described solving as a chain of **equivalent equations**: each step pro
 
 A step keeps the solution set the same when it can be undone by another legal step. Such a step is a **reversible step**.
 
-- Adding or subtracting the same number or expression on both sides is reversible: subtract it again to undo it.
+- Adding or subtracting the same number or expression on both sides is reversible: subtract it again to undo it. (The expression must make sense for every value of the variable, as $2x$ or $x^2$ does. Adding $\tfrac1x$ to both sides would quietly rule out $x = 0$.)
 - Multiplying or dividing both sides by the same *nonzero number* is reversible: divide or multiply by that number to undo it.
 - Rewriting one side (distributing, combining like terms, factoring) changes how the side looks, not its value, so it's reversible too.
 
 If every step in a solution is reversible, then any number that satisfies the last equation also satisfies the first, and nothing can be gained or lost. That's why linear equations solved in the usual way never need a check for correctness (though a check still catches arithmetic slips).
 
-Two kinds of steps are *not* reversible in general:
+Some steps are *not* reversible in general. They can lose solutions or add them:
 
 | Step | Danger | Example |
 |---|---|---|
@@ -135,7 +135,7 @@ Multiplying both sides by $x - 2$ gives $x = 2$. But at $x = 2$ both denominator
 
 ## Key points
 
-- Equivalent equations have the same solutions. Reversible steps keep equations equivalent: adding the same expression, multiplying by a nonzero number, rewriting a side.
+- Equivalent equations have the same solutions. Reversible steps keep equations equivalent: adding the same number or polynomial, multiplying by a nonzero number, rewriting a side.
 - Dividing by an expression that can be 0, or taking a square root without $\pm$, can lose solutions.
 - Squaring both sides, or multiplying by an expression that can be 0, can add extraneous solutions.
 - For a radical equation: isolate the root, square, solve, and check every candidate in the original equation. The side equal to a square root must be $\ge 0$.

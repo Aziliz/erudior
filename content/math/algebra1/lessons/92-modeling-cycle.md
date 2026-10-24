@@ -41,7 +41,7 @@ A driver going 60 miles per hour takes 1.5 seconds to react before braking. How 
 $$60\,\frac{\text{mi}}{\text{h}} \times \frac{5280 \text{ ft}}{1 \text{ mi}} \times \frac{1 \text{ h}}{3600 \text{ s}} = \frac{60 \times 5280}{3600}\,\frac{\text{ft}}{\text{s}} = 88\,\frac{\text{ft}}{\text{s}}.$$
    Miles cancel against miles and hours against hours, leaving ft/s.
 2. Distance = rate × time: $88\,\tfrac{\text{ft}}{\text{s}} \times 1.5 \text{ s} = 132$ ft.
-3. Interpret and validate: before braking even starts, the car covers 132 ft, longer than a basketball court (94 ft). That's a big number, and it matches the reaction distances that driver handbooks commonly list, so the answer passes the sense check.
+3. Interpret and validate: before braking even starts, the car covers 132 ft, longer than a basketball court (94 ft). That's a big number, but a plausible one: US highway design standards (AASHTO) allow 2.5 seconds for a driver to see a hazard and start braking, a figure chosen to cover most drivers, so 1.5 seconds is a realistic reaction time. The answer passes the sense check.
 
 If the conversion factors had been flipped, the units would come out as $\text{mi}^2/\text{h}^2$ or similar nonsense, and the mistake would show before any arithmetic.
 
@@ -85,7 +85,7 @@ The last family is new. Many quantities settle toward a level that isn't zero: a
 
 $$y = L + a \cdot b^x, \qquad 0 < b < 1.$$
 
-The graph is an exponential decay curve moved up by $L$. Its horizontal asymptote is $y = L$ instead of $y = 0$ (Lesson 30).
+When $a > 0$ (a hot drink cooling), the graph is an exponential decay curve moved up by $L$; when $a < 0$ (a cold drink warming), it is that curve flipped upside down, rising toward $L$. Its horizontal asymptote is $y = L$ instead of $y = 0$ (Lesson 30).
 
 ### Example 3: Coffee, one full cycle
 

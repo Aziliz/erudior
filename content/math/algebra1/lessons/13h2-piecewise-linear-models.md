@@ -35,7 +35,7 @@ Using the phone plan, find $C(7)$ and $C(14.5)$, and find how much data was used
 A bill of exactly \$35 is different: every $g$ from 0 to 10 gives it, so the data used can't be pinned down. A flat piece has many inputs for one output.
 
 ```plot
-{"x": [0, 20], "y": [0, 100], "functions": [{"f": "35", "from": 0, "to": 10}, {"f": "35 + 6*(x - 10)", "from": 10, "to": 20}], "points": [{"at": [10, 35]}, {"at": [14.5, 62]}, {"at": [16, 71]}], "xLabel": "data used (GB)", "yLabel": "monthly bill ($)", "caption": "Flat up to the allowance, then rising $6 per GB", "labels": [{"at": [17, 55], "text": "(14.5, 62)"}, {"at": [13, 76], "text": "(16, 71)"}, {"at": [14, 27], "text": "breakpoint (10, 35)"}]}
+{"x": [0, 20], "y": [0, 100], "functions": [{"f": "35", "from": 0, "to": 10}, {"f": "35 + 6*(x - 10)", "from": 10, "to": 20}], "points": [{"at": [10, 35]}, {"at": [14.5, 62]}, {"at": [16, 71]}], "xLabel": "data used (GB)", "yLabel": "monthly bill ($)", "caption": "Flat up to the allowance, then rising $6 per GB", "labels": [{"at": [17, 55], "text": "(14.5, 62)"}, {"at": [13.8, 75], "text": "(16, 71)"}, {"at": [14, 27], "text": "breakpoint (10, 35)"}]}
 ```
 
 ## Pieces that join, and pieces that jump

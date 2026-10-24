@@ -15,7 +15,7 @@
     - {name: lo, label: 'Smallest integer'}
   solution: |-
     The {cnt} integers are balanced around the middle one, so the sum is {cnt} times the middle integer: middle $= {total} \div {cnt} = {mid}$.
-    There are {half} integers below the middle one, so the smallest is ${mid} - {half} =$ **{lo}**.
+    The smallest integer is $({cnt} - 1) \div 2 = {half}$ below the middle one, so it is ${mid} - {half} =$ **{lo}**.
 
 - id: a1-h1-r2-digit-reverse
   title: The digit-reversal identity
@@ -111,7 +111,7 @@
     mph: 15*kk
     fts: 22*kk
     dist: fts*tt
-  prompt: 'A car travels at {mph} miles per hour. (1 mile = 5,280 feet; 1 hour = 3,600 seconds.) (a) What is its speed in feet per second? (b) How many feet does it travel during a reaction time of {tt} seconds?'
+  prompt: 'A car travels at {mph} miles per hour. (1 mile = 5,280 feet; 1 hour = 3,600 seconds.) (a) What is its speed in feet per second? (b) How many feet does it travel during a reaction time of {tt} s?'
   answers:
     - {name: fts, label: '(a) Speed (ft/s)'}
     - {name: dist, label: '(b) Distance (ft)'}
@@ -222,5 +222,5 @@
   solution: |-
     Equilibrium: $E = {dv} \div (1 - {gr})$, which is {eq}. (It is negative, and the balance moves away from it because the factor is greater than 1.)
     Explicit formula, starting from $B_0 = 0$: $B_n = E + (0 - E)({gr})^n$.
-    That is $B_n = -E\left[({gr})^n - 1\right]$, with $-E$ = {negeq}. Since $({gr})^{{months}} \approx {pw:num4}$, the balance is {negeq} × {pwm:num4} ≈ **{bal:money}**.
+    That is $B_n = -E\left[({gr})^n - 1\right]$, with $-E$ = {negeq}. Since $({gr})^{{months}} \approx {pw:dp8}$ (keep all the calculator digits: rounding this power changes the answer), the balance is {negeq} × {pwm:dp8} ≈ **{bal:money}**.
     You deposited {paid:money}; the rest is interest.

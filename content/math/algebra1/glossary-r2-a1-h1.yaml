@@ -29,7 +29,7 @@
   topic: Algebraic proof
 - term: reversible step
   aliases: [reversible steps]
-  definition: 'A step in solving that another legal step can undo, such as adding the same expression to both sides or multiplying both sides by a nonzero number. Reversible steps keep the solution set the same.'
+  definition: 'A step in solving that another legal step can undo, such as adding the same number or polynomial to both sides or multiplying both sides by a nonzero number. Reversible steps keep the solution set the same.'
   topic: Equivalence and extraneous solutions
 - term: radical equation
   aliases: [radical equations]
@@ -74,8 +74,8 @@
   definition: 'A value that a recursive rule leaves unchanged. For $a_n = r\,a_{n-1} + d$ with $r \ne 1$, it solves $E = rE + d$, so $E = \dfrac{d}{1 - r}$.'
   topic: Recursive models
 - term: stable equilibrium
-  definition: 'An equilibrium that the terms approach from any starting value. For $a_n = r\,a_{n-1} + d$ this happens when $0 < r < 1$.'
+  definition: 'An equilibrium that the terms approach from any starting value. For $a_n = r\,a_{n-1} + d$ with $r > 0$, this happens when $0 < r < 1$.'
   topic: Recursive models
 - term: unstable equilibrium
-  definition: 'An equilibrium that the terms move away from unless they start exactly at it. For $a_n = r\,a_{n-1} + d$ this happens when $r > 1$.'
+  definition: 'An equilibrium that the terms move away from unless they start exactly at it. For $a_n = r\,a_{n-1} + d$ with $r > 0$, this happens when $r > 1$.'
   topic: Recursive models
