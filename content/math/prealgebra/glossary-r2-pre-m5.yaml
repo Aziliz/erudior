@@ -1,0 +1,46 @@
+# Round 2, module pre-m5 (Percents): terms from the honors lessons
+- term: growth factor
+  aliases: [growth factors]
+  definition: 'The number a quantity is multiplied by each period; for growth at rate $r$ it is $1 + r$ (5% growth → 1.05).'
+  topic: Compound interest
+- term: exponential growth
+  definition: 'Growth by multiplying by the same factor each period, as in $A = P(1 + r)^t$; its graph curves upward more and more steeply.'
+  topic: Compound interest
+- term: compounding period
+  aliases: [compounding periods]
+  definition: 'How often interest is added to the balance (yearly, quarterly, monthly, daily); with $n$ periods a year each pays $\tfrac{r}{n}$.'
+  topic: Compound interest
+- term: annual percentage yield
+  aliases: [APY]
+  definition: 'APY: the percent a balance actually grows in one year with compounding included, $\left(1 + \tfrac{r}{n}\right)^n - 1$; used to compare savings accounts.'
+  topic: Compound interest
+- term: APR
+  aliases: [annual percentage rate]
+  definition: 'Annual percentage rate: the yearly cost of a loan as a percent, including some fees but generally not the effect of compounding (a simplified description).'
+  topic: Compound interest
+- term: rule of 72
+  definition: 'Estimate: years to double ≈ 72 ÷ (yearly rate as a percent). Most accurate for rates near 8%.'
+  topic: Compound interest
+- term: doubling time
+  definition: 'The time a growing quantity takes to double; for steady percent growth it does not depend on the starting amount.'
+  topic: Compound interest
+- term: depreciation
+  definition: 'Loss of value over time; a fixed yearly loss of rate $r$ gives $A = P(1 - r)^t$.'
+  topic: Compound interest
+- term: multiplier
+  aliases: [multipliers]
+  definition: 'The number $1 + r$ that a percent change $r$ (as a decimal, negative for a decrease) multiplies by: up 15% → 1.15, down 15% → 0.85.'
+  topic: Percent reasoning
+- term: percentage point
+  aliases: [percentage points]
+  definition: 'The unit for the plain difference between two percents: 4% to 5% is up 1 percentage point (a 25% relative increase).'
+  topic: Percent reasoning
+- term: relative change
+  definition: 'A change compared with the starting value: (new − original) ÷ original, usually written as a percent.'
+  topic: Percent reasoning
+- term: absolute change
+  definition: 'The plain difference new − original, in the quantity''s own units (people, dollars, percentage points).'
+  topic: Percent reasoning
+- term: Simpson's paradox
+  definition: 'A comparison that holds in every group but reverses when the groups are combined, because the groups have different sizes.'
+  topic: Percent reasoning

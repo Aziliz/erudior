@@ -11,7 +11,7 @@ refs: [phys-ref-em-modern]
 
 Real circuits combine many components: the bulbs in a string of lights, the resistors on a circuit board, the appliances on a household circuit. This lesson shows how to reduce series and parallel combinations to a single equivalent resistance, how a battery's internal resistance affects what it delivers, and how Kirchhoff's two rules solve any circuit, even ones that can't be simplified.
 
-Since circuit diagrams are hard to draw here, circuits are described in words: "in series" means one after another along a single path; "in parallel" means side by side, each connected across the same two points.
+Circuits are shown in diagrams below and also described in words: "in series" means one after another along a single path; "in parallel" means side by side, each connected across the same two points.
 
 The worked examples below also come with circuit diagrams, which use the standard symbols in this key. On a battery the longer plate is the $+$ terminal. Lines are ideal wires with no resistance, and a dot marks a junction where wires join.
 

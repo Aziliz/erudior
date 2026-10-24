@@ -92,7 +92,7 @@ an alternating voltage with peak value $NBA\omega$. This is an AC **generator**.
 
 Changing flux through a solid piece of metal induces swirling **eddy currents** inside it. They heat the metal (induction stoves heat the pan directly) and, by Lenz's law, they resist motion, which is how magnetic brakes on trains and roller coasters work. Transformer and motor cores are made of thin insulated layers to block eddy currents and their energy loss.
 
-A **transformer** has two coils wound on a shared iron core. An alternating current in the primary coil ($N_p$ turns) creates a changing flux that passes through the secondary ($N_s$ turns), inducing a voltage
+A **transformer** has two coils wound on a shared iron core. An alternating current in the primary coil ($N_p$ turns) creates a changing flux that passes through the secondary ($N_s$ turns), inducing a voltage.
 
 ![A transformer: a rectangular iron core with a few turns of a primary coil, connected to an AC source, wound on its left side, and many turns of a secondary coil, connected to a load, wound on its right side.](images/phys-m10-transformer.svg)
 

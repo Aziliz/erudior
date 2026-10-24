@@ -178,7 +178,7 @@
     - 'Thermal expansion of a rod, $\Delta L = \alpha L\Delta T$'
   answer: [0, 1]
   explanation: |-
-    The gas law and the Stefan–Boltzmann law use the temperature itself, so they need the absolute (kelvin) scale. $Q = mc\Delta T$ and $\Delta L = \alpha L\Delta T$ use only a temperature *difference*, which is the same in kelvins and Celsius degrees.
+    The gas law and the Stefan–Boltzmann law use the temperature itself, so they need the absolute (kelvin) scale. $Q = mc\Delta T$ and $\Delta L = \alpha L\Delta T$ use only a temperature difference, which is the same in kelvins and Celsius degrees.
 - id: phys-m7-r2-q15
   lesson: phys-heat
   type: match
@@ -299,7 +299,7 @@
     - 'The pressure of the gas stays constant'
   answer: [0, 1]
   explanation: |-
-    Expanding, the gas does positive work. Its temperature is fixed, so $\Delta E_{\text{int}} = 0$, and the first law gives $Q = W > 0$: it absorbs exactly as much heat as the work it does. With $T$ fixed, $PV$ is constant, so the pressure *falls* as the volume grows.
+    Expanding, the gas does positive work. Its temperature is fixed, so $\Delta E_{\text{int}} = 0$, and the first law gives $Q = W > 0$: it absorbs exactly as much heat as the work it does. With $T$ fixed, $PV$ is constant, so the pressure falls as the volume grows.
 - id: phys-m7-r2-q25
   lesson: phys-first-law
   type: order
@@ -327,7 +327,7 @@
     - {x: 46.9, y: 66.3, text: Heat exhausted to the cold reservoir}
   distractors: [Work input]
   explanation: |-
-    An engine takes heat $Q_H$ (3) from the hot reservoir (1), turns part of it into work $W$ (4), and exhausts the rest, $Q_C$ (5), to the cold reservoir (2), so $W = Q_H - Q_C$. Work goes *in* only for a refrigerator or heat pump.
+    An engine takes heat $Q_H$ (3) from the hot reservoir (1), turns part of it into work $W$ (4), and exhausts the rest, $Q_C$ (5), to the cold reservoir (2), so $W = Q_H - Q_C$. Work goes in only for a refrigerator or heat pump.
 - id: phys-m7-r2-q27
   lesson: phys-second-law
   type: text
@@ -374,7 +374,7 @@
     - ['$Q_H - Q_C$', Work done by an engine in one cycle]
   distractors: [Heat absorbed from the cold reservoir by an engine]
   explanation: |-
-    $1 - T_C/T_H$ is the Carnot limit (kelvins). A refrigerator's COP is the heat removed per unit of work, $Q_C/W$. $\Delta S = Q/T$ at constant $T$. The first law over a cycle gives $W = Q_H - Q_C$. An engine *rejects* heat to the cold reservoir; it does not absorb heat from it.
+    $1 - T_C/T_H$ is the Carnot limit (kelvins). A refrigerator's COP is the heat removed per unit of work, $Q_C/W$. $\Delta S = Q/T$ at constant $T$. The first law over a cycle gives $W = Q_H - Q_C$. An engine rejects heat to the cold reservoir; it does not absorb heat from it.
 
 # ---------- Honors 29h1: Real fluids ----------
 - id: phys-m7-r2-h01
@@ -529,7 +529,7 @@
     - 'The heat taken in includes the work done on the gas'
   answer: 1
   explanation: |-
-    Over a cycle $\Delta E_{\text{int}} = 0$, so $Q_{\text{net}} = W_{\text{net}}$. Efficiency asks what fraction of the heat you had to *supply* came out as work, so the denominator is the heat taken in, $Q_{\text{in}}$.
+    Over a cycle $\Delta E_{\text{int}} = 0$, so $Q_{\text{net}} = W_{\text{net}}$. Efficiency asks what fraction of the heat you had to supply came out as work, so the denominator is the heat taken in, $Q_{\text{in}}$.
 - id: phys-m7-r2-h17
   lesson: phys-m7-h-engine-cycles
   topic: Engine cycles
@@ -791,4 +791,4 @@
     - 'Infrared cannot travel through a vacuum'
   answer: 0
   explanation: |-
-    By Wien's law the 5800 K Sun peaks in visible light and the 288 K ground in the infrared. Air is largely transparent to the first, while water vapor and CO₂ absorb strongly in parts of the second, so incoming energy gets in more easily than outgoing energy gets out. Longer wavelengths carry *less* energy per photon, and infrared crosses a vacuum like any light.
+    By Wien's law the 5800 K Sun peaks in visible light and the 288 K ground in the infrared. Air is largely transparent to the first, while water vapor and CO₂ absorb strongly in parts of the second, so incoming energy gets in more easily than outgoing energy gets out. Longer wavelengths carry less energy per photon, and infrared crosses a vacuum like any light.

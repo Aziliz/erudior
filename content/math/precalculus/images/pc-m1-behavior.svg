@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" width="600" height="520" font-family="sans-serif" role="img"><title>Graph of a cubic with a local maximum and a local minimum</title><rect width="600" height="520" fill="#ffffff"/><defs><clipPath id="c"><rect x="24" y="24" width="552" height="472"/></clipPath></defs><line x1="24.0" y1="24" x2="24.0" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="102.9" y1="24" x2="102.9" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="181.7" y1="24" x2="181.7" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="260.6" y1="24" x2="260.6" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="339.4" y1="24" x2="339.4" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="418.3" y1="24" x2="418.3" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="497.1" y1="24" x2="497.1" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="576.0" y1="24" x2="576.0" y2="496" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="496.0" x2="576" y2="496.0" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="443.6" x2="576" y2="443.6" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="391.1" x2="576" y2="391.1" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="338.7" x2="576" y2="338.7" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="286.2" x2="576" y2="286.2" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="233.8" x2="576" y2="233.8" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="181.3" x2="576" y2="181.3" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="128.9" x2="576" y2="128.9" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="76.4" x2="576" y2="76.4" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="24.0" x2="576" y2="24.0" stroke="#e3e8ee" stroke-width="1"/>
+<line x1="24" y1="233.8" x2="576" y2="233.8" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="260.6" y1="24" x2="260.6" y2="496" stroke="#1c2833" stroke-width="1.5"/>
+<text x="572" y="225.8" font-size="16" font-style="italic" text-anchor="end" fill="#1c2833">x</text>
+<text x="268.6" y="38" font-size="16" font-style="italic" fill="#1c2833">y</text>
+<text x="181.7" y="251.8" font-size="14" text-anchor="middle" fill="#1c2833">-1</text>
+<text x="339.4" y="251.8" font-size="14" text-anchor="middle" fill="#1c2833">1</text>
+<text x="418.3" y="251.8" font-size="14" text-anchor="middle" fill="#1c2833">2</text>
+<text x="497.1" y="251.8" font-size="14" text-anchor="middle" fill="#1c2833">3</text>
+<text x="254.6" y="448.6" font-size="14" text-anchor="end" fill="#1c2833">-8</text>
+<text x="254.6" y="396.1" font-size="14" text-anchor="end" fill="#1c2833">-6</text>
+<text x="254.6" y="343.7" font-size="14" text-anchor="end" fill="#1c2833">-4</text>
+<text x="254.6" y="291.2" font-size="14" text-anchor="end" fill="#1c2833">-2</text>
+<text x="254.6" y="186.3" font-size="14" text-anchor="end" fill="#1c2833">2</text>
+<text x="254.6" y="133.9" font-size="14" text-anchor="end" fill="#1c2833">4</text>
+<text x="254.6" y="81.4" font-size="14" text-anchor="end" fill="#1c2833">6</text>
+<polyline points="47.7,559.4 50.2,539.1 52.8,519.3 55.4,500.1 58.0,481.3 60.6,463.1 63.2,445.4 65.7,428.2 68.3,411.5 70.9,395.3 73.5,379.6 76.1,364.4 78.6,349.7 81.2,335.4 83.8,321.6 86.4,308.3 89.0,295.4 91.6,283.0 94.1,271.0 96.7,259.4 99.3,248.3 101.9,237.7 104.5,227.4 107.1,217.6 109.6,208.2 112.2,199.1 114.8,190.5 117.4,182.3 120.0,174.5 122.6,167.0 125.1,160.0 127.7,153.3 130.3,147.0 132.9,141.0 135.5,135.4 138.0,130.2 140.6,125.3 143.2,120.7 145.8,116.5 148.4,112.6 151.0,109.1 153.5,105.8 156.1,102.9 158.7,100.3 161.3,97.9 163.9,95.9 166.5,94.2 169.0,92.7 171.6,91.5 174.2,90.6 176.8,90.0 179.4,89.7 182.0,89.6 184.5,89.7 187.1,90.1 189.7,90.7 192.3,91.6 194.9,92.7 197.4,94.0 200.0,95.6 202.6,97.4 205.2,99.3 207.8,101.5 210.4,103.9 212.9,106.4 215.5,109.2 218.1,112.1 220.7,115.2 223.3,118.5 225.9,121.9 228.4,125.5 231.0,129.3 233.6,133.2 236.2,137.2 238.8,141.4 241.3,145.7 243.9,150.1 246.5,154.7 249.1,159.4 251.7,164.1 254.3,169.0 256.8,174.0 259.4,179.1 262.0,184.2 264.6,189.5 267.2,194.8 269.8,200.2 272.3,205.6 274.9,211.1 277.5,216.7 280.1,222.3 282.7,227.9 285.3,233.6 287.8,239.3 290.4,245.1 293.0,250.9 295.6,256.6 298.2,262.4 300.7,268.2 303.3,274.0 305.9,279.8 308.5,285.6 311.1,291.4 313.7,297.1 316.2,302.8 318.8,308.5 321.4,314.1 324.0,319.7 326.6,325.2 329.2,330.7 331.7,336.1 334.3,341.4 336.9,346.7 339.5,351.9 342.1,357.0 344.7,362.0 347.2,366.9 349.8,371.8 352.4,376.5 355.0,381.1 357.6,385.6 360.1,389.9 362.7,394.2 365.3,398.3 367.9,402.2 370.5,406.0 373.1,409.7 375.6,413.2 378.2,416.5 380.8,419.7 383.4,422.7 386.0,425.5 388.6,428.2 391.1,430.6 393.7,432.9 396.3,435.0 398.9,436.8 401.5,438.4 404.1,439.9 406.6,441.1 409.2,442.0 411.8,442.8 414.4,443.3 417.0,443.5 419.5,443.5 422.1,443.3 424.7,442.8 427.3,442.0 429.9,440.9 432.5,439.6 435.0,438.0 437.6,436.1 440.2,433.9 442.8,431.4 445.4,428.6 448.0,425.5 450.5,422.0 453.1,418.3 455.7,414.2 458.3,409.8 460.9,405.0 463.5,399.9 466.0,394.5 468.6,388.7 471.2,382.5 473.8,376.0 476.4,369.1 478.9,361.8 481.5,354.1 484.1,346.1 486.7,337.6 489.3,328.8 491.9,319.5 494.4,309.9 497.0,299.8 499.6,289.3 502.2,278.4 504.8,267.0 507.4,255.2 509.9,243.0 512.5,230.3 515.1,217.2 517.7,203.6 520.3,189.5 522.9,174.9 525.4,159.9 528.0,144.4 530.6,128.4 533.2,112.0 535.8,95.0 538.3,77.5 540.9,59.5 543.5,41.0 546.1,22.0 548.7,2.4 551.3,-17.7 553.8,-38.3 556.4,-59.5 559.0,-81.2 561.6,-103.5 564.2,-126.3" fill="none" stroke="#244d76" stroke-width="3" stroke-linejoin="round" clip-path="url(#c)"/>
+<circle cx="181.7" cy="89.6" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
+<circle cx="418.3" cy="443.6" r="6" fill="#1c2833" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="105.5" y="57.6" width="152.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
+<text x="181.7" y="73.6" font-size="15" text-anchor="middle" fill="#1c2833">local max (−1, 5.5)</text>
+<rect x="349.5" y="457.6" width="137.5" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
+<text x="418.3" y="473.6" font-size="15" text-anchor="middle" fill="#1c2833">local min (2, −8)</text>
+<rect x="86.1" y="348.9" width="85.0" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
+<text x="91.1" y="364.9" font-size="15" text-anchor="start" fill="#1c2833">increasing</text>
+<rect x="314.9" y="257.1" width="85.0" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
+<text x="319.9" y="273.1" font-size="15" text-anchor="start" fill="#1c2833">decreasing</text>
+<rect x="440.8" y="112.9" width="85.0" height="23" rx="4" fill="#ffffff" fill-opacity="0.9" stroke="#1c2833" stroke-width="1"/>
+<text x="520.8" y="128.9" font-size="15" text-anchor="end" fill="#1c2833">increasing</text></svg>

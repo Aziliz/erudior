@@ -14,7 +14,7 @@ In the place value lesson you estimated $38 \times 589$ as $40 \times 600 = 24{,
 
 ## Upper and lower bounds
 
-A **lower bound** is a number the exact answer can't be below; an **upper bound** is a number it can't be above. Together they trap the answer in a range.
+A *lower bound* is a number the exact answer can't be below; an *upper bound* is a number it can't be above. Together they trap the answer in a range.
 
 For sums and products of whole numbers, the trick is to round *every* number down to get a lower bound and *every* number up to get an upper bound. Rounding a number down makes a sum or product smaller (or leaves it the same), and rounding up makes it larger.
 

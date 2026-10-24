@@ -1,0 +1,22 @@
+# Round 2, module phys-m11: cards for the honors lessons (polarization; interferometers).
+# ---- Honors: polarization by reflection, scattering and birefringence
+- {front: 'Brewster''s angle', back: '$\tan\theta_B = n_2/n_1$; reflected light is completely polarized perpendicular to the plane of incidence (parallel to the surface)', topic: Polarization by reflection and scattering}
+- {front: 'Geometry at Brewster''s angle', back: 'The reflected and refracted rays are perpendicular: $\theta_B + \theta_2 = 90^\circ$', topic: Polarization by reflection and scattering}
+- {front: 'Why p light doesn''t reflect at Brewster''s angle', back: 'The electrons that would send it oscillate along the reflected direction, and an oscillating charge does not radiate along its own line of motion', topic: Polarization by reflection and scattering}
+- {front: 'Brewster''s angle vs critical angle (going to lower n)', back: 'Brewster: $\tan\theta_B = n_2/n_1$; critical: $\sin\theta_c = n_2/n_1$. Brewster''s angle is always smaller.', topic: Polarization by reflection and scattering}
+- {front: 'Rayleigh scattering', back: 'Scattering by particles much smaller than $\lambda$; intensity $\propto 1/\lambda^4$ (blue sky, red sunsets)', topic: Polarization by reflection and scattering}
+- {front: 'Polarization of skylight', back: 'Strongest about $90^\circ$ from the Sun (typically 70–80% at most)', topic: Polarization by reflection and scattering}
+- {front: 'Birefringence', back: 'Two indices ($n_o$, $n_e$) for two perpendicular polarizations; calcite: 1.658 and 1.486 at 589 nm', topic: Birefringence}
+- {front: 'Quarter-wave plate thickness', back: '$t = \dfrac{\lambda}{4|n_e - n_o|}$; turns linear light at $45^\circ$ into circular light', topic: Birefringence}
+- {front: 'Half-wave plate', back: 'Delays one component by $\lambda/2$; rotates linear polarization at $\alpha$ to the fast axis by $2\alpha$', topic: Birefringence}
+- {front: 'Twisted nematic LCD pixel', back: 'Liquid crystal between crossed polarizers: twisted (no voltage) rotates polarization $90^\circ$, bright; voltage untwists it, dark', topic: Birefringence}
+# ---- Honors: interferometers
+- {front: 'Air wedge: dark fringes (one flip)', back: '$2t = m\lambda$, with a dark line where the plates touch', topic: Air wedges and Newton's rings}
+- {front: 'Air wedge fringe spacing', back: '$\Delta x = \dfrac{\lambda L}{2D}$ ($D$ = spacer thickness at distance $L$)', topic: Air wedges and Newton's rings}
+- {front: 'Optical flat: one fringe', back: 'A height step of $\lambda/2$ in the air gap', topic: Air wedges and Newton's rings}
+- {front: 'Newton''s rings', back: 'Gap $t \approx r^2/(2R)$; dark rings at $r_m = \sqrt{m\lambda R}$, dark center, rings crowd together outward', topic: Air wedges and Newton's rings}
+- {front: 'Michelson interferometer: fringe count', back: '$N = \dfrac{2\Delta d}{\lambda}$: one fringe per $\lambda/2$ of mirror motion', topic: Interferometers}
+- {front: 'Gas cell in an interferometer', back: '$N = \dfrac{2L(n - 1)}{\lambda}$ as the cell fills', topic: Interferometers}
+- {front: 'Coherence length', back: '$\ell_c \approx \lambda^2/\Delta\lambda$: about 1 μm for white light; fringes vanish for longer path differences', topic: Interferometers}
+- {front: 'Michelson–Morley experiment (1887)', back: 'Expected about 0.4 fringe of shift from an ether wind; saw almost none. Explained by special relativity.', topic: Interferometers}
+- {front: 'LIGO', back: 'Michelson interferometers with 4 km arms; detected gravitational waves in 2015 from arm changes of a few times $10^{-18}$ m', topic: Interferometers}

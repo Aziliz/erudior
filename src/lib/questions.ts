@@ -37,29 +37,40 @@ export function normText(s: string, caseSensitive = false): string {
 
 const NUM = /^[-+]?(\d+(\.\d*)?|\.\d+)(e[-+]?\d+)?$/i;
 const FRAC = /^([-+]?)(\d+)\/(\d+)$/;
+const MIXED = /^([-+]?)(\d+) (\d+)\/(\d+)$/;
+
+/** Drops spaces, except one between two digits ("1 1/2" stays a mixed number, not "11/2"). */
+function compact(s: string): string {
+  return s.replace(/\s+/g, " ").replace(/ (?!\d)|(?<!\d) /g, "");
+}
 
 /** The value of a plain number or simple fraction ("0.5", ".5", "1/2", "-3/4"), else null. */
 function numValue(s: string): number | null {
-  const t = s.replace(/,/g, "");
+  let t = s.replace(/,/g, "");
+  if (/^[-+]?\d{1,3}( \d{3})+(\.\d*)?$/.test(t)) t = t.replace(/ /g, ""); // "1 000 000"
   if (NUM.test(t)) return Number(t);
   const f = FRAC.exec(t);
   if (f && Number(f[3]) !== 0) return (f[1] === "-" ? -1 : 1) * (Number(f[2]) / Number(f[3]));
+  const m = MIXED.exec(t);
+  if (m && Number(m[4]) !== 0) return (m[1] === "-" ? -1 : 1) * (Number(m[2]) + Number(m[3]) / Number(m[4]));
   return null;
 }
 
 /**
  * True if a typed answer matches one of the accepted ones. Spaces don't matter ("x + 3" = "x+3"),
- * and numbers compare by value, fractions included ("1/2" = "0.5" = ".5").
+ * and numbers compare by value, fractions and mixed numbers included ("1/2" = "0.5" = ".5",
+ * "1 1/2" = "3/2" = "1.5"). A space between two digits is kept, so "1 1/2" never reads as "11/2".
  */
 export function textMatches(typed: string, accepted: string[], caseSensitive = false): boolean {
   const t = normText(typed, caseSensitive);
   if (!t) return false;
-  const tc = t.replace(/\s+/g, "");
+  const tc = compact(t);
   const tv = numValue(tc);
   return accepted.some((a) => {
     const n = normText(a, caseSensitive);
-    if (n === t || n.replace(/\s+/g, "") === tc) return true;
-    const av = numValue(n.replace(/\s+/g, ""));
+    const nc = compact(n);
+    if (n === t || nc === tc) return true;
+    const av = numValue(nc);
     return tv !== null && av !== null && Math.abs(tv - av) <= 1e-9 * Math.max(1, Math.abs(av));
   });
 }

@@ -84,19 +84,15 @@ Many real shapes are combinations of rectangles, triangles and trapezoids. Find 
 This chart sums up which formula to reach for:
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Choosing an area formula
-  accDescr: First ask what shape it is. A rectangle uses length times width. A square uses side times side. A parallelogram uses base times height. A triangle uses half of base times height. A trapezoid uses half the sum of the two bases times the height. Any other shape is split into these shapes, or a missing piece is subtracted from a larger shape. For the parallelogram, triangle and trapezoid, the height must be the perpendicular height, never a slanted side.
+  accDescr: First ask what shape it is. A rectangle uses length times width, and a square side times side. A parallelogram uses base times perpendicular height. A triangle uses half of base times perpendicular height. A trapezoid uses half the sum of the two bases times the perpendicular height. Any other shape is split into these shapes, or a missing piece is subtracted from a larger shape.
   Q{"What shape is it?"}
-  Q -- "rectangle" --> R["A = length × width"]
-  Q -- "square" --> S["A = side × side"]
-  Q -- "parallelogram" --> P["A = base × height"]
-  Q -- "triangle" --> T["A = half of base × height"]
-  Q -- "trapezoid" --> Z["A = half of (b1 + b2) × height"]
+  Q -- "rectangle or square" --> R["A = length × width (square: side × side)"]
+  Q -- "parallelogram" --> P["A = base × perpendicular height"]
+  Q -- "triangle" --> T["A = half of base × perpendicular height"]
+  Q -- "trapezoid" --> Z["A = half of (b1 + b2) × perpendicular height"]
   Q -- "something else" --> C["Split it into these shapes, or subtract a missing piece"]
-  P --> H["Use the perpendicular height, never a slanted side"]
-  T --> H
-  Z --> H
 ```
 
 ### Example 4

@@ -62,6 +62,23 @@ Most whole numbers aren't perfect squares, so their square roots aren't whole nu
 
 This gives a full picture of the numbers in this course. A **rational number** is any number that can be written as a fraction $\tfrac{a}{b}$ of two integers with $b \ne 0$: every integer ($-4 = \tfrac{-4}{1}$), every fraction and mixed number, and every terminating or repeating decimal ($0.\overline{3} = \tfrac13$). Irrational numbers, such as $\sqrt{2}$, $\sqrt{58}$ and $\pi$, are exactly the numbers on the number line that can't be written that way. Together the rational and irrational numbers make up the **real numbers**, every point on the number line.
 
+The picture shows how these sets fit inside one another: every whole number is an integer, every integer is rational, and the rational and irrational numbers together fill up the real numbers.
+
+![Nested boxes. The outer box, real numbers, holds two boxes side by side: rational numbers and irrational numbers. Inside rational numbers is a box for integers, and inside that a box for whole numbers. Examples: whole numbers 0, 7, 25 and 100; integers −4 and −12; other rational numbers 3/4, 0.25, −2.6 and 0.333…; irrational numbers √2, π, √58 and −√7.](images/pre-m6-real-numbers.svg)
+
+For a square root, the question "rational or irrational?" comes down to whether the number under the radical is the square of something simple:
+
+```mermaid
+flowchart TD
+  accTitle: Is a square root rational?
+  accDescr: Start with the square root of a number n that is an integer, fraction or decimal. If n is negative, the root is not a real number. If n is the square of a whole number, fraction or decimal, such as 49, 9/25 or 0.36, the root is rational and exact. Otherwise the root is irrational, and you can estimate it between two whole numbers.
+  A["Square root of n (an integer, fraction or decimal)"] --> B{"Is n negative?"}
+  B -- yes --> C["Not a real number"]
+  B -- no --> D{"Is n the square of a whole number, fraction or decimal, like 49, 9/25 or 0.36?"}
+  D -- yes --> E["Rational: the root is exact"]
+  D -- no --> F["Irrational: estimate it between two whole numbers"]
+```
+
 ### Example 2
 
 Between which two consecutive whole numbers is $\sqrt{58}$? Estimate it to one decimal place.

@@ -31,6 +31,10 @@ Revenue per visitor in July: $14{,}880 \div 1{,}860 = 8$ dollars. Percent increa
 
 A **bar graph** compares amounts across categories using bars whose lengths are proportional to the amounts. Read a bar's value from where its top meets the scale on the vertical axis.
 
+Every graph has the same working parts. Before reading any value, find each of them:
+
+![A bar graph titled Favorite lunch with bars for Pizza 18, Tacos 12, Salad 6 and Soup 9. Lettered tags mark its parts: A the title, B the vertical axis label Number of students, C the scale 0 to 20 in steps of 5, D a bar, E a category label under a bar, and F the horizontal axis label Lunch choice.](images/pre-m9-graph-parts.svg)
+
 ```plot
 {"x": [0, 6], "y": [0, 50], "bars": [{"x": 1, "height": 35, "width": 0.7, "label": "Mon"}, {"x": 2, "height": 20, "width": 0.7, "label": "Tue"}, {"x": 3, "height": 45, "width": 0.7, "label": "Wed"}, {"x": 4, "height": 30, "width": 0.7, "label": "Thu"}, {"x": 5, "height": 40, "width": 0.7, "label": "Fri"}], "xLabel": "Day", "yLabel": "Books sold", "caption": "Books sold at a store, Monday to Friday"}
 ```
@@ -44,6 +48,10 @@ Using the bar graph: (a) How many more books were sold on Wednesday than on Tues
 (b) Total: $35 + 20 + 45 + 30 + 40 = 170$. Mean: $170 \div 5 = 34$ books per day.
 
 *Watch the scale.* A vertical axis that doesn't start at zero exaggerates differences: if the axis ran from 15 to 50, Tuesday's bar would look a tiny fraction of Wednesday's even though Wednesday's value is a bit more than double. Always check where the scale starts.
+
+![Two bar graphs of the same data, Tuesday 20 and Wednesday 45. On the left the scale starts at 0 and Wednesday's bar is a bit more than twice as tall as Tuesday's. On the right the scale starts at 15, so Tuesday's bar is very short and Wednesday's looks about six times as tall.](images/pre-m9-truncated.svg)
+
+On the right, Tuesday's bar shows only $20 - 15 = 5$ units and Wednesday's shows $45 - 15 = 30$, so Wednesday *looks* 6 times as big, though $45 \div 20 = 2.25$.
 
 ## Line graphs
 
@@ -89,6 +97,21 @@ Rent: $0.40 \times 3{,}000 = 1{,}200$. Transport: $0.15 \times 3{,}000 = 450$. D
 | Bar graph | comparing amounts across categories |
 | Line graph | change over time |
 | Circle graph | parts of a whole (percent shares) |
+
+The same choice as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a display for data
+  accDescr: Ask what the reader should see. If it is change over time, use a line graph. If not, and the data are parts of one whole, use a circle graph. If not, and the goal is comparing categories at a glance, use a bar graph. If exact values are needed instead, use a table.
+  A[What should the reader see?] --> B{"Change over time?"}
+  B -- Yes --> C[Line graph]
+  B -- No --> D{"Parts of one whole?"}
+  D -- Yes --> E[Circle graph]
+  D -- No --> F{"Compare categories at a glance?"}
+  F -- Yes --> G[Bar graph]
+  F -- "No, exact values" --> H[Table]
+```
 
 ## Frequency tables
 

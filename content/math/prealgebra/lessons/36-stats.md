@@ -27,6 +27,8 @@ Sum: $8 + 6 + 10 + 7 + 9 + 8 = 48$. There are 6 scores. Mean $= 48 \div 6 = 8$.
 
 The mean is a *balance point*. If you place the values as weights on a number line, the mean is where it would balance. That's why the distances above the mean exactly cancel the distances below it: here the deviations are $0, -2, +2, -1, +1, 0$, which sum to zero.
 
+![A number line drawn as a seesaw beam resting on a triangle at 8. Dots sit above it at 6, 7, two at 8, 9 and 10. The text says the distances below 8 add to 3 and the distances above 8 add to 3, so the beam balances at the mean, 8.](images/pre-m9-balance.svg)
+
 Because the mean uses every value, one unusually large or small value, an **outlier**, can pull it a long way. If a seventh quiz score of 0 is added (a missed quiz), the mean drops to $48 \div 7 \approx 6.9$, below five of the seven scores.
 
 ## The median
@@ -85,6 +87,25 @@ Total of six: $6 \times 12 = 72$. Total of seven: $7 \times 13 = 91$. The new nu
 | Values fairly symmetric, no outliers | mean |
 | Outliers or a lopsided (skewed) data set | median |
 | Categories, or "most popular" | mode |
+
+The same choice as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a measure of center
+  accDescr: Start with the data to summarize. If the data are categories, such as favorite colors, use the mode. If the data are numbers, ask whether there are outliers or the data are lopsided. If yes, use the median; if no, use the mean. Either way, report a measure of spread such as the range along with the center.
+  A[Data to summarize] --> B{"Numbers or categories?"}
+  B -- Categories --> C[Use the mode]
+  B -- Numbers --> D{"Outliers, or lopsided data?"}
+  D -- Yes --> E[Use the median]
+  D -- No --> F[Use the mean]
+  E --> G["Also give a spread, such as the range"]
+  F --> G
+```
+
+The picture below puts all four measures on one dot plot of the data 1, 7, 8, 9, 9, 10. The outlier, 1, drags the mean (about 7.3) to the left of the median (8.5), while the mode sits where the dots stack highest.
+
+![A dot plot of 1, 7, 8, 9, 9, 10 on a number line from 0 to 11. The dot at 1 is marked as an outlier. A triangle under the line at about 7.3 marks the mean, and a diamond at 8.5 marks the median. The stack of two dots at 9 is the mode. A bracket above the dots from 1 to 10 shows the range, 9.](images/pre-m9-center-spread.svg)
 
 ### Example 6
 

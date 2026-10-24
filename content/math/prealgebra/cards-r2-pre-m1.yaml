@@ -1,0 +1,35 @@
+# Round 2, module pre-m1: cards for the new core pictures and the honors lessons.
+- {front: 'Area model for $47 \times 36$', back: 'Split 47 = 40 + 7 and 36 = 30 + 6: $1{,}200 + 210 + 240 + 42 = 1{,}692$.', topic: 'Whole number operations'}
+- {front: 'GCF and LCM from a Venn diagram of prime factors', back: 'GCF = product of the overlap (shared primes); LCM = product of everything in the diagram.', topic: 'GCF and LCM'}
+# Number bases
+- {front: 'Place values in base $b$', back: '1, $b$, $b^2$, $b^3$, … (each place is $b$ times the one to its right); digits 0 to $b - 1$.', topic: 'Number bases'}
+- {front: 'Convert $2304_5$ to base ten', back: '$2 \times 125 + 3 \times 25 + 0 \times 5 + 4 = 329$', topic: 'Number bases'}
+- {front: 'Convert from base ten to base $b$ by repeated division', back: 'Divide by $b$ until the quotient is 0; the remainders, read from last to first, are the digits.', topic: 'Number bases'}
+- {front: 'Binary place values', back: '1, 2, 4, 8, 16, 32, 64, 128, … (each double the one before)', topic: 'Number bases'}
+- {front: '45 in binary', back: '$101101_2$ (32 + 8 + 4 + 1)', topic: 'Number bases'}
+- {front: '$1 + 1$ in binary', back: '$10_2$: write 0, carry 1. (And $1 + 1 + 1 = 11_2$.)', topic: 'Number bases'}
+- {front: 'Bit and byte', back: 'A bit is one binary digit (0 or 1); a byte is 8 bits and holds 0 to 255.', topic: 'Number bases'}
+- {front: 'Hexadecimal digits', back: '0–9, then A = 10, B = 11, C = 12, D = 13, E = 14, F = 15; places 1, 16, 256, …', topic: 'Number bases'}
+- {front: 'Why programmers like hexadecimal', back: '$16 = 2^4$, so each hex digit is exactly 4 bits and a byte is two hex digits (00 to FF).', topic: 'Number bases'}
+- {front: 'Base sixty today', back: 'From Babylonian mathematics: 60 minutes in an hour, 60 seconds in a minute.', topic: 'Number bases'}
+# Euclid and divisors
+- {front: 'Key fact behind the Euclidean algorithm', back: 'If $a = qb + r$, then GCF($a$, $b$) = GCF($b$, $r$): both pairs have the same common divisors.', topic: 'Euclidean algorithm'}
+- {front: 'Euclidean algorithm', back: 'Divide; replace the pair with (divisor, remainder); repeat until the remainder is 0. The last nonzero remainder is the GCF.', topic: 'Euclidean algorithm'}
+- {front: 'GCF(1,071, 462) by Euclid', back: '$1{,}071 = 2 \times 462 + 147$, $462 = 3 \times 147 + 21$, $147 = 7 \times 21 + 0$: GCF = 21.', topic: 'Euclidean algorithm'}
+- {front: 'LCM from the GCF', back: '$\text{LCM}(a, b) = \dfrac{a \times b}{\text{GCF}(a, b)}$; divide one number by the GCF first.', topic: 'Euclidean algorithm'}
+- {front: 'Euclidean algorithm as a picture', back: 'Cut the largest squares you can from an $a$-by-$b$ rectangle, again and again; the last square size is the GCF.', topic: 'Euclidean algorithm'}
+- {front: 'Number of divisors of $p^a q^b r^c$', back: '$(a + 1)(b + 1)(c + 1)$ for different primes $p, q, r$', topic: 'Counting divisors'}
+- {front: 'Divisors of $360 = 2^3 \times 3^2 \times 5$', back: '$4 \times 3 \times 2 = 24$', topic: 'Counting divisors'}
+- {front: 'Which numbers have an odd number of divisors?', back: 'Exactly the perfect squares (one divisor pairs with itself, like $6 \times 6$ for 36).', topic: 'Counting divisors'}
+- {front: 'Smallest number with exactly 12 divisors', back: '$60 = 2^2 \times 3 \times 5$ (divisor count $3 \times 2 \times 2$)', topic: 'Counting divisors'}
+- {front: 'Why there are infinitely many primes', back: 'Multiply any finite list of primes and add 1. No listed prime divides the result, so its prime factors are missing from the list.', topic: 'Euclidean algorithm'}
+- {front: 'Is $2 \times 3 \times 5 \times 7 \times 11 \times 13 + 1$ prime?', back: 'No: $30{,}031 = 59 \times 509$. Euclid''s number has new prime factors but need not be prime.', topic: 'Euclidean algorithm'}
+# Estimation
+- {front: 'Bounds for a sum or product', back: 'Round every number down for a lower bound and every number up for an upper bound.', topic: 'Estimation'}
+- {front: 'Bounds for a difference $a - b$', back: 'Upper bound: round $a$ up and $b$ down. Lower bound: round $a$ down and $b$ up.', topic: 'Estimation'}
+- {front: 'Whole numbers that round to 3,800 (nearest hundred)', back: '3,750 through 3,849', topic: 'Estimation'}
+- {front: 'Rounded numbers multiplied', back: 'The uncertainty grows: 40 rows (nearest ten) × 30 seats could be anywhere from 1,050 to 1,320 seats.', topic: 'Estimation'}
+- {front: 'Steps of a Fermi estimate', back: 'Break the quantity into pieces, estimate each (state assumptions), combine, then judge whether the result is reasonable.', topic: 'Estimation'}
+- {front: 'Heartbeats in a year at 70 beats a minute', back: '$70 \times 60 \times 24 \times 365 = 36{,}792{,}000$, about 40 million.', topic: 'Estimation'}
+- {front: 'Minutes in a day, week and year', back: '1,440; 10,080; 525,600', topic: 'Estimation'}
+- {front: 'Why Fermi estimates often land close', back: 'Errors in different directions partly cancel: twice too big times half too small is exactly right.', topic: 'Estimation'}

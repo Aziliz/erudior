@@ -82,13 +82,13 @@ The **Big Bang** theory says the universe was once extremely hot and dense, and 
 ```mermaid
 flowchart TD
   accTitle: A timeline of the universe
-  accDescr: The universe began hot and dense about 13.8 billion years ago. In the first few minutes hydrogen and helium nuclei formed. At about 380 thousand years, atoms formed and the light now seen as the cosmic microwave background was released. The first stars formed within a few hundred million years, then galaxies grew. The Sun and Earth formed about 4.6 billion years ago. The expansion began to speed up about 5 billion years ago. Today the background radiation is at 2.7 kelvin.
+  accDescr: The universe began hot and dense about 13.8 billion years ago. In the first few minutes hydrogen and helium nuclei formed. At about 380 thousand years, atoms formed and the light now seen as the cosmic microwave background was released. The first stars formed within a few hundred million years, then galaxies grew. About 6 billion years ago the expansion began to speed up. The Sun and Earth formed about 4.6 billion years ago. Today the background radiation is at 2.7 kelvin.
   A["Hot, dense start: 13.8 billion years ago"] --> B["First minutes: hydrogen and helium nuclei"]
   B --> C["380 thousand years: atoms form, CMB released"]
   C --> D["Within a few hundred million years: first stars"]
   D --> E["Galaxies grow"]
-  E --> F["4.6 billion years ago: Sun and Earth form"]
-  F --> G["About 5 billion years ago: expansion speeds up"]
+  E --> F["About 6 billion years ago: expansion starts speeding up"]
+  F --> G["4.6 billion years ago: Sun and Earth form"]
   G --> H["Today: CMB at 2.7 K"]
 ```
 

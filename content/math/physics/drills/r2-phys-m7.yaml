@@ -10,14 +10,14 @@
   calc:
     rad: Rmm*1e-3
     len: Lcm/100
-    flow: Qml*1e-6
+    qsi: Qml*1e-6
     Rf: 8*eta*len/(pi*rad^4)
-    dP: flow*Rf
+    dP: qsi*Rf
   prompt: 'Laminar flow of {eta} passes at {Qml} mL/s through a needle {Lcm} cm long with an inner radius of {Rmm} mm. Use Poiseuille''s law to find the pressure difference between the ends of the needle, in pascals to 3 significant figures.'
   answers:
     - {name: dP, label: '$\Delta P =$', format: sci, relTolerance: 0.01, units: {Pa: 1, kPa: 1000}}
   solution: |-
-    Convert to SI: $R = {rad:texsci}$ m, $L = {len}$ m, $Q = {flow:texsci}$ m³/s.
+    Convert to SI: $R = {rad:texsci}$ m, $L = {len}$ m, $Q = {qsi:texsci}$ m³/s.
 
     Flow resistance: $R_{\text{flow}} = \dfrac{8\eta L}{\pi R^4} = \dfrac{8({eta})({len})}{\pi({rad:texsci})^4} = {Rf:texsci}$ Pa·s/m³.
 

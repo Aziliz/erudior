@@ -53,6 +53,12 @@ Keep going down the list: $2^0 = 1$, then $2^{-1} = 1 \div 2 = \tfrac12$, then $
 
 $$b^{-n} = \frac{1}{b^n} \qquad (b \ne 0).$$
 
+The bar chart shows the pattern: each step to the left halves the bar, and the halving doesn't stop at $2^0 = 1$; it carries on into the negative exponents.
+
+```plot
+{"x": [-3.8, 3.8], "y": [0, 9], "bars": [{"x": -3, "height": 0.125, "width": 0.7, "label": "1/8"}, {"x": -2, "height": 0.25, "width": 0.7, "label": "1/4"}, {"x": -1, "height": 0.5, "width": 0.7, "label": "1/2"}, {"x": 0, "height": 1, "width": 0.7, "label": "1"}, {"x": 1, "height": 2, "width": 0.7, "label": "2"}, {"x": 2, "height": 4, "width": 0.7, "label": "4"}, {"x": 3, "height": 8, "width": 0.7, "label": "8"}], "xLabel": "exponent n", "yLabel": "2ⁿ", "caption": "Powers of 2 from 2⁻³ = 1/8 to 2³ = 8: each step left divides by 2"}
+```
+
 *A negative exponent means reciprocal, not a negative number.* $2^{-3} = \tfrac18$, which is positive. Some more:
 
 - $10^{-2} = \dfrac{1}{100} = 0.01$
@@ -97,6 +103,25 @@ Top: $10^{-3+5} = 10^2$. Divide: $10^{2-(-4)} = 10^6$. Subtracting a negative ex
 | Power of a quotient | $(a/b)^n = a^n / b^n$ | $(x/3)^2 = x^2/9$ |
 | Zero exponent | $b^0 = 1$ | $9^0 = 1$ |
 | Negative exponent | $b^{-n} = 1/b^n$ | $x^{-2} = 1/x^2$ |
+
+When you meet an expression, decide which situation you're in before reaching for a rule:
+
+```mermaid
+flowchart TD
+  accTitle: Which exponent rule to use
+  accDescr: Look at what is happening in the expression. Powers of the same base multiplied: add the exponents. Powers of the same base divided: subtract the exponents. A power raised to a power: multiply the exponents. A product or quotient raised to a power: raise every factor to the power. A sum raised to a power: there is no shortcut, so simplify inside the parentheses first. After any of the rules, if zero or negative exponents are left, use b to the 0 equals 1 and b to the minus n equals 1 over b to the n.
+  A["Expression with exponents"] --> B{"What is happening?"}
+  B -- "same base, multiplied" --> C["Add the exponents"]
+  B -- "same base, divided" --> D["Subtract the exponents"]
+  B -- "power of a power" --> E["Multiply the exponents"]
+  B -- "product or quotient to a power" --> F["Raise every factor to the power"]
+  B -- "sum to a power" --> G["No shortcut: simplify inside first"]
+  C --> H{"Zero or negative exponents left?"}
+  D --> H
+  E --> H
+  F --> H
+  H -- yes --> I["Use b^0 = 1 and b^-n = 1/b^n"]
+```
 
 ## Common mistakes
 

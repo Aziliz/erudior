@@ -71,7 +71,7 @@ The third line is the famous one: *subtracting a negative is the same as adding 
 On the number line, $a - b$ is the signed distance from $b$ to $a$. For example, $5 - (-9) = 14$ says that going from $-9$ to 5 is a trip of 14 units to the right. That's why the distance between two numbers in the last lesson was $|a - b|$.
 
 ```numberline
-{"x": [-11, 7], "points": [{"at": [-9, 0], "label": "-9"}, {"at": [5, 0], "label": "5"}], "segments": [{"from": [-9, 0], "to": [5, 0], "arrow": true, "label": "14 units right"}], "caption": "5 - (-9) = 14: the trip from -9 to 5 is 14 units to the right"}
+{"x": [-11, 7], "points": [{"at": [-9, 0], "label": "-9"}, {"at": [5, 0], "label": "5"}], "segments": [{"from": [-9, 0], "to": [5, 0], "arrow": true}], "caption": "5 - (-9) = 14: the trip from -9 to 5 is 14 units to the right"}
 ```
 
 The whole procedure for adding and subtracting fits in one chart:

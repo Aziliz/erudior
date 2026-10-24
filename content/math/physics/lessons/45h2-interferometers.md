@@ -38,7 +38,7 @@ Sodium light (589 nm) shines on an air wedge 8.0 cm long with a hair at the far 
 
 Solve the spacing formula for $D$:
 
-$$D = \frac{\lambda L}{2\Delta x} = \frac{(589\times10^{-9})(0.080)}{2(0.40\times10^{-3})} = 5.9\times10^{-5}\text{ m} = 59\text{ μm}.$$
+$$D = \frac{\lambda L}{2\Delta x} = \frac{(589\times10^{-9})(0.080)}{2(0.40\times10^{-3})} = 5.9\times10^{-5}\text{ m} = 59\ \mu\text{m}.$$
 
 The gap grows by $\lambda/2$ per fringe, so there are $D/(\lambda/2) = 2D/\lambda = 200$ fringe spacings across the wedge: 201 dark fringes counting the one at the touching edge. Measuring a 59 μm hair to within a few percent took nothing but a ruler and a lamp.
 

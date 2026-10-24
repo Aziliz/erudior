@@ -10,7 +10,7 @@ refs: [pre-ref-arithmetic]
 ---
 ## Why percents fool people
 
-Lesson 18 showed a surprise: a 20% rise followed by a 20% fall leaves you 4% *below* where you started. Lesson 19 showed another: 30% off and then 20% off is 44% off, not 50%. These aren't isolated tricks. They come from one fact: every percent is a percent *of something*, and when the "something" changes, so does the meaning of the percent. This lesson builds that fact into a toolkit for chains of changes, for undoing a change, for the difference between percent and percentage points, and for comparisons that look obvious but aren't. These are the skills that let you check a news headline or an advertisement yourself.
+*Solving percent problems* showed a surprise: a 20% rise followed by a 20% fall leaves you 4% *below* where you started. *Tax, tips, discounts, commission and simple interest* showed another: 30% off and then 20% off is 44% off, not 50%. These aren't isolated tricks. They come from one fact: every percent is a percent *of something*, and when the "something" changes, so does the meaning of the percent. This lesson builds that fact into a toolkit for chains of changes, for undoing a change, for the difference between percent and percentage points, and for comparisons that look obvious but aren't. These are the skills that let you check a news headline or an advertisement yourself.
 
 ## Every change is a multiplication
 
@@ -72,7 +72,7 @@ Both steps change the price by the same \$20, but \$20 is 25% of \$80 and only 2
 
 A stock falls 40%. What percent gain does it need to get back to its starting value?
 
-After the fall it is worth 0.6 of the original. To return to 1 it must be multiplied by $\tfrac{1}{0.6} = 1.666\ldots$, a gain of $66\tfrac23\%$. With numbers: a \$50 share falls to \$30; getting back to \$50 takes a \$20 gain, and $\tfrac{20}{30} = 66\tfrac23\%$. This is why investors say losses hurt more than equal-sized gains help.
+After the fall it is worth 0.6 of the original. To return to 1 it must be multiplied by $\tfrac{1}{0.6} = 1.666\ldots$, a gain of $66\tfrac23\%$. With numbers: a \$50 share falls to \$30; getting back to \$50 takes a \$20 gain, and $\tfrac{20}{30} = 66\tfrac23\%$. This is why a big loss takes an even bigger percent gain to recover from.
 
 ## Percent or percentage points?
 
@@ -134,7 +134,7 @@ Who is the better shooter?
 
 Ana had the higher percent in Month 1 *and* in Month 2. Yet Bea has the higher percent overall. No arithmetic is wrong. The overall percent is a *weighted* average of the monthly percents, weighted by the number of attempts. Ana took most of her shots (50 of 60) in her weaker month, while Bea took most of hers (40 of 60) in her stronger month. (The numbers are invented to show the effect.)
 
-A trend that holds in every group but reverses when the groups are combined is called **Simpson's paradox**. It is not rare in real data, for example in medical studies where sicker patients tend to get one treatment. It is a warning: before comparing two overall percents, check whether the groups behind them are of very different sizes or kinds. Which comparison is "right" depends on the question being asked, and that takes thought, not just arithmetic.
+A trend that holds in every group but reverses when the groups are combined is called **Simpson's paradox**. It does turn up in real data, for example in medical studies where sicker patients tend to get one of the treatments. It is a warning: before comparing two overall percents, check whether the groups behind them are of very different sizes or kinds. Which comparison is "right" depends on the question being asked, and that takes thought, not just arithmetic.
 
 ## Common mistakes
 

@@ -1,0 +1,713 @@
+# Round 2, module pre-m1 (Whole numbers): new question types for the core lessons
+# (pre-m1-r2-q..) and questions for the three honors lessons (pre-m1-r2-h..).
+
+# --- pre-place-value ---
+- id: pre-m1-r2-q01
+  lesson: pre-place-value
+  type: label
+  module_quiz: true
+  topic: Place value
+  stem: 'These base-ten blocks show the number 1,324. Name the numbered blocks by what each one is worth.'
+  image: {src: images/pre-m1-base-ten-blocks-blank.svg, alt: 'Base-ten blocks: one large cube made of small cubes, three flat squares, two thin rods and four small single cubes.'}
+  labels:
+    - {x: 11, y: 59.4, text: Thousand}
+    - {x: 49.6, y: 59.4, text: Hundred}
+    - {x: 77.1, y: 59.4, text: Ten}
+    - {x: 87.4, y: 84.7, text: One}
+  distractors: [Ten thousand, Tenth]
+  explanation: |-
+    A small cube is one. A rod is 10 small cubes (a ten), a flat is 10 rods (a hundred), and the big cube is 10 flats (a thousand). One thousand, three hundreds, two tens and four ones make $1{,}000 + 300 + 20 + 4 = 1{,}324$.
+
+- id: pre-m1-r2-q02
+  lesson: pre-place-value
+  type: text
+  topic: Place value
+  stem: 'In 6,048,195 the digit in the ten thousands place is ___. Give only the digit.'
+  accept: ['4', four]
+  explanation: |-
+    Count places from the right: 5 ones, 9 tens, 1 hundreds, 8 thousands, 4 ten thousands, 0 hundred thousands, 6 millions. The ten thousands digit is 4 (worth 40,000).
+
+- id: pre-m1-r2-q03
+  lesson: pre-place-value
+  type: order
+  topic: Place value
+  stem: 'Put these numbers in order from least to greatest.'
+  items: ['49,099', '49,909', '94,900', '409,990', '490,009']
+  explanation: |-
+    The five-digit numbers come before the six-digit numbers. Among 49,099, 49,909 and 94,900, compare from the left: 4 < 9 puts 94,900 last, and 49,099 < 49,909 because their hundreds digits are 0 and 9. Among the six-digit numbers, 409,990 < 490,009 because the ten thousands digits are 0 and 9.
+
+- id: pre-m1-r2-q04
+  lesson: pre-place-value
+  module_quiz: true
+  topic: Rounding
+  stem: 'Which numbers round to 7,000 when rounded to the nearest thousand? Select all that apply.'
+  choices: ['6,500', '7,499', '6,499', '7,500']
+  answer: [0, 1]
+  explanation: |-
+    Only the hundreds digit decides. 6,500 has hundreds digit 5, so it rounds up to 7,000. 7,499 has hundreds digit 4, so it stays at 7,000. 6,499 rounds down to 6,000 (the 9s to the right don't matter), and 7,500 rounds up to 8,000.
+
+- id: pre-m1-r2-q05
+  lesson: pre-place-value
+  type: match
+  topic: Place value
+  stem: 'Match each number to the value of its digit 3.'
+  pairs:
+    - ['3,812', '3,000']
+    - ['48,305', '300']
+    - ['730,000', '30,000']
+    - ['5,003', '3']
+  distractors: ['300,000']
+  explanation: |-
+    In 3,812 the 3 is in the thousands place; in 48,305 the hundreds place; in 730,000 the ten thousands place; in 5,003 the ones place. A digit's value is the digit times its place value.
+
+- id: pre-m1-r2-q06
+  lesson: pre-place-value
+  type: text
+  topic: Rounding
+  stem: 'Round 2,999,612 to the nearest thousand. Give the number in standard form.'
+  accept: ['3,000,000', '3000000']
+  explanation: |-
+    The thousands digit is 9 and the digit to its right (hundreds) is 6, so round up. Adding 1 to the 9 makes 10, which carries left through the other 9s: 2,999,612 becomes 3,000,000. Check: 2,999,612 is between 2,999,000 and 3,000,000 and past the halfway point 2,999,500.
+
+# --- pre-whole-ops ---
+- id: pre-m1-r2-q07
+  lesson: pre-whole-ops
+  type: label
+  module_quiz: true
+  topic: Whole number operations
+  stem: 'This is the long division $7{,}385 \div 6$. Name the numbered parts.'
+  image: {src: images/pre-m1-long-division-blank.svg, alt: 'Long division in the usual layout: the number 6 outside a division bracket, 7385 inside it, 1230 written above, and the subtraction steps below ending in 5.'}
+  labels:
+    - {x: 61.5, y: 16.5, text: Quotient}
+    - {x: 27.9, y: 27.3, text: Divisor}
+    - {x: 61.5, y: 27.3, text: Dividend}
+    - {x: 59.6, y: 90.4, text: Remainder}
+  distractors: [Product, Factor]
+  explanation: |-
+    The dividend (7,385) is the number being divided and sits inside the bracket; the divisor (6) sits outside. The quotient (1,230) is written on top, and the remainder (5) is what is left at the bottom. Check: $1{,}230 \times 6 + 5 = 7{,}385$.
+
+- id: pre-m1-r2-q08
+  lesson: pre-whole-ops
+  type: text
+  topic: Whole number operations
+  stem: 'An area model splits $58 \times 23$ into four parts: $50 \times 20 = 1{,}000$, $8 \times 20 = 160$, $50 \times 3 = 150$ and $8 \times 3 =$ ___. Adding the four parts gives $58 \times 23 =$ ___.'
+  accept:
+    - ['24']
+    - ['1334', '1,334']
+  explanation: |-
+    $8 \times 3 = 24$, and $1{,}000 + 160 + 150 + 24 = 1{,}334$. Each part multiplies one place-value piece of 58 (50 or 8) by one piece of 23 (20 or 3).
+
+- id: pre-m1-r2-q09
+  lesson: pre-whole-ops
+  type: order
+  topic: Whole number operations
+  stem: 'Put the steps of one cycle of long division in order.'
+  items: [Divide, Multiply, Subtract, Bring down the next digit]
+  explanation: |-
+    Divide to find the next quotient digit, multiply that digit by the divisor, subtract the product, then bring down the next digit and start the cycle again.
+
+- id: pre-m1-r2-q10
+  lesson: pre-whole-ops
+  topic: Whole number operations
+  stem: 'Which statements are true for every pair of whole numbers $a$ and $b$? Select all that apply.'
+  choices: ['$a + b = b + a$', '$a \times 1 = a$', '$a - b = b - a$', '$a \div 1 = 1$']
+  answer: [0, 1]
+  explanation: |-
+    Addition is commutative, and 1 is the identity for multiplication. Subtraction is not commutative ($10 - 3 = 7$ but $3 - 10$ is not 7), and $a \div 1 = a$, not 1.
+
+- id: pre-m1-r2-q11
+  lesson: pre-whole-ops
+  type: match
+  module_quiz: true
+  topic: Word problems
+  stem: 'Match each phrase to the operation it usually signals in a word problem.'
+  pairs:
+    - [Shared equally, Division]
+    - [How many more, Subtraction]
+    - [Altogether, Addition]
+    - [Twice as many, Multiplication]
+  explanation: |-
+    Sharing equally splits an amount into equal groups (divide). "How many more" compares two amounts (subtract). "Altogether" combines amounts (add). "Twice as many" means two times as many (multiply). Phrases are clues, not rules: always picture the situation.
+
+# --- pre-order-ops ---
+- id: pre-m1-r2-q12
+  lesson: pre-order-ops
+  type: order
+  module_quiz: true
+  topic: Order of operations
+  stem: 'Put the steps for evaluating $2 + 3 \times (4 + 1)^2$ in the order they are done.'
+  items: ['$4 + 1 = 5$', '$5^2 = 25$', '$3 \times 25 = 75$', '$2 + 75 = 77$']
+  explanation: |-
+    Parentheses first ($4 + 1 = 5$), then the exponent ($5^2 = 25$), then multiplication ($3 \times 25 = 75$), and addition last: $2 + 75 = 77$.
+
+- id: pre-m1-r2-q13
+  lesson: pre-order-ops
+  type: text
+  topic: Order of operations
+  stem: 'Evaluate $40 - 24 \div 4 \times 2$. Give only the number.'
+  accept: ['28']
+  explanation: |-
+    Division and multiplication from left to right: $24 \div 4 = 6$, then $6 \times 2 = 12$. Then $40 - 12 = 28$. (Multiplying $4 \times 2$ first gives $40 - 3 = 37$, which breaks the left-to-right rule.)
+
+- id: pre-m1-r2-q14
+  lesson: pre-order-ops
+  topic: Order of operations
+  stem: 'Which expressions equal 20? Select all that apply.'
+  choices: ['$(2 + 3) \times 4$', '$2 + 3 \times 4$', '$4^2 + 4$', '$100 \div 5 \times 2$']
+  answer: [0, 2]
+  explanation: |-
+    $(2 + 3) \times 4 = 5 \times 4 = 20$ and $4^2 + 4 = 16 + 4 = 20$. But $2 + 3 \times 4 = 2 + 12 = 14$, and $100 \div 5 \times 2 = 20 \times 2 = 40$ (left to right; it is not $100 \div 10$).
+
+- id: pre-m1-r2-q15
+  lesson: pre-order-ops
+  type: match
+  module_quiz: true
+  topic: Exponents
+  stem: 'Match each expression to its value.'
+  pairs:
+    - ['$2^3$', '8']
+    - ['$3^2$', '9']
+    - ['$2 \times 3$', '6']
+    - ['$10^3$', '1,000']
+  distractors: ['5', '30']
+  explanation: |-
+    $2^3 = 2 \times 2 \times 2 = 8$ and $3^2 = 3 \times 3 = 9$: an exponent counts factors, so $2^3$ is not $2 \times 3 = 6$. $10^3$ is 1 followed by three zeros, 1,000.
+
+- id: pre-m1-r2-q16
+  lesson: pre-order-ops
+  type: text
+  topic: Order of operations
+  stem: 'Evaluate $\dfrac{5 + 3 \times 5}{2^2 + 1}$. Give only the number.'
+  accept: ['4']
+  explanation: |-
+    The fraction bar groups the top and the bottom. Top: $5 + 15 = 20$. Bottom: $4 + 1 = 5$. Then $20 \div 5 = 4$.
+
+# --- pre-factors ---
+- id: pre-m1-r2-q17
+  lesson: pre-factors
+  type: text
+  topic: Factors and multiples
+  stem: 'How many factors does 48 have? Count 1 and 48 too.'
+  accept: ['10', ten]
+  explanation: |-
+    Factor pairs: $1 \times 48$, $2 \times 24$, $3 \times 16$, $4 \times 12$, $6 \times 8$. Testing stops after 6 because $7 \times 7 = 49 > 48$ (and 7 doesn't divide 48). That is 5 pairs, so 10 factors: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48.
+
+- id: pre-m1-r2-q18
+  lesson: pre-factors
+  module_quiz: true
+  topic: Primes
+  stem: 'Which of these numbers are prime? Select all that apply.'
+  choices: ['51', '53', '57', '59']
+  answer: [1, 3]
+  explanation: |-
+    51 has digit sum 6 and 57 has digit sum 12, so both are divisible by 3: $51 = 3 \times 17$ and $57 = 3 \times 19$. For 53 and 59, test the primes up to 7 (since $8^2 = 64$): neither is divisible by 2, 3, 5 or 7, so both are prime.
+
+- id: pre-m1-r2-q19
+  lesson: pre-factors
+  type: match
+  module_quiz: true
+  topic: Primes
+  stem: 'Match each number to the smallest prime that divides it.'
+  pairs:
+    - ['91', '7']
+    - ['85', '5']
+    - ['111', '3']
+    - ['143', '11']
+  distractors: ['2', '13']
+  explanation: |-
+    All four are odd, so 2 divides none of them. 111 has digit sum 3, so 3 divides it ($111 = 3 \times 37$). 85 ends in 5 and isn't divisible by 3 ($85 = 5 \times 17$). 91 fails 3 and 5 but $91 = 7 \times 13$. 143 fails 3, 5 and 7, and $143 = 11 \times 13$.
+
+- id: pre-m1-r2-q20
+  lesson: pre-factors
+  type: order
+  topic: Factors and multiples
+  stem: 'Put these numbers in order from fewest factors to most factors.'
+  items: ['13', '49', '27', '16', '12']
+  explanation: |-
+    13 is prime (2 factors: 1, 13). 49 has 3 (1, 7, 49). 27 has 4 (1, 3, 9, 27). 16 has 5 (1, 2, 4, 8, 16). 12 has 6 (1, 2, 3, 4, 6, 12). A bigger number doesn't always have more factors.
+
+- id: pre-m1-r2-q21
+  lesson: pre-factors
+  type: text
+  topic: Primes
+  stem: 'The only even prime number is ___.'
+  accept: ['2', two]
+  explanation: |-
+    2 has exactly two factors, 1 and 2. Every other even number has 2 as a factor besides 1 and itself, so it is composite.
+
+# --- pre-gcf-lcm ---
+- id: pre-m1-r2-q22
+  lesson: pre-gcf-lcm
+  type: label
+  module_quiz: true
+  topic: GCF and LCM
+  stem: 'In this Venn diagram the left circle holds the prime factors of $84 = 2 \times 2 \times 3 \times 7$ and the right circle holds those of $90 = 2 \times 3 \times 3 \times 5$. Name the numbered regions.'
+  image: {src: images/pre-m1-venn-84-90-blank.svg, alt: 'Two overlapping circles. The left-only part holds 2 and 7, the overlap holds 2 and 3, and the right-only part holds 3 and 5.'}
+  labels:
+    - {x: 23.8, y: 34.8, text: Prime factors only 84 has}
+    - {x: 50, y: 37.7, text: Shared prime factors (their product is the GCF)}
+    - {x: 74.6, y: 34.8, text: Prime factors only 90 has}
+  distractors: [Primes that neither number has, Prime factors of the LCM only]
+  explanation: |-
+    The overlap holds the primes the two numbers share, one 2 and one 3; their product, 6, is the GCF. The left-only part (2, 7) is the rest of 84 and the right-only part (3, 5) is the rest of 90. The LCM uses all three regions: $2 \times 7 \times 2 \times 3 \times 3 \times 5 = 1{,}260$.
+
+- id: pre-m1-r2-q23
+  lesson: pre-gcf-lcm
+  type: text
+  topic: GCF and LCM
+  stem: 'GCF(36, 60) = ___ and LCM(36, 60) = ___.'
+  accept:
+    - ['12']
+    - ['180']
+  explanation: |-
+    $36 = 2^2 \times 3^2$ and $60 = 2^2 \times 3 \times 5$. GCF: shared primes, smaller powers: $2^2 \times 3 = 12$. LCM: all primes, larger powers: $2^2 \times 3^2 \times 5 = 180$. Check: $12 \times 180 = 2{,}160 = 36 \times 60$.
+
+- id: pre-m1-r2-q24
+  lesson: pre-gcf-lcm
+  type: order
+  topic: GCF and LCM
+  stem: 'Put the steps for finding the LCM of 12 and 18 with prime factorizations in order.'
+  items: ['Write $12 = 2^2 \times 3$ and $18 = 2 \times 3^2$', 'List every prime that appears: 2 and 3', 'Take the larger power of each: $2^2$ and $3^2$', 'Multiply: $4 \times 9 = 36$']
+  explanation: |-
+    Factor first, then collect every prime that appears in either number, keep the larger power of each, and multiply. LCM(12, 18) = 36.
+
+- id: pre-m1-r2-q25
+  lesson: pre-gcf-lcm
+  topic: GCF and LCM
+  stem: 'Which pairs of numbers are relatively prime? Select all that apply.'
+  choices: ['8 and 15', '9 and 28', '14 and 21', '10 and 35']
+  answer: [0, 1]
+  explanation: |-
+    $8 = 2^3$ and $15 = 3 \times 5$ share no prime; $9 = 3^2$ and $28 = 2^2 \times 7$ share no prime. So both pairs have GCF 1, even though none of those numbers is prime. 14 and 21 share 7, and 10 and 35 share 5.
+
+- id: pre-m1-r2-q26
+  lesson: pre-gcf-lcm
+  type: match
+  module_quiz: true
+  topic: GCF and LCM
+  stem: 'Match each task to the tool that answers it.'
+  pairs:
+    - ['Most identical kits from 24 pens and 36 pencils, nothing left over', GCF]
+    - ['When lights flashing every 6 s and every 8 s next flash together', LCM]
+    - ['Simplify $\tfrac{18}{24}$ in one step', GCF]
+    - ['Least common denominator of $\tfrac16$ and $\tfrac18$', LCM]
+  distractors: [Product of the two numbers]
+  explanation: |-
+    Splitting into equal groups and simplifying fractions use the GCF (12 kits; divide 18 and 24 by 6). Waiting for repeating events to line up and finding a common denominator use the LCM (24 seconds; denominator 24). The product of two numbers is a common multiple, but not always the least one.
+
+# --- Honors: pre-m1-h-bases ---
+- id: pre-m1-r2-h01
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'What is $1032_5$ in base ten?'
+  choices: ['142', '1,032', '326', '78']
+  answer: 0
+  explanation: |-
+    The base-five places are 125, 25, 5 and 1: $1 \times 125 + 0 \times 25 + 3 \times 5 + 2 = 125 + 0 + 15 + 2 = 142$. (1,032 ignores the base; 326 reads the digits right to left; 78 uses base-four places 64, 16, 4, 1.)
+
+- id: pre-m1-r2-h02
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'Which of these is NOT a correctly written base-six numeral?'
+  choices: ['$5401_6$', '$3050_6$', '$1206_6$', '$2555_6$']
+  answer: 2
+  explanation: |-
+    Base six uses only the digits 0 to 5, because six of anything are bundled into the next place. $1206_6$ contains the digit 6, so it isn't a base-six numeral. The others use only 0 to 5.
+
+- id: pre-m1-r2-h03
+  lesson: pre-m1-h-bases
+  type: text
+  topic: Number bases
+  stem: 'Write 29 in binary. Give only the digits.'
+  accept: ['11101']
+  explanation: |-
+    Biggest place first: 16 fits (13 left), 8 fits (5 left), 4 fits (1 left), 2 doesn't, 1 fits. Digits for 16, 8, 4, 2, 1: $11101_2$. Repeated division gives the same: remainders 1, 0, 1, 1, 1 read from last to first. Check: $16 + 8 + 4 + 1 = 29$.
+
+- id: pre-m1-r2-h04
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'What is $101011_2$ in base ten?'
+  choices: ['53', '21', '101,011', '43']
+  answer: 3
+  explanation: |-
+    Add the place values under the 1s. The places from the right are 1, 2, 4, 8, 16, 32: $32 + 8 + 2 + 1 = 43$. (53 reads the digits right to left; 21 is $10101_2$, with a digit dropped.)
+
+- id: pre-m1-r2-h05
+  lesson: pre-m1-h-bases
+  type: order
+  topic: Number bases
+  stem: 'Put these numbers in order from least to greatest.'
+  items: ['$1111_2$', '$10000_2$', '$100_5$', '$1\text{A}_{16}$', '$30$']
+  explanation: |-
+    In base ten: $1111_2 = 8 + 4 + 2 + 1 = 15$; $10000_2 = 16$; $100_5 = 25$; $1\text{A}_{16} = 16 + 10 = 26$; and 30 is 30.
+
+- id: pre-m1-r2-h06
+  lesson: pre-m1-h-bases
+  type: match
+  topic: Number bases
+  stem: 'Match each numeral to its value in base ten.'
+  pairs:
+    - ['$11_2$', '3']
+    - ['$11_5$', '6']
+    - ['$11_8$', '9']
+    - ['$11_{16}$', '17']
+  distractors: ['11', '2']
+  explanation: |-
+    In base $b$, the numeral 11 means one $b$ plus one 1, which is $b + 1$: so 3, 6, 9 and 17. It equals eleven only in base ten.
+
+- id: pre-m1-r2-h07
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'Which of these equal twelve? Select all that apply.'
+  choices: ['$1100_2$', '$22_5$', '$\text{C}_{16}$', '$12_5$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $1100_2 = 8 + 4 = 12$; $22_5 = 2 \times 5 + 2 = 12$; the hexadecimal digit C stands for 12. But $12_5 = 5 + 2 = 7$.
+
+- id: pre-m1-r2-h08
+  lesson: pre-m1-h-bases
+  type: text
+  topic: Number bases
+  stem: 'In binary, $1 + 1 + 1$ is written ___. Give the binary digits.'
+  accept: ['11']
+  explanation: |-
+    $1 + 1 + 1 = 3 = 2 + 1$, which is one two and one one: $11_2$. In a binary addition column this means "write 1, carry 1."
+
+- id: pre-m1-r2-h09
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'Add in binary: $1101_2 + 111_2$.'
+  choices: ['$11100_2$', '$10100_2$', '$1212_2$', '$10010_2$']
+  answer: 1
+  explanation: |-
+    Column by column from the right: $1 + 1 = 10_2$ (write 0, carry 1); $0 + 1 + 1 = 10_2$ (write 0, carry 1); $1 + 1 + 1 = 11_2$ (write 1, carry 1); $1 + 1 = 10_2$ (write 0, carry 1). Result $10100_2$. Check: $13 + 7 = 20 = 16 + 4$. ($1212_2$ forgets to carry; binary has no digit 2.)
+
+- id: pre-m1-r2-h10
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'A byte is 8 bits. How many different whole numbers can one byte hold?'
+  choices: ['255', '256', '8', '128']
+  answer: 1
+  explanation: |-
+    One byte holds 0 through $11111111_2 = 255$. Counting 0, that is 256 different numbers. (255 is the largest value, not the count; 128 is the value of the leftmost place alone.)
+
+- id: pre-m1-r2-h11
+  lesson: pre-m1-h-bases
+  type: text
+  topic: Number bases
+  stem: 'Convert $3\text{E}_{16}$ to base ten. Give only the number.'
+  accept: ['62']
+  explanation: |-
+    E stands for 14. $3\text{E}_{16} = 3 \times 16 + 14 = 48 + 14 = 62$.
+
+- id: pre-m1-r2-h12
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'What is 300 in hexadecimal?'
+  choices: ['$\text{C}21_{16}$', '$1212_{16}$', '$12\text{C}_{16}$', '$18\text{C}_{16}$']
+  answer: 2
+  explanation: |-
+    $300 \div 16 = 18$ R 12, $18 \div 16 = 1$ R 2, $1 \div 16 = 0$ R 1. Reading the remainders from last to first: 1, 2, 12, and 12 is the digit C, so $12\text{C}_{16}$. Check: $256 + 2 \times 16 + 12 = 300$. ($\text{C}21_{16}$ reads the remainders in the wrong order; $18\text{C}_{16}$ stops dividing too early.)
+
+- id: pre-m1-r2-h13
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'Why do computers store numbers in binary?'
+  choices: ['Binary numerals are shorter than base-ten numerals', 'Binary addition never needs carrying', 'Only even numbers can be stored in base ten', 'A circuit can reliably be in one of two states, like on and off']
+  answer: 3
+  explanation: |-
+    Each bit records one of two states, which electronic parts can hold reliably. Binary numerals are actually longer than base-ten ones (255 takes 8 binary digits), and binary addition carries often, since $1 + 1 = 10_2$.
+
+- id: pre-m1-r2-h14
+  lesson: pre-m1-h-bases
+  type: order
+  topic: Number bases
+  stem: 'Put the steps for writing 19 in base three in order.'
+  items: ['$19 \div 3 = 6$ R 1', '$6 \div 3 = 2$ R 0', '$2 \div 3 = 0$ R 2', 'Read the remainders from last to first: $201_3$']
+  explanation: |-
+    Divide by 3 until the quotient is 0, then read the remainders from the bottom up: 2, 0, 1. Check: $2 \times 9 + 0 \times 3 + 1 = 19$.
+
+- id: pre-m1-r2-h15
+  lesson: pre-m1-h-bases
+  topic: Number bases
+  stem: 'The Babylonians wrote numbers in base sixty. Where does base sixty still show up today?'
+  choices: ['60 minutes in an hour and 60 seconds in a minute', '12 inches in a foot', '100 cents in a dollar', '7 days in a week']
+  answer: 0
+  explanation: |-
+    Dividing hours and minutes into sixtieths comes from Babylonian base-sixty arithmetic. Inches, cents and the week have other origins.
+
+# --- Honors: pre-m1-h-euclid ---
+- id: pre-m1-r2-h16
+  lesson: pre-m1-h-euclid
+  topic: Euclidean algorithm
+  stem: 'To find GCF(252, 198) with the Euclidean algorithm, the first step is $252 = 1 \times 198 + 54$. Which pair do you work with next?'
+  choices: ['252 and 54', '198 and 54', '252 and 198', '54 and 1']
+  answer: 1
+  explanation: |-
+    Replace the pair with (the number you divided by, the remainder): (198, 54). These have the same common divisors as (252, 198). The quotient 1 plays no further part.
+
+- id: pre-m1-r2-h17
+  lesson: pre-m1-h-euclid
+  type: text
+  topic: Euclidean algorithm
+  stem: 'Use the Euclidean algorithm: GCF(252, 198) = ___.'
+  accept: ['18']
+  explanation: |-
+    $252 = 1 \times 198 + 54$; $198 = 3 \times 54 + 36$; $54 = 1 \times 36 + 18$; $36 = 2 \times 18 + 0$. The last nonzero remainder is 18. Check: $252 = 18 \times 14$ and $198 = 18 \times 11$.
+
+- id: pre-m1-r2-h18
+  lesson: pre-m1-h-euclid
+  type: order
+  topic: Euclidean algorithm
+  stem: 'Put the steps of the Euclidean algorithm for GCF(391, 299) in order.'
+  items: ['$391 = 1 \times 299 + 92$', '$299 = 3 \times 92 + 23$', '$92 = 4 \times 23 + 0$', 'The GCF is 23']
+  explanation: |-
+    Each step divides the previous divisor by the previous remainder: 391 by 299, then 299 by 92, then 92 by 23. The remainder 0 ends the algorithm, and the last nonzero remainder, 23, is the GCF.
+
+- id: pre-m1-r2-h19
+  lesson: pre-m1-h-euclid
+  topic: Euclidean algorithm
+  stem: 'If $a = q \times b + r$, why is GCF($a$, $b$) the same as GCF($b$, $r$)?'
+  choices: ['The remainder $r$ is always prime', 'The quotient $q$ is always the GCF', 'Every common divisor of $a$ and $b$ divides $r$, and every common divisor of $b$ and $r$ divides $a$', 'The numbers $a$ and $b$ are always relatively prime']
+  answer: 2
+  explanation: |-
+    $r = a - q \times b$, so a number dividing both $a$ and $b$ divides $r$; and $a = q \times b + r$, so a number dividing $b$ and $r$ divides $a$. The two pairs have exactly the same common divisors, so the same greatest one. The other statements are false in general (for example, $r = 54$ in GCF(252, 198) is not prime).
+
+- id: pre-m1-r2-h20
+  lesson: pre-m1-h-euclid
+  topic: Euclidean algorithm
+  stem: 'Which statements about the Euclidean algorithm are true? Select all that apply.'
+  choices: ['It finds the GCF without factoring either number', 'The GCF is the last nonzero remainder', 'The GCF is the last quotient', 'It works only when both numbers are prime']
+  answer: [0, 1]
+  explanation: |-
+    It uses only division with remainder, and the answer is the last nonzero remainder. The quotients are not the answer (in GCF(1,071, 462) they were 2, 3 and 7, but the GCF is 21), and the algorithm works for any two whole numbers that aren't both 0.
+
+- id: pre-m1-r2-h21
+  lesson: pre-m1-h-euclid
+  topic: Euclidean algorithm
+  stem: 'GCF(391, 299) = 23. What is LCM(391, 299)?'
+  choices: ['116,909', '23', '690', '5,083']
+  answer: 3
+  explanation: |-
+    LCM $= \dfrac{391 \times 299}{23}$. Divide first: $391 \div 23 = 17$, so LCM $= 17 \times 299 = 5{,}083$. (116,909 is the product, a common multiple but not the least; 690 is the sum.)
+
+- id: pre-m1-r2-h22
+  lesson: pre-m1-h-euclid
+  type: text
+  topic: Counting divisors
+  stem: 'How many divisors does $2^4 \times 3 \times 7$ have? Give only the number.'
+  accept: ['20', twenty]
+  explanation: |-
+    The exponents are 4, 1 and 1. Add 1 to each and multiply: $(4 + 1)(1 + 1)(1 + 1) = 5 \times 2 \times 2 = 20$.
+
+- id: pre-m1-r2-h23
+  lesson: pre-m1-h-euclid
+  topic: Counting divisors
+  stem: 'How many divisors does 200 have?'
+  choices: ['12', '6', '5', '10']
+  answer: 0
+  explanation: |-
+    $200 = 2^3 \times 5^2$, so it has $(3 + 1)(2 + 1) = 4 \times 3 = 12$ divisors: 1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 200. (6 comes from multiplying the exponents without adding 1.)
+
+- id: pre-m1-r2-h24
+  lesson: pre-m1-h-euclid
+  topic: Counting divisors
+  stem: 'Which numbers have an odd number of divisors? Select all that apply.'
+  choices: ['49', '64', '50', '27']
+  answer: [0, 1]
+  explanation: |-
+    Only perfect squares have an odd number of divisors: $49 = 7^2$ has 3 and $64 = 8^2$ has 7. $50 = 2 \times 5^2$ has $2 \times 3 = 6$, and $27 = 3^3$ has 4.
+
+- id: pre-m1-r2-h25
+  lesson: pre-m1-h-euclid
+  type: match
+  topic: Counting divisors
+  stem: 'Match each number to how many divisors it has.'
+  pairs:
+    - ['16', '5']
+    - ['30', '8']
+    - ['49', '3']
+    - ['72', '12']
+  distractors: ['6']
+  explanation: |-
+    $16 = 2^4$: 5. $30 = 2 \times 3 \times 5$: $2 \times 2 \times 2 = 8$. $49 = 7^2$: 3. $72 = 2^3 \times 3^2$: $4 \times 3 = 12$.
+
+- id: pre-m1-r2-h26
+  lesson: pre-m1-h-euclid
+  topic: Counting divisors
+  stem: 'What is the smallest whole number with exactly 6 divisors?'
+  choices: ['32', '18', '12', '36']
+  answer: 2
+  explanation: |-
+    $6 = 6$ or $3 \times 2$, so the exponents are 5 (giving $2^5 = 32$) or 2 and 1 (smallest $2^2 \times 3 = 12$). 12 has divisors 1, 2, 3, 4, 6, 12. (18 also has 6 divisors but is larger; 36 has 9.)
+
+- id: pre-m1-r2-h27
+  lesson: pre-m1-h-euclid
+  topic: Euclidean algorithm
+  stem: 'Euclid''s argument starts from the list 2, 3, 5 and forms $N = 2 \times 3 \times 5 + 1 = 31$. What does the argument guarantee?'
+  choices: ['$N$ is always divisible by the next prime, 7', '$N$ has a prime factor that is not on the list', '$N$ is always the next prime after 5', '$N$ is always composite']
+  answer: 1
+  explanation: |-
+    Dividing $N$ by 2, 3 or 5 leaves remainder 1, so none of them divides it; its prime factors must be missing from the list. Here 31 happens to be prime, but it isn't the next prime after 5 (that is 7), and in other cases $N$ is composite.
+
+- id: pre-m1-r2-h28
+  lesson: pre-m1-h-euclid
+  type: text
+  topic: Euclidean algorithm
+  stem: '$2 \times 3 \times 5 \times 7 \times 11 \times 13 + 1 = 30{,}031 = 59 \times$ ___.'
+  accept: ['509']
+  explanation: |-
+    $30{,}031 \div 59 = 509$. So Euclid's number for the list 2 to 13 is composite; its prime factors 59 and 509 are simply primes that were not on the list, which is all the argument needs.
+
+- id: pre-m1-r2-h29
+  lesson: pre-m1-h-euclid
+  topic: Euclidean algorithm
+  stem: 'GCF(391, 299) = 23. Write $\dfrac{299}{391}$ in lowest terms.'
+  choices: ['$\tfrac{23}{17}$', '$\tfrac{13}{23}$', '$\tfrac{299}{391}$', '$\tfrac{13}{17}$']
+  answer: 3
+  explanation: |-
+    Divide the top and bottom by the GCF: $299 \div 23 = 13$ and $391 \div 23 = 17$, giving $\tfrac{13}{17}$. Because 23 is the greatest common factor, 13 and 17 share no factor but 1.
+
+- id: pre-m1-r2-h30
+  lesson: pre-m1-h-euclid
+  type: order
+  topic: Counting divisors
+  stem: 'Put the steps for counting the divisors of 360 in order.'
+  items: ['Find the prime factorization: $2^3 \times 3^2 \times 5$', 'Add 1 to each exponent: 4, 3 and 2', 'Multiply: $4 \times 3 \times 2$', 'Answer: 24 divisors']
+  explanation: |-
+    The rule needs the full prime factorization first. Each exponent plus 1 counts the choices for that prime (including using none of it), and the choices multiply: 24 divisors.
+
+# --- Honors: pre-m1-h-estimation ---
+- id: pre-m1-r2-h31
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'Round each factor down to the tens to find a lower bound for $47 \times 62$.'
+  choices: ['3,500', '3,000', '2,400', '2,914']
+  answer: 2
+  explanation: |-
+    $40 \times 60 = 2{,}400$. The exact product, 2,914, can't be below it. (3,500 is the upper bound $50 \times 70$; 3,000 is the estimate $50 \times 60$, which isn't a bound at all.)
+
+- id: pre-m1-r2-h32
+  lesson: pre-m1-h-estimation
+  type: text
+  topic: Estimation
+  stem: 'Round each factor up to the tens to find an upper bound for $47 \times 62$. Upper bound = ___.'
+  accept: ['3500', '3,500']
+  explanation: |-
+    $50 \times 70 = 3{,}500$. Rounding every factor up can only make a product of whole numbers bigger, so the exact product (2,914) is below 3,500.
+
+- id: pre-m1-r2-h33
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'Rounding to the hundreds, what is an upper bound for $6{,}240 - 1{,}780$?'
+  choices: ['4,600', '4,400', '4,500', '4,460']
+  answer: 0
+  explanation: |-
+    For the largest possible difference, round the first number up and the number subtracted down: $6{,}300 - 1{,}700 = 4{,}600$. (4,400 is the lower bound $6{,}200 - 1{,}800$; 4,500 rounds both up, which isn't a bound; 4,460 is the exact answer.)
+
+- id: pre-m1-r2-h34
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'A whole number rounds to 2,500 when rounded to the nearest hundred. Which could it be? Select all that apply.'
+  choices: ['2,450', '2,549', '2,550', '2,449']
+  answer: [0, 1]
+  explanation: |-
+    The numbers that round to 2,500 run from 2,450 (halfway rounds up) to 2,549. 2,550 rounds up to 2,600, and 2,449 rounds down to 2,400.
+
+- id: pre-m1-r2-h35
+  lesson: pre-m1-h-estimation
+  type: text
+  topic: Estimation
+  stem: 'A whole number rounded to the nearest ten is 80. The smallest it could be is ___ and the largest is ___.'
+  accept:
+    - ['75']
+    - ['84']
+  explanation: |-
+    75 rounds up to 80 (a 5 rounds up), and 84 rounds down to 80. 74 would round to 70 and 85 to 90.
+
+- id: pre-m1-r2-h36
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'Which of these is an overestimate of $312 \times 18$?'
+  choices: ['$310 \times 18 = 5{,}580$', '$300 \times 18 = 5{,}400$', '$312 \times 10 = 3{,}120$', '$320 \times 20 = 6{,}400$']
+  answer: 3
+  explanation: |-
+    The exact product is 5,616. Only $320 \times 20$ rounds both factors up, so only it is bigger than the exact answer. The other three make a factor smaller and are underestimates.
+
+- id: pre-m1-r2-h37
+  lesson: pre-m1-h-estimation
+  type: order
+  topic: Estimation
+  stem: 'Put the steps of a Fermi estimate in order.'
+  items: ['Break the quantity into pieces that combine to give it', 'Estimate each piece and write down your assumptions', 'Combine the pieces', 'Judge whether the answer is reasonable']
+  explanation: |-
+    You can't estimate pieces before choosing them, can't combine them before estimating them, and can't judge an answer you don't have yet.
+
+- id: pre-m1-r2-h38
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'A resting heart beats about 60 times a minute. About how many times does it beat in a day?'
+  choices: ['about 90,000', 'about 9,000', 'about 900,000', 'about 1,500']
+  answer: 0
+  explanation: |-
+    $60 \times 60 = 3{,}600$ beats an hour, and $3{,}600 \times 24 = 86{,}400$ a day, about 90,000. (About 1,500 comes from $60 \times 24 = 1{,}440$, which forgets that an hour has 60 minutes.)
+
+- id: pre-m1-r2-h39
+  lesson: pre-m1-h-estimation
+  type: match
+  topic: Estimation
+  stem: 'Match each quantity to its size.'
+  pairs:
+    - [Hours in a day, In the tens]
+    - [Hours in a week, In the hundreds]
+    - [Minutes in a day, In the thousands]
+    - [Seconds in a day, In the tens of thousands]
+    - [Minutes in a year, In the hundreds of thousands]
+  distractors: [In the millions]
+  explanation: |-
+    24 hours a day; $24 \times 7 = 168$ hours a week; $24 \times 60 = 1{,}440$ minutes a day; $1{,}440 \times 60 = 86{,}400$ seconds a day; $1{,}440 \times 365 = 525{,}600$ minutes a year.
+
+- id: pre-m1-r2-h40
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'A parking lot has 60 rows, rounded to the nearest ten, and every row has exactly 20 spaces. What are the smallest and largest possible numbers of spaces?'
+  choices: ['1,100 and 1,300', '1,000 and 1,400', '1,100 and 1,280', '1,180 and 1,220']
+  answer: 2
+  explanation: |-
+    The number of rows is from 55 to 64. So there are from $55 \times 20 = 1{,}100$ to $64 \times 20 = 1{,}280$ spaces. (1,300 would need 65 rows, which rounds to 70.)
+
+- id: pre-m1-r2-h41
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'In a Fermi estimate, one piece is guessed twice as large as it really is and another is guessed half as large as it really is. If the pieces are multiplied, the result is'
+  choices: ['four times too large', 'twice too large', 'half as large as it should be', 'exactly right']
+  answer: 3
+  explanation: |-
+    Multiplying by 2 and by $\tfrac12$ cancel: $2 \times \tfrac12 = 1$. Errors in different directions partly cancel, which is one reason Fermi estimates often land close.
+
+- id: pre-m1-r2-h42
+  lesson: pre-m1-h-estimation
+  type: text
+  topic: Estimation
+  stem: 'A faucet drips 10 times a minute. How many times does it drip in one day? Give only the number.'
+  accept: ['14400', '14,400']
+  explanation: |-
+    A day has $24 \times 60 = 1{,}440$ minutes, so $10 \times 1{,}440 = 14{,}400$ drips.
+
+- id: pre-m1-r2-h43
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'Which of these are upper bounds for $38 + 47 + 91$, that is, numbers the sum cannot be above? Select all that apply.'
+  choices: ['190', '180', '170', '175']
+  answer: [0, 1]
+  explanation: |-
+    Rounding every number up to the tens gives $40 + 50 + 100 = 190$, an upper bound. The exact sum is 176, so 180 is also an upper bound (just a less obvious one). 170 and 175 are below the sum.
+
+- id: pre-m1-r2-h44
+  lesson: pre-m1-h-estimation
+  topic: Estimation
+  stem: 'You estimate heartbeats in a year by assuming 70 beats a minute. Which is the best way to report the result?'
+  choices: ['36,792,000 beats', 'about 40 million beats', 'about 400 million beats', '36,500,000 beats']
+  answer: 1
+  explanation: |-
+    The heart rate was a rough assumption, so only the first digit or so of the answer means anything: about 40 million. Reporting 36,792,000 suggests a precision the guess doesn't have, and 400 million is off by a factor of ten.

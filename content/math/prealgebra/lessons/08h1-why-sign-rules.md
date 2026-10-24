@@ -18,7 +18,7 @@ Negative numbers were not accepted all at once. What follows is a simplified out
 
 - **China.** The *Nine Chapters on the Mathematical Art*, a collection of problems that reached its final form around the first century CE, used positive and negative quantities while solving systems of equations and stated rules for adding and subtracting them. In Liu Hui's commentary on the book (263 CE), numbers were laid out with counting rods: red rods for positive amounts and black rods for negative ones.
 - **India.** In 628 CE the astronomer Brahmagupta wrote down rules for "fortunes" (positive numbers), "debts" (negative numbers) and zero, including the rule that the product of two debts is a fortune.
-- **Europe.** European mathematicians were slow to accept negatives. Well into the 1500s and later, some writers called negative solutions of equations "false" or "fictitious" and threw them away. Negatives became fully accepted as the rules of algebra were written down carefully, which is the approach this lesson follows.
+- **Europe.** European mathematicians were slow to accept negatives. Well into the 1500s and later, some writers called negative solutions of equations "false" or "fictitious" and threw them away. Negatives became standard over the next few centuries, and in the 1800s mathematicians began justifying them the way this lesson does: from the laws of arithmetic.
 
 ## The rules of the game
 
@@ -91,13 +91,13 @@ So $(-a) + (-b)$ is the opposite of $a + b$. For example, $-(5 + 8) = -13$ and $
 Step 1 with $a = 1$ says $(-1)b = -b$: *multiplying by $-1$ takes the opposite.* On the number line, taking the opposite is a flip (a mirror reflection) across 0. Every point jumps to the same distance on the other side.
 
 ```numberline
-{"x": [-7, 7], "points": [{"at": [5, 0], "label": "5"}, {"at": [-5, 0], "label": "-5"}, {"at": [0, 0], "label": "0"}], "segments": [{"from": [5, 0], "to": [-5, 0], "arrow": true, "label": "× (-1)"}], "caption": "Multiplying by -1 flips 5 across 0 to -5"}
+{"x": [-7, 7], "points": [{"at": [5, 0], "label": "5"}, {"at": [-5, 0], "label": "-5"}, {"at": [0, 0], "label": "0"}], "segments": [{"from": [5, 0], "to": [-5, 0], "arrow": true}], "caption": "Multiplying by -1 flips 5 across 0 to -5"}
 ```
 
 Multiplying by any negative number is a flip followed by a stretch. Since $-2 = (-1) \times 2$, multiplying $-3$ by $-2$ means: flip $-3$ to 3, then double to 6.
 
 ```numberline
-{"x": [-5, 8], "points": [{"at": [-3, 0], "label": "-3"}, {"at": [3, 0], "label": "3 (flipped)", "open": true}, {"at": [6, 0], "label": "6"}], "segments": [{"from": [-3, 0], "to": [6, 0], "arrow": true, "label": "× (-2)"}], "caption": "(-3) × (-2): flip -3 to 3, then stretch by 2 to reach 6"}
+{"x": [-5, 8], "points": [{"at": [-3, 0], "label": "-3"}, {"at": [3, 0], "label": "3 (flipped)", "open": true}, {"at": [6, 0], "label": "6"}], "segments": [{"from": [-3, 0], "to": [6, 0], "arrow": true}], "caption": "(-3) × (-2): flip -3 to 3, then stretch by 2 to reach 6"}
 ```
 
 This picture explains the counting rule from Lesson 8. Each negative factor is one flip. Two flips bring you back to the side you started on, so an even number of negative factors gives a positive result, and an odd number leaves you on the negative side.

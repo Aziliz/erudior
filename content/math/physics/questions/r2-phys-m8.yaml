@@ -27,7 +27,7 @@
     - Disconnect the ground
     - Take the rod away
   explanation: |-
-    With the rod near, the sphere's electrons are pushed away, and grounding lets them escape to Earth. The ground must be removed *before* the rod: if the rod went first, electrons would flow back up from Earth and the sphere would end up neutral. Only after both steps is the sphere left positive.
+    With the rod near, the sphere's electrons are pushed away, and grounding lets them escape to Earth. The ground must be removed before the rod: if the rod went first, electrons would flow back up from Earth and the sphere would end up neutral. Only after both steps is the sphere left positive.
 - id: phys-m8-r2-q03
   lesson: phys-coulomb
   topic: Coulomb's law
@@ -176,7 +176,7 @@
     - 'It gives the field directly only for highly symmetric charge distributions'
   answer: [1, 3, 4]
   explanation: |-
-    Gauss's law is always true, and outside charges contribute zero *net* flux. It finds $E$ easily only when symmetry makes $E$ constant on a well-chosen surface. Zero net flux doesn't mean zero field: an outside charge makes a field on the surface whose inward and outward flux cancel. For a fixed enclosed charge, the flux is the same for any surface size.
+    Gauss's law is always true, and outside charges contribute zero net flux. It finds $E$ easily only when symmetry makes $E$ constant on a well-chosen surface. Zero net flux doesn't mean zero field: an outside charge makes a field on the surface whose inward and outward flux cancel. For a fixed enclosed charge, the flux is the same for any surface size.
 - id: phys-m8-r2-q15
   lesson: phys-gauss
   module_quiz: true
@@ -233,7 +233,7 @@
   lesson: phys-potential
   topic: Electric potential
   type: order
-  stem: 'Points are at different distances from a single *negative* point charge. Put them in order from highest potential to lowest (zero at infinity).'
+  stem: 'Points are at different distances from a single negative point charge. Put them in order from highest potential to lowest (zero at infinity).'
   items:
     - 10 cm from the charge
     - 5 cm from the charge
@@ -326,7 +326,7 @@
   choices: ['from the negative charge to the positive charge', 'from the positive charge to the negative charge', 'perpendicular to the line joining the charges', 'along the external field, whatever the dipole''s orientation']
   answer: 0
   explanation: |-
-    By convention $\vec p = q\vec d$ with $\vec d$ from $-$ to $+$. It's tied to the dipole itself, not to any outside field; note it points opposite to the field *between* the two charges.
+    By convention $\vec p = q\vec d$ with $\vec d$ from $-$ to $+$. It's tied to the dipole itself, not to any outside field; note it points opposite to the field between the two charges.
 - id: phys-m8-r2-h02
   lesson: phys-m8-h-dipoles
   topic: Electric dipoles
@@ -338,7 +338,7 @@
 - id: phys-m8-r2-h03
   lesson: phys-m8-h-dipoles
   topic: Electric dipoles
-  stem: 'A dipole sits in a *uniform* electric field at some angle to it. The net force and the net torque on it are'
+  stem: 'A dipole sits in a uniform electric field at some angle to it. The net force and the net torque on it are'
   choices: ['both zero', 'a nonzero force and zero torque', 'zero force and a nonzero torque', 'both nonzero']
   answer: 2
   explanation: |-
@@ -436,7 +436,7 @@
     - 'An aligned dipole has potential energy $U = +pE$'
   answer: [0, 2, 3]
   explanation: |-
-    Uniform field: equal and opposite forces, zero net force. The far field goes as $1/r^3$. In a nonuniform field the end in the stronger field wins, pulling an aligned dipole toward stronger field. The torque $pE\sin\theta$ is *zero* when $\vec p \parallel \vec E$, and the aligned energy is $-pE$, the minimum.
+    Uniform field: equal and opposite forces, zero net force. The far field goes as $1/r^3$. In a nonuniform field the end in the stronger field wins, pulling an aligned dipole toward stronger field. The torque $pE\sin\theta$ is zero when $\vec p \parallel \vec E$, and the aligned energy is $-pE$, the minimum.
 - id: phys-m8-r2-h14
   lesson: phys-m8-h-dipoles
   topic: Electric dipoles
@@ -465,7 +465,7 @@
 - id: phys-m8-r2-h16
   lesson: phys-m8-h-millikan
   topic: Charge quantization
-  stem: 'To hold a *negatively* charged oil drop still between horizontal plates, the electric field must point'
+  stem: 'To hold a negatively charged oil drop still between horizontal plates, the electric field must point'
   choices: ['upward, so the top plate is negative', 'downward, so the top plate is positive', 'horizontally, across the plates', 'upward, so the top plate is positive']
   answer: 1
   explanation: |-
@@ -623,7 +623,7 @@
   choices: ['A large radius and no sharp points keep the surface field below breakdown at higher voltages', 'A large dome has a smaller capacitance, so it charges faster', 'Smooth metal is a better conductor than rough metal', 'The belt needs the room inside to turn']
   answer: 0
   explanation: |-
-    At the surface $E = V/R$, so a bigger radius allows a higher voltage before the air breaks down ($V_{\max} = E_{\max}R$). Bumps and points act like tiny spheres with strong local fields that leak charge by corona. A larger sphere has a *larger* capacitance ($4\pi\varepsilon_0R$).
+    At the surface $E = V/R$, so a bigger radius allows a higher voltage before the air breaks down ($V_{\max} = E_{\max}R$). Bumps and points act like tiny spheres with strong local fields that leak charge by corona. A larger sphere has a larger capacitance ($4\pi\varepsilon_0R$).
 - id: phys-m8-r2-h33
   lesson: phys-m8-h-breakdown
   topic: Dielectric breakdown
@@ -639,7 +639,7 @@
   choices: ['$-2.7\times10^{-9}$ C/m²', '$-1.3\times10^{-9}$ C/m²', '$+1.3\times10^{-9}$ C/m²', '$-1.7\times10^{13}$ C/m²']
   answer: 1
   explanation: |-
-    The ground is a conductor, so just outside it $E = \sigma/\varepsilon_0$: $|\sigma| = (8.85\times10^{-12})(150) = 1.3\times10^{-9}$ C/m². The field points *into* the ground, so the charge is negative. Using the isolated-sheet formula $\sigma/(2\varepsilon_0)$ gives twice as much; dividing $E$ by $\varepsilon_0$ gives the absurd $10^{13}$.
+    The ground is a conductor, so just outside it $E = \sigma/\varepsilon_0$: $|\sigma| = (8.85\times10^{-12})(150) = 1.3\times10^{-9}$ C/m². The field points into the ground, so the charge is negative. Using the isolated-sheet formula $\sigma/(2\varepsilon_0)$ gives twice as much; dividing $E$ by $\varepsilon_0$ gives the absurd $10^{13}$.
 - id: phys-m8-r2-h35
   lesson: phys-m8-h-breakdown
   topic: Dielectric breakdown

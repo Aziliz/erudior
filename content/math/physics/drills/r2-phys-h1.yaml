@@ -14,7 +14,7 @@
     - {name: frac, label: '(a) $gh/c^2 =$', format: sci, relTolerance: 0.01}
     - {name: gain, label: '(b) Time gained', format: sig3, relTolerance: 0.01, units: {ns: 1, 'μs': 1000, us: 1000}}
   solution: |-
-    (a) $\dfrac{gh}{c^2} = \dfrac{(9.8)({hgt})}{(3.00\times10^8)^2} =$ **{frac:sci}**. The higher clock runs fast by this fraction.
+    (a) $\dfrac{gh}{c^2} = \dfrac{(9.8)({hgt:dp0})}{(3.00\times10^8)^2} = \mathbf{{frac:texsci}}$. The higher clock runs fast by this fraction.
 
     (b) {days} days $= {days} \times 86\,400$ s. Gain $= {frac:texsci} \times {days} \times 86\,400\text{ s} =$ **{gain:sig3} ns**.
 
@@ -27,7 +27,8 @@
   calc:
     rkm: 2*6.674e-11*msol*1.989e30/(2.998e8)^2/1000
     rsm: rau*1.496e11
-    mbh: rsm*(2.998e8)^2/(2*6.674e-11)/1.989e30
+    mbkg: rsm*(2.998e8)^2/(2*6.674e-11)
+    mbh: mbkg/1.989e30
   prompt: '(a) Find the Schwarzschild radius, in km, of a black hole of {msol} solar masses. (b) A supermassive black hole has a horizon radius of {rau:num2} AU. What is its mass in solar masses? Use $G = 6.674\times10^{-11}$ N·m²/kg², $c = 2.998\times10^8$ m/s, $M_\odot = 1.989\times10^{30}$ kg and 1 AU $= 1.496\times10^{11}$ m. Give each to 3 significant figures.'
   answers:
     - {name: rkm, label: '(a) $r_s =$', format: sig3, relTolerance: 0.01, units: {km: 1, m: 0.001}}
@@ -35,7 +36,7 @@
   solution: |-
     (a) $r_s = \dfrac{2GM}{c^2} = \dfrac{2(6.674\times10^{-11})({msol} \times 1.989\times10^{30})}{(2.998\times10^8)^2}$ m $=$ **{rkm:sig3} km** (about 2.95 km per solar mass).
 
-    (b) $r_s = {rau:num2} \times 1.496\times10^{11} = {rsm:texsci}$ m. Solve for the mass: $M = \dfrac{r_sc^2}{2G} = \dfrac{({rsm:texsci})(2.998\times10^8)^2}{2(6.674\times10^{-11})}$ kg, which is **{mbh:sci}** solar masses.
+    (b) $r_s = {rau:num2} \times 1.496\times10^{11} = {rsm:texsci}$ m. Solve for the mass: $M = \dfrac{r_sc^2}{2G} = \dfrac{({rsm:texsci})(2.998\times10^8)^2}{2(6.674\times10^{-11})} = {mbkg:texsci}$ kg. Divide by $1.989\times10^{30}$ kg: $\mathbf{{mbh:texsci}}$ solar masses.
 
 - id: phys-h1-r2-gw-strain
   title: Gravitational-wave strain
@@ -51,9 +52,9 @@
     - {name: dl, label: '(a) $\Delta L =$', format: sci, relTolerance: 0.01, units: {m: 1}}
     - {name: frac, label: '(b) Fraction', format: sci, relTolerance: 0.01}
   solution: |-
-    (a) $\Delta L = hL = ({hs:num1}\times10^{-21})({det}\text{ m}) =$ **{dl:sci} m**.
+    (a) $\Delta L = hL = ({hs:num1}\times10^{-21})({det:sig4}\text{ m}) = \mathbf{{dl:texsci}}$ **m**.
 
-    (b) $\dfrac{\Delta L}{1.7\times10^{-15}\text{ m}} = $ **{frac:sci}**, a tiny fraction of a proton.
+    (b) $\dfrac{\Delta L}{1.7\times10^{-15}\text{ m}} = \mathbf{{frac:texsci}}$, a tiny fraction of a proton.
 
 # Lesson 91: the Standard Model
 - id: phys-h1-r2-annihilation
@@ -61,16 +62,18 @@
   topic: Particle physics
   vars:
     part: {choices: [{label: 'an electron and a positron ($mc^2 = 0.511$ MeV each)', value: 0.511}, {label: 'a muon and an antimuon ($mc^2 = 105.7$ MeV each)', value: 105.7}, {label: 'a proton and an antiproton ($mc^2 = 938.3$ MeV each)', value: 938.3}]}
-    kin: {min: 0, max: 5, step: 0.5}
+    kin: {min: 0.5, max: 5, step: 0.5}
   calc:
     eph: part + kin
     lam: 1240/eph
-  prompt: '{part} collide head-on with equal speeds, each with kinetic energy {kin:num1} MeV, and annihilate into two photons. Find (a) the energy of each photon (MeV) and (b) its wavelength (fm). Use $hc = 1240$ MeV·fm and give each to 3 significant figures.'
+  prompt: 'Consider {part}. They collide head-on with equal speeds, each with kinetic energy {kin:num1} MeV, and annihilate into two photons. Find (a) the energy of each photon (MeV) and (b) its wavelength (fm). Use $hc = 1240$ MeV·fm and give each to 3 significant figures.'
   answers:
-    - {name: eph, label: '(a) Photon energy', format: sig4, relTolerance: 0.005, units: {MeV: 1, keV: 0.001, GeV: 1000}}
+    - {name: eph, label: '(a) Photon energy', format: sig4, relTolerance: 0.01, units: {MeV: 1, keV: 0.001, GeV: 1000}}
     - {name: lam, label: '(b) Wavelength', format: sig3, relTolerance: 0.01, units: {fm: 1, pm: 1000}}
   solution: |-
-    The total momentum is zero, so the two photons go off in opposite directions with equal energies, and each takes one particle's total energy: $E = mc^2 + K = {part:num4} + {kin:num1} =$ **{eph:sig4} MeV**.
+    The total momentum is zero, so the two photons go off in opposite directions with equal energies.
+
+    (a) Each photon takes one particle's total energy: $E = mc^2 + K = {part:num4} + {kin:num1} =$ **{eph:sig4} MeV**.
 
     (b) $\lambda = \dfrac{hc}{E} = \dfrac{1240\text{ MeV·fm}}{{eph:sig4}\text{ MeV}} =$ **{lam:sig3} fm**.
 
@@ -88,7 +91,7 @@
     - {name: rfm, label: '(a) Range', format: sig3, relTolerance: 0.01, units: {fm: 1, m: 1e15}}
     - {name: mass, label: '(b) $mc^2 =$', format: sig3, relTolerance: 0.01, units: {MeV: 1, GeV: 1000}}
   solution: |-
-    (a) $R \approx \dfrac{197.3\text{ MeV·fm}}{{carrier}\text{ MeV}} =$ **{rfm:sig3} fm**.
+    (a) $R \approx \dfrac{197.3\text{ MeV·fm}}{{carrier:sig5}\text{ MeV}} =$ **{rfm:sig3} fm**.
 
     (b) $mc^2 \approx \dfrac{\hbar c}{R} = \dfrac{197.3}{{rng:num2}} =$ **{mass:sig3} MeV**. Heavier carriers give shorter ranges.
 
@@ -106,7 +109,7 @@
     - {name: mom, label: '(a) $p =$', format: sig3, relTolerance: 0.01, units: {'GeV/c': 1, 'TeV/c': 1000, GeV: 1}}
     - {name: gam, label: '(b) $\gamma =$', format: sig3, relTolerance: 0.01}
   solution: |-
-    (a) $p = 0.2998({fld:num1})({rad}) =$ **{mom:sig3} GeV/$c$**.
+    (a) $p = 0.2998({fld:num1})({rad:dp0}) =$ **{mom:sig3} GeV/$c$**.
 
     (b) Total energy $E = \sqrt{(pc)^2 + (mc^2)^2} = \sqrt{({mom:sig4})^2 + 0.9383^2}$ GeV, and $\gamma = E/(mc^2) =$ **{gam:sig3}**.
 
@@ -169,9 +172,9 @@
   solution: |-
     $r = {rkpc:num1} \times 3.086\times10^{19} = {rm:texsci}$ m and $v = {vkm}\,000$ m/s.
 
-    (a) $M = \dfrac{v^2r}{G} = \dfrac{({vkm}\,000)^2({rm:texsci})}{6.674\times10^{-11}} =$ **{mkg:sci} kg**.
+    (a) $M = \dfrac{v^2r}{G} = \dfrac{({vkm}\,000)^2({rm:texsci})}{6.674\times10^{-11}} = \mathbf{{mkg:texsci}}$ **kg**.
 
-    (b) Divide by $1.989\times10^{30}$ kg: **{msun:sci}** solar masses.
+    (b) Divide by $1.989\times10^{30}$ kg: $\mathbf{{msun:texsci}}$ solar masses.
 
 # Lesson 93: climate physics
 - id: phys-h1-r2-planet-temp
@@ -220,15 +223,14 @@
     dF: 5.35*ln(ppm/280)
     dT0: dF/3.74
     dTeq: sens*ln(ppm/280)/ln(2)
-  where: ['ppm != 560']
   prompt: 'CO₂ rises from 280 ppm to {ppm} ppm. Find (a) the radiative forcing, using $\Delta F = 5.35\ln(C/C_0)$ W/m²; (b) the no-feedback warming, using $\Delta T_0 = \Delta F/(3.74\text{ W/(m}^2\text{·K)})$; and (c) the eventual warming if the climate sensitivity is {sens:num1} K per doubling of CO₂. Give each to 3 significant figures.'
   answers:
     - {name: dF, label: '(a) $\Delta F =$', format: sig3, relTolerance: 0.01, units: {'W/m²': 1, 'W/m^2': 1}}
     - {name: dT0, label: '(b) $\Delta T_0 =$', format: sig3, relTolerance: 0.01, units: {K: 1}}
     - {name: dTeq, label: '(c) $\Delta T =$', format: sig3, relTolerance: 0.01, units: {K: 1}}
   solution: |-
-    (a) $\Delta F = 5.35\ln\dfrac{{ppm}}{280} =$ **{dF:sig3} W/m²**.
+    (a) $\Delta F = 5.35\ln\dfrac{{ppm:dp0}}{280} =$ **{dF:sig3} W/m²**.
 
     (b) $\Delta T_0 = \dfrac{{dF:sig4}}{3.74} =$ **{dT0:sig3} K**.
 
-    (c) The number of doublings is $\dfrac{\ln({ppm}/280)}{\ln 2}$, so $\Delta T = {sens:num1} \times \dfrac{\ln({ppm}/280)}{\ln 2} =$ **{dTeq:sig3} K**.
+    (c) The number of doublings is $\dfrac{\ln({ppm:dp0}/280)}{\ln 2}$, so $\Delta T = {sens:num1} \times \dfrac{\ln({ppm:dp0}/280)}{\ln 2} =$ **{dTeq:sig3} K**.

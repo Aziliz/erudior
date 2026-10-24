@@ -35,6 +35,10 @@ Every probability is between 0 and 1:
 - $P = 1$: the event is **certain** (rolling a number less than 7).
 - Probabilities can be written as fractions, decimals or percents: $\tfrac14 = 0.25 = 25\%$.
 
+Here are some events for one roll of a fair die placed on the scale:
+
+![A probability scale from 0 to 1 for one roll of a fair die. Roll a 7 is at 0 (impossible), roll a 6 at 1/6, roll an even number at 1/2 (equally likely), roll less than 6 at 5/6, and roll less than 7 at 1 (certain).](images/pre-m9-prob-scale.svg)
+
 ### Example 1
 
 A bag holds 5 red, 3 blue and 4 green marbles. One marble is drawn at random. Find $P(\text{blue})$ and $P(\text{red or green})$.
@@ -81,6 +85,10 @@ $P(5) = \tfrac16$, so expect about $\tfrac16 \times 300 = 50$ fives. The actual 
 
 When an experiment has two stages, list all the combined outcomes in a table or tree. Flipping a coin and rolling a die gives $2 \times 6 = 12$ equally likely outcomes. This **counting principle** (multiply the number of choices at each stage) is a fast way to count.
 
+A **tree diagram** shows where the 12 comes from: 2 branches for the coin, and 6 branches from each of them for the die.
+
+![A tree diagram. From a starting point, two branches lead to H and T for the coin. From each of H and T, six branches lead to the die results 1 through 6. The outcome column lists H1 to H6 and T1 to T6, and the caption says 2 choices times 6 choices gives 12 equally likely outcomes.](images/pre-m9-coin-die-tree.svg)
+
 ### Example 4
 
 Two fair dice are rolled. What is the probability that the sum is 7?
@@ -119,6 +127,20 @@ From the bag in Example 1 (5 red, 3 blue, 4 green), a marble is drawn, replaced,
 With replacement the draws are independent: $\tfrac{5}{12} \times \tfrac{5}{12} = \tfrac{25}{144} \approx 0.17$.
 
 (Without replacement, the second draw would be $\tfrac{4}{11}$, since one red marble is gone; the events are then *dependent*. You'll study that case in statistics.)
+
+## Which rule when
+
+```mermaid
+flowchart LR
+  accTitle: Which probability rule to use
+  accDescr: Start from what the question asks. For one event with equally likely outcomes, divide favorable outcomes by total outcomes. For the event not happening, subtract its probability from 1. For A and B with independent events, multiply the two probabilities. For an expected count, multiply the probability by the number of trials. When there are no equally likely outcomes to count, estimate with successes divided by trials.
+  Q{"What does the question ask?"}
+  Q -- "one event" --> A["favorable ÷ total"]
+  Q -- "NOT an event" --> B["1 − P(event)"]
+  Q -- "A and B, independent" --> C["P(A) × P(B)"]
+  Q -- "how many times to expect" --> D["P × number of trials"]
+  Q -- "nothing to count" --> E["successes ÷ trials"]
+```
 
 ## Common mistakes
 

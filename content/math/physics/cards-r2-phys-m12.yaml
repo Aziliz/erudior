@@ -1,0 +1,22 @@
+# Round 2, module phys-m12: cards for the honors lessons (spacetime; nuclear energy and dose).
+- {front: 'Spacetime interval', back: '$(\Delta s)^2 = (c\,\Delta t)^2 - (\Delta x)^2$; the same in every inertial frame.', topic: Spacetime geometry}
+- {front: 'Timelike, lightlike, spacelike', back: '$(\Delta s)^2 > 0$: a clock can go between the events (fixed order). $= 0$: only light connects them. $< 0$: no signal connects them; order depends on the frame.', topic: Spacetime geometry}
+- {front: 'Proper time from the interval', back: 'For a straight trip between timelike events, the traveler''s clock reads $\Delta s/c = \sqrt{(\Delta t)^2 - (\Delta x/c)^2}$.', topic: Spacetime geometry}
+- {front: 'Spacetime diagram conventions', back: 'Position across, time up; with years and light-years, light moves at 45°. Objects at rest: vertical worldlines; moving objects: steeper than 45°.', topic: Spacetime geometry}
+- {front: 'Light cone', back: 'The 45° light lines through an event. Inside the upper half: possible future; lower half: possible past; outside: no causal connection.', topic: Spacetime geometry}
+- {front: 'Lorentz transformation', back: '$x'' = \gamma(x - vt)$, $t'' = \gamma(t - vx/c^2)$. Reduces to $x'' = x - vt$, $t'' = t$ at low speed.', topic: Spacetime geometry}
+- {front: 'Simultaneity shift', back: 'Events simultaneous in S and $\Delta x$ apart are $\Delta t'' = -\gamma v\,\Delta x/c^2$ apart in S′: the one farther along the direction of motion happens first.', topic: Spacetime geometry}
+- {front: 'Twin paradox resolution', back: 'The stay-at-home twin''s worldline is straight (inertial); the traveler''s bends. Between two events the straight worldline has the longest proper time.', topic: Spacetime geometry}
+- {front: 'Twin trip: 4.0 ly at 0.80c', back: 'Earth: 10 yr. Traveler: each leg $\sqrt{5^2 - 4^2} = 3$ yr, total 6 yr.', topic: Spacetime geometry}
+- {front: 'Relativistic Doppler effect', back: 'Receding: $f = f_0\sqrt{(1 - \beta)/(1 + \beta)}$; approaching: $f = f_0\sqrt{(1 + \beta)/(1 - \beta)}$. At $\beta = 0.8$ the factors are 1/3 and 3.', topic: Spacetime geometry}
+- {front: 'Q-value', back: '$Q = (\sum m_{\text{before}} - \sum m_{\text{after}})c^2$ with atomic masses; 1 u = 931.5 MeV. $Q > 0$ releases energy.', topic: Nuclear reactions}
+- {front: 'Alpha particle''s share of Q', back: '$K_\alpha = Q\,(A - 4)/A$ for a parent of mass number $A$ at rest (momentum is shared equally, energy inversely to mass).', topic: Nuclear reactions}
+- {front: 'Beta-plus Q with atomic masses', back: '$Q = [M(\text{parent}) - M(\text{daughter}) - 2m_e]c^2$, with $2m_ec^2 = 1.022$ MeV. For alpha and beta-minus the electrons cancel.', topic: Nuclear reactions}
+- {front: 'Why the neutrino was proposed', back: 'Beta electrons have a continuous range of energies up to Q; a third, unseen particle (Pauli, 1930) carries off the rest. Detected 1956 (Cowan and Reines).', topic: Nuclear reactions}
+- {front: 'Annihilation and pair production', back: 'Electron + positron at rest → two 0.511 MeV photons in opposite directions (used in PET). A photon of at least 1.022 MeV can make an electron–positron pair near a nucleus.', topic: Nuclear reactions}
+- {front: 'Threshold energy', back: '$K_{\text{th}} = -Q(1 + m_{\text{projectile}}/m_{\text{target}})$ for $Q < 0$; more than $|Q|$ because the products must keep the momentum.', topic: Nuclear reactions}
+- {front: 'Energy from fission vs fusion', back: 'U-235 fission: about 200 MeV each, $8\times10^{13}$ J/kg. D–T fusion: 17.6 MeV (14.1 MeV to the neutron), about $3.4\times10^{14}$ J/kg. Gasoline: about $4.6\times10^{7}$ J/kg.', topic: Nuclear reactions}
+- {front: 'Multiplication factor k', back: 'Average fissions caused by the neutrons of one fission. $k < 1$ dies out; $k = 1$ steady (critical); $k > 1$ grows. Moderator slows neutrons; control rods absorb them.', topic: Nuclear reactions}
+- {front: 'Gray vs sievert', back: 'Gray: absorbed dose, 1 Gy = 1 J/kg. Sievert: equivalent dose $H = w_RD$ ($w_R$ = 1 gamma/beta, 2 protons, 20 alpha).', topic: Radiation dose}
+- {front: 'Typical radiation doses', back: 'Average U.S. resident: about 6 mSv per year, roughly half natural. Chest X-ray: about 0.1 mSv or less. Several Sv at once: severe radiation sickness, often fatal untreated.', topic: Radiation dose}
+- {front: 'Linear no-threshold model', back: 'Protection rules assume risk proportional to dose with no safe level. A cautious assumption; its accuracy at a few mSv is debated.', topic: Radiation dose}

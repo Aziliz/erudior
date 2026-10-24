@@ -81,7 +81,7 @@ your notes. Never edit course.yaml, PROGRESS.md, other modules' files, `src/`, `
 - Select-all: every listed answer right, every other choice clearly wrong.
 - Match/label answers are drop-down text: plain text, no `$math$` (left items may use math).
 - Text questions: think of every reasonable correct answer (plural, synonyms, notation variants
-  like `1/2`, `0.5`, `.5` are equal automatically; `x=4` vs `4` is not: say "Give only the number").
+  like `1/2`, `0.5`, `.5` are equal automatically, and so are mixed numbers (`1 1/2` = `3/2` = `1.5`; a space between two digits is kept, so `11/2` is not `1 1/2`); `x=4` vs `4` is not: say "Give only the number").
 - Drills: if the prompt says "to 2 decimal places" or "2 significant figures", make sure a
   correctly rounded answer is accepted (`tolerance` ≥ half the last place, or `sigfigs`), for
   every possible input.

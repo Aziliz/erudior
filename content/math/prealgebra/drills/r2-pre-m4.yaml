@@ -88,7 +88,7 @@
     B: A*k^dim
   prompt: 'A shape has {dim} {A} (in square units for an area, cubic units for a volume). A similar shape has every length {k:num1} times as long. What is the {dim} of the larger shape?'
   answers:
-    - {name: B, label: 'New {dim}', tolerance: 0.001}
+    - {name: B, label: 'Answer', tolerance: 0.001}
   solution: |-
     When every length is multiplied by $k = {k:num1}$, an area is multiplied by $k^2$ and a volume by $k^3$. Here that is ${k:num1}^{pw} = {f:num4}$.
     New {dim}: ${A} \times {f:num4} =$ **{B:num4}**.

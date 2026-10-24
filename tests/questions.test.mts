@@ -41,6 +41,15 @@ t("text normalization", () => {
   assert.ok(textMatches("x + 3", ["x+3"]));
   assert.ok(!textMatches("1/3", ["0.33"]));
   assert.ok(!textMatches("2/4x", ["0.5x"]));
+  assert.ok(textMatches("1 1/2", ["3/2"]));
+  assert.ok(textMatches("1.5", ["1 1/2"]));
+  assert.ok(textMatches("1  1/2", ["1 1/2"]));
+  assert.ok(!textMatches("11/2", ["1 1/2"]));
+  assert.ok(!textMatches("1 1/2", ["11/2"]));
+  assert.ok(textMatches("-2 3/4", ["-11/4"]));
+  assert.ok(textMatches("2x + 1", ["2x+1"]));
+  assert.ok(textMatches("10 000", ["10000"]));
+  assert.ok(textMatches("1 000 000", ["1e6"]));
   assert.ok(!textMatches("", ["x"]));
   assert.ok(!textMatches("tt", ["Tt"], true));
   assert.ok(textMatches("Tt", ["Tt"], true));

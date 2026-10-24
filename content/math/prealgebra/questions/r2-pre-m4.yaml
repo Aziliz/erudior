@@ -1,0 +1,627 @@
+# Round 2: pre-m4 (Decimals, ratios and proportions). Core: q01-q20. Honors: h01-h39.
+
+# ---------- Lesson 13: Decimals: place value, rounding and converting ----------
+- id: pre-m4-r2-q01
+  lesson: pre-dec-basics
+  module_quiz: true
+  topic: Fractions and decimals
+  type: text
+  stem: 'Write $\dfrac{7}{20}$ as a decimal: ___'
+  accept: ['0.35']
+  explanation: |-
+    A fraction means division: $7 \div 20 = 0.35$. Or scale to hundredths: $\tfrac{7}{20} = \tfrac{35}{100} = 0.35$. It terminates because $20 = 2^2 \times 5$ has no prime factors other than 2 and 5.
+
+- id: pre-m4-r2-q02
+  lesson: pre-dec-basics
+  topic: Fractions and decimals
+  type: match
+  stem: 'Match each fraction to its decimal.'
+  pairs:
+    - ['$\tfrac{3}{8}$', '0.375']
+    - ['$\tfrac{5}{6}$', '0.8333… (the 3 repeats)']
+    - ['$\tfrac{2}{9}$', '0.222… (the 2 repeats)']
+    - ['$\tfrac{7}{25}$', '0.28']
+  distractors: ['0.83', '2.666… (the 6 repeats)']
+  explanation: |-
+    Divide numerator by denominator. $3 \div 8 = 0.375$ and $7 \div 25 = 0.28$ stop. $5 \div 6 = 0.8333\ldots = 0.8\overline{3}$ and $2 \div 9 = 0.222\ldots = 0.\overline{2}$ repeat, since 6 and 9 have the prime factor 3. 0.83 is $\tfrac56$ cut off after two places, not equal to it, and $2.666\ldots$ is $8 \div 3$, dividing the wrong way.
+
+- id: pre-m4-r2-q03
+  lesson: pre-dec-basics
+  topic: Fractions and decimals
+  stem: 'Which fractions have terminating decimals? Select all that apply.'
+  choices: ['$\tfrac{7}{40}$', '$\tfrac{3}{12}$', '$\tfrac{5}{14}$', '$\tfrac{9}{30}$', '$\tfrac{4}{21}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Simplify first, then factor the denominator. $\tfrac{7}{40}$: $40 = 2^3 \times 5$, terminates (0.175). $\tfrac{3}{12} = \tfrac14$, terminates (0.25), even though 12 has a factor 3. $\tfrac{9}{30} = \tfrac{3}{10}$, terminates (0.3). $\tfrac{5}{14}$ has a 7 in its denominator and $\tfrac{4}{21}$ has 3 and 7, so both repeat.
+
+- id: pre-m4-r2-q04
+  lesson: pre-dec-basics
+  module_quiz: true
+  topic: Decimal place value
+  type: label
+  stem: 'This place value chart shows 347.205 with most column headings removed. Name each numbered place.'
+  image: {src: images/pre-m4-place-value-blank.svg, alt: 'A place value chart with seven columns holding the digits 3, 4, 7, a decimal point, 2, 0 and 5. The headings are blank. Five headings are numbered: the columns of the 4 and the 7, and the columns of the 2, the 0 and the 5.'}
+  labels:
+    - {x: 25.7, y: 27, text: Tens}
+    - {x: 40.1, y: 27, text: Ones}
+    - {x: 59.9, y: 27, text: Tenths}
+    - {x: 74.3, y: 27, text: Hundredths}
+    - {x: 88.8, y: 27, text: Thousandths}
+  distractors: [Ten-thousandths, Thousands]
+  explanation: |-
+    Left of the point the places are hundreds, tens and ones, so 4 is in the tens place and 7 in the ones place. Right of the point they are tenths, hundredths and thousandths: the 2 is 2 tenths, the 0 is 0 hundredths and the 5 is 5 thousandths. There is no "oneths" place, so the first place after the point is tenths.
+
+- id: pre-m4-r2-q05
+  lesson: pre-dec-basics
+  topic: Decimal place value
+  type: order
+  stem: 'Put these numbers in order from least to greatest.'
+  items: ['0.045', '0.405', '0.45', '0.454', '0.5']
+  explanation: |-
+    Pad to three places: 0.045, 0.405, 0.450, 0.454, 0.500. As thousandths these are 45, 405, 450, 454 and 500, so that is the order. The number of digits doesn't decide size: 0.5 is the largest even though it has the fewest digits.
+
+# ---------- Lesson 14: Operations with decimals ----------
+- id: pre-m4-r2-q06
+  lesson: pre-dec-ops
+  topic: Decimal operations
+  type: text
+  stem: 'Find $0.4 \times 0.06$: ___'
+  accept: ['0.024']
+  explanation: |-
+    Ignore the points: $4 \times 6 = 24$. The factors have $1 + 2 = 3$ decimal places, so the product has 3: 0.024. (0.24 counts only two places.)
+
+- id: pre-m4-r2-q07
+  lesson: pre-dec-ops
+  topic: Decimal operations
+  type: order
+  stem: 'Put the steps for finding $4.56 \div 0.12$ in order.'
+  items:
+    - 'Count how many places make the divisor whole: 2'
+    - 'Move both points 2 places right: $456 \div 12$'
+    - 'Divide: $456 \div 12 = 38$'
+    - 'Check by multiplying: $38 \times 0.12 = 4.56$'
+  explanation: |-
+    First find how far the divisor's point must move to make 0.12 a whole number (2 places). Then move the dividend's point the same distance, which multiplies both numbers by 100 and doesn't change the quotient. Divide, and check by multiplying back.
+
+- id: pre-m4-r2-q08
+  lesson: pre-dec-ops
+  module_quiz: true
+  topic: Decimal operations
+  stem: 'Which products equal 0.12? Select all that apply.'
+  choices: ['$0.3 \times 0.4$', '$0.03 \times 4$', '$1.2 \times 0.1$', '$0.3 \times 0.04$', '$12 \times 0.1$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Count decimal places. $0.3 \times 0.4$: $3 \times 4 = 12$, 2 places, 0.12. $0.03 \times 4$: 12, 2 places, 0.12. $1.2 \times 0.1$: 12, 2 places, 0.12. But $0.3 \times 0.04$ has 3 places (0.012), and $12 \times 0.1$ has 1 place (1.2).
+
+- id: pre-m4-r2-q09
+  lesson: pre-dec-ops
+  topic: Decimal operations
+  type: match
+  stem: 'Match each calculation to the rule that places its decimal point.'
+  pairs:
+    - ['$3.2 + 0.45$', 'Line up the decimal points']
+    - ['$3.2 \times 0.45$', 'Count the decimal places in both factors']
+    - ['$3.2 \div 0.45$', 'Move both points until the divisor is whole']
+    - ['$3.2 \times 100$', 'Move the point 2 places right']
+  distractors: ['Move the point 2 places left']
+  explanation: |-
+    Adding needs like places lined up (3.20 + 0.45 = 3.65). Multiplying counts places: $32 \times 45 = 1440$ with 3 places, 1.44. Dividing by 0.45 means shifting both points 2 places ($320 \div 45$). Multiplying by 100 moves the point 2 places right (320); moving left would be dividing by 100.
+
+- id: pre-m4-r2-q10
+  lesson: pre-dec-ops
+  topic: Decimal operations
+  type: text
+  stem: 'Find $2.7 \div 0.09$: ___'
+  accept: ['30']
+  explanation: |-
+    Move both points 2 places right: $270 \div 9 = 30$. Check: $30 \times 0.09 = 2.7$. Dividing by a number less than 1 gives a larger result.
+
+# ---------- Lesson 15: Ratios, rates and unit rates ----------
+- id: pre-m4-r2-q11
+  lesson: pre-ratio
+  module_quiz: true
+  topic: Ratios
+  type: label
+  stem: 'A profit of \$4,500 is split between partners A and B in the ratio 2 : 7. This tape diagram shows the split with its labels removed (A''s parts are on the left). Name each numbered part.'
+  image: {src: images/pre-m4-tape-blank.svg, alt: 'A bar cut into 9 equal boxes, the first 2 shaded blue and the other 7 gold. A bracket over the whole bar is numbered 1, one gold box in the middle is numbered 4, and brackets under the 2 blue boxes and the 7 gold boxes are numbered 2 and 3.'}
+  labels:
+    - {x: 48, y: 19.3, text: 'Whole profit: 4,500 dollars'}
+    - {x: 15.8, y: 75.2, text: 'Partner A: 1,000 dollars'}
+    - {x: 57.2, y: 75.2, text: 'Partner B: 3,500 dollars'}
+    - {x: 48, y: 45.6, text: 'One part: 500 dollars'}
+  distractors: ['One part: 643 dollars', 'Partner A: 1,286 dollars']
+  explanation: |-
+    The ratio 2 : 7 has $2 + 7 = 9$ parts, so the bar has 9 boxes and each is worth $4{,}500 \div 9 = 500$ dollars. Partner A's 2 parts are 1,000 dollars and partner B's 7 parts are 3,500 dollars. The distractors come from splitting into 7 parts instead of 9 ($4{,}500 \div 7 \approx 643$).
+
+- id: pre-m4-r2-q12
+  lesson: pre-ratio
+  topic: Rates
+  type: text
+  stem: 'A car travels 351 miles on 13 gallons of gas. Its fuel economy is ___ miles per gallon.'
+  accept: ['27']
+  explanation: |-
+    Miles per gallon means miles ÷ gallons: $351 \div 13 = 27$.
+
+- id: pre-m4-r2-q13
+  lesson: pre-ratio
+  topic: Ratios
+  type: match
+  stem: 'Match each comparison to its ratio in simplest form.'
+  pairs:
+    - ['12 girls to 15 boys', '4 : 5']
+    - ['45 minutes to 2 hours', '3 : 8']
+    - ['1.5 cups to 2.25 cups', '2 : 3']
+    - ['12 girls to 27 students', '4 : 9']
+  distractors: ['45 : 2', '5 : 4']
+  explanation: |-
+    $12 : 15$ divided by 3 is $4 : 5$. Convert 2 hours to 120 minutes: $45 : 120 = 3 : 8$ (45 : 2 mixes units). Multiply $1.5 : 2.25$ by 100 to get $150 : 225$, then divide by 75: $2 : 3$. $12 : 27$ divided by 3 is $4 : 9$. $5 : 4$ is boys to girls, the reverse order.
+
+- id: pre-m4-r2-q14
+  lesson: pre-ratio
+  module_quiz: true
+  topic: Rates
+  stem: 'Which of these are unit rates? Select all that apply.'
+  choices: ['60 miles per hour', '\$0.24 per ounce', '300 miles in 5 hours', '72 beats per minute', 'A ratio of 3 : 5']
+  answer: [0, 1, 3]
+  explanation: |-
+    A unit rate compares different units with the second quantity equal to 1: 60 miles per 1 hour, \$0.24 per 1 ounce, 72 beats per 1 minute. "300 miles in 5 hours" is a rate but not a unit rate until you divide (60 mph). $3 : 5$ is a ratio with no units at all.
+
+- id: pre-m4-r2-q15
+  lesson: pre-ratio
+  topic: Ratios
+  type: order
+  stem: 'Put the steps for splitting \$720 in the ratio 3 : 5 in order.'
+  items:
+    - 'Add the parts: $3 + 5 = 8$'
+    - 'Find one part: $720 \div 8 = 90$'
+    - 'Multiply: $3 \times 90 = 270$ and $5 \times 90 = 450$'
+    - 'Check: $270 + 450 = 720$'
+  explanation: |-
+    The total number of parts comes first, because one part is the whole divided by it. Then each share is its number of parts times one part, and the shares should add back to \$720.
+
+# ---------- Lesson 16: Proportions ----------
+- id: pre-m4-r2-q16
+  lesson: pre-proportion
+  module_quiz: true
+  topic: Proportions
+  type: text
+  stem: 'Solve $\dfrac{x}{18} = \dfrac{5}{6}$. $x =$ ___. Give only the number.'
+  accept: ['15']
+  explanation: |-
+    Cross products: $6x = 18 \times 5 = 90$, so $x = 15$. Or scale: 6 times 3 is 18, so $x = 5 \times 3 = 15$. Check: $\tfrac{15}{18} = \tfrac56$.
+
+- id: pre-m4-r2-q17
+  lesson: pre-proportion
+  module_quiz: true
+  topic: Proportions
+  stem: 'In which situations are the two quantities proportional? Select all that apply.'
+  choices: ['Pounds of apples bought and their cost, at \$1.20 per pound', 'Miles ridden and taxi fare, with a \$3 fee plus \$2 per mile', 'Map distance and real distance, on a map with scale 1 inch : 25 miles', 'A child''s age and height', 'Number of servings and cups of flour, when a recipe is scaled up']
+  answer: [0, 2, 4]
+  explanation: |-
+    Proportional means doubling one doubles the other. Apples: 2 lb cost \$2.40, 4 lb cost \$4.80. Map: 2 inches is 50 miles, 4 inches is 100. Scaling a recipe multiplies every ingredient by the same factor. The taxi has a fixed \$3 fee (5 miles cost \$13, 10 miles cost \$23, not \$26), and a child who doubles in age does not double in height.
+
+- id: pre-m4-r2-q18
+  lesson: pre-proportion
+  topic: Proportions
+  type: order
+  stem: 'Four concert tickets cost \$46. Put the steps for finding the cost of 7 tickets in order.'
+  items:
+    - 'Check that it is proportional: twice the tickets, twice the cost'
+    - 'Write $\tfrac{4}{46} = \tfrac{7}{x}$ (tickets over dollars both times)'
+    - 'Set the cross products equal: $4x = 46 \times 7 = 322$'
+    - 'Divide by 4: $x = 80.50$, so 7 tickets cost \$80.50'
+  explanation: |-
+    First make sure a proportion fits (no fixed fee). Then write the proportion with like units in like positions, cross-multiply and divide. Check with a unit rate: $46 \div 4 = 11.50$ per ticket, and $7 \times 11.50 = 80.50$.
+
+- id: pre-m4-r2-q19
+  lesson: pre-proportion
+  topic: Proportions
+  type: match
+  stem: 'Match each proportion to its solution.'
+  pairs:
+    - ['$\tfrac{x}{8} = \tfrac{9}{12}$', 'x = 6']
+    - ['$\tfrac{2.5}{n} = \tfrac{10}{6}$', 'n = 1.5']
+    - ['$\tfrac{3}{7} = \tfrac{x}{42}$', 'x = 18']
+    - ['$\tfrac{9}{6} = \tfrac{h}{14}$', 'h = 21']
+  distractors: ['x = 13.5', 'x = 126']
+  explanation: |-
+    $12x = 72$, so $x = 6$. $10n = 15$, so $n = 1.5$. $7x = 126$, so $x = 18$ (126 forgets to divide by 7). $6h = 126$, so $h = 21$. 13.5 comes from $\tfrac{9 \times 12}{8}$, cross-multiplying the wrong pair.
+
+- id: pre-m4-r2-q20
+  lesson: pre-proportion
+  topic: Proportions
+  type: text
+  stem: 'A model car is built at a scale of 1 : 24. The real car is 192 inches long, so the model is ___ inches long.'
+  accept: ['8']
+  explanation: |-
+    Every model length is $\tfrac{1}{24}$ of the real length: $192 \div 24 = 8$ inches. As a proportion, $\tfrac{1}{24} = \tfrac{x}{192}$ gives $24x = 192$.
+
+# ---------- Honors 16h1: Repeating decimals as fractions ----------
+- id: pre-m4-r2-h01
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: 'Write $0.\overline{54}$ as a fraction in simplest form.'
+  choices: ['$\tfrac{6}{11}$', '$\tfrac{27}{50}$', '$\tfrac{3}{5}$', '$\tfrac{5}{9}$']
+  answer: 0
+  explanation: |-
+    Let $x = 0.\overline{54}$. The period is 2, so $100x = 54.\overline{54}$. Subtract: $99x = 54$, $x = \tfrac{54}{99} = \tfrac{6}{11}$. ($\tfrac{27}{50} = \tfrac{54}{100}$ is the terminating 0.54; $\tfrac35 = \tfrac{54}{90}$ uses the wrong denominator; $\tfrac59 = 0.\overline{5}$.)
+
+- id: pre-m4-r2-h02
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: 'To convert $x = 0.\overline{123}$ to a fraction by shift and subtract, what should you multiply $x$ by before subtracting?'
+  choices: ['10', '1000', '100', '999']
+  answer: 1
+  explanation: |-
+    The repetend 123 has 3 digits, so shift by 3 places: $1000x = 123.\overline{123}$. Then the tails line up and $999x = 123$. Multiplying by 10 or 100 leaves tails that don't match, and 999 is what you get *after* subtracting, not the multiplier.
+
+- id: pre-m4-r2-h03
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  type: text
+  stem: 'In lowest terms, $0.\overline{8}$ is a fraction with numerator ___ and denominator ___.'
+  accept:
+    - ['8']
+    - ['9']
+  explanation: |-
+    $10x = 8.\overline{8}$ and $x = 0.\overline{8}$, so $9x = 8$ and $x = \tfrac89$, already in lowest terms.
+
+- id: pre-m4-r2-h04
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: '$\tfrac{1}{13} = 0.076923076923\ldots$ What is the period of this decimal?'
+  choices: ['5', '12', '6', '13']
+  answer: 2
+  explanation: |-
+    The repeating block is 076923, which has 6 digits (the leading 0 counts). So $\tfrac{1}{13} = 0.\overline{076923}$ with period 6. 12 is the largest period possible for denominator 13, not the actual one.
+
+- id: pre-m4-r2-h05
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: 'Write $0.2\overline{7}$ (only the 7 repeats) as a fraction in simplest form.'
+  choices: ['$\tfrac{3}{11}$', '$\tfrac{25}{99}$', '$\tfrac{27}{100}$', '$\tfrac{5}{18}$']
+  answer: 3
+  explanation: |-
+    $10x = 2.\overline{7}$ and $100x = 27.\overline{7}$. Subtract: $90x = 25$, so $x = \tfrac{25}{90} = \tfrac{5}{18}$. Check: $5 \div 18 = 0.2777\ldots$ $\tfrac{3}{11} = \tfrac{27}{99} = 0.\overline{27}$ treats both digits as repeating.
+
+- id: pre-m4-r2-h06
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: 'Write $1.\overline{6}$ as a fraction.'
+  choices: ['$\tfrac{5}{3}$', '$\tfrac{8}{5}$', '$\tfrac{7}{6}$', '$\tfrac{16}{9}$']
+  answer: 0
+  explanation: |-
+    $1.\overline{6} = 1 + 0.\overline{6} = 1 + \tfrac69 = 1 + \tfrac23 = \tfrac53$. Or: $10x = 16.\overline{6}$, so $9x = 15$ and $x = \tfrac{15}{9} = \tfrac53$. $\tfrac85 = 1.6$ exactly, $\tfrac76 = 1.1\overline{6}$, and $\tfrac{16}{9} = 1.\overline{7}$.
+
+- id: pre-m4-r2-h07
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  type: order
+  stem: 'Put the steps for converting $0.4\overline{3}$ to a fraction in order.'
+  items:
+    - 'Let $x = 0.4333\ldots$'
+    - 'Multiply by 10: $10x = 4.333\ldots$'
+    - 'Multiply that by 10 again: $100x = 43.333\ldots$'
+    - 'Subtract: $100x - 10x = 90x = 39$'
+    - 'Divide and simplify: $x = \tfrac{39}{90} = \tfrac{13}{30}$'
+  explanation: |-
+    Name the number, move the point just past the non-repeating 4, move it one more period (1 digit), subtract so the tails of 3s cancel, then divide. Check: $13 \div 30 = 0.4333\ldots$
+
+- id: pre-m4-r2-h08
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: 'Which of these equal $\tfrac13$ exactly? Select all that apply.'
+  choices: ['$0.\overline{3}$', '$\tfrac{33}{99}$', '$0.33$', '$0.3\overline{3}$', '$\tfrac{3}{10}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $0.\overline{3} = \tfrac39 = \tfrac13$, and $\tfrac{33}{99}$ simplifies to $\tfrac13$. $0.3\overline{3}$ is $0.3333\ldots$, the same decimal written with a delay. $0.33 = \tfrac{33}{100}$ stops, so it is slightly less than $\tfrac13$, and $\tfrac{3}{10} = 0.3$.
+
+- id: pre-m4-r2-h09
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: 'Which statement about $0.\overline{9} = 0.999\ldots$ is true?'
+  choices: ['It is a tiny bit less than 1.', 'It equals 1 exactly.', 'It is not a number, because it never ends.', 'It equals 0.999.']
+  answer: 1
+  explanation: |-
+    Let $x = 0.\overline{9}$. Then $10x = 9.\overline{9}$, so $9x = 9$ and $x = 1$. No positive gap can separate them: the gap would have to be smaller than 0.1, 0.01, 0.001 and so on. A *finite* string like 0.999 is less than 1, but $0.\overline{9}$ never stops.
+
+- id: pre-m4-r2-h10
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  type: match
+  stem: 'Match each decimal to the fraction it equals.'
+  pairs:
+    - ['$0.\overline{06}$', '2/33']
+    - ['$0.\overline{6}$', '2/3']
+    - ['$0.0\overline{6}$', '1/15']
+    - ['$0.6$', '3/5']
+  distractors: ['1/6', '2/9']
+  explanation: |-
+    $0.\overline{06} = \tfrac{6}{99} = \tfrac{2}{33}$ (the repetend "06" has 2 digits). $0.\overline{6} = \tfrac69 = \tfrac23$. For $0.0\overline{6}$: $100x - 10x = 6.\overline{6} - 0.\overline{6}$, so $90x = 6$ and $x = \tfrac{1}{15}$. $0.6 = \tfrac{6}{10} = \tfrac35$. $\tfrac16 = 0.1\overline{6}$ and $\tfrac29 = 0.\overline{2}$ match none of them.
+
+- id: pre-m4-r2-h11
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: 'Find $0.\overline{3} \times 0.\overline{6}$ exactly.'
+  choices: ['$0.18$', '$0.2178$', '$0.\overline{2}$', '$0.\overline{9}$']
+  answer: 2
+  explanation: |-
+    $0.\overline{3} = \tfrac13$ and $0.\overline{6} = \tfrac23$, so the product is $\tfrac29 = 0.\overline{2}$. 0.18 multiplies 0.3 by 0.6, and 0.2178 multiplies the rounded 0.33 by 0.66. $0.\overline{9} = 1$ is the *sum*, not the product.
+
+- id: pre-m4-r2-h12
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  type: text
+  stem: 'Write $0.1\overline{45}$ (the 45 repeats) as a fraction in lowest terms: ___'
+  accept: ['8/55']
+  explanation: |-
+    $10x = 1.\overline{45}$ and $1000x = 145.\overline{45}$. Subtract: $990x = 144$, so $x = \tfrac{144}{990} = \tfrac{8}{55}$ (divide both by 18). The shortcut gives the same: $\tfrac{145 - 1}{990}$. Check: $8 \div 55 = 0.14545\ldots$
+
+- id: pre-m4-r2-h13
+  lesson: pre-m4-h-repeating
+  topic: Repeating decimals
+  stem: '$\tfrac{1}{17}$ has a repeating decimal. Without dividing, what is the longest its period could possibly be?'
+  choices: ['17', '8', '9', '16']
+  answer: 3
+  explanation: |-
+    Dividing by 17, the remainders can only be 1 through 16 (remainder 0 would make the decimal stop). After at most 16 steps a remainder must repeat, so the period is at most $17 - 1 = 16$. (For $\tfrac{1}{17}$ it is exactly 16.)
+
+# ---------- Honors 16h2: Inverse proportion and working together ----------
+- id: pre-m4-r2-h14
+  lesson: pre-m4-h-inverse
+  topic: Inverse proportion
+  stem: 'Eight workers can harvest a field in 15 days. Working at the same rate, how long would 12 workers take?'
+  choices: ['22.5 days', '19 days', '10 days', '12 days']
+  answer: 2
+  explanation: |-
+    More workers, fewer days: inverse. Total work is $8 \times 15 = 120$ worker-days, so 12 workers take $120 \div 12 = 10$ days. 22.5 comes from a direct proportion ($\tfrac{8}{15} = \tfrac{12}{d}$), which wrongly says more workers take longer.
+
+- id: pre-m4-r2-h15
+  lesson: pre-m4-h-inverse
+  topic: Inverse proportion
+  stem: 'Which pairs of quantities are inversely proportional? Select all that apply.'
+  choices: ['Speed and travel time, for a fixed distance', 'The number of people sharing a 60-dollar bill equally, and each person''s share', 'Hours worked and pay, at a fixed hourly wage', 'Length and width, for rectangles that all have area 24', 'Miles ridden and taxi fare, with a fixed fee plus a charge per mile']
+  answer: [0, 1, 3]
+  explanation: |-
+    Inverse means the product is constant. Speed × time = distance; people × share = 60; length × width = 24. Pay at a fixed wage is *directly* proportional to hours (ratio constant), and a taxi fare with a fixed fee is neither.
+
+- id: pre-m4-r2-h16
+  lesson: pre-m4-h-inverse
+  topic: Inverse proportion
+  type: text
+  stem: 'A 40 kg child sits 1.5 m from the fulcrum of a seesaw. To balance, a 30 kg child must sit ___ m from the fulcrum on the other side. Give only the number.'
+  accept: ['2']
+  explanation: |-
+    Weight × distance must match: $40 \times 1.5 = 60 = 30 \times d$, so $d = 2$ m. The lighter child sits farther out.
+
+- id: pre-m4-r2-h17
+  lesson: pre-m4-h-inverse
+  topic: Inverse proportion
+  type: label
+  stem: 'This seesaw is balanced, with a 30 kg load on the left and a 20 kg load on the right. Name each numbered part.'
+  image: {src: images/pre-m4-h-lever-blank.svg, alt: 'A board resting on a triangle at its middle, with a 30 kg box on the left part of the board and a 20 kg box near the right end. Marker 1 is on the triangle, marker 2 is on the arrow from the left box to the triangle, and marker 3 is on the longer arrow from the triangle to the right box.'}
+  labels:
+    - {x: 50, y: 65.5, text: Fulcrum}
+    - {x: 36.8, y: 87.9, text: '2 m'}
+    - {x: 69.7, y: 87.9, text: '3 m'}
+  distractors: ['5 m', 'Load']
+  explanation: |-
+    The triangle the board pivots on is the fulcrum. For balance, weight × distance is equal on both sides, so the heavier 30 kg load must be closer: $30 \times 2 = 60 = 20 \times 3$. So the left distance is 2 m and the right is 3 m (the right arrow is also visibly longer).
+
+- id: pre-m4-r2-h18
+  lesson: pre-m4-h-inverse
+  topic: Inverse proportion
+  stem: 'A 40-tooth gear turning at 90 revolutions per minute drives a 24-tooth gear. The teeth mesh one for one, so (teeth) × (revolutions per minute) is the same for both gears. How fast does the smaller gear turn?'
+  choices: ['54 rpm', '106 rpm', '216 rpm', '150 rpm']
+  answer: 3
+  explanation: |-
+    $40 \times 90 = 3600$ teeth pass the contact point each minute, so the small gear turns $3600 \div 24 = 150$ rpm. A smaller gear must spin faster, which rules out 54 (a direct proportion).
+
+- id: pre-m4-r2-h19
+  lesson: pre-m4-h-inverse
+  topic: Combined rates
+  stem: 'Hose A fills a tank in 4 hours and hose B fills it in 12 hours. How long do they take running together?'
+  choices: ['3 hours', '8 hours', '16 hours', '6 hours']
+  answer: 0
+  explanation: |-
+    Add the rates: $\tfrac14 + \tfrac{1}{12} = \tfrac{3}{12} + \tfrac{1}{12} = \tfrac{4}{12} = \tfrac13$ tank per hour, so 3 hours. Check: less than A's 4 hours alone. 8 averages the times and 16 adds them; both are slower than A alone.
+
+- id: pre-m4-r2-h20
+  lesson: pre-m4-h-inverse
+  topic: Combined rates
+  type: text
+  stem: 'Ana can rake the yard in 30 minutes and Ben in 60 minutes. Working together, they take ___ minutes.'
+  accept: ['20']
+  explanation: |-
+    $\tfrac{1}{30} + \tfrac{1}{60} = \tfrac{2}{60} + \tfrac{1}{60} = \tfrac{3}{60} = \tfrac{1}{20}$ of the yard per minute, so 20 minutes. Product over sum: $\tfrac{30 \times 60}{90} = 20$.
+
+- id: pre-m4-r2-h21
+  lesson: pre-m4-h-inverse
+  topic: Combined rates
+  stem: 'A faucet fills a tub in 3 hours, but the open drain would empty a full tub in 5 hours. With both open, how long does the tub take to fill?'
+  choices: ['2 hours', '7.5 hours', '1.875 hours', '4 hours']
+  answer: 1
+  explanation: |-
+    The drain works against the faucet: $\tfrac13 - \tfrac15 = \tfrac{5}{15} - \tfrac{3}{15} = \tfrac{2}{15}$ tub per hour, so $\tfrac{15}{2} = 7.5$ hours. 1.875 hours adds the rates as if both were filling; 2 hours subtracts the times.
+
+- id: pre-m4-r2-h22
+  lesson: pre-m4-h-inverse
+  topic: Combined rates
+  type: order
+  stem: 'Pump A empties a basement in 10 hours and pump B in 15 hours. Put the steps for finding their time together in order.'
+  items:
+    - 'Write each rate: $\tfrac{1}{10}$ and $\tfrac{1}{15}$ of the job per hour'
+    - 'Add the rates: $\tfrac{3}{30} + \tfrac{2}{30} = \tfrac{1}{6}$ of the job per hour'
+    - 'Turn the rate into a time: $1 \div \tfrac16 = 6$ hours'
+    - 'Check: 6 hours is less than 10 hours, the faster pump alone'
+  explanation: |-
+    Rates come first because rates add and times don't. The total rate $\tfrac16$ job per hour means one job takes 6 hours, and working together must beat the faster pump alone.
+
+- id: pre-m4-r2-h23
+  lesson: pre-m4-h-inverse
+  topic: Combined rates
+  stem: 'A cyclist rides 6 miles up a hill at 10 mph and returns the same 6 miles downhill at 30 mph. What is the average speed for the whole ride?'
+  choices: ['20 mph', '15 mph', '18 mph', '12 mph']
+  answer: 1
+  explanation: |-
+    Up: $6 \div 10 = 0.6$ hours. Down: $6 \div 30 = 0.2$ hours. Total: 12 miles in 0.8 hours, so $12 \div 0.8 = 15$ mph. Averaging the speeds gives 20, but the rider spends three times as long going up as coming down.
+
+- id: pre-m4-r2-h24
+  lesson: pre-m4-h-inverse
+  topic: Inverse proportion
+  type: match
+  stem: 'Match each pair of quantities to how they are related.'
+  pairs:
+    - ['Pounds of rice and its cost, at a fixed price per pound', 'Directly proportional']
+    - ['Number of equal slices of one pie and the size of each slice', 'Inversely proportional']
+    - ['Texts sent and the phone bill, with a 20-dollar monthly fee plus 10 cents a text', 'Neither']
+    - ['Speed and time, to drive 200 miles', 'Inversely proportional']
+    - ['Time driven at a steady 55 mph and distance covered', 'Directly proportional']
+  explanation: |-
+    Rice: cost ÷ pounds is the price, constant. Pie: slices × slice size is one pie, constant. Phone bill: the fixed fee breaks both patterns (doubling texts doesn't double the bill). Speed × time = 200, constant. Distance ÷ time = 55, constant.
+
+- id: pre-m4-r2-h25
+  lesson: pre-m4-h-inverse
+  topic: Inverse proportion
+  stem: '$y$ is inversely proportional to $x$, and $y = 8$ when $x = 3$. Find $y$ when $x = 6$.'
+  choices: ['4', '16', '12', '2']
+  answer: 0
+  explanation: |-
+    The product is constant: $xy = 3 \times 8 = 24$. When $x = 6$, $y = 24 \div 6 = 4$. Doubling $x$ halves $y$. 16 treats it as direct.
+
+- id: pre-m4-r2-h26
+  lesson: pre-m4-h-inverse
+  topic: Combined rates
+  stem: 'Ana mows a lawn in 40 minutes and Ben in 60 minutes. Which expressions give the number of minutes they take together? Select all that apply.'
+  choices: ['$1 \div \left(\tfrac{1}{40} + \tfrac{1}{60}\right)$', '$\dfrac{40 \times 60}{40 + 60}$', '$\dfrac{40 + 60}{2}$', '$40 + 60$', '$\tfrac{1}{40} + \tfrac{1}{60}$']
+  answer: [0, 1]
+  explanation: |-
+    Add the rates and turn the total rate into a time: $1 \div \tfrac{1}{24} = 24$. Product over sum is the same calculation for two workers: $\tfrac{2400}{100} = 24$. Averaging (50) and adding (100) give times longer than Ana alone. $\tfrac{1}{40} + \tfrac{1}{60} = \tfrac{1}{24}$ is the combined *rate* (lawns per minute), not the time.
+
+# ---------- Honors 16h3: How scaling changes area and volume ----------
+- id: pre-m4-r2-h27
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'A photo is enlarged so that every length is 4 times as long. Its area is multiplied by'
+  choices: ['4', '8', '16', '64']
+  answer: 2
+  explanation: |-
+    Area scales by $k^2 = 4^2 = 16$: the length and the width are each 4 times as long. 64 is $4^3$, the factor for volume.
+
+- id: pre-m4-r2-h28
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'A solid steel model of a boat is built at a scale of 1 : 20 and weighs 3 kg. A solid steel boat of the same shape at full size would weigh'
+  choices: ['60 kg', '1,200 kg', '240,000 kg', '24,000 kg']
+  answer: 3
+  explanation: |-
+    Weight follows volume, which scales by $20^3 = 8{,}000$: $3 \times 8{,}000 = 24{,}000$ kg. 60 kg scales by $k$, and 1,200 kg by $k^2$.
+
+- id: pre-m4-r2-h29
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  type: text
+  stem: 'One cubic yard equals ___ cubic feet.'
+  accept: ['27']
+  explanation: |-
+    A cubic yard is a cube 3 ft by 3 ft by 3 ft, so it holds $3^3 = 27$ cubic feet. (It's not 3: volume scales by the cube of the length factor.)
+
+- id: pre-m4-r2-h30
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'Every length of a solid wooden block is tripled. Which of these are multiplied by 9? Select all that apply.'
+  choices: ['Its surface area', 'The area of its bottom face', 'Its volume', 'Its height', 'The amount of paint needed to cover it', 'Its weight']
+  answer: [0, 1, 4]
+  explanation: |-
+    Areas scale by $3^2 = 9$: the surface area, any one face, and the paint (which covers the surface). The height is a length (× 3). Volume and the weight of the solid wood scale by $3^3 = 27$.
+
+- id: pre-m4-r2-h31
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'A 10-inch pizza costs \$8 and a 15-inch pizza of the same kind costs \$15. Which is the better buy per square inch, and why?'
+  choices: ['The 15-inch: its area is 2.25 times as big, but its price is only 1.875 times as big.', 'The 10-inch: the price grows by 1.875 but the diameter grows only by 1.5.', 'The 10-inch: the area grows by 1.5 but the price grows by 1.875.', 'Neither: both cost the same per square inch.']
+  answer: 0
+  explanation: |-
+    The scale factor is $k = \tfrac{15}{10} = 1.5$, so the area grows by $1.5^2 = 2.25$. The price grows by $\tfrac{15}{8} = 1.875$. More area per dollar: the 15-inch wins. Comparing price to the diameter (or using 1.5 for the area) forgets that area scales by $k^2$.
+
+- id: pre-m4-r2-h32
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  type: text
+  stem: 'Two similar triangles have areas 18 cm² and 50 cm². A side of the smaller triangle is 6 cm. The matching side of the larger triangle is ___ cm.'
+  accept: ['10']
+  explanation: |-
+    Area ratio $\tfrac{50}{18} = \tfrac{25}{9}$. The number whose square is $\tfrac{25}{9}$ is $\tfrac53$, so $k = \tfrac53$ and the side is $6 \times \tfrac53 = 10$ cm. (Multiplying 6 by the area ratio would give about 16.7 cm.)
+
+- id: pre-m4-r2-h33
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'On a map with scale 1 : 25,000, 1 cm on the map is 250 m on the ground. A field covers 4 cm² on the map. What is its real area?'
+  choices: ['1,000 m²', '250,000 m²', '62,500 m²', '100,000 m²']
+  answer: 1
+  explanation: |-
+    1 cm² on the map is a 250 m by 250 m square: 62,500 m². So 4 cm² is $4 \times 62{,}500 = 250{,}000$ m². 1,000 m² scales area as a length; 62,500 m² forgets the 4; 100,000 m² multiplies 4 by 25,000.
+
+- id: pre-m4-r2-h34
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  type: match
+  stem: 'A model house is scaled up by a factor of 2 in every length. Match each measurement to how it changes.'
+  pairs:
+    - ['Perimeter of the floor', '× 2']
+    - ['Area of the floor', '× 4']
+    - ['Volume of the rooms', '× 8']
+    - ['Weight of a solid wooden copy', '× 8']
+    - ['Paint for the outside walls', '× 4']
+  distractors: ['× 6']
+  explanation: |-
+    Lengths (including perimeter) × 2. Areas, including floor and wall surface, × $2^2 = 4$. Volume and the weight of a solid object × $2^3 = 8$. Nothing here changes by 6.
+
+- id: pre-m4-r2-h35
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'What is the surface-to-volume ratio (surface area ÷ volume) of a cube with edges 4 cm long?'
+  choices: ['6', '0.67', '1.5', '24']
+  answer: 2
+  explanation: |-
+    Surface area: $6 \times 4^2 = 96$ cm². Volume: $4^3 = 64$ cm³. Ratio: $96 \div 64 = 1.5$, which matches $\tfrac{6}{s} = \tfrac64$. 6 is the ratio for a 1 cm cube, and 0.67 divides the wrong way.
+
+- id: pre-m4-r2-h36
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  type: order
+  stem: 'Two similar jars hold 16 cups and 54 cups. The small jar is 10 cm tall. Put the steps for finding the height of the large jar in order.'
+  items:
+    - 'Find the volume ratio: $\tfrac{54}{16} = \tfrac{27}{8}$'
+    - 'Find the number whose cube is $\tfrac{27}{8}$: $k = \tfrac32$'
+    - 'Multiply the height by $k$: $10 \times \tfrac32 = 15$ cm'
+    - 'Check: $\left(\tfrac{15}{10}\right)^3 = \tfrac{27}{8}$'
+  explanation: |-
+    Volumes give $k^3$, so first find the volume ratio, then take the number that cubes to it ($3^3 = 27$, $2^3 = 8$), then scale the length, then check.
+
+- id: pre-m4-r2-h37
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'Imagine an animal scaled up by 10 in every length, keeping its exact shape. Its weight is multiplied by ___, while the cross-section area of its leg bones is multiplied by ___.'
+  choices: ['10 and 10', '100 and 1,000', '1,000 and 10', '1,000 and 100']
+  answer: 3
+  explanation: |-
+    Weight follows volume ($10^3 = 1{,}000$) and a cross section is an area ($10^2 = 100$). Each square centimeter of bone must hold 10 times as much weight as before, which is why the square–cube law says giants need thicker legs.
+
+- id: pre-m4-r2-h38
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  stem: 'How many square inches are in 2 square feet?'
+  choices: ['288', '24', '144', '576']
+  answer: 0
+  explanation: |-
+    1 ft² is 12 in by 12 in, which is 144 in². So 2 ft² is $2 \times 144 = 288$ in². 24 uses the length factor 12, and 576 squares 24.
+
+- id: pre-m4-r2-h39
+  lesson: pre-m4-h-scaling
+  topic: Scaling area and volume
+  type: text
+  stem: 'Every edge of a cube is multiplied by 5. Its volume is multiplied by ___.'
+  accept: ['125']
+  explanation: |-
+    Volume scales by $k^3 = 5^3 = 125$. Each face's area is multiplied by $5^2 = 25$.

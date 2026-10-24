@@ -1,0 +1,45 @@
+# Round 2, module phys-m11: terms bolded in the honors lessons 45h1 (polarization) and 45h2 (interferometers).
+- term: plane of incidence
+  definition: 'The plane containing the incoming ray and the normal to the surface. Light polarized perpendicular to it is called s-polarized; light polarized in it, p-polarized.'
+  topic: Polarization by reflection and scattering
+- term: Brewster's angle
+  aliases: [Brewster angle, polarizing angle]
+  definition: 'The angle of incidence at which reflected light is completely polarized perpendicular to the plane of incidence: $\tan\theta_B = n_2/n_1$. The reflected and refracted rays are then perpendicular.'
+  topic: Polarization by reflection and scattering
+- term: Rayleigh scattering
+  definition: 'Scattering of light by particles much smaller than its wavelength, such as air molecules; its strength goes as $1/\lambda^4$, which makes the sky blue and sunsets red.'
+  topic: Polarization by reflection and scattering
+- term: birefringent
+  aliases: [birefringence, doubly refracting]
+  definition: 'Having two indices of refraction for two perpendicular polarizations, as calcite and quartz do; a ray entering such a crystal can split into two.'
+  topic: Birefringence
+- term: quarter-wave plate
+  aliases: [quarter-wave plates]
+  definition: 'A slice of birefringent material that delays one polarization by a quarter wavelength relative to the other, $t = \lambda/(4|n_e - n_o|)$; it turns linear light at $45^\circ$ to its axes into circular light.'
+  topic: Birefringence
+- term: half-wave plate
+  aliases: [half-wave plates]
+  definition: 'A slice of birefringent material that delays one polarization by half a wavelength; it rotates linear polarization at angle $\alpha$ to its fast axis by $2\alpha$.'
+  topic: Birefringence
+- term: circular polarization
+  aliases: [circularly polarized]
+  definition: 'Polarization in which the electric field keeps a constant size but rotates, its tip tracing a circle, as the wave passes; made from two equal perpendicular components a quarter cycle out of step.'
+  topic: Birefringence
+- term: interferometer
+  aliases: [interferometers, interferometry]
+  definition: 'An instrument that splits light into two paths and recombines it, so that a change in path length shows up as moving fringes; one fringe per wavelength of path change.'
+  topic: Interferometers
+- term: optical flat
+  aliases: [optical flats]
+  definition: 'A glass plate polished flat to a small fraction of a wavelength, laid on a surface to test it; the fringes in the air gap are contour lines $\lambda/2$ apart in height.'
+  topic: Air wedges and Newton's rings
+- term: Newton's rings
+  definition: 'Circular interference fringes in the air gap between a curved lens and a flat plate; in reflection the dark rings are at $r_m = \sqrt{m\lambda R}$, with a dark center.'
+  topic: Air wedges and Newton's rings
+- term: beam splitter
+  aliases: [beam splitters, half-silvered mirror]
+  definition: 'A partly reflecting plate that reflects about half of a light beam and transmits the rest, splitting it into two beams (or recombining two beams).'
+  topic: Interferometers
+- term: coherence length
+  definition: 'The path difference over which light stays in step well enough to interfere; roughly $\lambda^2/\Delta\lambda$, about 1 μm for white light and centimeters or more for lasers.'
+  topic: Interferometers

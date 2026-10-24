@@ -80,7 +80,7 @@ Drill ids are `phys-<name>`.
 - Drill authoring traps found and fixed: single-letter values in TeX braces (e.g. a var `E`
   inside `\mathcal{E}`, `\dfrac{c}{f}`); thousands separators inside math (use `:dp0`);
   the checker's wrong answer is target*1.5+7.77, so targets near -15.54 are excluded with `where`.
-- Circuits are described in words (no circuit diagrams); force diagrams, inclines, ray diagrams,
+- Circuits are described in words and, since round 2, drawn as SVG circuit diagrams; force diagrams, inclines, ray diagrams,
   field plots and kinematics graphs use figure blocks.
 
 

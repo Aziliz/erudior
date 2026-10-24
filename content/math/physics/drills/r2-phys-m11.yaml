@@ -65,7 +65,7 @@
   solution: |-
     Moving the mirror by $\Delta d$ changes the path difference by $2\Delta d$ (the light goes out and back), and each wavelength of path change moves the pattern by one fringe: $N = \dfrac{2\Delta d}{\lambda}$. So
 
-    $\lambda = \dfrac{2\Delta d}{\,N} = \dfrac{2({dd:dp3}\times10^{-3}\text{ m})}{{N}} =$ **{lam:sig3} nm**.
+    $\lambda = \dfrac{2\Delta d}{\,N} = \dfrac{2({dd:dp3}\times10^{-3}\text{ m})}{{N:dp0}} =$ **{lam:sig3} nm**.
 - id: phys-m11-r2-gas-index
   title: Index of a gas from fringe counting
   topic: Interferometers

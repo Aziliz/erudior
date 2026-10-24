@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 490" width="520" height="490" font-family="sans-serif" fill="#1c2833">
+<rect width="520" height="490" fill="#ffffff"/>
+<text x="150.0" y="26.0" font-size="16" text-anchor="middle" font-weight="bold">Coin</text>
+<text x="330.0" y="26.0" font-size="16" text-anchor="middle" font-weight="bold">Die</text>
+<text x="450.0" y="26.0" font-size="16" text-anchor="middle" font-weight="bold">Outcome</text>
+<line x1="40.0" y1="235.0" x2="134.0" y2="135.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="166.0" y1="135.0" x2="316.0" y2="54.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="59.0" font-size="15" text-anchor="middle">1</text>
+<text x="450.0" y="59.0" font-size="15" text-anchor="middle">H1</text>
+<line x1="166.0" y1="135.0" x2="316.0" y2="86.4" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="91.4" font-size="15" text-anchor="middle">2</text>
+<text x="450.0" y="91.4" font-size="15" text-anchor="middle">H2</text>
+<line x1="166.0" y1="135.0" x2="316.0" y2="118.8" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="123.8" font-size="15" text-anchor="middle">3</text>
+<text x="450.0" y="123.8" font-size="15" text-anchor="middle">H3</text>
+<line x1="166.0" y1="135.0" x2="316.0" y2="151.2" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="156.2" font-size="15" text-anchor="middle">4</text>
+<text x="450.0" y="156.2" font-size="15" text-anchor="middle">H4</text>
+<line x1="166.0" y1="135.0" x2="316.0" y2="183.6" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="188.6" font-size="15" text-anchor="middle">5</text>
+<text x="450.0" y="188.6" font-size="15" text-anchor="middle">H5</text>
+<line x1="166.0" y1="135.0" x2="316.0" y2="216.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="221.0" font-size="15" text-anchor="middle">6</text>
+<text x="450.0" y="221.0" font-size="15" text-anchor="middle">H6</text>
+<circle cx="150.0" cy="135.0" r="16" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="150.0" y="141.0" font-size="16" text-anchor="middle" font-weight="bold">H</text>
+<line x1="40.0" y1="235.0" x2="134.0" y2="335.0" stroke="#1c2833" stroke-width="2"/>
+<line x1="166.0" y1="335.0" x2="316.0" y2="254.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="259.0" font-size="15" text-anchor="middle">1</text>
+<text x="450.0" y="259.0" font-size="15" text-anchor="middle">T1</text>
+<line x1="166.0" y1="335.0" x2="316.0" y2="286.4" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="291.4" font-size="15" text-anchor="middle">2</text>
+<text x="450.0" y="291.4" font-size="15" text-anchor="middle">T2</text>
+<line x1="166.0" y1="335.0" x2="316.0" y2="318.8" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="323.8" font-size="15" text-anchor="middle">3</text>
+<text x="450.0" y="323.8" font-size="15" text-anchor="middle">T3</text>
+<line x1="166.0" y1="335.0" x2="316.0" y2="351.2" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="356.2" font-size="15" text-anchor="middle">4</text>
+<text x="450.0" y="356.2" font-size="15" text-anchor="middle">T4</text>
+<line x1="166.0" y1="335.0" x2="316.0" y2="383.6" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="388.6" font-size="15" text-anchor="middle">5</text>
+<text x="450.0" y="388.6" font-size="15" text-anchor="middle">T5</text>
+<line x1="166.0" y1="335.0" x2="316.0" y2="416.0" stroke="#1c2833" stroke-width="1.5"/>
+<text x="330.0" y="421.0" font-size="15" text-anchor="middle">6</text>
+<text x="450.0" y="421.0" font-size="15" text-anchor="middle">T6</text>
+<circle cx="150.0" cy="335.0" r="16" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="150.0" y="341.0" font-size="16" text-anchor="middle" font-weight="bold">T</text>
+<circle cx="40.0" cy="235.0" r="7" fill="#1c2833" stroke="#1c2833" stroke-width="2"/>
+<text x="260.0" y="476.0" font-size="15" text-anchor="middle">2 choices × 6 choices = 12 equally likely outcomes</text>
+</svg>

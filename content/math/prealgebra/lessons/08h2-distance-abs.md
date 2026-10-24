@@ -33,7 +33,7 @@ The most useful habit in this lesson is to read $|x - a|$ as *"the distance from
 An **absolute value equation** is an equation with the unknown inside absolute value bars, such as $|x - 4| = 9$. Read as distance, it asks: *which numbers are 9 units from 4?* Walk 9 units left of 4 or 9 units right of 4:
 
 ```numberline
-{"x": [-7, 15], "points": [{"at": [-5, 0], "label": "-5"}, {"at": [4, 0], "label": "4"}, {"at": [13, 0], "label": "13"}], "segments": [{"from": [4, 0], "to": [-5, 0], "arrow": true, "label": "9"}, {"from": [4, 0], "to": [13, 0], "arrow": true, "label": "9"}], "caption": "|x - 4| = 9: the two numbers 9 units from 4 are -5 and 13"}
+{"x": [-7, 15], "points": [{"at": [-5, 0], "label": "-5"}, {"at": [4, 0], "label": "4"}, {"at": [13, 0], "label": "13"}], "segments": [{"from": [4, 0], "to": [-5, 0], "arrow": true}, {"from": [4, 0], "to": [13, 0], "arrow": true}], "caption": "|x - 4| = 9: the two numbers 9 units from 4 are -5 and 13"}
 ```
 
 In general, $|x - a| = d$ has:

@@ -101,7 +101,7 @@ flowchart TD
   accDescr: If you know the diameter, halve it to get the radius. If you know the circumference, divide it by 2 pi. If you know the area, divide it by pi and then take the square root. Every path ends with the radius.
   Q{"What do you know?"}
   Q -- "diameter d" --> D["Halve it: r = d ÷ 2"]
-  Q -- "circumference C" --> C["Divide by 2π: r = C ÷ 2π"]
+  Q -- "circumference C" --> C["Divide by 2π: r = C ÷ (2π)"]
   Q -- "area A" --> A1["Divide by π"] --> A2["Take the square root"]
   D --> R["The radius r"]
   C --> R

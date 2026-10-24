@@ -1,0 +1,187 @@
+# Round 2, module pre-m7: drills for the honors lessons (29h1-29h3)
+# --- pre-m7-h-systems ---
+- id: pre-m7-r2-system-sub
+  title: Solve a system by substitution
+  topic: Systems of equations
+  vars:
+    m: {min: -5, max: 5}
+    b: {min: -9, max: 9}
+    a: {min: -6, max: 6}
+    c: {min: -5, max: 5}
+    x0: {min: -8, max: 8}
+  calc:
+    y0: m * x0 + b
+    d: a * x0 + c * (m * x0 + b)
+    cm: c * m
+    cb: c * b
+    k: a + c * m
+    dcb: d - c * b
+  where: ["m != 0", "b != 0", "a != 0", "c != 0", "a + c * m != 0", "abs(m * x0 + b) <= 30"]
+  prompt: 'Solve the system: $\;y = {m:coef}x {b:signed}\;$ and $\;{a:coef}x {c:signedcoef}y = {d}$.'
+  answers:
+    - {name: x0, label: '$x =$'}
+    - {name: y0, label: '$y =$'}
+  solution: |-
+    The first equation gives $y$, so substitute $({m:coef}x {b:signed})$ for $y$ in the second: ${a:coef}x {c:signedcoef}({m:coef}x {b:signed}) = {d}$.
+    Distribute: ${a:coef}x {cm:signedcoef}x {cb:signed} = {d}$. Combine: ${k:coef}x {cb:signed} = {d}$, so ${k:coef}x = {dcb}$ and $x =$ **{x0}**.
+    Back-substitute: $y = {m}({x0}) + ({b}) =$ **{y0}**.
+
+- id: pre-m7-r2-system-elim
+  title: Solve a system by elimination
+  topic: Systems of equations
+  vars:
+    a1: {min: -6, max: 6}
+    b1: {min: -6, max: 6}
+    a2: {min: -6, max: 6}
+    b2: {min: -6, max: 6}
+    x0: {min: -9, max: 9}
+    y0: {min: -9, max: 9}
+  calc:
+    c1: a1 * x0 + b1 * y0
+    c2: a2 * x0 + b2 * y0
+    p: a1 * a2
+    q1: a2 * b1
+    r1: a2 * c1
+    q2: a1 * b2
+    r2: a1 * c2
+    dq: a2 * b1 - a1 * b2
+    dr: a2 * c1 - a1 * c2
+    b1y: b1 * y0
+    c1b: c1 - b1 * y0
+  where: ["a1 != 0", "b1 != 0", "a2 != 0", "b2 != 0", "a2 * b1 - a1 * b2 != 0", "abs(a1) != abs(a2)", "abs(a1) > 1 or abs(a2) > 1"]
+  prompt: 'Solve the system: $\;{a1:coef}x {b1:signedcoef}y = {c1}\;$ and $\;{a2:coef}x {b2:signedcoef}y = {c2}$.'
+  answers:
+    - {name: x0, label: '$x =$'}
+    - {name: y0, label: '$y =$'}
+  solution: |-
+    Make the $x$-coefficients match: multiply the first equation by ${a2}$ and the second by ${a1}$:
+    $${p}x {q1:signedcoef}y = {r1} \qquad {p}x {q2:signedcoef}y = {r2}$$
+    Subtract the second from the first: ${dq:coef}y = {dr}$, so $y =$ **{y0}**.
+    Substitute into the first equation: ${a1:coef}x {b1y:signed} = {c1}$, so ${a1:coef}x = {c1b}$ and $x =$ **{x0}**.
+
+# --- pre-m7-h-absolute-value ---
+- id: pre-m7-r2-abs-equation
+  title: Solve an absolute value equation
+  topic: Absolute value equations
+  vars:
+    k: {min: 2, max: 4}
+    a: {min: 1, max: 5}
+    b: {min: -12, max: 12}
+    c: {min: 1, max: 12}
+    e: {min: -10, max: 10}
+  calc:
+    f: k * c + e
+    kc: k * c
+    x1: (-c - b) / a
+    x2: (c - b) / a
+    nc: -c
+  where: ["b != 0", "e != 0", "mod(c - b, a) == 0", "mod(c + b, a) == 0"]
+  prompt: 'Solve $\;{k}|{a:coef}x {b:signed}| {e:signed} = {f}$. Give the smaller solution first.'
+  answers:
+    - {name: x1, label: 'Smaller: $x =$'}
+    - {name: x2, label: 'Larger: $x =$'}
+  solution: |-
+    Isolate the absolute value. Subtract $({e})$: ${k}|{a:coef}x {b:signed}| = {kc}$. Divide by {k}: $|{a:coef}x {b:signed}| = {c}$.
+    Split into two equations: ${a:coef}x {b:signed} = {c}$ gives $x = {x2}$, and ${a:coef}x {b:signed} = {nc}$ gives $x = {x1}$.
+    Solutions: **{x1}** and **{x2}**.
+
+- id: pre-m7-r2-compound
+  title: Compound inequality with a negative coefficient
+  topic: Compound inequalities
+  vars:
+    a: {min: -6, max: -2}
+    b: {min: -10, max: 10}
+    L: {min: -8, max: 6}
+    w: {min: 1, max: 8}
+  calc:
+    U: L + w
+    lo: a * (L + w) + b
+    hi: a * L + b
+    lob: a * (L + w)
+    hib: a * L
+  where: ["b != 0", "L + w <= 9"]
+  prompt: 'Solve $\;{lo} < {a}x {b:signed} \le {hi}$. The answer has the form $L \le x < U$. Give $L$ and $U$.'
+  answers:
+    - {name: L, label: '$L =$'}
+    - {name: U, label: '$U =$'}
+  solution: |-
+    Subtract $({b})$ from all three parts: ${lob} < {a}x \le {hib}$.
+    Divide all three parts by ${a}$. It is negative, so both symbols reverse: ${U} > x \ge {L}$.
+    Written from smallest to largest: ${L} \le x < {U}$, so $L =$ **{L}** and $U =$ **{U}**.
+
+- id: pre-m7-r2-abs-inequality
+  title: Absolute value inequality (between)
+  topic: Absolute value equations
+  vars:
+    a: {min: 2, max: 5}
+    L: {min: -9, max: 5}
+    w: {min: 2, max: 10}
+  calc:
+    c: a * w / 2
+    b: -(a * w / 2) - a * L
+    U: L + w
+    nc: -(a * w / 2)
+    lo: -(a * w / 2) - b
+    hi: a * w / 2 - b
+  where: ["mod(a * w, 2) == 0", "b != 0", "L + w <= 10"]
+  prompt: 'Solve $\;|{a}x {b:signed}| < {c}$. The answer has the form $L < x < U$. Give $L$ and $U$.'
+  answers:
+    - {name: L, label: '$L =$'}
+    - {name: U, label: '$U =$'}
+  solution: |-
+    "Less than" means between: ${nc} < {a}x {b:signed} < {c}$.
+    Subtract $({b})$ from all three parts: ${lo} < {a}x < {hi}$. Divide by {a} (positive, no flip): ${L} < x < {U}$.
+    So $L =$ **{L}** and $U =$ **{U}**.
+
+# --- pre-m7-h-line-equations ---
+- id: pre-m7-r2-two-point-line
+  title: Line through two points
+  topic: Equations of lines
+  vars:
+    rise: {min: -6, max: 6}
+    run: {min: 1, max: 4}
+    b0: {min: -8, max: 8}
+    k1: {min: -3, max: 3}
+    k2: {min: -3, max: 3}
+  calc:
+    m: rise / run
+    x1: run * k1
+    y1: rise * k1 + b0
+    x2: run * k2
+    y2: rise * k2 + b0
+    dy: rise * (k2 - k1)
+    dx: run * (k2 - k1)
+    nx1: -run * k1
+    mx1: -rise * k1
+  where: ["rise != 0", "b0 != 0", "abs(rise) != run", "gcd(abs(rise), run) == 1", "k1 < k2", "k1 != 0", "abs(rise * k1 + b0) <= 20", "abs(rise * k2 + b0) <= 20"]
+  prompt: 'Write the equation of the line through $({x1}, {y1})$ and $({x2}, {y2})$ in slope-intercept form, $y = mx + b$.'
+  answers:
+    - {kind: expression, expression: 'rise/run*x + b0', variables: [x], label: '$y =$', show: '${m:texfrac}x {b0:signed}$'}
+  solution: |-
+    Slope: $m = \dfrac{{y2} - ({y1})}{{x2} - ({x1})} = \dfrac{{dy}}{{dx}} = {m:texfrac}$.
+    Point-slope form with $({x1}, {y1})$: $y - ({y1}) = {m:texfrac}\,(x - ({x1}))$.
+    Distribute: $y - ({y1}) = {m:texfrac}x {mx1:signed}$, then add $({y1})$ to both sides: **$y = {m:texfrac}x {b0:signed}$**.
+
+- id: pre-m7-r2-perpendicular-line
+  title: Perpendicular line through a point
+  topic: Parallel and perpendicular lines
+  vars:
+    r: {min: -5, max: 5}
+    s: {min: 1, max: 4}
+    b: {min: -9, max: 9}
+    k: {min: -2, max: 2}
+    q: {min: -9, max: 9}
+  calc:
+    m0: r / s
+    n: -s / r
+    p: r * k
+    B: q + s * k
+    sk: s * k
+  where: ["r != 0", "b != 0", "k != 0", "abs(r) != s", "gcd(abs(r), s) == 1", "q + s * k != 0"]
+  prompt: 'Write the equation of the line through $({p}, {q})$ that is perpendicular to $\;y = {m0:texfrac}x {b:signed}$. Use slope-intercept form.'
+  answers:
+    - {kind: expression, expression: '-s/r*x + q + s*k', variables: [x], label: '$y =$', show: '${n:texfrac}x {B:signed}$'}
+  solution: |-
+    The given line has slope ${m0:texfrac}$. A perpendicular slope is its negative reciprocal: flip it and change the sign, giving ${n:texfrac}$.
+    Point-slope form through $({p}, {q})$: $y - ({q}) = {n:texfrac}\,(x - ({p}))$.
+    Distribute: $y - ({q}) = {n:texfrac}x {sk:signed}$, then add $({q})$ to both sides: **$y = {n:texfrac}x {B:signed}$**.

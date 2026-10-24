@@ -105,7 +105,7 @@ Painting a wall uses area; fencing a yard uses perimeter; filling a pool uses vo
 When a word problem doesn't say which one it wants, ask what is being measured:
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Choosing perimeter, area, surface area or volume
   accDescr: Ask what the problem measures. A distance around a flat shape, like fencing or a frame, is perimeter, in plain units. A flat surface, like carpet or paint on a wall, is area, in square units. The whole outside of a solid, like wrapping paper or the material in a box, is surface area, in square units. The space inside a solid, like water in a tank or sand in a sandbox, is volume, in cubic units.
   Q{"What is being measured?"}

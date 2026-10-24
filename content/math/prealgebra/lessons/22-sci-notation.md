@@ -4,7 +4,7 @@ module: pre-m6
 title: Scientific notation
 minutes: 25
 topics: [Scientific notation]
-drills: [pre-sci-to-standard, pre-sci-multiply]
+drills: [pre-sci-to-standard, pre-sci-multiply, pre-m6-r2-sci-divide]
 refs: [pre-ref-algebra]
 ---
 ## Very big and very small numbers
@@ -28,6 +28,10 @@ The exponent tells you how far the decimal point moved. A positive exponent mean
 
 These are *not* in scientific notation: $15 \times 10^7$ (coefficient too big), $0.8 \times 10^{-5}$ (coefficient too small).
 
+The picture names the parts.
+
+![The number 4.05 times 10 to the minus 4, equal to 0.000405, with its parts labeled: 4.05 is the coefficient, 10 is the base, minus 4 is the exponent, and 0.000405 is the standard form. A note says the coefficient is at least 1 and less than 10, and the exponent is an integer.](images/pre-m6-sci-anatomy.svg)
+
 ## Standard form to scientific notation
 
 1. Move the decimal point so that exactly one nonzero digit is to its left. That's the coefficient.
@@ -47,6 +51,8 @@ Check: $9.3 \times 10^7 = 9.3 \times 10{,}000{,}000 = 93{,}000{,}000$. ✓
 Write 0.000405 in scientific notation.
 
 Move the point right to just after the 4: 4.05, a move of 4 places. The number is small, so the exponent is $-4$: $4.05 \times 10^{-4}$.
+
+![The digits 0 0 0 0 4 0 5 in boxes. Four curved arrows show the decimal point hopping right from just after the first 0 to just after the 4, one place per hop. Text below: the point moved 4 places right, so 0.000405 equals 4.05 times 10 to the minus 4; the number is less than 1, so the exponent is negative.](images/pre-m6-point-hops.svg)
 
 Why negative? $4.05 \times 10^{-4} = 4.05 \times \tfrac{1}{10{,}000} = 0.000405$. Multiplying by a negative power of 10 divides, moving the point left.
 
@@ -70,6 +76,22 @@ $$(a \times 10^m)(b \times 10^n) = (a \times b) \times 10^{m+n}$$
 $$\frac{a \times 10^m}{b \times 10^n} = \frac{a}{b} \times 10^{m-n}$$
 
 If the new coefficient isn't between 1 and 10, adjust it.
+
+```mermaid
+flowchart TD
+  accTitle: Multiplying or dividing in scientific notation
+  accDescr: Group the coefficients together and the powers of 10 together. Multiply or divide the coefficients. Add the exponents when multiplying, or subtract them when dividing. Then check the coefficient. If it is from 1 up to but not including 10, you are done. If it is 10 or more, move its decimal point one place left and add 1 to the exponent. If it is less than 1, move its decimal point one place right and subtract 1 from the exponent.
+  A["Group coefficients together and powers of 10 together"] --> B["Multiply or divide the coefficients"]
+  B --> C["Add exponents to multiply; subtract them to divide"]
+  C --> D{"Is the coefficient at least 1 and less than 10?"}
+  D -- yes --> E["Done"]
+  D -- "10 or more" --> F["Move its point 1 place left; add 1 to the exponent"]
+  D -- "less than 1" --> G["Move its point 1 place right; subtract 1 from the exponent"]
+  F --> E
+  G --> E
+```
+
+One adjustment is always enough here: two coefficients from 1 to 10 multiply to less than 100 and divide to more than 0.1.
 
 ### Example 3
 
