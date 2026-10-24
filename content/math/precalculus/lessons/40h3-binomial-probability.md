@@ -71,7 +71,7 @@ $$P(X \ge 6) = \sum_{k=6}^{10}\binom{10}{k}(0.25)^k(0.75)^{10-k} \approx 0.0197.
 Guessing almost always gets *something* right, but passing by luck is rare: about 2 times in 100.
 
 ```plot
-{"x": [-0.5, 10.5], "y": [0, 0.3], "xLabel": "number of successes k", "yLabel": "P(X = k)", "bars": [{"x": 0, "height": 0.0282, "width": 0.8}, {"x": 1, "height": 0.1211, "width": 0.8}, {"x": 2, "height": 0.2335, "width": 0.8}, {"x": 3, "height": 0.2668, "width": 0.8}, {"x": 4, "height": 0.2001, "width": 0.8}, {"x": 5, "height": 0.1029, "width": 0.8}, {"x": 6, "height": 0.0368, "width": 0.8}, {"x": 7, "height": 0.009, "width": 0.8}, {"x": 8, "height": 0.0014, "width": 0.8}, {"x": 9, "height": 0.0001, "width": 0.8}, {"x": 10, "height": 0, "width": 0.8}], "caption": "The binomial distribution with n = 10 and p = 0.3. It peaks at k = 3, which is np."}
+{"x": [-1, 11], "y": [0, 0.3], "xLabel": "k", "yLabel": "P(X = k)", "bars": [{"x": 0, "height": 0.0282, "width": 0.8}, {"x": 1, "height": 0.1211, "width": 0.8}, {"x": 2, "height": 0.2335, "width": 0.8}, {"x": 3, "height": 0.2668, "width": 0.8}, {"x": 4, "height": 0.2001, "width": 0.8}, {"x": 5, "height": 0.1029, "width": 0.8}, {"x": 6, "height": 0.0368, "width": 0.8}, {"x": 7, "height": 0.009, "width": 0.8}, {"x": 8, "height": 0.0014, "width": 0.8}, {"x": 9, "height": 0.0001, "width": 0.8}, {"x": 10, "height": 0, "width": 0.8}], "caption": "The binomial distribution with n = 10 and p = 0.3: bar k shows the probability of exactly k successes. It peaks at k = 3, which is np."}
 ```
 
 ## Expected value

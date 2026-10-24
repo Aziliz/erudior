@@ -125,6 +125,14 @@ Had we wrongly treated the columns as independent samples, the two-sample $t$ wo
 one-sided p-value about 0.06. The locomotives differ a lot from each other (6.1 versus 4.8 under
 A), and only pairing removes that variation.
 
+The plot makes this visible. Each line joins one locomotive's two wear values. The lines are
+spread far apart (locomotives differ), yet almost every one slopes the same way, down from A to B.
+The paired test looks only at those slopes.
+
+```plot
+{"x": [0.5, 2.5], "y": [4.4, 6.3], "yLabel": "wear (mm)", "grid": false, "segments": [{"from": [1, 5.2], "to": [2, 4.7]}, {"from": [1, 4.8], "to": [2, 4.6]}, {"from": [1, 6.1], "to": [2, 5.4]}, {"from": [1, 5.5], "to": [2, 5.2]}, {"from": [1, 4.9], "to": [2, 4.8]}, {"from": [1, 5.8], "to": [2, 5.1]}], "points": [{"at": [1, 5.2]}, {"at": [1, 4.8]}, {"at": [1, 6.1]}, {"at": [1, 5.5]}, {"at": [1, 4.9]}, {"at": [1, 5.8]}, {"at": [2, 4.7]}, {"at": [2, 4.6]}, {"at": [2, 5.4]}, {"at": [2, 5.2]}, {"at": [2, 4.8]}, {"at": [2, 5.1]}], "labels": [{"at": [1, 4.5], "text": "compound A"}, {"at": [2, 4.5], "text": "compound B"}], "caption": "Each line is one locomotive: wear varies a lot between locomotives, but every line falls from A to B"}
+```
+
 ## Tests for variances
 
 **One variance.** Under $H_0: \sigma^2 = \sigma_0^2$,

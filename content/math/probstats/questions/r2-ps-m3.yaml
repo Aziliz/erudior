@@ -415,7 +415,7 @@
     - ['$k = 3.5$', Increasing faster than a straight line]
   distractors: [Falling at first and then rising (bathtub)]
   explanation: |-
-    The hazard is proportional to $x^{k - 1}$: $x^{-0.5}$ decreases, $x^0$ is constant, $x^1$ is linear and $x^{2.5}$ curves upward. A single Weibull hazard is monotone, so it cannot have a bathtub shape; that takes a mixture or a more flexible model.
+    The hazard is proportional to $x^{k - 1}$: $x^{-0.5}$ decreases, $x^0$ is constant, $x^1$ is linear and $x^{2.5}$ curves upward. A single Weibull hazard is monotone, so it cannot have a bathtub shape; that takes a combination of models or a more flexible family.
 
 - id: ps-m3-r2-h13
   lesson: ps-m3-h-hazard-weibull

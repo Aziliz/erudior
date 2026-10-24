@@ -1,0 +1,146 @@
+# Round 2, honors module ps-h1 (Modern statistical methods): lessons 90–93.
+# ---- Lesson 90: Shrinkage, empirical Bayes and Stein's paradox ----
+- id: ps-h1-r2-h01
+  lesson: ps-h1-james-stein
+  topic: Shrinkage estimation
+  stem: 'You observe $X_i \sim N(\theta_i, 4)$ independently for $i = 1, \dots, 12$ and estimate each $\theta_i$ by $X_i$. What is the total risk $E\big[\sum(X_i - \theta_i)^2\big]$?'
+  choices: ['$48$', '$4$', '$12$', '$24$']
+  answer: 0
+  explanation: |-
+    Each $X_i$ is unbiased with variance $\sigma^2 = 4$, so each squared error has expectation 4, and the total over $p = 12$ coordinates is $p\sigma^2 = 48$, whatever $\boldsymbol\theta$ is. 4 is one coordinate's risk; 12 forgets $\sigma^2$; 24 uses $\sigma = 2$ in place of $\sigma^2$.
+
+- id: ps-h1-r2-h02
+  lesson: ps-h1-james-stein
+  module_quiz: true
+  topic: Shrinkage estimation
+  stem: 'With $p = 6$ means, $\sigma = 1$ and $\|\mathbf X\|^2 = 16$, what is the James–Stein shrinkage factor (toward 0)?'
+  choices: ['$0.625$', '$0.75$', '$0.6875$', '$0.25$']
+  answer: 1
+  explanation: |-
+    The factor is $1 - (p - 2)\sigma^2/\|\mathbf X\|^2 = 1 - 4/16 = 0.75$. Using $p$ in place of $p - 2$ gives 0.625, using $p - 1$ gives 0.6875, and 0.25 is the amount removed, not the factor kept.
+
+- id: ps-h1-r2-h03
+  lesson: ps-h1-james-stein
+  topic: Shrinkage estimation
+  stem: 'For $p = 10$ independent $N(\theta_i, \sigma^2)$ observations with $\sigma = 2$, what is the total risk of the James–Stein estimator when every $\theta_i = 0$?'
+  choices: ['$2$', '$40$', '$8$', '$32$']
+  answer: 2
+  explanation: |-
+    At $\boldsymbol\theta = \mathbf 0$, $\|\mathbf X\|^2/\sigma^2 \sim \chi^2_{10}$, so $E[1/\|\mathbf X\|^2] = 1/((p - 2)\sigma^2)$ and the risk is $p\sigma^2 - (p - 2)^2\sigma^4/((p-2)\sigma^2) = p\sigma^2 - (p - 2)\sigma^2 = 2\sigma^2 = 8$. 40 is the risk of $\mathbf X$; 2 forgets $\sigma^2$; 32 is the reduction, not the risk.
+
+- id: ps-h1-r2-h04
+  lesson: ps-h1-james-stein
+  module_quiz: true
+  topic: Shrinkage estimation
+  stem: 'Which statement about the James–Stein estimator with $p \ge 3$ is correct?'
+  choices:
+    - 'It has smaller mean squared error than $X_i$ for every single coordinate $\theta_i$'
+    - 'It beats $\mathbf X$ only when the $\theta_i$ really were drawn from a normal prior'
+    - 'It beats $\mathbf X$ only when the $\theta_i$ are related to each other'
+    - 'Its total risk is below that of $\mathbf X$ for every $\boldsymbol\theta$, though one coordinate can be estimated worse'
+  answer: 3
+  explanation: |-
+    Stein's theorem compares total risk, and the inequality holds for every fixed $\boldsymbol\theta$, with no prior and no relation among the means needed. The gain is not shared out evenly: a $\theta_i$ far from the others can have a larger squared error after shrinkage.
+
+- id: ps-h1-r2-h05
+  lesson: ps-h1-james-stein
+  topic: Shrinkage estimation
+  stem: 'For $p = 5$, $\sigma^2 = 1$ and a true mean vector with $\|\boldsymbol\theta\|^2 = 20$, what is the risk of the best constant multiple $c^*\mathbf X$?'
+  choices: ['$0.8$', '$1$', '$5$', '$4$']
+  answer: 3
+  explanation: |-
+    $c^* = \|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + p\sigma^2) = 20/25 = 0.8$, and the minimum risk is $p\sigma^2\|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + p\sigma^2) = 5 \cdot 20/25 = 4$. Check: $pc^2\sigma^2 + (1 - c)^2\|\boldsymbol\theta\|^2 = 5(0.64) + 0.04(20) = 3.2 + 0.8 = 4$. 0.8 is $c^*$ itself and 5 is the risk of $\mathbf X$.
+
+- id: ps-h1-r2-h06
+  lesson: ps-h1-james-stein
+  topic: Shrinkage estimation
+  stem: 'What makes an empirical Bayes estimator "empirical"?'
+  choices:
+    - 'The parameters of the prior are estimated from the observed data'
+    - 'The prior is chosen to be flat, so that only the data matter'
+    - 'The posterior is approximated by simulation from the data'
+    - 'The likelihood is replaced by the empirical distribution of the data'
+  answer: 0
+  explanation: |-
+    In empirical Bayes the prior (here $\theta_i \sim N(0, \tau^2)$) has unknown parameters, and these are estimated from the data, which is possible because many $\theta_i$ are observed through their $X_i$. In James–Stein, $(p - 2)\sigma^2/\|\mathbf X\|^2$ estimates the Bayes shrinkage $B = \sigma^2/(\sigma^2 + \tau^2)$ without bias.
+
+- id: ps-h1-r2-h07
+  lesson: ps-h1-james-stein
+  topic: Shrinkage estimation
+  stem: 'The constant $p - 2$ in James–Stein comes from $E(1/W)$ for $W \sim \chi^2_p$. What is $E(1/W)$ when $W \sim \chi^2_8$?'
+  choices: ['$1/8$', '$1/6$', '$1/7$', '$1/10$']
+  answer: 1
+  explanation: |-
+    $E(1/W) = \int_0^\infty w^{-1}\,\dfrac{w^{p/2 - 1}e^{-w/2}}{2^{p/2}\Gamma(p/2)}\,dw = \dfrac{2^{p/2-1}\Gamma(p/2 - 1)}{2^{p/2}\Gamma(p/2)} = \dfrac{1}{2(p/2 - 1)} = \dfrac{1}{p - 2}$, so $1/6$ for $p = 8$. $1/8 = 1/E(W)$ is the common mistake: $E(1/W) \ne 1/E(W)$ (by Jensen's inequality it is larger).
+
+- id: ps-h1-r2-h08
+  lesson: ps-h1-james-stein
+  topic: Shrinkage estimation
+  stem: 'Seven sensors give readings with grand mean $\bar X = 20$ and $S = \sum(X_i - \bar X)^2 = 5$; each reading has noise variance $\sigma^2 = 0.25$. Shrinking toward the grand mean, what is the estimate for the sensor that read $22$?'
+  choices: ['$21.75$', '$21.5$', '$21.6$', '$21.2$']
+  answer: 2
+  explanation: |-
+    The factor is $1 - (p - 3)\sigma^2/S = 1 - 4(0.25)/5 = 0.8$, so the estimate is $20 + 0.8(22 - 20) = 21.6$. Using $p - 2 = 5$ gives a factor 0.75 and 21.5; using $\sigma = 0.5$ in place of $\sigma^2$ gives a factor 0.6 and 21.2.
+
+- id: ps-h1-r2-h09
+  lesson: ps-h1-james-stein
+  module_quiz: true
+  type: text
+  topic: Shrinkage estimation
+  stem: 'For independent $X_i \sim N(\theta_i, \sigma^2)$, the estimator $\mathbf X$ is inadmissible under total squared error loss as soon as the number of means $p$ is at least ___. Give only the number.'
+  accept: ['3', three]
+  explanation: |-
+    Stein (1956) showed that $\mathbf X$ is inadmissible for $p \ge 3$, and James and Stein (1961) gave the explicit estimator that beats it. For $p = 1$ and $p = 2$, $\mathbf X$ is admissible. The proof needs $E[1/\|\mathbf X\|^2] < \infty$, which holds only for $p \ge 3$.
+
+- id: ps-h1-r2-h10
+  lesson: ps-h1-james-stein
+  type: text
+  topic: Shrinkage estimation
+  stem: 'With $p = 4$, $\sigma = 1$ and $\mathbf X = (3, -1, 1, 1)$, the James–Stein estimate (toward 0) of $\theta_1$ is ___. Give only the number.'
+  accept: ['2.5']
+  explanation: |-
+    $\|\mathbf X\|^2 = 9 + 1 + 1 + 1 = 12$, so the factor is $1 - (4 - 2)(1)/12 = 5/6$ and $\hat\theta_1 = (5/6)(3) = 2.5$.
+
+- id: ps-h1-r2-h11
+  lesson: ps-h1-james-stein
+  topic: Shrinkage estimation
+  stem: 'Which statements are true? Select all that apply.'
+  choices:
+    - 'The positive-part James–Stein estimator has risk no larger than plain James–Stein for every $\boldsymbol\theta$'
+    - 'The James–Stein estimator is unbiased'
+    - 'The formula needs the noise variance $\sigma^2$ of each $X_i$'
+    - 'Shrinking toward the grand mean beats $\mathbf X$ whenever $p \ge 2$'
+    - 'The risk gain of James–Stein over $\mathbf X$ is largest when $\boldsymbol\theta$ is near the shrinkage target'
+  answer: [0, 2, 4]
+  explanation: |-
+    True: the positive part removes the sign flip and lowers the risk everywhere; the factor $(p - 2)\sigma^2/\|\mathbf X\|^2$ uses $\sigma^2$; and the risk is $2\sigma^2$ at the target, rising toward $p\sigma^2$ far from it. False: shrinkage deliberately adds bias toward the target, and the grand-mean version needs $p \ge 4$ (one degree of freedom is spent on $\bar X$, so the constant is $p - 3$).
+
+- id: ps-h1-r2-h12
+  lesson: ps-h1-james-stein
+  type: match
+  topic: Shrinkage estimation
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Risk function, Expected total squared error as a function of the true parameters]
+    - [Admissible estimator, No competitor is at least as good everywhere and better somewhere]
+    - [Shrinkage factor, Multiplier that pulls each observation toward the target]
+    - [Empirical Bayes, Prior parameters are estimated from the same data]
+  distractors: [Posterior probability that every mean is zero]
+  explanation: |-
+    The risk function $R(\boldsymbol\theta, \hat{\boldsymbol\theta})$ averages the loss over the data for each fixed $\boldsymbol\theta$. Admissibility compares whole risk functions. The shrinkage factor $1 - (p-2)\sigma^2/\|\mathbf X\|^2$ multiplies $\mathbf X$. Empirical Bayes estimates the prior from the data.
+
+- id: ps-h1-r2-h13
+  lesson: ps-h1-james-stein
+  module_quiz: true
+  type: label
+  topic: Shrinkage estimation
+  stem: 'The picture shows total risk against $\|\boldsymbol\theta\|^2$ for $p = 10$ and $\sigma = 1$. Name the numbered parts.'
+  image: {src: images/ps-h1-js-risk-blank.svg, alt: 'A graph of total risk from 0 to 10 against the squared length of theta from 0 to 60. A horizontal line at 10; a solid curve that starts at a marked point at height 2 and rises toward 10; a dashed curve starting at 0 that rises below the solid curve.'}
+  labels:
+    - {x: 78.4, y: 14.1, text: Risk of X}
+    - {x: 27.8, y: 37.7, text: Risk of James–Stein}
+    - {x: 74.2, y: 26.7, text: Risk of the best constant multiple (needs θ)}
+    - {x: 10.9, y: 69.5, text: Risk 2σ² at θ = 0}
+  distractors: [Risk of the MLE at θ = 0, Bias of James–Stein]
+  explanation: |-
+    $\mathbf X$ has constant risk $p\sigma^2 = 10$. James–Stein starts at $2\sigma^2 = 2$ when $\boldsymbol\theta = \mathbf 0$ and rises toward 10 but never reaches it. The dashed "oracle" $c^*\mathbf X$, with $c^* = \|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + 10)$, has risk $10\|\boldsymbol\theta\|^2/(\|\boldsymbol\theta\|^2 + 10)$, lower still, but it needs the unknown $\boldsymbol\theta$. The MLE is $\mathbf X$, whose risk at 0 is 10, not 2.

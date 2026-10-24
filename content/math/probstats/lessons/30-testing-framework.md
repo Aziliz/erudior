@@ -47,6 +47,14 @@ value**.
 | Reject $H_0$ | **Type I error** | correct |
 | Fail to reject $H_0$ | correct | **Type II error** |
 
+The picture shows both errors for a one-sided test whose statistic is normal under each
+hypothesis. Everything to the right of the critical value is the rejection region. The area there
+under the null curve is the Type I error probability $\alpha$; the area to the left under the
+alternative curve is the Type II error probability $\beta$; the rest of the alternative curve is the
+power. Sliding $c$ to the right shrinks $\alpha$ and grows $\beta$.
+
+![Two bell curves for a test statistic: a solid one for the null hypothesis on the left and a dashed one for the alternative on the right, with a vertical line at the critical value c. Right of c, the small tail under the null curve is labeled alpha, Type I error, and the large area under the alternative curve is labeled power = 1 minus beta. Left of c, the area under the alternative curve is labeled beta, Type II error.](images/ps-m7-error-regions.svg)
+
 Everything about a test's error behavior is packed into one function. The **power function**
 of a test is
 
@@ -142,6 +150,25 @@ A level-$\alpha$ two-sided test of $H_0: \theta = \theta_0$ and a $1 - \alpha$ c
 are two views of one object: the test rejects exactly when $\theta_0$ lies outside the interval
 (for the usual $z$ and $t$ procedures). The interval is the set of null values the data would
 not reject.
+
+## The procedure in one picture
+
+Every test in this module follows the same steps, in this order. The order matters: the
+hypotheses and $\alpha$ are fixed before the data are examined.
+
+```mermaid
+flowchart TD
+  accTitle: The steps of a hypothesis test
+  accDescr: State the null and alternative hypotheses, with the claim to be shown in the alternative. Choose the significance level alpha before looking at the data. Choose a test statistic whose null distribution is known. Compute the statistic from the data and find its p-value. If the p-value is at most alpha, reject H0; otherwise fail to reject H0, which is not proof that H0 is true. Finally, state the conclusion in the context of the problem.
+  A["State H0 and H1 (the claim to show goes in H1)"] --> B["Choose alpha before seeing the data"]
+  B --> C["Choose a test statistic with a known null distribution"]
+  C --> D["Compute the statistic and its p-value"]
+  D --> E{"p-value at most alpha?"}
+  E -- yes --> F["Reject H0"]
+  E -- no --> G["Fail to reject H0 (not proof of H0)"]
+  F --> H["State the conclusion in context"]
+  G --> H
+```
 
 ## Common mistakes
 

@@ -1,0 +1,148 @@
+# Round 2 drills for module ps-m2 (honors lessons 09h1 and 09h2)
+- id: ps-m2-r2-pgf-sum
+  title: PGF of a sum of independent counts
+  topic: Probability generating functions
+  vars:
+    n: {min: 2, max: 6}
+    pp: {choices: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5]}
+    lam: {choices: [0.5, 1, 1.5, 2, 2.5, 3]}
+  calc:
+    qq: round(1 - pp, 2)
+    p0: qq^n*exp(-lam)
+    p1: (n*pp*qq^(n - 1) + qq^n*lam)*exp(-lam)
+    mu: round(n*pp + lam, 4)
+    var: round(n*pp*qq + lam, 4)
+  prompt: |-
+    $X \sim \text{Bin}({n}, {pp})$ and $Y \sim \text{Poisson}({lam})$ are independent, and $T = X + Y$.
+    Use the PGF of $T$ to find $P(T = 0)$ and $P(T = 1)$ (4 decimals), and $E(T)$ and
+    $\operatorname{Var}(T)$.
+  answers:
+    - {name: p0, label: '$P(T = 0) =$', tolerance: 0.0001, format: num4}
+    - {name: p1, label: '$P(T = 1) =$', tolerance: 0.0001, format: num4}
+    - {name: mu, label: '$E(T) =$', tolerance: 0.001}
+    - {name: var, label: '$\operatorname{Var}(T) =$', tolerance: 0.001}
+  solution: |-
+    Independent sums multiply PGFs:
+    $$G_T(s) = ({qq} + {pp}s)^{{n}}\,e^{{lam}(s - 1)}.$$
+    $P(T = 0) = G_T(0) = {qq}^{{n}}e^{-{lam}} \approx$ **{p0:num4}**.
+
+    $P(T = 1)$ is the coefficient of $s$: either $X = 1, Y = 0$ or $X = 0, Y = 1$, so
+    $P(T = 1) = \left[{n}({pp})({qq})^{{n} - 1} + ({qq})^{{n}}({lam})\right]e^{-{lam}} \approx$ **{p1:num4}**.
+
+    $G_T'(1)$ gives $E(T) = {n}({pp}) + {lam} =$ **{mu}**, and the variance adds over independent terms:
+    $\operatorname{Var}(T) = {n}({pp})({qq}) + {lam} =$ **{var}**.
+
+- id: ps-m2-r2-thinning
+  title: Thinning a Poisson count
+  topic: Probability generating functions
+  vars:
+    lam: {choices: [4, 5, 6, 8, 10, 12]}
+    pp: {choices: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.75]}
+    k: {min: 0, max: 4}
+  calc:
+    mu: round(lam*pp, 4)
+    qq: round(1 - pp, 2)
+    prob: poissonpdf(mu, k)
+  prompt: |-
+    Requests reach a server as Poisson({lam}) per minute, and each one is flagged for review with
+    probability {pp}, independently. Let $S$ be the number flagged in a minute. Find $E(S)$ and
+    $P(S = {k})$ (4 decimals).
+  answers:
+    - {name: mu, label: '$E(S) =$', tolerance: 0.001}
+    - {name: prob, label: '$P(S = {k}) =$', tolerance: 0.0001, format: num4}
+  solution: |-
+    $S$ is a random sum of Poisson({lam})-many Bernoulli({pp}) indicators, so
+    $$G_S(s) = G_N({qq} + {pp}s) = e^{{lam}({qq} + {pp}s - 1)} = e^{{mu}(s - 1)}.$$
+    That is the Poisson PGF with mean $\lambda p = {lam}({pp}) =$ **{mu}**, so by uniqueness
+    $S \sim \text{Poisson}({mu})$ and
+    $P(S = {k}) = e^{-{mu}}\dfrac{{mu}^{{k}}}{{k}!} \approx$ **{prob:num4}**.
+
+- id: ps-m2-r2-extinction
+  title: Extinction probability of a branching process
+  topic: Branching processes
+  vars:
+    p0: {min: 0.05, max: 0.45, step: 0.05}
+    p2: {min: 0.1, max: 0.8, step: 0.05}
+  calc:
+    p1: round(1 - p0 - p2, 2)
+    m: round(p1 + 2*p2, 2)
+    q: p0/p2
+    z2: p0 + p1*p0 + p2*p0^2
+  where: ['p1 >= 0', 'p2 > p0 + 0.04']
+  prompt: |-
+    In a branching process each individual has 0, 1 or 2 children with probabilities {p0}, {p1} and
+    {p2}. Starting from one individual, find the mean offspring number $m$, the probability
+    $P(Z_2 = 0)$ that the line is extinct by generation 2, and the extinction probability $q$
+    (4 decimals).
+  answers:
+    - {name: m, label: '$m =$', tolerance: 0.001}
+    - {name: z2, label: '$P(Z_2 = 0) =$', tolerance: 0.0001, format: num4}
+    - {name: q, label: '$q =$', tolerance: 0.0001, format: num4}
+  solution: |-
+    The offspring PGF is $f(s) = {p0} + {p1}s + {p2}s^2$, so $m = f'(1) = {p1} + 2({p2}) =$ **{m}**.
+    Since $m > 1$, survival is possible.
+
+    $P(Z_1 = 0) = f(0) = {p0}$, and $P(Z_2 = 0) = f(f(0)) = f({p0}) = {p0} + {p1}({p0}) + {p2}({p0})^2 \approx$ **{z2:num4}**.
+
+    The extinction probability is the smallest root of $f(s) = s$, that is of
+    ${p2}s^2 + ({p1} - 1)s + {p0} = 0$. One root is $s = 1$ and the product of the roots is
+    ${p0}/{p2}$, so the other root is $q = {p0}/{p2} \approx$ **{q:num4}**.
+
+- id: ps-m2-r2-lecam
+  title: Poisson approximation with Le Cam's bound
+  topic: Poisson approximation
+  vars:
+    nn: {choices: [100, 200, 250, 400, 500, 1000]}
+    pp: {choices: [0.002, 0.004, 0.005, 0.01, 0.02]}
+    k: {min: 0, max: 3}
+  where: ['nn*pp >= 0.5', 'nn*pp <= 6']
+  calc:
+    lam: round(nn*pp, 4)
+    bound: round(nn*pp^2, 6)
+    approx: poissonpdf(lam, k)
+    exact: binompdf(nn, pp, k)
+  prompt: |-
+    $X \sim \text{Bin}({nn:dp0}, {pp})$. Using the Poisson approximation, find $\lambda$ and
+    $P(X = {k})$ (4 decimals), and give the bound that Le Cam's inequality puts on the total variation
+    error.
+  answers:
+    - {name: lam, label: '$\lambda =$', tolerance: 0.001}
+    - {name: approx, label: '$P(X = {k}) \approx$', tolerance: 0.0001, format: num4}
+    - {name: bound, label: 'Le Cam bound', relTolerance: 0.01}
+  solution: |-
+    $\lambda = np = {nn:dp0}({pp}) =$ **{lam}**, and
+    $P(X = {k}) \approx e^{-\lambda}\dfrac{\lambda^{{k}}}{{k}!} \approx$ **{approx:num4}**.
+
+    Le Cam: every $p_i = {pp}$, so $d_{TV} \le \sum p_i^2 = np^2 = {nn:dp0}({pp})^2 =$ **{bound}**.
+    (The exact binomial value is {exact:num4}, well within the bound.)
+
+- id: ps-m2-r2-poisson-binomial
+  title: Unequal probabilities and the Poisson approximation
+  topic: Poisson approximation
+  vars:
+    a: {min: 0.01, max: 0.08, step: 0.01}
+    b: {min: 0.01, max: 0.08, step: 0.01}
+    c: {min: 0.01, max: 0.08, step: 0.01}
+    d: {min: 0.01, max: 0.08, step: 0.01}
+  calc:
+    lam: round(a + b + c + d, 2)
+    ssq: round(a^2 + b^2 + c^2 + d^2, 4)
+    exact: (1 - a)*(1 - b)*(1 - c)*(1 - d)
+    approx: exp(-lam)
+  prompt: |-
+    Four independent components fail this year with probabilities {a}, {b}, {c} and {d}. Let $S$ be
+    the number that fail. Find $\lambda = E(S)$, Le Cam's bound $\sum p_i^2$, the exact $P(S = 0)$ and
+    its Poisson approximation (4 decimals each).
+  answers:
+    - {name: lam, label: '$\lambda =$', tolerance: 0.0001}
+    - {name: ssq, label: '$\sum p_i^2 =$', tolerance: 0.00001}
+    - {name: exact, label: 'Exact $P(S = 0) =$', tolerance: 0.0001, format: num4}
+    - {name: approx, label: 'Poisson $P(S = 0) \approx$', tolerance: 0.0001, format: num4}
+  solution: |-
+    $\lambda = {a} + {b} + {c} + {d} =$ **{lam}** and
+    $\sum p_i^2 = {a}^2 + {b}^2 + {c}^2 + {d}^2 =$ **{ssq}**.
+
+    Exactly, all four must survive: $P(S = 0) = (1 - {a})(1 - {b})(1 - {c})(1 - {d}) \approx$ **{exact:num4}**.
+
+    Poisson: $P(S = 0) \approx e^{-\lambda} = e^{-{lam}} \approx$ **{approx:num4}**. The two differ by
+    much less than the bound {ssq}.

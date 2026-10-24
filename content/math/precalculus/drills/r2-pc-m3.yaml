@@ -98,8 +98,8 @@
     - {name: val, label: '$p({xs}) =$', kind: fraction}
   solution: |-
     Evaluate the Lagrange basis polynomials at $x = {xs}$:
-    $L_0 = \dfrac{({a1})({a2})}{({e01})({e02})} = {L0:frac}$, $L_1 = \dfrac{({a0})({a2})}{({e10})({e12})} = {L1:frac}$, $L_2 = \dfrac{({a0})({a1})}{({e20})({e21})} = {L2:frac}$.
-    Then $p({xs}) = ({y0})({L0:frac}) + ({y1})({L1:frac}) + ({y2})({L2:frac}) =$ **{val:frac}**.
+    $L_0 = \dfrac{({a1})({a2})}{({e01})({e02})} = {L0:texfrac}$, $L_1 = \dfrac{({a0})({a2})}{({e10})({e12})} = {L1:texfrac}$, $L_2 = \dfrac{({a0})({a1})}{({e20})({e21})} = {L2:texfrac}$.
+    Then $p({xs}) = ({y0})({L0:texfrac}) + ({y1})({L1:texfrac}) + ({y2})({L2:texfrac}) =$ **{val:frac}**.
 
 - id: pc-m3-r2-newton-form
   title: Newton form coefficients
@@ -111,7 +111,7 @@
     y0: {min: -9, max: 9}
     c1: {min: -6, max: 6}
     c2: {min: -3, max: 3}
-  where: ["c2 != 0"]
+  where: ["c2 != 0", "x0 != 0", "x1 != 0"]
   calc:
     x1: x0 + g1
     x2: x1 + g2
@@ -192,12 +192,12 @@
     y1: a + kk/s
     y2: a - kk/s
     twov: 2*a
-  prompt: 'For $f(x) = \dfrac{ {a:coef}x {bb:signed} }{ x {nh:signed} }$, you are told that $f({x1}) = {y1:frac}$. Use the center of symmetry (no substitution) to find $f({x2})$. Give an exact answer.'
+  prompt: 'For $f(x) = \dfrac{ {a:coef}x {bb:signed} }{ x {nh:signed} }$, you are told that $f({x1}) = {y1:texfrac}$. Use the center of symmetry (no substitution) to find $f({x2})$. Give an exact answer.'
   answers:
     - {name: y2, label: '$f({x2}) =$', kind: fraction}
   solution: |-
     The asymptotes are $x = {hh}$ and $y = {a}$, so the center is $({hh}, {a})$. The inputs ${x1}$ and ${x2}$ are both {s} units from ${hh}$, so $f({x1}) + f({x2}) = 2({a}) = {twov}$.
-    Then $f({x2}) = {twov} - {y1:frac} =$ **{y2:frac}**.
+    Then $f({x2}) = {twov} - {y1:texfrac} =$ **{y2:frac}**.
 
 - id: pc-m3-r2-lens
   title: Thin-lens image distance
@@ -213,7 +213,7 @@
     diff: dob - fl
   prompt: 'A thin lens has focal length {fl} cm. An object is {dob} cm from the lens. Use $d_i = \dfrac{f\,d_o}{d_o - f}$ to find the image distance (to 1 decimal place; negative means a virtual image) and the magnification $m = -\dfrac{d_i}{d_o}$ (to 2 decimal places).'
   answers:
-    - {name: di, label: '$d_i \approx$', format: num1, tolerance: 0.05, units: {cm: 1}}
+    - {name: di, label: '$d_i \approx$', format: num1, tolerance: 0.06, units: {cm: 1}}
     - {name: mag, label: '$m \approx$', format: num2, tolerance: 0.02}
   solution: |-
     $d_i = \dfrac{ ({fl})({dob}) }{ {dob} - {fl} } = \dfrac{ {prod} }{ {diff} } \approx$ **{di:num1} cm**.

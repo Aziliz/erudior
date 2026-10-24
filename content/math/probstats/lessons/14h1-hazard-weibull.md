@@ -157,8 +157,8 @@ hazard as wear sets in. This shape is called the **bathtub curve**.
 
 ![A bathtub-shaped hazard curve: high at age zero and falling, then a long flat bottom, then rising at old age. The three phases are labeled early failures, random failures and wear-out.](images/ps-m3-bathtub.svg)
 
-It is an idealization, not a law: many items show only one or two of the phases, and software has
-no wear-out at all. Still, it explains common practice. When the early hazard is falling,
+It is an idealization, not a law: many items show only one or two of the phases, and software does
+not wear out physically at all. Still, it explains common practice. When the early hazard is falling,
 manufacturers run new units for a while before shipping them, called **burn-in**, so that the
 weak ones fail in the factory. Once the hazard is rising, scheduled replacement makes sense; while
 it is flat (exponential lifetimes), replacing a working part early buys nothing.

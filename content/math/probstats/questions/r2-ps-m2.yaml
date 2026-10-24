@@ -1,0 +1,743 @@
+# Round 2 questions for module ps-m2 (Discrete random variables)
+# Core lessons 05-09: ps-m2-r2-q01 ... q25; honors lessons 09h1 and 09h2: ps-m2-r2-h01 ...
+
+# ---- Lesson 05: discrete random variables
+- id: ps-m2-r2-q01
+  lesson: ps-discrete-rv
+  topic: Random variables and pmfs
+  type: label
+  stem: 'This is the cdf of a discrete random variable with values 0, 1, 2 and 3. Name the numbered features.'
+  image: {src: images/ps-m2-cdf-anatomy-blank.svg, alt: 'A step-function cdf with jumps at 0, 1, 2 and 3 and five numbered markers'}
+  labels:
+    - {x: 43.3, y: 47.9, text: 'Jump whose size is P(X = 1)'}
+    - {x: 35.4, y: 58.3, text: 'Flat part between possible values'}
+    - {x: 59.2, y: 23.6, text: 'Value F(2) at the jump (filled dot)'}
+    - {x: 59.2, y: 37.5, text: 'Limit from the left at 2 (open dot)'}
+    - {x: 87.7, y: 16.7, text: 'Level 1 after the largest value'}
+  distractors: ['Expected value of X', 'Density of X']
+  explanation: |-
+    A discrete cdf is a step function. It is flat between possible values (2), jumps at each
+    value by $p(x)$ (1 marks the jump at $x = 1$, from 0.4 to 0.7, so $P(X = 1) = 0.3$), and is
+    right-continuous: at a jump the filled dot (3) is the value $F(2) = 0.9$, and the open dot (4)
+    is the limit from the left, $F(2^-) = 0.7$. After the largest value, $F$ stays at 1 (5).
+
+- id: ps-m2-r2-q02
+  lesson: ps-discrete-rv
+  module_quiz: true
+  topic: Random variables and pmfs
+  type: text
+  stem: 'An integer-valued random variable has cdf values $F(4) = 0.62$ and $F(5) = 0.81$. Then $P(X = 5) =$ ___ and $P(X \ge 5) =$ ___. Give only the numbers.'
+  accept:
+    - ['0.19']
+    - ['0.38']
+  explanation: |-
+    The jump at 5 is $P(X = 5) = F(5) - F(4) = 0.81 - 0.62 = 0.19$. For an integer variable,
+    $P(X \ge 5) = 1 - P(X \le 4) = 1 - F(4) = 0.38$. (Using $1 - F(5) = 0.19$ would give
+    $P(X \ge 6)$ instead.)
+
+- id: ps-m2-r2-q03
+  lesson: ps-discrete-rv
+  module_quiz: true
+  topic: Expectation and variance
+  type: match
+  stem: '$E(X) = 4$ and $\operatorname{Var}(X) = 5$. Let $Y = 3X + 2$. Match each quantity to its value.'
+  pairs:
+    - ['$E(Y)$', '14']
+    - ['$\operatorname{Var}(Y)$', '45']
+    - ['$\operatorname{SD}(Y)$', '3√5, about 6.71']
+    - ['$E(X^2)$', '21']
+  distractors: ['17', '15']
+  explanation: |-
+    $E(Y) = 3(4) + 2 = 14$. The shift does not change spread and the scale is squared:
+    $\operatorname{Var}(Y) = 9(5) = 45$, so $\operatorname{SD}(Y) = \sqrt{45} = 3\sqrt5 \approx 6.71$.
+    From the computing formula, $E(X^2) = \operatorname{Var}(X) + [E(X)]^2 = 5 + 16 = 21$.
+    17 is the mistake $3 \cdot 5 + 2$ for the variance, and 15 is $3 \cdot 5$.
+
+- id: ps-m2-r2-q04
+  lesson: ps-discrete-rv
+  topic: Expectation and variance
+  stem: 'Which statements are true for every discrete random variable $X$ whose mean and variance exist? Select all that apply.'
+  choices:
+    - 'Its cdf $F$ is nondecreasing.'
+    - '$\operatorname{Var}(X + 7) = \operatorname{Var}(X)$'
+    - '$E(X^2) \ge [E(X)]^2$'
+    - '$E(1/X) = 1/E(X)$ whenever both sides exist.'
+    - '$F(x) = P(X < x)$'
+  answer: [0, 1, 2]
+  explanation: |-
+    A cdf never decreases; a shift does not change spread; and $E(X^2) - [E(X)]^2$ is the variance,
+    which is never negative. LOTUS warns that $E[g(X)] \ne g(E(X))$ for nonlinear $g$: for $X$ equally
+    likely to be 1 or 2, $E(1/X) = 0.75$ but $1/E(X) = \tfrac23$. And the cdf is $P(X \le x)$, with
+    "$\le$"; for a discrete variable $P(X < x)$ differs at every possible value.
+
+- id: ps-m2-r2-q05
+  lesson: ps-discrete-rv
+  topic: Expectation and variance
+  type: order
+  stem: '$X$ takes the values 0, 1, 2, 3 with probabilities 0.4, 0.3, 0.2, 0.1. Put these quantities in order from smallest to largest.'
+  items: ['$P(X = 3)$', '$P(X \ge 2)$', '$F(0)$', '$F(1)$', '$E(X)$', '$E(X^2)$']
+  explanation: |-
+    $P(X = 3) = 0.1$; $P(X \ge 2) = 0.2 + 0.1 = 0.3$; $F(0) = 0.4$; $F(1) = 0.7$;
+    $E(X) = 0.3 + 0.4 + 0.3 = 1.0$; $E(X^2) = 0.3 + 0.8 + 0.9 = 2.0$.
+
+# ---- Lesson 06: binomial and hypergeometric
+- id: ps-m2-r2-q06
+  lesson: ps-binomial
+  topic: Binomial distribution
+  type: label
+  stem: 'In this tree for three trials, up branches are successes S (probability $p$) and down branches are failures F (probability $q$). Name the outcome in each numbered box.'
+  image: {src: images/ps-m2-binomial-tree-blank.svg, alt: 'A probability tree for three trials with eight empty outcome boxes, four of them numbered'}
+  labels:
+    - {x: 86.7, y: 33.8, text: SFS}
+    - {x: 86.7, y: 44.6, text: SFF}
+    - {x: 86.7, y: 55.4, text: FSS}
+    - {x: 86.7, y: 77.0, text: FFS}
+  distractors: [SSF, FSF]
+  explanation: |-
+    Follow each box back to the start, reading up as S and down as F. Box 1: up, down, up = SFS.
+    Box 2: up, down, down = SFF. Box 3: down, up, up = FSS. Box 4: down, down, up = FFS. Boxes 1
+    and 3 have two successes, probability $p^2q$ each; together with SSF they make up the
+    $\binom32 = 3$ paths counted in $P(X = 2) = 3p^2q$.
+
+- id: ps-m2-r2-q07
+  lesson: ps-binomial
+  module_quiz: true
+  topic: Binomial distribution
+  type: text
+  stem: '$X \sim \text{Bin}(10, 0.3)$. Then $E(X) =$ ___ and $\operatorname{Var}(X) =$ ___. Give only the numbers.'
+  accept:
+    - ['3']
+    - ['2.1']
+  explanation: |-
+    $E(X) = np = 10(0.3) = 3$ and $\operatorname{Var}(X) = np(1 - p) = 10(0.3)(0.7) = 2.1$. (The
+    standard deviation is $\sqrt{2.1} \approx 1.45$.)
+
+- id: ps-m2-r2-q08
+  lesson: ps-binomial
+  module_quiz: true
+  topic: Hypergeometric distribution
+  type: match
+  stem: 'Match each count to the distribution that models it exactly.'
+  pairs:
+    - ['Whether one particular shipment arrives late', 'Bernoulli']
+    - ['Heads in 20 tosses of a fair coin', 'Binomial']
+    - ['Defective parts in 5 drawn without replacement from a box of 12 with 3 defective', 'Hypergeometric']
+  distractors: [Geometric, Poisson]
+  explanation: |-
+    One yes/no outcome is Bernoulli. A fixed number of independent tosses with the same $p$ gives a
+    binomial count. Drawing without replacement from a small box changes the chance of a
+    defective after each draw, so the count is hypergeometric with $N = 12$, $K = 3$, $n = 5$.
+    Geometric counts trials until a success, and Poisson counts events with no fixed number of
+    trials; neither fits these situations.
+
+- id: ps-m2-r2-q09
+  lesson: ps-binomial
+  topic: Hypergeometric distribution
+  stem: 'A box of 50 bearings has 6 defective. $X$ is the number of defectives in 5 drawn without replacement, and $Y \sim \text{Bin}(5, 0.12)$. Which statements are true? Select all that apply.'
+  choices:
+    - '$E(X) = E(Y) = 0.6$'
+    - '$\operatorname{Var}(X) < \operatorname{Var}(Y)$'
+    - 'The five draws that make up $X$ are independent.'
+    - 'With the sample size fixed at 5 and 12% defective, the distribution of $X$ gets closer to that of $Y$ as the box gets larger.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Both means are $5 \times 0.12 = 0.6$. The hypergeometric variance carries the factor
+    $\tfrac{N - n}{N - 1} = \tfrac{45}{49} < 1$, so $\operatorname{Var}(X) \approx 0.485 < 0.528$. As $N$ grows with $n$
+    fixed, that factor tends to 1 and the hypergeometric approaches the binomial. But the draws
+    are dependent: each draw changes what is left in the box.
+
+- id: ps-m2-r2-q10
+  lesson: ps-binomial
+  topic: Binomial distribution
+  stem: 'What is the most likely value (mode) of $X \sim \text{Bin}(9, 0.4)$?'
+  choices: ['3.6', '4 only', '3 and 4 are tied', '3 only']
+  answer: 2
+  explanation: |-
+    $(n + 1)p = 10(0.4) = 4$ is a whole number, so the two values $4 - 1 = 3$ and $4$ tie:
+    $P(X = 3) = \binom93 0.4^3 0.6^6 \approx 0.2508$ and $P(X = 4) = \binom94 0.4^4 0.6^5 \approx 0.2508$
+    (exactly equal). 3.6 is the mean $np$, which is not even a possible value.
+
+# ---- Lesson 07: geometric and negative binomial
+- id: ps-m2-r2-q11
+  lesson: ps-geometric
+  topic: Negative binomial distribution
+  type: label
+  stem: 'A technician runs trials until the third success (S). Name the numbered parts of the record.'
+  image: {src: images/ps-m2-negbin-waits-blank.svg, alt: 'Nine trial boxes F F S F S F F F S with braces under them and five numbered markers'}
+  labels:
+    - {x: 30.3, y: 43.5, text: 'First success'}
+    - {x: 49.7, y: 43.5, text: 'Second success'}
+    - {x: 69.0, y: 43.5, text: 'A failure'}
+    - {x: 44.8, y: 59.1, text: 'Second waiting time (2 trials)'}
+    - {x: 73.9, y: 59.1, text: 'Third waiting time (4 trials)'}
+  distractors: ['First waiting time (2 trials)', 'Third success']
+  explanation: |-
+    The successes are at trials 3, 5 and 9. Marker 1 is on trial 3 (first success), marker 2 on
+    trial 5 (second success) and marker 3 on trial 7, a failure. The braces split the record into
+    geometric waits: trials 1–3 (3 trials), 4–5 (2 trials, marker 4) and 6–9 (4 trials, marker 5).
+    The negative binomial count is their sum, $X = 3 + 2 + 4 = 9$.
+
+- id: ps-m2-r2-q12
+  lesson: ps-geometric
+  module_quiz: true
+  topic: Geometric distribution
+  type: text
+  stem: 'Each trial succeeds with probability 0.2, independently, and $X$ is the number of trials up to and including the first success. Then $E(X) =$ ___ and $P(X > 5) =$ ___ (exact decimal). Give only the numbers.'
+  accept:
+    - ['5']
+    - ['0.32768']
+  explanation: |-
+    $E(X) = 1/p = 1/0.2 = 5$. More than 5 trials are needed exactly when the first 5 all fail, so
+    $P(X > 5) = 0.8^5 = 0.32768$. (The common slip $0.8^4 = 0.4096$ is $P(X > 4)$.)
+
+- id: ps-m2-r2-q13
+  lesson: ps-geometric
+  module_quiz: true
+  topic: Geometric distribution
+  type: match
+  stem: '$X \sim \text{Geometric}(p)$ counts trials to the first success, with $q = 1 - p$. Match each quantity to its formula.'
+  pairs:
+    - ['$E(X)$', '1/p']
+    - ['$\operatorname{Var}(X)$', 'q/p^2']
+    - ['$P(X > k)$', 'q^k']
+    - ['$P(X = k)$', 'q^(k−1) p']
+  distractors: ['q/p', '1 − q^(k−1)']
+  explanation: |-
+    The pmf is $q^{k-1}p$ (fail $k - 1$ times, then succeed). More than $k$ trials means the first
+    $k$ fail, probability $q^k$. The mean is $1/p$ and the variance $q/p^2$. $q/p$ is the mean of
+    the other convention (failures before the first success).
+
+- id: ps-m2-r2-q14
+  lesson: ps-geometric
+  topic: Geometric distribution
+  stem: '$X \sim \text{Geometric}(0.25)$ (trials). Which statements are true? Select all that apply.'
+  choices:
+    - '$P(X > 7 \mid X > 4) = P(X > 3)$'
+    - '$E(X) = 4$'
+    - '$P(X > 3) = 0.75^2$'
+    - 'After four failures, the next trial succeeds with probability 0.25.'
+  answer: [0, 1, 3]
+  explanation: |-
+    Memorylessness: $P(X > 7 \mid X > 4) = 0.75^7/0.75^4 = 0.75^3 = P(X > 3)$. The mean is
+    $1/0.25 = 4$. Independent trials do not remember past failures, so the next trial still succeeds
+    with probability 0.25. But $P(X > 3) = 0.75^3 \approx 0.42$, not $0.75^2$: three failures are needed.
+
+- id: ps-m2-r2-q15
+  lesson: ps-geometric
+  topic: Geometric distribution
+  stem: 'Boxes each hold one of 4 toys, equally likely and independently. On average, how many boxes must you open to collect all 4?'
+  choices: ['$\tfrac{25}{3} \approx 8.33$', '4', '10', '$\tfrac{25}{4} = 6.25$']
+  answer: 0
+  explanation: |-
+    After collecting $j$ toys, each box is new with probability $(4 - j)/4$, so the wait for the next
+    new toy is geometric with mean $4/(4 - j)$. Adding: $\tfrac44 + \tfrac43 + \tfrac42 + \tfrac41
+    = 4\left(1 + \tfrac12 + \tfrac13 + \tfrac14\right) = \tfrac{25}{3} \approx 8.33$. 6.25 forgets the
+    factor 4 in front; 4 assumes no repeats.
+
+# ---- Lesson 08: Poisson
+- id: ps-m2-r2-q16
+  lesson: ps-poisson
+  topic: Poisson process
+  type: label
+  stem: 'Events of a Poisson process with rate $\lambda$ per unit time are marked as dots. Name the numbered parts.'
+  image: {src: images/ps-m2-poisson-process-blank.svg, alt: 'A time line from 0 to 10 with event dots, two shaded intervals and a bracket, and four numbered markers'}
+  labels:
+    - {x: 42.1, y: 40.0, text: 'An event'}
+    - {x: 23.8, y: 28.0, text: 'Count is Poisson with mean 2λ'}
+    - {x: 67.5, y: 28.0, text: 'Count is Poisson with mean 3λ'}
+    - {x: 34.2, y: 70.0, text: 'Gap between successive events'}
+  distractors: ['Count is Poisson with mean λ', 'Count is binomial']
+  explanation: |-
+    Marker 1 sits on an event. The shaded interval at marker 2 runs from 1 to 3 (length 2), so its
+    count is Poisson$(2\lambda)$; the one at marker 3 runs from 5.5 to 8.5 (length 3), so its count is
+    Poisson$(3\lambda)$. The two intervals do not overlap, so their counts are independent. Marker 4
+    is the gap between two consecutive events (Module 3 shows these gaps are exponential).
+
+- id: ps-m2-r2-q17
+  lesson: ps-poisson
+  module_quiz: true
+  topic: Poisson process
+  type: text
+  stem: 'Calls arrive as a Poisson process at 4 per hour. In a 45-minute period the mean number of calls is ___, and the probability of no calls is ___ (4 decimal places).'
+  accept:
+    - ['3']
+    - ['0.0498', '0.04979', '0.049787']
+  explanation: |-
+    Rescale the rate: 45 minutes is 0.75 hour, so the mean is $4 \times 0.75 = 3$. Then
+    $P(N = 0) = e^{-3} \approx 0.0498$. Using $e^{-4} \approx 0.0183$ forgets to rescale.
+
+- id: ps-m2-r2-q18
+  lesson: ps-poisson
+  topic: Poisson distribution
+  stem: 'Which counts are reasonably modeled by a Poisson distribution? Select all that apply.'
+  choices:
+    - 'Radioactive decays detected in one second from a large sample'
+    - 'Typing errors on one page of a long manuscript'
+    - 'Heads in 10 tosses of a fair coin'
+    - 'Rainy days in one week, in a city where it rains on about half the days'
+  answer: [0, 1]
+  explanation: |-
+    Decays and typos are many tiny chances of a rare event with no fixed number of trials, the
+    Poisson setting. Ten tosses is a fixed, small number of trials with $p = 0.5$: binomial. Rainy days
+    in a week are capped at 7 and are common, not rare (and wet days tend to cluster), so the Poisson
+    does not fit.
+
+- id: ps-m2-r2-q19
+  lesson: ps-poisson
+  module_quiz: true
+  topic: Poisson process
+  type: match
+  stem: 'Calls arrive as a Poisson process at 3.2 per hour. Match each time period to the Poisson mean of its count.'
+  pairs:
+    - ['30 minutes', '1.6']
+    - ['15 minutes', '0.8']
+    - ['2.5 hours', '8']
+    - ['24 hours', '76.8']
+  distractors: ['3.2', '6.4']
+  explanation: |-
+    The mean is the rate times the length of the period: $3.2 \times 0.5 = 1.6$,
+    $3.2 \times 0.25 = 0.8$, $3.2 \times 2.5 = 8$ and $3.2 \times 24 = 76.8$.
+
+- id: ps-m2-r2-q20
+  lesson: ps-poisson
+  topic: Poisson distribution
+  type: order
+  stem: '$X \sim \text{Poisson}(2.5)$. Put these probabilities in order from smallest to largest.'
+  items: ['$P(X = 5)$', '$P(X = 0)$', '$P(X = 4)$', '$P(X = 1)$', '$P(X = 3)$', '$P(X = 2)$']
+  explanation: |-
+    Use $p(k) = \tfrac{2.5}{k}\,p(k - 1)$ with $p(0) = e^{-2.5} \approx 0.0821$: $p(1) \approx 0.2052$,
+    $p(2) \approx 0.2565$, $p(3) \approx 0.2138$, $p(4) \approx 0.1336$, $p(5) \approx 0.0668$. The pmf
+    rises while $k < 2.5$ and falls after, so the mode is 2, and the far tail $p(5)$ is smallest.
+
+# ---- Lesson 09: moment generating functions
+- id: ps-m2-r2-q21
+  lesson: ps-mgf
+  topic: Moment generating functions
+  type: text
+  stem: '$X$ has MGF $M(t) = (0.6 + 0.4e^t)^{15}$. Then $E(X) =$ ___ and $\operatorname{Var}(X) =$ ___. Give only the numbers.'
+  accept:
+    - ['6']
+    - ['3.6']
+  explanation: |-
+    This is the binomial form $(q + pe^t)^n$ with $n = 15$ and $p = 0.4$, so by uniqueness
+    $X \sim \text{Bin}(15, 0.4)$: $E(X) = 15(0.4) = 6$ and $\operatorname{Var}(X) = 15(0.4)(0.6) = 3.6$.
+    (Differentiating gives the same: $M'(0) = 15(0.4) = 6$.)
+
+- id: ps-m2-r2-q22
+  lesson: ps-mgf
+  module_quiz: true
+  topic: Moment generating functions
+  type: match
+  stem: 'Match each MGF to its distribution.'
+  pairs:
+    - ['$e^{3(e^t - 1)}$', 'Poisson with mean 3']
+    - ['$(0.5 + 0.5e^t)^4$', 'Binomial with n = 4, p = 0.5']
+    - ['$\dfrac{0.2e^t}{1 - 0.8e^t}$', 'Geometric with p = 0.2']
+    - ['$0.7 + 0.3e^t$', 'Bernoulli with p = 0.3']
+  distractors: ['Bernoulli with p = 0.7', 'Geometric with p = 0.8']
+  explanation: |-
+    Poisson$(\lambda)$: $e^{\lambda(e^t - 1)}$. Binomial: $(q + pe^t)^n$. Geometric (trials):
+    $pe^t/(1 - qe^t)$, so the coefficient in front of $e^t$ on top is $p = 0.2$. Bernoulli: $q + pe^t$, and
+    $p$ multiplies $e^t$, so $p = 0.3$, not 0.7.
+
+- id: ps-m2-r2-q23
+  lesson: ps-mgf
+  topic: Moment generating functions
+  stem: 'Which statements about moment generating functions are true? Select all that apply.'
+  choices:
+    - '$M_X(0) = 1$ for every random variable $X$.'
+    - 'If $X$ and $Y$ are independent, $M_{X+Y}(t) = M_X(t)M_Y(t)$.'
+    - '$M_X''''(0)$ is the variance of $X$.'
+    - '$M_{2X+1}(t) = e^{t}M_X(2t)$'
+    - 'Two random variables with the same mean and variance have the same MGF.'
+  answer: [0, 1, 3]
+  explanation: |-
+    $M_X(0) = E(e^0) = 1$. Independence turns the MGF of a sum into a product. For $aX + b$,
+    $M(t) = e^{bt}M_X(at)$, here $e^{t}M_X(2t)$. But $M''(0) = E(X^2)$, so the variance is
+    $M''(0) - M'(0)^2$. And matching two moments does not make MGFs equal: Bernoulli(0.5) and a
+    normal with mean 0.5 and variance 0.25 share both but are different distributions.
+
+- id: ps-m2-r2-q24
+  lesson: ps-mgf
+  topic: Moment generating functions
+  type: order
+  stem: '$X$ and $Y$ are independent. Put the steps of the MGF method for finding the distribution of $X + Y$ in order.'
+  items:
+    - 'Write down $M_X(t)$ and $M_Y(t)$'
+    - 'Multiply them to get $M_{X+Y}(t)$'
+    - 'Simplify and compare with the table of known MGFs'
+    - 'Conclude by the uniqueness theorem that $X + Y$ has the matching distribution'
+  explanation: |-
+    You need the two MGFs before you can multiply them, the product before you can recognize it,
+    and a recognized form before uniqueness tells you the distribution.
+
+- id: ps-m2-r2-q25
+  lesson: ps-mgf
+  module_quiz: true
+  topic: Moment generating functions
+  stem: '$X \sim \text{Poisson}(2)$ and $Y \sim \text{Poisson}(3)$ are independent. Find $P(X + Y = 2)$.'
+  choices: ['0.2707', '0.0337', '0.1404', '0.0842']
+  answer: 3
+  explanation: |-
+    $M_{X+Y}(t) = e^{2(e^t - 1)}e^{3(e^t - 1)} = e^{5(e^t - 1)}$, so $X + Y \sim \text{Poisson}(5)$ and
+    $P(X + Y = 2) = e^{-5}\tfrac{5^2}{2!} \approx 0.0842$. 0.2707 is $P(X = 2)$ alone, 0.0337 is
+    $P(X + Y = 1)$, and 0.1404 is $P(X + Y = 3)$.
+
+# ---- Honors 09h1: probability generating functions and branching processes
+- id: ps-m2-r2-h01
+  lesson: ps-m2-h-pgf-branching
+  topic: Probability generating functions
+  stem: '$X$ has PGF $G(s) = 0.1 + 0.3s + 0.6s^2$. Find $E(X)$.'
+  choices: ['0.3', '1.5', '1.2', '0.9']
+  answer: 1
+  explanation: |-
+    $G'(s) = 0.3 + 1.2s$, so $E(X) = G'(1) = 1.5$. Check: $0(0.1) + 1(0.3) + 2(0.6) = 1.5$. The value
+    0.3 is $G'(0) = P(X = 1)$, the mistake of differentiating at 0.
+
+- id: ps-m2-r2-h02
+  lesson: ps-m2-h-pgf-branching
+  topic: Probability generating functions
+  stem: 'For the PGF $G(s) = 0.1 + 0.3s + 0.6s^2$ (so $E(X) = 1.5$), find $\operatorname{Var}(X)$.'
+  choices: ['1.2', '2.7', '0.45', '1.05']
+  answer: 2
+  explanation: |-
+    $G''(s) = 1.2$, so $E[X(X - 1)] = 1.2$ and
+    $\operatorname{Var}(X) = G''(1) + G'(1) - G'(1)^2 = 1.2 + 1.5 - 2.25 = 0.45$. 1.2 stops at the
+    factorial moment, 2.7 forgets to subtract $\mu^2$, and 1.05 is $|1.2 - 2.25|$ without adding $\mu$.
+
+- id: ps-m2-r2-h03
+  lesson: ps-m2-h-pgf-branching
+  topic: Probability generating functions
+  type: text
+  stem: '$X$ has PGF $G(s) = (0.4 + 0.6s)^3$. Then $P(X = 0) =$ ___ and $P(X = 3) =$ ___. Give exact decimals.'
+  accept:
+    - ['0.064']
+    - ['0.216']
+  explanation: |-
+    $P(X = 0) = G(0) = 0.4^3 = 0.064$. The coefficient of $s^3$ in the expansion is $0.6^3 = 0.216$.
+    (This is the Bin(3, 0.6) PGF.)
+
+- id: ps-m2-r2-h04
+  lesson: ps-m2-h-pgf-branching
+  topic: Probability generating functions
+  stem: '$X$ has PGF $G(s) = \tfrac14 s(1 + s)^2$. What is $P(X = 2)$?'
+  choices: ['$\tfrac14$', '$\tfrac34$', '$\tfrac13$', '$\tfrac12$']
+  answer: 3
+  explanation: |-
+    Expand: $\tfrac14 s(1 + 2s + s^2) = \tfrac14 s + \tfrac12 s^2 + \tfrac14 s^3$. The coefficient of $s^2$
+    is $P(X = 2) = \tfrac12$. ($X$ is 1 plus a Bin(2, 0.5) count.)
+
+- id: ps-m2-r2-h05
+  lesson: ps-m2-h-pgf-branching
+  topic: Probability generating functions
+  stem: 'Customers enter a shop as Poisson(5) per hour, and each buys something with probability 0.4, independently. What is the probability that exactly one purchase is made in an hour?'
+  choices: ['0.2707', '0.0337', '0.1353', '0.4000']
+  answer: 0
+  explanation: |-
+    The PGF of the number of purchases is $G_N(0.6 + 0.4s) = e^{5(0.4s - 0.4)} = e^{2(s - 1)}$, so it is
+    Poisson(2) (thinning). $P(S = 1) = 2e^{-2} \approx 0.2707$. 0.0337 uses Poisson(5), and 0.1353 is
+    $P(S = 0)$.
+
+- id: ps-m2-r2-h06
+  lesson: ps-m2-h-pgf-branching
+  topic: Probability generating functions
+  stem: '$N$ is a count with PGF $G_N$, and $X_1, X_2, \ldots$ are independent with PGF $G_X$, independent of $N$. What is the PGF of $S = X_1 + \cdots + X_N$?'
+  choices: ['$G_X(G_N(s))$', '$G_N(G_X(s))$', '$G_N(s)\,G_X(s)$', '$G_N(s) + G_X(s)$']
+  answer: 1
+  explanation: |-
+    Given $N = n$, $E(s^S) = G_X(s)^n$. Averaging over $N$: $\sum P(N = n)G_X(s)^n = G_N(G_X(s))$, the
+    count's PGF evaluated at $G_X(s)$. The product $G_NG_X$ is the PGF of $N + X$ for independent
+    $N$ and $X$, a different quantity.
+
+- id: ps-m2-r2-h07
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  stem: 'Each individual has 0, 1, 2 or 3 children with probabilities 0.2, 0.3, 0.3, 0.2. Which describes this branching process?'
+  choices: ['Supercritical, $m = 1.5$', 'Critical, $m = 1$', 'Subcritical, $m = 0.75$', 'Supercritical, $m = 2$']
+  answer: 0
+  explanation: |-
+    $m = 0(0.2) + 1(0.3) + 2(0.3) + 3(0.2) = 1.5 > 1$, so the process is supercritical and survives
+    forever with positive probability. Neither 0.75 nor 2 is the probability-weighted sum
+    $\sum k\,p_k$.
+
+- id: ps-m2-r2-h08
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  stem: 'Offspring are 0, 1 or 2 with probabilities 0.3, 0.2, 0.5. Starting from one individual, what is the extinction probability?'
+  choices: ['1', '0.3', '0.6', '0.5']
+  answer: 2
+  explanation: |-
+    $m = 0.2 + 1.0 = 1.2 > 1$. Solve $0.3 + 0.2s + 0.5s^2 = s$: $0.5s^2 - 0.8s + 0.3 = 0$, or
+    $5s^2 - 8s + 3 = 0 = (5s - 3)(s - 1)$, so the roots are 0.6 and 1, and $q = 0.6$ (the shortcut
+    $p_0/p_2 = 0.3/0.5$). Taking 1 is Watson's error; 0.3 is only $P(Z_1 = 0)$.
+
+- id: ps-m2-r2-h09
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  stem: 'In a branching process every individual has a Poisson(0.8) number of children. What is the probability that the line eventually dies out?'
+  choices: ['$e^{-0.8} \approx 0.449$', '0.8', '0.2', '1']
+  answer: 3
+  explanation: |-
+    The mean offspring number is $m = 0.8 \le 1$, so the process is subcritical and extinction is
+    certain: $q = 1$. $e^{-0.8}$ is only the chance that the first individual has no children,
+    $P(Z_1 = 0)$.
+
+- id: ps-m2-r2-h10
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  stem: 'A branching process has mean offspring number $m = 1$ and $p_1 < 1$. Which statement is true?'
+  choices:
+    - 'Each generation has exactly one individual.'
+    - '$E(Z_n)$ grows without bound.'
+    - 'Extinction is certain even though $E(Z_n) = 1$ for every $n$.'
+    - 'Extinction has probability $p_0$.'
+  answer: 2
+  explanation: |-
+    $E(Z_n) = m^n = 1$ for all $n$, yet the extinction theorem gives $q = 1$ when $m \le 1$ (and
+    $p_1 < 1$). The mean stays at 1 because the rare surviving lines become very large. Exactly one
+    child each time would need $p_1 = 1$, and $p_0$ is only the chance of dying out in the first generation.
+
+- id: ps-m2-r2-h11
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  type: text
+  stem: 'Offspring are 0, 1 or 2 with probabilities 1/4, 1/4, 1/2, starting from one individual. $P(Z_2 = 0) =$ ___ (exact).'
+  accept: ['0.34375', '11/32']
+  explanation: |-
+    $P(Z_2 = 0) = f(f(0)) = f(0.25) = 0.25 + 0.25(0.25) + 0.5(0.25)^2 = 0.25 + 0.0625 + 0.03125 = 0.34375 = \tfrac{11}{32}$.
+
+- id: ps-m2-r2-h12
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  type: order
+  stem: 'Offspring are 0, 1 or 2 with probabilities 1/4, 1/4, 1/2, starting from one individual. Put these in order from smallest to largest.'
+  items: ['$P(Z_1 = 0)$', '$P(Z_3 = 0)$', 'the extinction probability $q$', 'the mean offspring number $m$', '$E(Z_2)$']
+  explanation: |-
+    $P(Z_1 = 0) = 0.25$, $P(Z_3 = 0) \approx 0.395$, and these increase toward $q = 0.5$. Then
+    $m = 1.25$ and $E(Z_2) = m^2 = 1.5625$.
+
+- id: ps-m2-r2-h13
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  type: match
+  stem: 'Match each offspring law to what happens to the population, starting from one individual.'
+  pairs:
+    - ['mean $m = 0.8$', 'Subcritical: extinction is certain']
+    - ['mean $m = 1$, with $p_1 < 1$', 'Critical: extinction is certain']
+    - ['mean $m = 1.3$', 'Supercritical: survival is possible']
+    - ['$p_1 = 1$', 'Stays at one individual forever']
+  distractors: ['Supercritical: extinction is certain']
+  explanation: |-
+    The extinction theorem: $q = 1$ when $m \le 1$ (unless $p_1 = 1$) and $q < 1$ when $m > 1$. If
+    every individual has exactly one child, $Z_n = 1$ for all $n$, the excluded trivial case.
+
+- id: ps-m2-r2-h14
+  lesson: ps-m2-h-pgf-branching
+  topic: Branching processes
+  type: label
+  stem: 'The graph shows an offspring PGF $f$ (solid) and a dashed line on $0 \le s \le 1$, for offspring 0, 1, 2 with probabilities 1/4, 1/4, 1/2. Name the numbered features.'
+  image: {src: images/ps-m2-pgf-fixed-point-blank.svg, alt: 'A convex curve starting at height 0.25 and a dashed diagonal line, crossing at s = 0.5 and meeting at s = 1, with five numbered markers'}
+  labels:
+    - {x: 48.2, y: 50.0, text: 'Extinction probability q'}
+    - {x: 83.9, y: 9.1, text: 'Fixed point at s = 1'}
+    - {x: 12.5, y: 70.5, text: 'f(0), the chance of no children'}
+    - {x: 33.9, y: 60.6, text: 'Graph of the offspring PGF'}
+    - {x: 73.2, y: 21.4, text: 'The line y = s'}
+  distractors: ['Mean offspring number m']
+  explanation: |-
+    The curve starts at $f(0) = p_0 = \tfrac14$ (3). It crosses the dashed line $y = s$ (5) first at
+    $s = \tfrac12$, the smallest fixed point and so the extinction probability (1), and meets it again at
+    $s = 1$ (2), which is a fixed point of every PGF. The mean $m$ is the slope of the curve at
+    $s = 1$, not a point on the graph.
+
+- id: ps-m2-r2-h15
+  lesson: ps-m2-h-pgf-branching
+  topic: Probability generating functions
+  stem: '$X$ takes values in $\{0, 1, 2, \ldots\}$ and has PGF $G$. Which statements are always true? Select all that apply.'
+  choices:
+    - '$G(1) = 1$'
+    - '$G(0) = P(X = 0)$'
+    - '$G''(0) = E(X)$'
+    - '$G(s)$ is finite for every $s$ with $|s| \le 1$.'
+  answer: [0, 1, 3]
+  explanation: |-
+    $G(1) = \sum p(k) = 1$ and $G(0) = p(0)$. The series has coefficients that add to 1, so it
+    converges for $|s| \le 1$. But $G'(0) = p(1)$; the mean is $G'(1)$.
+
+# ---- Honors 09h2: the Poisson paradigm
+- id: ps-m2-r2-h16
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: '$X$ takes the values 0, 1, 2 with probabilities 0.5, 0.3, 0.2, and $Y$ takes them with probabilities 0.4, 0.4, 0.2. Find $d_{TV}(X, Y)$.'
+  choices: ['0.2', '0.1', '0.05', '0.4']
+  answer: 1
+  explanation: |-
+    $d_{TV} = \tfrac12(|0.5 - 0.4| + |0.3 - 0.4| + |0.2 - 0.2|) = \tfrac12(0.2) = 0.1$. The event
+    $\{X = 0\}$ attains it: $0.5 - 0.4 = 0.1$. 0.2 forgets the factor $\tfrac12$.
+
+- id: ps-m2-r2-h17
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: '$X \sim \text{Bin}(200, 0.01)$ is approximated by Poisson(2). What bound does Le Cam''s inequality give on the total variation distance?'
+  choices: ['2', '0.01', '0.0002', '0.02']
+  answer: 3
+  explanation: |-
+    With every $p_i = 0.01$, $\sum p_i^2 = 200(0.01)^2 = 0.02$. Equivalently $\lambda p = 2(0.01)$.
+    0.0002 is a single $p^2$, and 0.01 is $p$ itself.
+
+- id: ps-m2-r2-h18
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  type: text
+  stem: 'Three independent events have probabilities 0.1, 0.05 and 0.05, and $S$ counts how many occur. For the Poisson approximation, $\lambda =$ ___, and Le Cam''s bound on the total variation error is ___. Give only the numbers.'
+  accept:
+    - ['0.2']
+    - ['0.015']
+  explanation: |-
+    $\lambda = 0.1 + 0.05 + 0.05 = 0.2$, and $\sum p_i^2 = 0.01 + 0.0025 + 0.0025 = 0.015$.
+
+- id: ps-m2-r2-h19
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: 'A computation shows $d_{TV}(S, \text{Poisson}(\lambda)) \le 0.01$. What does this guarantee?'
+  choices:
+    - 'Every probability about $S$ is within 1% of its Poisson approximation, in relative terms.'
+    - 'Every probability about $S$ is within 0.01 of its Poisson approximation.'
+    - 'Only $P(S = 0)$ is within 0.01 of $e^{-\lambda}$.'
+    - 'The means of $S$ and the Poisson differ by at most 0.01.'
+  answer: 1
+  explanation: |-
+    Total variation is the largest absolute disagreement over all events, so every probability
+    (single values, tails, intervals) is within 0.01. It says nothing about relative error: a tail of
+    0.008 approximated by 0.010 is within 0.01 but 25% off. In Le Cam's setting the means are equal
+    anyway ($\lambda = \sum p_i$).
+
+- id: ps-m2-r2-h20
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: 'Why is Poisson(3) a poor approximation to $\text{Bin}(12, 0.25)$?'
+  choices:
+    - 'Because $n = 12$ is less than 20.'
+    - 'Because the binomial mean is not 3.'
+    - 'Because the trials are dependent.'
+    - 'Because each success probability, 0.25, is not small.'
+  answer: 3
+  explanation: |-
+    Le Cam's bound is $\sum p_i^2 = 12(0.25)^2 = 0.75$, and the actual distance is about 0.07: the error
+    is driven by the size of each $p_i$, not by $n$. The mean is $12(0.25) = 3$, matching, and the
+    trials are independent. A small $n$ alone is not the problem; $\text{Bin}(12, 0.005)$ is very close
+    to Poisson(0.06).
+
+- id: ps-m2-r2-h21
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: '$S$ and $T$ are defined on the same sample space. Which inequality is the key step in the coupling proof of Le Cam''s inequality?'
+  choices:
+    - '$d_{TV}(S, T) \le P(S \ne T)$'
+    - '$d_{TV}(S, T) \le |E(S) - E(T)|$'
+    - '$P(S \ne T) \le d_{TV}(S, T)$'
+    - '$d_{TV}(S, T) \le \operatorname{Var}(S - T)$'
+  answer: 0
+  explanation: |-
+    For any $A$, $P(S \in A) - P(T \in A) = P(S \in A, T \notin A) - P(T \in A, S \notin A) \le P(S \ne T)$.
+    Building $S$ and the Poisson $T$ so that they rarely differ then bounds the distance. The reverse
+    inequality fails in general: two independent copies of a fair coin flip have the same distribution
+    ($d_{TV} = 0$) but differ half the time.
+
+- id: ps-m2-r2-h22
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: 'Ten letters go into their ten envelopes at random, and $X$ is the number in the right envelope. What is $\operatorname{Var}(X)$?'
+  choices: ['0.9', '1', '0.1', '10']
+  answer: 1
+  explanation: |-
+    With $A_i$ = "letter $i$ correct", $\lambda = 10 \cdot \tfrac{1}{10} = 1$ and
+    $E[X(X-1)] = \sum_{i \ne j} P(A_i \cap A_j) = 90 \cdot \tfrac{1}{90} = 1$. So
+    $\operatorname{Var}(X) = 1 + 1 - 1^2 = 1$, the Poisson(1) value. 0.9 is the binomial variance
+    $10(0.1)(0.9)$, which wrongly treats the events as independent.
+
+- id: ps-m2-r2-h23
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: 'Use the Poisson paradigm to approximate the probability that at least two of 30 people share a birthday (365 equally likely days).'
+  choices: ['0.304', '0.079', '0.696', '0.919']
+  answer: 2
+  explanation: |-
+    There are $\binom{30}{2} = 435$ pairs, each sharing with probability $\tfrac{1}{365}$, so
+    $\lambda = 435/365 \approx 1.192$ and $P(\text{at least one}) \approx 1 - e^{-1.192} \approx 0.696$
+    (the exact value is 0.706). 0.304 is $P(\text{none})$, and 0.079 uses 30 people instead of 435 pairs.
+
+- id: ps-m2-r2-h24
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: 'For which counts is a Poisson model reasonable by the Poisson paradigm? Select all that apply.'
+  choices:
+    - 'Accidents in one day among 1,000 drivers who each have a small chance of an accident'
+    - 'Pairs sharing a birthday among 25 people'
+    - 'Houses on one street damaged by the same tornado'
+    - 'Heads in 50 tosses of a fair coin'
+  answer: [0, 1]
+  explanation: |-
+    Drivers' accidents are many rare, roughly independent events, and birthday pairs are rare and
+    only weakly dependent. Tornado damage clusters (one house damaged makes its neighbors likely
+    to be damaged too), so the count is overdispersed. Coin heads have $p = 0.5$, not rare.
+
+- id: ps-m2-r2-h25
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  type: text
+  stem: '200 independent events each have probability 0.01, and $X$ counts how many occur. $E[X(X - 1)] =$ ___. Give only the number.'
+  accept: ['3.98']
+  explanation: |-
+    $E[X(X - 1)] = \sum_{i \ne j} P(A_i)P(A_j) = 200 \cdot 199 \cdot 0.01^2 = 3.98$, close to
+    $\lambda^2 = 4$, as the Poisson paradigm expects. (Counting each unordered pair once gives 1.99.)
+
+- id: ps-m2-r2-h26
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  type: match
+  stem: 'Match each idea to its meaning.'
+  pairs:
+    - ['Total variation distance', 'Largest disagreement about the probability of any event']
+    - ['Le Cam''s inequality', 'Error at most the sum of the squared success probabilities']
+    - ['Coupling', 'Building two variables on one sample space']
+    - ['Poisson paradigm', 'Many rare, weakly dependent events give a nearly Poisson count']
+  distractors: ['Variance equals the mean squared']
+  explanation: |-
+    These are the four ideas of the lesson: the error measure, the bound for independent
+    indicators, the proof technique, and the rule of thumb for dependent events.
+
+- id: ps-m2-r2-h27
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  type: order
+  stem: 'Each binomial below has mean 2. Order them from farthest from Poisson(2) to closest, in total variation distance.'
+  items: ['$\text{Bin}(10, 0.2)$', '$\text{Bin}(20, 0.1)$', '$\text{Bin}(100, 0.02)$', '$\text{Bin}(1000, 0.002)$']
+  explanation: |-
+    The Le Cam bound $\lambda p = 2p$ shrinks as $p$ does: 0.4, 0.2, 0.04, 0.004. The actual distances
+    follow the same order: about 0.052, 0.024, 0.0046 and 0.00045.
+
+- id: ps-m2-r2-h28
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: 'In Bortkiewicz''s horse-kick data, the 200 corps-years had a mean of 0.61 deaths. About how many corps-years does a Poisson(0.61) model expect to have no deaths?'
+  choices: ['About 122', 'About 61', 'About 109', 'About 66']
+  answer: 2
+  explanation: |-
+    $200\,e^{-0.61} \approx 200(0.5434) \approx 108.7$, very close to the 109 observed. 122 is the total
+    number of deaths, and about 66 is the expected number of corps-years with exactly one death.
+
+- id: ps-m2-r2-h29
+  lesson: ps-m2-h-poisson-paradigm
+  topic: Poisson approximation
+  stem: 'A count of events has $\lambda = E(X) = 2$ and $E[X(X - 1)] = 6$. What is $\operatorname{Var}(X)$, and what does it suggest?'
+  choices:
+    - '4: larger than the mean, so the events cluster'
+    - '2: equal to the mean, as for a Poisson count'
+    - '6: the events are independent'
+    - '8: smaller than expected, so the events repel'
+  answer: 0
+  explanation: |-
+    $\operatorname{Var}(X) = E[X(X - 1)] + \lambda - \lambda^2 = 6 + 2 - 4 = 4$. A Poisson count would
+    have $E[X(X - 1)] = \lambda^2 = 4$ and variance 2; the excess means the events tend to occur
+    together (overdispersion).

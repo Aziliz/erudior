@@ -20,7 +20,7 @@
 <text x="426.0" y="77.7" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="end">observed point (xᵢ, yᵢ)</text>
 <text x="456.0" y="185.7" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="start">fitted value ŷᵢ</text>
 <text x="426.0" y="137.7" font-family="sans-serif" font-size="16" fill="#b03a2e" text-anchor="end">residual eᵢ = yᵢ − ŷᵢ</text>
-<text x="356.0" y="229.1" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="end">point of means (x̄, ȳ)</text>
+<text x="354.0" y="189.1" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="end">point of means (x̄, ȳ)</text>
 <text x="104.0" y="350.7" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="start">intercept b₀</text>
 <text x="166.0" y="271.8" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="end">rise b₁</text>
 <text x="209.0" y="246.0" font-family="sans-serif" font-size="16" fill="#1c2833" text-anchor="middle">run 1</text>

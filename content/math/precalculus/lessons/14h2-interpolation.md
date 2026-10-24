@@ -14,7 +14,7 @@ In Lesson 8 you built a polynomial from its zeros plus one more point: three zer
 
 The answer is one of the cleanest facts in algebra:
 
-> Through $n + 1$ points with different $x$-values there is **exactly one** polynomial of degree at most $n$.
+> Through $n + 1$ points with different $x$-values there is *exactly one* polynomial of degree at most $n$.
 
 Two points determine a line (degree 1), three points a parabola or a line (degree at most 2), four points a cubic at most, and so on. Finding that polynomial is called **polynomial interpolation**, and the polynomial is the **interpolating polynomial**. It is how calculators draw smooth curves through data, how fonts and animations bend curves, and, surprisingly, how some secrets are kept safe.
 

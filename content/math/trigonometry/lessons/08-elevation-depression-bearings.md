@@ -102,6 +102,8 @@ and N $70^\circ$ W is $290^\circ$. Note that bearings are measured from north an
 clockwise, unlike angles in standard position, which start from east and turn
 counterclockwise.
 
+![A compass circle with N at the top, E at the right, S at the bottom and W at the left. One arrow points up and to the right, 40 degrees clockwise from north, labeled 040° = N 40° E. Another arrow points down and slightly left, 20 degrees from south toward west, labeled 200° = S 20° W.](images/trig-m2-bearings.svg)
+
 ### Example 4
 
 A plane flies 200 mi on a bearing of $040^\circ$, then turns and flies 150 mi on a bearing
