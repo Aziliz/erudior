@@ -155,4 +155,4 @@
   answers:
     - {name: d, label: 'Distance', tolerance: 0.01}
   solution: |-
-    First make sure both equations have the same $A$ and $B$ (divide the second by {k} if needed): ${A}x {B:signedcoef}y = {c2b}$. For $Ax + By = c_1$ and $Ax + By = c_2$ the distance is $\dfrac{|c_1 - c_2|}{\sqrt{A^2 + B^2}} = \dfrac{|{c1} - ({c2b})|}{\sqrt{{A}^2 + {B}^2}} = \dfrac{{diff}}{{N}} \approx$ **{d:num4}**.
+    First make sure both equations have the same $A$ and $B$ (divide the second by {k} if needed): ${A}x {B:signedcoef}y = {c2b}$. For $Ax + By = c_1$ and $Ax + By = c_2$ the distance is $\dfrac{|c_1 - c_2|}{\sqrt{A^2 + B^2}} = \dfrac{|{c1} - ({c2b})|}{\sqrt{({A})^2 + ({B})^2}} = \dfrac{{diff}}{{N}} \approx$ **{d:num4}**.

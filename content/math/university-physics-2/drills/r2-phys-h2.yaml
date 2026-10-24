@@ -62,7 +62,7 @@
 
     $E'_y = \gamma(E_y - vB_z) = {gam:sig4}({Ey} - {vB:sig4}) =$ **{Ep:sig3}** MV/m.
 
-    $B'_z = \gamma(B_z - vE_y/c^2) = {gam:sig4}({Bz} - {vE:sig4}) =$ **{Bp:sig3}** T.
+    $B'_z = \gamma(B_z - vE_y/c^2) = {gam:sig4}({Bz} - ({vE:sig4})) =$ **{Bp:sig3}** T.
 - id: phys-h2-r2-wire-frames
   title: A wire's force in two frames
   topic: Fields and relativity

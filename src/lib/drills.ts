@@ -123,8 +123,12 @@ function fill(text: string, values: Record<string, number | string>, labels: Rec
     if (!fmt && name in labels) return labels[name];
     if (!(name in values)) return m;
     const out = formatNum(values[name], fmt);
+    if (!math[at]) return out;
+    // A coefficient of 1 or -1 right before a letter reads "x" or "-x", not "1x" or "-1x".
+    if (!fmt && (out === "1" || out === "-1") && /^[A-Za-z]/.test(text.slice(at + m.length)) && !/[\d.^_{}\\A-Za-z]$/.test(text.slice(0, at)))
+      return out === "1" ? "" : "-";
     // Inside TeX a bare comma adds a space ("5, 000"); {,} keeps the thousands separator tight.
-    return math[at] ? out.replace(/(\d),(?=\d)/g, "$1{,}") : out;
+    return out.replace(/(\d),(?=\d)/g, "$1{,}");
   });
 }
 

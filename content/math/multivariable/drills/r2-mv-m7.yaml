@@ -94,9 +94,9 @@
     - {name: xbar, label: '$\bar x =$', tolerance: 0.006}
     - {name: ybar, label: '$\bar y =$', tolerance: 0.006}
   solution: |-
-    Edge terms $c_i = x_iy_{i+1} - x_{i+1}y_i$: $c_1 = {c1}$, $c_2 = {c2}$, $c_3 = {c3}$, $c_4 = {c4}$, so $A = \tfrac12({c1} + {c2} + {c3} + {c4}) = {A}$ and $6A = {A6}$.
-    $\sum(x_i + x_{i+1})c_i = ({X1} + {X2})({c1}) + ({X2} + {X3})({c2}) + ({X3} + {X4})({c3}) + ({X4} + {X1})({c4}) = {Sx}$, so $\bar x = \dfrac{{Sx}}{{A6}} \approx$ **{xbar:num2}**.
-    $\sum(y_i + y_{i+1})c_i = ({Y1} + {Y2})({c1}) + ({Y2} + {Y3})({c2}) + ({Y3} + {Y4})({c3}) + ({Y4} + {Y1})({c4}) = {Sy}$, so $\bar y = \dfrac{{Sy}}{{A6}} \approx$ **{ybar:num2}**.
+    Edge terms $c_i = x_iy_{i+1} - x_{i+1}y_i$: $c_1 = {c1}$, $c_2 = {c2}$, $c_3 = {c3}$, $c_4 = {c4}$, so $A = \tfrac12({c1} {c2:signed} {c3:signed} {c4:signed}) = {A}$ and $6A = {A6}$.
+    $\sum(x_i + x_{i+1})c_i = ({X1} {X2:signed})({c1}) + ({X2} {X3:signed})({c2}) + ({X3} {X4:signed})({c3}) + ({X4} {X1:signed})({c4}) = {Sx}$, so $\bar x = \dfrac{{Sx}}{{A6}} \approx$ **{xbar:num2}**.
+    $\sum(y_i + y_{i+1})c_i = ({Y1} {Y2:signed})({c1}) + ({Y2} {Y3:signed})({c2}) + ({Y3} {Y4:signed})({c3}) + ({Y4} {Y1:signed})({c4}) = {Sy}$, so $\bar y = \dfrac{{Sy}}{{A6}} \approx$ **{ybar:num2}**.
 - id: mv-m7-r2-winding-circ
   title: Circulation from the winding number
   topic: Winding number

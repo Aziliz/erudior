@@ -110,4 +110,8 @@ for (const [v, f, want] of [[1.8, "sig3", "1.80"], [12345, "sig3", "12300"], [0.
   if (/>1<\/text>/.test(bars.replace(/text-anchor="end">\d/g, "")) || !bars.includes(">A<")) { fails++; console.log("FAIL bar labels vs ticks"); }
   const left = renderFigure({ type: "plot", x: [-4, 4], y: [-2, 6], yAxisAt: "left" } as any);
   if (!left.includes(">0</text>")) { fails++; console.log("FAIL yAxisAt left keeps the 0 tick"); } }
+// A filled coefficient of 1 or -1 before a letter drops the 1 (inside math only, default format).
+{ const d = { id: "k", title: "Coef", vars: { a: { choices: [1] }, b: { choices: [-1] } }, calc: {}, prompt: "$y = {a}x + {b}t$, $2^{a}x$, ${a}(3)$, {a}x", answer: "a", format: "number", solution: "" };
+  const g = generate(d as any);
+  if (g.prompt !== "$y = x + -t$, $2^1x$, $1(3)$, 1x") { fails++; console.log("FAIL coef 1", g.prompt); } }
 console.log(fails ? `${fails} FAILURES` : "all engine tests passed");
