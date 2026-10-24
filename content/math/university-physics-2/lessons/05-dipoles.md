@@ -21,6 +21,10 @@ where $\vec d$ points from the negative charge to the positive charge. Its unit 
 
 Molecular dipole moments are tiny: water has $p = 6.2\times10^{-30}$ C·m, about what you would get from one electron charge shifted by 0.04 nm. Molecules with a built-in moment, like water, are called **polar molecules**. Others, like $\text{N}_2$ or $\text{CO}_2$, have no permanent moment but acquire an **induced dipole** when a field stretches them, with $p$ proportional to the field.
 
+![A water molecule: a large oxygen atom at the top bonded to two hydrogen atoms below it, spread at an angle of 104.5 degrees. The oxygen end is marked delta minus and the hydrogen end delta plus. An arrow labeled p, the dipole moment, points down, from the oxygen end toward the hydrogen end.](images/phys-m8-water.svg)
+
+In water the oxygen pulls the shared electrons toward itself. Because the molecule is bent, the two hydrogens' small positive charges sit on the same side, and the moment points from the oxygen toward the middle of the two hydrogens. (A straight molecule like $\text{CO}_2$ has two bond dipoles that point in opposite directions and cancel.)
+
 ## The field on the axis
 
 Put the dipole along the $x$-axis with its center at the origin, $+q$ at $x = d/2$ and $-q$ at $x = -d/2$. At a point on the axis at distance $x$ beyond the positive charge, both fields lie along the axis. The positive charge is closer, so its outward push wins:

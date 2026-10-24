@@ -27,6 +27,19 @@ where $n$ is the number of carriers per cubic meter and $t$ is the thickness mea
 {"polygons": [{"points": [[0, 0], [6, 0], [6, 2], [0, 2]]}], "segments": [{"from": [0.4, 1], "to": [2.2, 1], "arrow": true, "label": "I"}, {"from": [4.4, 0.9], "to": [4.4, 1.7], "arrow": true, "label": "F on electrons"}, {"from": [6.6, 0], "to": [6.6, 2], "dashed": true, "label": "V_H"}], "labels": [{"at": [3, 2.3], "text": "− − − − − − −"}, {"at": [3, -0.3], "text": "+ + + + + + +"}, {"at": [4.9, 0.35], "text": "B into page"}], "caption": "Hall effect in a metal: with B into the page, the electrons (drifting left) are pushed to the top edge, which becomes negative"}
 ```
 
+The build-up is practically instantaneous, but it happens in this order:
+
+```mermaid
+flowchart TD
+  accTitle: How the Hall voltage builds up
+  accDescr: A current flows along the strip. The magnetic force pushes the moving carriers toward one edge. Charge piles up on that edge and the opposite edge is left with the opposite charge. That charge creates a sideways electric field. The build-up stops when the electric force balances the magnetic force, leaving a steady Hall voltage across the strip.
+  A["Current flows along the strip"] --> B["Magnetic force pushes carriers sideways"]
+  B --> C["Charge piles up on one edge"]
+  C --> D["Sideways electric field builds up"]
+  D --> E["Electric force balances magnetic force: qE = qvB"]
+  E --> F["Steady Hall voltage across the width"]
+```
+
 Three things make the Hall effect useful.
 
 - *The sign of the carriers.* Positive carriers moving with the current and negative carriers moving against it are pushed toward the *same* edge, so that edge charges positive or negative depending on the carriers' sign. In 1879 this showed that the carriers in most metals are negative. In p-type semiconductors the edge comes out positive: the current is carried by "holes" that act as positive charges.
@@ -70,6 +83,19 @@ where $K_m = 1 + \chi_m$ is the **relative permeability** (also written $\mu_r$)
 **Paramagnetism**. In atoms with net moments, the field tends to line the moments up while thermal motion scrambles them. The alignment is slight, so $\chi_m$ is small and positive, around $10^{-5}$ to $10^{-3}$ (aluminum $+2\times10^{-5}$). Since heat fights the alignment, $\chi_m$ falls as temperature rises, roughly as $1/T$ (**Curie's law**). Paramagnets are weakly drawn into strong fields: liquid oxygen clings to the poles of a magnet.
 
 **Ferromagnetism**. In iron, nickel, cobalt and some alloys, a quantum-mechanical interaction aligns neighboring atoms' moments with each other, in regions called **magnetic domains**. With no applied field the domains point in different directions and largely cancel. A small applied field grows the domains that point along it, producing a huge magnetization: $K_m$ runs from hundreds to many thousands. It is not a constant, though. As the field rises the iron **saturates** (around 2 T for iron), and when the field is removed some alignment remains.
+
+The two questions that sort any material are whether its atoms carry a net moment and whether neighboring moments line up with each other:
+
+```mermaid
+flowchart TD
+  accTitle: Sorting materials by their magnetic response
+  accDescr: Every material is diamagnetic. Ask whether the atoms have a net magnetic moment. If not, the material is only diamagnetic, with a tiny negative susceptibility. If they do, ask whether neighboring moments align with each other in domains. If not, the material is paramagnetic, with a small positive susceptibility that falls with temperature. If they do, it is ferromagnetic, with a huge, field-dependent permeability, hysteresis and a Curie temperature.
+  A["Any material: diamagnetic response always present"] --> B{"Atoms have a net magnetic moment?"}
+  B -- no --> C["Diamagnetic: χm about −10⁻⁵"]
+  B -- yes --> D{"Neighbors align in domains?"}
+  D -- no --> E["Paramagnetic: small positive χm, falls with T"]
+  D -- yes --> F["Ferromagnetic: huge Km, hysteresis, Curie temperature"]
+```
 
 | Type | $\chi_m$ | Pulled toward strong field? | Examples |
 |---|---|---|---|

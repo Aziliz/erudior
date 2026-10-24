@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" font-family="sans-serif">
+<rect width="720" height="400" fill="#ffffff"/>
+<rect x="150.0" y="158.0" width="420.0" height="84.0" rx="0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<ellipse cx="150.0" cy="200.0" rx="14.0" ry="42.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<ellipse cx="570.0" cy="200.0" rx="14.0" ry="42.0" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="60.0" y1="200.0" x2="136.0" y2="200.0" stroke="#1c2833" stroke-width="4" stroke-linecap="round"/>
+<line x1="584.0" y1="200.0" x2="660.0" y2="200.0" stroke="#1c2833" stroke-width="4" stroke-linecap="round"/>
+<line x1="70.0" y1="182.0" x2="118.0" y2="182.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="130.0,182.0 118.0,176.6 118.0,187.4" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="180.0" y1="200.0" x2="248.0" y2="200.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="260.0,200.0 248.0,194.6 248.0,205.4" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="320.0" y1="200.0" x2="388.0" y2="200.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="400.0,200.0 388.0,194.6 388.0,205.4" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="460.0" y1="200.0" x2="528.0" y2="200.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="540.0,200.0 528.0,194.6 528.0,205.4" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="270.0" cy="200.0" rx="24.0" ry="72.0" fill="none" stroke="#1c2833" stroke-width="2.2" stroke-dasharray="7 5"/>
+<ellipse cx="450.0" cy="200.0" rx="24.0" ry="72.0" fill="none" stroke="#1c2833" stroke-width="2.2" stroke-dasharray="7 5"/>
+<line x1="200.0" y1="63.0" x2="200.0" y2="136.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<polygon points="200.0,150.0 206.3,136.0 193.7,136.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="200.0" y1="337.0" x2="200.0" y2="264.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<polygon points="200.0,250.0 193.7,264.0 206.3,264.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="360.0" y1="63.0" x2="360.0" y2="136.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<polygon points="360.0,150.0 366.3,136.0 353.7,136.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="360.0" y1="337.0" x2="360.0" y2="264.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<polygon points="360.0,250.0 353.7,264.0 366.3,264.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="520.0" y1="63.0" x2="520.0" y2="136.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<polygon points="520.0,150.0 526.3,136.0 513.7,136.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="520.0" y1="337.0" x2="520.0" y2="264.0" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
+<polygon points="520.0,250.0 513.7,264.0 526.3,264.0" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<text x="100.0" y="170.0" font-size="16" text-anchor="middle" fill="#1c2833">current I</text>
+<text x="360.0" y="226.0" font-size="15" text-anchor="middle" fill="#1c2833">E along the wire</text>
+<text x="450.0" y="114.0" font-size="15" text-anchor="middle" fill="#1c2833">B circles the wire</text>
+<text x="208.0" y="58.0" font-size="15" text-anchor="start" fill="#1c2833">S = E × B / μ₀ points inward</text>
+<text x="360.0" y="385.0" font-size="15" text-anchor="middle" fill="#1c2833">Energy enters the resistor from the field around it, at the rate VI</text>
+</svg>

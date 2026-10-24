@@ -24,6 +24,10 @@ Two equivalent ways to see it:
 - $F\sin\theta$ is the component of the force perpendicular to $\vec r$; only that component turns the object. So $\tau = rF_\perp$.
 - $r\sin\theta$ is the perpendicular distance from the axis to the force's line of action, called the **lever arm** (moment arm) $\ell$. So $\tau = \ell F$.
 
+The drawing shows both pictures at once: the lever arm is the perpendicular dropped from the axis to the force's line of action.
+
+![Top view of a bar turning about an axis at its left end. The position vector r runs along the bar from the axis to the point where the force F is applied at angle theta to the bar. The force's line of action is extended as a dashed line, and the lever arm, ell equals r sine theta, is the perpendicular from the axis to that line, with a right-angle mark.](images/phys-m5-lever-arm.svg)
+
 A force aimed straight at or away from the axis ($\theta = 0$ or $180^\circ$) has zero torque. Torque has a sign: by convention, counterclockwise is positive and clockwise negative. A wrench with a longer handle gives more torque for the same push, which is the whole point of a wrench.
 
 ```shape
@@ -55,6 +59,24 @@ In 2.0 s: $\Delta\theta = \tfrac12(15)(2.0)^2 = 30$ rad, so string unwound $= r\
 ## Pulleys with mass
 
 Earlier we treated pulleys as massless, so the tension was the same on both sides. A real pulley has a moment of inertia, and to give it angular acceleration the tensions on its two sides must differ. Solve these problems by combining $\sum F = ma$ for each hanging or sliding object with $\sum\tau = I\alpha$ for the pulley, linked by the no-slip condition $a = R\alpha$.
+
+If the question only asks for a speed after some distance, energy is quicker (as Example 4 below shows). The two routes:
+
+```mermaid
+flowchart TD
+  accTitle: Two routes through a problem with a massive pulley
+  accDescr: First ask what the problem wants. For an acceleration, a tension or a force, draw a free-body diagram for each object, write sum of forces equals m a for each moving mass and sum of torques equals I alpha for the pulley, and link them with a equals R alpha. For a speed after a distance, use energy, setting the lost potential energy equal to the translational plus rotational kinetic energy, and link them with v equals R omega. Both routes end by solving and checking a limit such as a massless pulley.
+  A["What does the problem ask for?"] --> B["Acceleration, tension or force"]
+  A --> C["Speed after a distance"]
+  B --> D["Free-body diagram for each object"]
+  D --> E["Sum of F = ma for each moving mass"]
+  E --> F["Sum of torques = Iα for the pulley"]
+  F --> G["Link them: a = Rα"]
+  C --> H["Energy: lost PE = translational KE + rotational KE"]
+  H --> I["Link them: v = Rω"]
+  G --> J["Solve, then check a limit such as a massless pulley"]
+  I --> J
+```
 
 ### Example 3
 

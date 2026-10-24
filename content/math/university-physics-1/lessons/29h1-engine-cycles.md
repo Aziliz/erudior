@@ -109,7 +109,7 @@ $(\gamma - 1)/\gamma = 0.4/1.4 = 0.2857$. $20^{0.2857} = 2.354$, so $e = 1 - 1/2
 The compressor outlet is at $T = 300(2.354) = 706$ K before any fuel burns. Real simple-cycle gas turbines reach roughly 35–45%. In a **combined-cycle** plant, the turbine's hot exhaust (still several hundred degrees Celsius) boils water for a steam turbine, and the best such plants convert about 60% of the fuel's energy to electricity.
 
 ```plot
-{"x": [2, 24], "y": [0, 0.8], "xLabel": "compression ratio r", "yLabel": "ideal efficiency", "functions": [{"f": "1 - x^(-0.4)", "label": "Otto"}, {"f": "1 - x^(-0.4)*(2^1.4 - 1)/1.4", "label": "Diesel, cutoff 2", "dashed": true}], "points": [{"at": [10, 0.602], "label": "gasoline, r = 10"}, {"at": [18, 0.632], "label": "diesel, r = 18"}], "caption": "Air-standard efficiencies (γ = 1.4). At equal r the Otto cycle wins, but diesels run at much higher r."}
+{"x": [2, 24], "y": [0, 0.8], "xLabel": "compression ratio r", "yLabel": "ideal efficiency", "functions": [{"f": "1 - x^(-0.4)"}, {"f": "1 - x^(-0.4)*(2^1.4 - 1)/1.4", "dashed": true}], "points": [{"at": [10, 0.602]}, {"at": [18, 0.632]}], "labels": [{"at": [5, 0.63], "text": "Otto"}, {"at": [15, 0.5], "text": "Diesel, cutoff 2"}], "caption": "Air-standard efficiencies (γ = 1.4). Dots: a gasoline engine at r = 10 (60%) and a diesel at r = 18 (63%). At equal r the Otto cycle wins, but diesels run at much higher r."}
 ```
 
 ## Common mistakes

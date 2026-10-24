@@ -1,0 +1,22 @@
+# Honors: Aiming a projectile
+- {front: 'Launch angle to hit $(x, y)$: the equation', back: 'With $u = \tan\theta$ and $k = gx^2/(2v_0^2)$: $ku^2 - xu + (y + k) = 0$. Two roots: low shot and lob; one root: edge of reach; none: out of reach.', topic: Projectile targeting}
+- {front: 'Safety parabola for launch speed $v_0$', back: '$y = \dfrac{v_0^2}{2g} - \dfrac{gx^2}{2v_0^2}$: every trajectory touches it once; targets above it are out of reach.', topic: Projectile targeting}
+- {front: 'Highest and farthest points of the safety parabola', back: 'Height $v_0^2/(2g)$ straight above the launch point; reaches the ground at $x = v_0^2/g$ (the $45^\circ$ range).', topic: Projectile targeting}
+- {front: 'Single launch angle for a point on the safety parabola', back: '$\tan\theta = \dfrac{v_0^2}{gx}$', topic: Projectile targeting}
+- {front: 'Minimum launch speed to reach a point at height $y$, straight-line distance $d$', back: '$v_{0,\min}^2 = g(y + d)$', topic: Projectile targeting}
+- {front: 'Best launch angle toward a target whose line of sight rises at $\alpha$', back: '$45^\circ + \alpha/2$: it bisects the angle between the vertical and the line of sight.', topic: Projectile targeting}
+- {front: 'Of two angles that hit a target, which arrives first?', back: 'The lower one: time $= x/(v_0\cos\theta)$ and the lower angle has larger $\cos\theta$.', topic: Projectile targeting}
+- {front: 'Distance along a slope rising at $\alpha$ (launch angle $\theta$ from horizontal)', back: '$L = \dfrac{2v_0^2\cos\theta\sin(\theta - \alpha)}{g\cos^2\alpha}$', topic: Projectiles on slopes}
+- {front: 'Greatest distance along a slope of angle $\alpha$', back: '$L_{\max} = \dfrac{v_0^2}{g(1 + \sin\alpha)}$ at $\theta = 45^\circ + \alpha/2$ ($\alpha < 0$ downhill).', topic: Projectiles on slopes}
+- {front: 'Who proved projectile paths are parabolas?', back: 'Galileo, in Two New Sciences (1638), along with equal ranges for elevations equally above and below $45^\circ$ (no air resistance).', topic: Projectile targeting}
+# Honors: Curved paths
+- {front: 'Acceleration in tangential and normal components', back: '$\vec a = \dfrac{dv}{dt}\hat T + \dfrac{v^2}{\rho}\hat N$', topic: Curvilinear motion}
+- {front: 'Tangential acceleration from $\vec v$ and $\vec a$', back: '$a_t = \dfrac{\vec a\cdot\vec v}{v}$ (negative: slowing down).', topic: Curvilinear motion}
+- {front: 'Normal acceleration from $\vec v$ and $\vec a$ (2D)', back: '$a_n = \dfrac{|v_xa_y - v_ya_x|}{v}$; check $a_t^2 + a_n^2 = a^2$.', topic: Curvilinear motion}
+- {front: 'Radius of curvature from $\vec v$ and $\vec a$', back: '$\rho = \dfrac{v^2}{a_n} = \dfrac{v^3}{|v_xa_y - v_ya_x|}$', topic: Curvilinear motion}
+- {front: 'Osculating circle', back: 'The circle matching a path''s tangent and curvature at a point; radius $\rho$, center on the inside of the bend.', topic: Curvilinear motion}
+- {front: 'Curvature', back: '$\kappa = 1/\rho$; zero for a straight line.', topic: Curvilinear motion}
+- {front: 'Why is $d\hat T/dt$ perpendicular to $\hat T$?', back: '$\hat T\cdot\hat T = 1$, so $2\hat T\cdot d\hat T/dt = 0$.', topic: Curvilinear motion}
+- {front: 'Rate of change of speed vs size of acceleration', back: '$d|\vec v|/dt = a_t$, while $|d\vec v/dt| = \sqrt{a_t^2 + a_n^2}$; equal only on a straight path.', topic: Curvilinear motion}
+- {front: 'Projectile: radius of curvature', back: '$\rho = v^3/(gv_x)$; smallest at the top, $\rho = v_x^2/g$; at launch $\rho = v_0^2/(g\cos\theta)$.', topic: Curvilinear motion}
+- {front: 'Arc length (distance along a path)', back: '$s = \int_{t_1}^{t_2}|\vec v|\,dt$, never less than the displacement''s magnitude.', topic: Curvilinear motion}

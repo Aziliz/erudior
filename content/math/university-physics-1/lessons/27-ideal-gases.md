@@ -32,6 +32,28 @@ Special cases for a fixed amount of gas:
 - Constant $V$: $P_1/T_1 = P_2/T_2$ (Gay-Lussac's law).
 - In general: $\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}$.
 
+To choose among them, ask what the problem holds fixed:
+
+```mermaid
+flowchart TD
+  accTitle: Which gas law to use
+  accDescr: First ask whether a number of moles is asked for or the amount of gas changes. If so, use P V equals n R T. Otherwise the amount is fixed, so ask what else stays fixed. If temperature is fixed, use Boyle's law, P1 V1 equals P2 V2. If not, and pressure is fixed, use Charles's law, V1 over T1 equals V2 over T2. If not, and volume is fixed, use Gay-Lussac's law, P1 over T1 equals P2 over T2. If nothing else is fixed, use the combined law, P1 V1 over T1 equals P2 V2 over T2. In every case use absolute pressure and kelvins.
+  A{"n asked for, or amount of gas changes?"} -- "yes" --> B["PV = nRT"]
+  A -- "no" --> C{"T fixed?"}
+  C -- "yes" --> D["Boyle: P1V1 = P2V2"]
+  C -- "no" --> E{"P fixed?"}
+  E -- "yes" --> F["Charles: V1/T1 = V2/T2"]
+  E -- "no" --> G{"V fixed?"}
+  G -- "yes" --> H["Gay-Lussac: P1/T1 = P2/T2"]
+  G -- "no" --> I["Combined: P1V1/T1 = P2V2/T2"]
+```
+
+On a PV diagram, each temperature gives a hyperbola $P = nRT/V$, called an isotherm; hotter isotherms lie farther from the axes.
+
+```plot
+{"x": [0, 40], "y": [0, 600], "xLabel": "V (L)", "yLabel": "P (kPa)", "functions": [{"f": "8.314*200/x", "from": 3, "to": 40}, {"f": "8.314*300/x", "from": 4, "to": 40}, {"f": "8.314*400/x", "from": 5.6, "to": 40}], "labels": [{"at": [33, 35], "text": "200 K"}, {"at": [33, 95], "text": "300 K"}, {"at": [33, 130], "text": "400 K"}], "caption": "Isotherms of 1 mol of ideal gas: P = nRT/V (1 kPa·L = 1 J)"}
+```
+
 At **STP** (0°C, 1 atm), one mole of any ideal gas occupies 22.4 L. This course uses the 1 atm definition, as most physics texts do; IUPAC has defined standard pressure as 1 bar (100 kPa) since 1982, which gives 22.7 L per mole, so check which one a problem or table assumes.
 
 ### Example 1
@@ -52,7 +74,11 @@ $P_2 = P_1\dfrac{T_2}{T_1} = 321\left(\dfrac{318}{283}\right) = 361$ kPa absolut
 
 ## Kinetic theory
 
-Why should $PV$ be proportional to $T$? Model the gas as $N$ molecules of mass $m$ bouncing elastically in a box. A molecule hitting a wall with velocity component $v_x$ bounces back with $-v_x$, delivering momentum $2mv_x$. It returns to that wall every $2L/v_x$ seconds. Averaging over all molecules and the three directions (by symmetry $\overline{v_x^2} = \tfrac13\overline{v^2}$), the pressure works out to
+Why should $PV$ be proportional to $T$? Model the gas as $N$ molecules of mass $m$ bouncing elastically in a box. A molecule hitting a wall with velocity component $v_x$ bounces back with $-v_x$, delivering momentum $2mv_x$. It returns to that wall every $2L/v_x$ seconds. The picture shows one such bounce.
+
+![A molecule in a box of length L bounces off the right-hand wall, of area A. Its velocity component toward the wall reverses from plus vₓ to minus vₓ, so each bounce gives the wall momentum 2mvₓ.](images/phys-m7-kinetic-box.svg)
+
+Averaging over all molecules and the three directions (by symmetry $\overline{v_x^2} = \tfrac13\overline{v^2}$), the pressure works out to
 
 $$PV = \tfrac13Nm\overline{v^2} = \tfrac23N\left(\tfrac12m\overline{v^2}\right).$$
 

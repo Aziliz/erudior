@@ -38,7 +38,7 @@ $$a_0 = \frac1T\int_0^T y\,dt, \qquad a_n = \frac2T\int_0^T y\cos(n\omega_1t)\,d
 
 $a_0$ is just the average value of the signal. Each other coefficient measures how much the signal "looks like" that harmonic. You can integrate over any interval one period long, such as $-T/2$ to $T/2$.
 
-**Symmetry shortcuts.** If $y$ is an odd function of $t$ ($y(-t) = -y(t)$), every $a_n$ and $a_0$ is zero: only sines. If $y$ is even, only cosines (and possibly $a_0$). If the second half of each cycle is the first half turned upside down ($y(t + T/2) = -y(t)$), the even harmonics vanish and only odd ones remain.
+*Symmetry shortcuts.* If $y$ is an odd function of $t$ ($y(-t) = -y(t)$), every $a_n$ and $a_0$ is zero: only sines. If $y$ is even, only cosines (and possibly $a_0$). If the second half of each cycle is the first half turned upside down ($y(t + T/2) = -y(t)$), the even harmonics vanish and only odd ones remain.
 
 ### Example 1
 
@@ -59,7 +59,7 @@ Only odd harmonics appear, as the half-wave symmetry predicted, and their amplit
 The graph shows how the partial sums close in on the square wave.
 
 ```plot
-{"x": [0, 2], "y": [-1.6, 1.6], "xLabel": "t / T", "yLabel": "y / A", "functions": [{"f": "4/pi*sin(2*pi*x)", "dashed": true}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5)"}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5 + sin(14*pi*x)/7 + sin(18*pi*x)/9 + sin(22*pi*x)/11 + sin(26*pi*x)/13 + sin(30*pi*x)/15 + sin(34*pi*x)/17 + sin(38*pi*x)/19)"}], "labels": [{"at": [0.62, 1.42], "text": "1 term"}, {"at": [1.25, 1.42], "text": "10 terms"}], "caption": "Square wave of height A: the fundamental alone (dashed), the first 3 odd harmonics, and the first 10"}
+{"x": [0, 2], "y": [-1.6, 1.6], "xLabel": "t / T", "yLabel": "y / A", "functions": [{"f": "4/pi*sin(2*pi*x)", "dashed": true}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5)"}, {"f": "4/pi*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5 + sin(14*pi*x)/7 + sin(18*pi*x)/9 + sin(22*pi*x)/11 + sin(26*pi*x)/13 + sin(30*pi*x)/15 + sin(34*pi*x)/17 + sin(38*pi*x)/19)"}], "labels": [{"at": [0.25, 1.45], "text": "1 term"}, {"at": [1.12, 1.45], "text": "10 terms"}], "caption": "Square wave of height A: the fundamental alone (dashed), the first 3 odd harmonics, and the first 10"}
 ```
 
 More terms sharpen the corners, but right beside each jump the sum always overshoots, by about 9% of the jump, no matter how many terms you add; the overshoot just gets narrower. This is the **Gibbs phenomenon**, and it's why a sharp edge needs very high harmonics to reproduce well.
@@ -69,10 +69,10 @@ More terms sharpen the corners, but right beside each jump the sum always oversh
 A graph of harmonic amplitude $c_n$ against frequency is the signal's **spectrum**. It throws away the timing details and keeps the recipe: which frequencies are present and how strongly. Two signals with the same spectrum but different phases between harmonics can look quite different on an oscilloscope, yet to the ear they usually sound almost the same, because hearing is mostly sensitive to the amplitudes and not to the relative phases (a useful approximation, not an exact law).
 
 ```plot
-{"x": [0, 10], "y": [0, 1.4], "xLabel": "harmonic number n", "yLabel": "amplitude c_n / A", "bars": [{"x": 1, "height": 1.273, "width": 0.5}, {"x": 3, "height": 0.424, "width": 0.5}, {"x": 5, "height": 0.255, "width": 0.5}, {"x": 7, "height": 0.182, "width": 0.5}, {"x": 9, "height": 0.141, "width": 0.5}], "caption": "Spectrum of a square wave: odd harmonics only, with amplitudes 4/(nπ) times A"}
+{"x": [0, 11], "y": [0, 1.4], "xLabel": "n", "yLabel": "amplitude c_n / A", "bars": [{"x": 1, "height": 1.273, "width": 0.5}, {"x": 3, "height": 0.424, "width": 0.5}, {"x": 5, "height": 0.255, "width": 0.5}, {"x": 7, "height": 0.182, "width": 0.5}, {"x": 9, "height": 0.141, "width": 0.5}], "caption": "Spectrum of a square wave against harmonic number n: odd harmonics only, with amplitudes 4/(nπ) times A"}
 ```
 
-**Energy in each harmonic.** The power a wave carries is proportional to its amplitude squared, and orthogonality makes the harmonics' contributions add separately. The average of $y^2$ over a period is
+*Energy in each harmonic.* The power a wave carries is proportional to its amplitude squared, and orthogonality makes the harmonics' contributions add separately. The average of $y^2$ over a period is
 
 $$\overline{y^2} = a_0^2 + \tfrac12\sum_{n=1}^{\infty}c_n^2,$$
 
@@ -86,7 +86,7 @@ A string of length $L$ fixed at both ends, pulled aside at one point and release
 
 $$B_n = \frac{2hL^2}{\pi^2 n^2 d(L - d)}\sin\frac{n\pi d}{L}.$$
 
-Two features matter. The $1/n^2$ makes the harmonics fade faster than for a square wave (a triangle has corners, not jumps, so it needs less high-frequency content). And the factor $\sin(n\pi d/L)$ is zero whenever the pluck point is a node of the $n$th harmonic: **a harmonic with a node at the pluck point is missing**. Plucked at the middle, every even harmonic is missing; plucked at one fifth of the length, the 5th, 10th, 15th… are.
+Two features matter. The $1/n^2$ makes the harmonics fade faster than for a square wave (a triangle has corners, not jumps, so it needs less high-frequency content). And the factor $\sin(n\pi d/L)$ is zero whenever the pluck point is a node of the $n$th harmonic: *a harmonic with a node at the pluck point is missing*. Plucked at the middle, every even harmonic is missing; plucked at one fifth of the length, the 5th, 10th, 15th… are.
 
 ### Example 2
 

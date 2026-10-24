@@ -29,6 +29,10 @@ $$v = r\omega, \qquad a_t = r\alpha, \qquad a_c = \frac{v^2}{r} = r\omega^2.$$
 
 Here $v$ is the point's speed (tangential), $a_t$ its tangential acceleration (speeding up or slowing) and $a_c$ its centripetal acceleration. Points farther from the axis move faster. These relations need $\omega$ in rad/s; plugging in rpm or degrees per second gives nonsense.
 
+The picture puts all of these on one point of a disk that is turning counterclockwise and slowing down, so its tangential acceleration points backward along the rim.
+
+![A disk turning counterclockwise about its axis. A radius r runs from the axis to a point on the rim at angle theta from a dashed reference line; the arc from the reference line to the point is the arc length s = r theta. At the point, the velocity v is tangent to the rim in the direction of rotation, the tangential acceleration points the opposite way along the rim because the disk is slowing, and the centripetal acceleration points along the radius toward the axis.](images/phys-m5-disk-kinematics.svg)
+
 ## Constant angular acceleration
 
 With $\alpha$ constant, the kinematic equations carry over symbol by symbol:
@@ -40,6 +44,18 @@ With $\alpha$ constant, the kinematic equations carry over symbol by symbol:
 | $v^2 = v_0^2 + 2a\Delta x$ | $\omega^2 = \omega_0^2 + 2\alpha\Delta\theta$ |
 | $\Delta x = \tfrac12(v_0 + v)t$ | $\Delta\theta = \tfrac12(\omega_0 + \omega)t$ |
 
+Each equation leaves out one of the five quantities, so pick the one that leaves out the quantity you neither know nor need:
+
+```mermaid
+flowchart LR
+  accTitle: Choosing a constant angular acceleration equation
+  accDescr: Among the five quantities omega zero, omega, alpha, delta theta and t, find the one that is neither given nor asked for, and use the equation that leaves it out. If time is missing, use omega squared equals omega zero squared plus two alpha delta theta. If the final angular velocity is missing, use delta theta equals omega zero t plus one half alpha t squared. If the angle is missing, use omega equals omega zero plus alpha t. If alpha is missing, use delta theta equals one half of omega zero plus omega, times t.
+  B["Which of ω₀, ω, α, Δθ, t is neither given nor asked for?"] -->|"t"| C["ω² = ω₀² + 2αΔθ"]
+  B -->|"ω"| D["Δθ = ω₀t + ½αt²"]
+  B -->|"Δθ"| E["ω = ω₀ + αt"]
+  B -->|"α"| F["Δθ = ½(ω₀ + ω)t"]
+```
+
 ### Example 1
 
 A ceiling fan spinning at 240 rpm is switched off and slows uniformly to rest in 12 s. Find its angular acceleration and how many revolutions it makes while stopping.
@@ -49,6 +65,12 @@ $\omega_0 = 240 \times 0.1047 = 25.13$ rad/s; $\omega = 0$.
 $\alpha = \dfrac{0 - 25.13}{12} = -2.09$ rad/s².
 
 $\Delta\theta = \tfrac12(\omega_0 + \omega)t = \tfrac12(25.13)(12) = 150.8$ rad, which is $150.8/2\pi = 24$ revolutions. (Shortcut in rev units: average 120 rpm $= 2$ rev/s for 12 s gives 24 rev.)
+
+On a graph of $\omega$ against $t$, the angle turned is the area under the line, here a triangle: $\tfrac12(12)(25.13) = 150.8$ rad.
+
+```plot
+{"x": [0, 14], "y": [0, 28], "xLabel": "t (s)", "yLabel": "ω (rad/s)", "functions": [{"f": "25.13 - 2.094*x", "from": 0, "to": 12, "label": "ω(t)"}], "shade": [{"f": "25.13 - 2.094*x", "from": 0, "to": 12}], "caption": "The fan slowing down: the shaded area is the 150.8 rad it turns through"}
+```
 
 ### Example 2
 

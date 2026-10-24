@@ -1,0 +1,220 @@
+- id: phys-h1-r2-atwood-pulley
+  title: Atwood machine with a massive pulley (Lagrangian)
+  topic: Lagrangian mechanics
+  vars:
+    m1: {min: 2.0, max: 12.0, step: 0.5}
+    m2: {min: 1.0, max: 10.0, step: 0.5}
+    mp: {min: 0.5, max: 6.0, step: 0.5}
+  where: ['m1 > m2 + 0.4']
+  calc:
+    meff: m1 + m2 + mp/2
+    acc: (m1 - m2)*9.8/meff
+    T1: m1*(9.8 - acc)
+  prompt: 'Blocks of {m1} kg and {m2} kg hang on either side of a light string over a pulley that is a uniform disk of mass {mp} kg. The string doesn''t slip. Using $L = T - U$ with the heavier block''s drop $x$ as the coordinate and $g = 9.8$ m/s², find the acceleration of the blocks (m/s²) and the tension in the string on the heavier block''s side (N), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: acc, label: '$a =$', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {format: sig4, name: T1, label: 'Tension', relTolerance: 0.01, units: {N: 1}}
+  solution: |-
+    The pulley turns at $\omega = \dot x/R$, so $T = \tfrac12\left(m_1 + m_2 + \tfrac12M\right)\dot x^2$ with $m_1 + m_2 + \tfrac12M = {meff:sig3}$ kg, and $U = -(m_1 - m_2)gx$.
+
+    Euler–Lagrange: $({meff:sig3})\ddot x = ({m1} - {m2})(9.8)$, so $a =$ **{acc:sig3} m/s²**.
+
+    The tension doesn't appear in the Lagrangian; get it from Newton's law for the heavier block: $T_1 = m_1(g - a) = {m1}(9.8 - {acc:sig3}) =$ **{T1:sig3} N**.
+- id: phys-h1-r2-rod-pendulum
+  title: Swinging rod from its Lagrangian
+  topic: Lagrangian mechanics
+  vars:
+    len: {min: 0.20, max: 2.50, step: 0.05}
+  calc:
+    w: sqrt(3*9.8/(2*len))
+    P: 2*pi/w
+  prompt: 'A uniform rod of length {len} m swings about a pivot at one end. Its Lagrangian is $L = \tfrac16m\ell^2\dot\theta^2 + \tfrac12mg\ell\cos\theta$. For small swings, find the angular frequency (rad/s) and the period (s), to 3 significant figures, using $g = 9.8$ m/s².'
+  answers:
+    - {format: sig4, name: w, label: '$\omega =$', relTolerance: 0.01, units: {'rad/s': 1}}
+    - {format: sig4, name: P, label: 'Period', relTolerance: 0.01, units: {s: 1}}
+  solution: |-
+    Euler–Lagrange: $\tfrac13m\ell^2\ddot\theta = -\tfrac12mg\ell\sin\theta \approx -\tfrac12mg\ell\,\theta$, so $\ddot\theta = -\dfrac{3g}{2\ell}\theta$.
+
+    $\omega = \sqrt{\dfrac{3(9.8)}{2({len})}} =$ **{w:sig3} rad/s**; period $= 2\pi/\omega =$ **{P:sig3} s**.
+- id: phys-h1-r2-string-hole
+  title: Puck on a string through a hole
+  topic: Symmetry and conservation
+  vars:
+    m: {min: 0.10, max: 1.00, step: 0.05}
+    ra: {min: 0.30, max: 1.00, step: 0.05}
+    rb: {min: 0.10, max: 0.80, step: 0.05}
+    w1: {min: 1.0, max: 6.0, step: 0.5}
+  where: ['rb < ra - 0.08']
+  calc:
+    w2: w1*(ra/rb)^2
+    K1: 0.5*m*ra^2*w1^2
+    K2: 0.5*m*rb^2*w2^2
+    W: K2 - K1
+  prompt: 'A {m} kg puck on a frictionless table is tied to a string through a hole at the center. It circles at radius {ra} m with angular speed {w1} rad/s, and the string is slowly pulled until the radius is {rb} m. Find the new angular speed (rad/s) and the work done by the person pulling the string (J), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: w2, label: 'New angular speed', relTolerance: 0.01, units: {'rad/s': 1}}
+    - {format: sig4, name: W, label: 'Work', relTolerance: 0.01, units: {J: 1, mJ: 0.001}}
+  solution: |-
+    The force is central, so the angle is a cyclic coordinate and $mr^2\dot\varphi$ is conserved: $\omega_2 = {w1}\left(\dfrac{{ra}}{{rb}}\right)^2 =$ **{w2:sig3} rad/s**.
+
+    $T_1 = \tfrac12m r_1^2\omega_1^2 = {K1:sig3}$ J and $T_2 = \tfrac12m r_2^2\omega_2^2 = {K2:sig3}$ J. The work done by the pull is the gain: **{W:sig3} J**.
+- id: phys-h1-r2-phase-ellipse
+  title: Oscillator ellipse in phase space
+  topic: Hamiltonian mechanics
+  vars:
+    m: {min: 0.20, max: 3.00, step: 0.10}
+    k: {min: 20, max: 800, step: 20}
+    E: {min: 0.5, max: 12.0, step: 0.5}
+  calc:
+    xm: sqrt(2*E/k)
+    pm: sqrt(2*m*E)
+  prompt: 'A mass of {m} kg on a spring with $k = {k}$ N/m has total energy {E} J. Its phase-space path is an ellipse. Find the semi-axes: the amplitude $x_{\max}$ (m) and the largest momentum $p_{\max}$ (kg·m/s), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: xm, label: '$x_{\max} =$', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
+    - {format: sig4, name: pm, label: '$p_{\max} =$', relTolerance: 0.01, units: {'kg·m/s': 1, 'kg*m/s': 1}}
+  solution: |-
+    $H = \dfrac{p^2}{2m} + \tfrac12kx^2 = E$.
+
+    At $p = 0$: $x_{\max} = \sqrt{2E/k} = \sqrt{2({E})/{k}} =$ **{xm:sig3} m**.
+
+    At $x = 0$: $p_{\max} = \sqrt{2mE} = \sqrt{2({m})({E})} =$ **{pm:sig3} kg·m/s**.
+- id: phys-h1-r2-ellipse-orbit
+  title: Elliptical Earth orbit from perigee and apogee
+  topic: Kepler orbits
+  vars:
+    hp: {min: 200, max: 2000, step: 50}
+    ha: {min: 500, max: 40000, step: 100}
+  where: ['ha > hp + 200']
+  calc:
+    rp: 6370 + hp
+    rap: 6370 + ha
+    sma: (rp + rap)/2
+    ecc: (rap - rp)/(rap + rp)
+    T: 2*pi*sqrt((sma*1000)^3/3.98e14)/60
+  prompt: 'A satellite''s perigee is {hp} km and its apogee {ha} km above Earth''s surface. Using $R_E = 6370$ km and $GM_E = 3.98\times10^{14}$ m³/s², find the semimajor axis (km), the eccentricity, and the period (minutes), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: sma, label: '$a =$', relTolerance: 0.01, units: {km: 1, m: 0.001}}
+    - {format: sig4, name: ecc, label: '$e =$', relTolerance: 0.01}
+    - {format: sig4, name: T, label: 'Period', relTolerance: 0.01, units: {min: 1, h: 60}}
+  solution: |-
+    Distances from Earth's center: $r_p = {rp}$ km and $r_a = {rap}$ km.
+
+    $a = \tfrac12(r_p + r_a) =$ **{sma:sig3} km**; $e = \dfrac{r_a - r_p}{r_a + r_p} =$ **{ecc:sig3}**.
+
+    $T = 2\pi\sqrt{a^3/GM}$ with $a$ in meters: **{T:sig3} min**.
+- id: phys-h1-r2-vis-viva
+  title: Speeds at perigee and apogee (vis-viva)
+  topic: Kepler orbits
+  vars:
+    rp: {min: 6600, max: 12000, step: 100}
+    rap: {min: 7000, max: 60000, step: 500}
+  where: ['rap > rp + 300']
+  calc:
+    sma: (rp + rap)/2
+    vp: sqrt(3.98e14*(2/(rp*1000) - 1/(sma*1000)))/1000
+    va: sqrt(3.98e14*(2/(rap*1000) - 1/(sma*1000)))/1000
+    hv: vp*rp
+  prompt: 'An Earth satellite''s orbit ranges from {rp} km to {rap} km from Earth''s center. Using $GM_E = 3.98\times10^{14}$ m³/s², find its speed at perigee and at apogee in km/s, to 3 significant figures.'
+  answers:
+    - {format: sig4, name: vp, label: 'Perigee speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: va, label: 'Apogee speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+  solution: |-
+    $a = \tfrac12({rp} + {rap}) = {sma:sig4}$ km. Vis-viva, $v^2 = GM\left(\dfrac{2}{\,r} - \dfrac{1}{\,a}\right)$, with distances in meters:
+
+    Perigee: **{vp:sig3} km/s**. Apogee: **{va:sig3} km/s**.
+
+    Check: $r_pv_p = r_av_a$ (angular momentum), and both products are about {hv:sig3} km²/s.
+- id: phys-h1-r2-orbit-state
+  title: Orbit from position and speed
+  topic: Kepler orbits
+  vars:
+    r: {min: 6700, max: 20000, step: 100}
+    v: {min: 4.0, max: 10.0, step: 0.1}
+  calc:
+    vc: sqrt(3.98e14/(r*1000))/1000
+    eps: (v*1000)^2/2 - 3.98e14/(r*1000)
+    epsm: eps/1e6
+    sma: -3.98e14/(2*eps)/1000
+    rother: 2*sma - r
+  where: ['eps < -1e6', 'v > vc*1.03', 'rother < 200000']
+  prompt: 'A spacecraft is {r} km from Earth''s center, moving at {v} km/s perpendicular to the line to the center. Using $GM_E = 3.98\times10^{14}$ m³/s², find its specific orbital energy (MJ/kg), the semimajor axis of its orbit (km), and its farthest distance from Earth''s center (km), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: epsm, label: 'Energy per kg', relTolerance: 0.01, units: {'MJ/kg': 1, 'J/kg': 0.000001}}
+    - {format: sig4, name: sma, label: '$a =$', relTolerance: 0.01, units: {km: 1, m: 0.001}}
+    - {format: sig4, name: rother, label: 'Apogee distance', relTolerance: 0.01, units: {km: 1, m: 0.001}}
+  solution: |-
+    $\varepsilon = \dfrac{v^2}{2} - \dfrac{GM}{\,r} =$ **{epsm:sig3} MJ/kg**: negative, so the orbit is an ellipse.
+
+    $a = -\dfrac{GM}{2\varepsilon} =$ **{sma:sig3} km**.
+
+    The velocity is perpendicular to $\vec r$, so this is a turning point; the speed is above the circular speed ({vc:sig3} km/s), so it is perigee. Apogee: $r_a = 2a - r_p =$ **{rother:sig3} km**.
+- id: phys-h1-r2-hohmann
+  title: Hohmann transfer between Earth orbits
+  topic: Orbital maneuvers
+  vars:
+    h1: {min: 200, max: 1500, step: 50}
+    h2: {min: 2000, max: 36000, step: 500}
+  calc:
+    r1: (6370 + h1)*1000
+    r2: (6370 + h2)*1000
+    at: (r1 + r2)/2
+    dv1: (sqrt(3.98e14*(2/r1 - 1/at)) - sqrt(3.98e14/r1))/1000
+    dv2: (sqrt(3.98e14/r2) - sqrt(3.98e14*(2/r2 - 1/at)))/1000
+    tot: dv1 + dv2
+    hrs: pi*sqrt(at^3/3.98e14)/3600
+  prompt: 'A satellite moves by a Hohmann transfer from a circular orbit {h1} km above Earth''s surface to one {h2} km up. Using $R_E = 6370$ km and $GM_E = 3.98\times10^{14}$ m³/s², find the two burns (km/s) and the coasting time (hours), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: dv1, label: 'Burn 1', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: dv2, label: 'Burn 2', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: hrs, label: 'Coast', relTolerance: 0.01, units: {h: 1, min: 0.016666666666666666}}
+  solution: |-
+    Radii: $r_1 = {r1:texsci}$ m, $r_2 = {r2:texsci}$ m; transfer orbit $a_t = {at:texsci}$ m.
+
+    Burn 1: transfer periapsis speed minus circular speed at $r_1$: **{dv1:sig3} km/s**.
+
+    Burn 2: circular speed at $r_2$ minus transfer apoapsis speed: **{dv2:sig3} km/s** (total {tot:sig3} km/s).
+
+    Coast: half the transfer period, $\pi\sqrt{a_t^3/GM} =$ **{hrs:sig3} h**.
+- id: phys-h1-r2-mars-transfer
+  title: Hohmann transfer to an outer planet
+  topic: Orbital maneuvers
+  vars:
+    R: {choices: [{label: 'Mars (1.52 AU)', value: 1.52}, {label: 'an asteroid at 2.80 AU', value: 2.8}, {label: 'Jupiter (5.20 AU)', value: 5.2}, {label: 'Saturn (9.54 AU)', value: 9.54}, {label: 'an asteroid at 2.20 AU', value: 2.2}, {label: 'a planet at 3.50 AU', value: 3.5}]}
+  calc:
+    Rn: R*1
+    at: (1 + R)/2
+    yrs: 0.5*at^1.5
+    days: yrs*365.25
+    TP: R^1.5
+    lead: 180 - 360*yrs/TP
+  prompt: 'Model Earth''s orbit (1.00 AU) and that of {R} as circles in one plane. For a Hohmann transfer from Earth, find the trip time in days (1 yr = 365.25 days) and how many degrees the target must be ahead of Earth at launch, to 3 significant figures.'
+  answers:
+    - {format: sig4, name: days, label: 'Trip time', relTolerance: 0.01, units: {days: 1, d: 1, yr: 365.25}}
+    - {format: sig4, name: lead, label: 'Lead angle (°)', relTolerance: 0.01}
+  solution: |-
+    In AU and years, $T^2 = a^3$. The transfer orbit has $a_t = \tfrac12(1 + {Rn:sig3}) = {at:sig3}$ AU, and the trip is half its period: $t = \tfrac12({at:sig3})^{3/2} = {yrs:sig3}$ yr $=$ **{days:sig3} days**.
+
+    The target's period is ${Rn:sig3}^{3/2} = {TP:sig3}$ yr, so during the trip it moves $360^\circ \times {yrs:sig3}/{TP:sig3}$. The spacecraft covers $180^\circ$, so the target must lead by **{lead:sig3}°**.
+- id: phys-h1-r2-escape-burn
+  title: Departure burn from a parking orbit
+  topic: Orbital maneuvers
+  vars:
+    h: {min: 200, max: 1000, step: 50}
+    vinf: {min: 1.0, max: 9.0, step: 0.1}
+  calc:
+    r: (6370 + h)*1000
+    vc: sqrt(3.98e14/r)/1000
+    ve: sqrt(2*3.98e14/r)/1000
+    vb: sqrt(vinf^2 + ve^2)
+    dv: vb - vc
+    two: (ve - vc) + vinf
+  prompt: 'A spacecraft in a circular orbit {h} km above Earth''s surface must leave Earth with a hyperbolic excess speed of {vinf} km/s. Using $R_E = 6370$ km and $GM_E = 3.98\times10^{14}$ m³/s², find the speed it needs just after a single forward burn and the size of that burn, both in km/s to 3 significant figures.'
+  answers:
+    - {format: sig4, name: vb, label: 'Speed after the burn', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: dv, label: 'Burn', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+  solution: |-
+    $r = {r:texsci}$ m. Circular speed $\sqrt{GM/r} = {vc:sig3}$ km/s; escape speed $\sqrt{2GM/r} = {ve:sig3}$ km/s.
+
+    Energy: $v = \sqrt{v_\infty^2 + v_{\text{esc}}^2} = \sqrt{{vinf}^2 + {ve:sig3}^2} =$ **{vb:sig3} km/s**.
+
+    Burn: $v - v_{\text{circ}} =$ **{dv:sig3} km/s**. (Escaping first and then adding {vinf} km/s far away would cost {two:sig3} km/s: the Oberth effect.)

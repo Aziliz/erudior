@@ -1,0 +1,36 @@
+# Round 2 glossary: trig-m6 honors lessons (tangent half-angle substitution; multiple angles; Ptolemy's chords)
+- term: tangent half-angle substitution
+  aliases: [half-tangent substitution, Weierstrass substitution, universal trigonometric substitution]
+  definition: 'The change of variable $t = \tan\tfrac{x}{2}$, which gives $\sin x = \tfrac{2t}{1 + t^2}$, $\cos x = \tfrac{1 - t^2}{1 + t^2}$ and $\tan x = \tfrac{2t}{1 - t^2}$ with no square roots. It works for every $x$ except $\pi + 2k\pi$.'
+  topic: Tangent half-angle substitution
+- term: rational parametrization
+  aliases: [rational parametrisation]
+  definition: 'A description of a curve in which both coordinates are fractions of polynomials in one parameter. The unit circle has one: $\left(\tfrac{1 - t^2}{1 + t^2}, \tfrac{2t}{1 + t^2}\right)$, which reaches every point except $(-1, 0)$.'
+  topic: Tangent half-angle substitution
+- term: Chebyshev polynomials
+  aliases: [Chebyshev polynomial]
+  definition: 'The polynomials $T_n$ with $T_n(\cos x) = \cos nx$: $T_0 = 1$, $T_1 = c$, and $T_{n+1} = 2cT_n - T_{n-1}$, so $T_2 = 2c^2 - 1$, $T_3 = 4c^3 - 3c$. Named for Pafnuty Chebyshev.'
+  topic: Multiple-angle formulas
+- term: trigonometric solution of the cubic
+  aliases: [trigonometric method for cubics]
+  definition: 'Solving $4c^3 - 3c = k$ (with $|k| \le 1$) by setting $c = \cos\theta$, so that $\cos 3\theta = k$; the three roots are the cosines of three angles $120^\circ$ apart. Worked out by Viète around 1600.'
+  topic: Multiple-angle formulas
+- term: telescoping sum
+  aliases: [telescopes, telescoping]
+  definition: 'A sum whose terms are differences $a_k - a_{k+1}$, so that neighboring pieces cancel and only the first and last remain: $\sum_{k=1}^{n}(a_k - a_{k+1}) = a_1 - a_{n+1}$.'
+  topic: Multiple-angle formulas
+- term: crd
+  aliases: [chord function]
+  definition: 'The chord function of Greek astronomy: $\text{crd}\,\theta$ is the length of the chord cut off by a central angle $\theta$, so $\text{crd}\,\theta = 2R\sin\tfrac{\theta}{2}$ in a circle of radius $R$.'
+  topic: Chords and Ptolemy's theorem
+- term: sexagesimal
+  aliases: [base 60, base-60]
+  definition: 'Written in base 60. Ptolemy''s $84;51,10$ means $84 + \tfrac{51}{60} + \tfrac{10}{60^2}$, the same system as degrees, minutes and seconds.'
+  topic: Chords and Ptolemy's theorem
+- term: cyclic quadrilateral
+  aliases: [cyclic quadrilaterals]
+  definition: 'A quadrilateral whose four vertices lie on one circle. Its opposite angles add to $180^\circ$.'
+  topic: Chords and Ptolemy's theorem
+- term: Ptolemy's theorem
+  definition: 'For a cyclic quadrilateral $ABCD$ (vertices in order), $AC \cdot BD = AB \cdot CD + AD \cdot BC$: the product of the diagonals equals the sum of the products of opposite sides.'
+  topic: Chords and Ptolemy's theorem

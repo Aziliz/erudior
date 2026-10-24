@@ -27,6 +27,10 @@ Gravity acts on every bit of an object, but for torque purposes its total effect
 
 This explains tipping. An object resting on a base is stable as long as its center of gravity lies above the base. Lean it until the center of gravity passes beyond the edge of the base, and gravity's torque about that edge tips it over. Wide bases and low centers of gravity make objects harder to tip, which is why racing cars are low and wide.
 
+![Two identical tall boxes resting on one bottom edge. The box tilted 20 degrees has its center of gravity to the left of the pivot edge, inside the base, so it falls back. The box tilted 45 degrees has its center of gravity to the right of the pivot edge, outside the base, so it tips over.](images/phys-m5-tipping.svg)
+
+For this box (90 by 150 units), the center of gravity is directly above the edge at a tilt of $\arctan(45/75) = 31^\circ$: tilted less, it falls back; tilted more, it tips.
+
 ## Solving equilibrium problems
 
 1. Draw a free-body diagram of the object, showing each force *at the point where it acts*.
@@ -34,6 +38,20 @@ This explains tipping. An object resting on a base is stable as long as its cent
 3. Write $\sum\tau = 0$ about that point (counterclockwise positive).
 4. Write $\sum F_x = 0$ and $\sum F_y = 0$.
 5. Solve. If a force comes out negative, it points opposite to the way you drew it.
+
+As a flowchart, with a final check that catches most slips:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a static equilibrium problem
+  accDescr: Draw a free-body diagram with each force at the point where it acts. Choose the pivot at a point where an unknown force acts. Write the torque balance about that pivot with counterclockwise positive. Write the force balances in x and y. Solve. If a force comes out negative, it points opposite to the way it was drawn. Finally check with a torque balance about a second point.
+  A["Free-body diagram: each force at its point of action"] --> B["Choose the pivot where an unknown force acts"]
+  B --> C["Torque balance about the pivot, counterclockwise positive"]
+  C --> D["Force balances: sum Fx = 0 and sum Fy = 0"]
+  D --> E["Solve for the unknowns"]
+  E --> F["Negative answer: that force points the other way"]
+  F --> G["Check: torques about a second point also sum to zero"]
+```
 
 ### Example 1: a seesaw
 
@@ -74,6 +92,8 @@ Torques about the hinge (removes both unknown hinge components). The cable's per
 $$T\sin 30^\circ(4.0) - 245(2.0) - 392(4.0) = 0 \quad\Rightarrow\quad T = \frac{490 + 1568}{2.0} = 1029\text{ N}.$$
 
 Horizontal: hinge pushes outward, $H = T\cos 30^\circ = 891$ N. Vertical: $V + T\sin 30^\circ = 245 + 392$, so $V = 637 - 514.5 = 122.5$ N upward. A shallow cable angle makes the tension much larger than the weights it holds, a recurring theme.
+
+![Free-body diagram of the beam in Example 3. A horizontal beam is hinged to a wall on the left; a cable runs from its right end up to the wall at 30 degrees. Forces on the beam: the cable tension T along the cable toward the wall, the beam's 245 N weight at its middle, the sign's 392 N weight at the right end, and the hinge force split into a horizontal part H pointing away from the wall and a vertical part V pointing up.](images/phys-m5-hinged-beam.svg)
 
 ## Ladders
 

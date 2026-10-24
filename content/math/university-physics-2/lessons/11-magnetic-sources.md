@@ -43,6 +43,10 @@ A **solenoid** is a long coil of wire. Inside, far from the ends, the field is n
 
 $$B = \mu_0nI, \qquad n = \frac NL \text{ (turns per meter)}.$$
 
+The cut-away view below shows why: inside, the fields of the turns on the top and bottom add, while outside they nearly cancel.
+
+![A solenoid cut along its axis. Along the top the current comes out of the page, along the bottom it goes in; straight field lines run left to right inside, and weak dashed field lines loop back outside from the north end to the south end](images/phys-m10-solenoid.svg)
+
 Outside, the field is weak. The interior field doesn't depend on the solenoid's radius or on where you are inside it. Wrapping the coil around an iron core multiplies the field hundreds or thousands of times, because the iron's own atomic magnets line up with it; that makes an **electromagnet**, which can be switched off, unlike a permanent magnet.
 
 ### Example 2
@@ -86,6 +90,20 @@ and the total field is the integral over the wire. It's the magnetic analog of C
 $$\oint\vec B\cdot d\vec\ell = \mu_0I_{\text{enc}},$$
 
 where $I_{\text{enc}}$ is the current passing through any surface bounded by the path. (With changing electric fields, as in a charging capacitor, Maxwell's extra term is needed; see the light lesson.) For a straight wire, choose a circle of radius $r$: $B(2\pi r) = \mu_0I$, the result above in one line. For a solenoid, a rectangular path with one side inside (length $L$) gives $BL = \mu_0nLI$. Inside a thick wire of radius $R$ carrying uniform current, a circle of radius $r < R$ encloses $I(r/R)^2$, so $B = \dfrac{\mu_0Ir}{2\pi R^2}$, growing linearly from zero at the center.
+
+Which tool to reach for depends on the symmetry of the current:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a method to find a magnetic field
+  accDescr: Start with the current distribution. If it matches a known result (long straight wire, loop center, long solenoid), use that formula. If not, ask whether the field has enough symmetry that its size is constant along a closed path; if yes, use Ampère's law with that path. If not, use the Biot–Savart law and integrate over the current, using symmetry to cancel components first.
+  A["Current distribution"] --> B{"Matches a known result?"}
+  B -- yes --> C["Use it: wire, loop center, solenoid"]
+  B -- no --> D{"Symmetry makes B constant along a closed path?"}
+  D -- yes --> E["Ampère's law around that path"]
+  D -- no --> F["Biot–Savart law: integrate dB"]
+  F --> G["Cancel components by symmetry first"]
+```
 
 ## Common mistakes
 

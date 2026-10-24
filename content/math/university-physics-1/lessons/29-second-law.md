@@ -40,6 +40,22 @@ $$e_{\text{Carnot}} = 1 - \frac{T_C}{T_H}.$$
 
 No real engine operating between $T_H$ and $T_C$ can beat this. To raise the efficiency limit you must widen the temperature gap, which is why power plants run hot steam and why cold cooling water helps. Even an ideal engine between 500 K and 300 K tops out at 40%.
 
+The four steps of the Carnot cycle, in order:
+
+```mermaid
+flowchart TD
+  accTitle: The four steps of the Carnot cycle
+  accDescr: Step 1, isothermal expansion at the hot temperature T H, absorbs heat Q H from the hot reservoir. Step 2, adiabatic expansion with no heat flow, cools the gas from T H to T C. Step 3, isothermal compression at the cold temperature T C, rejects heat Q C to the cold reservoir. Step 4, adiabatic compression heats the gas from T C back to T H, and the cycle repeats.
+  A["1. Isothermal expansion at TH: absorbs QH"] --> B["2. Adiabatic expansion: cools from TH to TC"]
+  B --> C["3. Isothermal compression at TC: rejects QC"]
+  C --> D["4. Adiabatic compression: heats from TC to TH"]
+  D --> A
+```
+
+```plot
+{"x": [0, 6.5], "y": [0, 4.5], "xLabel": "V", "yLabel": "P", "functions": [{"f": "4/x", "from": 1, "to": 2}, {"f": "2*(2/x)^(5/3)", "from": 2, "to": 5.657}, {"f": "2/x", "from": 2.828, "to": 5.657, "dashed": true}, {"f": "4*(1/x)^(5/3)", "from": 1, "to": 2.828, "dashed": true}], "points": [{"at": [1, 4], "label": "1"}, {"at": [2, 2], "label": "2"}, {"at": [5.657, 0.354], "label": "3"}, {"at": [2.828, 0.707], "label": "4"}], "labels": [{"at": [2.4, 3.2], "text": "isotherm at TH"}, {"at": [4.6, 1.2], "text": "adiabats"}, {"at": [4.3, 0.15], "text": "isotherm at TC"}], "caption": "A Carnot cycle for a monatomic ideal gas with TH = 2TC: expansion along the solid curves (1 → 2 → 3), compression along the dashed ones (3 → 4 → 1). The enclosed area is the work per cycle."}
+```
+
 ### Example 1
 
 A power plant's steam enters the turbine at 550°C and leaves to a condenser at 30°C. (a) What is the Carnot efficiency? (b) If the plant actually achieves 38% efficiency and produces 500 MW of electrical power, how much heat does it dump to the environment each second?
@@ -55,6 +71,10 @@ Run an engine backward and it becomes a **refrigerator**: work $W$ moves heat $Q
 $$K = \frac{Q_C}{W}, \qquad K_{\text{Carnot}} = \frac{T_C}{T_H - T_C}.$$
 
 A **heat pump** is the same device used to warm a house; its useful output is $Q_H$, so its COP is $Q_H/W$, with Carnot limit $\dfrac{T_H}{T_H - T_C}$. A heat pump delivering 3 J of heat per joule of electricity isn't violating anything: it moves heat rather than making it.
+
+The energy-flow diagrams compare the two devices. In an engine, heat flows downhill from hot to cold and some of it is diverted as work. In a refrigerator or heat pump, work is put in to drive heat uphill, and the hot reservoir receives $Q_H = Q_C + W$.
+
+![Energy-flow diagrams. Left, a heat engine: heat Q_H flows down from the hot reservoir into the engine, work W comes out, and heat Q_C flows down to the cold reservoir. Right, a refrigerator: work W goes in, heat Q_C is pulled up from the cold reservoir, and heat Q_H is delivered up to the hot reservoir.](images/phys-m7-engine-fridge.svg)
 
 ### Example 2
 

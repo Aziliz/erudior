@@ -26,7 +26,7 @@
   choices: ['$x\cos\theta - y\sin\theta$', '$x\sin\theta + y\cos\theta$', '$-x\sin\theta + y\cos\theta$', '$x\sin\theta - y\cos\theta$']
   answer: 1
   explanation: |-
-    Write $(x, y) = (r\cos\alpha, r\sin\alpha)$. The rotated point is $(r\cos(\alpha + \theta), r\sin(\alpha + \theta))$, and the sine sum formula gives $r\sin(\alpha + \theta) = r\sin\alpha\cos\theta + r\cos\alpha\sin\theta = x\sin\theta + y\cos\theta$. The first choice is the new $x$-coordinate; $-x\sin\theta + y\cos\theta$ is the $y$-coordinate after a *clockwise* rotation.
+    Write $(x, y) = (r\cos\alpha, r\sin\alpha)$. The rotated point is $(r\cos(\alpha + \theta), r\sin(\alpha + \theta))$, and the sine sum formula gives $r\sin(\alpha + \theta) = r\sin\alpha\cos\theta + r\cos\alpha\sin\theta = x\sin\theta + y\cos\theta$. The first choice is the new $x$-coordinate; $-x\sin\theta + y\cos\theta$ is the $y$-coordinate after a clockwise rotation.
 - id: trig-h1-r2-h04
   lesson: trig-h1-robot-arms
   topic: Rotations
@@ -423,7 +423,7 @@
   choices: ['$\cos c = \cos\varphi_1\cos\varphi_2 + \sin\varphi_1\sin\varphi_2\cos\Delta\lambda$', '$\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda$', '$c^2 = \varphi_1^2 + \varphi_2^2 - 2\varphi_1\varphi_2\cos\Delta\lambda$', '$\cos c = \sin\varphi_1\sin\varphi_2\cos\Delta\lambda + \cos\varphi_1\cos\varphi_2$']
   answer: 1
   explanation: |-
-    The dot product of the unit vectors $\langle\cos\varphi\cos\lambda, \cos\varphi\sin\lambda, \sin\varphi\rangle$ gives $\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda$. The first choice is the spherical law of cosines written with *colatitudes* but with latitudes plugged in. Check any choice with two points on the equator ($\varphi_1 = \varphi_2 = 0$): only the correct formula gives $c = \Delta\lambda$. The flat law of cosines doesn't apply to latitudes.
+    The dot product of the unit vectors $\langle\cos\varphi\cos\lambda, \cos\varphi\sin\lambda, \sin\varphi\rangle$ gives $\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda$. The first choice is the spherical law of cosines written with colatitudes but with latitudes plugged in. Check any choice with two points on the equator ($\varphi_1 = \varphi_2 = 0$): only the correct formula gives $c = \Delta\lambda$. The flat law of cosines doesn't apply to latitudes.
 - id: trig-h1-r2-h46
   lesson: trig-h1-great-circles
   topic: Great-circle distance
@@ -471,9 +471,9 @@
   stem: 'Match each term to its meaning.'
   pairs:
     - [Colatitude, 90° minus the latitude]
-    - [Spherical excess, A spherical triangle's angle sum minus 180°]
+    - [Spherical excess, 'A spherical triangle''s angle sum minus 180°']
     - [Rhumb line, A path that keeps one fixed bearing]
-    - [Initial bearing, The starting direction of a route, clockwise from north]
+    - [Initial bearing, 'The starting direction of a route, clockwise from north']
   distractors: [The shortest path on a flat map]
   explanation: |-
     The colatitude is the angular distance from the North Pole, $90^\circ - \varphi$. The spherical excess $A + B + C - 180^\circ$ gives a spherical triangle's area, $R^2E$. A rhumb line holds a constant bearing, while a great-circle route's bearing changes, so the formula gives only its initial bearing.

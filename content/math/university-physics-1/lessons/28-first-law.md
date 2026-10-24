@@ -27,6 +27,10 @@ $$\Delta E_{\text{int}} = Q - W,$$
 
 with the sign convention: $Q > 0$ when heat flows *into* the system, $W > 0$ when the system does work *on* its surroundings. (Some books, especially in chemistry, use $W$ for work done *on* the system and write $\Delta U = Q + W$; the physics is identical.)
 
+![A gas in a cylinder under a movable piston, sitting on a hot plate. Heat Q flows from the hot plate into the gas, and the gas pushes the piston and its load upward, doing work W on the surroundings.](images/phys-m7-piston.svg)
+
+In the picture, both $Q$ and $W$ are positive: heat flows in from the hot plate and the gas does work lifting the load. Whatever is left over, $Q - W$, changes the gas's internal energy.
+
 Internal energy is a **state variable**: it depends only on the current state (for an ideal gas, only on $T$), not on history. $Q$ and $W$ individually depend on the path, but their difference doesn't.
 
 ### Example 1
@@ -56,6 +60,22 @@ The **molar specific heats** of an ideal monatomic gas are $C_V = \tfrac32R$ at 
 
 In an adiabatic expansion the gas does work using its own internal energy, so it cools. That's why air rising in the atmosphere cools and clouds form, and why a spray can gets cold. Adiabatic compression heats a gas: diesel engines ignite fuel this way without spark plugs.
 
+To identify the process in a problem, look for what it holds fixed:
+
+```mermaid
+flowchart TD
+  accTitle: Identifying an ideal-gas process
+  accDescr: Ask what the problem holds fixed. If no heat flows, for example in a fast or insulated process, it is adiabatic, with Q equal to zero and W equal to minus the change in internal energy. Otherwise, if the volume is fixed it is isochoric, with zero work, so Q equals the change in internal energy. Otherwise, if the pressure is fixed it is isobaric, with W equal to P times the change in volume. Otherwise, if the temperature is fixed it is isothermal, with no change in internal energy, so Q equals W equals n R T ln of Vf over Vi. If none of these holds, the work is the area under the curve on the PV diagram.
+  A{"No heat flow?"} -- "yes" --> B["Adiabatic: Q = 0, W = minus change in Eint"]
+  A -- "no" --> C{"V fixed?"}
+  C -- "yes" --> D["Isochoric: W = 0, Q = change in Eint"]
+  C -- "no" --> E{"P fixed?"}
+  E -- "yes" --> F["Isobaric: W = P(Vf - Vi)"]
+  E -- "no" --> G{"T fixed?"}
+  G -- "yes" --> H["Isothermal: Eint fixed, Q = W = nRT ln(Vf/Vi)"]
+  G -- "no" --> I["General: W = area under the PV curve"]
+```
+
 ### Example 2
 
 Two moles of a monatomic ideal gas are heated at constant pressure (1.0 atm) from 300 K to 400 K. Find $W$, $\Delta E_{\text{int}}$ and $Q$.
@@ -69,6 +89,12 @@ $Q = \Delta E_{\text{int}} + W = 4157$ J (check: $nC_P\Delta T = 2(\tfrac52)(8.3
 ## Cycles
 
 In a **cyclic process** the gas returns to its starting state, so $\Delta E_{\text{int}} = 0$ over the cycle and the net heat absorbed equals the net work done: $Q_{\text{net}} = W_{\text{net}}$. On a PV diagram the net work is the area enclosed by the loop, positive if the loop runs clockwise. Engines run clockwise cycles, turning heat into work; that's the subject of the next lesson.
+
+For the rectangular cycle below, the gas does $(300\text{ kPa})(3\text{ L}) = 900$ J of work expanding along the top and has $(100\text{ kPa})(3\text{ L}) = 300$ J done on it along the bottom, so the net work per cycle is the enclosed area, 600 J.
+
+```plot
+{"x": [0, 5], "y": [0, 350], "xLabel": "V (L)", "yLabel": "P (kPa)", "polygons": [{"points": [[1, 300], [4, 300], [4, 100], [1, 100]]}], "segments": [{"from": [1, 300], "to": [2.6, 300], "arrow": true}, {"from": [4, 300], "to": [4, 190], "arrow": true}, {"from": [4, 100], "to": [2.4, 100], "arrow": true}, {"from": [1, 100], "to": [1, 210], "arrow": true}], "points": [{"at": [1, 300], "label": "A"}, {"at": [4, 300], "label": "B"}, {"at": [4, 100], "label": "C"}, {"at": [1, 100], "label": "D"}], "labels": [{"at": [2.5, 200], "text": "net work = 600 J"}], "caption": "A clockwise cycle A → B → C → D → A: the enclosed area is the net work done by the gas"}
+```
 
 ## Work as an integral
 

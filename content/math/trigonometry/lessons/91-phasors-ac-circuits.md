@@ -15,7 +15,7 @@ Picture an arrow of length $A$ that starts at angle $\varphi$ and turns counterc
 $$A\cos(\omega t + \varphi).$$
 That is a sinusoid with amplitude $A$, angular frequency $\omega$ and phase $\varphi$. In other words, *every* sinusoid is the shadow, on the $x$-axis, of a turning arrow.
 
-Now take two sinusoids with the **same** $\omega$. Their arrows turn at the same rate, so they turn together like the spokes of one wheel: the angle between them never changes. The sum of the two shadows is the shadow of the sum of the arrows (the $x$-component of a sum of vectors is the sum of the $x$-components). And the sum of two arrows that turn together is a third arrow turning with them. So:
+Now take two sinusoids with the *same* $\omega$. Their arrows turn at the same rate, so they turn together like the spokes of one wheel: the angle between them never changes. The sum of the two shadows is the shadow of the sum of the arrows (the $x$-component of a sum of vectors is the sum of the $x$-components). And the sum of two arrows that turn together is a third arrow turning with them. So:
 
 > The sum of two sinusoids with the same frequency is a sinusoid with that same frequency. Its amplitude and phase come from adding the arrows at $t = 0$.
 

@@ -73,6 +73,10 @@ $$a = \frac{qE}{m}.$$
 
 All the constant-acceleration kinematics from mechanics applies. An electron fired sideways between deflection plates follows a parabola, exactly like a projectile, which is how old cathode-ray tubes steered their beams. (Gravity on an electron is negligible: even in a weak field of 100 N/C, the electric force $eE$ is about $2\times10^{12}$ times its weight $m_eg$.)
 
+![An electron gun at the left fires a beam to the right between two horizontal deflection plates, the top one positive and the bottom one negative. Arrows between the plates show a uniform field pointing down from the positive plate to the negative one. Between the plates the electron's path curves upward toward the positive plate in a parabola; after leaving the plates it travels in a straight line and hits a screen at the right above the center.](images/phys-m8-deflection.svg)
+
+The electron curves *toward* the positive plate, against the field arrows, because its charge is negative. Once it leaves the plates the force stops and it coasts in a straight line, so the spot on the screen moves in proportion to the plate voltage.
+
 ### Example 3
 
 An electron starts from rest in a uniform field of $2.0\times10^4$ N/C. (a) What is its acceleration? (b) How fast is it moving after traveling 1.0 cm?
@@ -100,11 +104,15 @@ $$\vec E = \int k\frac{dq}{r^2}\,\hat r.$$
 
 Use symmetry to see which components cancel before integrating.
 
-*Field on the axis of a ring.* A ring of radius $a$ carries charge $Q$. At distance $x$ along its axis, each element is at distance $\sqrt{x^2 + a^2}$. Perpendicular components cancel by symmetry; the axial component of each element's field is $dE\cos\theta$, with $\cos\theta = x/\sqrt{x^2 + a^2}$. Every element has the same geometry, so the distance and angle come out of the integral and $\int dq = Q$:
+*Field on the axis of a ring.* A ring of radius $a$ carries charge $Q$ (see the figure). At distance $x$ along its axis, each element is at distance $\sqrt{x^2 + a^2}$. Perpendicular components cancel by symmetry; the axial component of each element's field is $dE\cos\theta$, with $\cos\theta = x/\sqrt{x^2 + a^2}$. Every element has the same geometry, so the distance and angle come out of the integral and $\int dq = Q$:
 
 $$E_x = \int\frac{k\,dq}{x^2 + a^2}\cdot\frac{x}{\sqrt{x^2 + a^2}} = \frac{kx}{(x^2 + a^2)^{3/2}}\int dq = \frac{kQx}{(x^2 + a^2)^{3/2}}.$$
 
 At the center ($x = 0$) it's zero; far away ($x \gg a$) it becomes $kQ/x^2$, a point charge.
+
+```plot
+{"x": [-1, 4.6], "y": [-1.5, 1.5], "equal": true, "grid": false, "curves": [{"x": "0.35cos(t)", "y": "sin(t)", "t": [0, "2pi"]}], "segments": [{"from": [0, 0], "to": [3, 0], "dashed": true, "label": "x"}, {"from": [0, 0], "to": [0, 1], "label": "a"}, {"from": [0, 1], "to": [3, 0]}, {"from": [3, 0], "to": [4.14, -0.38], "arrow": true}, {"from": [3, 0], "to": [4.14, 0], "arrow": true, "dashed": true}], "points": [{"at": [0, 1], "label": "dq"}, {"at": [3, 0], "label": "P"}], "labels": [{"at": [4.3, -0.55], "text": "dE"}, {"at": [3.75, 0.25], "text": "dE cos θ"}, {"at": [1.5, 0.85], "text": "√(x² + a²)"}], "caption": "Each element dq of a ring is the same distance from P; only the axial parts dE cos θ survive (θ is the angle between dE and the axis)"}
+```
 
 *Infinite line charge.* With linear density $\lambda$, the field at perpendicular distance $r$ is $E = \dfrac{2k\lambda}{r} = \dfrac{\lambda}{2\pi\varepsilon_0r}$, falling as $1/r$ rather than $1/r^2$. (Gauss's law in the next lesson gets this in one line.)
 

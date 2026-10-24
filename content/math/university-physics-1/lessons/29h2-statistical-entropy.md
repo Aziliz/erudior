@@ -21,7 +21,7 @@ Toss 4 coins. There are $2^4 = 16$ equally likely microstates (HHTT, HTHT, …).
 $$\Omega(n) = \binom Nn = \frac{N!}{n!\,(N - n)!}.$$
 
 ```plot
-{"x": [-0.8, 4.8], "y": [0, 7], "xLabel": "number of heads", "yLabel": "multiplicity Ω", "bars": [{"x": 0, "height": 1, "width": 0.8, "label": "1"}, {"x": 1, "height": 4, "width": 0.8, "label": "4"}, {"x": 2, "height": 6, "width": 0.8, "label": "6"}, {"x": 3, "height": 4, "width": 0.8, "label": "4"}, {"x": 4, "height": 1, "width": 0.8, "label": "1"}], "caption": "Multiplicities of the macrostates of 4 coins: 16 microstates in all"}
+{"x": [-1, 5], "y": [0, 7], "xLabel": "number of heads", "yLabel": "multiplicity Ω", "bars": [{"x": 0, "height": 1, "width": 0.8, "label": "0"}, {"x": 1, "height": 4, "width": 0.8}, {"x": 2, "height": 6, "width": 0.8}, {"x": 3, "height": 4, "width": 0.8}, {"x": 4, "height": 1, "width": 0.8}], "caption": "Multiplicities of the macrostates of 4 coins (1, 4, 6, 4, 1): 16 microstates in all"}
 ```
 
 The basic assumption of statistical mechanics, the **fundamental assumption**, is that an isolated system in equilibrium is equally likely to be in any of its accessible microstates. Then a macrostate's probability is its multiplicity divided by the total.
@@ -58,7 +58,7 @@ $$\frac1T = \frac{\partial S}{\partial E}\quad(\text{volume and particle number 
 
 This explains which way heat flows. If A gains energy $dE$ from B, the total entropy changes by $dS = \left(\dfrac1{T_A} - \dfrac1{T_B}\right)dE$. The second law needs $dS > 0$, so $dE > 0$ exactly when $T_A < T_B$: energy flows from hot to cold because that direction opens up more microstates.
 
-A simple model makes this concrete. In an **Einstein solid**, each atom is treated as independent oscillators that can hold only whole units (quanta) of energy; with $N$ oscillators sharing $q$ quanta,
+A simple model makes this concrete. In an **Einstein solid**, each atom is modeled as three independent oscillators (one per direction), and each oscillator can hold only whole units (quanta) of energy. With $N$ oscillators sharing $q$ quanta,
 
 $$\Omega(N, q) = \binom{q + N - 1}{q}.$$
 
@@ -77,7 +77,7 @@ Count $\Omega_A\Omega_B$ for each $q_A$, using $\Omega(3, q) = 1, 3, 6, 10, 15, 
 The total is 462. The even split, $q_A = 3$, is the most likely, with probability $100/462 = 22\%$, but lopsided splits are common: A holds 5 or 6 of the quanta $91/462 = 20\%$ of the time. Scale up and the picture sharpens. With 300 oscillators in A, 200 in B and 100 quanta, a computer count puts the peak at $q_A = 60$, the same energy per oscillator in both solids (equal temperatures), and 95% of all microstates lie between $q_A = 50$ and 70. For $10^{23}$ oscillators the spread is far too small to measure.
 
 ```plot
-{"x": [-0.8, 6.8], "y": [0, 110], "xLabel": "quanta in solid A", "yLabel": "Ω_A × Ω_B", "bars": [{"x": 0, "height": 28, "width": 0.8}, {"x": 1, "height": 63, "width": 0.8}, {"x": 2, "height": 90, "width": 0.8}, {"x": 3, "height": 100, "width": 0.8, "label": "100"}, {"x": 4, "height": 90, "width": 0.8}, {"x": 5, "height": 63, "width": 0.8}, {"x": 6, "height": 28, "width": 0.8}], "caption": "Two 3-oscillator Einstein solids sharing 6 quanta: the even split has the most microstates"}
+{"x": [-1, 7], "y": [0, 110], "xLabel": "quanta in solid A", "yLabel": "microstates", "bars": [{"x": 0, "height": 28, "width": 0.8, "label": "0"}, {"x": 1, "height": 63, "width": 0.8}, {"x": 2, "height": 90, "width": 0.8}, {"x": 3, "height": 100, "width": 0.8}, {"x": 4, "height": 90, "width": 0.8}, {"x": 5, "height": 63, "width": 0.8}, {"x": 6, "height": 28, "width": 0.8}], "caption": "Two 3-oscillator Einstein solids sharing 6 quanta: the number of microstates for each split. The even split has the most."}
 ```
 
 ## The Boltzmann factor

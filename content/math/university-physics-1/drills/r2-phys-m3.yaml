@@ -1,0 +1,132 @@
+# Round 2 drills for module phys-m3 (honors lessons 10h1-10h3)
+- id: phys-m3-r2-stacked
+  title: Stacked blocks on the verge of slipping
+  topic: Friction in systems
+  vars:
+    mt: {min: 1, max: 5, step: 0.5}
+    mb: {min: 4, max: 15}
+    mus: {min: 0.2, max: 0.8, step: 0.05}
+  calc:
+    amax: mus*9.8
+    Fmax: (mt + mb)*mus*9.8
+  prompt: 'A {mt} kg block rests on a {mb} kg board, which lies on a frictionless floor. The coefficient of static friction between block and board is {mus}. You pull the board horizontally. Using $g = 9.8$ m/s², find the largest acceleration the pair can have without the block slipping, and the pull that gives it. Give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: amax, label: 'Largest acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {format: sig4, name: Fmax, label: 'Largest pull', relTolerance: 0.01, units: {N: 1}}
+  solution: |-
+    Only friction from the board accelerates the block, and it can be at most $\mu_s m_{\text{top}}g$, so the block's largest acceleration is $\mu_s g = {mus}(9.8) =$ **{amax:sig3} m/s²**.
+
+    Moving together, the whole $({mt} + {mb})$ kg system has that acceleration: $F = ({mt} + {mb})({amax:sig4}) =$ **{Fmax:sig3} N**.
+- id: phys-m3-r2-best-angle
+  title: Best angle to drag a crate
+  topic: Friction in systems
+  vars:
+    m: {min: 20, max: 80}
+    mu: {min: 0.2, max: 0.9, step: 0.05}
+  calc:
+    th: atand(mu)
+    Fh: mu*m*9.8
+    Fmin: mu*m*9.8/sqrt(1 + mu^2)
+  prompt: 'A {m} kg crate is dragged at constant speed across a floor with $\mu_k = {mu}$ by a rope. Using $g = 9.8$ m/s², find the rope angle above horizontal that needs the least force, and that least force. Give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: th, label: 'Best angle', tolerance: 0.2, units: {'°': 1, deg: 1}}
+    - {format: sig4, name: Fmin, label: 'Least force', relTolerance: 0.01, units: {N: 1}}
+  solution: |-
+    $F(\theta) = \dfrac{\mu mg}{\cos\theta + \mu\sin\theta}$ is smallest where $\tan\theta = \mu$: $\theta = \tan^{-1}({mu}) =$ **{th:sig3}°**.
+
+    Then $F_{\min} = \dfrac{\mu mg}{\sqrt{1 + \mu^2}} = \dfrac{{Fh:sig4}}{\sqrt{1 + {mu}^2}} =$ **{Fmin:sig3} N** (a horizontal pull would need {Fh:sig3} N).
+- id: phys-m3-r2-capstan
+  title: Rope wrapped around a post
+  topic: Friction in systems
+  vars:
+    Th: {min: 50, max: 300, step: 10}
+    turns: {choices: [0.5, 1, 1.5, 2]}
+    mu: {min: 0.15, max: 0.35, step: 0.05}
+  calc:
+    wrap: 2*pi*turns
+    ratio: exp(mu*wrap)
+    Tl: Th*ratio
+  prompt: 'A rope is wrapped {turns} turns around a fixed post, with $\mu_s = {mu}$ between rope and post. You hold one end with {Th} N. Find the ratio of load tension to holding tension when the rope is on the verge of slipping, and the largest load tension you can resist. Give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: ratio, label: 'Ratio $T_{\text{load}}/T_{\text{hold}}$', relTolerance: 0.01}
+    - {format: sig4, name: Tl, label: 'Largest load tension', relTolerance: 0.01, units: {N: 1, kN: 1000}}
+  solution: |-
+    Wrap angle in radians: $\theta = 2\pi({turns}) = {wrap:sig4}$ rad. Capstan equation: $T_{\text{load}}/T_{\text{hold}} = e^{\mu\theta} = e^{{mu}({wrap:sig4})} =$ **{ratio:sig3}**.
+
+    Largest load: $T_{\text{load}} = {Th}({ratio:sig4}) =$ **{Tl:sig3} N**.
+- id: phys-m3-r2-quad-drag
+  title: Falling with quadratic drag
+  topic: Drag
+  vars:
+    m: {min: 50, max: 100}
+    C: {min: 0.5, max: 1.0, step: 0.05}
+    A: {min: 0.4, max: 0.9, step: 0.05}
+    p: {choices: [{label: '50%', value: 0.5}, {label: '75%', value: 0.75}, {label: '90%', value: 0.9}, {label: '95%', value: 0.95}]}
+  calc:
+    c: 0.5*C*1.2*A
+    vT: sqrt(m*9.8/c)
+    tau: vT/9.8
+    t: tau*atanh(p)
+  prompt: 'A {m} kg skydiver falls from rest with drag coefficient {C} and cross-sectional area {A} m², in air of density 1.2 kg/m³. Using $g = 9.8$ m/s² and quadratic drag, find the terminal speed and the time to reach {p} of it. Give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: vT, label: 'Terminal speed', relTolerance: 0.01, units: {'m/s': 1}}
+    - {format: sig4, name: t, label: 'Time', relTolerance: 0.01, units: {s: 1}}
+  solution: |-
+    $c = \tfrac12 C\rho A = \tfrac12({C})(1.2)({A}) = {c:sig4}$ kg/m, so $v_T = \sqrt{mg/c} = \sqrt{{m}(9.8)/{c:sig4}} =$ **{vT:sig3} m/s**.
+
+    With $v = v_T\tanh(gt/v_T)$, the time to reach {p} of $v_T$ is $t = \dfrac{v_T}{g}\tanh^{-1}({p:num2}) = {tau:sig4}\tanh^{-1}({p:num2}) =$ **{t:sig3} s**.
+- id: phys-m3-r2-stokes
+  title: Terminal speed of a droplet (Stokes drag)
+  topic: Drag
+  vars:
+    R: {min: 5, max: 25, step: 1}
+  calc:
+    rm: R*1e-6
+    mass: 1000*4/3*pi*rm^3
+    vT: mass*9.8/(6*pi*1.8e-5*rm)
+    vcm: vT*100
+    Re: 1.2*vT*2*rm/1.8e-5
+  prompt: 'A water droplet (density 1000 kg/m³) of radius {R} μm falls through still air (density 1.2 kg/m³, viscosity $1.8 \times 10^{-5}$ Pa·s). Using Stokes''s law and $g = 9.8$ m/s², and ignoring buoyancy, find its terminal speed in cm/s and the Reynolds number at that speed (based on the diameter). Give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: vcm, label: 'Terminal speed', relTolerance: 0.01, units: {'cm/s': 1, 'm/s': 100}}
+    - {format: sig4, name: Re, label: 'Reynolds number', relTolerance: 0.01}
+  solution: |-
+    Mass: $m = 1000\cdot\tfrac43\pi({R}\times10^{-6})^3 = {mass:texsci}$ kg.
+
+    Stokes: $mg = 6\pi\eta Rv_T$, so $v_T = \dfrac{mg}{6\pi\eta R} = {vT:sig4}$ m/s $=$ **{vcm:sig3} cm/s**.
+
+    $Re = \dfrac{\rho v_T D}{\eta} = \dfrac{1.2({vT:sig4})(2 \times {R}\times10^{-6})}{1.8\times10^{-5}} =$ **{Re:sig3}**, less than 1, so Stokes's law is a fair model.
+- id: phys-m3-r2-accel-pendulum
+  title: Pendulum in an accelerating vehicle
+  topic: Non-inertial frames
+  vars:
+    acc: {min: 0.5, max: 6, step: 0.1}
+  calc:
+    th: atand(acc/9.8)
+    geff: hypot(9.8, acc)
+  prompt: 'A small mass hangs from a string inside a van that accelerates forward at {acc} m/s². Once it stops swinging, at what angle from vertical does the string hang, and what is the effective gravity in the van? Use $g = 9.8$ m/s². Give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: th, label: 'Angle', tolerance: 0.2, units: {'°': 1, deg: 1}}
+    - {format: sig4, name: geff, label: '$g_{\text{eff}}$', relTolerance: 0.005, units: {'m/s²': 1, 'm/s^2': 1}}
+  solution: |-
+    In the van's frame, tension, weight and the fictitious force $-mA$ balance: $T\cos\theta = mg$ and $T\sin\theta = mA$, so $\tan\theta = A/g = {acc}/9.8$ and $\theta =$ **{th:sig3}°** (toward the rear).
+
+    $g_{\text{eff}} = \sqrt{9.8^2 + {acc}^2} =$ **{geff:sig3} m/s²**.
+- id: phys-m3-r2-space-station
+  title: Artificial gravity in a rotating station
+  topic: Non-inertial frames
+  vars:
+    r: {min: 20, max: 500, step: 10}
+    fr: {choices: [0.38, 0.5, 0.75, 1]}
+  calc:
+    geff: fr*9.8
+    w: sqrt(geff/r)
+    rpm: w*60/(2*pi)
+  prompt: 'A ring-shaped space station of radius {r} m spins so that people on its outer floor feel an effective gravity of {fr} times $g = 9.8$ m/s². Find the angular speed in rad/s and the spin rate in revolutions per minute. Give answers to 3 significant figures.'
+  answers:
+    - {format: sig4, name: w, label: '$\omega$', relTolerance: 0.01, units: {'rad/s': 1}}
+    - {format: sig4, name: rpm, label: 'Spin rate', relTolerance: 0.01, units: {rpm: 1}}
+  solution: |-
+    The centrifugal force $m\omega^2 r$ plays the role of weight: $\omega^2 r = {fr}(9.8) = {geff:sig4}$ m/s², so $\omega = \sqrt{{geff:sig4}/{r}} =$ **{w:sig3} rad/s**.
+
+    Spin rate: $\omega\cdot\dfrac{60}{2\pi} =$ **{rpm:sig3} rpm**.

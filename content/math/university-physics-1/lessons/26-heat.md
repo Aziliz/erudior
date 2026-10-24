@@ -94,6 +94,23 @@ Warm the water to 30°C: $0.50(4186)(30) = 62\,790$ J.
 
 Total: $2.40\times10^5$ J. Melting takes most of the energy.
 
+The flowchart sums up the procedure for any calorimetry problem, with or without a phase change.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a calorimetry problem
+  accDescr: List every object with its mass, specific heat and starting temperature. Check whether any object can change phase between its starting temperature and the final temperature. If not, write Q equals m c times T final minus T initial for each object. If so, add the latent heat term plus or minus m L and split that object's heating into stages. Then set the sum of all Q equal to zero, solve for the final temperature, and check that it lies between the starting temperatures and is consistent with the assumed phases. If it is not, redo the problem with a different assumption, for example that only part of the ice melts.
+  A["List each object: m, c, starting T"] --> B{"Can any object change phase?"}
+  B -- "no" --> C["Each object: Q = mc(Tf - Ti)"]
+  B -- "yes" --> D["Add plus or minus mL and split heating into stages"]
+  C --> E["Set the sum of all Q = 0"]
+  D --> E
+  E --> F["Solve for Tf"]
+  F --> G{"Is Tf between the starting temperatures and the phases as assumed?"}
+  G -- "yes" --> H["Done"]
+  G -- "no" --> I["Redo with a different assumption, for example only part of the ice melts"]
+```
+
 ## Heat transfer
 
 Heat moves in three ways:
@@ -102,11 +119,19 @@ Heat moves in three ways:
 - **Convection**, by bulk motion of a fluid: warm air rising, ocean currents.
 - **Radiation**, by electromagnetic waves, needing no medium (sunlight). A surface at absolute temperature $T$ radiates power $P = e\sigma AT^4$ (the Stefan–Boltzmann law, $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴), emissivity $0 \le e \le 1$).
 
+A pot of water on a stove uses all three at once: heat conducts along the metal handle, convection currents carry it through the water, and the glowing burner radiates it to a nearby hand.
+
+![A pot of water on a glowing stove burner. Heat conducts along the metal handle, loops of rising and sinking water carry heat by convection, and wavy arrows show radiation from the burner to a hand held beside it.](images/phys-m7-heat-transfer.svg)
+
 ## Varying specific heat and Newton's law of cooling
 
 When the specific heat varies with temperature, the heat needed is an integral: $Q = m\int_{T_1}^{T_2}c(T)\,dT$. At low temperatures many solids follow $c \propto T^3$, for instance.
 
 Conduction in differential form is Fourier's law, $\dfrac{dQ}{dt} = -kA\dfrac{dT}{dx}$: heat flows down the temperature gradient. And an object cooling by contact with surroundings at $T_s$ often follows **Newton's law of cooling**, $\dfrac{dT}{dt} = -\kappa(T - T_s)$, whose solution $T(t) = T_s + (T_0 - T_s)e^{-\kappa t}$ is the same exponential approach seen with linear drag. A cup of coffee at 90°C in a 20°C room with $\kappa = 0.05$ min⁻¹ is at $20 + 70e^{-0.5} = 62$°C after 10 minutes.
+
+```plot
+{"x": [0, 60], "y": [0, 100], "xLabel": "time (min)", "yLabel": "temperature (°C)", "functions": [{"f": "20 + 70*exp(-0.05*x)"}, {"f": "20", "dashed": true}], "points": [{"at": [10, 62.5], "label": "62°C at 10 min"}], "labels": [{"at": [48, 26], "text": "room, 20°C"}], "caption": "Newton's law of cooling: coffee at 90°C in a 20°C room with κ = 0.05 per minute"}
+```
 
 ## Common mistakes
 

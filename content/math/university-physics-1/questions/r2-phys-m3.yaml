@@ -167,7 +167,7 @@
   choices: ['2.0 m/s² upward', '1.0 m/s² upward', '4.0 m/s² upward', '1.0 m/s² downward']
   answer: 1
   explanation: |-
-    The rope length gives $2y_{\text{load}} + (\text{distance to the free end}) = $ constant, so pulling the free end up by $d$ raises the load by only $d/2$. Differentiating twice, the load's acceleration is half the end's: 1.0 m/s², upward. 2.0 m/s² ignores the two strands; 4.0 m/s² inverts the ratio; the load rises, not falls, when you pull.
+    Two strands hold the load, and the rope's length is fixed, so raising the load by $d$ shortens both strands by $d$: the free end must move $2d$. Pulling the free end up by $d$ raises the load by only $d/2$. Differentiating twice, the load's acceleration is half the end's: 1.0 m/s², upward. 2.0 m/s² ignores the two strands; 4.0 m/s² inverts the ratio; the load rises, not falls, when you pull.
 
 # ---- Lesson 10: Uniform circular motion ----
 - id: phys-m3-r2-q16
@@ -224,3 +224,354 @@
   answer: 2
   explanation: |-
     $\tan\theta = v^2/(rg)$, so $v = \sqrt{rg\tan\theta} = \sqrt{120(9.8)(0.268)} = 17.8$ m/s. 33.7 m/s uses $\cos\theta$ instead of $\tan\theta$; 66.3 m/s divides by $\tan\theta$ (inverting the formula); 315 m/s forgets the square root.
+
+# ---- Honors 10h1: Friction in systems ----
+- id: phys-m3-r2-h01
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A crate rests on the flat bed of a truck, with $\mu_s = 0.35$ between crate and bed. What is the largest forward acceleration the truck can have without the crate sliding? ($g = 9.8$ m/s²)'
+  choices: ['3.43 m/s²', '28.0 m/s²', '0.35 m/s²', '9.8 m/s²']
+  answer: 0
+  explanation: |-
+    Only static friction accelerates the crate, and it is at most $\mu_s mg$, so $a_{\max} = \mu_s g = 0.35(9.8) = 3.43$ m/s², whatever the crate's mass. 28.0 m/s² divides $g$ by $\mu_s$; 0.35 m/s² forgets the factor $g$; 9.8 m/s² ignores friction's limit.
+- id: phys-m3-r2-h02
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A box rides without slipping on the bed of a truck that is speeding up. Which way does the friction force on the box point?'
+  choices: ['Backward, opposite the truck''s acceleration', 'Forward, in the direction of the truck''s acceleration', 'There is none, because the box doesn''t slide', 'Straight down, into the truck bed']
+  answer: 1
+  explanation: |-
+    The box accelerates forward with the truck, so some horizontal force must push it forward, and the only thing touching it is the bed. Friction opposes relative sliding: without it the box would slide backward relative to the bed, so friction points forward. Static friction exists whenever something tends to make surfaces slide, even if they don't. Friction is parallel to the surface, never into it.
+- id: phys-m3-r2-h03
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A 3.0 kg block sits on a 9.0 kg board on a frictionless floor ($\mu_s = 0.25$ between them). You pull the board horizontally with 20 N, and the two move together. What is the friction force on the block? ($g = 9.8$ m/s²)'
+  choices: ['7.35 N', '20 N', '15 N', '5.0 N']
+  answer: 3
+  explanation: |-
+    Together: $a = 20/12 = 1.67$ m/s². The block needs $f = 3.0(1.67) = 5.0$ N, less than the maximum $\mu_s n = 0.25(3.0)(9.8) = 7.35$ N, so they do move together and the friction is 5.0 N. 7.35 N is the maximum, reached only on the verge of slipping; 20 N is the whole pull; 15 N is the board's $ma$, not the block's.
+- id: phys-m3-r2-h04
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A 2.0 kg block sits on a 4.0 kg board on a frictionless floor; between them $\mu_s = 0.30$ and $\mu_k = 0.20$. A 40 N horizontal pull on the board makes the block slip. What is the board''s acceleration? ($g = 9.8$ m/s²)'
+  choices: ['6.67 m/s²', '10.0 m/s²', '9.02 m/s²', '8.53 m/s²']
+  answer: 2
+  explanation: |-
+    (Moving together would need $2.0(40/6.0) = 13.3$ N of friction, more than $\mu_s n = 5.88$ N, so the block slips.) Kinetic friction on the board is $\mu_k(2.0)(9.8) = 3.92$ N backward: $a = (40 - 3.92)/4.0 = 9.02$ m/s². 6.67 m/s² assumes they move together; 10.0 m/s² ignores friction; 8.53 m/s² uses $\mu_s$ instead of $\mu_k$ after slipping.
+- id: phys-m3-r2-h05
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A crate is dragged at constant speed on a floor with $\mu_k = 0.75$. At what rope angle above horizontal is the needed force smallest?'
+  choices: ['53.1°', '45.0°', '0°', '36.9°']
+  answer: 3
+  explanation: |-
+    $F(\theta) = \mu mg/(\cos\theta + \mu\sin\theta)$ is smallest where $\tan\theta = \mu$: $\theta = \tan^{-1}(0.75) = 36.9^\circ$, the angle of friction. 53.1° is $\tan^{-1}(1/\mu)$; 45° is a guess with no basis in the formula; 0° (horizontal) wastes the chance to lower the normal force.
+- id: phys-m3-r2-h06
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A 50 kg crate on a floor with $\mu_k = 0.40$ is dragged at constant speed with the rope at the best angle. What force is needed? ($g = 9.8$ m/s²)'
+  choices: ['182 N', '196 N', '169 N', '211 N']
+  answer: 0
+  explanation: |-
+    $F_{\min} = \dfrac{\mu mg}{\sqrt{1 + \mu^2}} = \dfrac{0.40(50)(9.8)}{\sqrt{1.16}} = \dfrac{196}{1.077} = 182$ N. 196 N is the horizontal pull; 169 N divides by 1.16 without the square root; 211 N multiplies by $\sqrt{1.16}$ instead of dividing.
+- id: phys-m3-r2-h07
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A rope makes one full turn around a post ($\mu_s = 0.25$). Holding the free end with 200 N, what is the largest load tension you can resist?'
+  choices: ['257 N', '962 N', '514 N', '41.6 N']
+  answer: 1
+  explanation: |-
+    One turn is $\theta = 2\pi$ rad, so $T_{\text{load}} = 200e^{0.25(2\pi)} = 200e^{1.571} = 200(4.81) = 962$ N. 257 N uses $\theta = 1$ (turns, not radians); 514 N uses $1 + \mu\theta$ instead of $e^{\mu\theta}$; 41.6 N puts the larger tension on the holding side.
+- id: phys-m3-r2-h08
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'In the ideal capstan model, a rope is moved from a thin pole to a bollard with twice the radius, with the same wrap angle and $\mu$. The ratio $T_{\text{load}}/T_{\text{hold}}$'
+  choices: ['doubles', 'halves', 'stays the same', 'is squared']
+  answer: 2
+  explanation: |-
+    $T_{\text{load}}/T_{\text{hold}} = e^{\mu\theta}$ has no radius in it. A bigger post spreads the same total normal force over a longer contact, but the derivation only involves angles: $dn = T\,d\theta$ and $dT = \mu T\,d\theta$. (Real ropes, which are stiff, deviate somewhat from this ideal.)
+- id: phys-m3-r2-h09
+  lesson: phys-m3-h-friction-systems
+  type: text
+  topic: Friction in systems
+  stem: 'The angle whose tangent equals the coefficient of friction, $\tan\theta = \mu$, is called the angle of ___.'
+  accept: [friction]
+  explanation: |-
+    It is the angle of friction. It is both the best angle to pull a crate and the steepest incline on which an object can rest ($\tan\theta_{\max} = \mu_s$).
+- id: phys-m3-r2-h10
+  lesson: phys-m3-h-friction-systems
+  type: text
+  topic: Friction in systems
+  stem: 'A rope wraps one and a half turns around a post. Its wrap angle is ___ radians (3 significant figures).'
+  accept: ['9.42', '9.425', '3pi', '3π']
+  explanation: |-
+    Each full turn is $2\pi$ rad, so 1.5 turns is $3\pi = 9.42$ rad. The capstan equation needs the angle in radians.
+- id: phys-m3-r2-h11
+  lesson: phys-m3-h-friction-systems
+  topic: Friction in systems
+  stem: 'A block rides on a board that is pulled across a frictionless floor, and the two move together with acceleration $a$. Which statements are true? Select all that apply.'
+  choices: ['The friction on the block points in the direction of the acceleration', 'The friction on the block equals $m_{\text{block}}a$', 'The friction on the block must equal $\mu_s n$', 'The friction between block and board is an external force on the block-and-board system']
+  answer: [0, 1]
+  explanation: |-
+    Friction is the only horizontal force on the block, so it points along the acceleration and equals $m_{\text{block}}a$ by the second law. It reaches $\mu_s n$ only on the verge of slipping. The friction pair acts between the two blocks, so it is internal to the two-block system and cancels when you treat them as one.
+- id: phys-m3-r2-h12
+  lesson: phys-m3-h-friction-systems
+  type: label
+  topic: Friction in systems
+  stem: 'A rope is wrapped half a turn around a post and is on the verge of slipping toward the load. Name each numbered part.'
+  image: {src: images/phys-m3-capstan-blank.svg, alt: 'A rope wrapped half a turn around a round post seen from above. Both ends leave to the left, the upper one pulled by a short arrow and the lower one by a long arrow. On a short marked piece of rope at the lower right, one arrow points away from the post and one along the rope toward the top. A dashed curved arrow inside the post spans the wrapped part. Five parts are numbered.'}
+  labels:
+    - {x: 28.6, y: 21.4, text: Holding force}
+    - {x: 18.8, y: 78.6, text: Load tension}
+    - {x: 67.9, y: 66.5, text: Normal force on the rope}
+    - {x: 64.7, y: 52.5, text: Friction on the rope}
+    - {x: 54.5, y: 48.6, text: Wrap angle}
+  distractors: [Weight of the rope, Centripetal force]
+  explanation: |-
+    The load end carries the larger tension (2, the long arrow) and the holding end the smaller (1); $T_{\text{load}} = T_{\text{hold}}e^{\mu\theta}$. On the small piece of rope, the post pushes outward (3, the normal force), and friction acts along the rope toward the holding end (4), opposing the rope's tendency to slip toward the load. The dashed arc (5) is the wrap angle. The model treats the rope as massless, so no weight is drawn.
+- id: phys-m3-r2-h13
+  lesson: phys-m3-h-friction-systems
+  type: order
+  topic: Friction in systems
+  stem: 'Put the steps for a stacked-block problem (force applied to the bottom block) in order.'
+  items:
+    - 'Assume the blocks move together'
+    - 'Find the common acceleration from the whole system'
+    - 'Find the friction the top block needs, $m_{\text{top}}a$'
+    - 'Compare that friction with $\mu_s n$'
+    - 'If it is larger, redo the problem with kinetic friction and separate accelerations'
+  explanation: |-
+    Each step needs the one before it: the common acceleration only makes sense once you assume they move together; the needed friction uses that acceleration; the comparison with $\mu_s n$ tests the assumption; and only a failed test sends you to the slipping case.
+
+# ---- Honors 10h2: Drag ----
+- id: phys-m3-r2-h14
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'Two water droplets fall at terminal speed in still air, both obeying Stokes''s law. One has twice the radius of the other. Its terminal speed is'
+  choices: ['the same', '2 times as large', '4 times as large', '8 times as large']
+  answer: 2
+  explanation: |-
+    $v_T = \dfrac{mg}{6\pi\eta R}$ with $m \propto R^3$, so $v_T \propto R^2$: doubling $R$ multiplies $v_T$ by 4. 8 times forgets that the drag also grows with $R$; 2 times treats the mass as proportional to $R$.
+- id: phys-m3-r2-h15
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'A sand grain 2.0 mm across sinks through water (density 1000 kg/m³, viscosity $1.0 \times 10^{-3}$ Pa·s) at 0.20 m/s. What is its Reynolds number, based on its diameter?'
+  choices: ['200', '400', '$2.2 \times 10^4$', '$4.0 \times 10^5$']
+  answer: 1
+  explanation: |-
+    $Re = \rho vD/\eta = 1000(0.20)(0.0020)/(1.0\times10^{-3}) = 400$. That is between the linear and quadratic ranges, so neither simple drag law is accurate for it. 200 uses the radius; $2.2\times10^4$ uses the viscosity of air; $4.0\times10^5$ leaves $D$ in millimeters.
+- id: phys-m3-r2-h16
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'A 0.50 kg ball falls with quadratic drag $F_D = cv^2$, $c = 0.0050$ kg/m. What is its terminal speed? ($g = 9.8$ m/s²)'
+  choices: ['31.3 m/s', '980 m/s', '10.0 m/s', '0.032 m/s']
+  answer: 0
+  explanation: |-
+    At terminal speed $cv_T^2 = mg$, so $v_T = \sqrt{mg/c} = \sqrt{0.50(9.8)/0.0050} = \sqrt{980} = 31.3$ m/s. 980 forgets the square root; 10.0 m/s leaves out $g$; 0.032 m/s inverts the fraction.
+- id: phys-m3-r2-h17
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'Two balls have the same size and shape, but one has 4 times the mass. With quadratic drag, the heavier ball''s terminal speed is'
+  choices: ['the same', '4 times as large', '16 times as large', '2 times as large']
+  answer: 3
+  explanation: |-
+    $v_T = \sqrt{2mg/(C\rho A)}$ with the same $C$ and $A$, so $v_T \propto \sqrt m$: 4 times the mass gives $\sqrt4 = 2$ times the terminal speed. (With linear drag, $v_T = mg/b$ would be 4 times as large.)
+- id: phys-m3-r2-h18
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'An object falls from rest with quadratic drag. What fraction of its terminal speed does it have at $t = v_T/g$?'
+  choices: ['63%', '76%', '50%', '100%']
+  answer: 1
+  explanation: |-
+    $v = v_T\tanh(gt/v_T)$, so at $t = v_T/g$, $v = v_T\tanh 1 = 0.76v_T$. 63% is the value for linear drag after one time constant ($1 - e^{-1}$). The speed approaches $v_T$ but never quite reaches it.
+- id: phys-m3-r2-h19
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'A ball is thrown straight up and caught at the same height. With air drag, how do the times for the trip up and the trip down compare?'
+  choices: ['They are equal', 'The trip up takes longer', 'The trip down takes longer', 'It depends on whether drag is linear or quadratic']
+  answer: 2
+  explanation: |-
+    On the way up, drag and gravity both slow the ball, so it stops quickly. On the way down, drag opposes gravity, so the ball gains speed slowly and is moving slower at each height than it was going up. Covering the same distance more slowly takes longer. This holds for any drag that opposes the velocity, linear or quadratic.
+- id: phys-m3-r2-h20
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'A ball with terminal speed 25 m/s is thrown straight up at 20 m/s. With quadratic drag, how high does it rise? ($g = 9.8$ m/s²)'
+  choices: ['20.4 m', '18.7 m', '6.85 m', '15.8 m']
+  answer: 3
+  explanation: |-
+    $h = \dfrac{v_T^2}{2g}\ln\!\left(1 + \dfrac{v_0^2}{v_T^2}\right) = \dfrac{625}{19.6}\ln(1.64) = 31.9(0.495) = 15.8$ m. 20.4 m is the no-drag height $v_0^2/2g$; 18.7 m uses $\ln(1 + v_0/v_T)$ without squaring; 6.85 m uses $\log_{10}$ instead of the natural log.
+- id: phys-m3-r2-h21
+  lesson: phys-m3-h-drag
+  type: text
+  topic: Drag
+  stem: 'The linear drag law for a sphere in a viscous fluid, $F_D = 6\pi\eta Rv$, is called ___ law.'
+  accept: ["Stokes's", "Stokes'", 'Stokes', "Stoke's"]
+  explanation: |-
+    It is Stokes's law, worked out by George Stokes in 1851. It applies when the Reynolds number is much less than 1.
+- id: phys-m3-r2-h22
+  lesson: phys-m3-h-drag
+  type: text
+  topic: Drag
+  stem: 'A skydiver''s terminal speed is 50 m/s. Her characteristic time $\tau = v_T/g$ is ___ s (3 significant figures, $g = 9.8$ m/s²).'
+  accept: ['5.10', '5.1', '5.102']
+  explanation: |-
+    $\tau = 50/9.8 = 5.10$ s: the time free fall would take to reach 50 m/s. With quadratic drag she has $\tanh 1 = 76\%$ of her terminal speed after one $\tau$.
+- id: phys-m3-r2-h23
+  lesson: phys-m3-h-drag
+  type: match
+  topic: Drag
+  stem: 'Match each object to the drag law that describes it best.'
+  pairs:
+    - [A 10 μm cloud droplet falling in air, Linear (Stokes) drag]
+    - [A bacterium swimming in water, Linear (Stokes) drag]
+    - [A baseball in flight, Quadratic drag]
+    - [A skydiver in free fall, Quadratic drag]
+  distractors: [No drag at all]
+  explanation: |-
+    Tiny, slow objects have Reynolds numbers far below 1 (about 0.02 for the droplet), so viscosity dominates and drag is linear. A baseball or a skydiver moves fast enough, and is big enough, for $Re$ in the tens of thousands or more, where drag grows as $v^2$.
+- id: phys-m3-r2-h24
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'An object falls from rest with quadratic drag. Which statements are true? Select all that apply.'
+  choices: ['Just after release, $v \approx gt$', 'For a fixed size and shape, $v_T$ is proportional to $\sqrt m$', 'It reaches $v_T$ exactly at $t = v_T/g$', 'Its acceleration decreases as it speeds up', 'Its terminal speed doesn''t depend on the air''s density']
+  answer: [0, 1, 3]
+  explanation: |-
+    At low speed the drag $cv^2$ is tiny, so the object starts in near free fall. $v_T = \sqrt{2mg/(C\rho A)}$ grows as $\sqrt m$ and falls with air density $\rho$. As speed rises, drag grows and the net force, and so the acceleration, shrinks toward zero. The speed only approaches $v_T$; at $t = v_T/g$ it is 76% of it.
+- id: phys-m3-r2-h25
+  lesson: phys-m3-h-drag
+  type: order
+  topic: Drag
+  stem: 'A ball is thrown straight up and falls back, with air drag. Put these moments in time order.'
+  items:
+    - 'Just after release, it slows at more than $g$'
+    - 'At the top, it is momentarily at rest and its acceleration is exactly $g$'
+    - 'Falling, it speeds up at less than $g$'
+    - 'It returns to the launch height moving slower than it was thrown'
+  explanation: |-
+    Going up, drag adds to gravity, so the deceleration exceeds $g$. At the top, $v = 0$ means zero drag, so only gravity acts. Coming down, drag opposes gravity, so the acceleration is less than $g$. Drag has removed energy throughout, so the ball returns slower than it left.
+- id: phys-m3-r2-h26
+  lesson: phys-m3-h-drag
+  topic: Drag
+  stem: 'A ball with terminal speed 25 m/s is thrown straight up at 20 m/s and falls back. With quadratic drag, how fast is it moving when it returns to the launch height?'
+  choices: ['15.6 m/s', '20.0 m/s', '11.1 m/s', '25.0 m/s']
+  answer: 0
+  explanation: |-
+    The return speed is $v = \dfrac{v_0v_T}{\sqrt{v_0^2 + v_T^2}} = \dfrac{20(25)}{\sqrt{1025}} = 15.6$ m/s. 20.0 m/s ignores the energy lost to drag; 11.1 m/s uses $v_0v_T/(v_0 + v_T)$, dropping the squares and root; 25.0 m/s is the terminal speed, which a ball falling from only 15.8 m can't reach.
+
+# ---- Honors 10h3: Accelerating frames and fictitious forces ----
+- id: phys-m3-r2-h27
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'A car accelerates forward at 4.0 m/s². At what angle from vertical does a fuzzy die hang from the mirror (once it stops swinging)? ($g = 9.8$ m/s²)'
+  choices: ['24.1°', '67.8°', '22.2°', '0°']
+  answer: 2
+  explanation: |-
+    The string lines up with $\vec g_{\text{eff}} = \vec g - \vec A$: $\tan\theta = A/g = 4.0/9.8$, so $\theta = 22.2^\circ$, tilted toward the rear. 24.1° uses $\sin\theta = A/g$; 67.8° inverts the ratio (that's the angle from horizontal); 0° forgets that the die must accelerate with the car.
+- id: phys-m3-r2-h28
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'An elevator accelerates downward at 2.0 m/s². What is the effective gravity inside it? ($g = 9.8$ m/s²)'
+  choices: ['11.8 m/s²', '7.8 m/s²', '9.8 m/s²', '2.0 m/s²']
+  answer: 1
+  explanation: |-
+    $\vec g_{\text{eff}} = \vec g - \vec A$. Both point down, so $g_{\text{eff}} = 9.8 - 2.0 = 7.8$ m/s²: objects inside feel lighter. 11.8 m/s² would be for upward acceleration; 9.8 m/s² ignores the elevator's acceleration; 2.0 m/s² is the acceleration itself.
+- id: phys-m3-r2-h29
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'A car brakes hard while moving forward. In the car''s frame, the fictitious force on a passenger points'
+  choices: ['forward', 'backward', 'up', 'down']
+  answer: 0
+  explanation: |-
+    Braking means the car's acceleration $\vec A$ points backward, and the fictitious force $-m\vec A$ points opposite to it: forward. That is the "push" that seems to throw passengers toward the windshield; from the ground, they simply keep moving while the car slows.
+- id: phys-m3-r2-h30
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'Which of these forces has no Newton''s third-law partner?'
+  choices: ['The centrifugal force on a rider, in the merry-go-round''s frame', 'The normal force of a floor on a box', 'The tension a rope exerts on a bucket', 'The friction a road exerts on a tire']
+  answer: 0
+  explanation: |-
+    Fictitious forces such as the centrifugal force come from the frame's acceleration, not from another object, so there is nothing for them to act back on. The other three are real interactions: the box pushes the floor, the bucket pulls the rope, and the tire pushes the road.
+- id: phys-m3-r2-h31
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'A ring-shaped space station of radius 50 m spins to give 1.0 $g$ of artificial gravity at its rim. What is its rotation period? ($g = 9.8$ m/s²)'
+  choices: ['14.2 s', '2.26 s', '32.1 s', '0.443 s']
+  answer: 0
+  explanation: |-
+    $\omega^2 r = g$ gives $\omega = \sqrt{9.8/50} = 0.443$ rad/s, so $T = 2\pi/\omega = 14.2$ s. 0.443 is $\omega$ itself (in rad/s, not a period); 2.26 s is $1/\omega$, missing the $2\pi$; 32.1 s uses $\omega = g/r$ without the square root.
+- id: phys-m3-r2-h32
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'In the Northern Hemisphere, a long-range projectile is fired due north. Which way does the Coriolis force deflect it?'
+  choices: ['West, to its left', 'East, to its right', 'Straight up', 'It is not deflected']
+  answer: 1
+  explanation: |-
+    In the Northern Hemisphere the Coriolis force deflects moving objects to the right of their velocity. For motion due north, right is east.
+- id: phys-m3-r2-h33
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'In a space station rotating at $\omega = 0.25$ rad/s, an astronaut runs at 3.0 m/s along the floor (perpendicular to the rotation axis). What is the size of her Coriolis acceleration?'
+  choices: ['0.75 m/s²', '3.0 m/s²', '0.19 m/s²', '1.5 m/s²']
+  answer: 3
+  explanation: |-
+    For motion perpendicular to the axis, the Coriolis acceleration is $2\omega v' = 2(0.25)(3.0) = 1.5$ m/s². 0.75 m/s² leaves out the factor 2; 3.0 m/s² uses $4\omega v'$; 0.19 m/s² is $\omega^2 v'$, which isn't an acceleration at all.
+- id: phys-m3-r2-h34
+  lesson: phys-m3-h-noninertial
+  type: text
+  topic: Non-inertial frames
+  stem: 'Forces such as $-m\vec A$ that appear only when you work in an accelerating frame, with no object exerting them, are called ___ forces.'
+  accept: [fictitious, inertial, pseudo, pseudo-]
+  explanation: |-
+    They are fictitious forces, also called inertial forces or pseudo-forces. They have no agent and no third-law partner.
+- id: phys-m3-r2-h35
+  lesson: phys-m3-h-noninertial
+  type: text
+  topic: Non-inertial frames
+  stem: 'Earth rotates at $\omega = 7.29 \times 10^{-5}$ rad/s and its equatorial radius is $6.38 \times 10^6$ m. The centrifugal acceleration at the equator is ___ m/s² (2 significant figures).'
+  accept: ['0.034', '0.0339']
+  explanation: |-
+    $\omega^2R = (7.29\times10^{-5})^2(6.38\times10^6) = 0.034$ m/s², about 0.35% of $g$. It is part of why the measured free-fall acceleration is smaller at the equator than at the poles.
+- id: phys-m3-r2-h36
+  lesson: phys-m3-h-noninertial
+  type: match
+  topic: Non-inertial frames
+  stem: 'Each object is described in the frame named. Match it to the fictitious forces you must include.'
+  pairs:
+    - [A rider sitting still on a merry-go-round (merry-go-round frame), Centrifugal force only]
+    - [A ball rolling across a merry-go-round (merry-go-round frame), Centrifugal and Coriolis forces]
+    - [A passenger in a car speeding up in a straight line (car frame), A force opposite the car's acceleration]
+    - [A ball thrown on a playground (ground frame treated as inertial), None]
+  distractors: [Coriolis force only]
+  explanation: |-
+    In a rotating frame every object gets the centrifugal force, and objects that move in that frame also get the Coriolis force. A frame accelerating in a straight line needs one fictitious force, $-m\vec A$. In an inertial frame there are no fictitious forces at all. (The ground is treated as inertial for everyday motions; Earth's rotation matters only for large or long ones.)
+- id: phys-m3-r2-h37
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'Which statements about the Coriolis force are true? Select all that apply.'
+  choices: ['It is perpendicular to the object''s velocity in the rotating frame', 'It does no work on the object', 'It acts on objects at rest in the rotating frame', 'It is proportional to the object''s mass', 'It always points away from the rotation axis']
+  answer: [0, 1, 3]
+  explanation: |-
+    $-2m\vec\omega\times\vec v'$ is proportional to $m$ and perpendicular to $\vec v'$, so it changes the direction of motion but not the speed, doing no work. It is zero when $\vec v' = 0$. The force that always points away from the axis is the centrifugal force.
+- id: phys-m3-r2-h38
+  lesson: phys-m3-h-noninertial
+  type: label
+  topic: Non-inertial frames
+  stem: 'A pendulum hangs at rest inside a van that accelerates to the right. Viewed in the van''s frame, name each numbered arrow.'
+  image: {src: images/phys-m3-accel-van-blank.svg, alt: 'A van with a pendulum hanging from its ceiling, swung back to the left. Arrows from the bob: one up along the string, one straight down, a short dashed one to the left, and a dashed one down and to the left along the line of the string. An arrow above the van points right. Five arrows are numbered.'}
+  labels:
+    - {x: 47.9, y: 35.2, text: String tension}
+    - {x: 43.8, y: 63.5, text: Weight}
+    - {x: 37.5, y: 47.1, text: Fictitious force}
+    - {x: 37.5, y: 65.0, text: Mass times effective gravity}
+    - {x: 75.9, y: 10.7, text: Acceleration of the van}
+  distractors: [Centrifugal force, Normal force]
+  explanation: |-
+    The string pulls the bob along the string (1); gravity pulls it down (2). In the van's frame there is also the fictitious force $-m\vec A$, opposite the van's acceleration (3, left, because the van accelerates right, 5). Weight plus fictitious force is $m\vec g_{\text{eff}}$ (4), which lines up with the string, so the tension balances it and the bob hangs at rest. Nothing rotates, so there is no centrifugal force, and nothing touches the bob but the string.
+- id: phys-m3-r2-h39
+  lesson: phys-m3-h-noninertial
+  topic: Non-inertial frames
+  stem: 'A block sits on a frictionless $30^\circ$ wedge. What horizontal acceleration of the wedge keeps the block from sliding along it? ($g = 9.8$ m/s²)'
+  choices: ['4.90 m/s²', '5.66 m/s²', '8.49 m/s²', '17.0 m/s²']
+  answer: 1
+  explanation: |-
+    In the wedge frame, the down-slope part of the weight must balance the up-slope part of the fictitious force: $mg\sin\theta = mA\cos\theta$, so $A = g\tan 30^\circ = 5.66$ m/s². 4.90 m/s² is $g\sin\theta$; 8.49 m/s² is $g\cos\theta$; 17.0 m/s² is $g/\tan\theta$.

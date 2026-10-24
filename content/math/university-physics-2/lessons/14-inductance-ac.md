@@ -49,6 +49,10 @@ Connect an inductor $L$ in series with a resistor $R$ and a battery $\mathcal{E}
 
 $$I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau}\right), \qquad \tau = \frac LR.$$
 
+```plot
+{"x": [0, 5], "y": [0, 1.15], "functions": [{"f": "1 - exp(-x)", "label": "I / (ℰ/R)"}, {"f": "1", "dashed": true}], "points": [{"at": [1, 0.632], "label": "63% at t = τ"}], "xLabel": "t / τ", "yLabel": "I / (ℰ/R)", "caption": "Current rising in an RL circuit: 63% of the final value after one time constant, over 99% after five"}
+```
+
 The time constant $L/R$ plays the same role as $RC$. If the battery is then removed (with a path left for the current), the current decays as $I = I_0e^{-t/\tau}$. An inductor acts like an open circuit at the instant of switching on and like a plain wire once the current is steady, the opposite of a capacitor.
 
 Breaking an inductive circuit abruptly forces $dI/dt$ to be huge, inducing a large voltage that can spark across the switch. Car ignition coils use this deliberately to make the tens of kilovolts that fire a spark plug.
@@ -61,7 +65,19 @@ $\tau = 0.20/40 = 5.0$ ms. Final current $= 12/40 = 0.30$ A. At 10 ms $= 2\tau$:
 
 ## LC circuits
 
-Connect a charged capacitor to an inductor (no resistor). The capacitor discharges, building current and storing energy in the inductor's field; the inductor then keeps the current going and charges the capacitor the other way; and so on. Energy sloshes between electric and magnetic forms, exactly like a mass on a spring sloshes between potential and kinetic energy. The oscillation frequency is
+Connect a charged capacitor to an inductor (no resistor). The capacitor discharges, building current and storing energy in the inductor's field; the inductor then keeps the current going and charges the capacitor the other way; and so on. Energy sloshes between electric and magnetic forms, exactly like a mass on a spring sloshes between potential and kinetic energy. Each stage of the cycle lasts a quarter period:
+
+```mermaid
+flowchart TD
+  accTitle: Energy sloshing in an LC circuit
+  accDescr: A cycle of four stages. The capacitor is fully charged and all the energy is electric. The capacitor discharges, current is greatest, and all the energy is magnetic in the inductor. The inductor keeps the current going and charges the capacitor the opposite way, so all the energy is electric again. The current then flows back, the energy becomes magnetic again, and the cycle repeats.
+  A["Capacitor full: all energy electric"] --> B["Current maximum: all energy magnetic"]
+  B --> C["Capacitor full, reversed: all energy electric"]
+  C --> D["Current maximum, reversed: all energy magnetic"]
+  D --> A
+```
+
+The oscillation frequency is
 
 $$\omega = \frac{1}{\sqrt{LC}}, \qquad f = \frac{1}{2\pi\sqrt{LC}}.$$
 
@@ -85,7 +101,16 @@ Capacitors and inductors respond to AC with frequency-dependent **reactance** (o
 
 $$X_C = \frac{1}{\omega C}, \qquad X_L = \omega L.$$
 
-A capacitor blocks low frequencies and passes high ones; an inductor does the reverse. In a series RLC circuit the total opposition, the **impedance**, is
+A capacitor blocks low frequencies and passes high ones; an inductor does the reverse.
+
+```plot
+{"x": [0, 3], "y": [0, 4], "functions": [{"f": "x", "label": "X_L = ωL"}, {"f": "1/x", "dashed": true, "label": "X_C = 1/(ωC)"}], "points": [{"at": [1, 1], "label": "resonance: X_L = X_C"}], "xLabel": "ω / ω₀", "yLabel": "reactance / √(L/C)", "caption": "Inductive reactance rises with frequency and capacitive reactance falls; they are equal at the resonant frequency"}
+```
+
+The picture shows the series RLC circuit that the rest of this section analyzes.
+
+![A series circuit: an AC source, a resistor R, an inductor L and a capacitor C connected in one loop](images/phys-m10-rlc.svg)
+ In a series RLC circuit the total opposition, the **impedance**, is
 
 $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I_{\text{rms}} = \frac{V_{\text{rms}}}{Z}.$$
 

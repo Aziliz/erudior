@@ -38,8 +38,8 @@ Combinations like $q_1$ and $q_2$, which each oscillate independently at a singl
 
 A **normal mode** is a motion in which every part of the system oscillates at the same frequency, with fixed amplitude ratios, passing through equilibrium together. The two-mass system has two:
 
-- **Mode 1** ($q_2 = 0$, so $x_1 = x_2$): the masses move together, in phase. The middle spring is never stretched, so it does nothing, and each mass oscillates as if attached only to its outer spring: $\omega_1 = \sqrt{k/m}$.
-- **Mode 2** ($q_1 = 0$, so $x_1 = -x_2$): the masses move in opposite directions. The midpoint of the coupling spring never moves, so each mass feels its outer spring plus half of the coupling spring, which has stiffness $2k'$: total $k + 2k'$, so $\omega_2 = \sqrt{(k + 2k')/m}$.
+- *Mode 1* ($q_2 = 0$, so $x_1 = x_2$): the masses move together, in phase. The middle spring is never stretched, so it does nothing, and each mass oscillates as if attached only to its outer spring: $\omega_1 = \sqrt{k/m}$.
+- *Mode 2* ($q_1 = 0$, so $x_1 = -x_2$): the masses move in opposite directions. The midpoint of the coupling spring never moves, so each mass feels its outer spring plus half of the coupling spring, which has stiffness $2k'$: total $k + 2k'$, so $\omega_2 = \sqrt{(k + 2k')/m}$.
 
 The out-of-phase mode is always the higher frequency here, because it uses the extra stiffness of the coupling spring. Any motion at all is a superposition of the two modes:
 
@@ -68,7 +68,11 @@ $$t_{\text{transfer}} = \frac{\pi}{\Delta\omega},$$
 and then the energy flows back. This is the beat phenomenon of the sound lesson, $f_{\text{beat}} = |f_1 - f_2|$, now seen as energy sloshing between two oscillators. Weak coupling ($k' \ll k$) makes $\Delta\omega$ small and the transfer slow.
 
 ```plot
-{"x": [0, 13], "y": [-2.8, 2.8], "xLabel": "t (s)", "yLabel": "displacement (offset)", "functions": [{"f": "1.5 + cos(0.25*x)*cos(8*x)", "to": 12.6}, {"f": "-1.5 + sin(0.25*x)*sin(8*x)", "to": 12.6}], "labels": [{"at": [0.9, 2.65], "text": "block 1"}, {"at": [0.9, -0.3], "text": "block 2"}], "caption": "Weakly coupled oscillators (ω̄ = 8 rad/s, Δω = 0.5 rad/s), block 1 released first: the motion passes fully to block 2 after π/Δω ≈ 6.3 s and back by 12.6 s"}
+{"x": [0, 13], "y": [-1.3, 1.3], "xLabel": "t (s)", "yLabel": "x₁ / A", "functions": [{"f": "cos(0.25*x)*cos(8*x)", "to": 12.6}], "caption": "Block 1, released first: its swing dies away and returns"}
+```
+
+```plot
+{"x": [0, 13], "y": [-1.3, 1.3], "xLabel": "t (s)", "yLabel": "x₂ / A", "functions": [{"f": "sin(0.25*x)*sin(8*x)", "to": 12.6}], "caption": "Block 2, released from equilibrium: it swings fully after π/Δω ≈ 6.3 s. Weak coupling, ω̄ = 8 rad/s and Δω = 0.5 rad/s"}
 ```
 
 ### Example 2
@@ -141,7 +145,7 @@ exactly the harmonics of the waves lesson, with $v = \sqrt{F/\mu}$. A string's h
 
 ## Key points
 
-- Coupled equations separate into **normal coordinates** ($x_1 + x_2$ and $x_1 - x_2$ for two equal masses), each in plain SHM.
+- Coupled equations separate into normal coordinates ($x_1 + x_2$ and $x_1 - x_2$ for two equal masses), each in plain SHM.
 - Two masses, three springs: $\omega_1 = \sqrt{k/m}$ (in phase), $\omega_2 = \sqrt{(k + 2k')/m}$ (out of phase).
 - Any motion is a superposition of normal modes; $N$ coordinates give $N$ modes.
 - Modes from $x_j = a_j\cos\omega t$ and a zero determinant (eigenvalues give $\omega^2$, eigenvectors give shapes).

@@ -19,6 +19,10 @@ $$v_{\text{cm}} = R\omega, \qquad a_{\text{cm}} = R\alpha.$$
 
 The motion is a translation of the center plus a rotation about it. The top of the wheel moves at $v_{\text{cm}} + R\omega = 2v_{\text{cm}}$, the bottom at $v_{\text{cm}} - R\omega = 0$. That's why the top of a bicycle wheel's spokes look blurred in photos while the bottom ones look sharp.
 
+Adding the two motions point by point gives the rolling velocities:
+
+![Three wheels side by side. The first, in pure translation, has velocity v at the top, center and bottom. The second, in pure rotation about its center, has v forward at the top, zero at the center and v backward at the bottom. Their sum, the rolling wheel, has 2v at the top, v at the center and zero at the contact point.](images/phys-m5-rolling-sum.svg)
+
 The kinetic energy has both parts:
 
 $$K = \tfrac12Mv_{\text{cm}}^2 + \tfrac12I_{\text{cm}}\omega^2.$$
@@ -66,6 +70,18 @@ If the net external torque on a system is zero, its angular momentum is constant
 $$I_i\omega_i = I_f\omega_f.$$
 
 This is **conservation of angular momentum**. The striking consequence: if a system changes shape and its moment of inertia changes, its rotation rate adjusts in the opposite direction. A skater pulling in her arms reduces $I$, so $\omega$ increases. A diver tucks to spin faster and opens out to slow down before entering the water. A collapsing star can shrink to a neutron star spinning hundreds of times per second.
+
+Before using it, check the condition, about a definite axis:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether angular momentum is conserved
+  accDescr: Choose a system and an axis. If the net external torque about that axis is zero, angular momentum about it is conserved, so the initial I omega equals the final I omega; kinetic energy may still change, so do not assume it is conserved. If the net external torque is not zero, use torque equals the rate of change of angular momentum, or torque equals I alpha for a fixed axis.
+  A["Choose a system and an axis"] --> B{"Net external torque zero?"}
+  B -->|"yes"| C["L is conserved: I₁ω₁ = I₂ω₂"]
+  B -->|"no"| D["Use τ = dL/dt, or τ = Iα"]
+  C --> E["Kinetic energy may still change: check it separately"]
+```
 
 ### Example 2
 

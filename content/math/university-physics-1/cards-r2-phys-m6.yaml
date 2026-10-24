@@ -1,0 +1,19 @@
+# Round 2 cards for phys-m6 honors lessons (Fourier analysis; normal modes).
+- {front: 'Fourier series of a periodic signal', back: '$y = a_0 + \sum_n [a_n\cos(n\omega_1t) + b_n\sin(n\omega_1t)]$, with $\omega_1 = 2\pi/T$.', topic: Fourier analysis}
+- {front: 'Fourier coefficients', back: '$a_0 = \tfrac1T\int y\,dt$ (the average); $a_n = \tfrac2T\int y\cos(n\omega_1t)\,dt$; $b_n = \tfrac2T\int y\sin(n\omega_1t)\,dt$, over one period.', topic: Fourier analysis}
+- {front: 'Amplitude of the $n$th harmonic', back: '$c_n = \sqrt{a_n^2 + b_n^2}$', topic: Fourier analysis}
+- {front: 'Square wave ($\pm A$) Fourier series', back: '$\dfrac{4A}{\pi}\left(\sin\omega_1t + \tfrac13\sin3\omega_1t + \tfrac15\sin5\omega_1t + \cdots\right)$: odd harmonics only.', topic: Fourier analysis}
+- {front: 'Sawtooth wave (from $-A$ to $+A$) spectrum', back: 'Every harmonic, amplitude $2A/(n\pi)$.', topic: Fourier analysis}
+- {front: 'Symmetry shortcuts for Fourier series', back: 'Odd signal: sines only. Even signal: cosines (and a constant) only. $y(t + T/2) = -y(t)$: odd harmonics only.', topic: Fourier analysis}
+- {front: 'Gibbs phenomenon', back: 'Next to a jump, a partial Fourier sum overshoots by about 9% of the jump however many terms are used; the overshoot only narrows.', topic: Fourier analysis}
+- {front: 'Parseval''s theorem', back: '$\overline{y^2} = a_0^2 + \tfrac12\sum c_n^2$: power in the harmonics adds. A square wave has 81% of its power in the fundamental.', topic: Fourier analysis}
+- {front: 'Plucked string harmonics', back: '$B_n \propto \sin(n\pi d/L)/n^2$ for a pluck at distance $d$: a harmonic with a node at the pluck point is missing.', topic: Fourier analysis}
+- {front: 'Duration and bandwidth of a signal', back: 'A signal lasting $\Delta t$ spans about $\Delta f \sim 1/\Delta t$ (order of magnitude).', topic: Fourier analysis}
+- {front: 'Normal mode', back: 'Every part oscillates at one frequency with fixed amplitude ratios. $N$ coordinates give $N$ modes; any motion is a superposition of them.', topic: Normal modes}
+- {front: 'Two masses, springs $k$, $k''$, $k$: mode frequencies', back: 'In phase: $\omega_1 = \sqrt{k/m}$ (coupling spring idle). Out of phase: $\omega_2 = \sqrt{(k + 2k'')/m}$.', topic: Normal modes}
+- {front: 'Normal coordinates for two equal masses', back: '$q_1 = x_1 + x_2$ and $q_2 = x_1 - x_2$, each obeying its own SHM equation.', topic: Normal modes}
+- {front: 'Energy transfer time between two coupled oscillators', back: '$t = \pi/(\omega_2 - \omega_1)$ after releasing one alone; back again after $2\pi/(\omega_2 - \omega_1)$.', topic: Normal modes}
+- {front: 'Coupled pendulums (length $L$, bob $m$, spring $k''$)', back: '$\omega_1 = \sqrt{g/L}$, $\omega_2 = \sqrt{g/L + 2k''/m}$.', topic: Normal modes}
+- {front: 'Finding normal modes in general', back: 'Put $x_j = a_j\cos\omega t$ into the equations of motion and set the determinant to zero: eigenvalues give $\omega^2$, eigenvectors give mode shapes.', topic: Normal modes}
+- {front: 'Beaded string modes ($N$ beads, spacing $a$)', back: '$\omega_n = 2\sqrt{F/(ma)}\,\sin\dfrac{n\pi}{2(N+1)}$; for many beads the low modes become $f_n = nv/(2L)$.', topic: Normal modes}
+- {front: 'Dispersion', back: 'Wave speed that depends on frequency, e.g. short waves on a beaded string are slower.', topic: Normal modes}

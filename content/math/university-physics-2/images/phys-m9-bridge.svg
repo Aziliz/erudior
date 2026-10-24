@@ -37,8 +37,8 @@
 <text x="480.0" y="335.0" font-size="19" text-anchor="start" fill="#1c2833" font-style="italic">Rₓ</text>
 <text x="218.0" y="222.0" font-size="18" text-anchor="end" fill="#1c2833" font-weight="bold">c</text>
 <text x="542.0" y="222.0" font-size="18" text-anchor="start" fill="#1c2833" font-weight="bold">d</text>
-<line x1="350.0" y1="200.0" x2="398.0" y2="200.0" stroke="#a93226" stroke-width="3" stroke-linecap="round"/>
-<polygon points="410.0,200.0 398.0,206.0 398.0,194.0" fill="#a93226"/>
+<line x1="410.0" y1="200.0" x2="362.0" y2="200.0" stroke="#a93226" stroke-width="3" stroke-linecap="round"/>
+<polygon points="350.0,200.0 362.0,194.0 362.0,206.0" fill="#a93226"/>
 <text x="380.0" y="188.0" font-size="17" text-anchor="middle" fill="#1c2833" font-style="italic">I<tspan font-size="14" dy="5" font-style="normal">g</tspan></text>
 <text x="620.0" y="236.0" font-size="15" text-anchor="middle" fill="#1c2833">Balanced when</text>
 <text x="620.0" y="258.0" font-size="15" text-anchor="middle" fill="#1c2833">R₁/R₂ = R₃/Rₓ</text>

@@ -11,14 +11,14 @@ A factory robot that welds car bodies, a telescope mount that follows a star, an
 
 ## Rotating a point
 
-Start with the basic move. Turn the point $(x, y)$ counterclockwise about the origin by an angle $\theta$. Where does it go?
+Start with the basic move. Turn the point $(x, y)$ counterclockwise about the origin by an angle $\theta$. Where does it go? (If you did the Module 8 honors lesson on rotating vectors, this section is a quick review; the arm itself starts in the next section.)
 
 Write the point in polar form, $(x, y) = (r\cos\alpha, r\sin\alpha)$, where $r$ is its distance from the origin and $\alpha$ its direction. A rotation keeps the distance and adds $\theta$ to the direction, so the new point is $(r\cos(\alpha + \theta), r\sin(\alpha + \theta))$. Now expand with the sum formulas:
 
 $$r\cos(\alpha + \theta) = r\cos\alpha\cos\theta - r\sin\alpha\sin\theta = x\cos\theta - y\sin\theta,$$
 $$r\sin(\alpha + \theta) = r\sin\alpha\cos\theta + r\cos\alpha\sin\theta = x\sin\theta + y\cos\theta.$$
 
-These are the **rotation formulas**:
+These are the rotation formulas:
 $$x' = x\cos\theta - y\sin\theta, \qquad y' = x\sin\theta + y\cos\theta.$$
 
 Notice what happened: $r$ and $\alpha$ disappeared. You never need the point's angle; the formulas work straight from its coordinates. That is exactly why computers use them. Engineers usually write the four numbers $\cos\theta$, $-\sin\theta$, $\sin\theta$, $\cos\theta$ as a square array called a **rotation matrix**; you'll multiply with such arrays in linear algebra, but the arithmetic is just the two formulas above.

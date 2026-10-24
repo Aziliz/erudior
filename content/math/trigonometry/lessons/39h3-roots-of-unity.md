@@ -5,10 +5,10 @@ title: "De Moivre's theorem at work: identities and roots of unity"
 minutes: 50
 honors: true
 topics: [Roots of unity]
-drills: [trig-m9-r2-triple-angle, trig-m9-r2-unity-factor]
+drills: [trig-m9-r2-five-angle, trig-m9-r2-unity-factor]
 refs: [trig-ref-identities, trig-ref-triangles]
 ---
-Lesson 39 used De Moivre's theorem to compute powers and to find the $n$th roots of a number, which form a regular polygon. This lesson turns the theorem around and uses it as a tool. Expanding $(\cos\theta + i\sin\theta)^n$ with algebra and comparing with $\cos n\theta + i\sin n\theta$ produces every multiple-angle identity at once, with no memorizing. Then the roots of unity, the corners of that regular polygon, turn out to have tidy algebra of their own: they add to zero, they factor $z^n - 1$, they give $\cos 72^\circ$ exactly, and they hide a surprising fact about chords of a polygon.
+Lesson 39 used De Moivre's theorem to compute powers and to find the $n$th roots of a number, which form a regular polygon. This lesson turns the theorem around and uses it as a tool. Expanding $(\cos\theta + i\sin\theta)^n$ with algebra and comparing with $\cos n\theta + i\sin n\theta$ produces every multiple-angle identity at once, with no memorizing (Lesson 24 and the Module 6 honors lesson built them one step at a time from the sum formulas). Then the roots of unity, the corners of that regular polygon, turn out to have tidy algebra of their own: they add to zero, they factor $z^n - 1$, they lead to exact values such as $\cos 72^\circ$, they explain why the regular heptagon has no such value, and they hide a surprising fact about chords of a polygon.
 
 ## Multiple-angle identities for free
 
@@ -38,13 +38,23 @@ Replace $s^2$ by $1 - c^2$ in the first and $c^2$ by $1 - s^2$ in the second:
 $$\cos 3\theta = 4\cos^3\theta - 3\cos\theta, \qquad \sin 3\theta = 3\sin\theta - 4\sin^3\theta.$$
 Check at $\theta = 60^\circ$: $4\left(\tfrac18\right) - 3\left(\tfrac12\right) = -1 = \cos 180^\circ$. ✓
 
-### Example 2: using a triple-angle formula
+### Example 2: five times an angle in one step
 
-If $\cos\theta = \tfrac13$, find $\cos 3\theta$ exactly.
+Find $\cos 5\theta$ and $\sin 5\theta$, and use one of them to find $\sin 5\theta$ when $\sin\theta = \tfrac13$.
 
-$\cos 3\theta = 4\left(\tfrac13\right)^3 - 3\left(\tfrac13\right) = \tfrac{4}{27} - 1 = -\tfrac{23}{27}$. Doing this with the sum formula for $\cos(2\theta + \theta)$ takes several more lines and needs $\sin\theta$ along the way.
+**Expand.** The binomial coefficients for the 5th power are $1, 5, 10, 10, 5, 1$, and the powers of $i$ cycle $1, i, -1, -i, 1, i$:
+$$(c + is)^5 = c^5 + 5ic^4s - 10c^3s^2 - 10ic^2s^3 + 5cs^4 + is^5.$$
 
-The same method with $n = 4$ gives $\cos 4\theta = c^4 - 6c^2s^2 + s^4 = 8\cos^4\theta - 8\cos^2\theta + 1$ and $\sin 4\theta = 4c^3s - 4cs^3$. In general $\cos n\theta$ is always a polynomial in $\cos\theta$ (these are called Chebyshev polynomials), a fact used in numerical computing.
+**Match parts.**
+$$\cos 5\theta = c^5 - 10c^3s^2 + 5cs^4, \qquad \sin 5\theta = 5c^4s - 10c^2s^3 + s^5.$$
+
+**One function at a time.** Replacing $s^2$ by $1 - c^2$ in the first and $c^2$ by $1 - s^2$ in the second, then collecting terms, gives two formulas of the same shape:
+$$\cos 5\theta = 16\cos^5\theta - 20\cos^3\theta + 5\cos\theta, \qquad \sin 5\theta = 16\sin^5\theta - 20\sin^3\theta + 5\sin\theta.$$
+(Check at $\theta = 90^\circ$: $16 - 20 + 5 = 1 = \sin 450^\circ$. ✓)
+
+**Use it.** With $\sin\theta = \tfrac13$: $\sin 5\theta = \tfrac{16}{243} - \tfrac{20}{27} + \tfrac53 = \tfrac{16 - 180 + 405}{243} = \tfrac{241}{243} \approx 0.9918$.
+
+Building $\cos 5\theta$ from the sum formulas takes several rounds of $\cos(A + B)$ and $\sin(A + B)$; the binomial expansion does it in one line. The cosine formulas are the Chebyshev polynomials of the Module 6 honors lesson.
 
 ## The roots of unity as powers of one number
 
@@ -92,9 +102,9 @@ The sixth roots of unity are $1$, $-1$ and the pairs at $\pm60^\circ$ and $\pm12
 $$z^6 - 1 = (z - 1)(z + 1)(z^2 - z + 1)(z^2 + z + 1).$$
 Check against algebra: $z^6 - 1 = (z^3 - 1)(z^3 + 1)$, and $z^3 - 1 = (z - 1)(z^2 + z + 1)$, $z^3 + 1 = (z + 1)(z^2 - z + 1)$. ✓
 
-## An exact value: $\cos 72^\circ$
+## Exact values from roots of unity
 
-The special angles of Lesson 11 are multiples of $30^\circ$ and $45^\circ$. The fifth roots of unity reach $72^\circ$. Let $z = \operatorname{cis}72^\circ$. It satisfies $z^5 = 1$ and $z \ne 1$, so dividing $z^5 - 1$ by $z - 1$:
+The special angles of Lesson 11 are multiples of $30^\circ$ and $45^\circ$. The Module 2 and Module 6 honors lessons reached $72^\circ$ and $36^\circ$ with a golden triangle and with a fifth-multiple identity. Roots of unity give a third route, and the same route then shows what goes wrong for the heptagon. Let $z = \operatorname{cis}72^\circ$. It satisfies $z^5 = 1$ and $z \ne 1$, so dividing $z^5 - 1$ by $z - 1$:
 $$z^4 + z^3 + z^2 + z + 1 = 0.$$
 
 ### Example 5
@@ -110,7 +120,20 @@ $$(w^2 - 2) + w + 1 = 0, \qquad w^2 + w - 1 = 0.$$
 $$\cos 72^\circ = \frac{w}{2} = \frac{\sqrt5 - 1}{4} \approx 0.3090.$$
 The other root, $\tfrac{-1 - \sqrt5}{2}$, is $2\cos 144^\circ$, so $\cos 144^\circ = -\tfrac{1 + \sqrt5}{4}$ and, by the supplement rule, $\cos 36^\circ = \tfrac{1 + \sqrt5}{4} \approx 0.8090$. The golden ratio $\tfrac{1 + \sqrt5}{2}$ appears because these are the angles of a regular pentagon.
 
-In 1796, at 18, Carl Friedrich Gauss used the same kind of algebra on the 17th roots of unity to show that a regular 17-gon can be constructed with straightedge and compass, the first new constructible polygon found since ancient Greece.
+### Example 6: the heptagon
+
+Let $z = \operatorname{cis}\tfrac{360^\circ}{7}$ and $w = z + z^{-1} = 2\cos\tfrac{360^\circ}{7}$. Find a polynomial equation for $w$.
+
+**Same start.** $z^7 = 1$ and $z \ne 1$ give $z^6 + z^5 + z^4 + z^3 + z^2 + z + 1 = 0$. Divide by $z^3$ and group the terms in pairs:
+$$(z^3 + z^{-3}) + (z^2 + z^{-2}) + (z + z^{-1}) + 1 = 0.$$
+
+**Write each pair with $w$.** $z^2 + z^{-2} = w^2 - 2$ as before, and $w^3 = z^3 + 3z + 3z^{-1} + z^{-3}$, so $z^3 + z^{-3} = w^3 - 3w$. Substituting:
+$$(w^3 - 3w) + (w^2 - 2) + w + 1 = 0, \qquad w^3 + w^2 - 2w - 1 = 0.$$
+Its three roots are $2\cos\tfrac{360^\circ}{7} \approx 1.2470$, $2\cos\tfrac{720^\circ}{7} \approx -0.4450$ and $2\cos\tfrac{1080^\circ}{7} \approx -1.8019$ (their sum is $-1$, as the equation says).
+
+**What it means.** For the pentagon the equation was a quadratic, so the quadratic formula gave square roots. Here it is a cubic, and it has no rational root (only $\pm1$ could be, and neither works). By the theorem of Wantzel (1837) quoted in the Module 6 honors lesson, a root of such a cubic can't be built from whole numbers with square roots alone. So $\cos\tfrac{360^\circ}{7}$ has no expression with square roots, and the regular heptagon cannot be constructed with straightedge and compass.
+
+In 1796, at 18, Carl Friedrich Gauss used this kind of algebra on the 17th roots of unity, where the equations break down into a chain of quadratics, to show that a regular 17-gon *can* be constructed, the first new constructible polygon found since ancient Greece.
 
 ## A surprise about polygon diagonals
 
@@ -121,7 +144,7 @@ $$\frac{z^n - 1}{z - 1} = (z - \omega)(z - \omega^2)\cdots(z - \omega^{n-1}),$$
 and the left side is also $1 + z + z^2 + \cdots + z^{n-1}$. Set $z = 1$: the left side is $n$, and taking absolute values on the right gives
 $$|1 - \omega|\,|1 - \omega^2|\cdots|1 - \omega^{n-1}| = n.$$
 
-### Example 6: checking the square and the hexagon
+### Example 7: checking the square and the hexagon
 
 **Square** ($n = 4$, corners $1, i, -1, -i$): from 1 the distances are $|1 - i| = \sqrt2$, $|1 - (-1)| = 2$ and $|1 + i| = \sqrt2$. Product: $\sqrt2 \cdot 2 \cdot \sqrt2 = 4$. ✓
 
@@ -137,8 +160,9 @@ $$|1 - \omega|\,|1 - \omega^2|\cdots|1 - \omega^{n-1}| = n.$$
 
 ## Key points
 
-- Expanding $(\cos\theta + i\sin\theta)^n$ and matching real and imaginary parts gives formulas for $\cos n\theta$ and $\sin n\theta$; e.g. $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$, $\sin 3\theta = 3\sin\theta - 4\sin^3\theta$.
+- Expanding $(\cos\theta + i\sin\theta)^n$ and matching real and imaginary parts gives formulas for $\cos n\theta$ and $\sin n\theta$; e.g. $\sin 3\theta = 3\sin\theta - 4\sin^3\theta$, $\cos 5\theta = 16\cos^5\theta - 20\cos^3\theta + 5\cos\theta$.
 - The $n$th roots of unity are $1, \omega, \ldots, \omega^{n-1}$ with $\omega = \operatorname{cis}\tfrac{2\pi}{n}$; $\overline{\omega^k} = \omega^{n-k}$.
 - They add to 0, and $z^n - 1 = \prod(z - \omega^k)$; each conjugate pair gives $z^2 - 2\cos\tfrac{2\pi k}{n}\,z + 1$.
 - All $n$th roots of $c$: one root times each $n$th root of unity.
-- $\cos 72^\circ = \tfrac{\sqrt5 - 1}{4}$; the chords from one corner of a regular $n$-gon in the unit circle multiply to $n$.
+- With $w = z + z^{-1} = 2\cos\tfrac{360^\circ}{n}$, roots of unity give a polynomial equation for the cosine: a quadratic for $n = 5$ ($\cos 72^\circ = \tfrac{\sqrt5 - 1}{4}$), a cubic with no rational root for $n = 7$.
+- The chords from one corner of a regular $n$-gon in the unit circle multiply to $n$.

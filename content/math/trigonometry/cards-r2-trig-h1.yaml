@@ -1,0 +1,45 @@
+# Round 2 cards for the honors module trig-h1 (Trigonometry in science and engineering)
+# Lesson 90: rotations and robot arms
+- {front: 'Rotate $(x, y)$ by $\theta$ counterclockwise about the origin', back: '$x'' = x\cos\theta - y\sin\theta$, $\quad y'' = x\sin\theta + y\cos\theta$', topic: Rotations}
+- {front: 'Where the rotation formulas come from', back: 'Write $(x, y) = (r\cos\alpha, r\sin\alpha)$, add $\theta$ to the angle, and expand $\cos(\alpha + \theta)$ and $\sin(\alpha + \theta)$ with the sum formulas.', topic: Rotations}
+- {front: 'Rotation as complex multiplication', back: 'Rotating $(x, y)$ by $\theta$ = multiplying $x + yi$ by $\cos\theta + i\sin\theta$.', topic: Rotations}
+- {front: 'Rotating by $\theta$ then by $\varphi$', back: 'The same as one rotation by $\theta + \varphi$; rotating by $-\theta$ undoes a rotation by $\theta$.', topic: Rotations}
+- {front: 'Forward kinematics of a two-link arm', back: '$x = L_1\cos\theta_1 + L_2\cos(\theta_1 + \theta_2)$, $\quad y = L_1\sin\theta_1 + L_2\sin(\theta_1 + \theta_2)$', topic: Robot arm kinematics}
+- {front: 'Direction of link 2 in a two-link arm', back: '$\theta_1 + \theta_2$: the elbow angle $\theta_2$ is measured from the direction of link 1.', topic: Robot arm kinematics}
+- {front: 'Elbow angle in inverse kinematics', back: '$\cos\theta_2 = \dfrac{d^2 - L_1^2 - L_2^2}{2L_1L_2}$ with $d = \sqrt{x^2 + y^2}$; $\theta_2 = \pm\cos^{-1}(\ldots)$', topic: Robot arm kinematics}
+- {front: 'Shoulder angle in inverse kinematics', back: '$\theta_1 = \varphi - \psi$ for positive $\theta_2$, $\varphi + \psi$ for negative, where $\varphi$ is the direction to the target and $\cos\psi = \dfrac{L_1^2 + d^2 - L_2^2}{2L_1d}$.', topic: Robot arm kinematics}
+- {front: 'Workspace of a two-link arm', back: 'The ring $|L_1 - L_2| \le d \le L_1 + L_2$ (the triangle inequality). Outside it, $|\cos\theta_2| > 1$.', topic: Robot arm kinematics}
+- {front: 'Why inverse kinematics has two solutions', back: '$\cos\theta_2 = \cos(-\theta_2)$: elbow-up and elbow-down, mirror images across the shoulder-to-target line (like the ambiguous case).', topic: Robot arm kinematics}
+# Lesson 91: phasors and AC circuits
+- {front: 'Phasor of $A\cos(\omega t + \varphi)$', back: 'The arrow $A\angle\varphi$: length $A$, angle $\varphi$, components $(A\cos\varphi, A\sin\varphi)$.', topic: Phasors}
+- {front: 'Sum of two sinusoids with the same frequency', back: 'A sinusoid with that frequency; its phasor is the vector sum of the two phasors.', topic: Phasors}
+- {front: 'Phasor of a sine wave $A\sin(\omega t + \varphi)$', back: '$A\angle(\varphi - 90^\circ)$, since $\sin\theta = \cos(\theta - 90^\circ)$.', topic: Phasors}
+- {front: 'Amplitude of a sum of two sinusoids with phase difference $\Delta$', back: '$R^2 = A_1^2 + A_2^2 + 2A_1A_2\cos\Delta$; for equal amplitudes $R = 2A\left|\cos\tfrac{\Delta}{2}\right|$.', topic: Phasors}
+- {front: 'Constructive vs destructive interference', back: 'Phase difference $0^\circ$: $R = A_1 + A_2$. Phase difference $180^\circ$: $R = |A_1 - A_2|$.', topic: Phasors}
+- {front: 'Inductive and capacitive reactance', back: '$X_L = \omega L$ (voltage leads current by $90^\circ$); $X_C = \dfrac{1}{\omega C}$ (voltage lags current by $90^\circ$).', topic: AC circuits}
+- {front: 'Impedance of a series RLC circuit', back: '$Z = \sqrt{R^2 + (X_L - X_C)^2}$; the current amplitude is $\tfrac{V}{Z}$.', topic: AC circuits}
+- {front: 'Phase angle of a series RLC circuit', back: '$\tan\varphi = \dfrac{X_L - X_C}{R}$: the voltage leads the current by $\varphi$ (lags if negative).', topic: AC circuits}
+- {front: 'Resonant frequency of a series RLC circuit', back: '$f_0 = \dfrac{1}{2\pi\sqrt{LC}}$ (where $X_L = X_C$, so $Z = R$).', topic: AC circuits}
+- {front: 'Power factor', back: '$\cos\varphi$; average power $= \tfrac12 VI\cos\varphi$ with peak values.', topic: AC circuits}
+# Lesson 92: Snell's law
+- {front: 'Snell''s law', back: '$n_1\sin\theta_1 = n_2\sin\theta_2$, angles measured from the normal.', topic: Refraction}
+- {front: 'Index of refraction', back: '$n = \tfrac{c}{v}$. Air about 1.00, water 1.33, glass about 1.5, diamond 2.42.', topic: Refraction}
+- {front: 'Which way does a ray bend?', back: 'Into a larger $n$: toward the normal. Into a smaller $n$: away from the normal.', topic: Refraction}
+- {front: 'Law of reflection', back: 'Angle of reflection = angle of incidence, both from the normal.', topic: Refraction}
+- {front: 'Why Snell''s law has sines', back: 'Two right triangles share the hypotenuse $AB$ on the boundary: $\sin\theta_1 = \tfrac{v_1t}{AB}$ and $\sin\theta_2 = \tfrac{v_2t}{AB}$, so $\tfrac{\sin\theta_1}{\sin\theta_2} = \tfrac{v_1}{v_2} = \tfrac{n_2}{n_1}$.', topic: Refraction}
+- {front: 'Critical angle', back: '$\sin\theta_c = \dfrac{n_2}{n_1}$, only when $n_1 > n_2$. Water to air: about $48.75^\circ$.', topic: Total internal reflection}
+- {front: 'When does total internal reflection happen?', back: 'Light goes from a larger to a smaller index and hits the boundary beyond the critical angle.', topic: Total internal reflection}
+- {front: 'Snell''s law gives $\sin\theta_2 > 1$', back: 'No refracted ray: total internal reflection.', topic: Total internal reflection}
+- {front: 'Numerical aperture of an optical fiber', back: '$\sin\theta_a = \sqrt{n_1^2 - n_2^2}$ (core $n_1$, cladding $n_2$, light entering from air).', topic: Total internal reflection}
+- {front: 'Why diamonds sparkle', back: 'Their critical angle is small (about $24.4^\circ$), so light inside is totally reflected off the back faces and comes back out the top.', topic: Total internal reflection}
+# Lesson 93: great-circle navigation
+- {front: 'Central angle between two places', back: '$\cos c = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos\Delta\lambda$', topic: Great-circle distance}
+- {front: 'Great-circle distance from the central angle', back: '$d = Rc$, $c$ in radians ($R \approx 6371$ km for the Earth).', topic: Great-circle distance}
+- {front: 'Unit vector to latitude $\varphi$, longitude $\lambda$', back: '$\langle\cos\varphi\cos\lambda,\ \cos\varphi\sin\lambda,\ \sin\varphi\rangle$', topic: Great-circle distance}
+- {front: 'Spherical law of cosines', back: '$\cos c = \cos a\cos b + \sin a\sin b\cos C$ (sides as central angles).', topic: Spherical triangles}
+- {front: 'Sides of the pole triangle for places $A$ and $B$', back: 'Colatitudes $90^\circ - \varphi_1$ and $90^\circ - \varphi_2$, with angle $\Delta\lambda$ at the pole.', topic: Spherical triangles}
+- {front: 'Initial bearing of a great-circle route', back: '$\tan\theta = \dfrac{\sin\Delta\lambda\cos\varphi_2}{\cos\varphi_1\sin\varphi_2 - \sin\varphi_1\cos\varphi_2\cos\Delta\lambda}$, quadrant from the signs.', topic: Great-circle distance}
+- {front: 'Great circle vs rhumb line', back: 'Great circle: shortest, but the bearing changes. Rhumb line: fixed bearing, longer (except along a meridian or the equator).', topic: Great-circle distance}
+- {front: 'Haversine formula', back: '$\text{hav}\,c = \text{hav}\,\Delta\varphi + \cos\varphi_1\cos\varphi_2\,\text{hav}\,\Delta\lambda$, with $\text{hav}\,\theta = \sin^2\tfrac{\theta}{2}$; accurate for nearby points.', topic: Great-circle distance}
+- {front: 'Spherical excess and area', back: '$E = A + B + C - 180^\circ$; area $= R^2E$ with $E$ in radians.', topic: Spherical triangles}
+- {front: 'Small spherical triangles', back: 'With $\cos x \approx 1 - \tfrac{x^2}{2}$ and $\sin x \approx x$, the spherical law of cosines becomes the flat one, $c^2 \approx a^2 + b^2 - 2ab\cos C$.', topic: Spherical triangles}

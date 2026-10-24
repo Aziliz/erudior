@@ -39,7 +39,23 @@ Only the enclosed charge counts: $\Phi_E = \dfrac{3.0\times10^{-6}}{8.85\times10
 
 ## Using Gauss's law to find fields
 
-Gauss's law always holds, but it gives $E$ directly only when you can choose a surface on which $E$ is constant in magnitude and either perpendicular or parallel to the surface. Then the integral collapses to $E \times (\text{area})$. Three symmetries make this possible.
+Gauss's law always holds, but it gives $E$ directly only when you can choose a surface on which $E$ is constant in magnitude and either perpendicular or parallel to the surface. Then the integral collapses to $E \times (\text{area})$. Three symmetries make this possible, each with its own Gaussian surface.
+
+![Three panels. Left: a charged ball surrounded by a dashed concentric sphere, with field arrows pointing radially outward through it. Middle: a long vertical line of positive charge inside a dashed coaxial cylinder, with field arrows pointing straight out through the curved side and none through the end caps. Right: a flat sheet of positive charge pierced by a dashed short cylinder (a pillbox), with field arrows pointing out through its two flat end caps.](images/phys-m8-gauss-surfaces.svg)
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a Gaussian surface
+  accDescr: Ask what symmetry the charge distribution has. For spherical symmetry use a concentric sphere, where the flux is E times 4 pi r squared. For a long line or cylinder use a coaxial cylinder, where the flux is E times 2 pi r L. For a large flat sheet use a pillbox, where the flux is E times 2A. In each of these cases set the flux equal to the enclosed charge over epsilon zero and solve for E. If the charge has none of these symmetries, Gauss's law is still true but will not give E, so integrate Coulomb's law instead.
+  A{"What symmetry does the charge have?"}
+  A -- spherical --> B["Concentric sphere: flux = E · 4πr²"]
+  A -- "long line or cylinder" --> C["Coaxial cylinder: flux = E · 2πrL"]
+  A -- "large flat sheet" --> D["Pillbox: flux = E · 2A"]
+  A -- "none of these" --> F["Gauss's law is true but will not give E: integrate Coulomb's law"]
+  B --> G["Set flux = Q enclosed / ε0 and solve for E"]
+  C --> G
+  D --> G
+```
 
 *Spherical symmetry.* For a charge $Q$ spread with spherical symmetry (a point charge, a charged shell, a uniform ball), use a concentric sphere of radius $r$. Outside the charge:
 

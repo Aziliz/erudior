@@ -35,21 +35,21 @@ Ptolemy used a circle of radius 60 (diameter 120 "parts") because he computed in
 **sexagesimal** system inherited from Babylonian astronomers. A value such as $84;51,10$ means
 $84 + \tfrac{51}{60} + \tfrac{10}{60^2}$, just like degrees, minutes and seconds in Lesson 1.
 
-Around the year 500, the Indian astronomer Aryabhata tabulated the half-chord $R\sin\tfrac{\theta}{2}$ instead,
-which is the modern sine (for an angle of $\tfrac{\theta}{2}$) scaled by $R$. The usual story of the word is that the
-Sanskrit name for the half-chord passed into Arabic as *jiba*, was later read as *jaib* ("fold" or
-"pocket"), and was translated into Latin as *sinus*, which became "sine".
+Later astronomers in India tabulated the half-chord $R\sin\tfrac{\theta}{2}$ instead, and that half-chord is the
+ancestor of our sine (the Module 3 honors lesson tells that story). This lesson is about how Ptolemy
+actually computed his chords.
 
 ### Example 1
 
-With $R = 60$, find $\text{crd}\,60^\circ$, $\text{crd}\,90^\circ$ and $\text{crd}\,120^\circ$, and write the last two in sexagesimal.
+With $R = 60$, find $\text{crd}\,60^\circ$, $\text{crd}\,120^\circ$ and $\text{crd}\,36^\circ$, and write the last two in sexagesimal.
 
 $\text{crd}\,60^\circ = 120\sin 30^\circ = 60$ (a side of the regular hexagon equals the radius).
 
-$\text{crd}\,90^\circ = 120\sin 45^\circ = 60\sqrt2 \approx 84.85281$. In base 60: the fraction $0.85281 \times 60 = 51.169$, so 51
-minutes; $0.169 \times 60 \approx 10.1$, so 10 seconds: $84;51,10$.
+$\text{crd}\,120^\circ = 120\sin 60^\circ = 60\sqrt3 \approx 103.92305$. In base 60: the fraction $0.92305 \times 60 = 55.383$, so 55
+sixtieths; $0.383 \times 60 \approx 23$, so 23 more: $103;55,23$.
 
-$\text{crd}\,120^\circ = 120\sin 60^\circ = 60\sqrt3 \approx 103.92305$, which is $103;55,23$.
+$\text{crd}\,36^\circ = 120\sin 18^\circ = 120\cdot\tfrac{\sqrt5 - 1}{4} = 30(\sqrt5 - 1) \approx 37.08204$, using the exact value of $\sin 18^\circ$
+from the previous honors lesson. In base 60: $0.08204 \times 60 = 4.922$ and $0.922 \times 60 \approx 55$, so $37;4,55$.
 
 ## Ptolemy's theorem
 

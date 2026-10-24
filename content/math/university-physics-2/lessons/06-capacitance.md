@@ -41,7 +41,11 @@ Filling the gap with an insulating material, a **dielectric**, increases the cap
 
 $$C = \kappa\frac{\varepsilon_0A}{d}.$$
 
-For air $\kappa \approx 1.0006$, paper about 3.7, glass 5–10, water about 80. The dielectric's molecules polarize in the field: polar molecules twist toward alignment and others become induced dipoles (the previous lesson), and their bound charges partly cancel the field inside. With less field for the same plate charge, the voltage is lower, so $C = Q/V$ is higher. Dielectrics also prevent breakdown: air sparks at about $3\times10^6$ V/m, while many plastics withstand ten times that.
+For air $\kappa \approx 1.0006$, paper about 3.7, glass 5–10, water about 80. The dielectric's molecules polarize in the field: polar molecules twist toward alignment and others become induced dipoles (the previous lesson), and their bound charges partly cancel the field inside. With less field for the same plate charge, the voltage is lower, so $C = Q/V$ is higher. The picture shows the result between a capacitor's plates.
+
+![A parallel-plate capacitor, the top plate positive and the bottom plate negative, filled with a dielectric slab. Inside the slab, oval molecules are polarized with their negative ends up and positive ends down, along the field arrow E. A row of negative bound charge lines the top surface of the slab next to the positive plate, and a row of positive bound charge lines the bottom surface next to the negative plate.](images/phys-m8-dielectric.svg)
+
+Inside the slab each molecule's charges cancel its neighbors', but at the surfaces they don't: a layer of negative charge faces the positive plate and a layer of positive charge faces the negative plate. These bound charges partly cancel the plates' field. Dielectrics also prevent breakdown: air sparks at about $3\times10^6$ V/m, while many plastics withstand ten times that.
 
 ## Combining capacitors
 
@@ -56,6 +60,8 @@ It's like adding plate area.
 $$\frac{1}{C_{\text{eq}}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots$$
 
 The series combination is smaller than the smallest capacitor: like increasing the gap. (These rules are the reverse of those for resistors, coming in the next module.)
+
+![Two circuit diagrams. Left, series: a battery and two capacitors C1 and C2 connected one after another around a single loop; caption: one path, same Q on each, voltages add. Right, parallel: a battery with two capacitors C1 and C2 each connected directly across it, side by side; caption: same V across each, charges add.](images/phys-m8-cap-combos.svg)
 
 ### Example 2
 

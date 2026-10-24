@@ -39,7 +39,6 @@
   definition: 'The inertial frame moving with the center of mass of the colliding objects. In it the total momentum is zero, so the two objects have equal and opposite momenta.'
   topic: Center-of-mass frame
 - term: reduced mass
-  aliases: [μ (reduced mass)]
   definition: 'For two objects, $\mu = \dfrac{m_1m_2}{m_1 + m_2}$, smaller than either mass. The CM-frame momenta are $\pm\mu\vec v_{\text{rel}}$, and the kinetic energy in the CM frame is $\tfrac12\mu v_{\text{rel}}^2$.'
   topic: Center-of-mass frame
 - term: relative kinetic energy

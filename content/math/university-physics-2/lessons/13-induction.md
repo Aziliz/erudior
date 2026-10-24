@@ -39,6 +39,18 @@ The size of the emf depends on how *fast* the flux changes. The minus sign is Le
 
 To find the direction: (1) find the direction of the original field through the loop; (2) decide whether the flux is increasing or decreasing; (3) the induced field opposes the change; (4) use the right-hand rule for loops to find the current that makes that induced field.
 
+```mermaid
+flowchart TD
+  accTitle: Finding the direction of an induced current with Lenz's law
+  accDescr: Step 1, find the direction of the external field through the loop. Step 2, decide whether the flux is increasing or decreasing. If increasing, the induced field points opposite to the external field; if decreasing, it points the same way. Step 3, use the right-hand rule for loops to find the current that makes that induced field.
+  A["1. Direction of the external field through the loop"] --> B{"2. Is the flux increasing or decreasing?"}
+  B -- increasing --> C["Induced field opposite to the external field"]
+  B -- decreasing --> D["Induced field same as the external field"]
+  C --> E["3. Right-hand rule: curl fingers so thumb points along induced field"]
+  D --> E
+  E --> F["Fingers give the induced current direction"]
+```
+
 Lenz's law is energy conservation in disguise. If induced currents *aided* the change, pushing a magnet slightly toward a coil would make it pull itself in faster and faster, creating energy from nothing. Instead, you always have to do work against the induced effects, and that work becomes the electrical energy.
 
 ### Example 1
@@ -54,6 +66,10 @@ $|\mathcal{E}| = N\dfrac{\Delta\Phi_B}{\Delta t} = 200\dfrac{4.0\times10^{-3}}{0
 A conducting rod of length $L$ sliding at speed $v$ along two rails in a perpendicular field $B$ sweeps out area at the rate $Lv$, so the flux through the circuit changes at rate $BLv$:
 
 $$\mathcal{E} = BLv.$$
+
+In the picture the field points into the page and the rod moves right, so the flux through the circuit increases. The induced current circulates counterclockwise (up through the rod) to make field out of the page, and the field's force on that current pushes the rod back to the left.
+
+![A conducting rod sliding to the right on two rails joined by a resistor, in a field into the page. The induced current flows up through the rod, and the magnetic force on the rod points left, against its velocity](images/phys-m10-rails.svg)
 
 Microscopically, the charges in the moving rod feel a magnetic force $qvB$ along it, which pushes them to one end. With a resistor $R$ closing the circuit, current $I = BLv/R$ flows, and the field then exerts a force $ILB$ on the rod that opposes its motion (Lenz again). Keeping the rod moving at constant speed requires a pushing force, and the power you supply, $Fv = \dfrac{B^2L^2v^2}{R}$, exactly equals the electrical power $I^2R$ dissipated.
 
@@ -78,6 +94,8 @@ Changing flux through a solid piece of metal induces swirling **eddy currents** 
 A **transformer** has two coils wound on a shared iron core. An alternating current in the primary coil ($N_p$ turns) creates a changing flux that passes through the secondary ($N_s$ turns), inducing a voltage
 
 $$\frac{V_s}{V_p} = \frac{N_s}{N_p}.$$
+
+![A transformer: a rectangular iron core with the primary coil wound on its left side and a secondary coil with more turns on its right side; dashed arrows show the changing flux circulating around the core](images/phys-m10-transformer.svg)
 
 An ideal transformer conserves power, $V_pI_p = V_sI_s$, so stepping voltage up steps current down. That's why grids transmit power at hundreds of kilovolts and step it down near homes. Transformers need AC; a steady DC current makes no changing flux.
 

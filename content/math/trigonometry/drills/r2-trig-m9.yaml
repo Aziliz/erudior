@@ -104,28 +104,28 @@
     ${R}$ and the point turns at ${w}$ times the rate of the center, so with the formulas from the lesson
     $x = {R}\cos {deg}^\circ {sgn} {b}\cos({w} \cdot {deg}^\circ) \approx$ **{x:num2}** and $y = {R}\sin {deg}^\circ - {b}\sin({w} \cdot {deg}^\circ) \approx$ **{y:num2}**.
 
-- id: trig-m9-r2-triple-angle
-  title: Triple-angle values from De Moivre
+- id: trig-m9-r2-five-angle
+  title: Five times an angle from De Moivre
   topic: Roots of unity
   vars:
     f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
-    p: {min: 1, max: 5}
-    q: {min: 2, max: 7}
-    fm: {choices: [{label: '4\cos^3\theta - 3\cos\theta', value: 0}, {label: '3\sin\theta - 4\sin^3\theta', value: 1}]}
-  where: ["p < q", "gcd(p, q) == 1", "fm == f"]
+    p: {min: 1, max: 4}
+    q: {min: 2, max: 5}
+  where: ["p < q", "gcd(p, q) == 1"]
   calc:
-    num: if(f == 0, 4*p^3 - 3*p*q^2, 3*p*q^2 - 4*p^3)
-    den: q^3
+    num: 16*p^5 - 20*p^3*q^2 + 5*p*q^4
+    den: q^5
     g: gcd(abs(num), den)
     n2: num / g
     d2: den / g
     val: num / den
-  prompt: 'If ${f}\theta = \tfrac{{p}}{{q}}$, find ${f} 3\theta$ exactly, as a fraction.'
+  prompt: 'De Moivre''s theorem gives ${f} 5\theta = 16{f}^5\theta - 20{f}^3\theta + 5{f}\theta$. If ${f}\theta = \tfrac{{p}}{{q}}$, find ${f} 5\theta$ exactly, as a fraction.'
   answers:
-    - {name: val, kind: fraction, label: '${f} 3\theta =$'}
+    - {name: val, kind: fraction, label: '${f} 5\theta =$'}
   solution: |-
-    Expanding $(\cos\theta + i\sin\theta)^3$ and matching parts gives $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$ and $\sin 3\theta = 3\sin\theta - 4\sin^3\theta$.
-    So ${f} 3\theta = {fm}$. Substitute ${f}\theta = \tfrac{{p}}{{q}}$ and put everything over ${q}^3 = {den}$: ${f} 3\theta = \dfrac{{num}}{{den}}$, which in lowest terms is **{n2}/{d2}**.
+    Substitute ${f}\theta = \tfrac{{p}}{{q}}$ and put every term over ${q}^5 = {den}$:
+    $$16\left(\tfrac{{p}}{{q}}\right)^5 - 20\left(\tfrac{{p}}{{q}}\right)^3 + 5\left(\tfrac{{p}}{{q}}\right) = \dfrac{16 \cdot {p}^5 - 20 \cdot {p}^3 \cdot {q}^2 + 5 \cdot {p} \cdot {q}^4}{{den}} = \dfrac{{num}}{{den}},$$
+    which in lowest terms is **{n2}/{d2}**.
 
 - id: trig-m9-r2-unity-factor
   title: Real quadratic factors of z^n − 1

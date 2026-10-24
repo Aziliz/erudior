@@ -28,6 +28,10 @@ In a **conductor** (metals, salt water, your body) some electrons move freely th
 
 A charged object can attract a neutral one by **polarization**: bring a negative rod near a neutral metal sphere and the sphere's free electrons are pushed to the far side, leaving the near side positive. The near positive side is closer, so attraction wins. That's why a charged balloon picks up bits of paper. **Grounding** a conductor connects it to Earth, a huge reservoir of charge. **Charging by induction** uses polarization plus grounding: hold a negative rod near a sphere, ground the sphere (electrons flee to Earth), remove the ground, then the rod; the sphere is left positive without ever being touched.
 
+The four steps are easiest to follow in a picture:
+
+![Four panels. 1: a negatively charged rod is held near a metal sphere on an insulating stand; the sphere's near side shows plus signs and its far side minus signs. 2: a wire connects the far side of the sphere to ground, and an arrow shows electrons flowing down to ground. 3: the ground wire is gone; the rod is still near and the plus signs remain on the near side. 4: the rod is gone and plus signs are spread evenly over the sphere.](images/phys-m8-induction.svg)
+
 ## Coulomb's law
 
 The electric force between two point charges $q_1$ and $q_2$ separated by distance $r$ has magnitude
@@ -50,7 +54,21 @@ attractive. Tiny in absolute terms, but it gives the electron an acceleration ar
 
 Electric forces add as vectors. The net force on one charge is the vector sum of the forces from each of the others, each computed with Coulomb's law as if the others weren't there. This **superposition principle** is what makes multi-charge problems tractable.
 
-Strategy: find the magnitude of each force from Coulomb's law (using magnitudes of charges), decide its direction from attract/repel, then add components.
+Strategy: find the magnitude of each force from Coulomb's law (using magnitudes of charges), decide its direction from attract/repel, then add components. The flowchart lays out the same procedure step by step.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the net electric force on one charge
+  accDescr: Convert charges to coulombs and distances to meters. Then, for each other charge in turn, find the magnitude of its force from Coulomb's law using the magnitudes of the charges, decide the direction (away for like signs, toward for unlike signs), and split the force into x and y components. When every charge has been handled, add the components, and finally find the magnitude and direction of the net force.
+  A["Convert to coulombs and meters"] --> B["Pick the next other charge"]
+  B --> C["Magnitude: F = k|q1q2|/r²"]
+  C --> D["Direction: away if like signs, toward if unlike"]
+  D --> E["Split into x and y components"]
+  E --> F{"Any charges left?"}
+  F -- yes --> B
+  F -- no --> G["Add all the x parts and all the y parts"]
+  G --> H["Net force: magnitude and direction"]
+```
 
 ### Example 2
 

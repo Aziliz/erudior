@@ -53,6 +53,10 @@ The headline consequence, the **Bernoulli effect**: at the same height, *faster 
 - part of an airplane wing's lift (air moves faster over the curved top);
 - a Venturi meter, which measures flow speed from the pressure drop at a constriction.
 
+In a Venturi tube, the streamlines crowd together in the narrow throat, where the fluid moves fastest. Small vertical tubes show the pressure: the liquid stands higher above the wide section than above the throat.
+
+![A Venturi tube: a horizontal pipe that narrows in the middle. Dashed streamlines crowd together in the narrow part, where the speed v₂ is larger than v₁ in the wide part. A vertical tube over the wide part holds a taller liquid column, showing higher pressure, than the tube over the narrow part.](images/phys-m7-venturi.svg)
+
 ### Example 2
 
 In Example 1's pipe (horizontal), the pressure in the wide section is $2.50\times10^5$ Pa. What is the pressure in the narrow section?
@@ -90,6 +94,10 @@ $$-\frac{dP}{ds} - \rho g\frac{dy}{ds} = \rho v\frac{dv}{ds},$$
 and integrating along $s$ gives $P + \rho gy + \tfrac12\rho v^2 = \text{constant}$.
 
 A draining tank leads to a differential equation for the water level. For a tank of cross-section $A$ with a hole of area $a$, $A\dfrac{dh}{dt} = -a\sqrt{2gh}$. Separating variables: $\dfrac{dh}{\sqrt h} = -\dfrac aA\sqrt{2g}\,dt$, so $2\sqrt h$ decreases linearly in time, and the tank empties in $t = \dfrac Aa\sqrt{\dfrac{2h_0}{g}}$. The level drops quickly at first and slowly at the end.
+
+```plot
+{"x": [0, 70], "y": [0, 2.2], "xLabel": "time t (s)", "yLabel": "water level h (m)", "functions": [{"f": "(sqrt(2) - 0.01*sqrt(9.8/2)*x)^2", "from": 0, "to": 63.9}], "points": [{"at": [63.9, 0], "label": "empty at 63.9 s"}], "caption": "Draining tank with h₀ = 2.0 m and hole area a = A/100: the level falls fast at first, then slowly"}
+```
 
 ## Common mistakes
 

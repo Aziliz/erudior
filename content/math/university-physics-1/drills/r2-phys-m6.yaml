@@ -1,0 +1,89 @@
+# Round 2, module phys-m6: drills for the honors lessons (Fourier analysis; normal modes).
+- id: phys-m6-r2-square-harmonics
+  title: Harmonics of a square wave
+  topic: Fourier analysis
+  vars:
+    A: {min: 1, max: 10, step: 0.5}
+    f: {min: 50, max: 500, step: 10}
+    j: {min: 1, max: 4}
+  calc:
+    n: 2*j + 1
+    fn: n*f
+    bn: 4*A/(n*pi)
+  prompt: 'A square wave switches between $+{A}$ V and $-{A}$ V with equal halves, and its fundamental frequency is {f} Hz. Find the frequency (Hz) and the amplitude (V) of harmonic number {n}, to 3 significant figures.'
+  answers:
+    - {name: fn, label: 'Frequency', format: int, tolerance: 0.5, units: {Hz: 1, kHz: 1000}}
+    - {name: bn, label: 'Amplitude', format: sig4, relTolerance: 0.01, units: {V: 1, mV: 0.001}}
+  solution: |-
+    A square wave has only odd harmonics, with amplitudes $b_n = \dfrac{4A}{n\pi}$.
+
+    Harmonic {n} has frequency ${n} \times {f} =$ **{fn:int} Hz** and amplitude $\dfrac{4 \times {A}}{{n}\pi} =$ **{bn:sig3} V**.
+- id: phys-m6-r2-plucked-string
+  title: Harmonics of a plucked string
+  topic: Fourier analysis
+  vars:
+    p: {min: 3, max: 9}
+    n: {min: 2, max: 4}
+  where: ["n < p"]
+  calc:
+    r: sin(n*pi/p)/(n^2*sin(pi/p))
+  prompt: 'A string fixed at both ends is pulled aside at a point $1/{p}$ of its length from one end and released. Find (a) the starting amplitude of harmonic {n} as a fraction of the fundamental''s amplitude, to 3 significant figures, and (b) the lowest-numbered harmonic that is missing from its sound.'
+  answers:
+    - {name: r, label: '(a) Ratio', format: sig4, relTolerance: 0.01}
+    - {name: p, label: '(b) Missing harmonic', format: int, tolerance: 0}
+  solution: |-
+    With $d/L = 1/{p}$, the amplitudes are $B_n \propto \dfrac{\sin(n\pi d/L)}{n^2}$, so
+
+    $\dfrac{B_n}{B_1} = \dfrac{\sin({n}\pi/{p})}{{n}^2\sin(\pi/{p})} =$ **{r:sig3}**.
+
+    A harmonic is missing when the pluck point is one of its nodes, i.e. when $\sin(n\pi/{p}) = 0$. The first such harmonic is number **{p}**.
+- id: phys-m6-r2-two-mass-modes
+  title: Normal modes of two coupled masses
+  topic: Normal modes
+  vars:
+    m: {min: 0.2, max: 2, step: 0.1}
+    k: {min: 50, max: 500, step: 10}
+    kp: {min: 5, max: 200, step: 5}
+  where: ["kp >= 0.1*k", "kp <= 0.5*k"]
+  calc:
+    w1: sqrt(k/m)
+    w2: sqrt((k + 2*kp)/m)
+    f1: w1/(2*pi)
+    f2: w2/(2*pi)
+    dw: w2 - w1
+    tt: pi/dw
+  prompt: 'Two {m} kg blocks on a frictionless track are joined wall–spring–block–spring–block–spring–wall. The outer springs have $k = {k}$ N/m and the middle spring has $k'' = {kp}$ N/m. Find the in-phase and out-of-phase normal-mode frequencies (Hz). Then block 1 alone is pulled aside and both blocks are released from rest: find the time (s) until all the motion has passed to block 2. Give 3 significant figures, and keep extra digits in the angular frequencies until the end.'
+  answers:
+    - {name: f1, label: 'In-phase $f_1$', format: sig4, relTolerance: 0.01, units: {Hz: 1}}
+    - {name: f2, label: 'Out-of-phase $f_2$', format: sig4, relTolerance: 0.01, units: {Hz: 1}}
+    - {name: tt, label: 'Transfer time', format: sig4, relTolerance: 0.02, units: {s: 1, ms: 0.001}}
+  solution: |-
+    In phase the middle spring is idle: $\omega_1 = \sqrt{k/m} = \sqrt{{k}/{m}} = {w1:num4}$ rad/s, so $f_1 = \omega_1/2\pi =$ **{f1:sig3} Hz**.
+
+    Out of phase each block feels $k + 2k'$: $\omega_2 = \sqrt{({k} + 2 \times {kp})/{m}} = {w2:num4}$ rad/s, so $f_2 =$ **{f2:sig3} Hz**.
+
+    The motion passes across in $t = \pi/(\omega_2 - \omega_1) = \pi/{dw:num4} =$ **{tt:sig3} s**.
+- id: phys-m6-r2-coupled-pendulums
+  title: Energy transfer between coupled pendulums
+  topic: Normal modes
+  vars:
+    L: {min: 0.5, max: 2, step: 0.05}
+    m: {min: 0.2, max: 1, step: 0.05}
+    kp: {min: 0.05, max: 0.5, step: 0.05}
+  calc:
+    w1: sqrt(9.8/L)
+    w2: sqrt(9.8/L + 2*kp/m)
+    dw: w2 - w1
+    tt: pi/dw
+  where: ["tt >= 4", "tt <= 40"]
+  prompt: 'Two identical pendulums, each {L} m long with a {m} kg bob, are joined at the bobs by a weak spring with $k'' = {kp}$ N/m. Using $g = 9.80$ m/s², find the angular frequencies of the in-phase and out-of-phase modes (rad/s, to 4 significant figures). One pendulum is then released while the other hangs still: find the time (s, to 3 significant figures) until the swinging has passed completely to the second pendulum. Use unrounded angular frequencies for the time.'
+  answers:
+    - {name: w1, label: 'In-phase $\omega_1$', format: sig4, relTolerance: 0.001, units: {'rad/s': 1}}
+    - {name: w2, label: 'Out-of-phase $\omega_2$', format: sig4, relTolerance: 0.001, units: {'rad/s': 1}}
+    - {name: tt, label: 'Transfer time', format: sig4, relTolerance: 0.02, units: {s: 1}}
+  solution: |-
+    In phase the spring is idle: $\omega_1 = \sqrt{g/L} = \sqrt{9.80/{L}} =$ **{w1:sig4} rad/s**.
+
+    Out of phase the spring adds $2k'/m$: $\omega_2 = \sqrt{9.80/{L} + 2 \times {kp}/{m}} =$ **{w2:sig4} rad/s**.
+
+    $\Delta\omega = {dw:num4}$ rad/s, so $t = \pi/\Delta\omega =$ **{tt:sig3} s**.

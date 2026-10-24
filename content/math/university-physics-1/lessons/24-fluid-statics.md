@@ -51,6 +51,8 @@ $$\frac{F_1}{A_1} = \frac{F_2}{A_2} \quad\Rightarrow\quad F_2 = F_1\frac{A_2}{A_
 
 Force is multiplied, but energy isn't created: the volume pushed in equals the volume pushed out, $A_1d_1 = A_2d_2$, so the small piston moves much farther. Work in equals work out, $F_1d_1 = F_2d_2$, just as with pulleys.
 
+![A hydraulic lift: a small force F₁ on a small piston of area A₁ produces a pressure that the fluid passes on to a large piston of area A₂, which pushes up on the load with force F₂ = F₁A₂/A₁.](images/phys-m7-hydraulic.svg)
+
 ### Example 2
 
 A car lift has pistons of diameter 2.0 cm and 30 cm. What force on the small piston lifts a 1500 kg car? How far must it move to raise the car 0.10 m?
@@ -67,11 +69,26 @@ $$F_B = \rho_{\text{fluid}}\,V_{\text{displaced}}\,g,$$
 
 the weight of the fluid the object displaces. *Why:* imagine replacing the object by fluid of the same shape. That fluid would sit in equilibrium, so the surrounding fluid must push up on it with exactly its weight. The surrounding fluid doesn't know what's inside, so it pushes the same on the object.
 
+The picture shows the pressure forces on a submerged block. The side forces cancel, but the bottom face is deeper than the top, so it is pushed harder: the difference $(P_2 - P_1)A = \rho_{\text{fluid}}g(h_2 - h_1)A = \rho_{\text{fluid}}Vg$ is the buoyant force.
+
+![A block held under water. Short arrows push down on its top face at depth h₁ and longer arrows push up on its bottom face at depth h₂; equal arrows push on the sides. The difference is the upward buoyant force, equal to the weight of displaced fluid.](images/phys-m7-buoyancy.svg)
+
 Compare $F_B$ with the object's weight $\rho_{\text{obj}}Vg$ when fully submerged:
 
 - $\rho_{\text{obj}} > \rho_{\text{fluid}}$: sinks (a rock in water).
 - $\rho_{\text{obj}} < \rho_{\text{fluid}}$: rises and floats.
 - Equal: neutrally buoyant (a fish adjusting its swim bladder, a submarine).
+
+```mermaid
+flowchart TD
+  accTitle: Will it sink or float?
+  accDescr: Compare the object's average density with the fluid's density. If the object is denser, it sinks and its apparent weight is its weight minus the buoyant force. If it is less dense, it rises and floats with the fraction rho object over rho fluid submerged. If the densities are equal, it is neutrally buoyant and stays wherever it is placed.
+  A["Compare average density of the object with the fluid"] --> B{"Which is larger?"}
+  B -- "object denser" --> C["Sinks: apparent weight = weight minus buoyant force"]
+  B -- "fluid denser" --> D["Rises and floats"]
+  D --> E["Submerged fraction = rho object / rho fluid"]
+  B -- "equal" --> F["Neutrally buoyant: stays where placed"]
+```
 
 A floating object sinks until it displaces its own weight of fluid, so the submerged fraction is
 

@@ -1,0 +1,671 @@
+# Round 2 questions for module trig-m9 (Polar coordinates, parametric equations and complex numbers)
+# Core lessons: trig-m9-r2-q01 … q25. Honors lessons: trig-m9-r2-h01 … h40.
+
+# ---- Lesson 35: Polar coordinates (trig-polar) ----
+- id: trig-m9-r2-q01
+  lesson: trig-polar
+  type: text
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'Convert $(-5, 12)$ to polar coordinates with $r > 0$ and $0^\circ \le \theta < 360^\circ$. Give only the numbers: $r =$ ___ and $\theta =$ ___ degrees (to the nearest tenth).'
+  accept:
+    - ['13']
+    - ['112.6']
+  explanation: |-
+    $r = \sqrt{(-5)^2 + 12^2} = \sqrt{169} = 13$. The point is in quadrant II. The reference angle is $\tan^{-1}\tfrac{12}{5} \approx 67.4^\circ$, so $\theta \approx 180^\circ - 67.4^\circ = 112.6^\circ$. A calculator's $\tan^{-1}\!\left(\tfrac{12}{-5}\right) \approx -67.4^\circ$ points into quadrant IV, the wrong direction.
+- id: trig-m9-r2-q02
+  lesson: trig-polar
+  type: label
+  topic: Polar coordinates
+  stem: 'Name the numbered parts of this picture of a point $P$ in polar coordinates.'
+  image: {src: images/trig-m9-polar-parts-blank.svg, alt: 'A point P joined to a dot O by a segment, at an angle above a ray pointing right from O. A dashed vertical segment drops from P to the ray, forming a right triangle with a horizontal leg along the ray. Six places are numbered: the dot O, the ray beyond the triangle, the slanted segment, the angle at O, the vertical leg and the horizontal leg.'}
+  labels:
+    - {x: 18.3, y: 80, text: Pole}
+    - {x: 83.3, y: 80, text: Polar axis}
+    - {x: 38, y: 56.9, text: 'r, the distance from the pole'}
+    - {x: 28.1, y: 75, text: 'θ, the angle from the polar axis'}
+    - {x: 57.7, y: 56.9, text: y = r sin θ}
+    - {x: 43, y: 80, text: x = r cos θ}
+  distractors: [Directrix, tan θ]
+  explanation: |-
+    The pole (1) is the origin and the polar axis (2) is the ray along the positive $x$-axis from which $\theta$ is measured (4). The slanted segment is the distance $r$ (3). In the right triangle, the leg opposite $\theta$ is $y = r\sin\theta$ (5) and the leg along the axis is $x = r\cos\theta$ (6).
+- id: trig-m9-r2-q03
+  lesson: trig-polar
+  module_quiz: true
+  topic: Polar coordinates
+  stem: 'Which polar coordinates name the same point as $\left(2, \tfrac{\pi}{3}\right)$? Select all that apply.'
+  choices: ['$\left(-2, \tfrac{4\pi}{3}\right)$', '$\left(2, \tfrac{4\pi}{3}\right)$', '$\left(2, -\tfrac{5\pi}{3}\right)$', '$\left(-2, \tfrac{\pi}{3}\right)$', '$\left(2, \tfrac{7\pi}{3}\right)$']
+  answer: [0, 2, 4]
+  explanation: |-
+    Adding or subtracting full turns keeps the point: $\tfrac{\pi}{3} + 2\pi = \tfrac{7\pi}{3}$ and $\tfrac{\pi}{3} - 2\pi = -\tfrac{5\pi}{3}$. Flipping the sign of $r$ and adding $\pi$ also keeps it: $\left(-2, \tfrac{\pi}{3} + \pi\right) = \left(-2, \tfrac{4\pi}{3}\right)$. But $\left(2, \tfrac{4\pi}{3}\right)$ and $\left(-2, \tfrac{\pi}{3}\right)$ are both the opposite point, in quadrant III.
+- id: trig-m9-r2-q04
+  lesson: trig-polar
+  type: match
+  topic: Polar coordinates
+  stem: 'Match each polar equation to its rectangular form.'
+  pairs:
+    - ['$r = 3$', 'x² + y² = 9']
+    - ['$\theta = \tfrac{\pi}{4}$', 'y = x']
+    - ['$r = 3\sec\theta$', 'x = 3']
+    - ['$r = 6\sin\theta$', 'x² + (y − 3)² = 9']
+  distractors: ['y = 3', '(x − 3)² + y² = 9']
+  explanation: |-
+    $r = 3$ means $x^2 + y^2 = 9$. The direction $\theta = \tfrac{\pi}{4}$ (with $r$ of either sign) is the line $y = x$. $r = 3\sec\theta$ means $r\cos\theta = 3$, i.e. $x = 3$. For $r = 6\sin\theta$, multiply by $r$: $x^2 + y^2 = 6y$, and completing the square gives $x^2 + (y - 3)^2 = 9$. The distractor $(x - 3)^2 + y^2 = 9$ would come from $r = 6\cos\theta$.
+- id: trig-m9-r2-q05
+  lesson: trig-polar
+  type: order
+  topic: Polar coordinates
+  stem: 'Put these points in order of their polar angle $\theta$ (with $r > 0$ and $0 \le \theta < 2\pi$), smallest first.'
+  items: ['$(1, 2)$', '$(0, 5)$', '$(-3, 1)$', '$(-1, -4)$', '$(2, -1)$']
+  explanation: |-
+    Go counterclockwise from the positive $x$-axis. $(1, 2)$ is in quadrant I ($\theta \approx 63.4^\circ$); $(0, 5)$ is on the positive $y$-axis ($90^\circ$); $(-3, 1)$ is in quadrant II ($\approx 161.6^\circ$); $(-1, -4)$ is in quadrant III ($\approx 256.0^\circ$); $(2, -1)$ is in quadrant IV ($\approx 333.4^\circ$).
+
+# ---- Lesson 36: Graphs of polar equations (trig-polar-graphs) ----
+- id: trig-m9-r2-q06
+  lesson: trig-polar-graphs
+  type: label
+  module_quiz: true
+  topic: Polar graphs
+  stem: 'Name each numbered polar graph. In each panel the pole is the dot where the axes cross.'
+  image: {src: images/trig-m9-polar-gallery-blank.svg, alt: 'Six polar graphs in a grid, numbered 1 to 6. 1: a circle that passes through the pole and lies to its right. 2: a heart shape with its point at the pole. 3: a large loop with a small loop inside it, both passing through the pole. 4: three petals meeting at the pole, one pointing right. 5: four petals meeting at the pole, pointing between the axes. 6: a figure-eight lying along the horizontal axis, crossing itself at the pole.'}
+  labels:
+    - {x: 31.4, y: 13.7, text: Circle through the pole}
+    - {x: 84.7, y: 13.7, text: Cardioid}
+    - {x: 33.3, y: 47.1, text: Limaçon with an inner loop}
+    - {x: 87.9, y: 47.1, text: Three-petaled rose}
+    - {x: 34.9, y: 75, text: Four-petaled rose}
+    - {x: 87.9, y: 80.4, text: Lemniscate}
+  distractors: [Dimpled limaçon, Eight-petaled rose]
+  explanation: |-
+    1 is $r = 4\cos\theta$, a circle through the pole. 2 is the cardioid $r = 2 + 2\cos\theta$ ($a = b$), with its point at the pole. 3 is $r = 1 + 2\cos\theta$: $a < b$ gives the inner loop. 4 is $r = 4\cos 3\theta$ (odd $n = 3$: 3 petals) and 5 is $r = 4\sin 2\theta$ (even $n = 2$: $2n = 4$ petals). 6 is the lemniscate $r^2 = 16\cos 2\theta$, a figure-eight through the pole.
+- id: trig-m9-r2-q07
+  lesson: trig-polar-graphs
+  type: text
+  topic: Polar graphs
+  stem: '$r = 2\sin 5\theta$ has ___ petals, and $r = 7\cos 6\theta$ has ___ petals.'
+  accept:
+    - ['5', 'five']
+    - ['12', 'twelve']
+  explanation: |-
+    A rose $r = a\cos n\theta$ or $a\sin n\theta$ has $n$ petals when $n$ is odd and $2n$ when $n$ is even. $n = 5$ is odd: 5 petals. $n = 6$ is even: 12 petals.
+- id: trig-m9-r2-q08
+  lesson: trig-polar-graphs
+  type: match
+  module_quiz: true
+  topic: Polar graphs
+  stem: 'Match each polar equation to the shape of its graph.'
+  pairs:
+    - ['$r = 3 + 3\sin\theta$', 'Cardioid']
+    - ['$r = 2 + 5\cos\theta$', 'Limaçon with an inner loop']
+    - ['$r = 5 + 3\cos\theta$', 'Dimpled limaçon']
+    - ['$r = 7 + 2\sin\theta$', 'Convex limaçon']
+    - ['$r^2 = 4\sin 2\theta$', 'Lemniscate']
+  distractors: [Rose curve]
+  explanation: |-
+    For $r = a + b\cos\theta$ or $a + b\sin\theta$ compare $a$ with $b$. $3 + 3\sin\theta$: $a = b$, cardioid. $2 + 5\cos\theta$: $a < b$, inner loop. $5 + 3\cos\theta$: $3 < 5 < 6$, so $b < a < 2b$, dimpled. $7 + 2\sin\theta$: $7 \ge 4 = 2b$, convex. An equation for $r^2$ in $\sin 2\theta$ or $\cos 2\theta$ is a lemniscate.
+- id: trig-m9-r2-q09
+  lesson: trig-polar-graphs
+  topic: Polar graphs
+  stem: 'Which of these graphs are symmetric about the polar axis (the $x$-axis)? Select all that apply.'
+  choices: ['$r = 2\sin\theta$', '$r = 4 + 3\cos\theta$', '$r = 1 - 2\sin\theta$', '$r^2 = 9\cos 2\theta$', '$r = 5\cos 3\theta$']
+  answer: [1, 3, 4]
+  explanation: |-
+    Replacing $\theta$ with $-\theta$ leaves $\cos\theta$, $\cos 2\theta$ and $\cos 3\theta$ unchanged, so $r = 4 + 3\cos\theta$, $r^2 = 9\cos 2\theta$ and $r = 5\cos 3\theta$ pass the polar-axis test. $r = 2\sin\theta$ is a circle centered at $(0, 1)$ and $r = 1 - 2\sin\theta$ is a limaçon pointing along the $y$-axis; both are symmetric about the line $\theta = \tfrac{\pi}{2}$, not the $x$-axis (for example, $r = 2\sin\theta$ contains $(0, 2)$ but not $(0, -2)$).
+- id: trig-m9-r2-q10
+  lesson: trig-polar-graphs
+  type: order
+  topic: Polar graphs
+  stem: 'Put these graphs in order of the greatest distance $|r|$ they reach from the pole, smallest first.'
+  items: ['$r = 3\sin\theta$', '$r = 1 + 3\cos\theta$', '$r = 5\cos 4\theta$', '$r^2 = 36\cos 2\theta$', '$r = 4 + 3\sin\theta$']
+  explanation: |-
+    $r = 3\sin\theta$ reaches 3 (a circle of diameter 3). $r = 1 + 3\cos\theta$ reaches $1 + 3 = 4$ at $\theta = 0$. The rose $r = 5\cos 4\theta$ has petals of length 5. The lemniscate $r^2 = 36\cos 2\theta$ reaches $r = 6$. $r = 4 + 3\sin\theta$ reaches $4 + 3 = 7$ at $\theta = \tfrac{\pi}{2}$.
+
+# ---- Lesson 37: Parametric equations (trig-parametric) ----
+- id: trig-m9-r2-q11
+  lesson: trig-parametric
+  type: label
+  module_quiz: true
+  topic: Parametric equations
+  stem: 'Name the numbered parts of this projectile setup.'
+  image: {src: images/trig-m9-projectile-parts-blank.svg, alt: 'A ball launched from a short platform follows an arc and lands on the ground to the right. At the launch point an arrow points up and to the right, with dashed horizontal and vertical arrows forming a right triangle with it and an arc marking its angle. A dotted vertical line runs from the top of the arc to the ground, and a double arrow under the ground runs from the launch point to the landing point. Six places are numbered: the angle, the slanted arrow, the dashed horizontal arrow, the dashed vertical arrow, the dotted line and the double arrow.'}
+  labels:
+    - {x: 17.7, y: 69.9, text: Launch angle θ}
+    - {x: 20.5, y: 56.8, text: Initial velocity v₀}
+    - {x: 20.5, y: 75, text: Horizontal component v₀ cos θ}
+    - {x: 30, y: 56.8, text: Vertical component v₀ sin θ}
+    - {x: 48.6, y: 67, text: Maximum height}
+    - {x: 60.5, y: 93.5, text: Horizontal distance (range)}
+  distractors: [Time of flight, Launch height h]
+  explanation: |-
+    The angle (1) is the launch angle $\theta$ above the horizontal, and the slanted arrow (2) is the initial velocity $v_0$. Its horizontal part (3) is $v_0\cos\theta$, which stays the same during the flight, and its vertical part (4) is $v_0\sin\theta$, which gravity reduces. The dotted line (5) is the maximum height, reached when the vertical velocity is zero, and the double arrow (6) is the horizontal distance to the landing point. The time of flight is a time, not a length in the picture.
+- id: trig-m9-r2-q12
+  lesson: trig-parametric
+  type: text
+  topic: Parametric equations
+  stem: 'Eliminate the parameter from $x = 2t + 1$, $y = 4t - 3$ and write the result as $y = mx + b$. Give only the numbers: $m =$ ___ and $b =$ ___.'
+  accept:
+    - ['2']
+    - ['-5', '−5']
+  explanation: |-
+    Solve the first equation for $t$: $t = \tfrac{x - 1}{2}$. Substitute: $y = 4\cdot\tfrac{x - 1}{2} - 3 = 2(x - 1) - 3 = 2x - 5$. So $m = 2$ and $b = -5$.
+- id: trig-m9-r2-q13
+  lesson: trig-parametric
+  type: match
+  module_quiz: true
+  topic: Parametric equations
+  stem: 'Match each pair of parametric equations ($0 \le t \le 2\pi$ for the trig ones, all real $t$ for the others) to the curve it traces.'
+  pairs:
+    - ['$x = 3\cos t,\ y = 3\sin t$', 'Circle of radius 3, counterclockwise from (3, 0)']
+    - ['$x = 3\sin t,\ y = 3\cos t$', 'Circle of radius 3, clockwise from (0, 3)']
+    - ['$x = 3\cos t,\ y = 2\sin t$', 'Ellipse x²/9 + y²/4 = 1']
+    - ['$x = t,\ y = t^2$', 'Parabola y = x²']
+    - ['$x = 1 + 2t,\ y = 3 - t$', 'Straight line']
+  distractors: [Hyperbola]
+  explanation: |-
+    $x = 3\cos t$, $y = 3\sin t$ starts at $(3, 0)$ and goes counterclockwise. Swapping sine and cosine starts at $(0, 3)$ when $t = 0$ and reaches $(3, 0)$ at $t = \tfrac{\pi}{2}$: clockwise. $x = 3\cos t$, $y = 2\sin t$ gives $\tfrac{x^2}{9} + \tfrac{y^2}{4} = 1$. $x = t$, $y = t^2$ is $y = x^2$. Both coordinates linear in $t$ means a line ($x + 2y = 7$).
+- id: trig-m9-r2-q14
+  lesson: trig-parametric
+  topic: Parametric equations
+  stem: 'A ball is launched from level ground at 20 m/s, $30^\circ$ above the horizontal ($g = 9.8$ m/s², no air resistance). Which statements are true? Select all that apply.'
+  choices: ['Its horizontal velocity stays about 17.32 m/s the whole time.', 'The vertical part of its initial velocity is $20\cos 30^\circ$ m/s.', 'It reaches its highest point after about 1.02 s.', 'It stays in the air for about 2.04 s.', 'Its maximum height is about 10.2 m.']
+  answer: [0, 2, 3]
+  explanation: |-
+    $x = (20\cos 30^\circ)t \approx 17.32t$, so the horizontal velocity is a constant 17.32 m/s. The vertical part is $20\sin 30^\circ = 10$ m/s, not $20\cos 30^\circ$. The top is at $t = \tfrac{10}{9.8} \approx 1.02$ s, and on level ground the flight lasts twice that, $\approx 2.04$ s. The maximum height is $\tfrac{10^2}{2(9.8)} \approx 5.10$ m; 10.2 m forgets the 2 in $\tfrac12 gt^2$.
+- id: trig-m9-r2-q15
+  lesson: trig-parametric
+  type: order
+  topic: Parametric equations
+  stem: 'The curve $x = t^2 - 1$, $y = 2t$ is traced for $-2 \le t \le 2$. Put these points in the order they are visited.'
+  items: ['$(3, -4)$', '$(0, -2)$', '$(-1, 0)$', '$(0, 2)$', '$(3, 4)$']
+  explanation: |-
+    Compute each point from $t$: $t = -2$ gives $(3, -4)$, $t = -1$ gives $(0, -2)$, $t = 0$ gives $(-1, 0)$, $t = 1$ gives $(0, 2)$ and $t = 2$ gives $(3, 4)$. The curve is part of the sideways parabola $x = \tfrac{y^2}{4} - 1$, traced from bottom to top.
+
+# ---- Lesson 38: Complex numbers in trigonometric form (trig-complex-trig) ----
+- id: trig-m9-r2-q16
+  lesson: trig-complex-trig
+  type: label
+  module_quiz: true
+  topic: Trigonometric form of complex numbers
+  stem: 'Name the numbered parts of this picture of the complex plane.'
+  image: {src: images/trig-m9-complex-plane-blank.svg, alt: 'A horizontal and a vertical axis crossing at the origin. A point in the first quadrant is joined to the origin by a solid segment that makes an angle with the horizontal axis. Its mirror image below the horizontal axis is joined to the origin by a dashed segment. Six places are numbered: the right end of the horizontal axis, the top of the vertical axis, the upper point, the lower point, the solid segment and the angle.'}
+  labels:
+    - {x: 86.7, y: 50, text: Real axis}
+    - {x: 25, y: 15.9, text: Imaginary axis}
+    - {x: 63.5, y: 16.6, text: z = a + bi}
+    - {x: 63.5, y: 83.4, text: Conjugate a − bi}
+    - {x: 44.2, y: 33.3, text: Modulus |z|}
+    - {x: 34.3, y: 46.3, text: Argument θ}
+  distractors: [nth root of z, Imaginary unit i]
+  explanation: |-
+    The horizontal axis holds the real part (1) and the vertical axis the imaginary part (2). The point $z = a + bi$ (3) is $a$ units across and $b$ up; its conjugate $a - bi$ (4) is its reflection across the real axis. The length of the segment from the origin is the modulus $|z| = \sqrt{a^2 + b^2}$ (5), and the angle from the positive real axis is the argument $\theta$ (6).
+- id: trig-m9-r2-q17
+  lesson: trig-complex-trig
+  type: text
+  topic: Trigonometric form of complex numbers
+  stem: 'Write $-3\sqrt3 + 3i$ in trigonometric form $r\operatorname{cis}\theta$ with $0^\circ \le \theta < 360^\circ$. Give only the numbers: $r =$ ___ and $\theta =$ ___ degrees.'
+  accept:
+    - ['6']
+    - ['150']
+  explanation: |-
+    $r = \sqrt{27 + 9} = 6$. The point $(-3\sqrt3, 3)$ is in quadrant II with $\tan\theta = \tfrac{3}{-3\sqrt3} = -\tfrac{1}{\sqrt3}$, so the reference angle is $30^\circ$ and $\theta = 180^\circ - 30^\circ = 150^\circ$. So $-3\sqrt3 + 3i = 6\operatorname{cis}150^\circ$.
+- id: trig-m9-r2-q18
+  lesson: trig-complex-trig
+  type: match
+  module_quiz: true
+  topic: Trigonometric form of complex numbers
+  stem: 'Let $z_1 = 4\operatorname{cis}50^\circ$ and $z_2 = 2\operatorname{cis}20^\circ$. Match each expression to its value (arguments in $[0^\circ, 360^\circ)$).'
+  pairs:
+    - ['$z_1z_2$', '8 cis 70°']
+    - ['$\dfrac{z_1}{z_2}$', '2 cis 30°']
+    - ['$\dfrac{z_2}{z_1}$', '0.5 cis 330°']
+    - ['$\bar z_1$', '4 cis 310°']
+    - ['$iz_1$', '4 cis 140°']
+  distractors: ['6 cis 70°', '8 cis 1000°']
+  explanation: |-
+    Products multiply moduli and add arguments: $z_1z_2 = 8\operatorname{cis}70^\circ$ (not $6$: moduli multiply, they don't add). Quotients divide and subtract: $\tfrac{z_1}{z_2} = 2\operatorname{cis}30^\circ$ and $\tfrac{z_2}{z_1} = 0.5\operatorname{cis}(-30^\circ) = 0.5\operatorname{cis}330^\circ$. The conjugate negates the argument: $4\operatorname{cis}(-50^\circ) = 4\operatorname{cis}310^\circ$. Multiplying by $i = \operatorname{cis}90^\circ$ adds $90^\circ$: $4\operatorname{cis}140^\circ$.
+- id: trig-m9-r2-q19
+  lesson: trig-complex-trig
+  topic: Trigonometric form of complex numbers
+  stem: 'Which of these are equal to $2\operatorname{cis}300^\circ$? Select all that apply.'
+  choices: ['$-1 + \sqrt3\,i$', '$1 - \sqrt3\,i$', '$2\operatorname{cis}60^\circ$', '$2\operatorname{cis}(-60^\circ)$', '$2\operatorname{cis}660^\circ$']
+  answer: [1, 3, 4]
+  explanation: |-
+    $2\operatorname{cis}300^\circ = 2\left(\tfrac12 - \tfrac{\sqrt3}{2}i\right) = 1 - \sqrt3\,i$. Arguments that differ by $360^\circ$ name the same number: $-60^\circ = 300^\circ - 360^\circ$ and $660^\circ = 300^\circ + 360^\circ$. $2\operatorname{cis}60^\circ = 1 + \sqrt3\,i$ is the conjugate, and $-1 + \sqrt3\,i = 2\operatorname{cis}120^\circ$ is the opposite point.
+- id: trig-m9-r2-q20
+  lesson: trig-complex-trig
+  type: order
+  topic: Trigonometric form of complex numbers
+  stem: 'Put these complex numbers in order of their argument in $[0^\circ, 360^\circ)$, smallest first.'
+  items: ['$1 + \sqrt3\,i$', '$2i$', '$-1 + i$', '$-5$', '$3 - 4i$']
+  explanation: |-
+    $1 + \sqrt3\,i$: $60^\circ$. $2i$: on the positive imaginary axis, $90^\circ$. $-1 + i$: quadrant II, $135^\circ$. $-5$: on the negative real axis, $180^\circ$. $3 - 4i$: quadrant IV, $360^\circ - 53.13^\circ \approx 306.87^\circ$.
+
+# ---- Lesson 39: De Moivre's theorem and nth roots (trig-demoivre) ----
+- id: trig-m9-r2-q21
+  lesson: trig-demoivre
+  type: text
+  module_quiz: true
+  topic: De Moivre's theorem
+  stem: 'By De Moivre''s theorem, $(2\operatorname{cis}15^\circ)^6 = r\operatorname{cis}\theta$. Give only the numbers: $r =$ ___ and $\theta =$ ___ degrees.'
+  accept:
+    - ['64']
+    - ['90']
+  explanation: |-
+    Raise the modulus to the 6th power and multiply the argument by 6: $2^6 = 64$ and $6 \cdot 15^\circ = 90^\circ$. So the result is $64\operatorname{cis}90^\circ = 64i$. (Multiplying the modulus by 6 to get 12 is the common mistake.)
+- id: trig-m9-r2-q22
+  lesson: trig-demoivre
+  topic: De Moivre's theorem
+  stem: 'Which of these are fourth roots of 16 (solutions of $z^4 = 16$)? Select all that apply.'
+  choices: ['$2i$', '$4$', '$-2$', '$\sqrt2 + \sqrt2\,i$', '$-2i$']
+  answer: [0, 2, 4]
+  explanation: |-
+    $16 = 16\operatorname{cis}0^\circ$, so the roots have modulus 2 and arguments $0^\circ, 90^\circ, 180^\circ, 270^\circ$: $2$, $2i$, $-2$, $-2i$. Check: $(2i)^4 = 16i^4 = 16$. But $4^4 = 256$, and $\sqrt2 + \sqrt2\,i = 2\operatorname{cis}45^\circ$ has fourth power $16\operatorname{cis}180^\circ = -16$.
+- id: trig-m9-r2-q23
+  lesson: trig-demoivre
+  type: match
+  module_quiz: true
+  topic: De Moivre's theorem
+  stem: 'Match each equation to the angle between the arguments of consecutive solutions.'
+  pairs:
+    - ['$z^3 = 8i$', '120°']
+    - ['$z^4 = -16$', '90°']
+    - ['$z^5 = 1$', '72°']
+    - ['$z^6 = 64$', '60°']
+    - ['$z^8 = i$', '45°']
+  distractors: ['30°']
+  explanation: |-
+    The $n$ solutions of $z^n = c$ are spaced $\tfrac{360^\circ}{n}$ apart, whatever $c$ is: $\tfrac{360^\circ}{3} = 120^\circ$, $\tfrac{360^\circ}{4} = 90^\circ$, $\tfrac{360^\circ}{5} = 72^\circ$, $\tfrac{360^\circ}{6} = 60^\circ$ and $\tfrac{360^\circ}{8} = 45^\circ$. The number $c$ only affects the modulus and the first argument.
+- id: trig-m9-r2-q24
+  lesson: trig-demoivre
+  type: order
+  topic: De Moivre's theorem
+  stem: 'Put the steps for computing $(1 - i)^{10}$ in order.'
+  items:
+    - 'Find $|1 - i| = \sqrt2$ and the argument $-45^\circ$ (quadrant IV)'
+    - 'Write $1 - i = \sqrt2\operatorname{cis}(-45^\circ)$'
+    - 'Apply De Moivre: $(\sqrt2)^{10}\operatorname{cis}(-450^\circ) = 32\operatorname{cis}(-450^\circ)$'
+    - 'Replace $-450^\circ$ by the coterminal angle $-90^\circ$'
+    - 'Convert: $32(\cos(-90^\circ) + i\sin(-90^\circ)) = -32i$'
+  explanation: |-
+    Each step uses the one before it: the modulus and argument give the trigonometric form, De Moivre's theorem needs the trigonometric form, the angle is simplified after multiplying it by 10, and the conversion to $a + bi$ comes last. The result is $-32i$.
+- id: trig-m9-r2-q25
+  lesson: trig-demoivre
+  type: text
+  topic: De Moivre's theorem
+  stem: 'Each cube root of $8i$ has modulus ___, and the cube root with the smallest positive argument has argument ___ degrees.'
+  accept:
+    - ['2']
+    - ['30']
+  explanation: |-
+    $8i = 8\operatorname{cis}90^\circ$. Each cube root has modulus $\sqrt[3]{8} = 2$, and the arguments are $\tfrac{90^\circ + 360^\circ k}{3} = 30^\circ, 150^\circ, 270^\circ$. The smallest is $30^\circ$: the root $2\operatorname{cis}30^\circ = \sqrt3 + i$.
+
+# ---- Honors 39h1: Conics in polar form (trig-m9-h-polar-conics) ----
+- id: trig-m9-r2-h01
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'Identify the conic $r = \dfrac{12}{4 + 3\cos\theta}$.'
+  choices: ['A hyperbola with $e = 3$', 'An ellipse with $e = \tfrac34$', 'A parabola with $e = 1$', 'An ellipse with $e = 3$']
+  answer: 1
+  explanation: |-
+    Divide the numerator and denominator by 4: $r = \dfrac{3}{1 + \frac34\cos\theta}$. Now $e = \tfrac34 < 1$, an ellipse. Reading $e = 3$ straight from the unnormalized denominator is the classic mistake.
+- id: trig-m9-r2-h02
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'What is the directrix of $r = \dfrac{6}{1 - 2\sin\theta}$?'
+  choices: ['$y = -3$', '$y = 3$', '$x = -3$', '$y = -6$']
+  answer: 0
+  explanation: |-
+    The denominator is already $1 - e\sin\theta$ with $e = 2$, and the numerator is $ed = 6$, so $d = 3$. Sine means a horizontal directrix, and the minus sign puts it below the pole: $y = -3$. ($y = -6$ confuses $ed$ with $d$.)
+- id: trig-m9-r2-h03
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'The parabola $r = \dfrac{8}{1 - \cos\theta}$ has its vertex at which rectangular point?'
+  choices: ['$(4, 0)$', '$(-8, 0)$', '$(0, -4)$', '$(-4, 0)$']
+  answer: 3
+  explanation: |-
+    $e = 1$ and $d = 8$, with directrix $x = -8$. The vertex is halfway between the focus (the pole) and the directrix, on the polar axis line: $\theta = \pi$ gives $r = \tfrac{8}{1 - (-1)} = 4$, the point $(-4, 0)$. At $\theta = 0$ the denominator is 0, so the parabola opens to the right, away from the directrix.
+- id: trig-m9-r2-h04
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'For the hyperbola $r = \dfrac{10}{2 + 3\cos\theta}$, what is $r$ at $\theta = \pi$, and which rectangular point is it?'
+  choices: ['$r = -10$; the point $(10, 0)$', '$r = -10$; the point $(-10, 0)$', '$r = 10$; the point $(-10, 0)$', '$r = 2$; the point $(2, 0)$']
+  answer: 0
+  explanation: |-
+    $r = \tfrac{10}{2 + 3(-1)} = \tfrac{10}{-1} = -10$. A negative $r$ is plotted backward from the direction $\theta = \pi$, so the point is $(10, 0)$. This is the far vertex; the near one is at $\theta = 0$, $r = \tfrac{10}{5} = 2$, the point $(2, 0)$.
+- id: trig-m9-r2-h05
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'An ellipse with a focus at the pole has eccentricity $e = 0.5$ and semi-major axis $a = 8$. What are its nearest and farthest distances from that focus?'
+  choices: ['$6$ and $10$', '$2$ and $6$', '$4$ and $12$', '$8$ and $16$']
+  answer: 2
+  explanation: |-
+    $r_{\min} = a(1 - e) = 8(0.5) = 4$ and $r_{\max} = a(1 + e) = 8(1.5) = 12$. They add to $16 = 2a$, the length of the major axis, as they must.
+- id: trig-m9-r2-h06
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'Earth''s orbit has $a \approx 1.000$ AU and $e \approx 0.0167$. About how much farther from the Sun is Earth at aphelion than at perihelion?'
+  choices: ['about 0.0167 AU', 'about 0.0334 AU', 'about 0.983 AU', 'about 1.017 AU']
+  answer: 1
+  explanation: |-
+    $r_{\max} - r_{\min} = a(1 + e) - a(1 - e) = 2ae \approx 2(0.0167) = 0.0334$ AU, about 5 million km. The distances themselves are about 0.983 AU and 1.017 AU.
+- id: trig-m9-r2-h07
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'Which is the rectangular form of $r = \dfrac{6}{1 - \sin\theta}$?'
+  choices: ['$x^2 = 36 - 12y$', '$y^2 = 36 + 12x$', '$x^2 + y^2 = 36$', '$x^2 = 36 + 12y$']
+  answer: 3
+  explanation: |-
+    $r - r\sin\theta = 6$, so $r = 6 + y$. Square: $x^2 + y^2 = 36 + 12y + y^2$, which gives $x^2 = 36 + 12y$. That is a parabola opening upward with its vertex at $(0, -3)$, matching $e = 1$ and the directrix $y = -6$ below the focus.
+- id: trig-m9-r2-h08
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'How is the graph of $r = \dfrac{3}{1 + 0.5\cos\left(\theta - \frac{\pi}{3}\right)}$ related to the graph of $r = \dfrac{3}{1 + 0.5\cos\theta}$?'
+  choices: ['It is rotated $\tfrac{\pi}{3}$ clockwise about the pole.', 'It is shifted $\tfrac{\pi}{3}$ units to the right.', 'It is rotated $\tfrac{\pi}{3}$ counterclockwise about the pole.', 'It is stretched by a factor of $\tfrac{\pi}{3}$.']
+  answer: 2
+  explanation: |-
+    The new equation takes at angle $\theta$ the value the old one took at $\theta - \tfrac{\pi}{3}$, so every point moves $\tfrac{\pi}{3}$ counterclockwise around the pole. The ellipse keeps its shape and its focus at the pole; its axis now points in the direction $\tfrac{\pi}{3}$.
+- id: trig-m9-r2-h09
+  lesson: trig-m9-h-polar-conics
+  type: text
+  topic: Polar conics
+  stem: 'For $r = \dfrac{20}{5 - 4\cos\theta}$, the eccentricity is $e =$ ___ and the directrix is the line $x =$ ___ . Give only the numbers.'
+  accept:
+    - ['0.8', '4/5']
+    - ['-5', '−5']
+  explanation: |-
+    Divide by 5: $r = \dfrac{4}{1 - 0.8\cos\theta}$. So $e = 0.8$ (an ellipse) and $ed = 4$, giving $d = \tfrac{4}{0.8} = 5$. The minus sign with cosine puts the directrix to the left of the pole: $x = -5$.
+- id: trig-m9-r2-h10
+  lesson: trig-m9-h-polar-conics
+  type: text
+  topic: Polar conics
+  stem: 'A comet''s orbit has perihelion distance 1 AU and aphelion distance 9 AU. Its semi-major axis is $a =$ ___ AU and its eccentricity is $e =$ ___ .'
+  accept:
+    - ['5']
+    - ['0.8', '4/5']
+  explanation: |-
+    The perihelion and aphelion are the two ends of the major axis, so $2a = 1 + 9 = 10$ and $a = 5$. Then $a(1 - e) = 1$ gives $1 - e = 0.2$, so $e = 0.8$. (Check: $a(1 + e) = 5(1.8) = 9$.)
+- id: trig-m9-r2-h11
+  lesson: trig-m9-h-polar-conics
+  topic: Polar conics
+  stem: 'Which of these equations describe hyperbolas? Select all that apply.'
+  choices: ['$r = \dfrac{6}{3 + 2\cos\theta}$', '$r = \dfrac{5}{1 + 2\sin\theta}$', '$r = \dfrac{4}{2 - 5\cos\theta}$', '$r = \dfrac{2}{1 - \cos\theta}$', '$r = \dfrac{9}{4 + 6\sin\theta}$']
+  answer: [1, 2, 4]
+  explanation: |-
+    Normalize each denominator and read $e$. $\tfrac{6}{3 + 2\cos\theta}$: $e = \tfrac23$, an ellipse. $\tfrac{5}{1 + 2\sin\theta}$: $e = 2$, a hyperbola. $\tfrac{4}{2 - 5\cos\theta}$: $e = \tfrac52$, a hyperbola. $\tfrac{2}{1 - \cos\theta}$: $e = 1$, a parabola. $\tfrac{9}{4 + 6\sin\theta}$: $e = \tfrac64 = 1.5$, a hyperbola.
+- id: trig-m9-r2-h12
+  lesson: trig-m9-h-polar-conics
+  type: order
+  topic: Polar conics
+  stem: 'Put these conics in order of eccentricity, smallest first.'
+  items: ['$r = \dfrac{2}{1 + 0.2\cos\theta}$', '$r = \dfrac{10}{5 - 3\cos\theta}$', '$r = \dfrac{3}{1 + \sin\theta}$', '$r = \dfrac{8}{4 + 6\cos\theta}$', '$r = \dfrac{1}{1 - 3\sin\theta}$']
+  explanation: |-
+    Normalized, the eccentricities are $0.2$, $\tfrac35 = 0.6$, $1$, $\tfrac64 = 1.5$ and $3$: a nearly round ellipse, a longer ellipse, a parabola, and two hyperbolas.
+- id: trig-m9-r2-h13
+  lesson: trig-m9-h-polar-conics
+  type: label
+  topic: Polar conics
+  stem: 'The picture shows an ellipse with eccentricity $\tfrac12$ drawn from the focus–directrix definition. Name the numbered parts.'
+  image: {src: images/trig-m9-focus-directrix-blank.svg, alt: 'An ellipse with a dot inside it, left of its right end, on a dashed horizontal line. A vertical line stands to the right of the ellipse. A point on the top of the ellipse is joined to the dot by a solid segment and to the vertical line by a horizontal dashed segment that meets it at a right angle. Six places are numbered: the dot, the vertical line, the point on the ellipse, the solid segment, the dashed segment and the right end of the ellipse.'}
+  labels:
+    - {x: 45, y: 50, text: Focus}
+    - {x: 85, y: 28.9, text: Directrix}
+    - {x: 36.7, y: 14.2, text: A point P on the conic}
+    - {x: 40.9, y: 32.1, text: 'Distance to the focus, PF = r'}
+    - {x: 64.2, y: 14.2, text: 'Distance to the directrix, PD'}
+    - {x: 58.3, y: 50, text: Vertex}
+  distractors: [Center of the ellipse, Asymptote]
+  explanation: |-
+    The focus (1) is at the pole and the directrix (2) is the vertical line $x = d$. For any point $P$ on the curve (3), the distance to the focus (4) is $PF = r$ and the distance to the directrix (5) is $PD = d - r\cos\theta$; on this ellipse $PF$ is always half of $PD$. The vertex (6) is where the curve crosses the axis through the focus, here at $\theta = 0$. The center of the ellipse is not marked: it lies to the left of the focus.
+
+# ---- Honors 39h2: Cycloids and rolling curves (trig-m9-h-cycloids) ----
+- id: trig-m9-r2-h14
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'A wheel of radius $a$ rolls without slipping and turns through an angle of $t$ radians. How far has its center moved?'
+  choices: ['$a + t$', '$at$', '$\dfrac{t}{a}$', '$2\pi at$']
+  answer: 1
+  explanation: |-
+    Without slipping, the ground covered equals the length of rim that touched it, an arc of length $at$ (radius times angle in radians). The center moves the same distance. $2\pi at$ would be the distance for $t$ full turns, not $t$ radians.
+- id: trig-m9-r2-h15
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'For the cycloid $x = 3(t - \sin t)$, $y = 3(1 - \cos t)$, how wide and how high is one arch?'
+  choices: ['width $6\pi$, height $6$', 'width $3\pi$, height $3$', 'width $6\pi$, height $3$', 'width $6$, height $6\pi$']
+  answer: 0
+  explanation: |-
+    Here $a = 3$. One arch takes one full turn, $0 \le t \le 2\pi$, so its width is the circumference $2\pi a = 6\pi$. The top is at $t = \pi$, where $y = 3(1 - (-1)) = 6 = 2a$, the diameter.
+- id: trig-m9-r2-h16
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'A wheel of radius 2 rolls to the right; a point on its rim starts at the origin. Where is that point after the wheel turns $\tfrac{\pi}{2}$?'
+  choices: ['$(\pi, 2)$', '$(\pi - 2, 0)$', '$(2, \pi - 2)$', '$(\pi - 2, 2)$']
+  answer: 3
+  explanation: |-
+    $x = 2\left(\tfrac{\pi}{2} - \sin\tfrac{\pi}{2}\right) = \pi - 2 \approx 1.14$ and $y = 2\left(1 - \cos\tfrac{\pi}{2}\right) = 2$. The center is at $(\pi, 2)$; the point is level with it, $a = 2$ units behind.
+- id: trig-m9-r2-h17
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'Why must $t$ be in radians in the cycloid equation $x = a(t - \sin t)$?'
+  choices: ['Because sine can only be evaluated in radians.', 'Because a wheel rolling to the right turns clockwise.', 'Because the term $at$ is an arc length, and arc length equals radius times angle only in radians.', 'Because $t$ is a time measured in seconds.']
+  answer: 2
+  explanation: |-
+    The $at$ term is the distance the wheel has rolled, the arc length $s = r\theta$, which holds only for $\theta$ in radians. Sine itself can be evaluated in degrees, but then $at$ would be wrong. The clockwise turning explains the signs, not the units.
+- id: trig-m9-r2-h18
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'A point at distance $b$ from the center of a wheel of radius $a$ traces a trochoid as the wheel rolls along a line. When does the curve have loops?'
+  choices: ['When $b < a$', 'When $b = a$', 'When $b = \tfrac{a}{2}$', 'When $b > a$']
+  answer: 3
+  explanation: |-
+    If $b > a$, the point dips below the line the wheel rolls on and moves backward there, which makes a loop each turn (like a train wheel's flange). $b = a$ is the cycloid, with cusps; $b < a$, including $b = \tfrac a2$, gives a smooth wave.
+- id: trig-m9-r2-h19
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'A circle of radius 1 rolls around the outside of a fixed circle of radius 5. How many cusps does the path of a point on the rolling circle have?'
+  choices: ['4', '5', '6', '10']
+  answer: 1
+  explanation: |-
+    $\tfrac{a}{b} = \tfrac51 = 5$ is a whole number, so the epicycloid closes after one trip around with 5 cusps: the rolling circle's circumference $2\pi$ fits 5 times around the fixed circle's $10\pi$, and the point touches the fixed circle once per fit.
+- id: trig-m9-r2-h20
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'Which curve does a point on a coin trace when the coin rolls around the outside of another coin of the same size?'
+  choices: ['An astroid', 'A deltoid', 'A cardioid', 'A nephroid']
+  answer: 2
+  explanation: |-
+    An epicycloid with $a = b$ has one cusp, and with $a = b = 1$ it is $x = 2\cos t - \cos 2t$, $y = 2\sin t - \sin 2t$, which the lesson showed is the cardioid $r = 2 - 2\cos\theta$ with the cusp as pole. A nephroid needs $a = 2b$; the astroid and deltoid are hypocycloids.
+- id: trig-m9-r2-h21
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'A circle rolls inside a fixed circle twice its radius. What does a point on the rolling circle trace?'
+  choices: ['A straight line segment (a diameter of the fixed circle)', 'A cardioid', 'A circle', 'An astroid']
+  answer: 0
+  explanation: |-
+    With $a = 2b$ the hypocycloid equations give $x = b\cos t + b\cos t = 2b\cos t$ and $y = b\sin t - b\sin t = 0$: the point slides back and forth along a diameter. This is the Tusi couple, described by Naṣīr al-Dīn al-Ṭūsī in the 13th century.
+- id: trig-m9-r2-h22
+  lesson: trig-m9-h-cycloids
+  type: text
+  topic: Rolling curves
+  stem: 'A pebble is stuck to the rim of a bicycle wheel of radius 35 cm. After one complete turn, the pebble is back on the ground ___ cm ahead of where it started (to the nearest whole cm), and its greatest height during that turn was ___ cm.'
+  accept:
+    - ['220']
+    - ['70']
+  explanation: |-
+    One turn moves the wheel one circumference: $2\pi(35) = 70\pi \approx 219.9$, so about 220 cm. The highest point of the arch is $2a = 70$ cm, when the pebble is at the top of the wheel.
+- id: trig-m9-r2-h23
+  lesson: trig-m9-h-cycloids
+  type: text
+  topic: Rolling curves
+  stem: 'A hypocycloid with three cusps is called a ___ , and the problem of finding the curve of fastest descent, solved by the upside-down cycloid, is called the ___ problem.'
+  accept:
+    - [deltoid, deltoids, tricuspoid]
+    - [brachistochrone]
+  explanation: |-
+    A circle rolling inside one three times its radius traces the three-cusped deltoid. The brachistochrone ("shortest time") problem, posed by Johann Bernoulli in 1696, asks for the curve along which a sliding bead gets from one point to a lower one fastest; the answer is an arch of a cycloid. (The tautochrone is the equal-time property, a different problem.)
+- id: trig-m9-r2-h24
+  lesson: trig-m9-h-cycloids
+  type: match
+  topic: Rolling curves
+  stem: 'Match each rolling motion to the curve traced by the point described.'
+  pairs:
+    - ['Point on the rim of a circle rolling along a line', 'Cycloid']
+    - ['Point outside the rim of a circle rolling along a line', 'Trochoid with loops']
+    - ['Point on a circle rolling around the outside of an equal circle', 'Cardioid']
+    - ['Point on a circle rolling inside a circle 3 times its radius', 'Deltoid']
+    - ['Point on a circle rolling inside a circle 4 times its radius', 'Astroid']
+  distractors: [Lemniscate, Nephroid]
+  explanation: |-
+    A rim point on a line traces a cycloid; a point beyond the rim ($b > a$) traces a looped trochoid. Rolling outside an equal circle gives the one-cusped cardioid. Rolling inside gives a hypocycloid with $\tfrac ab$ cusps: 3 for the deltoid and 4 for the astroid. The nephroid comes from rolling outside a circle twice the radius, which is not listed.
+- id: trig-m9-r2-h25
+  lesson: trig-m9-h-cycloids
+  topic: Rolling curves
+  stem: 'Which statements about one arch of the cycloid traced by a wheel of radius $a$ are true? Select all that apply.'
+  choices: ['Its length is $2\pi a$.', 'Its width is $2\pi a$.', 'The tracing point moves forward at a constant speed.', 'Its height is $2a$.', 'The area under it is $3\pi a^2$.']
+  answer: [1, 3, 4]
+  explanation: |-
+    The arch is one circumference wide, $2\pi a$, and one diameter high, $2a$; the area under it is $3\pi a^2$, three times the wheel's area. Its length is $8a$ (Wren, 1658), longer than $2\pi a \approx 6.28a$. The point is slow near the cusps and fastest at the top, so its speed is not constant.
+- id: trig-m9-r2-h26
+  lesson: trig-m9-h-cycloids
+  type: order
+  topic: Rolling curves
+  stem: 'A point on the rim of a rolling wheel traces $y = a(1 - \cos t)$. Put these values of $t$ in order of the point''s height, lowest first.'
+  items: ['$t = \tfrac{\pi}{6}$', '$t = \tfrac{7\pi}{4}$', '$t = \tfrac{3\pi}{2}$', '$t = \tfrac{5\pi}{6}$', '$t = \pi$']
+  explanation: |-
+    The height is $a(1 - \cos t)$, so a larger $1 - \cos t$ means higher. $1 - \cos\tfrac{\pi}{6} \approx 0.134$, $1 - \cos\tfrac{7\pi}{4} \approx 0.293$, $1 - \cos\tfrac{3\pi}{2} = 1$, $1 - \cos\tfrac{5\pi}{6} \approx 1.866$ and $1 - \cos\pi = 2$ (the top of the arch).
+- id: trig-m9-r2-h27
+  lesson: trig-m9-h-cycloids
+  type: label
+  topic: Rolling curves
+  stem: 'The picture shows a wheel of radius $a$ partway through tracing a cycloid. Name the numbered parts.'
+  image: {src: images/trig-m9-rolling-circle-blank.svg, alt: 'A circle resting on the ground, with a dot at its center joined by one segment straight down to the ground and by another to a point on the upper left of the rim; an arc marks the angle between them. A thick highlighted stretch of ground runs from a starting dot on the left to the bottom of the circle, and a matching highlighted arc runs along the rim. A solid curve rises from the starting dot to the point on the rim, and a dashed arch continues to the right. Six places are numbered: the center, the bottom of the circle, the angle, the point on the rim, the highlighted ground and the solid curve.'}
+  labels:
+    - {x: 36.5, y: 63.2, text: 'Center of the wheel, (at, a)'}
+    - {x: 36.5, y: 84.2, text: 'Point of contact, (at, 0)'}
+    - {x: 30.1, y: 68.4, text: 'Angle the wheel has turned, t'}
+    - {x: 26, y: 50.8, text: Tracing point P}
+    - {x: 22.3, y: 84.2, text: 'Distance rolled, at'}
+    - {x: 10.8, y: 72.7, text: Part of the cycloid already traced}
+  distractors: [Cusp at the top of the arch, Directrix]
+  explanation: |-
+    The center (1) is always $a$ above the ground and $at$ along it, and the point of contact (2) is straight below it. The wheel has turned through the angle $t$ (3), measured between the downward radius and the radius to the tracing point $P$ (4). The ground covered (5) has length $at$, equal to the highlighted arc of rim. The solid curve (6) is the part of the cycloid traced so far. Cusps are on the ground, not at the top of the arch.
+
+# ---- Honors 39h3: De Moivre's theorem at work (trig-m9-h-roots-of-unity) ----
+- id: trig-m9-r2-h28
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'Expanding $(\cos\theta + i\sin\theta)^2$ and matching it with $\cos 2\theta + i\sin 2\theta$, the real parts give'
+  choices: ['$\cos 2\theta = \cos^2\theta + \sin^2\theta$', '$\cos 2\theta = 2\sin\theta\cos\theta$', '$\cos 2\theta = \cos^2\theta - \sin^2\theta$', '$\cos 2\theta = 2\cos\theta$']
+  answer: 2
+  explanation: |-
+    $(c + is)^2 = c^2 + 2ics + i^2s^2 = (c^2 - s^2) + i(2cs)$. The real part is $\cos^2\theta - \sin^2\theta = \cos 2\theta$, and the imaginary part gives $\sin 2\theta = 2\sin\theta\cos\theta$. Forgetting that $i^2 = -1$ gives the wrong plus sign.
+- id: trig-m9-r2-h29
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'De Moivre''s theorem gives $\cos 5\theta = 16\cos^5\theta - 20\cos^3\theta + 5\cos\theta$. If $\cos\theta = 0.6$, what is $\cos 5\theta$?'
+  choices: ['$-0.07584$', '$3$', '$0.07776$', '$-0.936$']
+  answer: 0
+  explanation: |-
+    $16(0.6)^5 - 20(0.6)^3 + 5(0.6) = 16(0.07776) - 20(0.216) + 3 = 1.24416 - 4.32 + 3 = -0.07584$. (Check: $\theta \approx 53.13^\circ$, $5\theta \approx 265.65^\circ$, whose cosine is about $-0.0758$.) $3 = 5(0.6)$ treats $\cos 5\theta$ as $5\cos\theta$, $0.07776$ is just $\cos^5\theta$, and $-0.936$ is $\cos 3\theta$.
+- id: trig-m9-r2-h30
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'The fourth roots of unity are $1, \omega, \omega^2, \omega^3$ with $\omega = \operatorname{cis}90^\circ = i$. What is $1 + \omega + \omega^2 + \omega^3$?'
+  choices: ['$4$', '$1$', '$4i$', '$0$']
+  answer: 3
+  explanation: |-
+    $1 + i + i^2 + i^3 = 1 + i - 1 - i = 0$. The $n$th roots of unity always add to 0 for $n \ge 2$: multiplying the sum by $\omega$ only reorders it, so $\omega S = S$ with $\omega \ne 1$.
+- id: trig-m9-r2-h31
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'For the eighth roots of unity with $\omega = \operatorname{cis}45^\circ$, which power of $\omega$ is the conjugate of $\omega^3$?'
+  choices: ['$\omega^4$', '$\omega^5$', '$-\omega^3$', '$\omega^{11}$']
+  answer: 1
+  explanation: |-
+    $\omega^3 = \operatorname{cis}135^\circ$, and its conjugate is $\operatorname{cis}(-135^\circ) = \operatorname{cis}225^\circ = \omega^5$. In general $\overline{\omega^k} = \omega^{n-k}$, and $8 - 3 = 5$. $\omega^{11} = \omega^3$ itself, $\omega^4 = -1$, and $-\omega^3 = \omega^7$.
+- id: trig-m9-r2-h32
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'Which real quadratic factor of $z^8 - 1$ comes from the conjugate pair $\operatorname{cis}45^\circ$ and $\operatorname{cis}(-45^\circ)$?'
+  choices: ['$z^2 + \sqrt2\,z + 1$', '$z^2 - z + 1$', '$z^2 - \sqrt2\,z - 1$', '$z^2 - \sqrt2\,z + 1$']
+  answer: 3
+  explanation: |-
+    The pair adds to $2\cos 45^\circ = \sqrt2$ and multiplies to $|\operatorname{cis}45^\circ|^2 = 1$, so the factor is $z^2 - \sqrt2\,z + 1$. The factor $z^2 + \sqrt2\,z + 1$ comes from the pair at $\pm135^\circ$.
+- id: trig-m9-r2-h33
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'One cube root of $-64$ is $-4$. What are the other two?'
+  choices: ['$2 \pm 2\sqrt3\,i$', '$-2 \pm 2\sqrt3\,i$', '$4 \pm 4i$', '$\pm 4i$']
+  answer: 0
+  explanation: |-
+    Multiply $-4$ by the other cube roots of unity, $\operatorname{cis}120^\circ = -\tfrac12 + \tfrac{\sqrt3}{2}i$ and its conjugate: $-4\left(-\tfrac12 \pm \tfrac{\sqrt3}{2}i\right) = 2 \mp 2\sqrt3\,i$. The three roots add to $-4 + 2 + 2 = 0$. (Check: $2 + 2\sqrt3\,i = 4\operatorname{cis}60^\circ$, and its cube is $64\operatorname{cis}180^\circ = -64$.)
+- id: trig-m9-r2-h34
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'Let $w = 2\cos\tfrac{360^\circ}{7}$. Which equation does $w$ satisfy?'
+  choices: ['$w^2 + w - 1 = 0$', '$w^3 + w^2 - 2w - 1 = 0$', '$w^3 - 3w - 1 = 0$', '$w^6 + w^5 + w^4 + w^3 + w^2 + w + 1 = 0$']
+  answer: 1
+  explanation: |-
+    With $z = \operatorname{cis}\tfrac{360^\circ}{7}$, divide $z^6 + \cdots + z + 1 = 0$ by $z^3$ and use $z + z^{-1} = w$, $z^2 + z^{-2} = w^2 - 2$, $z^3 + z^{-3} = w^3 - 3w$: $(w^3 - 3w) + (w^2 - 2) + w + 1 = w^3 + w^2 - 2w - 1 = 0$. Check: $w \approx 1.2470$ gives $1.939 + 1.555 - 2.494 - 1 \approx 0$. $w^2 + w - 1 = 0$ is the pentagon's equation, and the degree-6 equation is satisfied by $z$, not by $w$.
+- id: trig-m9-r2-h35
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'A regular 10-gon is inscribed in the unit circle. What is the product of the lengths of the 9 sides and diagonals that leave one corner?'
+  choices: ['$1$', '$9$', '$10$', '$2^9$']
+  answer: 2
+  explanation: |-
+    With the corners at the 10th roots of unity and the chosen corner at 1, the product is $|1 - \omega|\,|1 - \omega^2|\cdots|1 - \omega^9|$, which equals the value of $1 + z + \cdots + z^9$ at $z = 1$: that is, 10. The product of the chords from one corner is always $n$.
+- id: trig-m9-r2-h36
+  lesson: trig-m9-h-roots-of-unity
+  type: text
+  topic: Roots of unity
+  stem: 'Use $\sin 5\theta = 16\sin^5\theta - 20\sin^3\theta + 5\sin\theta$ and give exact values. If $\sin\theta = \tfrac12$, then $\sin 5\theta =$ ___ ; if $\sin\theta = \tfrac13$, then $\sin 5\theta =$ ___ .'
+  accept:
+    - ['1/2', '0.5']
+    - ['241/243']
+  explanation: |-
+    $16\left(\tfrac{1}{32}\right) - 20\left(\tfrac18\right) + 5\left(\tfrac12\right) = \tfrac12 - \tfrac52 + \tfrac52 = \tfrac12$, which checks: $\theta = 30^\circ$ gives $\sin 150^\circ = \tfrac12$. Then $\tfrac{16}{243} - \tfrac{20}{27} + \tfrac53 = \tfrac{16 - 180 + 405}{243} = \tfrac{241}{243}$.
+- id: trig-m9-r2-h37
+  lesson: trig-m9-h-roots-of-unity
+  type: text
+  topic: Roots of unity
+  stem: 'The fifth roots of unity other than 1 satisfy $z^4 + z^3 + z^2 + z + 1 = 0$. Dividing by $z^2$ and setting $w = z + z^{-1}$ turns this into $w^2 + w +$ ___ $= 0$. For $z = \operatorname{cis}72^\circ$, $w = 2\cos 72^\circ \approx$ ___ (3 decimal places).'
+  accept:
+    - ['-1', '−1']
+    - ['0.618']
+  explanation: |-
+    $z^2 + z^{-2} = w^2 - 2$, so $z^2 + z + 1 + z^{-1} + z^{-2} = (w^2 - 2) + w + 1 = w^2 + w - 1$. Its positive root is $w = \tfrac{-1 + \sqrt5}{2} \approx 0.618$, which is $2\cos 72^\circ$.
+- id: trig-m9-r2-h38
+  lesson: trig-m9-h-roots-of-unity
+  topic: Roots of unity
+  stem: 'Which statements about the sixth roots of unity are true? Select all that apply.'
+  choices: ['They add up to $6$.', 'They add up to $0$.', '$\operatorname{cis}30^\circ$ is one of them.', 'They include $-1$.', 'The conjugate of each one is also a sixth root of unity.']
+  answer: [1, 3, 4]
+  explanation: |-
+    The sixth roots of unity are $\operatorname{cis}(60^\circ k)$, $k = 0, \ldots, 5$. They add to 0 (as all roots of unity do for $n \ge 2$), and $k = 3$ gives $\operatorname{cis}180^\circ = -1$. Conjugation negates the argument, $-60^\circ k \equiv 60^\circ(6 - k)$, so conjugates stay in the set. $\operatorname{cis}30^\circ$ is a twelfth root of unity, not a sixth: its sixth power is $\operatorname{cis}180^\circ = -1$.
+- id: trig-m9-r2-h39
+  lesson: trig-m9-h-roots-of-unity
+  type: order
+  topic: Roots of unity
+  stem: 'Put the steps for finding $\cos 72^\circ$ exactly in order.'
+  items:
+    - 'Let $z = \operatorname{cis}72^\circ$, so $z^5 = 1$ and $z \ne 1$'
+    - 'Divide $z^5 - 1$ by $z - 1$: $z^4 + z^3 + z^2 + z + 1 = 0$'
+    - 'Divide by $z^2$: $z^2 + z + 1 + z^{-1} + z^{-2} = 0$'
+    - 'Substitute $w = z + z^{-1}$: $w^2 + w - 1 = 0$'
+    - 'Keep the positive root: $\cos 72^\circ = \tfrac{w}{2} = \tfrac{\sqrt5 - 1}{4}$'
+  explanation: |-
+    Each step needs the previous one: the equation for $z$ comes from $z^5 = 1$, the division by $z^2$ makes the equation symmetric in $z$ and $z^{-1}$, which is what lets $w = z + z^{-1} = 2\cos 72^\circ$ replace $z$, and the quadratic is solved last, choosing the root that matches $\cos 72^\circ > 0$.
+- id: trig-m9-r2-h40
+  lesson: trig-m9-h-roots-of-unity
+  type: match
+  topic: Roots of unity
+  stem: 'Match each multiple-angle expression to the formula that De Moivre''s theorem gives for it.'
+  pairs:
+    - ['$\cos 2\theta$', 'cos²θ − sin²θ']
+    - ['$\sin 2\theta$', '2 sin θ cos θ']
+    - ['$\cos 3\theta$', '4 cos³θ − 3 cos θ']
+    - ['$\sin 3\theta$', '3 sin θ − 4 sin³θ']
+    - ['$\cos 4\theta$', '8 cos⁴θ − 8 cos²θ + 1']
+  distractors: ['4 sin³θ − 3 sin θ', '3 cos θ − 4 cos³θ']
+  explanation: |-
+    The real part of $(c + is)^n$ gives $\cos n\theta$ and the imaginary part gives $\sin n\theta$. For $n = 2$: $c^2 - s^2$ and $2cs$. For $n = 3$: $c^3 - 3cs^2 = 4c^3 - 3c$ and $3c^2s - s^3 = 3s - 4s^3$. For $n = 4$: $c^4 - 6c^2s^2 + s^4 = 8c^4 - 8c^2 + 1$. The distractors are the negatives of the triple-angle formulas.

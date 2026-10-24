@@ -61,6 +61,10 @@ $$\Delta V = Ed, \qquad E = \frac{\Delta V}{d}.$$
 
 This shows why field is measured in volts per meter: 1 N/C = 1 V/m. A 12 V battery connected across plates 2.0 mm apart makes a field of 6000 V/m.
 
+![Two vertical parallel plates, the left one positive at 12 V and the right one negative at 0 V. Horizontal arrows run from the left plate to the right plate: the field lines. Three evenly spaced dashed vertical lines between the plates are equipotentials at 9 V, 6 V and 3 V.](images/phys-m8-plates.svg)
+
+The equipotentials between the plates are evenly spaced planes: equal steps of distance along the field give equal drops in potential.
+
 ## Equipotentials
 
 An **equipotential surface** is a surface on which $V$ is constant. No work is done moving a charge along one. Equipotentials are always perpendicular to field lines, and the field points from high potential toward low, strongest where equipotentials are closely spaced (like contour lines on a steep hillside). Around a point charge they're concentric spheres; between parallel plates they're parallel planes. A conductor in electrostatic equilibrium is an equipotential throughout.
@@ -81,7 +85,19 @@ Going the other way, the field is the negative gradient of the potential:
 
 $$E_x = -\frac{\partial V}{\partial x}, \quad E_y = -\frac{\partial V}{\partial y}, \quad E_z = -\frac{\partial V}{\partial z}; \qquad \vec E = -\nabla V.$$
 
-The field points in the direction of steepest decrease of $V$. Because $V$ is a scalar, finding $V$ by integration and then differentiating is often easier than computing $\vec E$ directly.
+The field points in the direction of steepest decrease of $V$. Because $V$ is a scalar, finding $V$ by integration and then differentiating is often easier than computing $\vec E$ directly. The chart sums up the routes between charges, field and potential.
+
+```mermaid
+flowchart TD
+  accTitle: Which route to the field or the potential
+  accDescr: Start from what you know. For point charges, if you want the potential, add kq over r for each charge as plain signed numbers; if you want the field, add the kq over r squared vectors by components. If you know the field and want a potential difference, integrate: delta V is minus the integral of E along a path, which for a uniform field is just E times d. If you know the potential as a function of position and want the field, take minus the gradient.
+  A{"What do you know?"}
+  A -- "point charges, want V" --> B["Add kq/r as signed numbers"]
+  A -- "point charges, want E" --> C["Add kq/r² as vectors, by components"]
+  A -- "E, want ΔV" --> D["ΔV = minus the integral of E along a path"]
+  D --> F["Uniform field: ΔV = Ed"]
+  A -- "V(x, y, z), want E" --> E["E = minus the gradient of V"]
+```
 
 ### Example 3
 

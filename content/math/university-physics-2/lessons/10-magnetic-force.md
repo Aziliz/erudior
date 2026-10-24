@@ -47,6 +47,10 @@ $$|q|vB = \frac{mv^2}{r} \quad\Rightarrow\quad r = \frac{mv}{|q|B}.$$
 
 Faster or heavier particles make wider circles; stronger fields make tighter ones. The period, $T = \dfrac{2\pi r}{v} = \dfrac{2\pi m}{|q|B}$, doesn't depend on the speed. This **cyclotron frequency**, $f = \dfrac{|q|B}{2\pi m}$, is the principle of the cyclotron accelerator.
 
+The picture shows the geometry for a positive charge in a field pointing into the page: the force always points toward the center of the circle, at right angles to the velocity.
+
+![A positive charge moving upward at the right edge of a dashed circle, in a field into the page; its velocity arrow points up and the magnetic force arrow points left, toward the center](images/phys-m10-orbit.svg)
+
 If the velocity also has a component along $\vec B$, that part is unaffected, and the particle spirals in a helix around the field lines. That's how Earth's field funnels solar-wind particles toward the poles to make the aurora.
 
 ### Example 2: mass spectrometer
@@ -57,7 +61,11 @@ Speed from energy: $\tfrac12mv^2 = qV$, so $v = \sqrt{\dfrac{2(1.6\times10^{-19}
 
 Radius: $r = \dfrac{mv}{qB} = \dfrac{(1.99\times10^{-26})(1.27\times10^5)}{(1.6\times10^{-19})(0.20)} = 0.079$ m.
 
-Heavier isotopes curve less (here $r \propto \sqrt m$), so they land at different spots. That's how a **mass spectrometer** sorts atoms by mass, from carbon dating to drug testing.
+Heavier isotopes curve less (here $r \propto \sqrt m$), so they land at different spots.
+
+![A mass spectrometer: ions leave a source, are accelerated between two plates, and enter a field into the page, where lighter ions follow a small semicircle and heavier ions a larger one before striking a detector](images/phys-m10-mass-spec.svg)
+
+ That's how a **mass spectrometer** sorts atoms by mass, from carbon dating to drug testing.
 
 *Velocity selector.* If an electric field and a magnetic field are crossed (perpendicular to each other and to the beam), a particle goes straight when the electric and magnetic forces cancel: $qE = qvB$, so only particles with $v = E/B$ pass through undeflected.
 

@@ -1,0 +1,137 @@
+# Round 2 glossary terms for the honors module trig-h1 (Trigonometry in science and engineering)
+- term: rotation matrix
+  aliases: [rotation matrices]
+  definition: 'The square array of the four numbers $\cos\theta$, $-\sin\theta$ (first row) and $\sin\theta$, $\cos\theta$ (second row) that encodes a rotation by $\theta$; multiplying it by a point''s coordinates applies the rotation formulas.'
+  topic: Rotations
+- term: planar two-link arm
+  aliases: [two-link arm, two-link arms]
+  definition: 'A simple robot arm moving in a plane: a fixed shoulder joint, a link of length $L_1$ to an elbow joint, and a second link of length $L_2$ to the end effector.'
+  topic: Robot arm kinematics
+- term: end effector
+  aliases: [end effectors]
+  definition: 'The tool at the tip of a robot arm, such as a gripper or a welding torch; its position is what kinematics computes.'
+  topic: Robot arm kinematics
+- term: joint angles
+  aliases: [joint angle]
+  definition: 'The angles that describe a robot arm''s pose. For a two-link arm, $\theta_1$ is measured from the positive $x$-axis and $\theta_2$ from the direction of link 1.'
+  topic: Robot arm kinematics
+- term: forward kinematics
+  definition: 'Finding the position of a robot arm''s end effector from its joint angles; for a two-link arm, $x = L_1\cos\theta_1 + L_2\cos(\theta_1 + \theta_2)$ and $y = L_1\sin\theta_1 + L_2\sin(\theta_1 + \theta_2)$.'
+  topic: Robot arm kinematics
+- term: inverse kinematics
+  definition: 'Finding the joint angles that put a robot arm''s end effector at a given point; for a two-link arm it uses the law of cosines and usually has two solutions.'
+  topic: Robot arm kinematics
+- term: elbow-up and elbow-down
+  aliases: [elbow-up, elbow-down, elbow-up solution, elbow-down solution]
+  definition: 'The two mirror-image solutions of a two-link arm''s inverse kinematics, with elbow angles $\theta_2$ and $-\theta_2$, one on each side of the line from the shoulder to the target.'
+  topic: Robot arm kinematics
+- term: workspace
+  definition: 'The set of points a robot arm''s end effector can reach. For a two-link arm with free joints it is the ring $|L_1 - L_2| \le d \le L_1 + L_2$ around the shoulder.'
+  topic: Robot arm kinematics
+- term: phasor
+  aliases: [phasors]
+  definition: 'The arrow (or complex number) $A\angle\varphi$ of length $A$ at angle $\varphi$ that represents the sinusoid $A\cos(\omega t + \varphi)$; sinusoids of one frequency add by adding their phasors.'
+  topic: Phasors
+- term: phase difference
+  definition: 'The difference $\Delta = \varphi_2 - \varphi_1$ between the phases of two sinusoids with the same frequency; it is the angle between their phasors.'
+  topic: Phasors
+- term: constructive interference
+  definition: 'Two waves of the same frequency adding in phase (phase difference $0^\circ$), so the amplitude of the sum is the sum of the amplitudes.'
+  topic: Phasors
+- term: destructive interference
+  definition: 'Two waves of the same frequency adding half a cycle apart (phase difference $180^\circ$), so the amplitude of the sum is the difference of the amplitudes; equal waves cancel completely.'
+  topic: Phasors
+- term: alternating current
+  aliases: [AC]
+  definition: 'Electric current (and voltage) that varies sinusoidally with time, such as household electricity at 60 Hz in North America.'
+  topic: AC circuits
+- term: inductive and capacitive reactance
+  aliases: [reactance, inductive reactance, capacitive reactance]
+  definition: 'The opposition of an inductor, $X_L = \omega L$, or a capacitor, $X_C = \tfrac{1}{\omega C}$, to alternating current, measured in ohms. An inductor''s voltage leads the current by $90^\circ$; a capacitor''s lags it by $90^\circ$.'
+  topic: AC circuits
+- term: series RLC circuit
+  aliases: [RLC circuit, RLC circuits]
+  definition: 'A circuit with a resistor, an inductor and a capacitor in one loop, so the same current flows through all three and the source voltage is the phasor sum of their voltages.'
+  topic: AC circuits
+- term: impedance
+  definition: 'A circuit''s total opposition to alternating current, in ohms; for a series RLC circuit $Z = \sqrt{R^2 + (X_L - X_C)^2}$, the modulus of the complex number $R + j(X_L - X_C)$.'
+  topic: AC circuits
+- term: resonance
+  aliases: [resonant frequency]
+  definition: 'The condition $X_L = X_C$ in a series RLC circuit, where the impedance is smallest and the current largest; it happens at $f_0 = \dfrac{1}{2\pi\sqrt{LC}}$.'
+  topic: AC circuits
+- term: power factor
+  definition: '$\cos\varphi$, where $\varphi$ is the phase angle between voltage and current; the average power is $\tfrac12 VI\cos\varphi$ for peak values $V$ and $I$.'
+  topic: AC circuits
+- term: normal
+  aliases: [normal line]
+  definition: 'In optics, the line perpendicular to a surface at the point where a ray hits it; angles of incidence, reflection and refraction are measured from it.'
+  topic: Refraction
+- term: incident ray
+  aliases: [incident rays]
+  definition: 'A ray of light arriving at a boundary between two materials.'
+  topic: Refraction
+- term: angle of incidence
+  definition: 'The angle between an incident ray and the normal to the surface it strikes.'
+  topic: Refraction
+- term: law of reflection
+  definition: 'A reflected ray leaves a surface at the same angle from the normal as the incident ray arrived, on the other side of the normal.'
+  topic: Refraction
+- term: angle of refraction
+  definition: 'The angle between a refracted ray and the normal, on the far side of the boundary.'
+  topic: Refraction
+- term: refraction
+  definition: 'The bending of light (or any wave) as it crosses from one material into another in which it travels at a different speed.'
+  topic: Refraction
+- term: index of refraction
+  aliases: [refractive index, indices of refraction]
+  definition: 'The ratio $n = \tfrac{c}{v}$ of the speed of light in a vacuum to its speed in a material; about 1.00 for air, 1.33 for water and 1.5 for glass.'
+  topic: Refraction
+- term: Snell's law
+  definition: '$n_1\sin\theta_1 = n_2\sin\theta_2$: the law of refraction, with both angles measured from the normal.'
+  topic: Refraction
+- term: total internal reflection
+  definition: 'Complete reflection of light at a boundary into a material of smaller index of refraction, which happens when the angle of incidence exceeds the critical angle.'
+  topic: Total internal reflection
+- term: critical angle
+  aliases: [critical angles]
+  definition: 'The angle of incidence beyond which total internal reflection occurs, going from index $n_1$ to a smaller index $n_2$: $\sin\theta_c = \tfrac{n_2}{n_1}$.'
+  topic: Total internal reflection
+- term: core
+  definition: 'The central glass strand of an optical fiber, which carries the light; it has a slightly larger index of refraction than the cladding around it.'
+  topic: Total internal reflection
+- term: cladding
+  definition: 'The layer of glass around an optical fiber''s core, with a slightly smaller index of refraction, so light in the core is trapped by total internal reflection.'
+  topic: Total internal reflection
+- term: numerical aperture
+  definition: 'For an optical fiber with core index $n_1$ and cladding index $n_2$, the number $\sqrt{n_1^2 - n_2^2}$; it equals the sine of the acceptance angle in air.'
+  topic: Total internal reflection
+- term: acceptance angle
+  definition: 'The largest angle from an optical fiber''s axis at which light entering its end is still trapped and carried along the fiber.'
+  topic: Total internal reflection
+- term: great-circle distance
+  definition: 'The shortest distance between two points along the surface of a sphere, $d = Rc$, where $c$ is the central angle between them in radians.'
+  topic: Great-circle distance
+- term: spherical triangle
+  aliases: [spherical triangles]
+  definition: 'Three points on a sphere joined by arcs of great circles; its sides are measured by the central angles they span, and its angles add up to more than $180^\circ$.'
+  topic: Spherical triangles
+- term: colatitude
+  definition: 'The angular distance of a point from the North Pole, $90^\circ$ minus its latitude.'
+  topic: Spherical triangles
+- term: spherical law of cosines
+  definition: 'For a spherical triangle with sides $a$, $b$, $c$ (as central angles) and angle $C$ opposite $c$: $\cos c = \cos a\cos b + \sin a\sin b\cos C$.'
+  topic: Spherical triangles
+- term: initial bearing
+  definition: 'The direction, clockwise from north, in which a great-circle route starts; the bearing changes along the route.'
+  topic: Great-circle distance
+- term: rhumb line
+  aliases: [rhumb lines, loxodrome]
+  definition: 'A path on the Earth that keeps one fixed compass bearing; except along a meridian or the equator it is longer than the great-circle route.'
+  topic: Great-circle distance
+- term: haversine formula
+  definition: 'A form of the great-circle distance formula, $\sin^2\tfrac{c}{2} = \sin^2\tfrac{\Delta\varphi}{2} + \cos\varphi_1\cos\varphi_2\sin^2\tfrac{\Delta\lambda}{2}$, that stays accurate for nearby points.'
+  topic: Great-circle distance
+- term: spherical excess
+  definition: 'The amount $E = A + B + C - 180^\circ$ by which a spherical triangle''s angles exceed $180^\circ$; its area is $R^2E$ with $E$ in radians.'
+  topic: Spherical triangles
