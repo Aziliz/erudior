@@ -22,7 +22,7 @@
 
     Long after: the charged capacitor acts as a break, so $R_1$ and $R_2$ are in series: $I = \dfrac{{Ev}}{{R1} + {R2}} =$ **{If:sig3} mA**.
 
-    The capacitor has the same voltage as $R_2$: $V_C = I R_2 = {VC:sig3}$ V, so $Q = CV_C = ({C}\text{ μF})({VC:sig3}\text{ V}) =$ **{Q:sig3} μC**.
+    The capacitor has the same voltage as $R_2$: $V_C = I R_2 = {VC:sig3}$ V, so $Q = CV_C = ({C}\ \mu\text{F})({VC:sig3}\text{ V}) =$ **{Q:sig3} μC**.
 - id: phys-m9-r2-bridge
   title: Balanced Wheatstone bridge
   topic: Bridge circuits

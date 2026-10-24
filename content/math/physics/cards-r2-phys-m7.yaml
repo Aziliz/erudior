@@ -14,6 +14,8 @@
 - {front: Temperature after adiabatic compression, back: '$T_2 = T_1r^{\gamma - 1}$ (kelvins); air at 300 K compressed 18:1 reaches about 950 K', topic: Engine cycles}
 - {front: Four strokes of a gasoline engine, back: 'Intake, compression, power, exhaust', topic: Engine cycles}
 - {front: Otto vs diesel, back: 'Gasoline: spark ignition, $r$ about 9–14, limited by knock. Diesel: compresses air alone, compression ignition, $r$ about 15–22, more efficient overall', topic: Engine cycles}
+- {front: Why real cycles fall short of Carnot, back: 'Heat enters and leaves across large temperature differences (creating entropy), plus friction and heat leaks; a rectangular PV cycle reaches far less than Carnot between its extreme temperatures', topic: Engine cycles}
+- {front: Engine knock, back: 'Self-ignition of a gasoline engine''s fuel-air mixture before the spark, from too much compression heating; it limits the compression ratio', topic: Engine cycles}
 - {front: Vapor-compression refrigerator, back: 'Compressor (work in) → condenser (releases $Q_H$) → expansion valve (pressure drops) → evaporator (absorbs $Q_C$); $Q_H = Q_C + W$', topic: Refrigeration}
 - {front: Thermal resistance, back: '$R = L/k$ per unit area (m²·K/W); layers in series add: $Q/t = A\Delta T/R_{\text{total}}$', topic: Insulation and radiation}
 - {front: US R-value conversion, back: '1 ft²·°F·h/Btu = 0.176 m²·K/W (R-13 is about 2.3 m²·K/W)', topic: Insulation and radiation}

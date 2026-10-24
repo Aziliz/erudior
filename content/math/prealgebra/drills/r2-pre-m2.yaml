@@ -32,12 +32,12 @@
     ac: a*c
     v: a*(b + c)
   where: ["a != 0", "abs(a) != 1", "abs(b) >= 2", "abs(c) >= 2", "bc != 0", "mod(bc, 10) == 0", "a < 0 or b < 0 or c < 0", "b < 0 or c < 0"]
-  prompt: 'Find $\;({a})({b}) + ({a})({c})$ by first factoring out the common factor {a}.'
+  prompt: 'Find $\;({a})({b}) + ({a})({c})$ by first factoring out the common factor ${a}$.'
   answer: v
   format: integer
   solution: |-
     Both products share the factor ${a}$, so $({a})({b}) + ({a})({c}) = ({a})\big({b} + ({c})\big) = ({a})({bc}) =$ **{v}**.
-    Check the long way: ${ab} + ({ac}) = {v}$.
+    Check the long way: ${ab} {ac:signed} = {v}$.
 
 - id: pre-m2-r2-abs-equation
   title: Solve an absolute value equation
@@ -45,21 +45,22 @@
   vars:
     a: {min: -9, max: 9}
     d: {min: 1, max: 12}
-    m: {choices: [1, 2, 3]}
+    m: {choices: [2, 3, 4]}
     k: {min: -9, max: 9}
   calc:
     na: -a
+    nk: -k
     md: m*d
     r: m*d + k
     lo: a - d
     hi: a + d
   where: ["a != 0", "k != 0"]
-  prompt: 'Solve $\;{m:coef}|x {na:signed}| {k:signed} = {r}$. Enter both solutions.'
+  prompt: 'Solve $\;{m}|x {na:signed}| {k:signed} = {r}$. Enter both solutions.'
   answers:
     - {name: lo, label: 'smaller $x =$'}
     - {name: hi, label: 'larger $x =$'}
   solution: |-
-    Isolate the absolute value. Undo the ${k:signed}$: ${m:coef}|x {na:signed}| = {r} - ({k}) = {md}$. Divide by {m}: $|x {na:signed}| = {d}$.
+    Isolate the absolute value. Undo the ${k:signed}$: ${m}|x {na:signed}| = {r} {nk:signed} = {md}$. Divide by {m}: $|x {na:signed}| = {d}$.
     $|x {na:signed}|$ is the distance from $x$ to ${a}$, so $x = {a} - {d} =$ **{lo}** or $x = {a} + {d} =$ **{hi}**.
 
 - id: pre-m2-r2-midpoint

@@ -46,7 +46,7 @@
   choices: ['Making the wire longer', 'Using a wire of larger diameter', 'Heating the wire', 'Replacing it with a nichrome wire of the same length and diameter']
   answer: [0, 2, 3]
   explanation: |-
-    $R = \rho L/A$. A longer wire has larger $L$; a hotter metal has a larger resistivity, because the vibrating atoms scatter electrons more often; nichrome's resistivity is about 60 times copper's. A larger diameter increases $A$ and *lowers* the resistance.
+    $R = \rho L/A$. A longer wire has larger $L$; a hotter metal has a larger resistivity, because the vibrating atoms scatter electrons more often; nichrome's resistivity is about 60 times copper's. A larger diameter increases $A$ and lowers the resistance.
 - id: phys-m9-r2-q05
   lesson: phys-current
   topic: Current and resistance
@@ -97,7 +97,7 @@
   choices: ['The terminal voltage is less than the emf while current flows', 'With the resistor disconnected, the terminal voltage equals the emf', 'The terminal voltage rises when the battery delivers more current', 'Some power, $I^2r$, heats the battery itself']
   answer: [0, 1, 3]
   explanation: |-
-    $V_{\text{terminal}} = \mathcal{E} - Ir$: less than $\mathcal{E}$ whenever $I > 0$, equal to it when $I = 0$, and *lower* (not higher) when the current increases. The internal resistance dissipates $I^2r$ inside the battery, which is why batteries warm up under heavy loads.
+    $V_{\text{terminal}} = \mathcal{E} - Ir$: less than $\mathcal{E}$ whenever $I > 0$, equal to it when $I = 0$, and lower (not higher) when the current increases. The internal resistance dissipates $I^2r$ inside the battery, which is why batteries warm up under heavy loads.
 - id: phys-m9-r2-q10
   lesson: phys-dc-circuits
   topic: Kirchhoff's rules

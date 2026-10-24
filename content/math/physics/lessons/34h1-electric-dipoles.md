@@ -40,7 +40,7 @@ $$U = -pE\cos\theta.$$
 
 You can check the aligned case from the charges themselves. Start with the dipole sideways, both charges on the equipotential through its center. Turning it to $\theta = 0$ moves the positive charge $\tfrac d2$ downstream along the field, where the potential is lower by $\tfrac12Ed$, so its energy changes by $-\tfrac12qEd$. The negative charge moves $\tfrac d2$ upstream, where the potential is higher by $\tfrac12Ed$, so its energy changes by $(-q)(+\tfrac12Ed) = -\tfrac12qEd$ too. The total is $-qEd = -pE$, as the formula says.
 
-So $U$ is lowest, $-pE$, when $\vec p$ points along the field (**stable equilibrium**: twist it slightly and the torque brings it back) and highest, $+pE$, when it points against the field (unstable: the slightest nudge and it flips over). Turning a dipole from aligned to anti-aligned takes work $2pE$.
+So $U$ is lowest, $-pE$, when $\vec p$ points along the field (stable equilibrium: twist it slightly and the torque brings it back) and highest, $+pE$, when it points against the field (unstable: the slightest nudge and it flips over). Turning a dipole from aligned to anti-aligned takes work $2pE$.
 
 The same pattern, $\tau = (\text{moment})(\text{field})\sin\theta$ and $U = -(\text{moment})(\text{field})\cos\theta$, holds for the magnetic dipoles (current loops and compass needles) you'll meet in module 10.
 
