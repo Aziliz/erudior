@@ -1,0 +1,96 @@
+# Round 2, module trig-m3: drills for the honors lessons 12h1 (six functions as lengths) and
+# 12h2 (small angles).
+
+- id: trig-m3-r2-segments
+  title: Tangent, secant, cotangent and cosecant as lengths
+  topic: Trig functions as lengths
+  vars:
+    th: {min: 25, max: 65, step: 1}
+  calc:
+    tn: tand(th)
+    sc: secd(th)
+    ct: cotd(th)
+    cs: cscd(th)
+    cx: cosd(th)
+    sy: sind(th)
+  prompt: 'In the unit-circle picture, the ray from $O$ at angle $\theta = {th}^\circ$ meets the tangent line $x = 1$ at $T$ (with $A = (1, 0)$) and the tangent line $y = 1$ at $C$ (with $B = (0, 1)$). Find the lengths $AT$, $OT$, $BC$ and $OC$ to 3 decimal places.'
+  answers:
+    - {name: tn, label: '$AT =$', tolerance: 0.00051, format: dp3}
+    - {name: sc, label: '$OT =$', tolerance: 0.00051, format: dp3}
+    - {name: ct, label: '$BC =$', tolerance: 0.00051, format: dp3}
+    - {name: cs, label: '$OC =$', tolerance: 0.00051, format: dp3}
+  solution: |-
+    Triangle $OAT$ has $OA = 1$, so $AT = \tan {th}^\circ \approx$ **{tn:dp3}** and $OT = \sec {th}^\circ = \dfrac{1}{\cos {th}^\circ} \approx$ **{sc:dp3}**.
+    Triangle $OBC$ has $OB = 1$, so $BC = \cot {th}^\circ \approx$ **{ct:dp3}** and $OC = \csc {th}^\circ = \dfrac{1}{\sin {th}^\circ} \approx$ **{cs:dp3}**.
+    Check: $1 + ({tn:dp3})^2 \approx ({sc:dp3})^2$.
+  figure:
+    type: plot
+    x: [-0.3, 2.4]
+    y: [-0.3, 2.4]
+    equal: true
+    curves:
+      - {x: 'cos(t)', y: 'sin(t)', t: [0, 1.5708]}
+    segments:
+      - {from: [1, -0.2], to: [1, 2.3], dashed: true}
+      - {from: [-0.2, 1], to: [2.3, 1], dashed: true}
+      - {from: [0, 0], to: ['max(1, ct)*1.05', 'max(1, ct)*1.05*tn']}
+      - {from: [1, 0], to: [1, 'tn'], label: AT}
+      - {from: [0, 1], to: ['ct', 1], label: BC}
+    points:
+      - {at: [0, 0], label: O}
+      - {at: [1, 0], label: A}
+      - {at: [0, 1], label: B}
+      - {at: ['cx', 'sy'], label: P}
+      - {at: [1, 'tn'], label: T}
+      - {at: ['ct', 1], label: C}
+
+- id: trig-m3-r2-chord
+  title: Chord and arc for a central angle
+  topic: Trig functions as lengths
+  vars:
+    R: {min: 2, max: 20}
+    ang: {min: 10, max: 170, step: 5}
+  calc:
+    half: ang / 2
+    chd: 2 * R * sind(ang / 2)
+    arcl: R * ang * pi / 180
+  prompt: 'A circle has radius {R} cm. A central angle of ${ang}^\circ$ cuts off a chord and an arc. Find the length of the chord and the length of the arc, in cm, to 2 decimal places.'
+  answers:
+    - {name: chd, label: 'Chord', tolerance: 0.0051, format: dp2, units: {cm: 1}}
+    - {name: arcl, label: 'Arc', tolerance: 0.0051, format: dp2, units: {cm: 1}}
+  solution: |-
+    The bisector of the central angle splits the chord into two half-chords, each opposite an angle of ${half}^\circ$ in a right triangle with hypotenuse {R}. So the chord is
+    $2 \cdot {R} \sin {half}^\circ \approx$ **{chd:dp2} cm**. The arc uses the angle in radians: ${R} \cdot \dfrac{{ang}\pi}{180} \approx$ **{arcl:dp2} cm**, a little longer than the chord, as it must be.
+
+- id: trig-m3-r2-small-approx
+  title: Small-angle estimates in degrees
+  topic: Small-angle behavior
+  vars:
+    d: {min: 1, max: 8}
+  calc:
+    rad: d * pi / 180
+    cest: 1 - rad^2 / 2
+  prompt: 'Use the small-angle approximations $\sin t \approx t$ and $\cos t \approx 1 - \tfrac{t^2}{2}$ to estimate $\sin {d}^\circ$ and $\cos {d}^\circ$. Give each estimate to 5 decimal places.'
+  answers:
+    - {name: rad, label: '$\sin {d}^\circ \approx$', tolerance: 0.0000051, format: dp5}
+    - {name: cest, label: '$\cos {d}^\circ \approx$', tolerance: 0.0000051, format: dp5}
+  solution: |-
+    First convert to radians: $t = {d} \cdot \dfrac{\pi}{180} \approx {rad:dp6}$. Then $\sin {d}^\circ \approx t \approx$ **{rad:dp5}** and
+    $\cos {d}^\circ \approx 1 - \dfrac{({rad:dp6})^2}{2} \approx$ **{cest:dp5}**.
+
+- id: trig-m3-r2-rel-error
+  title: Relative error of sin t ≈ t or tan t ≈ t
+  topic: Small-angle behavior
+  vars:
+    tt: {min: 0.05, max: 0.5, step: 0.01}
+    fn: {choices: [{label: '\sin', value: 1}, {label: '\tan', value: 2}]}
+  calc:
+    tv: if(fn == 1, sin(tt), tan(tt))
+    err: abs(tt - tv)
+    re: 100 * abs(tt - tv) / abs(tv)
+  prompt: 'Find the relative error of the approximation ${fn} {tt:dp2} \approx {tt:dp2}$ ($t$ in radians), as a percent rounded to 2 decimal places.'
+  answers:
+    - {name: re, label: 'Relative error (%)', tolerance: 0.0051, format: dp2, units: {'%': 1}}
+  solution: |-
+    The true value is ${fn} {tt:dp2} \approx {tv:dp6}$, so the error is $|{tt:dp2} - {tv:dp6}| \approx {err:dp6}$.
+    Relative error: $\dfrac{{err:dp6}}{{tv:dp6}} \times 100\% \approx$ **{re:dp2}%**.

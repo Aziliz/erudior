@@ -1,0 +1,62 @@
+# Round 2 glossary terms for trig-m8 (Vectors in the plane): core lesson 34 and honors lessons 34h1, 34h2
+- term: normal force
+  definition: 'The push of a surface on an object resting against it, directed perpendicular to the surface. On a ramp at angle $\theta$ with no other forces across the ramp, it equals $W\cos\theta$.'
+  topic: Vector applications
+- term: rotation formula
+  definition: 'Rotating $\langle a, b\rangle$ counterclockwise by $\theta$ gives $\langle a\cos\theta - b\sin\theta,\ a\sin\theta + b\cos\theta\rangle$; it comes from the sum formulas for sine and cosine.'
+  topic: Rotations and signed area
+- term: determinant
+  aliases: [determinants, 2D cross product]
+  definition: 'For two plane vectors, $\det(\mathbf{u}, \mathbf{v}) = u_1v_2 - u_2v_1 = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\sin\varphi$, where $\varphi$ is the signed angle from $\mathbf{u}$ to $\mathbf{v}$. Its absolute value is the area of the parallelogram the vectors span.'
+  topic: Rotations and signed area
+- term: signed angle
+  definition: 'The angle you turn through to go from $\mathbf{u}$ to $\mathbf{v}$: positive counterclockwise, negative clockwise, between $-180^\circ$ and $180^\circ$. Its cosine and sine are in the ratio (dot product) : (determinant).'
+  topic: Rotations and signed area
+- term: Lagrange's identity
+  definition: 'In the plane, $(\mathbf{u}\cdot\mathbf{v})^2 + \det(\mathbf{u}, \mathbf{v})^2 = \lVert\mathbf{u}\rVert^2\lVert\mathbf{v}\rVert^2$, the vector form of $\cos^2\varphi + \sin^2\varphi = 1$.'
+  topic: Rotations and signed area
+- term: signed area
+  definition: 'Area with a sign that records orientation: $\det(\mathbf{u}, \mathbf{v})$ is positive when $\mathbf{v}$ is counterclockwise from $\mathbf{u}$ and negative when clockwise.'
+  topic: Rotations and signed area
+- term: shoelace formula
+  definition: 'The area of a polygon with vertices $(x_k, y_k)$ listed in order around the boundary: $\tfrac12\left|\sum (x_k y_{k+1} - x_{k+1} y_k)\right|$, wrapping around to the first vertex. The polygon must not cross itself.'
+  topic: Rotations and signed area
+- term: orientation test
+  definition: 'The sign of $\det(\overrightarrow{AB}, \overrightarrow{BC})$: positive means the path $A \to B \to C$ turns left (counterclockwise), negative means it turns right, zero means the points are collinear.'
+  topic: Rotations and signed area
+- term: position vector
+  aliases: [position vectors]
+  definition: 'The vector from the origin to a point; the point $(a, b)$ has position vector $\langle a, b\rangle$.'
+  topic: Vector geometry
+- term: section formula
+  definition: 'The point $P$ dividing segment $AB$ so that $AP : PB = m : n$ is $P = \dfrac{nA + mB}{m + n}$.'
+  topic: Vector geometry
+- term: median
+  aliases: [medians, median of a triangle]
+  definition: 'A segment from a vertex of a triangle to the midpoint of the opposite side.'
+  topic: Vector geometry
+- term: centroid
+  definition: 'The point where the three medians of a triangle meet, $G = \tfrac{A + B + C}{3}$; it lies two thirds of the way from each vertex to the opposite midpoint.'
+  topic: Vector geometry
+- term: direction vector
+  aliases: [direction vectors]
+  definition: 'A nonzero vector parallel to a line; the line through $P_0$ with direction $\mathbf{d}$ is $P = P_0 + t\mathbf{d}$.'
+  topic: Vector geometry
+- term: normal vector
+  aliases: [normal vectors, normal to a line]
+  definition: 'A nonzero vector perpendicular to a line. For the line $ax + by = c$, $\langle a, b\rangle$ is a normal vector.'
+  topic: Vector geometry
+- term: foot of the perpendicular
+  definition: 'The point on a line closest to a given point $Q$, where the perpendicular from $Q$ meets the line.'
+  topic: Vector geometry
+- term: Thales's theorem
+  aliases: [Thales' theorem, Thales theorem]
+  definition: 'If $AB$ is a diameter of a circle and $P$ is any other point on the circle, then $\angle APB = 90^\circ$.'
+  topic: Vector geometry
+- term: parallelogram law
+  definition: 'For any vectors, $\lVert\mathbf{u} + \mathbf{v}\rVert^2 + \lVert\mathbf{u} - \mathbf{v}\rVert^2 = 2\lVert\mathbf{u}\rVert^2 + 2\lVert\mathbf{v}\rVert^2$: the squares of a parallelogram''s diagonals add up to the squares of its four sides.'
+  topic: Vector geometry
+- term: Cauchy–Schwarz inequality
+  aliases: [Cauchy-Schwarz inequality, Cauchy–Schwarz, Cauchy-Schwarz]
+  definition: '$|\mathbf{u}\cdot\mathbf{v}| \le \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$, with equality exactly when one vector is a scalar multiple of the other.'
+  topic: Vector geometry

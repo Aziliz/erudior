@@ -9,10 +9,10 @@
 <line x1="150.0" y1="250.0" x2="215.8" y2="250.0" stroke="#1f5f99" stroke-width="4"/><polygon points="231.8,250.0 215.8,257.0 215.8,243.0" fill="#1f5f99"/>
 <line x1="150.0" y1="250.0" x2="219.0" y2="198.6" stroke="#6b3fa0" stroke-width="5"/><polygon points="231.8,189.1 223.1,204.2 214.8,193.0" fill="#6b3fa0"/>
 <circle cx="150" cy="250" r="4" fill="#1c2833"/>
-<text x="162.0" y="58.4" font-size="17" text-anchor="start" fill="#1e7a45" stroke="#ffffff" stroke-width="4" paint-order="stroke">V_L = 342.6 V (inductor)</text>
-<text x="162.0" y="390.7" font-size="17" text-anchor="start" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">V_C = 241.1 V (capacitor)</text>
-<text x="241.8" y="274.0" font-size="17" text-anchor="start" fill="#1f5f99" stroke="#ffffff" stroke-width="4" paint-order="stroke">V_R = 136.3 V (resistor)</text>
-<text x="243.8" y="191.1" font-size="17" text-anchor="start" fill="#6b3fa0" stroke="#ffffff" stroke-width="4" paint-order="stroke">V = 170 V (source)</text>
+<text x="162.0" y="58.4" font-size="17" text-anchor="start" fill="#1e7a45" stroke="#ffffff" stroke-width="4" paint-order="stroke">inductor voltage, 342.6 V</text>
+<text x="162.0" y="390.7" font-size="17" text-anchor="start" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">capacitor voltage, 241.1 V</text>
+<text x="241.8" y="274.0" font-size="17" text-anchor="start" fill="#1f5f99" stroke="#ffffff" stroke-width="4" paint-order="stroke">resistor voltage, 136.3 V</text>
+<text x="243.8" y="191.1" font-size="17" text-anchor="start" fill="#6b3fa0" stroke="#ffffff" stroke-width="4" paint-order="stroke">source voltage, 170 V</text>
 <text x="216.0" y="240.0" font-size="20" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic">φ</text>
 <text x="484.0" y="256.0" font-size="17" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">current I</text>
 </svg>
