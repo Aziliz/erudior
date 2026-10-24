@@ -70,7 +70,7 @@ $$\frac{5}{x + 2} < \varepsilon \iff x + 2 > \frac5\varepsilon \iff x > \frac{5}
 
 *Proof.* Given $\varepsilon > 0$, let $N = \max\!\left(0, \dfrac5\varepsilon - 2\right)$. If $x > N$, then $x > 0$ and $x + 2 > \dfrac{5}{\varepsilon}$, so $\left|\dfrac{3x+1}{x+2} - 3\right| = \dfrac{5}{x+2} < \varepsilon$. $\blacksquare$
 
-For $\varepsilon = 0.01$: $N = 500 - 2 = 498$. At $x = 499$ the distance is $5/501 \approx 0.00998$, just inside. The $\max$ with 0 handles large $\varepsilon$ (for $\varepsilon \ge 2.5$ the formula would give a negative $N$, and we promised ourselves $x > 0$ to drop the absolute value).
+For $\varepsilon = 0.01$: $N = 500 - 2 = 498$. At $x = 499$ the distance is $5/501 \approx 0.00998$, just inside. The $\max$ with 0 handles large $\varepsilon$ (for $\varepsilon > 2.5$ the formula would give a negative $N$, and we promised ourselves $x > 0$ to drop the absolute value).
 
 ## Proving the sum law
 

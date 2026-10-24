@@ -132,7 +132,7 @@ They differ, so the limit **does not exist**.
 | $0/0$ with $\sin$ or $\cos$ | Special trig limits (Lesson 4) |
 | Absolute value or piecewise | One-sided limits |
 
-The same routine as a loop: plug in, read what you get, and if it is $0/0$, rewrite and plug in again. Some limits need two rewrites before substitution gives a number.
+The same routine as a loop: plug in, read what you get, and if it is $0/0$, rewrite and plug in again. Some limits need two rewrites before substitution gives a number. (The chart is for a single formula that is continuous where you substitute; for piecewise functions, use one-sided limits as in the table.)
 
 ```mermaid
 flowchart TD

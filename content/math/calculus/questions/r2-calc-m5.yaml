@@ -516,7 +516,7 @@
   - $f\left(\frac{x_1 + x_2 + x_3}{3}\right) \le \frac{f(x_1) + f(x_2) + f(x_3)}{3}$
   - $f\left(\frac{x_1 + x_2 + x_3}{3}\right) = \frac{f(x_1) + f(x_2) + f(x_3)}{3}$
   answer: 2
-  explanation: 'For convex $f$, $f$ of the average is at most the average of $f$; the reversed version holds for concave $f$. Equality holds only for linear $f$ or equal $x_i$. The version with sums instead of averages is a different, generally false statement: for $f(x) = x^2$ and $x_1 = x_2 = x_3 = 1$ it would say $9 \le 3$.'
+  explanation: 'For convex $f$, $f$ of the average is at most the average of $f$; the reversed version holds for concave $f$. For a strictly convex $f$, equality holds only when the $x_i$ are all equal. The version with sums instead of averages is a different, generally false statement: for $f(x) = x^2$ and $x_1 = x_2 = x_3 = 1$ it would say $9 \le 3$.'
 - id: calc-m5-r2-h19
   lesson: calc-m5-h-convexity
   topic: Classic inequalities

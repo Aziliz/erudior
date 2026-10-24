@@ -8,7 +8,7 @@
   module_quiz: true
   topic: Limits
   stem: 'The graph has a jump at $x = a$. Name the numbered parts.'
-  image: {src: images/calc-m1-limit-reading-blank.svg, alt: 'A graph with a jump at x = 2. From the left, a curve rises to an open circle at height 2 (marker 1). From the right, a line comes down to an open circle at height 3.5 (marker 2). A solid dot sits alone at height 5 above x = 2 (marker 3). Marker 4 is on the x-axis at x = 2.'}
+  image: {src: images/calc-m1-limit-reading-blank.svg, alt: 'A graph with a jump at x = 2. From the left, a curve rises to an open circle at height 2 (marker 1). From the right, a line heads to an open circle at height 3.5 (marker 2). A solid dot sits alone at height 5 above x = 2 (marker 3). Marker 4 is on the x-axis at x = 2.'}
   labels:
     - {x: 45, y: 58.1, text: Left-hand limit}
     - {x: 55, y: 39.3, text: Right-hand limit}
@@ -364,7 +364,7 @@
     - 'For every $\varepsilon > 0$ and every $\delta > 0$, $|f(x) - L| \ge \varepsilon$'
   answer: 1
   explanation: |-
-    Negating swaps the quantifiers and negates the conclusion: one ε exists that defeats every δ, because each window contains a point whose output is at least ε from $L$. The first choice is too weak (a single bad δ always exists), and the last two demand that every nearby output be far away, which is too strong.
+    Negating swaps the quantifiers and negates the conclusion: one ε exists that defeats every δ, because each window contains a point whose output is at least ε from $L$. The first choice is too weak: it asks for only one bad δ per ε, and a wide window can contain far-off points even when the limit really is $L$, and the last two demand that every nearby output be far away, which is too strong.
 - id: calc-m1-r2-h07
   lesson: calc-m1-h-precise-limits
   topic: Precise limit definitions

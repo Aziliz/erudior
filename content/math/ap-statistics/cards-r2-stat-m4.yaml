@@ -24,7 +24,7 @@
 - {front: 'When main effects mislead', back: 'When a factor helps at one level of the other factor and hurts at the other (lines slope opposite ways), its main effect may be near 0. Report simple effects.', topic: 'Factorial experiments'}
 - {front: 'Factorial vs. one-factor-at-a-time', back: 'Factorial: every unit informs every main effect, and interactions can be seen. OFAT: fewer units per comparison, and interactions are missed.', topic: 'Factorial experiments'}
 - {front: 'Interaction vs. confounding', back: 'Interaction: one factor''s effect depends on another factor (a real feature). Confounding: an outside variable''s effect is mixed up with a factor''s (a design flaw).', topic: 'Factorial experiments'}
-- {front: 'Fractional factorial design', back: 'Runs a planned subset of the $2^k$ combinations; each effect is then aliased with another (usually a higher-order interaction) and can't be separated from it.', topic: 'Factorial experiments'}
+- {front: 'Fractional factorial design', back: 'Runs a planned subset of the $2^k$ combinations; each effect is then aliased with another (usually a higher-order interaction) and can''t be separated from it.', topic: 'Factorial experiments'}
 # 18h3: causal inference
 - {front: 'Potential outcomes', back: '$Y(1)$ with treatment, $Y(0)$ without; only one is observed for each unit.', topic: 'Causal inference'}
 - {front: 'Average treatment effect (ATE)', back: 'Mean of $Y(1) - Y(0)$ = mean of all $Y(1)$ − mean of all $Y(0)$.', topic: 'Causal inference'}

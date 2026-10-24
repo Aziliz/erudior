@@ -113,7 +113,7 @@ The picture shows all three readings on one graph of $f'(x) = -\tfrac14(x + 2)(x
 
 ![The graph of y = f prime of x, a cubic. It crosses the x-axis going down at x = −2, marked as a local maximum of f; crosses going up at x = 1, marked as a local minimum of f; peaks between 2 and 3, marked as an inflection point of f; and crosses going down again at x = 4.](images/calc-m5-fprime.svg)
 
-(At $x = 4$, where $f'$ crosses from above to below, $f$ has another local max.)
+(At $x = 4$, where $f'$ crosses from above to below, $f$ has another local max. The low point of $f'$, near $x \approx -0.73$, is a second inflection point of $f$; the picture marks only one.)
 
 Don't read the max of the $f'$ graph as a max of $f$. The peak of $f'$ is where $f$ is *steepest*, an inflection point of $f$ (next lesson).
 
