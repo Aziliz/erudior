@@ -17,7 +17,7 @@ Einstein spent ten years on the problem, and his answer, **general relativity** 
 
 Newton's second law uses an object's *inertial* mass (how hard it is to accelerate), and his law of gravity uses its *gravitational* mass (how strongly gravity pulls it). Nothing in Newton's theory says these must be equal, yet experiments find them equal to about one part in $10^{15}$ (the MICROSCOPE satellite, 2022). That is why all objects fall with the same acceleration.
 
-Einstein took this as a clue. Picture yourself in a windowless elevator. If it sits on Earth, a dropped ball falls at 9.8 m/s². If it is far out in space with a rocket accelerating it upward at 9.8 m/s², the floor rushes up to meet the released ball in exactly the same way. Einstein's **equivalence principle** says no experiment done inside a small enough box can tell the two situations apart: locally, being in a gravitational field is equivalent to being in an accelerating frame. (In the accelerating-frames idea from mechanics, you met the "fictitious" force $-m\vec a$; the equivalence principle says gravity is the same kind of thing.)
+Einstein took this as a clue. Picture yourself in a windowless elevator. If it sits on Earth, a dropped ball falls at 9.8 m/s². If it is far out in space with a rocket accelerating it upward at 9.8 m/s², the floor rushes up to meet the released ball in exactly the same way. Einstein's **equivalence principle** says no experiment done inside a small enough box can tell the two situations apart: locally, being in a gravitational field is equivalent to being in an accelerating frame. (If you studied the honors lesson on accelerating frames, you met the "fictitious" force $-m\vec a$ felt in an accelerating frame; the equivalence principle says gravity is the same kind of thing.)
 
 The principle has consequences for light. Shine a beam sideways across the accelerating elevator. While the light crosses, the floor speeds up, so inside the elevator the beam's path curves downward. By equivalence, **light must bend in a gravitational field too**, even though a photon has no mass.
 
@@ -46,7 +46,7 @@ $$\frac{\Delta t_{\text{high}} - \Delta t_{\text{low}}}{\Delta t} \approx \frac{
 
 More generally, $gh$ is the change in gravitational potential energy per kilogram, so for larger distances you replace it with $GM\left(\dfrac{1}{r_{\text{low}}} - \dfrac{1}{r_{\text{high}}}\right)$, the same expression you used for orbits.
 
-In 1959 Robert Pound and Glen Rebka sent gamma rays up a 22.5 m tower at Harvard and measured the predicted shift, $gh/c^2 = 2.5\times10^{-15}$. Today's optical atomic clocks are so precise that they detect the difference when one is raised by just a few centimeters.
+In 1959 Robert Pound and Glen Rebka sent gamma rays up a 22.5 m tower at Harvard and measured the predicted shift, $gh/c^2 = 2.5\times10^{-15}$. Today's optical atomic clocks are so precise that they detect the difference when one is raised by just 30 centimeters (first done in 2010).
 
 ### Example 1: a mountain clock
 
@@ -103,7 +103,7 @@ For the Sun ($M = 1.989\times10^{30}$ kg):
 
 $$r_s = \frac{2(6.674\times10^{-11})(1.989\times10^{30})}{(2.998\times10^8)^2} = 2.95\times10^3\text{ m} \approx 3\text{ km}.$$
 
-Because $r_s$ is proportional to $M$, any black hole has $r_s \approx 2.95$ km per solar mass. A 10-solar-mass black hole left by a collapsed star is about 30 km across its radius. The black hole at the center of our galaxy, Sagittarius A*, has about $4.3\times10^6$ solar masses, so $r_s \approx 1.3\times10^{10}$ m, about a tenth of Earth's distance from the Sun. Earth would have to be squeezed into a sphere of radius 9 mm.
+Because $r_s$ is proportional to $M$, any black hole has $r_s \approx 2.95$ km per solar mass. A 10-solar-mass black hole left by a collapsed star has a horizon radius of about 30 km. The black hole at the center of our galaxy, Sagittarius A*, has about $4.3\times10^6$ solar masses, so $r_s \approx 1.3\times10^{10}$ m, a bit less than a tenth of Earth's distance from the Sun. Earth would have to be squeezed into a sphere of radius 9 mm.
 
 Black holes were long only theory, but the evidence is now strong: stars orbiting Sagittarius A* (the orbital-mechanics method from the gravitation honors lesson), X-rays from gas heated as it spirals in, and images of the glowing gas around the black holes in the galaxy M87 (2019) and our own galaxy (2022) made by the Event Horizon Telescope, a network of radio dishes spread across Earth.
 
