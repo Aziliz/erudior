@@ -28,6 +28,11 @@ If $C = 90^\circ$, $\cos C = 0$ and the third line is exactly $c^2 = a^2 + b^2$.
 $\cos C < 0$ and $c^2 > a^2 + b^2$: the side across an obtuse angle is longer than the
 Pythagorean theorem would predict.
 
+The picture compares the three cases with the same two sides $a$ and $b$: as the angle $C$
+between them opens up, the side $c$ across from it grows, passing the Pythagorean length exactly at $90^\circ$.
+
+![Three triangles that share sides a and b but have different angles C between them. With C = 60°, c is short and c² is less than a² + b². With C = 90°, the triangle is right and c² equals a² + b². With C = 120°, c is long and c² is greater than a² + b².](images/trig-m7-cos-sign.svg)
+
 **Why it's true.** Put $A$ at the origin and $B$ at $(c, 0)$. Then $C$ is at $(b\cos A, b\sin A)$, by
 the definition of sine and cosine. The distance formula for $a = BC$:
 $$a^2 = (b\cos A - c)^2 + (b\sin A)^2 = b^2\cos^2 A - 2bc\cos A + c^2 + b^2\sin^2 A = b^2 + c^2 - 2bc\cos A,$$
@@ -100,6 +105,23 @@ $$d^2 = 40^2 + 25^2 - 2(40)(25)\cos 130^\circ \approx 2225 + 1285.6 = 3510.6, \q
 | SSA | law of sines; check for 0, 1 or 2 triangles |
 | SAS | law of cosines for the third side |
 | SSS | law of cosines for the largest angle |
+
+The same choice as a decision chart, with the steps that follow the first one:
+
+```mermaid
+flowchart TD
+  accTitle: Which law to use first when solving a triangle
+  accDescr: Start from what is given. Two angles and a side, the AAS or ASA case: find the third angle as 180 degrees minus the other two, then use the law of sines for each missing side. Two sides and an angle opposite one of them, the SSA case: use the law of sines for the unknown angle, then check for zero, one or two triangles. Two sides and the angle between them, the SAS case: use the law of cosines for the third side, then find the smaller remaining angle and get the last angle by subtraction. Three sides, the SSS case: use the law of cosines for the largest angle, then a second angle, and the last by subtraction.
+  Q{"What is given?"}
+  Q -- "AAS or ASA" --> S1["Third angle = 180° minus the other two"]
+  S1 --> S2["Law of sines for each missing side"]
+  Q -- "SSA" --> S3["Law of sines for the unknown angle"]
+  S3 --> S4["Check for 0, 1 or 2 triangles"]
+  Q -- "SAS" --> S5["Law of cosines for the third side"]
+  S5 --> S6["Smaller remaining angle next, last angle by subtraction"]
+  Q -- "SSS" --> S7["Law of cosines for the largest angle"]
+  S7 --> S8["A second angle, then the last by subtraction"]
+```
 
 ## The law of cosines and the dot product
 

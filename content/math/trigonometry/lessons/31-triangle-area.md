@@ -27,6 +27,13 @@ outside the triangle has that length.
 {"polygons": [{"points": [[0, 0], [10, 0], [3.5, 4.2]]}], "segments": [{"from": [3.5, 4.2], "to": [3.5, 0], "dashed": true, "label": "h = c sin A"}], "rightAngles": [[[3.5, 0], [10, 0], [3.5, 4.2]]], "labels": [{"at": [-0.35, -0.35], "text": "A"}, {"at": [10.35, -0.35], "text": "C"}, {"at": [3.5, 4.65], "text": "B"}, {"at": [1.3, 2.5], "text": "c"}, {"at": [5, -0.5], "text": "b"}], "caption": "With base b, the height is c sin A"}
 ```
 
+When the angle $A$ is obtuse, the height from $B$ lands on the extension of side $b$, outside the
+triangle. Its length is $c\sin(180^\circ - A)$, which equals $c\sin A$, so the area formula needs no change:
+
+```shape
+{"polygons": [{"points": [[3, 0], [10, 0], [1, 3]]}], "segments": [{"from": [3, 0], "to": [1, 0], "dashed": true}, {"from": [1, 3], "to": [1, 0], "dashed": true, "label": "h = c sin A"}], "rightAngles": [[[1, 0], [3, 0], [1, 3]]], "labels": [{"at": [3.2, -0.45], "text": "A"}, {"at": [10.35, -0.3], "text": "C"}, {"at": [1, 3.45], "text": "B"}, {"at": [2.05, 0.35], "text": "180° − A"}, {"at": [2.35, 1.75], "text": "c"}, {"at": [6.5, -0.45], "text": "b"}], "caption": "Obtuse A: the height c sin(180° − A) = c sin A lies outside the triangle"}
+```
+
 At $A = 90^\circ$ the formula is $\tfrac12 bc$, the right-triangle area. The area is largest, for
 given sides $b$ and $c$, when the angle between them is $90^\circ$.
 
@@ -94,6 +101,20 @@ triangle.
 | three sides | Heron: $\sqrt{s(s-a)(s-b)(s-c)}$ |
 | one side and all angles | $\dfrac{a^2\sin B\sin C}{2\sin A}$ |
 | base and height | $\tfrac12 bh$ |
+
+As a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a triangle area formula
+  accDescr: Start from what you know. Two sides and the angle between them: area is one half a b sin C. Three sides: Heron's formula with the semiperimeter s. One side and two angles: find the third angle, then area is a squared sin B sin C over 2 sin A. Two sides and an angle that is not between them: solve the triangle first with the law of sines, watching for two triangles, then use one half a b sin C. A base and its height: area is one half base times height.
+  Q{"What do you know?"}
+  Q -- "two sides and the angle between them" --> F1["Area = ½ ab sin C"]
+  Q -- "three sides" --> F2["Heron: s = (a + b + c)/2, Area = √(s(s − a)(s − b)(s − c))"]
+  Q -- "one side and two angles" --> F3["Third angle, then Area = a² sin B sin C / (2 sin A)"]
+  Q -- "SSA: angle not between the sides" --> F4["Solve the triangle first (watch for two), then ½ ab sin C"]
+  Q -- "base and height" --> F5["Area = ½ × base × height"]
+```
 
 ### Example 6: land area in acres
 

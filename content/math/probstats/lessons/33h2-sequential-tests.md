@@ -114,8 +114,8 @@ when the test rejects and $a$ when it accepts. Under $H_0$ that gives
 
 $$E_0(N) \approx \frac{(1 - \alpha)a + \alpha b}{E_0(Z)}, \qquad E_1(N) \approx \frac{\beta a + (1 - \beta)b}{E_1(Z)}.$$
 
-$E_0(Z)$ is negative and $E_1(Z)$ positive, so both are positive. ($-E_0(Z)$ is the Kullback–Leibler
-divergence of $f_1$ from $f_0$: how fast evidence against $H_1$ accumulates per observation when
+$E_0(Z)$ is negative and $E_1(Z)$ positive, so both are positive. ($-E_0(Z) = E_0\ln[f_0(X)/f_1(X)]$ is the Kullback–Leibler
+divergence $D(f_0 \,\|\, f_1)$: how fast evidence against $H_1$ accumulates per observation when
 $H_0$ is true.)
 
 ### Example 3: expected sample size for the clips

@@ -103,8 +103,8 @@ attribution that historians of statistics have questioned.)
 
 ## What a coefficient means
 
-$b_j$ estimates the change in mean response per unit of $x_j$ **with the other predictors held
-fixed**. That can differ a lot from the slope of $y$ on $x_j$ alone, because when predictors are
+$b_j$ estimates the change in mean response per unit of $x_j$ *with the other predictors held
+fixed*. That can differ a lot from the slope of $y$ on $x_j$ alone, because when predictors are
 correlated, a simple regression lets $x_j$ take credit for its partners.
 
 ### Example 2: wear, traffic and curvature

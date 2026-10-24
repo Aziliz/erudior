@@ -42,6 +42,11 @@ The key length is the distance from $C$ to the ray, the **height** $h = b\sin A$
 **If $A$ is right or obtuse:** one triangle if $a > b$, none if $a \le b$. (The side opposite the
 largest angle must be the longest side.)
 
+Here are the four acute cases side by side. In each panel the dashed circle has radius $a$
+and is centered at $C$; every point where it meets the horizontal ray is a possible vertex $B$.
+
+![Four panels, each showing angle A with side b rising from A to C, a dashed height h from C down to the horizontal ray, and a dashed circle of radius a around C. Panel 1, a less than h: the circle misses the ray, no triangle. Panel 2, a equals h: the circle just touches the ray at the foot of the height, one right triangle. Panel 3, h less than a less than b: the circle crosses the ray at two points, both to the right of A, two triangles. Panel 4, a at least b: the circle crosses the ray once to the right of A and once behind A (shown as an open dot), one triangle.](images/trig-m7-ssa-cases.svg)
+
 You don't have to memorize the table. The law of sines detects every case automatically
 if you remember that $\sin B = k$ gives two candidate angles, $B_1 = \sin^{-1}k$ and
 $B_2 = 180^\circ - B_1$, and you check each one.
@@ -53,6 +58,24 @@ $B_2 = 180^\circ - B_1$, and you check each one.
 3. Otherwise, $B_1 = \sin^{-1}(\sin B)$ is acute and $B_2 = 180^\circ - B_1$ is obtuse.
 4. Keep each candidate only if $A + B < 180^\circ$.
 5. For each kept $B$, find $C = 180^\circ - A - B$ and then $c = \dfrac{a\sin C}{\sin A}$.
+
+The same method as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding how many triangles fit SSA data
+  accDescr: Top to bottom. Compute sin B as b sin A over a. If sin B is greater than 1, there is no triangle. If sin B equals 1, B is 90 degrees, giving one right triangle when A is acute and none otherwise. Otherwise let B1 be the inverse sine, which is acute, and B2 be 180 degrees minus B1. If A plus B1 is not less than 180 degrees, there is no triangle. If it is, check A plus B2: if that is also less than 180 degrees there are two triangles, otherwise one triangle using B1. Finish each triangle by finding C and c.
+  S["Compute sin B = b sin A / a"] --> Q1{"Is sin B greater than 1?"}
+  Q1 -- yes --> N0["No triangle"]
+  Q1 -- no --> Q2{"Is sin B exactly 1?"}
+  Q2 -- yes --> R1["B = 90°: one right triangle if A is acute, none otherwise"]
+  Q2 -- no --> B12["B1 = inverse sine (acute), B2 = 180° − B1"]
+  B12 --> Q3{"Is A + B1 less than 180°?"}
+  Q3 -- no --> N0
+  Q3 -- yes --> Q4{"Is A + B2 less than 180°?"}
+  Q4 -- yes --> T2["Two triangles: find C and c for each"]
+  Q4 -- no --> T1["One triangle, using B1"]
+```
 
 ### Example 1: no triangle
 

@@ -31,6 +31,12 @@ order of the known parts around the triangle:
 
 AAA is not on the list: three angles fix the shape but not the size.
 
+The picture shows the labeling used throughout this module: each side is named by the
+lowercase letter of the angle across from it, and the dashed altitude $h$ is the segment used in
+the proof below.
+
+![Triangle ABC with vertex C at the top. Side a runs from B to C opposite angle A, side b runs from A to C opposite angle B, and side c is the base from A to B opposite angle C. A dashed altitude h drops from C to the base and meets it at a right angle.](images/trig-m7-parts.svg)
+
 ## The law
 
 $$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}.$$
@@ -48,6 +54,13 @@ the right triangle uses the angle $180^\circ - A$, but $\sin(180^\circ - A) = \s
 
 ```shape
 {"polygons": [{"points": [[0, 0], [9, 0], [3, 4.5]]}], "segments": [{"from": [3, 4.5], "to": [3, 0], "dashed": true, "label": "h"}], "rightAngles": [[[3, 0], [9, 0], [3, 4.5]]], "labels": [{"at": [-0.35, -0.3], "text": "A"}, {"at": [9.35, -0.3], "text": "B"}, {"at": [3, 4.95], "text": "C"}, {"at": [4.5, -0.45], "text": "c"}, {"at": [6.35, 2.55], "text": "a"}, {"at": [1.15, 2.5], "text": "b"}], "caption": "The altitude h equals b sin A and also a sin B"}
+```
+
+In the obtuse case the picture changes: the altitude from $C$ meets the extension of side $c$
+beyond $A$, and the right triangle it forms has the angle $180^\circ - A$ at $A$.
+
+```shape
+{"polygons": [{"points": [[3, 0], [10, 0], [1, 3]]}], "segments": [{"from": [3, 0], "to": [1, 0], "dashed": true}, {"from": [1, 3], "to": [1, 0], "dashed": true, "label": "h"}], "rightAngles": [[[1, 0], [3, 0], [1, 3]]], "labels": [{"at": [3.2, -0.45], "text": "A"}, {"at": [10.35, -0.3], "text": "B"}, {"at": [1, 3.45], "text": "C"}, {"at": [2.05, 0.35], "text": "180° − A"}, {"at": [2.35, 1.75], "text": "b"}, {"at": [5.8, 1.85], "text": "a"}, {"at": [6.5, -0.45], "text": "c"}], "caption": "Obtuse A: h = b sin(180° − A) = b sin A, and still h = a sin B"}
 ```
 
 ## AAS and ASA

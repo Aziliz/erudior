@@ -1,0 +1,83 @@
+# Glossary terms introduced in the trig-m1 honors lessons (round 2)
+- term: gnomon
+  aliases: [gnomons]
+  definition: 'A vertical stick or pillar whose shadow is used to measure the Sun''s angle, as on a sundial or in Eratosthenes'' measurement of the Earth.'
+  topic: Measuring the Earth
+- term: latitude
+  aliases: [latitudes]
+  definition: 'The central angle between a place and the equator, measured north or south along the place''s meridian, from $0^\circ$ at the equator to $90^\circ$ at a pole.'
+  topic: Measuring the Earth
+- term: meridian
+  aliases: [meridians]
+  definition: 'A north–south line on the Earth''s surface running from pole to pole. Places on the same meridian differ only in latitude.'
+  topic: Measuring the Earth
+- term: great circle
+  aliases: [great circles]
+  definition: 'A circle on a sphere whose center is the center of the sphere, such as the equator. The shortest path between two points on a sphere''s surface is an arc of a great circle.'
+  topic: Measuring the Earth
+- term: nautical mile
+  aliases: [nautical miles, nmi]
+  definition: 'A unit of distance at sea and in the air, defined as exactly 1852 m; it is about the length of one minute of latitude.'
+  topic: Measuring the Earth
+- term: knot
+  aliases: [knots]
+  definition: 'A speed of one nautical mile per hour.'
+  topic: Measuring the Earth
+- term: angular size
+  aliases: [angular diameter]
+  definition: 'The angle an object covers as seen from a given point. For an object of width $D$ at a much larger distance $d$, it is about $D/d$ radians.'
+  topic: Small angles
+- term: arcsecond
+  aliases: [arcseconds, arcsec]
+  definition: 'A second of angle, $\tfrac{1}{60}$ of an arcminute or $\tfrac{1}{3600}$ of a degree; one radian is about $206{,}265$ arcseconds.'
+  topic: Small angles
+- term: milliradian
+  aliases: [milliradians, mrad]
+  definition: 'One thousandth of a radian. An object covering 1 mrad is about $\tfrac{1}{1000}$ of its distance across, such as 1 m at 1 km.'
+  topic: Small angles
+- term: parallax
+  definition: 'The apparent shift of a nearby object against a distant background when it is viewed from two different places.'
+  topic: Small angles
+- term: parallax angle
+  aliases: [parallax angles]
+  definition: 'For a star, the angle that one astronomical unit subtends as seen from the star; with the angle $p$ in arcseconds, the distance is $1/p$ parsecs.'
+  topic: Small angles
+- term: astronomical unit
+  aliases: [astronomical units, au]
+  definition: 'The average distance from the Earth to the Sun, defined as exactly 149,597,870.7 km.'
+  topic: Small angles
+- term: parsec
+  aliases: [parsecs, pc]
+  definition: 'The distance at which one astronomical unit subtends one arcsecond: $\tfrac{648{,}000}{\pi}$ au, about $3.086 \times 10^{13}$ km or 3.26 light-years.'
+  topic: Small angles
+- term: relative angular speed
+  definition: 'The rate at which the angle between two rotating objects changes. For two rotations about the same center in the same direction, it is $\omega_1 - \omega_2$.'
+  topic: Relative rotation
+- term: solar day
+  aliases: [solar days]
+  definition: 'The time from one noon to the next, when the Sun returns to the same place in the sky; its average defines the 24-hour day.'
+  topic: Relative rotation
+- term: sidereal day
+  aliases: [sidereal days]
+  definition: 'The time for the Earth to turn once relative to the distant stars, about 23 h 56 min 4 s.'
+  topic: Relative rotation
+- term: synodic period
+  aliases: [synodic periods]
+  definition: 'The time for one orbiting body to come back into the same position relative to another, for example new Moon to new Moon (about 29.5 days). It satisfies $\tfrac{1}{T} = \tfrac{1}{T_1} - \tfrac{1}{T_2}$.'
+  topic: Relative rotation
+- term: gear train
+  aliases: [gear trains]
+  definition: 'A chain of gears that pass rotation from a driver to an output. Each mesh satisfies $N_1\omega_1 = N_2\omega_2$ and reverses the direction.'
+  topic: Gears and rolling
+- term: idler gear
+  aliases: [idler gears, idler]
+  definition: 'A gear placed between two others. It reverses the direction of the output but does not change the speed ratio.'
+  topic: Gears and rolling
+- term: compound gears
+  aliases: [compound gear]
+  definition: 'Two or more gears fixed on one shaft, so they turn with the same angular speed.'
+  topic: Gears and rolling
+- term: cycloid
+  aliases: [cycloids]
+  definition: 'The curve traced by a point on the rim of a wheel rolling along a straight line without slipping: a series of arches, one per turn.'
+  topic: Gears and rolling

@@ -1,0 +1,504 @@
+# Round 2, module trig-m3 (Trig functions of any angle): new question types for the core
+# lessons (q01-q20) and the questions for the two honors lessons (h01-h28).
+
+# ---------- 09 Trig functions of any angle ----------
+- id: trig-m3-r2-q01
+  lesson: trig-any-angle
+  type: label
+  module_quiz: true
+  topic: Trig functions of any angle
+  stem: 'An angle $\theta$ is in standard position, with a point on its terminal side in quadrant II. Name the numbered parts.'
+  image: {src: images/trig-m3-terminal-point-blank.svg, alt: 'Coordinate axes with origin O. A thick green segment runs along the positive x-axis from O. A thick blue segment runs from O up and to the left to a dot in quadrant II, with a dashed vertical segment from that dot down to the x-axis. A curved arrow goes counterclockwise from the positive x-axis around to the blue segment. Five numbered markers: on the blue segment, on the green segment, on the dot, on the dashed segment, and on the curved arrow.'}
+  labels:
+    - {x: 47.2, y: 51.4, text: Terminal side (length r)}
+    - {x: 78.1, y: 76.2, text: Initial side}
+    - {x: 35.0, y: 26.7, text: 'Point (x, y)'}
+    - {x: 35.0, y: 51.4, text: Vertical distance |y| to the x-axis}
+    - {x: 63.1, y: 68.0, text: Angle θ}
+  distractors: [Reference angle, Vertex of the angle]
+  explanation: |-
+    The initial side lies on the positive $x$-axis (2) and the angle $\theta$ is the counterclockwise turn from it (5) to the terminal side (1). The point $(x, y)$ on the terminal side (3) is at distance $r = \sqrt{x^2 + y^2}$ from the origin, and the dashed segment (4) is its distance $|y|$ from the $x$-axis. The vertex is the origin, which has no marker, and the reference angle would be the acute angle between the terminal side and the negative $x$-axis, not the big arc.
+- id: trig-m3-r2-q02
+  lesson: trig-any-angle
+  type: text
+  topic: Trig functions of any angle
+  stem: 'The point $(-5, -12)$ is on the terminal side of $\theta$. Then $r =$ ___ and $\cos\theta =$ ___. (Give exact numbers, such as fractions.)'
+  accept:
+    - ['13']
+    - ['-5/13', '−5/13']
+  explanation: |-
+    $r = \sqrt{(-5)^2 + (-12)^2} = \sqrt{169} = 13$, always positive. Then $\cos\theta = \tfrac{x}{r} = -\tfrac{5}{13}$, negative because $x < 0$ (quadrant III, where only tangent and cotangent are positive).
+- id: trig-m3-r2-q03
+  lesson: trig-any-angle
+  type: order
+  topic: Trig functions of any angle
+  stem: 'Put the steps for finding $\sin\theta$ from $\tan\theta = -\tfrac{5}{12}$ and $\cos\theta > 0$ in order.'
+  items:
+    - 'Find the quadrant where both conditions hold: quadrant IV'
+    - 'Choose $x = 12$ and $y = -5$, with the signs of quadrant IV'
+    - 'Compute $r = \sqrt{144 + 25} = 13$'
+    - 'Write $\sin\theta = \tfrac{y}{r} = -\tfrac{5}{13}$'
+  explanation: |-
+    The quadrant has to come first, because it decides the signs of $x$ and $y$; $r$ needs both coordinates; and $\sin\theta = \tfrac{y}{r}$ needs $r$. Tangent is negative in II and IV and cosine positive in I and IV, so the quadrant is IV.
+- id: trig-m3-r2-q04
+  lesson: trig-any-angle
+  topic: Trig functions of any angle
+  stem: 'Which of these values are undefined? Select all that apply.'
+  choices: ['$\tan 90^\circ$', '$\cot 180^\circ$', '$\sec 270^\circ$', '$\csc 90^\circ$']
+  answer: [0, 1, 2]
+  explanation: |-
+    "Undefined" means a zero denominator. At $90^\circ$ the point is $(0, 1)$, so $\tan 90^\circ = \tfrac{1}{0}$ is undefined, but $\csc 90^\circ = \tfrac{1}{1} = 1$. At $180^\circ$ the point is $(-1, 0)$, so $\cot 180^\circ = \tfrac{-1}{0}$ is undefined. At $270^\circ$ the point is $(0, -1)$, so $\sec 270^\circ = \tfrac{1}{0}$ is undefined.
+- id: trig-m3-r2-q05
+  lesson: trig-any-angle
+  type: match
+  module_quiz: true
+  topic: Trig functions of any angle
+  stem: 'Match each quadrant to the trig functions that are positive there.'
+  pairs:
+    - [Quadrant I, All six functions]
+    - [Quadrant II, Only sine and cosecant]
+    - [Quadrant III, Only tangent and cotangent]
+    - [Quadrant IV, Only cosine and secant]
+  distractors: [Only sine and cosine]
+  explanation: |-
+    ASTC (All Students Take Calculus), counterclockwise from quadrant I. Sine has the sign of $y$ (positive in I, II), cosine the sign of $x$ (positive in I, IV), and tangent is positive where $x$ and $y$ agree (I, III). Each reciprocal shares its partner's sign. Sine and cosine are both positive only in quadrant I, where all six are.
+
+# ---------- 10 Reference angles ----------
+- id: trig-m3-r2-q06
+  lesson: trig-reference
+  type: label
+  module_quiz: true
+  topic: Reference angles
+  stem: 'Each panel shows an angle $\theta$ between $0^\circ$ and $360^\circ$, with its reference angle $\theta''$ shaded. Give the formula for each numbered reference angle.'
+  image: {src: images/trig-m3-reference-quadrants-blank.svg, alt: 'Four panels, each with coordinate axes and an angle theta drawn as a counterclockwise arc from the positive x-axis to a terminal side. The terminal side is in quadrant I in the top-left panel, quadrant II in the top-right, quadrant III in the bottom-left and quadrant IV in the bottom-right. In each panel a shaded wedge between the terminal side and the nearest part of the x-axis is numbered 1 to 4.'}
+  labels:
+    - {x: 32.6, y: 21.6, text: θ′ = θ}
+    - {x: 67.4, y: 21.6, text: θ′ = 180° − θ}
+    - {x: 17.4, y: 78.4, text: θ′ = θ − 180°}
+    - {x: 82.6, y: 78.4, text: θ′ = 360° − θ}
+  distractors: [θ′ = 90° − θ, θ′ = θ − 90°]
+  explanation: |-
+    The reference angle is measured to the nearest part of the $x$-axis, never the $y$-axis. In quadrant I it is $\theta$ itself (1). In quadrant II the terminal side is $180^\circ - \theta$ short of the negative $x$-axis (2). In quadrant III it is $\theta - 180^\circ$ past it (3). In quadrant IV it is $360^\circ - \theta$ short of a full turn (4). Formulas with $90^\circ$ measure to the $y$-axis.
+- id: trig-m3-r2-q07
+  lesson: trig-reference
+  type: text
+  topic: Reference angles
+  stem: 'The reference angle of $520^\circ$ is ___ degrees. (Give only the number.)'
+  accept: ['20']
+  explanation: |-
+    Reduce first: $520^\circ - 360^\circ = 160^\circ$, in quadrant II. The reference angle is $180^\circ - 160^\circ = 20^\circ$. Applying a formula to $520^\circ$ directly (for example $520 - 360 = 160$, stopping there) skips the quadrant step.
+- id: trig-m3-r2-q08
+  lesson: trig-reference
+  type: order
+  topic: Reference angles
+  stem: 'Put the steps for finding $\cos(-240^\circ)$ exactly in order.'
+  items:
+    - 'Add $360^\circ$: the coterminal angle is $120^\circ$'
+    - 'It is in quadrant II, so the reference angle is $60^\circ$'
+    - 'Evaluate at the reference angle: $\cos 60^\circ = \tfrac12$'
+    - 'Cosine is negative in quadrant II, so $\cos(-240^\circ) = -\tfrac12$'
+  explanation: |-
+    Reduce to $[0^\circ, 360^\circ)$, find the quadrant and the reference angle, evaluate, and attach the sign last. Each step uses the result of the one before.
+- id: trig-m3-r2-q09
+  lesson: trig-reference
+  topic: Reference angles
+  stem: 'Which angles have a reference angle of $40^\circ$? Select all that apply.'
+  choices: ['$140^\circ$', '$220^\circ$', '$130^\circ$', '$-320^\circ$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $140^\circ$ is in quadrant II: $180^\circ - 140^\circ = 40^\circ$. $220^\circ$ is in quadrant III: $220^\circ - 180^\circ = 40^\circ$. $-320^\circ + 360^\circ = 40^\circ$, in quadrant I, so it is its own reference angle. $130^\circ$ has reference angle $180^\circ - 130^\circ = 50^\circ$; $40^\circ$ would be its distance to the $y$-axis.
+- id: trig-m3-r2-q10
+  lesson: trig-reference
+  type: match
+  topic: Reference angles
+  stem: 'Match each angle to its reference angle.'
+  pairs:
+    - ['$150^\circ$', '30°']
+    - ['$225^\circ$', '45°']
+    - ['$300^\circ$', '60°']
+    - ['$-100^\circ$', '80°']
+  distractors: ['10°']
+  explanation: |-
+    $150^\circ$: $180 - 150 = 30$. $225^\circ$: $225 - 180 = 45$. $300^\circ$: $360 - 300 = 60$. $-100^\circ$ is coterminal with $260^\circ$, in quadrant III: $260 - 180 = 80$. ($10^\circ$ is the distance from $-100^\circ$ to the negative $y$-axis, which is the wrong axis.)
+
+# ---------- 11 The unit circle ----------
+- id: trig-m3-r2-q11
+  lesson: trig-unit-circle
+  type: label
+  module_quiz: true
+  topic: Unit circle
+  stem: 'The dots are the special points on the unit circle. Give the angle $t$ in $[0, 2\pi)$ for each numbered point.'
+  image: {src: images/trig-m3-unit-circle-blank.svg, alt: 'The unit circle with sixteen unlabeled dots at the axis points and at every multiple of 30 and 45 degrees, each joined to the center by a thin line. Five dots are numbered: one in quadrant I close to the y-axis, one in quadrant II on the diagonal, one in quadrant III close to the x-axis, one in quadrant IV close to the y-axis, and the dot at the top of the circle.'}
+  labels:
+    - {x: 65.6, y: 21.1, text: π/3}
+    - {x: 27.9, y: 26.4, text: 3π/4}
+    - {x: 22.9, y: 66.7, text: 7π/6}
+    - {x: 65.6, y: 78.9, text: 5π/3}
+    - {x: 50.0, y: 16.7, text: π/2}
+  distractors: [2π/3, 5π/4]
+  explanation: |-
+    Point 1 is in quadrant I near the $y$-axis: $\tfrac{\pi}{3}$ ($60^\circ$). Point 2 is on the quadrant II diagonal: $\tfrac{3\pi}{4}$ ($135^\circ$). Point 3 is in quadrant III near the $x$-axis: $\tfrac{7\pi}{6}$ ($210^\circ$). Point 4 is in quadrant IV near the $y$-axis: $\tfrac{5\pi}{3}$ ($300^\circ$). Point 5 is the top of the circle, $\tfrac{\pi}{2}$. Denominator 6 is near the $x$-axis, 3 near the $y$-axis, 4 on a diagonal.
+- id: trig-m3-r2-q12
+  lesson: trig-unit-circle
+  type: text
+  topic: Unit circle
+  stem: 'The terminal point of $t = \tfrac{5\pi}{6}$ is $(x, y)$ with $x =$ ___ and $y =$ ___. (Type square roots as sqrt, for example sqrt(2)/2.)'
+  accept:
+    - ['-sqrt(3)/2', '-sqrt3/2', '-√3/2', '−√3/2', '-√(3)/2', '-(sqrt(3))/2', '-(sqrt(3)/2)', '-1/2 sqrt(3)', '-1/2*sqrt(3)', '-sqrt(3)*1/2', '-0.866', '-.866']
+    - ['1/2', '0.5']
+  explanation: |-
+    $\tfrac{5\pi}{6} = \pi - \tfrac{\pi}{6}$ is in quadrant II, near the $x$-axis (denominator 6), so $|x| = \tfrac{\sqrt3}{2}$ is the big coordinate and $|y| = \tfrac12$ the small one. In quadrant II, $x < 0$ and $y > 0$: the point is $\left(-\tfrac{\sqrt3}{2}, \tfrac12\right)$.
+- id: trig-m3-r2-q13
+  lesson: trig-unit-circle
+  type: match
+  module_quiz: true
+  topic: Unit circle
+  stem: 'Match each number $t$ to its terminal point on the unit circle.'
+  pairs:
+    - ['$\tfrac{7\pi}{4}$', '(√2/2, −√2/2)']
+    - ['$\tfrac{2\pi}{3}$', '(−1/2, √3/2)']
+    - ['$\tfrac{11\pi}{6}$', '(√3/2, −1/2)']
+    - ['$\tfrac{3\pi}{2}$', '(0, −1)']
+  distractors: ['(−√2/2, √2/2)']
+  explanation: |-
+    $\tfrac{7\pi}{4} = 2\pi - \tfrac{\pi}{4}$: quadrant IV diagonal. $\tfrac{2\pi}{3} = \pi - \tfrac{\pi}{3}$: quadrant II near the $y$-axis, so $|x| = \tfrac12$. $\tfrac{11\pi}{6} = 2\pi - \tfrac{\pi}{6}$: quadrant IV near the $x$-axis, so $|y| = \tfrac12$. $\tfrac{3\pi}{2}$ is the bottom of the circle. The extra point $\left(-\tfrac{\sqrt2}{2}, \tfrac{\sqrt2}{2}\right)$ belongs to $\tfrac{3\pi}{4}$.
+- id: trig-m3-r2-q14
+  lesson: trig-unit-circle
+  topic: Unit circle
+  stem: 'Which statements are true for every real number $t$ where the expressions are defined? Select all that apply.'
+  choices:
+    - '$\cos^2 t + \sin^2 t = 1$'
+    - '$-1 \le \sin t \le 1$'
+    - '$\tan t$ is the slope of the line through the origin and the terminal point of $t$'
+    - 'The terminal point of $-t$ is $(\cos t, \sin t)$'
+  answer: [0, 1, 2]
+  explanation: |-
+    The terminal point $(\cos t, \sin t)$ is on the circle $x^2 + y^2 = 1$, which gives the identity, and both coordinates of a point on the unit circle lie between $-1$ and $1$. The slope of the line through $(0, 0)$ and $(x, y)$ is $\tfrac{y}{x} = \tan t$. Walking $t$ in the opposite direction reflects the point across the $x$-axis, so the terminal point of $-t$ is $(\cos t, -\sin t)$.
+- id: trig-m3-r2-q15
+  lesson: trig-unit-circle
+  type: order
+  topic: Unit circle
+  stem: 'Put these values in order from least to greatest.'
+  items: ['$\cos\pi$', '$\sin\tfrac{7\pi}{6}$', '$\sin\tfrac{\pi}{6}$', '$\cos\tfrac{\pi}{6}$', '$\sin\tfrac{\pi}{2}$']
+  explanation: |-
+    Read each from the circle: $\cos\pi = -1$, $\sin\tfrac{7\pi}{6} = -\tfrac12$, $\sin\tfrac{\pi}{6} = \tfrac12$, $\cos\tfrac{\pi}{6} = \tfrac{\sqrt3}{2} \approx 0.866$ and $\sin\tfrac{\pi}{2} = 1$. All five values are different, so there is only one order.
+
+# ---------- 12 Domain, range, periodicity and symmetry ----------
+- id: trig-m3-r2-q16
+  lesson: trig-properties
+  type: match
+  topic: Properties of trig functions
+  stem: 'Match each function to its period.'
+  pairs:
+    - ['$\sin t$', 2π]
+    - ['$\tan t$', π]
+    - ['$\sec t$', 2π]
+    - ['$\cot t$', π]
+  distractors: [π/2, 4π]
+  explanation: |-
+    Sine, cosine, secant and cosecant repeat after a full turn, $2\pi$. Tangent and cotangent repeat after half a turn, $\pi$: the point at $t + \pi$ is $(-x, -y)$, and the ratios $\tfrac{y}{x}$ and $\tfrac{x}{y}$ don't change.
+- id: trig-m3-r2-q17
+  lesson: trig-properties
+  module_quiz: true
+  topic: Properties of trig functions
+  stem: 'Which of these functions are odd? Select all that apply.'
+  choices: [Sine, Cosine, Cotangent, Secant]
+  answer: [0, 2]
+  explanation: |-
+    The points for $t$ and $-t$ are $(x, y)$ and $(x, -y)$. Sine ($y$) changes sign, so it is odd, and so is cotangent ($\tfrac{x}{y}$). Cosine ($x$) does not change, so it is even, and so is its reciprocal, secant. Only cosine and secant are even.
+- id: trig-m3-r2-q18
+  lesson: trig-properties
+  type: text
+  topic: Properties of trig functions
+  stem: '$\sin\left(-\tfrac{17\pi}{6}\right) =$ ___ (exact value).'
+  accept: ['-1/2', '−1/2', '-0.5']
+  explanation: |-
+    Strip whole periods: $-\tfrac{17\pi}{6} + 4\pi = \tfrac{7\pi}{6}$, in quadrant III near the $x$-axis, so $\sin\tfrac{7\pi}{6} = -\tfrac12$. (Or use oddness first: $-\sin\tfrac{17\pi}{6} = -\sin\tfrac{5\pi}{6} = -\tfrac12$. Both routes agree.)
+- id: trig-m3-r2-q19
+  lesson: trig-properties
+  type: match
+  topic: Properties of trig functions
+  stem: 'Match each function to its range.'
+  pairs:
+    - ['$\sin t$', From −1 to 1 inclusive]
+    - ['$\tan t$', All real numbers]
+    - ['$\sec t$', All y with |y| ≥ 1]
+    - ['$\cos t$', From −1 to 1 inclusive]
+  distractors: [All y with y ≥ 0, All y with |y| ≤ 1 except 0]
+  explanation: |-
+    Sine and cosine are coordinates of points on the unit circle, so they take every value in $[-1, 1]$. Tangent is a slope and takes every real value. Secant is $\tfrac{1}{\cos t}$, the reciprocal of a number between $-1$ and $1$ (not 0), so its absolute value is at least 1: the range is $(-\infty, -1] \cup [1, \infty)$.
+- id: trig-m3-r2-q20
+  lesson: trig-properties
+  module_quiz: true
+  topic: Properties of trig functions
+  stem: 'Is $f(x) = \sin x \tan x$ even, odd or neither?'
+  choices: ['Even', 'Odd', 'Neither', 'Both even and odd']
+  answer: 0
+  explanation: |-
+    $f(-x) = \sin(-x)\tan(-x) = (-\sin x)(-\tan x) = \sin x\tan x = f(x)$, so $f$ is even. A product of two odd functions is even, just as $(-1)(-1) = 1$. Only the zero function is both even and odd.
+
+# ---------- 12h1 The six functions as lengths (honors) ----------
+- id: trig-m3-r2-h01
+  lesson: trig-m3-h-segments
+  type: label
+  topic: Trig functions as lengths
+  stem: 'In this unit-circle picture, $\theta$ is the angle at $O$, $P$ is on the circle, and the dashed lines are the tangent lines $x = 1$ and $y = 1$. Name the length of each numbered segment.'
+  image: {src: images/trig-m3-six-segments-blank.svg, alt: 'A quarter of the unit circle with angle theta at the origin O. P is on the circle and M directly below it on the x-axis. The ray from O through P meets the dashed vertical line x = 1 at T (above A) and the dashed horizontal line y = 1 at C (right of B). Numbered segments: 1 is PM, 2 is OM, 3 is AT, 4 is BC, 5 is a bracket beside the ray from O to T on its upper-left side, 6 is a bracket beside the ray from O to C on its lower-right side.'}
+  labels:
+    - {x: 44.2, y: 74.1, text: sin θ}
+    - {x: 31.8, y: 87.2, text: cos θ}
+    - {x: 58.1, y: 56.8, text: tan θ}
+    - {x: 35.6, y: 36.2, text: cot θ}
+    - {x: 36.2, y: 54.1, text: sec θ}
+    - {x: 38.1, y: 64.4, text: csc θ}
+  distractors: [versin θ, exsec θ]
+  explanation: |-
+    Triangle $OMP$ has hypotenuse 1, so $MP = \sin\theta$ (1) and $OM = \cos\theta$ (2). On the tangent line $x = 1$, triangle $OAT$ with $OA = 1$ gives $AT = \tan\theta$ (3) and $OT = \sec\theta$ (5). On the tangent line $y = 1$, triangle $OBC$ with $OB = 1$ gives $BC = \cot\theta$ (4) and $OC = \csc\theta$ (6). The versine would be $MA$ and the exsecant $PT$; neither is marked.
+- id: trig-m3-r2-h02
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'Why is the tangent function called the "tangent"?'
+  choices:
+    - 'Because it measures how steeply the graph of sine rises'
+    - 'Because it is the ratio of the two legs of a right triangle'
+    - 'Because $\tan\theta$ is the length of a segment on the line tangent to the unit circle at $(1, 0)$'
+    - 'Because it is the cofunction of the cotangent'
+  answer: 2
+  explanation: |-
+    The ray at angle $\theta$ meets the line $x = 1$, which touches the unit circle only at $A = (1, 0)$, at the point $T = (1, \tan\theta)$. The segment $AT$ on that tangent line has length $\tan\theta$, and the name comes from it. Similarly, $OT = \sec\theta$ lies on a line that cuts the circle (Latin secare, "to cut").
+- id: trig-m3-r2-h03
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'For $\theta = 30^\circ$, the ray from the origin at angle $\theta$ meets the line $x = 1$ at $T$. What are the coordinates of $T$?'
+  choices: ['$\left(1, \tfrac{\sqrt3}{3}\right)$', '$\left(1, \tfrac12\right)$', '$\left(1, \sqrt3\right)$', '$\left(\tfrac{\sqrt3}{2}, \tfrac12\right)$']
+  answer: 0
+  explanation: |-
+    $T = (1, \tan\theta)$ and $\tan 30^\circ = \tfrac{1}{\sqrt3} = \tfrac{\sqrt3}{3}$. The height $\tfrac12$ is $\sin 30^\circ$, the height of $P$ on the circle, not of $T$; $\sqrt3 = \tan 60^\circ$; and $\left(\tfrac{\sqrt3}{2}, \tfrac12\right)$ is $P$ itself.
+- id: trig-m3-r2-h04
+  lesson: trig-m3-h-segments
+  type: text
+  topic: Trig functions as lengths
+  stem: 'In the unit-circle picture with $0^\circ < \theta < 90^\circ$, the tangent segment is $AT = \tfrac34$. Then the secant segment is $OT =$ ___.'
+  accept: ['5/4', '1.25']
+  explanation: |-
+    Triangle $OAT$ is right-angled at $A$ with legs $OA = 1$ and $AT = \tfrac34$, so $OT = \sqrt{1 + \tfrac{9}{16}} = \sqrt{\tfrac{25}{16}} = \tfrac54$. This is $1 + \tan^2\theta = \sec^2\theta$ in action.
+- id: trig-m3-r2-h05
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'Applying the Pythagorean theorem to which triangle in the picture gives $1 + \cot^2\theta = \csc^2\theta$?'
+  choices: ['Triangle $OMP$', 'Triangle $OAT$', 'Triangle $OAP$', 'Triangle $OBC$']
+  answer: 3
+  explanation: |-
+    Triangle $OBC$ has a right angle at $B$, legs $OB = 1$ and $BC = \cot\theta$, and hypotenuse $OC = \csc\theta$. Triangle $OMP$ gives $\cos^2\theta + \sin^2\theta = 1$, triangle $OAT$ gives $1 + \tan^2\theta = \sec^2\theta$, and triangle $OAP$ has no right angle.
+- id: trig-m3-r2-h06
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'Which statements are true for every $\theta$ strictly between $0^\circ$ and $90^\circ$? Select all that apply.'
+  choices: ['$\sin\theta < \tan\theta$', '$\sec\theta > 1$', '$\tan\theta < 1$', '$\sin\theta < \cos\theta$']
+  answer: [0, 1]
+  explanation: |-
+    Triangle $OAT$ is triangle $OMP$ enlarged by the factor $\tfrac{1}{\cos\theta} > 1$, so $AT = \tan\theta$ is longer than $MP = \sin\theta$. $OT = \sec\theta$ is the hypotenuse of a right triangle with a leg of length 1, so it is more than 1. But $\tan\theta < 1$ and $\sin\theta < \cos\theta$ both fail for angles above $45^\circ$ (for example $\tan 60^\circ = \sqrt3$).
+- id: trig-m3-r2-h07
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'For $\theta = 120^\circ$, where does the line through the origin and $P = (\cos\theta, \sin\theta)$ meet the line $x = 1$?'
+  choices:
+    - 'At $(1, \sqrt3)$, above the $x$-axis, on the ray through $P$'
+    - 'At $(1, -\sqrt3)$, on the ray extended backward through the origin, away from $P$'
+    - 'At $(1, -\sqrt3)$, on the ray through $P$, beyond $P$'
+    - 'At $(-1, \sqrt3)$, on the ray through $P$, beyond $P$'
+  answer: 1
+  explanation: |-
+    The meeting point is $T = (1, \tan 120^\circ) = (1, -\sqrt3)$. $P = \left(-\tfrac12, \tfrac{\sqrt3}{2}\right)$ is to the left of the origin, and $T$ is to the right of it, so $T$ is on the backward extension. That is why $\sec 120^\circ = -2$ is negative: $T = \sec\theta\cdot P = -2P$. A point with $x = -1$ is not on the line $x = 1$ at all.
+- id: trig-m3-r2-h08
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'In the unit-circle picture, what is the geometric reason that $\tan 90^\circ$ is undefined?'
+  choices:
+    - 'At $90^\circ$ the point $P$ is not on the unit circle'
+    - 'At $90^\circ$ the tangent segment has length 0'
+    - 'At $90^\circ$ the triangle $OMP$ has no hypotenuse'
+    - 'At $90^\circ$ the ray is vertical, parallel to the line $x = 1$, so it never meets it'
+  answer: 3
+  explanation: |-
+    $T$ is where the ray meets the tangent line $x = 1$. As $\theta$ approaches $90^\circ$, $T$ climbs without bound; at $90^\circ$ the ray points straight up along the $y$-axis, parallel to $x = 1$, and there is no point $T$. The point $P = (0, 1)$ is still on the circle, and $\tan 0^\circ = 0$ is the case of a zero-length segment.
+- id: trig-m3-r2-h09
+  lesson: trig-m3-h-segments
+  type: text
+  topic: Trig functions as lengths
+  stem: 'In a circle of radius 10, the chord cut off by a central angle of $120^\circ$ has length ___ (exact, or to 2 decimal places; type square roots as sqrt).'
+  accept: ['10sqrt(3)', '10 sqrt(3)', '10*sqrt(3)', '10sqrt3', '10√3', '10 √3', '10√(3)', 'sqrt(300)', '√300', '17.32']
+  explanation: |-
+    A chord of central angle $\theta$ in a circle of radius $R$ has length $2R\sin\tfrac{\theta}{2}$, so this one is $20\sin 60^\circ = 20\cdot\tfrac{\sqrt3}{2} = 10\sqrt3 \approx 17.32$. Using $2R\sin\theta$ instead gives the same number here only by coincidence ($\sin 120^\circ = \sin 60^\circ$); the half-angle is what the geometry calls for.
+- id: trig-m3-r2-h10
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'Ptolemy''s chord table used a circle of radius 60. In that circle, the chord of a central angle $2x$ equals:'
+  choices: ['$60\sin x$', '$60\sin 2x$', '$120\sin x$', '$120\sin 2x$']
+  answer: 2
+  explanation: |-
+    The chord of central angle $\theta$ in radius $R$ is $2R\sin\tfrac{\theta}{2}$. With $R = 60$ and $\theta = 2x$, that is $120\sin x$. So a chord table is a sine table in disguise: $\sin x = \tfrac{\text{crd}\,2x}{120}$. For example, the chord of $60^\circ$ is 60 (an equilateral triangle), and $\tfrac{60}{120} = \tfrac12 = \sin 30^\circ$.
+- id: trig-m3-r2-h11
+  lesson: trig-m3-h-segments
+  type: match
+  topic: Trig functions as lengths
+  stem: 'Match each older trig function (for a unit circle) to its formula.'
+  pairs:
+    - [Versine of θ, 1 − cos θ]
+    - [Exsecant of θ, sec θ − 1]
+    - [Chord of θ, 2 sin(θ/2)]
+    - [Half-chord (jya) of θ, sin θ]
+  distractors: [cos θ − 1, 2 sin θ]
+  explanation: |-
+    The versine is the segment $MA$ from the foot of the sine to the circle, $1 - \cos\theta$. The exsecant is the part $PT$ of the secant outside the circle, $\sec\theta - 1$. The chord of $\theta$ splits into two half-chords, each $\sin\tfrac{\theta}{2}$, so it is $2\sin\tfrac{\theta}{2}$. The Indian jya of an angle $\theta$ is half the chord of the doubled angle $2\theta$, which is $\sin\theta$: the sine itself.
+- id: trig-m3-r2-h12
+  lesson: trig-m3-h-segments
+  type: order
+  topic: Trig functions as lengths
+  stem: 'Put these steps in the history of the trig functions in chronological order.'
+  items:
+    - 'Hipparchus compiles a table of chords'
+    - 'Ptolemy''s Almagest gives chords in half-degree steps'
+    - 'Indian astronomers tabulate the half-chord (jya)'
+    - 'Latin translators turn the Arabic jiba into sinus'
+    - 'Thomas Fincke names the tangent and the secant'
+  explanation: |-
+    Hipparchus worked in the 2nd century BC and Ptolemy in the 2nd century AD. Indian half-chord tables appear by about 500 AD (Aryabhata wrote in 499). The Latin word sinus comes from 12th-century translations of Arabic works. Fincke introduced "tangent" and "secant" in his book Geometria rotundi (1583).
+- id: trig-m3-r2-h13
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'In the unit-circle picture ($O$ the origin, $P$ on the circle at angle $\theta$, $M$ below $P$ on the $x$-axis, $A = (1, 0)$, $T$ where ray $OP$ meets $x = 1$), which segment has length $\text{exsec}\,\theta = \sec\theta - 1$?'
+  choices: ['$MA$', '$PT$', '$AT$', '$OT$']
+  answer: 1
+  explanation: |-
+    $OT = \sec\theta$ and $OP = 1$, so the part of the ray between $P$ and $T$, outside the circle, is $\sec\theta - 1$. $MA = 1 - \cos\theta$ is the versine, $AT$ is the tangent and $OT$ the whole secant.
+- id: trig-m3-r2-h14
+  lesson: trig-m3-h-segments
+  topic: Trig functions as lengths
+  stem: 'A circular arch has radius 5 m and spans a central angle of $40^\circ$. How high does the middle of the arch rise above the chord joining its ends (to the nearest hundredth)?'
+  choices: ['1.71 m', '4.70 m', '1.17 m', '0.30 m']
+  answer: 3
+  explanation: |-
+    The center is $5\cos 20^\circ \approx 4.70$ m from the chord (half the angle, since the radius to the middle of the arch bisects it). The rise is the rest of the radius: $5 - 5\cos 20^\circ = 5\,\text{versin}\,20^\circ \approx 0.30$ m. $1.71$ m is $5\sin 20^\circ$, half the chord, and $1.17$ m comes from using the full $40^\circ$ instead of $20^\circ$.
+
+# ---------- 12h2 Small angles (honors) ----------
+- id: trig-m3-r2-h15
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'Which inequality holds for every $t$ with $0 < t < \tfrac{\pi}{2}$?'
+  choices: ['$\sin t < t < \tan t$', '$t < \sin t < \tan t$', '$\sin t < \tan t < t$', '$\tan t < t < \sin t$']
+  answer: 0
+  explanation: |-
+    The triangle $OAP$ (area $\tfrac12\sin t$) lies inside the sector of angle $t$ (area $\tfrac12 t$), which lies inside triangle $OAT$ (area $\tfrac12\tan t$). Doubling gives $\sin t < t < \tan t$. For example, at $t = 0.5$: $0.479 < 0.5 < 0.546$.
+- id: trig-m3-r2-h16
+  lesson: trig-m3-h-small-angles
+  type: order
+  topic: Small-angle behavior
+  stem: 'For $0 < t < \tfrac{\pi}{2}$, with $O$ the origin, $A = (1, 0)$, $P = (\cos t, \sin t)$ and $T = (1, \tan t)$, put these regions in order from smallest area to largest.'
+  items: ['Triangle $OAP$', 'Sector $OAP$ of the unit circle', 'Triangle $OAT$']
+  explanation: |-
+    Their areas are $\tfrac12\sin t$, $\tfrac12 t$ and $\tfrac12\tan t$, and each region lies inside the next. This nesting is the proof that $\sin t < t < \tan t$.
+- id: trig-m3-r2-h17
+  lesson: trig-m3-h-small-angles
+  type: text
+  topic: Small-angle behavior
+  stem: 'With $t$ in radians, as $t$ approaches 0 the ratio $\tfrac{\sin t}{t}$ approaches ___.'
+  accept: ['1', 'one']
+  explanation: |-
+    From $\sin t < t < \tan t$, dividing by $\sin t$ and taking reciprocals gives $\cos t < \tfrac{\sin t}{t} < 1$. As $t \to 0$, $\cos t \to 1$, so the ratio is squeezed to 1.
+- id: trig-m3-r2-h18
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'If $x$ is measured in degrees, what does $\dfrac{\sin x^\circ}{x}$ approach as $x$ approaches 0?'
+  choices: ['$1$', '$\tfrac{\pi}{180}$', '$\tfrac{180}{\pi}$', '$0$']
+  answer: 1
+  explanation: |-
+    $\sin x^\circ = \sin\tfrac{\pi x}{180}$, and for small angles that is about $\tfrac{\pi x}{180}$. Dividing by $x$ leaves $\tfrac{\pi}{180} \approx 0.01745$. The limit is 1 only in radians, which is a main reason calculus uses radians.
+- id: trig-m3-r2-h19
+  lesson: trig-m3-h-small-angles
+  type: text
+  topic: Small-angle behavior
+  stem: 'Use $\cos t \approx 1 - \tfrac{t^2}{2}$ to estimate $\cos 0.1$: ___ (give the estimate exactly as a decimal).'
+  accept: ['0.995']
+  explanation: |-
+    $1 - \tfrac{0.1^2}{2} = 1 - \tfrac{0.01}{2} = 1 - 0.005 = 0.995$. The true value is $0.995004\ldots$, a little above the estimate, as it always is.
+- id: trig-m3-r2-h20
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'Which approximations have a relative error under 1%? Select all that apply.'
+  choices: ['$\sin 0.1 \approx 0.1$', '$\tan 0.3 \approx 0.3$', '$\sin 10^\circ \approx 0.1745$', '$\sin 1 \approx 1$']
+  answer: [0, 2]
+  explanation: |-
+    $\sin 0.1 \approx 0.09983$: relative error about 0.17%. $\sin 10^\circ \approx 0.17365$ and $10^\circ \approx 0.17453$ radians: about 0.51%. But $\tan 0.3 \approx 0.30934$: about 3.0%. And $\sin 1 \approx 0.841$: about 19%, because 1 radian (about $57^\circ$) is not a small angle.
+- id: trig-m3-r2-h21
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'What is the relative error of the approximation $\tan t \approx t$ at $t = 0.2$, to the nearest hundredth of a percent? ($\tan 0.2 \approx 0.20271$.)'
+  choices: ['0.67%', '0.27%', '13.4%', '1.34%']
+  answer: 3
+  explanation: |-
+    The error is $0.20271 - 0.2 = 0.00271$, and dividing by the true value gives $\tfrac{0.00271}{0.20271} \approx 0.0134 = 1.34\%$. The rule of thumb $\tfrac{t^2}{3} = \tfrac{0.04}{3} \approx 1.33\%$ agrees. 0.27% treats the absolute error 0.0027 as a percent, and 0.67% is the error of $\sin t \approx t$ at the same $t$.
+- id: trig-m3-r2-h22
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'Why is the small-angle approximation for cosine $\cos t \approx 1 - \tfrac{t^2}{2}$, with a square, rather than something like $1 - t$?'
+  choices:
+    - 'Because cosine is an odd function'
+    - 'Because $1 - \cos t = 2\sin^2\tfrac{t}{2}$, the square of a small number, which is about $\tfrac{t^2}{2}$'
+    - 'Because $\cos t$ is always less than $1 - t$'
+    - 'Because the chord from $(1, 0)$ to $(\cos t, \sin t)$ has length $\tfrac{t^2}{2}$'
+  answer: 1
+  explanation: |-
+    The chord from $A$ to $P$ has squared length $2 - 2\cos t$ and length $2\sin\tfrac{t}{2}$, so $1 - \cos t = 2\sin^2\tfrac{t}{2} \approx 2\left(\tfrac{t}{2}\right)^2 = \tfrac{t^2}{2}$. Cosine is even, not odd, which is another way to see that no $t$ term can appear. $\cos t < 1 - t$ is false (at $t = 0.5$, $0.878 > 0.5$), and the chord's length is about $t$, not $\tfrac{t^2}{2}$.
+- id: trig-m3-r2-h23
+  lesson: trig-m3-h-small-angles
+  type: match
+  topic: Small-angle behavior
+  stem: 'Calculus shows how big the error of each small-angle approximation is. Match each approximation to the approximate size of its error.'
+  pairs:
+    - ['$\sin t \approx t$', About t³/6]
+    - ['$\tan t \approx t$', About t³/3]
+    - ['$\cos t \approx 1 - \tfrac{t^2}{2}$', About t⁴/24]
+  distractors: [About t²/2, About t/6]
+  explanation: |-
+    The sine and tangent errors are cubes, with tangent's twice sine's (so tangent's relative error, about $\tfrac{t^2}{3}$, is twice sine's, about $\tfrac{t^2}{6}$). The cosine estimate already includes the $\tfrac{t^2}{2}$ term, so what is left is much smaller, about $\tfrac{t^4}{24}$.
+- id: trig-m3-r2-h24
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'Use a small-angle approximation to estimate $\sin 3^\circ$.'
+  choices: ['$0.0524$', '$3$', '$0.1411$', '$0.0300$']
+  answer: 0
+  explanation: |-
+    Convert first: $3^\circ = \tfrac{3\pi}{180} \approx 0.05236$ radians, so $\sin 3^\circ \approx 0.0524$ (the true value is $0.05234$). The answer 3 forgets to convert (a sine can't exceed 1), $0.1411$ is $\sin 3$ with 3 in radians, and $0.0300$ drops the factor $\pi$.
+- id: trig-m3-r2-h25
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'Given $\sin 0.2 \approx 0.19867$, find $\dfrac{\sin(-0.2)}{-0.2}$.'
+  choices: ['$-0.9933$', '$-0.1987$', '$0.9933$', '$0.1987$']
+  answer: 2
+  explanation: |-
+    Sine is odd, so $\sin(-0.2) = -0.19867$, and $\tfrac{-0.19867}{-0.2} = 0.9933$. The ratio $\tfrac{\sin t}{t}$ is even, so it has the same value at $0.2$ and $-0.2$, and it is close to 1 as the squeeze predicts.
+- id: trig-m3-r2-h26
+  lesson: trig-m3-h-small-angles
+  type: text
+  topic: Small-angle behavior
+  stem: 'Because $\sin t$ and $t$ are both odd functions, the ratio $\dfrac{\sin t}{t}$ is an ___ function.'
+  accept: [even]
+  explanation: |-
+    $\tfrac{\sin(-t)}{-t} = \tfrac{-\sin t}{-t} = \tfrac{\sin t}{t}$: the minus signs cancel, so the ratio is even (its graph is symmetric about the vertical axis). That is why the squeeze for positive $t$ also covers negative $t$.
+- id: trig-m3-r2-h27
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'Which statement is true for every real number $t$?'
+  choices: ['$\sin t \le t$', '$\tan t \ge t$ whenever $t > 0$', '$|\sin t| \le |t|$', '$\cos t \le 1 - \tfrac{t^2}{2}$']
+  answer: 2
+  explanation: |-
+    For $|t| \ge \tfrac{\pi}{2}$, $|\sin t| \le 1 < |t|$; for smaller $|t|$ it follows from $\sin t < t$ on $\left(0, \tfrac{\pi}{2}\right)$ and oddness. The others fail: $\sin(-1) \approx -0.841 > -1$; $\tan 2 \approx -2.185 < 2$; and $\cos t \ge 1 - \tfrac{t^2}{2}$, not $\le$ (at $t = 0.5$, $0.878 > 0.875$).
+- id: trig-m3-r2-h28
+  lesson: trig-m3-h-small-angles
+  topic: Small-angle behavior
+  stem: 'Estimate $1 - \cos 0.2$ without a calculator.'
+  choices: ['$0.2$', '$0.04$', '$0.01$', '$0.02$']
+  answer: 3
+  explanation: |-
+    $1 - \cos t \approx \tfrac{t^2}{2} = \tfrac{0.04}{2} = 0.02$ (true value $0.01993$). $0.2$ treats $1 - \cos t$ like $t$, $0.04$ forgets to halve, and $0.01$ halves twice.

@@ -116,7 +116,7 @@ $$N_1\omega_1 = N_2\omega_2 .$$
 Counting teeth is easier than measuring radii, and it explains the rule directly: every tooth of
 the first gear that passes the contact point pushes one tooth of the second gear past it.
 
-The difference from a belt is **direction**: meshing gears turn in *opposite* directions (a belt
+The difference from a belt is *direction*: meshing gears turn in *opposite* directions (a belt
 or chain keeps the same direction). A chain of meshing gears is a **gear train**, and three kinds
 of link appear in one:
 
@@ -146,7 +146,7 @@ rpm, in the opposite direction to the motor.
 **Stage 2:** $15 \times 300 = 60\,\omega$, so the output turns at $\tfrac{15}{60}\times 300 = 75$ rpm,
 reversed again.
 
-**Result:** 75 rpm, in the **same** direction as the motor (two reversals). The overall ratio is
+**Result:** 75 rpm, in the *same* direction as the motor (two reversals). The overall ratio is
 $\tfrac{12}{48}\cdot\tfrac{15}{60} = \tfrac{1}{16}$: multiply the stage ratios. Slowing down this way
 also multiplies the turning force (torque) by about 16, minus friction losses, which is why motors
 drive wheels and winches through gearboxes.
