@@ -1,0 +1,46 @@
+# Round 2 glossary for phys-m4 (core-lesson additions and honors lessons)
+- term: energy bar chart
+  aliases: [energy bar charts, bar chart, bar charts]
+  definition: 'A quick sketch with one bar for each form of energy (kinetic, potential, thermal) at a chosen moment; with only conservative forces working, the bars always add to the same total.'
+  topic: Conservation of energy
+- term: thrust
+  definition: 'The forward force on a rocket from expelling gas: $T = uR$, the exhaust speed times the mass flow rate.'
+  topic: Rockets and variable mass
+- term: mass flow rate
+  aliases: [mass flow rates]
+  definition: 'The mass of propellant an engine expels per second, $R = \Delta m/\Delta t$ (kg/s).'
+  topic: Rockets and variable mass
+- term: exhaust speed
+  aliases: [exhaust velocity]
+  definition: 'The speed $u$ of a rocket''s exhaust gas measured relative to the rocket; for chemical rockets roughly 2.5 to 4.5 km/s.'
+  topic: Rockets and variable mass
+- term: rocket equation
+  aliases: [Tsiolkovsky rocket equation, ideal rocket equation]
+  definition: 'In free space, the speed a rocket gains by burning propellant: $\Delta v = u\ln(m_0/m_f)$, where $u$ is the exhaust speed and $m_0/m_f$ the mass ratio.'
+  topic: Rockets and variable mass
+- term: mass ratio
+  aliases: [mass ratios]
+  definition: 'A rocket''s mass at the start of a burn divided by its mass at the end, $m_0/m_f$. Reaching a delta-v of $\Delta v$ needs $m_0/m_f = e^{\Delta v/u}$.'
+  topic: Rockets and variable mass
+- term: delta-v
+  aliases: [Δv budget, delta-v budget]
+  definition: 'The total change in speed a rocket or spacecraft can produce (or a maneuver requires); mission planners add up a delta-v budget.'
+  topic: Rockets and variable mass
+- term: staging
+  aliases: [multistage rocket, rocket staging]
+  definition: 'Building a rocket as a stack of stages and dropping each one when its propellant is used up, so later stages don''t have to accelerate empty tanks and engines.'
+  topic: Rockets and variable mass
+- term: center-of-mass frame
+  aliases: [CM frame, center of mass frame, zero-momentum frame]
+  definition: 'The reference frame moving with a system''s center of mass, in which the total momentum is zero. In a collision each velocity in this frame reverses and is multiplied by $e$.'
+  topic: Restitution and gravity assists
+- term: relative kinetic energy
+  definition: 'The kinetic energy of two objects measured in their center-of-mass frame, $K_{\text{rel}} = \tfrac12\mu(v_1 - v_2)^2$; the only part a collision can turn into other forms, losing $(1 - e^2)K_{\text{rel}}$.'
+  topic: Restitution and gravity assists
+- term: reduced mass
+  definition: 'For two objects, $\mu = \dfrac{m_1m_2}{m_1 + m_2}$: smaller than either mass and close to the smaller one when the masses are very different.'
+  topic: Restitution and gravity assists
+- term: gravity assist
+  aliases: [gravitational slingshot, slingshot maneuver, gravity assists]
+  definition: 'A flyby that changes a spacecraft''s speed in the Sun''s frame by passing close to a moving planet; the encounter is elastic in the planet''s frame, and the planet''s motion supplies (or absorbs) the energy.'
+  topic: Restitution and gravity assists

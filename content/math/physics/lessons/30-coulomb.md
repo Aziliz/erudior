@@ -26,7 +26,22 @@ A coulomb is a large charge. Static charges on everyday objects are typically na
 
 In a **conductor** (metals, salt water, your body) some electrons move freely through the material. In an **insulator** (rubber, glass, plastic, dry air) charges stay put. Semiconductors sit in between.
 
-A charged object can attract a neutral one by **polarization**: bring a negative rod near a neutral metal sphere and the sphere's free electrons are pushed to the far side, leaving the near side positive. The near positive side is closer, so attraction wins. That's why a charged balloon picks up bits of paper. **Grounding** a conductor connects it to Earth, a huge reservoir of charge. **Charging by induction** uses polarization plus grounding: hold a negative rod near a sphere, ground the sphere (electrons flee to Earth), remove the ground, then the rod; the sphere is left positive without ever being touched.
+A charged object can attract a neutral one by **polarization**: bring a negative rod near a neutral metal sphere and the sphere's free electrons are pushed to the far side, leaving the near side positive. The near positive side is closer, so attraction wins. That's why a charged balloon picks up bits of paper. The picture shows the arrangement.
+
+![A negatively charged rod held to the left of a neutral metal sphere. Positive charges gather on the sphere's near side and negative charges on its far side; the net force on the sphere is toward the rod.](images/phys-m8-polarization.svg)**Grounding** a conductor connects it to Earth, a huge reservoir of charge. **Charging by induction** uses polarization plus grounding: hold a negative rod near a sphere, ground the sphere (electrons flee to Earth), remove the ground, then the rod; the sphere is left positive without ever being touched.
+
+```mermaid
+flowchart TD
+  accTitle: Charging a metal sphere by induction
+  accDescr: Bring a negative rod near a neutral metal sphere; the sphere polarizes with electrons pushed to the far side; ground the sphere and electrons flow to Earth; remove the ground connection while the rod is still near; remove the rod; the sphere is left positively charged, with the charge spread over its surface.
+  A["Bring a negative rod near the neutral sphere"] --> B["Sphere polarizes: electrons pushed to the far side"]
+  B --> C["Ground the sphere: electrons flow to Earth"]
+  C --> D["Remove the ground, rod still near"]
+  D --> E["Remove the rod"]
+  E --> F["Sphere is left positive, charge spread over its surface"]
+```
+
+The order matters: if the rod were removed before the ground, electrons would flow back from Earth and the sphere would end up neutral.
 
 ## Coulomb's law
 
@@ -69,6 +84,10 @@ Net: $4.05$ N in the $+x$ direction. Both forces point the same way here; a char
 Two identical small spheres each carry $+3.0$ μC, sitting at two corners of an equilateral triangle with 0.50 m sides. Find the force on a $+1.0$ μC charge at the third corner.
 
 Each force has magnitude $F = (8.99\times10^9)\dfrac{(3.0\times10^{-6})(1.0\times10^{-6})}{0.25} = 0.108$ N, directed away from its source. Put the two sources on the $x$ axis; then the horizontal components cancel by symmetry and the vertical components add. Each force makes $30^\circ$ with the vertical: $F_{\text{net}} = 2(0.108)\cos 30^\circ = 0.187$ N, straight away from the midpoint of the other two.
+
+```shape
+{"polygons": [{"points": [[0, 0], [0.5, 0], [0.25, 0.433]]}], "points": [{"at": [0, 0], "label": "+3.0 μC"}, {"at": [0.5, 0], "label": "+3.0 μC"}, {"at": [0.25, 0.433], "label": "+1.0 μC"}], "segments": [{"from": [0.25, 0.433], "to": [0.4, 0.693], "arrow": true, "label": "0.108 N"}, {"from": [0.25, 0.433], "to": [0.1, 0.693], "arrow": true, "label": "0.108 N"}, {"from": [0.25, 0.433], "to": [0.25, 0.733], "arrow": true, "label": "net 0.187 N"}], "caption": "Example 3: each force points away from its source; the sideways parts cancel and the net force points straight up"}
+```
 
 ## Reasoning with proportions
 
