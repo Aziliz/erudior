@@ -194,7 +194,7 @@
     num: 4*a^2
     den: (1 + 4*a^2*(p^2 + q^2))^2
     kk: 4*a^2/(1 + 4*a^2*(p^2 + q^2))^2
-  prompt: 'Find the Gaussian curvature of $z = {a}(x^2 + y^2)$ at the point above $({p}, {q})$. Give an exact fraction or 4 significant figures.'
+  prompt: 'Find the Gaussian curvature of $z = {a:coef}(x^2 + y^2)$ at the point above $({p}, {q})$. Give an exact fraction or 4 significant figures.'
   answers:
     - {name: kk, label: '$K =$', sigfigs: 4, format: sig4}
   solution: |-
