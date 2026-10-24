@@ -78,12 +78,12 @@ Two habits keep the rules honest. Ignore exact numbers when counting, and round 
 ```mermaid
 flowchart TD
   accTitle: Rounding a calculation with measured numbers
-  accDescr: First set aside exact numbers such as counts and defined conversions. Then ask which operation is used. For multiplying or dividing, count the significant figures in each measurement and round the answer to the fewest. For adding or subtracting, find the last decimal place of each measurement and round the answer to the leftmost of those places. In both cases, round only once, at the end.
+  accDescr: First set aside exact numbers such as counts and defined conversions. Then ask which operation is used. For multiplying or dividing, count the significant figures in each measurement and round the answer to the fewest. For adding or subtracting, find the place of the last digit of each measurement and round the answer to the leftmost of those places. In both cases, round only once, at the end.
   A["Calculation with measured numbers"] --> B["Set aside exact numbers: counts and definitions"]
   B --> C{"Which operation?"}
   C -- "multiply or divide" --> D["Count significant figures in each measurement"]
   D --> E["Round the answer to the fewest"]
-  C -- "add or subtract" --> F["Find the last decimal place of each measurement"]
+  C -- "add or subtract" --> F["Find the place of the last digit of each measurement"]
   F --> G["Round the answer to the leftmost of those places"]
   E --> H["Round only once, at the end"]
   G --> H

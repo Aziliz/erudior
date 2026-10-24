@@ -80,7 +80,7 @@
   answers:
     - {name: v, kind: fraction, lowestTerms: true, label: Value}
   solution: |-
-    The denominator {n} means a root: $\sqrt[{n}]{{base}} = {r}$, because ${r}^{{n}} = {base}$. The numerator's size, {m}, is a power: ${r}^{{m}} = {rm}$.
+    The denominator {n} means a root: $\sqrt[{n}]{{base}} = {r}$, because ${r}^{{n}} = {base}$. Then raise {r} to the power {m}, the size of the numerator: ${r}^{{m}} = {rm}$.
     {sg} The answer is **{v:frac}**.
 
 - id: pre-m6-r2-count-sigfigs

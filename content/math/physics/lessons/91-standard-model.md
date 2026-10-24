@@ -39,7 +39,7 @@ The photons leave back to back, so detectors that catch both at once know the an
 
 By the early 1960s accelerators had produced hundreds of short-lived particles that feel the strong force, collectively called **hadrons**. In 1964 Murray Gell-Mann and George Zweig independently proposed that hadrons are built from a few smaller particles, which Gell-Mann named **quarks**. From 1968, electrons fired at protons at SLAC bounced off small, point-like pieces inside, much as Rutherford had found the nucleus inside the atom.
 
-Quarks have fractional charges: the **up** quark (u) has charge $+\tfrac23e$ and the **down** quark (d) has charge $-\tfrac13e$. Hadrons come in two families:
+Quarks have fractional charges: the up quark (u) has charge $+\tfrac23e$ and the down quark (d) has charge $-\tfrac13e$. Hadrons come in two families:
 
 - **Baryons** are made of three quarks. The proton is uud: charge $\tfrac23 + \tfrac23 - \tfrac13 = +1$. The neutron is udd: charge $\tfrac23 - \tfrac13 - \tfrac13 = 0$.
 - **Mesons** are made of a quark and an antiquark. The positive pion, $\pi^+$, is u$\bar{\text{d}}$: charge $\tfrac23 + \tfrac13 = +1$ (the antidown has charge $+\tfrac13$).

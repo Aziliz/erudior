@@ -38,6 +38,8 @@ $$(f \circ g)(x) = f\big(g(x)\big).$$
 
 Read it from the inside out: first apply $g$, then apply $f$ to the result. The small circle is not multiplication. You can think of an assembly line: $x$ enters machine $g$, and whatever comes out is fed into machine $f$.
 
+![An assembly line: the input 2 goes into machine g, with g(x) = 3x − 2, which outputs 4; the 4 goes into machine f, with f(x) = x² + 1, which outputs 17. So f(g(2)) = 17, and the inner function g acts first.](images/pc-m2-machines.svg)
+
 Order matters. In general $f(g(x)) \ne g(f(x))$.
 
 ### Example 2
@@ -64,6 +66,18 @@ $f(g(3)) = f(4) = 2$ and $g(f(3)) = g(1) = 2$. And $f(f(1)) = f(4) = 2$.
 ## The domain of a composition
 
 For $f(g(x))$ to make sense, two things must happen: $x$ must be in the domain of $g$, and the output $g(x)$ must be in the domain of $f$. Simplifying the formula first can hide a restriction, so find the domain from the pieces.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether x is in the domain of f composed with g
+  accDescr: First ask whether x is in the domain of g. If not, x is not in the domain of the composition. If it is, compute g of x and ask whether g of x is in the domain of f. If not, x is not in the domain of the composition. If it is, x is in the domain of the composition.
+  A["Input x"] --> B{"Is x in the domain of g?"}
+  B -- no --> X["x is NOT in the domain of f ∘ g"]
+  B -- yes --> C["Compute g(x)"]
+  C --> D{"Is g(x) in the domain of f?"}
+  D -- no --> X
+  D -- yes --> Y["x IS in the domain of f ∘ g"]
+```
 
 ### Example 3
 

@@ -35,9 +35,9 @@ Take $f(x) = |x - 1| + |x + 2|$. The breakpoints are $x = 1$ and $x = -2$.
 
 At $x = -2$ the first two pieces both give 3, and at $x = 1$ the last two both give 3: the graph is connected, as it must be, because absolute values never jump. The graph is a flat-bottomed valley.
 
-```plot
-{"x": [-5, 4], "y": [-1, 10], "functions": [{"f": "abs(x - 1) + abs(x + 2)", "label": "y = |x − 1| + |x + 2|"}], "points": [{"at": [-2, 3], "label": "(−2, 3)"}, {"at": [1, 3], "label": "(1, 3)"}], "caption": "Between the breakpoints −2 and 1 the graph is flat at height 3; outside them the slopes are −2 and 2."}
-```
+![The graph of y = |x − 1| + |x + 2|: the line y = −2x − 1 comes down from the left to the breakpoint (−2, 3), a flat piece y = 3 runs to the breakpoint (1, 3), and the line y = 2x + 1 rises to the right.](images/pc-m1-abs-sum.svg)
+
+*Between the breakpoints −2 and 1 the graph is flat at height 3; outside them the slopes are −2 and 2.*
 
 The flat bottom has a meaning. $|x - 1|$ is the distance from $x$ to 1 and $|x + 2|$ is the distance from $x$ to $-2$. Anywhere between $-2$ and 1, the two distances add up to the gap between those points, which is 3. Outside, you walk past one of the points and waste distance.
 

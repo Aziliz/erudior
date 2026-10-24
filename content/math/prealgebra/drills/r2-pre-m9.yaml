@@ -1,0 +1,157 @@
+# Round 2 drills for pre-m9 honors lessons (38h1 spread, 38h2 expected value)
+- id: pre-m9-r2-mad
+  title: Mean absolute deviation
+  topic: Mean absolute deviation
+  vars:
+    a: {min: 2, max: 30}
+    b: {min: 2, max: 30}
+    c: {min: 2, max: 30}
+    d: {min: 2, max: 30}
+    e: {min: 2, max: 30}
+  calc:
+    s: a + b + c + d + e
+    m: s / 5
+    da: abs(a - m)
+    db: abs(b - m)
+    dc: abs(c - m)
+    dd: abs(d - m)
+    de: abs(e - m)
+    sd: da + db + dc + dd + de
+    mad: sd / 5
+  where: ['mod(s, 5) == 0', 'sd > 0']
+  prompt: 'Find the mean and the mean absolute deviation (MAD) of {a}, {b}, {c}, {d}, {e}.'
+  answers:
+    - {name: m, label: Mean, tolerance: 0.001}
+    - {name: mad, label: MAD, tolerance: 0.001}
+  solution: |-
+    Mean: ({a} + {b} + {c} + {d} + {e}) ÷ 5 = {s} ÷ 5 = **{m}**.
+    Distances from the mean: |{a} − {m}| = {da}, |{b} − {m}| = {db}, |{c} − {m}| = {dc}, |{d} − {m}| = {dd}, |{e} − {m}| = {de}. They add to {sd}.
+    MAD = {sd} ÷ 5 = **{mad}**.
+
+- id: pre-m9-r2-quartiles
+  title: Quartiles and the IQR
+  topic: Quartiles and box plots
+  vars:
+    x1: {min: 5, max: 40}
+    d1: {min: 1, max: 9}
+    d2: {min: 1, max: 9}
+    d3: {min: 1, max: 9}
+    d4: {min: 1, max: 9}
+    d5: {min: 1, max: 9}
+    d6: {min: 1, max: 9}
+    d7: {min: 1, max: 9}
+    d8: {min: 1, max: 12}
+  calc:
+    x2: x1 + d1
+    x3: x2 + d2
+    x4: x3 + d3
+    x5: x4 + d4
+    x6: x5 + d5
+    x7: x6 + d6
+    x8: x7 + d7
+    x9: x8 + d8
+    q1: (x2 + x3) / 2
+    q3: (x7 + x8) / 2
+    iqr: q3 - q1
+  prompt: 'Find Q1, Q3 and the interquartile range of these 9 values: {x4}, {x9}, {x1}, {x6}, {x3}, {x8}, {x2}, {x7}, {x5}. (Use the median-of-halves method: leave the median out of both halves.)'
+  answers:
+    - {name: q1, label: Q1, tolerance: 0.001}
+    - {name: q3, label: Q3, tolerance: 0.001}
+    - {name: iqr, label: IQR, tolerance: 0.001}
+  solution: |-
+    In order: {x1}, {x2}, {x3}, {x4}, {x5}, {x6}, {x7}, {x8}, {x9}. The median is the 5th value, {x5}; leave it out.
+    Lower half {x1}, {x2}, {x3}, {x4}: Q1 = ({x2} + {x3}) ÷ 2 = **{q1}**.
+    Upper half {x6}, {x7}, {x8}, {x9}: Q3 = ({x7} + {x8}) ÷ 2 = **{q3}**.
+    IQR = {q3} − {q1} = **{iqr}**.
+
+- id: pre-m9-r2-fences
+  title: Outlier fences
+  topic: Quartiles and box plots
+  vars:
+    q1: {min: 10, max: 60}
+    h: {min: 2, max: 15}
+    v: {min: 1, max: 3}
+  calc:
+    iqr: 2 * h
+    q3: q1 + iqr
+    step: 3 * h
+    lo: q1 - step
+    hi: q3 + step
+    big: if(v == 1, hi + 2, if(v == 2, hi - 1, q3 + h))
+    out: if(big > hi, 1, 0)
+  prompt: 'A data set has Q1 = {q1} and Q3 = {q3}. Find the lower and upper fences of the 1.5 × IQR rule, and decide whether a value of {big} is flagged as an outlier (enter 1 for yes, 0 for no).'
+  answers:
+    - {name: lo, label: Lower fence}
+    - {name: hi, label: Upper fence}
+    - {name: out, label: 'Outlier? (1 = yes, 0 = no)'}
+  solution: |-
+    IQR = {q3} − {q1} = {iqr}, and 1.5 × {iqr} = {step}.
+    Lower fence: {q1} − {step} = **{lo}**. Upper fence: {q3} + {step} = **{hi}**.
+    {big} is compared with the upper fence {hi}: the answer is **{out}** (1 means it is above the fence and flagged; 0 means it is not).
+
+- id: pre-m9-r2-no-replace
+  title: Two draws without replacement
+  topic: Tree diagrams
+  vars:
+    r: {min: 2, max: 9}
+    b: {min: 2, max: 9}
+  calc:
+    n: r + b
+    n1: n - 1
+    r1: r - 1
+    rr: r * (r - 1)
+    rb: r * b
+    tot: n * (n - 1)
+    rb2: 2 * r * b
+    Pboth: r * (r - 1) / (n * (n - 1))
+    Pmix: 2 * r * b / (n * (n - 1))
+  prompt: 'A bag holds {r} red and {b} blue marbles. Two are drawn without replacement. Find the probability that both are red, and the probability of one of each color. Give fractions in lowest terms.'
+  answers:
+    - {name: Pboth, kind: fraction, lowestTerms: true, label: 'P(both red)'}
+    - {name: Pmix, kind: fraction, lowestTerms: true, label: 'P(one of each)'}
+  solution: |-
+    There are {n} marbles. Both red: $\dfrac{{r}}{{n}} \times \dfrac{{r1}}{{n1}} = \dfrac{{rr}}{{tot}} =$ **${Pboth:texfrac}$**.
+    One of each: red then blue is $\dfrac{{r}}{{n}} \times \dfrac{{b}}{{n1}}$ and blue then red is $\dfrac{{b}}{{n}} \times \dfrac{{r}}{{n1}}$, each $\dfrac{{rb}}{{tot}}$. Add the two paths: $\dfrac{{rb2}}{{tot}} =$ **${Pmix:texfrac}$**.
+
+- id: pre-m9-r2-at-least-one
+  title: At least one, without replacement
+  topic: Tree diagrams
+  vars:
+    n: {min: 6, max: 15}
+    d: {min: 1, max: 4}
+  calc:
+    g: n - d
+    g1: g - 1
+    n1: n - 1
+    gg: g * (g - 1)
+    tot: n * (n - 1)
+    Pnone: g * (g - 1) / (n * (n - 1))
+    P: 1 - g * (g - 1) / (n * (n - 1))
+  where: ['g >= 3']
+  prompt: 'A box of {n} batteries contains {d} dead ones. Two batteries are chosen at random without replacement. What is the probability that at least one of them is dead? Give a fraction in lowest terms.'
+  answers:
+    - {name: P, kind: fraction, lowestTerms: true, label: 'P(at least one dead)'}
+  solution: |-
+    Use the complement, "none dead." There are {g} good batteries: $P(\text{none}) = \dfrac{{g}}{{n}} \times \dfrac{{g1}}{{n1}} = \dfrac{{gg}}{{tot}} = {Pnone:texfrac}$.
+    So $P(\text{at least one dead}) = 1 - {Pnone:texfrac} =$ **${P:texfrac}$**.
+
+- id: pre-m9-r2-expected
+  title: Expected value of a dice game
+  topic: Expected value
+  vars:
+    w6: {min: 6, max: 30}
+    w45: {min: 1, max: 12}
+    c: {min: 1, max: 8}
+  calc:
+    two: 2 * w45
+    tw: w6 + 2 * w45
+    ev: (w6 + 2 * w45) / 6
+    net: (w6 + 2 * w45) / 6 - c
+  where: ['mod(w6 + 2 * w45, 6) == 0', 'w6 > w45']
+  prompt: 'A game costs {c:money0} to play. You roll a fair die: a 6 pays {w6:money0}, a 4 or a 5 pays {w45:money0}, and anything else pays nothing. Find the expected prize and the expected net gain per play (negative for a loss).'
+  answers:
+    - {name: ev, label: 'Expected prize (dollars)', format: money}
+    - {name: net, label: 'Expected net gain (dollars)', format: money}
+  solution: |-
+    Expected prize: ${w6} \cdot \tfrac16 + {w45} \cdot \tfrac26 + 0 \cdot \tfrac36 = \tfrac{{w6} + {two}}{6} = \tfrac{{tw}}{6}$, which is **{ev:money}**.
+    Expected net gain: {ev:money} − {c:money0} = **{net:money}** per play. (A value of 0 would make the game fair.)

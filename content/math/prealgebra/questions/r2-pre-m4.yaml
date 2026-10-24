@@ -366,7 +366,7 @@
   explanation: |-
     Dividing by 17, the remainders can only be 1 through 16 (remainder 0 would make the decimal stop). After at most 16 steps a remainder must repeat, so the period is at most $17 - 1 = 16$. (For $\tfrac{1}{17}$ it is exactly 16.)
 
-# ---------- Honors 16h2: Inverse proportion and working together ----------
+# ---------- Honors 16h2: Direct and inverse proportion ----------
 - id: pre-m4-r2-h14
   lesson: pre-m4-h-inverse
   topic: Inverse proportion
@@ -419,52 +419,52 @@
 
 - id: pre-m4-r2-h19
   lesson: pre-m4-h-inverse
-  topic: Combined rates
-  stem: 'Hose A fills a tank in 4 hours and hose B fills it in 12 hours. How long do they take running together?'
-  choices: ['3 hours', '8 hours', '16 hours', '6 hours']
-  answer: 0
+  topic: Inverse proportion
+  stem: 'Which table shows $y$ inversely proportional to $x$?'
+  choices: ['$x$: 1, 2, 4 and $y$: 3, 6, 12', '$x$: 1, 2, 4 and $y$: 12, 6, 3', '$x$: 1, 2, 4 and $y$: 12, 10, 6', '$x$: 1, 2, 4 and $y$: 12, 6, 2']
+  answer: 1
   explanation: |-
-    Add the rates: $\tfrac14 + \tfrac{1}{12} = \tfrac{3}{12} + \tfrac{1}{12} = \tfrac{4}{12} = \tfrac13$ tank per hour, so 3 hours. Check: less than A's 4 hours alone. 8 averages the times and 16 adds them; both are slower than A alone.
+    Check the product $xy$ for each pair. For $y$: 12, 6, 3 the products are 12, 12, 12, constant, so inverse. For $y$: 3, 6, 12 the ratio $\tfrac yx = 3$ is constant, so that's direct. For $y$: 12, 10, 6 the products are 12, 20, 24, and for $y$: 12, 6, 2 they are 12, 12, 8. Those last two decrease but don't keep a constant product.
 
 - id: pre-m4-r2-h20
   lesson: pre-m4-h-inverse
-  topic: Combined rates
+  topic: Inverse proportion
   type: text
-  stem: 'Ana can rake the yard in 30 minutes and Ben in 60 minutes. Working together, they take ___ minutes.'
-  accept: ['20']
+  stem: 'Four machines make 600 parts in 5 hours. At the same rate, 6 machines make ___ parts in 8 hours.'
+  accept: ['1440', '1,440']
   explanation: |-
-    $\tfrac{1}{30} + \tfrac{1}{60} = \tfrac{2}{60} + \tfrac{1}{60} = \tfrac{3}{60} = \tfrac{1}{20}$ of the yard per minute, so 20 minutes. Product over sum: $\tfrac{30 \times 60}{90} = 20$.
+    The fixed quantity is parts per machine-hour: $600 \div (4 \times 5) = 30$. Six machines for 8 hours is 48 machine-hours, so $48 \times 30 = 1{,}440$ parts.
 
 - id: pre-m4-r2-h21
   lesson: pre-m4-h-inverse
-  topic: Combined rates
-  stem: 'A faucet fills a tub in 3 hours, but the open drain would empty a full tub in 5 hours. With both open, how long does the tub take to fill?'
-  choices: ['2 hours', '7.5 hours', '1.875 hours', '4 hours']
+  topic: Inverse proportion
+  stem: 'Five machines fill 4,000 bottles in 8 hours. Working at the same rate, how long would 4 machines take to fill 6,000 bottles?'
+  choices: ['12 hours', '15 hours', '10 hours', '9.6 hours']
   answer: 1
   explanation: |-
-    The drain works against the faucet: $\tfrac13 - \tfrac15 = \tfrac{5}{15} - \tfrac{3}{15} = \tfrac{2}{15}$ tub per hour, so $\tfrac{15}{2} = 7.5$ hours. 1.875 hours adds the rates as if both were filling; 2 hours subtracts the times.
+    Five machines for 8 hours is 40 machine-hours for 4,000 bottles, or 100 bottles per machine-hour. 6,000 bottles need 60 machine-hours; with 4 machines that's $60 \div 4 = 15$ hours. 12 hours ignores the change in machines, and 10 hours ignores the extra bottles.
 
 - id: pre-m4-r2-h22
   lesson: pre-m4-h-inverse
-  topic: Combined rates
+  topic: Inverse proportion
   type: order
-  stem: 'Pump A empties a basement in 10 hours and pump B in 15 hours. Put the steps for finding their time together in order.'
+  stem: 'Three cooks prepare 4 banquets in 12 hours. Put the steps for finding how many cooks are needed to prepare 5 banquets in 9 hours in order.'
   items:
-    - 'Write each rate: $\tfrac{1}{10}$ and $\tfrac{1}{15}$ of the job per hour'
-    - 'Add the rates: $\tfrac{3}{30} + \tfrac{2}{30} = \tfrac{1}{6}$ of the job per hour'
-    - 'Turn the rate into a time: $1 \div \tfrac16 = 6$ hours'
-    - 'Check: 6 hours is less than 10 hours, the faster pump alone'
+    - 'Total work so far: $3 \times 12 = 36$ cook-hours for 4 banquets'
+    - 'Work per banquet: $36 \div 4 = 9$ cook-hours'
+    - 'Work for 5 banquets: $5 \times 9 = 45$ cook-hours'
+    - 'Spread over 9 hours: $45 \div 9 = 5$ cooks'
   explanation: |-
-    Rates come first because rates add and times don't. The total rate $\tfrac16$ job per hour means one job takes 6 hours, and working together must beat the faster pump alone.
+    Find the fixed quantity first (cook-hours per banquet), then scale it to the new job, then divide by the time available. Check the directions: more banquets need more cooks, and less time needs more cooks, so the answer should be more than 3.
 
 - id: pre-m4-r2-h23
   lesson: pre-m4-h-inverse
-  topic: Combined rates
-  stem: 'A cyclist rides 6 miles up a hill at 10 mph and returns the same 6 miles downhill at 30 mph. What is the average speed for the whole ride?'
-  choices: ['20 mph', '15 mph', '18 mph', '12 mph']
-  answer: 1
+  topic: Inverse proportion
+  stem: 'For strings of the same kind under the same tension, frequency × length stays (approximately) the same. A 60 cm string sounds at 220 Hz. What frequency does a 40 cm string give?'
+  choices: ['146.7 Hz', '440 Hz', '330 Hz', '240 Hz']
+  answer: 2
   explanation: |-
-    Up: $6 \div 10 = 0.6$ hours. Down: $6 \div 30 = 0.2$ hours. Total: 12 miles in 0.8 hours, so $12 \div 0.8 = 15$ mph. Averaging the speeds gives 20, but the rider spends three times as long going up as coming down.
+    $60 \times 220 = 13{,}200$, so $f = 13{,}200 \div 40 = 330$ Hz. A shorter string sounds higher. 146.7 Hz uses a direct proportion, and 440 Hz would need half the length (30 cm).
 
 - id: pre-m4-r2-h24
   lesson: pre-m4-h-inverse
@@ -491,13 +491,12 @@
 
 - id: pre-m4-r2-h26
   lesson: pre-m4-h-inverse
-  topic: Combined rates
-  stem: 'Ana mows a lawn in 40 minutes and Ben in 60 minutes. Which expressions give the number of minutes they take together? Select all that apply.'
-  choices: ['$1 \div \left(\tfrac{1}{40} + \tfrac{1}{60}\right)$', '$\dfrac{40 \times 60}{40 + 60}$', '$\dfrac{40 + 60}{2}$', '$40 + 60$', '$\tfrac{1}{40} + \tfrac{1}{60}$']
-  answer: [0, 1]
+  topic: Inverse proportion
+  stem: '$y$ is inversely proportional to $x$ with constant of proportionality 36. Which pairs $(x, y)$ fit? Select all that apply.'
+  choices: ['$(4, 9)$', '$(6, 6)$', '$(9, 3)$', '$(12, 3)$', '$(36, 0)$']
+  answer: [0, 1, 3]
   explanation: |-
-    Add the rates and turn the total rate into a time: $1 \div \tfrac{1}{24} = 24$. Product over sum is the same calculation for two workers: $\tfrac{2400}{100} = 24$. Averaging (50) and adding (100) give times longer than Ana alone. $\tfrac{1}{40} + \tfrac{1}{60} = \tfrac{1}{24}$ is the combined *rate* (lawns per minute), not the time.
-
+    Inverse with constant 36 means $xy = 36$. $4 \times 9$, $6 \times 6$ and $12 \times 3$ all make 36. $9 \times 3 = 27$, and $36 \times 0 = 0$; $y$ is never 0 in an inverse proportion.
 # ---------- Honors 16h3: How scaling changes area and volume ----------
 - id: pre-m4-r2-h27
   lesson: pre-m4-h-scaling

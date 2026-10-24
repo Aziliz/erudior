@@ -19,6 +19,10 @@ $$x_1 \ne x_2 \implies f(x_1) \ne f(x_2).$$
 
 Graphically this is the **horizontal line test**: $f$ is one-to-one exactly when no horizontal line meets its graph more than once. A horizontal line $y = c$ collects all inputs with output $c$; two crossings mean two inputs share an output. Functions that are always increasing or always decreasing pass automatically.
 
+```plot
+{"x": [-4, 4], "y": [-2, 9], "functions": [{"f": "x^2", "label": "y = x²"}, {"f": "4", "dashed": true, "label": "y = 4"}], "points": [{"at": [-2, 4], "label": "(−2, 4)"}, {"at": [2, 4], "label": "(2, 4)"}], "caption": "The horizontal line y = 4 meets y = x² twice, at x = −2 and x = 2, so x² on all reals is not one-to-one."}
+```
+
 ## The inverse function
 
 If $f$ is one-to-one, its **inverse function** $f^{-1}$ is defined by
@@ -41,6 +45,19 @@ The $-1$ is notation, not an exponent: $f^{-1}(x)$ is *not* $\dfrac{1}{f(x)}$.
 2. Swap $x$ and $y$. (This is the "input and output trade places" step.)
 3. Solve for $y$. The result is $f^{-1}(x)$.
 4. Check with a composition, and state the domain.
+
+```mermaid
+flowchart TD
+  accTitle: Finding an inverse function
+  accDescr: First ask whether f is one-to-one, using the horizontal line test. If not, restrict the domain to a piece where it is one-to-one. Then write y equals f of x, swap x and y, solve for y, check that f of f inverse of x equals x, and state the domain of the inverse, which is the range of f.
+  A{"Is f one-to-one? (horizontal line test)"} -- yes --> C["Write y = f(x)"]
+  A -- no --> B["Restrict the domain to a one-to-one piece"]
+  B --> C
+  C --> D["Swap x and y"]
+  D --> E["Solve for y: this is the inverse"]
+  E --> F["Check that f(inverse(x)) = x"]
+  F --> G["Domain of the inverse = range of f"]
+```
 
 ### Example 1
 

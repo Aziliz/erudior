@@ -1,0 +1,740 @@
+# Round 2, module pre-m8 (Measurement and geometry): new question types for the core lessons,
+# and questions for the three honors lessons.
+# --- pre-units ---
+- id: pre-m8-r2-q01
+  lesson: pre-units
+  module_quiz: true
+  topic: Unit conversion
+  type: text
+  stem: 'Fill in the blanks with numbers: 1 kilometer = ___ meters, and 1 meter = ___ centimeters.'
+  accept:
+    - ['1000', '1,000']
+    - ['100']
+  explanation: |-
+    Kilo- means 1,000, so 1 km = 1,000 m. Centi- means $\tfrac{1}{100}$, so a centimeter is a hundredth of a meter and 1 m = 100 cm.
+
+- id: pre-m8-r2-q02
+  lesson: pre-units
+  topic: Unit conversion
+  type: order
+  stem: 'Put these metric units of length in order from largest to smallest.'
+  items: [kilometer, hectometer, meter, centimeter, millimeter]
+  explanation: |-
+    Following the prefix staircase down: kilo (1,000 m), hecto (100 m), the base unit meter, centi ($\tfrac{1}{100}$ m), milli ($\tfrac{1}{1000}$ m).
+
+- id: pre-m8-r2-q03
+  lesson: pre-units
+  topic: Dimensional analysis
+  stem: 'Which of these fractions are equal to 1, so they can be used as conversion factors? Select all that apply.'
+  choices: ['$\dfrac{12 \text{ in}}{1 \text{ ft}}$', '$\dfrac{1 \text{ yd}}{3 \text{ ft}}$', '$\dfrac{100 \text{ cm}}{1 \text{ km}}$', '$\dfrac{60 \text{ min}}{1 \text{ h}}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    A conversion factor has the same amount on top and bottom. 12 in = 1 ft, 1 yd = 3 ft and 60 min = 1 h are all true. But 1 km is 1,000 m = 100,000 cm, not 100 cm, so $\tfrac{100 \text{ cm}}{1 \text{ km}}$ is not equal to 1 (100 cm = 1 m).
+
+- id: pre-m8-r2-q04
+  lesson: pre-units
+  module_quiz: true
+  topic: Unit conversion
+  type: match
+  stem: 'Match each amount to the amount it equals.'
+  pairs:
+    - [1 gallon, 4 quarts]
+    - [1 pound, 16 ounces]
+    - [1 mile, '5,280 feet']
+    - [1 yard, 3 feet]
+  distractors: [12 feet, 8 ounces]
+  explanation: |-
+    These US customary relationships have to be memorized: 1 gal = 4 qt, 1 lb = 16 oz, 1 mi = 5,280 ft, 1 yd = 3 ft. (12 inches, not 12 feet, make a foot; 8 fluid ounces make a cup.)
+
+- id: pre-m8-r2-q05
+  lesson: pre-units
+  topic: Unit conversion
+  type: text
+  stem: 'How many square inches are in 1 square foot? Give only the number: ___'
+  accept: ['144']
+  explanation: |-
+    A square foot is 12 in by 12 in, so it holds $12 \times 12 = 144$ square inches. Square units convert by the square of the length factor; 12 is the common wrong answer.
+
+# --- pre-angles ---
+- id: pre-m8-r2-q06
+  lesson: pre-angles
+  module_quiz: true
+  topic: Angles
+  type: label
+  stem: 'Name each numbered angle.'
+  image: {src: images/pre-m8-angle-types-blank.svg, alt: 'Four angles, each formed by two rays from a vertex dot. Angle 1 is a narrow opening, angle 2 has a small square at its vertex, angle 3 is a wide opening, and angle 4 has rays pointing in opposite directions along one line.'}
+  labels:
+    - {x: 16.7, y: 31.5, text: Acute angle}
+    - {x: 65.1, y: 28.3, text: Right angle}
+    - {x: 20.6, y: 75.1, text: Obtuse angle}
+    - {x: 70.3, y: 74.0, text: Straight angle}
+  distractors: [Vertical angle, Complementary angle]
+  explanation: |-
+    Angle 1 is less than 90° (acute). Angle 2 has the small square that marks exactly 90° (right). Angle 3 is more than 90° but less than 180° (obtuse). Angle 4's rays form a straight line, 180° (straight). Vertical and complementary describe pairs of angles, not single angles.
+
+- id: pre-m8-r2-q07
+  lesson: pre-angles
+  topic: Angles
+  type: text
+  stem: 'Give only the numbers. The three angles of any triangle add to ___ degrees, and two complementary angles add to ___ degrees.'
+  accept:
+    - ['180']
+    - ['90']
+  explanation: |-
+    A triangle's angles always total 180°. Complementary angles total 90° (supplementary angles total 180°).
+
+- id: pre-m8-r2-q08
+  lesson: pre-angles
+  topic: Angles
+  type: match
+  stem: 'Each row gives three angles. Match it to the triangle they would make.'
+  pairs:
+    - ['50°, 60°, 70°', Acute triangle]
+    - ['30°, 60°, 90°', Right triangle]
+    - ['20°, 30°, 130°', Obtuse triangle]
+    - ['50°, 60°, 80°', Not a possible triangle]
+  distractors: [Straight triangle]
+  explanation: |-
+    First check the sum: 50 + 60 + 70, 30 + 60 + 90 and 20 + 30 + 130 all make 180, but 50 + 60 + 80 = 190, so no triangle has those angles. Then classify by the largest angle: 70° is acute, 90° is right, 130° is obtuse. There is no such thing as a straight triangle.
+
+- id: pre-m8-r2-q09
+  lesson: pre-angles
+  module_quiz: true
+  topic: Angles
+  stem: 'Which statements are always true? Select all that apply.'
+  choices: ['Vertical angles are equal.', 'Two supplementary angles add to 180°.', 'A triangle can have two right angles.', 'Every equilateral triangle is also isosceles.']
+  answer: [0, 1, 3]
+  explanation: |-
+    Vertical angles are equal because each is supplementary to the same angle. Supplementary means a sum of 180°. Two right angles already total 180°, leaving 0° for the third angle, so no triangle has two. An isosceles triangle has at least two equal sides, so an equilateral triangle (three equal sides) counts.
+
+- id: pre-m8-r2-q10
+  lesson: pre-angles
+  topic: Perimeter
+  type: order
+  stem: 'Put these polygons in order from fewest sides to most sides.'
+  items: [Triangle, Quadrilateral, Pentagon, Hexagon, Octagon]
+  explanation: |-
+    Triangle 3, quadrilateral 4, pentagon 5, hexagon 6, octagon 8.
+
+# --- pre-area ---
+- id: pre-m8-r2-q11
+  lesson: pre-area
+  module_quiz: true
+  topic: Area
+  type: label
+  stem: 'Name the numbered parts of this trapezoid.'
+  image: {src: images/pre-m8-trapezoid-parts-blank.svg, alt: 'A trapezoid with a long horizontal bottom side, a shorter parallel top side, a dashed vertical segment from the top side to the bottom side with a right-angle mark, and two slanted sides. Four parts are numbered.'}
+  labels:
+    - {x: 58.9, y: 79.4, text: Longer base}
+    - {x: 53.6, y: 26.5, text: Shorter base}
+    - {x: 30.4, y: 58.8, text: Height}
+    - {x: 79.5, y: 52.9, text: Leg}
+  distractors: [Diagonal, Perimeter]
+  explanation: |-
+    The bases are the two parallel sides: the long bottom one (1) and the short top one (2). The height (3) is the dashed segment perpendicular to both bases. A slanted, non-parallel side (4) is a leg; it is not the height. A diagonal would join opposite corners.
+
+- id: pre-m8-r2-q12
+  lesson: pre-area
+  topic: Area
+  type: text
+  stem: 'A parallelogram has base 12 cm, height 7 cm, and slanted sides 9 cm long. Its area is ___ cm². Give only the number.'
+  accept: ['84']
+  explanation: |-
+    $A = bh = 12 \times 7 = 84$ cm². The 9 cm slanted side is not the height and is not used ($12 \times 9 = 108$ is the common wrong answer).
+
+- id: pre-m8-r2-q13
+  lesson: pre-area
+  topic: Area
+  type: match
+  stem: 'Match each shape to how its area is found.'
+  pairs:
+    - [Rectangle, length times width]
+    - [Parallelogram, base times height]
+    - [Triangle, half of base times height]
+    - [Trapezoid, half the sum of the bases times height]
+  distractors: [pi times radius squared, sum of all the sides]
+  explanation: |-
+    Rectangle $A = lw$; parallelogram $A = bh$; triangle $A = \tfrac12 bh$; trapezoid $A = \tfrac12(b_1 + b_2)h$. Pi times radius squared is a circle's area, and the sum of the sides is a perimeter.
+
+- id: pre-m8-r2-q14
+  lesson: pre-area
+  module_quiz: true
+  topic: Area
+  stem: 'A trapezoid has bases 9 and 5 and height 4. Which expressions give its area? Select all that apply.'
+  choices: ['$\tfrac12(9 + 5)(4)$', '$7 \times 4$', '$9 \times 5 \times 4$', '$\tfrac12(9)(4) + \tfrac12(5)(4)$']
+  answer: [0, 1, 3]
+  explanation: |-
+    The formula gives $\tfrac12(14)(4) = 28$. The average of the bases is 7, and $7 \times 4 = 28$. A diagonal splits the trapezoid into two triangles of height 4 with bases 9 and 5: $18 + 10 = 28$. Multiplying all three numbers gives 180, which is not an area formula.
+
+- id: pre-m8-r2-q15
+  lesson: pre-area
+  topic: Area
+  type: text
+  stem: 'A rectangle 10 m by 8 m has a 3 m by 2 m rectangle cut out of one corner. The remaining area is ___ m². Give only the number.'
+  accept: ['74']
+  explanation: |-
+    Subtract the missing piece: $10 \times 8 - 3 \times 2 = 80 - 6 = 74$ m².
+
+# --- pre-circles ---
+- id: pre-m8-r2-q16
+  lesson: pre-circles
+  module_quiz: true
+  topic: Circles
+  type: label
+  stem: 'Name the numbered parts of this circle.'
+  image: {src: images/pre-m8-circle-parts-blank.svg, alt: 'A circle with a dot in the middle, a horizontal segment across the circle through the dot, a second segment from the dot to the edge, and the curved edge. Four parts are numbered.'}
+  labels:
+    - {x: 50, y: 50, text: Center}
+    - {x: 58.3, y: 35.4, text: Radius}
+    - {x: 32.1, y: 50, text: Diameter}
+    - {x: 29.6, y: 75.3, text: Circumference}
+  distractors: [Semicircle, Area]
+  explanation: |-
+    The dot (1) is the center. The segment from the center to the edge (2) is a radius. The segment all the way across through the center (3) is a diameter, two radii long. The curved edge itself (4) is the circumference, the distance around.
+
+- id: pre-m8-r2-q17
+  lesson: pre-circles
+  topic: Circles
+  type: text
+  stem: 'A circle has radius 6 cm. Its diameter is ___ cm, and its exact circumference, in terms of π, is ___ cm.'
+  accept:
+    - ['12']
+    - ['12π', '12pi', '12*π', '12*pi', '12×π', 'π12', 'pi12']
+  explanation: |-
+    $d = 2r = 12$ cm, and $C = \pi d = 2\pi r = 12\pi$ cm (about 37.7 cm).
+
+- id: pre-m8-r2-q18
+  lesson: pre-circles
+  topic: Circles
+  type: order
+  stem: 'You know a circle''s area $A$ and want its radius. Put the steps in order.'
+  items: ['Write the equation $\pi r^2 = A$', 'Divide both sides by $\pi$', 'Take the square root of the result', 'Check that $\pi r^2$ gives back $A$']
+  explanation: |-
+    Undo the formula in reverse order: $r^2$ is multiplied by $\pi$, so divide by $\pi$ first; then undo the squaring with a square root; then check.
+
+- id: pre-m8-r2-q19
+  lesson: pre-circles
+  module_quiz: true
+  topic: Circles
+  stem: 'Which statements are true for every circle? Select all that apply.'
+  choices: ['$C = \pi d$', '$d = 2r$', '$A = 2\pi r$', 'Doubling the radius doubles the area.']
+  answer: [0, 1]
+  explanation: |-
+    $C = \pi d$ is the definition of $\pi$ rearranged, and a diameter is two radii. The area is $\pi r^2$; $2\pi r$ is the circumference. Doubling the radius multiplies the area by $2^2 = 4$, not 2.
+
+- id: pre-m8-r2-q20
+  lesson: pre-circles
+  topic: Circles
+  type: match
+  stem: 'A circle has radius 3 cm. Match each measurement to its exact value.'
+  pairs:
+    - [Diameter, 6 cm]
+    - [Circumference, 6π cm]
+    - [Area, 9π cm²]
+    - [Area of half the circle, 4.5π cm²]
+  distractors: [3π cm², 36π cm²]
+  explanation: |-
+    $d = 2(3) = 6$ cm; $C = 2\pi(3) = 6\pi$ cm; $A = \pi(3)^2 = 9\pi$ cm²; a semicircle has half: $4.5\pi$ cm². $36\pi$ comes from using the diameter in $\pi r^2$.
+
+# --- pre-volume ---
+- id: pre-m8-r2-q21
+  lesson: pre-volume
+  module_quiz: true
+  topic: Surface area
+  type: label
+  stem: 'This is the net of a cylinder. Name the numbered parts.'
+  image: {src: images/pre-m8-cylinder-net-blank.svg, alt: 'A cylinder with radius r and height h, and beside it its net: a rectangle with a circle touching its top edge and another touching its bottom edge. Four parts of the net are numbered.'}
+  labels:
+    - {x: 49.7, y: 80.5, text: A base circle}
+    - {x: 64.4, y: 52.4, text: The curved surface unrolled}
+    - {x: 73.9, y: 35.7, text: A length equal to the circumference}
+    - {x: 85.9, y: 52.4, text: The height of the cylinder}
+  distractors: [The diameter of the base, The volume]
+  explanation: |-
+    The circles (1) are the top and bottom bases, each $\pi r^2$. The rectangle (2) is the curved side, unrolled. Its long edge (3) wrapped once around a base, so its length is the circumference $2\pi r$; its short edge (4) is the cylinder's height $h$. So $SA = 2\pi r^2 + 2\pi r h$.
+
+- id: pre-m8-r2-q22
+  lesson: pre-volume
+  module_quiz: true
+  topic: Volume
+  type: match
+  stem: 'Match each job to the measurement it needs.'
+  pairs:
+    - [Fencing a yard, Perimeter]
+    - [Carpeting a floor, Area]
+    - [Wrapping a gift box, Surface area]
+    - [Filling a pool with water, Volume]
+  distractors: [Circumference]
+  explanation: |-
+    Fence goes around a flat shape (perimeter); carpet covers a flat surface (area); wrapping paper covers every face of a solid (surface area); water fills the space inside (volume).
+
+- id: pre-m8-r2-q23
+  lesson: pre-volume
+  topic: Volume
+  type: text
+  stem: 'A cube has edges of 4 cm. Give only the numbers: its volume is ___ cm³ and its surface area is ___ cm².'
+  accept:
+    - ['64']
+    - ['96']
+  explanation: |-
+    $V = s^3 = 4^3 = 64$ cm³. $SA = 6s^2 = 6 \times 16 = 96$ cm².
+
+- id: pre-m8-r2-q24
+  lesson: pre-volume
+  topic: Volume
+  stem: 'A cylinder has diameter 6 and height 10. Which expressions give its volume? Select all that apply.'
+  choices: ['$\pi(3)^2(10)$', '$90\pi$', '$\pi(6)^2(10)$', '$60\pi$']
+  answer: [0, 1]
+  explanation: |-
+    The radius is 3, so $V = \pi r^2 h = \pi(3)^2(10) = 90\pi$. Using the diameter gives $360\pi$, four times too much. $60\pi$ is $2\pi r h$, the area of the curved side, not the volume.
+
+- id: pre-m8-r2-q25
+  lesson: pre-volume
+  topic: Volume
+  type: order
+  stem: 'Put these solids in order from smallest volume to largest. (Use $\pi \approx 3.14$.)'
+  items: ['A box $2 \times 3 \times 4$', 'A box $1 \times 5 \times 5$', 'A cylinder with $r = 2$ and $h = 2$', 'A cube with edge 3']
+  explanation: |-
+    The volumes are $2 \cdot 3 \cdot 4 = 24$, $1 \cdot 5 \cdot 5 = 25$, $\pi(2)^2(2) = 8\pi \approx 25.1$, and $3^3 = 27$.
+
+# --- pre-pythagorean ---
+- id: pre-m8-r2-q26
+  lesson: pre-pythagorean
+  topic: Pythagorean theorem
+  type: text
+  stem: 'A right triangle has legs 9 and 12. Its hypotenuse is ___. Give only the number.'
+  accept: ['15']
+  explanation: |-
+    $c^2 = 9^2 + 12^2 = 81 + 144 = 225$, so $c = 15$. (This is the 3-4-5 triple times 3.)
+
+- id: pre-m8-r2-q27
+  lesson: pre-pythagorean
+  module_quiz: true
+  topic: Pythagorean theorem
+  type: order
+  stem: 'You know a right triangle''s hypotenuse and one leg. Put the steps for finding the other leg in order.'
+  items: ['Identify the hypotenuse, the side across from the right angle', 'Square the hypotenuse and the known leg', 'Subtract: $c^2 - b^2$', 'Take the square root of the difference']
+  explanation: |-
+    You need to know which side is $c$ before anything else. Then $a^2 = c^2 - b^2$, and finally $a = \sqrt{c^2 - b^2}$.
+
+- id: pre-m8-r2-q28
+  lesson: pre-pythagorean
+  module_quiz: true
+  topic: Pythagorean theorem
+  stem: 'Which sets of side lengths make a right triangle? Select all that apply.'
+  choices: ['6, 8, 10', '5, 12, 13', '4, 5, 6', '8, 15, 17']
+  answer: [0, 1, 3]
+  explanation: |-
+    Test $a^2 + b^2 = c^2$ with the longest side as $c$: $36 + 64 = 100$ ✓; $25 + 144 = 169$ ✓; $16 + 25 = 41 \ne 36$ ✗; $64 + 225 = 289$ ✓.
+
+- id: pre-m8-r2-q29
+  lesson: pre-pythagorean
+  topic: Pythagorean theorem
+  type: match
+  stem: 'Each row gives the two legs of a right triangle. Match it to the hypotenuse.'
+  pairs:
+    - ['3 and 4', '5']
+    - ['5 and 12', '13']
+    - ['8 and 15', '17']
+    - ['7 and 24', '25']
+  distractors: ['20', '23']
+  explanation: |-
+    These are the common Pythagorean triples: $9 + 16 = 25$, $25 + 144 = 169$, $64 + 225 = 289$, $49 + 576 = 625$, giving hypotenuses 5, 13, 17 and 25.
+
+- id: pre-m8-r2-q30
+  lesson: pre-pythagorean
+  topic: Coordinate plane
+  type: text
+  stem: 'The distance between the points $(-1, 2)$ and $(5, 10)$ is ___. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    The move across is $5 - (-1) = 6$ and the move up is $10 - 2 = 8$. The distance is $\sqrt{6^2 + 8^2} = \sqrt{100} = 10$.
+
+# === Honors: Scaling (pre-m8-h-scaling) ===
+- id: pre-m8-r2-h01
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'A rectangle with area 10 cm² is scaled by a factor of 3. What is the new area?'
+  choices: ['30 cm²', '90 cm²', '270 cm²', '13 cm²']
+  answer: 1
+  explanation: |-
+    Areas scale by $k^2 = 9$: $10 \times 9 = 90$ cm². (30 multiplies by $k$; 270 by $k^3$; 13 adds 3.)
+
+- id: pre-m8-r2-h02
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'A cube with volume 64 cm³ is scaled by a factor of $\tfrac12$. What is the new volume?'
+  choices: ['32 cm³', '16 cm³', '4 cm³', '8 cm³']
+  answer: 3
+  explanation: |-
+    Volumes scale by $k^3 = \tfrac18$: $64 \times \tfrac18 = 8$ cm³. Check: the edge was 4 cm and becomes 2 cm, and $2^3 = 8$.
+
+- id: pre-m8-r2-h03
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  type: text
+  stem: 'A triangle has perimeter 15 cm and area 9 cm². It is scaled by a factor of 4. Give only the numbers: the new perimeter is ___ cm and the new area is ___ cm².'
+  accept:
+    - ['60']
+    - ['144']
+  explanation: |-
+    Perimeter is a length: $15 \times 4 = 60$ cm. Area scales by $4^2 = 16$: $9 \times 16 = 144$ cm².
+
+- id: pre-m8-r2-h04
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'Two solid bronze statues are exact copies of each other, but one is 3 times as tall. The small one weighs 2 kg. About how much does the large one weigh?'
+  choices: ['6 kg', '18 kg', '54 kg', '27 kg']
+  answer: 2
+  explanation: |-
+    Weight of the same material depends on volume, which scales by $3^3 = 27$: $2 \times 27 = 54$ kg. (18 kg uses $k^2$; 27 kg forgets to multiply by 2.)
+
+- id: pre-m8-r2-h05
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  type: match
+  stem: 'Every length of a solid is multiplied by 3. Match each measurement to what happens to it.'
+  pairs:
+    - [The perimeter of a face, Multiplied by 3]
+    - [The surface area, Multiplied by 9]
+    - [The volume, Multiplied by 27]
+    - [An angle between two edges, Unchanged]
+  distractors: [Multiplied by 6]
+  explanation: |-
+    Lengths scale by $k = 3$, areas by $k^2 = 9$, volumes by $k^3 = 27$. Angles don't change when a figure is scaled; that is what "same shape" means.
+
+- id: pre-m8-r2-h06
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'Which changes multiply a figure''s area by exactly 4? Select all that apply.'
+  choices: ['Doubling the radius of a circle', 'Doubling every side of a triangle', 'Doubling only the length of a rectangle', 'Doubling the side of a square']
+  answer: [0, 1, 3]
+  explanation: |-
+    Doubling every length of a figure multiplies its area by $2^2 = 4$; a circle is scaled by doubling its radius, and a triangle or square by doubling all its sides. Doubling only the length of a rectangle is not a scaling (the width is unchanged), so the area just doubles.
+
+- id: pre-m8-r2-h07
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'Two similar triangles have areas 18 cm² and 50 cm². What is the scale factor from the smaller to the larger?'
+  choices: ['$\tfrac{25}{9}$', '$\tfrac{5}{3}$', '$\tfrac{125}{27}$', '$\tfrac{3}{5}$']
+  answer: 1
+  explanation: |-
+    The area ratio is $\tfrac{50}{18} = \tfrac{25}{9}$, and areas scale by $k^2$, so $k = \sqrt{\tfrac{25}{9}} = \tfrac{5}{3}$. ($\tfrac{25}{9}$ forgets the square root; $\tfrac35$ goes from larger to smaller.)
+
+- id: pre-m8-r2-h08
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  type: text
+  stem: 'Two similar boxes hold 8 L and 27 L. The ratio of the small box''s height to the large box''s height is ___. Give a fraction.'
+  accept: ['2/3']
+  explanation: |-
+    Volumes scale by $k^3$, so $k^3 = \tfrac{8}{27}$ and $k = \sqrt[3]{\tfrac{8}{27}} = \tfrac{2}{3}$, since $2^3 = 8$ and $3^3 = 27$.
+
+- id: pre-m8-r2-h09
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'What is the surface-area-to-volume ratio of a cube with edge 3 cm?'
+  choices: ['2 per cm', '18 per cm', '0.5 per cm', '6 per cm']
+  answer: 0
+  explanation: |-
+    $SA = 6(3^2) = 54$ cm² and $V = 3^3 = 27$ cm³, so $\tfrac{SA}{V} = \tfrac{54}{27} = 2$ per cm. The shortcut $\tfrac{6}{s} = \tfrac63$ gives the same.
+
+- id: pre-m8-r2-h10
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  type: order
+  stem: 'Put these cubes in order from the largest surface-area-to-volume ratio to the smallest.'
+  items: [Cube with edge 1 cm, Cube with edge 2 cm, Cube with edge 5 cm, Cube with edge 10 cm]
+  explanation: |-
+    For a cube $\tfrac{SA}{V} = \tfrac{6}{s}$: 6, 3, 1.2 and 0.6 per cm. The smaller the cube, the more surface it has for its volume.
+
+- id: pre-m8-r2-h11
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'A 6 cm cube of ice is cut into 1 cm cubes. The total surface area of the ice is multiplied by what?'
+  choices: ['36', '6', '216', '1']
+  answer: 1
+  explanation: |-
+    Before: $6 \times 6^2 = 216$ cm². After: there are $6^3 = 216$ small cubes, each with surface area 6 cm², so $1{,}296$ cm². $1{,}296 \div 216 = 6$. (Equivalently, $\tfrac{SA}{V}$ went from $\tfrac66 = 1$ to $\tfrac61 = 6$ while the volume stayed the same.)
+
+- id: pre-m8-r2-h12
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'A 12-inch pizza costs \$10. What should an 18-inch pizza cost to have the same price per square inch?'
+  choices: ['\$15.00', '\$20.00', '\$33.75', '\$22.50']
+  answer: 3
+  explanation: |-
+    $k = \tfrac{18}{12} = 1.5$, so the large pizza has $1.5^2 = 2.25$ times the area: $10 \times 2.25 = 22.50$ dollars. (\$15 uses $k$; \$33.75 uses $k^3$.)
+
+- id: pre-m8-r2-h13
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'Which statements follow from the square–cube law? Select all that apply.'
+  choices: ['Scaling an animal up makes its weight grow faster than the cross-sections of its bones.', 'A small object has more surface area per unit of volume than a large object of the same shape.', 'Doubling every length of a solid object doubles its weight.', 'A big block of ice melts more slowly, per gram, than the same ice crushed.']
+  answer: [0, 1, 3]
+  explanation: |-
+    Weight grows like $k^3$ and cross-sectional area like $k^2$, so weight wins. The ratio $\tfrac{SA}{V}$ is divided by $k$, so small objects have more surface per volume, and crushed ice, with much more surface, melts faster. Doubling every length multiplies the weight by $2^3 = 8$, not 2.
+
+- id: pre-m8-r2-h14
+  lesson: pre-m8-h-scaling
+  topic: Scaling
+  stem: 'How many cubic centimeters are in 1 cubic meter?'
+  choices: ['1,000,000', '10,000', '100', '1,000']
+  answer: 0
+  explanation: |-
+    1 m = 100 cm, so 1 m³ = $100^3 = 1{,}000{,}000$ cm³. (10,000 is the number of cm² in 1 m².)
+
+# === Honors: Pyramids, cones and spheres (pre-m8-h-cones-spheres) ===
+- id: pre-m8-r2-h15
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  type: label
+  stem: 'Name the numbered parts of this cone.'
+  image: {src: images/pre-m8-h-cone-parts-blank.svg, alt: 'A cone with a point at the top, a dashed vertical segment from the point to the center of the circular bottom, a segment from that center to the edge of the bottom with a right-angle mark, and the slanted side. Five parts are numbered.'}
+  labels:
+    - {x: 44.2, y: 11.9, text: Apex}
+    - {x: 44.2, y: 45.2, text: Height}
+    - {x: 58.7, y: 78.6, text: Radius}
+    - {x: 60.1, y: 48.6, text: Slant height}
+    - {x: 32.7, y: 87.1, text: Base}
+  distractors: [Diameter, Hypotenuse of the base]
+  explanation: |-
+    The point (1) is the apex. The dashed segment straight down to the center of the base (2) is the height, perpendicular to the base. The segment from the center to the edge (3) is a radius. The slanted side (4), from the apex to the edge of the base, is the slant height. The circle at the bottom (5) is the base.
+
+- id: pre-m8-r2-h16
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'Find the volume of a cone with radius 6 cm and height 5 cm.'
+  choices: ['$60\pi$ cm³', '$180\pi$ cm³', '$240\pi$ cm³', '$10\pi$ cm³']
+  answer: 0
+  explanation: |-
+    $V = \tfrac13 \pi r^2 h = \tfrac13 \pi (36)(5) = 60\pi \approx 188.5$ cm³. $180\pi$ forgets the $\tfrac13$; $240\pi$ uses the diameter 12 as $r$; $10\pi$ forgets to square the radius.
+
+- id: pre-m8-r2-h17
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  type: text
+  stem: 'A square pyramid has base side 10 m and height 12 m. The slant height of each face is ___ m. Give only the number.'
+  accept: ['13']
+  explanation: |-
+    The right triangle has legs $h = 12$ and half the base side, $5$: $\ell^2 = 12^2 + 5^2 = 169$, so $\ell = 13$ m.
+
+- id: pre-m8-r2-h18
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'A square pyramid has base side 10 m and slant height 13 m (height 12 m). What is its total surface area?'
+  choices: ['260 m²', '340 m²', '360 m²', '620 m²']
+  answer: 2
+  explanation: |-
+    $SA = s^2 + 2s\ell = 100 + 2(10)(13) = 100 + 260 = 360$ m². 260 leaves out the base; 340 uses the height 12 instead of the slant height; 620 forgets the $\tfrac12$ in each triangle.
+
+- id: pre-m8-r2-h19
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  type: match
+  stem: 'Match each solid to its volume formula.'
+  pairs:
+    - [Cylinder, πr²h]
+    - [Cone, (1/3)πr²h]
+    - [Sphere, (4/3)πr³]
+    - [Square pyramid with base side s, (1/3)s²h]
+  distractors: [4πr², πrℓ]
+  explanation: |-
+    A cone is one third of the cylinder with the same base and height, and a pyramid one third of the matching prism ($s^2 h$). The sphere's volume is $\tfrac43 \pi r^3$. $4\pi r^2$ is a sphere's surface area and $\pi r \ell$ a cone's lateral area.
+
+- id: pre-m8-r2-h20
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'Find the volume of a sphere with radius 3 cm.'
+  choices: ['$12\pi$ cm³', '$27\pi$ cm³', '$108\pi$ cm³', '$36\pi$ cm³']
+  answer: 3
+  explanation: |-
+    $V = \tfrac43 \pi r^3 = \tfrac43 \pi (27) = 36\pi \approx 113.1$ cm³. $12\pi$ squares instead of cubing; $27\pi$ leaves out $\tfrac43$; $108\pi$ uses 4 instead of $\tfrac43$.
+
+- id: pre-m8-r2-h21
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  type: text
+  stem: 'A sphere has radius 5 cm. Its exact surface area, in terms of π, is ___ cm².'
+  accept: ['100π', '100pi', '100*π', '100*pi', '100×π', 'π100', 'pi100']
+  explanation: |-
+    $SA = 4\pi r^2 = 4\pi(25) = 100\pi \approx 314.2$ cm².
+
+- id: pre-m8-r2-h22
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  type: order
+  stem: 'A sphere has radius $r$. Put these solids in order from smallest volume to largest.'
+  items: ['A cone with radius $r$ and height $2r$', 'The sphere', 'A cylinder with radius $r$ and height $2r$', 'A cube with edge $2r$']
+  explanation: |-
+    Cone $\tfrac23 \pi r^3 \approx 2.09r^3$, sphere $\tfrac43\pi r^3 \approx 4.19r^3$, cylinder $2\pi r^3 \approx 6.28r^3$, cube $(2r)^3 = 8r^3$. The first three are in the ratio $1 : 2 : 3$, as Archimedes found.
+
+- id: pre-m8-r2-h23
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'Which of these calculations use the slant height $\ell$? Select all that apply.'
+  choices: ['The lateral area of a cone', 'The volume of a cone', 'The surface area of a square pyramid', 'The volume of a square pyramid']
+  answer: [0, 2]
+  explanation: |-
+    Surface areas run along the slanted surfaces, so they use $\ell$: lateral area $\pi r\ell$, and pyramid $SA = s^2 + 2s\ell$. Volumes use the perpendicular height $h$.
+
+- id: pre-m8-r2-h24
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'Archimedes compared a sphere with the cylinder that fits around it exactly. What fraction of the cylinder''s volume does the sphere fill?'
+  choices: ['$\tfrac13$', '$\tfrac12$', '$\tfrac23$', '$\tfrac34$']
+  answer: 2
+  explanation: |-
+    The cylinder has radius $r$ and height $2r$: $V = 2\pi r^3$. The sphere has $\tfrac43 \pi r^3$, and $\tfrac43 \div 2 = \tfrac23$.
+
+- id: pre-m8-r2-h25
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'A bowl is a hemisphere with radius 6 cm. About how much does it hold?'
+  choices: ['About 452 cm³', 'About 905 cm³', 'About 226 cm³', 'About 75 cm³']
+  answer: 0
+  explanation: |-
+    Half a sphere: $\tfrac12 \cdot \tfrac43 \pi r^3 = \tfrac23 \pi (216) = 144\pi \approx 452$ cm³. 905 is the whole sphere; 226 uses $\tfrac13$; 75 squares the radius instead of cubing it.
+
+- id: pre-m8-r2-h26
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'A cone has radius 5 cm and height 12 cm. What is the area of its curved (lateral) surface?'
+  choices: ['$60\pi$ cm²', '$90\pi$ cm²', '$65\pi$ cm²', '$100\pi$ cm²']
+  answer: 2
+  explanation: |-
+    First the slant height: $\ell = \sqrt{25 + 144} = 13$. Lateral area $= \pi r\ell = \pi(5)(13) = 65\pi$ cm². $60\pi$ uses the height instead of $\ell$; $90\pi$ adds the base, which is the total surface area.
+
+- id: pre-m8-r2-h27
+  lesson: pre-m8-h-cones-spheres
+  topic: Cones, pyramids and spheres
+  stem: 'Which fact shows that a pyramid can have exactly one third of the volume of the prism with the same base and height?'
+  choices: ['A square pyramid has three triangular faces.', 'A cube can be cut into three identical pyramids, each with a face of the cube as its base.', 'A pyramid''s apex is one third of the way up from the base.', 'A pyramid''s slant height is three times its height.']
+  answer: 1
+  explanation: |-
+    Three identical pyramids, each with base $s^2$ and height $s$, fill a cube of volume $s^3$, so each has $\tfrac13 s^3 = \tfrac13 Bh$. Cavalieri's principle then extends this to every pyramid and cone. A square pyramid has four triangular faces, and the other two statements are false.
+
+# === Honors: Precision and measurement error (pre-m8-h-measurement-error) ===
+- id: pre-m8-r2-h28
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A board is measured as 2.4 m, to the nearest tenth of a meter. What is the greatest possible error?'
+  choices: ['0.05 m', '0.1 m', '0.5 m', '0.01 m']
+  answer: 0
+  explanation: |-
+    The precision is 0.1 m, and the greatest possible error is half of it: 0.05 m. The true length is between 2.35 m and 2.45 m.
+
+- id: pre-m8-r2-h29
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  type: text
+  stem: 'A length is 18 cm, measured to the nearest centimeter. Give only the numbers: its lower bound is ___ cm and its upper bound is ___ cm.'
+  accept:
+    - ['17.5']
+    - ['18.5']
+  explanation: |-
+    The greatest possible error is half of 1 cm, 0.5 cm. So the true length is from $18 - 0.5 = 17.5$ cm up to $18 + 0.5 = 18.5$ cm.
+
+- id: pre-m8-r2-h30
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A crowd is reported as 5,600 people, rounded to the nearest hundred. Between what values does the true count lie?'
+  choices: ['5,500 and 5,700', '5,595 and 5,605', '5,550 and 5,650', '5,600 and 5,700']
+  answer: 2
+  explanation: |-
+    The precision is 100, so the greatest possible error is 50: from 5,550 up to (but not including) 5,650.
+
+- id: pre-m8-r2-h31
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  type: match
+  stem: 'Match each measurement to its greatest possible error.'
+  pairs:
+    - ['4.25 kg, to the nearest hundredth of a kilogram', 0.005 kg]
+    - ['60 km, to the nearest 10 km', 5 km]
+    - ['7.5 cm, to the nearest half centimeter', 0.25 cm]
+    - ['12 s, to the nearest second', 0.5 s]
+  distractors: [0.05 kg, 10 km]
+  explanation: |-
+    The greatest possible error is half the precision: half of 0.01 kg is 0.005 kg, half of 10 km is 5 km, half of 0.5 cm is 0.25 cm, and half of 1 s is 0.5 s.
+
+- id: pre-m8-r2-h32
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A kitchen scale shows weights to the nearest 0.1 g, but it reads 3.0 g with nothing on it. Which statements are true? Select all that apply.'
+  choices: ['Its readings are precise to 0.1 g.', 'Its readings are about 3 g too high.', 'Its readings are accurate.', 'Subtracting 3.0 g from each reading would make it more accurate.']
+  answer: [0, 1, 3]
+  explanation: |-
+    The scale is precise (finely marked) but not accurate: every reading includes an extra 3 g. Correcting for that offset brings the readings closer to the true values, which improves accuracy.
+
+- id: pre-m8-r2-h33
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A pencil is measured as 20 cm, to the nearest centimeter. What is the relative error, as a percent?'
+  choices: ['5%', '0.5%', '25%', '2.5%']
+  answer: 3
+  explanation: |-
+    The greatest possible error is 0.5 cm. Relative error $= \tfrac{0.5}{20} = 0.025 = 2.5\%$. (5% uses the full 1 cm.)
+
+- id: pre-m8-r2-h34
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  type: text
+  stem: 'A sample that truly has a mass of 80 g is measured as 84 g. The percent error is ___%. Give only the number.'
+  accept: ['5', '5%']
+  explanation: |-
+    $\dfrac{|84 - 80|}{80} \times 100\% = \dfrac{4}{80} \times 100\% = 5\%$. Divide by the true value, 80, not the measured 84.
+
+- id: pre-m8-r2-h35
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A rectangle is measured as 6 m by 4 m, each to the nearest meter. Between what values does its true area lie?'
+  choices: ['23 m² and 25 m²', '19.25 m² and 29.25 m²', '20 m² and 28 m²', '23.5 m² and 24.5 m²']
+  answer: 1
+  explanation: |-
+    The sides are between 5.5 and 6.5 m and between 3.5 and 4.5 m. Smallest area: $5.5 \times 3.5 = 19.25$ m². Largest: $6.5 \times 4.5 = 29.25$ m² (just under it). The calculated 24 m² could be off by about 5 m².
+
+- id: pre-m8-r2-h36
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  type: order
+  stem: 'Put the steps for finding the largest possible area of a measured rectangle in order.'
+  items: ['Find the precision of each measurement', 'Halve it to get the greatest possible error', 'Add the error to each measurement to get its upper bound', 'Multiply the two upper bounds']
+  explanation: |-
+    The greatest possible error comes from the precision, the upper bounds come from the error, and the largest area is the product of the upper bounds.
+
+- id: pre-m8-r2-h37
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A square tile''s side is measured as 3.7 cm, to the nearest tenth of a centimeter. Which is the most sensible way to report its area?'
+  choices: ['14 cm²', '13.69 cm²', '13.690 cm²', '10 cm²']
+  answer: 0
+  explanation: |-
+    $3.7^2 = 13.69$, but the side is somewhere from 3.65 to 3.75 cm, so the area is somewhere from about 13.3 to 14.1 cm². The digits after the decimal point aren't known, so 13.69 and 13.690 claim too much. "14 cm²" (two significant figures, like 3.7) is honest; 10 cm² throws away information.
+
+- id: pre-m8-r2-h38
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'Which measurements are more precise than "5 m, to the nearest meter"? Select all that apply.'
+  choices: ['5.0 m', '5.00 m', '500 cm, to the nearest centimeter', '10 m, to the nearest 10 meters']
+  answer: [0, 1, 2]
+  explanation: |-
+    5.0 m is to the nearest 0.1 m, 5.00 m to the nearest 0.01 m, and 500 cm to the nearest 0.01 m: all finer than 1 m. A measurement to the nearest 10 m is less precise than one to the nearest meter.
+
+- id: pre-m8-r2-h39
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A cube''s edge is measured as 4 cm, to the nearest centimeter. Between what values does its volume lie?'
+  choices: ['63.5 cm³ and 64.5 cm³', '60 cm³ and 68 cm³', '48 cm³ and 80 cm³', '42.875 cm³ and 91.125 cm³']
+  answer: 3
+  explanation: |-
+    The edge is from 3.5 to 4.5 cm. $3.5^3 = 42.875$ and $4.5^3 = 91.125$. A small error in length grows a lot when it is cubed.
+
+- id: pre-m8-r2-h40
+  lesson: pre-m8-h-measurement-error
+  topic: Measurement error
+  stem: 'A runner''s time is recorded as 12.00 s by one stopwatch and as 12 s by another. Which statement is true?'
+  choices: ['Both mean exactly the same thing.', '12 s is more precise because it has fewer digits.', '12.00 s has a greatest possible error of 0.01 s; 12 s has 1 s.', '12.00 s has a greatest possible error of 0.005 s; 12 s has 0.5 s.']
+  answer: 3
+  explanation: |-
+    Trailing zeros in a measurement show precision. 12.00 s is to the nearest hundredth (error up to 0.005 s); 12 s is to the nearest second (error up to 0.5 s). The greatest possible error is half the precision, not the whole of it.

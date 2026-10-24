@@ -44,7 +44,7 @@ Beta-plus decay emits a **positron**, the electron's antiparticle: same mass, po
 
 $$Q_{\beta^+} = [M(\text{parent}) - M(\text{daughter}) - 2m_e]c^2, \qquad 2m_ec^2 = 1.022\text{ MeV}.$$
 
-A positron doesn't last long. When it meets an electron, the two annihilate: their mass turns entirely into energy, usually two gamma photons of 0.511 MeV each, flying off in opposite directions (so their momenta cancel). The reverse also happens. In pair production a gamma photon passing near a nucleus turns into an electron and a positron; it needs at least 1.022 MeV, the rest energy of the pair. (The particle physics honors lesson takes antiparticles further.)
+A positron doesn't last long. When it meets an electron, the two annihilate: their mass turns entirely into energy, usually two gamma photons of 0.511 MeV each, flying off in opposite directions (so their momenta cancel). The reverse also happens. In pair production a gamma photon passing near a nucleus turns into an electron and a positron; it needs at least 1.022 MeV, the rest energy of the pair. (A nucleus must be nearby to take up some momentum. The particle physics lesson in the Frontiers honors module takes antiparticles further.)
 
 ### Example 2: the PET tracer fluorine-18
 

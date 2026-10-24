@@ -36,6 +36,10 @@ Module 1 treated functions one formula at a time. A faster way to think is to re
 
 Every one of the four shapes above passes through $(0, 0)$ and $(1, 1)$, which is a handy check when sketching. They differ in what they do for negative $x$ and how fast they grow.
 
+Here are six of the parents side by side on the same window, so you can compare their shapes at a glance. Try covering the names and identifying each graph.
+
+![Six small graphs on identical axes from −3 to 3: squaring (a U shape), cubing (rising S shape through the origin), square root (right half only, rising and flattening), cube root (S shape lying on its side), absolute value (a V), and reciprocal (two branches in the first and third quadrants hugging the axes).](images/pc-m2-parent-gallery.svg)
+
 ```plot
 {"x": [-4, 4], "y": [-4, 4], "equal": true, "functions": [{"f": "1/x", "label": "1/x"}, {"f": "1/x^2", "label": "1/x²", "dashed": true}, {"f": "cbrt(x)", "label": "∛x"}], "caption": "The reciprocal 1/x, the reciprocal squared 1/x² (dashed), and the cube root."}
 ```
@@ -85,6 +89,19 @@ Test $g(x) = x^3 - 5x$ and $h(x) = x^2 + x$.
 - $h(-x) = (-x)^2 + (-x) = x^2 - x$. This is not $h(x) = x^2 + x$, and it is not $-h(x) = -x^2 - x$. So $h$ is neither.
 
 To show a function is *not* even, one counterexample is enough: $h(1) = 2$ but $h(-1) = 0$.
+
+The whole test fits in one flowchart. Always start by computing $f(-x)$, then compare it with $f(x)$ and with $-f(x)$.
+
+```mermaid
+flowchart TD
+  accTitle: Testing whether a function is even, odd or neither
+  accDescr: Start by computing f of negative x. If it equals f of x for every x, the function is even and symmetric about the y-axis. If not, check whether it equals negative f of x for every x. If yes, the function is odd and symmetric about the origin. If neither comparison holds, the function is neither, and one counterexample proves it.
+  A["Compute f(-x)"] --> B{"Does f(-x) = f(x) for every x?"}
+  B -- yes --> C["Even: symmetric about the y-axis"]
+  B -- no --> D{"Does f(-x) = -f(x) for every x?"}
+  D -- yes --> E["Odd: symmetric about the origin"]
+  D -- no --> F["Neither: one counterexample proves it"]
+```
 
 ### Example 3
 

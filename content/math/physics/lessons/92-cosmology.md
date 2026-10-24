@@ -76,7 +76,7 @@ About 14 billion years. The best value for the age of the universe, 13.8 billion
 The **Big Bang** theory says the universe was once extremely hot and dense, and has been expanding and cooling ever since. (It was not an explosion at a point in space; space itself has been expanding everywhere.) Three main lines of evidence support it:
 
 1. **Expansion**, Hubble's law.
-2. **The cosmic microwave background (CMB).** About 380 000 years after the start, the universe cooled to about 3000 K, cool enough for electrons and nuclei to form neutral atoms, and it became transparent. The light released then has been stretched by the expansion by a factor of about 1100 and now arrives from every direction as blackbody radiation at 2.725 K. Arno Penzias and Robert Wilson discovered it by accident in 1965, and NASA's COBE satellite measured its spectrum in 1990 as the most perfect blackbody ever seen.
+2. **Cosmic microwave background** (CMB). About 380 000 years after the start, the universe cooled to about 3000 K, cool enough for electrons and nuclei to form neutral atoms, and it became transparent. The light released then has been stretched by the expansion by a factor of about 1100 and now arrives from every direction as blackbody radiation at 2.725 K. Arno Penzias and Robert Wilson discovered it by accident in 1965, and NASA's COBE satellite measured its spectrum in 1990 as the most perfect blackbody ever seen.
 3. **Light elements.** In the first few minutes the universe was a fusion reactor that turned about a quarter of the hydrogen's mass into helium, just as observed in the oldest gas.
 
 ```mermaid

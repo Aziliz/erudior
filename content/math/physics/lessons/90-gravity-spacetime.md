@@ -19,7 +19,7 @@ Newton's second law uses an object's *inertial* mass (how hard it is to accelera
 
 Einstein took this as a clue. Picture yourself in a windowless elevator. If it sits on Earth, a dropped ball falls at 9.8 m/s². If it is far out in space with a rocket accelerating it upward at 9.8 m/s², the floor rushes up to meet the released ball in exactly the same way. Einstein's **equivalence principle** says no experiment done inside a small enough box can tell the two situations apart: locally, being in a gravitational field is equivalent to being in an accelerating frame. (If you studied the honors lesson on accelerating frames, you met the "fictitious" force $-m\vec a$ felt in an accelerating frame; the equivalence principle says gravity is the same kind of thing.)
 
-The principle has consequences for light. Shine a beam sideways across the accelerating elevator. While the light crosses, the floor speeds up, so inside the elevator the beam's path curves downward. By equivalence, **light must bend in a gravitational field too**, even though a photon has no mass.
+The principle has consequences for light. Shine a beam sideways across the accelerating elevator. While the light crosses, the floor speeds up, so inside the elevator the beam's path curves downward. By equivalence, *light must bend in a gravitational field too*, even though a photon has no mass.
 
 ```mermaid
 flowchart TD

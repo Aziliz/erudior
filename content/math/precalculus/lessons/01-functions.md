@@ -19,6 +19,10 @@ The "exactly one output" rule is the whole point. If you feed a function the num
 
 On a graph, the rule becomes the **vertical line test**: a graph is the graph of a function exactly when no vertical line crosses it more than once. A vertical line $x = a$ collects every point with input $a$, so two crossings would mean two outputs for one input.
 
+A **mapping diagram** shows the same rule with arrows. Each input in the domain sends exactly one arrow to the range. Two arrows may land on the same output, but no input may send out two arrows.
+
+![A mapping diagram for f(x) = x². An oval labeled Domain holds the inputs −2, 0, 2 and 3; an oval labeled Range holds the outputs 0, 4 and 9. Arrows go from −2 and from 2 to 4, from 0 to 0, and from 3 to 9.](images/pc-m1-mapping.svg)
+
 ```plot
 {"x": [-4, 6], "y": [-4, 4], "equal": true, "curves": [{"x": "t^2", "y": "t", "t": [-2, 2], "label": "x = y²"}], "segments": [{"from": [1, -4], "to": [1, 4], "dashed": true}], "points": [{"at": [1, 1]}, {"at": [1, -1]}], "caption": "x = y² fails the vertical line test: the line x = 1 meets it at (1, 1) and (1, −1)."}
 ```
@@ -54,6 +58,25 @@ When a function is given by a formula with no stated domain, its **implied domai
 
 Odd roots like $\sqrt[3]{x}$ have no restriction: every real number has a real cube root.
 
+The checks can be run in order, as a routine:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the implied domain of a formula
+  accDescr: Start with all real numbers. If the formula has a denominator, exclude the inputs that make it zero. If it has an even root, keep only inputs whose radicand is at least 0. If it has a logarithm, keep only inputs whose argument is greater than 0. The domain is the set of inputs that pass every test, written in interval notation.
+  A["Start with all real numbers"] --> B{"A denominator?"}
+  B -- yes --> C["Exclude inputs that make the denominator 0"]
+  B -- no --> D{"An even root?"}
+  C --> D
+  D -- yes --> E["Keep inputs with radicand ≥ 0"]
+  D -- no --> F{"A logarithm?"}
+  E --> F
+  F -- yes --> G["Keep inputs with argument greater than 0"]
+  F -- no --> H["Domain: the inputs that pass every test"]
+  G --> H
+  H --> I["Write it in interval notation"]
+```
+
 We write domains in **interval notation**. A square bracket includes an endpoint, a parenthesis excludes it, and $\infty$ always gets a parenthesis because it is not a number you can reach. The symbol $\cup$ (union) joins pieces.
 
 | Inequality | Interval |
@@ -73,6 +96,10 @@ Find the domain of $h(x) = \dfrac{\sqrt{x + 4}}{x^2 - 9}$.
 $$\text{Domain: } [-4, -3) \cup (-3, 3) \cup (3, \infty).$$
 
 Notice that $x = -4$ is included: the root of 0 is fine and the denominator there is $16 - 9 = 7 \ne 0$.
+
+```numberline
+{"x": [-6, 6], "points": [{"at": [-4, 0]}, {"at": [-3, 0], "open": true}, {"at": [3, 0], "open": true}], "segments": [{"from": [-4, 0], "to": [-3, 0]}, {"from": [-3, 0], "to": [3, 0]}, {"from": [3, 0], "to": [6, 0], "arrow": true}], "caption": "Domain of h: [−4, −3) ∪ (−3, 3) ∪ (3, ∞). Closed dot at −4, open dots at −3 and 3."}
+```
 
 ### Example 3
 

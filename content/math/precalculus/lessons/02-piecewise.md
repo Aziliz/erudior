@@ -40,6 +40,10 @@ Graph each formula only over its own interval. At each boundary, use a **closed 
 
 At $x = 1$ the graph jumps: the parabola heads toward height 1 but the function's value is 3. At $x = 4$ the middle piece ends at height 3 and the last piece $7 - x$ would start at $7 - 4 = 3$, so the pieces meet and there is no break. In Module 10 you will describe the first situation as a **jump discontinuity**.
 
+Here is the same graph with its parts named.
+
+![The graph of the three-piece function f. The parabola y = x² runs from the left up to an open dot at (1, 1). A closed dot at (1, 3) starts a horizontal segment y = 3 that ends at (4, 3), where the falling line y = 7 − x begins.](images/pc-m1-piecewise-graph.svg)
+
 ## Absolute value as a piecewise function
 
 The **absolute value** of a number is its distance from 0, which gives the piecewise definition
@@ -53,6 +57,20 @@ Any absolute value expression can be rewritten piecewise by splitting where the 
 $$|2x - 6| = \begin{cases} 2x - 6 & \text{if } x \ge 3 \\ 6 - 2x & \text{if } x < 3. \end{cases}$$
 
 The same idea solves absolute value equations: $|A| = c$ with $c > 0$ means $A = c$ or $A = -c$.
+
+The sign of $c$ decides which case you are in:
+
+```mermaid
+flowchart TD
+  accTitle: Solving an absolute value equation
+  accDescr: First isolate the absolute value so the equation reads absolute value of A equals c. If c is negative there is no solution, because an absolute value is never negative. If c is 0, solve A equals 0. If c is positive, solve both A equals c and A equals negative c. Then check each solution in the original equation.
+  A["Isolate the absolute value: |A| = c"] --> B{"Sign of c?"}
+  B -- "c #lt; 0" --> C["No solution: an absolute value is never negative"]
+  B -- "c = 0" --> D["Solve A = 0"]
+  B -- "c #gt; 0" --> E["Solve A = c and A = −c"]
+  D --> F["Check in the original equation"]
+  E --> F
+```
 
 ### Example 2
 
@@ -68,6 +86,10 @@ Check one: $|3(-\tfrac73) - 4| = |-7 - 4| = 11$. ✓ If the right side had been 
 ## Step functions
 
 The **greatest integer function** (also called the **floor function**) $\lfloor x \rfloor$ gives the largest integer less than or equal to $x$. So $\lfloor 2.7 \rfloor = 2$, $\lfloor 5 \rfloor = 5$, and $\lfloor -1.3 \rfloor = -2$ (not $-1$, since $-1 > -1.3$). Its graph is a staircase of horizontal segments, each closed on the left and open on the right. Postage and parking rates ("\$3 per hour or part of an hour") are step functions.
+
+```plot
+{"x": [-3, 3.5], "y": [-4, 3], "segments": [{"from": [-3, -3], "to": [-2, -3]}, {"from": [-2, -2], "to": [-1, -2]}, {"from": [-1, -1], "to": [0, -1]}, {"from": [0, 0], "to": [1, 0]}, {"from": [1, 1], "to": [2, 1]}, {"from": [2, 2], "to": [3, 2]}], "points": [{"at": [-3, -3]}, {"at": [-2, -3], "open": true}, {"at": [-2, -2]}, {"at": [-1, -2], "open": true}, {"at": [-1, -1]}, {"at": [0, -1], "open": true}, {"at": [0, 0]}, {"at": [1, 0], "open": true}, {"at": [1, 1]}, {"at": [2, 1], "open": true}, {"at": [2, 2]}, {"at": [3, 2], "open": true}], "caption": "y = ⌊x⌋: each step is closed on the left and open on the right. For example ⌊−1.3⌋ = −2 is read from the step over [−2, −1)."}
+```
 
 ## Reading information from a graph
 

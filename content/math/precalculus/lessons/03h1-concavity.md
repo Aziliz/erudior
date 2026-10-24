@@ -105,9 +105,9 @@ A point on a graph where the function is continuous and the concavity changes, f
 
 For $f(x) = x^3 - 3x^2$, the rates on $[-1, 0]$, $[0, 1]$, $[1, 2]$, $[2, 3]$ are $4$, $-2$, $-2$, $4$: they fall, level off, then rise. That suggests concave down on the left, concave up on the right, and a switch near $x = 1$. Coarse rates cannot pin the point down exactly, but for a cubic, algebra can.
 
-```plot
-{"x": [-1.5, 3.5], "y": [-6, 2], "functions": [{"f": "x^3 - 3*x^2", "label": "y = x³ − 3x²"}], "points": [{"at": [1, -2], "label": "inflection (1, −2)"}, {"at": [0, 0], "label": "local max (0, 0)"}, {"at": [2, -4], "label": "local min (2, −4)"}], "caption": "y = x³ − 3x² is concave down to the left of x = 1 and concave up to the right. The graph is symmetric about the inflection point (1, −2): a half-turn about that point maps the curve onto itself."}
-```
+![The graph of y = x³ − 3x². It rises to a local maximum at (0, 0), bends through the inflection point (1, −2), falls to a local minimum at (2, −4), then rises. The left part is labeled concave down and the cup on the right is labeled concave up.](images/pc-m1-concavity.svg)
+
+*y = x³ − 3x² is concave down to the left of x = 1 and concave up to the right. The graph is symmetric about the inflection point (1, −2): a half-turn about that point maps the curve onto itself.*
 
 ### Example 4: The center of a cubic
 
@@ -130,7 +130,7 @@ flowchart TD
   A --> E{"How do the rates change?"}
   E -- growing --> F["Concave up"]
   E -- shrinking --> G["Concave down"]
-  E -- "growing, then shrinking (or the reverse)" --> H["Look for an inflection point"]
+  E -- switches --> H["Look for an inflection point"]
   F --> I["Evidence, not proof: the function may wiggle between data points"]
   G --> I
   H --> I

@@ -31,6 +31,10 @@ Changes *inside* the function, applied to $x$ before $f$ sees it, behave the opp
 
 The rule to remember: *inside the parentheses, do the opposite.* $f(x + 3)$ moves left 3; $f(2x)$ squeezes toward the $y$-axis by half.
 
+The four panels below apply one change each to $y = \sqrt{x}$ (dashed), so you can compare an inside change with an outside one.
+
+![Four panels, each showing the parent y = √x dashed and one transformed copy solid. Top left: y = √(x − 3), the same curve starting at (3, 0), shifted right 3. Top right: y = √x + 2, starting at (0, 2), shifted up 2. Bottom left: y = −√x, the curve flipped below the x-axis. Bottom right: y = √(−x), the curve flipped to the left of the y-axis.](images/pc-m2-transform-panels.svg)
+
 ```plot
 {"x": [-6, 4], "y": [-2, 6], "equal": true, "functions": [{"f": "x^2", "dashed": true, "label": "y = x²"}, {"f": "(x + 3)^2 + 1", "label": "y = (x + 3)² + 1"}], "points": [{"at": [0, 0]}, {"at": [-3, 1], "label": "(−3, 1)"}], "caption": "The parent x² (dashed) moved left 3 and up 1: the vertex goes from (0, 0) to (−3, 1)."}
 ```
@@ -48,6 +52,20 @@ $$\left(\frac{p}{b} + h,\; a q + k\right).$$
 Read the formula like this. For the $x$-coordinate: divide by $b$ (the horizontal stretch/compression and, if $b < 0$, the reflection), then add $h$. For the $y$-coordinate: multiply by $a$ (stretch and, if $a < 0$, reflection), then add $k$. Stretches and reflections happen before shifts. That order matters: stretching then shifting is not the same as shifting then stretching.
 
 A warning about factoring: $y = \sqrt{2x - 6}$ is $\sqrt{2(x - 3)}$, so the shift is 3 to the right, not 6. Always factor $b$ out of the inside before reading off $h$.
+
+The procedure, step by step:
+
+```mermaid
+flowchart TD
+  accTitle: Sketching y = a f(b(x - h)) + k from key points
+  accDescr: Start from the equation. Factor b out of the inside so the shift h can be read. Choose two or three key points p, q of the parent graph. For each point, find the new x by dividing p by b and then adding h, and the new y by multiplying q by a and then adding k. Plot the new points and draw the parent's shape through them.
+  A["Start: y = a f(b(x - h)) + k"] --> B["Factor b out of the inside, then read h"]
+  B --> C["Choose 2 or 3 key points (p, q) of the parent"]
+  C --> D["New x: divide p by b, then add h"]
+  C --> E["New y: multiply q by a, then add k"]
+  D --> F["Plot the new points and draw the parent's shape through them"]
+  E --> F
+```
 
 ### Example 1
 

@@ -17,6 +17,8 @@ Reading left to right, a function is **increasing** on an interval if its graph 
 
 These are statements about $x$-intervals. Convention: use open intervals, because at a turning point the function is neither rising nor falling.
 
+![The graph of y = x³ − 1.5x² − 6x + 2. It rises to a local maximum at (−1, 5.5), falls to a local minimum at (2, −8), then rises again. Labels mark the increasing, decreasing and increasing parts.](images/pc-m1-behavior.svg)
+
 ```plot
 {"x": [-3, 4], "y": [-10, 8], "functions": [{"f": "x^3 - 1.5x^2 - 6x + 2", "from": -2.6, "to": 3.8, "label": "y = f(x)"}], "points": [{"at": [-1, 5.5], "label": "local max (−1, 5.5)"}, {"at": [2, -8], "label": "local min (2, −8)"}], "caption": "f increases on (−∞, −1), decreases on (−1, 2), then increases on (2, ∞)."}
 ```
@@ -71,6 +73,19 @@ If we make the interval run from $x$ to $x + h$, the average rate of change beco
 $$\frac{f(x + h) - f(x)}{h}, \qquad h \ne 0.$$
 
 It is the slope of the secant line from $(x, f(x))$ to a point $h$ units to the right. In Module 10 you will let $h$ shrink to 0 to get the slope of the tangent line, the derivative. For now the skill is the algebra: expand, cancel, then divide by $h$.
+
+```mermaid
+flowchart TD
+  accTitle: Simplifying a difference quotient
+  accDescr: Write f of x plus h by replacing every x with x plus h in parentheses. Expand it fully, or for fractions combine over a common denominator. Subtract f of x, so the terms without h cancel. If some remaining term has no factor h, go back and recheck the expansion. When every term contains h, factor out h and cancel it with the h in the denominator to get the simplified quotient.
+  A["Write f(x + h): replace every x with (x + h)"] --> B["Expand fully (fractions: use a common denominator)"]
+  B --> C["Subtract f(x): terms without h cancel"]
+  C --> D{"Every remaining term has a factor h?"}
+  D -- no --> E["Recheck the expansion and the signs"]
+  E --> B
+  D -- yes --> F["Factor out h and cancel it with the denominator"]
+  F --> G["Simplified difference quotient"]
+```
 
 ### Example 3
 

@@ -1,0 +1,29 @@
+# Round 2 cards: pre-m4 honors lessons (16h1, 16h2, 16h3) and lesson 15 addition
+- {front: 'Tape diagram for sharing in the ratio $a : b$', back: 'Draw $a + b$ equal parts; one part = whole ÷ $(a + b)$. Example: \$4,500 in 2 : 7 is 9 parts of \$500.', topic: Ratios}
+- {front: 'Repetend and period', back: 'The repetend is the repeating block; the period is how many digits it has. $\tfrac17 = 0.\overline{142857}$: repetend 142857, period 6.', topic: Repeating decimals}
+- {front: 'Why a fraction''s decimal must repeat', back: 'Long division by $d$ has only the remainders $1, \ldots, d - 1$ (0 would stop it), so a remainder comes back and the digits repeat. The period is at most $d - 1$.', topic: Repeating decimals}
+- {front: 'Shift and subtract', back: 'Let $x$ be the decimal; multiply by $10^n$ ($n$ = period) so the tails line up; subtract; divide; simplify. $100x - x = 36$ gives $0.\overline{36} = \tfrac{36}{99} = \tfrac{4}{11}$.', topic: Repeating decimals}
+- {front: 'Pure repeating decimal as a fraction', back: 'Repetend over that many 9s: $0.\overline{7} = \tfrac79$, $0.\overline{27} = \tfrac{27}{99} = \tfrac{3}{11}$, $0.\overline{135} = \tfrac{135}{999} = \tfrac{5}{37}$.', topic: Repeating decimals}
+- {front: '$0.\overline{06}$ as a fraction', back: '$\tfrac{6}{99} = \tfrac{2}{33}$. The repetend "06" has 2 digits, so the denominator is 99, not 9.', topic: Repeating decimals}
+- {front: 'Mixed repeating decimal: method', back: 'Two shifts. $0.1\overline{6}$: $100x = 16.\overline{6}$, $10x = 1.\overline{6}$, so $90x = 15$ and $x = \tfrac16$.', topic: Repeating decimals}
+- {front: 'Mixed repeating decimal: shortcut', back: 'Numerator: digits through the first repetend minus the digits before it. Denominator: a 9 per repeating digit, then a 0 per delayed digit. $0.2\overline{45} = \tfrac{245 - 2}{990} = \tfrac{27}{110}$.', topic: Repeating decimals}
+- {front: 'Is $0.\overline{9}$ equal to 1?', back: 'Yes, exactly. $10x - x = 9.\overline{9} - 0.\overline{9} = 9$, so $x = 1$. Also $3 \times 0.\overline{3} = 3 \times \tfrac13 = 1$.', topic: Repeating decimals}
+- {front: 'Exact arithmetic with repeating decimals', back: 'Convert to fractions first: $0.\overline{4} \times 0.\overline{3} = \tfrac49 \times \tfrac13 = \tfrac{4}{27} = 0.\overline{148}$.', topic: Repeating decimals}
+- {front: 'Which decimals are fractions?', back: 'Exactly the terminating and repeating ones (the rational numbers). Decimals that never stop and never repeat, like $\pi$, are not fractions.', topic: Repeating decimals}
+- {front: 'Directly proportional', back: 'Ratio constant: $y = kx$. Double one, double the other. Graph: a line through the origin.', topic: Inverse proportion}
+- {front: 'Inversely proportional', back: 'Product constant: $xy = k$, $y = \tfrac kx$. Double one, halve the other. Graph: a curve that never touches the axes.', topic: Inverse proportion}
+- {front: 'Solving an inverse proportion', back: '$x_1 y_1 = x_2 y_2$. 6 painters × 10 days = 60 painter-days, so 4 painters take $60 \div 4 = 15$ days.', topic: Inverse proportion}
+- {front: 'Direct, inverse or neither: the test', back: 'If $x$ doubles: $y$ doubles → direct; $y$ halves → inverse; anything else → neither. For a table, check whether $\tfrac yx$ or $xy$ is constant.', topic: Inverse proportion}
+- {front: 'Law of the lever', back: 'Balanced when weight × distance from the fulcrum is equal on both sides: $30 \times 2 = 20 \times 3$. The heavier load sits closer.', topic: Inverse proportion}
+- {front: 'Meshing gears', back: 'Teeth × turns per minute is the same for both gears. 36 teeth at 20 rpm drives 12 teeth at $36 \times 20 \div 12 = 60$ rpm.', topic: Inverse proportion}
+- {front: 'Decreasing is not the same as inverse', back: '$y = 20 - 3x$ decreases, but $xy$ is not constant, so it is not inversely proportional.', topic: Inverse proportion}
+- {front: 'Workers, jobs and days', back: 'Find the fixed amount of work per job (worker-days). 6 painters, 2 houses, 10 days → 30 painter-days per house; 3 houses in 5 days need $90 \div 5 = 18$ painters.', topic: Inverse proportion}
+- {front: 'Scale factor $k$: lengths, areas, volumes', back: 'Lengths × $k$; areas (and surface area, paint) × $k^2$; volumes (capacity, weight of a solid) × $k^3$.', topic: Scaling area and volume}
+- {front: 'Why area scales by $k^2$', back: 'Length and width are both multiplied by $k$. A 3 by 2 rectangle scaled by 3 is 9 by 6: area 54 = 9 × 6.', topic: Scaling area and volume}
+- {front: 'Why volume scales by $k^3$', back: 'Length, width and height are each multiplied by $k$. A cube of edge 2 holds $2^3 = 8$ unit cubes.', topic: Scaling area and volume}
+- {front: 'Comparing pizza sizes', back: '16-inch vs 12-inch: $k = \tfrac43$, area ratio $\tfrac{16}{9} \approx 1.78$. Compare that to the price ratio; no circle formula needed.', topic: Scaling area and volume}
+- {front: 'Area on a map', back: 'Scale 1 cm : 0.5 km means 1 cm² : 0.25 km². Square the length scale before multiplying the map area.', topic: Scaling area and volume}
+- {front: 'Scale factor from an area or volume ratio', back: 'Find the number whose square (area) or cube (volume) is the ratio. Areas 20 and 45: ratio $\tfrac94$, so $k = \tfrac32$.', topic: Scaling area and volume}
+- {front: 'Square–cube law', back: 'Scale a solid by $k$: surface × $k^2$, volume × $k^3$. Strength (cross-section area) can''t keep up with weight, and small things lose heat faster for their size.', topic: Scaling area and volume}
+- {front: 'Surface-to-volume ratio of a cube', back: '$\tfrac{6s^2}{s^3} = \tfrac6s$. Edge 1: 6; edge 3: 2.', topic: Scaling area and volume}
+- {front: 'Square and cubic units', back: '1 ft² = 144 in²; 1 yd² = 9 ft²; 1 yd³ = 27 ft³.', topic: Scaling area and volume}

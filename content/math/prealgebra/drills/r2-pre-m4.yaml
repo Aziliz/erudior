@@ -1,4 +1,4 @@
-# Round 2 drills for pre-m4 honors lessons (16h1 repeating decimals, 16h2 inverse proportion, 16h3 scaling)
+# Round 2 drills for pre-m4 honors lessons (16h1 repeating decimals, 16h2 direct and inverse proportion, 16h3 scaling)
 - id: pre-m4-r2-rep-pure
   title: Pure repeating decimal to a fraction
   topic: Repeating decimals
@@ -54,23 +54,27 @@
     Workers and days are inversely proportional: more workers, fewer days. The product stays the same: ${w1} \times {d1} = {t}$ worker-days.
     So ${w2} \times d = {t}$, and $d = {t} \div {w2} =$ **{d2}** days.
 
-- id: pre-m4-r2-together
-  title: Working together
-  topic: Combined rates
+- id: pre-m4-r2-work-units
+  title: Workers, jobs and days
+  topic: Inverse proportion
   vars:
-    a: {min: 2, max: 60}
-    b: {min: 2, max: 60}
-  where: ['a < b', 'mod(a*b, a + b) == 0']
+    u: {min: 6, max: 40}
+    j1: {min: 2, max: 4}
+    w1: {min: 2, max: 9}
+    j2: {min: 2, max: 6}
+    d2: {min: 2, max: 20}
+  where: ['j1 != j2', 'mod(u*j1, w1) == 0', 'u*j1/w1 >= 2', 'mod(u*j2, d2) == 0', 'u*j2/d2 != w1']
   calc:
-    s: a + b
-    p: a*b
-    t: a*b/(a + b)
-  prompt: 'Mia can wash all the team''s cars in {a} minutes, and Sam can do it in {b} minutes. Working together at those rates, how many minutes do they take?'
+    d1: u*j1/w1
+    tot: u*j1
+    tot2: u*j2
+    w2: u*j2/d2
+  prompt: '{w1} painters paint {j1} rooms in {d1} days. Working at the same rate, how many painters are needed to paint {j2} rooms in {d2} days?'
   answers:
-    - {name: t, label: 'Minutes'}
+    - {name: w2, label: 'Painters'}
   solution: |-
-    Add the work rates: $\dfrac{1}{{a}} + \dfrac{1}{{b}} = \dfrac{{b}}{{p}} + \dfrac{{a}}{{p}} = \dfrac{{s}}{{p}} = \dfrac{1}{{t}}$ of the job per minute.
-    So the whole job takes **{t}** minutes. (Product over sum: ${p} \div {s} = {t}$. It is less than {a}, as it must be.)
+    Count the work in painter-days. So far: ${w1} \times {d1} = {tot}$ painter-days for {j1} rooms, which is ${tot} \div {j1} = {u}$ painter-days per room.
+    {j2} rooms need ${j2} \times {u} = {tot2}$ painter-days. Spread over {d2} days: ${tot2} \div {d2} =$ **{w2}** painters.
 
 - id: pre-m4-r2-scale-up
   title: Scale an area or a volume

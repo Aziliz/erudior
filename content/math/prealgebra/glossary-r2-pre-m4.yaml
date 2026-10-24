@@ -1,0 +1,43 @@
+# Round 2 glossary: pre-m4 (lesson 15 addition and honors lessons 16h1-16h3)
+- term: tape diagram
+  aliases: [tape diagrams, bar model, bar models]
+  definition: 'A bar cut into equal parts to picture a ratio. For a 2 : 7 split there are 9 equal parts; one part is the whole divided by 9.'
+  topic: Ratios
+- term: repetend
+  aliases: [repetends, repeating block]
+  definition: 'The block of digits that repeats forever in a repeating decimal, written under the bar: in $0.1\overline{36}$ the repetend is 36.'
+  topic: Repeating decimals
+- term: period
+  aliases: [period of a repeating decimal]
+  definition: 'The number of digits in the repetend of a repeating decimal. $\tfrac17 = 0.\overline{142857}$ has period 6.'
+  topic: Repeating decimals
+- term: pure repeating decimal
+  aliases: [pure repeating decimals]
+  definition: 'A repeating decimal whose repetend starts right after the decimal point, such as $0.\overline{36}$. It equals the repetend over as many 9s as it has digits: $\tfrac{36}{99}$.'
+  topic: Repeating decimals
+- term: mixed repeating decimal
+  aliases: [mixed repeating decimals, delayed repeating decimal, eventually repeating decimal]
+  definition: 'A repeating decimal with some digits between the point and the repetend, such as $0.1\overline{6}$. Convert it with two shifts (here $100x - 10x$).'
+  topic: Repeating decimals
+- term: directly proportional
+  aliases: [direct proportion, direct variation]
+  definition: 'Two quantities are directly proportional when their ratio $\tfrac yx$ stays the same, so $y = kx$: doubling one doubles the other.'
+  topic: Inverse proportion
+- term: inversely proportional
+  aliases: [inverse proportion, inverse variation]
+  definition: 'Two quantities are inversely proportional when their product $xy$ stays the same, so $y = \tfrac kx$: doubling one halves the other.'
+  topic: Inverse proportion
+- term: constant of proportionality
+  definition: 'The fixed number $k$ in a proportional relationship: the ratio $\tfrac yx$ for direct proportion ($y = kx$), or the product $xy$ for inverse proportion ($y = \tfrac kx$).'
+  topic: Inverse proportion
+- term: fulcrum
+  aliases: [fulcrums]
+  definition: 'The point a lever or seesaw pivots on. A lever balances when weight × distance from the fulcrum is the same on both sides.'
+  topic: Inverse proportion
+- term: capacity
+  definition: 'How much a container holds, a volume (measured in cups, liters, cubic feet, and so on). For similar containers it scales by the cube of the length scale factor.'
+  topic: Scaling area and volume
+- term: square–cube law
+  aliases: [square-cube law]
+  definition: 'When a solid is scaled by $k$, its surface area is multiplied by $k^2$ but its volume by $k^3$, so larger objects have less surface for their volume.'
+  topic: Scaling area and volume
