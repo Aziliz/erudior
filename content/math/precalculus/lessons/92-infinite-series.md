@@ -125,7 +125,7 @@ flowchart TD
   C -- yes --> D["Converges exactly when the size of r is less than 1"]
   C -- no --> E{"Telescopes?"}
   E -- yes --> F["Find the formula for Sn and take its limit"]
-  E -- no --> G["Compare with a known series: p-series or geometric"]
+  E -- no --> G["Positive terms: compare with a known series, such as a p-series or geometric"]
 ```
 
 ## Common mistakes

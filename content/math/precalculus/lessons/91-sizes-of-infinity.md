@@ -81,7 +81,7 @@ The first five numbers on a proposed list are $r_1 = 0.31415\ldots$, $r_2 = 0.75
 
 The diagonal digits are 3, 5, 1, 0, 8. Each one that isn't 5 becomes 5, and the 5 becomes 4: $x = 0.54555\ldots$ Compare: $x$ differs from $r_2$ in the second digit, from $r_4$ in the fourth, and so on.
 
-Why only the digits 4 and 5? A few numbers have two decimal forms: $0.5000\ldots = 0.4999\ldots$ (the last lesson of this module explains why). Building $x$ from 0s and 9s could accidentally produce the other name of a number on the list. Since $x$ uses only 4s and 5s, it has just one decimal form, and that gap in the argument is closed.
+Why only the digits 4 and 5? A few numbers have two decimal forms: $0.5000\ldots = 0.4999\ldots$ (the next lesson explains why). Building $x$ from 0s and 9s could accidentally produce the other name of a number on the list. Since $x$ uses only 4s and 5s, it has just one decimal form, and that gap in the argument is closed.
 
 ## Every interval is as big as the whole line
 

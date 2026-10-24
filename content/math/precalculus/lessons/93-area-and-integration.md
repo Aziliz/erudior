@@ -83,7 +83,7 @@ $$\frac{A(x + h) - A(x)}{h} = \frac{(x + h)^3 - x^3}{3h} = \frac{3x^2h + 3xh^2 +
 
 The derivative of the area function is the original curve, $x^2$. That isn't a coincidence. $A(x + h) - A(x)$ is the thin strip of area between $x$ and $x + h$, which is close to a rectangle of width $h$ and height $f(x)$. Dividing by $h$ leaves about $f(x)$.
 
-This is the **fundamental theorem of calculus** (FTC): for a continuous function $f$, the rate at which the area under $f$ grows is $f$ itself. Turned around, to find an area you can look for a function whose derivative is $f$, and skip the Riemann sums entirely. Isaac Newton and Gottfried Leibniz each developed calculus around this connection in the later 1600s, independently; Isaac Barrow, Newton's predecessor as a professor at Cambridge, had already proved a geometric form of it. The theorem is previewed here, not proved; it is the centerpiece of a first calculus course.
+This is the **fundamental theorem of calculus** (FTC): for a continuous function $f$, the rate at which the area under $f$ grows is $f$ itself. Turned around, to find an area you can look for a function whose derivative is $f$, and skip the Riemann sums entirely. Isaac Newton and Gottfried Leibniz each developed calculus around this connection in the later 1600s, independently; Isaac Barrow, Newton's predecessor as a professor at Cambridge, published a geometric form of it around 1670. The theorem is previewed here, not proved; it is the centerpiece of a first calculus course.
 
 ### Example 3
 

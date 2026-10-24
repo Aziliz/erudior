@@ -83,7 +83,7 @@ Prove: $\sqrt{2}$ is irrational.
 4. *Contradiction.* $a$ and $b$ are both even, so they share the factor 2, but we reduced the fraction.
 5. The assumption was false: $\sqrt2$ is irrational.
 
-So a number line full of fractions still has gaps. That fact will matter in the last lesson of this module: the area under a curve has to be defined by a limit, because a number like $\sqrt2$ is a limit of fractions without being one.
+So a number line full of fractions still has gaps: $\sqrt2$ is a limit of fractions ($1.4, 1.41, 1.414, \dots$) without being one. That fact will matter later in this module, where infinite sums and areas are defined as limits, and those limits need the real numbers, not just the fractions.
 
 ### Example 4
 

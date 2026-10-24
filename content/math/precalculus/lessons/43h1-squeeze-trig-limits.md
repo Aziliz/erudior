@@ -39,7 +39,7 @@ $$-x^2 \le x^2\sin\frac1x \le x^2.$$
 Both outer functions approach 0 as $x \to 0$. By the squeeze theorem, $\displaystyle\lim_{x\to 0} x^2\sin\frac1x = 0$.
 
 ```plot
-{"x": [-0.5, 0.5], "y": [-0.25, 0.25], "functions": [{"f": "x^2", "dashed": true, "label": "y = x²"}, {"f": "-x^2", "dashed": true, "label": "y = −x²"}, {"f": "x^2*sin(1/x)", "label": "y = x² sin(1/x)"}], "caption": "The curve y = x² sin(1/x) wiggles faster and faster near 0, but it is trapped between the dashed parabolas y = x² and y = −x², which both close in on 0."}
+{"x": [-0.5, 0.5], "y": [-0.25, 0.25], "functions": [{"f": "x^2", "dashed": true}, {"f": "-x^2", "dashed": true}, {"f": "x^2*sin(1/x)"}], "labels": [{"at": [-0.2, 0.09], "text": "y = x²"}, {"at": [0.2, -0.13], "text": "y = −x²"}], "caption": "The curve y = x² sin(1/x) wiggles faster and faster near 0, but it is trapped between the dashed parabolas y = x² and y = −x², which both close in on 0."}
 ```
 
 ### Example 2: a limit at infinity
@@ -141,7 +141,7 @@ Find the tangent lines to $y = \sin x$ at $x = 0$ and at $x = \frac{\pi}{3}$.
 - At $x = \frac{\pi}{3}$: the point is $\left(\frac{\pi}{3}, \frac{\sqrt3}{2}\right)$ and the slope is $\cos\frac{\pi}{3} = \frac12$, so the tangent is $y = \frac{\sqrt3}{2} + \frac12\left(x - \frac{\pi}{3}\right)$.
 
 ```plot
-{"x": [-1.5, 3.5], "y": [-1.5, 1.8], "functions": [{"f": "sin(x)", "label": "y = sin x"}, {"f": "x", "dashed": true, "label": "y = x"}], "tangents": [{"f": "sin(x)", "at": 1.0472}], "points": [{"at": [0, 0]}, {"at": [1.0472, 0.866], "label": "(π/3, √3/2)"}], "caption": "The sine curve with its tangent y = x at the origin (dashed) and its tangent of slope 1/2 at x = π/3."}
+{"x": [-1.5, 3.5], "y": [-1.5, 1.8], "functions": [{"f": "sin(x)"}, {"f": "x", "dashed": true, "label": "y = x"}], "tangents": [{"f": "sin(x)", "at": 1.0472}], "points": [{"at": [0, 0]}, {"at": [1.0472, 0.866]}], "labels": [{"at": [2.7, 1.0], "text": "y = sin x"}, {"at": [1.6, 0.55], "text": "(π/3, √3/2)"}], "caption": "The sine curve with its tangent y = x at the origin (dashed) and its tangent of slope 1/2 at x = π/3."}
 ```
 
 ```mermaid

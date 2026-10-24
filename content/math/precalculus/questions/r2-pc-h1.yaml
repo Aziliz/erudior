@@ -143,7 +143,7 @@
   choices: ['one of them is a subset of the other.', 'there is a one-to-one correspondence between them.', 'both of them are infinite.', 'they have the same smallest and largest elements.']
   answer: 1
   explanation: |-
-    Cardinality is defined by matching: a one-to-one correspondence pairs every element of each set with exactly one element of the other. Being a subset doesn't decide it ($\mathbb{N}$ is a proper subset of $\mathbb{Z}$, yet they match), being infinite doesn't either ($\mathbb{N}$ and $\mathbb{R}$ differ), and $(0, 1)$ and $(0, 2)$ have different endpoints but the same cardinality.
+    Cardinality is defined by matching: a one-to-one correspondence pairs every element of each set with exactly one element of the other. Being a subset doesn't decide it ($\mathbb{N}$ is a proper subset of $\mathbb{Z}$, yet they match), being infinite doesn't either ($\mathbb{N}$ and $\mathbb{R}$ differ), and $[0, 1]$ and $[0, 2]$ have different largest elements but the same cardinality.
 - id: pc-h1-r2-h16
   lesson: pc-h1-infinity
   type: text
@@ -363,7 +363,7 @@
   choices: ['$\displaystyle\sum_{k=1}^{\infty}\frac{1}{k^2 + 5}$', '$\displaystyle\sum_{k=1}^{\infty}\frac{1}{k}$', '$\displaystyle\sum_{k=1}^{\infty}\frac{1}{\sqrt k}$', '$\displaystyle\sum_{k=1}^{\infty}\frac{k}{k^2}$']
   answer: 0
   explanation: |-
-    $\frac{1}{k^2 + 5} < \frac{1}{k^2}$ for every $k$, and the terms are positive, so its partial sums are below those of a convergent series and it converges. The other three have terms larger than $\frac{1}{k^2}$, so the comparison says nothing about them; in fact all three diverge ($\frac{k}{k^2} = \frac1k$ is the harmonic series).
+    $\frac{1}{k^2 + 5} < \frac{1}{k^2}$ for every $k$, and the terms are positive, so its partial sums are below those of a convergent series and it converges. The other three have terms at least as large as $\frac{1}{k^2}$, so this comparison says nothing about them; in fact all three diverge ($\frac{k}{k^2} = \frac1k$ is the harmonic series).
 - id: pc-h1-r2-h39
   lesson: pc-h1-series
   module_quiz: true

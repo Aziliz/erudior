@@ -71,7 +71,7 @@ As $h \to 0$ the quotient approaches $f'(a)$ and $h$ approaches 0, so by the pro
 
 The converse is false: a function can be continuous without being differentiable.
 
-- **Corner.** $|x|$ is continuous at 0, but the difference quotient $\frac{|h|}{h}$ is $1$ for $h > 0$ and $-1$ for $h < 0$ (Lesson 42, Example 5). No limit, no derivative.
+- **Corner.** $|x|$ is continuous at 0, but the difference quotient $\frac{|h|}{h}$ is $1$ for $h > 0$ and $-1$ for $h < 0$ (the same split as Lesson 42, Example 5). No limit, no derivative.
 - **Vertical tangent.** $\sqrt[3]{x}$ is continuous at 0, but $\frac{\sqrt[3]{h} - 0}{h} = \frac{1}{h^{2/3}}$ grows without bound from both sides. The tangent line at the origin is vertical, and a vertical line has no slope. This is a **vertical tangent**.
 
 ```plot
@@ -110,7 +110,7 @@ $L$ is the **linear approximation** (or tangent line approximation) of $f$ at $a
 
 $$f(a + h) - L(a + h) = h\left[\frac{f(a + h) - f(a)}{h} - f'(a)\right].$$
 
-The bracket goes to 0 by the definition of the derivative, so the error shrinks faster than $h$ itself: halve the step and the error drops by much more than half. That is what makes the tangent line the *best* straight-line approximation near $a$.
+The bracket goes to 0 by the definition of the derivative, so the error shrinks faster than $h$ itself: the error divided by $h$ goes to 0. For most functions you'll meet (polynomials, roots, sine) the error is roughly proportional to $h^2$, so halving the step cuts the error to about a quarter; Examples 4 and 5 show this numerically if you redo them with half the step. That is what makes the tangent line the *best* straight-line approximation near $a$.
 
 ### Example 4
 
@@ -166,7 +166,7 @@ $$x_{n+1} = x_n - \frac{x_n^2 - 2}{2x_n} = \frac12\left(x_n + \frac{2}{x_n}\righ
 The true value is $\sqrt2 = 1.41421356237310\ldots$. The number of correct decimal places goes roughly 0, 2, 5, 11: it about doubles each step once the guess is close. The step formula "average the guess with 2 divided by the guess" is much older than calculus: Heron of Alexandria used it in the first century CE.
 
 ```plot
-{"x": [0.5, 2.2], "y": [-1.5, 2.5], "functions": [{"f": "x^2 - 2", "label": "y = x² − 2"}], "tangents": [{"f": "x^2 - 2", "at": 1}], "points": [{"at": [1, -1], "label": "(1, −1)"}, {"at": [1.5, 0], "label": "x₁ = 1.5"}, {"at": [1.4142, 0], "open": true}], "caption": "The tangent to y = x² − 2 at x₀ = 1 crosses the x-axis at x₁ = 1.5, already close to √2 ≈ 1.414 (open dot)."}
+{"x": [0.5, 2.2], "y": [-1.5, 2.5], "functions": [{"f": "x^2 - 2", "label": "y = x² − 2"}], "tangents": [{"f": "x^2 - 2", "at": 1}], "points": [{"at": [1, -1]}, {"at": [1.5, 0]}, {"at": [1.4142, 0], "open": true}], "labels": [{"at": [0.75, -0.75], "text": "(1, −1)"}, {"at": [1.63, -0.55], "text": "x₁ = 1.5"}], "caption": "The tangent to y = x² − 2 at x₀ = 1 crosses the x-axis at x₁ = 1.5, already close to √2 ≈ 1.414 (open dot)."}
 ```
 
 Newton's method can fail: if $f'(x_n) = 0$ the tangent is horizontal and never crosses the axis, and a poor starting guess can send the iterates to a different zero or make them wander. In practice, start near the zero you want (a graph or a sign change from the intermediate value theorem helps).
