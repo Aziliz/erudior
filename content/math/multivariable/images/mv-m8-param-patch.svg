@@ -30,8 +30,8 @@
 <polyline points="430.0,274.9 446.0,201.3" fill="none" stroke="#2c7a47" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahg)"/>
 <polyline points="430.0,274.9 375.0,124.9" fill="none" stroke="#a33a2a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahr)"/>
 <circle cx="430.0" cy="274.9" r="4.5" fill="#1c2833"/>
-<text x="500.0" y="304.4" text-anchor="start" font-size="16" fill="#1f5f99" font-style="italic">r_u</text>
-<text x="454.0" y="203.3" text-anchor="start" font-size="16" fill="#2c7a47" font-style="italic">r_v</text>
+<text x="488.0" y="306.0" text-anchor="start" font-size="16" fill="#1f5f99" font-style="italic">r_u</text>
+<text x="454.0" y="212.0" text-anchor="start" font-size="16" fill="#2c7a47" font-style="italic">r_v</text>
 <text x="367.0" y="130.9" text-anchor="end" font-size="16" fill="#a33a2a">N = r_u × r_v</text>
 <text x="610.0" y="114.8" text-anchor="start" font-size="18" fill="#1c2833" font-style="italic">S</text>
 <text x="20.0" y="30.0" text-anchor="start" font-size="15" fill="#1c2833">Blue: u varies (v fixed).  Green: v varies (u fixed).</text>
