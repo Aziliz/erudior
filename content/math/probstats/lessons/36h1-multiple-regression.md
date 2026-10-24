@@ -53,7 +53,7 @@ Think of $\mathbf{y}$ as one point in $n$-dimensional space. As $\mathbf{b}$ var
 subspace closest to $\mathbf{y}$, and the closest point is the foot of the perpendicular. That is why the
 residual is orthogonal to the columns.
 
-![The data vector y drawn above a shaded plane (the column space of X). A dashed arrow drops straight down from the tip of y to the point ŷ in the plane, meeting it at a right angle; this dashed piece is the residual vector e. The arrow from the origin to ŷ lies in the plane.](images/ps-m8-projection.svg)
+![An arrow from the origin O to the data vector y rises above a shaded plane, the column space of X. A dashed red arrow, the residual e = y − ŷ, drops straight down from the tip of y to the point ŷ = Hy in the plane and meets it at a right angle. A second arrow runs from O to ŷ inside the plane.](images/ps-m8-projection.svg)
 
 The fitted values are $\hat{\mathbf{y}} = \mathbf{X}\mathbf{b} = \mathbf{H}\mathbf{y}$, where
 
@@ -98,8 +98,8 @@ which gives tests of $H_0: \beta_j = 0$ and intervals $b_j \pm t_{\alpha/2,\, n-
 $(\mathbf{A} + \mathbf{D})\mathbf{Y}$; unbiasedness for every $\boldsymbol\beta$ forces $\mathbf{D}\mathbf{X} = \mathbf{0}$, so the cross terms vanish and
 its covariance is $\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1} + \sigma^2\mathbf{D}\mathbf{D}^\top$. The extra $\mathbf{D}\mathbf{D}^\top$ is positive
 semidefinite, so no linear unbiased estimator beats least squares, coefficient by coefficient.
-(Gauss proved a version in the 1820s; Markov's name was attached in the twentieth century, and
-historians still debate how much credit each deserves.)
+(Gauss proved the result in the 1820s. Markov's name was attached in the twentieth century, an
+attribution that historians of statistics have questioned.)
 
 ## What a coefficient means
 

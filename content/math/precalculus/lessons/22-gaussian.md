@@ -21,6 +21,10 @@ A **linear equation** in $x, y, z$ has the form $ax + by + cz = d$; its graph is
 
 As with two variables, these are the only options: a linear system has 0, 1 or infinitely many solutions, never exactly 2.
 
+Planes in space are hard to draw, but the two-variable version shows the same three cases, with lines in place of planes:
+
+![Three panels of two lines each. Left: the lines x − y = 1 and x + 2y = 4 cross at the single point (2, 1), one solution. Middle: the parallel lines x − 2y = −3 and x − 2y = 3 never meet, no solution. Right: x + y = 1 and 2x + 2y = 2 are the same line drawn twice, infinitely many solutions.](images/pc-m6-solution-cases.svg)
+
 ## Augmented matrices
 
 A **matrix** is a rectangular array of numbers. A system can be stored as an **augmented matrix**: one row per equation, one column per variable, and a final column for the constants. The system
@@ -92,6 +96,21 @@ $$(x, y, z) = (2 - t,\ 1 + t,\ t), \qquad t \text{ any real number}.$$
 
 For instance $t = 0$ gives $(2, 1, 0)$ and $t = 1$ gives $(1, 2, 1)$; both satisfy all three equations.
 
+The whole procedure, including how to read the three outcomes from the echelon form, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a linear system by Gaussian elimination
+  accDescr: Write the augmented matrix, then use row operations to clear the entries below each pivot until the matrix is in row-echelon form. If some row is all zeros except for a nonzero constant, the system has no solution. Otherwise, if every variable has a pivot, back-substitute to get exactly one solution; if some variable has no pivot, it is a free variable and there are infinitely many solutions, written with a parameter.
+  A["Write the augmented matrix"] --> B["Row operations: clear the entries below each pivot"]
+  B --> C["Row-echelon form"]
+  C --> D{"A row of zeros with a nonzero constant?"}
+  D -- yes --> E["No solution: inconsistent"]
+  D -- no --> F{"Does every variable have a pivot?"}
+  F -- yes --> G["Back-substitute: exactly one solution"]
+  F -- no --> H["Free variable: infinitely many solutions, written with a parameter"]
+```
+
 ## An application
 
 ### Example 4
@@ -100,9 +119,19 @@ Find the parabola $y = ax^2 + bx + c$ through $(1, 4)$, $(2, 9)$ and $(-1, 6)$.
 
 Each point gives a linear equation in $a, b, c$: $a + b + c = 4$, $4a + 2b + c = 9$, $a - b + c = 6$. Subtracting the first from the third: $-2b = 2$, so $b = -1$. Then $a + c = 5$ and $4a + c = 11$, so $3a = 6$, $a = 2$, $c = 3$. The parabola is $y = 2x^2 - x + 3$.
 
+```plot
+{"x": [-2, 3], "y": [0, 12], "functions": [{"f": "2x^2 - x + 3"}], "points": [{"at": [1, 4], "label": "(1, 4)"}, {"at": [2, 9], "label": "(2, 9)"}, {"at": [-1, 6], "label": "(-1, 6)"}], "caption": "Example 4: the parabola y = 2x² − x + 3 passes through all three given points."}
+```
+
 ## A note on nonlinear systems
 
-Row reduction only works when every equation is linear. When an equation contains $x^2$, $xy$ or similar terms, go back to substitution (or to eliminating a whole squared term). For example, to intersect the circle $x^2 + y^2 = 25$ with the line $y = x + 1$, substitute: $x^2 + (x + 1)^2 = 25$ gives $2x^2 + 2x - 24 = 0$, so $x^2 + x - 12 = (x + 4)(x - 3) = 0$. The intersection points are $(3, 4)$ and $(-4, -3)$. Unlike a linear system, a nonlinear system can have exactly two solutions, or three, or four: a line meets a circle 0, 1 or 2 times, and two different conics can meet up to 4 times.
+Row reduction only works when every equation is linear. When an equation contains $x^2$, $xy$ or similar terms, go back to substitution (or to eliminating a whole squared term). For example, to intersect the circle $x^2 + y^2 = 25$ with the line $y = x + 1$, substitute: $x^2 + (x + 1)^2 = 25$ gives $2x^2 + 2x - 24 = 0$, so $x^2 + x - 12 = (x + 4)(x - 3) = 0$. The intersection points are $(3, 4)$ and $(-4, -3)$, as the picture shows.
+
+```plot
+{"x": [-7, 7], "y": [-6, 6], "equal": true, "curves": [{"x": "5cos(t)", "y": "5sin(t)", "t": [0, "2pi"]}], "functions": [{"f": "x + 1"}], "points": [{"at": [3, 4], "label": "(3, 4)"}, {"at": [-4, -3], "label": "(-4, -3)"}], "caption": "The circle x² + y² = 25 and the line y = x + 1 meet at two points."}
+```
+
+Unlike a linear system, a nonlinear system can have exactly two solutions, or three, or four: a line meets a circle 0, 1 or 2 times, and two different conics can meet up to 4 times.
 
 ## Common mistakes
 

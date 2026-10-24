@@ -61,6 +61,8 @@ For larger matrices, write $A$ and $I$ side by side, $[A \mid I]$, and row-reduc
 
 $$[A \mid I] \xrightarrow{\text{row operations}} [I \mid A^{-1}].$$
 
+![Left: the 3 by 3 matrix A with rows (1, 1, 0), (1, 2, 1), (0, 1, 2) written beside the identity I. An arrow labeled row operations points right to I written beside A inverse, whose rows are (3, −2, 1), (−2, 2, −1), (1, −1, 1). This is Example 3 below.](images/pc-m6-inverse-by-rows.svg)
+
 Why this works: the row operations that turn $A$ into $I$ amount to multiplying on the left by $A^{-1}$; doing the same operations to $I$ produces $A^{-1}I = A^{-1}$. If the left side develops a row of zeros, $A$ is singular.
 
 ### Example 3

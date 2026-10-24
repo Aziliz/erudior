@@ -126,7 +126,7 @@ In the long run about 20% of the bikes, 200, are at A; 300 are at B; and 500 are
 Not every chain is regular.
 
 - *Periodic chains.* With $P = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ the process switches state every step. Starting in state 1, the state vectors alternate $(1, 0), (0, 1), (1, 0), \dots$ forever. A steady state $(\tfrac12, \tfrac12)$ exists, but the chain never approaches it. No power of $P$ is all positive: the powers alternate between $P$ and $I$.
-- *Absorbing states.* A state you can enter but never leave (its column has a 1 on the diagonal and 0s elsewhere) is an **absorbing state**. Think of a game that ends when a player runs out of money. A chain with an absorbing state that can be reached from every other state eventually ends up absorbed, and the interesting questions become "how long does it take?" and "which absorbing state wins?", which lead to further matrix methods.
+- *Absorbing states.* A state you can enter but never leave (its column has a 1 on the diagonal and 0s elsewhere) is an **absorbing state**. Think of a game that ends when a player runs out of money. A chain with an absorbing state that can be reached from every other state ends up absorbed with probability 1, and the interesting questions become "how long does it take?" and "which absorbing state wins?", which lead to further matrix methods.
 
 ## Where Markov chains came from, and where they went
 

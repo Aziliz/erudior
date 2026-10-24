@@ -125,10 +125,10 @@ distance in whichever scale you chose.
 
 ### Example 3: the same Wald test on the log-odds scale
 
-In Example 1, test $\psi = \ln(0.1/0.9) = -2.1972$. The MLE is $\hat\psi = \ln(0.13/0.87) = -1.9010$,
-and its standard error, by the delta method, is $1/\sqrt{n\hat p(1 - \hat p)} = 1/\sqrt{45.24} = 0.1487$. Then
+In Example 1, test $\psi_0 = \ln(0.1/0.9) = -2.19722$. The MLE is $\hat\psi = \ln(0.13/0.87) = -1.90096$,
+and its standard error, by the delta method, is $1/\sqrt{n\hat p(1 - \hat p)} = 1/\sqrt{45.24} = 0.14868$. Then
 
-$$W_\psi = \left(\frac{-1.9010 + 2.1972}{0.1487}\right)^2 = (1.993)^2 = 3.97,$$
+$$W_\psi = \left(\frac{-1.90096 + 2.19722}{0.14868}\right)^2 = (1.9927)^2 = 3.97,$$
 
 against 3.18 on the $p$ scale. Same data, same hypothesis, different Wald statistic. In logistic
 regression this lack of invariance can make the Wald statistic *shrink* as an effect grows very

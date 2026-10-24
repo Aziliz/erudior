@@ -1,0 +1,198 @@
+# Honors module pc-h1 (Proof, infinity and the road to calculus), round 2 drills
+# Lesson 91: comparing infinite sets
+- id: pc-h1-r2-list-integers
+  title: Listing the integers
+  topic: Infinite sets
+  vars:
+    n: {min: 2, max: 40}
+    z: {min: -20, max: 20}
+  where: ['z != 0']
+  calc:
+    fn: if(mod(n, 2) == 0, n/2, -(n - 1)/2)
+    gz: if(z > 0, 2*z, 1 - 2*z)
+    nm1: n - 1
+    twoz: 2*z
+  prompt: 'The list $0, 1, -1, 2, -2, 3, -3, \dots$ matches the positive integers with the integers by $f(n) = \tfrac n2$ for even $n$ and $f(n) = -\tfrac{n-1}{2}$ for odd $n$. Find $f({n})$, and find the position $m$ of the integer ${z}$ in the list (so that $f(m) = {z}$).'
+  answers:
+    - {name: fn, label: '$f({n}) =$'}
+    - {name: gz, label: '$m =$'}
+  solution: |-
+    If ${n}$ is even, $f({n}) = \tfrac{ {n} }{2}$; if it is odd, $f({n}) = -\tfrac{ {nm1} }{2}$. Here that gives $f({n}) =$ **{fn}**.
+    Going back, the inverse is $f^{-1}(z) = 2z$ for $z > 0$ and $f^{-1}(z) = 1 - 2z$ for $z \le 0$. For $z = {z}$ the position is $m =$ **{gz}**. Check: $f({gz}) = {z}$.
+
+- id: pc-h1-r2-pairing
+  title: Cantor pairing function
+  topic: Infinite sets
+  vars:
+    a: {min: 0, max: 9}
+    b: {min: 0, max: 9}
+  where: ['a + b >= 2']
+  calc:
+    s: a + b
+    s1: a + b + 1
+    T: (a + b)*(a + b + 1)/2
+    p: (a + b)*(a + b + 1)/2 + b
+  prompt: 'List the pairs of whole numbers by diagonals, $(0, 0), (1, 0), (0, 1), (2, 0), (1, 1), (0, 2), \dots$, numbering positions from 0. Use $\pi(a, b) = \dfrac{(a + b)(a + b + 1)}{2} + b$ to find the position of $({a}, {b})$.'
+  answer: p
+  format: integer
+  solution: |-
+    The pair is on diagonal $s = a + b = {s}$. The diagonals before it hold $1 + 2 + \dots + {s} = \dfrac{ {s} \cdot {s1} }{2} = {T}$ pairs (positions 0 to ${T} - 1$). Within its diagonal it comes $b = {b}$ places after the start, so $\pi({a}, {b}) = {T} + {b} =$ **{p}**.
+
+- id: pc-h1-r2-unpair
+  title: Which pair is in position N?
+  topic: Infinite sets
+  vars:
+    a: {min: 0, max: 9}
+    b: {min: 0, max: 9}
+  where: ['a + b >= 2']
+  calc:
+    s: a + b
+    s1: a + b + 1
+    T: (a + b)*(a + b + 1)/2
+    Tn: (a + b + 1)*(a + b + 2)/2
+    N: (a + b)*(a + b + 1)/2 + b
+  prompt: 'In the diagonal listing of pairs of whole numbers, $(0, 0), (1, 0), (0, 1), (2, 0), (1, 1), (0, 2), \dots$, with positions numbered from 0, position $\pi(a, b) = \dfrac{(a + b)(a + b + 1)}{2} + b$. Which pair $(a, b)$ is in position ${N}$?'
+  answers:
+    - {name: a, label: '$a =$'}
+    - {name: b, label: '$b =$'}
+  solution: |-
+    Diagonal $s$ starts at position $\tfrac{s(s+1)}{2}$, a triangular number: $0, 1, 3, 6, 10, 15, 21, \dots$ The largest one not above ${N}$ is ${T} = \tfrac{ {s} \cdot {s1} }{2}$ (the next is ${Tn}$), so the pair is on diagonal $s = {s}$.
+    Then $b = {N} - {T} =$ **{b}** and $a = s - b = {s} - {b} =$ **{a}**. The pair is $({a}, {b})$.
+
+# Lesson 92: infinite series
+- id: pc-h1-r2-telescope-partial
+  title: A telescoping partial sum
+  topic: Infinite series
+  vars:
+    m: {min: 1, max: 6}
+    len: {min: 3, max: 30}
+  calc:
+    n: m + len
+    n1: m + len + 1
+    num: len + 1
+    den: m*(m + len + 1)
+    g: gcd(len + 1, m*(m + len + 1))
+    rn: (len + 1)/g
+    rd: m*(m + len + 1)/g
+    S: (len + 1)/(m*(m + len + 1))
+  prompt: 'Find $\displaystyle\sum_{k={m}}^{ {n} } \frac{1}{k(k+1)}$ as an exact fraction.'
+  answers:
+    - {name: S, label: 'Sum', kind: fraction}
+  solution: |-
+    Partial fractions: $\dfrac{1}{k(k+1)} = \dfrac1k - \dfrac{1}{k+1}$. Written out, the sum telescopes:
+    $\left(\tfrac{1}{ {m} } - \tfrac{1}{ {m} + 1}\right) + \dots + \left(\tfrac{1}{ {n} } - \tfrac{1}{ {n1} }\right)$, and every term cancels except the first and the last:
+    $\dfrac{1}{ {m} } - \dfrac{1}{ {n1} } = \dfrac{ {num} }{ {den} } =$ **$\dfrac{ {rn} }{ {rd} }$**.
+
+- id: pc-h1-r2-telescope-infinite
+  title: Sum of a telescoping series
+  topic: Infinite series
+  vars:
+    c: {min: 1, max: 6}
+    dd:
+      choices:
+        - {label: '1', value: 1}
+        - {label: '1 + \tfrac12', value: 2}
+        - {label: '1 + \tfrac12 + \tfrac13', value: 3}
+        - {label: '1 + \tfrac12 + \tfrac13 + \tfrac14', value: 4}
+  calc:
+    d: dd
+    Hn: if(dd == 1, 1, if(dd == 2, 3, if(dd == 3, 11, 25)))
+    Hd: if(dd == 1, 1, if(dd == 2, 2, if(dd == 3, 6, 12)))
+    g: gcd(c*Hn, dd*Hd)
+    rn: c*Hn/g
+    rd: dd*Hd/g
+    S: c*Hn/(dd*Hd)
+  prompt: 'Find $\displaystyle\sum_{k=1}^{\infty} \frac{ {c} }{k(k + {d})}$ as an exact fraction.'
+  answers:
+    - {name: S, label: 'Sum', kind: fraction}
+  solution: |-
+    Partial fractions: $\dfrac{ {c} }{k(k + {d})} = \dfrac{ {c} }{ {d} }\left(\dfrac1k - \dfrac{1}{k + {d}}\right)$ (check by combining the fractions).
+    In the partial sums, each $-\tfrac{1}{k + {d}}$ cancels the $+\tfrac{1}{k + {d}}$ that comes ${d}$ terms later. What survives at the start is $1 + \dots + \tfrac{1}{ {d} }$, that is ${dd}$, and the leftover negative terms at the end go to 0 as $n \to \infty$.
+    So the sum is $\dfrac{ {c} }{ {d} }\left({dd}\right) =$ **$\dfrac{ {rn} }{ {rd} }$**.
+
+# Lesson 93: area under a curve
+- id: pc-h1-r2-riemann-right
+  title: Right-endpoint Riemann sum for a parabola
+  topic: Area and integration
+  vars:
+    c: {min: 1, max: 3}
+    b: {min: 1, max: 4}
+    n: {min: 2, max: 6}
+  calc:
+    sq: n*(n + 1)*(2*n + 1)/6
+    num: c*b^3*n*(n + 1)*(2*n + 1)
+    den: 6*n^3
+    g: gcd(c*b^3*n*(n + 1)*(2*n + 1), 6*n^3)
+    rn: num/g
+    rd: den/g
+    R: c*b^3*(n + 1)*(2*n + 1)/(6*n^2)
+    ex: c*b^3/3
+  funcs:
+    f(x): c*x^2
+  figure:
+    type: plot
+    x: [-0.2, 'b*1.1']
+    y: [-0.5, 'c*b*b*1.1']
+    functions: [f]
+  prompt: 'Estimate the area under $y = {c:coef}x^2$ from $x = 0$ to $x = {b}$ with ${n}$ rectangles of equal width, each as tall as the curve at its right endpoint. Give the exact value as a fraction, or a decimal rounded to 3 decimal places.'
+  answer: R
+  tolerance: 0.0006
+  solution: |-
+    The width is $\Delta x = \tfrac{ {b} }{ {n} }$, and the right endpoints are $x_i = \tfrac{ {b}i}{ {n} }$ for $i = 1, \dots, {n}$. The sum is
+    $\displaystyle\sum_{i=1}^{ {n} } {c:coef}\left(\frac{ {b}i}{ {n} }\right)^2 \cdot \frac{ {b} }{ {n} } = \frac{ {c} \cdot {b}^3}{ {n}^3} \sum_{i=1}^{ {n} } i^2$, and $\sum_{i=1}^{ {n} } i^2 = \tfrac{ {n}({n} + 1)(2 \cdot {n} + 1)}{6} = {sq}$.
+    So $R_{ {n} } = \dfrac{ {num} }{ {den} } = \dfrac{ {rn} }{ {rd} } \approx$ **{R:dp3}**. (It overestimates the exact area ${ex:texfrac}$, because the curve rises.)
+
+- id: pc-h1-r2-area-parabola
+  title: Exact area under a parabola
+  topic: Area and integration
+  vars:
+    a: {min: 1, max: 5}
+    p: {min: 0, max: 3}
+    q: {min: 1, max: 5}
+  where: ['q > p']
+  calc:
+    q3: q^3
+    p3: p^3
+    num: a*(q^3 - p^3)
+    g: gcd(a*(q^3 - p^3), 3)
+    rn: a*(q^3 - p^3)/g
+    rd: 3/g
+    A: a*(q^3 - p^3)/3
+  prompt: 'Use $\displaystyle\int_0^b x^2\,dx = \frac{b^3}{3}$ to find the exact area under $y = {a:coef}x^2$ from $x = {p}$ to $x = {q}$. Give a fraction or a decimal rounded to 3 decimal places.'
+  answer: A
+  tolerance: 0.0006
+  solution: |-
+    The area under $x^2$ from ${p}$ to ${q}$ is the area from 0 to ${q}$ minus the area from 0 to ${p}$: $\tfrac{ {q3} }{3} - \tfrac{ {p3} }{3}$.
+    Multiplying the height by ${a}$ multiplies every rectangle, and so the area, by ${a}$: ${a} \cdot \dfrac{ {q3} - {p3} }{3} = \dfrac{ {num} }{3} =$ **$\dfrac{ {rn} }{ {rd} }$** $\approx {A:dp3}$.
+
+- id: pc-h1-r2-archimedes
+  title: Archimedes' parabolic segment
+  topic: Area and integration
+  vars:
+    a: {min: 1, max: 3}
+    r: {min: 1, max: 4}
+  calc:
+    k: a*r*r
+    base: 2*r
+    tri: a*r^3
+    seg: 4*a*r^3/3
+    num: 4*a*r^3
+    g: gcd(4*a*r^3, 3)
+    rn: 4*a*r^3/g
+    rd: 3/g
+  funcs:
+    f(x): k - a*x^2
+  figure:
+    type: plot
+    x: ['-r*1.3', 'r*1.3']
+    y: ['-k*0.15', 'k*1.15']
+    functions: [f]
+    polygons:
+      - {points: [['-r', 0], ['r', 0], [0, 'k']]}
+  prompt: 'The parabola $y = {k} - {a:coef}x^2$ meets the $x$-axis at $x = \pm {r}$. Find the area of the inscribed triangle with vertices $(-{r}, 0)$, $({r}, 0)$ and $(0, {k})$, and the area of the whole region between the parabola and the $x$-axis. Give fractions or decimals rounded to 3 places.'
+  answers:
+    - {name: tri, label: 'Triangle:'}
+    - {name: seg, label: 'Region:', tolerance: 0.0006}
+  solution: |-
+    The triangle has base ${base}$ and height ${k}$: area $\tfrac12 \cdot {base} \cdot {k} =$ **{tri}**.
+    Archimedes: the parabolic segment is $\tfrac43$ of its inscribed triangle, $1 + \tfrac14 + \tfrac1{16} + \dots = \tfrac43$ times it. So the region has area $\tfrac43 \cdot {tri} =$ **$\dfrac{ {rn} }{ {rd} }$** $\approx {seg:dp3}$.

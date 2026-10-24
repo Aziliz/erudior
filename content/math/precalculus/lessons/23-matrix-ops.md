@@ -41,6 +41,10 @@ For this to work, each row of $A$ must have as many entries as each column of $B
 
 Write the dimensions side by side: $(m \times \underline{n})(\underline{n} \times p)$. The inner numbers must match; the outer numbers give the size of the product.
 
+The picture traces one entry of the product $CD$ from Example 3 below.
+
+![C is a 2 by 3 matrix with row 2, (−1, 3, 1), shaded. D is a 3 by 2 matrix with column 1, (2, 0, 4), shaded. Their product CD is 2 by 2, and its row 2, column 1 entry, 2, is shaded. Below: the inner sizes match (3 and 3), the outer sizes give the product's size, and (−1)(2) + (3)(0) + (1)(4) = 2.](images/pc-m6-row-times-column.svg)
+
 ### Why this definition?
 
 Think of buying items. A row vector of quantities $\begin{bmatrix} 3 & 2 & 1 \end{bmatrix}$ (3 shirts, 2 hats, 1 jacket) times a column of prices $\begin{bmatrix} 12 \\ 8 \\ 5 \end{bmatrix}$ should give the total cost $3(12) + 2(8) + 1(5) = 57$. Row-times-column is exactly that. And it is what makes a system of equations a single matrix equation:
@@ -68,6 +72,21 @@ $(2 \times 3)(3 \times 2)$: inner 3s match, product is $2 \times 2$.
 $$CD = \begin{bmatrix} 1(2) + 0(0) + 2(4) & 1(1) + 0(-1) + 2(3) \\ -1(2) + 3(0) + 1(4) & -1(1) + 3(-1) + 1(3) \end{bmatrix} = \begin{bmatrix} 10 & 7 \\ 2 & -1 \end{bmatrix}.$$
 
 $DC$ is $(3 \times 2)(2 \times 3)$, defined and $3 \times 3$: a different size altogether.
+
+Before adding or multiplying, check the sizes:
+
+```mermaid
+flowchart TD
+  accTitle: Is a sum or product of matrices defined?
+  accDescr: Start with A of size m by n and B of size p by q. For the sum A plus B, the sizes must match, m equals p and n equals q; then add entry by entry and the result is m by n; otherwise the sum is undefined. For the product AB, the number of columns of A must equal the number of rows of B, n equals p; then each entry is a row of A times a column of B and the result is m by q; otherwise the product is undefined.
+  S["A is m × n, B is p × q"] --> O{"Sum or product?"}
+  O -- "A + B" --> P{"Same size?"}
+  P -- yes --> P1["Add entry by entry; result m × n"]
+  P -- no --> P2["Undefined"]
+  O -- "AB" --> Q{"Is n = p?"}
+  Q -- yes --> Q1["Row times column; result m × q"]
+  Q -- no --> Q2["Undefined"]
+```
 
 ## Properties of multiplication
 
