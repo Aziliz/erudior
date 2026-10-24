@@ -94,11 +94,11 @@ export function Calculator({ kind, onClose }: { kind: CalcKind; onClose: () => v
         </div>
       )}
       {/* Both stay mounted so switching tabs keeps the entry, memory and history. */}
-      <div hidden={kind === "graphing" && tab === "graph"}>
+      <div className="calc-pane" hidden={kind === "graphing" && tab === "graph"}>
         <Keypad kind={kind} />
       </div>
       {kind === "graphing" && (
-        <div hidden={tab !== "graph"}>
+        <div className="calc-pane graph" hidden={tab !== "graph"}>
           <Grapher />
         </div>
       )}

@@ -3840,7 +3840,7 @@ button .math-inline {
   flex-direction: column;
   gap: 10px;
   padding: 12px 14px;
-  overflow-y: auto;
+  overflow: hidden;
   background: var(--surface);
   border-right: 1px solid var(--rule);
   box-shadow: var(--shadow);
@@ -4246,4 +4246,48 @@ a.btn:hover {
   max-width: 640px;
   margin: 20px auto 0;
   text-align: left;
+}
+
+/* The calculator itself stays put; only its history list scrolls. */
+.calc-pane {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.calc-pane[hidden] {
+  display: none;
+}
+.calc-pane.graph {
+  overflow-y: auto;
+}
+.calc-pane > .calc-body {
+  flex: 1;
+  min-height: 0;
+}
+.calc-screen,
+.calc-keys {
+  flex-shrink: 0;
+}
+.calc-pane .calc-history {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.calc-pane .calc-history ol {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+}
+/* Keys shrink on short screens so the history keeps room to show a few lines. */
+.calc-pane .calc-keys {
+  gap: clamp(3px, 0.7vh, 6px);
+}
+.calc-pane .calc-key {
+  min-height: clamp(24px, 3.8vh, 40px);
+}
+.calc-pane .calc-history {
+  min-height: 96px;
 }
