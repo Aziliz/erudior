@@ -29,8 +29,8 @@
     R2: c1^2 + c2^2
   prompt: 'Write ${c1:coef}\cos {w}t {c2:signedcoef}\sin {w}t$ in the form $R\cos({w}t - \delta)$ with $R > 0$ and $-\pi < \delta \le \pi$ (radians). Give $R$ and $\delta$ to 3 decimal places.'
   answers:
-    - {name: R, label: '$R =$', tolerance: 0.0006}
-    - {name: d, label: '$\delta =$', tolerance: 0.0006}
+    - {name: R, label: '$R =$', tolerance: 0.0006, format: dp3}
+    - {name: d, label: '$\delta =$', tolerance: 0.0006, format: dp3}
   solution: |-
     $R = \sqrt{({c1})^2 + ({c2})^2} = \sqrt{{R2}} \approx$ **{R:dp3}**. The angle needs $\cos\delta = {c1}/R$ and $\sin\delta = {c2}/R$; their signs fix the quadrant, so $\delta = \operatorname{atan2}({c2}, {c1}) \approx$ **{d:dp3}** (when $c_1 < 0$, $\arctan(c_2/c_1)$ alone is off by $\pi$).
 - id: de-m5-r2-recover-eq
@@ -47,12 +47,13 @@
     ex: m + n - 1
     m1: m - 1
     n1: n - 1
+    s: m + n
   prompt: '$y_1 = t^{{m}}$ and $y_2 = t^{{n}}$ form a fundamental set on $t > 0$ for an equation $t^2y'''' + bty'' + cy = 0$. Find $b$ and $c$.'
   answers:
     - {name: b, label: '$b =$', format: integer}
     - {name: c, label: '$c =$', format: integer}
   solution: |-
-    $W = t^{{m}} \cdot {n:coef}t^{{n1}} - {m:coef}t^{{m1}} \cdot t^{{n}} = {nm:coef}t^{{ex}}$, so $p = -W'/W = -\dfrac{{ex}}{t}$, which makes $b = tp =$ **{b}**. Then $q = (y_1'y_2'' - y_1''y_2')/W = \dfrac{{c}}{t^2}$, so $c = t^2q =$ **{c}**. Check with the indicial equation: $m(m - 1) + bm + c = m^2 - ({m} + {n})m + ({m})({n})$, with roots ${m}$ and ${n}$.
+    $W = t^{{m}} \cdot ({n})t^{{n1}} - ({m})t^{{m1}} \cdot t^{{n}} = {nm:coef}t^{{ex}}$, so $p = -W'/W = \dfrac{{b}}{t}$, which makes $b = tp =$ **{b}**. Then $q = (y_1'y_2'' - y_1''y_2')/W = \dfrac{{c}}{t^2}$, so $c = t^2q =$ **{c}**. Check with the indicial equation $r(r - 1) + br + c = r^2 - (1 - b)r + c = 0$: its roots must have sum $1 - b = {s}$ and product $c = {c}$, and ${m}$ and ${n}$ do.
 - id: de-m5-r2-invariant
   title: Remove the first-derivative term
   topic: Oscillation theory
@@ -64,11 +65,12 @@
   calc:
     Kv: c - k^2/4 + k/2
     k2: k^2
-  prompt: 'The substitution $y = u\,e^{-\frac12\int p\,dt}$ turns $t^2y'''' {k:signedcoef}ty'' + ({A}t^2 {c:signed})y = 0$ ($t > 0$) into $u'''' + Q(t)u = 0$ with $Q = {A} + \dfrac{K}{t^2}$. Find $K$ as an exact fraction.'
+    nk: -k
+  prompt: 'The substitution $y = u\,e^{-\frac12\int p\,dt}$ turns $t^2y'''' {k:signedcoef}ty'' + ({A:coef}t^2 {c:signed})y = 0$ ($t > 0$) into $u'''' + Q(t)u = 0$ with $Q = {A} + \dfrac{K}{t^2}$. Find $K$ as an exact fraction.'
   answers:
     - {name: Kv, label: '$K =$', kind: fraction}
   solution: |-
-    Divide by $t^2$: $p = \dfrac{{k}}{t}$, $q = {A} + \dfrac{{c}}{t^2}$. Then $\dfrac{p^2}{4} = \dfrac{{k2}}{4t^2}$ and $\dfrac{p'}{2} = -\dfrac{{k}}{2t^2}$, so $Q = q - \dfrac{p^2}{4} - \dfrac{p'}{2} = {A} + \dfrac{1}{t^2}\left({c} - \dfrac{{k2}}{4} + \dfrac{{k}}{2}\right)$ and $K =$ **{Kv:frac}**.
+    Divide by $t^2$: $p = \dfrac{{k}}{t}$, $q = \dfrac{{A:coef}t^2 {c:signed}}{t^2}$. Then $\dfrac{p^2}{4} = \dfrac{{k2}}{4t^2}$ and $p' = \dfrac{{nk}}{t^2}$, so $Q = q - \dfrac{p^2}{4} - \dfrac{p'}{2} = {A} + \dfrac{1}{t^2}\left({c} - \dfrac{{k2}}{4} - \tfrac12({nk})\right)$ and $K =$ **{Kv:frac}**.
 - id: de-m5-r2-zero-spacing
   title: Bounds on the spacing of zeros
   topic: Oscillation theory
@@ -83,7 +85,7 @@
     Mn: A - B
   prompt: 'Sturm''s comparison theorem bounds the distance $d$ between consecutive zeros of any nonzero solution of $u'''' + ({A} + {B}\cos t)u = 0$. Find the bounds in $\pi/M \le d \le \pi/m$, to 3 decimal places.'
   answers:
-    - {name: lo, label: 'smallest possible $d$:', tolerance: 0.0006}
-    - {name: hi, label: 'largest possible $d$:', tolerance: 0.0006}
+    - {name: lo, label: 'smallest possible $d$:', tolerance: 0.0006, format: dp3}
+    - {name: hi, label: 'largest possible $d$:', tolerance: 0.0006, format: dp3}
   solution: |-
     $Q = {A} + {B}\cos t$ lies between $m^2 = {Mn}$ and $M^2 = {Mx}$. Comparing with $\sin(\sqrt{{Mx}}\,t)$ and $\sin(\sqrt{{Mn}}\,t)$: $d \ge \pi/\sqrt{{Mx}} \approx$ **{lo:dp3}** and $d \le \pi/\sqrt{{Mn}} \approx$ **{hi:dp3}**.

@@ -75,7 +75,7 @@ equilibrium has $f'(P^*) = -r/2 < 0$: it is a genuine sink, and the stock return
 dip.
 
 ```plot
-{"x": [0, 1.1], "y": [0, 30], "xLabel": "effort E", "yLabel": "yield Y", "functions": [{"f": "100x(1 - x)", "to": 1}], "labels": [{"at": [0.85, 20], "text": "Y = EK(1 − E/r)"}], "points": [{"at": [0.5, 25], "label": "MSY: E = r/2"}], "caption": "Sustainable yield against effort for r = 1, K = 100. Beyond E = r/2, more effort catches less."}
+{"x": [0, 1.2], "y": [0, 30], "xLabel": "effort E", "yLabel": "yield Y", "functions": [{"f": "100x(1 - x)", "to": 1}], "labels": [{"at": [0.9, 22], "text": "Y = EK(1 − E/r)"}], "points": [{"at": [0.5, 25], "label": "MSY: E = r/2"}], "caption": "Sustainable yield against effort for r = 1, K = 100. Beyond E = r/2, more effort catches less."}
 ```
 
 ### Example 1
@@ -129,7 +129,7 @@ toward 25. The safety margin $P_2 - P_1$ (how far the stock can fall before it c
 recover) shrinks from 100 to 10, and the return time grows without bound.
 
 ```plot
-{"x": [0, 26], "y": [0, 12], "xLabel": "quota h", "yLabel": "return time T_R", "functions": [{"f": "1/sqrt(1 - x/25)", "to": 24.9}], "segments": [{"from": [25, 0], "to": [25, 12], "dashed": true}], "labels": [{"at": [12, 4], "text": "T_R = 1/√(1 − h/25)"}, {"at": [22.5, 10], "text": "h = 25"}], "caption": "Return time for the quota model with r = 1, K = 100. It blows up as the quota approaches the bifurcation value 25."}
+{"x": [0, 28], "y": [0, 12], "xLabel": "quota h", "yLabel": "return time T_R", "functions": [{"f": "1/sqrt(1 - x/25)", "to": 24.9}], "segments": [{"from": [25, 0], "to": [25, 12], "dashed": true}], "labels": [{"at": [12, 4], "text": "T_R = 1/√(1 − h/25)"}, {"at": [22.5, 10], "text": "h = 25"}], "caption": "Return time for the quota model with r = 1, K = 100. It blows up as the quota approaches the bifurcation value 25."}
 ```
 
 ## Critical slowing down
