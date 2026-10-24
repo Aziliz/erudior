@@ -149,7 +149,7 @@ In matrix terms, $P = \begin{bmatrix} 1 & 0 \\ 0 & 9 \end{bmatrix}$ gives $A^{T}
 
 The **Lyapunov equation** $A^{T}P + PA = -Q$ reverses the process: pick a positive definite $Q$
 (often $I$) and solve three linear equations for $a$, $b$, $c$. A standard theorem: every eigenvalue
-of $A$ has negative real part exactly when the solution $P$ exists and is positive definite.
+of $A$ has negative real part exactly when the equation has a positive definite solution $P$.
 
 Why bother, when eigenvalues already settle linear systems? Because the same $V$ works for a
 nonlinear system whose Jacobian is $A$: near the equilibrium the nonlinear terms add only
