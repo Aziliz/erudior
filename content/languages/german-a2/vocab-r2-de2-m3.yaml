@@ -94,27 +94,12 @@
   exampleEn: Please answer the following questions.
 - id: de2-m3-r2-w11
   lesson: de2-m3-h-participles
-  term: geöffnet
-  pos: adjective
-  alt: [geoeffnet]
-  meanings: [open (of a shop or office), open, opened]
-  example: Die Bäckerei ist sonntags von 8 bis 11 Uhr geöffnet.
-  exampleEn: The bakery is open on Sundays from 8 to 11.
-- id: de2-m3-r2-w12
-  lesson: de2-m3-h-participles
-  term: geschlossen
-  pos: adjective
-  meanings: [closed, shut]
-  example: Heute ist das Museum geschlossen.
-  exampleEn: The museum is closed today.
-- id: de2-m3-r2-w13
-  lesson: de2-m3-h-participles
   term: hausgemacht
   pos: adjective
   meanings: [homemade, home-made]
   example: Die Marmelade ist hausgemacht.
   exampleEn: The jam is homemade.
-- id: de2-m3-r2-w14
+- id: de2-m3-r2-w12
   lesson: de2-m3-h-participles
   term: gefüllt
   pos: adjective
@@ -122,7 +107,7 @@
   meanings: [stuffed (food), stuffed, filled]
   example: Heute gibt es gefüllte Paprika mit Reis.
   exampleEn: Today there are stuffed peppers with rice.
-- id: de2-m3-r2-w15
+- id: de2-m3-r2-w13
   lesson: de2-m3-h-participles
   term: die Paprika
   pos: noun
@@ -131,7 +116,7 @@
   example: Ich schneide die rote Paprika in kleine Stücke.
   exampleEn: I'm cutting the red pepper into small pieces.
   note: 'Also the spice paprika. In Austria the vegetable is often der Paprika.'
-- id: de2-m3-r2-w16
+- id: de2-m3-r2-w14
   lesson: de2-m3-h-participles
   term: das Würstchen
   pos: noun
@@ -142,7 +127,7 @@
   exampleEn: The children like eating sausages with mustard.
 
 # --- 12h2 Comparing the German-speaking countries ---
-- id: de2-m3-r2-w17
+- id: de2-m3-r2-w15
   lesson: de2-m3-h-records
   term: die Fläche
   pos: noun
@@ -151,7 +136,7 @@
   meanings: [area (size of a surface), area, surface]
   example: Die Schweiz hat eine Fläche von etwa 41.000 Quadratkilometern.
   exampleEn: Switzerland has an area of about 41,000 square kilometres.
-- id: de2-m3-r2-w18
+- id: de2-m3-r2-w16
   lesson: de2-m3-h-records
   term: die Bevölkerung
   pos: noun
@@ -160,7 +145,7 @@
   meanings: [population]
   example: Die Bevölkerung der Stadt wird immer älter.
   exampleEn: The town's population is getting older and older.
-- id: de2-m3-r2-w19
+- id: de2-m3-r2-w17
   lesson: de2-m3-h-records
   term: der Meter
   pos: noun
@@ -168,21 +153,21 @@
   meanings: [metre, meter, metres]
   example: Der Turm ist hundert Meter hoch.
   exampleEn: The tower is a hundred metres high.
-- id: de2-m3-r2-w20
+- id: de2-m3-r2-w18
   lesson: de2-m3-h-records
   term: doppelt
   pos: adjective
   meanings: [double, twice, doubly]
   example: Unsere neue Wohnung ist doppelt so groß wie die alte.
   exampleEn: Our new flat is twice as big as the old one.
-- id: de2-m3-r2-w21
+- id: de2-m3-r2-w19
   lesson: de2-m3-h-records
   term: mindestens
   pos: adverb
   meanings: [at least]
   example: Du musst mindestens eine Stunde warten.
   exampleEn: You have to wait at least an hour.
-- id: de2-m3-r2-w22
+- id: de2-m3-r2-w20
   lesson: de2-m3-h-records
   term: höchstens
   pos: adverb
@@ -190,28 +175,28 @@
   meanings: [at most, at the most, no more than]
   example: Der Weg ist höchstens zwei Kilometer lang.
   exampleEn: The path is two kilometres long at most.
-- id: de2-m3-r2-w23
+- id: de2-m3-r2-w21
   lesson: de2-m3-h-records
   term: deutschsprachig
   pos: adjective
   meanings: [German-speaking]
   example: Liechtenstein ist auch ein deutschsprachiges Land.
   exampleEn: Liechtenstein is also a German-speaking country.
-- id: de2-m3-r2-w24
+- id: de2-m3-r2-w22
   lesson: de2-m3-h-records
   term: insgesamt
   pos: adverb
   meanings: [in total, altogether, overall]
   example: Insgesamt waren wir zwölf Personen.
   exampleEn: There were twelve of us altogether.
-- id: de2-m3-r2-w25
+- id: de2-m3-r2-w23
   lesson: de2-m3-h-records
   term: knapp
   pos: adjective
   meanings: [just under (with numbers), just under, barely, almost, scarce, tight]
   example: Die Fahrt dauert knapp zwei Stunden.
   exampleEn: The journey takes just under two hours.
-- id: de2-m3-r2-w26
+- id: de2-m3-r2-w24
   lesson: de2-m3-h-records
   term: übrigens
   pos: adverb
@@ -219,7 +204,7 @@
   meanings: [by the way, incidentally]
   example: Übrigens, hast du morgen Zeit?
   exampleEn: By the way, are you free tomorrow?
-- id: de2-m3-r2-w27
+- id: de2-m3-r2-w25
   lesson: de2-m3-h-records
   kind: phrase
   term: mit Abstand

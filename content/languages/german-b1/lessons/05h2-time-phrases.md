@@ -35,7 +35,7 @@ Each time conjunction has a preposition that does the same job. All of these pre
 Watch two contractions: *bei dem → beim* and *zu dem → zum*, *zu der → zur*: *beim Essen, bis zum Ende, bis zur Rente*.
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Time conjunctions and their prepositions
   accDescr: Each time conjunction on the left is linked to the preposition that does the same job in a phrase. als or wenn becomes bei plus dative. nachdem becomes nach plus dative. bevor becomes vor plus dative. während as a conjunction becomes während plus genitive. seit or seitdem becomes seit plus dative. bis becomes bis zu plus dative.
   A["als / wenn + clause"] --> A2["bei + noun: bei der Ankunft"]

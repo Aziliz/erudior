@@ -11,8 +11,8 @@
     tau: s/300
   prompt: 'In Earth''s frame, two events are {dx} m apart and {dt:num1} μs apart in time. Using $c = 3.00\times10^8$ m/s, find the spacetime interval $\Delta s$ between them (m, 3 significant figures) and the proper time measured by a clock that travels at constant velocity from one event to the other (μs, 3 significant figures).'
   answers:
-    - {format: sig4, name: s, label: '$\Delta s =$', relTolerance: 0.005, units: {m: 1, km: 1000}}
-    - {format: sig4, name: tau, label: 'Proper time', relTolerance: 0.005, units: {'μs': 1, us: 1}}
+    - {format: sig4, name: s, label: '$\Delta s =$', relTolerance: 0.006, units: {m: 1, km: 1000}}
+    - {format: sig4, name: tau, label: 'Proper time', relTolerance: 0.006, units: {'μs': 1, us: 1}}
   solution: |-
     Light travels 300 m per μs, so $c\Delta t = 300({dt:num1}) = {cdt:sig4}$ m.
 
@@ -56,7 +56,7 @@
   where: ['kap*L >= 1.5', 'kap*L <= 8']
   prompt: 'An electron with energy {E:num1} eV meets a rectangular barrier {U:num1} eV high and {L:num2} nm wide. Find the decay constant $\kappa$ inside the barrier (nm⁻¹, 3 significant figures) and the transmission probability from the thick-barrier formula $T \approx 16(E/U)(1 - E/U)\,e^{-2\kappa L}$ (3 significant figures). Use $m_ec^2 = 511{,}000$ eV and $\hbar c = 197.3$ eV·nm.'
   answers:
-    - {format: sig4, name: kap, label: '$\kappa =$', relTolerance: 0.005, units: {'nm⁻¹': 1, '/nm': 1, 'nm^-1': 1}}
+    - {format: sig4, name: kap, label: '$\kappa =$', relTolerance: 0.006, units: {'nm⁻¹': 1, '/nm': 1, 'nm^-1': 1}}
     - {format: sci, name: T, label: '$T \approx$', relTolerance: 0.025}
   solution: |-
     $U - E = {dU:num1}$ eV, so $\kappa = \dfrac{\sqrt{2(511{,}000)({dU:num1})}}{197.3} =$ **{kap:sig3} nm⁻¹**.
@@ -76,7 +76,7 @@
     ratio: exp(-2*kap*dd*up)
   prompt: 'An STM tip sits above a metal surface with work function {phi:num1} eV, which you may take as the barrier height above the tunneling electrons. The gap {up} by {dd:num2} nm. Find $\kappa$ (nm⁻¹, 3 significant figures) and the ratio of the new tunneling current to the old one (3 significant figures), taking the current proportional to $e^{-2\kappa d}$. Use $m_ec^2 = 511{,}000$ eV and $\hbar c = 197.3$ eV·nm.'
   answers:
-    - {format: sig4, name: kap, label: '$\kappa =$', relTolerance: 0.005, units: {'nm⁻¹': 1, '/nm': 1, 'nm^-1': 1}}
+    - {format: sig4, name: kap, label: '$\kappa =$', relTolerance: 0.006, units: {'nm⁻¹': 1, '/nm': 1, 'nm^-1': 1}}
     - {format: sig4, name: ratio, label: '$I_{\text{new}}/I_{\text{old}} =$', relTolerance: 0.01}
   solution: |-
     $\kappa = \dfrac{\sqrt{2(511{,}000)({phi:num1})}}{197.3} =$ **{kap:sig3} nm⁻¹**.
@@ -96,8 +96,8 @@
     Ka: Q*(A - 4)/A
   prompt: 'Find the Q-value (MeV, 3 significant figures) and the alpha particle''s kinetic energy (MeV, 3 significant figures) for the alpha decay of {iso}, starting at rest. Helium-4 is 4.002603 u; 1 u = 931.5 MeV/$c^2$. Share the energy using mass numbers.'
   answers:
-    - {format: sig4, name: Q, label: '$Q =$', relTolerance: 0.005, units: {MeV: 1, keV: 0.001}}
-    - {format: sig4, name: Ka, label: '$K_\alpha =$', relTolerance: 0.005, units: {MeV: 1, keV: 0.001}}
+    - {format: sig4, name: Q, label: '$Q =$', relTolerance: 0.006, units: {MeV: 1, keV: 0.001}}
+    - {format: sig4, name: Ka, label: '$K_\alpha =$', relTolerance: 0.006, units: {MeV: 1, keV: 0.001}}
   solution: |-
     Mass lost: $\Delta m = {mP:dp6} - {mD:dp6} - 4.002603 = {dm:dp6}$ u.
 
@@ -122,8 +122,8 @@
     per: EB/A
   prompt: 'Use the semi-empirical mass formula with $a_V = 15.75$ MeV, $a_S = 17.8$ MeV, $a_C = 0.711$ MeV, $a_A = 23.7$ MeV and $\delta = 11.18/\sqrt A$ MeV (add for even $Z$ and even $N$, subtract for odd $Z$ and odd $N$, zero for odd $A$) to estimate the binding energy of the nucleus with $Z = {Z}$ and $A = {A}$ (MeV, 4 significant figures) and its binding energy per nucleon (MeV, 3 significant figures).'
   answers:
-    - {format: sig4, name: EB, label: '$E_B =$', relTolerance: 0.005, units: {MeV: 1, GeV: 1000}}
-    - {format: sig4, name: per, label: '$E_B/A =$', relTolerance: 0.005, units: {MeV: 1}}
+    - {format: sig4, name: EB, label: '$E_B =$', relTolerance: 0.006, units: {MeV: 1, GeV: 1000}}
+    - {format: sig4, name: per, label: '$E_B/A =$', relTolerance: 0.006, units: {MeV: 1}}
   solution: |-
     $Z = {Z}$, $N = {N}$.
 

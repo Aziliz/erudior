@@ -55,7 +55,7 @@
   type: order
   topic: Clothes
   stem: 'Put the words in order to ask: "Can I try on the blue jacket?"'
-  items: [Kann, ich, die, blaue, Jacke, anprobieren?]
+  items: [Kann, ich, die, blaue, Jacke, 'anprobieren?']
   explanation: |-
     Kann ich die blaue Jacke anprobieren? In a yes/no question the modal verb comes first, then the subject, and the infinitive goes to the end. With a modal, anprobieren stays in one piece at the end.
 
@@ -345,10 +345,10 @@
   topic: Adjective endings
   stem: 'On the same sign: "Gefüllte Paprika mit Reis". Why does gefüllt end in -e?'
   image: {src: images/de2-m3-market-board.svg, alt: 'A market stall sign for Marktstand Huber listing orange juice, potato soup, stuffed peppers, sausages and Swiss cheese with prices, then coffee for adults, cocoa for children, and the Saturday opening hours.'}
-  choices: ['Paprika is masculine and accusative.', 'All participles end in -e.', 'Paprika is feminine, nominative, with no article.', 'It follows a der-word.']
+  choices: ['Paprika is masculine and accusative.', 'All participles end in -e.', 'There is no article, and Paprika is feminine (or plural) and nominative.', 'It follows a der-word.']
   answer: 2
   explanation: |-
-    die Paprika is feminine. The menu item stands alone (nominative) with no article, so the participle takes the strong ending of "die": -e. Participles don't have a fixed ending; they take whatever ending an adjective would take there.
+    die Paprika is feminine. The menu item stands alone (nominative) with no article, so the participle takes the strong ending of "die": -e. If the sign means several peppers (plural), the strong ending is -e as well. Participles don't have a fixed ending; they take whatever ending an adjective would take there.
 
 # --- 12h2 Honors: comparing the German-speaking countries ---
 - id: de2-m3-r2-h15

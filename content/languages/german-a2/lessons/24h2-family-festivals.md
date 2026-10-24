@@ -32,7 +32,7 @@ timeline
 
 ## The first day of school: Einschulung
 
-In Germany children usually start school at about six. The first day, *die Einschulung*, is a family occasion: there is often a short ceremony at the school, photos, and lunch or cake with grandparents afterwards. Every new pupil carries *eine Schultüte*, a large decorated paper cone filled with sweets, small toys and school things such as pens. The custom began in Saxony and Thuringia in the early 1800s; in parts of eastern Germany the cone is still called *Zuckertüte*. Many parents make it with their child, and the cone is often as big as the child's arm.
+In Germany children usually start school at about six. The first day, *die Einschulung*, is a family occasion: there is often a short ceremony at the school, photos, and lunch or cake with grandparents afterwards. Every new pupil carries *eine Schultüte*, a large decorated paper cone filled with sweets, small toys and school things such as pens. The custom began in Saxony and Thuringia in the early 1800s; in parts of eastern Germany the cone is still called *Zuckertüte*. Parents or grandparents usually prepare it, and some families make it together with the child.
 
 ## Birthdays: three rules
 
