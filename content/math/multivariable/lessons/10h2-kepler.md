@@ -17,9 +17,10 @@ integrates $\mathbf F = m\mathbf a$ for that force, using only the vector calcul
 module (cross products, the product rule, polar coordinates), and recovers the three laws of
 planetary motion.
 
-The history is part of the point. Johannes Kepler found the laws by fitting Tycho Brahe's
-naked-eye observations of Mars: the first two appeared in *Astronomia nova* (1609) and the
-third in *Harmonices mundi* (1619). They were empirical rules, with no explanation. In the
+The history is part of the point. Johannes Kepler found the laws from Tycho Brahe's
+naked-eye observations: the first two, from fitting the orbit of Mars, appeared in
+*Astronomia nova* (1609), and the third, from comparing the periods and distances of all the
+known planets, in *Harmonices mundi* (1619). They were empirical rules, with no explanation. In the
 *Principia* (1687), Isaac Newton showed that all three follow from his laws of motion and an
 inverse-square law of gravitation, one of the first great triumphs of calculus.
 

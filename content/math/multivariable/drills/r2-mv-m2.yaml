@@ -22,7 +22,7 @@
   solution: |-
     $\mathbf r' = \langle -{aa:coef}\sin t,\; {aa:coef}\cos t,\; {bb}\rangle$, $\mathbf r'' = \langle -{aa:coef}\cos t,\; -{aa:coef}\sin t,\; 0\rangle$, $\mathbf r''' = \langle {aa:coef}\sin t,\; -{aa:coef}\cos t,\; 0\rangle$.
     $\mathbf r'\times\mathbf r'' = \langle {ab:coef}\sin t,\; {mab:coef}\cos t,\; {a2}\rangle$, so $|\mathbf r'\times\mathbf r''|^2 = {a2}\cdot{den} = {cs:dp0}$ and $(\mathbf r'\times\mathbf r'')\cdot\mathbf r''' = {a2b}$.
-    $\tau = \dfrac{{a2b}}{{cs:dp0}} =$ **${tau:texfrac}$**, and $\kappa = \dfrac{|\mathbf r'\times\mathbf r''|}{|\mathbf r'|^3} = \dfrac{a}{a^2 + b^2} =$ **${kap:texfrac}$**.
+    $\tau = \dfrac{{a2b}}{{cs:dp0}} =$ **${tau:texfrac}$**, and $\kappa = \dfrac{|\mathbf r'\times\mathbf r''|}{|\mathbf r'|^3} = \dfrac{a}{a^2 + b^2} = \dfrac{{aa}}{{den}} =$ **${kap:texfrac}$** (here $a = {aa}$, $b = {bb}$).
 - id: mv-m2-r2-torsion-cubic
   title: Torsion of a cubic curve
   topic: Torsion
