@@ -120,7 +120,7 @@ Find the parabola $y = ax^2 + bx + c$ through $(1, 4)$, $(2, 9)$ and $(-1, 6)$.
 Each point gives a linear equation in $a, b, c$: $a + b + c = 4$, $4a + 2b + c = 9$, $a - b + c = 6$. Subtracting the first from the third: $-2b = 2$, so $b = -1$. Then $a + c = 5$ and $4a + c = 11$, so $3a = 6$, $a = 2$, $c = 3$. The parabola is $y = 2x^2 - x + 3$.
 
 ```plot
-{"x": [-2, 3], "y": [0, 12], "functions": [{"f": "2x^2 - x + 3"}], "points": [{"at": [1, 4], "label": "(1, 4)"}, {"at": [2, 9], "label": "(2, 9)"}, {"at": [-1, 6], "label": "(-1, 6)"}], "caption": "Example 4: the parabola y = 2x² − x + 3 passes through all three given points."}
+{"x": [-2, 3], "y": [0, 12], "functions": [{"f": "2x^2 - x + 3"}], "points": [{"at": [1, 4]}, {"at": [2, 9], "label": "(2, 9)"}, {"at": [-1, 6], "label": "(-1, 6)"}], "labels": [{"at": [1.45, 3.1], "text": "(1, 4)"}], "caption": "Example 4: the parabola y = 2x² − x + 3 passes through all three given points."}
 ```
 
 ## A note on nonlinear systems
@@ -128,7 +128,7 @@ Each point gives a linear equation in $a, b, c$: $a + b + c = 4$, $4a + 2b + c =
 Row reduction only works when every equation is linear. When an equation contains $x^2$, $xy$ or similar terms, go back to substitution (or to eliminating a whole squared term). For example, to intersect the circle $x^2 + y^2 = 25$ with the line $y = x + 1$, substitute: $x^2 + (x + 1)^2 = 25$ gives $2x^2 + 2x - 24 = 0$, so $x^2 + x - 12 = (x + 4)(x - 3) = 0$. The intersection points are $(3, 4)$ and $(-4, -3)$, as the picture shows.
 
 ```plot
-{"x": [-7, 7], "y": [-6, 6], "equal": true, "curves": [{"x": "5cos(t)", "y": "5sin(t)", "t": [0, "2pi"]}], "functions": [{"f": "x + 1"}], "points": [{"at": [3, 4], "label": "(3, 4)"}, {"at": [-4, -3], "label": "(-4, -3)"}], "caption": "The circle x² + y² = 25 and the line y = x + 1 meet at two points."}
+{"x": [-7, 7], "y": [-6, 6], "equal": true, "curves": [{"x": "5cos(t)", "y": "5sin(t)", "t": [0, "2pi"]}], "functions": [{"f": "x + 1"}], "points": [{"at": [3, 4]}, {"at": [-4, -3]}], "labels": [{"at": [5.0, 3.4], "text": "(3, 4)"}, {"at": [-5.9, -2.2], "text": "(-4, -3)"}], "caption": "The circle x² + y² = 25 and the line y = x + 1 meet at two points."}
 ```
 
 Unlike a linear system, a nonlinear system can have exactly two solutions, or three, or four: a line meets a circle 0, 1 or 2 times, and two different conics can meet up to 4 times.
