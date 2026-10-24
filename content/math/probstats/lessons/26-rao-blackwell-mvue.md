@@ -111,7 +111,7 @@ The chart puts the recipe in order.
 ```mermaid
 flowchart TD
   accTitle: A recipe for the minimum-variance unbiased estimator
-  accDescr: Start from the model and the target tau of theta. Find a sufficient statistic T with the factorization theorem. If T is complete, for example the sum of t of X i in an exponential family, either guess an unbiased function of T, or start from any simple unbiased estimator W and compute E of W given T by Rao–Blackwell; either way the result is the unique MVUE by Lehmann–Scheffé. If T is not complete, E of W given T still improves on W but need not be the best.
+  accDescr: Start from the model and the target tau of theta. Find a sufficient statistic T with the factorization theorem. If T is complete, for example the sum of t of X i in an exponential family, either guess an unbiased function of T, or start from any simple unbiased estimator W and compute E of W given T by Rao–Blackwell; either way the result is the unique MVUE by Lehmann–Scheffé. If T is not complete, E of W given T is still at least as good as W but need not be the best.
   A["Model f(x; θ) and target τ(θ)"] --> B["Find a sufficient statistic T (factorization)"]
   B --> C{"Is T complete?"}
   C -- "yes" --> D{"Can you spot an unbiased function of T?"}
@@ -119,7 +119,7 @@ flowchart TD
   D -- "no" --> F["Take any simple unbiased W"]
   F --> G["Compute E(W | T) (Rao–Blackwell)"]
   G --> E
-  C -- "no" --> H["E(W | T) still beats W, but may not be best"]
+  C -- "no" --> H["E(W | T) is at least as good as W, but may not be best"]
 ```
 
 ## Where complete sufficient statistics come from
