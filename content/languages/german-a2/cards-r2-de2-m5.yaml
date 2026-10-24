@@ -27,7 +27,7 @@
 - {front: 'Parts of an official letter', back: 'Absender, Anschrift, Aktenzeichen and Datum, Betreff (bold), Anrede, text, Mit freundlichen Grüßen, i. A. + signature, Anlagen.', topic: Official letters}
 - {front: 'das Aktenzeichen (Az.)', back: 'The file number of your case. Quote it whenever you write or call.', topic: Official letters}
 - {front: 'der Bescheid vs die Mahnung', back: 'der Bescheid = official decision on your case; die Mahnung = reminder that a payment is overdue.', topic: Official letters}
-- {front: 'der Widerspruch', back: 'An objection to a Bescheid, usually within one month; the Rechtsbehelfsbelehrung at the end of the letter says how and by when.', topic: Official letters}
+- {front: 'der Widerspruch', back: 'An objection to a Bescheid, usually within one month (against the Finanzamt it''s called der Einspruch); the Rechtsbehelfsbelehrung at the end of the letter says how and by when.', topic: Official letters}
 - {front: 'Der Betrag ist bis zum 15. März zu zahlen.', back: 'The amount must be paid by 15 March. sein + zu + infinitive = must be done.', topic: Official letters}
 - {front: 'Sie haben die Unterlagen vorzulegen.', back: 'You must present the documents. haben + zu + infinitive = müssen, in a strict tone.', topic: Official letters}
 - {front: 'nach Eingang Ihrer Zahlung', back: 'when your payment has arrived (nominal style: Eingang ← eingehen).', topic: Nominal style}

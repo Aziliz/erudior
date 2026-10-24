@@ -305,7 +305,7 @@
   lesson: de2-m5-h-official-letters
   term: fällig
   pos: adjective
-  meanings: [due (to be paid), due, payable, overdue]
+  meanings: [due (to be paid), due, payable]
   alt: [faellig]
   example: Die Miete ist am Ersten fällig.
   exampleEn: The rent is due on the first.
@@ -331,7 +331,7 @@
   term: das Finanzamt
   pos: noun
   plural: die Finanzämter
-  meanings: [tax office, revenue office, tax authority, IRS]
+  meanings: [tax office, revenue office, tax authority]
   example: Das Finanzamt hat mir einen Bescheid geschickt.
   exampleEn: The tax office has sent me a decision.
 - id: de2-m5-r2-w42

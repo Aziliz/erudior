@@ -28,7 +28,7 @@ Scanning means hunting for one piece of information. You know what it looks like
 
 Detailed reading means reading every word of the part that matters, including the small ones, so that you catch every detail (*die Einzelheit*). You do this last, and only where the task needs it. Most exam questions need one or two sentences read in detail, not the whole text.
 
-The main idea (*die Hauptsache*) is this: switch between the three. Skim first to know what you have, scan to find the right place, and read that place in detail. Here is the decision as a chart:
+The main idea (*die Hauptsache*) is this: switch between the three. (In an exam, read the task and the questions first, as lesson 24 said, so you know what you need; then start the chart.) Skim first to know what you have, scan to find the right place, and read that place in detail. Here is the decision as a chart:
 
 ```mermaid
 flowchart TD
@@ -105,7 +105,7 @@ In the exam and in life, the trap is rarely a difficult word. It's a small one t
 
 ## Reading a news report
 
-Newspaper reports have a fixed shape. The headline gives the topic in a few words, often without a verb. The **lead**, the first sentence or paragraph, answers the most important W-questions: *Wer? Was? Wann? Wo?* The later paragraphs add details, quotes and the *Warum?* So if you only have time for one paragraph, read the first one. Reports use the simple past for what people said (*sagte*, *erklärte*) and the present or perfect for the news itself.
+Newspaper reports have a fixed shape. The headline gives the topic in a few words, often without a verb. The **lead**, the first sentence or paragraph, answers the most important W-questions: *Wer? Was? Wann? Wo?* The later paragraphs add details, quotes and the *Warum?* So if you only have time for one paragraph, read the first one. Reports tell past events mostly in the simple past (*sagte*, *erklärte*, *kam*); the first sentence often uses the perfect, and anything that is still true now is in the present, as in the report below.
 
 > Neustadt: Bibliothek verleiht jetzt auch Werkzeug
 >

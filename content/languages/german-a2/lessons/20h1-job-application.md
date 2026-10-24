@@ -57,7 +57,7 @@ A German *Lebenslauf* is a table: dates on the left, facts on the right, no full
 
 Three things that are different from an English-language résumé:
 
-- **The photo.** Many Germans still put a professional photo in the top right corner. Since the General Equal Treatment Act of 2006 (*AGG*), which forbids discrimination in hiring, employers no longer ask for one, and many applicants leave it out. Both are normal; a holiday snapshot is not.
+- **The photo.** Many Germans still put a professional photo in the top right corner. Since the General Equal Treatment Act of 2006 (*AGG*), which forbids discrimination in hiring, many employers no longer ask for one, and many applicants leave it out. Both are normal; a holiday snapshot is not.
 - **Gaps.** Germans expect a CV without unexplained gaps. If you spent a year travelling or looking after a child, write it in: *2022–2023 Elternzeit* (parental leave).
 - **Signature.** The handwritten signature with place and date is traditional; in an e-mail application it's now optional.
 
@@ -165,7 +165,7 @@ German courts say a reference must be true but also benevolent, so it shouldn't 
 | *zu unserer Zufriedenheit* | ausreichend (4) |
 | *im Großen und Ganzen zu unserer Zufriedenheit* | mangelhaft (5) |
 
-*stets* means always (a formal *immer*). Two small words carry the grade: *stets* and the form of *voll*. The top form *vollsten* is a superlative of *voll*, which logically can't be "fuller than full"; grammar books call it incorrect, yet in references it's the standard top grade. It's a good example of how a convention can be stronger than a rule.
+*stets* means always (a formal *immer*). Two small words carry the grade: *stets* and the form of *voll*. The top form *vollsten* is a superlative of *voll*, which logically can't be "fuller than full"; style guides call it illogical, yet in references it's the standard top grade. It's a good example of how a convention can be stronger than a rule.
 
 Other phrases that sound kind but aren't:
 
@@ -191,7 +191,7 @@ If the sentence had been *stets zu unserer vollsten Zufriedenheit*, the grade wo
 - Writing the CV in full sentences (*Ich habe drei Jahre bei Weber gearbeitet.*) — a German CV uses dates and noun phrases: *2019–2022 Druckerei Weber*.
 - Mixing up *die Zusage* (a yes) and *die Absage* (a no). *zu* agrees, *ab* says no.
 - *Die Betreuung von Kunde* — after *von* the noun is dative, and plurals add *-n*: *von Kunden, von Verträgen*.
-- *Ich freue mich, Sie kennenzulernen* usually means "I'm pleased to meet you", said when you meet. For the future meeting use *darauf*: *Ich freue mich darauf, Sie kennenzulernen.*
+- *Ich freue mich, Sie kennenzulernen* is mostly said when you actually meet ("I'm pleased to meet you"). In a letter, about a meeting still to come, *darauf* makes the future clear: *Ich freue mich darauf, Sie kennenzulernen.*
 - Taking every friendly reference sentence at face value. *Er war stets bemüht* sounds nice and is a bad grade.
 
 ## Key points

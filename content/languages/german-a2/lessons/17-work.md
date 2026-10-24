@@ -113,11 +113,11 @@ This chart sums up when you need *zu* and where it goes:
 ```mermaid
 flowchart TD
   accTitle: Do I need zu, and where does it go?
-  accDescr: Look at what comes before the second verb. After a modal verb, werden, würde, lassen or gehen, there is no zu, as in Ich muss arbeiten. After expressions like Zeit haben, Lust haben, versuchen, vergessen or es ist wichtig, ask whether both verbs have the same subject. If not, use a dass clause, as in Ich hoffe, dass der Chef kommt. If they do, use zu: with a separable verb zu goes in the middle, as in anzurufen; otherwise zu stands before the verb, as in zu arbeiten.
+  accDescr: Look at what comes before the second verb. After a modal verb, werden, würde, lassen or gehen, there is no zu, as in Ich muss arbeiten. After expressions like Zeit haben, Lust haben, versuchen, vergessen or es ist wichtig, ask whether the second verb needs a new subject of its own. If it does, use a dass clause, as in Ich hoffe, dass der Chef kommt. If the person doing it is the subject of the main clause, or already named there (Der Chef bittet uns, früher zu kommen), use zu: with a separable verb zu goes in the middle, as in anzurufen; otherwise zu stands before the verb, as in zu arbeiten.
   A{"What comes before the second verb?"} -- "modal verb, werden, würde, lassen, gehen" --> B["no zu: Ich muss arbeiten."]
-  A -- "Zeit haben, versuchen, es ist wichtig ..." --> C{"Same subject for both verbs?"}
-  C -- "no" --> D["dass clause: Ich hoffe, dass der Chef kommt."]
-  C -- "yes" --> E{"Separable verb?"}
+  A -- "Zeit haben, versuchen, es ist wichtig ..." --> C{"Does the second verb need a new subject?"}
+  C -- "yes" --> D["dass clause: Ich hoffe, dass der Chef kommt."]
+  C -- "no" --> E{"Separable verb?"}
   E -- "yes" --> F["zu in the middle: anzurufen"]
   E -- "no" --> G["zu before the verb: zu arbeiten"]
 ```

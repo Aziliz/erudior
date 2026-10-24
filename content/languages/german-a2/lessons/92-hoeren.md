@@ -145,7 +145,7 @@ Listening improves only by listening. Some ways that work at A2:
 
 - Trying to understand every word. Listen for nouns, numbers and the signal words for changes.
 - Writing down the first time you hear. *um sieben, nee, um halb acht*: the last version counts.
-- Hearing *siebzig* for *siebzehn*, or writing 46 for *sechsundvierzig*. Units come first.
+- Hearing *siebzig* for *siebzehn*, or writing 64 for *sechsundvierzig*. Units come first.
 - Reading *halb drei* as 3:30. It's 2:30.
 - Mistaking a modal particle for information. *Das ist halt so* adds no new fact.
 - Stopping when you miss a word. The answer often comes a moment later, so keep listening.

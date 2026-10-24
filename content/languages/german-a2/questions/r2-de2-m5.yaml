@@ -119,7 +119,7 @@
   module_quiz: true
   topic: Indirect questions
   type: text
-  stem: 'Complete with one word: "Wissen Sie, ___ ich einen Termin brauche?"'
+  stem: 'Turn the question "Brauche ich einen Termin?" into an indirect question. Complete with one word: "Wissen Sie, ___ ich einen Termin brauche?"'
   accept: [ob]
   explanation: |-
     The direct question "Brauche ich einen Termin?" is a yes/no question, so the indirect question uses ob (whether), and the verb goes to the end. wenn means if/when and can't introduce an indirect question.
@@ -159,7 +159,7 @@
   lesson: de2-services
   topic: lassen
   type: text
-  stem: 'Complete with the right form of lassen: "Er ___ sein Fahrrad reparieren."'
+  stem: 'Complete with the present-tense form of lassen: "Er ___ sein Fahrrad reparieren."'
   accept: [lässt, laesst]
   explanation: |-
     lassen changes its stem in the du and er/sie/es forms: du lässt, er lässt. "lasst" is the ihr form.
@@ -546,7 +546,7 @@
   choices: ['in the Betreff', 'in the Anrede', 'in the Aktenzeichen', 'in the Rechtsbehelfsbelehrung']
   answer: 3
   explanation: |-
-    The Rechtsbehelfsbelehrung at the end of every Bescheid says how to challenge it, usually with a Widerspruch within one month. The Betreff names the topic, the Anrede is the greeting, and the Aktenzeichen is the file number.
+    The Rechtsbehelfsbelehrung at the end of every Bescheid says how to challenge it. For a decision from the Finanzamt that is an Einspruch, usually within one month (for most other authorities it's a Widerspruch). The Betreff names the topic, the Anrede is the greeting, and the Aktenzeichen is the file number.
 - id: de2-m5-r2-h36
   lesson: de2-m5-h-official-letters
   topic: Official letters

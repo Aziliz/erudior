@@ -26,7 +26,7 @@ Three rules follow from this:
 
 1. The head word gives the gender. *die Wohnung* + *der Schlüssel* = *der Wohnungsschlüssel*. *das Haus* + *die Tür* = *die Haustür*.
 2. The head word gives the plural. *die Wohnungsschlüssel*, *die Haustüren*. Only the last part changes.
-3. Modifiers can be nouns, verbs or adjectives. A verb loses its *-en*: *der Schreibtisch* (a table for writing: desk), *das Wartezimmer* (waiting room). An adjective keeps its plain form: *die Großstadt* (big city), *das Kleingeld* (small change).
+3. Modifiers can be nouns, verbs or adjectives. A verb drops its infinitive ending, sometimes keeping an *-e-*: *der Schreibtisch* (a table for writing: desk), *das Wartezimmer* (waiting room). An adjective keeps its plain form: *die Großstadt* (big city), *das Kleingeld* (small change).
 
 Between the parts you'll often see a small linking sound: *-s-* (*Wohnungsschlüssel*, *Geburtstag*), *-n-* or *-en-* (*Sonnenbrille*, *Straßenbahn*), *-e-* (*Hundeleine*, dog lead). It carries no meaning; just ignore it when you take the word apart. After *-ung*, *-heit* and *-keit* it's practically always *-s-*.
 
@@ -131,7 +131,7 @@ flowchart TD
 A dictionary lists the basic form, not the form you see in the text. Work back to it first:
 
 - Verbs: find the infinitive. *Er kauft heute ein* → *einkaufen* (put the separable prefix back). *gefunden* → *finden*. *fand* → *finden* (look in the list of strong verbs).
-- Nouns: find the singular. *Bäume* → *der Baum*; *Häuser* → *das Haus*. A noun with an umlaut may have lost it in the singular.
+- Nouns: find the singular. *Bäume* → *der Baum*; *Häuser* → *das Haus*. A plural with an umlaut may have none in the singular.
 - Adjectives: drop the ending. *mit einem neuen Rad* → *neu*. *größer, am größten* → *groß*.
 - Compounds: if the whole word isn't there, look up the head word, then the modifier.
 

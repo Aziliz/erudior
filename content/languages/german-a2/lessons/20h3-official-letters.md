@@ -40,19 +40,19 @@ A short word for any official letter is *das Schreiben*: *Ihr Schreiben vom 12. 
 - *die Mahnung* — a reminder that a payment is overdue: *Das ist die zweite Mahnung!* The amount is *der Betrag*, and a bill that must be paid is *fällig* (due): *Der Betrag ist am 15. März fällig.*
 - a letter asking for documents, like the one above: something is missing, please send it.
 
-At the end of every *Bescheid* there's a paragraph called *die Rechtsbehelfsbelehrung*: information on how you can challenge the decision. Usually you can lodge an objection, *der Widerspruch*, within one month. Some decisions go straight to court instead, and the paragraph tells you which applies. Read it closely and keep the envelope: the deadline counts from when the letter is treated as delivered, not from the day you open it.
+At the end of every *Bescheid* there's a paragraph called *die Rechtsbehelfsbelehrung*: information on how you can challenge the decision. Usually you can lodge an objection, *der Widerspruch*, within one month. Against a decision from the *Finanzamt* the objection is called *der Einspruch* instead, also usually within one month. Some decisions go straight to court instead, and the paragraph tells you which applies. Read it closely and keep the envelope: the deadline counts from when the letter is treated as delivered, not from the day you open it.
 
 ## Reading a letter in a fixed order
 
 ```mermaid
 flowchart TD
   accTitle: How to read an official letter
-  accDescr: First read the sender and the subject line to see who writes and what about. Then note the file number. Next, search the text for a date, the words bis or spätestens, and a sentence with ist ... zu plus an infinitive or bitte: that is what you must do and by when. Then check the enclosures. If the letter is a Bescheid you disagree with, read the Rechtsbehelfsbelehrung at the end to find out how and by when to object. If anything is unclear, call the Sachbearbeiter and quote the file number.
+  accDescr: First read the sender and the subject line to see who writes and what about. Then note the file number. Next, search the text for a date, the words bis or spätestens, and a sentence with ist ... zu plus an infinitive or bitte: that is what you must do and by when. Then check the enclosures. If the letter is a Bescheid you disagree with, read the Rechtsbehelfsbelehrung at the end to find out how and by when to object (a Widerspruch, or an Einspruch for tax decisions). If anything is unclear, call the Sachbearbeiter and quote the file number.
   A["1. Absender and Betreff: who writes, about what?"] --> B["2. Aktenzeichen: note the file number"]
   B --> C["3. Find the task: bis, spätestens, ist ... zu, bitte"]
   C --> D["4. Anlagen: what is enclosed?"]
   D --> E{"5. A Bescheid you disagree with?"}
-  E -- "yes" --> F["read the Rechtsbehelfsbelehrung: Widerspruch, usually within one month"]
+  E -- "yes" --> F["read the Rechtsbehelfsbelehrung: Widerspruch (tax: Einspruch), usually within one month"]
   E -- "no" --> G["do the task before the deadline"]
   F --> H["6. Unclear? Call and quote the Aktenzeichen"]
   G --> H
@@ -66,7 +66,7 @@ Official letters rarely say *Sie müssen*. They say:
 - *Das Formular ist vollständig auszufüllen.* — The form is to be filled in completely.
 - *Die Unterlagen sind dem Antrag beizufügen.* — The documents are to be enclosed with the application.
 
-The pattern is *sein* + *zu* + infinitive at the end, the same *zu* + infinitive as in lesson 17, with separable verbs taking *zu* in the middle (*auszufüllen, beizufügen*). The subject is the thing that must be dealt with, and the person who has to act isn't mentioned, just as in the passive (honors lesson 2). It usually means "must be done", and with a negative "must not": *Die Frist ist unbedingt einzuhalten.* — The deadline must be kept. *Diese Regel ist nicht zu ändern.* can also mean "can't be changed"; context decides.
+The pattern is *sein* + *zu* + infinitive at the end, the same *zu* + infinitive as in lesson 17, with separable verbs taking *zu* in the middle (*auszufüllen, beizufügen*). The subject is the thing that must be dealt with, and the person who has to act isn't mentioned, just as in the passive (honors lesson 2). It usually means "must be done": *Die Frist ist unbedingt einzuhalten.* — The deadline must be kept. With *nicht* it usually means "must not": *Das Gelände ist nicht zu betreten.* — The site must not be entered. But it can also mean "can (not) be done": *Diese Regel ist nicht zu ändern.* can mean "This rule can't be changed"; context decides.
 
 A close relative uses *haben*, with a person as the subject: *Sie haben die Unterlagen bis zum 26. Februar vorzulegen.* — You have to present the documents by 26 February. *haben* + *zu* = *müssen*, in a strict tone.
 
@@ -74,7 +74,7 @@ A close relative uses *haben*, with a person as the subject: *Sie haben die Unte
 
 Read the letter in the picture: *Bitte reichen Sie diese bis zum 26.02.2026 beim Bürgeramt ein. Das Formular ist diesem Schreiben beigefügt.*
 
-1. The task: *Bitte reichen Sie … ein* — *einreichen* (separable) = to hand in, submit. What? *diese* = *die Wohnungsgeberbestätigung*, the confirmation from the landlord that he moved in (required for registering an address in Germany).
+1. The task: *Bitte reichen Sie … ein* — *einreichen* (separable) = to hand in, submit. What? *diese* = *die Wohnungsgeberbestätigung*, the landlord's confirmation that Daniel has moved in (required for registering an address in Germany).
 2. The deadline: *bis zum 26.02.2026*. From the letter's date (12 February) that's two weeks.
 3. Where: *beim Bürgeramt*.
 4. Help: *Das Formular ist diesem Schreiben beigefügt.* — The form is enclosed with this letter (*beifügen* = to enclose; *beigefügt* here is like an adjective after *sein*). The *Anlage* line confirms it.
@@ -153,7 +153,7 @@ In plain words: transfer 101 euros by 15 February, quoting the file number.
 ## Key points
 
 - Official letters follow a fixed layout: *Absender, Anschrift, Aktenzeichen* and *Datum, Betreff* (bold, without the word), *Anrede*, text, *Mit freundlichen Grüßen*, *i. A.* + signature, *Anlagen*.
-- *der Bescheid* is a binding decision; *der Widerspruch* is the objection, usually within one month (the *Rechtsbehelfsbelehrung* says how). *die Mahnung* is a payment reminder; a payment is *fällig* on a date.
+- *der Bescheid* is a binding decision; *der Widerspruch* is the objection (*der Einspruch* for tax decisions), usually within one month (the *Rechtsbehelfsbelehrung* says how). *die Mahnung* is a payment reminder; a payment is *fällig* on a date.
 - Read in order: who and what, file number, task and deadline, enclosures, your rights.
 - *sein* + *zu* + infinitive = must be done: *Der Betrag ist bis zum 15. März zu zahlen.* *haben* + *zu* = must: *Sie haben … vorzulegen.*
 - Unpack the nominal style by turning the noun back into a verb: *nach Eingang Ihrer Zahlung = wenn Ihre Zahlung angekommen ist.*

@@ -147,7 +147,7 @@
   module_quiz: true
   topic: Reading strategies
   type: order
-  stem: You have a reading question and a text. Put the steps of an efficient reader in order.
+  stem: 'You have a reading question and a text. As in the exam tip from lesson 24, you start with the question. Put the steps of an efficient reader in order.'
   items:
   - Read the question first
   - Skim the text for its type and topic

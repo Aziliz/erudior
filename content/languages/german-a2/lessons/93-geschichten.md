@@ -14,7 +14,7 @@ You'll use all the tools from this module: skimming for the shape of the story, 
 
 ## How stories are told
 
-Stories are told by a **narrator**, the voice that tells them, and in German the narrator uses the simple past (*Präteritum*). The speech of the characters, in quotation marks, uses the tenses of conversation: present and perfect. So in one paragraph you'll see *Sie nahm den Vogel* (narrator) next to *Du hast mir geholfen* (a character speaking).
+Stories are told by a **narrator**, the voice that tells them, and in German the narrator usually uses the simple past (*Präteritum*). The speech of the characters, in quotation marks, uses the tenses of conversation: present and perfect. So in one paragraph you'll see *Sie nahm den Vogel* (narrator) next to *Du hast mir geholfen* (a character speaking).
 
 Some words that move a story forward:
 
@@ -136,7 +136,7 @@ Poems often use older or shortened forms to fit the rhythm and the rhyme. Here a
 |---|---|---|
 | *Ruh* | *Ruhe* (calm, quiet) | a shortened form; it rhymes with *du* |
 | *Spürest du* | *spürst du* (you feel) | an older ending, *-est* |
-| *Vögelein* | *kleine Vögel* (little birds) | *-lein*, an old form of *-chen* |
+| *Vögelein* | *kleine Vögel* (little birds) | *-lein*, an older, more literary diminutive ending beside *-chen* |
 | *im Walde* | *im Wald* | an old dative ending *-e* |
 | *balde* | *bald* (soon) | an older form; it rhymes with *Walde* |
 | *Ruhest du auch* | *ruhst du auch* (you will rest too) | older ending; the present used for the future |
@@ -147,9 +147,9 @@ The lines (*die Zeilen*) rhyme in four pairs, but the pairs are not next to each
 
 ### Example 3: Reading the poem in modern German
 
-Rewrite lines 4–8 in everyday German.
+Rewrite lines 3–8 in everyday German.
 
-1. *Spürest du kaum einen Hauch* → *Du spürst kaum einen Hauch.* (*kaum* = hardly; *der Hauch* = breath, a breath of wind.) Poems can put the verb first without making a question.
+1. *In allen Wipfeln spürest du kaum einen Hauch* → *In allen Wipfeln spürst du kaum einen Hauch.* (*kaum* = hardly; *der Hauch* = breath, a breath of wind.) This is not a question: *In allen Wipfeln* stands in first position, so the verb comes second and the subject *du* after it. That's normal word order, just split over two lines. *Über allen Gipfeln ist Ruh* and *balde ruhest du auch* work the same way.
 2. *Die Vögelein schweigen im Walde* → *Die kleinen Vögel sind still im Wald.* (*schweigen* = to be silent.)
 3. *Warte nur, balde ruhest du auch* → *Warte nur, bald ruhst du auch.* *nur* here softens the imperative: "just wait". German often uses the present for the future when a time word like *bald* is there.
 
@@ -161,7 +161,7 @@ Poems are made to be heard. When you read one aloud (*vorlesen*), pause at the e
 
 - Thinking the narrator's simple past means something different from the perfect. *Sie nahm den Vogel* and *Sie hat den Vogel genommen* mean the same; the first is story style.
 - Mixing up similar forms: *flog* (*fliegen*, flew) and *floh* (*fliehen*, fled); *hielt* (*halten*) and *hieß* (*heißen*).
-- Reading *Ist Ruh* or *Spürest du* as questions. Poems change word order freely; check the punctuation.
+- Reading *Ist Ruh* or *Spürest du* as questions. Read across the line break: *Über allen Gipfeln ist Ruh* and *In allen Wipfeln spürest du …* start with a place phrase, so the verb comes second, as in any statement. Check the punctuation, too.
 - Treating every capital letter in a poem as a noun. In older poems each line starts with a capital.
 - Taking *Ruh*, *balde* and *spürest* as mistakes. They're poetic forms; don't use them in your e-mails.
 - Saying *der Vögelein*. Diminutives are always neuter: *das Vögelein*.
