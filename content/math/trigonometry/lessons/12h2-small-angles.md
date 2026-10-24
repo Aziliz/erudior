@@ -37,7 +37,7 @@ strictly bigger than the one before. So $\tfrac12\sin t < \tfrac12 t < \tfrac12\
 claim.
 
 ```plot
-{"x": [-0.2, 1.4], "y": [-0.2, 1.1], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 1.5708]}], "polygons": [{"points": [[0, 0], [1, 0], [0.7648, 0.6442]]}, {"points": [[0, 0], [1, 0], [1, 0.8423]]}], "segments": [{"from": [0.7648, 0.6442], "to": [0.7648, 0], "dashed": true, "label": "sin t"}], "points": [[0, 0], {"at": [1, 0], "label": "A"}, [0.7648, 0.6442], {"at": [1, 0.8423], "label": "T"}], "labels": [{"at": [-0.08, 0.07], "text": "O"}, {"at": [0.72, 0.76], "text": "P"}], "caption": "t = 0.7: triangle OAP (area ½ sin t) sits inside the sector OAP (area ½ t), which sits inside triangle OAT (area ½ tan t)"}
+{"x": [-0.2, 1.4], "y": [-0.2, 1.1], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 1.5708]}], "polygons": [{"points": [[0, 0], [1, 0], [0.7648, 0.6442]]}, {"points": [[0, 0], [1, 0], [1, 0.8423]]}], "segments": [{"from": [0.7648, 0.6442], "to": [0.7648, 0], "dashed": true}], "points": [[0, 0], {"at": [1, 0], "label": "A"}, [0.7648, 0.6442], {"at": [1, 0.8423], "label": "T"}], "labels": [{"at": [-0.08, 0.07], "text": "O"}, {"at": [0.72, 0.76], "text": "P"}, {"at": [0.64, 0.3], "text": "sin t"}], "caption": "t = 0.7: triangle OAP (area ½ sin t) sits inside the sector OAP (area ½ t), which sits inside triangle OAT (area ½ tan t)"}
 ```
 
 The same order holds for the lengths themselves: the height $\sin t$ is shorter than the arc $t$ that
@@ -72,7 +72,7 @@ $y = \sin t$ leaves the origin with slope exactly 1, hugging the line $y = t$. T
 main reason calculus measures angles in radians.
 
 ```plot
-{"x": [-1.5, 1.5], "y": [-1.6, 1.6], "equal": true, "functions": [{"f": "sin(x)", "label": "y = sin t"}, {"f": "x", "label": "y = t", "dashed": true}, {"f": "tan(x)", "label": "y = tan t", "from": -1.0, "to": 1.0}], "caption": "Near 0 the graphs of sin t, t and tan t are almost indistinguishable; farther out sin t falls below the line and tan t rises above it"}
+{"x": [-1.5, 1.5], "y": [-1.6, 1.6], "equal": true, "functions": [{"f": "sin(x)"}, {"f": "x", "label": "y = t", "dashed": true}, {"f": "tan(x)", "label": "y = tan t", "from": -1.0, "to": 1.0}], "labels": [{"at": [1.15, 0.6], "text": "y = sin t"}], "caption": "Near 0 the graphs of sin t, t and tan t are almost indistinguishable; farther out sin t falls below the line and tan t rises above it"}
 ```
 
 ## Approximations and how good they are
