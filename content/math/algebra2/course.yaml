@@ -7,7 +7,7 @@ released: true
 changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on nonlinear systems, matrices, polynomial and rational inequalities, and the binomial theorem.
 order: 3
 subject: Math
-level: [High school]
+level: [High School]
 type: [Course]
 modules:
   - id: a2-m1

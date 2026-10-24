@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import { REPORT_REASONS, REVIEW_HELP, REVIEW_LABEL, api as community, type CommunityEntry, type Review } from "../lib/community";
-import { SUBJECTS } from "../lib/communityFormat";
+import { LEVELS, SUBJECTS, TYPES, normalizeLevel, normalizeSubject, normalizeType } from "../lib/taxonomy";
 
 export function ReviewPill({ review }: { review: Review }) {
   return (
@@ -64,19 +64,26 @@ export default function CommunityCatalog({ api }: { api: AppApi }) {
   const [error, setError] = useState("");
   const [q, setQ] = useState("");
   const [subject, setSubject] = useState("");
+  const [level, setLevel] = useState("");
+  const [type, setType] = useState("");
   const [reviewedOnly, setReviewedOnly] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [reporting, setReporting] = useState<string | null>(null);
   const [shown, setShown] = useState(12);
 
   useEffect(() => {
-    community.catalog().then(setList, (e) => setError((e as Error).message));
+    community.catalog().then(
+      (l) => setList(l.map((c) => ({ ...c, subject: normalizeSubject(c.subject), level: normalizeLevel(c.level), type: normalizeType(c.type) }))),
+      (e) => setError((e as Error).message),
+    );
   }, []);
 
   const installed = useMemo(() => new Map(api.courses.filter((c) => c.community).map((c) => [c.community!.id, c])), [api.courses]);
   const filtered = (list ?? []).filter((c) => {
     if (reviewedOnly && c.review !== "reviewed") return false;
     if (subject && c.subject !== subject) return false;
+    if (level && c.level !== level) return false;
+    if (type && c.type !== type) return false;
     const hay = `${c.title} ${c.description} ${c.author} ${c.subject} ${c.level}`.toLowerCase();
     return q
       .toLowerCase()
@@ -93,12 +100,6 @@ export default function CommunityCatalog({ api }: { api: AppApi }) {
 
   return (
     <section className="catalog community">
-      <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 6px" }}>
-        <h2 className="section-title" style={{ margin: 0 }}>
-          Community courses
-        </h2>
-        {list && <span className="small muted">{filtered.length === list.length ? `${list.length} courses` : `${filtered.length} of ${list.length} courses`}</span>}
-      </div>
       <p className="small muted" style={{ marginBottom: 12 }}>
         Made by people who use Erudior. <b>Reviewed</b> means an Erudior reviewer checked that version; <b>Not reviewed</b> means nobody has yet.
         {api.family ? " Community courses are for free learning and don't count toward homeschool records." : ""}
@@ -124,10 +125,29 @@ export default function CommunityCatalog({ api }: { api: AppApi }) {
                 ))}
               </select>
             </label>
+            <label className="field inline-field">
+              <span>Level</span>
+              <select className="select" value={level} onChange={(e) => setLevel(e.target.value)}>
+                <option value="">All</option>
+                {LEVELS.map((s) => (
+                  <option key={s}>{s}</option>
+                ))}
+              </select>
+            </label>
+            <label className="field inline-field">
+              <span>Type</span>
+              <select className="select" value={type} onChange={(e) => setType(e.target.value)}>
+                <option value="">All</option>
+                {TYPES.map((s) => (
+                  <option key={s}>{s}</option>
+                ))}
+              </select>
+            </label>
             <label className="check">
               <input type="checkbox" checked={reviewedOnly} onChange={(e) => setReviewedOnly(e.target.checked)} />
               Reviewed only
             </label>
+            {list && <span className="small muted">{filtered.length === list.length ? `${list.length} courses` : `${filtered.length} of ${list.length} courses`}</span>}
           </div>
           <div className="catalog-grid">
             {filtered.slice(0, shown).map((c) => {
@@ -139,6 +159,7 @@ export default function CommunityCatalog({ api }: { api: AppApi }) {
                     <ReviewPill review={c.review} />
                     <span className="pill neutral">{c.subject}</span>
                     <span className="pill neutral">{c.level}</span>
+                    <span className="pill neutral">{c.type}</span>
                   </div>
                   <h3>{c.title}</h3>
                   <p className="small muted">by {c.author}</p>

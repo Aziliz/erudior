@@ -11,7 +11,7 @@ released: true
 changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on money word problems and graphing lines.
 order: 1
 subject: Math
-level: [High school]
+level: [High School]
 type: [Course]
 modules:
   - id: pre-m1

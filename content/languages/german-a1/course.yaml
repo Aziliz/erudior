@@ -12,7 +12,7 @@ changelog: Fixed the word "am" not accepting "on" as an answer.
 released: true
 order: 100
 subject: Languages
-level: [A1]
+level: [High School, College, Professional]
 type: [Course]
 language:
   code: de

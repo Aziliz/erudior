@@ -229,6 +229,19 @@ a:hover {
   width: 22px;
   height: 22px;
 }
+button.brand {
+  border: 0;
+  background: none;
+  color: var(--ink);
+  padding: 4px 6px;
+  margin-left: -6px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-family: inherit;
+}
+button.brand:hover {
+  background: var(--sheet);
+}
 .nav {
   display: flex;
   gap: 2px;
@@ -3445,4 +3458,115 @@ fieldset.block-edit > legend {
   .editor-bar {
     flex-wrap: wrap;
   }
+}
+
+/* Home page (website) */
+.home-hero {
+  max-width: 760px;
+  margin: 32px auto 40px;
+  text-align: center;
+}
+.home-mark svg {
+  width: 48px;
+  height: 48px;
+}
+.home-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+  margin: 12px 0 14px;
+}
+.home-lede {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0 auto 22px;
+  max-width: 640px;
+}
+.home-ctas {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.home-stats {
+  margin-top: 18px;
+}
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 0 0 40px;
+}
+.home-feature {
+  padding: 18px 20px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.home-feature h2 {
+  font-size: 1.0625rem;
+  margin: 0 0 6px;
+}
+.home-feature p {
+  margin: 0;
+  line-height: 1.55;
+}
+button.catalog-card.home-course {
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Download page (website) */
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+}
+.download-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.download-card.current {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.download-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.125rem;
+  margin: 0;
+}
+.download-card p {
+  margin: 0;
+}
+.download-card .row {
+  flex-wrap: wrap;
+}
+.download-card a.btn {
+  text-decoration: none;
+}
+.download-card [aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: default;
+}
+.code-row {
+  flex-wrap: nowrap !important;
+  align-items: center;
+}
+.install-cmd {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  background: var(--sheet);
+  font-size: 0.875rem;
 }

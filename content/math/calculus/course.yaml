@@ -13,7 +13,7 @@ released: true
 changelog: Checked against university and open-textbook sources; corrected missing conditions in theorems and definitions, and added a few short sections; new lessons on hyperbolic functions and first-order linear differential equations.
 order: 7
 subject: Math
-level: [High school, College]
+level: [High School, College]
 type: [Course, Exam prep]
 modules:
   - id: calc-m1

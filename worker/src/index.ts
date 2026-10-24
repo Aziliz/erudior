@@ -10,7 +10,8 @@
 // Only adults (18+) who accept the terms can publish. Courses go live at once tagged "Not
 // reviewed"; a reviewer marks a version Reviewed, and any new version is Not reviewed again.
 
-import { LIMITS, IMAGE_TYPES, checkDoc, emptyDoc, imageIds, type CommunityDoc } from "../../src/lib/communityFormat.ts";
+import { LIMITS, IMAGE_TYPES, checkDoc, emptyDoc, imageIds, upgradeDoc, type CommunityDoc } from "../../src/lib/communityFormat.ts";
+import { normalizeLevel, normalizeSubject, normalizeType } from "../../src/lib/taxonomy.ts";
 
 export { LiveRoom } from "./live.ts";
 import { sha256 as liveHash } from "./live.ts";
@@ -52,6 +53,7 @@ interface CourseRow {
   description: string;
   subject: string;
   level: string;
+  kind?: string;
   counts: string;
   created_at: string;
   updated_at: string;
@@ -279,8 +281,9 @@ function publicCourse(c: CourseRow & { author: string }) {
     id: c.id,
     title: c.title,
     description: c.description,
-    subject: c.subject,
-    level: c.level,
+    subject: normalizeSubject(c.subject),
+    level: normalizeLevel(c.level),
+    type: normalizeType(c.kind),
     author: c.author,
     version: c.version,
     review: tag(c),
@@ -488,13 +491,13 @@ async function route(req: Request, env: Env): Promise<Response> {
   if (r && method === "GET") {
     const u = await needUser(req, env);
     const c = await ownCourse(env, u, r[1]);
-    return json({ id: c.id, status: c.status, version: c.version, review: tag(c), reviewNote: c.review_note, doc: JSON.parse(c.draft) });
+    return json({ id: c.id, status: c.status, version: c.version, review: tag(c), reviewNote: c.review_note, doc: upgradeDoc(JSON.parse(c.draft)) });
   }
   if (r && method === "PUT") {
     const u = await needUser(req, env);
     const c = await ownCourse(env, u, r[1]);
     if (c.status === "removed") throw new HttpError(403, "This course was taken down; contact the reviewers.");
-    const doc = await readJson<CommunityDoc>(req);
+    const doc = upgradeDoc(await readJson<CommunityDoc>(req));
     const errs = checkDoc(doc, false);
     if (errs.length) return json({ error: errs[0], errors: errs }, 400);
     await env.DB.prepare("UPDATE courses SET draft = ?, title = CASE WHEN version = 0 THEN ? ELSE title END, updated_at = ? WHERE id = ?")
@@ -517,7 +520,7 @@ async function route(req: Request, env: Env): Promise<Response> {
       await env.DB.prepare("UPDATE courses SET status = 'unpublished', updated_at = ? WHERE id = ?").bind(now(), c.id).run();
       return json({ ok: true });
     }
-    const doc = JSON.parse(c.draft) as CommunityDoc;
+    const doc = upgradeDoc(JSON.parse(c.draft) as CommunityDoc);
     const errs = checkDoc(doc, true);
     if (errs.length) return json({ error: errs[0], errors: errs }, 400);
     const ids = imageIds(doc);
@@ -528,9 +531,9 @@ async function route(req: Request, env: Env): Promise<Response> {
     const version = c.version + 1;
     await env.FILES.put(`courses/${c.id}.v${version}.json`, JSON.stringify(doc), { httpMetadata: { contentType: "application/json" } });
     await env.DB.prepare(
-      "UPDATE courses SET status = 'published', version = ?, title = ?, description = ?, subject = ?, level = ?, counts = ?, published_at = ?, updated_at = ? WHERE id = ?",
+      "UPDATE courses SET status = 'published', version = ?, title = ?, description = ?, subject = ?, level = ?, kind = ?, counts = ?, published_at = ?, updated_at = ? WHERE id = ?",
     )
-      .bind(version, doc.title.trim(), doc.description.trim(), doc.subject, doc.level, JSON.stringify(counts(doc)), now(), now(), c.id)
+      .bind(version, doc.title.trim(), doc.description.trim(), doc.subject, doc.level, doc.type ?? "Course", JSON.stringify(counts(doc)), now(), now(), c.id)
       .run();
     return json({ ok: true, version });
   }

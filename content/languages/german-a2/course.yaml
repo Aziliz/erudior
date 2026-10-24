@@ -12,7 +12,7 @@ revision: 1
 released: true
 order: 101
 subject: Languages
-level: [A2]
+level: [High School, College, Professional]
 type: [Course]
 requires: [lang-german-a1]
 language:

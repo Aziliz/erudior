@@ -81,7 +81,7 @@ export function defaultCredits(courseId: string): number {
   const e = CATALOG.find((x) => x.id === courseId);
   if (!e) return 0;
   if (e.subject === "Languages") return 1;
-  return e.level.some((l) => l === "High school" || l === "College") ? 1 : 0;
+  return e.level.some((l) => l === "High School" || l === "College") ? 1 : 0;
 }
 
 // ---------- course percent ----------

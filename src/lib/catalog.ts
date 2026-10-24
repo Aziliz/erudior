@@ -9,6 +9,7 @@ import type { Course, Progress } from "./types";
 import { attemptPassed } from "./session";
 import { coreLessons } from "./course";
 import { REMOTE, downloadCourse } from "./courseSource";
+import { LEVELS, TYPES, normalizeLevels, normalizeTypes } from "./taxonomy";
 
 export interface CatalogEntry {
   id: string;
@@ -47,10 +48,13 @@ export interface CatalogEntry {
 }
 
 /** The current catalog. Replaced in place by setCatalog, so modules can keep a reference. */
-export const CATALOG: CatalogEntry[] = [...(catalogJson as CatalogEntry[])];
+// Labels are normalized so catalogs published before the current level/type lists still sort and filter.
+const tidy = (e: CatalogEntry): CatalogEntry => ({ ...e, level: normalizeLevels(e.level ?? []), type: normalizeTypes(e.type ?? []) });
+
+export const CATALOG: CatalogEntry[] = (catalogJson as CatalogEntry[]).map(tidy);
 
 export function setCatalog(entries: CatalogEntry[]) {
-  CATALOG.splice(0, CATALOG.length, ...entries);
+  CATALOG.splice(0, CATALOG.length, ...entries.map(tidy));
 }
 
 export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
@@ -62,16 +66,15 @@ export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
 
 export const catalogEntry = (id: string) => CATALOG.find((e) => e.id === id);
 
-const LEVELS = ["Middle school", "High school", "College", "Graduate", "Professional", "A1", "A2", "B1", "B2", "C1", "C2"];
-const levelRank = (l: string) => (LEVELS.includes(l) ? LEVELS.indexOf(l) : LEVELS.length);
 
 /** Filter values in a stable order: by how they appear in the catalog. */
 export function facets() {
   const uniq = (xs: string[]) => [...new Set(xs)];
   return {
     subject: uniq(CATALOG.map((e) => e.subject)),
-    level: uniq(CATALOG.flatMap((e) => e.level)).sort((a, b) => levelRank(a) - levelRank(b)),
-    type: uniq(CATALOG.flatMap((e) => e.type)),
+    // Every level and type is always offered, so the choices don't shift as courses are added.
+    level: [...LEVELS] as string[],
+    type: [...TYPES] as string[],
   };
 }
 

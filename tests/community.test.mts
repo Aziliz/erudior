@@ -1,5 +1,6 @@
 // Community courses: document checks, safe Markdown, conversion to an app course.
-import { checkDoc, emptyDoc, imageIds, safeMd, toCourse, type CommunityDoc } from "../src/lib/communityFormat.ts";
+import { checkDoc, emptyDoc, imageIds, safeMd, toCourse, upgradeDoc, type CommunityDoc } from "../src/lib/communityFormat.ts";
+import { normalizeLevels, normalizeSubject } from "../src/lib/taxonomy.ts";
 import { normalizeCourse } from "../src/lib/course.ts";
 
 let fails = 0;
@@ -16,7 +17,7 @@ const doc: CommunityDoc = {
   title: "Birds",
   description: "Backyard birds.",
   subject: "Science",
-  level: "Elementary",
+  level: "Elementary School",
   lessons: [
     {
       id: "l1",
@@ -73,6 +74,19 @@ ok("question plain text", course.banks[0].questions[0].stem === "Which bird?" &&
 ok("deck", course.decks[0].cards[0].back === "Chickadee");
 const noQ = normalizeCourse(toCourse({ ...doc, lessons: [{ id: "l1", title: "T", blocks: [{ type: "text", md: "Hi" }] }] }, { id: "z", version: 1, review: "not_reviewed", author: "A" }, () => ""));
 ok("no questions = no bank", noQ.banks.length === 0 && noQ.community?.review === "not_reviewed");
+
+// Drafts saved with the old labels still check out after upgrading.
+{
+  const old = upgradeDoc({ ...doc, level: "Adult", subject: "History and social studies", type: undefined });
+  ok("old level upgraded", old.level === "Professional", old.level);
+  ok("old subject upgraded", old.subject === "History", old.subject);
+  ok("type defaults to Course", old.type === "Course", old.type);
+  ok("upgraded draft valid", checkDoc(old, false).length === 0, checkDoc(old, false));
+  ok("bad type rejected", checkDoc({ ...doc, type: "Workshop" }, false).length > 0);
+  ok("CEFR levels map", normalizeLevels(["A2"]).join() === "High School,College,Professional", normalizeLevels(["A2"]));
+  ok("legacy catalog level", normalizeLevels(["High school", "College"]).join() === "High School,College");
+  ok("unknown subject", normalizeSubject("Basket weaving") === "Other");
+}
 
 if (fails) {
   console.log(`${fails} community test(s) failed`);

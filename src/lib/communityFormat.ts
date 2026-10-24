@@ -2,8 +2,8 @@
 // (shared by the editor, the API worker and the app), and conversion to an app course.
 // No DOM or Node APIs here: the worker bundles this file too.
 
-export const SUBJECTS = ["Math", "Science", "English", "History and social studies", "Languages", "Arts", "Health and PE", "Technology", "Other"] as const;
-export const LEVELS = ["Elementary", "Middle school", "High school", "College", "Adult"] as const;
+import { LEVELS, SUBJECTS, TYPES, knownSubject, normalizeLevels } from "./taxonomy";
+export { LEVELS, SUBJECTS, TYPES };
 
 export type Block =
   | { type: "heading"; text: string }
@@ -37,6 +37,8 @@ export interface CommunityDoc {
   description: string;
   subject: string;
   level: string;
+  /** "Course" or "Exam prep" (missing on drafts made before types existed: a course). */
+  type?: string;
   lessons: CLesson[];
   decks: CDeck[];
 }
@@ -67,7 +69,8 @@ export const emptyDoc = (title = "Untitled course"): CommunityDoc => ({
   title,
   description: "",
   subject: "Other",
-  level: "Adult",
+  level: "High School",
+  type: "Course",
   lessons: [{ id: "l1", title: "Lesson 1", blocks: [{ type: "text", md: "" }] }],
   decks: [],
 });
@@ -90,6 +93,7 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
   if (strict && !d.description?.trim()) errs.push("Add a short description.");
   if (!SUBJECTS.includes(d.subject as (typeof SUBJECTS)[number])) errs.push("Choose a subject.");
   if (!LEVELS.includes(d.level as (typeof LEVELS)[number])) errs.push("Choose a level.");
+  if (d.type !== undefined && !TYPES.includes(d.type as (typeof TYPES)[number])) errs.push("Choose a type.");
   if (!Array.isArray(d.lessons) || !Array.isArray(d.decks)) return [...errs, "The course is damaged (lessons or decks missing)."];
   if (d.lessons.length > LIMITS.lessons) errs.push(`At most ${LIMITS.lessons} lessons.`);
   if (strict && d.lessons.length === 0) errs.push("Add at least one lesson.");
@@ -271,4 +275,14 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
     drills: [],
     community: meta,
   };
+}
+
+/** A draft saved with older labels, moved onto the current subject, level and type lists.
+ * Values that were never valid are left alone, so checkDoc still refuses them. */
+export function upgradeDoc(d: CommunityDoc): CommunityDoc {
+  if (!d || typeof d !== "object") return d;
+  const subject = typeof d.subject === "string" ? (knownSubject(d.subject) ?? d.subject) : d.subject;
+  const level = typeof d.level === "string" ? (normalizeLevels([d.level])[0] ?? d.level) : d.level;
+  const type = d.type ?? "Course";
+  return subject === d.subject && level === d.level && type === d.type ? d : { ...d, subject, level, type };
 }

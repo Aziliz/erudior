@@ -167,7 +167,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school"
+   "High School"
   ],
   "type": [
    "Course"
@@ -311,7 +311,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school"
+   "High School"
   ],
   "type": [
    "Course"
@@ -446,7 +446,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school"
+   "High School"
   ],
   "type": [
    "Course"
@@ -574,7 +574,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school"
+   "High School"
   ],
   "type": [
    "Course"
@@ -729,7 +729,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school",
+   "High School",
    "College"
   ],
   "type": [
@@ -876,7 +876,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school",
+   "High School",
    "College"
   ],
   "type": [
@@ -1036,7 +1036,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school",
+   "High School",
    "College"
   ],
   "type": [
@@ -1645,7 +1645,7 @@
   "revision": 3,
   "subject": "Math",
   "level": [
-   "High school"
+   "High School"
   ],
   "type": [
    "Course",
@@ -1927,7 +1927,7 @@
   "revision": 3,
   "subject": "Science",
   "level": [
-   "High school"
+   "High School"
   ],
   "type": [
    "Course",
@@ -2319,7 +2319,7 @@
   "revision": 2,
   "subject": "Science",
   "level": [
-   "High school"
+   "High School"
   ],
   "type": [
    "Course"
@@ -2589,7 +2589,9 @@
   "revision": 2,
   "subject": "Languages",
   "level": [
-   "A1"
+   "High School",
+   "College",
+   "Professional"
   ],
   "type": [
    "Course"
@@ -2691,7 +2693,9 @@
   "revision": 1,
   "subject": "Languages",
   "level": [
-   "A2"
+   "High School",
+   "College",
+   "Professional"
   ],
   "type": [
    "Course"
@@ -2797,7 +2801,9 @@
   "revision": 1,
   "subject": "Languages",
   "level": [
-   "B1"
+   "High School",
+   "College",
+   "Professional"
   ],
   "type": [
    "Course"

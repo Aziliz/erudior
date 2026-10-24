@@ -11,7 +11,7 @@ released: true
 changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lessons on elasticity, optical instruments, and atomic physics.
 order: 13
 subject: Science
-level: [High school]
+level: [High School]
 type: [Course, Exam prep]
 modules:
   - id: phys-m1

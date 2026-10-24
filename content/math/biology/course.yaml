@@ -16,7 +16,7 @@ changelog: >-
 released: true
 order: 16
 subject: Science
-level: [High school]
+level: [High School]
 type: [Course]
 modules:
   - id: bio-m1

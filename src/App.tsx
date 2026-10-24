@@ -37,6 +37,10 @@ import ParentArea, { type ParentTab } from "./pages/ParentArea";
 import ParentGate from "./pages/ParentGate";
 import { AUTHORING, downloadCommunityCourse, isCommunityId } from "./lib/community";
 import CreateHome from "./pages/CreateHome";
+import Home from "./pages/Home";
+import CommunityPage from "./pages/CommunityPage";
+import DownloadPage from "./pages/DownloadPage";
+import { COMMUNITY } from "./lib/community";
 import CommunityEditor from "./pages/CommunityEditor";
 import ReviewQueue from "./pages/ReviewQueue";
 import LivePlay from "./pages/LivePlay";
@@ -65,6 +69,9 @@ function restorable(v: View): View {
 }
 
 export type View =
+  | { name: "home" }
+  | { name: "community" }
+  | { name: "download" }
   | { name: "library" }
   | { name: "progress" }
   | { name: "bank"; bankId: string }
@@ -168,7 +175,7 @@ export default function App() {
     } catch {
       /* not in a browser */
     }
-    return { name: "library" };
+    return ROUTES ? { name: "home" } : { name: "library" };
   });
   const [standalone, setStandalone] = useState<Bank[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
@@ -340,7 +347,7 @@ export default function App() {
     const v = pathToView(url.pathname, url.search, myCourses, CATALOG);
     if (v || catalogTried) {
       pendingPath.current = null;
-      if (v && view.name === "library") setView(v);
+      if (v && (view.name === "library" || view.name === "home")) setView(v);
       else setView((cur) => ({ ...cur })); // write the address for the screen we're on
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -380,7 +387,7 @@ export default function App() {
       const saved = (e.state as { erudiorView?: View } | null)?.erudiorView;
       const v = saved
         ? restorable(saved)
-        : pathToView(window.location.pathname, window.location.search, myCourses, CATALOG) ?? { name: "library" };
+        : pathToView(window.location.pathname, window.location.search, myCourses, CATALOG) ?? { name: "home" };
       fromPop.current = true;
       setView(v);
     };
@@ -609,6 +616,16 @@ export default function App() {
   switch (view.name) {
     case "library":
       break;
+    case "home":
+      if (ROUTES) body = <Home api={api} />;
+      break;
+    case "community":
+      // Homeschool families use approved core courses only; community courses are for free learning.
+      if (COMMUNITY && !family) body = <CommunityPage api={api} />;
+      break;
+    case "download":
+      if (ROUTES) body = <DownloadPage api={api} />;
+      break;
     case "progress":
       body = <ProgressPage api={api} />;
       break;
@@ -753,7 +770,19 @@ export default function App() {
   // Students pick who they are before anything else.
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 
-  const navCurrent = view.name === "progress" ? "progress" : view.name === "parent" || view.name === "who" || view.name === "familySetup" || view.name === "create" || view.name === "communityEdit" || view.name === "review" ? null : "library";
+  const navCurrent =
+    view.name === "progress"
+      ? "progress"
+      : view.name === "home"
+        ? null
+        : view.name === "download"
+          ? "download"
+          : view.name === "community" || view.name === "create" || view.name === "communityEdit" || view.name === "review"
+            ? "community"
+            : view.name === "parent" || view.name === "who" || view.name === "familySetup"
+              ? null
+              : "library";
+  const showCommunity = COMMUNITY && !family;
 
   return (
     <div className="shell">
@@ -762,29 +791,42 @@ export default function App() {
       </a>
       {!fullScreen && (
         <header className="topbar">
-          <div className="brand">
+          <button
+            className="brand"
+            aria-current={view.name === "home" ? "page" : undefined}
+            onClick={() => setView(ROUTES ? { name: "home" } : { name: "library" })}
+            aria-label={ROUTES ? "Erudior home" : "Erudior: library"}
+          >
             <Mark />
             Erudior
-          </div>
+          </button>
           <nav className="nav" aria-label="Main">
             <button
               aria-current={navCurrent === "library" ? "page" : undefined}
               onClick={() => setView({ name: "library" })}
             >
-              Library
+              {ROUTES ? "Courses" : "Library"}
             </button>
+            {showCommunity && (
+              <button
+                aria-current={navCurrent === "community" ? "page" : undefined}
+                onClick={() => setView({ name: "community" })}
+              >
+                Community
+              </button>
+            )}
             <button
               aria-current={navCurrent === "progress" ? "page" : undefined}
               onClick={() => setView({ name: "progress" })}
             >
               Progress
             </button>
-            {AUTHORING && (
+            {ROUTES && (
               <button
-                aria-current={view.name === "create" || view.name === "communityEdit" || view.name === "review" ? "page" : undefined}
-                onClick={() => setView({ name: "create" })}
+                aria-current={navCurrent === "download" ? "page" : undefined}
+                onClick={() => setView({ name: "download" })}
               >
-                Create
+                Download
               </button>
             )}
           </nav>

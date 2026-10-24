@@ -13,7 +13,7 @@ released: true
 changelog: Checked against university, AP and open-textbook sources; corrected incomplete statements and constants, and added a few short sections; new lesson on simulation.
 order: 11
 subject: Math
-level: [High school]
+level: [High School]
 type: [Course, Exam prep]
 modules:
   - id: stat-m1

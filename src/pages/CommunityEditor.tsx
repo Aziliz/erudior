@@ -6,7 +6,7 @@ import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { ReviewPill } from "../components/CommunityCatalog";
 import { api as community, imageUrl, type Review } from "../lib/community";
-import { LEVELS, LIMITS, SUBJECTS, checkDoc, toCourse, type Block, type CommunityDoc } from "../lib/communityFormat";
+import { LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, toCourse, upgradeDoc, type Block, type CommunityDoc } from "../lib/communityFormat";
 import { shrinkImage } from "../lib/portfolio";
 
 type Save = "saved" | "saving" | "unsaved" | "error";
@@ -32,7 +32,7 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
   useEffect(() => {
     community.draft(id).then(
       (d) => {
-        setDoc(d.doc);
+        setDoc(upgradeDoc(d.doc));
         latest.current = d.doc;
         setMeta({ status: d.status, version: d.version, review: d.review, reviewNote: d.reviewNote });
       },
@@ -167,6 +167,14 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
         <span>Level</span>
         <select className="select" value={doc.level} onChange={(e) => update((d) => ({ ...d, level: e.target.value }))}>
           {LEVELS.map((s) => (
+            <option key={s}>{s}</option>
+          ))}
+        </select>
+      </label>
+      <label className="field">
+        <span>Type</span>
+        <select className="select" value={doc.type ?? "Course"} onChange={(e) => update((d) => ({ ...d, type: e.target.value }))}>
+          {TYPES.map((s) => (
             <option key={s}>{s}</option>
           ))}
         </select>

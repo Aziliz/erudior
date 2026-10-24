@@ -7,7 +7,7 @@ released: true
 changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, and added a few short sections; new lessons on piecewise and step functions, solving f(x) = g(x), square and cube root functions, and regression models.
 order: 2
 subject: Math
-level: [High school]
+level: [High School]
 type: [Course]
 modules:
   - id: alg-m1

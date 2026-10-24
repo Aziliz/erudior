@@ -11,7 +11,7 @@ released: true
 changelog: Checked against university and open-textbook sources; corrected missing conditions in rules and definitions, added a few short sections, and added a lesson on parametric equations.
 order: 5
 subject: Math
-level: [High school, College]
+level: [High School, College]
 type: [Course]
 modules:
   - id: trig-m1

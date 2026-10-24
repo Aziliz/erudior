@@ -18,6 +18,8 @@ export interface CommunityEntry {
   description: string;
   subject: string;
   level: string;
+  /** "Course" or "Exam prep" (older API versions leave it out). */
+  type?: string;
   author: string;
   version: number;
   review: Review;

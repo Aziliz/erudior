@@ -3,9 +3,8 @@ import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments, isClassroom } from "../lib/family";
 import { ClassAssignments, MyClasses } from "../components/ClassViews";
-import { COMMUNITY } from "../lib/community";
 import { LIVE } from "../lib/live";
-import CommunityCatalog, { ReviewPill } from "../components/CommunityCatalog";
+import { ReviewPill } from "../components/CommunityCatalog";
 import { REMOTE } from "../lib/courseSource";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
@@ -82,7 +81,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
     <div className="page">
       <div className="page-head">
         <div>
-          <h1>Library</h1>
+          <h1>{store.inApp ? "Library" : "Courses"}</h1>
           <p className="muted">Each course keeps its own lessons, questions, notecards and progress.</p>
         </div>
         <div className="row">
@@ -170,8 +169,6 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       )}
 
       <Catalog api={api} />
-
-      {COMMUNITY && (!api.student || api.student.freeChoice) && <CommunityCatalog api={api} />}
 
       <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 12px" }}>
         <h2 className="section-title" style={{ margin: 0 }}>
