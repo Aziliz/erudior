@@ -8,7 +8,7 @@ topics: [Decimals and irrationality]
 drills: [alg-m1-r2-repeating-two, alg-m1-r2-repeating-delayed]
 refs: [alg-ref-equations]
 ---
-Lesson 1 made a claim without proving it: a number is rational exactly when its decimal either stops or repeats. This honors lesson proves it, in both directions. Along the way you will use the linear equations of Lesson 3 to turn any repeating decimal into a fraction, meet the strange but true fact that $0.999\ldots = 1$, see that between any two numbers there are infinitely many others, and write your first proof by contradiction.
+Lesson 1 made a claim and only sketched the reason for it: a number is rational exactly when its decimal either stops or repeats. This honors lesson proves it, in both directions. Along the way you will use the linear equations of Lesson 3 to turn any repeating decimal into a fraction, meet the strange but true fact that $0.999\ldots = 1$, see that between any two numbers there are infinitely many others, and write your first proof by contradiction.
 
 ## From fractions to decimals: why the digits must repeat
 
@@ -78,7 +78,7 @@ One honest caution. Multiplying an endless decimal by 10 and subtracting treats 
 
 Apply the method to $x = 0.999\ldots$ Then $10x = 9.999\ldots$, and subtracting gives $9x = 9$, so $x = 1$.
 
-Many people feel this must be wrong: surely $0.999\ldots$ is "just below" 1. But two different real numbers always have other numbers between them (their average, for example). There is no number between $0.999\ldots$ and 1, because the 9s never stop, so they are not two different numbers. Another way to see it: $\tfrac13 = 0.333\ldots$, and multiplying by 3 gives $1 = 0.999\ldots$ The lesson is that some numbers have two decimal names. Every terminating decimal has a twin ending in repeating 9s: $0.5 = 0.4999\ldots$ and $2.37 = 2.36999\ldots$
+Many people feel this must be wrong: surely $0.999\ldots$ is "just below" 1. But two different real numbers always have other numbers between them (their average, for example). There is no number between $0.999\ldots$ and 1, because the 9s never stop, so they are not two different numbers. Another way to see it: $\tfrac13 = 0.333\ldots$, and multiplying by 3 gives $1 = 0.999\ldots$ The lesson is that some numbers have two decimal names. Every terminating decimal except 0 has a twin ending in repeating 9s: $0.5 = 0.4999\ldots$ and $2.37 = 2.36999\ldots$
 
 ## Which method when
 
@@ -102,7 +102,7 @@ The last branch is how you can recognize, and even build, irrational numbers. Th
 
 Between two different rational numbers $a$ and $b$ there is always another one: their average $\tfrac{a + b}{2}$, which is a fraction of integers when $a$ and $b$ are. Then there is another between $a$ and that average, and so on, without end. So between any two different rationals there are infinitely many more. Mathematicians say the rational numbers are **dense** on the number line: no gap between two of them is too small to hold another.
 
-Irrational numbers are just as crowded. Between any two different decimals you can write one that never repeats, by copying the digits they share and then continuing with a non-repeating pattern.
+Irrational numbers are just as crowded. Between any two different decimals you can write one that never repeats: start with a terminating decimal that lies strictly between them, then tack on a non-repeating tail of digits small enough to keep it below the larger number (Example 4 does exactly this).
 
 ### Example 4
 

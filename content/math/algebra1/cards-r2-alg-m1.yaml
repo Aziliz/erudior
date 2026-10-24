@@ -5,7 +5,7 @@
 - {front: 'Repeating decimal to fraction: the method', back: 'Let $x$ be the decimal, multiply by powers of 10 so the repeating tails line up, subtract, and solve the linear equation.', topic: Decimals and irrationality}
 - {front: '$0.\overline{d_1 d_2 \ldots d_k}$ (a $k$-digit block right after the point)', back: 'The block over $k$ nines: $0.\overline{45} = \tfrac{45}{99} = \tfrac{5}{11}$, $0.\overline{135} = \tfrac{135}{999} = \tfrac{5}{37}$.', topic: Decimals and irrationality}
 - {front: 'Write $0.4\overline{6}$ as a fraction', back: '$100x - 10x = 46.\overline{6} - 4.\overline{6} = 42$, so $90x = 42$ and $x = \tfrac{7}{15}$.', topic: Decimals and irrationality}
-- {front: 'Is $0.999\ldots$ less than 1?', back: 'No, it equals 1: $10x - x = 9$ gives $x = 1$. Every terminating decimal has a twin ending in 9s, like $0.5 = 0.4\overline{9}$.', topic: Decimals and irrationality}
+- {front: 'Is $0.999\ldots$ less than 1?', back: 'No, it equals 1: $10x - x = 9$ gives $x = 1$. Every terminating decimal except 0 has a twin ending in 9s, like $0.5 = 0.4\overline{9}$.', topic: Decimals and irrationality}
 - {front: 'Rational vs irrational, by the decimal', back: 'Rational: terminates or repeats. Irrational: neither. $0.101001000\ldots$ (more 0s each time) is irrational.', topic: Decimals and irrationality}
 - {front: 'The rational numbers are dense: what does that mean?', back: 'Between any two different rationals $a$ and $b$ there is another, such as $\tfrac{a + b}{2}$, and so infinitely many.', topic: Decimals and irrationality}
 - {front: 'Proof by contradiction', back: 'Assume the opposite of the claim, reason correctly, reach something impossible; so the claim is true.', topic: Decimals and irrationality}

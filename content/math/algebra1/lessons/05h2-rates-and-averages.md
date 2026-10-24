@@ -74,7 +74,7 @@ You drive 120 miles to a city at 60 mph and return the same 120 miles at 40 mph.
 You spent 3 of the 5 hours at the slower speed, so the average leans toward 40. On a graph of total distance traveled against time, the average speed is the slope of the straight line from the start to the end of the trip.
 
 ```plot
-{"x": [0, 5.5], "y": [0, 260], "xLabel": "time (hours)", "yLabel": "total distance driven (miles)", "functions": [{"f": "60*x", "from": 0, "to": 2, "label": "60 mph"}, {"f": "120 + 40*(x - 2)", "from": 2, "to": 5, "label": "40 mph"}, {"f": "48*x", "from": 0, "to": 5, "dashed": true}], "points": [{"at": [2, 120], "label": "(2, 120)"}, {"at": [5, 240], "label": "(5, 240)"}], "caption": "Total distance against time: 2 hours at 60 mph, then 3 hours at 40 mph. The dashed line's slope is the average speed, 240/5 = 48 mph."}
+{"x": [0, 5.5], "y": [0, 260], "xLabel": "time (hours)", "yLabel": "total distance driven (miles)", "functions": [{"f": "60*x", "from": 0, "to": 2, "label": "60 mph"}, {"f": "120 + 40*(x - 2)", "from": 2, "to": 5, "label": "40 mph"}, {"f": "48*x", "from": 0, "to": 5, "dashed": true}], "points": [{"at": [2, 120]}, {"at": [5, 240], "label": "(5, 240)"}], "labels": [{"at": [1.45, 150], "text": "(2, 120)"}], "caption": "Total distance against time: 2 hours at 60 mph, then 3 hours at 40 mph. The dashed line's slope is the average speed, 240/5 = 48 mph."}
 ```
 
 For two equal distances $d$ at speeds $a$ and $b$, the total time is $\tfrac{d}{a} + \tfrac{d}{b}$, and

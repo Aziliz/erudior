@@ -115,7 +115,7 @@ Solve $4(x - 2) + 3 = 4x - 1$ and $3(2x + 1) = 6x + 3$.
 On a graph, the first case is two parallel lines that never meet, and the second is the same line drawn twice.
 
 ```plot
-{"x": [-2, 4], "y": [-12, 14], "functions": [{"f": "4*x - 5", "label": "y = 4x - 5"}, {"f": "4*x - 1", "label": "y = 4x - 1", "dashed": true}], "caption": "4(x - 2) + 3 = 4x - 1 has no solution: the two sides graph as parallel lines that never meet"}
+{"x": [-2, 4], "y": [-12, 14], "functions": [{"f": "4*x - 5"}, {"f": "4*x - 1", "label": "y = 4x - 1", "dashed": true}], "labels": [{"at": [3.2, 2], "text": "y = 4x - 5"}], "caption": "4(x - 2) + 3 = 4x - 1 has no solution: the two sides graph as parallel lines that never meet"}
 ```
 
 ## Common mistakes
