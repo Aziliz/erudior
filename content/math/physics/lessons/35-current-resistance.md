@@ -29,6 +29,10 @@ $$I = nqv_dA.$$
 
 In a copper wire ($n = 8.5\times10^{28}$ m⁻³) of cross-section 1.0 mm² carrying 1.0 A, $v_d = \dfrac{1.0}{(8.5\times10^{28})(1.6\times10^{-19})(1.0\times10^{-6})} = 7.4\times10^{-5}$ m/s, less than a tenth of a millimeter per second. The light still comes on instantly because the electric field (the "push") travels through the circuit at nearly the speed of light, setting all the electrons moving at once.
 
+The picture shows the two directions side by side for a short length of wire, along with the length $L$ and cross-sectional area $A$ that appear in the resistance formula below.
+
+![A cylindrical wire with its + end on the left and its − end on the right. A red arrow above the wire points from + to − and is labeled conventional current I. Electrons inside the wire are drawn as small circles with minus signs, and a blue arrow below points from − to + labeled electron drift. The circular end face is labeled area A, and a bracket under the wire is labeled length L.](images/phys-m9-wire.svg)
+
 ## Resistance and Ohm's law
 
 Pushing current through a material takes a potential difference, because the moving electrons keep colliding with the vibrating lattice. The **resistance** of a component is the ratio
@@ -40,6 +44,12 @@ measured in **ohms** (Ω): $1\ \Omega = 1$ V/A. For many materials, notably meta
 $$V = IR.$$
 
 Components that obey it are called ohmic; their $I$–$V$ graph is a straight line through the origin. Diodes, light bulb filaments (whose resistance rises as they heat up) and transistors are non-ohmic.
+
+The graph compares the two kinds. The ohmic resistor's line is straight, and its slope $I/V$ is $1/R$. The filament's curve bends over toward the voltage axis: each extra volt adds less current than the one before, because the hotter filament has a larger resistance.
+
+```plot
+{"x": [0, 12], "y": [0, 1.4], "xLabel": "voltage V (V)", "yLabel": "current I (A)", "functions": [{"f": "x/10", "label": "ohmic resistor, R = 10 Ω"}, {"f": "0.35*sqrt(x)", "dashed": true, "label": "filament bulb (illustrative)"}], "caption": "I–V graphs: a straight line through the origin for an ohmic resistor; a curve that bends over for a filament, whose resistance rises as it heats"}
+```
 
 ## Resistivity
 
@@ -94,6 +104,10 @@ The current in a circuit rises steadily from 0 to 4.0 A over the first 2.0 s, st
 Triangle (0 to 2.0 s): $\tfrac12(2.0)(4.0) = 4.0$ C. Rectangle (2.0 to 5.0 s): $(3.0)(4.0) = 12$ C. Total: $16$ C.
 
 Electrons: $\dfrac{16}{1.602\times10^{-19}} = 1.0\times10^{20}$.
+
+```plot
+{"x": [0, 6], "y": [0, 5], "xLabel": "time t (s)", "yLabel": "current I (A)", "functions": [{"f": "2*x", "from": 0, "to": 2}, {"f": "4", "from": 2, "to": 5}], "segments": [{"from": [5, 4], "to": [5, 0]}], "shade": [{"f": "2*x", "from": 0, "to": 2}, {"f": "4", "from": 2, "to": 5}], "labels": [{"at": [1.4, 0.9], "text": "4.0 C"}, {"at": [3.5, 2], "text": "12 C"}], "caption": "Example 3: the shaded area under the current–time graph is the charge, 4.0 C + 12 C = 16 C"}
+```
 
 ### Example 4
 

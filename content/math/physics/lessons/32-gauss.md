@@ -43,6 +43,8 @@ Only the enclosed charge counts: $\Phi_E = \dfrac{3.0\times10^{-6}}{8.85\times10
 
 Gauss's law always holds, but it gives $E$ directly only when you can choose a surface on which $E$ is constant in magnitude and either perpendicular or parallel to the surface. Then the total flux is simply $E \times (\text{area})$. Three symmetries make this possible.
 
+![Three charge distributions with their Gaussian surfaces drawn dashed: a uniformly charged ball inside a larger concentric sphere; a long line of charge inside a coaxial cylinder; and a flat charged sheet pierced by a short cylinder, the pillbox, with one end cap on each side.](images/phys-m8-gauss-surfaces.svg)
+
 *Spherical symmetry.* For a charge $Q$ spread with spherical symmetry (a point charge, a charged shell, a uniform ball), use a concentric sphere of radius $r$. Outside the charge:
 
 $$E(4\pi r^2) = \frac{Q}{\varepsilon_0} \quad\Rightarrow\quad E = \frac{Q}{4\pi\varepsilon_0r^2} = \frac{kQ}{r^2}.$$
@@ -64,6 +66,18 @@ $$E = \frac{\lambda}{2\pi\varepsilon_0r} = \frac{2k\lambda}{r}.$$
 *Planar symmetry.* For an infinite sheet with charge $\sigma$ per square meter, use a "pillbox" cylinder piercing the sheet, with end caps of area $A$ on both sides. The field is perpendicular to the sheet, so flux passes only through the two caps: $2EA = \sigma A/\varepsilon_0$:
 
 $$E = \frac{\sigma}{2\varepsilon_0}.$$
+
+Choosing the surface comes down to one question about the charge's shape:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a Gaussian surface
+  accDescr: Ask what shape the charge has. A sphere, shell or ball calls for a concentric sphere, giving E times 4 pi r squared equals the enclosed charge over epsilon zero. A long line or cylinder calls for a coaxial cylinder, giving E equals 2 k lambda over r. A large flat sheet calls for a pillbox, giving E equals sigma over 2 epsilon zero. If there is no such symmetry, Gauss's law is still true but cannot give E alone; add up the fields of point charges instead.
+  A{"What shape is the charge?"} -->|"sphere, shell or ball"| B["Concentric sphere: E times 4πr² = Qenc/ε0"]
+  A -->|"long line or cylinder"| C["Coaxial cylinder: E = 2kλ/r"]
+  A -->|"large flat sheet"| D["Pillbox: E = σ/(2ε0)"]
+  A -->|"no such symmetry"| F["Gauss's law true but not enough: add point-charge fields"]
+```
 
 ### Example 2
 

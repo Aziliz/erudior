@@ -4,7 +4,7 @@ module: phys-m9
 title: RC circuits
 minutes: 35
 topics: [RC circuits]
-drills: [phys-rc-charging, phys-rc-time]
+drills: [phys-rc-charging, phys-rc-time, phys-m9-r2-rc-snapshot]
 refs: [phys-ref-em-modern]
 ---
 ## When currents change
@@ -14,6 +14,10 @@ In every circuit so far the currents were steady. Put a capacitor in a circuit w
 ## Charging a capacitor
 
 Connect an uncharged capacitor $C$ in series with a resistor $R$ and a battery of emf $\mathcal{E}$, and close the switch at $t = 0$.
+
+A convenient way to do both experiments in this lesson is a two-way switch, as in the diagram. In position a, the battery, $R$ and $C$ form one loop and the capacitor charges. In position b, the battery is bypassed, and the charged capacitor discharges through $R$ alone.
+
+![An RC circuit with a two-way switch. A battery on the left connects through contact a of the switch, then a resistor R along the top wire, to a capacitor C on the right, which returns along the bottom wire to the battery. Contact b connects straight down to the bottom wire, bypassing the battery. The switch lever is shown touching contact a.](images/phys-m9-rc.svg)
 
 - At the first instant the capacitor has no charge, so no voltage across it; it acts like a plain wire. The full emf is across the resistor, and the current jumps to $I_0 = \mathcal{E}/R$.
 - As charge builds up, the capacitor's voltage $q/C$ rises, leaving less for the resistor, so the current shrinks.
@@ -62,6 +66,10 @@ $$q(t) = Q_0e^{-t/RC}, \qquad I(t) = \frac{Q_0}{RC}e^{-t/RC} = \frac{V_0}{R}e^{-
 
 Both decay by the same factor in each equal time interval. The time for the charge to fall to half is $t_{1/2} = RC\ln 2 = 0.693\,RC$.
 
+```plot
+{"x": [0, 4.2], "y": [0, 1.1], "xLabel": "t / RC", "yLabel": "fraction remaining q / Q₀", "functions": [{"f": "exp(-x)", "label": "q / Q₀ = e^(−t/RC)"}], "segments": [{"from": [0.693, 0], "to": [0.693, 0.5], "dashed": true}, {"from": [0, 0.5], "to": [0.693, 0.5], "dashed": true}], "points": [{"at": [0.693, 0.5], "label": "half at 0.693 RC"}, {"at": [1, 0.368], "label": "37% at RC"}, {"at": [1.386, 0.25], "label": "quarter at 1.386 RC"}], "caption": "Discharging: the charge halves every 0.693 RC, whatever the starting charge"}
+```
+
 ### Example 2
 
 A camera flash's 100 μF capacitor charged to 300 V discharges through a 2.0 Ω flash tube. What's the time constant, and how long until the voltage drops to 10 V?
@@ -92,9 +100,24 @@ The same reasoning handles the energy claim above. The battery pushes all the ch
 
 For circuits with several resistors, two snapshots answer most questions without any exponentials: *just after* the switch closes, treat an uncharged capacitor as a plain wire; *long after*, treat it as a break.
 
+```mermaid
+flowchart TD
+  accTitle: Two snapshots of a circuit with a capacitor
+  accDescr: To analyze a DC circuit with a capacitor, first ask which moment you want. Just after the switch closes, the uncharged capacitor has no voltage across it, so replace it with a plain wire and solve the resistor circuit for the starting currents. Long after the switch closes, the capacitor is fully charged and carries no current, so replace it with a break and solve the resistor circuit for the final currents. Then the capacitor's voltage equals the voltage across whatever it is connected in parallel with, and its charge is Q = CV.
+  A["Circuit with a capacitor: which moment?"] --> B["Just after the switch closes"]
+  A --> C["Long after the switch closes"]
+  B --> D["Uncharged capacitor: replace it with a wire"]
+  C --> E["Charged capacitor: replace it with a break"]
+  D --> F["Solve the resistor circuit: starting currents"]
+  E --> G["Solve the resistor circuit: final currents"]
+  G --> H["Capacitor voltage = voltage across its parallel partner, Q = CV"]
+```
+
 ### Example 3
 
 A 12 V battery, a 2.0 kΩ resistor $R_1$ and a switch are in series with a parallel pair: a 4.0 kΩ resistor $R_2$ and an uncharged 5.0 μF capacitor connected across it. Find the battery current (a) just after the switch closes and (b) long after, and (c) the final charge on the capacitor.
+
+![Circuit diagram for Example 3: a 12 V battery, an open switch and R₁ = 2.0 kΩ along the top wire, then R₂ = 4.0 kΩ and a 5.0 μF capacitor connected in parallel between the top and bottom wires.](images/phys-m9-rc-delay.svg)
 
 (a) The uncharged capacitor acts as a wire, shorting out $R_2$, so only $R_1$ limits the current: $I = 12/2000 = 6.0$ mA, all of it flowing into the capacitor.
 

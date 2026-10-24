@@ -26,7 +26,11 @@ Two events that are simultaneous in one frame are generally not simultaneous in 
 
 ## Time dilation
 
-Consider a "light clock": a pulse bouncing between two mirrors a distance $D$ apart, ticking once per round trip. In its own rest frame a tick takes $\Delta t_0 = 2D/c$. Seen from a frame where the clock moves sideways at speed $v$, the light follows a longer zigzag path, at the same speed $c$, so each tick takes longer. The Pythagorean theorem on that path gives
+Consider a "light clock": a pulse bouncing between two mirrors a distance $D$ apart, ticking once per round trip. In its own rest frame a tick takes $\Delta t_0 = 2D/c$. Seen from a frame where the clock moves sideways at speed $v$, the light follows a longer zigzag path, at the same speed $c$, so each tick takes longer. The picture shows both views of one tick.
+
+![Left: a light clock at rest, with a pulse going straight up and down between two mirrors a distance D apart. Right: the same clock moving to the right at speed v; the pulse follows a diagonal path of length c Δt/2 up to the top mirror and another back down, while the clock moves v Δt/2 sideways in each half-tick, forming a right triangle with the vertical side D.](images/phys-m12-light-clock.svg)
+
+In the moving view, half a tick is a right triangle: the light travels the hypotenuse $c\,\Delta t/2$ while the clock moves $v\,\Delta t/2$ sideways, and the vertical side is still $D = c\,\Delta t_0/2$. The Pythagorean theorem on that path gives
 
 $$\Delta t = \gamma\,\Delta t_0, \qquad \gamma = \frac{1}{\sqrt{1 - v^2/c^2}}.$$
 
@@ -35,6 +39,12 @@ The factor $\gamma$ (the **Lorentz factor**) is always at least 1. $\Delta t_0$ 
 | $v/c$ | 0.10 | 0.50 | 0.80 | 0.90 | 0.99 | 0.999 |
 |---|---|---|---|---|---|---|
 | $\gamma$ | 1.005 | 1.155 | 1.667 | 2.294 | 7.09 | 22.4 |
+
+The graph shows the same numbers: $\gamma$ stays very close to 1 for most of the range and then shoots upward as $v$ approaches $c$.
+
+```plot
+{"x": [0, 1], "y": [0, 8], "xLabel": "v/c", "yLabel": "γ", "functions": [{"f": "1/sqrt(1 - x^2)", "from": 0, "to": 0.992}], "points": [{"at": [0.6, 1.25], "label": "0.6c: γ = 1.25"}, {"at": [0.9, 2.294], "label": "0.9c: γ = 2.29"}], "caption": "The Lorentz factor γ against speed: almost 1 at everyday speeds, unbounded as v approaches c"}
+```
 
 ### Example 1
 
@@ -57,6 +67,22 @@ Only lengths along the direction of motion contract; perpendicular dimensions do
 A spaceship 120 m long (proper length) passes Earth at $0.60c$. How long is it according to Earth observers?
 
 $\gamma = 1/\sqrt{1 - 0.36} = 1.25$. $L = 120/1.25 = 96$ m.
+
+The hardest part of most problems is deciding which measurement is the proper one. This chart sorts it out.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a measurement is proper or not
+  accDescr: First ask whether you are measuring a time between two events or the length of an object. For a time, if both events happen at the same place in your frame you measure the proper time, the shortest; otherwise you measure gamma times the proper time. For a length, if the object is at rest in your frame you measure the proper length, the longest; otherwise you measure the proper length divided by gamma.
+  A["What are you measuring?"] --> B["A time between two events"]
+  A --> C["The length of an object"]
+  B --> D{"Do both events happen at the same place in your frame?"}
+  D -- yes --> E["Proper time Δt0, the shortest"]
+  D -- no --> F["Δt = γ Δt0, longer"]
+  C --> G{"Is the object at rest in your frame?"}
+  G -- yes --> H["Proper length L0, the longest"]
+  G -- no --> I["L = L0 / γ, shorter"]
+```
 
 ## Relativistic velocity addition
 

@@ -109,17 +109,15 @@ Most problems start by recognizing which current shape you have.
 ```mermaid
 flowchart TD
   accTitle: Which magnetic field formula to use
-  accDescr: Start from the shape of the current. A long straight wire gives B equals mu zero I over 2 pi r, circling the wire. A circular loop gives B equals mu zero I over 2R per turn at its center. A long solenoid gives B equals mu zero n I along the axis inside. Two parallel wires feel a force per length of mu zero I1 I2 over 2 pi d. Several wires: find each wire's field and add them as vectors.
-  S{"What shape is the current?"} --> W["Long straight wire"]
-  S --> L["Circular loop"]
-  S --> N["Long solenoid"]
-  S --> P["Two parallel wires"]
-  S --> M["Several wires"]
-  W --> W2["B = μ₀I/(2πr), circling the wire"]
-  L --> L2["B = μ₀I/(2R) per turn, at the center"]
-  N --> N2["B = μ₀nI, uniform inside"]
-  P --> P2["Force per length μ₀I₁I₂/(2πd)"]
-  M --> M2["Add each wire's field as vectors"]
+  accDescr: Ask about the shape of the current in turn. A long straight wire gives B equals mu zero I over 2 pi r, circling the wire. Otherwise, a circular loop gives B equals mu zero I over 2R per turn at its center. Otherwise, a long solenoid gives B equals mu zero n I, uniform inside. Otherwise, for two parallel wires the force per length is mu zero I1 I2 over 2 pi d. With several wires, find each wire's field and add them as vectors.
+  A{"Long straight wire?"} -- yes --> A2["B = μ₀I/(2πr), circling the wire"]
+  A -- no --> B{"Circular loop?"}
+  B -- yes --> B2["B = μ₀I/(2R) per turn, at the center"]
+  B -- no --> C{"Long solenoid?"}
+  C -- yes --> C2["B = μ₀nI, uniform inside"]
+  C -- no --> D{"Force between two parallel wires?"}
+  D -- yes --> D2["F/L = μ₀I₁I₂/(2πd)"]
+  D -- no --> E["Several wires: add each wire's field as vectors"]
 ```
 
 ## Common mistakes

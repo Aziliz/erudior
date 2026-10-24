@@ -61,6 +61,8 @@ Chemistry is mostly about the outermost electrons. Sodium has one electron outsi
 
 An **X-ray tube** accelerates electrons through a high voltage $V$, often tens of kilovolts, and slams them into a metal target. Each electron arrives with kinetic energy $eV$, and the X-ray spectrum has two parts.
 
+![An X-ray tube: inside an evacuated glass tube, a heated filament (the cathode, connected to the negative terminal of a high-voltage supply of tens of kilovolts) emits electrons that are accelerated across the tube into a metal target (the anode, connected to the positive terminal). X-rays leave the target and pass out through the side of the tube.](images/phys-m12-xray-tube.svg)
+
 ```plot
 {"x": [0, 150], "y": [0, 3.5], "xLabel": "wavelength (pm)", "yLabel": "intensity", "functions": [{"f": "(x/41.3 - 1)/x^2*6822.76", "from": 41.3, "to": 150}], "segments": [{"from": [71, 0.973], "to": [71, 3], "label": "Kα"}, {"from": [63, 0.903], "to": [63, 1.6], "label": "Kβ"}], "points": [{"at": [41.3, 0], "label": "λmin"}], "caption": "X-ray spectrum of a molybdenum target at 30 kV: a continuous spectrum with a sharp short-wavelength cutoff, plus the target's characteristic lines"}
 ```
@@ -72,6 +74,21 @@ $$\lambda_{\min} = \frac{hc}{eV}.$$
 With $hc = 1240$ eV·nm and $V$ in volts, $\lambda_{\min} = 1240/V$ nm. The cutoff depends only on the voltage, not on the target. That was itself strong evidence for photons: a wave picture has no reason for a sharp edge.
 
 *Characteristic lines.* If an incoming electron knocks out one of the target atom's innermost (n = 1, "K-shell") electrons, an electron from a higher shell drops into the hole and emits a photon whose energy is the difference between the levels. These **characteristic X-rays** come at wavelengths fixed by the target element: the drop from n = 2 gives the Kα line and the drop from n = 3 the Kβ line. Raising the voltage moves the cutoff but not these lines.
+
+The chart puts the two processes side by side.
+
+```mermaid
+flowchart TD
+  accTitle: Two ways an X-ray tube makes X-rays
+  accDescr: A fast electron reaches the target. In one branch it swerves and slows near a nucleus and emits bremsstrahlung, a photon of any energy up to eV, which builds the continuous spectrum whose cutoff is set by the voltage. In the other branch it knocks out an inner K-shell electron; an outer electron drops into the hole and emits a characteristic photon whose energy is set by the element, giving sharp lines such as K alpha and K beta.
+  A["Fast electron, energy eV, reaches the target"] --> B["Swerves and slows near a nucleus"]
+  A --> C["Knocks out an inner K-shell electron"]
+  B --> D["Bremsstrahlung photon of any energy up to eV"]
+  D --> E["Continuous spectrum; cutoff set by the voltage"]
+  C --> F["An outer electron drops into the hole"]
+  F --> G["Photon energy = level difference, set by the element"]
+  G --> H["Sharp lines such as K alpha and K beta"]
+```
 
 A Bohr-style estimate gives the Kα energy. The electron dropping from n = 2 sees the nuclear charge $Z$ screened by the one remaining 1s electron, so roughly a charge $Z - 1$. Hydrogen's levels scale with the square of the charge, so
 

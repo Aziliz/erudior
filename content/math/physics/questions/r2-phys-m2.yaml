@@ -1,0 +1,594 @@
+# Round 2, module phys-m2 (Kinematics): new question types for the core lessons (q) and
+# questions for the three honors lessons (h).
+
+# ---- Lesson 03: Describing motion in one dimension
+- id: phys-m2-r2-q01
+  lesson: phys-motion-1d
+  type: label
+  module_quiz: true
+  topic: Motion graphs
+  stem: 'This is a velocity–time graph of an object moving along a line (the region above the axis is $v > 0$). Describe the motion during each numbered segment.'
+  image: {src: images/phys-m2-vt-phases-blank.svg, alt: 'A velocity–time graph with five straight segments: rising from zero to a positive value, flat, falling back to zero, falling further below the axis to a negative value, and rising back to zero.'}
+  labels:
+    - {x: 17.8, y: 35.9, text: 'Speeding up, moving in +x'}
+    - {x: 34.0, y: 19.5, text: Constant velocity}
+    - {x: 50.2, y: 35.9, text: 'Slowing down, moving in +x'}
+    - {x: 63.2, y: 65.9, text: 'Speeding up, moving in −x'}
+    - {x: 77.9, y: 65.9, text: 'Slowing down, moving in −x'}
+  distractors: [At rest, 'Constant velocity in −x']
+  explanation: |-
+    The sign of $v$ (above or below the axis) gives the direction of motion. The object speeds up when the line moves away from the axis ($v$ and $a$ have the same sign) and slows down when it heads back toward the axis. 1: $v > 0$ and growing. 2: flat, so $a = 0$. 3: $v > 0$ but shrinking. 4: $v < 0$ and growing in size (the slope is negative, the same sign as $v$). 5: $v < 0$ and shrinking in size, even though the slope is positive. The object is at rest only for an instant, where the graph crosses the axis.
+- id: phys-m2-r2-q02
+  lesson: phys-motion-1d
+  type: text
+  topic: Motion graphs
+  stem: 'On a velocity–time graph, the slope is the ___, and the signed area between the graph and the time axis is the ___.'
+  accept:
+    - [acceleration, the acceleration]
+    - [displacement, the displacement, change in position, the change in position]
+  explanation: |-
+    Slope of $v$–$t$ is $\Delta v/\Delta t$, the acceleration. Each thin strip of area is $v\,\Delta t = \Delta x$, so the signed area is the displacement (not the distance: area below the axis counts negative).
+- id: phys-m2-r2-q03
+  lesson: phys-motion-1d
+  type: match
+  topic: Motion graphs
+  stem: 'Match each graph feature to the quantity it gives.'
+  pairs:
+    - ['Slope of an $x$–$t$ graph', Velocity]
+    - ['Slope of a $v$–$t$ graph', Acceleration]
+    - ['Area under a $v$–$t$ graph', Displacement]
+    - ['Area under an $a$–$t$ graph', Change in velocity]
+  distractors: [Position, Average speed]
+  explanation: |-
+    Slopes take you down the chain ($x \to v \to a$); areas take you back up ($a \to \Delta v$, $v \to \Delta x$). The height of an $x$–$t$ graph is the position, which no slope or area in this list gives directly.
+- id: phys-m2-r2-q04
+  lesson: phys-motion-1d
+  topic: Velocity and acceleration
+  stem: 'At one instant an object has $v = -3$ m/s and $a = +2$ m/s². Which statements are true at that instant? Select all that apply.'
+  choices: ['It is moving in the $-x$ direction', 'It is slowing down', 'It is speeding up', 'Its velocity is becoming less negative']
+  answer: [0, 1, 3]
+  explanation: |-
+    $v < 0$ means motion in $-x$. $v$ and $a$ have opposite signs, so the object slows down: each second its velocity changes by $+2$ m/s, from $-3$ toward $-1$, becoming less negative. "Positive acceleration means speeding up" is only true when $v > 0$.
+- id: phys-m2-r2-q05
+  lesson: phys-motion-1d
+  type: text
+  module_quiz: true
+  topic: Velocity and acceleration
+  stem: 'A car moves from $x = 40$ m to $x = -20$ m in 12 s. Its average velocity is ___ m/s. (Give only the number, with its sign.)'
+  accept: ['-5', '-5.0']
+  explanation: |-
+    $v_{\text{avg}} = \Delta x/\Delta t = (-20 - 40)/12 = -60/12 = -5.0$ m/s. The minus sign says the car moved in the $-x$ direction; its average speed would be $+5.0$ m/s if it never turned around.
+
+# ---- Lesson 04: Constant acceleration and free fall
+- id: phys-m2-r2-q06
+  lesson: phys-const-accel
+  type: label
+  module_quiz: true
+  topic: Free fall
+  stem: 'The motion diagram shows a ball thrown straight up and caught, at equal time intervals (rising on the left, the top in the middle, falling on the right). Name the numbered parts.'
+  image: {src: images/phys-m2-toss-blank.svg, alt: 'A ball shown at equal time intervals: four positions rising in a left column with solid arrows pointing up and getting shorter, one position at the top with no solid arrow, and four positions falling in a right column with solid arrows pointing down and getting longer. A dashed arrow of the same length points down beside every position.'}
+  labels:
+    - {x: 32.8, y: 76.0, text: Velocity while rising}
+    - {x: 28.1, y: 39.4, text: Acceleration}
+    - {x: 50.0, y: 24.7, text: 'Highest point (v = 0)'}
+    - {x: 67.2, y: 89.1, text: Velocity while falling}
+  distractors: [Point where the acceleration is zero, Displacement]
+  explanation: |-
+    The solid arrows change length and direction: they are velocities, shrinking on the way up (1) and growing on the way down (4). The dashed arrows are all the same, pointing down: the acceleration $g$ (2). At the top (3) the velocity is zero, but the dashed arrow is still there: there is no point where the acceleration is zero.
+- id: phys-m2-r2-q07
+  lesson: phys-const-accel
+  type: match
+  topic: Constant acceleration
+  stem: 'For constant acceleration, match each situation to the one equation that answers it in a single step.'
+  pairs:
+    - ['Know $v_0$, $a$, $t$; want $v$', 'v = v0 + at']
+    - ['Know $v_0$, $a$, $t$; want $\Delta x$', 'Δx = v0 t + ½at²']
+    - ['Know $v_0$, $v$, $t$; want $\Delta x$', 'Δx = ½(v0 + v)t']
+    - ['Know $v_0$, $v$, $a$; want $\Delta x$', 'v² = v0² + 2aΔx']
+  explanation: |-
+    Each equation leaves out one of the five quantities: $v = v_0 + at$ has no $\Delta x$; $\Delta x = v_0t + \tfrac12at^2$ has no $v$; $\Delta x = \tfrac12(v_0 + v)t$ has no $a$; $v^2 = v_0^2 + 2a\Delta x$ has no $t$. Pick the one missing the quantity you neither know nor want.
+- id: phys-m2-r2-q08
+  lesson: phys-const-accel
+  type: text
+  topic: Free fall
+  stem: 'A stone dropped from rest falls freely for 3.0 s. Using $g = 9.8$ m/s², it falls ___ m. (Give only the number.)'
+  accept: ['44.1', '44']
+  explanation: |-
+    $d = \tfrac12gt^2 = \tfrac12(9.8)(3.0)^2 = 4.9 \times 9.0 = 44.1$ m. Using $d = gt$ (29.4) confuses distance with speed; using $gt^2$ (88.2) forgets the $\tfrac12$.
+- id: phys-m2-r2-q09
+  lesson: phys-const-accel
+  topic: Free fall
+  stem: 'A ball is thrown straight up and lands back at its launch height (no air resistance). At its highest point, which are true? Select all that apply.'
+  choices: ['Its velocity is zero', 'Its acceleration is 9.8 m/s² downward', 'Its acceleration is zero', 'It has been in the air for half of its total flight time']
+  answer: [0, 1, 3]
+  explanation: |-
+    At the top $v = 0$ for an instant, but gravity still acts, so $a = 9.8$ m/s² downward the whole time. The time up equals the time down when it lands at the launch height, so the top is reached at half the flight time.
+- id: phys-m2-r2-q10
+  lesson: phys-const-accel
+  type: order
+  module_quiz: true
+  topic: Constant acceleration
+  stem: 'A car speeds up at one constant rate and then brakes at another. Put the steps for finding the total distance in order.'
+  items:
+    - Split the motion where the acceleration changes
+    - Solve phase 1 for its final velocity
+    - Use that velocity as the initial velocity of phase 2
+    - Solve phase 2 for its distance
+    - Add the distances of the two phases
+  explanation: |-
+    The constant-acceleration equations hold only within a phase, so split first. Phase 2 can't be solved until its starting velocity, the end velocity of phase 1, is known. The total comes last.
+
+# ---- Lesson 05: Projectile motion
+- id: phys-m2-r2-q11
+  lesson: phys-projectiles
+  type: label
+  module_quiz: true
+  topic: Projectile motion
+  stem: 'The picture shows a projectile''s path over level ground, with velocity components drawn at equal time intervals. Name the numbered parts.'
+  image: {src: images/phys-m2-projectile-blank.svg, alt: 'A dashed parabolic path over level ground. At five points, a horizontal arrow of the same length and a vertical arrow (up and shrinking, absent at the top, then down and growing) are drawn. A vertical dimension runs from the ground to the top of the path, a horizontal dimension below the ground runs from launch to landing, and an arc marks the angle at launch.'}
+  labels:
+    - {x: 72.4, y: 39.3, text: Horizontal velocity component}
+    - {x: 8.8, y: 67.8, text: Vertical velocity component}
+    - {x: 43.8, y: 57.4, text: Maximum height}
+    - {x: 64.8, y: 92.5, text: Range}
+    - {x: 19.3, y: 67.4, text: Launch angle}
+  distractors: [Acceleration, Time of flight]
+  explanation: |-
+    1 is a horizontal arrow, the same at every point: $v_x = v_0\cos\theta$. 2 is the vertical arrow at launch, $v_{0y} = v_0\sin\theta$, which shrinks to zero at the top. 3 runs from the ground to the top of the path: $H$. 4 runs from launch to landing: the range $R$. 5 is the angle between the launch direction and the horizontal. Time of flight is not a length on the picture, and no acceleration arrow is drawn.
+- id: phys-m2-r2-q12
+  lesson: phys-projectiles
+  type: order
+  topic: Projectile motion
+  stem: 'A stone is thrown at an angle from a cliff into the sea below. Put the steps for finding how far from the cliff it lands in order.'
+  items:
+    - 'Split $v_0$ into $v_{0x} = v_0\cos\theta$ and $v_{0y} = v_0\sin\theta$'
+    - 'Write $y = v_{0y}t - \tfrac12gt^2$ with $y$ set to the landing height'
+    - 'Solve the quadratic for $t$ and keep the positive root'
+    - 'Find the horizontal distance $x = v_{0x}t$'
+  explanation: |-
+    The range formula doesn't apply because launch and landing heights differ. The components come first, the vertical equation gives the time (the negative root is before the throw), and the time links to the horizontal motion.
+- id: phys-m2-r2-q13
+  lesson: phys-projectiles
+  topic: Projectile motion
+  stem: 'A ball is launched at an angle over level ground, with no air resistance. Which quantities stay constant during its flight? Select all that apply.'
+  choices: [The horizontal velocity component, The acceleration, The vertical velocity component, The speed]
+  answer: [0, 1]
+  explanation: |-
+    Gravity acts only vertically, so $v_x$ never changes, and the acceleration is $g$ downward throughout. $v_y$ decreases steadily (through zero at the top), so the speed $\sqrt{v_x^2 + v_y^2}$ is smallest at the top and changes all the time.
+- id: phys-m2-r2-q14
+  lesson: phys-projectiles
+  type: text
+  topic: Projectile motion
+  stem: 'A ball is kicked from level ground at 20 m/s, $30^\circ$ above the horizontal. Using $g = 9.8$ m/s², its time of flight is ___ s. (Give the number to 3 significant figures.)'
+  accept: ['2.04']
+  explanation: |-
+    $v_{0y} = 20\sin 30^\circ = 10$ m/s, and $T = 2v_{0y}/g = 20/9.8 = 2.04$ s. Using $20/9.8$ with $v_0$ in place of $v_{0y}$ would give 4.08 s; using only the time to the top gives 1.02 s.
+- id: phys-m2-r2-q15
+  lesson: phys-projectiles
+  type: text
+  topic: Projectile motion
+  stem: 'On level ground (no air resistance), the range is greatest at a launch angle of ___°, and a launch at $30^\circ$ has the same range as a launch at ___°. (Give only the numbers.)'
+  accept:
+    - ['45']
+    - ['60']
+  explanation: |-
+    $R = v_0^2\sin 2\theta/g$ is largest when $\sin 2\theta = 1$, at $45^\circ$. Since $\sin 60^\circ = \sin 120^\circ$, complementary angles $30^\circ$ and $60^\circ$ give equal ranges.
+
+# ---- Lesson 06: Motion in two dimensions and relative motion
+- id: phys-m2-r2-q16
+  lesson: phys-motion-2d
+  type: label
+  module_quiz: true
+  topic: Relative motion
+  stem: 'A swimmer heads straight across a river that flows to the right. Name the numbered arrows and length.'
+  image: {src: images/phys-m2-river-blank.svg, alt: 'A river between two banks flowing to the right. From a start point on the near bank, one arrow points straight across, a second arrow runs along the far bank to the right from its tip, and a diagonal arrow runs from the start to a landing point on the far bank. A dimension above the far bank spans from the point directly opposite the start to the landing point.'}
+  labels:
+    - {x: 20.0, y: 59.6, text: Swimmer relative to water}
+    - {x: 38.0, y: 23.8, text: Water relative to ground}
+    - {x: 37.0, y: 44.5, text: Swimmer relative to ground}
+    - {x: 33.7, y: 15.4, text: Downstream drift}
+  distractors: [Ground relative to water, River width]
+  explanation: |-
+    The swimmer's heading (1) is her velocity relative to the water. The current (2) is the water's velocity relative to the ground. Their vector sum, $\vec v_{SG} = \vec v_{SW} + \vec v_{WG}$, is the diagonal (3), the path seen from the bank. The distance from the point directly opposite to where she lands (4) is the drift. "Ground relative to water" would point upstream.
+- id: phys-m2-r2-q17
+  lesson: phys-motion-2d
+  type: text
+  topic: Relative motion
+  stem: 'A train moves east at 20 m/s. A passenger walks toward the back of the train (west) at 1.5 m/s relative to the train. Relative to the ground, the passenger moves east at ___ m/s. (Give only the number.)'
+  accept: ['18.5']
+  explanation: |-
+    With east positive, $v_{PG} = v_{PT} + v_{TG} = -1.5 + 20 = 18.5$ m/s east. Adding the magnitudes (21.5 m/s) ignores that the walking is opposite to the train's motion.
+- id: phys-m2-r2-q18
+  lesson: phys-motion-2d
+  type: match
+  topic: Relative motion
+  stem: 'A boat crosses a river whose current is slower than the boat''s speed relative to the water. Match each choice of heading to its result.'
+  pairs:
+    - [Heading straight across, Fastest crossing but lands downstream]
+    - ['Heading upstream so that $\sin\alpha = v_{\text{current}}/v_{\text{boat}}$', Lands directly opposite but crosses more slowly]
+    - [Heading downstream at an angle, Lands even farther downstream and crosses more slowly]
+  distractors: [Crosses in zero time]
+  explanation: |-
+    Only the across-river component of the boat's velocity relative to the water carries it across, so heading straight across (using all of it) is fastest, and the current then carries it downstream. Tilting upstream cancels the current but leaves a smaller across component. Tilting downstream both adds to the drift and shrinks the across component.
+- id: phys-m2-r2-q19
+  lesson: phys-motion-2d
+  module_quiz: true
+  topic: Two-dimensional motion
+  stem: 'A car drives around a curve at a steady 50 km/h. Which are true? Select all that apply.'
+  choices: [Its speed is constant, Its velocity is constant, It is accelerating, Its acceleration has a part perpendicular to its velocity]
+  answer: [0, 2, 3]
+  explanation: |-
+    The speed stays 50 km/h, but the direction of the velocity changes, so the velocity is not constant and the car is accelerating. With constant speed there is no tangential part; the whole acceleration is radial, perpendicular to the velocity, and it turns the car.
+- id: phys-m2-r2-q20
+  lesson: phys-motion-2d
+  type: text
+  topic: Relative motion
+  stem: 'If the velocity of A relative to B is 5 m/s east, then the velocity of B relative to A is ___ m/s east. (Give only the number, with its sign.)'
+  accept: ['-5', '-5.0']
+  explanation: |-
+    $\vec v_{BA} = -\vec v_{AB}$: B moves 5 m/s west relative to A, which is $-5$ m/s east.
+
+# ---- Honors: Two moving objects: chases, meetings and stopping distances
+- id: phys-m2-r2-h01
+  lesson: phys-m2-h-chases
+  topic: Chase problems
+  stem: 'A car passes a parked police car at a steady 30 m/s. At that instant the police car starts from rest with acceleration 3.0 m/s². How long does it take the police car to catch up?'
+  choices: ['10 s', '20 s', '15 s', '40 s']
+  answer: 1
+  explanation: |-
+    $\tfrac12(3.0)t^2 = 30t$ gives $1.5t = 30$, so $t = 20$ s. 10 s is when the speeds are equal (the gap is largest then), and also what you get by forgetting the $\tfrac12$. At 15 s the police car is at 337.5 m, still behind the speeder's 450 m; at 40 s it would be at 2400 m, far past the speeder's 1200 m.
+- id: phys-m2-r2-h02
+  lesson: phys-m2-h-chases
+  topic: Chase problems
+  stem: 'In the chase above (speeder at a steady 30 m/s, police car from rest at constant acceleration, starting as the speeder passes), how fast is the police car going when it catches the speeder?'
+  choices: ['30 m/s', '45 m/s', '60 m/s', '90 m/s']
+  answer: 2
+  explanation: |-
+    Both cars cover the same distance in the same time, so they have the same average velocity, 30 m/s. For constant acceleration from rest the average is half the final speed, so the police car is at $2 \times 30 = 60$ m/s, whatever its acceleration (check: $3.0 \times 20 = 60$ m/s). 30 m/s is the moment of largest gap.
+- id: phys-m2-r2-h03
+  lesson: phys-m2-h-chases
+  topic: Chase problems
+  stem: 'In a chase where the leader keeps a constant speed and the chaser starts from rest beside it with constant acceleration, when is the leader farthest ahead?'
+  choices: ['When the chaser''s speed equals the leader''s', 'At the moment the chase starts', 'Just before the catch', 'Halfway between the start and the catch in distance']
+  answer: 0
+  explanation: |-
+    The gap grows while the leader is faster and shrinks once the chaser is faster, so it peaks when the speeds are equal. On a $v$–$t$ graph that is where the two lines cross; in time, it is exactly halfway to the catch.
+- id: phys-m2-r2-h04
+  lesson: phys-m2-h-chases
+  topic: Chase problems
+  stem: 'A car at 25 m/s is 20 m behind a truck moving at a steady 15 m/s. The driver brakes immediately at 4.0 m/s². What happens?'
+  choices: ['It hits the truck', 'It stops 12.5 m behind where it braked, then waits', 'It avoids the truck, getting as close as 7.5 m', 'It avoids the truck, getting as close as 0.5 m']
+  answer: 2
+  explanation: |-
+    In the truck's frame the car approaches at $25 - 15 = 10$ m/s and slows at 4.0 m/s², so it needs $10^2/(2 \times 4.0) = 12.5$ m to match the truck's speed. The gap is 20 m, so there is no collision, and the closest approach is $20 - 12.5 = 7.5$ m. Using the car's ground speed instead ($25^2/8 = 78$ m) wrongly predicts a crash.
+- id: phys-m2-r2-h05
+  lesson: phys-m2-h-chases
+  topic: Stopping distance
+  stem: 'A driver going 20 m/s has a reaction time of 1.2 s and then brakes at 8.0 m/s². What is the stopping distance?'
+  choices: ['24 m', '25 m', '74 m', '49 m']
+  answer: 3
+  explanation: |-
+    Reaction distance $20 \times 1.2 = 24$ m, braking distance $20^2/(2 \times 8.0) = 25$ m, total 49 m. 24 m and 25 m are each part alone; 74 m uses $v^2/a$ without the 2.
+- id: phys-m2-r2-h06
+  lesson: phys-m2-h-chases
+  topic: Stopping distance
+  stem: 'With a 1.0 s reaction time and 5.0 m/s² braking, a car at 10 m/s stops in 20 m. What is the stopping distance for the same driver and car at 20 m/s?'
+  choices: ['40 m', '60 m', '80 m', '50 m']
+  answer: 1
+  explanation: |-
+    At 10 m/s: $10 + 10^2/10 = 20$ m. At 20 m/s: reaction distance doubles to 20 m, braking distance quadruples to $400/10 = 40$ m, total 60 m. 40 m doubles everything; 80 m quadruples everything.
+- id: phys-m2-r2-h07
+  lesson: phys-m2-h-chases
+  topic: Stopping distance
+  stem: 'A car approaches a light at 12 m/s. The driver''s reaction time is 1.0 s, the car brakes at 4.0 m/s², and the intersection is 12 m wide. In the lesson''s model (clear the intersection at constant speed before red), what is the shortest yellow that leaves no dilemma zone?'
+  choices: ['2.5 s', '3.0 s', '4.0 s', '3.5 s']
+  answer: 3
+  explanation: |-
+    Stopping distance: $12(1.0) + 12^2/(2 \times 4.0) = 12 + 18 = 30$ m. To clear from 30 m out the car must cover $30 + 12 = 42$ m during the yellow: $42/12 = 3.5$ s. 2.5 s ignores the intersection width.
+- id: phys-m2-r2-h08
+  lesson: phys-m2-h-chases
+  type: text
+  topic: Chase problems
+  stem: 'Seen from a truck moving at constant velocity, a braking car has a different velocity but the same ___ as seen from the ground.'
+  accept: [acceleration, the acceleration]
+  explanation: |-
+    Frames moving at constant velocity relative to each other differ only by a constant velocity, which contributes nothing to $\Delta v$, so they measure the same acceleration. That is why the truck's frame turns the problem into a one-object braking problem.
+- id: phys-m2-r2-h09
+  lesson: phys-m2-h-chases
+  topic: Stopping distance
+  stem: 'Which changes make a car''s stopping distance longer? Select all that apply.'
+  choices: [A longer reaction time, A higher speed, A larger braking deceleration, A wet road that lowers the maximum deceleration]
+  answer: [0, 1, 3]
+  explanation: |-
+    $d = vt_r + v^2/(2a)$: it grows with $t_r$ and with $v$, and shrinks as $a$ grows. A wet road lowers the deceleration the tires can provide, so it lengthens the braking distance; a larger deceleration shortens it.
+- id: phys-m2-r2-h10
+  lesson: phys-m2-h-chases
+  type: order
+  topic: Chase problems
+  stem: 'A police car starts 2 s after a speeder passes and accelerates only up to a top speed. Put the steps of the solution in order.'
+  items:
+    - Restart the clock when the police car starts and give the speeder its head start
+    - Solve the one-phase model and check the police car's speed at the catch
+    - Find when and where the police car reaches its top speed
+    - Close the remaining gap at the difference of the two speeds
+  explanation: |-
+    The head start must be in place before any equation is written. The quick one-phase solution tests whether the top speed matters; when it would be exceeded, the motion is split at the moment top speed is reached, and only then is the remaining gap known.
+- id: phys-m2-r2-h11
+  lesson: phys-m2-h-chases
+  type: label
+  topic: Stopping distance
+  stem: 'A car approaches a light as it turns yellow. Name the numbered parts of the road, using the lesson''s model.'
+  image: {src: images/phys-m2-dilemma-blank.svg, alt: 'A road with a car approaching a stop line and an intersection. The road before the line is divided into three shaded stretches: a long far stretch, a short middle stretch and a longer near stretch up to the line. Two dimensions below the road start at the boundaries of the middle stretch and end at the stop line.'}
+  labels:
+    - {x: 23.8, y: 53.2, text: 'Can stop, cannot clear'}
+    - {x: 33.3, y: 47.3, text: Dilemma zone}
+    - {x: 54.4, y: 47.3, text: 'Can clear, cannot stop'}
+    - {x: 71.2, y: 55.4, text: Stop line}
+    - {x: 79.7, y: 27.0, text: Intersection}
+  distractors: ['Can both stop and clear']
+  explanation: |-
+    Far from the line there is room to stop (the stopping distance fits) but not time to clear. Close to the line the car can clear but not stop. In between, where the stopping distance (the longer dimension) and the clearing distance (the shorter one) don't overlap, the driver can do neither: the dilemma zone. A longer yellow would create a stretch where both work.
+- id: phys-m2-r2-h12
+  lesson: phys-m2-h-chases
+  type: match
+  topic: Stopping distance
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Reaction distance, Distance covered before the brakes act]
+    - [Braking distance, Distance covered while braking]
+    - [Stopping distance, Sum of reaction and braking distances]
+    - [Dilemma zone, Stretch where a driver can neither stop nor clear]
+  distractors: [Gap between two cars when their speeds are equal]
+  explanation: |-
+    Reaction distance $vt_r$ grows with speed; braking distance $v^2/(2a)$ grows with the square of speed; their sum is the stopping distance. The dilemma zone appears when a yellow light is too short.
+- id: phys-m2-r2-h13
+  lesson: phys-m2-h-chases
+  type: text
+  topic: Chase problems
+  stem: 'A speeder at a steady 20 m/s is 100 m ahead of a police car when the police car starts from rest at 2.0 m/s². The police car catches up ___ s later. (Give the number to 3 significant figures.)'
+  accept: ['24.1']
+  explanation: |-
+    Origin at the police car: $x_P = t^2$ and $x_S = 100 + 20t$. Setting them equal: $t^2 - 20t - 100 = 0$, so $t = 10 + \sqrt{200} = 24.1$ s (the other root is negative). The police car is then doing 48 m/s.
+
+# ---- Honors: Aiming a projectile
+- id: phys-m2-r2-h14
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'A ball can be launched at 10 m/s. At how many launch angles can it hit a target on level ground 12 m away? ($g = 9.8$ m/s², no air resistance)'
+  choices: ['None', 'Exactly one', 'Exactly two', 'Every angle between 0° and 90°']
+  answer: 0
+  explanation: |-
+    The farthest level-ground reach at 10 m/s is $v_0^2/g = 100/9.8 = 10.2$ m (at $45^\circ$). 12 m is outside the safety parabola, so the discriminant is negative and no angle works.
+- id: phys-m2-r2-h15
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'A ball launched at 20 m/s must land 30 m away on level ground. Which launch angles work? ($g = 9.8$ m/s²)'
+  choices: ['47.3° only', '23.7° and 66.3°', '45° only', '36.1° and 63.3°']
+  answer: 1
+  explanation: |-
+    $\sin 2\theta = gR/v_0^2 = 9.8(30)/400 = 0.735$, so $2\theta = 47.3^\circ$ or $132.7^\circ$, giving $\theta = 23.7^\circ$ or $66.3^\circ$. 47.3° is $2\theta$, not $\theta$. 36.1° and 63.3° are the angles for a target 5 m up (Example 1), not on level ground.
+- id: phys-m2-r2-h16
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'With launch speed 14 m/s, how high is the highest point directly above the launcher that can be reached? ($g = 9.8$ m/s²)'
+  choices: ['5.0 m', '20 m', '14 m', '10 m']
+  answer: 3
+  explanation: |-
+    At $x = 0$ the safety parabola gives $y = v_0^2/(2g) = 196/19.6 = 10$ m, the height of a straight-up throw. 20 m is $v_0^2/g$, the level range at $45^\circ$; 5.0 m is the top of a $45^\circ$ shot.
+- id: phys-m2-r2-h17
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'Why is the best angle for distance below $45^\circ$ when a stone is thrown from the top of a cliff?'
+  choices: ['Gravity is weaker at the top of the cliff', 'Air resistance is larger at high angles', 'The stone must land at its launch height', 'The stone has extra fall time, so it pays to trade height for horizontal speed']
+  answer: 3
+  explanation: |-
+    Falling the extra height gives the stone flight time even with a low launch, so more of the speed is better spent horizontally. The best angle satisfies $\tan\theta = v_0/\sqrt{v_0^2 + 2gh} < 1$. The lesson ignores air resistance, and $g$ hardly changes over a cliff's height.
+- id: phys-m2-r2-h18
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'A ball is launched from a hillside that rises at $30^\circ$. At what angle above the horizontal should it be launched to land as far up the slope as possible?'
+  choices: ['45°', '60°', '75°', '30°']
+  answer: 1
+  explanation: |-
+    The best launch is $45^\circ + \alpha/2 = 45^\circ + 15^\circ = 60^\circ$ above the horizontal, bisecting the angle between the slope ($30^\circ$) and the vertical ($90^\circ$). 45° is best only on level ground; 75° is $45^\circ + \alpha$.
+- id: phys-m2-r2-h19
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'At 14 m/s, what is the farthest a ball can land up a $30^\circ$ slope, measured along the slope? ($g = 9.8$ m/s²)'
+  choices: ['13.3 m', '20.0 m', '40.0 m', '26.7 m']
+  answer: 0
+  explanation: |-
+    $d_{\max} = \dfrac{v_0^2}{g(1 + \sin\alpha)} = \dfrac{196}{9.8(1.5)} = 13.3$ m. 20.0 m is the level-ground maximum; 40.0 m uses $1 - \sin\alpha$ (a downhill slope); 26.7 m divides by $\cos^2\alpha$ instead.
+- id: phys-m2-r2-h20
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'A dart aimed straight at a target hits it when the target is released at the instant of firing. If the dart is fired faster (same aim), what happens?'
+  choices: ['It passes above the target', 'It passes below the target', 'It still hits, at the same height', 'It still hits, higher above the ground']
+  answer: 3
+  explanation: |-
+    Dart and target both fall $\tfrac12gt^2$ below where they would be without gravity, so the dart always meets the target. A faster dart gets there sooner, so both have fallen less and they meet higher up.
+- id: phys-m2-r2-h21
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'A dart is aimed at a target 15 m away and 15 m up (so at $45^\circ$) and fired at 30 m/s as the target is released. At what height do they meet? ($g = 9.8$ m/s²)'
+  choices: ['12.6 m', '15.0 m', '2.45 m', '10.1 m']
+  answer: 0
+  explanation: |-
+    $v_{0x} = 30\cos 45^\circ = 21.2$ m/s, so the dart reaches $x = 15$ m at $t = 0.707$ s. Both have fallen $\tfrac12(9.8)(0.707)^2 = 2.45$ m, so they meet at $15 - 2.45 = 12.6$ m. 2.45 m is the drop itself; 15.0 m ignores gravity.
+- id: phys-m2-r2-h22
+  lesson: phys-m2-h-aiming
+  type: text
+  topic: Aiming projectiles
+  stem: 'On a slope, the launch direction that gives the greatest distance along the slope bisects the angle between the slope and the ___.'
+  accept: [vertical, the vertical, vertical direction, the vertical direction]
+  explanation: |-
+    $\theta_{\text{best}} = 45^\circ + \alpha/2$ is halfway between the slope ($\alpha$) and the vertical ($90^\circ$). On level ground that is the familiar $45^\circ$.
+- id: phys-m2-r2-h23
+  lesson: phys-m2-h-aiming
+  type: label
+  topic: Aiming projectiles
+  stem: 'A projectile is launched up a slope. Name the numbered angles and lengths.'
+  image: {src: images/phys-m2-incline-blank.svg, alt: 'A straight slope rising to the right with a dashed horizontal line from the launch point. A launch arrow points up from the slope, and a dashed path lands farther up the slope. Arcs mark three angles at the launch point, a dimension parallel to the slope runs from launch to landing, and a horizontal dimension below runs to directly beneath the landing point.'}
+  labels:
+    - {x: 17.3, y: 67.4, text: Launch angle above the horizontal}
+    - {x: 30.6, y: 66.9, text: Slope angle}
+    - {x: 32.3, y: 47.7, text: Launch angle above the slope}
+    - {x: 46.8, y: 58.6, text: Distance along the slope}
+    - {x: 53.6, y: 86.2, text: Horizontal distance}
+  distractors: [Maximum height]
+  explanation: |-
+    1 is $\theta$, from the horizontal to the launch direction; 2 is the slope angle $\alpha$, from the horizontal to the slope; 3 is $\theta - \alpha$, from the slope to the launch direction. 4 is $d$, measured along the slope, and 5 is $x = d\cos\alpha$.
+- id: phys-m2-r2-h24
+  lesson: phys-m2-h-aiming
+  topic: Aiming projectiles
+  stem: 'A ball launched at a fixed speed can hit a certain target (not on level ground with the launcher) at two different angles. Which are true? Select all that apply.'
+  choices: [The higher angle gives the longer flight time, Both angles give the same flight time, The target is below the safety parabola, The two angles always add to 90°]
+  answer: [0, 2]
+  explanation: |-
+    Two angles means a positive discriminant, so the target is inside (below) the safety parabola. The lob has a smaller horizontal speed, so it takes longer to cover the same $x$ (Example 1: 3.34 s vs 1.86 s). The angles add to $90^\circ$ only for a target at launch height (Example 1: $36.1^\circ + 63.3^\circ \ne 90^\circ$).
+- id: phys-m2-r2-h25
+  lesson: phys-m2-h-aiming
+  type: order
+  topic: Aiming projectiles
+  stem: 'Put the steps for finding the launch angles that hit a target $(x, y)$ in order.'
+  items:
+    - 'Form the quadratic $Au^2 - xu + (y + A) = 0$ in $u = \tan\theta$'
+    - 'Check the sign of the discriminant'
+    - 'Solve the quadratic for its roots $u$'
+    - 'Take $\theta = \tan^{-1}u$ for each root'
+  explanation: |-
+    The quadratic comes from the path equation with $1/\cos^2\theta = 1 + \tan^2\theta$. Its discriminant says whether there are two, one or no solutions before you look for them; the roots are values of $\tan\theta$, converted to angles last.
+- id: phys-m2-r2-h26
+  lesson: phys-m2-h-aiming
+  type: match
+  topic: Aiming projectiles
+  stem: 'For the quadratic in $\tan\theta$ that aims a projectile at a target, match the sign of the discriminant to its meaning.'
+  pairs:
+    - [Positive, Two launch angles hit the target]
+    - [Zero, Exactly one angle; the target is on the safety parabola]
+    - [Negative, The target is out of reach at this speed]
+  distractors: [Every launch angle hits the target]
+  explanation: |-
+    The number of real roots of a quadratic is set by its discriminant, and each root $\tan\theta$ is one launch angle.
+
+# ---- Honors: Galileo, falling bodies and measuring g
+- id: phys-m2-r2-h27
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'A ball starts from rest and rolls 2.0 cm during the first of several equal time intervals. How far does it roll during the third interval?'
+  choices: ['6.0 cm', '18 cm', '10 cm', '8.0 cm']
+  answer: 2
+  explanation: |-
+    By the odd-number rule the intervals go as $1 : 3 : 5$, so the third covers $5 \times 2.0 = 10$ cm. 18 cm is the total after three intervals ($9 \times 2.0$); 6.0 cm is the second interval ($3 \times 2.0$); 8.0 cm is the total after two intervals ($4 \times 2.0$).
+- id: phys-m2-r2-h28
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'A ball released from rest rolls 0.20 m down a ramp in the first second. Assuming constant acceleration, how far has it rolled after 3.0 s?'
+  choices: ['0.60 m', '1.0 m', '1.2 m', '1.8 m']
+  answer: 3
+  explanation: |-
+    Distance from rest grows as $t^2$: $0.20 \times 3^2 = 1.8$ m (or $0.20 + 0.60 + 1.00$). 0.60 m assumes constant speed; 1.0 m is the distance in the third second alone.
+- id: phys-m2-r2-h29
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'A student plots drop height $h$ against $t^2$ and gets a straight line of slope 4.85 m/s². What value of $g$ does this give?'
+  choices: ['9.70 m/s²', '4.85 m/s²', '2.43 m/s²', '2.20 m/s²']
+  answer: 0
+  explanation: |-
+    $h = \tfrac12gt^2$, so the slope of $h$ against $t^2$ is $g/2$, and $g = 2 \times 4.85 = 9.70$ m/s². Taking the slope as $g$ forgets the factor 2; 2.43 m/s² halves the slope instead of doubling it; 2.20 is $\sqrt{4.85}$.
+- id: phys-m2-r2-h30
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'Galileo imagined tying a light stone to a heavy one. What did the thought experiment show?'
+  choices: ['The pair falls faster because it is heavier', 'Light objects fall faster than heavy ones', 'The idea that heavier bodies fall faster leads to a contradiction', 'Air resistance is the same for all objects']
+  answer: 2
+  explanation: |-
+    If heavier means faster, the light stone should slow the heavy one (so the pair is slower), yet the pair is heavier (so it should be faster). Both can't hold, so the premise fails: without air, weight doesn't set the rate of fall.
+- id: phys-m2-r2-h31
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'In the ruler-drop test you catch the ruler after it has fallen 12 cm. What is your reaction time? ($g = 9.8$ m/s²)'
+  choices: ['0.11 s', '0.024 s', '0.16 s', '1.6 s']
+  answer: 2
+  explanation: |-
+    $t = \sqrt{2d/g} = \sqrt{2(0.12)/9.8} = \sqrt{0.0245} = 0.16$ s. 0.11 s forgets the 2; 0.024 s forgets the square root; 1.6 s puts in 12 instead of 0.12 m (centimeters used as meters).
+- id: phys-m2-r2-h32
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'Why did Galileo time balls rolling down a gentle ramp instead of timing free fall directly?'
+  choices: ['The ramp lowers the acceleration but keeps it constant, so the motion is slow enough to time', 'The ramp removes gravity from the motion', 'Rolling balls fall faster than dropped ones', 'A ramp makes the speed constant']
+  answer: 0
+  explanation: |-
+    A dropped ball falls 2 m in about 0.6 s, too fast for a water clock. On a gentle ramp the acceleration is a small, still constant fraction of $g$, so the same kind of motion takes several seconds.
+- id: phys-m2-r2-h33
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'How does the measured free-fall acceleration at sea level vary over Earth''s surface?'
+  choices: ['It is exactly 9.80665 m/s² everywhere', 'About 9.83 m/s² at the equator and 9.78 m/s² at the poles', 'About 9.78 m/s² at the equator and 9.83 m/s² at the poles', 'It changes by about 10% between the equator and the poles']
+  answer: 2
+  explanation: |-
+    It is smallest at the equator (about 9.78 m/s²) and largest at the poles (about 9.83 m/s²), because of Earth's spin and flattened shape: a change of about 0.5%. 9.80665 m/s² is standard gravity, a defined value, not a measurement at every place.
+- id: phys-m2-r2-h34
+  lesson: phys-m2-h-galileo
+  type: text
+  topic: Free-fall experiments
+  stem: 'Starting from rest with constant acceleration, the distances covered in successive equal time intervals are in the ratio $1 : 3 :$ ___ $: 7$.'
+  accept: ['5']
+  explanation: |-
+    The $n$th interval covers $\tfrac12a\tau^2(2n - 1)$: the odd numbers 1, 3, 5, 7, … (the odd-number rule).
+- id: phys-m2-r2-h35
+  lesson: phys-m2-h-galileo
+  type: text
+  topic: Free-fall experiments
+  stem: 'A graph of drop height against time squared has slope 4.90 m/s². The free-fall acceleration is ___ m/s². (Give only the number.)'
+  accept: ['9.8', '9.80']
+  explanation: |-
+    The slope of $h$ against $t^2$ is $\tfrac12g$, so $g = 2 \times 4.90 = 9.80$ m/s².
+- id: phys-m2-r2-h36
+  lesson: phys-m2-h-galileo
+  type: order
+  topic: Free-fall experiments
+  stem: 'Put these events in the history of falling bodies in chronological order.'
+  items:
+    - Aristotle teaches that heavier bodies fall faster
+    - Stevin and de Groot drop two lead balls in Delft
+    - Galileo publishes Two New Sciences
+    - Newton publishes the Principia
+    - Apollo 15's hammer and feather fall together on the Moon
+  explanation: |-
+    About 350 BC; 1586; 1638; 1687; 1971.
+- id: phys-m2-r2-h37
+  lesson: phys-m2-h-galileo
+  type: match
+  topic: Free-fall experiments
+  stem: 'Match each person to the contribution described in the lesson.'
+  pairs:
+    - [Galileo, Found distance grows as time squared using inclined planes]
+    - [Simon Stevin, Dropped unequal lead balls that landed together]
+    - [Vincenzo Viviani, Told the story of the Leaning Tower drop]
+    - [David Scott, Dropped a hammer and a feather on the Moon]
+  distractors: [Explained free fall with a law of gravitation]
+  explanation: |-
+    The unused description belongs to Newton (Principia, 1687), who is not in the list. The Leaning Tower story comes from Viviani's biography of Galileo, and historians doubt it happened as told.
+- id: phys-m2-r2-h38
+  lesson: phys-m2-h-galileo
+  type: label
+  topic: Free-fall experiments
+  stem: 'A ball is released from rest on a ramp, and its position is marked at equal time intervals. It covers 1 unit in the first interval. How far does it travel during each numbered interval?'
+  image: {src: images/phys-m2-galileo-blank.svg, alt: 'A ramp sloping down to the right. A ball is shown at its starting point and at four later positions marked at equal time intervals, with the spacing between positions growing. Four numbered dimensions along the ramp span the successive intervals.'}
+  labels:
+    - {x: 9.6, y: 45.5, text: 1 unit}
+    - {x: 20.5, y: 49.6, text: 3 units}
+    - {x: 42.1, y: 57.6, text: 5 units}
+    - {x: 74.6, y: 69.7, text: 7 units}
+  distractors: [2 units, 4 units]
+  explanation: |-
+    With constant acceleration from rest, the total distances after 1, 2, 3, 4 intervals are 1, 4, 9, 16 units, so the intervals themselves cover the odd numbers 1, 3, 5, 7. Equal growth (1, 2, 3, 4) would mean the acceleration was not constant.
+- id: phys-m2-r2-h39
+  lesson: phys-m2-h-galileo
+  topic: Free-fall experiments
+  stem: 'Which observations are evidence that a ball released from rest moves with constant acceleration? Select all that apply.'
+  choices: ['A graph of distance against $t^2$ is a straight line through the origin', 'Distances in successive equal time intervals are in the ratio 1 : 3 : 5 : 7', 'Equal distances are covered in equal time intervals', 'A graph of distance against $t$ is a straight line through the origin']
+  answer: [0, 1]
+  explanation: |-
+    Constant acceleration from rest gives $d = \tfrac12at^2$, a straight line against $t^2$, and interval distances in odd-number ratios. Equal distances in equal times, or a straight line of $d$ against $t$, mean constant velocity instead.

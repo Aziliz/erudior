@@ -35,6 +35,10 @@ $$4{,}072{,}315 = 4{,}000{,}000 + 70{,}000 + 2{,}000 + 300 + 10 + 5$$
 
 Expanded form makes place value visible, and it is the hidden reason the usual methods for adding and multiplying work: you are really working with each place separately.
 
+Base-ten blocks show the same idea as a picture. A small cube is one, a rod of ten cubes is a ten, a flat of ten rods is a hundred, and a big cube made of ten flats is a thousand. Each block is ten of the block before it, just as each place is worth ten of the place to its right.
+
+![Base-ten blocks for 1,324: one large cube labeled 1 thousand, three flat squares labeled 3 hundreds, two rods labeled 2 tens and four small cubes labeled 4 ones, with the sum 1,000 + 300 + 20 + 4 = 1,324 underneath.](images/pre-m1-base-ten-blocks.svg)
+
 ### Example 1
 
 What is the value of the digit 6 in 3,816,904, and how would you write the number in expanded form?
@@ -61,6 +65,20 @@ Rounding replaces a number with a nearby "friendlier" number that has zeros in t
 2. Look at the digit just to its right.
 3. If that digit is 5 or more, add 1 to the rounding digit. If it is 4 or less, leave the rounding digit alone.
 4. Replace every digit to the right of the rounding place with 0.
+
+The same steps as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: How to round a whole number to a given place
+  accDescr: Start by finding the rounding digit in the place you are rounding to. Look at the digit just to its right. If that digit is 5 or more, add 1 to the rounding digit, carrying to the left if the rounding digit was 9. If it is 4 or less, leave the rounding digit as it is. Either way, replace every digit to the right of the rounding place with 0.
+  A["Find the rounding digit"] --> B["Look at the digit just to its right"]
+  B --> C{"Is it 5 or more?"}
+  C -- "yes" --> D["Add 1 to the rounding digit (carry if it was 9)"]
+  C -- "no" --> E["Keep the rounding digit"]
+  D --> F["Replace every digit to the right with 0"]
+  E --> F
+```
 
 Why does this work? Rounding 3,846 to the nearest hundred asks: is 3,846 closer to 3,800 or to 3,900? The halfway point is 3,850. Anything below 3,850 is closer to 3,800 and anything at or above it goes to 3,900. The digit to the right of the hundreds place, here 4, tells you which side of halfway you are on. The rule that exactly 5 rounds up is a convention so everyone gets the same answer.
 

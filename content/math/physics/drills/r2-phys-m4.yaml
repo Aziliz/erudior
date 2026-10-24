@@ -78,12 +78,12 @@
     v2f: (p + m1*cr*(v1 - v2))/M
     mu: m1*m2/M
     Krel: 0.5*mu*(v1 - v2)^2
-    lost: (1 - cr^2)*Krel
+    Kloss: (1 - cr^2)*Krel
   prompt: 'A {m1} kg cart moving at {v1} m/s collides head-on with a {m2} kg cart moving at {v2} m/s (negative means the opposite direction). The coefficient of restitution is {cr}. Find both final velocities in m/s to 2 decimal places (positive = the first cart''s original direction), and the kinetic energy lost in joules to 3 significant figures.'
   answers:
     - {format: num2, name: v1f, label: 'First cart', tolerance: 0.011, units: {'m/s': 1}}
     - {format: num2, name: v2f, label: 'Second cart', tolerance: 0.011, units: {'m/s': 1}}
-    - {format: sig4, name: lost, label: 'KE lost', relTolerance: 0.01, units: {J: 1}}
+    - {format: sig4, name: Kloss, label: 'KE lost', relTolerance: 0.01, units: {J: 1}}
   solution: |-
     Momentum: ${m1}v_{1f} + {m2}v_{2f} = {m1}({v1}) + {m2}({v2}) = {p:num4}$.
 
@@ -91,7 +91,7 @@
 
     Solving together: $v_{1f} =$ **{v1f:num2} m/s** and $v_{2f} =$ **{v2f:num2} m/s**.
 
-    Energy lost: $\mu = \dfrac{({m1})({m2})}{{M}} = {mu:num4}$ kg, $K_{\text{rel}} = \tfrac12\mu(v_{1i} - v_{2i})^2 = {Krel:sig4}$ J, and $K_{\text{lost}} = (1 - {cr}^2)K_{\text{rel}} =$ **{lost:sig3} J**.
+    Energy lost: $\mu = \dfrac{({m1})({m2})}{{M}} = {mu:num4}$ kg, $K_{\text{rel}} = \tfrac12\mu(v_{1i} - v_{2i})^2 = {Krel:sig4}$ J, and $K_{\text{lost}} = (1 - {cr}^2)K_{\text{rel}} =$ **{Kloss:sig3} J**.
 - id: phys-m4-r2-bounce
   title: A bouncing ball
   topic: Restitution and gravity assists

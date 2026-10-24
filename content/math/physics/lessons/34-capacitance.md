@@ -41,7 +41,11 @@ Filling the gap with an insulating material, a **dielectric**, increases the cap
 
 $$C = \kappa\frac{\varepsilon_0A}{d}.$$
 
-For air $\kappa \approx 1.0006$, paper about 3.7, glass 5–10, water about 80. The dielectric's molecules polarize in the field, lining up so that their bound charges partly cancel the field inside. With less field for the same plate charge, the voltage is lower, so $C = Q/V$ is higher. Dielectrics also prevent breakdown: air sparks at about $3\times10^6$ V/m, while many plastics withstand ten times that.
+For air $\kappa \approx 1.0006$, paper about 3.7, glass 5–10, water about 80. The dielectric's molecules polarize in the field, lining up so that their bound charges partly cancel the field inside. With less field for the same plate charge, the voltage is lower, so $C = Q/V$ is higher.
+
+![A parallel-plate capacitor with the positive plate on top and the negative plate below, separated by a distance d and filled with a dielectric slab. Inside the slab, oval molecules are polarized, each with its negative end toward the positive plate and its positive end toward the negative plate.](images/phys-m8-capacitor-dielectric.svg)
+
+In the picture each molecule's negative end faces the positive plate. Those ends partly cancel the plate's charge as seen from inside the slab, which is why the field there is weaker. Dielectrics also prevent breakdown: air sparks at about $3\times10^6$ V/m, while many plastics withstand ten times that.
 
 ## Combining capacitors
 
@@ -56,6 +60,10 @@ It's like adding plate area.
 $$\frac{1}{C_{\text{eq}}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots$$
 
 The series combination is smaller than the smallest capacitor: like increasing the gap. (These rules are the reverse of those for resistors, coming in the next module.)
+
+The two ways of connecting the capacitors in Example 2 below look like this:
+
+![Two circuit diagrams. Series: a 12 V battery with a 3.0 μF and a 6.0 μF capacitor one after the other in a single loop. Parallel: a 12 V battery with the 3.0 μF and 6.0 μF capacitors on separate branches, each connected directly across the battery.](images/phys-m8-cap-combos.svg)
 
 ### Example 2
 
@@ -94,6 +102,16 @@ That's the graphical reason for the $\tfrac12$: the charge was not all moved aga
 ## Battery connected or disconnected?
 
 Many capacitor questions turn on one distinction. If the capacitor *stays connected* to a battery, the battery holds $V$ fixed, and $Q = CV$ and $U = \tfrac12CV^2$ follow $C$. If it is *charged and then disconnected*, no charge can enter or leave, so $Q$ is fixed, and $V = Q/C$ and $U = Q^2/(2C)$ follow $C$ instead.
+
+```mermaid
+flowchart TD
+  accTitle: Battery connected or disconnected
+  accDescr: First ask whether the capacitor is still connected to the battery. If yes, the voltage stays fixed, so the charge Q equals C V and the energy one half C V squared both change in proportion to C. If it was disconnected, the charge stays fixed, so the voltage Q over C and the energy Q squared over 2C both change in inverse proportion to C.
+  A{"Still connected to the battery?"} -->|"yes"| B["V stays fixed"]
+  B --> C["Q = CV and U = ½CV² change in step with C"]
+  A -->|"no, disconnected"| D["Q stays fixed"]
+  D --> E["V = Q/C and U = Q²/2C change inversely with C"]
+```
 
 ### Example 4
 

@@ -1,0 +1,693 @@
+# Round 2 questions for phys-m5 (core lessons 15-20 and honors lessons 20h1-20h3)
+
+# ---------- Lesson 15: rotational kinematics ----------
+- id: phys-m5-r2-q01
+  lesson: phys-rot-kin
+  type: text
+  topic: Rotational kinematics
+  stem: 'A point on the rim of a wheel is 0.50 m from the axle. The wheel turns at 12 rad/s. The point''s speed is ___ m/s. (Give only the number.)'
+  accept: ['6', '6.0']
+  explanation: |-
+    $v = r\omega = 0.50(12) = 6.0$ m/s. This works because $\omega$ is in rad/s.
+- id: phys-m5-r2-q02
+  lesson: phys-rot-kin
+  module_quiz: true
+  type: match
+  topic: Rotational kinematics
+  stem: 'Match each quantity for straight-line motion to its rotational counterpart.'
+  pairs:
+    - ['Position $x$', 'Angle']
+    - ['Velocity $v$', 'Angular velocity']
+    - ['Acceleration $a$', 'Angular acceleration']
+    - ['Mass $m$', 'Moment of inertia']
+    - ['Kinetic energy $\tfrac12mv^2$', 'Rotational kinetic energy']
+  distractors: [Torque]
+  explanation: |-
+    The rotational equations mirror the linear ones symbol by symbol: $\theta$ for $x$, $\omega$ for $v$, $\alpha$ for $a$, $I$ for $m$ and $\tfrac12I\omega^2$ for $\tfrac12mv^2$. Torque is the counterpart of force, which isn't listed.
+- id: phys-m5-r2-q03
+  lesson: phys-rot-kin
+  topic: Rotational kinematics
+  stem: 'In which of these must $\omega$ be in rad/s (not rpm or rev/s) to get the right answer? Select all that apply.'
+  choices: ['$v = r\omega$', '$a_c = r\omega^2$', '$K = \tfrac12I\omega^2$', 'The ratio $\omega_2/\omega_1$ of two angular speeds']
+  answer: [0, 1, 2]
+  explanation: |-
+    The relations $v = r\omega$, $a_c = r\omega^2$ and $K = \tfrac12I\omega^2$ come from $s = r\theta$, which holds only with $\theta$ in radians. A ratio of two angular speeds has the same value in any unit, because the unit cancels.
+- id: phys-m5-r2-q04
+  lesson: phys-rot-kin
+  type: label
+  topic: Rotational kinematics
+  stem: 'A disk turns counterclockwise about its axis. Name the numbered parts of the picture for the point on its rim.'
+  image: {src: images/phys-m5-rotating-disk-blank.svg, alt: 'A disk turning counterclockwise with five numbered parts: the center of the disk, the line from the center to a point on the rim, the curved arc along the rim from a dashed reference line to the point, an arrow at the point pointing along the rim, and an arrow at the point pointing toward the center.'}
+  labels:
+    - {x: 41.1, y: 55.0, text: Axis of rotation}
+    - {x: 49.7, y: 40.6, text: Radius r}
+    - {x: 65.3, y: 39.2, text: Arc length s}
+    - {x: 46.7, y: 12.6, text: Velocity v}
+    - {x: 53.1, y: 34.9, text: Centripetal acceleration}
+  distractors: [Angular momentum, Torque]
+  explanation: |-
+    The disk turns about its axis (1). The radius (2) runs to the point; the arc (3) it has swept from the reference line has length $s = r\theta$. The velocity (4) is tangent to the rim, $v = r\omega$, and the centripetal acceleration (5) points toward the axis, $a_c = r\omega^2$.
+- id: phys-m5-r2-q05
+  lesson: phys-rot-kin
+  module_quiz: true
+  type: text
+  topic: Moment of inertia
+  stem: 'A 2.0 kg uniform solid disk of radius 0.30 m rotates about an axis through its rim, parallel to its central axis. Its moment of inertia is ___ kg·m². (Give only the number.)'
+  accept: ['0.27']
+  explanation: |-
+    Parallel-axis theorem with $d = R$: $I = \tfrac12MR^2 + MR^2 = \tfrac32(2.0)(0.30)^2 = 0.27$ kg·m².
+
+# ---------- Lesson 16: torque ----------
+- id: phys-m5-r2-q06
+  lesson: phys-torque
+  type: text
+  topic: Torque
+  stem: 'A 50 N force pushes perpendicular to a 0.40 m wrench at its end. The torque about the bolt is ___ N·m. (Give only the number.)'
+  accept: ['20']
+  explanation: |-
+    Perpendicular force: $\tau = rF = 0.40(50) = 20$ N·m.
+- id: phys-m5-r2-q07
+  lesson: phys-torque
+  module_quiz: true
+  type: order
+  topic: Torque
+  stem: 'Each force acts at the end of the same 0.30 m wrench, at the given angle to the handle. Put them in order of torque, smallest first.'
+  items: ['200 N at $0^\circ$', '100 N at $15^\circ$', '80 N at $30^\circ$', '50 N at $90^\circ$', '60 N at $60^\circ$']
+  explanation: |-
+    $\tau = rF\sin\theta$ with $r = 0.30$ m: $200\sin 0^\circ$ gives 0 (aimed along the handle); $0.30(100)\sin 15^\circ = 7.8$; $0.30(80)\sin 30^\circ = 12.0$; $0.30(50) = 15.0$; $0.30(60)\sin 60^\circ = 15.6$ N·m.
+- id: phys-m5-r2-q08
+  lesson: phys-torque
+  topic: Rotational dynamics
+  stem: 'A bucket hangs from a rope wound on a heavy solid cylinder that turns on a frictionless axle. The bucket is released. Which statements are true? Select all that apply.'
+  choices: ['The rope tension is less than the bucket''s weight', 'The bucket''s acceleration is less than $g$', 'The tension equals the bucket''s weight because the rope is light', 'A heavier cylinder gives the bucket a smaller acceleration']
+  answer: [0, 1, 3]
+  explanation: |-
+    The bucket accelerates down, so $mg - T = ma > 0$ and $T < mg$. Since $a = mg/(m + \tfrac12M)$, $a < g$ and a heavier cylinder (larger $M$) gives a smaller $a$. A light rope doesn't make $T = mg$; that would need zero acceleration.
+- id: phys-m5-r2-q09
+  lesson: phys-torque
+  type: label
+  topic: Rotational dynamics
+  stem: 'A bucket hangs from a rope wound on a solid cylinder. Name the numbered parts.'
+  image: {src: images/phys-m5-windlass-blank.svg, alt: 'A cylinder on a fixed axle with a rope hanging from its right side to a bucket. Five numbered parts: the center of the cylinder, a dashed line from the center to the rim, a downward arrow at the cylinder''s rim beside the rope, an upward arrow on the bucket beside the rope, and a downward arrow below the bucket.'}
+  labels:
+    - {x: 39.6, y: 29.5, text: Axle}
+    - {x: 33.3, y: 36.4, text: Radius (lever arm of the rope)}
+    - {x: 59.8, y: 42.0, text: Rope tension on the cylinder}
+    - {x: 50.6, y: 56.8, text: Rope tension on the bucket}
+    - {x: 55.2, y: 90.9, text: Weight of the bucket}
+  distractors: [Normal force on the bucket, Friction at the axle]
+  explanation: |-
+    The cylinder turns about its axle (1). The rope leaves the rim at a distance equal to the radius (2), which is the lever arm of the tension. The rope pulls down on the cylinder (3) and up on the bucket (4); the bucket's weight (5) pulls down. The axle is frictionless and nothing pushes on the bucket from below.
+- id: phys-m5-r2-q10
+  lesson: phys-torque
+  type: text
+  topic: Rotational dynamics
+  stem: 'A motor delivers a torque of 200 N·m while turning at 300 rad/s. Its power output is ___ kW. (Give only the number.)'
+  accept: ['60']
+  explanation: |-
+    $P = \tau\omega = 200(300) = 60\,000$ W $= 60$ kW.
+
+# ---------- Lesson 17: rolling and angular momentum ----------
+- id: phys-m5-r2-q11
+  lesson: phys-rolling
+  type: label
+  topic: Rolling motion
+  stem: 'A wheel rolls to the right without slipping; its center moves at speed $v$. Choose the motion of each numbered point.'
+  image: {src: images/phys-m5-rolling-velocities-blank.svg, alt: 'A wheel rolling to the right on the ground, with arrows showing velocities. Four numbered points: the arrow at the top of the wheel, the arrow at the center, the point touching the ground, and the slanted arrow at the front of the wheel level with the center.'}
+  labels:
+    - {x: 57.0, y: 18.4, text: 'Forward at 2v'}
+    - {x: 48.9, y: 52.6, text: 'Forward at v'}
+    - {x: 39.3, y: 86.8, text: 'At rest'}
+    - {x: 71.3, y: 65.7, text: 'About 1.41v, slanting down'}
+  distractors: ['Backward at v']
+  explanation: |-
+    Rolling is the center's motion plus rotation about the center. At the top the two add: $v + R\omega = 2v$ (1). The center moves at $v$ (2). At the bottom they cancel, so the contact point is at rest (3). The front point adds $v$ forward and $R\omega = v$ downward, giving $\sqrt2v \approx 1.41v$ slanting down (4). No point of a wheel rolling forward moves backward at $v$.
+- id: phys-m5-r2-q12
+  lesson: phys-rolling
+  type: text
+  topic: Rolling motion
+  stem: 'A ball rolls without slipping with its center moving at 5.0 m/s. The top of the ball moves at ___ m/s relative to the ground. (Give only the number.)'
+  accept: ['10', '10.0']
+  explanation: |-
+    The top moves at $v + R\omega = 2v = 10$ m/s.
+- id: phys-m5-r2-q13
+  lesson: phys-rolling
+  module_quiz: true
+  type: match
+  topic: Rolling motion
+  stem: 'Writing $I_{\text{cm}} = cMR^2$, match each rolling object to its shape factor $c$.'
+  pairs:
+    - [Thin hoop, '1']
+    - [Solid disk or cylinder, '1/2']
+    - [Solid sphere, '2/5']
+    - [Thin hollow sphere, '2/3']
+  distractors: ['1/3']
+  explanation: |-
+    From the moment-of-inertia table: hoop $MR^2$, solid cylinder $\tfrac12MR^2$, solid sphere $\tfrac25MR^2$, spherical shell $\tfrac23MR^2$. $\tfrac13$ belongs to a rod about one end, which doesn't roll.
+- id: phys-m5-r2-q14
+  lesson: phys-rolling
+  type: order
+  topic: Rolling motion
+  stem: 'All start from rest at the top of the same ramp: a block sliding without friction, and four objects rolling without slipping. Put them in the order they reach the bottom, first to last.'
+  items: [Frictionless sliding block, Solid sphere, Solid cylinder, Thin hollow sphere, Thin hoop]
+  explanation: |-
+    $a = g\sin\theta/(1 + c)$, so smaller $c$ is faster: block $c = 0$, solid sphere 0.4, solid cylinder 0.5, hollow sphere 0.667, hoop 1.
+- id: phys-m5-r2-q15
+  lesson: phys-rolling
+  topic: Angular momentum
+  stem: 'In which situations is angular momentum (about the stated axis) conserved? Select all that apply.'
+  choices: ['A skater on frictionless ice pulls in her arms (axis: her spin axis)', 'A disk is dropped onto another disk spinning on a frictionless axle (axis: the axle)', 'A motor spins up a fan from rest (axis: the fan''s shaft)', 'A diver somersaults in a tuck during the dive (axis: through her center of mass)']
+  answer: [0, 1, 3]
+  explanation: |-
+    Angular momentum is conserved when the net external torque is zero. The skater's arms and the dropped disk exert only internal forces; gravity on the diver acts at her center of mass, so it has no torque about it. The motor exerts an external torque on the fan, so the fan's angular momentum grows.
+
+# ---------- Lesson 18: static equilibrium ----------
+- id: phys-m5-r2-q16
+  lesson: phys-equilibrium
+  type: label
+  topic: Static equilibrium
+  stem: 'A uniform ladder leans against a smooth wall. Name the numbered forces acting on it.'
+  image: {src: images/phys-m5-ladder-blank.svg, alt: 'A ladder leaning against a wall with four numbered force arrows: a horizontal arrow at the top pointing away from the wall, a downward arrow at the middle of the ladder, an upward arrow at the foot, and a horizontal arrow along the floor at the foot pointing toward the wall.'}
+  labels:
+    - {x: 71.9, y: 23.7, text: Normal force from the wall}
+    - {x: 66.1, y: 69.8, text: Weight of the ladder}
+    - {x: 49.0, y: 72.7, text: Normal force from the floor}
+    - {x: 37.5, y: 86.4, text: Static friction from the floor}
+  distractors: [Friction from the wall, Tension]
+  explanation: |-
+    A smooth wall can only push perpendicular to itself (1). The weight of a uniform ladder acts at its middle (2). The floor pushes up (3) and its static friction (4) acts toward the wall, balancing the wall's push. A smooth wall gives no friction, and nothing here is a rope.
+- id: phys-m5-r2-q17
+  lesson: phys-equilibrium
+  type: text
+  topic: Static equilibrium
+  stem: 'A 20 kg child sits 2.4 m from the pivot of a uniform seesaw pivoted at its center. A 40 kg child balances it by sitting ___ m from the pivot on the other side. (Give only the number.)'
+  accept: ['1.2']
+  explanation: |-
+    Equal torques about the pivot: $20g(2.4) = 40g\,x$, so $x = 1.2$ m.
+- id: phys-m5-r2-q18
+  lesson: phys-equilibrium
+  module_quiz: true
+  type: match
+  topic: Static equilibrium
+  stem: 'Match each problem to the best point about which to take torques.'
+  pairs:
+    - ['Beam on supports A and B: find the force at B', 'Support A']
+    - ['Beam hinged to a wall and held by a cable: find the cable tension', 'The hinge']
+    - ['Ladder against a smooth wall: find the wall''s push', 'The foot of the ladder']
+    - ['Seesaw: where should the second child sit?', 'The seesaw''s pivot']
+  distractors: ['The middle of the object']
+  explanation: |-
+    Pick the point where unknown forces you don't want act, so they drop out: support A removes $F_A$; the hinge removes both hinge components; the foot removes floor friction and the floor's normal force; the pivot removes the pivot force (and a uniform seesaw's weight).
+- id: phys-m5-r2-q19
+  lesson: phys-equilibrium
+  topic: Static equilibrium
+  stem: 'Which conditions are required for a rigid object to be in static equilibrium? Select all that apply.'
+  choices: ['$\sum\vec F = 0$', '$\sum\tau = 0$ about every axis', 'Every individual force on it is zero', 'Its center of gravity is directly above its pivot']
+  answer: [0, 1]
+  explanation: |-
+    Zero net force and zero net torque are both needed (and with zero net force, zero torque about one point means zero about all). The forces need not be zero individually, and a balanced seesaw with two children doesn't need its own center of gravity over the pivot to balance by itself.
+- id: phys-m5-r2-q20
+  lesson: phys-equilibrium
+  type: text
+  topic: Static equilibrium
+  stem: 'A uniform 6.0 m beam weighing 300 N rests on supports at its ends A and B. A 600 N load sits 2.0 m from A. The force from support B is ___ N. (Give only the number.)'
+  accept: ['350']
+  explanation: |-
+    Torques about A: $F_B(6.0) = 300(3.0) + 600(2.0) = 2100$, so $F_B = 350$ N (and $F_A = 900 - 350 = 550$ N).
+
+# ---------- Lesson 19: elasticity ----------
+- id: phys-m5-r2-q21
+  lesson: phys-elasticity
+  type: label
+  topic: Elasticity
+  stem: 'Each block is deformed by the forces shown (the dashed outlines are the original shapes). Name each kind of deformation.'
+  image: {src: images/phys-m5-deformations-blank.svg, alt: 'Three blocks with dashed outlines of their original shapes. Block 1 is pulled outward at both ends and is longer. Block 2 has a force to the right along its top face and to the left along its bottom face and is slanted. Block 3 is pushed inward on all four sides and is smaller.'}
+  labels:
+    - {x: 16.7, y: 50.0, text: Tension}
+    - {x: 51.4, y: 51.5, text: Shear}
+    - {x: 81.9, y: 51.5, text: Bulk compression}
+  distractors: [Plastic flow]
+  explanation: |-
+    Pulling along the length stretches the bar: tension, described by Young's modulus (1). Forces along opposite faces slant the block: shear, described by the shear modulus (2). Pressure on all sides shrinks the volume: bulk compression, described by the bulk modulus (3).
+- id: phys-m5-r2-q22
+  lesson: phys-elasticity
+  type: text
+  topic: Elasticity
+  stem: 'A wire 2.0 m long stretches by 1.0 mm under a load. Its strain is ___ (a plain number with no units).'
+  accept: ['0.0005', '5e-4', '5×10^-4', '5x10^-4', '5*10^-4']
+  explanation: |-
+    Strain $= \Delta L/L_0 = 0.0010\text{ m}/2.0\text{ m} = 5.0\times10^{-4}$. Convert both lengths to the same unit first.
+- id: phys-m5-r2-q23
+  lesson: phys-elasticity
+  module_quiz: true
+  type: match
+  topic: Elasticity
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Elastic limit, Largest stress the material fully recovers from]
+    - [Ultimate strength, Greatest stress the material can withstand]
+    - [Plastic deformation, Permanent change of shape]
+    - [Strain, Fractional change in length]
+  distractors: [Force per unit length]
+  explanation: |-
+    Below the elastic limit the material springs back; beyond it, deformation is plastic (permanent). The ultimate strength is the top of the stress–strain curve. Strain is $\Delta L/L_0$, a ratio with no units; stress is force per unit *area*, not length.
+- id: phys-m5-r2-q24
+  lesson: phys-elasticity
+  topic: Elasticity
+  stem: 'Which of these have no shear modulus (they cannot hold a sideways shear strain)? Select all that apply.'
+  choices: [Water, Air, Steel, Rubber]
+  answer: [0, 1]
+  explanation: |-
+    Fluids flow when sheared, so liquids and gases have no shear modulus. Steel and rubber are solids: steel's shear modulus is about $8\times10^{10}$ Pa and rubber's is small but not zero.
+- id: phys-m5-r2-q25
+  lesson: phys-elasticity
+  type: order
+  topic: Elasticity
+  stem: 'A metal rod is pulled with a steadily increasing load until it breaks. Put the stages in order.'
+  items: ['Stretches in proportion to the load (Hooke''s law)', 'Passes its elastic limit', 'Reaches its ultimate strength', 'Thins sharply at one spot (necks)', 'Fractures']
+  explanation: |-
+    The stress–strain curve is straight up to about the elastic limit, then the metal flows plastically up to the curve's peak (ultimate strength). After that it necks at one spot and breaks.
+
+# ---------- Lesson 20: gravitation ----------
+- id: phys-m5-r2-q26
+  lesson: phys-gravitation
+  type: label
+  topic: Orbits
+  stem: 'Name the numbered parts of this planetary orbit.'
+  image: {src: images/phys-m5-orbit-blank.svg, alt: 'An ellipse with a large dot near its right end, two dots at the ends of the long axis, a dot at the middle, and a bar above the left half of the long axis. Five numbers: the large dot near the right end, the dot at the right end, the dot at the left end, the bar, and the middle dot.'}
+  labels:
+    - {x: 82.4, y: 52.6, text: Sun (at a focus)}
+    - {x: 89.1, y: 52.6, text: Perihelion}
+    - {x: 10.9, y: 52.6, text: Aphelion}
+    - {x: 30.5, y: 11.1, text: Semimajor axis}
+    - {x: 50.0, y: 52.6, text: Center of the ellipse}
+  distractors: [Minor axis]
+  explanation: |-
+    The Sun sits at a focus (1), not the center (5). The planet is closest at perihelion (2), the end of the long axis nearest the Sun, and farthest at aphelion (3). The semimajor axis (4) is half the long axis, from the center to either end.
+- id: phys-m5-r2-q27
+  lesson: phys-gravitation
+  type: text
+  topic: Gravitation
+  stem: 'The distance between two masses is tripled. The gravitational force between them becomes 1/___ of its original value. (Give only the number.)'
+  accept: ['9']
+  explanation: |-
+    Inverse square: $F \propto 1/r^2$, so tripling $r$ divides $F$ by $3^2 = 9$.
+- id: phys-m5-r2-q28
+  lesson: phys-gravitation
+  type: order
+  topic: Orbits
+  stem: 'Put these Earth orbits in order of period, shortest first.'
+  items: ['The International Space Station (about 400 km up)', 'A GPS satellite (about 20 000 km up)', 'A geostationary satellite (about 36 000 km up)', 'The Moon (about 384 000 km from Earth''s center)']
+  explanation: |-
+    $T^2 \propto r^3$: higher orbits take longer. The ISS takes about 92 minutes, GPS satellites about 12 hours, geostationary satellites 24 hours, and the Moon about 27 days.
+- id: phys-m5-r2-q29
+  lesson: phys-gravitation
+  module_quiz: true
+  topic: Orbits
+  stem: 'Which statements about a satellite in a circular orbit around Earth are true? Select all that apply.'
+  choices: ['Its orbital speed does not depend on its own mass', 'A lower orbit has a higher speed', 'Astronauts aboard float because there is no gravity at that height', 'Its total mechanical energy is negative']
+  answer: [0, 1, 3]
+  explanation: |-
+    $v = \sqrt{GM/r}$ has no satellite mass in it and grows as $r$ shrinks. $E = -GMm/(2r) < 0$: the satellite is bound. Gravity at the ISS is still about 89% of its surface value; astronauts float because they and the station fall together.
+- id: phys-m5-r2-q30
+  lesson: phys-gravitation
+  type: text
+  topic: Orbits
+  stem: 'An asteroid orbits the Sun with a semimajor axis of 4.0 AU. Its orbital period is ___ years. (Give only the number.)'
+  accept: ['8', '8.0']
+  explanation: |-
+    Kepler's third law as a ratio with Earth (1 AU, 1 yr): $T = a^{3/2} = 4.0^{3/2} = 8.0$ yr.
+- id: phys-m5-r2-q31
+  lesson: phys-gravitation
+  type: match
+  topic: Orbits
+  stem: 'Match each of Kepler''s laws to its statement.'
+  pairs:
+    - [First law, Orbits are ellipses with the Sun at one focus]
+    - [Second law, A planet sweeps out equal areas in equal times]
+    - [Third law, Period squared is proportional to semimajor axis cubed]
+  distractors: [Gravity falls off as the inverse square of distance]
+  explanation: |-
+    Kepler's three laws describe the orbits; the inverse-square law of gravitation is Newton's, and it explains all three.
+
+# ---------- Honors 1: rolling dynamics ----------
+- id: phys-m5-r2-h01
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Rolling dynamics
+  stem: 'A ball rolls without slipping down a ramp. Which way does static friction on the ball point, and why?'
+  choices: ['Down the slope, because it helps the ball speed up', 'Up the slope, because its torque about the center spins the ball up', 'There is no friction, because the contact point is at rest', 'Perpendicular to the slope, because it adds to the normal force']
+  answer: 1
+  explanation: |-
+    Gravity and the normal force have no torque about the center, so only friction can spin the ball up. To give a forward spin for downhill rolling, it must point up the slope. The contact point being at rest means friction does no work, not that it is zero.
+- id: phys-m5-r2-h02
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Rolling dynamics
+  stem: 'A 2.0 kg solid sphere rolls without slipping down a $30^\circ$ slope. What is the static friction force on it? ($g = 9.8$ m/s²)'
+  choices: ['9.8 N', '3.9 N', '7.0 N', '2.8 N']
+  answer: 3
+  explanation: |-
+    $f = \dfrac{c}{1 + c}Mg\sin\theta = \dfrac{0.4}{1.4}(2.0)(9.8)(0.5) = 2.8$ N. 9.8 N is the whole $Mg\sin\theta$; 7.0 N uses $\tfrac{1}{1 + c}$ (that's the fraction going into acceleration); 3.9 N multiplies by $c$ without dividing by $1 + c$.
+- id: phys-m5-r2-h03
+  lesson: phys-m5-h-rolling-dynamics
+  type: text
+  topic: Rolling dynamics
+  stem: 'A thin hoop rolls without slipping down a $45^\circ$ slope. The smallest coefficient of static friction that allows this is ___. (Give only the number.)'
+  accept: ['0.5', '0.50']
+  explanation: |-
+    $\mu_s \ge \dfrac{c}{1 + c}\tan\theta = \dfrac12\tan 45^\circ = 0.50$.
+- id: phys-m5-r2-h04
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Rolling dynamics
+  stem: 'A slope is at $40^\circ$ and $\mu_s = 0.30$. Which of these objects can roll down it without slipping? Select all that apply.'
+  choices: [Solid sphere, Solid cylinder, Thin hollow sphere, Thin hoop]
+  answer: [0, 1]
+  explanation: |-
+    Rolling needs $\mu_s \ge \tfrac{c}{1 + c}\tan 40^\circ$, with $\tan 40^\circ = 0.839$: solid sphere 0.24, solid cylinder 0.28, hollow sphere 0.34, hoop 0.42. Only the first two need less than 0.30.
+- id: phys-m5-r2-h05
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Rolling dynamics
+  stem: 'A bowling ball (a solid sphere) is released sliding at 6.3 m/s with no spin. What is its speed once it rolls without slipping?'
+  choices: ['4.5 m/s', '6.3 m/s', '3.2 m/s', '5.3 m/s']
+  answer: 0
+  explanation: |-
+    Angular momentum about a point on the lane is conserved: $v_1 = v_0/(1 + c) = 6.3/1.4 = 4.5$ m/s. 6.3 m/s ignores friction; 3.2 m/s is $v_0/2$ (a hoop's answer); 5.3 m/s divides by 1.2.
+- id: phys-m5-r2-h06
+  lesson: phys-m5-h-rolling-dynamics
+  type: text
+  topic: Rolling dynamics
+  stem: 'A solid sphere released sliding with no spin skids until it rolls. To the nearest whole percent, ___ percent of its initial kinetic energy is lost while it skids.'
+  accept: ['29', '29%']
+  explanation: |-
+    Final energy is $\tfrac{1}{1 + c}$ of the initial, so the fraction lost is $\tfrac{c}{1 + c} = \tfrac{0.4}{1.4} = \tfrac27 = 28.6\% \approx 29\%$.
+- id: phys-m5-r2-h07
+  lesson: phys-m5-h-rolling-dynamics
+  type: order
+  topic: Rolling dynamics
+  stem: 'Put the stages of a bowling ball''s trip down the lane in order.'
+  items: ['Released sliding fast, with no spin', 'Kinetic friction slows the center and spins the ball up', '$R\omega$ catches up with $v$', 'Kinetic friction stops acting', 'Rolls at constant speed']
+  explanation: |-
+    While the bottom skids, kinetic friction lowers $v$ and raises $R\omega$. When $R\omega = v$ the contact point stops skidding, so kinetic friction switches off and the ball rolls on at constant speed (ignoring small rolling resistance).
+- id: phys-m5-r2-h08
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Angular impulse
+  stem: 'Why is the skidding ball''s angular momentum conserved about a fixed point on the lane, but not about the ball''s center?'
+  choices: ['Friction is too small to matter about either point', 'Gravity has a torque about the center but not about the lane', 'Friction acts along the lane, so it has no torque about a point on the lane, but it does have a torque about the center', 'The normal force has a torque about the lane point that cancels friction''s']
+  answer: 2
+  explanation: |-
+    About a point on the lane, friction's line of action passes through the point, and gravity and the normal force cancel each other's torques (they are equal, opposite and on the same vertical line). About the center, friction has lever arm $R$, which is exactly what spins the ball up.
+- id: phys-m5-r2-h09
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Rolling dynamics
+  stem: 'A thin hoop is launched sliding along a level floor at 6.0 m/s with no spin. What is its speed once it rolls without slipping?'
+  choices: ['4.3 m/s', '6.0 m/s', '3.0 m/s', '2.0 m/s']
+  answer: 2
+  explanation: |-
+    $v_1 = v_0/(1 + c)$ with $c = 1$: $6.0/2 = 3.0$ m/s. 4.3 m/s uses the solid sphere's $c = 0.4$; 2.0 m/s divides by 3.
+- id: phys-m5-r2-h10
+  lesson: phys-m5-h-rolling-dynamics
+  type: text
+  topic: Angular impulse
+  stem: 'A uniform rod 0.90 m long hangs from a pivot at its top end. To give the pivot no jolt when the rod is struck, it should be hit ___ m below the pivot. (Give only the number.)'
+  accept: ['0.6', '0.60']
+  explanation: |-
+    The center of percussion of a uniform rod pivoted at one end is at $\tfrac23L = \tfrac23(0.90) = 0.60$ m.
+- id: phys-m5-r2-h11
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Angular impulse
+  stem: 'A uniform rod hanging from a pivot at its top is struck horizontally at its very bottom with impulse $J$. What impulse does the pivot give the rod?'
+  choices: ['Zero', '$J$, opposite to the blow', '$\tfrac12J$, opposite to the blow', '$\tfrac12J$, in the direction of the blow']
+  answer: 3
+  explanation: |-
+    About the pivot: $JL = \tfrac13ML^2\omega$, so $\omega = 3J/(ML)$ and $Mv_{\text{cm}} = M\omega L/2 = \tfrac32J$. Linear impulse: $J + J_p = \tfrac32J$, so $J_p = +\tfrac12J$, the same direction as the blow. Below the center of percussion the pivot pushes forward; above it, back.
+- id: phys-m5-r2-h12
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Precession
+  stem: 'A gyroscope with $I = 0.0050$ kg·m² spins at 200 rad/s. Its axle is horizontal, supported at one end, and its 0.40 kg mass is centered 0.050 m from the support. What is its precession rate? ($g = 9.8$ m/s²)'
+  choices: ['0.20 rad/s', '5.1 rad/s', '3.9 rad/s', '39 rad/s']
+  answer: 0
+  explanation: |-
+    $\tau = Mgr = 0.40(9.8)(0.050) = 0.196$ N·m; $L = I\omega = 1.0$ kg·m²/s; $\Omega = \tau/L = 0.20$ rad/s. 5.1 is $L/\tau$ (upside down); 3.9 leaves out $r$ (uses $Mg$ as the torque); 39 multiplies $\tau$ by $\omega$.
+- id: phys-m5-r2-h13
+  lesson: phys-m5-h-rolling-dynamics
+  type: match
+  topic: Precession
+  stem: 'A gyroscope precesses with its axle horizontal. Match each change (everything else the same) to its effect on the precession rate $\Omega = Mgr/(I\omega)$.'
+  pairs:
+    - [Spin rate doubled, Precession rate halves]
+    - [Distance from support to wheel's center doubled, Precession rate doubles]
+    - [Wheel replaced by one of the same shape and size but twice the mass, Precession rate unchanged]
+  distractors: [Precession rate quadruples]
+  explanation: |-
+    $\Omega \propto r/\omega$. Doubling the mass doubles both the torque $Mgr$ and $I$, so they cancel.
+- id: phys-m5-r2-h14
+  lesson: phys-m5-h-rolling-dynamics
+  topic: Precession
+  stem: 'The formula $\Omega = \tau/L$ for a gyroscope''s precession is a simplification. Which assumptions does it make? Select all that apply.'
+  choices: ['The spin is fast, so the precession rate is much smaller than the spin rate', 'The bobbing (nutation) of a just-released gyroscope is ignored', 'The axle points straight up', 'The wheel is a solid disk']
+  answer: [0, 1]
+  explanation: |-
+    The derivation treats the extra angular momentum of the precession and the initial nutation as negligible, which needs fast spin. It works for any axle angle (the lesson's case is horizontal) and any wheel shape, through $I$.
+
+# ---------- Honors 2: structures ----------
+- id: phys-m5-r2-h15
+  lesson: phys-m5-h-structures
+  topic: Trusses
+  stem: 'In an ideal pin-jointed truss loaded only at its joints, the force each member exerts on a pin is'
+  choices: ['along the member, either pulling or pushing', 'perpendicular to the member', 'always vertical, like the loads', 'zero, since the members are weightless']
+  answer: 0
+  explanation: |-
+    Each member is a two-force member: the two pin forces on it must be equal, opposite and on the same line, and the only line through both pins is the member. So it pulls (tension) or pushes (compression) along its length.
+- id: phys-m5-r2-h16
+  lesson: phys-m5-h-structures
+  type: text
+  topic: Trusses
+  stem: 'An A-frame has rafters at $45^\circ$ to the horizontal and a 10 kN load at its peak. Each rafter carries a compression of ___ kN. (Give the number to 3 significant figures.)'
+  accept: ['7.07', '7.1']
+  explanation: |-
+    At the peak: $2F\sin 45^\circ = 10$ kN, so $F = 10/(2 \times 0.7071) = 7.07$ kN.
+- id: phys-m5-r2-h17
+  lesson: phys-m5-h-structures
+  topic: Trusses
+  stem: 'For the same $45^\circ$ A-frame with a 10 kN peak load, what is the tension in the horizontal tie joining the rafters'' feet?'
+  choices: ['7.1 kN', '10 kN', '5.0 kN', '3.5 kN']
+  answer: 2
+  explanation: |-
+    At a foot, the rafter's horizontal push $F\cos 45^\circ = 7.07(0.7071) = 5.0$ kN is balanced by the tie. 7.1 kN is the rafter force; 10 kN is the load; 3.5 kN halves the answer again.
+- id: phys-m5-r2-h18
+  lesson: phys-m5-h-structures
+  type: match
+  topic: Trusses
+  stem: 'In the lesson''s bridge truss (equilateral triangles, load at bottom joint C, supports at A and E), is each member in tension or compression?'
+  pairs:
+    - ['Slanted end member AB', Compression]
+    - ['Bottom chord AC', Tension]
+    - ['Slanted member BC', Tension]
+    - ['Top chord BD', Compression]
+  explanation: |-
+    Joint A gave $F_{AB} = -17.3$ kN (compression) and $F_{AC} = +8.66$ kN (tension); joint B gave $F_{BC} = +17.3$ kN (tension) and $F_{BD} = -17.3$ kN (compression). As in a bent beam, the top chord is squeezed and the bottom stretched.
+- id: phys-m5-r2-h19
+  lesson: phys-m5-h-structures
+  type: order
+  topic: Trusses
+  stem: 'Put the steps of the method of joints in order.'
+  items: ['Find the support forces, treating the whole truss as one body', 'Pick a joint with at most two unknown member forces', 'Assume those members are in tension and write $\sum F_x = 0$, $\sum F_y = 0$ there', 'Solve; a negative answer means compression', 'Move on to the next joint with at most two unknowns']
+  explanation: |-
+    The supports must come first, since every joint at a support involves them. Each joint gives only two equations, so you can solve only a joint with at most two unknowns, then use those results at the next joint.
+- id: phys-m5-r2-h20
+  lesson: phys-m5-h-structures
+  topic: Trusses
+  stem: 'A truss joint has three unknown member forces and no known ones. Why can''t the method of joints solve it yet?'
+  choices: ['Torques about the joint are needed and they are all zero', 'The forces at a joint are never in equilibrium', 'Two-force members can only be in tension', 'A joint gives only two equations ($\sum F_x = 0$ and $\sum F_y = 0$), too few for three unknowns']
+  answer: 3
+  explanation: |-
+    All the forces at a pin pass through it, so the torque equation says nothing new. Two equations can't fix three unknowns; solve a neighboring joint first.
+- id: phys-m5-r2-h21
+  lesson: phys-m5-h-structures
+  type: text
+  topic: Friction in equilibrium
+  stem: 'A uniform ladder leans against a smooth wall; $\mu_s = 0.50$ at the floor. The smallest angle above the floor at which it can stand is ___ degrees. (Give only the number.)'
+  accept: ['45']
+  explanation: |-
+    $\tan\theta \ge \dfrac{1}{2\mu_s} = \dfrac{1}{1.0} = 1$, so $\theta \ge 45^\circ$.
+- id: phys-m5-r2-h22
+  lesson: phys-m5-h-structures
+  topic: Friction in equilibrium
+  stem: 'A uniform 20 kg ladder leans at $65^\circ$ above the floor against a smooth wall. How much static friction must the floor supply? ($g = 9.8$ m/s²)'
+  choices: ['91 N', '46 N', '196 N', '210 N']
+  answer: 1
+  explanation: |-
+    $f = N_w = \dfrac{W}{2\tan\theta} = \dfrac{196}{2\tan 65^\circ} = 45.7 \approx 46$ N. 91 N forgets the factor 2 (the weight acts at the middle); 196 N is the weight; 210 N uses $\tan$ instead of dividing by it.
+- id: phys-m5-r2-h23
+  lesson: phys-m5-h-structures
+  topic: Friction in equilibrium
+  stem: 'A ladder rests against a smooth wall. Which changes make it more likely to slip? Select all that apply.'
+  choices: ['Setting it at a smaller angle to the floor', 'A person climbing higher on it', 'A more slippery floor (smaller $\mu_s$)', 'Using a longer ladder of the same material at the same angle']
+  answer: [0, 1, 2]
+  explanation: |-
+    The friction needed is $W/(2\tan\theta)$ for an empty ladder, so a smaller angle needs more; a climber's lever arm about the foot grows as she goes up; a smaller $\mu_s$ lowers the friction available. Length cancels: the condition $\tan\theta \ge 1/(2\mu_s)$ doesn't involve it.
+- id: phys-m5-r2-h24
+  lesson: phys-m5-h-structures
+  topic: Friction in equilibrium
+  stem: 'A uniform crate 0.50 m wide and 1.0 m tall sits on a board with $\mu_s = 0.60$. The board is slowly tilted. What happens first?'
+  choices: ['It slides at $31^\circ$', 'It slides at $27^\circ$', 'It tips at $31^\circ$', 'It tips at $27^\circ$']
+  answer: 3
+  explanation: |-
+    Tipping when $\tan\theta = w/h = 0.50$, at $26.6^\circ$; sliding when $\tan\theta = \mu_s = 0.60$, at $31^\circ$. Tipping comes first, since $w/h < \mu_s$.
+- id: phys-m5-r2-h25
+  lesson: phys-m5-h-structures
+  type: text
+  topic: Friction in equilibrium
+  stem: 'A uniform box 0.80 m deep (in the direction of the push) sits on a floor with $\mu_s = 0.40$. Pushed horizontally above a height of ___ m, it tips before it slides. (Give only the number.)'
+  accept: ['1', '1.0']
+  explanation: |-
+    It tips first when $\dfrac{w}{2H} < \mu_s$, i.e. above $H = \dfrac{w}{2\mu_s} = \dfrac{0.80}{0.80} = 1.0$ m.
+- id: phys-m5-r2-h26
+  lesson: phys-m5-h-structures
+  topic: Friction in equilibrium
+  stem: 'A uniform 60 kg cabinet is 0.60 m deep. You push horizontally on its front face 1.5 m above the floor. What force starts it tipping (if it doesn''t slide first)? ($g = 9.8$ m/s²)'
+  choices: ['235 N', '118 N', '588 N', '47 N']
+  answer: 1
+  explanation: |-
+    Torques about the front bottom edge: $FH = mg\tfrac w2$, so $F = \dfrac{60(9.8)(0.30)}{1.5} = 118$ N. 235 N uses the full depth instead of half; 588 N is the weight.
+- id: phys-m5-r2-h27
+  lesson: phys-m5-h-structures
+  topic: Trusses
+  stem: 'A bridge truss supported at its ends carries a load in the middle. In general, its top chord is in ___ and its bottom chord in ___.'
+  choices: ['tension; compression', 'compression; tension', 'tension; tension', 'compression; compression']
+  answer: 1
+  explanation: |-
+    Like a beam bending under a load, the top is squeezed and the bottom stretched. In the lesson's example BD was in compression and AC, CE in tension.
+- id: phys-m5-r2-h28
+  lesson: phys-m5-h-structures
+  topic: Trusses
+  stem: 'An A-frame roof is made steeper while the load at its peak stays the same. What happens to the force in each rafter?'
+  choices: ['It increases, because the rafters are longer', 'It stays the same, because the load is the same', 'It decreases, because more of each rafter''s force is vertical', 'It becomes tension instead of compression']
+  answer: 2
+  explanation: |-
+    $F = P/(2\sin\theta)$: a larger $\theta$ means a larger vertical part per unit of rafter force, so less force is needed (12 kN at $30^\circ$, 6.93 kN at $60^\circ$ for a 12 kN load). The rafters still push, so they stay in compression.
+
+# ---------- Honors 3: orbital mechanics ----------
+- id: phys-m5-r2-h29
+  lesson: phys-m5-h-orbits
+  type: text
+  topic: Elliptical orbits
+  stem: 'A satellite''s perigee is 8000 km and its apogee 12 000 km from Earth''s center. Its semimajor axis is ___ km. (Give only the number.)'
+  accept: ['10000', '10 000', '10,000', '1e4']
+  explanation: |-
+    $a = \tfrac12(r_p + r_a) = \tfrac12(8000 + 12\,000) = 10\,000$ km.
+- id: phys-m5-r2-h30
+  lesson: phys-m5-h-orbits
+  topic: Elliptical orbits
+  stem: 'A comet moves at 9.0 km/s at perihelion, 0.70 AU from the Sun. Its aphelion is 2.1 AU from the Sun. How fast does it move at aphelion?'
+  choices: ['27 km/s', '1.0 km/s', '5.2 km/s', '3.0 km/s']
+  answer: 3
+  explanation: |-
+    Angular momentum: $r_pv_p = r_av_a$, so $v_a = 9.0 \times \dfrac{0.70}{2.1} = 3.0$ km/s. 27 km/s multiplies by the ratio instead of dividing; 1.0 km/s uses the square of the ratio; 5.2 km/s uses its square root.
+- id: phys-m5-r2-h31
+  lesson: phys-m5-h-orbits
+  topic: Elliptical orbits
+  stem: 'Two satellites of equal mass orbit Earth. One is in a circle of radius 20 000 km; the other in an ellipse with perigee 10 000 km and apogee 30 000 km. Compare their total energies and periods.'
+  choices: ['They have the same energy and the same period', 'The ellipse has more energy and a longer period', 'The ellipse has less energy and a shorter period', 'The circle has more energy but the same period']
+  answer: 0
+  explanation: |-
+    The ellipse has $a = \tfrac12(10\,000 + 30\,000) = 20\,000$ km, the same as the circle. Both $E = -GMm/(2a)$ and $T^2 \propto a^3$ depend only on $a$.
+- id: phys-m5-r2-h32
+  lesson: phys-m5-h-orbits
+  type: text
+  topic: Elliptical orbits
+  stem: 'By the vis-viva equation, at the points of any orbit where the distance $r$ equals the semimajor axis $a$, the speed satisfies $v^2 = GM/$___. (Give the letter.)'
+  accept: [a, r]
+  explanation: |-
+    $v^2 = GM(2/r - 1/a)$ with $r = a$ gives $GM/a$, the circular-orbit speed for radius $a$ (and here $r = a$, so $GM/r$ is the same thing).
+- id: phys-m5-r2-h33
+  lesson: phys-m5-h-orbits
+  topic: Elliptical orbits
+  stem: 'A satellite''s orbit has semimajor axis $8.0\times10^6$ m. How fast is it moving when it is $6.8\times10^6$ m from Earth''s center? ($GM_E = 3.98\times10^{14}$ m³/s²)'
+  choices: ['7.65 km/s', '8.20 km/s', '7.05 km/s', '10.8 km/s']
+  answer: 1
+  explanation: |-
+    $v^2 = 3.98\times10^{14}\left(\dfrac{2}{6.8\times10^6} - \dfrac{1}{8.0\times10^6}\right) = 6.73\times10^7$, so $v = 8.20$ km/s. 7.65 km/s is the circular speed at $6.8\times10^6$ m; 7.05 km/s is the circular speed at $a$; 10.8 km/s is the escape speed at $6.8\times10^6$ m.
+- id: phys-m5-r2-h34
+  lesson: phys-m5-h-orbits
+  type: order
+  topic: Orbital transfers
+  stem: 'Put the stages of a Hohmann transfer to a higher circular orbit in order.'
+  items: ['Coast in the inner circular orbit', 'Burn forward to the transfer ellipse''s periapsis speed', 'Coast half the transfer ellipse', 'Burn forward to the outer orbit''s circular speed', 'Coast in the outer circular orbit']
+  explanation: |-
+    The first burn puts the craft on an ellipse touching both orbits. Half an ellipse later it reaches apoapsis on the outer orbit, moving too slowly to stay there, and the second burn brings it up to circular speed.
+- id: phys-m5-r2-h35
+  lesson: phys-m5-h-orbits
+  topic: Orbital transfers
+  stem: 'After a Hohmann transfer from a low circular orbit to a high circular orbit, the spacecraft''s speed compared with its starting speed is'
+  choices: ['higher, since both burns sped it up', 'lower, since circular speed $\sqrt{GM/r}$ is smaller farther out', 'the same, since the burns cancel', 'zero, since it has escaped']
+  answer: 1
+  explanation: |-
+    Both burns add speed, but the coast up the ellipse turns kinetic energy into potential energy. The final speed is the outer circular speed, which is lower (3.07 km/s at geostationary radius versus 7.72 km/s at 300 km).
+- id: phys-m5-r2-h36
+  lesson: phys-m5-h-orbits
+  type: label
+  topic: Orbital transfers
+  stem: 'Name the numbered parts of this Hohmann transfer around Earth.'
+  image: {src: images/phys-m5-hohmann-blank.svg, alt: 'Earth with a small circular orbit and a large circular orbit around it, joined by a dashed half ellipse over the top. Five numbers: the dot where the half ellipse meets the small circle, the dot where it meets the large circle, the small circle, the large circle, and the dashed half ellipse.'}
+  labels:
+    - {x: 69.6, y: 52.1, text: First burn}
+    - {x: 18.3, y: 52.1, text: Second burn}
+    - {x: 65.6, y: 63.0, text: Inner circular orbit}
+    - {x: 82.3, y: 22.8, text: Outer circular orbit}
+    - {x: 32.4, y: 29.6, text: Transfer ellipse}
+  distractors: [Escape path]
+  explanation: |-
+    The craft starts on the inner orbit (3) and burns (1) where the transfer ellipse (5) touches it, at the ellipse's periapsis. It coasts to the far side and burns again (2) where the ellipse touches the outer orbit (4). A path that escapes would not close, and none is drawn.
+- id: phys-m5-r2-h37
+  lesson: phys-m5-h-orbits
+  topic: Orbital transfers
+  stem: 'A probe goes by Hohmann transfer from Earth''s orbit (1.0 AU) to an asteroid orbiting the Sun at 4.0 AU. About how long does the trip take?'
+  choices: ['4.0 yr', '8.0 yr', '1.0 yr', '2.0 yr']
+  answer: 3
+  explanation: |-
+    $a_t = \tfrac12(1.0 + 4.0) = 2.5$ AU; full period $2.5^{3/2} = 3.95$ yr; the trip is half of it, about 2.0 yr. 4.0 yr is roughly the full period, and 8.0 yr is the asteroid's own period.
+- id: phys-m5-r2-h38
+  lesson: phys-m5-h-orbits
+  type: text
+  topic: Mass from orbits
+  stem: 'Two stars orbit each other with a separation whose semimajor axis is 8.0 AU, and a period of 16 years. Their total mass is ___ solar masses. (Give only the number.)'
+  accept: ['2', '2.0']
+  explanation: |-
+    $M_1 + M_2 = a^3/T^2 = 8.0^3/16^2 = 512/256 = 2.0$ solar masses.
+- id: phys-m5-r2-h39
+  lesson: phys-m5-h-orbits
+  topic: Mass from orbits
+  stem: 'Jupiter''s moon Europa orbits at $a = 6.71\times10^8$ m with a period of 3.551 days. What mass does this give for Jupiter? ($G = 6.67\times10^{-11}$ N·m²/kg²)'
+  choices: ['$1.90\times10^{27}$ kg', '$1.42\times10^{37}$ kg', '$4.80\times10^{22}$ kg', '$5.97\times10^{24}$ kg']
+  answer: 0
+  explanation: |-
+    $T = 3.551(86\,400) = 3.068\times10^5$ s; $M = \dfrac{4\pi^2a^3}{GT^2} = 1.90\times10^{27}$ kg, matching the value from Io. $1.42\times10^{37}$ kg leaves $T$ in days; $4.80\times10^{22}$ kg is Europa's own mass, which the method can't give; $5.97\times10^{24}$ kg is Earth's.
+- id: phys-m5-r2-h40
+  lesson: phys-m5-h-orbits
+  topic: Mass from orbits
+  stem: 'Using $M = 4\pi^2a^3/(GT^2)$ with a measured orbit, what can you find? Select all that apply.'
+  choices: ['The mass of a planet, from a small moon''s orbit around it', 'The mass of the small moon itself', 'The total mass of a binary star pair, from their orbit', 'The radius of the planet']
+  answer: [0, 2]
+  explanation: |-
+    The orbiting body's own mass cancels when it is small, so the moon's mass can't be found this way; the formula gives the central mass. For a binary it gives the sum $M_1 + M_2$. The planet's size doesn't enter at all.
+- id: phys-m5-r2-h41
+  lesson: phys-m5-h-orbits
+  type: match
+  topic: Elliptical orbits
+  stem: 'Match each orbital term to its meaning.'
+  pairs:
+    - [Periapsis, Closest point to the central body]
+    - [Apoapsis, Farthest point from the central body]
+    - [Semimajor axis, Half the long axis of the ellipse]
+    - [Delta-v, Change in velocity from an engine burn]
+  distractors: [Time for one complete orbit]
+  explanation: |-
+    Periapsis and apoapsis are the ends of the long axis; perigee/apogee and perihelion/aphelion are the names around Earth and the Sun. The semimajor axis is $\tfrac12(r_p + r_a)$. The time for one orbit is the period.
+- id: phys-m5-r2-h42
+  lesson: phys-m5-h-orbits
+  topic: Elliptical orbits
+  stem: 'A 500 kg satellite orbits Earth on an ellipse with semimajor axis $1.0\times10^7$ m. What is its total orbital energy? ($GM_E = 3.98\times10^{14}$ m³/s²)'
+  choices: ['$-1.99\times10^{10}$ J', '$+9.95\times10^{9}$ J', '$-9.95\times10^{9}$ J', '$-3.98\times10^{10}$ J']
+  answer: 2
+  explanation: |-
+    $E = -\dfrac{GMm}{2a} = -\dfrac{(3.98\times10^{14})(500)}{2(1.0\times10^7)} = -9.95\times10^9$ J. $-1.99\times10^{10}$ J forgets the 2 (it is the potential energy at $r = a$); a bound orbit's energy is negative, never positive.

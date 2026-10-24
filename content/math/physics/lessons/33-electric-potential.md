@@ -65,6 +65,10 @@ This shows why field is measured in volts per meter: 1 N/C = 1 V/m. A 12 V batte
 
 An **equipotential surface** is a surface on which $V$ is constant. No work is done moving a charge along one. Equipotentials are always perpendicular to field lines, and the field points from high potential toward low, strongest where equipotentials are closely spaced (like contour lines on a steep hillside). Around a point charge they're concentric spheres; between parallel plates they're parallel planes. A conductor in electrostatic equilibrium is an equipotential throughout.
 
+![Two parallel plates, the left one positive at 12 V and the right one negative at 0 V. Field lines run straight across from left to right; dashed vertical equipotentials at 9 V, 6 V and 3 V are evenly spaced between them.](images/phys-m8-plates-equipotentials.svg)
+
+Between parallel plates the equipotentials are evenly spaced because the field is uniform: each step of equal distance along the field drops the potential by the same amount.
+
 ```plot
 {"x": [-2.5, 2.5], "y": [-2.5, 2.5], "equal": true, "curves": [{"x": "0.5cos(t)", "y": "0.5sin(t)", "t": [0, "2pi"], "dashed": true}, {"x": "1cos(t)", "y": "1sin(t)", "t": [0, "2pi"], "dashed": true}, {"x": "2cos(t)", "y": "2sin(t)", "t": [0, "2pi"], "dashed": true}], "segments": [{"from": [0.2, 0], "to": [2.4, 0], "arrow": true}, {"from": [-0.2, 0], "to": [-2.4, 0], "arrow": true}, {"from": [0, 0.2], "to": [0, 2.4], "arrow": true}, {"from": [0, -0.2], "to": [0, -2.4], "arrow": true}, {"from": [0.14, 0.14], "to": [1.7, 1.7], "arrow": true}, {"from": [-0.14, -0.14], "to": [-1.7, -1.7], "arrow": true}], "points": [{"at": [0, 0], "label": "+q"}], "caption": "Equipotentials (dashed circles) are perpendicular to the field lines of a point charge"}
 ```
@@ -92,6 +96,20 @@ From 0.20 to 0.50 m: the graph is flat, so $E = 0$.
 From 0.50 to 0.60 m: slope $= -40/0.10 = -400$ V/m, so $E_x = +400$ V/m: the strongest field, where the graph is steepest.
 
 Force on a proton at $x = 0.10$ m: $F = eE = (1.602\times10^{-19})(200) = 3.2\times10^{-17}$ N in the $-x$ direction, pushing it "downhill" toward lower potential.
+
+## How the four quantities fit together
+
+This module now has four closely related quantities. Two belong to a *point in space* (field and potential) and two to a *charge placed there* (force and potential energy); two are vectors and two are scalars.
+
+```mermaid
+flowchart LR
+  accTitle: How force, field, potential energy and potential are related
+  accDescr: Force on a charge, in newtons and a vector, divided by the charge gives the electric field in newtons per coulomb. Potential energy of a charge, in joules and a scalar, divided by the charge gives the potential in volts. Field and potential are linked because the field is the negative slope of potential with distance, and force and potential energy are linked because the work done by the force equals minus the change in potential energy.
+  F["Force F: N, vector"] -->|"divide by q"| E["Field E: N/C, vector"]
+  U["Potential energy U: J, scalar"] -->|"divide by q"| V["Potential V: volts, scalar"]
+  F -.-|"work done = minus change in U"| U
+  E -.-|"E = minus slope of V"| V
+```
 
 ## Common mistakes
 

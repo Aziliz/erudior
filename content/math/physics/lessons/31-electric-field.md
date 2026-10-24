@@ -43,6 +43,20 @@ Electron: $F = eE = (1.602\times10^{-19})(1124) = 1.80\times10^{-16}$ N, directe
 
 The field from several charges is the vector sum of their individual fields. For two charges, compute each field at the point of interest, find components, and add. Points where the fields cancel can exist: between two equal positive charges, the field is zero at the midpoint.
 
+The procedure is the same for any number of charges:
+
+```mermaid
+flowchart TD
+  accTitle: Finding the net electric field from several point charges
+  accDescr: Sketch the charges and the point P. For each charge find its distance to P, then the field's magnitude from k times the charge's size over r squared, and its direction, away from a positive charge or toward a negative one. Split each field into x and y components, add the components, and combine them into the net field's magnitude and direction.
+  A["Sketch the charges and the point P"] --> B["Distance r from each charge to P"]
+  B --> C["Size of each field: k times charge size over r squared"]
+  C --> D["Direction: away from + charges, toward - charges"]
+  D --> E["Split each field into x and y components"]
+  E --> F["Add the x parts and the y parts"]
+  F --> G["Net field: magnitude and direction"]
+```
+
 ### Example 2
 
 A $+2.0$ μC charge is at the origin and a $-2.0$ μC charge at $x = 0.10$ m (an **electric dipole**). Find the field at the midpoint, $x = 0.050$ m.
@@ -95,6 +109,10 @@ A hollow metal box shields its interior from outside fields: a **Faraday cage**.
 ## Deflecting a moving charge
 
 When a charged particle enters a uniform field moving perpendicular to it, treat the motion exactly like a horizontally launched projectile: constant velocity along the plates, constant acceleration $a = qE/m$ across them.
+
+![An electron gun fires an electron horizontally between two horizontal plates, the top one negative and the bottom one positive, with the field pointing up between them. The electron's path curves down toward the positive plate in a parabola, then continues in a straight line to a spot on a screen.](images/phys-m8-crt.svg)
+
+Between the plates the path is a parabola; after the plates there is no force, so the electron travels in a straight line to the screen, and the spot's position shows how strong the field was.
 
 ### Example 4
 

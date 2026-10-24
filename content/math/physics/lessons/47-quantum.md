@@ -41,7 +41,12 @@ Einstein's photon explanation: each electron absorbs one photon. It must spend a
 
 $$K_{\max} = hf - \phi.$$
 
-The threshold frequency is $f_0 = \phi/h$. A graph of $K_{\max}$ against $f$ is a straight line with slope $h$ for every metal, which Millikan confirmed in 1916. In the lab, $K_{\max}$ is measured as $eV_{\text{stop}}$, where $V_{\text{stop}}$ is the stopping potential that just halts the fastest electrons.
+The threshold frequency is $f_0 = \phi/h$. A graph of $K_{\max}$ against $f$ is a straight line with slope $h$ for every metal, which Millikan confirmed in 1916.
+
+```plot
+{"x": [0, 16], "y": [0, 4.2], "xLabel": "frequency (10¹⁴ Hz)", "yLabel": "K max (eV)", "functions": [{"f": "0.41357*x - 2.28", "from": 5.513, "to": 15, "label": "sodium, φ = 2.28 eV"}, {"f": "0.41357*x - 4.3", "from": 10.397, "to": 15, "label": "φ = 4.3 eV"}], "points": [{"at": [5.513, 0], "label": "f0 = 5.51"}, {"at": [10.397, 0], "label": "f0 = 10.4"}], "caption": "Photoelectric lines for two metals: the same slope h, different thresholds; below f0 no electrons come out"}
+```
+ In the lab, $K_{\max}$ is measured as $eV_{\text{stop}}$, where $V_{\text{stop}}$ is the stopping potential that just halts the fastest electrons.
 
 ### Example 2
 
@@ -59,7 +64,12 @@ Two more experiments complete the case for photons.
 
 $$\lambda_{\max}T = 2.898\times10^{-3}\text{ m·K},$$
 
-with $T$ in kelvins. That's why a heated poker glows dull red, then orange, then yellow-white. Classical wave theory predicted that the emitted power should keep growing without limit at short wavelengths, which is absurd. Planck's assumption that energy is exchanged only in packets of $hf$ made short-wavelength packets too costly to emit often, which bent the curve back down and matched experiment.
+with $T$ in kelvins. That's why a heated poker glows dull red, then orange, then yellow-white.
+
+```plot
+{"x": [0, 2.5], "y": [0, 1.1], "xLabel": "wavelength (μm)", "yLabel": "relative power", "functions": [{"f": "1/(x^5*(exp(14388/(x*6000)) - 1))/0.267374", "from": 0.1, "to": 2.5, "label": "6000 K"}, {"f": "1/(x^5*(exp(14388/(x*5000)) - 1))/0.267374", "from": 0.1, "to": 2.5, "label": "5000 K"}, {"f": "1/(x^5*(exp(14388/(x*4000)) - 1))/0.267374", "from": 0.1, "to": 2.5, "label": "4000 K"}], "points": [{"at": [0.483, 1], "label": "peak 0.48 μm"}, {"at": [0.7245, 0.1317], "label": "peak 0.72 μm"}], "caption": "Blackbody spectra at three temperatures (same scale): hotter bodies emit far more power, and their peaks move to shorter wavelengths"}
+```
+ Classical wave theory predicted that the emitted power should keep growing without limit at short wavelengths, which is absurd. Planck's assumption that energy is exchanged only in packets of $hf$ made short-wavelength packets too costly to emit often, which bent the curve back down and matched experiment.
 
 For example, the Sun's surface (about 5800 K) peaks near $2.898\times10^{-3}/5800 = 5.0\times10^{-7}$ m $= 500$ nm, in the middle of the visible range. Your skin (about 310 K) peaks near 9.3 μm, in the infrared, which is what thermal cameras detect.
 
@@ -82,6 +92,10 @@ The **ground state** ($n = 1$) has $-13.6$ eV; 13.6 eV is needed to ionize the a
 $$hf = E_i - E_f = 13.6\text{ eV}\left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right).$$
 
 Transitions ending at $n = 2$ give the visible Balmer series (red 656 nm from $3\to2$, blue-green 486 nm from $4\to2$); those ending at $n = 1$ are in the ultraviolet. Absorption runs the other way: an atom absorbs only photons whose energy exactly matches a jump up.
+
+The diagram collects these transitions. Each family is named for the level where it ends: the Lyman series ends at $n = 1$ (ultraviolet), the Balmer series at $n = 2$ (mostly visible), and the Paschen series at $n = 3$ (infrared). Longer arrows mean bigger energy drops, so more energetic photons with shorter wavelengths.
+
+![Energy-level diagram of hydrogen: horizontal lines at −13.60 eV (n = 1, the ground state), −3.40 eV (n = 2), −1.51 eV (n = 3), −0.85 eV (n = 4) and a dashed line at 0 eV (n = infinity, the ionization limit). Downward arrows to n = 1 form the Lyman series (ultraviolet), arrows to n = 2 the Balmer series (visible), and the arrow from n = 4 to n = 3 belongs to the Paschen series (infrared).](images/phys-m12-hydrogen-levels.svg)
 
 ### Example 3
 
