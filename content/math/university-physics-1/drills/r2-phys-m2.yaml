@@ -50,7 +50,7 @@
 
     $v_{0,\min}^2 = g(y + d) = 9.8({y} + {d:sig4})$, so $v_{0,\min} =$ **{vmin:sig3} m/s**.
 
-    Angle: $\tan\theta = \dfrac{y + d}{x}$, so $\theta =$ **{th:num1}°**. (Check: the line to the target is at $\alpha = {al:num1}°$, and $45° + \alpha/2$ gives the same angle.)
+    Angle: $\tan\theta = \dfrac{y + d}{\,x} = \dfrac{{y} + {d:sig4}}{{x}}$, so $\theta =$ **{th:num1}°**. (Check: the line to the target is at $\alpha = {al:num1}°$, and $45° + \alpha/2$ gives the same angle.)
 - id: phys-m2-r2-incline-range
   title: Range along a slope
   topic: Projectiles on slopes
@@ -63,12 +63,13 @@
     L: 2*v0^2*cosd(th)*sind(th - al)/(9.8*cosd(al)^2)
     Lmax: v0^2/(9.8*(1 + sind(al)))
     best: 45 + al/2
+    dth: th - al
   prompt: 'A ball is thrown at {v0} m/s from the bottom of a slope that rises at {al}°. (a) If it is thrown at {th}° above horizontal, how far up the slope (measured along it) does it land? (b) What is the greatest distance up the slope any launch angle can reach at this speed? Use $g = 9.8$ m/s²; give answers to 3 significant figures.'
   answers:
     - {format: sig4, name: L, label: '(a) Distance', relTolerance: 0.01, units: {m: 1}}
     - {format: sig4, name: Lmax, label: '(b) Greatest distance', relTolerance: 0.01, units: {m: 1}}
   solution: |-
-    (a) $L = \dfrac{2v_0^2\cos\theta\sin(\theta - \alpha)}{g\cos^2\alpha} = \dfrac{2({v0})^2\cos {th}°\sin {th - al}°}{9.8\cos^2 {al}°} =$ **{L:sig3} m**.
+    (a) $L = \dfrac{2v_0^2\cos\theta\sin(\theta - \alpha)}{g\cos^2\alpha} = \dfrac{2({v0})^2\cos {th}°\sin {dth}°}{9.8\cos^2 {al}°} =$ **{L:sig3} m**.
 
     (b) The best angle is $45° + \alpha/2 = {best}°$, and $L_{\max} = \dfrac{v_0^2}{g(1 + \sin\alpha)} = \dfrac{{v0}^2}{9.8(1 + \sin {al}°)} =$ **{Lmax:sig3} m**.
 - id: phys-m2-r2-tn-accel
