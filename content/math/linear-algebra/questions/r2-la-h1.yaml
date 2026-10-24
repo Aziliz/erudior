@@ -131,9 +131,9 @@
     - ['$\operatorname{Col} A$', 'Edge differences that obey the voltage law']
     - ['$\operatorname{Nul} A^T$', 'Edge flows that balance at every node']
     - ['$\operatorname{Row} A$', 'Spanned by the rows of any spanning tree']
-  distractors: ['Currents fed into the nodes from outside']
+  distractors: ['Potentials that differ at every node']
   explanation: |-
-    $A\mathbf{x} = \mathbf{0}$ forces equal potentials. $\operatorname{Col} A$ is the set of potential differences, exactly the vectors that add to zero around every loop. $A^T\mathbf{y} = \mathbf{0}$ is Kirchhoff's current law. A spanning tree's $n - 1$ rows are independent, so they form a basis of the row space. Outside currents $\mathbf{s}$ appear on the right side of $A^TCA\mathbf{x} = \mathbf{s}$; they are not one of the four subspaces.
+    $A\mathbf{x} = \mathbf{0}$ forces equal potentials. $\operatorname{Col} A$ is the set of potential differences, exactly the vectors that add to zero around every loop. $A^T\mathbf{y} = \mathbf{0}$ is Kirchhoff's current law. A spanning tree's $n - 1$ rows are independent, so they form a basis of the row space. Potentials that differ at every node are not a subspace, and they are exactly what $\operatorname{Nul} A$ rules out.
 
 - id: la-h1-r2-h14
   lesson: la-h1-graphs
@@ -205,7 +205,7 @@
   choices: ['$|\lambda_2| \le 0.1$', '$|\lambda_2| \le 0.9$', '$|\lambda_2| \le 0.81$', '$|\lambda_2| \le 1$, and no better bound']
   answer: 1
   explanation: |-
-    Every eigenvalue of $G$ other than 1 is $\alpha$ times an eigenvalue of $S$, and those have absolute value at most 1. So $|\lambda_2| \le \alpha = 0.9$, whatever the link structure.
+    If $S$ has eigenvalues $1, \lambda_2, \dots, \lambda_n$, then $G$ has eigenvalues $1, \alpha\lambda_2, \dots, \alpha\lambda_n$, and every $|\lambda_i| \le 1$ for a stochastic matrix. So $|\lambda_2| \le \alpha = 0.9$, whatever the link structure.
 
 - id: la-h1-r2-h21
   lesson: la-h1-pagerank
@@ -291,7 +291,7 @@
   explanation: |-
     A dangling node would leak probability (its column of $S$ is zero), so the standard fix sends the surfer to a random page.
 
-# --- Lesson 92: data, principal components and low-rank approximation ---
+# --- Lesson 92: principal component analysis ---
 - id: la-h1-r2-h29
   lesson: la-h1-pca
   module_quiz: true
@@ -382,7 +382,7 @@
   type: text
   topic: Principal component analysis
   stem: 'A covariance matrix has eigenvalues 9, 4, 2 and 1. The first two principal components explain ___% of the total variance. (Give the number to 2 decimal places.)'
-  accept: ['81.25']
+  accept: ['81.25', '81.25%']
   explanation: |-
     Total variance = $9 + 4 + 2 + 1 = 16$. The first two components carry $9 + 4 = 13$: $13/16 = 0.8125 = 81.25\%$.
 

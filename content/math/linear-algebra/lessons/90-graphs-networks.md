@@ -187,8 +187,8 @@ bridge*). The voltage between nodes 2 and 4 is 1 volt for 1 ampere, so the whole
 acts like a single 1-ohm resistor: two 2-ohm paths in parallel.
 
 The same equation $A^TCA\mathbf{x} = \mathbf{f}$ describes networks of springs (with
-stiffnesses in $C$), heat flow between rooms and water in pipes, which is why engineers call
-it the fundamental equation of equilibrium. Data scientists use eigenvectors of $L$ to split
+stiffnesses in $C$), heat flow between rooms and water in pipes, which is why applied
+mathematicians treat it as the basic equation of equilibrium. Data scientists use eigenvectors of $L$ to split
 large graphs, such as social networks, into clusters.
 
 ## Common mistakes

@@ -34,8 +34,8 @@ the first equation from each of the others, and it cancels:
 $$2(\mathbf{p}_i - \mathbf{p}_1)\cdot\mathbf{x} = r_1^2 - r_i^2 + \|\mathbf{p}_i\|^2 - \|\mathbf{p}_1\|^2, \qquad i = 2, \dots, n.$$
 
 These are $n - 1$ *linear* equations in the coordinates of $\mathbf{x}$. Geometrically, each one
-is the line through the two intersection points of circle 1 and circle $i$ (the line
-perpendicular to $\mathbf{p}_i - \mathbf{p}_1$). In the plane, three beacons give two such lines,
+is a line perpendicular to $\mathbf{p}_i - \mathbf{p}_1$; when circle 1 and circle $i$ cross, it
+is the line through their two intersection points. In the plane, three beacons give two such lines,
 and they meet at your position, provided the beacons don't lie on one line (otherwise the
 two equations have parallel normal vectors and can't fix a single point). In space you need
 four beacons not all on one plane.
@@ -134,14 +134,16 @@ flowchart TD
 
 Measurement errors cannot be avoided, but how much they hurt depends on where the satellites
 are. If each range error has standard deviation $\sigma$ (and they are independent), the
-estimated position has covariance matrix $\sigma^2(J^TJ)^{-1}$, a fact from statistics that we
-state without proof. The diagonal entries are the variances of the coordinates, so the
-number
+estimated unknowns have covariance matrix $\sigma^2(J^TJ)^{-1}$, a fact from statistics that we
+state without proof. The diagonal entries are the variances of the unknowns (for GPS, the three
+coordinates and the clock term $cb$), so the number
 
 $$\text{DOP} = \sqrt{\operatorname{tr}\left((J^TJ)^{-1}\right)}$$
 
 says how many times larger the overall position error is than a single range error. It is
-called the **dilution of precision** (DOP). Small DOP means good geometry.
+called the **dilution of precision** (DOP). Small DOP means good geometry. (For GPS, the trace
+over all four unknowns gives what is called the *geometric* DOP; using only the three position
+entries gives the *position* DOP.)
 
 ![Two panels, each with a receiver on the Earth's curved surface and four satellites joined to it by dashed range lines. Left, labeled spread out, small DOP: the satellites are scattered across the sky in very different directions. Right, labeled clustered, large DOP: all four satellites are bunched almost straight overhead.](images/la-h1-gps.svg)
 

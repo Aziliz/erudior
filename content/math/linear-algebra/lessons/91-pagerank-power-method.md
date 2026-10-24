@@ -134,8 +134,9 @@ roughly $0.4$ times the one before, just as the ratio $\lambda_2/\lambda_1 = 2/5
 
 ## How fast does PageRank converge?
 
-A neat fact: if $S$ is stochastic, every eigenvalue of $G$ other than 1 is $\alpha$ times an
-eigenvalue of $S$ other than 1. Since the eigenvalues of a
+A neat fact, which we state without proof: if $S$ is stochastic with eigenvalues
+$1, \lambda_2, \dots, \lambda_n$ (listed with repeats), then the eigenvalues of $G$ are
+$1, \alpha\lambda_2, \dots, \alpha\lambda_n$. Since the eigenvalues of a
 stochastic matrix satisfy $|\lambda| \le 1$, the second eigenvalue of $G$ has
 $|\lambda_2| \le \alpha$, whatever the web looks like (Haveliwala and Kamvar published this bound
 in 2003). With $\alpha = 0.85$, the error shrinks roughly by a factor of 0.85 or better per step. Since $0.85^{50} \approx 0.0003$,

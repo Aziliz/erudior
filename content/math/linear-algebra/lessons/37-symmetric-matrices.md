@@ -75,7 +75,7 @@ Geometrically, $A$ stretches by 4 along the line $y = x$ and by 2 along $y = -x$
 The picture shows this: $A$ maps the unit circle to an ellipse whose axes lie along the perpendicular eigenvectors, with semi-axes 4 and 2.
 
 ```plot
-{"x": [-4.5, 4.5], "y": [-4.5, 4.5], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "dashed": true}, {"x": "3*cos(t) + sin(t)", "y": "cos(t) + 3*sin(t)", "t": [0, "2pi"]}], "segments": [{"from": [0, 0], "to": [2.828, 2.828], "arrow": true, "label": "4u₁"}, {"from": [0, 0], "to": [1.414, -1.414], "arrow": true, "label": "2u₂"}], "caption": "A = [3 1; 1 3] maps the unit circle (dashed) to an ellipse with semi-axes 4 along (1, 1) and 2 along (1, −1)"}
+{"x": [-4.5, 4.5], "y": [-4.5, 4.5], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "dashed": true}, {"x": "3*cos(t) + sin(t)", "y": "cos(t) + 3*sin(t)", "t": [0, "2pi"]}], "segments": [{"from": [0, 0], "to": [2.828, 2.828], "arrow": true, "label": "4u₁"}, {"from": [0, 0], "to": [1.414, -1.414], "arrow": true}], "labels": [{"at": [1.45, -0.75], "text": "2u₂"}], "caption": "A = [3 1; 1 3] maps the unit circle (dashed) to an ellipse with semi-axes 4 along (1, 1) and 2 along (1, −1)"}
 ```
 
 ### Example 2
