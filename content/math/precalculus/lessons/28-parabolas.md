@@ -11,9 +11,15 @@ refs: [pc-ref-conics-polar]
 
 Slice a double cone with a plane and the edge of the slice is one of four curves: a circle, an ellipse, a parabola or a hyperbola. These **conic sections** describe planetary orbits, the shape of satellite dishes and headlight reflectors, the paths of comets and the design of navigation systems. Each conic can be defined by distances to special points and lines, and each has a standard equation that you can read like the transformation forms of Module 2. We start with the parabola, which you already know as the graph of a quadratic, but now with a geometric definition that explains why it reflects light to a single point.
 
+The picture shows each cut edge-on, as if you were looking along the slicing plane. A plane straight across one cone, perpendicular to its axis, gives a circle; tilt it a little and you get an ellipse; tilt it until it runs parallel to the side of the cone and you get a parabola; tilt it steeper still and it cuts both cones, giving the two branches of a hyperbola.
+
+![Four side views of a double cone (two cones meeting point to point), each cut by a red plane seen edge-on. Circle: the plane is horizontal and cuts only the lower cone. Ellipse: the plane is tilted slightly and still cuts only the lower cone. Parabola: the plane is parallel to one side of the cone. Hyperbola: the plane is vertical and cuts both the upper and the lower cone.](images/pc-m7-cone-slices.svg)
+
 ## Definition
 
 A **parabola** is the set of all points in a plane that are the same distance from a fixed point, the **focus**, and a fixed line, the **directrix**. The point halfway between the focus and the directrix is the **vertex**, and the line through the focus perpendicular to the directrix is the **axis of symmetry**.
+
+![The parabola x² = 4y with its parts labeled: the focus F inside the curve on the axis of symmetry, the vertex V halfway between the focus and the dashed directrix line below, the vertical axis of symmetry, and the focal width, a green chord through the focus. A point P on the curve is joined to the focus and straight down to the directrix by two red segments, both marked d because they are equal.](images/pc-m7-parabola-parts.svg)
 
 ## Deriving the equation
 
@@ -60,6 +66,22 @@ $y$ is squared, so it opens left or right; $4p = -8$ gives $p = -2$, so it opens
 
 An equation like $y^2 + 6y - 4x + 1 = 0$ is a parabola in disguise: one variable is squared and the other isn't. Complete the square on the squared variable to reach standard form.
 
+The whole procedure fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: From a parabola's equation to its vertex, focus and directrix
+  accDescr: First ask which variable is squared. If x is squared, the parabola opens up or down; complete the square in x and write the equation as (x minus h) squared equals 4p times (y minus k). If y is squared, it opens left or right; complete the square in y and write (y minus k) squared equals 4p times (x minus h). Either way, the vertex is (h, k) and the sign of p picks the direction. The focus is p units from the vertex inside the curve, and the directrix is p units from the vertex on the other side.
+  A["Which variable is squared?"] -- "x" --> B["Opens up or down"]
+  A -- "y" --> C["Opens left or right"]
+  B --> D["Complete the square in x: (x − h)² = 4p(y − k)"]
+  C --> E["Complete the square in y: (y − k)² = 4p(x − h)"]
+  D --> F["Vertex (h, k); the sign of p picks the direction"]
+  E --> F
+  F --> G["Focus: p units from the vertex, inside the curve"]
+  G --> H["Directrix: p units from the vertex, on the other side"]
+```
+
 ### Example 3
 
 Write $y^2 + 6y - 4x + 1 = 0$ in standard form; find the vertex, focus and directrix.
@@ -77,6 +99,8 @@ So $h = -2$, $k = -3$, $4p = 4$, $p = 1$: it opens right, vertex $(-2, -3)$, foc
 ## The reflective property
 
 A ray traveling parallel to the axis of symmetry reflects off a parabola straight through the focus, and rays leaving the focus reflect out parallel to the axis. That's why satellite dishes put the receiver at the focus and flashlights put the bulb there.
+
+![A parabolic dish in cross-section. Six vertical rays come straight down, parallel to the dashed axis, hit the dish and all reflect to one point, the focus, marked with a red dot where the receiver sits.](images/pc-m7-dish.svg)
 
 ### Example 4
 

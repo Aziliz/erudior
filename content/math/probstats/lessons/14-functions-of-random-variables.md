@@ -124,6 +124,30 @@ With $\lambda = 0.5$ and a generated $U = 0.7$, the simulated value is $-\ln(0.3
 Check by change of variables: $Y = -\ln(U)/\lambda$ is decreasing in $U$ with inverse $u = e^{-\lambda y}$, so
 $f_Y(y) = 1 \cdot \left|-\lambda e^{-\lambda y}\right| = \lambda e^{-\lambda y}$ for $y > 0$. ✓
 
+Graphically, inverse transform sampling reads the cdf backward: start at height $U$ on the vertical
+axis, go across to the cdf, and drop down to the $x$-axis.
+
+```plot
+{"x": [-0.3, 8], "y": [0, 1.05], "xLabel": "x", "yLabel": "F(x)", "functions": [{"f": "1 - exp(-0.5*x)", "from": 0, "to": 8}], "segments": [{"from": [0, 0.7], "to": [2.408, 0.7], "arrow": true, "dashed": true}, {"from": [2.408, 0.7], "to": [2.408, 0], "arrow": true, "dashed": true}], "points": [{"at": [0, 0.7], "label": "U = 0.7"}, {"at": [2.408, 0], "label": "X ≈ 2.408"}], "caption": "Inverse transform with F(x) = 1 − e^(−0.5x): U = 0.7 maps to X = −ln(0.3)/0.5 ≈ 2.408"}
+```
+
+To choose a method for a new problem, this chart is a good guide.
+
+```mermaid
+flowchart TD
+  accTitle: Which method to use for a function of a random variable
+  accDescr: If only the mean of g of X is needed, use LOTUS. Otherwise, if X is discrete, add the pmf of X over all x with g of x equal to y. If X is continuous and g is strictly monotone on the range of X, use the change-of-variables formula. If g is not monotone there, use the cdf method and handle each branch. In every case, state the range of y at the end.
+  A{"Need only the mean E[g(X)]?"} -- "yes" --> L["LOTUS: integrate g(x) f(x)"]
+  A -- "no" --> B{"Is X discrete?"}
+  B -- "yes" --> S["Add p_X(x) over all x with g(x) = y"]
+  B -- "no" --> C{"Is g strictly monotone on the range of X?"}
+  C -- "yes" --> D["Change of variables: f_X(g⁻¹(y)) · |dg⁻¹/dy|"]
+  C -- "no" --> M["cdf method: write P(g(X) ≤ y), split into branches, differentiate"]
+  S --> R["State the range of y"]
+  D --> R
+  M --> R
+```
+
 ## Common mistakes
 
 - Plugging $g^{-1}(y)$ into $f_X$ but forgetting the factor $|dg^{-1}/dy|$.

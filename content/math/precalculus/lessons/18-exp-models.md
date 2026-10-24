@@ -49,6 +49,10 @@ $$t = 5730 \cdot \frac{\ln 0.30}{\ln 0.5} \approx 9{,}950 \text{ years}.$$
 
 Sanity check: 30% is between $\tfrac12$ (one half-life, 5,730 years) and $\tfrac14$ (two half-lives, 11,460 years). ✓
 
+```plot
+{"x": [0, 20000], "y": [0, 110], "xLabel": "years since death", "yLabel": "% of carbon-14 left", "functions": [{"f": "100(0.5)^(x/5730)", "label": "Q = 100(½)^(t/5730)"}], "points": [{"at": [5730, 50], "label": "1 half-life: 50%"}, {"at": [11460, 25], "label": "2 half-lives: 25%"}, {"at": [17190, 12.5], "label": "3: 12.5%"}, {"at": [9950, 30], "open": true, "label": "bone: 30%"}], "caption": "Each half-life of 5,730 years halves what is left. The bone's 30% falls between one and two half-lives, at about 9,950 years."}
+```
+
 ## Newton's law of cooling
 
 A hot object in a cooler room doesn't cool toward 0; it cools toward the room temperature. The *difference* between the object and its surroundings decays exponentially. **Newton's law of cooling** gives
@@ -77,6 +81,10 @@ $$P(t) = \frac{C}{1 + Ae^{-kt}}, \qquad A, k > 0.$$
 
 Why this shape: when $t$ is large, $e^{-kt} \to 0$ and $P \to \frac{C}{1} = C$. When $t$ is very negative, $Ae^{-kt}$ is huge and $P \approx \frac{C}{A}e^{kt}$, an exponential. At $t = 0$, $P(0) = \frac{C}{1 + A}$, which lets you find $A$ from the initial value. Growth is fastest when $P = \frac C2$, which happens at $t = \frac{\ln A}{k}$ (where $Ae^{-kt} = 1$); that point is the inflection point of the S-shaped curve.
 
+![A logistic curve rising from an initial value of 100 at t = 0, growing nearly exponentially at first, passing its point of fastest growth at (4.39, 500), then leveling off below the dashed carrying-capacity line P = 1000.](images/pc-m4-logistic-features.svg)
+
+The picture labels the parts of the curve for the model in Example 4 below: the initial value $P(0)$, the early stretch that looks exponential, the point of fastest growth at half capacity, and the leveling off toward the carrying capacity.
+
 ### Example 4
 
 A rumor spreads through a school of 1,000 students according to $P(t) = \dfrac{1000}{1 + 9e^{-0.5t}}$, with $t$ in days.
@@ -99,6 +107,20 @@ Some quantities span so many powers of ten that we measure them by their logarit
 A sound is 1,000 times as intense as another. How many decibels louder is it?
 
 $L_2 - L_1 = 10\log\dfrac{I_2}{I_0} - 10\log\dfrac{I_1}{I_0} = 10\log\dfrac{I_2}{I_1} = 10\log 1000 = 30$ dB.
+
+## Choosing a model
+
+Before computing anything, decide which model the situation calls for. The deciding question is what the quantity approaches in the long run.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing among exponential, cooling and logistic models
+  accDescr: First ask whether the quantity levels off at a nonzero value. If it does not (it grows without limit or decays toward zero), and it changes by a constant percentage, use the exponential model Q equals Q zero e to the kt, with k positive for growth and negative for decay. If it levels off at the temperature of its surroundings, use Newton's law of cooling. If it rises and levels off at a maximum value, use the logistic model with carrying capacity C.
+  Q{"Does it level off at a nonzero value?"} -- no --> E["Constant percent change: Q = Q0 e^(kt)"]
+  Q -- yes --> T{"Toward the surrounding temperature?"}
+  T -- yes --> N["Newton's law of cooling"]
+  T -- no --> L["Rises to a maximum C: logistic"]
+```
 
 ## Common mistakes
 

@@ -93,6 +93,9 @@ A ball dropped from 10 m rebounds to 60% of its previous height each time. What 
 
 It falls 10 m, then goes up and down $6$ m, then $3.6$ m, and so on. Total:
 
+![A ball dropped from 10 m bounces along the ground. Each rebound height is 60% of the one before: 6 m, then 3.6 m, then 2.16 m.](images/pc-m9-bounce.svg)
+
+
 $$10 + 2(6 + 3.6 + 2.16 + \dots) = 10 + 2 \cdot \frac{6}{1 - 0.6} = 10 + 30 = 40 \text{ m}.$$
 
 ### Example 8: a medicine that builds up
@@ -113,6 +116,25 @@ The level rises quickly at first (100, 140, 156, 162.4, …) and then levels off
 | $r = 1$ | partial sums $na_1$ grow without bound: diverges |
 | $r = -1$ | partial sums jump between $a_1$ and 0: diverges |
 | $\lvert r \rvert > 1$ | terms grow in size: diverges |
+
+## Which formula?
+
+Before using any formula, decide what kind of sequence you have. The chart sums up this lesson and the last.
+
+```mermaid
+flowchart TD
+  accTitle: Arithmetic, geometric or neither, and which sum formula
+  accDescr: First compute the differences between consecutive terms. If they are all equal, the sequence is arithmetic, and a sum of n terms is n times the first plus last term, over 2. If not, compute the ratios of consecutive terms. If they are all equal, the sequence is geometric. For a finite geometric sum use a1 times 1 minus r to the n, over 1 minus r. For an infinite geometric sum, check whether the absolute value of r is less than 1: if yes the sum is a1 over 1 minus r, otherwise the series diverges. If neither the differences nor the ratios are constant, the sequence is neither, and these formulas do not apply.
+  S["Look at consecutive terms"] --> D{"Differences all equal?"}
+  D -- yes --> AR["Arithmetic: Sn = n(a1 + an)/2"]
+  D -- no --> R{"Ratios all equal?"}
+  R -- no --> N["Neither: these formulas don't apply"]
+  R -- yes --> G{"Finite or infinite sum?"}
+  G -- finite --> GF["Sn = a1(1 - rⁿ)/(1 - r)"]
+  G -- infinite --> C{"Is |r| less than 1?"}
+  C -- yes --> GI["S = a1/(1 - r)"]
+  C -- no --> DV["Diverges: no finite sum"]
+```
 
 ## Common mistakes
 

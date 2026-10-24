@@ -72,11 +72,11 @@ flowchart TD
   accTitle: Deciding whether x is in the domain of f composed with g
   accDescr: First ask whether x is in the domain of g. If not, x is not in the domain of the composition. If it is, compute g of x and ask whether g of x is in the domain of f. If not, x is not in the domain of the composition. If it is, x is in the domain of the composition.
   A["Input x"] --> B{"Is x in the domain of g?"}
-  B -- no --> X["x is NOT in the domain of f ∘ g"]
+  B -- no --> X["x is NOT in the domain of f(g(x))"]
   B -- yes --> C["Compute g(x)"]
   C --> D{"Is g(x) in the domain of f?"}
   D -- no --> X
-  D -- yes --> Y["x IS in the domain of f ∘ g"]
+  D -- yes --> Y["x IS in the domain of f(g(x))"]
 ```
 
 ### Example 3

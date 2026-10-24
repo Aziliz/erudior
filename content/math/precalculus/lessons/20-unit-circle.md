@@ -23,6 +23,10 @@ $$360^\circ = 2\pi \text{ rad}, \qquad 180^\circ = \pi \text{ rad}.$$
 
 To convert degrees to radians multiply by $\frac{\pi}{180}$; to convert radians to degrees multiply by $\frac{180}{\pi}$. Rearranging the definition gives the **arc length** formula $s = r\theta$ (with $\theta$ in radians), which is the main practical reason to use radians.
 
+The picture shows the three pieces of the definition: the radius $r$, the arc $s$ that the angle cuts off, and the central angle $\theta = \frac{s}{r}$. Because $\theta$ is a length divided by a length, a radian has no units, and the same angle gives the same ratio on a circle of any size.
+
+![A circle with center O. Two radii of length r, one along the positive x-direction (the initial side) and one rotated counterclockwise (the terminal side), bound a shaded sector. The arc between them is drawn in red and labeled s, and the angle at the center is labeled theta, with theta equal to s divided by r radians.](images/pc-m5-radian-arc.svg)
+
 | Degrees | 30° | 45° | 60° | 90° | 120° | 135° | 150° | 180° | 270° |
 |---|---|---|---|---|---|---|---|---|---|
 | Radians | $\frac{\pi}{6}$ | $\frac{\pi}{4}$ | $\frac{\pi}{3}$ | $\frac{\pi}{2}$ | $\frac{2\pi}{3}$ | $\frac{3\pi}{4}$ | $\frac{5\pi}{6}$ | $\pi$ | $\frac{3\pi}{2}$ |
@@ -74,6 +78,24 @@ The **reference angle** of $\theta$ is the acute angle between its ending side a
 | Positive | all | $\sin$ | $\tan$ | $\cos$ |
 
 To evaluate: find the reference angle, take its value from the table, and attach the quadrant's sign.
+
+The picture puts the table on the coordinate plane. In each quadrant the signs of $x$ (cosine) and $y$ (sine) decide which functions are positive; the red arc shows the reference angle of $150^\circ$.
+
+![The coordinate plane divided into four shaded quadrants. Quadrant I: x and y positive, all functions positive. Quadrant II: x negative, y positive, sine positive. Quadrant III: both negative, tangent positive. Quadrant IV: x positive, y negative, cosine positive. A red ray at 150 degrees has its 30 degree reference angle marked against the negative x-axis.](images/pc-m5-quadrant-signs.svg)
+
+The whole routine, for any angle, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Evaluating a trig function of any angle
+  accDescr: Start with the angle. Add or subtract full turns of 2 pi until the angle is between 0 and 2 pi. Find its quadrant. Find the reference angle, the acute angle to the x-axis. Look up the trig value of the reference angle from the special-angle table. Attach the sign that the function has in that quadrant. The result is the value.
+  A[Start with the angle] --> B["Add or subtract 2π until it is between 0 and 2π"]
+  B --> C[Find the quadrant]
+  C --> D["Reference angle: the acute angle to the x-axis"]
+  D --> E[Look up the value for the reference angle]
+  E --> F["Attach the quadrant's sign: All, Sin, Tan, Cos"]
+  F --> G[Value of the trig function]
+```
 
 ### Example 2
 

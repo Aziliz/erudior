@@ -36,6 +36,10 @@ $$y = A\sin\big(B(x - C)\big) + D \quad \text{or} \quad y = A\cos\big(B(x - C)\b
 
 A note on conventions: this course always factors $B$ out first, so the phase shift is the number $C$ inside $B(x - C)$. Many textbooks instead write $y = A\sin(Bx - C) + D$ without factoring; in that form the phase shift is $\frac{C}{B}$. Both describe the same shift, so if a source's numbers look different, check which form it uses.
 
+The picture labels each feature on the graph of $y = 2\sin x + 1$, where $A = 2$, $B = 1$, $C = 0$ and $D = 1$.
+
+![The graph of y = 2 sin x + 1 over a little more than one period. A dashed horizontal midline at y = 1; an arrow from the midline up to the first maximum, labeled amplitude 2; a double arrow between two neighboring maxima, labeled period 2 pi; the maximum value 3 and the minimum value negative 1 are marked with dots.](images/pc-m5-sinusoid-features.svg)
+
 The period formula is the transformation rule in disguise: one full cycle needs the inside $B(x - C)$ to run through an interval of length $2\pi$, which takes $x$-length $\frac{2\pi}{B}$. The maximum is $D + |A|$ and the minimum is $D - |A|$.
 
 ### Example 1
@@ -65,6 +69,10 @@ $$H(t) = 2.9\cos\left(\frac{2\pi}{365}(t - 172)\right) + 12.1.$$
 
 $\tan x = \frac{\sin x}{\cos x}$ is undefined where $\cos x = 0$, so its graph has vertical asymptotes at $x = \frac{\pi}{2} + k\pi$. It has period $\pi$ and range all reals.
 
+```plot
+{"x": [-4.8, 4.8], "y": [-4, 4], "functions": [{"f": "tan(x)", "from": -4.6, "to": -1.67, "label": "y = tan x"}, {"f": "tan(x)", "from": -1.47, "to": 1.47}, {"f": "tan(x)", "from": 1.67, "to": 4.6}], "segments": [{"from": [-4.7124, -4], "to": [-4.7124, 4], "dashed": true}, {"from": [-1.5708, -4], "to": [-1.5708, 4], "dashed": true}, {"from": [1.5708, -4], "to": [1.5708, 4], "dashed": true}, {"from": [4.7124, -4], "to": [4.7124, 4], "dashed": true}], "points": [{"at": [0, 0], "label": "(0, 0)"}, {"at": [0.7854, 1], "label": "(π/4, 1)"}], "caption": "y = tan x: one full copy of the graph between neighboring asymptotes (dashed, at x = ±π/2 and ±3π/2), so the period is π."}
+```
+
 Sine is not one-to-one, so to invert it we restrict its domain (Lesson 7). With sine restricted to $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$, its inverse $\sin^{-1}x$ (also written $\arcsin x$) returns the angle in that interval whose sine is $x$. Similarly $\cos^{-1}x \in [0, \pi]$ and $\tan^{-1}x \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$. For example $\sin^{-1}\frac12 = \frac{\pi}{6}$, not $\frac{5\pi}{6}$, because only $\frac{\pi}{6}$ lies in the restricted interval.
 
 ## Key identities
@@ -81,6 +89,18 @@ An **identity** is an equation true for every input where both sides are defined
 | | $\cos 2\theta = \cos^2\theta - \sin^2\theta = 1 - 2\sin^2\theta = 2\cos^2\theta - 1$ |
 
 The second Pythagorean identity comes from dividing the first by $\cos^2\theta$. The double-angle identities come from the sum identities with $a = b = \theta$. The three forms of $\cos 2\theta$ come from replacing $\cos^2\theta$ or $\sin^2\theta$ using the Pythagorean identity.
+
+The identities aren't a list of separate facts to memorize: almost all of them grow from two roots, the Pythagorean identity and the sum formulas.
+
+```mermaid
+flowchart TD
+  accTitle: How the key identities come from each other
+  accDescr: The Pythagorean identity sine squared plus cosine squared equals 1, divided by cosine squared, gives 1 plus tangent squared equals secant squared. The sum formulas with a equal to b give the double-angle formulas sine 2 theta equals 2 sine cosine and cosine 2 theta equals cosine squared minus sine squared. Using the Pythagorean identity to replace cosine squared, or sine squared, in that last formula gives cosine 2 theta equals 1 minus 2 sine squared and cosine 2 theta equals 2 cosine squared minus 1.
+  P["sin²θ + cos²θ = 1"] -- "divide by cos²θ" --> T["1 + tan²θ = sec²θ"]
+  S["Sum formulas for sin(a + b), cos(a + b)"] -- "set a = b = θ" --> D["sin 2θ = 2 sin θ cos θ and cos 2θ = cos²θ − sin²θ"]
+  D -- "cos²θ = 1 − sin²θ" --> D1["cos 2θ = 1 − 2 sin²θ"]
+  D -- "sin²θ = 1 − cos²θ" --> D2["cos 2θ = 2 cos²θ − 1"]
+```
 
 ### Example 3
 

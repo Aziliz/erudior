@@ -23,6 +23,19 @@ A polynomial's graph is unbroken, so it can only change sign by passing through 
 4. Make a **sign chart**: test one value in each interval (or count negative factors).
 5. Choose the intervals with the required sign. Include zeros of the numerator when the inequality is $\le$ or $\ge$. Never include zeros of the denominator.
 
+Step 5's decision about each endpoint, as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Is a critical value part of the solution?
+  accDescr: For a critical value c, first ask whether c is a zero of the denominator. If it is, c is never in the solution, because the expression is undefined there: draw an open dot. If c is a zero of the numerator only, ask whether the inequality includes equality, that is, less than or equal or greater than or equal. If it does, c is included: closed dot. If the inequality is strict, c is excluded: open dot.
+  A["Critical value c"] --> B{"Is c a zero of the denominator?"}
+  B -- yes --> C["Never included: open dot"]
+  B -- "no, a zero of the numerator" --> D{"Does the inequality allow equality, ≤ or ≥?"}
+  D -- yes --> E["Included: closed dot"]
+  D -- "no, strict" --> F["Excluded: open dot"]
+```
+
 ### Example 1
 
 Solve $x^3 - x^2 - 6x > 0$.
@@ -64,6 +77,10 @@ Critical values: $-1$ and $2$. $(x - 2)^2 \ge 0$ always, so the sign of the prod
 
 Solution: $(-\infty, -1] \cup \{2\}$. The isolated point $x = 2$ is easy to miss and is a common test question.
 
+```numberline
+{"x": [-5, 5], "points": [{"at": [-1, 0]}, {"at": [2, 0]}], "segments": [{"from": [-1, 0], "to": [-5, 0], "arrow": true}], "caption": "(x − 2)²(x + 1) ≤ 0 on (−∞, −1] together with the single point 2"}
+```
+
 ## Rational inequalities
 
 The same method works, with one extra rule: denominator zeros are critical values but are never in the solution set.
@@ -79,6 +96,10 @@ Solve $\dfrac{x + 1}{x - 3} \ge 2$.
 5. We want $\ge 0$: the interval $(3, 7)$, plus $x = 7$ (where the fraction is 0), but not $x = 3$ (undefined).
 
 $$\text{Solution: } (3, 7].$$
+
+```numberline
+{"x": [0, 10], "points": [{"at": [3, 0], "open": true}, {"at": [7, 0]}], "segments": [{"from": [3, 0], "to": [7, 0]}], "caption": "(x + 1)/(x − 3) ≥ 2 on (3, 7]: open at 3 (undefined), closed at 7"}
+```
 
 What goes wrong if you multiply by $x - 3$? You'd get $x + 1 \ge 2x - 6$, so $x \le 7$, which wrongly includes values like $x = 0$ (where the left side is $-\frac13$, not $\ge 2$). The multiplication is only valid when $x - 3 > 0$.
 

@@ -1,0 +1,75 @@
+# Round 2, module pre-m9: terms from the honors lessons.
+# --- Measuring spread (38h1) ---
+- term: deviation
+  aliases: [deviations]
+  definition: 'How far a value is from the mean, with a sign: value − mean. The deviations of a data set always add to 0.'
+  topic: Mean absolute deviation
+- term: mean absolute deviation
+  aliases: [MAD]
+  definition: 'The mean of the distances from the mean: the sum of $|\text{value} - \text{mean}|$ divided by the number of values. It measures the typical distance from the mean.'
+  topic: Mean absolute deviation
+- term: standard deviation
+  definition: 'A measure of spread used in statistics courses. Like the MAD it describes a typical distance from the mean, but it is built from squared deviations instead of absolute values.'
+  topic: Mean absolute deviation
+- term: quartiles
+  aliases: [quartile]
+  definition: 'The three values that split ordered data into four parts with about the same number of values: Q1, the median, and Q3.'
+  topic: Quartiles and box plots
+- term: first quartile
+  aliases: [Q1, lower quartile]
+  definition: 'The median of the lower half of the ordered data; about a quarter of the data lie below it.'
+  topic: Quartiles and box plots
+- term: third quartile
+  aliases: [Q3, upper quartile]
+  definition: 'The median of the upper half of the ordered data; about three quarters of the data lie below it.'
+  topic: Quartiles and box plots
+- term: five-number summary
+  definition: 'The minimum, first quartile, median, third quartile and maximum of a data set.'
+  topic: Quartiles and box plots
+- term: interquartile range
+  aliases: [IQR]
+  definition: 'Q3 − Q1: the spread of the middle half of the data. It is resistant to outliers.'
+  topic: Quartiles and box plots
+- term: box plot
+  aliases: [box plots, box-and-whisker plot, box-and-whisker plots]
+  definition: 'A graph of the five-number summary: a box from Q1 to Q3 with a line at the median, and whiskers out to the minimum and maximum (or to the most extreme values that are not outliers).'
+  topic: Quartiles and box plots
+- term: whiskers
+  aliases: [whisker]
+  definition: 'The lines of a box plot that run from the box out to the smallest and largest values (not counting flagged outliers).'
+  topic: Quartiles and box plots
+- term: fences
+  aliases: [fence]
+  definition: 'The cutoffs $Q_1 - 1.5 \times \text{IQR}$ and $Q_3 + 1.5 \times \text{IQR}$; values outside them are flagged as possible outliers.'
+  topic: Quartiles and box plots
+- term: resistant
+  definition: 'Describes a measure that one extreme value can barely change, such as the median or the IQR. The mean, the range and the MAD are not resistant.'
+  topic: Quartiles and box plots
+# --- Tree diagrams and expected value (38h2) ---
+- term: tree diagram
+  aliases: [tree diagrams]
+  definition: 'A diagram with one set of branches for each stage of an experiment, each branch labeled with its probability. Multiply along a path; add separate paths.'
+  topic: Tree diagrams
+- term: dependent events
+  aliases: [dependent]
+  definition: 'Events where one happening changes the probability of the other, such as two draws without replacement.'
+  topic: Tree diagrams
+- term: without replacement
+  definition: 'Drawing items one after another without putting them back, so each draw changes what is left for the next.'
+  topic: Tree diagrams
+- term: with replacement
+  definition: 'Putting each drawn item back (and mixing) before the next draw, so the draws are independent.'
+  topic: Tree diagrams
+- term: general multiplication rule
+  definition: '$P(A \text{ and } B) = P(A) \times P(B \text{ after } A)$; it works for dependent and independent events.'
+  topic: Tree diagrams
+- term: expected value
+  definition: 'The sum of each value times its probability: the long-run average result per trial. It need not be a possible result.'
+  topic: Expected value
+- term: fair game
+  aliases: [fair games]
+  definition: 'A game whose expected net gain (expected prize minus the price to play) is 0.'
+  topic: Expected value
+- term: law of large numbers
+  definition: 'As an experiment is repeated more and more times, the average result gets closer to the expected value (and experimental probabilities get closer to theoretical ones).'
+  topic: Expected value

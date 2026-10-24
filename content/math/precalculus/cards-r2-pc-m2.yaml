@@ -1,0 +1,22 @@
+# Honors: symmetry beyond even and odd
+- {front: 'Test for symmetry about the line $x = a$', back: '$f(a + t) = f(a - t)$ for every $t$; equivalently $f(t + a)$ is even in $t$.', topic: Symmetry about a line or point}
+- {front: 'Test for symmetry about the point $(a, b)$', back: '$f(a + t) + f(a - t) = 2b$ for every $t$; equivalently $f(t + a) - b$ is odd in $t$.', topic: Symmetry about a line or point}
+- {front: 'Why a parabola''s axis is $x = -\frac{b}{2a}$', back: 'Substituting $x = h + t$ gives a $t$ coefficient $2ah + b$; $h = -\frac{b}{2a}$ makes it 0, leaving an even function of $t$.', topic: Symmetry about a line or point}
+- {front: 'Center of symmetry of $Ax^3 + Bx^2 + Cx + D$', back: 'At $x = -\frac{B}{3A}$, height $f\!\left(-\frac{B}{3A}\right)$. That choice kills the $t^2$ term.', topic: Symmetry about a line or point}
+- {front: 'Center of $y = k + \dfrac{c}{x - h}$', back: '$(h, k)$, where the asymptotes cross (a shifted copy of the odd function $\frac cx$).', topic: Symmetry about a line or point}
+- {front: 'Parity of products', back: 'even × even = even, odd × odd = even, even × odd = odd (like signs).', topic: Even and odd parts}
+- {front: 'Parity of compositions', back: '$f \circ g$ is even if $g$ is even (any $f$); odd ∘ odd is odd; even ∘ odd is even.', topic: Even and odd parts}
+- {front: 'Even and odd parts of $f$', back: '$E(x) = \frac{f(x) + f(-x)}{2}$, $O(x) = \frac{f(x) - f(-x)}{2}$, $f = E + O$, and the split is unique.', topic: Even and odd parts}
+- {front: 'The only function that is both even and odd', back: 'The zero function: $f(x) = f(-x) = -f(x)$ forces $f(x) = 0$.', topic: Even and odd parts}
+- {front: '$f(\lvert x \rvert)$ vs $\lvert f(x) \rvert$', back: '$f(\lvert x \rvert)$ mirrors the right half of $f$ across the $y$-axis (always even); $\lvert f(x) \rvert$ flips negative parts up across the $x$-axis.', topic: Even and odd parts}
+# Honors: algebra of composition, inverses and iteration
+- {front: 'Properties of composition', back: 'Associative, not commutative; identity $I(x) = x$ with $f \circ I = I \circ f = f$.', topic: Algebra of composition}
+- {front: '$(f \circ g)^{-1}$', back: '$g^{-1} \circ f^{-1}$: the last step done is the first undone (socks and shoes).', topic: Algebra of composition}
+- {front: 'Inverse of $g(x) = a f(b(x - h)) + k$', back: '$g^{-1}(x) = h + \frac1b f^{-1}\!\left(\frac{x - k}{a}\right)$: outside and inside changes trade places.', topic: Algebra of composition}
+- {front: 'Inverse of $\dfrac{ax + b}{cx + d}$ ($ad - bc \ne 0$)', back: '$\dfrac{dx - b}{-cx + a}$: swap $a$ and $d$, negate $b$ and $c$.', topic: Algebra of composition}
+- {front: 'Involution', back: '$f(f(x)) = x$; graph symmetric about $y = x$. Examples: $-x$, $c - x$, $\frac1x$, $\frac{ax + b}{cx - a}$.', topic: Algebra of composition}
+- {front: 'Where $f$ meets $f^{-1}$', back: 'Only on $y = x$ if $f$ is increasing; a decreasing $f$ can meet $f^{-1}$ elsewhere ($-x^3$ at $(1, -1)$).', topic: Algebra of composition}
+- {front: 'Fixed point', back: '$f(p) = p$: where the graph of $f$ crosses $y = x$. A limit of iterates (of a continuous $f$) is a fixed point.', topic: Fixed points and iteration}
+- {front: 'Iterating $f(x) = mx + c$', back: 'Fixed point $p = \frac{c}{1 - m}$; $x_n - p = m^n(x_0 - p)$. Approach if $\lvert m \rvert < 1$, run away if $\lvert m \rvert > 1$.', topic: Fixed points and iteration}
+- {front: 'Reading a cobweb diagram', back: 'Vertical step to the graph applies $f$; horizontal step to $y = x$ turns the output into the next input.', topic: Fixed points and iteration}
+- {front: '$f^2(x)$: careful', back: 'May mean $f(f(x))$ (iteration) or $(f(x))^2$ (as in $\sin^2 x$). Write out which one you mean.', topic: Fixed points and iteration}

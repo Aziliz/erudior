@@ -81,6 +81,25 @@ sensible assignment must behave.
 Each rule below follows from the axioms; seeing why makes it easy to rebuild a rule you
 have forgotten.
 
+The chart shows which rules lean on which; the proofs below follow the arrows.
+
+```mermaid
+flowchart TD
+  accTitle: How the rules of probability follow from the axioms
+  accDescr: Axiom 3, countable additivity, gives P of the empty set equals 0, which gives finite additivity. Finite additivity with axiom 2 gives the complement rule. Finite additivity with axiom 1 gives monotonicity. Finite additivity also gives the addition rule for two events. The addition rule leads to inclusion-exclusion for more events and to the union bound, and together with monotonicity it gives the Bonferroni inequality.
+  A3["Axiom 3: countable additivity"] --> E["P(empty set) = 0"]
+  E --> F["Finite additivity"]
+  A2["Axiom 2: P(S) = 1"] --> C["Complement rule"]
+  F --> C
+  A1["Axiom 1: P(A) ≥ 0"] --> M["Monotonicity"]
+  F --> M
+  F --> AR["Addition rule for two events"]
+  AR --> IE["Inclusion-exclusion"]
+  AR --> UB["Union bound"]
+  AR --> BI["Bonferroni inequality"]
+  M --> BI
+```
+
 **The empty set has probability 0.** Take every $A_i = \varnothing$ in axiom 3. The union is
 $\varnothing$, so $P(\varnothing) = \sum P(\varnothing)$, which is only finite if
 $P(\varnothing) = 0$. Countable additivity then also gives *finite* additivity (pad a finite
@@ -112,6 +131,12 @@ $$P\left(\bigcup_{i=1}^n A_i\right) = \sum_i P(A_i) - \sum_{i<j} P(A_i \cap A_j)
 Why it works: an outcome lying in exactly $m \ge 1$ of the events is counted
 $\binom{m}{1} - \binom{m}{2} + \binom{m}{3} - \cdots = 1 - (1 - 1)^m = 1$ time, by the binomial
 theorem.
+
+For three events the picture makes this concrete. Each of the seven regions inside the circles
+is added once for every circle that contains it, subtracted once for every pair, and added back
+for the triple, and the tally always comes to 1:
+
+![A three-circle Venn diagram of events A, B and C inside a rectangle S. Each region is marked with how inclusion-exclusion counts it: regions in one circle are counted 1, regions in exactly two circles are counted 2 minus 1, the center region in all three is counted 3 minus 3 plus 1, and the region outside all circles is counted 0.](images/ps-m1-venn3.svg)
 
 **Union bound.** Dropping the subtracted terms can only increase the right side, giving
 **Boole's inequality** $P\left(\bigcup A_i\right) \le \sum P(A_i)$. It is crude but needs no

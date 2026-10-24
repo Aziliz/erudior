@@ -32,6 +32,12 @@ $$P(A \cap B^c) = P(A) - P(A \cap B) = P(A) - P(A)P(B) = P(A)\,(1 - P(B)) = P(A)
 Applying this twice, $A^c$ and $B^c$ are independent too. Whatever you learn about $B$ —
 that it happened or that it did not — tells you nothing about $A$.
 
+A unit square makes this visible. Let $A$ be a vertical strip of width $P(A)$ and $B$ a
+horizontal strip of height $P(B)$. Each of the four pieces is a rectangle whose area is a
+product, so all four pairs ($A$ and $B$, $A$ and $B^c$, and so on) satisfy the product rule:
+
+![A unit square split by a vertical line at 0.4 and a horizontal line at 0.3. The four rectangles are A intersect B with area 0.4 times 0.3 equals 0.12, A intersect B complement with 0.4 times 0.7 equals 0.28, A complement intersect B with 0.6 times 0.3 equals 0.18, and A complement intersect B complement with 0.6 times 0.7 equals 0.42.](images/ps-m1-indep-square.svg)
+
 **Independent is not disjoint.** If $A$ and $B$ are mutually exclusive with positive
 probabilities, then $P(A \cap B) = 0 \ne P(A)P(B)$. Disjoint events are strongly *dependent*:
 learning that one occurred tells you the other did not.
@@ -137,6 +143,17 @@ A first head is evidence that you hold the two-headed coin, which makes a second
 likely. Many real "dependent" observations work this way: they are independent given an
 unknown common cause (a machine's setting, a patient's condition) and dependent because the
 cause is unknown.
+
+The diagram shows the structure: both tosses depend on the coin, and there is no arrow between
+the tosses themselves.
+
+```mermaid
+flowchart TD
+  accTitle: A common cause makes two tosses dependent
+  accDescr: The coin type, fair or two-headed, influences both the first toss and the second toss, and there is no arrow between the two tosses. Given the coin type the tosses are independent, but when the coin type is unknown, the first toss carries information about the coin and so about the second toss.
+  C["Coin type: fair or two-headed (unknown)"] --> T1["Toss 1"]
+  C --> T2["Toss 2"]
+```
 
 ## Common mistakes
 

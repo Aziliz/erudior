@@ -31,6 +31,16 @@ $$i^1 = i, \quad i^2 = -1, \quad i^3 = i^2 \cdot i = -i, \quad i^4 = (i^2)^2 = 1
 
 and then $i^5 = i^4 \cdot i = i$ starts the cycle over. So to simplify $i^n$, divide $n$ by 4 and keep only the remainder: $i^{43} = i^{40}\cdot i^3 = 1 \cdot (-i) = -i$, since $43 = 4 \cdot 10 + 3$.
 
+```mermaid
+flowchart LR
+  accTitle: Powers of i repeat every four
+  accDescr: Multiplying by i takes i to −1, −1 to −i, −i to 1, and 1 back to i. So i to the first, second, third and fourth powers are i, −1, −i and 1, and then the cycle repeats.
+  A["i¹ = i"] -- "× i" --> B["i² = −1"]
+  B -- "× i" --> C["i³ = −i"]
+  C -- "× i" --> D["i⁴ = 1"]
+  D -- "× i" --> A
+```
+
 ## Adding, subtracting and multiplying
 
 Treat $i$ like a variable, collect like terms, and replace every $i^2$ with $-1$ at the end.
@@ -85,6 +95,12 @@ The distance from the origin to $a + bi$ is its **modulus** (or absolute value),
 $$|a + bi| = \sqrt{a^2 + b^2},$$
 
 which is the Pythagorean theorem. For a real number this agrees with the usual absolute value: $|-5 + 0i| = 5$. Notice that $z\bar z = a^2 + b^2 = |z|^2$. Conjugation reflects a point across the real axis, and adding complex numbers adds their coordinates, just like adding vectors (Module 8).
+
+Multiplying by $i$ has a picture too: $i(a + bi) = -b + ai$, which turns the point $(a, b)$ a quarter turn counterclockwise about the origin. Starting from $z = 3 + i$, the products $iz = -1 + 3i$, $i^2 z = -3 - i$ and $i^3 z = 1 - 3i$ go around the origin, and a fourth multiplication returns to $z$. This is the geometry behind the cycle of four powers of $i$.
+
+```plot
+{"x": [-4, 4], "y": [-4, 4], "equal": true, "xLabel": "real axis", "yLabel": "imaginary axis", "segments": [{"from": [3, 1], "to": [-1, 3], "arrow": true, "dashed": true}, {"from": [-1, 3], "to": [-3, -1], "arrow": true, "dashed": true}, {"from": [-3, -1], "to": [1, -3], "arrow": true, "dashed": true}, {"from": [1, -3], "to": [3, 1], "arrow": true, "dashed": true}], "points": [{"at": [3, 1], "label": "z = 3 + i"}, {"at": [-1, 3], "label": "iz = −1 + 3i"}, {"at": [-3, -1], "label": "i²z = −3 − i"}, {"at": [1, -3], "label": "i³z = 1 − 3i"}], "caption": "Each multiplication by i is a quarter turn counterclockwise about 0; four turns bring z back."}
+```
 
 ```plot
 {"x": [-5, 6], "y": [-4, 5], "equal": true, "xLabel": "real axis", "yLabel": "imaginary axis", "segments": [{"from": [0, 0], "to": [3, 4], "label": "|z| = 5"}, {"from": [3, 4], "to": [3, -4], "dashed": true}], "points": [{"at": [3, 4], "label": "z = 3 + 4i"}, {"at": [3, -4], "label": "conjugate 3 − 4i"}, {"at": [-4, 2], "label": "−4 + 2i"}, {"at": [0, -2], "label": "−2i"}], "caption": "Complex numbers as points: z = 3 + 4i is 5 units from the origin, and its conjugate is its mirror image across the real axis."}

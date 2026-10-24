@@ -52,6 +52,11 @@ $$\binom{n}{r} = \frac{n!}{r!\,(n - r)!}.$$
 first choose the unordered subset (in $\binom{n}{r}$ ways) and then order it (in $r!$ ways). So
 $\binom{n}{r} r! = n!/(n-r)!$, which rearranges to the formula.
 
+Here is that argument for $n = 3$ and $r = 2$: each of the 3 subsets can be put in order in
+$2! = 2$ ways, giving all $3 \cdot 2 = 6$ ordered pairs, each exactly once.
+
+![Three subsets of size 2 from a, b, c, namely {a, b}, {a, c} and {b, c}, each with arrows to its two orderings, such as (a, b) and (b, a). Six ordered pairs in all: C(3, 2) times 2 factorial equals 6 equals P(3, 2).](images/ps-m1-subsets-orders.svg)
+
 Two identities have one-line counting proofs:
 
 - $\binom{n}{r} = \binom{n}{n-r}$: choosing who is *in* the committee is the same as choosing
@@ -161,6 +166,21 @@ Ask two questions: *does order matter?* and *can items repeat?*
 The last entry (unordered with repetition, e.g. choosing 3 scoops from 5 flavors) is less
 common in probability because those selections are usually *not* equally likely. Whatever you
 count, count the numerator and denominator the same way — both ordered or both unordered.
+
+The same two questions as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the right counting formula
+  accDescr: First ask whether order matters. If it does and items cannot repeat, use n factorial over n minus r factorial. If order matters and items can repeat, use n to the power r. If order does not matter and items cannot repeat, use n choose r. If order does not matter and items can repeat, use n plus r minus 1 choose r, but those selections are usually not equally likely. Separately, arranging all n objects in a row when some are identical uses the multinomial coefficient.
+  Q1{"Does order matter?"} -- yes --> Q2{"Can items repeat?"}
+  Q1 -- no --> Q3{"Can items repeat?"}
+  Q2 -- no --> P1["Permutations: n! / (n − r)!"]
+  Q2 -- yes --> P2["Sequences: n^r"]
+  Q3 -- no --> C1["Combinations: C(n, r)"]
+  Q3 -- yes --> C2["C(n + r − 1, r), usually not equally likely"]
+  R["All n objects in a row, some identical?"] --> MU["Multinomial: n! / (n1! n2! ... nk!)"]
+```
 
 ## Common mistakes
 

@@ -99,6 +99,10 @@ gaps between successive events are independent exponentials with the same rate. 
 Poisson; gaps are exponential — two views of one process. (The waiting time to the $k$-th event
 is a sum of $k$ gaps: the gamma distribution of lesson 13.)
 
+The picture shows one stretch of a Poisson process, with each kind of random quantity marked.
+
+![A time line starting at 0 with six events marked as dots. A bracket under the line spans the gap between two neighboring events and is labeled Exponential(λ). A bracket above the line runs from 0 to the third event and is labeled Gamma(3, 1/λ). A shaded window of length 3 contains two events and is labeled Poisson(3λ).](images/ps-m3-poisson-timeline.svg)
+
 ### Example 2: trucks at a dock
 
 Trucks arrive as a Poisson process averaging one every 5 minutes, so the wait $T$ for the next

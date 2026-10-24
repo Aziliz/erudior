@@ -32,6 +32,20 @@ $$r^2 = x^2 + y^2, \qquad \tan\theta = \frac{y}{x} \ (x \ne 0).$$
 
 Going from rectangular to polar, $\tan\theta = \frac yx$ doesn't pin down the quadrant (it has period $\pi$), so always check which quadrant $(x, y)$ is in.
 
+For $0 \le \theta < 2\pi$ and $r > 0$, the quadrant check works out like this ($\tan^{-1}$ always returns an angle between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$):
+
+```mermaid
+flowchart TD
+  accTitle: Converting a rectangular point to polar coordinates
+  accDescr: Start with the point (x, y) and find r as the square root of x squared plus y squared. Then ask where the point lies. In Quadrant I, theta is the inverse tangent of y over x. In Quadrant II or III, add pi to the inverse tangent. In Quadrant IV, add 2 pi. On an axis, read theta directly as 0, pi over 2, pi or 3 pi over 2.
+  A["Point (x, y)"] --> B["r = √(x² + y²)"]
+  B --> C["Where is (x, y)?"]
+  C -- "Quadrant I" --> D["θ = arctan(y/x)"]
+  C -- "Quadrant II or III" --> E["θ = arctan(y/x) + π"]
+  C -- "Quadrant IV" --> F["θ = arctan(y/x) + 2π"]
+  C -- "on an axis" --> G["Read θ directly: 0, π/2, π or 3π/2"]
+```
+
 ```plot
 {"x": [-4.5, 2], "y": [-1, 3.5], "equal": true, "segments": [{"from": [0, 0], "to": [-3.464, 2], "label": "r = 4"}, {"from": [-3.464, 0], "to": [-3.464, 2], "dashed": true}], "points": [{"at": [-3.464, 2], "label": "(4, 5π/6) = (−2√3, 2)"}], "curves": [{"x": "0.6cos(t)", "y": "0.6sin(t)", "t": [0, 2.618]}], "labels": [{"at": [0.5, 0.75], "text": "θ = 5π/6"}], "caption": "Polar (4, 5π/6) is rectangular (4 cos 5π/6, 4 sin 5π/6) = (−2√3, 2)."}
 ```
@@ -74,6 +88,10 @@ A polar graph $r = f(\theta)$ is plotted by sweeping $\theta$ around and marking
 | $r = a\theta$ | spiral |
 
 Symmetry tests: replacing $\theta$ by $-\theta$ without changing the equation means symmetry about the polar axis (true for any function of $\cos\theta$).
+
+Here is one of each family, drawn on the same scale, with the pole where the axes cross:
+
+![Six small polar graphs. r = 2 cos θ is a circle through the pole, to its right. r = 1 + cos θ is a cardioid, a heart shape with a dimple at the pole. r = 1 + 2 cos θ is a limaçon with a small inner loop. r = 2 cos 3θ is a rose with three petals. r = 2 cos 2θ is a rose with four petals. r = θ/6 is a spiral winding outward twice from the pole.](images/pc-m7-polar-gallery.svg)
 
 ### Example 4
 

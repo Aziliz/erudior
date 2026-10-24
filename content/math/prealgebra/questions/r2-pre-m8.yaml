@@ -350,139 +350,145 @@
   explanation: |-
     The move across is $5 - (-1) = 6$ and the move up is $10 - 2 = 8$. The distance is $\sqrt{6^2 + 8^2} = \sqrt{100} = 10$.
 
-# === Honors: Scaling (pre-m8-h-scaling) ===
+# === Honors: Angles of polygons and tilings (pre-m8-h-polygon-angles) ===
 - id: pre-m8-r2-h01
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'A rectangle with area 10 cm² is scaled by a factor of 3. What is the new area?'
-  choices: ['30 cm²', '90 cm²', '270 cm²', '13 cm²']
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'What is the sum of the interior angles of a heptagon (7 sides)?'
+  choices: ['1,260°', '900°', '720°', '1,080°']
   answer: 1
   explanation: |-
-    Areas scale by $k^2 = 9$: $10 \times 9 = 90$ cm². (30 multiplies by $k$; 270 by $k^3$; 13 adds 3.)
+    $(7 - 2) \times 180° = 5 \times 180° = 900°$. 1,260° uses $n \times 180°$; 720° and 1,080° are the sums for 6 and 8 sides.
 
 - id: pre-m8-r2-h02
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'A cube with volume 64 cm³ is scaled by a factor of $\tfrac12$. What is the new volume?'
-  choices: ['32 cm³', '16 cm³', '4 cm³', '8 cm³']
-  answer: 3
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  type: text
+  stem: 'Give only the numbers. The interior angles of a pentagon add to ___ degrees, so each angle of a regular pentagon measures ___ degrees.'
+  accept:
+    - ['540']
+    - ['108']
   explanation: |-
-    Volumes scale by $k^3 = \tfrac18$: $64 \times \tfrac18 = 8$ cm³. Check: the edge was 4 cm and becomes 2 cm, and $2^3 = 8$.
+    $(5 - 2) \times 180° = 540°$. A regular pentagon has 5 equal angles: $540° \div 5 = 108°$.
 
 - id: pre-m8-r2-h03
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  type: text
-  stem: 'A triangle has perimeter 15 cm and area 9 cm². It is scaled by a factor of 4. Give only the numbers: the new perimeter is ___ cm and the new area is ___ cm².'
-  accept:
-    - ['60']
-    - ['144']
-  explanation: |-
-    Perimeter is a length: $15 \times 4 = 60$ cm. Area scales by $4^2 = 16$: $9 \times 16 = 144$ cm².
-
-- id: pre-m8-r2-h04
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'Two solid bronze statues are exact copies of each other, but one is 3 times as tall. The small one weighs 2 kg. About how much does the large one weigh?'
-  choices: ['6 kg', '18 kg', '54 kg', '27 kg']
-  answer: 2
-  explanation: |-
-    Weight of the same material depends on volume, which scales by $3^3 = 27$: $2 \times 27 = 54$ kg. (18 kg uses $k^2$; 27 kg forgets to multiply by 2.)
-
-- id: pre-m8-r2-h05
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  type: match
-  stem: 'Every length of a solid is multiplied by 3. Match each measurement to what happens to it.'
-  pairs:
-    - [The perimeter of a face, Multiplied by 3]
-    - [The surface area, Multiplied by 9]
-    - [The volume, Multiplied by 27]
-    - [An angle between two edges, Unchanged]
-  distractors: [Multiplied by 6]
-  explanation: |-
-    Lengths scale by $k = 3$, areas by $k^2 = 9$, volumes by $k^3 = 27$. Angles don't change when a figure is scaled; that is what "same shape" means.
-
-- id: pre-m8-r2-h06
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'Which changes multiply a figure''s area by exactly 4? Select all that apply.'
-  choices: ['Doubling the radius of a circle', 'Doubling every side of a triangle', 'Doubling only the length of a rectangle', 'Doubling the side of a square']
-  answer: [0, 1, 3]
-  explanation: |-
-    Doubling every length of a figure multiplies its area by $2^2 = 4$; a circle is scaled by doubling its radius, and a triangle or square by doubling all its sides. Doubling only the length of a rectangle is not a scaling (the width is unchanged), so the area just doubles.
-
-- id: pre-m8-r2-h07
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'Two similar triangles have areas 18 cm² and 50 cm². What is the scale factor from the smaller to the larger?'
-  choices: ['$\tfrac{25}{9}$', '$\tfrac{5}{3}$', '$\tfrac{125}{27}$', '$\tfrac{3}{5}$']
-  answer: 1
-  explanation: |-
-    The area ratio is $\tfrac{50}{18} = \tfrac{25}{9}$, and areas scale by $k^2$, so $k = \sqrt{\tfrac{25}{9}} = \tfrac{5}{3}$. ($\tfrac{25}{9}$ forgets the square root; $\tfrac35$ goes from larger to smaller.)
-
-- id: pre-m8-r2-h08
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  type: text
-  stem: 'Two similar boxes hold 8 L and 27 L. The ratio of the small box''s height to the large box''s height is ___. Give a fraction.'
-  accept: ['2/3']
-  explanation: |-
-    Volumes scale by $k^3$, so $k^3 = \tfrac{8}{27}$ and $k = \sqrt[3]{\tfrac{8}{27}} = \tfrac{2}{3}$, since $2^3 = 8$ and $3^3 = 27$.
-
-- id: pre-m8-r2-h09
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'What is the surface-area-to-volume ratio of a cube with edge 3 cm?'
-  choices: ['2 per cm', '18 per cm', '0.5 per cm', '6 per cm']
-  answer: 0
-  explanation: |-
-    $SA = 6(3^2) = 54$ cm² and $V = 3^3 = 27$ cm³, so $\tfrac{SA}{V} = \tfrac{54}{27} = 2$ per cm. The shortcut $\tfrac{6}{s} = \tfrac63$ gives the same.
-
-- id: pre-m8-r2-h10
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  type: order
-  stem: 'Put these cubes in order from the largest surface-area-to-volume ratio to the smallest.'
-  items: [Cube with edge 1 cm, Cube with edge 2 cm, Cube with edge 5 cm, Cube with edge 10 cm]
-  explanation: |-
-    For a cube $\tfrac{SA}{V} = \tfrac{6}{s}$: 6, 3, 1.2 and 0.6 per cm. The smaller the cube, the more surface it has for its volume.
-
-- id: pre-m8-r2-h11
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'A 6 cm cube of ice is cut into 1 cm cubes. The total surface area of the ice is multiplied by what?'
-  choices: ['36', '6', '216', '1']
-  answer: 1
-  explanation: |-
-    Before: $6 \times 6^2 = 216$ cm². After: there are $6^3 = 216$ small cubes, each with surface area 6 cm², so $1{,}296$ cm². $1{,}296 \div 216 = 6$. (Equivalently, $\tfrac{SA}{V}$ went from $\tfrac66 = 1$ to $\tfrac61 = 6$ while the volume stayed the same.)
-
-- id: pre-m8-r2-h12
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'A 12-inch pizza costs \$10. What should an 18-inch pizza cost to have the same price per square inch?'
-  choices: ['\$15.00', '\$20.00', '\$33.75', '\$22.50']
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'Five of the angles of a hexagon measure 100°, 130°, 140°, 110° and 125°. What is the sixth angle?'
+  choices: ['295°', '120°', '180°', '115°']
   answer: 3
   explanation: |-
-    $k = \tfrac{18}{12} = 1.5$, so the large pizza has $1.5^2 = 2.25$ times the area: $10 \times 2.25 = 22.50$ dollars. (\$15 uses $k$; \$33.75 uses $k^3$.)
+    A hexagon's angles add to $4 \times 180° = 720°$. The five known angles total $605°$, so the sixth is $720° - 605° = 115°$. (295° uses the heptagon's sum, 900°; 120° assumes the hexagon is regular, which it isn't.)
 
-- id: pre-m8-r2-h13
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'Which statements follow from the square–cube law? Select all that apply.'
-  choices: ['Scaling an animal up makes its weight grow faster than the cross-sections of its bones.', 'A small object has more surface area per unit of volume than a large object of the same shape.', 'Doubling every length of a solid object doubles its weight.', 'A big block of ice melts more slowly, per gram, than the same ice crushed.']
+- id: pre-m8-r2-h04
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'What is the measure of each interior angle of a regular decagon (10 sides)?'
+  choices: ['36°', '144°', '160°', '150°']
+  answer: 1
+  explanation: |-
+    The sum is $8 \times 180° = 1{,}440°$, and $1{,}440° \div 10 = 144°$. Or: each exterior angle is $360° \div 10 = 36°$, so each interior angle is $180° - 36° = 144°$. (36° is the exterior angle.)
+
+- id: pre-m8-r2-h05
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  type: match
+  stem: 'Match each regular polygon to the measure of one of its interior angles.'
+  pairs:
+    - [Equilateral triangle, 60°]
+    - [Square, 90°]
+    - [Regular hexagon, 120°]
+    - [Regular octagon, 135°]
+  distractors: [108°, 150°]
+  explanation: |-
+    Each angle is $\tfrac{(n - 2) \times 180°}{n}$: $\tfrac{180}{3} = 60$, $\tfrac{360}{4} = 90$, $\tfrac{720}{6} = 120$, $\tfrac{1{,}080}{8} = 135$. 108° belongs to the regular pentagon and 150° to the regular 12-gon.
+
+- id: pre-m8-r2-h06
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  type: text
+  stem: 'Each interior angle of a regular polygon measures 140°. The polygon has ___ sides. Give only the number.'
+  accept: ['9']
+  explanation: |-
+    Each exterior angle is $180° - 140° = 40°$. The exterior angles add to 360°, so there are $360 \div 40 = 9$ of them: 9 sides. Check: $\tfrac{7 \times 180°}{9} = 140°$.
+
+- id: pre-m8-r2-h07
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'A convex polygon has 15 sides. What is the sum of its exterior angles, one at each vertex?'
+  choices: ['2,340°', '2,700°', '360°', '24°']
+  answer: 2
+  explanation: |-
+    The exterior angles of any convex polygon add to 360°, however many sides it has. (2,340° is the interior angle sum, $13 \times 180°$; 24° is one exterior angle of a regular 15-gon.)
+
+- id: pre-m8-r2-h08
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  type: order
+  stem: 'Put these regular polygons in order from smallest interior angle to largest.'
+  items: [Equilateral triangle, Square, Regular pentagon, Regular hexagon, Regular octagon]
+  explanation: |-
+    60°, 90°, 108°, 120°, 135°. The more sides a regular polygon has, the closer its angles get to 180°.
+
+- id: pre-m8-r2-h09
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'Which regular polygons can tile a floor by themselves, with no gaps or overlaps? Select all that apply.'
+  choices: [Equilateral triangle, Square, Regular pentagon, Regular hexagon]
   answer: [0, 1, 3]
   explanation: |-
-    Weight grows like $k^3$ and cross-sectional area like $k^2$, so weight wins. The ratio $\tfrac{SA}{V}$ is divided by $k$, so small objects have more surface per volume, and crushed ice, with much more surface, melts faster. Doubling every length multiplies the weight by $2^3 = 8$, not 2.
+    The angles meeting at a point must add to 360°, so the interior angle must divide 360°. 60° (6 tiles), 90° (4) and 120° (3) do. A pentagon's 108° doesn't: three leave a 36° gap and four overlap.
 
-- id: pre-m8-r2-h14
-  lesson: pre-m8-h-scaling
-  topic: Scaling
-  stem: 'How many cubic centimeters are in 1 cubic meter?'
-  choices: ['1,000,000', '10,000', '100', '1,000']
+- id: pre-m8-r2-h10
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  type: label
+  stem: 'Name the numbered parts of this pentagon, whose bottom side has been extended to the right.'
+  image: {src: images/pre-m8-h-polygon-angles-blank.svg, alt: 'A regular pentagon whose bottom side is extended to the right past a vertex. An arc marks an angle inside the pentagon at the bottom-left corner, another arc marks the angle between the extension and the next side at the bottom-right corner, and a dashed segment joins two vertices that are not neighbors. Four parts are numbered.'}
+  labels:
+    - {x: 34.7, y: 68.1, text: Interior angle}
+    - {x: 66.4, y: 71.4, text: Exterior angle}
+    - {x: 43.3, y: 40.2, text: Diagonal}
+    - {x: 55.2, y: 27.8, text: Side}
+  distractors: [Straight angle, Height]
+  explanation: |-
+    The arc inside the corner (1) marks an interior angle. The arc between the extended side and the next side (2) marks an exterior angle; with the interior angle at that vertex it makes a straight angle. The dashed segment (3) joins two vertices that aren't neighbors, so it is a diagonal. Segment (4) joins neighboring vertices: a side.
+
+- id: pre-m8-r2-h11
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'Why do the exterior angles of a convex polygon always add to 360°?'
+  choices: ['Walking once around the polygon, you turn by each exterior angle and end up facing the way you started: one full turn.', 'Every polygon can be cut into exactly two triangles.', 'Each exterior angle is 90°, and a polygon has four of them.', 'The interior angles always add to 180°.']
   answer: 0
   explanation: |-
-    1 m = 100 cm, so 1 m³ = $100^3 = 1{,}000{,}000$ cm³. (10,000 is the number of cm² in 1 m².)
+    The turns at the corners are the exterior angles, and together they make one complete turn, 360°. In symbols: $n \times 180° - (n - 2) \times 180° = 360°$. The other statements are false for most polygons.
+
+- id: pre-m8-r2-h12
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'Which groups of regular polygons fit exactly around a point, with no gap or overlap? Select all that apply.'
+  choices: ['Two octagons and one square', 'Three pentagons', 'Three equilateral triangles and two squares', 'Two hexagons and one square']
+  answer: [0, 2]
+  explanation: |-
+    Add the interior angles: $135 + 135 + 90 = 360$ ✓; $3 \times 108 = 324$ (gap); $3 \times 60 + 2 \times 90 = 360$ ✓; $2 \times 120 + 90 = 330$ (gap).
+
+- id: pre-m8-r2-h13
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  stem: 'All the diagonals are drawn from one vertex of a convex decagon (10 sides). Into how many triangles do they cut it?'
+  choices: ['10', '8', '7', '9']
+  answer: 1
+  explanation: |-
+    From one vertex there are $10 - 3 = 7$ diagonals (not to itself or its two neighbors), and they make $10 - 2 = 8$ triangles. That's why the angle sum is $8 \times 180° = 1{,}440°$.
+
+- id: pre-m8-r2-h14
+  lesson: pre-m8-h-polygon-angles
+  topic: Polygon angles
+  type: text
+  stem: 'A convex polygon''s interior angles add to 1,800°. It has ___ sides. Give only the number.'
+  accept: ['12']
+  explanation: |-
+    $(n - 2) \times 180 = 1{,}800$, so $n - 2 = 10$ and $n = 12$.
 
 # === Honors: Pyramids, cones and spheres (pre-m8-h-cones-spheres) ===
 - id: pre-m8-r2-h15

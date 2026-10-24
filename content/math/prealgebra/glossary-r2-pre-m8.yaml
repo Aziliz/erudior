@@ -1,13 +1,25 @@
 # Round 2, module pre-m8: terms from the honors lessons.
-# --- Scaling ---
-- term: square–cube law
-  aliases: [square-cube law]
-  definition: 'When every length of an object is multiplied by $k$, its surface area is multiplied by $k^2$ but its volume by $k^3$, so volume grows faster than surface area.'
-  topic: Scaling
-- term: surface-area-to-volume ratio
-  aliases: [surface area to volume ratio]
-  definition: 'Surface area divided by volume, $\tfrac{SA}{V}$; for a cube with edge $s$ it is $\tfrac{6}{s}$. Smaller objects of the same shape have larger ratios.'
-  topic: Scaling
+# --- Polygon angles ---
+- term: diagonal
+  aliases: [diagonals]
+  definition: 'A segment joining two vertices of a polygon that are not next to each other.'
+  topic: Polygon angles
+- term: interior angle
+  aliases: [interior angles]
+  definition: 'An angle inside a polygon at one of its vertices, between the two sides that meet there. A polygon with $n$ sides has interior angles adding to $(n - 2) \times 180°$.'
+  topic: Polygon angles
+- term: convex
+  aliases: [convex polygon, convex polygons]
+  definition: 'A polygon is convex if every interior angle is less than 180°: it has no dents, and every diagonal lies inside it.'
+  topic: Polygon angles
+- term: exterior angle
+  aliases: [exterior angles]
+  definition: 'The angle between one side of a polygon and the extension of the next side; it is $180°$ minus the interior angle. The exterior angles of a convex polygon add to 360°.'
+  topic: Polygon angles
+- term: tessellation
+  aliases: [tessellations, tiling, tilings]
+  definition: 'A covering of a flat surface by shapes with no gaps and no overlaps, like floor tiles. The only regular polygons that tessellate alone are the equilateral triangle, square and regular hexagon.'
+  topic: Polygon angles
 # --- Cones, pyramids and spheres ---
 - term: pyramid
   aliases: [pyramids, square pyramid]
@@ -64,8 +76,4 @@
   topic: Measurement error
 - term: percent error
   definition: '$\dfrac{|\text{measured} - \text{true}|}{\text{true}} \times 100\%$: how far a measurement is from a known true value, as a percent of the true value.'
-  topic: Measurement error
-- term: significant figures
-  aliases: [significant digits, sig figs]
-  definition: 'The digits of a measurement that carry information about its size (not placeholder zeros). A rule of thumb rounds a product or quotient to as many significant figures as its least precise input.'
   topic: Measurement error

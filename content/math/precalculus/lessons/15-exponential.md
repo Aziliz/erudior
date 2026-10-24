@@ -35,6 +35,12 @@ Key facts, all from the rules of exponents:
 
 Compare $2^x$ and $x^2$. At $x = 4$ they tie at 16. At $x = 10$: $1024$ versus $100$. At $x = 30$: about a billion versus 900. Each step multiplies $2^x$ by 2 but only adds $2x + 1$ to $x^2$, and eventually doubling outruns any fixed amount of adding. This is why an exponential with base greater than 1 eventually exceeds *any* polynomial.
 
+The graphs show the race. They cross three times: once at a negative $x$ (about $-0.77$), then at $x = 2$ and $x = 4$. Between 2 and 4 the parabola is ahead, but after $x = 4$ the exponential leads for good.
+
+```plot
+{"x": [-2, 7], "y": [-2, 70], "functions": [{"f": "2^x", "label": "y = 2ˣ"}, {"f": "x^2", "label": "y = x²", "dashed": true}], "points": [{"at": [2, 4], "label": "(2, 4)"}, {"at": [4, 16], "label": "(4, 16)"}, {"at": [6, 64], "label": "(6, 64)"}, {"at": [6, 36], "label": "(6, 36)"}], "caption": "2ˣ and x² meet at x = 2 and x = 4; after that the exponential pulls away (64 versus 36 at x = 6)."}
+```
+
 ## Transformations
 
 All the rules from Lesson 5 apply. For $y = a\,b^{x - h} + k$:
@@ -48,6 +54,10 @@ All the rules from Lesson 5 apply. For $y = a\,b^{x - h} + k$:
 Describe $g(x) = 2^{x - 1} + 3$ and give its asymptote and range.
 
 Right 1, up 3. The asymptote moves from $y = 0$ to $y = 3$; $(0, 1)$ moves to $(1, 4)$ and $(1, 2)$ moves to $(2, 5)$. Range: $(3, \infty)$.
+
+A vertical shift moves growth and decay curves alike. The picture shows $y = 2^x + 1$ and $y = \left(\tfrac12\right)^x + 1$: both are shifted up 1, so they share the asymptote $y = 1$ and the $y$-intercept $(0, 2)$, but one rises to the right and the other to the left.
+
+![Graphs of y = 2ˣ + 1 rising to the right and y = (½)ˣ + 1 rising to the left. Both approach the dashed horizontal asymptote y = 1 and cross the y-axis at (0, 2).](images/pc-m4-exp-features.svg)
 
 ```plot
 {"x": [-5, 5], "y": [-1, 12], "functions": [{"f": "2^x", "dashed": true}, {"f": "2^(x - 1) + 3", "label": "y = 2ˣ⁻¹ + 3"}, {"f": "3", "dashed": true}], "points": [{"at": [1, 4], "label": "(1, 4)"}, {"at": [0, 1]}], "caption": "2ˣ (dashed) shifted right 1 and up 3; the asymptote moves to y = 3."}

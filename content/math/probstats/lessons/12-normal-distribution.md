@@ -59,6 +59,10 @@ $$P(a < X < b) = \Phi\left(\frac{b - \mu}{\sigma}\right) - \Phi\left(\frac{a - \
 and symmetry gives $\Phi(-z) = 1 - \Phi(z)$. About 68%, 95% and 99.7% of the probability lies
 within 1, 2 and 3 standard deviations of the mean (more precisely 0.6827, 0.9545, 0.9973).
 
+The picture marks these landmarks on a general normal curve.
+
+![A bell-shaped normal curve with tick marks at μ − 3σ through μ + 3σ. A dashed line marks the peak at the mean μ, dots mark the inflection points at μ ± σ, the area between μ − σ and μ + σ is shaded, a small upper tail above μ + 2σ is shaded and labeled about 2.3%, and brackets below show that about 68%, 95% and 99.7% of the area lies within 1, 2 and 3 standard deviations.](images/ps-m3-normal-curve.svg)
+
 Quantiles go the other way: the $p$-quantile of $X$ is $x_p = \mu + \sigma z_p$, where
 $\Phi(z_p) = p$. Useful values: $z_{0.90} = 1.2816$, $z_{0.95} = 1.6449$, $z_{0.975} = 1.9600$,
 $z_{0.99} = 2.3263$.
@@ -125,6 +129,20 @@ $X \sim \text{Bin}(100, 0.3)$, so $np = 30$ and $\sigma = \sqrt{21} \approx 4.58
 
 Likewise $P(X = 30) \approx \Phi(0.109) - \Phi(-0.109) \approx 0.0869$, against the exact 0.0868.
 Without the correction, a normal approximation to the probability of a single value would be 0.
+
+The whole procedure, from checking the guideline to reading $\Phi$, fits in one chart:
+
+```mermaid
+flowchart TD
+  accTitle: Steps of the normal approximation to a binomial probability
+  accDescr: Start from a binomial probability. If n p and n times 1 minus p are not both at least 10, use the exact binomial instead. Otherwise find the mean n p and the standard deviation, the square root of n p times 1 minus p. Apply the continuity correction by moving each endpoint half a unit so that each whole-number bar is included or excluded as the event requires. Then standardize to a z-score and read the probability from the standard normal cdf.
+  A["Binomial probability wanted"] --> B{"np ≥ 10 and n(1 − p) ≥ 10?"}
+  B -- "no" --> C["Use the exact binomial"]
+  B -- "yes" --> D["Mean np, SD √(np(1 − p))"]
+  D --> E["Continuity correction: move each endpoint by 0.5"]
+  E --> F["Standardize: z = (endpoint − np) / SD"]
+  F --> G["Read Φ(z); use 1 − Φ(z) for an upper tail"]
+```
 
 ## Common mistakes
 

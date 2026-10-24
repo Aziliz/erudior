@@ -44,6 +44,17 @@ Other directrix positions change the sign or the trig function:
 
 To read an equation, first make the constant in the denominator equal 1 (divide top and bottom by it). Then the coefficient of the trig function is $e$, and the numerator is $ed$.
 
+```mermaid
+flowchart TD
+  accTitle: Reading a polar equation of a conic
+  accDescr: First divide the numerator and denominator by the constant in the denominator so that constant becomes 1. The coefficient of the trig function is then the eccentricity e, which names the conic: less than 1 an ellipse, equal to 1 a parabola, greater than 1 a hyperbola. The numerator is e times d, so d is the numerator divided by e. The sign and the trig function place the directrix: plus cosine to the right, minus cosine to the left, plus sine above, minus sine below. Finally find the vertices at theta equal to 0 and pi for cosine, or pi over 2 and 3 pi over 2 for sine.
+  A["Make the denominator's constant 1"] --> B["e = coefficient of cos θ or sin θ"]
+  B --> C["e #lt; 1 ellipse, e = 1 parabola, e #gt; 1 hyperbola"]
+  C --> D["d = numerator ÷ e"]
+  D --> E["Directrix: +cos right, −cos left, +sin above, −sin below"]
+  E --> F["Vertices: θ = 0 and π (cos), or π/2 and 3π/2 (sin)"]
+```
+
 ### Example 1
 
 Identify $r = \dfrac{10}{3 + 2\cos\theta}$ and find its vertices.
@@ -67,6 +78,12 @@ Identify $r = \dfrac{4}{1 - \sin\theta}$.
 
 The constant is already 1, and $e = 1$: a parabola. $ed = 4$ gives $d = 4$, and "$- \sin\theta$" puts the directrix below: $y = -4$. The vertex is halfway between the focus (pole) and directrix: at $\theta = \frac{3\pi}{2}$, $r = \frac{4}{1 - (-1)} = 2$, the point $(0, -2)$. The parabola opens upward, away from its directrix. (At $\theta = \frac{\pi}{2}$ the denominator is 0: that's the open end.)
 
+Keeping the focus at the pole and the directrix at $x = 2$ and changing only $e$ shows all three conics at once: $r = \dfrac{2e}{1 + e\cos\theta}$ for $e = \frac12$, $1$ and $2$.
+
+```plot
+{"x": [-7, 8], "y": [-6, 6], "equal": true, "curves": [{"x": "cos(t)/(1 + 0.5cos(t))", "y": "sin(t)/(1 + 0.5cos(t))", "t": [0, "2pi"]}, {"x": "2cos(t)/(1 + cos(t))", "y": "2sin(t)/(1 + cos(t))", "t": [-2.45, 2.45], "dashed": true}, {"x": "4cos(t)/(1 + 2cos(t))", "y": "4sin(t)/(1 + 2cos(t))", "t": [-1.85, 1.85]}, {"x": "4cos(t)/(1 + 2cos(t))", "y": "4sin(t)/(1 + 2cos(t))", "t": [2.4, 3.88]}], "segments": [{"from": [2, -6], "to": [2, 6], "dashed": true}], "points": [{"at": [0, 0], "label": "focus"}], "labels": [{"at": [2.9, 5.4], "text": "x = 2"}, {"at": [-1.2, 1.5], "text": "e = 1/2"}, {"at": [-2.9, 3.4], "text": "e = 1"}, {"at": [1.0, 4.4], "text": "e = 2"}], "caption": "Same focus and directrix: e = 1/2 gives an ellipse, e = 1 a parabola (dashed), e = 2 a hyperbola with a second branch beyond the directrix."}
+```
+
 ### Example 3
 
 Identify $r = \dfrac{6}{1 + 2\cos\theta}$ and find its vertices.
@@ -89,6 +106,8 @@ Directrix to the right: $r = \dfrac{ed}{1 + e\cos\theta} = \dfrac{\frac12 \cdot 
 ## Orbits
 
 A planet's orbit is an ellipse with the sun at a focus. The closest point (perihelion) and farthest point (aphelion) are the vertices. In the polar form with the sun at the pole, they occur at $\theta = 0$ and $\theta = \pi$, at distances $\frac{ed}{1 + e}$ and $\frac{ed}{1 - e}$. A comet with $e$ close to 1 has an extremely elongated orbit: very close at perihelion, very far at aphelion.
+
+![An elliptical orbit with the Sun at one focus. The perihelion, the closest point, is the vertex on the Sun's side, nearer the dashed directrix; the aphelion, the farthest point, is the opposite vertex. The center of the ellipse lies between the Sun and the empty second focus. A planet is shown on the orbit.](images/pc-m7-orbit.svg)
 
 ## Common mistakes
 

@@ -30,7 +30,7 @@ Each lesson has an intro tying back to core lessons (long division, factors/divi
 
 ## For a reviewer to double-check
 
-- Historical claims: Euler wrote about $n^2 + n + 41$ in the 1700s (his 1772 letter used the equivalent $n^2 - n + 41$; the lesson says only "in the 1700s"). Goldbach's conjecture: 1742 letter to Euler; verified by computer up to about $4 \times 10^{18}$ (Oliveira e Silva, Herzog and Pardi, 2014). Pólya, *How to Solve It*, 1945. The Gauss schoolroom story is labeled as a popular, probably embellished story.
+- Historical claims: Euler wrote about $n^2 + n + 41$ in the 1700s (his 1772 letter used the equivalent $n^2 - n + 41$; the lesson says only "in the 1700s"). Goldbach's conjecture: 1742 letter to Euler; verified by computer up to $4 \times 10^{18}$ (Oliveira e Silva, Herzog and Pardi, *Math. Comp.* 83 (2014); confirmed online); the lesson says "at least" in case later searches went further. Pólya, *How to Solve It*, 1945. The Gauss schoolroom story is labeled as a popular, probably embellished story.
 - Lesson 92 says "more 2s than 5s" in $n!$ without proof (stated as an observation: every second number vs every fifth); this is standard.
 - Lesson 93's handshake and chessboard-squares problems are counting problems; if the pre-m9 honors writer adds a combinations lesson there may be light overlap (here they are framed as "try smaller cases").
 - The days-of-week drill asks for the day *number* (Sunday = 0 … Saturday = 6), since drill answers are numeric; the prompt states the numbering.
@@ -41,4 +41,4 @@ None. (Read lessons 02, 04, 05, 05h2, 08h1 and the core glossary for overlap.)
 
 ## Sources
 
-Standard elementary number theory (no text copied): congruences and casting out nines; parity and invariant arguments (mutilated chessboard, a classic puzzle); inclusion–exclusion; Legendre's formula; arithmetic series. Facts checked: Wikipedia "Goldbach's conjecture" (1742 letter; verification bound $4 \times 10^{18}$), "Lucky numbers of Euler" ($n^2 + n + 41$, prime for 0 ≤ n ≤ 39), "How to Solve It" (Pólya, 1945; four phases), "Legendre's formula". All numbers recomputed in Python.
+Standard elementary number theory (no text copied): congruences and casting out nines; parity and invariant arguments (the mutilated chessboard is a classic puzzle); inclusion–exclusion; Legendre's formula; arithmetic series. Checked online: Oliveira e Silva, Herzog, Pardi, "Empirical verification of the even Goldbach conjecture and computation of prime gaps up to 4·10^18", Math. Comp. 83 (2014), and Wikipedia "Goldbach's conjecture" (1742 letter). From standard knowledge, not re-checked online (reviewer may confirm): Euler and $n^2 + n + 41$ (1772), Pólya's *How to Solve It* (1945), the name "Legendre's formula". All numbers recomputed in Python.

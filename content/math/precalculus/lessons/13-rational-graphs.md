@@ -49,6 +49,20 @@ For $R(x) = \dfrac{p(x)}{q(x)}$:
 6. *Sign chart*: mark every $x$-intercept and vertical asymptote on a number line and test one value in each interval.
 7. *Sketch*: follow the signs, approach the asymptotes, and pass through the intercepts.
 
+The same routine as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: The routine for graphing a rational function
+  accDescr: Seven steps in order. One, factor the numerator and denominator and state the domain. Two, cancel common factors to find holes. Three, find vertical asymptotes from the zeros of the simplified denominator. Four, compare degrees to find a horizontal asymptote, or divide to find a slant asymptote. Five, find the x-intercepts from the simplified numerator and the y-intercept R(0). Six, make a sign chart using every x-intercept and vertical asymptote. Seven, sketch the graph following the signs and asymptotes.
+  A["1. Factor; state the domain"] --> B["2. Cancel common factors: holes"]
+  B --> C["3. Zeros of the simplified denominator: vertical asymptotes"]
+  C --> D["4. Compare degrees: horizontal or slant asymptote"]
+  D --> E["5. Intercepts: simplified numerator = 0, and R(0)"]
+  E --> F["6. Sign chart on the intervals"]
+  F --> G["7. Sketch"]
+```
+
 The sign chart is the step that prevents most errors: it tells you on which side of the axis each piece of the graph lives, and so which way it goes at each vertical asymptote.
 
 ### Example 2
@@ -81,6 +95,12 @@ Does the graph ever cross $y = 2$? Solve $\frac{2x^2 - 2}{x^2 - 4} = 2$: $2x^2 -
 ## Behavior near a vertical asymptote
 
 The sign chart answers "up or down?" at each vertical asymptote: if $R > 0$ on the interval next to the asymptote, the graph goes up to $+\infty$ there; if $R < 0$, down to $-\infty$. With a squared factor like $(x - 3)^2$ in the denominator, the sign does not change across $x = 3$, so both sides go the same way, like $\frac{1}{x^2}$.
+
+The two graphs below show the difference: an odd power flips sign across the asymptote, an even power does not.
+
+```plot
+{"x": [-1, 7], "y": [-8, 8], "functions": [{"f": "1/(x - 3)", "label": "y = 1/(x − 3)"}, {"f": "1/(x - 3)^2", "label": "y = 1/(x − 3)²", "dashed": true}], "segments": [{"from": [3, -8], "to": [3, 8], "dashed": true}], "caption": "Near x = 3: 1/(x − 3) goes down on the left and up on the right; 1/(x − 3)² goes up on both sides."}
+```
 
 ## Common mistakes
 

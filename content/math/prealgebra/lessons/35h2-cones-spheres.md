@@ -95,7 +95,7 @@ A **sphere** is the set of all points in space at the same distance $r$ from a c
 
 $$V = \tfrac43 \pi r^3, \qquad SA = 4\pi r^2.$$
 
-Volume has $r^3$ (cubic units), surface area $r^2$ (square units), as the scaling rules of the previous lesson demand. Half a sphere is a **hemisphere**: half the volume, $\tfrac23 \pi r^3$, and a curved surface of $2\pi r^2$ (plus a flat circle of $\pi r^2$ if it is closed).
+Volume has $r^3$ (cubic units) and surface area $r^2$ (square units): doubling the radius multiplies the volume by 8 and the surface area by 4. Half a sphere is a **hemisphere**: half the volume, $\tfrac23 \pi r^3$, and a curved surface of $2\pi r^2$ (plus a flat circle of $\pi r^2$ if it is closed).
 
 ### Archimedes' sphere and cylinder
 

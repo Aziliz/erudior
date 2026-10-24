@@ -50,7 +50,7 @@ A longer calculation (multiply everything out and compare) proves **Lagrange's i
 
 $$\lVert\vec u \times \vec v\rVert^2 = \lVert\vec u\rVert^2\lVert\vec v\rVert^2 - (\vec u \cdot \vec v)^2.$$
 
-For Example 1: $\lVert\langle -10, 7, 9\rangle\rVert^2 = 100 + 49 + 81 = 230$, and $\lVert\vec u\rVert^2\lVert\vec v\rVert^2 - (\vec u \cdot \vec v)^2 = 14 \cdot 21 - 8^2 = 294 - 64 = 230$. Now substitute $\vec u \cdot \vec v = \lVert\vec u\rVert\lVert\vec v\rVert\cos\theta$:
+For Example 1: $\lVert\langle -10, 7, 9\rangle\rVert^2 = 100 + 49 + 81 = 230$, and $\lVert\vec u\rVert^2\lVert\vec v\rVert^2 - (\vec u \cdot \vec v)^2 = 14 \cdot 21 - (-8)^2 = 294 - 64 = 230$. Now substitute $\vec u \cdot \vec v = \lVert\vec u\rVert\lVert\vec v\rVert\cos\theta$:
 
 $$\lVert\vec u \times \vec v\rVert^2 = \lVert\vec u\rVert^2\lVert\vec v\rVert^2(1 - \cos^2\theta) = \lVert\vec u\rVert^2\lVert\vec v\rVert^2\sin^2\theta.$$
 
@@ -58,7 +58,7 @@ Since $0 \le \theta \le \pi$, $\sin\theta \ge 0$, so $\lVert\vec u \times \vec v
 
 ![A shaded parallelogram lying in a tilted plane, with sides given by the arrows u (along the bottom) and v (up the left side), and the angle θ between them marked. A dashed segment from the tip of v drops perpendicular to u and is labeled height ‖v‖ sin θ. A third arrow, u × v, rises straight up from the common starting point, perpendicular to the plane. The caption reads shaded area = ‖u‖‖v‖ sin θ = ‖u × v‖.](images/pc-m8-cross-parallelogram.svg)
 
-Two consequences follow at once. A triangle with sides $\vec u$ and $\vec v$ is half the parallelogram, so its area is $\tfrac12\lVert\vec u \times \vec v\rVert$. And $\vec u \times \vec v = \vec 0$ exactly when $\sin\theta = 0$ (or one vector is $\vec 0$), that is, exactly when the vectors are **parallel**.
+Two consequences follow at once. A triangle with sides $\vec u$ and $\vec v$ is half the parallelogram, so its area is $\tfrac12\lVert\vec u \times \vec v\rVert$. And $\vec u \times \vec v = \vec 0$ exactly when $\sin\theta = 0$ (or one vector is $\vec 0$), that is, exactly when the vectors are parallel.
 
 ## Which way it points: the right-hand rule
 

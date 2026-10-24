@@ -1,0 +1,36 @@
+- term: point symmetry
+  definition: 'A graph has point symmetry about $(a, b)$ if a half-turn (180° rotation) about $(a, b)$ leaves it unchanged; for a function, $f(a + t) + f(a - t) = 2b$ for every $t$.'
+  topic: Symmetry about a line or point
+- term: center of symmetry
+  aliases: [centre of symmetry]
+  definition: 'The point $(a, b)$ about which a graph has point symmetry. Every cubic $Ax^3 + Bx^2 + Cx + D$ has one, at $x = -\tfrac{B}{3A}$.'
+  topic: Symmetry about a line or point
+- term: even part
+  definition: 'For $f$ on a domain symmetric about 0, the even function $E(x) = \frac{f(x) + f(-x)}{2}$; together with the odd part it adds up to $f$.'
+  topic: Even and odd parts
+- term: odd part
+  definition: 'For $f$ on a domain symmetric about 0, the odd function $O(x) = \frac{f(x) - f(-x)}{2}$; together with the even part it adds up to $f$.'
+  topic: Even and odd parts
+- term: identity function
+  definition: 'The function $I(x) = x$, which leaves every input unchanged; $f \circ I = I \circ f = f$.'
+  topic: Algebra of composition
+- term: linear fractional function
+  aliases: [linear fractional functions, Möbius transformation]
+  definition: 'A function $f(x) = \dfrac{ax + b}{cx + d}$ with $ad - bc \ne 0$. Its inverse is $\dfrac{dx - b}{-cx + a}$.'
+  topic: Algebra of composition
+- term: involution
+  aliases: [involutions, self-inverse function]
+  definition: 'A function that is its own inverse: $f(f(x)) = x$ for every $x$ in its domain. Its graph is symmetric about $y = x$.'
+  topic: Algebra of composition
+- term: iteration
+  aliases: [iterate, iterates]
+  definition: 'Applying a function repeatedly, feeding each output back in: $x_{n+1} = f(x_n)$.'
+  topic: Fixed points and iteration
+- term: fixed point
+  aliases: [fixed points]
+  definition: 'An input $p$ with $f(p) = p$; on a graph, a point where $y = f(x)$ meets the line $y = x$.'
+  topic: Fixed points and iteration
+- term: cobweb diagram
+  aliases: [cobweb plot]
+  definition: 'A picture of iteration: from $x_0$, step vertically to the graph of $f$, then horizontally to $y = x$, and repeat.'
+  topic: Fixed points and iteration

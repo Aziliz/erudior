@@ -30,6 +30,10 @@ $$\sum_{k=1}^{n} a_k = a_1 + a_2 + \dots + a_n.$$
 
 The **index of summation** $k$ starts at the lower limit and increases by 1 up to the upper limit. The letter used for the index doesn't matter.
 
+The picture names each part of a sigma expression.
+
+![The sum from k = 1 to 5 of (2k − 1), with its parts labeled: the summation sign means add up, the 5 on top is the upper limit (the last value of k), the k = 1 below gives the index k and the lower limit (the first value of k), and (2k − 1) is the term formula. The sum is 1 + 3 + 5 + 7 + 9 = 25.](images/pc-m9-sigma-parts.svg)
+
 ### Example 1
 
 Evaluate $\displaystyle\sum_{k=1}^{5}(2k - 1)$ and $\displaystyle\sum_{j=0}^{3} 2^j$.
@@ -78,6 +82,12 @@ Adding column by column gives $n$ copies of $a_1 + a_n$, so $2S_n = n(a_1 + a_n)
 $$S_n = \frac{n(a_1 + a_n)}{2}.$$
 
 In words: the number of terms times the average of the first and last terms.
+
+The same pairing has a picture. Stack $1 + 2 + 3 + 4 + 5$ as a staircase of squares, then fit a second, upside-down copy on top: together they fill a rectangle 5 wide and 6 tall.
+
+```shape
+{"polygons": [{"points": [[0, 0], [5, 0], [5, 5], [4, 5], [4, 4], [3, 4], [3, 3], [2, 3], [2, 2], [1, 2], [1, 1], [0, 1]], "fill": true}, {"points": [[0, 1], [1, 1], [1, 2], [2, 2], [2, 3], [3, 3], [3, 4], [4, 4], [4, 5], [5, 5], [5, 6], [0, 6]]}], "segments": [{"from": [0, -0.4], "to": [5, -0.4], "label": "5"}, {"from": [5.4, 0], "to": [5.4, 6], "label": "6"}], "caption": "Two copies of 1 + 2 + 3 + 4 + 5 fill a 5 × 6 rectangle, so the sum is 30 ÷ 2 = 15."}
+```
 
 ### Example 4
 

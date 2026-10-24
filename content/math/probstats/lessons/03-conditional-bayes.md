@@ -26,6 +26,8 @@ outside $B$ are now impossible, and outcomes inside $B$ should keep their *relat
 likelihoods. Dividing by $P(B)$ rescales so the new total is 1. With equally likely outcomes,
 this is just $|A \cap B| / |B|$: count the favorable outcomes among those still possible.
 
+![Left: a sample space S containing overlapping regions A and B, with the overlap marked A intersect B. An arrow labeled given B leads to the right panel, where B alone has been enlarged to fill the frame as the new sample space and the A intersect B part fills the same share of it. Caption: P(A given B) equals P(A intersect B) divided by P(B), the share of B that lies in A.](images/ps-m1-restrict.svg)
+
 For a fixed $B$, the function $A \mapsto P(A \mid B)$ satisfies all three axioms
 (nonnegative, $P(S \mid B) = 1$, additive over disjoint events), so it *is* a probability
 measure. Every rule from lesson 1 holds conditionally, for example
@@ -80,6 +82,12 @@ This is the **law of total probability**: an overall probability is a weighted a
 conditional probabilities, weighted by how likely each scenario is. It is "conditioning on
 the first stage," and in a tree diagram it is "add up the paths that end in $A$."
 
+The picture names the parts of such a tree. First-stage branches carry the probabilities of the
+scenarios, second-stage branches carry conditional probabilities given the branch they leave,
+and the product along a path is the probability of that whole path:
+
+![A probability tree. From a starting point, branches labeled P(B) and P(B complement) lead to nodes B and B complement, labeled priors. From each, branches labeled P(A given B), P(A complement given B), P(A given B complement) and P(A complement given B complement) lead to leaves A and A complement, labeled likelihoods. Beside the leaves are the path products, such as P(B) times P(A given B) equals P(B intersect A).](images/ps-m1-tree-parts.svg)
+
 ## Bayes' theorem
 
 Often we know $P(A \mid B_i)$ — how likely the evidence is under each scenario — but want
@@ -91,6 +99,19 @@ $$P(B_j \mid A) = \frac{P(B_j)\,P(A \mid B_j)}{\sum_{i=1}^{k} P(B_i)\,P(A \mid B
 This is **Bayes' theorem**. $P(B_j)$ is the **prior probability** of scenario $B_j$ and
 $P(B_j \mid A)$ is its **posterior probability**. The factors $P(A \mid B_i)$ are called
 **likelihoods**.
+
+In practice Bayes' theorem is a fixed sequence of steps:
+
+```mermaid
+flowchart TD
+  accTitle: Steps for Bayes' theorem
+  accDescr: First list scenarios that form a partition. Second, write each scenario's prior probability. Third, write the likelihood of the evidence under each scenario. Fourth, multiply prior times likelihood along each path. Fifth, add the path products to get the total probability of the evidence. Sixth, divide the path product for the scenario you care about by that total to get its posterior probability.
+  S1["1. List scenarios that form a partition"] --> S2["2. Priors: P(B1), ..., P(Bk)"]
+  S2 --> S3["3. Likelihoods: P(A | Bi) for each scenario"]
+  S3 --> S4["4. Multiply along each path: P(Bi) P(A | Bi)"]
+  S4 --> S5["5. Add the paths: total probability P(A)"]
+  S5 --> S6["6. Divide: posterior P(Bj | A) = path j ÷ P(A)"]
+```
 
 For two scenarios $B$ and $B^c$ there is a compact **odds** form. Dividing Bayes' theorem for
 $B$ by the one for $B^c$, the denominators cancel:

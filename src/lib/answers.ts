@@ -228,7 +228,7 @@ export function readAnswer(part: PartInstance, text: string): { value?: number; 
   return { value: value * factor };
 }
 
-function closeEnough(given: number, target: number, spec: AnswerPart): boolean {
+function closeEnough(given: number, target: number, spec: AnswerPart, exact = false): boolean {
   if (spec.sigfigs) {
     if (target === 0) return Math.abs(given) < 1e-12;
     const unit = 10 ** (Math.floor(Math.log10(Math.abs(target))) - spec.sigfigs + 1);
@@ -239,6 +239,8 @@ function closeEnough(given: number, target: number, spec: AnswerPart): boolean {
   // Very small answers (e.g. 2.4e-12 C·m) with no explicit tolerance: compare relatively (0.5%),
   // since the default absolute tolerance would accept almost anything.
   if (spec.tolerance === undefined && target !== 0 && Math.abs(target) < 1e-3) return Math.abs(given - target) <= 5e-3 * Math.abs(target);
+  // Fractions are exact unless the drill gives a tolerance: 89/100 is not 89/99.
+  if (exact && spec.tolerance === undefined) return Math.abs(given - target) <= 1e-9 * Math.max(1, Math.abs(target));
   let t = target;
   if (spec.format === "money") t = Math.round(t * 100) / 100;
   if (spec.format === "money0" || spec.format === "integer") t = Math.round(t);
@@ -289,5 +291,5 @@ export function checkPart(part: PartInstance, text: string): PartResult {
   if (kind === "fraction" && spec.lowestTerms && !read.lowest) return { ok: false, shown: text.trim() };
   const v = read.value!;
   const asShown = part.shownValue !== undefined && Math.abs(v - part.shownValue) <= 1e-9 * Math.max(1, Math.abs(part.shownValue));
-  return { ok: asShown || closeEnough(v, part.target!, spec), shown: text.trim() };
+  return { ok: asShown || closeEnough(v, part.target!, spec, kind === "fraction" || spec.format === "fraction"), shown: text.trim() };
 }

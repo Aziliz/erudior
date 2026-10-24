@@ -79,7 +79,7 @@ $$\text{exterior angle} = 180° - \text{interior angle}.$$
 
 ![A regular pentagon with its bottom side extended to the right. An arc marks the interior angle at the bottom-left vertex, another arc marks the exterior angle at the bottom-right vertex between the extension and the next side, a dashed segment joins two vertices that are not neighbors (a diagonal), and one side is labeled side.](images/pre-m8-h-polygon-angles.svg)
 
-Here is the remarkable fact: **for any convex polygon, the exterior angles (one at each vertex) add to 360°**, however many sides it has.
+Here is the remarkable fact: *for any convex polygon, the exterior angles (one at each vertex) add to 360°*, however many sides it has.
 
 *Why?* Imagine walking around the polygon's edge. At each corner you turn left by that corner's exterior angle. When you get back to the start you are facing the way you began, having turned around exactly once: 360°.
 
@@ -105,7 +105,7 @@ A **tessellation** (or tiling) covers a flat surface with shapes that leave no g
 - Regular hexagons: 120°, and $360 \div 120 = 3$. ✓
 - Any regular polygon with more than 6 sides: its angle is more than 120° but less than 180°. Two of them make less than 360° and three make more than 360°. ✗
 
-So there are exactly **three** regular tilings: triangles, squares and hexagons. Tilings that mix different regular polygons are possible too; the same rule (angles at each point add to 360°) tells you which mixtures can work.
+So there are exactly *three* regular tilings: triangles, squares and hexagons. Tilings that mix different regular polygons are possible too; the same rule (angles at each point add to 360°) tells you which mixtures can work.
 
 ![Left: a patch of a tiling by regular hexagons, three meeting at each point, with 120° + 120° + 120° = 360°. Right: a tiling by regular octagons with small squares in the gaps; two octagons and one square meet at each point, with 135° + 135° + 90° = 360°.](images/pre-m8-h-tilings.svg)
 

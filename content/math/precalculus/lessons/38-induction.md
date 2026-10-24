@@ -20,6 +20,8 @@ Imagine an infinite row of dominoes. To be sure all of them fall, you need two f
 
 Then the first knocks over the second, which knocks over the third, and so on forever.
 
+![A row of dominoes numbered 1, 2, 3, and later k and k + 1. Domino 1 is tipping over: that is the base case. An arrow from domino k to domino k + 1 shows the inductive step: if domino k falls, it knocks over k + 1. Together, every domino falls.](images/pc-m9-dominoes.svg)
+
 ## The principle
 
 Let $P(n)$ be a statement about the positive integer $n$. If
@@ -30,6 +32,19 @@ Let $P(n)$ be a statement about the positive integer $n$. If
 then $P(n)$ is true for all positive integers $n$.
 
 In the inductive step you *assume* $P(k)$, called the **inductive hypothesis**, and use it to prove $P(k + 1)$. That is not circular: you are not assuming the statement for all $n$, only showing that each case implies the next. (If the statements start at some other number, say $n \ge 4$, the base case is $P(4)$.)
+
+Every induction proof follows the same six steps:
+
+```mermaid
+flowchart TD
+  accTitle: The steps of a proof by induction
+  accDescr: Six steps in order. State the statement P of n and the first value of n. Prove the base case by checking P at that first value. Write out the target statement P of k plus 1. Assume P of k, the inductive hypothesis. Use the hypothesis and algebra to reach P of k plus 1. Conclude that P of n is true for every n from the first value on.
+  A["1. State P(n) and the first value n0"] --> B["2. Base case: check P(n0)"]
+  B --> C["3. Write the target P(k + 1)"]
+  C --> D["4. Assume P(k): the inductive hypothesis"]
+  D --> E["5. Use P(k) to reach P(k + 1)"]
+  E --> F["6. Conclude: P(n) holds for all n ≥ n0"]
+```
 
 ## A template for sum formulas
 

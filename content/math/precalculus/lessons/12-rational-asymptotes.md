@@ -27,6 +27,18 @@ If a factor $(x - a)$ appears in both the numerator and the denominator, it canc
 
 To locate the hole: cancel the common factor, then plug $a$ into the simplified expression for the $y$-coordinate.
 
+The chart sorts each excluded value into a hole or a vertical asymptote (the next section explains asymptotes).
+
+```mermaid
+flowchart TD
+  accTitle: Hole or vertical asymptote
+  accDescr: Factor the numerator and denominator and cancel every common factor. Then, for each zero a of the original denominator, ask whether a factor (x − a) is still in the simplified denominator. If not, the graph has a hole at x = a, and its y-value comes from the simplified formula. If so, the graph has a vertical asymptote x = a.
+  A["Factor the top and bottom; cancel common factors"] --> B["Take a zero a of the original denominator"]
+  B --> C{"Is a factor (x − a) still in the simplified denominator?"}
+  C -- no --> D["Hole at x = a: y from the simplified formula"]
+  C -- yes --> E["Vertical asymptote x = a"]
+```
+
 ### Example 1
 
 $R(x) = \dfrac{x^2 - 4}{x^2 - x - 2}$.
@@ -75,6 +87,12 @@ Find all asymptotes and holes of $R(x) = \dfrac{2x^2 - 8}{x^2 - 5x + 6}$.
 Find the asymptotes of $S(x) = \dfrac{5x}{x^2 + 4}$.
 
 The denominator $x^2 + 4$ is never zero, so there are no vertical asymptotes and no holes: the domain is all reals. Degrees $1 < 2$, so the horizontal asymptote is $y = 0$. The graph rises above the axis for $x > 0$, falls below for $x < 0$, and flattens toward $y = 0$ at both ends.
+
+## All the features on one graph
+
+Here is every feature of this lesson on one picture, for $R(x) = \dfrac{2x^2 + 4x - 6}{x^2 + 4x + 3} = \dfrac{2(x - 1)(x + 3)}{(x + 1)(x + 3)}$. The factor $(x + 3)$ cancels, leaving $\dfrac{2(x - 1)}{x + 1}$: a hole at $x = -3$ with $y = \dfrac{2(-4)}{-2} = 4$, a vertical asymptote $x = -1$, a horizontal asymptote $y = 2$ (equal degrees, ratio $\tfrac21$), an $x$-intercept at $1$ and a $y$-intercept at $R(0) = -2$.
+
+![The graph of R(x) = (2x² + 4x − 6)/(x² + 4x + 3). An open circle marks the hole at (−3, 4) on the left branch. A dashed vertical line is the vertical asymptote x = −1, and a dashed horizontal line is the horizontal asymptote y = 2. The right branch crosses the x-axis at (1, 0) and the y-axis at (0, −2).](images/pc-m3-rational-features.svg)
 
 ## Common mistakes
 

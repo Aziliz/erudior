@@ -139,6 +139,21 @@ Evaluate $\int_0^\infty x^{5/2}e^{-x/3}\,dx$. Here $\alpha - 1 = \tfrac52$, so $
 the integral is $\Gamma(\tfrac72)\,3^{7/2}$. With $\Gamma(\tfrac72) = \tfrac52 \cdot \tfrac32 \cdot \tfrac12\sqrt\pi = \tfrac{15}{8}\sqrt\pi \approx 3.323$
 and $3^{7/2} \approx 46.77$, the value is about 155.4.
 
+The chart collects how the distributions of this module are related.
+
+```mermaid
+flowchart TD
+  accTitle: How the distributions of this module are related
+  accDescr: The exponential with rate lambda is the gamma with shape 1 and scale 1 over lambda. A sum of k independent such exponentials is gamma with shape k and scale 1 over lambda, the time of the k-th event in a Poisson process. Both are special cases of the general gamma with shape alpha and scale theta. The square of a standard normal is chi-square with 1 degree of freedom, and a sum of nu independent ones is chi-square with nu degrees of freedom, which is the gamma with shape nu over 2 and scale 2. The standard uniform is the beta with both parameters 1.
+  E["Exponential(λ) = Gamma(1, 1/λ)"] -- "sum of k independent" --> K["Gamma(k, 1/λ): time of the k-th event"]
+  E -- "special case" --> G["Gamma(α, θ)"]
+  K -- "special case" --> G
+  Z["Standard normal Z"] -- "square it" --> C1["Chi-square(1)"]
+  C1 -- "sum of ν independent" --> C["Chi-square(ν) = Gamma(ν/2, 2)"]
+  C -- "special case" --> G
+  U["Uniform(0, 1)"] -- "same as" --> B["Beta(1, 1)"]
+```
+
 ## Common mistakes
 
 - Mixing scale and rate: with scale $\theta$ the mean is $\alpha\theta$; with rate $\lambda$ it is $\alpha/\lambda$.

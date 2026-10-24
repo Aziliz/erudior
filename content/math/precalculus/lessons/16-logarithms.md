@@ -59,7 +59,17 @@ For $f(x) = \log_b x$ with $b > 1$:
 - vertical asymptote $x = 0$;
 - increasing, but very slowly: $\log_2$ of a million is only about 20.
 
+Changing the base changes how fast the curve climbs, but every graph $y = \log_b x$ passes through $(1, 0)$ and has the same asymptote. For $b > 1$, a larger base gives a flatter curve, because it takes a bigger power to reach each output.
+
+```plot
+{"x": [-0.5, 10], "y": [-3, 4], "functions": [{"f": "log2(x)", "label": "y = log₂ x"}, {"f": "ln(x)", "label": "y = ln x"}, {"f": "log10(x)", "label": "y = log x", "dashed": true}], "points": [{"at": [1, 0], "label": "(1, 0)"}, {"at": [2, 1]}, {"at": [2.718, 1]}, {"at": [10, 1]}], "caption": "log₂ x, ln x and log x all pass through (1, 0). Each reaches 1 at its own base: x = 2, x = e ≈ 2.718 and x = 10."}
+```
+
 The domain fact matters constantly: $\log_b(\text{expression})$ requires the expression to be positive. For example, $\ln(x - 3)$ has domain $x > 3$ and vertical asymptote $x = 3$.
+
+The picture shows the same features for $y = \log_2(x - 2)$, the graph of $\log_2 x$ shifted right 2. Its vertical asymptote is $x = 2$, it crosses the $x$-axis at $(3, 0)$ (where $x - 2 = 1$), it reaches 1 at $(4, 1)$ (where $x - 2 = 2$), and nothing at all is drawn for $x \le 2$.
+
+![Graph of y = log₂(x − 2): a dashed vertical asymptote at x = 2, a shaded region to its left marked outside the domain, the x-intercept (3, 0) and the point (4, 1).](images/pc-m4-log-features.svg)
 
 ## Properties of logarithms
 

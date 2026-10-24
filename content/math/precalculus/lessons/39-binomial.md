@@ -35,6 +35,8 @@ Each row starts and ends with 1, and each inner entry is the sum of the two entr
 | 5 | 1 5 10 10 5 1 |
 | 6 | 1 6 15 20 15 6 1 |
 
+![Pascal's triangle, rows 0 to 6, drawn as circles. Arrows from the two 10s in row 5 meet at the 20 in row 6, showing that each entry is the sum of the two above it.](images/pc-m9-pascal.svg)
+
 Why the sum rule? To get $(a + b)^{n+1}$, multiply $(a + b)^n$ by $(a + b)$. A term $a^{n+1-k}b^k$ arises in exactly two ways: from $a \cdot (a^{n-k}b^k)$ and from $b \cdot (a^{n+1-k}b^{k-1})$. So its coefficient is the sum of two neighboring coefficients from row $n$.
 
 ## Binomial coefficients
@@ -70,6 +72,19 @@ Expand $(a - b)^4$.
 Treat it as $(a + (-b))^4$: the odd powers of $-b$ are negative, so the signs alternate:
 
 $$a^4 - 4a^3b + 6a^2b^2 - 4ab^3 + b^4.$$
+
+To find a single term without expanding everything, follow these steps; Examples 3 and 4 use them.
+
+```mermaid
+flowchart TD
+  accTitle: Finding one term of a binomial expansion
+  accDescr: Write the general term C of n and k, times a to the n minus k, times b to the k, keeping any coefficient and sign inside a and b. Set the power of x in that term equal to the power you want and solve for k. Check that k is a whole number from 0 to n; if not, there is no such term. Then evaluate the binomial coefficient and raise each part, including its coefficient and sign, to its power.
+  A["Write the general term: C(n, k) aⁿ⁻ᵏ bᵏ"] --> B["Set the power of x equal to the one you want"]
+  B --> C["Solve for k"]
+  C --> D{"Is k a whole number from 0 to n?"}
+  D -- no --> E["No such term: coefficient 0"]
+  D -- yes --> F["Compute C(n, k) and raise coefficients and signs to their powers"]
+```
 
 ### Example 3
 

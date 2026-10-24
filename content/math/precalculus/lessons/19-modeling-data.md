@@ -63,6 +63,23 @@ Four families cover most precalculus data. When the $x$-values are equally space
 | constant ratios $y_{k+1}/y_k$ | exponential $y = ab^x$ | ExpReg |
 | each doubling of $x$ adds about the same amount | logarithmic $y = a + b\ln x$ | LnReg |
 
+The tests can be run in order, as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a model type from a table of data
+  accDescr: For the first three tests the x-values must be equally spaced. First check the first differences of y; if they are constant, use a linear model. If not, check the second differences; if constant, use a quadratic model. If not, check the ratios of consecutive y-values; if constant, use an exponential model. If not, and the x-values double from one to the next, check whether y goes up by about the same amount each time; if so, use a logarithmic model. If none of the tests fits, try another family and judge it with a residual plot.
+  A["Table of data"] --> B{"First differences constant?"}
+  B -- yes --> L["Linear"]
+  B -- no --> C{"Second differences constant?"}
+  C -- yes --> Q["Quadratic"]
+  C -- no --> D{"Ratios constant?"}
+  D -- yes --> E["Exponential"]
+  D -- no --> F{"Each doubling of x adds the same?"}
+  F -- yes --> G["Logarithmic"]
+  F -- no --> H["Try another model; check residuals"]
+```
+
 Why these tests work: a line adds the same amount per step; a quadratic's differences grow linearly; an exponential multiplies by $b$ per step; and since $\ln(2x) = \ln x + \ln 2$, a logarithm adds $b\ln 2$ every time $x$ doubles.
 
 Exponential and logarithmic fits are found by turning them into lines. Taking logs of $y = ab^x$ gives $\ln y = \ln a + x\ln b$, so $\ln y$ against $x$ is linear. For $y = a + b\ln x$, $y$ against $\ln x$ is linear. This is called **linearizing** the data, and it is exactly what ExpReg and LnReg do behind the scenes. When a model must pass through two given points exactly, divide instead: for $y = ab^x$ through $(x_1, y_1)$ and $(x_2, y_2)$, the $a$ cancels and $b^{x_2 - x_1} = \frac{y_2}{y_1}$; then either point gives $a$.
@@ -76,6 +93,12 @@ A bacteria count at hourly intervals reads $200, 260, 338, 439, 571$. Which mode
 3. Ratios: $\frac{260}{200} = 1.30$, $\frac{338}{260} = 1.30$, $\frac{439}{338} \approx 1.30$, $\frac{571}{439} \approx 1.30$. Constant: exponential.
 4. Model: $N(t) = 200(1.3)^t$, starting value 200 and growth factor 1.3 (30% per hour).
 5. Prediction: $N(6) = 200(1.3)^6 \approx 965$ bacteria.
+
+Linearizing confirms it. Plot $\ln N$ against $t$: the values $\ln 200 \approx 5.298$, $5.561$, $5.823$, $6.084$, $6.347$ go up by about $0.262 = \ln 1.3$ each hour, so they lie on the line $\ln N = \ln 200 + t\ln 1.3$.
+
+```plot
+{"x": [-0.5, 5], "y": [5, 6.6], "xLabel": "t (hours)", "yLabel": "ln N", "functions": [{"f": "ln(200) + x*ln(1.3)", "label": "ln N = ln 200 + t ln 1.3"}], "points": [{"at": [0, 5.298]}, {"at": [1, 5.561]}, {"at": [2, 5.823]}, {"at": [3, 6.084]}, {"at": [4, 6.347]}], "caption": "After taking ln of the counts, the exponential data lie on a straight line with slope ln 1.3 ≈ 0.262."}
+```
 
 ### Example 4
 

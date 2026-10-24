@@ -61,6 +61,10 @@ Bring down 2. $2 \cdot 3 = 6$; $-7 + 6 = -1$. $-1 \cdot 3 = -3$; $3 + (-3) = 0$.
 
 $$2x^3 - 7x^2 + 3x + 5 = (x - 3)(2x^2 - x) + 5.$$
 
+The picture names each row of that layout.
+
+![The synthetic division of 2x³ − 7x² + 3x + 5 by x − 3. The value c = 3 sits in a box at the left. The top row holds the dividend's coefficients 2, −7, 3, 5. The middle row holds the products 6, −3, 0, each c times the bottom number one column to the left. The bottom row holds the quotient coefficients 2, −1, 0 and, boxed at the end, the remainder 5.](images/pc-m3-synthetic-parts.svg)
+
 ## The remainder theorem
 
 Plug $x = c$ into the division algorithm with divisor $x - c$. The remainder is a constant $r$ (degree less than 1), and
@@ -99,6 +103,23 @@ Remainder 0, as the factor theorem predicts. The quotient is $x^2 + 2x - 3 = (x 
 $$f(x) = (x - 2)(x - 1)(x + 3), \qquad \text{zeros } 2,\ 1,\ -3.$$
 
 The quotient after dividing out a known zero is called the **depressed polynomial**; it has degree one less, which is what makes this strategy work.
+
+## Which tool when
+
+The four ideas of this lesson fit together in one decision chart.
+
+```mermaid
+flowchart TD
+  accTitle: Which division tool to use
+  accDescr: If the divisor has degree 2 or more, use long division. If the divisor is linear, x − c, and you need the quotient, use synthetic division with c. If you only need the remainder, evaluate f(c) by the remainder theorem. If f(c) = 0, then x − c is a factor by the factor theorem; otherwise it is not a factor.
+  A{"What is the divisor?"} -- "degree 2 or more" --> C["Long division"]
+  A -- "linear: x − c" --> B{"Do you need the quotient?"}
+  B -- yes --> D["Synthetic division with c"]
+  B -- "no, only the remainder" --> E["Evaluate f(c): remainder theorem"]
+  E --> F{"Is f(c) = 0?"}
+  F -- yes --> G["x − c is a factor: factor theorem"]
+  F -- no --> H["x − c is not a factor"]
+```
 
 ## Common mistakes
 

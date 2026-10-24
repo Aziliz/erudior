@@ -166,7 +166,7 @@
   stem: 'Why does the weak force act only over distances of about $10^{-18}$ m?'
   choices: ['Its carriers are massless', 'Neutrinos absorb its carriers', 'It acts only on particles with color charge', 'Its carriers, the W and Z bosons, are very heavy']
   answer: 3
-  explanation: 'A heavy carrier can exist only briefly, so it can''t travel far: $R \approx \hbar c/(mc^2) = 197/80\,400$ fm $\approx 2.5\times10^{-18}$ m for the W. Massless carriers (like the photon) give unlimited range; the weak force acts on all quarks and leptons, not just colored particles.'
+  explanation: 'A heavy carrier can exist only briefly, so it can''t travel far: $R \approx \hbar c/(mc^2) = 197/80\,400$ fm $\approx 2.5\times10^{-18}$ m for the W. Massless carriers (like the photon) give unlimited range; the weak force acts on all quarks and leptons, not just on quarks.'
 - id: phys-h1-r2-h22
   lesson: phys-h1-particles
   module_quiz: true
@@ -426,13 +426,13 @@
   topic: Greenhouse models
   type: label
   stem: 'Name the numbered parts of this picture of Earth''s energy balance.'
-  image: {src: images/phys-h1-energy-balance-blank.svg, alt: 'Earth inside a shell of atmosphere with five numbered markers: parallel rays arriving from the left, a ray bouncing away to the upper left, rays leaving to the right, the shell itself, and a short arrow inside the shell pointing down at the surface.'}
+  image: {src: images/phys-h1-energy-balance-blank.svg, alt: 'Earth inside a shell of atmosphere with five numbered markers: parallel rays arriving from the left, a ray bouncing away to the upper left, rays leaving to the right, the shell itself, and one of two short arrows inside the shell pointing down at the surface.'}
   labels:
     - {x: 18.5, y: 57.1, text: Incoming sunlight}
     - {x: 28.7, y: 35, text: Reflected sunlight}
     - {x: 89.8, y: 57.1, text: Infrared radiated to space}
     - {x: 59.3, y: 81.7, text: Atmosphere}
-    - {x: 59.3, y: 33.8, text: Infrared radiated back to the surface}
+    - {x: 67.3, y: 34.9, text: Infrared radiated back to the surface}
   distractors: [Ultraviolet from the surface, Ozone hole]
   explanation: 'Sunlight (1) arrives as a parallel beam; about 30% is reflected (2). The planet loses energy as infrared radiated to space (3) from all sides. Greenhouse gases in the atmosphere (4) absorb the surface''s infrared and radiate part of it back down (5), which warms the surface. The surface radiates infrared, not ultraviolet.'
 - id: phys-h1-r2-h54
@@ -459,6 +459,6 @@
     - [More water vapor in warmer air, Amplifies the warming]
     - [Melting ice and snow, Amplifies the warming]
     - [A warmer planet radiating more infrared, Reduces the warming]
-    - [Changes in clouds, Uncertain, probably slightly amplifying]
+    - [Changes in clouds, 'Uncertain, probably slightly amplifying']
   distractors: [Reverses the warming into cooling]
   explanation: 'Water vapor is a greenhouse gas and warmer air holds about 7% more per kelvin; melting ice lowers the albedo; both amplify. The extra infrared from a warmer planet ($\propto T^4$) is what stabilizes the climate. Cloud changes are the most uncertain, with most evidence pointing to a small amplifying effect.'

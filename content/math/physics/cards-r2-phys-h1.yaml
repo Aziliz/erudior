@@ -39,7 +39,7 @@
 - {front: Emission height and lapse rate, back: 'Earth radiates to space from about 5 km up, where it is near $T_e = 255$ K; temperature falls about 6.5 K/km, so the surface is about 288 K.', topic: Greenhouse models}
 - {front: Why more CO₂ warms even with a saturated band, back: 'It raises the emission height to colder air, so the planet radiates less until it warms; the band''s edges also absorb more.', topic: Greenhouse models}
 - {front: CO₂ radiative forcing, back: '$\Delta F \approx 5.35\ln(C/C_0)$ W/m²: 3.7 W/m² per doubling; about 2.2 W/m² from 280 to 420 ppm.', topic: Climate forcing and feedbacks}
-- {front: No-feedback warming, back: '$\Delta T_0 \approx \Delta F/(4\sigma T_e^3) = \Delta F/(3.7$ W/(m²·K)$)$: about 1 to 1.2 K per CO₂ doubling.', topic: Climate forcing and feedbacks}
+- {front: No-feedback warming, back: '$\Delta T_0 \approx \Delta F/(4\sigma T_e^3)$, that is $\Delta F$ divided by about 3.7 W/(m²·K): about 1 to 1.2 K per CO₂ doubling.', topic: Climate forcing and feedbacks}
 - {front: Feedback factor, back: '$\Delta T = \dfrac{\Delta T_0}{1 - f}$ for $0 \le f < 1$. $f \approx 0.6$ gives about 3 K per doubling; small changes in $f$ near 1 give large changes in $\Delta T$.', topic: Climate forcing and feedbacks}
 - {front: Main climate feedbacks, back: 'Water vapor and ice–albedo amplify; clouds are the largest uncertainty (probably slightly amplifying); lapse-rate changes and the extra infrared from a warmer planet reduce warming.', topic: Climate forcing and feedbacks}
 - {front: Climate sensitivity, back: 'Eventual warming per CO₂ doubling: best estimate about 3 °C, likely 2.5 to 4 °C (IPCC, 2021). Arrhenius (1896) estimated 5 to 6 °C; Manabe and Wetherald (1967) about 2.3 °C.', topic: Climate forcing and feedbacks}

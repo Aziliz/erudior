@@ -223,7 +223,7 @@
   - Proved by Euler in the 1700s
   - Shown false by a counterexample
   - Proved by computers checking every even number
-  - Unproved, though checked by computer for every even number up to about $4 \times 10^{18}$
+  - Unproved, though checked by computer for every even number up to at least $4 \times 10^{18}$
   answer: 3
   explanation: 'It is still a conjecture: no proof is known, and no counterexample has been found. Computers can check a huge but finite range of numbers; that cannot cover every even number, so checking is not a proof.'
 - id: pre-h1-r2-h20

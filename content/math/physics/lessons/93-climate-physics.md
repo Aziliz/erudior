@@ -15,7 +15,7 @@ These are research questions; the 2021 Nobel Prize in Physics went in part to Sy
 
 ## Recap: the energy balance
 
-![Earth with a shell of atmosphere around it. Parallel rays of sunlight arrive from the left, and one ray is reflected back to space. Infrared radiation leaves the planet in all directions. An arrow inside the atmosphere points down toward the surface, showing infrared radiated back down by the atmosphere.](images/phys-h1-energy-balance.svg)
+![Earth with a shell of atmosphere around it. Parallel rays of sunlight arrive from the left, and one ray is reflected back to space. Infrared radiation leaves the planet in all directions. Two short arrows inside the atmosphere point down toward the surface, showing infrared radiated back down by the atmosphere.](images/phys-h1-energy-balance.svg)
 
 Sunlight arrives with intensity $S = 1361$ W/m² (the **solar constant**), and a fraction $\alpha \approx 0.30$, the **albedo**, is reflected. The planet intercepts sunlight over its cross-section $\pi R^2$ but radiates infrared from its whole surface $4\pi R^2$. Balancing the two gives the **equilibrium temperature**
 

@@ -27,6 +27,8 @@ $$y = \pm\frac{b}{a}x.$$
 
 A sketching trick: draw the **central rectangle** with sides $2a$ (along the transverse axis) and $2b$, centered at the center. Its diagonals extended are the asymptotes. Then draw each branch from a vertex, bending toward the asymptotes.
 
+![A hyperbola opening left and right with its parts labeled. A shaded central rectangle is centered at the center of the hyperbola; its dashed diagonals, extended, are the two asymptotes. The red transverse axis joins the two vertices, which sit on the left and right sides of the rectangle. The two foci lie farther out on the same line, beyond the vertices, and each branch curves away from a vertex toward the asymptotes.](images/pc-m7-hyperbola-parts.svg)
+
 ### Example 1
 
 Analyze $\dfrac{x^2}{16} - \dfrac{y^2}{9} = 1$.
@@ -84,6 +86,26 @@ An $xy$ term means the conic's axes are tilted. The type is decided by the **dis
 | $> 0$ | hyperbola |
 
 With $B = 0$ this agrees with the table above: $-4AC < 0$ exactly when $A$ and $C$ have the same sign. To find the tilt, rotate the axes by an angle $\theta$ with $\cot 2\theta = \frac{A - C}{B}$; in the rotated coordinates $(x', y')$ the $xy$ term disappears.
+
+Both tables combine into one decision chart for any second-degree equation:
+
+```mermaid
+flowchart TD
+  accTitle: Identifying a conic from its general equation
+  accDescr: First ask whether there is an xy term. If there is, compute B squared minus 4AC: negative means an ellipse or circle, zero means a parabola, positive means a hyperbola. If there is no xy term, ask whether both x squared and y squared appear. If only one appears, it is a parabola. If both appear with opposite signs, it is a hyperbola. If both have the same sign, it is a circle when A equals C and an ellipse otherwise. In every case, completing the square can still reveal a degenerate conic.
+  A["Is there an xy term?"] -- "Yes" --> B["Compute B² − 4AC"]
+  B -- "negative" --> E["Ellipse or circle"]
+  B -- "zero" --> P["Parabola"]
+  B -- "positive" --> H["Hyperbola"]
+  A -- "No" --> C["Do both x² and y² appear?"]
+  C -- "only one" --> P
+  C -- "both" --> D["Same signs?"]
+  D -- "opposite signs" --> H
+  D -- "same, A = C" --> CI["Circle"]
+  D -- "same, A ≠ C" --> EL["Ellipse"]
+```
+
+Any of these can still turn out degenerate (a point, lines or nothing), which completing the square reveals.
 
 ### Example 3
 

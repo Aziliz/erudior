@@ -41,7 +41,7 @@
   choices: ['The mean is 5', 'The median is 9', 'The mode is 4', 'The range is 7', 'The mean is one of the data values']
   answer: [0, 2, 3]
   explanation: |-
-    Ordered: 2, 4, 4, 6, 9. Mean: $25 \div 5 = 5$. Median: the middle value, 4 (9 is the middle of the *unordered* list). Mode: 4, which appears twice. Range: $9 - 2 = 7$. The mean, 5, is not in the data set, which is common.
+    Ordered: 2, 4, 4, 6, 9. Mean: $25 \div 5 = 5$. Median: the middle value, 4 (9 is the middle of the unordered list). Mode: 4, which appears twice. Range: $9 - 2 = 7$. The mean, 5, is not in the data set, which is common.
 
 - id: pre-m9-r2-q05
   lesson: pre-stats
@@ -182,7 +182,7 @@
   choices: ['Flipping a coin, then rolling a die', 'Drawing a card, putting it back, shuffling, and drawing again', 'Drawing two marbles from a bag without putting the first one back', 'Two flips of the same fair coin', 'Choosing two different students from a class, one after the other']
   answer: [0, 1, 3]
   explanation: |-
-    A coin and a die don't affect each other, and a coin has no memory between flips. Putting the card back and shuffling restores the deck, so the second draw is like the first. Without replacement, the first draw changes what is left, so those events are dependent, and choosing two *different* students is the same situation: the first student can't be chosen again.
+    A coin and a die don't affect each other, and a coin has no memory between flips. Putting the card back and shuffling restores the deck, so the second draw is like the first. Without replacement, the first draw changes what is left, so those events are dependent, and choosing two different students is the same situation: the first student can't be chosen again.
 
 - id: pre-m9-r2-q16
   lesson: pre-probability
@@ -201,7 +201,7 @@
   choices: ['2.4', '0', '3', '8']
   answer: 0
   explanation: |-
-    Mean: $40 \div 5 = 8$. Distances from 8: 4, 2, 0, 2, 4, which add to 12. MAD $= 12 \div 5 = 2.4$. (0 is the average of the *signed* deviations, which is always 0; 3 divides by 4 instead of 5; 8 is the range.)
+    Mean: $40 \div 5 = 8$. Distances from 8: 4, 2, 0, 2, 4, which add to 12. MAD $= 12 \div 5 = 2.4$. (0 is the average of the signed deviations, which is always 0; 3 divides by 4 instead of 5; 8 is the range.)
 
 - id: pre-m9-r2-h02
   lesson: pre-m9-h-spread

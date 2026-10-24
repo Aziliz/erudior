@@ -97,7 +97,7 @@ A cube's edge is measured as 10 cm to the nearest centimeter. Find the bounds on
 
 Edge between 9.5 and 10.5 cm. Volume between $9.5^3 = 857.375$ and $10.5^3 = 1{,}157.625$ cm³. The calculated 1,000 cm³ could be off by about 15%: three factors each with a 5% relative error.
 
-Connect this with the previous honors lesson: volume involves three lengths multiplied together, so a small relative error in length grows about three times over.
+Volume multiplies three lengths together, so a small relative error in the length grows about three times over.
 
 ## Don't report more than you know
 
@@ -109,7 +109,7 @@ A circular table's radius is measured as 4.2 ft, to the nearest tenth of a foot.
 
 $A = \pi(4.2)^2 \approx 55.4177$ ft². The radius could be anywhere from 4.15 to 4.25 ft, so the area could be anywhere from $\pi(4.15)^2 \approx 54.1$ to $\pi(4.25)^2 \approx 56.7$ ft². Writing "55.4177 ft²" claims the area is known to a ten-thousandth of a square foot, when even the ones digit is uncertain by about 1. "About 55 ft²" is honest.
 
-A common rule of thumb in science classes uses **significant figures**: round a product or quotient to as many significant figures as the least precise measurement that went into it. Here 4.2 has two significant figures, so the rule gives 55 ft², the same answer the bounds suggested. The rule is a shortcut; computing the bounds is the reliable check.
+The significant-figures rule from the Module 6 honors lesson on significant figures (round a product or quotient to as many significant figures as the least precise measurement) gives the same answer here: 4.2 has two significant figures, so 55 ft². That rule is a quick shortcut; computing the bounds, as above, is the reliable check of how much an answer can be trusted.
 
 ## Common mistakes
 

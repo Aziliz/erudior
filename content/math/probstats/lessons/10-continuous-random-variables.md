@@ -38,6 +38,12 @@ Three consequences matter constantly:
   $P(x \le X \le x + \Delta x) \approx f(x)\,\Delta x$ for small $\Delta x$. That approximation is how
   densities are used in derivations, including the change-of-variables formula in lesson 14.
 
+The picture below gathers the parts of a density picture. Probabilities are areas under the curve;
+the height of the curve at a point is a density, not a probability; and the median is the point that
+splits the total area of 1 into two halves.
+
+![A right-skewed density curve over the x-axis. The area under the curve between a and b is shaded and marked as P(a ≤ X ≤ b); the area to the right of c is shaded and marked as the tail area P(X > c); a vertical segment from x₀ up to the curve shows the height f(x₀); a dashed vertical line marks the median, with half the area on each side.](images/ps-m3-density-parts.svg)
+
 ## The cdf
 
 The cdf is defined exactly as before, $F(x) = P(X \le x)$, and for a continuous variable
@@ -52,6 +58,19 @@ $P(a < X \le b) = F(b) - F(a)$.
 The **quantile** of order $p$ (the $100p$-th **percentile**) is the value $x_p$ with $F(x_p) = p$.
 The **median** is $x_{0.5}$, the point that splits the area in half. When $F$ has a closed form,
 quantiles come from solving $F(x) = p$ algebraically.
+
+This diagram summarizes how the pdf, the cdf and the quantities computed from them are linked.
+
+```mermaid
+flowchart TD
+  accTitle: How the pdf, the cdf, quantiles, probabilities and the mean are linked
+  accDescr: Integrating the pdf f from minus infinity up to x gives the cdf F, and differentiating F gives back f. From the cdf, solving F of x equals p gives the quantile, and F of b minus F of a gives the probability of an interval. Integrating x times f of x over the whole line gives the mean.
+  f["pdf f(x)"] -- "integrate from −∞ to x" --> F["cdf F(x)"]
+  F -- "differentiate" --> f
+  F -- "solve F(x) = p" --> Q["Quantile x_p"]
+  F -- "F(b) − F(a)" --> P["P(a #lt; X ≤ b)"]
+  f -- "integrate x times f(x)" --> E["Mean E(X)"]
+```
 
 ## Expectation and variance
 

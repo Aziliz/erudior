@@ -17,6 +17,8 @@ An **ellipse** is the set of points in a plane whose distances to two fixed poin
 
 Label the parts: the **center** is the midpoint of the foci. The longest chord, through both foci, is the **major axis**; its endpoints are the **vertices**. The chord through the center perpendicular to it is the **minor axis**, with endpoints called **co-vertices**.
 
+![An ellipse with its parts labeled. The solid horizontal major axis runs between the two vertices at the left and right ends and passes through both foci and the center. The dashed vertical minor axis runs between the two co-vertices at the top and bottom. A red segment of length a joins the top co-vertex to the right focus; with the half-minor-axis b and the center-to-focus distance c it forms a right triangle.](images/pc-m7-ellipse-parts.svg)
+
 ## The standard equation
 
 Put the center at the origin with foci $(\pm c, 0)$, and call the constant sum of distances $2a$. At a vertex $(a, 0)$, the distances are $a - c$ and $a + c$, which do add to $2a$, so the vertices are $(\pm a, 0)$. Writing $\sqrt{(x + c)^2 + y^2} + \sqrt{(x - c)^2 + y^2} = 2a$, isolating one root, squaring twice and simplifying leads to
@@ -39,6 +41,23 @@ The larger denominator is always $a^2$, and it sits under the variable of the ma
 | $\dfrac{(x - h)^2}{b^2} + \dfrac{(y - k)^2}{a^2} = 1$ | vertical | $(h, k \pm a)$ | $(h \pm b, k)$ | $(h, k \pm c)$ |
 
 In both, $c^2 = a^2 - b^2$.
+
+Reading an ellipse equation always follows the same few decisions:
+
+```mermaid
+flowchart TD
+  accTitle: Reading an ellipse or circle equation
+  accDescr: First make sure the equation is in standard form, with both squared terms positive and the right side equal to 1; if not, complete the squares and divide. Then compare the denominators. If they are equal, it is a circle whose radius is the square root of the denominator. If not, the larger denominator is a squared. If it sits under the x term the major axis is horizontal; if under the y term it is vertical. Finally c squared equals a squared minus b squared, and the foci lie c units from the center along the major axis.
+  A["Standard form, right side 1?"] -- "No" --> B["Complete the squares, then divide"]
+  B --> A
+  A -- "Yes" --> C["Are the denominators equal?"]
+  C -- "Yes" --> D["Circle: radius is the square root of the denominator"]
+  C -- "No" --> E["The larger denominator is a²"]
+  E -- "under x" --> F["Horizontal major axis"]
+  E -- "under y" --> G["Vertical major axis"]
+  F --> H["c² = a² − b²; foci c from the center on the major axis"]
+  G --> H
+```
 
 ### Example 1
 

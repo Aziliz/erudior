@@ -44,6 +44,22 @@ This rectangular equation describes the shape but loses the direction and the ti
 
 For trig parameters, solve for $\cos t$ and $\sin t$ and use $\cos^2 t + \sin^2 t = 1$.
 
+Which way to go depends on what the parameter appears in:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a way to eliminate the parameter
+  accDescr: If x and y involve sin t and cos t, solve for cos t and sin t and use cos squared t plus sin squared t equals 1. Otherwise, if t is easy to isolate in one equation, substitute that expression into the other equation. If not, look for another identity that links x and y, such as sec squared t minus tan squared t equals 1 when x is sec t and y is tan t. In every case, finish by restricting x and y to the values the parameter interval actually produces.
+  A["Do x and y involve sin t and cos t?"] -- "Yes" --> B["Solve for cos t and sin t"]
+  B --> C["Use cos² t + sin² t = 1"]
+  A -- "No" --> D["Is t easy to isolate in one equation?"]
+  D -- "Yes" --> E["Substitute into the other equation"]
+  D -- "No" --> F["Use another identity, e.g. sec² t − tan² t = 1"]
+  C --> G["Restrict x and y to the values the t-interval gives"]
+  E --> G
+  F --> G
+```
+
 ### Example 2
 
 Eliminate the parameter from $x = 3\cos t$, $y = 2\sin t$, $0 \le t \le 2\pi$, and describe the motion.
@@ -72,6 +88,10 @@ Speeding up or reversing is a change of parameter: $x = \cos 2t$, $y = \sin 2t$ 
 Parametrize the segment from $(1, 2)$ to $(5, -4)$.
 
 The change is $(5 - 1, -4 - 2) = (4, -6)$. So $x = 1 + 4t$, $y = 2 - 6t$, $0 \le t \le 1$. At $t = 0$ you're at the start; at $t = 1$, at the end; at $t = \tfrac12$, at the midpoint $(3, -1)$.
+
+```plot
+{"x": [-1, 7], "y": [-5, 3], "equal": true, "curves": [{"x": "1 + 4t", "y": "2 - 6t", "t": [0, 1]}], "points": [{"at": [1, 2], "label": "t = 0"}, {"at": [3, -1], "label": "t = 1/2"}, {"at": [5, -4], "label": "t = 1"}, {"at": [2, 0.5], "label": "t = 1/4"}, {"at": [4, -2.5], "label": "t = 3/4"}], "segments": [{"from": [3.6, -1.9], "to": [4.2, -2.8], "arrow": true}], "caption": "x = 1 + 4t, y = 2 − 6t: equal steps in t give equal steps along the segment."}
+```
 
 ## Projectile motion
 

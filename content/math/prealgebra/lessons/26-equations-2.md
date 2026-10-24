@@ -150,7 +150,7 @@ Simplify: $2w + 4w + 8 = 56 \Rightarrow 6w = 48 \Rightarrow w = 8$. The length i
 The rectangle is 8 cm by 20 cm. Check: $2(8) + 2(20) = 56$. ✓
 
 ```shape
-{"polygons": [{"points": [[0, 0], [20, 0], [20, 8], [0, 8]], "fill": true}], "segments": [{"from": [0, -1.2], "to": [20, -1.2], "label": "length 2w + 4 = 20 cm"}, {"from": [-2.2, 0], "to": [-2.2, 8], "label": "w = 8 cm"}], "caption": "Example 8: width w = 8 cm, length 2w + 4 = 20 cm, perimeter 56 cm"}
+{"polygons": [{"points": [[0, 0], [20, 0], [20, 8], [0, 8]], "fill": true}], "segments": [{"from": [0, -1.2], "to": [20, -1.2], "label": "length 2w + 4 = 20 cm"}, {"from": [-1.2, 0], "to": [-1.2, 8]}], "labels": [{"at": [-4.6, 4], "text": "w = 8 cm"}], "caption": "Example 8: width w = 8 cm, length 2w + 4 = 20 cm, perimeter 56 cm"}
 ```
 
 ## Common mistakes

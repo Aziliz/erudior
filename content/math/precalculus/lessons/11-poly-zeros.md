@@ -82,6 +82,27 @@ Real coefficients force $1 + i$ to be a zero too. The pair gives $x^2 - 2(1)x + 
 
 $$f(x) = (x - 2)(x^2 - 2x + 2) = x^3 - 4x^2 + 6x - 4.$$
 
+Its graph crosses the $x$-axis only once, at $2$; the zeros $1 \pm i$ do not appear on it.
+
+```plot
+{"x": [-1, 4], "y": [-12, 10], "functions": [{"f": "x^3 - 4x^2 + 6x - 4", "label": "y = x³ − 4x² + 6x − 4"}], "points": [{"at": [2, 0], "label": "2"}, {"at": [0, -4], "label": "(0, −4)"}], "caption": "One real zero (2) and a conjugate pair 1 ± i that the graph does not show."}
+```
+
+The whole search can be summed up in one chart.
+
+```mermaid
+flowchart TD
+  accTitle: A strategy for finding every zero of a polynomial
+  accDescr: List the rational candidates, plus or minus factors of the constant over factors of the leading coefficient. Optionally use Descartes' rule of signs to see how many positive and negative zeros are possible. Test candidates until f(c) = 0, then divide by x − c with synthetic division. If the depressed polynomial is not yet a quadratic, go back to testing candidates on it. Once it is a quadratic, factor it or use the quadratic formula. Finally list all n zeros; with real coefficients, non-real zeros come in conjugate pairs.
+  A["List candidates: ± factors of a₀ over factors of aₙ"] --> B["Optional: Descartes' rule of signs"]
+  B --> C["Test candidates until f(c) = 0"]
+  C --> D["Divide by x − c with synthetic division"]
+  D --> E{"Is the depressed polynomial a quadratic?"}
+  E -- "no: test again on it" --> C
+  E -- yes --> F["Factor it or use the quadratic formula"]
+  F --> G["List all n zeros: non-real ones in conjugate pairs"]
+```
+
 ## Common mistakes
 
 - *Inverting the rational zero list.* Numerators come from the constant term, denominators from the leading coefficient.

@@ -78,6 +78,12 @@ Solve $\log_2 x + \log_2(x - 2) = 3$.
 
 Solution: $x = 4$ only.
 
+The graphs show where the false answer came from. The original left side, $\log_2 x + \log_2(x - 2)$, exists only for $x > 2$. The combined form $\log_2\big(x(x - 2)\big)$ also exists for $x < 0$, so it meets the line $y = 3$ a second time, at $x = -2$, where the original equation isn't even defined.
+
+```plot
+{"x": [-5, 8], "y": [-4, 6], "functions": [{"f": "log2(x*(x - 2))", "label": "y = log₂(x(x − 2))", "dashed": true}, {"f": "log2(x) + log2(x - 2)", "label": "y = log₂ x + log₂(x − 2)"}, {"f": "3", "label": "y = 3"}], "points": [{"at": [4, 3], "label": "x = 4 ✓"}, {"at": [-2, 3], "open": true, "label": "x = −2 ✗"}], "caption": "The original side (solid) exists only for x > 2 and meets y = 3 once. The combined log (dashed) also has a left branch, which creates the extraneous answer x = −2."}
+```
+
 ### Example 6
 
 Solve $\ln(x + 1) - \ln x = 1$.
@@ -113,6 +119,24 @@ Set up $1000\left(1 + \frac{0.05}{12}\right)^{12t} = 1500$ and isolate the power
 $$12t\,\ln\!\left(1 + \tfrac{0.05}{12}\right) = \ln 1.5 \implies t = \frac{\ln 1.5}{12\ln(1.0041\overline{6})} \approx 8.13 \text{ years}.$$
 
 The unknown sat inside an exponent that was itself a product ($12t$); the power rule brings the whole product down, and then it's ordinary division. Keep the base unrounded until the end: rounding $1.00417$ early shifts the answer in the second decimal place.
+
+## Choosing a strategy
+
+The four strategies fit together in one decision chart. The first question is where the unknown sits: in an exponent, or inside a logarithm.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a strategy for an exponential or logarithmic equation
+  accDescr: If the unknown is inside a logarithm, combine the logs into one, rewrite in exponential form, solve, and check every answer for extraneous solutions. If the unknown is in an exponent and both sides can be written as powers of the same base, set the exponents equal. If the equation contains b to the 2x and b to the x, substitute u equals b to the x, solve the quadratic, and reject u values that are zero or negative. Otherwise isolate the exponential, take ln of both sides, and use the power rule.
+  Start{"Where is the unknown?"} -- "inside a log" --> L1["Combine into one log"]
+  L1 --> L2["Rewrite in exponential form and solve"]
+  L2 --> L3["Check every answer in the original"]
+  Start -- "in an exponent" --> E1{"Same base possible?"}
+  E1 -- yes --> E2["Set the exponents equal"]
+  E1 -- no --> E3{"Both b^2x and b^x?"}
+  E3 -- yes --> E4["Let u = b^x; reject u #lt;= 0"]
+  E3 -- no --> E5["Isolate, take ln, use the power rule"]
+```
 
 ## Common mistakes
 

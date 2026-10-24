@@ -19,6 +19,8 @@ $$m_1 \cdot m_2 \cdots m_k.$$
 
 This is the **fundamental counting principle**. Picture a tree: each choice at one stage branches into all the choices at the next.
 
+![A tree diagram. From a starting point, two branches lead to a red shirt and a blue shirt; from each shirt, three branches lead to jeans, khakis and shorts. The six ends of the tree are the six outfits, so 2 times 3 equals 6.](images/pc-m9-outfit-tree.svg)
+
 ### Example 1
 
 A license plate has 3 letters followed by 3 digits. How many plates are possible? How many if no letter may repeat?
@@ -53,6 +55,19 @@ How many 3-person committees can be formed from the same 10 members?
 A committee is the same no matter the order of naming: $\binom{10}{3} = \frac{720}{3!} = 120$. Each committee corresponds to $3! = 6$ of the 720 ordered slates from Example 2.
 
 *Which one?* Ask: "If I rearrange my selection, do I get a different outcome?" Different offices, rankings, seats or digits in a code: permutation. Teams, committees, hands of cards, toppings: combination.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a counting method
+  accDescr: When choosing r items from n different items, first ask whether order matters. If order matters and items can repeat, there are n to the r ways. If order matters and items cannot repeat, use the permutation count n P r. If order does not matter, use the combination count n choose r.
+  A["Choosing r items from n different items"] --> B{"Does order matter?"}
+  B -- "yes: ranks, offices, codes" --> C{"Can an item be used again?"}
+  C -- yes --> D["nʳ ways"]
+  C -- no --> E["Permutations: nPr = n!/(n - r)!"]
+  B -- "no: teams, hands, committees" --> F["Combinations: nCr = n!/(r!(n - r)!)"]
+```
+
+The $n^r$ case is just the counting principle with the same $n$ choices at every stage, like the letters on the license plates of Example 1.
 
 ## Probability with equally likely outcomes
 
@@ -89,6 +104,10 @@ The addition rule subtracts the overlap because outcomes in both $A$ and $B$ wer
 A card is drawn. What is the probability it is a heart or a face card (J, Q, K)?
 
 $P(\text{heart}) = \frac{13}{52}$, $P(\text{face}) = \frac{12}{52}$, and 3 cards are both. So $P = \frac{13 + 12 - 3}{52} = \frac{22}{52} = \frac{11}{26}$.
+
+The Venn diagram shows why the 3 is subtracted: the jack, queen and king of hearts sit in both circles.
+
+![A Venn diagram of the 52 cards. The hearts circle and the face-cards circle overlap in 3 cards, the jack, queen and king of hearts. 10 cards are hearts only, 9 are face cards only, and 30 are neither.](images/pc-m9-venn-cards.svg)
 
 ### Example 7
 
