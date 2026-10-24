@@ -39,6 +39,10 @@ A 15 kg sled is pulled 20 m across level snow by a rope with tension 50 N at $25
 
 Net work: $906 - 600 = 306$ J.
 
+The picture shows the four forces on the sled and its displacement. Only the rope's tension (along part of its length) and friction have components along $\vec d$, so only they do work.
+
+![A sled on level snow with five arrows: the rope tension pointing up and to the right at 25 degrees, kinetic friction pointing left, the normal force pointing up, the weight pointing down, and the displacement pointing right along the ground.](images/m4-sled-forces.svg)
+
 ## Kinetic energy and the work–energy theorem
 
 **Kinetic energy** is the energy of motion:
@@ -106,6 +110,23 @@ A 4.0 kg cart starts from rest on a frictionless track. The net force on it, alo
 Triangle from 0 to 2.0 m: $\tfrac12(2.0)(20) = 20$ J. Rectangle from 2.0 to 5.0 m: $(3.0)(20) = 60$ J. Total $W_{\text{net}} = 80$ J.
 
 Work–energy theorem: $80 = \tfrac12(4.0)v^2$, so $v = \sqrt{40} = 6.32$ m/s. Using the final force for the whole distance, $20(5.0) = 100$ J, would overestimate the work.
+
+## Choosing a method
+
+Energy and Newton's laws describe the same physics, so either can solve many problems. The chart shows which one is usually quicker.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing between Newton's laws and the work-energy theorem
+  accDescr: Start with what the question asks. If it asks for a time or an acceleration, use Newton's second law and then kinematics. If it asks for a speed after a distance, find the work done by each force. If the force changes along the path, find the work as the area under the force-position graph. Either way, add the works to get the net work, set the net work equal to the change in kinetic energy, and solve for the speed.
+  Q{"What does the question ask for?"}
+  Q -- "a time or an acceleration" --> N["Newton's second law, then kinematics"]
+  Q -- "a speed after a distance" --> W["Find the work done by each force"]
+  Q -- "force varies along the path" --> A["Work = area under the F-x graph"]
+  W --> S["Add the works to get the net work"]
+  A --> S
+  S --> T["Set net work = change in K and solve for v"]
+```
 
 ## Common mistakes
 

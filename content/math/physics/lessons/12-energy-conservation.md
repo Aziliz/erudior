@@ -49,11 +49,29 @@ $$v = \sqrt{2gh} = \sqrt{2(9.8)(4.0)} = 8.85\text{ m/s}.$$
 
 The ramp's shape doesn't matter, steep or gentle, straight or curved: the normal force does no work, and gravity's work depends only on the height drop. The mass cancels too.
 
+An **energy bar chart** is a quick way to picture this bookkeeping. In the figure a skateboarder starts from rest at A on a frictionless track. The total height of the bars stays the same everywhere: all potential at A, all kinetic at the lowest point B, half and half at C (halfway up), and all potential again at D, a turning point at the starting height.
+
+![A U-shaped frictionless track with a skateboarder released from rest at point A on the left, the lowest point B, point C halfway up the right side and point D on the right at the starting height. Below, four bar charts show kinetic and potential energy: A all potential, B all kinetic, C half and half, D all potential.](images/m4-energy-track.svg)
+
 ### Example 2
 
 A 0.20 kg ball is pressed against a vertical spring ($k = 500$ N/m), compressing it 0.10 m, and released. How high above its release point does it rise?
 
 Energy stored: $\tfrac12(500)(0.10)^2 = 2.5$ J. At the highest point, $K = 0$ and all of it is gravitational: $mgh = 2.5$ J, so $h = \dfrac{2.5}{0.20(9.8)} = 1.28$ m.
+
+Every energy problem follows the same few steps:
+
+```mermaid
+flowchart TD
+  accTitle: Steps for solving an energy problem
+  accDescr: Pick a start point and an end point. Choose the zero level for height. Then ask whether friction or another nonconservative force does work. If not, write K initial plus U initial equals K final plus U final. If so, add the nonconservative work to the left side. Finally substitute the numbers and solve for the unknown.
+  A["Pick a start point and an end point"] --> B["Choose the zero level for height"]
+  B --> C{"Does friction or another nonconservative force do work?"}
+  C -- No --> D["Ki + Ui = Kf + Uf"]
+  C -- Yes --> E["Ki + Ui + Wnc = Kf + Uf"]
+  D --> F["Substitute and solve for the unknown"]
+  E --> F
+```
 
 ## When friction acts
 

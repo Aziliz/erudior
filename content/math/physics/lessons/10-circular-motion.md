@@ -37,6 +37,22 @@ $$\sum F_{\text{toward center}} = \frac{mv^2}{r}.$$
 
 The left side is the net inward force from real, identifiable forces: tension, gravity, friction, the normal force, or a combination. "Centripetal force" is a job description for whatever force(s) do the turning; it never belongs on a free-body diagram as an extra arrow. When the inward force disappears (a string snaps), the object continues in a straight line along the tangent. It doesn't fly outward; "centrifugal force" is what you feel in the car's non-inertial frame, not a real force in an inertial one.
 
+In every problem, ask which real forces point toward the center. Common cases:
+
+```mermaid
+flowchart TD
+  accTitle: What supplies the centripetal force
+  accDescr: The net inward force m v squared over r is always supplied by real forces. Tension supplies it for a ball whirled on a string or a conical pendulum. Static friction supplies it for a car on a flat curve. Gravity supplies it for a satellite or the Moon in orbit. The normal force supplies it on a banked curve, through its horizontal component, and at the top and bottom of a loop together with gravity.
+  A["Net inward force = mv²/r"] --> B["Tension"]
+  A --> C["Static friction"]
+  A --> D["Gravity"]
+  A --> E["Normal force"]
+  B --> B1["Ball on a string, conical pendulum"]
+  C --> C1["Car on a flat curve"]
+  D --> D1["Satellite or Moon in orbit"]
+  E --> E1["Banked curve, loop-the-loop with gravity"]
+```
+
 ### Example 1: car on a flat curve
 
 What is the maximum speed at which a car can round a flat curve of radius 50 m if $\mu_s = 0.80$ between tires and road?
@@ -53,6 +69,8 @@ Highway engineers tilt curves so the normal force helps. On a frictionless curve
 
 $$\tan\theta = \frac{v^2}{rg}.$$
 
+![A car on a road banked at angle theta, seen from behind, with the center of the curve to the left. The normal force n is perpendicular to the road, tilted from vertical by theta toward the center. Dashed components show n cos theta straight up and n sin theta horizontal, toward the center. The weight mg points straight down.](images/phys-m3-banked.svg)
+
 At this design speed no friction is needed at all. Faster than this, friction must act down the slope; slower, up the slope.
 
 ## Vertical circles
@@ -64,6 +82,8 @@ At the *top*, both gravity and the normal force (or tension) point down, toward 
 $$v_{\min} = \sqrt{gr}.$$
 
 At the *bottom*, the normal force points up (toward the center) and gravity down: $n - mg = \dfrac{mv^2}{r}$, so $n = mg + \dfrac{mv^2}{r}$, which is why riders feel pressed into their seats at the bottom.
+
+![A vertical circular loop with its center marked. At the top, a car inside the track has two forces pointing down toward the center, the normal force n and the weight mg, so n + mg = m v squared over r. At the bottom, the normal force n points up toward the center and mg points down, away from it, so n − mg = m v squared over r.](images/phys-m3-loop.svg)
 
 ### Example 2
 

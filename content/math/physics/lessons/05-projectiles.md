@@ -28,6 +28,10 @@ Eliminating $t$ ($t = x/v_{0x}$) gives $y = x\tan\theta - \dfrac{g}{2v_0^2\cos^2
 
 The speed at any moment is $\sqrt{v_x^2 + v_y^2}$, and the velocity is always tangent to the path.
 
+The picture shows the two components along a level-ground path. The horizontal arrow is the same everywhere; the vertical arrow shrinks to zero at the top and then grows pointing down, reaching the launch size again at landing.
+
+![A projectile path on level ground, launched at angle theta. At five equally timed points, a horizontal velocity arrow of the same length is drawn, and a vertical velocity arrow that points up and shrinks on the way up, is absent at the top, and points down and grows on the way down. A vertical dimension from the ground to the top is labeled H, and a horizontal dimension below the ground from launch to landing is labeled range R.](images/phys-m2-projectile.svg)
+
 ## Horizontal launches
 
 When $\theta = 0$, $v_{0y} = 0$: the object starts falling from rest vertically while sliding along horizontally. The fall time depends only on the height, and the horizontal distance is speed times that time.
@@ -57,6 +61,21 @@ The range is largest when $\sin 2\theta = 1$, that is $\theta = 45^\circ$. Compl
 ```
 
 These shortcut formulas hold only when the projectile lands at its launch height. For a cliff, a basket above the shooter, or a ball hit from a tee into a hill, go back to the component equations.
+
+The flowchart shows the whole method, for either case.
+
+```mermaid
+flowchart TD
+  accTitle: Solving a projectile problem
+  accDescr: Start by splitting the launch velocity into components, v0 cos theta horizontally and v0 sin theta vertically. Then ask whether the projectile lands at its launch height. If yes, the level-ground formulas for time of flight, maximum height and range can be used. If no, write the vertical equation y equals v0y t minus one half g t squared with the landing height, solve the quadratic for t, and keep the positive root. In both cases, use that time in x equals v0x t for the horizontal distance, and combine the constant horizontal velocity with v_y equals v0y minus g t for the velocity at impact.
+  C["Split v0: v0x = v0 cos θ, v0y = v0 sin θ"] --> Q{"Lands at launch height?"}
+  Q -- "yes" --> F["Use T, H and R formulas"]
+  Q -- "no" --> Y["Solve y = v0y t − ½gt² for t at the landing height"]
+  Y --> K["Keep the positive root"]
+  F --> X["Horizontal distance: x = v0x t"]
+  K --> X
+  X --> V["Impact: vx = v0x, vy = v0y − gt, combine"]
+```
 
 ### Example 2
 

@@ -41,6 +41,10 @@ $\Delta p = 0.145(50 - (-40)) = 0.145(90) = 13.05$ kg·m/s.
 
 $F_{\text{avg}} = \dfrac{13.05}{1.2\times10^{-3}} = 1.09\times10^4$ N, roughly the weight of a small car, for about a millisecond. Forgetting the reversal of direction (using $50 - 40$) would underestimate the impulse by a factor of 9.
 
+The picture names the parts of a typical collision force graph. The impulse is the shaded area; the average force is the height of a rectangle with the same area over the same contact time.
+
+![A force-time graph: the force rises smoothly from zero to a peak and falls back to zero. The area under the curve is shaded and labeled impulse, a dashed horizontal line at half the peak is labeled average force, and a double arrow along the time axis is labeled contact time.](images/m4-impulse-graph.svg)
+
 ## Conservation of momentum
 
 Consider a system of objects. Forces between objects inside the system (internal forces) come in third-law pairs, equal and opposite, so their impulses cancel. Only external forces can change the system's total momentum. If the net external force is zero,
@@ -48,6 +52,21 @@ Consider a system of objects. Forces between objects inside the system (internal
 $$\vec p_{\text{total, initial}} = \vec p_{\text{total, final}}.$$
 
 This is **conservation of momentum**. It holds for each component separately: if external forces are only vertical (gravity and normal forces), horizontal momentum is still conserved. It also holds approximately during brief collisions and explosions even when external forces exist, because the internal forces are so much larger for that short time.
+
+Before using conservation of momentum, check that it applies. This chart walks through the usual questions:
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether momentum is conserved
+  accDescr: First choose the system. If the net external force on it is zero, its total momentum is conserved. If not, ask whether the interaction is very brief, like a collision or explosion; if so, momentum is conserved to a good approximation during that brief time. If not, ask whether the external forces act along only one direction; if so, the momentum component perpendicular to them is conserved. Otherwise use the impulse-momentum theorem, change in momentum equals average force times time.
+  A["Choose the system"] --> B{"Is the net external force zero?"}
+  B -- Yes --> C["Total momentum is conserved"]
+  B -- No --> D{"Is the interaction very brief, like a collision?"}
+  D -- Yes --> E["Momentum is conserved during the brief interaction, to a good approximation"]
+  D -- No --> F{"Do the external forces act along one direction only?"}
+  F -- Yes --> G["The momentum component perpendicular to them is conserved"]
+  F -- No --> H["Use the impulse: change in p = F avg times change in t"]
+```
 
 ### Example 2: recoil
 

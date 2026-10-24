@@ -15,7 +15,7 @@
 <line x1="400.1" y1="194.1" x2="400.0" y2="193.1" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
 <polygon points="399.0,181.1 405.4,192.7 394.6,193.5" fill="#1c2833"/>
 <text x="220.0" y="250.0" font-size="17" fill="#1c2833" text-anchor="end">axis</text>
-<text x="280.0" y="170.0" font-size="19" fill="#1c2833" text-anchor="start" font-style="italic">r</text>
+<text x="252.0" y="170.0" font-size="19" fill="#1c2833" text-anchor="start" font-style="italic">r</text>
 <text x="284.0" y="208.0" font-size="19" fill="#1c2833" text-anchor="start">θ</text>
 <text x="382.6" y="156.7" font-size="18" fill="#2f6b45" text-anchor="start">s = rθ</text>
 <text x="228.5" y="20.0" font-size="18" fill="#244d76" text-anchor="middle">v = rω</text>

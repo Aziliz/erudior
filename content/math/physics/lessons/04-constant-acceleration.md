@@ -31,6 +31,19 @@ $$v^2 = v_0^2 + 2a(x - x_0). \tag{4}$$
 
 Each equation leaves out one of the five quantities $\Delta x, v_0, v, a, t$: (1) has no $\Delta x$, (2) no $v$, (3) no $a$, (4) no $t$. So the strategy is: list the three you know and the one you want, then pick the equation missing the fifth.
 
+```mermaid
+flowchart TD
+  accTitle: Choosing a constant-acceleration equation
+  accDescr: First ask whether the acceleration is constant. If not, split the motion into phases that each have constant acceleration, using the final velocity of one phase as the initial velocity of the next. If it is constant, list the five quantities displacement, initial velocity, final velocity, acceleration and time, and find the one you neither know nor want. If that missing quantity is displacement, use v equals v0 plus a t. If it is final velocity, use displacement equals v0 t plus one half a t squared. If it is acceleration, use displacement equals one half of v0 plus v, times t. If it is time, use v squared equals v0 squared plus 2 a times displacement.
+  Q{"Is a constant?"} -- "no" --> P["Split into phases; end v of one = start v of next"]
+  Q -- "yes" --> L["List Δx, v0, v, a, t: which one is neither known nor wanted?"]
+  P --> L
+  L -- "Δx" --> E1["v = v0 + at"]
+  L -- "v" --> E2["Δx = v0 t + ½at²"]
+  L -- "a" --> E3["Δx = ½(v0 + v)t"]
+  L -- "t" --> E4["v² = v0² + 2aΔx"]
+```
+
 These equations are valid only while $a$ is constant. If a car accelerates and then brakes, treat each phase separately, using the final velocity of the first phase as the initial velocity of the second.
 
 ### Example 1
@@ -80,6 +93,10 @@ Dropped means $v_{0y} = 0$. Take down as positive to avoid signs: $d = \tfrac12 
 ## Graphs of constant-acceleration motion
 
 With constant $a$: the $a$–$t$ graph is a horizontal line, the $v$–$t$ graph is a straight line of slope $a$, and the $x$–$t$ graph is a parabola. For a ball thrown upward, $y(t)$ is an upside-down parabola whose peak is where the $v$–$t$ line crosses zero.
+
+A motion diagram shows the same throw as snapshots taken at equal time intervals. The velocity arrows shrink on the way up, vanish at the top and grow on the way down, while the acceleration arrow never changes.
+
+![A ball thrown straight up, shown at equal time intervals of 0.25 s, with the rising positions in a left column, the top in the middle and the falling positions in a right column. Solid velocity arrows point up and get shorter on the way up; at the top there is no velocity arrow, labeled top: v = 0 but a not 0; on the way down the velocity arrows point down and get longer. Next to every position, including the top, a dashed acceleration arrow of the same length points down: 9.8 m/s squared, the same at every point.](images/phys-m2-toss.svg)
 
 ```plot
 {"x": [0, 3.2], "y": [-18, 18], "xLabel": "t (s)", "yLabel": "y (m), v (m/s)", "functions": [{"f": "14.7*x - 4.9*x^2", "from": 0, "to": 3}, {"f": "14.7 - 9.8*x", "from": 0, "to": 3, "dashed": true}], "points": [{"at": [1.5, 11.025], "label": "top: v = 0"}], "labels": [{"at": [2.75, 7], "text": "y(t)"}, {"at": [2.35, -12], "text": "v(t)"}], "caption": "Thrown up at 14.7 m/s: position is a parabola, velocity a straight line of slope −9.8 m/s²"}

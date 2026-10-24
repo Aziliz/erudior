@@ -41,7 +41,7 @@
 <polygon points="440.0,290.0 425.6,284.6 434.6,275.6" fill="#244d76"/>
 <text x="318.0" y="206.0" font-size="19" fill="#244d76" text-anchor="start" font-style="italic">v</text>
 <text x="408.0" y="76.0" font-size="19" fill="#244d76" text-anchor="start">2v</text>
-<text x="234.0" y="318.0" font-size="17" fill="#a23b2a" text-anchor="start">0 (at rest)</text>
+<text x="204.0" y="318.0" font-size="17" fill="#a23b2a" text-anchor="end">0 (at rest)</text>
 <text x="448.0" y="294.0" font-size="18" fill="#244d76" text-anchor="start">1.41v</text>
 <text x="80.0" y="40.0" font-size="16" fill="#1c2833" text-anchor="start">rolling to the right</text>
 </svg>

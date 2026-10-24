@@ -54,10 +54,27 @@ Let S = swimmer, W = water, G = ground. $\vec v_{SG} = \vec v_{SW} + \vec v_{WG}
 
 (a) $\vec v_{SW} = (0, 2.0)$, $\vec v_{WG} = (1.2, 0)$, so $\vec v_{SG} = (1.2, 2.0)$ m/s. Crossing time comes from the northward component alone: $t = 80/2.0 = 40$ s. Downstream drift: $1.2 \times 40 = 48$ m.
 
+![A river 80 m wide flowing to the right at 1.2 m/s. From the start on the near bank, an arrow points straight across (swimmer relative to water, 2.0 m/s). From its tip, an arrow points downstream along the far bank (water relative to ground, 1.2 m/s). The diagonal from start to the landing point is the swimmer relative to ground, 2.3 m/s. A dimension above the far bank marks the drift of 48 m between the point directly opposite and the landing point.](images/phys-m2-river.svg)
+
+Drawn to scale, each arrow is the velocity times the 40 s crossing time, so the velocity triangle and the map of the crossing are the same triangle.
+
 (b) To land opposite, $\vec v_{SG}$ must point due north, so the east component of $\vec v_{SW}$ must cancel the current: $2.0\sin\alpha = 1.2$, giving $\alpha = 36.9^\circ$ west of north (upstream). Her northward speed is then $2.0\cos 36.9^\circ = 1.6$ m/s, and the crossing takes $80/1.6 = 50$ s.
 
 ```shape
 {"x": [-2.7, 2.0], "y": [-0.2, 1.95], "segments": [{"from": [0, 0], "to": [-1.2, 1.6], "arrow": true}, {"from": [-1.2, 1.6], "to": [0, 1.6], "arrow": true}, {"from": [0, 0], "to": [0, 1.6], "arrow": true, "dashed": true}], "labels": [{"at": [-1.55, 0.7], "text": "swimmer/water 2.0 m/s"}, {"at": [-0.6, 1.75], "text": "water/ground 1.2 m/s"}, {"at": [1.08, 0.8], "text": "swimmer/ground 1.6 m/s"}], "caption": "Heading upstream so the resultant points straight across"}
+```
+
+Every relative-velocity problem follows the same steps:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a relative-velocity problem
+  accDescr: Name the objects and frames with letters, such as swimmer, water and ground. Write the velocity you want as a sum whose inner subscripts match, for example v of swimmer relative to ground equals v of swimmer relative to water plus v of water relative to ground. Sketch the vector triangle. Write the condition the problem gives, such as the resultant pointing straight across. Solve with components or right-triangle trigonometry. Finally use only the component along the direction of travel to find times.
+  N["Name objects and frames: S, W, G"] --> E["Write v(S rel G) = v(S rel W) + v(W rel G)"]
+  E --> D["Sketch the vector triangle"]
+  D --> C["Apply the condition, e.g. resultant points straight across"]
+  C --> S["Solve with components or right-triangle trig"]
+  S --> T["Time = distance ÷ the velocity component along that distance"]
 ```
 
 Heading straight across is the fastest way over; heading upstream is the way to land opposite. These are different goals with different answers, and the swimmer can land opposite only if her speed relative to the water exceeds the current's.
@@ -81,6 +98,8 @@ Passenger's frame: the ball goes straight up and down. Its time in the air is $2
 Ground frame: the ball starts with velocity $\vec v_{\text{ball,G}} = \vec v_{\text{ball,T}} + \vec v_{\text{T,G}} = (20, 4.9)$ m/s. It is a projectile: it moves $20 \times 1.0 = 20$ m east during the flight, along a parabola. The hand also moves 20 m east in that second, so the catch works in this frame too.
 
 Both observers measure the same acceleration, 9.8 m/s² downward, and the same flight time. Only the velocities and the shape of the path differ.
+
+![Two panels. Left, the passenger's frame: a ball goes straight up from a hand and straight back down into it. Right, the ground frame: the ball follows a parabola from the hand's starting position to the hand's position 20 m farther along, with a starting velocity of (20, 4.9) m/s.](images/phys-m2-frames.svg)
 
 ## Common mistakes
 

@@ -51,6 +51,10 @@ $$f_n = \frac{nv}{4L}, \qquad n = 1, 3, 5, \ldots \text{ (odd only)}$$
 
 A closed pipe's fundamental is an octave lower than an open pipe of the same length, and it lacks the even harmonics, which gives it a darker sound.
 
+The picture draws the air's displacement pattern for the first two modes of each kind of pipe. Count the quarter-wavelengths: each node-to-antinode stretch is $\lambda/4$.
+
+![Four tubes of the same length, with curves showing how far the air moves along each. Open at both ends, fundamental: antinodes at both ends and one node in the middle, L = λ/2. Open at both ends, second harmonic: antinodes at both ends and the middle, two nodes, L = λ. Closed at the left end, fundamental: a node at the closed end and an antinode at the open end, L = λ/4. Closed at the left end, third harmonic: node at the closed end, then an antinode, a node and an antinode at the open end, L = 3λ/4.](images/phys-m6-pipe-modes.svg)
+
 ### Example 2
 
 An organ pipe 0.85 m long is closed at one end. With $v = 343$ m/s, find its fundamental and the next two frequencies it can produce. What would the fundamental be if the pipe were open at both ends?
@@ -66,11 +70,26 @@ The pitch of an ambulance siren rises as it approaches and drops as it recedes. 
 - A moving *source* crowds the waves together ahead of it (shorter wavelength) and spreads them out behind.
 - A moving *observer* runs into wave crests more often when approaching, less often when receding.
 
+![Four circular wavefronts sent out by a source moving right at half the speed of sound. Each circle was emitted from an earlier position of the source, so the circles are crowded together on the right, ahead of the source, and spread apart on the left, behind it. An observer ahead receives a shorter wavelength and hears a higher pitch; an observer behind receives a longer wavelength and hears a lower pitch.](images/phys-m6-doppler-wavefronts.svg)
+
 With $v$ the speed of sound, $v_o$ the observer's speed and $v_s$ the source's speed (both relative to the air),
 
 $$f' = f\,\frac{v \pm v_o}{v \mp v_s}.$$
 
 Sign rule: use the upper signs (+ on top, − on the bottom) for motion *toward* the other party, which raises the frequency; lower signs for motion *away*. Check: approaching should always give a higher pitch.
+
+```mermaid
+flowchart TD
+  accTitle: Choosing the signs in the Doppler formula
+  accDescr: Decide the top and bottom of the fraction separately. Top: if the observer moves toward the source use v + vo; if away, v − vo; if the observer is still, just v. Bottom: if the source moves toward the observer use v − vs; if away, v + vs; if the source is still, just v. Then f' = f times top divided by bottom. Check that approaching gives a higher frequency.
+  O["Observer moving?"] -->|toward source| O1["Top: v + vo"]
+  O -->|away from source| O2["Top: v − vo"]
+  O -->|not moving| O3["Top: v"]
+  S["Source moving?"] -->|toward observer| S1["Bottom: v − vs"]
+  S -->|away from observer| S2["Bottom: v + vs"]
+  S -->|not moving| S3["Bottom: v"]
+  O1 & O2 & O3 & S1 & S2 & S3 --> R["f' = f × top ÷ bottom. Check: approaching raises f"]
+```
 
 ### Example 3
 

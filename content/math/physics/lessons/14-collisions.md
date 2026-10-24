@@ -19,6 +19,19 @@ In a collision two objects exert large forces on each other for a short time. Th
 
 In every case, momentum is conserved. Kinetic energy is never *gained* in a collision unless stored energy is released (an explosion, a compressed spring).
 
+The chart sums up how to tell the types apart.
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a collision
+  accDescr: In every collision the total momentum is conserved. If the objects stick together, the collision is perfectly inelastic: they share one final velocity and the most kinetic energy is lost. If they separate, ask whether the total kinetic energy afterward equals the total before. If yes, the collision is elastic and the relative velocity reverses. If no, it is inelastic and some kinetic energy becomes heat, sound and deformation.
+  A["Two objects collide: total momentum is conserved"] --> B{"Do they stick together?"}
+  B -- Yes --> C["Perfectly inelastic: one final velocity, most KE lost"]
+  B -- No --> D{"Is the total KE after equal to the total before?"}
+  D -- Yes --> E["Elastic: the relative velocity reverses"]
+  D -- No --> F["Inelastic: some KE becomes heat, sound and deformation"]
+```
+
 ## Perfectly inelastic collisions
 
 With a common final velocity $v_f$,
@@ -45,6 +58,8 @@ A 10 g bullet is fired into a 2.0 kg wooden block hanging from strings. The bloc
 This is a two-stage problem, and each stage uses a different conservation law.
 
 *Stage 1, the collision* (perfectly inelastic, very brief): momentum is conserved, energy is not. $mv = (m + M)V$.
+
+![A ballistic pendulum: a bullet of mass m moving right at speed v toward a wooden block of mass M hanging from two strings, and a dashed outline of the block after it has swung up and to the right, its bottom a height h above where it started.](images/m4-ballistic-pendulum.svg)
 
 *Stage 2, the swing*: no collision, only gravity does work, so mechanical energy is conserved: $\tfrac12(m + M)V^2 = (m + M)gh$, giving $V = \sqrt{2gh} = \sqrt{2(9.8)(0.12)} = 1.534$ m/s.
 
@@ -95,6 +110,10 @@ A 1200 kg car heading east at 15 m/s collides at an intersection with a 1800 kg 
 
 $x$: $1200(15) = 3000\,v_x$, so $v_x = 6.0$ m/s.
 $y$: $1800(12) = 3000\,v_y$, so $v_y = 7.2$ m/s.
+
+The momentum vectors add tip to tail, like any vectors: the car's 18 000 kg·m/s east plus the truck's 21 600 kg·m/s north give the wreckage's total momentum.
+
+![A vector triangle: an arrow east labeled car, 18 000 kilogram meters per second; from its tip an arrow north labeled truck, 21 600; and the resultant from start to finish labeled wreckage, 28 100 kilogram meters per second, at 50.2 degrees north of east.](images/m4-intersection.svg)
 
 Speed $= \sqrt{6.0^2 + 7.2^2} = 9.37$ m/s, at $\tan^{-1}(7.2/6.0) = 50.2^\circ$ north of east. Accident investigators run this calculation in reverse, from skid marks to pre-crash speeds.
 

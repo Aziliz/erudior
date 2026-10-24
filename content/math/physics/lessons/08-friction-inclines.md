@@ -27,6 +27,25 @@ $$f_s \le \mu_s n.$$
 
 The **coefficient of static friction** $\mu_s$ is usually larger than $\mu_k$, which is why it takes more force to start a heavy box moving than to keep it moving. The key subtlety: $f_s = \mu_s n$ only at the verge of slipping. A box that you're pushing with 20 N without moving it has 20 N of static friction, no matter how large $\mu_s n$ is.
 
+A graph shows how the two kinds fit together. Push a resting box with a slowly growing force: static friction grows with your push, matching it exactly, until it reaches $\mu_s n$. Then the box breaks free and friction drops to the smaller, roughly constant $\mu_k n$.
+
+```plot
+{"x": [0, 100], "y": [0, 70], "xLabel": "applied force (N)", "yLabel": "friction force (N)", "functions": [{"f": "x", "from": 0, "to": 50, "label": "static: f = F"}, {"f": "35", "from": 50, "to": 100, "label": "kinetic: μk n"}], "segments": [{"from": [50, 50], "to": [50, 35], "dashed": true}], "points": [{"at": [50, 50], "label": "μs n"}], "caption": "Friction on a box pushed with a growing force (here μs n = 50 N and μk n = 35 N): static friction matches the push up to μs n, then the box slides and friction drops to μk n"}
+```
+
+To decide which rule to use in a problem, follow this chart:
+
+```mermaid
+flowchart TD
+  accTitle: Static or kinetic friction
+  accDescr: First ask whether the surfaces are sliding over each other. If yes, friction is kinetic, equal to mu k times n, opposite to the sliding. If not, find the friction force needed to keep them from sliding. If that needed force is no more than mu s times n, static friction equals the needed force. If it is more, the object starts to slide and friction becomes kinetic.
+  A{"Are the surfaces sliding?"} -- yes --> K["Kinetic: f = μk·n, opposite the sliding"]
+  A -- no --> B["Find the friction needed to prevent sliding"]
+  B --> C{"Needed friction at most μs·n?"}
+  C -- yes --> S["Static: f = the needed value"]
+  C -- no --> K
+```
+
 Friction depends on $n$, not on the weight. Pull up on a sled rope and $n$ drops, and so does the friction.
 
 ### Example 1
@@ -47,7 +66,11 @@ An object on a ramp tilted at angle $\theta$ is the classic problem where good a
 {"polygons": [{"points": [[0, 0], [6, 0], [6, 3.464]]}, {"points": [[3.118, 1.8], [3.81, 2.2], [3.41, 2.893], [2.718, 2.493]]}], "segments": [{"from": [3.264, 2.346], "to": [3.264, 0.346], "arrow": true}, {"from": [3.264, 2.346], "to": [2.398, 3.846], "arrow": true}, {"from": [3.264, 2.346], "to": [4.303, 2.946], "arrow": true}, {"from": [3.264, 2.346], "to": [2.398, 1.846], "arrow": true, "dashed": true}, {"from": [3.264, 2.346], "to": [4.13, 0.846], "arrow": true, "dashed": true}], "labels": [{"at": [3.6, 0.6], "text": "mg"}, {"at": [2.2, 3.95], "text": "n"}, {"at": [4.55, 3.1], "text": "f"}, {"at": [1.65, 1.75], "text": "mg sin θ"}, {"at": [4.85, 0.75], "text": "mg cos θ"}, {"at": [1.2, 0.25], "text": "θ = 30°"}], "caption": "Block on a 30° incline: weight mg splits into mg sin θ down the slope and mg cos θ into the slope (dashed); n balances mg cos θ and friction f points up the slope"}
 ```
 
-The weight makes angle $\theta$ with the $-y$ axis (the same angle as the incline, because both pairs of lines are mutually perpendicular). So:
+The weight makes angle $\theta$ with the $-y$ axis (the same angle as the incline, because both pairs of lines are mutually perpendicular). The picture marks both angles: the vertical weight is turned from the into-the-slope direction by exactly the tilt of the ramp.
+
+![A block on a ramp tilted at angle theta. From the block, the weight mg points straight down; dashed arrows show its components, mg sin theta down the slope and mg cos theta into the slope, and the angle between mg and the into-slope component is marked theta. The normal force n points out of the slope and friction f points up the slope.](images/phys-m3-incline.svg)
+
+So:
 
 - component down the slope: $mg\sin\theta$;
 - component into the slope: $mg\cos\theta$.

@@ -72,6 +72,10 @@ Block $m_1$ sits on a horizontal table with kinetic friction coefficient $\mu_k$
 
 Adding: $a = \dfrac{m_2 - \mu_k m_1}{m_1 + m_2}\,g$. If $m_2 g$ can't overcome static friction ($m_2 < \mu_s m_1$), nothing moves.
 
+The picture shows every force on each block. The rope pulls each block toward the pulley with the same tension $T$; friction acts only on the block that slides on the table.
+
+![A block m1 on a table is tied by a rope over a pulley at the table's edge to a hanging block m2. On m1: tension T toward the pulley, kinetic friction f k away from it, the normal force n up and the weight m1 g down. On m2: tension T up and the weight m2 g down.](images/phys-m3-table-pulley.svg)
+
 ### Example 3
 
 $m_1 = 6.0$ kg on the table with $\mu_k = 0.20$; $m_2 = 2.0$ kg hanging. Find $a$ and $T$.
@@ -83,6 +87,8 @@ From $m_2$: $T = m_2(g - a) = 2.0(9.8 - 0.98) = 17.64$ N. Check with $m_1$: $17.
 ## Mechanical advantage
 
 A movable pulley supported by two rope segments lets you lift a load with half the force: if the load $W$ hangs from a pulley held up by two strands of the same rope, $2T = W$ in equilibrium, so $T = W/2$. The price is distance: to raise the load 1 m, you pull 2 m of rope. Block-and-tackle systems multiply this further. (In energy terms, the work you do is the same; you'll see why in the work lesson.)
+
+![A load hangs from a movable pulley. The rope is tied to the ceiling, runs down under the pulley and back up to the person pulling. Each of the two strands pulls up on the pulley with tension T and the load's weight W pulls down, so 2T = W; pulling 2 m of rope shortens each strand by 1 m and raises the load 1 m.](images/phys-m3-movable-pulley.svg)
 
 ## Why connected objects share an acceleration
 

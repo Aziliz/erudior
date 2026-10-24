@@ -45,6 +45,10 @@ $$\vec F_{\text{A on B}} = -\vec F_{\text{B on A}}.$$
 
 This is **Newton's third law**. The two forces of a pair act on *different* objects, so they never cancel each other in a single object's free-body diagram. When you push on a wall, the wall pushes back on you equally. When Earth pulls a falling apple down with force $mg$, the apple pulls Earth up with force $mg$; Earth's enormous mass makes its acceleration immeasurably small.
 
+The picture below pulls the objects apart so you can see each pair. Each arrow belongs to the object it starts on: two forces act on the book, and their partners act on the table and on Earth.
+
+![An exploded view of a book above a table above Earth. On the book: an arrow down labeled Earth pulls book, and an arrow up labeled table pushes book up. On the table: an arrow down labeled book pushes table. On Earth: an arrow up labeled book pulls Earth.](images/phys-m3-third-law.svg)
+
 A classic confusion: the weight of a book on a table and the normal force on the book are equal and opposite, but they are not a third-law pair. They act on the same object (the book), and they are different kinds of force. The third-law partner of the book's weight is the book's pull on Earth; the partner of the normal force is the book pushing down on the table.
 
 ## Free-body diagrams
@@ -59,6 +63,19 @@ A **free-body diagram** (FBD) isolates one object and shows every force acting *
 6. Write $\sum F_x = ma_x$ and $\sum F_y = ma_y$, and solve.
 
 Never put "$ma$" on the diagram as a force; it's the result of the forces, not one of them.
+
+The whole method, from choosing the object to the answer, as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a Newton's second law problem
+  accDescr: Choose the object or system. Draw its free-body diagram with every force acting on it. Choose axes, one along the acceleration if it is known. Write the sum of forces equals m a separately for each axis. Solve the equations for the unknowns. Finally check the units and limiting cases.
+  A["Choose the object or system"] --> B["Draw its free-body diagram"]
+  B --> C["Choose axes, one along the acceleration"]
+  C --> D["Write sum of F = ma for each axis"]
+  D --> E["Solve for the unknowns"]
+  E --> F["Check units and limiting cases"]
+```
 
 ```shape
 {"polygons": [{"points": [[-0.5, -0.5], [0.5, -0.5], [0.5, 0.5], [-0.5, 0.5]]}], "segments": [{"from": [0, 0.5], "to": [0, 2.2], "arrow": true, "label": "n"}, {"from": [0, -0.5], "to": [0, -2.2], "arrow": true, "label": "mg"}, {"from": [0.5, 0], "to": [2.4, 0], "arrow": true, "label": "F (applied)"}, {"from": [-0.5, 0], "to": [-1.4, 0], "arrow": true, "label": "f (friction)"}], "caption": "Free-body diagram of a box pushed across a floor"}

@@ -225,7 +225,7 @@
     - ['$I_0$', 'Integral of (x² + y²)ρ dA']
   distractors: ['Integral of (x + y)ρ dA']
   explanation: |-
-    Mass adds up $\rho\,dA$. A moment weights mass by distance from the axis: $M_y$ (about the $y$-axis) uses the distance $x$, and $M_x$ uses $y$. The moment of inertia weights by the *square* of the distance, $x^2 + y^2$ for the origin. $(x + y)\rho$ is not a standard quantity.
+    Mass adds up $\rho\,dA$. A moment weights mass by distance from the axis: $M_y$ (about the $y$-axis) uses the distance $x$, and $M_x$ uses $y$. The moment of inertia weights by the square of the distance, $x^2 + y^2$ for the origin. $(x + y)\rho$ is not a standard quantity.
 - id: mv-m5-r2-q19
   lesson: mv-double-apps
   topic: Mass and center of mass

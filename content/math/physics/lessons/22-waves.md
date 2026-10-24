@@ -20,6 +20,8 @@ Flick one end of a rope and a pulse runs along it; drop a stone in a pond and ri
 
 Water waves are a mix: water parcels move in small circles.
 
+![Top: a transverse wave on a rope, drawn as a sine curve moving right, with three marked bits of rope and double arrows showing that each moves up and down. Bottom: a longitudinal wave drawn as a row of vertical lines (air layers or Slinky coils) that bunch together at compressions, labeled C, and spread apart at rarefactions, labeled R; a double arrow shows that each layer moves back and forth along the direction of travel.](images/phys-m6-transverse-longitudinal.svg)
+
 ## Describing periodic waves
 
 If the source oscillates in SHM, the wave is a repeating sinusoid in both space and time.
@@ -27,6 +29,8 @@ If the source oscillates in SHM, the wave is a repeating sinusoid in both space 
 - **Wavelength** $\lambda$: the distance between adjacent crests (one full repeat in space).
 - **Period** $T$ and **frequency** $f = 1/T$: how often a point in the medium completes an oscillation (set by the source).
 - **Amplitude** $A$: the maximum displacement of the medium.
+
+![A snapshot of a sinusoidal wave drawn across a dashed rest-position line. The highest points are crests and the lowest are troughs. A double arrow from one crest to the next is labeled wavelength λ, and a vertical arrow from the rest line up to a crest is labeled amplitude A.](images/phys-m6-wave-anatomy.svg)
 
 In one period the wave advances one wavelength, so its speed is
 
@@ -70,6 +74,12 @@ Two waves of slightly different frequencies $f_1$ and $f_2$ drift in and out of 
 $$f_{\text{beat}} = |f_1 - f_2|,$$
 
 while the tone you hear has the average frequency, $\tfrac12(f_1 + f_2)$. Musicians tune by listening for beats against a reference: as the frequencies approach each other, the beats slow and vanish. A 440 Hz tuning fork and a string at 443 Hz produce 3 beats per second, throbbing on a 441.5 Hz tone.
+
+The graph adds two waves with frequencies far too low to hear (8 Hz and 9 Hz), so that the individual oscillations are visible. The dashed envelope shows the loudness swelling and fading once per second.
+
+```plot
+{"x": [0, 2], "y": [-2.6, 2.6], "xLabel": "time t (s)", "yLabel": "total displacement", "functions": [{"f": "sin(2*pi*8*x) + sin(2*pi*9*x)"}, {"f": "2*cos(pi*x)", "dashed": true}, {"f": "-2*cos(pi*x)", "dashed": true}], "caption": "8 Hz + 9 Hz: loud when the waves are in step (t = 0, 1, 2 s), silent halfway between; beat frequency 1 Hz"}
+```
 
 ## Reflection and standing waves
 

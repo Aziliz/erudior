@@ -47,6 +47,10 @@ $$a_{\text{avg}} = \frac{\Delta v}{\Delta t},$$
 
 with units m/s², read "meters per second, per second": each second the velocity changes by that many m/s. Its sign tells the direction of the change, not whether the object speeds up. An object speeds up when $v$ and $a$ have the same sign and slows down when they have opposite signs. A car moving in the $-x$ direction and braking has $v < 0$ and $a > 0$. Avoid the word "deceleration" in calculations; it hides the sign.
 
+The picture below reads that rule off a velocity–time graph. Above the axis the object moves in $+x$, below it in $-x$; it speeds up wherever the line moves away from the axis and slows down wherever the line heads back toward it.
+
+![A velocity–time graph with five straight segments. It rises from zero (speeding up in the plus x direction), stays flat (constant velocity, zero acceleration), falls back to zero (slowing down), where a circled point marks the turnaround with v equal to zero but a not zero. It then drops below the axis (speeding up in the minus x direction) and finally rises back to zero (slowing down while moving in minus x). The region above the axis is shaded and labeled moving in plus x, the region below labeled moving in minus x.](images/phys-m2-vt-phases.svg)
+
 ## Motion graphs
 
 Graphs carry the same information as equations, often more clearly.
@@ -108,6 +112,18 @@ The three graphs are linked: each one's slope is the next one's height, and each
 | a line sloping down through zero | rising, peaking where $v = 0$, then falling | a negative constant |
 
 Areas run the other way: the area under an $a$–$t$ graph gives $\Delta v$, and the area under a $v$–$t$ graph gives $\Delta x$. An area tells you only the *change*; to get the actual velocity or position you also need its starting value.
+
+The chart sums up the links: slopes take you down the chain, areas take you back up.
+
+```mermaid
+flowchart TD
+  accTitle: How the three motion graphs are linked
+  accDescr: Going down the chain, the slope of the position-time graph gives the velocity-time graph, and the slope of the velocity-time graph gives the acceleration-time graph. Going back up, the area under the acceleration-time graph gives the change in velocity, and the area under the velocity-time graph gives the displacement.
+  X["Position–time graph"] -- "slope" --> V["Velocity–time graph"]
+  V -- "slope" --> A["Acceleration–time graph"]
+  A -. "area = change in v" .-> V
+  V -. "area = displacement" .-> X
+```
 
 ### Example 4
 
