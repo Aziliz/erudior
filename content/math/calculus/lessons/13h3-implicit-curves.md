@@ -70,7 +70,7 @@ The equation is unchanged when $x$ and $y$ swap, so the curve is symmetric acros
 A point on the curve where $F_x = 0$ *and* $F_y = 0$ is a **singular point**. There the formula gives $\frac00$, and the curve may fail to have a single tangent line at all. Two typical pictures:
 
 - *A crossing (node).* At the origin, the folium crosses itself: one branch arrives along the $x$-axis and another along the $y$-axis. There are two tangent lines, so "the slope at the origin" has no single value. Near the origin the cubic terms are tiny compared with $6xy$, so the curve looks like $xy = 0$, the two axes.
-- *A sharp point (cusp).* For $y^2 = x^3$, $F_x = -3x^2$ and $F_y = 2y$ both vanish at the origin. The curve is $y = \pm x^{3/2}$: two branches that leave the origin in the same direction, both tangent to the $x$-axis, forming a sharp point. Seen with $x$ as a function of $y$, it is the graph of $x = y^{2/3}$, which has the kind of cusp Lesson 7 listed among the places where a derivative fails to exist.
+- *A sharp point (cusp).* For $y^2 = x^3$, $F_x = -3x^2$ and $F_y = 2y$ both vanish at the origin. The curve is $y = \pm x^{3/2}$: two branches that leave the origin in the same direction, both tangent to the $x$-axis, forming a sharp point. Seen with $x$ as a function of $y$, it is the graph of $x = y^{2/3}$, whose one-sided slopes at 0 are $-\infty$ and $+\infty$: a cusp, one of the ways Lesson 7 listed for a derivative to fail to exist.
 
 ```plot
 {"x": [-1, 3], "y": [-3, 3], "equal": true, "curves": [{"x": "t^2", "y": "t^3", "t": [-1.4, 1.4]}], "points": [{"at": [0, 0], "label": "cusp"}], "caption": "y² = x³: two branches y = ±x^(3/2) meet in a sharp point at the origin"}

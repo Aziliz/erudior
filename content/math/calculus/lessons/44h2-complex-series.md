@@ -30,7 +30,7 @@ Everything in Lessons 40 to 43 carries over, with $|\cdot|$ meaning modulus:
 - If $\sum|z_n|$ converges, then $\sum z_n$ converges (absolute convergence still implies convergence).
 - The ratio test works as before with $L = \lim\left|\frac{z_{n+1}}{z_n}\right|$.
 
-So the geometric series $\sum z^n = \frac{1}{1 - z}$ holds for every complex $z$ with $|z| < 1$, and a power series $\sum c_n(z - a)^n$ converges absolutely when $|z - a| < R$ and diverges when $|z - a| > R$. The set $|z - a| < R$ is a disk in the plane, the **disk of convergence**. That is why $R$ is called a radius. The real interval of convergence is just the part of the disk that lies on the real axis.
+So the geometric series $\sum z^n = \frac{1}{1 - z}$ holds for every complex $z$ with $|z| < 1$, and a power series $\sum c_n(z - a)^n$ converges absolutely when $|z - a| < R$ and diverges when $|z - a| > R$. The set $|z - a| < R$ is a disk in the plane, the **disk of convergence**. That is why $R$ is called a radius. The real interval of convergence is the part of the disk that lies on the real axis, the open interval $(a - R, a + R)$; the two endpoints sit on the boundary circle, where the series may or may not converge, so they are still checked separately as in Lesson 43.
 
 ## Euler's formula
 
@@ -121,7 +121,7 @@ Without computing any coefficients, find $R$ for (a) the Maclaurin series of $\f
 
 ## Key points
 
-- Complex power series converge on a disk $|z - a| < R$; the real interval is its slice along the real axis.
+- Complex power series converge on a disk $|z - a| < R$; the real interval is its slice along the real axis (endpoints checked separately).
 - $e^z = \sum\frac{z^n}{n!}$ for all complex $z$; Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$ and $e^{i\pi} + 1 = 0$.
 - $re^{i\theta}$ form: moduli multiply, angles add; De Moivre: $(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta$.
 - $\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$, $\sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$; complex exponentials turn trig identities and integrals like $\int e^x\cos x\,dx$ into algebra.

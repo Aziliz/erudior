@@ -10,13 +10,13 @@ refs: [calc-ref-integrals]
 ---
 ## A new way to build functions
 
-Lesson 23 ended with a quiet but remarkable consequence of FTC 1: every continuous function $f$ has an antiderivative, namely $g(x) = \int_a^x f(t)\,dt$. That is true even when no formula you know will do the job. In this lesson we take the idea seriously and use integrals to *define* functions. You'll see how the natural logarithm can be built from scratch as an area, meet two famous functions that have no formula at all, and learn to analyze, take limits of, and solve equations involving functions given only as integrals.
+Lesson 23 drew a quiet but remarkable consequence of FTC 1: every continuous function $f$ has an antiderivative, namely $g(x) = \int_a^x f(t)\,dt$. That is true even when no formula you know will do the job. In this lesson we take the idea seriously and use integrals to *define* functions. You'll see how the natural logarithm can be built from scratch as an area, meet two famous functions that have no formula at all, and learn to analyze, take limits of, and solve equations involving functions given only as integrals.
 
 The tools are the ones you already have: FTC 1 for derivatives, the chain rule, L'Hôpital's rule (Lesson 16), and reading increase, decrease and concavity from $g' = f$ and $g'' = f'$.
 
 ## The natural logarithm as an area
 
-Up to now, $\ln x$ was the inverse of $e^x$. But that raises awkward questions: what exactly is $e^x$ when $x$ is irrational, and why is it differentiable? Many college texts and most analysis courses sidestep them by starting from an integral instead. For $x > 0$, define
+Up to now, $\ln x$ was the inverse of $e^x$. But that raises awkward questions: what exactly is $e^x$ when $x$ is irrational, and why is it differentiable? Many calculus texts (OpenStax *Calculus* Volume 1, Section 6.7, is one) sidestep them by starting from an integral instead; analysis courses often start from a power series for $e^x$ instead, and both routes lead to the same function. For $x > 0$, define
 
 $$\ln x = \int_1^x \frac{1}{t}\,dt.$$
 

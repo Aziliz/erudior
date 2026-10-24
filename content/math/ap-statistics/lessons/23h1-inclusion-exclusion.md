@@ -95,8 +95,8 @@ independent or not, because the sum counts every overlap at least once. In the c
 probability lesson, 10 independent relays each failed with probability 0.02, and the chance that
 at least one fails was $1 - 0.98^{10} \approx 0.183$. The union bound says "at most
 $10 \times 0.02 = 0.20$" without using independence. More generally, stopping after an odd number of
-sums overestimates and stopping after an even number underestimates (these are the Bonferroni
-inequalities, stated here without proof).
+sums never underestimates and stopping after an even number never overestimates (these are the
+Bonferroni inequalities, stated here without proof).
 
 ## The birthday problem
 
@@ -126,7 +126,7 @@ $$P(\text{no match}) \approx \Big(1 - \tfrac{1}{365}\Big)^{\binom{n}{2}} \approx
 For $n = 23$, $e^{-253/365} \approx 0.500$, close to the exact 0.4927.
 
 ```plot
-{"x": [0, 70], "y": [0, 1.05], "xLabel": "number of people n", "yLabel": "P(at least one shared birthday)", "functions": [{"f": "1 - exp(-x*(x-1)/730)", "label": "approximation", "dashed": true}, {"f": "0.5", "dashed": true}], "points": [{"at": [10, 0.117]}, {"at": [15, 0.253]}, {"at": [20, 0.411]}, {"at": [23, 0.507]}, {"at": [30, 0.706]}, {"at": [40, 0.891]}, {"at": [50, 0.970]}, {"at": [60, 0.994]}], "labels": [{"at": [33, 0.44], "text": "n = 23: 0.507"}], "caption": "Exact probabilities (dots) and the approximation 1 − e^(−n(n−1)/730) (dashed curve)"}
+{"x": [0, 70], "y": [0, 1.05], "xLabel": "number of people n", "yLabel": "P(at least one shared birthday)", "functions": [{"f": "1 - exp(-x*(x-1)/730)", "label": "approximation", "dashed": true}, {"f": "0.5", "dashed": true}], "points": [{"at": [10, 0.117]}, {"at": [15, 0.253]}, {"at": [20, 0.411]}, {"at": [23, 0.507]}, {"at": [30, 0.706]}, {"at": [40, 0.891]}, {"at": [50, 0.970]}, {"at": [60, 0.994]}], "labels": [{"at": [13, 0.64], "text": "n = 23: 0.507"}], "caption": "Exact probabilities (dots) and the approximation 1 − e^(−n(n−1)/730) (dashed curve)"}
 ```
 
 Compare a different question: the chance that someone among 22 *others* shares *your* birthday is

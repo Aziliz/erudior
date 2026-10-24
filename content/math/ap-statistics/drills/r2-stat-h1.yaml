@@ -64,7 +64,7 @@
   solution: |-
     Each of the {nn} draws misses the value with probability $1 - 1/{nn}$, independently, so
     $P = (1 - 1/{nn})^{{nn}} =$ **{miss:dp4}**. Each value appears with probability $1 - {miss:num4}$, so the
-    expected number of distinct values is ${nn}(1 - {miss:num4}) =$ **{used:dp2}**, about 63% of them.
+    expected number of distinct values is ${nn}(1 - {miss:num4}) =$ **{used:dp2}**, a share that approaches about 63% as $n$ grows.
 
 # ---- Lesson 91: Bayesian inference
 - id: stat-h1-r2-beta-update

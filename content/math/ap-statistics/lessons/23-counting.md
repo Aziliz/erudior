@@ -90,12 +90,12 @@ letters that include identical copies.
 ```mermaid
 flowchart TD
   accTitle: Choosing a counting rule
-  accDescr: Ask what you are counting. For outcomes built in separate stages, multiply the number of choices at each stage. For arrangements of all n letters or objects when some are identical, use n factorial divided by the factorial of each repeat count. For choosing r items from n, first ask whether the same item can be used again: if yes, there are n to the power r ways; if no, ask whether order matters: if it does, use the permutation count nPr, and if not, the combination count nCr.
+  accDescr: Ask what you are counting. For outcomes built in separate stages, multiply the number of choices at each stage. For arrangements of all n letters or objects when some are identical, use n factorial divided by the factorial of each repeat count. For choosing r items from n, first ask whether the same item can be used again: if yes, and order matters, as in a PIN, there are n to the power r ways; if no, ask whether order matters: if it does, use the permutation count nPr, and if not, the combination count nCr.
   Q{"What are you counting?"}
   Q -->|"outcomes of separate stages"| M["Multiply the choices at each stage"]
   Q -->|"arrangements of all n, some identical"| R["n! ÷ (a! b! ...) for the repeat counts"]
   Q -->|"r items chosen from n"| Q2{"Can an item be used again?"}
-  Q2 -->|"Yes"| PW["n^r"]
+  Q2 -->|"Yes"| PW["n^r (in order, like a PIN)"]
   Q2 -->|"No"| Q3{"Does order matter?"}
   Q3 -->|"Yes"| P["nPr = n! ÷ (n − r)!"]
   Q3 -->|"No"| C["nCr = n! ÷ (r! (n − r)!)"]

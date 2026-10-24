@@ -103,7 +103,7 @@ The whole chain of ideas, from the second derivative to AM–GM:
 ```mermaid
 flowchart TD
   accTitle: From the second derivative to the classic inequalities
-  accDescr: If f'' is at least 0 on an interval, then f' is increasing there. The Mean Value Theorem turns that into the tangent line inequality: the graph lies above every tangent line. Combining two tangent line inequalities with weights t and 1 minus t gives the chord definition of convexity. Averaging the tangent line inequality over n points gives Jensen's inequality, and Jensen's inequality for the concave function ln x gives the AM-GM inequality.
+  accDescr: If f'' is at least 0 on an interval, then f' never decreases there. The Mean Value Theorem turns that into the tangent line inequality: the graph lies above every tangent line. Combining two tangent line inequalities with weights t and 1 minus t gives the chord definition of convexity. Averaging the tangent line inequality over n points gives Jensen's inequality, and Jensen's inequality for the concave function ln x gives the AM-GM inequality.
   A["f'' ≥ 0 on an interval"] --> B["f' never decreases"]
   B -- "MVT" --> T["Graph lies above every tangent line"]
   T -- "weights t and 1 − t" --> C["Graph lies below every chord: convex"]

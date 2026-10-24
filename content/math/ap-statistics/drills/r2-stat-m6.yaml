@@ -27,7 +27,7 @@
   title: Expected number of matching pairs
   topic: Linearity of expectation
   vars:
-    n: {min: 8, max: 60}
+    n: {min: 8, max: 45}
     d: {choices: [10, 20, 50, 100, 365]}
   where: ['n <= 3*d']
   calc:

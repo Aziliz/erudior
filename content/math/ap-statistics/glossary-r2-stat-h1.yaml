@@ -148,7 +148,7 @@
   definition: 'The estimated share of variation among study estimates due to real heterogeneity: $I^2 = \max(0, (Q - (k-1))/Q)$. About 25%, 50%, 75% are often read as low, moderate, high.'
   topic: Effect sizes and meta-analysis
 - term: publication bias
-  definition: 'Distortion of the published evidence because studies with significant or striking results are more likely to be published; it makes pooled estimates too large.'
+  definition: 'Distortion of the published evidence because studies with significant or striking results are more likely to be published; it tends to make pooled estimates too large.'
   topic: Effect sizes and meta-analysis
 - term: file drawer problem
   aliases: [file-drawer problem]

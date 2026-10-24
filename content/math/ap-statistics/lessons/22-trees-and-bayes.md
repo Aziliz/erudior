@@ -110,6 +110,7 @@ test positive; 9,800 don't, of whom $0.10 \times 9800 = 980$ test positive. Of t
 $190 + 980 = 1170$ positives, $190/1170 \approx 0.162$ have the condition — the same answer.
 
 ![A tree of counts. 10,000 people split into 200 who have the condition (2 percent) and 9,800 who do not (98 percent). The 200 split into 190 who test positive (95 percent), the true positives, and 10 who test negative (5 percent), the false negatives. The 9,800 split into 980 who test positive (10 percent), the false positives, and 8,820 who test negative (90 percent), the true negatives. A note reads: of 190 plus 980 equals 1,170 positives, 190 have the condition, 190 over 1,170 is about 0.162.](images/stat-m5-frequency-tree.svg)
+
 Turning probabilities into counts of an imaginary population ("natural frequencies") is a
 reliable way to check a Bayes calculation.
 

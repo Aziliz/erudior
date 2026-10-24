@@ -382,11 +382,11 @@
   stem: 'Put the steps of the Benjamini–Hochberg procedure in order.'
   items:
     - 'Sort the p-values from smallest to largest'
-    - 'Compute the threshold $kq/m$ for each rank $k$'
+    - 'Compare the $k$-th smallest p-value with its threshold $kq/m$'
     - 'Find the largest rank whose p-value is at or below its threshold'
     - 'Reject the null hypotheses with that rank or smaller'
   explanation: |-
-    Ranks exist only after sorting, thresholds depend on ranks, the cutoff rank is found by comparing p-values with thresholds, and the rejections follow from the cutoff.
+    Ranks exist only after sorting, each sorted p-value is then compared with its threshold, the cutoff rank is the largest one that passes, and the rejections follow from the cutoff.
 
 - id: stat-h1-r2-h33
   lesson: stat-h1-multiple-testing
@@ -489,7 +489,7 @@
   choices: ['0.36', '0.05', '0.47', '0.32']
   answer: 3
   explanation: |-
-    True positives become $0.95 \times 100 = 95$; false positives stay $0.05 \times 900 = 45$. Share false $= 45/(95 + 45) = 45/140 \approx 0.32$. Higher power lowers the false share, but only a little here because so few hypotheses are true. (0.47 is $45/95$, which leaves the false positives out of the total.)
+    True positives become $0.95 \times 100 = 95$; false positives stay $0.05 \times 900 = 45$. Share false $= 45/(95 + 45) = 45/140 \approx 0.32$. Higher power lowers the false share, but only a little here: power was already high, so true positives grow only from 80 to 95 while the 45 false positives stay the same. (0.47 is $45/95$, which leaves the false positives out of the total.)
 
 - id: stat-h1-r2-h42
   lesson: stat-h1-multiple-testing

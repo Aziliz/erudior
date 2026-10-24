@@ -11,8 +11,8 @@ refs: [stat-ref-descriptive]
 ## The idea that named regression
 
 The least-squares regression lesson ended with a short section on regression toward the mean:
-because $|r| \le 1$, a prediction is always closer to the mean, in standard deviations, than
-the value it was predicted from. That small fact gave regression its name, and it is behind
+because $|r| \le 1$, a prediction is never farther from the mean, in standard deviations, than
+the value it was predicted from (and is closer whenever $|r| < 1$). That small fact gave regression its name, and it is behind
 one of the most common reasoning errors in science, sports and everyday life. This honors
 lesson tells where the idea came from, explains why it happens with a simple model of
 "skill plus luck," shows how it fools people and how good study design guards against it,
@@ -150,7 +150,8 @@ $$b_{y \cdot x} = r\,\frac{s_y}{s_x}, \qquad b_{x \cdot y} = r\,\frac{s_x}{s_y},
 
 Both lines pass through $(\bar{x}, \bar{y})$. Between them lies the **SD line**, which also passes
 through the point of means but has slope $\pm s_y/s_x$ (the sign of $r$): it rises one SD of $y$
-for each SD of $x$ and runs along the long axis of the cloud of points. Drawn on the same
+for each SD of $x$ and runs along the long direction of the cloud of points (exactly along its
+long axis when both variables are in standard units). Drawn on the same
 $y$-versus-$x$ axes, the line for $x$ on $y$ has slope $1/b_{x \cdot y}$, so for $r > 0$:
 
 $$r\,\frac{s_y}{s_x} \;<\; \frac{s_y}{s_x} \;<\; \frac{1}{r}\,\frac{s_y}{s_x}.$$

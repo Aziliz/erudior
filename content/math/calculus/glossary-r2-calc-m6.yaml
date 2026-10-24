@@ -9,7 +9,7 @@
   topic: Functions defined by integrals
 - term: sine integral
   aliases: [Si]
-  definition: '$\operatorname{Si}(x) = \int_0^x \frac{\sin t}{t}\,dt$ (integrand taken as 1 at $t = 0$). It is odd, has local maxima at odd multiples of $\pi$ and minima at even multiples, and tends to $\frac\pi2$ as $x\to\infty$.'
+  definition: '$\operatorname{Si}(x) = \int_0^x \frac{\sin t}{t}\,dt$ (integrand taken as 1 at $t = 0$). It is odd; for $x > 0$ it has local maxima at $\pi, 3\pi, 5\pi, \ldots$ and local minima at $2\pi, 4\pi, \ldots$; it tends to $\frac\pi2$ as $x\to\infty$.'
   topic: Functions defined by integrals
 - term: integral equation
   aliases: [integral equations]

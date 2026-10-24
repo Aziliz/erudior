@@ -151,7 +151,7 @@ not just what their average is.
 ## Garbage in: publication bias
 
 A meta-analysis can only combine studies it can find. If significant results are more likely to be
-published (the previous lesson), the published studies overstate the effect, and so does any
+published (the previous lesson), the published studies tend to overstate the effect, and so does any
 meta-analysis of them. Robert Rosenthal called the unpublished null results the **file drawer
 problem** (1979); the general distortion is **publication bias**. A **funnel plot** graphs each
 study's estimate against its precision: without bias, the points form a symmetric funnel, wide at the

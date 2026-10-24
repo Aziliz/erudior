@@ -27,6 +27,7 @@
     n: {min: 2, max: 5}
     c: {min: -5, max: 5}
     d: {choices: [-3, -2, -1, 1, 2, 3]}
+  where: ["c != 0"]
   calc:
     p: d - c
     n1: n + 1
@@ -34,7 +35,7 @@
     nf: fact(n)
     den: d^(n + 1)
     ans: (-1)^n*fact(n)/d^(n + 1)
-  prompt: 'Let $f(x) = \dfrac{1}{x {c:signed}}$. Find $f^{({n})}({p})$ as an exact fraction.'
+  prompt: 'Let $f(x) = \dfrac{1}{x {c:signed}}$. Find $f^{({n})}({p})$ as an exact fraction in lowest terms (or a whole number).'
   answers:
     - {name: ans, kind: fraction, lowestTerms: true, label: '$f^{({n})}({p}) =$'}
   solution: |-

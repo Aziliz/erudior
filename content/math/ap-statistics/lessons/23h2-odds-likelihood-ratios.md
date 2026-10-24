@@ -13,7 +13,7 @@ refs: [stat-ref-probability]
 The lesson on trees and Bayes' theorem found $P(D \mid +)$ by drawing a tree, multiplying along
 paths and dividing one path by the total. It works, but for a second test you had to redo the
 whole calculation with a new prior. Doctors, forecasters, spam filters and forensic scientists
-usually use a shortcut: write the prior as **odds**, and each piece of evidence becomes a single
+often use a shortcut: write the prior as **odds**, and each piece of evidence becomes a single
 number to multiply by. This honors lesson develops that odds form of Bayes' theorem, shows why it
 makes repeated evidence easy, and uses it to expose a reasoning error that has helped convict
 innocent people.
@@ -61,7 +61,7 @@ flowchart TD
   accTitle: Updating with odds and likelihood ratios
   accDescr: Start with the prior probability. Convert it to prior odds, p divided by 1 minus p. Multiply by the likelihood ratio of each piece of evidence, which is allowed when the pieces are conditionally independent. The result is the posterior odds. Convert back to a probability with odds divided by 1 plus odds.
   P["Prior probability p"] --> O["Prior odds = p ÷ (1 − p)"]
-  O --> L["Multiply by the likelihood ratio of each piece of evidence"]
+  O --> L["Multiply by the likelihood ratio of each piece of evidence (if conditionally independent)"]
   L --> PO["Posterior odds"]
   PO --> B["Posterior probability = odds ÷ (1 + odds)"]
 ```
@@ -72,8 +72,10 @@ For a diagnostic test with sensitivity $P(+ \mid D)$ and specificity $P(- \mid D
 
 $$\text{LR}_{+} = \frac{\text{sensitivity}}{1 - \text{specificity}}, \qquad \text{LR}_{-} = \frac{1 - \text{sensitivity}}{\text{specificity}}.$$
 
-The test's likelihood ratios depend only on the test, not on who is being tested; the prior carries
-the information about the population. That separation is why medical references often report
+To a first approximation, the test's likelihood ratios depend only on the test, not on who is
+being tested; the prior carries the information about the population. (This is a simplification:
+sensitivity and specificity can differ between, say, early and advanced cases, so a test's LRs
+can shift somewhat from one clinical setting to another.) That separation is why medical references often report
 likelihood ratios.
 
 ### Example 1: the screening test again
@@ -109,7 +111,7 @@ The plot shows the whole picture for this test: one positive result lifts every 
 negative result pushes every prior down. The dashed diagonal is "no evidence" (posterior = prior).
 
 ```plot
-{"x": [0, 1], "y": [0, 1], "xLabel": "prior probability", "yLabel": "posterior probability", "functions": [{"f": "9.5*x/(9.5*x + 1 - x)"}, {"f": "(x/18)/(x/18 + 1 - x)"}, {"f": "x", "dashed": true}], "points": [{"at": [0.02, 0.162], "label": "prior 0.02 → 0.162"}], "labels": [{"at": [0.6, 0.82], "text": "one positive (LR 9.5)"}, {"at": [0.64, 0.28], "text": "one negative (LR 1/18)"}], "caption": "Posterior probability against prior probability for one test result"}
+{"x": [0, 1], "y": [0, 1], "xLabel": "prior probability", "yLabel": "posterior probability", "functions": [{"f": "9.5*x/(9.5*x + 1 - x)"}, {"f": "(x/18)/(x/18 + 1 - x)"}, {"f": "x", "dashed": true}], "points": [{"at": [0.02, 0.162], "label": "0.162"}], "labels": [{"at": [0.6, 0.82], "text": "one positive (LR 9.5)"}, {"at": [0.64, 0.28], "text": "one negative (LR 1/18)"}], "caption": "Posterior probability against prior probability for one test result; the dot is the screening example, prior 0.02 → posterior 0.162"}
 ```
 
 The same LR of 9.5 turns a 2% prior into 16% but a 50% prior into about 90%. Evidence is a

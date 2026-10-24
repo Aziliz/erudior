@@ -72,7 +72,7 @@
   items:
   - Antidifferentiate $f''$ to get $f'$ with a constant $C_1$
   - Use $f'(0) = 1$ to find $C_1$
-  - Antidifferentiate $f'$ to get $f$ with a constant $C_2$
+  - Antidifferentiate $f'(x) = 4x^3 + 6x + 1$ to get $f$ with a constant $C_2$
   - Use $f(0) = -2$ to find $C_2$
   - Check by differentiating twice
   explanation: 'Each antiderivative brings in one constant, and each constant is fixed by the condition at its own level: first $f'' = 4x^3 + 6x + C_1$ with $f''(0) = 1$ giving $C_1 = 1$, then $f = x^4 + 3x^2 + x + C_2$ with $f(0) = -2$ giving $C_2 = -2$. You can''t use $f(0)$ until you have $f$, and checking comes last.'
@@ -291,7 +291,7 @@
   - $-\tfrac15\sin(5x) + C$
   - $\tfrac15\sin(5x) + C$
   answer: 3
-  explanation: 'Let $u = 5x$, $du = 5\,dx$, so $dx = \frac15du$: $\frac15\int\cos u\,du = \frac15\sin(5x) + C$. Check: $\frac{d}{dx}\frac15\sin(5x) = \cos(5x)$. $\sin(5x) + C$ forgets to convert $dx$; $5\sin(5x)$ multiplies instead of dividing.'
+  explanation: 'Let $u = 5x$, $du = 5\,dx$, so $dx = \frac15du$: $\frac15\int\cos u\,du = \frac15\sin(5x) + C$. Check: $\frac{d}{dx}\frac15\sin(5x) = \cos(5x)$. $\sin(5x) + C$ forgets to convert $dx$; $5\sin(5x)$ multiplies instead of dividing; $-\frac15\sin(5x)$ has the sign of the antiderivative of $\sin$, not $\cos$.'
 - id: calc-m6-r2-q21
   lesson: calc-motion-average
   type: label
@@ -513,7 +513,7 @@
   - $\dfrac{2}{\sqrt\pi}e^{-x^2}\cdot3x^2$
   - $\dfrac{6x^2}{\sqrt\pi}e^{-x^6}$
   answer: 3
-  explanation: 'Chain rule: $\operatorname{erf}''(u) = \frac{2}{\sqrt\pi}e^{-u^2}$ with $u = x^3$, so the derivative is $\frac{2}{\sqrt\pi}e^{-(x^3)^2}\cdot3x^2 = \frac{6x^2}{\sqrt\pi}e^{-x^6}$. Note $(x^3)^2 = x^6$, not $x^5$; and the integrand must be evaluated at $x^3$, not $x$.'
+  explanation: 'Chain rule: $\operatorname{erf}''(u) = \frac{2}{\sqrt\pi}e^{-u^2}$ with $u = x^3$, so the derivative is $\frac{2}{\sqrt\pi}e^{-(x^3)^2}\cdot3x^2 = \frac{6x^2}{\sqrt\pi}e^{-x^6}$. Note $(x^3)^2 = x^6$, not $x^5$; the integrand must be evaluated at $x^3$, not $x$; and dropping the factor $3x^2$ forgets the chain rule.'
 - id: calc-m6-r2-h12
   lesson: calc-m6-h-integral-functions
   topic: Functions defined by integrals
@@ -582,12 +582,12 @@
   topic: Sums and integrals
   stem: Evaluate $\displaystyle\sum_{i=1}^{10} i^2$.
   choices:
-  - $330$
+  - $770$
   - $3025$
   - $55$
   - $385$
   answer: 3
-  explanation: $\frac{n(n + 1)(2n + 1)}{6} = \frac{10\cdot11\cdot21}{6} = 385$. $55$ is $\sum i$ and $3025 = 55^2$ is $\sum i^3$.
+  explanation: $\frac{n(n + 1)(2n + 1)}{6} = \frac{10\cdot11\cdot21}{6} = 385$. $770$ divides by 3 instead of 6, $55$ is $\sum i$, and $3025 = 55^2$ is $\sum i^3$.
 - id: calc-m6-r2-h19
   lesson: calc-m6-h-sums-integrals
   type: order
@@ -609,7 +609,7 @@
   - $2.7$
   - $0.1$
   answer: 0
-  explanation: $f$ is increasing, so $R_n - L_n = [f(3) - f(0)]\Delta x = 9\cdot\frac{3}{30} = 0.9$. $0.3$ uses $f(b) - f(a) = 3$ (the change in $x$, not in $f$); $2.7$ uses $\Delta x = 0.3$.
+  explanation: $f$ is increasing, so $R_n - L_n = [f(3) - f(0)]\Delta x = 9\cdot\frac{3}{30} = 0.9$. $0.3$ uses $f(b) - f(a) = 3$ (the change in $x$, not in $f$); $2.7$ uses $\Delta x = 0.3$; $0.1$ is $\Delta x$ alone.
 - id: calc-m6-r2-h21
   lesson: calc-m6-h-sums-integrals
   type: text

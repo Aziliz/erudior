@@ -128,7 +128,7 @@
     - {name: pno, label: 'Probability', tolerance: 0.0001, format: num4}
   solution: |-
     By inclusion–exclusion, $P(\text{no match}) = \dfrac{1}{0!} - \dfrac{1}{1!} + \dfrac{1}{2!} - \cdots \pm \dfrac{1}{{nn}!} =$ **{pno:num4}**.
-    The number of such arrangements is ${pno:num4} \times {tot:int} =$ **{nder}** (a shortcut: $n!/e$ rounded to the
+    The number of such arrangements is $P(\text{no match}) \times {tot:int} =$ **{nder}** (a shortcut: $n!/e$ rounded to the
     nearest whole number). So the chance at least one guest gets their own coat is {pat:num4}, close to $1 - 1/e \approx 0.632$.
 
 - id: stat-m5-r2-odds-convert
@@ -171,13 +171,14 @@
   prompt: |-
     A test has sensitivity {sens} and specificity {spec}. It is used where the prevalence is
     {prev:num4}. Find the likelihood ratio of a positive result, $\text{LR}_+$, to 2 decimal places, and
-    the probability that a person who tests positive has the condition, to 4 decimal places.
+    the probability that a person who tests positive has the condition, to 4 decimal places (carry the
+    unrounded likelihood ratio into this step).
   answers:
     - {name: lr, label: '$\text{LR}_+ =$', tolerance: 0.006, format: num2}
-    - {name: post, label: '$P(D \mid +) =$', tolerance: 0.0001, format: num4}
+    - {name: post, label: '$P(D \mid +) =$', tolerance: 0.0004, format: num4}
   solution: |-
     $\text{LR}_+ = \dfrac{\text{sensitivity}}{1 - \text{specificity}} = \dfrac{{sens}}{{fpr:num2}} =$ **{lr:num2}**.
-    Prior odds $= {prev:num4}/(1 - {prev:num4}) = {po:sig4}$. Posterior odds $= {po:sig4} \times {lr:num2} = {pso:sig4}$.
+    Prior odds $= {prev:num4}/(1 - {prev:num4}) = {po:sig4}$. Posterior odds $= {po:sig4} \times {lr:sig4} = {pso:sig4}$.
     Probability $= \dfrac{{pso:sig4}}{1 + {pso:sig4}} =$ **{post:num4}**.
 
 - id: stat-m5-r2-repeat-tests

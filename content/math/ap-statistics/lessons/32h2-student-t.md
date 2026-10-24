@@ -72,7 +72,7 @@ for other sample sizes (normal population).
 | Correct 95% $t^*$ | 4.303 | 2.776 | 2.365 | 2.262 | 2.145 | 2.045 | 1.984 |
 
 ```plot
-{"x": [0, 32], "y": [0.78, 0.97], "grid": true, "xLabel": "sample size n", "yLabel": "coverage", "functions": [{"f": "0.95", "dashed": true}], "points": [{"at": [3, 0.811]}, {"at": [5, 0.878]}, {"at": [8, 0.909]}, {"at": [10, 0.918]}, {"at": [15, 0.930]}, {"at": [20, 0.935]}, {"at": [30, 0.940]}], "labels": [{"at": [24, 0.957], "text": "target 0.95"}, {"at": [11, 0.86], "text": "x̄ ± 1.96·s/√n"}], "caption": "True coverage of the 'z with s' interval for a normal population; the t interval gets exactly 0.95"}
+{"x": [0, 32], "y": [0.78, 0.97], "grid": true, "xLabel": "sample size n", "yLabel": "coverage", "functions": [{"f": "0.95", "dashed": true}], "points": [{"at": [3, 0.811]}, {"at": [5, 0.878]}, {"at": [8, 0.909]}, {"at": [10, 0.918]}, {"at": [15, 0.930]}, {"at": [20, 0.935]}, {"at": [30, 0.940]}], "labels": [{"at": [24, 0.962], "text": "target 0.95"}, {"at": [11, 0.86], "text": "x̄ ± 1.96·s/√n"}], "caption": "True coverage of the 'z with s' interval for a normal population; the t interval gets exactly 0.95"}
 ```
 
 ## How robust is the t interval?
@@ -96,11 +96,13 @@ What the table shows:
   the intervals lie entirely below $\mu$ and only 0.4% entirely above. In right-skewed data, a
   sample that misses the long tail has both a small $\bar{x}$ and a small $s$, so its interval
   is too low and too short at the same time.
-- *Outliers make intervals wide.* With rare wild values the coverage is above 95%, but only
-  because those values inflate $s$: the population SD is $\sqrt{0.95(1) + 0.05(100)} \approx 2.44$
-  instead of 1, so the intervals are about 2.4 times as wide as they would be without the wild
-  values. In a single small sample, one outlier can also drag $\bar{x}$ far from the center of
-  the rest of the data.
+- *Outliers make intervals wide.* With rare wild values the coverage is above 95%, because a
+  sample that contains a wild value gets a much larger $s$, and that widens its interval more
+  than the wild value moves $\bar{x}$. The price is width: the population SD is
+  $\sqrt{0.95(1) + 0.05(100)} \approx 2.44$ instead of 1, and in the simulation the intervals were
+  on average about 1.7 ($n = 5$) to 2.3 ($n = 100$) times as wide as for the same population
+  without the wild values. In a single small sample, one outlier can also drag $\bar{x}$ far from
+  the center of the rest of the data.
 
 This is the evidence behind the core lesson's rule: the "$n \ge 30$" guideline is about
 mild skew, and graphs of the data matter more than any single cutoff.

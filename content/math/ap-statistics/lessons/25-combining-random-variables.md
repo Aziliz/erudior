@@ -58,7 +58,7 @@ The Pythagorean picture, for SDs of 3 and 4 (the numbers in Example 2 below): th
 the separate SDs, and the hypotenuse is the SD of the sum.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [4, 0], [4, 3]]}], "rightAngles": [[[4, 0], [0, 0], [4, 3]]], "segments": [{"from": [0, 0], "to": [4, 0], "label": "σY = 4"}, {"from": [4, 0], "to": [4, 3], "label": "σX = 3"}, {"from": [4, 3], "to": [0, 0], "label": "σ(X+Y) = 5"}], "caption": "Independent variation adds like perpendicular sides: 3² + 4² = 5², so the SD of the sum is 5, not 3 + 4 = 7"}
+{"polygons": [{"points": [[0, 0], [4, 0], [4, 3]]}], "rightAngles": [[[4, 0], [0, 0], [4, 3]]], "segments": [{"from": [0, 0], "to": [4, 0], "label": "σY = 4"}], "labels": [{"at": [4.75, 1.45], "text": "σX = 3"}, {"at": [1.45, 2.05], "text": "σ(X+Y) = 5"}], "caption": "Independent variation adds like perpendicular sides: 3² + 4² = 5², so the SD of the sum is 5, not 3 + 4 = 7"}
 ```
 2. *Variances add even for differences*. $X - Y = X + (-1)Y$, and multiplying by $-1$
    leaves the variance unchanged: $(-1)^2\sigma_Y^2 = \sigma_Y^2$. Subtracting a random
@@ -125,7 +125,7 @@ what is the probability Ann's commute is longer than Bob's?
 About 73% of days, Ann's commute is longer.
 
 ```plot
-{"x": [-15, 21], "y": [0, 0.09], "functions": [{"f": "exp(-((x-3)/5)^2/2)/(5*sqrt(2*pi))"}], "shade": [{"f": "exp(-((x-3)/5)^2/2)/(5*sqrt(2*pi))", "from": 0, "to": 21}], "points": [{"at": [0, 0], "label": "D = 0"}, {"at": [3, 0], "label": "mean 3"}], "xLabel": "D = A − B (minutes)", "yLabel": "density", "caption": "D = A − B is normal with mean 3 and SD 5; the shaded area P(D > 0) ≈ 0.73 is the chance Ann's commute is longer"}
+{"x": [-15, 25], "y": [0, 0.09], "functions": [{"f": "exp(-((x-3)/5)^2/2)/(5*sqrt(2*pi))"}], "shade": [{"f": "exp(-((x-3)/5)^2/2)/(5*sqrt(2*pi))", "from": 0, "to": 25}], "points": [{"at": [0, 0]}, {"at": [3, 0], "label": "mean 3"}], "xLabel": "D (minutes)", "yLabel": "density", "caption": "D = A − B is normal with mean 3 and SD 5; the shaded area P(D > 0) ≈ 0.73 is the chance Ann's commute is longer"}
 ```
 
 ### Example 4

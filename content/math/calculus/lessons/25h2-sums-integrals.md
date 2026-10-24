@@ -94,7 +94,7 @@ $$R_n - L_n = \big[f(b) - f(a)\big]\Delta x = \frac{\big[f(b) - f(a)\big](b - a)
 
 ![Two panels with the same rising curve over four subintervals from a to b. On the left, each left rectangle is shaded blue and the extra strip a right rectangle adds on top is shaded pink. On the right, the four pink strips are moved into one column of width Δx beside the graph; stacked, their heights add up to f(b) − f(a).](images/calc-m6-lr-difference.svg)
 
-The same holds, with $|f(b) - f(a)|$, for a decreasing function. Since the integral lies between $L_n$ and $R_n$, each one is within $\frac{|f(b) - f(a)|(b - a)}{n}$ of it, and their average (the trapezoidal sum) is within half that.
+The telescoping itself works for any $f$: $R_n - L_n = [f(b) - f(a)]\Delta x$ always. What needs $f$ to be monotone is the next step. For a decreasing function the strips hang below instead, and $|R_n - L_n| = |f(b) - f(a)|\Delta x$. When $f$ is monotone, since the integral lies between $L_n$ and $R_n$, each one is within $\frac{|f(b) - f(a)|(b - a)}{n}$ of it, and their average (the trapezoidal sum) is within half that.
 
 ### Example 4
 
@@ -104,7 +104,7 @@ $\frac1t$ is decreasing, $|f(2) - f(1)| = \frac12$, and $b - a = 1$, so the erro
 
 ## Trapping a sum between integrals
 
-Now reverse the direction. Suppose $f$ is positive and decreasing for $x \ge 1$, and you want $\sum_{i=1}^n f(i)$. Draw a box of height $f(i)$ over $[i, i + 1]$. Because $f$ is decreasing, each box sits on or above the curve there, so the boxes contain the area under $f$ from 1 to $n + 1$. Shifting the boxes one unit left puts them under the curve instead. Together:
+Now reverse the direction. Suppose $f$ is positive and decreasing for $x \ge 1$, and you want $\sum_{i=1}^n f(i)$. Draw a box of height $f(i)$ over $[i, i + 1]$. Because $f$ is decreasing, each box sits on or above the curve there, so the boxes contain the area under $f$ from 1 to $n + 1$. Shifting the boxes for $i = 2, \ldots, n$ one unit left, onto $[i - 1, i]$, puts them under the curve from 1 to $n$; only the first box, $f(1)$, is left over. Together:
 
 $$\int_1^{n+1} f(x)\,dx \;\le\; \sum_{i=1}^n f(i) \;\le\; f(1) + \int_1^{n} f(x)\,dx.$$
 
@@ -138,7 +138,7 @@ The actual sum is about 671.46, near the middle. This idea of comparing a sum wi
 
 - *Reading $\Delta x$ as $\frac1n$ by habit.* In $\sum\frac3n\left(2 + \frac{3i}{n}\right)^2$, $\Delta x = \frac3n$ and the interval has length 3.
 - *Getting the interval wrong.* If $x_i = 2 + \frac{3i}{n}$, the interval is $[2, 5]$, not $[0, 3]$ (unless you also change $f$).
-- *Using the error formula $|f(b) - f(a)|\Delta x$ for a function that isn't monotone.* It relies on every strip having the same sign; split the interval at turning points first.
+- *Using the error formula $|f(b) - f(a)|\Delta x$ for a function that isn't monotone.* $R_n - L_n$ is still $[f(b) - f(a)]\Delta x$, but the integral need not lie between $L_n$ and $R_n$, so this no longer bounds the error. For $f(x) = x - x^2$ on $[0, 1]$ with $n = 2$, $L_2 = R_2 = 0.125$ while the integral is $\frac16$. Split the interval at turning points first.
 - *Flipping the trap.* For a decreasing $f$, the sum from 1 to $n$ is *bigger* than $\int_1^{n+1}f$; draw the boxes to check.
 - *Forgetting the first term* in the upper bound $f(1) + \int_1^n f$.
 

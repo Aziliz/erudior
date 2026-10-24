@@ -100,7 +100,7 @@
     t3: r3/100*L3
     T: round(r1/100*L1 + r2/100*L2 + r3/100*L3, 2)
     avgp: 100*T/x
-    marg: if(x <= B1, r1, if(x <= B2, r2, r3))
+    marg: if(x < B1, r1, if(x < B2, r2, r3))
   prompt: 'A (made-up) tax schedule charges {r1}% on income up to {B1:money0}, {r2}% on income from {B1:money0} to {B2:money0}, and {r3}% on income over {B2:money0}. For an income of {x:money0}, find the total tax and the average tax rate as a percent (1 decimal place).'
   answers:
     - {name: T, label: 'Tax', format: money, tolerance: 0.01}

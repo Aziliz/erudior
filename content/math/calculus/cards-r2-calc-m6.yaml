@@ -13,7 +13,7 @@
 - {front: '$\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\frac1n f\left(\frac in\right)$', back: '$\int_0^1 f(x)\,dx$', topic: Sums and integrals}
 - {front: 'Telescoping sum', back: '$\sum_{i=1}^n[g(i + 1) - g(i)] = g(n + 1) - g(1)$', topic: Sums and integrals}
 - {front: '$\sum_{i=1}^n i^3$', back: '$\left[\frac{n(n + 1)}{2}\right]^2$', topic: Sums and integrals}
-- {front: '$R_n - L_n$ for monotone $f$', back: '$\pm[f(b) - f(a)]\Delta x$; the integral lies between $L_n$ and $R_n$, so each is within $\frac{|f(b) - f(a)|(b - a)}{n}$.', topic: Sums and integrals}
+- {front: '$R_n - L_n$ for monotone $f$', back: '$[f(b) - f(a)]\Delta x$ (true for any $f$); for monotone $f$ the integral lies between $L_n$ and $R_n$, so each is within $\frac{|f(b) - f(a)|(b - a)}{n}$.', topic: Sums and integrals}
 - {front: 'Trapping $\sum_{i=1}^n f(i)$ for positive decreasing $f$', back: '$\int_1^{n+1} f \le \sum_{i=1}^n f(i) \le f(1) + \int_1^n f$', topic: Sums and integrals}
 - {front: 'Trapping $\sum_{i=1}^n f(i)$ for increasing $f$', back: '$\int_0^n f \le \sum_{i=1}^n f(i) \le \int_1^{n+1} f$', topic: Sums and integrals}
 - {front: 'Bounds on $H_n$', back: '$\ln(n + 1) \le H_n \le 1 + \ln n$', topic: Sums and integrals}

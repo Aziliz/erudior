@@ -52,7 +52,7 @@
   topic: Factorial experiments
 - term: fractional factorial design
   aliases: [fractional factorial, fractional factorial designs]
-  definition: 'An experiment that runs a carefully chosen subset of all the factor-level combinations, at the cost that each effect is mixed up (aliased) with some other effect, usually a higher-order interaction, so the two can't be separated.'
+  definition: 'An experiment that runs a carefully chosen subset of all the factor-level combinations, at the cost that each effect is mixed up (aliased) with some other effect, usually a higher-order interaction, so the two can''t be separated.'
   topic: Factorial experiments
 - term: potential outcomes
   aliases: [potential outcome]

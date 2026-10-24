@@ -113,8 +113,8 @@ arrangements (the digits say which letter is in envelopes 1, 2, 3):
 | Matches | 3 | 1 | 1 | 1 | 0 | 0 |
 
 The average is $(3 + 1 + 1 + 1 + 0 + 0)/6 = 1$. ✓ Writing down the whole distribution of $M$ for large
-$n$ takes real work (the chance of no match at all approaches $1/e \approx 0.368$), but the mean took
-two lines.
+$n$ takes real work (the chance of no match at all approaches $1/e \approx 0.368$, as the Module 5 honors
+lesson on inclusion–exclusion shows), but the mean took two lines.
 
 ## Waiting times as sums: the coupon collector
 

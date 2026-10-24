@@ -76,7 +76,7 @@ The bracket is continuous at $a$ ($f$ is continuous there because it is differen
 
 ## Derivatives of inverse functions, with the fine print
 
-**Theorem.** Let $f$ be continuous and strictly increasing (or strictly decreasing) on an open interval, differentiable at $a$ with $f'(a) \ne 0$, and let $b = f(a)$. Then $f^{-1}$ is differentiable at $b$ and
+**Theorem.** Let $f$ be continuous and strictly increasing (or strictly decreasing) on an open interval containing $a$, differentiable at $a$ with $f'(a) \ne 0$, and let $b = f(a)$. Then $f^{-1}$ is differentiable at $b$ and
 $$(f^{-1})'(b) = \frac{1}{f'(a)}.$$
 
 *Proof.* We use one fact proved in analysis courses: the inverse of a continuous, strictly monotonic function on an interval is continuous. Write $f(x) - f(a) = \varphi(x)(x - a)$ and put $x = f^{-1}(y)$:

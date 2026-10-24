@@ -53,7 +53,7 @@ $$\text{OR} = \frac{a/b}{c/d} = \frac{ad}{bc}.$$
 
 For a rare outcome, $1 - p$ is close to 1, so odds are close to probabilities and the odds
 ratio is close to the relative risk. For a common outcome they can differ a lot, and the odds
-ratio is always farther from 1 than the relative risk.
+ratio is always farther from 1 than the relative risk (unless both equal 1).
 
 ### Example 1: all four measures
 
@@ -139,7 +139,7 @@ the share of severe patients and each hospital moves along its own straight line
 above B's everywhere, but A sits far to the right, where every hospital does worse.
 
 ```plot
-{"x": [0, 1], "y": [0, 1.05], "xLabel": "share of patients who are severe", "yLabel": "overall survival rate", "functions": [{"f": "0.98333*(1 - x) + 0.525*x", "color": "#2c5e8f", "label": "Hospital A"}, {"f": "0.96667*(1 - x) + 0.30*x", "color": "#c2570c", "label": "Hospital B"}], "points": [{"at": [0.4, 0.8], "label": "A's actual mix: 80%", "color": "#2c5e8f"}, {"at": [0.1, 0.9], "label": "B's actual mix: 90%", "color": "#c2570c"}, {"at": [0.25, 0.86875], "open": true, "color": "#2c5e8f"}, {"at": [0.25, 0.8], "open": true, "color": "#c2570c"}], "segments": [{"from": [0.25, 0], "to": [0.25, 1.0], "dashed": true}], "caption": "A's line is above B's for every case mix. At a common mix of 25% severe (dashed), A survives 86.9% and B 80.0%."}
+{"x": [0, 1], "y": [0, 1.1], "xLabel": "share of patients who are severe", "yLabel": "overall survival rate", "functions": [{"f": "0.98333*(1 - x) + 0.525*x", "color": "#2c5e8f"}, {"f": "0.96667*(1 - x) + 0.30*x", "color": "#c2570c"}], "points": [{"at": [0.4, 0.8], "color": "#2c5e8f"}, {"at": [0.1, 0.9], "color": "#c2570c"}, {"at": [0.25, 0.86875], "open": true, "color": "#2c5e8f"}, {"at": [0.25, 0.8], "open": true, "color": "#c2570c"}], "segments": [{"from": [0.25, 0], "to": [0.25, 0.97], "dashed": true}], "labels": [{"at": [0.82, 0.72], "text": "Hospital A"}, {"at": [0.75, 0.3], "text": "Hospital B"}, {"at": [0.56, 0.85], "text": "A's actual mix: 80%"}, {"at": [0.2, 1.03], "text": "B's actual mix: 90%"}], "caption": "A's line is above B's for every case mix. At a common mix of 25% severe (dashed), A survives 86.9% and B 80.0%."}
 ```
 
 ## Standardization

@@ -180,12 +180,12 @@
   topic: Conditional probability
   stem: 'Classify each pair of events. (Every event listed has positive probability.)'
   pairs:
-    - ['Two cards dealt without replacement: the first is a heart; the second is a heart', Dependent]
+    - ['Two cards dealt without replacement: the first is a heart; the second is a heart', 'Dependent, not mutually exclusive']
     - ['A die rolled twice: the first roll is a 6; the second roll is a 6', Independent]
     - ['A single die roll: the roll is a 1; the roll is a 6', Mutually exclusive]
     - ['A random rider: rides at peak hours; holds a monthly pass, when $P(\text{pass} \mid \text{peak}) = P(\text{pass})$', Independent]
   explanation: |-
-    Without replacement, a first heart leaves fewer hearts ($12/51$ instead of $13/52$), so the draws are dependent. Separate die rolls don't influence each other. One roll can't be both 1 and 6, so those events are mutually exclusive (and therefore dependent). When knowing "peak" doesn't change the chance of a pass, the events are independent by definition.
+    Without replacement, a first heart leaves fewer hearts ($12/51$ instead of $13/52$), so the draws are dependent; both can be hearts, so they are not mutually exclusive. Separate die rolls don't influence each other. One roll can't be both 1 and 6, so those events are mutually exclusive (and therefore dependent). When knowing "peak" doesn't change the chance of a pass, the events are independent by definition.
 
 - id: stat-m5-r2-q15
   lesson: stat-conditional
@@ -347,7 +347,7 @@
   choices: ['0.27', '0.68', '1.05', '0.46']
   answer: 3
   explanation: |-
-    Fill in from the center. Exactly two: $A \cap B$ only $0.15 - 0.05 = 0.10$, $A \cap C$ only $0.05$, $B \cap C$ only $0.07$. Exactly one: $A$ only $0.4 - 0.10 - 0.05 - 0.05 = 0.20$, $B$ only $0.35 - 0.10 - 0.07 - 0.05 = 0.13$, $C$ only $0.3 - 0.05 - 0.07 - 0.05 = 0.13$. Total $0.46$. (0.27 is "none," $1 - 0.73$; 1.05 is the sum of the singles, which counts overlaps several times.)
+    Fill in from the center. Exactly two: $A \cap B$ only $0.15 - 0.05 = 0.10$, $A \cap C$ only $0.05$, $B \cap C$ only $0.07$. Exactly one: $A$ only $0.4 - 0.10 - 0.05 - 0.05 = 0.20$, $B$ only $0.35 - 0.10 - 0.07 - 0.05 = 0.13$, $C$ only $0.3 - 0.05 - 0.07 - 0.05 = 0.13$. Total $0.46$. (0.27 is "none," $1 - 0.73$; 0.68 is the union with the triple term left off; 1.05 is the sum of the singles, which counts overlaps several times.)
 
 - id: stat-m5-r2-h04
   lesson: stat-m5-h-inclusion-exclusion
@@ -486,7 +486,7 @@
   choices: ['1.5', '0.4', '0.6', 'about 0.667']
   answer: 2
   explanation: |-
-    Odds of 3 to 2 mean 3 occurrences for every 2 non-occurrences: $p = \dfrac{3}{3 + 2} = 0.6$. Equivalently, odds $= 1.5$ and $p = 1.5/2.5 = 0.6$. 1.5 is the odds itself; 0.4 is the probability against; $2/3$ forgets to add.
+    Odds of 3 to 2 mean 3 occurrences for every 2 non-occurrences: $p = \dfrac{3}{3 + 2} = 0.6$. Equivalently, odds $= 1.5$ and $p = 1.5/2.5 = 0.6$. 1.5 is the odds itself; 0.4 is the probability against; $2/3 \approx 0.667$ is the odds against ($2 \div 3$), which is still odds, not a probability.
 
 - id: stat-m5-r2-h17
   lesson: stat-m5-h-bayes-odds
@@ -495,7 +495,7 @@
   choices: ['18', 'about 0.947', '9', 'about 0.105']
   answer: 0
   explanation: |-
-    $\text{LR}_+ = \dfrac{\text{sensitivity}}{1 - \text{specificity}} = \dfrac{0.90}{0.05} = 18$. $0.90/0.95$ divides by the specificity itself; $0.10/0.95 \approx 0.105$ is the likelihood ratio of a negative result.
+    $\text{LR}_+ = \dfrac{\text{sensitivity}}{1 - \text{specificity}} = \dfrac{0.90}{0.05} = 18$. 9 is $0.90/0.10$, sensitivity over its own complement instead of over the false-positive rate; $0.90/0.95$ divides by the specificity itself; $0.10/0.95 \approx 0.105$ is the likelihood ratio of a negative result.
 
 - id: stat-m5-r2-h18
   lesson: stat-m5-h-bayes-odds
@@ -592,7 +592,7 @@
   choices: ['2/3', '1/3', '1', '1/2']
   answer: 3
   explanation: |-
-    If the car is behind your door, a random unchosen door shows a goat with probability 1; if the car is behind the other closed door, also with probability 1 (it was the door left closed). Since the opened door showed a goat, the car is behind your door or the other closed one, and for each the chance of this exact outcome is $\tfrac13 \cdot \tfrac12$. The likelihood ratio is 1, so the two remaining doors are equally likely: 1/2.
+    Say you picked door 1 and the host opened door 3, showing a goat. If the car is behind door 1, the chance of that observation is $\tfrac12$ (he picks door 3 half the time, and it has a goat). If the car is behind door 2, the chance is also $\tfrac12$ (he picks door 3 half the time, and it has a goat). The likelihood ratio is 1, so the prior odds of 1 to 1 stay 1 to 1: switching wins with probability 1/2. The 2/3 answer needs a host who knows where the car is and never reveals it.
 
 - id: stat-m5-r2-h27
   lesson: stat-m5-h-bayes-odds
@@ -614,7 +614,7 @@
   choices: ['0.80', '0.15', 'about 0.41', '0.12']
   answer: 2
   explanation: |-
-    Prior odds blue : green $= 15 : 85$. LR $= P(\text{says blue} \mid \text{blue}) / P(\text{says blue} \mid \text{green}) = 0.8/0.2 = 4$. Posterior odds $= 4 \times 15/85 = 60/85$, so $p = 60/145 \approx 0.41$. (Tree: $0.12/(0.12 + 0.17)$.) 0.80 ignores the base rate; 0.12 is the path probability "blue and says blue."
+    Prior odds blue : green $= 15 : 85$. LR $= P(\text{says blue} \mid \text{blue}) / P(\text{says blue} \mid \text{green}) = 0.8/0.2 = 4$. Posterior odds $= 4 \times 15/85 = 60/85$, so $p = 60/145 \approx 0.41$. (Tree: $0.12/(0.12 + 0.17)$.) 0.80 ignores the base rate; 0.15 is the base rate alone, ignoring the witness; 0.12 is the path probability "blue and says blue."
 
 - id: stat-m5-r2-h29
   lesson: stat-m5-h-bayes-odds
@@ -623,4 +623,4 @@
   choices: ['0.10', 'about 0.909', '1', '0.5']
   answer: 1
   explanation: |-
-    Add the weights of evidence: $-2 + \log_{10} 100 + \log_{10} 10 = -2 + 2 + 1 = 1$, so the posterior odds are $10^1 = 10$ and $p = 10/11 \approx 0.909$. Reading the log odds 1 as a probability gives 1, and 10 is odds, not a probability.
+    Add the weights of evidence: $-2 + \log_{10} 100 + \log_{10} 10 = -2 + 2 + 1 = 1$, so the posterior odds are $10^1 = 10$ and $p = 10/11 \approx 0.909$. Reading the log odds 1 as a probability gives 1. Using only the LR of 100 gives log odds 0, odds 1 and $p = 0.5$; using only the LR of 10 gives odds 0.1, which 0.10 then misreads as a probability.

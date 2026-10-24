@@ -130,7 +130,8 @@ moving: after 200 shots at 45%, the data weight would be $200/250 = 0.8$.
 ![Three curves on the interval from 0 to 1: a prior centered at 0.7, a likelihood centered at 0.45, and a taller posterior between them centered near 0.63, with its posterior mean and 95% credible interval marked.](images/stat-h1-prior-posterior.svg)
 
 The picture shows the general pattern: the posterior lies between the prior and the likelihood,
-closer to whichever carries more information, and it is narrower than either.
+closer to whichever carries more information, and it is usually narrower than either (not always: data that
+sharply contradict a very confident prior can leave the posterior wider than the prior).
 
 ## Updating one batch at a time
 

@@ -116,7 +116,7 @@
     - 'For random samples of 100 deliveries, $\bar{x}$ is approximately normal.'
     - 'A histogram of one random sample of 100 delivery times will look roughly normal.'
     - 'For random samples of 4 deliveries, $\sigma_{\bar{x}} = 6$ minutes.'
-    - 'For random samples of 4 deliveries, $P(\bar{x} > 56) \approx 0.16$ from a normal table.'
+    - 'For random samples of 4 deliveries, $P(\bar{x} > 56)$ can be found reliably from a normal table.'
     - 'The mean of the sampling distribution of $\bar{x}$ is 50 for every sample size.'
   answer: [0, 2, 4]
   explanation: |-
@@ -363,7 +363,7 @@
   choices: ['(0.099, 0.501)', '(0.127, 0.540)', '(0.117, 0.483)', '(0.145, 0.522)']
   answer: 3
   explanation: |-
-    $\tilde{p} = (6 + 2)/(20 + 4) = 8/24 \approx 0.3333$; $SE = \sqrt{0.3333(0.6667)/24} \approx 0.0962$; $ME = 1.96(0.0962) \approx 0.1886$, so the interval is (0.145, 0.522). (0.099, 0.501) is the Wald interval; (0.127, 0.540) uses $n = 20$ instead of 24 in the SE; (0.117, 0.483) centers at $\hat{p} = 0.3$ instead of $\tilde{p}$.
+    $\tilde{p} = (6 + 2)/(20 + 4) = 8/24 \approx 0.3333$; $SE = \sqrt{0.3333(0.6667)/24} \approx 0.0962$; $ME = 1.96(0.0962) \approx 0.1886$, so the interval is (0.145, 0.522). (0.099, 0.501) is the Wald interval; (0.127, 0.540) uses $n = 20$ instead of 24 in the SE; (0.117, 0.483) uses $\hat{p} = 0.3$ in place of $\tilde{p}$ (for both the center and the SE) while dividing by 24.
 
 - id: stat-m7-r2-h04
   lesson: stat-m7-h-proportion-intervals
@@ -583,12 +583,12 @@
   stem: 'Match each population to how 95% t intervals for its mean behaved in the lesson''s simulation.'
   pairs:
     - [Normal, Coverage 95% for every sample size]
-    - [Uniform (flat), Close to 95% already at n = 10]
+    - [Uniform (flat), 'Somewhat below 95% at n = 5, close to 95% by n = 10']
     - [Exponential (strongly skewed), 'Below 95% even at n = 30, with lopsided misses']
     - [Normal with rare wild values, 'Above 95%, but the intervals are wide']
   distractors: [Exactly 95% only once n is at least 30]
   explanation: |-
-    For a normal population the t interval is exact at every $n$. Symmetric non-normal shapes like the uniform are nearly fine by $n = 10$ (0.946). Strong skew still gave 0.926 at $n = 30$. Rare wild values inflate $s$, which raises coverage but makes intervals wide.
+    For a normal population the t interval is exact at every $n$. Symmetric non-normal shapes like the uniform fall a little short at $n = 5$ (0.934) but are nearly fine by $n = 10$ (0.946). Strong skew still gave 0.926 at $n = 30$. Rare wild values inflate $s$, which raises coverage but makes intervals wide.
 
 - id: stat-m7-r2-h22
   lesson: stat-m7-h-student-t

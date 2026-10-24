@@ -66,7 +66,7 @@ The cumulative probabilities climb toward 1 but never reach it: there is always 
 wait is longer still.
 
 ```plot
-{"x": [0, 16], "y": [0, 1.05], "points": [{"at": [1, 0.1500]}, {"at": [2, 0.2775]}, {"at": [3, 0.3859]}, {"at": [4, 0.4780]}, {"at": [5, 0.5563]}, {"at": [6, 0.6229]}, {"at": [7, 0.6794]}, {"at": [8, 0.7275]}, {"at": [9, 0.7684]}, {"at": [10, 0.8031]}, {"at": [11, 0.8327]}, {"at": [12, 0.8578]}, {"at": [13, 0.8791]}, {"at": [14, 0.8972]}, {"at": [15, 0.9126]}], "functions": [{"f": "1", "dashed": true, "label": "1"}], "xLabel": "k (trials)", "yLabel": "P(X ≤ k)", "caption": "Geometric cumulative probabilities 1 − 0.85^k for p = 0.15: about 0.56 by k = 5 and 0.80 by k = 10"}
+{"x": [0, 16], "y": [0, 1.12], "points": [{"at": [1, 0.1500]}, {"at": [2, 0.2775]}, {"at": [3, 0.3859]}, {"at": [4, 0.4780]}, {"at": [5, 0.5563]}, {"at": [6, 0.6229]}, {"at": [7, 0.6794]}, {"at": [8, 0.7275]}, {"at": [9, 0.7684]}, {"at": [10, 0.8031]}, {"at": [11, 0.8327]}, {"at": [12, 0.8578]}, {"at": [13, 0.8791]}, {"at": [14, 0.8972]}, {"at": [15, 0.9126]}], "functions": [{"f": "1", "dashed": true, "label": "1"}], "xLabel": "k (trials)", "yLabel": "P(X ≤ k)", "caption": "Geometric cumulative probabilities 1 − 0.85^k for p = 0.15: about 0.56 by k = 5 and 0.80 by k = 10"}
 ```
 
 ## Mean and standard deviation

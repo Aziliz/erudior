@@ -75,7 +75,7 @@ Because $S_{xy} = (n - 1)\,r\,s_x s_y$ and $S_{xx} = (n - 1)s_x^2$, this equals
 $r\,s_y/s_x$, the formula from the lesson.
 
 ```plot
-{"x": [0, 1.6], "y": [0, 10], "xLabel": "slope b of a line through (3, 5)", "yLabel": "SSE", "functions": [{"f": "10*(x - 0.8)^2 + 3.6", "color": "#2c5e8f"}], "points": [{"at": [0.8, 3.6], "label": "b = 0.8, SSE = 3.6", "color": "#c2570c"}, {"at": [0.6, 4.0], "label": "b = 0.6, SSE = 4.0"}], "caption": "Training data: SSE(b) = 10(b − 0.8)² + 3.6 is a parabola with its lowest point at the least-squares slope"}
+{"x": [0, 1.6], "y": [0, 10], "xLabel": "slope b of a line through (3, 5)", "yLabel": "SSE", "functions": [{"f": "10*(x - 0.8)^2 + 3.6", "color": "#2c5e8f"}], "points": [{"at": [0.8, 3.6], "color": "#c2570c"}, {"at": [0.6, 4.0]}], "labels": [{"at": [0.95, 2.8], "text": "b = 0.8, SSE = 3.6"}, {"at": [0.3, 3.0], "text": "b = 0.6, SSE = 4.0"}], "caption": "Training data: SSE(b) = 10(b − 0.8)² + 3.6 is a parabola with its lowest point at the least-squares slope"}
 ```
 
 Putting Steps 2 and 3 together gives one identity for *any* line $y = a + bx$, with
@@ -159,7 +159,8 @@ $\hat{y}_i - \bar{y}$ is a multiple of $x_i - \bar{x}$.
 ## Why n − 2
 
 Because the $n$ residuals must satisfy those two equations, only $n - 2$ of them can vary
-freely: given any $n - 2$ residuals, the last two are forced. So the residuals carry $n - 2$
+freely: given any $n - 2$ residuals, the last two are forced (as long as those two points have
+different $x$ values). So the residuals carry $n - 2$
 degrees of freedom, and
 
 $$s = \sqrt{\frac{\text{SSE}}{n - 2}}.$$

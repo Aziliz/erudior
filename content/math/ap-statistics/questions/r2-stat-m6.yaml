@@ -371,7 +371,7 @@
   choices: ['1.25', '0.25', '1', '2.5']
   answer: 0
   explanation: |-
-    Each of the five cards dealt is equally likely to be any card in the deck, so it is a heart with probability $\tfrac{13}{52} = 0.25$. By linearity, $E = 5 \times 0.25 = 1.25$, even though the cards are dealt without replacement and the indicators are dependent.
+    Each of the five cards dealt is equally likely to be any card in the deck, so it is a heart with probability $\tfrac{13}{52} = 0.25$. By linearity, $E = 5 \times 0.25 = 1.25$, even though the cards are dealt without replacement and the indicators are dependent. 0.25 is the chance for a single card, not the expected count.
 
 - id: stat-m6-r2-h12
   lesson: stat-m6-h-indicators
@@ -402,7 +402,7 @@
   choices: ['2.5', '5', '2.25', '1.25']
   answer: 2
   explanation: |-
-    There are 9 adjacent positions (flips 1–2, 2–3, …, 9–10). Each is "head then tail" with probability $\tfrac12 \times \tfrac12 = \tfrac14$. By linearity, $E = 9 \times \tfrac14 = 2.25$; overlapping positions are dependent, but that doesn't matter for the mean. 2.5 uses 10 positions instead of 9.
+    There are 9 adjacent positions (flips 1–2, 2–3, …, 9–10). Each is "head then tail" with probability $\tfrac12 \times \tfrac12 = \tfrac14$. By linearity, $E = 9 \times \tfrac14 = 2.25$; overlapping positions are dependent, but that doesn't matter for the mean. 2.5 uses 10 positions instead of 9, 1.25 counts only the 5 non-overlapping pairs (1–2, 3–4, …), and 5 uses probability $\tfrac12$ for each of 10 positions.
 
 # ---- Honors lesson 27h2: covariance
 - id: stat-m6-r2-h15
@@ -430,7 +430,7 @@
   choices: ['13', '37', '25', '1']
   answer: 0
   explanation: |-
-    $\text{Var}(X - Y) = 9 + 16 - 2(6) = 13$. When $X$ and $Y$ move together, their difference varies less than independent variables would. Subtracting the variances ($16 - 9$) or adding the covariance are the usual mistakes.
+    $\text{Var}(X - Y) = 9 + 16 - 2(6) = 13$. When $X$ and $Y$ move together, their difference varies less than independent variables would. 37 adds the covariance term (that is the variance of $X + Y$), 25 ignores it, and 1 is $(4 - 3)^2$, from subtracting the SDs.
 
 - id: stat-m6-r2-h18
   lesson: stat-m6-h-covariance
@@ -552,7 +552,7 @@
   lesson: stat-m6-h-covariance
   topic: Covariance
   stem: '$\text{Cov}(X, Y) = -3$, $\sigma_X = 2$ and $\sigma_Y = 5$. What is the correlation $\rho$?'
-  choices: ['$-0.6$', '$-0.15$', '$-3$', '$-0.3$']
+  choices: ['$-0.6$', '$-1.5$', '$-3$', '$-0.3$']
   answer: 3
   explanation: |-
-    $\rho = \text{Cov}/(\sigma_X\sigma_Y) = -3/(2 \times 5) = -0.3$. Dividing by $\sigma_X + \sigma_Y$ or by only one SD gives the wrong values, and $-3$ is the covariance itself, which has units.
+    $\rho = \text{Cov}/(\sigma_X\sigma_Y) = -3/(2 \times 5) = -0.3$. Dividing by only $\sigma_Y$ gives $-0.6$, and dividing by only $\sigma_X$ gives $-1.5$, which is impossible for a correlation; $-3$ is the covariance itself, which has units.

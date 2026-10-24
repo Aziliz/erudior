@@ -319,7 +319,7 @@
   choices: ['$-2^{50}e^{-2x}$', '$2^{50}e^{-2x}$', '$-100e^{-2x}$', '$(-2)^{49}e^{-2x}$']
   answer: 1
   explanation: |-
-    Each derivative multiplies by $-2$, so the 50th gives $(-2)^{50}e^{-2x} = 2^{50}e^{-2x}$: an even power of a negative number is positive. ($-2^{50}$ loses the sign of the even power; $-100$ multiplies by $-2$ fifty times as if adding.)
+    Each derivative multiplies by $-2$, so the 50th gives $(-2)^{50}e^{-2x} = 2^{50}e^{-2x}$: an even power of a negative number is positive. ($-2^{50}$ reads $(-2)^{50}$ as $-(2^{50})$; $-100$ adds $-2$ fifty times instead of multiplying; $(-2)^{49}$ is off by one, the 49th derivative's factor.)
 - id: calc-m3-r2-h02
   lesson: calc-m3-h-leibniz-rule
   topic: Higher derivatives
@@ -506,7 +506,7 @@
   topic: Inverse function derivatives
   stem: 'The lesson''s theorem concludes that $(f^{-1})''(b) = \dfrac{1}{f''(a)}$, where $b = f(a)$. Which of these are hypotheses of the theorem? Select all that apply.'
   choices:
-    - '$f$ is continuous and strictly increasing or strictly decreasing on an open interval'
+    - '$f$ is continuous and strictly increasing or strictly decreasing on an open interval containing $a$'
     - '$f''(a) \ne 0$'
     - 'There is a formula for $f^{-1}$'
     - '$f''''(a)$ exists'
