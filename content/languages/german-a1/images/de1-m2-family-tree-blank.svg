@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img"><title>Lena's family tree showing first names only</title>
+<rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+<line x1="285" y1="70" x2="435" y2="70" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="360" y1="70" x2="360" y2="190" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="285" y1="190" x2="435" y2="190" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="360" y1="190" x2="360" y2="280" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="150" y1="280" x2="570" y2="280" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="150" y1="280" x2="150" y2="320" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="360" y1="280" x2="360" y2="320" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="570" y1="280" x2="570" y2="320" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="135.0" y="41.0" width="150" height="58" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="210" y="76" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="17" font-weight="bold">Klaus</text>
+<rect x="435.0" y="41.0" width="150" height="58" rx="10" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<text x="510" y="76" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="17" font-weight="bold">Helga</text>
+<rect x="135.0" y="161.0" width="150" height="58" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="210" y="196" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="17" font-weight="bold">Peter</text>
+<rect x="435.0" y="161.0" width="150" height="58" rx="10" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<text x="510" y="196" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="17" font-weight="bold">Sabine</text>
+<rect x="75.0" y="321.0" width="150" height="58" rx="10" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<text x="150" y="356" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="17" font-weight="bold">Jonas</text>
+<rect x="285.0" y="321.0" width="150" height="58" rx="10" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="360" y="346" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="17" font-weight="bold">Lena</text>
+<text x="360" y="368" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="15">ich</text>
+<rect x="495.0" y="321.0" width="150" height="58" rx="10" fill="#f8e1dc" stroke="#1c2833" stroke-width="2"/>
+<text x="570" y="356" font-family="sans-serif" fill="#1c2833" text-anchor="middle" font-size="17" font-weight="bold">Mia</text>
+</svg>

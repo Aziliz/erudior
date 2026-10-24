@@ -71,6 +71,10 @@ Decades before Newton, Johannes Kepler distilled Tycho Brahe's observations into
 {"x": [-4.6, 2.8], "y": [-1.8, 1.8], "curves": [{"x": "-1 + 2*cos(t)", "y": "1.6*sin(t)", "t": [0, "2pi"]}], "points": [[0.2, 0], [1, 0], [-3, 0]], "labels": [{"at": [0.2, -0.35], "text": "Sun (focus)"}, {"at": [1.85, -0.07], "text": "perihelion"}, {"at": [-3.8, -0.07], "text": "aphelion"}], "caption": "An elliptical orbit: the planet moves fastest at perihelion and slowest at aphelion"}
 ```
 
+The second drawing, to scale for an orbit of eccentricity 0.6, marks the semimajor axis and shades the areas swept in two equal time intervals: a short, wide wedge near perihelion and a long, thin one near aphelion.
+
+![An ellipse of eccentricity 0.6 with the Sun at the right-hand focus and an empty focus on the left. Perihelion is the point of the orbit nearest the Sun, at the right end of the long axis, and aphelion the farthest, at the left end. A bracket above marks the semimajor axis a, half the long axis. Two shaded wedges from the Sun, a short wide one at perihelion and a long thin one at aphelion, have equal areas.](images/phys-m5-kepler-ellipse.svg)
+
 ### Example 3
 
 Mars orbits the Sun at 1.52 times Earth's orbital radius. How long is a Martian year?
@@ -90,6 +94,12 @@ The minimum launch speed that lets an object coast to infinity (arriving with ze
 $$v_{\text{esc}} = \sqrt{\frac{2GM}{R}}.$$
 
 For Earth, $v_{\text{esc}} = 11.2$ km/s, exactly $\sqrt2$ times the speed of a low circular orbit. In a circular orbit the total energy is $E = K + U = \tfrac12\dfrac{GMm}{r} - \dfrac{GMm}{r} = -\dfrac{GMm}{2r}$: negative, meaning bound.
+
+Plotted against orbit radius (in units where $GMm = 1$), the kinetic energy is always half the size of the potential energy and the total is the negative of the kinetic energy: moving to a higher orbit raises the total energy (it becomes less negative) even though the satellite slows down.
+
+```plot
+{"x": [0.5, 4], "y": [-2.2, 1.2], "xLabel": "r", "yLabel": "energy", "functions": [{"f": "1/(2*x)", "label": "K"}, {"f": "-1/x", "label": "U"}, {"f": "-1/(2*x)", "label": "E", "dashed": true}], "caption": "Circular orbits: K = GMm/2r, U = −GMm/r, E = −GMm/2r"}
+```
 
 ## Potential energy from the force law
 

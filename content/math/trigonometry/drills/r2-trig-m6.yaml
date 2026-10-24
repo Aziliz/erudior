@@ -65,7 +65,7 @@
     - {name: x1, label: '$x_1 =$', tolerance: 0.001, format: dp3}
     - {name: x2, label: '$x_2 =$', tolerance: 0.001, format: dp3}
   solution: |-
-    First, $x = \pi$ gives ${mpi}$, not ${c}$, so it is not a solution. With $t = \tan\tfrac{x}{2}$, the equation becomes $({A2})t^2 {B1:signed}\,t {C0:signed} = 0$, so $t = \dfrac{{a} \pm \sqrt{{disc}}}{{A2}}$: $t \approx {t1:num4}$ and $t \approx {t2:num4}$. Then $x = 2\tan^{-1}t$, adding $2\pi$ to a negative angle: $x \approx$ **{x1:dp3}** and **{x2:dp3}**.
+    First, $x = \pi$ gives ${mpi}$, not ${c}$, so it is not a solution. With $t = \tan\tfrac{x}{2}$, the equation becomes ${A2:coef}t^2 {B1:signed}\,t {C0:signed} = 0$, so $t = \dfrac{{a} \pm \sqrt{{disc}}}{{A2}}$: $t \approx {t1:num4}$ and $t \approx {t2:num4}$. Then $x = 2\tan^{-1}t$, adding $2\pi$ to a negative angle: $x \approx$ **{x1:dp3}** and **{x2:dp3}**.
 
 - id: trig-m6-r2-chebyshev
   title: cos 3θ and cos 4θ from cos θ
@@ -121,7 +121,7 @@
   format: num2
   tolerance: 0.01
   solution: |-
-    $\text{crd}\,\theta = 2R\sin\tfrac{\theta}{2} = 120\sin {half}^\circ \approx 120({sh:num4}) \approx$ **{cr:num2}**.
+    $\text{crd}\,\theta = 2R\sin\tfrac{\theta}{2} = 120\sin {half}^\circ \approx 120({sh:dp5}) \approx$ **{cr:num2}**.
 
 - id: trig-m6-r2-ptolemy
   title: A diagonal from Ptolemy's theorem
