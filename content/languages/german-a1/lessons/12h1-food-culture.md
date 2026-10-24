@@ -188,7 +188,7 @@ In English:
 ## Pronunciation
 
 - *Semmel*: ZEM-mel; *s* before a vowel sounds like English *z*. *Brezel*: BRAY-tsel.
-- *Mahlzeit*: MAAL-tseit; the *h* only makes the *a* long.
+- *Mahlzeit*: MAAL-tsite (*ei* like "eye"); the *h* only makes the *a* long.
 - *Appetit*: stressed at the end, a-pe-TEET.
 - *hätte*: short *ä* like the *e* in "bet": HET-te. *Stimmt so*: SHTIMMT zo.
 

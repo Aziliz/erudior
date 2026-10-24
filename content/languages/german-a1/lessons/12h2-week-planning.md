@@ -17,7 +17,7 @@ Every shop, bakery, doctor's practice and café has a sign with its *Öffnungsze
 
 ![Two door signs. Left: Bäckerei Krume, Öffnungszeiten: Mo–Fr 6:30–18:00, Sa 7:00–13:00, So 8:00–11:00, feiertags geschlossen. Right: Café am Markt, Öffnungszeiten: Di–Fr 8–18 Uhr, Sa–So 9–18 Uhr, Montag Ruhetag.](images/de1-m3-hours.svg)
 
-To read a line aloud, say the days with *von … bis* and the times with *von … bis* (or *bis* alone after the first time):
+To read a line aloud, join the days with *bis* (or *von … bis*) and say the times with *von … bis*:
 
 - *Mo–Fr 6:30–18:00* → *Montag bis Freitag von sechs Uhr dreißig bis achtzehn Uhr* (in conversation also *von halb sieben bis sechs*).
 - *Sa 7:00–13:00* → *Samstag von sieben bis dreizehn Uhr*.
@@ -157,13 +157,13 @@ flowchart TD
 
 ## Reading: Unsere Woche
 
-> Wir sind Familie Yilmaz: Mama, Papa, Ela und ich, Can. Unsere Woche ist voll. Papa arbeitet morgens in der Bäckerei, er steht jeden Tag um vier auf. Mama arbeitet nachmittags im Büro, meistens bis halb sieben. Ela hat dienstags und donnerstags Fußball, das dauert anderthalb Stunden. Ich spiele montags Gitarre. Nächste Woche haben wir viele Termine: Am Mittwoch gegen drei kommt Oma, und am Freitag kurz nach fünf holen wir Tante Ayşe am Bahnhof ab. Samstags kaufen wir zusammen ein, aber sonntags sind die Geschäfte geschlossen. Dann schlafen wir lange, und abends essen wir alle zusammen. Das ist selten in der Woche, und deshalb ist der Sonntag mein Lieblingstag.
+> Wir sind Familie Yilmaz: Mama, Papa, Ela und ich, Can. Unsere Woche ist voll. Papa arbeitet morgens in der Bäckerei, er steht jeden Tag um vier auf. Mama arbeitet nachmittags im Büro, meistens bis halb sieben. Ela hat dienstags und donnerstags Fußball, das dauert anderthalb Stunden. Ich spiele montags Gitarre. Nächste Woche haben wir viele Termine: Am Mittwoch gegen drei kommt Oma, und am Freitag kurz nach fünf holen wir Tante Ayşe am Bahnhof ab. Samstags kaufen wir zusammen ein, aber sonntags sind die Geschäfte geschlossen. Dann schlafen wir lange, nur Papa nicht: Die Bäckerei ist sonntags bis elf geöffnet. Abends essen wir alle zusammen. Das ist selten in der Woche, und deshalb ist der Sonntag mein Lieblingstag.
 
 In English:
 
-> We're the Yilmaz family: Mum, Dad, Ela and me, Can. Our week is full. Dad works mornings at the bakery; he gets up at four every day. Mum works afternoons at the office, usually until half past six. Ela has football on Tuesdays and Thursdays, which takes an hour and a half. I play guitar on Mondays. Next week we have lots of appointments: on Wednesday at around three Grandma is coming, and on Friday shortly after five we're picking up Aunt Ayşe from the station. On Saturdays we go shopping together, but on Sundays the shops are closed. Then we sleep in, and in the evening we all eat together. That's rare during the week, and that's why Sunday is my favourite day.
+> We're the Yilmaz family: Mum, Dad, Ela and me, Can. Our week is full. Dad works mornings at the bakery; he gets up at four every day. Mum works afternoons at the office, usually until half past six. Ela has football on Tuesdays and Thursdays, which takes an hour and a half. I play guitar on Mondays. Next week we have lots of appointments: on Wednesday at around three Grandma is coming, and on Friday shortly after five we're picking up Aunt Ayşe from the station. On Saturdays we go shopping together, but on Sundays the shops are closed. Then we sleep in, except Dad: the bakery is open until eleven on Sundays. In the evening we all eat together. That's rare during the week, and that's why Sunday is my favourite day.
 
-(*anderthalb* = one and a half; *die Gitarre* = guitar; *die Tante* = aunt; *am Bahnhof* = at the station; *deshalb* = that's why; *der Lieblingstag* = favourite day.)
+(*anderthalb* = one and a half; *nur Papa nicht* = except Dad; *die Gitarre* = guitar; *die Tante* = aunt; *am Bahnhof* = at the station; *deshalb* = that's why; *der Lieblingstag* = favourite day.)
 
 ## Pronunciation
 

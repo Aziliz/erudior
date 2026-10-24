@@ -23,12 +23,12 @@
   module_quiz: true
   type: text
   topic: Accusative
-  stem: 'Complete with the right form of essen and the right article: "Mein Bruder ___ ___ Apfel." (der Apfel)'
+  stem: 'Complete with the right form of essen and the right article: "Mein Bruder ___ ___ Apfel." (My brother is eating an apple. der Apfel)'
   accept:
     - [isst]
-    - [einen, den]
+    - [einen]
   explanation: |-
-    essen changes e to i in the er/sie/es form: er isst. Apfel is masculine and the direct object, so the article takes -en: einen Apfel (or den Apfel for a particular apple). "esst" is the ihr form, and "ein Apfel" is the nominative.
+    essen changes e to i in the er/sie/es form: er isst. Apfel is masculine and the direct object, so "an apple" becomes einen Apfel. "esst" is the ihr form, and "ein Apfel" is the nominative. (For "the apple" you would say den Apfel.)
 - id: de1-m3-r2-q03
   lesson: de1-food-accusative
   type: match
@@ -338,10 +338,10 @@
   lesson: de1-m3-h-food-culture
   topic: Food culture
   stem: 'In the reading "Sonntag bei Oma", why does the narrator say "Nein danke, Oma"?'
-  choices: ['She doesn''t like apple cake.', 'She is full.', 'She doesn''t drink coffee.', 'She has to go home.']
+  choices: ['The narrator doesn''t like apple cake.', 'The narrator is full.', 'The narrator doesn''t drink coffee.', 'The narrator has to go home.']
   answer: 1
   explanation: |-
-    Oma offers another piece of cake and she answers "Nein danke, Oma, ich bin satt!" — she's full. It is Jonas who doesn't drink coffee, and they go home only at nine.
+    Oma offers another piece of cake and she the narrator answers "Nein danke, Oma, ich bin satt!": the narrator is full. It is Jonas who doesn't drink coffee, and they go home only at nine.
 - id: de1-m3-r2-h12
   lesson: de1-m3-h-food-culture
   topic: Food culture
