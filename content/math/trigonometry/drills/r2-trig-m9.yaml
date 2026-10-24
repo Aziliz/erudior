@@ -3,14 +3,14 @@
   title: Read a conic in polar form
   topic: Polar conics
   vars:
-    c: {min: 1, max: 6}
+    c: {min: 2, max: 6}
     m: {min: 1, max: 9}
     dd: {min: 1, max: 6}
     f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
     dv: {choices: [{label: 'x', value: 0}, {label: 'y', value: 1}]}
     sg: {choices: [{label: '+', value: 1}, {label: '-', value: -1}]}
     tp: {choices: [{label: 'an ellipse', value: 0}, {label: 'a parabola', value: 1}, {label: 'a hyperbola', value: 2}]}
-  where: ["f == dv", "tp == if(m < c, 0, if(m == c, 1, 2))", "c > 1 or m > 1"]
+  where: ["f == dv", "tp == if(m < c, 0, if(m == c, 1, 2))", "c > 1"]
   calc:
     p: m * dd
     ee: m / c
