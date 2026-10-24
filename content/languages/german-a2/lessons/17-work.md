@@ -108,7 +108,7 @@ When the second verb needs a new subject of its own, one that isn't already in t
 - *Ich hoffe, morgen früher zu gehen.* — I hope to leave earlier tomorrow. (I hope, I leave)
 - *Ich hoffe, dass mein Chef nichts dagegen hat.* — I hope my boss doesn't mind. (I hope, the boss minds)
 
-So it isn't enough for the doer to be a different person: with *bitten*, the person asked is already named (*Der Chef bittet uns, morgen früher zu kommen*: *uns* will come), so *zu* is right. This chart sums up when you need *zu* and where it goes:
+The doer of the second verb can still be someone other than the main-clause subject: with *bitten*, the person asked is already named (*Der Chef bittet uns, morgen früher zu kommen*: *uns* will come), so *zu* is right. This chart sums up when you need *zu* and where it goes:
 
 ```mermaid
 flowchart TD
