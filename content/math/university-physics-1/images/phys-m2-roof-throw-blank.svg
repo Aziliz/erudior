@@ -16,7 +16,7 @@
 <line x1="200.0" y1="190.0" x2="330.0" y2="190.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5"/>
 <path d="M250,190 L250,90 Q280.0,70 310,90 L310,376" fill="none" stroke="#2e5d8a" stroke-width="3" stroke-dasharray="2 0"/>
 <line x1="250.0" y1="170.0" x2="250.0" y2="120.0" stroke="#2e5d8a" stroke-width="3" marker-end="url(#ahb)"/>
-<line x1="310.0" y1="140.0" x2="310.0" y2="190.0" stroke="#2e5d8a" stroke-width="3" marker-end="url(#ahb)"/>
+<line x1="310.0" y1="110.0" x2="310.0" y2="155.0" stroke="#2e5d8a" stroke-width="3" marker-end="url(#ahb)"/>
 <line x1="310.0" y1="280.0" x2="310.0" y2="330.0" stroke="#2e5d8a" stroke-width="3" marker-end="url(#ahb)"/>
 <circle cx="250" cy="190" r="7" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
 <circle cx="310" cy="190" r="7" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
@@ -29,6 +29,6 @@
 <line x1="370.0" y1="390.0" x2="370.0" y2="190.0" stroke="#1c2833" stroke-width="1.5" marker-end="url(#ah)"/>
 <line x1="370.0" y1="190.0" x2="370.0" y2="390.0" stroke="#1c2833" stroke-width="1.5" marker-end="url(#ah)"/>
 <text x="378.0" y="295.0" text-anchor="start" font-size="16">20.0 m</text>
-<text x="120.0" y="178.0" text-anchor="middle" font-size="15">roof</text>
+<text x="48.0" y="178.0" text-anchor="start" font-size="15">roof</text>
 <text x="300.0" y="420.0" text-anchor="middle" font-size="14">Up and down paths drawn side by side; arrows show the direction of motion</text>
 </svg>

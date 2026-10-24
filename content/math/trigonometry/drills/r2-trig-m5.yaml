@@ -1,0 +1,78 @@
+# Round 2, module trig-m5: drills for the honors lessons.
+- id: trig-m5-r2-arctan-sum
+  title: Adding two arctangents
+  topic: Arctangent identities
+  vars:
+    p1: {min: -6, max: 6}
+    q1: {min: 1, max: 4}
+    p2: {min: -6, max: 6}
+    q2: {min: 1, max: 4}
+    qd: {choices: [{label: 'lies in the right half-plane, so no correction is needed', value: 0}, {label: 'lies in quadrant II, so add $\pi$', value: 1}, {label: 'lies in quadrant III, so subtract $\pi$', value: -1}]}
+  where: ["p1 != 0", "p2 != 0", "gcd(abs(p1), q1) == 1", "gcd(abs(p2), q2) == 1", "abs(1 - a*b) > 0.000001", "abs(a + b) > 0.000001", "qd == corr", "abs(p1*q2 - p2*q1) > 0"]
+  calc:
+    a: p1 / q1
+    b: p2 / q2
+    px: 1 - a*b
+    py: a + b
+    t: py / px
+    corr: if(px > 0, 0, if(a > 0, 1, -1))
+    at: atan(t)
+    s: atan(a) + atan(b)
+  prompt: 'Let $\alpha = \tan^{-1}\left({a:texfrac}\right)$ and $\beta = \tan^{-1}\left({b:texfrac}\right)$. Find $\tan(\alpha + \beta)$ as a fraction in lowest terms, and $\alpha + \beta$ in radians to 4 decimals.'
+  answers:
+    - {name: t, label: '$\tan(\alpha + \beta) =$', kind: fraction, lowestTerms: true}
+    - {name: s, label: '$\alpha + \beta \approx$', tolerance: 0.0002, format: num4}
+  solution: |-
+    The sum is the direction angle of the point $(1 - ab,\ a + b) = \left({px:texfrac},\ {py:texfrac}\right)$, so
+    $\tan(\alpha + \beta) = \dfrac{a + b}{1 - ab} =$ **${t:texfrac}$**. The calculator gives $\tan^{-1}\left({t:texfrac}\right) \approx {at:num4}$.
+    The point {qd}: $\alpha + \beta \approx$ **{s:num4}**.
+
+- id: trig-m5-r2-shifted-eq
+  title: Equations with a shifted argument
+  topic: General solutions
+  vars:
+    f: {choices: [{label: '\sin', value: 0}, {label: '\cos', value: 1}]}
+    n: {min: 1, max: 3}
+    ph: {choices: [{label: '+ \tfrac{\pi}{6}', value: 0.5235987755982988}, {label: '- \tfrac{\pi}{6}', value: -0.5235987755982988}, {label: '+ \tfrac{\pi}{4}', value: 0.7853981633974483}, {label: '- \tfrac{\pi}{4}', value: -0.7853981633974483}, {label: '+ \tfrac{\pi}{3}', value: 1.0471975511965976}, {label: '- \tfrac{\pi}{3}', value: -1.0471975511965976}, {label: '+ \tfrac{\pi}{2}', value: 1.5707963267948966}]}
+    st: {choices: [{label: '\tfrac{\pi}{6}', value: 0.5235987755982988}, {label: '-\tfrac{\pi}{6}', value: -0.5235987755982988}, {label: '\tfrac{\pi}{4}', value: 0.7853981633974483}, {label: '-\tfrac{\pi}{4}', value: -0.7853981633974483}, {label: '\tfrac{\pi}{3}', value: 1.0471975511965976}, {label: '-\tfrac{\pi}{3}', value: -1.0471975511965976}, {label: '\tfrac{\pi}{2}', value: 1.5707963267948966}]}
+    k: {choices: [{label: '\tfrac12', value: 0.5}, {label: '-\tfrac12', value: -0.5}, {label: '\tfrac{\sqrt2}{2}', value: 0.7071067811865476}, {label: '-\tfrac{\sqrt2}{2}', value: -0.7071067811865476}, {label: '\tfrac{\sqrt3}{2}', value: 0.8660254037844386}, {label: '-\tfrac{\sqrt3}{2}', value: -0.8660254037844386}, {label: '0', value: 0}]}
+  where: ["abs(st - ph) < 0.000001", "min(r1, 2*pi - r1) > 0.001", "min(r2, 2*pi - r2) > 0.001", "abs(q - 1) > 0.001"]
+  calc:
+    al: if(f == 0, asin(k), acos(k))
+    r1: mod(al - ph, 2*pi)
+    r2: if(f == 0, mod(pi - al - ph, 2*pi), mod(-al - ph, 2*pi))
+    mm: min(r1, r2)
+    qm: round(mm / pi * 144) / 144
+    xs: mm / n
+    q: round(xs / pi * 144) / 144
+    cnt: 2 * n
+    len: 2 * n
+  prompt: 'Consider ${f}\left({n:coef}x {ph}\right) = {k}$ on $[0, 2\pi)$. How many solutions are there, and what is the smallest one? (Type an exact answer like 5pi/12, or give 4 decimals.)'
+  answers:
+    - {name: cnt, label: 'Number of solutions'}
+    - {name: xs, label: 'Smallest solution', tolerance: 0.001, format: num4}
+  solution: |-
+    Let $u = {n:coef}x {ph}$. As $x$ runs over $[0, 2\pi)$, $u$ runs over an interval of length ${len}\pi$ starting at ${st}$:
+    {n} full turn(s), with two solutions of ${f}\,u = {k}$ in each, so **{cnt}** solutions.
+    The first solution at or after the start is $u = {st} + {qm:texfrac}\pi$. Then ${n:coef}x = {qm:texfrac}\pi$, so the smallest
+    solution is $x =$ **${q:texfrac}\pi$** $\approx {xs:num4}$.
+
+- id: trig-m5-r2-kepler
+  title: Kepler's equation
+  topic: Numerical solutions
+  vars:
+    ec: {min: 0.05, max: 0.6, step: 0.05}
+    mA: {min: 0.2, max: 3.0, step: 0.1}
+  funcs:
+    'kep(z)': 'z - ec*sin(z) - mA'
+  calc:
+    E1: mA + ec*sin(mA)
+    E: solve(kep, 0, 4)
+    chk: E - ec*sin(E)
+  prompt: 'Kepler''s equation is $M = E - e\sin E$ (radians). Take $e = {ec:num2}$ and $M = {mA:num1}$. Starting from $E_0 = M$, find the first iterate $E_1 = M + e\sin E_0$, then solve for $E$. Give both to 4 decimals.'
+  answers:
+    - {name: E1, label: '$E_1 \approx$', tolerance: 0.0002, format: num4}
+    - {name: E, label: '$E \approx$', tolerance: 0.0002, format: num4}
+  solution: |-
+    $E_1 = {mA:num1} + {ec:num2}\sin {mA:num1} \approx$ **{E1:num4}**. Keep iterating $E_{n+1} = {mA:num1} + {ec:num2}\sin E_n$ (or use a
+    solver): the values settle at $E \approx$ **{E:num4}**. Check: ${E:num4} - {ec:num2}\sin({E:num4}) \approx {chk:num4}$, which is $M$.

@@ -2,10 +2,10 @@
 id: ps-m6-h-decision-shrinkage
 module: ps-m6
 honors: true
-title: 'Loss, risk and shrinkage: decision theory for estimators'
+title: 'Loss, risk and admissibility: decision theory for estimators'
 minutes: 45
 topics: [Decision theory]
-drills: [ps-m6-r2-binomial-risk, ps-m6-r2-james-stein]
+drills: [ps-m6-r2-binomial-risk, ps-m6-r2-linear-shrinkage]
 refs: [ps-ref-estimation]
 ---
 ## Choosing an estimator as a decision
@@ -16,7 +16,7 @@ the posterior mean. Which should we use? **Decision theory**, developed largely 
 1940s, gives a common language for the question: an estimator is a decision rule, a wrong answer
 has a cost, and rules are compared by their average cost. The framework explains why there is
 usually no single best estimator, what Bayes estimators and "minimax" estimators each optimize,
-and leads to one of the most surprising results in statistics, Stein's paradox.
+and when it pays to shrink an estimate toward a prior guess.
 
 ## Loss and risk
 
@@ -60,7 +60,7 @@ ones), or collapse each risk curve to a single number. Decision theory offers tw
 
 A weaker requirement survives without either. An estimator $\delta'$ **dominates** $\delta$ if
 $R(\theta, \delta') \le R(\theta, \delta)$ for every $\theta$, with strict inequality for some $\theta$. An estimator that is
-dominated is **inadmissible**: there is no reason ever to use it. One that no estimator dominates is
+dominated is inadmissible: there is no reason ever to use it. One that no estimator dominates is
 **admissible**. For normal data, $S^2$ is inadmissible for $\sigma^2$ under squared error, because
 $\frac{n-1}{n+1}S^2$ (divide the sum of squares by $n + 1$) has smaller MSE for every $\sigma$, as the point-estimators
 lesson showed. Admissibility is a low bar, though: under squared error the constant guess $\delta_3$ is
@@ -104,53 +104,54 @@ risk is $1/64 \approx 0.0156$ (at $p = 0.5$). For $n = 400$ the minimax risk is 
 worst case $0.000625$. As $n$ grows, the minimax estimator gains a little at $p$ near 0.5 and loses heavily near 0
 and 1, which is why the minimax property alone rarely decides the matter in practice.
 
-## Stein's paradox and shrinkage
+## Shrinking one normal mean toward a prior guess
 
-Now estimate several unrelated means at once. Let $X_i \sim N(\theta_i, 1)$ independently for $i = 1, \dots, p$, with total
-squared-error loss $\sum(\theta_i - a_i)^2$. The obvious estimator, $\delta_i = X_i$, has risk $p$ for every $\boldsymbol\theta$, and for $p = 1$ or 2 it is
-admissible. In 1956 Charles Stein proved that for $p \ge 3$ it is **inadmissible**, and in 1961 he and Willard
-James gave an explicit improvement, the **James–Stein estimator**
+The Bayesian lesson's normal–normal model shows the whole trade-off in one picture. Let $\bar X \sim N(\theta, v)$
+with $v = \sigma^2/n$ known, and consider the linear estimators
 
-$$\delta^{\text{JS}}_i = \left(1 - \frac{p - 2}{\lVert \mathbf X\rVert^2}\right)X_i, \qquad \lVert \mathbf X\rVert^2 = \sum_{j=1}^p X_j^2.$$
+$$\delta_c = c\bar X + (1 - c)\mu_0, \qquad 0 \le c \le 1,$$
 
-Its risk is $p - (p - 2)^2\,E\big[1/\lVert \mathbf X\rVert^2\big]$, which is less than $p$ for every $\boldsymbol\theta$ (proof omitted; it uses an
-integration-by-parts identity for normal expectations due to Stein). At $\boldsymbol\theta = \mathbf 0$, $\lVert\mathbf X\rVert^2 \sim \chi^2_p$ with
-$E[1/\chi^2_p] = 1/(p - 2)$, so the risk is $p - (p - 2) = 2$: with $p = 10$ means, 2 instead of 10.
+which pull $\bar X$ a fraction $1 - c$ of the way toward a guess $\mu_0$. The bias is $(1 - c)(\mu_0 - \theta)$ and the
+variance $c^2v$, so
 
-The paradox is that the means can be completely unrelated (rail wear in Ohio, rainfall in Peru, a
-batting average), and still pooling them through $\lVert\mathbf X\rVert^2$ lowers the *total* risk. It does not lower the risk
-for each mean separately; individual components can do worse.
+$$R(\theta, \delta_c) = c^2v + (1 - c)^2(\theta - \mu_0)^2.$$
+
+Shrinking ($c < 1$) lowers the variance term but adds a bias term that grows with the distance between the
+truth and the guess. Comparing with $R(\theta, \bar X) = v$, the shrunken estimator wins exactly when
+$(\theta - \mu_0)^2 < \frac{1 + c}{1 - c}\,v$.
+
+Under the prior $\theta \sim N(\mu_0, \tau^2)$, the posterior mean is $\delta_c$ with $c = \tau^2/(\tau^2 + v)$, so it is the Bayes estimator
+under squared error. Averaging its risk over the prior, using $E[(\theta - \mu_0)^2] = \tau^2$, gives the Bayes risk
+$c^2v + (1 - c)^2\tau^2 = cv$, which is exactly the posterior variance.
+
+### Example 3: the sensor offset again
+
+In the Bayesian lesson's Example 2, nine readings with $\sigma = 6$ give $v = 36/9 = 4$, and the prior is $N(100, 4^2)$.
+
+1. *The Bayes estimator.* $c = 16/(16 + 4) = 0.8$, so $\delta_B = 0.8\bar X + 20$.
+2. *Its risk.* $R(\theta, \delta_B) = 0.64 \times 4 + 0.04(\theta - 100)^2 = 2.56 + 0.04(\theta - 100)^2$.
+3. *Comparison.* This is below $R(\theta, \bar X) = 4$ when $0.04(\theta - 100)^2 < 1.44$, that is, when $|\theta - 100| < 6$.
+4. *Bayes risks.* $\delta_B$: $0.8 \times 4 = 3.2$ (the posterior variance found in that example); $\bar X$: 4.
 
 ```plot
-{"x": [0, 8], "y": [0, 5.6], "xLabel": "‖θ‖ (distance of the true means from 0)", "yLabel": "total risk", "functions": [{"f": "5", "dashed": true}], "segments": [{"from": [0.0, 2.0], "to": [0.25, 2.037]}, {"from": [0.25, 2.037], "to": [0.5, 2.145]}, {"from": [0.5, 2.145], "to": [0.75, 2.312]}, {"from": [0.75, 2.312], "to": [1.0, 2.523]}, {"from": [1.0, 2.523], "to": [1.25, 2.76]}, {"from": [1.25, 2.76], "to": [1.5, 3.006]}, {"from": [1.5, 3.006], "to": [1.75, 3.246]}, {"from": [1.75, 3.246], "to": [2.0, 3.47]}, {"from": [2.0, 3.47], "to": [2.25, 3.672]}, {"from": [2.25, 3.672], "to": [2.5, 3.849]}, {"from": [2.5, 3.849], "to": [2.75, 4.002]}, {"from": [2.75, 4.002], "to": [3.0, 4.131]}, {"from": [3.0, 4.131], "to": [3.25, 4.24]}, {"from": [3.25, 4.24], "to": [3.5, 4.332]}, {"from": [3.5, 4.332], "to": [3.75, 4.41]}, {"from": [3.75, 4.41], "to": [4.0, 4.476]}, {"from": [4.0, 4.476], "to": [4.25, 4.531]}, {"from": [4.25, 4.531], "to": [4.5, 4.579]}, {"from": [4.5, 4.579], "to": [4.75, 4.62]}, {"from": [4.75, 4.62], "to": [5.0, 4.655]}, {"from": [5.0, 4.655], "to": [5.25, 4.686]}, {"from": [5.25, 4.686], "to": [5.5, 4.713]}, {"from": [5.5, 4.713], "to": [5.75, 4.736]}, {"from": [5.75, 4.736], "to": [6.0, 4.757]}, {"from": [6.0, 4.757], "to": [6.25, 4.776]}, {"from": [6.25, 4.776], "to": [6.5, 4.792]}, {"from": [6.5, 4.792], "to": [6.75, 4.807]}, {"from": [6.75, 4.807], "to": [7.0, 4.82]}, {"from": [7.0, 4.82], "to": [7.25, 4.832]}, {"from": [7.25, 4.832], "to": [7.5, 4.843]}, {"from": [7.5, 4.843], "to": [7.75, 4.853]}, {"from": [7.75, 4.853], "to": [8.0, 4.862]}]
-2.0 2.523 3.47 4.862, "labels": [{"at": [6.6, 5.3], "text": "X itself: risk 5"}, {"at": [1.9, 2.4], "text": "James–Stein"}], "caption": "Total risk for p = 5 means: the James–Stein estimator is below the usual estimator everywhere, by most when the true means are near the shrinkage point 0"}
+{"x": [88, 112], "y": [0, 8], "xLabel": "true θ", "yLabel": "risk (MSE)", "functions": [{"f": "4", "dashed": true}, {"f": "2.56 + 0.04 (x - 100)^2"}], "points": [{"at": [94, 4], "label": "θ = 94"}, {"at": [106, 4], "label": "θ = 106"}], "labels": [{"at": [91, 4.5], "text": "X̄: risk 4"}, {"at": [100, 2.1], "text": "0.8X̄ + 20"}], "caption": "Risk of the sample mean (dashed) and of the Bayes estimator that shrinks toward the prior mean 100: shrinking wins within 6 units of 100 and loses outside"}
 ```
 
-### Example 3: shrinking five readings
+If the prior guess is good, shrinking pays; if it is far off, the estimator pays a growing bias, and its
+worst-case risk is unbounded. $\bar X$, with its constant risk $v$, is in fact minimax for a normal mean: the Bayes
+risks $\tau^2v/(\tau^2 + v)$ of ever flatter priors rise toward $v$, so no estimator can have maximum risk below $v$
+(this limiting argument is stated here without the details).
 
-Five sensor offsets are measured once each with error SD 1: $\mathbf x = (1.2, -0.4, 2.1, 0.8, -1.5)$.
+*Bayes estimators are admissible.* If the Bayes estimator for a prior is unique (as the posterior mean is under
+squared error, when the Bayes risk is finite), nothing can dominate it: a dominating estimator would have
+Bayes risk no larger, so it would also be a Bayes estimator, and uniqueness makes it the same estimator. So
+$\delta_B$ above is admissible, and so is every estimator $\delta_c$ with $0 < c < 1$, each being Bayes for some normal
+prior. Neither $\delta_B$ nor $\bar X$ dominates the other; the choice depends on how much the guess $\mu_0$ is trusted.
 
-1. $\lVert\mathbf x\rVert^2 = 1.44 + 0.16 + 4.41 + 0.64 + 2.25 = 8.9$.
-2. Shrinkage factor: $1 - 3/8.9 \approx 0.663$.
-3. Estimates: $(0.796,\; -0.265,\; 1.392,\; 0.530,\; -0.994)$, each pulled a third of the way toward 0.
-
-```plot
-{"x": [-2.5, 2.5], "y": [-0.5, 1.6], "xLabel": "value", "yLabel": "", "segments": [{"from": [1.2, 1], "to": [0.796, 0], "arrow": true}, {"from": [-0.4, 1], "to": [-0.265, 0], "arrow": true}, {"from": [2.1, 1], "to": [1.392, 0], "arrow": true}, {"from": [0.8, 1], "to": [0.53, 0], "arrow": true}, {"from": [-1.5, 1], "to": [-0.994, 0], "arrow": true}], "points": [[1.2, 1], [-0.4, 1], [2.1, 1], [0.8, 1], [-1.5, 1], [0.796, 0], [-0.265, 0], [1.392, 0], [0.53, 0], [-0.994, 0]], "labels": [{"at": [-1.9, 1.35], "text": "readings x"}, {"at": [-1.9, -0.3], "text": "James–Stein"}], "caption": "Each reading is pulled toward 0 by the same factor 0.663"}
-```
-
-When $\lVert\mathbf x\rVert^2 < p - 2$ the factor is negative and the estimate flips sign, which is absurd; the
-**positive-part** version, which replaces a negative factor by 0, has smaller risk still. Shrinking toward
-0 is arbitrary: any fixed point works, and shrinking toward the average $\bar x$ (with $p - 3$ in place of $p - 2$, for
-$p \ge 4$) is the version used in practice. Efron and Morris's 1970s studies of baseball batting averages
-made this famous: early-season averages shrunk toward the overall mean predicted the rest of the
-season better than the players' own averages.
-
-*Why shrinkage works: an empirical Bayes view.* Suppose the $\theta_i$ were themselves drawn from $N(0, \tau^2)$. The
-normal–normal model gives the Bayes estimator $\big(1 - \frac{1}{1 + \tau^2}\big)X_i$, but $\tau^2$ is unknown. Marginally
-$X_i \sim N(0, 1 + \tau^2)$, so $\lVert\mathbf X\rVert^2/(1 + \tau^2) \sim \chi^2_p$ and $E\big[(p - 2)/\lVert\mathbf X\rVert^2\big] = 1/(1 + \tau^2)$. Replacing the unknown
-factor by this unbiased estimate gives exactly James–Stein. The data estimate how much to trust the
-prior; this is **empirical Bayes**, an idea credited to Herbert Robbins (1956) and central to modern
-large-scale estimation.
+With *several* means estimated together, a striking thing happens: shrinking all of them toward a
+common point, by an amount chosen from the data, beats the unshrunk estimates in total risk for *every*
+value of the means once there are three or more. That is Stein's paradox, the subject of the honors
+module's lesson on shrinkage and empirical Bayes.
 
 ## Common mistakes
 
@@ -160,16 +161,18 @@ large-scale estimation.
   the posterior median.
 - *Thinking admissible means good.* A constant guess is admissible; inadmissible means definitely
   improvable.
-- *Reading Stein's result as "each mean is better estimated."* James–Stein lowers the *total* risk; it
-  needs $p \ge 3$, and some individual means can be estimated worse.
-- *Forgetting the scale.* The formula above assumes error variance 1; with variance $\sigma^2$ the factor is
-  $1 - (p - 2)\sigma^2/\lVert\mathbf X\rVert^2$.
+- *Confusing risk with Bayes risk.* Risk is a curve over $\theta$; Bayes risk is one number, the curve averaged
+  over a prior.
+- *Assuming shrinkage always helps.* Pulling toward $\mu_0$ helps only when the truth is near $\mu_0$; far away,
+  the squared bias $(1 - c)^2(\theta - \mu_0)^2$ takes over.
 
 ## Key points
 
 - Risk $R(\theta, \delta) = E_\theta[L(\theta, \delta(X))]$; under squared error it is the MSE.
 - Dominated estimators are inadmissible; $S^2$ is inadmissible for $\sigma^2$ under squared error.
-- Bayes estimator: minimizes average risk; posterior mean (squared error), median (absolute error), mode (zero–one).
+- Bayes estimator: minimizes average risk; posterior mean (squared error), median (absolute error), mode
+  (zero–one). A unique Bayes estimator is admissible.
 - Minimax: minimizes the worst-case risk; a constant-risk Bayes rule is minimax. For a binomial,
-  $(X + \sqrt n/2)/(n + \sqrt n)$.
-- For $p \ge 3$ normal means, James–Stein $\big(1 - (p-2)/\lVert\mathbf X\rVert^2\big)\mathbf X$ dominates $\mathbf X$ (risk 2 instead of $p$ at $\boldsymbol\theta = \mathbf 0$).
+  $(X + \sqrt n/2)/(n + \sqrt n)$; for a normal mean, $\bar X$.
+- Linear shrinkage $c\bar X + (1 - c)\mu_0$: risk $c^2v + (1 - c)^2(\theta - \mu_0)^2$; Bayes for a $N(\mu_0, \tau^2)$ prior when
+  $c = \tau^2/(\tau^2 + v)$, with Bayes risk $cv$.
