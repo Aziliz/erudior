@@ -40,7 +40,7 @@ flowchart TD
 ```
 
 ```shape
-{"polygons": [{"points": [[0, 0], [6, 0], [6, 1], [0, 1]]}, {"points": [[3.6, 1], [5.4, 1], [5.4, 2.2], [3.6, 2.2]]}], "segments": [{"from": [-2, -0.1], "to": [8.5, -0.1]}, {"from": [6, 0.5], "to": [8, 0.5], "arrow": true, "label": "F"}, {"from": [4.1, 1.6], "to": [5.3, 1.6], "arrow": true, "label": "f on top block"}, {"from": [5, 0.6], "to": [3.8, 0.6], "arrow": true, "label": "f on board"}], "labels": [{"at": [1.5, 0.5], "text": "board, 6.0 kg"}, {"at": [4.5, 2.5], "text": "book, 2.0 kg"}], "caption": "A book on a board pulled by F: friction pushes the book forward and the board backward (a third-law pair)"}
+{"polygons": [{"points": [[0, 0], [6, 0], [6, 1.2], [0, 1.2]]}, {"points": [[3, 1.2], [5, 1.2], [5, 2.6], [3, 2.6]]}], "segments": [{"from": [-1, 0], "to": [9.5, 0]}, {"from": [6, 0.6], "to": [8, 0.6], "arrow": true}, {"from": [3.3, 3.0], "to": [4.9, 3.0], "arrow": true}, {"from": [4.6, 0.6], "to": [3.0, 0.6], "arrow": true}], "labels": [{"at": [8.4, 0.6], "text": "F"}, {"at": [4, 1.9], "text": "book, 2.0 kg"}, {"at": [4.1, 3.45], "text": "f on book"}, {"at": [1.5, 0.6], "text": "f on board"}, {"at": [3, -0.5], "text": "board, 6.0 kg"}], "caption": "A book on a board pulled by F: friction pushes the book forward and the board backward (a third-law pair)"}
 ```
 
 ### Example 1: how hard can you pull?

@@ -124,11 +124,13 @@ Newton's laws and the work–energy theorem describe the same physics, so either
 ```mermaid
 flowchart TD
   accTitle: Choosing between Newton's second law and the work-energy theorem
-  accDescr: If the question asks about time or acceleration, use Newton's second law with kinematics. If it asks about speed after a distance, use the work-energy theorem. If the force varies with position, use the work-energy theorem with work as the area under the force graph or an integral. If the force varies with time, use Newton's second law or impulse.
-  Q["What does the question ask for?"] -->|"time or acceleration"| N["Newton's second law, then kinematics"]
-  Q -->|"speed after a distance"| W["Work-energy theorem"]
-  Q -->|"force varies with position"| I["Work as area or integral, then work-energy"]
-  Q -->|"force varies with time"| T["Newton's second law or impulse"]
+  accDescr: First ask whether the question is about time or acceleration; if so, use Newton's second law and kinematics. If not, ask whether it is about speed after a distance; if so, use the work-energy theorem: with a constant force the work is F d cos theta, and with a force that varies with position the work is the area under the force graph or an integral. If the force varies with time instead, use Newton's second law or impulse.
+  A{"Asks for time or acceleration?"} -->|yes| N["Newton's second law, then kinematics"]
+  A -->|no| B{"Asks for speed after a distance?"}
+  B -->|yes| C{"Force constant along the path?"}
+  C -->|yes| W["W = Fd cos θ, then work-energy theorem"]
+  C -->|"no, varies with position"| I["Work as area or integral, then work-energy theorem"]
+  B -->|"no, force varies with time"| T["Newton's second law or impulse"]
 ```
 
 ## Common mistakes

@@ -81,7 +81,7 @@ The natural time scale is $\tau = v_T/g$, the time free fall would take to reach
 Early on, $\tanh u \approx u$, so $v \approx gt$: drag is negligible while the object is slow. Late, $\tanh u \to 1$ and $v \to v_T$. Compared with linear drag, $v_T(1 - e^{-t/\tau})$ with the same $v_T$ and $\tau$, the quadratic curve stays close to free fall longer and then levels off more sharply, because quadratic drag is weak at low speed and strong at high speed.
 
 ```plot
-{"x": [0, 20], "y": [0, 80], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "9.8*x", "label": "no drag", "dashed": true}, {"f": "51.6*tanh(x/5.27)", "label": "quadratic drag"}, {"f": "51.6*(1 - exp(-x/5.27))", "label": "linear drag"}, {"f": "51.6", "dashed": true}], "labels": [{"at": [16, 55], "text": "v_T = 51.6 m/s"}], "caption": "Speed of the skydiver in Example 2 with quadratic drag, compared with free fall and with a linear drag law giving the same terminal speed"}
+{"x": [0, 20], "y": [0, 80], "xLabel": "t (s)", "yLabel": "v (m/s)", "functions": [{"f": "9.8*x", "dashed": true}, {"f": "51.6*tanh(x/5.27)"}, {"f": "51.6*(1 - exp(-x/5.27))"}, {"f": "51.6", "dashed": true}], "labels": [{"at": [4, 62], "text": "no drag"}, {"at": [7.4, 47], "text": "quadratic"}, {"at": [12.5, 38], "text": "linear"}, {"at": [16, 56], "text": "v_T = 51.6 m/s"}], "caption": "Speed of the skydiver in Example 2 with quadratic drag, compared with free fall (no drag) and with a linear drag law giving the same terminal speed"}
 ```
 
 ### Example 2: a skydiver

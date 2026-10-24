@@ -14,7 +14,7 @@ The inductance lesson gave the series RLC results as formulas: reactances $X_L =
 
 ## Phasors
 
-A sinusoidal quantity $A\cos(\omega t + \alpha)$ can be pictured as an arrow of length $A$ rotating counterclockwise at angular speed $\omega$; the quantity at any moment is the arrow's horizontal projection. This rotating arrow is a **phasor**. All the voltages and currents in a linear AC circuit rotate at the same $\omega$, so their phasors keep fixed angles to each other, and we can draw them frozen at one instant. Adding two sinusoids of the same frequency is then just adding their phasors as vectors.
+A sinusoidal quantity $A\cos(\omega t + \alpha)$ can be pictured as an arrow of length $A$ rotating counterclockwise at angular speed $\omega$; the quantity at any moment is the arrow's horizontal projection. This rotating arrow is a phasor. All the voltages and currents in a linear AC circuit rotate at the same $\omega$, so their phasors keep fixed angles to each other, and we can draw them frozen at one instant. Adding two sinusoids of the same frequency is then just adding their phasors as vectors.
 
 In a series circuit the same current $i = I\cos\omega t$ flows through every element. The voltage across each one follows from its own law.
 
@@ -62,7 +62,7 @@ with its peak value $V_{\text{rms}}^2/R$ at resonance. Far below resonance the c
 
 ## The quality factor
 
-How narrow is the peak? Define the **quality factor**
+How narrow is the peak? Define the quality factor
 
 $$Q = \frac{\omega_0L}{R} = \frac1R\sqrt{\frac LC}.$$
 

@@ -33,11 +33,11 @@ The recipe for any collision is then: subtract $\vec v_{\text{cm}}$, collide in 
 ```mermaid
 flowchart TD
   accTitle: Solving a collision through the center-of-mass frame
-  accDescr: Find the center-of-mass velocity from the lab velocities. Subtract it from each velocity to get CM-frame velocities, which have equal and opposite momenta. Collide in the CM frame: an elastic collision keeps each speed and only turns the directions; with restitution e both speeds are multiplied by e; a perfectly inelastic collision leaves both at rest. Add the center-of-mass velocity back to get the final lab velocities.
+  accDescr: Find the center-of-mass velocity from the lab velocities. Subtract it from each velocity to get CM-frame velocities, which have equal and opposite momenta. Collide in the CM frame: an elastic collision keeps each speed and only turns the directions; with restitution e in one dimension both velocities reverse and their speeds are multiplied by e; a perfectly inelastic collision leaves both at rest. Add the center-of-mass velocity back to get the final lab velocities.
   A["Find v cm from the lab velocities"] --> B["Subtract v cm: CM-frame velocities"]
   B --> C{"Collide in the CM frame"}
   C -->|elastic| D["Same speeds, directions turned"]
-  C -->|"restitution e"| E["Speeds multiplied by e"]
+  C -->|"restitution e"| E["Reversed, speeds multiplied by e"]
   C -->|"perfectly inelastic"| F["Both at rest"]
   D --> G["Add v cm back: final lab velocities"]
   E --> G
