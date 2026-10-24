@@ -179,6 +179,7 @@ export function normalizeCourse(raw: unknown): Course {
     updated: str(raw.updated) || undefined,
     revision: Number.isInteger(Number(raw.revision)) && Number(raw.revision) > 0 ? Number(raw.revision) : undefined,
     changelog: str(raw.changelog).trim() || undefined,
+    ...(str(raw.disclaimer).trim() ? { disclaimer: str(raw.disclaimer).trim() } : {}),
     modules,
     lessons,
     banks,

@@ -80,6 +80,11 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
       <section className="panel overview-about">
         <h2 className="section-title">Overview</h2>
         <p>{e.description}</p>
+        {e.disclaimer && (
+          <p className="notice course-disclaimer small">
+            <b>Disclaimer:</b> {e.disclaimer}
+          </p>
+        )}
         <p className="meta small muted">
           {[
             e.lessons && `${e.lessons} lessons`,

@@ -5,12 +5,13 @@ import Home from "./pages/Home";
 import DownloadPage from "./pages/DownloadPage";
 import { Mark } from "./components/Mark";
 import { appUrl } from "./lib/site";
+import { GENERAL_DISCLAIMER, TermsOfUse } from "./components/Terms";
 
-type Page = "home" | "download";
+type Page = "home" | "download" | "terms";
 
 function pageFor(path: string): Page | null {
   const p = path.replace(/\/+$/, "") || "/";
-  return p === "/" ? "home" : p === "/download" ? "download" : null;
+  return p === "/" ? "home" : p === "/download" ? "download" : p === "/terms" ? "terms" : null;
 }
 
 export default function Site() {
@@ -23,7 +24,7 @@ export default function Site() {
   // Light/dark/sepia… chosen in the app carries over when the site shares its browser storage
   // (it doesn't across domains, so the site follows the system setting).
   useEffect(() => {
-    document.title = page === "download" ? "Download Erudior" : "Erudior: free courses and homeschool records";
+    document.title = page === "download" ? "Download Erudior" : page === "terms" ? "Erudior Terms of Use" : "Erudior: free courses and homeschool records";
     window.scrollTo({ top: 0 });
   }, [page]);
 
@@ -37,7 +38,7 @@ export default function Site() {
   const go = (e: React.MouseEvent<HTMLAnchorElement>, to: Page) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
     e.preventDefault();
-    window.history.pushState(null, "", to === "home" ? "/" : "/download");
+    window.history.pushState(null, "", to === "home" ? "/" : `/${to}`);
     setPage(to);
   };
 
@@ -66,7 +67,7 @@ export default function Site() {
         </a>
       </header>
       <main id="main" className="main" tabIndex={-1}>
-        {page === "home" ? <Home /> : <DownloadPage />}
+        {page === "home" ? <Home /> : page === "terms" ? <div className="page"><TermsOfUse /></div> : <DownloadPage />}
         <footer className="site-footer small muted">
           <span>Erudior · free courses and homeschool records</span>
           <a href={appUrl("/")}>Web app</a>
@@ -75,6 +76,10 @@ export default function Site() {
             Download
           </a>
           <a href="https://github.com/Aziliz/examiner/releases">Releases</a>
+          <a href="/terms" onClick={(e) => go(e, "terms")} aria-current={page === "terms" ? "page" : undefined}>
+            Terms of Use
+          </a>
+          <p className="site-disclaimer">{GENERAL_DISCLAIMER}</p>
         </footer>
       </main>
     </div>

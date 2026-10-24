@@ -18,6 +18,8 @@ export interface CatalogEntry {
   order: number;
   title: string;
   description: string;
+  /** Shown on the Overview page (professional and exam-prep courses). */
+  disclaimer?: string;
   revision: number;
   subject: string;
   level: string[];

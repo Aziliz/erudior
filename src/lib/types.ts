@@ -357,6 +357,8 @@ export interface Course {
   revision?: number;
   /** What changed in this revision (shown when offering the update). */
   changelog?: string;
+  /** Shown on the course's pages: limits of the material (professional and exam-prep courses). */
+  disclaimer?: string;
   modules: Module[];
   lessons: Lesson[];
   banks: Bank[];

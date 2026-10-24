@@ -570,6 +570,7 @@ def write_manifest():
         return {
             "id": c["id"], "file": file, "order": order, "title": c["title"],
             "description": c.get("description", ""), "revision": c.get("revision", 1),
+            **({"disclaimer": c["disclaimer"]} if c.get("disclaimer") else {}),
             "subject": subject, "level": level, "type": kind,
             # Core lessons; honors lessons (optional) are counted separately.
             "lessons": sum(1 for l in c.get("lessons", []) if not l.get("honors")),

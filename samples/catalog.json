@@ -5,7 +5,8 @@
   "order": 0,
   "title": "Colorado Real Estate Broker",
   "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 809-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
-  "revision": 13,
+  "revision": 14,
+  "disclaimer": "The information in this course is for educational and informational purposes only and should not be used to replace professional advice, including legal, tax, financial or real estate brokerage advice. It is independent study material, not affiliated with PSI, the Colorado Division of Real Estate or any school, and laws, rules and Commission forms change. Students are responsible for how they choose to use this content, and Erudior assumes no liability for the use or misuse of the information in it.",
   "subject": "Real estate",
   "level": [
    "Professional"

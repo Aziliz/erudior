@@ -15,6 +15,7 @@ import { courseNumbers } from "../lib/planner";
 import { daysBetween, today } from "../lib/srs";
 import { percent, uid } from "../lib/util";
 import { subjectKey } from "../lib/taxonomy";
+import { GENERAL_DISCLAIMER } from "../components/Terms";
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
@@ -208,6 +209,12 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           })}
         </div>
       )}
+      <p className="app-legal small faint">
+        {GENERAL_DISCLAIMER}{" "}
+        <button className="linkish" onClick={() => api.go({ name: "terms" })}>
+          Terms of Use
+        </button>
+      </p>
     </div>
   );
 }

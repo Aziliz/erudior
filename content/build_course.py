@@ -194,8 +194,15 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Erudior",
-    "revision": 13,
-    "changelog": "Each lesson's study box now links its notecards, related math drills and quick-reference sheets. Lesson quizzes are now sized to cover exactly what each lesson teaches, and every module ends with a module quiz across all its topics (pass with 70% to complete the module). 351 new questions fill topics no question covered before. Bolded terms in lessons now open glossary pop-ups (about 400 new glossary terms), and every abbreviation has its own glossary entry with what it stands for and what it means. Checked the national half against federal sources and the PSI bulletin: fixes on lead-paint rules, flood insurance, ADA, Ginnie Mae, CERCLA, Do-Not-Call, a sublease question, and adds HMDA. Checked the Colorado half against the 2026 Colorado Real Estate Manual and current statutes: updates the security-deposit return rule (30 days since 2026), trust-account interest, duties after a relationship ends, renewal and CE details, contract and form details, and the reference sheets. Adds REITs and real-estate securities. Adds Colorado's three principal meridians and a few survey facts. Adds a note on fixture tests: Van Ed's quizzes key method of attachment as most important, while courts treat intention as controlling. Every lesson quiz now has 10 questions: 107 new questions written from the lessons themselves fill the gaps. Earlier in this series: end-of-lesson quizzes (pass with 70% to complete a lesson), a corrected seller-disclosure answer key, and ten new lessons covering federal tax and 1031s, commercial leasing, MLS/IDX and wire fraud, the Colorado closing worksheet, other Commission forms and HOAs, and Commission rules, audits and complaints.",
+    "revision": 14,
+    "changelog": "Adds a disclaimer: this course is for education only and doesn't replace professional advice.",
+    "disclaimer": (
+        "The information in this course is for educational and informational purposes only and should not be used to "
+        "replace professional advice, including legal, tax, financial or real estate brokerage advice. It is independent "
+        "study material, not affiliated with PSI, the Colorado Division of Real Estate or any school, and laws, rules and "
+        "Commission forms change. Students are responsible for how they choose to use this content, and Erudior assumes "
+        "no liability for the use or misuse of the information in it."
+    ),
     "modules": modules,
     "lessons": lessons,
     "banks": [{

@@ -87,6 +87,11 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
         <div>
           <h1>{course.title}</h1>
           {course.description && <p className="muted">{course.description}</p>}
+          {course.disclaimer && (
+            <p className="notice course-disclaimer small">
+              <b>Disclaimer:</b> {course.disclaimer}
+            </p>
+          )}
           {course.community && <CommunityNote api={api} course={course} />}
         </div>
         <div className="row">

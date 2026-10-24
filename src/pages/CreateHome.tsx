@@ -216,6 +216,13 @@ function Accept({ api, onDone }: { api: AppApi; onDone: () => void }) {
           <li>Courses go live tagged Not reviewed. Reviewers may mark them Reviewed, ask for changes, or take them down. Anyone can report a course.</li>
           <li>We can remove courses or accounts that break these terms.</li>
         </ul>
+        <p className="small muted">
+          These are in addition to Erudior's{" "}
+          <button type="button" className="linkish" onClick={() => api.go({ name: "terms" })}>
+            Terms of Use
+          </button>
+          .
+        </p>
       </section>
       <label className="check" style={{ marginTop: 16 }}>
         <input type="checkbox" checked={adult} onChange={(e) => setAdult(e.target.checked)} />

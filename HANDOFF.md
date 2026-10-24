@@ -110,6 +110,10 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - Fixed along the way: under 900px the exam/quiz answer sheet (with Finish quiz / End session) was hidden; it now sits under the question.
 - Tests: `tests/classroom.test.mts` (in npm test); `scripts/classroom-walkthrough.mjs` (teacher + a second browser as the student's device: setup, assign with due date, class file, shared-computer quiz, join, hand-in, tampered file refused, gradebook, CSV, reports), clean light/dark 1280 and 320.
 
+## Terms of Use and disclaimers (after v0.24.0)
+- `src/components/Terms.tsx`: `TermsOfUse` (shared), `GENERAL_DISCLAIMER`, `LEGAL_EMAIL` (legal@erudior.com — Jon must create this address), `TERMS_UPDATED`. Shown at erudior.com/terms (Site.tsx, footer link + disclaimer line) and /terms in the app (View `terms`; links from the Library page footer, Progress page and the community course terms). Names "Erudior" until Erudior SBC/PBC is registered (Jon); governing law Colorado. Not reviewed by a lawyer.
+- Course `disclaimer` field (types, normalizeCourse, catalog entry via write_manifest) shows on the course Overview and course page. Colorado course has one (revision 14, `content/build_course.py`).
+
 ## Round 2 for every school course (after v0.24.0)
 - Every school course (15 math/science, Biology fixes, German A1–B1) got honors lessons, pictures and diagrams in every lesson and the new question kinds. Brief: `content/ROUND2.md`; writers' notes `NOTES2-<mod>.md`; reviews `REVIEW2-<mod>.md` (169 reviews: 101 answer-key, 381 factual, 417 picture, 451 other fixes). Three gap lessons were added afterwards as `r3` files: prealgebra 35h4 (scaling area/volume), diffeq 37h3 (Lyapunov), multivariable 38h3 (vector potentials/Helmholtz).
 - Course revisions bumped with changelogs (math/science 4, Biology 3, German A1 3, A2/B1 2). All 182 modules pass `check-module.sh`; every course passes `tests/check-course.mts`; card, question and lesson ids from the previous release are all kept.
