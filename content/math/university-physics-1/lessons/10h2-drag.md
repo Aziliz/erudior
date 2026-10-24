@@ -128,7 +128,8 @@ Return speed: $v^2 = v_T^2(1 - e^{-2gh/v_T^2})$. Since $e^{2gh/v_T^2} = 1 + v_0^
 
 ## Common mistakes
 
-- Using quadratic drag for tiny particles (or Stokes drag for a ball): check the Reynolds number.
+- Using quadratic drag for tiny particles, or linear drag for a ball or a person: check the Reynolds number.
+- Expecting a coasting object with quadratic drag to stop after a definite time or distance; in this model the speed halves over equal distances and never reaches zero.
 - Forgetting that drag acts opposite the *velocity*: down on the way up, up on the way down. The sign of the $cv^2$ term changes between the two halves of a throw.
 - Treating $C$ as a universal constant. It depends on shape, and its quoted values are approximate.
 - Assuming the time constant is the time to reach terminal velocity; the speed only approaches $v_T$, reaching 76% of it at $t = \tau$ for quadratic drag ($\tanh 1 = 0.76$) and 63% for linear drag.
@@ -136,8 +137,9 @@ Return speed: $v^2 = v_T^2(1 - e^{-2gh/v_T^2})$. Since $e^{2gh/v_T^2} = 1 + v_0^
 
 ## Key points
 
-- Linear drag $bv$ (Stokes: $b = 6\pi\eta R$) for $Re \ll 1$; quadratic drag $\tfrac12C\rho Av^2$ for $Re$ of about $10^3$ to $2\times10^5$. $Re = \rho vD/\eta$.
+- Linear drag $bv$ for small, slow objects ($Re \ll 1$); quadratic drag $\tfrac12C\rho Av^2 = cv^2$ for most everyday objects in air ($Re$ of about $10^3$ to $2\times10^5$).
+- Velocity-dependent forces: separate $m\,dv/F(v) = dt$ for $v(t)$, or use $v\,dv/dx$ for $v(x)$.
+- Coasting with quadratic drag: $v = v_0/(1 + cv_0t/m)$ and $v = v_0e^{-cx/m}$.
 - Quadratic drag, falling from rest: $v_T = \sqrt{2mg/(C\rho A)}$, $v = v_T\tanh(gt/v_T)$, $y = (v_T^2/g)\ln\cosh(gt/v_T)$.
 - Thrown up: $t_{\text{up}} = (v_T/g)\tan^{-1}(v_0/v_T)$ and $h = \dfrac{v_T^2}{2g}\ln(1 + v_0^2/v_T^2)$.
-- $v\,dv/dy$ turns a velocity-dependent force into an equation in height.
 - With drag, the trip down is slower than the trip up, and the landing speed is less than the launch speed.

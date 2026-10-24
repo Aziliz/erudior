@@ -51,7 +51,7 @@ The magnetic force gives a centripetal acceleration $a = evB/m_e = (1.602\times1
 
 $$P = \frac{(1.602\times10^{-19})^2(1.76\times10^{18})^2}{6\pi(8.85\times10^{-12})(3.00\times10^8)^3} = 1.76\times10^{-17}\text{ W}.$$
 
-Its kinetic energy is $\tfrac12m_ev^2 = 4.56\times10^{-17}$ J, so the time scale is $K/P = 2.6$ s. Because $P$ is proportional to $v^2$, and so to $K$, the energy actually decays exponentially with this time constant, whatever the starting speed. Radiation from circling charges is called **synchrotron radiation**; at the much higher energies of electron storage rings (where the fully relativistic version of the formula applies) it is strong enough to be the main design limit, and it is also deliberately produced as an intense X-ray source.
+Its kinetic energy is $\tfrac12m_ev^2 = 4.56\times10^{-17}$ J, so the time scale is $K/P = 2.6$ s. Because $P$ is proportional to $v^2$, and so to $K$, the energy actually decays exponentially with this time constant, whatever the starting speed. Radiation from circling charges is called **synchrotron radiation**; at the much higher energies of electron storage rings (where the fully relativistic version of the formula applies) it is strong enough to be a major design limit, and it is also deliberately produced as an intense X-ray source.
 
 ## Radiation in the world
 
@@ -108,7 +108,7 @@ Bohr's 1913 model simply declared that certain orbits are **stationary states** 
 
 For hydrogen the check is direct. Classically, an electron in orbit $n$ should radiate at its orbital frequency, which in the Bohr model works out to
 
-$$f_{\text{orbit}} = \frac{2(13.6\text{ eV})}{hn^3} = \frac{6.57\times10^{15}\text{ Hz}}{n^3}.$$
+$$f_{\text{orbit}} = \frac{2(13.6\text{ eV})}{hn^3} = \frac{6.572\times10^{15}\text{ Hz}}{n^3}.$$
 
 Quantum mechanically, a jump from $n$ to $n - 1$ emits a photon of frequency
 
@@ -122,11 +122,11 @@ For large $n$, $2n - 1 \approx 2n$ and $(n - 1)^2 \approx n^2$, so $f_{\text{pho
 
 ### Example 4
 
-Compare the two frequencies for $n = 100$. Use $13.6\text{ eV}/h = 3.29\times10^{15}$ Hz.
+Compare the two frequencies for $n = 100$. Use $13.6\text{ eV}/h = 3.286\times10^{15}$ Hz.
 
-$f_{\text{orbit}} = 6.57\times10^{15}/100^3 = 6.57\times10^9$ Hz.
+$f_{\text{orbit}} = 6.572\times10^{15}/100^3 = 6.572\times10^9$ Hz.
 
-$f_{\text{photon}} = (3.29\times10^{15})\dfrac{199}{100^2(99)^2} = (3.29\times10^{15})(2.030\times10^{-6}) = 6.68\times10^9$ Hz.
+$f_{\text{photon}} = (3.286\times10^{15})\dfrac{199}{100^2(99)^2} = (3.286\times10^{15})(2.0304\times10^{-6}) = 6.672\times10^9$ Hz.
 
 They differ by 1.5%, and the difference shrinks like $3/(2n)$. Both are microwaves: atoms in such highly excited "Rydberg" states are huge (radius $n^2r_0 \approx 0.5$ μm) and behave almost classically.
 
