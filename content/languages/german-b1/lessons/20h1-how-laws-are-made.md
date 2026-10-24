@@ -11,12 +11,7 @@ refs: [de3-ref-passive-opinions]
 
 In lessons 16 to 18 you learned the passive step by step: *Der Müll wird abgeholt. Das Rathaus wurde 1890 gebaut. Der Antrag muss eingereicht werden.* In lesson 20 you met the Bundestag, the parties and the Chancellor. This honors lesson brings the two together in the place where the passive is most at home: the description of how a law is made. Nobody reads "the clerk sends the bill to the committee"; official German says *Der Entwurf wird an einen Ausschuss überwiesen.*
 
-You will also take the passive a step further than the core lessons:
-
-- the difference between an action and a state (*Das Gesetz wird verabschiedet* vs *Das Gesetz ist verabschiedet*), now for active use;
-- passives with no subject at all, from verbs with a dative or a preposition (*Dem Antrag wurde zugestimmt. Darüber wird abgestimmt.*);
-- four other ways to avoid naming the doer, including *sich lassen* (*Das lässt sich ändern*);
-- and a critical eye: why politicians like sentences such as *Es wurden Fehler gemacht.*
+You will also take the passive further than the core lessons: the difference between an action and a state for active use, passives with no subject at all (*Dem Antrag wurde zugestimmt*), *sich lassen* as another way to avoid naming the doer (*Das lässt sich ändern*), and a critical eye for sentences like *Es wurden Fehler gemacht.*
 
 ## Text: Wie ein Gesetz entsteht
 
@@ -62,7 +57,7 @@ Two facts worth knowing. Before signing, the Federal President checks that the l
 
 ## Action or state: werden or sein?
 
-Lesson 17 showed you the **state passive** for recognition: *Die Straße ist gesperrt.* Now use it yourself. The rule is simple:
+Lesson 17 showed you the **state passive** for recognition (*Die Straße ist gesperrt*). Now use it yourself:
 
 - *werden* + Partizip II describes the action, the process: *Das Gesetz wird verabschiedet.* (It is being passed: the vote is happening.)
 - *sein* + Partizip II describes the state after the action: *Das Gesetz ist verabschiedet.* (It has been passed; that's done.)
@@ -87,7 +82,7 @@ Complete: *Seit 2023 ___ das Rauchen in unserem Stadtpark ___.* (verbieten)
 
 ## Passives without a subject
 
-In lesson 16 you saw *Den Kunden wird sofort geholfen*, and in lesson 17 *Hier wird nicht geraucht*. Official and political German uses this kind of passive constantly, so now you should be able to build it. There are three cases.
+You have seen *Den Kunden wird sofort geholfen* (lesson 16) and *Hier wird nicht geraucht* (lesson 17). Political German uses this kind of passive constantly. There are three cases.
 
 **Verbs with a dative object** (*helfen, zustimmen, widersprechen, danken, folgen*): the dative stays a dative, because only an accusative object can become a passive subject. With no subject, the verb is always in the *er/sie/es* form:
 
@@ -120,7 +115,7 @@ Make passive, without the doer: *Der Ausschuss hat den Experten für ihre Hilfe 
 
 ## Four more ways to leave out the doer
 
-The *werden*-passive is the main tool, but official German has a whole family of constructions that all avoid naming who does something. You met three of them in lessons 16 and 18; the fourth is new.
+Official German has a whole family of constructions that avoid naming who does something. You met three in lessons 16 and 18; the fourth is new.
 
 | meaning | passive | alternatives |
 |---|---|---|
@@ -159,7 +154,7 @@ The passive hides the doer, and sometimes that is the point. When a politician s
 - *Im Ministerium wurden Fehler gemacht.* — a place, but no person.
 - *Es wurden Fehler gemacht.* — nobody at all.
 
-Nominal style (lesson 20) can hide the doer just as well: *Nach der Erhöhung der Gebühren …* doesn't say who raised them. Neither form is dishonest in itself; processes, rules and news often have no single doer worth naming. But when responsibility matters, ask: *Von wem?*
+Nominal style (lesson 20) hides the doer just as well: *Nach der Erhöhung der Gebühren …* doesn't say who raised them. Neither form is dishonest in itself, but when responsibility matters, ask: *Von wem?*
 
 ## Common mistakes
 

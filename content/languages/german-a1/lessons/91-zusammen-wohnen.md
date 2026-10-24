@@ -11,8 +11,7 @@ refs: [de1-ref-modals, de1-ref-prepositions]
 In lesson 15 you learned to talk about rules with *man* and a modal verb (*Hier darf man nicht
 rauchen*) and to read short signs like *Rauchen verboten*. In lesson 19 you moved into a flat and
 learned to say where things are (*auf dem Tisch, im Bad*). This honors lesson puts the two
-together: what it's like to live in a German block of flats, with its house rules, its quiet
-hours and its famous rubbish bins.
+together: life in a German block of flats, with its house rules and its famous rubbish bins.
 
 You'll learn to read a real-style *Hausordnung* (house rules), the infinitive used as a command
 (*Bitte Tür schließen!*), and the second half of the two-way prepositions, which lesson 19 left
@@ -50,7 +49,7 @@ stairwell. 3. No smoking in the stairwell or the cellar. 4. Please sort your rub
 thanks! Your property management.*
 
 New in passing: *die Ruhezeit* (quiet time), *den ganzen Tag* (all day), *der Kinderwagen*
-(pram, stroller), *abstellen* (to put down and leave), *richtig* (correctly, lesson 8), *die
+(pram, stroller), *abstellen* (to put down and leave), *die
 Haustür* (front door of the building), *grillen* (to barbecue), *die Hausverwaltung* (the company
 that manages the building).
 
