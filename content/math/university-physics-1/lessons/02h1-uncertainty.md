@@ -66,14 +66,14 @@ Standard error: $\delta\bar t = 0.048/\sqrt5 = 0.022$ s. Report $t = 2.45 \pm 0.
 
 Usually the quantity you want is calculated, not measured: a density from a mass and a volume, $g$ from a pendulum's length and period. **Propagation of uncertainty** works out how the input uncertainties feed into the result.
 
-**Sums and differences.** If $q = x + y$ or $q = x - y$, the worst case is that both errors push the same way, giving $\delta q = \delta x + \delta y$. But when the errors are random and independent, they are unlikely to both be at their extremes at once, and the realistic estimate is to add them in quadrature:
+*Sums and differences.* If $q = x + y$ or $q = x - y$, the worst case is that both errors push the same way, giving $\delta q = \delta x + \delta y$. But when the errors are random and independent, they are unlikely to both be at their extremes at once, and the realistic estimate is to add them in quadrature:
 $$\delta q = \sqrt{(\delta x)^2 + (\delta y)^2}.$$
 **Adding in quadrature** (the square root of the sum of squares, like the Pythagorean theorem) always gives less than the plain sum. It follows from a result in statistics: for independent errors, the squares of the standard deviations (the variances) add. Note that the uncertainties add even when the quantities are subtracted.
 
-**Products and quotients.** If $q = xy$ or $q = x/y$, the relative uncertainties add in quadrature:
+*Products and quotients.* If $q = xy$ or $q = x/y$, the relative uncertainties add in quadrature:
 $$\frac{\delta q}{|q|} = \sqrt{\left(\frac{\delta x}{x}\right)^2 + \left(\frac{\delta y}{y}\right)^2}.$$
 
-**Powers.** If $q = x^n$, then $\dfrac{\delta q}{|q|} = |n|\,\dfrac{\delta x}{|x|}$. Squaring a quantity doubles its relative uncertainty, and a square root halves it. This is not the product rule applied to $x \cdot x$: the two factors are the same measurement, so their errors are not independent, and the full $2\,\delta x/x$ applies.
+*Powers.* If $q = x^n$, then $\dfrac{\delta q}{|q|} = |n|\,\dfrac{\delta x}{|x|}$. Squaring a quantity doubles its relative uncertainty, and a square root halves it. This is not the product rule applied to $x \cdot x$: the two factors are the same measurement, so their errors are not independent, and the full $2\,\delta x/x$ applies.
 
 Exact numbers such as $4\pi^2$ or $\tfrac12$ carry no uncertainty, so they don't change the relative uncertainty.
 
@@ -124,7 +124,7 @@ For a power, $q = x^n$ gives $dq/dx = n x^{n-1}$, and dividing by $q$ gives $\de
 $$\delta q = \sqrt{\left(\frac{\partial q}{\partial x}\,\delta x\right)^2 + \left(\frac{\partial q}{\partial y}\,\delta y\right)^2 + \cdots}$$
 For $q = xy$, $\partial q/\partial x = y$ and $\partial q/\partial y = x$; dividing by $q = xy$ gives the product rule above.
 
-This rule handles functions the others can't. For $q = \sin\theta$ with $\theta = 30.0^\circ \pm 0.5^\circ$: $\delta q = |\cos\theta|\,\delta\theta$, with $\delta\theta$ **in radians**, since the derivative of $\sin\theta$ is $\cos\theta$ only for radians. $0.5^\circ = 0.00873$ rad, so $\delta q = 0.866 \times 0.00873 = 0.0076$, and $\sin\theta = 0.500 \pm 0.008$.
+This rule handles functions the others can't. For $q = \sin\theta$ with $\theta = 30.0^\circ \pm 0.5^\circ$: $\delta q = |\cos\theta|\,\delta\theta$, with $\delta\theta$ *in radians*, since the derivative of $\sin\theta$ is $\cos\theta$ only for radians. $0.5^\circ = 0.00873$ rad, so $\delta q = 0.866 \times 0.00873 = 0.0076$, and $\sin\theta = 0.500 \pm 0.008$.
 
 The tangent-line rule assumes $\delta x$ is small enough that the function is nearly straight over $x \pm \delta x$. That is a simplification; for large uncertainties or a function near a maximum (like $\sin\theta$ near $90^\circ$), compute $f(x + \delta x)$ and $f(x - \delta x)$ directly instead.
 
