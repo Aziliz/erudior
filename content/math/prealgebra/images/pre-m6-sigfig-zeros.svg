@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="sans-serif" fill="#1c2833">
+<rect width="800" height="300" fill="#ffffff"/>
+<rect x="130" y="90" width="64" height="86" rx="8" fill="#e9ecef" stroke="#1c2833" stroke-width="2"/>
+<text x="162" y="150" font-size="50" font-weight="normal" text-anchor="middle" fill="#1c2833">0</text>
+<circle cx="214" cy="165" r="6" fill="#1c2833"/>
+<rect x="232" y="90" width="64" height="86" rx="8" fill="#e9ecef" stroke="#1c2833" stroke-width="2"/>
+<text x="264" y="150" font-size="50" font-weight="normal" text-anchor="middle" fill="#1c2833">0</text>
+<rect x="308" y="90" width="64" height="86" rx="8" fill="#e9ecef" stroke="#1c2833" stroke-width="2"/>
+<text x="340" y="150" font-size="50" font-weight="normal" text-anchor="middle" fill="#1c2833">0</text>
+<rect x="384" y="90" width="64" height="86" rx="8" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="416" y="150" font-size="50" font-weight="normal" text-anchor="middle" fill="#1c2833">4</text>
+<rect x="460" y="90" width="64" height="86" rx="8" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="492" y="150" font-size="50" font-weight="normal" text-anchor="middle" fill="#1c2833">0</text>
+<rect x="536" y="90" width="64" height="86" rx="8" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="568" y="150" font-size="50" font-weight="normal" text-anchor="middle" fill="#1c2833">5</text>
+<rect x="612" y="90" width="64" height="86" rx="8" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<text x="644" y="150" font-size="50" font-weight="normal" text-anchor="middle" fill="#1c2833">0</text>
+<path d="M132,70 v-10 H370 v10" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="251.0" y="48" font-size="17" font-weight="normal" text-anchor="middle" fill="#1c2833">leading zeros: not significant</text>
+<path d="M386,70 v-10 H674 v10" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="530.0" y="48" font-size="17" font-weight="bold" text-anchor="middle" fill="#1c2833">4 significant figures</text>
+<line x1="492" y1="180" x2="492" y2="215" stroke="#1c2833" stroke-width="2"/>
+<text x="482" y="238" font-size="16" font-weight="normal" text-anchor="middle" fill="#1c2833">zero between nonzero digits:</text>
+<text x="482" y="258" font-size="16" font-weight="normal" text-anchor="middle" fill="#1c2833">significant</text>
+<line x1="644" y1="180" x2="644" y2="270" stroke="#1c2833" stroke-width="2"/>
+<text x="654" y="290" font-size="16" font-weight="normal" text-anchor="end" fill="#1c2833">trailing zero after the point: significant</text>
+</svg>

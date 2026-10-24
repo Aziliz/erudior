@@ -1,0 +1,96 @@
+# Round 2, module pre-m3: drills for the honors lessons.
+
+- id: pre-m3-r2-complex
+  title: Simplify a complex fraction
+  topic: Complex fractions
+  vars:
+    a: {min: 1, max: 9}
+    b: {min: 2, max: 12}
+    c: {min: 1, max: 9}
+    d: {min: 2, max: 12}
+  calc:
+    L: lcm(b, d)
+    ta: a * L / b
+    tc: c * L / d
+    top: L + ta
+    bot: L - tc
+    v: (1 + a / b) / (1 - c / d)
+  where: ["a < b", "c < d", "b != d", "gcd(a, b) == 1", "gcd(c, d) == 1", "L <= 60"]
+  prompt: 'Simplify $\dfrac{1 + \tfrac{{a}}{{b}}}{1 - \tfrac{{c}}{{d}}}$. Give an exact fraction (improper is fine) or a whole number.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Value}
+  solution: |-
+    The LCD of {b} and {d} is {L}. Multiply every term on top and bottom by {L}, including the 1s: $\dfrac{{L} + {ta}}{{L} - {tc}} = \dfrac{{top}}{{bot}}$, which simplifies to **${v:texfrac}$**.
+
+- id: pre-m3-r2-contfrac
+  title: Evaluate a continued fraction
+  topic: Continued fractions
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: 1, max: 6}
+    c: {min: 2, max: 7}
+  calc:
+    bc1: b * c + 1
+    v: a + 1 / (b + 1 / c)
+  prompt: 'Evaluate $\;{a} + \cfrac{1}{{b} + \cfrac{1}{{c}}}$. Give an exact improper fraction or a mixed number.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Value}
+  solution: |-
+    Work from the bottom up. ${b} + \tfrac{1}{{c}} = \tfrac{{bc1}}{{c}}$. Flip it: $1 \div \tfrac{{bc1}}{{c}} = \tfrac{{c}}{{bc1}}$. Add {a}: **${v:texfrac}$**.
+
+- id: pre-m3-r2-rest-backward
+  title: Find the starting amount from what's left
+  topic: Fraction word problems
+  vars:
+    m: {min: 1, max: 4}
+    p: {min: 2, max: 5}
+    q: {min: 2, max: 5}
+    k: {min: 1, max: 6}
+  calc:
+    S: k * p * q
+    first: k * m * q
+    rest: S - first
+    second: rest / q
+    L: rest - second
+    fl: (p - m) * (q - 1) / (p * q)
+  where: ["m < p", "gcd(m, p) == 1"]
+  prompt: 'Rosa spent $\tfrac{{m}}{{p}}$ of her money on a concert ticket and then $\tfrac{1}{{q}}$ of what remained on dinner. She has {L} dollars left. How many dollars did she start with?'
+  answer: S
+  format: integer
+  solution: |-
+    Fraction left after each step: $1 - \tfrac{{m}}{{p}}$, then $1 - \tfrac{1}{{q}}$ of that. Multiplied, the fraction of her money left is ${fl:texfrac}$. So ${fl:texfrac}$ of the start is {L}, and the start is ${L} \div {fl:texfrac} =$ **{S}** dollars. Check: the ticket costs {first}, leaving {rest}; dinner costs {second}, leaving {L}.
+
+- id: pre-m3-r2-work-together
+  title: Working together
+  topic: Combined rates
+  vars:
+    ta: {min: 2, max: 12}
+    tb: {min: 2, max: 12}
+  calc:
+    num: ta * tb
+    den: ta + tb
+    v: ta * tb / (ta + tb)
+  where: ["ta < tb"]
+  prompt: 'One machine can do a job alone in {ta} hours, and another can do it alone in {tb} hours. Working together at these rates, how many hours do they take? Give an exact fraction or a mixed number (for example 2 2/5).'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Hours}
+  solution: |-
+    Rates: $\tfrac{1}{{ta}} + \tfrac{1}{{tb}} = \tfrac{{den}}{{num}}$ job per hour. Time $= 1 \div \tfrac{{den}}{{num}} = \tfrac{{num}}{{den}}$ (product over sum), which is **${v:texfrac}$** hours.
+
+- id: pre-m3-r2-avg-speed
+  title: Average speed for a round trip
+  topic: Combined rates
+  vars:
+    sa: {min: 10, max: 70, step: 5}
+    sb: {min: 10, max: 70, step: 5}
+  calc:
+    num: 2 * sa * sb
+    den: sa + sb
+    v: 2 * sa * sb / (sa + sb)
+    plain: (sa + sb) / 2
+  where: ["sa < sb", "mod(sa + sb, 10) == 0"]
+  prompt: 'A cyclist rides to a park at {sa} mph and returns along the same route at {sb} mph. What is the average speed for the round trip, in mph? Give an exact fraction, a mixed number or a whole number.'
+  answers:
+    - {name: v, kind: fraction, lowestTerms: true, label: Average speed (mph)}
+  solution: |-
+    Equal distances, so use the harmonic mean: $\dfrac{2 \times {sa} \times {sb}}{{sa} + {sb}} = \dfrac{{num}}{{den}} =$ **${v:texfrac}$** mph. It is less than the plain average, {plain} mph, because more time is spent at the slower speed.

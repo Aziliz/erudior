@@ -34,6 +34,10 @@ The base units are the **meter** (m) for length, the **gram** (g) for mass, and 
 
 Because every step is a factor of 10, converting within the metric system just moves the decimal point, exactly as in Lesson 14. Moving one column to the right in the table (toward smaller units) multiplies by 10; moving left divides by 10.
 
+Picture the prefixes as a staircase: walking down to a smaller unit, each step multiplies the number by 10; walking up to a larger unit, each step divides by 10.
+
+![A staircase of seven steps from kilo (1,000) at the top left down through hecto (100), deka (10), the base unit (1: meter, gram or liter), deci (0.1) and centi (0.01) to milli (0.001) at the bottom right. Text explains that one step down multiplies by 10 and one step up divides by 10.](images/pre-m8-metric-stairs.svg)
+
 ### Example 1
 
 Convert 3.75 km to meters, and 480 mL to liters.
@@ -50,6 +54,20 @@ For any conversion, there's one method that always works. A **conversion factor*
 $$\frac{12 \text{ in}}{1 \text{ ft}} \quad\text{or}\quad \frac{1 \text{ ft}}{12 \text{ in}}.$$
 
 Multiplying by 1 doesn't change a quantity, so you can multiply by conversion factors freely. The trick is to choose the version that makes the unwanted unit cancel: units cancel like factors in a fraction. This method is called **dimensional analysis** (or unit analysis).
+
+The whole method fits in one loop:
+
+```mermaid
+flowchart TD
+  accTitle: The steps of dimensional analysis
+  accDescr: Write the quantity with its unit. Choose a conversion factor that has the unwanted unit on the opposite side of the fraction bar. Multiply and cancel matching units. If the unit you want is not yet the only one left, choose another factor and repeat. When it is, multiply and divide the numbers, then do a sense check that a smaller unit gives a bigger number.
+  A["Write the quantity with its unit"] --> B["Choose a conversion factor with the unwanted unit on the opposite side of the bar"]
+  B --> C["Multiply and cancel matching units"]
+  C --> D{"Is the unit you want the only one left?"}
+  D -- "No" --> B
+  D -- "Yes" --> E["Multiply and divide the numbers"]
+  E --> F["Sense check: smaller unit, bigger number"]
+```
 
 ### Example 2
 

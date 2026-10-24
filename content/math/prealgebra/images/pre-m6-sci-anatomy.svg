@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" width="800" height="280" font-family="sans-serif" fill="#1c2833">
+<rect width="800" height="280" fill="#ffffff"/>
+<text x="170" y="150" font-size="64" font-weight="normal" text-anchor="middle" fill="#1c2833">4.05</text>
+<text x="285" y="150" font-size="56" font-weight="normal" text-anchor="middle" fill="#1c2833">×</text>
+<text x="375" y="150" font-size="64" font-weight="normal" text-anchor="middle" fill="#1c2833">10</text>
+<text x="445" y="100" font-size="38" font-weight="normal" text-anchor="middle" fill="#1c2833">−4</text>
+<text x="515" y="150" font-size="56" font-weight="normal" text-anchor="middle" fill="#1c2833">=</text>
+<text x="660" y="150" font-size="54" font-weight="normal" text-anchor="middle" fill="#1c2833">0.000405</text>
+<path d="M110,180 v12 H230 v-12" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="170.0" y="222" font-size="19" font-weight="normal" text-anchor="middle" fill="#1c2833">coefficient</text>
+<path d="M335,180 v12 H415 v-12" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="375.0" y="222" font-size="19" font-weight="normal" text-anchor="middle" fill="#1c2833">base</text>
+<path d="M585,180 v12 H735 v-12" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="660.0" y="222" font-size="19" font-weight="normal" text-anchor="middle" fill="#1c2833">standard form</text>
+<line x1="445" y1="62" x2="445" y2="40" stroke="#1c2833" stroke-width="2"/>
+<text x="445" y="30" font-size="19" font-weight="normal" text-anchor="middle" fill="#1c2833">exponent</text>
+<text x="400" y="262" font-size="16" font-weight="normal" text-anchor="middle" fill="#1c2833">1 ≤ coefficient &lt; 10, and the exponent is an integer</text>
+</svg>

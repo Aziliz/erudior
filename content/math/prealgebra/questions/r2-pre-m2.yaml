@@ -15,7 +15,7 @@
     - {x: 53.5, y: 25.86, text: '12°F'}
   distractors: ['-13°F', '-5°F', '7°F']
   explanation: |-
-    Below 0 the numbers get more negative as you go down. Pointer 1 is 5 marks below $-10$: $-15$. Pointer 2 is 3 marks *above* $-10$, so it is $-10 + 3 = -7$ (not $-13$, which would be 3 marks below). Pointer 3 is 3 marks above 0: 3. Pointer 4 is 2 marks above 10: 12.
+    Below 0 the numbers get more negative as you go down. Pointer 1 is 5 marks below $-10$: $-15$. Pointer 2 is 3 marks above $-10$, so it is $-10 + 3 = -7$ (not $-13$, which would be 3 marks below). Pointer 3 is 3 marks above 0: 3. Pointer 4 is 2 marks above 10: 12.
 
 - id: pre-m2-r2-q02
   lesson: pre-integers

@@ -16,9 +16,9 @@ The inductance lesson found the impedance of a series RLC circuit, $Z = \sqrt{R^
 
 Drive a sinusoidal current $I = I_0\sin(\omega t)$ through each kind of element on its own and compare the voltage across it.
 
-- *Resistor.* $V = IR$ at every instant, so the voltage peaks when the current peaks. They are **in phase**.
-- *Inductor.* The voltage across an inductor is $L\,\Delta I/\Delta t$, proportional to how fast the current is *changing*. A sine wave changes fastest as it crosses zero and not at all at its peaks. So the inductor's voltage is largest when the current is zero and zero when the current is largest: the voltage peaks a quarter cycle ($90^\circ$) *before* the current. The current **lags** the voltage by $90^\circ$.
-- *Capacitor.* Now turn it around: the capacitor's charge follows its voltage, $Q = CV$, and the current is how fast the charge changes. The current is largest as the voltage crosses zero, a quarter cycle *before* the voltage peaks. The current **leads** the voltage by $90^\circ$.
+- *Resistor.* $V = IR$ at every instant, so the voltage peaks when the current peaks. They are in phase.
+- *Inductor.* The voltage across an inductor is $L\,\Delta I/\Delta t$, proportional to how fast the current is *changing*. A sine wave changes fastest as it crosses zero and not at all at its peaks. So the inductor's voltage is largest when the current is zero and zero when the current is largest: the voltage peaks a quarter cycle ($90^\circ$) *before* the current. The current lags the voltage by $90^\circ$.
+- *Capacitor.* Now turn it around: the capacitor's charge follows its voltage, $Q = CV$, and the current is how fast the charge changes. The current is largest as the voltage crosses zero, a quarter cycle *before* the voltage peaks. The current leads the voltage by $90^\circ$.
 
 ```plot
 {"x": [0, 12.57], "y": [-1.3, 1.3], "xLabel": "phase ωt (rad)", "yLabel": "value / peak", "functions": [{"f": "sin(x)", "dashed": true}, {"f": "sin(x - pi/2)"}], "labels": [{"at": [1.57, 1.18], "text": "voltage peaks first (dashed)"}, {"at": [3.3, 1.18], "text": "current a quarter cycle later"}], "caption": "Inductor: the current (solid) lags the voltage (dashed) by a quarter cycle"}

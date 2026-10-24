@@ -24,6 +24,8 @@ Angles are measured in **degrees** (°). A full turn is 360°, so one degree is 
 | **obtuse angle** | between 90° and 180° |
 | **straight angle** | exactly 180° (a straight line) |
 
+![Four angles, each made of two rays from a vertex dot. An acute angle, less than 90°; a right angle, exactly 90°, marked with a small square; an obtuse angle, between 90° and 180°; and a straight angle, exactly 180°, whose rays point in opposite directions.](images/pre-m8-angle-types.svg)
+
 Lines that meet at a right angle are **perpendicular** ($\perp$). Lines in the same plane that never meet are **parallel** ($\parallel$).
 
 ## Angle pairs
@@ -61,6 +63,30 @@ Triangles are classified by angles (acute, right or obtuse, by their largest ang
 - **equilateral**: all three sides equal (and all angles 60°);
 - **isosceles**: at least two sides equal (the angles opposite them are equal too);
 - **scalene**: no sides equal.
+
+Each triangle gets one name from each list. To name a triangle by its angles, only the largest angle matters:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a triangle by its angles
+  accDescr: Find the triangle's largest angle. If it is less than 90 degrees the triangle is acute, if it is exactly 90 degrees the triangle is right, and if it is more than 90 degrees the triangle is obtuse.
+  A["Find the largest angle"] --> Q{"Compare it with 90°"}
+  Q -- "less than 90°" --> AC["Acute triangle"]
+  Q -- "exactly 90°" --> R["Right triangle"]
+  Q -- "more than 90°" --> O["Obtuse triangle"]
+```
+
+To name it by its sides, count equal sides:
+
+```mermaid
+flowchart TD
+  accTitle: Classifying a triangle by its sides
+  accDescr: If all three sides are equal, the triangle is equilateral, which also counts as isosceles. If not, and exactly two sides are equal, it is isosceles. If no sides are equal, it is scalene.
+  A{"Are all three sides equal?"} -- "Yes" --> E["Equilateral (also counts as isosceles)"]
+  A -- "No" --> B{"Are two sides equal?"}
+  B -- "Yes" --> I["Isosceles"]
+  B -- "No" --> S["Scalene"]
+```
 
 ### Example 3
 

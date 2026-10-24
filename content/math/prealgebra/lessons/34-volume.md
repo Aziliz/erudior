@@ -85,6 +85,10 @@ Find the surface area of a cylinder with radius 3 ft and height 10 ft.
 
 Unroll it: two circles (top and bottom), each $\pi r^2 = 9\pi$, and a rectangle whose width is the circumference $2\pi r = 6\pi$ and whose height is 10. The rectangle's area is $6\pi \times 10 = 60\pi$.
 
+The picture shows why the rectangle is that wide: its long edge wrapped once around the circular base.
+
+![Left: a cylinder with radius r and height h. Right: its net, a rectangle with a circle touching its top edge and another touching its bottom edge. Each circle has area πr². The rectangle's long side has length 2πr, the circumference, its short side is h, and its area is 2πr times h.](images/pre-m8-cylinder-net.svg)
+
 Total: $SA = 2\pi r^2 + 2\pi r h = 18\pi + 60\pi = 78\pi \approx 245 \text{ ft}^2$.
 
 ## Volume vs surface area vs perimeter
@@ -97,6 +101,19 @@ Total: $SA = 2\pi r^2 + 2\pi r h = 18\pi + 60\pi = 78\pi \approx 245 \text{ ft}^
 | Volume | space inside a solid | ft³, cm³ (cubic) |
 
 Painting a wall uses area; fencing a yard uses perimeter; filling a pool uses volume; wrapping a gift uses surface area.
+
+When a word problem doesn't say which one it wants, ask what is being measured:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing perimeter, area, surface area or volume
+  accDescr: Ask what the problem measures. A distance around a flat shape, like fencing or a frame, is perimeter, in plain units. A flat surface, like carpet or paint on a wall, is area, in square units. The whole outside of a solid, like wrapping paper or the material in a box, is surface area, in square units. The space inside a solid, like water in a tank or sand in a sandbox, is volume, in cubic units.
+  Q{"What is being measured?"}
+  Q -- "distance around a flat shape" --> P["Perimeter: ft, cm"]
+  Q -- "a flat surface" --> A["Area: ft², cm²"]
+  Q -- "the whole outside of a solid" --> S["Surface area: ft², cm²"]
+  Q -- "the space inside a solid" --> V["Volume: ft³, cm³"]
+```
 
 ### Example 5
 

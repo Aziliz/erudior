@@ -1,0 +1,499 @@
+# Round 2, module phys-m10 (Magnetism and induction): new question types for the core lessons
+# (q01–q20) and the two honors lessons (h01–h14 charged particles, h15–h28 AC power).
+
+# ---- Core: phys-mag-force
+- id: phys-m10-r2-q01
+  lesson: phys-mag-force
+  type: label
+  module_quiz: true
+  topic: Magnetic force
+  stem: 'A positive charge moves in a circle in a uniform magnetic field. Name the numbered parts.'
+  image: {src: images/phys-m10-orbit-blank.svg, alt: 'A region full of × marks. A positive charge sits at the bottom of a circle, with a red arrow pointing right (marker 1) and a blue arrow pointing up toward the circle''s center (marker 2). Marker 3 is the center of the circle; marker 4 is one of the × marks in a corner.'}
+  labels:
+    - {x: 62.5, y: 82.3, text: Velocity}
+    - {x: 50.0, y: 69.8, text: Magnetic force}
+    - {x: 50.0, y: 49.0, text: Center of the circle}
+    - {x: 90.3, y: 11.5, text: Magnetic field into the page}
+  distractors: [Magnetic field out of the page, Electric field]
+  explanation: |-
+    The × marks are arrow tails, so the field points into the page (4). The velocity (1) is tangent to the circle, and the magnetic force (2) is perpendicular to it, toward the center (3). Check with the right-hand rule: fingers right along $\vec v$, curl into the page toward $\vec B$, and the thumb points up, toward the center, for a positive charge.
+- id: phys-m10-r2-q02
+  lesson: phys-mag-force
+  type: text
+  topic: Magnetic force
+  stem: 'An ion moves in a circle of radius 12 cm in a uniform magnetic field. If its speed is tripled (same field, same ion), the radius becomes ___ cm. Give only the number.'
+  accept: ['36']
+  explanation: |-
+    $r = \dfrac{mv}{|q|B}$ is proportional to $v$, so tripling the speed triples the radius: $3 \times 12 = 36$ cm. (The period, $2\pi m/(|q|B)$, stays the same: the ion goes around a bigger circle faster.)
+- id: phys-m10-r2-q03
+  lesson: phys-mag-force
+  topic: Magnetic force
+  stem: 'Which statements about the magnetic force on a moving charged particle are true? Select all that apply.'
+  choices: ['It can speed the particle up if the field is strong enough', 'It is always perpendicular to the particle''s velocity', 'It is zero when the particle moves parallel to the field', 'It points the same way for a proton and an electron with the same velocity', 'It does no work on the particle']
+  answer: [1, 2, 4]
+  explanation: |-
+    $\vec F = q\vec v\times\vec B$ is perpendicular to $\vec v$, so it does no work and never changes the speed (the first statement is false). With $\vec v$ parallel to $\vec B$, $\sin\theta = 0$ and the force vanishes. A proton and an electron have opposite charges, so with the same velocity they feel forces in opposite directions.
+- id: phys-m10-r2-q04
+  lesson: phys-mag-force
+  type: order
+  topic: Magnetic force
+  stem: 'Put the stages of a mass spectrometer measurement in order.'
+  items:
+    - 'Ionize the atoms of the sample'
+    - 'Accelerate the ions through a voltage'
+    - 'Send the ions into a magnetic field perpendicular to their motion'
+    - 'Each ion follows a semicircle whose radius depends on its mass'
+    - 'Ions of different masses land at different spots on a detector'
+  explanation: |-
+    Only charged particles can be accelerated by a voltage and steered by a magnetic field, so ionizing comes first. The voltage gives the ions their speed; then, in the field, $r = mv/(qB)$ (here $r \propto \sqrt m$), so heavier ions curve less and land farther away.
+- id: phys-m10-r2-q05
+  lesson: phys-mag-force
+  type: label
+  module_quiz: true
+  topic: Magnetic force
+  stem: 'Name the numbered parts of this simple DC motor.'
+  image: {src: images/phys-m10-motor-blank.svg, alt: 'A rectangular coil between two magnet blocks (marker 1 on the left block, marker 2 on the coil). Below, the coil''s leads join a split ring (marker 3) touched by two small blocks, one marked 4. Wires lead to a battery symbol (marker 5).'}
+  labels:
+    - {x: 13.9, y: 52.0, text: North pole of the magnet}
+    - {x: 41.7, y: 22.0, text: Rotating coil}
+    - {x: 53.3, y: 77.2, text: Split-ring commutator}
+    - {x: 42.1, y: 74.4, text: Brush}
+    - {x: 50.6, y: 88.0, text: DC source}
+  distractors: [Iron core of a transformer]
+  explanation: |-
+    Field lines run from the magnet's north pole (1) to its south pole. The current-carrying coil (2) feels a torque $\tau = NIAB\sin\phi$. The split ring (3) turns with the coil, and the fixed brushes (4) slide from one half to the other every half turn, reversing the current so the torque keeps turning the coil the same way. The battery (5) supplies the current.
+
+# ---- Core: phys-mag-sources
+- id: phys-m10-r2-q06
+  lesson: phys-mag-sources
+  type: label
+  module_quiz: true
+  topic: Sources of magnetic field
+  stem: 'The picture is a cross-section of a solenoid, cut along its axis. Name the numbered parts.'
+  image: {src: images/phys-m10-solenoid-blank.svg, alt: 'A row of wire cross-sections with dots across the top and a row with crosses across the bottom. Three straight arrows run left to right between the rows; dashed lines loop around outside. Marker 1 is on the straight arrows, 2 at the right end, 3 at the left end, 4 on a dotted wire in the top row and 5 on a dashed outside loop.'}
+  labels:
+    - {x: 41.7, y: 50.0, text: Strong uniform field inside}
+    - {x: 87.8, y: 50.0, text: North-pole end}
+    - {x: 12.2, y: 50.0, text: South-pole end}
+    - {x: 30.6, y: 35.7, text: Current coming out of the page}
+    - {x: 69.4, y: 85.7, text: Weak return field outside}
+  distractors: [Current going into the page]
+  explanation: |-
+    The dots on the top wires mean current out of the page (4); the crosses on the bottom mean current into it. Inside, every turn's field points the same way, giving a strong, uniform field (1) to the right. Field lines leave the north-pole end (2), spread out and return weakly outside (5) into the south-pole end (3). Grip rule check: curl your right fingers out of the page at the top and into it at the bottom, and your thumb points right.
+- id: phys-m10-r2-q07
+  lesson: phys-mag-sources
+  type: match
+  topic: Sources of magnetic field
+  stem: 'Match each situation to its magnetic field.'
+  pairs:
+    - ['Distance $r$ from a long straight wire', 'B = μ₀I/(2πr)']
+    - ['Center of a circular loop of radius $R$', 'B = μ₀I/(2R)']
+    - ['Inside a long solenoid with $n$ turns per meter', 'B = μ₀nI']
+    - ['Midway between two long parallel wires with equal currents in the same direction', 'B = 0']
+  distractors: ['B = μ₀I/(4πr²)']
+  explanation: |-
+    A straight wire's field falls as $1/r$; a loop concentrates it at the center, $\mu_0I/(2R)$; a solenoid's interior field is $\mu_0nI$, independent of position. Midway between equal, same-direction currents, the two fields point opposite ways and cancel. The leftover $1/r^2$ form is a common mix-up with a point charge's electric field.
+- id: phys-m10-r2-q08
+  lesson: phys-mag-sources
+  type: text
+  module_quiz: true
+  topic: Sources of magnetic field
+  stem: 'The magnetic field 2.0 cm from a long straight wire is 100 μT. At 8.0 cm from the same wire it is ___ μT. Give only the number.'
+  accept: ['25']
+  explanation: |-
+    $B = \mu_0I/(2\pi r)$ falls as $1/r$. Four times the distance gives a quarter of the field: $100/4 = 25$ μT. (Using $1/r^2$ would give 6.25 μT, the most common mistake.)
+- id: phys-m10-r2-q09
+  lesson: phys-mag-sources
+  topic: Sources of magnetic field
+  stem: 'Which changes would double the field inside a long solenoid? Select all that apply.'
+  choices: ['Doubling the coil''s radius', 'Doubling the current', 'Doubling both the number of turns and the length', 'Halving the length while keeping the same number of turns', 'Doubling the number of turns while keeping the same length']
+  answer: [1, 3, 4]
+  explanation: |-
+    $B = \mu_0nI$ with $n = N/L$. Doubling $I$ doubles $B$. Halving $L$ or doubling $N$ (the other held fixed) doubles $n$, so it doubles $B$. Doubling both $N$ and $L$ leaves $n$ unchanged, and the interior field doesn't depend on the radius at all.
+- id: phys-m10-r2-q10
+  lesson: phys-mag-sources
+  type: order
+  topic: Sources of magnetic field
+  stem: 'Put these magnetic fields in order from weakest to strongest.'
+  items:
+    - '10 m below a power line carrying 200 A'
+    - 'Earth''s field at the surface'
+    - 'Inside a 0.40 m solenoid with 2000 turns carrying 3.0 A'
+    - 'Inside a hospital MRI scanner'
+  explanation: |-
+    From the lesson: the power line gives $\mu_0I/(2\pi r) = 4.0\times10^{-6}$ T; Earth's field is about $5\times10^{-5}$ T; the solenoid gives $\mu_0nI = 1.9\times10^{-2}$ T; an MRI scanner is 1.5–3 T. Each is roughly ten to a hundred times the one before.
+
+# ---- Core: phys-induction
+- id: phys-m10-r2-q11
+  lesson: phys-induction
+  type: label
+  module_quiz: true
+  topic: Electromagnetic induction
+  stem: 'A rod slides along rails in a magnetic field, as in the motional-emf section. Name the numbered parts.'
+  image: {src: images/phys-m10-rails-blank.svg, alt: 'Two horizontal rails joined at the left by a zigzag (marker 2). A vertical bar lies across the rails at the right (marker 1). An upward arrow beside the bar (marker 3) and a rightward red arrow to its right (marker 4). Arrows along the rails circulate counterclockwise. Marker 5 is on an × mark in the background.'}
+  labels:
+    - {x: 66.8, y: 68.2, text: Sliding rod}
+    - {x: 11.1, y: 47.7, text: Resistor}
+    - {x: 62.5, y: 45.5, text: Induced current}
+    - {x: 77.8, y: 47.7, text: Velocity of the rod}
+    - {x: 84.2, y: 12.5, text: Field into the page}
+  distractors: [Magnetic force on the rod]
+  explanation: |-
+    The rod (1) moves right (4) in a field into the page (5), so the loop's area and the flux into the page grow. By Lenz's law the induced current (3) makes a field out of the page inside the loop: counterclockwise, up through the rod and through the resistor (2). The force on the rod, $I\vec L\times\vec B$, then points left, opposing the motion; it isn't drawn.
+- id: phys-m10-r2-q12
+  lesson: phys-induction
+  type: order
+  module_quiz: true
+  topic: Electromagnetic induction
+  stem: 'Put the steps for finding the direction of an induced current with Lenz''s law in order.'
+  items:
+    - 'Find the direction of the external field through the loop'
+    - 'Decide whether the flux through the loop is increasing or decreasing'
+    - 'Choose the induced field direction that opposes that change'
+    - 'Use the right-hand rule for loops to find the current that makes that field'
+  explanation: |-
+    You can't say whether the flux is growing "into" or "out of" the loop until you know the field's direction; you can't pick the opposing field until you know whether the flux is rising or falling; and the current comes last, from the induced field by the right-hand rule.
+- id: phys-m10-r2-q13
+  lesson: phys-induction
+  type: text
+  topic: Electromagnetic induction
+  stem: 'An ideal transformer steps 120 V down to 12 V. Its primary coil has 500 turns, so its secondary has ___ turns. Give only the number.'
+  accept: ['50']
+  explanation: |-
+    $\dfrac{V_s}{V_p} = \dfrac{N_s}{N_p}$, so $N_s = 500\cdot\dfrac{12}{120} = 50$ turns. A step-down transformer has fewer secondary turns than primary turns.
+- id: phys-m10-r2-q14
+  lesson: phys-induction
+  topic: Electromagnetic induction
+  stem: 'A wire loop is connected to a sensitive meter. Which of these induce an emf in it? Select all that apply.'
+  choices: ['A bar magnet is pushed toward the loop', 'The loop sits still in a strong, steady field', 'The loop slides sideways while staying entirely inside a uniform field', 'The loop is rotated in a uniform field', 'The current in a nearby electromagnet is switched off']
+  answer: [0, 3, 4]
+  explanation: |-
+    An emf needs a changing flux. Moving the magnet changes $B$ through the loop; rotating the loop changes $\cos\theta$; switching off the electromagnet makes $B$ fall. A steady field through a still loop gives constant flux, and sliding within a uniform field keeps $B$, $A$ and $\theta$ the same, so the flux doesn't change either.
+- id: phys-m10-r2-q15
+  lesson: phys-induction
+  type: match
+  topic: Electromagnetic induction
+  stem: 'Match each device to the way it uses induction.'
+  pairs:
+    - [Generator, A coil rotating in a field has a changing flux]
+    - [Transformer, Changing current in one coil induces a voltage in another]
+    - [Induction stove, Eddy currents heat the pan]
+    - [Magnetic brake, Eddy currents oppose the motion]
+  distractors: [A steady current makes a steady field]
+  explanation: |-
+    All four rely on changing flux. A generator turns a coil so its flux changes continuously. A transformer's alternating primary current makes a changing flux in the shared core. An induction stove's changing field drives eddy currents that heat the pan's metal, and a magnetic brake's fins moving past magnets carry eddy currents whose forces oppose the motion (Lenz). A steady current induces nothing.
+
+# ---- Core: phys-inductance
+- id: phys-m10-r2-q16
+  lesson: phys-inductance
+  type: text
+  module_quiz: true
+  topic: Inductance
+  stem: 'A 0.30 H inductor is in series with a 60 Ω resistor and a battery. The time constant is ___ ms. Give only the number.'
+  accept: ['5']
+  explanation: |-
+    $\tau = L/R = 0.30/60 = 0.0050$ s $= 5$ ms. (Multiplying, $LR = 18$, is the mistake of carrying over the capacitor formula $RC$.)
+- id: phys-m10-r2-q17
+  lesson: phys-inductance
+  type: match
+  topic: Inductance
+  stem: 'A component is connected in series with a resistor and a battery. Match each moment to how the component behaves.'
+  pairs:
+    - [Inductor at the instant the switch closes, Like an open circuit (no current)]
+    - [Inductor long after the switch closes, Like a plain wire]
+    - [Uncharged capacitor at the instant the switch closes, Like a plain wire]
+    - [Capacitor long after the switch closes, Like an open circuit (no current)]
+  explanation: |-
+    An inductor resists any sudden change in current, so the current starts at zero, but once it is steady there is no emf and the (ideal) inductor is just a wire. A capacitor is the opposite: an uncharged capacitor has no voltage across it, so at first current flows as if it were a wire, but when fully charged no more current flows.
+- id: phys-m10-r2-q18
+  lesson: phys-inductance
+  type: order
+  topic: Inductance
+  stem: 'An LC circuit starts with the capacitor fully charged. Put the stages of one cycle in order.'
+  items:
+    - 'Capacitor fully charged, no current: all the energy is electric'
+    - 'Capacitor empty, current largest: all the energy is magnetic'
+    - 'Capacitor fully charged the opposite way, no current'
+    - 'Capacitor empty, current largest in the reverse direction'
+  explanation: |-
+    The capacitor discharges through the inductor, building current until all the energy is in the inductor's field. The inductor keeps the current flowing, charging the capacitor the other way. Then the process repeats in reverse. Each stage is a quarter cycle, like a mass on a spring passing through its turning points and its center.
+- id: phys-m10-r2-q19
+  lesson: phys-inductance
+  module_quiz: true
+  topic: AC circuits
+  stem: 'A series RLC circuit is driven at its resonant frequency. Which statements are true? Select all that apply.'
+  choices: ['The inductive and capacitive reactances are equal', 'The current is zero', 'The impedance equals the resistance', 'The capacitor''s reactance is zero', 'The current is larger than at any other frequency (same source voltage)']
+  answer: [0, 2, 4]
+  explanation: |-
+    At resonance $X_L = X_C$, so $Z = \sqrt{R^2 + 0} = R$, the smallest possible impedance, and the current $V/Z$ is at its maximum. Neither reactance is zero; they are equal and cancel. The current is largest, not zero.
+- id: phys-m10-r2-q20
+  lesson: phys-inductance
+  type: text
+  topic: AC circuits
+  stem: 'A European outlet supplies 230 V (rms). Its peak voltage is ___ V, to the nearest volt. Give only the number.'
+  accept: ['325']
+  explanation: |-
+    $V_0 = \sqrt2\,V_{\text{rms}} = 1.414 \times 230 = 325$ V. Rated household voltages are rms values; the peak is about 41% higher.
+
+# ---- Honors: phys-m10-h-particles
+- id: phys-m10-r2-h01
+  lesson: phys-m10-h-particles
+  topic: Particle motion in fields
+  stem: 'A proton moves at $4.0\times10^5$ m/s at $60^\circ$ to a 0.20 T field. What is the pitch of its helix? ($m_p = 1.67\times10^{-27}$ kg, $e = 1.6\times10^{-19}$ C)'
+  choices: ['6.6 cm', '11.4 cm', '13.1 cm', '1.8 cm']
+  answer: 0
+  explanation: |-
+    $T = \dfrac{2\pi m}{eB} = \dfrac{2\pi(1.67\times10^{-27})}{(1.6\times10^{-19})(0.20)} = 3.28\times10^{-7}$ s, and $v_\parallel = v\cos60^\circ = 2.0\times10^5$ m/s, so $p = v_\parallel T = 0.066$ m $= 6.6$ cm. Using $v_\perp = v\sin60^\circ$ gives 11.4 cm; using the full speed gives 13.1 cm; 1.8 cm is the radius, $mv_\perp/(eB)$.
+- id: phys-m10-r2-h02
+  lesson: phys-m10-h-particles
+  topic: Particle motion in fields
+  stem: 'An electron enters a uniform magnetic field. Its velocity makes an angle of $90^\circ$ with the field. What is the pitch of its path?'
+  choices: ['Equal to its radius', 'Equal to its circumference', 'Zero: the path is a flat circle', 'Infinite: the path is a straight line']
+  answer: 2
+  explanation: |-
+    At $90^\circ$, $v_\parallel = v\cos90^\circ = 0$, so the particle doesn't advance along the field: the helix flattens into a circle and $p = v_\parallel T = 0$. A straight line (infinite pitch, in a sense) happens at $0^\circ$, when the velocity is along the field and there is no force.
+- id: phys-m10-r2-h03
+  lesson: phys-m10-h-particles
+  topic: Particle motion in fields
+  stem: 'Why can a cyclotron use an accelerating voltage of one fixed frequency, even though the ions speed up on every turn?'
+  choices: ['The ions'' speed stays constant inside the dees', 'The time for each half circle does not depend on the ion''s speed', 'The magnetic field is increased as the ions speed up', 'The gap voltage grows on each turn to keep up']
+  answer: 1
+  explanation: |-
+    $T = 2\pi m/(|q|B)$ has no $v$ in it: a faster ion travels a proportionally bigger semicircle ($r \propto v$) in the same time. So the ion always arrives back at the gap after exactly half a period, in step with the voltage. (Changing the field or frequency is only needed near light speed, in synchrotrons and synchrocyclotrons.)
+- id: phys-m10-r2-h04
+  lesson: phys-m10-h-particles
+  topic: Particle motion in fields
+  stem: 'A proton cyclotron has a 1.2 T field and dees of radius 0.40 m. What kinetic energy do the protons have when they leave? ($m_p = 1.67\times10^{-27}$ kg, $e = 1.6\times10^{-19}$ C, $1\text{ MeV} = 1.6\times10^{-13}$ J)'
+  choices: ['22 MeV', '28 MeV', '$1.8\times10^{-12}$ MeV', '11 MeV']
+  answer: 3
+  explanation: |-
+    $K = \dfrac{q^2B^2R^2}{2m} = \dfrac{(1.6\times10^{-19})^2(1.2)^2(0.40)^2}{2(1.67\times10^{-27})} = 1.77\times10^{-12}$ J $= 11$ MeV. Forgetting the $\tfrac12$ gives 22 MeV; not squaring $R$ gives 28 MeV; $1.8\times10^{-12}$ is the energy in joules, not MeV.
+- id: phys-m10-r2-h05
+  lesson: phys-m10-h-particles
+  topic: Particle motion in fields
+  stem: 'A cyclotron is rebuilt with dees of twice the radius and the same field. The maximum kinetic energy of its protons'
+  choices: ['stays the same', 'increases by a factor of 4', 'doubles', 'increases by a factor of $\sqrt2$']
+  answer: 1
+  explanation: |-
+    $K_{\max} = q^2B^2R^2/(2m) \propto R^2$, so doubling $R$ multiplies it by 4 (the exit speed $eBR/m$ doubles, and kinetic energy goes as $v^2$). This assumes the protons stay well below light speed.
+- id: phys-m10-r2-h06
+  lesson: phys-m10-h-particles
+  type: text
+  topic: Particle motion in fields
+  stem: 'Protons circle in a 1.0 T field. Their cyclotron frequency is ___ MHz, to 2 significant figures. ($m_p = 1.67\times10^{-27}$ kg, $e = 1.6\times10^{-19}$ C) Give only the number.'
+  accept: ['15']
+  explanation: |-
+    $f = \dfrac{eB}{2\pi m} = \dfrac{(1.6\times10^{-19})(1.0)}{2\pi(1.67\times10^{-27})} = 1.52\times10^7$ Hz $\approx 15$ MHz. (Forgetting the $2\pi$ gives the angular frequency, $9.6\times10^7$ rad/s.)
+- id: phys-m10-r2-h07
+  lesson: phys-m10-h-particles
+  topic: Particle motion in fields
+  stem: 'Electrons pass undeflected through crossed fields $E = 3.0\times10^4$ V/m and $B = 1.5\times10^{-3}$ T. With $E$ switched off, they circle with radius 7.6 cm. What is $e/m$?'
+  choices: ['$2.6\times10^{8}$ C/kg', '$1.75\times10^{9}$ C/kg', '$1.75\times10^{11}$ C/kg', '$5.7\times10^{-12}$ C/kg']
+  answer: 2
+  explanation: |-
+    $v = E/B$ and $e/m = v/(Br)$, so $\dfrac em = \dfrac{E}{B^2r} = \dfrac{3.0\times10^4}{(1.5\times10^{-3})^2(0.076)} = 1.75\times10^{11}$ C/kg. Using $B$ instead of $B^2$ gives $2.6\times10^8$; leaving $r$ in centimeters gives $1.75\times10^9$; $5.7\times10^{-12}$ is the ratio upside down.
+- id: phys-m10-r2-h08
+  lesson: phys-m10-h-particles
+  type: order
+  topic: Particle motion in fields
+  stem: 'Put the steps of the classroom crossed-fields measurement of $e/m$ in order.'
+  items:
+    - 'Accelerate electrons into a beam'
+    - 'Adjust crossed $E$ and $B$ until the beam goes straight'
+    - 'Switch off the electric field'
+    - 'Measure the radius of the beam''s circular path'
+    - 'Calculate $e/m = E/(B^2r)$'
+  explanation: |-
+    The straight beam selects the speed $v = E/B$, which needs both fields on. Only after switching off $E$ does the beam circle in $B$ alone, so you can measure $r$; the formula needs $E$, $B$ and $r$, so the calculation comes last.
+- id: phys-m10-r2-h09
+  lesson: phys-m10-h-particles
+  topic: The Hall effect
+  stem: 'A silver strip 1.0 cm wide and 0.20 mm thick carries 5.0 A in a 0.80 T field perpendicular to its face. Silver has $n = 5.9\times10^{28}$ m⁻³. What is the Hall voltage? ($e = 1.6\times10^{-19}$ C)'
+  choices: ['$4.2\times10^{-8}$ V', '$2.1\times10^{-6}$ V', '$2.6\times10^{-6}$ V', '$2.1\times10^{-9}$ V']
+  answer: 1
+  explanation: |-
+    $V_H = \dfrac{IB}{nqt} = \dfrac{(5.0)(0.80)}{(5.9\times10^{28})(1.6\times10^{-19})(2.0\times10^{-4})} = 2.1\times10^{-6}$ V. Using the width (1.0 cm) instead of the thickness gives $4.2\times10^{-8}$ V; leaving out $B$ gives $2.6\times10^{-6}$ V; $2.1\times10^{-9}$ V comes from using 0.20 (the thickness in millimeters) as if it were meters.
+- id: phys-m10-r2-h10
+  lesson: phys-m10-h-particles
+  topic: The Hall effect
+  stem: 'Which can be found from a Hall-effect measurement on a strip of known thickness carrying a known current? Select all that apply.'
+  choices: ['The mass of the charge carriers', 'The sign of the charge carriers', 'The number of carriers per cubic meter, if $B$ is known', 'The magnetic field, if the carrier density is known', 'The speed of light in the material']
+  answer: [1, 2, 3]
+  explanation: |-
+    $V_H = IB/(nqt)$: its sign tells which edge the carriers pile up on, and so their sign; its size gives $n$ when $B$ is known, or $B$ when $n$ is known (that's how Hall sensors work). Mass doesn't appear in the formula, and the measurement says nothing about light.
+- id: phys-m10-r2-h11
+  lesson: phys-m10-h-particles
+  type: label
+  topic: Particle motion in fields
+  stem: 'Name the numbered parts of this cyclotron (top view).'
+  image: {src: images/phys-m10-cyclotron-blank.svg, alt: 'Two D-shaped regions side by side with a narrow vertical gap between them (marker 1 on the left D, marker 2 in the gap near the bottom). A spiral path starts at a central dot (marker 3). Below, the two Ds connect to a circle with a wave symbol (marker 4). An arrow leaves the outermost turn to the right (marker 5).'}
+  labels:
+    - {x: 27.8, y: 60.0, text: Hollow D-shaped electrode (dee)}
+    - {x: 47.2, y: 79.0, text: Gap where ions are accelerated}
+    - {x: 47.2, y: 48.0, text: Ion source}
+    - {x: 47.2, y: 91.0, text: Alternating voltage source}
+    - {x: 84.7, y: 19.2, text: Exit beam}
+  distractors: [Velocity selector]
+  explanation: |-
+    Ions start at the source (3) at the center. The alternating source (4) makes the voltage across the gap (2) reverse every half orbit, so the ions are pushed forward each time they cross. Inside each hollow dee (1) there is only the magnetic field, which bends them into semicircles. When the orbit reaches the rim, the beam (5) is steered out.
+- id: phys-m10-r2-h12
+  lesson: phys-m10-h-particles
+  type: match
+  topic: Particle motion in fields
+  stem: 'Match each device or phenomenon to the physics behind it.'
+  pairs:
+    - [Aurora, Charged particles spiral along field lines into the upper atmosphere]
+    - [Cyclotron, The orbit period does not depend on speed]
+    - [Velocity selector, Electric and magnetic forces cancel at one speed]
+    - [Hall sensor, Carriers pushed to one edge build a sideways voltage]
+    - [Mass spectrometer, The path radius depends on the ion's mass]
+  explanation: |-
+    The aurora: particles follow Earth's field lines in helices toward the poles. The cyclotron: $T = 2\pi m/(|q|B)$ is speed-independent. The velocity selector: $qE = qvB$ only at $v = E/B$. The Hall sensor: the magnetic force on drifting carriers piles charge on one edge until $qE_H = qv_dB$. The mass spectrometer: $r = mv/(qB)$ sorts ions by mass.
+- id: phys-m10-r2-h13
+  lesson: phys-m10-h-particles
+  topic: The Hall effect
+  stem: 'Why are practical Hall sensors made of semiconductors rather than metals?'
+  choices: ['Semiconductors have far fewer charge carriers, so each drifts faster and the Hall voltage is much larger', 'Metals have no Hall effect because their carriers are electrons', 'Semiconductors conduct better, so the current is larger', 'The Hall voltage in a metal is too large to measure safely']
+  answer: 0
+  explanation: |-
+    $V_H = IB/(nqt)$ is inversely proportional to the carrier density $n$. A doped semiconductor has millions of times fewer carriers than copper, so for the same current each carrier drifts much faster and the voltage is far larger. Metals do show a Hall effect (that's how Hall discovered it), just a tiny one, microvolts in the lesson's copper example.
+- id: phys-m10-r2-h14
+  lesson: phys-m10-h-particles
+  topic: Particle motion in fields
+  stem: 'Why does a fixed-frequency cyclotron stop working once its particles approach the speed of light?'
+  choices: ['The magnetic force stops acting on fast particles', 'The particles start to radiate all their energy away instantly', 'Their orbit period grows (a relativistic effect), so they fall out of step with the voltage', 'The dees become too hot to hold a voltage']
+  answer: 2
+  explanation: |-
+    The speed-independent period $2\pi m/(|q|B)$ is only true well below light speed. Near it, special relativity makes the period grow with energy, so the ions arrive at the gap later and later and are no longer accelerated. Synchrocyclotrons lower the frequency to keep in step; synchrotrons raise the field. (Fast particles do radiate in magnetic fields, but that isn't what limits a cyclotron.)
+
+# ---- Honors: phys-m10-h-ac-power
+- id: phys-m10-r2-h15
+  lesson: phys-m10-h-ac-power
+  topic: Phase and power factor
+  stem: 'An AC voltage is applied across an ideal inductor alone. Compared with the voltage, the current'
+  choices: ['is in phase with it', 'leads it by a quarter cycle', 'is half a cycle out of step with it', 'lags it by a quarter cycle']
+  answer: 3
+  explanation: |-
+    The inductor's voltage is proportional to how fast the current changes, so it is largest when the current crosses zero, a quarter cycle before the current peaks. The current lags by $90^\circ$ ("ELI": E before I in an inductor). Leading by a quarter cycle is the capacitor's behavior.
+- id: phys-m10-r2-h16
+  lesson: phys-m10-h-ac-power
+  type: match
+  topic: Phase and power factor
+  stem: 'Match each AC circuit to how its current compares with the source voltage.'
+  pairs:
+    - [Resistor alone, In phase]
+    - [Inductor alone, Lags by 90°]
+    - [Capacitor alone, Leads by 90°]
+    - [Series RLC circuit at resonance, In phase]
+  distractors: [Lags by 180°]
+  explanation: |-
+    A resistor follows $V = IR$ instant by instant. An inductor's current lags by $90^\circ$ and a capacitor's leads by $90^\circ$. At resonance $X_L = X_C$, so $\tan\varphi = (X_L - X_C)/R = 0$ and the circuit acts like a pure resistance: in phase.
+- id: phys-m10-r2-h17
+  lesson: phys-m10-h-ac-power
+  topic: Phase and power factor
+  stem: 'A series circuit has $R = 40\ \Omega$, $X_L = 80\ \Omega$ and $X_C = 50\ \Omega$. What is the phase angle, and does the current lead or lag the voltage?'
+  choices: ['$36.9^\circ$, current leads', '$53.1^\circ$, current lags', '$36.9^\circ$, current lags', '$53.1^\circ$, current leads']
+  answer: 2
+  explanation: |-
+    $\tan\varphi = \dfrac{X_L - X_C}{R} = \dfrac{30}{40} = 0.75$, so $\varphi = 36.9^\circ$. $X_L > X_C$ makes the circuit inductive, so the current lags. $53.1^\circ$ comes from inverting the ratio ($40/30$).
+- id: phys-m10-r2-h18
+  lesson: phys-m10-h-ac-power
+  topic: Phase and power factor
+  stem: 'The circuit with $R = 40\ \Omega$, $X_L = 80\ \Omega$ and $X_C = 50\ \Omega$ is driven by 100 V (rms). What average power does it use?'
+  choices: ['200 W', '250 W', '120 W', '160 W']
+  answer: 3
+  explanation: |-
+    $Z = \sqrt{40^2 + 30^2} = 50\ \Omega$, so $I_{\text{rms}} = 100/50 = 2.0$ A. $P = I_{\text{rms}}^2R = (2.0)^2(40) = 160$ W, the same as $I_{\text{rms}}V_{\text{rms}}\cos\varphi = (2.0)(100)(0.80)$. 200 W leaves out the power factor; 250 W is $V^2/R$, as if the reactances were absent; 120 W uses $\sin\varphi$ instead of $\cos\varphi$.
+- id: phys-m10-r2-h19
+  lesson: phys-m10-h-ac-power
+  type: text
+  topic: Phase and power factor
+  stem: 'A series AC circuit has a resistance of 30 Ω and an impedance of 50 Ω. Its power factor is ___. Give it as a decimal.'
+  accept: ['0.6', '0.60', '3/5']
+  explanation: |-
+    From the phasor triangle, $\cos\varphi = R/Z = 30/50 = 0.60$. The circuit uses 60% of the product $I_{\text{rms}}V_{\text{rms}}$ as real power.
+- id: phys-m10-r2-h20
+  lesson: phys-m10-h-ac-power
+  topic: Phase and power factor
+  stem: 'An ideal inductor is connected to an AC source. Which statements are true? Select all that apply.'
+  choices: ['It heats up because current flows through it', 'Its average power is zero', 'Its reactance rises with frequency', 'Its current lags its voltage by $90^\circ$', 'Its power factor is 1']
+  answer: [1, 2, 3]
+  explanation: |-
+    An ideal inductor stores energy in its field for a quarter cycle and returns it the next, so its average power is zero and it doesn't heat up (real coils do, a little, through their wire's resistance). $X_L = \omega L$ rises with frequency, and the current lags by $90^\circ$, so its power factor is $\cos90^\circ = 0$, not 1.
+- id: phys-m10-r2-h21
+  lesson: phys-m10-h-ac-power
+  topic: Phase and power factor
+  stem: 'In a series RLC circuit the rms voltages are $V_R = 60$ V, $V_L = 160$ V and $V_C = 80$ V. What is the source voltage (rms)?'
+  choices: ['100 V', '300 V', '140 V', '189 V']
+  answer: 0
+  explanation: |-
+    The voltages add as phasors: $V = \sqrt{V_R^2 + (V_L - V_C)^2} = \sqrt{60^2 + 80^2} = 100$ V. Adding them as numbers gives 300 V; $60 + 80$ gives 140 V; squaring all three separately gives 189 V. The inductor's 160 V really is larger than the source's 100 V, because $V_L$ and $V_C$ partly cancel.
+- id: phys-m10-r2-h22
+  lesson: phys-m10-h-ac-power
+  type: label
+  topic: Phase and power factor
+  stem: 'This phasor diagram for a series RLC circuit draws the current along the horizontal axis. Name the numbered parts.'
+  image: {src: images/phys-m10-phasors-blank.svg, alt: 'A dashed horizontal axis. From one point, a short arrow points right along the axis (marker 1), an arrow points straight up (marker 2), a longer arrow points straight down (marker 3), and an arrow points down and to the right (marker 4). Marker 5 is on a small arc between the rightward arrow and the down-right arrow.'}
+  labels:
+    - {x: 52.5, y: 42.9, text: Voltage across the resistor}
+    - {x: 31.2, y: 21.3, text: Voltage across the inductor}
+    - {x: 31.2, y: 73.2, text: Voltage across the capacitor}
+    - {x: 51.3, y: 54.6, text: Source voltage}
+    - {x: 40.4, y: 45.4, text: Phase angle}
+  distractors: [Current through the inductor]
+  explanation: |-
+    The resistor's voltage (1) is in phase with the current, along the axis. The inductor's voltage (2) is $90^\circ$ ahead (up) and the capacitor's (3) $90^\circ$ behind (down). Their vector sum is the source voltage (4), and the angle between it and the current is the phase angle (5). Here $V_C > V_L$, so the source voltage lies below the axis: the circuit is capacitive and the current leads.
+- id: phys-m10-r2-h23
+  lesson: phys-m10-h-ac-power
+  topic: Power transmission
+  stem: 'The same power is sent through the same line at 115 kV instead of 345 kV. The power lost in the line is'
+  choices: ['9 times larger', '3 times larger', '27 times larger', '9 times smaller']
+  answer: 0
+  explanation: |-
+    $P_{\text{loss}} = (P/V)^2R_{\text{line}}$. Cutting $V$ to a third triples the current, and the loss goes as $I^2$: $3^2 = 9$ times larger. "3 times" forgets to square; "9 times smaller" uses $V^2/R$ with the transmission voltage.
+- id: phys-m10-r2-h24
+  lesson: phys-m10-h-ac-power
+  type: text
+  topic: Power transmission
+  stem: 'A plant sends 2.0 MW at 10 kV through lines with a total resistance of 4.0 Ω. The power lost in the lines is ___ kW. Give only the number.'
+  accept: ['160']
+  explanation: |-
+    $I = P/V = 2.0\times10^6/1.0\times10^4 = 200$ A, so $P_{\text{loss}} = I^2R = (200)^2(4.0) = 1.6\times10^5$ W $= 160$ kW, 8% of the power sent.
+- id: phys-m10-r2-h25
+  lesson: phys-m10-h-ac-power
+  type: order
+  topic: Power transmission
+  stem: 'Put the stages of delivering electric power from a power plant to a house in order.'
+  items:
+    - 'Generator'
+    - 'Step-up transformer at the plant'
+    - 'High-voltage transmission lines'
+    - 'Substation transformer'
+    - 'Distribution lines'
+    - 'Pole or pad transformer near the house'
+  explanation: |-
+    The generator's output (about 10–25 kV) is stepped up to hundreds of kilovolts for the long trip, because a higher voltage means less current and much less $I^2R$ loss. A substation steps it down for local distribution lines (several to tens of kV), and a final transformer near the house brings it to household voltage.
+- id: phys-m10-r2-h26
+  lesson: phys-m10-h-ac-power
+  topic: Power transmission
+  stem: 'What was the main technical reason AC won out over DC for power grids in the 1890s?'
+  choices: ['AC carries more energy per electron', 'Transformers could easily step AC voltage up for transmission and down for use', 'AC wires have lower resistance than DC wires', 'AC cannot give an electric shock']
+  answer: 1
+  explanation: |-
+    Low losses need high transmission voltages, but safe use needs low voltages. Transformers change AC voltage efficiently; with the technology of the time, DC could not be transformed, so DC plants had to sit close to their customers. The wire's resistance is the same either way, and AC is certainly dangerous.
+- id: phys-m10-r2-h27
+  lesson: phys-m10-h-ac-power
+  topic: Phase and power factor
+  stem: 'A factory''s motors give it a power factor of 0.70 (current lagging). Why does adding capacitors help?'
+  choices: ['The capacitors store energy that runs the motors for free', 'The capacitors raise the supply voltage', 'The capacitors increase the motors'' real power output', 'The capacitors'' leading current offsets the motors'' lagging current, so less current is needed for the same real power']
+  answer: 3
+  explanation: |-
+    Real power is $I_{\text{rms}}V_{\text{rms}}\cos\varphi$. At a power factor of 0.70 the wiring carries $1/0.70 = 1.43$ times the current needed at power factor 1, and loses about twice as much power in it ($1/0.70^2$). Capacitors draw current that leads, canceling much of the motors' lagging current, so the power factor rises toward 1. They don't supply real energy or change the motors' output.
+- id: phys-m10-r2-h28
+  lesson: phys-m10-h-ac-power
+  topic: Power transmission
+  stem: 'Which is an advantage of three-phase power for a balanced load?'
+  choices: ['The total power delivered is steady instead of pulsing', 'It needs no transformers', 'Each wire carries direct current', 'It doubles the frequency of the supply']
+  answer: 0
+  explanation: |-
+    With three voltages a third of a cycle apart, the three currents in a balanced load add to zero at every instant (so no heavy return wire is needed), and the total power stays constant, which lets big motors run smoothly. Three-phase systems still use transformers, still carry AC, and run at the ordinary 50 or 60 Hz.

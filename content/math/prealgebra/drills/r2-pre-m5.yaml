@@ -1,0 +1,148 @@
+# Round 2, module pre-m5 (Percents): drills for the honors lessons
+- id: pre-m5-r2-compound-annual
+  title: Compound interest, yearly
+  topic: Compound interest
+  vars:
+    prin: {min: 1000, max: 20000, step: 500}
+    rate: {choices: [2, 3, 4, 5, 6, 7, 8]}
+    yrs: {min: 2, max: 15}
+  calc:
+    gf: 1 + rate / 100
+    pw: gf ^ yrs
+    Aex: prin * gf ^ yrs
+    bal: round(Aex, 2)
+  where: ["abs(mod(Aex * 100, 1) - 0.5) > 0.02"]
+  prompt: '{prin:money0} is invested at {rate}% compounded yearly for {yrs} years. Find the balance at the end, to the nearest cent. (Don''t round until the last step.)'
+  answers:
+    - {name: bal, label: Balance, format: money}
+  solution: |-
+    Use $A = P(1 + r)^t$. Write {rate}% as a decimal and add 1: the growth factor is {gf}.
+    ${gf}^{{yrs}} \approx {pw:num4}$ (keep all the digits in the calculator), and {prin:money0} × {gf}^{yrs} ≈ {Aex:num4}, so the balance is **{bal:money}**.
+
+- id: pre-m5-r2-compound-n
+  title: Compound interest, several times a year
+  topic: Compound interest
+  vars:
+    prin: {min: 1000, max: 20000, step: 500}
+    rate: {choices: [3, 4, 4.5, 5, 6, 8]}
+    freq: {choices: [{label: semiannually, value: 2}, {label: quarterly, value: 4}, {label: monthly, value: 12}]}
+    yrs: {min: 1, max: 10}
+  calc:
+    per: freq + 0
+    periods: freq * yrs
+    gf: 1 + rate / 100 / freq
+    Aex: prin * (1 + rate / 100 / freq) ^ (freq * yrs)
+    bal: round(Aex, 2)
+  where: ["abs(mod(Aex * 100, 1) - 0.5) > 0.02"]
+  prompt: '{prin:money0} is invested at {rate}% a year compounded {freq} for {yrs} years. Find the balance at the end, to the nearest cent. (Don''t round until the last step.)'
+  answers:
+    - {name: bal, label: Balance, format: money}
+  solution: |-
+    Compounded {freq} means {per} periods a year. Each period pays {rate}% ÷ {per}, so each period multiplies the balance by $1 + \tfrac{{rate}/100}{{per}} \approx {gf:num4}$ (keep this unrounded in the calculator). There are {per} × {yrs} = {periods} periods.
+    $A = P\left(1 + \tfrac{r}{n}\right)^{nt}$ ≈ {Aex:num4}, so the balance is **{bal:money}**.
+
+- id: pre-m5-r2-apy
+  title: Annual percentage yield
+  topic: Compound interest
+  vars:
+    rate: {choices: [2, 3, 3.5, 4, 4.5, 5, 6, 7, 8, 10, 12]}
+    freq: {choices: [{label: quarterly, value: 4}, {label: monthly, value: 12}, {label: daily (365 times a year), value: 365}]}
+  calc:
+    per: freq + 0
+    gfy: (1 + rate / 100 / freq) ^ freq
+    apy: ((1 + rate / 100 / freq) ^ freq - 1) * 100
+  where: ["abs(mod(apy * 100, 1) - 0.5) > 0.05"]
+  prompt: 'An account pays {rate}% a year compounded {freq}. Find its annual percentage yield (APY) as a percent, to 2 decimal places.'
+  answers:
+    - {name: apy, label: 'APY (%)', tolerance: 0.0051}
+  solution: |-
+    APY $= \left(1 + \tfrac{r}{n}\right)^n - 1$ with {per} periods a year. In one year the balance is multiplied by $\left(1 + \tfrac{{rate}/100}{{per}}\right)^{{per}} \approx {gfy:num4}$ (keep more digits in the calculator).
+    Subtract 1 and convert to a percent: APY ≈ {apy:num4}%, which is **{apy:num2}%** to 2 decimal places.
+
+- id: pre-m5-r2-rule72
+  title: Rule of 72
+  topic: Compound interest
+  vars:
+    rate: {choices: [2, 3, 4, 6, 8, 9, 12]}
+  calc:
+    dbl: 72 / rate
+    tru: log(2) / log(1 + rate / 100)
+  prompt: 'Use the rule of 72 to estimate how many years it takes money to double at {rate}% interest compounded yearly.'
+  answers:
+    - {name: dbl, label: Years (estimate), format: integer}
+  solution: |-
+    Years to double ≈ 72 ÷ (rate as a percent) = 72 ÷ {rate} = **{dbl}** years. (The true doubling time is about {tru:num1} years; the rule is an estimate.)
+
+- id: pre-m5-r2-depreciation
+  title: Depreciation at a fixed percent
+  topic: Compound interest
+  vars:
+    prin: {min: 8000, max: 60000, step: 500}
+    rate: {choices: [8, 10, 12, 15, 18, 20, 25]}
+    yrs: {min: 2, max: 8}
+  calc:
+    keep: 100 - rate
+    gf: 1 - rate / 100
+    pw: gf ^ yrs
+    Aex: prin * (1 - rate / 100) ^ yrs
+    val: round(Aex, 2)
+  where: ["abs(mod(Aex * 100, 1) - 0.5) > 0.02"]
+  prompt: 'A vehicle bought for {prin:money0} loses {rate}% of its value each year. Using this model, find its value after {yrs} years, to the nearest cent.'
+  answers:
+    - {name: val, label: Value, format: money}
+  solution: |-
+    Each year it keeps {keep}% of its value, so multiply by {gf} once per year: $A = P(1 - r)^t$.
+    ${gf}^{{yrs}} \approx {pw:num4}$, and {prin:money0} × {gf}^{yrs} ≈ {Aex:num4}, so the value is **{val:money}**.
+
+- id: pre-m5-r2-net-change
+  title: Net effect of two percent changes
+  topic: Percent reasoning
+  vars:
+    p1: {choices: [-40, -30, -25, -20, -15, -10, 10, 15, 20, 25, 30, 40, 50]}
+    p2: {choices: [-40, -30, -25, -20, -15, -10, 10, 15, 20, 25, 30, 40, 50]}
+  calc:
+    m1: 1 + p1 / 100
+    m2: 1 + p2 / 100
+    mm: round((1 + p1 / 100) * (1 + p2 / 100), 4)
+    net: round(((1 + p1 / 100) * (1 + p2 / 100) - 1) * 100, 4)
+    naive: p1 + p2
+  prompt: 'A price changes by {p1}%, and then the new price changes by {p2}% (a negative percent is a decrease). What is the overall percent change? Give the exact percent, negative for a decrease.'
+  answers:
+    - {name: net, label: 'Overall change (%)', tolerance: 0.001}
+  solution: |-
+    Multipliers: {m1} and {m2}. Their product is {m1} × {m2} = {mm}. Overall change: ({mm} − 1) × 100% = **{net}%**. (Adding the two percents would wrongly give {naive}%.)
+
+- id: pre-m5-r2-undo-change
+  title: Undoing a percent change
+  topic: Percent reasoning
+  vars:
+    dir: {choices: [{label: rises, value: 1}, {label: falls, value: -1}]}
+    pct: {choices: [10, 20, 25, 30, 40, 50, 60, 75, 80]}
+  calc:
+    m: 1 + dir * pct / 100
+    inv: 1 / (1 + dir * pct / 100)
+    back: (1 / (1 + dir * pct / 100) - 1) * 100
+  where: ["abs(mod(abs(back) * 10, 1) - 0.5) > 0.05"]
+  prompt: 'A price {dir} by {pct}%. By what percent must the new price change to return to the original price? Give the percent to 1 decimal place, negative for a decrease.'
+  answers:
+    - {name: back, label: 'Change needed (%)', tolerance: 0.051}
+  solution: |-
+    The first change multiplies the price by {m}. To undo it, multiply by 1 ÷ {m} ≈ {inv:num4}. As a percent change that is ({inv:num4} − 1) × 100% ≈ **{back:num1}%**.
+
+- id: pre-m5-r2-points
+  title: Percentage points and percent change
+  topic: Percent reasoning
+  vars:
+    a: {min: 2, max: 12, step: 0.1}
+    b: {min: 2, max: 12, step: 0.1}
+  calc:
+    pts: round(b - a, 1)
+    rel: (b - a) / a * 100
+  where: ["abs(b - a) >= 0.3", "abs(mod(abs(rel) * 10, 1) - 0.5) > 0.05"]
+  prompt: 'An interest rate changes from {a:num1}% to {b:num1}%. Find the change in percentage points, and the percent change to 1 decimal place. Use negative numbers for decreases.'
+  answers:
+    - {name: pts, label: 'Change (percentage points)', tolerance: 0.001}
+    - {name: rel, label: 'Percent change (%)', tolerance: 0.051}
+  solution: |-
+    Percentage points: subtract, {b:num1} − {a:num1} = **{pts:num1}** percentage points.
+    Percent change: divide the change by the original, {pts:num1} ÷ {a:num1} × 100% ≈ **{rel:num1}%**.

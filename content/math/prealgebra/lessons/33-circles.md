@@ -23,6 +23,10 @@ A **circle** is the set of all points in a plane at the same distance from a fix
 {"circles": [{"center": [0, 0], "r": 3}], "points": [[0, 0]], "segments": [{"from": [0, 0], "to": [2.12, 2.12], "label": "r"}, {"from": [-3, 0], "to": [3, 0], "label": "d"}], "caption": "Radius r and diameter d = 2r"}
 ```
 
+Here are all four parts in one picture. The circumference is the curve itself, the edge all the way around.
+
+![A circle with its center marked by a dot, a horizontal diameter d through the center, a radius r from the center to the edge, and the curved edge labeled circumference C.](images/pre-m8-circle-parts.svg)
+
 ## Where π comes from
 
 Wrap a string around any circular object, then compare its length to the diameter. A soup can, a bicycle wheel, a coin: the circumference is always a little more than 3 times the diameter. That ratio is the same for every circle, and it's called **pi** ($\pi$):
@@ -54,6 +58,8 @@ $C = 2\pi r$, so $44 = 2 \cdot \tfrac{22}{7} \cdot r = \tfrac{44}{7}r$. Multiply
 $$A = \pi r^2$$
 
 Why? Cut a circle into many thin wedges like pizza slices and arrange them alternately point-up and point-down. They form a shape that is almost a parallelogram. Its height is the radius $r$, and its base is half the circumference (half the crust is on top, half on the bottom): $\tfrac12 \cdot 2\pi r = \pi r$. The more slices, the closer the shape is to a true parallelogram, with area base × height $= \pi r \cdot r = \pi r^2$.
+
+![Left: a circle cut into 12 equal wedges, the top six shaded one color and the bottom six another. Right: the same wedges laid side by side, alternately pointing up and down, forming a shape that is almost a parallelogram with height r and a base of about half the circumference, πr, so its area is about πr times r, or πr².](images/pre-m8-circle-wedges.svg)
 
 Be careful: the area formula uses the *radius*. If you're given the diameter, halve it first.
 
@@ -88,6 +94,19 @@ Perimeter: the bottom and two sides, $4 + 3 + 3 = 10$ ft, plus the curved top, $
 ## Working backward
 
 Sometimes you know the area or circumference and need the radius. Undo the formula step by step.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the radius from what you know
+  accDescr: If you know the diameter, halve it to get the radius. If you know the circumference, divide it by 2 pi. If you know the area, divide it by pi and then take the square root. Every path ends with the radius.
+  Q{"What do you know?"}
+  Q -- "diameter d" --> D["Halve it: r = d ÷ 2"]
+  Q -- "circumference C" --> C["Divide by 2π: r = C ÷ 2π"]
+  Q -- "area A" --> A1["Divide by π"] --> A2["Take the square root"]
+  D --> R["The radius r"]
+  C --> R
+  A2 --> R
+```
 
 ### Example 6
 

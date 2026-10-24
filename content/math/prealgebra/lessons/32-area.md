@@ -57,7 +57,11 @@ Area: $\tfrac12(10)(12) = 60 \text{ in}^2$. Perimeter: $13 + 13 + 10 = 36$ in. N
 
 ## Trapezoids
 
-A **trapezoid** has exactly one pair of parallel sides, called the bases $b_1$ and $b_2$. Two copies of a trapezoid, one flipped, fit together to make a parallelogram with base $b_1 + b_2$ and the same height. Half of that is
+A **trapezoid** has exactly one pair of parallel sides, called the bases $b_1$ and $b_2$. The two sides that are not parallel are called its legs, and its height is the perpendicular distance between the bases.
+
+![A trapezoid with a long horizontal base b₁ at the bottom, a shorter parallel base b₂ at the top, a dashed vertical height h with a right-angle mark, and a slanted side labeled leg.](images/pre-m8-trapezoid-parts.svg)
+
+Two copies of a trapezoid, one flipped, fit together to make a parallelogram with base $b_1 + b_2$ and the same height. Half of that is
 
 $$\text{Trapezoid: } A = \tfrac12 (b_1 + b_2) h.$$
 
@@ -76,6 +80,24 @@ $A = \tfrac12(9 + 5)(4) = \tfrac12(14)(4) = 28$ square units.
 ## Composite figures
 
 Many real shapes are combinations of rectangles, triangles and trapezoids. Find the area by *splitting* the shape into simple pieces and adding, or by *subtracting* a missing piece from a larger shape.
+
+This chart sums up which formula to reach for:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing an area formula
+  accDescr: First ask what shape it is. A rectangle uses length times width. A square uses side times side. A parallelogram uses base times height. A triangle uses half of base times height. A trapezoid uses half the sum of the two bases times the height. Any other shape is split into these shapes, or a missing piece is subtracted from a larger shape. For the parallelogram, triangle and trapezoid, the height must be the perpendicular height, never a slanted side.
+  Q{"What shape is it?"}
+  Q -- "rectangle" --> R["A = length × width"]
+  Q -- "square" --> S["A = side × side"]
+  Q -- "parallelogram" --> P["A = base × height"]
+  Q -- "triangle" --> T["A = half of base × height"]
+  Q -- "trapezoid" --> Z["A = half of (b1 + b2) × height"]
+  Q -- "something else" --> C["Split it into these shapes, or subtract a missing piece"]
+  P --> H["Use the perpendicular height, never a slanted side"]
+  T --> H
+  Z --> H
+```
 
 ### Example 4
 

@@ -71,6 +71,20 @@ The ladder is the hypotenuse. $h^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $h = 12$ f
 
 A very common mistake is adding $13^2 + 5^2$ here. Ask "which side is across from the right angle?" That one is $c$, and it must be the largest.
 
+This chart keeps the two cases straight:
+
+```mermaid
+flowchart TD
+  accTitle: Finding a missing side of a right triangle
+  accDescr: Find the right angle. The side across from it is the hypotenuse c. If c is the unknown side, add the squares of the legs and take the square root. If a leg is unknown, subtract the square of the known leg from the square of c and take the square root. Either way, check that c is the longest side.
+  A["Find the right angle"] --> B["The side across from it is the hypotenuse c"]
+  B --> Q{"Is c the unknown side?"}
+  Q -- "Yes" --> H["Add: c² = a² + b², then take the square root"]
+  Q -- "No, a leg is unknown" --> L["Subtract: a² = c² − b², then take the square root"]
+  H --> K["Check: c is the longest side"]
+  L --> K
+```
+
 ## Pythagorean triples
 
 Sets of whole numbers that fit the theorem are called **Pythagorean triples**. The most common are

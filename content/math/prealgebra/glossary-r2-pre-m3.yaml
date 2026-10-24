@@ -1,0 +1,26 @@
+# Round 2, module pre-m3 (Fractions): new glossary terms.
+- term: fraction wall
+  aliases: [fraction walls]
+  definition: 'A stack of equal-length bars, each cut into a different number of equal pieces (halves, thirds, quarters, …), used to see which fractions are equal or larger.'
+  topic: Equivalent fractions
+- term: complex fraction
+  aliases: [complex fractions]
+  definition: 'A fraction whose numerator, denominator or both contain a fraction, such as $\dfrac{\tfrac34}{\tfrac58}$.'
+  topic: Complex fractions
+- term: main fraction bar
+  definition: 'The longest bar in a complex fraction; it separates the whole top from the whole bottom, and its division is done last.'
+  topic: Complex fractions
+- term: continued fraction
+  aliases: [continued fractions]
+  definition: 'A number written as a whole number plus 1 over (a whole number plus 1 over …), such as $1 + \cfrac{1}{2 + \cfrac{1}{3}}$; evaluate it from the bottom up.'
+  topic: Continued fractions
+- term: work rate
+  aliases: [work rates]
+  definition: 'How much of a job gets done per unit of time; a worker who takes $t$ hours alone has a work rate of $\tfrac1t$ job per hour.'
+  topic: Combined rates
+- term: average speed
+  definition: 'Total distance divided by total time for a whole trip; it is not usually the average of the speeds.'
+  topic: Combined rates
+- term: harmonic mean
+  definition: 'The reciprocal of the average of the reciprocals; for two numbers $a$ and $b$ it is $\dfrac{2ab}{a+b}$. It gives the average speed for equal distances at speeds $a$ and $b$.'
+  topic: Combined rates

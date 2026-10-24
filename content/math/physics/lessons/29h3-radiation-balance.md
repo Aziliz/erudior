@@ -68,8 +68,8 @@ A planet warms up or cools down until it radiates away energy as fast as it abso
 
 ![Parallel rays of sunlight strike a planet from the left; a dashed arrow shows part of the light reflected back into space. The planet blocks a disk-shaped area of sunlight, but wavy infrared arrows leave its whole spherical surface in every direction.](images/phys-m7-energy-balance.svg)
 
-- **Absorbed:** the planet intercepts sunlight over the disk it blocks, area $\pi R^2$. A fraction $a$, the **albedo**, is reflected straight back (clouds, ice, deserts); Earth's is about 0.30. The absorbed power is $(1 - a)S\pi R^2$.
-- **Emitted:** the planet radiates infrared from its whole surface, area $4\pi R^2$, day side and night side. Treating it as a blackbody in the infrared ($e = 1$), that is $4\pi R^2\sigma T^4$.
+- *Absorbed:* the planet intercepts sunlight over the disk it blocks, area $\pi R^2$. A fraction $a$, the **albedo**, is reflected straight back (clouds, ice, deserts); Earth's is about 0.30. The absorbed power is $(1 - a)S\pi R^2$.
+- *Emitted:* the planet radiates infrared from its whole surface, area $4\pi R^2$, day side and night side. Treating it as a blackbody in the infrared ($e = 1$), that is $4\pi R^2\sigma T^4$.
 
 Setting them equal, the radius cancels:
 

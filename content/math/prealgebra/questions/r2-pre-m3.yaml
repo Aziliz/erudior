@@ -340,7 +340,7 @@
     - ['$1 + \cfrac{1}{3 + \cfrac{1}{2}}$', '9/7']
   distractors: ['4/3']
   explanation: |-
-    Evaluate from the bottom up. $1 + \tfrac12 = \tfrac32$. $1 + \tfrac12 = \tfrac32$, flip to $\tfrac23$, add 1: $\tfrac53$. $2 + \tfrac13 = \tfrac73$. $3 + \tfrac12 = \tfrac72$, flip to $\tfrac27$, add 1: $\tfrac97$.
+    Evaluate from the bottom up. First: $1 + \tfrac12 = \tfrac32$. Second: the bottom part $1 + \tfrac12 = \tfrac32$ flips to $\tfrac23$; add 1 to get $\tfrac53$. $2 + \tfrac13 = \tfrac73$. $3 + \tfrac12 = \tfrac72$, flip to $\tfrac27$, add 1: $\tfrac97$.
 
 - id: pre-m3-r2-h13
   lesson: pre-m3-h-complex-fractions

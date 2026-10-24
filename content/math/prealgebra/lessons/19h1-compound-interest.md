@@ -37,7 +37,7 @@ After $t$ years there are $t$ factors of 1.1, which is a power:
 
 $$A = P(1 + r)^t$$
 
-Here $P$ is the principal, $r$ the annual rate as a decimal, $t$ the number of years, and $A$ the balance at the end. The number $1 + r$ is the **growth factor**: what the balance is multiplied by each year. Check: $1{,}000 \times 1.1^5 = 1{,}000 \times 1.61051 = 1{,}610.51$, matching the table. Order of operations matters here: raise $1.1$ to the power first, then multiply by $P$. The same formula with $r = 0.05$ gives the lesson 19 example: $1{,}000 \times 1.05^2 = 1{,}102.50$.
+Here $P$ is the principal, $r$ the annual rate as a decimal, $t$ the number of years, and $A$ the balance at the end. The number $1 + r$ is the **growth factor**: what the balance is multiplied by each year. Check: $1{,}000 \times 1.1^5 = 1{,}000 \times 1.61051 = 1{,}610.51$, matching the table. Order of operations matters here: raise $1.1$ to the power first, then multiply by $P$. The same formula with $r = 0.05$ gives the Lesson 19 example: $1{,}000 \times 1.05^2 = 1{,}102.50$.
 
 Anything that is multiplied by the same factor every period shows **exponential growth**. Compare the shapes: simple interest adds the same amount each year, so its graph is a straight line; compound interest multiplies, so its graph curves upward more and more steeply.
 

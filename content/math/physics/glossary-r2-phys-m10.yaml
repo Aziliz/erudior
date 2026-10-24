@@ -1,0 +1,50 @@
+# Round 2, module phys-m10: terms bolded in the honors lessons.
+- term: magnetic mirror
+  aliases: [magnetic mirrors, magnetic bottle]
+  definition: 'A magnetic field that is strong at the ends and weaker in between; charged particles spiraling along it are pushed back from the strong regions and can be trapped (as in Earth''s Van Allen belts).'
+  topic: Particle motion in fields
+- term: cyclotron
+  aliases: [cyclotrons]
+  definition: 'A particle accelerator in which ions circle in a uniform magnetic field inside two hollow dees and are pushed across the gap between them by a voltage alternating at the cyclotron frequency; exit energy $q^2B^2R^2/(2m)$.'
+  topic: Particle motion in fields
+- term: dee
+  aliases: [dees]
+  definition: 'One of the two hollow D-shaped electrodes of a cyclotron; inside it the ions feel only the magnetic field and move in a semicircle.'
+  topic: Particle motion in fields
+- term: charge-to-mass ratio
+  aliases: [e/m, charge to mass ratio]
+  definition: 'A particle''s charge divided by its mass, which sets how sharply fields bend it; for the electron, $e/m = 1.76\times10^{11}$ C/kg, first measured by J. J. Thomson in 1897.'
+  topic: Particle motion in fields
+- term: Hall effect
+  definition: 'The sideways voltage that appears across a current-carrying conductor in a magnetic field, because the field pushes the moving charge carriers to one edge.'
+  topic: The Hall effect
+- term: Hall voltage
+  aliases: [Hall voltages]
+  definition: 'The voltage across a current-carrying strip in a perpendicular magnetic field: $V_H = IB/(nqt)$, with $t$ the thickness along the field. Its sign shows the carriers'' sign.'
+  topic: The Hall effect
+- term: charge carrier density
+  aliases: [carrier density, charge-carrier density]
+  definition: 'The number of mobile charges per cubic meter in a material, $n$ (about $8.5\times10^{28}$ m⁻³ for copper, far less in semiconductors).'
+  topic: The Hall effect
+- term: phasor
+  aliases: [phasors, phasor diagram]
+  definition: 'An arrow representing a sinusoidal quantity: its length is the amplitude (or rms value) and its angle is the phase. Phasors of out-of-step voltages are added as vectors.'
+  topic: Phase and power factor
+- term: phase angle
+  definition: 'In an AC circuit, the angle $\varphi$ by which the current lags the source voltage, with $\tan\varphi = (X_L - X_C)/R$ for a series RLC circuit (negative when the current leads).'
+  topic: Phase and power factor
+- term: power factor
+  definition: 'The factor $\cos\varphi = R/Z$ in $P_{\text{avg}} = I_{\text{rms}}V_{\text{rms}}\cos\varphi$; 1 for a pure resistance, 0 for a pure inductance or capacitance.'
+  topic: Phase and power factor
+- term: line loss
+  aliases: [line losses, transmission loss, transmission losses]
+  definition: 'Power wasted as heat in transmission wires, $I^2R_{\text{line}} = (P/V)^2R_{\text{line}}$; raising the transmission voltage reduces it.'
+  topic: Power transmission
+- term: HVDC
+  aliases: [high-voltage direct current]
+  definition: 'High-voltage direct current: DC transmission at hundreds of kilovolts, made possible by modern power electronics, used for some very long lines and undersea cables.'
+  topic: Power transmission
+- term: three-phase power
+  aliases: [three-phase]
+  definition: 'AC supplied as three voltages a third of a cycle ($120^\circ$) apart; for a balanced load the currents add to zero and the total power is steady.'
+  topic: Power transmission

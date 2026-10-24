@@ -84,7 +84,9 @@ With no absorption ($\varepsilon = 0$) the surface is at $T_e$. With a layer abs
 
 What value of $\varepsilon$ gives Earth's observed 288 K? Solve for $\varepsilon$:
 
-$$\left(\frac{T_e}{T_s}\right)^4 = \frac{2 - \varepsilon}{2} \quad\Rightarrow\quad \varepsilon = 2 - 2\left(\frac{255}{288}\right)^4 = 2 - 2(0.611) = 0.78.$$
+$$\left(\frac{T_e}{T_s}\right)^4 = \frac{2 - \varepsilon}{2} \quad\Rightarrow\quad \varepsilon = 2 - 2\left(\frac{254.6}{288}\right)^4 = 2 - 2(0.611) = 0.78.$$
+
+(Using the unrounded $T_e = 254.6$ K; with 255 K you get 0.77.)
 
 So in this model the atmosphere absorbs about 78% of the surface's infrared. Notice what the model predicts: add more greenhouse gas, $\varepsilon$ rises, and the surface warms, even though the sunlight hasn't changed. Viewed from space, the planet must still radiate $\sigma T_e^4$ per square meter on average to balance the sunlight; the extra gas just makes the surface warmer underneath. (The model is a teaching tool. In the real atmosphere, convection carries much of the surface's heat upward, absorption varies strongly with wavelength, and clouds both reflect sunlight and trap infrared.)
 
@@ -102,7 +104,7 @@ $$\Delta T_0 \approx \frac{\Delta F}{4\sigma T_e^3} = \frac{\Delta F}{3.7\text{ 
 
 ### Example 4: CO₂ so far, and a doubling
 
-Before industrialization, CO₂ was about 280 parts per million (ppm); by the early 2020s it had passed 420 ppm. The forcing from that rise is $5.35\ln(420/280) = 5.35(0.405) = 2.2$ W/m². For a doubling, $\Delta F = 3.7$ W/m² and $\Delta T_0 = 3.7/3.7 = 1.0$ K. (More careful calculations give about 1.2 K for this no-feedback response.)
+Before industrialization, CO₂ was about 280 parts per million (ppm); by the early 2020s it had reached about 420 ppm. The forcing from that rise is $5.35\ln(420/280) = 5.35(0.405) = 2.2$ W/m². For a doubling, $\Delta F = 3.7$ W/m² and $\Delta T_0 = 3.7/3.7 = 1.0$ K. (More careful calculations give about 1.2 K for this no-feedback response.)
 
 But the climate does not stay otherwise unchanged. Warming triggers **feedbacks**, changes that alter the energy balance further:
 

@@ -104,10 +104,10 @@ A kitchen refrigerator runs the **vapor-compression cycle**. Its working fluid, 
 
 ![A refrigerator loop: a compressor (circle, with work W going in) pumps refrigerant up to condenser coils at the top, which give off heat Q_H to the kitchen; the refrigerant then passes through an expansion valve on the left and into evaporator coils at the bottom, inside the fridge, which absorb heat Q_C from the food before returning to the compressor.](images/phys-m7-fridge-loop.svg)
 
-1. **Compressor:** the cool, low-pressure vapor is compressed (nearly adiabatically), which makes it hot. This is where the electrical work $W$ goes in.
-2. **Condenser:** the hot vapor flows through coils on the back or bottom of the fridge, gives off heat $Q_H$ to the kitchen, and condenses to a liquid.
-3. **Expansion valve:** the liquid squeezes through a narrow opening into a low-pressure region. Part of it flashes to vapor, and that cools it sharply.
-4. **Evaporator:** the cold liquid runs through coils inside the fridge, absorbs heat $Q_C$ from the food and evaporates completely, then returns to the compressor.
+1. *Compressor:* the cool, low-pressure vapor is compressed (nearly adiabatically), which makes it hot. This is where the electrical work $W$ goes in.
+2. *Condenser:* the hot vapor flows through coils on the back or bottom of the fridge, gives off heat $Q_H$ to the kitchen, and condenses to a liquid.
+3. *Expansion valve:* the liquid squeezes through a narrow opening into a low-pressure region. Part of it flashes to vapor, and that cools it sharply.
+4. *Evaporator:* the cold liquid runs through coils inside the fridge, absorbs heat $Q_C$ from the food and evaporates completely, then returns to the compressor.
 
 Energy conservation over the cycle gives $Q_H = Q_C + W$, so the coils at the back always release more heat than is removed from inside. That's why an open refrigerator door warms a closed kitchen.
 
