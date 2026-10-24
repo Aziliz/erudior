@@ -315,3 +315,168 @@
   distractors: [Lasso constraint region, Prior mean]
   explanation: |-
     The ellipses are contours of the residual sum of squares, centered at the least squares estimate. The penalized solution is where the smallest contour touches the constraint region. The diamond $|b_1| + |b_2| \le t$ is the lasso region, and its contact point is a corner on the $b_2$ axis, so $b_1 = 0$. The disk $b_1^2 + b_2^2 \le t^2$ is the ridge region; its contact point has both coefficients nonzero. Marker 5 is inside the disk, so it is the ridge region, not the lasso region.
+
+# ---- Lesson 92: Multiple testing and the false discovery rate ----
+- id: ps-h1-r2-h28
+  lesson: ps-h1-multiple-testing
+  topic: Multiple testing
+  stem: 'Ten independent tests are run at $\alpha = 0.05$, and every null hypothesis is true. What is the probability of at least one false rejection?'
+  choices: ['$0.5$', '$0.401$', '$0.05$', '$0.599$']
+  answer: 1
+  explanation: |-
+    $P(\text{no false rejection}) = 0.95^{10} = 0.599$, so $P(\text{at least one}) = 1 - 0.599 = 0.401$. $0.5 = m\alpha$ is the expected number of false rejections (and a Bonferroni upper bound), not a probability; 0.599 is the complement.
+
+- id: ps-h1-r2-h29
+  lesson: ps-h1-multiple-testing
+  module_quiz: true
+  topic: Multiple testing
+  stem: 'With $V$ false rejections and $R$ total rejections ($V/R$ taken as 0 when $R = 0$), the false discovery rate is'
+  choices:
+    - '$P(V \ge 1)$'
+    - '$E(V)/m$'
+    - '$P(V \ge 1 \mid R \ge 1)$'
+    - '$E(V/R)$'
+  answer: 3
+  explanation: |-
+    The false discovery proportion is $V/R$ and the FDR is its expectation. $P(V \ge 1)$ is the familywise error rate. $E(V)/m$ is the per-comparison error rate, which divides by the number of tests, not the number of discoveries.
+
+- id: ps-h1-r2-h30
+  lesson: ps-h1-multiple-testing
+  topic: Multiple testing
+  stem: 'Five sorted p-values are 0.002, 0.009, 0.012, 0.030, 0.20. How many hypotheses does Holm''s procedure reject at $\alpha = 0.05$?'
+  choices: ['3', '2', '4', '1']
+  answer: 0
+  explanation: |-
+    Holm's thresholds are $0.05/5 = 0.01$, $0.05/4 = 0.0125$, $0.05/3 = 0.0167$, $0.05/2 = 0.025$, $0.05$. $0.002 \le 0.01$, $0.009 \le 0.0125$, $0.012 \le 0.0167$, but $0.030 > 0.025$, so Holm stops: 3 rejections. Bonferroni (every p-value against 0.01) rejects 2; BH at $q = 0.05$ rejects 4, since $0.030 \le 4(0.05)/5 = 0.04$.
+
+- id: ps-h1-r2-h31
+  lesson: ps-h1-multiple-testing
+  module_quiz: true
+  topic: Multiple testing
+  stem: 'Six sorted p-values are 0.003, 0.014, 0.016, 0.035, 0.041, 0.30. How many hypotheses does Benjamini–Hochberg reject at $q = 0.05$?'
+  choices: ['3', '4', '5', '6']
+  answer: 2
+  explanation: |-
+    The BH lines $kq/m$ are 0.0083, 0.0167, 0.025, 0.0333, 0.0417, 0.05. $p_{(4)} = 0.035$ is above its line, but $p_{(5)} = 0.041 \le 0.0417$, and $p_{(6)} = 0.30 > 0.05$. The largest $k$ under the line is 5, so BH rejects the five smallest, including $p_{(4)}$. Answering 3 stops at the first failure, which is how a step-down method works, not the step-up BH.
+
+- id: ps-h1-r2-h32
+  lesson: ps-h1-multiple-testing
+  topic: Multiple testing
+  stem: 'For a test with a continuous test statistic, what is the distribution of the p-value when the null hypothesis is true?'
+  choices:
+    - 'Normal with mean 0.5'
+    - 'Uniform on $(0, 1)$'
+    - 'Concentrated near 0'
+    - 'Concentrated near 1'
+  answer: 1
+  explanation: |-
+    For an upper-tailed test the p-value is $1 - F_0(T)$, and $F_0(T) \sim \text{Uniform}(0, 1)$ under $H_0$ by the probability integral transform; so is one minus it. Hence $P(p \le u) = u$. Concentration near 0 is what happens under the alternative.
+
+- id: ps-h1-r2-h33
+  lesson: ps-h1-multiple-testing
+  topic: Multiple testing
+  stem: 'If every one of the $m$ null hypotheses is true, how do FDR and FWER compare for any procedure?'
+  choices:
+    - 'They are equal'
+    - 'FDR is $m$ times FWER'
+    - 'FDR is FWER divided by $m$'
+    - 'FDR is always 0'
+  answer: 0
+  explanation: |-
+    With every null true, every rejection is false, so $V = R$ and $V/R = 1$ whenever $R \ge 1$. Then $\text{FDR} = E(V/R) = P(R \ge 1) = P(V \ge 1) = \text{FWER}$. This is why BH still controls FWER in the "nothing is going on" case. When some nulls are false, $\text{FDR} \le \text{FWER}$.
+
+- id: ps-h1-r2-h34
+  lesson: ps-h1-multiple-testing
+  topic: Multiple testing
+  stem: 'A screen runs 2,000 tests at $\alpha = 0.01$ each. 1,800 nulls are true; the 200 real effects are each detected with power 0.6. About what fraction of the discoveries are false?'
+  choices: ['$0.01$', '$0.15$', '$0.09$', '$0.13$']
+  answer: 3
+  explanation: |-
+    Expected false discoveries $1800(0.01) = 18$; expected true discoveries $200(0.6) = 120$. Of about 138 discoveries, $18/138 \approx 0.13$ are false. 0.15 divides by the true discoveries only, 0.09 divides by the 200 real effects, and 0.01 is the per-test level, which is not the fraction of discoveries that are false.
+
+- id: ps-h1-r2-h35
+  lesson: ps-h1-multiple-testing
+  topic: Multiple testing
+  stem: 'With $m = 10$, the sorted p-values are 0.001, 0.005, 0.012, 0.014, 0.03, 0.2, 0.3, 0.5, 0.7, 0.9. What is the BH-adjusted p-value of the third smallest, 0.012?'
+  choices: ['$0.04$', '$0.12$', '$0.035$', '$0.012$']
+  answer: 2
+  explanation: |-
+    $\tilde p_{(3)} = \min_{j \ge 3} \tfrac{m}{j}p_{(j)}$. The candidates are $10(0.012)/3 = 0.04$, $10(0.014)/4 = 0.035$, $10(0.03)/5 = 0.06$, and larger ones after that. The minimum is 0.035: if BH rejects the fourth hypothesis it rejects the third too. 0.04 forgets the minimum; 0.12 is the Bonferroni adjustment $10 \times 0.012$.
+
+- id: ps-h1-r2-h36
+  lesson: ps-h1-multiple-testing
+  type: text
+  topic: Multiple testing
+  stem: 'Holm''s procedure is run on $m = 10$ p-values at $\alpha = 0.05$. If it gets that far, the third smallest p-value is compared with the threshold ___. Give the number.'
+  accept: ['0.00625']
+  explanation: |-
+    The $k$-th smallest p-value is compared with $\alpha/(m - k + 1)$. For $k = 3$: $0.05/(10 - 3 + 1) = 0.05/8 = 0.00625$. (A fraction such as 1/160 is accepted as the same number.)
+
+- id: ps-h1-r2-h37
+  lesson: ps-h1-multiple-testing
+  module_quiz: true
+  type: text
+  topic: Multiple testing
+  stem: 'Five sorted p-values are 0.01, 0.03, 0.05, 0.09, 0.4. At $q = 0.10$, Benjamini–Hochberg rejects ___ hypotheses. Give only the number.'
+  accept: ['3', three]
+  explanation: |-
+    The lines $kq/m = 0.02k$ are 0.02, 0.04, 0.06, 0.08, 0.10. $0.4 > 0.10$ and $0.09 > 0.08$, but $0.05 \le 0.06$, so the largest $k$ under the line is 3 and the three smallest are rejected.
+
+- id: ps-h1-r2-h38
+  lesson: ps-h1-multiple-testing
+  type: order
+  topic: Multiple testing
+  stem: 'With $m = 10$ tests and $\alpha = q = 0.05$, put the thresholds that the second smallest p-value is compared with in order, from strictest (smallest) to most lenient.'
+  items:
+    - 'Bonferroni: $\alpha/m$'
+    - 'Holm: $\alpha/(m - 1)$'
+    - 'Benjamini–Hochberg: $2q/m$'
+    - 'No correction: $\alpha$'
+  explanation: |-
+    The numbers are $0.05/10 = 0.005$, $0.05/9 = 0.00556$, $2(0.05)/10 = 0.01$ and $0.05$. Holm is a little more lenient than Bonferroni at every step after the first; BH's line rises linearly in $k$ and is more lenient still, because it controls the weaker FDR.
+
+- id: ps-h1-r2-h39
+  lesson: ps-h1-multiple-testing
+  module_quiz: true
+  topic: Multiple testing
+  stem: 'Which procedures control the familywise error rate at level $\alpha$ whatever the dependence among the tests? Select all that apply.'
+  choices:
+    - 'Bonferroni: reject when $p \le \alpha/m$'
+    - 'Holm''s step-down procedure'
+    - 'Benjamini–Hochberg at $q = \alpha$'
+    - 'Running every test at level $\alpha$'
+    - 'Benjamini–Yekutieli at $q = \alpha$'
+  answer: [0, 1]
+  explanation: |-
+    Bonferroni and Holm both rest on the union bound, which needs no independence. BH and Benjamini–Yekutieli control the false discovery rate, which is weaker than FWER when some nulls are false. Running every test at $\alpha$ controls nothing across the family: with $m$ independent true nulls, $P(V \ge 1) = 1 - (1 - \alpha)^m$.
+
+- id: ps-h1-r2-h40
+  lesson: ps-h1-multiple-testing
+  type: match
+  topic: Multiple testing
+  stem: 'Match each term to its description.'
+  pairs:
+    - [Familywise error rate, Probability of at least one false rejection]
+    - [False discovery rate, Expected fraction of rejections that are false]
+    - [Step-down procedure, Starts at the smallest p-value and stops at the first failure]
+    - [Step-up procedure, Finds the largest index under its threshold and rejects all smaller p-values]
+  distractors: [Fraction of all hypotheses that are true nulls]
+  explanation: |-
+    FWER $= P(V \ge 1)$ and FDR $= E(V/R)$. Holm is step-down; Benjamini–Hochberg is step-up. The distractor describes $m_0/m$, which appears in the BH theorem ($\text{FDR} = m_0q/m$) but is not an error rate.
+
+- id: ps-h1-r2-h41
+  lesson: ps-h1-multiple-testing
+  module_quiz: true
+  type: label
+  topic: Multiple testing
+  stem: 'Eight sorted p-values are plotted against their rank $k$, with $m = 8$ and $\alpha = q = 0.05$. Name the numbered parts.'
+  image: {src: images/ps-h1-bh-plot-blank.svg, alt: 'Sorted p-values against rank 1 to 8. A rising straight line through the origin region up to 0.05 at rank 8; a nearly flat dashed line at about 0.006; a dotted curve of square points starting at 0.006 and bending up to 0.05 at rank 8. Five filled dots lie on or below the straight line, a sixth open dot lies above it, and two more are off the top of the chart.'}
+  labels:
+    - {x: 41.7, y: 60.3, text: Benjamini–Hochberg line q·k/m}
+    - {x: 87.5, y: 76.7, text: Bonferroni threshold α/m}
+    - {x: 75.8, y: 57.0, text: Holm thresholds α/(m − k + 1)}
+    - {x: 56.3, y: 50.6, text: Largest p-value rejected by BH}
+    - {x: 66.1, y: 36.9, text: P-value not rejected by BH}
+  distractors: [Unadjusted level α, Adjusted p-value]
+  explanation: |-
+    The straight line through rank $k$ at height $0.05k/8$ is the BH line. The flat dashed line is Bonferroni's $0.05/8 = 0.00625$. The bending curve is Holm's $0.05/(9 - k)$: equal to Bonferroni at $k = 1$ and rising to 0.05 at $k = 8$. The fifth p-value (0.031) is the last on or below the BH line, so BH rejects ranks 1 to 5; the sixth (0.044) is above its line, 0.0375, and is not rejected.

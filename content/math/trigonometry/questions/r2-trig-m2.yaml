@@ -247,7 +247,7 @@
   choices: ['$3.83$', '$7.65$', '$8.28$', '$14.14$']
   answer: 1
   explanation: |-
-    $s = 2R\sin\tfrac{180^\circ}{8} = 20\sin 22.5^\circ \approx 7.65$. ($3.83$ is half a side, $10\sin 22.5^\circ$; $8.28$ uses tangent, $20\tan 22.5^\circ$, which is the side of the octagon drawn *around* the circle; $14.14$ uses the full central angle, $20\sin 45^\circ$.)
+    $s = 2R\sin\tfrac{180^\circ}{8} = 20\sin 22.5^\circ \approx 7.65$. ($3.83$ is half a side, $10\sin 22.5^\circ$; $8.28$ uses tangent, $20\tan 22.5^\circ$, which is the side of the octagon drawn around the outside of the circle; $14.14$ uses the full central angle, $20\sin 45^\circ$.)
 - id: trig-m2-r2-h03
   lesson: trig-m2-h-exact-geometry
   topic: Regular polygons

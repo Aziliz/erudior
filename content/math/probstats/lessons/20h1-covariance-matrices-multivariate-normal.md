@@ -193,11 +193,11 @@ $z_y = -1.25$). But
 $$Q = \frac{1.5^2 - 2(0.6)(1.5)(-1.25) + (-1.25)^2}{1 - 0.36} = \frac{2.25 + 2.25 + 1.5625}{0.64} \approx 9.47,$$
 
 and $P(Q \ge 9.47) = e^{-9.47/2} \approx 0.0088$. Fewer than 1% of students land this far out: with
-$\rho = 0.6$, a good midterm makes a poor final surprising. The picture shows the point well outside
-the 98.9% ellipse.
+$\rho = 0.6$, a good midterm makes a poor final surprising. In the picture the point sits just
+outside even the 98.9% ellipse, although each coordinate on its own looks ordinary.
 
 ```plot
-{"x": [38, 104], "y": [36, 114], "xLabel": "midterm x", "yLabel": "final y", "curves": [{"x": "70 + 10*cos(t)", "y": "75 + 7.2*cos(t) + 9.6*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 20*cos(t)", "y": "75 + 14.4*cos(t) + 19.2*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 30*cos(t)", "y": "75 + 21.6*cos(t) + 28.8*sin(t)", "t": [0, "2pi"]}], "points": [{"at": [70, 75], "label": "mean"}, {"at": [85, 60], "label": "(85, 60)"}], "caption": "From the inside out, the ellipses Q = 1, 4, 9 hold 39%, 86% and 98.9% of the probability; the point (85, 60) lies outside all three"}
+{"x": [38, 104], "y": [36, 114], "xLabel": "midterm x", "yLabel": "final y", "curves": [{"x": "70 + 10*cos(t)", "y": "75 + 7.2*cos(t) + 9.6*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 20*cos(t)", "y": "75 + 14.4*cos(t) + 19.2*sin(t)", "t": [0, "2pi"]}, {"x": "70 + 30*cos(t)", "y": "75 + 21.6*cos(t) + 28.8*sin(t)", "t": [0, "2pi"]}], "points": [{"at": [70, 75], "label": "mean"}, {"at": [85, 60], "label": "(85, 60)"}], "caption": "From the inside out, the ellipses Q = 1, 4, 9 hold 39%, 86% and 98.9% of the probability; the point (85, 60), with Q ≈ 9.47, lies just outside the largest"}
 ```
 
 ## Common mistakes

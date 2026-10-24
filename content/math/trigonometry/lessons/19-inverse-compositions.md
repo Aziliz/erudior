@@ -34,6 +34,21 @@ $$\tan^{-1}(\tan x) = x \ \text{only for } -\tfrac{\pi}{2} < x < \tfrac{\pi}{2}.
 Otherwise, evaluate the inside first, then apply the inverse, and the answer is the angle
 *in the range* with the same trig value.
 
+The chart sums up both orders.
+
+```mermaid
+flowchart TD
+  accTitle: Does a trig function cancel with its inverse?
+  accDescr: For a composition of a trig function and its inverse, ask which is applied last. If the trig function is applied last, as in sine of inverse sine of x, the answer is x when x is in the inverse's domain and undefined otherwise. If the inverse is applied last, as in inverse sine of sine of x, the answer is x when x is in the inverse's range; otherwise evaluate the inside first and find the angle in the range with that value.
+  S["A trig function and its inverse, one inside the other"] --> Q{"Which is applied last?"}
+  Q -- "the trig function, as in sin(sin⁻¹ x)" --> D{"Is x in the inverse's domain?"}
+  D -- yes --> X1["The answer is x"]
+  D -- no --> U["Undefined"]
+  Q -- "the inverse, as in sin⁻¹(sin x)" --> G{"Is x in the inverse's range?"}
+  G -- yes --> X2["The answer is x"]
+  G -- no --> E["Evaluate the inside first, then take the angle in the range with that value"]
+```
+
 ### Example 1
 
 Evaluate $\sin^{-1}\!\left(\sin\tfrac{5\pi}{6}\right)$, $\cos^{-1}\!\left(\cos\left(-\tfrac{\pi}{3}\right)\right)$ and
@@ -68,6 +83,12 @@ Evaluate $\tan\!\left(\cos^{-1}\!\left(-\tfrac{5}{13}\right)\right)$ and $\sec\!
 
 **First.** $\theta = \cos^{-1}\!\left(-\tfrac{5}{13}\right)$ is in $[0, \pi]$ with negative cosine: quadrant II.
 Use $x = -5$, $r = 13$, so $y = 12$ (positive in QII). $\tan\theta = \tfrac{12}{-5} = -\tfrac{12}{5}$.
+
+The picture shows this angle. $\theta$ turns from the positive $x$-axis into quadrant II, and its
+reference triangle has a horizontal leg of length 5 (so $x = -5$), a vertical leg of 12 and a
+hypotenuse of 13. The reference angle $\alpha$ sits between the terminal side and the negative $x$-axis.
+
+![A coordinate plane with the point P at (−5, 12) in quadrant II. A right triangle joins the origin, P and the point (−5, 0): the hypotenuse is labeled r = 13, the vertical leg y = 12 and the horizontal leg x = −5. An arc θ runs from the positive x-axis to the terminal side, and a smaller angle α lies between the terminal side and the negative x-axis.](images/trig-m5-quadrant2.svg)
 
 **Second.** $\theta = \tan^{-1}\!\left(-\tfrac{7}{24}\right)$ is in quadrant IV. Use $x = 24$, $y = -7$, so
 $r = 25$. $\sec\theta = \tfrac{r}{x} = \tfrac{25}{24}$.

@@ -65,6 +65,15 @@ On a ramp tilted at angle $\theta$, the weight $W$ (pointing straight down) spli
 along the ramp, $W\sin\theta$, which tends to slide the object down, and a part perpendicular to
 the ramp, $W\cos\theta$, which presses it into the surface.
 
+The picture shows the split. The two components are the legs of a right triangle whose
+hypotenuse is the weight, and the angle between the weight and the "into the ramp" leg equals
+the ramp angle $\theta$, because both are measured from directions that are perpendicular to each
+other (vertical vs. horizontal, and the perpendicular to the ramp vs. the ramp). The ramp
+pushes back on the object with a **normal force** $N$, perpendicular to its surface; with no other
+forces across the ramp, $N = W\cos\theta$.
+
+![A block on a ramp that rises to the right at angle theta. From the block's center, a long arrow W, weight, points straight down; a short arrow W sin theta points down the slope along the ramp; an arrow W cos theta points into the ramp, perpendicular to its surface; and an arrow N, normal force, points out of the ramp, perpendicular to it. Dashed lines complete the rectangle showing that the two components add to the weight.](images/trig-m8-incline.svg)
+
 ### Example 3
 
 A 500 lb cart sits on a ramp inclined at $12^\circ$. What force parallel to the ramp keeps it from
@@ -122,6 +131,22 @@ In component form: a force $\mathbf{F} = \langle 3, 4\rangle$ (newtons) moving a
 2. Convert each vector to components, using direction angles (not bearings).
 3. Add the components (or set the sums to zero for equilibrium).
 4. Convert the result back to magnitude and direction, checking the quadrant.
+
+The same checklist as a flowchart, with the equilibrium branch:
+
+```mermaid
+flowchart TD
+  accTitle: Solving a vector application problem
+  accDescr: Sketch every vector and label its angle. Convert any bearings to direction angles. Write each vector in components. If the object is in equilibrium, set the horizontal sum and the vertical sum each equal to zero and solve for the unknowns. Otherwise add the components to get the resultant, then find its magnitude with the square root of Rx squared plus Ry squared and its direction from the inverse tangent and the quadrant, and convert back to a bearing if the question asks for one.
+  A["Sketch every vector and label its angle"] --> B["Convert bearings to direction angles"]
+  B --> C["Write each vector in components"]
+  C --> E{"Is the object in equilibrium?"}
+  E -- yes --> F["Set the x-sum = 0 and the y-sum = 0"]
+  F --> G["Solve for the unknown forces"]
+  E -- no --> H["Add components to get R = ⟨Rx, Ry⟩"]
+  H --> I["Magnitude √(Rx² + Ry²), direction from tan⁻¹ and the quadrant"]
+  I --> J["Convert to a bearing if asked"]
+```
 
 ## Common mistakes
 

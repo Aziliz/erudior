@@ -9,9 +9,9 @@
 <circle cx="325.0" cy="340.0" r="6" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="293.3" cy="243.3" r="7" fill="#a8372a" stroke="#1c2833" stroke-width="1.5"/>
 <circle cx="70.0" cy="350.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
-<text x="54.0" y="368.0" font-size="20" text-anchor="middle" fill="#1c2833" font-weight="bold">A</text>
+<text x="54.0" y="368.0" font-size="20" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-weight="bold">A</text>
 <circle cx="580.0" cy="330.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
-<text x="598.0" y="344.0" font-size="20" text-anchor="middle" fill="#1c2833" font-weight="bold">B</text>
+<text x="598.0" y="344.0" font-size="20" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-weight="bold">B</text>
 <circle cx="230.0" cy="50.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
-<text x="230.0" y="36.0" font-size="20" text-anchor="middle" fill="#1c2833" font-weight="bold">C</text>
+<text x="230.0" y="36.0" font-size="20" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-weight="bold">C</text>
 </svg>

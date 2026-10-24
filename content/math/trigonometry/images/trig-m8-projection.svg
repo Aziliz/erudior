@@ -10,10 +10,10 @@
 <line x1="66.9" y1="348.5" x2="257.6" y2="279.0" stroke="#a8372a" stroke-width="5"/>
 <polygon points="276.4,272.2 260.7,287.5 254.5,270.6" fill="#a8372a"/>
 <circle cx="70.0" cy="340.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
-<text x="62.0" y="368.0" font-size="17" text-anchor="middle" fill="#1c2833">O</text>
-<text x="192.8" y="65.1" font-size="20" text-anchor="middle" fill="#1f5f99" font-style="italic" font-weight="bold">u</text>
-<text x="552.6" y="192.1" font-size="20" text-anchor="middle" fill="#1c2833" font-style="italic" font-weight="bold">v</text>
-<text x="267.2" y="165.4" font-size="17" text-anchor="start" fill="#1e7a45">w = u − proj</text>
-<text x="194.7" y="341.9" font-size="17" text-anchor="middle" fill="#a8372a">projection of u onto v</text>
-<text x="142.0" y="310.0" font-size="20" text-anchor="start" fill="#1c2833" font-style="italic">θ</text>
+<text x="62.0" y="368.0" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">O</text>
+<text x="192.8" y="65.1" font-size="20" text-anchor="middle" fill="#1f5f99" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic" font-weight="bold">u</text>
+<text x="552.6" y="192.1" font-size="20" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic" font-weight="bold">v</text>
+<text x="267.2" y="165.4" font-size="17" text-anchor="start" fill="#1e7a45" stroke="#ffffff" stroke-width="4" paint-order="stroke">w = u − proj</text>
+<text x="194.7" y="341.9" font-size="17" text-anchor="middle" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">projection of u onto v</text>
+<text x="142.0" y="310.0" font-size="20" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic">θ</text>
 </svg>

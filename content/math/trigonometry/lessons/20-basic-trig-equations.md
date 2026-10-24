@@ -27,6 +27,11 @@ $$x = \alpha + 2k\pi \quad\text{or}\quad x = \pi - \alpha + 2k\pi, \qquad k \tex
 points symmetric about the $x$-axis: angles $\pm\beta$ with $\beta = \cos^{-1}c$.
 $$x = \pm\beta + 2k\pi.$$
 
+In the picture, the vertical line $x = c$ cuts the circle at the angle $\beta$ and at its mirror
+image across the $x$-axis, $-\beta$, which is the same point as $2\pi - \beta$.
+
+![A unit circle with a dashed vertical line x = c crossing it at two points. The upper point is at angle β, measured from the positive x-axis; the lower point is its mirror image across the x-axis, at angle 2π − β.](images/trig-m5-cos-equation.svg)
+
 **$\tan x = c$** (any $c$). Tangent has period $\pi$, and one solution per period:
 $$x = \tan^{-1}c + k\pi.$$
 
@@ -50,6 +55,19 @@ In $[0, 2\pi)$, take $k = 0$: $x = \tfrac{\pi}{6}, \tfrac{5\pi}{6}$.
 Most basic equations are linear in a single trig function. Isolate it with ordinary
 algebra, then use the unit circle.
 
+```mermaid
+flowchart TD
+  accTitle: Solving a basic trig equation
+  accDescr: First isolate the trig function to get sin x = c, cos x = c or tan x = c. For sine or cosine with c greater than 1 or less than −1 there are no solutions. Otherwise find the reference angle from the size of c, use the sign of c to pick the quadrants, write one angle in each quadrant, add 2kπ for sine and cosine or kπ for tangent, and finally list the solutions that lie in the interval.
+  A["Isolate the trig function: sin x = c, cos x = c or tan x = c"] --> B{"Sine or cosine with c above 1 or below −1?"}
+  B -- yes --> N["No solutions"]
+  B -- no --> R["Find the reference angle from the size of c"]
+  R --> Q["Use the sign of c to pick the quadrants"]
+  Q --> P["Write one angle in each of those quadrants"]
+  P --> K["Add 2kπ for sine and cosine, kπ for tangent"]
+  K --> L["List the solutions in the interval"]
+```
+
 ### Example 2
 
 Solve $2\cos x + \sqrt3 = 0$ on $[0, 2\pi)$.
@@ -67,6 +85,13 @@ Solve $3\tan\theta - 4 = 0$ for $0^\circ \le \theta < 360^\circ$, to the nearest
 
 $\tan\theta = \tfrac43$, so $\theta = \tan^{-1}\tfrac43 \approx 53.13^\circ$. Tangent repeats every $180^\circ$:
 $\theta \approx 53.13^\circ$ or $53.13^\circ + 180^\circ = 233.13^\circ$.
+
+The graph shows the pattern in radians: each branch of $y = \tan x$ crosses the line $y = \tfrac43$
+exactly once, so the solutions are one period ($\pi$, or $180^\circ$) apart.
+
+```plot
+{"x": [0, 6.3], "y": [-4, 4], "functions": [{"f": "tan(x)", "label": "y = tan x"}, {"f": "4/3", "dashed": true, "label": "y = 4/3"}], "points": [{"at": [0.9273, 1.3333], "label": "0.9273 (53.13°)"}, {"at": [4.0689, 1.3333], "label": "4.0689 (233.13°)"}], "caption": "tan x = 4/3 has one solution in each period of length π"}
+```
 
 ### Example 4: values that aren't special
 

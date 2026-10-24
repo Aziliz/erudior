@@ -1,0 +1,20 @@
+# Round 2 cards for module trig-m2 (honors lessons)
+- {front: 'Side of a regular $n$-gon with circumradius $R$', back: '$s = 2R\sin\dfrac{180^\circ}{n}$ (half a side is opposite the angle $\tfrac{180^\circ}{n}$ at the center)', topic: Regular polygons}
+- {front: 'Apothem of a regular $n$-gon with circumradius $R$', back: '$a = R\cos\dfrac{180^\circ}{n}$', topic: Regular polygons}
+- {front: 'Area of a regular $n$-gon from side $s$ and apothem $a$', back: '$\text{Area} = n\cdot\tfrac12 s a$ ($n$ triangles, each with base $s$ and height $a$)', topic: Regular polygons}
+- {front: 'Angle at the center of the right triangle inside a regular $n$-gon', back: '$\dfrac{180^\circ}{n}$: half of the central angle $\dfrac{360^\circ}{n}$', topic: Regular polygons}
+- {front: 'Angle-halving construction', back: 'Extend the adjacent leg by the hypotenuse: $\tan\dfrac{\theta}{2} = \dfrac{\text{opp}}{\text{adj} + \text{hyp}}$', topic: Exact values from geometry}
+- {front: '$\tan 15^\circ$ and $\tan 75^\circ$', back: '$2 - \sqrt3$ and $2 + \sqrt3$', topic: Exact values from geometry}
+- {front: '$\sin 15^\circ$ and $\cos 15^\circ$', back: '$\dfrac{\sqrt6 - \sqrt2}{4}$ and $\dfrac{\sqrt6 + \sqrt2}{4}$', topic: Exact values from geometry}
+- {front: '$\tan 22.5^\circ$ and $\tan 67.5^\circ$', back: '$\sqrt2 - 1$ and $\sqrt2 + 1$', topic: Exact values from geometry}
+- {front: '$\sin 18^\circ$ (= $\cos 72^\circ$)', back: '$\dfrac{\sqrt5 - 1}{4} \approx 0.309$', topic: Exact values from geometry}
+- {front: '$\cos 36^\circ$ (= $\sin 54^\circ$)', back: '$\dfrac{1 + \sqrt5}{4} = \dfrac{\varphi}{2} \approx 0.809$', topic: Exact values from geometry}
+- {front: 'Golden triangle with legs 1: base $x$', back: '$x^2 + x - 1 = 0$, so $x = \dfrac{\sqrt5 - 1}{2} = \dfrac{1}{\varphi} \approx 0.618$', topic: Exact values from geometry}
+- {front: 'Absolute vs relative error', back: 'Absolute: the possible miss in the answer''s units. Relative: absolute error ÷ value (often a percent).', topic: Measurement error}
+- {front: 'Error in $h = d\tan\theta$ from an angle error $\Delta\theta$ (radians)', back: '$\Delta h \approx \dfrac{d\,\Delta\theta}{\cos^2\theta}$; relative error $\dfrac{\Delta h}{h} \approx \dfrac{\Delta\theta}{\sin\theta\cos\theta}$', topic: Measurement error}
+- {front: 'Best angle of elevation for measuring a height', back: '$45^\circ$: there $\sin\theta\cos\theta = \tfrac12$ is largest, so the relative error is smallest, about $2\,\Delta\theta$', topic: Measurement error}
+- {front: 'Checking a result that has an uncertainty', back: 'Compute it at both ends of the input range, e.g. $d\tan(\theta - \Delta\theta)$ and $d\tan(\theta + \Delta\theta)$', topic: Measurement error}
+- {front: 'Distance to the horizon from height $h$', back: '$d = \sqrt{2Rh + h^2} \approx \sqrt{2Rh}$, about $3.57\sqrt{h}$ km for $h$ in meters (ignoring refraction)', topic: Horizon and Earth''s radius}
+- {front: 'Why the horizon triangle has its right angle at the horizon point', back: 'The line of sight is tangent to the Earth there, and a tangent is perpendicular to the radius.', topic: Horizon and Earth''s radius}
+- {front: 'Earth''s radius from the dip $\alpha$ seen from height $h$', back: '$\cos\alpha = \dfrac{R}{R + h}$, so $R = \dfrac{h\cos\alpha}{1 - \cos\alpha}$', topic: Horizon and Earth''s radius}
+- {front: 'Precision trap in $R = \dfrac{h\cos\alpha}{1 - \cos\alpha}$', back: '$1 - \cos\alpha$ subtracts two nearly equal numbers; rounding $\cos\alpha$ early can change $R$ by 20% or more. Keep every digit.', topic: Horizon and Earth''s radius}

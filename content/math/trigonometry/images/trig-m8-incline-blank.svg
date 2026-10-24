@@ -2,17 +2,17 @@
 <rect width="640" height="420" fill="#ffffff"/>
 <polygon points="40,380 600,380 600.0,118.9" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
 <path d="M40.0,380.0 L110.0,380.0 A70,70 0 0 0 103.4,350.4 Z" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
-<text x="122.0" y="368.0" font-size="20" text-anchor="start" fill="#1c2833" font-style="italic">θ</text>
-<polygon points="298.3,259.6 379.9,221.5 356.2,170.8 274.6,208.8" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
-<line x1="262.1" y1="245.5" x2="327.2" y2="385.2" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 5"/>
-<line x1="392.4" y1="354.8" x2="327.2" y2="385.2" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 5"/>
-<line x1="327.2" y1="215.2" x2="327.2" y2="367.2" stroke="#1c2833" stroke-width="4"/>
-<polygon points="327.2,385.2 319.1,367.2 335.3,367.2" fill="#1c2833"/>
-<line x1="327.2" y1="215.2" x2="278.4" y2="237.9" stroke="#a8372a" stroke-width="4"/>
-<polygon points="262.1,245.5 275.0,230.6 281.9,245.3" fill="#a8372a"/>
-<line x1="327.2" y1="215.2" x2="384.8" y2="338.5" stroke="#1f5f99" stroke-width="4"/>
-<polygon points="392.4,354.8 377.4,341.9 392.1,335.1" fill="#1f5f99"/>
-<line x1="327.2" y1="215.2" x2="284.1" y2="122.7" stroke="#1e7a45" stroke-width="4"/>
-<polygon points="276.5,106.4 291.5,119.3 276.8,126.1" fill="#1e7a45"/>
-<circle cx="327.2" cy="215.2" r="4" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
+<text x="122.0" y="368.0" font-size="20" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic">θ</text>
+<polygon points="325.5,246.9 407.1,208.8 383.4,158.1 301.8,196.1" fill="#dde8f3" stroke="#1c2833" stroke-width="2"/>
+<line x1="297.0" y1="229.3" x2="354.4" y2="352.5" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="411.9" y1="325.7" x2="354.4" y2="352.5" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="354.4" y1="202.5" x2="354.4" y2="334.5" stroke="#1c2833" stroke-width="4"/>
+<polygon points="354.4,352.5 346.3,334.5 362.5,334.5" fill="#1c2833"/>
+<line x1="354.4" y1="202.5" x2="313.3" y2="221.7" stroke="#a8372a" stroke-width="4"/>
+<polygon points="297.0,229.3 309.9,214.3 316.7,229.0" fill="#a8372a"/>
+<line x1="354.4" y1="202.5" x2="404.3" y2="309.4" stroke="#1f5f99" stroke-width="4"/>
+<polygon points="411.9,325.7 396.9,312.8 411.6,306.0" fill="#1f5f99"/>
+<line x1="354.4" y1="202.5" x2="311.3" y2="110.0" stroke="#1e7a45" stroke-width="4"/>
+<polygon points="303.7,93.7 318.7,106.6 304.0,113.5" fill="#1e7a45"/>
+<circle cx="354.4" cy="202.5" r="4" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
 </svg>

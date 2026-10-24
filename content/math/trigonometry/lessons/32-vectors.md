@@ -22,6 +22,12 @@ Geometrically, a vector is a directed line segment, an arrow. It runs from an
 $\mathbf{v}$. Its length is its **magnitude**, written $\lVert\mathbf{v}\rVert$. Two arrows with the same magnitude
 and direction represent the same vector (they are **equivalent vectors**), wherever they are drawn.
 
+The picture names the parts you will use all module: the two endpoints, the horizontal and
+vertical components (the legs of a right triangle), the direction angle measured from the
+positive $x$ direction, and the magnitude (the hypotenuse).
+
+![An arrow from P, the initial point, up and to the right to Q, the terminal point. A dashed horizontal leg labeled horizontal component a runs from P to a point below Q, and a dashed vertical leg labeled vertical component b rises from there to Q, with a right angle mark. The angle at P between the positive x direction and the arrow is labeled theta, direction angle, and the arrow itself is labeled magnitude.](images/trig-m8-vector-anatomy.svg)
+
 ## Component form
 
 Slide any arrow so it starts at the origin. If it then ends at $(a, b)$, the vector's
@@ -52,6 +58,22 @@ $$\mathbf{v} = \langle \lVert\mathbf{v}\rVert\cos\theta,\ \lVert\mathbf{v}\rVert
 
 Going the other way: $\tan\theta = \tfrac{b}{a}$, but as with reference angles, the calculator's $\tan^{-1}$
 only returns angles between $-90^\circ$ and $90^\circ$ (quadrants I and IV). Use the signs of $a$ and $b$ to place $\theta$ correctly.
+
+The flowchart turns that rule into a procedure you can follow every time.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the direction angle of a vector from its components
+  accDescr: Start with the vector a, b. If a is 0, the angle is 90 degrees when b is positive and 270 degrees when b is negative. Otherwise find the reference angle alpha as the inverse tangent of the absolute value of b over a. Then use the signs of a and b. Both positive, quadrant one: theta equals alpha. a negative and b positive, quadrant two: theta equals 180 degrees minus alpha. Both negative, quadrant three: theta equals 180 degrees plus alpha. a positive and b negative, quadrant four: theta equals 360 degrees minus alpha.
+  S["Vector ⟨a, b⟩"] --> Z{"Is a = 0?"}
+  Z -- yes --> V["θ = 90° if b #gt; 0, 270° if b #lt; 0"]
+  Z -- no --> R["Reference angle α = tan⁻¹ |b / a|"]
+  R --> Q{"Signs of a and b"}
+  Q -- "a #gt; 0, b ≥ 0 (QI)" --> Q1["θ = α"]
+  Q -- "a #lt; 0, b ≥ 0 (QII)" --> Q2["θ = 180° − α"]
+  Q -- "a #lt; 0, b #lt; 0 (QIII)" --> Q3["θ = 180° + α"]
+  Q -- "a #gt; 0, b #lt; 0 (QIV)" --> Q4["θ = 360° − α"]
+```
 
 ### Example 2
 

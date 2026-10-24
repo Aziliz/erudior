@@ -85,6 +85,11 @@ Multiply by the unit vector $\tfrac{\mathbf{v}}{\lVert\mathbf{v}\rVert}$ to give
 The leftover $\mathbf{w} = \mathbf{u} - \text{proj}_{\mathbf{v}}\mathbf{u}$ is orthogonal to $\mathbf{v}$, so every vector splits into a piece
 along $\mathbf{v}$ and a piece perpendicular to it.
 
+In the picture, drop a perpendicular from the tip of $\mathbf{u}$ to the line of $\mathbf{v}$. The projection runs
+along $\mathbf{v}$ from the shared tail to the foot of that perpendicular, and $\mathbf{w}$ is the perpendicular itself.
+
+![Vectors u and v drawn from a common tail O with the angle theta between them. A dashed segment w = u − proj drops from the tip of u to the line of v, meeting it at a right angle. A thick arrow along v from O to the foot of the dashed segment is labeled projection of u onto v.](images/trig-m8-projection.svg)
+
 ### Example 3
 
 Let $\mathbf{u} = \langle 6, 2\rangle$ and $\mathbf{v} = \langle 3, 4\rangle$. Find $\text{proj}_{\mathbf{v}}\mathbf{u}$ and write $\mathbf{u}$ as a sum of
@@ -124,6 +129,22 @@ to this idea.
 
 Since $|\cos\theta| \le 1$, the formula gives $|\mathbf{u}\cdot\mathbf{v}| \le \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$, with equality exactly when one
 vector is a scalar multiple of the other (the vectors are parallel, or one of them is $\mathbf{0}$). This is the Cauchy–Schwarz inequality, a workhorse of higher mathematics.
+
+## Choosing the tool
+
+Almost every dot product question starts with the same computation, $u_1v_1 + u_2v_2$; what you do
+with the number depends on what is asked.
+
+```mermaid
+flowchart TD
+  accTitle: Which dot product tool to use
+  accDescr: Start by computing u dot v. If the question asks for the angle between the vectors, divide by the product of the magnitudes and take the inverse cosine. If it asks whether they are perpendicular, check whether the dot product is zero. If it asks for the part of u along v, divide by the magnitude of v for the scalar projection, or by the magnitude of v squared and multiply by v for the vector projection. If it asks for work, take force dot displacement.
+  D["Compute u · v = u₁v₁ + u₂v₂"] --> W{"What does the question ask?"}
+  W -- angle --> A["cos θ = u · v / (‖u‖ ‖v‖), then θ = cos⁻¹"]
+  W -- perpendicular? --> P["Orthogonal exactly when u · v = 0"]
+  W -- "part of u along v" --> J["Scalar: u · v / ‖v‖. Vector: (u · v / ‖v‖²) v"]
+  W -- work --> K["W = F · D"]
+```
 
 ## Common mistakes
 

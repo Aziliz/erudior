@@ -18,7 +18,7 @@
   solution: |-
     The apothem splits each of the {n} central triangles into two right triangles with hypotenuse {rad} and an angle of $180^\circ \div {n} = {half:num2}^\circ$ at the center.
     Side: $2({rad})\sin {half:num2}^\circ \approx$ **{side:num2}**. Apothem: ${rad}\cos {half:num2}^\circ \approx$ **{apo:num2}**.
-    Area: ${n} \cdot \tfrac12 \cdot \text{side} \cdot \text{apothem} \approx$ **{area:num2}** (keep full precision until the end).
+    Area: ${n} \cdot \tfrac12 \cdot s \cdot a \approx$ **{area:num2}** (keep full precision until the end).
 
 - id: trig-m2-r2-exact-extended
   title: Exact values at 15°, 22.5°, 18° and 36°
@@ -80,10 +80,11 @@
   calc:
     al: round(acosd(6371000 / (6371000 + ht)), 3)
     cs: cosd(al)
+    onem: 1 - cs
     rkm: ht * cs / (1 - cs) / 1000
   prompt: 'From a hilltop {ht} m above sea level, the dip of the horizon is ${al:dp3}^\circ$. Estimate the Earth''s radius in km, to 3 significant figures. Keep every digit of $\cos\alpha$.'
   answers:
     - {name: rkm, label: 'Radius (km)', sigfigs: 3, format: sig3}
   solution: |-
     In the right triangle with the right angle at the horizon point, $\cos\alpha = \dfrac{R}{R + h}$, so $R = \dfrac{h\cos\alpha}{1 - \cos\alpha}$.
-    Here $\cos {al:dp3}^\circ \approx {cs:num4}\ldots$ (keep all digits), and $R \approx$ **{rkm:sig3}** km.
+    Here $1 - \cos {al:dp3}^\circ \approx {onem:texsci}$ (rounding $\cos\alpha$ to 4 decimals would ruin this), so $R = {ht}\cos {al:dp3}^\circ \div (1 - \cos {al:dp3}^\circ)$ m $\approx$ **{rkm:sig3}** km.

@@ -9,10 +9,10 @@
 <line x1="80.0" y1="300.0" x2="218.0" y2="116.0" stroke="#1f5f99" stroke-width="4"/>
 <polygon points="230.0,100.0 225.2,121.4 210.8,110.6" fill="#1f5f99"/>
 <circle cx="80.0" cy="300.0" r="5" fill="#1c2833" stroke="#1c2833" stroke-width="1.5"/>
-<text x="370.0" y="330.0" font-size="17" text-anchor="middle" fill="#a8372a">u (base, length ‖u‖)</text>
-<text x="120.0" y="160.0" font-size="20" text-anchor="middle" fill="#1f5f99" font-style="italic" font-weight="bold">v</text>
-<text x="240.0" y="200.0" font-size="17" text-anchor="start" fill="#1e7a45">h = ‖v‖ sin φ</text>
-<text x="142.0" y="284.0" font-size="20" text-anchor="start" fill="#1c2833" font-style="italic">φ</text>
-<text x="400.0" y="190.0" font-size="17" text-anchor="middle" fill="#1c2833">area = ‖u‖ h</text>
-<text x="400.0" y="212.0" font-size="17" text-anchor="middle" fill="#1c2833">= |det(u, v)|</text>
+<text x="370.0" y="330.0" font-size="17" text-anchor="middle" fill="#a8372a" stroke="#ffffff" stroke-width="4" paint-order="stroke">u (base, length ‖u‖)</text>
+<text x="120.0" y="160.0" font-size="20" text-anchor="middle" fill="#1f5f99" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic" font-weight="bold">v</text>
+<text x="240.0" y="200.0" font-size="17" text-anchor="start" fill="#1e7a45" stroke="#ffffff" stroke-width="4" paint-order="stroke">h = ‖v‖ sin φ</text>
+<text x="142.0" y="284.0" font-size="20" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke" font-style="italic">φ</text>
+<text x="400.0" y="190.0" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">area = ‖u‖ h</text>
+<text x="400.0" y="212.0" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">= |det(u, v)|</text>
 </svg>

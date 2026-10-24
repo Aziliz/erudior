@@ -29,8 +29,8 @@
     b: {min: -5, max: 5}
     c: {min: -5, max: 5}
     d: {min: -5, max: 5}
-    w: {min: 1, max: 6}
-    h: {min: 1, max: 5}
+    w: {min: 2, max: 6}
+    h: {min: 2, max: 5}
   where: ["dt != 0", "b*c != 0"]
   calc:
     dt: a*d - b*c
@@ -87,7 +87,7 @@
     - {name: q1, label: '$q_1 =$', kind: fraction}
     - {name: q2, label: '$q_2 =$', kind: fraction}
   solution: |-
-    Solve $(P - I)\mathbf{q} = \mathbf{0}$. The first row is $-{a}\,q_1 + {b}\,q_2 = 0$, so $q_1 = {ratio:frac}\,q_2$. With $q_1 + q_2 = 1$: $q_2 = {q2:frac}$ and $q_1 = {q1:frac}$. The steady state is **({q1:frac}, {q2:frac})**; check that $P\mathbf{q} = \mathbf{q}$.
+    Solve $(P - I)\mathbf{q} = \mathbf{0}$. The first row is $-{a}\,q_1 + {b}\,q_2 = 0$, so $q_1 = {ratio:texfrac}\,q_2$. With $q_1 + q_2 = 1$: $q_2 = {q2:texfrac}$ and $q_1 = {q1:texfrac}$. The steady state is **({q1:frac}, {q2:frac})**; check that $P\mathbf{q} = \mathbf{q}$.
 
 - id: pc-m6-r2-eigenvalues
   title: Eigenvalues of a 2×2 matrix

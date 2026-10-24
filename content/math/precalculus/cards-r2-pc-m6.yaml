@@ -1,0 +1,85 @@
+# Module pc-m6 (Systems and matrices), round 2 cards: honors lessons
+# Matrices as transformations
+- front: 'Columns of a transformation matrix'
+  back: 'The first column is the image of $(1, 0)$ and the second is the image of $(0, 1)$. To build a matrix, find where those two vectors go.'
+  topic: Linear transformations
+- front: 'Rotation by $\theta$ counterclockwise'
+  back: '$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$'
+  topic: Linear transformations
+- front: 'Reflections across the $x$-axis, the $y$-axis and $y = x$'
+  back: '$\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$, $\begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix}$, $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ (each has determinant $-1$)'
+  topic: Linear transformations
+- front: 'Horizontal shear by $k$'
+  back: '$\begin{bmatrix} 1 & k \\ 0 & 1 \end{bmatrix}$: $(x, y) \to (x + ky, y)$; areas unchanged; inverse is the shear by $-k$.'
+  topic: Linear transformations
+- front: 'Doing $B$ first, then $A$'
+  back: 'The single matrix $AB$: the transformation applied first is written on the right. Order matters.'
+  topic: Linear transformations
+- front: 'Meaning of $|\det A|$ for a $2 \times 2$ matrix'
+  back: 'The area scale factor: every region''s area is multiplied by $|\det A|$. The unit square goes to a parallelogram of area $|ad - bc|$.'
+  topic: Linear transformations
+- front: 'Sign of $\det A$'
+  back: 'Positive: orientation kept. Negative: orientation reversed (a mirror image). Zero: the plane is squashed onto a line or point, so there is no inverse.'
+  topic: Linear transformations
+- front: 'Angle-addition formulas from matrices'
+  back: '$R(\alpha)R(\beta) = R(\alpha + \beta)$; comparing entries gives $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$ and $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$.'
+  topic: Linear transformations
+- front: 'Why a $2 \times 2$ matrix cannot translate'
+  back: 'Every linear transformation sends the origin to itself. Graphics uses $3 \times 3$ matrices on $(x, y, 1)$ (homogeneous coordinates) to shift points.'
+  topic: Linear transformations
+# Markov chains
+- front: 'Transition matrix (column convention)'
+  back: 'Entry $(i, j)$ = probability of moving from state $j$ to state $i$; entries in $[0, 1]$; each column adds to 1.'
+  topic: Markov chains
+- front: 'Stepping a Markov chain forward'
+  back: '$\mathbf{x}_{n+1} = P\mathbf{x}_n$, so $\mathbf{x}_n = P^n\mathbf{x}_0$. Entries of $P^n$ are $n$-step transition probabilities.'
+  topic: Markov chains
+- front: 'Finding a steady-state vector'
+  back: 'Solve $(P - I)\mathbf{q} = \mathbf{0}$ (a dependent system), then choose the solution whose entries add to 1.'
+  topic: Markov chains
+- front: 'Steady state of $\begin{bmatrix} 1 - a & b \\ a & 1 - b \end{bmatrix}$'
+  back: '$\mathbf{q} = \left(\dfrac{b}{a + b},\ \dfrac{a}{a + b}\right)$'
+  topic: Markov chains
+- front: 'Regular transition matrix'
+  back: 'Some power of $P$ has all positive entries. Then there is exactly one steady state, and $P^n\mathbf{x}_0$ approaches it from every start.'
+  topic: Markov chains
+- front: 'Two meanings of a steady state'
+  back: 'The long-run probability of each state, and the long-run fraction of time the chain spends in each state.'
+  topic: Markov chains
+- front: 'Chains that don''t settle'
+  back: 'Periodic chains, such as $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$, cycle forever. Chains with an absorbing state (column with 1 on the diagonal) end up stuck there.'
+  topic: Markov chains
+- front: 'Row convention for Markov chains'
+  back: 'Many books use rows for "from" states: rows add to 1 and $\mathbf{x}_{n+1} = \mathbf{x}_nP$ with row vectors. It is the transpose of the column convention.'
+  topic: Markov chains
+- front: 'PageRank (simplified)'
+  back: 'A page''s rank is its entry in the steady-state vector of a random-surfer Markov chain; random jumps make the chain regular.'
+  topic: Markov chains
+# Eigenvalues and eigenvectors
+- front: 'Eigenvector and eigenvalue'
+  back: 'A nonzero $\mathbf{v}$ with $A\mathbf{v} = \lambda\mathbf{v}$; $\lambda$ is the eigenvalue. $A$ only stretches, shrinks or flips $\mathbf{v}$ along its line.'
+  topic: Eigenvalues and eigenvectors
+- front: 'Characteristic equation of a $2 \times 2$ matrix'
+  back: '$\det(A - \lambda I) = \lambda^2 - (\text{trace})\lambda + \det A = 0$'
+  topic: Eigenvalues and eigenvectors
+- front: 'Trace and determinant from eigenvalues'
+  back: 'The eigenvalues add to the trace $a + d$ and multiply to $\det A$.'
+  topic: Eigenvalues and eigenvectors
+- front: 'Finding an eigenvector for $\lambda$'
+  back: 'Solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$: one equation is redundant, so pick a free variable. Any nonzero multiple also works.'
+  topic: Eigenvalues and eigenvectors
+- front: 'Eigenvalues of a triangular matrix'
+  back: 'The diagonal entries.'
+  topic: Eigenvalues and eigenvectors
+- front: 'Eigenvalue 0'
+  back: '$0$ is an eigenvalue exactly when $\det A = 0$, i.e. when $A$ is singular.'
+  topic: Eigenvalues and eigenvectors
+- front: 'Powers and eigenvectors'
+  back: '$A^n\mathbf{v} = \lambda^n\mathbf{v}$. If $\mathbf{x}_0 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$, then $A^n\mathbf{x}_0 = c_1\lambda_1^n\mathbf{v}_1 + c_2\lambda_2^n\mathbf{v}_2$.'
+  topic: Eigenvalues and eigenvectors
+- front: 'Eigenvalues of a rotation by $90°$'
+  back: '$\lambda^2 + 1 = 0$, so $\lambda = \pm i$: no real eigenvectors, since every direction turns.'
+  topic: Eigenvalues and eigenvectors
+- front: 'Transition matrices and $\lambda = 1$'
+  back: 'Every transition matrix has eigenvalue 1 (the columns of $P - I$ add to 0); its eigenvector, scaled to add to 1, is the steady state.'
+  topic: Eigenvalues and eigenvectors

@@ -1,0 +1,637 @@
+# Round 2 questions for module ps-m7 (hypothesis testing): core lessons 30–33 and honors lessons 33h1, 33h2.
+
+# ---- Lesson 30: the testing framework ----
+- id: ps-m7-r2-q01
+  lesson: ps-test-framework
+  module_quiz: true
+  topic: Hypothesis testing framework
+  type: label
+  stem: 'The picture shows a one-sided test whose statistic is normal under each hypothesis; the rejection region is to the right of the vertical line. Name the numbered parts.'
+  image: {src: images/ps-m7-error-regions-blank.svg, alt: 'Two bell curves, a solid one on the left and a dashed one on the right, with a vertical line between their peaks. Six numbered markers: on the solid curve, on the dashed curve, at the top of the vertical line, in the small shaded tail of the solid curve right of the line, in the shaded area under the dashed curve left of the line, and in the large shaded area under the dashed curve right of the line.'}
+  labels:
+    - {x: 31.8, y: 25.1, text: Distribution under H0}
+    - {x: 70.6, y: 35.8, text: Distribution under H1}
+    - {x: 53.6, y: 11.9, text: Critical value}
+    - {x: 56.5, y: 75.0, text: Type I error probability (alpha)}
+    - {x: 48.8, y: 67.3, text: Type II error probability (beta)}
+    - {x: 65.7, y: 46.5, text: Power}
+  distractors: [p-value, Confidence level]
+  explanation: |-
+    The rejection region is right of the critical value (3). The area there under the null curve (1) is the Type I error probability $\alpha$ (4): rejecting although $H_0$ is true. Under the alternative curve (2), the area left of $c$ is $\beta$ (5), the chance of failing to reject when $H_1$ is true, and the area right of $c$ is the power $1 - \beta$ (6). A p-value depends on the observed data, so it is not a fixed region of this picture.
+
+- id: ps-m7-r2-q02
+  lesson: ps-test-framework
+  topic: Power
+  type: text
+  stem: 'A one-sided $z$ test at $\alpha = 0.05$ ($z_{0.05} = 1.645$) must have power 0.80 ($z_{0.20} = 0.842$) when the mean is 2 units above $\mu_0$; $\sigma = 6$. The smallest sample size is $n =$ ___. Give only the whole number.'
+  accept: ['56']
+  explanation: |-
+    $n \ge \left(\dfrac{(z_\alpha + z_\beta)\sigma}{\delta}\right)^2 = \left(\dfrac{(1.645 + 0.842)(6)}{2}\right)^2 = (7.461)^2 = 55.67$. Sample sizes are whole numbers and must not fall short, so round up: $n = 56$.
+
+- id: ps-m7-r2-q03
+  lesson: ps-test-framework
+  module_quiz: true
+  topic: Hypothesis testing framework
+  type: match
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Type I error, Rejecting a null hypothesis that is true]
+    - [Type II error, Failing to reject a null hypothesis that is false]
+    - [Size of a test, Largest rejection probability over the null hypothesis]
+    - [Power at a parameter value, Probability of rejecting when that alternative value is true]
+    - [p-value, Null probability of a result at least as extreme as the one observed]
+  distractors: [Probability that the null hypothesis is true]
+  explanation: |-
+    Type I and Type II are the two wrong decisions. The size is $\sup_{\Omega_0}\pi(\theta)$, the worst-case Type I error probability; the power at $\theta \in \Omega_1$ is $\pi(\theta)$. The p-value is a tail probability computed assuming $H_0$. No frequentist quantity in this lesson is "the probability that $H_0$ is true."
+
+- id: ps-m7-r2-q04
+  lesson: ps-test-framework
+  topic: Power
+  stem: 'A one-sided $z$ test of $H_0: \mu = \mu_0$ against $H_1: \mu > \mu_0$ is evaluated at one fixed alternative $\mu_1 > \mu_0$. Which changes, each made alone, increase the power at $\mu_1$? Select all that apply.'
+  choices:
+    - 'Increasing the sample size $n$'
+    - 'Raising $\alpha$ from 0.01 to 0.05'
+    - 'A larger population standard deviation $\sigma$'
+    - 'Testing against an alternative $\mu_1$ farther above $\mu_0$'
+  answer: [0, 1, 3]
+  explanation: |-
+    Power is $\Phi\!\left(\dfrac{\mu_1 - \mu_0}{\sigma/\sqrt n} - z_\alpha\right)$. It grows with $n$ (smaller standard error), with $\alpha$ (smaller $z_\alpha$, so a lower critical value) and with $\mu_1 - \mu_0$. A larger $\sigma$ widens the sampling distribution and lowers power.
+
+- id: ps-m7-r2-q05
+  lesson: ps-test-framework
+  topic: Hypothesis testing framework
+  stem: 'Twenty independent studies each test a true null hypothesis at $\alpha = 0.05$ with a continuous test statistic. What is the expected number of studies that reject?'
+  choices:
+    - '$0.05$'
+    - '$1$'
+    - '$0$'
+    - '$19$'
+  answer: 1
+  explanation: |-
+    Under a true $H_0$ the p-value is $\text{Uniform}(0,1)$, so each study rejects with probability exactly 0.05. The expected count is $20 \times 0.05 = 1$. (19 is the expected number that do not reject; 0.05 is the chance for one study.) This is the multiple-testing problem in miniature.
+
+# ---- Lesson 31: tests for normal samples ----
+- id: ps-m7-r2-q06
+  lesson: ps-normal-tests
+  topic: Tests for variances
+  type: text
+  stem: 'A normal sample of $n = 25$ has $s^2 = 3$. For $H_0: \sigma^2 = 2$, the chi-square test statistic is ___. Give only the number.'
+  accept: ['36']
+  explanation: |-
+    $\chi^2 = \dfrac{(n-1)s^2}{\sigma_0^2} = \dfrac{24 \times 3}{2} = 36$, on $24$ degrees of freedom.
+
+- id: ps-m7-r2-q07
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  type: match
+  stem: 'Match each situation (normal data throughout) to the test that fits it.'
+  pairs:
+    - [The same 12 rail segments are measured before and after grinding, Paired t test]
+    - ['One sample; is the mean 50? Sigma is unknown', 'One-sample t test']
+    - [Two independent samples of sizes 8 and 30 with very different spreads; compare means, Welch's t test]
+    - ['Is one population''s variance above a stated limit?', 'Chi-square test for a variance']
+    - ['Do two independent populations have equal variances?', 'F test']
+  distractors: [z test]
+  explanation: |-
+    Before/after on the same units is paired data: a one-sample $t$ on the differences. One sample with $\sigma$ unknown is the one-sample $t$ test (the $z$ test needs a known $\sigma$). Unequal sizes and spreads call for Welch's $t$, not the pooled test. One variance uses $(n-1)S^2/\sigma_0^2 \sim \chi^2_{n-1}$, and a ratio of two variances uses $F$.
+
+- id: ps-m7-r2-q08
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'Which statements about the tests in this lesson are true? Select all that apply.'
+  choices:
+    - 'A paired $t$ test on $n$ pairs has $n - 1$ degrees of freedom'
+    - 'The pooled two-sample $t$ test has $m + n - 2$ degrees of freedom'
+    - 'The chi-square test for a variance stays accurate for heavy-tailed data once $n$ is large'
+    - 'In $F = S_1^2/S_2^2$, the numerator degrees of freedom are $m - 1$, from the sample on top'
+  answer: [0, 1, 3]
+  explanation: |-
+    The paired test is a one-sample $t$ on $n$ differences ($n - 1$ df); pooling uses $m + n - 2$ df; and the $F$ ratio's first df belongs to the numerator variance. The variance tests are not robust: their null distributions depend on the population's fourth moment, so heavy tails distort the size even in large samples.
+
+- id: ps-m7-r2-q09
+  lesson: ps-normal-tests
+  topic: Tests for normal means
+  stem: 'In the plot of the locomotive brake data (one line per locomotive from compound A to compound B), what feature explains why the paired test is so much more sensitive than a two-sample test?'
+  choices:
+    - 'The A values have a larger spread than the B values'
+    - 'There are only six locomotives, so the $t$ distribution has heavy tails'
+    - 'The lines start at very different heights but nearly all fall by a similar amount'
+    - 'The B values are all below 5.5 mm'
+  answer: 2
+  explanation: |-
+    The heights differ a lot between locomotives (large unit-to-unit variation), but the drops from A to B are consistent. The paired test uses only the drops, so the between-locomotive variation, which swamps a two-sample test, cancels out.
+
+- id: ps-m7-r2-q10
+  lesson: ps-normal-tests
+  module_quiz: true
+  topic: Tests for normal means
+  stem: 'Paired differences are $2, 4, 3, 5, 1$. Find the paired $t$ statistic for $H_0: \mu_D = 0$.'
+  choices:
+    - '$1.897$'
+    - '$4.743$'
+    - '$9.487$'
+    - '$4.243$'
+  answer: 3
+  explanation: |-
+    $\bar d = 3$ and $s_d = \sqrt{10/4} = 1.581$, so $t = \dfrac{3}{1.581/\sqrt 5} = 4.243$ on 4 df. 1.897 forgets the $\sqrt n$; 9.487 divides by $n$ instead of $\sqrt n$; 4.743 uses the divisor $n$ instead of $n - 1$ in $s_d$.
+
+# ---- Lesson 32: Neyman–Pearson and likelihood ratio tests ----
+- id: ps-m7-r2-q11
+  lesson: ps-neyman-pearson
+  module_quiz: true
+  topic: Neyman–Pearson lemma
+  type: order
+  stem: 'Put the steps for finding the most powerful size-$\alpha$ test of $H_0: \lambda = 2$ against $H_1: \lambda = 1$ (exponential data) in order.'
+  items:
+    - 'Write the ratio $L(2)/L(1) = 2^n e^{-\sum x_i}$'
+    - 'Note that it decreases in $\sum x_i$, so the test rejects when $\sum x_i \ge c$'
+    - 'Find the null distribution of the statistic: $4\sum X_i \sim \chi^2_{2n}$ under $H_0$'
+    - 'Choose $c$ so that $P_{\lambda = 2}(\sum X_i \ge c) = \alpha$'
+    - 'Compute the power $P_{\lambda = 1}(\sum X_i \ge c)$'
+  explanation: |-
+    The ratio comes first, and its shape tells you which statistic and which tail to use. Only then can you find that statistic's null distribution, use it to set the critical value for size $\alpha$, and finally compute the power under $H_1$ with that critical value.
+
+- id: ps-m7-r2-q12
+  lesson: ps-neyman-pearson
+  topic: Likelihood ratio tests
+  type: text
+  stem: 'Data are $N(\mu, \sigma^2)$ with both parameters unknown, and $H_0: \mu = 0, \sigma^2 = 1$. In Wilks'' theorem, $-2\ln\Lambda$ is approximately chi-square with ___ degrees of freedom. Give only the number.'
+  accept: ['2', two]
+  explanation: |-
+    The full parameter space is two-dimensional and $H_0$ is a single point, so $r = 2 - 0 = 2$: the null hypothesis fixes two parameters. The sample size does not enter $r$.
+
+- id: ps-m7-r2-q13
+  lesson: ps-neyman-pearson
+  topic: Neyman–Pearson lemma
+  type: match
+  stem: 'For each pair of simple hypotheses (independent observations), match the form of the most powerful rejection region.'
+  pairs:
+    - ['Exponential, $H_0: \lambda = 2$ vs $H_1: \lambda = 1$', Reject for a large sum of the data]
+    - ['Poisson, $H_0: \lambda = 2$ vs $H_1: \lambda = 3$', Reject for a large sum of the data]
+    - ['Normal, $\sigma$ known, $H_0: \mu = 5$ vs $H_1: \mu = 3$', Reject for a small sum of the data]
+    - ['Bernoulli, $H_0: p = 0.5$ vs $H_1: p = 0.3$', Reject for a small sum of the data]
+    - ['Normal, mean 0, $H_0: \sigma^2 = 1$ vs $H_1: \sigma^2 = 4$', Reject for a large sum of squares]
+  distractors: [Reject for a small sum of squares]
+  explanation: |-
+    The rejection region points toward what $H_1$ makes likely. Exponential rate 1 has a larger mean than rate 2, and Poisson mean 3 exceeds 2, so large sums favor $H_1$. A smaller normal mean or a smaller success probability makes small sums likely. For a zero-mean normal, $L(1)/L(4) = 2^n e^{-\frac38\sum x_i^2}$ decreases in $\sum x_i^2$, so reject for large $\sum x_i^2$.
+
+- id: ps-m7-r2-q14
+  lesson: ps-neyman-pearson
+  topic: Likelihood ratio tests
+  stem: 'Which statements are true? Select all that apply.'
+  choices:
+    - 'The two-sided one-sample $t$ test is a likelihood ratio test'
+    - 'For normal data with $\sigma$ known, a uniformly most powerful test of $\mu = \mu_0$ against $\mu \ne \mu_0$ exists'
+    - 'The generalized likelihood ratio $\Lambda$ always satisfies $0 < \Lambda \le 1$'
+    - 'In Wilks'' theorem the degrees of freedom are $n - 1$'
+  answer: [0, 2]
+  explanation: |-
+    The lesson showed $\Lambda = (1 + t^2/(n-1))^{-n/2}$, so the LRT is the two-sided $t$ test. $\Lambda \le 1$ because the numerator maximizes over a subset of the denominator's set. No UMP test exists against a two-sided alternative (the best region differs for $\mu_1 > \mu_0$ and $\mu_1 < \mu_0$), and Wilks' df count the parameters fixed by $H_0$, not $n - 1$.
+
+- id: ps-m7-r2-q15
+  lesson: ps-neyman-pearson
+  module_quiz: true
+  topic: Neyman–Pearson lemma
+  stem: 'Ten Bernoulli trials test $H_0: p = 0.5$ against $H_1: p = 0.8$ with $T = \sum X_i$. Why does the most powerful test put $t = 8$ into the rejection region before $t = 7$?'
+  choices:
+    - '$f_1(8)/f_0(8) \approx 6.9$ is larger than $f_1(7)/f_0(7) \approx 1.7$'
+    - '$f_0(8) = 0.044$ is smaller than $f_0(7) = 0.117$'
+    - '$f_1(8) = 0.302$ is the largest probability under $H_1$'
+    - '$8$ is closer than $7$ to the alternative mean $10(0.8)$'
+  answer: 0
+  explanation: |-
+    The Neyman–Pearson lemma adds outcomes in order of the likelihood ratio $f_1(t)/f_0(t) = 1.6^t\,0.4^{10}$, which increases with $t$: $0.302/0.0439 \approx 6.9$ for $t = 8$ and $0.201/0.117 \approx 1.7$ for $t = 7$. A small null probability alone, or a large alternative probability alone, is not the criterion; it is their ratio. (Here the ratio happens to increase in $t$, so the order also matches the distance from $8$, but that is a consequence, not the rule.)
+
+# ---- Lesson 33: proportions and chi-square tests ----
+- id: ps-m7-r2-q16
+  lesson: ps-proportions-chisq
+  module_quiz: true
+  topic: Chi-square tests
+  type: label
+  stem: 'In this two-way table of defects by shift and severity, each inner cell shows an observed count and, in parentheses, another number. Name the numbered parts.'
+  image: {src: images/ps-m7-two-way-table-blank.svg, alt: 'A table with rows Day and Night and columns Minor, Moderate and Severe, plus an unlabeled last column and an unlabeled bottom row. Inner cells show a bold count and a number in parentheses, such as 60 (50). Five numbered markers: on the bold count in the Night–Severe cell, on the number in parentheses in the Day–Moderate cell, on the last-column cell of the Night row, on the bottom-row cell under Moderate, and on the bottom-right corner cell.'}
+  labels:
+    - {x: 63.6, y: 56.2, text: Observed count}
+    - {x: 53.3, y: 40.8, text: Expected count}
+    - {x: 83.3, y: 56.2, text: Row total}
+    - {x: 50.0, y: 71.8, text: Column total}
+    - {x: 83.3, y: 71.8, text: Grand total}
+  distractors: [Degrees of freedom, Cell contribution to the chi-square statistic]
+  explanation: |-
+    The bold number in a cell (1) is the observed count $O_{ij}$; the number in parentheses (2) is the expected count $E_{ij} = R_iC_j/n$ (for Day–Moderate, $100 \times 65/200 = 32.5$). The last column holds row totals (3), the bottom row column totals (4), and the corner the grand total $n$ (5). A cell's contribution $(O - E)^2/E$ is computed from these, not shown.
+
+- id: ps-m7-r2-q17
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  type: text
+  stem: 'In a two-way table of 150 items, a cell''s row total is 60 and its column total is 50. Under independence its expected count is ___. Give only the number.'
+  accept: ['20']
+  explanation: |-
+    $E = \dfrac{R \cdot C}{n} = \dfrac{60 \times 50}{150} = 20$.
+
+- id: ps-m7-r2-q18
+  lesson: ps-proportions-chisq
+  module_quiz: true
+  topic: Tests for proportions
+  type: match
+  stem: 'Match each question to the test that fits it.'
+  pairs:
+    - ['In 400 inspections, is the crack rate above 5%?', One-proportion z test]
+    - ['Do two crews'' weld failure rates differ?', 'Two-proportion z test']
+    - ['Do this year''s defect types follow the historical mix?', 'Chi-square goodness-of-fit test']
+    - ['Is defect severity related to the shift that found it?', 'Chi-square test of independence']
+    - ['Only 12 inspections; is the crack rate above 10%?', 'Exact binomial test']
+  distractors: [Paired t test]
+  explanation: |-
+    One proportion with plenty of data uses the $z$ test ($np_0 = 20$ and $n(1-p_0) = 380$, both at least 10); with 12 inspections $np_0 = 1.2$, so use the exact binomial tail. Two independent proportions use the pooled two-proportion $z$ test. One sample spread over several categories against stated probabilities is goodness of fit; two categorical variables on the same items is independence.
+
+- id: ps-m7-r2-q19
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'Which statements about chi-square tests are true? Select all that apply.'
+  choices:
+    - 'The "at least 5" rule of thumb applies to the expected counts, not the observed counts'
+    - 'A test of independence in a $3 \times 4$ table has 6 degrees of freedom'
+    - 'The test can be run on percentages in place of counts'
+    - 'With only two categories, Pearson''s $X^2$ equals the square of the one-proportion $z$ statistic'
+  answer: [0, 1, 3]
+  explanation: |-
+    The approximation depends on the expected counts; df $= (3-1)(4-1) = 6$; and the lesson showed $X^2 = Z^2$ for two categories. Percentages hide the sample size: the same percentages from 50 or 5,000 items give very different evidence, so $X^2$ must use counts.
+
+- id: ps-m7-r2-q20
+  lesson: ps-proportions-chisq
+  topic: Chi-square tests
+  stem: 'In the day/night severity table (expected counts 50, 32.5 and 17.5 in each row), which cells contribute most to $X^2 = 10.81$?'
+  choices:
+    - 'The two Minor cells, $2.00$ each'
+    - 'The two Moderate cells, $0.19$ each'
+    - 'The two Severe cells, $3.21$ each'
+    - 'All six cells contribute equally, $1.80$ each'
+  answer: 2
+  explanation: |-
+    $(10 - 17.5)^2/17.5 = (25 - 17.5)^2/17.5 = 3.21$, larger than the Minor cells' $10^2/50 = 2.00$ and the Moderate cells' $2.5^2/32.5 = 0.19$. The Severe column is where the shifts differ most relative to what independence predicts: the night shift records more severe defects.
+
+# ---- Honors 33h1: Wald, score and likelihood ratio tests ----
+- id: ps-m7-r2-h01
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  type: label
+  stem: 'The curve is a log-likelihood $\ell(\theta)$. Name the numbered parts used by the three large-sample tests.'
+  image: {src: images/ps-m7-h-trinity-blank.svg, alt: 'A concave log-likelihood curve with five numbered markers: at its peak; at a point on the curve to the left of the peak; on a straight line touching the curve at that left point; on a vertical double arrow beside the curve spanning from the height of the left point up to the height of the peak; and on a horizontal double arrow below the curve spanning from the left point''s position to the peak''s position.'}
+  labels:
+    - {x: 52.4, y: 24.8, text: Maximum likelihood estimate}
+    - {x: 31.6, y: 43.3, text: Null value}
+    - {x: 46.2, y: 15.6, text: Slope used by the score test}
+    - {x: 21.9, y: 34.0, text: Drop used by the likelihood ratio test}
+    - {x: 42.0, y: 73.4, text: Gap used by the Wald test}
+  distractors: [Critical value, Significance level]
+  explanation: |-
+    The peak (1) is at the MLE $\hat\theta$ and the null value $\theta_0$ (2) is on the curve to its left. The score test uses the slope of the tangent at $\theta_0$ (3), the likelihood ratio test the vertical drop $\ell(\hat\theta) - \ell(\theta_0)$ (4), and the Wald test the horizontal gap $\hat\theta - \theta_0$ (5), scaled by the information.
+
+- id: ps-m7-r2-h02
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'In 200 trials there are 30 successes. Compute the score statistic $S$ (chi-square scale) for $H_0: p = 0.2$.'
+  choices:
+    - '$3.922$'
+    - '$3.125$'
+    - '$1.768$'
+    - '$0.016$'
+  answer: 1
+  explanation: |-
+    $\hat p = 0.15$. The score statistic uses the null variance: $S = \dfrac{(0.15 - 0.2)^2}{0.2(0.8)/200} = \dfrac{0.0025}{0.0008} = 3.125$. 3.922 uses $\hat p(1-\hat p)$, which makes it the Wald statistic; 1.768 is $\lvert z\rvert$, the square root; 0.016 forgets the $n$.
+
+- id: ps-m7-r2-h03
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'For the same data (30 successes in 200, $H_0: p = 0.2$), $S = 3.125$, $\text{LR} = 3.351$ and $W = 3.922$. Which tests reject at the two-sided 5% level ($\chi^2_{0.05,1} = 3.841$)?'
+  choices:
+    - 'All three'
+    - 'None of them'
+    - 'Only the score test'
+    - 'Only the Wald test'
+  answer: 3
+  explanation: |-
+    Only $W = 3.922$ exceeds 3.841. Here the order is $S < \text{LR} < W$, the reverse of the lesson's binomial example, where the score test alone rejected: when $\hat p$ is below $p_0 = 0.2$, $\hat p(1 - \hat p) = 0.1275$ is smaller than $p_0(1 - p_0) = 0.16$, so the Wald statistic is the largest.
+
+- id: ps-m7-r2-h04
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  type: text
+  stem: 'The one-proportion $z$ test, whose standard error is $\sqrt{p_0(1-p_0)/n}$, is the ___ test.'
+  accept: [score, score test, Rao score, Rao's score, Rao score test, Rao's score test, Lagrange multiplier, Lagrange multiplier test, LM, LM test]
+  explanation: |-
+    Its square is $U(p_0)^2/nI(p_0)$, the score statistic: the variance is evaluated at the null value $p_0$. Using $\hat p(1-\hat p)$ instead would give the Wald test.
+
+- id: ps-m7-r2-h05
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  type: match
+  stem: 'For a multinomial goodness-of-fit test, match each statistic to the large-sample test it comes from.'
+  pairs:
+    - ['$X^2 = \sum (O - E)^2/E$ (Pearson)', Score test]
+    - ['$G^2 = 2\sum O\ln(O/E)$', Likelihood ratio test]
+    - ['$\sum (O - E)^2/O$ (Neyman)', Wald test]
+  distractors: [Exact test]
+  explanation: |-
+    Pearson's statistic standardizes by the null expected counts (the null fit only), which is the score test. $G^2 = -2\ln\Lambda$ is the likelihood ratio statistic. Neyman's version standardizes by the observed counts, the unrestricted estimates, which is the Wald form.
+
+- id: ps-m7-r2-h06
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'Which give the same result whether the model is written in terms of $p$ or of the log-odds $\ln\frac{p}{1-p}$? Select all that apply.'
+  choices:
+    - 'The likelihood ratio test'
+    - 'The score test (with expected information)'
+    - 'The Wald test'
+    - 'The likelihood ratio confidence interval (transformed to the other scale)'
+  answer: [0, 1, 3]
+  explanation: |-
+    The log-likelihood values at the MLE and at the null value do not depend on the labeling, so the LR test and its interval are invariant. For the score test the chain rule multiplies $U$ by $d\theta/d\psi$ and $I$ by its square, and the factors cancel. The Wald test measures a straight-line distance in the chosen scale; the lesson's example gave 3.18 on the $p$ scale and 3.97 on the log-odds scale.
+
+- id: ps-m7-r2-h07
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'For $N(\mu, \sigma^2)$ data with $\sigma$ known and $H_0: \mu = \mu_0$, how do the Wald, score and likelihood ratio statistics compare?'
+  choices:
+    - 'They are all equal to $n(\bar x - \mu_0)^2/\sigma^2$'
+    - 'Wald is always the largest because it uses $\hat\mu$'
+    - 'They agree only as $n \to \infty$'
+    - 'Score is always the largest because it uses $\mu_0$'
+  answer: 0
+  explanation: |-
+    The log-likelihood $-\sum(x_i - \mu)^2/2\sigma^2$ is exactly a parabola in $\mu$ with constant curvature $n/\sigma^2$, so the Taylor expansions are exact: all three equal $z^2 = n(\bar x - \mu_0)^2/\sigma^2$ for every $n$.
+
+- id: ps-m7-r2-h08
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'Fifty Poisson counts have $\bar x = 2.4$; $H_0: \lambda = 2$. Then $W = 3.33$, $S = 4.00$ and $\text{LR} = 3.76$. Which tests reject at the 5% level ($3.841$)?'
+  choices:
+    - 'All three'
+    - 'Score and likelihood ratio'
+    - 'Only the Wald test'
+    - 'Only the score test'
+  answer: 3
+  explanation: |-
+    $W = 0.16/(2.4/50) = 3.33$, $S = 0.16/(2/50) = 4.00$ and $\text{LR} = 100[2.4\ln 1.2 - 0.4] = 3.76$. Only $S$ exceeds 3.841. Near the boundary the choice of test changes the verdict, so report the statistic and p-value, not just the decision.
+
+- id: ps-m7-r2-h09
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'You have fitted a model under $H_0$ only and want to test whether adding one more parameter is worthwhile, without fitting the larger model. Which test fits this situation?'
+  choices:
+    - 'Wald test'
+    - 'Likelihood ratio test'
+    - 'Score test'
+    - 'None of them; all three need both fits'
+  answer: 2
+  explanation: |-
+    The score statistic $U(\theta_0)^2/nI(\theta_0)$ is evaluated entirely at the null fit. The Wald test needs the unrestricted MLE, and the likelihood ratio test needs both maximized likelihoods.
+
+- id: ps-m7-r2-h10
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'Expanding $\ell(\theta_0)$ in a Taylor series about the MLE $\hat\theta$ (where $\ell''(\hat\theta) = 0$) gives which approximation to the likelihood ratio statistic? ($J$ is the observed information.)'
+  choices:
+    - '$2[\ell(\hat\theta) - \ell(\theta_0)] \approx J(\hat\theta)(\hat\theta - \theta_0)$'
+    - '$2[\ell(\hat\theta) - \ell(\theta_0)] \approx J(\hat\theta)(\hat\theta - \theta_0)^2$'
+    - '$2[\ell(\hat\theta) - \ell(\theta_0)] \approx (\hat\theta - \theta_0)^2/J(\hat\theta)$'
+    - '$2[\ell(\hat\theta) - \ell(\theta_0)] \approx 2J(\hat\theta)(\hat\theta - \theta_0)^2$'
+  answer: 1
+  explanation: |-
+    $\ell(\theta_0) \approx \ell(\hat\theta) + 0 - \tfrac12 J(\hat\theta)(\hat\theta - \theta_0)^2$, so twice the drop is $J(\hat\theta)(\hat\theta - \theta_0)^2$, which is the Wald statistic with observed information. The first choice drops the square, the third inverts the information, and the fourth forgets the $\tfrac12$.
+
+- id: ps-m7-r2-h11
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'With 2 successes in 25 trials, what is the 95% Wald interval $\hat p \pm 1.96\sqrt{\hat p(1-\hat p)/n}$, and what is wrong with it?'
+  choices:
+    - '$(0.026, 0.186)$; nothing, it is the exact interval'
+    - '$(0.000, 0.160)$; it is too short'
+    - '$(-0.026, 0.186)$; it includes impossible negative values'
+    - '$(-0.026, 0.186)$; it is too long because it uses $p_0$'
+  answer: 2
+  explanation: |-
+    $\hat p = 0.08$ and $1.96\sqrt{0.08(0.92)/25} = 0.106$, giving $(-0.026, 0.186)$. With few successes the Wald interval can extend below 0, and its real coverage is often well under 95%. The score (Wilson) interval stays inside $[0, 1]$. The Wald interval uses $\hat p$, not $p_0$.
+
+- id: ps-m7-r2-h12
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  type: order
+  stem: 'In 200 trials there are 30 successes; $H_0: p = 0.2$. Put the three test statistics in order from smallest to largest.'
+  items:
+    - 'Score statistic $S$'
+    - 'Likelihood ratio statistic $2[\ell(\hat p) - \ell(p_0)]$'
+    - 'Wald statistic $W$'
+  explanation: |-
+    $S = 0.0025/0.0008 = 3.125$, $\text{LR} = 2[30\ln 0.75 + 170\ln(0.85/0.8)] = 3.351$ and $W = 0.0025/(0.15 \times 0.85/200) = 3.922$. In the lesson's weld example the order was reversed ($W < \text{LR} < S$): there is no general ordering.
+
+- id: ps-m7-r2-h13
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'Two analysts run a Wald test of the same hypothesis $p = 0.1$ on the same data, one on the $p$ scale and one on the log-odds scale, and get 3.18 and 3.97. What explains the difference?'
+  choices:
+    - 'One of them made an arithmetic error; Wald tests of the same hypothesis must agree'
+    - 'The Wald statistic measures distance in the chosen scale, so it is not invariant to reparametrization'
+    - 'The log-odds scale has one more parameter, so its statistic has 2 degrees of freedom'
+    - 'The log-odds version is really a score test'
+  answer: 1
+  explanation: |-
+    The Wald test approximates the log-likelihood by a parabola centered at the MLE in whatever scale you use, and the approximation is better in some scales than others. The likelihood ratio and score tests do not have this problem. Both versions have 1 degree of freedom, and both are Wald tests (they use the variance at the MLE).
+
+- id: ps-m7-r2-h14
+  lesson: ps-m7-h-wald-score-lrt
+  topic: Wald, score and likelihood ratio tests
+  stem: 'Under $H_0: \theta = \theta_0$, the score $U(\theta_0) = \ell''(\theta_0)$ of $n$ independent observations is approximately'
+  choices:
+    - '$N\big(\theta_0,\; 1/nI(\theta_0)\big)$'
+    - '$\chi^2_1$'
+    - '$N\big(0,\; 1/nI(\theta_0)\big)$'
+    - '$N\big(0,\; nI(\theta_0)\big)$'
+  answer: 3
+  explanation: |-
+    Each term $\partial_\theta\ln f(X_i;\theta_0)$ has mean 0 and variance $I(\theta_0)$, so by the CLT the sum is approximately $N(0, nI(\theta_0))$. Dividing its square by $nI(\theta_0)$ gives the $\chi^2_1$ score statistic. $N(\theta_0, 1/nI)$ is the approximate distribution of the MLE, not of the score.
+
+# ---- Honors 33h2: sequential testing ----
+- id: ps-m7-r2-h15
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  type: label
+  stem: 'The chart shows a sequential probability ratio test for a defect rate, with defectives found plotted against items inspected. Name the numbered parts.'
+  image: {src: images/ps-m7-h-sprt-lines-blank.svg, alt: 'A chart of defectives found against clips inspected, with two parallel rising lines: an upper one and a lower one, and the band between them shaded. A staircase path climbs from the origin inside the band and ends at a dot on the lower line. Five numbered markers: on the upper line, on the lower line, in the band between them, on the staircase path, and on the dot where the path ends.'}
+  labels:
+    - {x: 32.3, y: 39.4, text: Rejection boundary}
+    - {x: 74.7, y: 57.4, text: Acceptance boundary}
+    - {x: 53.5, y: 31.8, text: Continuation region}
+    - {x: 35.1, y: 60.7, text: Sample path}
+    - {x: 85.9, y: 48.7, text: Stopping point}
+  distractors: [Critical value, Power curve]
+  explanation: |-
+    Crossing the upper line (1), $d \ge h_1 + sn$, rejects $H_0$; reaching the lower line (2), $d \le -h_0 + sn$, accepts it. Between them (3) the test keeps sampling. The staircase (4) is the running count of defectives, and it stops (5) the first time it touches a boundary, here the acceptance line at clip 53.
+
+- id: ps-m7-r2-h16
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  type: text
+  stem: 'An SPRT uses $\alpha = 0.05$ and $\beta = 0.20$. Wald''s upper boundary is $b = \ln B$, where the likelihood ratio threshold is $B =$ ___. Give only the number.'
+  accept: ['16']
+  explanation: |-
+    $B = \dfrac{1 - \beta}{\alpha} = \dfrac{0.80}{0.05} = 16$, so $b = \ln 16 = 2.773$. The test rejects once the data are 16 times as likely under $H_1$ as under $H_0$.
+
+- id: ps-m7-r2-h17
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  type: order
+  stem: 'Put one round of the sequential probability ratio test in order.'
+  items:
+    - 'Observe the next item'
+    - 'Compute its log likelihood ratio $\ln[f_1(x)/f_0(x)]$'
+    - 'Add it to the running sum $S_n$'
+    - 'Compare $S_n$ with the boundaries $a$ and $b$'
+    - 'Stop with a decision, or go back for another item'
+  explanation: |-
+    Each round starts with a new observation, turns it into its log likelihood ratio, updates the running sum, and checks the sum against both boundaries. Only that comparison tells you whether to stop.
+
+- id: ps-m7-r2-h18
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  type: match
+  stem: 'For an SPRT of $H_0: p = p_0$ against $H_1: p = p_1$ on Bernoulli data, match each quantity to its value.'
+  pairs:
+    - [Upper boundary b, ln((1 − β)/α)]
+    - [Lower boundary a, ln(β/(1 − α))]
+    - [Increment for a defective item, ln(p₁/p₀)]
+    - [Increment for a good item, ln((1 − p₁)/(1 − p₀))]
+  distractors: [ln(α/(1 − β))]
+  explanation: |-
+    Wald's boundaries are $b = \ln\frac{1-\beta}{\alpha}$ (reject) and $a = \ln\frac{\beta}{1-\alpha}$ (accept). Each observation adds $\ln[f_1(x)/f_0(x)]$: $\ln(p_1/p_0)$ for a defective and $\ln\frac{1-p_1}{1-p_0}$ for a good item. $\ln\frac{\alpha}{1-\beta} = -b$ is not a boundary.
+
+- id: ps-m7-r2-h19
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'Which statements about Wald''s SPRT are true? Select all that apply.'
+  choices:
+    - 'The number of observations it uses is random'
+    - 'Wald''s boundaries give Type I and Type II error probabilities exactly equal to $\alpha$ and $\beta$'
+    - 'Its actual error probabilities satisfy $\alpha'' + \beta'' \le \alpha + \beta$'
+    - 'Rerunning a fixed-sample $z$ test after every observation and stopping at the first rejection keeps the Type I error at 5%'
+  answer: [0, 2]
+  explanation: |-
+    The test stops when the sum leaves $(a, b)$, which happens after a random number of steps. Overshoot past the boundaries makes the true error rates differ from the targets, but the inequalities behind Wald's boundaries guarantee $\alpha' + \beta' \le \alpha + \beta$. Repeatedly applying a fixed-sample test inflates the Type I error (about 37% with 100 looks).
+
+- id: ps-m7-r2-h20
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'An SPRT tests $p = 0.1$ against $p = 0.2$ for Bernoulli data. After 10 items, 2 of them defective, what is the log likelihood ratio sum $S_{10}$?'
+  choices:
+    - '$2.329$'
+    - '$0.208$'
+    - '$1.386$'
+    - '$0.444$'
+  answer: 3
+  explanation: |-
+    A defective adds $\ln(0.2/0.1) = 0.6931$ and a good item adds $\ln(0.8/0.9) = -0.1178$. So $S_{10} = 2(0.6931) + 8(-0.1178) = 0.444$. 2.329 has the sign of the good-item term reversed, 0.208 counts all 10 items as good as well as adding the defectives, and 1.386 ignores the good items.
+
+- id: ps-m7-r2-h21
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'In the lesson''s clip example the SPRT rejects when $d \ge 2.389 + 0.0919n$ and accepts when $d \le -1.861 + 0.0919n$. After 30 clips there have been 5 defectives. What does the test do?'
+  choices:
+    - 'Rejects the lot'
+    - 'Continues sampling'
+    - 'Accepts the lot'
+    - 'Cannot decide without a new $\alpha$'
+  answer: 1
+  explanation: |-
+    At $n = 30$ the rejection line is at $2.389 + 2.758 = 5.147$ and the acceptance line at $-1.861 + 2.758 = 0.897$. Since $0.897 < 5 < 5.147$, the path is still inside the continuation region, so inspect another clip.
+
+- id: ps-m7-r2-h22
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'Wald''s approximation to the average sample number rests on which identity, where $N$ is the stopping time and $Z$ a single log likelihood ratio increment?'
+  choices:
+    - '$E(S_N) = E(N)\,E(Z)$'
+    - '$\operatorname{Var}(S_N) = E(N)\operatorname{Var}(Z)$ only'
+    - '$E(N) = 1/P(\text{stop})$'
+    - '$E(S_N) = b - a$'
+  answer: 0
+  explanation: |-
+    Wald's identity says the expected value of a randomly stopped sum is the expected number of terms times the mean term (when $E(N)$ is finite and stopping depends only on the past). Setting $E(S_N) \approx$ (probability of each decision) $\times$ (its boundary) and dividing by $E(Z)$ gives the ASN formulas.
+
+- id: ps-m7-r2-h23
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'What did Wald and Wolfowitz prove in 1948 about the SPRT?'
+  choices:
+    - 'It has the highest power of any test with a fixed sample size'
+    - 'Its Type I error probability is exactly $\alpha$'
+    - 'Among tests with error probabilities no larger than its own, none has a smaller expected sample size under $H_0$ or under $H_1$'
+    - 'It always stops within $n = (z_\alpha + z_\beta)^2$ observations'
+  answer: 2
+  explanation: |-
+    The optimality is about expected sample size at the two hypotheses, for tests whose error rates are at least as good. It says nothing about exact error rates (those differ because of overshoot), and an SPRT has no fixed upper bound on its sample size, which is why practical plans truncate it.
+
+- id: ps-m7-r2-h24
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'A researcher computes a two-sided 5% $z$ test after each of 100 observations and stops as soon as it rejects. If $H_0$ is true, about how likely is a false rejection?'
+  choices:
+    - '0.37'
+    - '0.05'
+    - '0.10'
+    - '0.99'
+  answer: 0
+  explanation: |-
+    Each look gives another chance for the running statistic to wander past $\pm1.96$. A simulation gives about 0.37 for 100 looks (about 0.19 for 10). Sequential and group sequential designs choose their boundaries to keep the overall Type I error at the target.
+
+- id: ps-m7-r2-h25
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'Normal data with $\sigma = 2$ known: an SPRT tests $\mu_0 = 10$ against $\mu_1 = 12$. What does the observation $x = 12.5$ add to the log likelihood ratio sum?'
+  choices:
+    - '$1.5$'
+    - '$0.25$'
+    - '$0.75$'
+    - '$0.375$'
+  answer: 2
+  explanation: |-
+    $Z = \dfrac{\mu_1 - \mu_0}{\sigma^2}\left(x - \dfrac{\mu_0 + \mu_1}{2}\right) = \dfrac{2}{4}(12.5 - 11) = 0.75$. Dividing by $\sigma$ instead of $\sigma^2$ gives 1.5; measuring from $\mu_1$ instead of the midpoint gives 0.25; 0.375 halves the result again.
+
+- id: ps-m7-r2-h26
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'An SPRT for a defect rate accepts $H_0$ when $d \le -1.62 + 0.1n$ and rejects when $d \ge 2 + 0.1n$. What are the fewest items needed to accept (with no defectives at all) and to reject (with every item defective)?'
+  choices:
+    - '16 to accept, 2 to reject'
+    - '17 to accept, 2 to reject'
+    - '16 to accept, 3 to reject'
+    - '17 to accept, 3 to reject'
+  answer: 3
+  explanation: |-
+    Accept with $d = 0$ needs $0 \le -1.62 + 0.1n$, so $n \ge 16.2$: 17 items. Reject with $d = n$ needs $n \ge 2 + 0.1n$, so $n \ge 2.22$: 3 items. (At $n = 2$, $d = 2 < 2.2$.)
+
+- id: ps-m7-r2-h27
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'In the SPRT, why does a large value of $S_n = \sum \ln[f(X_i;\theta_1)/f(X_i;\theta_0)]$ lead to rejecting $H_0$, while in the Neyman–Pearson lemma a small value of $L(\theta_0)/L(\theta_1)$ does?'
+  choices:
+    - 'The SPRT ratio is the reciprocal of the Neyman–Pearson ratio, so both reject when the data favor $H_1$'
+    - 'The SPRT tests the hypotheses in the opposite direction'
+    - 'Taking logarithms reverses inequalities'
+    - 'The SPRT uses $\alpha$ for the lower boundary and the lemma uses it for the upper one'
+  answer: 0
+  explanation: |-
+    $S_n = \ln[L(\theta_1)/L(\theta_0)]$ is minus the log of the Neyman–Pearson ratio. Both procedures reject when the data are much more likely under $H_1$; only the orientation of the ratio differs. Logarithms are increasing, so they preserve inequalities.
+
+- id: ps-m7-r2-h28
+  lesson: ps-m7-h-sprt
+  topic: Sequential tests
+  stem: 'Clinical trials often look at accumulating data a few times, at planned interim analyses. What is the purpose of a group sequential design such as the O''Brien–Fleming boundaries?'
+  choices:
+    - 'To guarantee that the trial stops at the first interim look'
+    - 'To spread the Type I error over the planned looks so the overall rate stays at the target'
+    - 'To remove the need for a significance level'
+    - 'To make every look use the usual 1.96 cutoff'
+  answer: 1
+  explanation: |-
+    Using the fixed-sample cutoff 1.96 at every look would inflate the Type I error. Group sequential designs use stricter boundaries at the looks (O'Brien–Fleming boundaries are very strict early and close to the usual value at the end), so that the probability of ever crossing one under $H_0$ equals the chosen $\alpha$.

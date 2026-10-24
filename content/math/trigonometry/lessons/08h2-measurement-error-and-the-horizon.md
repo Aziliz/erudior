@@ -90,7 +90,7 @@ error in $d$ makes a 1% error in $h$. In the worst case the two relative errors 
 
 Now a bigger triangle. Stand at a point $P$ at height $h$ above the sea and look at the
 horizon. Your line of sight just grazes the Earth at the horizon point $T$, so it is
-**tangent** to the Earth there, and a tangent line is perpendicular to the radius $OT$. That
+tangent to the Earth there, and a tangent line is perpendicular to the radius $OT$. That
 gives a right triangle $OTP$ with the right angle at $T$, legs $R$ and $d$, and hypotenuse
 $R + h$.
 

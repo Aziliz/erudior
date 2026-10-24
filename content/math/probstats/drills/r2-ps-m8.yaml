@@ -36,9 +36,9 @@
     - {name: b0, label: '$b_0 =$', tolerance: 0.002, format: num4}
   solution: |-
     Solve $\begin{bmatrix} {s11v} & {s12v} \\ {s12v} & {s22v} \end{bmatrix}\begin{bmatrix} b_1 \\ b_2 \end{bmatrix} = \begin{bmatrix} {s1y:num1} \\ {s2y:num1} \end{bmatrix}$.
-    The determinant is $S_{11}S_{22} - S_{12}^2 = {det}$.
+    The determinant is $S_{11}S_{22} - S_{12}^2 = {det:dp0}$.
 
-    $b_1 = \dfrac{S_{22}S_{1y} - S_{12}S_{2y}}{{det}} =$ **{b1:num4}**, $\quad b_2 = \dfrac{S_{11}S_{2y} - S_{12}S_{1y}}{{det}} =$ **{b2:num4}**.
+    $b_1 = \dfrac{S_{22}S_{1y} - S_{12}S_{2y}}{{det:dp0}} =$ **{b1:num4}**, $\quad b_2 = \dfrac{S_{11}S_{2y} - S_{12}S_{1y}}{{det:dp0}} =$ **{b2:num4}**.
 
     $b_0 = \bar y - b_1\bar x_1 - b_2\bar x_2 =$ **{b0:num4}**.
 
@@ -93,7 +93,7 @@
   where: ['nn - pp >= 6', 'radj > 0', 'pv >= 0.0005']
   prompt: |-
     A regression on $n = {nn}$ observations with {kk} predictors plus an intercept has
-    $\text{SST} = {sst}$ and $\text{SSE} = {sse:num1}$. Find $R^2$ and adjusted $R^2$ (4 decimals each), the
+    $\text{SST} = {sst:dp0}$ and $\text{SSE} = {sse:dp1}$. Find $R^2$ and adjusted $R^2$ (4 decimals each), the
     overall $F$ statistic (2 decimals) and its p-value (4 decimals).
   answers:
     - {name: rsq, label: '$R^2 =$', tolerance: 0.0006, format: num4}
@@ -101,11 +101,11 @@
     - {name: ff, label: '$F =$', tolerance: 0.01, format: num2}
     - {name: pv, label: 'p-value', tolerance: 0.001, format: num4}
   solution: |-
-    $p = {pp}$ coefficients. $R^2 = 1 - \text{SSE}/\text{SST} = 1 - {sse:num1}/{sst} =$ **{rsq:num4}**.
+    $p = {pp}$ coefficients. $R^2 = 1 - \text{SSE}/\text{SST} = 1 - {sse:dp1}/{sst:dp0} =$ **{rsq:num4}**.
 
-    $R^2_{\text{adj}} = 1 - \dfrac{\text{SSE}/(n - p)}{\text{SST}/(n - 1)} = 1 - \dfrac{{sse:num1}/{dfe}}{{sst}/({nn} - 1)} =$ **{radj:num4}**.
+    $R^2_{\text{adj}} = 1 - \dfrac{\text{SSE}/(n - p)}{\text{SST}/(n - 1)} = 1 - \dfrac{{sse:dp1}/{dfe}}{{sst:dp0}/({nn} - 1)} =$ **{radj:num4}**.
 
-    $\text{SSR} = {ssr:num1}$, so $F = \dfrac{\text{SSR}/{kk}}{\text{SSE}/{dfe}} =$ **{ff:num2}** on ({kk}, {dfe}) df; p-value $\approx$ **{pv:num4}**.
+    $\text{SSR} = {ssr:dp1}$, so $F = \dfrac{\text{SSR}/{kk}}{\text{SSE}/{dfe}} =$ **{ff:num2}** on ({kk}, {dfe}) df; p-value $\approx$ **{pv:num4}**.
 
 - id: ps-m8-r2-block-anova
   title: Randomized block ANOVA from raw data
@@ -177,7 +177,7 @@
 
     $\text{SSTr} = 4\sum(\bar y_{i\cdot} - \bar y_{\cdot\cdot})^2 =$ **{sstr:num2}**, $\quad \text{SSB} = 3\sum(\bar y_{\cdot j} - \bar y_{\cdot\cdot})^2 =$ **{ssb:num2}**.
 
-    $\text{SST} = {sst:num2}$, so $\text{SSE} = \text{SST} - \text{SSTr} - \text{SSB} =$ **{sse:num2}** on $(2)(3) = 6$ df.
+    $\text{SST} = {sst:dp2}$, so $\text{SSE} = \text{SST} - \text{SSTr} - \text{SSB} =$ **{sse:num2}** on $(2)(3) = 6$ df.
 
     $F = \dfrac{\text{SSTr}/2}{\text{SSE}/6} = \dfrac{{mstr:num4}}{{mse:num4}} =$ **{ff:num2}** on (2, 6) df (p-value {pv:num4}).
 

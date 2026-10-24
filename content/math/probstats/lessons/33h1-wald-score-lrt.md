@@ -86,8 +86,8 @@ Use the weld inspections from the proportions lesson: $x = 52$ defects in $n = 4
 For the binomial, $\hat p = x/n = 0.13$, $U(p) = \dfrac{x - np}{p(1-p)}$ and $I(p) = \dfrac{1}{p(1-p)}$.
 
 1. *Score.* $S = \dfrac{U(p_0)^2}{nI(p_0)} = \dfrac{(\hat p - p_0)^2}{p_0(1-p_0)/n} = \dfrac{0.03^2}{0.000225} = 4.00$.
-   Its signed root is $z = 2.00$, exactly the one-proportion $z$ statistic. **The one-proportion $z$
-   test is the score test.** That is why its standard error uses $p_0$.
+   Its signed root is $z = 2.00$, exactly the one-proportion $z$ statistic. The one-proportion $z$
+   test is the score test. That is why its standard error uses $p_0$.
 2. *Wald.* $W = \dfrac{(\hat p - p_0)^2}{\hat p(1-\hat p)/n} = \dfrac{0.0009}{0.13(0.87)/400} = 3.18$, signed root 1.78.
 3. *Likelihood ratio.* $\text{LR} = 2\left[x\ln\dfrac{\hat p}{p_0} + (n - x)\ln\dfrac{1 - \hat p}{1 - p_0}\right] = 2[52\ln 1.3 + 348\ln(0.87/0.9)] = 3.69$, signed root 1.92.
 
@@ -120,7 +120,7 @@ standard error is larger and its statistic smaller.
 MLE and at the null value are the same numbers whether you write the model in terms of $p$ or of
 the log-odds $\psi = \ln\frac{p}{1-p}$. The score test (with expected information) is also unchanged by
 a smooth one-to-one relabeling, because the chain rule multiplies $U$ by $d\theta/d\psi$ and $I$ by its
-square, and the factors cancel. The Wald test is **not invariant**: it measures a straight-line
+square, and the factors cancel. The Wald test is not invariant: it measures a straight-line
 distance in whichever scale you chose.
 
 ### Example 3: the same Wald test on the log-odds scale

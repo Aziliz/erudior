@@ -62,7 +62,7 @@ $1 \cdot 1$ is nonzero when $0 < x < 1$ and $0 < z - x < 1$, that is $z - 1 < x 
 In the $(x, y)$ plane, $f_Z(z)$ is the length of the line $x + y = z$ inside the unit square, measured along $x$. That length grows until $z = 1$ and then shrinks:
 
 ```plot
-{"x": [-0.15, 1.6], "y": [-0.15, 1.6], "equal": true, "xLabel": "x", "yLabel": "y", "polygons": [{"points": [[0, 0], [1, 0], [1, 1], [0, 1]]}], "segments": [{"from": [0, 0.6], "to": [0.6, 0], "dashed": true}, {"from": [0.4, 1], "to": [1, 0.4], "dashed": true}], "labels": [{"at": [0.2, 0.2], "text": "x + y = 0.6"}, {"at": [1.2, 1.2], "text": "x + y = 1.4"}], "caption": "For z = 0.6, x runs over (0, 0.6); for z = 1.4, x runs over (0.4, 1). Both have length 0.6, so f(0.6) = f(1.4) = 0.6"}
+{"x": [-0.15, 1.6], "y": [-0.15, 1.6], "equal": true, "xLabel": "x", "yLabel": "y", "polygons": [{"points": [[0, 0], [1, 0], [1, 1], [0, 1]]}], "segments": [{"from": [0, 0.6], "to": [0.6, 0], "dashed": true}, {"from": [0.4, 1], "to": [1, 0.4], "dashed": true}], "labels": [{"at": [0.22, 0.08], "text": "x + y = 0.6"}, {"at": [1.28, 0.5], "text": "x + y = 1.4"}], "caption": "For z = 0.6, x runs over (0, 0.6); for z = 1.4, x runs over (0.4, 1). Both have length 0.6, so f(0.6) = f(1.4) = 0.6"}
 ```
 
 ```plot

@@ -26,6 +26,14 @@ The fix is to **restrict the domain** to a piece of the graph that
 - takes every value in the range exactly once, and
 - includes the acute angles $0$ to $\tfrac{\pi}{2}$, so right-triangle answers come out naturally.
 
+The plot shows the piece of the sine graph that is kept for the inverse sine. The dashed line
+$y = \tfrac12$ crosses the full sine curve over and over (open dots), but it crosses the solid
+piece exactly once.
+
+```plot
+{"x": [-6.4, 6.4], "y": [-1.6, 1.6], "functions": [{"f": "sin(x)", "dashed": true}, {"f": "sin(x)", "from": -1.5708, "to": 1.5708, "label": "kept piece"}, {"f": "0.5", "dashed": true}], "points": [{"at": [0.5236, 0.5], "label": "π/6"}, {"at": [2.618, 0.5], "open": true}, {"at": [-3.6652, 0.5], "open": true}, {"at": [-5.7596, 0.5], "open": true}], "caption": "sin x = 1/2 has infinitely many solutions, but only π/6 lies on the kept piece from −π/2 to π/2"}
+```
+
 ## Inverse sine
 
 Restrict sine to $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]$. On that interval it increases from $-1$ to 1
@@ -70,10 +78,29 @@ undefined there; the graph of $\tan^{-1}x$ has horizontal asymptotes $y = \pm\tf
 | $\cos^{-1}x$ | $[-1, 1]$ | $[0, \pi]$ | I, II |
 | $\tan^{-1}x$ | all reals | $\left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right)$ | I, IV |
 
+On the unit circle the three ranges look like this. The shaded half of each circle holds every
+angle the function can return; an open dot marks an endpoint that is not included.
+
+![Three unit circles. For inverse sine, the right half of the circle is highlighted from −π/2 to π/2 with solid endpoint dots. For inverse cosine, the upper half is highlighted from 0 to π with solid dots. For inverse tangent, the right half is highlighted from −π/2 to π/2 with open endpoint dots.](images/trig-m5-ranges.svg)
+
 ## Exact values
 
 To evaluate exactly: identify the reference angle from the special values, then pick the
 angle *in the range* with the right sign.
+
+```mermaid
+flowchart TD
+  accTitle: Evaluating an inverse trig function exactly
+  accDescr: For inverse sine or cosine, first check that the input is between −1 and 1; if not, the value is undefined. Inverse tangent accepts any input. Next find the reference angle from the special values. If the input is not negative, the answer is the reference angle. If it is negative, inverse sine and inverse tangent give minus the reference angle (quadrant IV), and inverse cosine gives π minus the reference angle (quadrant II).
+  A["Inverse sine or cosine: is the input between −1 and 1?"] -- no --> U["Undefined"]
+  A -- yes --> R["Find the reference angle from the special values"]
+  T["Inverse tangent: any input is allowed"] --> R
+  R --> S{"Is the input negative?"}
+  S -- no --> P["Answer: the reference angle"]
+  S -- yes --> W{"Which function?"}
+  W -- "inverse sine or tangent" --> N["Answer: minus the reference angle (quadrant IV)"]
+  W -- "inverse cosine" --> C["Answer: π minus the reference angle (quadrant II)"]
+```
 
 ### Example 1
 

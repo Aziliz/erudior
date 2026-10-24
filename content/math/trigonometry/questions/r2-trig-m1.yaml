@@ -1,0 +1,510 @@
+# Round 2, module trig-m1 (Angles and their measure): new question types for the core lessons
+# (trig-m1-r2-q..) and questions for the two honors lessons (trig-m1-r2-h..).
+
+# ---- Lesson 01: Angles and degree measure
+- id: trig-m1-r2-q01
+  lesson: trig-angles
+  module_quiz: true
+  topic: Angles
+  type: label
+  stem: 'Name the numbered parts of this angle in standard position.'
+  image: {src: images/trig-m1-angle-parts-blank.svg, alt: 'An angle on coordinate axes. One ray lies along the positive x-axis, a second ray points up and to the left, and a curved arrow turns counterclockwise from the first ray to the second. Four parts are numbered.'}
+  labels:
+    - {x: 50, y: 67.6, text: Vertex}
+    - {x: 75, y: 67.6, text: Initial side}
+    - {x: 29.4, y: 41.2, text: Terminal side}
+    - {x: 53.1, y: 50.6, text: Positive (counterclockwise) rotation}
+  distractors: [Negative (clockwise) rotation, Quadrantal angle]
+  explanation: |-
+    The vertex is the common endpoint at the origin. In standard position the initial side lies on the positive $x$-axis, and the terminal side is where the ray ends up. The curved arrow turns counterclockwise, so the rotation, and the angle, are positive. The angle ends in quadrant II, so it is not a quadrantal angle.
+- id: trig-m1-r2-q02
+  lesson: trig-angles
+  topic: Angles
+  type: text
+  stem: 'The angle in $[0^\circ, 360^\circ)$ that is coterminal with $-400^\circ$ is ___ degrees. Give only the number.'
+  accept: ['320', '320°', '320 degrees']
+  explanation: |-
+    One full turn is not enough: $-400^\circ + 360^\circ = -40^\circ$ is still negative. Add another: $-40^\circ + 360^\circ = 320^\circ$. In one step, $-400^\circ + 2(360^\circ) = 320^\circ$.
+- id: trig-m1-r2-q03
+  lesson: trig-angles
+  topic: Degree measure
+  type: order
+  stem: 'Put the steps for writing $18.715^\circ$ in degrees, minutes and seconds in order.'
+  items:
+    - 'Keep the whole part: $18^\circ$, leaving $0.715^\circ$'
+    - 'Multiply $0.715$ by 60 to get $42.9''$'
+    - 'Keep $42''$, leaving $0.9''$'
+    - 'Multiply $0.9$ by 60 to get $54''''$'
+    - 'Write the result: $18^\circ\,42''\,54''''$'
+  explanation: |-
+    Each step uses the leftover from the step before: the whole degrees come off first, the leftover fraction of a degree becomes minutes ($\times 60$), and the leftover fraction of a minute becomes seconds ($\times 60$ again). So $18.715^\circ = 18^\circ\,42'\,54''$.
+- id: trig-m1-r2-q04
+  lesson: trig-angles
+  topic: Angles
+  stem: 'Which angles are coterminal with $60^\circ$? Select all that apply.'
+  choices: ['$420^\circ$', '$-300^\circ$', '$240^\circ$', '$-60^\circ$']
+  answer: [0, 1]
+  explanation: |-
+    Coterminal angles differ from $60^\circ$ by a whole number of full turns: $60^\circ + 360^\circ = 420^\circ$ and $60^\circ - 360^\circ = -300^\circ$. $240^\circ$ differs by $180^\circ$ (it points the opposite way), and $-60^\circ$ is the reflection of $60^\circ$ across the $x$-axis; neither differs by a multiple of $360^\circ$.
+- id: trig-m1-r2-q05
+  lesson: trig-angles
+  module_quiz: true
+  topic: Angles
+  type: match
+  stem: 'Match each angle to the name for its size.'
+  pairs:
+    - ['$35^\circ$', Acute]
+    - ['$90^\circ$', Right]
+    - ['$145^\circ$', Obtuse]
+    - ['$180^\circ$', Straight]
+  distractors: [Complementary]
+  explanation: |-
+    Acute angles are between $0^\circ$ and $90^\circ$, a right angle is exactly $90^\circ$, obtuse angles are between $90^\circ$ and $180^\circ$, and a straight angle is exactly $180^\circ$. "Complementary" describes a pair of angles that add to $90^\circ$, not the size of one angle.
+
+# ---- Lesson 02: Radian measure
+- id: trig-m1-r2-q06
+  lesson: trig-radians
+  topic: Radian measure
+  type: text
+  stem: 'Convert $225^\circ$ to radians. Give the exact answer as a multiple of pi, for example 3pi/4: $225^\circ =$ ___ radians.'
+  accept: ['5pi/4', '5π/4', '5*pi/4', '(5/4)pi', '(5/4)π', '5/4 pi', '5/4π', '1.25pi', '1.25π', '5pi / 4']
+  explanation: |-
+    Multiply by $\tfrac{\pi}{180^\circ}$: $225 \cdot \tfrac{\pi}{180} = \tfrac{225\pi}{180}$. Dividing top and bottom by 45 gives $\tfrac{5\pi}{4}$. A check: $225^\circ$ is five $45^\circ$ steps, and each step is $\tfrac{\pi}{4}$.
+- id: trig-m1-r2-q07
+  lesson: trig-radians
+  module_quiz: true
+  topic: Radian measure
+  type: order
+  stem: 'Put these angles in order from smallest to largest.'
+  items: ['$\tfrac{\pi}{4}$ rad', '$1$ rad', '$60^\circ$', '$\tfrac{\pi}{2}$ rad', '$2$ rad']
+  explanation: |-
+    Put them in one unit. In radians: $\tfrac{\pi}{4} \approx 0.785$, then $1$, then $60^\circ = \tfrac{\pi}{3} \approx 1.047$, then $\tfrac{\pi}{2} \approx 1.571$, then $2$. In degrees the same list is about $45^\circ$, $57.3^\circ$, $60^\circ$, $90^\circ$, $114.6^\circ$. One radian is a little less than $60^\circ$.
+- id: trig-m1-r2-q08
+  lesson: trig-radians
+  topic: Radian measure
+  stem: 'Which angles, in standard position, lie in quadrant II? Select all that apply.'
+  choices: ['$2$ rad', '$1.5$ rad', '$3$ rad', '$4$ rad']
+  answer: [0, 2]
+  explanation: |-
+    Quadrant II runs from $\tfrac{\pi}{2} \approx 1.571$ to $\pi \approx 3.142$. Both $2$ and $3$ are in that range. $1.5$ is just short of $\tfrac{\pi}{2}$, so it is in quadrant I, and $4$ is between $\pi$ and $\tfrac{3\pi}{2} \approx 4.712$, so it is in quadrant III.
+- id: trig-m1-r2-q09
+  lesson: trig-radians
+  topic: Radian measure
+  type: match
+  stem: 'Match each radian measure to the same angle in degrees.'
+  pairs:
+    - ['$\tfrac{\pi}{6}$', '30°']
+    - ['$\tfrac{3\pi}{4}$', '135°']
+    - ['$\tfrac{5\pi}{3}$', '300°']
+    - ['$1$', 'about 57.3°']
+  distractors: ['60°', '1°']
+  explanation: |-
+    Multiply by $\tfrac{180^\circ}{\pi}$: $\tfrac{\pi}{6} \to 30^\circ$, $\tfrac{3\pi}{4} \to 135^\circ$, $\tfrac{5\pi}{3} \to 300^\circ$, and $1 \to \tfrac{180^\circ}{\pi} \approx 57.3^\circ$. A bare 1 is one radian, not one degree, and it is a little less than $60^\circ$.
+- id: trig-m1-r2-q10
+  lesson: trig-radians
+  module_quiz: true
+  topic: Radian measure
+  type: text
+  stem: 'Convert $\dfrac{7\pi}{6}$ radians to degrees: ___ degrees. Give only the number.'
+  accept: ['210', '210°', '210 degrees']
+  explanation: |-
+    $\tfrac{7\pi}{6} \cdot \tfrac{180^\circ}{\pi} = \tfrac{7 \cdot 180^\circ}{6} = 210^\circ$. Or read it as seven $30^\circ$ steps.
+
+# ---- Lesson 03: Arc length and sector area
+- id: trig-m1-r2-q11
+  lesson: trig-arc-sector
+  module_quiz: true
+  topic: Sector area
+  type: label
+  stem: 'Name the numbered parts of this circle.'
+  image: {src: images/trig-m1-sector-parts-blank.svg, alt: 'A circle with its center marked. Two radii make an angle; the curved piece of the circle between them is highlighted, a dashed segment joins its endpoints, and the region between the radii is shaded. Six parts are numbered.'}
+  labels:
+    - {x: 38.5, y: 59.5, text: Center}
+    - {x: 41.9, y: 35.6, text: Radius}
+    - {x: 59.8, y: 28.8, text: Arc}
+    - {x: 57.4, y: 43.1, text: Chord}
+    - {x: 54, y: 53.3, text: Sector}
+    - {x: 43.3, y: 55.3, text: Central angle}
+  distractors: [Diameter, Circumference]
+  explanation: |-
+    The radii run from the center to the circle and make the central angle $\theta$ at the center. The highlighted curve is the arc they cut off ($s = r\theta$), the dashed straight segment joining its endpoints is the chord, and the shaded pie slice is the sector ($A = \tfrac12 r^2\theta$). No diameter (a chord through the center) is drawn.
+- id: trig-m1-r2-q12
+  lesson: trig-arc-sector
+  topic: Arc length
+  type: text
+  stem: 'A circle has radius 9 cm. The arc subtended by a central angle of $\dfrac{2\pi}{3}$ has length ___ cm. Give the exact answer in terms of pi (like 4pi) or a decimal rounded to 2 places.'
+  accept: ['6pi', '6π', '6*pi', '18.85']
+  explanation: |-
+    The angle is already in radians, so $s = r\theta = 9 \cdot \tfrac{2\pi}{3} = 6\pi \approx 18.85$ cm.
+- id: trig-m1-r2-q13
+  lesson: trig-arc-sector
+  topic: Arc length
+  type: order
+  stem: 'On a circle of radius 6 m, put the arcs subtended by these central angles in order from shortest to longest.'
+  items: ['$1$ rad', '$100^\circ$', '$\tfrac{2\pi}{3}$ rad', '$2.5$ rad']
+  explanation: |-
+    On one circle, arc length is proportional to the angle, so just order the angles in radians: $1$, then $100^\circ \approx 1.745$, then $\tfrac{2\pi}{3} \approx 2.094$, then $2.5$. The arcs are $6$, about $10.47$, about $12.57$ and $15$ m.
+- id: trig-m1-r2-q14
+  lesson: trig-arc-sector
+  topic: Sector area
+  stem: 'A sector has radius 4 cm and central angle 1.5 radians. Which statements are true? Select all that apply.'
+  choices: ['Its arc length is 6 cm', 'Its area is 12 cm²', 'Its area is 24 cm²', 'Its area equals ½ × radius × arc length']
+  answer: [0, 1, 3]
+  explanation: |-
+    $s = r\theta = 4(1.5) = 6$ cm and $A = \tfrac12 r^2\theta = \tfrac12(16)(1.5) = 12$ cm². The shortcut $A = \tfrac12 rs = \tfrac12(4)(6) = 12$ agrees. $24$ cm² forgets the $\tfrac12$.
+- id: trig-m1-r2-q15
+  lesson: trig-arc-sector
+  module_quiz: true
+  topic: Arc length
+  type: match
+  stem: 'With $\theta$ in radians, match each unknown to how you would compute it.'
+  pairs:
+    - [Arc length $s$, r × θ]
+    - [Sector area $A$, ½ × r² × θ]
+    - [Central angle $\theta$, s ÷ r]
+    - [Radius $r$, s ÷ θ]
+  distractors: [2 × π × r × θ]
+  explanation: |-
+    All four come from $s = r\theta$ and $A = \tfrac12 r^2\theta$: solve $s = r\theta$ for $\theta$ or for $r$. $2\pi r\theta$ mixes the circumference formula into the arc formula; it is $2\pi$ times too big.
+
+# ---- Lesson 04: Angular and linear speed
+- id: trig-m1-r2-q16
+  lesson: trig-speed
+  topic: Angular and linear speed
+  type: text
+  stem: 'A turntable spins at 45 rpm. Its angular speed is ___ rad/min. Give the exact answer in terms of pi.'
+  accept: ['90pi', '90π', '90*pi']
+  explanation: |-
+    One revolution is $2\pi$ radians, so $45 \text{ rpm} = 45 \cdot 2\pi = 90\pi$ rad/min, about $282.7$ rad/min.
+- id: trig-m1-r2-q17
+  lesson: trig-speed
+  topic: Angular and linear speed
+  type: order
+  stem: 'Converting a tire''s rpm to the car''s speed in miles per hour produces a quantity at each step. Put the quantities in the order you get them.'
+  items: [Revolutions per minute, Radians per minute, Inches per minute, Inches per hour, Miles per hour]
+  explanation: |-
+    Multiply rpm by $2\pi$ to get radians per minute; multiply by the radius ($v = r\omega$) to get inches per minute; multiply by 60 to get inches per hour; divide by 63,360 inches per mile to get miles per hour. The step to radians has to come before $v = r\omega$, which needs $\omega$ in radians per unit time.
+- id: trig-m1-r2-q18
+  lesson: trig-speed
+  module_quiz: true
+  topic: Angular and linear speed
+  stem: 'Points A and B are on the same spinning disk, A at 10 cm from the center and B at 20 cm. Which statements are true? Select all that apply.'
+  choices: ['A and B have the same angular speed', 'B has twice the linear speed of A', 'A and B have the same linear speed', 'A has twice the angular speed of B']
+  answer: [0, 1]
+  explanation: |-
+    Every point of a rigid disk turns through the same angle in the same time, so they share $\omega$. By $v = r\omega$, doubling the radius doubles the linear speed, so B moves twice as fast as A.
+- id: trig-m1-r2-q19
+  lesson: trig-speed
+  topic: Angular and linear speed
+  type: match
+  stem: 'Match each situation to the quantity that is the same for both parts.'
+  pairs:
+    - [Two points on one spinning disk, Angular speed]
+    - [The rims of two pulleys joined by a belt, Linear speed]
+    - [A rolling tire's tread and the car (no slipping), Speed relative to the axle]
+  distractors: [Radius]
+  explanation: |-
+    Points on one rigid disk share $\omega$ (but not $v$). A belt that doesn't slip gives both rims its own linear speed, so $r_1\omega_1 = r_2\omega_2$. A tire rolling without slipping carries the car forward at the same speed the tread moves around the axle, which is why $v = r\omega$ gives the car's speed.
+- id: trig-m1-r2-q20
+  lesson: trig-speed
+  topic: Angular and linear speed
+  type: text
+  stem: 'A pulley of radius 4 cm spins at 15 rad/s and drives a pulley of radius 10 cm with a belt. The larger pulley spins at ___ rad/s.'
+  accept: ['6']
+  explanation: |-
+    The rims share the belt's linear speed: $v = 4 \cdot 15 = 60$ cm/s. Then $\omega_2 = \tfrac{60}{10} = 6$ rad/s. Equivalently $r_1\omega_1 = r_2\omega_2$.
+
+# ---- Honors: Measuring the Earth and the sky with arcs
+- id: trig-m1-r2-h01
+  lesson: trig-m1-h-earth-sky
+  topic: Measuring the Earth
+  type: label
+  stem: 'Name the numbered parts of this drawing of Eratosthenes'' method.'
+  image: {src: images/trig-m1-eratosthenes-blank.svg, alt: 'A large circle for the Earth with vertical lines coming down from above. On the left a short stick stands on the surface, and in the middle a narrow shaft goes down into the surface. Dashed lines run from both to the center of the circle, and the curve of the surface between them is highlighted. Five parts are numbered.'}
+  labels:
+    - {x: 93.3, y: 20.5, text: Parallel sun ray}
+    - {x: 34.3, y: 27.6, text: Gnomon (vertical stick)}
+    - {x: 55, y: 35.9, text: Well at Syene}
+    - {x: 42, y: 32.2, text: Arc between the cities}
+    - {x: 52.6, y: 75.3, text: Central angle}
+  distractors: [Equator, Earth's axis]
+  explanation: |-
+    The Sun's rays all point the same way. At Syene a ray goes straight down the well; at Alexandria it makes an angle with the gnomon. Extending both down to the Earth's center gives the central angle, which cuts off the arc between the cities. Neither the equator nor the axis is drawn.
+- id: trig-m1-r2-h02
+  lesson: trig-m1-h-earth-sky
+  topic: Measuring the Earth
+  stem: 'In Eratosthenes'' method, why is the shadow angle at Alexandria equal to the central angle between Alexandria and Syene?'
+  choices:
+    - 'The gnomon is as tall as the well is deep'
+    - 'Syene lies on the equator, so its angle is zero'
+    - 'The sun rays are parallel, so the two angles are alternate interior angles'
+    - 'The Earth''s radius is the same at both cities'
+  answer: 2
+  explanation: |-
+    The ray at the gnomon's tip and the ray down the well are parallel, and the line from the gnomon through the Earth's center crosses both. That makes the shadow angle and the central angle alternate interior angles, which are equal. The heights of the stick and the well don't matter, and Syene is near the Tropic of Cancer, not the equator.
+- id: trig-m1-r2-h03
+  lesson: trig-m1-h-earth-sky
+  topic: Measuring the Earth
+  stem: 'Suppose the shadow angle had been $7.5^\circ$ instead of $7.2^\circ$, with the distance still 5000 stadia. What circumference would the method give?'
+  choices: ['240,000 stadia', '37,500 stadia', '260,000 stadia', '667 stadia']
+  answer: 0
+  explanation: |-
+    $7.5^\circ$ is $\tfrac{7.5}{360} = \tfrac{1}{48}$ of a turn, so the circumference is $48 \times 5000 = 240{,}000$ stadia. $37{,}500$ multiplies 5000 by 7.5 and $667$ divides 5000 by 7.5; neither uses the fraction of a full turn. A larger angle for the same distance means a smaller Earth, not a larger one.
+- id: trig-m1-r2-h04
+  lesson: trig-m1-h-earth-sky
+  module_quiz: true
+  topic: Measuring the Earth
+  type: text
+  stem: 'A ship sails due south from latitude $25^\circ\,10''$ N to latitude $18^\circ\,40''$ N. It travels about ___ nautical miles.'
+  accept: ['390']
+  explanation: |-
+    Both latitudes are north, so subtract: $25^\circ\,10' - 18^\circ\,40' = 6^\circ\,30'$. That is $6 \times 60 + 30 = 390'$, and one minute of latitude is about one nautical mile, so the distance is about 390 nautical miles (about 722 km).
+- id: trig-m1-r2-h05
+  lesson: trig-m1-h-earth-sky
+  topic: Measuring the Earth
+  stem: 'Why do historians disagree about how accurate Eratosthenes'' result was?'
+  choices:
+    - 'His angle measurement was off by about 20°'
+    - 'He assumed the Earth was flat'
+    - 'Nobody knows what the Earth''s circumference really is'
+    - 'The length of the stadion he used is uncertain'
+  answer: 3
+  explanation: |-
+    His result was 250,000 stadia, but proposed lengths for his stadion range from about 157.5 m to about 185 m, giving anything from within about 2% of the modern value to about 16% too large. His angle ($7.2^\circ$ versus about $7.1^\circ$) was close, his method assumes a round Earth, and the modern circumference (about 40,008 km through the poles) is well known.
+- id: trig-m1-r2-h06
+  lesson: trig-m1-h-earth-sky
+  topic: Measuring the Earth
+  stem: 'Which of these circles on the Earth are great circles? Select all that apply.'
+  choices: ['The equator', 'A meridian together with its opposite meridian (a full circle through both poles)', 'The circle of latitude $40^\circ$ N', 'The Tropic of Cancer']
+  answer: [0, 1]
+  explanation: |-
+    A great circle's center is the Earth's center. The equator and a full north–south circle through the poles both qualify. Every other circle of latitude, including $40^\circ$ N and the Tropic of Cancer (about $23.4^\circ$ N), is smaller and centered on a point of the axis above or below the Earth's center.
+- id: trig-m1-r2-h07
+  lesson: trig-m1-h-earth-sky
+  topic: Small angles
+  stem: 'A tower 50 m tall stands 2 km away. About what angle does it cover in your view?'
+  choices: ['About $25^\circ$', 'About $1.4^\circ$', 'About $0.025^\circ$', 'About $14^\circ$']
+  answer: 1
+  explanation: |-
+    Use the same units: $\theta \approx \tfrac{50}{2000} = 0.025$ rad. In degrees, $0.025 \cdot \tfrac{180}{\pi} \approx 1.43^\circ$. $0.025^\circ$ forgets that $D/d$ is in radians, and $25^\circ$ divides 50 by 2 without converting km to m.
+- id: trig-m1-r2-h08
+  lesson: trig-m1-h-earth-sky
+  topic: Small angles
+  type: text
+  stem: 'An object 2 m wide is 5 km away. Its angular size is ___ milliradians.'
+  accept: ['0.4', '.4', '2/5']
+  explanation: |-
+    $\theta \approx \tfrac{2}{5000} = 0.0004$ rad $= 0.4$ mrad. With the mil rule: 1 mrad covers 1 m per km of distance, which is 5 m at 5 km, so 2 m is $\tfrac{2}{5} = 0.4$ mrad.
+- id: trig-m1-r2-h09
+  lesson: trig-m1-h-earth-sky
+  module_quiz: true
+  topic: Small angles
+  stem: 'A star has a parallax of $0.25''''$. How far away is it?'
+  choices: ['0.25 pc', '25 pc', '4 pc, about 13 light-years', '4 light-years']
+  answer: 2
+  explanation: |-
+    $d = \tfrac{1}{p} = \tfrac{1}{0.25} = 4$ pc, and $4 \times 3.26 \approx 13$ light-years. A smaller parallax means a greater distance, so the distance is not $0.25$ pc, and parsecs are not light-years.
+- id: trig-m1-r2-h10
+  lesson: trig-m1-h-earth-sky
+  topic: Small angles
+  type: match
+  stem: 'Match each unit to what it is.'
+  pairs:
+    - [Nautical mile, Exactly 1852 m (about one minute of latitude)]
+    - [Knot, One nautical mile per hour]
+    - [Astronomical unit, The average Earth–Sun distance]
+    - [Parsec, The distance at which 1 au covers one arcsecond]
+    - [Arcsecond, 1/3600 of a degree]
+  distractors: [One thousandth of a radian]
+  explanation: |-
+    The nautical mile and knot come from navigation; the astronomical unit and parsec from measuring the solar system and the stars; the arcsecond is the angle unit $1'' = \tfrac{1}{60}' = \tfrac{1}{3600}^\circ$. One thousandth of a radian is a milliradian, which is not in the list.
+- id: trig-m1-r2-h11
+  lesson: trig-m1-h-earth-sky
+  topic: Small angles
+  type: order
+  stem: 'Put these angles in order from smallest to largest.'
+  items: [1 arcsecond, 1 arcminute, 1 milliradian, 1 degree, 1 radian]
+  explanation: |-
+    In arcseconds: $1'' $, then $1' = 60''$, then $1 \text{ mrad} = \tfrac{206{,}265''}{1000} \approx 206''$ (about $3.4'$), then $1^\circ = 3600''$, then $1 \text{ rad} \approx 206{,}265''$ (about $57.3^\circ$).
+- id: trig-m1-r2-h12
+  lesson: trig-m1-h-earth-sky
+  topic: Small angles
+  stem: 'The Sun is about 400 times wider than the Moon. Why do they look almost exactly the same size in the sky?'
+  choices:
+    - 'The Moon is much closer to us, by a factor of roughly 390'
+    - 'The Moon is brighter than it looks'
+    - 'The Sun''s rays are parallel, so its size can''t be seen'
+    - 'Both are about half a radian across'
+  answer: 0
+  explanation: |-
+    Angular size is about $D/d$. The Sun's diameter is about 400 times the Moon's, but its distance is about 390 times the Moon's, so the ratios nearly match: both are about $0.009$ rad, roughly half a degree (not half a radian).
+- id: trig-m1-r2-h13
+  lesson: trig-m1-h-earth-sky
+  topic: Small angles
+  stem: 'The small-angle formula $\theta \approx D/d$ works well for the Moon but badly for a doorway 1 m wide seen from 1 m away. Why?'
+  choices:
+    - 'The formula only works for round objects'
+    - 'It only works in degrees, and the doorway is measured in meters'
+    - 'For the doorway $D/d$ is large, so the straight object is far from an arc of the circle'
+    - 'The Moon is farther away, so its angle is larger'
+  answer: 2
+  explanation: |-
+    The approximation treats the object as an arc of a circle of radius $d$, which is only accurate when $D$ is much smaller than $d$. For the Moon $D/d \approx 0.009$; for the doorway $D/d = 1$, a large angle, where the chord and the arc differ a lot. The formula gives radians and works for any shape; a farther object looks smaller, not larger.
+- id: trig-m1-r2-h14
+  lesson: trig-m1-h-earth-sky
+  module_quiz: true
+  topic: Small angles
+  stem: 'Which statements about the parsec are true? Select all that apply.'
+  choices: ['It is a unit of distance', 'It is about 3.26 light-years', 'A star with parallax $0.5''''$ is 2 pc away', 'It is the distance light travels in one year']
+  answer: [0, 1, 2]
+  explanation: |-
+    A parsec is the distance at which 1 au covers $1''$, about $206{,}265$ au or $3.26$ light-years, and $d = 1/p$ gives $\tfrac{1}{0.5} = 2$ pc. The distance light travels in a year is a light-year, which is shorter.
+- id: trig-m1-r2-h15
+  lesson: trig-m1-h-earth-sky
+  topic: Small angles
+  type: text
+  stem: 'A star''s parallax is $0.1''''$. Its distance is ___ parsecs.'
+  accept: ['10']
+  explanation: |-
+    $d = \tfrac{1}{p} = \tfrac{1}{0.1} = 10$ pc, about 32.6 light-years.
+
+# ---- Honors: Relative rotation
+- id: trig-m1-r2-h16
+  lesson: trig-m1-h-relative-rotation
+  module_quiz: true
+  topic: Relative rotation
+  type: text
+  stem: 'At 8:20, the smaller angle between the hour hand and the minute hand of a clock is ___ degrees. Give only the number.'
+  accept: ['130', '130°', '130 degrees']
+  explanation: |-
+    Minute hand: $6 \times 20 = 120^\circ$ from 12. Hour hand: $30 \times 8 + 0.5 \times 20 = 250^\circ$. The difference is $130^\circ$, which is less than $180^\circ$. Putting the hour hand exactly on the 8 ($240^\circ$) would give $120^\circ$.
+- id: trig-m1-r2-h17
+  lesson: trig-m1-h-relative-rotation
+  topic: Relative rotation
+  stem: 'What is the smaller angle between the hands of a clock at 9:30?'
+  choices: ['$90^\circ$', '$75^\circ$', '$105^\circ$', '$120^\circ$']
+  answer: 2
+  explanation: |-
+    Minute hand: $6 \times 30 = 180^\circ$. Hour hand: $30 \times 9 + 0.5 \times 30 = 285^\circ$. Difference: $105^\circ$. $90^\circ$ comes from leaving the hour hand on the 9.
+- id: trig-m1-r2-h18
+  lesson: trig-m1-h-relative-rotation
+  topic: Relative rotation
+  stem: 'After 6:00, when do the hands of a clock first overlap?'
+  choices: ['At 6:30 exactly', 'At about 6:32:44', 'At about 6:27:16', 'At 6:33 exactly']
+  answer: 1
+  explanation: |-
+    At 6:00 the hands are $180^\circ$ apart, and the minute hand gains $5.5^\circ$ per minute. So they meet after $\tfrac{180}{5.5} = 32\tfrac{8}{11}$ minutes, about 32 minutes 44 seconds. At 6:30 the hour hand has already moved $15^\circ$ past the 6.
+- id: trig-m1-r2-h19
+  lesson: trig-m1-h-relative-rotation
+  topic: Relative rotation
+  stem: 'Which statements about the hands of a clock are true? Select all that apply.'
+  choices:
+    - 'The minute hand gains $5.5^\circ$ per minute on the hour hand'
+    - 'The hands overlap 12 times every 12 hours'
+    - 'The hands overlap every $\tfrac{720}{11}$ minutes'
+    - 'At 3:15 the two hands point in exactly the same direction'
+  answer: [0, 2]
+  explanation: |-
+    The minute hand turns $6^\circ$ per minute and the hour hand $0.5^\circ$, so the gap changes by $5.5^\circ$ per minute and closes a full $360^\circ$ every $\tfrac{360}{5.5} = \tfrac{720}{11}$ minutes. That happens 11 times in 12 hours, not 12. At 3:15 the hour hand is at $97.5^\circ$, $7.5^\circ$ past the minute hand.
+- id: trig-m1-r2-h20
+  lesson: trig-m1-h-relative-rotation
+  module_quiz: true
+  topic: Relative rotation
+  stem: 'Why is the sidereal day (one turn relative to the stars) about 4 minutes shorter than the 24-hour solar day?'
+  choices:
+    - 'The Earth''s spin is slowly speeding up'
+    - 'The Earth moves around the Sun in the same direction it spins, so it must turn a little extra to bring the Sun back to noon'
+    - 'Light from the stars takes about 4 minutes to reach us'
+    - 'Clocks are set to lose about 4 minutes a day'
+  answer: 1
+  explanation: |-
+    The orbit carries the direction to the Sun about $0.986^\circ$ per day in the same direction as the spin, so from one noon to the next the Earth turns about $360.986^\circ$. A $360^\circ$ turn takes about $24 \times \tfrac{365.24}{366.24} \approx 23.93$ hours, about 23 h 56 min.
+- id: trig-m1-r2-h21
+  lesson: trig-m1-h-relative-rotation
+  topic: Relative rotation
+  stem: 'Venus orbits the Sun in about 224.7 days and the Earth in about 365.25 days, in the same direction. About how often does Venus overtake the Earth?'
+  choices: ['About every 139 days', 'About every 295 days', 'About every 365 days', 'About every 584 days']
+  answer: 3
+  explanation: |-
+    Use $\tfrac{1}{T} = \tfrac{1}{224.7} - \tfrac{1}{365.25}$, which gives $T \approx 584$ days. Adding the rates instead (as if the planets went opposite ways) gives about 139 days, and averaging the periods gives about 295, which has no meaning here.
+- id: trig-m1-r2-h22
+  lesson: trig-m1-h-relative-rotation
+  topic: Relative rotation
+  type: order
+  stem: 'Put these in order from slowest to fastest angular speed.'
+  items: ['The Earth''s spin', 'The hour hand of a clock', 'The minute hand of a clock', 'The second hand of a clock', 'A record turning at 33⅓ rpm']
+  explanation: |-
+    In degrees per minute: the Earth turns about $0.25$ (once in about 23.93 hours), the hour hand $0.5$, the minute hand $6$, the second hand $360$, and the record $33\tfrac13 \times 360 = 12{,}000$.
+- id: trig-m1-r2-h23
+  lesson: trig-m1-h-relative-rotation
+  topic: Gears and rolling
+  stem: 'A 15-tooth gear turning clockwise at 900 rpm meshes with a 45-tooth gear. How does the 45-tooth gear turn?'
+  choices: ['At 300 rpm, counterclockwise', 'At 300 rpm, clockwise', 'At 2700 rpm, counterclockwise', 'At 2700 rpm, clockwise']
+  answer: 0
+  explanation: |-
+    $N_1\omega_1 = N_2\omega_2$ gives $\omega_2 = 900 \cdot \tfrac{15}{45} = 300$ rpm: the bigger gear turns slower. Meshing gears turn in opposite directions, so it turns counterclockwise. 2700 rpm comes from flipping the ratio.
+- id: trig-m1-r2-h24
+  lesson: trig-m1-h-relative-rotation
+  module_quiz: true
+  topic: Gears and rolling
+  type: match
+  stem: 'Match each connection between two rotating parts to what it does.'
+  pairs:
+    - [Two gears on the same shaft, Equal angular speeds]
+    - [A belt or chain, 'Equal rim speeds, same direction']
+    - [Two meshing gears, 'Equal rim speeds, opposite directions']
+    - [An idler gear between two gears, Reverses the direction without changing the ratio]
+  distractors: [Doubles the angular speed]
+  explanation: |-
+    Parts fixed to one shaft turn together. A belt or chain and a pair of meshing teeth both give equal linear speeds at the rims ($r_1\omega_1 = r_2\omega_2$, or $N_1\omega_1 = N_2\omega_2$), but only meshing reverses the direction. An idler's tooth count cancels out of the ratio; it adds one reversal.
+- id: trig-m1-r2-h25
+  lesson: trig-m1-h-relative-rotation
+  topic: Gears and rolling
+  type: text
+  stem: 'A 20-tooth driver gear turns at 600 rpm. It meshes with a 35-tooth idler, which meshes with a 50-tooth output gear. The output gear turns at ___ rpm.'
+  accept: ['240']
+  explanation: |-
+    The idler cancels: $20 \times 600 = 35\,\omega_2 = 50\,\omega_3$, so $\omega_3 = \tfrac{20 \times 600}{50} = 240$ rpm, in the same direction as the driver.
+- id: trig-m1-r2-h26
+  lesson: trig-m1-h-relative-rotation
+  topic: Gears and rolling
+  stem: 'A wheel of radius $r$ rolls along the ground without slipping at angular speed $\omega$. Which statements are true? Select all that apply.'
+  choices:
+    - 'The center moves at $r\omega$'
+    - 'The top of the wheel moves at $2r\omega$'
+    - 'The point touching the ground moves at $r\omega$'
+    - 'After one full turn, the wheel has moved forward $2\pi r$'
+  answer: [0, 1, 3]
+  explanation: |-
+    Rolling without slipping means the arc that touches the ground equals the distance moved, so one turn moves the wheel $2\pi r$ and the center moves at $r\omega$. Adding the spin about the center, the top moves at $r\omega + r\omega = 2r\omega$ and the contact point at $r\omega - r\omega = 0$.
+- id: trig-m1-r2-h27
+  lesson: trig-m1-h-relative-rotation
+  topic: Gears and rolling
+  stem: 'A car''s speedometer is set up for its original tires. The owner fits tires with a 5% larger diameter. When the speedometer reads 60 mi/h, about how fast is the car going?'
+  choices: ['57 mi/h', '60 mi/h', '63 mi/h', '66 mi/h']
+  answer: 2
+  explanation: |-
+    The speedometer measures $\omega$. With the same $\omega$, $v = r\omega$ grows with the radius, so the true speed is $60 \times 1.05 = 63$ mi/h. 57 mi/h gets the direction of the error backward.
+- id: trig-m1-r2-h28
+  lesson: trig-m1-h-relative-rotation
+  topic: Gears and rolling
+  stem: 'A 10-tooth driver gear turns at 400 rpm. It meshes with a 40-tooth idler, which meshes with a 20-tooth gear. How does the 20-tooth gear turn?'
+  choices: ['At 100 rpm, opposite to the driver', 'At 800 rpm, the same way as the driver', 'At 200 rpm, opposite to the driver', 'At 200 rpm, the same way as the driver']
+  answer: 3
+  explanation: |-
+    The idler turns at $400 \cdot \tfrac{10}{40} = 100$ rpm, and the last gear at $100 \cdot \tfrac{40}{20} = 200$ rpm, the same as $400 \cdot \tfrac{10}{20}$. Two meshes mean two reversals, so it turns the same way as the driver. 100 rpm is the idler's speed, and 800 rpm flips the ratio.
+- id: trig-m1-r2-h29
+  lesson: trig-m1-h-relative-rotation
+  topic: Gears and rolling
+  type: label
+  stem: 'Name the numbered parts of this gear train. The small gear on the left is driven by a motor.'
+  image: {src: images/trig-m1-gear-train-blank.svg, alt: 'Three meshing gears in a row, small on the left, medium in the middle and large on the right, each with a curved arrow showing its direction of turning. Five places are numbered.'}
+  labels:
+    - {x: 12.5, y: 49.6, text: Driver gear}
+    - {x: 35.4, y: 55.3, text: Idler gear}
+    - {x: 71.1, y: 62.4, text: Driven gear}
+    - {x: 21.1, y: 41.2, text: Point where the teeth mesh}
+    - {x: 71.1, y: 41.2, text: Shaft}
+  distractors: [Belt, Chain]
+  explanation: |-
+    The motor turns the driver on the left; the middle gear is an idler that passes the motion on and reverses its direction; the large gear on the right is the driven (output) gear, turning on its shaft. The teeth push on each other where the gears mesh. There is no belt or chain: the gears touch directly.

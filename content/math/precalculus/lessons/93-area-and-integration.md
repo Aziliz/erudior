@@ -23,7 +23,7 @@ The triangles fill more and more of the segment, so its area is the infinite geo
 
 $$1 + \frac14 + \frac1{16} + \frac1{64} + \dots = \frac{1}{1 - \frac14} = \frac43.$$
 
-In general, the area of a parabolic segment is $\frac43$ of the inscribed triangle with the same base. Archimedes didn't add infinitely many terms; Greek mathematics avoided completed infinities. He used the **method of exhaustion**: he showed the area could be neither more than $\frac43$ nor less than $\frac43$, since either assumption led to a contradiction. That is the proof-by-contradiction pattern from the first lesson of this module, used some 2,000 years before limits were defined.
+In general, the area of a parabolic segment is $\frac43$ of the inscribed triangle with the same base, whose third vertex is the point of the parabola where the tangent line is parallel to the chord. (For a horizontal chord under a parabola like $y = 1 - x^2$, that point is the vertex.) Archimedes didn't add infinitely many terms; Greek mathematics avoided completed infinities. He used the **method of exhaustion**: he showed the area could be neither more than $\frac43$ nor less than $\frac43$, since either assumption led to a contradiction. That is the proof-by-contradiction pattern from the first lesson of this module, used some 2,000 years before limits were defined.
 
 ### Example 1
 

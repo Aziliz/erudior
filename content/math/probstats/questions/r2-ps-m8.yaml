@@ -55,7 +55,7 @@
     - 'More than half of the residuals are positive'
   answer: [0, 1, 2]
   explanation: |-
-    The two normal equations say exactly $\sum e_i = 0$ and $\sum x_ie_i = 0$, and least squares by definition minimizes the sum of *squared* vertical deviations. Minimizing $\sum\lvert e_i\rvert$ is a different method (least absolute deviations) and usually gives a different line. Nothing forces more positive than negative residuals; they only have to sum to zero.
+    The two normal equations say exactly $\sum e_i = 0$ and $\sum x_ie_i = 0$, and least squares by definition minimizes the sum of squared vertical deviations. Minimizing $\sum\lvert e_i\rvert$ is a different method (least absolute deviations) and usually gives a different line. Nothing forces more positive than negative residuals; they only have to sum to zero.
 
 - id: ps-m8-r2-q05
   lesson: ps-linear-regression
@@ -301,7 +301,7 @@
     - 'Adding a predictor always makes the other coefficients smaller'
   answer: 0
   explanation: |-
-    $b_1$ in the multiple regression is the change in mean wear per unit of traffic *with curvature held fixed*. The busier sites in these data are also more curved ($r_{12} = 0.51$), so a regression on traffic alone credits traffic with some of curvature's effect. Each fit is the unique least squares solution for its own model, and adding a predictor can move other coefficients in either direction.
+    $b_1$ in the multiple regression is the change in mean wear per unit of traffic with curvature held fixed. The busier sites in these data are also more curved ($r_{12} = 0.51$), so a regression on traffic alone credits traffic with some of curvature's effect. Each fit is the unique least squares solution for its own model, and adding a predictor can move other coefficients in either direction.
 
 - id: ps-m8-r2-h09
   lesson: ps-m8-h-multiple-regression
@@ -556,7 +556,7 @@
   choices: ['Karl Pearson', 'R. A. Fisher', 'W. S. Gosset ("Student")', 'Jerzy Neyman']
   answer: 1
   explanation: |-
-    R. A. Fisher worked at Rothamsted from 1919 and described these designs and the analysis of variance in *Statistical Methods for Research Workers* (1925) and *The Design of Experiments* (1935). Gosset developed the $t$ distribution at the Guinness brewery, Pearson the chi-square test, and Neyman (with E. S. Pearson) the theory of hypothesis tests.
+    R. A. Fisher worked at Rothamsted from 1919 and described these designs and the analysis of variance in "Statistical Methods for Research Workers" (1925) and "The Design of Experiments" (1935). Gosset developed the $t$ distribution at the Guinness brewery, Pearson the chi-square test, and Neyman (with E. S. Pearson) the theory of hypothesis tests.
 
 - id: ps-m8-r2-h30
   lesson: ps-m8-h-two-way-anova
