@@ -13,7 +13,7 @@ Solve the logistic equation $y' = y(1 - y)$ with Euler's method (Lesson 5) from 
 With step $h = 0.5$ the values climb smoothly toward 1, as the true solution does. With
 $h = 1.5$ they overshoot: $0.1, 0.235, 0.505, 0.880, 1.038, 0.979, 1.010, \dots$, still settling
 on 1 but wobbling. With $h = 2.5$ they never settle at all; after a while they repeat the
-four values $0.536, 0.701, 1.158, 1.225$ forever. Larger steps make things wilder still.
+four values $0.536, 1.158, 0.701, 1.225$ forever. Larger steps make things wilder still.
 
 The differential equation didn't change; only the computation did. Euler's method replaces
 the equation with a rule $y_{n+1} = g(y_n)$, and rules like this, **iterated maps**, have a
@@ -80,7 +80,7 @@ diagonal (which moves $x_1$ to the horizontal axis), then vertically to the curv
 Fixed points are where the curve crosses the diagonal.
 
 ```plot
-{"x": [0, 1], "y": [0, 1], "equal": true, "xLabel": "xₙ", "yLabel": "xₙ₊₁", "functions": [{"f": "2.8x*(1-x)", "label": "y = 2.8x(1 − x)"}, {"f": "x", "dashed": true, "label": "y = x"}], "segments": [{"from": [0.1, 0], "to": [0.1, 0.252]}, {"from": [0.1, 0.252], "to": [0.252, 0.252]}, {"from": [0.252, 0.252], "to": [0.252, 0.5278]}, {"from": [0.252, 0.5278], "to": [0.5278, 0.5278]}, {"from": [0.5278, 0.5278], "to": [0.5278, 0.6978]}, {"from": [0.5278, 0.6978], "to": [0.6978, 0.6978]}, {"from": [0.6978, 0.6978], "to": [0.6978, 0.5904]}, {"from": [0.6978, 0.5904], "to": [0.5904, 0.5904]}, {"from": [0.5904, 0.5904], "to": [0.5904, 0.6771]}, {"from": [0.5904, 0.6771], "to": [0.6771, 0.6771]}, {"from": [0.6771, 0.6771], "to": [0.6771, 0.6122]}, {"from": [0.6771, 0.6122], "to": [0.6122, 0.6122]}, {"from": [0.6122, 0.6122], "to": [0.6122, 0.6648]}, {"from": [0.6122, 0.6648], "to": [0.6648, 0.6648]}, {"from": [0.6648, 0.6648], "to": [0.6648, 0.624]}, {"from": [0.6648, 0.624], "to": [0.624, 0.624]}, {"from": [0.624, 0.624], "to": [0.624, 0.657]}, {"from": [0.624, 0.657], "to": [0.657, 0.657]}, {"from": [0.657, 0.657], "to": [0.657, 0.631]}, {"from": [0.657, 0.631], "to": [0.631, 0.631]}], "points": [{"at": [0.6429, 0.6429], "label": "x* ≈ 0.643"}], "caption": "Cobweb for R = 2.8 from x₀ = 0.1: the path spirals into the fixed point x* ≈ 0.643, overshooting each time because the multiplier is −0.8."}
+{"x": [0, 1], "y": [0, 1], "equal": true, "xLabel": "xₙ", "yLabel": "xₙ₊₁", "functions": [{"f": "2.8x*(1-x)"}, {"f": "x", "dashed": true, "label": "y = x"}], "segments": [{"from": [0.1, 0], "to": [0.1, 0.252]}, {"from": [0.1, 0.252], "to": [0.252, 0.252]}, {"from": [0.252, 0.252], "to": [0.252, 0.5278]}, {"from": [0.252, 0.5278], "to": [0.5278, 0.5278]}, {"from": [0.5278, 0.5278], "to": [0.5278, 0.6978]}, {"from": [0.5278, 0.6978], "to": [0.6978, 0.6978]}, {"from": [0.6978, 0.6978], "to": [0.6978, 0.5904]}, {"from": [0.6978, 0.5904], "to": [0.5904, 0.5904]}, {"from": [0.5904, 0.5904], "to": [0.5904, 0.6771]}, {"from": [0.5904, 0.6771], "to": [0.6771, 0.6771]}, {"from": [0.6771, 0.6771], "to": [0.6771, 0.6122]}, {"from": [0.6771, 0.6122], "to": [0.6122, 0.6122]}, {"from": [0.6122, 0.6122], "to": [0.6122, 0.6648]}, {"from": [0.6122, 0.6648], "to": [0.6648, 0.6648]}, {"from": [0.6648, 0.6648], "to": [0.6648, 0.624]}, {"from": [0.6648, 0.624], "to": [0.624, 0.624]}, {"from": [0.624, 0.624], "to": [0.624, 0.657]}, {"from": [0.624, 0.657], "to": [0.657, 0.657]}, {"from": [0.657, 0.657], "to": [0.657, 0.631]}, {"from": [0.657, 0.631], "to": [0.631, 0.631]}], "points": [{"at": [0.6429, 0.6429]}], "labels": [{"at": [0.72, 0.15], "text": "y = 2.8x(1 − x)"}, {"at": [0.84, 0.6], "text": "x* ≈ 0.643"}], "caption": "Cobweb for R = 2.8 from x₀ = 0.1: the path spirals into the fixed point x* ≈ 0.643, overshooting each time because the multiplier is −0.8."}
 ```
 
 ## Period doubling
@@ -88,8 +88,8 @@ Fixed points are where the curve crosses the diagonal.
 At $R = 3$ the multiplier of $x^* = 1 - 1/R$ reaches $-1$, and beyond that the fixed point
 repels. The iterates don't escape (they can't leave $[0, 1]$); instead they settle into a
 **2-cycle**, alternating between two values $p$ and $q$ with $f(p) = q$ and $f(q) = p$. This
-change is a **period-doubling bifurcation**, the map's version of a Hopf bifurcation: a
-steady state gives way to a repeating pattern.
+change is a **period-doubling bifurcation**. It plays a role like a Hopf bifurcation (a
+steady state gives way to a repeating pattern), though it is a different bifurcation: maps have their own analog of Hopf, which this lesson doesn't need.
 
 The 2-cycle points are fixed points of $f(f(x))$ that aren't fixed points of $f$. Dividing the
 fourth-degree equation $f(f(x)) = x$ by the factors for the known fixed points leaves
@@ -119,7 +119,7 @@ doubles to an 8-cycle, and so on, each step coming sooner:
 The gaps between these values shrink by a factor approaching
 $\delta \approx 4.669$, the **Feigenbaum constant**, and the doublings pile up at
 $R_\infty \approx 3.5699$. Mitchell Feigenbaum found in the mid-1970s that the same $\delta$
-appears for every smooth map with a single hump, not just this one, and experiments on
+appears for every smooth map with a single rounded (quadratic) hump, not just this one, and experiments on
 fluid convection and electronic circuits later measured period-doubling cascades with
 ratios close to it.
 
@@ -127,7 +127,7 @@ ratios close to it.
 
 ## Chaos
 
-Past $R_\infty$, for most values of $R$ the iterates never repeat, never settle and never
+Past $R_\infty$, for many values of $R$ the iterates never repeat, never settle and never
 escape. They are **chaotic**: bounded, not periodic and not approaching anything periodic,
 and *sensitive to the starting value*. The orbit diagram above shows it: for each $R$ it
 plots the values the iterates keep visiting after a long run. Inside the chaotic range are
@@ -139,14 +139,14 @@ three implies chaos" (Oleksandr Sharkovsky had proved a more general ordering of
 ```mermaid
 flowchart TD
   accTitle: The period-doubling route to chaos in the logistic map
-  accDescr: As R increases, the logistic map has a stable fixed point for R between 1 and 3. At R equals 3 it period-doubles to a stable 2-cycle. At about 3.449 the 2-cycle doubles to a 4-cycle, then to 8 and 16 at values that get closer by a factor approaching the Feigenbaum constant 4.669. The doublings accumulate at about 3.5699, beyond which most values of R give chaos, interrupted by periodic windows such as period 3 starting at about 3.828. At R equals 4 the map is fully chaotic with Lyapunov exponent ln 2.
-  A["1 #lt; R #lt; 3: stable fixed point 1 - 1/R"] --> B["R = 3: period doubling to a 2-cycle"]
+  accDescr: As R increases, the logistic map has a stable fixed point for R between 1 and 3. At R equals 3 it period-doubles to a stable 2-cycle. At about 3.449 the 2-cycle doubles to a 4-cycle, then to 8 and 16 at values that get closer by a factor approaching the Feigenbaum constant 4.669. The doublings accumulate at about 3.5699, beyond which many values of R give chaos, interrupted by periodic windows such as period 3 starting at about 3.828. At R equals 4 the map is fully chaotic with Lyapunov exponent ln 2.
+  A["1 #lt; R #lt; 3: stable fixed point x* = 1 - 1/R"] --> B["R = 3: period doubling to a 2-cycle"]
   B --> C["R ≈ 3.449: 4-cycle"]
   C --> D["8, 16, 32 ... gaps shrink by about 4.669"]
   D --> E["R ≈ 3.5699: the cascade accumulates"]
-  E --> F["Chaos for most R, with periodic windows"]
+  E --> F["Chaos for many R, with periodic windows"]
   F --> G["R ≈ 3.828: period-3 window"]
-  G --> H["R = 4: chaos everywhere, Lyapunov exponent ln 2"]
+  G --> H["R = 4: fully chaotic, Lyapunov exponent ln 2"]
 ```
 
 ### Measuring chaos: the Lyapunov exponent

@@ -35,12 +35,12 @@ That is the line through $\mathbf{p}$ in the direction $\mathbf{q} - \mathbf{p}$
 line through the two points. At $t = 0$ you are at $\mathbf{p}$, at $t = 1$ at $\mathbf{q}$,
 at $t = \tfrac12$ at the midpoint; $t = 1.5$ lies beyond $\mathbf{q}$ and $t = -0.5$ before
 $\mathbf{p}$. Compare the *linear* combinations $s\mathbf{p} + t\mathbf{q}$ with no condition:
-they fill a whole plane through the origin. The condition $c_1 + c_2 = 1$ cuts that plane
+when $\mathbf{p}$ and $\mathbf{q}$ are not multiples of each other (as in the picture below), they fill a whole plane through the origin. The condition $c_1 + c_2 = 1$ cuts that plane
 down to the one line through the two points, and that line passes through $\mathbf{0}$ only
 in special cases.
 
 ```plot
-{"x": [-2, 8], "y": [-1, 5], "equal": true, "functions": [{"f": "0.5x + 0.5", "dashed": true}], "segments": [{"from": [1, 1], "to": [5, 3], "label": "0 ≤ t ≤ 1"}], "points": [{"at": [1, 1], "label": "p (t = 0)"}, {"at": [5, 3], "label": "q (t = 1)"}, {"at": [3, 2], "label": "t = 1/2"}, {"at": [7, 4], "label": "t = 1.5"}, {"at": [-1, 0], "label": "t = −1/2"}], "caption": "Affine combinations (1 − t)p + tq of p = (1, 1) and q = (5, 3) fill the line; 0 ≤ t ≤ 1 gives the segment"}
+{"x": [-2, 8], "y": [-1, 5.5], "equal": true, "functions": [{"f": "0.5x + 0.5", "dashed": true}], "segments": [{"from": [1, 1], "to": [5, 3]}], "points": [{"at": [1, 1]}, {"at": [5, 3]}, {"at": [3, 2]}, {"at": [7, 4]}, {"at": [-1, 0]}], "labels": [{"at": [1.9, 0.35], "text": "p (t = 0)"}, {"at": [5.9, 2.3], "text": "q (t = 1)"}, {"at": [3.8, 1.3], "text": "t = 1/2"}, {"at": [6.2, 4.6], "text": "t = 1.5"}, {"at": [-1.3, 0.6], "text": "t = −1/2"}, {"at": [2.2, 2.6], "text": "0 ≤ t ≤ 1"}], "caption": "Affine combinations (1 − t)p + tq of p = (1, 1) and q = (5, 3) fill the line; 0 ≤ t ≤ 1 gives the segment"}
 ```
 
 The same thing happens with more points. The set of all affine combinations of

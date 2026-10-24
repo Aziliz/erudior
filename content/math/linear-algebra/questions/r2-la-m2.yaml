@@ -234,14 +234,13 @@
   type: order
   stem: 'Put the steps for solving an applied problem with a linear system in order.'
   items:
-    - 'Identify the conservation or matching rule'
     - 'Choose the unknowns'
-    - 'Write one equation per node, element or data point'
+    - 'Use the conservation or matching rule to write one equation per node, element or data point'
     - 'Row-reduce the augmented matrix'
     - 'Write the general solution'
     - 'Apply the real-world constraints'
   explanation: |-
-    The rule tells you what to balance, the unknowns let you write it as equations, and row reduction turns the equations into a general solution. Constraints such as nonnegative flows or whole-number coefficients come last, because they pick out the meaningful solutions from the general one.
+    You need named unknowns before you can write equations; the conservation or matching rule then gives one equation per node, element or point, and row reduction turns the equations into a general solution. Constraints such as nonnegative flows or whole-number coefficients come last, because they pick out the meaningful solutions from the general one.
 
 - id: la-m2-r2-q19
   lesson: la-applications-systems
@@ -535,7 +534,7 @@
   choices: ['Each sweep uses only the few nonzero coefficients, so it is cheap and the matrix stays sparse', 'They give the exact answer in fewer steps than row reduction', 'They need no stopping rule', 'They converge for every linear system']
   answer: 0
   explanation: |-
-    Each equation has at most 5 nonzero coefficients, so a sweep costs a few operations per unknown, while row reduction would take on the order of $n^3$ operations and fill in many zeros. Iterative methods give approximations, need a stopping rule, and can diverge (as in the lesson's Example 4).
+    Each equation has at most 5 nonzero coefficients, so a sweep costs a few operations per unknown, while plain row reduction would take on the order of $n^3$ operations and fill in many zeros. Iterative methods give approximations, need a stopping rule, and can diverge (as in the lesson's Example 4).
 
 - id: la-m2-r2-h27
   lesson: la-m2-h-iterative

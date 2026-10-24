@@ -18,8 +18,8 @@ almost every coefficient is 0. A matrix whose entries are mostly zeros is called
 
 Row reduction is a **direct method**: it reaches the exact solution (apart from rounding) in a
 fixed, finite number of steps. For an $n \times n$ system it takes roughly $n^3/3$
-multiplications, and as it clears columns it tends to turn zeros into nonzeros, so it cannot
-exploit sparsity well. An **iterative method** works differently: start with a guess, and
+multiplications, and as it clears columns it tends to turn zeros into nonzeros, so plain row
+reduction does not take full advantage of sparsity. An **iterative method** works differently: start with a guess, and
 improve it again and again with a cheap update that uses only the nonzero coefficients. This
 lesson builds the two classic iterative methods and shows when they work.
 

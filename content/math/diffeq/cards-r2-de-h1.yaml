@@ -2,10 +2,10 @@
 - {front: 'Limit cycle', back: 'An isolated closed orbit: nearby trajectories spiral toward it (stable), away (unstable), or one of each (semistable). Linear systems never have one.', topic: Limit cycles}
 - {front: 'Why linear systems have no limit cycles', back: 'If $\mathbf{x}(t)$ is periodic, so is $c\,\mathbf{x}(t)$: closed orbits come in families and are never isolated.', topic: Limit cycles}
 - {front: 'Polar identities for a planar system', back: '$rr'' = xx'' + yy''$ and $r^2\theta'' = xy'' - yx''$.', topic: Limit cycles}
-- {front: 'Reading cycles from $r'' = f(r)$', back: 'Each zero $r = c > 0$ is a circular limit cycle; it is stable if $f > 0$ just inside and $f < 0$ just outside (a phase line in $r$).', topic: Limit cycles}
+- {front: 'Reading cycles from $r'' = f(r)$', back: 'With $\theta'' \ne 0$, each isolated zero $r = c > 0$ is a circular limit cycle; it is stable if $f > 0$ just inside and $f < 0$ just outside (a phase line in $r$).', topic: Limit cycles}
 - {front: 'Poincaré–Bendixson theorem', back: 'In the plane: a closed, bounded region with no equilibria that keeps a trajectory inside for all $t \ge 0$ contains a closed orbit.', topic: Limit cycles}
 - {front: 'Building a trapping annulus', back: 'Show $rr'' > 0$ on a small circle around a source and $rr'' < 0$ on a large circle, and check there are no equilibria between them.', topic: Limit cycles}
-- {front: 'Bendixson / Dulac criterion', back: 'If $(gF)_x + (gG)_y$ keeps one sign on a region without holes (and is not identically zero), there are no closed orbits there. It can only rule orbits out.', topic: Limit cycles}
+- {front: 'Bendixson / Dulac criterion', back: 'If $(gF)_x + (gG)_y$ keeps one sign on a region without holes (and is not identically zero on any small disk), there are no closed orbits there. It can only rule orbits out.', topic: Limit cycles}
 - {front: 'Closed orbits and equilibria in the plane', back: 'Every closed orbit encloses at least one equilibrium.', topic: Limit cycles}
 - {front: 'Van der Pol equation', back: '$x'''' - \mu(1 - x^2)x'' + x = 0$: energy in for $|x| < 1$, out for $|x| > 1$. One stable limit cycle for each $\mu > 0$, amplitude about 2; relaxation oscillations for large $\mu$.', topic: Limit cycles}
 - {front: 'Long-run behavior in the plane (finitely many equilibria)', back: 'A bounded trajectory approaches an equilibrium, a closed orbit, or a loop of equilibria joined by trajectories. No chaos.', topic: Limit cycles}
@@ -22,7 +22,7 @@
 - {front: 'Logistic map fixed points', back: '$x^* = 0$ (multiplier $R$) and $x^* = 1 - 1/R$ (multiplier $2 - R$, stable for $1 < R < 3$).', topic: Iterated maps}
 - {front: 'Logistic map 2-cycle', back: '$p, q = \dfrac{(R + 1) \pm \sqrt{(R - 3)(R + 1)}}{2R}$, multiplier $4 + 2R - R^2$; stable for $3 < R < 1 + \sqrt6 \approx 3.449$.', topic: Iterated maps}
 - {front: 'Period-doubling cascade of the logistic map', back: 'Periods 2, 4, 8, 16 born at $R \approx 3, 3.4495, 3.5441, 3.5644$; they accumulate at $R_\infty \approx 3.5699$.', topic: Iterated maps}
-- {front: 'Feigenbaum constant', back: '$\delta \approx 4.669$: the limiting ratio of successive gaps between period-doubling values; the same for all smooth one-hump maps.', topic: Iterated maps}
+- {front: 'Feigenbaum constant', back: '$\delta \approx 4.669$: the limiting ratio of successive gaps between period-doubling values; the same for all smooth one-hump maps with a quadratic peak.', topic: Iterated maps}
 - {front: 'Period-3 window of the logistic map', back: 'Opens at $R = 1 + \sqrt8 \approx 3.828$. Li and Yorke (1975): period three implies chaos.', topic: Iterated maps}
 - {front: 'Lyapunov exponent of a map', back: '$\lambda = \lim_{n\to\infty} \frac1n\sum_{k=0}^{n-1}\ln|f''(x_k)|$. Negative: stable cycle. Positive: chaos. Logistic map at $R = 4$: $\ln 2$.', topic: Iterated maps}
 - {front: 'Chaos (definition used here)', back: 'Deterministic, bounded behavior that never becomes periodic and has sensitive dependence on initial conditions.', topic: Iterated maps}

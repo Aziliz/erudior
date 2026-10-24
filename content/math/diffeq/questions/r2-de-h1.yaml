@@ -121,7 +121,7 @@
   choices: ['There must be a limit cycle', 'There are no closed orbits', 'Nothing: the criterion can only rule closed orbits out, and here it doesn''t apply', 'There is exactly one closed orbit, where the divergence is zero']
   answer: 2
   explanation: |-
-    The criterion is one-way: a divergence of one sign rules closed orbits out. A divergence that changes sign is necessary for a closed orbit but proves nothing, and closed orbits don't have to lie on the curve where the divergence is zero.
+    The criterion is one-way: a divergence of one sign rules closed orbits out. A divergence that changes sign proves nothing either way (a closed orbit may or may not exist), and closed orbits don't have to lie on the curve where the divergence is zero.
 - id: de-h1-r2-h14
   lesson: de-h1-limit-cycles
   type: order
@@ -279,7 +279,7 @@
   choices: ['$1$', '$2$', '$2.5$', '$0.5$']
   answer: 1
   explanation: |-
-    $R = 1 + hr = 1 + 0.5 \cdot 2 = 2$. Forgetting the 1 gives 1; using $1 + h + r$ or similar gives 2.5.
+    $R = 1 + hr = 1 + 0.5 \cdot 2 = 2$. Forgetting the 1 gives 1; adding $h + r$ instead of multiplying gives 2.5; using $h$ alone gives 0.5.
 - id: de-h1-r2-h31
   lesson: de-h1-logistic-map
   type: text
@@ -347,7 +347,7 @@
   choices: ['The value of $R$ where chaos begins', 'The Lyapunov exponent at $R = 4$', 'The number of periodic windows in the chaotic range', 'The limiting ratio of the gaps between successive period-doubling values of $R$']
   answer: 3
   explanation: |-
-    The doublings happen at $R \approx 3, 3.4495, 3.5441, 3.5644, \dots$; each gap is about $1/4.669$ of the one before, in the limit. The cascade accumulates at $R_\infty \approx 3.5699$, and the same $\delta$ appears for every smooth one-hump map.
+    The doublings happen at $R \approx 3, 3.4495, 3.5441, 3.5644, \dots$; each gap is about $1/4.669$ of the one before, in the limit. The cascade accumulates at $R_\infty \approx 3.5699$, and the same $\delta$ appears for every smooth one-hump map with a rounded (quadratic) peak.
 - id: de-h1-r2-h39
   lesson: de-h1-logistic-map
   module_quiz: true

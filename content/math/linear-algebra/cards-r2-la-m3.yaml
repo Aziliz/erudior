@@ -18,7 +18,7 @@
 - {front: Independence depends on the field, back: '$(1, 1, 0)$, $(0, 1, 1)$, $(1, 0, 1)$ are independent over $\mathbb{R}$ but dependent mod 2: their sum is $(2, 2, 2) = \mathbf{0}$.', topic: Linear algebra mod 2}
 - {front: Lights Out as a linear system, back: 'Press set $\mathbf{x}$ clears start pattern $\mathbf{b}$ ⟺ $A\mathbf{x} = \mathbf{b}$ mod 2, where column $j$ of $A$ is the toggle pattern of light $j$.', topic: Linear algebra mod 2}
 - {front: Quiet pattern, back: 'A nonzero press set that changes nothing: a nontrivial solution of $A\mathbf{x} = \mathbf{0}$ mod 2. All solutions = one solution + quiet patterns.', topic: Linear algebra mod 2}
-- {front: 5 × 5 Lights Out, back: 'Its $25 \times 25$ matrix has rank 23 mod 2: one pattern in four is solvable, each with exactly 4 solutions (Anderson and Feil, 1998).', topic: Linear algebra mod 2}
+- {front: 5 × 5 Lights Out, back: 'Its $25 \times 25$ matrix has 23 pivots mod 2: one pattern in four is solvable, each with exactly 4 solutions (Anderson and Feil, 1998).', topic: Linear algebra mod 2}
 - {front: Hamming(7,4) code, back: 'Codewords solve $H\mathbf{c} = \mathbf{0}$, where column $j$ of the $3 \times 7$ matrix $H$ is $j$ in binary. 16 codewords; 4 data bits in 7.', topic: Error-correcting codes}
 - {front: Syndrome, back: '$H\mathbf{r}$ mod 2. Zero for a codeword; with bit $j$ flipped it equals $H\mathbf{e}_j$, column $j$ of $H$, which names the bad bit.', topic: Error-correcting codes}
 - {front: Parity bit, back: 'One extra bit making the number of 1s even. Detects one flipped bit but can''t locate it.', topic: Error-correcting codes}

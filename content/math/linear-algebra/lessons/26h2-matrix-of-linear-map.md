@@ -85,6 +85,9 @@ $\operatorname{range} T$ exactly onto $\operatorname{Col} M$. Isomorphisms take 
 so they preserve dimension. Now the rank theorem for $M$ gives
 $n = \dim\operatorname{Nul} M + \operatorname{rank} M = \dim\ker T + \dim\operatorname{range} T$. $\blacksquare$
 
+If $W$ is infinite-dimensional, the same proof works after replacing $W$ by $\operatorname{range} T$,
+which is spanned by $T(\mathbf{b}_1), \dots, T(\mathbf{b}_n)$ and so is finite-dimensional.
+
 The dimension of the range is called the rank of $T$. Three quick consequences:
 
 - If $\dim V > \dim W$, $T$ cannot be one-to-one (its kernel has dimension at least $\dim V - \dim W > 0$).

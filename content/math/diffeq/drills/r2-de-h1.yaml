@@ -27,12 +27,12 @@
     r1: sqrt(a)
     a2: 2*a
     r2: sqrt(2*a)
-  prompt: 'For $x'' = {a}x - y - x^3$, $y'' = x + {a}y - y^3$, use $\tfrac12 r^4 \le x^4 + y^4 \le r^4$. The flow points outward on every circle of radius less than $r_1$ and inward on every circle of radius greater than $r_2$. Find $r_1$ and $r_2$ (exact, or to 3 decimal places).'
+  prompt: 'For $x'' = {a}x - {a}y - x^3$, $y'' = {a}x + {a}y - y^3$, use $\tfrac12 r^4 \le x^4 + y^4 \le r^4$. The flow points outward on every circle of radius less than $r_1$ and inward on every circle of radius greater than $r_2$. Find $r_1$ and $r_2$ (exact, or to 3 decimal places).'
   answers:
     - {name: r1, label: '$r_1 =$', tolerance: 0.001, format: dp3}
     - {name: r2, label: '$r_2 =$', tolerance: 0.001, format: dp3}
   solution: |-
-    $rr' = xx' + yy' = {a}(x^2 + y^2) - (x^4 + y^4) = {a}r^2 - (x^4 + y^4)$. Using the bounds, ${a}r^2 - r^4 \le rr' \le {a}r^2 - \tfrac12 r^4$. The lower bound is positive when $r^2 < {a}$, so the flow points outward for $r < \sqrt{{a}}$: $r_1 =$ **{r1:dp3}**. The upper bound is negative when $r^2 > {a2}$, so the flow points inward for $r > \sqrt{{a2}}$: $r_2 =$ **{r2:dp3}**. Any annulus $c \le r \le C$ with $c < r_1$ and $C > r_2$ (and no equilibria inside) traps trajectories.
+    $rr' = xx' + yy' = {a}(x^2 + y^2) - (x^4 + y^4) = {a}r^2 - (x^4 + y^4)$. Using the bounds, ${a}r^2 - r^4 \le rr' \le {a}r^2 - \tfrac12 r^4$. The lower bound is positive when $r^2 < {a}$, so the flow points outward for $r < \sqrt{{a}}$: $r_1 =$ **{r1:dp3}**. The upper bound is negative when $r^2 > {a2}$, so the flow points inward for $r > \sqrt{{a2}}$: $r_2 =$ **{r2:dp3}**. Any annulus $c \le r \le C$ with $c < r_1$ and $C > r_2$ traps trajectories. (For this system the origin is the only equilibrium, so by Poincaré–Bendixson such an annulus contains a closed orbit.)
 # Lesson 91: Hopf bifurcation
 - id: de-h1-r2-hopf-cycle
   title: Size and period of a Hopf cycle
@@ -160,7 +160,7 @@
   answers:
     - {name: lam, label: '$\lambda =$', tolerance: 0.001, format: dp3}
   solution: |-
-    At the origin $z$ separates off (eigenvalue $-b$). The $x$, $y$ block $\begin{bmatrix} -{sg} & {sg} \\ {r} & -1 \end{bmatrix}$ gives $\lambda^2 + {s1}\lambda - {sg}({r} - 1) = 0$, so $\lambda = \dfrac{-{s1} + \sqrt{{disc}}}{2} =$ **{lam:dp3}**. Since it is positive, the origin is a saddle.
+    At the origin $z$ separates off (eigenvalue $-b$). The $x$, $y$ block $\begin{bmatrix} -{sg} & {sg} \\ {r} & -1 \end{bmatrix}$ gives $\lambda^2 + {s1}\lambda - {sg}({r} - 1) = 0$, so $\lambda = \dfrac{-{s1} + \sqrt{{disc:dp0}}}{2} =$ **{lam:dp3}**. Since it is positive, the origin is a saddle.
 - id: de-h1-r2-horizon
   title: Predictability horizon
   topic: Chaos in differential equations

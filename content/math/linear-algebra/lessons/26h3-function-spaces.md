@@ -111,7 +111,7 @@ $$r^2 + ar + b = 0.$$
 equation of a $2 \times 2$ matrix that runs the recurrence, a link the eigenvalue module makes
 possible.)
 
-- *Two different real roots $r_1, r_2$:* $\{r_1^k, r_2^k\}$ is a basis. Their starting pairs $(1, 1)$ and $(r_1, r_2)$ are independent when $r_1 \ne r_2$, and the isomorphism carries independence back to $H$.
+- *Two different real roots $r_1, r_2$:* $\{r_1^k, r_2^k\}$ is a basis. Their starting pairs $(1, r_1)$ and $(1, r_2)$ are independent when $r_1 \ne r_2$, and the isomorphism carries independence back to $H$.
 - *One repeated root $r$:* $\{r^k, k\,r^k\}$ is a basis. (Here $a = -2r$ and $b = r^2$; substituting $k\,r^k$ gives $r^k\big[(k + 2)r^2 - 2r(k + 1)r + kr^2\big] = 0$. The starting pairs $(1, r)$ and $(0, r)$ are independent.)
 - *Complex roots:* a real basis can be written with powers of $|r|$ times cosines and sines; we only note that the dimension is still 2.
 

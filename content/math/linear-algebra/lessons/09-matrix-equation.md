@@ -41,7 +41,7 @@ Both give $\begin{bmatrix} -3 \\ 7\end{bmatrix}$. Note sizes: $(2 \times 3)$ tim
 The column view is easy to draw: walk along $1\mathbf{a}_1$, then $2\mathbf{a}_2$, then $-\mathbf{a}_3$, head to tail.
 
 ```plot
-{"x": [-5, 4], "y": [-2, 9], "equal": true, "segments": [{"from": [0, 0], "to": [2, 0], "arrow": true, "label": "a₁"}, {"from": [2, 0], "to": [0, 8], "arrow": true, "label": "2a₂"}, {"from": [0, 8], "to": [-3, 7], "arrow": true, "label": "−a₃"}, {"from": [0, 0], "to": [-3, 7], "arrow": true, "dashed": true, "label": "Ax = (−3, 7)"}], "caption": "Ax = 1·a₁ + 2·a₂ + (−1)·a₃ = (−3, 7), drawn head to tail"}
+{"x": [-5, 4], "y": [-2, 9], "equal": true, "segments": [{"from": [0, 0], "to": [2, 0], "arrow": true}, {"from": [2, 0], "to": [0, 8], "arrow": true}, {"from": [0, 8], "to": [-3, 7], "arrow": true, "label": "−a₃"}, {"from": [0, 0], "to": [-3, 7], "arrow": true, "dashed": true}], "labels": [{"at": [1, 0.35], "text": "a₁"}, {"at": [1.65, 4], "text": "2a₂"}, {"at": [-3.3, 3.5], "text": "Ax = (−3, 7)"}], "caption": "Ax = 1·a₁ + 2·a₂ + (−1)·a₃ = (−3, 7), drawn head to tail"}
 ```
 
 Two algebraic properties follow from the column definition, and they're the defining

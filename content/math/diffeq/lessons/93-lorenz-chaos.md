@@ -89,7 +89,8 @@ $$\lambda = \frac{-(\sigma + 1) \pm \sqrt{(\sigma + 1)^2 + 4\sigma(r - 1)}}{2}.$
   everything; at $r = 1$ the pair $C_\pm$ is born in a pitchfork bifurcation, Lesson 15's picture.)
 
 **Losing $C_\pm$.** For $r$ a little above 1, $C_\pm$ are stable: the rolls turn steadily one way or
-the other. Their Jacobian has one negative real eigenvalue and a complex pair, and when
+the other. Just above $r = 1$ all three eigenvalues of their Jacobian are real and negative; from about
+$r = 1.35$ on (for $\sigma = 10$, $b = 8/3$) they are one negative real eigenvalue and a complex pair, and when
 $\sigma > b + 1$ the complex pair crosses the imaginary axis at
 
 $$r_H = \frac{\sigma(\sigma + b + 3)}{\sigma - b - 1} = \frac{10\,(47/3)}{19/3} = \frac{470}{19} \approx 24.74.$$

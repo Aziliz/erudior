@@ -64,7 +64,7 @@ $r(t) = \left(1 + (r_0^{-2} - 1)e^{-2t}\right)^{-1/2}$. Starting at $r_0 = 0.5$,
 unit $r(1) \approx 0.84$; starting at $r_0 = 2$, $r(1) \approx 1.05$. Both close in on 1.
 
 ```plot
-{"x": [-2.2, 2.2], "y": [-2.2, 2.2], "equal": true, "vectorField": {"u": "x - y - x*(x^2 + y^2)", "v": "x + y - y*(x^2 + y^2)", "step": 0.55}, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"], "label": "r = 1"}, {"x": "cos(t)/sqrt(1 + 99*exp(-2*t))", "y": "sin(t)/sqrt(1 + 99*exp(-2*t))", "t": [0, "4pi"], "dashed": true}, {"x": "2*cos(t)/sqrt(4 - 3*exp(-2*t))", "y": "2*sin(t)/sqrt(4 - 3*exp(-2*t))", "t": [0, "4pi"], "dashed": true}], "caption": "Example 1: a trajectory starting at r = 0.1 spirals out and one starting at r = 2 spirals in; both approach the stable limit cycle r = 1."}
+{"x": [-2.2, 2.2], "y": [-2.2, 2.2], "equal": true, "vectorField": {"u": "x - y - x*(x^2 + y^2)", "v": "x + y - y*(x^2 + y^2)", "step": 0.55}, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, "2pi"]}, {"x": "cos(t)/sqrt(1 + 99*exp(-2*t))", "y": "sin(t)/sqrt(1 + 99*exp(-2*t))", "t": [0, "4pi"], "dashed": true}, {"x": "2*cos(t)/sqrt(4 - 3*exp(-2*t))", "y": "2*sin(t)/sqrt(4 - 3*exp(-2*t))", "t": [0, "4pi"], "dashed": true}], "labels": [{"at": [1.38, -0.8], "text": "r = 1"}], "caption": "Example 1: a trajectory starting at r = 0.1 spirals out and one starting at r = 2 spirals in; both approach the stable limit cycle r = 1."}
 ```
 
 ### Example 2
@@ -129,13 +129,13 @@ Sometimes you want the opposite: a guarantee that there is no oscillation.
 **Dulac's criterion**. Let $D$ be a simply connected region (no holes). If there is a
 continuously differentiable function $g(x, y)$ such that
 $\dfrac{\partial (gF)}{\partial x} + \dfrac{\partial (gG)}{\partial y}$ is continuous, has one
-sign throughout $D$, and is not zero everywhere, then $D$ contains no closed orbit. The case
+sign throughout $D$, and is not identically zero on any small disk in $D$, then $D$ contains no closed orbit. The case
 $g = 1$ is **Bendixson's criterion**: the divergence $F_x + G_y$ has one sign.
 
 *Why it works.* Suppose a closed orbit $C$ bounded a region $\Omega$ inside $D$. Along $C$
 the direction $(dx, dy)$ is parallel to $(F, G)$, so $F\,dy - G\,dx = 0$ at every point and
 $\oint_C (F\,dy - G\,dx) = 0$. By Green's theorem this integral equals
-$\iint_\Omega (F_x + G_y)\,dA$, which can't be zero if the divergence keeps one sign. (With $g$,
+$\iint_\Omega (F_x + G_y)\,dA$, which can't be zero if the divergence keeps one sign and doesn't vanish throughout $\Omega$. (With $g$,
 apply the same argument to $(gF, gG)$, which has the same trajectories traced at a different speed.)
 
 ### Example 4
@@ -207,7 +207,7 @@ caricatures, not precise physiology.
 ## Key points
 
 - A limit cycle is an isolated closed orbit; linear systems never have one.
-- In polar form, $rr' = xx' + yy'$ and $r^2\theta' = xy' - yx'$. If $r' = f(r)$, positive zeros of $f$
+- In polar form, $rr' = xx' + yy'$ and $r^2\theta' = xy' - yx'$. If $r' = f(r)$ and $\theta'$ is never zero, isolated positive zeros of $f$
   are circular limit cycles, and the phase line of $f$ gives their stability.
 - Poincaré–Bendixson: a closed, bounded region with no equilibria that traps a trajectory
   contains a closed orbit. Build an annulus: flow inward on the outside, outward on the inside.

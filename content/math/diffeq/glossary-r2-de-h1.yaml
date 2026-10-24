@@ -17,11 +17,11 @@
   topic: Limit cycles
 - term: Dulac's criterion
   aliases: [Dulac criterion, Bendixson–Dulac criterion]
-  definition: 'If, on a region without holes, $(gF)_x + (gG)_y$ has one sign (and is not identically zero) for some continuously differentiable $g(x, y)$, then $x'' = F$, $y'' = G$ has no closed orbit in that region.'
+  definition: 'If, on a region without holes, $(gF)_x + (gG)_y$ has one sign (and is not identically zero on any small disk) for some continuously differentiable $g(x, y)$, then $x'' = F$, $y'' = G$ has no closed orbit in that region.'
   topic: Limit cycles
 - term: Bendixson's criterion
   aliases: [Bendixson criterion, Bendixson's negative criterion]
-  definition: 'Dulac''s criterion with $g = 1$: if the divergence $F_x + G_y$ has one sign on a region without holes (and is not identically zero), there are no closed orbits there. Proved with Green''s theorem.'
+  definition: 'Dulac''s criterion with $g = 1$: if the divergence $F_x + G_y$ has one sign on a region without holes (and is not identically zero on any small disk), there are no closed orbits there. Proved with Green''s theorem.'
   topic: Limit cycles
 - term: Van der Pol equation
   aliases: [Van der Pol oscillator, van der Pol equation, van der Pol oscillator]
@@ -85,7 +85,7 @@
   topic: Iterated maps
 - term: Feigenbaum constant
   aliases: [Feigenbaum's constant]
-  definition: '$\delta \approx 4.669$: the limiting ratio of the gaps between successive period-doubling parameter values, the same for every smooth one-hump map (Mitchell Feigenbaum, 1970s).'
+  definition: '$\delta \approx 4.669$: the limiting ratio of the gaps between successive period-doubling parameter values, the same for every smooth one-hump map with a quadratic peak (Mitchell Feigenbaum, 1970s).'
   topic: Iterated maps
 - term: chaos
   aliases: [chaotic]

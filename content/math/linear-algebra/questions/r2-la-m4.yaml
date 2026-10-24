@@ -482,15 +482,15 @@
   lesson: la-m4-h-inverses
   type: match
   topic: Preimages and one-sided inverses
-  stem: 'Match each fact about a matrix $A$ with what it guarantees.'
+  stem: 'Match each fact about the pivots of a matrix $A$ with the one-sided inverses $A$ has.'
   pairs:
-    - [Pivot in every column, Has a left inverse]
-    - [Pivot in every row, Has a right inverse]
-    - ['Square, with a pivot in every row', Invertible]
-    - [Fewer pivots than its rows and than its columns, Has no one-sided inverse]
-  distractors: [Has exactly one right inverse]
+    - [Pivot in every column but not in every row, 'Left inverses only, no right inverse']
+    - [Pivot in every row but not in every column, 'Right inverses only, no left inverse']
+    - [Pivot in every row and every column, 'One inverse that works on both sides']
+    - [Fewer pivots than its rows and than its columns, No one-sided inverse at all]
+  distractors: ['Many left inverses and many right inverses']
   explanation: |-
-    Pivot in every column means one-to-one, which is equivalent to having a left inverse; pivot in every row means onto, equivalent to a right inverse. A square matrix with a pivot in every row also has one in every column, so it has both, and they are the same matrix, $A^{-1}$. With pivots missing from some row and some column, $A$ is neither one-to-one nor onto, so it has neither kind. A non-square matrix with a right inverse has many of them, not exactly one.
+    Pivot in every column means one-to-one, which is equivalent to having a left inverse; pivot in every row means onto, equivalent to a right inverse. With pivots in every column but not every row, $A$ is tall and has left inverses only; in every row but not every column, it is wide and has right inverses only. With a pivot in every row and column, $A$ is square and has both kinds, and they are the same matrix, $C = D = A^{-1}$, so there is exactly one. With pivots missing from some row and some column, $A$ is neither one-to-one nor onto, so it has neither kind. No matrix has many left inverses and many right inverses: having both forces a single inverse $A^{-1}$.
 
 - id: la-m4-r2-h26
   lesson: la-m4-h-inverses

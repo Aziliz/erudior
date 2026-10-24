@@ -49,7 +49,7 @@ of the $1 \times 2$ matrix $[\,1 \;\; 2\,]$. Describe its preimages.
 4. Every preimage is a nonempty line, so $T$ is onto $\mathbb{R}$ but not one-to-one. The plane is cut into parallel lines, one for each output.
 
 ```plot
-{"x": [-6, 6], "y": [-4, 4], "equal": true, "functions": [{"f": "(-2 - x)/2", "label": "c = -2"}, {"f": "-x/2", "label": "c = 0"}, {"f": "(2 - x)/2", "label": "c = 2"}, {"f": "(4 - x)/2", "label": "c = 4"}], "segments": [{"from": [0, 0], "to": [-2, 1], "arrow": true}], "labels": [{"at": [-2.6, 1.5], "text": "(-2, 1)"}], "xLabel": "x₁", "yLabel": "x₂", "caption": "Preimages of T(x₁, x₂) = x₁ + 2x₂: parallel lines x₁ + 2x₂ = c, all copies of the line through the origin"}
+{"x": [-6, 5], "y": [-4, 4], "equal": true, "functions": [{"f": "(-4 - x)/2", "to": 3}, {"f": "-x/2", "to": 3}, {"f": "(4 - x)/2", "to": 3}], "segments": [{"from": [0, 0], "to": [-2, 1], "arrow": true}], "labels": [{"at": [-2.3, 1.85], "text": "(-2, 1)"}, {"at": [3.95, -3.7], "text": "c = -4"}, {"at": [3.95, -1.7], "text": "c = 0"}, {"at": [3.95, 0.7], "text": "c = 4"}], "xLabel": "x₁", "yLabel": "x₂", "caption": "Preimages of T(x₁, x₂) = x₁ + 2x₂: parallel lines x₁ + 2x₂ = c, all copies of the line through the origin"}
 ```
 
 ### Example 2
@@ -157,7 +157,7 @@ $(A^TA)^{-1}A^T$, which picks the "best" candidate even when $\mathbf{b}$ is not
 - *Mixing up the sides.* Left inverse: $CA = I$ (one-to-one, pivot in every column). Right inverse: $AD = I$ (onto, pivot in every row).
 - *Expecting uniqueness.* A non-square matrix with a one-sided inverse has many of them. Only a square invertible matrix has exactly one inverse.
 - *Trusting $C\mathbf{b}$ blindly.* A left inverse returns the solution when one exists; when $\mathbf{b}$ is outside the range, $C\mathbf{b}$ solves nothing.
-- *Wrong size.* For a $3 \times 2$ matrix, both kinds of one-sided inverse are $2 \times 3$.
+- *Wrong size.* A one-sided inverse of an $m \times n$ matrix is $n \times m$: a left inverse of a $3 \times 2$ matrix is $2 \times 3$. (A $3 \times 2$ matrix is tall, so it never has a right inverse.)
 - *Reversing the composition theorem.* If $S \circ T$ is one-to-one, $T$ must be, but $S$ need not be.
 
 ## Key points

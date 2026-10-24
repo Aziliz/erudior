@@ -18,5 +18,5 @@
 - {front: 'Strictly diagonally dominant', back: 'In every row, $|a_{ii}| >$ the sum of the absolute values of the other entries.', topic: Iterative methods}
 - {front: 'Convergence guarantee', back: 'Strictly diagonally dominant matrix: Jacobi and Gauss–Seidel converge to the unique solution from any starting guess.', topic: Iterative methods}
 - {front: 'Jacobi diverges on $x + 2y = 3$, $3x + y = 4$. Fix?', back: 'Swap the equations: $3x + y = 4$, $x + 2y = 3$ is strictly diagonally dominant, so the iteration converges to $(1, 1)$.', topic: Iterative methods}
-- {front: 'Jacobi vs. Gauss–Seidel on the plate example', back: 'Jacobi error halves each sweep; Gauss–Seidel error shrinks by about 4 each sweep.', topic: Iterative methods}
+- {front: 'Jacobi vs. Gauss–Seidel on the plate example', back: 'Jacobi error halves each sweep; Gauss–Seidel error eventually shrinks by about a factor of 4 each sweep.', topic: Iterative methods}
 - {front: 'When to stop iterating', back: 'When the change between sweeps is below a chosen tolerance: a practical rule, not a guarantee of accuracy.', topic: Iterative methods}

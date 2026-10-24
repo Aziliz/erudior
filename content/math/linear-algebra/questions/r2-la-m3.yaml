@@ -356,7 +356,7 @@
   topic: Convex combinations
   type: text
   stem: 'The centroid of a triangle is the average $\tfrac13(\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3)$ of its corners. Each of its three barycentric coordinates equals ___. Give an exact fraction.'
-  accept: ['1/3', one third]
+  accept: ['1/3', one third, one-third]
   explanation: |-
     $\tfrac13\mathbf{v}_1 + \tfrac13\mathbf{v}_2 + \tfrac13\mathbf{v}_3$ has weights adding to 1, and barycentric coordinates are unique, so they are $(\tfrac13, \tfrac13, \tfrac13)$: equal masses at the corners balance at the centroid.
 
@@ -412,7 +412,7 @@
   image: {src: images/la-m3-barycentric.svg, alt: 'A triangle with corners v1, v2, v3 labeled (1, 0, 0), (0, 1, 0), (0, 0, 1); an inside point p labeled (1/4, 3/8, 3/8); a point m on edge v2v3 labeled (0, 1/2, 1/2); and an outside point q labeled (−1/2, 1, 1/2).'}
   items: ['$\mathbf{q}$', '$\mathbf{m}$', '$\mathbf{p}$', '$\mathbf{v}_1$']
   explanation: |-
-    The first coordinates are $-\tfrac12$ for $\mathbf{q}$, $0$ for $\mathbf{m}$, $\tfrac14$ for $\mathbf{p}$ and $1$ for $\mathbf{v}_1$. The weight on $\mathbf{v}_1$ grows as you move from the far side of the opposite edge toward $\mathbf{v}_1$; it is the signed fraction of the triangle's area cut off by that edge.
+    The first coordinates are $-\tfrac12$ for $\mathbf{q}$, $0$ for $\mathbf{m}$, $\tfrac14$ for $\mathbf{p}$ and $1$ for $\mathbf{v}_1$. The weight on $\mathbf{v}_1$ grows as you move from the far side of the opposite edge toward $\mathbf{v}_1$; it equals the signed area of triangle $\mathbf{y}\mathbf{v}_2\mathbf{v}_3$ as a fraction of the area of the whole triangle, negative when the point is across edge $\mathbf{v}_2\mathbf{v}_3$.
 
 # ---------- Honors 11h2: linear algebra mod 2 ----------
 - id: la-m3-r2-h15
