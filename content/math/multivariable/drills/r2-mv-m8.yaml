@@ -18,7 +18,7 @@
   answers:
     - {name: ans, label: 'Flux', relTolerance: 0.001}
   solution: |-
-    By the Divergence theorem: $\operatorname{div}\mathbf F = {a} + {b} + 2({c})z$, and $\iiint({ab} + {c2z})\,dV$ splits as below. Face by face, as in the proof:
+    By the Divergence theorem: $\operatorname{div}\mathbf F = {a} + {b} + 2({c})z$, and $\iiint_E\left({ab} + 2({c})z\right)dV$ gives the same total as the faces. Face by face, as in the proof:
     Top ($z = {H}$, $\mathbf n = \mathbf k$): $\mathbf F\cdot\mathbf n = {c}\cdot{H}^2 = {cH2}$, times the area $\pi\cdot{R}^2$, gives $\approx {top:num2}$.
     Bottom ($z = 0$, $\mathbf n = -\mathbf k$): $\mathbf F\cdot\mathbf n = 0$.
     Side ($\mathbf n = \langle x, y, 0\rangle/{R}$): $\mathbf F\cdot\mathbf n = ({a}x^2 + {b}y^2)/{R}$; with $dS = {R}\,d\theta\,dz$ this integrates to $({a} + {b})\pi\cdot{R}^2\cdot{H} \approx {side:num2}$.
@@ -30,11 +30,11 @@
     p: {min: -3, max: 3}
     q: {min: -3, max: 3}
     R: {min: 1, max: 3}
-  where: ["k != 0"]
+  where: ["k != 0", "p != 0", "q != 0"]
   calc:
     k: p + q - 1
     ans: k*pi*R^2
-  prompt: 'Let $S$ be the part of the plane $z = {p}x {q:signed}y$ above the disk $x^2 + y^2 \le {R}^2$, oriented upward, and $\mathbf F = \langle y,\; z,\; x\rangle$. Find $\displaystyle\oint_C\mathbf F\cdot d\mathbf r$ around its boundary, oriented by the right-hand rule. (2 decimals.)'
+  prompt: 'Let $S$ be the part of the plane $z = {p:coef}x {q:signedcoef}y$ above the disk $x^2 + y^2 \le {R}^2$, oriented upward, and $\mathbf F = \langle y,\; z,\; x\rangle$. Find $\displaystyle\oint_C\mathbf F\cdot d\mathbf r$ around its boundary, oriented by the right-hand rule. (2 decimals.)'
   answers:
     - {name: ans, label: 'Circulation', relTolerance: 0.002}
   solution: |-
@@ -89,11 +89,11 @@
     b: {min: -3, max: 3}
     c: {min: -3, max: 3}
     R: {min: 1, max: 3}
-  where: ["L != 0"]
+  where: ["L != 0", "a != 0", "b != 0", "c != 0"]
   calc:
     L: 2*(a + b + c)
     ans: L*4*pi*R^3/3
-  prompt: 'Let $u = {a}x^2 {b:signed}y^2 {c:signed}z^2$. Find the outward flux of $\nabla u$ through the sphere $x^2 + y^2 + z^2 = {R}^2$, that is, $\displaystyle\iint_S\frac{\partial u}{\partial n}\,dS$. (2 decimals.)'
+  prompt: 'Let $u = {a:coef}x^2 {b:signedcoef}y^2 {c:signedcoef}z^2$. Find the outward flux of $\nabla u$ through the sphere $x^2 + y^2 + z^2 = {R}^2$, that is, $\displaystyle\iint_S\frac{\partial u}{\partial n}\,dS$. (2 decimals.)'
   answers:
     - {name: ans, label: 'Flux', relTolerance: 0.001}
   solution: |-
@@ -107,11 +107,11 @@
     b: {min: -3, max: 3}
     c: {min: -3, max: 3}
     R: {min: 1, max: 3}
-  where: ["G != 0"]
+  where: ["a != 0", "b != 0", "c != 0"]
   calc:
     G: a^2 + b^2 + c^2
     ans: G*4*pi*R^3/3
-  prompt: 'Let $u = {a}x {b:signed}y {c:signed}z$ and $S$ the sphere of radius {R} centered at the origin. Use Green''s first identity to evaluate $\displaystyle\iint_S u\,\frac{\partial u}{\partial n}\,dS$. (2 decimals.)'
+  prompt: 'Let $u = {a:coef}x {b:signedcoef}y {c:signedcoef}z$ and $S$ the sphere of radius {R} centered at the origin. Use Green''s first identity to evaluate $\displaystyle\iint_S u\,\frac{\partial u}{\partial n}\,dS$. (2 decimals.)'
   answers:
     - {name: ans, label: 'Value', relTolerance: 0.002}
   solution: |-

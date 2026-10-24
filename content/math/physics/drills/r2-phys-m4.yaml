@@ -1,0 +1,129 @@
+- id: phys-m4-r2-thrust
+  title: Rocket thrust and liftoff acceleration
+  topic: Rockets and variable mass
+  vars:
+    mt: {min: 20, max: 200, step: 5}
+    R: {min: 100, max: 2000, step: 50}
+    ux: {min: 2000, max: 4500, step: 100}
+  calc:
+    m: mt*1000
+    T: ux*R
+    W: m*9.8
+    acc: T/m - 9.8
+  where: ['T > 1.2*W', 'T < 4*W']
+  prompt: 'A {mt} t rocket ($1\text{ t} = 1000$ kg) burns {R} kg of propellant per second with an exhaust speed of {ux} m/s. Using $g = 9.8$ m/s² and ignoring the nozzle pressure term, find the thrust (N) and the upward acceleration at liftoff (m/s²), to 3 significant figures.'
+  answers:
+    - {format: sig4, name: T, label: 'Thrust', relTolerance: 0.01, units: {N: 1, kN: 1000, MN: 1000000}}
+    - {format: sig4, name: acc, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+  solution: |-
+    Thrust: $T = uR = ({ux})({R}) =$ **{T:sig3} N**.
+
+    Weight: $mg = ({m:dp0})(9.8) = {W:sig4}$ N.
+
+    $a = \dfrac{T - mg}{m} =$ **{acc:sig3} m/s²** upward.
+- id: phys-m4-r2-rocket-eq
+  title: The rocket equation
+  topic: Rockets and variable mass
+  vars:
+    m0: {min: 1000, max: 50000, step: 500}
+    pct: {min: 40, max: 92, step: 2}
+    ux: {min: 2000, max: 4500, step: 100}
+  calc:
+    mf: m0*(1 - pct/100)
+    ratio: m0/mf
+    dv: ux*ln(ratio)
+  prompt: 'A spacecraft far from any planet has an initial mass of {m0:dp0} kg, of which {pct}% is propellant. Its engine''s exhaust speed is {ux} m/s. After it burns all the propellant, what is its mass ratio $m_0/m_f$, and how much speed has it gained? Give both to 3 significant figures (speed in m/s).'
+  answers:
+    - {format: sig4, name: ratio, label: 'Mass ratio', relTolerance: 0.01}
+    - {format: sig4, name: dv, label: 'Speed gained', relTolerance: 0.01, units: {'m/s': 1, 'km/s': 1000}}
+  solution: |-
+    Final mass: $m_f = {m0:dp0}(1 - {pct}/100) = {mf:sig4}$ kg, so the mass ratio is $m_0/m_f =$ **{ratio:sig3}**.
+
+    Rocket equation: $\Delta v = u\ln(m_0/m_f) = {ux}\ln({ratio:num4}) =$ **{dv:sig3} m/s**.
+- id: phys-m4-r2-propellant
+  title: Propellant needed for a given delta-v
+  topic: Rockets and variable mass
+  vars:
+    dv: {min: 500, max: 9000, step: 250}
+    ux: {min: 2000, max: 4500, step: 100}
+  calc:
+    ratio: exp(dv/ux)
+    frac: 100*(1 - 1/ratio)
+  prompt: 'A rocket stage with exhaust speed {ux} m/s must change its speed by {dv} m/s in free space. What mass ratio $m_0/m_f$ does it need, and what percentage of its starting mass must be propellant? Give both to 3 significant figures.'
+  answers:
+    - {format: sig4, name: ratio, label: 'Mass ratio', relTolerance: 0.01}
+    - {format: sig4, name: frac, label: 'Propellant (%)', relTolerance: 0.01, units: {'%': 1}}
+  solution: |-
+    Solve the rocket equation for the mass ratio: $\dfrac{m_0}{m_f} = e^{\Delta v/u} = e^{{dv}/{ux}} =$ **{ratio:sig3}**.
+
+    The propellant is the mass burned: $\dfrac{m_0 - m_f}{m_0} = 1 - \dfrac{m_f}{m_0} = 1 - \dfrac{1}{{ratio:num4}} =$ **{frac:sig3}%**.
+- id: phys-m4-r2-conveyor
+  title: Sand falling onto a conveyor belt
+  topic: Rockets and variable mass
+  vars:
+    R: {min: 5, max: 80}
+    v: {min: 0.5, max: 4, step: 0.1}
+  calc:
+    F: R*v
+    P: R*v^2
+    Q: 0.5*R*v^2
+  prompt: 'Sand falls straight down onto a conveyor belt at {R} kg/s. The belt moves at a steady {v} m/s. Find the extra force the motor must supply (N), the extra power it delivers (W), and the rate at which heat is produced (W). Give 3 significant figures.'
+  answers:
+    - {format: sig4, name: F, label: 'Force', relTolerance: 0.01, units: {N: 1}}
+    - {format: sig4, name: P, label: 'Power', relTolerance: 0.01, units: {W: 1, kW: 1000}}
+    - {format: sig4, name: Q, label: 'Heat rate', relTolerance: 0.01, units: {W: 1, kW: 1000}}
+  solution: |-
+    Each second {R} kg of sand gains horizontal momentum ${R}({v})$, so $F = Rv =$ **{F:sig3} N**.
+
+    $P = Fv = Rv^2 =$ **{P:sig3} W**.
+
+    Kinetic energy given to the sand per second: $\tfrac12Rv^2 = {Q:sig4}$ W. The rest is heat: ${P:sig4} - {Q:sig4} =$ **{Q:sig3} W**, exactly half the power.
+- id: phys-m4-r2-restitution
+  title: Head-on collision with a coefficient of restitution
+  topic: Restitution and gravity assists
+  vars:
+    m1: {min: 0.5, max: 5, step: 0.5}
+    m2: {min: 0.5, max: 5, step: 0.5}
+    v1: {min: 2, max: 10, step: 0.5}
+    v2: {min: -5, max: 3, step: 0.5}
+    cr: {min: 0.1, max: 0.9, step: 0.05}
+  where: ['v1 - v2 >= 2']
+  calc:
+    M: m1 + m2
+    p: m1*v1 + m2*v2
+    v1f: (p - m2*cr*(v1 - v2))/M
+    v2f: (p + m1*cr*(v1 - v2))/M
+    mu: m1*m2/M
+    Krel: 0.5*mu*(v1 - v2)^2
+    lost: (1 - cr^2)*Krel
+  prompt: 'A {m1} kg cart moving at {v1} m/s collides head-on with a {m2} kg cart moving at {v2} m/s (negative means the opposite direction). The coefficient of restitution is {cr}. Find both final velocities in m/s to 2 decimal places (positive = the first cart''s original direction), and the kinetic energy lost in joules to 3 significant figures.'
+  answers:
+    - {format: num2, name: v1f, label: 'First cart', tolerance: 0.011, units: {'m/s': 1}}
+    - {format: num2, name: v2f, label: 'Second cart', tolerance: 0.011, units: {'m/s': 1}}
+    - {format: sig4, name: lost, label: 'KE lost', relTolerance: 0.01, units: {J: 1}}
+  solution: |-
+    Momentum: ${m1}v_{1f} + {m2}v_{2f} = {m1}({v1}) + {m2}({v2}) = {p:num4}$.
+
+    Restitution: $v_{2f} - v_{1f} = {cr}\,({v1} - ({v2}))$.
+
+    Solving together: $v_{1f} =$ **{v1f:num2} m/s** and $v_{2f} =$ **{v2f:num2} m/s**.
+
+    Energy lost: $\mu = \dfrac{({m1})({m2})}{{M}} = {mu:num4}$ kg, $K_{\text{rel}} = \tfrac12\mu(v_{1i} - v_{2i})^2 = {Krel:sig4}$ J, and $K_{\text{lost}} = (1 - {cr}^2)K_{\text{rel}} =$ **{lost:sig3} J**.
+- id: phys-m4-r2-bounce
+  title: A bouncing ball
+  topic: Restitution and gravity assists
+  vars:
+    h0: {min: 1, max: 3, step: 0.1}
+    cr: {min: 0.5, max: 0.9, step: 0.05}
+    n: {min: 2, max: 4}
+  calc:
+    hn: h0*cr^(2*n)
+    D: h0*(1 + cr^2)/(1 - cr^2)
+  prompt: 'A ball is dropped from {h0} m onto a hard floor. The coefficient of restitution is {cr}. Ignoring air resistance, how high does it rise after bounce number {n}, and what total distance does it travel before it stops? Give both in meters to 3 significant figures.'
+  answers:
+    - {format: sig4, name: hn, label: 'Height after bounce {n}', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
+    - {format: sig4, name: D, label: 'Total distance', relTolerance: 0.01, units: {m: 1}}
+  solution: |-
+    Each bounce reaches $e^2 = {cr}^2$ times the previous height, so after {n} bounces $h = {h0}({cr})^{2 \times {n}} =$ **{hn:sig3} m**.
+
+    Total distance: $D = h_0\dfrac{1 + e^2}{1 - e^2} = {h0}\cdot\dfrac{1 + {cr}^2}{1 - {cr}^2} =$ **{D:sig3} m**.
