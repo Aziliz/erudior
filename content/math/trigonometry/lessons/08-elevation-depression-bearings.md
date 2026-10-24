@@ -35,6 +35,19 @@ angle of depression from the top equals the angle of elevation from the bottom (
 alternate interior angles). That lets you move the angle into the right triangle where
 you need it.
 
+Every problem in this lesson follows the same steps:
+
+```mermaid
+flowchart TD
+  accTitle: Steps for an elevation, depression or bearing problem
+  accDescr: Sketch the situation. Draw the horizontal line, or the north line for a bearing, at the point where the angle is measured. Mark the given angle from that line. Move an angle of depression to the lower point as an equal angle of elevation if that puts it in the right triangle. Label the known side and the unknown side relative to the angle and choose the ratio that links them. Solve, then add any eye or platform height and check that the answer is reasonable.
+  A["Sketch the situation"] --> B["Draw the horizontal, or the north line for a bearing"]
+  B --> C["Mark the given angle from that line"]
+  C --> D["Depression? Move it to the lower point as elevation"]
+  D --> E["Label known and unknown sides; pick the ratio"]
+  E --> F["Solve, add eye or platform height, check"]
+```
+
 ### Example 1
 
 From a point 50 m from the base of a tree, on level ground, the angle of elevation to the

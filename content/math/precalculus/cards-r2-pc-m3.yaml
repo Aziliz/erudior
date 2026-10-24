@@ -1,0 +1,26 @@
+# Round 2 cards for module pc-m3 (honors lessons 14h1-14h3)
+- {front: 'Depressing a cubic $x^3 + bx^2 + cx + d$', back: 'Substitute $x = t - \tfrac b3$ to get $t^3 + pt + q$ with $p = c - \tfrac{b^2}{3}$, $q = \tfrac{2b^3}{27} - \tfrac{bc}{3} + d$.', topic: Cubic equations}
+- {front: 'Cardano''s key substitution', back: '$t = u + v$ with $3uv = -p$ and $u^3 + v^3 = -q$; then $u^3, v^3$ solve $z^2 + qz - \tfrac{p^3}{27} = 0$.', topic: Cubic equations}
+- {front: 'Cardano''s formula', back: '$t = \sqrt[3]{-\tfrac q2 + \sqrt D} + \sqrt[3]{-\tfrac q2 - \sqrt D}$, $D = \left(\tfrac q2\right)^2 + \left(\tfrac p3\right)^3$.', topic: Cubic equations}
+- {front: 'Sign of $D$ for $t^3 + pt + q$', back: '$D > 0$: one real root; $D = 0$: repeated root (all real); $D < 0$: three different real roots.', topic: Cubic equations}
+- {front: 'Casus irreducibilis', back: '$D < 0$: three real roots, but the formula needs non-real cube roots to reach them.', topic: Cubic equations}
+- {front: 'Bombelli''s example', back: '$x^3 = 15x + 4$: $\sqrt[3]{2 + 11i} + \sqrt[3]{2 - 11i} = (2 + i) + (2 - i) = 4$.', topic: Cubic equations}
+- {front: 'Who solved the cubic?', back: 'Del Ferro (about 1515, secret), Tartaglia (1535), published by Cardano in Ars Magna (1545).', topic: Cubic equations}
+- {front: 'Abel–Ruffini theorem', back: 'No formula in radicals solves every polynomial equation of degree 5 or more.', topic: Cubic equations}
+- {front: 'Discriminant of $t^3 + pt + q$', back: '$\Delta = -4p^3 - 27q^2 = -108D$; $\Delta > 0$ means three real roots.', topic: Cubic equations}
+- {front: 'How many polynomials of degree $\le n$ pass through $n + 1$ points?', back: 'Exactly one (if the $x$-values are different).', topic: Polynomial interpolation}
+- {front: 'Why the interpolating polynomial is unique', back: 'Two would differ by a polynomial of degree $\le n$ with $n + 1$ zeros, which must be 0.', topic: Polynomial interpolation}
+- {front: 'Lagrange basis polynomial $L_k$', back: '$\prod_{j \ne k} \dfrac{x - x_j}{x_k - x_j}$: 1 at $x_k$, 0 at every other data point.', topic: Polynomial interpolation}
+- {front: 'Lagrange form of the interpolating polynomial', back: '$p(x) = y_0L_0(x) + y_1L_1(x) + \cdots + y_nL_n(x)$', topic: Polynomial interpolation}
+- {front: 'Newton form', back: '$c_0 + c_1(x - x_0) + c_2(x - x_0)(x - x_1) + \cdots$; find $c_0, c_1, \dots$ in order; adding a point adds a term.', topic: Polynomial interpolation}
+- {front: 'Secret from shares at $x = 1, 2, 3$ (quadratic)', back: '$S = p(0) = 3y_1 - 3y_2 + y_3$', topic: Polynomial interpolation}
+- {front: 'Runge''s phenomenon', back: 'High-degree interpolation at equally spaced points swings wildly near the ends (e.g. $\tfrac{1}{1 + 25x^2}$).', topic: Polynomial interpolation}
+- {front: 'Interpolation vs regression', back: 'Interpolation passes through every point; regression fits a trend and usually predicts noisy data better.', topic: Polynomial interpolation}
+- {front: '$\dfrac{ax + b}{cx + d}$ as a transformed $\tfrac1x$', back: '$v + \dfrac{k}{x - h}$ with $h = -\tfrac dc$, $v = \tfrac ac$, $k = \dfrac{bc - ad}{c^2}$.', topic: Linear fractional functions}
+- {front: 'Center of symmetry of $\dfrac{ax + b}{cx + d}$', back: '$\left(-\tfrac dc, \tfrac ac\right)$, where the asymptotes cross; $f(h + s) + f(h - s) = 2v$.', topic: Linear fractional functions}
+- {front: 'When is $\dfrac{ax + b}{cx + d}$ constant?', back: 'When $ad - bc = 0$: it equals $\tfrac ac$, with a hole at $x = -\tfrac dc$.', topic: Linear fractional functions}
+- {front: 'Asymptotes of the inverse of $\dfrac{ax + b}{cx + d}$', back: 'They swap: $x = \tfrac ac$ and $y = -\tfrac dc$.', topic: Linear fractional functions}
+- {front: '$g(x) = \dfrac{1}{1 - x}$ composed with itself', back: '$g(g(x)) = \dfrac{x - 1}{x}$ and $g(g(g(x))) = x$: a 3-cycle.', topic: Linear fractional functions}
+- {front: 'Thin-lens equation', back: '$\dfrac{1}{d_o} + \dfrac{1}{d_i} = \dfrac1f$, so $d_i = \dfrac{f d_o}{d_o - f} = f + \dfrac{f^2}{d_o - f}$.', topic: Linear fractional functions}
+- {front: 'Asymptotes of $d_i = \dfrac{f d_o}{d_o - f}$', back: '$d_o = f$ (image at infinity) and $d_i = f$ (distant objects focus at the focal length).', topic: Linear fractional functions}
+- {front: 'Negative image distance (thin lens)', back: 'A virtual image on the object''s side, as in a magnifying glass ($d_o < f$).', topic: Linear fractional functions}

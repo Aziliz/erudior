@@ -91,6 +91,24 @@ piling up. If you did use $c$, $\sin A = 7/13.04$ gives the same angle to two de
 | two legs | angle | $\tan^{-1}(\text{opp}/\text{adj})$ |
 | leg and hypotenuse | angle | $\sin^{-1}$ or $\cos^{-1}$ |
 
+The same choices as a decision chart:
+
+```mermaid
+flowchart TD
+  accTitle: Which tool solves the right triangle
+  accDescr: If you know two sides, use the Pythagorean theorem for the third side and an inverse trig key for an angle, choosing inverse tangent for two legs and inverse sine or inverse cosine when the hypotenuse is one of them. If you know an acute angle and a side, find the other acute angle as 90 degrees minus it, then choose sine or cosine when the hypotenuse is involved and tangent when only legs are involved. If the unknown side lands in a denominator, divide.
+  A["What do you know besides the right angle?"] -->|Two sides| B["Third side: Pythagorean theorem"]
+  B --> C{"Is the hypotenuse one of the two?"}
+  C -->|No, two legs| D["Angle = inverse tan of opp/adj"]
+  C -->|Yes| E["Angle = inverse sin or inverse cos"]
+  A -->|"An acute angle and a side"| F["Other acute angle = 90° minus it"]
+  F --> G{"Hypotenuse involved?"}
+  G -->|Yes| H["Use sin or cos"]
+  G -->|"No, only legs"| I["Use tan"]
+  H --> J["Unknown in a denominator? Divide"]
+  I --> J
+```
+
 ### Example 3
 
 A 20-ft ladder is safe only if it makes an angle of at most $75^\circ$ with the ground.
