@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import DownloadPage from "./pages/DownloadPage";
 import { Mark } from "./components/Mark";
-import { appUrl } from "./lib/site";
+import { SITE_ORIGIN, appUrl } from "./lib/site";
+import { CATALOG } from "./lib/catalog";
+import { DEFAULT_TITLE, homeJsonLd, setSeo } from "./lib/seo";
 import { GENERAL_DISCLAIMER, LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 
 type Page = "home" | "download" | LegalPage;
@@ -24,8 +26,19 @@ export default function Site() {
   // Light/dark/sepia… chosen in the app carries over when the site shares its browser storage
   // (it doesn't across domains, so the site follows the system setting).
   useEffect(() => {
-    document.title =
-      page === "download" ? "Download Erudior" : page === "home" || !page ? "Erudior: free courses and homeschool records" : `Erudior ${LEGAL_TITLES[page]}`;
+    if (page === "home" || !page) setSeo({ title: DEFAULT_TITLE, url: SITE_ORIGIN + "/", jsonLd: homeJsonLd(CATALOG) });
+    else if (page === "download")
+      setSeo({
+        title: "Download Erudior for Windows, macOS and Linux",
+        description: "Download the free Erudior desktop app for Windows, macOS and Linux: every course offline, plus homeschool records, transcripts, classroom mode and live rooms.",
+        url: SITE_ORIGIN + "/download",
+      });
+    else
+      setSeo({
+        title: `${LEGAL_TITLES[page]} · Erudior`,
+        description: page === "terms" ? "Erudior's Terms of Use." : page === "privacy" ? "How Erudior handles your information: no accounts to study, no tracking, no ads." : "Open-source software used by Erudior.",
+        url: `${SITE_ORIGIN}/${page}`,
+      });
     window.scrollTo({ top: 0 });
   }, [page]);
 

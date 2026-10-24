@@ -14,6 +14,9 @@ on:
       - "package.json"
       - "package-lock.json"
       - "vite.config.ts"
+      - "public/**"
+      - "functions/**"
+      - "scripts/prerender.mjs"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -67,6 +70,15 @@ jobs:
 
       - name: Build the web app
         run: npm run build
+
+      # Rendered HTML of the public pages for search engines and link previews (served by
+      # functions/_middleware.js). A failure here only means plain pages, so it doesn't block.
+      - name: Prerender public pages
+        continue-on-error: true
+        run: |
+          npm install --no-save playwright@1.56.0
+          npx playwright install --with-deps chromium
+          node scripts/prerender.mjs
 
       - name: Deploy the web app to Pages
         run: npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main

@@ -12,7 +12,9 @@ import Runner from "./pages/Runner";
 import Results from "./pages/Results";
 import Editor from "./pages/Editor";
 import ProgressPage from "./pages/ProgressPage";
-import { LegalView, type LegalPage } from "./components/Terms";
+import { LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
+import { courseJsonLd, courseUrl, setSeo } from "./lib/seo";
+import { APP_ORIGIN, SITE_ORIGIN } from "./lib/site";
 import CourseHome, { type CourseTab } from "./pages/CourseHome";
 import LessonView from "./pages/LessonView";
 import CardsRunner from "./pages/CardsRunner";
@@ -375,19 +377,18 @@ export default function App() {
     if (!ROUTES || !ready || pendingPath.current) return;
     const key = pageKey(view);
     const path = viewToPath(view, routeCourses(), bankCourse);
-    const title = (() => {
-      const id = "courseId" in view ? view.courseId : view.name === "overview" ? view.catalogId : null;
-      const t = id ? routeCourses().find((c) => c.id === id)?.title : null;
-      return t ? `${t} · Erudior` : "Erudior";
-    })();
-    document.title = title;
-    // Search engines show a course's own description for its overview page.
-    const desc = document.querySelector('meta[name="description"]');
-    const entry = view.name === "overview" ? CATALOG.find((e) => e.id === view.catalogId) : null;
-    if (desc) {
-      desc.setAttribute("data-default", desc.getAttribute("data-default") ?? desc.getAttribute("content") ?? "");
-      desc.setAttribute("content", entry?.description || desc.getAttribute("data-default") || "");
-    }
+    const id = "courseId" in view ? view.courseId : view.name === "overview" ? view.catalogId : null;
+    const courseTitle = id ? routeCourses().find((c) => c.id === id)?.title : null;
+    const title = courseTitle ? `${courseTitle} · Erudior` : "Erudior";
+    // What search engines see: a catalog course's overview is its public page (schema.org Course);
+    // the library and community lists are indexable; personal screens are not.
+    const entry = id ? CATALOG.find((e) => e.id === id) : null;
+    if (entry) setSeo({ title, description: entry.description, url: courseUrl(entry.title), jsonLd: view.name === "overview" ? courseJsonLd(entry) : undefined });
+    else if (view.name === "library")
+      setSeo({ title: "Free courses · Erudior", description: `Free courses: ${CATALOG.map((e) => e.title).join(", ")}.`, url: APP_ORIGIN + "/" });
+    else if (view.name === "community") setSeo({ title: "Community courses · Erudior", description: "Free courses written by people who use Erudior.", url: APP_ORIGIN + "/community" });
+    else if (view.name === "legal") setSeo({ title: `${LEGAL_TITLES[view.page]} · Erudior`, url: `${SITE_ORIGIN}/${view.page}` });
+    else setSeo({ title, noindex: true });
     if (fromPop.current) {
       fromPop.current = false;
       lastPage.current = key;

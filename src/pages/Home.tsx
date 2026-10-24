@@ -1,5 +1,6 @@
 import { CATALOG } from "../lib/catalog";
 import { appUrl } from "../lib/site";
+import { slugify } from "../lib/util";
 
 interface Feature {
   id: string;
@@ -119,6 +120,26 @@ export default function Home() {
           </div>
         </section>
       ))}
+
+      <section className="home-courses" id="courses" aria-labelledby="h-courses">
+        <h2 id="h-courses">The courses</h2>
+        <p className="muted">Every course is free, with lessons, practice questions, notecards and practice problems. Open any of them in your browser.</p>
+        <div className="home-course-groups">
+          {subjects.map((s) => (
+            <div key={s} className="home-course-group">
+              <h3>{s}</h3>
+              <ul>
+                {CATALOG.filter((e) => e.subject === s).map((e) => (
+                  <li key={e.id}>
+                    <a href={appUrl("/" + slugify(e.title))}>{e.title}</a>
+                    <span className="faint small"> · {e.level.join(", ")}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="home-privacy">
         <h2>Your family's data stays home</h2>
