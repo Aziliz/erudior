@@ -52,7 +52,7 @@ flowchart TD
 Elif Kaya applied for a residents' parking permit (*Bewohnerparkausweis*). The car belongs to her sister, so it isn't registered in her name, and the office rejected the application because a confirmation from the registered keeper (*die Halterin*) was missing. The letter is dated Monday, 3 May 2027.
 
 1. Deadline: a month after notification. Posted on 3 May, the letter counts as delivered on Friday, 7 May, so the month ends on Monday, 7 June. To be safe, Elif plans to send her objection by the end of May.
-2. What she can do: the missing document is the whole problem, so she could simply apply again with it. But a *Widerspruch* with the document attached keeps her original application date, so she chooses that.
+2. What she can do: the missing document is the whole problem, so she could simply apply again with it. She can also lodge a *Widerspruch* and attach the document, which asks the office to look at the same case again. She chooses that.
 3. Her letter, formal, with the file number in the subject line:
 
 > Betreff: Widerspruch gegen Ihren Bescheid vom 03.05.2027, Az. BP-2027-0418
@@ -118,11 +118,11 @@ Offices rarely say who acts. Lesson 18's *sein* + *zu* is their favourite way to
 
 ### Example 2: Translating a sentence into plain German
 
-*„Bei nicht fristgerechter Vorlage der Nachweise wird Ihr Antrag gem. § 60 SGB I ggf. abgelehnt."*
+*„Bei nicht fristgerechter Vorlage der Nachweise wird Ihr Antrag gem. § 66 SGB I ggf. abgelehnt."*
 
 1. *Bei … Vorlage der Nachweise*: *bei* + noun = *wenn*; *die Vorlage* comes from *vorlegen* (to present). → *Wenn Sie die Nachweise … vorlegen*.
 2. *nicht fristgerecht* = not in time (*die Frist* + *gerecht*, "fitting"). → *Wenn Sie die Nachweise nicht rechtzeitig vorlegen*.
-3. *gem. § 60 SGB I*: the legal basis, a section of the social security code. You can skip it to understand the sentence.
+3. *gem. § 66 SGB I*: the legal basis, a section of the social security code. You can skip it to understand the sentence.
 4. *ggf.* = *gegebenenfalls*, "possibly, where applicable".
 5. Plain German: *Wenn Sie die Nachweise nicht rechtzeitig schicken, kann es sein, dass wir Ihren Antrag ablehnen.* — If you don't send the documents in time, we may reject your application.
 
@@ -181,7 +181,7 @@ Notes: *anbei* = enclosed; *OG* = *Obergeschoss* (upper floor); *betragen* = to 
 2. Is the new advance payment fair? 2.687,40 € ÷ 12 ≈ 223,95 € a month, so 225,00 € roughly matches last year's real costs.
 3. Another tenant paid 12 × 160,00 € = 1.920,00 € and her share was 1.812,60 €. Costs are lower, so she has a *Guthaben* of 1.920,00 € − 1.812,60 € = 107,40 €.
 
-Remember the German number format from lesson 29's letters: a comma for decimals and a point for thousands (*2.687,40 €*).
+Remember the German number format: a comma for decimals and a point for thousands (*2.687,40 €*).
 
 ## Common mistakes
 
