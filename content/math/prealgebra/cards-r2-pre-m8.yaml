@@ -1,0 +1,32 @@
+# Round 2, module pre-m8: cards for the honors lessons.
+# --- Scaling ---
+- {front: 'Scale every length by $k$: what happens to perimeter, area and volume?', back: 'Perimeter $\times k$, area (and surface area) $\times k^2$, volume $\times k^3$. Angles don''t change.', topic: Scaling}
+- {front: 'Lengths doubled: area and volume?', back: 'Area $\times 4$, volume (and weight of the same material) $\times 8$.', topic: Scaling}
+- {front: 'Finding $k$ from an area ratio', back: '$k = \sqrt{\text{area ratio}}$', topic: Scaling}
+- {front: 'Finding $k$ from a volume ratio', back: '$k = \sqrt[3]{\text{volume ratio}}$', topic: Scaling}
+- {front: 'Square–cube law', back: 'Scaling up by $k$ multiplies surface area by $k^2$ but volume by $k^3$: volume grows faster.', topic: Scaling}
+- {front: 'Surface-area-to-volume ratio of a cube with edge $s$', back: '$\dfrac{6s^2}{s^3} = \dfrac{6}{s}$; scaling up by $k$ divides it by $k$.', topic: Scaling}
+- {front: 'Why does crushed ice melt faster than a block?', back: 'Same volume, much more surface area (larger $\tfrac{SA}{V}$), and melting happens at the surface.', topic: Scaling}
+- {front: 'Why do large animals have thick bones? (simplified)', back: 'Scaled by $k$, weight grows like $k^3$ but bone cross-section only like $k^2$, so each unit of bone carries $k$ times the load.', topic: Scaling}
+- {front: '1 m³ in cm³', back: '$100^3 = 1{,}000{,}000$ cm³ (and 1 m² = 10,000 cm²)', topic: Scaling}
+# --- Cones, pyramids and spheres ---
+- {front: 'Volume of a pyramid', back: '$V = \tfrac13 Bh$ ($B$ = base area, $h$ = perpendicular height)', topic: 'Cones, pyramids and spheres'}
+- {front: 'Volume of a cone', back: '$V = \tfrac13 \pi r^2 h$', topic: 'Cones, pyramids and spheres'}
+- {front: 'Why one third?', back: 'A cube splits into 3 identical pyramids, each with a face as its base; Cavalieri''s principle extends this to all pyramids and cones.', topic: 'Cones, pyramids and spheres'}
+- {front: 'Slant height of a cone', back: '$\ell^2 = r^2 + h^2$ (Pythagorean theorem)', topic: 'Cones, pyramids and spheres'}
+- {front: 'Slant height of a square pyramid (base side $s$)', back: '$\ell^2 = h^2 + \left(\tfrac{s}{2}\right)^2$', topic: 'Cones, pyramids and spheres'}
+- {front: 'Surface area of a square pyramid', back: '$SA = s^2 + 2s\ell$', topic: 'Cones, pyramids and spheres'}
+- {front: 'Surface area of a cone', back: '$SA = \pi r^2 + \pi r \ell$ (base + lateral surface)', topic: 'Cones, pyramids and spheres'}
+- {front: 'Volume and surface area of a sphere', back: '$V = \tfrac43 \pi r^3$, $SA = 4\pi r^2$', topic: 'Cones, pyramids and spheres'}
+- {front: 'Height or slant height?', back: 'Volume uses the perpendicular height $h$; surface area uses the slant height $\ell$.', topic: 'Cones, pyramids and spheres'}
+- {front: 'Archimedes'' sphere and cylinder', back: 'A sphere fills $\tfrac23$ of the cylinder around it; cone : sphere : cylinder $= 1 : 2 : 3$ (same $r$, height $2r$).', topic: 'Cones, pyramids and spheres'}
+# --- Measurement error ---
+- {front: 'Precision of a measurement', back: 'The unit it was rounded to (nearest cm, nearest 0.1 g, …).', topic: Measurement error}
+- {front: 'Greatest possible error', back: 'Half the precision: 7 cm to the nearest cm → 0.5 cm.', topic: Measurement error}
+- {front: 'Bounds of 7 cm, to the nearest cm', back: '$6.5 \le L < 7.5$ cm', topic: Measurement error}
+- {front: 'Precision vs accuracy', back: 'Precision: how finely it''s measured. Accuracy: how close to the true value.', topic: Measurement error}
+- {front: 'Relative error', back: '$\dfrac{\text{greatest possible error}}{\text{measurement}}$, often as a percent', topic: Measurement error}
+- {front: 'Percent error', back: '$\dfrac{|\text{measured} - \text{true}|}{\text{true}} \times 100\%$', topic: Measurement error}
+- {front: 'Bounds on an area from measured sides', back: 'Smallest: multiply the lower bounds. Largest: multiply the upper bounds.', topic: Measurement error}
+- {front: '12.00 s vs 12 s', back: 'Trailing zeros show precision: 12.00 s is to the nearest 0.01 s (error 0.005 s); 12 s to the nearest second (error 0.5 s).', topic: Measurement error}
+- {front: 'How should a calculated answer be rounded?', back: 'So it claims no more precision than the measurements; check with the bounds (rule of thumb: significant figures of the least precise input).', topic: Measurement error}

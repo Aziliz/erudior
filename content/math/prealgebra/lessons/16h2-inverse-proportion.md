@@ -76,7 +76,7 @@ Gears work the same way. When two gears mesh, their teeth pass the contact point
 
 ## Recognizing the relationship from a table
 
-Data often arrives as a table, not a sentence. To test it, compute the ratio $\tfrac yx$ and the product $xy$ for every row:
+Data often arrives as a table, not a sentence. To test it, compute the ratio $\tfrac yx$ and the product $xy$ for every pair of values:
 
 | $x$ | 2 | 3 | 4 | 6 |
 |---|---|---|---|---|
@@ -119,7 +119,7 @@ Four machines fill 3,000 bottles in 6 hours. How long would 5 machines take to f
 
 The fixed quantity is bottles per machine-hour: $3{,}000 \div (4 \times 6) = 125$. Five machines fill $5 \times 125 = 625$ bottles per hour, so 4,500 bottles take $4{,}500 \div 625 = 7.2$ hours.
 
-Check the directions: 50% more bottles pushes the time up (to 9 hours with 4 machines); one more machine pulls it back down ($9 \times \tfrac45 = 7.2$). ✓
+Check the directions: 1.5 times as many bottles pushes the time up (to 9 hours with 4 machines); one more machine pulls it back down ($9 \times \tfrac45 = 7.2$). ✓
 
 ## Common mistakes
 

@@ -1,0 +1,21 @@
+# Functions in depth (pc-m1), round 2 cards (honors lessons)
+- {front: Concave up, back: 'The graph bends like a cup: secant slopes increase from left to right (example $y = x^2$).', topic: Concavity}
+- {front: Concave down, back: 'The graph bends like a cap: secant slopes decrease from left to right (example $y = \sqrt{x}$).', topic: Concavity}
+- {front: '"Rising, but more slowly"', back: Increasing and concave down, topic: Concavity}
+- {front: '"Falling, but the losses shrink"', back: 'Decreasing and concave up (negative rates moving toward 0)', topic: Concavity}
+- {front: 'Average rate of $ax^2 + bx + c$ on $[p, q]$', back: '$a(p + q) + b = 2am + b$, where $m$ is the midpoint; it depends only on the midpoint.', topic: Average rate of change}
+- {front: Concavity of a parabola, back: 'Concave up everywhere if $a > 0$, concave down everywhere if $a < 0$.', topic: Concavity}
+- {front: Symmetric difference quotient, back: '$\dfrac{f(x + h) - f(x - h)}{2h}$: estimates the rate at $x$; exact for quadratics; for $x^3$ it equals $3x^2 + h^2$.', topic: Concavity}
+- {front: Inflection point, back: 'A point where the function is continuous and the concavity changes.', topic: Concavity}
+- {front: Inflection point of a cubic, back: '$x = -\dfrac{b}{3a}$ for $ax^3 + bx^2 + cx + d$; the cubic is symmetric about this point.', topic: Concavity}
+- {front: Rate of change of the height of a thrown ball, back: 'Drops by about 9.8 m/s every second (acceleration due to gravity, near Earth''s surface).', topic: Concavity}
+- {front: Breakpoints of a sum of absolute values, back: 'The inputs where each inside is 0; between them every absolute value is a fixed linear formula.', topic: Piecewise models}
+- {front: Solving an equation piece by piece, back: 'Keep a solution only if it lies in the interval of the piece that produced it.', topic: Piecewise models}
+- {front: 'Minimum of $\lvert x - a_1 \rvert + \cdots + \lvert x - a_n \rvert$', back: 'At the median of the $a_i$ (any point between the two middle values if $n$ is even).', topic: Piecewise models}
+- {front: 'Slope of $\lvert x - a_1 \rvert + \cdots + \lvert x - a_n \rvert$', back: '(number of points left of x) minus (number of points right of x)', topic: Piecewise models}
+- {front: Marginal rate, back: 'The rate on the next dollar; the slope of the tax function.', topic: Piecewise models}
+- {front: Effective rate, back: 'Total tax divided by income, $T(x)/x$.', topic: Piecewise models}
+- {front: 'Does a raise into a higher bracket lower after-tax income?', back: 'Not under marginal brackets: the higher rate applies only to income above the threshold. Only a true jump (a "cliff") can do that.', topic: Piecewise models}
+- {front: Ceiling function, back: '$\lceil x \rceil$: the smallest integer $\ge x$; $\lceil x \rceil = -\lfloor -x \rfloor$.', topic: Piecewise models}
+- {front: Solving $\lfloor A \rfloor = n$, back: '$n \le A < n + 1$; the solutions usually form an interval.', topic: Piecewise models}
+- {front: Containers needed for n items at k per container, back: '$\lceil n/k \rceil$ (not $\lfloor n/k \rfloor + 1$, which is wrong when $k$ divides $n$)', topic: Piecewise models}

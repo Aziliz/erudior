@@ -147,7 +147,7 @@
     tw: w6 + 2 * w45
     ev: (w6 + 2 * w45) / 6
     net: (w6 + 2 * w45) / 6 - c
-  where: ['mod(w6 + 2 * w45, 6) == 0', 'w6 > w45']
+  where: ['mod(w6 + 2 * w45, 6) == 0', 'w6 > w45', '6 * c >= w6 + 2 * w45']
   prompt: 'A game costs {c:money0} to play. You roll a fair die: a 6 pays {w6:money0}, a 4 or a 5 pays {w45:money0}, and anything else pays nothing. Find the expected prize and the expected net gain per play (negative for a loss).'
   answers:
     - {name: ev, label: 'Expected prize (dollars)', format: money}

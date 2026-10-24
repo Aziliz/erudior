@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" width="660" height="380" font-family="sans-serif" fill="#1c2833">
+<rect width="660" height="380" fill="#ffffff"/>
+<text x="330" y="28" font-size="17" text-anchor="middle" font-weight="bold">Given B: keep only B, then rescale</text>
+<rect x="30" y="60" width="260" height="240" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<rect x="150" y="80" width="120" height="200" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<rect x="55" y="125" width="145" height="110" fill="#dde8f3" fill-opacity="0.8" stroke="#1c2833" stroke-width="2"/>
+<rect x="150" y="125" width="50" height="110" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="44" y="84" font-size="17" text-anchor="start" font-style="italic" font-weight="bold">S</text>
+<text x="95" y="185" font-size="18" text-anchor="middle" font-style="italic" font-weight="bold">A</text>
+<text x="240" y="105" font-size="18" text-anchor="middle" font-style="italic" font-weight="bold">B</text>
+<text x="175" y="160" font-size="14" text-anchor="middle">A∩B</text>
+<text x="160" y="330" font-size="15" text-anchor="middle">before: whole sample space S</text>
+<line x1="300" y1="180" x2="362" y2="180" stroke="#1c2833" stroke-width="2.5"/>
+<polygon points="374,180 360,172 360,188" fill="#1c2833"/>
+<text x="335" y="165" font-size="14" text-anchor="middle">given B</text>
+<rect x="390" y="60" width="240" height="240" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<rect x="390" y="114" width="100" height="132" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<text x="440" y="185" font-size="16" text-anchor="middle">A∩B</text>
+<text x="600" y="88" font-size="18" text-anchor="middle" font-style="italic" font-weight="bold">B</text>
+<text x="510" y="330" font-size="15" text-anchor="middle">after: B is the new sample space</text>
+<text x="330" y="365" font-size="15" text-anchor="middle">P(A | B) = P(A ∩ B) ÷ P(B), the share of B that lies in A</text>
+</svg>

@@ -19,6 +19,10 @@ $$m_{\text{sec}} = \frac{f(a + h) - f(a)}{h},$$
 
 the difference quotient from Lesson 3. As $h \to 0$, $Q$ slides along the curve toward $P$, and the secant lines pivot toward a limiting position: the tangent line at $P$.
 
+![A rising curve with two points: P at x = a and Q at x = a + h. A dashed red secant line passes through P and Q. A green tangent line touches the curve at P. A shaded right triangle under the secant has a horizontal side labeled run h and a vertical side labeled rise f(a + h) − f(a).](images/pc-m10-secant-tangent.svg)
+
+The secant's slope is the triangle's rise over its run. As $h$ shrinks, the triangle shrinks toward $P$ and the dashed secant swings down onto the green tangent.
+
 ```plot
 {"x": [-0.5, 4.5], "y": [-2, 14], "functions": [{"f": "x^2"}, {"f": "5x - 6", "dashed": true}, {"f": "4x - 4"}], "points": [{"at": [2, 4], "label": "P (2, 4)"}, {"at": [3, 9], "label": "Q"}], "caption": "y = x² with the secant through P and Q (dashed, h = 1) and the tangent at P. As Q slides toward P, the secant slopes 5, 4.5, 4.1, … approach the tangent slope 4."}
 ```
@@ -65,6 +69,18 @@ $$f'(x) = \lim_{h\to 0}\frac{f(x + h) - f(x)}{h}.$$
 
 Its output at each $x$ is the slope of $f$ there.
 
+Every derivative in this lesson follows the same four algebra steps, and a tangent line takes one more:
+
+```mermaid
+flowchart TD
+  accTitle: Finding a derivative from the definition
+  accDescr: Step 1, write f(a + h). Step 2, subtract f(a) and simplify; the terms without h cancel. Step 3, divide by h, cancelling the common factor h. Step 4, let h approach 0 to get f prime of a. Step 5, if a tangent line is wanted, write y = f(a) + f prime of a times (x − a).
+  A["1. Write f(a + h)"] --> B["2. Subtract f(a) and simplify"]
+  B --> C["3. Divide by h (cancel the common factor h)"]
+  C --> D["4. Let h approach 0: this is f′(a)"]
+  D --> E["5. Tangent line: y = f(a) + f′(a)(x − a)"]
+```
+
 ### Example 4
 
 Find $f'(x)$ for $f(x) = x^2 - 4x$, and where the tangent is horizontal.
@@ -92,6 +108,12 @@ At $x = 2$: the point is $\left(2, \frac12\right)$ and the slope is $-\frac14$, 
 | zero at a point | horizontal tangent there (possible max or min) |
 
 So the "increasing and decreasing" of Module 1 becomes a computation. A derivative may fail to exist where the graph has a corner (like $|x|$ at 0), a jump, or a vertical tangent. Calculus develops shortcut rules (the power rule turns out to give $\frac{d}{dx}x^n = nx^{n-1}$, consistent with $2x$ for $x^2$ and $-\frac{1}{x^2}$ for $x^{-1}$), but every one of them comes from this limit.
+
+Here is the corner case. Secants through $(0, 0)$ from the right all have slope 1, and from the left all have slope $-1$, so the difference quotient has no single limit.
+
+```plot
+{"x": [-3, 3], "y": [-1, 3], "functions": [{"f": "abs(x)", "label": "y = |x|"}], "points": [{"at": [0, 0], "label": "corner: slope −1 on the left, 1 on the right"}], "caption": "y = |x| is continuous at 0 but has no tangent slope there: the secant slopes are −1 from the left and 1 from the right."}
+```
 
 ## Common mistakes
 

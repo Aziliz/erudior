@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 300" width="780" height="300" font-family="sans-serif" fill="#1c2833">
+<rect width="780" height="300" fill="#ffffff"/>
+<line x1="20.0" y1="230.0" x2="760.0" y2="230.0" stroke="#1c2833" stroke-width="2.5" />
+<rect x="47.0" y="110" width="26" height="120" fill="#f7ebcf" stroke="#1c2833" stroke-width="2" transform="rotate(28 73.0 230)"/>
+<text x="60.0" y="254.0" font-size="17" text-anchor="middle" >1</text>
+<rect x="137.0" y="110" width="26" height="120" fill="#dde8f3" stroke="#1c2833" stroke-width="2" transform="rotate(0 163.0 230)"/>
+<text x="150.0" y="254.0" font-size="17" text-anchor="middle" >2</text>
+<rect x="227.0" y="110" width="26" height="120" fill="#dde8f3" stroke="#1c2833" stroke-width="2" transform="rotate(0 253.0 230)"/>
+<text x="240.0" y="254.0" font-size="17" text-anchor="middle" >3</text>
+<text x="325.0" y="180.0" font-size="24" text-anchor="middle" >. . .</text>
+<rect x="437.0" y="110" width="26" height="120" fill="#dcf0e3" stroke="#1c2833" stroke-width="2" transform="rotate(0 463.0 230)"/>
+<text x="450.0" y="254.0" font-size="17" text-anchor="middle" >k</text>
+<rect x="547.0" y="110" width="26" height="120" fill="#dde8f3" stroke="#1c2833" stroke-width="2" transform="rotate(0 573.0 230)"/>
+<text x="560.0" y="254.0" font-size="17" text-anchor="middle" >k + 1</text>
+<text x="665.0" y="180.0" font-size="24" text-anchor="middle" >. . .</text>
+<path d="M 465 102 Q 505 60 545 102" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<polygon points="546.0,104.0 536.7,100.2 542.2,94.7" fill="#1c2833"/>
+</svg>

@@ -177,27 +177,9 @@
     (b) Divide by $1.989\times10^{30}$ kg: $\mathbf{{msun:texsci}}$ solar masses.
 
 # Lesson 93: climate physics
-- id: phys-h1-r2-planet-temp
-  title: A planet's effective temperature
-  topic: Planetary energy balance
-  vars:
-    dau: {min: 0.30, max: 6.00, step: 0.01}
-    alb: {min: 0.05, max: 0.80, step: 0.01}
-  calc:
-    sflux: 1361/dau^2
-    temp: (sflux*(1 - alb)/(4*5.67e-8))^0.25
-  prompt: 'A planet orbits {dau:num2} AU from the Sun and has an albedo of {alb:num2}. The solar constant at 1 AU is 1361 W/m². Find (a) the intensity of sunlight at the planet (W/m²) and (b) its effective temperature (K), using $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴). Give each to 3 significant figures.'
-  answers:
-    - {name: sflux, label: '(a) $S =$', format: sig3, relTolerance: 0.01, units: {'W/m²': 1, 'W/m^2': 1}}
-    - {name: temp, label: '(b) $T_e =$', format: sig3, relTolerance: 0.01, units: {K: 1}}
-  solution: |-
-    (a) Inverse-square law: $S = \dfrac{1361}{({dau:num2})^2} =$ **{sflux:sig3} W/m²**.
-
-    (b) $T_e = \left(\dfrac{S(1 - \alpha)}{4\sigma}\right)^{1/4} = \left(\dfrac{{sflux:sig4}(1 - {alb:num2})}{4(5.67\times10^{-8})}\right)^{1/4} =$ **{temp:sig3} K**.
-
 - id: phys-h1-r2-layer-model
   title: The one-layer greenhouse model
-  topic: Greenhouse effect and climate change
+  topic: Greenhouse models
   vars:
     teff: {min: 200, max: 300}
     eps: {min: 0.10, max: 1.00, step: 0.01}
@@ -215,7 +197,7 @@
 
 - id: phys-h1-r2-co2-forcing
   title: CO₂ forcing and warming
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
   vars:
     ppm: {min: 300, max: 1120, step: 10}
     sens: {choices: [2.5, 3.0, 3.5, 4.0]}
@@ -234,3 +216,23 @@
     (b) $\Delta T_0 = \dfrac{{dF:sig4}}{3.74} =$ **{dT0:sig3} K**.
 
     (c) The number of doublings is $\dfrac{\ln({ppm:dp0}/280)}{\ln 2}$, so $\Delta T = {sens:num1} \times \dfrac{\ln({ppm:dp0}/280)}{\ln 2} =$ **{dTeq:sig3} K**.
+
+- id: phys-h1-r2-feedback
+  title: Feedbacks and climate sensitivity
+  topic: Climate forcing and feedbacks
+  vars:
+    dt0: {min: 0.8, max: 1.5, step: 0.1}
+    fb: {min: 0.20, max: 0.75, step: 0.05}
+    sens: {min: 2.0, max: 5.0, step: 0.5}
+  calc:
+    dT: dt0/(1 - fb)
+    fneed: 1 - dt0/sens
+  where: ['sens > dt0 + 0.3']
+  prompt: 'Without feedbacks, doubling CO₂ would warm a model climate by $\Delta T_0 = {dt0:num1}$ K. (a) If the net feedback factor is $f = {fb:num2}$, what is the eventual warming? (b) What feedback factor would make the eventual warming {sens:num1} K? Use $\Delta T = \Delta T_0/(1 - f)$ and give each to 3 significant figures.'
+  answers:
+    - {name: dT, label: '(a) $\Delta T =$', format: sig3, relTolerance: 0.01, units: {K: 1}}
+    - {name: fneed, label: '(b) $f =$', format: sig3, relTolerance: 0.01}
+  solution: |-
+    (a) $\Delta T = \dfrac{{dt0:num1}}{1 - {fb:num2}} =$ **{dT:sig3} K**.
+
+    (b) $1 - f = \dfrac{\Delta T_0}{\Delta T} = \dfrac{{dt0:num1}}{{sens:num1}}$, so $f = 1 - \dfrac{{dt0:num1}}{{sens:num1}} =$ **{fneed:sig3}**.

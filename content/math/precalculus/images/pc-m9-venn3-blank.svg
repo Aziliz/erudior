@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" width="640" height="470" font-family="sans-serif" fill="#1c2833">
+<rect width="640" height="470" fill="#ffffff"/>
+<rect x="20" y="20" width="600" height="430" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<text x="36.0" y="46.0" font-size="16" text-anchor="start" >Integers 1 to 1000</text>
+<circle cx="250" cy="185" r="125" fill="#f8e1dc" fill-opacity="0.6" stroke="#1c2833" stroke-width="2"/>
+<circle cx="390" cy="185" r="125" fill="#dde8f3" fill-opacity="0.6" stroke="#1c2833" stroke-width="2"/>
+<circle cx="320" cy="305" r="125" fill="#dcf0e3" fill-opacity="0.6" stroke="#1c2833" stroke-width="2"/>
+<text x="170.0" y="72.0" font-size="16" text-anchor="middle" >Divisible by 2</text>
+<text x="470.0" y="72.0" font-size="16" text-anchor="middle" >Divisible by 3</text>
+<text x="320.0" y="442.0" font-size="16" text-anchor="middle" >Divisible by 5</text>
+</svg>

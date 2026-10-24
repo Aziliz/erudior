@@ -126,18 +126,18 @@
   explanation: 'udd has charge $\tfrac23 - \tfrac13 - \tfrac13 = 0$ and three quarks, so it is a neutral baryon: the neutron. uud is the proton (+1), uuu has charge +2, and u$\bar{\text{d}}$ is a meson (the $\pi^+$), not a baryon.'
 - id: phys-h1-r2-h16
   lesson: phys-h1-particles
-  topic: Particle physics
-  stem: 'An electron and a positron, both nearly at rest, annihilate. What comes out?'
-  choices: ['One photon of 1.022 MeV', 'Two photons of 1.022 MeV each', 'Two photons of 0.511 MeV each, moving in opposite directions', 'Two photons of 0.256 MeV each, moving in the same direction']
+  topic: Conservation laws in particle reactions
+  stem: 'Two protons collide. Which reaction could produce an antiproton?'
+  choices: ['$p + p \to p + \bar p$', '$p + p \to p + p + \bar p$', '$p + p \to p + p + p + \bar p$', '$p + p \to n + n + \bar p$']
   answer: 2
-  explanation: 'The total momentum is zero, so a single photon (which always carries momentum) is impossible; two photons go off back to back with equal energies, sharing the 1.022 MeV of rest energy: 0.511 MeV each. Two 1.022 MeV photons would double the energy, and 0.256 MeV each would lose half.'
+  explanation: 'The charge before is $+2$ and the baryon number is 2. $p + p + p + \bar p$ has charge $1 + 1 + 1 - 1 = 2$ and baryon number $1 + 1 + 1 - 1 = 2$. $p + \bar p$ has charge 0, $p + p + \bar p$ has charge $+1$ and baryon number 1, and $n + n + \bar p$ has charge $-1$.'
 - id: phys-h1-r2-h17
   lesson: phys-h1-particles
   topic: Particle physics
-  stem: 'What is the minimum photon energy needed to create an electron–positron pair?'
-  choices: ['0.511 MeV', '2.044 MeV', '0.256 MeV', '1.022 MeV']
+  stem: 'Two protons collide head-on with equal speeds and make a proton–antiproton pair ($p + p \to p + p + p + \bar p$). What is the least kinetic energy each incoming proton needs? ($m_pc^2 = 938$ MeV)'
+  choices: ['469 MeV', '1876 MeV', '5.6 GeV', '938 MeV']
   answer: 3
-  explanation: 'The photon must supply both rest energies: $2m_ec^2 = 2(0.511) = 1.022$ MeV (and it needs a nearby nucleus to take up momentum). 0.511 MeV makes only one particle''s mass.'
+  explanation: 'Head-on with equal speeds, the total momentum is zero, so all the kinetic energy can become rest energy. The new pair needs $2m_pc^2 = 1876$ MeV, shared between the two protons: 938 MeV each. 1876 MeV is the total, 469 MeV splits it four ways, and 5.6 GeV is what a single proton needs when it hits a proton at rest.'
 - id: phys-h1-r2-h18
   lesson: phys-h1-particles
   module_quiz: true
@@ -350,65 +350,65 @@
 - id: phys-h1-r2-h43
   lesson: phys-h1-climate
   module_quiz: true
-  topic: Planetary energy balance
-  stem: 'The solar constant at Earth (1.00 AU) is 1361 W/m². What is the intensity of sunlight at a planet 2.00 AU from the Sun?'
-  choices: ['680 W/m²', '1361 W/m²', '340 W/m²', '5444 W/m²']
+  topic: Greenhouse models
+  stem: 'Added greenhouse gas raises Earth''s average emission height by 0.30 km. If the lapse rate stays 6.5 K/km, about how much does the surface eventually warm (before feedbacks)?'
+  choices: ['0.046 K', '22 K', '2.0 K', '1950 K']
   answer: 2
-  explanation: 'Intensity falls as $1/d^2$: $1361/2.00^2 = 340$ W/m². Halving (680) treats it as $1/d$; 5444 multiplies by 4 instead of dividing.'
+  explanation: 'The new emission level must warm back to $T_e$, and the surface lies a fixed lapse rate below it, so $\Delta T_s = (6.5\text{ K/km})(0.30\text{ km}) = 2.0$ K. 0.046 and 22 divide instead of multiplying, and 1950 uses 300 m with K per km.'
 - id: phys-h1-r2-h44
   lesson: phys-h1-climate
-  topic: Planetary energy balance
-  stem: 'In $T_e = \left[S(1 - \alpha)/(4\sigma)\right]^{1/4}$, where does the factor 4 come from?'
-  choices: ['From the $T^4$ in the Stefan–Boltzmann law', 'From the four seasons', 'From the planet''s emissivity of $\tfrac14$', 'Sunlight is caught by the cross-section $\pi R^2$ but radiated from the whole surface $4\pi R^2$']
+  topic: Climate forcing and feedbacks
+  stem: 'Without feedbacks, a forcing would warm the climate by $\Delta T_0 = 1.2$ K. If the net feedback factor is $f = 0.50$, what is the eventual warming?'
+  choices: ['1.8 K', '0.60 K', '0.80 K', '2.4 K']
   answer: 3
-  explanation: 'Absorbed power $S(1 - \alpha)\pi R^2$ equals emitted power $4\pi R^2\sigma T^4$, and the ratio of the areas is 4. The $T^4$ is why there is a fourth root, not why there is a 4 in the denominator; the emissivity in the infrared is close to 1.'
+  explanation: 'Each round of feedback triggers another, so $\Delta T = \Delta T_0/(1 - f) = 1.2/0.50 = 2.4$ K. 1.8 K counts only the first round, $1.2(1 + 0.5)$; 0.60 K is $f\Delta T_0$ alone; 0.80 K divides by $1 + f$.'
 - id: phys-h1-r2-h45
   lesson: phys-h1-climate
-  topic: Planetary energy balance
-  stem: 'With $S = 1361$ W/m², albedo 0.30 and $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴), what is Earth''s effective temperature?'
-  choices: ['255 K', '360 K', '278 K', '206 K']
+  topic: Greenhouse models
+  stem: 'In the one-layer model, $T_s = T_e\left(\dfrac{2}{2 - \varepsilon}\right)^{1/4}$. If $T_e = 255$ K and the layer absorbs half the surface''s infrared ($\varepsilon = 0.50$), what is the surface temperature?'
+  choices: ['274 K', '340 K', '237 K', '303 K']
   answer: 0
-  explanation: '$T_e = [1361(0.70)/(4 \times 5.67\times10^{-8})]^{1/4} = 255$ K. Leaving out the 4 gives 360 K, ignoring the albedo gives 278 K, and using 0.30 instead of $1 - 0.30$ gives 206 K.'
+  explanation: '$T_s = 255(2/1.5)^{1/4} = 255(1.075) = 274$ K. 340 K forgets the fourth root, 237 K turns the fraction upside down, and 303 K is the answer for $\varepsilon = 1$.'
 - id: phys-h1-r2-h46
   lesson: phys-h1-climate
   module_quiz: true
-  topic: Greenhouse effect and climate change
+  topic: Greenhouse models
   stem: 'How do greenhouse gases such as CO₂ warm Earth''s surface?'
   choices: ['They absorb most of the incoming sunlight before it reaches the ground', 'They let most sunlight through but absorb infrared from the surface and emit part of it back down', 'They reflect sunlight back to space', 'They stop warm air from rising by convection']
   answer: 1
   explanation: 'Sunlight (peaking near 500 nm) passes through; the surface''s infrared (near 10 μm) is absorbed, and the gas radiates some of it back down, so the surface must warm to stay in balance. Reflecting sunlight would cool the planet.'
 - id: phys-h1-r2-h47
   lesson: phys-h1-climate
-  topic: Planetary energy balance
-  stem: 'Earth''s surface is at about 288 K. Where is the peak of its thermal radiation? ($\lambda_{\max}T = 2.898\times10^{-3}$ m·K)'
-  choices: ['About 500 nm, visible light', 'About 1 mm, microwaves', 'About 10 μm, infrared', 'About 100 nm, ultraviolet']
+  topic: Greenhouse models
+  stem: 'Near the center of CO₂''s main infrared band, the air already absorbs nearly all the surface''s radiation. Why does adding more CO₂ still warm the surface?'
+  choices: ['Extra CO₂ absorbs more sunlight', 'Extra CO₂ makes clouds reflect less sunlight', 'Radiation escapes to space from higher, colder air, so the planet radiates less until it warms', 'It doesn''t; once a band is saturated, more CO₂ has no effect']
   answer: 2
-  explanation: '$\lambda_{\max} = 2.898\times10^{-3}/288 = 1.0\times10^{-5}$ m $= 10$ μm, in the infrared. 500 nm is the Sun''s peak (5772 K), and 1 mm is the 2.7 K cosmic background''s.'
+  explanation: 'More CO₂ raises the height from which infrared escapes. That air is colder, so the planet radiates less than it absorbs and warms until the new emission level is back at $T_e$; the band''s edges also absorb more. CO₂ is nearly transparent to sunlight, and the effect isn''t about clouds.'
 - id: phys-h1-r2-h48
   lesson: phys-h1-climate
-  topic: Greenhouse effect and climate change
-  stem: 'In the one-layer model, the atmosphere absorbs all of the surface''s infrared ($\varepsilon = 1$). If $T_e = 255$ K, what is the surface temperature?'
-  choices: ['255 K', '510 K', '361 K', '303 K']
+  topic: Greenhouse models
+  stem: 'Earth''s surface averages 288 K and the temperature falls by about 6.5 K per km with height. About what is the temperature at the 5 km emission height?'
+  choices: ['288 K', '320 K', '223 K', '256 K']
   answer: 3
-  explanation: '$T_s = T_e(2/(2 - 1))^{1/4} = 2^{1/4}(255) = 303$ K. Doubling the temperature (510 K) treats it like the power; $\sqrt2(255) = 361$ K uses a square root instead of a fourth root; and 255 K is the no-atmosphere case.'
+  explanation: '$288 - (6.5)(5) = 255.5$ K, about 256 K, which is Earth''s equilibrium temperature: the layer that radiates to space must be near $T_e$. 320 K adds instead of subtracting, and 223 K uses 10 km.'
 - id: phys-h1-r2-h49
   lesson: phys-h1-climate
   module_quiz: true
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
   stem: 'Using $\Delta F = 5.35\ln(C/C_0)$ W/m², what is the forcing from doubling CO₂ from 280 ppm to 560 ppm?'
   choices: ['3.7 W/m²', '10.7 W/m²', '2.2 W/m²', '7.4 W/m²']
   answer: 0
   explanation: '$5.35\ln 2 = 5.35(0.693) = 3.7$ W/m². 10.7 multiplies 5.35 by 2 instead of taking the logarithm; 2.2 W/m² is the forcing for 280 to 420 ppm; 7.4 W/m² would be two doublings.'
 - id: phys-h1-r2-h50
   lesson: phys-h1-climate
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
   stem: 'What does the ice–albedo feedback do to an initial warming?'
   choices: ['It reduces it, because melting ice absorbs heat', 'It amplifies it: less ice lowers the albedo, so more sunlight is absorbed', 'Nothing, because ice reflects only infrared', 'It reduces it, because open ocean radiates more infrared than ice']
   answer: 1
   explanation: 'Ice and snow are bright; when they melt, darker ground and ocean absorb more sunlight, which warms things further. That is an amplifying (positive) feedback. Ice reflects visible sunlight well, which is the point.'
 - id: phys-h1-r2-h51
   lesson: phys-h1-climate
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
   stem: 'Which feedback is the largest source of uncertainty in the climate sensitivity?'
   choices: ['Water vapor', 'The ice–albedo feedback', 'Clouds', 'The increase in infrared emission from a warmer planet']
   answer: 2
@@ -416,14 +416,14 @@
 - id: phys-h1-r2-h52
   lesson: phys-h1-climate
   module_quiz: true
-  topic: Planetary energy balance
+  topic: Climate forcing and feedbacks
   type: text
-  stem: 'The fraction of incoming sunlight that a planet reflects straight back to space is called its ___.'
-  accept: [albedo, albedos, bond albedo]
-  explanation: 'Earth''s albedo is about 0.30: clouds, ice and bright ground reflect about 30% of incoming sunlight. Only the other 70% heats the planet.'
+  stem: 'The eventual global warming caused by doubling the concentration of CO₂, once the climate has settled, is called the climate ___.'
+  accept: [sensitivity, sensitivities]
+  explanation: 'Climate sensitivity: best estimate about 3 °C per doubling, likely 2.5 to 4 °C (IPCC, 2021). Most of the uncertainty comes from the feedbacks, especially clouds.'
 - id: phys-h1-r2-h53
   lesson: phys-h1-climate
-  topic: Planetary energy balance
+  topic: Greenhouse models
   type: label
   stem: 'Name the numbered parts of this picture of Earth''s energy balance.'
   image: {src: images/phys-h1-energy-balance-blank.svg, alt: 'Earth inside a shell of atmosphere with five numbered markers: parallel rays arriving from the left, a ray bouncing away to the upper left, rays leaving to the right, the shell itself, and a short arrow inside the shell pointing down at the surface.'}
@@ -437,14 +437,14 @@
   explanation: 'Sunlight (1) arrives as a parallel beam; about 30% is reflected (2). The planet loses energy as infrared radiated to space (3) from all sides. Greenhouse gases in the atmosphere (4) absorb the surface''s infrared and radiate part of it back down (5), which warms the surface. The surface radiates infrared, not ultraviolet.'
 - id: phys-h1-r2-h54
   lesson: phys-h1-climate
-  topic: Planetary energy balance
+  topic: Greenhouse models
   type: order
   stem: 'Put these blackbody sources in order by the wavelength where their radiation peaks, shortest first.'
   items: ['The Sun''s surface (5772 K)', 'A light bulb filament (2800 K)', 'Earth''s surface (288 K)', 'The cosmic microwave background (2.7 K)']
   explanation: 'By Wien''s law, $\lambda_{\max} \propto 1/T$: the Sun peaks near 500 nm, the filament near 1.0 μm, Earth near 10 μm and the cosmic background near 1 mm. Hotter means shorter wavelength.'
 - id: phys-h1-r2-h55
   lesson: phys-h1-climate
-  topic: Greenhouse effect and climate change
+  topic: Greenhouse models
   stem: 'Which changes would raise Earth''s effective temperature $T_e = [S(1 - \alpha)/(4\sigma)]^{1/4}$? Select all that apply.'
   choices: ['A brighter Sun (larger $S$)', 'Melting ice that lowers the albedo', 'More CO₂, with $S$ and the albedo unchanged', 'A larger planet, with the same $S$ and albedo']
   answer: [0, 1]
@@ -452,7 +452,7 @@
 - id: phys-h1-r2-h56
   lesson: phys-h1-climate
   module_quiz: true
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
   type: match
   stem: 'Match each climate response to its effect on an initial warming. (An answer can be used more than once.)'
   pairs:

@@ -1,0 +1,44 @@
+# Functions in depth (pc-m1), round 2 glossary
+- term: mapping diagram
+  aliases: [mapping diagrams, arrow diagram]
+  definition: 'A picture of a relation with the inputs in one oval, the outputs in another, and an arrow from each input to its output. It shows a function when every input sends out exactly one arrow.'
+  topic: Functions and notation
+- term: concavity
+  definition: 'The direction a graph bends: concave up (like a cup, rates of change increasing) or concave down (like a cap, rates of change decreasing).'
+  topic: Concavity
+- term: concave up
+  definition: 'A function is concave up on an interval if its graph bends upward there: secant segments lie on or above the graph, and secant slopes increase from left to right. Example: $y = x^2$.'
+  topic: Concavity
+- term: concave down
+  definition: 'A function is concave down on an interval if its graph bends downward there: secant segments lie on or below the graph, and secant slopes decrease from left to right. Example: $y = \sqrt{x}$.'
+  topic: Concavity
+- term: symmetric difference quotient
+  aliases: [central difference quotient]
+  definition: 'The quotient $\dfrac{f(x + h) - f(x - h)}{2h}$: the slope of the secant line over an interval centered at $x$. It estimates the rate of change at $x$ and is exact for quadratics.'
+  topic: Concavity
+- term: inflection point
+  aliases: [inflection points, point of inflection]
+  definition: 'A point on a graph where the function is continuous and its concavity changes, from up to down or from down to up. A cubic $ax^3 + bx^2 + cx + d$ has one, at $x = -\tfrac{b}{3a}$.'
+  topic: Concavity
+- term: breakpoints
+  aliases: [breakpoint, break points, break point]
+  definition: 'The inputs where a piecewise function changes formula. For a sum of absolute values they are the inputs where each inside equals 0.'
+  topic: Piecewise models
+- term: median
+  definition: 'The middle value of a list of numbers written in order; with an even count, the usual convention is the average of the two middle values. A sum of distances $\lvert x - a_1 \rvert + \cdots + \lvert x - a_n \rvert$ is smallest at the median (with an even count, anywhere between the two middle values).'
+  topic: Piecewise models
+- term: tax bracket
+  aliases: [tax brackets]
+  definition: 'A range of taxable income taxed at one rate. Under tiered (marginal) taxation, each rate applies only to the income inside its bracket.'
+  topic: Piecewise models
+- term: marginal rate
+  aliases: [marginal tax rate]
+  definition: 'The rate charged on the next dollar: the rate of the bracket containing the last dollar of income, and the slope of the tax function there.'
+  topic: Piecewise models
+- term: effective rate
+  aliases: [effective tax rate, average tax rate]
+  definition: 'Total tax divided by income, $T(x)/x$. Under a tiered schedule it is lower than the top marginal rate that applies.'
+  topic: Piecewise models
+- term: ceiling function
+  definition: 'The function $\lceil x \rceil$ giving the smallest integer greater than or equal to $x$; it rounds toward $+\infty$. Example: $\lceil -2.3 \rceil = -2$. Also $\lceil x \rceil = -\lfloor -x \rfloor$.'
+  topic: Piecewise models

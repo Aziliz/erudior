@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="sans-serif" fill="#1c2833">
+<rect width="720" height="420" fill="#ffffff"/>
+<line x1="60" y1="210" x2="248" y2="116" stroke="#1c2833" stroke-width="2"/>
+<line x1="60" y1="210" x2="248" y2="304" stroke="#1c2833" stroke-width="2"/>
+<circle cx="60" cy="210" r="7" fill="#1c2833"/>
+<line x1="292" y1="110" x2="458" y2="55" stroke="#1c2833" stroke-width="2"/>
+<line x1="292" y1="110" x2="458" y2="165" stroke="#1c2833" stroke-width="2"/>
+<line x1="292" y1="310" x2="458" y2="255" stroke="#1c2833" stroke-width="2"/>
+<line x1="292" y1="310" x2="458" y2="365" stroke="#1c2833" stroke-width="2"/>
+<circle cx="270" cy="110" r="22" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="270" y="116" font-size="17" text-anchor="middle" font-style="italic">B</text>
+<circle cx="270" cy="310" r="22" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="270" y="316" font-size="17" text-anchor="middle" font-style="italic">Bᶜ</text>
+<circle cx="480" cy="55" r="22" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="480" y="61" font-size="17" text-anchor="middle" font-style="italic">A</text>
+<circle cx="480" cy="165" r="22" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
+<text x="480" y="171" font-size="17" text-anchor="middle" font-style="italic">Aᶜ</text>
+<circle cx="480" cy="255" r="22" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<text x="480" y="261" font-size="17" text-anchor="middle" font-style="italic">A</text>
+<circle cx="480" cy="365" r="22" fill="#f8e1dc" stroke="#1c2833" stroke-width="1.5"/>
+<text x="480" y="371" font-size="17" text-anchor="middle" font-style="italic">Aᶜ</text>
+<text x="360" y="24" font-size="17" text-anchor="middle" font-weight="bold">Parts of a probability tree</text>
+<text x="130" y="145" font-size="15" text-anchor="middle">P(B)</text>
+<text x="130" y="290" font-size="15" text-anchor="middle">P(Bᶜ)</text>
+<text x="370" y="68" font-size="15" text-anchor="middle">P(A | B)</text>
+<text x="370" y="158" font-size="15" text-anchor="middle">P(Aᶜ | B)</text>
+<text x="370" y="268" font-size="15" text-anchor="middle">P(A | Bᶜ)</text>
+<text x="370" y="358" font-size="15" text-anchor="middle">P(Aᶜ | Bᶜ)</text>
+<text x="512" y="60" font-size="14" text-anchor="start">P(B)·P(A | B) = P(B ∩ A)</text>
+<text x="512" y="170" font-size="14" text-anchor="start">P(B ∩ Aᶜ)</text>
+<text x="512" y="260" font-size="14" text-anchor="start">P(Bᶜ)·P(A | Bᶜ) = P(Bᶜ ∩ A)</text>
+<text x="512" y="370" font-size="14" text-anchor="start">P(Bᶜ ∩ Aᶜ)</text>
+<text x="165" y="400" font-size="14" text-anchor="middle" font-style="italic">priors</text>
+<text x="375" y="400" font-size="14" text-anchor="middle" font-style="italic">likelihoods</text>
+<text x="590" y="400" font-size="14" text-anchor="middle" font-style="italic">path products</text>
+</svg>

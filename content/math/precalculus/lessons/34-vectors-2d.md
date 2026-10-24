@@ -25,6 +25,10 @@ By the Pythagorean theorem,
 
 $$\lVert\langle a, b \rangle\rVert = \sqrt{a^2 + b^2}.$$
 
+The picture puts the pieces together: the arrow from $P$ to $Q$ is the hypotenuse of a right triangle whose legs are the two components.
+
+![An arrow from the initial point P(x₁, y₁) at the lower left to the terminal point Q(x₂, y₂) at the upper right. A dashed horizontal leg labeled a = x₂ − x₁ and a dashed vertical leg labeled b = y₂ − y₁ make a right triangle with the arrow as hypotenuse. The arrow is labeled magnitude ‖PQ‖ = √(a² + b²), and the angle θ between the horizontal leg and the arrow is marked at P.](images/pc-m8-vector-parts.svg)
+
 ### Example 1
 
 Find the component form and magnitude of the vector from $P(1, 2)$ to $Q(4, -2)$.
@@ -49,6 +53,10 @@ The sum is also the diagonal of the parallelogram with sides $\vec u$ and $\vec 
 
 Scalar multiplication changes the magnitude in a simple way: $\lVert k\vec v \rVert = \lvert k \rvert\,\lVert\vec v\rVert$.
 
+```plot
+{"x": [-1, 7], "y": [-1, 5], "equal": true, "segments": [{"from": [0, 2.5], "to": [2, 3.5], "arrow": true, "label": "v"}, {"from": [0, 0], "to": [4, 2], "arrow": true, "label": "2v"}, {"from": [6.5, 4.5], "to": [4.5, 3.5], "arrow": true, "label": "−v"}], "caption": "Scalar multiples of v = ⟨2, 1⟩: 2v = ⟨4, 2⟩ is twice as long in the same direction, and −v = ⟨−2, −1⟩ has the same length pointing the opposite way."}
+```
+
 ### Example 2
 
 Let $\vec u = \langle 2, -1 \rangle$ and $\vec v = \langle -3, 4 \rangle$. Find $3\vec u - 2\vec v$.
@@ -70,6 +78,21 @@ The **direction angle** $\theta$ of $\vec v$ is measured counterclockwise from t
 $$\vec v = \langle \lVert\vec v\rVert\cos\theta,\ \lVert\vec v\rVert\sin\theta \rangle, \qquad \tan\theta = \frac{b}{a}.$$
 
 As with polar coordinates, $\tan^{-1}$ alone may give the wrong quadrant; look at the signs of the components.
+
+The chart turns that advice into a procedure: find the reference angle from $\lvert b/a \rvert$, then let the signs of the components choose the quadrant.
+
+```mermaid
+flowchart TD
+  accTitle: Finding the direction angle of a vector from its components
+  accDescr: Start with the vector a, b. Find the reference angle, the inverse tangent of the absolute value of b over a. Then look at the signs of the components. If a and b are both positive (Quadrant I), theta equals the reference angle. If a is negative and b positive (Quadrant II), theta is 180 degrees minus the reference angle. If both are negative (Quadrant III), theta is 180 degrees plus the reference angle. If a is positive and b negative (Quadrant IV), theta is 360 degrees minus the reference angle. A vector on an axis (a or b equal to 0) is read off directly as 0, 90, 180 or 270 degrees.
+  S["Vector ⟨a, b⟩"] --> R["Reference angle = inverse tan of |b / a|"]
+  R --> Q{"Signs of a and b?"}
+  Q -- "a +, b +" --> Q1["Quadrant I: θ = reference angle"]
+  Q -- "a −, b +" --> Q2["Quadrant II: θ = 180° − reference"]
+  Q -- "a −, b −" --> Q3["Quadrant III: θ = 180° + reference"]
+  Q -- "a +, b −" --> Q4["Quadrant IV: θ = 360° − reference"]
+  S -. "a = 0 or b = 0" .-> AX["On an axis: θ is 0°, 90°, 180° or 270°"]
+```
 
 ### Example 3
 

@@ -1,0 +1,59 @@
+# Round 2 glossary for pre-h1 (Honors: Number theory and problem solving)
+- term: modular arithmetic
+  aliases: [clock arithmetic]
+  definition: 'Arithmetic that keeps only remainders after dividing by a fixed number (the modulus), the way a clock forgets whole trips around the dial.'
+  topic: Modular arithmetic
+- term: modulus
+  definition: 'The number you divide by in modular arithmetic: 7 for days of the week, 12 for a clock, 10 for last digits.'
+  topic: Modular arithmetic
+- term: congruent modulo m
+  aliases: [congruent mod m, congruence, '≡']
+  definition: 'Two whole numbers are congruent modulo $m$, written $a \equiv b \pmod m$, when they leave the same remainder after division by $m$. Example: $100 \equiv 2 \pmod 7$.'
+  topic: Modular arithmetic
+- term: casting out nines
+  definition: 'Checking arithmetic by comparing remainders after division by 9 (found from digit sums). A mismatch proves an error; a match means the answer is probably, not certainly, right.'
+  topic: Modular arithmetic
+- term: conjecture
+  aliases: [conjectures]
+  definition: 'A statement that looks true, often supported by many examples, but has not been proved.'
+  topic: Proof
+- term: proof
+  aliases: [proofs]
+  definition: 'An argument that shows a statement is true in every case it covers, using definitions and facts already known.'
+  topic: Proof
+- term: Goldbach's conjecture
+  definition: 'The unproved statement, from a 1742 letter by Christian Goldbach, that every even number greater than 2 is the sum of two primes.'
+  topic: Proof
+- term: parity
+  definition: 'Whether a whole number is even or odd. Even numbers can be written $2k$ and odd numbers $2k + 1$.'
+  topic: Parity
+- term: invariant
+  aliases: [invariants]
+  definition: 'A quantity that no allowed move changes. If the goal needs a different value of the invariant than the start has, the goal is impossible.'
+  topic: Parity
+- term: Venn diagram
+  aliases: [Venn diagrams]
+  definition: 'A picture of overlapping circles, one per property, in which the overlap holds the things with both properties.'
+  topic: Inclusion-exclusion
+- term: inclusion–exclusion principle
+  aliases: [inclusion-exclusion principle, inclusion–exclusion, inclusion-exclusion]
+  definition: 'Count with A or B $=$ count with A $+$ count with B $-$ count with both. With three properties, add the singles, subtract the pairs and add back the triple.'
+  topic: Inclusion-exclusion
+- term: factorial
+  aliases: [n factorial, factorials, 'n!']
+  definition: 'The product of the whole numbers from 1 to $n$, written $n!$. Example: $5! = 1 \times 2 \times 3 \times 4 \times 5 = 120$.'
+  topic: Factorials
+- term: Legendre's formula
+  definition: 'The count of factors of a prime $p$ in $n!$: (multiples of $p$) + (multiples of $p^2$) + (multiples of $p^3$) + ⋯ up to $n$. With $p = 5$ it gives the number of zeros at the end of $n!$.'
+  topic: Factorials
+- term: triangular numbers
+  aliases: [triangular number]
+  definition: 'The numbers $1, 3, 6, 10, 15, \ldots$; the $n$th one is $1 + 2 + \cdots + n = \dfrac{n(n + 1)}{2}$.'
+  topic: Number patterns
+- term: arithmetic sequence
+  aliases: [arithmetic sequences]
+  definition: 'A list of numbers that goes up or down by the same amount each time, such as 7, 11, 15, 19, …'
+  topic: Number patterns
+- term: common difference
+  definition: 'The fixed amount added each time in an arithmetic sequence; 4 in 7, 11, 15, 19, …'
+  topic: Number patterns

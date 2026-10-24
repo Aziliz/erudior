@@ -93,6 +93,28 @@ Other functions from this course: $\lim_{x\to\infty}e^{-x} = 0$ (exponential dec
 {"x": [-20, 20], "y": [-1, 2], "functions": [{"f": "(3x^2 - x)/(5x^2 + 4)", "label": "y = (3x² − x)/(5x² + 4)"}, {"f": "0.6", "dashed": true}], "caption": "The function approaches the dashed line y = 3/5 as x → ±∞."}
 ```
 
+## Choosing a method
+
+Every example in this lesson starts the same way: substitute, look at what you get, and let that decide the next step. The chart puts the whole lesson on one page.
+
+```mermaid
+flowchart TD
+  accTitle: Which method to use for a limit
+  accDescr: For a limit as x approaches a number a, substitute x = a first. If you get a number, that is the limit. If you get a nonzero number over 0, there is a vertical asymptote, so check the sign on each side. If you get 0 over 0, look at the expression: with polynomials, factor and cancel; with a square root, multiply by the conjugate; with fractions inside a fraction, combine them into one fraction; with an absolute value, find each one-sided limit. After factoring, rationalizing or combining, substitute again. For a limit as x grows without bound, divide the top and bottom by the highest power of x in the denominator.
+  A["Substitute x = a"] --> B{"What do you get?"}
+  B -- "a number" --> C["That number is the limit"]
+  B -- "nonzero over 0" --> D["Vertical asymptote: check the sign on each side"]
+  B -- "0 over 0" --> E{"What does the expression contain?"}
+  E -- polynomials --> F["Factor and cancel"]
+  E -- "a square root" --> G["Multiply by the conjugate"]
+  E -- "fractions in a fraction" --> H["Combine into one fraction"]
+  E -- "an absolute value" --> I["Find each one-sided limit"]
+  F --> J["Substitute again"]
+  G --> J
+  H --> J
+  K["Limit as x grows without bound"] --> L["Divide by the highest power of x in the denominator"]
+```
+
 ## Common mistakes
 
 - *Declaring $\frac00$ to be 0, 1 or undefined.* It's indeterminate: simplify first.

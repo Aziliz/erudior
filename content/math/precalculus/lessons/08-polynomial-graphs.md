@@ -34,6 +34,10 @@ and the bracket approaches 1 as $|x|$ grows. So the end behavior of any polynomi
 
 We write, for instance, "as $x \to \infty$, $f(x) \to \infty$; as $x \to -\infty$, $f(x) \to -\infty$."
 
+The four cases look like this; only the far ends matter, and the wiggles in the middle depend on the other terms.
+
+![Four small graphs. Even degree with a positive leading coefficient: both ends point up. Even degree with a negative leading coefficient: both ends point down. Odd degree with a positive leading coefficient: down on the left, up on the right. Odd degree with a negative leading coefficient: up on the left, down on the right.](images/pc-m3-end-behavior.svg)
+
 ## Zeros and multiplicity
 
 If $f(c) = 0$, then $c$ is a **zero** of $f$ (also called a root), and $(c, 0)$ is an $x$-intercept when $c$ is real. When a polynomial is factored, each factor $(x - c)$ gives a zero $c$. If $(x - c)$ appears exactly $k$ times, $c$ is a zero of **multiplicity** $k$.
@@ -42,6 +46,19 @@ Multiplicity controls what the graph does at the intercept:
 
 - *Odd multiplicity*: the graph *crosses* the axis (the factor changes sign). Multiplicity 1 crosses like a line; multiplicity 3 crosses with a flattened S-shape, like $x^3$.
 - *Even multiplicity*: the graph *touches* the axis and turns back (the factor $(x - c)^2$ is never negative, so the sign does not change). It looks like a parabola's vertex there.
+
+The decision at each zero, as a chart:
+
+```mermaid
+flowchart TD
+  accTitle: What the graph does at a zero
+  accDescr: Start with a zero c that comes from the factor (x − c) raised to the power k. If k is even, the graph touches the x-axis at c and turns back. If k is odd and equal to 1, the graph crosses like a line. If k is odd and 3 or more, the graph crosses and flattens out, like y = x³ at 0.
+  A["Zero c from the factor (x − c) to the power k"] --> B{"Is k even?"}
+  B -- yes --> C["Touches the axis and turns back"]
+  B -- no --> D{"Is k = 1?"}
+  D -- yes --> E["Crosses like a line"]
+  D -- "no, k = 3, 5, ..." --> F["Crosses and flattens, like y = x³"]
+```
 
 ```plot
 {"x": [-3, 4], "y": [-8, 8], "functions": [{"f": "(x + 2)*(x - 1)^2*(x - 3)/2", "label": "y = ½(x + 2)(x − 1)²(x − 3)"}], "points": [{"at": [-2, 0], "label": "−2"}, {"at": [1, 0], "label": "1 (touch)"}, {"at": [3, 0], "label": "3"}], "caption": "Crosses at −2 and 3 (multiplicity 1), touches and turns at 1 (multiplicity 2)."}

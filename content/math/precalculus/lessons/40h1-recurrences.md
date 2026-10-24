@@ -12,7 +12,7 @@ refs: [pc-ref-matrices-series]
 
 Lesson 36 noted that a recursive formula is natural but slow: to reach $a_{100}$ you must compute all 99 terms before it. For arithmetic and geometric sequences we found explicit formulas, $a_1 + (n - 1)d$ and $a_1r^{n-1}$. This lesson does the same for two wider families of rules. The first, "multiply and then add", describes loan balances, drug levels and a famous puzzle. The second, where each term depends on the *two* before it, includes the Fibonacci sequence and leads to a surprising formula for it that involves $\sqrt5$.
 
-A rule that defines each term from earlier terms is called a **recurrence relation** (or just a recurrence). Together with enough starting values (**initial conditions**), it determines the whole sequence. Finding an explicit formula that matches is called **solving** the recurrence. In this lesson sequences start at $a_0$, which makes the formulas tidier.
+A rule that defines each term from earlier terms is called a **recurrence relation** (or just a recurrence). Together with enough starting values (**initial conditions**), it determines the whole sequence. Finding an explicit formula that matches is called *solving* the recurrence. In this lesson sequences start at $a_0$, which makes the formulas tidier.
 
 ## First-order rules: multiply, then add
 

@@ -43,9 +43,16 @@ Read $h$ as a chain of one-to-one steps, inside out:
 ```mermaid
 flowchart TD
   accTitle: Building h and undoing it
-  accDescr: The function h is four steps in order, multiply by 2, subtract 3, cube, add 5. Its inverse undoes them in reverse order, subtract 5, take the cube root, add 3, divide by 2.
-  A["x"] --> B["multiply by 2"] --> C["subtract 3"] --> D["cube"] --> E["add 5"] --> F["h(x)"]
-  F -. "inverse runs backward" .-> G["subtract 5"] --> H["cube root"] --> J["add 3"] --> K["divide by 2"] --> L["x again"]
+  accDescr: The function h is four steps in order, multiply by 2, subtract 3, cube, add 5. The inverse undoes the same steps in reverse order, each with its own inverse, subtract 5, take the cube root, add 3, divide by 2. The last step of h is the first step undone.
+  subgraph build["Building h(x)"]
+    direction LR
+    A1["× 2"] --> A2["− 3"] --> A3["cube"] --> A4["+ 5"]
+  end
+  subgraph undo["Undoing h: the inverse"]
+    direction LR
+    B1["− 5"] --> B2["cube root"] --> B3["+ 3"] --> B4["÷ 2"]
+  end
+  build -- "reverse the order, invert each step" --> undo
 ```
 
 Undo the steps in reverse order, each with its own inverse:

@@ -1,4 +1,4 @@
-# Round 2 drills for pre-m4 honors lessons (16h1 repeating decimals, 16h2 direct and inverse proportion, 16h3 scaling)
+# Round 2 drills for pre-m4 honors lessons (16h1 repeating decimals, 16h2 direct and inverse proportion)
 - id: pre-m4-r2-rep-pure
   title: Pure repeating decimal to a fraction
   topic: Repeating decimals
@@ -11,7 +11,7 @@
     val: n/99
   prompt: 'Write $0.\overline{{d1}{d2}}$ as a fraction in lowest terms.'
   answers:
-    - {name: val, kind: fraction, lowestTerms: true, label: 'Fraction'}
+    - {name: val, kind: fraction, lowestTerms: true, tolerance: 0.0000001, label: 'Fraction'}
   solution: |-
     Let $x = 0.\overline{{d1}{d2}}$. The repeating block has 2 digits, so multiply by 100: $100x = {n}.\overline{{d1}{d2}}$.
     Subtract $x$ so the repeating tails cancel: $99x = {n}$, so $x = \dfrac{{n}}{99}$.
@@ -30,7 +30,7 @@
     val: n/90
   prompt: 'Write $0.{a}\overline{{b}}$ (only the {b} repeats) as a fraction in lowest terms.'
   answers:
-    - {name: val, kind: fraction, lowestTerms: true, label: 'Fraction'}
+    - {name: val, kind: fraction, lowestTerms: true, tolerance: 0.0000001, label: 'Fraction'}
   solution: |-
     Let $x = 0.{a}\overline{{b}}$. Move the point just before the repeating part: $10x = {a}.\overline{{b}}$. Move it one more place (the period is 1): $100x = {ab}.\overline{{b}}$.
     Subtract: $100x - 10x = {ab} - {a}$, so $90x = {n}$ and $x = \dfrac{{n}}{90}$.
@@ -75,46 +75,3 @@
   solution: |-
     Count the work in painter-days. So far: ${w1} \times {d1} = {tot}$ painter-days for {j1} rooms, which is ${tot} \div {j1} = {u}$ painter-days per room.
     {j2} rooms need ${j2} \times {u} = {tot2}$ painter-days. Spread over {d2} days: ${tot2} \div {d2} =$ **{w2}** painters.
-
-- id: pre-m4-r2-scale-up
-  title: Scale an area or a volume
-  topic: Scaling area and volume
-  vars:
-    k: {choices: [2, 3, 4, 5, 10, 1.5]}
-    A: {min: 2, max: 40}
-    dim:
-      choices:
-        - {label: area, value: 2}
-        - {label: volume, value: 3}
-  calc:
-    pw: dim
-    f: k^dim
-    B: A*k^dim
-  prompt: 'A shape has {dim} {A} (in square units for an area, cubic units for a volume). A similar shape has every length {k:num1} times as long. What is the {dim} of the larger shape?'
-  answers:
-    - {name: B, label: 'Answer', tolerance: 0.001}
-  solution: |-
-    When every length is multiplied by $k = {k:num1}$, an area is multiplied by $k^2$ and a volume by $k^3$. Here that is ${k:num1}^{pw} = {f:num4}$.
-    New {dim}: ${A} \times {f:num4} =$ **{B:num4}**.
-
-- id: pre-m4-r2-scale-back
-  title: Length ratio from an area ratio
-  topic: Scaling area and volume
-  vars:
-    q: {min: 1, max: 5}
-    p: {min: 2, max: 6}
-    m: {min: 1, max: 5}
-    s: {min: 1, max: 6}
-  where: ['p > q', 'gcd(p, q) == 1']
-  calc:
-    A1: q^2*m
-    A2: p^2*m
-    L1: q*s
-    L2: p*s
-    k: p/q
-  prompt: 'Two similar shapes have areas {A1} cm² and {A2} cm². A side of the smaller shape is {L1} cm long. How long is the matching side of the larger shape, in cm?'
-  answers:
-    - {name: L2, label: 'Length', tolerance: 0.001}
-  solution: |-
-    The area ratio is $\dfrac{{A2}}{{A1}} = \dfrac{{p}^2}{{q}^2}$, and areas scale by $k^2$, so the length scale factor is $k = {k:texfrac}$.
-    Matching side: ${L1} \times {k:texfrac} =$ **{L2} cm**.

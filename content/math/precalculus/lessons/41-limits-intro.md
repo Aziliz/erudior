@@ -74,6 +74,24 @@ They differ, so $\lim_{x \to 2} f(x)$ does not exist (a jump). Note that $f(2) =
 
 To find $\lim_{x \to a} f(x)$ from a graph, trace the curve toward $x = a$ from each side and see what height you approach. Ignore any isolated dot at $x = a$ itself; it gives $f(a)$, not the limit.
 
+The chart below sums up the whole decision: first the two one-sided limits, then (if you want continuity) a comparison with $f(a)$.
+
+```mermaid
+flowchart TD
+  accTitle: Deciding whether a limit exists and whether f is continuous
+  accDescr: Start by finding the left-hand and right-hand limits at a. If both are finite numbers and equal, the limit exists; if they are finite but different, it is a jump and the limit does not exist. If they are not both finite numbers, ask whether both sides grow without bound in the same direction: if yes, write the limit as infinity or negative infinity, which is not a finite limit; if no, there is no limit because the sides disagree or oscillate. When the limit exists, compare it with f(a): if equal, f is continuous at a; if not, or if f(a) is undefined, it is a removable discontinuity.
+  A["Find the left-hand and right-hand limits at a"] --> B{"Both finite numbers?"}
+  B -- yes --> C{"Are they equal?"}
+  C -- yes --> D["The limit exists"]
+  C -- no --> E["Jump: no limit"]
+  B -- no --> F{"Both sides unbounded in the same direction?"}
+  F -- yes --> G["Write lim = infinity or minus infinity: no finite limit"]
+  F -- no --> H["No limit: sides disagree or oscillate"]
+  D --> I{"Is the limit equal to f(a)?"}
+  I -- yes --> J["f is continuous at a"]
+  I -- "no, or f(a) undefined" --> K["Removable discontinuity"]
+```
+
 ## How limits fail to exist
 
 | Behavior near $a$ | Example | Limit |
@@ -91,6 +109,12 @@ A function is **continuous** at $a$ when three things hold: $f(a)$ is defined, $
 $$\lim_{x \to a} f(x) = f(a).$$
 
 Informally, you can draw the graph through $x = a$ without lifting your pencil. Polynomials are continuous everywhere; rational functions are continuous wherever they're defined; so are exponentials, logarithms (on their domains), sine and cosine. A **discontinuity** is a point where continuity fails: a hole (removable), a jump, or a vertical asymptote. The intermediate value theorem from Lesson 8 holds for every continuous function.
+
+The graph below shows all three kinds of discontinuity on one function, plus a point where it is continuous.
+
+![A graph with four marked features. At x = −2 a line has an open dot (a hole) at height 2, with a separate filled dot at height 4 showing f(−2) = 4. At x = 0 the graph jumps from an open dot at height 3 down to a filled dot at height 1. At x = 3 a dashed vertical asymptote has the curve rising toward infinity on the left and falling toward negative infinity on the right. At x = 5 a green dot sits on an unbroken part of the curve, where f is continuous.](images/pc-m10-discontinuities.svg)
+
+At $x = -2$ the limit is 2 but $f(-2) = 4$: a removable discontinuity (redefine $f(-2) = 2$ to fix it). At $x = 0$ the one-sided limits are 3 and 1: a jump. At $x = 3$ the values are unbounded: an infinite discontinuity. At $x = 5$ nothing goes wrong.
 
 ### Example 4
 

@@ -1,0 +1,26 @@
+# Round 2 notecards for pre-m7 (Variables, expressions and equations): honors lessons
+- {front: 'Solution of a system of two equations', back: 'An ordered pair that makes both equations true; on a graph, where the two lines cross. Always check it in both equations.', topic: 'Systems of equations'}
+- {front: 'Substitution method', back: 'Solve one equation for a variable, substitute into the other, solve, then back-substitute. Best when a variable is alone or has coefficient $\pm 1$.', topic: 'Systems of equations'}
+- {front: 'Elimination method', back: 'Multiply if needed so one variable''s coefficients are equal or opposite, then subtract or add the equations to cancel it.', topic: 'Systems of equations'}
+- {front: 'Why adding two equations is allowed', back: 'If $A = B$ and $C = D$, then $A + C = B + D$: equal amounts added to equal amounts.', topic: 'Systems of equations'}
+- {front: 'Elimination leaves $0 = 0$', back: 'The equations describe the same line: infinitely many solutions.', topic: 'Systems of equations'}
+- {front: 'Elimination leaves $0 = 7$ (false)', back: 'Parallel lines (same slope, different intercepts): no solution.', topic: 'Systems of equations'}
+- {front: 'How many solutions can a system of two linear equations have?', back: 'Exactly one (lines cross), none (parallel), or infinitely many (same line). Never exactly two.', topic: 'Systems of equations'}
+- {front: 'Choosing a method for a system', back: 'Variable alone or coefficient $\pm 1$: substitution. Matching or opposite coefficients: elimination. Otherwise multiply, then eliminate. Graph for a picture or estimate.', topic: 'Systems of equations'}
+- {front: 'Two-variable word problems', back: 'Let one letter stand for each unknown and write one equation for each fact (a count equation and a value equation).', topic: 'Systems of equations'}
+- {front: '$|a - b|$', back: 'The distance between $a$ and $b$ on the number line. $|x - 3| = 5$: $x$ is 5 units from 3, so $x = 8$ or $x = -2$.', topic: 'Absolute value equations'}
+- {front: 'Solving $|u| = c$', back: 'Isolate the bars first. $c > 0$: $u = c$ or $u = -c$. $c = 0$: $u = 0$. $c < 0$: no solution.', topic: 'Absolute value equations'}
+- {front: '$|u| < c$ (with $c > 0$)', back: '$-c < u < c$: an "and," the numbers between.', topic: 'Compound inequalities'}
+- {front: '$|u| > c$ (with $c > 0$)', back: '$u < -c$ or $u > c$: an "or," the numbers outside.', topic: 'Compound inequalities'}
+- {front: '"And" vs "or" inequalities', back: '"And": both true, the overlap (usually a segment). "Or": at least one true, everything in either piece (often two rays).', topic: 'Compound inequalities'}
+- {front: 'Solving $a < bx + c \le d$', back: 'Do each step to all three parts. Dividing by a negative reverses both symbols; then rewrite from smallest to largest.', topic: 'Compound inequalities'}
+- {front: '$|u| < -2$ and $|u| > -2$', back: 'A distance is never negative: $|u| < -2$ has no solution, and $|u| > -2$ is true for every number.', topic: 'Compound inequalities'}
+- {front: 'Point-slope form', back: '$y - y_1 = m(x - x_1)$: slope $m$, through $(x_1, y_1)$. Through $(-1, 4)$: $y - 4 = m(x + 1)$.', topic: 'Equations of lines'}
+- {front: 'Line through two points', back: 'Find $m = \dfrac{y_2 - y_1}{x_2 - x_1}$, then use point-slope form with either point; check the other point.', topic: 'Equations of lines'}
+- {front: 'Parallel lines', back: 'Same slope, different $y$-intercepts (or both vertical). They never meet.', topic: 'Parallel and perpendicular lines'}
+- {front: 'Perpendicular lines', back: 'Slopes are negative reciprocals, with product $-1$: slope $\tfrac23$ pairs with $-\tfrac32$. A horizontal and a vertical line are perpendicular too.', topic: 'Parallel and perpendicular lines'}
+- {front: 'Why perpendicular slopes multiply to $-1$', back: 'A quarter turn takes a slope triangle with run $a$, rise $b$ to one with run $-b$, rise $a$: slope $\tfrac ba$ becomes $-\tfrac ab$.', topic: 'Parallel and perpendicular lines'}
+- {front: 'Linear model', back: 'Slope = rate of change (units of output per unit of input); $y$-intercept = starting value. Two data points determine it; it holds only where its assumptions do.', topic: 'Equations of lines'}
+- {front: 'Celsius to Fahrenheit from two facts', back: '$(0, 32)$ and $(100, 212)$ give slope $\tfrac{180}{100} = \tfrac95$, so $F = \tfrac95 C + 32$. The scales agree at $-40$.', topic: 'Equations of lines'}
+- {front: 'Isolate before splitting', back: '$3|x + 2| - 4 = 11$: add 4, divide by 3 to get $|x + 2| = 5$, then split: $x = 3$ or $x = -7$.', topic: 'Absolute value equations'}
+- {front: 'Negative reciprocal of 4; of $-\tfrac25$', back: '$-\tfrac14$; $\tfrac52$. Flip the fraction and change the sign.', topic: 'Parallel and perpendicular lines'}

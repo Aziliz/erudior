@@ -1,0 +1,436 @@
+# Functions in depth (pc-m1), round 2: new question types for the core lessons and the two honors lessons
+# Core lesson 01: functions, domain and range
+- id: pc-m1-r2-q01
+  lesson: pc-functions
+  type: text
+  topic: Functions and notation
+  stem: 'Let $f(x) = 2x^2 - x$. Then $f(-3) =$ ___. Give only the number.'
+  accept: ['21']
+  explanation: |-
+    Replace $x$ with $(-3)$: $f(-3) = 2(-3)^2 - (-3) = 2(9) + 3 = 21$. Writing $-3^2 = -9$ without parentheses gives $-18 + 3 = -15$, and losing the sign of $-(-3)$ gives $18 - 3 = 15$.
+- id: pc-m1-r2-q02
+  lesson: pc-functions
+  module_quiz: true
+  topic: Functions and notation
+  stem: 'Which equations define $y$ as a function of $x$? Select all that apply.'
+  choices: ['$y = x^2$', '$x = y^2$', '$y = \lvert x \rvert$', '$x^2 + y^2 = 4$']
+  answer: [0, 2]
+  explanation: |-
+    $y = x^2$ and $y = \lvert x \rvert$ give exactly one $y$ for each $x$. $x = y^2$ fails: $x = 1$ pairs with $y = 1$ and $y = -1$. The circle $x^2 + y^2 = 4$ fails too: $x = 0$ pairs with $y = 2$ and $y = -2$. Both fail the vertical line test.
+- id: pc-m1-r2-q03
+  lesson: pc-functions
+  type: match
+  module_quiz: true
+  topic: Domain and range
+  stem: 'Match each function to its domain.'
+  pairs:
+    - ['$f(x) = \sqrt{x - 2}$', '[2, ∞)']
+    - ['$f(x) = \dfrac{1}{x - 2}$', 'All real numbers except 2']
+    - ['$f(x) = \sqrt[3]{x - 2}$', 'All real numbers']
+    - ['$f(x) = \dfrac{1}{\sqrt{x - 2}}$', '(2, ∞)']
+  distractors: ['(−∞, 2]']
+  explanation: |-
+    An even root needs $x - 2 \ge 0$, so $\sqrt{x - 2}$ has domain $[2, \infty)$. A denominator cannot be 0, so $\tfrac{1}{x - 2}$ excludes only 2. A cube root accepts every real number. In $\tfrac{1}{\sqrt{x - 2}}$ the root needs $x - 2 \ge 0$ and the denominator needs $\sqrt{x - 2} \ne 0$, so $x - 2 > 0$: $(2, \infty)$.
+- id: pc-m1-r2-q04
+  lesson: pc-functions
+  type: label
+  topic: Functions and notation
+  stem: 'The mapping diagram shows $f(x) = x^2$ on the inputs $-2$, $0$, $2$ and $3$. Name the numbered parts.'
+  image: {src: images/pc-m1-mapping-blank.svg, alt: 'Two ovals. The left oval holds −2, 0, 2 and 3; the right oval holds 0, 4 and 9. Arrows go from −2 and 2 to 4, from 0 to 0, and from 3 to 9.'}
+  labels:
+    - {x: 16.7, y: 84.2, text: 'Domain (the set of inputs)'}
+    - {x: 83.3, y: 84.2, text: 'Range (the set of outputs)'}
+    - {x: 49.7, y: 73.7, text: 'An input paired with its output'}
+    - {x: 82.0, y: 52.6, text: 'An output shared by two inputs'}
+  distractors: ['An input with two outputs', 'An excluded value']
+  explanation: |-
+    1: the left oval holds the inputs, the domain. 2: the right oval holds the outputs that occur, the range. 3: the arrow from 3 to 9 pairs one input with its output, $f(3) = 9$. 4: the output 4 receives arrows from $-2$ and from 2, which is allowed. No input sends out two arrows, so nothing in the picture is "an input with two outputs"; that would break the definition of a function.
+- id: pc-m1-r2-q05
+  lesson: pc-functions
+  type: text
+  topic: Domain and range
+  stem: 'Solving $y = \dfrac{4x - 1}{x + 3}$ for $x$ gives $x = \dfrac{3y + 1}{4 - y}$. The only real number NOT in the range of this function is $y =$ ___.'
+  accept: ['4']
+  explanation: |-
+    The formula for $x$ produces an input for every $y$ except $y = 4$, where its denominator is 0. (Check that the $x$ it gives is never the excluded input $-3$: $\tfrac{3y + 1}{4 - y} = -3$ would need $3y + 1 = 3y - 12$, which is impossible.) So the range is all real numbers except 4.
+# Core lesson 02: piecewise functions
+- id: pc-m1-r2-q06
+  lesson: pc-piecewise
+  type: text
+  topic: Piecewise functions
+  stem: 'Let $g(x) = \begin{cases} x + 5 & \text{if } x \le -1 \\ x^2 & \text{if } -1 < x < 2 \\ 10 - 3x & \text{if } x \ge 2 \end{cases}$. Then $g(-1) =$ ___ and $g(2) =$ ___.'
+  accept:
+    - ['4']
+    - ['4']
+  explanation: |-
+    $-1$ satisfies $x \le -1$, so $g(-1) = -1 + 5 = 4$. $2$ satisfies $x \ge 2$, so $g(2) = 10 - 3(2) = 4$. The middle piece $x^2$ is not used at either input, because its conditions are strict. (Here it would happen to give 1 and 4.)
+- id: pc-m1-r2-q07
+  lesson: pc-piecewise
+  type: order
+  module_quiz: true
+  topic: Piecewise functions
+  stem: 'Put the steps for solving $\lvert 2x + 3 \rvert - 4 = 7$ in order.'
+  items: ['Add 4 to both sides: $\lvert 2x + 3 \rvert = 11$', 'Check that the right side is not negative', 'Split: $2x + 3 = 11$ or $2x + 3 = -11$', 'Solve each: $x = 4$ or $x = -7$', 'Check both solutions in the original equation']
+  explanation: |-
+    Isolate the absolute value first; only then can you see the sign of the right side. Since $11 > 0$ there are two cases, $2x + 3 = \pm 11$, giving $x = 4$ and $x = -7$. Checking: $\lvert 11 \rvert - 4 = 7$ and $\lvert -11 \rvert - 4 = 7$.
+- id: pc-m1-r2-q08
+  lesson: pc-piecewise
+  topic: Piecewise functions
+  stem: 'Which statements about the floor function are true? Select all that apply.'
+  choices: ['$\lfloor -2.5 \rfloor = -3$', '$\lfloor 4 \rfloor = 4$', '$\lfloor -0.1 \rfloor = 0$', '$\lfloor 7.99 \rfloor = 7$']
+  answer: [0, 1, 3]
+  explanation: |-
+    The floor is the greatest integer less than or equal to the input, so it always rounds toward $-\infty$. $\lfloor -2.5 \rfloor = -3$, an integer's floor is itself, and $\lfloor 7.99 \rfloor = 7$. But $\lfloor -0.1 \rfloor = -1$, because 0 is greater than $-0.1$; chopping off the decimal is the mistake.
+- id: pc-m1-r2-q09
+  lesson: pc-piecewise
+  type: label
+  module_quiz: true
+  topic: Piecewise functions
+  stem: 'The graph shows $f(x) = \begin{cases} x^2 & \text{if } x < 1 \\ 3 & \text{if } 1 \le x \le 4 \\ 7 - x & \text{if } x > 4 \end{cases}$. Name the numbered parts.'
+  image: {src: images/pc-m1-piecewise-graph-blank.svg, alt: 'A graph in three pieces: a parabola ending at a hollow dot at (1, 1), a horizontal segment from a filled dot at (1, 3) to a filled dot at (4, 3), and a falling line starting at (4, 3).'}
+  labels:
+    - {x: 37.5, y: 70.5, text: 'Open dot: excluded endpoint'}
+    - {x: 37.5, y: 54.1, text: 'Closed dot: f(1) = 3'}
+    - {x: 62.5, y: 54.1, text: 'Point where two pieces meet'}
+    - {x: 14.0, y: 52.1, text: 'The piece y = x² for x < 1'}
+    - {x: 79.3, y: 70.5, text: 'The piece y = 7 − x for x > 4'}
+  distractors: ['The piece y = 3 for x < 1', 'Vertical asymptote']
+  explanation: |-
+    1: the parabola is used only for $x < 1$, so its end at $(1, 1)$ is an open dot. 2: $x = 1$ belongs to the middle piece, so $(1, 3)$ is a closed dot and $f(1) = 3$. 3: at $x = 4$ the middle piece gives 3 and $7 - 4 = 3$, so the pieces meet. 4: the curve on the left is $y = x^2$. 5: the falling line on the right is $y = 7 - x$. The graph has a jump at $x = 1$ but no asymptote.
+- id: pc-m1-r2-q10
+  lesson: pc-piecewise
+  type: match
+  topic: Reading graphs
+  stem: 'You have the graph of $y = f(x)$. Match each question to where on the graph you find the answer.'
+  pairs:
+    - ['The value $f(a)$', 'The height of the graph above x = a']
+    - ['The zeros of $f$', 'The x-intercepts']
+    - ['Where $f(x) > 0$', 'The x-values where the graph is above the x-axis']
+    - ['The range of $f$', 'The shadow of the graph on the y-axis']
+  distractors: ['The shadow of the graph on the x-axis', 'The y-intercept']
+  explanation: |-
+    $f(a)$ is a height. Zeros are inputs with output 0, the $x$-intercepts. "Where is $f$ positive" asks for $x$-values whose points lie above the $x$-axis. The range is the set of heights, the graph's shadow on the $y$-axis. The shadow on the $x$-axis is the domain, and the $y$-intercept is just $f(0)$.
+# Core lesson 03: behavior and rates
+- id: pc-m1-r2-q11
+  lesson: pc-behavior
+  type: text
+  module_quiz: true
+  topic: Function behavior
+  stem: 'The quadratic $f(x) = 2x^2 - 12x + 5$ reaches its minimum at $x =$ ___, and the minimum value is ___.'
+  accept:
+    - ['3']
+    - ['-13']
+  explanation: |-
+    The vertex is at $x = -\tfrac{b}{2a} = -\tfrac{-12}{2(2)} = 3$. Then $f(3) = 2(9) - 36 + 5 = -13$. Since $a = 2 > 0$ the parabola opens upward, so this is a minimum: it occurs at $x = 3$ and its value is $-13$.
+- id: pc-m1-r2-q12
+  lesson: pc-behavior
+  type: order
+  topic: Average rate of change
+  stem: 'Put the steps for simplifying the difference quotient of $f(x) = 2x^2 - 3x$ in order.'
+  items: ['Replace every $x$ with $(x + h)$: $2(x + h)^2 - 3(x + h)$', 'Expand: $2x^2 + 4xh + 2h^2 - 3x - 3h$', 'Subtract $f(x)$: $4xh + 2h^2 - 3h$', 'Divide each term by $h$: $4x + 2h - 3$']
+  explanation: |-
+    Substitute first, then expand, then subtract $f(x) = 2x^2 - 3x$ so that the terms without $h$ cancel. Only then does every term have a factor $h$ to divide out. Dividing before subtracting would leave terms like $\tfrac{2x^2}{h}$ that do not simplify.
+- id: pc-m1-r2-q13
+  lesson: pc-behavior
+  module_quiz: true
+  topic: Function behavior
+  stem: 'The function $f(x) = x^3 - 1.5x^2 - 6x + 2$, defined for all real $x$, increases on $(-\infty, -1)$, decreases on $(-1, 2)$ and increases on $(2, \infty)$, with $f(-1) = 5.5$ and $f(2) = -8$. Which statements are true? Select all that apply.'
+  choices: ['$f$ is decreasing on $(0, 1)$', '$f$ is increasing on $(-3, -2)$', '$f$ has a local maximum value of $-1$', '$f$ is increasing on $(1, 3)$']
+  answer: [0, 1]
+  explanation: |-
+    $(0, 1)$ lies inside $(-1, 2)$, where $f$ decreases, and $(-3, -2)$ lies inside $(-\infty, -1)$, where $f$ increases. The local maximum occurs at $x = -1$; its value is $f(-1) = 5.5$. On $(1, 3)$ the function first decreases (until $x = 2$) and then increases, so it is not increasing on the whole interval.
+- id: pc-m1-r2-q14
+  lesson: pc-behavior
+  type: label
+  topic: Function behavior
+  stem: 'The graph shows $y = x^3 - 1.5x^2 - 6x + 2$, defined for all real $x$. Name the numbered features.'
+  image: {src: images/pc-m1-behavior-blank.svg, alt: 'A cubic graph that rises to a high point near (−1, 5.5), falls to a low point at (2, −8), then rises steeply. Markers sit on the high point, the low point, a point on the falling part and a point on the rising part on the right.'}
+  labels:
+    - {x: 30.3, y: 17.2, text: 'Local maximum'}
+    - {x: 69.7, y: 85.3, text: 'Local minimum'}
+    - {x: 50.0, y: 51.3, text: 'A point where f is decreasing'}
+    - {x: 82.9, y: 57.6, text: 'A point where f is increasing'}
+  distractors: ['Absolute maximum', 'Absolute minimum']
+  explanation: |-
+    1 is the top of the hill at $(-1, 5.5)$, a local maximum. 2 is the bottom of the valley at $(2, -8)$, a local minimum. 3 is on the stretch from $x = -1$ to $x = 2$ where the graph falls. 4 is on the right-hand stretch where it rises. Neither hilltop nor valley floor is absolute: the graph keeps rising to the right and falling to the left, so there is no absolute maximum or minimum.
+- id: pc-m1-r2-q15
+  lesson: pc-behavior
+  type: match
+  topic: Average rate of change
+  stem: 'Match each function and interval to its average rate of change.'
+  pairs:
+    - ['$y = x^2$ on $[1, 4]$', '5']
+    - ['$y = x^2$ on $[-2, 2]$', '0']
+    - ['$y = x^3$ on $[0, 2]$', '4']
+    - ['$y = \sqrt{x}$ on $[1, 9]$', '1/4']
+  distractors: ['8', '2']
+  explanation: |-
+    Use $\tfrac{f(b) - f(a)}{b - a}$. $\tfrac{16 - 1}{3} = 5$. $\tfrac{4 - 4}{4} = 0$ (the parabola comes back to the same height). $\tfrac{8 - 0}{2} = 4$. $\tfrac{3 - 1}{8} = \tfrac14$. Forgetting to divide by the width gives the distractors: 8 for $x^3$ and 2 for $\sqrt{x}$.
+# Honors lesson 03h1: concavity and how rates change
+- id: pc-m1-r2-h01
+  lesson: pc-m1-h-concavity
+  topic: Concavity
+  stem: 'On an interval, $f$ is increasing and concave down. Which description fits its graph there?'
+  choices: ['Rising, more and more slowly', 'Rising, faster and faster', 'Falling, more and more slowly', 'Falling, faster and faster']
+  answer: 0
+  explanation: |-
+    Increasing means the rates are positive, so the graph rises. Concave down means the rates shrink, so the rise slows, like $y = \sqrt{x}$. "Rising faster and faster" is increasing and concave up; the two "falling" choices are decreasing.
+- id: pc-m1-r2-h02
+  lesson: pc-m1-h-concavity
+  topic: Concavity
+  stem: 'A function has values $f(0) = 2$, $f(1) = 5$, $f(2) = 10$, $f(3) = 17$, $f(4) = 26$. Based on these values, which description fits best?'
+  choices: ['Decreasing and concave up', 'Increasing and concave up', 'Increasing and concave down', 'Decreasing and concave down']
+  answer: 1
+  explanation: |-
+    The rates on the four unit intervals are $3, 5, 7, 9$. They are positive, so the function is increasing, and they grow, so the graph is concave up. (From data this is strong evidence, not proof: the function could wiggle between the points.)
+- id: pc-m1-r2-h03
+  lesson: pc-m1-h-concavity
+  topic: Average rate of change
+  stem: 'What is the average rate of change of $f(x) = 2x^2 - 3x + 7$ on $[-1, 6]$?'
+  choices: ['$11$', '$10$', '$7$', '$49$']
+  answer: 2
+  explanation: |-
+    For a quadratic the rate on $[p, q]$ is $a(p + q) + b = 2(-1 + 6) - 3 = 7$. Check: $f(6) = 61$ and $f(-1) = 12$, so $\tfrac{61 - 12}{7} = 7$. Using $q - p$ instead of $p + q$ gives $2(7) - 3 = 11$; dropping $b$ gives 10; forgetting to divide by the width gives 49.
+- id: pc-m1-r2-h04
+  lesson: pc-m1-h-concavity
+  topic: Average rate of change
+  stem: 'For $f(x) = x^2 - 6x + 1$, three of these intervals give the same average rate of change. Which interval gives a different one?'
+  choices: ['$[0, 6]$', '$[2, 4]$', '$[1, 5]$', '$[1, 3]$']
+  answer: 3
+  explanation: |-
+    A quadratic's average rate on $[p, q]$ is $a(p + q) + b$, which depends only on the midpoint. $[0, 6]$, $[2, 4]$ and $[1, 5]$ all have midpoint 3, giving $1(6) - 6 = 0$. $[1, 3]$ has midpoint 2, giving $1(4) - 6 = -2$.
+- id: pc-m1-r2-h05
+  lesson: pc-m1-h-concavity
+  topic: Concavity
+  stem: 'Using $h = 0.1$, what is the symmetric difference quotient $\dfrac{f(x + h) - f(x - h)}{2h}$ for $f(x) = x^3$ at $x = 1$?'
+  choices: ['$3.01$', '$3.31$', '$2.71$', '$6.02$']
+  answer: 0
+  explanation: |-
+    $\dfrac{1.1^3 - 0.9^3}{0.2} = \dfrac{1.331 - 0.729}{0.2} = \dfrac{0.602}{0.2} = 3.01$, which matches $3x^2 + h^2 = 3 + 0.01$. The one-sided quotients give 3.31 (forward) and 2.71 (backward); dividing by $h$ instead of $2h$ gives 6.02.
+- id: pc-m1-r2-h06
+  lesson: pc-m1-h-concavity
+  topic: Concavity
+  stem: 'What is the inflection point of $f(x) = x^3 - 6x^2 + 5x + 1$?'
+  choices: ['$(3, -11)$', '$(2, -5)$', '$(6, 31)$', '$(-2, -41)$']
+  answer: 1
+  explanation: |-
+    A cubic $ax^3 + bx^2 + cx + d$ has its inflection point at $x = -\tfrac{b}{3a} = -\tfrac{-6}{3} = 2$, and $f(2) = 8 - 24 + 10 + 1 = -5$. Using the quadratic vertex formula $-\tfrac{b}{2a}$ gives $x = 3$; forgetting the denominator gives $x = 6$; a sign slip gives $x = -2$.
+- id: pc-m1-r2-h07
+  lesson: pc-m1-h-concavity
+  topic: Concavity
+  stem: '"The company is still losing customers, but it loses fewer each quarter than the quarter before." If $C(t)$ is the number of customers, what does this say about $C$?'
+  choices: ['Increasing and concave down', 'Increasing and concave up', 'Decreasing and concave up', 'Decreasing and concave down']
+  answer: 2
+  explanation: |-
+    Still losing customers: $C$ is decreasing, so its rates are negative. Losing fewer each quarter: the rates move toward 0, for example from $-500$ to $-300$ per quarter, which is an increase in the rate. Rates that grow mean concave up.
+- id: pc-m1-r2-h08
+  lesson: pc-m1-h-concavity
+  topic: Concavity
+  stem: 'A ball''s height is $h(t) = -4.9t^2 + 19.6t + 1.5$ meters. Its average velocity over each one-second interval $[0, 1]$, $[1, 2]$, $[2, 3]$ is $14.7$, $4.9$ and $-4.9$ m/s. By how much does the average velocity change from one second to the next?'
+  choices: ['$-4.9$ m/s', '$9.8$ m/s', '$-19.6$ m/s', '$-9.8$ m/s']
+  answer: 3
+  explanation: |-
+    $4.9 - 14.7 = -9.8$ and $-4.9 - 4.9 = -9.8$. For a quadratic the rate on an interval is $2am + b$, so moving the midpoint by 1 changes it by $2a = 2(-4.9) = -9.8$: the acceleration due to gravity, about $9.8 \text{ m/s}^2$ downward. $-4.9$ is $a$ itself, not $2a$.
+- id: pc-m1-r2-h09
+  lesson: pc-m1-h-concavity
+  topic: Average rate of change
+  stem: 'For $f(x) = 5x^2 - 2x$, what is the symmetric difference quotient $\dfrac{f(x + h) - f(x - h)}{2h}$ at $x = 3$ with $h = 0.5$?'
+  choices: ['$30.5$', '$28$', '$25.5$', '$14$']
+  answer: 1
+  explanation: |-
+    The interval $[2.5, 3.5]$ has midpoint 3, so for a quadratic the rate is $2am + b = 2(5)(3) - 2 = 28$, whatever $h$ is. Check: $f(3.5) = 54.25$, $f(2.5) = 26.25$, and $\tfrac{28}{1} = 28$. The forward quotient on $[3, 3.5]$ gives 30.5 and the backward one on $[2.5, 3]$ gives 25.5.
+- id: pc-m1-r2-h10
+  lesson: pc-m1-h-concavity
+  topic: Concavity
+  stem: 'Which functions are concave up on their entire domain? Select all that apply.'
+  choices: ['$y = x^2$', '$y = -(x - 1)^2$', '$y = 0.5(x + 3)^2 - 4$', '$y = 4x - 1$']
+  answer: [0, 2]
+  explanation: |-
+    A quadratic $ax^2 + bx + c$ is concave up everywhere when $a > 0$: $y = x^2$ and $y = 0.5(x + 3)^2 - 4$ qualify. $y = -(x - 1)^2$ has $a = -1$, so it is concave down everywhere. A line has the same rate on every interval, so it is neither concave up nor concave down.
+- id: pc-m1-r2-h11
+  lesson: pc-m1-h-concavity
+  type: text
+  topic: Average rate of change
+  stem: 'The average rate of change of $f(x) = 4x^2 + x - 3$ on $[2, 8]$ is ___. Give only the number.'
+  accept: ['41']
+  explanation: |-
+    $a(p + q) + b = 4(2 + 8) + 1 = 41$. Check: $f(8) = 256 + 8 - 3 = 261$ and $f(2) = 16 + 2 - 3 = 15$, so $\tfrac{261 - 15}{6} = \tfrac{246}{6} = 41$.
+- id: pc-m1-r2-h12
+  lesson: pc-m1-h-concavity
+  type: match
+  topic: Concavity
+  stem: 'Match each function, on the interval $x > 0$, to its shape there.'
+  pairs:
+    - ['$y = x^2$', 'Increasing, concave up']
+    - ['$y = \sqrt{x}$', 'Increasing, concave down']
+    - ['$y = -x^2$', 'Decreasing, concave down']
+    - ['$y = \dfrac{1}{x}$', 'Decreasing, concave up']
+  distractors: ['Constant']
+  explanation: |-
+    $x^2$ rises faster and faster. $\sqrt{x}$ rises more and more slowly (rates $1, \tfrac13, \tfrac15, \ldots$ on $[0, 1], [1, 4], [4, 9]$). $-x^2$ falls faster and faster. $\tfrac1x$ falls more and more slowly: its rates are negative but move toward 0, so they increase.
+- id: pc-m1-r2-h13
+  lesson: pc-m1-h-concavity
+  type: order
+  topic: Concavity
+  stem: 'For $f(x) = \sqrt{x}$, put these average rates of change in order from least to greatest.'
+  items: ['the rate on $[9, 16]$', 'the rate on $[4, 9]$', 'the rate on $[1, 4]$', 'the rate on $[0, 1]$']
+  explanation: |-
+    The rates are $\tfrac{4 - 3}{7} = \tfrac17$, $\tfrac{3 - 2}{5} = \tfrac15$, $\tfrac{2 - 1}{3} = \tfrac13$ and $\tfrac{1 - 0}{1} = 1$. They shrink as the interval moves right, which is what concave down means.
+- id: pc-m1-r2-h14
+  lesson: pc-m1-h-concavity
+  type: label
+  topic: Concavity
+  stem: 'The graph shows $y = x^3 - 3x^2$, defined for all real $x$. Name the numbered features.'
+  image: {src: images/pc-m1-concavity-blank.svg, alt: 'A cubic graph rising to a high point at the origin, bending through a point at (1, −2), falling to a low point at (2, −4), then rising. Markers sit on the high point, the middle point, the low point, a point on the far left and a point on the far right.'}
+  labels:
+    - {x: 31.6, y: 31.8, text: 'Local maximum'}
+    - {x: 50.0, y: 50.0, text: 'Inflection point'}
+    - {x: 68.4, y: 68.2, text: 'Local minimum'}
+    - {x: 18.7, y: 48.3, text: 'A point where the graph is concave down'}
+    - {x: 83.1, y: 46.1, text: 'A point where the graph is concave up'}
+  distractors: ['Absolute maximum', 'Jump discontinuity']
+  explanation: |-
+    1: $(0, 0)$ is a hilltop, a local maximum (not absolute, since the graph rises without bound on the right). 2: $(1, -2)$ is where the bend switches, the inflection point $x = -\tfrac{b}{3a} = 1$. 3: $(2, -4)$ is a valley floor, a local minimum. 4: left of $x = 1$ the graph is concave down. 5: right of $x = 1$ it is concave up. The graph is unbroken, so there is no jump.
+# Honors lesson 03h2: piecewise models
+- id: pc-m1-r2-h15
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Rewritten piecewise, what is $f(x) = \lvert x - 1 \rvert + \lvert x + 2 \rvert$ on the interval $-2 \le x < 1$?'
+  choices: ['$2x + 1$', '$-2x - 1$', '$3$', '$2x + 3$']
+  answer: 2
+  explanation: |-
+    On $-2 \le x < 1$, $x - 1 < 0$ and $x + 2 \ge 0$, so $f(x) = -(x - 1) + (x + 2) = 3$. $2x + 1$ is the piece for $x \ge 1$ and $-2x - 1$ the piece for $x < -2$. $2x + 3$ comes from forgetting to change the sign of $x - 1$ inside the interval.
+- id: pc-m1-r2-h16
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Solve $\lvert x - 3 \rvert + \lvert x + 1 \rvert = 6$.'
+  choices: ['$x = -2$ or $x = 4$', '$x = -1$ or $x = 3$', '$x = 4$ only', 'No solution']
+  answer: 0
+  explanation: |-
+    Breakpoints $-1$ and $3$. For $x < -1$: $-(x - 3) - (x + 1) = -2x + 2 = 6$, so $x = -2$, which is in the interval. For $-1 \le x < 3$: the sum is $4 \ne 6$, no solution. For $x \ge 3$: $2x - 2 = 6$, so $x = 4$, which is in the interval. Check: $5 + 1 = 6$ and $1 + 5 = 6$. The breakpoints $-1$ and $3$ give a sum of only 4.
+- id: pc-m1-r2-h17
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'What is the smallest value of $D(x) = \lvert x - 1 \rvert + \lvert x - 4 \rvert + \lvert x - 10 \rvert$?'
+  choices: ['$10$', '$12$', '$15$', '$9$']
+  answer: 3
+  explanation: |-
+    A sum of distances is smallest at the median of 1, 4, 10, which is 4: $D(4) = 3 + 0 + 6 = 9$. At the mean, 5, $D = 4 + 1 + 5 = 10$. At the end points, $D(1) = 12$ and $D(10) = 15$.
+- id: pc-m1-r2-h18
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Four stores sit at mile markers 2, 3, 8 and 11 on a straight road. Where should a warehouse go to make the total distance to the four stores as small as possible?'
+  choices: ['Only at mile 6, the mean', 'Anywhere from mile 3 to mile 8', 'Only at mile 5.5, halfway between 3 and 8', 'Only at mile 6.5, halfway between 2 and 11']
+  answer: 1
+  explanation: |-
+    The slope of $D(x)$ is (stores to the left) minus (stores to the right). Between miles 3 and 8 there are two stores on each side, so the slope is 0 and $D$ is constant there: $D = 14$ at every point from 3 to 8. With an even number of points, every point between the two middle values is a median and is optimal. The single points 5.5, 6 and 6.5 are optimal too, but not the only ones.
+- id: pc-m1-r2-h19
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Using the lesson''s made-up schedule (10% on the first \$20,000, 20% on the next \$30,000, 30% above \$50,000), what is the tax on a taxable income of \$42,000?'
+  choices: ['\$8,400', '\$4,400', '\$6,400', '\$4,200']
+  answer: 2
+  explanation: |-
+    The first \$20,000 costs \$2,000. The remaining \$22,000 is in the 20% bracket: $0.20(22{,}000) = 4{,}400$. Total \$6,400. Taxing all \$42,000 at 20% gives \$8,400; \$4,400 forgets the first bracket; \$4,200 taxes everything at 10%.
+- id: pc-m1-r2-h20
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Under the same made-up schedule, what is the effective (average) tax rate on a taxable income of \$100,000?'
+  choices: ['23%', '30%', '20%', '26%']
+  answer: 0
+  explanation: |-
+    $T(100{,}000) = 8{,}000 + 0.30(50{,}000) = 23{,}000$, so the effective rate is $\tfrac{23{,}000}{100{,}000} = 23\%$. 30% is the marginal rate, which applies only to the dollars above \$50,000.
+- id: pc-m1-r2-h21
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Under the same made-up schedule, a raise takes taxable income from \$49,000 to \$51,000, into the 30% bracket. By how much does the tax go up?'
+  choices: ['\$600', '\$400', '\$5,500', '\$500']
+  answer: 3
+  explanation: |-
+    $T(49{,}000) = 2{,}000 + 0.20(29{,}000) = 7{,}800$ and $T(51{,}000) = 8{,}000 + 0.30(1{,}000) = 8{,}300$: up \$500. The first \$1,000 of the raise is taxed at 20% and the second at 30%. Taxing the whole \$51,000 at 30% versus \$49,000 at 20% would give \$5,500, the myth the lesson debunks.
+- id: pc-m1-r2-h22
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'What is $\lceil -2.3 \rceil$, the smallest integer greater than or equal to $-2.3$?'
+  choices: ['$-3$', '$-2$', '$-1$', '$2$']
+  answer: 1
+  explanation: |-
+    The integers greater than or equal to $-2.3$ are $-2, -1, 0, \ldots$; the smallest is $-2$. The ceiling rounds toward $+\infty$. $-3$ is the floor, which rounds the other way.
+- id: pc-m1-r2-h23
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Solve $\lfloor 3x - 1 \rfloor = 4$.'
+  choices: ['$\tfrac53 \le x < 2$', '$\tfrac53 < x \le 2$', '$\tfrac53 \le x \le 2$', '$x = \tfrac53$ only']
+  answer: 0
+  explanation: |-
+    $\lfloor A \rfloor = 4$ means $4 \le A < 5$. So $4 \le 3x - 1 < 5$, then $5 \le 3x < 6$, then $\tfrac53 \le x < 2$. At $x = 2$ the floor is $\lfloor 5 \rfloor = 5$, so 2 is excluded; $\tfrac53$ gives $\lfloor 4 \rfloor = 4$, so it is included. A floor equation has a whole interval of solutions.
+- id: pc-m1-r2-h24
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Buses seat 40 students each. Which formula gives the number of buses needed for $n$ students, for every whole number $n \ge 1$?'
+  choices: ['$\lfloor n/40 \rfloor$', '$\lfloor n/40 \rfloor + 1$', '$\lceil n/40 \rceil$', '$n/40$ rounded to the nearest integer']
+  answer: 2
+  explanation: |-
+    You need the smallest whole number of buses with at least $n$ seats, which is $\lceil n/40 \rceil$. $\lfloor n/40 \rfloor$ leaves students behind (130 students: 3 buses). $\lfloor n/40 \rfloor + 1$ works except when $n$ is a multiple of 40: for 80 students it orders 3 buses. Rounding fails for 50 students (gives 1 bus).
+- id: pc-m1-r2-h25
+  lesson: pc-m1-h-piecewise-models
+  topic: Piecewise models
+  stem: 'Which statements are true for every real number $x$? Select all that apply.'
+  choices: ['$\lceil x \rceil = -\lfloor -x \rfloor$', '$\lfloor x \rfloor \le x < \lfloor x \rfloor + 1$', '$\lceil x \rceil = \lfloor x \rfloor + 1$', '$\lfloor x + 3 \rfloor = \lfloor x \rfloor + 3$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Negating flips the number line, so rounding $-x$ down and negating rounds $x$ up: $\lceil x \rceil = -\lfloor -x \rfloor$. The floor is at most $x$ and the next integer is above $x$. Adding an integer shifts both $x$ and its floor by the same integer. But $\lceil x \rceil = \lfloor x \rfloor + 1$ fails at integers: $\lceil 2 \rceil = \lfloor 2 \rfloor = 2$.
+- id: pc-m1-r2-h26
+  lesson: pc-m1-h-piecewise-models
+  type: text
+  topic: Piecewise models
+  stem: 'Under the lesson''s made-up schedule (10% on the first \$20,000, 20% on the next \$30,000, 30% above \$50,000), the tax on a taxable income of \$30,000 is ___ dollars. Give only the number.'
+  accept: ['4000', '4,000']
+  explanation: |-
+    $0.10(20{,}000) + 0.20(30{,}000 - 20{,}000) = 2{,}000 + 2{,}000 = 4{,}000$ dollars. Taxing the whole \$30,000 at 20% would give \$6,000.
+- id: pc-m1-r2-h27
+  lesson: pc-m1-h-piecewise-models
+  type: text
+  topic: Piecewise models
+  stem: '$\lfloor -4.5 \rfloor =$ ___ and $\lceil -4.5 \rceil =$ ___.'
+  accept:
+    - ['-5']
+    - ['-4']
+  explanation: |-
+    $-4.5$ lies between $-5$ and $-4$. The floor rounds down (toward $-\infty$) to $-5$; the ceiling rounds up to $-4$.
+- id: pc-m1-r2-h28
+  lesson: pc-m1-h-piecewise-models
+  type: order
+  topic: Piecewise models
+  stem: 'Put the steps for rewriting $\lvert x - a \rvert + \lvert x - b \rvert$ as a piecewise function in order.'
+  items: [Find where each inside is zero, Order those breakpoints to split the number line into intervals, 'On each interval, replace each absolute value by its inside or the negative of its inside', Simplify each piece, Check that neighboring pieces agree at each breakpoint]
+  explanation: |-
+    The breakpoints come first, because they decide the intervals. Only once you know an interval can you tell the sign of each inside and drop the bars. Simplifying gives a linear formula per piece, and the final check catches sign slips: absolute value expressions never jump, so the pieces must agree at the breakpoints.
+- id: pc-m1-r2-h29
+  lesson: pc-m1-h-piecewise-models
+  type: match
+  topic: Piecewise models
+  stem: 'Using the lesson''s made-up schedule (10% on the first \$20,000, 20% on the next \$30,000, 30% above \$50,000), match each item to its rate.'
+  pairs:
+    - [Marginal rate at an income of 15000 dollars, 10%]
+    - [Marginal rate at an income of 35000 dollars, 20%]
+    - [Marginal rate at an income of 80000 dollars, 30%]
+    - [Effective rate at an income of 50000 dollars, 16%]
+  distractors: [25%]
+  explanation: |-
+    The marginal rate is the rate of the bracket that contains the next dollar: 10% below \$20,000, 20% from \$20,000 to \$50,000, and 30% above. The effective rate at \$50,000 is $\tfrac{T(50{,}000)}{50{,}000} = \tfrac{8{,}000}{50{,}000} = 16\%$.
+- id: pc-m1-r2-h30
+  lesson: pc-m1-h-piecewise-models
+  type: label
+  topic: Piecewise models
+  stem: 'The graph shows $y = \lvert x - 1 \rvert + \lvert x + 2 \rvert$. Name the numbered parts.'
+  image: {src: images/pc-m1-abs-sum-blank.svg, alt: 'A flat-bottomed V shape: a line falling from the upper left to a corner at (−2, 3), a horizontal segment at height 3 to a corner at (1, 3), and a line rising to the upper right.'}
+  labels:
+    - {x: 34.7, y: 62.3, text: 'Breakpoint where x + 2 = 0'}
+    - {x: 65.3, y: 62.3, text: 'Breakpoint where x − 1 = 0'}
+    - {x: 50.0, y: 62.3, text: 'The piece y = 3'}
+    - {x: 19.3, y: 37.7, text: 'The piece y = −2x − 1'}
+    - {x: 80.7, y: 37.7, text: 'The piece y = 2x + 1'}
+  distractors: ['The piece y = 2x + 3', 'Vertex of a parabola']
+  explanation: |-
+    1 is the corner at $x = -2$, where $x + 2 = 0$. 2 is the corner at $x = 1$, where $x - 1 = 0$. 3 is the flat middle piece: between the breakpoints $-(x - 1) + (x + 2) = 3$. 4 is the left piece $-(x - 1) - (x + 2) = -2x - 1$ (slope $-2$). 5 is the right piece $(x - 1) + (x + 2) = 2x + 1$ (slope 2). The graph is made of line pieces, so it has no parabola vertex.

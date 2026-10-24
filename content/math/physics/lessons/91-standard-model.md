@@ -15,25 +15,23 @@ The answers make up the **Standard Model** of particle physics, built in the 196
 
 ## Antimatter
 
-In 1928 Paul Dirac combined quantum mechanics with special relativity and found that his equation for the electron also described a partner particle with the same mass and the opposite charge. In 1932 Carl Anderson saw one: a track in a cloud chamber that curved the "wrong" way in a magnetic field. This **positron** ($e^+$) was the first **antiparticle** found. Every particle has an antiparticle with the same mass and opposite charge (and the opposite of the other conserved numbers you'll meet below). A few neutral particles, such as the photon, are their own antiparticles. An antiparticle is written with a bar: $\bar\nu$ is an antineutrino, $\bar p$ an antiproton.
+In 1928 Paul Dirac combined quantum mechanics with special relativity and found that his equation for the electron also described a partner with the same mass and the opposite charge. In 1932 Carl Anderson saw one: a cloud-chamber track that curved the "wrong" way in a magnetic field. This **positron** ($e^+$) was the first **antiparticle** found. Every particle has an antiparticle with the same mass and opposite charge (and the opposite of the other conserved numbers you'll meet below); a few neutral particles, such as the photon, are their own antiparticles. Antiparticles are written with a bar: $\bar\nu$ is an antineutrino, $\bar p$ an antiproton.
 
-When a particle meets its antiparticle they can **annihilate**, converting all their rest energy into other particles, often photons. An electron and a positron at rest give
+The nuclear-reactions honors lesson met the two processes that link matter, antimatter and energy. A particle and its antiparticle can **annihilate**, turning all their energy into other particles: an electron and a positron at rest give two 0.511 MeV photons flying apart (two, so that their momenta cancel). In reverse, **pair production** turns energy into a particle–antiparticle pair; a photon needs at least $2m_ec^2 = 1.022$ MeV, and a nucleus nearby to take up momentum, to make an electron and a positron. Heavier antiparticles need correspondingly more energy.
 
-$$e^- + e^+ \to \gamma + \gamma.$$
+### Example 1: making antiprotons
 
-Why two photons and not one? The total momentum before is zero, and a single photon always carries momentum $E/c$, so momentum conservation needs at least two photons flying apart in opposite directions with equal energies.
+The antiproton was first made in 1955 at the Bevatron in Berkeley by colliding fast protons with protons. The reaction can't be $p + p \to p + \bar p$: the charge would drop from $+2$ to $0$. The simplest reaction that works keeps both original protons and adds a proton–antiproton pair:
 
-The reverse process is **pair production**: a photon with enough energy can turn into a particle–antiparticle pair. For an electron–positron pair it needs at least $2m_ec^2 = 1.022$ MeV, and it happens only near a nucleus, which absorbs a little recoil momentum (a lone photon can't make a pair and conserve both energy and momentum).
+$$p + p \to p + p + p + \bar p.$$
 
-### Example 1: the photons of a PET scan
+Charge: $+2 \to +1 + 1 + 1 - 1 = +2$. ✓ (It also conserves baryon number, a rule coming later in the lesson.)
 
-In positron emission tomography (PET), a patient is given a tracer containing a positron emitter such as fluorine-18. Each positron travels about a millimeter, slows down and annihilates with an electron. Find the energy and wavelength of each photon.
+Now suppose two protons collide head-on with equal speeds, as in a modern collider. The total momentum is zero, so in principle all the energy can go into rest energy, with the four product particles left at rest. The new pair needs $2m_pc^2 = 2(938.3) = 1876.6$ MeV of extra rest energy, so each incoming proton needs kinetic energy of at least
 
-The electron and positron each have rest energy 0.511 MeV, and they are nearly at rest, so the 1.022 MeV is shared equally: each photon has $E = 0.511$ MeV $= 511$ keV. Its wavelength is
+$$K = \frac{1876.6\text{ MeV}}{2} = 938.3\text{ MeV} = m_pc^2.$$
 
-$$\lambda = \frac{hc}{E} = \frac{1240\text{ eV·nm}}{511\,000\text{ eV}} = 2.43\times10^{-3}\text{ nm} = 2.43\text{ pm}.$$
-
-The photons leave back to back, so detectors that catch both at once know the annihilation happened on the line between them; many such lines locate the tracer.
+If instead a proton hits a proton at rest, the products must keep moving to carry the momentum, which wastes energy. A relativistic calculation shows the beam then needs $K = 6m_pc^2 = 5.6$ GeV, six times the head-on figure. The Bevatron was built to reach about 6 GeV for exactly this reason, and it is why today's highest-energy machines collide two beams.
 
 ## Inside the proton: quarks
 
@@ -50,7 +48,7 @@ There are six kinds ("flavors") of quark, in three **generations** of increasing
 
 ## Leptons
 
-The other matter particles, the **leptons**, don't feel the strong force at all. There are three charged ones, the electron, the muon (about 207 times the electron's mass) and the tau, and three neutral **neutrinos**, one paired with each. Neutrinos interact so weakly that hundreds of trillions from the Sun pass through your body every second without effect. They were long thought to be massless, but experiments around 1998–2001 showed they change type in flight, which requires mass; their masses are tiny but not yet known exactly.
+The other matter particles, the **leptons**, don't feel the strong force at all. There are three charged ones, the electron, the muon (about 207 times the electron's mass) and the tau, and three neutral **neutrinos**, one paired with each. Neutrinos interact so weakly that hundreds of trillions from the Sun pass through your body every second without effect. They were thought massless until experiments around 1998–2001 showed that they change type in flight, which requires small masses.
 
 ![The Standard Model chart. Quarks fill two rows of three: up, charm, top above down, strange, bottom. Leptons fill two rows of three: electron, muon, tau above the electron, muon and tau neutrinos. The three columns are generations I, II and III. A separate column holds the force carriers: gluon, photon, Z boson and W boson. Below it is the Higgs boson.](images/phys-h1-standard-model.svg)
 
@@ -90,7 +88,7 @@ Why is the weak force so short-ranged? In 1935 Hideki Yukawa argued that a force
 
 $$R \approx \frac{\hbar c}{mc^2}, \qquad \hbar c = 197\text{ MeV·fm}.$$
 
-This is an estimate, not an exact law, but it captures the pattern: heavy carriers give short-range forces, and a massless carrier (the photon) gives unlimited range. From the short range of the nuclear force, Yukawa predicted a carrier about 200 times the electron's mass. The pion, found in 1947 with a rest energy of 140 MeV (which gives $R \approx 197/140 = 1.4$ fm), fits the idea.
+This is an estimate, not an exact law, but it captures the pattern: heavy carriers give short ranges, a massless one unlimited range. From the short range of the nuclear force, Yukawa predicted a carrier about 200 times the electron's mass. The pion, found in 1947 with a rest energy of 140 MeV (which gives $R \approx 197/140 = 1.4$ fm), fits the idea.
 
 ### Example 2: the range of the weak force
 
@@ -143,13 +141,12 @@ The 2.8 km radius applies inside the bending magnets; with straight sections, th
 
 - Saying protons and neutrons are fundamental. They are baryons made of quarks; electrons, as far as anyone can tell, are fundamental.
 - Adding quark charges as whole numbers. Up is $+\tfrac23$, down is $-\tfrac13$; antiquarks have the opposite signs.
-- Forgetting that annihilation at rest makes *two* photons (momentum), each with one particle's rest energy.
 - Checking only charge. A reaction must also conserve baryon number, lepton number and energy.
 - Thinking the Higgs field gives the proton its mass. It gives the quarks their small masses; most of the proton's mass is strong-interaction energy.
 
 ## Key points
 
-- Every particle has an antiparticle with equal mass and opposite charge. $e^-e^+$ annihilation at rest gives two 0.511 MeV photons; pair production needs at least 1.022 MeV.
+- Every particle has an antiparticle with equal mass and opposite charge; making a pair takes at least $2mc^2$, most efficiently in head-on collisions.
 - Matter is made of fermions: quarks (u $+\tfrac23$, d $-\tfrac13$, and four heavier flavors) and leptons (e, μ, τ and three neutrinos), in three generations.
 - Baryons are three quarks (p = uud, n = udd); mesons are quark–antiquark pairs; quarks are confined.
 - Forces are carried by gauge bosons: gluons (strong), photon (electromagnetic), W and Z (weak); gravity is not in the Standard Model. Range $R \approx \hbar c/(mc^2)$.

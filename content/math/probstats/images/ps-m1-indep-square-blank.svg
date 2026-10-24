@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 480" width="620" height="480" font-family="sans-serif" fill="#1c2833">
+<rect width="620" height="480" fill="#ffffff"/>
+<rect x="150" y="50" width="144.0" height="252.0" fill="#dde8f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="150" y="302.0" width="144.0" height="108.0" fill="#e8e2f3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="294.0" y="302.0" width="216.0" height="108.0" fill="#dcf0e3" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="294.0" y="50" width="216.0" height="252.0" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="150" y="50" width="360" height="360" fill="none" stroke="#1c2833" stroke-width="2.5"/>
+<text x="222.0" y="438" font-size="15" text-anchor="middle">P(A) = 0.4</text>
+<text x="402.0" y="438" font-size="15" text-anchor="middle">P(Aᶜ) = 0.6</text>
+<text x="140" y="361.0" font-size="15" text-anchor="end">P(B) = 0.3</text>
+<text x="140" y="181.0" font-size="15" text-anchor="end">P(Bᶜ) = 0.7</text>
+<text x="330" y="470" font-size="14" text-anchor="middle" font-style="italic">whole square: area 1 = P(S)</text>
+</svg>

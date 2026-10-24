@@ -43,10 +43,6 @@
   aliases: [antiparticles, antimatter]
   definition: 'A particle with the same mass as another but opposite charge (and opposite baryon and lepton numbers). The positron is the electron''s antiparticle; antiparticles are written with a bar, such as $\bar\nu$.'
   topic: Particle physics
-- term: positron
-  aliases: [positrons, antielectron]
-  definition: 'The electron''s antiparticle, $e^+$: same mass (0.511 MeV), charge $+e$. Predicted by Dirac (1928) and found by Anderson (1932).'
-  topic: Particle physics
 - term: annihilation
   aliases: [annihilate, annihilates, pair annihilation]
   definition: 'The conversion of a particle and its antiparticle into other particles, often photons. An electron and positron at rest give two 0.511 MeV photons moving in opposite directions.'
@@ -81,10 +77,6 @@
 - term: lepton
   aliases: [leptons]
   definition: 'A fundamental matter particle that does not feel the strong force: the electron, muon and tau, and their three neutrinos.'
-  topic: Particle physics
-- term: neutrino
-  aliases: [neutrinos]
-  definition: 'A neutral lepton with a very small mass that interacts only through the weak force (and gravity). There are three types, paired with the electron, muon and tau.'
   topic: Particle physics
 - term: fermion
   aliases: [fermions]
@@ -173,33 +165,23 @@
   definition: 'The density $\rho_c = 3H^2/(8\pi G)$ at which the universe''s geometry is flat, about $9\times10^{-27}$ kg/m³ (five or six hydrogen atoms per cubic meter) today. The measured total density is very close to it.'
   topic: Dark matter and dark energy
 # Lesson 93
-- term: solar constant
-  definition: 'The intensity of sunlight at Earth''s distance, above the atmosphere, on a surface facing the Sun: about 1361 W/m².'
-  topic: Planetary energy balance
-- term: albedo
-  aliases: [albedos]
-  definition: 'The fraction of incoming sunlight a planet or surface reflects. Earth''s is about 0.30; fresh snow''s is much higher, the ocean''s much lower.'
-  topic: Planetary energy balance
-- term: effective temperature
-  aliases: [radiating temperature]
-  definition: 'The temperature a blackbody would need to radiate away the power a planet absorbs: $T_e = [S(1 - \alpha)/(4\sigma)]^{1/4}$. About 255 K for Earth.'
-  topic: Planetary energy balance
-- term: greenhouse effect
-  definition: 'The warming of a planet''s surface by an atmosphere that lets sunlight through but absorbs the surface''s infrared and radiates part of it back down. It keeps Earth''s average surface about 33 K warmer than its effective temperature.'
-  topic: Greenhouse effect and climate change
-- term: greenhouse gas
-  aliases: [greenhouse gases]
-  definition: 'A gas, such as water vapor, carbon dioxide or methane, that is nearly transparent to sunlight but absorbs and emits infrared radiation.'
-  topic: Greenhouse effect and climate change
 - term: radiative forcing
   aliases: [forcing]
   definition: 'A change in the net energy flow into the climate system, in W/m², before temperatures respond. For CO₂, about $5.35\ln(C/C_0)$ W/m², or 3.7 W/m² per doubling.'
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
 - term: climate feedback
   aliases: [feedback, feedbacks, climate feedbacks]
   definition: 'A change caused by warming or cooling that alters the energy balance further. Amplifying (positive) feedbacks include water vapor and ice–albedo; the extra infrared a warmer planet radiates is stabilizing.'
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
 - term: climate sensitivity
   aliases: [equilibrium climate sensitivity, ECS]
   definition: 'The eventual global warming caused by doubling the CO₂ concentration, once the climate has settled: best estimate about 3 °C, likely 2.5 to 4 °C (IPCC, 2021).'
-  topic: Greenhouse effect and climate change
+  topic: Climate forcing and feedbacks
+- term: lapse rate
+  aliases: [lapse rates]
+  definition: 'The rate at which air temperature falls with height in the lower atmosphere, about 6.5 K per kilometer on average.'
+  topic: Greenhouse models
+- term: emission height
+  aliases: [emission level, effective emission height]
+  definition: 'The average height from which Earth''s infrared escapes to space, about 5 km, where the temperature is near the equilibrium temperature of 255 K. Adding greenhouse gases raises it.'
+  topic: Greenhouse models

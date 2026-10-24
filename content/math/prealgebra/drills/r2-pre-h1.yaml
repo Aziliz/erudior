@@ -13,11 +13,11 @@
     pr: ra * rb
     ans: mod(ra * rb, md)
   where: ['ra >= 2', 'rb >= 2']
-  prompt: 'Without multiplying it out, find the remainder when ${fa} \times {fb}$ is divided by {md}.'
+  prompt: 'Without multiplying it out, find the remainder when {fa} × {fb} is divided by {md}.'
   answer: ans
   format: integer
   solution: |-
-    Replace each factor by its remainder. ${fa} \div {md}$ leaves remainder {ra}, and ${fb} \div {md}$ leaves remainder {rb}.
+    Replace each factor by its remainder. {fa} ÷ {md} leaves remainder {ra}, and {fb} ÷ {md} leaves remainder {rb}.
 
     Multiply the remainders: ${ra} \times {rb} = {pr}$. Reduce again: ${pr} \div {md}$ leaves remainder **{ans}**.
 
@@ -60,7 +60,7 @@
         - {label: Thursday, value: 4}
         - {label: Friday, value: 5}
         - {label: Saturday, value: 6}
-    nd: {min: 30, max: 1000}
+    nd: {min: 30, max: 999}
   calc:
     dn: dy
     wk: floor(nd / 7)
@@ -72,7 +72,7 @@
   answer: ans
   format: integer
   solution: |-
-    Whole weeks don't change the day: ${nd} = {wk} \times 7 + {lft}$, so only the {lft} leftover days matter.
+    Whole weeks don't change the day: ${nd} = {wk} \times 7 + {lft}$, so only the leftover days matter, and there are {lft} of them.
 
     {dy} is day {dn}. Move forward {lft}: ${dn} + {lft} = {tot}$, and reducing by 7 if needed gives day **{ans}**.
 
@@ -113,11 +113,11 @@
   answer: ans
   format: integer
   solution: |-
-    Multiples of {kk} from 1 to {hi}: the quotient of ${hi} \div {kk}$ is {up}.
+    Multiples of {kk} from 1 to {hi}: the quotient of {hi} ÷ {kk} is {up}.
 
-    Leave out the ones below {lo}, that is, from 1 to {lom}: the quotient of ${lom} \div {kk}$ is {below}.
+    Leave out the ones below {lo}, that is, from 1 to {lom}: the quotient of {lom} ÷ {kk} is {below}.
 
-    Answer: ${up} - {below} =$ **{ans}**.
+    Answer: {up} − {below} = **{ans}**.
 
 - id: pre-h1-r2-either-count
   title: Divisible by one number or another
@@ -141,7 +141,7 @@
 
     Numbers divisible by both are the multiples of LCM({na}, {nb}) = {lc}: there are {cab}.
 
-    Inclusion–exclusion: ${ca} + {cb} - {cab} =$ **{ans}**.
+    Inclusion–exclusion: {ca} + {cb} − {cab} = **{ans}**.
 
 - id: pre-h1-r2-factorial-zeros
   title: Zeros at the end of a factorial
@@ -154,7 +154,7 @@
     q3: floor(nn / 125)
     q4: floor(nn / 625)
     ans: floor(nn / 5) + floor(nn / 25) + floor(nn / 125) + floor(nn / 625)
-  prompt: 'How many zeros are at the end of ${nn}!$ (written out in full)?'
+  prompt: 'How many zeros are at the end of {nn}! (that is, {nn} factorial, written out in full)?'
   answer: ans
   format: integer
   solution: |-
@@ -171,7 +171,7 @@
   vars:
     st: {min: 2, max: 40}
     df: {min: 2, max: 9}
-    nt: {min: 15, max: 120}
+    nt: {min: 15, max: 100}
   calc:
     s2: st + df
     s3: st + 2 * df
@@ -220,4 +220,4 @@
   answer: ans
   format: integer
   solution: |-
-    Each person shakes {each} hands, giving ${pp} \times {each} = {dbl}$ hand-counts. Every handshake was counted twice (once for each person), so there are ${dbl} \div 2 =$ **{ans:int}** handshakes.
+    Each person shakes {each} hands, giving {pp} × {each} = {dbl} hand-counts. Every handshake was counted twice (once for each person), so there are {dbl} ÷ 2 = **{ans:int}** handshakes.

@@ -111,7 +111,7 @@ Black holes were long only theory, but the evidence is now strong: stars orbitin
 
 When masses accelerate, the curvature they cause changes, and the changes spread outward at the speed of light as **gravitational waves**: ripples that stretch and squeeze space itself, along directions perpendicular to the wave's travel. Einstein predicted them in 1916 but doubted they could ever be detected, because the stretching is so small. A passing wave changes a length $L$ by $\Delta L$, and the fractional change $h = \Delta L/L$ (the wave's strain) from even violent events far away is around $10^{-21}$.
 
-The detectors that succeeded, the two LIGO observatories in Washington and Louisiana, are giant versions of the Michelson interferometer from the wave-optics lesson:
+The detectors that succeeded, the two LIGO observatories in Washington and Louisiana, are giant Michelson interferometers (the interferometers honors lesson of the optics module describes how one works), built on the interference ideas of the wave-optics lesson:
 
 ![An L-shaped interferometer. A laser beam enters a beam splitter, which sends half the light down each of two perpendicular 4 km arms. Mirrors at the far ends reflect the beams back to the beam splitter, where they recombine and go to a photodetector.](images/phys-h1-ligo.svg)
 

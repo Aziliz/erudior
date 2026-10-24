@@ -69,7 +69,7 @@ Two lines are **perpendicular** when they meet at a right angle. For lines that 
 *Why it's true.* Draw a slope triangle for a line: run 3, rise 2, so the slope is $\tfrac23$. Now turn the whole picture a quarter turn counterclockwise about the starting point. The line turns through a right angle, and the triangle turns with it: the run of 3 to the right becomes a rise of 3 upward, and the rise of 2 upward becomes a run of 2 to the *left*. The turned line therefore has rise 3 and run $-2$, a slope of $\tfrac{3}{-2} = -\tfrac32$.
 
 ```shape
-{"polygons": [{"points": [[0, 0], [3, 0], [3, 2]], "fill": true}, {"points": [[0, 0], [0, 3], [-2, 3]], "fill": true}], "segments": [{"from": [0, 0], "to": [4.5, 3], "label": "slope 2/3"}, {"from": [0, 0], "to": [-3, 4.5], "label": "slope -3/2"}], "labels": [{"at": [1.5, -0.4], "text": "run 3"}, {"at": [3.6, 1], "text": "rise 2"}, {"at": [0.55, 1.5], "text": "rise 3"}, {"at": [-1, 3.4], "text": "run -2"}], "rightAngles": [[[0, 0], [3, 2], [-2, 3]]], "caption": "A quarter turn swaps run and rise and changes a sign, so slope 2/3 becomes -3/2"}
+{"polygons": [{"points": [[0, 0], [3, 0], [3, 2]], "fill": true}, {"points": [[0, 0], [0, 3], [-2, 3]], "fill": true}], "segments": [{"from": [0, 0], "to": [4.5, 3]}, {"from": [0, 0], "to": [-3, 4.5]}], "labels": [{"at": [4.9, 3.4], "text": "slope 2/3"}, {"at": [-3.3, 4.9], "text": "slope -3/2"}, {"at": [1.5, -0.4], "text": "run 3"}, {"at": [3.6, 1], "text": "rise 2"}, {"at": [0.55, 1.5], "text": "rise 3"}, {"at": [-1, 3.4], "text": "run -2"}], "rightAngles": [[[0, 0], [3, 2], [-2, 3]]], "caption": "A quarter turn swaps run and rise and changes a sign, so slope 2/3 becomes -3/2"}
 ```
 
 The same argument works for any slope $\tfrac{b}{a}$: after the quarter turn, the run $a$ becomes a rise $a$ and the rise $b$ becomes a run $-b$, so the new slope is $-\tfrac{a}{b}$, and $\tfrac{b}{a} \cdot \left(-\tfrac{a}{b}\right) = -1$. (A full proof needs a little more geometry, such as showing the turned triangle really is congruent to the first; this picture shows the key idea.)
@@ -129,7 +129,7 @@ Point-slope form with $(2, 19)$: $h - 19 = -2.5(t - 2)$, so $h = -2.5t + 5 + 19 
 The intercept 24 means the candle was 24 cm tall when lit. It burns out when $h = 0$: $-2.5t + 24 = 0$, so $t = 9.6$ hours.
 
 ```plot
-{"x": [0, 11], "y": [0, 26], "xLabel": "hours since lit, t", "yLabel": "height h (cm)", "functions": [{"f": "-2.5x + 24", "from": 0, "to": 9.6, "label": "h = -2.5t + 24"}], "points": [{"at": [2, 19], "label": "(2, 19)"}, {"at": [6, 9], "label": "(6, 9)"}, {"at": [9.6, 0], "label": "(9.6, 0)"}], "caption": "The candle model: slope -2.5 cm per hour, starting height 24 cm"}
+{"x": [0, 13], "y": [0, 26], "xLabel": "t (hours)", "yLabel": "h (cm)", "functions": [{"f": "-2.5x + 24", "from": 0, "to": 9.6}], "points": [{"at": [2, 19], "label": "(2, 19)"}, {"at": [6, 9], "label": "(6, 9)"}, {"at": [9.6, 0], "label": "(9.6, 0)"}], "caption": "The candle model: slope -2.5 cm per hour, starting height 24 cm"}
 ```
 
 A model is a simplification. "A steady rate" is an assumption: a real candle may burn a little unevenly, and the model means nothing for $t > 9.6$, where it would predict a negative height. Use a linear model only within the range where its assumptions are reasonable.

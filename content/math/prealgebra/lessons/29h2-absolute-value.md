@@ -10,7 +10,7 @@ refs: [pre-ref-algebra]
 ---
 ## Distance, again
 
-Lesson 6 defined the absolute value $|a|$ as the distance from $a$ to 0 on the number line, so $|5| = 5$ and $|-5| = 5$. Lesson 28 solved inequalities and, at the end, graphed one statement with two parts, $-1 \le x < 3$. This honors lesson joins those threads. Equations and inequalities with absolute value in them turn out to be statements about *distance*, and their solutions are often two numbers or two pieces of the number line, which is exactly what compound inequalities describe.
+Lesson 6 defined the absolute value $|a|$ as the distance from $a$ to 0 on the number line, so $|5| = 5$ and $|-5| = 5$. Lesson 28 solved inequalities and, at the end, graphed one statement with two parts, $-1 \le x < 3$. This honors lesson joins those threads. Equations and inequalities with absolute value in them turn out to be statements about *distance*, and their solutions are often two numbers or two pieces of the number line, which is exactly what compound inequalities describe. (If you did the honors lesson after Lesson 8, you have already solved $|x - a| = d$ by walking $d$ units each way from $a$. Here the expression inside the bars can be any linear expression, such as $2x - 1$, and the comparison can be $<$ or $>$ as well as $=$.)
 
 ## Absolute value as distance between two numbers
 
@@ -19,7 +19,7 @@ The distance between two numbers $a$ and $b$ on the number line is $|a - b|$. Th
 Read this way, $|x - 3| = 5$ says "$x$ is 5 units away from 3." Two numbers fit: $3 + 5 = 8$ and $3 - 5 = -2$.
 
 ```numberline
-{"x": [-4, 10], "points": [{"at": [-2, 0], "open": false, "label": "-2"}, {"at": [3, 0], "open": true, "label": "3"}, {"at": [8, 0], "open": false, "label": "8"}], "segments": [{"from": [3, 0], "to": [-2, 0], "label": "5 units"}, {"from": [3, 0], "to": [8, 0], "label": "5 units"}], "caption": "|x - 3| = 5: the two numbers 5 units from 3 are -2 and 8"}
+{"x": [-4, 10], "points": [{"at": [-2, 0], "open": false, "label": "-2"}, {"at": [3, 0], "open": true, "label": "center 3"}, {"at": [8, 0], "open": false, "label": "8"}], "caption": "|x - 3| = 5: the only two solutions are -2 and 8, each 5 units from 3 (the open circle marks 3, which is not a solution)"}
 ```
 
 ## Solving absolute value equations
@@ -134,11 +134,11 @@ The quantity $2x + 3$ is more than 7 units from 0, so it is below $-7$ or above 
 
 The solution is $x < -5$ or $x > 2$. Check a number in neither piece, $x = 0$: $|3| = 3 > 7$ is false ✓. Check $x = 3$: $|9| > 7$ ✓.
 
-### Example 7 (tolerance)
+### Example 7 (a thermostat)
 
-A factory makes bolts that should be 25 mm long. A bolt passes inspection if its length $L$ is within 0.2 mm of 25 mm. Write and solve an inequality for the lengths that pass.
+A thermostat is set to 68 °F. It switches on the heating or the air conditioning whenever the room temperature $T$ is more than 3 °F away from the setting. Write and solve an inequality for the temperatures that switch something on.
 
-"Within 0.2 mm of 25" is a distance statement: $|L - 25| \le 0.2$. So $-0.2 \le L - 25 \le 0.2$, and adding 25 gives $24.8 \le L \le 25.2$. Bolts from 24.8 mm to 25.2 mm long pass. Engineers call the 0.2 mm a tolerance, and absolute value inequalities are the natural way to write one.
+"More than 3 away from 68" is a distance statement: $|T - 68| > 3$. A "greater than" gives an "or": $T - 68 < -3$ or $T - 68 > 3$, so $T < 65$ or $T > 71$. Below 65 °F the heat comes on; above 71 °F the air conditioning does. Between 65 °F and 71 °F, endpoints included, nothing switches on, and that comfortable band is the solution of the opposite inequality, $|T - 68| \le 3$.
 
 ## Special cases
 
@@ -160,7 +160,7 @@ Isolate the absolute value, then look at the number on the other side before spl
 ## Key points
 
 - $|a - b|$ is the distance between $a$ and $b$; $|x - 3| = 5$ means $x$ is 5 units from 3.
-- For $c > 0$: $|u| = c$ means $u = c$ or $u = -c$. Isolate the absolute value before splitting; $|u| = $ a negative number has no solution.
+- For $c > 0$: $|u| = c$ means $u = c$ or $u = -c$. Isolate the absolute value before splitting; an equation setting $|u|$ equal to a negative number has no solution.
 - "And" means both (overlap, usually a segment); "or" means either (often two rays).
 - For $c > 0$: $|u| < c$ means $-c < u < c$; $|u| > c$ means $u < -c$ or $u > c$.
 - Do each step to all three parts of a compact inequality, reversing both symbols for a negative multiplier.

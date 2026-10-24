@@ -75,6 +75,10 @@ $$W = \vec F \cdot \vec d = \lVert\vec F\rVert\,\lVert\vec d\rVert\cos\theta.$$
 
 Only the part of the force along the motion does work.
 
+```plot
+{"x": [-0.5, 6], "y": [-1.2, 2], "equal": true, "segments": [{"from": [0, 0], "to": [2.72, 1.27], "arrow": true, "label": "F"}, {"from": [0, 0], "to": [2.72, 0], "dashed": true}, {"from": [2.72, 0], "to": [2.72, 1.27], "dashed": true}, {"from": [0, -0.7], "to": [5.5, -0.7], "arrow": true, "label": "d"}], "caption": "A force F at 25° above the direction of motion d. Only its horizontal part, ‖F‖ cos 25° (dashed, along d), does work; the vertical part does none."}
+```
+
 ### Example 3
 
 A child pulls a wagon 50 m along level ground with a force of 30 N on a handle angled $25^\circ$ above horizontal. How much work is done?
@@ -95,6 +99,10 @@ Space gets a third axis, $z$, perpendicular to the $xy$-plane (by the right-hand
 
 The sphere with center $(h, k, l)$ and radius $r$ is $(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2$, the 3D version of a circle.
 
+![Three axes drawn from the origin O: the z-axis points straight up, the y-axis points to the right, and the x-axis points down and to the left, toward the viewer. A shaded rectangle in the xy-plane runs from O to the point (2, 3, 0). A dashed vertical segment rises from (2, 3, 0) to the point P(2, 3, 4), and an arrow from O to P shows its position vector.](images/pc-m8-3d-axes.svg)
+
+This is the usual way to draw right-handed axes on paper: $x$ toward you (down and to the left), $y$ to the right, $z$ up. To plot $(2, 3, 4)$, walk 2 units along $x$, then 3 units parallel to $y$ to reach $(2, 3, 0)$ in the $xy$-plane, then 4 units up.
+
 ### Example 4
 
 Find the distance between $(1, -2, 3)$ and $(4, 2, -9)$, and the angle between $\vec u = \langle 1, 2, -2 \rangle$ and $\vec v = \langle 3, 0, 4 \rangle$.
@@ -109,6 +117,20 @@ In 3D only, there is a product that gives a *vector* orthogonal to both factors,
 $$\vec u \times \vec v = \langle u_2v_3 - u_3v_2,\ u_3v_1 - u_1v_3,\ u_1v_2 - u_2v_1 \rangle.$$
 
 Its magnitude $\lVert\vec u\rVert\lVert\vec v\rVert\sin\theta$ is the area of the parallelogram the two vectors span. For $\vec u = \langle 1, 2, -2 \rangle$ and $\vec v = \langle 3, 0, 4 \rangle$: $\vec u \times \vec v = \langle 8 - 0,\ -6 - 4,\ 0 - 6 \rangle = \langle 8, -10, -6 \rangle$, and indeed $\vec u \cdot \langle 8, -10, -6 \rangle = 8 - 20 + 12 = 0$. The cross product is developed in multivariable calculus.
+
+Here is the whole lesson as a decision chart: pick the tool by the question you are asking.
+
+```mermaid
+flowchart LR
+  accTitle: Which vector tool answers which question
+  accDescr: Start from the question you are asking about two vectors u and v. To find the angle between them, divide the dot product by the product of the magnitudes and take the inverse cosine. To test whether they are perpendicular, check whether the dot product is 0. To find the part of u along v, use the projection, the dot product over the magnitude of v squared, times v. To find the work done by a force along a displacement, take the dot product of force and displacement. To find a vector perpendicular to both, in three dimensions only, use the cross product.
+  Q{"What do you want to know?"}
+  Q -- "angle" --> A["cos θ = u · v / (‖u‖ ‖v‖)"]
+  Q -- "perpendicular?" --> B["Is u · v = 0?"]
+  Q -- "part of u along v" --> C["proj = (u · v / ‖v‖²) v"]
+  Q -- "work" --> D["W = F · d"]
+  Q -- "perpendicular to both (3D)" --> E["Cross product u × v"]
+```
 
 ## Common mistakes
 

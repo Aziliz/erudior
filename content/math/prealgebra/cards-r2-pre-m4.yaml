@@ -1,4 +1,4 @@
-# Round 2 cards: pre-m4 honors lessons (16h1, 16h2, 16h3) and lesson 15 addition
+# Round 2 cards: pre-m4 honors lessons (16h1, 16h2) and lesson 15 addition
 - {front: 'Tape diagram for sharing in the ratio $a : b$', back: 'Draw $a + b$ equal parts; one part = whole ÷ $(a + b)$. Example: \$4,500 in 2 : 7 is 9 parts of \$500.', topic: Ratios}
 - {front: 'Repetend and period', back: 'The repetend is the repeating block; the period is how many digits it has. $\tfrac17 = 0.\overline{142857}$: repetend 142857, period 6.', topic: Repeating decimals}
 - {front: 'Why a fraction''s decimal must repeat', back: 'Long division by $d$ has only the remainders $1, \ldots, d - 1$ (0 would stop it), so a remainder comes back and the digits repeat. The period is at most $d - 1$.', topic: Repeating decimals}
@@ -18,12 +18,3 @@
 - {front: 'Meshing gears', back: 'Teeth × turns per minute is the same for both gears. 36 teeth at 20 rpm drives 12 teeth at $36 \times 20 \div 12 = 60$ rpm.', topic: Inverse proportion}
 - {front: 'Decreasing is not the same as inverse', back: '$y = 20 - 3x$ decreases, but $xy$ is not constant, so it is not inversely proportional.', topic: Inverse proportion}
 - {front: 'Workers, jobs and days', back: 'Find the fixed amount of work per job (worker-days). 6 painters, 2 houses, 10 days → 30 painter-days per house; 3 houses in 5 days need $90 \div 5 = 18$ painters.', topic: Inverse proportion}
-- {front: 'Scale factor $k$: lengths, areas, volumes', back: 'Lengths × $k$; areas (and surface area, paint) × $k^2$; volumes (capacity, weight of a solid) × $k^3$.', topic: Scaling area and volume}
-- {front: 'Why area scales by $k^2$', back: 'Length and width are both multiplied by $k$. A 3 by 2 rectangle scaled by 3 is 9 by 6: area 54 = 9 × 6.', topic: Scaling area and volume}
-- {front: 'Why volume scales by $k^3$', back: 'Length, width and height are each multiplied by $k$. A cube of edge 2 holds $2^3 = 8$ unit cubes.', topic: Scaling area and volume}
-- {front: 'Comparing pizza sizes', back: '16-inch vs 12-inch: $k = \tfrac43$, area ratio $\tfrac{16}{9} \approx 1.78$. Compare that to the price ratio; no circle formula needed.', topic: Scaling area and volume}
-- {front: 'Area on a map', back: 'Scale 1 cm : 0.5 km means 1 cm² : 0.25 km². Square the length scale before multiplying the map area.', topic: Scaling area and volume}
-- {front: 'Scale factor from an area or volume ratio', back: 'Find the number whose square (area) or cube (volume) is the ratio. Areas 20 and 45: ratio $\tfrac94$, so $k = \tfrac32$.', topic: Scaling area and volume}
-- {front: 'Square–cube law', back: 'Scale a solid by $k$: surface × $k^2$, volume × $k^3$. Strength (cross-section area) can''t keep up with weight, and small things lose heat faster for their size.', topic: Scaling area and volume}
-- {front: 'Surface-to-volume ratio of a cube', back: '$\tfrac{6s^2}{s^3} = \tfrac6s$. Edge 1: 6; edge 3: 2.', topic: Scaling area and volume}
-- {front: 'Square and cubic units', back: '1 ft² = 144 in²; 1 yd² = 9 ft²; 1 yd³ = 27 ft³.', topic: Scaling area and volume}

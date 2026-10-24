@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" font-family="sans-serif" fill="#1c2833">
+<rect width="600" height="420" fill="#ffffff"/>
+<polygon points="260.0,65.0 117.3,168.6 171.8,336.4 348.2,336.4 402.7,168.6" fill="#dde8f3" stroke="#1c2833" stroke-width="3" stroke-linejoin="round"/>
+<line x1="348.2" y1="336.4" x2="518.2" y2="336.4" stroke="#1c2833" stroke-width="3"/>
+<line x1="117.3" y1="168.6" x2="402.7" y2="168.6" stroke="#1c2833" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M 205.8 336.4 A 34 34 0 0 0 161.3 304.0" fill="none" stroke="#b03a2e" stroke-width="3"/>
+<path d="M 382.2 336.4 A 34 34 0 0 0 358.7 304.0" fill="none" stroke="#1f6f43" stroke-width="3"/>
+<circle cx="260.0" cy="65.0" r="4.5" fill="#1c2833"/>
+<circle cx="117.3" cy="168.6" r="4.5" fill="#1c2833"/>
+<circle cx="171.8" cy="336.4" r="4.5" fill="#1c2833"/>
+<circle cx="348.2" cy="336.4" r="4.5" fill="#1c2833"/>
+<circle cx="402.7" cy="168.6" r="4.5" fill="#1c2833"/>
+<text x="218.3" y="292.2" font-size="16" text-anchor="start" font-weight="bold">interior angle</text>
+<text x="412.3" y="305.9" font-size="16" text-anchor="start" font-weight="bold">exterior angle</text>
+<text x="260.0" y="158.6" font-size="16" text-anchor="middle" font-weight="bold">diagonal</text>
+<text x="349.3" y="108.8" font-size="16" text-anchor="start" font-weight="bold">side</text>
+</svg>
