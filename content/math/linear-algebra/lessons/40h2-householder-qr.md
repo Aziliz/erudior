@@ -117,7 +117,7 @@ Each $H_k$ is its own inverse, so $A = H_1H_2\cdots H_nR = QR$ with $Q = H_1H_2\
 $m \times m$ orthogonal matrix. Its first $n$ columns, with the top $n$ rows of $R$, give the
 factorization from the Gram–Schmidt lesson. If a diagonal entry of $R$ comes out negative,
 multiply that row of $R$ and the matching column of $Q$ by $-1$ to get the
-positive-diagonal version; the factorization with positive diagonal is unique, so both
+positive-diagonal version; when the columns of $A$ are independent, the factorization with positive diagonal is unique, so both
 methods produce the same $Q$ and $R$ in exact arithmetic.
 
 ```mermaid

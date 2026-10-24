@@ -131,10 +131,10 @@
   stem: 'The picture shows $A = \begin{bmatrix} 1 & 2 & -1 & 3 \\ 2 & 4 & 1 & 0 \\ 3 & 6 & 0 & 3\end{bmatrix}$ and its reduced echelon form. Name the numbered parts.'
   image: {src: images/la-m7-pivot-columns-blank.svg, alt: 'The matrix A beside its reduced echelon form, joined by an arrow labeled row-reduce. In A, columns 1 and 3 are shaded. In the reduced echelon form, two entries equal to 1 are circled, the last column is outlined with a dashed box, and the bottom row of zeros is shaded. Four parts are numbered.'}
   labels:
-    - {x: 27.6, y: 33.0, text: 'Pivot column of A, part of a basis for Col A'}
-    - {x: 80.3, y: 55.8, text: Pivot position}
-    - {x: 65.5, y: 71.5, text: Zero row}
-    - {x: 87.6, y: 33.0, text: Non-pivot column}
+    - {x: 27.6, y: 39.5, text: 'Pivot column of A, part of a basis for Col A'}
+    - {x: 80.3, y: 45.8, text: Pivot position}
+    - {x: 76.6, y: 61.5, text: Zero row}
+    - {x: 87.6, y: 39.5, text: Non-pivot column}
   distractors: [Basis vector for Nul A, Pivot column of the RREF to use for Col A]
   explanation: |-
     The reduced echelon form has pivots in columns 1 and 3 (the circled 1s), so columns 1 and 3 of $A$ itself, $(1, 2, 3)$ and $(-1, 1, 0)$, are a basis for $\operatorname{Col} A$. Column 4 has no pivot: it is a combination of the pivot columns. The bottom row became all zeros, so $A$ has rank 2. The RREF's own pivot columns $(1, 0, 0)$ and $(0, 1, 0)$ are not even in $\operatorname{Col} A$.

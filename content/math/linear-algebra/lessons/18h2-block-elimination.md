@@ -133,11 +133,11 @@ $$(A + \mathbf{u}\mathbf{v}^T)A^{-1} - \frac{(A + \mathbf{u}\mathbf{v}^T)A^{-1}\
 The work is two matrix–vector products ($A^{-1}\mathbf{u}$ and $\mathbf{v}^TA^{-1}$) and one outer
 product, about $n^2$ operations each. If $1 + \mathbf{v}^TA^{-1}\mathbf{u} = 0$, the updated matrix
 is singular (the formula's denominator warns you). The formula is named for Jack Sherman and
-Winifred J. Morrison, who published it in 1949–1950 for adjusting an inverse after one entry
-changes (versions of it had appeared earlier). Max Woodbury's 1950 report extended it to
+Winifred J. Morrison, who published it in 1949–1950 for adjusting an inverse after one entry,
+row or column changes (versions of it had appeared earlier). Max Woodbury's 1950 report extended it to
 updates $UCV^T$ of higher rank (the Woodbury identity). Recursive least squares, which updates
-a regression fit as each new data point arrives, uses exactly this formula, and the Kalman
-filter is usually derived with its higher-rank version.
+a regression fit as each new data point arrives, uses exactly this formula, and the higher-rank version
+is a standard tool in deriving the Kalman filter's update equations.
 
 ### Example 3
 

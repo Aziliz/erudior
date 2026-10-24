@@ -386,7 +386,7 @@
     - 'Solve $R\mathbf{x} = \mathbf{y}$ by back substitution'
     - 'Check by computing $A\mathbf{x}$'
   explanation: |-
-    $A\mathbf{x} = R^T(R\mathbf{x}) = \mathbf{b}$, so the inner product $\mathbf{y} = R\mathbf{x}$ is found first, from the lower triangular $R^T$, and then $\mathbf{x}$ from the upper triangular $R$. Solving in the other order is a listed common mistake.
+    $A\mathbf{x} = R^T(R\mathbf{x}) = \mathbf{b}$, so the intermediate vector $\mathbf{y} = R\mathbf{x}$ is found first, from the lower triangular $R^T$, and then $\mathbf{x}$ from the upper triangular $R$. Solving in the other order is a listed common mistake.
 - id: la-m9-r2-q35
   lesson: la-pos-def
   topic: Positive definite matrices

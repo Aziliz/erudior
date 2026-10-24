@@ -58,7 +58,7 @@ $$\det(A - \lambda I) = (4 - \lambda)\begin{vmatrix} 1 - \lambda & 2 \\ 2 & 1 - 
 The graph of the characteristic polynomial shows the three eigenvalues as the places where it crosses the horizontal axis:
 
 ```plot
-{"x": [-2, 5], "y": [-12, 14], "xLabel": "λ", "yLabel": "det(A - λI)", "functions": [{"f": "(4 - x)*((1 - x)^2 - 4)", "label": "(4 - λ)[(1 - λ)² - 4]"}], "points": [{"at": [-1, 0], "label": "-1"}, {"at": [3, 0], "label": "3"}, {"at": [4, 0], "label": "4"}], "caption": "The eigenvalues are the roots of the characteristic polynomial"}
+{"x": [-2, 5], "y": [-12, 14], "xLabel": "λ", "yLabel": "det(A - λI)", "functions": [{"f": "(4 - x)*((1 - x)^2 - 4)"}], "points": [{"at": [-1, 0]}, {"at": [3, 0]}, {"at": [4, 0]}], "labels": [{"at": [2.6, 10], "text": "(4 - λ)[(1 - λ)² - 4]"}, {"at": [-1.5, -4], "text": "λ = -1"}, {"at": [2.3, 3.5], "text": "λ = 3"}, {"at": [4.45, 3.5], "text": "λ = 4"}], "caption": "The eigenvalues are the roots of the characteristic polynomial"}
 ```
 
 For $3 \times 3$ and larger matrices, finding roots of the characteristic polynomial by hand is

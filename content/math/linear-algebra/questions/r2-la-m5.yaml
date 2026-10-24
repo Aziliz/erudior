@@ -363,7 +363,7 @@
   lesson: la-m5-h-pivoting-ldu
   type: match
   topic: Pivoting and LDU
-  stem: 'Match each square-matrix factorization to the situation it is meant for.'
+  stem: 'Match each square-matrix factorization to the most general situation in which it is guaranteed to exist.'
   pairs:
     - ['$PA = LU$', Any matrix; rows may need reordering first]
     - ['$A = LU$', No row swaps needed]

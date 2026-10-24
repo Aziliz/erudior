@@ -389,7 +389,7 @@
   choices: ['$\begin{bmatrix} 1 & -1 \\ -1 & 2\end{bmatrix}$', '$\begin{bmatrix} 1 & 1 \\ 1 & 2\end{bmatrix}$', '$\begin{bmatrix} -1 & 1 \\ 1 & -2\end{bmatrix}$', '$\begin{bmatrix} 2 & -1 \\ -1 & 1\end{bmatrix}$']
   answer: 0
   explanation: |-
-    $\operatorname{tr} A = 3$, $\det A = 1$, so $A^2 - 3A + I = 0$, i.e. $A(3I - A) = I$. Then $A^{-1} = 3I - A = \begin{bmatrix} 1 & -1 \\ -1 & 2\end{bmatrix}$. Check: $A A^{-1} = \begin{bmatrix} 2 - 1 & -2 + 2 \\ 1 - 1 & -1 + 2\end{bmatrix} = I$. The matrix with a 2 in the top left is $A - I$ with signs changed off the diagonal, not the inverse; the all-negative-diagonal one is $A - 3I$.
+    $\operatorname{tr} A = 3$, $\det A = 1$, so $A^2 - 3A + I = 0$, i.e. $A(3I - A) = I$. Then $A^{-1} = 3I - A = \begin{bmatrix} 1 & -1 \\ -1 & 2\end{bmatrix}$. Check: $A A^{-1} = \begin{bmatrix} 2 - 1 & -2 + 2 \\ 1 - 1 & -1 + 2\end{bmatrix} = I$. The matrix with a 2 in the top left is $A$ with its off-diagonal signs changed but its diagonal not swapped (a slip in the $2 \times 2$ inverse formula); the all-negative-diagonal one is $A - 3I$, the negative of the inverse.
 
 - id: la-m8-r2-h04
   lesson: la-m8-h-cayley-hamilton

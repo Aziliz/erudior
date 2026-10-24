@@ -85,7 +85,7 @@ Find the Jordan form of $A = \begin{bmatrix} 3 & 1 \\ -1 & 1\end{bmatrix}$ and a
 The vector $\mathbf{v}_2$ is not unique: $(0, 1)$, or $\mathbf{v}_2$ plus any multiple of $\mathbf{v}_1$, works too, giving a different $P$ but the same $J$.
 
 ```plot
-{"x": [-1.5, 3.8], "y": [-1.8, 1.5], "equal": true, "functions": [{"f": "-x", "dashed": true, "label": "eigenvector line"}], "segments": [{"from": [0, 0], "to": [1, -1], "arrow": true, "label": "v₁"}, {"from": [0, 0], "to": [1, 0], "arrow": true, "label": "v₂"}, {"from": [0, 0], "to": [2, 0], "dashed": true, "arrow": true, "label": "2v₂"}, {"from": [2, 0], "to": [3, -1], "arrow": true, "label": "+ v₁"}, {"from": [0, 0], "to": [3, -1], "arrow": true, "label": "Av₂"}], "caption": "A stretches v₂ by 2 and then shifts it by v₁: Av₂ = 2v₂ + v₁"}
+{"x": [-2.5, 3.8], "y": [-1.8, 1.5], "equal": true, "functions": [{"f": "-x", "dashed": true}], "segments": [{"from": [0, 0], "to": [1, -1], "arrow": true, "label": "v₁"}, {"from": [0, 0], "to": [1, 0], "arrow": true}, {"from": [0, 0], "to": [2, 0], "dashed": true, "arrow": true}, {"from": [2, 0], "to": [3, -1], "arrow": true}, {"from": [0, 0], "to": [3, -1], "arrow": true, "label": "Av₂"}], "labels": [{"at": [-1.9, 0.4], "text": "eigenvector line"}, {"at": [3.2, -0.55], "text": "+ v₁"}, {"at": [0.5, 0.22], "text": "v₂"}, {"at": [1.5, 0.22], "text": "2v₂"}], "caption": "A stretches v₂ by 2 and then shifts it by v₁: Av₂ = 2v₂ + v₁"}
 ```
 
 In general, for a $k \times k$ block the powers are
@@ -144,8 +144,8 @@ The Jordan form is a theoretical tool more than a computational one. It jumps un
 $\begin{bmatrix} 2 & 1 \\ \varepsilon & 2\end{bmatrix}$ has eigenvalues $2 \pm \sqrt{\varepsilon}$, distinct for every small
 $\varepsilon > 0$, so it is diagonalizable, while at $\varepsilon = 0$ it is a single Jordan block. A
 computer working with rounded numbers can't reliably tell these apart, so numerical software
-avoids the Jordan form and uses other factorizations, such as the Schur form (an orthogonal change
-of basis to a triangular matrix). Exact matrices with small integer entries, like the ones in this
+avoids the Jordan form and uses other factorizations, such as the Schur form (a unitary change of basis to a triangular matrix;
+for a real matrix with real eigenvalues the change of basis can be taken orthogonal). Exact matrices with small integer entries, like the ones in this
 lesson, are where the Jordan form is computed by hand.
 
 ## Common mistakes

@@ -83,11 +83,11 @@ When is the factorization worth it? The chart gives the rule of thumb.
 ```mermaid
 flowchart TD
   accTitle: When to use the LU factorization
-  accDescr: To solve Ax = b, first ask whether there are many right-hand sides with the same A. If there is just one, row-reduce the augmented matrix A b. If there are many, factor A = LU once, using PA = LU if a row swap is needed. Then for each b, forward-substitute to solve Ly = b, and back-substitute to solve Ux = y, which gives x.
+  accDescr: To solve Ax = b, first ask whether there are many right-hand sides with the same A. If there is just one, row-reduce the augmented matrix A b. If there are many, factor A = LU once, using PA = LU if a row swap is needed. Then for each b, forward-substitute to solve Ly = b (Ly = Pb if rows were swapped), and back-substitute to solve Ux = y, which gives x.
   S["Solve Ax = b"] --> Q{"Many right sides b with the same A?"}
   Q -- "no, just one" --> R["Row-reduce [ A  b ]"]
   Q -- yes --> F["Factor A = LU once; PA = LU if a row swap is needed"]
-  F --> Y["For each b: forward-substitute Ly = b"]
+  F --> Y["For each b: forward-substitute Ly = b (or Ly = Pb after swaps)"]
   Y --> X["Back-substitute Ux = y to get x"]
 ```
 

@@ -48,7 +48,7 @@
     nsq: w1*u1^2 + w2*u2^2 + w3*u3^2 + 0
     nrm: sqrt(w1*u1^2 + w2*u2^2 + w3*u3^2) + 0
   prompt: |-
-    On $\mathbb{R}^3$ use $\langle \mathbf{u}, \mathbf{v}\rangle = {w1}u_1v_1 + {w2}u_2v_2 + {w3}u_3v_3$. For $\mathbf{u} = ({u1}, {u2}, {u3})$ and $\mathbf{v} = ({v1}, {v2}, {v3})$, find $\langle \mathbf{u}, \mathbf{v}\rangle$ and $\|\mathbf{u}\|$ (exact like sqrt(29), or 2 decimals).
+    On $\mathbb{R}^3$ use $\langle \mathbf{u}, \mathbf{v}\rangle = {w1:coef}u_1v_1 + {w2:coef}u_2v_2 + {w3:coef}u_3v_3$. For $\mathbf{u} = ({u1}, {u2}, {u3})$ and $\mathbf{v} = ({v1}, {v2}, {v3})$, find $\langle \mathbf{u}, \mathbf{v}\rangle$ and $\|\mathbf{u}\|$ (exact like sqrt(29), or 2 decimals).
   answers:
     - {name: ip, label: '$\langle \mathbf{u}, \mathbf{v}\rangle =$'}
     - {name: nrm, label: '$\|\mathbf{u}\| =$', tolerance: 0.01}
@@ -100,7 +100,7 @@
     - {name: h2, label: 'entry 2', kind: fraction, lowestTerms: true}
     - {name: h3, label: 'entry 3', kind: fraction, lowestTerms: true}
   solution: |-
-    $\mathbf{u}^T\mathbf{y} = {uy}$ and $\mathbf{u}^T\mathbf{u} = {uu}$, so $H\mathbf{y} = \mathbf{y} - \dfrac{2({uy})}{{uu}}\mathbf{u} = \mathbf{y} - {cf:texfrac}\,({u1}, {u2}, {u3})$
+    $\mathbf{u}^T\mathbf{y} = {uy}$ and $\mathbf{u}^T\mathbf{u} = {uu}$, so $H\mathbf{y} = \mathbf{y} - \dfrac{2({uy})}{{uu}}\mathbf{u} = \mathbf{y} - \left({cf:texfrac}\right)({u1}, {u2}, {u3})$
     $=$ **$\left({h1:texfrac},\ {h2:texfrac},\ {h3:texfrac}\right)$**. (Check: it has the same length as $\mathbf{y}$.)
 
 - id: la-m9-r2-house-zero
