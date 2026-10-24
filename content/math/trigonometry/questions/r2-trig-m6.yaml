@@ -832,10 +832,10 @@
     - '$\text{crd}\,1^\circ < \tfrac43\,\text{crd}\,\tfrac34^\circ$'
     - '$\text{crd}\,1^\circ < \tfrac23\,\text{crd}\,1\tfrac12^\circ$'
     - '$\text{crd}\,1^\circ < \tfrac34\,\text{crd}\,\tfrac34^\circ$'
-    - '$\text{crd}\,1^\circ < \tfrac32\,\text{crd}\,1\tfrac12^\circ$'
+    - '$\text{crd}\,1^\circ < \tfrac13\,\text{crd}\,3^\circ$'
   answer: 0
   explanation: |-
-    With $\alpha = 1^\circ$ and $\beta = \tfrac34^\circ$: $\tfrac{\text{crd}\,1^\circ}{\text{crd}\,\frac34^\circ} < \tfrac{1}{3/4} = \tfrac43$. The same inequality with $\alpha = 1\tfrac12^\circ$, $\beta = 1^\circ$ gives the lower bound $\text{crd}\,1^\circ > \tfrac23\,\text{crd}\,1\tfrac12^\circ$, so the second choice points the wrong way.
+    With $\alpha = 1^\circ$ and $\beta = \tfrac34^\circ$: $\tfrac{\text{crd}\,1^\circ}{\text{crd}\,\frac34^\circ} < \tfrac{1}{3/4} = \tfrac43$. The same inequality with $\alpha = 1\tfrac12^\circ$, $\beta = 1^\circ$ gives the lower bound $\text{crd}\,1^\circ > \tfrac23\,\text{crd}\,1\tfrac12^\circ$, so the second choice points the wrong way. Likewise $\alpha = 3^\circ$, $\beta = 1^\circ$ gives $\text{crd}\,3^\circ < 3\,\text{crd}\,1^\circ$, a lower bound $\text{crd}\,1^\circ > \tfrac13\,\text{crd}\,3^\circ$, not an upper one; and $\tfrac34\,\text{crd}\,\tfrac34^\circ$ is smaller than $\text{crd}\,\tfrac34^\circ$, itself smaller than $\text{crd}\,1^\circ$.
 - id: trig-m6-r2-h41
   lesson: trig-m6-h-ptolemy
   type: match

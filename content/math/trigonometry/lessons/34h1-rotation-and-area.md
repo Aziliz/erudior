@@ -79,8 +79,8 @@ cross product of $\langle u_1, u_2, 0\rangle$ and $\langle v_1, v_2, 0\rangle$. 
 
 Now the geometry. Let $\varphi$ be the **signed angle** from $\mathbf{u}$ to $\mathbf{v}$: positive if you turn counterclockwise
 from $\mathbf{u}$ to reach $\mathbf{v}$, negative if clockwise, with $-180^\circ < \varphi \le 180^\circ$. The vector $\mathbf{u}^\perp$ points $90^\circ$
-counterclockwise from $\mathbf{u}$, so the angle between $\mathbf{u}^\perp$ and $\mathbf{v}$ is $90^\circ - \varphi$ (up to sign, which cosine
-ignores). By the dot product formula, using $\lVert\mathbf{u}^\perp\rVert = \lVert\mathbf{u}\rVert$,
+counterclockwise from $\mathbf{u}$, so the angle between $\mathbf{u}^\perp$ and $\mathbf{v}$ is $90^\circ - \varphi$ (up to sign and whole turns,
+which cosine ignores). By the dot product formula, using $\lVert\mathbf{u}^\perp\rVert = \lVert\mathbf{u}\rVert$,
 $$\det(\mathbf{u}, \mathbf{v}) = \lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert\cos(90^\circ - \varphi) = \lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert\sin\varphi.$$
 Side by side with the dot product:
 $$\mathbf{u}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\cos\varphi, \qquad \det(\mathbf{u}, \mathbf{v}) = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\sin\varphi.$$

@@ -24,5 +24,5 @@
 - {front: 'Ptolemy''s circle and number system', back: 'Radius 60 (diameter 120 parts), sexagesimal fractions: $a;b,c = a + \tfrac{b}{60} + \tfrac{c}{3600}$', topic: Chords and Ptolemy's theorem}
 - {front: 'Ptolemy''s table of chords', back: 'Arcs from $\tfrac12^\circ$ to $180^\circ$ in steps of $\tfrac12^\circ$, in the Almagest (2nd century CE)', topic: Chords and Ptolemy's theorem}
 - {front: 'Chord of the supplement (radius 60)', back: '$\text{crd}^2\,\theta + \text{crd}^2(180^\circ - \theta) = 120^2$', topic: Chords and Ptolemy's theorem}
-- {front: 'Ptolemy''s inequality for chords', back: 'For $\beta < \alpha \le 180^\circ$: $\dfrac{\text{crd}\,\alpha}{\text{crd}\,\beta} < \dfrac{\alpha}{\beta}$ (because $\tfrac{\sin u}{u}$ decreases)', topic: Chords and Ptolemy's theorem}
+- {front: 'The chord-ratio inequality Ptolemy used (Aristarchus''s inequality)', back: 'For $\beta < \alpha \le 180^\circ$: $\dfrac{\text{crd}\,\alpha}{\text{crd}\,\beta} < \dfrac{\alpha}{\beta}$ (because $\tfrac{\sin u}{u}$ decreases)', topic: Chords and Ptolemy's theorem}
 - {front: 'How Ptolemy trapped the chord of $1^\circ$', back: '$\tfrac23\,\text{crd}\,1\tfrac12^\circ < \text{crd}\,1^\circ < \tfrac43\,\text{crd}\,\tfrac34^\circ$; both bounds round to $1;2,50$', topic: Chords and Ptolemy's theorem}

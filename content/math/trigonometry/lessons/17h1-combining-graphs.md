@@ -45,7 +45,7 @@ graph winds around the line $y = x$, crossing it every $\pi$ units and never str
 from it.
 
 ```plot
-{"x": [-0.5, 13.2], "y": [-1.5, 14], "functions": [{"f": "x + sin(x)", "label": "y = x + sin x"}, {"f": "x", "dashed": true, "label": "y = x"}], "points": [{"at": [3.1416, 3.1416], "label": "(π, π)"}, {"at": [7.854, 8.854], "label": "(5π/2, 5π/2 + 1)"}], "caption": "y = x + sin x winds around the line y = x and meets it wherever sin x = 0"}
+{"x": [-0.5, 13.2], "y": [-1.5, 14], "functions": [{"f": "x + sin(x)"}, {"f": "x", "dashed": true}], "points": [{"at": [3.1416, 3.1416]}, {"at": [7.854, 8.854]}], "labels": [{"at": [3.5, 12.5], "text": "y = x + sin x (solid)"}, {"at": [3.5, 11], "text": "y = x (dashed)"}, {"at": [2, 4.2], "text": "(π, π)"}, {"at": [7, 10], "text": "(5π/2, 5π/2 + 1)"}], "caption": "y = x + sin x winds around the line y = x and meets it wherever sin x = 0"}
 ```
 
 Notice that $y = x + \sin x$ is *not* periodic, even though one of its parts is: the line keeps
@@ -65,7 +65,7 @@ term, multiples of $\tfrac{\pi}{4}$:
 | sum | 0 | 1.707 | 1 | −0.293 | 0 | 0.293 | −1 | −1.707 | 0 |
 
 ```plot
-{"x": [-0.3, 6.6], "y": [-2.2, 2.2], "functions": [{"f": "sin(x) + sin(2x)", "label": "y = sin x + sin 2x"}, {"f": "sin(x)", "dashed": true}, {"f": "sin(2x)", "dashed": true}], "points": [{"at": [0.7854, 1.7071]}, {"at": [5.4978, -1.7071]}], "caption": "The sum (solid) of sin x and sin 2x (dashed); the pattern repeats every 2π"}
+{"x": [-0.3, 6.6], "y": [-2.2, 2.2], "functions": [{"f": "sin(x) + sin(2x)", "from": 0, "to": 6.2832}, {"f": "sin(x)", "dashed": true, "from": 0, "to": 6.2832}, {"f": "sin(2x)", "dashed": true, "from": 0, "to": 6.2832}], "labels": [{"at": [5, 1.6], "text": "y = sin x + sin 2x (solid)"}], "points": [{"at": [0.7854, 1.7071]}, {"at": [5.4978, -1.7071]}], "caption": "The sum (solid) of sin x and sin 2x (dashed); the pattern repeats every 2π"}
 ```
 
 The sum is a lopsided wave that repeats every $2\pi$. Its highest point is *not* at $\tfrac{\pi}{4}$:
@@ -180,7 +180,7 @@ divided by an odd one is even), so the same happens from the left. The Module 3 
 small angles proves that the limit really is 1, with a picture of the unit circle.
 
 ```plot
-{"x": [-15, 15.4], "y": [-0.4, 1.2], "functions": [{"f": "sin(x)/x", "label": "y = sin x / x"}, {"f": "1/abs(x)", "dashed": true}, {"f": "-1/abs(x)", "dashed": true}], "points": [{"at": [0, 1], "open": true, "label": "approaches 1"}], "caption": "y = (sin x)/x: undefined at 0 but approaching 1; envelope y = ±1/|x| (dashed)"}
+{"x": [-2, 15.4], "y": [-0.4, 1.2], "functions": [{"f": "sin(x)/x", "from": 0, "to": 14.6}, {"f": "1/x", "dashed": true, "from": 0, "to": 14.6}, {"f": "-1/x", "dashed": true, "from": 0, "to": 14.6}], "points": [{"at": [0, 1], "open": true}], "labels": [{"at": [3.6, 0.97], "text": "← approaches 1"}, {"at": [9, 0.55], "text": "y = sin x / x (solid)"}], "caption": "y = (sin x)/x for x > 0 (the graph is symmetric about the y-axis): undefined at 0 but approaching 1; envelope y = ±1/x (dashed)"}
 ```
 
 ## Common mistakes

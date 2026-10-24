@@ -123,7 +123,7 @@ $$\cos\psi = \frac{1600 + 3400 - 900}{2\cdot 40\cdot 58.31} \approx 0.8789, \qqu
 **Step 5: check one.** For the first, $40\cos 2.48^\circ + 30\cos 70.45^\circ \approx 39.96 + 10.04 = 50.0$ and $40\sin 2.48^\circ + 30\sin 70.45^\circ \approx 1.73 + 28.27 = 30.0$. It lands on the target.
 
 ```shape
-{"segments": [{"from": [0, 0], "to": [39.96, 1.73]}, {"from": [39.96, 1.73], "to": [50, 30]}, {"from": [0, 0], "to": [20.33, 34.45]}, {"from": [20.33, 34.45], "to": [50, 30]}, {"from": [0, 0], "to": [50, 30], "dashed": true}], "points": [{"at": [0, 0], "label": "shoulder"}, {"at": [50, 30], "label": "target"}, {"at": [39.96, 1.73], "label": "elbow (down)"}, {"at": [20.33, 34.45], "label": "elbow (up)"}], "caption": "Both solutions reach (50, 30). They are mirror images across the dashed line from the shoulder to the target."}
+{"segments": [{"from": [0, 0], "to": [39.96, 1.73]}, {"from": [39.96, 1.73], "to": [50, 30]}, {"from": [0, 0], "to": [20.33, 34.45]}, {"from": [20.33, 34.45], "to": [50, 30]}, {"from": [0, 0], "to": [50, 30], "dashed": true}], "points": [{"at": [0, 0]}, {"at": [50, 30]}, {"at": [39.96, 1.73]}, {"at": [20.33, 34.45]}], "labels": [{"at": [0, -4.5], "text": "shoulder"}, {"at": [57, 29], "text": "target"}, {"at": [41, -3], "text": "elbow (down)"}, {"at": [20.33, 38], "text": "elbow (up)"}], "caption": "Both solutions reach (50, 30). They are mirror images across the dashed line from the shoulder to the target."}
 ```
 
 Which solution should the robot use? Mathematics says both are correct; engineering chooses. A real controller picks the one that avoids obstacles, stays within the joints' limits, or needs the smallest motion from where the arm is now.

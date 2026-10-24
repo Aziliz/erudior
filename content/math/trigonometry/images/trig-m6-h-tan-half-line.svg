@@ -16,7 +16,7 @@
 <text x="225.0" y="204.7" font-size="16" text-anchor="start" fill="#244d76">slope t</text>
 <text x="110.0" y="240.0" font-size="16" text-anchor="end" fill="#1c2833">(−1, 0)</text>
 <text x="290.0" y="112.0" font-size="16" text-anchor="end" fill="#1c2833">(0, t)</text>
-<text x="373.6" y="70.9" font-size="16" text-anchor="start" fill="#1c2833">(cos x, sin x)</text>
+<text x="398.0" y="92.0" font-size="16" text-anchor="start" fill="#1c2833">(cos x, sin x)</text>
 <text x="329.5" y="233.4" font-size="16" text-anchor="start" font-style="italic" fill="#1c2833">x</text>
 <text x="192.5" y="235.1" font-size="16" text-anchor="start" font-style="italic" fill="#1c2833">x/2</text>
 </svg>

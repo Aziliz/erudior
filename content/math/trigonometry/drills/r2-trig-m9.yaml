@@ -16,14 +16,14 @@
     ee: m / c
     ed: p / c
     D: sg * dd
-  prompt: 'The conic $r = \dfrac{{p}}{{c} {sg} {m:coef}{f}\theta}$ has a focus at the pole. Find its eccentricity $e$ (a fraction is fine) and its directrix.'
+  prompt: 'The conic $r = \dfrac{{p}}{{c} {sg} {m:coef}{f}\theta}$ has a focus at the pole. Find its eccentricity $e$ (as a fraction, or a decimal to 2 places) and its directrix.'
   answers:
     - {name: ee, label: '$e =$', tolerance: 0.005}
     - {name: D, label: 'Directrix: ${dv} =$', tolerance: 0.001}
   solution: |-
-    Divide the numerator and denominator by {c} so the constant in the denominator is 1:
-    $r = \dfrac{{ed:texfrac}}{1 {sg} {ee:texfrac}{f}\theta}$. So $e = \dfrac{{m}}{{c}} =$ **{ee:frac}**, and the curve is {tp}.
-    The numerator is $ed = {ed:frac}$, so $d = \dfrac{\,ed}{\,e} = {dd}$. The function ${f}$ means the directrix is the line ${dv} = \pm d$, and the
+    Divide the numerator and denominator by {c} so the constant in the denominator is 1. The denominator becomes
+    $1 {sg} e{f}\theta$ with $e = \dfrac{{m}}{{c}} =$ **{ee:frac}**, so the curve is {tp}.
+    The numerator becomes $ed = {ed:texfrac}$, so $d = \dfrac{\,ed}{\,e} = {dd}$. The function ${f}$ means the directrix is the line ${dv} = \pm d$, and the
     sign in the denominator picks the side: ${dv} =$ **{D}**.
 
 - id: trig-m9-r2-orbit
@@ -102,7 +102,7 @@
   solution: |-
     $\dfrac{\,a}{\,b} = \dfrac{{a}}{{b}} = {k}$ is a whole number, so the path closes with **{k}** cusps. The center moves on a circle of radius
     ${R}$ and the point turns at ${w}$ times the rate of the center, so with the formulas from the lesson
-    $x = {R}\cos {deg}^\circ {sgn} {b}\cos({w} \cdot {deg}^\circ) \approx$ **{x:num2}** and $y = {R}\sin {deg}^\circ - {b}\sin({w} \cdot {deg}^\circ) \approx$ **{y:num2}**.
+    $x = {R}\cos {deg}^\circ {sgn} {b:coef}\cos({w} \cdot {deg}^\circ) \approx$ **{x:num2}** and $y = {R}\sin {deg}^\circ - {b:coef}\sin({w} \cdot {deg}^\circ) \approx$ **{y:num2}**.
 
 - id: trig-m9-r2-five-angle
   title: Five times an angle from De Moivre
@@ -123,9 +123,9 @@
   answers:
     - {name: val, kind: fraction, label: '${f} 5\theta =$'}
   solution: |-
-    Substitute ${f}\theta = \tfrac{{p}}{{q}}$ and put every term over ${q}^5 = {den}$:
-    $$16\left(\tfrac{{p}}{{q}}\right)^5 - 20\left(\tfrac{{p}}{{q}}\right)^3 + 5\left(\tfrac{{p}}{{q}}\right) = \dfrac{16 \cdot {p}^5 - 20 \cdot {p}^3 \cdot {q}^2 + 5 \cdot {p} \cdot {q}^4}{{den}} = \dfrac{{num}}{{den}},$$
-    which in lowest terms is **{n2}/{d2}**.
+    Substitute ${f}\theta = \tfrac{{p}}{{q}}$ and put every term over ${q}^5 = {den:dp0}$:
+    $$16\left(\tfrac{{p}}{{q}}\right)^5 - 20\left(\tfrac{{p}}{{q}}\right)^3 + 5\left(\tfrac{{p}}{{q}}\right) = \dfrac{16 \cdot {p}^5 - 20 \cdot {p}^3 \cdot {q}^2 + 5 \cdot {p} \cdot {q}^4}{{den:dp0}} = \dfrac{{num:dp0}}{{den:dp0}},$$
+    which in lowest terms is **{n2:dp0}/{d2:dp0}**.
 
 - id: trig-m9-r2-unity-factor
   title: Real quadratic factors of z^n − 1
@@ -145,4 +145,4 @@
   solution: |-
     $\omega^{k} = \operatorname{cis}\dfrac{360^\circ \cdot {k}}{{n}} \approx \operatorname{cis} {ang:num2}^\circ$, so its argument is **{ang:num2}°**, and its conjugate is
     $\omega^{{nk}} = \operatorname{cis}(-{ang:num2}^\circ)$. The pair has sum $2\cos {ang:num2}^\circ$ and product $1$, so
-    $(z - \omega^{k})(z - \omega^{{nk}}) = z^2 - (2\cos {ang:num2}^\circ)z + 1$ and $B = -2\cos {ang:num2}^\circ \approx$ **{B:num4}**.
+    $(z - \omega^{k})(z - \omega^{{nk}}) = z^2 - (2\cos {ang:num2}^\circ)z + 1$ and $B = -2\cos {ang:num2}^\circ \approx$ **{B:dp4}**.

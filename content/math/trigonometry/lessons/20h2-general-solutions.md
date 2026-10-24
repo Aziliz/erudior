@@ -49,7 +49,9 @@ into steps of $\tfrac{\pi}{2}$, just as with the multiple angles in Lesson 20.
 
 Solve $\sin 2x = \cos x$ on $[0, 2\pi)$.
 
-A cofunction identity (Lesson 6) turns the cosine into a sine: $\cos x = \sin\left(\tfrac{\pi}{2} - x\right)$. Now the equation is
+A cofunction identity (Lesson 6) turns the cosine into a sine: $\cos x = \sin\left(\tfrac{\pi}{2} - x\right)$. Lesson 6 showed it for acute
+angles, but it holds for every angle: reflecting the unit circle across the line $y = x$ swaps the two
+coordinates and takes the point at angle $x$ to the point at angle $\tfrac{\pi}{2} - x$. Now the equation is
 $\sin 2x = \sin\left(\tfrac{\pi}{2} - x\right)$.
 
 **Family 1:** $2x = \tfrac{\pi}{2} - x + 2k\pi$, so $x = \tfrac{\pi}{6} + \tfrac{2k\pi}{3}$: that is $\tfrac{\pi}{6}, \tfrac{5\pi}{6}, \tfrac{3\pi}{2}$.
@@ -65,7 +67,7 @@ The two families for $\sin x = c$ can be packed into one line. With $\alpha = \s
 $$x = (-1)^n\alpha + n\pi \qquad (n \text{ an integer}).$$
 Even $n = 2k$ gives $\alpha + 2k\pi$; odd $n = 2k + 1$ gives $-\alpha + \pi + 2k\pi$, the second family. Some books
 write general solutions this way; it is the same set of angles, so either form is correct. For
-cosine and tangent the usual forms, $\pm\beta + 2n\pi$ and $\tan^{-1}c + n\pi$, are already one line.
+cosine and tangent the usual forms, $\pm\beta + 2n\pi$ (with $\beta = \cos^{-1}c$) and $\tan^{-1}c + n\pi$, are already one line.
 
 ## Shifted arguments
 
@@ -92,14 +94,16 @@ solutions of $\sin u = c$ when $-1 < c < 1$, so counting periods predicts how ma
 ```mermaid
 flowchart TD
   accTitle: Choosing a method for a trig equation
-  accDescr: First ask whether one trig function of one argument equals a number. If so, use Lesson 20's method, and for a shifted argument find the interval of u first. If not, ask whether two sines, two cosines or two tangents are set equal; if so, use the equal-value rules. If not, ask whether a sine is set equal to a cosine; if so, rewrite cos x as sin(π/2 − x) and then use the equal-value rules. Otherwise a trig function is mixed with a plain x: graph to count the solutions, then find them numerically.
+  accDescr: First ask whether one trig function of one argument equals a number. If so, use Lesson 20's method, and for a shifted argument find the interval of u first. If not, ask whether two sines, two cosines or two tangents are set equal; if so, use the equal-value rules. If not, ask whether a sine is set equal to a cosine; if so, rewrite cos x as sin(π/2 − x) and then use the equal-value rules. If not, ask whether a trig function is mixed with a plain x; if so, graph to count the solutions, then find them numerically. Otherwise factor or use identities, as in Lesson 20 and Module 6.
   A{"One trig function of one argument equals a number?"} -- yes --> A1["Lesson 20 method; for a shifted argument, find the interval of u first"]
   A -- no --> B{"Two sines, two cosines or two tangents set equal?"}
   B -- yes --> B1["Use the equal-value rules"]
   B -- no --> C{"A sine set equal to a cosine?"}
   C -- yes --> C1["Rewrite cos x as sin(π/2 − x)"]
   C1 --> B1
-  C -- no --> D["A trig function mixed with a plain x: graph to count the solutions, then solve numerically"]
+  C -- no --> D{"A trig function mixed with a plain x?"}
+  D -- yes --> D1["Graph to count the solutions, then solve numerically"]
+  D -- no --> E1["Factor or use identities (Lesson 20, Module 6)"]
 ```
 
 ## Equations no formula can solve
@@ -107,7 +111,8 @@ flowchart TD
 The equation $\cos x = x$ has a solution (the graphs of $y = \cos x$ and $y = x$ cross), but no
 combination of inverse functions and algebra isolates $x$. An equation that mixes trig (or
 exponential or logarithmic) functions with polynomials in this way is called a
-**transcendental equation**. Two dependable tools find its solutions to any accuracy you like.
+**transcendental equation**. (Strictly, any equation built from such functions is transcendental, even
+$\sin x = \tfrac12$; the name matters most for mixed equations like $\cos x = x$, which no formula solves.) Two dependable tools find its solutions to any accuracy you like.
 
 The **bisection method** needs only a sign change. Write the equation as $f(x) = 0$. If $f(a)$ and
 $f(b)$ have opposite signs and $f$ is continuous, there is a root between $a$ and $b$. Evaluate $f$ at the

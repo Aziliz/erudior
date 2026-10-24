@@ -51,7 +51,7 @@
     - {x: 86.7, y: 70, text: Speeding up while moving in −x}
   distractors: [At rest, Slowing down while moving in −x]
   explanation: |-
-    The sign of $v$ gives the direction: pieces 1–3 are above the axis ($+x$), piece 4 below ($-x$). The object speeds up when the graph moves away from the axis (pieces 1 and 4) and slows down when it moves toward it (piece 3). The flat piece 2 has zero slope, so constant velocity, not rest: $v = 6$ m/s there. The object is at rest only for the instant $t = 8.5$ s.
+    The sign of $v$ gives the direction: pieces 1–3 are above the axis ($+x$), piece 4 below ($-x$). The object speeds up when the graph moves away from the axis (pieces 1 and 4) and slows down when it moves toward it (piece 3). The flat piece 2 has zero slope, so constant velocity, not rest: $v = 6$ m/s there. The object is at rest only at single instants: at the start ($t = 0$) and at the turnaround ($t = 8.5$ s).
 - id: phys-m2-r2-q05
   lesson: phys-motion-1d
   type: text

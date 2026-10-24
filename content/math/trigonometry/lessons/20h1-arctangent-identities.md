@@ -14,7 +14,7 @@ Lesson 18 made $\tan^{-1}$ an honest function: $\tan^{-1}a$ is the angle in $\le
 whose tangent is $a$. Lesson 19 found one identity that ties two inverse functions together,
 $\sin^{-1}x + \cos^{-1}x = \tfrac{\pi}{2}$. This lesson asks a natural next question: if you know two
 arctangents, what is their sum? The answer is a short formula with a twist that comes straight
-from the range of $\tan^{-1}$, and it powered almost three centuries of hand calculations of $\pi$.
+from the range of $\tan^{-1}$, and it powered about two and a half centuries of hand calculations of $\pi$.
 
 Everything here uses only right triangles and coordinates. (Module 6 proves the general
 tangent sum formula from the sine and cosine formulas; this lesson reaches the same result by a

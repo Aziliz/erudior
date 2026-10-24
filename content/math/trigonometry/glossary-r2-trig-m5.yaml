@@ -15,7 +15,7 @@
   topic: Arctangent identities
 - term: transcendental equation
   aliases: [transcendental equations]
-  definition: 'An equation that mixes trig, exponential or logarithmic functions with polynomials, such as $\cos x = x$, so that no algebraic steps can isolate $x$; it is solved numerically.'
+  definition: 'An equation involving trig, exponential or logarithmic functions. The term matters most for equations that mix such a function with a polynomial, such as $\cos x = x$: no algebraic steps can isolate $x$, so they are solved numerically.'
   topic: Numerical solutions
 - term: bisection method
   aliases: [bisection]

@@ -9,7 +9,7 @@
 <circle cx="280.0" cy="88.9" r="5" fill="#1c2833"/>
 <circle cx="157.3" cy="235.0" r="5" fill="#1c2833"/>
 <circle cx="389.5" cy="204.9" r="5" fill="#1c2833"/>
-<text x="290.0" y="76.9" font-size="17" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">N (North Pole)</text>
+<text x="280.0" y="48.0" font-size="17" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">N (North Pole)</text>
 <text x="147.3" y="257.0" font-size="17" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">A</text>
 <text x="399.5" y="224.9" font-size="17" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" paint-order="stroke">B</text>
 <text x="198.4" y="147.3" font-size="17" text-anchor="end" fill="#1e7a45" stroke="#ffffff" stroke-width="4" paint-order="stroke">90° − φ₁</text>

@@ -77,7 +77,7 @@ $W_{x'} = 0\cdot\cos30^\circ + (-19.6)\sin30^\circ = -9.8$ N (down the slope),
 
 $W_{y'} = -0\cdot\sin30^\circ + (-19.6)\cos30^\circ = -17.0$ N (into the ramp).
 
-These are the familiar $-mg\sin\theta$ and $-mg\cos\theta$ from the friction lesson, now derived instead of read off a sketch. Check: $\sqrt{9.8^2 + 17.0^2} = 19.6$ N, the same magnitude.
+These are the $-mg\sin\theta$ and $-mg\cos\theta$ you will use in the friction and inclines lesson, here derived instead of read off a sketch. Check: $\sqrt{9.8^2 + 17.0^2} = 19.6$ N, the same magnitude.
 
 ## The scalar triple product
 
@@ -118,7 +118,7 @@ BAC-CAB with $\vec A = \vec B = \vec\omega$ and $\vec C = \vec r$: $\vec a = \ve
 
 $\vec\omega\cdot\vec r = 3.0 \times 0.50 = 1.5$ and $\omega^2 = 9.0$, so $\vec a = 1.5(3.0\hat k) - 9.0(0.20\hat\imath + 0.50\hat k) = 4.5\hat k - 1.8\hat\imath - 4.5\hat k = -1.8\hat\imath$ m/s².
 
-The $\hat k$ parts cancel and what is left points straight at the axis with magnitude $\omega^2\rho$, where $\rho = 0.20$ m is the distance from the axis. That is the centripetal acceleration from the circular motion lesson, found without drawing a single circle.
+The $\hat k$ parts cancel and what is left points straight at the axis with magnitude $\omega^2\rho$, where $\rho = 0.20$ m is the distance from the axis. That is the centripetal acceleration of circular motion (covered in the circular motion lesson), found without drawing a single circle.
 
 ```mermaid
 flowchart LR

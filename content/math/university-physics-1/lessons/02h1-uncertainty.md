@@ -136,7 +136,7 @@ Suppose three students measure $g$ where the accepted local value is $9.80\text{
 {"x": [0, 4], "y": [9.4, 10.1], "xLabel": "student", "yLabel": "g (m/s²)", "segments": [{"from": [0, 9.80], "to": [4, 9.80], "dashed": true}, {"from": [1, 9.75], "to": [1, 9.87]}, {"from": [2, 9.57], "to": [2, 9.67]}, {"from": [3, 9.75], "to": [3, 10.05]}], "points": [{"at": [1, 9.81], "label": "A"}, {"at": [2, 9.62], "label": "B"}, {"at": [3, 9.90], "label": "C"}], "labels": [{"at": [2.0, 9.85], "text": "accepted 9.80"}], "caption": "Three results for g with their uncertainty bars; the dashed line is the accepted value"}
 ```
 
-Compare the **discrepancy** (the difference between the result and the accepted value, or between two results) with the uncertainty. A rough rule of thumb, assuming the uncertainty behaves like one standard deviation: a discrepancy within about $2\,\delta$ is consistent; one much beyond that points to a mistake or a systematic error.
+Compare the **discrepancy** (the difference between the result and the accepted value, or between two results) with the uncertainty. When two measured results are compared, the uncertainty of their difference is the two uncertainties added in quadrature, $\sqrt{\delta_1^2 + \delta_2^2}$, since a difference is being taken. A rough rule of thumb, assuming the uncertainty behaves like one standard deviation: a discrepancy within about $2\,\delta$ is consistent; one much beyond that points to a mistake or a systematic error.
 
 - A: off by 0.01, much less than 0.06. Consistent.
 - C: off by 0.10, less than one uncertainty of 0.15. Consistent, but C's result is too imprecise to test much.
@@ -162,4 +162,4 @@ C "agrees" and B does not, yet B's number is more precise. Agreement depends on 
 - Mean $\bar x$, standard deviation $s$, standard error $s/\sqrt n$.
 - Sums and differences: absolute uncertainties in quadrature. Products and quotients: relative uncertainties in quadrature. Powers: $|n|$ times the relative uncertainty.
 - General rule: $\delta q = |dq/dx|\,\delta x$, with partial derivatives in quadrature for several inputs.
-- A result agrees with another if the discrepancy is within about two uncertainties.
+- As a rule of thumb, a result agrees with another if the discrepancy is within about two uncertainties.

@@ -87,7 +87,7 @@ sine graph slid left, and its slope at $x$ is the slope of sine at $x + \tfrac{\
 $\cos\left(x + \tfrac{\pi}{2}\right) = -\sin x$. So the slope of $y = \cos x$ is $-\sin x$.
 
 ```plot
-{"x": [-0.3, 6.6], "y": [-1.5, 1.5], "functions": [{"f": "sin(x)", "label": "y = sin x"}, {"f": "cos(x)", "dashed": true, "label": "slope of sin x"}], "points": [{"at": [0, 1], "label": "slope 1 at x = 0"}, {"at": [1.5708, 0], "label": "slope 0 at the peak"}, {"at": [3.1416, -1], "label": "slope −1 at x = π"}], "caption": "The slope of y = sin x (solid) at each x is the height of y = cos x (dashed)"}
+{"x": [-0.3, 6.6], "y": [-1.5, 1.5], "functions": [{"f": "sin(x)", "label": "y = sin x", "from": 0, "to": 6.2832}, {"f": "cos(x)", "dashed": true, "label": "slope of sin x", "from": 0, "to": 6.2832}], "points": [{"at": [0, 1], "label": "slope 1 at x = 0"}, {"at": [1.5708, 0], "label": "slope 0"}, {"at": [3.1416, -1]}], "labels": [{"at": [3.1416, -1.27], "text": "slope −1 at x = π"}], "caption": "The slope of y = sin x (solid) at each x is the height of y = cos x (dashed)"}
 ```
 
 Read the two graphs together: where sine climbs (from $-\tfrac{\pi}{2}$ to $\tfrac{\pi}{2}$) cosine is

@@ -18,7 +18,7 @@ few lines of algebra with the dot product. The same habits, set up with vectors,
 then read the answer geometrically, are how geometry is done in physics, engineering and
 computer graphics, and in higher dimensions where pictures run out.
 
-Two algebra facts from Lesson 33 do most of the work:
+Two algebra facts, both from expanding dot products as in Lesson 33, do most of the work:
 $$\mathbf{v}\cdot\mathbf{v} = \lVert\mathbf{v}\rVert^2, \qquad (\mathbf{u} + \mathbf{v})\cdot(\mathbf{u} - \mathbf{v}) = \lVert\mathbf{u}\rVert^2 - \lVert\mathbf{v}\rVert^2.$$
 The second is the dot product version of $(a + b)(a - b) = a^2 - b^2$; expand it and the cross terms
 $\mathbf{u}\cdot\mathbf{v}$ and $\mathbf{v}\cdot\mathbf{u}$ cancel because the dot product is commutative.

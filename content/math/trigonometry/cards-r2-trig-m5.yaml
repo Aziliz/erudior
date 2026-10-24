@@ -17,5 +17,5 @@
 - {front: 'Shifted argument such as $\sin\left(2x - \tfrac{\pi}{3}\right) = c$', back: 'Let $u$ be the argument, find the interval $u$ runs over, solve there, then convert back to $x$.', topic: General solutions}
 - {front: 'Bisection method', back: 'Keep halving an interval where $f$ changes sign; each step halves the width.', topic: Numerical solutions}
 - {front: 'Fixed-point iteration', back: 'For $x = g(x)$: compute $x_{n+1} = g(x_n)$ until the values settle.', topic: Numerical solutions}
-- {front: 'Solution of $\cos x = x$', back: '$x \approx 0.7391$ (the only one)', topic: Numerical solutions}
+- {front: 'Solution of $\cos x = x$', back: '$x \approx 0.7391$ radians (the only one)', topic: Numerical solutions}
 - {front: 'Kepler''s equation', back: '$M = E - e\sin E$; solve for $E$ numerically, e.g. by iterating $E_{n+1} = M + e\sin E_n$.', topic: Numerical solutions}
