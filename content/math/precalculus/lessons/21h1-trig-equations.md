@@ -47,7 +47,7 @@ Solve $2\sin x + 1 = 0$: give the general solution and the solutions in $[0, 2\p
 So $x = \frac{7\pi}{6}$ or $x = \frac{11\pi}{6}$. Check with Lesson 20's method: sine is negative in Quadrants III and IV, and the reference angle for $\frac12$ is $\frac{\pi}{6}$, which gives $\pi + \frac{\pi}{6}$ and $2\pi - \frac{\pi}{6}$. The graph shows the same thing: the line $y = -\frac12$ crosses one period of $y = \sin x$ twice.
 
 ```plot
-{"x": [-0.5, 7], "y": [-1.6, 1.6], "functions": [{"f": "sin(x)", "label": "y = sin x"}, {"f": "-0.5", "dashed": true}], "points": [{"at": [3.6652, -0.5], "label": "7π/6"}, {"at": [5.7596, -0.5], "label": "11π/6"}], "labels": [{"at": [0.9, -0.8], "text": "y = −1/2"}], "caption": "y = sin x meets y = −1/2 twice in [0, 2π): at x = 7π/6 and x = 11π/6."}
+{"x": [-0.5, 7], "y": [-1.6, 1.6], "functions": [{"f": "sin(x)", "label": "y = sin x"}, {"f": "-0.5", "dashed": true}], "points": [{"at": [3.6652, -0.5], "label": "7π/6"}, {"at": [5.7596, -0.5]}], "labels": [{"at": [0.9, -0.8], "text": "y = −1/2"}, {"at": [5.25, -0.4], "text": "11π/6"}], "caption": "y = sin x meets y = −1/2 twice in [0, 2π): at x = 7π/6 and x = 11π/6."}
 ```
 
 ## When the value isn't special
@@ -157,7 +157,7 @@ Daylight reaches 13 hours around day 99 (early April) and falls back to 13 hours
 ## Common mistakes
 
 - *Stopping at the calculator answer.* $\sin^{-1}$, $\cos^{-1}$ and $\tan^{-1}$ return one value; sine and cosine equations usually have two per turn.
-- *Using the wrong partner.* For sine the partner of $\alpha$ is $\pi - \alpha$; for cosine it is $-\beta$ (or $2\pi - \beta$). Mixing them gives angles with the wrong sign.
+- *Using the wrong partner.* For sine the partner of $\alpha$ is $\pi - \alpha$; for cosine it is $-\beta$ (or $2\pi - \beta$). Mixing them gives angles where the function has the wrong sign.
 - *Adding $2\pi$ to tangent solutions only.* Tangent repeats every $\pi$, so $\tan x = c$ has two solutions in $[0, 2\pi)$, $\pi$ apart.
 - *Solving a multiple-angle equation on the wrong interval.* For $\sin 2x = c$ on $[0, 2\pi)$, solve for $2x$ on $[0, 4\pi)$ before dividing by 2.
 - *Dividing by $\sin x$ or $\cos x$.* Factor instead, or you lose the solutions where that factor is 0.

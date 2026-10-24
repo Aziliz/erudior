@@ -13,7 +13,7 @@ refs: [pc-ref-exp-log]
 Lesson 21 used the sum identity $\sin(a + b) = \sin a\cos b + \cos a\sin b$ to *expand* a sine. This lesson runs it backward. Add a sine wave and a cosine wave with the same period, say $y = \sin x + \sqrt3\cos x$, and graph the result: you get another perfectly smooth wave with the same period, just taller and shifted. That is not a coincidence, and knowing exactly which wave you get answers practical questions: how far a vibrating spring travels, where a combined signal peaks, how to solve $a\sin x + b\cos x = c$ without squaring. The second half of the lesson adds waves with *different* periods, which produces the pulsing sound musicians call beats.
 
 ```plot
-{"x": [-0.5, 7], "y": [-2.5, 2.5], "functions": [{"f": "sin(x)", "dashed": true, "label": "sin x"}, {"f": "sqrt(3)*cos(x)", "dashed": true, "label": "√3 cos x"}, {"f": "sin(x) + sqrt(3)*cos(x)", "label": "sum"}], "points": [{"at": [0.5236, 2], "label": "max (π/6, 2)"}], "caption": "Adding sin x and √3 cos x gives a single sinusoid, 2 sin(x + π/3), with amplitude 2 and its first maximum at x = π/6."}
+{"x": [-0.5, 7], "y": [-2.5, 2.5], "functions": [{"f": "sin(x)", "dashed": true, "label": "sin x"}, {"f": "sqrt(3)*cos(x)", "dashed": true}, {"f": "sin(x) + sqrt(3)*cos(x)", "label": "sum"}], "points": [{"at": [0.5236, 2], "label": "max (π/6, 2)"}], "labels": [{"at": [1.9, -1.75], "text": "√3 cos x"}], "caption": "Adding sin x and √3 cos x gives a single sinusoid, 2 sin(x + π/3), with amplitude 2 and its first maximum at x = π/6."}
 ```
 
 ## The amplitude-phase form
@@ -120,7 +120,7 @@ $$\sin(2\pi\cdot 444\,t) + \sin(2\pi\cdot 440\,t) = 2\cos(2\pi\cdot 2\,t)\,\sin(
 The factor $\sin(2\pi\cdot 442\,t)$ is a tone at the average frequency, 442 Hz. The factor $2\cos(2\pi\cdot 2t)$ changes slowly and acts as a varying amplitude, or envelope. The sound is loudest whenever that envelope is $2$ *or* $-2$, which happens twice in each of its cycles. The envelope has frequency 2 Hz, so the loudness swells $2 \times 2 = 4$ times per second. These pulses are called **beats**, and in general the **beat frequency** is the difference $|f_1 - f_2|$. Musicians use this to tune: as two strings approach the same pitch, the beats slow down and disappear. (The model assumes pure tones of equal loudness; real instruments add overtones, but the beats are still heard.)
 
 ```plot
-{"x": [0, 6.3], "y": [-2.5, 2.5], "functions": [{"f": "sin(10x) + sin(12x)", "label": "sin 10x + sin 12x"}, {"f": "2*cos(x)", "dashed": true, "label": "envelope ±2 cos x"}, {"f": "-2*cos(x)", "dashed": true}], "caption": "sin 10x + sin 12x = 2 sin(11x) cos x: a fast wave inside the slow envelope ±2 cos x. The loudness peaks twice per cycle of cos x."}
+{"x": [0, 6.3], "y": [-2.5, 2.5], "functions": [{"f": "sin(10x) + sin(12x)"}, {"f": "2*cos(x)", "dashed": true, "label": "envelope ±2 cos x"}, {"f": "-2*cos(x)", "dashed": true}], "labels": [{"at": [1.6, 2.15], "text": "sin 10x + sin 12x"}], "caption": "sin 10x + sin 12x = 2 sin(11x) cos x: a fast wave inside the slow envelope ±2 cos x. The loudness peaks twice per cycle of cos x."}
 ```
 
 ## Common mistakes
