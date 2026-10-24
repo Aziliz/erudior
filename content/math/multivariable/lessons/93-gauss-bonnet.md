@@ -186,7 +186,7 @@ The outer half ($\cos v > 0$, dome-like) has total curvature $+4\pi$ and the inn
 (saddle-like, around the hole) has $-4\pi$; they cancel.
 
 ```plot
-{"x": [-3.3, 3.3], "y": [-1.2, 0.5], "functions": [{"f": "cos(x)/(2 + cos(x))", "label": "K(v), a = 2, b = 1"}], "shade": [{"f": "cos(x)/(2 + cos(x))", "from": -1.5708, "to": 1.5708}], "xLabel": "v (0 = outer equator, ±π = inner equator)", "yLabel": "K", "caption": "Gaussian curvature of a torus: positive on the outer half, negative on the inner half"}
+{"x": [-3.3, 3.3], "y": [-1.2, 0.5], "functions": [{"f": "cos(x)/(2 + cos(x))"}], "shade": [{"f": "cos(x)/(2 + cos(x))", "from": -1.5708, "to": 1.5708}], "labels": [{"at": [1.2, -0.6], "text": "K(v), a = 2, b = 1"}], "xLabel": "v", "yLabel": "K", "caption": "Gaussian curvature of a torus with a = 2, b = 1 (v = 0 is the outer equator, v = ±π the inner one): positive on the outer half, negative on the inner half"}
 ```
 
 ## Common mistakes

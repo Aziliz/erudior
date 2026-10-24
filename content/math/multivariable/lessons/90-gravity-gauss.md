@@ -98,7 +98,7 @@ than its crust, and measured gravity actually *increases* a little as you go dow
 crust and mantle. The uniform ball is a model, not the Earth.)
 
 ```plot
-{"x": [0, 3.2], "y": [0, 1.25], "functions": [{"f": "x", "from": 0, "to": 1, "label": "g₀ r/R inside"}, {"f": "1/x^2", "from": 1, "to": 3.2, "label": "g₀ R²/r² outside"}], "segments": [{"from": [1, 0], "to": [1, 1], "dashed": true, "label": "surface"}], "xLabel": "r / R", "yLabel": "|g| / g₀", "caption": "Field strength of a uniform ball: linear inside, inverse-square outside, largest at the surface"}
+{"x": [0, 3.2], "y": [0, 1.25], "functions": [{"f": "x", "from": 0, "to": 1}, {"f": "1/x^2", "from": 1, "to": 3.2}], "segments": [{"from": [1, 0], "to": [1, 1], "dashed": true}], "labels": [{"at": [0.5, 0.95], "text": "inside: g₀ r/R"}, {"at": [2.2, 0.55], "text": "outside: g₀ R²/r²"}, {"at": [1.3, 1.15], "text": "surface"}], "xLabel": "r / R", "yLabel": "|g| / g₀", "caption": "Field strength of a uniform ball: linear inside, inverse-square outside, largest at the surface"}
 ```
 
 ### Example 2: a tunnel through the planet
