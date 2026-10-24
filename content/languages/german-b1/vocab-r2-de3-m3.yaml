@@ -73,23 +73,6 @@
   example: Der bisherige Rekord lag bei 40 Münzen.
   exampleEn: The previous record was 40 coins.
   note: 'Only before a noun, with endings: der bisherige Rekord. The adverb is bisher.'
-- id: de3-m3-r2-w10
-  lesson: de3-m3-h-participle-phrases
-  term: der Schatz
-  pos: noun
-  plural: die Schätze
-  meanings: [treasure, darling]
-  example: Unter dem Marktplatz lag ein Schatz.
-  exampleEn: There was a treasure under the market square.
-  note: 'Also used as a term of endearment: mein Schatz (my darling).'
-- id: de3-m3-r2-w11
-  lesson: de3-m3-h-participle-phrases
-  term: die Münze
-  pos: noun
-  plural: die Münzen
-  meanings: [coin]
-  example: Ich habe nur Münzen im Portemonnaie.
-  exampleEn: I've only got coins in my purse.
 - id: de3-m3-r2-w12
   lesson: de3-m3-h-participle-phrases
   term: der Besucher
@@ -121,13 +104,6 @@
   meanings: [Roman]
   example: Hier stand früher eine römische Stadt.
   exampleEn: A Roman town used to stand here.
-- id: de3-m3-r2-w16
-  lesson: de3-m3-h-participle-phrases
-  term: vermuten
-  pos: verb
-  meanings: [to suppose, to suspect, to assume, to presume, to guess]
-  example: Ich vermute, dass die Münzen sehr wertvoll sind.
-  exampleEn: I suspect that the coins are very valuable.
 
 # --- 15h2 Office German: official letters ---
 - id: de3-m3-r2-w17

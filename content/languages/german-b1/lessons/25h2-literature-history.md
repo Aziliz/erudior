@@ -47,7 +47,7 @@ Meaning: *If she didn't live so far away, we would drive to see her every weeken
 
 ## A wish in one sentence: Kafka
 
-Franz Kafka (1883–1924) was a German-speaking writer from Prague, best known for *Die Verwandlung* (The Metamorphosis) and *Der Process*. His first book, *Betrachtung* (Meditation), appeared at the end of 1912 and contains short prose pieces, some only a few lines long. One of them is a single sentence. Kafka died in 1924, so his work is in the public domain, and here is the full text:
+Franz Kafka (1883–1924) was a German-speaking writer from Prague, best known for *Die Verwandlung* (The Metamorphosis) and the novel *Der Process* (The Trial). His first book, *Betrachtung* (Meditation), was printed at the end of 1912 (its title page says 1913) and contains short prose pieces, some only a few lines long. One of them is a single sentence. Kafka died in 1924, so his work is in the public domain, and here is the full text:
 
 > **Wunsch, Indianer zu werden**
 >
@@ -86,7 +86,7 @@ Go through the verbs in order and ask what form each one is.
 5. *wegwarf* — simple past of *wegwerfen* (Konjunktiv: *wegwürfe*).
 6. *sah* — simple past (Konjunktiv: *sähe*).
 
-So the sentence begins in the Konjunktiv and, after *bis*, continues in plain past forms. One common reading is that the wish slowly turns into a vision that feels real: the rider drops the spurs, then the reins, and in the end even the horse disappears, until only speed and open land are left. Other readers point out that in a *bis* clause the past forms may simply be the normal choice. This is interpretation, not grammar fact, and literature scholars read the piece in many ways. The grammar question, though, has a clear answer: you can tell exactly where the Konjunktiv forms stop, and noticing that is what careful reading means.
+So the sentence begins in the Konjunktiv and, after *bis*, continues in plain past forms. One common reading is that the wish slowly turns into a vision that feels real: the rider drops the spurs, then the reins, and in the end even the horse disappears, until only speed and open land are left. Other readers see the whole sentence as one continuous daydream and give the change of form less weight. This is interpretation, not grammar fact, and literature scholars read the piece in many ways. The grammar question, though, has a clear answer: you can tell exactly where the Konjunktiv forms stop, and noticing that is what careful reading means.
 
 ## Was wäre gewesen, wenn …? Alternative history
 
