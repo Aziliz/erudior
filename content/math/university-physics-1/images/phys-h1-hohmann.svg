@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" width="440" height="340" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c2833">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker></defs>
+<rect width="440" height="340" fill="#ffffff"/>
+<circle cx="220" cy="170" r="140" fill="none" stroke="#1c2833" stroke-width="2"/>
+<circle cx="220" cy="170" r="60" fill="none" stroke="#1c2833" stroke-width="2"/>
+<path d="M 280 170 A 100.0 91.65 0 0 0 80 170" fill="none" stroke="#2c5d8a" stroke-width="3" stroke-dasharray="9 5"/>
+<circle cx="220" cy="170" r="18" fill="#dcf0e3" stroke="#1c2833" stroke-width="2"/>
+<line x1="280" y1="170" x2="280" y2="132" stroke="#b03a2e" stroke-width="4" marker-end="url(#ah)"/>
+<line x1="80" y1="170" x2="80" y2="208" stroke="#b03a2e" stroke-width="4" marker-end="url(#ah)"/>
+<circle cx="280" cy="170" r="5" fill="#b03a2e"/>
+<circle cx="80" cy="170" r="5" fill="#b03a2e"/>
+<text x="290" y="176">burn 1</text>
+<text x="90" y="176">burn 2</text>
+<text x="196" y="212">planet</text>
+<text x="174" y="254">parking orbit</text>
+<text x="174" y="298">target orbit</text>
+<text x="120.0" y="68" fill="#2c5d8a">transfer orbit</text>
+</svg>

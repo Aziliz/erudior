@@ -22,8 +22,8 @@
   prompt: 'Five timings of the same event are {r1:num2}, {r2:num2}, {r3:num2}, {r4:num2} and {r5:num2} s. Find the mean (exact, to 3 decimal places), the sample standard deviation and the standard error of the mean (each to 2 significant figures).'
   answers:
     - {name: m, label: 'Mean', format: dp3, tolerance: 0.0006, units: {s: 1}}
-    - {name: sd, label: 'Standard deviation', format: sig2, relTolerance: 0.05, units: {s: 1}}
-    - {name: se, label: 'Standard error', format: sig2, relTolerance: 0.05, units: {s: 1}}
+    - {name: sd, label: 'Standard deviation', format: sig2, relTolerance: 0.06, units: {s: 1}}
+    - {name: se, label: 'Standard error', format: sig2, relTolerance: 0.06, units: {s: 1}}
   solution: |-
     Mean: $\bar t = \dfrac{ {r1:num2} + {r2:num2} + {r3:num2} + {r4:num2} + {r5:num2} }{5} =$ **{m:dp3} s**.
 
@@ -48,7 +48,7 @@
   prompt: 'A pendulum has length $L = {L:dp3} \pm {dL:dp3}$ m and period $T = {T:dp3} \pm {dT:dp3}$ s. Find $g = 4\pi^2 L/T^2$ (3 significant figures) and its uncertainty $\delta g$, combining relative uncertainties in quadrature (2 significant figures).'
   answers:
     - {name: grav, label: '$g =$', format: sig3, relTolerance: 0.002, units: {'m/s²': 1, 'm/s^2': 1}}
-    - {name: dg, label: '$\delta g =$', format: sig2, relTolerance: 0.05, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {name: dg, label: '$\delta g =$', format: sig2, relTolerance: 0.06, units: {'m/s²': 1, 'm/s^2': 1}}
   solution: |-
     $g = \dfrac{4\pi^2({L:dp3})}{({T:dp3})^2} =$ **{grav:sig3} m/s²**.
 
@@ -68,7 +68,7 @@
   prompt: 'A ball bearing has diameter $d = {dia:num2} \pm {dd:num2}$ cm. Find its volume $V = \pi d^3/6$ in cm³ (3 significant figures) and the uncertainty $\delta V$ (2 significant figures).'
   answers:
     - {name: V, label: '$V =$', format: sig3, sigfigs: 3, units: {'cm³': 1, 'cm^3': 1}}
-    - {name: dV, label: '$\delta V =$', format: sig2, relTolerance: 0.05, units: {'cm³': 1, 'cm^3': 1}}
+    - {name: dV, label: '$\delta V =$', format: sig2, relTolerance: 0.06, units: {'cm³': 1, 'cm^3': 1}}
   solution: |-
     $V = \dfrac{\pi({dia:num2})^3}{6} =$ **{V:sig3} cm³**.
 
