@@ -17,7 +17,7 @@
 Every core lesson already had at least one ```plot; each now has 2–4 figures.
 
 ## Questions (`questions/r2-mv-m8.yaml`, 53)
-- Core `mv-m8-r2-q01`–`q25` (4–5 per lesson): 7 text, 5 match, 4 order, 5 select-all, 4 label. 9 are module_quiz (1–2 per lesson).
+- Core `mv-m8-r2-q01`–`q25` (4–5 per lesson): 7 text, 5 match, 3 order, 6 select-all, 4 label. 8 are module_quiz (1–2 per lesson).
 - Honors `mv-m8-r2-h01`–`h28` (14 per lesson): 18 multiple choice, 4 text, 2 match, 2 order, 2 select-all, so 10 of 28 (about a third) use the new types.
 
 ## Drills (`drills/r2-mv-m8.yaml`, 6)
