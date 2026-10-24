@@ -45,7 +45,7 @@ Forgetting to convert millimeters gives 0.048 N, a thousand times too small.
 In a pipe, the fluid at the wall is at rest and the fluid at the center moves fastest. For smooth flow the speed profile is a parabola:
 
 ```plot
-{"x": [-1.2, 1.2], "y": [0, 1.25], "xLabel": "position across the pipe (fraction of radius)", "yLabel": "speed (fraction of center speed)", "functions": [{"f": "1 - x^2", "from": -1, "to": 1, "label": "laminar"}, {"f": "0.5", "from": -1, "to": 1, "dashed": true, "label": "average = half the center speed"}], "segments": [{"from": [-1, 0], "to": [-1, 1.2]}, {"from": [1, 0], "to": [1, 1.2]}], "caption": "Laminar flow in a pipe: zero speed at the walls, fastest at the center"}
+{"x": [0, 2.7], "y": [0, 1.4], "xLabel": "across pipe", "yLabel": "speed (fraction of center speed)", "functions": [{"f": "2*x - x^2", "from": 0, "to": 2}, {"f": "0.5", "from": 0, "to": 2, "dashed": true}], "segments": [{"from": [2, 0], "to": [2, 1.25]}], "labels": [{"at": [1, 1.08], "text": "parabolic profile"}, {"at": [1, 0.38], "text": "average speed"}], "caption": "Laminar flow in a pipe, plotted across the pipe in units of the radius (walls at 0 and 2): zero speed at the walls, fastest at the center, and an average speed (dashed) of half the center speed"}
 ```
 
 The flow rate through a pipe of radius $R$ and length $L$ with a pressure difference $\Delta P$ between its ends is **Poiseuille's law**:

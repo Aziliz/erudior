@@ -63,7 +63,7 @@ The **Otto cycle** is the idealized version, treating the gas as air that is hea
 - 4 → 1: heat $Q_C$ rejected at constant volume (exhaust replaced by fresh, cool air).
 
 ```plot
-{"x": [0, 9], "y": [0, 60], "xLabel": "volume V (relative)", "yLabel": "pressure P (relative)", "functions": [{"f": "8^1.4/x^1.4", "from": 1, "to": 8}, {"f": "2.5*8^1.4/x^1.4", "from": 1, "to": 8}], "segments": [{"from": [1, 18.38], "to": [1, 45.95]}, {"from": [8, 1], "to": [8, 2.5]}], "points": [{"at": [8, 1], "label": "1"}, {"at": [1, 18.38], "label": "2"}, {"at": [1, 45.95], "label": "3"}, {"at": [8, 2.5], "label": "4"}], "caption": "An ideal Otto cycle with r = 8: two adiabats joined by two constant-volume steps"}
+{"x": [0, 7], "y": [0, 24], "xLabel": "V (relative)", "yLabel": "P (relative)", "functions": [{"f": "4^1.4/x^1.4", "from": 1, "to": 4}, {"f": "3*4^1.4/x^1.4", "from": 1, "to": 4}], "segments": [{"from": [1, 6.96], "to": [1, 20.89]}, {"from": [4, 1], "to": [4, 3]}], "points": [{"at": [4, 1], "label": "1"}, {"at": [1, 6.96], "label": "2"}, {"at": [1, 20.89], "label": "3"}, {"at": [4, 3], "label": "4"}], "caption": "An ideal Otto cycle (drawn with r = 4 so the corners are easy to see): two adiabats joined by two constant-volume steps"}
 ```
 
 The key number is the **compression ratio**, $r = V_1/V_2$. The efficiency follows in a few lines. Heat flows only in the constant-volume steps, so

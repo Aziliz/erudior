@@ -76,12 +76,13 @@ Which conservation law to use depends on what acts on the system:
 ```mermaid
 flowchart TD
   accTitle: Which quantities are conserved in a rotation problem
-  accDescr: If the net external torque about the axis is not zero, angular momentum changes, and the change equals torque times time. If the net external torque is zero, angular momentum is conserved. Then ask whether anything converts mechanical energy: if parts slide against each other, stick together, or muscles do work, kinetic energy is not conserved; otherwise, as in rolling without slipping with no losses, mechanical energy is conserved too.
+  accDescr: If the net external torque about the axis is not zero, angular momentum changes, and the change equals torque times time. If the net external torque is zero, angular momentum is conserved. In either case, separately ask whether anything converts mechanical energy: if parts slide against each other, stick together, or muscles do work, kinetic energy is not conserved; otherwise, as in rolling without slipping with no losses, mechanical energy is conserved.
   A{"Net external torque about the axis zero?"} -- no --> B["L changes: change in L = torque times time"]
   A -- yes --> C["L conserved: I1 omega1 = I2 omega2"]
-  C --> D{"Sliding, sticking, or muscles doing work?"}
+  B --> D{"Sliding, sticking, or muscles doing work?"}
+  C --> D
   D -- yes --> E["Kinetic energy NOT conserved"]
-  D -- no --> F["Mechanical energy also conserved"]
+  D -- no --> F["Mechanical energy conserved"]
 ```
 
 ### Example 2

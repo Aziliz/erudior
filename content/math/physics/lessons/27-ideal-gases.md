@@ -51,7 +51,7 @@ flowchart TD
 On a PV graph, each constant-temperature curve (an isotherm) is a hyperbola, $P = nRT/V$. Halving the volume doubles the pressure, and a hotter gas has its own isotherm farther from the origin:
 
 ```plot
-{"x": [0, 5], "y": [0, 5], "xLabel": "V (L)", "yLabel": "P (atm)", "functions": [{"f": "2/x", "from": 0.4, "to": 5, "label": "300 K"}, {"f": "4/x", "from": 0.8, "to": 5, "label": "600 K", "dashed": true}], "points": [{"at": [1, 2], "label": "(1, 2)"}, {"at": [2, 1], "label": "(2, 1)"}], "caption": "Isotherms of a fixed amount of gas: PV is constant along each curve; doubling T doubles PV"}
+{"x": [0, 5], "y": [0, 5], "xLabel": "V (L)", "yLabel": "P (atm)", "functions": [{"f": "2/x", "from": 0.4, "to": 5}, {"f": "4/x", "from": 0.8, "to": 5, "dashed": true}], "labels": [{"at": [3.4, 0.25], "text": "300 K"}, {"at": [3.4, 1.6], "text": "600 K (dashed)"}], "points": [{"at": [1, 2], "label": "(1, 2)"}, {"at": [2, 1], "label": "(2, 1)"}], "caption": "Isotherms of a fixed amount of gas: PV is constant along each curve; doubling T doubles PV"}
 ```
 
 At **STP** (0°C, 1 atm), one mole of any ideal gas occupies 22.4 L.
