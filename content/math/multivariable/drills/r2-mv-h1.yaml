@@ -198,7 +198,7 @@
   answers:
     - {name: kk, label: '$K =$', sigfigs: 4, format: sig4}
   solution: |-
-    $f_{xx} = f_{yy} = {ta}$, $f_{xy} = 0$, $f_x = {fx}$, $f_y = {fy}$. So $K = \dfrac{f_{xx}f_{yy} - f_{xy}^2}{(1 + f_x^2 + f_y^2)^2} = \dfrac{{num}}{{den}} \approx$ **{kk:sig4}**.
+    $f_{xx} = f_{yy} = {ta}$, $f_{xy} = 0$, $f_x = {fx}$, $f_y = {fy}$. So $K = \dfrac{f_{xx}f_{yy} - f_{xy}^2}{(1 + f_x^2 + f_y^2)^2} = \dfrac{{num:dp0}}{{den:dp0}} \approx$ **{kk:sig4}**.
 - id: mv-h1-r2-sphere-triangle
   title: Area of a spherical triangle
   topic: Curvature of surfaces

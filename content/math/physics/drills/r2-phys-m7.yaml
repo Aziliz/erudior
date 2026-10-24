@@ -1,0 +1,159 @@
+# Round 2 drills for phys-m7 honors lessons (29h1 real fluids, 29h2 engine cycles, 29h3 radiation balance).
+- id: phys-m7-r2-poiseuille
+  title: Pressure to push liquid through a needle
+  topic: Viscosity and drag
+  vars:
+    Rmm: {min: 0.1, max: 0.4, step: 0.05}
+    Lcm: {min: 2, max: 8, step: 0.5}
+    Qml: {min: 0.05, max: 0.3, step: 0.05}
+    eta: {choices: [{label: 'a water-like liquid (viscosity 1.0×10⁻³ Pa·s)', value: 0.001}, {label: 'blood (viscosity 3.5×10⁻³ Pa·s)', value: 0.0035}]}
+  calc:
+    rad: Rmm*1e-3
+    len: Lcm/100
+    flow: Qml*1e-6
+    Rf: 8*eta*len/(pi*rad^4)
+    dP: flow*Rf
+  prompt: 'Laminar flow of {eta} passes at {Qml} mL/s through a needle {Lcm} cm long with an inner radius of {Rmm} mm. Use Poiseuille''s law to find the pressure difference between the ends of the needle, in pascals to 3 significant figures.'
+  answers:
+    - {name: dP, label: '$\Delta P =$', format: sci, relTolerance: 0.01, units: {Pa: 1, kPa: 1000}}
+  solution: |-
+    Convert to SI: $R = {rad:texsci}$ m, $L = {len}$ m, $Q = {flow:texsci}$ m³/s.
+
+    Flow resistance: $R_{\text{flow}} = \dfrac{8\eta L}{\pi R^4} = \dfrac{8({eta})({len})}{\pi({rad:texsci})^4} = {Rf:texsci}$ Pa·s/m³.
+
+    $\Delta P = QR_{\text{flow}} =$ **{dP:sig3} Pa**.
+- id: phys-m7-r2-stokes
+  title: Terminal speed of a small droplet
+  topic: Viscosity and drag
+  vars:
+    rum: {min: 2, max: 30}
+  calc:
+    rad: rum*1e-6
+    vt: 2*rad^2*(1000 - 1.2)*9.8/(9*1.8e-5)
+    vmm: vt*1000
+  prompt: 'A water droplet (density 1000 kg/m³) of radius {rum} µm falls through still air (density 1.2 kg/m³, viscosity $1.8\times10^{-5}$ Pa·s). Using Stokes''s law and $g = 9.8$ m/s², find its terminal speed in mm/s to 3 significant figures.'
+  answers:
+    - {name: vmm, label: '$v_T =$', format: sig4, relTolerance: 0.01, units: {'mm/s': 1, 'm/s': 1000, 'cm/s': 10}}
+  solution: |-
+    $v_T = \dfrac{2r^2(\rho_s - \rho_f)g}{9\eta} = \dfrac{2({rad:texsci})^2(1000 - 1.2)(9.8)}{9(1.8\times10^{-5})} = {vt:texsci}$ m/s $=$ **{vmm:sig3} mm/s**.
+
+    Tiny droplets settle slowly because $v_T \propto r^2$.
+- id: phys-m7-r2-capillary
+  title: Capillary rise
+  topic: Surface tension
+  vars:
+    rmm: {min: 0.05, max: 1, step: 0.05}
+    liq: {choices: [{label: 'water (surface tension 0.073 N/m, density 1000 kg/m³, contact angle 0°)', value: 1}, {label: 'ethanol (surface tension 0.022 N/m, density 789 kg/m³, contact angle 0°)', value: 2}, {label: 'mercury (surface tension 0.49 N/m, density 13 600 kg/m³, contact angle 140°)', value: 3}]}
+  calc:
+    gam: if(liq == 1, 0.073, if(liq == 2, 0.022, 0.49))
+    dens: if(liq == 1, 1000, if(liq == 2, 789, 13600))
+    th: if(liq == 3, 140, 0)
+    rad: rmm*1e-3
+    hm: 2*gam*cosd(th)/(dens*9.8*rad)
+    hcm: hm*100
+  prompt: 'A clean glass tube of inner radius {rmm} mm stands in {liq}. Using $g = 9.8$ m/s², find how far the liquid inside the tube rises above the outside level, in centimeters to 3 significant figures (a negative answer means it sits below the outside level).'
+  answers:
+    - {name: hcm, label: '$h =$', format: sig4, relTolerance: 0.01, units: {cm: 1, mm: 0.1, m: 100}}
+  solution: |-
+    $h = \dfrac{2\gamma\cos\theta}{\rho gr} = \dfrac{2({gam})\cos {th}°}{({dens})(9.8)({rad:texsci})} = {hm:texsci}$ m $=$ **{hcm:sig3} cm**.
+- id: phys-m7-r2-rect-cycle
+  title: Efficiency of a rectangular cycle
+  topic: Engine cycles
+  vars:
+    P1: {min: 100, max: 200, step: 50}
+    P2: {min: 250, max: 600, step: 50}
+    V1: {min: 1, max: 3, step: 0.5}
+    V2: {min: 3.5, max: 8, step: 0.5}
+  calc:
+    Wn: (P2 - P1)*(V2 - V1)
+    QAB: 1.5*V1*(P2 - P1)
+    QBC: 2.5*P2*(V2 - V1)
+    Qin: QAB + QBC
+    eff: 100*Wn/Qin
+  prompt: 'A monatomic ideal gas runs the cycle A → B → C → D → A, where A is ({P1} kPa, {V1} L), B is ({P2} kPa, {V1} L), C is ({P2} kPa, {V2} L) and D is ({P1} kPa, {V2} L). Find the net work done by the gas per cycle (J) and the efficiency (%), both to 3 significant figures. (1 kPa·L = 1 J.)'
+  answers:
+    - {name: Wn, label: 'Net work', format: sig4, relTolerance: 0.01, units: {J: 1}}
+    - {name: eff, label: 'Efficiency', format: sig4, relTolerance: 0.01, units: {'%': 1}}
+  solution: |-
+    Net work = enclosed rectangle: $({P2} - {P1})\text{ kPa} \times ({V2} - {V1})\text{ L} =$ **{Wn:sig3} J**.
+
+    Heat in: A → B (constant volume) $Q = \tfrac32V\Delta P = 1.5({V1})({P2} - {P1}) = {QAB:sig4}$ J; B → C (constant pressure) $Q = \tfrac52P\Delta V = 2.5({P2})({V2} - {V1}) = {QBC:sig4}$ J. The other two steps give out heat. $Q_{\text{in}} = {Qin:sig4}$ J.
+
+    $e = W_{\text{net}}/Q_{\text{in}} =$ **{eff:sig3}%**.
+- id: phys-m7-r2-otto
+  title: Ideal Otto cycle
+  topic: Engine cycles
+  vars:
+    cr: {min: 6, max: 14, step: 0.5}
+    T1: {min: 280, max: 320, step: 5}
+  calc:
+    eff: 100*(1 - cr^(-0.4))
+    T2: T1*cr^0.4
+  prompt: 'An ideal Otto cycle has compression ratio {cr} and uses air ($\gamma = 1.4$) that enters at {T1} K. Find the ideal efficiency (%) and the temperature at the end of the compression stroke (K), both to 3 significant figures.'
+  answers:
+    - {name: eff, label: 'Efficiency', format: sig4, relTolerance: 0.01, units: {'%': 1}}
+    - {name: T2, label: '$T_2 =$', format: sig4, relTolerance: 0.01, units: {K: 1}}
+  solution: |-
+    $e = 1 - \dfrac{1}{r^{\gamma - 1}} = 1 - {cr}^{-0.4} =$ **{eff:sig3}%**.
+
+    Adiabatic compression: $T_2 = T_1r^{\gamma - 1} = {T1}({cr})^{0.4} =$ **{T2:sig3} K**.
+- id: phys-m7-r2-wall
+  title: Heat loss through a layered wall
+  topic: Insulation and radiation
+  vars:
+    tins: {min: 5, max: 20}
+    kins: {choices: [{label: 'fiberglass ($k = 0.040$ W/(m·K))', value: 0.04}, {label: 'foam board ($k = 0.025$ W/(m·K))', value: 0.025}]}
+    tw: {min: 1, max: 3, step: 0.5}
+    area: {min: 5, max: 30}
+    Tin: {min: 18, max: 22}
+    Tout: {min: -20, max: 5}
+  calc:
+    R1: (tins/100)/kins
+    R2: (tw/100)/0.12
+    Rt: R1 + R2
+    dT: Tin - Tout
+    Pw: area*dT/Rt
+  prompt: 'A wall of area {area} m² has {tins} cm of {kins} and {tw} cm of wood ($k = 0.12$ W/(m·K)). Inside is {Tin}°C and outside {Tout}°C. Find the total thermal resistance per unit area (m²·K/W) and the rate of heat flow through the wall (W), both to 3 significant figures.'
+  answers:
+    - {name: Rt, label: '$R_{\text{total}} =$', format: sig4, relTolerance: 0.01}
+    - {name: Pw, label: 'Heat flow', format: sig4, relTolerance: 0.01, units: {W: 1}}
+  solution: |-
+    $R = L/k$ for each layer: insulation ${R1:sig4}$, wood ${R2:sig4}$; total **{Rt:sig3} m²·K/W**.
+
+    $\dfrac{Q}{t} = \dfrac{A\,\Delta T}{R_{\text{total}}} = \dfrac{({area})({dT})}{{Rt:sig4}} =$ **{Pw:sig3} W**.
+- id: phys-m7-r2-net-radiation
+  title: Net radiated power
+  topic: Insulation and radiation
+  vars:
+    TC: {min: 50, max: 400, step: 10}
+    TsC: {min: 0, max: 30, step: 5}
+    area: {min: 0.1, max: 2, step: 0.1}
+    em: {min: 0.5, max: 0.95, step: 0.05}
+  calc:
+    TK: TC + 273.15
+    TsK: TsC + 273.15
+    Pn: em*5.67e-8*area*(TK^4 - TsK^4)
+  prompt: 'A surface of area {area} m² and emissivity {em} is at {TC}°C in surroundings at {TsC}°C. Using $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴), find the net power it loses by radiation, in watts to 3 significant figures.'
+  answers:
+    - {name: Pn, label: '$P_{\text{net}} =$', format: sig4, relTolerance: 0.01, units: {W: 1}}
+  solution: |-
+    Kelvins: $T = {TK}$ K, $T_s = {TsK}$ K.
+
+    $P_{\text{net}} = e\sigma A(T^4 - T_s^4) = ({em})(5.67\times10^{-8})({area})({TK}^4 - {TsK}^4) =$ **{Pn:sig3} W**.
+- id: phys-m7-r2-eq-temp
+  title: Equilibrium temperature of a planet
+  topic: Planetary energy balance
+  vars:
+    dau: {min: 0.4, max: 5, step: 0.1}
+    alb: {min: 0.05, max: 0.7, step: 0.05}
+  calc:
+    S: 1361/dau^2
+    Te: ((1 - alb)*S/(4*5.67e-8))^0.25
+  prompt: 'A planet orbits a Sun-like star at {dau} times Earth''s distance and has an albedo of {alb}. The solar constant at Earth is 1361 W/m², and $\sigma = 5.67\times10^{-8}$ W/(m²·K⁴). Find the solar intensity at the planet (W/m²) and its equilibrium temperature (K), both to 3 significant figures.'
+  answers:
+    - {name: S, label: 'Intensity', format: sig4, relTolerance: 0.01, units: {'W/m²': 1}}
+    - {name: Te, label: '$T_e =$', format: sig4, relTolerance: 0.01, units: {K: 1}}
+  solution: |-
+    Inverse square: $S = 1361/{dau}^2 =$ **{S:sig3} W/m²**.
+
+    $T_e = \left[\dfrac{(1 - {alb})S}{4\sigma}\right]^{1/4} = \left[\dfrac{(1 - {alb})({S:sig4})}{4(5.67\times10^{-8})}\right]^{1/4} =$ **{Te:sig3} K**.

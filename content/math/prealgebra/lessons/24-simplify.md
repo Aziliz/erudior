@@ -30,6 +30,10 @@ With variables it works the same way, and it's how you remove parentheses:
 - $(3a + 1)4 = 12a + 4$
 - $-(x - 6) = -x + 6$ (a minus sign in front means multiply by $-1$, which changes every sign inside)
 
+The arrows show the $-2$ multiplying each term inside the parentheses:
+
+![The expression negative 2 times the quantity 4y minus 7, with one arrow from the negative 2 to 4y and another to negative 7, equal to negative 8y plus 14. Underneath: negative 2 times 4y is negative 8y, and negative 2 times negative 7 is positive 14.](images/pre-m7-distribute.svg)
+
 ## Like terms
 
 **Like terms** have exactly the same variable part: the same variables raised to the same powers. Only the coefficients may differ.
@@ -53,6 +57,22 @@ $$4x + 9x = 13x, \qquad 6y^2 - y^2 = 5y^2, \qquad 3ab - 8ab = -5ab$$
 2. Rearrange (mentally or on paper) so like terms are together, keeping each term's sign.
 3. Combine like terms.
 4. Write the result with the highest power first and the constant last (a convention, not a rule).
+
+The same procedure as a flowchart:
+
+```mermaid
+flowchart TD
+  accTitle: How to simplify an expression
+  accDescr: Start with the expression. If it has parentheses, distribute first, multiplying every term inside, sign included. Then for each pair of terms ask whether the variable parts are exactly the same, with the same letters and the same powers. If yes, they are like terms, so add their coefficients and keep the variable part. If no, they are unlike terms and stay separate. Finally write the result with the highest power first and the constant last.
+  A["Expression to simplify"] --> B{"Any parentheses?"}
+  B -- yes --> C["Distribute: multiply every term inside, sign included"]
+  B -- no --> D{"Same letters and same powers?"}
+  C --> D
+  D -- "yes: like terms" --> E["Add the coefficients, keep the variable part"]
+  D -- "no: unlike terms" --> F["Leave them as separate terms"]
+  E --> G["Write highest power first, constant last"]
+  F --> G
+```
 
 ### Example 1
 

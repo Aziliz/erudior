@@ -52,6 +52,19 @@ But multiplying by a *negative* number reverses order. Start with $2 < 6$ and mu
 
 Why does this happen? Multiplying by $-1$ reflects every number across 0, swapping left and right. What was further left is now further right.
 
+To decide whether a step flips the symbol, ask two questions:
+
+```mermaid
+flowchart TD
+  accTitle: Does the inequality symbol flip?
+  accDescr: Look at the step you are doing to both sides. If you are adding or subtracting a number, keep the symbol. Otherwise you are multiplying or dividing. If you multiply or divide by a negative number, reverse the symbol, so less than becomes greater than and the reverse. If you multiply or divide by a positive number, keep the symbol.
+  A{"Adding or subtracting a number on both sides?"}
+  A -- yes --> K1["Keep the symbol"]
+  A -- "no: multiplying or dividing" --> B{"Is the number negative?"}
+  B -- "yes, negative" --> R["Reverse the symbol"]
+  B -- "no, positive" --> K2["Keep the symbol"]
+```
+
 ### Example 1
 
 Solve $3x - 4 > 11$ and graph the solution.

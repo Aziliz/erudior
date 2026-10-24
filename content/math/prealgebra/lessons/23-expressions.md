@@ -37,9 +37,25 @@ The parts of an expression separated by addition or subtraction are its **terms*
 
 The **coefficient** is the number multiplying the variable part. Notice the sign goes with the term: subtracting $5x$ is the same as adding $-5x$, so the coefficient is $-5$. A term with no variable is the constant term. (Lesson 22 also used "coefficient" for the number in front of a power of 10; it's the same idea.)
 
+The picture labels each part of $3x^2 - 5x + 8$.
+
+![The expression 3x squared minus 5x plus 8. Pointers mark the 3 as the coefficient, the x as the variable, the small raised 2 as the exponent and the 8 as the constant term; brackets under 3x squared, minus 5x and 8 mark each one as a term.](images/pre-m7-expression-parts.svg)
+
 ## Evaluating expressions
 
 To **evaluate** an expression, **substitute** (replace) each variable with its given value and then follow the order of operations. Put each substituted value in parentheses, especially negatives; it prevents sign errors.
+
+The steps always come in the same order:
+
+```mermaid
+flowchart TD
+  accTitle: How to evaluate an expression
+  accDescr: Four steps in order. First, write the expression again with each variable replaced by its value in parentheses. Second, work out powers. Third, multiply and divide from left to right. Fourth, add and subtract from left to right to get one number.
+  A["Replace each variable with its value, in parentheses"] --> B["Work out powers, such as (-2) squared = 4"]
+  B --> C["Multiply and divide, left to right"]
+  C --> D["Add and subtract, left to right"]
+  D --> E["One number: the value of the expression"]
+```
 
 ### Example 1
 

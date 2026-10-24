@@ -32,6 +32,19 @@ A small table keeps the two kinds of numbers in separate columns. Fill in one ro
 | second kind | (in terms of $x$) | … | … |
 | all together | given | | given |
 
+The flowchart lists the set-up steps in order:
+
+```mermaid
+flowchart TD
+  accTitle: Setting up a money word problem
+  accDescr: Name the two kinds of items. Let the variable be the count of one kind. Write the other count in terms of it, as the total minus the first count or by the stated relationship. Multiply each count by the value of one item to get each total value, in the same units throughout. Set the sum of the values equal to the given total value and solve. Finally check both facts, the number of items and the total value.
+  A["Name the two kinds of items"] --> B["Let x = the count of one kind"]
+  B --> C["Other count: total minus x, or the stated relationship"]
+  C --> D["Value of each kind = count times value of one, same units"]
+  D --> E["Values add up to the total value: solve"]
+  E --> F["Check the counts and the total value"]
+```
+
 *Work in cents for coins.* Dimes are worth 10 cents, quarters 25 cents, and \$5.10 is 510 cents. Using cents keeps every number whole, so you avoid decimal slips. Just be consistent: never put cents on one side of the equation and dollars on the other.
 
 ## Coin problems

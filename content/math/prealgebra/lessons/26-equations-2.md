@@ -19,6 +19,21 @@ Real equations rarely arrive in the tidy form $ax + b = c$. They have parenthese
 4. *Divide* by the coefficient of the variable.
 5. *Check* in the *original* equation.
 
+The flowchart shows the same strategy, including what to do if the variable disappears (see Special cases below):
+
+```mermaid
+flowchart TD
+  accTitle: A general strategy for solving a linear equation
+  accDescr: First simplify each side by distributing and combining like terms; clear fractions by multiplying every term by the LCD if there are any. Next collect the variable terms on one side and the constants on the other. If the variable is still there, divide by its coefficient and check the answer in the original equation. If the variable disappeared, look at what is left: a true statement such as 6 = 6 means every number is a solution, an identity; a false statement such as 6 = 5 means there is no solution.
+  A["Simplify each side: distribute, combine like terms, clear fractions"] --> B["Collect variable terms on one side, constants on the other"]
+  B --> C{"Is the variable still there?"}
+  C -- yes --> D["Divide by the coefficient"]
+  D --> E["Check in the original equation"]
+  C -- no --> F{"Is what is left true?"}
+  F -- "true, like 6 = 6" --> G["Identity: every number is a solution"]
+  F -- "false, like 6 = 5" --> H["No solution"]
+```
+
 ## Parentheses
 
 ### Example 1
@@ -133,6 +148,10 @@ Let $w$ be the width; the length is $2w + 4$. Perimeter: $2w + 2(2w + 4) = 56$.
 Simplify: $2w + 4w + 8 = 56 \Rightarrow 6w = 48 \Rightarrow w = 8$. The length is $2(8) + 4 = 20$.
 
 The rectangle is 8 cm by 20 cm. Check: $2(8) + 2(20) = 56$. ✓
+
+```shape
+{"polygons": [{"points": [[0, 0], [20, 0], [20, 8], [0, 8]], "fill": true}], "segments": [{"from": [0, -1.2], "to": [20, -1.2], "label": "length 2w + 4 = 20 cm"}, {"from": [-1.2, 0], "to": [-1.2, 8], "label": "w = 8 cm"}], "caption": "Example 8: width w = 8 cm, length 2w + 4 = 20 cm, perimeter 56 cm"}
+```
 
 ## Common mistakes
 

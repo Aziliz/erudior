@@ -19,6 +19,10 @@ Is $y = -3$ a solution of $4 - 2y = 10$? Left side: $4 - 2(-3) = 4 + 6 = 10$. Ri
 
 ## The balance idea
 
+The picture shows $3x + 5 = 20$ as a balance: three boxes of unknown weight $x$ and 5 unit cubes on the left, 20 unit cubes on the right. Taking 5 cubes off each pan keeps it level and leaves $3x = 15$; splitting each side into three equal groups leaves one box balancing 5 cubes, so $x = 5$.
+
+![A balance scale, level. The left pan holds three boxes marked x and five small unit cubes; the right pan holds twenty unit cubes. A key shows that a small cube weighs 1 and a box marked x has an unknown weight.](images/pre-m7-balance.svg)
+
 Think of an equation as a balanced scale. Whatever you do to one side, you must do to the other to keep it balanced. This gives the **properties of equality**:
 
 - **Addition property of equality**: adding the same number to both sides gives an equivalent equation.
@@ -69,6 +73,18 @@ Check: $\tfrac23 \times 21 = 14$. ✓
 ## Two-step equations
 
 When two operations have been done to the variable, undo them in the *reverse order* of the order of operations: first undo addition or subtraction, then multiplication or division. Think of getting dressed: socks then shoes; to undress, shoes come off first.
+
+The diagram builds $3x + 5$ from $x$, then undoes it step by step (Example 5 below):
+
+```mermaid
+flowchart TD
+  accTitle: Building 3x + 5 = 20 and undoing it
+  accDescr: Building the equation, x is multiplied by 3 to give 3x, then 5 is added to give 3x + 5, which equals 20. Solving undoes these steps in reverse order: subtract 5 from both sides to get 3x = 15, then divide both sides by 3 to get x = 5.
+  A["x"] -- "multiply by 3" --> B["3x"]
+  B -- "add 5" --> C["3x + 5 = 20"]
+  C -- "undo the last step first: subtract 5" --> D["3x = 15"]
+  D -- "then divide by 3" --> E["x = 5"]
+```
 
 ### Example 5
 

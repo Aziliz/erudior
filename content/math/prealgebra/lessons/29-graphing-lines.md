@@ -69,6 +69,10 @@ The places where a line crosses the axes are especially useful.
 
 Intercepts give a fast way to graph an equation written like $2x + 3y = 12$, where making a table would mean solving for $y$ each time.
 
+The picture puts the names from this lesson together on one graph, the line $3x + 4y = 12$, whose intercepts are $(4, 0)$ and $(0, 3)$.
+
+![A coordinate grid with arrows on both axes, labeled x and y. The origin (0, 0) is marked where the axes cross, and the four quadrants are labeled I (upper right), II (upper left), III (lower left) and IV (lower right). A straight line falls from upper left to lower right, crossing the y-axis at the y-intercept (0, 3) and the x-axis at the x-intercept (4, 0).](images/pre-m7-coordinate-plane.svg)
+
 ### Example 2
 
 Find the intercepts of $2x + 3y = 12$ and graph the line.
@@ -152,6 +156,22 @@ In a real situation, the slope is a *rate* and the $y$-intercept is a *starting 
 
 - $y = 3$ means $y$ is 3 no matter what $x$ is: a horizontal line through $(0, 3)$, slope 0. (It is $y = 0x + 3$.)
 - $x = -2$ means $x$ is always $-2$: a vertical line through $(-2, 0)$, slope undefined. It can't be written as $y = mx + b$.
+
+Which way to graph a line depends on the form of its equation:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a way to graph a line
+  accDescr: First ask whether the equation is solved for y in the form y = mx + b. If so, plot the y-intercept (0, b) and use the slope to step to more points. If not, ask whether it has the form Ax + By = C with both x and y present. If so, find the two intercepts by setting y = 0 and then x = 0, and plot a third point as a check. If not, ask whether only one variable appears. If the equation is y = a number, draw a horizontal line; if it is x = a number, draw a vertical line. Any other form: make a table of values with at least three points.
+  A{"In the form y = mx + b?"}
+  A -- yes --> B["Plot (0, b), then step by the slope"]
+  A -- no --> C{"In the form Ax + By = C, with both x and y?"}
+  C -- yes --> D["Find both intercepts, then a check point"]
+  C -- no --> E{"Only one variable?"}
+  E -- "y = a number" --> F["Horizontal line, slope 0"]
+  E -- "x = a number" --> G["Vertical line, slope undefined"]
+  E -- "no, another form" --> H["Table of values: at least 3 points"]
+```
 
 ## Common mistakes
 
