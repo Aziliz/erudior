@@ -22,7 +22,7 @@
     - {name: D, label: 'Directrix: ${dv} =$', tolerance: 0.001}
   solution: |-
     Divide the numerator and denominator by {c} so the constant in the denominator is 1:
-    $r = \dfrac{{ed:frac}}{1 {sg} {e:frac}\,{f}\theta}$ (with fractions written out). So $e = \dfrac{{m}}{{c}} =$ **{e:frac}**, and the curve is {tp}.
+    $r = \dfrac{{ed:texfrac}}{1 {sg} {e:texfrac}{f}\theta}$. So $e = \dfrac{{m}}{{c}} =$ **{e:frac}**, and the curve is {tp}.
     The numerator is $ed = {ed:frac}$, so $d = \dfrac{ed}{e} = {dd}$. The function ${f}$ means the directrix is the line ${dv} = \pm d$, and the
     sign in the denominator picks the side: ${dv} =$ **{D}**.
 
@@ -85,6 +85,8 @@
     b: {min: 1, max: 3}
     k: {min: 3, max: 6}
     deg: {min: 30, max: 330, step: 30}
+    sgn: {choices: [{label: '-', value: 0}, {label: '+', value: 1}]}
+  where: ["sgn == kind"]
   calc:
     a: k * b
     t: rad(deg)
@@ -100,7 +102,7 @@
   solution: |-
     $\dfrac{a}{b} = \dfrac{{a}}{{b}} = {k}$ is a whole number, so the path closes with **{k}** cusps. The center moves on a circle of radius
     ${R}$ and the point turns at ${w}$ times the rate of the center, so with the formulas from the lesson
-    $x = {R}\cos {deg}^\circ {kind:signs} {b}\cos({w} \cdot {deg}^\circ) \approx$ **{x:num2}** and $y = {R}\sin {deg}^\circ - {b}\sin({w} \cdot {deg}^\circ) \approx$ **{y:num2}**.
+    $x = {R}\cos {deg}^\circ {sgn} {b}\cos({w} \cdot {deg}^\circ) \approx$ **{x:num2}** and $y = {R}\sin {deg}^\circ - {b}\sin({w} \cdot {deg}^\circ) \approx$ **{y:num2}**.
 
 - id: trig-m9-r2-triple-angle
   title: Triple-angle values from De Moivre
@@ -109,7 +111,8 @@
     f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
     p: {min: 1, max: 5}
     q: {min: 2, max: 7}
-  where: ["p < q", "gcd(p, q) == 1"]
+    fm: {choices: [{label: '4\cos^3\theta - 3\cos\theta', value: 0}, {label: '3\sin\theta - 4\sin^3\theta', value: 1}]}
+  where: ["p < q", "gcd(p, q) == 1", "fm == f"]
   calc:
     num: if(f == 0, 4*p^3 - 3*p*q^2, 3*p*q^2 - 4*p^3)
     den: q^3
@@ -122,4 +125,24 @@
     - {name: val, kind: fraction, label: '${f} 3\theta =$'}
   solution: |-
     Expanding $(\cos\theta + i\sin\theta)^3$ and matching parts gives $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$ and $\sin 3\theta = 3\sin\theta - 4\sin^3\theta$.
-    With ${f}\theta = \tfrac{{p}}{{q}}$, the answer is $\dfrac{{num}}{{den}}$, which in lowest terms is **{n2}/{d2}**.
+    So ${f} 3\theta = {fm}$. Substitute ${f}\theta = \tfrac{{p}}{{q}}$ and put everything over ${q}^3 = {den}$: ${f} 3\theta = \dfrac{{num}}{{den}}$, which in lowest terms is **{n2}/{d2}**.
+
+- id: trig-m9-r2-unity-factor
+  title: Real quadratic factors of z^n − 1
+  topic: Roots of unity
+  vars:
+    n: {min: 5, max: 12}
+    k: {min: 1, max: 5}
+  where: ["2*k < n"]
+  calc:
+    ang: 360 * k / n
+    B: -2 * cos(rad(ang))
+    nk: n - k
+  prompt: 'The $n$th roots of unity $\omega^{k}$ and $\omega^{{nk}}$, with $n = {n}$ and $\omega = \operatorname{cis}\tfrac{360^\circ}{{n}}$, are a conjugate pair. Find the argument of $\omega^{k}$ in degrees (2 decimal places) and the coefficient $B$ in the real factor $z^2 + Bz + 1$ of $z^{{n}} - 1$ that they give (4 decimal places).'
+  answers:
+    - {name: ang, label: 'Argument (degrees)', tolerance: 0.01, format: num2, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: B, label: '$B =$', tolerance: 0.0001, format: num4}
+  solution: |-
+    $\omega^{k} = \operatorname{cis}\dfrac{360^\circ \cdot {k}}{{n}} \approx \operatorname{cis} {ang:num2}^\circ$, so its argument is **{ang:num2}°**, and its conjugate is
+    $\omega^{{nk}} = \operatorname{cis}(-{ang:num2}^\circ)$. The pair has sum $2\cos {ang:num2}^\circ$ and product $1$, so
+    $(z - \omega^{k})(z - \omega^{{nk}}) = z^2 - (2\cos {ang:num2}^\circ)z + 1$ and $B = -2\cos {ang:num2}^\circ \approx$ **{B:num4}**.

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c2833">
+<title>Osculating circle at a point on a curved path</title>
+<rect width="600" height="420" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e5d8a"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a0432f"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f7a4a"/></marker></defs>
+<circle cx="263.9" cy="219.5" r="100.0" fill="#f7ebcf" fill-opacity="0.6" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 5"/>
+<polyline points="70.0,336.6 74.8,325.9 79.5,315.5 84.2,305.3 89.0,295.4 93.8,285.8 98.5,276.5 103.2,267.4 108.0,258.6 112.8,250.1 117.5,241.8 122.2,233.9 127.0,226.1 131.8,218.7 136.5,211.5 141.2,204.6 146.0,198.0 150.8,191.6 155.5,185.5 160.2,179.7 165.0,174.2 169.8,168.9 174.5,163.9 179.2,159.1 184.0,154.7 188.8,150.5 193.5,146.5 198.2,142.9 203.0,139.5 207.8,136.4 212.5,133.5 217.2,131.0 222.0,128.7 226.8,126.6 231.5,124.9 236.2,123.4 241.0,122.2 245.8,121.2 250.5,120.5 255.2,120.1 260.0,120.0 264.8,120.1 269.5,120.5 274.2,121.2 279.0,122.2 283.8,123.4 288.5,124.9 293.2,126.6 298.0,128.7 302.8,131.0 307.5,133.5 312.2,136.4 317.0,139.5 321.8,142.9 326.5,146.5 331.2,150.5 336.0,154.7 340.8,159.1 345.5,163.9 350.2,168.9 355.0,174.2 359.8,179.7 364.5,185.5 369.2,191.6 374.0,198.0 378.8,204.6 383.5,211.5 388.2,218.7 393.0,226.1 397.8,233.9 402.5,241.8 407.2,250.1 412.0,258.6 416.8,267.4 421.5,276.5 426.2,285.8 431.0,295.4 435.8,305.3 440.5,315.5 445.2,325.9 450.0,336.6" fill="none" stroke="#2e5d8a" stroke-width="4"/>
+<line x1="230.0" y1="125.4" x2="263.9" y2="219.5" stroke="#1c2833" stroke-width="1.5"/>
+<circle cx="263.9" cy="219.5" r="4.5" fill="#1c2833"/>
+<line x1="230.0" y1="125.4" x2="319.4" y2="93.2" stroke="#a0432f" stroke-width="3.5" marker-end="url(#ahr)"/>
+<line x1="230.0" y1="125.4" x2="246.9" y2="172.4" stroke="#2f7a4a" stroke-width="3.5" marker-end="url(#ahg)"/>
+<circle cx="230.0" cy="125.4" r="5.5" fill="#1c2833"/>
+<line x1="419.0" y1="271.7" x2="432.0" y2="297.5" stroke="#2e5d8a" stroke-width="4" marker-end="url(#ahb)"/>
+<text x="300.0" y="412.0" text-anchor="middle" font-size="14">The circle shares the path's tangent and curvature at P</text>
+</svg>
