@@ -71,7 +71,7 @@ flowchart TD
   accTitle: Steps of principal component analysis
   accDescr: Arrange the data with one column per individual. Subtract the mean of the columns to get the mean-deviation matrix B. Form the covariance matrix S equal to B B transpose over N minus 1, or take the SVD of B directly. Find the eigenvalues and unit eigenvectors of S, largest first. Keep the first k components, enough to explain most of the total variance. Compute each individual's scores by projecting its deviation onto those components.
   A["Data matrix: one column per individual"] --> B["Subtract the mean: B"]
-  B --> C["Covariance S = B B^T / (N - 1)"]
+  B --> C["Covariance S = BB^T/(N-1)"]
   C --> D["Eigenvalues and unit eigenvectors of S, largest first"]
   D --> E["Keep the first k components"]
   E --> F["Scores: project each deviation onto them"]

@@ -167,7 +167,7 @@ flowchart TD
   X["Node potentials x"] --> D["Differences across edges: Ax"]
   D --> Y["Ohm's law: edge currents from C"]
   Y --> K["Kirchhoff's current law at each node: A transpose"]
-  K --> E["Equation: A transpose C A x = s"]
+  K --> E["Result: A transpose C A x = s"]
 ```
 
 ### Example 3
