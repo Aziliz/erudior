@@ -3664,17 +3664,18 @@ button.catalog-card.home-course {
 }
 
 /* ---------- Subject colors ---------- */
+/* Light colors keep 7:1 (WCAG AAA) on the page, white and their own soft tint. */
 :root {
   --subj: var(--accent);
   --subj-soft: var(--accent-soft);
 }
-:root[data-subject="math"], [data-subject="math"] { --subj: #2456a6; --subj-soft: #e3ecfa; }
-:root[data-subject="science"], [data-subject="science"] { --subj: #1d6e43; --subj-soft: #dcf0e3; }
-:root[data-subject="languages"], [data-subject="languages"] { --subj: #74399a; --subj-soft: #efe4f6; }
-:root[data-subject="business"], [data-subject="business"] { --subj: #8a510a; --subj-soft: #f6ead6; }
-:root[data-subject="humanities"], [data-subject="humanities"] { --subj: #9b3344; --subj-soft: #f7e1e5; }
-:root[data-subject="arts"], [data-subject="arts"] { --subj: #a02d66; --subj-soft: #f7e0ec; }
-:root[data-subject="other"], [data-subject="other"] { --subj: #46545f; --subj-soft: #e5eaee; }
+:root[data-subject="math"], [data-subject="math"] { --subj: #1f4b91; --subj-soft: #e3ecfa; }
+:root[data-subject="science"], [data-subject="science"] { --subj: #175634; --subj-soft: #dcf0e3; }
+:root[data-subject="languages"], [data-subject="languages"] { --subj: #663287; --subj-soft: #efe4f6; }
+:root[data-subject="business"], [data-subject="business"] { --subj: #704208; --subj-soft: #f6ead6; }
+:root[data-subject="humanities"], [data-subject="humanities"] { --subj: #822b39; --subj-soft: #f7e1e5; }
+:root[data-subject="arts"], [data-subject="arts"] { --subj: #822553; --subj-soft: #f7e0ec; }
+:root[data-subject="other"], [data-subject="other"] { --subj: #404c56; --subj-soft: #e5eaee; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme])[data-subject="math"], :root:not([data-theme]) [data-subject="math"] { --subj: #8db4f0; --subj-soft: #1d2b42; }
   :root:not([data-theme])[data-subject="science"], :root:not([data-theme]) [data-subject="science"] { --subj: #79cfa0; --subj-soft: #17301f; }
