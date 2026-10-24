@@ -72,7 +72,7 @@ remaining red time is uniform on $(0, 40)$.
    wait is almost 9 seconds.
 
 ```plot
-{"x": [-8, 50], "y": [0, 1.1], "xLabel": "w (seconds)", "yLabel": "F(w)", "functions": [{"f": "0", "from": -8, "to": 0}, {"f": "5/9 + x/90", "from": 0, "to": 40}, {"f": "1", "from": 40, "to": 50}], "points": [{"at": [0, 0], "open": true}, {"at": [0, 0.5556]}], "labels": [{"at": [7, 0.33], "text": "jump of 5/9 at w = 0"}], "segments": [{"from": [0, 0], "to": [0, 0.5556], "dashed": true}], "caption": "cdf of the wait W: a jump of 5/9 at w = 0 (the point mass), then a straight climb to 1 at w = 40"}
+{"x": [-8, 50], "y": [0, 1.1], "xLabel": "w (seconds)", "yLabel": "F(w)", "functions": [{"f": "0", "from": -8, "to": 0}, {"f": "5/9 + x/90", "from": 0, "to": 40}, {"f": "1", "from": 40, "to": 50}], "points": [{"at": [0, 0], "open": true}, {"at": [0, 0.5556]}], "labels": [{"at": [14, 0.33], "text": "jump of 5/9 at w = 0"}], "segments": [{"from": [0, 0], "to": [0, 0.5556], "dashed": true}], "caption": "cdf of the wait W: a jump of 5/9 at w = 0 (the point mass), then a straight climb to 1 at w = 40"}
 ```
 
 ## Censoring, limits and deductibles
