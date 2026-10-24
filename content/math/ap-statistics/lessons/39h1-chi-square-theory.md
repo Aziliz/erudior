@@ -140,7 +140,7 @@ $n = 4$ and unknown $p$.
 
 1. *Estimate $p$*: total defects $= 28 + 34 + 21 + 12 = 95$ out of 400 bulbs, so $\hat{p} = 0.2375$.
 2. *Expected counts*: $100 \times P(X = x)$ with $X \sim B(4, 0.2375)$: 33.80, 42.12, 19.68, 4.09, 0.32.
-3. *Large counts*: the last two are below 5 (even combined, 4.41), so combine 2, 3 and 4 into
+3. *Large counts*: the last two are below 5 (even combined, 4.40), so combine 2, 3 and 4 into
    "2 or more": observed 27, expected 24.08.
 4. *Statistic*: $\dfrac{(45 - 33.80)^2}{33.80} + \dfrac{(28 - 42.12)^2}{42.12} + \dfrac{(27 - 24.08)^2}{24.08} = 3.709 + 4.731 + 0.354 = 8.79$.
 5. *df*: 3 categories, 1 parameter estimated: df $= 3 - 1 - 1 = 1$. p-value

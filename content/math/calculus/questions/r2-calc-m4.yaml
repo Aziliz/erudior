@@ -71,7 +71,7 @@
   image: {src: images/calc-m4-differentials-blank.svg, alt: 'An upward-bending curve and a straight line touching it at a point above x = a. A dashed horizontal segment runs from the touching point to x = a + dx. Above its right end, a short green vertical segment rises to the straight line, and a longer arrow beside it rises to the curve. Five numbered markers: on the curve, on the straight line, on the dashed horizontal segment, on the green segment, and on the longer arrow.'}
   labels:
     - {x: 65.2, y: 36.9, text: Curve y = f(x)}
-    - {x: 54.2, y: 58.3, text: Tangent line at a}
+    - {x: 61.4, y: 52.1, text: Tangent line at a}
     - {x: 54.9, y: 72.6, text: dx (the change in x)}
     - {x: 72, y: 57.7, text: dy (rise along the tangent line)}
     - {x: 77.4, y: 54.8, text: Δy (rise along the curve)}

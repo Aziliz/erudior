@@ -192,7 +192,7 @@
     bb: {min: 0.2, max: 3, step: 0.05}
     sres: {min: 0.5, max: 5, step: 0.1}
     k: {min: -15, max: 15}
-  where: ['abs(k) <= 2*sx', 'aa != 0']
+  where: ['abs(k) <= 2*sx', 'aa != 0', 'abs(bb - 1) > 0.01']
   calc:
     xs: xbar + k
     yh: aa + bb*xs
@@ -224,7 +224,7 @@
     bb: {min: 0.2, max: 3, step: 0.05}
     sres: {min: 0.5, max: 5, step: 0.1}
     k: {min: -15, max: 15}
-  where: ['abs(k) <= 2*sx', 'aa != 0']
+  where: ['abs(k) <= 2*sx', 'aa != 0', 'abs(bb - 1) > 0.01']
   calc:
     xs: xbar + k
     yh: aa + bb*xs

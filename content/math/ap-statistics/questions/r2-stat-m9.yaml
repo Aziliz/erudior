@@ -341,7 +341,7 @@
 - id: stat-m9-r2-h16
   lesson: stat-m9-h-chi-followup
   topic: Chi-square follow-up
-  stem: 'Why is the adjusted residual of a cell always larger in size than its standardized residual $(O - E)/\sqrt{E}$?'
+  stem: 'For a cell with $O \ne E$, why is the adjusted residual always larger in size than the standardized residual $(O - E)/\sqrt{E}$?'
   choices: ['Because adjusted residuals use observed counts in the denominator', 'Because adjusted residuals are squared', 'Because standardized residuals have variance less than 1 under $H_0$, so the adjustment divides by a smaller number', 'Because adjusted residuals include a continuity correction']
   answer: 2
   explanation: |-
@@ -431,12 +431,12 @@
   stem: 'Put the steps of Fisher''s exact test (one-sided) in order.'
   items:
     - 'Treat the row and column totals as fixed'
-    - 'Write the hypergeometric probability of each possible top-left count'
-    - 'Identify the tables at least as extreme as the observed one in the direction of $H_a$'
-    - 'Add the probabilities of those tables to get the p-value'
+    - 'Identify the tables (top-left counts) at least as extreme as the observed one in the direction of $H_a$'
+    - 'Compute the hypergeometric probability of each of those tables'
+    - 'Add those probabilities to get the p-value'
     - 'Compare the p-value with $\alpha$ and conclude'
   explanation: |-
-    The probabilities only make sense once the margins are fixed; then you list them, pick out the extreme tables (which needs the list and $H_a$), add, and conclude.
+    The possible tables, and so which ones are at least as extreme, are only defined once the margins are fixed; the probabilities are computed for exactly those tables, then added to give the p-value, and the conclusion comes last.
 
 - id: stat-m9-r2-h26
   lesson: stat-m9-h-chi-followup
