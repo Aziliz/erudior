@@ -61,7 +61,7 @@
     - $\ell_{21} = {s12}/{l11} =$ **{l21}**.
     - $\ell_{22} = \sqrt{{s22} - {l21sq}} =$ **{l22}**.
 
-    So $X_1 = \mu_1 + {l11}Z_1$ and $X_2 = \mu_2 {l21:signedcoef}Z_1 {l22:signedcoef}Z_2$ has this covariance matrix.
+    So $X_1 = \mu_1 + {l11:coef}Z_1$ and $X_2 = \mu_2 {l21:signedcoef}Z_1 {l22:signedcoef}Z_2$ has this covariance matrix.
 
 - id: ps-m4-r2-mahalanobis
   title: Mahalanobis distance in a bivariate normal
@@ -81,7 +81,7 @@
     den: 1 - rho^2
     qq: nm/den
     pr: exp(-qq/2)
-  where: ['qq >= 1', 'qq <= 14']
+  where: ['qq >= 1', 'qq <= 9']
   prompt: |-
     $(X, Y)$ is bivariate normal with $\mu_X = {mx}$, $\sigma_X = {sx}$, $\mu_Y = {my}$, $\sigma_Y = {sy}$ and $\rho = {rho}$.
     For the point $(x, y) = ({xx:num1}, {yy:num1})$, find the squared Mahalanobis distance $Q$ (2 decimals) and the

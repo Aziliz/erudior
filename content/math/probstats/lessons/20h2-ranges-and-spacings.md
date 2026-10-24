@@ -84,7 +84,7 @@ Find the chance the range is at most 0.5, and the expected range.
 1. $P(R \le 0.5) = 5(0.5)^4 - 4(0.5)^5 = 0.3125 - 0.125 = 0.1875$.
 2. $E[R] = \tfrac{4}{6} = \tfrac23$.
 
-Five uniform readings almost always spread over more than half the interval: the five points
+Five uniform readings usually spread over more than half the interval ($P(R > 0.5) = 0.8125$): the five points
 cut $(0, 1)$ into six gaps of average length $\tfrac16$, and the range is everything except the two end gaps.
 
 ## Exponential spacings: the Rényi representation
@@ -130,8 +130,9 @@ at least 3 working, so it fails at the third failure, $X_{(3)}$. A design that n
 2. $\operatorname{Var}(X_{(3)}) = 1000^2\big(\tfrac1{25} + \tfrac1{16} + \tfrac19\big) \approx 213{,}611$, so the SD is about 462 hours.
 3. Parallel: $E[X_{(5)}] = 1000\big(\tfrac15 + \tfrac14 + \tfrac13 + \tfrac12 + 1\big) \approx 2283$ hours.
 
-The last survivor contributes a full 1000 hours on average: redundancy pays off slowly at first
-and most at the end. Such a design is a **k-out-of-n system**: it works while at least $k$ of its
+The gaps grow as fewer pumps remain: the last survivor alone contributes a full 1000 hours on
+average. Seen the other way, each extra pump adds less than the one before (the fifth adds only
+$1000/5 = 200$ hours to the parallel design), so redundancy has diminishing returns. Such a design is a **k-out-of-n system**: it works while at least $k$ of its
 $n$ components work, so it fails at failure number $n - k + 1$. Series ($k = n$) and parallel ($k = 1$) are the
 two extremes.
 

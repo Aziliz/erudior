@@ -58,8 +58,8 @@ $\mathbf{a}^\top\Sigma\,\mathbf{a}$ is called a quadratic form.
 ### Example 1: three section delays
 
 Delays (minutes) on three consecutive sections have SDs 2, 3 and 4. Sections 1 and 2 have
-correlation $\tfrac13$; sections 2 and 3 have correlation $-\tfrac14$ (a late arrival at section 3
-means a quieter, faster path); sections 1 and 3 are uncorrelated. Find the SD of the total delay
+correlation $\tfrac13$; sections 2 and 3 have correlation $-\tfrac14$ (a train delayed on section 2 reaches
+section 3 after the busy period and tends to lose less time there); sections 1 and 3 are uncorrelated. Find the SD of the total delay
 $T = X_1 + X_2 + X_3$, and the correlation between $T$ and $D = X_3 - X_1$.
 
 1. Covariances: $\Sigma_{12} = \tfrac13 \cdot 2 \cdot 3 = 2$, $\Sigma_{23} = -\tfrac14 \cdot 3 \cdot 4 = -3$, $\Sigma_{13} = 0$. So
@@ -81,7 +81,8 @@ $$\mathbf{a}^\top\Sigma\,\mathbf{a} = \operatorname{Var}(\mathbf{a}^\top\mathbf{
 
 A symmetric matrix with this property is called **positive semidefinite**. Every covariance
 matrix is one, and conversely every symmetric positive semidefinite matrix is the covariance
-matrix of some random vector (the construction below produces one). Equivalently, all the
+matrix of some random vector: the construction below turns any matrix $A$ with $AA^\top = \Sigma$ into one,
+and linear algebra guarantees such an $A$ exists for every positive semidefinite $\Sigma$ (stated here without proof). Equivalently, all the
 eigenvalues of $\Sigma$ are $\ge 0$. This is a real restriction: correlations cannot be chosen freely.
 
 ### Example 2: an impossible set of correlations

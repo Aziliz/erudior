@@ -110,7 +110,7 @@
     - ['$f_{Y \mid X}(y \mid x)$', 'f(x, y) divided by fX(x)']
     - [Multiplication rule, 'f(x, y) = fX(x) times f(y | x)']
     - [Independence of X and Y, Joint density equals the product of the marginals everywhere]
-    - ['$P(X < Y)$ for independent exponentials with rates $a$ and $b$', 'a/(a + b)']
+    - ['$P(X < Y)$ for independent exponentials, $X$ with rate $a$ and $Y$ with rate $b$', 'a/(a + b)']
   distractors: ['f(x, y) divided by fY(y)', 'b/(a + b)']
   explanation: |-
     The conditional density of $Y$ given $X$ divides by the marginal of $X$ (dividing by $f_Y$ gives $f_{X \mid Y}$).
@@ -123,13 +123,12 @@
   topic: Conditional distributions
   stem: 'A model is described by a story: first $X$ is drawn, then $Y$ given $X$. Put the steps for finding $P(Y < c)$ in order.'
   items:
-    - 'Write the marginal density $f_X(x)$ from the story'
-    - 'Write the conditional density $f_{Y \mid X}(y \mid x)$ from the story'
+    - 'Write the marginal density $f_X(x)$ and the conditional density $f_{Y \mid X}(y \mid x)$ from the story'
     - 'Multiply them to get the joint density $f(x, y)$'
     - 'Integrate out $x$ to get the marginal density $f_Y(y)$'
     - 'Integrate $f_Y$ from the bottom of its range up to $c$'
   explanation: |-
-    This is the cable example: the story gives $X$ first and then $Y$ given $X$; the multiplication rule builds the
+    This is the cable example: the story gives $f_X$ and $f_{Y \mid X}$; the multiplication rule builds the
     joint; integrating out $x$ gives $f_Y$ (there $-\ln y$); and the probability is an integral of $f_Y$.
 
 - id: ps-m4-r2-q10
@@ -540,7 +539,7 @@
   explanation: |-
     $\mathbf{a}^\top\Sigma\mathbf{c}$ with $\mathbf{a} = (1, 1)$, $\mathbf{c} = (1, -1)$: $\Sigma\mathbf{c} = (4 - 1,\ 1 - 9) = (3, -8)$, and $\mathbf{a}^\top\Sigma\mathbf{c} = 3 - 8 = -5$.
     The covariance terms cancel, leaving $\operatorname{Var}(X_1) - \operatorname{Var}(X_2)$. The other choices come from a sign slip
-    (5), adding the variances (13), or keeping a covariance term (−3).
+    (5), adding the variances (13), or adding the covariance twice instead of letting the two terms cancel (−3).
 
 - id: ps-m4-r2-h13
   lesson: ps-m4-h-multivariate-normal
@@ -588,11 +587,12 @@
   lesson: ps-m4-h-ranges-spacings
   topic: Ranges and spacings
   stem: 'For $n$ iid Uniform(0, 1) values, what is the joint density of the minimum $U$ and maximum $V$ on $0 < u < v < 1$?'
-  choices: ['$n(n-1)(v - u)^{n-2}$', '$n^2u^{n-1}v^{n-1}$', '$n(v - u)^{n-1}$', '$n!\,(v - u)^{n-2}$']
+  choices: ['$n(n-1)(v - u)^{n-2}$', '$n^2(1 - u)^{n-1}v^{n-1}$', '$n(v - u)^{n-1}$', '$n!\,(v - u)^{n-2}$']
   answer: 0
   explanation: |-
     With $F(u) = u$ and $f = 1$, the formula $n(n-1)f(u)f(v)[F(v) - F(u)]^{n-2}$ gives $n(n-1)(v - u)^{n-2}$: two values at the
-    ends (in $n(n-1)$ ordered ways) and the other $n - 2$ in between. $n^2u^{n-1}v^{n-1}$ treats min and max as independent.
+    ends (in $n(n-1)$ ordered ways) and the other $n - 2$ in between. $n^2(1 - u)^{n-1}v^{n-1}$ multiplies the marginal densities
+    of the min and max, as if they were independent.
 
 - id: ps-m4-r2-h18
   lesson: ps-m4-h-ranges-spacings
