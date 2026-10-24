@@ -1,0 +1,700 @@
+# Round 2: phys-m4 (Energy and momentum). Core: q01-q20. Honors: h01-h42.
+
+# ---------- Lesson 11: Work and kinetic energy ----------
+- id: phys-m4-r2-q01
+  lesson: phys-work
+  module_quiz: true
+  topic: Work and kinetic energy
+  type: label
+  stem: 'A crate is dragged to the right across a rough floor by a rope. Name the numbered arrows.'
+  image: {src: images/phys-m4-crate-forces-blank.svg, alt: 'A crate on a floor with five numbered arrows: 1 points up and to the right from the crate at an angle, 2 points left along the floor, 3 points straight up, 4 points straight down, and 5 is a long arrow to the right below the floor.'}
+  labels:
+    - {x: 68.5, y: 42.8, text: Rope force}
+    - {x: 27.4, y: 64.2, text: Kinetic friction}
+    - {x: 47.6, y: 32.9, text: Normal force}
+    - {x: 45.2, y: 78.9, text: Weight}
+    - {x: 75.8, y: 81.6, text: Displacement}
+  distractors: [Static friction, Net force]
+  explanation: |-
+    The rope pulls along its own direction, up and to the right (1). Kinetic friction opposes the sliding, so it points left along the floor (2). The floor pushes up (normal force, 3) and gravity pulls down (weight, 4). Arrow 5 is the displacement, to the right. The rope does positive work, friction negative work, and the normal force and weight do no work because they are perpendicular to the displacement.
+
+- id: phys-m4-r2-q02
+  lesson: phys-work
+  module_quiz: true
+  topic: Work and kinetic energy
+  type: text
+  stem: 'A force $F(x) = 6x$ N ($x$ in m) acts on an object along the $x$ axis. The work it does as the object moves from $x = 0$ to $x = 2$ m is ___ J. Give only the number.'
+  accept: ['12']
+  explanation: |-
+    The force varies with position, so integrate: $W = \int_0^2 6x\,dx = \left[3x^2\right]_0^2 = 12$ J. That is the triangle under the $F$–$x$ line, $\tfrac12(2)(12) = 12$ J. Using $W = Fd$ with the final force, $12(2) = 24$ J, would double it.
+
+- id: phys-m4-r2-q03
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'Which forces do zero work on the object named? Select all that apply.'
+  choices:
+    - 'The normal force on a block sliding across a level floor'
+    - 'The string tension on a ball whirled at constant speed in a horizontal circle'
+    - 'Kinetic friction on a box sliding to a stop'
+    - 'Gravity on a ball thrown straight up, while it rises'
+    - 'Your hands'' upward force on a heavy bag you hold still'
+  answer: [0, 1, 4]
+  explanation: |-
+    Work is $Fd\cos\theta$. The normal force and the tension are perpendicular to the motion ($\cos 90^\circ = 0$), and the bag you hold still has no displacement, so all three do zero work. Friction on the sliding box points opposite the motion (negative work), and gravity on the rising ball points opposite its upward motion (negative work, which is why it slows).
+
+- id: phys-m4-r2-q04
+  lesson: phys-work
+  topic: Work and kinetic energy
+  type: match
+  stem: 'Match each force to the sign of the work it does.'
+  pairs:
+    - ['A rope pulling a sled forward along the snow', Positive]
+    - ['Friction on a hockey puck sliding across ice', Negative]
+    - ['The normal force on a car driving along a level road', Zero]
+    - ['Gravity on an apple falling from a tree', Positive]
+    - ['Gravity on a ball rising after it is thrown up', Negative]
+  explanation: |-
+    The sign follows the angle between force and displacement. The rope and gravity on the falling apple point along the motion (positive). Friction on the puck and gravity on the rising ball point against the motion (negative). The normal force on the car is perpendicular to its motion (zero).
+
+- id: phys-m4-r2-q05
+  lesson: phys-work
+  topic: Work and kinetic energy
+  stem: 'A force $F(x) = 3x^2 - 2x$ N acts along the $x$ axis. How much work does it do as an object moves from $x = 0$ to $x = 1$ m?'
+  choices: ['$1$ J', '$0$ J', '$2$ J', '$-\tfrac{4}{27}$ J']
+  answer: 1
+  explanation: |-
+    $W = \int_0^1 (3x^2 - 2x)\,dx = \left[x^3 - x^2\right]_0^1 = 0$ J. The force is negative for $x < \tfrac23$ m and positive after, and the two areas cancel exactly. $-\tfrac{4}{27}$ J is only the negative part (from 0 to $\tfrac23$); 2 J comes from a sign slip ($x^3 + x^2$); 1 J multiplies the force at $x = 1$ by the distance, as if the force were constant.
+
+# ---------- Lesson 12: Potential energy, conservation, power ----------
+- id: phys-m4-r2-q06
+  lesson: phys-energy
+  module_quiz: true
+  topic: Conservation of energy
+  type: label
+  stem: 'The graph shows a potential energy curve $U(x)$ and a particle''s total energy $E$ (dashed line). Name the numbered features.'
+  image: {src: images/phys-m4-energy-diagram-blank.svg, alt: 'A double-well potential energy curve with a dashed horizontal total energy line. Marker 1 is at the bottom of the left well, 2 at the top of the central hump, 3 where the curve meets the dashed line on the right, 4 on a vertical arrow from the curve up to the dashed line, and 5 in a shaded region beyond the right crossing point.'}
+  labels:
+    - {x: 28.9, y: 81.8, text: Stable equilibrium}
+    - {x: 50.0, y: 61.1, text: Unstable equilibrium}
+    - {x: 83.9, y: 30.2, text: Turning point}
+    - {x: 39.5, y: 50.2, text: Kinetic energy at that position}
+    - {x: 89.7, y: 18.8, text: Region the particle cannot reach}
+  distractors: [Zero of potential energy, Total energy line]
+  explanation: |-
+    A minimum of $U$ is a stable equilibrium (1) and a maximum is unstable (2). Where the curve meets $E$ the kinetic energy is zero, so the particle stops and reverses: a turning point (3). The vertical gap from the curve up to $E$ is $K = E - U$ (4). Beyond a turning point $U > E$, which would need negative kinetic energy, so the particle can't be there (5).
+
+- id: phys-m4-r2-q07
+  lesson: phys-energy
+  topic: Power
+  type: order
+  stem: 'An elevator motor lifts a car at constant speed. Put the steps for finding the electrical energy the motor draws during the trip in order.'
+  items:
+    - 'Find the cable tension: at constant speed it equals the weight $mg$'
+    - 'Multiply the tension by the speed to get the output power $P = Tv$'
+    - 'Divide the output power by the efficiency to get the input power'
+    - 'Multiply the input power by the travel time to get the energy drawn'
+  explanation: |-
+    Each step uses the result of the one before: the tension gives the output power ($P = Tv$), the efficiency turns output power into input power ($P_{\text{in}} = P/\eta$), and power times time is energy.
+
+- id: phys-m4-r2-q08
+  lesson: phys-energy
+  module_quiz: true
+  topic: Power
+  type: text
+  stem: 'A space heater uses 2.5 kWh of energy. That is ___ MJ. Give only the number.'
+  accept: ['9']
+  explanation: |-
+    $1\text{ kWh} = (1000\text{ W})(3600\text{ s}) = 3.6\times10^6$ J $= 3.6$ MJ, so $2.5(3.6) = 9.0$ MJ. A kilowatt-hour is an energy unit, not a power.
+
+- id: phys-m4-r2-q09
+  lesson: phys-energy
+  topic: Conservation of energy
+  stem: 'Which of these forces are conservative, so that a potential energy can describe them? Select all that apply.'
+  choices: ['Gravity near Earth''s surface', 'The force of an ideal spring', 'Kinetic friction', 'Air drag', 'The push of a car''s engine through its wheels']
+  answer: [0, 1]
+  explanation: |-
+    Gravity and an ideal spring do work that depends only on the endpoints, so they have potential energies $mgy$ and $\tfrac12kx^2$. Kinetic friction and drag always oppose the motion, so a longer path does more negative work. An engine's push is a nonconservative force: it adds energy from fuel, and its work goes in $W_{\text{nc}}$.
+
+- id: phys-m4-r2-q10
+  lesson: phys-energy
+  topic: Power
+  type: match
+  stem: 'Match each quantity to its SI unit or the unit a utility bills it in.'
+  pairs:
+    - [Power, watt]
+    - [Energy on an electric bill, kilowatt-hour]
+    - [Work, joule]
+    - [Spring constant, newton per meter]
+  distractors: [newton-second]
+  explanation: |-
+    Power is in watts (J/s); utilities bill energy in kilowatt-hours ($3.6\times10^6$ J each); work, like all energy, is in joules; a spring constant is force per stretch, N/m. The newton-second is the unit of impulse.
+
+# ---------- Lesson 13: Momentum, impulse, center of mass ----------
+- id: phys-m4-r2-q11
+  lesson: phys-momentum
+  module_quiz: true
+  topic: Center of mass
+  type: label
+  stem: 'A person walks from one end of a raft to the other on still water. Name the numbered parts of the before-and-after picture.'
+  image: {src: images/phys-m4-raft-blank.svg, alt: 'Two scenes, before and after. Before: a stick figure stands at the left end of a raft. After: the figure stands at the right end and the raft has shifted left. A dashed vertical line crosses both scenes; an arrow points left and another points right between the scenes. Five numbered markers.'}
+  labels:
+    - {x: 23.4, y: 12.0, text: Person}
+    - {x: 73.9, y: 34.0, text: Raft}
+    - {x: 43.2, y: 21.2, text: Center of mass of person and raft}
+    - {x: 13.5, y: 51.2, text: Raft's displacement}
+    - {x: 51.6, y: 58.0, text: Person's displacement relative to the water}
+  distractors: [Net external force, Impulse on the raft]
+  explanation: |-
+    The person (1) stands on the raft (2). With no horizontal external force and everything starting at rest, the center of mass of person plus raft (3) cannot move, so the dashed line is the same in both scenes. As she walks right, the raft moves left (4), and her own displacement relative to the water (5) is less than the raft's length.
+
+- id: phys-m4-r2-q12
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  type: text
+  stem: 'A force on a ball rises steadily from 0 to 600 N and falls steadily back to 0, a triangular pulse lasting 0.020 s in all. The impulse is ___ N·s. Give only the number.'
+  accept: ['6']
+  explanation: |-
+    Impulse is the area under the force–time graph. For a triangle, $\tfrac12(0.020\text{ s})(600\text{ N}) = 6.0$ N·s. Using the peak force for the whole time would give 12 N·s, twice too much.
+
+- id: phys-m4-r2-q13
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  type: order
+  stem: 'A ball rebounds from a bat. Put the steps for finding the average force on it in order.'
+  items:
+    - 'Choose a positive direction'
+    - 'Write the initial and final velocities with their signs'
+    - 'Compute the change in momentum $m(v_f - v_i)$'
+    - 'Divide by the contact time to get the average force'
+  explanation: |-
+    The signs of the velocities only make sense once a positive direction is chosen; the change in momentum needs those signed velocities (a rebound makes $v_f - v_i$ large); and the impulse–momentum theorem $F_{\text{avg}}\Delta t = \Delta p$ then gives the force.
+
+- id: phys-m4-r2-q14
+  lesson: phys-momentum
+  topic: Momentum and impulse
+  stem: 'In which cases is the momentum of the named system conserved, at least approximately or along the stated direction? Select all that apply.'
+  choices:
+    - 'Two skaters push apart on frictionless ice (system: both skaters)'
+    - 'A ball falls freely (system: the ball)'
+    - 'A cannon on a cart on frictionless rails fires a shell horizontally; horizontal momentum (system: cannon, cart and shell)'
+    - 'A car brakes to a stop on a road (system: the car)'
+    - 'A firework shell bursts in midair, during the brief explosion (system: all the fragments)'
+  answer: [0, 2, 4]
+  explanation: |-
+    The skaters' pushes are internal, and the vertical forces cancel. For the cannon, gravity and the rails' normal force are vertical, so horizontal momentum is conserved. During a brief explosion the internal forces dwarf gravity, so momentum is conserved approximately. The falling ball has an unbalanced external force (gravity), and the braking car has road friction acting on it, so their momenta change.
+
+- id: phys-m4-r2-q15
+  lesson: phys-momentum
+  module_quiz: true
+  topic: Center of mass
+  stem: 'A 50 kg person stands at one end of a 150 kg, 4.0 m boat at rest on still water (ignore water friction). She walks to the other end. How far does the boat move?'
+  choices: ['1.33 m', '3.0 m', '1.0 m', '4.0 m']
+  answer: 2
+  explanation: |-
+    The center of mass stays put. If the boat moves $d$ backward, she moves $4.0 - d$ forward relative to the water: $50(4.0 - d) = 150d$, so $200 = 200d$ and $d = 1.0$ m. 3.0 m is her own displacement; 1.33 m ($4.0 \times 50/150$) forgets that her displacement is $4.0 - d$, not 4.0 m; 4.0 m assumes the boat moves as far as she walks.
+
+# ---------- Lesson 14: Collisions ----------
+- id: phys-m4-r2-q16
+  lesson: phys-collisions
+  module_quiz: true
+  topic: Collisions
+  type: label
+  stem: 'A car heading east and a truck heading north collide and stick together. Name the numbered parts of the momentum diagram.'
+  image: {src: images/phys-m4-intersection-blank.svg, alt: 'A right triangle of arrows: 1 points east along the bottom, 2 points north from its tip, 3 runs diagonally from the start of 1 to the tip of 2, and 4 marks the angle between arrows 1 and 3. A compass arrow shows north up.'}
+  labels:
+    - {x: 39.0, y: 85.7, text: Car's momentum}
+    - {x: 63.0, y: 44.6, text: Truck's momentum}
+    - {x: 39.0, y: 44.6, text: Total momentum of the wreckage}
+    - {x: 27.0, y: 80.5, text: Direction of the wreckage north of east}
+  distractors: [Impulse from road friction, Momentum lost in the crash]
+  explanation: |-
+    The car moves east, so its momentum is the horizontal arrow (1); the truck's points north (2). Momentum is conserved as a vector, so the wreckage carries their tip-to-tail sum (3), at angle $\tan^{-1}(p_{\text{truck}}/p_{\text{car}})$ north of east (4). No momentum is lost in the crash; only kinetic energy is.
+
+- id: phys-m4-r2-q17
+  lesson: phys-collisions
+  topic: Collisions
+  type: match
+  stem: 'Classify each collision.'
+  pairs:
+    - ['Two lumps of clay collide and stick together', Perfectly inelastic]
+    - ['Two ideal steel balls bounce apart with no loss of kinetic energy', Elastic]
+    - ['A car bumper crumples and the cars bounce apart', Inelastic]
+    - ['A bullet embeds itself in a wooden block', Perfectly inelastic]
+  distractors: [Explosion]
+  explanation: |-
+    Objects that stick together share one final velocity: perfectly inelastic (the clay, the bullet in the block). Kinetic energy conserved means elastic (the ideal steel balls). Objects that separate but lose some kinetic energy to deformation and heat are inelastic (the crumpled bumper).
+
+- id: phys-m4-r2-q18
+  lesson: phys-collisions
+  module_quiz: true
+  topic: Collisions
+  type: text
+  stem: 'A 0.40 kg ball moving at 3.0 m/s hits an identical ball at rest head-on, and the collision is elastic. Afterward the first ball moves at ___ m/s and the second at ___ m/s. Give only the numbers.'
+  accept:
+    - ['0']
+    - ['3']
+  explanation: |-
+    For equal masses, $v_{1f} = \dfrac{m - m}{2m}(3.0) = 0$ and $v_{2f} = \dfrac{2m}{2m}(3.0) = 3.0$ m/s: the moving ball stops and the target takes all its velocity, as in Newton's cradle. Check: momentum $0.40(3.0) = 1.2$ kg·m/s before and after.
+
+- id: phys-m4-r2-q19
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'Two carts on a frictionless track collide and stick together. Which statements are always true? Select all that apply.'
+  choices:
+    - 'Total momentum is conserved'
+    - 'The carts move with a common final velocity'
+    - 'Total kinetic energy is conserved'
+    - 'Some kinetic energy becomes other forms of energy'
+    - 'The lighter cart ends up at rest'
+  answer: [0, 1, 3]
+  explanation: |-
+    Momentum is conserved in every collision, and sticking together means one common velocity. A perfectly inelastic collision loses the most kinetic energy momentum allows (the relative part, $\tfrac12\mu v_{\text{rel}}^2$), so kinetic energy is not conserved. Neither cart has to stop: the pair moves at $v_f = (m_1v_{1i} + m_2v_{2i})/(m_1 + m_2)$.
+
+- id: phys-m4-r2-q20
+  lesson: phys-collisions
+  topic: Collisions
+  stem: 'In a head-on elastic collision with the target initially at rest, for which mass ratios $m_1/m_2$ does the projectile bounce backward?'
+  choices: ['$m_1/m_2 < 1$', '$m_1/m_2 = 1$', '$m_1/m_2 > 1$', 'Only when $m_1/m_2 > 2$']
+  answer: 0
+  explanation: |-
+    $v_{1f} = \dfrac{m_1 - m_2}{m_1 + m_2}v_{1i}$ is negative exactly when $m_1 < m_2$: a light ball bounces back off a heavier one. At $m_1 = m_2$ the projectile stops, and for $m_1 > m_2$ it keeps going forward, more slowly.
+
+# ---------- Honors 14h1: Conservative force fields ----------
+- id: phys-m4-r2-h01
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'Is the force $\vec F = (3y,\; 3x)$ N ($x$, $y$ in m) conservative? If so, what is its potential energy?'
+  choices: ['Yes; $U = 3xy$', 'No; $\partial F_y/\partial x - \partial F_x/\partial y = 6$', 'Yes; $U = -3xy$', 'No; it does work around a closed loop']
+  answer: 2
+  explanation: |-
+    Curl test: $\partial F_y/\partial x = 3 = \partial F_x/\partial y$, so the curl is zero and the force is conservative. $U = -\int 3y\,dx = -3xy + g(y)$; then $-\partial U/\partial y = 3x$ matches $F_y$, so $g$ is constant. $U = -3xy$. Leaving out the minus sign gives $3xy$, whose negative gradient is $-\vec F$; the curl is 0, not 6 (that would be $3 - (-3)$, a sign slip).
+
+- id: phys-m4-r2-h02
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'The force $\vec F = (-y,\; x)$ N acts on a bead pushed once counterclockwise around a circle of radius 1.5 m centered at the origin. How much work does the force do?'
+  choices: ['0 J', '7.07 J', '9.42 J', '14.1 J']
+  answer: 3
+  explanation: |-
+    On the circle the force is tangent to the path (counterclockwise) with magnitude $r = 1.5$ N, so $W = (1.5)(2\pi \times 1.5) = 2\pi(1.5)^2 = 14.1$ J. Green's theorem agrees: the curl is 2 everywhere, times the area $\pi(1.5)^2$. 0 J assumes every closed loop gives zero, which holds only for conservative forces; 7.07 J drops the factor 2; 9.42 J is the circumference alone, forgetting the force is 1.5 N.
+
+- id: phys-m4-r2-h03
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'A force $\vec F = (y,\; 0)$ N acts in the plane. How much work does it do on a particle moving from $(0, 0)$ to $(1, 1)$ m along the parabola $y = x^2$?'
+  choices: ['$\tfrac13$ J', '$\tfrac12$ J', '$\tfrac23$ J', '$1$ J']
+  answer: 0
+  explanation: |-
+    Only $F_x\,dx = y\,dx$ contributes. On the parabola $y = x^2$, so $W = \int_0^1 x^2\,dx = \tfrac13$ J. Along the straight line $y = x$ the work would be $\tfrac12$ J; the paths disagree, so this force is not conservative. $\tfrac23$ J comes from integrating $x\,dy$ (the wrong component), and 1 J multiplies the final force by the $x$ displacement.
+
+- id: phys-m4-r2-h04
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'The force $\vec F = (2x + y,\; x + 4y)$ N is conservative. Which is its potential energy (up to a constant)?'
+  choices: ['$U = x^2 + xy + 2y^2$', '$U = -(x^2 + 2xy + 2y^2)$', '$U = -(x^2 + 2y^2)$', '$U = -(x^2 + xy + 2y^2)$']
+  answer: 3
+  explanation: |-
+    $U = -\int(2x + y)\,dx = -(x^2 + xy) + g(y)$. Then $-\partial U/\partial y = x - g'(y)$ must equal $x + 4y$, so $g'(y) = -4y$ and $g = -2y^2$. $U = -(x^2 + xy + 2y^2)$. Check: $-\partial U/\partial x = 2x + y$. ✓ Writing $2xy$ counts the cross term twice (once from each component); dropping $xy$ loses it; omitting the overall minus sign gives $+\nabla U$ instead of $-\nabla U$.
+
+- id: phys-m4-r2-h05
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'A particle has potential energy $U(x, y) = x^2 + 4y^2$ J ($x$, $y$ in m). What is the force on it at $(2.0, 1.0)$ m?'
+  choices: ['$(4.0, 8.0)$ N', '$(-4.0, -8.0)$ N', '$(-2.0, -4.0)$ N', '$(-4.0, -4.0)$ N']
+  answer: 1
+  explanation: |-
+    $\vec F = -\nabla U = (-2x,\; -8y) = (-4.0, -8.0)$ N, magnitude 8.9 N, pointing downhill on the potential. $(4.0, 8.0)$ N is $+\nabla U$ (sign dropped); $(-2.0, -4.0)$ N forgets the factor 2 from each power rule; $(-4.0, -4.0)$ N differentiates $4y^2$ as $4y$.
+
+- id: phys-m4-r2-h06
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'A central force has $\vec F = -cr^3\,\hat r$ with $c > 0$. Taking $U = 0$ at $r = 0$, what is its potential energy?'
+  choices: ['$U = -\tfrac14cr^4$', '$U = \tfrac14cr^4$', '$U = 3cr^2$', '$U = cr^3$']
+  answer: 1
+  explanation: |-
+    $U(r) = -\int f(r)\,dr = -\int(-cr^3)\,dr = \tfrac14cr^4$. It grows with $r$, as it must for a force that pulls inward. $-\tfrac14cr^4$ drops the minus sign in $U = -\int f\,dr$; $3cr^2$ differentiates instead of integrating; $cr^3$ just copies the force.
+
+- id: phys-m4-r2-h07
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'You compute the work a force field does between points $A$ and $B$ along two different paths and get the same answer. What can you conclude?'
+  choices: ['The force is conservative', 'The force is not conservative', 'Nothing yet: other paths might give different work', 'The curl of the force is nonzero']
+  answer: 2
+  explanation: |-
+    Conservative means the work is the same along every path. Two agreeing paths are consistent with that but don't prove it (Example 1's $\vec F_2$ gives 0 J along some paths and 2 J along others). Use the curl test, or find a potential. One disagreement, on the other hand, proves a force is not conservative.
+
+- id: phys-m4-r2-h08
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'Why can''t kinetic friction be described by a potential energy?'
+  choices: ['Its direction follows the velocity, so it does negative work on every path, including closed ones', 'Its magnitude is constant', 'It acts perpendicular to the motion', 'Its curl is zero']
+  answer: 0
+  explanation: |-
+    Kinetic friction always opposes the velocity, so it isn't even a function of position alone, and it does negative work around any closed path; no $U(x, y, z)$ can do that. A constant magnitude is no obstacle (uniform gravity has one); friction is not perpendicular to the motion (it does do work); and "zero curl" would point the other way.
+
+- id: phys-m4-r2-h09
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'A 0.25 kg puck on a frictionless table has $U(x, y) = 3x^2 + 3y^2$ J ($x$, $y$ in m). It is released from rest at $(1.0, 0)$ m and moves straight toward the origin. How fast is it moving at the origin?'
+  choices: ['3.46 m/s', '6.93 m/s', '24 m/s', '4.90 m/s']
+  answer: 3
+  explanation: |-
+    $U(1.0, 0) = 3.0$ J and $U(0, 0) = 0$, so $\tfrac12(0.25)v^2 = 3.0$ J and $v = \sqrt{24} = 4.90$ m/s. 3.46 m/s forgets the $\tfrac12$ in kinetic energy; 6.93 m/s uses $U = 6$ J (doubling the potential); 24 m/s is $v^2$ without the square root.
+
+- id: phys-m4-r2-h10
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  type: text
+  stem: 'The force $\vec F = (6xy,\; 3x^2 + 2y)$ N is conservative. The work it does on a particle moving from $(0, 0)$ to $(1, 2)$ m is ___ J. Give only the number.'
+  accept: ['10']
+  explanation: |-
+    $U = -\int 6xy\,dx = -3x^2y + g(y)$, and $-\partial U/\partial y = 3x^2 - g'(y) = 3x^2 + 2y$ gives $g = -y^2$. So $U = -(3x^2y + y^2)$ and $W = -\Delta U = 3(1)^2(2) + 2^2 = 10$ J, along any path.
+
+- id: phys-m4-r2-h11
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  stem: 'Which of these force fields (in N, with $x$, $y$ in m) are conservative in the whole plane? Select all that apply.'
+  choices: ['$(2x,\; 2y)$', '$(y,\; x)$', '$(-y,\; x)$', '$(y^2,\; 2xy)$', '$(x^2y,\; 0)$']
+  answer: [0, 1, 3]
+  explanation: |-
+    Compare $\partial F_y/\partial x$ with $\partial F_x/\partial y$: $(2x, 2y)$: 0 and 0 ✓; $(y, x)$: 1 and 1 ✓; $(-y, x)$: 1 and $-1$ ✗; $(y^2, 2xy)$: $2y$ and $2y$ ✓; $(x^2y, 0)$: 0 and $x^2$ ✗. Their potentials are $-(x^2 + y^2)$, $-xy$ and $-xy^2$.
+
+- id: phys-m4-r2-h12
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  type: order
+  stem: 'Put the steps for finding the potential energy of a force field in three dimensions in order.'
+  items:
+    - 'Check that the curl is zero, so a potential exists'
+    - 'Integrate $-F_x$ with respect to $x$, adding an unknown $g(y, z)$'
+    - 'Match $-\partial U/\partial y$ to $F_y$ to find $g$ up to an unknown $h(z)$'
+    - 'Match $-\partial U/\partial z$ to $F_z$ to find $h$'
+  explanation: |-
+    There is no point building $U$ until the curl test shows one exists. Each later step pins down the unknown function left by the one before: $g(y, z)$, then $h(z)$, leaving only a true constant (the choice of zero).
+
+- id: phys-m4-r2-h13
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  type: match
+  stem: 'Sort each force field ($x$, $y$ in m).'
+  pairs:
+    - ['$\vec F = (-x,\; -y)$', Conservative and central]
+    - ['$\vec F = (2xy,\; x^2)$', Conservative but not central]
+    - ['$\vec F = (0,\; -mg)$', Conservative but not central]
+    - ['$\vec F = (-y,\; x)$', Not conservative]
+    - ['$\vec F = (y,\; -x)$', Not conservative]
+  explanation: |-
+    $(-x, -y)$ points straight at the origin with size $r$: central, so conservative ($U = \tfrac12r^2$). $(2xy, x^2)$ and uniform gravity pass the curl test but don't point toward a center. $(-y, x)$ and $(y, -x)$ circulate around the origin; their curls are $2$ and $-2$.
+
+- id: phys-m4-r2-h14
+  lesson: phys-m4-h-conservative-fields
+  topic: Conservative force fields
+  type: label
+  stem: 'The picture is a contour map of $U = 2x^2 + 8y^2$ with a puck at $P$. Name the numbered features.'
+  image: {src: images/phys-m4-equipotentials-blank.svg, alt: 'Nested ellipses labeled U = 1, 2, 4 and 6 J around the origin. A point P sits on the U = 4 J ellipse. Marker 1 is at the origin, 2 on the outer ellipse, 3 on a solid arrow from P pointing inward across the ellipses, 4 on a dashed arrow from P pointing outward, and 5 on a dotted line from P to the origin.'}
+  labels:
+    - {x: 50.0, y: 51.2, text: Minimum of U (stable equilibrium)}
+    - {x: 18.9, y: 71.1, text: Equipotential curve}
+    - {x: 69.2, y: 46.1, text: Force on the puck}
+    - {x: 76.8, y: 23.1, text: Gradient of U (uphill direction)}
+    - {x: 61.7, y: 42.3, text: Line toward the origin}
+  distractors: [Turning point, Path of the puck]
+  explanation: |-
+    $U$ is smallest at the origin (1), a stable equilibrium. Each ellipse is a curve of constant $U$, an equipotential (2). The gradient points straight uphill, perpendicular to the ellipse (4), and the force is its negative (3). The force does not point along the line to the origin (5), because the $y$ springs are stiffer: it crosses the local contour at right angles instead.
+
+# ---------- Honors 14h2: Variable-mass systems ----------
+- id: phys-m4-r2-h15
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'A $5.0\times10^4$ kg rocket on the launch pad burns 250 kg/s of propellant with exhaust speed 2800 m/s. What is its acceleration at liftoff?'
+  choices: ['14 m/s²', '4.2 m/s²', '23.8 m/s²', '1.43 m/s²']
+  answer: 1
+  explanation: |-
+    Thrust $uR = 2800(250) = 7.0\times10^5$ N. $a = \dfrac{uR}{m} - g = \dfrac{7.0\times10^5}{5.0\times10^4} - 9.8 = 14 - 9.8 = 4.2$ m/s². 14 m/s² ignores the weight; 23.8 m/s² adds $g$ instead of subtracting it; 1.43 is the thrust-to-weight ratio, not an acceleration.
+
+- id: phys-m4-r2-h16
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'A rocket rising vertically has exhaust speed 2000 m/s and mass ratio $m_i/m_f = 3.0$, and its burn lasts 100 s. Ignoring drag, what is its speed at burnout?'
+  choices: ['2200 m/s', '3180 m/s', '1220 m/s', '353 m/s']
+  answer: 2
+  explanation: |-
+    $v = u\ln\dfrac{m_i}{m_f} - gt_b = 2000\ln 3.0 - 9.8(100) = 2197 - 980 = 1220$ m/s. 2200 m/s leaves out the gravity loss; 3180 m/s adds it; 353 m/s uses $u(1 - m_f/m_i)$ in place of the logarithm.
+
+- id: phys-m4-r2-h17
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'A cart coasting at 3.0 m/s on a frictionless level track leaks sand straight down through a hole in its floor until it has lost half its mass. What is its speed then?'
+  choices: ['6.0 m/s', '4.2 m/s', '1.5 m/s', '3.0 m/s']
+  answer: 3
+  explanation: |-
+    The sand leaves with the cart's own horizontal velocity, so $u_{\text{rel}} = 0$ and $m\,dv/dt = 0$: the speed stays 3.0 m/s. 6.0 m/s comes from assuming $mv$ of the cart alone stays constant (the sand carries momentum away with it); 4.2 m/s assumes the cart's kinetic energy stays constant; 1.5 m/s halves the speed with the mass.
+
+- id: phys-m4-r2-h18
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'An open 20 kg cart rolls at 4.0 m/s on a frictionless level track through a downpour. Rain falling vertically adds 5.0 kg of water. What is the cart''s speed then?'
+  choices: ['3.2 m/s', '4.0 m/s', '3.6 m/s', '5.0 m/s']
+  answer: 0
+  explanation: |-
+    The rain brings no horizontal momentum, so horizontal momentum is conserved: $20(4.0) = 25v$, $v = 3.2$ m/s. (The rain has to be brought up to speed: $u_{\text{rel}} = -v$ slows the cart.) 4.0 m/s ignores the added mass; 3.6 m/s wrongly conserves kinetic energy; 5.0 m/s inverts the mass ratio.
+
+- id: phys-m4-r2-h19
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'Sand falls onto a conveyor belt at 30 kg/s, and the belt moves at a constant 1.5 m/s. What extra power must the motor supply?'
+  choices: ['33.8 W', '45 W', '67.5 W', '135 W']
+  answer: 2
+  explanation: |-
+    Force $F = Rv = 30(1.5) = 45$ N; power $P = Fv = Rv^2 = 30(1.5)^2 = 67.5$ W. Half of it, 33.8 W, becomes the sand's kinetic energy and half becomes heat, so 33.8 W counts only the kinetic energy. 45 is the force in newtons; 135 W doubles the correct answer.
+
+- id: phys-m4-r2-h20
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'A water jet 1.0 cm in diameter hits a wall head-on at 30 m/s and splashes out sideways. What force does it exert on the wall? ($\rho = 1000$ kg/m³)'
+  choices: ['2.36 N', '70.7 N', '141 N', '283 N']
+  answer: 1
+  explanation: |-
+    $A = \pi(0.0050)^2 = 7.85\times10^{-5}$ m², mass rate $\rho Av = 2.36$ kg/s, force $\rho Av^2 = 2.36(30) = 70.7$ N. 2.36 is the mass rate, not a force; 141 N is for a jet turned straight back; 283 N uses the diameter as the radius (four times the area).
+
+- id: phys-m4-r2-h21
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'In an ideal Pelton wheel, buckets turn a jet of speed $v$ straight back. At what bucket speed does the wheel extract the most power?'
+  choices: ['$v/4$', '$v$', '$v/2$', '0']
+  answer: 2
+  explanation: |-
+    The force is $2\rho Av(v - V)$ and the power $2\rho Av(v - V)V$, a parabola in $V$ with its peak at $V = v/2$. Then the water leaves the bucket at $V - (v - V) = 0$ in the ground frame, so the jet keeps none of its kinetic energy. At $V = 0$ there is force but no motion; at $V = v$ the jet never catches the buckets.
+
+- id: phys-m4-r2-h22
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'An idealized 3.0 kg chain hangs with its lower end just touching a scale pan and is released. What does the scale read just before the last link lands?'
+  choices: ['29.4 N', '58.8 N', '117.6 N', '88.2 N']
+  answer: 3
+  explanation: |-
+    With length $y = L$ landed, the scale supports the whole weight $\lambda gL = 29.4$ N and also stops links arriving at $v^2 = 2gL$, a momentum flux $\lambda v^2 = 2\lambda gL = 58.8$ N. Total: $3(29.4) = 88.2$ N. 29.4 N is the weight alone; 58.8 N is the flux alone; 117.6 N counts the flux twice.
+
+- id: phys-m4-r2-h23
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'A cart leaks sand straight down as it coasts with no horizontal external force. What does the (incorrect) equation $F = d(mv)/dt = m\,dv/dt + v\,dm/dt$, applied to the cart alone with $F = 0$, predict?'
+  choices: ['The cart speeds up as it loses mass, which is wrong', 'The cart slows down as it loses mass', 'The speed stays the same, which is right', 'The cart stops once half the sand is gone']
+  answer: 0
+  explanation: |-
+    With $F = 0$: $m\,dv/dt = -v\,dm/dt$, and $dm/dt < 0$, so $dv/dt > 0$: it predicts speeding up. In fact the sand leaves with the cart's velocity ($u_{\text{rel}} = 0$), so the speed is constant. The shortcut fails because it ignores the momentum the leaving sand carries away.
+
+- id: phys-m4-r2-h24
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  type: text
+  stem: 'Sand drops onto a conveyor belt at 40 kg/s, and the belt moves at a constant 2.5 m/s. Energy is turned into heat at ___ W. Give only the number.'
+  accept: ['125']
+  explanation: |-
+    The motor supplies $Rv^2 = 40(2.5)^2 = 250$ W. The sand gains kinetic energy at $\tfrac12Rv^2 = 125$ W, and the rest, 125 W, becomes heat as the sand slides on the belt.
+
+- id: phys-m4-r2-h25
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  stem: 'For a rocket rising vertically with a constant burn rate (no drag, uniform $g$), which statements are true? Select all that apply.'
+  choices:
+    - 'It lifts off only if its thrust exceeds its initial weight'
+    - 'The gravity loss grows with the burn time'
+    - 'The thrust uses the exhaust speed relative to the ground'
+    - 'Burning the same propellant faster (same exhaust speed) reduces the gravity loss'
+    - 'In free space the gravity-loss term disappears'
+  answer: [0, 1, 3, 4]
+  explanation: |-
+    $m\,dv/dt = uR - mg$ needs $uR > m_ig$ to start upward. The gravity loss is $gt_b$, so it grows with burn time, and a faster burn of the same propellant shortens $t_b$. With no gravity the $-gt$ term is gone, leaving $u\ln(m_i/m_f)$. The thrust uses the exhaust speed relative to the rocket, not the ground.
+
+- id: phys-m4-r2-h26
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  type: order
+  stem: 'An idealized chain hangs with its lower end just touching a scale pan and is released. Put the scale readings in time order.'
+  items:
+    - 'Zero (the chain hangs, just touching the pan)'
+    - '1.5 times the chain''s weight (half has landed)'
+    - '3 times the chain''s weight (the last link is about to land)'
+    - '1 times the chain''s weight (the whole chain lies at rest)'
+  explanation: |-
+    The reading is $3\lambda gy$ while the chain falls: 0 at the start, $3\lambda g(L/2) = 1.5$ weights at half, and $3\lambda gL = 3$ weights just before the end. Once everything has landed and stopped there is no momentum flux, so the reading drops to one weight.
+
+- id: phys-m4-r2-h27
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  type: match
+  stem: 'Match each situation to the force involved.'
+  pairs:
+    - ['Thrust of a rocket ejecting mass at rate $R$ with exhaust speed $u$', Exhaust speed times burn rate]
+    - ['Force a belt at speed $v$ needs while loading sand at rate $R$', Loading rate times belt speed]
+    - ['Force of a jet stopped by a wall', Density times area times speed squared]
+    - ['Force of a jet turned straight back', Twice density times area times speed squared]
+  distractors: [Density times area times speed]
+  explanation: |-
+    Rocket thrust is $uR$; the belt needs $Rv$; a jet's momentum flux is $\rho Av^2$, and reversing it doubles the momentum change to $2\rho Av^2$. $\rho Av$ is the mass flow rate, not a force.
+
+- id: phys-m4-r2-h28
+  lesson: phys-m4-h-mass-flow
+  topic: Variable-mass systems
+  type: label
+  stem: 'Name the numbered parts of the loading conveyor.'
+  image: {src: images/phys-m4-conveyor-blank.svg, alt: 'A funnel at the top drops a column of dots onto a long belt looped around two rollers. Marker 1 is on the funnel, 2 on the falling dots, 3 on a small shaded zone of the belt where the dots land, 4 on an arrow pointing right below the belt, and 5 on a box connected to the right roller.'}
+  labels:
+    - {x: 25.0, y: 19.7, text: Hopper}
+    - {x: 25.0, y: 44.7, text: Sand with no horizontal velocity}
+    - {x: 28.9, y: 60.5, text: Slipping zone where heat is produced}
+    - {x: 58.6, y: 81.6, text: Belt velocity}
+    - {x: 89.1, y: 84.7, text: Motor}
+  distractors: [Exhaust nozzle, Pelton bucket]
+  explanation: |-
+    Sand leaves the hopper (1) and falls straight down (2), so it arrives with no horizontal velocity. Where it lands (3) it slides on the belt until kinetic friction brings it up to the belt's speed; that sliding turns half the motor's extra work into heat. The belt moves at constant speed (4), kept up by the motor (5), which must supply the extra force $Rv$.
+
+# ---------- Honors 14h3: Collisions in the center-of-mass frame ----------
+- id: phys-m4-r2-h29
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'What is the reduced mass of a 3.0 kg object and a 6.0 kg object?'
+  choices: ['4.5 kg', '9.0 kg', '0.50 kg', '2.0 kg']
+  answer: 3
+  explanation: |-
+    $\mu = \dfrac{m_1m_2}{m_1 + m_2} = \dfrac{18}{9.0} = 2.0$ kg, less than either mass. 4.5 kg is the average; 9.0 kg the total; 0.50 is the reciprocal, $(m_1 + m_2)/(m_1m_2)$.
+
+- id: phys-m4-r2-h30
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'A 4.0 kg cart moving at 5.0 m/s hits a 1.0 kg cart at rest. What is the most kinetic energy the collision can possibly convert to other forms?'
+  choices: ['10 J', '50 J', '40 J', '25 J']
+  answer: 0
+  explanation: |-
+    Only the relative kinetic energy can be lost: $\mu = \dfrac{4.0(1.0)}{5.0} = 0.80$ kg, so $\tfrac12(0.80)(5.0)^2 = 10$ J (lost if they stick). The total is 50 J, but the CM part, $\tfrac12(5.0)(4.0)^2 = 40$ J, must remain because $v_{\text{cm}}$ can't change. 25 J assumes half is always lost.
+
+- id: phys-m4-r2-h31
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'A 3.0 kg puck at 4.0 m/s hits an identical puck at rest head-on, with coefficient of restitution 0.60. How much kinetic energy is lost?'
+  choices: ['4.32 J', '7.68 J', '4.80 J', '15.4 J']
+  answer: 1
+  explanation: |-
+    $\mu = 1.5$ kg and the relative kinetic energy is $\tfrac12(1.5)(4.0)^2 = 12$ J. Lost: $(1 - 0.60^2)(12) = 0.64(12) = 7.68$ J. 4.32 J is the relative energy that remains ($e^2 \times 12$); 4.80 J uses $(1 - e)$ instead of $(1 - e^2)$; 15.4 J applies the factor to the total 24 J, including the CM part that can't be lost.
+
+- id: phys-m4-r2-h32
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'A 2.0 kg cart moves at $+6.0$ m/s toward a 3.0 kg cart moving at $-4.0$ m/s. What is the velocity of their center of mass?'
+  choices: ['$+1.0$ m/s', '0', '$+4.8$ m/s', '$+2.0$ m/s']
+  answer: 1
+  explanation: |-
+    $v_{\text{cm}} = \dfrac{2.0(6.0) + 3.0(-4.0)}{5.0} = \dfrac{12 - 12}{5.0} = 0$. Here the lab frame already is the CM frame. $+1.0$ m/s averages the velocities without weighting by mass; $+4.8$ m/s adds the momentum magnitudes; $+2.0$ m/s is the sum $6.0 + (-4.0)$.
+
+- id: phys-m4-r2-h33
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'A 1.0 kg ball at 9.0 m/s hits a 2.0 kg ball at rest head-on, elastically. Working in the CM frame, what is the 1.0 kg ball''s final velocity?'
+  choices: ['$+3.0$ m/s', '$-9.0$ m/s', '0', '$-3.0$ m/s']
+  answer: 3
+  explanation: |-
+    $v_{\text{cm}} = 9.0/3.0 = 3.0$ m/s. In the CM frame the ball moves at $9.0 - 3.0 = 6.0$ m/s; the elastic collision reverses it to $-6.0$ m/s; adding $v_{\text{cm}}$ back gives $-3.0$ m/s. (Formula check: $\tfrac{1 - 2}{3}(9.0) = -3.0$.) $+3.0$ m/s forgets the reversal, $-9.0$ m/s reverses the lab velocity, and 0 is the equal-mass result.
+
+- id: phys-m4-r2-h34
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'An alpha particle (4 u) hits a carbon-12 nucleus (12 u) at rest head-on, elastically. What fraction of its kinetic energy does the carbon nucleus receive?'
+  choices: ['25%', '75%', '33%', '100%']
+  answer: 1
+  explanation: |-
+    $\dfrac{4m_1m_2}{(m_1 + m_2)^2} = \dfrac{4(4)(12)}{16^2} = \dfrac{192}{256} = 0.75$. 25% is what the alpha keeps; 33% is just the mass ratio $4/12$; 100% happens only for equal masses.
+
+- id: phys-m4-r2-h35
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'A 6.0 kg puck slides into a 2.0 kg puck at rest and they collide elastically, off-center. What is the largest angle through which the 6.0 kg puck can be deflected?'
+  choices: ['18.4°', '70.5°', '19.5°', '90°']
+  answer: 2
+  explanation: |-
+    Heavy on light: $\sin\theta_{\max} = m_2/m_1 = 2.0/6.0$, so $\theta_{\max} = 19.5°$. 18.4° uses the tangent and 70.5° the cosine; 90° would need equal masses or a lighter projectile.
+
+- id: phys-m4-r2-h36
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'A neutron (1 u) collides head-on and elastically with a carbon-12 nucleus at rest. What fraction of its kinetic energy does the neutron keep?'
+  choices: ['72%', '28%', '85%', '8.3%']
+  answer: 0
+  explanation: |-
+    It keeps $\left(\dfrac{m_1 - m_2}{m_1 + m_2}\right)^2 = \left(\dfrac{11}{13}\right)^2 = 0.72$, so 72% (it gives away $48/169 = 28\%$). 28% is the fraction given away; 85% is the velocity ratio $11/13$ without squaring; 8.3% is $1/12$.
+
+- id: phys-m4-r2-h37
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'In the Geiger–Marsden experiments, some alpha particles bounced back from a thin metal foil. Why couldn''t collisions with the atoms'' electrons explain this?'
+  choices: ['An electron is about 7300 times lighter than an alpha, so it can deflect an alpha by at most about 0.008°', 'Electrons attract alpha particles instead of repelling them', 'Electrons move too fast to collide with alpha particles', 'The foil contained too few electrons']
+  answer: 0
+  explanation: |-
+    For a heavy projectile on a light target, $\sin\theta_{\max} = m_2/m_1 \approx 1/7300$, about 0.008°. No number of such collisions along a thin foil could plausibly turn an alpha around, so the large deflections needed a target heavier than the alpha: a massive nucleus. (The electrons do attract the positive alpha, but that is not why they fail; the limit comes from momentum and energy alone.)
+
+- id: phys-m4-r2-h38
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  type: text
+  stem: 'A 2.0 kg cart at 5.0 m/s approaches a 3.0 kg cart at rest. Their reduced mass is ___ kg, and their relative kinetic energy is ___ J. Give only the numbers.'
+  accept:
+    - ['1.2']
+    - ['15']
+  explanation: |-
+    $\mu = \dfrac{2.0(3.0)}{5.0} = 1.2$ kg and $\tfrac12\mu v_{\text{rel}}^2 = \tfrac12(1.2)(5.0)^2 = 15$ J. The other 10 J of the 25 J total belongs to the center of mass and survives any collision.
+
+- id: phys-m4-r2-h39
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  stem: 'Which statements about the center-of-mass frame of a two-object collision are true? Select all that apply.'
+  choices:
+    - 'The total momentum is zero'
+    - 'The two momenta are equal in size and opposite in direction'
+    - 'In an elastic collision each object keeps its speed'
+    - 'After any collision both objects are at rest'
+    - 'The kinetic energy is $\tfrac12\mu v_{\text{rel}}^2$'
+  answer: [0, 1, 2, 4]
+  explanation: |-
+    The CM frame is defined so that total momentum is zero, which makes the momenta $\pm\mu\vec v_{\text{rel}}$, and the kinetic energy there is the relative part $\tfrac12\mu v_{\text{rel}}^2$. Elastic collisions keep that energy and so each speed. Both objects end at rest only in a perfectly inelastic collision.
+
+- id: phys-m4-r2-h40
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  type: order
+  stem: 'Put the steps for solving a collision through the CM frame in order.'
+  items:
+    - 'Find $v_{\text{cm}}$ from the lab velocities'
+    - 'Subtract $v_{\text{cm}}$ from each velocity'
+    - 'Apply the collision rule (reverse, scale by $e$, or turn) in the CM frame'
+    - 'Add $v_{\text{cm}}$ back to get the final lab velocities'
+  explanation: |-
+    You need $v_{\text{cm}}$ before you can change frames, the collision rule applies to CM-frame velocities, and the answers must be brought back to the lab frame at the end.
+
+- id: phys-m4-r2-h41
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  type: match
+  stem: 'Match what happens in the CM frame to the kind of event (head-on, one dimension).'
+  pairs:
+    - ['Both velocities reverse with the same speeds', Elastic collision]
+    - ['Both velocities reverse and shrink by a factor $e$ between 0 and 1', Inelastic collision]
+    - ['Both objects end at rest', Perfectly inelastic collision]
+    - ['Both objects end moving apart faster than they approached', Explosion or release of stored energy]
+  explanation: |-
+    In the CM frame the relative kinetic energy is all there is. Elastic keeps it (same speeds), restitution $e$ multiplies it by $e^2$, perfectly inelastic removes it (both at rest), and an explosion or a released spring adds to it.
+
+- id: phys-m4-r2-h42
+  lesson: phys-m4-h-cm-frame
+  topic: Center-of-mass frame
+  type: label
+  stem: 'The velocity diagram is for an elastic collision of a heavy projectile with a light target at rest. Name the numbered parts.'
+  image: {src: images/phys-m4-velocity-circle-blank.svg, alt: 'An arrow across the top points right. Below, an arrow runs from point O to point C, the center of a large shaded circle. Another arrow runs from C to a point on the circle, and a third from O to that same point, tangent to the circle. Marker 1 is on the O-to-C arrow, 2 on the C-to-circle arrow, 3 on the O-to-circle arrow, 4 on the angle at O, and 5 on the circle.'}
+  labels:
+    - {x: 29.7, y: 56.1, text: Velocity of the center of mass}
+    - {x: 54.7, y: 39.2, text: Projectile's velocity in the CM frame after the collision}
+    - {x: 29.7, y: 39.2, text: Projectile's final velocity in the lab frame}
+    - {x: 23.8, y: 51.2, text: Largest possible deflection angle}
+    - {x: 77.0, y: 86.0, text: Possible tips of the final lab velocity}
+  distractors: [Target's final velocity, Relative velocity before the collision]
+  explanation: |-
+    The CM velocity runs from O to the circle's center C (1). In the CM frame the projectile keeps its speed, so after the collision its CM-frame velocity (2) reaches from C to some point of the circle, and the circle (5) is the set of all possible tips. The lab velocity is their sum, from O to that point (3). Because the circle doesn't enclose O, the lab velocity can only tilt until it is tangent to the circle, which gives the largest deflection angle (4), with $\sin\theta_{\max} = m_2/m_1$.

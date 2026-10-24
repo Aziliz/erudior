@@ -87,7 +87,7 @@ Inside a heavy nucleus an alpha particle is held by the strong force; outside, t
 The theory explains a striking pattern. Polonium-212 emits 8.8 MeV alphas and has a half-life of 0.3 μs; uranium-238 emits 4.2 MeV alphas and has a half-life of 4.5 billion years. A factor of about 2 in energy makes a factor of more than $10^{23}$ in half-life, because a higher energy makes the barrier both lower (smaller $U - E$) and thinner (closer outer turning point), and both sit in the exponent. The empirical rule that log(half-life) falls roughly linearly with $1/\sqrt{E_\alpha}$ (the **Geiger–Nuttall law**, found in 1911 and refined later) follows from the tunneling calculation.
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Where quantum tunneling matters
   accDescr: Tunneling through a barrier leads to four applications. Alpha decay, where an alpha particle escapes through the Coulomb barrier of a heavy nucleus. Fusion in the Sun, where protons with thermal energies of about 1 keV fuse by getting through a Coulomb barrier hundreds of times higher. The scanning tunneling microscope, where electrons cross a vacuum gap between a tip and a surface. Flash memory and tunnel diodes, where electrons cross thin insulating or junction layers in chips.
   T["Tunneling through a barrier"] --> A["Alpha decay: escape through the Coulomb barrier"]

@@ -347,19 +347,19 @@
 - id: phys-m3-r2-h14
   lesson: phys-m3-h-drag
   topic: Drag
-  stem: 'Two water droplets fall at terminal speed in still air, both obeying Stokes''s law. One has twice the radius of the other. Its terminal speed is'
-  choices: ['the same', '2 times as large', '4 times as large', '8 times as large']
+  stem: 'An 800 kg boat coasting at 8.0 m/s feels water drag $cv^2$ with $c = 40$ kg/m and no other horizontal force. How long does it take to slow to 4.0 m/s?'
+  choices: ['1.7 s', '20 s', '2.5 s', '0.40 s']
   answer: 2
   explanation: |-
-    $v_T = \dfrac{mg}{6\pi\eta R}$ with $m \propto R^3$, so $v_T \propto R^2$: doubling $R$ multiplies $v_T$ by 4. 8 times forgets that the drag also grows with $R$; 2 times treats the mass as proportional to $R$.
+    $v = \dfrac{v_0}{1 + cv_0t/m}$ halves when $cv_0t/m = 1$, so $t = \dfrac{m}{cv_0} = \dfrac{800}{40(8.0)} = 2.5$ s. 1.7 s multiplies by $\ln 2$, treating the decay as exponential in time; 20 s is $m/c$, which has units of meters, not seconds; 0.40 s inverts the fraction.
 - id: phys-m3-r2-h15
   lesson: phys-m3-h-drag
   topic: Drag
-  stem: 'A sand grain 2.0 mm across sinks through water (density 1000 kg/m³, viscosity $1.0 \times 10^{-3}$ Pa·s) at 0.20 m/s. What is its Reynolds number, based on its diameter?'
-  choices: ['200', '400', '$2.2 \times 10^4$', '$4.0 \times 10^5$']
+  stem: 'The same 800 kg boat ($c = 40$ kg/m) coasts from 8.0 m/s. How far does it travel before its speed drops to 2.0 m/s?'
+  choices: ['13.9 m', '27.7 m', '41.6 m', '60.0 m']
   answer: 1
   explanation: |-
-    $Re = \rho vD/\eta = 1000(0.20)(0.0020)/(1.0\times10^{-3}) = 400$. That is between the linear and quadratic ranges, so neither simple drag law is accurate for it. 200 uses the radius; $2.2\times10^4$ uses the viscosity of air; $4.0\times10^5$ leaves $D$ in millimeters.
+    With $v\,dv/dx = -(c/m)v^2$, the speed decays exponentially with distance: $v = v_0e^{-cx/m}$. Slowing to a quarter needs $e^{-cx/m} = \tfrac14$, so $x = \dfrac{m}{c}\ln 4 = 20(1.386) = 27.7$ m. 13.9 m is only one halving (to 4.0 m/s); 41.6 m is three halvings (to 1.0 m/s); 60.0 m uses $(m/c)(v_0/v - 1)$, which is the time formula's form, not the distance's.
 - id: phys-m3-r2-h16
   lesson: phys-m3-h-drag
   topic: Drag
@@ -404,10 +404,10 @@
   lesson: phys-m3-h-drag
   type: text
   topic: Drag
-  stem: 'The linear drag law for a sphere in a viscous fluid, $F_D = 6\pi\eta Rv$, is called ___ law.'
-  accept: ["Stokes's", "Stokes'", 'Stokes', "Stoke's"]
+  stem: 'A boat coasting with quadratic drag (and no other horizontal force) slows from 12 m/s to 6.0 m/s in its first 15 m. Its speed after 45 m is ___ m/s. Give only the number.'
+  accept: ['1.5']
   explanation: |-
-    It is Stokes's law, worked out by George Stokes in 1851. It applies when the Reynolds number is much less than 1.
+    With quadratic drag, $v = v_0e^{-cx/m}$: the speed halves over each equal distance. 45 m is three halvings: $12 \to 6.0 \to 3.0 \to 1.5$ m/s. (Each halving takes twice as long as the one before, so equal distances are not equal times.)
 - id: phys-m3-r2-h22
   lesson: phys-m3-h-drag
   type: text

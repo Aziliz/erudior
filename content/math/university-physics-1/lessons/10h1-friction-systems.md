@@ -24,8 +24,8 @@ The box's mass cancels. A truck that accelerates faster than $\mu_s g$ leaves it
 
 The same reasoning handles two stacked blocks with the force applied to the bottom one. The reliable method has two stages:
 
-1. **Assume they move together.** Treat both as one system to find the common acceleration $a$, then find the friction the top block needs: $f = m_{\text{top}}a$.
-2. **Check the assumption.** If $f \le \mu_s n_{\text{top}}$, they really do move together. If not, they slip, and you redo the problem with kinetic friction and a separate acceleration for each block.
+1. *Assume they move together.* Treat both as one system to find the common acceleration $a$, then find the friction the top block needs: $f = m_{\text{top}}a$.
+2. *Check the assumption.* If $f \le \mu_s n_{\text{top}}$, they really do move together. If not, they slip, and you redo the problem with kinetic friction and a separate acceleration for each block.
 
 ```mermaid
 flowchart TD

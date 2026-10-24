@@ -28,7 +28,7 @@ $$x = a(t - \sin t), \qquad y = a(1 - \cos t).$$
 One full turn, $0 \le t \le 2\pi$, traces one arch: it starts and ends on the ground, $2\pi a$ apart (one circumference), and reaches its greatest height $2a$ at $t = \pi$, when $P$ is at the top of the wheel. The points where $P$ touches the ground are sharp points called **cusps**: there the point stops for an instant and reverses its vertical direction.
 
 ```plot
-{"x": [-1, 20], "y": [-0.5, 4.5], "equal": true, "curves": [{"x": "1.5(t - sin(t))", "y": "1.5(1 - cos(t))", "t": [0, 12.566], "label": "cycloid, a = 1.5"}, {"x": "1.5*4.2 + 1.5cos(t)", "y": "1.5 + 1.5sin(t)", "t": [0, 6.2832], "dashed": true}], "points": [{"at": [0, 0], "label": "cusp"}, {"at": [9.4248, 0], "label": "cusp"}, {"at": [4.7124, 3], "label": "top (πa, 2a)"}], "caption": "Two arches of a cycloid with a = 1.5: each arch is 2πa ≈ 9.42 wide and 2a = 3 high"}
+{"x": [-0.8, 10.4], "y": [-0.5, 3.6], "equal": true, "curves": [{"x": "1.5(t - sin(t))", "y": "1.5(1 - cos(t))", "t": [0, 6.2832]}, {"x": "6.3 + 1.5cos(t)", "y": "1.5 + 1.5sin(t)", "t": [0, 6.2832], "dashed": true}], "points": [{"at": [0, 0], "label": "cusp"}, {"at": [9.4248, 0], "label": "cusp"}, {"at": [4.7124, 3], "label": "top (πa, 2a)"}, {"at": [7.607, 2.235], "label": "P at t = 4.2"}, {"at": [6.3, 1.5]}], "caption": "One arch of a cycloid with a = 1.5: 2πa ≈ 9.42 wide and 2a = 3 high. The dashed wheel shows the moment t = 4.2, with its center at (at, a) = (6.3, 1.5)"}
 ```
 
 ### Example 1: a pebble in a tire
@@ -53,7 +53,7 @@ $$x = at - b\sin t, \qquad y = a - b\cos t.$$
 - $b > a$: the point is below the rolling surface at the bottom of each turn, and the curve has loops.
 
 ```plot
-{"x": [-1, 14], "y": [-1.2, 4.8], "equal": true, "curves": [{"x": "t - 0.5sin(t)", "y": "1 - 0.5cos(t)", "t": [0, 12.566], "label": "b = 0.5a"}, {"x": "t - 1.8sin(t)", "y": "1 - 1.8cos(t)", "t": [0, 12.566], "dashed": true, "label": "b = 1.8a"}], "segments": [{"from": [-1, 0], "to": [14, 0]}], "caption": "Trochoids with a = 1: a point inside the rim (solid) makes waves; a point outside it (dashed) makes loops below the line it rolls on"}
+{"x": [-1, 14], "y": [-1.2, 4.8], "equal": true, "curves": [{"x": "t - 0.5sin(t)", "y": "1 - 0.5cos(t)", "t": [0, 12.566]}, {"x": "t - 1.8sin(t)", "y": "1 - 1.8cos(t)", "t": [0, 12.566], "dashed": true}], "segments": [{"from": [-1, 0], "to": [14, 0]}], "caption": "Trochoids with a = 1: a point inside the rim (solid) makes waves; a point outside it (dashed) makes loops below the line it rolls on", "labels": [{"at": [3.14, 1.9], "text": "b = 0.5a"}, {"at": [3.14, 3.2], "text": "b = 1.8a"}]}
 ```
 
 ### Example 2: the train that goes backward
@@ -82,7 +82,7 @@ $$x = (a - b)\cos t + b\cos\!\left(\tfrac{a - b}{b}t\right), \qquad y = (a - b)\
 When $\tfrac ab = k$ is a whole number, the curve closes after one trip around and has $k$ cusps, one for each time the rolling circle's point touches the fixed circle.
 
 ```plot
-{"x": [-4.2, 4.2], "y": [-4.2, 4.2], "equal": true, "curves": [{"x": "2cos(t) - cos(2t)", "y": "2sin(t) - sin(2t)", "t": [0, 6.2832], "label": "cardioid (a = b = 1)"}, {"x": "3cos(t) - cos(3t)", "y": "3sin(t) - sin(3t)", "t": [0, 6.2832], "dashed": true, "label": "nephroid (a = 2, b = 1)"}], "circles": [{"center": [0, 0], "r": 1}, {"center": [0, 0], "r": 2}], "caption": "Epicycloids around a fixed circle of radius 1 (cardioid) and radius 2 (nephroid, two cusps)"}
+{"x": [-4.2, 4.2], "y": [-4.2, 4.2], "equal": true, "curves": [{"x": "2cos(t) - cos(2t)", "y": "2sin(t) - sin(2t)", "t": [0, 6.2832]}, {"x": "3cos(t) - cos(3t)", "y": "3sin(t) - sin(3t)", "t": [0, 6.2832], "dashed": true}], "circles": [{"center": [0, 0], "r": 1}, {"center": [0, 0], "r": 2}], "caption": "Epicycloids: a cardioid (solid; a circle of radius 1 rolling around a fixed circle of radius 1) and a nephroid (dashed; radius 1 around radius 2, two cusps)"}
 ```
 
 ### Example 3: the cardioid is an epicycloid
@@ -100,7 +100,7 @@ $$x = \tfrac a4\left(3\cos t + 4\cos^3 t - 3\cos t\right) = a\cos^3 t, \qquad y 
 This four-cusped curve is the **astroid**. Eliminating the parameter with $\cos^2 t + \sin^2 t = 1$ gives $x^{2/3} + y^{2/3} = a^{2/3}$. With $a = 3b$ instead you get the three-cusped **deltoid**. And $a = 2b$ is a surprise: $x = 2b\cos t$, $y = 0$. A point on a circle rolling inside one twice its size moves back and forth along a straight diameter. The Persian astronomer Naṣīr al-Dīn al-Ṭūsī described this device in the 13th century, and it is still called the Tusi couple.
 
 ```plot
-{"x": [-4.4, 4.4], "y": [-4.4, 4.4], "equal": true, "curves": [{"x": "4cos(t)^3", "y": "4sin(t)^3", "t": [0, 6.2832], "label": "astroid (a = 4b)"}, {"x": "2cos(t) + cos(2t)", "y": "2sin(t) - sin(2t)", "t": [0, 6.2832], "dashed": true, "label": "deltoid (a = 3b)"}], "circles": [{"center": [0, 0], "r": 4}, {"center": [0, 0], "r": 3}], "caption": "Hypocycloids inside a circle of radius 4 (astroid, four cusps) and radius 3 (deltoid, three cusps)"}
+{"x": [-4.4, 4.4], "y": [-4.4, 4.4], "equal": true, "curves": [{"x": "4cos(t)^3", "y": "4sin(t)^3", "t": [0, 6.2832]}, {"x": "2cos(t) + cos(2t)", "y": "2sin(t) - sin(2t)", "t": [0, 6.2832], "dashed": true}], "circles": [{"center": [0, 0], "r": 4}, {"center": [0, 0], "r": 3}], "caption": "Hypocycloids: an astroid (solid; four cusps, inside a circle of radius 4 with b = 1) and a deltoid (dashed; three cusps, inside a circle of radius 3 with b = 1)"}
 ```
 
 ## A curve with a history

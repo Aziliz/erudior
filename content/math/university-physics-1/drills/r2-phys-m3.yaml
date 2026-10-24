@@ -75,27 +75,26 @@
     $c = \tfrac12 C\rho A = \tfrac12({C})(1.2)({A}) = {c:sig4}$ kg/m, so $v_T = \sqrt{mg/c} = \sqrt{{m}(9.8)/{c:sig4}} =$ **{vT:sig3} m/s**.
 
     With $v = v_T\tanh(gt/v_T)$, the time to reach {p} of $v_T$ is $t = \dfrac{v_T}{g}\tanh^{-1}({p:num2}) = {tau:sig4}\tanh^{-1}({p:num2}) =$ **{t:sig3} s**.
-- id: phys-m3-r2-stokes
-  title: Terminal speed of a droplet (Stokes drag)
+- id: phys-m3-r2-coast
+  title: Coasting with quadratic drag
   topic: Drag
   vars:
-    R: {min: 5, max: 25, step: 1}
+    m: {min: 200, max: 1000, step: 50}
+    c: {min: 10, max: 60, step: 5}
+    v0: {min: 5, max: 15, step: 0.5}
+    x: {min: 10, max: 100, step: 5}
+  where: ['c*x/m < 3']
   calc:
-    rm: R*1e-6
-    mass: 1000*4/3*pi*rm^3
-    vT: mass*9.8/(6*pi*1.8e-5*rm)
-    vcm: vT*100
-    Re: 1.2*vT*2*rm/1.8e-5
-  prompt: 'A water droplet (density 1000 kg/m³) of radius {R} μm falls through still air (density 1.2 kg/m³, viscosity $1.8 \times 10^{-5}$ Pa·s). Using Stokes''s law and $g = 9.8$ m/s², and ignoring buoyancy, find its terminal speed in cm/s and the Reynolds number at that speed (based on the diameter). Give answers to 3 significant figures.'
+    th: m/(c*v0)
+    vx: v0*exp(-c*x/m)
+  prompt: 'A {m} kg boat coasting at {v0} m/s feels water drag $cv^2$ with $c = {c}$ kg/m and no other horizontal force. Find how long it takes to slow to half its speed, and its speed after it has traveled {x} m. Give answers to 3 significant figures.'
   answers:
-    - {format: sig4, name: vcm, label: 'Terminal speed', relTolerance: 0.01, units: {'cm/s': 1, 'm/s': 100}}
-    - {format: sig4, name: Re, label: 'Reynolds number', relTolerance: 0.01}
+    - {format: sig4, name: th, label: 'Time to half speed', relTolerance: 0.01, units: {s: 1}}
+    - {format: sig4, name: vx, label: 'Speed', relTolerance: 0.01, units: {'m/s': 1}}
   solution: |-
-    Mass: $m = 1000\cdot\tfrac43\pi({R}\times10^{-6})^3 = {mass:texsci}$ kg.
+    From $m\,dv/dt = -cv^2$: $v = \dfrac{v_0}{1 + cv_0t/m}$, which halves when $t = \dfrac{\,m}{cv_0} = \dfrac{{m}}{{c}({v0})} =$ **{th:sig3} s**.
 
-    Stokes: $mg = 6\pi\eta Rv_T$, so $v_T = \dfrac{mg}{6\pi\eta R} = {vT:sig4}$ m/s $=$ **{vcm:sig3} cm/s**.
-
-    $Re = \dfrac{\rho v_T D}{\eta} = \dfrac{1.2({vT:sig4})(2 \times {R}\times10^{-6})}{1.8\times10^{-5}} =$ **{Re:sig3}**, less than 1, so Stokes's law is a fair model.
+    Using $dv/dt = v\,dv/dx$: $v = v_0e^{-cx/m} = {v0}\,e^{-{c}({x})/{m}} =$ **{vx:sig3} m/s**.
 - id: phys-m3-r2-accel-pendulum
   title: Pendulum in an accelerating vehicle
   topic: Non-inertial frames

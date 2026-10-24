@@ -5,7 +5,7 @@ title: 'Drag: linear, quadratic and the Reynolds number'
 minutes: 45
 honors: true
 topics: [Drag]
-drills: [phys-m3-r2-quad-drag, phys-m3-r2-stokes]
+drills: [phys-m3-r2-quad-drag, phys-m3-r2-coast]
 refs: [phys-ref-mechanics]
 ---
 ## Motion through air and water
