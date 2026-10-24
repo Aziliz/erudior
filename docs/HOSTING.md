@@ -103,6 +103,15 @@ Local development: `cd worker && npm install && npm run migrate:local && npm run
 checks the API and `node test/live.test.mjs` the live rooms; `node scripts/community-walkthrough.mjs`
 and `node scripts/live-walkthrough.mjs` check the whole flows in a browser.
 
+## Desktop app downloads
+
+Push a tag (`git tag v0.23.0 && git push origin v0.23.0`) to run **Build installers**: it
+builds Windows (.exe, .msi), Linux (.deb, .rpm, AppImage) and macOS (universal .dmg) and
+publishes a GitHub release. app.erudior.com/download links the latest release's files, and
+`brew install --cask aziliz/erudior/erudior` (tap: Aziliz/homebrew-erudior) installs its
+`Erudior-macOS-universal.dmg`. Installers aren't code-signed yet, so Windows SmartScreen and
+macOS Gatekeeper warn on first launch (signing needs a certificate / an Apple Developer account).
+
 ## Day to day
 
 - **New course revision:** build it as usual (`content/math/build.py …`), commit, push. The

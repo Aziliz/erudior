@@ -100,8 +100,8 @@ export default function DownloadPage({ api }: { api: AppApi }) {
           <p className="small">Or download the disk image:</p>
           <div className="row">{link(dmg, "Download .dmg", os === "mac")}</div>
           <p className="small muted">
-            macOS 10.15 or later, Apple silicon or Intel. The app isn't notarized by Apple yet, so the first time, right-click Erudior in Applications and
-            choose <b>Open</b>.
+            macOS 10.15 or later, Apple silicon or Intel. The app isn't notarized by Apple yet. If macOS says it can't be opened, go to{" "}
+            <b>System Settings → Privacy &amp; Security</b> and choose <b>Open Anyway</b> (the Homebrew install skips this step).
           </p>
         </>
       ),

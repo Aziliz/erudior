@@ -66,6 +66,9 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - GitHub Aziliz/examiner is **public** (Jon's choice: private repo was out of free Actions minutes). Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, COURSE_SIGNING_KEY, GOOGLE_CLIENT_SECRET, OAUTH_GITHUB_CLIENT_SECRET. Variables: COURSES_URL, R2_BUCKET, PAGES_PROJECT, COMMUNITY_API, D1_DATABASE_ID, ADMIN_EMAILS, GOOGLE_CLIENT_ID, OAUTH_GITHUB_CLIENT_ID.
 - Production signing public key in `src/lib/courseKeys.ts`; Jon holds the secret key (password manager).
 - Google sign-in: Cloud project `erudior`, External, still in Testing mode. GitHub OAuth app "Erudior" (Aziliz).
+- Website pages (v0.23.0): `/` home (`pages/Home.tsx`), `/courses` library, `/community` (`pages/CommunityPage.tsx`: community catalog with subject/level/type filters and the Create a course button; the top-bar Create button is gone), `/download` (`pages/DownloadPage.tsx`: reads `api.github.com/repos/Aziliz/examiner/releases/latest`, matches assets by extension, highlights the visitor's OS, shows the brew command). The Erudior logo goes home. Desktop app: no home/download; Community tab only when there is no homeschool family.
+- Labels (`src/lib/taxonomy.ts`): levels Elementary School, Middle School, High School, College, Professional; types Course, Exam prep; ~28 subjects. Old labels (High school, Adult, A1…, old community subjects) are mapped on load; community courses have a `type` (doc field, D1 column `kind`, migration 0003). German courses are tagged High School, College and Professional.
+- macOS: release workflow builds a universal .dmg (ad-hoc signed, not notarized) and also uploads it as `Erudior-macOS-universal.dmg`; tap repo Aziliz/homebrew-erudior has `Casks/erudior.rb` (version :latest, sha256 :no_check, clears quarantine in postflight) so `brew install --cask aziliz/erudior/erudior` always gets the latest release. Pushes to the tap aren't allowed from Claude sessions (edit it on github.com). Releases now publish (not draft) on a `v*` tag.
 - Website addresses (`src/lib/routes.ts`, wired in App.tsx; website only, not the desktop app): `/` library, `/<course-title-slug>` course or catalog overview (course id also accepted, then rewritten), `/<course>/<tab>`, `/<course>/lessons/<lessonId>`, `/<course>/reference/<id>`, `/progress`, `/search?q=`, `/create`, `/review`, `/live`. Tab switches and overview→course replace the history entry; other screens push one. Activities (practice, results, cards, drills) get an address but reopen the course on reload/back. Pages serves index.html for unknown paths (no 404.html).
 
 ## Question types, pictures, diagrams, honors (v0.22.0)
@@ -333,6 +336,7 @@ To test the UI without Tauri, run `npm run build && npx vite preview`; data then
 
 ## Version history
 
+- **v0.23.0:** website home page (/), Courses (/courses), Community page with Create inside, Download page; five levels (Elementary School … Professional) and two types (Course, Exam prep); macOS universal .dmg and Homebrew tap; releases publish automatically.
 - **v0.22.0:** question types (text, match, label, order), pictures in questions, Mermaid diagrams, honors lessons/modules; Biology revision 2.
 - **v0.1.0:** the exam simulator: banks, timed and practice modes, editor, progress.
 - **v0.2.0:** courses, lessons, notecards, drills, glossary, reference sheets, planner, per-section pass marks, and the bundled Colorado course.
