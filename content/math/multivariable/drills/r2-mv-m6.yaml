@@ -1,0 +1,114 @@
+# Round 2 drills, module mv-m6 (honors lessons)
+- id: mv-m6-r2-moi-solid
+  title: Moment of inertia of a standard solid
+  topic: Moments of inertia
+  vars:
+    k: {choices: [{label: 'a uniform solid ball, about a diameter', value: 1}, {label: 'a uniform solid cylinder, about its axis', value: 2}, {label: 'a thin uniform spherical shell, about a diameter', value: 3}, {label: 'a thin uniform hoop, about its axis', value: 4}, {label: 'a uniform solid cone, about its axis', value: 5}]}
+    m: {min: 1, max: 20}
+    a: {min: 0.1, max: 0.9, step: 0.1}
+  calc:
+    num: if(k == 1, 2, if(k == 2, 1, if(k == 3, 2, if(k == 4, 1, 3))))
+    den: if(k == 1, 5, if(k == 2, 2, if(k == 3, 3, if(k == 4, 1, 10))))
+    I: num/den*m*a^2
+  prompt: 'Find the moment of inertia of {k}, with mass {m} kg and radius {a} m. (kg·m², 3 significant figures.)'
+  answers:
+    - {name: I, label: '$I =$', sigfigs: 3}
+  solution: |-
+    For this shape $I = \dfrac{{num}}{{den}}ma^2$ (from the table in the lesson).
+    $I = \dfrac{{num}}{{den}}\cdot{m}\cdot{a}^2 \approx$ **{I:sig3}** kg·m².
+- id: mv-m6-r2-parallel-axis
+  title: Parallel axis theorem
+  topic: Moments of inertia
+  vars:
+    k: {choices: [{label: 'uniform solid ball', value: 1}, {label: 'uniform solid cylinder', value: 2}]}
+    m: {min: 1, max: 10}
+    a: {min: 0.1, max: 0.5, step: 0.1}
+    d: {min: 0.1, max: 1.0, step: 0.1}
+  calc:
+    num: if(k == 1, 2, 1)
+    den: if(k == 1, 5, 2)
+    Icm: num/den*m*a^2
+    I: Icm + m*d^2
+  prompt: 'A {k} has mass {m} kg and radius {a} m. Find its moment of inertia about an axis parallel to {k:ref} and {d} m from its center. (kg·m², 3 significant figures.)'
+  answers:
+    - {name: I, label: '$I =$', sigfigs: 3}
+  solution: |-
+    About the central axis, $I_{\text{cm}} = \dfrac{{num}}{{den}}ma^2 = \dfrac{{num}}{{den}}\cdot{m}\cdot{a}^2 \approx {Icm:sig3}$.
+    Parallel axis theorem: $I = I_{\text{cm}} + md^2 \approx {Icm:sig3} + {m}\cdot{d}^2 \approx$ **{I:sig3}** kg·m².
+- id: mv-m6-r2-rolling
+  title: Speed after rolling down a ramp
+  topic: Moments of inertia
+  vars:
+    k: {choices: [{label: 'uniform solid ball', value: 1}, {label: 'uniform solid cylinder', value: 2}, {label: 'thin spherical shell', value: 3}, {label: 'thin hoop', value: 4}]}
+    h: {min: 0.5, max: 5, step: 0.25}
+  calc:
+    num: if(k == 1, 2, if(k == 2, 1, if(k == 3, 2, 1)))
+    den: if(k == 1, 5, if(k == 2, 2, if(k == 3, 3, 1)))
+    beta: num/den
+    grav: 9.8
+    v: sqrt(2*grav*h/(1 + beta))
+  prompt: 'A {k} is released from rest and rolls without slipping down a ramp that drops {h} m. Using $g = 9.8$ m/s², find its speed at the bottom. (m/s, 2 decimal places.)'
+  answers:
+    - {name: v, label: '$v =$', tolerance: 0.005}
+  solution: |-
+    For this shape $\beta = \dfrac{{num}}{{den}}$ in $I = \beta mR^2$. Energy: $mgh = \tfrac12(1 + \beta)mv^2$, so
+    $v = \sqrt{\dfrac{2\cdot9.8\cdot{h}}{1 + {num}/{den}}} \approx$ **{v:num2}** m/s. (Mass and radius cancel.)
+- id: mv-m6-r2-ellipsoid
+  title: Ellipsoid by a linear change of variables
+  topic: Custom coordinates
+  vars:
+    a: {min: 1, max: 5}
+    b: {min: 1, max: 5}
+    c: {min: 1, max: 5}
+  calc:
+    abc: a*b*c
+    V: 4/3*pi*a*b*c
+    Z: 4*pi*a*b*c^3/15
+  prompt: 'For the solid ellipsoid $\dfrac{x^2}{{a}^2} + \dfrac{y^2}{{b}^2} + \dfrac{z^2}{{c}^2} \le 1$, find its volume and $\displaystyle\iiint_E z^2\,dV$. (2 decimal places.)'
+  answers:
+    - {name: V, label: '$V =$', tolerance: 0.005}
+    - {name: Z, label: '$\iiint z^2\,dV =$', tolerance: 0.005}
+  solution: |-
+    Use $x = {a}u$, $y = {b}v$, $z = {c}w$: the unit ball maps onto the ellipsoid and the Jacobian is ${a}\cdot{b}\cdot{c} = {abc}$.
+    $V = {abc}\cdot\tfrac43\pi \approx$ **{V:num2}**.
+    Over the unit ball $\iiint w^2\,dV = \tfrac13\iiint\rho^2\,dV = \tfrac{4\pi}{15}$, so $\iiint_E z^2\,dV = {abc}\cdot{c}^2\cdot\tfrac{4\pi}{15} \approx$ **{Z:num2}**.
+- id: mv-m6-r2-planes-volume
+  title: Volume between three pairs of parallel planes
+  topic: Custom coordinates
+  vars:
+    p: {min: -2, max: 2}
+    q: {min: -2, max: 2}
+    s: {min: -2, max: 2}
+    A: {min: 1, max: 4}
+    B: {min: 1, max: 4}
+    C: {min: 1, max: 4}
+  where: ["p != 0", "q != 0", "s != 0", "1 + p*q*s != 0"]
+  calc:
+    det: 1 + p*q*s
+    V: A*B*C/abs(det)
+    box: A*B*C
+  prompt: 'Find the volume of the solid $0 \le x {p:signedcoef}y \le {A}$, $0 \le y {q:signedcoef}z \le {B}$, $0 \le z {s:signedcoef}x \le {C}$. (Exact fraction.)'
+  answers:
+    - {name: V, kind: fraction, label: '$V =$'}
+  solution: |-
+    Let $u = x {p:signedcoef}y$, $v = y {q:signedcoef}z$, $w = z {s:signedcoef}x$; the solid becomes a box of volume ${A}\cdot{B}\cdot{C} = {box}$.
+    $\dfrac{\partial(u,v,w)}{\partial(x,y,z)} = \begin{vmatrix}1 & {p} & 0\\ 0 & 1 & {q}\\ {s} & 0 & 1\end{vmatrix} = 1 + ({p})({q})({s}) = {det}$, so $\left|\dfrac{\partial(x,y,z)}{\partial(u,v,w)}\right| = \dfrac{1}{|{det}|}$.
+    $V = \dfrac{{box}}{|{det}|} =$ **${V:texfrac}$**.
+- id: mv-m6-r2-torus
+  title: Volumes of revolution by Pappus
+  topic: Custom coordinates
+  vars:
+    R: {min: 3, max: 9}
+    a: {min: 1, max: 2}
+  calc:
+    V: 2*pi^2*R*a^2
+    W: 8*pi*R*a^2
+    side: 2*a
+  prompt: 'A disk of radius {a}, centered {R} units from the $z$-axis in a half-plane through the axis, is revolved about the $z$-axis to make a torus. Find its volume. Then find the volume swept out by the square of side {side} with the same center. (2 decimal places.)'
+  answers:
+    - {name: V, label: 'Torus', tolerance: 0.005}
+    - {name: W, label: 'Square', tolerance: 0.005}
+  solution: |-
+    Pappus: volume $= 2\pi\bar rA$, with $\bar r = {R}$ for both shapes (the centroid is the center).
+    Torus: $2\pi\cdot{R}\cdot\pi\cdot{a}^2 = 2\pi^2\cdot{R}\cdot{a}^2 \approx$ **{V:num2}**.
+    Square: $2\pi\cdot{R}\cdot{side}^2 \approx$ **{W:num2}**.

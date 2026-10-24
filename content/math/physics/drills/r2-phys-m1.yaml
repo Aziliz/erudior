@@ -1,0 +1,161 @@
+# Round 2, module phys-m1: drills for the honors lessons
+# (phys-m1-h-uncertainty and phys-m1-h-vector-algebra).
+- id: phys-m1-r2-mean-sem
+  title: Mean and standard error of repeated readings
+  topic: Measurement uncertainty
+  vars:
+    base: {min: 1.50, max: 2.50, step: 0.01}
+    d1: {min: -5, max: 5}
+    d2: {min: -5, max: 5}
+    d3: {min: -5, max: 5}
+    d4: {min: -5, max: 5}
+    d5: {min: -5, max: 5}
+  where: ['stdev(d1, d2, d3, d4, d5) > 1']
+  calc:
+    r1: base + d1/100
+    r2: base + d2/100
+    r3: base + d3/100
+    r4: base + d4/100
+    r5: base + d5/100
+    avg: mean(r1, r2, r3, r4, r5)
+    sd: stdev(r1, r2, r3, r4, r5)
+    sem: sd / sqrt(5)
+  prompt: 'Five timings of a pendulum''s period are {r1:num2} s, {r2:num2} s, {r3:num2} s, {r4:num2} s and {r5:num2} s. Find the mean (to 3 decimal places) and the standard error of the mean (to 2 significant figures).'
+  answers:
+    - {name: avg, label: 'Mean', format: dp3, tolerance: 0.0006, units: {s: 1}}
+    - {name: sem, label: 'Standard error', format: sig2, sigfigs: 2, units: {s: 1}}
+  solution: |-
+    Mean: $\bar T = \dfrac{{r1:num2} + {r2:num2} + {r3:num2} + {r4:num2} + {r5:num2}}{5} =$ **{avg:dp3} s**.
+
+    Sample standard deviation (divide the sum of squared deviations by $n - 1 = 4$): $s = {sd:sig3}$ s.
+
+    Standard error: $s/\sqrt5 = {sd:sig3}/2.236 =$ **{sem:sig2} s**.
+- id: phys-m1-r2-product-unc
+  title: Uncertainty of a product
+  topic: Error propagation
+  vars:
+    len: {min: 20.0, max: 80.0, step: 0.1}
+    dlen: {choices: [0.1, 0.2, 0.3]}
+    wid: {min: 10.0, max: 40.0, step: 0.1}
+    dwid: {choices: [0.1, 0.2, 0.3]}
+  where: ['len > wid']
+  calc:
+    area: len * wid
+    fl: dlen / len
+    fw: dwid / wid
+    darea: area * sqrt(fl^2 + fw^2)
+  prompt: 'A rectangular plate measures $({len:num1} \pm {dlen:num1})$ cm by $({wid:num1} \pm {dwid:num1})$ cm, with independent random errors. Find its area (to 3 significant figures) and the uncertainty of the area (to 2 significant figures), combining in quadrature.'
+  answers:
+    - {name: area, label: 'Area', format: sig3, sigfigs: 3, units: {'cm²': 1, 'cm^2': 1}}
+    - {name: darea, label: 'Uncertainty', format: sig2, sigfigs: 2, units: {'cm²': 1, 'cm^2': 1}}
+  solution: |-
+    Area: ${len:num1} \times {wid:num1} =$ **{area:sig3} cm²**.
+
+    For a product, combine fractional uncertainties: $\tfrac{{dlen:num1}}{{len:num1}} = {fl:sig3}$ and $\tfrac{{dwid:num1}}{{wid:num1}} = {fw:sig3}$, so the area's fractional uncertainty is $\sqrt{({fl:sig3})^2 + ({fw:sig3})^2}$.
+
+    Multiply by the area: $\delta A =$ **{darea:sig2} cm²**.
+- id: phys-m1-r2-pendulum-g
+  title: g from a pendulum, with uncertainty
+  topic: Error propagation
+  vars:
+    Lm: {min: 0.400, max: 1.200, step: 0.005}
+    e: {min: -6, max: 6}
+    dLm: {choices: [0.001, 0.002, 0.003]}
+    dTm: {choices: [0.002, 0.005, 0.010]}
+  calc:
+    Tm: round(2*pi*sqrt(Lm/9.80)*(1 + e/1000), 3)
+    gv: 4*pi^2*Lm/Tm^2
+    fL: dLm / Lm
+    fT: 2*dTm / Tm
+    dg: gv * sqrt(fL^2 + fT^2)
+  prompt: 'A pendulum of length $({Lm:dp3} \pm {dLm:dp3})$ m has period $({Tm:dp3} \pm {dTm:dp3})$ s. Using $g = 4\pi^2 L/T^2$, find $g$ (to 3 significant figures) and its uncertainty (to 2 significant figures), combining independent errors in quadrature.'
+  answers:
+    - {name: gv, label: '$g =$', format: sig3, sigfigs: 3, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {name: dg, label: 'Uncertainty', format: sig2, sigfigs: 2, units: {'m/s²': 1, 'm/s^2': 1}}
+  solution: |-
+    $g = 4\pi^2({Lm:dp3})/({Tm:dp3})^2 =$ **{gv:sig3} m/s²**.
+
+    Fractional uncertainty of the length: ${dLm:dp3}/{Lm:dp3} = {fL:sig3}$. The period is squared, so it contributes twice its fractional uncertainty: $2({dTm:dp3})/{Tm:dp3} = {fT:sig3}$. The $4\pi^2$ is exact.
+
+    In quadrature: $\sqrt{({fL:sig3})^2 + ({fT:sig3})^2}$, times {gv:sig4} gives $\delta g =$ **{dg:sig2} m/s²**.
+- id: phys-m1-r2-cross-components
+  title: Cross product in components
+  topic: Vector products
+  vars:
+    a1: {min: -5, max: 5}
+    a2: {min: -5, max: 5}
+    a3: {min: -5, max: 5}
+    b1: {min: -5, max: 5}
+    b2: {min: -5, max: 5}
+    b3: {min: -5, max: 5}
+  calc:
+    cx: a2*b3 - a3*b2
+    cy: a3*b1 - a1*b3
+    cz: a1*b2 - a2*b1
+  where: ['a1 != 0', 'b2 != 0', 'cx != 0', 'cy != 0', 'cz != 0']
+  prompt: 'For $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$ and $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$, find the components of $\vec A\times\vec B$.'
+  answers:
+    - {name: cx, label: '$x$ component', format: integer}
+    - {name: cy, label: '$y$ component', format: integer}
+    - {name: cz, label: '$z$ component', format: integer}
+  solution: |-
+    $x$: $A_yB_z - A_zB_y = ({a2})({b3}) - ({a3})({b2}) =$ **{cx}**
+
+    $y$: $A_zB_x - A_xB_z = ({a3})({b1}) - ({a1})({b3}) =$ **{cy}**
+
+    $z$: $A_xB_y - A_yB_x = ({a1})({b2}) - ({a2})({b1}) =$ **{cz}**
+
+    Check: the dot product of the result with $\vec A$ (and with $\vec B$) is 0.
+- id: phys-m1-r2-projection
+  title: Component of one vector along another
+  topic: Vector algebra
+  vars:
+    a1: {min: -4, max: 4}
+    a2: {min: -4, max: 4}
+    a3: {min: -4, max: 4}
+    b1: {min: -6, max: 6}
+    b2: {min: -6, max: 6}
+    b3: {min: -6, max: 6}
+  calc:
+    dp: a1*b1 + a2*b2 + a3*b3
+    magA: sqrt(a1^2 + a2^2 + a3^2)
+    comp: dp / magA
+  where: ['a1 != 0', 'b1 != 0', 'abs(dp) >= 2']
+  prompt: 'A force $\vec F = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$ N acts on an object moving in the direction of $\vec d = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$. Find the component of $\vec F$ along $\vec d$ in newtons (to 3 significant figures; negative if it opposes the motion).'
+  answers:
+    - {name: comp, label: '$F_\parallel =$', format: sig3, sigfigs: 3, units: {N: 1}}
+  solution: |-
+    $\vec F\cdot\vec d = ({b1})({a1}) + ({b2})({a2}) + ({b3})({a3}) = {dp}$
+
+    $|\vec d| = \sqrt{({a1})^2 + ({a2})^2 + ({a3})^2} = {magA:sig4}$
+
+    Component: ${dp}/{magA:sig4} =$ **{comp:sig3} N**.
+- id: phys-m1-r2-triple-product
+  title: Volume from the triple product
+  topic: Vector products
+  vars:
+    a1: {min: 1, max: 5}
+    a2: {min: -3, max: 3}
+    a3: {min: -3, max: 3}
+    b1: {min: -3, max: 3}
+    b2: {min: 1, max: 5}
+    b3: {min: -3, max: 3}
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+    c3: {min: 1, max: 5}
+  calc:
+    kx: b2*c3 - b3*c2
+    ky: b3*c1 - b1*c3
+    kz: b1*c2 - b2*c1
+    trip: a1*kx + a2*ky + a3*kz
+    vol: abs(trip)
+  where: ['trip != 0']
+  prompt: 'Find the volume of the box (parallelepiped) with edges $\vec A = {a1}\hat\imath {a2:signed}\hat\jmath {a3:signed}\hat k$, $\vec B = {b1}\hat\imath {b2:signed}\hat\jmath {b3:signed}\hat k$ and $\vec C = {c1}\hat\imath {c2:signed}\hat\jmath {c3:signed}\hat k$, all in meters.'
+  answers:
+    - {name: vol, label: 'Volume', format: integer, units: {'m³': 1, 'm^3': 1}}
+  solution: |-
+    $\vec B\times\vec C = ({kx})\hat\imath + ({ky})\hat\jmath + ({kz})\hat k$
+
+    $\vec A\cdot(\vec B\times\vec C) = ({a1})({kx}) + ({a2})({ky}) + ({a3})({kz}) = {trip}$
+
+    The volume is the absolute value: **{vol} m³**.

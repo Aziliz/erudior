@@ -81,14 +81,12 @@ Sign rule: use the upper signs (+ on top, − on the bottom) for motion *toward*
 ```mermaid
 flowchart TD
   accTitle: Choosing the signs in the Doppler formula
-  accDescr: Decide the top and bottom of the fraction separately. Top: if the observer moves toward the source use v + vo; if away, v − vo; if the observer is still, just v. Bottom: if the source moves toward the observer use v − vs; if away, v + vs; if the source is still, just v. Then f' = f times top divided by bottom. Check that approaching gives a higher frequency.
+  accDescr: Decide the top and bottom of the fraction separately. Top: if the observer moves toward the source use v + vo; if away, v − vo; if the observer is still, the top is just v. Bottom: if the source moves toward the observer use v − vs; if away, v + vs; if the source is still, the bottom is just v. Then f' = f times top divided by bottom. Check that approaching gives a higher frequency.
   O["Observer moving?"] -->|toward source| O1["Top: v + vo"]
   O -->|away from source| O2["Top: v − vo"]
-  O -->|not moving| O3["Top: v"]
   S["Source moving?"] -->|toward observer| S1["Bottom: v − vs"]
   S -->|away from observer| S2["Bottom: v + vs"]
-  S -->|not moving| S3["Bottom: v"]
-  O1 & O2 & O3 & S1 & S2 & S3 --> R["f' = f × top ÷ bottom. Check: approaching raises f"]
+  O1 & O2 & S1 & S2 --> R["f' = f × top ÷ bottom. Anything not moving: just v. Check: approaching raises f"]
 ```
 
 ### Example 3
