@@ -73,7 +73,7 @@ Check Example 1: for $\vec F_1$, $\partial F_y/\partial x = 2x = \partial F_x/\p
 The curl also measures *how* nonconservative a field is. By Green's theorem, the work around a closed loop in the plane equals the integral of $\partial F_y/\partial x - \partial F_x/\partial y$ over the enclosed area (counterclockwise loop). For $\vec F_2$ that integrand is 2 everywhere, and the loop of Example 1 encloses the triangle $(0,0)$, $(2,0)$, $(2,1)$ with area 1 m², so the loop work is $2(1) = 2$ J, exactly what we found.
 
 ```plot
-{"x": [-2.4, 2.4], "y": [-2.4, 2.4], "equal": true, "xLabel": "x (m)", "yLabel": "y (m)", "vectorField": {"u": "-y", "v": "x", "step": 0.8}, "caption": "F₂ = (−y, x) circulates around the origin: a trip around any loop gains work, so it has no potential energy"}
+{"x": [-3, 3], "y": [-3, 3], "equal": true, "xLabel": "x (m)", "yLabel": "y (m)", "vectorField": {"u": "-y", "v": "x", "step": 0.8}, "caption": "F₂ = (−y, x) circulates around the origin: a counterclockwise trip around any loop gains work, so it has no potential energy"}
 ```
 
 ```plot

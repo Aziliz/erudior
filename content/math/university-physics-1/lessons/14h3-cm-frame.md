@@ -122,7 +122,7 @@ An alpha particle (mass about 4 u) collides elastically with a proton (about 1 u
 
 Proton: $\sin\theta_{\max} = \tfrac14$, so $\theta_{\max} = 14.5°$. Electron: $\sin\theta_{\max} = 1/7300$, so $\theta_{\max} \approx 0.008°$.
 
-That second number is history. Around 1909–1911, Geiger and Marsden, working with Rutherford, found that about 1 alpha particle in 8000 bounced off a thin metal foil through more than 90°. Collisions with electrons could never do that, however many there were along the path; only a target much heavier than the alpha could turn it back. Rutherford concluded that the atom's positive charge and almost all its mass sit in a tiny nucleus.
+That second number is history. In 1909 Geiger and Marsden, working in Rutherford's laboratory, found that about 1 alpha particle in 8000 striking a platinum sheet was turned back through more than 90°, and that even very thin gold foil turned some back. Collisions with electrons can't do that: each one deflects an alpha by at most 0.008°, and a thin foil gives far too few of them for random tiny deflections to add up to a reversal. Only a target much heavier than the alpha could turn it back. Rutherford concluded that the atom's positive charge and almost all its mass sit in a tiny nucleus.
 
 ## Common mistakes
 

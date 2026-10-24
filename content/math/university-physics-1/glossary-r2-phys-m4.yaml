@@ -50,5 +50,5 @@
   topic: Center-of-mass frame
 - term: moderator
   aliases: [neutron moderator, moderators]
-  definition: 'A material of light nuclei, such as water, heavy water or graphite, that slows fast fission neutrons through elastic collisions so they can cause further fission in a reactor.'
+  definition: 'A material of light nuclei, such as water, heavy water or graphite, that slows fast fission neutrons through elastic collisions, so that in a thermal reactor they are much more likely to cause further fission.'
   topic: Center-of-mass frame

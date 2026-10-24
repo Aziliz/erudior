@@ -87,7 +87,7 @@ Three consequences:
 
 - The induced charge on the sphere totals $q' = -qR/a$, less than $q$ in size: some of $q$'s field lines miss the sphere and go to infinity.
 - The sphere attracts the charge with force $F = \dfrac{kq|q'|}{(a - b)^2}$.
-- If the sphere is *isolated and neutral* instead of grounded, add a second image $+qR/a$ at the center. That keeps the total charge zero and the surface still an equipotential. The pair $q'$ and $-q'$ is a small dipole, and the net force is still an attraction. This is the full story behind a charged balloon pulling on a neutral metal object.
+- If the sphere is *isolated and neutral* instead of grounded, add a second image $+qR/a$ at the center. That keeps the total charge zero and the surface still an equipotential. The pair $q'$ and $-q'$ is a small dipole, and the net force is still an attraction. The same mechanism lets a charged balloon pull on a neutral metal object.
 
 ### Example 2
 

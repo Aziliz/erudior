@@ -6,7 +6,7 @@
   definition: '$\nabla^2V = 0$, Poisson''s equation in a region with no charge. Its solutions have no local maximum or minimum.'
   topic: Method of images
 - term: Earnshaw's theorem
-  definition: 'No charged particle can be held in stable equilibrium by electrostatic forces from fixed charges alone, because the potential has no minimum in empty space.'
+  definition: 'No charged particle can be held in stable equilibrium by electrostatic forces from fixed charges alone, because the potential has no local minimum or maximum in empty space.'
   topic: Method of images
 - term: uniqueness theorem
   definition: 'With the charge in a region and the potential on all its boundaries given, Laplace''s or Poisson''s equation has exactly one solution, so any solution that fits is the solution.'

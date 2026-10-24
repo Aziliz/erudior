@@ -470,10 +470,10 @@
   lesson: phys-m4-h-mass-flow
   topic: Variable-mass systems
   stem: 'An idealized 3.0 kg chain hangs with its lower end just touching a scale pan and is released. What does the scale read just before the last link lands?'
-  choices: ['29.4 N', '58.8 N', '117.6 N', '88.2 N']
+  choices: ['29.4 N', '58.8 N', '147 N', '88.2 N']
   answer: 3
   explanation: |-
-    With length $y = L$ landed, the scale supports the whole weight $\lambda gL = 29.4$ N and also stops links arriving at $v^2 = 2gL$, a momentum flux $\lambda v^2 = 2\lambda gL = 58.8$ N. Total: $3(29.4) = 88.2$ N. 29.4 N is the weight alone; 58.8 N is the flux alone; 117.6 N counts the flux twice.
+    With length $y = L$ landed, the scale supports the whole weight $\lambda gL = 29.4$ N and also stops links arriving at $v^2 = 2gL$, a momentum flux $\lambda v^2 = 2\lambda gL = 58.8$ N. Total: $3(29.4) = 88.2$ N. 29.4 N is the weight alone; 58.8 N is the flux alone; 147 N doubles the flux ($29.4 + 2 \times 58.8$), as if each link bounced back up instead of stopping.
 
 - id: phys-m4-r2-h23
   lesson: phys-m4-h-mass-flow

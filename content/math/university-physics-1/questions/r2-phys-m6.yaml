@@ -228,7 +228,7 @@
   choices: ['100, 200, 300, 400 Hz, …', '100, 300, 500, 700 Hz, …', '200, 400, 600, 800 Hz, …', '50, 150, 250, 350 Hz, …']
   answer: 1
   explanation: |-
-    The fundamental is $1/T = 100$ Hz, and the square wave's half-wave symmetry removes every even harmonic, leaving 100, 300, 500 Hz… The first choice includes the missing even harmonics; the last two are not multiples of 100 Hz at all, or skip the fundamental.
+    The fundamental is $1/T = 100$ Hz, and the square wave's half-wave symmetry removes every even harmonic, leaving 100, 300, 500 Hz… The first choice includes the missing even harmonics; 200, 400, 600 Hz… leaves out the fundamental and keeps only even harmonics; 50, 150, 250 Hz… are not multiples of 100 Hz at all.
 - id: phys-m6-r2-h02
   lesson: phys-m6-h-fourier
   topic: Fourier analysis

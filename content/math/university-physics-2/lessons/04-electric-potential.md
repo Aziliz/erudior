@@ -90,12 +90,12 @@ The field points in the direction of steepest decrease of $V$. Because $V$ is a 
 ```mermaid
 flowchart TD
   accTitle: Which route to the field or the potential
-  accDescr: Start from what you know. For point charges, if you want the potential, add kq over r for each charge as plain signed numbers; if you want the field, add the kq over r squared vectors by components. If you know the field and want a potential difference, integrate: delta V is minus the integral of E along a path, which for a uniform field is just E times d. If you know the potential as a function of position and want the field, take minus the gradient.
+  accDescr: Start from what you know. For point charges, if you want the potential, add kq over r for each charge as plain signed numbers; if you want the field, add the kq over r squared vectors by components. If you know the field and want a potential difference, integrate: delta V is minus the integral of E along a path, which for a uniform field means the potential drops by E times d along the field. If you know the potential as a function of position and want the field, take minus the gradient.
   A{"What do you know?"}
   A -- "point charges, want V" --> B["Add kq/r as signed numbers"]
   A -- "point charges, want E" --> C["Add kq/r² as vectors, by components"]
   A -- "E, want ΔV" --> D["ΔV = minus the integral of E along a path"]
-  D --> F["Uniform field: ΔV = Ed"]
+  D --> F["Uniform field: V drops by Ed along E"]
   A -- "V(x, y, z), want E" --> E["E = minus the gradient of V"]
 ```
 

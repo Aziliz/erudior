@@ -10,7 +10,7 @@ refs: [phys-ref-waves-thermo]
 ---
 ## Why a violin and a flute sound different
 
-The waves lesson ended with a claim: a plucked string vibrates in a *mix* of harmonics, and the mix gives each instrument its tone. The sound lesson added that a pipe closed at one end has only odd harmonics. A violin and a flute playing the same note (the same fundamental frequency) sound different because they put different amounts of energy into the harmonics above it.
+The waves lesson made a claim: a plucked string vibrates in a *mix* of harmonics, and the mix gives each instrument its tone. The sound lesson added that a pipe closed at one end has only odd harmonics. A violin and a flute playing the same note (the same fundamental frequency) sound different because they put different amounts of energy into the harmonics above it.
 
 This lesson makes that precise. A French mathematician, Joseph Fourier, studying how heat spreads through solids (his memoir of 1807 and his book of 1822), claimed that any periodic function can be built by adding sines and cosines whose frequencies are whole-number multiples of one base frequency. The tool that grew from this, **Fourier analysis**, is now used everywhere waves and signals appear: in music, in phone calls, in MRI scanners and in earthquake records. Here you'll learn to find the ingredients of a periodic signal, to read a spectrum, and to predict which harmonics a plucked string will have.
 

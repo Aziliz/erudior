@@ -74,7 +74,7 @@ A conductor with surface charge density $\sigma$ has field $\sigma/\varepsilon_0
 Not $\sigma\cdot\sigma/\varepsilon_0$. The charge layer has a small thickness, and the field rises across it from $0$ to $\sigma/\varepsilon_0$; the charge inside the layer feels the field where it actually is.
 
 ```plot
-{"x": [-1.5, 2.5], "y": [0, 1.3], "xLabel": "position", "yLabel": "E / (σ/ε0)", "functions": [{"f": "0", "from": -1.5, "to": 0}, {"f": "x", "from": 0, "to": 1}, {"f": "1", "from": 1, "to": 2.5}, {"f": "0.5", "from": 0, "to": 1, "dashed": true}], "segments": [{"from": [1, 0], "to": [1, 1.3], "dashed": true}], "labels": [{"at": [-0.75, 0.15], "text": "metal: E = 0"}, {"at": [1.75, 1.12], "text": "outside: σ/ε0"}, {"at": [0.72, 0.38], "text": "average"}], "caption": "Through the thin layer of surface charge the field rises from 0 to σ/ε0; the charge feels the average, σ/(2ε0)"}
+{"x": [-1.5, 2.5], "y": [0, 1.3], "xLabel": "position", "yLabel": "E / (σ/ε0)", "functions": [{"f": "0", "from": -1.5, "to": 0}, {"f": "x", "from": 0, "to": 1}, {"f": "1", "from": 1, "to": 2.5}, {"f": "0.5", "from": 0, "to": 1, "dashed": true}], "segments": [{"from": [1, 0], "to": [1, 1.3], "dashed": true}], "labels": [{"at": [-0.75, 0.15], "text": "metal: E = 0"}, {"at": [1.75, 1.12], "text": "outside: σ/ε0"}, {"at": [1.35, 0.5], "text": "average"}], "caption": "Through the thin layer of surface charge the field rises from 0 to σ/ε0; the charge feels the average, σ/(2ε0)"}
 ```
 
 For a layer of thickness $\delta$, Gauss's law gives $dE = \rho\,dx/\varepsilon_0$, so the force per area is $\int\rho E\,dx = \varepsilon_0\int_0^{\sigma/\varepsilon_0}E\,dE = \dfrac{\sigma^2}{2\varepsilon_0}$, whatever the charge's profile within the layer. So

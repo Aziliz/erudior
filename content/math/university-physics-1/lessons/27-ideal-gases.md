@@ -51,7 +51,7 @@ flowchart TD
 On a PV diagram, each temperature gives a hyperbola $P = nRT/V$, called an isotherm; hotter isotherms lie farther from the axes.
 
 ```plot
-{"x": [0, 45], "y": [0, 800], "xLabel": "V (L)", "yLabel": "P (kPa)", "functions": [{"f": "8.314*200/x", "from": 2.3, "to": 40, "label": "200 K"}, {"f": "8.314*400/x", "from": 4.6, "to": 30, "label": "400 K"}, {"f": "8.314*800/x", "from": 9.2, "to": 20, "label": "800 K"}], "caption": "Isotherms of 1 mol of ideal gas, P = nRT/V (1 kPa·L = 1 J): hotter isotherms lie farther from the axes"}
+{"x": [0, 45], "y": [0, 800], "xLabel": "V (L)", "yLabel": "P (kPa)", "functions": [{"f": "8.314*200/x", "from": 2.3, "to": 40}, {"f": "8.314*400/x", "from": 4.6, "to": 30}, {"f": "8.314*800/x", "from": 9.2, "to": 20}], "labels": [{"at": [23, 380], "text": "800 K"}, {"at": [33, 160], "text": "400 K"}, {"at": [41, 95], "text": "200 K"}], "caption": "Isotherms of 1 mol of ideal gas, P = nRT/V (1 kPa·L = 1 J): hotter isotherms lie farther from the axes"}
 ```
 
 At **STP** (0°C, 1 atm), one mole of any ideal gas occupies 22.4 L. This course uses the 1 atm definition, as most physics texts do; IUPAC has defined standard pressure as 1 bar (100 kPa) since 1982, which gives 22.7 L per mole, so check which one a problem or table assumes.

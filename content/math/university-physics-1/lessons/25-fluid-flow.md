@@ -96,7 +96,7 @@ and integrating along $s$ gives $P + \rho gy + \tfrac12\rho v^2 = \text{constant
 A draining tank leads to a differential equation for the water level. For a tank of cross-section $A$ with a hole of area $a$, $A\dfrac{dh}{dt} = -a\sqrt{2gh}$. Separating variables: $\dfrac{dh}{\sqrt h} = -\dfrac aA\sqrt{2g}\,dt$, so $2\sqrt h$ decreases linearly in time, and the tank empties in $t = \dfrac Aa\sqrt{\dfrac{2h_0}{g}}$. The level drops quickly at first and slowly at the end.
 
 ```plot
-{"x": [0, 70], "y": [0, 2.2], "xLabel": "time t (s)", "yLabel": "water level h (m)", "functions": [{"f": "(sqrt(2) - 0.01*sqrt(9.8/2)*x)^2", "from": 0, "to": 63.9}], "points": [{"at": [63.9, 0]}], "labels": [{"at": [50, 0.45], "text": "empty at 63.9 s"}], "caption": "Draining tank with h₀ = 2.0 m and hole area a = A/100: the level falls fast at first, then slowly"}
+{"x": [0, 82], "y": [0, 2.2], "xLabel": "time t (s)", "yLabel": "water level h (m)", "functions": [{"f": "(sqrt(2) - 0.01*sqrt(9.8/2)*x)^2", "from": 0, "to": 63.9}], "points": [{"at": [63.9, 0]}], "labels": [{"at": [50, 0.45], "text": "empty at 63.9 s"}], "caption": "Draining tank with h₀ = 2.0 m and hole area a = A/100: the level falls fast at first, then slowly"}
 ```
 
 ## Common mistakes

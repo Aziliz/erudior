@@ -18,7 +18,7 @@ The motion of coupled oscillators can look messy, with energy wandering from one
 
 Put two equal masses $m$ on a frictionless track between two walls, connected wall–spring–mass–spring–mass–spring–wall. The outer springs have constant $k$ and the middle **coupling spring** has constant $k'$. Let $x_1$ and $x_2$ be each mass's displacement to the right of its equilibrium position.
 
-![Two blocks on a frictionless track between two walls, joined wall to block 1 by a spring k, block 1 to block 2 by a coupling spring k′, and block 2 to the right wall by a spring k. Below, mode 1 shows both blocks displaced the same way with the middle spring unchanged; mode 2 shows the blocks displaced in opposite directions, stretching and compressing the middle spring.](images/phys-m6-coupled-modes.svg)
+![Two blocks on a frictionless track between two walls, joined wall to block 1 by a spring k, block 1 to block 2 by a coupling spring k′, and block 2 to the right wall by a spring k. Below, mode 1 shows both blocks displaced the same way with the middle spring unchanged; mode 2 shows the blocks displaced in opposite directions, toward each other, compressing the middle spring (half a cycle later they move apart and stretch it).](images/phys-m6-coupled-modes.svg)
 
 The left spring stretches by $x_1$; the middle spring stretches by $x_2 - x_1$; the right spring is compressed by $x_2$. Newton's second law for each mass:
 

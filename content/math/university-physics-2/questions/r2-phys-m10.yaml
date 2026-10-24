@@ -181,7 +181,7 @@
   stem: 'A rod slides to the right on two rails joined at the left end, in a magnetic field into the page. Name the numbered parts and arrows.'
   image: {src: images/phys-m10-rails-blank.svg, alt: 'Two horizontal rails joined at the left by a zigzag element, a vertical rod resting across them, an arrow pointing right from the rod, an arrow pointing left from the rod near the top, and an upward arrow beside the rod; five numbered markers, with crosses everywhere for a field into the page'}
   labels:
-    - {x: 63.3, y: 72.7, text: Sliding rod}
+    - {x: 63.3, y: 39.0, text: Sliding rod}
     - {x: 10.0, y: 46.8, text: Resistor}
     - {x: 57.5, y: 62.3, text: Induced current}
     - {x: 54.2, y: 27.3, text: Magnetic force on the rod}

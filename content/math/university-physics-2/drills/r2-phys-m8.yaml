@@ -118,7 +118,7 @@
 
     The sum of the pair products is $({q1})({q2}) + ({q1})({q3}) + ({q2})({q3}) = {S}$ μC².
 
-    $U = \dfrac{8.99\times10^9}{{s}}({S}\times10^{-12}) =$ **{U:sig3} J**. A positive answer means work had to be done; a negative one means the charges would pull themselves together.
+    $U = \dfrac{8.99\times10^9}{{s}}({S}\times10^{-12}) =$ **{U:sig3} J**. A positive answer means work had to be done on the charges; a negative one means assembling them released energy, and that much work is needed to pull them apart again.
 - id: phys-m8-r2-sphere-self-energy
   title: Electric energy of a nucleus
   topic: Electrostatic energy

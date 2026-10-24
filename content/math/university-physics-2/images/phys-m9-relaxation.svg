@@ -26,7 +26,7 @@
 <line x1="90.0" y1="320.0" x2="600.0" y2="320.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
 <text x="64.0" y="212.0" font-size="20" text-anchor="end" fill="#1c2833" font-style="italic">ε</text>
 <text x="235.0" y="68.0" font-size="18" text-anchor="middle" fill="#1c2833" font-style="italic">R</text>
-<text x="398.0" y="212.0" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">C</text>
+<text x="390.0" y="212.0" font-size="18" text-anchor="end" fill="#1c2833" font-style="italic">C</text>
 <text x="360.0" y="362.0" font-size="15" text-anchor="middle" fill="#1c2833">The switch closes when the capacitor voltage reaches Von</text>
 <text x="360.0" y="384.0" font-size="15" text-anchor="middle" fill="#1c2833">and opens again once it has fallen to Voff</text>
 </svg>

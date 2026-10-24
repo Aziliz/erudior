@@ -138,7 +138,7 @@ since in a dielectric the energy density is $\tfrac12\kappa\varepsilon_0E^2$. A 
 
 ### Example 3
 
-A capacitor uses a plastic film with $\kappa = 3.0$ and dielectric strength $2.0\times10^7$ V/m (illustrative values in the range of common polymer films), 10 μm thick. Find the highest safe voltage and the maximum energy density, and compare with air.
+A capacitor uses a plastic film with $\kappa = 3.0$ and dielectric strength $2.0\times10^7$ V/m (illustrative values like those listed for common plastics in textbook tables; thin films made for capacitors can withstand considerably higher fields), 10 μm thick. Find the highest safe voltage and the maximum energy density, and compare with air.
 
 *Voltage:* $V_{\max} = (2.0\times10^7)(10\times10^{-6}) = 200$ V.
 

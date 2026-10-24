@@ -21,7 +21,7 @@ Toss 4 coins. There are $2^4 = 16$ equally likely microstates (HHTT, HTHT, …).
 $$\Omega(n) = \binom Nn = \frac{N!}{n!\,(N - n)!}.$$
 
 ```plot
-{"x": [-1, 5], "y": [0, 7], "xLabel": "number of heads", "yLabel": "multiplicity Ω", "bars": [{"x": 0, "height": 1, "width": 0.8, "label": "0"}, {"x": 1, "height": 4, "width": 0.8}, {"x": 2, "height": 6, "width": 0.8}, {"x": 3, "height": 4, "width": 0.8}, {"x": 4, "height": 1, "width": 0.8}], "caption": "Multiplicities of the macrostates of 4 coins (1, 4, 6, 4, 1): 16 microstates in all"}
+{"x": [-0.7, 4.7], "y": [-1.4, 7.2], "grid": false, "bars": [{"x": 0, "height": 1, "width": 0.8, "label": "0"}, {"x": 1, "height": 4, "width": 0.8, "label": "1"}, {"x": 2, "height": 6, "width": 0.8, "label": "2"}, {"x": 3, "height": 4, "width": 0.8, "label": "3"}, {"x": 4, "height": 1, "width": 0.8, "label": "4"}], "labels": [{"at": [0, 1.45], "text": "1"}, {"at": [1, 4.45], "text": "4"}, {"at": [2, 6.45], "text": "6"}, {"at": [3, 4.45], "text": "4"}, {"at": [4, 1.45], "text": "1"}, {"at": [2, -1.05], "text": "number of heads"}], "caption": "Multiplicity Ω of each macrostate of 4 coins (1, 4, 6, 4, 1 for 0 to 4 heads): 16 microstates in all"}
 ```
 
 The basic assumption of statistical mechanics, the **fundamental assumption**, is that an isolated system in equilibrium is equally likely to be in any of its accessible microstates. Then a macrostate's probability is its multiplicity divided by the total.
@@ -77,7 +77,7 @@ Count $\Omega_A\Omega_B$ for each $q_A$, using $\Omega(3, q) = 1, 3, 6, 10, 15, 
 The total is 462. The even split, $q_A = 3$, is the most likely, with probability $100/462 = 22\%$, but lopsided splits are common: A holds 5 or 6 of the quanta $91/462 = 20\%$ of the time. Scale up and the picture sharpens. With 300 oscillators in A, 200 in B and 100 quanta, a computer count puts the peak at $q_A = 60$, the same energy per oscillator in both solids (equal temperatures), and 95% of all microstates lie between $q_A = 50$ and 70. For $10^{23}$ oscillators the spread is far too small to measure.
 
 ```plot
-{"x": [-1, 7], "y": [0, 110], "xLabel": "quanta in solid A", "yLabel": "microstates", "bars": [{"x": 0, "height": 28, "width": 0.8, "label": "0"}, {"x": 1, "height": 63, "width": 0.8}, {"x": 2, "height": 90, "width": 0.8}, {"x": 3, "height": 100, "width": 0.8}, {"x": 4, "height": 90, "width": 0.8}, {"x": 5, "height": 63, "width": 0.8}, {"x": 6, "height": 28, "width": 0.8}], "caption": "Two 3-oscillator Einstein solids sharing 6 quanta: the number of microstates for each split. The even split has the most."}
+{"x": [-0.7, 6.7], "y": [-22, 118], "grid": false, "bars": [{"x": 0, "height": 28, "width": 0.8, "label": "0"}, {"x": 1, "height": 63, "width": 0.8, "label": "1"}, {"x": 2, "height": 90, "width": 0.8, "label": "2"}, {"x": 3, "height": 100, "width": 0.8, "label": "3"}, {"x": 4, "height": 90, "width": 0.8, "label": "4"}, {"x": 5, "height": 63, "width": 0.8, "label": "5"}, {"x": 6, "height": 28, "width": 0.8, "label": "6"}], "labels": [{"at": [0, 35], "text": "28"}, {"at": [1, 70], "text": "63"}, {"at": [2, 97], "text": "90"}, {"at": [3, 107], "text": "100"}, {"at": [4, 97], "text": "90"}, {"at": [5, 70], "text": "63"}, {"at": [6, 35], "text": "28"}, {"at": [3, -17], "text": "quanta in solid A"}], "caption": "Two 3-oscillator Einstein solids sharing 6 quanta: the number of microstates for each split. The even split has the most."}
 ```
 
 ## The Boltzmann factor
