@@ -24,8 +24,8 @@ A proton has $m_pc^2 = 938.3$ MeV, so its mass is 938.3 MeV/$c^2$. A proton with
 
 In every collision or decay, in every inertial frame:
 
-- **Total energy** is conserved, where each particle's energy is $E = \gamma mc^2$, *including* its rest energy.
-- **Total momentum** (a vector) is conserved, with each particle's momentum $\vec p = \gamma m\vec v$.
+- *Total energy* is conserved, where each particle's energy is $E = \gamma mc^2$, *including* its rest energy.
+- *Total momentum* (a vector) is conserved, with each particle's momentum $\vec p = \gamma m\vec v$.
 
 What is *not* conserved is the sum of the rest masses, and neither is kinetic energy on its own. In a decay, rest energy turns into kinetic energy; in a particle-producing collision, kinetic energy turns into rest energy. That is $E_0 = mc^2$ in action. "Elastic" and "inelastic" keep their meanings: an elastic collision leaves the same particles with the same masses, so kinetic energy is conserved too.
 

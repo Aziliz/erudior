@@ -36,7 +36,7 @@ For an electron ($mc^2 = 511{,}000$ eV) 1 eV below the top, $\kappa = \sqrt{2(51
 
 Now let the forbidden region end: a rectangular barrier of height $U$ and width $L$, with $U = 0$ on both sides. A wave arrives from the left. Part reflects; inside, the wave function decays; at the far side it is small but not zero, and it continues as a transmitted wave with the *same* wavelength (same energy) but a much smaller amplitude. The particle does not lose energy in the barrier. What shrinks is the probability of finding it on the far side.
 
-![A potential energy diagram. A rectangular barrier of height U and width L stands in the middle, above a horizontal line at energy E. On the left a large wave oscillates; inside the barrier the wave function decays smoothly; on the right a much smaller wave oscillates with the same wavelength.](images/phys-m12-barrier.svg)
+![A potential energy diagram. A rectangular barrier of height U and width L stands in the middle, above a horizontal line at energy E. On the left a large wave oscillates; inside the barrier the wave function decays smoothly; on the right a much smaller wave oscillates with the same wavelength. The drawing is schematic, not to scale.](images/phys-m12-barrier.svg)
 
 The **transmission coefficient** $T$ is the probability that a particle gets through. Matching $\psi$ and $d\psi/dx$ at both edges gives the exact result for a rectangular barrier with $E < U$:
 
@@ -46,7 +46,7 @@ For a thick barrier ($\kappa L$ well above 1), $\sinh(\kappa L) \approx \tfrac12
 
 $$T \approx 16\frac{E}{U}\left(1 - \frac{E}{U}\right)e^{-2\kappa L} \approx e^{-2\kappa L}.$$
 
-The last form drops a prefactor that is usually between about 0.5 and 4, so it gives the order of magnitude. The exponential is what matters: **tunneling probability falls exponentially with barrier width, and with the square root of the mass and of the energy deficit $U - E$.**
+The last form drops a prefactor that is usually between about 0.5 and 4, so it gives the order of magnitude. The exponential is what matters: *tunneling probability falls exponentially with barrier width, and with the square root of the mass and of the energy deficit $U - E$.*
 
 ### Example 1
 
