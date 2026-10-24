@@ -130,7 +130,7 @@ When the specific heat varies with temperature, the heat needed is an integral: 
 Conduction in differential form is Fourier's law, $\dfrac{dQ}{dt} = -kA\dfrac{dT}{dx}$: heat flows down the temperature gradient. And an object cooling by contact with surroundings at $T_s$ often follows **Newton's law of cooling**, $\dfrac{dT}{dt} = -\kappa(T - T_s)$, whose solution $T(t) = T_s + (T_0 - T_s)e^{-\kappa t}$ is the same exponential approach seen with linear drag. A cup of coffee at 90°C in a 20°C room with $\kappa = 0.05$ min⁻¹ is at $20 + 70e^{-0.5} = 62$°C after 10 minutes.
 
 ```plot
-{"x": [0, 60], "y": [0, 100], "xLabel": "time (min)", "yLabel": "temperature (°C)", "functions": [{"f": "20 + 70*exp(-0.05*x)"}, {"f": "20", "dashed": true}], "points": [{"at": [10, 62.5], "label": "62°C at 10 min"}], "labels": [{"at": [48, 26], "text": "room, 20°C"}], "caption": "Newton's law of cooling: coffee at 90°C in a 20°C room with κ = 0.05 per minute"}
+{"x": [0, 60], "y": [0, 100], "xLabel": "time (min)", "yLabel": "temperature (°C)", "functions": [{"f": "20 + 70*exp(-0.05*x)"}, {"f": "20", "dashed": true}], "points": [{"at": [10, 62.5], "label": "62°C at 10 min"}], "labels": [{"at": [50, 12], "text": "room, 20°C"}], "caption": "Newton's law of cooling: coffee at 90°C in a 20°C room with κ = 0.05 per minute"}
 ```
 
 ## Common mistakes

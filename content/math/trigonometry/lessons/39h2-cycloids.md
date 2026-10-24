@@ -8,7 +8,7 @@ topics: [Rolling curves]
 drills: [trig-m9-r2-cycloid-point, trig-m9-r2-roulette]
 refs: [trig-ref-triangles]
 ---
-Lesson 37 wrote a circle as $x = h + r\cos t$, $y = k + r\sin t$ and a moving object as a pair of functions of time. Put the two ideas together and let the circle itself move: roll a wheel along the ground and follow one point on its rim. The path is not a circle and not a parabola. It is a **cycloid**, a curve that puzzled and delighted mathematicians for a century and that turns out to be fastest, in a precise sense, for a sliding bead. This lesson derives its parametric equations with the tools you already have (arc length, vector addition and the unit circle), then rolls circles on other circles to get a whole family of curves, including the cardioid of Lesson 36.
+Lesson 37 wrote a circle as $x = h + r\cos t$, $y = k + r\sin t$ and a moving object as a pair of functions of time. Put the two ideas together and let the circle itself move: roll a wheel along the ground and follow one point on its rim. The path is not a circle and not a parabola. It is a **cycloid**, the arch-shaped curve met briefly in the Module 1 honors lesson on rolling wheels, a curve that puzzled and delighted mathematicians for a century and that turns out to be fastest, in a precise sense, for a sliding bead. This lesson derives its parametric equations with the tools you already have (arc length, vector addition and the unit circle), then rolls circles on other circles to get a whole family of curves, including the cardioid of Lesson 36.
 
 ## Deriving the cycloid
 

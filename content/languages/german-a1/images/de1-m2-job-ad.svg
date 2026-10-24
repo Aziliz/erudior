@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 370" width="720" height="370" role="img"><title>A job advertisement from a bakery on a notice board</title>
+<rect x="0" y="0" width="720" height="370" fill="#ffffff"/>
+<rect x="40" y="20" width="640" height="330" rx="6" fill="#f7ebcf" stroke="#1c2833" stroke-width="2"/>
+<rect x="70" y="45" width="580" height="280" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<circle cx="360" cy="40" r="9" fill="#d62828" stroke="#1c2833" stroke-width="1.5"/>
+<text x="360" y="92" font-family="sans-serif" fill="#1c2833" font-size="22" text-anchor="middle" font-weight="bold">Bäckerei Sonnenschein, Leipzig</text>
+<text x="360" y="135" font-family="sans-serif" fill="#1c2833" font-size="18" text-anchor="middle">Wir suchen:</text>
+<text x="360" y="172" font-family="sans-serif" fill="#1c2833" font-size="22" text-anchor="middle" font-weight="bold">Verkäuferin / Verkäufer (m/w/d)</text>
+<text x="360" y="210" font-family="sans-serif" fill="#1c2833" font-size="22" text-anchor="middle" font-weight="bold">Bäckerin / Bäcker (m/w/d)</text>
+<text x="360" y="255" font-family="sans-serif" fill="#1c2833" font-size="17" text-anchor="middle">Unser Team: 12 Kolleginnen und Kollegen</text>
+<text x="360" y="290" font-family="sans-serif" fill="#1c2833" font-size="17" text-anchor="middle">Fragen? Bitte im Laden bei Frau Nowak.</text>
+</svg>

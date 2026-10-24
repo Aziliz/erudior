@@ -10,53 +10,57 @@ refs: [phys-ref-mechanics]
 ---
 ## Motion through air and water
 
-The friction lesson ended with a short look at drag: a falling object with drag $bv$ approaches a terminal velocity $mg/b$ exponentially, and fast objects in air feel a drag closer to $\tfrac12 C\rho Av^2$. This lesson takes drag seriously. It asks which drag law applies when, solves Newton's second law exactly for the quadratic law, and uses the solutions to see how much drag changes a fall or a vertical throw. Along the way you'll meet the most important number in fluid mechanics, the Reynolds number.
+The friction lesson ended with a short look at drag: a falling object with drag $bv$ approaches a terminal velocity $mg/b$ exponentially, and fast objects in air feel a drag closer to $\tfrac12 C\rho Av^2$. This lesson takes the quadratic law seriously. It solves Newton's second law exactly for an object coasting, falling and thrown upward against quadratic drag, and uses the solutions to see how much drag changes the motion. The method, separating variables in $m\,dv/dt = F(v)$, works for any force that depends only on velocity.
 
 ## Two drag laws
 
 Drag is the force a fluid (air, water, oil) exerts on an object moving through it, opposite to the object's velocity relative to the fluid. Two simple laws cover most cases.
 
-**Linear drag**, $F_D = bv$, applies to small or slow objects in a viscous fluid: dust and droplets in air, bacteria and silt in water, a ball bearing sinking in honey. The fluid flows smoothly around the object, and the drag comes from the fluid's viscosity $\eta$ (its internal friction, in Pa·s). For a sphere of radius $R$, George Stokes worked out in 1851 that
-
-$$F_D = 6\pi\eta R v,$$
-
-which is **Stokes's law**: here $b = 6\pi\eta R$.
+**Linear drag**, $F_D = bv$, applies to small or slow objects in a viscous fluid: dust and droplets in air, bacteria and silt in water, a ball bearing sinking in honey. The fluid flows smoothly around the object, and the drag comes from the fluid's viscosity. For a sphere of radius $R$ in a fluid of viscosity $\eta$, Stokes's law gives $b = 6\pi\eta R$ (the viscous-flow honors lesson in the fluids module explains where this comes from).
 
 **Quadratic drag**, $F_D = \tfrac12 C\rho A v^2$, applies to larger, faster objects: balls, cars, people, raindrops a few millimeters across. The object has to shove fluid out of its way and leaves a turbulent wake behind it, so the drag depends on the fluid's density $\rho$ rather than its viscosity. $A$ is the object's cross-sectional area facing the flow, and the **drag coefficient** $C$ is a dimensionless number that depends on shape: roughly 0.5 for a smooth sphere, about 1 for a person falling flat, about 0.3 for a streamlined car. These values are approximate; $C$ is measured, not derived, and it changes somewhat with speed.
 
 It's convenient to write the quadratic law as $F_D = cv^2$ with $c = \tfrac12 C\rho A$ (units kg/m).
 
-## Which law? The Reynolds number
+Which law applies is decided by the Reynolds number $Re = \rho vD/\eta$, where $D$ is the object's size. As a rough guide for a sphere, drag is linear when $Re$ is much less than 1 and close to quadratic, with a nearly constant $C$, for $Re$ from about $10^3$ to $2\times10^5$; in between, neither simple law is accurate. For air, $Re \approx 7\times10^4\,vD$ in SI units, so a 10 cm ball at 10 m/s has $Re \approx 7\times10^4$: quadratic. Nearly everything big enough to see, moving fast enough to notice, is in the quadratic range in air.
 
-The choice between the two laws is decided by the **Reynolds number**,
+## A method for velocity-dependent forces
 
-$$Re = \frac{\rho v D}{\eta},$$
-
-where $D$ is the object's size (a sphere's diameter) and $\rho$ and $\eta$ belong to the fluid. It is dimensionless, and it compares the inertia of the fluid being pushed aside with the viscous forces that smooth the flow. As a rough guide for a sphere:
+When the net force depends only on the velocity, Newton's second law is a first-order differential equation you can solve by separating variables. Which form you separate depends on what you want:
 
 ```mermaid
 flowchart TD
-  accTitle: Choosing a drag law from the Reynolds number
-  accDescr: Compute the Reynolds number, density times speed times size divided by viscosity. If it is much less than 1, viscosity dominates and drag is linear, given by Stokes's law. If it is roughly 1000 to 200000, inertia dominates and drag is quadratic with a nearly constant drag coefficient. In between, neither simple law is accurate and measured drag data are needed.
-  A["Compute Re = ρvD / η"] --> B{"How big is Re?"}
-  B -- "much less than 1" --> L["Linear drag: Stokes's law F = 6πηRv"]
-  B -- "about 1000 to 200,000" --> Q["Quadratic drag: F = ½CρAv², C nearly constant"]
-  B -- "in between" --> M["Neither law is accurate: use measured data"]
+  accTitle: Solving a problem with a velocity-dependent force
+  accDescr: Write m dv/dt equals the net force F of v. If you want velocity as a function of time, separate it as m dv over F of v equals dt and integrate. If you want velocity as a function of position, use the chain rule dv/dt equals v dv/dx, separate as m v dv over F of v equals dx and integrate. Either way, apply the initial condition, then check the limits: early on the motion should match the no-drag answer, and late it should approach terminal velocity or rest.
+  A["Write m dv/dt = F(v)"] --> B{"What do you want?"}
+  B -- "v as a function of time" --> C["Separate: m dv / F(v) = dt"]
+  B -- "v as a function of position" --> D["Use dv/dt = v dv/dx, then m v dv / F(v) = dx"]
+  C --> E["Integrate and apply the initial condition"]
+  D --> E
+  E --> F["Check limits: no-drag behavior early, terminal speed or rest late"]
 ```
 
-The boundaries are not sharp, and the picture is simplified: above $Re \approx 2\times10^5$ the flow around a sphere changes again and $C$ drops suddenly (the "drag crisis" that dimples on a golf ball exploit). For air, $\rho \approx 1.2$ kg/m³ and $\eta \approx 1.8\times10^{-5}$ Pa·s, so $Re \approx 7\times10^4\,vD$ in SI units: a 10 cm ball at 10 m/s has $Re \approx 7\times10^4$, well inside the quadratic range.
+## Coasting to a stop
 
-### Example 1: a cloud droplet
+The simplest case is an object coasting horizontally with only quadratic drag acting along its motion: a boat after its engine cuts out, a skater gliding. Then $m\,dv/dt = -cv^2$. Separating, $-\dfrac{dv}{v^2} = \dfrac{c}{m}dt$, and integrating from $v_0$ at $t = 0$:
 
-A water droplet of radius 10 μm falls through still air ($\eta = 1.8\times10^{-5}$ Pa·s). Find its terminal speed, check the drag law, and estimate how long it takes to reach terminal speed.
+$$\frac1v - \frac1{v_0} = \frac{c}{m}t \quad\Longrightarrow\quad v(t) = \frac{v_0}{1 + cv_0t/m}.$$
 
-Mass: $m = \rho_w\cdot\tfrac43\pi R^3 = 1000\cdot\tfrac43\pi(10^{-5})^3 = 4.19\times10^{-12}$ kg. (The buoyant force of the air is about a thousandth of the weight, so we ignore it.)
+The position form is even neater. With $dv/dt = v\,dv/dx$, the equation becomes $mv\,dv/dx = -cv^2$, so $dv/v = -(c/m)\,dx$ and
 
-Terminal speed with Stokes drag, from $mg = 6\pi\eta Rv_T$:
+$$v(x) = v_0\,e^{-cx/m}.$$
 
-$$v_T = \frac{mg}{6\pi\eta R} = \frac{(4.19\times10^{-12})(9.8)}{6\pi(1.8\times10^{-5})(10^{-5})} = 0.012\text{ m/s},$$
+The speed decays *exponentially with distance*: every $(m/c)\ln 2$ meters, it halves. Notice that this model never quite stops the object. That is a limitation of the model, not of nature: at low speed, real drag becomes closer to linear, and other friction finishes the job.
 
-about 1.2 cm/s. Check: $Re = \dfrac{1.2(0.012)(2\times10^{-5})}{1.8\times10^{-5}} = 0.016$, much less than 1, so the linear law was the right choice. The time constant $m/b = v_T/g$ is about 1.2 ms, so the droplet reaches terminal speed almost instantly. Droplets this small drift on the slightest updraft, which is why clouds float.
+### Example 1: a coasting boat
+
+A 500 kg motorboat moving at 10 m/s cuts its engine. Water drag is $cv^2$ with $c = 25$ kg/m. How long does it take to slow to 5.0 m/s, how far does it go in that time, and how fast is it moving after 50 m?
+
+Halving the speed means $1 + cv_0t/m = 2$, so $t = \dfrac{m}{cv_0} = \dfrac{500}{25(10)} = 2.0$ s.
+
+Distance: $v = v_0/2$ when $e^{-cx/m} = \tfrac12$, so $x = \dfrac{m}{c}\ln 2 = 20(0.693) = 13.9$ m.
+
+After 50 m: $v = 10e^{-25(50)/500} = 10e^{-2.5} = 0.82$ m/s. The second halving (5.0 to 2.5 m/s) takes another 13.9 m but 4.0 s, because the boat is moving more slowly: each halving takes the same distance but twice the time of the one before.
 
 ## Falling with quadratic drag
 

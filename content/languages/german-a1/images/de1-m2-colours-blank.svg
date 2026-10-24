@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 370" width="720" height="370" role="img"><title>Eight colour squares without names</title>
+<rect x="0" y="0" width="720" height="370" fill="#ffffff"/>
+<rect x="45" y="35" width="110" height="110" rx="12" fill="#d62828" stroke="#1c2833" stroke-width="2"/>
+<rect x="218" y="35" width="110" height="110" rx="12" fill="#1f5fbf" stroke="#1c2833" stroke-width="2"/>
+<rect x="391" y="35" width="110" height="110" rx="12" fill="#2e9e4f" stroke="#1c2833" stroke-width="2"/>
+<rect x="564" y="35" width="110" height="110" rx="12" fill="#f5d000" stroke="#1c2833" stroke-width="2"/>
+<rect x="45" y="205" width="110" height="110" rx="12" fill="#111111" stroke="#1c2833" stroke-width="2"/>
+<rect x="218" y="205" width="110" height="110" rx="12" fill="#ffffff" stroke="#1c2833" stroke-width="2"/>
+<rect x="391" y="205" width="110" height="110" rx="12" fill="#8a8a8a" stroke="#1c2833" stroke-width="2"/>
+<rect x="564" y="205" width="110" height="110" rx="12" fill="#7a4a1e" stroke="#1c2833" stroke-width="2"/>
+</svg>

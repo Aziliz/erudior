@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img"><title>Lena's family tree showing first names only</title>
 <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
 <line x1="285" y1="70" x2="435" y2="70" stroke="#1c2833" stroke-width="2.5"/>
-<line x1="360" y1="70" x2="360" y2="190" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="360" y1="70" x2="360" y2="130" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="210" y1="130" x2="360" y2="130" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="210" y1="130" x2="210" y2="161" stroke="#1c2833" stroke-width="2.5"/>
 <line x1="285" y1="190" x2="435" y2="190" stroke="#1c2833" stroke-width="2.5"/>
 <line x1="360" y1="190" x2="360" y2="280" stroke="#1c2833" stroke-width="2.5"/>
 <line x1="150" y1="280" x2="570" y2="280" stroke="#1c2833" stroke-width="2.5"/>

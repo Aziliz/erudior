@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 366" width="720" height="366" role="img"><title>The present tense of sprechen with the du and er/sie/es forms highlighted</title>
+<rect x="0" y="0" width="720" height="366" fill="#ffffff"/>
+<text x="60" y="38" font-family="sans-serif" fill="#1c2833" font-size="18" font-weight="bold">sprechen (to speak): e changes to i</text>
+<rect x="60" y="60" width="160" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="220" y="60" width="200" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="74" y="89" font-family="sans-serif" fill="#1c2833" font-size="17">ich</text>
+<text x="236" y="89" font-family="sans-serif" fill="#1c2833" font-size="17">spreche</text>
+<rect x="60" y="106" width="160" height="46" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="220" y="106" width="200" height="46" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="74" y="135" font-family="sans-serif" fill="#1c2833" font-size="17">du</text>
+<text x="236" y="135" font-family="sans-serif" fill="#1c2833" font-size="17">spr<tspan font-weight="bold" text-decoration="underline">i</tspan>chst</text>
+<rect x="60" y="152" width="160" height="46" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="220" y="152" width="200" height="46" fill="#f7ebcf" stroke="#1c2833" stroke-width="1.5"/>
+<text x="74" y="181" font-family="sans-serif" fill="#1c2833" font-size="17">er / sie / es</text>
+<text x="236" y="181" font-family="sans-serif" fill="#1c2833" font-size="17">spr<tspan font-weight="bold" text-decoration="underline">i</tspan>cht</text>
+<rect x="60" y="198" width="160" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="220" y="198" width="200" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="74" y="227" font-family="sans-serif" fill="#1c2833" font-size="17">wir</text>
+<text x="236" y="227" font-family="sans-serif" fill="#1c2833" font-size="17">sprechen</text>
+<rect x="60" y="244" width="160" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="220" y="244" width="200" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="74" y="273" font-family="sans-serif" fill="#1c2833" font-size="17">ihr</text>
+<text x="236" y="273" font-family="sans-serif" fill="#1c2833" font-size="17">sprecht</text>
+<rect x="60" y="290" width="160" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<rect x="220" y="290" width="200" height="46" fill="#ffffff" stroke="#1c2833" stroke-width="1.5"/>
+<text x="74" y="319" font-family="sans-serif" fill="#1c2833" font-size="17">sie / Sie</text>
+<text x="236" y="319" font-family="sans-serif" fill="#1c2833" font-size="17">sprechen</text>
+<path d="M432 110 h14 v84 h-14" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="458" y="148.0" font-family="sans-serif" fill="#1c2833" font-size="16">only du and er/sie/es:</text>
+<text x="458" y="170.0" font-family="sans-serif" fill="#1c2833" font-size="16">stem vowel e becomes i</text>
+<path d="M432 202 h14 v130 h-14" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="458" y="263.0" font-family="sans-serif" fill="#1c2833" font-size="16">ich, wir, ihr, sie/Sie:</text>
+<text x="458" y="285.0" font-family="sans-serif" fill="#1c2833" font-size="16">regular, stem sprech-</text>
+<path d="M432 64 h14 v38 h-14" fill="none" stroke="#1c2833" stroke-width="2"/>
+<text x="458" y="89" font-family="sans-serif" fill="#1c2833" font-size="16">regular</text>
+</svg>

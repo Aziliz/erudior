@@ -55,7 +55,7 @@ $$8\angle(-50^\circ) = (8\cos 50^\circ,\ -8\sin 50^\circ) \approx (5.142,\ -6.12
 Notice $10.79 < 5 + 8$. The waves don't peak at the same moment, so they partly work against each other.
 
 ```plot
-{"x": [-3.2, 6.3], "y": [-12, 12], "functions": [{"f": "5cos(x + 0.34907)", "dashed": true, "label": "5 cos(x + 20°)"}, {"f": "8cos(x - 0.87266)", "dashed": true, "label": "8 cos(x − 50°)"}, {"f": "5cos(x + 0.34907) + 8cos(x - 0.87266)", "label": "sum ≈ 10.79 cos(x − 24.18°)"}], "xLabel": "ωt (radians)", "caption": "The sum of two same-frequency waves is one wave of the same frequency"}
+{"x": [-3.2, 3.5], "y": [-12, 12], "functions": [{"f": "5cos(x + 0.34907)", "dashed": true, "label": "5 cos(x + 20°)"}, {"f": "8cos(x - 0.87266)", "dashed": true, "label": "8 cos(x − 50°)"}, {"f": "5cos(x + 0.34907) + 8cos(x - 0.87266)", "label": "sum ≈ 10.79 cos(x − 24.18°)"}], "xLabel": "ωt (radians)", "caption": "The sum of two same-frequency waves is one wave of the same frequency"}
 ```
 
 ## Interference
