@@ -1,0 +1,482 @@
+# Round 2, module pc-m10: new question types for the core lessons (q) and the honors lessons (h).
+
+# ---------- pc-limits-intro ----------
+- id: pc-m10-r2-q01
+  lesson: pc-limits-intro
+  type: label
+  module_quiz: true
+  topic: Limits
+  stem: 'Name the numbered features of this graph.'
+  image: {src: images/pc-m10-discontinuities-blank.svg, alt: 'A graph with four numbered features. Marker 1 is an open dot on a line at x = −2, with a separate filled dot above it at height 4. Marker 2 is between an open dot at height 3 and a filled dot at height 1, both at x = 0. Marker 3 is on a dashed vertical line at x = 3 where the curve shoots up on the left and down on the right. Marker 4 is a dot on an unbroken part of the curve at x = 5.'}
+  labels:
+    - {x: 26.5, y: 46.5, text: Removable discontinuity (hole)}
+    - {x: 44.9, y: 46.5, text: Jump discontinuity}
+    - {x: 67.0, y: 80.1, text: Infinite discontinuity (vertical asymptote)}
+    - {x: 83.2, y: 41.9, text: Point where f is continuous}
+  distractors: [Horizontal asymptote, Corner with no tangent slope]
+  explanation: |-
+    At $x = -2$ the curve approaches height 2 from both sides, so the limit is 2, but $f(-2) = 4$: redefining one point would fix it, so it is removable. At $x = 0$ the one-sided limits are 3 and 1: a jump. At $x = 3$ the values are unbounded: a vertical asymptote. At $x = 5$ the limit equals the value, so $f$ is continuous there.
+- id: pc-m10-r2-q02
+  lesson: pc-limits-intro
+  type: text
+  topic: Limits
+  stem: 'Suppose $\lim_{x\to 3^-} f(x) = 7$, $\lim_{x\to 3^+} f(x) = 7$ and $f(3) = 2$. Then $\lim_{x\to 3} f(x) =$ ___. Give only the number.'
+  accept: ['7']
+  explanation: |-
+    The one-sided limits agree, so the two-sided limit exists and equals 7. The value $f(3) = 2$ doesn't affect the limit; it only tells you $f$ is not continuous at 3 (a removable discontinuity).
+- id: pc-m10-r2-q03
+  lesson: pc-limits-intro
+  topic: Limits
+  stem: 'Which of these limits do NOT exist as a finite number? Select all that apply.'
+  choices:
+    - '$\displaystyle\lim_{x\to 0}\frac{1}{x^2}$'
+    - '$\displaystyle\lim_{x\to 0}\sin\frac1x$'
+    - '$\displaystyle\lim_{x\to 1}\frac{x^2 - 1}{x - 1}$'
+    - '$\displaystyle\lim_{x\to 0} g(x)$, where $g(x) = 1$ for $x < 0$ and $g(x) = 2$ for $x \ge 0$'
+  answer: [0, 1, 3]
+  explanation: |-
+    $\frac{1}{x^2}$ grows without bound (we write $\infty$, but that is not a number). $\sin\frac1x$ oscillates between $-1$ and 1 forever near 0. $g$ jumps from 1 to 2, so its one-sided limits differ. Only $\frac{x^2 - 1}{x - 1}$ has a limit: it equals $x + 1$ away from 1, so the limit is 2.
+- id: pc-m10-r2-q04
+  lesson: pc-limits-intro
+  type: match
+  module_quiz: true
+  topic: Limits
+  stem: 'Match each description of $f$ near $x = a$ to what happens at $a$.'
+  pairs:
+    - ['The left-hand limit is 2 and the right-hand limit is 5', Jump discontinuity]
+    - ['The limit is 4 but $f(a)$ is undefined', Removable discontinuity]
+    - ['$f(x)$ grows without bound as $x \to a$', Infinite discontinuity]
+    - ['The limit exists and equals $f(a)$', Continuous at a]
+  distractors: [Oscillating discontinuity]
+  explanation: |-
+    Different one-sided limits make a jump. A limit with a missing (or wrong) value is a hole, fixed by defining one point. Unbounded values mean a vertical asymptote. Continuity is exactly "limit equals value." No description here oscillates.
+- id: pc-m10-r2-q05
+  lesson: pc-limits-intro
+  type: text
+  topic: Limits
+  stem: 'A function $f$ is continuous at $x = a$ when $\lim_{x\to a} f(x)$ equals ___.'
+  accept: ['f(a)', 'f of a', 'the value f(a)']
+  explanation: |-
+    Continuity at $a$ means $\lim_{x\to a} f(x) = f(a)$: the value is defined, the limit exists, and they agree.
+
+# ---------- pc-limits-algebra ----------
+- id: pc-m10-r2-q06
+  lesson: pc-limits-algebra
+  type: match
+  module_quiz: true
+  topic: Limits
+  stem: 'Match each limit to the first method that works on it.'
+  pairs:
+    - ['$\displaystyle\lim_{x\to 3}\frac{x^2 - 9}{x - 3}$', Factor and cancel]
+    - ['$\displaystyle\lim_{x\to 0}\frac{\sqrt{x + 4} - 2}{x}$', Multiply by the conjugate]
+    - ['$\displaystyle\lim_{x\to 0}\frac{\frac{1}{x + 3} - \frac13}{x}$', Combine the fractions]
+    - ['$\displaystyle\lim_{x\to\infty}\frac{2x^2 + 1}{5x^2 - x}$', Divide by the highest power of x]
+    - ['$\displaystyle\lim_{x\to 1}\frac{x^2 + 1}{x + 2}$', Substitute directly]
+  distractors: [Find the one-sided limits of an absolute value]
+  explanation: |-
+    The first four give $\frac00$ or $\frac{\infty}{\infty}$ on substitution and need the matching rewrite: a polynomial factors, a square root needs its conjugate, a fraction inside a fraction needs a common denominator, and a limit at infinity needs division by $x^2$. The last is continuous at 1 (denominator 3), so substitution gives $\frac23$ at once. None of them has an absolute value.
+- id: pc-m10-r2-q07
+  lesson: pc-limits-algebra
+  type: text
+  topic: Limits
+  stem: '$\displaystyle\lim_{x\to 4}\frac{x^2 - 16}{x - 4} =$ ___. Give only the number.'
+  accept: ['8']
+  explanation: |-
+    Substitution gives $\frac00$. Factor: $\frac{(x - 4)(x + 4)}{x - 4} = x + 4$ for $x \ne 4$, so the limit is $4 + 4 = 8$.
+- id: pc-m10-r2-q08
+  lesson: pc-limits-algebra
+  topic: Limits
+  stem: 'For which of these limits does direct substitution give the indeterminate form $\frac00$? Select all that apply.'
+  choices:
+    - '$\displaystyle\lim_{x\to 2}\frac{x^2 - 4}{x - 2}$'
+    - '$\displaystyle\lim_{x\to 2}\frac{x + 2}{x - 2}$'
+    - '$\displaystyle\lim_{x\to 0}\frac{\sqrt{x + 1} - 1}{x}$'
+    - '$\displaystyle\lim_{x\to 0}\frac{x^2 + 4}{x - 2}$'
+  answer: [0, 2]
+  explanation: |-
+    $\frac{4 - 4}{0}$ and $\frac{1 - 1}{0}$ are $\frac00$. The second gives $\frac{4}{0}$, nonzero over zero, which signals a vertical asymptote. The last gives $\frac{4}{-2} = -2$, an ordinary number, so that limit is $-2$.
+- id: pc-m10-r2-q09
+  lesson: pc-limits-algebra
+  type: order
+  module_quiz: true
+  topic: Limits
+  stem: 'Put the steps for evaluating $\displaystyle\lim_{x\to 0}\frac{\sqrt{x + 9} - 3}{x}$ in order.'
+  items:
+    - 'Substitute $x = 0$ and get $\frac00$'
+    - 'Multiply the top and bottom by $\sqrt{x + 9} + 3$'
+    - 'Simplify the numerator to $x$'
+    - 'Cancel the common factor $x$'
+    - 'Substitute $x = 0$ to get $\frac16$'
+  explanation: |-
+    The $\frac00$ tells you to rewrite. Multiplying by the conjugate turns the numerator into $(x + 9) - 9 = x$; cancelling it leaves $\frac{1}{\sqrt{x + 9} + 3}$, and substitution gives $\frac{1}{3 + 3} = \frac16$.
+- id: pc-m10-r2-q10
+  lesson: pc-limits-algebra
+  type: text
+  topic: Limits at infinity
+  stem: '$\displaystyle\lim_{x\to\infty}\frac{6x^3 - x}{2x^3 + 5} =$ ___. Give only the number.'
+  accept: ['3']
+  explanation: |-
+    Divide the top and bottom by $x^3$: $\frac{6 - 1/x^2}{2 + 5/x^3} \to \frac62 = 3$. The degrees are equal, so the limit is the ratio of leading coefficients.
+
+# ---------- pc-tangent ----------
+- id: pc-m10-r2-q11
+  lesson: pc-tangent
+  type: label
+  module_quiz: true
+  topic: The derivative
+  stem: 'Name the numbered parts of this picture of a secant line and a tangent line.'
+  image: {src: images/pc-m10-secant-tangent-blank.svg, alt: 'A rising curve with two numbered points, one at x = a and one at x = a + h. A dashed red line passes through both points and a solid green line touches the curve at the first point. A shaded right triangle has a horizontal side from the first point and a vertical side up to the second point. Markers sit on the two points, the dashed line, the green line, the horizontal side and the vertical side.'}
+  labels:
+    - {x: 41.8, y: 74.0, text: 'Point P (a, f(a))'}
+    - {x: 71.2, y: 43.2, text: 'Point Q (a + h, f(a + h))'}
+    - {x: 86.0, y: 27.7, text: Secant line}
+    - {x: 90.9, y: 39.7, text: Tangent line at P}
+    - {x: 56.5, y: 74.0, text: Run h}
+    - {x: 71.2, y: 64.7, text: 'Rise f(a + h) − f(a)'}
+  distractors: ['Point (a, f′(a))', Normal line]
+  explanation: |-
+    The secant passes through both points $P$ and $Q$; its slope is rise over run, $\frac{f(a + h) - f(a)}{h}$, the difference quotient. The tangent touches the curve at $P$ only, and its slope is the limit of the secant slopes as $h \to 0$. The point on the curve is $(a, f(a))$, not $(a, f'(a))$.
+- id: pc-m10-r2-q12
+  lesson: pc-tangent
+  type: order
+  topic: The derivative
+  stem: 'Put the steps for finding the tangent line to $f(x) = x^2 + 3x$ at $x = 1$ from the definition in order.'
+  items:
+    - 'Write $f(1 + h) = (1 + h)^2 + 3(1 + h) = 4 + 5h + h^2$'
+    - 'Subtract $f(1) = 4$ to get $5h + h^2$'
+    - 'Divide by $h$ to get $5 + h$'
+    - 'Let $h \to 0$: $f''(1) = 5$'
+    - 'Write the tangent line $y = 4 + 5(x - 1)$'
+  explanation: |-
+    Expand $f(a + h)$, subtract $f(a)$ so the terms without $h$ cancel, divide by $h$, then take the limit. The tangent line needs both the point $(1, f(1)) = (1, 4)$ and the slope 5: $y = 5x - 1$.
+- id: pc-m10-r2-q13
+  lesson: pc-tangent
+  type: text
+  module_quiz: true
+  topic: The derivative
+  stem: 'For $f(x) = x^2 - x$, the derivative from the definition is $f''(x) = 2x - 1$. So $f''(3) =$ ___. Give only the number.'
+  accept: ['5']
+  explanation: |-
+    $f'(3) = 2(3) - 1 = 5$. This is the slope of the tangent at $(3, f(3)) = (3, 6)$. (Don't confuse it with $f(3) = 6$, the height of the point.)
+- id: pc-m10-r2-q14
+  lesson: pc-tangent
+  topic: The derivative
+  stem: 'Let $f(x) = x^2 - 4x$, so $f''(x) = 2x - 4$. Which statements are true? Select all that apply.'
+  choices:
+    - '$f$ is decreasing on $(-\infty, 2)$'
+    - 'The tangent line at $x = 2$ is horizontal'
+    - 'The tangent line at $x = 0$ has slope 0'
+    - 'The tangent line at $x = 3$ passes through $(3, 2)$'
+  answer: [0, 1]
+  explanation: |-
+    $f'(x) = 2x - 4 < 0$ for $x < 2$, so $f$ decreases there, and $f'(2) = 0$ gives a horizontal tangent at the vertex. At $x = 0$ the slope is $f'(0) = -4$; $f(0) = 0$ is the height, not the slope. At $x = 3$ the tangent passes through $(3, f(3)) = (3, -3)$; $(3, 2)$ uses the slope $f'(3) = 2$ as if it were a height.
+- id: pc-m10-r2-q15
+  lesson: pc-tangent
+  type: match
+  topic: The derivative
+  stem: 'Match each function to its derivative.'
+  pairs:
+    - ['$x^2$', '2x']
+    - ['$\dfrac1x$', '−1/x²']
+    - ['$\sqrt{x}$', '1/(2√x)']
+    - ['$x^2 - 4x$', '2x − 4']
+  distractors: ['x²/2', '1/x²']
+  explanation: |-
+    All four come from the limit definition in Lesson 43: $(x^2)' = 2x$, $\left(\frac1x\right)' = -\frac{1}{x^2}$ (the minus sign matters: $\frac1x$ falls on each branch), $(\sqrt x)' = \frac{1}{2\sqrt x}$, and $(x^2 - 4x)' = 2x - 4$.
+
+# ---------- pc-m10-h-squeeze (honors) ----------
+- id: pc-m10-r2-h01
+  lesson: pc-m10-h-squeeze
+  topic: Squeeze theorem
+  stem: 'Suppose $3 - x^2 \le f(x) \le 3 + x^2$ for every $x$ near 0. What is $\lim_{x\to 0} f(x)$?'
+  choices: ['$3$', '$0$', '$6$', 'It cannot be determined']
+  answer: 0
+  explanation: |-
+    Both bounds approach $3 - 0 = 3$ and $3 + 0 = 3$. They agree, so the squeeze theorem gives 3. (If the bounds approached different numbers, the limit could not be determined this way.)
+- id: pc-m10-r2-h02
+  lesson: pc-m10-h-squeeze
+  topic: Squeeze theorem
+  stem: 'Why can''t the product law be used to find $\lim_{x\to 0} x^2\sin\frac1x$?'
+  choices:
+    - 'Because $x^2 \to 0$, and the product law never applies to factors that approach 0'
+    - 'Because the product law needs both factors to have limits, and $\sin\frac1x$ has none at 0'
+    - 'Because $x^2\sin\frac1x$ is undefined for every $x$ near 0'
+    - 'Because the limit does not exist'
+  answer: 1
+  explanation: |-
+    The product law $\lim fg = (\lim f)(\lim g)$ requires both limits to exist. $\sin\frac1x$ oscillates between $-1$ and $1$, so it has no limit at 0. The squeeze $-x^2 \le x^2\sin\frac1x \le x^2$ shows the limit does exist and equals 0. The function is defined for every $x \ne 0$.
+- id: pc-m10-r2-h03
+  lesson: pc-m10-h-squeeze
+  type: text
+  module_quiz: true
+  topic: Trigonometric limits
+  stem: '$\displaystyle\lim_{x\to 0}\frac{\sin 7x}{x} =$ ___ ($x$ in radians). Give only the number.'
+  accept: ['7']
+  explanation: |-
+    Let $u = 7x$: $\frac{\sin 7x}{x} = 7\cdot\frac{\sin u}{u} \to 7 \cdot 1 = 7$.
+- id: pc-m10-r2-h04
+  lesson: pc-m10-h-squeeze
+  topic: Trigonometric limits
+  stem: 'Find $\displaystyle\lim_{x\to 0}\frac{\sin 4x}{\sin 6x}$.'
+  choices: ['$\frac32$', '$1$', '$\frac23$', '$0$']
+  answer: 2
+  explanation: |-
+    Write $\frac{\sin 4x}{\sin 6x} = \frac{\sin 4x}{4x}\cdot\frac{6x}{\sin 6x}\cdot\frac{4x}{6x}$. The first two factors approach 1 and the last is $\frac46 = \frac23$. ($\frac32$ flips the ratio; 1 treats both sines as approaching the same thing.)
+- id: pc-m10-r2-h05
+  lesson: pc-m10-h-squeeze
+  topic: Trigonometric limits
+  stem: 'Find $\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x}$.'
+  choices: ['$1$', '$\frac12$', 'It does not exist', '$0$']
+  answer: 3
+  explanation: |-
+    Multiply by $\frac{1 + \cos x}{1 + \cos x}$: $\frac{\sin^2 x}{x(1 + \cos x)} = \frac{\sin x}{x}\cdot\frac{\sin x}{1 + \cos x} \to 1 \cdot \frac{0}{2} = 0$. The value $\frac12$ is the limit of $\frac{1 - \cos x}{x^2}$, with $x^2$ below.
+- id: pc-m10-r2-h06
+  lesson: pc-m10-h-squeeze
+  type: text
+  topic: Trigonometric limits
+  stem: '$\displaystyle\lim_{x\to 0}\frac{1 - \cos x}{x^2} =$ ___. Give only the number.'
+  accept: ['1/2']
+  explanation: |-
+    $\frac{1 - \cos x}{x^2} = \left(\frac{\sin x}{x}\right)^2\cdot\frac{1}{1 + \cos x} \to 1 \cdot \frac12 = \frac12$. So $\cos x \approx 1 - \frac{x^2}{2}$ near 0.
+- id: pc-m10-r2-h07
+  lesson: pc-m10-h-squeeze
+  type: label
+  module_quiz: true
+  topic: Trigonometric limits
+  stem: 'In the unit circle, $P$ is at angle $x$ (radians, $0 < x < \frac{\pi}{2}$) and $T$ is on the vertical line through $A = (1, 0)$. Name the numbered lengths.'
+  image: {src: images/pc-m10-squeeze-circle-blank.svg, alt: 'A quarter of the unit circle centered at O with an angle x. Marker 1 is on the dashed vertical segment from P down to B on the x-axis. Marker 2 is on the vertical segment from A up to T. Marker 3 is on the arc of the circle from A to P. Marker 4 is on the segment from O to B along the x-axis.'}
+  labels:
+    - {x: 59.8, y: 60.7, text: Length sin x}
+    - {x: 80.4, y: 39.5, text: Length tan x}
+    - {x: 75.0, y: 58.4, text: Arc length x}
+    - {x: 36.1, y: 88.0, text: Length cos x}
+  distractors: ['Length 1 − cos x', 'Length x/2']
+  explanation: |-
+    $P = (\cos x, \sin x)$, so the height $PB$ is $\sin x$ and $OB$ is $\cos x$. The arc on a circle of radius 1 has length equal to the angle in radians, $x$. Triangle $OAT$ has $OA = 1$ and angle $x$ at $O$, so $AT = \tan x$. ($1 - \cos x$ is the length $BA$, which has no marker; $\frac{x}{2}$ is the sector's area, not a length.)
+- id: pc-m10-r2-h08
+  lesson: pc-m10-h-squeeze
+  type: order
+  topic: Squeeze theorem
+  stem: 'For $0 < x < \frac{\pi}{2}$, put these areas in order from smallest to largest.'
+  items:
+    - '$\tfrac12\sin x$, the area of triangle $OAP$'
+    - '$\tfrac12 x$, the area of sector $OAP$'
+    - '$\tfrac12\tan x$, the area of triangle $OAT$'
+  explanation: |-
+    The triangle $OAP$ lies inside the sector, which lies inside triangle $OAT$, so their areas increase in that order. Doubling gives $\sin x < x < \tan x$, the inequality behind $\frac{\sin x}{x} \to 1$.
+- id: pc-m10-r2-h09
+  lesson: pc-m10-h-squeeze
+  type: order
+  module_quiz: true
+  topic: Squeeze theorem
+  stem: 'Put the steps of the proof that $\displaystyle\lim_{x\to 0^+}\frac{\sin x}{x} = 1$ in order.'
+  items:
+    - 'Compare areas in the unit circle: $\sin x < x < \tan x$'
+    - 'Divide by $\sin x$: $1 < \frac{x}{\sin x} < \frac{1}{\cos x}$'
+    - 'Take reciprocals: $\cos x < \frac{\sin x}{x} < 1$'
+    - 'Let $x \to 0^+$: $\cos x \to 1$, so the squeeze theorem gives 1'
+  explanation: |-
+    Each step uses the one before: the area inequality, then division by the positive number $\sin x$, then reciprocals (which reverse the inequalities), then the squeeze between $\cos x$ and 1. Evenness of $\frac{\sin x}{x}$ handles $x \to 0^-$.
+- id: pc-m10-r2-h10
+  lesson: pc-m10-h-squeeze
+  topic: Trigonometric limits
+  stem: 'Which of these limits equal 1? Angles are in radians unless marked. Select all that apply.'
+  choices:
+    - '$\displaystyle\lim_{x\to 0}\frac{\tan x}{x}$'
+    - '$\displaystyle\lim_{x\to\infty}\frac{\sin x}{x}$'
+    - '$\displaystyle\lim_{x\to 0}\frac{x}{\sin x}$'
+    - '$\displaystyle\lim_{x\to 0}\frac{\sin(x^\circ)}{x}$, with $x^\circ$ in degrees'
+  answer: [0, 2]
+  explanation: |-
+    $\frac{\tan x}{x} = \frac{\sin x}{x}\cdot\frac{1}{\cos x} \to 1$, and $\frac{x}{\sin x}$ is the reciprocal of something approaching 1. At infinity, $-\frac1x \le \frac{\sin x}{x} \le \frac1x$ squeezes the limit to 0. In degrees the limit is $\frac{\pi}{180} \approx 0.0175$.
+- id: pc-m10-r2-h11
+  lesson: pc-m10-h-squeeze
+  topic: Trigonometric limits
+  stem: 'Using $\frac{d}{dx}\sin x = \cos x$, what is the slope of $y = \sin x$ at $x = \frac{\pi}{3}$?'
+  choices: ['$\frac{\sqrt3}{2}$', '$-\frac12$', '$1$', '$\frac12$']
+  answer: 3
+  explanation: |-
+    The slope is $\cos\frac{\pi}{3} = \frac12$. $\frac{\sqrt3}{2} = \sin\frac{\pi}{3}$ is the height of the point, not the slope; $-\frac12$ would come from using $-\sin$ or $-\cos$.
+- id: pc-m10-r2-h12
+  lesson: pc-m10-h-squeeze
+  type: match
+  topic: Trigonometric limits
+  stem: 'Match each expression to its limit as $x \to 0$.'
+  pairs:
+    - ['$\dfrac{\sin 3x}{x}$', '3']
+    - ['$\dfrac{x}{\sin x}$', '1']
+    - ['$\dfrac{\sin(x^2)}{x}$', '0']
+    - ['$\dfrac{\tan 2x}{x}$', '2']
+  distractors: ['1/2', 'Does not exist']
+  explanation: |-
+    $\frac{\sin 3x}{x} = 3\cdot\frac{\sin 3x}{3x} \to 3$. $\frac{x}{\sin x}$ is the reciprocal of a quantity approaching 1. $\frac{\sin(x^2)}{x} = x\cdot\frac{\sin(x^2)}{x^2} \to 0 \cdot 1 = 0$. $\frac{\tan 2x}{x} = 2\cdot\frac{\sin 2x}{2x}\cdot\frac{1}{\cos 2x} \to 2$.
+- id: pc-m10-r2-h13
+  lesson: pc-m10-h-squeeze
+  topic: Trigonometric limits
+  stem: 'A calculator in degree mode evaluates $\frac{\sin x}{x}$ for $x$ near 0. What value does it approach?'
+  choices: ['$1$', '$\frac{\pi}{180} \approx 0.01745$', '$\frac{180}{\pi} \approx 57.3$', '$0$']
+  answer: 1
+  explanation: |-
+    $x$ degrees is $\frac{\pi x}{180}$ radians, so $\frac{\sin(x^\circ)}{x} = \frac{\pi}{180}\cdot\frac{\sin u}{u}$ with $u = \frac{\pi x}{180} \to 0$. The limit is $\frac{\pi}{180}$. Only radians make it exactly 1.
+- id: pc-m10-r2-h14
+  lesson: pc-m10-h-squeeze
+  topic: Trigonometric limits
+  stem: 'What is the tangent line to $y = \sin x$ at $x = 0$?'
+  choices: ['$y = x$', '$y = 1$', '$y = 0$', '$y = x + 1$']
+  answer: 0
+  explanation: |-
+    The point is $(0, \sin 0) = (0, 0)$ and the slope is $\cos 0 = 1$, so $y = 0 + 1(x - 0) = x$. Near 0, $\sin x \approx x$, which is another way to read $\frac{\sin x}{x} \to 1$.
+- id: pc-m10-r2-h15
+  lesson: pc-m10-h-squeeze
+  topic: Squeeze theorem
+  stem: 'Which inequality shows, by the squeeze theorem, that $\displaystyle\lim_{x\to\infty}\frac{\cos x}{x} = 0$?'
+  choices:
+    - '$0 \le \frac{\cos x}{x} \le 1$ for $x > 0$'
+    - '$-1 \le \frac{\cos x}{x} \le 1$ for $x > 0$'
+    - '$-\frac1x \le \frac{\cos x}{x} \le \frac1x$ for $x > 0$'
+    - '$\cos x \le \frac{\cos x}{x} \le x$ for $x > 0$'
+  answer: 2
+  explanation: |-
+    Divide $-1 \le \cos x \le 1$ by $x > 0$. Both $\pm\frac1x$ approach 0, so the limit is 0. The bounds 0 and 1 (or $-1$ and 1) approach different numbers and prove nothing, and $\frac{\cos x}{x}$ is not always nonnegative.
+
+# ---------- pc-m10-h-rules (honors) ----------
+- id: pc-m10-r2-h16
+  lesson: pc-m10-h-rules
+  topic: Derivative rules
+  stem: 'By the power rule, what is $\frac{d}{dx}x^7$?'
+  choices: ['$x^6$', '$7x^7$', '$7x^6$', '$6x^7$']
+  answer: 2
+  explanation: |-
+    $\frac{d}{dx}x^n = nx^{n-1}$: bring the exponent down and lower it by one, giving $7x^6$.
+- id: pc-m10-r2-h17
+  lesson: pc-m10-h-rules
+  type: text
+  module_quiz: true
+  topic: Derivative rules
+  stem: 'For $f(x) = x^4$, $f''(2) =$ ___. Give only the number.'
+  accept: ['32']
+  explanation: |-
+    $f'(x) = 4x^3$, so $f'(2) = 4 \cdot 8 = 32$. ($16 = f(2)$ is the height, and $4 \cdot 2^4 = 64$ forgets to lower the exponent.)
+- id: pc-m10-r2-h18
+  lesson: pc-m10-h-rules
+  topic: Derivative rules
+  stem: 'In the proof of the power rule, after expanding $(x + h)^n$, subtracting $x^n$ and dividing by $h$, why do all terms except $nx^{n-1}$ disappear as $h \to 0$?'
+  choices:
+    - 'Each of them still has a factor of $h$'
+    - 'Their binomial coefficients are 0'
+    - 'They cancel in pairs'
+    - 'They are negative, so they cancel the positive terms'
+  answer: 0
+  explanation: |-
+    After dividing by $h$, the quotient is $nx^{n-1} + \binom n2x^{n-2}h + \cdots + h^{n-1}$. Every term after the first contains $h$ to at least the first power, so it approaches 0. The binomial coefficients are positive, and nothing cancels in pairs.
+- id: pc-m10-r2-h19
+  lesson: pc-m10-h-rules
+  topic: Derivative rules
+  stem: 'Find $f''(x)$ for $f(x) = 3x^4 - 2x^3 + x - 9$.'
+  choices: ['$12x^3 - 6x^2 + 1 - 9$', '$12x^4 - 6x^3 + 1$', '$3x^3 - 2x^2 + 1$', '$12x^3 - 6x^2 + 1$']
+  answer: 3
+  explanation: |-
+    Term by term with the power, constant multiple and sum rules: $3 \cdot 4x^3 - 2 \cdot 3x^2 + 1 - 0$. The constant $-9$ has derivative 0.
+- id: pc-m10-r2-h20
+  lesson: pc-m10-h-rules
+  topic: Derivative rules
+  stem: 'Where does $f(x) = x^3 - 3x$ have horizontal tangent lines?'
+  choices: ['$x = 0$ only', '$x = 1$ and $x = -1$', '$x = \sqrt3$ and $x = -\sqrt3$', '$x = 3$ only']
+  answer: 1
+  explanation: |-
+    $f'(x) = 3x^2 - 3 = 3(x - 1)(x + 1)$, which is 0 at $x = \pm1$. The values $\pm\sqrt3$ (and 0) are where $f$ itself is 0, not where its slope is 0.
+- id: pc-m10-r2-h21
+  lesson: pc-m10-h-rules
+  topic: Derivative rules
+  stem: 'Which functions are continuous at $x = 0$ but NOT differentiable there? Select all that apply.'
+  choices: ['$|x|$', '$\sqrt[3]{x}$', '$x^2$', '$\dfrac1x$']
+  answer: [0, 1]
+  explanation: |-
+    $|x|$ has a corner at 0 (slopes $-1$ and 1), and $\sqrt[3]{x}$ has a vertical tangent (difference quotient $\frac{1}{h^{2/3}} \to \infty$); both are continuous there. $x^2$ is differentiable at 0 (slope 0). $\frac1x$ is not even defined at 0, so it is not continuous there.
+- id: pc-m10-r2-h22
+  lesson: pc-m10-h-rules
+  topic: Derivative rules
+  stem: 'If $f''(a)$ exists, which statement must be true?'
+  choices:
+    - '$f''(a) \ne 0$'
+    - '$f$ has a horizontal tangent at $a$'
+    - '$f$ is a polynomial'
+    - '$f$ is continuous at $a$'
+  answer: 3
+  explanation: |-
+    Differentiable implies continuous: $f(a + h) - f(a) = \frac{f(a + h) - f(a)}{h}\cdot h \to f'(a) \cdot 0 = 0$. The derivative can be any number, including 0, and many non-polynomials are differentiable.
+- id: pc-m10-r2-h23
+  lesson: pc-m10-h-rules
+  module_quiz: true
+  topic: Derivative rules
+  stem: 'Let $g(x) = \begin{cases} x^2 & x < 1 \\ 3x - 2 & x \ge 1 \end{cases}$. Which describes $g$ at $x = 1$?'
+  choices:
+    - 'Continuous, but not differentiable (a corner)'
+    - 'Differentiable, with $g''(1) = 2$'
+    - 'Not continuous (a jump)'
+    - 'Differentiable, with $g''(1) = 3$'
+  answer: 0
+  explanation: |-
+    Both pieces give 1 at $x = 1$, so $g$ is continuous. The left difference quotient approaches $2$ (the slope of $x^2$ at 1) and the right one is 3 (the slope of the line). They disagree, so there is a corner and no derivative.
+- id: pc-m10-r2-h24
+  lesson: pc-m10-h-rules
+  type: text
+  topic: Linear approximation
+  stem: 'Use the linear approximation of $\sqrt x$ at $a = 9$ to estimate $\sqrt{9.2}$. Your estimate is ___ (exact fraction, or a decimal to 4 places).'
+  accept: ['91/30', '3.0333', '3.03333', '3 1/30']
+  explanation: |-
+    $f(9) = 3$ and $f'(9) = \frac{1}{2\sqrt9} = \frac16$, so $\sqrt{9.2} \approx 3 + \frac16(0.2) = 3 + \frac{1}{30} = \frac{91}{30} \approx 3.0333$. (The true value is $3.03315\ldots$.)
+- id: pc-m10-r2-h25
+  lesson: pc-m10-h-rules
+  topic: Linear approximation
+  stem: 'The tangent-line estimate $\sqrt{4.1} \approx 2.025$ is slightly too large. Why?'
+  choices:
+    - 'The derivative of $\sqrt x$ is negative'
+    - '0.1 is too large a step for any approximation'
+    - 'The graph of $\sqrt x$ bends downward, so it lies below its tangent line'
+    - 'Linear approximations always overestimate'
+  answer: 2
+  explanation: |-
+    $\sqrt x$ bends downward, so near $a = 4$ the curve lies under its tangent and the tangent's value is a little too big. Linear approximations can also underestimate: for $x^{10}$ near 1 the curve bends upward and the estimate is too small. The derivative of $\sqrt x$ is positive.
+- id: pc-m10-r2-h26
+  lesson: pc-m10-h-rules
+  type: order
+  module_quiz: true
+  topic: Linear approximation
+  stem: 'Put the steps of Newton''s method for solving $f(x) = 0$ in order.'
+  items:
+    - 'Choose a starting guess $x_0$'
+    - 'Compute $f(x_0)$ and $f''(x_0)$'
+    - 'Set $x_1 = x_0 - \frac{f(x_0)}{f''(x_0)}$, where the tangent crosses the $x$-axis'
+    - 'Repeat with $x_1$ in place of $x_0$ until the guesses stop changing'
+  explanation: |-
+    Newton's method needs a guess first, then the value and slope there, then the $x$-intercept of the tangent line. Repeating the step makes the guesses close in on a zero.
+- id: pc-m10-r2-h27
+  lesson: pc-m10-h-rules
+  type: text
+  topic: Linear approximation
+  stem: 'Apply one step of Newton''s method to $f(x) = x^2 - 5$ starting at $x_0 = 2$. Then $x_1 =$ ___.'
+  accept: ['9/4']
+  explanation: |-
+    $f(2) = -1$ and $f'(2) = 4$, so $x_1 = 2 - \frac{-1}{4} = 2.25$. Compare $\sqrt5 \approx 2.2361$: one step already gives two correct digits. (Answers like 2.25 and $2\tfrac14$ are equal to $\frac94$.)
+- id: pc-m10-r2-h28
+  lesson: pc-m10-h-rules
+  type: match
+  topic: Linear approximation
+  stem: 'Match each idea to its formula.'
+  pairs:
+    - [Linear approximation of f at a, 'f(a) + f′(a)(x − a)']
+    - [One step of Newton's method, 'x − f(x)/f′(x)']
+    - ['Power rule for $x^n$', 'n·x^(n − 1)']
+    - ['Derivative of $\sin x$', 'cos x']
+  distractors: ['(f(x) − f(a))/(x − a)', '−cos x']
+  explanation: |-
+    The linear approximation is the tangent line. Newton's step moves to the tangent line's $x$-intercept. The power rule gives $nx^{n-1}$ and the derivative of $\sin x$ is $\cos x$ (radians). The secant slope $\frac{f(x) - f(a)}{x - a}$ approaches $f'(a)$ but is not the approximation itself, and $-\cos x$ is not the derivative of any of these.
+- id: pc-m10-r2-h29
+  lesson: pc-m10-h-rules
+  topic: Linear approximation
+  stem: 'What does the linear approximation of $x^8$ at $a = 1$ give for $(1.01)^8$?'
+  choices: ['$1.008$', '$1.8$', '$1.0829$', '$1.08$']
+  answer: 3
+  explanation: |-
+    $f(1) = 1$ and $f'(1) = 8$, so $(1.01)^8 \approx 1 + 8(0.01) = 1.08$. The true value is about $1.0829$, but that's not what the tangent line gives. $1.008$ and $1.8$ misplace the decimal.

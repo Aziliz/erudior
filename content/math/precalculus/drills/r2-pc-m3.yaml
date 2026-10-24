@@ -8,17 +8,17 @@
     d: {min: -9, max: 9}
   where: ["d != 0", "c != 0", "pp != 0", "qq != 0"]
   calc:
-    b: 3*m
+    bb: 3*m
     nm: -m
     msq: m^2
     pp: c - 3*m^2
     qq: 2*m^3 - m*c + d
-  prompt: 'Substitute $x = t {nm:signed}$ into $x^3 {b:signedcoef}x^2 {c:signedcoef}x {d:signed} = 0$ to get a depressed cubic $t^3 + pt + q = 0$. Find $p$ and $q$.'
+  prompt: 'Substitute $x = t {nm:signed}$ into $x^3 {bb:signedcoef}x^2 {c:signedcoef}x {d:signed} = 0$ to get a depressed cubic $t^3 + pt + q = 0$. Find $p$ and $q$.'
   answers:
     - {name: pp, label: '$p =$'}
     - {name: qq, label: '$q =$'}
   solution: |-
-    Here $b = {b}$, so the shift is $x = t - \tfrac{b}{3} = t {nm:signed}$. Use $p = c - \tfrac{b^2}{3}$ and $q = \tfrac{2b^3}{27} - \tfrac{bc}{3} + d$ with $\tfrac{b}{3} = {m}$:
+    Here $b = {bb}$, so the shift is $x = t - \tfrac{b}{3} = t {nm:signed}$. Use $p = c - \tfrac{b^2}{3}$ and $q = \tfrac{2b^3}{27} - \tfrac{bc}{3} + d$ with $\tfrac{b}{3} = {m}$:
     $p = {c} - 3({msq}) =$ **{pp}** and $q = 2({m})^3 - ({m})({c}) + ({d}) =$ **{qq}**.
 
 - id: pc-m3-r2-cardano-type
@@ -84,12 +84,21 @@
     L1: (xs - x0)*(xs - x2)/((x1 - x0)*(x1 - x2))
     L2: (xs - x0)*(xs - x1)/((x2 - x0)*(x2 - x1))
     val: y0*L0 + y1*L1 + y2*L2
+    a1: xs - x1
+    a2: xs - x2
+    a0: xs - x0
+    e01: x0 - x1
+    e02: x0 - x2
+    e10: x1 - x0
+    e12: x1 - x2
+    e20: x2 - x0
+    e21: x2 - x1
   prompt: 'The polynomial $p$ of degree at most 2 passes through $({x0}, {y0})$, $({x1}, {y1})$ and $({x2}, {y2})$. Find $p({xs})$ exactly (an integer or a fraction).'
   answers:
     - {name: val, label: '$p({xs}) =$', kind: fraction}
   solution: |-
     Evaluate the Lagrange basis polynomials at $x = {xs}$:
-    $L_0 = \dfrac{({xs} - ({x1}))({xs} - ({x2}))}{({x0} - ({x1}))({x0} - ({x2}))} = {L0:frac}$, $L_1 = \dfrac{({xs} - ({x0}))({xs} - ({x2}))}{({x1} - ({x0}))({x1} - ({x2}))} = {L1:frac}$, $L_2 = \dfrac{({xs} - ({x0}))({xs} - ({x1}))}{({x2} - ({x0}))({x2} - ({x1}))} = {L2:frac}$.
+    $L_0 = \dfrac{({a1})({a2})}{({e01})({e02})} = {L0:frac}$, $L_1 = \dfrac{({a0})({a2})}{({e10})({e12})} = {L1:frac}$, $L_2 = \dfrac{({a0})({a1})}{({e20})({e21})} = {L2:frac}$.
     Then $p({xs}) = ({y0})({L0:frac}) + ({y1})({L1:frac}) + ({y2})({L2:frac}) =$ **{val:frac}**.
 
 - id: pc-m3-r2-newton-form
@@ -194,7 +203,7 @@
   topic: Linear fractional functions
   vars:
     fl: {min: 5, max: 20}
-    dob: {min: 2, max: 60}
+    dob: {min: 4, max: 60}
   where: ["abs(dob - fl) >= 2"]
   calc:
     di: fl*dob/(dob - fl)
@@ -204,7 +213,7 @@
   prompt: 'A thin lens has focal length {fl} cm. An object is {dob} cm from the lens. Use $d_i = \dfrac{f\,d_o}{d_o - f}$ to find the image distance (to 1 decimal place; negative means a virtual image) and the magnification $m = -\dfrac{d_i}{d_o}$ (to 2 decimal places).'
   answers:
     - {name: di, label: '$d_i \approx$', format: num1, tolerance: 0.05, units: {cm: 1}}
-    - {name: mag, label: '$m \approx$', format: num2, tolerance: 0.01}
+    - {name: mag, label: '$m \approx$', format: num2, tolerance: 0.02}
   solution: |-
     $d_i = \dfrac{ ({fl})({dob}) }{ {dob} - {fl} } = \dfrac{ {prod} }{ {diff} } \approx$ **{di:num1} cm**.
     $m = -\dfrac{d_i}{d_o} \approx$ **{mag:num2}** (negative: the image is upside down; positive: upright and virtual).
